@@ -2,7 +2,7 @@
   "GLOBAL": {
     "GITHUB_NOTE": "開發",
     "FSWW_NOTE": "查看我們的資訊頁面 !",
-    "FACEBOOK_NOTE": "加入我們的臉書社團！",
+    "COMMUNITY_NOTE": "Join our community!",
     "WARNING": "警告",
     "BETA_WARNING": "這個網站正在積極開發中，變動很快。我們無法保證您所輸入資料的安全與隱私(但我們量力而為)。",
     "CONNECTION_INTERRUPTED": "錯誤：連線中斷！",
@@ -286,7 +286,6 @@
     "SET_AMOUNT": "Set amount",
     "DELETE_AMOUNT": "Delete amount",
     "AMOUNT": "你能領取的食物量(以公斤計算)",
-    "COMMENT": "留言",
     "COMMENT_PLACEHOLDER": "一切都順利嗎？大家都有到場嗎？在這裡留言...",
     "PREVIOUS": "先前對於{商店名稱}的回饋"
   },
@@ -353,6 +352,10 @@
   "OUTDATED_BROWSER": {
     "MESSAGE": "You are using an unsupported browser. {upgradeBrowser} to enjoy all features.",
     "LINK": "Please update or switch your browser"
+  },
+  "UPDATE_AVAILABLE": {
+    "TITLE": "Update available",
+    "DETAIL": "A new version of karrot is available."
   },
   "NOT_FOUND": {
     "EXPLANATION": "不好意思，我們找不到您所搜尋的網頁",

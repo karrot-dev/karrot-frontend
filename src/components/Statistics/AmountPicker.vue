@@ -104,4 +104,5 @@ export default {
   position relative
 .showOverlay .content
   opacity 0.3
+  filter blur(3px)
 </style>

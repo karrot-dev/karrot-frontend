@@ -59,13 +59,9 @@ jest.mock('@/locales', () => ({
 }))
 
 // Mock translation status
-jest.mock('@/locales/status-frontend.json', () => ({
-  'de': {
-    'completed': '13%',
-  },
-  'en': {
-    'completed': '42%',
-  },
+jest.mock('@/locales/translationStatus.json', () => ({
+  'de': '13',
+  'en': '42',
 }))
 
 // Mock annoying components (e.g. too much vuex dependency)

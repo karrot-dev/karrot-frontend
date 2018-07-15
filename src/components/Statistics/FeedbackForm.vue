@@ -15,7 +15,7 @@
 
     <AmountPicker
       v-model="edit.weight"
-      style="margin-top: 4em"
+      style="margin-top: 40px"
     />
 
     <div

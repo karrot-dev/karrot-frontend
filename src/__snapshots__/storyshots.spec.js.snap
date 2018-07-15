@@ -4790,7 +4790,7 @@ exports[`Storyshots Statistics PickupFeedback 1`] = `
             </div>
           </div>
         </div>
-        <div class="wrapper showOverlay" style="margin-top:4em;">
+        <div class="wrapper showOverlay" style="margin-top:40px;">
           <button tabindex="0" type="button" class="q-btn inline relative-position q-btn-item non-selectable absolute-center q-btn-rectangle q-focusable q-hoverable bg-primary text-white" style="z-index:1;">
             <div class="q-focus-helper"></div>
             <div class="q-btn-inner row col items-center justify-center"></div>

@@ -2,7 +2,7 @@
   "GLOBAL": {
     "GITHUB_NOTE": "Desenvolvimento",
     "FSWW_NOTE": "Leia nossa página de informações!",
-    "FACEBOOK_NOTE": "Participe do nosso grupo no Facebook!",
+    "COMMUNITY_NOTE": "Join our community!",
     "WARNING": "Aviso",
     "BETA_WARNING": "Esta página esta em um momento de desenvolvimento e tudo pode mudar. Nós não podemos garantir a segurança e privacidade dos seus dados (mas estamos fazendo o nosso melhor)",
     "CONNECTION_INTERRUPTED": "Erro: A conexão foi interrompida!",
@@ -286,7 +286,6 @@
     "SET_AMOUNT": "Set amount",
     "DELETE_AMOUNT": "Delete amount",
     "AMOUNT": "Total de comida que você conseguiu salvar (em kg)",
-    "COMMENT": "Comentário",
     "COMMENT_PLACEHOLDER": "Foi tudo tranquilo? Alguém apareceu? Deixe seu comentário aqui...",
     "PREVIOUS": "Comentários anteriores para {store}"
   },
@@ -353,6 +352,10 @@
   "OUTDATED_BROWSER": {
     "MESSAGE": "Você esta utilizando um navegador sem suporte a nossa plataforma. {upgradeBrowser} e aproveite.",
     "LINK": "Por favor, troque ou atualize seu navegador"
+  },
+  "UPDATE_AVAILABLE": {
+    "TITLE": "Update available",
+    "DETAIL": "A new version of karrot is available."
   },
   "NOT_FOUND": {
     "EXPLANATION": "Desculpa, não conseguimos encontrar essa página em lugar nenhum.",

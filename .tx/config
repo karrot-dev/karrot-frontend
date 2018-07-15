@@ -1,10 +1,10 @@
 [main]
 host = https://www.transifex.com
-minimum_perc = 3
 
 [karrot.frontend]
 file_filter = src/locales/locale-<lang>.json
 source_file = src/locales/locale-en.json
+minimum_perc = 10
 source_lang = en
 type = KEYVALUEJSON
 

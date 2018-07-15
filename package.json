@@ -33,7 +33,7 @@
     "fix": "eslint --ext .js,.vue --fix src",
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook",
-    "update_i18n": "python update_i18n.py",
+    "i18n": "updateLocalesHelper/env/bin/python updateLocalesHelper/updateLocales.py",
     "docs": "gitbook install docs && gitbook serve docs",
     "build-docs": "gitbook install docs && gitbook build docs docs-dist"
   },

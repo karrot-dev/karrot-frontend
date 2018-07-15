@@ -30,15 +30,15 @@ exports[`Storyshots Conversation Conversation 1`] = `
   <!---->
   <div class="q-infinite-scroll">
     <div class="q-infinite-scroll-content">
-      <div class="q-list bg-white desktop-margin">
-        <button tabindex="0" type="button" class="q-btn inline relative-position q-btn-item non-selectable actionButton hoverScale q-btn-round q-btn-flat q-focusable q-hoverable text-white q-btn-dense">
+      <div class="q-list bg-white desktop-margin relative-position">
+        <button tabindex="0" type="button" class="q-btn inline relative-position q-btn-item non-selectable actionButton hoverScale q-btn-round q-focusable q-hoverable bg-negative text-white">
           <div class="q-focus-helper"></div>
           <div class="q-btn-inner row col items-center justify-center">
             <i aria-hidden="true" class="q-icon fas fa-bell-slash"> </i> <span class="q-tooltip animate-popup"><div></div></span></div>
         </button>
         <div class="q-item q-item-division relative-position q-item-multiline">
           <div class="q-item-side q-item-section q-item-side-left">
-            <div class="wrapper">
+            <div class="wrapper" style="margin-top:36px;">
               <a title="Current User">
                 <div text="Current User" seed="5" class="randomArt" style="width:40px;height:40px;"></div>
               </a>
@@ -49,23 +49,54 @@ exports[`Storyshots Conversation Conversation 1`] = `
               <div class="q-field row no-wrap items-start q-field-responsive q-field-no-label">
                 <div class="row col">
                   <div class="q-field-content col-xs-12 col-sm">
-                    <div tabindex="-1" rows="1" class="q-if row no-wrap items-end relative-position q-input text-primary">
-                      <!---->
-                      <div class="q-if-inner col row no-wrap relative-position">
-                        <!---->
-                        <!---->
-                        <div class="col row relative-position">
-                          <object type="text/html" data="about:blank" aria-hidden="true" style="display:block;position:absolute;top:0;left:0;right:0;bottom:0;height:100%;width:100%;overflow:hidden;pointer-events:none;z-index:-1;"></object>
-                          <textarea rows="1" class="col q-input-target q-input-shadow absolute-top"></textarea>
-                          <textarea placeholder="Write a message..." rows="1" class="col q-input-target q-input-area"></textarea>
+                    <div>
+                      <div class="q-tabs flex no-wrap markdown-input q-tabs-position-top q-tabs-inverted">
+                        <div class="q-tabs-head row q-tabs-align-right text-primary">
+                          <div class="q-tabs-scroller row no-wrap">
+                            <div class="relative-position self-stretch q-tabs-global-bar-container text-primary highlight">
+                              <div class="q-tabs-bar q-tabs-global-bar"></div>
+                            </div>
+                          </div>
+                          <div class="row flex-center q-tabs-left-scroll">
+                            <i aria-hidden="true" class="q-icon material-icons">chevron_left</i>
+                          </div>
+                          <div class="row flex-center q-tabs-right-scroll">
+                            <i aria-hidden="true" class="q-icon material-icons">chevron_right</i>
+                          </div>
                         </div>
-                        <!---->
-                        <!---->
-                        <!---->
-                        <!---->
-                        <!---->
+                        <div class="q-tabs-panes">
+                          <!---->
+                          <!---->
+                          <div class="q-tab-pane">
+                            <div tabindex="-1" rows="1" class="q-if row no-wrap items-end relative-position q-input text-primary">
+                              <!---->
+                              <div class="q-if-inner col row no-wrap relative-position">
+                                <!---->
+                                <!---->
+                                <div class="col row relative-position">
+                                  <object type="text/html" data="about:blank" aria-hidden="true" style="display:block;position:absolute;top:0;left:0;right:0;bottom:0;height:100%;width:100%;overflow:hidden;pointer-events:none;z-index:-1;"></object>
+                                  <textarea rows="1" class="col q-input-target q-input-shadow absolute-top"></textarea>
+                                  <textarea placeholder="Write a message..." rows="1" class="col q-input-target q-input-area"></textarea>
+                                </div>
+                                <!---->
+                                <!---->
+                                <!---->
+                                <!---->
+                                <!---->
+                              </div>
+                              <i aria-hidden="true" class="q-icon q-if-control fas fa-arrow-right hidden"> </i>
+                            </div>
+                            <small class="row justify-end text-weight-light markdown-helper">
+                              <b>**bold**</b>
+                              <i>_italic_</i> <span>~~strike~~</span> <span>&gt;quote</span>
+                              <a href="https://guides.github.com/features/mastering-markdown/" target="_blank" rel="nofollow noopener noreferrer" title="What is Markdown?">
+                                <i aria-hidden="true" class="q-icon fas fa-question-circle"> </i>
+                              </a>
+                            </small>
+                          </div>
+                          <!---->
+                        </div>
                       </div>
-                      <i aria-hidden="true" class="q-icon q-if-control fas fa-arrow-right hidden"> </i>
                     </div>
                   </div>
                 </div>
@@ -76,15 +107,15 @@ exports[`Storyshots Conversation Conversation 1`] = `
         <!---->
         <div class="conversation-message q-item q-item-division relative-position q-item-multiline q-item-highlight">
           <div class="q-item-side q-item-section q-item-side-left">
-            <div class="wrapper">
+            <div class="wrapper" style="margin-top:6px;">
               <a title="Mira Bellenbaum">
                 <div text="Mira Bellenbaum" seed="1" class="randomArt" style="width:40px;height:40px;"></div>
               </a>
             </div>
           </div>
           <div class="q-item-main q-item-section">
-            <div class="row no-wrap justify-between items-center">
-              <div class="no-wrap">
+            <div class="row no-wrap justify-between">
+              <div class="no-wrap" style="margin-top:4px;">
                 <a><span class="text-bold text-secondary uppercase">Mira Bellenbaum</span></a> <span class="message-date"><small class="text-weight-light"><div title="Aug 11, 2017, 3:43 PM">
   4 months ago
 </div></small></span>
@@ -121,15 +152,15 @@ exports[`Storyshots Conversation Conversation 1`] = `
       </div>
       <div class="conversation-message q-item q-item-division relative-position q-item-multiline q-item-highlight">
         <div class="q-item-side q-item-section q-item-side-left">
-          <div class="wrapper">
+          <div class="wrapper" style="margin-top:6px;">
             <a title="Max Mustermann">
               <div text="Max Mustermann" seed="2" class="randomArt" style="width:40px;height:40px;"></div>
             </a>
           </div>
         </div>
         <div class="q-item-main q-item-section">
-          <div class="row no-wrap justify-between items-center">
-            <div class="no-wrap">
+          <div class="row no-wrap justify-between">
+            <div class="no-wrap" style="margin-top:4px;">
               <a><span class="text-bold text-secondary uppercase">Max Mustermann</span></a> <span class="message-date"><small class="text-weight-light"><div title="Aug 11, 2017, 3:47 PM">
   4 months ago
 </div></small></span>
@@ -166,15 +197,15 @@ exports[`Storyshots Conversation Conversation 1`] = `
     </div>
     <div class="conversation-message q-item q-item-division relative-position q-item-multiline q-item-highlight">
       <div class="q-item-side q-item-section q-item-side-left">
-        <div class="wrapper">
+        <div class="wrapper" style="margin-top:6px;">
           <a title="Max Mustermann">
             <div text="Max Mustermann" seed="2" class="randomArt" style="width:40px;height:40px;"></div>
           </a>
         </div>
       </div>
       <div class="q-item-main q-item-section">
-        <div class="row no-wrap justify-between items-center">
-          <div class="no-wrap">
+        <div class="row no-wrap justify-between">
+          <div class="no-wrap" style="margin-top:4px;">
             <a><span class="text-bold text-secondary uppercase">Max Mustermann</span></a> <span class="message-date"><small class="text-weight-light"><div title="Aug 11, 2017, 3:47 PM">
   4 months ago
 </div></small></span>
@@ -211,15 +242,15 @@ exports[`Storyshots Conversation Conversation 1`] = `
   </div>
   <div class="conversation-message q-item q-item-division relative-position q-item-multiline q-item-highlight">
     <div class="q-item-side q-item-section q-item-side-left">
-      <div class="wrapper">
+      <div class="wrapper" style="margin-top:6px;">
         <a title="Max Mustermann">
           <div text="Max Mustermann" seed="2" class="randomArt" style="width:40px;height:40px;"></div>
         </a>
       </div>
     </div>
     <div class="q-item-main q-item-section">
-      <div class="row no-wrap justify-between items-center">
-        <div class="no-wrap">
+      <div class="row no-wrap justify-between">
+        <div class="no-wrap" style="margin-top:4px;">
           <a><span class="text-bold text-secondary uppercase">Max Mustermann</span></a> <span class="message-date"><small class="text-weight-light"><div title="Aug 11, 2017, 3:49 PM">
   4 months ago
 </div></small></span>
@@ -256,15 +287,15 @@ exports[`Storyshots Conversation Conversation 1`] = `
 </div>
 <div class="conversation-message q-item q-item-division relative-position q-item-multiline q-item-highlight">
   <div class="q-item-side q-item-section q-item-side-left">
-    <div class="wrapper">
+    <div class="wrapper" style="margin-top:6px;">
       <a title="Karl Karlson">
         <div text="Karl Karlson" seed="3" class="randomArt" style="width:40px;height:40px;"></div>
       </a>
     </div>
   </div>
   <div class="q-item-main q-item-section">
-    <div class="row no-wrap justify-between items-center">
-      <div class="no-wrap">
+    <div class="row no-wrap justify-between">
+      <div class="no-wrap" style="margin-top:4px;">
         <a><span class="text-bold text-secondary uppercase">Karl Karlson</span></a> <span class="message-date"><small class="text-weight-light"><div title="Aug 11, 2017, 3:51 PM">
   4 months ago
 </div></small></span>
@@ -301,15 +332,15 @@ exports[`Storyshots Conversation Conversation 1`] = `
 </div>
 <div class="conversation-message q-item q-item-division relative-position q-item-multiline q-item-highlight">
   <div class="q-item-side q-item-section q-item-side-left">
-    <div class="wrapper">
+    <div class="wrapper" style="margin-top:6px;">
       <a title="Max Mustermann">
         <div text="Max Mustermann" seed="2" class="randomArt" style="width:40px;height:40px;"></div>
       </a>
     </div>
   </div>
   <div class="q-item-main q-item-section">
-    <div class="row no-wrap justify-between items-center">
-      <div class="no-wrap">
+    <div class="row no-wrap justify-between">
+      <div class="no-wrap" style="margin-top:4px;">
         <a><span class="text-bold text-secondary uppercase">Max Mustermann</span></a> <span class="message-date"><small class="text-weight-light"><div title="Aug 11, 2017, 3:52 PM">
   4 months ago
 </div></small></span>
@@ -346,15 +377,15 @@ exports[`Storyshots Conversation Conversation 1`] = `
 </div>
 <div class="conversation-message q-item q-item-division relative-position q-item-multiline q-item-highlight">
   <div class="q-item-side q-item-section q-item-side-left">
-    <div class="wrapper">
+    <div class="wrapper" style="margin-top:6px;">
       <a title="Mona Mohnblume">
         <div text="Mona Mohnblume" seed="4" class="randomArt" style="width:40px;height:40px;"></div>
       </a>
     </div>
   </div>
   <div class="q-item-main q-item-section">
-    <div class="row no-wrap justify-between items-center">
-      <div class="no-wrap">
+    <div class="row no-wrap justify-between">
+      <div class="no-wrap" style="margin-top:4px;">
         <a><span class="text-bold text-secondary uppercase">Mona Mohnblume</span></a> <span class="message-date"><small class="text-weight-light"><div title="Aug 11, 2017, 3:52 PM">
   4 months ago
 </div></small></span>
@@ -391,15 +422,15 @@ exports[`Storyshots Conversation Conversation 1`] = `
 </div>
 <div class="conversation-message q-item q-item-division relative-position q-item-multiline q-item-highlight">
   <div class="q-item-side q-item-section q-item-side-left">
-    <div class="wrapper">
+    <div class="wrapper" style="margin-top:6px;">
       <a title="Mona Mohnblume">
         <div text="Mona Mohnblume" seed="4" class="randomArt" style="width:40px;height:40px;"></div>
       </a>
     </div>
   </div>
   <div class="q-item-main q-item-section">
-    <div class="row no-wrap justify-between items-center">
-      <div class="no-wrap">
+    <div class="row no-wrap justify-between">
+      <div class="no-wrap" style="margin-top:4px;">
         <a><span class="text-bold text-secondary uppercase">Mona Mohnblume</span></a> <span class="message-date"><small class="text-weight-light"><div title="Aug 11, 2017, 3:52 PM">
   4 months ago
 </div></small></span>
@@ -438,15 +469,15 @@ exports[`Storyshots Conversation Conversation 1`] = `
 </div>
 <div class="conversation-message q-item q-item-division relative-position q-item-multiline q-item-highlight">
   <div class="q-item-side q-item-section q-item-side-left">
-    <div class="wrapper">
+    <div class="wrapper" style="margin-top:6px;">
       <a title="Max Mustermann">
         <div text="Max Mustermann" seed="2" class="randomArt" style="width:40px;height:40px;"></div>
       </a>
     </div>
   </div>
   <div class="q-item-main q-item-section">
-    <div class="row no-wrap justify-between items-center">
-      <div class="no-wrap">
+    <div class="row no-wrap justify-between">
+      <div class="no-wrap" style="margin-top:4px;">
         <a><span class="text-bold text-secondary uppercase">Max Mustermann</span></a> <span class="message-date"><small class="text-weight-light"><div title="Aug 11, 2017, 3:52 PM">
   4 months ago
 </div></small></span>
@@ -573,10 +604,6 @@ exports[`Storyshots GroupEdit create 1`] = `
                 <div class="q-tabs flex no-wrap markdown-input q-tabs-position-top q-tabs-inverted">
                   <div class="q-tabs-head row q-tabs-align-right text-primary">
                     <div class="q-tabs-scroller row no-wrap">
-                      <div class="q-tab column flex-center relative-position markdown-input-tab active q-tab-only-label text-primary">
-                        <div class="q-tab-label">Edit</div>
-                        <div class="q-tabs-bar"></div>
-                      </div>
                       <div class="relative-position self-stretch q-tabs-global-bar-container text-primary highlight">
                         <div class="q-tabs-bar q-tabs-global-bar"></div>
                       </div>
@@ -589,6 +616,7 @@ exports[`Storyshots GroupEdit create 1`] = `
                     </div>
                   </div>
                   <div class="q-tabs-panes">
+                    <!---->
                     <!---->
                     <div class="q-tab-pane">
                       <div tabindex="-1" min-rows="3" class="q-if row no-wrap items-end relative-position q-input text-primary">
@@ -609,13 +637,13 @@ exports[`Storyshots GroupEdit create 1`] = `
                         </div>
                         <!---->
                       </div>
-                      <small class="row group pull-right text-weight-light">
+                      <small class="row justify-end text-weight-light markdown-helper">
                         <b>**bold**</b>
                         <i>_italic_</i> <span>~~strike~~</span> <span>&gt;quote</span>
-                        <a href="https://guides.github.com/features/mastering-markdown/">
-                          <i aria-hidden="true" class="q-icon fas fa-question-circle"> </i> <span class="q-tooltip animate-popup"><div>What is Markdown?</div></span></a>
+                        <a href="https://guides.github.com/features/mastering-markdown/" target="_blank" rel="nofollow noopener noreferrer" title="What is Markdown?">
+                          <i aria-hidden="true" class="q-icon fas fa-question-circle"> </i>
+                        </a>
                       </small>
-                      <div style="clear:both;"></div>
                     </div>
                     <!---->
                   </div>
@@ -635,10 +663,6 @@ exports[`Storyshots GroupEdit create 1`] = `
                 <div class="q-tabs flex no-wrap markdown-input q-tabs-position-top q-tabs-inverted">
                   <div class="q-tabs-head row q-tabs-align-right text-primary">
                     <div class="q-tabs-scroller row no-wrap">
-                      <div class="q-tab column flex-center relative-position markdown-input-tab active q-tab-only-label text-primary">
-                        <div class="q-tab-label">Edit</div>
-                        <div class="q-tabs-bar"></div>
-                      </div>
                       <div class="relative-position self-stretch q-tabs-global-bar-container text-primary highlight">
                         <div class="q-tabs-bar q-tabs-global-bar"></div>
                       </div>
@@ -651,6 +675,7 @@ exports[`Storyshots GroupEdit create 1`] = `
                     </div>
                   </div>
                   <div class="q-tabs-panes">
+                    <!---->
                     <!---->
                     <div class="q-tab-pane">
                       <div tabindex="-1" min-rows="3" class="q-if row no-wrap items-end relative-position q-input text-primary">
@@ -671,13 +696,13 @@ exports[`Storyshots GroupEdit create 1`] = `
                         </div>
                         <!---->
                       </div>
-                      <small class="row group pull-right text-weight-light">
+                      <small class="row justify-end text-weight-light markdown-helper">
                         <b>**bold**</b>
                         <i>_italic_</i> <span>~~strike~~</span> <span>&gt;quote</span>
-                        <a href="https://guides.github.com/features/mastering-markdown/">
-                          <i aria-hidden="true" class="q-icon fas fa-question-circle"> </i> <span class="q-tooltip animate-popup"><div>What is Markdown?</div></span></a>
+                        <a href="https://guides.github.com/features/mastering-markdown/" target="_blank" rel="nofollow noopener noreferrer" title="What is Markdown?">
+                          <i aria-hidden="true" class="q-icon fas fa-question-circle"> </i>
+                        </a>
                       </small>
-                      <div style="clear:both;"></div>
                     </div>
                     <!---->
                   </div>
@@ -2064,9 +2089,9 @@ exports[`Storyshots Layout KFooter 1`] = `
       <i class="fas fa-fw fa-globe"></i>
       Read our info page!
     </a>
-    <a href="https://www.facebook.com/groups/foodsaving.worldwide/">
-      <i class="fab fa-fw fa-facebook"></i>
-      Join our Facebook Group!
+    <a href="https://community.foodsaving.world/">
+      <i class="fab fa-fw fa-discourse"></i>
+      Join our community!
     </a>
     <a href="mail:karrot@foodsaving.world">
       <i class="fas fa-fw fa-envelope"></i>
@@ -3605,13 +3630,13 @@ exports[`Storyshots Settings Page Default 1`] = `
                           </div>
                           <!---->
                         </div>
-                        <small class="row group pull-right text-weight-light">
+                        <small class="row justify-end text-weight-light markdown-helper">
                           <b>**bold**</b>
                           <i>_italic_</i> <span>~~strike~~</span> <span>&gt;quote</span>
-                          <a href="https://guides.github.com/features/mastering-markdown/">
-                            <i aria-hidden="true" class="q-icon fas fa-question-circle"> </i> <span class="q-tooltip animate-popup"><div>What is Markdown?</div></span></a>
+                          <a href="https://guides.github.com/features/mastering-markdown/" target="_blank" rel="nofollow noopener noreferrer" title="What is Markdown?">
+                            <i aria-hidden="true" class="q-icon fas fa-question-circle"> </i>
+                          </a>
                         </small>
-                        <div style="clear:both;"></div>
                       </div>
                       <!---->
                     </div>
@@ -4720,10 +4745,6 @@ exports[`Storyshots Statistics PickupFeedback 1`] = `
           <div class="q-tabs flex no-wrap markdown-input q-tabs-position-top q-tabs-inverted">
             <div class="q-tabs-head row q-tabs-align-right text-primary">
               <div class="q-tabs-scroller row no-wrap">
-                <div class="q-tab column flex-center relative-position markdown-input-tab active q-tab-only-label text-primary">
-                  <div class="q-tab-label">Edit</div>
-                  <div class="q-tabs-bar"></div>
-                </div>
                 <div class="relative-position self-stretch q-tabs-global-bar-container text-primary highlight">
                   <div class="q-tabs-bar q-tabs-global-bar"></div>
                 </div>
@@ -4736,6 +4757,7 @@ exports[`Storyshots Statistics PickupFeedback 1`] = `
               </div>
             </div>
             <div class="q-tabs-panes">
+              <!---->
               <!---->
               <div class="q-tab-pane">
                 <div tabindex="-1" autocomplete="off" min-rows="1" class="q-if row no-wrap items-end relative-position q-input text-primary">
@@ -4756,13 +4778,13 @@ exports[`Storyshots Statistics PickupFeedback 1`] = `
                   </div>
                   <!---->
                 </div>
-                <small class="row group pull-right text-weight-light">
+                <small class="row justify-end text-weight-light markdown-helper">
                   <b>**bold**</b>
                   <i>_italic_</i> <span>~~strike~~</span> <span>&gt;quote</span>
-                  <a href="https://guides.github.com/features/mastering-markdown/">
-                    <i aria-hidden="true" class="q-icon fas fa-question-circle"> </i> <span class="q-tooltip animate-popup"><div>What is Markdown?</div></span></a>
+                  <a href="https://guides.github.com/features/mastering-markdown/" target="_blank" rel="nofollow noopener noreferrer" title="What is Markdown?">
+                    <i aria-hidden="true" class="q-icon fas fa-question-circle"> </i>
+                  </a>
                 </small>
-                <div style="clear:both;"></div>
               </div>
               <!---->
             </div>
@@ -5082,13 +5104,13 @@ exports[`Storyshots Stores StoreEdit (with server error) 1`] = `
                         </div>
                         <!---->
                       </div>
-                      <small class="row group pull-right text-weight-light">
+                      <small class="row justify-end text-weight-light markdown-helper">
                         <b>**bold**</b>
                         <i>_italic_</i> <span>~~strike~~</span> <span>&gt;quote</span>
-                        <a href="https://guides.github.com/features/mastering-markdown/">
-                          <i aria-hidden="true" class="q-icon fas fa-question-circle"> </i> <span class="q-tooltip animate-popup"><div>What is Markdown?</div></span></a>
+                        <a href="https://guides.github.com/features/mastering-markdown/" target="_blank" rel="nofollow noopener noreferrer" title="What is Markdown?">
+                          <i aria-hidden="true" class="q-icon fas fa-question-circle"> </i>
+                        </a>
                       </small>
-                      <div style="clear:both;"></div>
                     </div>
                     <!---->
                   </div>
@@ -5317,13 +5339,13 @@ exports[`Storyshots Stores StoreEdit 1`] = `
                         </div>
                         <!---->
                       </div>
-                      <small class="row group pull-right text-weight-light">
+                      <small class="row justify-end text-weight-light markdown-helper">
                         <b>**bold**</b>
                         <i>_italic_</i> <span>~~strike~~</span> <span>&gt;quote</span>
-                        <a href="https://guides.github.com/features/mastering-markdown/">
-                          <i aria-hidden="true" class="q-icon fas fa-question-circle"> </i> <span class="q-tooltip animate-popup"><div>What is Markdown?</div></span></a>
+                        <a href="https://guides.github.com/features/mastering-markdown/" target="_blank" rel="nofollow noopener noreferrer" title="What is Markdown?">
+                          <i aria-hidden="true" class="q-icon fas fa-question-circle"> </i>
+                        </a>
                       </small>
-                      <div style="clear:both;"></div>
                     </div>
                     <!---->
                   </div>

@@ -1,7 +1,7 @@
 <template>
   <div>
     <q-card class="shadow-6">
-      <div>
+      <div class="edit-box">
         <div v-if="value">
           <q-card-title
             class="q-ma-md"
@@ -36,7 +36,6 @@
             >
               {{ $t('BUTTON.CANCEL') }}
             </q-btn>
-
             <q-btn
               type="submit"
               color="primary"
@@ -106,4 +105,5 @@ export default {
 </script>
 
 <style scoped lang="stylus">
+@import '~editbox'
 </style>

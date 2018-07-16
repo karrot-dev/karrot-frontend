@@ -109,7 +109,7 @@ export default {
       dispatch('join', { id: getters.playground.id })
     },
 
-    async selectPreview ({ state, commit, getters, dispatch }, { groupPreviewId }) {
+    async selectPreview ({ commit, getters, dispatch }, { groupPreviewId }) {
       if (!getters.get(groupPreviewId)) {
         try {
           const group = await groupsInfo.get(groupPreviewId)

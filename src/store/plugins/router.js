@@ -60,10 +60,10 @@ export default store => {
     }
 
     if (next) {
-      return nextFn({ replace: true, ...next })
+      nextFn({ replace: true, ...next })
     }
     else {
-      return nextFn()
+      nextFn()
     }
   })
 
@@ -72,7 +72,6 @@ export default store => {
   })
 
   store.watch(getBreadcrumbNames, () => {
-    console.log('store watching!!!')
     let names = getBreadcrumbNames().slice().reverse()
     names.push('Karrot')
     document.title = names.join(' · ')

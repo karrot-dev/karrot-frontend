@@ -1,5 +1,3 @@
-const groupsGettersGet = jest.fn()
-
 export default ({ user }) => ({
   breadcrumbs: {
     namespaced: true,
@@ -26,18 +24,6 @@ export default ({ user }) => ({
     namespaced: true,
     actions: {
       markUserActive: jest.fn(),
-    },
-  },
-  groups: {
-    namespaced: true,
-    getters: {
-      get: () => groupsGettersGet,
-      activePreview: jest.fn(),
-    },
-    actions: {
-      selectPreview: jest.fn(),
-      clearGroupPreview: jest.fn(),
-      join: jest.fn(),
     },
   },
 })

@@ -12,6 +12,7 @@ if [ -z "$REF" ] || [ -z "$DIR" ]; then
   exit 1
 fi
 
+ISO_DATE=$(date -Idate)
 REPO_URL="https://github.com/yunity/karrot-frontend"
 COMMIT_SHA=$(git rev-parse HEAD)
 COMMIT_SHA_SHORT=$(git rev-parse --short HEAD)
@@ -58,8 +59,9 @@ about_json=$(printf '{
     "commitSHAShort": "%s",
     "ref": "%s",
     "env": "%s",
-    "apkUrl": "%s"
-  }' "$COMMIT_SHA" "$COMMIT_SHA_SHORT" "$REF" "$DEPLOY_ENV" "$APK_URL")
+    "apkUrl": "%s",
+    "date": "%s"
+  }' "$COMMIT_SHA" "$COMMIT_SHA_SHORT" "$REF" "$DEPLOY_ENV" "$APK_URL" "$ISO_DATE")
 
 echo "$about_json" > dist/about.json
 echo "$about_json" > storybook-static/about.json

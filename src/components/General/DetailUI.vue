@@ -38,7 +38,7 @@
             </q-toolbar-title>
           </template>
           <NotificationToggle
-            v-if="!conversation.thread"
+            v-if="conversation.emailNotifications !== undefined"
             :value="conversation.emailNotifications"
             :user="currentUser"
             in-toolbar

@@ -201,10 +201,10 @@ export default {
         console.log(message)
         const updatedMessage = await messageAPI.save(message)
         done()
-        if (updatedMessage.replyTo) {
+        if (updatedMessage.thread) {
           dispatch('currentThread/receiveMessage', updatedMessage, { root: true })
         }
-        else {
+        if (!updatedMessage.thread || updatedMessage.thread === updatedMessage.id) {
           dispatch('receiveMessage', updatedMessage)
         }
       },
@@ -275,19 +275,19 @@ export default {
 
       if (reactionIndex === -1) {
         const addedReaction = await reactionsAPI.create(messageId, name)
-        if (message.replyTo) {
+        if (message.thread) {
           commit('currentThread/addReaction', { messageId, name: addedReaction.name, userId }, { root: true })
         }
-        else {
+        if (!message.thread || message.thread === message.id) {
           commit('addReaction', { conversationId, messageId, name: addedReaction.name, userId })
         }
       }
       else {
         await reactionsAPI.remove(messageId, name)
-        if (message.replyTo) {
+        if (message.thread) {
           commit('currentThread/removeReaction', { messageId, name, userId }, { root: true })
         }
-        else {
+        if (!message.thread || message.thread === message.id) {
           commit('removeReaction', { conversationId, messageId, name, userId })
         }
       }

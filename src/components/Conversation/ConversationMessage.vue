@@ -76,13 +76,22 @@
         style="margin-top: 8px; display: block"
       />
       <q-btn
-        v-if="!message.replyTo && message.thread.messageCount > 0"
+        v-if="message.threadMeta"
         flat
         class="reaction-box"
         @click="$emit('openThread')"
       >
         <i class="fas fa-comments" />
-        {{ message.thread.messageCount }} replies
+        {{ message.threadMeta.replyCount }} replies
+        <q-tooltip v-t="'CONVERSATION.THREAD'" />
+      </q-btn>
+      <q-btn
+        v-else
+        flat
+        class="reaction-box"
+        @click="$emit('openThread')"
+      >
+        <i class="fas fa-comments" />
         <q-tooltip v-t="'CONVERSATION.THREAD'" />
       </q-btn>
     </q-item-main>

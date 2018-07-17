@@ -36,7 +36,7 @@ export default {
       async send ({ dispatch, getters }, { id, threadId, content }) {
         const message = await messageAPI.create({
           conversation: id,
-          replyTo: threadId,
+          thread: threadId,
           content,
         })
         dispatch('receiveMessage', message)
@@ -44,13 +44,11 @@ export default {
       async fetch ({ getters, commit, dispatch }, messageId) {
         dispatch('clear')
         commit('setThread', { id: messageId })
-        const [message, data] = await Promise.all([
-          messageAPI.get(messageId),
-          dispatch('pagination/extractCursor', messageAPI.listThread(messageId)),
-        ])
+        const messages = await dispatch('pagination/extractCursor', messageAPI.listThread(messageId))
         if (getters.id !== messageId) return
-        commit('setThread', message)
-        commit('update', data)
+        console.log('messageses', messages)
+        commit('setThread', messages[messages.length - 1])
+        commit('update', messages)
       },
 
       async fetchMore ({ getters, dispatch, commit }) {
@@ -64,7 +62,7 @@ export default {
     }),
 
     receiveMessage ({ commit, getters }, message) {
-      if (message.replyTo !== getters.id) return
+      if (message.thread !== getters.id) return
       commit('update', [message])
     },
 

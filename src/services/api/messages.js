@@ -27,8 +27,8 @@ export default {
     }
   },
 
-  async listThread (messageId) {
-    const response = (await axios.get('/api/messages/', { params: { reply_to: messageId } })).data
+  async listThread (thread) {
+    const response = (await axios.get('/api/messages/', { params: { thread } })).data
     return {
       ...response,
       next: parseCursor(response.next),

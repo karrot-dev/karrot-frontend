@@ -11,7 +11,7 @@
         place="upgradeBrowser"
         href="https://browser-update.org/update.html"
         class="outdated-link"
-        rel="noopener"
+        rel="noopener nofollow noreferrer"
         target="_blank"
         translate="yes"
         v-t="'OUTDATED_BROWSER.LINK'"

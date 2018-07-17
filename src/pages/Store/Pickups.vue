@@ -26,14 +26,16 @@
             </q-btn>
           </router-link>
           <a
-            v-if="store.latitude"
+            v-if="directionsURL"
             target="_blank"
-            :href="routeUrl">
+            rel="noopener nofollow noreferrer"
+            :href="directionsURL"
+          >
             <q-btn
               small
               round
               color="secondary"
-              icon="fas fa-bicycle"
+              icon="directions"
               class="hoverScale"
             >
               <q-tooltip v-t="'STOREDETAIL.ROUTE'" />
@@ -105,6 +107,7 @@ import Markdown from '@/components/Markdown'
 import StandardMap from '@/components/Map/StandardMap'
 
 import { storeMarker } from '@/components/Map/markers'
+import directions from './directions'
 
 import {
   mapGetters,
@@ -122,55 +125,6 @@ export default {
       detail: 'detail/openForPickup',
     }),
   },
-  data: function () {
-    return {
-      routeUrl: 'https://www.openstreetmap.org/directions?engine=graphhopper_bicycle',
-    }
-  },
-  mounted: function () {
-    if (this.store.latitude) {
-      var storeLocation = encodeURI(`${this.store.latitude},${this.store.longitude}`)
-
-      var createOSMUrl = (from) => {
-        if (from) {
-          return `https://www.openstreetmap.org/directions?engine=graphhopper_bicycle&from=${encodeURI(from)}&to=${storeLocation}`
-        }
-        else {
-          return `https://www.openstreetmap.org/directions?engine=graphhopper_bicycle&to=${storeLocation}`
-        }
-      }
-
-      var noGeolocationAvailable = positionError => {
-        if (this.currentUser.address) {
-          this.routeUrl = createOSMUrl(this.currentUser.address)
-        }
-        else {
-          this.routeUrl = createOSMUrl()
-        }
-      }
-
-      var geolocationAvailable = position => {
-        var geolocation = `${position.coords.latitude},${position.coords.longitude}`
-        this.routeUrl = createOSMUrl(geolocation)
-      }
-
-      var detected = browser()
-      if (detected && detected.mobile && detected.os.includes('OS X')) {
-        this.routeUrl = `http://maps.apple.com/?saddr=Current%20Location&daddr=${storeLocation}`
-      }
-      else if (detected && detected.mobile && detected.os.includes('Android')) {
-        this.routeUrl = `https://maps.google.com?saddr=Current%20Location&daddr=${storeLocation}`
-      }
-      else {
-        if ('geolocation' in navigator) {
-          navigator.geolocation.getCurrentPosition(geolocationAvailable, noGeolocationAvailable)
-        }
-        else {
-          noGeolocationAvailable()
-        }
-      }
-    }
-  },
   computed: {
     markers () {
       return [storeMarker(this.store)]
@@ -185,6 +139,16 @@ export default {
     },
     isInactive () {
       return this.store && this.store.status !== 'active'
+    },
+    directionsURL () {
+      if (!this.store.latitude) return
+      if (this.$q.platform.is.ios) {
+        return directions.apple(this.store)
+      }
+      if (this.$q.platform.is.android) {
+        return directions.google(this.store)
+      }
+      return directions.osm(this.currentUser, this.store)
     },
   },
 }

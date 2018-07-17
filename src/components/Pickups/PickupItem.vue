@@ -89,7 +89,6 @@ export default {
         .catch(() => {})
     },
     detailIfMember (event) {
-      console.log('detailIfmember')
       if (!this.pickup.isUserMember) return
       if (event.target.closest('a')) return // ignore actual links
       if (this.$q.platform.is.mobile) {

@@ -33,8 +33,11 @@ export default {
       if (type === 'pickup') {
         return rootGetters['conversations/getForPickup'](id)
       }
-      else if (type === 'user') {
+      if (type === 'user') {
         return rootGetters['conversations/getForUser'](id)
+      }
+      if (type === 'thread') {
+        return rootGetters['currentThread/get']
       }
     },
   },
@@ -80,6 +83,9 @@ export default {
         dispatch('selectUser', user.id)
       }
     },
+    openForThread ({ dispatch }, message) {
+      dispatch('selectThread', message.id)
+    },
     async selectPickup ({ commit, dispatch }, pickupId) {
       dispatch('clear')
       commit('setPickupId', pickupId)
@@ -90,6 +96,11 @@ export default {
       commit('setUserId', userId)
       dispatch('conversations/fetchForUser', { userId }, { root: true })
     },
+    async selectThread ({ commit, dispatch }, id) {
+      dispatch('clear')
+      commit('setThreadId', id)
+      dispatch('currentThread/fetch', id, { root: true })
+    },
     clear ({ dispatch, state, commit }) {
       const { type, id } = state.scope
       if (type === 'pickup') {
@@ -97,6 +108,9 @@ export default {
       }
       else if (type === 'user') {
         dispatch('conversations/clearForUser', { userId: id }, { root: true })
+      }
+      else if (type === 'thread') {
+        dispatch('currentThread/clear', null, { root: true })
       }
       commit('clear')
     },
@@ -107,6 +121,9 @@ export default {
     },
     setUserId (state, userId) {
       state.scope = { type: 'user', id: userId }
+    },
+    setThreadId (state, id) {
+      state.scope = { type: 'thread', id }
     },
     clear (state) {
       Object.assign(state, initialState())

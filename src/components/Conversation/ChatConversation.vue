@@ -136,10 +136,17 @@ export default {
       }
     },
     sendMessage (content) {
-      this.$emit('send', {
-        id: this.conversation.id,
-        content,
-      })
+      const data = this.conversation.thread
+        ? {
+          id: this.conversation.conversation,
+          threadId: this.conversation.id,
+          content,
+        }
+        : {
+          id: this.conversation.id,
+          content,
+        }
+      this.$emit('send', data)
     },
     saveScrollPosition () {
       if (!this.$refs.scroll) return

@@ -14,6 +14,7 @@ export default connect({
     join: 'pickups/join',
     leave: 'pickups/leave',
     detail: 'detail/openForPickup',
+    openThread: 'detail/openForThread',
     send: 'conversations/send',
     saveMessage: 'conversations/saveMessage',
     markAllRead: 'conversations/markAllRead',

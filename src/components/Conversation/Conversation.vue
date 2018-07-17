@@ -1,8 +1,5 @@
 <template>
   <div v-if="data">
-    <q-alert v-if="data.fetchStatus.hasValidationErrors">
-      {{ data.fetchStatus.validationErrors }}
-    </q-alert>
     <q-infinite-scroll
       :handler="loadMore"
     >
@@ -41,6 +38,7 @@
             :message="message"
             @toggleReaction="$emit('toggleReaction', arguments[0])"
             @save="$emit('saveMessage', arguments[0])"
+            @openThread="$emit('openThread', message)"
           />
         </template>
         <div

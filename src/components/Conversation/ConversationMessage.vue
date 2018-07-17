@@ -75,6 +75,16 @@
         @toggle="toggleReaction"
         style="margin-top: 8px; display: block"
       />
+      <q-btn
+        v-if="!message.replyTo && message.thread.messageCount > 0"
+        flat
+        class="reaction-box"
+        @click="$emit('openThread')"
+      >
+        <i class="fas fa-comments" />
+        {{ message.thread.messageCount }} replies
+        <q-tooltip v-t="'CONVERSATION.THREAD'" />
+      </q-btn>
     </q-item-main>
   </q-item>
   <ConversationCompose
@@ -118,8 +128,7 @@ export default {
   methods: {
     toggleReaction (name) {
       this.$emit('toggleReaction', {
-        conversationId: this.message.conversation,
-        messageId: this.message.id,
+        message: this.message,
         name,
       })
     },

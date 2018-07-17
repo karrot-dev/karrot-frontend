@@ -35,6 +35,7 @@
         @markAllRead="$emit('markAllRead', arguments[0])"
         @toggleEmailNotifications="$emit('toggleEmailNotifications', arguments[0])"
         @toggleReaction="$emit('toggleReaction', arguments[0])"
+        @openThread="$emit('openThread', arguments[0])"
       />
     </div>
   </component>

@@ -37,6 +37,26 @@ export function sortByName (a, b) {
   return a.name.localeCompare(b.name)
 }
 
+export function insertSorted (stateMessages, messages) {
+  // simple insertion sort for new messages
+  // assumes that existing messages are sorted AND incoming messages are sorted
+  let i = 0
+  for (let message of messages) {
+    while (i < stateMessages.length && stateMessages[i].createdAt > message.createdAt) i++
+
+    // decide if we should append, update or insert a message
+    if (i >= stateMessages.length) {
+      stateMessages.push(message)
+    }
+    else if (stateMessages[i].id === message.id) {
+      Vue.set(stateMessages, i, message)
+    }
+    else {
+      stateMessages.splice(i, 0, message)
+    }
+  }
+}
+
 function initialState () {
   return {
     entries: {},
@@ -125,10 +145,15 @@ export default {
   },
   actions: {
     ...withMeta({
-      async send ({ dispatch }, { id, content }) {
+      async send ({ dispatch }, data) {
+        if (data.threadId) {
+          dispatch('currentThread/send', data, { root: true })
+          return
+        }
+
         const message = await messageAPI.create({
-          conversation: id,
-          content,
+          conversation: data.id,
+          content: data.content,
         })
         dispatch('receiveMessage', message)
       },
@@ -173,9 +198,15 @@ export default {
 
     ...withPrefixedIdMeta('message/', {
       async saveMessage ({ dispatch }, { message, done }) {
+        console.log(message)
         const updatedMessage = await messageAPI.save(message)
         done()
-        dispatch('receiveMessage', updatedMessage)
+        if (updatedMessage.replyTo) {
+          dispatch('currentThread/receiveMessage', updatedMessage, { root: true })
+        }
+        else {
+          dispatch('receiveMessage', updatedMessage)
+        }
       },
     }, {
       findId: data => data.message.id,
@@ -237,20 +268,28 @@ export default {
       }
     },
 
-    async toggleReaction ({ state, commit, rootGetters }, { conversationId, messageId, name }) {
-      // current user's id
+    async toggleReaction ({ state, commit, rootGetters }, { message, name }) {
+      const { id: messageId, conversation: conversationId } = message
       const userId = rootGetters['auth/userId']
-      // see if the reaction already exists or not
-      const message = state.messages[conversationId].find(message => message.id === messageId)
       const reactionIndex = message.reactions.findIndex(reaction => reaction.user === userId && reaction.name === name)
 
       if (reactionIndex === -1) {
         const addedReaction = await reactionsAPI.create(messageId, name)
-        commit('addReaction', { conversationId, messageId, name: addedReaction.name, userId })
+        if (message.replyTo) {
+          commit('currentThread/addReaction', { messageId, name: addedReaction.name, userId }, { root: true })
+        }
+        else {
+          commit('addReaction', { conversationId, messageId, name: addedReaction.name, userId })
+        }
       }
       else {
         await reactionsAPI.remove(messageId, name)
-        commit('removeReaction', { conversationId, messageId, name, userId })
+        if (message.replyTo) {
+          commit('currentThread/removeReaction', { messageId, name, userId }, { root: true })
+        }
+        else {
+          commit('removeReaction', { conversationId, messageId, name, userId })
+        }
       }
     },
 
@@ -313,23 +352,7 @@ export default {
         Vue.set(state.messages, conversationId, messages)
         return
       }
-      // simple insertion sort for new messages
-      // assumes that existing messages are sorted AND incoming messages are sorted
-      let i = 0
-      for (let message of messages) {
-        while (i < stateMessages.length && stateMessages[i].createdAt > message.createdAt) i++
-
-        // decide if we should append, update or insert a message
-        if (i >= stateMessages.length) {
-          stateMessages.push(message)
-        }
-        else if (stateMessages[i].id === message.id) {
-          Vue.set(stateMessages, i, message)
-        }
-        else {
-          stateMessages.splice(i, 0, message)
-        }
-      }
+      insertSorted(stateMessages, messages)
     },
     setCursor (state, { conversationId, cursor }) {
       Vue.set(state.cursors, conversationId, cursor)

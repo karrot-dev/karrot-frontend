@@ -10,8 +10,25 @@ export default {
     return convert((await axios.patch(`/api/messages/${data.id}/`, data)).data)
   },
 
+  async modifyThreadSettings (messageId, data) {
+    return convert((await axios.post(`/api/messages/${messageId}/thread/`, data)).data)
+  },
+
+  async get (id) {
+    return convert((await axios.get(`/api/messages/${id}/`)).data)
+  },
+
   async list (conversationId) {
     const response = (await axios.get('/api/messages/', { params: { conversation: conversationId } })).data
+    return {
+      ...response,
+      next: parseCursor(response.next),
+      results: convert(response.results),
+    }
+  },
+
+  async listThread (messageId) {
+    const response = (await axios.get('/api/messages/', { params: { reply_to: messageId } })).data
     return {
       ...response,
       next: parseCursor(response.next),

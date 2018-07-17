@@ -38,6 +38,7 @@
             </q-toolbar-title>
           </template>
           <NotificationToggle
+            v-if="!conversation.thread"
             :value="conversation.emailNotifications"
             :user="currentUser"
             in-toolbar
@@ -111,7 +112,7 @@ export default {
   },
   computed: {
     hasLoaded () {
-      if ((!this.pickup && !this.user) || !this.conversation) return false
+      if (!this.conversation) return false
       const s = this.conversation.fetchStatus
       return !s.pending && !s.hasValidationErrors
     },

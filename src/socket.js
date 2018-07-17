@@ -80,7 +80,13 @@ const socket = {
 
 export function receiveMessage ({ topic, payload }) {
   if (topic === 'conversations:message') {
-    store.dispatch('conversations/receiveMessage', convertMessage(camelizeKeys(payload)))
+    const message = convertMessage(camelizeKeys(payload))
+    if (message.replyTo) {
+      store.dispatch('currentThread/receiveMessage', message)
+    }
+    else {
+      store.dispatch('conversations/receiveMessage', message)
+    }
   }
   else if (topic === 'conversations:conversation') {
     store.dispatch('conversations/updateConversation', convertConversation(camelizeKeys(payload)))

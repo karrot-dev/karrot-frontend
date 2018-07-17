@@ -2,7 +2,7 @@
   "GLOBAL": {
     "GITHUB_NOTE": "開發",
     "FSWW_NOTE": "查看我們的資訊頁面 !",
-    "FACEBOOK_NOTE": "加入我們的臉書社團！",
+    "COMMUNITY_NOTE": "Join our community!",
     "WARNING": "警告",
     "BETA_WARNING": "這個網站正在積極開發中，變動很快。我們無法保證您所輸入資料的安全與隱私(但我們量力而為)。",
     "CONNECTION_INTERRUPTED": "錯誤：連線中斷！",
@@ -21,6 +21,8 @@
     "PHOTO": "大頭貼照",
     "SET_PHOTO": "設定你的大頭貼照",
     "ACCOUNT": "帳戶",
+    "PUSH": "Push notifications",
+    "PUSH_CURRENT_BROWSER": "Current browser",
     "REQUEST_DELETE_ACCOUNT": {
       "SUCCESS": "我們寄給你了一封電子郵件，內含完成刪除程序的連結"
     },
@@ -43,7 +45,6 @@
     "LEAVE": "離開",
     "PREVIEW": "預覽",
     "BACK": "退回",
-    "MORE_OPTIONS": "更多選項",
     "SEARCH": "搜尋",
     "OF_COURSE": "是的，當然！",
     "YES": "是",
@@ -55,8 +56,8 @@
     "REMOVE": "移除",
     "ARCHIVE": "歸檔",
     "DELETE_ACCOUNT": "刪除帳戶",
-    "SHOW": "Show",
-    "HIDE": "Hide"
+    "SHOW": "顯示",
+    "HIDE": "隱藏"
   },
   "VALIDATION": {
     "MINLENGTH": "請輸入至少 {最少} 個字。",
@@ -82,7 +83,11 @@
     "PUBLIC_DESCRIPTION": "加入社團前顯示的文字",
     "PASSWORD": "如果想設定為私密社團，請在此輸入密碼",
     "PICKUPS": "開放領取食物",
+    "PICKUP": "Pickup",
     "MEMBERS": "成員",
+    "JOINED": "joined {relativeDate}",
+    "SORT_JOINDATE": "Sort by join date",
+    "SORT_NAME": "Sort by name",
     "INACTIVE": "非活躍",
     "SHOW_INACTIVE": "顯示不活躍的社團",
     "STORES": "店面",
@@ -112,7 +117,8 @@
       }
     },
     "PLAYGROUND_INFO": "這裡是遊樂區社團，不用擔心會破壞掉任何東西。自由的點擊、愉快的探索吧 !",
-    "JOIN_PLAYGROUND": "加入遊樂區社團來探索karrot吧!"
+    "JOIN_PLAYGROUND": "加入遊樂區社團來探索karrot吧!",
+    "JOIN_ANOTHER_GROUP": "Join another group"
   },
   "GROUPMAP": {
     "TITLE": "地圖",
@@ -120,6 +126,8 @@
     "HIDE_USERS": "隱藏用戶",
     "SHOW_STORES": "顯示店家",
     "HIDE_STORES": "隱藏店家",
+    "SHOW_GROUPS": "Show groups",
+    "HIDE_GROUPS": "Hide groups",
     "SET_LOCATION": "設定地點",
     "FULL_SCREEN": "全螢幕顯示"
   },
@@ -261,7 +269,10 @@
     "STORE_NONE_HINT": "你可以在領取任務管理頁面創建新的領取任務"
   },
   "FEEDBACKLIST": {
-    "SAVED_FOOD": "至少有1公斤的食物不會被浪費了，謝謝你! 大家已經給{amount}公斤被珍惜的食物回饋了! 繼續加油!",
+    "SAVED_FOOD": "At least 1 kg was saved here. Thank you! | People gave feedback for {amount} kg of saved food already! Keep up the great work!",
+    "NUMBER_PICKUPS": "{count} pickups done",
+    "NUMBER_FEEDBACK": "{count} feedback entries given",
+    "WEIGHT_SUM": "{sum} kg of food saved",
     "GIVE_FEEDBACK": "給予回饋",
     "NONE": "尚未有回饋",
     "NONE_HINT": "當有更多回饋時，它們就會填入這個頁面",
@@ -273,27 +284,28 @@
     "HEADER": "謝謝你領取食物！",
     "EDIT": "編輯回饋",
     "SUBTITLE": "你可以把你這次pickup的回饋寫在這",
+    "SET_AMOUNT": "Set amount",
+    "DELETE_AMOUNT": "Delete amount",
     "AMOUNT": "你能領取的食物量(以公斤計算)",
-    "COMMENT": "留言",
     "COMMENT_PLACEHOLDER": "一切都順利嗎？大家都有到場嗎？在這裡留言...",
     "PREVIOUS": "先前對於{商店名稱}的回饋"
   },
   "PASSWORDRESET": {
     "TITLE": "重新設定密碼",
-    "INTRO": "Enter your Email address and we will send you a link to set a new password (if you have an account registered).",
-    "EMAIL": "Email address",
+    "INTRO": "輸入你的電子郵件地址，我們將會寄給你一個設定新密碼的連結(如果你已經有帳號了)",
+    "EMAIL": "電子郵件",
     "SUBMIT": "申請新密碼",
     "LOGIN": "回到登入頁",
-    "SUCCESS": "The request was successfully sent. Have a look at your Emails!"
+    "SUCCESS": "要求已成功送出，去看看你的信箱吧"
   },
   "PASSWORD": {
     "RESET": {
-      "TITLE": "Reset password",
-      "OK": "Save",
-      "SUCCESS": "Your new password has been saved."
+      "TITLE": "重設密碼",
+      "OK": "儲存",
+      "SUCCESS": "你的新密碼已儲存"
     },
     "CHANGE": {
-      "SUCCESS": "Your new password has been saved."
+      "SUCCESS": "你的新密碼已儲存\n"
     }
   },
   "LANGUAGECHOOSER": {
@@ -333,7 +345,18 @@
     "NOT_VERIFIED": "{email} 尚未驗證",
     "CHECK_YOUR_MAILS": "請查看你的電子信箱或 {重新寄送}",
     "RESEND_VERIFICATION": "重新寄送驗證信",
-    "VERIFICATION_EMAIL_SENT": "我們已經寄給你一封新的認證信。請檢查您的電子信箱。"
+    "VERIFICATION_EMAIL_SENT": "我們已經寄給你一封新的認證信。請檢查您的電子信箱。",
+    "CHANGES_SAVED": "你的修改已被保存.",
+    "CHANGES_ERROR": "發生錯誤。 稍後再試。",
+    "EMAIL_NOT_DELIVERED": "An email could not be delivered to you | {count} emails could not be delivered to you"
+  },
+  "OUTDATED_BROWSER": {
+    "MESSAGE": "You are using an unsupported browser. {upgradeBrowser} to enjoy all features.",
+    "LINK": "Please update or switch your browser"
+  },
+  "UPDATE_AVAILABLE": {
+    "TITLE": "Update available",
+    "DETAIL": "A new version of karrot is available."
   },
   "NOT_FOUND": {
     "EXPLANATION": "不好意思，我們找不到您所搜尋的網頁",
@@ -376,7 +399,9 @@
     "RECEIVED_VIA_EMAIL": "此訊息透過電子郵件傳送"
   },
   "CONVERSATION": {
+    "OPEN": "Open Chat",
     "UNREAD_MESSAGES": "你有一則未讀訊息。| 你有{數目}則未讀訊息。",
+    "EDITED": "edited",
     "MARK_READ": "將全部訊息標示為已讀",
     "REACTIONS": {
       "YOU": "你",

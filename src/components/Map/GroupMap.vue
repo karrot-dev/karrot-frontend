@@ -2,12 +2,39 @@
   <div class="container">
     <StandardMap
       :markers="markers"
-      :selected-marker-ids="selectedMarkerIds"
+      :selected-markers="selectedMarkers"
       :style="style"
       :default-center="center"
       :force-center="forceCenter"
       :force-zoom="forceZoom"
       @mapMoveEnd="mapMoveEnd"
+    >
+      <q-list
+        slot="contextmenu"
+        slot-scope="{ latLng }"
+        highlight
+        dense
+      >
+        <q-item
+          :to="{name: 'storeCreate', query: latLng}"
+        >
+          <q-item-side
+            icon="add circle"
+          />
+          <q-item-main
+            :label="'Create new store'"
+          />
+        </q-item>
+      </q-list>
+    </StandardMap>
+    <GroupMapControls
+      v-if="enableControls"
+      :show-users="showUsers"
+      :show-stores="showStores"
+      :show-groups="showGroups"
+      @toggleUsers="$emit('toggleUsers')"
+      @toggleStores="$emit('toggleStores')"
+      @toggleGroups="$emit('toggleGroups')"
     />
     <div
       v-if="showOverlay"
@@ -15,7 +42,7 @@
     >
       <router-link
         v-if="showStoreLocationPrompt"
-        :to="{ name: 'storeEdit', params: { storeId: this.selectedStoreId } }"
+        :to="{ name: 'storeEdit', params: { storeId: this.selectedStore && this.selectedStore.id } }"
       >
         <q-btn color="primary">
           {{ $t('GROUPMAP.SET_LOCATION') }}
@@ -23,7 +50,7 @@
       </router-link>
       <router-link
         v-else
-        :to="{ name: 'groupEdit', params: { groupId: this.currentGroup.id, storeId: this.selectedStoreId } }"
+        :to="{ name: 'groupEdit', params: { groupId: currentGroup && currentGroup.id, storeId: this.selectedStore && this.selectedStore.id } }"
       >
         <q-btn color="primary">
           {{ $t('GROUPMAP.SET_LOCATION') }}
@@ -36,68 +63,61 @@
 <script>
 
 import StandardMap from '@/components/Map/StandardMap'
-import L from 'leaflet'
-import { QBtn } from 'quasar'
+import GroupMapControls from '@/components/Map/GroupMapControls'
+import {
+  QBtn,
+  QPopover,
+  QList,
+  QItem,
+  QItemMain,
+  QItemSide,
+} from 'quasar'
+
+import { groupMarker, storeMarker, userMarker } from '@/components/Map/markers'
 
 export default {
-  components: { StandardMap, QBtn },
+  components: {
+    StandardMap,
+    QBtn,
+    QPopover,
+    QList,
+    QItem,
+    QItemMain,
+    QItemSide,
+    GroupMapControls,
+  },
   props: {
     users: { required: true, type: Array },
     stores: { required: true, type: Array },
-    selectedStoreId: { default: null, type: Number },
+    groups: { default: null, type: Array },
+    selectedStore: { default: null, type: Object },
     showUsers: { default: false, type: Boolean },
     showStores: { default: true, type: Boolean },
+    showGroups: { default: false, type: Boolean },
+    createStore: { default: false, type: Boolean },
     currentGroup: { type: Object, default: () => ({}) },
     forceCenter: { type: Object, default: null },
     forceZoom: { type: Number, default: null },
+    enableControls: { type: Boolean, default: false },
   },
   methods: {
-    userMarkerId (userId) {
-      return `user_${userId}`
-    },
-    storeMarkerId (storeId) {
-      return `store_${storeId}`
-    },
-    createUserMarker (user) {
-      return {
-        latLng: L.latLng(user.latitude, user.longitude),
-        id: this.userMarkerId(user.id),
-        icon: L.AwesomeMarkers.icon({
-          icon: 'user',
-          markerColor: 'green',
-          prefix: 'fa',
-        }),
-        popupcontent: `<a href="/#/user/${user.id}">${user.displayName}</a>`,
-      }
-    },
-    createStoreMarker (store) {
-      return {
-        latLng: L.latLng(store.latitude, store.longitude),
-        id: this.storeMarkerId(store.id),
-        icon: L.AwesomeMarkers.icon({
-          icon: 'shopping-cart',
-          markerColor: store.ui.color,
-          prefix: 'fa',
-        }),
-        popupcontent: `<a href="/#/group/${store.group}/store/${store.id}">${store.name}</a>`,
-      }
-    },
     mapMoveEnd (target) {
       this.$emit('mapMoveEnd', target)
     },
   },
   computed: {
     showStoreLocationPrompt () {
-      return this.selectedStoreId && !(this.storesWithLocation.findIndex(e => e.id === this.selectedStoreId) >= 0)
+      return this.selectedStore && !(this.storesWithLocation.findIndex(e => e.id === this.selectedStore.id) >= 0)
     },
     showGroupLocationPrompt () {
-      return !this.selectedStoreId && this.markers.length === 0 && !(this.currentGroup.latitude && this.currentGroup.longitude)
+      return !this.selectedStore && this.markers.length === 0 && !(this.currentGroup.latitude && this.currentGroup.longitude)
     },
     showOverlay () {
       return this.showStoreLocationPrompt || this.showGroupLocationPrompt
     },
     center () {
-      if (this.currentGroup.latitude && this.currentGroup.longitude) return this.currentGroup
+      const { latitude: lat, longitude: lng } = this.currentGroup
+      if (lat && lng) return { lat, lng }
     },
     style () {
       return { opacity: this.showOverlay ? 0.5 : 1 }
@@ -108,23 +128,34 @@ export default {
     usersWithLocation () {
       return this.users.filter(hasLocation)
     },
-    selectedMarkerIds () {
-      let ids = []
-      if (this.selectedStoreId) {
-        ids.push(this.storeMarkerId(this.selectedStoreId))
-        if (this.showUsers) {
-          ids.push(...this.usersWithLocation.map(user => user.id).map(this.userMarkerId))
+    groupsWithLocation () {
+      return (this.groups && this.groups.filter(hasLocation)) || []
+    },
+    selectedMarkers () {
+      if (this.selectedStore) {
+        const markers = []
+        if (hasLocation(this.selectedStore)) {
+          markers.push(storeMarker(this.selectedStore))
         }
+        if (this.showUsers) {
+          markers.push(...this.usersWithLocation.map(userMarker))
+        }
+        if (this.showGroups) {
+          markers.push(...this.groupsWithLocation.map(groupMarker))
+        }
+        return markers
       }
-      return ids
     },
     markers () {
       let items = []
       if (this.showStores) {
-        items.push(...this.storesWithLocation.map(this.createStoreMarker))
+        items.push(...this.storesWithLocation.map(storeMarker))
       }
       if (this.showUsers) {
-        items.push(...this.usersWithLocation.map(this.createUserMarker))
+        items.push(...this.usersWithLocation.map(userMarker))
+      }
+      if (this.showGroups) {
+        items.push(...this.groupsWithLocation.map(groupMarker))
       }
       return items
     },

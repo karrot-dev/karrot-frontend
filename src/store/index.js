@@ -9,14 +9,16 @@ import loadingProgressReporter from './plugins/loadingProgressReporter'
 import dependentState from './plugins/dependentState'
 
 // Alphabetical
-import about from './modules/about'
+import about, { plugin as aboutPlugin } from './modules/about'
 import agreements from './modules/agreements'
 import banners from './modules/banners'
 import auth from './modules/auth'
+import { plugin as authPushPlugin } from './modules/auth/push'
 import breadcrumbs from './modules/breadcrumbs'
 import conversations from './modules/conversations'
 import currentGroup from './modules/currentGroup'
 import deleteAccount from './modules/deleteAccount'
+import detail from './modules/detail'
 import fcm, { plugin as fcmPlugin } from './modules/fcm'
 import feedback from './modules/feedback'
 import groups from './modules/groups'
@@ -27,6 +29,7 @@ import loadingprogress from './modules/loadingprogress'
 import pickups from './modules/pickups'
 import pickupSeries from './modules/pickupSeries'
 import presence from './modules/presence'
+import refresh from './modules/refresh'
 import route from './modules/route'
 import routeError from './modules/routeError'
 import search from './modules/search'
@@ -52,6 +55,7 @@ export default new Vuex.Store({
     conversations,
     currentGroup,
     deleteAccount,
+    detail,
     fcm,
     feedback,
     groups,
@@ -62,6 +66,7 @@ export default new Vuex.Store({
     pickups,
     pickupSeries,
     presence,
+    refresh,
     route,
     routeError,
     search,
@@ -80,6 +85,8 @@ export default new Vuex.Store({
     loadingProgressReporter,
     dependentState,
     fcmPlugin,
+    authPushPlugin,
+    aboutPlugin,
   ],
   strict: debug,
 })

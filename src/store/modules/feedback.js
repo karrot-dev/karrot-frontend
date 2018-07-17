@@ -7,7 +7,7 @@ function initialState () {
   return {
     entries: {},
     idList: [],
-    storeFilter: null,
+    idListScope: { type: null, id: null }, // what kind of data currently is loaded in idList
     selectedFeedbackId: null,
   }
 }
@@ -32,38 +32,35 @@ export default {
     },
     all: (state, getters) => state.idList.map(getters.get),
     selected: (state, getters) => getters.get(state.selectedFeedbackId),
-    filtered: (state, getters, rootState, rootGetters) => {
-      let stores = rootGetters['stores/all']
-      if (state.storeFilter) {
-        stores = [state.storeFilter]
-      }
-      return getters.all.filter(e => e.about && stores.includes(e.about.store.id))
-    },
     ...metaStatuses(['save', 'fetch']),
   },
   actions: {
     ...withMeta({
-      async fetch ({ dispatch, commit }, filters) {
-        dispatch('clear')
+      async fetch ({ state, dispatch, commit }, { filters, scope }) {
+        // only clear if scope changed
+        const {type, id} = state.idListScope
+        if (scope.type !== type || scope.id !== id) {
+          dispatch('clear')
+          commit('setScope', scope)
+        }
         const data = await dispatch('pagination/extractCursor', feedbackAPI.list(filters))
+        // check for race condition when switching pages
+        if (scope.type !== state.idListScope.type || scope.id !== state.idListScope.id) return
         commit('update', data)
 
-        // Fetch related pickups
-        for (const f of data) {
-          dispatch('pickups/maybeFetch', f.about, { root: true })
-        }
+        dispatch('fetchRelatedPickups', data)
       },
-      async fetchMore ({ dispatch, commit }) {
+      async fetchMore ({ state, dispatch, commit }) {
+        const { type, id } = state.idListScope
         const data = await dispatch('pagination/fetchMore', feedbackAPI.listMore)
+        // check for race condition when switching pages
+        if (type !== state.idListScope.type || id !== state.idListScope.id) return
         commit('update', data)
 
-        // Fetch related pickups
-        for (const f of data) {
-          dispatch('pickups/maybeFetch', f.about, { root: true })
-        }
+        dispatch('fetchRelatedPickups', data)
       },
 
-      async save ({ commit, dispatch }, feedback) {
+      async save ({ dispatch }, feedback) {
         let entry
         if (feedback.id) {
           entry = await feedbackAPI.save(feedback)
@@ -75,14 +72,16 @@ export default {
         router.push({ name: 'groupFeedback' })
       },
 
-      async update ({ commit, rootGetters, dispatch }, feedback) {
+      async update ({ state, commit, rootGetters, dispatch }, feedback) {
         await dispatch('pickups/maybeFetch', feedback.about, { root: true })
         const pickup = rootGetters['pickups/get'](feedback.about)
-        const currentGroupId = rootGetters['currentGroup/id']
         const currentUserId = rootGetters['auth/userId']
 
-        // make sure that feedback belongs into this group
-        if (pickup.store && pickup.store.group === currentGroupId) {
+        // make sure that feedback belongs to scope
+        const {type, id} = state.idListScope
+        const fitsStoreScope = () => type === 'store' && pickup.store && pickup.store.id === id
+        const fitsGroupScope = () => type === 'group' && pickup.store && pickup.store.group && pickup.store.group.id === id
+        if (fitsStoreScope() || fitsGroupScope()) {
           commit('update', [feedback])
           if (feedback.givenBy === currentUserId) {
             dispatch('pickups/removeFeedbackPossible', feedback.about, { root: true })
@@ -94,35 +93,51 @@ export default {
       findId: () => undefined,
     }),
 
-    async fetchForGroup ({ commit, dispatch, rootGetters }, { groupId }) {
-      dispatch('fetch', { group: groupId })
+    fetchForGroup ({ dispatch }, { groupId }) {
+      dispatch('fetch', {
+        filters: { group: groupId },
+        scope: { type: 'group', id: groupId },
+      })
     },
-    async setStoreFilter ({ commit }, { storeId }) {
-      commit('setStoreFilter', storeId)
-    },
-    async clearStoreFilter ({ commit }) {
-      commit('setStoreFilter', null)
+    fetchForStore ({ dispatch, commit }, { groupId, storeId }) {
+      dispatch('fetch', {
+        filters: { store: storeId },
+        scope: { type: 'store', id: storeId },
+      })
     },
 
-    select ({ commit }, { feedbackId }) {
+    async fetchRelatedPickups ({ dispatch }, feedbackList) {
+      for (const f of feedbackList) {
+        dispatch('pickups/maybeFetch', f.about, { root: true })
+      }
+    },
+
+    async select ({ dispatch, commit }, { groupId, feedbackId }) {
       if (feedbackId) {
+        dispatch('fetchForGroup', { groupId }) // ideally we would have the storeId here too, but it's not in the route
+        commit('update', [await feedbackAPI.get(feedbackId)])
         commit('select', feedbackId)
       }
     },
-    clearForm ({ commit, dispatch }) {
-      dispatch('meta/clear', ['save'])
-      commit('select', null)
+
+    refresh ({ state, dispatch }) {
+      const {type, id} = state.idListScope
+      switch (type) {
+        case 'group': return dispatch('fetchForGroup', { groupId: id })
+        case 'store': return dispatch('fetchForStore', { storeId: id })
+      }
     },
 
-    /**
-     * Reset all state
-     */
     clear ({ commit }) {
       commit('clear')
     },
 
   },
   mutations: {
+    setScope (state, { type, id }) {
+      state.idListScope.type = type
+      state.idListScope.id = id
+    },
     update (state, entries) {
       state.entries = {
         ...state.entries,
@@ -137,9 +152,6 @@ export default {
         while (i < state.idList.length && state.entries[state.idList[i]].createdAt > createdAt) i++
         state.idList.splice(i, 0, id)
       }
-    },
-    setStoreFilter (state, storeId) {
-      state.storeFilter = storeId
     },
     select (state, feedbackId) {
       state.selectedFeedbackId = feedbackId

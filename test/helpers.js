@@ -1,26 +1,53 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
 import raf from 'raf'
-import { createLocalVue, mount } from 'vue-test-utils'
+import { createLocalVue, mount, TransitionStub, TransitionGroupStub, RouterLinkStub } from '@vue/test-utils'
 import deepmerge from 'deepmerge'
-
-import MockRouterLink from '>/MockRouterLink'
 import i18n from '@/i18n'
 
 Vue.use(Vuex)
 
-export function createStore (mods, { debug = false } = {}) {
+Object.defineProperty(window.navigator, 'userAgent', (userAgent => {
+  return {
+    get () {
+      return userAgent
+    },
+    set (newVal) {
+      userAgent = newVal
+    },
+  }
+})(window.navigator.userAgent))
+
+const desktopUserAgent = 'Mozilla/5.0 (X11; Linux x86_64; rv:56.0) Gecko/20100101 Firefox/56.0'
+const mobileUserAgent = 'Mozilla/5.0 (iPhone; CPU iPhone OS 11_0 like Mac OS X) AppleWebKit/604.1.38 (KHTML, like Gecko) Version/11.0 Mobile/15A356 Safari/604.1'
+
+export function useDesktopUserAgent () {
+  window.navigator.userAgent = desktopUserAgent
+}
+
+export function useMobileUserAgent () {
+  window.navigator.userAgent = mobileUserAgent
+}
+
+export async function nextTicks (n) {
+  while (n--) {
+    await Vue.nextTick()
+  }
+}
+
+export function createStore (mods, { debug = false, plugins = [] } = {}) {
   let modules = {}
   for (let key of Object.keys(mods)) {
     modules[key] = {...mods[key], namespaced: true}
   }
 
   const store = new Vuex.Store({
-    modules, strict: false,
+    modules, plugins, strict: false,
   })
 
   if (debug) {
     store.subscribe(({type, payload}) => console.log('mutation', type, payload))
+    store.subscribeAction(({ type, payload }) => console.log('action', type, payload))
   }
 
   return store
@@ -72,26 +99,16 @@ export function mountWithDefaults (Component, options = {}) {
 }
 
 export function mountWithDefaultsAndLocalVue (Component, localVue, options = {}) {
-  localVue.component('router-link', MockRouterLink)
   configureQuasar(localVue)
-  localVue.component('transition', {
-    render (createElement) {
-      return createElement(
-        'div',
-        this.$slots.default,
-      )
-    },
-  })
-  window.getComputedStyle = () => {
-    return {
-      transitionDelay: '',
-      animationDelay: '',
-      transitionDuration: '',
-      animationDuration: '',
-    }
-  }
   i18n.locale = 'en'
-  const wrapper = mount(Component, { localVue, i18n, ...options })
+  localVue.component('router-link', RouterLinkStub)
+  localVue.component('transition', TransitionStub)
+  localVue.component('transition-group', TransitionGroupStub)
+  const wrapper = mount(Component, {
+    localVue,
+    i18n,
+    ...options,
+  })
   makeFindAllIterable(wrapper)
   return wrapper
 }

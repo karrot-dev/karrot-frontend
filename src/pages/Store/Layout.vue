@@ -1,5 +1,5 @@
 <template>
-  <div v-if="store.status != 'archived'">
+  <div v-if="store && store.status != 'archived'">
     <div slot="navigation">
       <RandomArt
         :seed="store.id"
@@ -43,7 +43,6 @@
             class="text-white"
           >
             <q-icon name="fas fa-ellipsis-v" />
-            <q-tooltip v-t="'BUTTON.MORE_OPTIONS'" />
             <StoreOptions/>
           </q-btn>
         </div>
@@ -75,12 +74,12 @@ import { mapGetters } from 'vuex'
 import Markdown from '@/components/Markdown'
 import StoreOptions from '@/components/Sidenav/StoreOptions'
 
-import { QCard, QTabs, QRouteTab, QScrollArea, QBtn, QIcon, QTooltip } from 'quasar'
+import { QCard, QTabs, QRouteTab, QScrollArea, QBtn, QIcon } from 'quasar'
 import KBanner from '@/components/Layout/KBanner'
 import RandomArt from '@/components/General/RandomArt'
 
 export default {
-  components: { RandomArt, QCard, QTabs, QRouteTab, QScrollArea, KBanner, QBtn, QIcon, QTooltip, StoreOptions, Markdown },
+  components: { RandomArt, QCard, QTabs, QRouteTab, QScrollArea, KBanner, QBtn, QIcon, StoreOptions, Markdown },
   computed: {
     ...mapGetters({
       store: 'stores/activeStore',

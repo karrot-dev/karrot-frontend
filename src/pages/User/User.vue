@@ -3,6 +3,7 @@
     <UserProfile
       :user="user"
       :groups="groups"
+      @detail="detail"
     />
     <q-card class="no-shadow grey-border">
       <q-card-title>
@@ -16,7 +17,7 @@
 </template>
 
 <script>
-import { mapGetters } from 'vuex'
+import { mapGetters, mapActions } from 'vuex'
 import UserProfile from '@/components/User/Profile'
 import History from '@/components/History/HistoryList'
 import { QCard, QCardTitle, QCardMain } from 'quasar'
@@ -27,6 +28,11 @@ export default {
     ...mapGetters({
       user: 'users/activeUser',
       groups: 'groups/activeUserGroups',
+    }),
+  },
+  methods: {
+    ...mapActions({
+      detail: 'detail/openForUser',
     }),
   },
 }

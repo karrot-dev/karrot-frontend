@@ -4,7 +4,7 @@ import { storiesOf } from '@storybook/vue'
 import GroupMap from './GroupMap'
 import UserMapPreview from './UserMapPreview'
 import StandardMap from './StandardMap'
-import { usersMock, storesMock } from '>/mockdata'
+import { usersMock, storesMock, storeWithoutLocation } from '>/mockdata'
 import L from 'leaflet'
 
 const style = {
@@ -24,11 +24,8 @@ storiesOf('Map', module)
         markers: [
           {
             latLng: latLng(storesMock[0]),
-            icon: L.AwesomeMarkers.icon({
-              icon: 'shopping-cart',
-              markerColor: 'blue',
-              prefix: 'fa',
-            }),
+            fontIcon: 'fas fa-shopping-cart',
+            color: 'blue',
           },
         ],
       },
@@ -42,23 +39,24 @@ storiesOf('Map', module)
           {
             latLng: latLng(storesMock[1]),
             id: 'marker1',
-            icon: L.AwesomeMarkers.icon({
-              icon: 'shopping-cart',
-              markerColor: 'blue',
-              prefix: 'fa',
-            }),
+            fontIcon: 'fas fa-shopping-cart',
+            color: 'blue',
           },
           {
             latLng: latLng(storesMock[3]),
             id: 'marker2',
-            icon: L.AwesomeMarkers.icon({
-              icon: 'shopping-cart',
-              markerColor: 'blue',
-              prefix: 'fa',
-            }),
+            fontIcon: 'fas fa-shopping-cart',
+            color: 'blue',
           },
         ],
-        selectedMarkerIds: ['marker1'],
+        selectedMarkers: [
+          {
+            latLng: latLng(storesMock[1]),
+            id: 'marker1',
+            fontIcon: 'fas fa-shopping-cart',
+            color: 'blue',
+          },
+        ],
       },
       style: { height: '600px' },
     }),
@@ -82,7 +80,7 @@ storiesOf('Map', module)
         stores: storesMock,
         showStores: true,
         showUsers: true,
-        selectedStoreId: storesMock[0].id,
+        selectedStore: storesMock[1],
         currentGroup,
       },
       style,
@@ -92,10 +90,10 @@ storiesOf('Map', module)
     render: h => h(GroupMap, {
       props: {
         users: usersMock,
-        stores: storesMock,
+        stores: [...storesMock, storeWithoutLocation],
         showStores: true,
         showUsers: true,
-        selectedStoreId: 999,
+        selectedStore: storeWithoutLocation,
         currentGroup,
       },
       style,

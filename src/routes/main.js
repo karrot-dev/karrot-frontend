@@ -28,6 +28,7 @@ const GroupStoreSidenav = () => import('@/components/Sidenav/SidenavStore')
 const Settings = () => import('@/pages/Settings')
 const User = () => import('@/pages/User/User')
 const PickupFeedback = () => import('@/pages/Group/Feedback')
+const MobileDetail = () => import('@/pages/MobileDetail')
 
 export default [
   {
@@ -75,9 +76,6 @@ export default [
   {
     name: 'historyDetail',
     path: '/history/:historyId',
-    components: {
-      default: HistoryDetail,
-    },
     meta: {
       requireLoggedIn: true,
       breadcrumbs: [
@@ -85,6 +83,9 @@ export default [
       ],
       beforeEnter: 'history/setActive',
       afterLeave: 'history/clearActive',
+    },
+    components: {
+      default: HistoryDetail,
     },
   },
   {
@@ -105,6 +106,10 @@ export default [
       {
         name: 'group',
         path: 'wall',
+        meta: {
+          beforeEnter: 'conversations/fetchForGroup',
+          afterLeave: 'conversations/clearForGroup',
+        },
         components: {
           default: GroupWall,
           sidenav: GroupGroupSidenav,
@@ -130,6 +135,8 @@ export default [
           breadcrumbs: [
             { translation: 'PICKUP_FEEDBACK.TITLE', route: { name: 'groupFeedback' } },
           ],
+          beforeEnter: 'feedback/fetchForGroup',
+          afterLeave: 'feedback/clear',
         },
         components: {
           default: GroupFeedback,
@@ -211,6 +218,7 @@ export default [
           breadcrumbs: [
             { translation: 'GROUP.SETTINGS', route: { name: 'groupSettings' } },
           ],
+          beforeEnter: 'auth/getFailedEmailDeliveries',
         },
         components: {
           default: GroupSettings,
@@ -266,9 +274,6 @@ export default [
           beforeEnter: 'stores/selectStore',
           afterLeave: 'stores/clearSelectedStore',
         },
-        props: {
-          sidenav: true,
-        },
         components: {
           default: StoreLayout,
           sidenav: GroupGroupSidenav,
@@ -286,9 +291,22 @@ export default [
             component: StorePickups,
           },
           {
+            name: 'pickupDetail',
+            path: 'pickups/:pickupId/detail',
+            meta: {
+              requiredLoggedIn: true,
+              breadcrumbs: [
+                { translation: 'GROUP.PICKUP' },
+              ],
+              beforeEnter: 'detail/routeEnter',
+              afterLeave: 'detail/routeLeave',
+            },
+            // On desktop will get redirected inside "detail/routeEnter" action
+            component: MobileDetail,
+          },
+          {
             name: 'storePickupsManage',
             path: 'pickups/manage',
-            component: StorePickupsManage,
             meta: {
               breadcrumbs: [
                 { translation: 'PICKUPMANAGE.TITLE', route: { name: 'storePickupsManage' } },
@@ -296,6 +314,7 @@ export default [
               beforeEnter: 'pickupSeries/fetchListForActiveStore',
               afterLeave: 'pickupSeries/clearList',
             },
+            component: StorePickupsManage,
           },
           {
             name: 'storeFeedback',
@@ -304,23 +323,21 @@ export default [
               breadcrumbs: [
                 { translation: 'PICKUP_FEEDBACK.TITLE', route: { name: 'storeFeedback' } },
               ],
-              beforeEnter: 'feedback/setStoreFilter',
-              afterLeave: 'feedback/clearStoreFilter',
+              beforeEnter: 'feedback/fetchForStore',
+              afterLeave: 'feedback/clear',
             },
-            components: {
-              default: StoreFeedback,
-            },
+            component: StoreFeedback,
           },
           {
             name: 'storeHistory',
             path: 'history',
-            component: StoreHistory,
             meta: {
               breadcrumbs: [
                 { translation: 'GROUP.HISTORY', route: { name: 'storeHistory' } },
               ],
               beforeEnter: 'history/fetchForStore',
             },
+            component: StoreHistory,
           },
           {
             name: 'storeEdit',
@@ -342,7 +359,7 @@ export default [
             { translation: 'PICKUP_FEEDBACK.TITLE', route: { name: 'pickupFeedback' } },
           ],
           beforeEnter: 'feedback/select',
-          afterLeave: 'feedback/clearForm',
+          afterLeave: 'feedback/clear',
         },
         components: {
           default: PickupFeedback,
@@ -374,6 +391,7 @@ export default [
       breadcrumbs: [
         { translation: 'SETTINGS.TITLE', route: { name: 'settings' } },
       ],
+      beforeEnter: 'auth/getFailedEmailDeliveries',
       afterLeave: 'auth/clearSettingsStatus',
     },
     components: {
@@ -394,5 +412,19 @@ export default [
     components: {
       default: User,
     },
+  },
+  {
+    name: 'userDetail',
+    path: '/user/:userId/detail',
+    meta: {
+      requiredLoggedIn: true,
+      breadcrumbs: [
+        { type: 'activeUser' },
+      ],
+      beforeEnter: 'detail/routeEnter',
+      afterLeave: 'detail/routeLeave',
+    },
+    // On desktop will get redirected inside "detail/routeEnter" action
+    component: MobileDetail,
   },
 ]

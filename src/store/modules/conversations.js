@@ -1,9 +1,13 @@
 import Vue from 'vue'
+import differenceInSeconds from 'date-fns/difference_in_seconds'
 import messageAPI from '@/services/api/messages'
 import conversationsAPI from '@/services/api/conversations'
 import reactionsAPI from '@/services/api/reactions'
+import pickupsAPI from '@/services/api/pickups'
+import usersAPI from '@/services/api/users'
+import groupsAPI from '@/services/api/groups'
 import i18n from '@/i18n'
-import { createMetaModule, withMeta, metaStatusesWithId } from '@/store/helpers'
+import { createMetaModule, withMeta, withPrefixedIdMeta, metaStatusesWithId } from '@/store/helpers'
 
 export function isUnread (message, conversation) {
   if (!message || !conversation) return
@@ -38,7 +42,9 @@ function initialState () {
     entries: {},
     messages: {}, // { <conversation-id> : [<message>,...] }
     cursors: {}, // { <conversation-id> : [<cursor>, ...]}
-    activeConversationId: null,
+    groupConversationIds: {}, // { <group-id> : <conversation-id> }
+    pickupConversationIds: {}, // { <pickup-id> : <conversation-id> }
+    userConversationIds: {}, // { <user-id> : <conversation-id> }
   }
 }
 
@@ -47,6 +53,32 @@ export default {
   modules: { meta: createMetaModule() },
   state: initialState(),
   getters: {
+    get: (state, getters, rootState, rootGetters) => conversationId => {
+      const canLoadMore = typeof state.cursors[conversationId] === 'string'
+      const conversation = getters.enrichConversation(state.entries[conversationId])
+      const messages = (state.messages[conversationId] || []).map(getters.enrichMessage)
+      return {
+        ...conversation,
+        messages,
+        canLoadMore,
+        ...metaStatusesWithId(getters, ['send', 'fetch', 'fetchMore'], conversationId),
+      }
+    },
+    getForGroup: (state, getters) => groupId => {
+      const conversationId = state.groupConversationIds[groupId]
+      if (!conversationId) return
+      return getters.get(conversationId)
+    },
+    getForPickup: (state, getters) => pickupId => {
+      const conversationId = state.pickupConversationIds[pickupId]
+      if (!conversationId) return
+      return getters.get(conversationId)
+    },
+    getForUser: (state, getters) => userId => {
+      const conversationId = state.userConversationIds[userId]
+      if (!conversationId) return
+      return getters.get(conversationId)
+    },
     enrichReactions: (state, getters, rootState, rootGetters) => reactions => {
       if (!reactions || !reactions.length) return []
       const groupedReactions = reactions.reduce((acc, reaction) => {
@@ -78,43 +110,33 @@ export default {
         ...message,
         reactions: getters.enrichReactions(message.reactions),
         author: rootGetters['users/get'](message.author),
-        isUnread: isUnread(message, getters.activeConversation),
+        isUnread: isUnread(message, state.entries[message.conversation]),
+        saveStatus: getters['meta/status']('saveMessage', `message/${message.id}`),
+        isEdited: differenceInSeconds(message.updatedAt, message.createdAt) > 10,
       }
     },
-    activeMessages: (state, getters) => {
-      return (state.messages[state.activeConversationId] || []).map(getters.enrichMessage)
-    },
-    activeConversation: state => {
-      if (!state.activeConversationId) return
-      return state.entries[state.activeConversationId]
-    },
-    active: (state, getters) => {
-      const id = state.activeConversationId
-      if (!id) return
-
-      const canLoadMore = typeof state.cursors[state.activeConversationId] === 'string'
+    enrichConversation: (state, getters, rootState, rootGetters) => conversation => {
+      if (!conversation) return
       return {
-        ...getters.activeConversation,
-        messages: getters.activeMessages,
-        canLoadMore,
-        ...metaStatusesWithId(getters, ['send', 'fetch', 'fetchMore'], id),
+        ...conversation,
+        participants: conversation.participants.map(rootGetters['users/get']),
       }
     },
   },
   actions: {
     ...withMeta({
-      async send ({ commit, state, dispatch }, { id, messageData }) {
+      async send ({ dispatch }, { id, content }) {
         const message = await messageAPI.create({
-          content: messageData,
           conversation: id,
+          content,
         })
         dispatch('receiveMessage', message)
       },
       async fetch ({ commit }, conversationId) {
         const data = await messageAPI.list(conversationId)
         commit('updateMessages', {
-          messages: data.results,
           conversationId,
+          messages: data.results,
         })
         commit('setCursor', {
           conversationId,
@@ -126,8 +148,8 @@ export default {
         const currentCursor = state.cursors[conversationId]
         const data = await messageAPI.listMore(currentCursor)
         commit('updateMessages', {
-          messages: data.results,
           conversationId,
+          messages: data.results,
         })
         commit('setCursor', {
           conversationId,
@@ -135,78 +157,117 @@ export default {
         })
       },
 
-      async fetchConversation ({ commit }, conversationId) {
-        commit('setConversation', { conversation: await conversationsAPI.get(conversationId) })
-      },
-
       async mark ({ dispatch }, { id, seenUpTo }) {
-        await conversationsAPI.mark(id, { seenUpTo })
-      },
-
-      async toggleEmailNotifications ({ commit, state, getters }, { conversationId, value }) {
-        await conversationsAPI.toggleEmailNotifications(conversationId, value)
-        commit('updateEmailNotifications', { conversationId, value })
-      },
-
-      /**
-       * Add reaction to a message.
-       */
-      async toggleReaction ({ state, commit, rootGetters }, { name, messageId }) {
-        // current user's id
-        const userId = rootGetters['auth/userId']
-        // see if the reaction already exists or not
-        const message = state.messages[state.activeConversationId].find(message => message.id === messageId)
-        const reactionIndex = message.reactions.findIndex(reaction => reaction.user === userId && reaction.name === name)
-
-        if (reactionIndex === -1) {
-          const addedReaction = await reactionsAPI.create(messageId, name)
-          commit('addReaction', { messageId, name: addedReaction.name, userId })
+        if (id) {
+          await conversationsAPI.mark(id, { seenUpTo })
         }
-        else {
-          await reactionsAPI.remove(messageId, name)
-          commit('removeReaction', { messageId, name, userId })
+      },
+
+      async toggleEmailNotifications ({ state, commit }, { id, value }) {
+        await conversationsAPI.toggleEmailNotifications(id, value)
+        if (state.entries[id]) {
+          commit('updateEmailNotifications', { conversationId: id, value })
         }
       },
     }),
 
+    ...withPrefixedIdMeta('message/', {
+      async saveMessage ({ dispatch }, { message, done }) {
+        const updatedMessage = await messageAPI.save(message)
+        done()
+        dispatch('receiveMessage', updatedMessage)
+      },
+    }, {
+      findId: data => data.message.id,
+    }),
+
+    async fetchForGroup ({ state, dispatch, commit }, { groupId }) {
+      let conversation
+      const conversationId = state.groupConversationIds[groupId]
+      if (conversationId) conversation = state.entries[conversationId]
+      if (!conversation) {
+        conversation = await groupsAPI.conversation(groupId)
+        commit('setConversation', { conversation, groupId })
+      }
+      dispatch('fetch', conversation.id)
+    },
+
+    clearForGroup ({ state, commit }, { groupId }) {
+      const conversationId = state.groupConversationIds[groupId]
+      if (conversationId) commit('clearMessages', { conversationId })
+    },
+
+    async fetchForPickup ({ state, dispatch, commit }, { pickupId }) {
+      let conversation
+      const conversationId = state.pickupConversationIds[pickupId]
+      if (conversationId) conversation = state.entries[conversationId]
+      if (!conversation) {
+        conversation = await pickupsAPI.conversation(pickupId)
+        commit('setConversation', { conversation, pickupId })
+      }
+      dispatch('fetch', conversation.id)
+    },
+
+    clearForPickup ({ state, commit }, { pickupId }) {
+      const conversationId = state.pickupConversationIds[pickupId]
+      if (conversationId) commit('clearMessages', { conversationId })
+    },
+
+    async fetchForUser ({ state, dispatch, commit }, { userId }) {
+      let conversation
+      const conversationId = state.userConversationIds[userId]
+      if (conversationId) conversation = state.entries[conversationId]
+      if (!conversation) {
+        conversation = await usersAPI.conversation(userId)
+        commit('setConversation', { conversation, userId })
+      }
+      dispatch('fetch', conversation.id)
+    },
+
+    clearForUser ({ state, commit }, { userId }) {
+      const conversationId = state.userConversationIds[userId]
+      if (conversationId) commit('clearMessages', { conversationId })
+    },
+
     async maybeToggleEmailNotifications ({ state, getters, dispatch }, { conversationId, value }) {
-      if (state.entries[conversationId]) {
-        const changed = state.entries[conversationId].emailNotifications !== value
-        const pending = getters['meta/status']('toggleEmailNotifications').pending
-        if (changed && !pending) {
-          await dispatch('toggleEmailNotifications', { conversationId, value })
-        }
+      const pending = getters['meta/status']('toggleEmailNotifications', conversationId).pending
+      const prevent = state.entries[conversationId] && state.entries[conversationId].emailNotifications === value
+      if (!pending && !prevent) {
+        await dispatch('toggleEmailNotifications', { id: conversationId, value })
       }
     },
 
-    async sendInActiveConversation ({ state, dispatch }, messageData) {
-      dispatch('send', { id: state.activeConversationId, messageData })
-    },
-    async markAllReadInActiveConversation ({ state, dispatch, getters }) {
-      const newestMessage = getters.activeMessages[0]
-      dispatch('mark', { id: state.activeConversationId, seenUpTo: newestMessage.id })
-    },
+    async toggleReaction ({ state, commit, rootGetters }, { conversationId, messageId, name }) {
+      // current user's id
+      const userId = rootGetters['auth/userId']
+      // see if the reaction already exists or not
+      const message = state.messages[conversationId].find(message => message.id === messageId)
+      const reactionIndex = message.reactions.findIndex(reaction => reaction.user === userId && reaction.name === name)
 
-    async fetchMoreForActiveConversation ({ state, dispatch }) {
-      const conversationId = state.activeConversationId
-      const currentCursor = state.cursors[conversationId]
-      if (!currentCursor) {
-        return
+      if (reactionIndex === -1) {
+        const addedReaction = await reactionsAPI.create(messageId, name)
+        commit('addReaction', { conversationId, messageId, name: addedReaction.name, userId })
       }
-      await dispatch('fetchMore', conversationId)
+      else {
+        await reactionsAPI.remove(messageId, name)
+        commit('removeReaction', { conversationId, messageId, name, userId })
+      }
     },
 
-    async setActive ({ commit, dispatch }, conversation) {
-      commit('setActive', { conversationId: conversation.id })
-      commit('setConversation', { conversation })
-      await dispatch('fetch', conversation.id)
+    async markAllRead ({ state, dispatch }, conversationId) {
+      const newestMessage = state.messages[conversationId][0]
+      dispatch('mark', { id: conversationId, seenUpTo: newestMessage.id })
     },
 
-    clearActive ({ commit }) {
-      commit('clearActive')
+    clearConversation ({ commit }, conversationId) {
+      commit('clearConversation', { conversationId })
     },
 
-    receiveMessage ({ commit, state, getters }, message) {
+    clear ({ commit }) {
+      commit('clear')
+    },
+
+    receiveMessage ({ commit }, message) {
       commit('updateMessages', {
         messages: [message],
         conversationId: message.conversation,
@@ -219,16 +280,36 @@ export default {
         commit('setConversation', { conversation })
       }
     },
+
+    refresh ({ state, dispatch, commit }) {
+      Object.keys(state.entries).forEach(async conversationId => {
+        dispatch('updateConversation', await conversationsAPI.get(conversationId))
+      })
+      Object.keys(state.messages).forEach(async conversationId => {
+        commit('clearMessages', { conversationId })
+        dispatch('fetch', conversationId)
+      })
+    },
   },
   mutations: {
-    setActive (state, { conversationId }) {
-      state.activeConversationId = conversationId
+    clear (state) {
+      Object.assign(state, initialState())
     },
-    clearActive (state) {
-      state.activeConversationId = null
+    clearMessages (state, { conversationId }) {
+      Vue.delete(state.messages, conversationId)
+      Vue.delete(state.cursors, conversationId)
+    },
+    clearConversation (state, { conversationId }) {
+      Vue.delete(state.entries, conversationId)
+      Vue.delete(state.messages, conversationId)
+      Vue.delete(state.cursors, conversationId)
+      // TODO: clear entry from state.pickupConversationIds etc
     },
     updateMessages (state, { conversationId, messages }) {
-      if (!state.messages[conversationId]) {
+      if (!state.entries[conversationId]) return
+
+      const stateMessages = state.messages[conversationId]
+      if (!stateMessages) {
         Vue.set(state.messages, conversationId, messages)
         return
       }
@@ -236,9 +317,16 @@ export default {
       // assumes that existing messages are sorted AND incoming messages are sorted
       let i = 0
       for (let message of messages) {
-        const stateMessages = state.messages[conversationId]
         while (i < stateMessages.length && stateMessages[i].createdAt > message.createdAt) i++
-        if (i >= stateMessages.length || stateMessages[i].id !== message.id) {
+
+        // decide if we should append, update or insert a message
+        if (i >= stateMessages.length) {
+          stateMessages.push(message)
+        }
+        else if (stateMessages[i].id === message.id) {
+          Vue.set(stateMessages, i, message)
+        }
+        else {
           stateMessages.splice(i, 0, message)
         }
       }
@@ -246,18 +334,27 @@ export default {
     setCursor (state, { conversationId, cursor }) {
       Vue.set(state.cursors, conversationId, cursor)
     },
-    setConversation (state, { conversation }) {
+    setConversation (state, { conversation, groupId, pickupId, userId }) {
       Vue.set(state.entries, conversation.id, conversation)
+      if (groupId) {
+        Vue.set(state.groupConversationIds, groupId, conversation.id)
+      }
+      if (pickupId) {
+        Vue.set(state.pickupConversationIds, pickupId, conversation.id)
+      }
+      if (userId) {
+        Vue.set(state.userConversationIds, userId, conversation.id)
+      }
     },
     updateEmailNotifications (state, { conversationId, value }) {
       state.entries[conversationId].emailNotifications = value
     },
-    addReaction (state, { userId, name, messageId }) {
-      const message = state.messages[state.activeConversationId].find(message => message.id === messageId)
+    addReaction (state, { userId, name, messageId, conversationId }) {
+      const message = state.messages[conversationId].find(message => message.id === messageId)
       message.reactions.push({ user: userId, name })
     },
-    removeReaction (state, { userId, name, messageId }) {
-      const message = state.messages[state.activeConversationId].find(message => message.id === messageId)
+    removeReaction (state, { userId, name, messageId, conversationId }) {
+      const message = state.messages[conversationId].find(message => message.id === messageId)
       const reactionIndex = message.reactions.findIndex(reaction => reaction.user === userId && reaction.name === name)
       message.reactions.splice(reactionIndex, 1)
     },

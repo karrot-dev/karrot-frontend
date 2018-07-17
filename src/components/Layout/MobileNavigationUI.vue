@@ -1,6 +1,5 @@
 <template>
   <q-tabs
-    v-model="selectedTab"
     align="center"
     class="mobileNavigation"
   >
@@ -59,16 +58,10 @@
 </template>
 <script>
 
-import { QTabs, QTab, QIcon, QChip } from 'quasar'
+import { QTabs, QTab, QIcon } from 'quasar'
 import KTab from './KTab'
 export default {
-  components: { QTabs, QTab, QIcon, QChip, KTab },
-  data () {
-    return {
-      // initializing for second tab to be selected by default
-      selectedTab: 'group',
-    }
-  },
+  components: { QTabs, QTab, QIcon, KTab },
   props: {
     currentGroupId: {
       type: Number,
@@ -82,12 +75,12 @@ export default {
 @import '~variables'
 .mobileNavigation
   margin-bottom -2px
-  transition: color  10s ease-out
-  .router-link-active
-    color $tertiary
-.ktab
-  transition:  color  .3s ease-out
+  transition color 10s ease-out
+  .q-router-link-active
+    opacity 1
+    >>> .label
+      opacity 1
 .fa
-  transition:  font-size .3s ease-out
+  transition font-size .3s ease-out
   font-size 1.4em
 </style>

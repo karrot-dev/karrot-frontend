@@ -6,7 +6,7 @@ defaults: &defaults
 android-defaults: &android-defaults
   working_directory: ~/repo
   docker:
-    - image: karrot/android-build:api-27-node8-alpha
+    - image: karrot/android-build:api-28-node8-alpha
 
 build-android: &build-android
   name: build android
@@ -64,7 +64,7 @@ jobs:
   e2e-test:
     working_directory: ~/repo
     docker:
-      - image: karrot/python:1.5
+      - image: karrot/python:1.6
         environment:
           PGHOST: 127.0.0.1
       - image: circleci/postgres:9.6.2
@@ -92,7 +92,7 @@ jobs:
             git clone https://github.com/yunity/karrot-backend
             cd karrot-backend
             pip install --upgrade pip
-            pip install pip-tools
+            pip install --upgrade pip-tools
             pip-sync requirements*.txt
             cp config/local_settings.py.ci config/local_settings.py
             (cd mjml && yarn)
@@ -147,7 +147,7 @@ jobs:
       - run:
           environment:
             KARROT_THEME: dev
-          command: yarn build
+          command: FCM_SENDER_ID="${DEV_FCM_SENDER_ID}" yarn build
       - persist_to_workspace:
           root: ~/repo
           paths:
@@ -158,7 +158,7 @@ jobs:
     steps:
       - attach_workspace:
           at: .
-      - run: yarn build
+      - run: FCM_SENDER_ID="${PROD_FCM_SENDER_ID}" yarn build
       - persist_to_workspace:
           root: ~/repo
           paths:
@@ -228,7 +228,8 @@ jobs:
           at: .
       - restore_cache:
           keys:
-          - gradle-cache
+            - v0-gradle-{{ .Branch }}
+            - v0-gradle
       - run:
           <<: *build-android
           name: build android apk
@@ -238,7 +239,8 @@ jobs:
       - save_cache:
           paths:
             - ~/.gradle
-          key: gradle-cache
+            - ~/.android
+          key: v0-gradle-{{ .Branch }}-{{ epoch }}
       - persist_to_workspace:
           root: ~/repo
           paths:
@@ -274,7 +276,8 @@ jobs:
           at: .
       - restore_cache:
           keys:
-          - gradle-cache
+            - v0-gradle-{{ .Branch }}
+            - v0-gradle
       - run:
           <<: *build-android
           name: build android apk
@@ -284,7 +287,8 @@ jobs:
       - save_cache:
           paths:
             - ~/.gradle
-          key: gradle-cache
+            - ~/.android
+          key: v0-gradle-{{ .Branch }}-{{ epoch }}
       - persist_to_workspace:
           root: ~/repo
           paths:
@@ -326,18 +330,38 @@ workflows:
           requires:
             - install-dependencies
       - build-dev:
+          filters:
+            branches:
+              only:
+                - master
           requires:
             - install-dependencies
       - build-storybook:
+          filters:
+            branches:
+              only:
+                - master
           requires:
             - install-dependencies
       - build-docs:
+          filters:
+            branches:
+              only:
+                - master
           requires:
             - install-dependencies
       - build-cordova-dev:
+          filters:
+            branches:
+              only:
+                - master
           requires:
             - install-dependencies
       - build-android-dev:
+          filters:
+            branches:
+              only:
+                - master
           requires:
             - build-cordova-dev
       - deploy-android-dev:

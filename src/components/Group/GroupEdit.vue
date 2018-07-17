@@ -61,9 +61,10 @@
             :error="hasAddressError"
             :error-label="addressError"
           >
-            <address-picker
+            <AddressPicker
               v-model="edit"
-              :map="true"
+              :color="isNew ? 'blue' : 'positive'"
+              font-icon="fas fa-home"
             />
           </q-field>
 
@@ -215,6 +216,7 @@ export default {
     maybeSave (event) {
       this.$v.edit.$touch()
       if (!this.canSave) return
+      this.$v.edit.$reset()
       this.save()
     },
     timezoneFilter (terms, { field, list }) {

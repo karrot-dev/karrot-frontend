@@ -16,4 +16,20 @@ export default {
   delete (id) {
     return axios.delete(`/api/auth/user/`)
   },
+
+  async getFailedEmailDeliveries () {
+    return convert((await axios.get('/api/auth/user/failed_email_deliveries/')).data.results)
+  },
+}
+
+export function convert (val) {
+  if (Array.isArray(val)) {
+    return val.map(convert)
+  }
+  else {
+    return {
+      ...val,
+      createdAt: new Date(val.createdAt),
+    }
+  }
 }

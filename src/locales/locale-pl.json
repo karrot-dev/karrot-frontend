@@ -2,7 +2,7 @@
   "GLOBAL": {
     "GITHUB_NOTE": "Development",
     "FSWW_NOTE": "O nas",
-    "FACEBOOK_NOTE": "Dołącz do nas na Facebooku!",
+    "COMMUNITY_NOTE": "Join our community!",
     "WARNING": "Uwaga",
     "BETA_WARNING": "Nasz serwis jest wciąż w trakcie budowy i niektóre elementy mogą w przyszłości ulec zmianie. Nie możemy zagwarantować Ci pełnego bezpieczeństwa ani prywatności Twoich danych (ale będziemy się starać).",
     "CONNECTION_INTERRUPTED": "Błąd: przerwano połączenie!",
@@ -21,6 +21,8 @@
     "PHOTO": "Zdjęcie profilowe",
     "SET_PHOTO": "Ustaw zdjęcie profilowe...",
     "ACCOUNT": "Konto",
+    "PUSH": "Push notifications",
+    "PUSH_CURRENT_BROWSER": "Current browser",
     "REQUEST_DELETE_ACCOUNT": {
       "SUCCESS": "Wysłaliśmy Ci wiadomość e-mail z linkiem do usunięcia konta."
     },
@@ -43,7 +45,6 @@
     "LEAVE": "Opuść",
     "PREVIEW": "Podgląd",
     "BACK": "Wstecz",
-    "MORE_OPTIONS": "Więcej opcji",
     "SEARCH": "Szukaj",
     "OF_COURSE": "Tak, oczywiście!",
     "YES": "Tak",
@@ -55,8 +56,8 @@
     "REMOVE": "Usuń",
     "ARCHIVE": "Archiwizuj",
     "DELETE_ACCOUNT": "Usuń konto",
-    "SHOW": "Show",
-    "HIDE": "Hide"
+    "SHOW": "Pokaż",
+    "HIDE": "Ukryj"
   },
   "VALIDATION": {
     "MINLENGTH": "Musisz użyć więcej niż {min} znaków.",
@@ -82,7 +83,11 @@
     "PUBLIC_DESCRIPTION": "Tekst widoczny przed dołączeniem do grupy",
     "PASSWORD": "Wprowadź tu hasło, jeśli chcesz stworzyć grupę prywatną",
     "PICKUPS": "Odbiory",
+    "PICKUP": "Odbiór",
     "MEMBERS": "Członkowie",
+    "JOINED": "dołączył/-a {relativeDate}",
+    "SORT_JOINDATE": "Sortuj po dacie dołączenia",
+    "SORT_NAME": "Sortuj po nazwie użytkownika",
     "INACTIVE": "Nieaktywni",
     "SHOW_INACTIVE": "Pokaż nieaktywne grupy",
     "STORES": "Punkty odbioru",
@@ -112,7 +117,8 @@
       }
     },
     "PLAYGROUND_INFO": "To specjalna grupa w trybie piaskownicy, gdzie nie musisz martwić się o to, że coś zepsujesz. Odkryj wszystkie funkcje, klikaj, gdzie tylko chcesz i baw się dobrze!",
-    "JOIN_PLAYGROUND": "Dołącz do piaskownicy, aby szybko poznać wszystkie funkcje karrot"
+    "JOIN_PLAYGROUND": "Dołącz do piaskownicy, aby szybko poznać wszystkie funkcje karrot",
+    "JOIN_ANOTHER_GROUP": "Join another group"
   },
   "GROUPMAP": {
     "TITLE": "Mapa",
@@ -120,6 +126,8 @@
     "HIDE_USERS": "Ukryj użytkowników",
     "SHOW_STORES": "Pokaż punkty odbioru",
     "HIDE_STORES": "Ukryj punkty odbioru",
+    "SHOW_GROUPS": "Pokaż grupy",
+    "HIDE_GROUPS": "Ukryj grupy",
     "SET_LOCATION": "Ustaw lokalizację",
     "FULL_SCREEN": "Pełny ekran"
   },
@@ -245,7 +253,7 @@
     "TITLE": "Dodaj nowy punkt odbioru"
   },
   "PICKUPLIST": {
-    "AVAILABLE": "Czeka Cię odbiór w najbliższych dniach! | W najbliższych dniach czekają Cię {count} odbiory!",
+    "AVAILABLE": "Czeka Cię odbiór w najbliższych dniach! | W najbliższych dniach czeka Cię {count} odbiorów!",
     "AVAILABLE_FEEDBACK": "Możesz dodać komentarz do odbioru | Możesz dodać komentarz do {count} odbiorów",
     "JOINEDNOTICE": "Masz jeden nadchodzący odbiór | Masz {count} nadchodzące odbiory",
     "ITEM": {
@@ -262,6 +270,9 @@
   },
   "FEEDBACKLIST": {
     "SAVED_FOOD": "W tym punkcie uratowano już ponad 1 kg żywności. Dziękujemy! | W tym punkcie uratowano już {amount} kg żywności. Oby tak dalej!",
+    "NUMBER_PICKUPS": "{count} pickups done",
+    "NUMBER_FEEDBACK": "{count} feedback entries given",
+    "WEIGHT_SUM": "{sum} kg of food saved",
     "GIVE_FEEDBACK": "Dodaj komentarz",
     "NONE": "Brak komentarzy",
     "NONE_HINT": "Tutaj pojawią się komentarze",
@@ -273,18 +284,19 @@
     "HEADER": "Dzięki za odbiór!",
     "EDIT": "Edytuj komentarz",
     "SUBTITLE": "Tutaj możesz dodać komentarz na temat odbioru",
+    "SET_AMOUNT": "Wprowadź ilość",
+    "DELETE_AMOUNT": "Usuń ilość",
     "AMOUNT": "Ilość jedzenia, które uratowałaś/-eś (w kg)",
-    "COMMENT": "Komentarz",
     "COMMENT_PLACEHOLDER": "Czy wszystko przebiegło w porządku? Czy jedzenie zostało odebrane zgodnie z planem? Skomentuj...",
     "PREVIOUS": "Wcześniejsze komentarze dla {store}"
   },
   "PASSWORDRESET": {
     "TITLE": "Resetuj hasło",
-    "INTRO": "Enter your Email address and we will send you a link to set a new password (if you have an account registered).",
-    "EMAIL": "Email address",
+    "INTRO": "Wprowadź adres e-mail i wkrótce wyślemy Ci link do zresetowania hasła (jeśli jesteś zarejestrowanym użytkownikiem).",
+    "EMAIL": "Adres e-mail",
     "SUBMIT": "Odbierz nowe hasło",
     "LOGIN": "Wróć do strony logowania",
-    "SUCCESS": "The request was successfully sent. Have a look at your Emails!"
+    "SUCCESS": "Przyjęliśmy Twoją prośbę. Sprawdź swoją pocztę!"
   },
   "PASSWORD": {
     "RESET": {
@@ -333,7 +345,18 @@
     "NOT_VERIFIED": "nie zweryfikowano adresu {email}",
     "CHECK_YOUR_MAILS": "Sprawdź pocztę lub {resend}",
     "RESEND_VERIFICATION": "wyślij ponownie e-mail weryfikacyjny",
-    "VERIFICATION_EMAIL_SENT": "Wysłaliśmy nowy e-mail weryfikacyjny. Sprawdź swoją pocztę."
+    "VERIFICATION_EMAIL_SENT": "Wysłaliśmy nowy e-mail weryfikacyjny. Sprawdź swoją pocztę.",
+    "CHANGES_SAVED": "Twoje zmiany zostały zapisane.",
+    "CHANGES_ERROR": "Wystąpił błąd. Spróbuj ponownie później.",
+    "EMAIL_NOT_DELIVERED": "Wiadomość e-mail nie mogła być do Ciebie dostarczona | {count} wiadomości e-mail nie mogło być do Ciebie dostarczonych"
+  },
+  "OUTDATED_BROWSER": {
+    "MESSAGE": "Twoja przeglądarka nie jest wspierana. {upgradeBrowser}, aby cieszyć się wszystkimi funkcjami.",
+    "LINK": "Zaktualizuj lub zmień swoją przeglądarkę"
+  },
+  "UPDATE_AVAILABLE": {
+    "TITLE": "Update available",
+    "DETAIL": "A new version of karrot is available."
   },
   "NOT_FOUND": {
     "EXPLANATION": "Przepraszamy, nie możemy znaleźć tej strony.",
@@ -376,7 +399,9 @@
     "RECEIVED_VIA_EMAIL": "Ta wiadomość została wysłana za pośrednictwem e-maila"
   },
   "CONVERSATION": {
+    "OPEN": "Otwórz czat",
     "UNREAD_MESSAGES": "Masz jedną nieprzeczytaną wiadomość | Masz {count} nieprzeczytane wiadomości",
+    "EDITED": "edytowany",
     "MARK_READ": "Oznacz wszystkie jako przeczytane",
     "REACTIONS": {
       "YOU": "ty",

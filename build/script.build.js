@@ -12,6 +12,7 @@ var
   config = require('../config'),
   webpack = require('webpack'),
   webpackConfig = require('./webpack.prod.conf'),
+  serviceWorkerWebpackConfig = require('./webpack.serviceworker.conf'),
   targetPath = path.join(__dirname, '../dist')
 
 console.log(' WARNING!'.bold)
@@ -49,9 +50,22 @@ webpack(webpackConfig, function (err, stats) {
   }
 
   if (config.build.purifyCSS) {
-    css.purify(finalize)
+    css.purify(buildServiceWorker)
   }
   else {
-    finalize()
+    buildServiceWorker()
   }
 })
+
+function buildServiceWorker(callback) {
+  console.log((' Building Service Worker\n').bold)
+  webpack(serviceWorkerWebpackConfig, function (err, stats) {
+    if (err) throw err
+
+    if (stats.hasErrors()) {
+      process.exit(1)
+    }
+
+    finalize()
+  })
+}

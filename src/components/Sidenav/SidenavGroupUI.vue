@@ -14,7 +14,7 @@
         flat
         dense
         round
-        @click="$router.push({name: 'groupSettings'})"
+        :to="{name: 'groupSettings'}"
       >
         <q-icon name="fas fa-cog fa-fw" />
         <q-tooltip v-t="'GROUP.SETTINGS'" />
@@ -25,7 +25,6 @@
         round
       >
         <q-icon name="fas fa-fw fa-ellipsis-v" />
-        <q-tooltip v-t="'BUTTON.MORE_OPTIONS'" />
         <GroupOptions/>
       </q-btn>
     </div>

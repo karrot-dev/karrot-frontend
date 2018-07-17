@@ -1,6 +1,6 @@
 <template>
   <div>
-    <q-card class="bg-tertiary margin-bottom">
+    <q-card class="bg-warning margin-bottom">
       <q-card-title>
         <q-icon name="fas fa-exclamation-triangle" />
         {{ $t('GLOBAL.WARNING') }}
@@ -65,7 +65,7 @@
         <div v-if="canJoinPlayground">
           <q-checkbox
             v-model="joinPlayground"
-            color="tertiary"
+            color="white"
             :label="$t('GROUP.JOIN_PLAYGROUND')"
             class="playground-checkbox"
           />
@@ -82,7 +82,7 @@
         <div class="actions">
           <q-btn
             type="button"
-            @click="$router.push({ name: 'login' })"
+            :to="{ name: 'login' }"
             flat
           >
             {{ $t('SIGNUP.BACK') }}

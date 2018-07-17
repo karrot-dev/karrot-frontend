@@ -7,6 +7,7 @@ module.exports = {
   prod: process.env.NODE_ENV === 'production',
   cordova: process.env.CORDOVA === 'true',
   karrotTheme: process.env.KARROT_THEME || 'default',
+  fcmSenderId: process.env.FCM_SENDER_ID,
 
   platform: {
     theme: theme,

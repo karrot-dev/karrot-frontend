@@ -12,7 +12,7 @@ describe('spec', () => {
   it('sets all the about values', async () => {
     mockGet.mockReturnValueOnce({ name: 'peter' })
     await store.dispatch('about/fetch')
-    expect(store.getters['about/get']).toEqual({
+    expect(store.getters['about/deployed']).toEqual({
       name: 'peter',
     })
   })
@@ -20,6 +20,6 @@ describe('spec', () => {
   it('ignores the error', async () => {
     mockGet.mockImplementation(throws('some error'))
     await store.dispatch('about/fetch')
-    expect(store.getters['about/get']).toBeNull()
+    expect(store.getters['about/deployed']).toBeNull()
   })
 })

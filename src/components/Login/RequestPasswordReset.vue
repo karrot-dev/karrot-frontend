@@ -34,7 +34,7 @@
         <div class="actions">
           <q-btn
             type="button"
-            @click="$router.push({ name: 'login' })"
+            :to="{ name: 'login' }"
             flat
           >
             {{ $t('PASSWORDRESET.LOGIN') }}

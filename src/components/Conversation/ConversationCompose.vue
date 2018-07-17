@@ -1,9 +1,10 @@
 <template>
   <q-item multiline>
-    <q-item-side>
+    <q-item-side v-if="!slim">
       <ProfilePicture
         :user="user"
         :size="40"
+        style="margin-top: 36px"
       />
     </q-item-side>
     <q-item-main>
@@ -12,15 +13,23 @@
           :error="hasAnyError"
           :error-label="anyFirstError"
         >
-          <q-input
-            type="textarea"
-            rows="1"
-            v-model="message"
-            :placeholder="placeholder"
-            :after="[{icon: 'arrow_forward', content: true, handler: this.send }]"
-            :loading="isPending"
-            @keyup.ctrl.enter="send"
-          />
+          <component
+            :is="slim ? 'div' : 'MarkdownInput'"
+            :value="message"
+          >
+            <q-input
+              type="textarea"
+              rows="1"
+              autofocus
+              v-model="message"
+              :placeholder="placeholder"
+              :after="afterInput"
+              :loading="isPending"
+              :disable="isPending"
+              @keyup.ctrl.enter="submit"
+              @keyup.esc="leaveEdit"
+            />
+          </component>
         </q-field>
       </q-item-tile>
     </q-item-main>
@@ -31,34 +40,59 @@
 import ProfilePicture from '@/components/ProfilePictures/ProfilePicture'
 import { QItem, QItemMain, QInput, QField, QBtn, QItemSide, QItemTile } from 'quasar'
 import statusMixin from '@/mixins/statusMixin'
+import MarkdownInput from '@/components/MarkdownInput'
 
 export default {
   name: 'ConversationCompose',
-  components: { QItem, QField, QInput, QBtn, QItemMain, QItemSide, QItemTile, ProfilePicture },
+  components: { QItem, QField, QInput, QBtn, QItemMain, QItemSide, QItemTile, ProfilePicture, MarkdownInput },
   mixins: [statusMixin],
   props: {
     placeholder: {
       type: String,
-      default: 'placeholder',
+      default: '',
     },
     user: {
       type: Object,
-      required: true,
+      default: null,
+    },
+    value: {
+      type: String,
+      default: null,
+    },
+    slim: {
+      type: Boolean,
+      default: false,
     },
   },
   data () {
     return {
-      message: '',
+      message: (this.value) || '',
     }
   },
+  watch: {
+    value (val) {
+      if (val) this.message = val.content
+    },
+    isPending (val) {
+      if (!val && !this.hasAnyError) this.message = ''
+    },
+  },
   methods: {
-    send () {
-      this.$emit('send', this.message)
-      this.message = ''
+    submit () {
+      this.$emit('submit', this.message)
+    },
+    leaveEdit () {
+      this.$emit('leaveEdit')
+    },
+  },
+  computed: {
+    afterInput () {
+      let actions = [{ icon: 'fas fa-arrow-right', content: true, handler: this.submit }]
+      if (this.value) {
+        actions.push({ icon: 'fas fa-times', handler: this.leaveEdit })
+      }
+      return actions
     },
   },
 }
 </script>
-
-<style scoped lang="stylus">
-</style>

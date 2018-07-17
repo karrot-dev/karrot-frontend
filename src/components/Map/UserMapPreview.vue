@@ -16,7 +16,8 @@
 
 <script>
 import StandardMap from '@/components/Map/StandardMap'
-import L from 'leaflet'
+
+import { userMarker } from '@/components/Map/markers'
 
 export default {
   components: { StandardMap },
@@ -28,16 +29,7 @@ export default {
   },
   computed: {
     markers () {
-      return [{
-        latLng: L.latLng(this.user.latitude, this.user.longitude),
-        id: 'user_' + this.user.id,
-        icon: L.AwesomeMarkers.icon({
-          icon: 'user',
-          markerColor: 'green',
-          prefix: 'fa',
-        }),
-        popupcontent: `<a href="/#/user/${this.user.id}">${this.user.displayName}</a>`,
-      }]
+      return [userMarker(this.user)]
     },
   },
 }

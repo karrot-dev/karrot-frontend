@@ -53,9 +53,10 @@
             :error="hasAddressError"
             :error-label="addressError"
           >
-            <address-picker
+            <AddressPicker
               v-model="edit"
-              :map="true"
+              :color="markerColor"
+              font-icon="fas fa-shopping-cart"
             />
           </q-field>
 
@@ -129,7 +130,7 @@ import { validationMixin } from 'vuelidate'
 import editMixin from '@/mixins/editMixin'
 import statusMixin from '@/mixins/statusMixin'
 import { required, minLength, maxLength } from 'vuelidate/lib/validators'
-import { statusList } from '@/services/storeStatus'
+import { statusList, optionsFor } from '@/services/storeStatus'
 
 export default {
   name: 'StoreEdit',
@@ -152,6 +153,14 @@ export default {
   },
   components: {
     QCard, QDatetime, QField, QSlider, QOptionGroup, QInput, QBtn, QSelect, MarkdownInput, StandardMap, AddressPicker,
+  },
+  mounted () {
+    if (this.$route && this.$route.query) this.setLocation(this.$route.query)
+  },
+  watch: {
+    '$route.query' (val) {
+      if (val) this.setLocation(val)
+    },
   },
   computed: {
     canSave () {
@@ -194,11 +203,27 @@ export default {
           icon: s.icon,
         }))
     },
+    markerColor () {
+      if (this.edit) return optionsFor(this.edit).color
+    },
   },
   methods: {
+    setLocation ({ lat, lng }) {
+      if (this.isNew) {
+        if (!isNaN(lat) && !isNaN(lng)) {
+          this.edit.latitude = lat
+          this.edit.longitude = lng
+        }
+        else {
+          this.edit.latitude = undefined
+          this.edit.longitude = undefined
+        }
+      }
+    },
     maybeSave () {
       this.$v.edit.$touch()
       if (!this.canSave) return
+      this.$v.edit.$reset()
       this.save()
     },
     archive (event) {
@@ -220,9 +245,9 @@ export default {
         maxLength: maxLength(80),
         isUnique (value) {
           if (value === '') return true
-          return this.allStores
+          return !this.allStores
             .filter(e => e.id !== this.edit.id)
-            .findIndex(e => e.name === value) < 0
+            .find(e => e.name === value)
         },
       },
     },

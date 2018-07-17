@@ -1,5 +1,5 @@
 import KBreadcrumb from './KBreadcrumb'
-import MockRouterLink from '>/MockRouterLink'
+import { RouterLinkStub } from '@vue/test-utils'
 import { mountWithDefaults } from '>/helpers'
 
 describe('KBreadcrumb', () => {
@@ -21,7 +21,7 @@ describe('KBreadcrumb', () => {
     })
     expect(wrapper.text()).toMatch('Some Name')
     expect(wrapper.text()).toMatch('Last Name')
-    expect(wrapper.findAll(MockRouterLink).length).toBe(2)
+    expect(wrapper.findAll(RouterLinkStub).length).toBe(2)
   })
 
   it('does not render a link for the last item', () => {

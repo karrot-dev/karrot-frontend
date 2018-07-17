@@ -1,7 +1,7 @@
 <template>
   <q-toolbar>
     <router-link
-      :to="{name: 'group'}"
+      :to="'/'"
       class="logo"
     >
       <KarrotLogo />

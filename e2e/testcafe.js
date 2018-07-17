@@ -20,6 +20,7 @@ const browsers = isCI ? [
     .screenshots('e2e-screenshots')
     .run({
       debugOnFail: !isCI,
+      skipJsErrors: true,
     })
 
   console.log('Tests failed: ' + failedCount)

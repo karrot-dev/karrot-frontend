@@ -10,6 +10,7 @@ import { mountWithDefaults, polyfillRequestAnimationFrame } from '>/helpers'
 
 const defaultProps = {
   data: {
+    id: 12,
     messages: messagesMock,
     sendStatus: { pending: false },
     fetchStatus: { pending: false, hasValidationErrors: false },
@@ -43,6 +44,6 @@ describe('Conversation', () => {
     // Would be nicer to directly put the message into the QInput but did not find a way yet
     wrapper.find(ConversationCompose).setData({ message })
     wrapper.find('.q-if-control').trigger('click')
-    expect(wrapper.emitted().send[0]).toEqual([message])
+    expect(wrapper.emitted().send[0]).toEqual([{ id: defaultProps.data.id, content: message }])
   })
 })

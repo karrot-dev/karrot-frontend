@@ -1,7 +1,7 @@
 <template>
   <div>
     <q-card class="no-shadow no-padding grey-border">
-      <div class="generic-padding">
+      <div class="generic-padding relative-position">
         <div class="actionButtons">
           <router-link
             v-if="feedbackPossibleFiltered.length > 0"
@@ -18,41 +18,78 @@
             </q-btn>
           </router-link>
         </div>
-        <span v-if="feedback && feedback.length !== 0">
-          {{ $tc('FEEDBACKLIST.SAVED_FOOD', totalAmount, { amount: totalAmount }) }}
+        <div
+          v-if="statistics"
+          class="infoChips row no-wrap"
+        >
+          <q-chip
+            icon="fas fa-shopping-basket"
+            color="secondary"
+            square
+            :title="$t('FEEDBACKLIST.NUMBER_PICKUPS', { count: statistics.pickupsDone })"
+          >
+            <strong>{{ statistics.pickupsDone }}</strong>
+          </q-chip>
+          <q-chip
+            v-if="statistics.feedbackCount > 0"
+            icon="fas fa-balance-scale"
+            color="secondary"
+            square
+            :title="$t('FEEDBACKLIST.NUMBER_FEEDBACK', { count: statistics.feedbackCount })"
+          >
+            <strong>{{ statistics.feedbackCount }}</strong>
+          </q-chip>
+          <q-chip
+            v-if="statistics.feedbackWeight > 0"
+            icon="fas fa-weight"
+            color="secondary"
+            square
+            :title="$t('FEEDBACKLIST.WEIGHT_SUM', { sum: statistics.feedbackWeight })"
+          >
+            <strong>{{ statistics.feedbackWeight }}&nbsp;kg</strong>
+          </q-chip>
+        </div>
+        <span v-if="statistics && statistics.feedbackWeight > 0">
+          {{ $tc('FEEDBACKLIST.SAVED_FOOD', 2, { amount: statistics.feedbackWeight }) }}
         </span>
       </div>
     </q-card>
     <FeedbackList
       :feedback="feedback"
       :status="fetchStatus"
+      :has-more="hasMore"
+      :fetch-more="fetchMore"
     />
   </div>
 </template>
 
 <script>
 import FeedbackList from '@/components/Statistics/FeedbackList'
-import { QCard, QTooltip, QBtn } from 'quasar'
+import { QCard, QTooltip, QBtn, QChip } from 'quasar'
 
 import {
   mapGetters,
+  mapActions,
 } from 'vuex'
 
 export default {
-  components: { FeedbackList, QCard, QTooltip, QBtn },
+  components: { FeedbackList, QCard, QTooltip, QBtn, QChip },
   computed: {
     ...mapGetters({
-      feedback: 'feedback/filtered',
+      store: 'stores/activeStore',
+      feedback: 'feedback/all',
       fetchStatus: 'feedback/fetchStatus',
+      hasMore: 'feedback/pagination/hasMore',
       feedbackPossibleFiltered: 'pickups/feedbackPossibleFiltered',
     }),
-    totalAmount () {
-      let amount = 0
-      for (let fb in this.feedback) {
-        amount += this.feedback[fb].weight
-      }
-      return amount
+    statistics () {
+      return this.store && this.store.statistics
     },
+  },
+  methods: {
+    ...mapActions({
+      fetchMore: 'feedback/fetchMore',
+    }),
   },
 }
 </script>
@@ -65,6 +102,9 @@ export default {
   float right
   .q-btn
     margin 3px
-.textcontent
-  margin-top 0
+.infoChips
+  padding-bottom 15px
+  .q-chip
+    margin-right 8px
+    padding 2px 16px
 </style>

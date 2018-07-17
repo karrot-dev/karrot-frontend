@@ -14,9 +14,8 @@
         <q-icon
           :name="store.ui.icon"
           :color="store.ui.color"
-        >
-          <q-tooltip v-t="store.ui.label" />
-        </q-icon>
+          :title="$t(store.ui.label)"
+        />
       </q-item-side>
       <q-item-main>
         <q-item-tile label>

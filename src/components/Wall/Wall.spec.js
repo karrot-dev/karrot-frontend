@@ -1,4 +1,5 @@
-import Wall from './Wall'
+jest.mock('@/store/plugins/i18n')
+
 import { currentUserMock } from '>/mockdata'
 
 import { mountWithDefaults, polyfillRequestAnimationFrame } from '>/helpers'
@@ -16,6 +17,7 @@ const defaultProps = {
   joinedPickups: [],
   availablePickups: [],
   feedbackPossible: [],
+  refresh: jest.fn(),
 }
 
 polyfillRequestAnimationFrame()
@@ -23,9 +25,10 @@ polyfillRequestAnimationFrame()
 describe('Wall', () => {
   beforeEach(() => jest.resetModules())
   it('renders', () => {
+    const Wall = require('./Wall')
     let wrapper = mountWithDefaults(Wall, {
       propsData: defaultProps,
     })
-    expect(wrapper.element.className).toBe('wrapper')
+    expect(wrapper.element.children[0].className).toBe('wrapper')
   })
 })

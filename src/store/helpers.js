@@ -123,7 +123,7 @@ export function createMetaModule () {
 export function withMeta (actions, { namespace = 'meta', idPrefix = '', findId = defaultFindId } = {}) {
   const wrappedActions = {}
   for (const [actionName, action] of Object.entries(actions)) {
-    wrappedActions[actionName] = wrapAction({ namespace, actionName, action, findId })
+    wrappedActions[actionName] = wrapAction({ namespace, actionName, action, idPrefix, findId })
   }
   return wrappedActions
 }
@@ -197,6 +197,13 @@ export function metaStatuses (actions) {
 export function createRouteError (data) {
   return Object.assign(new Error(), {
     type: 'RouteError',
+    data,
+  })
+}
+
+export function createRouteRedirect (data) {
+  return Object.assign(new Error(), {
+    type: 'RouteRedirect',
     data,
   })
 }

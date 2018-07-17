@@ -2,7 +2,7 @@
   <q-toolbar color="primary">
     <slot />
     <router-link
-      :to="{name: 'group'}"
+      :to="'/'"
       v-if="!$q.platform.is.mobile"
       class="logo"
     >
@@ -27,15 +27,10 @@
         class="searchbar row no-wrap"
         v-if="searchOpen"
       >
-        <q-btn
-          flat
-          dense
-          color="primary"
-          @click="$emit('hideSearch')"
-        >
-          <q-icon name="fas fa-fw fa-times"/>
-        </q-btn>
-        <Search style="margin-top: .2em; vertical-align: middle; width: 100%"/>
+        <Search
+          style="margin-top: 6px; margin-left: 6px; vertical-align: middle; width: 100%"
+          @clear="$emit('hideSearch')"
+        />
       </div>
     </transition>
     <q-btn
@@ -93,7 +88,6 @@
         round
       >
         <q-icon name="fas fa-ellipsis-v" />
-        <q-tooltip v-t="'BUTTON.MORE_OPTIONS'" />
         <q-popover
           :touch-position="false"
           fit
@@ -189,7 +183,7 @@ export default {
         }
       }
       return {
-        color: 'green',
+        color: 'secondary',
         icon: 'fas fa-circle',
       }
     },

@@ -41,14 +41,16 @@ export default {
   actions: {
     ...withMeta({
       async fetchFiltered ({ state, dispatch, commit }, { filters, scope }) {
-        // only clear and refetch if scope changed
+        // only clear if scope changed
         const {type, id} = state.idListScope
         if (scope.type !== type || scope.id !== id) {
           dispatch('clear')
           commit('setScope', scope)
-          const data = await historyAPI.list(filters)
-          commit('update', { entries: data.results, cursor: data.next })
         }
+        const data = await historyAPI.list(filters)
+        // check for race condition when switching pages
+        if (scope.type !== state.idListScope.type || scope.id !== state.idListScope.id) return
+        commit('update', { entries: data.results, cursor: data.next })
       },
       async fetchById ({ commit, state }, id) {
         // add entry by ID, not add to list
@@ -57,7 +59,10 @@ export default {
       },
       async fetchMore ({ state, commit }) {
         if (!state.cursor) return
+        const {type, id} = state.idListScope
         const data = await historyAPI.listMore(state.cursor)
+        // check for race condition when switching pages
+        if (type !== state.idListScope.type || id !== state.idListScope.id) return
         commit('update', { entries: data.results, cursor: data.next })
       },
 

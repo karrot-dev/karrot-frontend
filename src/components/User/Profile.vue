@@ -1,7 +1,7 @@
 <template>
   <div>
     <div class="row margin-sides no-wrap">
-      <div class="">
+      <div>
         <transition
           duration="510"
           name="turn-in"
@@ -25,9 +25,9 @@
             :key="group.id"
           >
             <router-link :to="{name: 'group', params: { groupId: group.id }}">
-              {{ group.name }}
-            </router-link>
-            <span v-if="groups.length !== indx + 1">,</span>
+              {{ group.name }}<!--
+            --></router-link><!--
+            --><span v-if="groups.length !== indx + 1">,</span>
           </span>
         </p>
       </div>
@@ -59,7 +59,20 @@
               small
               round
               color="secondary"
-              @click="$router.push({ name: 'settings' })"
+              :to="{ name: 'settings' }"
+            />
+          </q-item-side>
+          <q-item-side
+            v-else
+            right
+          >
+            <q-btn
+              small
+              round
+              color="secondary"
+              icon="fas fa-comments"
+              class="hoverScale"
+              @click="$emit('detail', user)"
             />
           </q-item-side>
         </q-item>

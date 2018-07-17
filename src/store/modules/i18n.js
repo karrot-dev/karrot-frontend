@@ -1,15 +1,30 @@
+import locales from '@/locales'
+
 export const DEFAULT_LOCALE = 'en'
 
 export function detectLocale () {
-  // Based on https://angular-translate.github.io/docs/#/guide/07_multi-language#multi-language_determining-preferred-language-automatically
-  let val =
-    (navigator.languages && navigator.languages[0]) ||
-    navigator.language ||
-    navigator.browserLanguage ||
-    navigator.systemLanguage ||
-    navigator.userLanguage
-  if (val) {
-    return val.replace(/-.*$/, '')
+  let requested = []
+  if (navigator.languages) {
+    navigator.languages.forEach(e => {
+      requested.push(e.toLowerCase())
+      // detect similar languages with slightly less priority
+      if (e.includes('-')) {
+        requested.push(e.replace(/-.*$/, '').toLowerCase())
+      }
+    })
+  }
+  else {
+    let val =
+      navigator.language ||
+      navigator.browserLanguage ||
+      navigator.systemLanguage ||
+      navigator.userLanguage
+    if (val) {
+      requested = [val.toLowerCase()]
+    }
+  }
+  if (requested) {
+    return requested.find(e => locales[e])
   }
 }
 
@@ -28,7 +43,7 @@ export default {
   actions: {
     async setLocale ({ commit, dispatch, rootGetters }, locale) {
       if (rootGetters['auth/isLoggedIn']) {
-        dispatch('auth/backgroundSave', { language: locale }, { root: true })
+        dispatch('auth/maybeBackgroundSave', { language: locale }, { root: true })
       }
       commit('set', locale)
     },

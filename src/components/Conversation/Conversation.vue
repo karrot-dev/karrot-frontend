@@ -1,49 +1,27 @@
 <template>
-  <div>
+  <div v-if="data">
     <q-alert v-if="data.fetchStatus.hasValidationErrors">
       {{ data.fetchStatus.validationErrors }}
     </q-alert>
-    <template v-if="hasLoaded">
-      <q-infinite-scroll
-        :handler="loadMore"
+    <q-infinite-scroll
+      :handler="loadMore"
+    >
+      <q-list
+        class="bg-white desktop-margin relative-position"
       >
-        <q-list
-          class="bg-white desktop-margin"
-        >
-          <q-btn
-            v-if="!user.mailVerified"
+        <template v-if="hasLoaded">
+          <NotificationToggle
+            :value="data.emailNotifications"
+            :user="user"
             class="actionButton hoverScale"
-            round
-            color="negative"
-            @click="$router.push({ name: 'settings', hash: '#change-email' })"
-          >
-            <q-icon
-              name="fas fa-exclamation-triangle"
-            />
-            <q-tooltip v-t="'WALL.VERIFY_EMAIL_FOR_NOTIFICATIONS'" />
-          </q-btn>
-          <q-btn
-            v-else
-            class="actionButton hoverScale"
-            round
-            :color="data.emailNotifications ? 'secondary' : 'negative'"
             @click="toggleNotifications"
-          >
-            <q-icon
-              v-if="data.emailNotifications === true"
-              name="fas fa-bell"
-            />
-            <q-icon
-              v-else
-              name="fas fa-bell-slash"
-            />
-            <q-tooltip v-t="data.emailNotifications ? 'WALL.DISABLE_NOTIFICATION_EMAILS' : 'WALL.ENABLE_NOTIFICATION_EMAILS'" />
-          </q-btn>
+          />
           <ConversationCompose
             :status="data.sendStatus"
-            @send="$emit('send', arguments[0])"
+            @submit="$emit('send', { id: data.id, content: arguments[0] })"
             :placeholder="messagePrompt"
             :user="user"
+            :slim="$q.platform.is.mobile"
           />
           <q-alert
             v-if="data.unreadMessageCount > 0"
@@ -53,7 +31,7 @@
             {{ $tc('CONVERSATION.UNREAD_MESSAGES', data.unreadMessageCount, { count: data.unreadMessageCount }) }}
             <q-btn
               no-caps
-              @click="$emit('markAllRead')"
+              @click="$emit('markAllRead', data.id)"
               v-t="'CONVERSATION.MARK_READ'"
             />
           </q-alert>
@@ -62,62 +40,64 @@
             :key="message.id"
             :message="message"
             @toggleReaction="$emit('toggleReaction', arguments[0])"
+            @save="$emit('saveMessage', arguments[0])"
           />
-        </q-list>
+        </template>
         <div
-          slot="message"
-          style="width: 100%; text-align: center"
-        >
+          v-if="data.fetchStatus.pending || data.fetchMoreStatus.pending"
+          style="width: 100%; text-align: center">
           <q-spinner-dots :size="40"/>
         </div>
-      </q-infinite-scroll>
-      <q-alert v-if="data.fetchMoreStatus.hasValidationErrors">
-        {{ data.fetchMoreStatus.validationErrors }}
-      </q-alert>
-    </template>
+      </q-list>
+    </q-infinite-scroll>
+    <q-alert v-if="data.fetchMoreStatus.hasValidationErrors">
+      {{ data.fetchMoreStatus.validationErrors }}
+    </q-alert>
   </div>
 </template>
 
 <script>
 import ConversationMessage from './ConversationMessage'
 import ConversationCompose from './ConversationCompose'
-import { QBtn, QInfiniteScroll, QSpinnerDots, QList, QAlert, QItem, QIcon, QTooltip } from 'quasar'
+import NotificationToggle from './NotificationToggle'
+import { QBtn, QInfiniteScroll, QSpinnerDots, QList, QAlert, QItem } from 'quasar'
 
 export default {
   name: 'Conversation',
   components: {
     ConversationMessage,
     ConversationCompose,
+    NotificationToggle,
     QBtn,
     QInfiniteScroll,
     QSpinnerDots,
     QList,
     QAlert,
     QItem,
-    QIcon,
-    QTooltip,
   },
   props: {
     data: {
       type: Object,
-      required: true,
+      default: null,
     },
     fetchMore: {
       type: Function,
-      required: true,
+      default: null,
     },
     user: {
       type: Object,
-      default: () => ({}),
+      default: null,
     },
   },
   methods: {
-    loadMore (index, done) {
-      if (!this.data.canLoadMore) {
+    async loadMore (index, done) {
+      if (!this.data || !this.fetchMore || !this.data.canLoadMore) {
+        await this.$nextTick()
         done()
         return
       }
-      this.fetchMore().then(done)
+      await this.fetchMore(this.data.id)
+      done()
     },
     toggleNotifications () {
       this.$emit('toggleEmailNotifications', {
@@ -128,10 +108,12 @@ export default {
   },
   computed: {
     hasLoaded () {
+      if (!this.data) return false
       const s = this.data.fetchStatus
       return !s.pending && !s.hasValidationErrors
     },
     messagePrompt () {
+      if (!this.data) return ''
       if (this.data.messages.length > 0) {
         return this.$t('WALL.WRITE_MESSAGE')
       }
@@ -145,7 +127,8 @@ export default {
 
 <style scoped lang="stylus">
 .actionButton
-  float right
-  margin-top -25px
-  margin-right 5px
+  z-index 1
+  position absolute
+  top -24px
+  right 6px
 </style>

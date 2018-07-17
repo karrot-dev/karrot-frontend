@@ -1,101 +1,81 @@
 <template>
-  <div class="footer bg-neutral font-primary">
-    <div
-      style="margin-top: 5em"
-      class="footer-max-width row generic-padding"
-    >
-      <div
-        class="generic-padding col-md-4"
-        style="margin-top: -5em; text-align: center;"
-      >
-        <img
-          class="shadow"
-          src="~@/assets/carrot-logo.svg"
-        >
-      </div>
-      <div class="column col-md-4">
-        <div>
-          <a href="https://github.com/yunity/karrot-frontend">
-            <i class="fab fa-fw fa-github on-left" />
-            {{ $t('GLOBAL.GITHUB_NOTE') }}
-          </a>
-        </div>
-        <div>
-          <a href="https://foodsaving.world">
-            <i class="fas fa-fw fa-globe on-left" />
-            {{ $t('GLOBAL.FSWW_NOTE') }}
-          </a>
-        </div>
-        <div>
-          <a href="https://www.facebook.com/groups/foodsaving.worldwide/">
-            <i class="fab fa-fw fa-facebook on-left" />
-            {{ $t('GLOBAL.FACEBOOK_NOTE') }}
-          </a>
-        </div>
-        <div>
-          <a href="mail:karrot@foodsaving.world">
-            <i class="fas fa-fw fa-envelope on-left"/>
-            karrot@foodsaving.world
-          </a>
-        </div>
-      </div>
-      <div class="column col-md-4">
-        <hr
-          style="width: 3em"
-          class="lt-md"
-        >
-        <div>
-          karrot
-          <a
-            v-if="release"
-            :href="release.link">
-            {{ release.name }}
-          </a>
-        </div>
-        <div>
-          made with
-          <i class="fas fa-heart" />
-          by
-          <a href="https://foodsaving.world">
-            foodsaving worldwide
-          </a>
-        </div>
+  <div class="footer row">
+    <div class="k-logo-container col-xl-1 col-xs-4">
+      <div>
+        <router-link :to="'/'">
+          <KarrotLogo/>
+        </router-link>
       </div>
     </div>
+    <small class="row group col-xl-4 col-xs-8">
+      <span>
+        karrot
+        <a
+          v-if="release"
+          :href="release.link">
+          {{ release.name }}
+        </a>
+        &mdash; made with
+        <i class="fas fa-heart" />
+        by
+        <a href="https://foodsaving.world">
+          foodsaving worldwide
+        </a>
+      </span>
+    </small>
+    <small class="row justify-center group col-xl-7 col-xs-12">
+      <a href="https://github.com/yunity/karrot-frontend">
+        <i class="fab fa-fw fa-github" />
+        {{ $t('GLOBAL.GITHUB_NOTE') }}
+      </a>
+      <a href="https://foodsaving.world">
+        <i class="fas fa-fw fa-globe" />
+        {{ $t('GLOBAL.FSWW_NOTE') }}
+      </a>
+      <a href="https://community.foodsaving.world/">
+        <i class="fab fa-fw fa-discourse" />
+        {{ $t('GLOBAL.COMMUNITY_NOTE') }}
+      </a>
+      <a href="mail:karrot@foodsaving.world">
+        <i class="fas fa-fw fa-envelope"/>
+        karrot@foodsaving.world
+      </a>
+    </small>
   </div>
 </template>
 
 <script>
+import KarrotLogo from './KarrotLogo'
 import { QBtn, QIcon, QList, QItem } from 'quasar'
-import { mapActions, mapGetters } from 'vuex'
+import { mapGetters } from 'vuex'
 
 export default {
   components: {
-    QBtn, QIcon, QList, QItem,
+    KarrotLogo, QBtn, QIcon, QList, QItem,
   },
   computed: {
     ...mapGetters({
-      about: 'about/get',
+      deployed: 'about/deployed',
+      sha: 'about/ourSHA',
     }),
     release () {
       if (process.env.NODE_ENV === 'development') {
         return {
           link: '',
-          name: 'local dev version',
+          name: 'local dev',
         }
       }
-      if (this.about) {
-        if (this.about.env === 'production') {
+      if (this.deployed) {
+        if (this.deployed.env === 'production') {
           return {
             link: 'https://github.com/yunity/karrot-frontend/blob/master/CHANGELOG.md',
-            name: 'Release 4',
+            name: `Release ${this.deployed.date}`,
           }
         }
-        if (this.about.env === 'development') {
-          const sha = this.about.commitSHA
+        if (this.deployed.env === 'development') {
           return {
-            link: `https://github.com/yunity/karrot-frontend/tree/${sha}`,
-            name: 'beta version',
+            link: `https://github.com/yunity/karrot-frontend/tree/${this.sha}`,
+            name: `Testing ${this.deployed.date}`,
           }
         }
       }
@@ -107,34 +87,27 @@ export default {
       }
     },
   },
-  methods: {
-    ...mapActions({
-      fetchAbout: 'about/fetch',
-    }),
-  },
-  mounted () {
-    this.fetchAbout()
-  },
 }
 </script>
 
 <style scoped lang="stylus">
 @import '~variables'
-  .footer
-    width: 100%
-    margin: 0 auto
-    min-height 10em
-    img
-      height 10em
-      margin 0 1em 0em 0
-    .column div
-      margin .5em
-    .footer-max-width
-      max-width 60em
-      margin: 0 auto
-    .shadow
-      filter: drop-shadow(0px 1px 1px rgba(0,0,0,.7) )
-    @media (max-width: $breakpoint-sm)
-      text-align center
-
+.footer
+  padding-top 10px
+  padding-bottom 10px
+  a
+    color $secondary
+    i
+      color black
+  background-color rgba(255, 255, 255, 0.8)
+  width 100%
+.k-logo-container
+  position relative
+  height 55px
+  > div
+    position absolute
+    top -20px
+    left 20px
+    height 80px
+    filter: drop-shadow(0px 1px 1px rgba(0,0,0,.7) )
 </style>

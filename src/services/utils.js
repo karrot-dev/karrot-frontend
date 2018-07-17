@@ -1,5 +1,18 @@
 import deepEqual from 'deep-equal'
 
+// Quasar's ready() is broken until https://github.com/quasarframework/quasar/pull/2199
+export function ready (fn) {
+  if (typeof fn !== 'function') {
+    return
+  }
+
+  if (document.readyState !== 'loading') {
+    return fn()
+  }
+
+  document.addEventListener('DOMContentLoaded', fn, false)
+}
+
 export function camelizeKeys (val) {
   if (isObject(val)) {
     if (Array.isArray(val)) {

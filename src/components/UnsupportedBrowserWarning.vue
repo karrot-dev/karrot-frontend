@@ -21,16 +21,21 @@
 </template>
 
 <script>
-import browser from 'browser-detect'
-
 export default {
   computed: {
     unsupportedBrowser () {
-      const result = browser()
-      if (result.name === 'safari' && result.versionNumber < 9.1) {
+      const {
+        cordova,
+        safari,
+        ie,
+        versionNumber,
+      } = this.$q.platform.is
+
+      if (cordova) return false
+      if (safari && versionNumber < 9.1) {
         return true
       }
-      else if (result.name === 'ie' && result.versionNumber < 11) {
+      else if (ie && versionNumber < 11) {
         return true
       }
       return false

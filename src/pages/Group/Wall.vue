@@ -7,19 +7,22 @@ export default connect({
     joinedPickups: 'pickups/joined',
     availablePickups: 'pickups/available',
     feedbackPossible: 'pickups/feedbackPossible',
-    conversation: 'conversations/active',
+    conversation: 'currentGroup/conversation',
     user: 'auth/user',
   },
   actionsToEvents: {
     join: 'pickups/join',
     leave: 'pickups/leave',
-    send: 'conversations/sendInActiveConversation',
-    markAllRead: 'conversations/markAllReadInActiveConversation',
+    detail: 'detail/openForPickup',
+    send: 'conversations/send',
+    saveMessage: 'conversations/saveMessage',
+    markAllRead: 'conversations/markAllRead',
     toggleEmailNotifications: 'conversations/maybeToggleEmailNotifications',
     toggleReaction: 'conversations/toggleReaction',
   },
   actionsToProps: {
-    fetchMore: 'conversations/fetchMoreForActiveConversation',
+    fetchMore: 'conversations/fetchMore',
+    refresh: 'refresh/refresh',
   },
 })('GroupWall', Wall)
 </script>

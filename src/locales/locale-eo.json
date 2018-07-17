@@ -2,7 +2,7 @@
   "GLOBAL": {
     "GITHUB_NOTE": "Ellaboro",
     "FSWW_NOTE": "Read our info page!",
-    "FACEBOOK_NOTE": "Join our Facebook Group!",
+    "COMMUNITY_NOTE": "Join our community!",
     "WARNING": "Averto",
     "BETA_WARNING": "Ĉi tiu retpaĝo estas sub aktiva ellaboro kaj ĉio povas ŝanĝiĝi. Ni ne povas certigi la sekurecon kaj privatecon de via enigitaj datenoj (sed ni klopodas tiel bone kiel eble)",
     "CONNECTION_INTERRUPTED": "Eraro: aliro interrompita!",
@@ -21,6 +21,8 @@
     "PHOTO": "Profile photo",
     "SET_PHOTO": "Set your profile photo...",
     "ACCOUNT": "Account",
+    "PUSH": "Push notifications",
+    "PUSH_CURRENT_BROWSER": "Current browser",
     "REQUEST_DELETE_ACCOUNT": {
       "SUCCESS": "We sent you an e-mail with a link to complete the deletion process."
     },
@@ -43,7 +45,6 @@
     "LEAVE": "Eliri",
     "PREVIEW": "Antaŭvido",
     "BACK": "Back",
-    "MORE_OPTIONS": "More options",
     "SEARCH": "Search",
     "OF_COURSE": "Yes, of course!",
     "YES": "Yes",
@@ -82,7 +83,11 @@
     "PUBLIC_DESCRIPTION": "Teksto videbla antaŭ aliĝi al la grupo",
     "PASSWORD": "Entajpi pasvorton ĉi tien se vi volas privatigi la grupon",
     "PICKUPS": "Kolektoj",
+    "PICKUP": "Pickup",
     "MEMBERS": "Anoj",
+    "JOINED": "joined {relativeDate}",
+    "SORT_JOINDATE": "Sort by join date",
+    "SORT_NAME": "Sort by name",
     "INACTIVE": "Inactive",
     "SHOW_INACTIVE": "Show inactive groups",
     "STORES": "Vendejoj",
@@ -112,7 +117,8 @@
       }
     },
     "PLAYGROUND_INFO": "This is a playground group, you can't break anything. Explore, click around and have fun!",
-    "JOIN_PLAYGROUND": "Join the playground group to explore karrot"
+    "JOIN_PLAYGROUND": "Join the playground group to explore karrot",
+    "JOIN_ANOTHER_GROUP": "Join another group"
   },
   "GROUPMAP": {
     "TITLE": "Map",
@@ -120,6 +126,8 @@
     "HIDE_USERS": "Hide users",
     "SHOW_STORES": "Show stores",
     "HIDE_STORES": "Hide stores",
+    "SHOW_GROUPS": "Show groups",
+    "HIDE_GROUPS": "Hide groups",
     "SET_LOCATION": "Set location",
     "FULL_SCREEN": "Show full screen"
   },
@@ -261,7 +269,10 @@
     "STORE_NONE_HINT": "You can create a new pickup on the pickup manage page."
   },
   "FEEDBACKLIST": {
-    "SAVED_FOOD": "At least 1kg was saved here. Thank you! | People gave feedback for {amount}kg of saved food already! Keep up the great work!",
+    "SAVED_FOOD": "At least 1 kg was saved here. Thank you! | People gave feedback for {amount} kg of saved food already! Keep up the great work!",
+    "NUMBER_PICKUPS": "{count} pickups done",
+    "NUMBER_FEEDBACK": "{count} feedback entries given",
+    "WEIGHT_SUM": "{sum} kg of food saved",
     "GIVE_FEEDBACK": "Give feedback",
     "NONE": "No feedback yet",
     "NONE_HINT": "This page will be filled once more feedback is available",
@@ -273,8 +284,9 @@
     "HEADER": "Thank you for your pickup!",
     "EDIT": "Edit feedback",
     "SUBTITLE": "You can provide feedback for your pickup here",
+    "SET_AMOUNT": "Set amount",
+    "DELETE_AMOUNT": "Delete amount",
     "AMOUNT": "Amount of food all of you were able to save (in kg)",
-    "COMMENT": "Comment",
     "COMMENT_PLACEHOLDER": "Was everything fine? Did everyone show up? Your comment here...",
     "PREVIOUS": "Previous feedback for {store}"
   },
@@ -333,7 +345,18 @@
     "NOT_VERIFIED": "{email} not verified",
     "CHECK_YOUR_MAILS": "Please check your emails or {resend}",
     "RESEND_VERIFICATION": "resend verification email",
-    "VERIFICATION_EMAIL_SENT": "We sent you another verification mail. Please check your inbox."
+    "VERIFICATION_EMAIL_SENT": "We sent you another verification mail. Please check your inbox.",
+    "CHANGES_SAVED": "Your changes have been saved.",
+    "CHANGES_ERROR": "An error occured. Try again later.",
+    "EMAIL_NOT_DELIVERED": "An email could not be delivered to you | {count} emails could not be delivered to you"
+  },
+  "OUTDATED_BROWSER": {
+    "MESSAGE": "You are using an unsupported browser. {upgradeBrowser} to enjoy all features.",
+    "LINK": "Please update or switch your browser"
+  },
+  "UPDATE_AVAILABLE": {
+    "TITLE": "Update available",
+    "DETAIL": "A new version of karrot is available."
   },
   "NOT_FOUND": {
     "EXPLANATION": "Sorry, we couldn't find this page anywhere.",
@@ -376,7 +399,9 @@
     "RECEIVED_VIA_EMAIL": "This message was sent via e-mail"
   },
   "CONVERSATION": {
+    "OPEN": "Open Chat",
     "UNREAD_MESSAGES": "You have one unread message. | You have {count} unread messages.",
+    "EDITED": "edited",
     "MARK_READ": "Mark all as read",
     "REACTIONS": {
       "YOU": "you",

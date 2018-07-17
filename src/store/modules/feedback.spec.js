@@ -56,10 +56,11 @@ describe('feedback module', () => {
     const changed = { ...feedback1, comment: 'new comment' }
     const groupId = 1
     const userId = 1
-    mockPickupGet.mockReturnValueOnce({ store: { group: groupId } })
+    mockPickupGet.mockReturnValueOnce({ store: { group: { id: groupId } } })
     currentGroup.getters.id.mockReturnValueOnce(groupId)
     auth.getters.userId.mockReturnValueOnce(userId)
 
+    store.commit('feedback/setScope', { type: 'group', id: groupId })
     await store.dispatch('feedback/update', changed)
     expect(store.getters['feedback/get'](changed.id).comment).toEqual(changed.comment)
   })

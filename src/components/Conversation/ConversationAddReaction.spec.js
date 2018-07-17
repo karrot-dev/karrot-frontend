@@ -1,4 +1,4 @@
-import ConversationAddReaction from './ConversationAddReaction'
+import ConversationAddReactionInner from './ConversationAddReactionInner'
 import { mountWithDefaults } from '>/helpers'
 import EmojiButton from './EmojiButton'
 
@@ -7,7 +7,7 @@ describe('Conversation message reactions', () => {
   let wrapper
 
   beforeEach(() => {
-    wrapper = mountWithDefaults(ConversationAddReaction, {
+    wrapper = mountWithDefaults(ConversationAddReactionInner, {
       propsData: {
         reacted: ['thumbsup'],
       },

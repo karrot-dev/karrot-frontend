@@ -12,6 +12,7 @@ if [ -z "$REF" ] || [ -z "$DIR" ]; then
   exit 1
 fi
 
+ISO_DATE=$(date -Idate)
 REPO_URL="https://github.com/yunity/karrot-frontend"
 COMMIT_SHA=$(git rev-parse HEAD)
 COMMIT_SHA_SHORT=$(git rev-parse --short HEAD)
@@ -23,6 +24,7 @@ if [ "$DIR" == "release" ]; then
   DEPLOY_ENV="production"
   DEPLOY_EMOJI=":rocket:"
   URL="https://karrot.world"
+  APK_URL="https://karrot.world/app.apk"
 
 elif [ "$REF" == "master" ]; then
 
@@ -31,6 +33,7 @@ elif [ "$REF" == "master" ]; then
   DEPLOY_ENV="development"
   DEPLOY_EMOJI=":beer:"
   URL="https://dev.karrot.world"
+  APK_URL="https://dev.karrot.world/app.apk"
   STORYBOOK_URL="https://storybook.karrot.world"
   DEPLOY_DOCS="true"
 
@@ -55,8 +58,10 @@ about_json=$(printf '{
     "commitSHA": "%s",
     "commitSHAShort": "%s",
     "ref": "%s",
-    "env": "%s"
-  }' "$COMMIT_SHA" "$COMMIT_SHA_SHORT" "$REF" "$DEPLOY_ENV")
+    "env": "%s",
+    "apkUrl": "%s",
+    "date": "%s"
+  }' "$COMMIT_SHA" "$COMMIT_SHA_SHORT" "$REF" "$DEPLOY_ENV" "$APK_URL" "$ISO_DATE")
 
 echo "$about_json" > dist/about.json
 echo "$about_json" > storybook-static/about.json

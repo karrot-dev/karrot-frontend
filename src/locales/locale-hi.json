@@ -2,7 +2,7 @@
   "GLOBAL": {
     "GITHUB_NOTE": "विकास",
     "FSWW_NOTE": "Read our info page!",
-    "FACEBOOK_NOTE": "हमारे फेसबुक समूह में शामिल हो",
+    "COMMUNITY_NOTE": "Join our community!",
     "WARNING": "चेतावनी",
     "BETA_WARNING": "यह वेबसाइट सक्रिय विकास के अधीन है और सब कुछ परिवर्तन के अधीन है। हम आपके द्वारा दर्ज किए गए डेटा की सुरक्षा और गोपनीयता की गारंटी नहीं दे सकते (लेकिन हम अपनी पूरी कोशिश करें)।",
     "CONNECTION_INTERRUPTED": "त्रुटि: कनेक्शन बाधित!",
@@ -21,6 +21,8 @@
     "PHOTO": "पार्श्व चित्र \\\\ वर्णन",
     "SET_PHOTO": "अपनी प्रोफाइल पिक्चर सेट करो",
     "ACCOUNT": "Account",
+    "PUSH": "Push notifications",
+    "PUSH_CURRENT_BROWSER": "Current browser",
     "REQUEST_DELETE_ACCOUNT": {
       "SUCCESS": "We sent you an e-mail with a link to complete the deletion process."
     },
@@ -43,7 +45,6 @@
     "LEAVE": "छोड़ना",
     "PREVIEW": "पूर्वावलोकन",
     "BACK": "वापस",
-    "MORE_OPTIONS": "अतिरिक्त विकल्प",
     "SEARCH": "खोज",
     "OF_COURSE": "हाँ, बेशक!",
     "YES": "हाँ",
@@ -82,7 +83,11 @@
     "PUBLIC_DESCRIPTION": "एक समूह में शामिल होने से पहले आपको दिखाई देने वाला पाठ",
     "PASSWORD": "अगर आप समूह निजी बनाना चाहते हैं तो यहां एक पासवर्ड दर्ज करें",
     "PICKUPS": "पिकप",
+    "PICKUP": "Pickup",
     "MEMBERS": "सदस्य ",
+    "JOINED": "joined {relativeDate}",
+    "SORT_JOINDATE": "Sort by join date",
+    "SORT_NAME": "Sort by name",
     "INACTIVE": "Inactive",
     "SHOW_INACTIVE": "Show inactive groups",
     "STORES": "भंडार",
@@ -112,7 +117,8 @@
       }
     },
     "PLAYGROUND_INFO": "This is a playground group, you can't break anything. Explore, click around and have fun!",
-    "JOIN_PLAYGROUND": "Join the playground group to explore karrot"
+    "JOIN_PLAYGROUND": "Join the playground group to explore karrot",
+    "JOIN_ANOTHER_GROUP": "Join another group"
   },
   "GROUPMAP": {
     "TITLE": "नक्शा",
@@ -120,6 +126,8 @@
     "HIDE_USERS": "उपयोगकर्ताओं को छुपाएं",
     "SHOW_STORES": "स्टोर दिखाओ ",
     "HIDE_STORES": "स्टोर छिपाएं",
+    "SHOW_GROUPS": "Show groups",
+    "HIDE_GROUPS": "Hide groups",
     "SET_LOCATION": "स्थान तय करें",
     "FULL_SCREEN": "Show full screen"
   },
@@ -261,7 +269,10 @@
     "STORE_NONE_HINT": "आप पिकअप प्रबंधन पृष्ठ पर एक नया पिकअप बना सकते हैं।"
   },
   "FEEDBACKLIST": {
-    "SAVED_FOOD": "कम से कम 1 किलोग्राम यहां बचाया गया था। धन्यवाद! | लोगों ने पहले से ही बचाया भोजन के {मात्रा} किग्रा के लिए प्रतिक्रिया दी! अच्छा काम करते रहो!",
+    "SAVED_FOOD": "At least 1 kg was saved here. Thank you! | People gave feedback for {amount} kg of saved food already! Keep up the great work!",
+    "NUMBER_PICKUPS": "{count} pickups done",
+    "NUMBER_FEEDBACK": "{count} feedback entries given",
+    "WEIGHT_SUM": "{sum} kg of food saved",
     "GIVE_FEEDBACK": "प्रतिक्रिया दें",
     "NONE": "अभी तक कोई प्रतिक्रिया नहीं",
     "NONE_HINT": "एक बार और फ़ीडबैक उपलब्ध होने पर यह पृष्ठ भर जाएगा",
@@ -273,8 +284,9 @@
     "HEADER": "अपने पिकअप के लिए धन्यवाद!",
     "EDIT": "प्रतिक्रिया संपादित करें",
     "SUBTITLE": "आप यहां अपने पिकअप के लिए प्रतिक्रिया प्रदान कर सकते हैं",
+    "SET_AMOUNT": "Set amount",
+    "DELETE_AMOUNT": "Delete amount",
     "AMOUNT": "भोजन की मात्रा आप सभी बचाने में सक्षम थे (किलो में)",
-    "COMMENT": "टिप्पणी",
     "COMMENT_PLACEHOLDER": "क्या सब कुछ ठीक था? क्या सभी लोग दिखाए? आपकी टिप्पणी यहां ...",
     "PREVIOUS": "{स्टोर } के लिए पिछला फ़ीडबैक"
   },
@@ -333,7 +345,18 @@
     "NOT_VERIFIED": "{ईमेल} सत्यापित नहीं है",
     "CHECK_YOUR_MAILS": "कृपया अपने ईमेल की जांच करें या {पुनः भेजें}",
     "RESEND_VERIFICATION": "सत्यापन ईमेल पुनः भेजे",
-    "VERIFICATION_EMAIL_SENT": "हमने आपको दूसरा सत्यापन ईमेल भेजा है कृपया अपने इनबॉक्स की जांच करें"
+    "VERIFICATION_EMAIL_SENT": "हमने आपको दूसरा सत्यापन ईमेल भेजा है कृपया अपने इनबॉक्स की जांच करें",
+    "CHANGES_SAVED": "आपके परिवर्तनों को सहेजा गया है.",
+    "CHANGES_ERROR": "एक त्रुटि पाई गई। बाद में पुन: प्रयास करें.",
+    "EMAIL_NOT_DELIVERED": "An email could not be delivered to you | {count} emails could not be delivered to you"
+  },
+  "OUTDATED_BROWSER": {
+    "MESSAGE": "You are using an unsupported browser. {upgradeBrowser} to enjoy all features.",
+    "LINK": "Please update or switch your browser"
+  },
+  "UPDATE_AVAILABLE": {
+    "TITLE": "Update available",
+    "DETAIL": "A new version of karrot is available."
   },
   "NOT_FOUND": {
     "EXPLANATION": "क्षमा करें, हमें यह पृष्ठ कहीं भी नहीं मिला।",
@@ -376,7 +399,9 @@
     "RECEIVED_VIA_EMAIL": "This message was sent via e-mail"
   },
   "CONVERSATION": {
+    "OPEN": "Open Chat",
     "UNREAD_MESSAGES": "आपके पास एक अपठित संदेश है | आपके पास {गिनती} अपठित संदेश हैं",
+    "EDITED": "edited",
     "MARK_READ": "सभी को पढ़ा हुआ  चिन्हित करें",
     "REACTIONS": {
       "YOU": "you",

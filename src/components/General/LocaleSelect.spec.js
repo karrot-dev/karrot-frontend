@@ -1,20 +1,27 @@
-jest.mock('@/store/plugins/persistedState', () => {
-  return () => {}
-})
-
-import LocaleSelect from './LocaleSelect'
+import LocaleSelectInner from './LocaleSelectInner'
 import locales from '@/locales'
 import { localeOptions } from '@/i18n'
-import { mountWithDefaults, polyfillRequestAnimationFrame, mockActionOnce } from '>/helpers'
-
-import store from '@/store'
+import { mountWithDefaults, polyfillRequestAnimationFrame, createStore } from '>/helpers'
 
 polyfillRequestAnimationFrame()
 
 describe('LocaleSelect', () => {
   beforeEach(() => jest.resetModules())
+  let store
+
+  const i18n = {
+    actions: { setLocale: jest.fn() },
+    getters: { locale: jest.fn() },
+  }
+
+  beforeEach(() => {
+    store = createStore({
+      i18n,
+    })
+  })
+
   it('renders all the available locales', () => {
-    const wrapper = mountWithDefaults(LocaleSelect, { store })
+    const wrapper = mountWithDefaults(LocaleSelectInner, { store })
     expect(wrapper.findAll('.q-item-label').length).toBe(Object.keys(locales).length)
     for (let locale of Object.values(locales)) {
       expect(wrapper.html()).toContain(locale.name)
@@ -22,10 +29,10 @@ describe('LocaleSelect', () => {
   })
 
   it('can select a locale', () => {
-    mockActionOnce(store, 'auth/backgroundSave')
-    const wrapper = mountWithDefaults(LocaleSelect, { store })
+    const wrapper = mountWithDefaults(LocaleSelectInner, { store })
     const idx = Math.floor(Math.random() * localeOptions.length) // pick a random locale
     wrapper.findAll('.q-item-label').at(idx).trigger('click')
-    expect(store.state.i18n.locale).toBe(localeOptions[idx].value)
+    expect(i18n.actions.setLocale).toHaveBeenCalled()
+    expect(i18n.actions.setLocale.mock.calls[0][1]).toBe(localeOptions[idx].value)
   })
 })

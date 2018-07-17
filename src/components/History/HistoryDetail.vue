@@ -72,7 +72,7 @@
         <q-item-side icon="fas fa-fw fa-shopping-cart" />
         <q-item-main>
           <q-item-tile label>
-            <router-link :to="{name: 'store', params: { groupId: entry.store.group, storeId: entry.store.id }}">
+            <router-link :to="{name: 'store', params: { groupId: entry.store.group.id, storeId: entry.store.id }}">
               {{ entry.store.name }}
             </router-link>
           </q-item-tile>
@@ -99,7 +99,7 @@
       />
     </q-list>
     <q-list>
-      <q-item class="bg-neutral text-white">
+      <q-item class="text-white">
         <q-btn
           @click="toggleRaw()"
           color="secondary">Raw data

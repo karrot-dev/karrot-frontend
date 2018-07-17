@@ -47,6 +47,11 @@
         <i v-else>
           {{ $t("STOREDETAIL.NO_DESCRIPTION") }}
         </i>
+        <standard-map
+          v-if="$q.platform.is.mobile"
+          :markers="markers"
+          class="map"
+        />
       </div>
     </q-card>
 
@@ -54,6 +59,7 @@
       :pickups="pickups"
       @join="join"
       @leave="leave"
+      @detail="detail"
     />
     <KNotice v-if="isInactive" >
       <template slot="icon">
@@ -96,7 +102,9 @@
 import PickupList from '@/components/Pickups/PickupList'
 import KNotice from '@/components/General/KNotice'
 import Markdown from '@/components/Markdown'
-import browser from 'browser-detect'
+import StandardMap from '@/components/Map/StandardMap'
+
+import { storeMarker } from '@/components/Map/markers'
 
 import {
   mapGetters,
@@ -106,11 +114,12 @@ import {
 import { QCard, QCardTitle, QCardActions, QItem, QItemMain, QItemSide, QBtn, QTabs, QRouteTab, QIcon, QTooltip } from 'quasar'
 
 export default {
-  components: { PickupList, QCard, QCardTitle, QCardActions, QItem, QItemMain, QItemSide, QBtn, QTabs, QRouteTab, QIcon, QTooltip, KNotice, Markdown },
+  components: { PickupList, QCard, QCardTitle, QCardActions, QItem, QItemMain, QItemSide, QBtn, QTabs, QRouteTab, QIcon, QTooltip, KNotice, Markdown, StandardMap },
   methods: {
     ...mapActions({
       join: 'pickups/join',
       leave: 'pickups/leave',
+      detail: 'detail/openForPickup',
     }),
   },
   data: function () {
@@ -163,6 +172,9 @@ export default {
     }
   },
   computed: {
+    markers () {
+      return [storeMarker(this.store)]
+    },
     ...mapGetters({
       store: 'stores/activeStore',
       pickups: 'pickups/filtered',
@@ -188,4 +200,6 @@ export default {
     margin 3px
 .textcontent
   margin-top 0
+.map
+  height: 30vh
 </style>

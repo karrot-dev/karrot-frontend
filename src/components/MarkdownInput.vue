@@ -8,6 +8,7 @@
       v-model="tab"
     >
       <q-tab
+        v-if="value"
         class="markdown-input-tab"
         default
         name="edit"
@@ -15,8 +16,8 @@
         :label="$t('BUTTON.EDIT')"
       />
       <q-tab
-        class="markdown-input-tab"
         v-if="value"
+        class="markdown-input-tab"
         name="preview"
         slot="title"
         :label="$t('BUTTON.PREVIEW')"
@@ -25,35 +26,40 @@
         <slot />
         <small
           v-if="!$q.platform.is.mobile && tab === 'edit'"
-          class="row group pull-right light-paragraph"
+          class="row justify-end text-weight-light markdown-helper"
         >
           <b>**{{ $t('MARKDOWN_INPUT.BOLD') }}**</b>
           <i>_{{ $t('MARKDOWN_INPUT.ITALIC') }}_</i>
           <span>~~{{ $t('MARKDOWN_INPUT.STRIKE') }}~~</span>
           <span>&gt;{{ $t('MARKDOWN_INPUT.QUOTE') }}</span>
-          <a href="https://guides.github.com/features/mastering-markdown/">
+          <a
+            href="https://guides.github.com/features/mastering-markdown/"
+            target="_blank"
+            rel="nofollow noopener noreferrer"
+            :title="$t('MARKDOWN_INPUT.HELP')"
+          >
             <q-icon name="fas fa-question-circle" />
-            <q-tooltip>{{ $t('MARKDOWN_INPUT.HELP') }}</q-tooltip>
           </a>
         </small>
-        <div style="clear: both"/>
       </q-tab-pane>
       <q-tab-pane name="preview">
-        <Markdown
-          v-if="value"
-          :source="value"
-        />
+        <div class="preview">
+          <Markdown
+            v-if="value"
+            :source="value"
+          />
+        </div>
       </q-tab-pane>
     </q-tabs>
   </div>
 </template>
 
 <script>
-import { QTabs, QTab, QTabPane, QIcon, QTooltip } from 'quasar'
+import { QTabs, QTab, QTabPane, QIcon } from 'quasar'
 import Markdown from '@/components/Markdown'
 
 export default {
-  components: { QTabs, QTab, QTabPane, QIcon, QTooltip, Markdown },
+  components: { QTabs, QTab, QTabPane, QIcon, Markdown },
   props: {
     value: {
       default: '',
@@ -68,17 +74,28 @@ export default {
 }
 </script>
 
-<!-- UNSCOPED -->
-<style lang="stylus">
-.markdown-input > .q-tabs-head
-  min-height 36px !important
-</style>
-
 <style scoped lang="stylus">
-.markdown-input-tab
-  min-height 20px !important
-  padding 6px 10px !important
-  font-size .87em !important
-.q-tabs-inverted
-  background inherit
+.preview
+  border 1px solid rgba(0,0,0,.1)
+  padding 6px
+  position relative
+  top -6px
+  background-color white
+.markdown-helper
+  padding-top 6px
+  > *
+    padding-right 10px
+.markdown-input >>>
+  .q-tab
+    min-height 20px
+    padding 6px 10px
+    font-size .87em
+  .q-tabs-head
+    min-height 36px
+    background none
+  .q-tabs-panes
+    border none
+    .q-tab-pane
+      border none
+      padding 6px 0px
 </style>

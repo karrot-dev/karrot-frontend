@@ -31,11 +31,12 @@
         </q-btn>
       </q-card-title>
       <q-card-main>
-        <Markdown
+        <div
           v-if="group.publicDescription"
           class="quote"
-          :source="group.publicDescription"
-        />
+        >
+          <Markdown :source="group.publicDescription" />
+        </div>
         <span
           v-else
           class="text-italic"
@@ -54,7 +55,7 @@
           >
             <q-alert
               v-if="!group.isMember"
-              color="tertiary"
+              color="warning"
               icon="info"
             >
               {{ $t('JOINGROUP.PROFILE_NOTE' ) }}
@@ -76,8 +77,7 @@
               type="submit"
               color="secondary"
               class="float-right generic-margin"
-              :loading="isPending"
-              :value="group.joinStatus.pending"
+              :loading="group.joinStatus.pending"
             >
               {{ $t( isLoggedIn ? 'BUTTON.JOIN' : 'JOINGROUP.SIGNUP_OR_LOGIN') }}
             </q-btn>

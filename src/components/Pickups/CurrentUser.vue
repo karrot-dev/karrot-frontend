@@ -1,8 +1,9 @@
 <template>
   <a
-    @click="$emit('leave')"
+    @click.stop="$emit('leave')"
     class="user-slot-wrapper"
     :style="{ width: size + 'px', height: size + 'px' }"
+    :title="$t('PICKUPLIST.ITEM.LEAVE')"
   >
     <div class="hoverShow">
       <i
@@ -10,9 +11,6 @@
         class="fas fa-fw fa-times"
       />
     </div>
-    <q-tooltip>
-      <span>{{ $t('PICKUPLIST.ITEM.LEAVE') }}</span>
-    </q-tooltip>
     <div class="hoverHide">
       <ProfilePicture
         :user="user"
@@ -24,7 +22,6 @@
 </template>
 
 <script>
-import { QTooltip } from 'quasar'
 import ProfilePicture from '@/components/ProfilePictures/ProfilePicture'
 
 export default {
@@ -39,7 +36,7 @@ export default {
     },
   },
   components: {
-    QTooltip, ProfilePicture,
+    ProfilePicture,
   },
 
 }

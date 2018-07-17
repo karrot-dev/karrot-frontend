@@ -1,5 +1,5 @@
 import groups from '@/services/api/groups'
-import { withMeta, createMetaModule, withPrefixedIdMeta, createRouteError } from '@/store/helpers'
+import { withMeta, createMetaModule, withPrefixedIdMeta, createRouteRedirect } from '@/store/helpers'
 
 function initialState () {
   return {
@@ -29,6 +29,10 @@ export default {
     },
     roles: (state, getters) => (getters.value && getters.value.membership) ? getters.value.membership.roles : [],
     agreement: (state, getters) => getters.value && getters.value.activeAgreement,
+    conversation: (state, getters, rootState, rootGetters) => {
+      if (!state.current) return
+      return rootGetters['conversations/getForGroup'](state.current.id)
+    },
     id: (state) => state.current && state.current.id,
   },
   actions: {
@@ -89,39 +93,38 @@ export default {
 
     }),
 
-    async select ({ commit, state, dispatch, getters, rootState, rootGetters }, { groupId }) {
+    async select ({ dispatch, getters, rootGetters }, { groupId }) {
+      if (!groupId) throw createRouteRedirect({ name: 'groupsGallery' })
       if (getters.id === groupId) return
 
       await dispatch('fetch', groupId)
       const hasError = getters['meta/status']('fetch', groupId).hasValidationErrors
       if (hasError) {
-        const groupExists = !!rootGetters['groups/get'](groupId)
-        const data = { translation: groupExists ? 'GROUP.NONMEMBER_REDIRECT' : 'NOT_FOUND.EXPLANATION' }
-        throw createRouteError(data)
+        const groupExists = Boolean(rootGetters['groups/get'](groupId))
+        if (groupExists) {
+          dispatch('toasts/show', {
+            message: 'GROUP.NONMEMBER_REDIRECT',
+            config: {
+              type: 'negative',
+            },
+          }, { root: true })
+        }
+        throw createRouteRedirect({ name: 'groupPreview', params: {groupPreviewId: groupId} })
       }
 
       dispatch('pickups/clear', {}, { root: true })
 
       dispatch('pickups/fetchListByGroupId', groupId, { root: true })
       dispatch('pickups/fetchFeedbackPossible', groupId, { root: true })
-      try {
-        dispatch('conversations/setActive', await groups.conversation(groupId), {root: true})
-      }
-      catch (error) {
-        dispatch('conversations/clearActive', {}, { root: true })
-      }
 
-      dispatch('feedback/fetchForGroup', { groupId }, { root: true })
-
-      dispatch('auth/backgroundSave', { currentGroup: groupId }, { root: true })
+      dispatch('auth/maybeBackgroundSave', { currentGroup: groupId }, { root: true })
     },
 
     clear ({ commit, dispatch }) {
       commit('clear')
-      dispatch('auth/backgroundSave', { currentGroup: null }, { root: true })
+      dispatch('auth/maybeBackgroundSave', { currentGroup: null }, { root: true })
       dispatch('agreements/clear', null, { root: true })
       dispatch('pickups/clear', {}, { root: true })
-      dispatch('conversations/clearActive', null, { root: true })
       dispatch('feedback/clear', null, { root: true })
     },
 
@@ -129,6 +132,12 @@ export default {
       // update group values, do not replace group
       if (group.id === state.current.id) {
         commit('set', group)
+      }
+    },
+
+    refresh ({ state, dispatch }) {
+      if (state.current) {
+        dispatch('fetch', state.current.id)
       }
     },
   },

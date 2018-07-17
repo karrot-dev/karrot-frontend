@@ -10,7 +10,6 @@
       />
     </q-search>
     <standard-map
-      v-if="map"
       class="map"
       :markers="marker ? [marker] : []"
       :prevent-zoom="preventZoom"
@@ -33,9 +32,13 @@ export default {
       type: Object,
       required: true,
     },
-    map: {
-      default: true,
-      type: Boolean,
+    color: {
+      default: 'blue',
+      type: String,
+    },
+    fontIcon: {
+      default: null,
+      type: String,
     },
   },
   data () {
@@ -78,11 +81,8 @@ export default {
       if (latitude && longitude) {
         return {
           latLng: L.latLng(latitude, longitude),
-          icon: L.AwesomeMarkers.icon({
-            icon: 'shopping-cart',
-            markerColor: 'blue',
-            prefix: 'fa',
-          }),
+          fontIcon: this.fontIcon,
+          color: this.color,
           draggable: true,
         }
       }

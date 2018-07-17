@@ -51,9 +51,15 @@ export default {
 
     playgroundGroupInfo () {
       return {
-        color: 'positive',
+        color: 'secondary',
         icon: 'fas fa-child',
         message: 'GROUP.PLAYGROUND_INFO',
+        actions: [
+          {
+            label: this.$t('GROUP.JOIN_ANOTHER_GROUP'),
+            handler: () => this.$router.push({ name: 'groupsGallery' }),
+          },
+        ],
       }
     },
   },

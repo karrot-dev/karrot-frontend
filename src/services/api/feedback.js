@@ -38,15 +38,10 @@ export function convert (val) {
     return val.map(convert)
   }
   else {
-    let weight
-    try {
-      weight = parseFloat(val.weight)
-    }
-    catch (error) {}
     return {
       ...val,
       createdAt: new Date(val.createdAt),
-      weight,
+      weight: val.weight !== null ? parseFloat(val.weight) : null,
     }
   }
 }

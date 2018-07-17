@@ -1,35 +1,43 @@
 <template>
-  <div class="wrapper">
-    <div class="notices">
-      <div v-if="joinedPickups.length > 0">
-        <JoinedPickups
-          :pickups="joinedPickups"
-          @join="$emit('join', arguments[0])"
-          @leave="$emit('leave', arguments[0])"
+  <component
+    :is="$q.platform.is.mobile ? 'q-pull-to-refresh' : 'div'"
+    :handler="refresh"
+    style="max-height: none"
+  >
+    <div class="wrapper">
+      <div class="notices">
+        <div v-if="joinedPickups.length > 0">
+          <JoinedPickups
+            :pickups="joinedPickups"
+            @join="$emit('join', arguments[0])"
+            @leave="$emit('leave', arguments[0])"
+            @detail="$emit('detail', arguments[0])"
+          />
+        </div>
+        <div v-if="availablePickups.length > 0">
+          <AvailablePickups
+            :pickups="availablePickups"
+            @join="$emit('join', arguments[0])"
+            @leave="$emit('leave', arguments[0])"
+          />
+        </div>
+        <FeedbackNotice
+          v-if="feedbackPossible.length > 0"
+          :feedback-possible="feedbackPossible"
         />
       </div>
-      <div v-if="availablePickups.length > 0">
-        <AvailablePickups
-          :pickups="availablePickups"
-          @join="$emit('join', arguments[0])"
-          @leave="$emit('leave', arguments[0])"
-        />
-      </div>
-      <FeedbackNotice
-        v-if="feedbackPossible.length > 0"
-        :feedback-possible="feedbackPossible"
+      <Conversation
+        :data="conversation"
+        :user="user"
+        :fetch-more="fetchMore"
+        @send="$emit('send', arguments[0])"
+        @saveMessage="$emit('saveMessage', arguments[0])"
+        @markAllRead="$emit('markAllRead', arguments[0])"
+        @toggleEmailNotifications="$emit('toggleEmailNotifications', arguments[0])"
+        @toggleReaction="$emit('toggleReaction', arguments[0])"
       />
     </div>
-    <Conversation
-      :data="conversation"
-      :user="user"
-      :fetch-more="fetchMore"
-      @send="$emit('send', arguments[0])"
-      @markAllRead="$emit('markAllRead')"
-      @toggleEmailNotifications="$emit('toggleEmailNotifications', arguments[0])"
-      @toggleReaction="$emit('toggleReaction', arguments[0])"
-    />
-  </div>
+  </component>
 </template>
 
 <script>
@@ -37,6 +45,7 @@ import AvailablePickups from './AvailablePickups'
 import FeedbackNotice from './FeedbackNotice'
 import JoinedPickups from './JoinedPickups'
 import Conversation from '@/components/Conversation/Conversation'
+import { QPullToRefresh } from 'quasar'
 
 export default {
   components: {
@@ -44,6 +53,7 @@ export default {
     AvailablePickups,
     Conversation,
     FeedbackNotice,
+    QPullToRefresh,
   },
   props: {
     joinedPickups: { required: true, type: Array },
@@ -51,7 +61,8 @@ export default {
     feedbackPossible: { required: true, type: Array },
     conversation: { required: true, type: Object },
     fetchMore: { required: true, type: Function },
-    user: { required: true, type: Object },
+    user: { default: null, type: Object },
+    refresh: { required: true, type: Function },
   },
 }
 </script>

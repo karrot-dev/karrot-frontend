@@ -18,7 +18,6 @@ export default {
 export function convert (obj) {
   return {
     ...obj,
-    createdAt: new Date(obj.createdAt),
     updatedAt: new Date(obj.updatedAt),
   }
 }

@@ -40,7 +40,7 @@
         flat
         dense
         round
-        @click="$router.push({name: 'storeCreate'})"
+        :to="{name: 'storeCreate'}"
       >
         <q-icon name="fas fa-fw fa-plus-circle" />
         <q-tooltip v-t="'BUTTON.CREATE'" />

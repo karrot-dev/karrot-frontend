@@ -2,6 +2,8 @@ import auth from '@/services/api/auth'
 import authUser from '@/services/api/authUser'
 import router from '@/router'
 import { createMetaModule, withMeta, metaStatuses } from '@/store/helpers'
+import { objectDiff } from '@/services/utils'
+import push from '@/store/modules/auth/push'
 
 function initialState () {
   return {
@@ -10,17 +12,19 @@ function initialState () {
     joinGroupAfterLogin: null,
     acceptInviteAfterLogin: null,
     muteConversationAfterLogin: [],
+    failedEmailDeliveries: [],
   }
 }
 
 export default {
   namespaced: true,
-  modules: { meta: createMetaModule() },
+  modules: { meta: createMetaModule(), push },
   state: initialState(),
   getters: {
     isLoggedIn: state => !!state.user,
     user: state => state.user,
     userId: state => state.user && state.user.id,
+    failedEmailDeliveries: state => state.failedEmailDeliveries,
     redirectTo: state => state.redirectTo,
     hasJoinGroupAfterLogin: state => Boolean(state.joinGroupAfterLogin),
     ...metaStatuses(['login', 'save', 'changePassword', 'changeEmail']),
@@ -87,8 +91,10 @@ export default {
         commit('clearRedirectTo')
       },
 
-      async logout ({ commit }) {
+      async logout ({ commit, dispatch }) {
+        await dispatch('push/disable')
         commit('clearUser', { user: await auth.logout() })
+        dispatch('conversations/clear', null, { root: true })
         router.push({ name: 'groupsGallery' })
       },
 
@@ -108,15 +114,42 @@ export default {
       },
     }),
 
+    async getFailedEmailDeliveries ({ commit }) {
+      commit('setFailedEmailDeliveries', await authUser.getFailedEmailDeliveries())
+    },
+
     ...withMeta({
       async save ({ dispatch }, data) {
-        const savedUser = await dispatch('backgroundSave', data)
-        router.push({ name: 'user', params: { userId: savedUser.id } })
+        try {
+          await dispatch('backgroundSave', data)
+          dispatch('toasts/show', {
+            message: 'NOTIFICATIONS.CHANGES_SAVED',
+            config: {
+              timeout: 2000,
+              icon: 'thumb_up',
+            },
+          }, { root: true })
+        }
+        catch (error) {
+          dispatch('toasts/show', {
+            message: 'NOTIFICATIONS.CHANGES_ERROR',
+            config: {
+              timeout: 2000,
+              icon: 'warning',
+            },
+          }, { root: true })
+        }
       },
     }, {
       // ignore ID to have simple saveStatus
       findId: () => undefined,
     }),
+
+    maybeBackgroundSave ({ dispatch, state }, data) {
+      const diff = objectDiff(state.user, { ...state.user, ...data })
+      if (Object.keys(diff).length === 0) return
+      return dispatch('backgroundSave', diff)
+    },
 
     async backgroundSave ({ commit, state, dispatch }, data) {
       const savedUser = await authUser.save(data)
@@ -199,6 +232,10 @@ export default {
     },
     clearMuteConversationAfterLogin (state) {
       state.muteConversationAfterLogin = []
+    },
+
+    setFailedEmailDeliveries (state, events) {
+      state.failedEmailDeliveries = events
     },
   },
 }

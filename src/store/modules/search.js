@@ -16,7 +16,7 @@ export default {
         groups = rootGetters['groups/all'],
         users = rootGetters['users/all']
 
-      const matches = (name) => name.toLowerCase().includes(getters.terms.toLowerCase())
+      const matches = (name) => name && name.toLowerCase().includes(getters.terms.toLowerCase())
 
       const storeRes = stores.filter((store) => matches(store.name))
       const groupRes = groups.filter((group) => matches(group.name))
@@ -24,19 +24,21 @@ export default {
 
       return [
         ...storeRes.map(e => ({
-          value: {name: 'store', params: {groupId: e.group, storeId: e.id}},
+          value: {name: 'store', params: {groupId: e.group.id, storeId: e.id}},
           label: e.name,
-          icon: 'fa-shopping-cart',
+          sublabel: e.group.name,
+          icon: 'fas fa-shopping-cart',
         })),
         ...groupRes.map(e => ({
           value: {name: 'group', params: {groupId: e.id}},
           label: e.name,
-          icon: 'fa-home',
+          icon: 'fas fa-home',
+          leftColor: e.isMember ? 'secondary' : undefined,
         })),
         ...userRes.map(e => ({
           value: {name: 'user', params: {userId: e.id}},
           label: e.displayName,
-          icon: 'fa-user',
+          icon: 'fas fa-user',
         })),
       ]
     },
@@ -49,11 +51,6 @@ export default {
 
     hide ({ commit }) {
       commit('hide')
-    },
-    hideIfEmpty ({ commit, getters }) {
-      if (!getters.terms) {
-        commit('hide')
-      }
     },
 
     setTerms ({ commit }, terms) {

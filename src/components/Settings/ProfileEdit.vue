@@ -47,9 +47,10 @@
         :error="hasAddressError"
         :error-label="addressError"
       >
-        <address-picker
+        <AddressPicker
           v-model="edit"
-          :map="true"
+          color="positive"
+          font-icon="fas fa-user"
         />
       </q-field>
 

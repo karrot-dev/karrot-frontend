@@ -3,21 +3,56 @@ All notable changes to _karrot_ will be documented in this file.
 
 The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
+Please document your changes in this format:
+
+```
+- description of change #PR @username
+```
+
 ## [Unreleased]
 ### Added
 
-
 ### Changed
-
 
 ### Removed
 
+### Fixed
+
+
+## [Release 5] - 2018-07-16
+### Added
+
+- web browser push notifications @nicksellen
+- sorting and search for the group member list @tiltec
+- show failed email notifications @tiltec
+- add user conversations @tiltec
+- add pickup conversations @nicksellen
+- filter controls and back button for fullscreen group map @tiltec
+- context menu to create new store in group map @tiltec
+- add message editing @tiltec
+- refresh most data when karrot app wakes up @tiltec
+- mobile "pull-to-refresh" in group wall @tiltec
+- automatically mark group as active or inactive @oldPadavan
+- send correct email template on resend verification code @pogopaule @tiltec
+- (more, but we didn't keep a changelog lately...)
+
+### Changed
+
+- speed up initial loading and rendering @nicksellen
+- unify color usage @tiltec
+- custom leaflet marker component to allow quasar colors @tiltec
+- rework of feedback form to allow feedback without weight @tiltec
+
+### Removed
 
 ### Fixed
+
+- lots of bugs
 
 ## [Release 4] - 2017-12-27
 
 Complete frontend rewrite with [VueJS](http://vuejs.org/) and [Quasar](http://quasar-framework.org/)
+
 ### Added
 - Group conversations
 - Store statuses
@@ -131,7 +166,8 @@ After months of planning and programming, the first version of ~the foodsaving t
 - **store**: create a store which belongs to a group, set up name, description, address and position of a store
 - **pick-up dates**: create a pick-up date which belongs to a store, set time and max. amount of people who can collect food, user can join/leave a pick-up date
 
-[Unreleased]: https://github.com/yunity/karrot-frontend/compare/v4.0.0...HEAD
+[Unreleased]: https://github.com/yunity/karrot-frontend/compare/v5.0.0...HEAD
+[Release 5]: https://github.com/yunity/karrot-frontend/compare/v4.0.0...v5.0.0
 [Release 4]: https://github.com/yunity/karrot-frontend/compare/v3.0.0...v4.0.0
 [Release 3]: https://github.com/yunity/karrot-frontend/compare/r2...v3.0.0
 [Release 2]: https://github.com/yunity/karrot-frontend/compare/r1...r2

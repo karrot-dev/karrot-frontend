@@ -3,10 +3,10 @@ jest.mock('@/services/api/messages', () => ({
   list: mockList,
 }))
 
-import { createStore } from '>/helpers'
+import { createStore, statusMocks } from '>/helpers'
 
 describe('conversations', () => {
-  let store
+  let store, oneHourAgo
   beforeEach(() => {
     jest.resetModules()
     const i18n = require('@/i18n').default
@@ -16,34 +16,49 @@ describe('conversations', () => {
       conversations: require('./conversations').default,
       users: { getters: { get: a => a => ({ id: a, displayName: `user ${a}` }) } },
     })
+
+    oneHourAgo = new Date()
+    oneHourAgo.setHours(oneHourAgo.getHours() - 1)
   })
   describe('conversation update', () => {
-    let oneHourAgo, initialConversation
+    let initialConversation
     beforeEach(async () => {
-      oneHourAgo = new Date()
-      oneHourAgo.setHours(oneHourAgo.getHours() - 1)
       mockList.mockReturnValueOnce([])
-      initialConversation = { id: 1, updatedAt: oneHourAgo }
-      await store.dispatch('conversations/setActive', initialConversation)
+      initialConversation = { id: 1, updatedAt: oneHourAgo, participants: [] }
+      await store.commit('conversations/setConversation', { conversation: initialConversation })
     })
 
     it('updates the conversation', () => {
       const now = new Date()
-      const newConversation = { id: 1, updatedAt: now }
+      const newConversation = { id: 1, updatedAt: now, participants: [] }
       store.dispatch('conversations/updateConversation', newConversation)
-      expect(store.getters['conversations/activeConversation']).toEqual(newConversation)
+      expect(store.getters['conversations/get'](newConversation.id)).toEqual({
+        ...newConversation,
+        messages: [],
+        canLoadMore: false,
+        sendStatus: statusMocks.default(),
+        fetchStatus: statusMocks.default(),
+        fetchMoreStatus: statusMocks.default(),
+      })
     })
 
     it('does not update the conversation if data is old', () => {
       const old = new Date(oneHourAgo.valueOf())
       old.setHours(old.getHours() - 1)
-      store.dispatch('conversations/updateConversation', { id: 1, updatedAt: old })
-      expect(store.getters['conversations/activeConversation']).toEqual(initialConversation)
+      store.dispatch('conversations/updateConversation', { id: 1, updatedAt: old, participants: [] })
+      expect(store.getters['conversations/get'](1)).toEqual({
+        ...initialConversation,
+        messages: [],
+        canLoadMore: false,
+        sendStatus: statusMocks.default(),
+        fetchStatus: statusMocks.default(),
+        fetchMoreStatus: statusMocks.default(),
+      })
     })
 
     it('ignores unknown conversation updates', () => {
-      store.dispatch('conversations/updateConversation', { id: 2, updatedAt: oneHourAgo })
-      expect(store.getters['conversations/activeConversation']).toEqual(initialConversation)
+      store.dispatch('conversations/updateConversation', { id: 2, updatedAt: oneHourAgo, participants: [] })
+      expect(store.getters['conversations/get'](2)).toMatchObject({})
     })
   })
 
@@ -53,18 +68,20 @@ describe('conversations', () => {
       oneHourAgo = new Date()
       oneHourAgo.setHours(oneHourAgo.getHours() - 1)
       mockList.mockReturnValueOnce([])
-      initialConversation = { id: 1, updatedAt: oneHourAgo }
-      await store.dispatch('conversations/setActive', initialConversation)
+      initialConversation = { id: 1, updatedAt: oneHourAgo, participants: [] }
+      await store.commit('conversations/setConversation', { conversation: initialConversation })
     })
 
     it('receives new message', () => {
       const message = { id: 1, conversation: 1, author: 1, reactions: [] }
-      const enrichMessage = m => ({
+      store.dispatch('conversations/receiveMessage', message)
+      expect(store.getters['conversations/get'](1).messages).toEqual([{
         ...message,
         author: store.getters['users/get'](message.author),
-      })
-      store.dispatch('conversations/receiveMessage', message)
-      expect(store.getters['conversations/activeMessages']).toEqual([{ ...enrichMessage(message), isUnread: true }])
+        isUnread: true,
+        isEdited: false,
+        saveStatus: statusMocks.default(),
+      }])
     })
   })
 
@@ -80,12 +97,13 @@ describe('conversations', () => {
           { name: 'tada', user: 2 },
         ],
       }
+      const conversation = { id: 1, updatedAt: oneHourAgo, participants: [] }
+      await store.commit('conversations/setConversation', { conversation })
       await store.dispatch('conversations/receiveMessage', message)
-      await store.commit('conversations/setActive', { conversationId: 1 })
     })
 
     it('groups reactions by name', () => {
-      expect(store.getters['conversations/activeMessages'][0].reactions).toEqual([{
+      expect(store.getters['conversations/get'](1).messages[0].reactions).toEqual([{
         'message': 'user 1 and user 2 reacted with :tada:',
         'name': 'tada',
         'reacted': false,

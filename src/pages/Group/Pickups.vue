@@ -1,18 +1,12 @@
 <template>
   <div>
-    <PickupItem
-      v-for="pickup in pickups"
-      :key="pickup.id"
-      :pickup="pickup"
+    <PickupList
+      :pickups="pickups"
+      store-link
       @join="join"
       @leave="leave"
-    >
-      <strong v-if="pickup.store">
-        <router-link :to="{ name: 'store', params: { storeId: pickup.store.id }}">
-          {{ pickup.store.name }}
-        </router-link>
-      </strong> {{ $d(pickup.date, 'dateWithDayName') }}
-    </PickupItem>
+      @detail="detail"
+    />
     <KNotice v-if="!hasPickups" >
       <template slot="icon">
         <i class="fas fa-bed"/>
@@ -35,7 +29,7 @@
 </template>
 
 <script>
-import PickupItem from '@/components/Pickups/PickupItem'
+import PickupList from '@/components/Pickups/PickupList'
 import KNotice from '@/components/General/KNotice'
 import StoreList from '@/components/Store/StoreList'
 import { QCard, QCardTitle, QCardMain } from 'quasar'
@@ -46,11 +40,12 @@ import {
 } from 'vuex'
 
 export default {
-  components: { QCard, QCardTitle, QCardMain, PickupItem, KNotice, StoreList },
+  components: { QCard, QCardTitle, QCardMain, PickupList, KNotice, StoreList },
   methods: {
     ...mapActions({
       join: 'pickups/join',
       leave: 'pickups/leave',
+      detail: 'detail/openForPickup',
     }),
   },
   computed: {

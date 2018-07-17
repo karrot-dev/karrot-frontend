@@ -2,7 +2,7 @@
   "GLOBAL": {
     "GITHUB_NOTE": "Desarrollo",
     "FSWW_NOTE": "Read our info page!",
-    "FACEBOOK_NOTE": "Únete a nuestro grupo de Facebook",
+    "COMMUNITY_NOTE": "Join our community!",
     "WARNING": "Advertencia",
     "BETA_WARNING": "Este sitio está en construcción y todo puede ser modificado. No podemos garantizar la seguridad y privacidad de sus datos (pero intentamos dar lo mejor de nosotros).",
     "CONNECTION_INTERRUPTED": "Error: conexión interrumpida",
@@ -21,6 +21,8 @@
     "PHOTO": "Foto de perfil",
     "SET_PHOTO": "Configura tu foto de perfil ...",
     "ACCOUNT": "Cuenta",
+    "PUSH": "Push notifications",
+    "PUSH_CURRENT_BROWSER": "Current browser",
     "REQUEST_DELETE_ACCOUNT": {
       "SUCCESS": "We sent you an e-mail with a link to complete the deletion process."
     },
@@ -43,7 +45,6 @@
     "LEAVE": "Salir",
     "PREVIEW": "Vista previa",
     "BACK": "Atrás",
-    "MORE_OPTIONS": "Más opciones",
     "SEARCH": "Buscar",
     "OF_COURSE": "Si, claro!",
     "YES": "Si",
@@ -82,7 +83,11 @@
     "PUBLIC_DESCRIPTION": "Texto visible antes de unirse al grupo",
     "PASSWORD": "Introducir contraseña aquí para hacer el grupo privado",
     "PICKUPS": "Recogidas",
+    "PICKUP": "Pickup",
     "MEMBERS": "Miembros",
+    "JOINED": "joined {relativeDate}",
+    "SORT_JOINDATE": "Sort by join date",
+    "SORT_NAME": "Sort by name",
     "INACTIVE": "Inactive",
     "SHOW_INACTIVE": "Show inactive groups",
     "STORES": "Tiendas",
@@ -112,7 +117,8 @@
       }
     },
     "PLAYGROUND_INFO": "This is a playground group, you can't break anything. Explore, click around and have fun!",
-    "JOIN_PLAYGROUND": "Join the playground group to explore karrot"
+    "JOIN_PLAYGROUND": "Join the playground group to explore karrot",
+    "JOIN_ANOTHER_GROUP": "Join another group"
   },
   "GROUPMAP": {
     "TITLE": "Mapa",
@@ -120,6 +126,8 @@
     "HIDE_USERS": "Ocultar usuarios",
     "SHOW_STORES": "Enseñar tiendas",
     "HIDE_STORES": "Ocultar tiendas",
+    "SHOW_GROUPS": "Show groups",
+    "HIDE_GROUPS": "Hide groups",
     "SET_LOCATION": "Escoger localización",
     "FULL_SCREEN": "Show full screen"
   },
@@ -261,7 +269,10 @@
     "STORE_NONE_HINT": "Puede crear una nueva recolección en la página de administración de recolección."
   },
   "FEEDBACKLIST": {
-    "SAVED_FOOD": "Al menos 1 kg se guardó aquí. ¡Gracias! | ¡Las personas ya han enviado comentarios sobre {cantidad} kg de alimentos guardados! ¡Mantener el buen trabajo!",
+    "SAVED_FOOD": "At least 1 kg was saved here. Thank you! | People gave feedback for {amount} kg of saved food already! Keep up the great work!",
+    "NUMBER_PICKUPS": "{count} pickups done",
+    "NUMBER_FEEDBACK": "{count} feedback entries given",
+    "WEIGHT_SUM": "{sum} kg of food saved",
     "GIVE_FEEDBACK": "Dar opinion",
     "NONE": "Aún no hay comentarios",
     "NONE_HINT": "Esta página se completará una vez que haya más comentarios disponibles",
@@ -273,8 +284,9 @@
     "HEADER": "Gracias por tu recogida!",
     "EDIT": "Editar comentarios",
     "SUBTITLE": "Puede proporcionar comentarios para su recogida aquí",
+    "SET_AMOUNT": "Set amount",
+    "DELETE_AMOUNT": "Delete amount",
     "AMOUNT": "La cantidad de comida que todos pudieron ahorrar (en kg)",
-    "COMMENT": "Comentario",
     "COMMENT_PLACEHOLDER": "Fue todo bien? Se vino todo el mundo? Tu comentario aquí...",
     "PREVIOUS": "Comentarios anteriores para {store}"
   },
@@ -333,7 +345,18 @@
     "NOT_VERIFIED": "{email} no está verificado ",
     "CHECK_YOUR_MAILS": "Por favor, chequea tu correo electrónico o {enviar de nuevo}",
     "RESEND_VERIFICATION": "Enviar verificación de correo otra vez",
-    "VERIFICATION_EMAIL_SENT": "Se te envió otro correo electrónico de verificación. Por favor, chequea tu buzón. "
+    "VERIFICATION_EMAIL_SENT": "Se te envió otro correo electrónico de verificación. Por favor, chequea tu buzón. ",
+    "CHANGES_SAVED": "Se han guardado los cambios.",
+    "CHANGES_ERROR": "Ocurrió un error. Inténtalo más tarde.",
+    "EMAIL_NOT_DELIVERED": "An email could not be delivered to you | {count} emails could not be delivered to you"
+  },
+  "OUTDATED_BROWSER": {
+    "MESSAGE": "You are using an unsupported browser. {upgradeBrowser} to enjoy all features.",
+    "LINK": "Please update or switch your browser"
+  },
+  "UPDATE_AVAILABLE": {
+    "TITLE": "Update available",
+    "DETAIL": "A new version of karrot is available."
   },
   "NOT_FOUND": {
     "EXPLANATION": "¡Perdona! No podíamos encontrar esta página. ",
@@ -376,7 +399,9 @@
     "RECEIVED_VIA_EMAIL": "Este mensaje se envió por correo electrónico."
   },
   "CONVERSATION": {
+    "OPEN": "Open Chat",
     "UNREAD_MESSAGES": "Tienes un mensaje sin leer. | Tienes {count} mensajes no leídos.",
+    "EDITED": "edited",
     "MARK_READ": "marcar todo como leido",
     "REACTIONS": {
       "YOU": "you",

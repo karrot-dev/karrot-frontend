@@ -13,6 +13,7 @@ import { convert as convertSeries } from '@/services/api/pickupSeries'
 import { convert as convertFeedback } from '@/services/api/feedback'
 import { convert as convertHistory } from '@/services/api/history'
 import { convert as convertInvitation } from '@/services/api/invitations'
+import { convert as convertGroup } from '@/services/api/groups'
 
 let WEBSOCKET_ENDPOINT
 
@@ -84,8 +85,11 @@ export function receiveMessage ({ topic, payload }) {
   else if (topic === 'conversations:conversation') {
     store.dispatch('conversations/updateConversation', convertConversation(camelizeKeys(payload)))
   }
+  else if (topic === 'conversations:leave') {
+    store.dispatch('conversations/clearConversation', payload.id)
+  }
   else if (topic === 'groups:group_detail') {
-    store.dispatch('currentGroup/update', camelizeKeys(payload))
+    store.dispatch('currentGroup/update', convertGroup(camelizeKeys(payload)))
   }
   else if (topic === 'groups:group_preview') {
     store.dispatch('groups/update', camelizeKeys(payload))

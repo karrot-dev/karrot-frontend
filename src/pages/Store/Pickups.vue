@@ -38,7 +38,7 @@
               icon="directions"
               class="hoverScale"
             >
-              <q-tooltip v-t="'STOREDETAIL.ROUTE'" />
+              <q-tooltip v-t="'STOREDETAIL.DIRECTIONS'" />
             </q-btn>
           </a>
         </div>

@@ -132,6 +132,7 @@
     "FULL_SCREEN": "Show full screen"
   },
   "STOREDETAIL": {
+    "ROUTE": "Show directions",
     "EDIT": "Edit store",
     "MANAGE": "Check and manage the pickups",
     "ARCHIVED": "This store has been archived",

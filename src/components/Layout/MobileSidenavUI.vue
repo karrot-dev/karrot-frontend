@@ -77,7 +77,7 @@
     <a
       class="q-item"
       target="_blank"
-      rel="noopener"
+      rel="nofollow noopener noreferrer"
       href="https://github.com/yunity/karrot-frontend"
     >
       <q-item-side>

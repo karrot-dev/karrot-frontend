@@ -25,6 +25,22 @@
               <q-tooltip v-t="'STOREDETAIL.MANAGE'" />
             </q-btn>
           </router-link>
+          <a
+            v-if="directionsURL"
+            target="_blank"
+            rel="noopener nofollow noreferrer"
+            :href="directionsURL"
+          >
+            <q-btn
+              small
+              round
+              color="secondary"
+              icon="directions"
+              class="hoverScale"
+            >
+              <q-tooltip v-t="'STOREDETAIL.ROUTE'" />
+            </q-btn>
+          </a>
         </div>
         <Markdown
           v-if="store.description"
@@ -91,6 +107,7 @@ import Markdown from '@/components/Markdown'
 import StandardMap from '@/components/Map/StandardMap'
 
 import { storeMarker } from '@/components/Map/markers'
+import directions from './directions'
 
 import {
   mapGetters,
@@ -122,6 +139,16 @@ export default {
     },
     isInactive () {
       return this.store && this.store.status !== 'active'
+    },
+    directionsURL () {
+      if (!this.store.latitude) return
+      if (this.$q.platform.is.ios) {
+        return directions.apple(this.store)
+      }
+      if (this.$q.platform.is.android) {
+        return directions.google(this.store)
+      }
+      return directions.osm(this.currentUser, this.store)
     },
   },
 }

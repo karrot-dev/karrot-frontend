@@ -103,6 +103,7 @@
     @leaveEdit="toggleEdit"
     :user="message.author"
     :value="message.content"
+    :slim="slim"
   />
 </template>
 

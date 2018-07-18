@@ -83,7 +83,7 @@
       >
         <i class="fas fa-comments" />
         {{ message.threadMeta.replyCount }} replies
-        <q-tooltip v-t="'CONVERSATION.THREAD'" />
+        <q-tooltip v-t="'CONVERSATION.REPLIES'" />
       </q-btn>
       <q-btn
         v-else
@@ -92,7 +92,7 @@
         @click="$emit('openThread')"
       >
         <i class="fas fa-comments" />
-        <q-tooltip v-t="'CONVERSATION.THREAD'" />
+        <q-tooltip v-t="'CONVERSATION.REPLIES'" />
       </q-btn>
     </q-item-main>
   </q-item>

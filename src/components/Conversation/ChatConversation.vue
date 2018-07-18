@@ -10,26 +10,36 @@
       >
         <q-spinner-dots :size="40" />
       </div>
-      <q-list
-        no-border
-        class="bg-white"
-      >
-        <ConversationMessage
-          v-for="message in reversedMessages"
-          :key="message.id"
-          :message="message"
-          slim
-          @toggleReaction="$emit('toggleReaction', arguments[0])"
-          @save="$emit('saveMessage', arguments[0])"
-        />
-        <ConversationCompose
-          ref="compose"
-          :status="conversation.sendStatus"
-          slim
-          @submit="sendMessage"
-          :placeholder="messagePrompt"
-        />
-      </q-list>
+      <q-infinite-scroll :handler="maybeFetchFuture">
+        <q-list
+          no-border
+          class="bg-white"
+        >
+          <ConversationMessage
+            v-for="message in conversation.messages"
+            :key="message.id"
+            :message="message"
+            slim
+            @toggleReaction="$emit('toggleReaction', arguments[0])"
+            @save="$emit('saveMessage', arguments[0])"
+          />
+          <ConversationCompose
+            v-if="!this.conversation.canFetchFuture"
+            ref="compose"
+            :status="conversation.sendStatus"
+            slim
+            @submit="sendMessage"
+            :placeholder="messagePrompt"
+            :autofocus="startAtBottom"
+          />
+        </q-list>
+        <div
+          slot="message"
+          class="full-width text-center generic-padding"
+        >
+          <q-spinner-dots :size="40" />
+        </div>
+      </q-infinite-scroll>
       <q-scroll-observable @scroll="onScroll" />
     </div>
     <q-resize-observable @resize="restoreScrollPosition" />
@@ -45,6 +55,7 @@ import {
   QList,
   QResizeObservable,
   QScrollObservable,
+  QInfiniteScroll,
 } from 'quasar'
 const { getScrollHeight, getScrollPosition, setScrollPosition } = scroll
 
@@ -56,39 +67,41 @@ export default {
     QList,
     QResizeObservable,
     QScrollObservable,
+    QInfiniteScroll,
   },
   props: {
     conversation: { type: Object, default: null },
     away: { type: Boolean, required: true },
     currentUser: { type: Object, default: null },
+    startAtBottom: { type: Boolean, default: false },
   },
   data () {
     return {
       newestMessageId: -1,
       oldestMessageId: -1,
       scrollPositionFromBottom: 0,
+      doneFetchingFuture: null,
     }
   },
   computed: {
     hasLoaded () {
-      if (!this.conversation) return false
       const s = this.conversation.fetchStatus
       return !s.pending && !s.hasValidationErrors
     },
     messagePrompt () {
+      if (this.conversation.thread) {
+        return this.$t('CONVERSATION.REPLY_TO_MESSAGE')
+      }
       if (this.conversation.messages.length > 0) {
         return this.$t('WALL.WRITE_MESSAGE')
       }
-      else {
-        return this.$t('WALL.WRITE_FIRST_MESSAGE')
-      }
-    },
-    reversedMessages () {
-      if (!this.conversation) return []
-      return this.conversation.messages.slice().reverse()
+      return this.$t('WALL.WRITE_FIRST_MESSAGE')
     },
     fetchingPast () {
-      return this.conversation.fetchPastStatus.pending
+      return this.conversation.fetchPastStatus && this.conversation.fetchPastStatus.pending
+    },
+    fetchingFuture () {
+      return this.conversation.fetchFutureStatus && this.conversation.fetchFutureStatus.pending
     },
   },
   watch: {
@@ -96,7 +109,7 @@ export default {
       if (!away) this.markRead(this.newestMessageId)
     },
     hasLoaded (hasLoaded) {
-      if (hasLoaded) this.scrollToBottom()
+      if (hasLoaded && this.startAtBottom) this.scrollToBottom()
     },
     'conversation.id' (id) {
       Object.assign(this, {
@@ -108,15 +121,15 @@ export default {
     'conversation.messages' (messages) {
       if (!messages || messages.length === 0) return
       // Jump to bottom when new messages added
-      const newNewestMessageId = messages[0].id
-      if (this.newestMessageId !== newNewestMessageId) {
+      const newNewestMessage = messages[messages.length - 1]
+      if (this.newestMessageId !== newNewestMessage.id && newNewestMessage.author.isCurrentUser) {
         this.scrollToBottom()
-        this.newestMessageId = newNewestMessageId
+        this.newestMessageId = newNewestMessage.id
         if (!this.away) this.markRead(this.newestMessageId)
       }
       // Retain position when old message added
-      const newOldestMessageId = messages[messages.length - 1].id
-      if (this.oldestMessageId !== newOldestMessageId) {
+      const newOldestMessageId = messages[0].id
+      if (this.startAtBottom && this.oldestMessageId !== newOldestMessageId) {
         this.saveScrollPosition()
         this.oldestMessageId = newOldestMessageId
         this.$nextTick(() => {
@@ -124,10 +137,15 @@ export default {
         })
       }
     },
+    fetchingFuture (pending) {
+      if (pending === false && this.doneFetchingFuture) {
+        this.doneFetchingFuture()
+        this.doneFetchingFuture = null
+      }
+    },
   },
   methods: {
     markRead (messageId) {
-      if (!this.conversation) return
       if (this.conversation.unreadMessageCount > 0) {
         this.$emit('mark', {
           id: this.conversation.id,
@@ -159,7 +177,7 @@ export default {
       }
     },
     restoreScrollPosition () {
-      if (!this.$refs.scroll) return
+      if (!this.$refs.scroll || !this.startAtBottom) return
       const { height } = this.$refs.scroll.getBoundingClientRect()
       const scrollHeight = getScrollHeight(this.$refs.scroll)
       const scrollPosition = scrollHeight - height - this.scrollPositionFromBottom
@@ -172,11 +190,18 @@ export default {
         }
       })
     },
+    async maybeFetchFuture (index, done) {
+      if (!this.conversation.canFetchFuture) {
+        await this.$nextTick()
+        done()
+        return
+      }
+      this.$emit('fetchFuture')
+      this.doneFetchingFuture = done
+    },
     onScroll ({ position }) {
-      if (position < 50) {
-        if (!this.fetchingPast && this.conversation.canLoadPast) {
-          this.$emit('fetchPast', this.conversation.id)
-        }
+      if (position < 50 && !this.fetchingPast && this.conversation.canFetchPast) {
+        this.$emit('fetchPast', this.conversation.id)
       }
     },
   },

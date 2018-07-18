@@ -17,7 +17,7 @@ export default connect({
     toggleReaction: 'conversations/toggleReaction',
     saveMessage: 'conversations/saveMessage',
     fetchPast: 'conversations/fetchPast',
-    // fetchFuture: 'conversations/fetchFuture',
+    fetchFuture: 'currentThread/fetchFuture',
   },
 })('Detail', DetailUI)
 </script>

@@ -37,12 +37,12 @@ export function sortByName (a, b) {
   return a.name.localeCompare(b.name)
 }
 
-export function insertSorted (stateMessages, messages) {
+export function insertSorted (stateMessages, messages, compareFn) {
   // simple insertion sort for new messages
   // assumes that existing messages are sorted AND incoming messages are sorted
   let i = 0
   for (let message of messages) {
-    while (i < stateMessages.length && stateMessages[i].createdAt > message.createdAt) i++
+    while (i < stateMessages.length && compareFn(stateMessages[i], message)) i++
 
     // decide if we should append, update or insert a message
     if (i >= stateMessages.length) {
@@ -352,7 +352,7 @@ export default {
         Vue.set(state.messages, conversationId, messages)
         return
       }
-      insertSorted(stateMessages, messages)
+      insertSorted(stateMessages, messages, (a, b) => a.createdAt > b.createdAt)
     },
     setCursor (state, { conversationId, cursor }) {
       Vue.set(state.cursors, conversationId, cursor)

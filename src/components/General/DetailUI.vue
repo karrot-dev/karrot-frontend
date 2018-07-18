@@ -28,13 +28,19 @@
               {{ $d(pickup.date, 'dateShort') }}
             </span>
           </q-toolbar-title>
-          <template v-if="user">
+          <template v-else-if="user">
             <ProfilePicture
               :user="conversationPartner(conversation)"
               :size="40"
             />
             <q-toolbar-title>
               {{ user.displayName }}
+            </q-toolbar-title>
+          </template>
+          <template v-else-if="conversation.thread">
+            <q-icon name="fas fw-fw fa-comments" />
+            <q-toolbar-title>
+              {{ $t('CONVERSATION.REPLIES') }}
             </q-toolbar-title>
           </template>
           <NotificationToggle
@@ -69,15 +75,17 @@
         </div>
       </div>
       <ChatConversation
-        :conversation="conversation"
+        v-if="conversation"
+        :conversation="conversationWithMaybeReversedMessages"
         :away="away"
         :current-user="currentUser"
+        :start-at-bottom="Boolean(user) || Boolean(pickup)"
         @send="$emit('send', arguments[0])"
         @mark="$emit('mark', arguments[0])"
         @toggleReaction="$emit('toggleReaction', arguments[0])"
         @saveMessage="$emit('saveMessage', arguments[0])"
         @fetchPast="$emit('fetchPast', arguments[0])"
-        @fetchFuture="$emit('fetchFuture', arguments[0])"
+        @fetchFuture="$emit('fetchFuture')"
       />
     </template>
   </div>
@@ -92,6 +100,7 @@ import {
   QToolbar,
   QToolbarTitle,
   QSpinnerDots,
+  QIcon,
 } from 'quasar'
 
 export default {
@@ -103,6 +112,7 @@ export default {
     QToolbar,
     QToolbarTitle,
     QSpinnerDots,
+    QIcon,
   },
   props: {
     user: { type: Object, default: null },
@@ -116,6 +126,15 @@ export default {
       if (!this.conversation) return false
       const s = this.conversation.fetchStatus
       return !s.pending && !s.hasValidationErrors
+    },
+    conversationWithMaybeReversedMessages () {
+      if (!this.conversation) return
+      // TODO reverse message on server
+      const messages = this.conversation.thread ? this.conversation.messages : this.conversation.messages.slice().reverse()
+      return {
+        ...this.conversation,
+        messages,
+      }
     },
   },
   methods: {

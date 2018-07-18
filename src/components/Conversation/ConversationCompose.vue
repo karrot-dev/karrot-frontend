@@ -20,7 +20,7 @@
             <q-input
               type="textarea"
               rows="1"
-              autofocus
+              :autofocus="autofocus"
               v-model="message"
               :placeholder="placeholder"
               :after="afterInput"
@@ -62,6 +62,10 @@ export default {
     slim: {
       type: Boolean,
       default: false,
+    },
+    autofocus: {
+      type: Boolean,
+      default: true,
     },
   },
   data () {

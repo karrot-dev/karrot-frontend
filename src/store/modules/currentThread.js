@@ -4,6 +4,7 @@ import { insertSorted } from './conversations'
 
 function initialState () {
   return {
+    id: null,
     messages: null,
     thread: {},
   }
@@ -17,23 +18,23 @@ export default {
   },
   state: initialState(),
   getters: {
-    id: state => state.thread && state.thread.id,
     get: (state, getters, rootState, rootGetters) => {
       const messages = (state.messages || []).map(rootGetters['conversations/enrichMessage'])
       return {
         ...state.thread,
         messages,
-        canFetchPast: getters['pagination/canFetchNext'],
+        author: rootGetters['users/get'](state.thread.author),
+        canFetchFuture: getters['pagination/canFetchNext'],
         sendStatus: getters.sendStatus,
         fetchStatus: getters.fetchStatus,
-        fetchPastStatus: getters.fetchPastStatus,
+        fetchFutureStatus: getters.fetchFutureStatus,
       }
     },
-    ...metaStatuses(['send', 'fetch', 'fetchPast']),
+    ...metaStatuses(['send', 'fetch', 'fetchFuture']),
   },
   actions: {
     ...withMeta({
-      async send ({ dispatch, getters }, { id, threadId, content }) {
+      async send ({ dispatch }, { id, threadId, content }) {
         const message = await messageAPI.create({
           conversation: id,
           thread: threadId,
@@ -41,28 +42,36 @@ export default {
         })
         dispatch('receiveMessage', message)
       },
-      async fetch ({ getters, commit, dispatch }, messageId) {
+      async fetch ({ state, commit, dispatch }, messageId) {
         dispatch('clear')
-        commit('setThread', { id: messageId })
-        const messages = await dispatch('pagination/extractCursor', messageAPI.listThread(messageId))
-        if (getters.id !== messageId) return
-        console.log('messageses', messages)
-        commit('setThread', messages[messages.length - 1])
+        commit('setScope', messageId)
+        const [firstMessage, messages] = await Promise.all([
+          messageAPI.get(messageId),
+          dispatch('pagination/extractCursor', messageAPI.listThread(messageId)),
+        ])
+        if (state.id !== messageId) return
+
+        // initialize to make ConversationCompose detect a thread
+        firstMessage.thread = firstMessage.id
+        commit('setThread', firstMessage)
+        // make sure that we always have a message (but not two times)
+        messages.shift()
+        messages.unshift(firstMessage)
         commit('update', messages)
       },
 
-      async fetchPast ({ getters, dispatch, commit }) {
-        const id = getters.id
+      async fetchFuture ({ state, dispatch, commit }) {
+        const id = state.id
         const data = await dispatch('pagination/fetchNext', messageAPI.listMore)
-        if (getters.id !== id) return
+        if (state.id !== id) return
         commit('update', data)
       },
     }, {
       findId: () => undefined,
     }),
 
-    receiveMessage ({ commit, getters }, message) {
-      if (message.thread !== getters.id) return
+    receiveMessage ({ commit, state }, message) {
+      if (!state.id || message.thread !== state.id) return
       commit('update', [message])
     },
 
@@ -71,6 +80,9 @@ export default {
     },
   },
   mutations: {
+    setScope (state, id) {
+      state.id = id
+    },
     setThread (state, thread) {
       state.thread = thread
     },
@@ -80,7 +92,7 @@ export default {
         state.messages = messages
         return
       }
-      insertSorted(stateMessages, messages)
+      insertSorted(stateMessages, messages, (a, b) => a.createdAt < b.createdAt)
     },
     addReaction (state, { userId, name, messageId }) {
       const message = state.messages.find(message => message.id === messageId)

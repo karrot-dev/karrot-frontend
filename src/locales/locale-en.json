@@ -400,6 +400,8 @@
   },
   "CONVERSATION": {
     "OPEN": "Open Chat",
+    "REPLY_TO_MESSAGE": "Reply to message...",
+    "REPLIES": "Replies",
     "UNREAD_MESSAGES": "You have one unread message. | You have {count} unread messages.",
     "EDITED": "edited",
     "MARK_READ": "Mark all as read",

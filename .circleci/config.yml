@@ -111,6 +111,8 @@ jobs:
           background: true
       - run:
           name: run frontend
+          environment:
+            BACKEND: https://localhost:8000
           command: yarn serve
           background: true
       - run:

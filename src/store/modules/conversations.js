@@ -126,11 +126,15 @@ export default {
     },
     enrichMessage: (state, getters, rootState, rootGetters) => message => {
       if (!message) return
+      const currentThread = rootGetters['currentThread/thread']
+      const isThreadReply = currentThread && message.id !== currentThread.thread
       return {
         ...message,
         reactions: getters.enrichReactions(message.reactions),
         author: rootGetters['users/get'](message.author),
-        isUnread: isUnread(message, state.entries[message.conversation]),
+        isUnread: isThreadReply
+          ? isUnread(message, rootGetters['currentThread/thread'].threadMeta)
+          : isUnread(message, state.entries[message.conversation]),
         saveStatus: getters['meta/status']('saveMessage', `message/${message.id}`),
         isEdited: differenceInSeconds(message.updatedAt, message.createdAt) > 10,
       }
@@ -182,7 +186,10 @@ export default {
         })
       },
 
-      async mark ({ dispatch }, { id, seenUpTo }) {
+      async mark ({ dispatch }, { id, threadId, seenUpTo }) {
+        if (threadId) {
+          await messageAPI.markThread(threadId, seenUpTo)
+        }
         if (id) {
           await conversationsAPI.mark(id, { seenUpTo })
         }

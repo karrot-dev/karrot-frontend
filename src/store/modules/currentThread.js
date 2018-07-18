@@ -18,6 +18,7 @@ export default {
   },
   state: initialState(),
   getters: {
+    thread: state => state.thread,
     get: (state, getters, rootState, rootGetters) => {
       const messages = (state.messages || []).map(rootGetters['conversations/enrichMessage'])
       return {
@@ -73,6 +74,9 @@ export default {
     receiveMessage ({ commit, state }, message) {
       if (!state.id || message.thread !== state.id) return
       commit('update', [message])
+      if (message.id === state.id) {
+        commit('setThread', message)
+      }
     },
 
     clear ({ commit }) {

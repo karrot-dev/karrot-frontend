@@ -10,8 +10,10 @@ export default {
     return convert((await axios.patch(`/api/messages/${data.id}/`, data)).data)
   },
 
-  async modifyThreadSettings (messageId, data) {
-    return convert((await axios.post(`/api/messages/${messageId}/thread/`, data)).data)
+  async markThread (messageId, seenUpTo) {
+    return convert((await axios.patch(`/api/messages/${messageId}/thread/`, {
+      seenUpTo,
+    })).data)
   },
 
   async get (id) {

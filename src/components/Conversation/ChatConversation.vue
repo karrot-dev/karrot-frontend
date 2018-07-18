@@ -80,7 +80,7 @@ export default {
       newestMessageId: -1,
       oldestMessageId: -1,
       scrollPositionFromBottom: 0,
-      doneFetchingFuture: null,
+      hideBottomSpinner: null,
     }
   },
   computed: {
@@ -122,10 +122,14 @@ export default {
       if (!messages || messages.length === 0) return
       // Jump to bottom when new messages added
       const newNewestMessage = messages[messages.length - 1]
-      if (this.newestMessageId !== newNewestMessage.id && newNewestMessage.author.isCurrentUser) {
-        this.scrollToBottom()
+
+      if (this.newestMessageId !== newNewestMessage.id) {
+        const scrollPosition = this.getScrollPositionFromBottom()
         this.newestMessageId = newNewestMessage.id
-        if (!this.away) this.markRead(this.newestMessageId)
+        if (scrollPosition < 100) {
+          this.scrollToBottom()
+          if (!this.away) this.markRead(this.newestMessageId)
+        }
       }
       // Retain position when old message added
       const newOldestMessageId = messages[0].id
@@ -138,17 +142,24 @@ export default {
       }
     },
     fetchingFuture (pending) {
-      if (pending === false && this.doneFetchingFuture) {
-        this.doneFetchingFuture()
-        this.doneFetchingFuture = null
+      if (pending === false && this.hideBottomSpinner) {
+        this.hideBottomSpinner()
+        this.hideBottomSpinner = null
       }
     },
   },
   methods: {
     markRead (messageId) {
-      if (this.conversation.unreadMessageCount > 0) {
+      const isThreadReply = this.conversation.thread && this.messageId !== this.conversation.thread
+      if (!isThreadReply && this.conversation.unreadMessageCount > 0) {
         this.$emit('mark', {
           id: this.conversation.id,
+          seenUpTo: messageId,
+        })
+      }
+      if (isThreadReply && this.conversation.threadMeta.unreadReplyCount > 0) {
+        this.$emit('mark', {
+          threadId: this.conversation.thread,
           seenUpTo: messageId,
         })
       }
@@ -166,12 +177,15 @@ export default {
         }
       this.$emit('send', data)
     },
-    saveScrollPosition () {
+    getScrollPositionFromBottom () {
       if (!this.$refs.scroll) return
       const { height } = this.$refs.scroll.getBoundingClientRect()
       const scrollHeight = getScrollHeight(this.$refs.scroll)
       const scrollPosition = getScrollPosition(this.$refs.scroll)
-      const newScrollPositionFromBottom = scrollHeight - scrollPosition - height
+      return scrollHeight - scrollPosition - height
+    },
+    saveScrollPosition () {
+      const newScrollPositionFromBottom = this.getScrollPositionFromBottom()
       if (this.scrollPositionFromBottom !== newScrollPositionFromBottom) {
         this.scrollPositionFromBottom = newScrollPositionFromBottom
       }
@@ -197,7 +211,7 @@ export default {
         return
       }
       this.$emit('fetchFuture')
-      this.doneFetchingFuture = done
+      this.hideBottomSpinner = done
     },
     onScroll ({ position }) {
       if (position < 50 && !this.fetchingPast && this.conversation.canFetchPast) {

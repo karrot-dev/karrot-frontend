@@ -6,11 +6,11 @@ export default connect({
   gettersToProps: {
     feedback: 'feedback/all',
     status: 'feedback/fetchStatus',
-    hasMore: 'feedback/pagination/hasMore',
+    canFetchPast: 'feedback/canFetchPast',
     feedbackPossible: 'pickups/feedbackPossible',
   },
   actionsToProps: {
-    fetchMore: 'feedback/fetchMore',
+    fetchPast: 'feedback/fetchPast',
   },
 })('GroupFeedbackList', FeedbackList)
 </script>

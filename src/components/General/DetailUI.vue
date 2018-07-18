@@ -76,7 +76,8 @@
         @mark="$emit('mark', arguments[0])"
         @toggleReaction="$emit('toggleReaction', arguments[0])"
         @saveMessage="$emit('saveMessage', arguments[0])"
-        @fetchMore="$emit('fetchMore', arguments[0])"
+        @fetchPast="$emit('fetchPast', arguments[0])"
+        @fetchFuture="$emit('fetchFuture', arguments[0])"
       />
     </template>
   </div>

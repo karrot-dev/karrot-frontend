@@ -74,14 +74,14 @@ export default {
   state: initialState(),
   getters: {
     get: (state, getters, rootState, rootGetters) => conversationId => {
-      const canLoadMore = typeof state.cursors[conversationId] === 'string'
+      const canFetchPast = typeof state.cursors[conversationId] === 'string'
       const conversation = getters.enrichConversation(state.entries[conversationId])
       const messages = (state.messages[conversationId] || []).map(getters.enrichMessage)
       return {
         ...conversation,
         messages,
-        canLoadMore,
-        ...metaStatusesWithId(getters, ['send', 'fetch', 'fetchMore'], conversationId),
+        canFetchPast,
+        ...metaStatusesWithId(getters, ['send', 'fetch', 'fetchPast'], conversationId),
       }
     },
     getForGroup: (state, getters) => groupId => {
@@ -169,7 +169,7 @@ export default {
         })
       },
 
-      async fetchMore ({ state, commit }, conversationId) {
+      async fetchPast ({ state, commit }, conversationId) {
         const currentCursor = state.cursors[conversationId]
         const data = await messageAPI.listMore(currentCursor)
         commit('updateMessages', {

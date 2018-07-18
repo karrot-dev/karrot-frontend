@@ -5,7 +5,7 @@
       ref="scroll"
     >
       <div
-        v-if="fetchingMore"
+        v-if="fetchingPast"
         class="full-width text-center generic-padding"
       >
         <q-spinner-dots :size="40" />
@@ -87,8 +87,8 @@ export default {
       if (!this.conversation) return []
       return this.conversation.messages.slice().reverse()
     },
-    fetchingMore () {
-      return this.conversation.fetchMoreStatus.pending
+    fetchingPast () {
+      return this.conversation.fetchPastStatus.pending
     },
   },
   watch: {
@@ -174,8 +174,8 @@ export default {
     },
     onScroll ({ position }) {
       if (position < 50) {
-        if (!this.fetchingMore && this.conversation.canLoadMore) {
-          this.$emit('fetchMore', this.conversation.id)
+        if (!this.fetchingPast && this.conversation.canLoadPast) {
+          this.$emit('fetchPast', this.conversation.id)
         }
       }
     },

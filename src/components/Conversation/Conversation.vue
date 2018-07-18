@@ -1,7 +1,7 @@
 <template>
   <div v-if="data">
     <q-infinite-scroll
-      :handler="loadMore"
+      :handler="maybeFetchPast"
     >
       <q-list
         class="bg-white desktop-margin relative-position"
@@ -42,15 +42,12 @@
           />
         </template>
         <div
-          v-if="data.fetchStatus.pending || data.fetchMoreStatus.pending"
+          v-if="data.fetchStatus.pending || data.fetchPastStatus.pending"
           style="width: 100%; text-align: center">
           <q-spinner-dots :size="40"/>
         </div>
       </q-list>
     </q-infinite-scroll>
-    <q-alert v-if="data.fetchMoreStatus.hasValidationErrors">
-      {{ data.fetchMoreStatus.validationErrors }}
-    </q-alert>
   </div>
 </template>
 
@@ -78,7 +75,7 @@ export default {
       type: Object,
       default: null,
     },
-    fetchMore: {
+    fetchPast: {
       type: Function,
       default: null,
     },
@@ -88,13 +85,13 @@ export default {
     },
   },
   methods: {
-    async loadMore (index, done) {
-      if (!this.data || !this.fetchMore || !this.data.canLoadMore) {
+    async maybeFetchPast (index, done) {
+      if (!this.data || !this.fetchPast || !this.data.canFetchPast) {
         await this.$nextTick()
         done()
         return
       }
-      await this.fetchMore(this.data.id)
+      await this.fetchPast(this.data.id)
       done()
     },
     toggleNotifications () {

@@ -35,10 +35,10 @@ describe('conversations', () => {
       expect(store.getters['conversations/get'](newConversation.id)).toEqual({
         ...newConversation,
         messages: [],
-        canLoadMore: false,
+        canFetchPast: false,
         sendStatus: statusMocks.default(),
         fetchStatus: statusMocks.default(),
-        fetchMoreStatus: statusMocks.default(),
+        fetchPastStatus: statusMocks.default(),
       })
     })
 
@@ -49,10 +49,10 @@ describe('conversations', () => {
       expect(store.getters['conversations/get'](1)).toEqual({
         ...initialConversation,
         messages: [],
-        canLoadMore: false,
+        canFetchPast: false,
         sendStatus: statusMocks.default(),
         fetchStatus: statusMocks.default(),
-        fetchMoreStatus: statusMocks.default(),
+        fetchPastStatus: statusMocks.default(),
       })
     })
 

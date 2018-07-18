@@ -29,7 +29,7 @@
       <Conversation
         :data="conversation"
         :user="user"
-        :fetch-more="fetchMore"
+        :fetch-past="fetchPast"
         @send="$emit('send', arguments[0])"
         @saveMessage="$emit('saveMessage', arguments[0])"
         @markAllRead="$emit('markAllRead', arguments[0])"
@@ -61,7 +61,7 @@ export default {
     availablePickups: { required: true, type: Array },
     feedbackPossible: { required: true, type: Array },
     conversation: { required: true, type: Object },
-    fetchMore: { required: true, type: Function },
+    fetchPast: { required: true, type: Function },
     user: { default: null, type: Object },
     refresh: { required: true, type: Function },
   },

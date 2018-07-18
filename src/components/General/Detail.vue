@@ -16,7 +16,8 @@ export default connect({
     toggleEmailNotifications: 'conversations/maybeToggleEmailNotifications',
     toggleReaction: 'conversations/toggleReaction',
     saveMessage: 'conversations/saveMessage',
-    fetchMore: 'conversations/fetchMore',
+    fetchPast: 'conversations/fetchPast',
+    // fetchFuture: 'conversations/fetchFuture',
   },
 })('Detail', DetailUI)
 </script>

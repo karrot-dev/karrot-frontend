@@ -23,13 +23,13 @@ export default {
       return {
         ...state.thread,
         messages,
-        canLoadMore: getters['pagination/hasMore'],
+        canFetchPast: getters['pagination/canFetchNext'],
         sendStatus: getters.sendStatus,
         fetchStatus: getters.fetchStatus,
-        fetchMoreStatus: getters.fetchMoreStatus,
+        fetchPastStatus: getters.fetchPastStatus,
       }
     },
-    ...metaStatuses(['send', 'fetch', 'fetchMore']),
+    ...metaStatuses(['send', 'fetch', 'fetchPast']),
   },
   actions: {
     ...withMeta({
@@ -51,9 +51,9 @@ export default {
         commit('update', messages)
       },
 
-      async fetchMore ({ getters, dispatch, commit }) {
+      async fetchPast ({ getters, dispatch, commit }) {
         const id = getters.id
-        const data = await dispatch('pagination/fetchMore', messageAPI.listMore)
+        const data = await dispatch('pagination/fetchNext', messageAPI.listMore)
         if (getters.id !== id) return
         commit('update', data)
       },

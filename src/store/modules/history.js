@@ -1,6 +1,6 @@
 import Vue from 'vue'
 import historyAPI from '@/services/api/history'
-import { indexById, createRouteError, createMetaModule, withMeta, metaStatuses } from '@/store/helpers'
+import { indexById, createRouteError, createMetaModule, createPaginationModule, withMeta, metaStatuses } from '@/store/helpers'
 import i18n from '@/i18n'
 
 function initialState () {
@@ -9,18 +9,20 @@ function initialState () {
     entries: {},
     idList: [], // sorted, most recent on top
     idListScope: { type: null, id: null }, // what kind of data currently is loaded in idList
-    cursor: null,
   }
 }
 
 export default {
   namespaced: true,
-  modules: { meta: createMetaModule() },
+  modules: {
+    meta: createMetaModule(),
+    pagination: createPaginationModule(),
+  },
   state: initialState(),
   getters: {
     get: (state, getters, rootState, rootGetters) => id => getters.enrich(state.entries[id]),
     all: (state, getters, rootState, rootGetters) => state.idList.map(getters.get),
-    canLoadMore: (state, getters, rootState, rootGetters) => typeof state.cursor === 'string',
+    canFetchPast: (state, getters) => getters['pagination/canFetchNext'],
     enrich: (state, getters, rootState, rootGetters) => entry => {
       if (entry) {
         const store = rootGetters['stores/get'](entry.store)
@@ -47,23 +49,22 @@ export default {
           dispatch('clear')
           commit('setScope', scope)
         }
-        const data = await historyAPI.list(filters)
+        const entries = await dispatch('pagination/extractCursor', historyAPI.list(filters))
         // check for race condition when switching pages
         if (scope.type !== state.idListScope.type || scope.id !== state.idListScope.id) return
-        commit('update', { entries: data.results, cursor: data.next })
+        commit('update', { entries })
       },
       async fetchById ({ commit, state }, id) {
         // add entry by ID, not add to list
         const entry = await historyAPI.get(id)
         commit('addEntry', entry)
       },
-      async fetchMore ({ state, commit }) {
-        if (!state.cursor) return
+      async fetchPast ({ state, commit, dispatch }) {
         const {type, id} = state.idListScope
-        const data = await historyAPI.listMore(state.cursor)
+        const entries = await dispatch('pagination/fetchNext', historyAPI.listMore)
         // check for race condition when switching pages
         if (type !== state.idListScope.type || id !== state.idListScope.id) return
-        commit('update', { entries: data.results, cursor: data.next })
+        commit('update', { entries })
       },
 
     }),
@@ -107,7 +108,7 @@ export default {
       const fitsStoreScope = () => type === 'store' && entry.store === id
       const fitsUserScope = () => type === 'user' && entry.users && entry.users.includes(id)
       if (fitsGroupScope() || fitsStoreScope() || fitsUserScope()) {
-        commit('update', { entries: [entry], cursor: state.cursor })
+        commit('update', { entries: [entry] })
       }
     },
 
@@ -137,7 +138,7 @@ export default {
       // used for history detail view
       state.entries[entry.id] = entry
     },
-    update (state, { entries, cursor }) {
+    update (state, { entries }) {
       state.entries = {
         ...state.entries,
         ...indexById(entries),
@@ -151,7 +152,6 @@ export default {
         while (i < state.idList.length && state.entries[state.idList[i]].date > date) i++
         state.idList.splice(i, 0, id)
       }
-      state.cursor = cursor
     },
     clear (state) {
       Object.entries(initialState())

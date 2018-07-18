@@ -22,7 +22,7 @@ export default connect({
     toggleReaction: 'conversations/toggleReaction',
   },
   actionsToProps: {
-    fetchMore: 'conversations/fetchMore',
+    fetchPast: 'conversations/fetchPast',
     refresh: 'refresh/refresh',
   },
 })('GroupWall', Wall)

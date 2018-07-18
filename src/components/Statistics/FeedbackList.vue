@@ -1,5 +1,5 @@
 <template>
-  <q-infinite-scroll :handler="loadMore">
+  <q-infinite-scroll :handler="maybeFetchPast">
     <FeedbackNotice
       v-if="feedbackPossible.length > 0"
       :feedback-possible="feedbackPossible"
@@ -24,7 +24,7 @@
       </template>
     </KNotice>
     <div
-      v-if="status.pending"
+      slot="message"
       style="width: 100%; text-align: center"
     >
       <q-spinner-dots :size="40"/>
@@ -51,7 +51,7 @@ export default {
   },
   computed: {
     empty () {
-      return !this.feedback.length && !this.status.pending && !this.status.hasValidationErrors
+      return !this.isPending && !this.hasAnyErrors && this.feedback.length < 1
     },
   },
 }

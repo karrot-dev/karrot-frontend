@@ -27,7 +27,6 @@ exports[`Storyshots AddressPicker Default 1`] = `
 
 exports[`Storyshots Conversation Conversation 1`] = `
 <div>
-  <!---->
   <div class="q-infinite-scroll">
     <div class="q-infinite-scroll-content">
       <div class="q-list bg-white desktop-margin relative-position">
@@ -148,6 +147,11 @@ exports[`Storyshots Conversation Conversation 1`] = `
             </div>
           </button>
           </span>
+          <button tabindex="0" type="button" class="q-btn inline relative-position q-btn-item non-selectable reaction-box q-btn-rectangle q-btn-flat q-focusable q-hoverable">
+            <div class="q-focus-helper"></div>
+            <div class="q-btn-inner row col items-center justify-center">
+              <i class="fas fa-comments"></i> <span class="q-tooltip animate-popup"><div></div></span></div>
+          </button>
         </div>
       </div>
       <div class="conversation-message q-item q-item-division relative-position q-item-multiline q-item-highlight">
@@ -193,6 +197,11 @@ exports[`Storyshots Conversation Conversation 1`] = `
           </div>
         </button>
         </span>
+        <button tabindex="0" type="button" class="q-btn inline relative-position q-btn-item non-selectable reaction-box q-btn-rectangle q-btn-flat q-focusable q-hoverable">
+          <div class="q-focus-helper"></div>
+          <div class="q-btn-inner row col items-center justify-center">
+            <i class="fas fa-comments"></i> <span class="q-tooltip animate-popup"><div></div></span></div>
+        </button>
       </div>
     </div>
     <div class="conversation-message q-item q-item-division relative-position q-item-multiline q-item-highlight">
@@ -238,6 +247,11 @@ exports[`Storyshots Conversation Conversation 1`] = `
         </div>
       </button>
       </span>
+      <button tabindex="0" type="button" class="q-btn inline relative-position q-btn-item non-selectable reaction-box q-btn-rectangle q-btn-flat q-focusable q-hoverable">
+        <div class="q-focus-helper"></div>
+        <div class="q-btn-inner row col items-center justify-center">
+          <i class="fas fa-comments"></i> <span class="q-tooltip animate-popup"><div></div></span></div>
+      </button>
     </div>
   </div>
   <div class="conversation-message q-item q-item-division relative-position q-item-multiline q-item-highlight">
@@ -283,6 +297,11 @@ exports[`Storyshots Conversation Conversation 1`] = `
       </div>
     </button>
     </span>
+    <button tabindex="0" type="button" class="q-btn inline relative-position q-btn-item non-selectable reaction-box q-btn-rectangle q-btn-flat q-focusable q-hoverable">
+      <div class="q-focus-helper"></div>
+      <div class="q-btn-inner row col items-center justify-center">
+        <i class="fas fa-comments"></i> <span class="q-tooltip animate-popup"><div></div></span></div>
+    </button>
   </div>
 </div>
 <div class="conversation-message q-item q-item-division relative-position q-item-multiline q-item-highlight">
@@ -328,6 +347,11 @@ exports[`Storyshots Conversation Conversation 1`] = `
     </div>
   </button>
   </span>
+  <button tabindex="0" type="button" class="q-btn inline relative-position q-btn-item non-selectable reaction-box q-btn-rectangle q-btn-flat q-focusable q-hoverable">
+    <div class="q-focus-helper"></div>
+    <div class="q-btn-inner row col items-center justify-center">
+      <i class="fas fa-comments"></i> <span class="q-tooltip animate-popup"><div></div></span></div>
+  </button>
 </div>
 </div>
 <div class="conversation-message q-item q-item-division relative-position q-item-multiline q-item-highlight">
@@ -373,6 +397,11 @@ exports[`Storyshots Conversation Conversation 1`] = `
     </div>
   </button>
   </span>
+  <button tabindex="0" type="button" class="q-btn inline relative-position q-btn-item non-selectable reaction-box q-btn-rectangle q-btn-flat q-focusable q-hoverable">
+    <div class="q-focus-helper"></div>
+    <div class="q-btn-inner row col items-center justify-center">
+      <i class="fas fa-comments"></i> <span class="q-tooltip animate-popup"><div></div></span></div>
+  </button>
 </div>
 </div>
 <div class="conversation-message q-item q-item-division relative-position q-item-multiline q-item-highlight">
@@ -418,6 +447,11 @@ exports[`Storyshots Conversation Conversation 1`] = `
     </div>
   </button>
   </span>
+  <button tabindex="0" type="button" class="q-btn inline relative-position q-btn-item non-selectable reaction-box q-btn-rectangle q-btn-flat q-focusable q-hoverable">
+    <div class="q-focus-helper"></div>
+    <div class="q-btn-inner row col items-center justify-center">
+      <i class="fas fa-comments"></i> <span class="q-tooltip animate-popup"><div></div></span></div>
+  </button>
 </div>
 </div>
 <div class="conversation-message q-item q-item-division relative-position q-item-multiline q-item-highlight">
@@ -465,6 +499,11 @@ exports[`Storyshots Conversation Conversation 1`] = `
     </div>
   </button>
   </span>
+  <button tabindex="0" type="button" class="q-btn inline relative-position q-btn-item non-selectable reaction-box q-btn-rectangle q-btn-flat q-focusable q-hoverable">
+    <div class="q-focus-helper"></div>
+    <div class="q-btn-inner row col items-center justify-center">
+      <i class="fas fa-comments"></i> <span class="q-tooltip animate-popup"><div></div></span></div>
+  </button>
 </div>
 </div>
 <div class="conversation-message q-item q-item-division relative-position q-item-multiline q-item-highlight">
@@ -510,6 +549,11 @@ exports[`Storyshots Conversation Conversation 1`] = `
     </div>
   </button>
   </span>
+  <button tabindex="0" type="button" class="q-btn inline relative-position q-btn-item non-selectable reaction-box q-btn-rectangle q-btn-flat q-focusable q-hoverable">
+    <div class="q-focus-helper"></div>
+    <div class="q-btn-inner row col items-center justify-center">
+      <i class="fas fa-comments"></i> <span class="q-tooltip animate-popup"><div></div></span></div>
+  </button>
 </div>
 </div>
 <!---->
@@ -517,7 +561,6 @@ exports[`Storyshots Conversation Conversation 1`] = `
 </div>
 <div class="q-infinite-scroll-message" style="display:none;"></div>
 </div>
-<!---->
 </div>
 `;
 
@@ -4681,9 +4724,25 @@ exports[`Storyshots Statistics FeedbackList 1`] = `
       </div>
     </div>
     <!---->
-    <!---->
   </div>
-  <div class="q-infinite-scroll-message" style="display:none;"></div>
+  <div class="q-infinite-scroll-message" style="display:none;">
+    <div style="width:100%;text-align:center;">
+      <svg fill="currentColor" width="40" height="40" viewBox="0 0 120 30" xmlns="http://www.w3.org/2000/svg" class="q-spinner">
+        <circle cx="15" cy="15" r="15">
+          <animate attributeName="r" from="15" to="15" begin="0s" dur="0.8s" values="15;9;15" calcMode="linear" repeatCount="indefinite"></animate>
+          <animate attributeName="fill-opacity" from="1" to="1" begin="0s" dur="0.8s" values="1;.5;1" calcMode="linear" repeatCount="indefinite"></animate>
+        </circle>
+        <circle cx="60" cy="15" r="9" fill-opacity=".3">
+          <animate attributeName="r" from="9" to="9" begin="0s" dur="0.8s" values="9;15;9" calcMode="linear" repeatCount="indefinite"></animate>
+          <animate attributeName="fill-opacity" from=".5" to=".5" begin="0s" dur="0.8s" values=".5;1;.5" calcMode="linear" repeatCount="indefinite"></animate>
+        </circle>
+        <circle cx="105" cy="15" r="15">
+          <animate attributeName="r" from="15" to="15" begin="0s" dur="0.8s" values="15;9;15" calcMode="linear" repeatCount="indefinite"></animate>
+          <animate attributeName="fill-opacity" from="1" to="1" begin="0s" dur="0.8s" values="1;.5;1" calcMode="linear" repeatCount="indefinite"></animate>
+        </circle>
+      </svg>
+    </div>
+  </div>
 </div>
 `;
 
@@ -4967,9 +5026,25 @@ exports[`Storyshots Statistics PickupFeedback 1`] = `
           </div>
         </div>
         <!---->
-        <!---->
       </div>
-      <div class="q-infinite-scroll-message" style="display:none;"></div>
+      <div class="q-infinite-scroll-message" style="display:none;">
+        <div style="width:100%;text-align:center;">
+          <svg fill="currentColor" width="40" height="40" viewBox="0 0 120 30" xmlns="http://www.w3.org/2000/svg" class="q-spinner">
+            <circle cx="15" cy="15" r="15">
+              <animate attributeName="r" from="15" to="15" begin="0s" dur="0.8s" values="15;9;15" calcMode="linear" repeatCount="indefinite"></animate>
+              <animate attributeName="fill-opacity" from="1" to="1" begin="0s" dur="0.8s" values="1;.5;1" calcMode="linear" repeatCount="indefinite"></animate>
+            </circle>
+            <circle cx="60" cy="15" r="9" fill-opacity=".3">
+              <animate attributeName="r" from="9" to="9" begin="0s" dur="0.8s" values="9;15;9" calcMode="linear" repeatCount="indefinite"></animate>
+              <animate attributeName="fill-opacity" from=".5" to=".5" begin="0s" dur="0.8s" values=".5;1;.5" calcMode="linear" repeatCount="indefinite"></animate>
+            </circle>
+            <circle cx="105" cy="15" r="15">
+              <animate attributeName="r" from="15" to="15" begin="0s" dur="0.8s" values="15;9;15" calcMode="linear" repeatCount="indefinite"></animate>
+              <animate attributeName="fill-opacity" from="1" to="1" begin="0s" dur="0.8s" values="1;.5;1" calcMode="linear" repeatCount="indefinite"></animate>
+            </circle>
+          </svg>
+        </div>
+      </div>
     </div>
   </div>
 </div>

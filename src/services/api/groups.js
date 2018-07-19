@@ -19,6 +19,10 @@ export default {
     return (await axios.post(`/api/groups/${groupId}/join/`, data)).data
   },
 
+  async apply (groupId, data) {
+    return (await axios.post(`/api/groups/${groupId}/apply/`, data)).data
+  },
+
   async leave (groupId) {
     return (await axios.post(`/api/groups/${groupId}/leave/`, {})).data
   },

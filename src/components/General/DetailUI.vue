@@ -44,8 +44,7 @@
             </q-toolbar-title>
           </template>
           <NotificationToggle
-            v-if="conversation.emailNotifications !== undefined"
-            :value="conversation.emailNotifications"
+            :value="notifications"
             :user="currentUser"
             in-toolbar
             @click="toggleNotifications"
@@ -136,16 +135,27 @@ export default {
         messages,
       }
     },
+    notifications () {
+      return typeof this.conversation.emailNotifications !== 'undefined'
+        ? this.conversation.emailNotifications
+        : !this.conversation.threadMeta.muted
+    },
   },
   methods: {
     conversationPartner (conversation) {
       return this.conversation && this.conversation.participants && this.conversation.participants.find(e => !e.isCurrentUser)
     },
     toggleNotifications () {
-      this.$emit('toggleEmailNotifications', {
-        conversationId: this.conversation.id,
-        value: !this.conversation.emailNotifications,
-      })
+      const data = this.conversation.thread
+        ? {
+          threadId: this.conversation.thread,
+          value: !this.notifications,
+        }
+        : {
+          conversationId: this.conversation.id,
+          value: !this.notifications,
+        }
+      this.$emit('toggleEmailNotifications', data)
     },
   },
 }

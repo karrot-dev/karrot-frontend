@@ -268,7 +268,11 @@ export default {
       if (conversationId) commit('clearMessages', { conversationId })
     },
 
-    async maybeToggleEmailNotifications ({ state, getters, dispatch }, { conversationId, value }) {
+    async maybeToggleEmailNotifications ({ state, getters, dispatch }, { conversationId, threadId, value }) {
+      if (threadId) {
+        dispatch('currentThread/maybeSetMuted', { threadId, value: !value }, { root: true })
+        return
+      }
       const pending = getters['meta/status']('toggleEmailNotifications', conversationId).pending
       const prevent = state.entries[conversationId] && state.entries[conversationId].emailNotifications === value
       if (!pending && !prevent) {

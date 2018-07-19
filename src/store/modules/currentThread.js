@@ -32,7 +32,7 @@ export default {
         fetchFutureStatus: getters.fetchFutureStatus,
       }
     },
-    ...metaStatuses(['send', 'fetch', 'fetchFuture']),
+    ...metaStatuses(['send', 'fetch', 'fetchFuture', 'setMuted']),
   },
   actions: {
     ...withMeta({
@@ -68,6 +68,11 @@ export default {
         if (state.id !== id) return
         commit('update', data)
       },
+
+      async setMuted ({ state, commit }, { threadId, value }) {
+        await messageAPI.setMuted(threadId || state.thread.id, value)
+        commit('setMuted', value)
+      },
     }, {
       findId: () => undefined,
     }),
@@ -82,6 +87,14 @@ export default {
           },
         }, { root: true })
         router.push('/')
+      }
+    },
+
+    async maybeSetMuted ({ state, getters, dispatch }, { threadId, value }) {
+      const pending = getters.setMutedStatus.pending
+      const prevent = state.thread.muted === value
+      if (!pending && !prevent) {
+        await dispatch('setMuted', { threadId, value })
       }
     },
 
@@ -107,6 +120,9 @@ export default {
     },
     setThread (state, thread) {
       state.thread = thread
+    },
+    setMuted (state, muted) {
+      state.thread.muted = muted
     },
     update (state, messages) {
       const stateMessages = state.messages

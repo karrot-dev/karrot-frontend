@@ -16,6 +16,12 @@ export default {
     })).data)
   },
 
+  async setMuted (messageId, muted) {
+    return convert((await axios.patch(`/api/messages/${messageId}/thread/`, {
+      muted,
+    })).data)
+  },
+
   async get (id) {
     return convert((await axios.get(`/api/messages/${id}/`)).data)
   },

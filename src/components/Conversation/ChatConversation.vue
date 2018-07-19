@@ -157,7 +157,7 @@ export default {
           seenUpTo: messageId,
         })
       }
-      if (isThreadReply && this.conversation.threadMeta.unreadReplyCount > 0) {
+      if (isThreadReply && this.conversation.threadMeta && this.conversation.threadMeta.unreadReplyCount > 0) {
         this.$emit('mark', {
           threadId: this.conversation.thread,
           seenUpTo: messageId,

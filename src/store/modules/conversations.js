@@ -128,7 +128,7 @@ export default {
       if (!message) return
       const isThreadReply = message.thread && message.thread !== message.id
       const isThread = message.thread && message.thread === message.id
-      return {
+      const data = {
         ...message,
         reactions: getters.enrichReactions(message.reactions),
         author: rootGetters['users/get'](message.author),
@@ -140,6 +140,13 @@ export default {
         isThreadReply,
         isThread,
       }
+      if (data.threadMeta) {
+        data.threadMeta = {
+          ...data.threadMeta,
+          participants: data.threadMeta.participants.map(rootGetters['users/get']),
+        }
+      }
+      return data
     },
     enrichConversation: (state, getters, rootState, rootGetters) => conversation => {
       if (!conversation) return
@@ -280,10 +287,10 @@ export default {
       }
     },
 
-    async toggleReaction ({ state, commit, rootGetters }, { message, name }) {
+    async toggleReaction ({ commit, rootGetters }, { message, name }) {
       const { id: messageId, conversation: conversationId } = message
       const userId = rootGetters['auth/userId']
-      const reactionIndex = message.reactions.findIndex(reaction => reaction.user === userId && reaction.name === name)
+      const reactionIndex = message.reactions.findIndex(reaction => reaction.reacted && reaction.name === name)
 
       if (reactionIndex === -1) {
         const addedReaction = await reactionsAPI.create(messageId, name)
@@ -385,10 +392,12 @@ export default {
       state.entries[conversationId].emailNotifications = value
     },
     addReaction (state, { userId, name, messageId, conversationId }) {
+      if (!state.messages[conversationId]) return
       const message = state.messages[conversationId].find(message => message.id === messageId)
       message.reactions.push({ user: userId, name })
     },
     removeReaction (state, { userId, name, messageId, conversationId }) {
+      if (!state.messages[conversationId]) return
       const message = state.messages[conversationId].find(message => message.id === messageId)
       const reactionIndex = message.reactions.findIndex(reaction => reaction.user === userId && reaction.name === name)
       message.reactions.splice(reactionIndex, 1)

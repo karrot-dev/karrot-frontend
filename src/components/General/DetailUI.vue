@@ -31,7 +31,7 @@
           <template v-else-if="user">
             <ProfilePicture
               :user="conversationPartner(conversation)"
-              :size="40"
+              :size="$q.platform.is.mobile ? 25 : 40"
             />
             <q-toolbar-title>
               {{ user.displayName }}
@@ -44,10 +44,12 @@
             </q-toolbar-title>
           </template>
           <NotificationToggle
+            v-if="notifications !== null"
             :value="notifications"
             :user="currentUser"
             in-toolbar
             @click="toggleNotifications"
+            :size="$q.platform.is.mobile ? 'sm' : 'md'"
           />
           <q-btn
             v-if="!$q.platform.is.mobile"
@@ -59,16 +61,16 @@
           />
         </q-toolbar>
         <div
-          v-if="!user"
+          v-if="pickup || conversation.thread"
           class="k-participant-list row"
         >
           <div class="col">
             <ProfilePicture
-              v-for="participant in conversation.participants"
+              v-for="participant in participants"
               :key="participant.id"
               class="k-participant"
               :user="participant"
-              :size="40"
+              :size="$q.platform.is.mobile ? 20 : 35"
             />
           </div>
         </div>
@@ -136,9 +138,19 @@ export default {
       }
     },
     notifications () {
-      return typeof this.conversation.emailNotifications !== 'undefined'
-        ? this.conversation.emailNotifications
-        : !this.conversation.threadMeta.muted
+      if (this.conversation.thread && this.conversation.threadMeta) {
+        return !this.conversation.threadMeta.muted
+      }
+      if (typeof this.conversation.emailNotifications !== 'undefined') {
+        return this.conversation.emailNotifications
+      }
+      return null
+    },
+    participants () {
+      if (this.conversation.thread && this.conversation.threadMeta) {
+        return this.conversation.threadMeta.participants
+      }
+      return this.conversation.participants
     },
   },
   methods: {
@@ -165,12 +177,16 @@ export default {
 @import '~variables'
 .Detail
   background-color white
-.k-participant-list
-  background-color #f5f5f5
-  padding 0.3em
-  padding-bottom 0
-.k-participant
-  display inline-block
-  margin-right 0.3em
-  margin-bottom 0.3em
+  .k-participant-list
+    background-color #f5f5f5
+    padding 0.3em
+    padding-bottom 0
+  .k-participant
+    display inline-block
+    margin-right 0.3em
+    margin-bottom 0.3em
+body.mobile .Detail .q-toolbar
+  min-height 20px
+  .q-toolbar-title
+    font-size 16px
 </style>

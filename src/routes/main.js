@@ -244,7 +244,7 @@ export default [
         meta: {
           requiredLoggedIn: true,
           breadcrumbs: [
-            { translation: 'CONVERSATION.REPLIES' },
+            { type: 'currentGroup' },
           ],
           beforeEnter: 'detail/routeEnter',
           afterLeave: 'detail/routeLeave',

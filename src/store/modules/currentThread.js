@@ -19,11 +19,11 @@ export default {
   },
   state: initialState(),
   getters: {
-    thread: state => state.thread,
+    thread: (state, getters, rootState, rootGetters) => rootGetters['conversations/enrichMessage'](state.thread),
     get: (state, getters, rootState, rootGetters) => {
       const messages = (state.messages || []).map(rootGetters['conversations/enrichMessage'])
       return {
-        ...state.thread,
+        ...rootGetters['conversations/enrichMessage'](state.thread),
         messages,
         author: rootGetters['users/get'](state.thread.author),
         canFetchFuture: getters['pagination/canFetchNext'],
@@ -133,10 +133,12 @@ export default {
       insertSorted(stateMessages, messages, (a, b) => a.createdAt < b.createdAt)
     },
     addReaction (state, { userId, name, messageId }) {
+      if (!state.messages) return
       const message = state.messages.find(message => message.id === messageId)
       message.reactions.push({ user: userId, name })
     },
     removeReaction (state, { userId, name, messageId }) {
+      if (!state.messages) return
       const message = state.messages.find(message => message.id === messageId)
       const reactionIndex = message.reactions.findIndex(reaction => reaction.user === userId && reaction.name === name)
       message.reactions.splice(reactionIndex, 1)

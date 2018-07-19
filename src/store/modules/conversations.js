@@ -127,7 +127,6 @@ export default {
     enrichMessage: (state, getters, rootState, rootGetters) => message => {
       if (!message) return
       const isThreadReply = message.thread && message.thread !== message.id
-      const isThread = message.thread && message.thread === message.id
       const data = {
         ...message,
         reactions: getters.enrichReactions(message.reactions),
@@ -137,8 +136,6 @@ export default {
           : isUnread(message, state.entries[message.conversation]),
         saveStatus: getters['meta/status']('saveMessage', `message/${message.id}`),
         isEdited: differenceInSeconds(message.updatedAt, message.createdAt) > 10,
-        isThreadReply,
-        isThread,
       }
       if (data.threadMeta) {
         data.threadMeta = {

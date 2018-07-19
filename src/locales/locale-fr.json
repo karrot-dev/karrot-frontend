@@ -2,7 +2,7 @@
   "GLOBAL": {
     "GITHUB_NOTE": "Dévéloppement",
     "FSWW_NOTE": "Lire notre page info!",
-    "FACEBOOK_NOTE": "Joins notre groupe sur Facebook!",
+    "COMMUNITY_NOTE": "Join our community!",
     "WARNING": "Attention",
     "BETA_WARNING": "Cette page est dévéloppée continuement et les informations sont régulièrement actualisées. Nous ne pouvons pas garantir la sécurité des données, mais nous faisons tout pour optimiser le niveau de protection !",
     "CONNECTION_INTERRUPTED": "Erreur: connexion interrompu!",
@@ -132,6 +132,7 @@
     "FULL_SCREEN": "Montrer en plein écran"
   },
   "STOREDETAIL": {
+    "DIRECTIONS": "Show directions",
     "EDIT": "Traiter magasin",
     "MANAGE": "Check and manage the pickups",
     "ARCHIVED": "Cette boutique a été archivée",
@@ -286,7 +287,6 @@
     "SET_AMOUNT": "Set amount",
     "DELETE_AMOUNT": "Delete amount",
     "AMOUNT": "Amount of food all of you were able to save (in kg)",
-    "COMMENT": "Comment",
     "COMMENT_PLACEHOLDER": "Was everything fine? Did everyone show up? Your comment here...",
     "PREVIOUS": "Previous feedback for {store}"
   },
@@ -353,6 +353,10 @@
   "OUTDATED_BROWSER": {
     "MESSAGE": "You are using an unsupported browser. {upgradeBrowser} to enjoy all features.",
     "LINK": "Please update or switch your browser"
+  },
+  "UPDATE_AVAILABLE": {
+    "TITLE": "Update available",
+    "DETAIL": "A new version of karrot is available."
   },
   "NOT_FOUND": {
     "EXPLANATION": "Sorry, we couldn't find this page anywhere.",

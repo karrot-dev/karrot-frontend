@@ -19,3 +19,4 @@ cordova/plugins
 cordova/config/current
 cordova/getpassword
 cordova/ul_web_hooks
+updateLocalesHelper/env

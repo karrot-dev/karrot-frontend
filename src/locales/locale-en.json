@@ -2,7 +2,7 @@
   "GLOBAL": {
     "GITHUB_NOTE": "Development",
     "FSWW_NOTE": "Read our info page!",
-    "FACEBOOK_NOTE": "Join our Facebook Group!",
+    "COMMUNITY_NOTE": "Join our community!",
     "WARNING": "Warning",
     "BETA_WARNING": "This website is under active development and everything is subject to change. We can't guarantee for the safety and privacy of the data you enter (but we try our best).",
     "CONNECTION_INTERRUPTED": "Error: connection interrupted!",
@@ -135,6 +135,7 @@
     "FULL_SCREEN": "Show full screen"
   },
   "STOREDETAIL": {
+    "DIRECTIONS": "Show directions",
     "EDIT": "Edit store",
     "MANAGE": "Check and manage the pickups",
     "ARCHIVED": "This store has been archived",
@@ -289,7 +290,6 @@
     "SET_AMOUNT": "Set amount",
     "DELETE_AMOUNT": "Delete amount",
     "AMOUNT": "Amount of food all of you were able to save (in kg)",
-    "COMMENT": "Comment",
     "COMMENT_PLACEHOLDER": "Was everything fine? Did everyone show up? Your comment here...",
     "PREVIOUS": "Previous feedback for {store}"
   },

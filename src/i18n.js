@@ -1,6 +1,6 @@
 import Vue from 'vue'
 import VueI18n from 'vue-i18n'
-import status from '@/locales/status-frontend.json'
+import status from '@/locales/translationStatus.json'
 import locales from '@/locales'
 
 Vue.use(VueI18n)
@@ -96,7 +96,7 @@ export function sortByDay (a, b) {
 export const localeOptions = Object.values(locales).map(({ name, locale }) => ({
   label: name,
   value: locale,
-  percentage: parseInt(status[locale].completed.replace('%', ''), 10),
+  percentage: status[locale],
 })).sort((a, b) => b.percentage - a.percentage)
 
 // Does not work, pls fix

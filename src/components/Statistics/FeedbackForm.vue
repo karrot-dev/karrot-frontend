@@ -1,11 +1,8 @@
 <template>
-  <form @submit.prevent="maybeSave">
-    <q-field
-      icon="fas fa-star"
-      :label="$t('PICKUP_FEEDBACK.COMMENT')"
-      :error="hasError('comment')"
-      :error-label="firstError('comment')"
-    >
+  <form
+    @submit.prevent="maybeSave"
+  >
+    <MarkdownInput :value="edit.comment">
       <q-input
         v-model="edit.comment"
         type="textarea"
@@ -14,19 +11,20 @@
         :min-rows="1"
         @keyup.ctrl.enter="maybeSave"
       />
-    </q-field>
+    </MarkdownInput>
 
     <AmountPicker
       v-model="edit.weight"
-      style="margin-top: 2em"
+      style="margin-top: 40px"
     />
 
     <div
-      v-if="hasNonFieldError"
+      v-if="hasAnyError"
       class="text-negative"
+      style="margin-top: 3em"
     >
       <i class="fas fa-exclamation-triangle"/>
-      {{ firstNonFieldError }}
+      {{ anyFirstError }}
     </div>
 
     <div class="row justify-end generic-margin group">
@@ -52,11 +50,12 @@
 <script>
 import { QCard, QField, QInput, QBtn, QSelect } from 'quasar'
 import AmountPicker from './AmountPicker'
+import MarkdownInput from '@/components/MarkdownInput'
 import editMixin from '@/mixins/editMixin'
 import statusMixin from '@/mixins/statusMixin'
 
 export default {
-  components: { QCard, QField, QInput, QBtn, QSelect, AmountPicker },
+  components: { QCard, QField, QInput, QBtn, QSelect, AmountPicker, MarkdownInput },
   mixins: [statusMixin, editMixin],
   computed: {
     canSave () {
@@ -74,6 +73,3 @@ export default {
   },
 }
 </script>
-
-<style scoped lang="stylus">
-</style>

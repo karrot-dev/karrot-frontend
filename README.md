@@ -8,9 +8,14 @@
 
 # karrot
 
+
 [![CodeCov](https://codecov.io/github/yunity/karrot-frontend/coverage.svg)](https://codecov.io/gh/yunity/karrot-frontend)
 [![CircleCI](https://circleci.com/gh/yunity/karrot-frontend.svg?style=shield)](https://circleci.com/gh/yunity/karrot-frontend)
-[![Known Vulnerabilities](https://snyk.io/test/github/yunity/karrot-frontend/e4f6927cccfbde340636d20b863efd508be19ec0/badge.svg)](https://snyk.io/test/github/yunity/karrot-frontend/e4f6927cccfbde340636d20b863efd508be19ec0)
+(Frontend)
+
+[![codecov](https://codecov.io/gh/yunity/karrot-backend/coverage.svg)](https://codecov.io/gh/yunity/karrot-backend)
+[![CircleCI](https://circleci.com/gh/yunity/karrot-backend.svg?style=shield)](https://circleci.com/gh/yunity/karrot-backend)
+(Backend)
 
 <div align="center">
   <img height="300" src="https://user-images.githubusercontent.com/4410802/42418936-4b29eb8c-82ab-11e8-9fd6-329952c73800.png">

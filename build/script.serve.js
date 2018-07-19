@@ -6,26 +6,17 @@ const express = require('express')
 const proxyMiddleware = require('http-proxy-middleware')
 const { join } = require('path')
 
+require('dotenv').config()
+
+const config = require('../config')
+
 /**
  * Serve static files
  */
 const app = express()
 app.use(express.static(join(__dirname, '../dist')))
 
-// copied and adjusted from index.js
-const BACKEND = 'http://localhost:8000'
-const proxyTable = {
-  '/api': {
-    target: BACKEND,
-    changeOrigin: true,
-    ws: true,
-    onProxyReq: (proxyReq) => {
-      if (/^https:/.test(BACKEND)) {
-        proxyReq.setHeader("referer", BACKEND);
-      }
-    }
-  }
-}
+const proxyTable = config.dev.proxyTable
 
 Object.keys(proxyTable).forEach(function (context) {
   var options = proxyTable[context]

@@ -9,22 +9,64 @@ export default {
       type: String,
     },
   },
-  render (h, { props: { inline, source } }) {
+  render (h, { props, data }) {
+    if (data.style || data.class || data.staticClass) {
+      throw new Error('Markdown component does not support style or class attributes')
+    }
     return h('div', {
-      class: { parsed: true },
-      domProps: { innerHTML: markdown.render(source) },
+      class: {
+        markdown: true,
+      },
+      domProps: {
+        innerHTML: markdown.render(props.source),
+      },
     })
   },
 }
 </script>
 
-<style lang="stylus">
-// TODO if you can make this work with scoped CSS, you get a (saved) cookie!
-.parsed img.emoji
-   height: 1em
-   width: 1em
-   margin: 0 .05em 0 .1em
-   vertical-align: -0.1em
-.parsed a
-  text-decoration underline
+<style scoped lang="stylus">
+.markdown
+  overflow-wrap break-word
+.markdown >>>
+  img.emoji
+    height: 1em
+    width: 1em
+    margin: 0 .05em 0 .1em
+    vertical-align: -0.1em
+  a
+    text-decoration underline
+
+  p
+    margin-bottom 0.5rem
+  h1
+    font-size 1.6em
+  h2
+    font-size 1.3em
+  h3
+    font-size 1.2em
+  h4
+    font-size 1.1em
+  h5, h6
+    font-size 1em
+  pre
+    font-size 0.8em
+    padding 3px
+    background-color #ededed
+    margin-top 0.5rem
+    margin-bottom 0.5rem
+    overflow-x auto
+    overflow-wrap normal
+    display block
+  p > code
+    font-size 0.8em
+    padding-left 3px
+    padding-right 3px
+    background-color #ededed
+    overflow-x auto
+    overflow-wrap normal
+    display block
+  img:not(.emoji)
+    max-height 150px
+    max-width 300px
 </style>

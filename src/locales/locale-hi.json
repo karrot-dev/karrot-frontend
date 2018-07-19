@@ -2,7 +2,7 @@
   "GLOBAL": {
     "GITHUB_NOTE": "विकास",
     "FSWW_NOTE": "Read our info page!",
-    "FACEBOOK_NOTE": "हमारे फेसबुक समूह में शामिल हो",
+    "COMMUNITY_NOTE": "Join our community!",
     "WARNING": "चेतावनी",
     "BETA_WARNING": "यह वेबसाइट सक्रिय विकास के अधीन है और सब कुछ परिवर्तन के अधीन है। हम आपके द्वारा दर्ज किए गए डेटा की सुरक्षा और गोपनीयता की गारंटी नहीं दे सकते (लेकिन हम अपनी पूरी कोशिश करें)।",
     "CONNECTION_INTERRUPTED": "त्रुटि: कनेक्शन बाधित!",
@@ -132,6 +132,7 @@
     "FULL_SCREEN": "Show full screen"
   },
   "STOREDETAIL": {
+    "DIRECTIONS": "Show directions",
     "EDIT": "स्टोर संपादित करें",
     "MANAGE": "पिकअप को चेक करें और प्रबंधित करें",
     "ARCHIVED": "यह स्टोर संग्रहीत किया गया है",
@@ -286,7 +287,6 @@
     "SET_AMOUNT": "Set amount",
     "DELETE_AMOUNT": "Delete amount",
     "AMOUNT": "भोजन की मात्रा आप सभी बचाने में सक्षम थे (किलो में)",
-    "COMMENT": "टिप्पणी",
     "COMMENT_PLACEHOLDER": "क्या सब कुछ ठीक था? क्या सभी लोग दिखाए? आपकी टिप्पणी यहां ...",
     "PREVIOUS": "{स्टोर } के लिए पिछला फ़ीडबैक"
   },
@@ -353,6 +353,10 @@
   "OUTDATED_BROWSER": {
     "MESSAGE": "You are using an unsupported browser. {upgradeBrowser} to enjoy all features.",
     "LINK": "Please update or switch your browser"
+  },
+  "UPDATE_AVAILABLE": {
+    "TITLE": "Update available",
+    "DETAIL": "A new version of karrot is available."
   },
   "NOT_FOUND": {
     "EXPLANATION": "क्षमा करें, हमें यह पृष्ठ कहीं भी नहीं मिला।",

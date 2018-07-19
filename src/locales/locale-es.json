@@ -2,7 +2,7 @@
   "GLOBAL": {
     "GITHUB_NOTE": "Desarrollo",
     "FSWW_NOTE": "Read our info page!",
-    "FACEBOOK_NOTE": "Únete a nuestro grupo de Facebook",
+    "COMMUNITY_NOTE": "Join our community!",
     "WARNING": "Advertencia",
     "BETA_WARNING": "Este sitio está en construcción y todo puede ser modificado. No podemos garantizar la seguridad y privacidad de sus datos (pero intentamos dar lo mejor de nosotros).",
     "CONNECTION_INTERRUPTED": "Error: conexión interrumpida",
@@ -132,6 +132,7 @@
     "FULL_SCREEN": "Show full screen"
   },
   "STOREDETAIL": {
+    "DIRECTIONS": "Show directions",
     "EDIT": "Editar tienda",
     "MANAGE": "Controla y administra las pastillas",
     "ARCHIVED": "Esta tienda se archivó.",
@@ -286,7 +287,6 @@
     "SET_AMOUNT": "Set amount",
     "DELETE_AMOUNT": "Delete amount",
     "AMOUNT": "La cantidad de comida que todos pudieron ahorrar (en kg)",
-    "COMMENT": "Comentario",
     "COMMENT_PLACEHOLDER": "Fue todo bien? Se vino todo el mundo? Tu comentario aquí...",
     "PREVIOUS": "Comentarios anteriores para {store}"
   },
@@ -353,6 +353,10 @@
   "OUTDATED_BROWSER": {
     "MESSAGE": "You are using an unsupported browser. {upgradeBrowser} to enjoy all features.",
     "LINK": "Please update or switch your browser"
+  },
+  "UPDATE_AVAILABLE": {
+    "TITLE": "Update available",
+    "DETAIL": "A new version of karrot is available."
   },
   "NOT_FOUND": {
     "EXPLANATION": "¡Perdona! No podíamos encontrar esta página. ",

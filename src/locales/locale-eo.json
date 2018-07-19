@@ -2,7 +2,7 @@
   "GLOBAL": {
     "GITHUB_NOTE": "Ellaboro",
     "FSWW_NOTE": "Read our info page!",
-    "FACEBOOK_NOTE": "Join our Facebook Group!",
+    "COMMUNITY_NOTE": "Join our community!",
     "WARNING": "Averto",
     "BETA_WARNING": "Ĉi tiu retpaĝo estas sub aktiva ellaboro kaj ĉio povas ŝanĝiĝi. Ni ne povas certigi la sekurecon kaj privatecon de via enigitaj datenoj (sed ni klopodas tiel bone kiel eble)",
     "CONNECTION_INTERRUPTED": "Eraro: aliro interrompita!",
@@ -132,6 +132,7 @@
     "FULL_SCREEN": "Show full screen"
   },
   "STOREDETAIL": {
+    "DIRECTIONS": "Show directions",
     "EDIT": "Redakti vendejon",
     "MANAGE": "Check and manage the pickups",
     "ARCHIVED": "This store has been archived",
@@ -286,7 +287,6 @@
     "SET_AMOUNT": "Set amount",
     "DELETE_AMOUNT": "Delete amount",
     "AMOUNT": "Amount of food all of you were able to save (in kg)",
-    "COMMENT": "Comment",
     "COMMENT_PLACEHOLDER": "Was everything fine? Did everyone show up? Your comment here...",
     "PREVIOUS": "Previous feedback for {store}"
   },
@@ -353,6 +353,10 @@
   "OUTDATED_BROWSER": {
     "MESSAGE": "You are using an unsupported browser. {upgradeBrowser} to enjoy all features.",
     "LINK": "Please update or switch your browser"
+  },
+  "UPDATE_AVAILABLE": {
+    "TITLE": "Update available",
+    "DETAIL": "A new version of karrot is available."
   },
   "NOT_FOUND": {
     "EXPLANATION": "Sorry, we couldn't find this page anywhere.",

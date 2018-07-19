@@ -2,7 +2,7 @@
   "GLOBAL": {
     "GITHUB_NOTE": "Development",
     "FSWW_NOTE": "O nas",
-    "FACEBOOK_NOTE": "Dołącz do nas na Facebooku!",
+    "COMMUNITY_NOTE": "Join our community!",
     "WARNING": "Uwaga",
     "BETA_WARNING": "Nasz serwis jest wciąż w trakcie budowy i niektóre elementy mogą w przyszłości ulec zmianie. Nie możemy zagwarantować Ci pełnego bezpieczeństwa ani prywatności Twoich danych (ale będziemy się starać).",
     "CONNECTION_INTERRUPTED": "Błąd: przerwano połączenie!",
@@ -132,6 +132,7 @@
     "FULL_SCREEN": "Pełny ekran"
   },
   "STOREDETAIL": {
+    "DIRECTIONS": "Show directions",
     "EDIT": "Edytuj punkt odbioru",
     "MANAGE": "Zarządzaj odbiorami",
     "ARCHIVED": "Ten punkt odbioru został przeniesiony do archiwum",
@@ -286,7 +287,6 @@
     "SET_AMOUNT": "Wprowadź ilość",
     "DELETE_AMOUNT": "Usuń ilość",
     "AMOUNT": "Ilość jedzenia, które uratowałaś/-eś (w kg)",
-    "COMMENT": "Komentarz",
     "COMMENT_PLACEHOLDER": "Czy wszystko przebiegło w porządku? Czy jedzenie zostało odebrane zgodnie z planem? Skomentuj...",
     "PREVIOUS": "Wcześniejsze komentarze dla {store}"
   },
@@ -353,6 +353,10 @@
   "OUTDATED_BROWSER": {
     "MESSAGE": "Twoja przeglądarka nie jest wspierana. {upgradeBrowser}, aby cieszyć się wszystkimi funkcjami.",
     "LINK": "Zaktualizuj lub zmień swoją przeglądarkę"
+  },
+  "UPDATE_AVAILABLE": {
+    "TITLE": "Update available",
+    "DETAIL": "A new version of karrot is available."
   },
   "NOT_FOUND": {
     "EXPLANATION": "Przepraszamy, nie możemy znaleźć tej strony.",

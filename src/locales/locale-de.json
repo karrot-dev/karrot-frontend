@@ -2,7 +2,7 @@
   "GLOBAL": {
     "GITHUB_NOTE": "Entwicklung",
     "FSWW_NOTE": "Lies unsere Infoseite!",
-    "FACEBOOK_NOTE": "Tritt unserer Facebook-Gruppe bei!",
+    "COMMUNITY_NOTE": "Join our community!",
     "WARNING": "Warnung",
     "BETA_WARNING": "Diese Website ist in aktiver Entwicklung und alles verändert sich ständig. Die Sicherheit der eingegebenen Daten kann nicht garantiert werden, aber wir tun unser Bestes!",
     "CONNECTION_INTERRUPTED": "Fehler: Verbindung abgebrochen!",
@@ -132,6 +132,7 @@
     "FULL_SCREEN": "Zeige auf ganzem Bildschirm"
   },
   "STOREDETAIL": {
+    "DIRECTIONS": "Show directions",
     "EDIT": "Betrieb bearbeiten",
     "MANAGE": "Abholzeiten prüfen und ändern",
     "ARCHIVED": "Dieser Betrieb wurde archiviert",
@@ -286,7 +287,6 @@
     "SET_AMOUNT": "Gewicht eingeben",
     "DELETE_AMOUNT": "Gewicht löschen",
     "AMOUNT": "Menge des insgesamt geretteten Essens in kg",
-    "COMMENT": "Kommentar",
     "COMMENT_PLACEHOLDER": "Lief alles gut? Sind alle aufgetaucht? Dein Kommentar bitte...",
     "PREVIOUS": "Bisheriges Feedback für {store}"
   },
@@ -353,6 +353,10 @@
   "OUTDATED_BROWSER": {
     "MESSAGE": "Du benutzt einen nicht unterstützten Browser. {upgradeBrowser} um alle Funktionen verwenden zu können.",
     "LINK": "Bitte aktualisiere oder wechsle deinen Browser"
+  },
+  "UPDATE_AVAILABLE": {
+    "TITLE": "Update available",
+    "DETAIL": "A new version of karrot is available."
   },
   "NOT_FOUND": {
     "EXPLANATION": "Entschuldigung, die Seite konnte nirgendwo gefunden werden.",

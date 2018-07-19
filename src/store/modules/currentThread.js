@@ -96,6 +96,10 @@ export default {
     clear ({ commit }) {
       commit('clear')
     },
+
+    refresh ({ dispatch, state }) {
+      dispatch('fetchOrRedirect', state.id)
+    },
   },
   mutations: {
     setScope (state, id) {

@@ -13,6 +13,7 @@ export default {
         dispatch('conversations/refresh', null, { root: true }),
         dispatch('feedback/refresh', null, { root: true }),
         dispatch('currentGroup/refresh', null, { root: true }),
+        dispatch('currentThread/refresh', null, { root: true }),
         dispatch('auth/refresh', null, { root: true }),
       ])
       if (done) done()

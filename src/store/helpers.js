@@ -217,18 +217,11 @@ export function createPaginationModule () {
     },
     getters: {
       canFetchNext: state => typeof state.nextCursor === 'string',
-      canFetchPrev: state => typeof state.prevCursor === 'string',
     },
     actions: {
       async fetchNext ({ state, getters, dispatch }, fetchFn) {
         if (!getters.canFetchNext) return []
         const rawData = fetchFn(state.nextCursor)
-        const data = await dispatch('extractCursor', rawData)
-        return data
-      },
-      async fetchPrev ({ state, getters, dispatch }, fetchFn) {
-        if (!getters.canFetchPrev) return []
-        const rawData = fetchFn(state.prevCursor)
         const data = await dispatch('extractCursor', rawData)
         return data
       },

@@ -101,7 +101,7 @@
         </div>
         <span
           class="k-replies-count"
-          v-t="{ path: 'CONVERSATION.REPLIES_COUNT', args: { count: message.threadMeta.replyCount } }"
+          v-t="{ path: 'CONVERSATION.REPLIES_COUNT', choice: message.threadMeta.replyCount, args: { count: message.threadMeta.replyCount } }"
         />
       </q-btn>
     </q-item-main>

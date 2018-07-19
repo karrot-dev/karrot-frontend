@@ -58,7 +58,8 @@
     "DELETE_ACCOUNT": "Delete account",
     "SHOW": "Show",
     "HIDE": "Hide",
-    "SUBMIT": "Submit"
+    "SUBMIT": "Submit",
+    "APPLY": "Apply to join"
   },
   "VALIDATION": {
     "MINLENGTH": "Please enter more than {min} characters.",

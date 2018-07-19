@@ -80,6 +80,14 @@
             >
               {{ $t( isLoggedIn ? 'BUTTON.JOIN' : 'JOINGROUP.SIGNUP_OR_LOGIN') }}
             </q-btn>
+            <q-btn
+              @click="$emit('apply', {groupId: group.id })"
+              color="secondary"
+              class="float-right generic-margin"
+              :loading="group.joinStatus.pending"
+            >
+              {{ $t( isLoggedIn ? 'BUTTON.APPLY' : 'I CHANGED MY MIND') }}
+            </q-btn>
           </form>
         </span>
         <q-btn

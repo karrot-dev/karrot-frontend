@@ -12,6 +12,15 @@ const methods = {
 }
 
 storiesOf('GroupPreviewUI', module)
+  .add('is not logged in', () => defaults({
+    render: h => h(GroupPreviewUI, {
+      props: {
+        group: { ...groupsMock[0], isMember: false },
+        isLoggedIn: false,
+      },
+      on: { join: methods.join },
+    }),
+  }))
   .add('is not member', () => defaults({
     render: h => h(GroupPreviewUI, {
       props: {

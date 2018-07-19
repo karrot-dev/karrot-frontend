@@ -126,8 +126,8 @@ export default {
     },
     enrichMessage: (state, getters, rootState, rootGetters) => message => {
       if (!message) return
-      const currentThread = rootGetters['currentThread/thread']
-      const isThreadReply = currentThread && message.id !== currentThread.thread
+      const isThreadReply = message.thread && message.thread !== message.id
+      const isThread = message.thread && message.thread === message.id
       return {
         ...message,
         reactions: getters.enrichReactions(message.reactions),
@@ -137,6 +137,8 @@ export default {
           : isUnread(message, state.entries[message.conversation]),
         saveStatus: getters['meta/status']('saveMessage', `message/${message.id}`),
         isEdited: differenceInSeconds(message.updatedAt, message.createdAt) > 10,
+        isThreadReply,
+        isThread,
       }
     },
     enrichConversation: (state, getters, rootState, rootGetters) => conversation => {
@@ -205,7 +207,6 @@ export default {
 
     ...withPrefixedIdMeta('message/', {
       async saveMessage ({ dispatch }, { message, done }) {
-        console.log(message)
         const updatedMessage = await messageAPI.save(message)
         done()
         if (updatedMessage.thread) {

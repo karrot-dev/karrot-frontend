@@ -86,7 +86,7 @@
         <q-tooltip v-t="'CONVERSATION.REPLIES'" />
       </q-btn>
       <q-btn
-        v-if="!message.thread"
+        v-if="!message.thread && !slim"
         flat
         class="reaction-box"
         @click="$emit('openThread')"

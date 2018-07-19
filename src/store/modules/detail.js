@@ -42,7 +42,7 @@ export default {
     },
   },
   actions: {
-    routeEnter ({ dispatch, rootGetters }, { groupId, storeId, pickupId, userId, routeTo }) {
+    routeEnter ({ dispatch, rootGetters }, { groupId, storeId, pickupId, userId, messageId, routeTo }) {
       if (pickupId) {
         dispatch('selectPickup', pickupId)
         if (!Platform.is.mobile) {
@@ -61,6 +61,12 @@ export default {
         }
         else {
           throw createRouteRedirect({ name: 'user', params: { userId }, query: routeTo.query })
+        }
+      }
+      else if (messageId) {
+        dispatch('selectThread', messageId)
+        if (!Platform.is.mobile) {
+          throw createRouteRedirect({ name: 'wall', params: { groupId }, query: routeTo.query })
         }
       }
     },
@@ -84,7 +90,12 @@ export default {
       }
     },
     openForThread ({ dispatch }, message) {
-      dispatch('selectThread', message.id)
+      if (Platform.is.mobile) {
+        router.push({ name: 'messageReplies', params: { messageId: message.id } })
+      }
+      else {
+        dispatch('selectThread', message.id)
+      }
     },
     async selectPickup ({ commit, dispatch }, pickupId) {
       dispatch('clear')
@@ -96,10 +107,10 @@ export default {
       commit('setUserId', userId)
       dispatch('conversations/fetchForUser', { userId }, { root: true })
     },
-    async selectThread ({ commit, dispatch }, id) {
+    selectThread ({ commit, dispatch }, id) {
       dispatch('clear')
       commit('setThreadId', id)
-      dispatch('currentThread/fetch', id, { root: true })
+      dispatch('currentThread/fetchOrRedirect', id, { root: true })
     },
     clear ({ dispatch, state, commit }) {
       const { type, id } = state.scope

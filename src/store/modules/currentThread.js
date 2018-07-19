@@ -1,6 +1,7 @@
 import messageAPI from '@/services/api/messages'
 import { createMetaModule, withMeta, metaStatuses, createPaginationModule } from '@/store/helpers'
 import { insertSorted } from './conversations'
+import router from '@/router'
 
 function initialState () {
   return {
@@ -70,6 +71,19 @@ export default {
     }, {
       findId: () => undefined,
     }),
+
+    async fetchOrRedirect ({ dispatch, getters }, messageId) {
+      await dispatch('fetch', messageId)
+      if (getters.fetchStatus.hasValidationErrors) {
+        dispatch('toasts/show', {
+          message: 'CONVERSATION.MESSAGE_NOT_FOUND',
+          config: {
+            type: 'negative',
+          },
+        }, { root: true })
+        router.push('/')
+      }
+    },
 
     receiveMessage ({ commit, state }, message) {
       if (!state.id || message.thread !== state.id) return

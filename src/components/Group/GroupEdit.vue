@@ -75,9 +75,11 @@
             :error="hasError('applicationQuestions')"
             :error-label="firstError('applicationQuestions')"
           >
+
             <MarkdownInput :value="edit.applicationQuestions">
               <q-input
-                v-model="edit.applicationQuestions"
+                @input="applicationQuestionsInput"
+                :value="applicationQuestionsOrDefault"
                 type="textarea"
                 :min-rows="3"
                 @keyup.ctrl.enter="maybeSave"
@@ -229,6 +231,9 @@ export default {
         if (this.hasError(field)) return this.firstError(field)
       }
     },
+    applicationQuestionsOrDefault () {
+      return this.edit.applicationQuestions || this.$t('GROUP.APPLICATION_DEFAULT')
+    },
   },
   methods: {
     maybeSave (event) {
@@ -240,6 +245,10 @@ export default {
     timezoneFilter (terms, { field, list }) {
       const token = terms.toLowerCase()
       return list.filter(item => item[field].toLowerCase().includes(token))
+    },
+    applicationQuestionsInput (value) {
+      this.edit.applicationQuestions = value
+      console.log('is this working?Hello?', value)
     },
   },
   validations: {

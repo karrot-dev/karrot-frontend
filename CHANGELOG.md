@@ -12,7 +12,12 @@ Please document your changes in this format:
 ## [Unreleased]
 ### Added
 
+- Replies to wall messages #1065 @nicksellen @tiltec
+- Link to external route planner for store directions #1020 @pogopaule @tiltec
+
 ### Changed
+
+- Hide markdown preview in sidebar @tiltec
 
 ### Removed
 

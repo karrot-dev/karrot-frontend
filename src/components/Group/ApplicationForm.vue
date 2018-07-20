@@ -1,9 +1,6 @@
 <template>
   <div>
-    <q-card
-      class="shadow-6"
-      color="primary"
-    >
+    <q-card class="shadow-6">
       <div class="edit-box">
         <form>
           <q-field
@@ -27,12 +24,15 @@
           <div class="actionButtons">
             <q-btn
               type="button"
+              color="primary"
+              class="shadow-4"
             >
               {{ $t('BUTTON.CANCEL') }}
             </q-btn>
             <q-btn
               type="submit"
-              color="primary"
+              color="secondary"
+              class="shadow-4"
               :disable="!canSave"
               :loading="isPending"
             >

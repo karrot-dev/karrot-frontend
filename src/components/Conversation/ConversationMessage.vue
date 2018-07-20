@@ -34,17 +34,16 @@
     <q-item-side v-if="!slim">
       <ProfilePicture
         :user="message.author"
-        :size="40"
+        :size="$q.platform.is.mobile ? 30 : 40"
         style="margin-top: 6px"
       />
     </q-item-side>
     <q-item-main>
       <q-item-tile
-        class="no-wrap"
-        style="margin-top: 4px"
+        class="no-wrap k-message-meta"
       >
         <router-link :to="{ name: 'user', params: { userId: message.author.id } }">
-          <span class="text-bold text-secondary uppercase">{{ message.author.displayName }}</span>
+          <span class="k-message-author text-bold text-secondary uppercase">{{ message.author.displayName }}</span>
         </router-link>
         <span class="message-date">
           <small class="text-weight-light">
@@ -82,23 +81,19 @@
         style="margin-top: 8px; display: block"
       />
       <q-btn
-        v-if="message.threadMeta && !slim"
+        v-if="showReplies"
         outline
         @click="$emit('openThread')"
         class="reaction-box k-thread-box"
         no-caps
       >
-        <div
-          class="text-center"
-          style="margin-right: 4px"
-        >
-          <ProfilePicture
-            class="k-profile-picture"
-            v-for="user in message.threadMeta.participants"
-            :key="user.id"
-            :user="user"
-          />
-        </div>
+        <ProfilePicture
+          class="k-profile-picture"
+          v-for="user in message.threadMeta.participants"
+          :key="user.id"
+          :user="user"
+          :is-link="false"
+        />
         <span
           class="k-replies-count"
           v-t="{ path: 'CONVERSATION.REPLIES_COUNT', choice: message.threadMeta.replyCount, args: { count: message.threadMeta.replyCount } }"
@@ -194,6 +189,9 @@ export default {
     hasReactions () {
       return this.message && this.message.reactions && this.message.reactions.length > 0
     },
+    showReplies () {
+      return this.message.threadMeta && !this.slim
+    },
   },
 }
 </script>
@@ -209,6 +207,14 @@ $lighterGreen = #F0FFF0
 .isUnread
   background linear-gradient(to right, $lightGreen, $lighterGreen)
 
+body.mobile .conversation-message
+  &:not(.slim)
+    padding-left 0
+  >>> .q-item-side
+    min-width 0
+  .k-message-meta
+    font-size 80%
+    padding-top 3px
 .conversation-message
   padding-bottom 0
   .hover-button
@@ -233,6 +239,7 @@ $lighterGreen = #F0FFF0
       margin-right 2px
       vertical-align middle
     .k-replies-count
+      margin-left 4px
       font-size 13px
       font-weight 500
   .k-message-controls
@@ -245,10 +252,13 @@ $lighterGreen = #F0FFF0
       transition none
       padding 2px 9px
       font-size 13px
-body.desktop .conversation-message.slim .k-message-controls
-  top -8px
-  .q-btn
-    min-height 24px
-    font-size 12px
+body.desktop
+  .conversation-message.slim .k-message-controls
+    top -8px
+    .q-btn
+      min-height 24px
+      font-size 12px
+  .k-message-meta
+    padding-top 4px
 
 </style>

@@ -10,15 +10,20 @@
             icon="fas fa-fw fa-question"
             :label="value.applicationQuestionsText"
           />
-          <MarkdownInput :value="edit.applicationAnswers">
-            <q-input
-              id="group-title"
-              v-model="edit.applicationAnswers"
-              type="textarea"
-              :min-rows="3"
-              @keyup.ctrl.enter="maybeSave"
-            />
-          </MarkdownInput>
+          <div
+            class="white-box"
+            :class="{ shake: hasAnyError }"
+          >
+            <MarkdownInput :value="edit.applicationAnswers">
+              <q-input
+                id="group-title"
+                v-model="edit.applicationAnswers"
+                type="textarea"
+                :min-rows="3"
+                @keyup.ctrl.enter="maybeSave"
+              />
+            </MarkdownInput>
+          </div>
           <div class="actionButtons">
             <q-btn
               type="button"
@@ -95,4 +100,19 @@ export default {
 
 <style scoped lang="stylus">
 @import '~editbox'
+.shake
+  animation shake 0.82s cubic-bezier(.36, .07, .19, .97) both
+  transform translate3d(0, 0, 0)
+  backface-visibility hidden
+  perspective 1000px
+
+@keyframes shake
+  10%, 90%
+    transform translate3d(-1px, 0, 0)
+  20%, 80%
+    transform translate3d(2px, 0, 0)
+  30%, 50%, 70%
+    transform translate3d(-4px, 0, 0)
+  40%, 60%
+    transform translate3d(4px, 0, 0)
 </style>

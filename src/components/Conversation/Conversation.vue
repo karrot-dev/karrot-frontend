@@ -24,13 +24,18 @@
             v-if="data.unreadMessageCount > 0"
             color="secondary"
             icon="star"
+            class="k-unread-alert"
           >
-            {{ $tc('CONVERSATION.UNREAD_MESSAGES', data.unreadMessageCount, { count: data.unreadMessageCount }) }}
-            <q-btn
-              no-caps
-              @click="$emit('markAllRead', data.id)"
-              v-t="'CONVERSATION.MARK_READ'"
-            />
+            <div class="row justify-between items-center">
+              <small>{{ $tc('CONVERSATION.UNREAD_MESSAGES', data.unreadMessageCount, { count: data.unreadMessageCount }) }}</small>
+              <q-btn
+                no-caps
+                outline
+                size="sm"
+                @click="$emit('markAllRead', data.id)"
+                v-t="'CONVERSATION.MARK_READ'"
+              />
+            </div>
           </q-alert>
           <ConversationMessage
             v-for="message in data.messages"
@@ -126,4 +131,8 @@ export default {
   position absolute
   top -24px
   right 6px
+.k-unread-alert >>>
+  .q-alert-content, .q-alert-side
+    padding-top 6px
+    padding-bottom 6px
 </style>

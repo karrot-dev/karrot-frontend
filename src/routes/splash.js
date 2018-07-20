@@ -11,6 +11,7 @@ const SignupTitle = () => import('@/components/Login/SignupTitle')
 const VerifyMail = () => import('@/pages/VerifyMail')
 const DeleteAccount = () => import('@/pages/DeleteAccount')
 const DeleteAccountTitle = () => import('@/components/Settings/DeleteAccountTitle')
+const ApplicationForm = () => import('@/components/Group/ApplicationForm')
 
 export default [
   {
@@ -113,6 +114,19 @@ export default [
     components: {
       default: DeleteAccount,
       header: DeleteAccountTitle,
+    },
+  },
+  {
+    name: 'applicationForm',
+    path: 'groupPreview/:groupPreviewId/apply',
+    meta: {
+      requireLoggedIn: true,
+      beforeEnter: 'groups/selectPreview',
+      afterLeave: 'groups/clearGroupPreview',
+    },
+    components: {
+      default: ApplicationForm,
+      header: ApplicationFormTitle,
     },
   },
 ]

@@ -29,7 +29,6 @@ const Settings = () => import('@/pages/Settings')
 const User = () => import('@/pages/User/User')
 const PickupFeedback = () => import('@/pages/Group/Feedback')
 const MobileDetail = () => import('@/pages/MobileDetail')
-const ApplicationForm = () => import('@/components/Group/ApplicationForm')
 
 export default [
   {
@@ -58,19 +57,6 @@ export default [
     components: {
       default: GroupPreview,
     },
-    children: [
-      {
-        name: 'applicationForm',
-        path: 'apply',
-        meta: {
-          requireLoggedIn: true,
-        },
-        components: {
-          default: ApplicationForm,
-          sidenav: GroupGroupSidenav,
-        },
-      },
-    ],
   },
   {
     name: 'groupCreate',

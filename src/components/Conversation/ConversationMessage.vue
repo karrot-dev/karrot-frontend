@@ -82,7 +82,8 @@
       />
       <q-btn
         v-if="showReplies"
-        outline
+        :outline="message.threadMeta.unreadReplyCount < 1"
+        :color="message.threadMeta.unreadReplyCount > 0 ? 'secondary' : null"
         @click="$emit('openThread')"
         class="reaction-box k-thread-box"
         no-caps
@@ -235,6 +236,7 @@ body.mobile .conversation-message
   .k-thread-box
     min-height 30px
     max-height 30px
+    box-shadow none
     .k-profile-picture
       margin-right 2px
       vertical-align middle
@@ -242,6 +244,7 @@ body.mobile .conversation-message
       margin-left 4px
       font-size 13px
       font-weight 500
+      padding-right 3px
   .k-message-controls
     position absolute
     background $secondary

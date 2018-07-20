@@ -60,7 +60,7 @@ export default [
     },
     children: [
       {
-        name: 'apply',
+        name: 'applicationForm',
         path: 'apply',
         meta: {
           requireLoggedIn: true,

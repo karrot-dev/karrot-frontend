@@ -75,7 +75,6 @@
             :error="hasError('applicationQuestions')"
             :error-label="firstError('applicationQuestions')"
           >
-
             <MarkdownInput :value="edit.applicationQuestions">
               <q-input
                 @input="applicationQuestionsInput"
@@ -248,7 +247,6 @@ export default {
     },
     applicationQuestionsInput (value) {
       this.edit.applicationQuestions = value
-      console.log('is this working?Hello?', value)
     },
   },
   validations: {

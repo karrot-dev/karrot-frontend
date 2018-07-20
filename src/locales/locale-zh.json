@@ -400,6 +400,9 @@
   },
   "CONVERSATION": {
     "OPEN": "Open Chat",
+    "REPLY_TO_MESSAGE": "Reply to message...",
+    "REPLIES": "Replies",
+    "REPLIES_COUNT": "1 reply | {count} replies",
     "UNREAD_MESSAGES": "你有一則未讀訊息。| 你有{數目}則未讀訊息。",
     "EDITED": "edited",
     "MARK_READ": "將全部訊息標示為已讀",
@@ -407,7 +410,8 @@
       "YOU": "你",
       "AND": "以及",
       "REACTED_WITH":"{使用者}反應了{反應}"
-    }
+    },
+    "MESSAGE_NOT_FOUND": "Message not found"
   },
   "STORESTATUS":{
     "ACTIVE": "合作中",

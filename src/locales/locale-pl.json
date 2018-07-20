@@ -400,6 +400,9 @@
   },
   "CONVERSATION": {
     "OPEN": "Otwórz czat",
+    "REPLY_TO_MESSAGE": "Reply to message...",
+    "REPLIES": "Replies",
+    "REPLIES_COUNT": "1 reply | {count} replies",
     "UNREAD_MESSAGES": "Masz jedną nieprzeczytaną wiadomość | Masz {count} nieprzeczytane wiadomości",
     "EDITED": "edytowany",
     "MARK_READ": "Oznacz wszystkie jako przeczytane",
@@ -407,7 +410,8 @@
       "YOU": "ty",
       "AND": "i",
       "REACTED_WITH":"{users} zareagowali {reaction}"
-    }
+    },
+    "MESSAGE_NOT_FOUND": "Message not found"
   },
   "STORESTATUS":{
     "ACTIVE": "Współpracuje",

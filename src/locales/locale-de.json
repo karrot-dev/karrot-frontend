@@ -400,6 +400,9 @@
   },
   "CONVERSATION": {
     "OPEN": "Open Chat",
+    "REPLY_TO_MESSAGE": "Reply to message...",
+    "REPLIES": "Replies",
+    "REPLIES_COUNT": "1 reply | {count} replies",
     "UNREAD_MESSAGES": "Du hast eine ungelesene Nachricht. | Du hast {count} ungelesene Nachrichten.",
     "EDITED": "bearbeitet",
     "MARK_READ": "Als gelesen markieren",
@@ -407,7 +410,8 @@
       "YOU": "du",
       "AND": "und",
       "REACTED_WITH":"{users} - {reaction}"
-    }
+    },
+    "MESSAGE_NOT_FOUND": "Message not found"
   },
   "STORESTATUS":{
     "ACTIVE": "Kooperiert",

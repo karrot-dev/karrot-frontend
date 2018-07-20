@@ -12,6 +12,7 @@ const VerifyMail = () => import('@/pages/VerifyMail')
 const DeleteAccount = () => import('@/pages/DeleteAccount')
 const DeleteAccountTitle = () => import('@/components/Settings/DeleteAccountTitle')
 const ApplicationForm = () => import('@/components/Group/ApplicationForm')
+const ApplicationFormTitle = () => import('@/components/Group/ApplicationFormTitle')
 
 export default [
   {
@@ -121,6 +122,9 @@ export default [
     path: 'groupPreview/:groupPreviewId/apply',
     meta: {
       requireLoggedIn: true,
+      breadcrumbs: [
+        { translation: 'APPLICATION_FORM.HEADER' },
+      ],
       beforeEnter: 'groups/selectPreview',
       afterLeave: 'groups/clearGroupPreview',
     },

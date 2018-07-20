@@ -20,9 +20,9 @@ export default {
   },
   computed: {
     ...mapGetters({
-      group: 'groups/activePreview'
-    })
-  }
+      group: 'groups/activePreview',
+    }),
+  },
 }
 </script>
 

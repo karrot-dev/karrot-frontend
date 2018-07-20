@@ -1,16 +1,13 @@
 <template>
   <div>
     <q-card class="shadow-6">
-      <div class="edit-box">
+      <div class="edit-box splash-md">
         <form>
           <q-field
             icon="fas fa-fw fa-question"
             :label="value.applicationQuestionsText"
           />
-          <div
-            class="white-box"
-            :class="{ shake: hasAnyError }"
-          >
+          <div :class="{ shake: hasAnyError }">
             <MarkdownInput :value="edit.applicationAnswers">
               <q-input
                 id="group-title"
@@ -26,6 +23,7 @@
               type="button"
               color="primary"
               class="shadow-4"
+              @click="$emit('cancel', group.id)"
             >
               {{ $t('BUTTON.CANCEL') }}
             </q-btn>
@@ -35,6 +33,7 @@
               class="shadow-4"
               :disable="!canSave"
               :loading="isPending"
+              @click="maybeSave"
             >
               {{ $t('BUTTON.SUBMIT') }}
             </q-btn>
@@ -69,10 +68,15 @@ export default {
   components: {
     QCard, QField, QInput, QBtn, MarkdownInput,
   },
-  methods: {
-    submitApplication (event) {
-      this.save()
+  computed: {
+    canSave () {
+      if (!this.isNew && !this.hasChanged) {
+        return false
+      }
+      return true
     },
+  },
+  methods: {
     maybeSave (event) {
       this.$v.edit.$touch()
       if (!this.canSave) return
@@ -115,4 +119,7 @@ export default {
     transform translate3d(-4px, 0, 0)
   40%, 60%
     transform translate3d(4px, 0, 0)
+
+.splash-md
+  color black
 </style>

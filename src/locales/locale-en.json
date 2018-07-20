@@ -419,5 +419,8 @@
     "NEGOTIATING": "Negotiating",
     "DECLINED": "Don't want to cooperate",
     "ARCHIVED": "Archived"
+  },
+  "APPLICATION_FORM":{
+    "TITLE": "Apply to join {groupName}"
   }
 }

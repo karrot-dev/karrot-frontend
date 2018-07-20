@@ -1,27 +1,16 @@
 <template>
   <div>
-    <q-card class="shadow-6">
+    <q-card
+      class="shadow-6"
+      color="primary"
+    >
       <div class="edit-box">
-        <div v-if="value">
-          <q-card-title
-            class="q-ma-md"
-            :class="value.isPlayground ? 'text-secondary' : ''"
-          >
-            <span class="row group items-start">
-              {{ "Become a member of " + value.name }}
-            </span>
-          </q-card-title>
-        </div>
-
         <form>
           <q-field
             icon="fas fa-fw fa-question"
             :label="value.applicationQuestionsText"
           />
-          <MarkdownInput
-            :value="edit.applicationAnswers"
-            class="q-ma-md"
-          >
+          <MarkdownInput :value="edit.applicationAnswers">
             <q-input
               id="group-title"
               v-model="edit.applicationAnswers"

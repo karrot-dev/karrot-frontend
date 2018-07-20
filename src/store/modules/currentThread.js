@@ -106,8 +106,9 @@ export default {
       }
     },
 
-    clear ({ commit }) {
+    clear ({ commit, dispatch }) {
       commit('clear')
+      dispatch('meta/clear', ['send'])
     },
 
     refresh ({ dispatch, state }) {

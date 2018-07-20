@@ -206,6 +206,9 @@ export default {
 $lightGreen = #E7FFE0
 $lighterGreen = #F0FFF0
 
+.isUnread
+  background linear-gradient(to right, $lightGreen, $lighterGreen)
+
 .conversation-message
   padding-bottom 0
   .hover-button
@@ -223,8 +226,6 @@ $lighterGreen = #F0FFF0
   .message-date
     display inline-block
     margin-left 2px
-  .isUnread
-    background linear-gradient(to right, $lightGreen, $lighterGreen)
   .k-thread-box
     min-height 30px
     max-height 30px

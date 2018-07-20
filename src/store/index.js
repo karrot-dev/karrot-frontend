@@ -17,6 +17,7 @@ import { plugin as authPushPlugin } from './modules/auth/push'
 import breadcrumbs from './modules/breadcrumbs'
 import conversations from './modules/conversations'
 import currentGroup from './modules/currentGroup'
+import currentThread from './modules/currentThread'
 import deleteAccount from './modules/deleteAccount'
 import detail from './modules/detail'
 import fcm, { plugin as fcmPlugin } from './modules/fcm'
@@ -54,6 +55,7 @@ export default new Vuex.Store({
     breadcrumbs,
     conversations,
     currentGroup,
+    currentThread,
     deleteAccount,
     detail,
     fcm,

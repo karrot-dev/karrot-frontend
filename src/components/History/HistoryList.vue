@@ -6,10 +6,10 @@ export default connect({
   gettersToProps: {
     history: 'history/all',
     status: 'history/fetchFilteredStatus',
-    canLoadMore: 'history/canLoadMore',
+    canFetchPast: 'history/canFetchPast',
   },
   actionsToProps: {
-    fetchMore: 'history/fetchMore',
+    fetchPast: 'history/fetchPast',
   },
 })('History', HistoryListUI)
 </script>

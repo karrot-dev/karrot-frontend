@@ -10,8 +10,8 @@ storiesOf('History List', module)
       props: {
         history: historyMock,
         status: { pending: false, hasValidationErrors: false },
-        canLoadMore: true,
-        fetchMore: () => {},
+        canFetchPast: true,
+        fetchPast: () => {},
       },
     }),
   }))

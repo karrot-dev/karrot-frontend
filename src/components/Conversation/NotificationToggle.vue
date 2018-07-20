@@ -6,6 +6,7 @@
     :flat="inToolbar"
     :color="inToolbar ? 'white' : 'negative'"
     :to="{ name: 'settings', hash: '#change-email' }"
+    :size="size"
   >
     <q-icon
       name="fas fa-exclamation-triangle"
@@ -22,6 +23,7 @@
     :flat="inToolbar"
     :color="inToolbar ? 'white' : (isEnabled ? 'secondary' : 'negative')"
     @click="$emit('click')"
+    :size="size"
   >
     <q-icon
       v-if="isEnabled"
@@ -56,6 +58,10 @@ export default {
     inToolbar: {
       type: Boolean,
       default: false,
+    },
+    size: {
+      type: String,
+      default: null,
     },
   },
   computed: {

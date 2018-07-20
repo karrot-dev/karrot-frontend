@@ -1,6 +1,6 @@
 <template>
   <q-btn flat>
-    <span style="opacity: .5">
+    <span :style="{opacity}">
       <i class="far fa-smile" /> +
     </span>
     <q-popover
@@ -26,6 +26,10 @@ const ConversationAddReactionInner = () => import('./ConversationAddReactionInne
 export default {
   components: { QBtn, QPopover, ConversationAddReactionInner },
   props: {
+    opacity: {
+      type: Number,
+      default: 1,
+    },
     reacted: {
       type: Array,
       default: () => [],

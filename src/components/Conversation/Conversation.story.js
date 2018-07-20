@@ -9,11 +9,11 @@ const defaultProps = {
     messages: messagesMock,
     sendStatus: statusMocks.default(),
     fetchStatus: statusMocks.default(),
-    fetchMoreStatus: statusMocks.default(),
-    canLoadMore: false,
+    fetchPastStatus: statusMocks.default(),
+    canFetchPast: false,
   },
   user: currentUserMock,
-  fetchMore: () => {},
+  fetchPast: () => {},
 }
 
 storiesOf('Conversation', module)

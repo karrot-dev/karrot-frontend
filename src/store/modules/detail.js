@@ -33,13 +33,16 @@ export default {
       if (type === 'pickup') {
         return rootGetters['conversations/getForPickup'](id)
       }
-      else if (type === 'user') {
+      if (type === 'user') {
         return rootGetters['conversations/getForUser'](id)
+      }
+      if (type === 'thread') {
+        return rootGetters['currentThread/get']
       }
     },
   },
   actions: {
-    routeEnter ({ dispatch, rootGetters }, { groupId, storeId, pickupId, userId, routeTo }) {
+    routeEnter ({ dispatch, rootGetters }, { groupId, storeId, pickupId, userId, messageId, routeTo }) {
       if (pickupId) {
         dispatch('selectPickup', pickupId)
         if (!Platform.is.mobile) {
@@ -58,6 +61,12 @@ export default {
         }
         else {
           throw createRouteRedirect({ name: 'user', params: { userId }, query: routeTo.query })
+        }
+      }
+      else if (messageId) {
+        dispatch('selectThread', messageId)
+        if (!Platform.is.mobile) {
+          throw createRouteRedirect({ name: 'wall', params: { groupId }, query: routeTo.query })
         }
       }
     },
@@ -80,6 +89,14 @@ export default {
         dispatch('selectUser', user.id)
       }
     },
+    openForThread ({ dispatch }, message) {
+      if (Platform.is.mobile) {
+        router.push({ name: 'messageReplies', params: { messageId: message.id } })
+      }
+      else {
+        dispatch('selectThread', message.id)
+      }
+    },
     async selectPickup ({ commit, dispatch }, pickupId) {
       dispatch('clear')
       commit('setPickupId', pickupId)
@@ -90,6 +107,11 @@ export default {
       commit('setUserId', userId)
       dispatch('conversations/fetchForUser', { userId }, { root: true })
     },
+    selectThread ({ commit, dispatch }, id) {
+      dispatch('clear')
+      commit('setThreadId', id)
+      dispatch('currentThread/fetchOrRedirect', id, { root: true })
+    },
     clear ({ dispatch, state, commit }) {
       const { type, id } = state.scope
       if (type === 'pickup') {
@@ -97,6 +119,9 @@ export default {
       }
       else if (type === 'user') {
         dispatch('conversations/clearForUser', { userId: id }, { root: true })
+      }
+      else if (type === 'thread') {
+        dispatch('currentThread/clear', null, { root: true })
       }
       commit('clear')
     },
@@ -107,6 +132,9 @@ export default {
     },
     setUserId (state, userId) {
       state.scope = { type: 'user', id: userId }
+    },
+    setThreadId (state, id) {
+      state.scope = { type: 'thread', id }
     },
     clear (state) {
       Object.assign(state, initialState())

@@ -1,16 +1,16 @@
 export default {
   props: {
-    hasMore: { default: false, type: Boolean },
-    fetchMore: { type: Function },
+    canFetchPast: { default: false, type: Boolean },
+    fetchPast: { type: Function },
   },
   methods: {
-    async loadMore (index, done) {
-      if (!this.hasMore) {
+    async maybeFetchPast (index, done) {
+      if (!this.canFetchPast) {
         await this.$nextTick()
         done()
         return
       }
-      await this.fetchMore()
+      await this.fetchPast()
       done()
     },
   },

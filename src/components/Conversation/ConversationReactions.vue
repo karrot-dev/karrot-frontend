@@ -16,6 +16,7 @@
     <ConversationAddReaction
       class="add-button reaction-box"
       :reacted="currentUserReactions"
+      :opacity="0.5"
       @toggle="$emit('toggle', arguments[0])"
     />
   </span>
@@ -47,6 +48,7 @@ export default {
 @import './reactionBox'
 .add-button
   margin-left -4px
+  transition none
 .desktop .conversation-reactions
   .add-button
     visibility hidden

@@ -2,21 +2,25 @@
   <div class="edit-box brown-background splash-md">
     <form>
       <div class="white-box shadow-6 q-py-md q-px-sm">
-        <q-field
-          icon="fas fa-fw fa-question"
-          :label="group.applicationQuestions"
-        />
-        <div>
-          <MarkdownInput :value="applicationAnswers">
-            <q-input
-              id="group-title"
-              v-model="applicationAnswers"
-              type="textarea"
-              :min-rows="3"
-              @keyup.ctrl.enter="$emit('submit', applicationAnswers)"
+        <q-item>
+          <q-item-side
+            icon="fas fa-fw fa-question"
+          />
+          <q-item-main>
+            <Markdown
+              :source="group.applicationQuestions"
             />
-          </MarkdownInput>
-        </div>
+          </q-item-main>
+        </q-item>
+        <MarkdownInput :value="applicationAnswers">
+          <q-input
+            id="group-title"
+            v-model="applicationAnswers"
+            type="textarea"
+            :min-rows="3"
+            @keyup.ctrl.enter="$emit('submit', applicationAnswers)"
+          />
+        </MarkdownInput>
       </div>
       <div class="actionButtons">
         <q-btn
@@ -41,12 +45,13 @@
 </template>
 
 <script>
-import { QCard, QField, QInput, QBtn } from 'quasar'
+import { QItem, QItemSide, QItemMain, QField, QInput, QBtn } from 'quasar'
 import MarkdownInput from '@/components/MarkdownInput'
+import Markdown from '@/components/Markdown'
 
 export default {
   components: {
-    QCard, QField, QInput, QBtn, MarkdownInput,
+    QItem, QItemSide, QItemMain, QField, QInput, QBtn, MarkdownInput, Markdown,
   },
   props: {
     group: {

@@ -14,6 +14,7 @@ export default connect({
     join: 'pickups/join',
     leave: 'pickups/leave',
     detail: 'detail/openForPickup',
+    openThread: 'detail/openForThread',
     send: 'conversations/send',
     saveMessage: 'conversations/saveMessage',
     markAllRead: 'conversations/markAllRead',
@@ -21,7 +22,7 @@ export default connect({
     toggleReaction: 'conversations/toggleReaction',
   },
   actionsToProps: {
-    fetchMore: 'conversations/fetchMore',
+    fetchPast: 'conversations/fetchPast',
     refresh: 'refresh/refresh',
   },
 })('GroupWall', Wall)

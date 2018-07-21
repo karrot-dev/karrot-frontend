@@ -115,7 +115,6 @@ exports[`Storyshots ApplicationForm create 1`] = `
 
 exports[`Storyshots Conversation Conversation 1`] = `
 <div>
-  <!---->
   <div class="q-infinite-scroll">
     <div class="q-infinite-scroll-content">
       <div class="q-list bg-white desktop-margin relative-position">
@@ -126,7 +125,7 @@ exports[`Storyshots Conversation Conversation 1`] = `
         </button>
         <div class="q-item q-item-division relative-position q-item-multiline">
           <div class="q-item-side q-item-section q-item-side-left">
-            <div class="wrapper" style="margin-top:36px;">
+            <div class="wrapper" style="width:40px;height:40px;margin-top:36px;">
               <a title="Current User">
                 <div text="Current User" seed="5" class="randomArt" style="width:40px;height:40px;"></div>
               </a>
@@ -193,32 +192,35 @@ exports[`Storyshots Conversation Conversation 1`] = `
           </div>
         </div>
         <!---->
-        <div class="conversation-message q-item q-item-division relative-position q-item-multiline q-item-highlight">
+        <div class="conversation-message relative-position q-item q-item-division relative-position q-item-multiline q-item-highlight">
+          <div class="q-btn-group row no-wrap inline hover-button k-message-controls q-btn-group-flat">
+            <!---->
+            <button tabindex="0" type="button" class="q-btn inline relative-position q-btn-item non-selectable q-btn-rectangle q-btn-flat q-focusable q-hoverable">
+              <div class="q-focus-helper"></div>
+              <div class="q-btn-inner row col items-center justify-center">
+                <i class="fas fa-comments"></i> <span class="q-tooltip animate-popup"><div></div></span></div>
+            </button>
+            <button tabindex="0" type="button" class="q-btn inline relative-position q-btn-item non-selectable q-btn-rectangle q-btn-flat q-focusable q-hoverable">
+              <div class="q-focus-helper"></div>
+              <div class="q-btn-inner row col items-center justify-center"><span style="opacity:1;"><i class="far fa-smile"></i> +
+  </span>
+                <div class="q-popover scroll"></div>
+              </div>
+            </button>
+          </div>
           <div class="q-item-side q-item-section q-item-side-left">
-            <div class="wrapper" style="margin-top:6px;">
+            <div class="wrapper" style="width:40px;height:40px;margin-top:6px;">
               <a title="Mira Bellenbaum">
                 <div text="Mira Bellenbaum" seed="1" class="randomArt" style="width:40px;height:40px;"></div>
               </a>
             </div>
           </div>
           <div class="q-item-main q-item-section">
-            <div class="row no-wrap justify-between">
-              <div class="no-wrap" style="margin-top:4px;">
-                <a><span class="text-bold text-secondary uppercase">Mira Bellenbaum</span></a> <span class="message-date"><small class="text-weight-light"><div title="Aug 11, 2017, 3:43 PM">
+            <div class="no-wrap k-message-meta">
+              <a><span class="k-message-author text-bold text-secondary uppercase">Mira Bellenbaum</span></a> <span class="message-date"><small class="text-weight-light"><div title="Aug 11, 2017, 3:43 PM">
   4 months ago
 </div></small></span>
-                <!---->
-              </div>
-              <div>
-                <!---->
-                <button tabindex="0" type="button" class="q-btn inline relative-position q-btn-item non-selectable hover-button reaction-box self-start q-btn-rectangle q-btn-flat q-focusable q-hoverable">
-                  <div class="q-focus-helper"></div>
-                  <div class="q-btn-inner row col items-center justify-center"><span style="opacity:.5;"><i class="far fa-smile"></i> +
-  </span>
-                    <div class="q-popover scroll"></div>
-                  </div>
-                </button>
-              </div>
+              <!---->
             </div>
             <div class="content">
               <div class="markdown">
@@ -230,40 +232,44 @@ exports[`Storyshots Conversation Conversation 1`] = `
           </span>
           <button tabindex="0" type="button" class="q-btn inline relative-position q-btn-item non-selectable add-button reaction-box q-btn-rectangle q-btn-flat q-focusable q-hoverable">
             <div class="q-focus-helper"></div>
-            <div class="q-btn-inner row col items-center justify-center"><span style="opacity:.5;"><i class="far fa-smile"></i> +
+            <div class="q-btn-inner row col items-center justify-center"><span style="opacity:0.5;"><i class="far fa-smile"></i> +
   </span>
               <div class="q-popover scroll"></div>
             </div>
           </button>
           </span>
+          <!---->
         </div>
       </div>
-      <div class="conversation-message q-item q-item-division relative-position q-item-multiline q-item-highlight">
+      <div class="conversation-message relative-position q-item q-item-division relative-position q-item-multiline q-item-highlight">
+        <div class="q-btn-group row no-wrap inline hover-button k-message-controls q-btn-group-flat">
+          <!---->
+          <button tabindex="0" type="button" class="q-btn inline relative-position q-btn-item non-selectable q-btn-rectangle q-btn-flat q-focusable q-hoverable">
+            <div class="q-focus-helper"></div>
+            <div class="q-btn-inner row col items-center justify-center">
+              <i class="fas fa-comments"></i> <span class="q-tooltip animate-popup"><div></div></span></div>
+          </button>
+          <button tabindex="0" type="button" class="q-btn inline relative-position q-btn-item non-selectable q-btn-rectangle q-btn-flat q-focusable q-hoverable">
+            <div class="q-focus-helper"></div>
+            <div class="q-btn-inner row col items-center justify-center"><span style="opacity:1;"><i class="far fa-smile"></i> +
+  </span>
+              <div class="q-popover scroll"></div>
+            </div>
+          </button>
+        </div>
         <div class="q-item-side q-item-section q-item-side-left">
-          <div class="wrapper" style="margin-top:6px;">
+          <div class="wrapper" style="width:40px;height:40px;margin-top:6px;">
             <a title="Max Mustermann">
               <div text="Max Mustermann" seed="2" class="randomArt" style="width:40px;height:40px;"></div>
             </a>
           </div>
         </div>
         <div class="q-item-main q-item-section">
-          <div class="row no-wrap justify-between">
-            <div class="no-wrap" style="margin-top:4px;">
-              <a><span class="text-bold text-secondary uppercase">Max Mustermann</span></a> <span class="message-date"><small class="text-weight-light"><div title="Aug 11, 2017, 3:47 PM">
+          <div class="no-wrap k-message-meta">
+            <a><span class="k-message-author text-bold text-secondary uppercase">Max Mustermann</span></a> <span class="message-date"><small class="text-weight-light"><div title="Aug 11, 2017, 3:47 PM">
   4 months ago
 </div></small></span>
-              <!---->
-            </div>
-            <div>
-              <!---->
-              <button tabindex="0" type="button" class="q-btn inline relative-position q-btn-item non-selectable hover-button reaction-box self-start q-btn-rectangle q-btn-flat q-focusable q-hoverable">
-                <div class="q-focus-helper"></div>
-                <div class="q-btn-inner row col items-center justify-center"><span style="opacity:.5;"><i class="far fa-smile"></i> +
-  </span>
-                  <div class="q-popover scroll"></div>
-                </div>
-              </button>
-            </div>
+            <!---->
           </div>
           <div class="content">
             <div class="markdown">
@@ -275,40 +281,44 @@ exports[`Storyshots Conversation Conversation 1`] = `
         </span>
         <button tabindex="0" type="button" class="q-btn inline relative-position q-btn-item non-selectable add-button reaction-box q-btn-rectangle q-btn-flat q-focusable q-hoverable">
           <div class="q-focus-helper"></div>
-          <div class="q-btn-inner row col items-center justify-center"><span style="opacity:.5;"><i class="far fa-smile"></i> +
+          <div class="q-btn-inner row col items-center justify-center"><span style="opacity:0.5;"><i class="far fa-smile"></i> +
   </span>
             <div class="q-popover scroll"></div>
           </div>
         </button>
         </span>
+        <!---->
       </div>
     </div>
-    <div class="conversation-message q-item q-item-division relative-position q-item-multiline q-item-highlight">
+    <div class="conversation-message relative-position q-item q-item-division relative-position q-item-multiline q-item-highlight">
+      <div class="q-btn-group row no-wrap inline hover-button k-message-controls q-btn-group-flat">
+        <!---->
+        <button tabindex="0" type="button" class="q-btn inline relative-position q-btn-item non-selectable q-btn-rectangle q-btn-flat q-focusable q-hoverable">
+          <div class="q-focus-helper"></div>
+          <div class="q-btn-inner row col items-center justify-center">
+            <i class="fas fa-comments"></i> <span class="q-tooltip animate-popup"><div></div></span></div>
+        </button>
+        <button tabindex="0" type="button" class="q-btn inline relative-position q-btn-item non-selectable q-btn-rectangle q-btn-flat q-focusable q-hoverable">
+          <div class="q-focus-helper"></div>
+          <div class="q-btn-inner row col items-center justify-center"><span style="opacity:1;"><i class="far fa-smile"></i> +
+  </span>
+            <div class="q-popover scroll"></div>
+          </div>
+        </button>
+      </div>
       <div class="q-item-side q-item-section q-item-side-left">
-        <div class="wrapper" style="margin-top:6px;">
+        <div class="wrapper" style="width:40px;height:40px;margin-top:6px;">
           <a title="Max Mustermann">
             <div text="Max Mustermann" seed="2" class="randomArt" style="width:40px;height:40px;"></div>
           </a>
         </div>
       </div>
       <div class="q-item-main q-item-section">
-        <div class="row no-wrap justify-between">
-          <div class="no-wrap" style="margin-top:4px;">
-            <a><span class="text-bold text-secondary uppercase">Max Mustermann</span></a> <span class="message-date"><small class="text-weight-light"><div title="Aug 11, 2017, 3:47 PM">
+        <div class="no-wrap k-message-meta">
+          <a><span class="k-message-author text-bold text-secondary uppercase">Max Mustermann</span></a> <span class="message-date"><small class="text-weight-light"><div title="Aug 11, 2017, 3:47 PM">
   4 months ago
 </div></small></span>
-            <!---->
-          </div>
-          <div>
-            <!---->
-            <button tabindex="0" type="button" class="q-btn inline relative-position q-btn-item non-selectable hover-button reaction-box self-start q-btn-rectangle q-btn-flat q-focusable q-hoverable">
-              <div class="q-focus-helper"></div>
-              <div class="q-btn-inner row col items-center justify-center"><span style="opacity:.5;"><i class="far fa-smile"></i> +
-  </span>
-                <div class="q-popover scroll"></div>
-              </div>
-            </button>
-          </div>
+          <!---->
         </div>
         <div class="content">
           <div class="markdown">
@@ -320,40 +330,44 @@ exports[`Storyshots Conversation Conversation 1`] = `
       </span>
       <button tabindex="0" type="button" class="q-btn inline relative-position q-btn-item non-selectable add-button reaction-box q-btn-rectangle q-btn-flat q-focusable q-hoverable">
         <div class="q-focus-helper"></div>
-        <div class="q-btn-inner row col items-center justify-center"><span style="opacity:.5;"><i class="far fa-smile"></i> +
+        <div class="q-btn-inner row col items-center justify-center"><span style="opacity:0.5;"><i class="far fa-smile"></i> +
   </span>
           <div class="q-popover scroll"></div>
         </div>
       </button>
       </span>
+      <!---->
     </div>
   </div>
-  <div class="conversation-message q-item q-item-division relative-position q-item-multiline q-item-highlight">
+  <div class="conversation-message relative-position q-item q-item-division relative-position q-item-multiline q-item-highlight">
+    <div class="q-btn-group row no-wrap inline hover-button k-message-controls q-btn-group-flat">
+      <!---->
+      <button tabindex="0" type="button" class="q-btn inline relative-position q-btn-item non-selectable q-btn-rectangle q-btn-flat q-focusable q-hoverable">
+        <div class="q-focus-helper"></div>
+        <div class="q-btn-inner row col items-center justify-center">
+          <i class="fas fa-comments"></i> <span class="q-tooltip animate-popup"><div></div></span></div>
+      </button>
+      <button tabindex="0" type="button" class="q-btn inline relative-position q-btn-item non-selectable q-btn-rectangle q-btn-flat q-focusable q-hoverable">
+        <div class="q-focus-helper"></div>
+        <div class="q-btn-inner row col items-center justify-center"><span style="opacity:1;"><i class="far fa-smile"></i> +
+  </span>
+          <div class="q-popover scroll"></div>
+        </div>
+      </button>
+    </div>
     <div class="q-item-side q-item-section q-item-side-left">
-      <div class="wrapper" style="margin-top:6px;">
+      <div class="wrapper" style="width:40px;height:40px;margin-top:6px;">
         <a title="Max Mustermann">
           <div text="Max Mustermann" seed="2" class="randomArt" style="width:40px;height:40px;"></div>
         </a>
       </div>
     </div>
     <div class="q-item-main q-item-section">
-      <div class="row no-wrap justify-between">
-        <div class="no-wrap" style="margin-top:4px;">
-          <a><span class="text-bold text-secondary uppercase">Max Mustermann</span></a> <span class="message-date"><small class="text-weight-light"><div title="Aug 11, 2017, 3:49 PM">
+      <div class="no-wrap k-message-meta">
+        <a><span class="k-message-author text-bold text-secondary uppercase">Max Mustermann</span></a> <span class="message-date"><small class="text-weight-light"><div title="Aug 11, 2017, 3:49 PM">
   4 months ago
 </div></small></span>
-          <!---->
-        </div>
-        <div>
-          <!---->
-          <button tabindex="0" type="button" class="q-btn inline relative-position q-btn-item non-selectable hover-button reaction-box self-start q-btn-rectangle q-btn-flat q-focusable q-hoverable">
-            <div class="q-focus-helper"></div>
-            <div class="q-btn-inner row col items-center justify-center"><span style="opacity:.5;"><i class="far fa-smile"></i> +
-  </span>
-              <div class="q-popover scroll"></div>
-            </div>
-          </button>
-        </div>
+        <!---->
       </div>
       <div class="content">
         <div class="markdown">
@@ -365,40 +379,44 @@ exports[`Storyshots Conversation Conversation 1`] = `
     </span>
     <button tabindex="0" type="button" class="q-btn inline relative-position q-btn-item non-selectable add-button reaction-box q-btn-rectangle q-btn-flat q-focusable q-hoverable">
       <div class="q-focus-helper"></div>
-      <div class="q-btn-inner row col items-center justify-center"><span style="opacity:.5;"><i class="far fa-smile"></i> +
+      <div class="q-btn-inner row col items-center justify-center"><span style="opacity:0.5;"><i class="far fa-smile"></i> +
   </span>
         <div class="q-popover scroll"></div>
       </div>
     </button>
     </span>
+    <!---->
   </div>
 </div>
-<div class="conversation-message q-item q-item-division relative-position q-item-multiline q-item-highlight">
+<div class="conversation-message relative-position q-item q-item-division relative-position q-item-multiline q-item-highlight">
+  <div class="q-btn-group row no-wrap inline hover-button k-message-controls q-btn-group-flat">
+    <!---->
+    <button tabindex="0" type="button" class="q-btn inline relative-position q-btn-item non-selectable q-btn-rectangle q-btn-flat q-focusable q-hoverable">
+      <div class="q-focus-helper"></div>
+      <div class="q-btn-inner row col items-center justify-center">
+        <i class="fas fa-comments"></i> <span class="q-tooltip animate-popup"><div></div></span></div>
+    </button>
+    <button tabindex="0" type="button" class="q-btn inline relative-position q-btn-item non-selectable q-btn-rectangle q-btn-flat q-focusable q-hoverable">
+      <div class="q-focus-helper"></div>
+      <div class="q-btn-inner row col items-center justify-center"><span style="opacity:1;"><i class="far fa-smile"></i> +
+  </span>
+        <div class="q-popover scroll"></div>
+      </div>
+    </button>
+  </div>
   <div class="q-item-side q-item-section q-item-side-left">
-    <div class="wrapper" style="margin-top:6px;">
+    <div class="wrapper" style="width:40px;height:40px;margin-top:6px;">
       <a title="Karl Karlson">
         <div text="Karl Karlson" seed="3" class="randomArt" style="width:40px;height:40px;"></div>
       </a>
     </div>
   </div>
   <div class="q-item-main q-item-section">
-    <div class="row no-wrap justify-between">
-      <div class="no-wrap" style="margin-top:4px;">
-        <a><span class="text-bold text-secondary uppercase">Karl Karlson</span></a> <span class="message-date"><small class="text-weight-light"><div title="Aug 11, 2017, 3:51 PM">
+    <div class="no-wrap k-message-meta">
+      <a><span class="k-message-author text-bold text-secondary uppercase">Karl Karlson</span></a> <span class="message-date"><small class="text-weight-light"><div title="Aug 11, 2017, 3:51 PM">
   4 months ago
 </div></small></span>
-        <!---->
-      </div>
-      <div>
-        <!---->
-        <button tabindex="0" type="button" class="q-btn inline relative-position q-btn-item non-selectable hover-button reaction-box self-start q-btn-rectangle q-btn-flat q-focusable q-hoverable">
-          <div class="q-focus-helper"></div>
-          <div class="q-btn-inner row col items-center justify-center"><span style="opacity:.5;"><i class="far fa-smile"></i> +
-  </span>
-            <div class="q-popover scroll"></div>
-          </div>
-        </button>
-      </div>
+      <!---->
     </div>
     <div class="content">
       <div class="markdown">
@@ -410,40 +428,44 @@ exports[`Storyshots Conversation Conversation 1`] = `
   </span>
   <button tabindex="0" type="button" class="q-btn inline relative-position q-btn-item non-selectable add-button reaction-box q-btn-rectangle q-btn-flat q-focusable q-hoverable">
     <div class="q-focus-helper"></div>
-    <div class="q-btn-inner row col items-center justify-center"><span style="opacity:.5;"><i class="far fa-smile"></i> +
+    <div class="q-btn-inner row col items-center justify-center"><span style="opacity:0.5;"><i class="far fa-smile"></i> +
   </span>
       <div class="q-popover scroll"></div>
     </div>
   </button>
   </span>
+  <!---->
 </div>
 </div>
-<div class="conversation-message q-item q-item-division relative-position q-item-multiline q-item-highlight">
+<div class="conversation-message relative-position q-item q-item-division relative-position q-item-multiline q-item-highlight">
+  <div class="q-btn-group row no-wrap inline hover-button k-message-controls q-btn-group-flat">
+    <!---->
+    <button tabindex="0" type="button" class="q-btn inline relative-position q-btn-item non-selectable q-btn-rectangle q-btn-flat q-focusable q-hoverable">
+      <div class="q-focus-helper"></div>
+      <div class="q-btn-inner row col items-center justify-center">
+        <i class="fas fa-comments"></i> <span class="q-tooltip animate-popup"><div></div></span></div>
+    </button>
+    <button tabindex="0" type="button" class="q-btn inline relative-position q-btn-item non-selectable q-btn-rectangle q-btn-flat q-focusable q-hoverable">
+      <div class="q-focus-helper"></div>
+      <div class="q-btn-inner row col items-center justify-center"><span style="opacity:1;"><i class="far fa-smile"></i> +
+  </span>
+        <div class="q-popover scroll"></div>
+      </div>
+    </button>
+  </div>
   <div class="q-item-side q-item-section q-item-side-left">
-    <div class="wrapper" style="margin-top:6px;">
+    <div class="wrapper" style="width:40px;height:40px;margin-top:6px;">
       <a title="Max Mustermann">
         <div text="Max Mustermann" seed="2" class="randomArt" style="width:40px;height:40px;"></div>
       </a>
     </div>
   </div>
   <div class="q-item-main q-item-section">
-    <div class="row no-wrap justify-between">
-      <div class="no-wrap" style="margin-top:4px;">
-        <a><span class="text-bold text-secondary uppercase">Max Mustermann</span></a> <span class="message-date"><small class="text-weight-light"><div title="Aug 11, 2017, 3:52 PM">
+    <div class="no-wrap k-message-meta">
+      <a><span class="k-message-author text-bold text-secondary uppercase">Max Mustermann</span></a> <span class="message-date"><small class="text-weight-light"><div title="Aug 11, 2017, 3:52 PM">
   4 months ago
 </div></small></span>
-        <!---->
-      </div>
-      <div>
-        <!---->
-        <button tabindex="0" type="button" class="q-btn inline relative-position q-btn-item non-selectable hover-button reaction-box self-start q-btn-rectangle q-btn-flat q-focusable q-hoverable">
-          <div class="q-focus-helper"></div>
-          <div class="q-btn-inner row col items-center justify-center"><span style="opacity:.5;"><i class="far fa-smile"></i> +
-  </span>
-            <div class="q-popover scroll"></div>
-          </div>
-        </button>
-      </div>
+      <!---->
     </div>
     <div class="content">
       <div class="markdown">
@@ -455,40 +477,44 @@ exports[`Storyshots Conversation Conversation 1`] = `
   </span>
   <button tabindex="0" type="button" class="q-btn inline relative-position q-btn-item non-selectable add-button reaction-box q-btn-rectangle q-btn-flat q-focusable q-hoverable">
     <div class="q-focus-helper"></div>
-    <div class="q-btn-inner row col items-center justify-center"><span style="opacity:.5;"><i class="far fa-smile"></i> +
+    <div class="q-btn-inner row col items-center justify-center"><span style="opacity:0.5;"><i class="far fa-smile"></i> +
   </span>
       <div class="q-popover scroll"></div>
     </div>
   </button>
   </span>
+  <!---->
 </div>
 </div>
-<div class="conversation-message q-item q-item-division relative-position q-item-multiline q-item-highlight">
+<div class="conversation-message relative-position q-item q-item-division relative-position q-item-multiline q-item-highlight">
+  <div class="q-btn-group row no-wrap inline hover-button k-message-controls q-btn-group-flat">
+    <!---->
+    <button tabindex="0" type="button" class="q-btn inline relative-position q-btn-item non-selectable q-btn-rectangle q-btn-flat q-focusable q-hoverable">
+      <div class="q-focus-helper"></div>
+      <div class="q-btn-inner row col items-center justify-center">
+        <i class="fas fa-comments"></i> <span class="q-tooltip animate-popup"><div></div></span></div>
+    </button>
+    <button tabindex="0" type="button" class="q-btn inline relative-position q-btn-item non-selectable q-btn-rectangle q-btn-flat q-focusable q-hoverable">
+      <div class="q-focus-helper"></div>
+      <div class="q-btn-inner row col items-center justify-center"><span style="opacity:1;"><i class="far fa-smile"></i> +
+  </span>
+        <div class="q-popover scroll"></div>
+      </div>
+    </button>
+  </div>
   <div class="q-item-side q-item-section q-item-side-left">
-    <div class="wrapper" style="margin-top:6px;">
+    <div class="wrapper" style="width:40px;height:40px;margin-top:6px;">
       <a title="Mona Mohnblume">
         <div text="Mona Mohnblume" seed="4" class="randomArt" style="width:40px;height:40px;"></div>
       </a>
     </div>
   </div>
   <div class="q-item-main q-item-section">
-    <div class="row no-wrap justify-between">
-      <div class="no-wrap" style="margin-top:4px;">
-        <a><span class="text-bold text-secondary uppercase">Mona Mohnblume</span></a> <span class="message-date"><small class="text-weight-light"><div title="Aug 11, 2017, 3:52 PM">
+    <div class="no-wrap k-message-meta">
+      <a><span class="k-message-author text-bold text-secondary uppercase">Mona Mohnblume</span></a> <span class="message-date"><small class="text-weight-light"><div title="Aug 11, 2017, 3:52 PM">
   4 months ago
 </div></small></span>
-        <!---->
-      </div>
-      <div>
-        <!---->
-        <button tabindex="0" type="button" class="q-btn inline relative-position q-btn-item non-selectable hover-button reaction-box self-start q-btn-rectangle q-btn-flat q-focusable q-hoverable">
-          <div class="q-focus-helper"></div>
-          <div class="q-btn-inner row col items-center justify-center"><span style="opacity:.5;"><i class="far fa-smile"></i> +
-  </span>
-            <div class="q-popover scroll"></div>
-          </div>
-        </button>
-      </div>
+      <!---->
     </div>
     <div class="content">
       <div class="markdown">
@@ -500,40 +526,44 @@ exports[`Storyshots Conversation Conversation 1`] = `
   </span>
   <button tabindex="0" type="button" class="q-btn inline relative-position q-btn-item non-selectable add-button reaction-box q-btn-rectangle q-btn-flat q-focusable q-hoverable">
     <div class="q-focus-helper"></div>
-    <div class="q-btn-inner row col items-center justify-center"><span style="opacity:.5;"><i class="far fa-smile"></i> +
+    <div class="q-btn-inner row col items-center justify-center"><span style="opacity:0.5;"><i class="far fa-smile"></i> +
   </span>
       <div class="q-popover scroll"></div>
     </div>
   </button>
   </span>
+  <!---->
 </div>
 </div>
-<div class="conversation-message q-item q-item-division relative-position q-item-multiline q-item-highlight">
+<div class="conversation-message relative-position q-item q-item-division relative-position q-item-multiline q-item-highlight">
+  <div class="q-btn-group row no-wrap inline hover-button k-message-controls q-btn-group-flat">
+    <!---->
+    <button tabindex="0" type="button" class="q-btn inline relative-position q-btn-item non-selectable q-btn-rectangle q-btn-flat q-focusable q-hoverable">
+      <div class="q-focus-helper"></div>
+      <div class="q-btn-inner row col items-center justify-center">
+        <i class="fas fa-comments"></i> <span class="q-tooltip animate-popup"><div></div></span></div>
+    </button>
+    <button tabindex="0" type="button" class="q-btn inline relative-position q-btn-item non-selectable q-btn-rectangle q-btn-flat q-focusable q-hoverable">
+      <div class="q-focus-helper"></div>
+      <div class="q-btn-inner row col items-center justify-center"><span style="opacity:1;"><i class="far fa-smile"></i> +
+  </span>
+        <div class="q-popover scroll"></div>
+      </div>
+    </button>
+  </div>
   <div class="q-item-side q-item-section q-item-side-left">
-    <div class="wrapper" style="margin-top:6px;">
+    <div class="wrapper" style="width:40px;height:40px;margin-top:6px;">
       <a title="Mona Mohnblume">
         <div text="Mona Mohnblume" seed="4" class="randomArt" style="width:40px;height:40px;"></div>
       </a>
     </div>
   </div>
   <div class="q-item-main q-item-section">
-    <div class="row no-wrap justify-between">
-      <div class="no-wrap" style="margin-top:4px;">
-        <a><span class="text-bold text-secondary uppercase">Mona Mohnblume</span></a> <span class="message-date"><small class="text-weight-light"><div title="Aug 11, 2017, 3:52 PM">
+    <div class="no-wrap k-message-meta">
+      <a><span class="k-message-author text-bold text-secondary uppercase">Mona Mohnblume</span></a> <span class="message-date"><small class="text-weight-light"><div title="Aug 11, 2017, 3:52 PM">
   4 months ago
 </div></small></span>
-        <!---->
-      </div>
-      <div>
-        <!---->
-        <button tabindex="0" type="button" class="q-btn inline relative-position q-btn-item non-selectable hover-button reaction-box self-start q-btn-rectangle q-btn-flat q-focusable q-hoverable">
-          <div class="q-focus-helper"></div>
-          <div class="q-btn-inner row col items-center justify-center"><span style="opacity:.5;"><i class="far fa-smile"></i> +
-  </span>
-            <div class="q-popover scroll"></div>
-          </div>
-        </button>
-      </div>
+      <!---->
     </div>
     <div class="content">
       <div class="markdown">
@@ -547,40 +577,44 @@ exports[`Storyshots Conversation Conversation 1`] = `
   </span>
   <button tabindex="0" type="button" class="q-btn inline relative-position q-btn-item non-selectable add-button reaction-box q-btn-rectangle q-btn-flat q-focusable q-hoverable">
     <div class="q-focus-helper"></div>
-    <div class="q-btn-inner row col items-center justify-center"><span style="opacity:.5;"><i class="far fa-smile"></i> +
+    <div class="q-btn-inner row col items-center justify-center"><span style="opacity:0.5;"><i class="far fa-smile"></i> +
   </span>
       <div class="q-popover scroll"></div>
     </div>
   </button>
   </span>
+  <!---->
 </div>
 </div>
-<div class="conversation-message q-item q-item-division relative-position q-item-multiline q-item-highlight">
+<div class="conversation-message relative-position q-item q-item-division relative-position q-item-multiline q-item-highlight">
+  <div class="q-btn-group row no-wrap inline hover-button k-message-controls q-btn-group-flat">
+    <!---->
+    <button tabindex="0" type="button" class="q-btn inline relative-position q-btn-item non-selectable q-btn-rectangle q-btn-flat q-focusable q-hoverable">
+      <div class="q-focus-helper"></div>
+      <div class="q-btn-inner row col items-center justify-center">
+        <i class="fas fa-comments"></i> <span class="q-tooltip animate-popup"><div></div></span></div>
+    </button>
+    <button tabindex="0" type="button" class="q-btn inline relative-position q-btn-item non-selectable q-btn-rectangle q-btn-flat q-focusable q-hoverable">
+      <div class="q-focus-helper"></div>
+      <div class="q-btn-inner row col items-center justify-center"><span style="opacity:1;"><i class="far fa-smile"></i> +
+  </span>
+        <div class="q-popover scroll"></div>
+      </div>
+    </button>
+  </div>
   <div class="q-item-side q-item-section q-item-side-left">
-    <div class="wrapper" style="margin-top:6px;">
+    <div class="wrapper" style="width:40px;height:40px;margin-top:6px;">
       <a title="Max Mustermann">
         <div text="Max Mustermann" seed="2" class="randomArt" style="width:40px;height:40px;"></div>
       </a>
     </div>
   </div>
   <div class="q-item-main q-item-section">
-    <div class="row no-wrap justify-between">
-      <div class="no-wrap" style="margin-top:4px;">
-        <a><span class="text-bold text-secondary uppercase">Max Mustermann</span></a> <span class="message-date"><small class="text-weight-light"><div title="Aug 11, 2017, 3:52 PM">
+    <div class="no-wrap k-message-meta">
+      <a><span class="k-message-author text-bold text-secondary uppercase">Max Mustermann</span></a> <span class="message-date"><small class="text-weight-light"><div title="Aug 11, 2017, 3:52 PM">
   4 months ago
 </div></small></span>
-        <!---->
-      </div>
-      <div>
-        <!---->
-        <button tabindex="0" type="button" class="q-btn inline relative-position q-btn-item non-selectable hover-button reaction-box self-start q-btn-rectangle q-btn-flat q-focusable q-hoverable">
-          <div class="q-focus-helper"></div>
-          <div class="q-btn-inner row col items-center justify-center"><span style="opacity:.5;"><i class="far fa-smile"></i> +
-  </span>
-            <div class="q-popover scroll"></div>
-          </div>
-        </button>
-      </div>
+      <!---->
     </div>
     <div class="content">
       <div class="markdown">
@@ -592,12 +626,13 @@ exports[`Storyshots Conversation Conversation 1`] = `
   </span>
   <button tabindex="0" type="button" class="q-btn inline relative-position q-btn-item non-selectable add-button reaction-box q-btn-rectangle q-btn-flat q-focusable q-hoverable">
     <div class="q-focus-helper"></div>
-    <div class="q-btn-inner row col items-center justify-center"><span style="opacity:.5;"><i class="far fa-smile"></i> +
+    <div class="q-btn-inner row col items-center justify-center"><span style="opacity:0.5;"><i class="far fa-smile"></i> +
   </span>
       <div class="q-popover scroll"></div>
     </div>
   </button>
   </span>
+  <!---->
 </div>
 </div>
 <!---->
@@ -605,7 +640,6 @@ exports[`Storyshots Conversation Conversation 1`] = `
 </div>
 <div class="q-infinite-scroll-message" style="display:none;"></div>
 </div>
-<!---->
 </div>
 `;
 
@@ -1990,7 +2024,7 @@ exports[`Storyshots History List Default 1`] = `
       <div class="clickable q-item q-item-division relative-position q-item-multiline">
         <div class="q-item-side q-item-section q-item-side-left">
           <div>
-            <div class="wrapper">
+            <div class="wrapper" style="width:25px;height:25px;">
               <a title="Mira Bellenbaum">
                 <div text="Mira Bellenbaum" seed="1" class="randomArt" style="width:25px;height:25px;"></div>
               </a>
@@ -2019,7 +2053,7 @@ exports[`Storyshots History List Default 1`] = `
       <div class="clickable q-item q-item-division relative-position q-item-multiline">
         <div class="q-item-side q-item-section q-item-side-left">
           <div>
-            <div class="wrapper">
+            <div class="wrapper" style="width:25px;height:25px;">
               <a title="Max Mustermann">
                 <div text="Max Mustermann" seed="2" class="randomArt" style="width:25px;height:25px;"></div>
               </a>
@@ -2048,7 +2082,7 @@ exports[`Storyshots History List Default 1`] = `
       <div class="clickable q-item q-item-division relative-position q-item-multiline">
         <div class="q-item-side q-item-section q-item-side-left">
           <div>
-            <div class="wrapper">
+            <div class="wrapper" style="width:25px;height:25px;">
               <a title="Karl Karlson">
                 <div text="Karl Karlson" seed="3" class="randomArt" style="width:25px;height:25px;"></div>
               </a>
@@ -2077,7 +2111,7 @@ exports[`Storyshots History List Default 1`] = `
       <div class="clickable q-item q-item-division relative-position q-item-multiline">
         <div class="q-item-side q-item-section q-item-side-left">
           <div>
-            <div class="wrapper">
+            <div class="wrapper" style="width:25px;height:25px;">
               <a title="Mona Mohnblume">
                 <div text="Mona Mohnblume" seed="4" class="randomArt" style="width:25px;height:25px;"></div>
               </a>
@@ -2106,7 +2140,7 @@ exports[`Storyshots History List Default 1`] = `
       <div class="clickable q-item q-item-division relative-position q-item-multiline">
         <div class="q-item-side q-item-section q-item-side-left">
           <div>
-            <div class="wrapper">
+            <div class="wrapper" style="width:25px;height:25px;">
               <a title="Current User">
                 <div text="Current User" seed="5" class="randomArt" style="width:25px;height:25px;"></div>
               </a>
@@ -2187,7 +2221,7 @@ exports[`Storyshots History List Default 1`] = `
       <div class="clickable q-item q-item-division relative-position q-item-multiline">
         <div class="q-item-side q-item-section q-item-side-left">
           <div>
-            <div class="wrapper">
+            <div class="wrapper" style="width:25px;height:25px;">
               <a title="Mira Bellenbaum">
                 <div text="Mira Bellenbaum" seed="1" class="randomArt" style="width:25px;height:25px;"></div>
               </a>
@@ -2216,7 +2250,7 @@ exports[`Storyshots History List Default 1`] = `
       <div class="clickable q-item q-item-division relative-position q-item-multiline">
         <div class="q-item-side q-item-section q-item-side-left">
           <div>
-            <div class="wrapper">
+            <div class="wrapper" style="width:25px;height:25px;">
               <a title="Max Mustermann">
                 <div text="Max Mustermann" seed="2" class="randomArt" style="width:25px;height:25px;"></div>
               </a>
@@ -2909,17 +2943,17 @@ exports[`Storyshots PickupItem Full 1`] = `
       <div class="people full-width">
         <div class="row justify-start">
           <object type="text/html" data="about:blank" aria-hidden="true" style="display:block;position:absolute;top:0;left:0;right:0;bottom:0;height:100%;width:100%;overflow:hidden;pointer-events:none;z-index:-1;"></object>
-          <div class="wrapper profilePic clickable">
+          <div class="wrapper profilePic clickable" style="width:36px;height:36px;">
             <a title="Mira Bellenbaum">
               <div text="Mira Bellenbaum" seed="1" class="randomArt" style="width:36px;height:36px;"></div>
             </a>
           </div>
-          <div class="wrapper profilePic clickable">
+          <div class="wrapper profilePic clickable" style="width:36px;height:36px;">
             <a title="Max Mustermann">
               <div text="Max Mustermann" seed="2" class="randomArt" style="width:36px;height:36px;"></div>
             </a>
           </div>
-          <div class="wrapper profilePic clickable">
+          <div class="wrapper profilePic clickable" style="width:36px;height:36px;">
             <a title="Karl Karlson">
               <div text="Karl Karlson" seed="3" class="randomArt" style="width:36px;height:36px;"></div>
             </a>
@@ -2947,17 +2981,17 @@ exports[`Storyshots PickupItem Join 1`] = `
       <div class="people full-width">
         <div class="row justify-start">
           <object type="text/html" data="about:blank" aria-hidden="true" style="display:block;position:absolute;top:0;left:0;right:0;bottom:0;height:100%;width:100%;overflow:hidden;pointer-events:none;z-index:-1;"></object>
-          <div class="wrapper profilePic clickable">
+          <div class="wrapper profilePic clickable" style="width:36px;height:36px;">
             <a title="Mira Bellenbaum">
               <div text="Mira Bellenbaum" seed="1" class="randomArt" style="width:36px;height:36px;"></div>
             </a>
           </div>
-          <div class="wrapper profilePic clickable">
+          <div class="wrapper profilePic clickable" style="width:36px;height:36px;">
             <a title="Max Mustermann">
               <div text="Max Mustermann" seed="2" class="randomArt" style="width:36px;height:36px;"></div>
             </a>
           </div>
-          <div class="wrapper profilePic clickable">
+          <div class="wrapper profilePic clickable" style="width:36px;height:36px;">
             <a title="Karl Karlson">
               <div text="Karl Karlson" seed="3" class="randomArt" style="width:36px;height:36px;"></div>
             </a>
@@ -2967,7 +3001,7 @@ exports[`Storyshots PickupItem Join 1`] = `
           <div class="user-slot-wrapper profilePic active clickable" style="width:36px;height:36px;">
             <div class="hoverHide"></div>
             <div title="Join" class="hoverShow">
-              <div class="wrapper">
+              <div class="wrapper" style="width:36px;height:36px;">
                 <div>
                   <div text="Current User" seed="5" class="randomArt" style="width:36px;height:36px;"></div>
                 </div>
@@ -2994,12 +3028,12 @@ exports[`Storyshots PickupItem Leave 1`] = `
       <div class="people full-width">
         <div class="row justify-start">
           <object type="text/html" data="about:blank" aria-hidden="true" style="display:block;position:absolute;top:0;left:0;right:0;bottom:0;height:100%;width:100%;overflow:hidden;pointer-events:none;z-index:-1;"></object>
-          <div class="wrapper profilePic clickable">
+          <div class="wrapper profilePic clickable" style="width:36px;height:36px;">
             <a title="Mira Bellenbaum">
               <div text="Mira Bellenbaum" seed="1" class="randomArt" style="width:36px;height:36px;"></div>
             </a>
           </div>
-          <div class="wrapper profilePic clickable">
+          <div class="wrapper profilePic clickable" style="width:36px;height:36px;">
             <a title="Max Mustermann">
               <div text="Max Mustermann" seed="2" class="randomArt" style="width:36px;height:36px;"></div>
             </a>
@@ -3011,7 +3045,7 @@ exports[`Storyshots PickupItem Leave 1`] = `
               <i class="fas fa-fw fa-times" style="font-size:27px;"></i>
             </div>
             <div class="hoverHide">
-              <div class="wrapper">
+              <div class="wrapper" style="width:36px;height:36px;">
                 <div>
                   <div text="Current User" seed="5" class="randomArt" style="width:36px;height:36px;"></div>
                 </div>
@@ -3043,17 +3077,17 @@ exports[`Storyshots PickupItem pending 1`] = `
       <div class="people full-width">
         <div class="row justify-start">
           <object type="text/html" data="about:blank" aria-hidden="true" style="display:block;position:absolute;top:0;left:0;right:0;bottom:0;height:100%;width:100%;overflow:hidden;pointer-events:none;z-index:-1;"></object>
-          <div class="wrapper profilePic clickable">
+          <div class="wrapper profilePic clickable" style="width:36px;height:36px;">
             <a title="Mira Bellenbaum">
               <div text="Mira Bellenbaum" seed="1" class="randomArt" style="width:36px;height:36px;"></div>
             </a>
           </div>
-          <div class="wrapper profilePic clickable">
+          <div class="wrapper profilePic clickable" style="width:36px;height:36px;">
             <a title="Max Mustermann">
               <div text="Max Mustermann" seed="2" class="randomArt" style="width:36px;height:36px;"></div>
             </a>
           </div>
-          <div class="wrapper profilePic clickable">
+          <div class="wrapper profilePic clickable" style="width:36px;height:36px;">
             <a title="Karl Karlson">
               <div text="Karl Karlson" seed="3" class="randomArt" style="width:36px;height:36px;"></div>
             </a>
@@ -3083,17 +3117,17 @@ exports[`Storyshots PickupList Default 1`] = `
 <div class="people full-width">
   <div class="row justify-start">
     <object type="text/html" data="about:blank" aria-hidden="true" style="display:block;position:absolute;top:0;left:0;right:0;bottom:0;height:100%;width:100%;overflow:hidden;pointer-events:none;z-index:-1;"></object>
-    <div class="wrapper profilePic clickable">
+    <div class="wrapper profilePic clickable" style="width:36px;height:36px;">
       <a title="Mira Bellenbaum">
         <div text="Mira Bellenbaum" seed="1" class="randomArt" style="width:36px;height:36px;"></div>
       </a>
     </div>
-    <div class="wrapper profilePic clickable">
+    <div class="wrapper profilePic clickable" style="width:36px;height:36px;">
       <a title="Max Mustermann">
         <div text="Max Mustermann" seed="2" class="randomArt" style="width:36px;height:36px;"></div>
       </a>
     </div>
-    <div class="wrapper profilePic clickable">
+    <div class="wrapper profilePic clickable" style="width:36px;height:36px;">
       <a title="Karl Karlson">
         <div text="Karl Karlson" seed="3" class="randomArt" style="width:36px;height:36px;"></div>
       </a>
@@ -3103,7 +3137,7 @@ exports[`Storyshots PickupList Default 1`] = `
     <div class="user-slot-wrapper profilePic active clickable" style="width:36px;height:36px;">
       <div class="hoverHide"></div>
       <div title="Join" class="hoverShow">
-        <div class="wrapper">
+        <div class="wrapper" style="width:36px;height:36px;">
           <div>
             <div text="Current User" seed="5" class="randomArt" style="width:36px;height:36px;"></div>
           </div>
@@ -3127,12 +3161,12 @@ exports[`Storyshots PickupList Default 1`] = `
       <div class="people full-width">
         <div class="row justify-start">
           <object type="text/html" data="about:blank" aria-hidden="true" style="display:block;position:absolute;top:0;left:0;right:0;bottom:0;height:100%;width:100%;overflow:hidden;pointer-events:none;z-index:-1;"></object>
-          <div class="wrapper profilePic clickable">
+          <div class="wrapper profilePic clickable" style="width:36px;height:36px;">
             <a title="Mira Bellenbaum">
               <div text="Mira Bellenbaum" seed="1" class="randomArt" style="width:36px;height:36px;"></div>
             </a>
           </div>
-          <div class="wrapper profilePic clickable">
+          <div class="wrapper profilePic clickable" style="width:36px;height:36px;">
             <a title="Max Mustermann">
               <div text="Max Mustermann" seed="2" class="randomArt" style="width:36px;height:36px;"></div>
             </a>
@@ -3144,7 +3178,7 @@ exports[`Storyshots PickupList Default 1`] = `
               <i class="fas fa-fw fa-times" style="font-size:27px;"></i>
             </div>
             <div class="hoverHide">
-              <div class="wrapper">
+              <div class="wrapper" style="width:36px;height:36px;">
                 <div>
                   <div text="Current User" seed="5" class="randomArt" style="width:36px;height:36px;"></div>
                 </div>
@@ -3173,17 +3207,17 @@ exports[`Storyshots PickupList Default 1`] = `
       <div class="people full-width">
         <div class="row justify-start">
           <object type="text/html" data="about:blank" aria-hidden="true" style="display:block;position:absolute;top:0;left:0;right:0;bottom:0;height:100%;width:100%;overflow:hidden;pointer-events:none;z-index:-1;"></object>
-          <div class="wrapper profilePic clickable">
+          <div class="wrapper profilePic clickable" style="width:36px;height:36px;">
             <a title="Mira Bellenbaum">
               <div text="Mira Bellenbaum" seed="1" class="randomArt" style="width:36px;height:36px;"></div>
             </a>
           </div>
-          <div class="wrapper profilePic clickable">
+          <div class="wrapper profilePic clickable" style="width:36px;height:36px;">
             <a title="Max Mustermann">
               <div text="Max Mustermann" seed="2" class="randomArt" style="width:36px;height:36px;"></div>
             </a>
           </div>
-          <div class="wrapper profilePic clickable">
+          <div class="wrapper profilePic clickable" style="width:36px;height:36px;">
             <a title="Karl Karlson">
               <div text="Karl Karlson" seed="3" class="randomArt" style="width:36px;height:36px;"></div>
             </a>
@@ -3213,7 +3247,7 @@ exports[`Storyshots PickupList Default 1`] = `
           <div class="user-slot-wrapper profilePic active clickable" style="width:36px;height:36px;">
             <div class="hoverHide"></div>
             <div title="Join" class="hoverShow">
-              <div class="wrapper">
+              <div class="wrapper" style="width:36px;height:36px;">
                 <div>
                   <div text="Current User" seed="5" class="randomArt" style="width:36px;height:36px;"></div>
                 </div>
@@ -3591,7 +3625,7 @@ exports[`Storyshots PickupUsers empty 1`] = `
   <div class="user-slot-wrapper profilePic active clickable" style="width:36px;height:36px;">
     <div class="hoverHide"></div>
     <div title="Join" class="hoverShow">
-      <div class="wrapper">
+      <div class="wrapper" style="width:36px;height:36px;">
         <div>
           <div text="Current User" seed="5" class="randomArt" style="width:36px;height:36px;"></div>
         </div>
@@ -3608,17 +3642,17 @@ exports[`Storyshots PickupUsers empty 1`] = `
 exports[`Storyshots PickupUsers full 1`] = `
 <div class="row justify-start">
   <object type="text/html" data="about:blank" aria-hidden="true" style="display:block;position:absolute;top:0;left:0;right:0;bottom:0;height:100%;width:100%;overflow:hidden;pointer-events:none;z-index:-1;"></object>
-  <div class="wrapper profilePic clickable">
+  <div class="wrapper profilePic clickable" style="width:36px;height:36px;">
     <a title="Mira Bellenbaum">
       <div text="Mira Bellenbaum" seed="1" class="randomArt" style="width:36px;height:36px;"></div>
     </a>
   </div>
-  <div class="wrapper profilePic clickable">
+  <div class="wrapper profilePic clickable" style="width:36px;height:36px;">
     <a title="Max Mustermann">
       <div text="Max Mustermann" seed="2" class="randomArt" style="width:36px;height:36px;"></div>
     </a>
   </div>
-  <div class="wrapper profilePic clickable">
+  <div class="wrapper profilePic clickable" style="width:36px;height:36px;">
     <a title="Karl Karlson">
       <div text="Karl Karlson" seed="3" class="randomArt" style="width:36px;height:36px;"></div>
     </a>
@@ -3633,17 +3667,17 @@ exports[`Storyshots PickupUsers full 1`] = `
 exports[`Storyshots PickupUsers joinable 1`] = `
 <div class="row justify-start">
   <object type="text/html" data="about:blank" aria-hidden="true" style="display:block;position:absolute;top:0;left:0;right:0;bottom:0;height:100%;width:100%;overflow:hidden;pointer-events:none;z-index:-1;"></object>
-  <div class="wrapper profilePic clickable">
+  <div class="wrapper profilePic clickable" style="width:36px;height:36px;">
     <a title="Mira Bellenbaum">
       <div text="Mira Bellenbaum" seed="1" class="randomArt" style="width:36px;height:36px;"></div>
     </a>
   </div>
-  <div class="wrapper profilePic clickable">
+  <div class="wrapper profilePic clickable" style="width:36px;height:36px;">
     <a title="Max Mustermann">
       <div text="Max Mustermann" seed="2" class="randomArt" style="width:36px;height:36px;"></div>
     </a>
   </div>
-  <div class="wrapper profilePic clickable">
+  <div class="wrapper profilePic clickable" style="width:36px;height:36px;">
     <a title="Karl Karlson">
       <div text="Karl Karlson" seed="3" class="randomArt" style="width:36px;height:36px;"></div>
     </a>
@@ -3653,7 +3687,7 @@ exports[`Storyshots PickupUsers joinable 1`] = `
   <div class="user-slot-wrapper profilePic active clickable" style="width:36px;height:36px;">
     <div class="hoverHide"></div>
     <div title="Join" class="hoverShow">
-      <div class="wrapper">
+      <div class="wrapper" style="width:36px;height:36px;">
         <div>
           <div text="Current User" seed="5" class="randomArt" style="width:36px;height:36px;"></div>
         </div>
@@ -3668,12 +3702,12 @@ exports[`Storyshots PickupUsers joinable 1`] = `
 exports[`Storyshots PickupUsers leavable 1`] = `
 <div class="row justify-start">
   <object type="text/html" data="about:blank" aria-hidden="true" style="display:block;position:absolute;top:0;left:0;right:0;bottom:0;height:100%;width:100%;overflow:hidden;pointer-events:none;z-index:-1;"></object>
-  <div class="wrapper profilePic clickable">
+  <div class="wrapper profilePic clickable" style="width:36px;height:36px;">
     <a title="Mira Bellenbaum">
       <div text="Mira Bellenbaum" seed="1" class="randomArt" style="width:36px;height:36px;"></div>
     </a>
   </div>
-  <div class="wrapper profilePic clickable">
+  <div class="wrapper profilePic clickable" style="width:36px;height:36px;">
     <a title="Max Mustermann">
       <div text="Max Mustermann" seed="2" class="randomArt" style="width:36px;height:36px;"></div>
     </a>
@@ -3685,7 +3719,7 @@ exports[`Storyshots PickupUsers leavable 1`] = `
       <i class="fas fa-fw fa-times" style="font-size:27px;"></i>
     </div>
     <div class="hoverHide">
-      <div class="wrapper">
+      <div class="wrapper" style="width:36px;height:36px;">
         <div>
           <div text="Current User" seed="5" class="randomArt" style="width:36px;height:36px;"></div>
         </div>
@@ -3702,7 +3736,7 @@ exports[`Storyshots PickupUsers leavable 1`] = `
 `;
 
 exports[`Storyshots ProfilePicture with user 1`] = `
-<div class="wrapper">
+<div class="wrapper" style="width:100px;height:100px;">
   <div>
     <div text="Mira Bellenbaum" seed="1" class="randomArt" style="width:100px;height:100px;"></div>
   </div>
@@ -3710,7 +3744,7 @@ exports[`Storyshots ProfilePicture with user 1`] = `
 `;
 
 exports[`Storyshots ProfilePicture without user 1`] = `
-<div class="wrapper">
+<div class="wrapper" style="width:100px;height:100px;">
   <div title="(User inaccessible or deleted)" class="deletedUser" style="width:100px;height:100px;font-size:80px;">?</div>
 </div>
 `;
@@ -4763,7 +4797,7 @@ exports[`Storyshots Statistics FeedbackItem 1`] = `
           </div>
         </div>
         <div class="people">
-          <div class="wrapper">
+          <div class="wrapper" style="width:22px;height:22px;">
             <a title="Mira Bellenbaum">
               <div text="Mira Bellenbaum" seed="1" class="randomArt" style="width:22px;height:22px;"></div>
             </a>
@@ -4805,7 +4839,7 @@ exports[`Storyshots Statistics FeedbackList 1`] = `
               </div>
             </div>
             <div class="people">
-              <div class="wrapper">
+              <div class="wrapper" style="width:22px;height:22px;">
                 <a title="Mira Bellenbaum">
                   <div text="Mira Bellenbaum" seed="1" class="randomArt" style="width:22px;height:22px;"></div>
                 </a>
@@ -4837,7 +4871,7 @@ exports[`Storyshots Statistics FeedbackList 1`] = `
 </div></span></small>
             <!---->
             <div class="people">
-              <div class="wrapper">
+              <div class="wrapper" style="width:22px;height:22px;">
                 <a title="Mira Bellenbaum">
                   <div text="Mira Bellenbaum" seed="1" class="randomArt" style="width:22px;height:22px;"></div>
                 </a>
@@ -4873,7 +4907,7 @@ exports[`Storyshots Statistics FeedbackList 1`] = `
               </div>
             </div>
             <div class="people">
-              <div class="wrapper">
+              <div class="wrapper" style="width:22px;height:22px;">
                 <a title="Max Mustermann">
                   <div text="Max Mustermann" seed="2" class="randomArt" style="width:22px;height:22px;"></div>
                 </a>
@@ -4885,9 +4919,25 @@ exports[`Storyshots Statistics FeedbackList 1`] = `
       </div>
     </div>
     <!---->
-    <!---->
   </div>
-  <div class="q-infinite-scroll-message" style="display:none;"></div>
+  <div class="q-infinite-scroll-message" style="display:none;">
+    <div style="width:100%;text-align:center;">
+      <svg fill="currentColor" width="40" height="40" viewBox="0 0 120 30" xmlns="http://www.w3.org/2000/svg" class="q-spinner">
+        <circle cx="15" cy="15" r="15">
+          <animate attributeName="r" from="15" to="15" begin="0s" dur="0.8s" values="15;9;15" calcMode="linear" repeatCount="indefinite"></animate>
+          <animate attributeName="fill-opacity" from="1" to="1" begin="0s" dur="0.8s" values="1;.5;1" calcMode="linear" repeatCount="indefinite"></animate>
+        </circle>
+        <circle cx="60" cy="15" r="9" fill-opacity=".3">
+          <animate attributeName="r" from="9" to="9" begin="0s" dur="0.8s" values="9;15;9" calcMode="linear" repeatCount="indefinite"></animate>
+          <animate attributeName="fill-opacity" from=".5" to=".5" begin="0s" dur="0.8s" values=".5;1;.5" calcMode="linear" repeatCount="indefinite"></animate>
+        </circle>
+        <circle cx="105" cy="15" r="15">
+          <animate attributeName="r" from="15" to="15" begin="0s" dur="0.8s" values="15;9;15" calcMode="linear" repeatCount="indefinite"></animate>
+          <animate attributeName="fill-opacity" from="1" to="1" begin="0s" dur="0.8s" values="1;.5;1" calcMode="linear" repeatCount="indefinite"></animate>
+        </circle>
+      </svg>
+    </div>
+  </div>
 </div>
 `;
 
@@ -5091,7 +5141,7 @@ exports[`Storyshots Statistics PickupFeedback 1`] = `
                   </div>
                 </div>
                 <div class="people">
-                  <div class="wrapper">
+                  <div class="wrapper" style="width:22px;height:22px;">
                     <a title="Mira Bellenbaum">
                       <div text="Mira Bellenbaum" seed="1" class="randomArt" style="width:22px;height:22px;"></div>
                     </a>
@@ -5123,7 +5173,7 @@ exports[`Storyshots Statistics PickupFeedback 1`] = `
 </div></span></small>
                 <!---->
                 <div class="people">
-                  <div class="wrapper">
+                  <div class="wrapper" style="width:22px;height:22px;">
                     <a title="Mira Bellenbaum">
                       <div text="Mira Bellenbaum" seed="1" class="randomArt" style="width:22px;height:22px;"></div>
                     </a>
@@ -5159,7 +5209,7 @@ exports[`Storyshots Statistics PickupFeedback 1`] = `
                   </div>
                 </div>
                 <div class="people">
-                  <div class="wrapper">
+                  <div class="wrapper" style="width:22px;height:22px;">
                     <a title="Max Mustermann">
                       <div text="Max Mustermann" seed="2" class="randomArt" style="width:22px;height:22px;"></div>
                     </a>
@@ -5171,9 +5221,25 @@ exports[`Storyshots Statistics PickupFeedback 1`] = `
           </div>
         </div>
         <!---->
-        <!---->
       </div>
-      <div class="q-infinite-scroll-message" style="display:none;"></div>
+      <div class="q-infinite-scroll-message" style="display:none;">
+        <div style="width:100%;text-align:center;">
+          <svg fill="currentColor" width="40" height="40" viewBox="0 0 120 30" xmlns="http://www.w3.org/2000/svg" class="q-spinner">
+            <circle cx="15" cy="15" r="15">
+              <animate attributeName="r" from="15" to="15" begin="0s" dur="0.8s" values="15;9;15" calcMode="linear" repeatCount="indefinite"></animate>
+              <animate attributeName="fill-opacity" from="1" to="1" begin="0s" dur="0.8s" values="1;.5;1" calcMode="linear" repeatCount="indefinite"></animate>
+            </circle>
+            <circle cx="60" cy="15" r="9" fill-opacity=".3">
+              <animate attributeName="r" from="9" to="9" begin="0s" dur="0.8s" values="9;15;9" calcMode="linear" repeatCount="indefinite"></animate>
+              <animate attributeName="fill-opacity" from=".5" to=".5" begin="0s" dur="0.8s" values=".5;1;.5" calcMode="linear" repeatCount="indefinite"></animate>
+            </circle>
+            <circle cx="105" cy="15" r="15">
+              <animate attributeName="r" from="15" to="15" begin="0s" dur="0.8s" values="15;9;15" calcMode="linear" repeatCount="indefinite"></animate>
+              <animate attributeName="fill-opacity" from="1" to="1" begin="0s" dur="0.8s" values="1;.5;1" calcMode="linear" repeatCount="indefinite"></animate>
+            </circle>
+          </svg>
+        </div>
+      </div>
     </div>
   </div>
 </div>

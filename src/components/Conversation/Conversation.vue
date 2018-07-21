@@ -1,10 +1,7 @@
 <template>
   <div v-if="data">
-    <q-alert v-if="data.fetchStatus.hasValidationErrors">
-      {{ data.fetchStatus.validationErrors }}
-    </q-alert>
     <q-infinite-scroll
-      :handler="loadMore"
+      :handler="maybeFetchPast"
     >
       <q-list
         class="bg-white desktop-margin relative-position"
@@ -27,13 +24,18 @@
             v-if="data.unreadMessageCount > 0"
             color="secondary"
             icon="star"
+            class="k-unread-alert"
           >
-            {{ $tc('CONVERSATION.UNREAD_MESSAGES', data.unreadMessageCount, { count: data.unreadMessageCount }) }}
-            <q-btn
-              no-caps
-              @click="$emit('markAllRead', data.id)"
-              v-t="'CONVERSATION.MARK_READ'"
-            />
+            <div class="row justify-between items-center">
+              <small>{{ $tc('CONVERSATION.UNREAD_MESSAGES', data.unreadMessageCount, { count: data.unreadMessageCount }) }}</small>
+              <q-btn
+                no-caps
+                outline
+                size="sm"
+                @click="$emit('markAllRead', data.id)"
+                v-t="'CONVERSATION.MARK_READ'"
+              />
+            </div>
           </q-alert>
           <ConversationMessage
             v-for="message in data.messages"
@@ -41,18 +43,16 @@
             :message="message"
             @toggleReaction="$emit('toggleReaction', arguments[0])"
             @save="$emit('saveMessage', arguments[0])"
+            @openThread="$emit('openThread', message)"
           />
         </template>
         <div
-          v-if="data.fetchStatus.pending || data.fetchMoreStatus.pending"
+          v-if="data.fetchStatus.pending || data.fetchPastStatus.pending"
           style="width: 100%; text-align: center">
           <q-spinner-dots :size="40"/>
         </div>
       </q-list>
     </q-infinite-scroll>
-    <q-alert v-if="data.fetchMoreStatus.hasValidationErrors">
-      {{ data.fetchMoreStatus.validationErrors }}
-    </q-alert>
   </div>
 </template>
 
@@ -80,7 +80,7 @@ export default {
       type: Object,
       default: null,
     },
-    fetchMore: {
+    fetchPast: {
       type: Function,
       default: null,
     },
@@ -90,13 +90,13 @@ export default {
     },
   },
   methods: {
-    async loadMore (index, done) {
-      if (!this.data || !this.fetchMore || !this.data.canLoadMore) {
+    async maybeFetchPast (index, done) {
+      if (!this.data || !this.fetchPast || !this.data.canFetchPast) {
         await this.$nextTick()
         done()
         return
       }
-      await this.fetchMore(this.data.id)
+      await this.fetchPast(this.data.id)
       done()
     },
     toggleNotifications () {
@@ -131,4 +131,8 @@ export default {
   position absolute
   top -24px
   right 6px
+.k-unread-alert >>>
+  .q-alert-content, .q-alert-side
+    padding-top 6px
+    padding-bottom 6px
 </style>

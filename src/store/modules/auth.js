@@ -95,6 +95,7 @@ export default {
         await dispatch('push/disable')
         commit('clearUser', { user: await auth.logout() })
         dispatch('conversations/clear', null, { root: true })
+        dispatch('currentThread/clear', null, { root: true })
         router.push({ name: 'groupsGallery' })
       },
 

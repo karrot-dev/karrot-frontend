@@ -57,8 +57,8 @@
     <FeedbackList
       :feedback="feedback"
       :status="fetchStatus"
-      :has-more="hasMore"
-      :fetch-more="fetchMore"
+      :can-fetch-past="canFetchPast"
+      :fetch-past="fetchPast"
     />
   </div>
 </template>
@@ -79,7 +79,7 @@ export default {
       store: 'stores/activeStore',
       feedback: 'feedback/all',
       fetchStatus: 'feedback/fetchStatus',
-      hasMore: 'feedback/pagination/hasMore',
+      canFetchPast: 'feedback/canFetchPast',
       feedbackPossibleFiltered: 'pickups/feedbackPossibleFiltered',
     }),
     statistics () {
@@ -88,7 +88,7 @@ export default {
   },
   methods: {
     ...mapActions({
-      fetchMore: 'feedback/fetchMore',
+      fetchPast: 'feedback/fetchPast',
     }),
   },
 }

@@ -400,6 +400,9 @@
   },
   "CONVERSATION": {
     "OPEN": "Open Chat",
+    "REPLY_TO_MESSAGE": "Reply to message...",
+    "REPLIES": "Replies",
+    "REPLIES_COUNT": "1 reply | {count} replies",
     "UNREAD_MESSAGES": "Du har ett oläst meddelande. | Du har {count} olästa meddelande.",
     "EDITED": "edited",
     "MARK_READ": "Markera alla som lästa",
@@ -407,7 +410,8 @@
       "YOU": "du",
       "AND": "och",
       "REACTED_WITH":"{users} reagerade med {reaction}"
-    }
+    },
+    "MESSAGE_NOT_FOUND": "Message not found"
   },
   "STORESTATUS":{
     "ACTIVE": "Samarbetar",

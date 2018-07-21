@@ -37,8 +37,6 @@ export default {
     display inline-block
   h4
     color $primary
-    .fa
-      margin-right .3em
 .splashlayout-content
   overflow hidden
   border-radius $borderRadius
@@ -57,8 +55,6 @@ export default {
   .error
     color $warning
     margin 0 1em
-    .fa
-      margin-right .5em
   .actions
     float right
     color white

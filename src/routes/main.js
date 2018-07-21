@@ -239,6 +239,20 @@ export default [
         },
       },
       {
+        name: 'messageReplies',
+        path: 'message/:messageId/replies',
+        meta: {
+          requiredLoggedIn: true,
+          breadcrumbs: [
+            { type: 'currentGroup' },
+          ],
+          beforeEnter: 'detail/routeEnter',
+          afterLeave: 'detail/routeLeave',
+        },
+        // On desktop will get redirected inside "detail/routeEnter" action
+        component: MobileDetail,
+      },
+      {
         name: 'stores',
         path: 'store',
         meta: {

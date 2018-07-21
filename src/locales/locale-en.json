@@ -404,6 +404,9 @@
   },
   "CONVERSATION": {
     "OPEN": "Open Chat",
+    "REPLY_TO_MESSAGE": "Reply to message...",
+    "REPLIES": "Replies",
+    "REPLIES_COUNT": "1 reply | {count} replies",
     "UNREAD_MESSAGES": "You have one unread message. | You have {count} unread messages.",
     "EDITED": "edited",
     "MARK_READ": "Mark all as read",
@@ -411,7 +414,8 @@
       "YOU": "you",
       "AND": "and",
       "REACTED_WITH":"{users} reacted with {reaction}"
-    }
+    },
+    "MESSAGE_NOT_FOUND": "Message not found"
   },
   "STORESTATUS":{
     "ACTIVE": "Co-operating",

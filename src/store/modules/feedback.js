@@ -32,6 +32,7 @@ export default {
     },
     all: (state, getters) => state.idList.map(getters.get),
     selected: (state, getters) => getters.get(state.selectedFeedbackId),
+    canFetchPast: (state, getters) => getters['pagination/canFetchNext'],
     ...metaStatuses(['save', 'fetch']),
   },
   actions: {
@@ -50,9 +51,9 @@ export default {
 
         dispatch('fetchRelatedPickups', data)
       },
-      async fetchMore ({ state, dispatch, commit }) {
+      async fetchPast ({ state, dispatch, commit }) {
         const { type, id } = state.idListScope
-        const data = await dispatch('pagination/fetchMore', feedbackAPI.listMore)
+        const data = await dispatch('pagination/fetchNext', feedbackAPI.listMore)
         // check for race condition when switching pages
         if (type !== state.idListScope.type || id !== state.idListScope.id) return
         commit('update', data)

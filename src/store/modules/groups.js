@@ -78,10 +78,10 @@ export default {
         router.push({ name: 'group', params: { groupId } })
       },
 
-      async apply ({ commit, dispatch, rootGetters }, { id: groupId }) {
-        await groups.apply(groupId)
-        commit('apply', { groupId, userId: rootGetters['auth/userId'] })
-        router.push({ name: 'apply', params: { groupId } })
+      async apply ({ commit, dispatch, rootGetters }, { id: groupPreviewId }) {
+        await groups.apply(groupPreviewId)
+        // commit('apply', { groupId, userId: rootGetters['auth/userId'] })
+        router.push({ name: 'groupPreview', params: { groupPreviewId } })
       },
 
       async leave ({ commit, dispatch, getters, rootGetters }, groupId) {

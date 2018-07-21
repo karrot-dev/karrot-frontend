@@ -1,44 +1,42 @@
 <template>
-  <div>
-    <q-card class="shadow-6">
-      <div class="edit-box splash-md">
-        <form>
-          <q-field
-            icon="fas fa-fw fa-question"
-            :label="group.applicationQuestions"
-          />
-          <div>
-            <MarkdownInput :value="applicationAnswers">
-              <q-input
-                id="group-title"
-                v-model="applicationAnswers"
-                type="textarea"
-                :min-rows="3"
-                @keyup.ctrl.enter="$emit('submit', applicationAnswers)"
-              />
-            </MarkdownInput>
-          </div>
-          <div class="actionButtons">
-            <q-btn
-              type="button"
-              color="primary"
-              class="shadow-4"
-              @click="$emit('cancel', group.id)"
-            >
-              {{ $t('BUTTON.CANCEL') }}
-            </q-btn>
-            <q-btn
-              type="submit"
-              color="secondary"
-              class="shadow-4"
-              @click="$emit('submit', applicationAnswers)"
-            >
-              {{ $t('BUTTON.SUBMIT') }}
-            </q-btn>
-          </div>
-        </form>
+  <div class="edit-box brown-background splash-md">
+    <form>
+      <div class="white-box shadow-6 q-py-md q-px-sm">
+        <q-field
+          icon="fas fa-fw fa-question"
+          :label="group.applicationQuestions"
+        />
+        <div>
+          <MarkdownInput :value="applicationAnswers">
+            <q-input
+              id="group-title"
+              v-model="applicationAnswers"
+              type="textarea"
+              :min-rows="3"
+              @keyup.ctrl.enter="$emit('submit', applicationAnswers)"
+            />
+          </MarkdownInput>
+        </div>
       </div>
-    </q-card>
+      <div class="actionButtons">
+        <q-btn
+          type="button"
+          color="primary"
+          class="shadow-4"
+          @click="$emit('cancel', group.id)"
+        >
+          {{ $t('BUTTON.CANCEL') }}
+        </q-btn>
+        <q-btn
+          type="submit"
+          color="secondary"
+          class="shadow-4"
+          @click="$emit('submit', applicationAnswers)"
+        >
+          {{ $t('BUTTON.SUBMIT') }}
+        </q-btn>
+      </div>
+    </form>
   </div>
 </template>
 
@@ -75,4 +73,6 @@ export default {
 
 .splash-md
   color black
+.brown-background
+  background-color #4a3520
 </style>

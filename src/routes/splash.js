@@ -121,7 +121,7 @@ export default [
     name: 'applicationForm',
     path: 'groupPreview/:groupPreviewId/apply',
     meta: {
-      requireLoggedIn: true,
+      // requireLoggedIn: true,  TODO: show sign up button when not logged in, then uncomment this again
       breadcrumbs: [
         { translation: 'APPLICATION_FORM.HEADER' },
       ],

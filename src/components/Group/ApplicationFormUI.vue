@@ -75,4 +75,5 @@ export default {
   color black
 .brown-background
   background-color #4a3520
+  padding 0
 </style>

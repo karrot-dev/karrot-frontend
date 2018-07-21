@@ -15,6 +15,9 @@ export default connect({
         router.push({ name: 'signup' })
       }
     },
+    apply: (store, { groupId }) => {
+      router.push({ name: 'applicationForm', params: { groupId } })
+    },
   },
 })('GroupPreview', GroupPreviewUI)
 </script>

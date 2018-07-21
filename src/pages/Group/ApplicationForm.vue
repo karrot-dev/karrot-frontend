@@ -1,11 +1,11 @@
 <script>
 import { connect } from 'vuex-connect'
-import ApplicationForm from '@/components/Group/ApplicationForm'
+import router from '@/router'
+import ApplicationFormUI from '@/components/Group/ApplicationFormUI'
 
 export default connect({
   gettersToProps: {
-    value: 'currentGroup/value',
-    status: 'groups/saveStatus',
+    group: 'groups/activePreview',
   },
   actionsToEvents: {
     save: 'groups/save',
@@ -13,7 +13,8 @@ export default connect({
   methodsToEvents: {
     cancel: (store, { groupId }) => {
       router.push({ name: 'groupPreview', params: { groupId } })
+      console.log('Push the button!')
     },
-  }
-})('GroupEdit', GroupEdit)
+  },
+})('ApplicationForm', ApplicationFormUI)
 </script>

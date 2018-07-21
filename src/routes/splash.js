@@ -11,7 +11,7 @@ const SignupTitle = () => import('@/components/Login/SignupTitle')
 const VerifyMail = () => import('@/pages/VerifyMail')
 const DeleteAccount = () => import('@/pages/DeleteAccount')
 const DeleteAccountTitle = () => import('@/components/Settings/DeleteAccountTitle')
-const ApplicationForm = () => import('@/components/Group/ApplicationForm')
+const ApplicationForm = () => import('@/pages/Group/ApplicationForm')
 const ApplicationFormTitle = () => import('@/components/Group/ApplicationFormTitle')
 
 export default [

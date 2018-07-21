@@ -425,7 +425,7 @@
     "ARCHIVED": "Archived"
   },
   "APPLICATION_FORM":{
-    "HEADER": "Application Form",
+    "HEADER": "Apply",
     "TITLE": "Apply to join {groupName}"
   }
 }

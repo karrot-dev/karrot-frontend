@@ -1,4 +1,5 @@
 import groupApplications from '@/services/api/groupApplications'
+import router from '@/router'
 import { withMeta, createMetaModule, metaStatuses } from '@/store/helpers'
 
 function initialState () {
@@ -15,10 +16,8 @@ export default {
   actions: {
     ...withMeta({
       async apply ({commit}, data) {
-        const groupAppliedTo = await groupApplications.create(data)
-        commit('update', groupAppliedTo)
-        // dispatch an event that injects the answers into the applchat
-        // router.push({ name: 'groupPreview', params: { groupId: groupPreviewId } })
+        await groupApplications.create(data)
+        router.push({ name: 'groupPreview', params: { groupPreviewId: data.group } })
       },
     }),
   },

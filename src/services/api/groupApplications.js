@@ -1,9 +1,9 @@
 import axios from '@/services/axios'
 
 export default {
-  async create (groupId, data) {
-    console.log('show me!!', groupId, data)
-    return (await axios.post('/api/group-applications/', groupId, data)).data
+  async create (data) {
+    console.log('show me!!', data)
+    return (await axios.post('/api/group-applications/', data)).data
   },
 
   async get (data) {

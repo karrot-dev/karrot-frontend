@@ -35,7 +35,7 @@
           type="submit"
           color="secondary"
           class="shadow-4"
-          @click="$emit('submit', { groupId: group.id, answers: applicationAnswers })"
+          @click="$emit('submit', { group: group.id, answers: applicationAnswers })"
         >
           {{ $t('BUTTON.SUBMIT') }}
         </q-btn>

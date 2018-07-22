@@ -79,8 +79,8 @@ export default {
         router.push({ name: 'group', params: { groupId } })
       },
 
-      async apply ({commit}, { groupId, answers }) {
-        const groupAppliedTo = await groupApplications.create(groupId, { answers })
+      async apply ({commit}, data) {
+        const groupAppliedTo = await groupApplications.create(data)
         commit('update', groupAppliedTo)
         // dispatch an event that injects the answers into the applchat
         // router.push({ name: 'groupPreview', params: { groupId: groupPreviewId } })

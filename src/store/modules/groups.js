@@ -62,7 +62,7 @@ export default {
     },
     playground: (state, getters) => getters.all.find(g => g.isPlayground),
     hasPlayground: (state, getters) => Boolean(getters.playground),
-    ...metaStatuses(['create']),
+    ...metaStatuses(['create', 'apply']),
   },
   actions: {
     ...withMeta({

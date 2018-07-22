@@ -6,6 +6,7 @@ import ApplicationFormUI from '@/components/Group/ApplicationFormUI'
 export default connect({
   gettersToProps: {
     group: 'groups/activePreview',
+    status: 'groups/applyStatus',
   },
   actionsToEvents: {
     submit: 'groups/apply',

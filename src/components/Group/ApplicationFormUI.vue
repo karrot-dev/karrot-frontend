@@ -22,6 +22,13 @@
           />
         </MarkdownInput>
       </div>
+      <div
+        v-if="hasAnyError"
+        class="text-negative"
+      >
+        <i class="fas fa-exclamation-triangle"/>
+        {{ anyFirstError }}
+      </div>
       <div class="actionButtons">
         <q-btn
           type="button"
@@ -48,11 +55,13 @@
 import { QItem, QItemSide, QItemMain, QField, QInput, QBtn } from 'quasar'
 import MarkdownInput from '@/components/MarkdownInput'
 import Markdown from '@/components/Markdown'
+import statusMixin from '@/mixins/statusMixin'
 
 export default {
   components: {
     QItem, QItemSide, QItemMain, QField, QInput, QBtn, MarkdownInput, Markdown,
   },
+  mixins: [statusMixin],
   props: {
     group: {
       type: Object,

@@ -8,12 +8,11 @@ export default connect({
     group: 'groups/activePreview',
   },
   actionsToEvents: {
-    save: 'groups/save',
+    submit: 'groups/apply',
   },
   methodsToEvents: {
     cancel: (store, { groupId }) => {
       router.push({ name: 'groupPreview', params: { groupId } })
-      console.log('Push the button!')
     },
   },
 })('ApplicationForm', ApplicationFormUI)

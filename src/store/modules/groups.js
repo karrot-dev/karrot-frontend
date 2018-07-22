@@ -1,7 +1,6 @@
 import Vue from 'vue'
 import groups from '@/services/api/groups'
 import groupsInfo from '@/services/api/groupsInfo'
-import groupApplications from '@/services/api/groupApplications'
 import router from '@/router'
 import { indexById, withMeta, createMetaModule, metaStatusesWithId, metaStatuses, createRouteError } from '@/store/helpers'
 
@@ -62,7 +61,7 @@ export default {
     },
     playground: (state, getters) => getters.all.find(g => g.isPlayground),
     hasPlayground: (state, getters) => Boolean(getters.playground),
-    ...metaStatuses(['create', 'apply']),
+    ...metaStatuses(['create']),
   },
   actions: {
     ...withMeta({
@@ -77,13 +76,6 @@ export default {
         await groups.join(groupId, { password })
         commit('join', { groupId, userId: rootGetters['auth/userId'] })
         router.push({ name: 'group', params: { groupId } })
-      },
-
-      async apply ({commit}, data) {
-        const groupAppliedTo = await groupApplications.create(data)
-        commit('update', groupAppliedTo)
-        // dispatch an event that injects the answers into the applchat
-        // router.push({ name: 'groupPreview', params: { groupId: groupPreviewId } })
       },
 
       async leave ({ commit, dispatch, getters, rootGetters }, groupId) {

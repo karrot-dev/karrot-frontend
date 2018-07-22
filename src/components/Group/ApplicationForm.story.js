@@ -1,14 +1,14 @@
 import { storiesOf } from '@storybook/vue'
 import { storybookDefaults as defaults } from '>/helpers'
 import { groupsMock } from '>/mockdata'
-import ApplicationForm from './ApplicationForm'
+
+import ApplicationFormUI from './ApplicationFormUI'
 
 storiesOf('ApplicationForm', module)
   .add('create', () => defaults({
-    render: h => h(ApplicationForm, {
+    render: h => h(ApplicationFormUI, {
       props: {
-        value: groupsMock[0],
-        allGroups: groupsMock,
+        group: groupsMock[0],
       },
     }),
   }))

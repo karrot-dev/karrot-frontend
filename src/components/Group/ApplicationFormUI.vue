@@ -21,13 +21,14 @@
             @keyup.ctrl.enter="$emit('submit', applicationAnswers)"
           />
         </MarkdownInput>
-      </div>
-      <div
-        v-if="hasAnyError"
-        class="text-negative"
-      >
-        <i class="fas fa-exclamation-triangle"/>
-        {{ anyFirstError }}
+        <div
+          v-if="hasAnyError"
+          class="text-negative"
+          style="margin-bottom: 2em"
+        >
+          <i class="fas fa-exclamation-triangle"/>
+          {{ anyFirstError }}
+        </div>
       </div>
       <div class="actionButtons">
         <q-btn

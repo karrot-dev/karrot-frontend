@@ -1,9 +1,12 @@
+import Vue from 'vue'
 import groupApplications from '@/services/api/groupApplications'
 import router from '@/router'
 import { withMeta, createMetaModule, metaStatuses } from '@/store/helpers'
 
 function initialState () {
-  return {}
+  return {
+    entries: {},
+  }
 }
 
 export default {
@@ -16,11 +19,15 @@ export default {
   actions: {
     ...withMeta({
       async apply ({commit}, data) {
-        await groupApplications.create(data)
+        const newApplication = await groupApplications.create(data)
+        commit('create', newApplication)
         router.push({ name: 'groupPreview', params: { groupPreviewId: data.group } })
       },
     }),
   },
   mutations: {
+    create (state, newApplication) {
+      Vue.set(state.entries, newApplication.id, newApplication)
+    },
   },
 }

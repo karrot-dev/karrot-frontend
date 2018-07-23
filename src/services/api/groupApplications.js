@@ -9,9 +9,9 @@ export default {
     return (await axios.get('/api/group-applications/{id}/', data)).data
   },
 
-  // async list () {
-  //   return (await axios.get('/api/group-applications/', data)).data
-  // },
+  async list (filter) {
+    return (await axios.get('/api/group-applications/', { params: filter })).data
+  },
 
   async listByGroupId (data) {
     return (await axios.get('/api/group-applications/', data)).data

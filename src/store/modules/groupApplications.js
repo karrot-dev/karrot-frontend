@@ -8,7 +8,6 @@ function initialState () {
     entries: {},
   }
 }
-
 export default {
   namespaced: true,
   modules: { meta: createMetaModule() },
@@ -22,6 +21,12 @@ export default {
         const newApplication = await groupApplications.create(data)
         commit('create', newApplication)
         router.push({ name: 'groupPreview', params: { groupPreviewId: data.group } })
+      },
+      async fetchMine ({ commit, rootGetters }) {
+        const userId = rootGetters['auth/userId']
+        console.log('this works or', userId)
+        const myApplications = await groupApplications.list({ user: userId })
+        console.log('this works', myApplications)
       },
     }),
     clearGroupPreviewAndStatus ({ dispatch }) {

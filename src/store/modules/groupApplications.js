@@ -24,6 +24,10 @@ export default {
         router.push({ name: 'groupPreview', params: { groupPreviewId: data.group } })
       },
     }),
+    clearGroupPreviewAndStatus ({ dispatch }) {
+      dispatch('meta/clear', ['apply'])
+      dispatch('groups/clearGroupPreview', null, { root: true })
+    },
   },
   mutations: {
     create (state, newApplication) {

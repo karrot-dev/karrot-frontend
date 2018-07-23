@@ -126,7 +126,7 @@ export default [
         { translation: 'APPLICATION_FORM.HEADER' },
       ],
       beforeEnter: 'groups/selectPreview',
-      afterLeave: 'groups/clearGroupPreview',
+      afterLeave: 'groupApplications/clearGroupPreviewAndStatus',
     },
     components: {
       default: ApplicationForm,

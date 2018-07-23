@@ -21,6 +21,7 @@
   "scripts": {
     "clean": "node build/script.clean.js",
     "dev": "node build/script.dev.js",
+    "dev2": "webpack-serve --config build/serve.config.js",
     "build": "node build/script.build.js",
     "build:cordova:dev": "KARROT_THEME=dev BACKEND=https://dev.karrot.world CORDOVA=true node build/script.build.js",
     "build:cordova:prod": "BACKEND=https://karrot.world CORDOVA=true node build/script.build.js",
@@ -71,6 +72,7 @@
   },
   "devDependencies": {
     "@babel/core": "^7.0.0-beta.54",
+    "@babel/plugin-syntax-dynamic-import": "^7.0.0-beta.54",
     "@babel/preset-env": "^7.0.0-beta.54",
     "@storybook/addon-actions": "^3.3.11",
     "@storybook/addon-links": "^3.3.11",
@@ -79,7 +81,7 @@
     "autoprefixer": "^9.0.1",
     "axios-mock-adapter": "^1.12.0",
     "babel-jest": "^23.4.0",
-    "babel-loader": "^7.1.5",
+    "babel-loader": "^8.0.0-beta",
     "colors": "^1.1.2",
     "connect-history-api-fallback": "^1.1.0",
     "cross-env": "^5.1.3",
@@ -106,12 +108,15 @@
     "glob": "^7.1.2",
     "html-webpack-plugin": "^4.0.0-alpha",
     "http-proxy-middleware": "^0.18.0",
-    "jest": "^23.1.0",
+    "jest": "^23.4.1",
     "jest-canvas-mock": "^1.0.2",
     "jest-localstorage-mock": "^2.1.0",
     "jest-serializer-vue": "^2.0.2",
     "jest-vue-preprocessor": "^1.1.0",
     "json-loader": "^0.5.7",
+    "koa-connect": "^2.0.1",
+    "koa-mount": "^3.0.0",
+    "koa-static": "^5.0.0",
     "lolex": "^2.3.2",
     "mini-css-extract-plugin": "^0.4.1",
     "null-loader": "^0.1.1",
@@ -139,6 +144,24 @@
     "webpack-merge": "^4.1.0",
     "webpack-serve": "^2.0.2"
   },
+  "babel": {
+    "presets": [
+      [
+        "@babel/preset-env",
+        {
+          "useBuiltIns": "usage"
+        }
+      ]
+    ],
+    "plugins": [
+      "@babel/plugin-syntax-dynamic-import"
+    ]
+  },
+  "browserslist": [
+    "> 1%",
+    "last 2 versions",
+    "not ie <= 8"
+  ],
   "jest": {
     "roots": [
       "<rootDir>/src/"

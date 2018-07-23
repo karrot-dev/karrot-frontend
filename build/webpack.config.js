@@ -119,15 +119,12 @@ module.exports = {
       new MiniCssExtractPlugin({
         filename: '[contenthash].css',
       }),
-    ] : [
-
-    ]),
+    ] : []),
   ],
   optimization: {
     minimizer: [
       new UglifyJsPlugin({
         sourceMap: config.build.productionSourceMap,
-        minimize: true,
         cache: true,
         parallel: true,
       }),

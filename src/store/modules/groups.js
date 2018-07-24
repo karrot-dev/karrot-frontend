@@ -27,12 +27,14 @@ export default {
       const isCurrentGroup = group.id === rootGetters['currentGroup/id']
       const isPlayground = group.status === 'playground'
       const isInactive = group.status === 'inactive'
+      const hasApplied = Boolean(rootGetters['groupApplications/getByGroupId'](group.id))
       return {
         ...group,
         isMember,
         isCurrentGroup,
         isPlayground,
         isInactive,
+        hasApplied,
         ...metaStatusesWithId(getters, ['save', 'join', 'leave'], group.id),
       }
     },

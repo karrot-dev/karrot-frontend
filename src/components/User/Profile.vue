@@ -90,6 +90,33 @@
             {{ user.address }}
           </q-item-main>
         </q-item>
+
+        <ul>
+          <li
+            v-for="{ group, trust, trusted } in user.trustByGroup.filter(t => t.group.isMember)"
+            :key="group.id"
+          >
+            {{ group.name }}: {{ trust.length }}
+            <small v-if="trusted">
+              You trust this user
+            </small>
+            <q-btn
+              v-if="!trusted && !user.isCurrentUser"
+              @click="$emit('createTrust', { user: user.id, group: group.id })"
+            >
+              Trust this user
+            </q-btn><br>
+            <span
+              v-for="t in trust"
+              :key="t.id"
+            >
+              <ProfilePicture
+                :user="t.givenBy"
+              />
+            </span>
+          </li>
+        </ul>
+
       </q-list>
       <q-card-separator v-if="user.description !== ''" />
       <q-card-main>

@@ -4,6 +4,7 @@
       :user="user"
       :groups="groups"
       @detail="detail"
+      @createTrust="createTrust"
     />
     <q-card class="no-shadow grey-border">
       <q-card-title>
@@ -33,6 +34,7 @@ export default {
   methods: {
     ...mapActions({
       detail: 'detail/openForUser',
+      createTrust: 'trust/create',
     }),
   },
 }

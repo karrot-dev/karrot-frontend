@@ -37,18 +37,32 @@ export default {
     },
     byCurrentGroup: (state, getters, rootState, rootGetters) => {
       const currentGroup = rootGetters['currentGroup/value']
+      const trust = rootGetters['trust/all']
       if (currentGroup && currentGroup.memberships) {
         return Object.entries(currentGroup.memberships).map(([userId, membership]) => {
+          userId = parseInt(userId)
           return {
             ...getters.get(userId),
             membershipInCurrentGroup: membership,
+            isEditor: membership.roles.includes('editor'),
+            trust: trust.filter(t => t.user === userId),
           }
         })
       }
       return []
     },
     activeUser: (state, getters, rootState, rootGetters) => {
-      return state.activeUserId && getters.get(state.activeUserId)
+      const user = state.activeUserId && getters.get(state.activeUserId)
+      if (user) {
+        const trust = rootGetters['trust/all']
+        const groups = rootGetters['groups/all'].filter(group => group.members.includes(user.id))
+        user.trustByGroup = groups.map(group => ({
+          group,
+          trust: trust.filter(t => t.group === group.id),
+          trusted: trust.find(t => t.group === group.id && t.givenBy.isCurrentUser),
+        }))
+      }
+      return user
     },
     activeUserId: state => state.activeUserId,
     ...metaStatuses(['signup', 'requestResetPassword', 'resetPassword', 'resendVerificationCode', 'requestDeleteAccount']),
@@ -102,6 +116,7 @@ export default {
         }
       }
       commit('select', userId)
+      await dispatch('trust/fetchForUser', userId, { root: true })
       await dispatch('history/fetchForUser', { userId }, { root: true })
     },
     update ({ commit }, user) {

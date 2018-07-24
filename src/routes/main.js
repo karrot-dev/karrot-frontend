@@ -163,6 +163,7 @@ export default [
           breadcrumbs: [
             { translation: 'GROUP.MEMBERS', route: { name: 'groupMembers' } },
           ],
+          beforeEnter: 'trust/fetchForGroup',
         },
         components: {
           default: GroupMembers,

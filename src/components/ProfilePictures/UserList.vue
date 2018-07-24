@@ -8,39 +8,30 @@
       >
         <q-search v-model="filterTerm" />
       </q-item>
-      <q-item
-        v-for="user in activeUsers"
-        :key="user.id"
-        link
-        highlight
-        :to="{name: 'user', params: { userId: user.id }}"
+      <q-list-header
+        v-if="activeEditors.length > 0"
+        class="row justify-between"
       >
-        <q-item-side>
-          <ProfilePicture
-            :key="user.id"
-            :user="user"
-            :size="30"
-            class="profilePic"
-          />
-        </q-item-side>
-        <q-item-main>
-          <q-item-tile label>
-            {{ user.displayName }}
-          </q-item-tile>
-          <q-item-tile sublabel>
-            <i18n
-              path="GROUP.JOINED"
-              tag="div"
-            >
-              <DateAsWords
-                place="relativeDate"
-                style="display: inline"
-                :date="user.membershipInCurrentGroup.createdAt"
-              />
-            </i18n>
-          </q-item-tile>
-        </q-item-main>
-      </q-item>
+        <span>Editors</span>
+        <span>Trusted by</span>
+      </q-list-header>
+      <UserItem
+        v-for="user in activeEditors"
+        :key="user.id"
+        :user="user"
+      />
+      <q-list-header
+        v-if="activeNewcomers.length > 0"
+        class="row justify-between"
+      >
+        <span>Newcomers</span>
+        <span>Trusted by</span>
+      </q-list-header>
+      <UserItem
+        v-for="user in activeNewcomers"
+        :key="user.id"
+        :user="user"
+      />
       <q-item-separator />
       <q-collapsible
         v-if="inactiveUsers.length > 0"
@@ -51,28 +42,12 @@
         @hide="showInactive = false"
       >
         <template v-if="showInactive">
-          <q-item
+          <UserItem
             v-for="user in inactiveUsers"
             :key="user.id"
-            link
-            highlight
-            :to="{name: 'user', params: { userId: user.id }}"
+            :user="user"
             class="inactive"
-          >
-            <q-item-side>
-              <ProfilePicture
-                :key="user.id"
-                :user="user"
-                :size="30"
-                class="profilePic"
-              />
-            </q-item-side>
-            <q-item-main>
-              <q-item-tile label>
-                {{ user.displayName }}
-              </q-item-tile>
-            </q-item-main>
-          </q-item>
+          />
         </template>
       </q-collapsible>
     </q-list>
@@ -82,28 +57,22 @@
 <script>
 import {
   QList,
+  QListHeader,
   QItemSeparator,
   QItem,
-  QItemMain,
-  QItemTile,
-  QItemSide,
   QCollapsible,
   QSearch,
 } from 'quasar'
 
-import ProfilePicture from './ProfilePicture'
-import DateAsWords from '@/components/General/DateAsWords'
+import UserItem from './UserItem'
 
 export default {
   components: {
-    ProfilePicture,
-    DateAsWords,
+    UserItem,
     QList,
+    QListHeader,
     QItemSeparator,
     QItem,
-    QItemMain,
-    QItemTile,
-    QItemSide,
     QCollapsible,
     QSearch,
   },
@@ -141,6 +110,12 @@ export default {
     },
     activeUsers () {
       return this.sort(this.filterByTerms(this.users.filter(u => u.membershipInCurrentGroup.active)))
+    },
+    activeEditors () {
+      return this.activeUsers.filter(u => u.isEditor)
+    },
+    activeNewcomers () {
+      return this.activeUsers.filter(u => !u.isEditor)
     },
     inactiveUsers () {
       return this.sort(this.filterByTerms(this.users.filter(u => !u.membershipInCurrentGroup.active)))

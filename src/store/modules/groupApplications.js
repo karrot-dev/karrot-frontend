@@ -24,9 +24,7 @@ export default {
       },
       async fetchMine ({ commit, rootGetters }) {
         const userId = rootGetters['auth/userId']
-        console.log('this works or', userId)
-        const myApplications = await groupApplications.list({ user: userId })
-        console.log('this works', myApplications)
+        await groupApplications.list({ user: userId })
       },
     }),
     clearGroupPreviewAndStatus ({ dispatch }) {

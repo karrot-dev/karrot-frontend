@@ -5,7 +5,7 @@ import { withMeta, createMetaModule, metaStatuses } from '@/store/helpers'
 
 function initialState () {
   return {
-    entries: {},
+    list: [],
   }
 }
 export default {
@@ -13,6 +13,9 @@ export default {
   modules: { meta: createMetaModule() },
   state: initialState(),
   getters: {
+    getByGroupId: state => groupId => {
+      return state.list.find(a => a.group === groupId)
+    },
     ...metaStatuses(['apply']),
   },
   actions: {
@@ -24,7 +27,8 @@ export default {
       },
       async fetchMine ({ commit, rootGetters }) {
         const userId = rootGetters['auth/userId']
-        await groupApplications.list({ user: userId })
+        const applicationList = await groupApplications.list({ user: userId })
+        commit('set', applicationList)
       },
     }),
     clearGroupPreviewAndStatus ({ dispatch }) {
@@ -35,6 +39,9 @@ export default {
   mutations: {
     create (state, newApplication) {
       Vue.set(state.entries, newApplication.id, newApplication)
+    },
+    set (state, applicationList) {
+      state.list = applicationList
     },
   },
 }

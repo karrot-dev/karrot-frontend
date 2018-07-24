@@ -10,6 +10,7 @@
       @mapMoveEnd="mapMoveEnd"
     >
       <q-list
+        v-if="$store.getters['auth/isEditorInCurrentGroup']"
         slot="contextmenu"
         slot-scope="{ latLng }"
         highlight
@@ -41,7 +42,7 @@
       class="overlay row justify-center content-center"
     >
       <router-link
-        v-if="showStoreLocationPrompt"
+        v-if="showStoreLocationPrompt && $store.getters['auth/isEditorInCurrentGroup']"
         :to="{ name: 'storeEdit', params: { storeId: this.selectedStore && this.selectedStore.id } }"
       >
         <q-btn color="primary">
@@ -49,13 +50,16 @@
         </q-btn>
       </router-link>
       <router-link
-        v-else
+        v-else-if="$store.getters['auth/isEditorInCurrentGroup']"
         :to="{ name: 'groupEdit', params: { groupId: currentGroup && currentGroup.id, storeId: this.selectedStore && this.selectedStore.id } }"
       >
         <q-btn color="primary">
           {{ $t('GROUPMAP.SET_LOCATION') }}
         </q-btn>
       </router-link>
+      <div v-else>
+        No location
+      </div>
     </div>
   </div>
 </template>

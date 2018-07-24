@@ -12,6 +12,7 @@
       class="tools"
     >
       <q-btn
+        v-if="$store.getters['auth/isEditorInCurrentGroup']"
         flat
         dense
         round

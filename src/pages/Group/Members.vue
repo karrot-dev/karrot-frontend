@@ -18,7 +18,10 @@
       >
         <q-tooltip v-t="sorting === 'joinDate' ? 'GROUP.SORT_NAME' : 'GROUP.SORT_JOINDATE'" />
       </q-btn>
-      <router-link :to="{name: 'groupInvitations', params: { groupId }}">
+      <router-link
+        v-if="$store.getters['auth/isEditorInCurrentGroup']"
+        :to="{name: 'groupInvitations', params: { groupId }}"
+      >
         <q-btn
           small
           round

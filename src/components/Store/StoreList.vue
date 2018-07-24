@@ -25,7 +25,7 @@
     </q-item>
 
     <q-item
-      v-if="!hasStores || $q.platform.is.mobile"
+      v-if="$store.getters['auth/isEditorInCurrentGroup'] && (!hasStores || $q.platform.is.mobile)"
       link
       :to="{name: 'storeCreate'}"
       class="bg-secondary"
@@ -43,7 +43,7 @@
     <q-item-separator v-if="archived.length > 0" />
 
     <q-collapsible
-      v-if="archived.length > 0"
+      v-if="archived.length > 0 && $store.getters['auth/isEditorInCurrentGroup']"
       icon="fas fa-trash-alt"
       :label="`${$t('STORESTATUS.ARCHIVED')} (${archived.length})`"
     >

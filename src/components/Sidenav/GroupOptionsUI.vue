@@ -30,6 +30,7 @@
         {{ $t('GROUP.SETTINGS') }}
       </q-item>
       <q-item
+        v-if="$store.getters['auth/isEditorInCurrentGroup']"
         :to="{name: 'groupEdit', params: {groupId: currentGroupId}}"
       >
         <q-icon
@@ -62,7 +63,7 @@
       </q-item>
 
       <q-item
-        v-if="$q.platform.is.desktop"
+        v-if="$q.platform.is.desktop && $store.getters['auth/isEditorInCurrentGroup']"
         :to="{name: 'groupInvitations', params: {groupId: currentGroupId}}"
       >
         <q-icon

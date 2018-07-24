@@ -14,7 +14,7 @@
       class="tools"
     >
       <q-btn
-        v-if="hasArchivedStores"
+        v-if="hasArchivedStores && $store.getters['auth/isEditorInCurrentGroup']"
         flat
         dense
         round
@@ -36,7 +36,7 @@
         </q-tooltip>
       </q-btn>
       <q-btn
-        v-if="hasStores"
+        v-if="hasStores && $store.getters['auth/isEditorInCurrentGroup']"
         flat
         dense
         round

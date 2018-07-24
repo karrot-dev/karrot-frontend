@@ -102,10 +102,12 @@
             </small>
             <q-btn
               v-if="!trusted && !user.isCurrentUser"
+              round
               @click="$emit('createTrust', { user: user.id, group: group.id })"
-            >
-              Trust this user
-            </q-btn><br>
+              color="warning"
+              class="karrot-button"
+            />
+            <br>
             <span
               v-for="t in trust"
               :key="t.id"
@@ -155,6 +157,15 @@ export default {
 </script>
 
 <style scoped lang="stylus">
+
+.karrot-button >>> .q-btn-inner
+  background-image url('https://twemoji.maxcdn.com/2/72x72/1f955.png')
+  background-size 70%
+  background-repeat no-repeat
+  background-position center
+  min-height 100%
+  min-width 100%
+
 h1, p.subtitle
   padding-left 30px
   margin 0

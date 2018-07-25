@@ -20,8 +20,7 @@
   "bugs": "https://github.com/yunity/karrot-frontend/issues",
   "scripts": {
     "clean": "node build/script.clean.js",
-    "dev": "node build/script.dev.js",
-    "dev2": "webpack-serve --config build/serve.config.js",
+    "dev": "webpack-serve --config build/serve.config.js",
     "build": "node build/script.build.js",
     "build:cordova:dev": "KARROT_THEME=dev BACKEND=https://dev.karrot.world CORDOVA=true node build/script.build.js",
     "build:cordova:prod": "BACKEND=https://karrot.world CORDOVA=true node build/script.build.js",
@@ -73,15 +72,20 @@
   "devDependencies": {
     "@babel/core": "^7.0.0-beta.54",
     "@babel/plugin-syntax-dynamic-import": "^7.0.0-beta.54",
+    "@babel/plugin-transform-modules-commonjs": "^7.0.0-beta.54",
+    "@babel/plugin-transform-runtime": "^7.0.0-beta.54",
     "@babel/preset-env": "^7.0.0-beta.54",
+    "@babel/runtime": "^7.0.0-beta.54",
     "@storybook/addon-actions": "^3.3.11",
     "@storybook/addon-links": "^3.3.11",
     "@storybook/vue": "^3.3.11",
     "@vue/test-utils": "1.0.0-beta.11",
     "autoprefixer": "^9.0.1",
     "axios-mock-adapter": "^1.12.0",
+    "babel-core": "^7.0.0-0",
     "babel-jest": "^23.4.0",
     "babel-loader": "^8.0.0-beta",
+    "babel-plugin-dynamic-import-node": "^2.0.0",
     "colors": "^1.1.2",
     "connect-history-api-fallback": "^1.1.0",
     "cross-env": "^5.1.3",
@@ -112,7 +116,6 @@
     "jest-canvas-mock": "^1.0.2",
     "jest-localstorage-mock": "^2.1.0",
     "jest-serializer-vue": "^2.0.2",
-    "jest-vue-preprocessor": "^1.1.0",
     "json-loader": "^0.5.7",
     "koa-connect": "^2.0.1",
     "koa-mount": "^3.0.0",
@@ -133,6 +136,7 @@
     "testcafe": "^0.20.3",
     "testcafe-browser-provider-saucelabs": "^1.3.0",
     "url-loader": "^1.0.1",
+    "vue-jest": "^2.6.0",
     "vue-loader": "^15.2.6",
     "vue-server-renderer": "^2.5.13",
     "vue-style-loader": "^4.0.2",
@@ -144,24 +148,6 @@
     "webpack-merge": "^4.1.0",
     "webpack-serve": "^2.0.2"
   },
-  "babel": {
-    "presets": [
-      [
-        "@babel/preset-env",
-        {
-          "useBuiltIns": "usage"
-        }
-      ]
-    ],
-    "plugins": [
-      "@babel/plugin-syntax-dynamic-import"
-    ]
-  },
-  "browserslist": [
-    "> 1%",
-    "last 2 versions",
-    "not ie <= 8"
-  ],
   "jest": {
     "roots": [
       "<rootDir>/src/"
@@ -185,7 +171,7 @@
     ],
     "transform": {
       "^.+\\.js$": "babel-jest",
-      ".*\\.(vue)$": "jest-vue-preprocessor"
+      ".*\\.(vue)$": "vue-jest"
     },
     "snapshotSerializers": [
       "jest-serializer-vue"

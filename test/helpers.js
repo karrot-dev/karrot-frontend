@@ -4,6 +4,7 @@ import raf from 'raf'
 import { createLocalVue, mount, TransitionStub, TransitionGroupStub, RouterLinkStub } from '@vue/test-utils'
 import deepmerge from 'deepmerge'
 import i18n from '@/i18n'
+import router from '@/router'
 
 Vue.use(Vuex)
 
@@ -105,6 +106,7 @@ export function mountWithDefaultsAndLocalVue (Component, localVue, options = {})
   localVue.component('transition', TransitionStub)
   localVue.component('transition-group', TransitionGroupStub)
   const wrapper = mount(Component, {
+    router,
     localVue,
     i18n,
     ...options,

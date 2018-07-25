@@ -47,7 +47,7 @@
       <q-card-separator />
       <q-card-actions>
         <span
-          v-if="!group.isMember"
+          v-if="!group.isMember && !group.hasApplied"
           style="width: 100%">
           <form
             name="joingroup"
@@ -91,6 +91,23 @@
             </q-btn>
           </form>
         </span>
+        <span
+          v-if="group.hasApplied"
+          style="width: 100%"
+        >
+          <q-alert
+            type="warning"
+            icon="info"
+            :actions="[
+              { label: 'Group chat', icon: 'fas fa-comments', handler: () => {joinChat()} },
+              { label: 'Withdraw', icon: 'fas fa-trash-alt', handler: () => {withdraw()} }
+            ]"
+          >
+            {{ $t('JOINGROUP.APPLICATION_PENDING' ) }}
+
+          </q-alert>
+
+        </span>
         <q-btn
           v-if="group.isMember"
           @click="$emit('visit', { groupId: group.id })"
@@ -107,7 +124,7 @@
 </template>
 
 <script>
-import { QCard, QCardTitle, QCardMain, QCardSeparator, QCardActions, QBtn, QField, QInput, QIcon, QTooltip, QAlert } from 'quasar'
+import { Dialog, QTooltip, QCard, QCardTitle, QCardMain, QCardSeparator, QCardActions, QBtn, QField, QInput, QIcon, QAlert } from 'quasar'
 import Markdown from '@/components/Markdown'
 
 export default {
@@ -127,6 +144,10 @@ export default {
       default: false,
       type: Boolean,
     },
+    hasApplied: {
+      default: false,
+      type: Boolean,
+    },
   },
   components: { QCard, QCardTitle, QCardMain, QCardSeparator, QCardActions, QBtn, QField, QInput, QIcon, QTooltip, QAlert, Markdown },
   computed: {
@@ -138,6 +159,21 @@ export default {
     },
     anyFirstError () {
       return this.joinStatus && this.joinStatus.firstValidationError
+    },
+  },
+  methods: {
+    withdraw () {
+      console.log('withdraw me!!!!')
+      Dialog.create({
+        title: this.$t('JOINGROUP.WITHDRAW_CONFIRMATION_HEADER'),
+        message: this.$t('JOINGROUP.WITHDRAW_CONFIRMATION_TEXT', { groupName: this.group.name }),
+        ok: this.$t('BUTTON.YES'),
+        cancel: this.$t('BUTTON.CANCEL'),
+      })
+        .then(() => this.$emit('withdraw'))
+        .catch(() => {})
+    },
+    joinChat () {
     },
   },
 }

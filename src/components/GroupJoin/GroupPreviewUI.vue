@@ -144,10 +144,6 @@ export default {
       default: false,
       type: Boolean,
     },
-    hasApplied: {
-      default: false,
-      type: Boolean,
-    },
   },
   components: { QCard, QCardTitle, QCardMain, QCardSeparator, QCardActions, QBtn, QField, QInput, QIcon, QTooltip, QAlert, Markdown },
   computed: {
@@ -163,14 +159,14 @@ export default {
   },
   methods: {
     withdraw () {
-      console.log('withdraw me!!!!')
+      console.log('hello?', this.group.myApplication.id)
       Dialog.create({
         title: this.$t('JOINGROUP.WITHDRAW_CONFIRMATION_HEADER'),
         message: this.$t('JOINGROUP.WITHDRAW_CONFIRMATION_TEXT', { groupName: this.group.name }),
         ok: this.$t('BUTTON.YES'),
         cancel: this.$t('BUTTON.CANCEL'),
       })
-        .then(() => this.$emit('withdraw'))
+        .then(() => this.$emit('withdraw', this.group.myApplication.id))
         .catch(() => {})
     },
     joinChat () {

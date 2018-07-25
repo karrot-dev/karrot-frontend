@@ -7,7 +7,6 @@ export default connect({
   gettersToProps: {
     group: 'groups/activePreview',
     isLoggedIn: 'auth/isLoggedIn',
-    hasApplied: 'groups/hasApplied',
   },
   methodsToEvents: {
     visit: (store, { groupId }) => router.push({ name: 'group', params: { groupId } }),

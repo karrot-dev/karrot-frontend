@@ -90,15 +90,17 @@
     </a>
     <q-item-separator />
     <LocaleSelect style="color: rgba(0,0,0,0.54)" />
+    <CommunityFeed />
   </q-list>
 </template>
 <script>
 
 import { QList, QListHeader, QItem, QItemSeparator, QItemSide, QItemMain } from 'quasar'
 import LocaleSelect from '@/components/General/LocaleSelect'
+import CommunityFeed from '@/components/General/CommunityFeed'
 
 export default {
-  components: { QList, QListHeader, QItem, QItemSeparator, QItemSide, QItemMain, LocaleSelect },
+  components: { QList, QListHeader, QItem, QItemSeparator, QItemSide, QItemMain, LocaleSelect, CommunityFeed },
   props: {
     currentUserId: {
       type: Number,

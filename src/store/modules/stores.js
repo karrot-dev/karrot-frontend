@@ -89,7 +89,7 @@ export default {
         if (old.status === 'active' || update.status === 'active') {
           dispatch('pickups/clear', {}, { root: true })
           dispatch('pickups/setStoreFilter', getters.activeStoreId, { root: true })
-          dispatch('pickups/fetchListByGroupId', old.group, { root: true })
+          dispatch('pickups/fetchListByGroupId', old.group.id, { root: true })
         }
       }
       commit('update', update)

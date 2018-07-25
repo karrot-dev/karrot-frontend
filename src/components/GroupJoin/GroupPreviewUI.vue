@@ -159,7 +159,6 @@ export default {
   },
   methods: {
     withdraw () {
-      console.log('hello?', this.group.myApplication.id)
       Dialog.create({
         title: this.$t('JOINGROUP.WITHDRAW_CONFIRMATION_HEADER'),
         message: this.$t('JOINGROUP.WITHDRAW_CONFIRMATION_TEXT', { groupName: this.group.name }),

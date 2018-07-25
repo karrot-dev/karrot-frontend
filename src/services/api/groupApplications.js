@@ -25,7 +25,7 @@ export default {
     return (await axios.post('/api/group-applications/{id}/decline', data)).data
   },
 
-  async withdraw (data) {
-    return (await axios.post('/api/group-applications/{id}/withdraw', data)).data
+  async withdraw (applicationId) {
+    return (await axios.post(`/api/group-applications/${applicationId}/withdraw/`)).data
   },
 }

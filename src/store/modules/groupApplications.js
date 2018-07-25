@@ -30,6 +30,9 @@ export default {
         const applicationList = await groupApplications.list({ user: userId })
         commit('set', applicationList)
       },
+      async withdraw ({ commit }, applicationId) {
+        await groupApplications.withdraw(applicationId)
+      },
     }),
     clearGroupPreviewAndStatus ({ dispatch }) {
       dispatch('meta/clear', ['apply'])

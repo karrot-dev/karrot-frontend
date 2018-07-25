@@ -127,8 +127,15 @@ module.exports = {
         sourceMap: config.build.productionSourceMap,
         cache: true,
         parallel: true,
+        uglifyOptions: {
+          mangle: true
+        }
       }),
-      new OptimizeCSSAssetsPlugin({})
+      new OptimizeCSSAssetsPlugin({
+        cssProcessorOptions: {
+          safe: true
+        }
+      })
     ],
     splitChunks: {
       chunks: 'all',

@@ -2159,6 +2159,21 @@ exports[`Storyshots Layout KTopbar 1`] = `
     <div class="q-btn-inner row col items-center justify-center">
       <i aria-hidden="true" class="q-icon fas fa-fw fa-search"> </i> <span class="q-tooltip animate-popup"><div></div></span></div>
   </button>
+  <button tabindex="0" type="button" title="Updates from the foodsaving worldwide community" class="q-btn inline relative-position q-btn-item non-selectable q-btn-round q-btn-flat q-focusable q-hoverable q-btn-dense">
+    <div class="q-focus-helper"></div>
+    <div class="q-btn-inner row col items-center justify-center">
+      <i aria-hidden="true" class="q-icon fab fa-discourse"> </i>
+      <!---->
+      <div class="q-popover scroll" style="max-width:700px;">
+        <div class="q-list q-list-link">
+          <div class="q-list-header">
+            <i aria-hidden="true" class="q-icon q-mr-xs fab fa-discourse" style="font-size:20px;"> </i> <span>Updates from the <a place="community" href="https://community.foodsaving.world" target="_blank" rel="noopener" style="text-decoration:underline;">
+            foodsaving worldwide community
+          </a></span></div>
+        </div>
+      </div>
+    </div>
+  </button>
   <button tabindex="0" type="button" class="q-btn inline relative-position q-btn-item non-selectable q-btn-round q-btn-flat q-focusable q-hoverable q-btn-dense">
     <div class="q-focus-helper"></div>
     <div class="q-btn-inner row col items-center justify-center">

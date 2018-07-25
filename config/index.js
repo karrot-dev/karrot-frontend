@@ -73,6 +73,10 @@ module.exports = {
     proxyTable: {
       '/api': backendProxy,
       '/media': backendProxy,
+      '/community_proxy': {
+        target: 'https://dev.karrot.world',
+        changeOrigin: true,
+      }
     },
   }
 }

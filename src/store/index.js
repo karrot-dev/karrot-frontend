@@ -15,6 +15,7 @@ import banners from './modules/banners'
 import auth from './modules/auth'
 import { plugin as authPushPlugin } from './modules/auth/push'
 import breadcrumbs from './modules/breadcrumbs'
+import communityFeed from './modules/communityFeed'
 import conversations from './modules/conversations'
 import currentGroup from './modules/currentGroup'
 import currentThread from './modules/currentThread'
@@ -53,6 +54,7 @@ export default new Vuex.Store({
     banners,
     auth,
     breadcrumbs,
+    communityFeed,
     conversations,
     currentGroup,
     currentThread,

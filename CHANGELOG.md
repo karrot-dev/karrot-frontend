@@ -14,6 +14,7 @@ Please document your changes in this format:
 
 - Replies to wall messages #1065 @nicksellen @tiltec
 - Link to external route planner for store directions #1020 @pogopaule @tiltec
+- Add notifications about new messages in community.foodsaving.world @tiltec
 
 ### Changed
 

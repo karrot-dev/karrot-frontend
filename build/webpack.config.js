@@ -131,11 +131,7 @@ module.exports = {
           mangle: true
         }
       }),
-      new OptimizeCSSAssetsPlugin({
-        cssProcessorOptions: {
-          safe: true
-        }
-      })
+      new OptimizeCSSAssetsPlugin({})
     ],
     splitChunks: {
       chunks: 'all',

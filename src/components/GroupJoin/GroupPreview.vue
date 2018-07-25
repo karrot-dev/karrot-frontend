@@ -18,6 +18,10 @@ export default connect({
     apply: (store, { groupId }) => {
       router.push({ name: 'applicationForm', params: { groupPreviewId: groupId } })
     },
+    withdraw: ({dispatch}, applicationId) => {
+      dispatch('groupApplications/withdraw', applicationId)
+      console.log('do you receive?')
+    },
   },
 })('GroupPreview', GroupPreviewUI)
 </script>

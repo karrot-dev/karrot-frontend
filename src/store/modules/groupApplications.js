@@ -1,11 +1,11 @@
 import Vue from 'vue'
 import groupApplications from '@/services/api/groupApplications'
 import router from '@/router'
-import { withMeta, createMetaModule, metaStatuses } from '@/store/helpers'
+import { indexById, withMeta, createMetaModule, metaStatuses } from '@/store/helpers'
 
 function initialState () {
   return {
-    list: [],
+    entries: {},
   }
 }
 export default {
@@ -14,7 +14,7 @@ export default {
   state: initialState(),
   getters: {
     getByGroupId: state => groupId => {
-      return state.list.find(a => a.group === groupId)
+      return Object.values(state.entries).find(a => a.group === groupId)
     },
     ...metaStatuses(['apply']),
   },
@@ -31,7 +31,8 @@ export default {
         commit('set', applicationList)
       },
       async withdraw ({ commit }, applicationId) {
-        await groupApplications.withdraw(applicationId)
+        const removedApplication = await groupApplications.withdraw(applicationId)
+        commit('delete', removedApplication.id)
       },
     }),
     clearGroupPreviewAndStatus ({ dispatch }) {
@@ -44,7 +45,10 @@ export default {
       Vue.set(state.entries, newApplication.id, newApplication)
     },
     set (state, applicationList) {
-      state.list = applicationList
+      state.entries = indexById(applicationList)
+    },
+    delete (state, id) {
+      Vue.delete(state.entries, id)
     },
   },
 }

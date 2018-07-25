@@ -14,7 +14,7 @@ export default {
   state: initialState(),
   getters: {
     getByGroupId: state => groupId => {
-      return Object.values(state.entries).find(a => a.group === groupId)
+      return Object.values(state.entries).find(a => a.group === groupId && a.status === 'pending')
     },
     ...metaStatuses(['apply']),
   },

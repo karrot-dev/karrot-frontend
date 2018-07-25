@@ -201,10 +201,6 @@ export default {
 @import '~variables'
 @import './reactionBox'
 
-// same as PickupItem colors
-$lightGreen = #E7FFE0
-$lighterGreen = #F0FFF0
-
 .isUnread
   background linear-gradient(to right, $lightGreen, $lighterGreen)
 

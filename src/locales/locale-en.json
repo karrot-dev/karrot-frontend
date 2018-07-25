@@ -413,11 +413,16 @@
     },
     "MESSAGE_NOT_FOUND": "Message not found"
   },
-  "STORESTATUS":{
+  "STORESTATUS": {
     "ACTIVE": "Co-operating",
     "CREATED": "Just created",
     "NEGOTIATING": "Negotiating",
     "DECLINED": "Don't want to cooperate",
     "ARCHIVED": "Archived"
+  },
+  "COMMUNITY_FEED": {
+    "HEADER": "Updates from the {community}",
+    "HEADER_LINK": "foodsaving worldwide community",
+    "LAST_UPDATED": "Last updated {relativeDate}"
   }
 }

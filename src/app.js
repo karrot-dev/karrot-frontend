@@ -44,6 +44,7 @@ export default async function initApp () {
   ])
 
   store.dispatch('about/fetch')
+  store.dispatch('communityFeed/fetchTopics')
 
   /* eslint-disable no-new */
   new Vue({

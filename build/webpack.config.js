@@ -142,6 +142,7 @@ module.exports = {
     ],
     splitChunks: {
       chunks: 'all',
+      minChunks: 2,
       name: !env.prod,
     },
   },

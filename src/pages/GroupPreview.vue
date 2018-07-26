@@ -19,8 +19,14 @@ export default connect({
         router.push({ name: 'signup' })
       }
     },
-    apply: (store, { groupId }) => {
-      router.push({ name: 'applicationForm', params: { groupPreviewId: groupId } })
+    apply: ({dispatch, getters}, { groupId }) => {
+      if (getters['auth/isLoggedIn']) {
+        router.push({ name: 'applicationForm', params: { groupPreviewId: groupId } })
+      }
+      else {
+        dispatch('auth/setJoinGroupAfterLogin', { id: groupId })
+        router.push({ name: 'signup' })
+      }
     },
     withdraw: ({dispatch}, applicationId) => {
       dispatch('groupApplications/withdraw', applicationId)

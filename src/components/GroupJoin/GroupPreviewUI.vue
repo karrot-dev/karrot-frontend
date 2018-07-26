@@ -49,47 +49,31 @@
         <span
           v-if="!group.isMember && !group.hasApplied"
           style="width: 100%">
-          <form
-            name="joingroup"
-            @submit.prevent="$emit('join', { groupId: group.id, password })"
+          <q-alert
+            v-if="!group.isMember"
+            color="warning"
+            icon="info"
           >
-            <q-alert
-              v-if="!group.isMember"
-              color="warning"
-              icon="info"
-            >
-              {{ $t('JOINGROUP.PROFILE_NOTE' ) }}
-            </q-alert>
-            <q-field
-              v-if="group.protected"
-              icon="fas fa-lock"
-              :label="$t('JOINGROUP.PASSWORD_REQUIRED')"
-              :helper="$t('JOINGROUP.PASSWORD_LABEL')"
-              :error="hasAnyError"
-              :error-label="anyFirstError"
-            >
-              <q-input
-                v-model="password"
-                type="password"
-              />
-            </q-field>
-            <q-btn
-              type="submit"
-              color="secondary"
-              class="float-right generic-margin"
-              :loading="group.joinStatus.pending"
-            >
-              {{ $t( isLoggedIn ? 'BUTTON.JOIN' : 'JOINGROUP.SIGNUP_OR_LOGIN') }}
-            </q-btn>
-            <q-btn
-              @click="$emit('apply', {groupId: group.id })"
-              color="secondary"
-              class="float-right generic-margin"
-              :loading="group.joinStatus.pending"
-            >
-              {{ $t( isLoggedIn ? 'BUTTON.APPLY' : 'I CHANGED MY MIND') }}
-            </q-btn>
-          </form>
+            {{ $t('JOINGROUP.PROFILE_NOTE' ) }}
+          </q-alert>
+          <q-btn
+            v-if="!group.isPlayground"
+            @click="$emit('apply', {groupId: group.id })"
+            color="secondary"
+            class="float-right generic-margin"
+            :loading="group.joinStatus.pending"
+          >
+            {{ $t( isLoggedIn ? 'BUTTON.APPLY' : 'JOINGROUP.SIGNUP_OR_LOGIN') }}
+          </q-btn>
+          <q-btn
+            v-if="group.isPlayground"
+            @click="$emit('join', {groupId: group.id})"
+            color="secondary"
+            class="float-right generic-margin"
+            :loading="group.joinStatus.pending"
+          >
+            {{ $t( isLoggedIn ? 'BUTTON.JOIN' : 'JOINGROUP.SIGNUP_OR_LOGIN') }}
+          </q-btn>
         </span>
         <span
           v-if="group.hasApplied"

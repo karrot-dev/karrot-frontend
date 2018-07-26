@@ -59,7 +59,7 @@
     "SHOW": "Show",
     "HIDE": "Hide",
     "SUBMIT": "Submit",
-    "APPLY": "Apply to join"
+    "APPLY": "Apply"
   },
   "VALIDATION": {
     "MINLENGTH": "Please enter more than {min} characters.",

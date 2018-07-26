@@ -15,9 +15,9 @@ module.exports = {
     host,
     clipboard: false,
     content: [],
-    dev: {
+    devMiddleware: {
       publicPath: webpackConfig.output.publicPath,
-      stats: 'minimal'
+      stats: 'minimal',
     },
     add: (app, middleware, options) => {
       middleware.webpack()

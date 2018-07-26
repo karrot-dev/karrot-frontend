@@ -10,7 +10,7 @@ const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPl
 const UglifyJsPlugin = require("uglifyjs-webpack-plugin");
 const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
-const HardSourceWebpackPlugin = require('hard-source-webpack-plugin');
+const HardSourceWebpackPlugin = require('hard-source-webpack-plugin')
 
 const styleLoaders = [
   env.prod ? MiniCssExtractPlugin.loader : 'style-loader',
@@ -108,16 +108,6 @@ module.exports = {
     ],
   },
   plugins: [
-    ...(env.prod ? [new BundleAnalyzerPlugin({
-      analyzerMode: 'static',
-      reportFilename: 'bundlesize.html',
-      defaultSizes: 'gzip',
-      openAnalyzer: false,
-      generateStatsFile: false,
-      statsFilename: 'stats.json',
-      statsOptions: null,
-      logLevel: 'info'
-    })] : []),
     new webpack.DefinePlugin({
       'process.env': config[env.prod ? 'build' : 'dev'].env,
       'DEV': env.dev,
@@ -137,6 +127,16 @@ module.exports = {
     ...(env.prod ? [
       new MiniCssExtractPlugin({
         filename: '[contenthash].css',
+      }),
+      new BundleAnalyzerPlugin({
+        analyzerMode: 'static',
+        reportFilename: 'bundlesize.html',
+        defaultSizes: 'gzip',
+        openAnalyzer: false,
+        generateStatsFile: false,
+        statsFilename: 'stats.json',
+        statsOptions: null,
+        logLevel: 'info'
       }),
     ] : []),
     new HardSourceWebpackPlugin(),

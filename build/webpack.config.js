@@ -31,6 +31,7 @@ const styleLoaders = [
 
 module.exports = {
   mode: env.prod ? 'production' : 'development',
+  devtool: env.prod ? 'source-map' : 'cheap-module-eval-source-map',
   entry: {
     app: './src/main.js',
   },
@@ -107,7 +108,7 @@ module.exports = {
     ],
   },
   plugins: [
-    new BundleAnalyzerPlugin({
+    ...(env.prod ? [new BundleAnalyzerPlugin({
       analyzerMode: 'static',
       reportFilename: 'bundlesize.html',
       defaultSizes: 'gzip',
@@ -116,7 +117,7 @@ module.exports = {
       statsFilename: 'stats.json',
       statsOptions: null,
       logLevel: 'info'
-    }),
+    })] : []),
     new webpack.DefinePlugin({
       'process.env': config[env.prod ? 'build' : 'dev'].env,
       'DEV': env.dev,
@@ -130,7 +131,7 @@ module.exports = {
     new HtmlWebpackPlugin({
       filename: 'index.html',
       template: 'src/index.html',
-      inject: true
+      minify: true,
     }),
     new VueLoaderPlugin(),
     ...(env.prod ? [

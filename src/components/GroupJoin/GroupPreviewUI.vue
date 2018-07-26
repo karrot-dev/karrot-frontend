@@ -57,22 +57,22 @@
             {{ $t('JOINGROUP.PROFILE_NOTE' ) }}
           </q-alert>
           <q-btn
-            v-if="!group.isPlayground"
-            @click="$emit('apply', {groupId: group.id })"
+            v-if="!isLoggedIn || !user.mailVerified"
+            @click="$emit('preApply', { groupId: group.id })"
             color="secondary"
             class="float-right generic-margin"
             :loading="group.joinStatus.pending"
           >
-            {{ $t( isLoggedIn ? 'BUTTON.APPLY' : 'JOINGROUP.SIGNUP_OR_LOGIN') }}
+            {{ $t( isLoggedIn ? 'JOINGROUP.VERIFY_EMAIL_ADDRESS' : 'JOINGROUP.SIGNUP_OR_LOGIN') }}
           </q-btn>
           <q-btn
-            v-if="group.isPlayground"
-            @click="$emit('join', {groupId: group.id})"
+            v-if="isLoggedIn && user.mailVerified"
+            @click="$emit('apply', { groupId: group.id })"
             color="secondary"
             class="float-right generic-margin"
             :loading="group.joinStatus.pending"
           >
-            {{ $t( isLoggedIn ? 'BUTTON.JOIN' : 'JOINGROUP.SIGNUP_OR_LOGIN') }}
+            {{ $t( !group.isPlayground ? 'BUTTON.APPLY' : 'BUTTON.JOIN') }}
           </q-btn>
         </span>
         <span
@@ -127,6 +127,10 @@ export default {
     showClose: {
       default: false,
       type: Boolean,
+    },
+    user: {
+      default: null,
+      type: Object,
     },
   },
   components: { QCard, QCardTitle, QCardMain, QCardSeparator, QCardActions, QBtn, QField, QInput, QIcon, QTooltip, QAlert, Markdown },

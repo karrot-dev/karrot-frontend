@@ -1,6 +1,5 @@
-var
-  config = require('../config'),
-  theme = config.defaultTheme
+const config = require('../config')
+const theme = config.defaultTheme
 
 module.exports = {
   dev: process.env.NODE_ENV === 'development',

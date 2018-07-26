@@ -11,20 +11,21 @@ const UglifyJsPlugin = require("uglifyjs-webpack-plugin");
 const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 
-const postCSSLoader = {
-  loader: 'postcss-loader',
-  options: {
-    ident: 'postcss',
-    plugins: (loader) => [
-      require('autoprefixer')(),
-    ]
-  }
-}
-
 const styleLoaders = [
   env.prod ? MiniCssExtractPlugin.loader : 'style-loader',
-  { loader: 'css-loader', options: { importLoaders: 1 } },
-  postCSSLoader,
+  {
+    loader: 'css-loader',
+    options: { importLoaders: 1 }
+  },
+  {
+    loader: 'postcss-loader',
+    options: {
+      ident: 'postcss',
+      plugins: loader => [
+        require('autoprefixer')(),
+      ]
+    }
+  },
 ]
 
 module.exports = {

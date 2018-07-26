@@ -10,6 +10,7 @@ const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPl
 const UglifyJsPlugin = require("uglifyjs-webpack-plugin");
 const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
+const HardSourceWebpackPlugin = require('hard-source-webpack-plugin');
 
 const styleLoaders = [
   env.prod ? MiniCssExtractPlugin.loader : 'style-loader',
@@ -37,7 +38,8 @@ module.exports = {
     path: resolve(__dirname, '../dist'),
     publicPath: config[env.prod ? 'build' : 'dev'].publicPath,
     filename: 'assets/js/[name].[hash].js',
-    chunkFilename: 'assets/js/[id].[chunkhash].js'
+    chunkFilename: 'assets/js/[id].[chunkhash].js',
+    pathinfo: false,
   },
   resolve: {
     extensions: [
@@ -50,7 +52,8 @@ module.exports = {
       resolve('src'),
       resolve('node_modules')
     ],
-    alias: config.aliases
+    alias: config.aliases,
+    symlinks: false,
   },
   module: {
     rules: [
@@ -135,6 +138,7 @@ module.exports = {
         filename: '[contenthash].css',
       }),
     ] : []),
+    new HardSourceWebpackPlugin(),
   ],
   optimization: {
     minimizer: [

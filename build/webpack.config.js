@@ -54,6 +54,13 @@ module.exports = {
   module: {
     rules: [
       {
+        enforce: 'pre',
+        test: /\.(vue|js)$/,
+        loader: 'eslint-loader',
+        include: projectRoot,
+        exclude: /node_modules/,
+      },
+      {
         test: /\.js$/,
         loader: 'babel-loader',
         include: [

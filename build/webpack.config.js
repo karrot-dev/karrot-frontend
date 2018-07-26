@@ -1,5 +1,5 @@
 const webpack = require('webpack')
-const { resolve } = require('path')
+const { resolve, join } = require('path')
 const config = require('../config')
 const env = require('./env-utils')
 const projectRoot = resolve(__dirname, '../')
@@ -39,7 +39,12 @@ module.exports = {
     chunkFilename: 'assets/js/[id].[chunkhash].js'
   },
   resolve: {
-    extensions: ['.js', '.vue', '.json'],
+    extensions: [
+      '.mat.js', // for use inside quasar
+      '.js',
+      '.vue',
+      '.json',
+    ],
     modules: [
       resolve('src'),
       resolve('node_modules')
@@ -51,8 +56,10 @@ module.exports = {
       {
         test: /\.js$/,
         loader: 'babel-loader',
-        include: projectRoot,
-        exclude: /node_modules/
+        include: [
+          join(projectRoot, 'src'),
+          /quasar\//,
+        ],
       },
       {
         test: /\.vue$/,

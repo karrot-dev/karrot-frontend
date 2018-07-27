@@ -56,7 +56,6 @@ export default {
   computed: {
     ...mapGetters({
       deployed: 'about/deployed',
-      sha: 'about/ourSHA',
     }),
     release () {
       if (process.env.NODE_ENV === 'development') {
@@ -69,13 +68,13 @@ export default {
         if (this.deployed.env === 'production') {
           return {
             link: 'https://github.com/yunity/karrot-frontend/blob/master/CHANGELOG.md',
-            name: `Release ${this.deployed.date}`,
+            name: this.deployed.date,
           }
         }
         if (this.deployed.env === 'development') {
           return {
-            link: `https://github.com/yunity/karrot-frontend/tree/${this.sha}`,
-            name: `Testing ${this.deployed.date}`,
+            link: `https://github.com/yunity/karrot-frontend/tree/${this.deployed.commitSHA}`,
+            name: this.deployed.date,
           }
         }
       }

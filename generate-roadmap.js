@@ -42,8 +42,6 @@ async function run ({ owner, repo }) {
   for (const milestone of result.data.sort(sortMilestones)) {
     output.push(`## ${milestone.title}`)
     output.push(milestone.description)
-    // console.log(milestone.title, milestone.html_url, milestone.number)
-
     output.push((await getIssues({ owner, repo, milestone: milestone.number })).map(issue => {
       return `- [${issue.title}](${issue.html_url})`
     }).join('\n'))

@@ -4,6 +4,7 @@ import raf from 'raf'
 import { createLocalVue, mount, TransitionStub, TransitionGroupStub, RouterLinkStub } from '@vue/test-utils'
 import deepmerge from 'deepmerge'
 import i18n from '@/i18n'
+import router from '@/router'
 
 Vue.use(Vuex)
 
@@ -107,6 +108,7 @@ export function mountWithDefaultsAndLocalVue (Component, localVue, options = {})
   const wrapper = mount(Component, {
     localVue,
     i18n,
+    router,
     ...options,
   })
   makeFindAllIterable(wrapper)

@@ -1,7 +1,7 @@
 <script>
 import { connect } from 'vuex-connect'
 import router from '@/router'
-import ApplicationFormUI from '@/components/Group/ApplicationFormUI'
+import ApplicationFormUI from '@/components/Applications/ApplicationFormUI'
 
 export default connect({
   gettersToProps: {

@@ -12,7 +12,7 @@ const VerifyMail = () => import('@/pages/VerifyMail')
 const DeleteAccount = () => import('@/pages/DeleteAccount')
 const DeleteAccountTitle = () => import('@/components/Settings/DeleteAccountTitle')
 const ApplicationForm = () => import('@/pages/Group/ApplicationForm')
-const ApplicationFormTitle = () => import('@/components/Group/ApplicationFormTitle')
+const ApplicationFormTitle = () => import('@/components/Applications/ApplicationFormTitle')
 
 export default [
   {

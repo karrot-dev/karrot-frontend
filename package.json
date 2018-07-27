@@ -72,6 +72,7 @@
     "webpack-bundle-analyzer": "^2.9.2"
   },
   "devDependencies": {
+    "@octokit/rest": "^15.9.4",
     "@storybook/addon-actions": "^3.3.11",
     "@storybook/addon-links": "^3.3.11",
     "@storybook/vue": "^3.3.11",

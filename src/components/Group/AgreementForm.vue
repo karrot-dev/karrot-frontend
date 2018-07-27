@@ -25,6 +25,7 @@
           @blur="$v.edit.content.$touch"
           type="textarea"
           rows="20"
+          style="min-height: 20em"
           @keyup.ctrl.enter="maybeSave"
         />
       </q-field>

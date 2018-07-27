@@ -34,7 +34,8 @@
     "fix": "eslint --ext .js,.vue --fix src",
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook",
-    "i18n": "updateLocalesHelper/env/bin/python updateLocalesHelper/updateLocales.py",
+    "locales:pull": "updateLocalesHelper/env/bin/python updateLocalesHelper/updateLocales.py",
+    "locales:push": "updateLocalesHelper/env/bin/tx push -s",
     "docs": "gitbook install docs && gitbook serve docs",
     "build-docs": "gitbook install docs && gitbook build docs docs-dist"
   },
@@ -71,6 +72,7 @@
     "webpack-bundle-analyzer": "^2.13.1"
   },
   "devDependencies": {
+    "@octokit/rest": "^15.9.4",
     "@babel/core": "^7.0.0-beta.54",
     "@babel/plugin-syntax-dynamic-import": "^7.0.0-beta.54",
     "@babel/plugin-transform-modules-commonjs": "^7.0.0-beta.54",

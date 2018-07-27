@@ -17,9 +17,12 @@ const backendProxy = {
       // https://github.com/django/django/blob/master/django/middleware/csrf.py#L226
       // If the backend tries to use this referer for anything useful it will break
       // as it is a blatant lie, but I don't think it does...
-      proxyReq.setHeader("referer", backend);
+      proxyReq.setHeader('referer', backend)
     }
-  }
+  },
+  onProxyReqWs: (proxyReq) => {
+    proxyReq.setHeader('origin', backend)
+  },
 }
 
 module.exports = {

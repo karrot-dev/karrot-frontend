@@ -36,7 +36,6 @@ Rough ideas, have been mentioned by someone.
 `
 
 async function run ({ owner, repo }) {
-  // const result = await octokit.issues.getMilestones({owner, repo, state, sort, direction, per_page, page})
   const result = await octokit.issues.getMilestones({ owner, repo })
   const output = [HEADER.trim()]
   for (const milestone of result.data.sort(sortMilestones)) {

@@ -8448,9 +8448,9 @@ quasar-extras@2.0.4:
   version "2.0.4"
   resolved "https://registry.yarnpkg.com/quasar-extras/-/quasar-extras-2.0.4.tgz#63cb738fcd046e57cedd9a57483c4ecb5059e17d"
 
-quasar-framework@0.17.0:
-  version "0.17.0"
-  resolved "https://registry.yarnpkg.com/quasar-framework/-/quasar-framework-0.17.0.tgz#ce9fa6487ce14b4f10cf8b8e3e5b107b2ac3b6fe"
+quasar-framework@0.17.2:
+  version "0.17.2"
+  resolved "https://registry.yarnpkg.com/quasar-framework/-/quasar-framework-0.17.2.tgz#336731a137dcf4715efcb7163883950e4b8fae21"
 
 query-string@^4.1.0:
   version "4.3.4"

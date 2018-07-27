@@ -8,19 +8,19 @@
       v-model="tab"
     >
       <q-tab
-        v-if="value"
         class="markdown-input-tab"
         default
         name="edit"
         slot="title"
         :label="$t('BUTTON.EDIT')"
+        :disable="!value"
       />
       <q-tab
-        v-if="value"
         class="markdown-input-tab"
         name="preview"
         slot="title"
         :label="$t('BUTTON.PREVIEW')"
+        :disable="!value"
       />
       <q-tab-pane name="edit">
         <slot />

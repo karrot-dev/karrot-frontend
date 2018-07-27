@@ -664,8 +664,8 @@ exports[`Storyshots GroupEdit create 1`] = `
                         <div class="q-if-inner col row no-wrap relative-position">
                           <div class="col row relative-position">
                             <object type="text/html" data="about:blank" aria-hidden="true" style="display:block;position:absolute;top:0;left:0;right:0;bottom:0;height:100%;width:100%;overflow:hidden;pointer-events:none;z-index:-1;"></object>
-                            <textarea min-rows="3" class="col q-input-target q-input-shadow absolute-top">undefined</textarea>
-                            <textarea min-rows="3" class="col q-input-target q-input-area">undefined</textarea>
+                            <textarea min-rows="3" rows="1" class="col q-input-target q-input-shadow absolute-top">undefined</textarea>
+                            <textarea min-rows="3" rows="1" class="col q-input-target q-input-area">undefined</textarea>
                           </div>
                         </div>
                       </div>
@@ -714,8 +714,8 @@ exports[`Storyshots GroupEdit create 1`] = `
                         <div class="q-if-inner col row no-wrap relative-position">
                           <div class="col row relative-position">
                             <object type="text/html" data="about:blank" aria-hidden="true" style="display:block;position:absolute;top:0;left:0;right:0;bottom:0;height:100%;width:100%;overflow:hidden;pointer-events:none;z-index:-1;"></object>
-                            <textarea min-rows="3" class="col q-input-target q-input-shadow absolute-top">undefined</textarea>
-                            <textarea min-rows="3" class="col q-input-target q-input-area">undefined</textarea>
+                            <textarea min-rows="3" rows="1" class="col q-input-target q-input-shadow absolute-top">undefined</textarea>
+                            <textarea min-rows="3" rows="1" class="col q-input-target q-input-area">undefined</textarea>
                           </div>
                         </div>
                       </div>
@@ -3311,8 +3311,8 @@ exports[`Storyshots PickupSeriesEdit Default 1`] = `
             <div class="q-if-inner col row no-wrap relative-position">
               <div class="col row relative-position">
                 <object type="text/html" data="about:blank" aria-hidden="true" style="display:block;position:absolute;top:0;left:0;right:0;bottom:0;height:100%;width:100%;overflow:hidden;pointer-events:none;z-index:-1;"></object>
-                <textarea max-length="500" class="col q-input-target q-input-shadow absolute-top">a nice description for the series</textarea>
-                <textarea max-length="500" class="col q-input-target q-input-area">a nice description for the series</textarea>
+                <textarea max-length="500" rows="1" class="col q-input-target q-input-shadow absolute-top">a nice description for the series</textarea>
+                <textarea max-length="500" rows="1" class="col q-input-target q-input-area">a nice description for the series</textarea>
               </div>
             </div>
           </div>
@@ -3582,8 +3582,8 @@ exports[`Storyshots Settings Page Default 1`] = `
                           <div class="q-if-inner col row no-wrap relative-position">
                             <div class="col row relative-position">
                               <object type="text/html" data="about:blank" aria-hidden="true" style="display:block;position:absolute;top:0;left:0;right:0;bottom:0;height:100%;width:100%;overflow:hidden;pointer-events:none;z-index:-1;"></object>
-                              <textarea min-rows="1" class="col q-input-target q-input-shadow absolute-top">I am the current User!</textarea>
-                              <textarea min-rows="1" class="col q-input-target q-input-area">I am the current User!</textarea>
+                              <textarea min-rows="1" rows="1" class="col q-input-target q-input-shadow absolute-top">I am the current User!</textarea>
+                              <textarea min-rows="1" rows="1" class="col q-input-target q-input-area">I am the current User!</textarea>
                             </div>
                           </div>
                         </div>
@@ -4608,8 +4608,8 @@ exports[`Storyshots Statistics PickupFeedback 1`] = `
                   <div class="q-if-inner col row no-wrap relative-position">
                     <div class="col row relative-position">
                       <object type="text/html" data="about:blank" aria-hidden="true" style="display:block;position:absolute;top:0;left:0;right:0;bottom:0;height:100%;width:100%;overflow:hidden;pointer-events:none;z-index:-1;"></object>
-                      <textarea autocomplete="off" min-rows="1" class="col q-input-target q-input-shadow absolute-top"></textarea>
-                      <textarea autocomplete="off" min-rows="1" placeholder="Was everything fine? Did everyone show up? Your comment here..." class="col q-input-target q-input-area"></textarea>
+                      <textarea autocomplete="off" min-rows="1" rows="1" class="col q-input-target q-input-shadow absolute-top"></textarea>
+                      <textarea autocomplete="off" min-rows="1" placeholder="Was everything fine? Did everyone show up? Your comment here..." rows="1" class="col q-input-target q-input-area"></textarea>
                     </div>
                   </div>
                 </div>
@@ -4910,8 +4910,8 @@ exports[`Storyshots Stores StoreEdit (with server error) 1`] = `
                         <div class="q-if-inner col row no-wrap relative-position">
                           <div class="col row relative-position">
                             <object type="text/html" data="about:blank" aria-hidden="true" style="display:block;position:absolute;top:0;left:0;right:0;bottom:0;height:100%;width:100%;overflow:hidden;pointer-events:none;z-index:-1;"></object>
-                            <textarea min-rows="3" class="col q-input-target q-input-shadow absolute-top">all the good stuff</textarea>
-                            <textarea min-rows="3" class="col q-input-target q-input-area">all the good stuff</textarea>
+                            <textarea min-rows="3" rows="1" class="col q-input-target q-input-shadow absolute-top">all the good stuff</textarea>
+                            <textarea min-rows="3" rows="1" class="col q-input-target q-input-area">all the good stuff</textarea>
                           </div>
                         </div>
                       </div>
@@ -5118,8 +5118,8 @@ exports[`Storyshots Stores StoreEdit 1`] = `
                         <div class="q-if-inner col row no-wrap relative-position">
                           <div class="col row relative-position">
                             <object type="text/html" data="about:blank" aria-hidden="true" style="display:block;position:absolute;top:0;left:0;right:0;bottom:0;height:100%;width:100%;overflow:hidden;pointer-events:none;z-index:-1;"></object>
-                            <textarea min-rows="3" class="col q-input-target q-input-shadow absolute-top">all the good stuff</textarea>
-                            <textarea min-rows="3" class="col q-input-target q-input-area">all the good stuff</textarea>
+                            <textarea min-rows="3" rows="1" class="col q-input-target q-input-shadow absolute-top">all the good stuff</textarea>
+                            <textarea min-rows="3" rows="1" class="col q-input-target q-input-area">all the good stuff</textarea>
                           </div>
                         </div>
                       </div>

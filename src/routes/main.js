@@ -199,6 +199,19 @@ export default [
         },
       },
       {
+        name: 'groupApplications',
+        path: 'applications',
+        meta: {
+          breadcrumbs: [
+            { translation: 'GROUP.APPLICATIONS', route: { name: 'groupApplications' } },
+          ],
+        },
+        components: {
+          default: GroupApplications,
+          sidenav: GroupGroupSidenav,
+        },
+      },
+      {
         name: 'groupEdit',
         path: 'edit',
         meta: {

@@ -1,7 +1,6 @@
-var merge = require('webpack-merge')
-var prodEnv = require('./prod.env')
+const prodEnv = require('./prod.env')
 
-module.exports = merge(prodEnv, {
+module.exports = Object.assign({}, prodEnv, {
   NODE_ENV: '"development"',
   RAVEN_CONFIG: JSON.stringify(process.env.RAVEN_CONFIG || null),
 })

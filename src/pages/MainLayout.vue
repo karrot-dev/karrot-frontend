@@ -42,6 +42,7 @@
         <q-layout-drawer
           v-if="isLoggedIn"
           side="left"
+          :width="sidenavWidth"
           :breakpoint="$q.platform.is.mobile ? 9999 : 0"
           :value="!fullScreen && (!$q.platform.is.mobile || showSidenav)"
           :overlay="false"
@@ -94,8 +95,10 @@ import Banners from '@/components/Layout/Banners'
 import RouteError from '@/components/RouteError'
 import UnsupportedBrowserWarning from '@/components/UnsupportedBrowserWarning'
 import Detail from '@/components/General/Detail'
-import { QLayout, QLayoutHeader, QLayoutDrawer, QLayoutFooter, QPageContainer, QWindowResizeObservable, QBtn } from 'quasar'
+import { dom, QLayout, QLayoutHeader, QLayoutDrawer, QLayoutFooter, QPageContainer, QWindowResizeObservable, QBtn } from 'quasar'
 import { mapGetters, mapActions, mapState } from 'vuex'
+
+const { width } = dom
 
 export default {
   components: {
@@ -136,6 +139,9 @@ export default {
     },
     defaultShowSidenavWidth () {
       return 992
+    },
+    sidenavWidth () {
+      return Math.min(380, width(window))
     },
   },
 }

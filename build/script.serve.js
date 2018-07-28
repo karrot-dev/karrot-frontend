@@ -3,6 +3,7 @@
  */
 
 const express = require('express')
+const compression = require('compression')
 const proxyMiddleware = require('http-proxy-middleware')
 const { join } = require('path')
 
@@ -14,6 +15,7 @@ const config = require('../config')
  * Serve static files
  */
 const app = express()
+app.use(compression())
 app.use(express.static(join(__dirname, '../dist')))
 
 const proxyTable = config.dev.proxyTable

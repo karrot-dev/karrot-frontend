@@ -1,32 +1,30 @@
-const genDefaultConfig = require('@storybook/vue/dist/server/config/defaults/webpack.config.js')
-const merge = require('webpack-merge')
+// const genDefaultConfig = require('@storybook/vue/dist/server/config/defaults/webpack.config.js')
+// const merge = require('webpack-merge')
 
-module.exports = (baseConfig, env) => {
+const webpack = require('webpack')
 
-  /* when building with storybook we do not want to extract css as we normally do in production */
-  process.env.DISABLE_EXTRACT_CSS = true
+const webpackConfig = require('../build/webpack.config')
+const config = require('../config')
+const env = require('../build/env-utils')
 
-  const storybookConfig = genDefaultConfig(baseConfig, env)
-  const quasarConfig = require('../build/webpack.dev.conf.js')
-  const quasarBasePlugins = require('../build/webpack.base.conf.js').plugins
+const VueLoaderPlugin = require('vue-loader/lib/plugin')
+const HardSourceWebpackPlugin = require('hard-source-webpack-plugin')
 
-  // use Quasar config as default
-  let mergedConfig = merge(quasarConfig, storybookConfig)
+module.exports = (baseConfig, storybookEnv) => {
+  // Manual merge with our webpack config
+  baseConfig.module.rules = webpackConfig.module.rules
+  baseConfig.resolve.modules.push(...webpackConfig.resolve.modules)
+  baseConfig.resolve.extensions = webpackConfig.resolve.extensions
+  Object.assign(baseConfig.resolve.alias, webpackConfig.resolve.alias)
 
-  // set Storybook entrypoint
-  mergedConfig.entry = storybookConfig.entry
+  const definePlugins = webpackConfig.plugins.filter(plugin => {
+    return plugin.constructor.name === 'DefinePlugin'
+  })
 
-  // remove absolute node_modules path, it causes errors with some storybook dependency
-  mergedConfig.resolve.modules = mergedConfig.resolve.modules.filter(e => !e.includes('/node_modules'))
-
-  // only use Quasars loaders
-  mergedConfig.module.rules = quasarConfig.module.rules
-
-  // enable Storybook http server
-  mergedConfig.plugins = storybookConfig.plugins
-  // get Quasar's DefinePlugin and PostCSS settings
-  mergedConfig.plugins.unshift(quasarBasePlugins[0], quasarBasePlugins[1])
-
-  return mergedConfig
+  baseConfig.plugins.push(
+    ...definePlugins,
+    new VueLoaderPlugin(),
+    new HardSourceWebpackPlugin(),
+  )
+  return baseConfig
 }
-

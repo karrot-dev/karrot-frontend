@@ -21,7 +21,8 @@
   "scripts": {
     "clean": "node build/script.clean.js",
     "dev": "webpack-serve --config build/serve.config.js",
-    "build": "NODE_ENV=production webpack",
+    "build": "shx rm -rf dist && npm run build:main && npm run build:service-worker",
+    "build:main": "NODE_ENV=production webpack",
     "build:service-worker": "NODE_ENV=production webpack --config build/webpack.service-worker.conf.js",
     "build:cordova:dev": "NODE_ENV=production KARROT_THEME=dev BACKEND=https://dev.karrot.world CORDOVA=true webpack",
     "build:cordova:prod": "NODE_ENV=production BACKEND=https://karrot.world CORDOVA=true webpack",
@@ -72,13 +73,13 @@
     "webpack-bundle-analyzer": "^2.13.1"
   },
   "devDependencies": {
-    "@octokit/rest": "^15.9.4",
     "@babel/core": "^7.0.0-beta.54",
     "@babel/plugin-syntax-dynamic-import": "^7.0.0-beta.54",
     "@babel/plugin-transform-modules-commonjs": "^7.0.0-beta.54",
     "@babel/plugin-transform-runtime": "^7.0.0-beta.54",
     "@babel/preset-env": "^7.0.0-beta.54",
     "@babel/runtime": "^7.0.0-beta.54",
+    "@octokit/rest": "^15.9.4",
     "@storybook/addon-actions": "^3.3.11",
     "@storybook/addon-links": "^3.3.11",
     "@storybook/vue": "^3.3.11",
@@ -135,6 +136,7 @@
     "purify-css": "^1.2.5",
     "raf": "^3.4.0",
     "shelljs": "^0.8.1",
+    "shx": "^0.3.2",
     "style-loader": "^0.21.0",
     "stylus": "^0.54.5",
     "stylus-loader": "^3.0.2",

@@ -47,6 +47,11 @@
             {{ $t('GROUPINFO.META') }}
           </q-tooltip>
         </q-btn>
+        <q-icon
+          v-if="group.isOpen"
+          name="fas fa-door-open"
+          color="secondary"
+        />
       </q-card-actions>
     </q-card>
   </div>

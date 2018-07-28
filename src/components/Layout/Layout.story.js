@@ -18,8 +18,8 @@ const store = createStore({
   loadingprogress: { getters: { active: () => false, closing: () => false } },
   communityFeed: {
     getters: {
-      unreadCount: jest.fn(),
-      topics: jest.fn(),
+      unreadCount: () => 0,
+      topics: () => [],
     },
   },
 })

@@ -106,9 +106,9 @@ export function mountWithDefaultsAndLocalVue (Component, localVue, options = {})
   localVue.component('transition', TransitionStub)
   localVue.component('transition-group', TransitionGroupStub)
   const wrapper = mount(Component, {
+    router,
     localVue,
     i18n,
-    router,
     ...options,
   })
   makeFindAllIterable(wrapper)
@@ -118,6 +118,7 @@ export function mountWithDefaultsAndLocalVue (Component, localVue, options = {})
 export function storybookDefaults (options) {
   i18n.locale = 'en'
   return {
+    router,
     i18n,
     ...options,
   }

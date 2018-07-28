@@ -3,7 +3,7 @@ import axios from 'axios'
 import dateFnsHelper from '@/services/dateFnsHelper'
 import polyfill from '@/polyfill'
 import { messages as loadMessages, quasarMessages as loadQuasarMessages } from '@/locales'
-import Quasar from 'quasar'
+import Quasar from 'quasar-vue-plugin'
 
 export default store => {
   store.watch(state => state.i18n.locale, async locale => {

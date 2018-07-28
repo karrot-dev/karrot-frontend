@@ -3,3 +3,15 @@
   to = "https://dev.karrot.world/api/:splat"
   status = 200
   force = true
+
+[[redirects]]
+  from = "/community_proxy/*"
+  to = "https://dev.karrot.world/community_proxy/:splat"
+  status = 200
+  force = true
+
+[build.environment]
+  FCM_SENDER_ID = 819038505585
+  NODE_VERSION = 10
+  YARN_VERSION = 1.7.0
+

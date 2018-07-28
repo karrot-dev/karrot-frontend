@@ -17,12 +17,10 @@ module.exports = (baseConfig, storybookEnv) => {
   baseConfig.resolve.extensions = webpackConfig.resolve.extensions
   Object.assign(baseConfig.resolve.alias, webpackConfig.resolve.alias)
 
-  const definePlugins = webpackConfig.plugins.filter(plugin => {
-    return plugin.constructor.name === 'DefinePlugin'
-  })
-
   baseConfig.plugins.push(
-    ...definePlugins,
+    ...webpackConfig.plugins.filter(plugin => {
+      return ['DefinePlugin', 'MiniCssExtractPlugin'].includes(plugin.constructor.name)
+    }),
     new VueLoaderPlugin(),
     new HardSourceWebpackPlugin(),
   )

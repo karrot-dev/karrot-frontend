@@ -44,9 +44,11 @@ export default {
         commit('set', applicationList)
       },
 
-      async fetchByGroupId ({ commit, getters }, groupId) {
+      async fetchByGroupId ({ commit, getters }, { groupId }) {
         const applicationList = await groupApplications.list({ group: groupId })
         commit('set', applicationList)
+        const all = getters.all
+        console.log('give me that array!', all)
       },
 
       async withdraw ({ commit }, applicationId) {

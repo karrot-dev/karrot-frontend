@@ -3,7 +3,7 @@
     <div class="row no-wrap">
       <ProfilePicture
         :key="application.user"
-        :user="application.user"
+        :user="application.applicant"
         :size="80"
       />
       <div class="content">

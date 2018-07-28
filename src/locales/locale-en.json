@@ -422,7 +422,7 @@
     },
     "MESSAGE_NOT_FOUND": "Message not found"
   },
-  "STORESTATUS":{
+  "STORESTATUS": {
     "ACTIVE": "Co-operating",
     "CREATED": "Just created",
     "NEGOTIATING": "Negotiating",
@@ -432,5 +432,10 @@
   "APPLICATION_FORM":{
     "HEADER": "Apply",
     "TITLE": "Apply to join {groupName}"
+  },
+  "COMMUNITY_FEED": {
+    "HEADER": "Updates from the {community}",
+    "HEADER_LINK": "foodsaving worldwide community",
+    "LAST_UPDATED": "Last updated {relativeDate}"
   }
 }

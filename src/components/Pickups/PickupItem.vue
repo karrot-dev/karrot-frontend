@@ -105,10 +105,6 @@ export default {
 <style scoped lang="stylus">
 @import '~variables'
 
-$lightRed = #FFF5F5
-$lightGreen = #E7FFE0
-$lighterGreen = #F0FFF0
-
 .content
   transition: background-color 2s ease
   width 100%

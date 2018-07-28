@@ -33,8 +33,9 @@
               <q-input
                 v-model="edit.publicDescription"
                 type="textarea"
-                :min-rows="3"
+                rows="3"
                 @keyup.ctrl.enter="maybeSave"
+                style="min-height: 5em"
               />
             </MarkdownInput>
           </q-field>
@@ -49,8 +50,9 @@
               <q-input
                 v-model="edit.description"
                 type="textarea"
-                :min-rows="3"
+                rows="3"
                 @keyup.ctrl.enter="maybeSave"
+                style="min-height: 5em"
               />
             </MarkdownInput>
           </q-field>

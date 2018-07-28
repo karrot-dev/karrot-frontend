@@ -9,6 +9,7 @@ var
   HtmlWebpackPlugin = require('html-webpack-plugin'),
   OptimizeCSSPlugin = require('optimize-css-assets-webpack-plugin'),
   BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin
+  UglifyJsPlugin = require('uglifyjs-webpack-plugin')
 
 module.exports = merge(baseWebpackConfig, {
   module: {
@@ -34,15 +35,16 @@ module.exports = merge(baseWebpackConfig, {
       // Log level. Can be 'info', 'warn', 'error' or 'silent'.
       logLevel: 'info'
     }),
-    new webpack.optimize.UglifyJsPlugin({
+    new UglifyJsPlugin({
       sourceMap: config.build.productionSourceMap,
-      minimize: true,
-      compress: {
-        warnings: false,
+      uglifyOptions: {
+        compress: {
+          warnings: false,
 
-        // Attempt to get the sourcemaps working better https://github.com/webpack/webpack/issues/4084#issuecomment-274495886
-        sequences: false,
-        conditionals: false
+          // Attempt to get the sourcemaps working better https://github.com/webpack/webpack/issues/4084#issuecomment-274495886
+          sequences: false,
+          conditionals: false
+        }
       }
     }),
     // Compress extracted CSS. We are using this plugin so that possible

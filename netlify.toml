@@ -11,7 +11,7 @@
   force = true
 
 [build.environment]
-  FCM_SENDER_ID = 819038505585
-  NODE_VERSION = 10
-  YARN_VERSION = 1.7.0
+  FCM_SENDER_ID = "819038505585"
+  NODE_VERSION = "10"
+  YARN_VERSION = "1.7.0"
 

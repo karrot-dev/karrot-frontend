@@ -11,7 +11,7 @@
           <div class="row no-wrap">
             {{ 'This is application #' + application.id + ' from user ' + userName }}
           </div>
-    </q-card-main>
+        </q-card-main>
       </div>
     </div>
   </q-card>
@@ -33,7 +33,9 @@ export default {
     },
   },
   computed: {
-
+    userName () {
+      return this.application && this.application.user && this.application.applicant.displayName
+    },
   },
 }
 </script>

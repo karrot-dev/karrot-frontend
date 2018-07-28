@@ -6,6 +6,7 @@ import { indexById, withMeta, createMetaModule, metaStatuses } from '@/store/hel
 function initialState () {
   return {
     entries: {},
+    idList: [],
   }
 }
 export default {
@@ -13,10 +14,20 @@ export default {
   modules: { meta: createMetaModule() },
   state: initialState(),
   getters: {
+    get: (state, getters, rootState, rootGetters) => applicationId => {
+      return getters.enrich(state.entries[applicationId])
+    },
+    enrich: (state, getters, rootState, rootGetters) => application => {
+      return application && {
+        ...application,
+        applicant: rootGetters['users/get'](application.user),
+      }
+    },
     getByGroupId: state => groupId => {
       return Object.values(state.entries).find(a => a.group === groupId)
     },
-    all: state => Object.values(state.entries),
+    // all: state => Object.values(state.entries),
+    all: (state, getters) => state.idList.map(getters.get),
     ...metaStatuses(['apply']),
   },
   actions: {
@@ -55,6 +66,7 @@ export default {
     },
     set (state, applicationList) {
       state.entries = indexById(applicationList)
+      state.idList = applicationList.map((application) => application.id)
     },
     delete (state, id) {
       Vue.delete(state.entries, id)

@@ -1,18 +1,19 @@
 <template>
-  <q-infinite-scroll>
+  <div>
     <ApplicationItem
-
+      v-for="a in groupApplications"
+      :key="a.id"
+      :application="a"
     />
-  </q-infinite-scroll>
+  </div>
 </template>
 
 <script>
 import ApplicationItem from './ApplicationItem'
-import QInfiniteScroll from 'quasar'
 
 export default {
   components: {
-    QInfiniteScroll, ApplicationItem,
+    ApplicationItem,
   },
   props: {
     groupApplications: {

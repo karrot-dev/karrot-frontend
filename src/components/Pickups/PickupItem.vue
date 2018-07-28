@@ -94,7 +94,6 @@ export default {
         .catch(() => {})
     },
     detailIfMember (event) {
-      console.log('detailIfmember')
       if (!this.pickup.isUserMember) return
       if (event.target.closest('a')) return // ignore actual links
       if (this.$q.platform.is.mobile) {
@@ -110,10 +109,6 @@ export default {
 
 <style scoped lang="stylus">
 @import '~variables'
-
-$lightRed = #FFF5F5
-$lightGreen = #E7FFE0
-$lighterGreen = #F0FFF0
 
 .content
   transition: background-color 2s ease

@@ -77,7 +77,7 @@
     <a
       class="q-item"
       target="_blank"
-      rel="noopener"
+      rel="nofollow noopener noreferrer"
       href="https://github.com/yunity/karrot-frontend"
     >
       <q-item-side>
@@ -90,15 +90,17 @@
     </a>
     <q-item-separator />
     <LocaleSelect style="color: rgba(0,0,0,0.54)" />
+    <CommunityFeed />
   </q-list>
 </template>
 <script>
 
 import { QList, QListHeader, QItem, QItemSeparator, QItemSide, QItemMain } from 'quasar'
 import LocaleSelect from '@/components/General/LocaleSelect'
+import CommunityFeed from '@/components/General/CommunityFeed'
 
 export default {
-  components: { QList, QListHeader, QItem, QItemSeparator, QItemSide, QItemMain, LocaleSelect },
+  components: { QList, QListHeader, QItem, QItemSeparator, QItemSide, QItemMain, LocaleSelect, CommunityFeed },
   props: {
     currentUserId: {
       type: Number,
@@ -107,8 +109,3 @@ export default {
   },
 }
 </script>
-
-<style scoped lang="stylus">
-  .fa
-    font-size 1.5em
-</style>

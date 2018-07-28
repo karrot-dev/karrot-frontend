@@ -2,7 +2,7 @@
   "GLOBAL": {
     "GITHUB_NOTE": "Utveckling",
     "FSWW_NOTE": "Read our info page!",
-    "FACEBOOK_NOTE": "Join our Facebook Group!",
+    "COMMUNITY_NOTE": "Join our community!",
     "WARNING": "Varning",
     "BETA_WARNING": "Denna website är under aktiv utveckling och allt kan ändras. Vi kan inte garantera integriteten på din data, men vi kommer att göra så gott vi kan.",
     "CONNECTION_INTERRUPTED": "Fel: förbindelsen avbröts!",
@@ -132,6 +132,7 @@
     "FULL_SCREEN": "Visa fullskärm"
   },
   "STOREDETAIL": {
+    "DIRECTIONS": "Show directions",
     "EDIT": "Redigera butik",
     "MANAGE": "Hantera upphämtningarna",
     "ARCHIVED": "This store has been archived",
@@ -286,7 +287,6 @@
     "SET_AMOUNT": "Set amount",
     "DELETE_AMOUNT": "Delete amount",
     "AMOUNT": "Amount of food all of you were able to save (in kg)",
-    "COMMENT": "Comment",
     "COMMENT_PLACEHOLDER": "Was everything fine? Did everyone show up? Your comment here...",
     "PREVIOUS": "Previous feedback for {store}"
   },
@@ -354,6 +354,10 @@
     "MESSAGE": "You are using an unsupported browser. {upgradeBrowser} to enjoy all features.",
     "LINK": "Please update or switch your browser"
   },
+  "UPDATE_AVAILABLE": {
+    "TITLE": "Update available",
+    "DETAIL": "A new version of karrot is available."
+  },
   "NOT_FOUND": {
     "EXPLANATION": "Jag är ledsen, men vi kunde inte hitta sidan nånstans.",
     "HOME": "Ta mig hem"
@@ -396,6 +400,9 @@
   },
   "CONVERSATION": {
     "OPEN": "Open Chat",
+    "REPLY_TO_MESSAGE": "Reply to message...",
+    "REPLIES": "Replies",
+    "REPLIES_COUNT": "1 reply | {count} replies",
     "UNREAD_MESSAGES": "Du har ett oläst meddelande. | Du har {count} olästa meddelande.",
     "EDITED": "edited",
     "MARK_READ": "Markera alla som lästa",
@@ -403,7 +410,8 @@
       "YOU": "du",
       "AND": "och",
       "REACTED_WITH":"{users} reagerade med {reaction}"
-    }
+    },
+    "MESSAGE_NOT_FOUND": "Message not found"
   },
   "STORESTATUS":{
     "ACTIVE": "Samarbetar",

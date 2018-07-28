@@ -1,35 +1,35 @@
 {
   "GLOBAL": {
-    "GITHUB_NOTE": "Dévéloppement",
-    "FSWW_NOTE": "Lire notre page info!",
-    "FACEBOOK_NOTE": "Joins notre groupe sur Facebook!",
+    "GITHUB_NOTE": "Développement",
+    "FSWW_NOTE": "Lis notre page d'info !",
+    "COMMUNITY_NOTE": "Rejoins notre communauté !",
     "WARNING": "Attention",
-    "BETA_WARNING": "Cette page est dévéloppée continuement et les informations sont régulièrement actualisées. Nous ne pouvons pas garantir la sécurité des données, mais nous faisons tout pour optimiser le niveau de protection !",
-    "CONNECTION_INTERRUPTED": "Erreur: connexion interrompu!",
+    "BETA_WARNING": "Cette page est développée en continu et les informations sont régulièrement actualisées. Nous ne pouvons pas garantir la sécurité des données, mais nous faisons tout pour optimiser le niveau de protection !",
+    "CONNECTION_INTERRUPTED": "Erreur : connexion interrompue !",
     "SERVER_ERROR": "Erreur de serveur",
-    "INVALID_LINK": "Désolé, le lien que vous avez ouvert n'est pas valide.",
+    "INVALID_LINK": "Désolé, le lien que tu as ouvert n'est pas valide.",
     "SEARCH_NOT_FOUND": "Pas trouvé"
   },
   "USERDATA": {
-    "EMAIL": "email",
+    "EMAIL": "e-mail",
     "MOBILE_NUMBER": "Numéro de téléphone",
     "PROFILE_TITLE": "Profil",
     "PASSWORD": "Mot de passe",
-    "CONFIRM_PASSWORD": "Confirmez votre mot de passe",
+    "CONFIRM_PASSWORD": "Confirme ton mot de passe",
     "USERNAME": "Nom",
-    "WHERE_FROM": "D'où vous provenez (non obligatoire)",
+    "WHERE_FROM": "D'où tu viens (optionnel)",
     "PHOTO": "Photo de profil",
-    "SET_PHOTO": "Choisissez votre photo de profil",
+    "SET_PHOTO": "Choisis ta photo de profil",
     "ACCOUNT": "Compte",
-    "PUSH": "Push notifications",
-    "PUSH_CURRENT_BROWSER": "Current browser",
+    "PUSH": "Notifications",
+    "PUSH_CURRENT_BROWSER": "Navigateur Web en cours",
     "REQUEST_DELETE_ACCOUNT": {
-      "SUCCESS": "Nous vous envoyons un e-mail avec un lien pour confirmer la suppression"
+      "SUCCESS": "Nous t'avons envoyé un lien par e-mail pour confirmer la suppression. "
     },
     "DIALOGS": {
       "REQUEST_DELETE_ACCOUNT": {
         "TITLE": "Suppression de compte",
-        "MESSAGE": "Êtes vous sûr ? Votre compte et vos données personnelles vont être supprimées définitivement. Tout ce que vous avez fait sur cette plate-forme sera rendu anonyme. Si vous confirmez, nous vous envoyons un e-mail avec un lien pour terminer la suppression.",
+        "MESSAGE": "Es-tu sûr(e) ? Votre compte et vos données personnelles vont être supprimés définitivement. Tout ce que tu as fait sur cette plate-forme sera rendu anonyme. Si tu confirmes, nous t'enverrons un lien par e-mail pour compléter la suppression.",
         "CONFIRM": "Confirmer"
       }
     }
@@ -40,136 +40,137 @@
     "OPEN": "Ouvrir",
     "CLOSE": "Fermer",
     "DELETE": "Effacer",
-    "EDIT": "Traiter",
+    "EDIT": "Éditer",
     "JOIN": "Rejoindre",
     "LEAVE": "Quitter",
     "PREVIEW": "Aperçu",
-    "BACK": "Rétour",
+    "BACK": "Retour",
     "SEARCH": "Recherche",
-    "OF_COURSE": "Oui, bien sûr!",
+    "OF_COURSE": "Oui, bien sûr !",
     "YES": "Oui",
-    "SAVE_CHANGES": "Sauvegarder les changements",
-    "RESET": "Initialisation",
+    "SAVE_CHANGES": "Sauvegarder",
+    "RESET": "Réinitialiser",
     "CHANGE_PASSWORD": "Changer le mot de passe",
     "CHANGE_EMAIL": "Changer l'adresse e-mail",
     "AGREE": "J'accepte",
     "REMOVE": "Supprimer",
     "ARCHIVE": "Archiver",
     "DELETE_ACCOUNT": "Supprimer le compte",
-    "SHOW": "Montrer",
+    "SHOW": "Afficher",
     "HIDE": "Cacher"
   },
   "VALIDATION": {
-    "MINLENGTH": "Veillez entrez plus de {min} caractères",
-    "MAXLENGTH": "Trop long, veillez utiliser moins de {max} caractères",
-    "UNIQUE": "Ce nom existe déjà, veillez en choisir un autre.",
+    "MINLENGTH": "S'il te plaît, entre plus de {min} caractères",
+    "MAXLENGTH": "Trop long, utilise moins de {max} caractères",
+    "UNIQUE": "Ce nom existe déjà, choisis-en un autre.",
     "REQUIRED": "Ce champ est requis.",
-    "VALID_EMAIL": "Entrez un e-mail valide.",
-    "VALID_TIMEZONE": "Entrez un fuseau horaire valide."
+    "VALID_EMAIL": "Entre une adresse e-mail valide.",
+    "VALID_TIMEZONE": "Entre un fuseau horaire valide."
   },
   "GROUP": {
     "WALL": "Mur",
     "GROUP": "Groupe",
     "LEAVE": "Quitter le groupe...",
-    "LEAVE_TEXT": "Es-tu sûr que tu veux quitter ce groupe?",
-    "LEAVE_CONFIRMATION": "Vous avez quitté {groupName}",
-    "NONMEMBER_REDIRECT": "Tu n'est pas membre de ce groupe.",
-    "EDIT": "Traite groupe",
-    "CREATE_TITLE": "Créer un nouvel groupe",
+    "LEAVE_TEXT": "Es-tu sûr(e) que tu veux quitter ce groupe?",
+    "LEAVE_CONFIRMATION": "Tu as quitté {groupName}",
+    "NONMEMBER_REDIRECT": "Tu n'es pas membre de ce groupe.",
+    "EDIT": "Éditer le groupe",
+    "CREATE_TITLE": "Créer un nouveau groupe",
     "MANAGE_AGREEMENT": "Gérer l'accord",
-    "TITLE": "Titre du group",
+    "TITLE": "Nom du groupe",
     "PRIVATE_DESCRIPTION_TITLE": "Description privée du groupe",
-    "DESCRIPTION_VERBOSE": "Déscription du groupe, accessible pour membres",
-    "PUBLIC_DESCRIPTION": "Texte publiquement accessible (avant de rejoindre le groupe)",
+    "DESCRIPTION_VERBOSE": "Description du groupe, visible par les membres",
+    "PUBLIC_DESCRIPTION": "Texte visible avant de rejoindre le groupe",
     "PASSWORD": "Tape ici un mot de passe si tu veux créer un groupe privé.",
     "PICKUPS": "Récoltes",
-    "PICKUP": "Pickup",
+    "PICKUP": "Récolte",
     "MEMBERS": "Membres",
-    "JOINED": "joined {relativeDate}",
-    "SORT_JOINDATE": "Sort by join date",
-    "SORT_NAME": "Sort by name",
+    "JOINED": "membre depuis {relativeDate}",
+    "SORT_JOINDATE": "Trier par date d'adhésion",
+    "SORT_NAME": "Trier par nom",
     "INACTIVE": "Inactif",
-    "SHOW_INACTIVE": "Montrer les groupes inactifs",
+    "SHOW_INACTIVE": "Afficher les groupes inactifs",
     "STORES": "Magasins",
     "HISTORY": "Histoire",
-    "DESCRIPTION": "Déscription",
-    "ADDRESS": "Addresse",
+    "DESCRIPTION": "Description",
+    "ADDRESS": "Adresse",
     "TIMEZONE": "Fuseau horaire du groupe",
-    "INVITE_EMAIL": "Entrez une adresse e-mail",
+    "INVITE_EMAIL": "Entre une adresse e-mail",
     "INVITE_SEND": "Envoyer une invitation",
-    "INVITED_LIST": "Les invitations ont déjà été envoyées à cette adresse e-mail :",
-    "ALREADY_INVITED": "Une invitation a déjà été envoyée à cette adresse mail",
+    "INVITED_LIST": "Des invitations ont déjà été envoyées à cette adresse e-mail :",
+    "ALREADY_INVITED": "Une invitation a déjà été envoyée à cette adresse e-mail",
     "INVITATIONS": "Invitations",
     "INVITE_TITLE": "Inviter des utilisateurs à votre groupe",
-    "INVITATION_ACCEPT_SUCCESS": "Bienvenue ! Vous avez bien accepté l'invitation.",
-    "INVITATION_ACCEPT_ERROR": "Oups, l'invitation ne peut pas être acceptée",
+    "INVITATION_ACCEPT_SUCCESS": "Bienvenue ! Tu as bien accepté l'invitation.",
+    "INVITATION_ACCEPT_ERROR": "Oups, l'invitation ne peut pas être acceptée !",
     "SETTINGS": "Paramètres",
     "NOTIFICATIONS": "Notifications",
     "EMAIL_NOTIFICATIONS": "Notifications par e-mail",
     "NOTIFICATION_TYPES": {
       "weekly_summary": {
-        "NAME": "Weekly summary",
-        "DESCRIPTION": "Rester au courant avec ce qui se passe dans le groupe."
+        "NAME": "Résumé hebdomadaire",
+        "DESCRIPTION": "Tiens-toi au courant de ce qu'il se passe dans le groupe."
       },
       "daily_pickup_notification": {
-        "NAME": "Pickup notifications",
-        "DESCRIPTION": "Reminds you of your pickups, and tells you about empty or not-full pickups in the next day"
+        "NAME": "Notifications de récolte",
+        "DESCRIPTION": "Te rappelle tes prochaines récoltes et t'indique quelles récoltes sont encore libres pour le lendemain"
       }
     },
-    "PLAYGROUND_INFO": "Ceci est un groupe bac à sable, vous ne risquez pas d'abîmer quoique que ce soit. Explorez, cliquez partout et amusez vous !",
+    "PLAYGROUND_INFO": "Ceci est un groupe bac à sable, tu ne risques pas d'abîmer quoique que ce soit. Explore, clique partout et amuse-toi !",
     "JOIN_PLAYGROUND": "Rejoindre le groupe bac à sable pour explorer karrot",
-    "JOIN_ANOTHER_GROUP": "Join another group"
+    "JOIN_ANOTHER_GROUP": "Rejoindre un autre groupe"
   },
   "GROUPMAP": {
     "TITLE": "Carte",
-    "SHOW_USERS": "Montrer les utilisateurs",
+    "SHOW_USERS": "Afficher les utilisateurs",
     "HIDE_USERS": "Cacher les utilisateurs",
-    "SHOW_STORES": "Show stores",
-    "HIDE_STORES": "Hide stores",
-    "SHOW_GROUPS": "Show groups",
-    "HIDE_GROUPS": "Hide groups",
+    "SHOW_STORES": "Afficher les magasins",
+    "HIDE_STORES": "Cacher les magasins",
+    "SHOW_GROUPS": "Afficher les groupes",
+    "HIDE_GROUPS": "Cacher les groupes",
     "SET_LOCATION": "Ajouter la location",
-    "FULL_SCREEN": "Montrer en plein écran"
+    "FULL_SCREEN": "Afficher le mode plein écran"
   },
   "STOREDETAIL": {
-    "EDIT": "Traiter magasin",
-    "MANAGE": "Check and manage the pickups",
-    "ARCHIVED": "Cette boutique a été archivée",
-    "INACTIVE": "Cette boutique aujourd'hui ne coopère pas",
-    "CHANGE_STATUS": "Vous pouvez changer le statut sur la page des paramètres",
-    "NO_DESCRIPTION": "Cette boutique n'a pas encore de description"
+    "DIRECTIONS": "Afficher la direction",
+    "EDIT": "Éditer le magasin",
+    "MANAGE": "Vérifier et organiser les récoltes",
+    "ARCHIVED": "Ce magasin a été archivé",
+    "INACTIVE": "Nous n'avons pas de coopération avec ce magasin.",
+    "CHANGE_STATUS": "Tu peux changer le statut sur la page des paramètres.",
+    "NO_DESCRIPTION": "Ce magasin n'a pas encore de description"
   },
   "STOREEDIT": {
     "NAME": "Nom",
     "STATUS":"Statut",
-    "DESCRIPTION": "Déscription",
-    "ADDRESS": "Addresse",
+    "DESCRIPTION": "Description",
+    "ADDRESS": "Adresse",
     "WEEKS_IN_ADVANCE": "Les récoltes récurrentes sont affichées combien de semaines en avance?",
     "DIALOGS": {
       "ARCHIVE": {
-        "TITLE": "Archiver la boutique",
-        "MESSAGE": "Êtes-vous sûr ?",
-        "CONFIRM": "Oui, archiver la boutique"
+        "TITLE": "Archiver le magasin",
+        "MESSAGE": "Es-tu sûr(e) ?",
+        "CONFIRM": "Oui, archiver le magasin"
       }
     },
     "RESTORE": "Restaurer",
-    "SHOW_ARCHIVED": "Montrer les boutiques archivées",
-    "HIDE_ARCHIVED": "Cacher les boutiques archivées"
+    "SHOW_ARCHIVED": "Afficher les magasin archivés",
+    "HIDE_ARCHIVED": "Cacher les magasins archivés"
   },
   "PICKUPMANAGE": {
-    "TITLE": "Administrer les récoltes",
-    "SERIES": "Récup' récurrente",
+    "TITLE": "Gérer les récoltes",
+    "SERIES": "Récolte récurrente",
     "SINGLE": "Récoltes individuelles",
-    "UPCOMING_PICKUPS_IN_SERIES": "Récups à venir dans cette série"
+    "UPCOMING_PICKUPS_IN_SERIES": "Récoltes à venir dans cette série"
   },
   "PICKUPDELETE": {
-    "DELETE_SERIES_TITLE": "Effacer récolte récurrent",
-    "DELETE_SERIES_TEXT": "Voulez vous réellement supprimer cette date de récup' récurrente ? Cela supprimera aussi toutes les dates de récup' qui dépendent de cette date récurrente de récup' (sauf celles que des personnes ont déjà rejoint)"
+    "DELETE_SERIES_TITLE": "Effacer récolte récurrente",
+    "DELETE_SERIES_TEXT": "Veux-tu réellement supprimer cette récolte récurrente ? Cela supprimera aussi toutes les dates de récolte individuelle qui dépendent de cette date récurrente de récolte (sauf celles que des personnes ont déjà rejoint)."
   },
   "USERDETAIL": {
     "DISPLAY_NAME": "Nom",
     "DESCRIPTION": "Plus d'informations sur toi",
-    "OLD_PASSWORD": "Confirmez votre ancien mot de passe",
+    "OLD_PASSWORD": "Confirme ton ancien mot de passe",
     "PASSWORD": "Nouveau mot de passe"
   },
   "PROFILE": {
@@ -177,33 +178,33 @@
   },
   "JOINGROUP": {
     "WHICHGROUP": "Quel groupe veux-tu rejoindre ?",
-    "NUM_MEMBERS": "Member | Members",
-    "NO_PUBLIC_DESCRIPTION": "(Ce groupe n'est pas encore défini)",
-    "PASSWORD_LABEL": "Tape le mot de passe pour le groupe privé",
-    "PASSWORD_REQUIRED": "Ce groupe demande un mot de passe",
+    "NUM_MEMBERS": "Membre | Membres",
+    "NO_PUBLIC_DESCRIPTION": "(Ce groupe n'a pas encore de description publique)",
+    "PASSWORD_LABEL": "Tape un mot de passe pour le groupe privé",
+    "PASSWORD_REQUIRED": "Ce groupe nécessite un mot de passe",
     "ALL_GROUPS": "Tous les groupes",
-    "SIGNUP_OR_LOGIN": "Il faut s'enregistrer pour joindre ce groupe!",
+    "SIGNUP_OR_LOGIN": "Il faut s'enregistrer pour joindre ce groupe !",
     "MY_GROUPS": "Mes groupes",
     "LOGOUT_MESSAGE": {
-      "LOGGED_OUT": "Vous êtes en ce moment déconnecté. {login}",
-      "LOG_IN": "Connectez vous pour voir vos groupes !"
+      "LOGGED_OUT": "Tu es en ce moment déconnecté. {login}",
+      "LOG_IN": "Connecte-toi pour voir tes groupes !"
     },
-    "PROFILE_NOTE": "Quand tu joins ce groupe tes détails seront visible pour les autres membres."
+    "PROFILE_NOTE": "Si tu rejoins ce groupe, les informations de ton profil seront visible par les autres membres."
   },
   "GROUPINFO": {
-    "TITLE": "Informations publiques du groupe",
-    "META": "Information publique du groupe",
-    "MEMBER_VIEW": "Tu es membre de ce groupe. Clique ici pour l'affichage complet."
+    "TITLE": "Information publique du groupe",
+    "META": "Afficher les informations publiques du groupe",
+    "MEMBER_VIEW": "Tu es membre de ce groupe. Clique ici pour l'afficher en plein écran."
   },
   "TOPBAR": {
     "LOGOUT": "Déconnexion",
-    "USERPROFILE": "Vois ton profile",
-    "CHANGE_GROUP": "Change groupe"
+    "USERPROFILE": "Visite ton profile",
+    "CHANGE_GROUP": "Change de groupe"
   },
   "SIDENAV": {
-    "INFO_SUB": "Comment construire votre groupe de récupération de nourriture",
+    "INFO_SUB": "Comment créer ton groupe de récupération alimentaire",
     "BLOG_SUB": "Toutes les nouvelles autour du logiciel karrot",
-    "GIT_SUB": "Regardez notre code !"
+    "GIT_SUB": "Regarde notre code !"
   },
   "LOGIN": {
     "TITLE": "Connexion",
@@ -218,80 +219,79 @@
   },
   "VERIFYMAIL": {
     "TITLE": "Vérification d'email",
-    "SUCCESS": "Votre adresse e-mail a été correctement vérifiée !"
+    "SUCCESS": "Ton adresse e-mail a été correctement vérifiée !"
   },
   "DELETEACCOUNT": {
     "TITLE": "Suppression de compte",
-    "SUCCESS": "Votre compte a été correctement supprimé !"
+    "SUCCESS": "Ton compte a été correctement supprimé !"
   },
   "CREATEPICKUP": {
     "FREQUENCY": "Fréquence",
     "WEEKLY": "Hebdomadaire",
-    "CUSTOM": "Personalisé",
-    "WEEKDAYS": "Jour du semaine",
-    "WEEKDAYS_HELPER": "À quels jours doit se faire la récup' ?",
-    "RRULE": "Règle de récurrence",
-    "RRULE_HELPER": "Écrire une règle valide {ruleHelper}, par exemple {ruleExample} ou {ruleExample2}",
-    "RRULE_HELPER_URL": "iCalender rule",
-    "RRULE_EXAMPLE": "last working day (Mo-Fr) every month",
-    "RRULE_EXAMPLE2": "every second Monday",
-    "STARTDATE": "Start date",
-    "STARTDATE_HELPER": "When should the series start?",
-    "TIME": "Temps",
-    "TIME_HELPER": "When should the pick-up take place?",
+    "CUSTOM": "Personnalisée",
+    "WEEKDAYS": "Jour de la semaine",
+    "WEEKDAYS_HELPER": "Quels jours doit avoir lieu la récolte ?",
+    "RRULE": "Paramètres de récurrence",
+    "RRULE_HELPER": "Écris une règle valide {ruleHelper}, par exemple {ruleExample} ou {ruleExample2}",
+    "RRULE_HELPER_URL": "Paramètres du iCalendar",
+    "RRULE_EXAMPLE": "dernier jour ouvré de chaque mois",
+    "RRULE_EXAMPLE2": "chaque second mardi du mois",
+    "STARTDATE": "Date de début",
+    "STARTDATE_HELPER": "Quand doivent commencer les récoltes?",
+    "TIME": "Heure",
+    "TIME_HELPER": "Quand doit avoir lieu la récolte ?",
     "DATE": "Date",
-    "DATE_HELPER": "When should the pick-up take place?",
-    "MAX_COLLECTORS": "Nombre maximum d'emplacements",
-    "MAX_COLLECTORS_HELPER": "How many people should participate in the pick-up?",
-    "COMMENT": "Additional information",
-    "COMMENT_HELPER": "What should people know when signing up to this pick-up?",
-    "DELETION_FORBIDDEN_HELPER": "This pick-up can't be deleted because people already signed up for it",
-    "UNLIMITED": "unlimited"
+    "DATE_HELPER": "Quand doit avoir lieu la récolte ?",
+    "MAX_COLLECTORS": "Nombre maximum de places",
+    "MAX_COLLECTORS_HELPER": "Combien de personnes participent à la récolte ?",
+    "COMMENT": "Informations supplémentaires",
+    "COMMENT_HELPER": "Que devraient savoir les membres à propos de cette récolte ?",
+    "DELETION_FORBIDDEN_HELPER": "Cette récolte ne peut être supprimée car des gens s'y sont déjà inscrits",
+    "UNLIMITED": "illimité"
   },
   "CREATESTORE": {
     "TITLE": "Créer un nouveau magasin"
   },
   "PICKUPLIST": {
-    "AVAILABLE": "There is one pickup in the next days waiting for you! | There are {count} pickups in the next days waiting for you!",
-    "AVAILABLE_FEEDBACK": "You can give feedback to a pickup | {count} pickups await your feedback",
-    "JOINEDNOTICE": "You have one upcoming pickup | You have {count} upcoming pickups",
+    "AVAILABLE": "Il y a une récolte qui t'attend dans les prochains jours !  | Il y a {count} récoltes qui t'attendent dans les prochains jours !",
+    "AVAILABLE_FEEDBACK": "Tu peux donner ton feedback sur la récolte | {count} récoltes attendent ton feedback ",
+    "JOINEDNOTICE": "Tu as une récolte qui arrive | Tu as {count} récoltes qui arrivent",
     "ITEM": {
       "LEAVE": "Quitter",
       "JOIN": "Rejoindre",
-      "JOIN_CONFIRMATION_HEADER": "Join Pickup",
-      "JOIN_CONFIRMATION_TEXT": "Are you sure you have time to pick up on {date}?",
-      "LEAVE_CONFIRMATION_HEADER": "Leave Pickup",
-      "LEAVE_CONFIRMATION_TEXT": "Are you really sure the others can do the pickup without you?"
+      "JOIN_CONFIRMATION_HEADER": "Rejoindre la récolte",
+      "JOIN_CONFIRMATION_TEXT": "Es-tu sûr(e) que tu es disponible le {date} ?",
+      "LEAVE_CONFIRMATION_HEADER": "Quitter la récolte",
+      "LEAVE_CONFIRMATION_TEXT": "Es-tu vraiment sûr(e) que les autres peuvent faire la récolte sans toi ?"
     },
-    "NONE": "Aucune récoltes à venir",
-    "NONE_HINT": "Tu peux créer un nouveau récolte à la page du magasin.",
-    "STORE_NONE_HINT": "You can create a new pickup on the pickup manage page."
+    "NONE": "Aucune récolte à venir",
+    "NONE_HINT": "Tu peux créer une nouvelle récolte sur la page du magasin.",
+    "STORE_NONE_HINT": "Tu peux créer une nouvelle récolte sur la page des récoltes."
   },
   "FEEDBACKLIST": {
-    "SAVED_FOOD": "At least 1 kg was saved here. Thank you! | People gave feedback for {amount} kg of saved food already! Keep up the great work!",
-    "NUMBER_PICKUPS": "{count} pickups done",
-    "NUMBER_FEEDBACK": "{count} feedback entries given",
-    "WEIGHT_SUM": "{sum} kg of food saved",
-    "GIVE_FEEDBACK": "Give feedback",
-    "NONE": "No feedback yet",
-    "NONE_HINT": "This page will be filled once more feedback is available",
-    "NO_DONE_PICKUPS": "All done!",
-    "NO_DONE_PICKUPS_HINT": "You currently have no pickups to give feedback to. Why not join another pickup?"
+    "SAVED_FOOD": "Au moins 1 kg a été sauvé. Merci ! Les autres participants ont déjà indiqué que {amount} kg de nourriture ont été sauvés ! Continue, c'est génial !",
+    "NUMBER_PICKUPS": "{count} récoltes effectuées",
+    "NUMBER_FEEDBACK": "{count} feedback rendus",
+    "WEIGHT_SUM": "{sum} kg de nourriture sauvée",
+    "GIVE_FEEDBACK": "Donne ton feedback",
+    "NONE": "Pas de feedback",
+    "NONE_HINT": "Cette page sera remplie quand plus de feedback sera disponible",
+    "NO_DONE_PICKUPS": "Et voilà !",
+    "NO_DONE_PICKUPS_HINT": "Aucune récolte ne t'attend pour le moment. Pourquoi ne pas t'inscrire?"
   },
   "PICKUP_FEEDBACK": {
     "TITLE": "Feedback",
-    "HEADER": "Thank you for your pickup!",
-    "EDIT": "Edit feedback",
-    "SUBTITLE": "You can provide feedback for your pickup here",
-    "SET_AMOUNT": "Set amount",
-    "DELETE_AMOUNT": "Delete amount",
-    "AMOUNT": "Amount of food all of you were able to save (in kg)",
-    "COMMENT": "Comment",
-    "COMMENT_PLACEHOLDER": "Was everything fine? Did everyone show up? Your comment here...",
-    "PREVIOUS": "Previous feedback for {store}"
+    "HEADER": "Merci pour ta récolte !",
+    "EDIT": "Édite ton feedback ",
+    "SUBTITLE": "Tu peux donner ton feedback sur la récolte ici",
+    "SET_AMOUNT": "Établir la quantité",
+    "DELETE_AMOUNT": "Supprimer la quantité",
+    "AMOUNT": "Quantité de nourriture que tu as pu sauver (en kg)",
+    "COMMENT_PLACEHOLDER": "Tout s'est bien passé ? Tout les participants sont venus ? Ton commentaire ici...",
+    "PREVIOUS": "Dernier feedback à propos de {store}"
   },
   "PASSWORDRESET": {
-    "TITLE": "Reset de mot de passe",
+    "TITLE": "Réinitialiser le mot de passe",
     "INTRO": "Enter your Email address and we will send you a link to set a new password (if you have an account registered).",
     "EMAIL": "Email address",
     "SUBMIT": "Demander un nouveau mot de passe",
@@ -354,6 +354,10 @@
     "MESSAGE": "You are using an unsupported browser. {upgradeBrowser} to enjoy all features.",
     "LINK": "Please update or switch your browser"
   },
+  "UPDATE_AVAILABLE": {
+    "TITLE": "Update available",
+    "DETAIL": "A new version of karrot is available."
+  },
   "NOT_FOUND": {
     "EXPLANATION": "Sorry, we couldn't find this page anywhere.",
     "HOME": "Take me home"
@@ -396,6 +400,9 @@
   },
   "CONVERSATION": {
     "OPEN": "Open Chat",
+    "REPLY_TO_MESSAGE": "Reply to message...",
+    "REPLIES": "Replies",
+    "REPLIES_COUNT": "1 reply | {count} replies",
     "UNREAD_MESSAGES": "You have one unread message. | You have {count} unread messages.",
     "EDITED": "edited",
     "MARK_READ": "Mark all as read",
@@ -403,7 +410,8 @@
       "YOU": "you",
       "AND": "and",
       "REACTED_WITH":"{users} reacted with {reaction}"
-    }
+    },
+    "MESSAGE_NOT_FOUND": "Message not found"
   },
   "STORESTATUS":{
     "ACTIVE": "Co-operating",

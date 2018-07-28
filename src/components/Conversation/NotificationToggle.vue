@@ -6,13 +6,14 @@
     :flat="inToolbar"
     :color="inToolbar ? 'white' : 'negative'"
     :to="{ name: 'settings', hash: '#change-email' }"
+    :size="size"
   >
     <q-icon
       name="fas fa-exclamation-triangle"
     />
     <q-tooltip
       v-t="'WALL.VERIFY_EMAIL_FOR_NOTIFICATIONS'"
-      :delay="1000"
+      :delay="300"
     />
   </q-btn>
   <q-btn
@@ -22,6 +23,7 @@
     :flat="inToolbar"
     :color="inToolbar ? 'white' : (isEnabled ? 'secondary' : 'negative')"
     @click="$emit('click')"
+    :size="size"
   >
     <q-icon
       v-if="isEnabled"
@@ -33,7 +35,7 @@
     />
     <q-tooltip
       v-t="isEnabled ? 'WALL.DISABLE_NOTIFICATION_EMAILS' : 'WALL.ENABLE_NOTIFICATION_EMAILS'"
-      :delay="1000"
+      :delay="300"
     />
   </q-btn>
 </template>
@@ -55,7 +57,11 @@ export default {
     },
     inToolbar: {
       type: Boolean,
-      default: true,
+      default: false,
+    },
+    size: {
+      type: String,
+      default: null,
     },
   },
   computed: {

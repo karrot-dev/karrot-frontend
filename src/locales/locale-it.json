@@ -2,7 +2,7 @@
   "GLOBAL": {
     "GITHUB_NOTE": "Sviluppo",
     "FSWW_NOTE": "Leggi la nostra pagina descrittiva!",
-    "FACEBOOK_NOTE": "Unisciti al nostro gruppo Facebook!",
+    "COMMUNITY_NOTE": "Join our community!",
     "WARNING": "Attenzione",
     "BETA_WARNING": "Questo sito internet è sotto sviluppo attivo e tutto è soggetto a cambiamenti continui. Non possiamo garantire per la sicurezza e la privacy dei dati che vengono immessi (ma proveremo a fare del nostro meglio)",
     "CONNECTION_INTERRUPTED": "Errore: connessione interrotta!",
@@ -132,6 +132,7 @@
     "FULL_SCREEN": "Espandi"
   },
   "STOREDETAIL": {
+    "DIRECTIONS": "Show directions",
     "EDIT": "Modifica negozi",
     "MANAGE": "Controlla e gestisci le recupere",
     "ARCHIVED": "Questo negozio è stato archiviato",
@@ -286,7 +287,6 @@
     "SET_AMOUNT": "Set amount",
     "DELETE_AMOUNT": "Delete amount",
     "AMOUNT": "Amount of food all of you were able to save (in kg)",
-    "COMMENT": "Comment",
     "COMMENT_PLACEHOLDER": "Was everything fine? Did everyone show up? Your comment here...",
     "PREVIOUS": "Previous feedback for {store}"
   },
@@ -354,6 +354,10 @@
     "MESSAGE": "You are using an unsupported browser. {upgradeBrowser} to enjoy all features.",
     "LINK": "Please update or switch your browser"
   },
+  "UPDATE_AVAILABLE": {
+    "TITLE": "Update available",
+    "DETAIL": "A new version of karrot is available."
+  },
   "NOT_FOUND": {
     "EXPLANATION": "Sorry, we couldn't find this page anywhere.",
     "HOME": "Take me home"
@@ -396,6 +400,9 @@
   },
   "CONVERSATION": {
     "OPEN": "Open Chat",
+    "REPLY_TO_MESSAGE": "Reply to message...",
+    "REPLIES": "Replies",
+    "REPLIES_COUNT": "1 reply | {count} replies",
     "UNREAD_MESSAGES": "Hai un messaggio non letto. | Hai {count} messaggi non letti.",
     "EDITED": "modificato",
     "MARK_READ": "Mark all as read",
@@ -403,7 +410,8 @@
       "YOU": "you",
       "AND": "and",
       "REACTED_WITH":"{users} reacted with {reaction}"
-    }
+    },
+    "MESSAGE_NOT_FOUND": "Message not found"
   },
   "STORESTATUS":{
     "ACTIVE": "Collaborazione in corso",

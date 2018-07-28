@@ -1,7 +1,7 @@
 defaults: &defaults
   working_directory: ~/repo
   docker:
-    - image: circleci/node:8.10
+    - image: circleci/node:10.7
 
 android-defaults: &android-defaults
   working_directory: ~/repo
@@ -111,6 +111,8 @@ jobs:
           background: true
       - run:
           name: run frontend
+          environment:
+            BACKEND: https://localhost:8000
           command: yarn serve
           background: true
       - run:

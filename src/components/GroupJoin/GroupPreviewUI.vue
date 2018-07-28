@@ -31,11 +31,12 @@
         </q-btn>
       </q-card-title>
       <q-card-main>
-        <Markdown
+        <div
           v-if="group.publicDescription"
           class="quote"
-          :source="group.publicDescription"
-        />
+        >
+          <Markdown :source="group.publicDescription" />
+        </div>
         <span
           v-else
           class="text-italic"

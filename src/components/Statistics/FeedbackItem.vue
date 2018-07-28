@@ -3,7 +3,7 @@
     <q-card-main class="generic-padding">
       <div class="row no-wrap">
         <AmountBox
-          v-if="weight"
+          v-if="hasWeight"
           class="amount-box"
           :size="80"
           :amount="weight"
@@ -40,7 +40,9 @@
           </small>
           <div
             v-if="comment"
-            class="comment multiline">{{ comment }}
+            class="comment"
+          >
+            <Markdown :source="comment"/>
           </div>
           <div class="people">
             <ProfilePicture
@@ -70,10 +72,11 @@ import { QCard, QCardMain, QCardTitle, QTooltip, QIcon } from 'quasar'
 import AmountBox from './AmountBox'
 import ProfilePicture from '@/components/ProfilePictures/ProfilePicture'
 import DateAsWords from '@/components/General/DateAsWords'
+import Markdown from '@/components/Markdown'
 
 export default {
   components: {
-    QCard, QCardMain, QCardTitle, QTooltip, QIcon, AmountBox, ProfilePicture, DateAsWords,
+    QCard, QCardMain, QCardTitle, QTooltip, QIcon, AmountBox, ProfilePicture, DateAsWords, Markdown,
   },
   props: {
     feedback: { required: true, type: Object },
@@ -87,6 +90,9 @@ export default {
     },
     weight () {
       return this.feedback && this.feedback.weight
+    },
+    hasWeight () {
+      return Number.isFinite(this.weight)
     },
     comment () {
       return this.feedback && this.feedback.comment
@@ -122,7 +128,10 @@ export default {
 .content
   padding: .5em
 .comment
-  padding: .3em 0 .15em 0
+  padding-top 8px
+  word-wrap break-word
+  >>> p:last-child
+    margin-bottom 5px
 .people
   margin-top: .3em
   .members

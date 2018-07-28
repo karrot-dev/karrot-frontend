@@ -32,9 +32,9 @@
         <i class="fas fa-fw fa-globe" />
         {{ $t('GLOBAL.FSWW_NOTE') }}
       </a>
-      <a href="https://www.facebook.com/groups/foodsaving.worldwide/">
-        <i class="fab fa-fw fa-facebook" />
-        {{ $t('GLOBAL.FACEBOOK_NOTE') }}
+      <a href="https://community.foodsaving.world/">
+        <i class="fab fa-fw fa-discourse" />
+        {{ $t('GLOBAL.COMMUNITY_NOTE') }}
       </a>
       <a href="mail:karrot@foodsaving.world">
         <i class="fas fa-fw fa-envelope"/>
@@ -56,26 +56,25 @@ export default {
   computed: {
     ...mapGetters({
       deployed: 'about/deployed',
-      sha: 'about/ourSHA',
     }),
     release () {
       if (process.env.NODE_ENV === 'development') {
         return {
           link: '',
-          name: 'local dev version',
+          name: 'local dev',
         }
       }
       if (this.deployed) {
         if (this.deployed.env === 'production') {
           return {
             link: 'https://github.com/yunity/karrot-frontend/blob/master/CHANGELOG.md',
-            name: 'Release 4',
+            name: this.deployed.date,
           }
         }
         if (this.deployed.env === 'development') {
           return {
-            link: `https://github.com/yunity/karrot-frontend/tree/${this.sha}`,
-            name: 'beta version',
+            link: `https://github.com/yunity/karrot-frontend/tree/${this.deployed.commitSHA}`,
+            name: this.deployed.date,
           }
         }
       }

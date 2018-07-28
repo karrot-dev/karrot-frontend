@@ -1,7 +1,7 @@
 <template>
   <q-infinite-scroll
     ref="infiniteScroll"
-    :handler="loadMore"
+    :handler="maybeFetchPast"
   >
     <HistoryEntry
       v-for="entry in history"
@@ -23,30 +23,19 @@
 
 <script>
 import { QIcon, QInfiniteScroll, QSpinnerDots, QList } from 'quasar'
+import paginationMixin from '@/mixins/paginationMixin'
 import HistoryEntry from '@/components/History/HistoryEntry'
 
 export default {
+  mixins: [paginationMixin],
   props: {
     history: { required: true, type: Array },
     status: { required: true, type: Object },
-    canLoadMore: { required: true, type: Boolean },
-    fetchMore: { required: true, type: Function },
   },
   components: { QIcon, QInfiniteScroll, QSpinnerDots, QList, HistoryEntry },
   computed: {
     empty () {
       return !this.history.length && !this.status.pending && !this.status.hasValidationErrors
-    },
-  },
-  methods: {
-    async loadMore (index, done) {
-      if (!this.canLoadMore) {
-        await this.$nextTick()
-        done()
-        return
-      }
-      await this.fetchMore()
-      done()
     },
   },
 }

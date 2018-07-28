@@ -80,7 +80,4 @@ export default {
     opacity 1
     >>> .label
       opacity 1
-.fa
-  transition font-size .3s ease-out
-  font-size 1.4em
 </style>

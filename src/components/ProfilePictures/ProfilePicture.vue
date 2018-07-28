@@ -1,5 +1,8 @@
 <template>
-  <div class="wrapper">
+  <div
+    class="wrapper"
+    :style="pictureStyle"
+  >
     <template v-if="user && user.id">
       <router-link
         v-if="isLink"
@@ -9,7 +12,8 @@
         <img
           v-if="hasPhoto"
           :src="photo"
-          :style="pictureStyle"
+          :width="size"
+          :height="size"
         >
         <RandomArt
           v-else
@@ -23,7 +27,8 @@
         <img
           v-if="hasPhoto"
           :src="photo"
-          :style="pictureStyle"
+          :width="size"
+          :height="size"
         >
         <RandomArt
           v-else
@@ -57,10 +62,16 @@ export default {
   },
   computed: {
     pictureStyle () {
-      return { width: this.size + 'px', height: this.size + 'px' }
+      return {
+        width: this.size + 'px',
+        height: this.size + 'px',
+      }
     },
     deletedUserStyle () {
-      return { width: this.size + 'px', height: this.size + 'px', 'font-size': this.size * 0.8 + 'px' }
+      return {
+        ...this.pictureStyle,
+        'font-size': this.size * 0.8 + 'px',
+      }
     },
     bigPhoto () {
       return this.size > 120

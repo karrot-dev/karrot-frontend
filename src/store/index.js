@@ -15,8 +15,10 @@ import banners from './modules/banners'
 import auth from './modules/auth'
 import { plugin as authPushPlugin } from './modules/auth/push'
 import breadcrumbs from './modules/breadcrumbs'
+import communityFeed from './modules/communityFeed'
 import conversations from './modules/conversations'
 import currentGroup from './modules/currentGroup'
+import currentThread from './modules/currentThread'
 import deleteAccount from './modules/deleteAccount'
 import detail from './modules/detail'
 import fcm, { plugin as fcmPlugin } from './modules/fcm'
@@ -52,8 +54,10 @@ export default new Vuex.Store({
     banners,
     auth,
     breadcrumbs,
+    communityFeed,
     conversations,
     currentGroup,
+    currentThread,
     deleteAccount,
     detail,
     fcm,

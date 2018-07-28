@@ -44,6 +44,7 @@
       <q-tooltip v-t="'BUTTON.SEARCH'" />
     </q-btn>
     <template v-if="!$q.platform.is.mobile">
+      <CommunityFeed />
       <LocaleSelect />
       <router-link
         :to="{name: 'user', params: {userId: user.id}}"
@@ -142,10 +143,11 @@ import KarrotLogo from './KarrotLogo'
 import KBreadcrumb from '@/components/General/KBreadcrumb'
 import Search from '@/components/General/Search'
 import LocaleSelect from '@/components/General/LocaleSelect'
+import CommunityFeed from '@/components/General/CommunityFeed'
 
 export default {
   components: {
-    QToolbar, QToolbarTitle, QBtn, QIcon, QPopover, QList, QItem, QTooltip, KarrotLogo, KBreadcrumb, Search, LocaleSelect,
+    QToolbar, QToolbarTitle, QBtn, QIcon, QPopover, QList, QItem, QTooltip, KarrotLogo, KBreadcrumb, Search, LocaleSelect, CommunityFeed,
   },
   props: {
     breadcrumbs: {

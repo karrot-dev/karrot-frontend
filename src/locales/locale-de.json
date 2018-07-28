@@ -2,7 +2,7 @@
   "GLOBAL": {
     "GITHUB_NOTE": "Entwicklung",
     "FSWW_NOTE": "Lies unsere Infoseite!",
-    "FACEBOOK_NOTE": "Tritt unserer Facebook-Gruppe bei!",
+    "COMMUNITY_NOTE": "Besuche unsere Community!",
     "WARNING": "Warnung",
     "BETA_WARNING": "Diese Website ist in aktiver Entwicklung und alles verändert sich ständig. Die Sicherheit der eingegebenen Daten kann nicht garantiert werden, aber wir tun unser Bestes!",
     "CONNECTION_INTERRUPTED": "Fehler: Verbindung abgebrochen!",
@@ -83,11 +83,11 @@
     "PUBLIC_DESCRIPTION": "Text, der vorm Beitritt zur Gruppe angezeigt wird",
     "PASSWORD": "Gib hier ein Passwort ein, wenn du eine geschlossene Gruppe erstellen willst.",
     "PICKUPS": "Abholungen",
-    "PICKUP": "Pickup",
+    "PICKUP": "Abholung",
     "MEMBERS": "Mitglieder",
-    "JOINED": "joined {relativeDate}",
-    "SORT_JOINDATE": "Sort by join date",
-    "SORT_NAME": "Sort by name",
+    "JOINED": "{relativeDate} beigetreten",
+    "SORT_JOINDATE": "Nach Beitrittsdatum sortieren",
+    "SORT_NAME": "Nach Namen sortieren",
     "INACTIVE": "Inaktiv",
     "SHOW_INACTIVE": "Zeige inaktive Gruppen",
     "STORES": "Betriebe",
@@ -118,7 +118,7 @@
     },
     "PLAYGROUND_INFO": "Dies ist eine Spielplatz-Gruppe, du kannst nichts kaputtmachen. Probiere gerne alles aus!",
     "JOIN_PLAYGROUND": "Besuche die Spielplatz-Gruppe, um karrot kennenzulernen",
-    "JOIN_ANOTHER_GROUP": "Join another group"
+    "JOIN_ANOTHER_GROUP": "Mehr Gruppen beitreten"
   },
   "GROUPMAP": {
     "TITLE": "Karte",
@@ -126,12 +126,13 @@
     "HIDE_USERS": "Mitglieder verstecken",
     "SHOW_STORES": "Betriebe anzeigen",
     "HIDE_STORES": "Betriebe verstecken",
-    "SHOW_GROUPS": "Show groups",
-    "HIDE_GROUPS": "Hide groups",
+    "SHOW_GROUPS": "Gruppen anzeigen",
+    "HIDE_GROUPS": "Gruppen verstecken",
     "SET_LOCATION": "Ort festlegen",
     "FULL_SCREEN": "Zeige auf ganzem Bildschirm"
   },
   "STOREDETAIL": {
+    "DIRECTIONS": "Wegbeschreibung anzeigen",
     "EDIT": "Betrieb bearbeiten",
     "MANAGE": "Abholzeiten prüfen und ändern",
     "ARCHIVED": "Dieser Betrieb wurde archiviert",
@@ -268,10 +269,10 @@
     "STORE_NONE_HINT": "Im Abholzeiten-Editor kannst du eine neue Abholung erstellen."
   },
   "FEEDBACKLIST": {
-    "SAVED_FOOD": "At least 1 kg was saved here. Thank you! | People gave feedback for {amount} kg of saved food already! Keep up the great work!",
-    "NUMBER_PICKUPS": "{count} pickups done",
-    "NUMBER_FEEDBACK": "{count} feedback entries given",
-    "WEIGHT_SUM": "{sum} kg of food saved",
+    "SAVED_FOOD": "Mindestens 1 kg wurde hier gerettet. Dankeschön! | Es wurden bereits für {amount} kg gerettete Lebensmittel Feedback gegeben! Weiter so!",
+    "NUMBER_PICKUPS": "{count} Abholungen",
+    "NUMBER_FEEDBACK": "{count} Rückmeldungen",
+    "WEIGHT_SUM": "{sum} kg Lebensmittel gerettet",
     "GIVE_FEEDBACK": "Gib Feedback",
     "NONE": "Bisher kein Feedback",
     "NONE_HINT": "Auf dieser Seite wird etwas stehen, sobald Feedback abgegeben wurde",
@@ -286,7 +287,6 @@
     "SET_AMOUNT": "Gewicht eingeben",
     "DELETE_AMOUNT": "Gewicht löschen",
     "AMOUNT": "Menge des insgesamt geretteten Essens in kg",
-    "COMMENT": "Kommentar",
     "COMMENT_PLACEHOLDER": "Lief alles gut? Sind alle aufgetaucht? Dein Kommentar bitte...",
     "PREVIOUS": "Bisheriges Feedback für {store}"
   },
@@ -348,11 +348,15 @@
     "VERIFICATION_EMAIL_SENT": "We sent you another verification mail. Please check your inbox.",
     "CHANGES_SAVED": "Änderungen wurden gespeichert.",
     "CHANGES_ERROR": "Ein Fehler ist aufgetreten. Versuche es später noch einmal.",
-    "EMAIL_NOT_DELIVERED": "An email could not be delivered to you | {count} emails could not be delivered to you"
+    "EMAIL_NOT_DELIVERED": "Eine E-Mail konnte nicht zugestellt werden | {count} E-Mails konnten nicht zugestellt werden"
   },
   "OUTDATED_BROWSER": {
     "MESSAGE": "Du benutzt einen nicht unterstützten Browser. {upgradeBrowser} um alle Funktionen verwenden zu können.",
     "LINK": "Bitte aktualisiere oder wechsle deinen Browser"
+  },
+  "UPDATE_AVAILABLE": {
+    "TITLE": "Update verfügbar",
+    "DETAIL": "Eine neue Version von Karrot ist verfügbar."
   },
   "NOT_FOUND": {
     "EXPLANATION": "Entschuldigung, die Seite konnte nirgendwo gefunden werden.",
@@ -395,7 +399,10 @@
     "RECEIVED_VIA_EMAIL": "Diese Nachricht wurde per Mail geschickt."
   },
   "CONVERSATION": {
-    "OPEN": "Open Chat",
+    "OPEN": "Unterhaltung öffnen",
+    "REPLY_TO_MESSAGE": "Auf Nachricht antworten...",
+    "REPLIES": "Antworten",
+    "REPLIES_COUNT": "1 Antwort | {count} Antworten",
     "UNREAD_MESSAGES": "Du hast eine ungelesene Nachricht. | Du hast {count} ungelesene Nachrichten.",
     "EDITED": "bearbeitet",
     "MARK_READ": "Als gelesen markieren",
@@ -403,7 +410,8 @@
       "YOU": "du",
       "AND": "und",
       "REACTED_WITH":"{users} - {reaction}"
-    }
+    },
+    "MESSAGE_NOT_FOUND": "Nachricht nicht gefunden"
   },
   "STORESTATUS":{
     "ACTIVE": "Kooperiert",

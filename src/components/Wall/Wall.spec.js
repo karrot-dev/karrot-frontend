@@ -9,11 +9,11 @@ const defaultProps = {
     messages: [],
     sendStatus: { pending: false },
     fetchStatus: { pending: false, hasValidationErrors: false },
-    fetchMoreStatus: { pending: false, hasValidationErrors: false },
-    canLoadMore: false,
+    fetchPastStatus: { pending: false, hasValidationErrors: false },
+    canFetchPast: false,
   },
   user: currentUserMock,
-  fetchMore: jest.fn(),
+  fetchPast: jest.fn(),
   joinedPickups: [],
   availablePickups: [],
   feedbackPossible: [],
@@ -25,7 +25,7 @@ polyfillRequestAnimationFrame()
 describe('Wall', () => {
   beforeEach(() => jest.resetModules())
   it('renders', () => {
-    const Wall = require('./Wall')
+    const Wall = require('./Wall').default
     let wrapper = mountWithDefaults(Wall, {
       propsData: defaultProps,
     })

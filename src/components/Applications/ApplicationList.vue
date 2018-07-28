@@ -1,11 +1,7 @@
 <template>
   <q-infinite-scroll>
     <ApplicationItem
-      v-for="applicationitem in applications"
-      :key="applicationitem.id"
-      :feedback="feedbackitem"
-    >
-    </ApplicationItem>
+    />
   </q-infinite-scroll>
 </template>
 
@@ -15,7 +11,7 @@ import QInfiniteScroll from 'quasar'
 
 export default {
   components: {
-    QInfiniteScroll, ApplicationItem
+    QInfiniteScroll, ApplicationItem,
   },
   props: {
     applications: { required: true, type: Array }

@@ -14,8 +14,9 @@ export default {
   state: initialState(),
   getters: {
     getByGroupId: state => groupId => {
-      return Object.values(state.entries).find(a => a.group === groupId && a.status === 'pending')
+      return Object.values(state.entries).find(a => a.group === groupId)
     },
+    all: state => Object.values(state.entries),
     ...metaStatuses(['apply']),
   },
   actions: {
@@ -25,15 +26,23 @@ export default {
         commit('create', newApplication)
         router.push({ name: 'groupPreview', params: { groupPreviewId: data.group } })
       },
+
       async fetchMine ({ commit, rootGetters }) {
         const userId = rootGetters['auth/userId']
-        const applicationList = await groupApplications.list({ user: userId })
+        const applicationList = await groupApplications.list({ user: userId, status: 'pending' })
         commit('set', applicationList)
       },
+
+      async fetchByGroupId ({ commit, getters }, groupId) {
+        const applicationList = await groupApplications.list({ group: groupId })
+        commit('set', applicationList)
+      },
+
       async withdraw ({ commit }, applicationId) {
         const removedApplication = await groupApplications.withdraw(applicationId)
         commit('delete', removedApplication.id)
       },
+
     }),
     clearGroupPreviewAndStatus ({ dispatch }) {
       dispatch('meta/clear', ['apply'])

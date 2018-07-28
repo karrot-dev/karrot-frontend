@@ -1,6 +1,7 @@
 <template>
   <q-infinite-scroll>
     <ApplicationItem
+
     />
   </q-infinite-scroll>
 </template>
@@ -14,7 +15,10 @@ export default {
     QInfiniteScroll, ApplicationItem,
   },
   props: {
-    applications: { required: true, type: Array }
+    groupApplications: {
+      type: Array,
+      default: null,
+    },
   },
   computed: {
   },

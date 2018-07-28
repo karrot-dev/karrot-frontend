@@ -109,7 +109,6 @@ export function mountWithDefaultsAndLocalVue (Component, localVue, options = {})
     router,
     localVue,
     i18n,
-    router,
     ...options,
   })
   makeFindAllIterable(wrapper)
@@ -119,6 +118,7 @@ export function mountWithDefaultsAndLocalVue (Component, localVue, options = {})
 export function storybookDefaults (options) {
   i18n.locale = 'en'
   return {
+    router,
     i18n,
     ...options,
   }

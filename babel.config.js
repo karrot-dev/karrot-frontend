@@ -4,12 +4,13 @@ module.exports = {
       modules: false,
       useBuiltIns: 'usage',
       targets: {
-        browsers: ['> 1%', 'last 2 versions', 'not ie <= 8']
-      }
-    }]
+        browsers: ['> 1%', 'last 2 versions', 'not ie <= 8'],
+      },
+    }],
   ],
   plugins: [
-    '@babel/plugin-syntax-dynamic-import'
+    '@babel/plugin-syntax-dynamic-import',
+    '@babel/plugin-transform-runtime',
   ],
   env: {
     test: {
@@ -17,8 +18,8 @@ module.exports = {
         // During testing we need a dynamic import implemention for nodejs
         'babel-plugin-dynamic-import-node',
         // Jest wants commonjs modules so we transform them
-        '@babel/plugin-transform-modules-commonjs'
-      ]
+        '@babel/plugin-transform-modules-commonjs',
+      ],
     },
     production: {
       plugins: [
@@ -27,10 +28,10 @@ module.exports = {
         ['babel-plugin-transform-imports', {
           quasar: {
             transform: 'quasar-framework/dist/babel-transforms/imports.mat.js',
-            preventFullImport: true
-          }
-        }]
-      ]
-    }
-  }
+            preventFullImport: true,
+          },
+        }],
+      ],
+    },
+  },
 }

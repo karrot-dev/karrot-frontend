@@ -169,7 +169,7 @@ export default {
       if (this.$q.platform.is.mobile) {
         return 'hHh LpR fFf'
       }
-      return 'hHh LpR ffr'
+      return 'hHh LpR lfr'
     },
     defaultShowSidenavWidth () {
       return 992

@@ -1,24 +1,28 @@
 <template>
-  <div>
+  <div
+    class="k-sidenav-box"
+    :class="{ expandable }"
+  >
     <q-toolbar
       class="toolbar"
       inverted
-      @click.native.self="$emit('toggle')"
+      @click.native.stop.self="$emit('toggle')"
     >
       <slot name="icon" />
       <q-toolbar-title
-        @click.native.self="$emit('toggle')"
+        @click.native.stop.self="$emit('toggle')"
       >
         <slot name="name" />
       </q-toolbar-title>
       <slot name="tools" />
       <q-btn
+        v-if="expandable"
         flat
         round
         dense
         size="sm"
         class="card-arrow"
-        @click="$emit('toggle')"
+        @click.stop="$emit('toggle')"
       >
         <q-icon
           name="fas fa-angle-down arrow"
@@ -39,6 +43,7 @@ import { QSlideTransition, QCard, QToolbar, QToolbarTitle, QBtn, QIcon } from 'q
 export default {
   components: { QSlideTransition, QCard, QToolbar, QToolbarTitle, QBtn, QIcon },
   props: {
+    expandable: { default: true, type: Boolean },
     expanded: { default: true, type: Boolean },
   },
 }
@@ -48,10 +53,14 @@ export default {
 @import '~variables'
 @import '~slidetoggle'
 
+.k-sidenav-box
+  margin-bottom 20px
+  &.expandable
+    .toolbar
+      cursor pointer
 .toolbar
   min-height 40px
   height 40px
-  cursor pointer
 .card-arrow
   .arrow
     transition: all .3s ease;

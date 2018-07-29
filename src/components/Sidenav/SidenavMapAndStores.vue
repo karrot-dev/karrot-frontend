@@ -1,6 +1,6 @@
 <template>
   <span>
-    <SidenavMap/>
+    <SidenavMap v-if="!$q.platform.is.mobile"/>
     <router-view name="sidenav"/>
     <router-view name="secondSidenav"/>
     <SidenavStores/>

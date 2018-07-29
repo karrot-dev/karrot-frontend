@@ -8,7 +8,7 @@
       <q-icon name="fas fa-fw fa-shopping-cart" />
     </template>
     <template slot="name">
-      Store menu
+      Current store
     </template>
     <div
       slot="tools"

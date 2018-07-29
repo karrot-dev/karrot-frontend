@@ -7,7 +7,7 @@
       <q-icon name="fas fa-fw fa-home" />
     </template>
     <template slot="name">
-      Main menu
+      Home
     </template>
     <div
       slot="tools"

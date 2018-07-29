@@ -1,51 +1,40 @@
 <template>
-  <q-list class="no-shadow grey-border">
-    <div class="row no-wrap">
+  <q-item class="grey-border">
+    <q-item-side>
       <ProfilePicture
-        :key="application.user"
         :user="application.applicant"
         :size="80"
-        style="margin: 0.1rem 0.5rem"
+        style="margin: .1rem .5rem"
       />
-      <div class="content">
-        <q-item
-          multiline
-          class="generic-padding"
-        >
-          <q-item-tile :label="userName">
-            {{ userName + ' applied to join our group!' }}
-          </q-item-tile>
-          <q-item-tile :label="userName">
-            {{ 'It has id #' + application.id }}
-          </q-item-tile>
-          <q-item-side float-right>
-            <q-btn
-              round
-              color="positive"
-              icon="fas fa-check"
-              class="float-right generic-margin"
-            />
-            <q-btn
-              round
-              color="negative"
-              icon="fas fa-times"
-              class="float-right generic-margin"
-            />
-          </q-item-side>
-        </q-item>
-      </div>
-    </div>
-  </q-list>
+    </q-item-side>
+    <q-item-main :label="userName + ' applied to join our group!'" />
+    <q-item-side
+      right
+    >
+      <q-btn
+        round
+        color="positive"
+        icon="fas fa-check"
+        class="generic-margin"
+      />
+      <q-btn
+        round
+        color="negative"
+        icon="fas fa-times"
+        class="generic-margin"
+      />
+    </q-item-side>
+  </q-item>
 </template>
 
 <script>
-import { QList, QItem, QBtn, QItemSide, QItemTile } from 'quasar'
+import { QItem, QBtn, QItemMain, QItemSide } from 'quasar'
 // import DateAsWords from '@/components/General/DateAsWords' --> needs created-at prop in application object
 import ProfilePicture from '@/components/ProfilePictures/ProfilePicture'
 
 export default {
   components: {
-    QList, QItem, QBtn, QItemSide, QItemTile, ProfilePicture,
+    QItem, QBtn, QItemMain, QItemSide, ProfilePicture,
   },
   props: {
     application: {

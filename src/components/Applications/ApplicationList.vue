@@ -1,19 +1,20 @@
 <template>
-  <div>
+  <q-card>
     <ApplicationItem
       v-for="a in groupApplications"
       :key="a.id"
       :application="a"
     />
-  </div>
+  </q-card>
 </template>
 
 <script>
 import ApplicationItem from './ApplicationItem'
+import { QCard } from 'quasar'
 
 export default {
   components: {
-    ApplicationItem,
+    ApplicationItem, QCard,
   },
   props: {
     groupApplications: {

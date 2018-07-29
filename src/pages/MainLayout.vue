@@ -39,32 +39,31 @@
           </KTopbar>
           <KTopbarLoggedOut v-if="!isLoggedIn" />
         </q-layout-header>
-        <template v-if="$q.platform.is.mobile">
-          <q-layout-drawer
-            side="left"
-            :width="sidenavWidth"
-            :breakpoint="9999"
-            :value="showSidenav"
-            :overlay="false"
-            @click.native="toggleSidenav"
-          >
-            <router-view name="sidenav" />
-            <MobileSidenav/>
-          </q-layout-drawer>
-        </template>
-        <template v-else>
-          <q-layout-drawer
-            v-if="isLoggedIn && hasSidenavComponent"
-            side="left"
-            :width="sidenavWidth"
-            :breakpoint="0"
-            :value="true"
-            :overlay="false"
-            @click.native="toggleSidenav"
-          >
-            <router-view name="sidenav" />
-          </q-layout-drawer>
-        </template>
+        <!-- mobile sidenav: always an expandable slidey thing -->
+        <q-layout-drawer
+          v-if="$q.platform.is.mobile"
+          side="left"
+          :width="sidenavWidth"
+          :breakpoint="Number.MAX_SAFE_INTEGER"
+          :value="showSidenav"
+          :overlay="false"
+          @click.native="toggleSidenav"
+        >
+          <router-view name="sidenav" />
+          <MobileSidenav/>
+        </q-layout-drawer>
+        <!-- desktop sidenav: always on the page -->
+        <q-layout-drawer
+          v-else-if="isLoggedIn && hasSidenavComponent"
+          side="left"
+          :width="sidenavWidth"
+          :breakpoint="0"
+          :value="true"
+          :overlay="false"
+          @click.native="toggleSidenav"
+        >
+          <router-view name="sidenav" />
+        </q-layout-drawer>
         <q-page-container>
           <Banners />
           <router-view name="fullPage"/>
@@ -144,6 +143,7 @@ export default {
   data () {
     return {
       showSidenav: false,
+      windowWidth: width(window),
     }
   },
   methods: {
@@ -154,9 +154,7 @@ export default {
       this.showSidenav = !this.showSidenav
     },
     onResize ({ width }) {
-      if (width >= this.defaultShowSidenavWidth) {
-        this.showSidenav = true
-      }
+      this.windowWidth = width
     },
   },
   computed: {
@@ -171,15 +169,12 @@ export default {
       }
       return 'hHh LpR lfr'
     },
-    defaultShowSidenavWidth () {
-      return 992
-    },
     sidenavWidth () {
       if (this.$q.platform.is.mobile) {
         // deliberately non-responsive width, as it's intended for fixed-sized windows
         return Math.min(380, width(window))
       }
-      return 380
+      return this.windowWidth > 1000 ? 380 : 280
     },
     routerComponents () {
       const components = {}

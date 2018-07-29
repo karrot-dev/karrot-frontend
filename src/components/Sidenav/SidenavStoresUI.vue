@@ -14,25 +14,24 @@
       class="tools"
     >
       <q-btn
-        v-if="hasArchivedStores"
         flat
         dense
         round
-        @click="toggleArchived"
+        @click="$emit('toggleShowAllStores')"
       >
         <span class="fa-fw fa-stack">
           <i class="fas fa-trash-alt fa-stack-1x" />
           <i
-            v-if="showArchived"
-            class="fas fa-check bottom-right fa-stack-1x text-positive"
+            v-if="showAllStores"
+            class="fas fa-times bottom-right fa-stack-1x text-negative"
           />
           <i
             v-else
-            class="fas fa-times bottom-right fa-stack-1x text-negative"
+            class="fas fa-check bottom-right fa-stack-1x text-positive"
           />
         </span>
         <q-tooltip>
-          {{ $t( showArchived ? 'STOREEDIT.HIDE_ARCHIVED' : 'STOREEDIT.SHOW_ARCHIVED') }}
+          {{ $t( showAllStores ? 'STOREEDIT.SHOW_ACTIVE_ONLY' : 'STOREEDIT.SHOW_ALL') }}
         </q-tooltip>
       </q-btn>
       <q-btn
@@ -49,7 +48,7 @@
 
     <StoreList
       :stores="stores"
-      :archived="showArchived ? archived : []"
+      :archived="showAllStores ? archived : []"
     />
   </SidenavBox>
 </template>
@@ -63,6 +62,7 @@ import StoreList from '@/components/Store/StoreList'
 export default {
   props: {
     stores: { required: true, type: Array },
+    showAllStores: { default: false, type: Boolean },
     archived: { default: () => [], type: Array },
     expanded: { default: true, type: Boolean },
   },
@@ -82,9 +82,6 @@ export default {
   computed: {
     hasStores () {
       return this.stores && this.stores.length > 0
-    },
-    hasArchivedStores () {
-      return this.archived.length > 0
     },
   },
 }

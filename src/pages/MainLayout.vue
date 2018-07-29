@@ -88,10 +88,9 @@
           <Detail @close="clearDetail"/>
         </q-layout-drawer>
         <q-layout-footer>
-          <template v-if="$q.platform.is.mobile && !$keyboard.is.open">
-            <MobileNavigation v-if="isLoggedIn" />
-            <UnsupportedBrowserWarning />
-          </template>
+          <UnsupportedBrowserWarning
+            v-if="$q.platform.is.mobile && !$keyboard.is.open"
+          />
           <KFooter v-if="!$q.platform.is.mobile" />
         </q-layout-footer>
         <q-window-resize-observable @resize="onResize" />
@@ -104,7 +103,6 @@
 import KTopbar from '@/components/Layout/KTopbar'
 import KTopbarLoggedOut from '@/components/Layout/LoggedOut/KTopbar'
 import KFooter from '@/components/Layout/KFooter'
-import MobileNavigation from '@/components/Layout/MobileNavigation'
 import MobileSidenav from '@/components/Layout/MobileSidenav'
 import Banners from '@/components/Layout/Banners'
 import RouteError from '@/components/RouteError'
@@ -130,7 +128,6 @@ export default {
     KTopbar,
     KTopbarLoggedOut,
     KFooter,
-    MobileNavigation,
     MobileSidenav,
     QLayout,
     QLayoutHeader,

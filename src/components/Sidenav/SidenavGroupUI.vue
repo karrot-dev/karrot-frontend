@@ -6,6 +6,9 @@
     <template slot="icon">
       <q-icon name="fas fa-fw fa-home" />
     </template>
+    <template slot="name">
+      Main menu
+    </template>
     <div
       slot="tools"
       class="tools"

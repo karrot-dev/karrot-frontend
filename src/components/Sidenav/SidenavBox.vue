@@ -1,11 +1,14 @@
 <template>
-  <q-card class="no-shadow grey-border">
+  <div>
     <q-toolbar
       class="toolbar"
-      @click.self="$emit('toggle')"
+      inverted
+      @click.native.self="$emit('toggle')"
     >
       <slot name="icon" />
-      <q-toolbar-title>
+      <q-toolbar-title
+        @click.native.self="$emit('toggle')"
+      >
         <slot name="name" />
       </q-toolbar-title>
       <slot name="tools" />
@@ -28,7 +31,7 @@
         <slot />
       </div>
     </transition>
-  </q-card>
+  </div>
 </template>
 
 <script>
@@ -48,6 +51,7 @@ export default {
 .toolbar
   min-height 40px
   height 40px
+  cursor pointer
 .card-arrow
   .arrow
     transition: all .3s ease;

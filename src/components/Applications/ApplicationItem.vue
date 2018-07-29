@@ -15,21 +15,21 @@
         color="positive"
         icon="fas fa-check"
         class="generic-margin"
-        @click="$emit('forwardAccept')"
+        @click="accept"
       />
       <q-btn
         round
         color="negative"
         icon="fas fa-times"
         class="generic-margin"
-        @click="$emit('test')"
+        @click="test"
       />
     </q-item-side>
   </q-item>
 </template>
 
 <script>
-import { QItem, QBtn, QItemMain, QItemSide } from 'quasar'
+import { Dialog, QItem, QBtn, QItemMain, QItemSide } from 'quasar'
 // import DateAsWords from '@/components/General/DateAsWords' --> needs created-at prop in application object
 import ProfilePicture from '@/components/ProfilePictures/ProfilePicture'
 
@@ -41,6 +41,22 @@ export default {
     application: {
       required: true,
       type: Object,
+    },
+  },
+  methods: {
+    test () {
+      return console.log('I am a working button!')
+    },
+    accept () {
+      console.log('I will run this method! ' + this.application.applicant)
+      Dialog.create({
+        title: this.$t('JOINGROUP.ACCEPT_CONFIRMATION_HEADER'),
+        message: this.$t('JOINGROUP.ACCEPT_CONFIRMATION_TEXT', { userName: this.application.applicant.displayName }),
+        ok: this.$t('BUTTON.YES'),
+        cancel: this.$t('BUTTON.CANCEL'),
+      })
+        .then(() => this.$emit('accept', this.application.id))
+        .catch(() => {})
     },
   },
   computed: {

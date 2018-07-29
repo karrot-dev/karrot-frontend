@@ -15,7 +15,7 @@
         color="positive"
         icon="fas fa-check"
         class="generic-margin"
-        @click="accept"
+        @click="pressAccept"
       />
       <q-btn
         round
@@ -47,8 +47,8 @@ export default {
     test () {
       return console.log('I am a working button!')
     },
-    accept () {
-      console.log('I will run this method! ' + this.application.applicant)
+    pressAccept () {
+      console.log('I will run this method! ' + this.application.id)
       Dialog.create({
         title: this.$t('JOINGROUP.ACCEPT_CONFIRMATION_HEADER'),
         message: this.$t('JOINGROUP.ACCEPT_CONFIRMATION_TEXT', { userName: this.application.applicant.displayName }),

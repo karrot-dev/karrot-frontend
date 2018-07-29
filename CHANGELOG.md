@@ -18,7 +18,11 @@ Please document your changes in this format:
 
 ### Changed
 
+- Merge message notification emails together if messages are sent within 5 minutes @tiltec
+- Prevent notifications for seen messages @tiltec
 - Hide markdown preview in sidebar @tiltec
+- External links, email links and phone links in markdown now have a small icon @tiltec
+- Internal links open in the same tab @tiltec
 
 ### Removed
 

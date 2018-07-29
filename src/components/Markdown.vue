@@ -36,7 +36,25 @@ export default {
     vertical-align: -0.1em
   a
     text-decoration underline
-
+    opacity .9
+    &:hover
+      opacity 1
+      &.fas-after::after
+        opacity 1
+    &.fas-after::after
+      padding-left 4px
+      font-family 'Font Awesome 5 Free'
+      font-weight 900
+      font-size 80%
+      display inline-block
+      text-decoration none
+      opacity .7
+    &.fa-after-external-link::after
+      content "\F35D"
+    &.fa-after-envelope::after
+      content "\F0E0"
+    &.fa-after-phone::after
+      content "\F095"
   p
     margin-bottom 0.5rem
   h1

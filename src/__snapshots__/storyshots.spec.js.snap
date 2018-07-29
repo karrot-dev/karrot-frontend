@@ -918,7 +918,7 @@ exports[`Storyshots GroupGallery signup view 1`] = `
           <br> It would make sense if it was markdown</p>
         <h1>then this would be a header</h1>
         <p>
-          <a href="www.google.de" target="_blank" rel="noopener nofollow noreferrer">and this a link</a>
+          <a href="www.google.de" target="_blank" rel="noopener nofollow noreferrer" class="fas-after fa-after-external-link">and this a link</a>
         </p>
       </div>
     </div>
@@ -1196,7 +1196,7 @@ exports[`Storyshots GroupGallery switch and explore 1`] = `
           <br> It would make sense if it was markdown</p>
         <h1>then this would be a header</h1>
         <p>
-          <a href="www.google.de" target="_blank" rel="noopener nofollow noreferrer">and this a link</a>
+          <a href="www.google.de" target="_blank" rel="noopener nofollow noreferrer" class="fas-after fa-after-external-link">and this a link</a>
         </p>
       </div>
     </div>
@@ -1307,7 +1307,7 @@ exports[`Storyshots GroupGallery switch and explore 1`] = `
         <br> It would make sense if it was markdown</p>
       <h1>then this would be a header</h1>
       <p>
-        <a href="www.google.de" target="_blank" rel="noopener nofollow noreferrer">and this a link</a>
+        <a href="www.google.de" target="_blank" rel="noopener nofollow noreferrer" class="fas-after fa-after-external-link">and this a link</a>
       </p>
     </div>
   </div>
@@ -1532,7 +1532,7 @@ exports[`Storyshots GroupGalleryCard isMember = false 1`] = `
             <br> It would make sense if it was markdown</p>
           <h1>then this would be a header</h1>
           <p>
-            <a href="www.google.de" target="_blank" rel="noopener nofollow noreferrer">and this a link</a>
+            <a href="www.google.de" target="_blank" rel="noopener nofollow noreferrer" class="fas-after fa-after-external-link">and this a link</a>
           </p>
         </div>
       </div>
@@ -1577,7 +1577,7 @@ exports[`Storyshots GroupGalleryCard isMember = true 1`] = `
             <br> It would make sense if it was markdown</p>
           <h1>then this would be a header</h1>
           <p>
-            <a href="www.google.de" target="_blank" rel="noopener nofollow noreferrer">and this a link</a>
+            <a href="www.google.de" target="_blank" rel="noopener nofollow noreferrer" class="fas-after fa-after-external-link">and this a link</a>
           </p>
         </div>
       </div>
@@ -1705,7 +1705,7 @@ exports[`Storyshots GroupPreviewUI is member 1`] = `
             <br> It would make sense if it was markdown</p>
           <h1>then this would be a header</h1>
           <p>
-            <a href="www.google.de" target="_blank" rel="noopener nofollow noreferrer">and this a link</a>
+            <a href="www.google.de" target="_blank" rel="noopener nofollow noreferrer" class="fas-after fa-after-external-link">and this a link</a>
           </p>
         </div>
       </div>
@@ -1752,7 +1752,7 @@ exports[`Storyshots GroupPreviewUI is not member 1`] = `
             <br> It would make sense if it was markdown</p>
           <h1>then this would be a header</h1>
           <p>
-            <a href="www.google.de" target="_blank" rel="noopener nofollow noreferrer">and this a link</a>
+            <a href="www.google.de" target="_blank" rel="noopener nofollow noreferrer" class="fas-after fa-after-external-link">and this a link</a>
           </p>
         </div>
       </div>

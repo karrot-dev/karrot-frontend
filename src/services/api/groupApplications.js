@@ -13,9 +13,9 @@ export default {
     return (await axios.get('/api/group-applications/', { params: filter })).data
   },
 
-  async accept (data) {
-    console.log('In the service: ' + data)
-    return (await axios.post('/api/group-applications/{id}/accept', data)).data
+  async accept (applicationId) {
+    console.log('In the service: ' + applicationId)
+    return (await axios.post(`/api/group-applications/${applicationId}/accept`)).data
   },
 
   async decline (data) {

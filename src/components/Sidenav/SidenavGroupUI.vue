@@ -86,6 +86,17 @@
             {{ $t("GROUP.HISTORY") }}
           </q-item-main>
         </q-item>
+        <q-item
+          v-if="$q.platform.is.mobile"
+          :to="{name: 'map'}"
+        >
+          <q-item-side class="text-center">
+            <q-icon name="fas fa-map" />
+          </q-item-side>
+          <q-item-main>
+            {{ $t('GROUPMAP.TITLE') }}
+          </q-item-main>
+        </q-item>
       </q-list>
     </div>
   </SidenavBox>

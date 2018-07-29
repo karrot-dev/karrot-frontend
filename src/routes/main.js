@@ -116,6 +116,20 @@ export default [
         },
       },
       {
+        name: 'map',
+        path: 'map',
+        meta: {
+          disableDesktopSidenav: true,
+          breadcrumbs: [
+            { translation: 'GROUPMAP.TITLE', route: { name: 'map' } },
+          ],
+        },
+        components: {
+          default: GroupMap,
+          sidenav: GroupGroupSidenav,
+        },
+      },
+      {
         name: 'groupPickups',
         path: 'pickups',
         meta: {
@@ -381,21 +395,6 @@ export default [
         },
       },
     ],
-  },
-  {
-    name: 'map',
-    path: '/group/:groupId/map',
-    meta: {
-      requireLoggedIn: true,
-      breadcrumbs: [
-        { type: 'currentGroup' },
-        { translation: 'GROUPMAP.TITLE', route: { name: 'map' } },
-      ],
-      beforeEnter: 'currentGroup/select',
-    },
-    components: {
-      default: GroupMap,
-    },
   },
   {
     name: 'settings',

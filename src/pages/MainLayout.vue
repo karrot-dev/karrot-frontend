@@ -39,7 +39,8 @@
           </KTopbar>
           <KTopbarLoggedOut v-if="!isLoggedIn" />
         </q-layout-header>
-        <!-- mobile sidenav: always an expandable slidey thing -->
+
+        <!-- mobile sidenav -->
         <q-layout-drawer
           v-if="$q.platform.is.mobile"
           side="left"
@@ -52,9 +53,10 @@
           <router-view name="sidenav" />
           <MobileSidenav/>
         </q-layout-drawer>
-        <!-- desktop sidenav: always on the page -->
+
+        <!-- desktop sidenav -->
         <q-layout-drawer
-          v-else-if="isLoggedIn && hasSidenavComponent"
+          v-else-if="isLoggedIn && hasSidenavComponent && !disableDesktopSidenav"
           side="left"
           :width="sidenavWidth"
           :breakpoint="0"
@@ -64,6 +66,7 @@
         >
           <router-view name="sidenav" />
         </q-layout-drawer>
+
         <q-page-container>
           <Banners />
           <router-view name="fullPage"/>
@@ -107,7 +110,7 @@ import Banners from '@/components/Layout/Banners'
 import RouteError from '@/components/RouteError'
 import UnsupportedBrowserWarning from '@/components/UnsupportedBrowserWarning'
 import Detail from '@/components/General/Detail'
-import { mapGetters, mapActions } from 'vuex'
+import { mapGetters, mapState, mapActions } from 'vuex'
 import {
   dom,
   QLayout,
@@ -163,6 +166,9 @@ export default {
       routeError: 'routeError/status',
       showSidenavRight: 'detail/isActive',
     }),
+    ...mapState({
+      disableDesktopSidenav: state => state.route.meta.disableDesktopSidenav,
+    }),
     layoutView () {
       if (this.$q.platform.is.mobile) {
         return 'hHh LpR fFf'
@@ -171,8 +177,7 @@ export default {
     },
     sidenavWidth () {
       if (this.$q.platform.is.mobile) {
-        // deliberately non-responsive width, as it's intended for fixed-sized windows
-        return Math.min(380, width(window))
+        return Math.min(380, this.windowWidth)
       }
       return this.windowWidth > 1000 ? 380 : 280
     },

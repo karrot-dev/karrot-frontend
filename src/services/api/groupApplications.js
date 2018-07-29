@@ -14,6 +14,7 @@ export default {
   },
 
   async accept (data) {
+    console.log('In the service: ' + data)
     return (await axios.post('/api/group-applications/{id}/accept', data)).data
   },
 

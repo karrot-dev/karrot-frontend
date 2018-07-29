@@ -4,6 +4,8 @@
       v-for="a in groupApplications"
       :key="a.id"
       :application="a"
+      @forwardAccept="$emit('accept', a.id)"
+      @test="test"
     />
   </q-card>
 </template>
@@ -20,6 +22,11 @@ export default {
     groupApplications: {
       type: Array,
       default: null,
+    },
+  },
+  methods: {
+    test () {
+      return console.log('I am a working button!')
     },
   },
   computed: {

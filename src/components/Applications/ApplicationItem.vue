@@ -4,7 +4,6 @@
       <ProfilePicture
         :user="application.applicant"
         :size="80"
-        style="margin: .1rem .5rem"
       />
     </q-item-side>
     <q-item-main :label="userName + ' applied to join our group!'" />
@@ -16,12 +15,14 @@
         color="positive"
         icon="fas fa-check"
         class="generic-margin"
+        @click="$emit('forwardAccept')"
       />
       <q-btn
         round
         color="negative"
         icon="fas fa-times"
         class="generic-margin"
+        @click="$emit('test')"
       />
     </q-item-side>
   </q-item>

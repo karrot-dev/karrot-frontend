@@ -32,11 +32,6 @@ export default {
   },
   actions: {
     ...withMeta({
-      async apply ({commit}, data) {
-        const newApplication = await groupApplications.create(data)
-        commit('create', newApplication)
-        router.push({ name: 'groupPreview', params: { groupPreviewId: data.group } })
-      },
 
       async fetchMine ({ commit, rootGetters }) {
         const userId = rootGetters['auth/userId']
@@ -51,11 +46,22 @@ export default {
         console.log('give me that array!', all)
       },
 
+      async apply ({commit}, data) {
+        const newApplication = await groupApplications.create(data)
+        commit('create', newApplication)
+        router.push({ name: 'groupPreview', params: { groupPreviewId: data.group } })
+      },
+
       async withdraw ({ commit }, applicationId) {
         const removedApplication = await groupApplications.withdraw(applicationId)
         commit('delete', removedApplication.id)
       },
 
+      async accept ({commit}, data) {
+        console.log('In the module: ' + data)
+        const acceptedApplication = await groupApplications.accept(data)
+        commit('delete', acceptedApplication.id)
+      },
     }),
     clearGroupPreviewAndStatus ({ dispatch }) {
       dispatch('meta/clear', ['apply'])

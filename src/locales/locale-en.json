@@ -199,7 +199,9 @@
     "APPLICATION_PENDING": "Your application is pending!",
     "WITHDRAW_APPLICATION": "Withdraw",
     "WITHDRAW_CONFIRMATION_HEADER": "Withdraw Application",
-    "WITHDRAW_CONFIRMATION_TEXT": "Are you sure you want to withdraw your application to join {groupName}?"
+    "WITHDRAW_CONFIRMATION_TEXT": "Are you sure you want to withdraw your application to join {groupName}?",
+    "ACCEPT_CONFIRMATION_HEADER": "Accept Application",
+    "ACCEPT_CONFIRMATION_TEXT": "Are you sure you want to accept {userName} into this group?"
   },
   "GROUPINFO": {
     "TITLE": "Public group information",

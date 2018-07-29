@@ -1,4 +1,4 @@
-gitconst webpack = require('webpack')
+const webpack = require('webpack')
 
 const webpackConfig = require('../build/webpack.config')
 const config = require('../config')

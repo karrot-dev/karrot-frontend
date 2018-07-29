@@ -34,7 +34,7 @@ module.exports = {
     '>': path.resolve(__dirname, '../test'),
     variables: path.resolve(__dirname, '../src/themes/quasar.variables.styl'),
     slidetoggle: path.resolve(__dirname, '../src/themes/karrot.slidetoggle.styl'),
-    editbox: path.resolve(__dirname, '../src/themes/karrot.editbox.styl')
+    editbox: path.resolve(__dirname, '../src/themes/karrot.editbox.styl'),
   },
 
   // Backend to make API requests to
@@ -54,7 +54,7 @@ module.exports = {
       '/community_proxy': {
         target: 'https://dev.karrot.world',
         changeOrigin: true,
-      }
+      },
     },
-  }
+  },
 }

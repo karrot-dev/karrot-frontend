@@ -1,4 +1,3 @@
-const config = require('../config')
 const theme = 'mat'
 
 module.exports = {
@@ -9,6 +8,6 @@ module.exports = {
   fcmSenderId: process.env.FCM_SENDER_ID,
   platform: {
     theme: theme,
-    cordovaAssets: './cordova/platforms/' + (theme === 'mat' ? 'android' : 'ios') + '/platform_www'
-  }
+    cordovaAssets: './cordova/platforms/' + (theme === 'mat' ? 'android' : 'ios') + '/platform_www',
+  },
 }

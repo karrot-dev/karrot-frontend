@@ -2225,7 +2225,7 @@ exports[`Storyshots Layout KTopbar 1`] = `
     <div class="q-btn-inner row col items-center justify-center">
       <i aria-hidden="true" class="q-icon fab fa-discourse"> </i>
       <!---->
-      <div tabindex="-1" class="q-popover scroll" style="max-width:700px;">
+      <div tabindex="-1" class="q-popover scroll k-community-feed">
         <div class="q-list q-list-link">
           <div class="q-list-header">
             <i aria-hidden="true" class="q-icon q-mr-xs fab fa-discourse" style="font-size:20px;"> </i> <span>Updates from the <a place="community" href="https://community.foodsaving.world" target="_blank" rel="noopener" style="text-decoration:underline;">

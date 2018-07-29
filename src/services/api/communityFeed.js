@@ -1,5 +1,7 @@
 import axios from '@/services/axios'
 
+const backend = CORDOVA ? BACKEND : ''
+
 export default {
   async latestTopics () {
     const data = (await axios.get('/community_proxy/latest.json?order=created')).data
@@ -12,7 +14,7 @@ export default {
         createdAt: new Date(topic.createdAt),
         lastPostedAt: new Date(topic.lastPostedAt),
         link: `https://community.foodsaving.world/t/${topic.slug}/${topic.id}`,
-        originalPosterAvatar: '/community_proxy' + lastPoster.avatarTemplate.split('{size}').join('45'),
+        originalPosterAvatar: backend + '/community_proxy' + lastPoster.avatarTemplate.split('{size}').join('45'),
         originalPosterUsername: lastPoster.username,
       }
     })

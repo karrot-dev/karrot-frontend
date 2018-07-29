@@ -52,7 +52,7 @@ Per default, all requests to `/api` are forwarded to the online backend `dev.kar
 To use a [local backend](https://github.com/yunity/karrot-backend/), create a file `.env` with content like
 
 ```
-BACKEND=http://localhost:8000/
+BACKEND=http://localhost:8000
 ```
 
 ## Code style

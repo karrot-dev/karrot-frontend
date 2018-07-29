@@ -15,7 +15,7 @@
     </q-chip>
     <q-popover
       @hide="mark"
-      style="max-width: 700px"
+      class="k-community-feed"
     >
       <q-list
         link
@@ -79,6 +79,7 @@
             </q-item-tile>
           </q-item-main>
           <q-item-side
+            v-if="!$q.platform.is.mobile"
             right
             stamp
           >
@@ -144,5 +145,7 @@ export default {
 
 .isUnread
   background linear-gradient(to right, $lightGreen, $lighterGreen)
+body.desktop .k-community-feed
+  max-width 700px
 
 </style>

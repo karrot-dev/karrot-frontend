@@ -8,7 +8,7 @@ describe('DateAsWords', () => {
   beforeEach(() => {
     jest.resetModules()
     clock = lolex.install({ now, toFake: ['Date'] })
-    DateAsWords = require('./DateAsWords')
+    DateAsWords = require('./DateAsWords').default
   })
   afterEach(() => {
     clock = clock.uninstall()

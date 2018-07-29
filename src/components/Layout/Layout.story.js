@@ -16,6 +16,12 @@ const store = createStore({
   i18n: { getters: { locale: () => 'en' } },
   presence: require('@/store/modules/presence').default,
   loadingprogress: { getters: { active: () => false, closing: () => false } },
+  communityFeed: {
+    getters: {
+      unreadCount: () => 0,
+      topics: () => [],
+    },
+  },
 })
 
 storiesOf('Layout', module)

@@ -8,7 +8,7 @@
         type="textarea"
         :placeholder="$t('PICKUP_FEEDBACK.COMMENT_PLACEHOLDER')"
         autocomplete="off"
-        :min-rows="1"
+        rows="1"
         @keyup.ctrl.enter="maybeSave"
       />
     </MarkdownInput>

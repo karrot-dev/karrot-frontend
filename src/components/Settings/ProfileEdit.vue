@@ -23,7 +23,7 @@
           <q-input
             v-model="edit.description"
             type="textarea"
-            :min-rows="1"
+            rows="1"
             @keyup.ctrl.enter="save"
           />
         </MarkdownInput>

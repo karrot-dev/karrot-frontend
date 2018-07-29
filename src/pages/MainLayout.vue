@@ -65,6 +65,7 @@
         <q-layout-drawer
           v-if="!$q.platform.is.mobile"
           side="right"
+          :width="400"
           :overlay="false"
           :breakpoint="0"
           :value="showSidenavRight"

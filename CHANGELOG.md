@@ -14,10 +14,15 @@ Please document your changes in this format:
 
 - Replies to wall messages #1065 @nicksellen @tiltec
 - Link to external route planner for store directions #1020 @pogopaule @tiltec
+- Add notifications about new messages in community.foodsaving.world @tiltec
 
 ### Changed
 
+- Merge message notification emails together if messages are sent within 5 minutes @tiltec
+- Prevent notifications for seen messages @tiltec
 - Hide markdown preview in sidebar @tiltec
+- External links, email links and phone links in markdown now have a small icon @tiltec
+- Internal links open in the same tab @tiltec
 
 ### Removed
 

@@ -2168,19 +2168,19 @@ exports[`Storyshots Layout KFooter 1`] = `
       — made with
       <i class="fas fa-heart"></i>
       by
-      <a href="https://foodsaving.world">
+      <a href="https://foodsaving.world" target="_blank" rel="noopener">
         foodsaving worldwide
       </a></span></small>
   <small class="row justify-center group col-xl-7 col-xs-12">
-    <a href="https://github.com/yunity/karrot-frontend">
+    <a href="https://github.com/yunity/karrot-frontend" target="_blank" rel="noopener">
       <i class="fab fa-fw fa-github"></i>
       Development
     </a>
-    <a href="https://foodsaving.world">
+    <a href="https://foodsaving.world" target="_blank" rel="noopener">
       <i class="fas fa-fw fa-globe"></i>
       Read our info page!
     </a>
-    <a href="https://community.foodsaving.world/">
+    <a href="https://community.foodsaving.world/" target="_blank" rel="noopener">
       <i class="fab fa-fw fa-discourse"></i>
       Join our community!
     </a>

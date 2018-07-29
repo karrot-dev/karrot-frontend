@@ -39,23 +39,36 @@
           </KTopbar>
           <KTopbarLoggedOut v-if="!isLoggedIn" />
         </q-layout-header>
-        <q-layout-drawer
-          v-if="$q.platform.is.mobile && isLoggedIn"
-          side="left"
-          v-model="showSidenav"
-          :breakpoint="defaultShowSidenavWidth"
-        >
-          <MobileSidenav @toggleSidenav="toggleSidenav" />
-        </q-layout-drawer>
+        <template v-if="$q.platform.is.mobile">
+          <q-layout-drawer
+            side="left"
+            :width="sidenavWidth"
+            :breakpoint="9999"
+            :value="showSidenav"
+            :overlay="false"
+            @click.native="toggleSidenav"
+          >
+            <router-view name="sidenav" />
+            <MobileSidenav/>
+          </q-layout-drawer>
+        </template>
+        <template v-else>
+          <q-layout-drawer
+            v-if="isLoggedIn && hasSidenavComponent"
+            side="left"
+            :width="sidenavWidth"
+            :breakpoint="0"
+            :value="true"
+            :overlay="false"
+            @click.native="toggleSidenav"
+          >
+            <router-view name="sidenav" />
+          </q-layout-drawer>
+        </template>
         <q-page-container>
           <Banners />
           <router-view name="fullPage"/>
           <div class="mainContent row justify-between no-wrap">
-            <router-view
-              v-if="!$q.platform.is.mobile"
-              class="sidenav-desktop"
-              name="sidenav"
-            />
             <div class="mainContent-page">
               <router-view />
             </div>
@@ -95,12 +108,38 @@ import Banners from '@/components/Layout/Banners'
 import RouteError from '@/components/RouteError'
 import UnsupportedBrowserWarning from '@/components/UnsupportedBrowserWarning'
 import Detail from '@/components/General/Detail'
-import { QLayout, QLayoutHeader, QLayoutDrawer, QLayoutFooter, QPageContainer, QWindowResizeObservable, QBtn } from 'quasar'
 import { mapGetters, mapActions } from 'vuex'
+import {
+  dom,
+  QLayout,
+  QLayoutHeader,
+  QLayoutDrawer,
+  QLayoutFooter,
+  QPageContainer,
+  QWindowResizeObservable,
+  QBtn,
+} from 'quasar'
+
+const { width } = dom
 
 export default {
   components: {
-    Detail, KTopbar, KTopbarLoggedOut, KFooter, MobileNavigation, MobileSidenav, QLayout, QLayoutHeader, QLayoutDrawer, QLayoutFooter, QPageContainer, QWindowResizeObservable, QBtn, Banners, RouteError, UnsupportedBrowserWarning,
+    Detail,
+    KTopbar,
+    KTopbarLoggedOut,
+    KFooter,
+    MobileNavigation,
+    MobileSidenav,
+    QLayout,
+    QLayoutHeader,
+    QLayoutDrawer,
+    QLayoutFooter,
+    QPageContainer,
+    QWindowResizeObservable,
+    QBtn,
+    Banners,
+    RouteError,
+    UnsupportedBrowserWarning,
   },
   data () {
     return {
@@ -134,6 +173,25 @@ export default {
     },
     defaultShowSidenavWidth () {
       return 992
+    },
+    sidenavWidth () {
+      if (this.$q.platform.is.mobile) {
+        // deliberately non-responsive width, as it's intended for fixed-sized windows
+        return Math.min(380, width(window))
+      }
+      return 380
+    },
+    routerComponents () {
+      const components = {}
+      for (const m of this.$route.matched) {
+        for (const name of Object.keys(m.components)) {
+          components[name] = true
+        }
+      }
+      return components
+    },
+    hasSidenavComponent () {
+      return Boolean(this.routerComponents.sidenav)
     },
   },
 }

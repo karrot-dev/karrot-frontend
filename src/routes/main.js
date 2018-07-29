@@ -205,7 +205,7 @@ export default [
           breadcrumbs: [
             { translation: 'GROUP.APPLICATIONS', route: { name: 'groupApplications' } },
           ],
-          beforeEnter: 'groupApplications/fetchByGroupId',
+          beforeEnter: 'groupApplications/fetchPendingByGroupId',
         },
         components: {
           default: GroupApplications,

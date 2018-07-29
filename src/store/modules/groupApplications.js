@@ -39,8 +39,8 @@ export default {
         commit('set', applicationList)
       },
 
-      async fetchByGroupId ({ commit, getters }, { groupId }) {
-        const applicationList = await groupApplications.list({ group: groupId })
+      async fetchPendingByGroupId ({ commit, getters }, { groupId }) {
+        const applicationList = await groupApplications.list({ group: groupId, status: 'pending' })
         commit('set', applicationList)
         const all = getters.all
         console.log('give me that array!', all)

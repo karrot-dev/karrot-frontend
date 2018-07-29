@@ -28,6 +28,7 @@ export default {
       return store && {
         ...store,
         ...metaStatusesWithId(getters, ['save'], store.id),
+        isActiveStore: store.id === state.activeStoreId,
         ui: optionsFor(store),
         group: rootGetters['groups/get'](store.group),
         statistics: state.statistics[store.id],
@@ -72,7 +73,7 @@ export default {
       }
       const getStatistics = stores.statistics(storeId)
       dispatch('pickups/setStoreFilter', storeId, { root: true })
-      dispatch('sidenavBoxes/toggle/group', false, { root: true })
+      // dispatch('sidenavBoxes/toggle/group', false, { root: true })
       commit('select', storeId)
       commit('setStatistics', { data: await getStatistics, id: storeId })
     },

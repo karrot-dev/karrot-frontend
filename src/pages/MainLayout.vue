@@ -40,22 +40,20 @@
           <KTopbarLoggedOut v-if="!isLoggedIn" />
         </q-layout-header>
         <q-layout-drawer
-          v-if="$q.platform.is.mobile && isLoggedIn"
+          v-if="isLoggedIn"
           side="left"
-          v-model="showSidenav"
-          :breakpoint="defaultShowSidenavWidth"
+          :width="sidenavWidth"
+          :breakpoint="$q.platform.is.mobile ? 9999 : 0"
+          :value="!fullScreen && (!$q.platform.is.mobile || showSidenav)"
+          :overlay="false"
+          @click.native="toggleSidenav"
         >
-          <MobileSidenav @toggleSidenav="toggleSidenav" />
+          <router-view name="sidenav" />
         </q-layout-drawer>
         <q-page-container>
           <Banners />
           <router-view name="fullPage"/>
           <div class="mainContent row justify-between no-wrap">
-            <router-view
-              v-if="!$q.platform.is.mobile"
-              class="sidenav-desktop"
-              name="sidenav"
-            />
             <div class="mainContent-page">
               <router-view />
             </div>
@@ -73,10 +71,12 @@
           <Detail @close="clearDetail"/>
         </q-layout-drawer>
         <q-layout-footer>
+          <!--
           <template v-if="$q.platform.is.mobile && !$keyboard.is.open">
             <MobileNavigation v-if="isLoggedIn" />
             <UnsupportedBrowserWarning />
           </template>
+          -->
           <KFooter v-if="!$q.platform.is.mobile" />
         </q-layout-footer>
         <q-window-resize-observable @resize="onResize" />
@@ -95,8 +95,10 @@ import Banners from '@/components/Layout/Banners'
 import RouteError from '@/components/RouteError'
 import UnsupportedBrowserWarning from '@/components/UnsupportedBrowserWarning'
 import Detail from '@/components/General/Detail'
-import { QLayout, QLayoutHeader, QLayoutDrawer, QLayoutFooter, QPageContainer, QWindowResizeObservable, QBtn } from 'quasar'
-import { mapGetters, mapActions } from 'vuex'
+import { dom, QLayout, QLayoutHeader, QLayoutDrawer, QLayoutFooter, QPageContainer, QWindowResizeObservable, QBtn } from 'quasar'
+import { mapGetters, mapActions, mapState } from 'vuex'
+
+const { width } = dom
 
 export default {
   components: {
@@ -126,14 +128,20 @@ export default {
       routeError: 'routeError/status',
       showSidenavRight: 'detail/isActive',
     }),
+    ...mapState({
+      fullScreen: state => state.route.meta.fullScreen,
+    }),
     layoutView () {
       if (this.$q.platform.is.mobile) {
         return 'hHh LpR fFf'
       }
-      return 'hHh LpR ffr'
+      return 'hHh LpR lfr'
     },
     defaultShowSidenavWidth () {
       return 992
+    },
+    sidenavWidth () {
+      return Math.min(380, width(window))
     },
   },
 }
@@ -143,19 +151,15 @@ export default {
 @import '~variables'
 .mainContent-page
   width 100%
-.sidenav-desktop
-  width 30%
-  min-width 250px
-  max-width 30em
-  margin-left auto
-  margin-right .4em
 body.desktop .mainContent
   max-width 1500px
   margin auto
   .mainContent-page
     min-width 350px
-    max-width: 57em
+    max-width: 65em
     margin-bottom 4.5em
+    margin-left 1em
+    margin-top 1em
     margin-left auto
     margin-right auto
 .background

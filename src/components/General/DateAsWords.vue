@@ -13,13 +13,17 @@ export default {
       type: Date | String, // TODO remove string, always convert to date before
       required: true,
     },
+    disallowFuture: {
+      type: Boolean,
+      default: true,
+    },
   },
   computed: {
     tooltipContent () {
       return this.$d(new Date(this.date), 'long')
     },
     dateInWords () {
-      return dateFnsHelper.distanceInWordsToNow(this.date, { addSuffix: true, disallowFuture: true })
+      return dateFnsHelper.distanceInWordsToNow(this.date, { addSuffix: true, disallowFuture: this.disallowFuture })
     },
   },
 }

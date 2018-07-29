@@ -4,25 +4,28 @@
     no-border
     class="no-padding"
   >
-    <q-item
+    <div
       v-for="store in stores"
       :key="store.id"
-      link
-      :to="{name: linkTo, params: { storeId: store.id }}"
     >
-      <q-item-side class="text-center">
-        <q-icon
-          :name="store.ui.icon"
-          :color="store.ui.color"
-          :title="$t(store.ui.label)"
-        />
-      </q-item-side>
-      <q-item-main>
-        <q-item-tile label>
-          {{ store.name }}
-        </q-item-tile>
-      </q-item-main>
-    </q-item>
+      <q-item
+        link
+        :to="{name: linkTo, params: { storeId: store.id }}"
+      >
+        <q-item-side class="text-center">
+          <q-icon
+            :name="store.ui.icon"
+            :color="store.ui.color"
+            :title="$t(store.ui.label)"
+          />
+        </q-item-side>
+        <q-item-main>
+          <q-item-tile label>
+            {{ store.name }}
+          </q-item-tile>
+        </q-item-main>
+      </q-item>
+    </div>
 
     <q-item
       v-if="!hasStores || $q.platform.is.mobile"

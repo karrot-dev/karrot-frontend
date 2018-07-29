@@ -1,7 +1,20 @@
 <template>
   <q-btn-group class="k-groupmapcontrols">
     <q-btn
-      v-if="!$q.platform.is.mobile"
+      v-if="showFullScreenButton"
+      :size="buttonSize"
+      color="primary"
+      @click="$router.push({ name: 'map' })"
+    >
+      <i class="fas fa-expand-arrows-alt fa-stack-1x" />
+      <q-tooltip>
+        {{ $t('GROUPMAP.FULL_SCREEN') }}
+      </q-tooltip>
+    </q-btn>
+
+    <q-btn
+      v-if="showBack && !$q.platform.is.mobile"
+      :size="buttonSize"
       color="primary"
       @click="$router.push({ name: 'group' })"
     >
@@ -13,6 +26,7 @@
 
     <q-btn
       color="primary"
+      :size="buttonSize"
       @click="$emit('toggleStores')"
     >
       <span class="fa-fw fa-stack">
@@ -33,6 +47,7 @@
 
     <q-btn
       color="primary"
+      :size="buttonSize"
       @click="$emit('toggleUsers')"
     >
       <span class="fa-fw fa-stack">
@@ -52,7 +67,9 @@
     </q-btn>
 
     <q-btn
+      v-if="showGroupsButton"
       color="primary"
+      :size="buttonSize"
       @click="$emit('toggleGroups')"
     >
       <span class="fa-fw fa-stack">
@@ -99,6 +116,30 @@ export default {
     showGroups: {
       default: true,
       type: Boolean,
+    },
+    type: {
+      default: 'full',
+      type: String,
+      validator (value) {
+        return [
+          'mini',
+          'full',
+        ].includes(value)
+      },
+    },
+  },
+  computed: {
+    showBack () {
+      return this.type !== 'mini'
+    },
+    buttonSize () {
+      return this.type === 'mini' ? 'sm' : 'md'
+    },
+    showGroupsButton () {
+      return this.type !== 'mini'
+    },
+    showFullScreenButton () {
+      return this.type === 'mini'
     },
   },
 }

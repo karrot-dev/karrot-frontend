@@ -72,6 +72,7 @@ export default {
 .art-wrapper
   position relative
   display: block
+  overflow: auto // fixes margin collapse
   z-index 0
   margin 0
   width 100%

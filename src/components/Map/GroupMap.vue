@@ -1,5 +1,8 @@
 <template>
-  <div class="container">
+  <div
+    class="container"
+    :style="containerStyle"
+  >
     <StandardMap
       :markers="markers"
       :selected-markers="selectedMarkers"
@@ -28,10 +31,12 @@
       </q-list>
     </StandardMap>
     <GroupMapControls
-      v-if="enableControls"
+      v-if="controls !== 'none'"
+      :type="controls"
       :show-users="showUsers"
       :show-stores="showStores"
       :show-groups="showGroups"
+      :show-back="false"
       @toggleUsers="$emit('toggleUsers')"
       @toggleStores="$emit('toggleStores')"
       @toggleGroups="$emit('toggleGroups')"
@@ -98,7 +103,8 @@ export default {
     currentGroup: { type: Object, default: () => ({}) },
     forceCenter: { type: Object, default: null },
     forceZoom: { type: Number, default: null },
-    enableControls: { type: Boolean, default: false },
+    controls: { type: String, default: 'none' },
+    height: { type: Number, default: null },
   },
   methods: {
     mapMoveEnd (target) {
@@ -118,6 +124,12 @@ export default {
     center () {
       const { latitude: lat, longitude: lng } = this.currentGroup
       if (lat && lng) return { lat, lng }
+    },
+    containerStyle () {
+      if (this.height) {
+        return { height: `${this.height}px` }
+      }
+      return {}
     },
     style () {
       return { opacity: this.showOverlay ? 0.5 : 1 }

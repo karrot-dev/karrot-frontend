@@ -28,7 +28,7 @@
           :to="{name: 'groupsGallery'}"
         >
           <q-item-side>
-            <i class="fas fa-home fa-fw"/>
+            <i class="fas fa-exchange-alt"/>
           </q-item-side>
           <q-item-main :label="$t('TOPBAR.CHANGE_GROUP')" />
         </q-item>
@@ -125,9 +125,6 @@
             :sublabel="$t('SIDENAV.GIT_SUB')"
           />
         </q-item>
-        <q-item-separator />
-        <LocaleSelect style="color: rgba(0,0,0,0.54)" />
-        <CommunityFeed />
       </q-list>
     </SidenavBox>
   </div>
@@ -144,8 +141,6 @@ import {
   QItemMain,
 } from 'quasar'
 import SidenavBox from '@/components/Sidenav/SidenavBox'
-import LocaleSelect from '@/components/General/LocaleSelect'
-import CommunityFeed from '@/components/General/CommunityFeed'
 
 export default {
   components: {
@@ -157,8 +152,6 @@ export default {
     QItemSide,
     QItemMain,
     SidenavBox,
-    LocaleSelect,
-    CommunityFeed,
   },
   props: {
     currentUserId: {

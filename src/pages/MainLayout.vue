@@ -108,7 +108,7 @@ import Banners from '@/components/Layout/Banners'
 import RouteError from '@/components/RouteError'
 import UnsupportedBrowserWarning from '@/components/UnsupportedBrowserWarning'
 import Detail from '@/components/General/Detail'
-import { mapGetters, mapState, mapActions } from 'vuex'
+import { mapGetters, mapActions } from 'vuex'
 import {
   dom,
   QLayout,

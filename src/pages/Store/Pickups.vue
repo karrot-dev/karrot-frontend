@@ -1,7 +1,11 @@
 <template>
   <div>
     <q-card class="no-shadow no-padding grey-border">
+      <RandomArt
+        :seed="store.id"
+        type="banner"/>
       <div class="generic-padding">
+
         <div class="actionButtons">
           <router-link
             v-if="$store.getters['auth/isEditorInCurrentGroup']"
@@ -117,6 +121,7 @@ import PickupList from '@/components/Pickups/PickupList'
 import KNotice from '@/components/General/KNotice'
 import Markdown from '@/components/Markdown'
 import StandardMap from '@/components/Map/StandardMap'
+import RandomArt from '@/components/General/RandomArt'
 
 import { storeMarker } from '@/components/Map/markers'
 import directions from './directions'
@@ -129,7 +134,7 @@ import {
 import { QCard, QCardTitle, QCardActions, QItem, QItemMain, QItemSide, QBtn, QTabs, QRouteTab, QIcon, QTooltip } from 'quasar'
 
 export default {
-  components: { PickupList, QCard, QCardTitle, QCardActions, QItem, QItemMain, QItemSide, QBtn, QTabs, QRouteTab, QIcon, QTooltip, KNotice, Markdown, StandardMap },
+  components: { PickupList, QCard, QCardTitle, QCardActions, QItem, QItemMain, QItemSide, QBtn, QTabs, QRouteTab, QIcon, QTooltip, KNotice, Markdown, StandardMap, RandomArt },
   methods: {
     ...mapActions({
       join: 'pickups/join',

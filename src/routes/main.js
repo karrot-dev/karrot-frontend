@@ -1,4 +1,3 @@
-const GroupLayout = () => import('@/components/Layout/GroupLayout')
 const GroupWall = () => import('@/pages/Group/Wall')
 const GroupPickups = () => import('@/pages/Group/Pickups')
 const GroupFeedback = () => import('@/pages/Group/Feedbacks')
@@ -22,9 +21,7 @@ const GroupInvitations = () => import('@/pages/Group/Invitations')
 const GroupDescription = () => import('@/pages/Group/Description')
 const GroupMembers = () => import('@/pages/Group/Members')
 const GroupHistory = () => import('@/pages/Group/History')
-const GroupMapAndStoresSidenav = () => import('@/components/Sidenav/SidenavMapAndStores')
-const GroupGroupSidenav = () => import('@/components/Sidenav/SidenavGroup')
-const GroupStoreSidenav = () => import('@/components/Sidenav/SidenavStore')
+const Sidenav = () => import('@/components/Sidenav/Sidenav')
 const Settings = () => import('@/pages/Settings')
 const User = () => import('@/pages/User/User')
 const PickupFeedback = () => import('@/pages/Group/Feedback')
@@ -54,9 +51,7 @@ export default [
       beforeEnter: 'groups/selectPreview',
       afterLeave: 'groups/clearGroupPreview',
     },
-    components: {
-      default: GroupPreview,
-    },
+    component: GroupPreview,
   },
   {
     name: 'groupCreate',
@@ -69,9 +64,7 @@ export default [
       ],
       beforeEnter: 'timezones/fetch',
     },
-    components: {
-      default: GroupCreate,
-    },
+    component: GroupCreate,
   },
   {
     name: 'historyDetail',
@@ -84,9 +77,7 @@ export default [
       beforeEnter: 'history/setActive',
       afterLeave: 'history/clearActive',
     },
-    components: {
-      default: HistoryDetail,
-    },
+    component: HistoryDetail,
   },
   {
     path: '/group/:groupId',
@@ -99,8 +90,8 @@ export default [
       beforeEnter: 'currentGroup/select',
     },
     components: {
-      default: GroupLayout,
-      sidenav: GroupMapAndStoresSidenav,
+      default: { render: h => h('router-view') }, // passthrough
+      sidenav: Sidenav,
     },
     children: [
       {
@@ -110,10 +101,18 @@ export default [
           beforeEnter: 'conversations/fetchForGroup',
           afterLeave: 'conversations/clearForGroup',
         },
-        components: {
-          default: GroupWall,
-          sidenav: GroupGroupSidenav,
+        component: GroupWall,
+      },
+      {
+        name: 'map',
+        path: 'map',
+        meta: {
+          disableDesktopSidenav: true,
+          breadcrumbs: [
+            { translation: 'GROUPMAP.TITLE', route: { name: 'map' } },
+          ],
         },
+        component: GroupMap,
       },
       {
         name: 'groupPickups',
@@ -123,10 +122,7 @@ export default [
             { translation: 'GROUP.PICKUPS', route: { name: 'groupPickups' } },
           ],
         },
-        components: {
-          default: GroupPickups,
-          sidenav: GroupGroupSidenav,
-        },
+        component: GroupPickups,
       },
       {
         name: 'groupFeedback',
@@ -138,10 +134,7 @@ export default [
           beforeEnter: 'feedback/fetchForGroup',
           afterLeave: 'feedback/clear',
         },
-        components: {
-          default: GroupFeedback,
-          sidenav: GroupGroupSidenav,
-        },
+        component: GroupFeedback,
       },
       {
         name: 'groupDescription',
@@ -151,10 +144,7 @@ export default [
             { translation: 'GROUP.DESCRIPTION', route: { name: 'groupDescription' } },
           ],
         },
-        components: {
-          default: GroupDescription,
-          sidenav: GroupGroupSidenav,
-        },
+        component: GroupDescription,
       },
       {
         name: 'groupMembers',
@@ -165,10 +155,7 @@ export default [
           ],
           beforeEnter: 'trust/fetchForGroup',
         },
-        components: {
-          default: GroupMembers,
-          sidenav: GroupGroupSidenav,
-        },
+        component: GroupMembers,
       },
       {
         name: 'groupHistory',
@@ -179,10 +166,7 @@ export default [
           ],
           beforeEnter: 'history/fetchForGroup',
         },
-        components: {
-          default: GroupHistory,
-          sidenav: GroupGroupSidenav,
-        },
+        component: GroupHistory,
       },
       {
         name: 'groupInvitations',
@@ -193,10 +177,7 @@ export default [
           ],
           beforeEnter: 'invitations/fetch',
         },
-        components: {
-          default: GroupInvitations,
-          sidenav: GroupGroupSidenav,
-        },
+        component: GroupInvitations,
       },
       {
         name: 'groupEdit',
@@ -207,10 +188,7 @@ export default [
           ],
           beforeEnter: 'timezones/fetch',
         },
-        components: {
-          default: GroupEdit,
-          sidenav: GroupGroupSidenav,
-        },
+        component: GroupEdit,
       },
       {
         name: 'groupSettings',
@@ -221,10 +199,7 @@ export default [
           ],
           beforeEnter: 'auth/getFailedEmailDeliveries',
         },
-        components: {
-          default: GroupSettings,
-          sidenav: GroupGroupSidenav,
-        },
+        component: GroupSettings,
       },
       {
         name: 'groupManageAgreement',
@@ -234,10 +209,7 @@ export default [
             { translation: 'GROUP.MANAGE_AGREEMENT', route: { name: 'groupManageAgreement' } },
           ],
         },
-        components: {
-          default: GroupManageAgreement,
-          sidenav: GroupGroupSidenav,
-        },
+        component: GroupManageAgreement,
       },
       {
         name: 'messageReplies',
@@ -261,10 +233,7 @@ export default [
             { translation: 'GROUP.STORES', route: { name: 'stores' } },
           ],
         },
-        components: {
-          default: StoreList,
-          sidenav: GroupStoreSidenav,
-        },
+        component: StoreList,
       },
       {
         name: 'storeCreate',
@@ -274,10 +243,7 @@ export default [
             { translation: 'CREATESTORE.TITLE', route: { name: 'storeCreate' } },
           ],
         },
-        components: {
-          default: StoreCreate,
-          sidenav: GroupGroupSidenav,
-        },
+        component: StoreCreate,
       },
       {
         redirect: '/group/:groupId/store/:storeId/wall',
@@ -289,11 +255,7 @@ export default [
           beforeEnter: 'stores/selectStore',
           afterLeave: 'stores/clearSelectedStore',
         },
-        components: {
-          default: StoreLayout,
-          sidenav: GroupGroupSidenav,
-          secondSidenav: GroupStoreSidenav,
-        },
+        component: StoreLayout,
         children: [
           {
             name: 'store',
@@ -376,27 +338,9 @@ export default [
           beforeEnter: 'feedback/select',
           afterLeave: 'feedback/clear',
         },
-        components: {
-          default: PickupFeedback,
-          sidenav: GroupGroupSidenav,
-        },
+        component: PickupFeedback,
       },
     ],
-  },
-  {
-    name: 'map',
-    path: '/group/:groupId/map',
-    meta: {
-      requireLoggedIn: true,
-      breadcrumbs: [
-        { type: 'currentGroup' },
-        { translation: 'GROUPMAP.TITLE', route: { name: 'map' } },
-      ],
-      beforeEnter: 'currentGroup/select',
-    },
-    components: {
-      default: GroupMap,
-    },
   },
   {
     name: 'settings',
@@ -409,9 +353,7 @@ export default [
       beforeEnter: 'auth/getFailedEmailDeliveries',
       afterLeave: 'auth/clearSettingsStatus',
     },
-    components: {
-      default: Settings,
-    },
+    component: Settings,
   },
   {
     name: 'user',
@@ -426,6 +368,7 @@ export default [
     },
     components: {
       default: User,
+      sidenav: Sidenav,
     },
   },
   {

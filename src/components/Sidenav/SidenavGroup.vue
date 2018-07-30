@@ -4,6 +4,7 @@ import SidenavGroupUI from './SidenavGroupUI'
 
 export default connect({
   gettersToProps: {
+    groupId: 'currentGroup/id',
     expanded: 'sidenavBoxes/toggle/group',
   },
   actionsToEvents: {

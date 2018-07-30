@@ -13,34 +13,18 @@
       slot="tools"
       class="tools"
     >
-      <q-btn
-        v-if="hasArchivedStores && $store.getters['auth/isEditorInCurrentGroup']"
-        flat
-        dense
-        round
-        @click="toggleArchived"
+      <q-toggle
+        :value="showAllStores"
+        @input="$emit('toggleShowAllStores')"
       >
-        <span class="fa-fw fa-stack">
-          <i class="fas fa-trash-alt fa-stack-1x" />
-          <i
-            v-if="showArchived"
-            class="fas fa-check bottom-right fa-stack-1x text-positive"
-          />
-          <i
-            v-else
-            class="fas fa-times bottom-right fa-stack-1x text-negative"
-          />
-        </span>
-        <q-tooltip>
-          {{ $t( showArchived ? 'STOREEDIT.HIDE_ARCHIVED' : 'STOREEDIT.SHOW_ARCHIVED') }}
-        </q-tooltip>
-      </q-btn>
+        <q-tooltip v-t="showAllStores ? 'STOREEDIT.SHOW_ACTIVE_ONLY' : 'STOREEDIT.SHOW_ALL'"/>
+      </q-toggle>
       <q-btn
         v-if="hasStores && $store.getters['auth/isEditorInCurrentGroup']"
         flat
         dense
         round
-        :to="{name: 'storeCreate'}"
+        :to="{ name: 'storeCreate', params: { groupId } }"
       >
         <q-icon name="fas fa-fw fa-plus-circle" />
         <q-tooltip v-t="'BUTTON.CREATE'" />
@@ -48,26 +32,29 @@
     </div>
 
     <StoreList
+      :group-id="groupId"
       :stores="stores"
-      :archived="showArchived ? archived : []"
+      :archived="showAllStores ? archived : []"
     />
   </SidenavBox>
 </template>
 
 <script>
 
-import { QBtn, QList, QItem, QItemMain, QItemSide, QIcon, QTooltip, QItemTile } from 'quasar'
+import { QBtn, QList, QItem, QItemMain, QItemSide, QIcon, QToggle, QTooltip, QItemTile } from 'quasar'
 import SidenavBox from './SidenavBox'
 import StoreList from '@/components/Store/StoreList'
 
 export default {
   props: {
+    groupId: { required: true, type: Number },
     stores: { required: true, type: Array },
+    showAllStores: { default: false, type: Boolean },
     archived: { default: () => [], type: Array },
     expanded: { default: true, type: Boolean },
   },
   components: {
-    SidenavBox, QBtn, QList, QItem, QItemMain, QItemSide, QIcon, QTooltip, StoreList, QItemTile,
+    SidenavBox, QBtn, QList, QItem, QItemMain, QItemSide, QIcon, QToggle, QTooltip, StoreList, QItemTile,
   },
   data () {
     return {
@@ -82,9 +69,6 @@ export default {
   computed: {
     hasStores () {
       return this.stores && this.stores.length > 0
-    },
-    hasArchivedStores () {
-      return this.archived.length > 0
     },
   },
 }

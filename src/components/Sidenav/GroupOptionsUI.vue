@@ -10,26 +10,6 @@
       v-close-overlay
     >
       <q-item
-        v-if="$q.platform.is.mobile"
-        :to="{name: 'groupMembers', params: {groupId: currentGroupId}}"
-      >
-        <q-icon
-          size="1em"
-          name="fas fa-users fa-fw on-left"
-        />
-        {{ $t('GROUP.MEMBERS') }}
-      </q-item>
-      <q-item
-        v-if="$q.platform.is.mobile"
-        :to="{name: 'groupSettings', params: {groupId: currentGroupId}}"
-      >
-        <q-icon
-          size="1em"
-          name="fas fa-cog fa-fw on-left"
-        />
-        {{ $t('GROUP.SETTINGS') }}
-      </q-item>
-      <q-item
         v-if="$store.getters['auth/isEditorInCurrentGroup']"
         :to="{name: 'groupEdit', params: {groupId: currentGroupId}}"
       >
@@ -52,7 +32,6 @@
       </q-item>
 
       <q-item
-        v-if="$q.platform.is.desktop"
         :to="{name: 'groupPreview', params: {groupPreviewId: currentGroupId}}"
       >
         <q-icon
@@ -63,7 +42,7 @@
       </q-item>
 
       <q-item
-        v-if="$q.platform.is.desktop && $store.getters['auth/isEditorInCurrentGroup']"
+        v-if="$store.getters['auth/isEditorInCurrentGroup']"
         :to="{name: 'groupInvitations', params: {groupId: currentGroupId}}"
       >
         <q-icon

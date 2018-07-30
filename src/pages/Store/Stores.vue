@@ -2,6 +2,7 @@
   <q-card>
     <StoreList
       class="white-background"
+      :group-id="groupId"
       :stores="stores"
       :archived="archived"
     />
@@ -19,12 +20,10 @@ export default {
   },
   computed: {
     ...mapGetters({
+      groupId: 'currentGroup/id',
       stores: 'stores/byCurrentGroup',
       archived: 'stores/byCurrentGroupArchived',
     }),
   },
 }
 </script>
-
-<style scoped lang="stylus">
-</style>

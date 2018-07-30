@@ -13,27 +13,12 @@
       slot="tools"
       class="tools"
     >
-      <q-btn
-        flat
-        dense
-        round
-        @click="$emit('toggleShowAllStores')"
+      <q-toggle
+        :value="showAllStores"
+        @input="$emit('toggleShowAllStores')"
       >
-        <span class="fa-fw fa-stack">
-          <i class="fas fa-trash-alt fa-stack-1x" />
-          <i
-            v-if="showAllStores"
-            class="fas fa-times bottom-right fa-stack-1x text-negative"
-          />
-          <i
-            v-else
-            class="fas fa-check bottom-right fa-stack-1x text-positive"
-          />
-        </span>
-        <q-tooltip>
-          {{ $t( showAllStores ? 'STOREEDIT.SHOW_ACTIVE_ONLY' : 'STOREEDIT.SHOW_ALL') }}
-        </q-tooltip>
-      </q-btn>
+        <q-tooltip v-t="showAllStores ? 'STOREEDIT.SHOW_ACTIVE_ONLY' : 'STOREEDIT.SHOW_ALL'"/>
+      </q-toggle>
       <q-btn
         v-if="hasStores"
         flat
@@ -55,7 +40,7 @@
 
 <script>
 
-import { QBtn, QList, QItem, QItemMain, QItemSide, QIcon, QTooltip, QItemTile } from 'quasar'
+import { QBtn, QList, QItem, QItemMain, QItemSide, QIcon, QToggle, QTooltip, QItemTile } from 'quasar'
 import SidenavBox from './SidenavBox'
 import StoreList from '@/components/Store/StoreList'
 
@@ -67,7 +52,7 @@ export default {
     expanded: { default: true, type: Boolean },
   },
   components: {
-    SidenavBox, QBtn, QList, QItem, QItemMain, QItemSide, QIcon, QTooltip, StoreList, QItemTile,
+    SidenavBox, QBtn, QList, QItem, QItemMain, QItemSide, QIcon, QToggle, QTooltip, StoreList, QItemTile,
   },
   data () {
     return {

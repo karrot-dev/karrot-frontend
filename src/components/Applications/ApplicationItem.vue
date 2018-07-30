@@ -1,15 +1,25 @@
 <template>
-  <q-item class="grey-border">
+  <q-item highlight>
     <q-item-side>
       <ProfilePicture
         :user="application.applicant"
         :size="80"
+        class="applicants-picture"
       />
     </q-item-side>
-    <q-item-main :label="userName + ' applied to join our group!'" />
+    <q-item-main
+      :label="userName + ' who is going by ID ' + application.user"
+      :sublabel="application.answers" />
     <q-item-side
       right
     >
+      <q-btn
+        round
+        color="tertiary"
+        icon="fas fa-comments"
+        class="generic-margin"
+        @click="openChat"
+      />
       <q-btn
         round
         color="positive"
@@ -47,6 +57,9 @@ export default {
     test () {
       return console.log('I am a working button!')
     },
+    openChat () {
+      return console.log('This will lead to the ApplicationChat soon!')
+    },
     pressAccept () {
       console.log('I will run this method! ' + this.application.id)
       Dialog.create({
@@ -61,11 +74,14 @@ export default {
   },
   computed: {
     userName () {
-      return this.application && this.application.user && this.application.applicant.displayName
+      return this.application && this.application.applicant && this.application.applicant.displayName
     },
   },
 }
 </script>
 
 <style scoped lang="stylus">
+.applicants-picture
+  vertical-align: text-bottom
+  margin-left: -0.5 rem
 </style>

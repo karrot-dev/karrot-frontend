@@ -1,5 +1,3 @@
-var path = require('path')
-
 const backend = (process.env.BACKEND || 'https://dev.karrot.world').replace(/\/$/, '') // no trailing slash
 
 const backendProxy = {
@@ -25,29 +23,28 @@ const backendProxy = {
   },
 }
 
-module.exports = {
-  // Webpack aliases
-  aliases: {
-    quasar: 'quasar-framework',
-    'quasar-vue-plugin': 'quasar-framework/src/vue-plugin',
-    '@': path.resolve(__dirname, '../src'),
-    '>': path.resolve(__dirname, '../test'),
-    variables: path.resolve(__dirname, '../src/themes/quasar.variables.styl'),
-    slidetoggle: path.resolve(__dirname, '../src/themes/karrot.slidetoggle.styl'),
-    editbox: path.resolve(__dirname, '../src/themes/karrot.editbox.styl')
-  },
+const theme = require('./env-utils').platform.theme
 
-  // Backend to make API requests to
+const env = {
+  NODE_ENV: '"production"',
+  RAVEN_CONFIG: JSON.stringify(process.env.RAVEN_CONFIG || 'https://6fd3cc6b432b457e8f18e12aa163a900@sentry.io/236883'),
+  GIT_SHA1: JSON.stringify(process.env.GIT_SHA1 || process.env.CIRCLE_SHA1),
+  THEME: JSON.stringify(theme),
+}
+
+module.exports = {
   backend,
 
   build: {
-    env: require('./prod.env'),
-    publicPath: '',
-    productionSourceMap: true,
+    // defines process.env inside app
+    env,
   },
   dev: {
-    env: require('./dev.env'),
-    publicPath: '/',
+    // defines process.env inside app
+    env: Object.assign({}, env, {
+      NODE_ENV: '"development"',
+      RAVEN_CONFIG: JSON.stringify(process.env.RAVEN_CONFIG || null),
+    }),
     proxyTable: {
       '/api': backendProxy,
       '/media': backendProxy,

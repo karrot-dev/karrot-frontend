@@ -1,6 +1,6 @@
 const webpack = require('webpack')
 const { resolve, join } = require('path')
-const config = require('../config')
+const config = require('./config')
 const env = require('./env-utils')
 const projectRoot = resolve(__dirname, '../')
 
@@ -37,7 +37,7 @@ module.exports = {
   },
   output: {
     path: resolve(__dirname, '../dist'),
-    publicPath: config[env.prod ? 'build' : 'dev'].publicPath,
+    publicPath: env.prod ? '' : '/',
     filename: 'assets/js/[name].[hash].js',
     chunkFilename: 'assets/js/[id].[chunkhash].js',
     pathinfo: false,
@@ -53,7 +53,15 @@ module.exports = {
       resolve('src'),
       resolve('node_modules')
     ],
-    alias: config.aliases,
+    alias: {
+      quasar: 'quasar-framework',
+      'quasar-vue-plugin': 'quasar-framework/src/vue-plugin',
+      '@': resolve(__dirname, '../src'),
+      '>': resolve(__dirname, '../test'),
+      variables: resolve(__dirname, '../src/themes/quasar.variables.styl'),
+      slidetoggle: resolve(__dirname, '../src/themes/karrot.slidetoggle.styl'),
+      editbox: resolve(__dirname, '../src/themes/karrot.editbox.styl')
+    },
     symlinks: false,
   },
   module: {
@@ -115,8 +123,7 @@ module.exports = {
       'CORDOVA': env.cordova,
       'BACKEND': '"' + config.backend + '"',
       'KARROT_THEME': '"' + env.karrotTheme + '"',
-      'FCM_SENDER_ID': '"' + env.fcmSenderId + '"',
-      '__THEME': '"' + env.platform.theme + '"'
+      'FCM_SENDER_ID': '"' + env.fcmSenderId + '"'
     }),
     new HtmlWebpackPlugin({
       filename: 'index.html',
@@ -144,7 +151,7 @@ module.exports = {
   optimization: {
     minimizer: [
       new UglifyJsPlugin({
-        sourceMap: config.build.productionSourceMap,
+        sourceMap: env.prod,
         cache: true,
         parallel: true,
         uglifyOptions: {
@@ -158,5 +165,6 @@ module.exports = {
       minChunks: 2,
       name: !env.prod,
     },
+    runtimeChunk: 'single',
   },
 }

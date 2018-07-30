@@ -24,8 +24,7 @@ module.exports = {
     'CORDOVA': true,
     'BACKEND': true,
     'KARROT_THEME': true,
-    'FCM_SENDER_ID': true,
-    '__THEME': true
+    'FCM_SENDER_ID': true
   },
   // add your custom rules here
   'rules': {

@@ -9,7 +9,7 @@ const { join } = require('path')
 
 require('dotenv').config()
 
-const config = require('../config')
+const config = require('./config')
 
 /**
  * Serve static files

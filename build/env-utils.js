@@ -1,4 +1,3 @@
-const config = require('../config')
 const theme = 'mat'
 
 module.exports = {

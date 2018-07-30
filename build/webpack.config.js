@@ -4,10 +4,10 @@ const config = require('./config')
 const env = require('./env-utils')
 const projectRoot = resolve(__dirname, '../')
 
-const HtmlWebpackPlugin = require('html-webpack-plugin');
+const HtmlWebpackPlugin = require('html-webpack-plugin')
 const VueLoaderPlugin = require('vue-loader/lib/plugin')
 const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin
-const UglifyJsPlugin = require("uglifyjs-webpack-plugin");
+const UglifyJsPlugin = require('uglifyjs-webpack-plugin')
 const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const HardSourceWebpackPlugin = require('hard-source-webpack-plugin')
@@ -16,7 +16,7 @@ const styleLoaders = [
   env.prod ? MiniCssExtractPlugin.loader : 'style-loader',
   {
     loader: 'css-loader',
-    options: { importLoaders: 1 }
+    options: { importLoaders: 1 },
   },
   {
     loader: 'postcss-loader',
@@ -24,8 +24,8 @@ const styleLoaders = [
       ident: 'postcss',
       plugins: loader => [
         require('autoprefixer')(),
-      ]
-    }
+      ],
+    },
   },
 ]
 
@@ -51,7 +51,7 @@ module.exports = {
     ],
     modules: [
       resolve('src'),
-      resolve('node_modules')
+      resolve('node_modules'),
     ],
     alias: {
       quasar: 'quasar-framework',
@@ -60,7 +60,7 @@ module.exports = {
       '>': resolve(__dirname, '../test'),
       variables: resolve(__dirname, '../src/themes/quasar.variables.styl'),
       slidetoggle: resolve(__dirname, '../src/themes/karrot.slidetoggle.styl'),
-      editbox: resolve(__dirname, '../src/themes/karrot.editbox.styl')
+      editbox: resolve(__dirname, '../src/themes/karrot.editbox.styl'),
     },
     symlinks: false,
   },
@@ -84,23 +84,23 @@ module.exports = {
       {
         test: /\.vue$/,
         exclude: /(node_modules)/,
-        use: 'vue-loader'
+        use: 'vue-loader',
       },
       {
         test: /\.(png|jpe?g|gif|svg)(\?.*)?$/,
         loader: 'url-loader',
         options: {
           limit: 10000,
-          name: 'img/[name].[hash:7].[ext]'
-        }
+          name: 'img/[name].[hash:7].[ext]',
+        },
       },
       {
         test: /\.(woff2?|eot|ttf|otf)(\?.*)?$/,
         loader: 'url-loader',
         options: {
           limit: 10000,
-          name: 'fonts/[name].[hash:7].[ext]'
-        }
+          name: 'fonts/[name].[hash:7].[ext]',
+        },
       },
       {
         test: /\.css$/,
@@ -110,8 +110,8 @@ module.exports = {
         test: /\.(stylus|styl)$/,
         use: [
           ...styleLoaders,
-          'stylus-loader'
-        ]
+          'stylus-loader',
+        ],
       },
     ],
   },
@@ -123,7 +123,7 @@ module.exports = {
       'CORDOVA': env.cordova,
       'BACKEND': '"' + config.backend + '"',
       'KARROT_THEME': '"' + env.karrotTheme + '"',
-      'FCM_SENDER_ID': '"' + env.fcmSenderId + '"'
+      'FCM_SENDER_ID': '"' + env.fcmSenderId + '"',
     }),
     new HtmlWebpackPlugin({
       filename: 'index.html',
@@ -143,7 +143,7 @@ module.exports = {
         generateStatsFile: false,
         statsFilename: 'stats.json',
         statsOptions: null,
-        logLevel: 'info'
+        logLevel: 'info',
       }),
     ] : []),
     new HardSourceWebpackPlugin(),
@@ -155,10 +155,10 @@ module.exports = {
         cache: true,
         parallel: true,
         uglifyOptions: {
-          mangle: true
-        }
+          mangle: true,
+        },
       }),
-      new OptimizeCSSAssetsPlugin({})
+      new OptimizeCSSAssetsPlugin({}),
     ],
     splitChunks: {
       chunks: 'all',

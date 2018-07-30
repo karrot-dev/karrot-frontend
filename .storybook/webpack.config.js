@@ -1,6 +1,3 @@
-// const genDefaultConfig = require('@storybook/vue/dist/server/config/defaults/webpack.config.js')
-// const merge = require('webpack-merge')
-
 const webpackConfig = require('../build/webpack.config')
 
 const VueLoaderPlugin = require('vue-loader/lib/plugin')

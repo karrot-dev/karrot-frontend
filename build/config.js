@@ -51,7 +51,7 @@ module.exports = {
       '/community_proxy': {
         target: 'https://dev.karrot.world',
         changeOrigin: true,
-      }
+      },
     },
-  }
+  },
 }

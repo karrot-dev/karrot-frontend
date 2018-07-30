@@ -23,6 +23,7 @@ Please document your changes in this format:
 - Hide markdown preview in sidebar @tiltec
 - External links, email links and phone links in markdown now have a small icon @tiltec
 - Internal links open in the same tab @tiltec
+- Unified desktop/mobile sidenav #1071 @nicksellen 
 
 ### Removed
 

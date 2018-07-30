@@ -1,4 +1,3 @@
-const GroupLayout = () => import('@/components/Layout/GroupLayout')
 const GroupWall = () => import('@/pages/Group/Wall')
 const GroupPickups = () => import('@/pages/Group/Pickups')
 const GroupFeedback = () => import('@/pages/Group/Feedbacks')
@@ -99,7 +98,7 @@ export default [
       beforeEnter: 'currentGroup/select',
     },
     components: {
-      default: GroupLayout,
+      default: { render: h => h('router-view') }, // passthrough
       sidenav: GroupMapAndStoresSidenav,
     },
     children: [

@@ -3846,7 +3846,7 @@ exports[`Storyshots Sidenav Boxes Group 1`] = `
   <div class="q-toolbar row no-wrap items-center relative-position toolbar q-toolbar-inverted text-primary">
     <i aria-hidden="true" class="q-icon fas fa-fw fa-home"> </i>
     <div class="q-toolbar-title">
-      Main menu
+      Home
     </div>
     <div class="tools">
       <a tabindex="0" href="#/" class="q-btn inline relative-position q-btn-item non-selectable q-btn-round q-btn-flat q-focusable q-hoverable q-btn-dense">
@@ -4005,7 +4005,19 @@ exports[`Storyshots Sidenav Boxes Stores 1`] = `
       Stores
     </div>
     <div class="tools">
-      <!---->
+      <div tabindex="0" class="q-option cursor-pointer no-outline row inline no-wrap items-center q-toggle q-focusable">
+        <div class="q-option-inner relative-position text-faded">
+          <input type="checkbox">
+          <div class="q-focus-helper q-focus-helper-rounded"></div>
+          <div class="q-toggle-base"></div>
+          <div class="q-toggle-handle row flex-center">
+            <div class="q-radial-ripple"></div>
+          </div>
+        </div>
+        <div class="q-tooltip animate-popup">
+          <div></div>
+        </div>
+      </div>
       <a tabindex="0" href="#/" class="q-btn inline relative-position q-btn-item non-selectable q-btn-round q-btn-flat q-focusable q-hoverable q-btn-dense">
         <div class="q-focus-helper"></div>
         <div class="q-btn-inner row col items-center justify-center">

@@ -22,8 +22,6 @@ const GroupDescription = () => import('@/pages/Group/Description')
 const GroupMembers = () => import('@/pages/Group/Members')
 const GroupHistory = () => import('@/pages/Group/History')
 const Sidenav = () => import('@/components/Sidenav/Sidenav')
-const SidenavGroup = () => import('@/components/Sidenav/SidenavGroup')
-const SidenavStore = () => import('@/components/Sidenav/SidenavStore')
 const Settings = () => import('@/pages/Settings')
 const User = () => import('@/pages/User/User')
 const PickupFeedback = () => import('@/pages/Group/Feedback')
@@ -53,9 +51,7 @@ export default [
       beforeEnter: 'groups/selectPreview',
       afterLeave: 'groups/clearGroupPreview',
     },
-    components: {
-      default: GroupPreview,
-    },
+    component: GroupPreview,
   },
   {
     name: 'groupCreate',
@@ -68,9 +64,7 @@ export default [
       ],
       beforeEnter: 'timezones/fetch',
     },
-    components: {
-      default: GroupCreate,
-    },
+    component: GroupCreate,
   },
   {
     name: 'historyDetail',
@@ -83,9 +77,7 @@ export default [
       beforeEnter: 'history/setActive',
       afterLeave: 'history/clearActive',
     },
-    components: {
-      default: HistoryDetail,
-    },
+    component: HistoryDetail,
   },
   {
     path: '/group/:groupId',
@@ -109,10 +101,7 @@ export default [
           beforeEnter: 'conversations/fetchForGroup',
           afterLeave: 'conversations/clearForGroup',
         },
-        components: {
-          default: GroupWall,
-          sidenav: SidenavGroup,
-        },
+        component: GroupWall,
       },
       {
         name: 'map',
@@ -123,10 +112,7 @@ export default [
             { translation: 'GROUPMAP.TITLE', route: { name: 'map' } },
           ],
         },
-        components: {
-          default: GroupMap,
-          sidenav: SidenavGroup,
-        },
+        component: GroupMap,
       },
       {
         name: 'groupPickups',
@@ -136,10 +122,7 @@ export default [
             { translation: 'GROUP.PICKUPS', route: { name: 'groupPickups' } },
           ],
         },
-        components: {
-          default: GroupPickups,
-          sidenav: SidenavGroup,
-        },
+        component: GroupPickups,
       },
       {
         name: 'groupFeedback',
@@ -151,10 +134,7 @@ export default [
           beforeEnter: 'feedback/fetchForGroup',
           afterLeave: 'feedback/clear',
         },
-        components: {
-          default: GroupFeedback,
-          sidenav: SidenavGroup,
-        },
+        component: GroupFeedback,
       },
       {
         name: 'groupDescription',
@@ -164,10 +144,7 @@ export default [
             { translation: 'GROUP.DESCRIPTION', route: { name: 'groupDescription' } },
           ],
         },
-        components: {
-          default: GroupDescription,
-          sidenav: SidenavGroup,
-        },
+        component: GroupDescription,
       },
       {
         name: 'groupMembers',
@@ -177,10 +154,7 @@ export default [
             { translation: 'GROUP.MEMBERS', route: { name: 'groupMembers' } },
           ],
         },
-        components: {
-          default: GroupMembers,
-          sidenav: SidenavGroup,
-        },
+        component: GroupMembers,
       },
       {
         name: 'groupHistory',
@@ -191,10 +165,7 @@ export default [
           ],
           beforeEnter: 'history/fetchForGroup',
         },
-        components: {
-          default: GroupHistory,
-          sidenav: SidenavGroup,
-        },
+        component: GroupHistory,
       },
       {
         name: 'groupInvitations',
@@ -205,10 +176,7 @@ export default [
           ],
           beforeEnter: 'invitations/fetch',
         },
-        components: {
-          default: GroupInvitations,
-          sidenav: SidenavGroup,
-        },
+        component: GroupInvitations,
       },
       {
         name: 'groupEdit',
@@ -219,10 +187,7 @@ export default [
           ],
           beforeEnter: 'timezones/fetch',
         },
-        components: {
-          default: GroupEdit,
-          sidenav: SidenavGroup,
-        },
+        component: GroupEdit,
       },
       {
         name: 'groupSettings',
@@ -233,10 +198,7 @@ export default [
           ],
           beforeEnter: 'auth/getFailedEmailDeliveries',
         },
-        components: {
-          default: GroupSettings,
-          sidenav: SidenavGroup,
-        },
+        component: GroupSettings,
       },
       {
         name: 'groupManageAgreement',
@@ -246,10 +208,7 @@ export default [
             { translation: 'GROUP.MANAGE_AGREEMENT', route: { name: 'groupManageAgreement' } },
           ],
         },
-        components: {
-          default: GroupManageAgreement,
-          sidenav: SidenavGroup,
-        },
+        component: GroupManageAgreement,
       },
       {
         name: 'messageReplies',
@@ -273,10 +232,7 @@ export default [
             { translation: 'GROUP.STORES', route: { name: 'stores' } },
           ],
         },
-        components: {
-          default: StoreList,
-          sidenav: SidenavStore,
-        },
+        component: StoreList,
       },
       {
         name: 'storeCreate',
@@ -286,10 +242,7 @@ export default [
             { translation: 'CREATESTORE.TITLE', route: { name: 'storeCreate' } },
           ],
         },
-        components: {
-          default: StoreCreate,
-          sidenav: SidenavGroup,
-        },
+        component: StoreCreate,
       },
       {
         redirect: '/group/:groupId/store/:storeId/wall',
@@ -301,11 +254,7 @@ export default [
           beforeEnter: 'stores/selectStore',
           afterLeave: 'stores/clearSelectedStore',
         },
-        components: {
-          default: StoreLayout,
-          sidenav: SidenavGroup,
-          secondSidenav: SidenavStore,
-        },
+        component: StoreLayout,
         children: [
           {
             name: 'store',
@@ -388,10 +337,7 @@ export default [
           beforeEnter: 'feedback/select',
           afterLeave: 'feedback/clear',
         },
-        components: {
-          default: PickupFeedback,
-          sidenav: SidenavGroup,
-        },
+        component: PickupFeedback,
       },
     ],
   },
@@ -406,9 +352,7 @@ export default [
       beforeEnter: 'auth/getFailedEmailDeliveries',
       afterLeave: 'auth/clearSettingsStatus',
     },
-    components: {
-      default: Settings,
-    },
+    component: Settings,
   },
   {
     name: 'user',
@@ -423,6 +367,7 @@ export default [
     },
     components: {
       default: User,
+      sidenav: Sidenav,
     },
   },
   {

@@ -20,6 +20,7 @@
       <q-card-title v-t="'GROUP.STORES'" />
       <q-card-main>
         <StoreList
+          :group-id="groupId"
           :stores="stores"
           link-to="storePickupsManage"
         />
@@ -50,6 +51,7 @@ export default {
   },
   computed: {
     ...mapGetters({
+      groupId: 'currentGroup/id',
       pickups: 'pickups/all',
       stores: 'stores/byCurrentGroup',
     }),

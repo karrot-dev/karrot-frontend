@@ -1,13 +1,13 @@
 const webpack = require('webpack')
 const { resolve, join } = require('path')
-const config = require('../config')
+const config = require('./config')
 const env = require('./env-utils')
 const projectRoot = resolve(__dirname, '../')
 
-const HtmlWebpackPlugin = require('html-webpack-plugin');
+const HtmlWebpackPlugin = require('html-webpack-plugin')
 const VueLoaderPlugin = require('vue-loader/lib/plugin')
 const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin
-const UglifyJsPlugin = require("uglifyjs-webpack-plugin");
+const UglifyJsPlugin = require('uglifyjs-webpack-plugin')
 const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const HardSourceWebpackPlugin = require('hard-source-webpack-plugin')
@@ -16,7 +16,7 @@ const styleLoaders = [
   env.prod ? MiniCssExtractPlugin.loader : 'style-loader',
   {
     loader: 'css-loader',
-    options: { importLoaders: 1 }
+    options: { importLoaders: 1 },
   },
   {
     loader: 'postcss-loader',
@@ -24,8 +24,8 @@ const styleLoaders = [
       ident: 'postcss',
       plugins: loader => [
         require('autoprefixer')(),
-      ]
-    }
+      ],
+    },
   },
 ]
 
@@ -37,7 +37,7 @@ module.exports = {
   },
   output: {
     path: resolve(__dirname, '../dist'),
-    publicPath: config[env.prod ? 'build' : 'dev'].publicPath,
+    publicPath: env.prod ? '' : '/',
     filename: 'assets/js/[name].[hash].js',
     chunkFilename: 'assets/js/[id].[chunkhash].js',
     pathinfo: false,
@@ -51,9 +51,17 @@ module.exports = {
     ],
     modules: [
       resolve('src'),
-      resolve('node_modules')
+      resolve('node_modules'),
     ],
-    alias: config.aliases,
+    alias: {
+      quasar: 'quasar-framework',
+      'quasar-vue-plugin': 'quasar-framework/src/vue-plugin',
+      '@': resolve(__dirname, '../src'),
+      '>': resolve(__dirname, '../test'),
+      variables: resolve(__dirname, '../src/themes/quasar.variables.styl'),
+      slidetoggle: resolve(__dirname, '../src/themes/karrot.slidetoggle.styl'),
+      editbox: resolve(__dirname, '../src/themes/karrot.editbox.styl'),
+    },
     symlinks: false,
   },
   module: {
@@ -76,23 +84,23 @@ module.exports = {
       {
         test: /\.vue$/,
         exclude: /(node_modules)/,
-        use: 'vue-loader'
+        use: 'vue-loader',
       },
       {
         test: /\.(png|jpe?g|gif|svg)(\?.*)?$/,
         loader: 'url-loader',
         options: {
           limit: 10000,
-          name: 'img/[name].[hash:7].[ext]'
-        }
+          name: 'img/[name].[hash:7].[ext]',
+        },
       },
       {
         test: /\.(woff2?|eot|ttf|otf)(\?.*)?$/,
         loader: 'url-loader',
         options: {
           limit: 10000,
-          name: 'fonts/[name].[hash:7].[ext]'
-        }
+          name: 'fonts/[name].[hash:7].[ext]',
+        },
       },
       {
         test: /\.css$/,
@@ -102,8 +110,8 @@ module.exports = {
         test: /\.(stylus|styl)$/,
         use: [
           ...styleLoaders,
-          'stylus-loader'
-        ]
+          'stylus-loader',
+        ],
       },
     ],
   },
@@ -116,7 +124,6 @@ module.exports = {
       'BACKEND': '"' + config.backend + '"',
       'KARROT_THEME': '"' + env.karrotTheme + '"',
       'FCM_SENDER_ID': '"' + env.fcmSenderId + '"',
-      '__THEME': '"' + env.platform.theme + '"'
     }),
     new HtmlWebpackPlugin({
       filename: 'index.html',
@@ -136,7 +143,7 @@ module.exports = {
         generateStatsFile: false,
         statsFilename: 'stats.json',
         statsOptions: null,
-        logLevel: 'info'
+        logLevel: 'info',
       }),
     ] : []),
     new HardSourceWebpackPlugin(),
@@ -144,19 +151,20 @@ module.exports = {
   optimization: {
     minimizer: [
       new UglifyJsPlugin({
-        sourceMap: config.build.productionSourceMap,
+        sourceMap: env.prod,
         cache: true,
         parallel: true,
         uglifyOptions: {
-          mangle: true
-        }
+          mangle: true,
+        },
       }),
-      new OptimizeCSSAssetsPlugin({})
+      new OptimizeCSSAssetsPlugin({}),
     ],
     splitChunks: {
       chunks: 'all',
       minChunks: 2,
       name: !env.prod,
     },
+    runtimeChunk: 'single',
   },
 }

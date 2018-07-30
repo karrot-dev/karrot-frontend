@@ -1,9 +1,9 @@
 const path = require('path')
-const static = require('koa-static')
+const serveStatic = require('koa-static')
 const convert = require('koa-connect')
 const mount = require('koa-mount')
 const proxy = require('http-proxy-middleware')
-const config = require('../config')
+const config = require('./config')
 
 const webpackConfig = require('./webpack.config')
 
@@ -25,7 +25,7 @@ module.exports = {
         app.use(convert(proxy(prefix, config.dev.proxyTable[prefix])))
       }
       const staticsPath = path.posix.join(webpackConfig.output.publicPath, 'statics/')
-      app.use(mount(staticsPath, static('./src/statics')))
-    }
-  }
+      app.use(mount(staticsPath, serveStatic('./src/statics')))
+    },
+  },
 }

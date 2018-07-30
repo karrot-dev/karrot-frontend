@@ -1083,7 +1083,7 @@ exports[`Storyshots GroupGallery signup view 1`] = `
           <br> It would make sense if it was markdown</p>
         <h1>then this would be a header</h1>
         <p>
-          <a href="www.google.de" target="_blank" rel="noopener nofollow noreferrer">and this a link</a>
+          <a href="www.google.de" target="_blank" rel="noopener nofollow noreferrer" class="fas-after fa-after-external-link">and this a link</a>
         </p>
       </div>
     </div>
@@ -1361,7 +1361,7 @@ exports[`Storyshots GroupGallery switch and explore 1`] = `
           <br> It would make sense if it was markdown</p>
         <h1>then this would be a header</h1>
         <p>
-          <a href="www.google.de" target="_blank" rel="noopener nofollow noreferrer">and this a link</a>
+          <a href="www.google.de" target="_blank" rel="noopener nofollow noreferrer" class="fas-after fa-after-external-link">and this a link</a>
         </p>
       </div>
     </div>
@@ -1472,7 +1472,7 @@ exports[`Storyshots GroupGallery switch and explore 1`] = `
         <br> It would make sense if it was markdown</p>
       <h1>then this would be a header</h1>
       <p>
-        <a href="www.google.de" target="_blank" rel="noopener nofollow noreferrer">and this a link</a>
+        <a href="www.google.de" target="_blank" rel="noopener nofollow noreferrer" class="fas-after fa-after-external-link">and this a link</a>
       </p>
     </div>
   </div>
@@ -1697,7 +1697,7 @@ exports[`Storyshots GroupGalleryCard isMember = false 1`] = `
             <br> It would make sense if it was markdown</p>
           <h1>then this would be a header</h1>
           <p>
-            <a href="www.google.de" target="_blank" rel="noopener nofollow noreferrer">and this a link</a>
+            <a href="www.google.de" target="_blank" rel="noopener nofollow noreferrer" class="fas-after fa-after-external-link">and this a link</a>
           </p>
         </div>
       </div>
@@ -1742,7 +1742,7 @@ exports[`Storyshots GroupGalleryCard isMember = true 1`] = `
             <br> It would make sense if it was markdown</p>
           <h1>then this would be a header</h1>
           <p>
-            <a href="www.google.de" target="_blank" rel="noopener nofollow noreferrer">and this a link</a>
+            <a href="www.google.de" target="_blank" rel="noopener nofollow noreferrer" class="fas-after fa-after-external-link">and this a link</a>
           </p>
         </div>
       </div>
@@ -1872,7 +1872,7 @@ exports[`Storyshots GroupPreviewUI is member 1`] = `
             <br> It would make sense if it was markdown</p>
           <h1>then this would be a header</h1>
           <p>
-            <a href="www.google.de" target="_blank" rel="noopener nofollow noreferrer">and this a link</a>
+            <a href="www.google.de" target="_blank" rel="noopener nofollow noreferrer" class="fas-after fa-after-external-link">and this a link</a>
           </p>
         </div>
       </div>
@@ -1961,7 +1961,7 @@ exports[`Storyshots GroupPreviewUI is not member 1`] = `
             <br> It would make sense if it was markdown</p>
           <h1>then this would be a header</h1>
           <p>
-            <a href="www.google.de" target="_blank" rel="noopener nofollow noreferrer">and this a link</a>
+            <a href="www.google.de" target="_blank" rel="noopener nofollow noreferrer" class="fas-after fa-after-external-link">and this a link</a>
           </p>
         </div>
       </div>
@@ -2379,19 +2379,19 @@ exports[`Storyshots Layout KFooter 1`] = `
       — made with
       <i class="fas fa-heart"></i>
       by
-      <a href="https://foodsaving.world">
+      <a href="https://foodsaving.world" target="_blank" rel="noopener">
         foodsaving worldwide
       </a></span></small>
   <small class="row justify-center group col-xl-7 col-xs-12">
-    <a href="https://github.com/yunity/karrot-frontend">
+    <a href="https://github.com/yunity/karrot-frontend" target="_blank" rel="noopener">
       <i class="fab fa-fw fa-github"></i>
       Development
     </a>
-    <a href="https://foodsaving.world">
+    <a href="https://foodsaving.world" target="_blank" rel="noopener">
       <i class="fas fa-fw fa-globe"></i>
       Read our info page!
     </a>
-    <a href="https://community.foodsaving.world/">
+    <a href="https://community.foodsaving.world/" target="_blank" rel="noopener">
       <i class="fab fa-fw fa-discourse"></i>
       Join our community!
     </a>
@@ -2436,7 +2436,7 @@ exports[`Storyshots Layout KTopbar 1`] = `
     <div class="q-btn-inner row col items-center justify-center">
       <i aria-hidden="true" class="q-icon fab fa-discourse"> </i>
       <!---->
-      <div tabindex="-1" class="q-popover scroll" style="max-width:700px;">
+      <div tabindex="-1" class="q-popover scroll k-community-feed">
         <div class="q-list q-list-link">
           <div class="q-list-header">
             <i aria-hidden="true" class="q-icon q-mr-xs fab fa-discourse" style="font-size:20px;"> </i> <span>Updates from the <a place="community" href="https://community.foodsaving.world" target="_blank" rel="noopener" style="text-decoration:underline;">
@@ -4053,10 +4053,12 @@ exports[`Storyshots Settings Page Default 1`] = `
 exports[`Storyshots Settings Page verification warning 1`] = `<!---->`;
 
 exports[`Storyshots Sidenav Boxes Group 1`] = `
-<div class="q-card no-shadow grey-border">
-  <div class="q-toolbar row no-wrap items-center relative-position toolbar q-toolbar-normal bg-primary text-white">
+<div class="k-sidenav-box expandable">
+  <div class="q-toolbar row no-wrap items-center relative-position toolbar q-toolbar-inverted text-primary">
     <i aria-hidden="true" class="q-icon fas fa-fw fa-home"> </i>
-    <div class="q-toolbar-title"></div>
+    <div class="q-toolbar-title">
+      Home
+    </div>
     <div class="tools">
       <a tabindex="0" href="#/" class="q-btn inline relative-position q-btn-item non-selectable q-btn-round q-btn-flat q-focusable q-hoverable q-btn-dense">
         <div class="q-focus-helper"></div>
@@ -4073,8 +4075,6 @@ exports[`Storyshots Sidenav Boxes Group 1`] = `
           <i aria-hidden="true" class="q-icon fas fa-fw fa-ellipsis-v"> </i>
           <div tabindex="-1" class="q-popover scroll">
             <div item-separator="" class="q-list q-list-link">
-              <!---->
-              <!---->
               <a class="q-link q-item q-item-division relative-position q-item-link">
                 <i aria-hidden="true" class="q-icon fas fa-pencil-alt fa-fw on-left" style="font-size:1em;"> </i>
                 Edit group
@@ -4155,6 +4155,7 @@ exports[`Storyshots Sidenav Boxes Group 1`] = `
             History
           </div>
         </a>
+        <!---->
       </div>
     </div>
   </div>
@@ -4162,71 +4163,70 @@ exports[`Storyshots Sidenav Boxes Group 1`] = `
 `;
 
 exports[`Storyshots Sidenav Boxes Map 1`] = `
-<div class="q-card no-shadow grey-border">
-  <div class="q-toolbar row no-wrap items-center relative-position toolbar q-toolbar-normal bg-primary text-white">
-    <i aria-hidden="true" class="q-icon fas fa-fw fa-map"> </i>
-    <div class="q-toolbar-title"></div>
-    <div class="tools">
-      <a tabindex="0" href="#/group/1/map" class="q-btn inline relative-position q-btn-item non-selectable q-btn-round q-btn-flat q-focusable q-hoverable q-btn-dense">
-        <div class="q-focus-helper"></div>
-        <div class="q-btn-inner row col items-center justify-center">
-          <i class="fas fa-expand-arrows-alt fa-stack-1x"></i>
-          <div class="q-tooltip animate-popup">
-            <div>
-              Show full screen
-            </div>
-          </div>
-        </div>
-      </a>
-      <button tabindex="0" class="q-btn inline relative-position q-btn-item non-selectable q-btn-round q-btn-flat q-focusable q-hoverable q-btn-dense">
-        <div class="q-focus-helper"></div>
-        <div class="q-btn-inner row col items-center justify-center"><span class="fa-fw fa-stack"><i class="fas fa-shopping-cart fa-stack-1x"></i> <i class="fas fa-check bottom-right fa-stack-1x"></i></span>
-          <div class="q-tooltip animate-popup">
-            <div>
-              Hide stores
-            </div>
-          </div>
-        </div>
-      </button>
-      <button tabindex="0" class="q-btn inline relative-position q-btn-item non-selectable q-btn-round q-btn-flat q-focusable q-hoverable q-btn-dense">
-        <div class="q-focus-helper"></div>
-        <div class="q-btn-inner row col items-center justify-center"><span class="fa-fw fa-stack"><i class="fas fa-user fa-stack-1x"></i> <i class="fas fa-check bottom-right fa-stack-1x"></i></span>
-          <div class="q-tooltip animate-popup">
-            <div>
-              Hide users
-            </div>
-          </div>
-        </div>
-      </button>
-    </div>
-    <button tabindex="0" class="q-btn inline relative-position q-btn-item non-selectable card-arrow q-btn-round q-btn-flat q-focusable q-hoverable q-btn-dense" style="font-size:10px;">
+<div class="container map" style="height:260px;">
+  <div class="vue2leaflet-map k-map" style="opacity:1;">
+    <!---->
+  </div>
+  <div class="q-btn-group row no-wrap inline k-groupmapcontrols">
+    <button tabindex="0" class="q-btn inline relative-position q-btn-item non-selectable q-btn-rectangle q-focusable q-hoverable bg-primary text-white" style="font-size:10px;">
       <div class="q-focus-helper"></div>
       <div class="q-btn-inner row col items-center justify-center">
-        <i aria-hidden="true" class="q-icon fas fa-angle-down arrow upsideDown"> </i>
+        <i class="fas fa-expand-arrows-alt fa-stack-1x"></i>
+        <div class="q-tooltip animate-popup">
+          <div>
+            Show full screen
+          </div>
+        </div>
       </div>
     </button>
-  </div>
-  <div name="slide-toggle">
-    <div class="container map">
-      <div class="vue2leaflet-map k-map" style="opacity:1;">
-        <!---->
+    <!---->
+    <button tabindex="0" class="q-btn inline relative-position q-btn-item non-selectable q-btn-rectangle q-focusable q-hoverable bg-primary text-white" style="font-size:10px;">
+      <div class="q-focus-helper"></div>
+      <div class="q-btn-inner row col items-center justify-center"><span class="fa-fw fa-stack"><i class="fas fa-shopping-cart fa-stack-1x"></i> <i class="fas fa-check bottom-right fa-stack-1x"></i></span>
+        <div class="q-tooltip animate-popup">
+          <div>
+            Hide stores
+          </div>
+        </div>
       </div>
-      <!---->
-      <!---->
-    </div>
+    </button>
+    <button tabindex="0" class="q-btn inline relative-position q-btn-item non-selectable q-btn-rectangle q-focusable q-hoverable bg-primary text-white" style="font-size:10px;">
+      <div class="q-focus-helper"></div>
+      <div class="q-btn-inner row col items-center justify-center"><span class="fa-fw fa-stack"><i class="fas fa-user fa-stack-1x"></i> <i class="fas fa-check bottom-right fa-stack-1x"></i></span>
+        <div class="q-tooltip animate-popup">
+          <div>
+            Hide users
+          </div>
+        </div>
+      </div>
+    </button>
+    <!---->
   </div>
+  <!---->
 </div>
 `;
 
 exports[`Storyshots Sidenav Boxes Stores 1`] = `
-<div class="q-card no-shadow grey-border">
-  <div class="q-toolbar row no-wrap items-center relative-position toolbar q-toolbar-normal bg-primary text-white">
+<div class="k-sidenav-box expandable">
+  <div class="q-toolbar row no-wrap items-center relative-position toolbar q-toolbar-inverted text-primary">
     <i aria-hidden="true" class="q-icon fas fa-fw fa-shopping-cart"> </i>
     <div class="q-toolbar-title">
       Stores
     </div>
     <div class="tools">
-      <!---->
+      <div tabindex="0" class="q-option cursor-pointer no-outline row inline no-wrap items-center q-toggle q-focusable">
+        <div class="q-option-inner relative-position text-faded">
+          <input type="checkbox">
+          <div class="q-focus-helper q-focus-helper-rounded"></div>
+          <div class="q-toggle-base"></div>
+          <div class="q-toggle-handle row flex-center">
+            <div class="q-radial-ripple"></div>
+          </div>
+        </div>
+        <div class="q-tooltip animate-popup">
+          <div></div>
+        </div>
+      </div>
       <a tabindex="0" href="#/" class="q-btn inline relative-position q-btn-item non-selectable q-btn-round q-btn-flat q-focusable q-hoverable q-btn-dense">
         <div class="q-focus-helper"></div>
         <div class="q-btn-inner row col items-center justify-center">

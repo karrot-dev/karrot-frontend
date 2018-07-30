@@ -1,6 +1,4 @@
 // Vue config (from main.js)
-
-// default to material design
 import '../src/themes/app.mat.styl'
 
 import Vue from 'vue'
@@ -18,10 +16,9 @@ Vue.config.errorHandler = (err, vm, info) => {
   console.log(err, vm, info)
 }
 
-import 'quasar-extras/roboto-font'
-import 'quasar-extras/material-icons'
-// import 'quasar-extras/ionicons'
-import 'quasar-extras/fontawesome'
+import 'quasar-extras/roboto-font/roboto-font.css'
+import 'quasar-extras/material-icons/material-icons.css'
+import 'quasar-extras/fontawesome/fontawesome.css'
 import 'quasar-extras/animate'
 
 // Storybook config

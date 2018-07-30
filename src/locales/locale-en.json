@@ -96,6 +96,8 @@
     "INACTIVE": "Inactive",
     "SHOW_INACTIVE": "Show inactive groups",
     "STORES": "Stores",
+    "HOME": "Home",
+    "CURRENT_STORE": "Current store",
     "HISTORY": "History",
     "DESCRIPTION": "Description",
     "ADDRESS": "Address",
@@ -160,7 +162,9 @@
     },
     "RESTORE": "Restore",
     "SHOW_ARCHIVED": "Show archived stores",
-    "HIDE_ARCHIVED": "Hide archived stores"
+    "HIDE_ARCHIVED": "Hide archived stores",
+    "SHOW_ALL": "Show all stores",
+    "SHOW_ACTIVE_ONLY": "Only show active stores"
   },
   "PICKUPMANAGE": {
     "TITLE": "Manage pickups",

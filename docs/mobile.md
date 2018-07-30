@@ -60,8 +60,10 @@ cordova platform add android
 Run!
 
 ```
-cordova run android
+./run android dev release <password>
 ```
+
+... where `<password>` is a common yunity password. Ask in yunity Slack if you'd like to know it.
 
 If you have an android device connected in USB debugging mode it will install it on that,
 otherwise it will try and start an emulator, but you might have to run one yourself if the default does not work.

@@ -7,7 +7,7 @@
       <q-icon name="fas fa-fw fa-home" />
     </template>
     <template slot="name">
-      Home
+      {{ $t('GROUP.HOME') }}
     </template>
     <div
       slot="tools"

@@ -3,7 +3,7 @@ const serveStatic = require('koa-static')
 const convert = require('koa-connect')
 const mount = require('koa-mount')
 const proxy = require('http-proxy-middleware')
-const config = require('../config')
+const config = require('./config')
 
 const webpackConfig = require('./webpack.config')
 

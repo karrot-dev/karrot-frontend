@@ -1,8 +1,13 @@
-require(`./themes/app.${__THEME}.styl`)
-
-import 'quasar-framework/dist/quasar.ie.polyfills'
-
 import Vue from 'vue'
+
+import '@/themes/app.mat.styl'
+import 'quasar-framework/dist/quasar.ie.polyfills'
+import 'quasar-extras/roboto-font/roboto-font.css'
+import 'quasar-extras/material-icons/material-icons.css'
+import 'quasar-extras/fontawesome/fontawesome.css'
+import 'quasar-extras/animate'
+
+import 'typeface-cabin-sketch'
 
 import { sync } from 'vuex-router-sync'
 import router from './router'
@@ -24,13 +29,6 @@ if (process.env.NODE_ENV !== 'production') {
   log.setLevel('debug')
 }
 
-if (__THEME === 'mat') {
-  require('quasar-extras/roboto-font')
-}
-import 'quasar-extras/material-icons'
-import 'quasar-extras/fontawesome'
-import 'quasar-extras/animate'
-import 'typeface-cabin-sketch'
 import Root from '@/Root'
 import '@/presenceReporter'
 

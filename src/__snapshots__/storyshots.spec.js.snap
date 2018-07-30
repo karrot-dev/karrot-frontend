@@ -3864,8 +3864,6 @@ exports[`Storyshots Sidenav Boxes Group 1`] = `
           <i aria-hidden="true" class="q-icon fas fa-fw fa-ellipsis-v"> </i>
           <div tabindex="-1" class="q-popover scroll">
             <div item-separator="" class="q-list q-list-link">
-              <!---->
-              <!---->
               <a class="q-link q-item q-item-division relative-position q-item-link">
                 <i aria-hidden="true" class="q-icon fas fa-pencil-alt fa-fw on-left" style="font-size:1em;"> </i>
                 Edit group

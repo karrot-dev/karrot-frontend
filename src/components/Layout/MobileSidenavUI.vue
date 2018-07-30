@@ -2,11 +2,11 @@
   <div>
     <SidenavBox :expandable="false">
       <template slot="icon">
-        <q-icon name="fas fa-fw fa-shopping-cart" />
+        <q-icon name="fas fa-fw fa-user-circle" />
       </template>
 
       <template slot="name">
-        Account menu
+        {{ $t('USERDATA.ACCOUNT') }}
       </template>
 
       <q-list

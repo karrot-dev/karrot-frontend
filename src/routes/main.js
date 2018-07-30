@@ -21,9 +21,9 @@ const GroupInvitations = () => import('@/pages/Group/Invitations')
 const GroupDescription = () => import('@/pages/Group/Description')
 const GroupMembers = () => import('@/pages/Group/Members')
 const GroupHistory = () => import('@/pages/Group/History')
-const GroupMapAndStoresSidenav = () => import('@/components/Sidenav/SidenavMapAndStores')
-const GroupGroupSidenav = () => import('@/components/Sidenav/SidenavGroup')
-const GroupStoreSidenav = () => import('@/components/Sidenav/SidenavStore')
+const Sidenav = () => import('@/components/Sidenav/Sidenav')
+const SidenavGroup = () => import('@/components/Sidenav/SidenavGroup')
+const SidenavStore = () => import('@/components/Sidenav/SidenavStore')
 const Settings = () => import('@/pages/Settings')
 const User = () => import('@/pages/User/User')
 const PickupFeedback = () => import('@/pages/Group/Feedback')
@@ -99,7 +99,7 @@ export default [
     },
     components: {
       default: { render: h => h('router-view') }, // passthrough
-      sidenav: GroupMapAndStoresSidenav,
+      sidenav: Sidenav,
     },
     children: [
       {
@@ -111,7 +111,7 @@ export default [
         },
         components: {
           default: GroupWall,
-          sidenav: GroupGroupSidenav,
+          sidenav: SidenavGroup,
         },
       },
       {
@@ -125,7 +125,7 @@ export default [
         },
         components: {
           default: GroupMap,
-          sidenav: GroupGroupSidenav,
+          sidenav: SidenavGroup,
         },
       },
       {
@@ -138,7 +138,7 @@ export default [
         },
         components: {
           default: GroupPickups,
-          sidenav: GroupGroupSidenav,
+          sidenav: SidenavGroup,
         },
       },
       {
@@ -153,7 +153,7 @@ export default [
         },
         components: {
           default: GroupFeedback,
-          sidenav: GroupGroupSidenav,
+          sidenav: SidenavGroup,
         },
       },
       {
@@ -166,7 +166,7 @@ export default [
         },
         components: {
           default: GroupDescription,
-          sidenav: GroupGroupSidenav,
+          sidenav: SidenavGroup,
         },
       },
       {
@@ -179,7 +179,7 @@ export default [
         },
         components: {
           default: GroupMembers,
-          sidenav: GroupGroupSidenav,
+          sidenav: SidenavGroup,
         },
       },
       {
@@ -193,7 +193,7 @@ export default [
         },
         components: {
           default: GroupHistory,
-          sidenav: GroupGroupSidenav,
+          sidenav: SidenavGroup,
         },
       },
       {
@@ -207,7 +207,7 @@ export default [
         },
         components: {
           default: GroupInvitations,
-          sidenav: GroupGroupSidenav,
+          sidenav: SidenavGroup,
         },
       },
       {
@@ -221,7 +221,7 @@ export default [
         },
         components: {
           default: GroupEdit,
-          sidenav: GroupGroupSidenav,
+          sidenav: SidenavGroup,
         },
       },
       {
@@ -235,7 +235,7 @@ export default [
         },
         components: {
           default: GroupSettings,
-          sidenav: GroupGroupSidenav,
+          sidenav: SidenavGroup,
         },
       },
       {
@@ -248,7 +248,7 @@ export default [
         },
         components: {
           default: GroupManageAgreement,
-          sidenav: GroupGroupSidenav,
+          sidenav: SidenavGroup,
         },
       },
       {
@@ -275,7 +275,7 @@ export default [
         },
         components: {
           default: StoreList,
-          sidenav: GroupStoreSidenav,
+          sidenav: SidenavStore,
         },
       },
       {
@@ -288,7 +288,7 @@ export default [
         },
         components: {
           default: StoreCreate,
-          sidenav: GroupGroupSidenav,
+          sidenav: SidenavGroup,
         },
       },
       {
@@ -303,8 +303,8 @@ export default [
         },
         components: {
           default: StoreLayout,
-          sidenav: GroupGroupSidenav,
-          secondSidenav: GroupStoreSidenav,
+          sidenav: SidenavGroup,
+          secondSidenav: SidenavStore,
         },
         children: [
           {
@@ -390,7 +390,7 @@ export default [
         },
         components: {
           default: PickupFeedback,
-          sidenav: GroupGroupSidenav,
+          sidenav: SidenavGroup,
         },
       },
     ],

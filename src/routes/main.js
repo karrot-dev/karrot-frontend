@@ -188,10 +188,7 @@ export default [
           ],
           beforeEnter: 'groupApplications/fetchPendingByGroupId',
         },
-        components: {
-          default: GroupApplications,
-          sidenav: GroupGroupSidenav,
-        },
+        component: GroupApplications,
       },
       {
         name: 'groupEdit',

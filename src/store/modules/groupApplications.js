@@ -26,8 +26,7 @@ export default {
     getByGroupId: state => groupId => {
       return Object.values(state.entries).find(a => a.group === groupId)
     },
-    // all: state => Object.values(state.entries),
-    all: (state, getters) => state.idList.map(getters.get),
+    all: (state, getters) => Object.keys(state.entries).map(getters.get),
     ...metaStatuses(['apply']),
   },
   actions: {
@@ -40,7 +39,7 @@ export default {
       },
 
       async fetchPendingByGroupId ({ commit, getters }, { groupId }) {
-        const applicationList = await groupApplications.list({ group: groupId, status: 'pending' })
+        const applicationList = await groupApplications.list({ group: groupId, status: 'accepted' })
         commit('set', applicationList)
         const all = getters.all
         console.log('give me that array!', all)
@@ -74,7 +73,6 @@ export default {
     },
     set (state, applicationList) {
       state.entries = indexById(applicationList)
-      state.idList = applicationList.map((application) => application.id)
     },
     delete (state, id) {
       Vue.delete(state.entries, id)

@@ -918,7 +918,7 @@ exports[`Storyshots GroupGallery signup view 1`] = `
           <br> It would make sense if it was markdown</p>
         <h1>then this would be a header</h1>
         <p>
-          <a href="www.google.de" target="_blank" rel="noopener nofollow noreferrer">and this a link</a>
+          <a href="www.google.de" target="_blank" rel="noopener nofollow noreferrer" class="fas-after fa-after-external-link">and this a link</a>
         </p>
       </div>
     </div>
@@ -1196,7 +1196,7 @@ exports[`Storyshots GroupGallery switch and explore 1`] = `
           <br> It would make sense if it was markdown</p>
         <h1>then this would be a header</h1>
         <p>
-          <a href="www.google.de" target="_blank" rel="noopener nofollow noreferrer">and this a link</a>
+          <a href="www.google.de" target="_blank" rel="noopener nofollow noreferrer" class="fas-after fa-after-external-link">and this a link</a>
         </p>
       </div>
     </div>
@@ -1307,7 +1307,7 @@ exports[`Storyshots GroupGallery switch and explore 1`] = `
         <br> It would make sense if it was markdown</p>
       <h1>then this would be a header</h1>
       <p>
-        <a href="www.google.de" target="_blank" rel="noopener nofollow noreferrer">and this a link</a>
+        <a href="www.google.de" target="_blank" rel="noopener nofollow noreferrer" class="fas-after fa-after-external-link">and this a link</a>
       </p>
     </div>
   </div>
@@ -1532,7 +1532,7 @@ exports[`Storyshots GroupGalleryCard isMember = false 1`] = `
             <br> It would make sense if it was markdown</p>
           <h1>then this would be a header</h1>
           <p>
-            <a href="www.google.de" target="_blank" rel="noopener nofollow noreferrer">and this a link</a>
+            <a href="www.google.de" target="_blank" rel="noopener nofollow noreferrer" class="fas-after fa-after-external-link">and this a link</a>
           </p>
         </div>
       </div>
@@ -1577,7 +1577,7 @@ exports[`Storyshots GroupGalleryCard isMember = true 1`] = `
             <br> It would make sense if it was markdown</p>
           <h1>then this would be a header</h1>
           <p>
-            <a href="www.google.de" target="_blank" rel="noopener nofollow noreferrer">and this a link</a>
+            <a href="www.google.de" target="_blank" rel="noopener nofollow noreferrer" class="fas-after fa-after-external-link">and this a link</a>
           </p>
         </div>
       </div>
@@ -1705,7 +1705,7 @@ exports[`Storyshots GroupPreviewUI is member 1`] = `
             <br> It would make sense if it was markdown</p>
           <h1>then this would be a header</h1>
           <p>
-            <a href="www.google.de" target="_blank" rel="noopener nofollow noreferrer">and this a link</a>
+            <a href="www.google.de" target="_blank" rel="noopener nofollow noreferrer" class="fas-after fa-after-external-link">and this a link</a>
           </p>
         </div>
       </div>
@@ -1752,7 +1752,7 @@ exports[`Storyshots GroupPreviewUI is not member 1`] = `
             <br> It would make sense if it was markdown</p>
           <h1>then this would be a header</h1>
           <p>
-            <a href="www.google.de" target="_blank" rel="noopener nofollow noreferrer">and this a link</a>
+            <a href="www.google.de" target="_blank" rel="noopener nofollow noreferrer" class="fas-after fa-after-external-link">and this a link</a>
           </p>
         </div>
       </div>
@@ -2168,19 +2168,19 @@ exports[`Storyshots Layout KFooter 1`] = `
       — made with
       <i class="fas fa-heart"></i>
       by
-      <a href="https://foodsaving.world">
+      <a href="https://foodsaving.world" target="_blank" rel="noopener">
         foodsaving worldwide
       </a></span></small>
   <small class="row justify-center group col-xl-7 col-xs-12">
-    <a href="https://github.com/yunity/karrot-frontend">
+    <a href="https://github.com/yunity/karrot-frontend" target="_blank" rel="noopener">
       <i class="fab fa-fw fa-github"></i>
       Development
     </a>
-    <a href="https://foodsaving.world">
+    <a href="https://foodsaving.world" target="_blank" rel="noopener">
       <i class="fas fa-fw fa-globe"></i>
       Read our info page!
     </a>
-    <a href="https://community.foodsaving.world/">
+    <a href="https://community.foodsaving.world/" target="_blank" rel="noopener">
       <i class="fab fa-fw fa-discourse"></i>
       Join our community!
     </a>
@@ -2225,7 +2225,7 @@ exports[`Storyshots Layout KTopbar 1`] = `
     <div class="q-btn-inner row col items-center justify-center">
       <i aria-hidden="true" class="q-icon fab fa-discourse"> </i>
       <!---->
-      <div tabindex="-1" class="q-popover scroll" style="max-width:700px;">
+      <div tabindex="-1" class="q-popover scroll k-community-feed">
         <div class="q-list q-list-link">
           <div class="q-list-header">
             <i aria-hidden="true" class="q-icon q-mr-xs fab fa-discourse" style="font-size:20px;"> </i> <span>Updates from the <a place="community" href="https://community.foodsaving.world" target="_blank" rel="noopener" style="text-decoration:underline;">

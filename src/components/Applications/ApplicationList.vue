@@ -4,7 +4,8 @@
       v-for="a in groupApplications"
       :key="a.id"
       :application="a"
-      @accept="forwardAccept"
+      @accept="$emit('forwardAccept', arguments[0])"
+      @decline="$emit('forwardDecline', arguments[0])"
     />
   </q-card>
 </template>
@@ -21,11 +22,6 @@ export default {
     groupApplications: {
       type: Array,
       default: null,
-    },
-  },
-  methods: {
-    forwardAccept (applicationId) {
-      return this.$emit('accept', applicationId)
     },
   },
   computed: {

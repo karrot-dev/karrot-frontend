@@ -21,6 +21,10 @@ export default {
       return application && {
         ...application,
         applicant: rootGetters['users/get'](application.user),
+        isPending: application.status === 'pending',
+        isDeclined: application.status === 'declined',
+        isAccepted: application.status === 'accepted',
+        isWithdrawn: application.status === 'withdrawn',
       }
     },
     getByGroupId: state => groupId => {
@@ -39,7 +43,7 @@ export default {
       },
 
       async fetchPendingByGroupId ({ commit, getters }, { groupId }) {
-        const applicationList = await groupApplications.list({ group: groupId, status: 'accepted' })
+        const applicationList = await groupApplications.list({ group: groupId })
         commit('set', applicationList)
         const all = getters.all
         console.log('give me that array!', all)
@@ -57,10 +61,15 @@ export default {
       },
 
       async accept ({commit}, data) {
-        console.log('In the module: ' + data)
         const acceptedApplication = await groupApplications.accept(data)
         commit('delete', acceptedApplication.id)
       },
+
+      async decline ({ commit }, data) {
+        const declinedApplication = await groupApplications.decline(data)
+        commit('delete', declinedApplication.id)
+      },
+
     }),
     clearGroupPreviewAndStatus ({ dispatch }) {
       dispatch('meta/clear', ['apply'])

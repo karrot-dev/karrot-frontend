@@ -9,7 +9,7 @@
     </q-item-side>
     <q-item-main
       :label="userName + ' who is going by ID ' + application.user"
-      :sublabel="application.answers" />
+      :sublabel="application.status" />
     <q-item-side
       right
     >
@@ -21,6 +21,7 @@
         @click="openChat"
       />
       <q-btn
+        v-if="application.status === 'pending'"
         round
         color="positive"
         icon="fas fa-check"
@@ -28,11 +29,12 @@
         @click="pressAccept"
       />
       <q-btn
+        v-if="application.status === 'pending'"
         round
         color="negative"
         icon="fas fa-times"
         class="generic-margin"
-        @click="test"
+        @click="decline"
       />
     </q-item-side>
   </q-item>
@@ -54,14 +56,10 @@ export default {
     },
   },
   methods: {
-    test () {
-      return console.log('I am a working button!')
-    },
     openChat () {
       return console.log('This will lead to the ApplicationChat soon!')
     },
     pressAccept () {
-      console.log('I will run this method! ' + this.application.id)
       Dialog.create({
         title: this.$t('JOINGROUP.ACCEPT_CONFIRMATION_HEADER'),
         message: this.$t('JOINGROUP.ACCEPT_CONFIRMATION_TEXT', { userName: this.application.applicant.displayName }),
@@ -69,6 +67,16 @@ export default {
         cancel: this.$t('BUTTON.CANCEL'),
       })
         .then(() => this.$emit('accept', this.application.id))
+        .catch(() => {})
+    },
+    decline () {
+      Dialog.create({
+        title: this.$t('JOINGROUP.DECLINE_CONFIRMATION_HEADER'),
+        message: this.$t('JOINGROUP.DECLINE_CONFIRMATION_TEXT', { userName: this.application.applicant.displayName }),
+        ok: this.$t('BUTTON.YES'),
+        cancel: this.$t('BUTTON.CANCEL'),
+      })
+        .then(() => this.$emit('decline', this.application.id))
         .catch(() => {})
     },
   },

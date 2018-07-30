@@ -3,12 +3,13 @@ import { connect } from 'vuex-connect'
 import ApplicationList from '@/components/Applications/ApplicationList'
 
 export default connect({
-  actionsToEvents: {
-    accept: 'groupApplications/accept',
-  },
-
   gettersToProps: {
     groupApplications: 'groupApplications/all',
+  },
+
+  actionsToEvents: {
+    accept: 'groupApplications/accept',
+    decline: 'groupApplications/decline',
   },
 })('ApplicationList', ApplicationList)
 </script>

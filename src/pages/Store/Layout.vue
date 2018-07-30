@@ -1,6 +1,5 @@
 <template>
-  <router-view v-if="store && store.status !== 'archived'"/>
-  <div v-else>
+  <div v-if="store && store.status === 'archived'">
     <q-card>
       <k-banner
         color="warning"
@@ -11,6 +10,7 @@
       </k-banner>
     </q-card>
   </div>
+  <router-view v-else/>
 </template>
 
 <script>

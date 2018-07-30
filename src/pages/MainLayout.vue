@@ -162,9 +162,7 @@ export default {
       isLoggedIn: 'auth/isLoggedIn',
       routeError: 'routeError/status',
       showSidenavRight: 'detail/isActive',
-    }),
-    ...mapState({
-      disableDesktopSidenav: state => state.route.meta.disableDesktopSidenav,
+      disableDesktopSidenav: 'route/disableDesktopSidenav',
     }),
     layoutView () {
       if (this.$q.platform.is.mobile) {

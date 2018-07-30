@@ -2,6 +2,7 @@
   <div class="placeholder">
     <GroupMap
       class="map"
+      controls="full"
       :users="users"
       :stores="stores"
       :groups="groups"
@@ -11,7 +12,6 @@
       :show-users="showUsers"
       :show-stores="showStores"
       :show-groups="showGroups"
-      enable-controls
       @mapMoveEnd="mapMoveEnd"
       @toggleUsers="toggleUsers"
       @toggleStores="toggleStores"

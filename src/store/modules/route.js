@@ -10,5 +10,6 @@ export default {
     query: state => state.query,
     code: state => state.query.code,
     isGroupPage: state => Boolean(state.params.groupId),
+    disableDesktopSidenav: state => state.meta.disableDesktopSidenav,
   },
 }

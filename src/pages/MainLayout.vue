@@ -39,23 +39,38 @@
           </KTopbar>
           <KTopbarLoggedOut v-if="!isLoggedIn" />
         </q-layout-header>
+
+        <!-- mobile sidenav -->
         <q-layout-drawer
-          v-if="$q.platform.is.mobile && isLoggedIn"
+          v-if="$q.platform.is.mobile"
           side="left"
-          v-model="showSidenav"
-          :breakpoint="defaultShowSidenavWidth"
+          :width="sidenavWidth"
+          :breakpoint="Number.MAX_SAFE_INTEGER"
+          :value="showSidenav"
+          :overlay="false"
+          @click.native="toggleSidenav"
         >
-          <MobileSidenav @toggleSidenav="toggleSidenav" />
+          <router-view name="sidenav" />
+          <MobileSidenav/>
         </q-layout-drawer>
+
+        <!-- desktop sidenav -->
+        <q-layout-drawer
+          v-else-if="isLoggedIn && hasSidenavComponent && !disableDesktopSidenav"
+          side="left"
+          :width="sidenavWidth"
+          :breakpoint="0"
+          :value="true"
+          :overlay="false"
+          @click.native="toggleSidenav"
+        >
+          <router-view name="sidenav" />
+        </q-layout-drawer>
+
         <q-page-container>
           <Banners />
           <router-view name="fullPage"/>
           <div class="mainContent row justify-between no-wrap">
-            <router-view
-              v-if="!$q.platform.is.mobile"
-              class="sidenav-desktop"
-              name="sidenav"
-            />
             <div class="mainContent-page">
               <router-view />
             </div>
@@ -73,10 +88,9 @@
           <Detail @close="clearDetail"/>
         </q-layout-drawer>
         <q-layout-footer>
-          <template v-if="$q.platform.is.mobile && !$keyboard.is.open">
-            <MobileNavigation v-if="isLoggedIn" />
-            <UnsupportedBrowserWarning />
-          </template>
+          <UnsupportedBrowserWarning
+            v-if="$q.platform.is.mobile && !$keyboard.is.open"
+          />
           <KFooter v-if="!$q.platform.is.mobile" />
         </q-layout-footer>
         <q-window-resize-observable @resize="onResize" />
@@ -89,22 +103,47 @@
 import KTopbar from '@/components/Layout/KTopbar'
 import KTopbarLoggedOut from '@/components/Layout/LoggedOut/KTopbar'
 import KFooter from '@/components/Layout/KFooter'
-import MobileNavigation from '@/components/Layout/MobileNavigation'
-import MobileSidenav from '@/components/Layout/MobileSidenav'
+import MobileSidenav from '@/components/Sidenav/MobileSidenav'
 import Banners from '@/components/Layout/Banners'
 import RouteError from '@/components/RouteError'
 import UnsupportedBrowserWarning from '@/components/UnsupportedBrowserWarning'
 import Detail from '@/components/General/Detail'
-import { QLayout, QLayoutHeader, QLayoutDrawer, QLayoutFooter, QPageContainer, QWindowResizeObservable, QBtn } from 'quasar'
 import { mapGetters, mapActions } from 'vuex'
+import {
+  dom,
+  QLayout,
+  QLayoutHeader,
+  QLayoutDrawer,
+  QLayoutFooter,
+  QPageContainer,
+  QWindowResizeObservable,
+  QBtn,
+} from 'quasar'
+
+const { width } = dom
 
 export default {
   components: {
-    Detail, KTopbar, KTopbarLoggedOut, KFooter, MobileNavigation, MobileSidenav, QLayout, QLayoutHeader, QLayoutDrawer, QLayoutFooter, QPageContainer, QWindowResizeObservable, QBtn, Banners, RouteError, UnsupportedBrowserWarning,
+    Detail,
+    KTopbar,
+    KTopbarLoggedOut,
+    KFooter,
+    MobileSidenav,
+    QLayout,
+    QLayoutHeader,
+    QLayoutDrawer,
+    QLayoutFooter,
+    QPageContainer,
+    QWindowResizeObservable,
+    QBtn,
+    Banners,
+    RouteError,
+    UnsupportedBrowserWarning,
   },
   data () {
     return {
       showSidenav: false,
+      windowWidth: width(window),
     }
   },
   methods: {
@@ -115,9 +154,7 @@ export default {
       this.showSidenav = !this.showSidenav
     },
     onResize ({ width }) {
-      if (width >= this.defaultShowSidenavWidth) {
-        this.showSidenav = true
-      }
+      this.windowWidth = width
     },
   },
   computed: {
@@ -125,15 +162,31 @@ export default {
       isLoggedIn: 'auth/isLoggedIn',
       routeError: 'routeError/status',
       showSidenavRight: 'detail/isActive',
+      disableDesktopSidenav: 'route/disableDesktopSidenav',
     }),
     layoutView () {
       if (this.$q.platform.is.mobile) {
         return 'hHh LpR fFf'
       }
-      return 'hHh LpR ffr'
+      return 'hHh LpR lfr'
     },
-    defaultShowSidenavWidth () {
-      return 992
+    sidenavWidth () {
+      if (this.$q.platform.is.mobile) {
+        return Math.min(380, this.windowWidth)
+      }
+      return this.windowWidth > 1000 ? 380 : 280
+    },
+    routerComponents () {
+      const components = {}
+      for (const m of this.$route.matched) {
+        for (const name of Object.keys(m.components)) {
+          components[name] = true
+        }
+      }
+      return components
+    },
+    hasSidenavComponent () {
+      return Boolean(this.routerComponents.sidenav)
     },
   },
 }

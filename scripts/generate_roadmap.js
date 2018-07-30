@@ -1,3 +1,18 @@
+#!/usr/bin/env node
+/*
+ * Generates the content used for ROADMAP.md by fetching information from the GitHub API.
+ *
+ * To update the roadmap run:
+ *
+ *   ./scripts/generate_roadmap.js > ROADMAP.md
+ *
+ * You might exceed the API quota if you run it a lot, in which case generate a personal access token
+ * and specify it via the GITHUB_TOKEN environment variable. e.g.:
+ *
+ *   GITHUB_TOKEN=myspecialtoken ./scripts/generate_roadmap.js > ROADMAP.md
+ *
+ */
+
 const Octokit = require('@octokit/rest')
 
 const octokit = Octokit()

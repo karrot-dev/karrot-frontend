@@ -1,7 +1,15 @@
 import Vue from 'vue'
 import stores from '@/services/api/stores'
 import { optionsFor } from '@/services/storeStatus'
-import { createMetaModule, withMeta, metaStatuses, metaStatusesWithId, indexById, createRouteError } from '@/store/helpers'
+import {
+  createMetaModule,
+  withMeta,
+  metaStatuses,
+  metaStatusesWithId,
+  indexById,
+  createRouteError,
+  toggles,
+} from '@/store/helpers'
 import router from '@/router'
 
 function initialState () {
@@ -15,13 +23,19 @@ function initialState () {
 
 export default {
   namespaced: true,
-  modules: { meta: createMetaModule() },
+  modules: {
+    meta: createMetaModule(),
+    toggle: toggles({
+      showAll: false,
+    }),
+  },
   state: initialState(),
   getters: {
     all: (state, getters) => state.idList.map(getters.get).sort(sortByName).sort(sortByStatus),
-    active: (state, getters) => getters.all.filter(s => s.status !== 'archived'),
+    notArchived: (state, getters) => getters.all.filter(s => s.status !== 'archived'),
     archived: (state, getters) => getters.all.filter(s => s.status === 'archived'),
-    byCurrentGroup: (state, getters, rootState, rootGetters) => getters.active.filter(e => e.group.id === rootGetters['currentGroup/id']),
+    filtered: (state, getters) => getters.notArchived.filter(store => getters['toggle/showAll'] || store.status === 'active'),
+    byCurrentGroup: (state, getters, rootState, rootGetters) => getters.filtered.filter(e => e.group.id === rootGetters['currentGroup/id']),
     byCurrentGroupArchived: (state, getters, rootState, rootGetters) => getters.archived.filter(e => e.group.id === rootGetters['currentGroup/id']),
     get: (state, getters) => id => getters.enrich(state.entries[id]),
     enrich: (state, getters, rootState, rootGetters) => store => {

@@ -4,6 +4,7 @@ import SidenavStoresUI from './SidenavStoresUI'
 
 export default connect({
   gettersToProps: {
+    groupId: 'currentGroup/id',
     stores: 'stores/byCurrentGroup',
     showAllStores: 'stores/toggle/showAll',
     archived: 'stores/byCurrentGroupArchived',

@@ -24,7 +24,7 @@
         flat
         dense
         round
-        :to="{name: 'storeCreate'}"
+        :to="{ name: 'storeCreate', params: { groupId } }"
       >
         <q-icon name="fas fa-fw fa-plus-circle" />
         <q-tooltip v-t="'BUTTON.CREATE'" />
@@ -32,6 +32,7 @@
     </div>
 
     <StoreList
+      :group-id="groupId"
       :stores="stores"
       :archived="showAllStores ? archived : []"
     />
@@ -46,6 +47,7 @@ import StoreList from '@/components/Store/StoreList'
 
 export default {
   props: {
+    groupId: { required: true, type: Number },
     stores: { required: true, type: Array },
     showAllStores: { default: false, type: Boolean },
     archived: { default: () => [], type: Array },

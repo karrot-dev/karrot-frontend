@@ -30,7 +30,8 @@ export default {
     getByGroupId: state => groupId => {
       return Object.values(state.entries).find(a => a.group === groupId)
     },
-    all: (state, getters) => Object.keys(state.entries).map(getters.get),
+    allPending: (state, getters) => Object.keys(state.entries).map(getters.get).filter(a => a.isPending),
+    allNonPending: (state, getters) => Object.keys(state.entries).map(getters.get).filter(a => !a.isPending),
     ...metaStatuses(['apply']),
   },
   actions: {

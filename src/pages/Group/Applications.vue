@@ -4,7 +4,8 @@ import ApplicationList from '@/components/Applications/ApplicationList'
 
 export default connect({
   gettersToProps: {
-    groupApplications: 'groupApplications/all',
+    pendingApplications: 'groupApplications/allPending',
+    otherApplications: 'groupApplications/allNonPending',
   },
 
   actionsToEvents: {

@@ -2,7 +2,7 @@
   <q-item
     highlight
     separator
-    :class="{ isPending: application.isPending }"
+    :class="{ isPending: application.isPending, isNonPending: !application.isPending }"
   >
     <q-item-side>
       <ProfilePicture
@@ -97,12 +97,14 @@ export default {
 .applicants-picture
   vertical-align: text-bottom
   margin-left: -0.5 rem
-.isPending
+.isNonPending
   background repeating-linear-gradient(
     135deg,
     white,
     white 15px,
-    $lightRed 15px,
-    $lightRed 30px
+    $lightBlue 15px,
+    $lightBlue 30px
   )
+.isPending
+  background: $lightBlue
 </style>

@@ -1,11 +1,16 @@
 <template>
   <q-card>
     <ApplicationItem
-      v-for="a in groupApplications"
+      v-for="a in pendingApplications"
       :key="a.id"
       :application="a"
       @accept="$emit('forwardAccept', arguments[0])"
       @decline="$emit('forwardDecline', arguments[0])"
+    />
+    <ApplicationItem
+      v-for="a in otherApplications"
+      :key="a.id"
+      :application="a"
     />
   </q-card>
 </template>
@@ -19,7 +24,11 @@ export default {
     ApplicationItem, QCard,
   },
   props: {
-    groupApplications: {
+    pendingApplications: {
+      type: Array,
+      default: null,
+    },
+    otherApplications: {
       type: Array,
       default: null,
     },

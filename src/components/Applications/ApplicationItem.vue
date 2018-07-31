@@ -65,8 +65,8 @@ export default {
     },
     pressAccept () {
       Dialog.create({
-        title: this.$t('JOINGROUP.ACCEPT_CONFIRMATION_HEADER'),
-        message: this.$t('JOINGROUP.ACCEPT_CONFIRMATION_TEXT', { userName: this.application.applicant.displayName }),
+        title: this.$t('APPLICATION.ACCEPT_CONFIRMATION_HEADER'),
+        message: this.$t('APPLICATION.ACCEPT_CONFIRMATION_TEXT', { userName: this.application.applicant.displayName }),
         ok: this.$t('BUTTON.YES'),
         cancel: this.$t('BUTTON.CANCEL'),
       })
@@ -75,8 +75,8 @@ export default {
     },
     decline () {
       Dialog.create({
-        title: this.$t('JOINGROUP.DECLINE_CONFIRMATION_HEADER'),
-        message: this.$t('JOINGROUP.DECLINE_CONFIRMATION_TEXT', { userName: this.application.applicant.displayName }),
+        title: this.$t('APPLICATION.DECLINE_CONFIRMATION_HEADER'),
+        message: this.$t('APPLICATION.DECLINE_CONFIRMATION_TEXT', { userName: this.application.applicant.displayName }),
         ok: this.$t('BUTTON.YES'),
         cancel: this.$t('BUTTON.CANCEL'),
       })

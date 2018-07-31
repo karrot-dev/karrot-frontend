@@ -123,7 +123,7 @@ export default [
     meta: {
       // requireLoggedIn: true,  TODO: show sign up button when not logged in, then uncomment this again
       breadcrumbs: [
-        { translation: 'APPLICATION_FORM.HEADER' },
+        { translation: 'APPLICATION.FORM_HEADER' },
       ],
       beforeEnter: 'groups/selectPreview',
       afterLeave: 'groupApplications/clearGroupPreviewAndStatus',

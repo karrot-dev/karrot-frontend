@@ -6,7 +6,7 @@
         class="generic-padding notice"
       >
         <i class="fas fa-address-card on-left"/>
-        {{ $tc('APPLICATION_FORM.WALL_NOTICE', pendingApplications.length, { count: pendingApplications.length }) }}
+        {{ $tc('APPLICATION.WALL_NOTICE', pendingApplications.length, { count: pendingApplications.length }) }}
       </q-card>
     </router-link>
   </div>

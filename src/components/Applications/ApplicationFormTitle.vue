@@ -2,7 +2,7 @@
   <div>
     <img :src="loginImage">
     <h4>
-      {{ $t('APPLICATION_FORM.TITLE', { groupName: group.name }) }}
+      {{ $t('APPLICATION.FORM_TITLE', { groupName: group.name }) }}
     </h4>
   </div>
 </template>

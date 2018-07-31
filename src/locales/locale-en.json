@@ -440,7 +440,8 @@
   },
   "APPLICATION_FORM":{
     "HEADER": "Apply",
-    "TITLE": "Apply to join {groupName}"
+    "TITLE": "Apply to join {groupName}",
+    "WALL_NOTICE": "There is an application pending! | There are {count} applications pending!"
   },
   "COMMUNITY_FEED": {
     "HEADER": "Updates from the {community}",

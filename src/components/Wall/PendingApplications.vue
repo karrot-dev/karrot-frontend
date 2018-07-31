@@ -5,8 +5,8 @@
         color="warning"
         class="generic-padding notice"
       >
-        <i class="fas fa-balance-scale on-left"/>
-        {{ $tc('PICKUPLIST.AVAILABLE_FEEDBACK', pendingApplications.length, { count: pendingAplications.length }) }}
+        <i class="fas fa-address-card on-left"/>
+        {{ $tc('APPLICATION_FORM.WALL_NOTICE', pendingApplications.length, { count: pendingApplications.length }) }}
       </q-card>
     </router-link>
   </div>

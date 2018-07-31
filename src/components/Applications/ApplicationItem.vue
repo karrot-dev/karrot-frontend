@@ -1,5 +1,9 @@
 <template>
-  <q-item highlight>
+  <q-item
+    highlight
+    separator
+    :class="{ isPending: application.isPending }"
+  >
     <q-item-side>
       <ProfilePicture
         :user="application.applicant"
@@ -89,7 +93,16 @@ export default {
 </script>
 
 <style scoped lang="stylus">
+@import '~variables'
 .applicants-picture
   vertical-align: text-bottom
   margin-left: -0.5 rem
+.isPending
+  background repeating-linear-gradient(
+    135deg,
+    white,
+    white 15px,
+    $lightRed 15px,
+    $lightRed 30px
+  )
 </style>

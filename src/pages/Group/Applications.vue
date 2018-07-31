@@ -10,7 +10,7 @@ export default connect({
 
   actionsToEvents: {
     forwardAccept: 'groupApplications/accept',
-    forwardDecline: 'groupApplications/decline'
+    forwardDecline: 'groupApplications/decline',
   },
 })('ApplicationList', ApplicationList)
 </script>

@@ -9,8 +9,8 @@ export default connect({
   },
 
   actionsToEvents: {
-    accept: 'groupApplications/accept',
-    decline: 'groupApplications/decline',
+    forwardAccept: 'groupApplications/accept',
+    forwardDecline: 'groupApplications/decline'
   },
 })('ApplicationList', ApplicationList)
 </script>

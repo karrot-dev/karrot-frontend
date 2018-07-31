@@ -6,7 +6,6 @@ import { indexById, withMeta, createMetaModule, metaStatuses } from '@/store/hel
 function initialState () {
   return {
     entries: {},
-    idList: [],
   }
 }
 export default {
@@ -46,13 +45,13 @@ export default {
       async fetchPendingByGroupId ({ commit, getters }, { groupId }) {
         const applicationList = await groupApplications.list({ group: groupId })
         commit('set', applicationList)
-        const all = getters.all
+        const all = getters.allPending
         console.log('give me that array!', all)
       },
 
       async apply ({commit}, data) {
         const newApplication = await groupApplications.create(data)
-        commit('create', newApplication)
+        commit('update', newApplication)
         router.push({ name: 'groupPreview', params: { groupPreviewId: data.group } })
       },
 
@@ -63,12 +62,12 @@ export default {
 
       async accept ({commit}, data) {
         const acceptedApplication = await groupApplications.accept(data)
-        commit('delete', acceptedApplication.id)
+        commit('update', acceptedApplication)
       },
 
       async decline ({ commit }, data) {
         const declinedApplication = await groupApplications.decline(data)
-        commit('delete', declinedApplication.id)
+        commit('update', declinedApplication)
       },
 
     }),
@@ -78,14 +77,14 @@ export default {
     },
   },
   mutations: {
-    create (state, newApplication) {
-      Vue.set(state.entries, newApplication.id, newApplication)
-    },
     set (state, applicationList) {
       state.entries = indexById(applicationList)
     },
     delete (state, id) {
-      Vue.delete(state.entries, id)
+      if (state.entries[id]) Vue.delete(state.entries, id)
+    },
+    update (state, application) {
+      Vue.set(state.entries, application.id, application)
     },
   },
 }

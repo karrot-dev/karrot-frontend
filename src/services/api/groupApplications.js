@@ -18,7 +18,7 @@ export default {
   },
 
   async decline (applicationId) {
-    return (await axios.post(`/api/group-applications/${applicationId}/decline`)).data
+    return (await axios.post(`/api/group-applications/${applicationId}/decline/`)).data
   },
 
   async withdraw (applicationId) {

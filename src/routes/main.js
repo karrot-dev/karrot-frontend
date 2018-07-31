@@ -186,7 +186,6 @@ export default [
           breadcrumbs: [
             { translation: 'GROUP.APPLICATIONS', route: { name: 'groupApplications' } },
           ],
-          beforeEnter: 'groupApplications/fetchPendingByGroupId',
         },
         component: GroupApplications,
       },

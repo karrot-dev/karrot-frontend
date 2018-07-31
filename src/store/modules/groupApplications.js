@@ -42,7 +42,7 @@ export default {
         commit('set', applicationList)
       },
 
-      async fetchPendingByGroupId ({ commit, getters }, { groupId }) {
+      async fetchByGroupId ({ commit, getters }, { groupId }) {
         const applicationList = await groupApplications.list({ group: groupId })
         commit('set', applicationList)
         const all = getters.allPending

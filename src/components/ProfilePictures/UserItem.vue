@@ -27,6 +27,12 @@
             :date="user.membershipInCurrentGroup.createdAt"
           />
         </i18n>
+        <q-progress
+          v-if="user.membershipInCurrentGroup.newcomerProgress < 100"
+          :percentage="user.membershipInCurrentGroup.newcomerProgress"
+          class="q-mt-xs"
+          title="Trust needed to become Editor"
+        />
       </q-item-tile>
     </q-item-main>
     <q-item-side>
@@ -47,6 +53,7 @@ import {
   QItemMain,
   QItemTile,
   QItemSide,
+  QProgress,
 } from 'quasar'
 
 import ProfilePicture from './ProfilePicture'
@@ -60,6 +67,7 @@ export default {
     QItemMain,
     QItemTile,
     QItemSide,
+    QProgress,
   },
   props: {
     user: {

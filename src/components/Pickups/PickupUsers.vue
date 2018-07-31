@@ -14,6 +14,7 @@
       :user="user"
       :size="size"
       class="profilePic clickable"
+      :class="{ isNewcomer: !user.isEditor }"
     />
 
     <div
@@ -143,6 +144,9 @@ export default {
 </script>
 
 <style scoped lang="stylus">
+@import '~variables'
+.profilePic.isNewcomer
+  border solid 5px $secondary
 .emptySlots
     display inline-block
     background-color rgba(255, 255, 255, 0.7)

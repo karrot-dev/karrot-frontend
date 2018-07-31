@@ -24,12 +24,18 @@ export default {
       return getters.enrich(state.entries[userId])
     },
     enrich: (state, getters, rootState, rootGetters) => user => {
+      if (!user) {
+        return {
+          isCurrentUser: false,
+        }
+      }
       const authUserId = rootGetters['auth/userId']
-      return user ? {
+      const currentGroup = rootGetters['currentGroup/value']
+      const membership = currentGroup && currentGroup.memberships && currentGroup.memberships[user.id]
+      return {
         ...user,
         isCurrentUser: user.id === authUserId,
-      } : {
-        isCurrentUser: false,
+        isEditor: membership && membership.roles.includes('editor'),
       }
     },
     all: (state, getters, rootState, rootGetters) => {
@@ -44,7 +50,6 @@ export default {
           return {
             ...getters.get(userId),
             membershipInCurrentGroup: membership,
-            isEditor: membership.roles.includes('editor'),
             trust: trust.filter(t => t.user === userId),
           }
         })

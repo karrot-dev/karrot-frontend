@@ -25,7 +25,10 @@ export default {
     user: state => state.user,
     userId: state => state.user && state.user.id,
     failedEmailDeliveries: state => state.failedEmailDeliveries,
-    isEditorInCurrentGroup: (state, getters, rootState, rootGetters) => rootGetters['users/byCurrentGroup'].filter(u => u.isCurrentUser)[0].isEditor,
+    isEditorInCurrentGroup: (state, getters, rootState, rootGetters) => {
+      const user = rootGetters['users/byCurrentGroup'].find(u => u.isCurrentUser)
+      return user && user.isEditor
+    },
     redirectTo: state => state.redirectTo,
     hasJoinGroupAfterLogin: state => Boolean(state.joinGroupAfterLogin),
     ...metaStatuses(['login', 'save', 'changePassword', 'changeEmail']),

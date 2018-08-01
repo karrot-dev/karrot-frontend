@@ -1,5 +1,6 @@
 <template>
   <q-card>
+    <h4>{{ $t('APPLICATION.LIST_CURRENT_APPLICATIONS') }}</h4>
     <ApplicationItem
       v-for="a in pendingApplications"
       :key="a.id"
@@ -7,6 +8,7 @@
       @accept="$emit('forwardAccept', arguments[0], arguments[1])"
       @decline="$emit('forwardDecline', arguments[0], arguments[1])"
     />
+    <h4>{{ $t('APPLICATION.LIST_PAST_APPLICATIONS') }}</h4>
     <ApplicationItem
       v-for="a in otherApplications"
       :key="a.id"

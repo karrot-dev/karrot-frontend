@@ -12,8 +12,11 @@
       />
     </q-item-side>
     <q-item-main
-      :label="userName + ' who is going by ID ' + application.user.id"
-      :sublabel="application.status" />
+      :label="'#' + application.id + ' from ' + userName + ' who is going by ID ' + application.user.id"
+      :sublabel="'submitted on ' + $d(application.createdAt, 'long')"
+    >
+      {{ application.status }}
+    </q-item-main>
     <q-item-side
       right
     >
@@ -47,7 +50,6 @@
 
 <script>
 import { Dialog, QItem, QBtn, QItemMain, QItemSide } from 'quasar'
-// import DateAsWords from '@/components/General/DateAsWords' --> needs created-at prop in application object
 import ProfilePicture from '@/components/ProfilePictures/ProfilePicture'
 
 export default {

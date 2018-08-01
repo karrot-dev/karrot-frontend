@@ -84,6 +84,7 @@
             icon="info"
             :actions="[
               // { label: 'Group chat', icon: 'fas fa-comments', handler: () => {joinChat()} },
+              { label: $t('JOINGROUP.WITHDRAW_APPLICATION'), icon: 'fas fa-trash-alt', handler: () => {withdraw()} }
             ]"
           >
             {{ $t('JOINGROUP.APPLICATION_PENDING' ) }}

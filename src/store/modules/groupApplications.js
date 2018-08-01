@@ -49,25 +49,38 @@ export default {
         console.log('give me that array!', all)
       },
 
-      async apply ({commit}, data) {
+      async apply ({commit, dispatch}, data) {
         const newApplication = await groupApplications.create(data)
         commit('update', newApplication)
+        dispatch('toasts/show', {
+          message: 'JOINGROUP.APPLICATION_SUBMITTED',
+        }, { root: true })
         router.push({ name: 'groupPreview', params: { groupPreviewId: data.group } })
       },
 
-      async withdraw ({ commit }, applicationId) {
+      async withdraw ({ commit, dispatch }, applicationId) {
         const removedApplication = await groupApplications.withdraw(applicationId)
         commit('delete', removedApplication.id)
+        dispatch('toasts/show', {
+          message: 'JOINGROUP.APPLICATION_WITHDRAWN',
+        }, { root: true })
       },
 
-      async accept ({commit}, data) {
+      async accept ({commit, dispatch}, data) {
         const acceptedApplication = await groupApplications.accept(data)
         commit('update', acceptedApplication)
+        dispatch('toasts/show', {
+          message: 'APPLICATION.ACCEPTED',
+        }, { root: true })
       },
 
-      async decline ({ commit }, data) {
+      async decline ({ commit, dispatch }, data) {
+        console.log('Tell me watcha got! ' + data)
         const declinedApplication = await groupApplications.decline(data)
         commit('update', declinedApplication)
+        dispatch('toasts/show', {
+          message: 'APPLICATION.DECLINED',
+        }, { root: true })
       },
 
     }),

@@ -6,13 +6,13 @@
   >
     <q-item-side>
       <ProfilePicture
-        :user="application.applicant"
+        :user="application.user"
         :size="80"
         class="applicants-picture"
       />
     </q-item-side>
     <q-item-main
-      :label="userName + ' who is going by ID ' + application.user"
+      :label="userName + ' who is going by ID ' + application.user.id"
       :sublabel="application.status" />
     <q-item-side
       right
@@ -67,27 +67,27 @@ export default {
     pressAccept () {
       Dialog.create({
         title: this.$t('APPLICATION.ACCEPT_CONFIRMATION_HEADER'),
-        message: this.$t('APPLICATION.ACCEPT_CONFIRMATION_TEXT', { userName: this.application.applicant.displayName }),
+        message: this.$t('APPLICATION.ACCEPT_CONFIRMATION_TEXT', { userName: this.userName }),
         ok: this.$t('BUTTON.YES'),
         cancel: this.$t('BUTTON.CANCEL'),
       })
-        .then(() => this.$emit('accept', this.application.id))
+        .then(() => this.$emit('accept', this.application.id, { userName: this.userName }))
         .catch(() => {})
     },
     decline () {
       Dialog.create({
         title: this.$t('APPLICATION.DECLINE_CONFIRMATION_HEADER'),
-        message: this.$t('APPLICATION.DECLINE_CONFIRMATION_TEXT', { userName: this.application.applicant.displayName }),
+        message: this.$t('APPLICATION.DECLINE_CONFIRMATION_TEXT', { userName: this.userName }),
         ok: this.$t('BUTTON.YES'),
         cancel: this.$t('BUTTON.CANCEL'),
       })
-        .then(() => this.$emit('decline', this.application.id))
+        .then(() => this.$emit('decline', this.application.id, { userName: this.userName }))
         .catch(() => {})
     },
   },
   computed: {
     userName () {
-      return this.application && this.application.applicant && this.application.applicant.displayName
+      return this.application && this.application.user && this.application.user.displayName
     },
   },
 }

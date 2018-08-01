@@ -91,7 +91,9 @@ module.exports = {
         loader: 'url-loader',
         options: {
           limit: 10000,
-          name: (env.prod ? '/' : '') + 'assets/images/[name].[hash:7].[ext]',
+          name: '[name].[hash:7].[ext]',
+          outputPath: (env.prod ? '/' : '') + 'assets/images',
+          publicPath: env.cordova && '../images',
         },
       },
       {
@@ -99,7 +101,9 @@ module.exports = {
         loader: 'url-loader',
         options: {
           limit: 10000,
-          name: (env.prod ? '/' : '') + 'assets/fonts/[name].[hash:7].[ext]',
+          name: '[name].[hash:7].[ext]',
+          outputPath: (env.prod ? '/' : '') + 'assets/fonts',
+          publicPath: env.cordova && '../fonts',
         },
       },
       {

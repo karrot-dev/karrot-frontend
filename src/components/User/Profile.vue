@@ -93,27 +93,27 @@
 
         <ul>
           <li
-            v-for="{ group, trust, trusted } in user.trustByGroup.filter(t => t.group.isMember)"
+            v-for="{ group, trustedBy, trusted } in user.memberships"
             :key="group.id"
           >
-            {{ group.name }}: {{ trust.length }}
+            {{ group.name }}: {{ trustedBy.length }}
             <small v-if="trusted">
               You trust this user
             </small>
             <q-btn
               v-if="!trusted && !user.isCurrentUser"
               round
-              @click="$emit('createTrust', { user: user.id, group: group.id })"
+              @click="$emit('createTrust', { userId: user.id, groupId: group.id })"
               color="warning"
               class="karrot-button"
             />
             <br>
             <span
-              v-for="t in trust"
-              :key="t.id"
+              v-for="u in trustedBy"
+              :key="u.id"
             >
               <ProfilePicture
-                :user="t.givenBy"
+                :user="u"
               />
             </span>
           </li>

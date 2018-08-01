@@ -42,6 +42,10 @@ export default {
   removeNotificationType (groupId, notificationType) {
     return axios.delete(`/api/groups/${groupId}/notification_types/${notificationType}/`)
   },
+
+  trustUser (groupId, userId) {
+    return axios.post(`/api/groups/${groupId}/users/${userId}/trust/`)
+  },
 }
 
 export function convert (val) {

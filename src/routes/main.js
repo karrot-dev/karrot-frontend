@@ -153,7 +153,6 @@ export default [
           breadcrumbs: [
             { translation: 'GROUP.MEMBERS', route: { name: 'groupMembers' } },
           ],
-          beforeEnter: 'trust/fetchForGroup',
         },
         component: GroupMembers,
       },

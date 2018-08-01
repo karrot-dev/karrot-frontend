@@ -28,8 +28,8 @@
           />
         </i18n>
         <q-progress
-          v-if="user.membershipInCurrentGroup.newcomerProgress < 100"
-          :percentage="user.membershipInCurrentGroup.newcomerProgress"
+          v-if="user.membershipInCurrentGroup.trustProgress < 1"
+          :percentage="user.membershipInCurrentGroup.trustProgress * 100"
           class="q-mt-xs"
           title="Trust needed to become Editor"
         />
@@ -38,9 +38,9 @@
     <q-item-side>
       <q-item-tile>
         <ProfilePicture
-          v-for="user in user.trust.map(t => t.givenBy)"
-          :key="user.id"
-          :user="user"
+          v-for="u in user.membershipInCurrentGroup.trustedBy"
+          :key="u.id"
+          :user="u"
         />
       </q-item-tile>
     </q-item-side>

@@ -9,7 +9,7 @@ function initialState () {
   return {
     entries: {},
     idList: [],
-    activeUserId: null,
+    activeUserProfile: null,
     resetPasswordSuccess: false,
     resendVerificationCodeSuccess: false,
   }
@@ -31,11 +31,21 @@ export default {
       }
       const authUserId = rootGetters['auth/userId']
       const currentGroup = rootGetters['currentGroup/value']
+
+      // should be renamed into membershipincurrentgroup or removed
       const membership = currentGroup && currentGroup.memberships && currentGroup.memberships[user.id]
+
+      const memberships = user.memberships && Object.entries(user.memberships).map(([groupId, membership]) => ({
+        ...membership,
+        group: rootGetters['groups/get'](groupId),
+        trustedBy: membership.trustedBy.map(rootGetters['users/get']),
+        trusted: membership.trustedBy.includes(authUserId),
+      })).sort((a, b) => a.group.name.localeCompare(b.group.name))
       return {
         ...user,
         isCurrentUser: user.id === authUserId,
         isEditor: membership && membership.roles.includes('editor'),
+        memberships,
       }
     },
     all: (state, getters, rootState, rootGetters) => {
@@ -43,33 +53,25 @@ export default {
     },
     byCurrentGroup: (state, getters, rootState, rootGetters) => {
       const currentGroup = rootGetters['currentGroup/value']
-      const trust = rootGetters['trust/all']
       if (currentGroup && currentGroup.memberships) {
         return Object.entries(currentGroup.memberships).map(([userId, membership]) => {
           userId = parseInt(userId)
           return {
             ...getters.get(userId),
-            membershipInCurrentGroup: membership,
-            trust: trust.filter(t => t.user === userId),
+            membershipInCurrentGroup: {
+              ...membership,
+              trustedBy: membership.trustedBy.map(rootGetters['users/get']),
+              trustProgress: membership.roles.includes('editor') ? 1 : membership.trustedBy.length / currentGroup.trustThresholdForNewcomer,
+            },
           }
         })
       }
       return []
     },
     activeUser: (state, getters, rootState, rootGetters) => {
-      const user = state.activeUserId && getters.get(state.activeUserId)
-      if (user) {
-        const trust = rootGetters['trust/all']
-        const groups = rootGetters['groups/all'].filter(group => group.members.includes(user.id))
-        user.trustByGroup = groups.map(group => ({
-          group,
-          trust: trust.filter(t => t.group === group.id),
-          trusted: trust.find(t => t.group === group.id && t.givenBy.isCurrentUser),
-        }))
-      }
-      return user
+      return state.activeUserProfile && getters.enrich(state.activeUserProfile)
     },
-    activeUserId: state => state.activeUserId,
+    activeUserId: state => state.activeUserProfile && state.activeUserProfile.id,
     ...metaStatuses(['signup', 'requestResetPassword', 'resetPassword', 'resendVerificationCode', 'requestDeleteAccount']),
     resetPasswordSuccess: state => state.resetPasswordSuccess,
     resendVerificationCodeSuccess: state => state.resendVerificationCodeSuccess,
@@ -110,25 +112,26 @@ export default {
       },
     }),
 
-    async selectUser ({ commit, getters, dispatch }, { userId }) {
-      if (!getters.get(userId).id) {
+    async selectUser ({ state, commit, dispatch }, { userId }) {
+      if (!state.activeUserProfile) {
         try {
-          await dispatch('refresh', { userId })
+          commit('setProfile', await users.getProfile(userId))
         }
         catch (error) {
           const data = { translation: 'PROFILE.INACCESSIBLE_OR_DELETED' }
           throw createRouteError(data)
         }
       }
-      commit('select', userId)
-      await dispatch('trust/fetchForUser', userId, { root: true })
-      await dispatch('history/fetchForUser', { userId }, { root: true })
+      dispatch('history/fetchForUser', { userId }, { root: true })
     },
-    update ({ commit }, user) {
+    async update ({ state, commit }, user) {
       commit('update', user)
+      if (state.activeUserProfile && state.activeUserProfile.id === user.id) {
+        commit('setProfile', await users.getProfile(user.id))
+      }
     },
     clearSelectedUser ({ commit }) {
-      commit('select', null)
+      commit('setProfile', null)
     },
     clearSignup ({ commit, dispatch }) {
       dispatch('meta/clear', ['signup'])
@@ -141,7 +144,7 @@ export default {
       dispatch('meta/clear', ['resetPassword'])
       commit('resetPasswordSuccess', false)
     },
-    async refresh ({ dispatch, commit }, { userId } = {}) {
+    async refresh ({ state, dispatch, commit }, { userId } = {}) {
       if (userId) {
         const user = await users.get(userId)
         commit('update', user)
@@ -149,11 +152,14 @@ export default {
       else {
         dispatch('fetch')
       }
+      if (state.activeUserProfile) {
+        commit('setProfile', await users.getProfile(userId))
+      }
     },
   },
   mutations: {
-    select (state, userId) {
-      state.activeUserId = userId
+    setProfile (state, userProfile) {
+      state.activeUserProfile = userProfile
     },
     set (state, users) {
       state.entries = indexById(users)

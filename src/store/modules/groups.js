@@ -99,6 +99,9 @@ export default {
         commit('set', await groupsInfo.list())
       },
 
+      async trustUser ({ commit }, { groupId, userId }) {
+        await groups.trustUser(groupId, userId)
+      },
     }),
 
     update ({ commit }, group) {

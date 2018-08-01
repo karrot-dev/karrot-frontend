@@ -39,7 +39,6 @@ import sidenavBoxes from './modules/sidenavBoxes'
 import stores from './modules/stores'
 import timezones from './modules/timezones'
 import toasts from './modules/toasts'
-import trust from './modules/trust'
 import users from './modules/users'
 import verifymail from './modules/verifymail'
 
@@ -79,7 +78,6 @@ export default new Vuex.Store({
     stores,
     timezones,
     toasts,
-    trust,
     users,
     verifymail,
   },

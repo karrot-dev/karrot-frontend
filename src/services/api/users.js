@@ -6,6 +6,10 @@ export default {
     return (await axios.get(`/api/users/${id}/`)).data
   },
 
+  async getProfile (id) {
+    return (await axios.get(`/api/users/${id}/profile/`)).data
+  },
+
   async list () {
     return (await axios.get('/api/users/')).data
   },

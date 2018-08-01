@@ -19,6 +19,7 @@
     >
       <q-btn
         round
+        disable
         color="tertiary"
         icon="fas fa-comments"
         class="generic-margin"

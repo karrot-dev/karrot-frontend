@@ -83,8 +83,7 @@
             type="warning"
             icon="info"
             :actions="[
-              { label: 'Group chat', icon: 'fas fa-comments', handler: () => {joinChat()} },
-              { label: 'Withdraw', icon: 'fas fa-trash-alt', handler: () => {withdraw()} }
+              // { label: 'Group chat', icon: 'fas fa-comments', handler: () => {joinChat()} },
             ]"
           >
             {{ $t('JOINGROUP.APPLICATION_PENDING' ) }}

@@ -19,7 +19,6 @@ export default {
     enrich: (state, getters, rootState, rootGetters) => application => {
       return application && {
         ...application,
-        applicant: rootGetters['users/get'](application.user),
         isPending: application.status === 'pending',
         isDeclined: application.status === 'declined',
         isAccepted: application.status === 'accepted',

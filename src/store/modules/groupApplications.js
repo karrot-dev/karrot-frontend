@@ -28,8 +28,8 @@ export default {
     getByGroupId: state => groupId => {
       return Object.values(state.entries).find(a => a.group === groupId)
     },
-    allPending: (state, getters) => Object.keys(state.entries).map(getters.get).filter(a => a.isPending),
-    allNonPending: (state, getters) => Object.keys(state.entries).map(getters.get).filter(a => !a.isPending),
+    allPending: (state, getters) => Object.keys(state.entries).map(getters.get).filter(a => a.isPending).sort(),
+    allNonPending: (state, getters) => Object.keys(state.entries).map(getters.get).filter(a => !a.isPending).sort(),
     ...metaStatuses(['apply']),
   },
   actions: {
@@ -57,28 +57,30 @@ export default {
         router.push({ name: 'groupPreview', params: { groupPreviewId: data.group } })
       },
 
-      async withdraw ({ commit, dispatch }, applicationId) {
-        const removedApplication = await groupApplications.withdraw(applicationId)
+      async withdraw ({ commit, dispatch }, id) {
+        const removedApplication = await groupApplications.withdraw(id)
         commit('delete', removedApplication.id)
         dispatch('toasts/show', {
           message: 'JOINGROUP.APPLICATION_WITHDRAWN',
         }, { root: true })
       },
 
-      async accept ({commit, dispatch}, data) {
-        const acceptedApplication = await groupApplications.accept(data)
+      async accept ({commit, dispatch}, id) {
+        const acceptedApplication = await groupApplications.accept(id)
         commit('update', acceptedApplication)
         dispatch('toasts/show', {
           message: 'APPLICATION.ACCEPTED',
+          messageParams: { userName: acceptedApplication.user.displayName },
         }, { root: true })
       },
 
-      async decline ({ commit, dispatch }, data) {
-        console.log('Tell me watcha got! ' + data)
-        const declinedApplication = await groupApplications.decline(data)
+      async decline ({ commit, dispatch }, id) {
+        console.log('Tell me watcha got! ' + id)
+        const declinedApplication = await groupApplications.decline(id)
         commit('update', declinedApplication)
         dispatch('toasts/show', {
           message: 'APPLICATION.DECLINED',
+          messageParams: { userName: declinedApplication.user.displayName },
         }, { root: true })
       },
 

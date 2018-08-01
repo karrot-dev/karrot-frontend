@@ -73,7 +73,7 @@ export default {
         ok: this.$t('BUTTON.YES'),
         cancel: this.$t('BUTTON.CANCEL'),
       })
-        .then(() => this.$emit('accept', this.application.id, { userName: this.userName }))
+        .then(() => this.$emit('accept', this.application.id))
         .catch(() => {})
     },
     decline () {
@@ -83,13 +83,13 @@ export default {
         ok: this.$t('BUTTON.YES'),
         cancel: this.$t('BUTTON.CANCEL'),
       })
-        .then(() => this.$emit('decline', this.application.id, { userName: this.userName }))
+        .then(() => this.$emit('decline', this.application.id))
         .catch(() => {})
     },
   },
   computed: {
     userName () {
-      return this.application && this.application.user && this.application.user.displayName
+      return this.application.user.displayName
     },
   },
 }
@@ -101,13 +101,5 @@ export default {
   vertical-align: text-bottom
   margin-left: -0.5 rem
 .isNonPending
-  background repeating-linear-gradient(
-    135deg,
-    white,
-    white 15px,
-    $lightBlue 15px,
-    $lightBlue 30px
-  )
-.isPending
-  background: $lightBlue
+  opacity 0.5
 </style>

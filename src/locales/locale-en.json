@@ -444,6 +444,7 @@
     "DECLINE_CONFIRMATION_HEADER": "Decline Application",
     "DECLINE_CONFIRMATION_TEXT": "Are you sure you want to decline {userName}'s application?",
     "ACCEPTED": "You accepted {userName}'s request to join this group!",
+    "DECLINED": "You declined {userName}'s request to join this group!",
     "LIST_CURRENT_APPLICATIONS": "Current applications",
     "LIST_PAST_APPLICATIONS": "Past applications"
   },

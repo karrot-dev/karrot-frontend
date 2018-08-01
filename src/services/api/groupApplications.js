@@ -10,7 +10,7 @@ export default {
   // },
 
   async list (filter) {
-    return (await axios.get('/api/group-applications/', { params: filter })).data
+    return convert((await axios.get('/api/group-applications/', { params: filter })).data)
   },
 
   async accept (applicationId) {
@@ -24,4 +24,14 @@ export default {
   async withdraw (applicationId) {
     return (await axios.post(`/api/group-applications/${applicationId}/withdraw/`)).data
   },
+}
+
+export function convert (val) {
+  if (Array.isArray(val)) {
+    return val.map(convert)
+  }
+  else {
+    let createdAt = new Date(val.createdAt)
+    return { ...val, createdAt }
+  }
 }

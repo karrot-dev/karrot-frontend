@@ -5,8 +5,8 @@
       v-for="a in pendingApplications"
       :key="a.id"
       :application="a"
-      @accept="$emit('forwardAccept', arguments[0], arguments[1])"
-      @decline="$emit('forwardDecline', arguments[0], arguments[1])"
+      @accept="$emit('forwardAccept', arguments[0])"
+      @decline="$emit('forwardDecline', arguments[0])"
     />
     <h4>{{ $t('APPLICATION.LIST_PAST_APPLICATIONS') }}</h4>
     <ApplicationItem

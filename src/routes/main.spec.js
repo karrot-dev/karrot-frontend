@@ -25,10 +25,10 @@ jest.mock('@/components/GroupJoin/GroupPreviewUI', () => ({
   props: ['group', 'isLoggedIn', 'showClose'],
   methods: {
     visit () {
-      this.$emit('visit', { groupId: this.group.id })
+      this.$emit('visit', this.group.id)
     },
     join () {
-      this.$emit('join', { groupId: this.group.id, password: '' })
+      this.$emit('join', this.group.id)
     },
   },
   render (h) {

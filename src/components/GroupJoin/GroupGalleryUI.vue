@@ -5,54 +5,145 @@
   >
     <GroupGalleryMap
       class="map-fixed"
-      :filtered-my-groups="filteredMyGroupsOrPreview"
-      :filtered-other-groups="filteredOtherGroupsOrPreview"
+      :filtered-my-groups="filteredMyGroups"
+      :filtered-other-groups="filteredOtherGroups"
       :expanded="expanded"
     />
-    <GroupGalleryCardsLayout
-      class="gallery-cards"
-      :filtered-my-groups="filteredMyGroupsOrPreview"
-      :filtered-other-groups="filteredOtherGroupsOrPreview"
-      :playground-group="playgroundGroup"
-      :has-joined-groups="myGroups.length > 0"
-      :group-for-preview="groupForPreview"
-      :is-logged-in="isLoggedIn"
-      :expanded="expanded"
-      :search="search"
-      :show-inactive="showInactive"
-      @setShowInactive="setShowInactive"
-      @search="filterGroups"
-      @showPreview="showPreview"
-      @preview="$emit('preview', arguments[0])"
-      @visit="$emit('visit', arguments[0])"
+    <div
+      :class="{'expanded': expanded}"
+      class="sidebar"
     >
-      <q-btn
-        @click="expanded = !expanded"
-        flat
-        round
-        small
-        class="float-right overlay-toggle-button"
+      <q-alert
+        v-if="!isLoggedIn"
+        color="info"
+        icon="star"
+        class="alert"
       >
-        <i
-          class="fa fa-2x"
-          :class="{'slightly-rotated': !expanded, 'fa-angle-down': $q.platform.is.mobile, 'fa-angle-up': !$q.platform.is.mobile}"
+        <i18n path="JOINGROUP.LOGOUT_MESSAGE.LOGGED_OUT">
+          <router-link
+            place="login"
+            :to="{ name: 'login' }"
+            class="underline"
+          >
+            {{ $t('JOINGROUP.LOGOUT_MESSAGE.LOG_IN') }}
+          </router-link>
+        </i18n>
+      </q-alert>
+      <p
+        class="text-primary header"
+        v-if="!hasJoinedGroups"
+      >
+        {{ $t('JOINGROUP.WHICHGROUP') }}
+      </p>
+      <div class="row items-start no-wrap">
+        <div class="col">
+          <q-card>
+            <q-search
+              :value="search"
+              @input="filterGroups"
+              class="searchbar"
+              hide-underline
+            />
+          </q-card>
+          <q-checkbox
+            :value="showInactive"
+            @input="setShowInactive"
+            :label="$t('GROUP.SHOW_INACTIVE')"
+            style="margin-left: 16px"
+          />
+        </div>
+        <div style="margin-top: 4px">
+          <q-btn
+            @click="expanded = !expanded"
+            flat
+            round
+            small
+            class="float-right overlay-toggle-button"
+          >
+            <i
+              class="fa fa-2x"
+              :class="{'slightly-rotated': !expanded, 'fa-angle-down': $q.platform.is.mobile, 'fa-angle-up': !$q.platform.is.mobile}"
+            />
+            <q-tooltip>
+              {{ $t(expanded ? 'BUTTON.HIDE' : 'BUTTON.SHOW') }}
+            </q-tooltip>
+          </q-btn>
+        </div>
+      </div>
+      <GroupGalleryCard
+        v-if="showPlaygroundGroupAtTop"
+        style="width: 100%"
+        :group="playgroundGroup"
+        @preview="$emit('preview', playgroundGroup.id)"
+        @visit="$emit('visit', playgroundGroup.id)"
+      />
+      <div
+        v-if="hasMyGroupsToShow"
+        class="join-groups"
+      >
+        <p class="text-primary header">
+          {{ $t('JOINGROUP.MY_GROUPS') }}
+        </p>
+        <GroupGalleryCards
+          :groups="filteredMyGroups"
+          :is-logged-in="isLoggedIn"
+          @preview="$emit('preview', arguments[0])"
+          @visit="$emit('visit', arguments[0])"
         />
-        <q-tooltip>
-          {{ $t(expanded ? 'BUTTON.HIDE' : 'BUTTON.SHOW') }}
-        </q-tooltip>
-      </q-btn>
-    </GroupGalleryCardsLayout>
+      </div>
+      <p
+        class="text-primary header"
+        v-if="hasJoinedGroups && hasOtherGroupsToShow"
+      >
+        {{ $t('JOINGROUP.WHICHGROUP') }}
+      </p>
+      <div v-if="hasOtherGroupsToShow">
+        <GroupGalleryCards
+          :groups="filteredOtherGroups"
+          :is-logged-in="isLoggedIn"
+          @preview="$emit('preview', arguments[0])"
+        />
+      </div>
+      <hr
+        v-if="showPlaygroundGroupAtBottom"
+        style="margin: 20px 10px; border-color: #eee"
+      >
+      <GroupGalleryCard
+        v-if="showPlaygroundGroupAtBottom"
+        style="width: 100%"
+        :group="playgroundGroup"
+        @preview="$emit('preview', playgroundGroup.id)"
+        @visit="$emit('visit', playgroundGroup.id)"
+      />
+    </div>
   </div>
 </template>
 
 <script>
 import GroupGalleryMap from './GroupGalleryMap'
-import GroupGalleryCardsLayout from './GroupGalleryCardsLayout'
-import StandardMap from '@/components/Map/StandardMap'
-import { QBtn, QTooltip } from 'quasar'
+import GroupGalleryCards from './GroupGalleryCards'
+import GroupGalleryCard from './GroupGalleryCard'
+import {
+  QBtn,
+  QTooltip,
+  QAlert,
+  QSearch,
+  QCard,
+  QCheckbox,
+} from 'quasar'
 
 export default {
-  components: { GroupGalleryCardsLayout, GroupGalleryMap, QBtn, QTooltip, StandardMap },
+  components: {
+    GroupGalleryMap,
+    GroupGalleryCards,
+    GroupGalleryCard,
+    QBtn,
+    QTooltip,
+    QAlert,
+    QSearch,
+    QCard,
+    QCheckbox,
+  },
   props: {
     myGroups: {
       default: () => [],
@@ -74,7 +165,6 @@ export default {
   data () {
     return {
       search: '',
-      groupForPreview: null,
       expanded: true,
       showInactive: false,
     }
@@ -82,10 +172,6 @@ export default {
   methods: {
     filterGroups (term) {
       this.search = term
-    },
-    showPreview (group) {
-      window.scrollTo(0, 0)
-      this.groupForPreview = group
     },
     setShowInactive (value) {
       this.showInactive = value
@@ -98,14 +184,11 @@ export default {
     },
   },
   computed: {
+    hasJoinedGroups () {
+      return this.myGroups.length > 0
+    },
     filteredMyGroups () {
       return this.searchInName(this.search, this.myGroups)
-    },
-    filteredMyGroupsOrPreview () {
-      if (this.previewOpened) {
-        return [this.groupForPreview].filter(g => g.isMember)
-      }
-      return this.filteredMyGroups
     },
     filteredOtherGroups () {
       let filteredGroups = this.searchInName(this.search, this.otherGroups)
@@ -116,22 +199,29 @@ export default {
       const hidePlaygroundByDefault = group => !hasSearchTerm ? !group.isPlayground : true
       return filteredGroups.filter(hidePlaygroundByDefault)
     },
-    filteredOtherGroupsOrPreview () {
-      if (this.previewOpened) {
-        return [this.groupForPreview].filter(g => !g.isMember)
-      }
-      return this.filteredOtherGroups
+    hasMyGroupsToShow () {
+      return this.expanded && this.filteredMyGroups.length > 0
     },
-    oneFilterResult () {
-      if ((this.filteredMyGroups.length + this.filteredOtherGroups.length) === 1) {
-        return this.filteredMyGroups.length > 0 ? this.filteredMyGroups[0] : this.filteredOtherGroups[0]
-      }
-      return null
+    hasOtherGroupsToShow () {
+      return this.expanded && this.filteredOtherGroups.length > 0
     },
-  },
-  watch: {
-    search () {
-      this.showPreview(this.oneFilterResult)
+    showPlaygroundGroupAtTopOrBottom () {
+      if (this.search) return false
+      if (!this.expanded) return false
+      if (!this.playgroundGroup) return false
+      if (this.playgroundGroup && this.playgroundGroup.isMember) return false
+      return true
+    },
+    showPlaygroundGroupAtTop () {
+      if (this.showPlaygroundGroupAtTopOrBottom) {
+        if (this.isLoggedIn && !this.hasJoinedGroups) return true
+        if (!this.isLoggedIn) return true
+        return false
+      }
+      return false
+    },
+    showPlaygroundGroupAtBottom () {
+      return this.showPlaygroundGroupAtTopOrBottom && !this.showPlaygroundGroupAtTop
     },
   },
 }
@@ -139,41 +229,64 @@ export default {
 
 <style scoped lang="stylus">
 @import '~variables'
-body.desktop
+body.desktop .gallery-wrapper
   .map-fixed
-    position: fixed
-    height: 100vh
-    right: 0
-    left: 0
+    position fixed
+    height 100vh
+    right 0
+    left 0
     z-index 0
-  .gallery-cards
+  .sidebar
     width 100%
+    &.expanded
+      padding-bottom 3em
+    .alert
+      margin 10px 8px 10px 8px
     @media screen and (min-width: $breakpoint-sm)
       max-width 42vw
-  .expanded .gallery-cards
-    padding-bottom 3em
+      padding 0 1em 1em 1em
+      box-shadow 6px 0px 5px 0px rgba(0,0,0,0.3)
+      &.expanded
+        min-height 100vh
 
-body.mobile
+body.mobile .gallery-wrapper
   .map-fixed
-    height: 60vh
-    width: 100%
-    z-index: 0
-  .gallery-cards
-    margin-top: 0
+    height 60vh
+    width 100%
+    z-index 0
+  .sidebar
+    margin-top 0
     min-height 10vh
     padding-bottom 3em
     margin-bottom 40px
     transition all .7s
     z-index 0
-  .expanded .gallery-cards
-    margin-top: -60vh
-    min-height 60vh
+    &.expanded
+      margin-top -60vh
+      min-height 60vh
 
-.overlay-toggle-button
-  i
-    transition transform .5s
-.slightly-rotated
-  transform rotate(-180deg)
+.gallery-wrapper
+  .overlay-toggle-button
+    i
+      transition transform .5s
+      &.slightly-rotated
+        transform rotate(-180deg)
+
+.sidebar
+  z-index 2
+  background-color rgba(255, 255, 255, 0.8)
+  padding 5px
+  .text-primary
+    margin-left .2em
+  .searchbar
+    margin-top .2em
+    padding 5px
+  .underline
+    text-decoration underline
+  .header
+    font-size 1.4em
+    padding-top 14px
+    margin-left 10px
 </style>
 
 <style lang="stylus">

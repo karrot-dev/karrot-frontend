@@ -94,7 +94,7 @@
         </span>
         <q-btn
           v-if="group.isMember"
-          @click="$emit('visit', { groupId: group.id })"
+          @click="$emit('visit', group.id)"
           class="q-btn-flat"
         >
           <q-icon name="fas fa-home" />

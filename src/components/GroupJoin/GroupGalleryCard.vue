@@ -5,6 +5,7 @@
       :color="cardColor"
       :class="{highlight: group.isCurrentGroup}"
       :style="cardStyle"
+      @click.native="$emit(group.isMember ? 'visit' : 'preview')"
     >
       <q-card-title class="ellipsis">
         {{ group.name }}
@@ -12,10 +13,9 @@
           {{ group.members.length }} {{ $tc('JOINGROUP.NUM_MEMBERS', group.members.length) }}
         </span>
       </q-card-title>
-      <q-card-main class="fixed-height">
+      <q-card-main class="fixed-height smaller-text">
         <div
           v-if="group.publicDescription"
-          class="smaller-text"
         >
           <Markdown :source="group.publicDescription.slice(0, 150)" />
         </div>
@@ -27,10 +27,9 @@
         </span>
       </q-card-main>
       <q-card-separator />
-      <q-card-actions>
+      <q-card-actions v-if="group.isMember">
         <q-btn
-          v-if="group.isMember"
-          @click="$emit('visit')"
+          @click.stop="$emit('visit')"
           class="q-btn-flat"
         >
           <q-icon name="fas fa-home" />
@@ -39,7 +38,7 @@
           </q-tooltip>
         </q-btn>
         <q-btn
-          @click="$emit('preview', group)"
+          @click.stop="$emit('preview')"
           class="q-btn-flat"
         >
           <q-icon name="fas fa-info-circle" />
@@ -87,22 +86,22 @@ export default {
 
 <style scoped lang="stylus">
 @import '~variables'
-.highlight
-  border 2px solid $secondary
-.q-card *
-  overflow: hidden
-.fixed-height
-  min-height: 60px
-  max-height: 60px
 .groupPreviewCard
-  transition all .5s
-.groupPreviewCard
-  box-shadow: 0 2px 6px 0 rgba(0,0,0,0.2);
-.groupPreviewCard:hover
-  box-shadow: 0 7px 11px 0 rgba(0,0,0,0.2);
+  cursor pointer
+  box-shadow 0 2px 6px 0 rgba(0,0,0,0.2)
+  &:hover
+    box-shadow 0 7px 11px 0 rgba(0,0,0,0.2)
+  *
+    overflow hidden
+  &.highlight
+    border 2px solid $secondary
+  .fixed-height
+    min-height 60px
+    max-height 60px
+  .smaller-text >>> *
+    font-size 1em
 </style>
 
 <style lang="stylus">
-.groupPreviewCard .smaller-text > * > *
-  font-size 1em
+
 </style>

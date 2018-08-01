@@ -4,20 +4,14 @@
       style="width: 100%"
       @resize="onResize"
     />
-    <transition-group
-      name="list-complete"
-      class="row"
-    >
-      <GroupGalleryCard
-        v-for="group in groups"
-        :key="group.id"
-        class="list-complete-item"
-        :style="cardStyle"
-        :group="group"
-        @preview="$emit('preview', arguments[0])"
-        @visit="$emit('visit', { groupId: group.id })"
-      />
-    </transition-group>
+    <GroupGalleryCard
+      v-for="group in groups"
+      :key="group.id"
+      :style="cardStyle"
+      :group="group"
+      @preview="$emit('preview', group.id)"
+      @visit="$emit('visit', group.id)"
+    />
   </div>
 </template>
 
@@ -59,15 +53,3 @@ export default {
   },
 }
 </script>
-
-<style scoped lang="stylus">
-.list-complete-item
-  transition: all .7s
-
-.list-complete-enter, .list-complete-leave-to
-  opacity: 0
-  transform: translateY(2000px)
-
-.list-complete-leave-active
-  position: absolute
-</style>

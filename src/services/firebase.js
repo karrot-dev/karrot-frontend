@@ -10,7 +10,7 @@ export async function getServiceWorker () {
 }
 
 async function getServiceWorkers () {
-  if (!window.navigator.serviceWorker) return []
+  if (__ENV.CORDOVA || !window.navigator.serviceWorker) return []
   const registrations = await window.navigator.serviceWorker.getRegistrations()
   return registrations.filter(worker => worker.scope.endsWith(SERVICE_WORKER_SCOPE))
 }

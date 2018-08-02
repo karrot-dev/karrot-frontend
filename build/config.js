@@ -23,10 +23,22 @@ const backendProxy = {
   },
 }
 
-const theme = require('./env-utils').platform.theme
+const theme = 'mat'
 
-const env = {
-  NODE_ENV: '"production"',
+const nodeEnv = {
+  dev: process.env.NODE_ENV === 'development',
+  prod: process.env.NODE_ENV === 'production',
+  cordova: process.env.CORDOVA === 'true',
+  karrotTheme: process.env.KARROT_THEME || 'default',
+  fcmSenderId: process.env.FCM_SENDER_ID,
+  platform: {
+    theme: theme,
+    cordovaAssets: './cordova/platforms/' + (theme === 'mat' ? 'android' : 'ios') + '/platform_www',
+  },
+}
+
+const appEnv = {
+  NODE_ENV: JSON.stringify('production'),
   RAVEN_CONFIG: JSON.stringify(process.env.RAVEN_CONFIG || 'https://6fd3cc6b432b457e8f18e12aa163a900@sentry.io/236883'),
   GIT_SHA1: JSON.stringify(process.env.GIT_SHA1 || process.env.CIRCLE_SHA1),
   THEME: JSON.stringify(theme),
@@ -34,15 +46,15 @@ const env = {
 
 module.exports = {
   backend,
-
+  nodeEnv,
   build: {
     // defines process.env inside app
-    env,
+    appEnv,
   },
   dev: {
     // defines process.env inside app
-    env: Object.assign({}, env, {
-      NODE_ENV: '"development"',
+    env: Object.assign({}, appEnv, {
+      NODE_ENV: JSON.stringify('development'),
       RAVEN_CONFIG: JSON.stringify(process.env.RAVEN_CONFIG || null),
     }),
     proxyTable: {

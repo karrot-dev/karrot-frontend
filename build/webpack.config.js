@@ -1,8 +1,8 @@
 const webpack = require('webpack')
 const { resolve, join } = require('path')
 const config = require('./config')
-const env = require('./env-utils')
 const projectRoot = resolve(__dirname, '../')
+const env = config.nodeEnv
 
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const VueLoaderPlugin = require('vue-loader/lib/plugin')
@@ -125,9 +125,9 @@ module.exports = {
       'DEV': env.dev,
       'PROD': env.prod,
       'CORDOVA': env.cordova,
-      'BACKEND': '"' + config.backend + '"',
-      'KARROT_THEME': '"' + env.karrotTheme + '"',
-      'FCM_SENDER_ID': '"' + env.fcmSenderId + '"',
+      'BACKEND': JSON.stringify(config.backend),
+      'KARROT_THEME': JSON.stringify(env.karrotTheme),
+      'FCM_SENDER_ID': JSON.stringify(env.fcmSenderId),
     }),
     new HtmlWebpackPlugin({
       filename: 'index.html',

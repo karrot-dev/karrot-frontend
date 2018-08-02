@@ -22,7 +22,7 @@ describe('services/api/auth', () => {
     beforeEach(() => {
       lastRequest = null
       mock = new MockAdapter(axios)
-      global.CORDOVA = true
+      global.__ENV.CORDOVA = true
       global.location.reload = jest.fn()
       auth = require('@/services/api/auth').default
       mock.onGet('/api/auth/user/').reply(200, { email })

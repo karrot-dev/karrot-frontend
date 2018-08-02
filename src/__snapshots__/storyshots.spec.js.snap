@@ -2164,7 +2164,9 @@ exports[`Storyshots Layout KFooter 1`] = `
   </div>
   <small class="row group col-xl-4 col-xs-8"><span>
       karrot
-      <!---->
+      <a href="" target="_blank" rel="noopener">
+        local dev
+      </a>
       — made with
       <i class="fas fa-heart"></i>
       by

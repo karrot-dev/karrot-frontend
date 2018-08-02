@@ -188,10 +188,12 @@
       "jest-canvas-mock"
     ],
     "globals": {
-      "CORDOVA": false,
-      "DEV": true,
-      "KARROT_THEME": "dev",
-      "FCM_SENDER_ID": "test-fcm-sender-id"
+      "__ENV": {
+        "CORDOVA": false,
+        "DEV": true,
+        "KARROT_THEME": "dev",
+        "FCM_SENDER_ID": "test-fcm-sender-id"
+      }
     }
   }
 }

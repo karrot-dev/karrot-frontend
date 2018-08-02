@@ -17,9 +17,9 @@ import { convert as convertGroup } from '@/services/api/groups'
 
 let WEBSOCKET_ENDPOINT
 
-if (CORDOVA) {
+if (__ENV.CORDOVA) {
   WEBSOCKET_ENDPOINT = [
-    BACKEND.replace(/^http/, 'ws'),
+    __ENV.BACKEND.replace(/^http/, 'ws'),
     '/api/ws',
   ].join('')
 }
@@ -150,7 +150,7 @@ store.watch(getter('presence/toggle/away'), away => {
 
 store.watch(getter('auth/isLoggedIn'), isLoggedIn => {
   if (isLoggedIn) {
-    if (CORDOVA) {
+    if (__ENV.CORDOVA) {
       const token = auth.getToken()
       socket.connect([
         'karrot.token',

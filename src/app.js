@@ -21,11 +21,11 @@ import { DetectMobileKeyboardPlugin } from '@/services/detectMobileKeyboard'
 
 Vue.use(DetectMobileKeyboardPlugin)
 
-if (CORDOVA && BACKEND) {
+if (__ENV.CORDOVA && __ENV.BACKEND) {
   require('@/cordova')
 }
 
-if (process.env.NODE_ENV !== 'production') {
+if (__ENV.DEV) {
   log.setLevel('debug')
 }
 

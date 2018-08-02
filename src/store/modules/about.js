@@ -5,7 +5,7 @@ function initialState () {
   return {
     deployed: null,
     lastDismissedUpdateSHA: null,
-    ourSHA: process.env.GIT_SHA1,
+    ourSHA: __ENV.GIT_SHA1,
   }
 }
 

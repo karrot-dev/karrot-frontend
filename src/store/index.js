@@ -44,7 +44,7 @@ import verifymail from './modules/verifymail'
 
 Vue.use(Vuex)
 
-const debug = process.env.NODE_ENV !== 'production'
+const debug = __ENV.DEV
 
 export default new Vuex.Store({
   modules: {

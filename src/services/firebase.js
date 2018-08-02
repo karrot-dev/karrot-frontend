@@ -26,7 +26,7 @@ export async function initializeMessaging () {
   const { initializeApp, messaging: initializeMessaging } = await import('./firebase.lib')
   if (messaging) return messaging
 
-  initializeApp({ messagingSenderId: FCM_SENDER_ID })
+  initializeApp({ messagingSenderId: __ENV.FCM_SENDER_ID })
   messaging = await initializeMessaging()
   messaging.useServiceWorker(await getOrCreateWorker())
   return messaging

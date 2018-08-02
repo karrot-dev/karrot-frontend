@@ -1,6 +1,5 @@
 const path = require('path')
 const webpack = require('webpack')
-const env = require('./config').nodeEnv
 
 const UglifyJsPlugin = require('uglifyjs-webpack-plugin')
 
@@ -27,7 +26,7 @@ module.exports = {
   },
   plugins: [
     new webpack.DefinePlugin({
-      'FCM_SENDER_ID': JSON.stringify(env.fcmSenderId),
+      '__ENV.FCM_SENDER_ID': JSON.stringify(process.env.FCM_SENDER_ID),
     }),
     new UglifyJsPlugin({
       sourceMap: false,

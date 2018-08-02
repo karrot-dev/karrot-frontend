@@ -47,7 +47,7 @@
       <q-card-separator />
       <q-card-actions>
         <span
-          v-if="!group.isMember && !group.hasApplied"
+          v-if="!group.isMember && !group.hasMyApplication"
           style="width: 100%">
           <q-alert
             v-if="!group.isMember"
@@ -76,7 +76,7 @@
           </q-btn>
         </span>
         <span
-          v-if="group.hasApplied"
+          v-if="group.hasMyApplication"
           style="width: 100%"
         >
           <q-alert

@@ -36,6 +36,7 @@ export default [
       breadcrumbs: [
         { translation: 'JOINGROUP.ALL_GROUPS' },
       ],
+      beforeEnter: 'groupApplications/fetchMine',
     },
     components: {
       fullPage: GroupGallery,

@@ -13,6 +13,20 @@ const HardSourceWebpackPlugin = require('hard-source-webpack-plugin')
 const dev = process.env.NODE_ENV !== 'production'
 const cordova = process.env.CORDOVA === 'true'
 const backend = require('./config').backend
+const appEnv = {
+  // define the karrot environment
+  __ENV: {
+    DEV: dev,
+    CORDOVA: cordova,
+    BACKEND: JSON.stringify(backend),
+    KARROT_THEME: JSON.stringify(process.env.KARROT_THEME),
+    FCM_SENDER_ID: JSON.stringify(process.env.FCM_SENDER_ID),
+    RAVEN_CONFIG: JSON.stringify(process.env.RAVEN_CONFIG),
+    GIT_SHA1: JSON.stringify(process.env.GIT_SHA1 || process.env.CIRCLE_SHA1),
+  },
+  // Quasar requires process.env.THEME to be set
+  'process.env.THEME': JSON.stringify('mat'),
+}
 
 const styleLoaders = [
   dev ? 'style-loader' : MiniCssExtractPlugin.loader,
@@ -122,27 +136,23 @@ module.exports = {
     ],
   },
   plugins: [
-    new webpack.DefinePlugin({
-      // define the karrot environment
-      __ENV: {
-        DEV: dev,
-        CORDOVA: cordova,
-        BACKEND: JSON.stringify(backend),
-        KARROT_THEME: JSON.stringify(process.env.KARROT_THEME),
-        FCM_SENDER_ID: JSON.stringify(process.env.FCM_SENDER_ID),
-        RAVEN_CONFIG: JSON.stringify(process.env.RAVEN_CONFIG),
-        GIT_SHA1: JSON.stringify(process.env.GIT_SHA1 || process.env.CIRCLE_SHA1),
-      },
-      // Quasar requires process.env.THEME to be set
-      'process.env.THEME': JSON.stringify('mat'),
-    }),
+    new webpack.DefinePlugin(appEnv),
     new HtmlWebpackPlugin({
       filename: 'index.html',
       template: 'src/index.html',
       minify: true,
     }),
     new VueLoaderPlugin(),
-    ...(dev ? [] : [
+    ...(dev ? [
+      new HardSourceWebpackPlugin({
+        configHash: function (webpackConfig) {
+          return require('node-object-hash')({sort: false}).hash([
+            webpackConfig,
+            appEnv,
+          ])
+        },
+      }),
+    ] : [
       new MiniCssExtractPlugin({
         filename: 'assets/css/[contenthash].css',
       }),
@@ -157,7 +167,6 @@ module.exports = {
         logLevel: 'info',
       }),
     ]),
-    new HardSourceWebpackPlugin(),
   ],
   optimization: {
     minimizer: [

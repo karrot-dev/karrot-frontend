@@ -67,7 +67,7 @@ export default {
   },
   computed: {
     cardColor () {
-      return this.group.isPlayground ? 'secondary' : undefined
+      return this.group.isPlayground ? 'secondary' : (this.group.hasMyApplication ? 'negative' : undefined)
     },
     cardStyle () {
       const reduceOpacity = this.group.isInactive && !this.group.isMember
@@ -77,6 +77,7 @@ export default {
     },
   },
 }
+
 </script>
 
 <style scoped lang="stylus">

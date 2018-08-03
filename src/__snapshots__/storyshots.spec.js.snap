@@ -684,7 +684,7 @@ exports[`Storyshots GroupEdit create 1`] = `
                   </div>
                   <div class="q-tabs-panes">
                     <div class="q-tab-pane">
-                      <div tabindex="-1" rows="3" class="q-if row no-wrap items-end relative-position q-input text-primary" style="min-height:5em;">
+                      <div tabindex="-1" rows="3" class="q-if row no-wrap items-end relative-position q-input text-primary">
                         <div class="q-if-inner col row no-wrap relative-position q-if-inner-dynamic">
                           <div class="col row relative-position">
                             <object type="text/html" data="about:blank" aria-hidden="true" style="display:block;position:absolute;top:0;left:0;right:0;bottom:0;height:100%;width:100%;overflow:hidden;pointer-events:none;z-index:-1;"></object>
@@ -746,7 +746,7 @@ exports[`Storyshots GroupEdit create 1`] = `
                   </div>
                   <div class="q-tabs-panes">
                     <div class="q-tab-pane">
-                      <div tabindex="-1" rows="3" class="q-if row no-wrap items-end relative-position q-input text-primary" style="min-height:5em;">
+                      <div tabindex="-1" rows="3" class="q-if row no-wrap items-end relative-position q-input text-primary">
                         <div class="q-if-inner col row no-wrap relative-position q-if-inner-dynamic">
                           <div class="col row relative-position">
                             <object type="text/html" data="about:blank" aria-hidden="true" style="display:block;position:absolute;top:0;left:0;right:0;bottom:0;height:100%;width:100%;overflow:hidden;pointer-events:none;z-index:-1;"></object>
@@ -4956,7 +4956,7 @@ exports[`Storyshots Stores StoreEdit (with server error) 1`] = `
                   </div>
                   <div class="q-tabs-panes">
                     <div class="q-tab-pane">
-                      <div tabindex="-1" rows="3" class="q-if row no-wrap items-end relative-position q-input text-primary" style="min-height:5em;">
+                      <div tabindex="-1" rows="3" class="q-if row no-wrap items-end relative-position q-input text-primary">
                         <div class="q-if-inner col row no-wrap relative-position q-if-inner-dynamic">
                           <div class="col row relative-position">
                             <object type="text/html" data="about:blank" aria-hidden="true" style="display:block;position:absolute;top:0;left:0;right:0;bottom:0;height:100%;width:100%;overflow:hidden;pointer-events:none;z-index:-1;"></object>
@@ -5164,7 +5164,7 @@ exports[`Storyshots Stores StoreEdit 1`] = `
                   </div>
                   <div class="q-tabs-panes">
                     <div class="q-tab-pane">
-                      <div tabindex="-1" rows="3" class="q-if row no-wrap items-end relative-position q-input text-primary" style="min-height:5em;">
+                      <div tabindex="-1" rows="3" class="q-if row no-wrap items-end relative-position q-input text-primary">
                         <div class="q-if-inner col row no-wrap relative-position q-if-inner-dynamic">
                           <div class="col row relative-position">
                             <object type="text/html" data="about:blank" aria-hidden="true" style="display:block;position:absolute;top:0;left:0;right:0;bottom:0;height:100%;width:100%;overflow:hidden;pointer-events:none;z-index:-1;"></object>

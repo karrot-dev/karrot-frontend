@@ -21,7 +21,7 @@
   "scripts": {
     "clean": "shx rm -rf dist",
     "dev": "webpack-serve --config build/serve.config.js",
-    "build": "npm run clean && npm run build:main npm run build:statics && npm run build:service-worker",
+    "build": "npm run clean && npm run build:main npm && run build:statics && npm run build:service-worker",
     "build:main": "NODE_ENV=production webpack",
     "build:statics": "shx cp -r src/statics dist/",
     "build:service-worker": "NODE_ENV=production webpack --config build/webpack.service-worker.conf.js",

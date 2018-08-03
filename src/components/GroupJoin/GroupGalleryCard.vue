@@ -3,10 +3,13 @@
     <q-card
       class="groupPreviewCard"
       :color="cardColor"
-      :class="{highlight: group.isCurrentGroup}"
+      :class="{ application: group.hasMyApplication, highlight: group.isCurrentGroup }"
       :style="cardStyle"
       @click.native="$emit(group.isMember ? 'visit' : 'preview')"
     >
+      <q-tooltip v-if="group.hasMyApplication">
+        {{ $t('APPLICATION.GALLERY_TOOLTIP') }}
+      </q-tooltip>
       <q-card-title class="ellipsis">
         {{ group.name }}
         <span slot="subtitle">
@@ -47,6 +50,17 @@
           </q-tooltip>
         </q-btn>
       </q-card-actions>
+      <q-card-actions v-if="group.hasMyApplication">
+        <q-btn
+          disabled
+          class="q-btn-flat"
+        >
+          <q-icon name="fas fa-comments" />
+          <q-tooltip>
+            {{ $t('APPLICATION.ACCESS_CHAT') }}
+          </q-tooltip>
+        </q-btn>
+      </q-card-actions>
     </q-card>
   </div>
 </template>
@@ -67,7 +81,7 @@ export default {
   },
   computed: {
     cardColor () {
-      return this.group.isPlayground ? 'secondary' : (this.group.hasMyApplication ? 'negative' : undefined)
+      return this.group.isPlayground ? 'secondary' : undefined
     },
     cardStyle () {
       const reduceOpacity = this.group.isInactive && !this.group.isMember
@@ -91,13 +105,11 @@ export default {
     overflow hidden
   &.highlight
     border 2px solid $secondary
+  &.application
+    border 2px solid $blue
   .fixed-height
     min-height 60px
     max-height 60px
   .smaller-text >>> *
     font-size 1em
-</style>
-
-<style lang="stylus">
-
 </style>

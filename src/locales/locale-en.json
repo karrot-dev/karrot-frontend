@@ -438,6 +438,8 @@
   "APPLICATION":{
     "FORM_HEADER": "Apply",
     "FORM_TITLE": "Apply to join {groupName}",
+    "GALLERY_TOOLTIP": "You applied to join this group. Your application is still pending.",
+    "ACCESS_CHAT": "Open the application chat",
     "WALL_NOTICE": "There is an application pending! | There are {count} applications pending!",
     "ACCEPT_CONFIRMATION_HEADER": "Accept Application",
     "ACCEPT_CONFIRMATION_TEXT": "Are you sure you want to accept {userName} into this group?",

@@ -141,3 +141,11 @@ export default {
     },
   },
 }
+
+export const plugin = store => {
+  store.watch(state => state.route, route => {
+    if (route.name === 'groupsGallery') {
+      store.dispatch('detail/clear')
+    }
+  })
+}

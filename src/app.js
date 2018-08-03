@@ -42,7 +42,6 @@ export default async function initApp () {
   ])
 
   store.dispatch('about/fetch')
-  // store.dispatch('groupApplications/fetchMine') // TODO: store elsewhere in the future probably maybe Idk
   store.dispatch('communityFeed/fetchTopics')
 
   /* eslint-disable no-new */

@@ -91,6 +91,8 @@
     "INACTIVE": "Nieaktywni",
     "SHOW_INACTIVE": "Pokaż nieaktywne grupy",
     "STORES": "Punkty odbioru",
+    "HOME": "Home",
+    "CURRENT_STORE": "Current store",
     "HISTORY": "Historia",
     "DESCRIPTION": "Opis",
     "ADDRESS": "Adres",
@@ -105,7 +107,7 @@
     "INVITATION_ACCEPT_ERROR": "Ups, nie możesz przyjąć tego zaproszenia!",
     "SETTINGS": "Ustawienia",
     "NOTIFICATIONS": "Powiadomienia",
-    "EMAIL_NOTIFICATIONS": "Powiadomienia e-mail",
+    "EMAIL_NOTIFICATIONS": "Email notifications",
     "NOTIFICATION_TYPES": {
       "weekly_summary": {
         "NAME": "Podsumowanie tygodnia",
@@ -155,7 +157,9 @@
     },
     "RESTORE": "Przywróć",
     "SHOW_ARCHIVED": "Pokaż zarchiwizowane punkty odbioru",
-    "HIDE_ARCHIVED": "Ukryj zarchiwizowane punkty odbioru"
+    "HIDE_ARCHIVED": "Ukryj zarchiwizowane punkty odbioru",
+    "SHOW_ALL": "Show all stores",
+    "SHOW_ACTIVE_ONLY": "Only show active stores"
   },
   "PICKUPMANAGE": {
     "TITLE": "Zarządzaj odbiorami",
@@ -413,11 +417,16 @@
     },
     "MESSAGE_NOT_FOUND": "Message not found"
   },
-  "STORESTATUS":{
+  "STORESTATUS": {
     "ACTIVE": "Współpracuje",
     "CREATED": "Dopiero utworzono",
     "NEGOTIATING": "W trakcie negocjacji",
     "DECLINED": "Nie chce współpracować",
     "ARCHIVED": "Przeniesiono do archiwum"
+  },
+  "COMMUNITY_FEED": {
+    "HEADER": "Updates from the {community}",
+    "HEADER_LINK": "foodsaving worldwide community",
+    "LAST_UPDATED": "Last updated {relativeDate}"
   }
 }

@@ -32,7 +32,7 @@ export default {
         fetchFutureStatus: getters.fetchFutureStatus,
       }
     },
-    ...metaStatuses(['send', 'fetch', 'fetchFuture', 'setMuted']),
+    ...metaStatuses(['send', 'fetch', 'fetchFuture', 'setMuted', 'mark']),
   },
   actions: {
     ...withMeta({
@@ -72,6 +72,10 @@ export default {
       async setMuted ({ state, commit }, { threadId, value }) {
         await messageAPI.setMuted(threadId || state.thread.id, value)
         commit('setMuted', value)
+      },
+
+      async mark ({ dispatch }, { id, seenUpTo }) {
+        await messageAPI.markThread(id, seenUpTo)
       },
     }, {
       findId: () => undefined,

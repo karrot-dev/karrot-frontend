@@ -12,7 +12,7 @@ export default connect({
   },
   actionsToEvents: {
     send: 'conversations/send',
-    mark: 'conversations/mark',
+    mark: 'conversations/maybeMark',
     toggleEmailNotifications: 'conversations/maybeToggleEmailNotifications',
     toggleReaction: 'conversations/toggleReaction',
     saveMessage: 'conversations/saveMessage',

@@ -80,7 +80,7 @@
           style="width: 100%"
         >
           <q-alert
-            type="warning"
+            color="blue"
             icon="info"
             :actions="[
               // { label: 'Group chat', icon: 'fas fa-comments', handler: () => {joinChat()} },

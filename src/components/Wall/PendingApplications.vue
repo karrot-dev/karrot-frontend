@@ -2,7 +2,7 @@
   <div>
     <router-link :to="{name: 'groupApplications'}">
       <q-card
-        color="warning"
+        color="blue"
         class="generic-padding notice"
       >
         <i class="fas fa-address-card on-left"/>

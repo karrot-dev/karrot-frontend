@@ -86,7 +86,6 @@
     "PASSWORD": "Enter a password here if you want to make the group private",
     "APPLICATIONS": "Applications",
     "APPLICATION_QUESTIONS": "Questions for people who want to join this group",
-    "APPLICATION_DEFAULT": "Hey there! Before you can join our group we'd like to know a bit about you and your motivation. Please tell us how you got to know about this group and what you wish to do here! (This is a default message from the Karrot tem and was not created by {groupName}.)",
     "PICKUPS": "Pickups",
     "PICKUP": "Pickup",
     "MEMBERS": "Members",

@@ -233,7 +233,7 @@ export default {
       }
     },
     applicationQuestionsOrDefault () {
-      return this.edit.applicationQuestions || this.$t('GROUP.APPLICATION_DEFAULT')
+      return this.edit.applicationQuestions || this.edit.applicationQuestionsDefault
     },
   },
   methods: {

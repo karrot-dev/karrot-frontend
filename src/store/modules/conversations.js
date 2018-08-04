@@ -81,7 +81,7 @@ export default {
         ...conversation,
         messages,
         canFetchPast,
-        ...metaStatusesWithId(getters, ['send', 'fetch', 'fetchPast'], conversationId),
+        ...metaStatusesWithId(getters, ['send', 'fetch', 'fetchPast', 'mark'], conversationId),
       }
     },
     getForGroup: (state, getters) => groupId => {
@@ -192,13 +192,8 @@ export default {
         })
       },
 
-      async mark ({ dispatch }, { id, threadId, seenUpTo }) {
-        if (threadId) {
-          await messageAPI.markThread(threadId, seenUpTo)
-        }
-        if (id) {
-          await conversationsAPI.mark(id, { seenUpTo })
-        }
+      async mark ({ dispatch }, { id, seenUpTo }) {
+        await conversationsAPI.mark(id, { seenUpTo })
       },
 
       async toggleEmailNotifications ({ state, commit }, { id, value }) {
@@ -309,9 +304,20 @@ export default {
       }
     },
 
+    async maybeMark ({ dispatch, getters, rootGetters }, { id, threadId, seenUpTo }) {
+      if (id && !getters.get(id).markStatus.pending) {
+        dispatch('mark', { id, seenUpTo })
+      }
+      if (threadId && !rootGetters['currentThread/markStatus'].pending) {
+        dispatch('currentThread/mark', { id: threadId, seenUpTo }, { root: true })
+      }
+    },
+
     async markAllRead ({ state, dispatch }, conversationId) {
-      const newestMessage = state.messages[conversationId][0]
-      dispatch('mark', { id: conversationId, seenUpTo: newestMessage.id })
+      if (conversationId) {
+        const newestMessage = state.messages[conversationId][0]
+        dispatch('mark', { id: conversationId, seenUpTo: newestMessage.id })
+      }
     },
 
     clearConversation ({ commit }, conversationId) {

@@ -91,6 +91,8 @@
     "INACTIVE": "Inactive",
     "SHOW_INACTIVE": "Show inactive groups",
     "STORES": "भंडार",
+    "HOME": "Home",
+    "CURRENT_STORE": "Current store",
     "HISTORY": "इतिहास",
     "DESCRIPTION": "विवरण",
     "ADDRESS": "पता",
@@ -155,7 +157,9 @@
     },
     "RESTORE": "बहाल",
     "SHOW_ARCHIVED": "Show archived stores",
-    "HIDE_ARCHIVED": "Hide archived stores"
+    "HIDE_ARCHIVED": "Hide archived stores",
+    "SHOW_ALL": "Show all stores",
+    "SHOW_ACTIVE_ONLY": "Only show active stores"
   },
   "PICKUPMANAGE": {
     "TITLE": "पिकअप को प्रबंधित करें",
@@ -413,11 +417,16 @@
     },
     "MESSAGE_NOT_FOUND": "Message not found"
   },
-  "STORESTATUS":{
+  "STORESTATUS": {
     "ACTIVE": "सहयोग",
     "CREATED": "अभी बनाया",
     "NEGOTIATING": "बातचीत",
     "DECLINED": "सहयोग करना नहीं चाहते हैं",
     "ARCHIVED": "पुरालेख"
+  },
+  "COMMUNITY_FEED": {
+    "HEADER": "Updates from the {community}",
+    "HEADER_LINK": "foodsaving worldwide community",
+    "LAST_UPDATED": "Last updated {relativeDate}"
   }
 }

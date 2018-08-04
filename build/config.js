@@ -1,5 +1,3 @@
-var path = require('path')
-
 const backend = (process.env.BACKEND || 'https://dev.karrot.world').replace(/\/$/, '') // no trailing slash
 
 const backendProxy = {
@@ -26,35 +24,13 @@ const backendProxy = {
 }
 
 module.exports = {
-  // Webpack aliases
-  aliases: {
-    quasar: 'quasar-framework',
-    'quasar-vue-plugin': 'quasar-framework/src/vue-plugin',
-    '@': path.resolve(__dirname, '../src'),
-    '>': path.resolve(__dirname, '../test'),
-    variables: path.resolve(__dirname, '../src/themes/quasar.variables.styl'),
-    slidetoggle: path.resolve(__dirname, '../src/themes/karrot.slidetoggle.styl'),
-    editbox: path.resolve(__dirname, '../src/themes/karrot.editbox.styl'),
-  },
-
-  // Backend to make API requests to
   backend,
-
-  build: {
-    env: require('./prod.env'),
-    publicPath: '',
-    productionSourceMap: true,
-  },
-  dev: {
-    env: require('./dev.env'),
-    publicPath: '/',
-    proxyTable: {
-      '/api': backendProxy,
-      '/media': backendProxy,
-      '/community_proxy': {
-        target: 'https://dev.karrot.world',
-        changeOrigin: true,
-      },
+  proxyTable: {
+    '/api': backendProxy,
+    '/media': backendProxy,
+    '/community_proxy': {
+      target: 'https://dev.karrot.world',
+      changeOrigin: true,
     },
   },
 }

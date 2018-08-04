@@ -20,7 +20,7 @@ import conversations from './modules/conversations'
 import currentGroup from './modules/currentGroup'
 import currentThread from './modules/currentThread'
 import deleteAccount from './modules/deleteAccount'
-import detail from './modules/detail'
+import detail, { plugin as detailPlugin } from './modules/detail'
 import fcm, { plugin as fcmPlugin } from './modules/fcm'
 import feedback from './modules/feedback'
 import groups from './modules/groups'
@@ -44,7 +44,7 @@ import verifymail from './modules/verifymail'
 
 Vue.use(Vuex)
 
-const debug = process.env.NODE_ENV !== 'production'
+const debug = __ENV.DEV
 
 export default new Vuex.Store({
   modules: {
@@ -83,6 +83,7 @@ export default new Vuex.Store({
   },
   plugins: [
     conversationsPlugin,
+    detailPlugin,
     i18nPlugin,
     persistedState,
     router,

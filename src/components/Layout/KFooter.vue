@@ -77,7 +77,7 @@ export default {
       deployed: 'about/deployed',
     }),
     release () {
-      if (process.env.NODE_ENV === 'development') {
+      if (__ENV.DEV) {
         return {
           link: '',
           name: 'local dev',

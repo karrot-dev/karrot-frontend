@@ -108,7 +108,9 @@ export default {
   },
   watch: {
     away (away) {
-      if (!away) this.markRead(this.newestMessageId)
+      if (!away && !this.conversation.canFetchFuture) {
+        this.markRead(this.newestMessageId)
+      }
     },
     hasLoaded: {
       immediate: true,
@@ -123,32 +125,28 @@ export default {
         scrollPositionFromBottom: 0,
       })
     },
-    'conversation.messages': {
-      immediate: true,
-      async handler (messages) {
-        await this.$nextTick()
-        if (!messages || messages.length === 0) return
-        // Jump to bottom when new messages added
-        const newNewestMessage = messages[messages.length - 1]
+    'conversation.messages' (messages) {
+      if (!messages || messages.length === 0) return
+      // Jump to bottom when new messages added
+      const newNewestMessage = messages[messages.length - 1]
 
-        if (this.newestMessageId !== newNewestMessage.id) {
-          const scrollPosition = this.getScrollPositionFromBottom()
-          this.newestMessageId = newNewestMessage.id
-          if (scrollPosition < 100) {
-            this.scrollToBottom()
-            if (!this.away) this.markRead(this.newestMessageId)
-          }
+      if (this.newestMessageId !== newNewestMessage.id) {
+        const scrollPosition = this.getScrollPositionFromBottom()
+        this.newestMessageId = newNewestMessage.id
+        if (scrollPosition < 100 && !this.away && !this.conversation.canFetchFuture) {
+          this.scrollToBottom()
+          this.markRead(this.newestMessageId)
         }
-        // Retain position when old message added
-        const newOldestMessageId = messages[0].id
-        if (this.startAtBottom && this.oldestMessageId !== newOldestMessageId) {
-          this.saveScrollPosition()
-          this.oldestMessageId = newOldestMessageId
-          this.$nextTick(() => {
-            this.restoreScrollPosition()
-          })
-        }
-      },
+      }
+      // Retain position when old message added
+      const newOldestMessageId = messages[0].id
+      if (this.startAtBottom && this.oldestMessageId !== newOldestMessageId) {
+        this.saveScrollPosition()
+        this.oldestMessageId = newOldestMessageId
+        this.$nextTick(() => {
+          this.restoreScrollPosition()
+        })
+      }
     },
     fetchingFuture (pending) {
       if (pending === false && this.hideBottomSpinner) {
@@ -225,6 +223,14 @@ export default {
     onScroll ({ position }) {
       if (position < 50 && !this.fetchingPast && this.conversation.canFetchPast) {
         this.$emit('fetchPast', this.conversation.id)
+      }
+      // if user scrolls to bottom and no more messages can be loaded, mark messages as read
+      const isAtBottom = () => this.getScrollPositionFromBottom() < 100
+      const hasMessages = () => this.conversation && this.conversation.messages && this.conversation.messages.length > 0
+      if (!this.away && !this.conversation.canFetchFuture && hasMessages() && isAtBottom()) {
+        const messages = this.conversation.messages
+        const newestMessageId = messages[messages.length - 1].id
+        this.markRead(newestMessageId)
       }
     },
   },

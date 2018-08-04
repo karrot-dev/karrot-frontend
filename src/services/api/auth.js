@@ -3,7 +3,7 @@ import authUser from '@/services/api/authUser'
 
 let KEY, updateToken, clearToken
 
-if (CORDOVA) {
+if (__ENV.CORDOVA) {
   const { localStorage } = window
 
   KEY = 'token'
@@ -59,7 +59,7 @@ if (CORDOVA) {
 
 export default {
   async login ({ email, password }) {
-    if (CORDOVA) {
+    if (__ENV.CORDOVA) {
       const { token } = (await axios.post('/api/auth/token/', { username: email, password })).data
       updateToken(token)
       return authUser.get() // return the user info to match what the /api/auth/ endpoints returns
@@ -70,12 +70,12 @@ export default {
   },
 
   async logout () {
-    if (CORDOVA) clearToken()
+    if (__ENV.CORDOVA) clearToken()
     return (await axios.post('/api/auth/logout/', {})).data
   },
 
   getToken () {
-    if (CORDOVA) {
+    if (__ENV.CORDOVA) {
       return localStorage.getItem(KEY)
     }
     else {

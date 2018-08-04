@@ -1,6 +1,6 @@
 import { storiesOf } from '@storybook/vue'
 
-import Conversation from './Conversation'
+import WallConversation from './WallConversation'
 import { messagesMock, currentUserMock } from '>/mockdata'
 import { statusMocks, storybookDefaults as defaults } from '>/helpers'
 
@@ -16,9 +16,9 @@ const defaultProps = {
   fetchPast: () => {},
 }
 
-storiesOf('Conversation', module)
-  .add('Conversation', () => defaults({
-    render: h => h(Conversation, {
+storiesOf('WallConversation', module)
+  .add('WallConversation', () => defaults({
+    render: h => h(WallConversation, {
       props: defaultProps,
     }),
   }))

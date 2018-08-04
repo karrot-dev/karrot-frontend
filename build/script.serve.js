@@ -9,7 +9,7 @@ const { join } = require('path')
 
 require('dotenv').config()
 
-const config = require('../config')
+const proxyTable = require('./config').proxyTable
 
 /**
  * Serve static files
@@ -17,8 +17,6 @@ const config = require('../config')
 const app = express()
 app.use(compression())
 app.use(express.static(join(__dirname, '../dist')))
-
-const proxyTable = config.dev.proxyTable
 
 Object.keys(proxyTable).forEach(function (context) {
   var options = proxyTable[context]

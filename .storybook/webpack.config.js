@@ -1,8 +1,4 @@
-const webpack = require('webpack')
-
 const webpackConfig = require('../build/webpack.config')
-const config = require('../config')
-const env = require('../build/env-utils')
 
 const VueLoaderPlugin = require('vue-loader/lib/plugin')
 const HardSourceWebpackPlugin = require('hard-source-webpack-plugin')

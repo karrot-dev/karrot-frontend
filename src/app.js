@@ -1,8 +1,13 @@
-require(`./themes/app.${__THEME}.styl`)
-
-import 'quasar-framework/dist/quasar.ie.polyfills'
-
 import Vue from 'vue'
+
+import '@/themes/app.mat.styl'
+import 'quasar-framework/dist/quasar.ie.polyfills'
+import 'quasar-extras/roboto-font/roboto-font.css'
+import 'quasar-extras/material-icons/material-icons.css'
+import 'quasar-extras/fontawesome/fontawesome.css'
+import 'quasar-extras/animate'
+
+import 'typeface-cabin-sketch'
 
 import { sync } from 'vuex-router-sync'
 import router from './router'
@@ -16,21 +21,14 @@ import { DetectMobileKeyboardPlugin } from '@/services/detectMobileKeyboard'
 
 Vue.use(DetectMobileKeyboardPlugin)
 
-if (CORDOVA && BACKEND) {
+if (__ENV.CORDOVA && __ENV.BACKEND) {
   require('@/cordova')
 }
 
-if (process.env.NODE_ENV !== 'production') {
+if (__ENV.DEV) {
   log.setLevel('debug')
 }
 
-if (__THEME === 'mat') {
-  require('quasar-extras/roboto-font')
-}
-import 'quasar-extras/material-icons'
-import 'quasar-extras/fontawesome'
-import 'quasar-extras/animate'
-import 'typeface-cabin-sketch'
 import Root from '@/Root'
 import '@/presenceReporter'
 
@@ -47,11 +45,18 @@ export default async function initApp () {
   store.dispatch('communityFeed/fetchTopics')
 
   /* eslint-disable no-new */
-  new Vue({
+  const vueRoot = new Vue({
     el: '#q-app',
     router,
     store,
     i18n,
     render: h => h(Root),
   })
+
+  if (__ENV.DEV) {
+    // makes it easier to remote debug vue in cordova
+    // for example to access vuex, type this into the console
+    // window.vueRoot.$store.state
+    window.vueRoot = vueRoot
+  }
 }

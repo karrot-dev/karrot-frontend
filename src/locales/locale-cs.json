@@ -91,6 +91,8 @@
     "INACTIVE": "Inactive",
     "SHOW_INACTIVE": "Show inactive groups",
     "STORES": "Stores",
+    "HOME": "Home",
+    "CURRENT_STORE": "Current store",
     "HISTORY": "History",
     "DESCRIPTION": "Description",
     "ADDRESS": "Address",
@@ -155,7 +157,9 @@
     },
     "RESTORE": "Restore",
     "SHOW_ARCHIVED": "Show archived stores",
-    "HIDE_ARCHIVED": "Hide archived stores"
+    "HIDE_ARCHIVED": "Hide archived stores",
+    "SHOW_ALL": "Show all stores",
+    "SHOW_ACTIVE_ONLY": "Only show active stores"
   },
   "PICKUPMANAGE": {
     "TITLE": "Manage pickups",
@@ -413,11 +417,16 @@
     },
     "MESSAGE_NOT_FOUND": "Message not found"
   },
-  "STORESTATUS":{
+  "STORESTATUS": {
     "ACTIVE": "Co-operating",
     "CREATED": "Just created",
     "NEGOTIATING": "Negotiating",
     "DECLINED": "Don't want to cooperate",
     "ARCHIVED": "Archived"
+  },
+  "COMMUNITY_FEED": {
+    "HEADER": "Updates from the {community}",
+    "HEADER_LINK": "foodsaving worldwide community",
+    "LAST_UPDATED": "Last updated {relativeDate}"
   }
 }

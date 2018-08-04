@@ -82,7 +82,7 @@ export default {
 
       // In development we want to force the images to load from our local proxy
       // so that we don't issues with missing CORS headers
-      if (DEV) return ['http://localhost:8080', url.substring(url.indexOf('/media'))].join('')
+      if (__ENV.DEV) return ['http://localhost:8080', url.substring(url.indexOf('/media'))].join('')
 
       return url
     },

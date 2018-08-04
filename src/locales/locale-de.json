@@ -91,6 +91,8 @@
     "INACTIVE": "Inaktiv",
     "SHOW_INACTIVE": "Zeige inaktive Gruppen",
     "STORES": "Betriebe",
+    "HOME": "Home",
+    "CURRENT_STORE": "Current store",
     "HISTORY": "History",
     "DESCRIPTION": "Beschreibung",
     "ADDRESS": "Adresse",
@@ -105,7 +107,7 @@
     "INVITATION_ACCEPT_ERROR": "Ups, die Einladung konnte nicht akzeptiert werden!",
     "SETTINGS": "Einstellungen",
     "NOTIFICATIONS": "Benachrichtigungen",
-    "EMAIL_NOTIFICATIONS": "Email-Benachrichtigungen",
+    "EMAIL_NOTIFICATIONS": "Email notifications",
     "NOTIFICATION_TYPES": {
       "weekly_summary": {
         "NAME": "Wöchentliche Zusammenfassung",
@@ -155,7 +157,9 @@
     },
     "RESTORE": "Wiederherstellen",
     "SHOW_ARCHIVED": "Zeige archivierte Betriebe",
-    "HIDE_ARCHIVED": "Verstecke archivierte Betriebe"
+    "HIDE_ARCHIVED": "Verstecke archivierte Betriebe",
+    "SHOW_ALL": "Show all stores",
+    "SHOW_ACTIVE_ONLY": "Only show active stores"
   },
   "PICKUPMANAGE": {
     "TITLE": "Abholzeiten-Editor",
@@ -269,7 +273,7 @@
     "STORE_NONE_HINT": "Im Abholzeiten-Editor kannst du eine neue Abholung erstellen."
   },
   "FEEDBACKLIST": {
-    "SAVED_FOOD": "Mindestens 1 kg wurde hier gerettet. Dankeschön! | Es wurden bereits für {amount} kg gerettete Lebensmittel Feedback gegeben! Weiter so!",
+    "SAVED_FOOD": "Mindestens 1 kg wurde hier gerettet. Dankeschön! | Es wurde bereits für {amount} kg gerettete Lebensmittel Feedback gegeben! Weiter so!",
     "NUMBER_PICKUPS": "{count} Abholungen",
     "NUMBER_FEEDBACK": "{count} Rückmeldungen",
     "WEIGHT_SUM": "{sum} kg Lebensmittel gerettet",
@@ -413,11 +417,16 @@
     },
     "MESSAGE_NOT_FOUND": "Nachricht nicht gefunden"
   },
-  "STORESTATUS":{
+  "STORESTATUS": {
     "ACTIVE": "Kooperiert",
     "CREATED": "Gerade erstellt",
     "NEGOTIATING": "In Verhandlung",
     "DECLINED": "Will nicht kooperieren",
     "ARCHIVED": "Archiviert"
+  },
+  "COMMUNITY_FEED": {
+    "HEADER": "Updates from the {community}",
+    "HEADER_LINK": "foodsaving worldwide community",
+    "LAST_UPDATED": "Last updated {relativeDate}"
   }
 }

@@ -1,7 +1,5 @@
 const webpack = require('webpack')
 const { resolve, join } = require('path')
-const config = require('../config')
-const env = require('./env-utils')
 const projectRoot = resolve(__dirname, '../')
 
 const HtmlWebpackPlugin = require('html-webpack-plugin')
@@ -12,8 +10,26 @@ const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const HardSourceWebpackPlugin = require('hard-source-webpack-plugin')
 
+const dev = process.env.NODE_ENV !== 'production'
+const cordova = process.env.CORDOVA === 'true'
+const backend = require('./config').backend
+const appEnv = {
+  // define the karrot environment
+  __ENV: {
+    DEV: dev,
+    CORDOVA: cordova,
+    BACKEND: JSON.stringify(backend),
+    KARROT_THEME: JSON.stringify(process.env.KARROT_THEME),
+    FCM_SENDER_ID: JSON.stringify(process.env.FCM_SENDER_ID),
+    RAVEN_CONFIG: JSON.stringify(process.env.RAVEN_CONFIG),
+    GIT_SHA1: JSON.stringify(process.env.GIT_SHA1 || process.env.CIRCLE_SHA1),
+  },
+  // Quasar requires process.env.THEME to be set
+  'process.env.THEME': JSON.stringify('mat'),
+}
+
 const styleLoaders = [
-  env.prod ? MiniCssExtractPlugin.loader : 'style-loader',
+  dev ? 'style-loader' : MiniCssExtractPlugin.loader,
   {
     loader: 'css-loader',
     options: { importLoaders: 1 },
@@ -30,14 +46,14 @@ const styleLoaders = [
 ]
 
 module.exports = {
-  mode: env.prod ? 'production' : 'development',
-  devtool: env.prod ? 'source-map' : 'cheap-module-eval-source-map',
+  mode: dev ? 'development' : 'production',
+  devtool: dev ? 'cheap-module-eval-source-map' : 'source-map',
   entry: {
     app: './src/main.js',
   },
   output: {
     path: resolve(__dirname, '../dist'),
-    publicPath: config[env.prod ? 'build' : 'dev'].publicPath,
+    publicPath: dev ? '/' : '',
     filename: 'assets/js/[name].[hash].js',
     chunkFilename: 'assets/js/[id].[chunkhash].js',
     pathinfo: false,
@@ -53,7 +69,15 @@ module.exports = {
       resolve('src'),
       resolve('node_modules'),
     ],
-    alias: config.aliases,
+    alias: {
+      quasar: 'quasar-framework',
+      'quasar-vue-plugin': 'quasar-framework/src/vue-plugin',
+      '@': resolve(__dirname, '../src'),
+      '>': resolve(__dirname, '../test'),
+      variables: resolve(__dirname, '../src/themes/quasar.variables.styl'),
+      slidetoggle: resolve(__dirname, '../src/themes/karrot.slidetoggle.styl'),
+      editbox: resolve(__dirname, '../src/themes/karrot.editbox.styl'),
+    },
     symlinks: false,
   },
   module: {
@@ -83,7 +107,9 @@ module.exports = {
         loader: 'url-loader',
         options: {
           limit: 10000,
-          name: 'img/[name].[hash:7].[ext]',
+          name: '[name].[hash:7].[ext]',
+          outputPath: (dev ? '' : '/') + 'assets/images',
+          publicPath: cordova && '../images',
         },
       },
       {
@@ -91,7 +117,9 @@ module.exports = {
         loader: 'url-loader',
         options: {
           limit: 10000,
-          name: 'fonts/[name].[hash:7].[ext]',
+          name: '[name].[hash:7].[ext]',
+          outputPath: (dev ? '' : '/') + 'assets/fonts',
+          publicPath: cordova && '../fonts',
         },
       },
       {
@@ -108,25 +136,25 @@ module.exports = {
     ],
   },
   plugins: [
-    new webpack.DefinePlugin({
-      'process.env': config[env.prod ? 'build' : 'dev'].env,
-      'DEV': env.dev,
-      'PROD': env.prod,
-      'CORDOVA': env.cordova,
-      'BACKEND': '"' + config.backend + '"',
-      'KARROT_THEME': '"' + env.karrotTheme + '"',
-      'FCM_SENDER_ID': '"' + env.fcmSenderId + '"',
-      '__THEME': '"' + env.platform.theme + '"',
-    }),
+    new webpack.DefinePlugin(appEnv),
     new HtmlWebpackPlugin({
       filename: 'index.html',
       template: 'src/index.html',
       minify: true,
     }),
     new VueLoaderPlugin(),
-    ...(env.prod ? [
+    ...(dev ? [
+      new HardSourceWebpackPlugin({
+        configHash: function (webpackConfig) {
+          return require('node-object-hash')({sort: false}).hash([
+            webpackConfig,
+            appEnv,
+          ])
+        },
+      }),
+    ] : [
       new MiniCssExtractPlugin({
-        filename: '[contenthash].css',
+        filename: 'assets/css/[contenthash].css',
       }),
       new BundleAnalyzerPlugin({
         analyzerMode: 'static',
@@ -138,13 +166,12 @@ module.exports = {
         statsOptions: null,
         logLevel: 'info',
       }),
-    ] : []),
-    new HardSourceWebpackPlugin(),
+    ]),
   ],
   optimization: {
     minimizer: [
       new UglifyJsPlugin({
-        sourceMap: config.build.productionSourceMap,
+        sourceMap: !dev,
         cache: true,
         parallel: true,
         uglifyOptions: {
@@ -156,7 +183,8 @@ module.exports = {
     splitChunks: {
       chunks: 'all',
       minChunks: 2,
-      name: !env.prod,
+      name: dev,
     },
+    runtimeChunk: 'single',
   },
 }

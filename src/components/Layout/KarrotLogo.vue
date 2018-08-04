@@ -13,7 +13,7 @@ import { mapGetters } from 'vuex'
 export default {
   computed: {
     logo () {
-      return KARROT_THEME === 'dev' ? require('@/assets/carrot-logo.dev.svg') : require('@/assets/carrot-logo.svg')
+      return __ENV.KARROT_THEME === 'dev' ? require('@/assets/carrot-logo.dev.svg') : require('@/assets/carrot-logo.svg')
     },
     ...mapGetters({
       loading: 'loadingprogress/active',

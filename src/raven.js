@@ -2,11 +2,11 @@ import Vue from 'vue'
 import Raven from 'raven-js'
 import RavenVue from 'raven-js/plugins/vue'
 
-if (process.env.RAVEN_CONFIG) {
+if (__ENV.RAVEN_CONFIG) {
   Raven
-    .config(process.env.RAVEN_CONFIG, {
+    .config(__ENV.RAVEN_CONFIG, {
       ignoreErrors: ['ResizeObserver loop limit exceeded'],
-      release: process.env.GIT_SHA1,
+      release: __ENV.GIT_SHA1,
     })
     .addPlugin(RavenVue, Vue)
     .install()

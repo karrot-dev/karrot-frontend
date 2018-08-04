@@ -23,35 +23,14 @@ const backendProxy = {
   },
 }
 
-const theme = require('./env-utils').platform.theme
-
-const env = {
-  NODE_ENV: '"production"',
-  RAVEN_CONFIG: JSON.stringify(process.env.RAVEN_CONFIG || 'https://6fd3cc6b432b457e8f18e12aa163a900@sentry.io/236883'),
-  GIT_SHA1: JSON.stringify(process.env.GIT_SHA1 || process.env.CIRCLE_SHA1),
-  THEME: JSON.stringify(theme),
-}
-
 module.exports = {
   backend,
-
-  build: {
-    // defines process.env inside app
-    env,
-  },
-  dev: {
-    // defines process.env inside app
-    env: Object.assign({}, env, {
-      NODE_ENV: '"development"',
-      RAVEN_CONFIG: JSON.stringify(process.env.RAVEN_CONFIG || null),
-    }),
-    proxyTable: {
-      '/api': backendProxy,
-      '/media': backendProxy,
-      '/community_proxy': {
-        target: 'https://dev.karrot.world',
-        changeOrigin: true,
-      },
+  proxyTable: {
+    '/api': backendProxy,
+    '/media': backendProxy,
+    '/community_proxy': {
+      target: 'https://dev.karrot.world',
+      changeOrigin: true,
     },
   },
 }

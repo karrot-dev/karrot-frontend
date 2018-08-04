@@ -39,6 +39,7 @@ describe('conversations', () => {
         sendStatus: statusMocks.default(),
         fetchStatus: statusMocks.default(),
         fetchPastStatus: statusMocks.default(),
+        markStatus: statusMocks.default(),
       })
     })
 
@@ -53,6 +54,7 @@ describe('conversations', () => {
         sendStatus: statusMocks.default(),
         fetchStatus: statusMocks.default(),
         fetchPastStatus: statusMocks.default(),
+        markStatus: statusMocks.default(),
       })
     })
 

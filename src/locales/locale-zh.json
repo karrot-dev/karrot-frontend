@@ -91,6 +91,8 @@
     "INACTIVE": "非活躍",
     "SHOW_INACTIVE": "顯示不活躍的社團",
     "STORES": "店面",
+    "HOME": "Home",
+    "CURRENT_STORE": "Current store",
     "HISTORY": "歷史",
     "DESCRIPTION": "敘述",
     "ADDRESS": "地址",
@@ -105,7 +107,7 @@
     "INVITATION_ACCEPT_ERROR": "糟糕，無法接受此邀請！",
     "SETTINGS": "設定",
     "NOTIFICATIONS": "通知",
-    "EMAIL_NOTIFICATIONS": "電子郵件通知",
+    "EMAIL_NOTIFICATIONS": "Email notifications",
     "NOTIFICATION_TYPES": {
       "weekly_summary": {
         "NAME": "每週摘要",
@@ -155,7 +157,9 @@
     },
     "RESTORE": "恢復",
     "SHOW_ARCHIVED": "顯示已歸檔的店家",
-    "HIDE_ARCHIVED": "隱藏已歸檔的店家"
+    "HIDE_ARCHIVED": "隱藏已歸檔的店家",
+    "SHOW_ALL": "Show all stores",
+    "SHOW_ACTIVE_ONLY": "Only show active stores"
   },
   "PICKUPMANAGE": {
     "TITLE": "管理食物領取",
@@ -413,11 +417,16 @@
     },
     "MESSAGE_NOT_FOUND": "找不到訊息"
   },
-  "STORESTATUS":{
+  "STORESTATUS": {
     "ACTIVE": "合作中",
     "CREATED": "新建立",
     "NEGOTIATING": "交涉洽談中",
     "DECLINED": "無意願合作",
     "ARCHIVED": "已封存"
+  },
+  "COMMUNITY_FEED": {
+    "HEADER": "Updates from the {community}",
+    "HEADER_LINK": "foodsaving worldwide community",
+    "LAST_UPDATED": "Last updated {relativeDate}"
   }
 }

@@ -91,6 +91,8 @@
     "INACTIVE": "Inativos",
     "SHOW_INACTIVE": "Exibir grupos inativos",
     "STORES": "Lojas",
+    "HOME": "Home",
+    "CURRENT_STORE": "Current store",
     "HISTORY": "Histórico",
     "DESCRIPTION": "Descrição",
     "ADDRESS": "Endereço",
@@ -105,7 +107,7 @@
     "INVITATION_ACCEPT_ERROR": "Ooops, não foi possível aceitar este convite!",
     "SETTINGS": "Configurações",
     "NOTIFICATIONS": "Notificações",
-    "EMAIL_NOTIFICATIONS": "Notificações por e-mail",
+    "EMAIL_NOTIFICATIONS": "Email notifications",
     "NOTIFICATION_TYPES": {
       "weekly_summary": {
         "NAME": "Resumo semanal",
@@ -155,7 +157,9 @@
     },
     "RESTORE": "Recuperar",
     "SHOW_ARCHIVED": "Exibir lojas arquivadas",
-    "HIDE_ARCHIVED": "Esconder lojas arquivadas"
+    "HIDE_ARCHIVED": "Esconder lojas arquivadas",
+    "SHOW_ALL": "Show all stores",
+    "SHOW_ACTIVE_ONLY": "Only show active stores"
   },
   "PICKUPMANAGE": {
     "TITLE": "Gerenciar coletas",
@@ -413,11 +417,16 @@
     },
     "MESSAGE_NOT_FOUND": "Message not found"
   },
-  "STORESTATUS":{
+  "STORESTATUS": {
     "ACTIVE": "cooperação",
     "CREATED": "Recém criada",
     "NEGOTIATING": "Negociando",
     "DECLINED": "Não quer colaborar",
     "ARCHIVED": "Arquivada"
+  },
+  "COMMUNITY_FEED": {
+    "HEADER": "Updates from the {community}",
+    "HEADER_LINK": "foodsaving worldwide community",
+    "LAST_UPDATED": "Last updated {relativeDate}"
   }
 }

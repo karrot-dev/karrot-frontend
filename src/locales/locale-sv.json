@@ -91,6 +91,8 @@
     "INACTIVE": "Inaktive",
     "SHOW_INACTIVE": "Visa inaktiva grupper",
     "STORES": "Butiker",
+    "HOME": "Home",
+    "CURRENT_STORE": "Current store",
     "HISTORY": "Historik",
     "DESCRIPTION": "Beskrivning",
     "ADDRESS": "Adress",
@@ -105,7 +107,7 @@
     "INVITATION_ACCEPT_ERROR": "Oj, kunde inte acceptera inbjudan!",
     "SETTINGS": "Inställningar",
     "NOTIFICATIONS": "Notifikationer",
-    "EMAIL_NOTIFICATIONS": "Mejlnotifikationer",
+    "EMAIL_NOTIFICATIONS": "Email notifications",
     "NOTIFICATION_TYPES": {
       "weekly_summary": {
         "NAME": "Veckans sammanfattning",
@@ -155,7 +157,9 @@
     },
     "RESTORE": "Återställa",
     "SHOW_ARCHIVED": "Show archived stores",
-    "HIDE_ARCHIVED": "Hide archived stores"
+    "HIDE_ARCHIVED": "Hide archived stores",
+    "SHOW_ALL": "Show all stores",
+    "SHOW_ACTIVE_ONLY": "Only show active stores"
   },
   "PICKUPMANAGE": {
     "TITLE": "Hantera upphämtningar",
@@ -413,11 +417,16 @@
     },
     "MESSAGE_NOT_FOUND": "Message not found"
   },
-  "STORESTATUS":{
+  "STORESTATUS": {
     "ACTIVE": "Samarbetar",
     "CREATED": "Nyligen skapad",
     "NEGOTIATING": "Förhandlar",
     "DECLINED": "Vill inte samarbeta",
     "ARCHIVED": "Archived"
+  },
+  "COMMUNITY_FEED": {
+    "HEADER": "Updates from the {community}",
+    "HEADER_LINK": "foodsaving worldwide community",
+    "LAST_UPDATED": "Last updated {relativeDate}"
   }
 }

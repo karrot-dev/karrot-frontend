@@ -19,6 +19,7 @@
             :placeholder="messagePrompt"
             :user="user"
             :slim="$q.platform.is.mobile"
+            :autofocus="!$q.platform.is.mobile"
           />
           <q-alert
             v-if="data.unreadMessageCount > 0"

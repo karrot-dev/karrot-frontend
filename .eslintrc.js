@@ -19,12 +19,7 @@ module.exports = {
     'testcafe',
   ],
   globals: {
-    'DEV': true,
-    'PROD': true,
-    'CORDOVA': true,
-    'BACKEND': true,
-    'KARROT_THEME': true,
-    'FCM_SENDER_ID': true
+    '__ENV': true,
   },
   // add your custom rules here
   'rules': {
@@ -37,7 +32,7 @@ module.exports = {
     'import/default': 2,
     'import/export': 2,
     // allow debugger during development
-    'no-debugger': process.env.NODE_ENV === 'production' ? 2 : 0,
+    'no-debugger': process.env.NODE_ENV !== 'development' ? 2 : 0,
     'brace-style': [2, 'stroustrup', { 'allowSingleLine': true }],
     'comma-dangle': ['error', {
       'arrays': 'always-multiline',

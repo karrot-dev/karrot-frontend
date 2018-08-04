@@ -91,6 +91,8 @@
     "INACTIVE": "Inactive",
     "SHOW_INACTIVE": "Show inactive groups",
     "STORES": "સ્ટોર્સ",
+    "HOME": "Home",
+    "CURRENT_STORE": "Current store",
     "HISTORY": "ઇતિહાસ",
     "DESCRIPTION": "વર્ણન",
     "ADDRESS": "સરનામું",
@@ -155,7 +157,9 @@
     },
     "RESTORE": "પુનઃસ્થાપિત",
     "SHOW_ARCHIVED": "Show archived stores",
-    "HIDE_ARCHIVED": "Hide archived stores"
+    "HIDE_ARCHIVED": "Hide archived stores",
+    "SHOW_ALL": "Show all stores",
+    "SHOW_ACTIVE_ONLY": "Only show active stores"
   },
   "PICKUPMANAGE": {
     "TITLE": "પસંદ અપ્સ મેનેજ કરો",
@@ -413,11 +417,16 @@
     },
     "MESSAGE_NOT_FOUND": "Message not found"
   },
-  "STORESTATUS":{
+  "STORESTATUS": {
     "ACTIVE": "કો-ઓપરેટિંગ",
     "CREATED": "હમણાં બનાવેલ",
     "NEGOTIATING": "નેગોશીયેટિંગ",
     "DECLINED": "સહકાર ન કરવા માંગો છો",
     "ARCHIVED": "આર્કાઇવ કરેલ"
+  },
+  "COMMUNITY_FEED": {
+    "HEADER": "Updates from the {community}",
+    "HEADER_LINK": "foodsaving worldwide community",
+    "LAST_UPDATED": "Last updated {relativeDate}"
   }
 }

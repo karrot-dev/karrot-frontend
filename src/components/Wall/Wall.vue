@@ -30,7 +30,7 @@
           :pending-applications="pendingApplications"
         />
       </div>
-      <Conversation
+      <WallConversation
         :data="conversation"
         :user="user"
         :fetch-past="fetchPast"
@@ -50,14 +50,14 @@ import AvailablePickups from './AvailablePickups'
 import FeedbackNotice from './FeedbackNotice'
 import JoinedPickups from './JoinedPickups'
 import PendingApplications from './PendingApplications'
-import Conversation from '@/components/Conversation/Conversation'
+import WallConversation from '@/components/Conversation/WallConversation'
 import { QPullToRefresh } from 'quasar'
 
 export default {
   components: {
     JoinedPickups,
     AvailablePickups,
-    Conversation,
+    WallConversation,
     FeedbackNotice,
     PendingApplications,
     QPullToRefresh,

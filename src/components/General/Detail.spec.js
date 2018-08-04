@@ -66,23 +66,19 @@ describe('Detail', () => {
     // Would be nicer to directly put the message into the QInput but did not find a way yet
     wrapper.find(ConversationCompose).setData({ message })
     wrapper.find('.q-if-control').trigger('click')
-    await Vue.nextTick()
 
     const { id } = propsData.conversation
     expect(wrapper.emitted().send).toEqual([[{ id, content: message }]])
-    expect(wrapper.emitted().mark).toEqual([[{ id, seenUpTo: 1 }]])
   })
 
   it('marks new messages as read', async () => {
     const propsData = defaultProps()
     propsData.conversation.unreadMessageCount = 0
     const wrapper = mountWithDefaults(DetailUI, { propsData })
-    await Vue.nextTick()
 
     const { id, messages } = propsData.conversation
     propsData.conversation.unreadMessageCount = 1
     messages.splice(0, 0, { id: 99, author: 1, content: 'first messsage', conversation: id, createdAt: new Date() })
-    await Vue.nextTick()
     await Vue.nextTick()
     expect(wrapper.emitted().mark).toEqual([[{ id, seenUpTo: 99 }]])
   })
@@ -92,7 +88,6 @@ describe('Detail', () => {
     const wrapper = mountWithDefaults(DetailUI, { propsData })
     const { id, messages } = propsData.conversation
     messages.splice(0, 0, { id: 99, author: 1, content: 'first messsage', conversation: id, createdAt: new Date() })
-    await Vue.nextTick()
     expect(wrapper.emitted().mark).toBeUndefined()
   })
 
@@ -101,7 +96,6 @@ describe('Detail', () => {
     const wrapper = mountWithDefaults(DetailUI, { propsData })
     const { id, messages } = propsData.conversation
     messages.splice(0, 0, { id: 99, author: 1, content: 'first messsage', conversation: id, createdAt: new Date() })
-    await Vue.nextTick()
     await Vue.nextTick()
     expect(wrapper.emitted().mark).toBeUndefined()
     wrapper.setProps({ away: false })

@@ -12,6 +12,6 @@
 import axios from '@/services/axios'
 
 axios.interceptors.request.use(request => {
-  request.baseURL = BACKEND
+  request.baseURL = __ENV.BACKEND
   return request
 })

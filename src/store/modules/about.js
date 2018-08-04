@@ -5,7 +5,6 @@ function initialState () {
   return {
     deployed: null,
     lastDismissedUpdateSHA: null,
-    ourSHA: process.env.GIT_SHA1,
   }
 }
 
@@ -17,7 +16,7 @@ export default {
     updateAvailable: state => {
       if (!state.deployed) return
       const alreadyDismissed = state.lastDismissedUpdateSHA === state.deployed.commitSHA
-      const differentVersion = state.deployed.commitSHA !== state.ourSHA
+      const differentVersion = state.deployed.commitSHA !== __ENV.GIT_SHA1
       return differentVersion && !alreadyDismissed
     },
   },
@@ -45,9 +44,9 @@ export default {
 export const plugin = store => {
   const updateAvailable = () => store.getters['about/updateAvailable']
   store.watch(updateAvailable, () => {
-    if (Platform.is.cordova && updateAvailable()) {
+    if (!__ENV.DEV && Platform.is.cordova && updateAvailable()) {
       const { apkUrl } = store.getters['about/deployed']
-      store.dispatch('toasts/show', {
+      setTimeout(() => store.dispatch('toasts/show', {
         message: 'UPDATE_AVAILABLE.TITLE',
         detailMessage: 'UPDATE_AVAILABLE.DETAIL',
         config: {
@@ -66,7 +65,7 @@ export const plugin = store => {
             },
           ],
         },
-      })
+      }), 1000 * 30)
     }
   }, { immediate: true })
 }

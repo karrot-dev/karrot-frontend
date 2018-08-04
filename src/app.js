@@ -21,11 +21,11 @@ import { DetectMobileKeyboardPlugin } from '@/services/detectMobileKeyboard'
 
 Vue.use(DetectMobileKeyboardPlugin)
 
-if (CORDOVA && BACKEND) {
+if (__ENV.CORDOVA && __ENV.BACKEND) {
   require('@/cordova')
 }
 
-if (process.env.NODE_ENV !== 'production') {
+if (__ENV.DEV) {
   log.setLevel('debug')
 }
 
@@ -45,11 +45,18 @@ export default async function initApp () {
   store.dispatch('communityFeed/fetchTopics')
 
   /* eslint-disable no-new */
-  new Vue({
+  const vueRoot = new Vue({
     el: '#q-app',
     router,
     store,
     i18n,
     render: h => h(Root),
   })
+
+  if (__ENV.DEV) {
+    // makes it easier to remote debug vue in cordova
+    // for example to access vuex, type this into the console
+    // window.vueRoot.$store.state
+    window.vueRoot = vueRoot
+  }
 }

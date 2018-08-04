@@ -10,7 +10,7 @@ export async function getServiceWorker () {
 }
 
 async function getServiceWorkers () {
-  if (!window.navigator.serviceWorker) return []
+  if (__ENV.CORDOVA || !window.navigator.serviceWorker) return []
   const registrations = await window.navigator.serviceWorker.getRegistrations()
   return registrations.filter(worker => worker.scope.endsWith(SERVICE_WORKER_SCOPE))
 }
@@ -26,7 +26,7 @@ export async function initializeMessaging () {
   const { initializeApp, messaging: initializeMessaging } = await import('./firebase.lib')
   if (messaging) return messaging
 
-  initializeApp({ messagingSenderId: FCM_SENDER_ID })
+  initializeApp({ messagingSenderId: __ENV.FCM_SENDER_ID })
   messaging = await initializeMessaging()
   messaging.useServiceWorker(await getOrCreateWorker())
   return messaging

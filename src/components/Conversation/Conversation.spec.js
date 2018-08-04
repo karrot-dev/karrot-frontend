@@ -1,4 +1,4 @@
-import Conversation from './Conversation'
+import WallConversation from './WallConversation'
 import ConversationMessage from './ConversationMessage'
 import ConversationCompose from './ConversationCompose'
 
@@ -26,14 +26,14 @@ polyfillRequestAnimationFrame()
 describe('Conversation', () => {
   beforeEach(() => jest.resetModules())
   it('renders messages', () => {
-    let wrapper = mountWithDefaults(Conversation, {
+    let wrapper = mountWithDefaults(WallConversation, {
       propsData: defaultProps,
     })
     expect(wrapper.findAll(ConversationMessage).length).toBe(messagesMock.length)
   })
 
   it('can send a message', () => {
-    let wrapper = mountWithDefaults(Conversation, {
+    let wrapper = mountWithDefaults(WallConversation, {
       propsData: defaultProps,
     })
     expect(wrapper.findAll(QInput).length).toBe(1)

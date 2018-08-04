@@ -1,6 +1,6 @@
 import axios from '@/services/axios'
 
-const backend = CORDOVA ? BACKEND : ''
+const backend = __ENV.CORDOVA ? __ENV.BACKEND : ''
 
 export default {
   async latestTopics () {

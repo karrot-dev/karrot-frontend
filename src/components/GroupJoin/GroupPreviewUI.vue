@@ -57,7 +57,7 @@
             {{ $t('JOINGROUP.PROFILE_NOTE' ) }}
           </q-alert>
           <q-btn
-            v-if="!isLoggedIn || !user.mailVerified"
+            v-if="!isLoggedIn || (user && !user.mailVerified)"
             @click="$emit('preApply', { groupId: group.id })"
             color="secondary"
             class="float-right generic-margin"
@@ -66,7 +66,7 @@
             {{ $t( isLoggedIn ? 'JOINGROUP.VERIFY_EMAIL_ADDRESS' : 'JOINGROUP.SIGNUP_OR_LOGIN') }}
           </q-btn>
           <q-btn
-            v-if="isLoggedIn && user.mailVerified"
+            v-if="isLoggedIn && user && user.mailVerified"
             @click="$emit('apply', { groupId: group.id })"
             color="secondary"
             class="float-right generic-margin"

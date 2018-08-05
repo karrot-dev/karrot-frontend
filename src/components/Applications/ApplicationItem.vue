@@ -11,11 +11,26 @@
         class="applicants-picture"
       />
     </q-item-side>
-    <q-item-main
-      :label="'#' + application.id + ' from ' + userName + ' who is going by ID ' + application.user.id"
-      :sublabel="'submitted on ' + $d(application.createdAt, 'long')"
-    >
-      {{ application.status }}
+    <q-item-main>
+      <q-item-tile
+        label
+        lines="1"
+      >
+        {{ userName }}
+      </q-item-tile>
+      <q-item-tile
+        sublabel
+        lines="1"
+      >
+        {{ itemSublabel }}
+      </q-item-tile>
+      <q-item-tile
+        v-if="application.status !== 'pending'"
+        sublabel
+        lines="1"
+      >
+        {{ this.application.status }}
+      </q-item-tile>
     </q-item-main>
     <q-item-side
       right
@@ -49,12 +64,12 @@
 </template>
 
 <script>
-import { Dialog, QItem, QBtn, QItemMain, QItemSide } from 'quasar'
+import { Dialog, QItem, QBtn, QItemMain, QItemSide, QItemTile } from 'quasar'
 import ProfilePicture from '@/components/ProfilePictures/ProfilePicture'
 
 export default {
   components: {
-    QItem, QBtn, QItemMain, QItemSide, ProfilePicture,
+    QItem, QBtn, QItemMain, QItemSide, QItemTile, ProfilePicture,
   },
   props: {
     application: {
@@ -90,6 +105,10 @@ export default {
   computed: {
     userName () {
       return this.application.user.displayName
+    },
+    itemSublabel () {
+      const date = this.$d(this.application.createdAt, 'long')
+      return this.$t('APPLICATION.SUBMITTED_ON', { date: date })
     },
   },
 }

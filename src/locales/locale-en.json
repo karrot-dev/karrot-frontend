@@ -1,4 +1,5 @@
 {
+  "ENTRY": "1 entry | {count} entries",
   "GLOBAL": {
     "GITHUB_NOTE": "Development",
     "FSWW_NOTE": "Read our info page!",
@@ -433,7 +434,7 @@
     "DECLINED": "Don't want to cooperate",
     "ARCHIVED": "Archived"
   },
-  "APPLICATION":{
+  "APPLICATION": {
     "FORM_HEADER": "Apply",
     "FORM_TITLE": "Apply to join {groupName}",
     "GALLERY_TOOLTIP": "You applied to join this group. Your application is still pending.",
@@ -445,8 +446,8 @@
     "DECLINE_CONFIRMATION_TEXT": "Are you sure you want to decline {userName}'s application?",
     "ACCEPTED": "You accepted {userName}'s request to join this group!",
     "DECLINED": "You declined {userName}'s request to join this group!",
-    "LIST_CURRENT_APPLICATIONS": "Current applications",
-    "LIST_PAST_APPLICATIONS": "Past applications"
+    "PAST": "Past applications",
+    "SUBMITTED_ON": "Submitted on {date}"
   },
   "COMMUNITY_FEED": {
     "HEADER": "Updates from the {community}",

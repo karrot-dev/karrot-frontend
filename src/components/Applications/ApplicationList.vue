@@ -1,6 +1,5 @@
 <template>
   <q-card>
-    <h4>{{ $t('APPLICATION.LIST_CURRENT_APPLICATIONS') }}</h4>
     <ApplicationItem
       v-for="a in pendingApplications"
       :key="a.id"
@@ -8,22 +7,32 @@
       @accept="$emit('forwardAccept', arguments[0])"
       @decline="$emit('forwardDecline', arguments[0])"
     />
-    <h4>{{ $t('APPLICATION.LIST_PAST_APPLICATIONS') }}</h4>
-    <ApplicationItem
-      v-for="a in otherApplications"
-      :key="a.id"
-      :application="a"
-    />
+    <q-collapsible
+      v-if="otherApplications.length > 0"
+      icon="fas fa-archive"
+      :label="$t('APPLICATION.PAST')"
+      :sublabel="othersSublabel"
+      @show="showOthers = true"
+      @hide="showOthers = false"
+    >
+      <template v-if="showOthers">
+        <ApplicationItem
+          v-for="a in otherApplications"
+          :key="a.id"
+          :application="a"
+        />
+      </template>
+    </q-collapsible>
   </q-card>
 </template>
 
 <script>
 import ApplicationItem from './ApplicationItem'
-import { QCard } from 'quasar'
+import { QCard, QCollapsible } from 'quasar'
 
 export default {
   components: {
-    ApplicationItem, QCard,
+    ApplicationItem, QCard, QCollapsible,
   },
   props: {
     pendingApplications: {
@@ -35,7 +44,15 @@ export default {
       default: null,
     },
   },
+  data () {
+    return {
+      showOthers: false,
+    }
+  },
   computed: {
+    othersSublabel () {
+      return this.$tc('ENTRY', this.otherApplications.length, { count: this.otherApplications.length })
+    },
   },
 }
 </script>

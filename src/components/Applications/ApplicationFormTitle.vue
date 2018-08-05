@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div v-if="group">
     <img :src="loginImage">
     <h4>
       {{ $t('APPLICATION.FORM_TITLE', { groupName: group.name }) }}

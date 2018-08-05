@@ -44,8 +44,6 @@ export default {
       async fetchByGroupId ({ commit, getters }, { groupId }) {
         const applicationList = await groupApplications.list({ group: groupId })
         commit('set', applicationList)
-        const all = getters.allPending
-        console.log('give me that array!', all)
       },
 
       async apply ({ commit, dispatch }, data) {
@@ -75,7 +73,6 @@ export default {
       },
 
       async decline ({ commit, dispatch }, id) {
-        console.log('Tell me watcha got! ' + id)
         const declinedApplication = await groupApplications.decline(id)
         commit('update', declinedApplication)
         dispatch('toasts/show', {

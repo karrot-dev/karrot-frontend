@@ -1,5 +1,6 @@
 <template>
   <div
+    v-if="group"
     class="edit-box bg-primary splash-md"
     style="padding: 0"
   >
@@ -75,19 +76,13 @@ export default {
   props: {
     group: {
       type: Object,
-      required: true,
+      default: null,
     },
   },
   data () {
     return {
       applicationAnswers: '',
     }
-  },
-  computed: {
-
-  },
-  methods: {
-
   },
 }
 </script>

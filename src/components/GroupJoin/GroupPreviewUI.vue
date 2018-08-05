@@ -153,8 +153,6 @@ export default {
         .then(() => this.$emit('withdraw', this.group.myApplication.id))
         .catch(() => {})
     },
-    joinChat () {
-    },
   },
 }
 </script>

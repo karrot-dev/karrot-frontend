@@ -1,5 +1,14 @@
 <template>
-  <div class="edit-box brown-background splash-md">
+  <div
+    class="edit-box bg-primary splash-md"
+    style="padding: 0"
+  >
+    <p
+      v-if="$q.platform.is.mobile"
+      class="text-white"
+    >
+      {{ $t('APPLICATION.FORM_TITLE', { groupName: group.name }) }}
+    </p>
     <form>
       <div class="white-box shadow-6 q-py-md q-px-sm">
         <q-item>
@@ -86,9 +95,7 @@ export default {
 <style scoped lang="stylus">
 @import '~editbox'
 
+// can be removed once splash layout has scoped css
 .splash-md
   color black
-.brown-background
-  background-color #4a3520
-  padding 0
 </style>

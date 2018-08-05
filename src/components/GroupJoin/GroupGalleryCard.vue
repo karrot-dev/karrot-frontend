@@ -50,17 +50,6 @@
           </q-tooltip>
         </q-btn>
       </q-card-actions>
-      <q-card-actions v-if="group.hasMyApplication">
-        <q-btn
-          disabled
-          class="q-btn-flat"
-        >
-          <q-icon name="fas fa-comments" />
-          <q-tooltip>
-            {{ $t('APPLICATION.ACCESS_CHAT') }}
-          </q-tooltip>
-        </q-btn>
-      </q-card-actions>
     </q-card>
   </div>
 </template>

@@ -48,7 +48,7 @@ export default {
         console.log('give me that array!', all)
       },
 
-      async apply ({commit, dispatch}, data) {
+      async apply ({ commit, dispatch }, data) {
         const newApplication = await groupApplications.create(data)
         commit('update', newApplication)
         dispatch('toasts/show', {
@@ -65,7 +65,7 @@ export default {
         }, { root: true })
       },
 
-      async accept ({commit, dispatch}, id) {
+      async accept ({ commit, dispatch }, id) {
         const acceptedApplication = await groupApplications.accept(id)
         commit('update', acceptedApplication)
         dispatch('toasts/show', {
@@ -88,6 +88,9 @@ export default {
     clearGroupPreviewAndStatus ({ dispatch }) {
       dispatch('meta/clear', ['apply'])
       dispatch('groups/clearGroupPreview', null, { root: true })
+    },
+    update ({ commit }, application) {
+      commit('update', application)
     },
   },
   mutations: {

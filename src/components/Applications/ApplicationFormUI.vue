@@ -17,7 +17,7 @@
             id="group-title"
             v-model="applicationAnswers"
             type="textarea"
-            :min-rows="3"
+            rows="6"
             @keyup.ctrl.enter="$emit('submit', applicationAnswers)"
           />
         </MarkdownInput>

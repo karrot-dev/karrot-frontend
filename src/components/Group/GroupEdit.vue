@@ -25,7 +25,7 @@
           <q-field
             v-if="!edit.isPlayground"
             icon="fas fa-fw fa-question"
-            :label="$t('GROUP.PUBLIC_DESCRIPTION')"
+            :label="$t('GROUPINFO.TITLE')"
             :error="hasError('publicDescription')"
             :error-label="firstError('publicDescription')"
           >
@@ -33,7 +33,7 @@
               <q-input
                 v-model="edit.publicDescription"
                 type="textarea"
-                rows="3"
+                rows="4"
                 @keyup.ctrl.enter="maybeSave"
               />
             </MarkdownInput>
@@ -49,7 +49,7 @@
               <q-input
                 v-model="edit.description"
                 type="textarea"
-                rows="3"
+                rows="4"
                 @keyup.ctrl.enter="maybeSave"
               />
             </MarkdownInput>
@@ -80,20 +80,10 @@
                 @input="applicationQuestionsInput"
                 :value="applicationQuestionsOrDefault"
                 type="textarea"
-                :min-rows="3"
+                rows="6"
                 @keyup.ctrl.enter="maybeSave"
               />
             </MarkdownInput>
-          </q-field>
-
-          <q-field
-            v-if="!edit.isPlayground"
-            icon="fas fa-fw fa-question"
-            :label="$t('GROUP.PASSWORD')"
-            :error="hasError('password')"
-            :error-label="firstError('password')"
-          >
-            <q-input v-model="edit.password"/>
           </q-field>
 
           <q-field
@@ -166,7 +156,6 @@ export default {
       required: false,
       default: () => ({
         name: undefined,
-        password: undefined,
         publicDescription: undefined,
         description: undefined,
         timezone: jstz.determine().name(),

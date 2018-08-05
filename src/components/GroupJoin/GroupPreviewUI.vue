@@ -112,9 +112,6 @@ import { Dialog, QTooltip, QCard, QCardTitle, QCardMain, QCardSeparator, QCardAc
 import Markdown from '@/components/Markdown'
 
 export default {
-  data () {
-    return { password: '' }
-  },
   props: {
     group: {
       default: null,

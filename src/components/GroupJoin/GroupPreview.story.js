@@ -61,16 +61,3 @@ storiesOf('GroupPreviewUI', module)
       on: { join: methods.join },
     }),
   }))
-  .add('error', () => defaults({
-    render: h => h(GroupPreviewUI, {
-      props: {
-        group: {
-          ...groupsMock[4],
-          isMember: false,
-          joinStatus: statusMocks.validationError('password', 'wrong!'),
-        },
-        isLoggedIn: true,
-      },
-      on: { join: methods.join },
-    }),
-  }))

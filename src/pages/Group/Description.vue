@@ -4,15 +4,13 @@
   >
     <RandomArt
       :seed="group.id"
-      type="circles">
+      type="circles"
+    >
       <div class="art-overlay">
         <div
           class="header"
-          v-t="showPublicDescription ? 'GROUPINFO.TITLE' : 'GROUP.DESCRIPTION_VERBOSE'"/>
-        <div
-          class="subtitle"
-          v-if="showPublicDescription"
-          v-t="'GROUP.PUBLIC_DESCRIPTION'"/>
+          v-t="showPublicDescription ? 'GROUPINFO.TITLE' : 'GROUP.DESCRIPTION_VERBOSE'"
+        />
       </div>
     </RandomArt>
     <div class="generic-padding actionButtons">

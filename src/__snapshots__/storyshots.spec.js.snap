@@ -2214,14 +2214,12 @@ exports[`Storyshots Map GroupMap (group has no location) 1`] = `
     <!---->
   </div>
   <!---->
-  <div class="overlay row justify-center content-center">
-    <a>
-      <button tabindex="0" type="button" class="q-btn inline relative-position q-btn-item non-selectable q-btn-rectangle q-focusable q-hoverable bg-primary text-white">
-        <div class="q-focus-helper"></div>
-        <div class="q-btn-inner row col items-center justify-center">
-          Set location
-        </div>
-      </button>
+  <div class="overlay row justify-center items-center">
+    <a tabindex="0" type="button" href="#/" class="q-btn inline relative-position q-btn-item non-selectable q-btn-rectangle q-focusable q-hoverable bg-primary text-white">
+      <div class="q-focus-helper"></div>
+      <div class="q-btn-inner row col items-center justify-center">
+        Set location
+      </div>
     </a>
   </div>
 </div>
@@ -2253,14 +2251,12 @@ exports[`Storyshots Map GroupMap (store has no location) 1`] = `
     <!---->
   </div>
   <!---->
-  <div class="overlay row justify-center content-center">
-    <a>
-      <button tabindex="0" type="button" class="q-btn inline relative-position q-btn-item non-selectable q-btn-rectangle q-focusable q-hoverable bg-primary text-white">
-        <div class="q-focus-helper"></div>
-        <div class="q-btn-inner row col items-center justify-center">
-          Set location
-        </div>
-      </button>
+  <div class="overlay row justify-center items-center">
+    <a tabindex="0" type="button" href="#/" class="q-btn inline relative-position q-btn-item non-selectable q-btn-rectangle q-focusable q-hoverable bg-primary text-white">
+      <div class="q-focus-helper"></div>
+      <div class="q-btn-inner row col items-center justify-center">
+        Set location
+      </div>
     </a>
   </div>
 </div>

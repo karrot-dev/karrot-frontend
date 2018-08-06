@@ -43,24 +43,22 @@
     />
     <div
       v-if="showOverlay"
-      class="overlay row justify-center content-center"
+      class="overlay row justify-center items-center"
     >
-      <router-link
+      <q-btn
         v-if="showStoreLocationPrompt"
+        color="primary"
         :to="{ name: 'storeEdit', params: { storeId: this.selectedStore && this.selectedStore.id } }"
       >
-        <q-btn color="primary">
-          {{ $t('GROUPMAP.SET_LOCATION') }}
-        </q-btn>
-      </router-link>
-      <router-link
+        {{ $t('GROUPMAP.SET_LOCATION') }}
+      </q-btn>
+      <q-btn
         v-else
+        color="primary"
         :to="{ name: 'groupEdit', params: { groupId: currentGroup && currentGroup.id, storeId: this.selectedStore && this.selectedStore.id } }"
       >
-        <q-btn color="primary">
-          {{ $t('GROUPMAP.SET_LOCATION') }}
-        </q-btn>
-      </router-link>
+        {{ $t('GROUPMAP.SET_LOCATION') }}
+      </q-btn>
     </div>
   </div>
 </template>

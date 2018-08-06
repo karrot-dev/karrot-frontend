@@ -9,10 +9,10 @@ export default connect({
     status: 'groupApplications/applyStatus',
   },
   actionsToEvents: {
-    submit: 'groupApplications/apply',
+    apply: 'groupApplications/apply',
   },
   methodsToEvents: {
-    cancel: (store, { groupId }) => {
+    cancel: (store, groupId) => {
       router.push({ name: 'groupPreview', params: { groupId } })
     },
   },

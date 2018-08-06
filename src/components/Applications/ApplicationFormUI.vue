@@ -10,7 +10,7 @@
     >
       {{ $t('APPLICATION.FORM_TITLE', { groupName: group.name }) }}
     </p>
-    <form>
+    <form @submit.prevent="apply">
       <div class="white-box shadow-6 q-py-md q-px-sm">
         <q-item>
           <q-item-side
@@ -28,7 +28,7 @@
             v-model="applicationAnswers"
             type="textarea"
             rows="6"
-            @keyup.ctrl.enter="$emit('submit', applicationAnswers)"
+            @keyup.ctrl.enter="apply"
           />
         </MarkdownInput>
         <div
@@ -53,7 +53,6 @@
           type="submit"
           color="secondary"
           class="shadow-4"
-          @click="$emit('submit', { group: group.id, answers: applicationAnswers })"
         >
           {{ $t('BUTTON.SUBMIT') }}
         </q-btn>
@@ -83,6 +82,11 @@ export default {
     return {
       applicationAnswers: '',
     }
+  },
+  methods: {
+    apply () {
+      this.$emit('apply', { group: this.group.id, answers: this.applicationAnswers })
+    },
   },
 }
 </script>

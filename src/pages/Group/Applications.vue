@@ -4,13 +4,13 @@ import ApplicationList from '@/components/Applications/ApplicationList'
 
 export default connect({
   gettersToProps: {
-    pendingApplications: 'groupApplications/allPending',
+    pending: 'groupApplications/pending',
     otherApplications: 'groupApplications/allNonPending',
   },
 
   actionsToEvents: {
-    forwardAccept: 'groupApplications/accept',
-    forwardDecline: 'groupApplications/decline',
+    accept: 'groupApplications/accept',
+    decline: 'groupApplications/decline',
   },
 })('ApplicationList', ApplicationList)
 </script>

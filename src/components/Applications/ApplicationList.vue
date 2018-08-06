@@ -4,8 +4,8 @@
       v-for="a in pendingApplications"
       :key="a.id"
       :application="a"
-      @accept="$emit('forwardAccept', arguments[0])"
-      @decline="$emit('forwardDecline', arguments[0])"
+      @accept="$emit('accept', arguments[0])"
+      @decline="$emit('decline', arguments[0])"
     />
     <q-collapsible
       v-if="otherApplications.length > 0"

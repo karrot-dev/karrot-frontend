@@ -26,8 +26,8 @@
           :feedback-possible="feedbackPossible"
         />
         <PendingApplications
-          v-if="pendingApplications.length > 0"
-          :pending-applications="pendingApplications"
+          v-if="pending.length > 0"
+          :pending="pending"
         />
       </div>
       <WallConversation
@@ -66,7 +66,7 @@ export default {
     joinedPickups: { required: true, type: Array },
     availablePickups: { required: true, type: Array },
     feedbackPossible: { required: true, type: Array },
-    pendingApplications: { required: true, type: Array },
+    pending: { required: true, type: Array },
     conversation: { required: true, type: Object },
     fetchPast: { required: true, type: Function },
     user: { default: null, type: Object },

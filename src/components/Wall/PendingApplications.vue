@@ -6,7 +6,7 @@
         class="generic-padding notice"
       >
         <i class="fas fa-address-card on-left"/>
-        {{ $tc('APPLICATION.WALL_NOTICE', pendingApplications.length, { count: pendingApplications.length }) }}
+        {{ $tc('APPLICATION.WALL_NOTICE', pending.length, { count: pending.length }) }}
       </q-card>
     </router-link>
   </div>
@@ -18,7 +18,7 @@ import { QCard } from 'quasar'
 export default {
   components: { QCard },
   props: {
-    pendingApplications: {
+    pending: {
       required: true,
       type: Array,
     },

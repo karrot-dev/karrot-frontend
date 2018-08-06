@@ -1,7 +1,7 @@
 <template>
   <q-card>
     <ApplicationItem
-      v-for="a in pendingApplications"
+      v-for="a in pending"
       :key="a.id"
       :application="a"
       @accept="$emit('accept', arguments[0])"
@@ -35,7 +35,7 @@ export default {
     ApplicationItem, QCard, QCollapsible,
   },
   props: {
-    pendingApplications: {
+    pending: {
       type: Array,
       default: null,
     },

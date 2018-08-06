@@ -1,12 +1,19 @@
 <template>
   <div class="inline-block">
     <q-card
-      class="groupPreviewCard"
+      class="groupPreviewCard relative-position"
       :color="cardColor"
       :class="{ application: group.hasMyApplication, highlight: group.isCurrentGroup }"
       :style="cardStyle"
       @click.native="$emit(group.isMember ? 'visit' : 'preview')"
     >
+      <q-chip
+        v-if="group.hasMyApplication"
+        floating
+        class="q-pl-sm q-pt-xs q-pb-xs"
+        color="blue"
+        icon="fas fa-hourglass-half"
+      />
       <q-tooltip v-if="group.hasMyApplication">
         {{ $t('APPLICATION.GALLERY_TOOLTIP') }}
       </q-tooltip>
@@ -55,11 +62,11 @@
 </template>
 
 <script>
-import { QCard, QCardTitle, QCardMain, QCardSeparator, QCardActions, QBtn, QTooltip, QIcon } from 'quasar'
+import { QCard, QCardTitle, QCardMain, QCardSeparator, QCardActions, QBtn, QTooltip, QIcon, QChip } from 'quasar'
 import Markdown from '@/components/Markdown'
 
 export default {
-  components: { Markdown, QCard, QCardTitle, QCardMain, QCardSeparator, QCardActions, QBtn, QTooltip, QIcon },
+  components: { Markdown, QCard, QCardTitle, QCardMain, QCardSeparator, QCardActions, QBtn, QTooltip, QIcon, QChip },
   props: {
     group: {
       type: Object,

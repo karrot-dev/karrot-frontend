@@ -22,10 +22,10 @@ jest.mock('@/router', () => {
 
 jest.mock('@/components/GroupJoin/GroupPreviewUI', () => ({
   name: 'GroupPreviewUI',
-  props: ['group', 'isLoggedIn', 'showClose'],
+  props: ['group', 'isLoggedIn', 'user'],
   methods: {
     visit () {
-      this.$emit('visit', this.group.id)
+      this.$emit('goVisit', this.group.id)
     },
     join () {
       this.$emit('join', this.group.id)

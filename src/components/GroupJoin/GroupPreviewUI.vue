@@ -15,20 +15,6 @@
         <span slot="subtitle">
           {{ group.members.length }} {{ $tc('JOINGROUP.NUM_MEMBERS', group.members.length) }}
         </span>
-        <q-btn
-          v-if="showClose"
-          slot="right"
-          round
-          small
-          @click="$emit('close')"
-          color="primary"
-          class="preview-close-button"
-        >
-          <q-icon name="fas fa-times" />
-          <q-tooltip>
-            {{ $t('BUTTON.CLOSE') }}
-          </q-tooltip>
-        </q-btn>
       </q-card-title>
       <q-card-main>
         <div
@@ -135,10 +121,6 @@ export default {
       type: Object,
     },
     isLoggedIn: {
-      default: false,
-      type: Boolean,
-    },
-    showClose: {
       default: false,
       type: Boolean,
     },

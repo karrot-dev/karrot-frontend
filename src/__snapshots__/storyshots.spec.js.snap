@@ -66,11 +66,11 @@ exports[`Storyshots ApplicationForm create 1`] = `
           <div class="q-tabs-panes">
             <div class="q-tab-pane">
               <div tabindex="-1" id="group-title" rows="6" class="q-if row no-wrap items-end relative-position q-input text-primary">
-                <div class="q-if-inner col row no-wrap relative-position">
+                <div class="q-if-inner col row no-wrap relative-position q-if-inner-dynamic">
                   <div class="col row relative-position">
                     <object type="text/html" data="about:blank" aria-hidden="true" style="display:block;position:absolute;top:0;left:0;right:0;bottom:0;height:100%;width:100%;overflow:hidden;pointer-events:none;z-index:-1;"></object>
-                    <textarea id="group-title" rows="6" class="col q-input-target q-input-shadow absolute-top"></textarea>
-                    <textarea id="group-title" rows="6" class="col q-input-target q-input-area"></textarea>
+                    <textarea rows="6" id="group-title" class="col q-input-target q-input-shadow absolute-top"></textarea>
+                    <textarea rows="6" id="group-title" class="col q-input-target q-input-area"></textarea>
                   </div>
                 </div>
               </div>
@@ -201,7 +201,7 @@ exports[`Storyshots GroupEdit create 1`] = `
                   <div class="q-tabs-panes">
                     <div class="q-tab-pane">
                       <div tabindex="-1" rows="4" class="q-if row no-wrap items-end relative-position q-input text-primary">
-                        <div class="q-if-inner col row no-wrap relative-position">
+                        <div class="q-if-inner col row no-wrap relative-position q-if-inner-dynamic">
                           <div class="col row relative-position">
                             <object type="text/html" data="about:blank" aria-hidden="true" style="display:block;position:absolute;top:0;left:0;right:0;bottom:0;height:100%;width:100%;overflow:hidden;pointer-events:none;z-index:-1;"></object>
                             <textarea rows="4" class="col q-input-target q-input-shadow absolute-top">This is the public description It would make sense if it was markdown # then this would be a header [and this a link](www.google.de)</textarea>
@@ -263,7 +263,7 @@ exports[`Storyshots GroupEdit create 1`] = `
                   <div class="q-tabs-panes">
                     <div class="q-tab-pane">
                       <div tabindex="-1" rows="4" class="q-if row no-wrap items-end relative-position q-input text-primary">
-                        <div class="q-if-inner col row no-wrap relative-position">
+                        <div class="q-if-inner col row no-wrap relative-position q-if-inner-dynamic">
                           <div class="col row relative-position">
                             <object type="text/html" data="about:blank" aria-hidden="true" style="display:block;position:absolute;top:0;left:0;right:0;bottom:0;height:100%;width:100%;overflow:hidden;pointer-events:none;z-index:-1;"></object>
                             <textarea rows="4" class="col q-input-target q-input-shadow absolute-top">undefined</textarea>
@@ -349,7 +349,7 @@ exports[`Storyshots GroupEdit create 1`] = `
                   <div class="q-tabs-panes">
                     <div class="q-tab-pane">
                       <div tabindex="-1" rows="6" class="q-if row no-wrap items-end relative-position q-input text-primary">
-                        <div class="q-if-inner col row no-wrap relative-position">
+                        <div class="q-if-inner col row no-wrap relative-position q-if-inner-dynamic">
                           <div class="col row relative-position">
                             <object type="text/html" data="about:blank" aria-hidden="true" style="display:block;position:absolute;top:0;left:0;right:0;bottom:0;height:100%;width:100%;overflow:hidden;pointer-events:none;z-index:-1;"></object>
                             <textarea rows="6" class="col q-input-target q-input-shadow absolute-top">Hello stranger! :smiley: :wave: Do you want to help us save all the good food from being wasted? Please tell us how you plan to contribute and who or what made you aware of our existence! Looking forward to working with you!</textarea>
@@ -454,7 +454,7 @@ exports[`Storyshots GroupGallery signup view 1`] = `
           </div><span class="q-option-label">Show inactive groups</span></div>
       </div>
       <div style="margin-top:4px;">
-        <button tabindex="0" small="" class="q-btn inline relative-position q-btn-item non-selectable float-right overlay-toggle-button q-btn-round q-btn-flat q-focusable q-hoverable">
+        <button tabindex="0" type="button" small="" class="q-btn inline relative-position q-btn-item non-selectable float-right overlay-toggle-button q-btn-round q-btn-flat q-focusable q-hoverable">
           <div class="q-focus-helper"></div>
           <div class="q-btn-inner row col items-center justify-center">
             <i class="fa fa-2x fa-angle-up"></i>
@@ -664,7 +664,7 @@ exports[`Storyshots GroupGallery switch and explore 1`] = `
           </div><span class="q-option-label">Show inactive groups</span></div>
       </div>
       <div style="margin-top:4px;">
-        <button tabindex="0" small="" class="q-btn inline relative-position q-btn-item non-selectable float-right overlay-toggle-button q-btn-round q-btn-flat q-focusable q-hoverable">
+        <button tabindex="0" type="button" small="" class="q-btn inline relative-position q-btn-item non-selectable float-right overlay-toggle-button q-btn-round q-btn-flat q-focusable q-hoverable">
           <div class="q-focus-helper"></div>
           <div class="q-btn-inner row col items-center justify-center">
             <i class="fa fa-2x fa-angle-up"></i>
@@ -712,7 +712,7 @@ exports[`Storyshots GroupGallery switch and explore 1`] = `
             </div>
             <div class="q-card-separator"></div>
             <div class="q-card-actions q-card-actions-horiz row justify-start">
-              <button tabindex="0" class="q-btn inline relative-position q-btn-item non-selectable q-btn-flat q-btn-rectangle q-focusable q-hoverable">
+              <button tabindex="0" type="button" class="q-btn inline relative-position q-btn-item non-selectable q-btn-flat q-btn-rectangle q-focusable q-hoverable">
                 <div class="q-focus-helper"></div>
                 <div class="q-btn-inner row col items-center justify-center">
                   <i aria-hidden="true" class="q-icon fas fa-home"> </i>
@@ -723,7 +723,7 @@ exports[`Storyshots GroupGallery switch and explore 1`] = `
                   </div>
                 </div>
               </button>
-              <button tabindex="0" class="q-btn inline relative-position q-btn-item non-selectable q-btn-flat q-btn-rectangle q-focusable q-hoverable">
+              <button tabindex="0" type="button" class="q-btn inline relative-position q-btn-item non-selectable q-btn-flat q-btn-rectangle q-focusable q-hoverable">
                 <div class="q-focus-helper"></div>
                 <div class="q-btn-inner row col items-center justify-center">
                   <i aria-hidden="true" class="q-icon fas fa-info-circle"> </i>
@@ -756,7 +756,7 @@ exports[`Storyshots GroupGallery switch and explore 1`] = `
       </span></div>
             <div class="q-card-separator"></div>
             <div class="q-card-actions q-card-actions-horiz row justify-start">
-              <button tabindex="0" class="q-btn inline relative-position q-btn-item non-selectable q-btn-flat q-btn-rectangle q-focusable q-hoverable">
+              <button tabindex="0" type="button" class="q-btn inline relative-position q-btn-item non-selectable q-btn-flat q-btn-rectangle q-focusable q-hoverable">
                 <div class="q-focus-helper"></div>
                 <div class="q-btn-inner row col items-center justify-center">
                   <i aria-hidden="true" class="q-icon fas fa-home"> </i>
@@ -767,7 +767,7 @@ exports[`Storyshots GroupGallery switch and explore 1`] = `
                   </div>
                 </div>
               </button>
-              <button tabindex="0" class="q-btn inline relative-position q-btn-item non-selectable q-btn-flat q-btn-rectangle q-focusable q-hoverable">
+              <button tabindex="0" type="button" class="q-btn inline relative-position q-btn-item non-selectable q-btn-flat q-btn-rectangle q-focusable q-hoverable">
                 <div class="q-focus-helper"></div>
                 <div class="q-btn-inner row col items-center justify-center">
                   <i aria-hidden="true" class="q-icon fas fa-info-circle"> </i>
@@ -800,7 +800,7 @@ exports[`Storyshots GroupGallery switch and explore 1`] = `
       </span></div>
             <div class="q-card-separator"></div>
             <div class="q-card-actions q-card-actions-horiz row justify-start">
-              <button tabindex="0" class="q-btn inline relative-position q-btn-item non-selectable q-btn-flat q-btn-rectangle q-focusable q-hoverable">
+              <button tabindex="0" type="button" class="q-btn inline relative-position q-btn-item non-selectable q-btn-flat q-btn-rectangle q-focusable q-hoverable">
                 <div class="q-focus-helper"></div>
                 <div class="q-btn-inner row col items-center justify-center">
                   <i aria-hidden="true" class="q-icon fas fa-home"> </i>
@@ -811,7 +811,7 @@ exports[`Storyshots GroupGallery switch and explore 1`] = `
                   </div>
                 </div>
               </button>
-              <button tabindex="0" class="q-btn inline relative-position q-btn-item non-selectable q-btn-flat q-btn-rectangle q-focusable q-hoverable">
+              <button tabindex="0" type="button" class="q-btn inline relative-position q-btn-item non-selectable q-btn-flat q-btn-rectangle q-focusable q-hoverable">
                 <div class="q-focus-helper"></div>
                 <div class="q-btn-inner row col items-center justify-center">
                   <i aria-hidden="true" class="q-icon fas fa-info-circle"> </i>
@@ -1046,7 +1046,7 @@ exports[`Storyshots GroupGalleryCard isMember = true 1`] = `
     </div>
     <div class="q-card-separator"></div>
     <div class="q-card-actions q-card-actions-horiz row justify-start">
-      <button tabindex="0" class="q-btn inline relative-position q-btn-item non-selectable q-btn-flat q-btn-rectangle q-focusable q-hoverable">
+      <button tabindex="0" type="button" class="q-btn inline relative-position q-btn-item non-selectable q-btn-flat q-btn-rectangle q-focusable q-hoverable">
         <div class="q-focus-helper"></div>
         <div class="q-btn-inner row col items-center justify-center">
           <i aria-hidden="true" class="q-icon fas fa-home"> </i>
@@ -1057,7 +1057,7 @@ exports[`Storyshots GroupGalleryCard isMember = true 1`] = `
           </div>
         </div>
       </button>
-      <button tabindex="0" class="q-btn inline relative-position q-btn-item non-selectable q-btn-flat q-btn-rectangle q-focusable q-hoverable">
+      <button tabindex="0" type="button" class="q-btn inline relative-position q-btn-item non-selectable q-btn-flat q-btn-rectangle q-focusable q-hoverable">
         <div class="q-focus-helper"></div>
         <div class="q-btn-inner row col items-center justify-center">
           <i aria-hidden="true" class="q-icon fas fa-info-circle"> </i>
@@ -1097,16 +1097,14 @@ exports[`Storyshots GroupGalleryCard without public description 1`] = `
 </div>
 `;
 
-exports[`Storyshots GroupPreviewUI is member 1`] = `
+exports[`Storyshots GroupPreviewUI member 1`] = `
 <div>
   <div class="q-card shadow-6">
     <div class="q-card-primary q-card-container row no-wrap">
       <div class="col column">
         <div class="q-card-title"><span class="row group items-start">
         05_testgroup
-        <!----></span>
-          <!---->
-        </div>
+        <!----></span> </div>
         <div class="q-card-subtitle"><span>
         18 Members
       </span></div>
@@ -1127,34 +1125,129 @@ exports[`Storyshots GroupPreviewUI is member 1`] = `
     </div>
     <div class="q-card-separator"></div>
     <div class="q-card-actions q-card-actions-horiz row justify-start">
-      <!---->
-      <!---->
-      <button tabindex="0" class="q-btn inline relative-position q-btn-item non-selectable q-btn-flat q-btn-rectangle q-focusable q-hoverable">
-        <div class="q-focus-helper"></div>
-        <div class="q-btn-inner row col items-center justify-center">
-          <i aria-hidden="true" class="q-icon fas fa-home"> </i>
-          <div class="q-tooltip animate-popup">
-            <div>
-              You are member of this group. Click here to switch to full view.
+      <div style="width:100%;">
+        <button tabindex="0" type="button" class="q-btn inline relative-position q-btn-item non-selectable q-btn-flat q-btn-rectangle q-focusable q-hoverable">
+          <div class="q-focus-helper"></div>
+          <div class="q-btn-inner row col items-center justify-center">
+            <i aria-hidden="true" class="q-icon fas fa-home"> </i>
+            <div class="q-tooltip animate-popup">
+              <div>
+                You are member of this group. Click here to switch to full view.
+              </div>
+            </div>
+          </div>
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Storyshots GroupPreviewUI not logged in 1`] = `
+<div>
+  <div class="q-card shadow-6">
+    <div class="q-card-primary q-card-container row no-wrap">
+      <div class="col column">
+        <div class="q-card-title"><span class="row group items-start">
+        05_testgroup
+        <!----></span> </div>
+        <div class="q-card-subtitle"><span>
+        18 Members
+      </span></div>
+      </div>
+      <div class="col-auto self-center q-card-title-extra"></div>
+    </div>
+    <div class="q-card-main q-card-container">
+      <div class="quote">
+        <div class="markdown">
+          <p>This is the public description
+            <br> It would make sense if it was markdown</p>
+          <h1>then this would be a header</h1>
+          <p>
+            <a href="www.google.de" target="_blank" rel="noopener nofollow noreferrer" class="fas-after fa-after-external-link">and this a link</a>
+          </p>
+        </div>
+      </div>
+    </div>
+    <div class="q-card-separator"></div>
+    <div class="q-card-actions q-card-actions-horiz row justify-start">
+      <div style="width:100%;">
+        <button tabindex="0" type="button" class="q-btn inline relative-position q-btn-item non-selectable float-right generic-margin q-btn-rectangle q-focusable q-hoverable bg-secondary text-white">
+          <div class="q-focus-helper"></div>
+          <div class="q-btn-inner row col items-center justify-center">
+            Log in or sign up to join this group!
+          </div>
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Storyshots GroupPreviewUI not member, application needed, email not verified 1`] = `
+<div>
+  <div class="q-card shadow-6">
+    <div class="q-card-primary q-card-container row no-wrap">
+      <div class="col column">
+        <div class="q-card-title"><span class="row group items-start">
+        05_testgroup
+        <!----></span> </div>
+        <div class="q-card-subtitle"><span>
+        18 Members
+      </span></div>
+      </div>
+      <div class="col-auto self-center q-card-title-extra"></div>
+    </div>
+    <div class="q-card-main q-card-container">
+      <div class="quote">
+        <div class="markdown">
+          <p>This is the public description
+            <br> It would make sense if it was markdown</p>
+          <h1>then this would be a header</h1>
+          <p>
+            <a href="www.google.de" target="_blank" rel="noopener nofollow noreferrer" class="fas-after fa-after-external-link">and this a link</a>
+          </p>
+        </div>
+      </div>
+    </div>
+    <div class="q-card-separator"></div>
+    <div class="q-card-actions q-card-actions-horiz row justify-start">
+      <div style="width:100%;">
+        <div>
+          <div class="q-alert row no-wrap shadow-2 bg-warning text-white">
+            <div class="q-alert-side col-auto row flex-center">
+              <i aria-hidden="true" class="q-icon material-icons">info</i>
+            </div>
+            <div class="q-alert-content col self-center">
+              <div>
+                By joining this group, your profile data will become visible to other group members.
+              </div>
             </div>
           </div>
         </div>
-      </button>
+        <!---->
+        <!---->
+        <button tabindex="0" type="button" class="q-btn inline relative-position q-btn-item non-selectable float-right generic-margin q-btn-rectangle q-focusable q-hoverable bg-secondary text-white">
+          <div class="q-focus-helper"></div>
+          <div class="q-btn-inner row col items-center justify-center">
+            Verify your email address to apply
+          </div>
+        </button>
+        <!---->
+      </div>
     </div>
   </div>
 </div>
 `;
 
-exports[`Storyshots GroupPreviewUI is not logged in 1`] = `
+exports[`Storyshots GroupPreviewUI not member, application needed, email verified 1`] = `
 <div>
   <div class="q-card shadow-6">
     <div class="q-card-primary q-card-container row no-wrap">
       <div class="col column">
         <div class="q-card-title"><span class="row group items-start">
         05_testgroup
-        <!----></span>
-          <!---->
-        </div>
+        <!----></span> </div>
         <div class="q-card-subtitle"><span>
         18 Members
       </span></div>
@@ -1174,28 +1267,43 @@ exports[`Storyshots GroupPreviewUI is not logged in 1`] = `
       </div>
     </div>
     <div class="q-card-separator"></div>
-    <div class="q-card-actions q-card-actions-horiz row justify-start"><span style="width:100%;"><div><div class="q-alert row no-wrap shadow-2 bg-warning text-white"><div class="q-alert-side col-auto row flex-center"><i aria-hidden="true" class="q-icon material-icons">info</i></div><div class="q-alert-content col self-center"><div>
-          By joining this group, your profile data will become visible to other group members.
-        </div></div></div></div> <button tabindex="0" class="q-btn inline relative-position q-btn-item non-selectable float-right generic-margin q-btn-rectangle q-focusable q-hoverable bg-secondary text-white"><div class="q-focus-helper"></div><div class="q-btn-inner row col items-center justify-center">
-          Log in or sign up to join this group!
-        </div></button> <!----></span>
-      <!---->
-      <!---->
+    <div class="q-card-actions q-card-actions-horiz row justify-start">
+      <div style="width:100%;">
+        <div>
+          <div class="q-alert row no-wrap shadow-2 bg-warning text-white">
+            <div class="q-alert-side col-auto row flex-center">
+              <i aria-hidden="true" class="q-icon material-icons">info</i>
+            </div>
+            <div class="q-alert-content col self-center">
+              <div>
+                By joining this group, your profile data will become visible to other group members.
+              </div>
+            </div>
+          </div>
+        </div>
+        <!---->
+        <!---->
+        <!---->
+        <button tabindex="0" type="button" class="q-btn inline relative-position q-btn-item non-selectable float-right generic-margin q-btn-rectangle q-focusable q-hoverable bg-secondary text-white">
+          <div class="q-focus-helper"></div>
+          <div class="q-btn-inner row col items-center justify-center">
+            Apply
+          </div>
+        </button>
+      </div>
     </div>
   </div>
 </div>
 `;
 
-exports[`Storyshots GroupPreviewUI is not member 1`] = `
+exports[`Storyshots GroupPreviewUI not member, open group 1`] = `
 <div>
   <div class="q-card shadow-6">
     <div class="q-card-primary q-card-container row no-wrap">
       <div class="col column">
         <div class="q-card-title"><span class="row group items-start">
         05_testgroup
-        <!----></span>
-          <!---->
-        </div>
+        <!----></span> </div>
         <div class="q-card-subtitle"><span>
         18 Members
       </span></div>
@@ -1215,26 +1323,161 @@ exports[`Storyshots GroupPreviewUI is not member 1`] = `
       </div>
     </div>
     <div class="q-card-separator"></div>
-    <div class="q-card-actions q-card-actions-horiz row justify-start"><span style="width:100%;"><div><div class="q-alert row no-wrap shadow-2 bg-warning text-white"><div class="q-alert-side col-auto row flex-center"><i aria-hidden="true" class="q-icon material-icons">info</i></div><div class="q-alert-content col self-center"><div>
-          By joining this group, your profile data will become visible to other group members.
-        </div></div></div></div> <!----> <!----></span>
-      <!---->
-      <!---->
+    <div class="q-card-actions q-card-actions-horiz row justify-start">
+      <div style="width:100%;">
+        <div>
+          <div class="q-alert row no-wrap shadow-2 bg-warning text-white">
+            <div class="q-alert-side col-auto row flex-center">
+              <i aria-hidden="true" class="q-icon material-icons">info</i>
+            </div>
+            <div class="q-alert-content col self-center">
+              <div>
+                By joining this group, your profile data will become visible to other group members.
+              </div>
+            </div>
+          </div>
+        </div>
+        <!---->
+        <button tabindex="0" type="button" class="q-btn inline relative-position q-btn-item non-selectable float-right generic-margin q-btn-rectangle q-focusable q-hoverable bg-secondary text-white">
+          <div class="q-focus-helper"></div>
+          <div class="q-btn-inner row col items-center justify-center">
+            Join
+          </div>
+        </button>
+        <!---->
+        <!---->
+      </div>
     </div>
   </div>
 </div>
 `;
 
-exports[`Storyshots GroupPreviewUI pending 1`] = `
+exports[`Storyshots GroupPreviewUI not member, pending application 1`] = `
+<div>
+  <div class="q-card shadow-6">
+    <div class="q-card-primary q-card-container row no-wrap">
+      <div class="col column">
+        <div class="q-card-title"><span class="row group items-start">
+        05_testgroup
+        <!----></span> </div>
+        <div class="q-card-subtitle"><span>
+        18 Members
+      </span></div>
+      </div>
+      <div class="col-auto self-center q-card-title-extra"></div>
+    </div>
+    <div class="q-card-main q-card-container">
+      <div class="quote">
+        <div class="markdown">
+          <p>This is the public description
+            <br> It would make sense if it was markdown</p>
+          <h1>then this would be a header</h1>
+          <p>
+            <a href="www.google.de" target="_blank" rel="noopener nofollow noreferrer" class="fas-after fa-after-external-link">and this a link</a>
+          </p>
+        </div>
+      </div>
+    </div>
+    <div class="q-card-separator"></div>
+    <div class="q-card-actions q-card-actions-horiz row justify-start">
+      <div style="width:100%;">
+        <!---->
+        <div>
+          <div class="q-alert row no-wrap shadow-2 bg-blue text-white">
+            <div class="q-alert-side col-auto row flex-center">
+              <i aria-hidden="true" class="q-icon material-icons">info</i>
+            </div>
+            <div class="q-alert-content col self-center">
+              <div>
+                Your application is pending!
+              </div>
+            </div>
+            <div class="q-alert-actions col-auto gutter-xs column flex-center">
+              <div class="full-width">
+                <button tabindex="0" type="button" class="q-btn inline relative-position q-btn-item non-selectable full-width q-btn-rectangle q-btn-flat q-focusable q-hoverable q-btn-dense">
+                  <div class="q-focus-helper"></div>
+                  <div class="q-btn-inner row col items-center justify-start">
+                    <i aria-hidden="true" class="q-icon fas fa-trash-alt on-left"> </i>
+                    <div>Withdraw</div>
+                  </div>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!---->
+        <!---->
+        <!---->
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Storyshots GroupPreviewUI not member, playground 1`] = `
+<div>
+  <div class="q-card shadow-6">
+    <div class="q-card-primary q-card-container row no-wrap text-secondary">
+      <div class="col column">
+        <div class="q-card-title"><span class="row group items-start">
+        05_testgroup
+        <i aria-hidden="true" class="q-icon fas fa-child text-secondary"> </i></span> </div>
+        <div class="q-card-subtitle"><span>
+        18 Members
+      </span></div>
+      </div>
+      <div class="col-auto self-center q-card-title-extra"></div>
+    </div>
+    <div class="q-card-main q-card-container">
+      <div class="quote">
+        <div class="markdown">
+          <p>This is the public description
+            <br> It would make sense if it was markdown</p>
+          <h1>then this would be a header</h1>
+          <p>
+            <a href="www.google.de" target="_blank" rel="noopener nofollow noreferrer" class="fas-after fa-after-external-link">and this a link</a>
+          </p>
+        </div>
+      </div>
+    </div>
+    <div class="q-card-separator"></div>
+    <div class="q-card-actions q-card-actions-horiz row justify-start">
+      <div style="width:100%;">
+        <div>
+          <div class="q-alert row no-wrap shadow-2 bg-warning text-white">
+            <div class="q-alert-side col-auto row flex-center">
+              <i aria-hidden="true" class="q-icon material-icons">info</i>
+            </div>
+            <div class="q-alert-content col self-center">
+              <div>
+                By joining this group, your profile data will become visible to other group members.
+              </div>
+            </div>
+          </div>
+        </div>
+        <!---->
+        <button tabindex="0" type="button" class="q-btn inline relative-position q-btn-item non-selectable float-right generic-margin q-btn-rectangle q-focusable q-hoverable bg-secondary text-white">
+          <div class="q-focus-helper"></div>
+          <div class="q-btn-inner row col items-center justify-center">
+            Join
+          </div>
+        </button>
+        <!---->
+        <!---->
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Storyshots GroupPreviewUI pending join 1`] = `
 <div>
   <div class="q-card shadow-6">
     <div class="q-card-primary q-card-container row no-wrap">
       <div class="col column">
         <div class="q-card-title"><span class="row group items-start">
         01_testgroup_with_maps_and_password
-        <!----></span>
-          <!---->
-        </div>
+        <!----></span> </div>
         <div class="q-card-subtitle"><span>
         53 Members
       </span></div>
@@ -1249,11 +1492,32 @@ exports[`Storyshots GroupPreviewUI pending 1`] = `
       </div>
     </div>
     <div class="q-card-separator"></div>
-    <div class="q-card-actions q-card-actions-horiz row justify-start"><span style="width:100%;"><div><div class="q-alert row no-wrap shadow-2 bg-warning text-white"><div class="q-alert-side col-auto row flex-center"><i aria-hidden="true" class="q-icon material-icons">info</i></div><div class="q-alert-content col self-center"><div>
-          By joining this group, your profile data will become visible to other group members.
-        </div></div></div></div> <!----> <!----></span>
-      <!---->
-      <!---->
+    <div class="q-card-actions q-card-actions-horiz row justify-start">
+      <div style="width:100%;">
+        <div>
+          <div class="q-alert row no-wrap shadow-2 bg-warning text-white">
+            <div class="q-alert-side col-auto row flex-center">
+              <i aria-hidden="true" class="q-icon material-icons">info</i>
+            </div>
+            <div class="q-alert-content col self-center">
+              <div>
+                By joining this group, your profile data will become visible to other group members.
+              </div>
+            </div>
+          </div>
+        </div>
+        <!---->
+        <button tabindex="-1" type="button" class="q-btn inline relative-position q-btn-item non-selectable float-right generic-margin q-btn-rectangle disabled bg-secondary text-white">
+          <div class="q-focus-helper"></div>
+          <div class="q-btn-inner row col items-center justify-center">
+            <svg width="1em" height="1em" viewBox="25 25 50 50" class="q-spinner q-spinner-mat">
+              <circle cx="50" cy="50" r="20" fill="none" stroke="currentColor" stroke-width="3" stroke-miterlimit="10" class="path"></circle>
+            </svg>
+          </div>
+        </button>
+        <!---->
+        <!---->
+      </div>
     </div>
   </div>
 </div>
@@ -1266,9 +1530,7 @@ exports[`Storyshots GroupPreviewUI without public description 1`] = `
       <div class="col column">
         <div class="q-card-title"><span class="row group items-start">
         05_testgroup
-        <!----></span>
-          <!---->
-        </div>
+        <!----></span> </div>
         <div class="q-card-subtitle"><span>
         18 Members
       </span></div>
@@ -1280,19 +1542,19 @@ exports[`Storyshots GroupPreviewUI without public description 1`] = `
       </span></div>
     <div class="q-card-separator"></div>
     <div class="q-card-actions q-card-actions-horiz row justify-start">
-      <!---->
-      <!---->
-      <button tabindex="0" class="q-btn inline relative-position q-btn-item non-selectable q-btn-flat q-btn-rectangle q-focusable q-hoverable">
-        <div class="q-focus-helper"></div>
-        <div class="q-btn-inner row col items-center justify-center">
-          <i aria-hidden="true" class="q-icon fas fa-home"> </i>
-          <div class="q-tooltip animate-popup">
-            <div>
-              You are member of this group. Click here to switch to full view.
+      <div style="width:100%;">
+        <button tabindex="0" type="button" class="q-btn inline relative-position q-btn-item non-selectable q-btn-flat q-btn-rectangle q-focusable q-hoverable">
+          <div class="q-focus-helper"></div>
+          <div class="q-btn-inner row col items-center justify-center">
+            <i aria-hidden="true" class="q-icon fas fa-home"> </i>
+            <div class="q-tooltip animate-popup">
+              <div>
+                You are member of this group. Click here to switch to full view.
+              </div>
             </div>
           </div>
-        </div>
-      </button>
+        </button>
+      </div>
     </div>
   </div>
 </div>
@@ -1671,7 +1933,7 @@ exports[`Storyshots Layout KTopbar 1`] = `
     </div>
   </div>
   <!---->
-  <button tabindex="0" class="q-btn inline relative-position q-btn-item non-selectable q-btn-round q-btn-flat q-focusable q-hoverable q-btn-dense">
+  <button tabindex="0" type="button" class="q-btn inline relative-position q-btn-item non-selectable q-btn-round q-btn-flat q-focusable q-hoverable q-btn-dense">
     <div class="q-focus-helper"></div>
     <div class="q-btn-inner row col items-center justify-center">
       <i aria-hidden="true" class="q-icon fas fa-fw fa-search"> </i>
@@ -1680,7 +1942,7 @@ exports[`Storyshots Layout KTopbar 1`] = `
       </div>
     </div>
   </button>
-  <button tabindex="0" title="Updates from the foodsaving worldwide community" class="q-btn inline relative-position q-btn-item non-selectable q-btn-round q-btn-flat q-focusable q-hoverable q-btn-dense">
+  <button tabindex="0" type="button" title="Updates from the foodsaving worldwide community" class="q-btn inline relative-position q-btn-item non-selectable q-btn-round q-btn-flat q-focusable q-hoverable q-btn-dense">
     <div class="q-focus-helper"></div>
     <div class="q-btn-inner row col items-center justify-center">
       <i aria-hidden="true" class="q-icon fab fa-discourse"> </i>
@@ -1695,7 +1957,7 @@ exports[`Storyshots Layout KTopbar 1`] = `
       </div>
     </div>
   </button>
-  <button tabindex="0" class="q-btn inline relative-position q-btn-item non-selectable q-btn-round q-btn-flat q-focusable q-hoverable q-btn-dense">
+  <button tabindex="0" type="button" class="q-btn inline relative-position q-btn-item non-selectable q-btn-round q-btn-flat q-focusable q-hoverable q-btn-dense">
     <div class="q-focus-helper"></div>
     <div class="q-btn-inner row col items-center justify-center">
       <i aria-hidden="true" class="q-icon fas fa-globe fa-fw"> </i>
@@ -1706,7 +1968,7 @@ exports[`Storyshots Layout KTopbar 1`] = `
     </div>
   </button>
   <a>
-    <button tabindex="0" class="q-btn inline relative-position q-btn-item non-selectable q-btn-rectangle q-btn-flat q-focusable q-hoverable q-btn-dense">
+    <button tabindex="0" type="button" class="q-btn inline relative-position q-btn-item non-selectable q-btn-rectangle q-btn-flat q-focusable q-hoverable q-btn-dense">
       <div class="q-focus-helper"></div>
       <div class="q-btn-inner row col items-center justify-center">
         <i aria-hidden="true" class="q-icon presence-indicator fas fa-circle text-secondary"> </i>
@@ -1718,7 +1980,7 @@ exports[`Storyshots Layout KTopbar 1`] = `
       </div>
     </button>
   </a>
-  <button tabindex="0" class="q-btn inline relative-position q-btn-item non-selectable q-btn-round q-btn-flat q-focusable q-hoverable q-btn-dense">
+  <button tabindex="0" type="button" class="q-btn inline relative-position q-btn-item non-selectable q-btn-round q-btn-flat q-focusable q-hoverable q-btn-dense">
     <div class="q-focus-helper"></div>
     <div class="q-btn-inner row col items-center justify-center">
       <i aria-hidden="true" class="q-icon fas fa-ellipsis-v"> </i>
@@ -1936,7 +2198,7 @@ exports[`Storyshots Map GroupMap (group has no location) 1`] = `
   <!---->
   <div class="overlay row justify-center content-center">
     <a>
-      <button tabindex="0" class="q-btn inline relative-position q-btn-item non-selectable q-btn-rectangle q-focusable q-hoverable bg-primary text-white">
+      <button tabindex="0" type="button" class="q-btn inline relative-position q-btn-item non-selectable q-btn-rectangle q-focusable q-hoverable bg-primary text-white">
         <div class="q-focus-helper"></div>
         <div class="q-btn-inner row col items-center justify-center">
           Set location
@@ -1975,7 +2237,7 @@ exports[`Storyshots Map GroupMap (store has no location) 1`] = `
   <!---->
   <div class="overlay row justify-center content-center">
     <a>
-      <button tabindex="0" class="q-btn inline relative-position q-btn-item non-selectable q-btn-rectangle q-focusable q-hoverable bg-primary text-white">
+      <button tabindex="0" type="button" class="q-btn inline relative-position q-btn-item non-selectable q-btn-rectangle q-focusable q-hoverable bg-primary text-white">
         <div class="q-focus-helper"></div>
         <div class="q-btn-inner row col items-center justify-center">
           Set location
@@ -2804,11 +3066,11 @@ exports[`Storyshots PickupSeriesEdit Default 1`] = `
         </div>
         <div class="q-field-content col-xs-12 col-sm">
           <div tabindex="-1" max-length="500" class="q-if row no-wrap items-end relative-position q-input text-primary">
-            <div class="q-if-inner col row no-wrap relative-position">
+            <div class="q-if-inner col row no-wrap relative-position q-if-inner-dynamic">
               <div class="col row relative-position">
                 <object type="text/html" data="about:blank" aria-hidden="true" style="display:block;position:absolute;top:0;left:0;right:0;bottom:0;height:100%;width:100%;overflow:hidden;pointer-events:none;z-index:-1;"></object>
-                <textarea max-length="500" rows="1" class="col q-input-target q-input-shadow absolute-top">a nice description for the series</textarea>
-                <textarea max-length="500" rows="1" class="col q-input-target q-input-area">a nice description for the series</textarea>
+                <textarea rows="1" max-length="500" class="col q-input-target q-input-shadow absolute-top">a nice description for the series</textarea>
+                <textarea rows="1" max-length="500" class="col q-input-target q-input-area">a nice description for the series</textarea>
               </div>
             </div>
           </div>
@@ -3012,7 +3274,7 @@ exports[`Storyshots Settings Page Default 1`] = `
         </div>
         <!---->
         <div class="actionButtons">
-          <button tabindex="0" disabled="disabled" class="q-btn inline relative-position q-btn-item non-selectable q-btn-rectangle q-focusable q-hoverable bg-primary text-white">
+          <button tabindex="0" type="button" disabled="disabled" class="q-btn inline relative-position q-btn-item non-selectable q-btn-rectangle q-focusable q-hoverable bg-primary text-white">
             <div class="q-focus-helper"></div>
             <div class="q-btn-inner row col items-center justify-center"></div>
           </button>
@@ -3075,7 +3337,7 @@ exports[`Storyshots Settings Page Default 1`] = `
                     <div class="q-tabs-panes">
                       <div class="q-tab-pane">
                         <div tabindex="-1" rows="1" class="q-if row no-wrap items-end relative-position q-input text-primary">
-                          <div class="q-if-inner col row no-wrap relative-position">
+                          <div class="q-if-inner col row no-wrap relative-position q-if-inner-dynamic">
                             <div class="col row relative-position">
                               <object type="text/html" data="about:blank" aria-hidden="true" style="display:block;position:absolute;top:0;left:0;right:0;bottom:0;height:100%;width:100%;overflow:hidden;pointer-events:none;z-index:-1;"></object>
                               <textarea rows="1" class="col q-input-target q-input-shadow absolute-top">I am the current User!</textarea>
@@ -3199,7 +3461,7 @@ exports[`Storyshots Settings Page Default 1`] = `
         </div>
         <!---->
         <div class="actionButtons">
-          <button tabindex="-1" class="q-btn inline relative-position q-btn-item non-selectable q-btn-rectangle disabled bg-primary text-white">
+          <button tabindex="-1" type="button" class="q-btn inline relative-position q-btn-item non-selectable q-btn-rectangle disabled bg-primary text-white">
             <div class="q-focus-helper"></div>
             <div class="q-btn-inner row col items-center justify-center">
               Change e-mail address
@@ -3241,7 +3503,7 @@ exports[`Storyshots Settings Page Default 1`] = `
         </div>
         <!---->
         <div class="actionButtons">
-          <button tabindex="-1" class="q-btn inline relative-position q-btn-item non-selectable q-btn-rectangle disabled bg-primary text-white">
+          <button tabindex="-1" type="button" class="q-btn inline relative-position q-btn-item non-selectable q-btn-rectangle disabled bg-primary text-white">
             <div class="q-focus-helper"></div>
             <div class="q-btn-inner row col items-center justify-center">
               Change password
@@ -3251,7 +3513,7 @@ exports[`Storyshots Settings Page Default 1`] = `
       </div>
       <div class="q-card-actions q-card-actions-horiz row justify-start">
         <div>
-          <button tabindex="0" class="q-btn inline relative-position q-btn-item non-selectable q-btn-rectangle q-btn-flat q-focusable q-hoverable text-negative">
+          <button tabindex="0" type="button" class="q-btn inline relative-position q-btn-item non-selectable q-btn-rectangle q-btn-flat q-focusable q-hoverable text-negative">
             <div class="q-focus-helper"></div>
             <div class="q-btn-inner row col items-center justify-center">
               <i aria-hidden="true" class="q-icon fas fa-trash-alt on-left"> </i>
@@ -3309,7 +3571,7 @@ exports[`Storyshots Sidenav Boxes Group 1`] = `
       Home
     </div>
     <div class="tools">
-      <a tabindex="0" href="#/" class="q-btn inline relative-position q-btn-item non-selectable q-btn-round q-btn-flat q-focusable q-hoverable q-btn-dense">
+      <a tabindex="0" type="button" href="#/" class="q-btn inline relative-position q-btn-item non-selectable q-btn-round q-btn-flat q-focusable q-hoverable q-btn-dense">
         <div class="q-focus-helper"></div>
         <div class="q-btn-inner row col items-center justify-center">
           <i aria-hidden="true" class="q-icon fas fa-cog fa-fw"> </i>
@@ -3318,7 +3580,7 @@ exports[`Storyshots Sidenav Boxes Group 1`] = `
           </div>
         </div>
       </a>
-      <button tabindex="0" class="q-btn inline relative-position q-btn-item non-selectable q-btn-round q-btn-flat q-focusable q-hoverable q-btn-dense">
+      <button tabindex="0" type="button" class="q-btn inline relative-position q-btn-item non-selectable q-btn-round q-btn-flat q-focusable q-hoverable q-btn-dense">
         <div class="q-focus-helper"></div>
         <div class="q-btn-inner row col items-center justify-center">
           <i aria-hidden="true" class="q-icon fas fa-fw fa-ellipsis-v"> </i>
@@ -3346,7 +3608,7 @@ exports[`Storyshots Sidenav Boxes Group 1`] = `
         </div>
       </button>
     </div>
-    <button tabindex="0" class="q-btn inline relative-position q-btn-item non-selectable card-arrow q-btn-round q-btn-flat q-focusable q-hoverable q-btn-dense" style="font-size:10px;">
+    <button tabindex="0" type="button" class="q-btn inline relative-position q-btn-item non-selectable card-arrow q-btn-round q-btn-flat q-focusable q-hoverable q-btn-dense" style="font-size:10px;">
       <div class="q-focus-helper"></div>
       <div class="q-btn-inner row col items-center justify-center">
         <i aria-hidden="true" class="q-icon fas fa-angle-down arrow upsideDown"> </i>
@@ -3417,7 +3679,7 @@ exports[`Storyshots Sidenav Boxes Map 1`] = `
     <!---->
   </div>
   <div class="q-btn-group row no-wrap inline k-groupmapcontrols">
-    <button tabindex="0" class="q-btn inline relative-position q-btn-item non-selectable q-btn-rectangle q-focusable q-hoverable bg-primary text-white" style="font-size:10px;">
+    <button tabindex="0" type="button" class="q-btn inline relative-position q-btn-item non-selectable q-btn-rectangle q-focusable q-hoverable bg-primary text-white" style="font-size:10px;">
       <div class="q-focus-helper"></div>
       <div class="q-btn-inner row col items-center justify-center">
         <i class="fas fa-expand-arrows-alt fa-stack-1x"></i>
@@ -3429,7 +3691,7 @@ exports[`Storyshots Sidenav Boxes Map 1`] = `
       </div>
     </button>
     <!---->
-    <button tabindex="0" class="q-btn inline relative-position q-btn-item non-selectable q-btn-rectangle q-focusable q-hoverable bg-primary text-white" style="font-size:10px;">
+    <button tabindex="0" type="button" class="q-btn inline relative-position q-btn-item non-selectable q-btn-rectangle q-focusable q-hoverable bg-primary text-white" style="font-size:10px;">
       <div class="q-focus-helper"></div>
       <div class="q-btn-inner row col items-center justify-center"><span class="fa-fw fa-stack"><i class="fas fa-shopping-cart fa-stack-1x"></i> <i class="fas fa-check bottom-right fa-stack-1x"></i></span>
         <div class="q-tooltip animate-popup">
@@ -3439,7 +3701,7 @@ exports[`Storyshots Sidenav Boxes Map 1`] = `
         </div>
       </div>
     </button>
-    <button tabindex="0" class="q-btn inline relative-position q-btn-item non-selectable q-btn-rectangle q-focusable q-hoverable bg-primary text-white" style="font-size:10px;">
+    <button tabindex="0" type="button" class="q-btn inline relative-position q-btn-item non-selectable q-btn-rectangle q-focusable q-hoverable bg-primary text-white" style="font-size:10px;">
       <div class="q-focus-helper"></div>
       <div class="q-btn-inner row col items-center justify-center"><span class="fa-fw fa-stack"><i class="fas fa-user fa-stack-1x"></i> <i class="fas fa-check bottom-right fa-stack-1x"></i></span>
         <div class="q-tooltip animate-popup">
@@ -3476,7 +3738,7 @@ exports[`Storyshots Sidenav Boxes Stores 1`] = `
           <div></div>
         </div>
       </div>
-      <a tabindex="0" href="#/" class="q-btn inline relative-position q-btn-item non-selectable q-btn-round q-btn-flat q-focusable q-hoverable q-btn-dense">
+      <a tabindex="0" type="button" href="#/" class="q-btn inline relative-position q-btn-item non-selectable q-btn-round q-btn-flat q-focusable q-hoverable q-btn-dense">
         <div class="q-focus-helper"></div>
         <div class="q-btn-inner row col items-center justify-center">
           <i aria-hidden="true" class="q-icon fas fa-fw fa-plus-circle"> </i>
@@ -3486,7 +3748,7 @@ exports[`Storyshots Sidenav Boxes Stores 1`] = `
         </div>
       </a>
     </div>
-    <button tabindex="0" class="q-btn inline relative-position q-btn-item non-selectable card-arrow q-btn-round q-btn-flat q-focusable q-hoverable q-btn-dense" style="font-size:10px;">
+    <button tabindex="0" type="button" class="q-btn inline relative-position q-btn-item non-selectable card-arrow q-btn-round q-btn-flat q-focusable q-hoverable q-btn-dense" style="font-size:10px;">
       <div class="q-focus-helper"></div>
       <div class="q-btn-inner row col items-center justify-center">
         <i aria-hidden="true" class="q-icon fas fa-angle-down arrow upsideDown"> </i>
@@ -3844,7 +4106,7 @@ exports[`Storyshots Statistics AmountPicker 1`] = `
           <img src="test-file-stub">
         </div>
       </div>
-      <button tabindex="0" class="q-btn inline relative-position q-btn-item non-selectable self-start q-btn-round q-btn-flat q-focusable q-hoverable text-red">
+      <button tabindex="0" type="button" class="q-btn inline relative-position q-btn-item non-selectable self-start q-btn-round q-btn-flat q-focusable q-hoverable text-red">
         <div class="q-focus-helper"></div>
         <div class="q-btn-inner row col items-center justify-center">
           <i aria-hidden="true" class="q-icon fas fa-times"> </i>
@@ -4113,11 +4375,11 @@ exports[`Storyshots Statistics PickupFeedback 1`] = `
             <div class="q-tabs-panes">
               <div class="q-tab-pane">
                 <div tabindex="-1" autocomplete="off" rows="1" class="q-if row no-wrap items-end relative-position q-input text-primary">
-                  <div class="q-if-inner col row no-wrap relative-position">
+                  <div class="q-if-inner col row no-wrap relative-position q-if-inner-dynamic">
                     <div class="col row relative-position">
                       <object type="text/html" data="about:blank" aria-hidden="true" style="display:block;position:absolute;top:0;left:0;right:0;bottom:0;height:100%;width:100%;overflow:hidden;pointer-events:none;z-index:-1;"></object>
-                      <textarea autocomplete="off" rows="1" class="col q-input-target q-input-shadow absolute-top"></textarea>
-                      <textarea autocomplete="off" rows="1" placeholder="Was everything fine? Did everyone show up? Your comment here..." class="col q-input-target q-input-area"></textarea>
+                      <textarea rows="1" autocomplete="off" class="col q-input-target q-input-shadow absolute-top"></textarea>
+                      <textarea rows="1" autocomplete="off" placeholder="Was everything fine? Did everyone show up? Your comment here..." class="col q-input-target q-input-area"></textarea>
                     </div>
                   </div>
                 </div>
@@ -4134,7 +4396,7 @@ exports[`Storyshots Statistics PickupFeedback 1`] = `
           </div>
         </div>
         <div class="wrapper showOverlay" style="margin-top:40px;">
-          <button tabindex="0" class="q-btn inline relative-position q-btn-item non-selectable absolute-center q-btn-rectangle q-focusable q-hoverable bg-primary text-white" style="z-index:1;">
+          <button tabindex="0" type="button" class="q-btn inline relative-position q-btn-item non-selectable absolute-center q-btn-rectangle q-focusable q-hoverable bg-primary text-white" style="z-index:1;">
             <div class="q-focus-helper"></div>
             <div class="q-btn-inner row col items-center justify-center"></div>
           </button>
@@ -4415,7 +4677,7 @@ exports[`Storyshots Stores StoreEdit (with server error) 1`] = `
                   <div class="q-tabs-panes">
                     <div class="q-tab-pane">
                       <div tabindex="-1" rows="3" class="q-if row no-wrap items-end relative-position q-input text-primary">
-                        <div class="q-if-inner col row no-wrap relative-position">
+                        <div class="q-if-inner col row no-wrap relative-position q-if-inner-dynamic">
                           <div class="col row relative-position">
                             <object type="text/html" data="about:blank" aria-hidden="true" style="display:block;position:absolute;top:0;left:0;right:0;bottom:0;height:100%;width:100%;overflow:hidden;pointer-events:none;z-index:-1;"></object>
                             <textarea rows="3" class="col q-input-target q-input-shadow absolute-top">all the good stuff</textarea>
@@ -4623,7 +4885,7 @@ exports[`Storyshots Stores StoreEdit 1`] = `
                   <div class="q-tabs-panes">
                     <div class="q-tab-pane">
                       <div tabindex="-1" rows="3" class="q-if row no-wrap items-end relative-position q-input text-primary">
-                        <div class="q-if-inner col row no-wrap relative-position">
+                        <div class="q-if-inner col row no-wrap relative-position q-if-inner-dynamic">
                           <div class="col row relative-position">
                             <object type="text/html" data="about:blank" aria-hidden="true" style="display:block;position:absolute;top:0;left:0;right:0;bottom:0;height:100%;width:100%;overflow:hidden;pointer-events:none;z-index:-1;"></object>
                             <textarea rows="3" class="col q-input-target q-input-shadow absolute-top">all the good stuff</textarea>
@@ -4787,7 +5049,7 @@ exports[`Storyshots VerifyMail error 1`] = `
     this error is returned by the server
   </p>
   <a>
-    <button tabindex="0" class="q-btn inline relative-position q-btn-item non-selectable q-btn-rectangle q-btn-push q-focusable q-hoverable bg-secondary text-white">
+    <button tabindex="0" type="button" class="q-btn inline relative-position q-btn-item non-selectable q-btn-rectangle q-btn-push q-focusable q-hoverable bg-secondary text-white">
       <div class="q-focus-helper"></div>
       <div class="q-btn-inner row col items-center justify-center">
         <i aria-hidden="true" class="q-icon on-right fas fa-home"> </i>
@@ -4805,7 +5067,7 @@ exports[`Storyshots VerifyMail pending 1`] = `
   <!---->
   <!---->
   <a>
-    <button tabindex="0" class="q-btn inline relative-position q-btn-item non-selectable q-btn-rectangle q-btn-push q-focusable q-hoverable bg-secondary text-white">
+    <button tabindex="0" type="button" class="q-btn inline relative-position q-btn-item non-selectable q-btn-rectangle q-btn-push q-focusable q-hoverable bg-secondary text-white">
       <div class="q-focus-helper"></div>
       <div class="q-btn-inner row col items-center justify-center">
         <i aria-hidden="true" class="q-icon on-right fas fa-home"> </i>
@@ -4823,7 +5085,7 @@ exports[`Storyshots VerifyMail success 1`] = `
   </p>
   <!---->
   <a>
-    <button tabindex="0" class="q-btn inline relative-position q-btn-item non-selectable q-btn-rectangle q-btn-push q-focusable q-hoverable bg-secondary text-white">
+    <button tabindex="0" type="button" class="q-btn inline relative-position q-btn-item non-selectable q-btn-rectangle q-btn-push q-focusable q-hoverable bg-secondary text-white">
       <div class="q-focus-helper"></div>
       <div class="q-btn-inner row col items-center justify-center">
         <i aria-hidden="true" class="q-icon on-right fas fa-home"> </i>
@@ -4838,7 +5100,7 @@ exports[`Storyshots WallConversation WallConversation 1`] = `
   <div class="q-infinite-scroll">
     <div class="q-infinite-scroll-content">
       <div class="q-list bg-white desktop-margin relative-position">
-        <button tabindex="0" class="q-btn inline relative-position q-btn-item non-selectable actionButton hoverScale q-btn-round q-focusable q-hoverable bg-negative text-white">
+        <button tabindex="0" type="button" class="q-btn inline relative-position q-btn-item non-selectable actionButton hoverScale q-btn-round q-focusable q-hoverable bg-negative text-white">
           <div class="q-focus-helper"></div>
           <div class="q-btn-inner row col items-center justify-center">
             <i aria-hidden="true" class="q-icon fas fa-bell-slash"> </i>
@@ -4892,7 +5154,7 @@ exports[`Storyshots WallConversation WallConversation 1`] = `
                         <div class="q-tabs-panes">
                           <div class="q-tab-pane">
                             <div tabindex="-1" rows="1" class="q-if row no-wrap items-end relative-position q-input text-primary">
-                              <div class="q-if-inner col row no-wrap relative-position">
+                              <div class="q-if-inner col row no-wrap relative-position q-if-inner-dynamic">
                                 <div class="col row relative-position">
                                   <object type="text/html" data="about:blank" aria-hidden="true" style="display:block;position:absolute;top:0;left:0;right:0;bottom:0;height:100%;width:100%;overflow:hidden;pointer-events:none;z-index:-1;"></object>
                                   <textarea rows="1" class="col q-input-target q-input-shadow absolute-top"></textarea>
@@ -4923,7 +5185,7 @@ exports[`Storyshots WallConversation WallConversation 1`] = `
         <div class="conversation-message relative-position q-item q-item-division relative-position q-item-multiline q-item-highlight">
           <div class="q-btn-group row no-wrap inline hover-button k-message-controls q-btn-group-flat">
             <!---->
-            <button tabindex="0" class="q-btn inline relative-position q-btn-item non-selectable q-btn-rectangle q-btn-flat q-focusable q-hoverable">
+            <button tabindex="0" type="button" class="q-btn inline relative-position q-btn-item non-selectable q-btn-rectangle q-btn-flat q-focusable q-hoverable">
               <div class="q-focus-helper"></div>
               <div class="q-btn-inner row col items-center justify-center">
                 <i class="fas fa-comments"></i>
@@ -4932,7 +5194,7 @@ exports[`Storyshots WallConversation WallConversation 1`] = `
                 </div>
               </div>
             </button>
-            <button tabindex="0" class="q-btn inline relative-position q-btn-item non-selectable q-btn-rectangle q-btn-flat q-focusable q-hoverable">
+            <button tabindex="0" type="button" class="q-btn inline relative-position q-btn-item non-selectable q-btn-rectangle q-btn-flat q-focusable q-hoverable">
               <div class="q-focus-helper"></div>
               <div class="q-btn-inner row col items-center justify-center"><span style="opacity:1;"><i class="far fa-smile"></i> +
   </span>
@@ -4959,10 +5221,10 @@ exports[`Storyshots WallConversation WallConversation 1`] = `
                 <p>first messsage</p>
               </div>
             </div>
-            <!----><span class="conversation-reactions" style="margin-top:8px;display:block;"><span class="reactions"><button tabindex="0" title="Mira Bellenbaum reacted with :thumbsup:" class="q-btn inline relative-position q-btn-item non-selectable row no-wrap items-center reaction-box q-btn-rectangle q-btn-flat q-focusable q-hoverable"><div class="q-focus-helper"></div><div class="q-btn-inner row col items-center justify-center"><div class="emoji"></div> <span class="reactions-number">1</span></div>
+            <!----><span class="conversation-reactions" style="margin-top:8px;display:block;"><span class="reactions"><button tabindex="0" type="button" title="Mira Bellenbaum reacted with :thumbsup:" class="q-btn inline relative-position q-btn-item non-selectable row no-wrap items-center reaction-box q-btn-rectangle q-btn-flat q-focusable q-hoverable"><div class="q-focus-helper"></div><div class="q-btn-inner row col items-center justify-center"><div class="emoji"></div> <span class="reactions-number">1</span></div>
           </button>
           </span>
-          <button tabindex="0" class="q-btn inline relative-position q-btn-item non-selectable add-button reaction-box q-btn-rectangle q-btn-flat q-focusable q-hoverable">
+          <button tabindex="0" type="button" class="q-btn inline relative-position q-btn-item non-selectable add-button reaction-box q-btn-rectangle q-btn-flat q-focusable q-hoverable">
             <div class="q-focus-helper"></div>
             <div class="q-btn-inner row col items-center justify-center"><span style="opacity:0.5;"><i class="far fa-smile"></i> +
   </span>
@@ -4976,7 +5238,7 @@ exports[`Storyshots WallConversation WallConversation 1`] = `
       <div class="conversation-message relative-position q-item q-item-division relative-position q-item-multiline q-item-highlight">
         <div class="q-btn-group row no-wrap inline hover-button k-message-controls q-btn-group-flat">
           <!---->
-          <button tabindex="0" class="q-btn inline relative-position q-btn-item non-selectable q-btn-rectangle q-btn-flat q-focusable q-hoverable">
+          <button tabindex="0" type="button" class="q-btn inline relative-position q-btn-item non-selectable q-btn-rectangle q-btn-flat q-focusable q-hoverable">
             <div class="q-focus-helper"></div>
             <div class="q-btn-inner row col items-center justify-center">
               <i class="fas fa-comments"></i>
@@ -4985,7 +5247,7 @@ exports[`Storyshots WallConversation WallConversation 1`] = `
               </div>
             </div>
           </button>
-          <button tabindex="0" class="q-btn inline relative-position q-btn-item non-selectable q-btn-rectangle q-btn-flat q-focusable q-hoverable">
+          <button tabindex="0" type="button" class="q-btn inline relative-position q-btn-item non-selectable q-btn-rectangle q-btn-flat q-focusable q-hoverable">
             <div class="q-focus-helper"></div>
             <div class="q-btn-inner row col items-center justify-center"><span style="opacity:1;"><i class="far fa-smile"></i> +
   </span>
@@ -5012,10 +5274,10 @@ exports[`Storyshots WallConversation WallConversation 1`] = `
               <p>second messsage</p>
             </div>
           </div>
-          <!----><span class="conversation-reactions" style="margin-top:8px;display:block;"><span class="reactions"><button tabindex="0" title="Mira Bellenbaum reacted with :thumbsup:" class="q-btn inline relative-position q-btn-item non-selectable row no-wrap items-center reaction-box q-btn-rectangle q-btn-flat q-focusable q-hoverable"><div class="q-focus-helper"></div><div class="q-btn-inner row col items-center justify-center"><div class="emoji"></div> <span class="reactions-number">1</span></div>
+          <!----><span class="conversation-reactions" style="margin-top:8px;display:block;"><span class="reactions"><button tabindex="0" type="button" title="Mira Bellenbaum reacted with :thumbsup:" class="q-btn inline relative-position q-btn-item non-selectable row no-wrap items-center reaction-box q-btn-rectangle q-btn-flat q-focusable q-hoverable"><div class="q-focus-helper"></div><div class="q-btn-inner row col items-center justify-center"><div class="emoji"></div> <span class="reactions-number">1</span></div>
         </button>
         </span>
-        <button tabindex="0" class="q-btn inline relative-position q-btn-item non-selectable add-button reaction-box q-btn-rectangle q-btn-flat q-focusable q-hoverable">
+        <button tabindex="0" type="button" class="q-btn inline relative-position q-btn-item non-selectable add-button reaction-box q-btn-rectangle q-btn-flat q-focusable q-hoverable">
           <div class="q-focus-helper"></div>
           <div class="q-btn-inner row col items-center justify-center"><span style="opacity:0.5;"><i class="far fa-smile"></i> +
   </span>
@@ -5029,7 +5291,7 @@ exports[`Storyshots WallConversation WallConversation 1`] = `
     <div class="conversation-message relative-position q-item q-item-division relative-position q-item-multiline q-item-highlight">
       <div class="q-btn-group row no-wrap inline hover-button k-message-controls q-btn-group-flat">
         <!---->
-        <button tabindex="0" class="q-btn inline relative-position q-btn-item non-selectable q-btn-rectangle q-btn-flat q-focusable q-hoverable">
+        <button tabindex="0" type="button" class="q-btn inline relative-position q-btn-item non-selectable q-btn-rectangle q-btn-flat q-focusable q-hoverable">
           <div class="q-focus-helper"></div>
           <div class="q-btn-inner row col items-center justify-center">
             <i class="fas fa-comments"></i>
@@ -5038,7 +5300,7 @@ exports[`Storyshots WallConversation WallConversation 1`] = `
             </div>
           </div>
         </button>
-        <button tabindex="0" class="q-btn inline relative-position q-btn-item non-selectable q-btn-rectangle q-btn-flat q-focusable q-hoverable">
+        <button tabindex="0" type="button" class="q-btn inline relative-position q-btn-item non-selectable q-btn-rectangle q-btn-flat q-focusable q-hoverable">
           <div class="q-focus-helper"></div>
           <div class="q-btn-inner row col items-center justify-center"><span style="opacity:1;"><i class="far fa-smile"></i> +
   </span>
@@ -5065,10 +5327,10 @@ exports[`Storyshots WallConversation WallConversation 1`] = `
             <p>first messsage</p>
           </div>
         </div>
-        <!----><span class="conversation-reactions" style="margin-top:8px;display:block;"><span class="reactions"><button tabindex="0" title="Mira Bellenbaum reacted with :thumbsup:" class="q-btn inline relative-position q-btn-item non-selectable row no-wrap items-center reaction-box q-btn-rectangle q-btn-flat q-focusable q-hoverable"><div class="q-focus-helper"></div><div class="q-btn-inner row col items-center justify-center"><div class="emoji"></div> <span class="reactions-number">1</span></div>
+        <!----><span class="conversation-reactions" style="margin-top:8px;display:block;"><span class="reactions"><button tabindex="0" type="button" title="Mira Bellenbaum reacted with :thumbsup:" class="q-btn inline relative-position q-btn-item non-selectable row no-wrap items-center reaction-box q-btn-rectangle q-btn-flat q-focusable q-hoverable"><div class="q-focus-helper"></div><div class="q-btn-inner row col items-center justify-center"><div class="emoji"></div> <span class="reactions-number">1</span></div>
       </button>
       </span>
-      <button tabindex="0" class="q-btn inline relative-position q-btn-item non-selectable add-button reaction-box q-btn-rectangle q-btn-flat q-focusable q-hoverable">
+      <button tabindex="0" type="button" class="q-btn inline relative-position q-btn-item non-selectable add-button reaction-box q-btn-rectangle q-btn-flat q-focusable q-hoverable">
         <div class="q-focus-helper"></div>
         <div class="q-btn-inner row col items-center justify-center"><span style="opacity:0.5;"><i class="far fa-smile"></i> +
   </span>
@@ -5082,7 +5344,7 @@ exports[`Storyshots WallConversation WallConversation 1`] = `
   <div class="conversation-message relative-position q-item q-item-division relative-position q-item-multiline q-item-highlight">
     <div class="q-btn-group row no-wrap inline hover-button k-message-controls q-btn-group-flat">
       <!---->
-      <button tabindex="0" class="q-btn inline relative-position q-btn-item non-selectable q-btn-rectangle q-btn-flat q-focusable q-hoverable">
+      <button tabindex="0" type="button" class="q-btn inline relative-position q-btn-item non-selectable q-btn-rectangle q-btn-flat q-focusable q-hoverable">
         <div class="q-focus-helper"></div>
         <div class="q-btn-inner row col items-center justify-center">
           <i class="fas fa-comments"></i>
@@ -5091,7 +5353,7 @@ exports[`Storyshots WallConversation WallConversation 1`] = `
           </div>
         </div>
       </button>
-      <button tabindex="0" class="q-btn inline relative-position q-btn-item non-selectable q-btn-rectangle q-btn-flat q-focusable q-hoverable">
+      <button tabindex="0" type="button" class="q-btn inline relative-position q-btn-item non-selectable q-btn-rectangle q-btn-flat q-focusable q-hoverable">
         <div class="q-focus-helper"></div>
         <div class="q-btn-inner row col items-center justify-center"><span style="opacity:1;"><i class="far fa-smile"></i> +
   </span>
@@ -5118,10 +5380,10 @@ exports[`Storyshots WallConversation WallConversation 1`] = `
           <p>welcome to fs chat</p>
         </div>
       </div>
-      <!----><span class="conversation-reactions" style="margin-top:8px;display:block;"><span class="reactions"><button tabindex="0" title="Mira Bellenbaum reacted with :thumbsup:" class="q-btn inline relative-position q-btn-item non-selectable row no-wrap items-center reaction-box q-btn-rectangle q-btn-flat q-focusable q-hoverable"><div class="q-focus-helper"></div><div class="q-btn-inner row col items-center justify-center"><div class="emoji"></div> <span class="reactions-number">1</span></div>
+      <!----><span class="conversation-reactions" style="margin-top:8px;display:block;"><span class="reactions"><button tabindex="0" type="button" title="Mira Bellenbaum reacted with :thumbsup:" class="q-btn inline relative-position q-btn-item non-selectable row no-wrap items-center reaction-box q-btn-rectangle q-btn-flat q-focusable q-hoverable"><div class="q-focus-helper"></div><div class="q-btn-inner row col items-center justify-center"><div class="emoji"></div> <span class="reactions-number">1</span></div>
     </button>
     </span>
-    <button tabindex="0" class="q-btn inline relative-position q-btn-item non-selectable add-button reaction-box q-btn-rectangle q-btn-flat q-focusable q-hoverable">
+    <button tabindex="0" type="button" class="q-btn inline relative-position q-btn-item non-selectable add-button reaction-box q-btn-rectangle q-btn-flat q-focusable q-hoverable">
       <div class="q-focus-helper"></div>
       <div class="q-btn-inner row col items-center justify-center"><span style="opacity:0.5;"><i class="far fa-smile"></i> +
   </span>
@@ -5135,7 +5397,7 @@ exports[`Storyshots WallConversation WallConversation 1`] = `
 <div class="conversation-message relative-position q-item q-item-division relative-position q-item-multiline q-item-highlight">
   <div class="q-btn-group row no-wrap inline hover-button k-message-controls q-btn-group-flat">
     <!---->
-    <button tabindex="0" class="q-btn inline relative-position q-btn-item non-selectable q-btn-rectangle q-btn-flat q-focusable q-hoverable">
+    <button tabindex="0" type="button" class="q-btn inline relative-position q-btn-item non-selectable q-btn-rectangle q-btn-flat q-focusable q-hoverable">
       <div class="q-focus-helper"></div>
       <div class="q-btn-inner row col items-center justify-center">
         <i class="fas fa-comments"></i>
@@ -5144,7 +5406,7 @@ exports[`Storyshots WallConversation WallConversation 1`] = `
         </div>
       </div>
     </button>
-    <button tabindex="0" class="q-btn inline relative-position q-btn-item non-selectable q-btn-rectangle q-btn-flat q-focusable q-hoverable">
+    <button tabindex="0" type="button" class="q-btn inline relative-position q-btn-item non-selectable q-btn-rectangle q-btn-flat q-focusable q-hoverable">
       <div class="q-focus-helper"></div>
       <div class="q-btn-inner row col items-center justify-center"><span style="opacity:1;"><i class="far fa-smile"></i> +
   </span>
@@ -5171,10 +5433,10 @@ exports[`Storyshots WallConversation WallConversation 1`] = `
         <p>heyo!</p>
       </div>
     </div>
-    <!----><span class="conversation-reactions" style="margin-top:8px;display:block;"><span class="reactions"><button tabindex="0" title="Mira Bellenbaum reacted with :thumbsup:" class="q-btn inline relative-position q-btn-item non-selectable row no-wrap items-center reaction-box q-btn-rectangle q-btn-flat q-focusable q-hoverable"><div class="q-focus-helper"></div><div class="q-btn-inner row col items-center justify-center"><div class="emoji"></div> <span class="reactions-number">1</span></div>
+    <!----><span class="conversation-reactions" style="margin-top:8px;display:block;"><span class="reactions"><button tabindex="0" type="button" title="Mira Bellenbaum reacted with :thumbsup:" class="q-btn inline relative-position q-btn-item non-selectable row no-wrap items-center reaction-box q-btn-rectangle q-btn-flat q-focusable q-hoverable"><div class="q-focus-helper"></div><div class="q-btn-inner row col items-center justify-center"><div class="emoji"></div> <span class="reactions-number">1</span></div>
   </button>
   </span>
-  <button tabindex="0" class="q-btn inline relative-position q-btn-item non-selectable add-button reaction-box q-btn-rectangle q-btn-flat q-focusable q-hoverable">
+  <button tabindex="0" type="button" class="q-btn inline relative-position q-btn-item non-selectable add-button reaction-box q-btn-rectangle q-btn-flat q-focusable q-hoverable">
     <div class="q-focus-helper"></div>
     <div class="q-btn-inner row col items-center justify-center"><span style="opacity:0.5;"><i class="far fa-smile"></i> +
   </span>
@@ -5188,7 +5450,7 @@ exports[`Storyshots WallConversation WallConversation 1`] = `
 <div class="conversation-message relative-position q-item q-item-division relative-position q-item-multiline q-item-highlight">
   <div class="q-btn-group row no-wrap inline hover-button k-message-controls q-btn-group-flat">
     <!---->
-    <button tabindex="0" class="q-btn inline relative-position q-btn-item non-selectable q-btn-rectangle q-btn-flat q-focusable q-hoverable">
+    <button tabindex="0" type="button" class="q-btn inline relative-position q-btn-item non-selectable q-btn-rectangle q-btn-flat q-focusable q-hoverable">
       <div class="q-focus-helper"></div>
       <div class="q-btn-inner row col items-center justify-center">
         <i class="fas fa-comments"></i>
@@ -5197,7 +5459,7 @@ exports[`Storyshots WallConversation WallConversation 1`] = `
         </div>
       </div>
     </button>
-    <button tabindex="0" class="q-btn inline relative-position q-btn-item non-selectable q-btn-rectangle q-btn-flat q-focusable q-hoverable">
+    <button tabindex="0" type="button" class="q-btn inline relative-position q-btn-item non-selectable q-btn-rectangle q-btn-flat q-focusable q-hoverable">
       <div class="q-focus-helper"></div>
       <div class="q-btn-inner row col items-center justify-center"><span style="opacity:1;"><i class="far fa-smile"></i> +
   </span>
@@ -5224,10 +5486,10 @@ exports[`Storyshots WallConversation WallConversation 1`] = `
         <p>you made it!</p>
       </div>
     </div>
-    <!----><span class="conversation-reactions" style="margin-top:8px;display:block;"><span class="reactions"><button tabindex="0" title="Mira Bellenbaum reacted with :thumbsup:" class="q-btn inline relative-position q-btn-item non-selectable row no-wrap items-center reaction-box q-btn-rectangle q-btn-flat q-focusable q-hoverable"><div class="q-focus-helper"></div><div class="q-btn-inner row col items-center justify-center"><div class="emoji"></div> <span class="reactions-number">1</span></div>
+    <!----><span class="conversation-reactions" style="margin-top:8px;display:block;"><span class="reactions"><button tabindex="0" type="button" title="Mira Bellenbaum reacted with :thumbsup:" class="q-btn inline relative-position q-btn-item non-selectable row no-wrap items-center reaction-box q-btn-rectangle q-btn-flat q-focusable q-hoverable"><div class="q-focus-helper"></div><div class="q-btn-inner row col items-center justify-center"><div class="emoji"></div> <span class="reactions-number">1</span></div>
   </button>
   </span>
-  <button tabindex="0" class="q-btn inline relative-position q-btn-item non-selectable add-button reaction-box q-btn-rectangle q-btn-flat q-focusable q-hoverable">
+  <button tabindex="0" type="button" class="q-btn inline relative-position q-btn-item non-selectable add-button reaction-box q-btn-rectangle q-btn-flat q-focusable q-hoverable">
     <div class="q-focus-helper"></div>
     <div class="q-btn-inner row col items-center justify-center"><span style="opacity:0.5;"><i class="far fa-smile"></i> +
   </span>
@@ -5241,7 +5503,7 @@ exports[`Storyshots WallConversation WallConversation 1`] = `
 <div class="conversation-message relative-position q-item q-item-division relative-position q-item-multiline q-item-highlight">
   <div class="q-btn-group row no-wrap inline hover-button k-message-controls q-btn-group-flat">
     <!---->
-    <button tabindex="0" class="q-btn inline relative-position q-btn-item non-selectable q-btn-rectangle q-btn-flat q-focusable q-hoverable">
+    <button tabindex="0" type="button" class="q-btn inline relative-position q-btn-item non-selectable q-btn-rectangle q-btn-flat q-focusable q-hoverable">
       <div class="q-focus-helper"></div>
       <div class="q-btn-inner row col items-center justify-center">
         <i class="fas fa-comments"></i>
@@ -5250,7 +5512,7 @@ exports[`Storyshots WallConversation WallConversation 1`] = `
         </div>
       </div>
     </button>
-    <button tabindex="0" class="q-btn inline relative-position q-btn-item non-selectable q-btn-rectangle q-btn-flat q-focusable q-hoverable">
+    <button tabindex="0" type="button" class="q-btn inline relative-position q-btn-item non-selectable q-btn-rectangle q-btn-flat q-focusable q-hoverable">
       <div class="q-focus-helper"></div>
       <div class="q-btn-inner row col items-center justify-center"><span style="opacity:1;"><i class="far fa-smile"></i> +
   </span>
@@ -5277,10 +5539,10 @@ exports[`Storyshots WallConversation WallConversation 1`] = `
         <p>amazing!</p>
       </div>
     </div>
-    <!----><span class="conversation-reactions" style="margin-top:8px;display:block;"><span class="reactions"><button tabindex="0" title="Mira Bellenbaum reacted with :thumbsup:" class="q-btn inline relative-position q-btn-item non-selectable row no-wrap items-center reaction-box q-btn-rectangle q-btn-flat q-focusable q-hoverable"><div class="q-focus-helper"></div><div class="q-btn-inner row col items-center justify-center"><div class="emoji"></div> <span class="reactions-number">1</span></div>
+    <!----><span class="conversation-reactions" style="margin-top:8px;display:block;"><span class="reactions"><button tabindex="0" type="button" title="Mira Bellenbaum reacted with :thumbsup:" class="q-btn inline relative-position q-btn-item non-selectable row no-wrap items-center reaction-box q-btn-rectangle q-btn-flat q-focusable q-hoverable"><div class="q-focus-helper"></div><div class="q-btn-inner row col items-center justify-center"><div class="emoji"></div> <span class="reactions-number">1</span></div>
   </button>
   </span>
-  <button tabindex="0" class="q-btn inline relative-position q-btn-item non-selectable add-button reaction-box q-btn-rectangle q-btn-flat q-focusable q-hoverable">
+  <button tabindex="0" type="button" class="q-btn inline relative-position q-btn-item non-selectable add-button reaction-box q-btn-rectangle q-btn-flat q-focusable q-hoverable">
     <div class="q-focus-helper"></div>
     <div class="q-btn-inner row col items-center justify-center"><span style="opacity:0.5;"><i class="far fa-smile"></i> +
   </span>
@@ -5294,7 +5556,7 @@ exports[`Storyshots WallConversation WallConversation 1`] = `
 <div class="conversation-message relative-position q-item q-item-division relative-position q-item-multiline q-item-highlight">
   <div class="q-btn-group row no-wrap inline hover-button k-message-controls q-btn-group-flat">
     <!---->
-    <button tabindex="0" class="q-btn inline relative-position q-btn-item non-selectable q-btn-rectangle q-btn-flat q-focusable q-hoverable">
+    <button tabindex="0" type="button" class="q-btn inline relative-position q-btn-item non-selectable q-btn-rectangle q-btn-flat q-focusable q-hoverable">
       <div class="q-focus-helper"></div>
       <div class="q-btn-inner row col items-center justify-center">
         <i class="fas fa-comments"></i>
@@ -5303,7 +5565,7 @@ exports[`Storyshots WallConversation WallConversation 1`] = `
         </div>
       </div>
     </button>
-    <button tabindex="0" class="q-btn inline relative-position q-btn-item non-selectable q-btn-rectangle q-btn-flat q-focusable q-hoverable">
+    <button tabindex="0" type="button" class="q-btn inline relative-position q-btn-item non-selectable q-btn-rectangle q-btn-flat q-focusable q-hoverable">
       <div class="q-focus-helper"></div>
       <div class="q-btn-inner row col items-center justify-center"><span style="opacity:1;"><i class="far fa-smile"></i> +
   </span>
@@ -5332,10 +5594,10 @@ exports[`Storyshots WallConversation WallConversation 1`] = `
         </p>
       </div>
     </div>
-    <!----><span class="conversation-reactions" style="margin-top:8px;display:block;"><span class="reactions"><button tabindex="0" title="Mira Bellenbaum reacted with :thumbsup:" class="q-btn inline relative-position q-btn-item non-selectable row no-wrap items-center reaction-box q-btn-rectangle q-btn-flat q-focusable q-hoverable"><div class="q-focus-helper"></div><div class="q-btn-inner row col items-center justify-center"><div class="emoji"></div> <span class="reactions-number">1</span></div>
+    <!----><span class="conversation-reactions" style="margin-top:8px;display:block;"><span class="reactions"><button tabindex="0" type="button" title="Mira Bellenbaum reacted with :thumbsup:" class="q-btn inline relative-position q-btn-item non-selectable row no-wrap items-center reaction-box q-btn-rectangle q-btn-flat q-focusable q-hoverable"><div class="q-focus-helper"></div><div class="q-btn-inner row col items-center justify-center"><div class="emoji"></div> <span class="reactions-number">1</span></div>
   </button>
   </span>
-  <button tabindex="0" class="q-btn inline relative-position q-btn-item non-selectable add-button reaction-box q-btn-rectangle q-btn-flat q-focusable q-hoverable">
+  <button tabindex="0" type="button" class="q-btn inline relative-position q-btn-item non-selectable add-button reaction-box q-btn-rectangle q-btn-flat q-focusable q-hoverable">
     <div class="q-focus-helper"></div>
     <div class="q-btn-inner row col items-center justify-center"><span style="opacity:0.5;"><i class="far fa-smile"></i> +
   </span>
@@ -5349,7 +5611,7 @@ exports[`Storyshots WallConversation WallConversation 1`] = `
 <div class="conversation-message relative-position q-item q-item-division relative-position q-item-multiline q-item-highlight">
   <div class="q-btn-group row no-wrap inline hover-button k-message-controls q-btn-group-flat">
     <!---->
-    <button tabindex="0" class="q-btn inline relative-position q-btn-item non-selectable q-btn-rectangle q-btn-flat q-focusable q-hoverable">
+    <button tabindex="0" type="button" class="q-btn inline relative-position q-btn-item non-selectable q-btn-rectangle q-btn-flat q-focusable q-hoverable">
       <div class="q-focus-helper"></div>
       <div class="q-btn-inner row col items-center justify-center">
         <i class="fas fa-comments"></i>
@@ -5358,7 +5620,7 @@ exports[`Storyshots WallConversation WallConversation 1`] = `
         </div>
       </div>
     </button>
-    <button tabindex="0" class="q-btn inline relative-position q-btn-item non-selectable q-btn-rectangle q-btn-flat q-focusable q-hoverable">
+    <button tabindex="0" type="button" class="q-btn inline relative-position q-btn-item non-selectable q-btn-rectangle q-btn-flat q-focusable q-hoverable">
       <div class="q-focus-helper"></div>
       <div class="q-btn-inner row col items-center justify-center"><span style="opacity:1;"><i class="far fa-smile"></i> +
   </span>
@@ -5385,10 +5647,10 @@ exports[`Storyshots WallConversation WallConversation 1`] = `
         <p>I dont think we need to implement another UI, this is fine right?</p>
       </div>
     </div>
-    <!----><span class="conversation-reactions" style="margin-top:8px;display:block;"><span class="reactions"><button tabindex="0" title="Mira Bellenbaum reacted with :thumbsup:" class="q-btn inline relative-position q-btn-item non-selectable row no-wrap items-center reaction-box q-btn-rectangle q-btn-flat q-focusable q-hoverable"><div class="q-focus-helper"></div><div class="q-btn-inner row col items-center justify-center"><div class="emoji"></div> <span class="reactions-number">1</span></div>
+    <!----><span class="conversation-reactions" style="margin-top:8px;display:block;"><span class="reactions"><button tabindex="0" type="button" title="Mira Bellenbaum reacted with :thumbsup:" class="q-btn inline relative-position q-btn-item non-selectable row no-wrap items-center reaction-box q-btn-rectangle q-btn-flat q-focusable q-hoverable"><div class="q-focus-helper"></div><div class="q-btn-inner row col items-center justify-center"><div class="emoji"></div> <span class="reactions-number">1</span></div>
   </button>
   </span>
-  <button tabindex="0" class="q-btn inline relative-position q-btn-item non-selectable add-button reaction-box q-btn-rectangle q-btn-flat q-focusable q-hoverable">
+  <button tabindex="0" type="button" class="q-btn inline relative-position q-btn-item non-selectable add-button reaction-box q-btn-rectangle q-btn-flat q-focusable q-hoverable">
     <div class="q-focus-helper"></div>
     <div class="q-btn-inner row col items-center justify-center"><span style="opacity:0.5;"><i class="far fa-smile"></i> +
   </span>

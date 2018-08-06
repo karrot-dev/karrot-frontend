@@ -76,7 +76,7 @@ export default {
         router.push({ name: 'group', params: { groupId: group.id } })
       },
 
-      async join ({ commit, dispatch, rootGetters }, { id: groupId }) {
+      async join ({ commit, rootGetters }, groupId) {
         await groups.join(groupId)
         commit('join', { groupId, userId: rootGetters['auth/userId'] })
         router.push({ name: 'group', params: { groupId } })

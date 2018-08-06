@@ -46,62 +46,79 @@
       </q-card-main>
       <q-card-separator />
       <q-card-actions>
-        <span
-          v-if="!group.isMember && !group.hasMyApplication"
-          style="width: 100%">
-          <q-alert
-            v-if="!group.isMember"
-            color="warning"
-            icon="info"
-          >
-            {{ $t('JOINGROUP.PROFILE_NOTE' ) }}
-          </q-alert>
+        <div style="width: 100%">
+          <template v-if="isLoggedIn">
+            <template v-if="!group.isMember">
+              <q-alert
+                v-if="!group.hasMyApplication"
+                color="warning"
+                icon="info"
+              >
+                {{ $t('JOINGROUP.PROFILE_NOTE' ) }}
+              </q-alert>
+              <q-alert
+                v-if="group.hasMyApplication"
+                color="blue"
+                icon="info"
+                :actions="[
+                  // { label: 'Group chat', icon: 'fas fa-comments', handler: joinChat },
+                  { label: $t('JOINGROUP.WITHDRAW_APPLICATION'), icon: 'fas fa-trash-alt', handler: withdraw }
+                ]"
+              >
+                {{ $t('JOINGROUP.APPLICATION_PENDING' ) }}
+              </q-alert>
+              <q-btn
+                v-if="group.isOpen"
+                @click="$emit('join', group.id)"
+                color="secondary"
+                class="float-right generic-margin"
+                :loading="group.joinStatus.pending"
+              >
+                {{ $t('BUTTON.JOIN') }}
+              </q-btn>
+
+              <q-btn
+                v-if="!group.isOpen && user && !user.mailVerified"
+                @click="$emit('goSettings')"
+                color="secondary"
+                class="float-right generic-margin"
+                :loading="group.joinStatus.pending"
+              >
+                {{ $t('JOINGROUP.VERIFY_EMAIL_ADDRESS') }}
+              </q-btn>
+              <q-btn
+                v-if="!group.isOpen && user && user.mailVerified && !group.hasMyApplication"
+                @click="$emit('goApply', group.id)"
+                color="secondary"
+                class="float-right generic-margin"
+                :loading="group.joinStatus.pending"
+              >
+                {{ $t('BUTTON.APPLY') }}
+              </q-btn>
+
+            </template>
+            <q-btn
+              v-else
+              @click="$emit('goVisit', group.id)"
+              class="q-btn-flat"
+            >
+              <q-icon name="fas fa-home" />
+              <q-tooltip>
+                {{ $t('GROUPINFO.MEMBER_VIEW') }}
+              </q-tooltip>
+            </q-btn>
+          </template>
+
           <q-btn
-            v-if="!isLoggedIn || (user && !user.mailVerified)"
-            @click="$emit('preApply', { groupId: group.id })"
+            v-else
+            @click="$emit('goSignup', group.id)"
             color="secondary"
             class="float-right generic-margin"
             :loading="group.joinStatus.pending"
           >
-            {{ $t( isLoggedIn ? 'JOINGROUP.VERIFY_EMAIL_ADDRESS' : 'JOINGROUP.SIGNUP_OR_LOGIN') }}
+            {{ $t('JOINGROUP.SIGNUP_OR_LOGIN') }}
           </q-btn>
-          <q-btn
-            v-if="isLoggedIn && user && user.mailVerified"
-            @click="$emit('apply', { groupId: group.id })"
-            color="secondary"
-            class="float-right generic-margin"
-            :loading="group.joinStatus.pending"
-          >
-            {{ $t( !group.isPlayground ? 'BUTTON.APPLY' : 'BUTTON.JOIN') }}
-          </q-btn>
-        </span>
-        <span
-          v-if="group.hasMyApplication"
-          style="width: 100%"
-        >
-          <q-alert
-            color="blue"
-            icon="info"
-            :actions="[
-              // { label: 'Group chat', icon: 'fas fa-comments', handler: () => {joinChat()} },
-              { label: $t('JOINGROUP.WITHDRAW_APPLICATION'), icon: 'fas fa-trash-alt', handler: () => {withdraw()} }
-            ]"
-          >
-            {{ $t('JOINGROUP.APPLICATION_PENDING' ) }}
-
-          </q-alert>
-
-        </span>
-        <q-btn
-          v-if="group.isMember"
-          @click="$emit('visit', group.id)"
-          class="q-btn-flat"
-        >
-          <q-icon name="fas fa-home" />
-          <q-tooltip>
-            {{ $t('GROUPINFO.MEMBER_VIEW') }}
-          </q-tooltip>
-        </q-btn>
+        </div>
       </q-card-actions>
     </q-card>
   </div>

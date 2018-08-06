@@ -40,6 +40,7 @@ export default {
         group: rootGetters['groups/get'](groupId),
         trustedBy: membership.trustedBy.map(rootGetters['users/get']),
         trusted: membership.trustedBy.includes(authUserId),
+        isEditor: membership.roles.includes('editor'),
       })).sort((a, b) => a.group.name.localeCompare(b.group.name))
       return {
         ...user,

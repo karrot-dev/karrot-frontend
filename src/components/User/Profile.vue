@@ -20,6 +20,7 @@
           {{ user.displayName }}
         </h1>
         <p class="subtitle">
+          <strong>This could be removed</strong><br>
           <span
             v-for="(group, indx) in groups"
             :key="group.id"
@@ -91,33 +92,46 @@
           </q-item-main>
         </q-item>
 
-        <ul>
-          <li
-            v-for="{ group, trustedBy, trusted } in user.memberships"
-            :key="group.id"
-          >
-            {{ group.name }}: {{ trustedBy.length }}
-            <small v-if="trusted">
-              You trust this user
-            </small>
+        <q-list-header>
+          Groups
+        </q-list-header>
+        <q-item
+          v-for="{ group, trustedBy, trusted, isEditor } in user.memberships"
+          :key="group.id"
+        >
+          <q-item-main>
+            <q-item-tile label>
+              {{ group.name }}
+            </q-item-tile>
+            <q-item-tile sublabel>
+              {{ isEditor ? 'Editor' : 'Newcomer' }}
+              <small v-if="trusted">
+                / You trust this user
+              </small>
+            </q-item-tile>
+          </q-item-main>
+          <q-item-side>
             <q-btn
               v-if="!trusted && !user.isCurrentUser"
               round
               @click="$emit('createTrust', { userId: user.id, groupId: group.id })"
-              color="warning"
+              color="primary"
               class="karrot-button"
             />
-            <br>
-            <span
-              v-for="u in trustedBy"
-              :key="u.id"
-            >
-              <ProfilePicture
-                :user="u"
-              />
+            <span>
+              {{ trustedBy.length }} people trust this user
+              <q-popover>
+                <ProfilePicture
+                  v-for="u in trustedBy"
+                  :key="u.id"
+                  :user="u"
+                  :size="40"
+                />
+              </q-popover>
             </span>
-          </li>
-        </ul>
+
+          </q-item-side>
+        </q-item>
 
       </q-list>
       <q-card-separator v-if="user.description !== ''" />
@@ -137,10 +151,10 @@ import Markdown from '@/components/Markdown'
 import ProfilePicture from '@/components/ProfilePictures/ProfilePicture'
 import UserMapPreview from '@/components/Map/UserMapPreview'
 
-import { QCard, QCardTitle, QCardActions, QCardMain, QCardMedia, QBtn, QCardSeparator, QList, QItem, QItemMain, QItemSide } from 'quasar'
+import { QCard, QCardTitle, QCardActions, QCardMain, QCardMedia, QBtn, QCardSeparator, QList, QListHeader, QItem, QItemMain, QItemSide, QItemTile, QPopover } from 'quasar'
 
 export default {
-  components: { Markdown, UserMapPreview, QCard, QCardMain, QCardTitle, QCardMedia, QCardActions, QBtn, QCardSeparator, QList, QItem, QItemMain, QItemSide, ProfilePicture },
+  components: { Markdown, UserMapPreview, QCard, QCardMain, QCardTitle, QCardMedia, QCardActions, QBtn, QCardSeparator, QList, QItem, QListHeader, QItemMain, QItemSide, QItemTile, QPopover, ProfilePicture },
   props: {
     user: { required: true, type: Object },
     groups: { required: true, type: Array },
@@ -160,7 +174,7 @@ export default {
 
 .karrot-button >>> .q-btn-inner
   background-image url('https://twemoji.maxcdn.com/2/72x72/1f955.png')
-  background-size 70%
+  background-size 60%
   background-repeat no-repeat
   background-position center
   min-height 100%

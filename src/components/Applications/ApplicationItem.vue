@@ -44,7 +44,7 @@
         @click="openChat"
       />
       <q-btn
-        v-if="application.status === 'pending'"
+        v-if="application.canDecide"
         round
         color="positive"
         icon="fas fa-check"
@@ -52,7 +52,7 @@
         @click="pressAccept"
       />
       <q-btn
-        v-if="application.status === 'pending'"
+        v-if="application.canDecide"
         round
         color="negative"
         icon="fas fa-times"

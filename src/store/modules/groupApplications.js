@@ -20,9 +20,7 @@ export default {
       return application && {
         ...application,
         isPending: application.status === 'pending',
-        isDeclined: application.status === 'declined',
-        isAccepted: application.status === 'accepted',
-        isWithdrawn: application.status === 'withdrawn',
+        canDecide: application.status === 'pending' && rootGetters['auth/isEditorInCurrentGroup'],
       }
     },
     getByGroupId: state => groupId => {
@@ -41,7 +39,7 @@ export default {
         commit('set', applicationList)
       },
 
-      async fetchByGroupId ({ commit, getters }, { groupId }) {
+      async fetchByGroupId ({ commit }, { groupId }) {
         const applicationList = await groupApplications.list({ group: groupId })
         commit('set', applicationList)
       },

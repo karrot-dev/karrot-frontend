@@ -3,7 +3,7 @@
     class="no-mobile-margin no-shadow grey-border"
   >
     <RandomArt
-      :seed="groupId"
+      :seed="group.id"
       type="circles">
       <div class="art-overlay"/>
     </RandomArt>
@@ -19,8 +19,8 @@
         <q-tooltip v-t="sorting === 'joinDate' ? 'GROUP.SORT_NAME' : 'GROUP.SORT_JOINDATE'" />
       </q-btn>
       <router-link
-        v-if="$store.getters['auth/isEditorInCurrentGroup']"
-        :to="{name: 'groupInvitations', params: { groupId }}"
+        v-if="group.isEditor"
+        :to="{name: 'groupInvitations', params: { groupId: group.id }}"
       >
         <q-btn
           small
@@ -70,7 +70,7 @@ export default {
   computed: {
     ...mapGetters({
       users: 'users/byCurrentGroup',
-      groupId: 'currentGroup/id',
+      group: 'currentGroup/value',
     }),
   },
 }

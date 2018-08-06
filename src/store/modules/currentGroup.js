@@ -19,12 +19,14 @@ export default {
       const activeAgreement = rootGetters['agreements/get'](group.activeAgreement)
       const membership = group.memberships ? group.memberships[userId] : {}
       const isPlayground = group.status === 'playground'
+      const isEditor = membership.roles && membership.roles.includes('editor')
       return {
         ...group,
         membership,
         activeAgreement,
         awaitingAgreement: !!(activeAgreement && activeAgreement.agreed === false),
         isPlayground,
+        isEditor,
       }
     },
     roles: (state, getters) => (getters.value && getters.value.membership) ? getters.value.membership.roles : [],

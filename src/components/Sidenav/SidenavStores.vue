@@ -9,6 +9,7 @@ export default connect({
     showAllStores: 'stores/toggle/showAll',
     archived: 'stores/byCurrentGroupArchived',
     expanded: 'sidenavBoxes/toggle/stores',
+    isEditor: 'auth/isEditorInCurrentGroup',
   },
   actionsToEvents: {
     toggleBox: 'sidenavBoxes/toggle/stores',

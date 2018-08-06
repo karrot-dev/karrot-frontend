@@ -15,7 +15,7 @@
       class="tools"
     >
       <q-btn
-        v-if="$store.getters['auth/isEditorInCurrentGroup']"
+        v-if="isEditor"
         flat
         dense
         round
@@ -68,6 +68,7 @@ export default {
   props: {
     storeId: { default: null, type: Number },
     expanded: { default: true, type: Boolean },
+    isEditor: { default: false, type: Boolean },
   },
   components: {
     SidenavBox, StoreOptions, QBtn, QList, QItem, QItemSide, QIcon, QItemMain,

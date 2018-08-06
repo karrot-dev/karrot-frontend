@@ -13,7 +13,7 @@
       @mapMoveEnd="mapMoveEnd"
     >
       <q-list
-        v-if="$store.getters['auth/isEditorInCurrentGroup']"
+        v-if="currentGroup.isEditor"
         slot="contextmenu"
         slot-scope="{ latLng }"
         highlight
@@ -46,7 +46,7 @@
       v-if="showOverlay"
       class="overlay row justify-center items-center"
     >
-      <template v-if="$store.getters['auth/isEditorInCurrentGroup']">
+      <template v-if="currentGroup.isEditor">
         <q-btn
           v-if="showStoreLocationPrompt"
           color="primary"

@@ -8,7 +8,7 @@
 
         <div class="actionButtons">
           <router-link
-            v-if="$store.getters['auth/isEditorInCurrentGroup']"
+            v-if="isEditor"
             :to="{name: 'storeEdit', params: { storeId: store.id }}"
           >
             <q-btn
@@ -22,7 +22,7 @@
             </q-btn>
           </router-link>
           <router-link
-            v-if="$store.getters['auth/isEditorInCurrentGroup']"
+            v-if="isEditor"
             :to="{name: 'storePickupsManage', params: { storeId: store.id }}"
           >
             <q-btn
@@ -80,7 +80,7 @@
       {{ $t('STOREDETAIL.INACTIVE') }}
       <template slot="desc">
         <router-link
-          v-if="$store.getters['auth/isEditorInCurrentGroup']"
+          v-if="isEditor"
           :to="{name: 'storeEdit', params: { storeId: store.id }}"
         >
           {{ $t('STOREDETAIL.CHANGE_STATUS') }}
@@ -100,7 +100,7 @@
       {{ $t('PICKUPLIST.NONE') }}
       <template slot="desc">
         <router-link
-          v-if="$store.getters['auth/isEditorInCurrentGroup']"
+          v-if="isEditor"
           :to="{name: 'storePickupsManage', params: { storeId: store.id }}"
         >
           {{ $t('PICKUPLIST.STORE_NONE_HINT') }}
@@ -150,6 +150,7 @@ export default {
       store: 'stores/activeStore',
       pickups: 'pickups/filtered',
       currentUser: 'auth/user',
+      isEditor: 'auth/isEditorInCurrentGroup',
     }),
     hasNoPickups () {
       return this.pickups && this.pickups.length === 0

@@ -25,7 +25,7 @@
         <q-tooltip v-t="showPublicDescription ? 'GROUP.DESCRIPTION_VERBOSE' : 'GROUPINFO.META'" />
       </q-btn>
       <router-link
-        v-if="$store.getters['auth/isEditorInCurrentGroup']"
+        v-if="group.isEditor"
         :to="{name: 'groupEdit'}"
       >
         <q-btn

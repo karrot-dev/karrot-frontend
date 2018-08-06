@@ -36,7 +36,7 @@ export default {
 .q-card.notice
   cursor pointer
   transition: all .2s ease;
-  color $primary !important
+  color white !important
 .q-card.notice:hover
   box-shadow: 1px 2px 2px 1px rgba(0,0,0,0.4)
 </style>

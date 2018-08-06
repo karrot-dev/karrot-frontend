@@ -15,20 +15,6 @@
         <span slot="subtitle">
           {{ group.members.length }} {{ $tc('JOINGROUP.NUM_MEMBERS', group.members.length) }}
         </span>
-        <q-btn
-          v-if="showClose"
-          slot="right"
-          round
-          small
-          @click="$emit('close')"
-          color="primary"
-          class="preview-close-button"
-        >
-          <q-icon name="fas fa-times" />
-          <q-tooltip>
-            {{ $t('BUTTON.CLOSE') }}
-          </q-tooltip>
-        </q-btn>
       </q-card-title>
       <q-card-main>
         <div
@@ -46,66 +32,89 @@
       </q-card-main>
       <q-card-separator />
       <q-card-actions>
-        <span
-          v-if="!group.isMember"
-          style="width: 100%">
-          <form
-            name="joingroup"
-            @submit.prevent="$emit('join', { groupId: group.id, password })"
-          >
-            <q-alert
-              v-if="!group.isMember"
-              color="warning"
-              icon="info"
-            >
-              {{ $t('JOINGROUP.PROFILE_NOTE' ) }}
-            </q-alert>
-            <q-field
-              v-if="group.protected"
-              icon="fas fa-lock"
-              :label="$t('JOINGROUP.PASSWORD_REQUIRED')"
-              :helper="$t('JOINGROUP.PASSWORD_LABEL')"
-              :error="hasAnyError"
-              :error-label="anyFirstError"
-            >
-              <q-input
-                v-model="password"
-                type="password"
-              />
-            </q-field>
+        <div style="width: 100%">
+          <template v-if="isLoggedIn">
+            <template v-if="!group.isMember">
+              <q-alert
+                v-if="!group.hasMyApplication"
+                color="warning"
+                icon="info"
+              >
+                {{ $t('JOINGROUP.PROFILE_NOTE' ) }}
+              </q-alert>
+              <q-alert
+                v-if="group.hasMyApplication"
+                color="blue"
+                icon="info"
+                :actions="[
+                  // { label: 'Group chat', icon: 'fas fa-comments', handler: joinChat },
+                  { label: $t('JOINGROUP.WITHDRAW_APPLICATION'), icon: 'fas fa-trash-alt', handler: withdraw }
+                ]"
+              >
+                {{ $t('JOINGROUP.APPLICATION_PENDING' ) }}
+              </q-alert>
+              <q-btn
+                v-if="group.isOpen"
+                @click="$emit('join', group.id)"
+                color="secondary"
+                class="float-right generic-margin"
+                :loading="group.joinStatus.pending"
+              >
+                {{ $t('BUTTON.JOIN') }}
+              </q-btn>
+
+              <q-btn
+                v-if="!group.isOpen && user && !user.mailVerified"
+                @click="$emit('goSettings')"
+                color="secondary"
+                class="float-right generic-margin"
+                :loading="group.joinStatus.pending"
+              >
+                {{ $t('JOINGROUP.VERIFY_EMAIL_ADDRESS') }}
+              </q-btn>
+              <q-btn
+                v-if="!group.isOpen && user && user.mailVerified && !group.hasMyApplication"
+                @click="$emit('goApply', group.id)"
+                color="secondary"
+                class="float-right generic-margin"
+                :loading="group.joinStatus.pending"
+              >
+                {{ $t('BUTTON.APPLY') }}
+              </q-btn>
+
+            </template>
             <q-btn
-              type="submit"
-              color="secondary"
-              class="float-right generic-margin"
-              :loading="group.joinStatus.pending"
+              v-else
+              @click="$emit('goVisit', group.id)"
+              class="q-btn-flat"
             >
-              {{ $t( isLoggedIn ? 'BUTTON.JOIN' : 'JOINGROUP.SIGNUP_OR_LOGIN') }}
+              <q-icon name="fas fa-home" />
+              <q-tooltip>
+                {{ $t('GROUPINFO.MEMBER_VIEW') }}
+              </q-tooltip>
             </q-btn>
-          </form>
-        </span>
-        <q-btn
-          v-if="group.isMember"
-          @click="$emit('visit', { groupId: group.id })"
-          class="q-btn-flat"
-        >
-          <q-icon name="fas fa-home" />
-          <q-tooltip>
-            {{ $t('GROUPINFO.MEMBER_VIEW') }}
-          </q-tooltip>
-        </q-btn>
+          </template>
+
+          <q-btn
+            v-else
+            @click="$emit('goSignup', group.id)"
+            color="secondary"
+            class="float-right generic-margin"
+            :loading="group.joinStatus.pending"
+          >
+            {{ $t('JOINGROUP.SIGNUP_OR_LOGIN') }}
+          </q-btn>
+        </div>
       </q-card-actions>
     </q-card>
   </div>
 </template>
 
 <script>
-import { QCard, QCardTitle, QCardMain, QCardSeparator, QCardActions, QBtn, QField, QInput, QIcon, QTooltip, QAlert } from 'quasar'
+import { Dialog, QTooltip, QCard, QCardTitle, QCardMain, QCardSeparator, QCardActions, QBtn, QField, QInput, QIcon, QAlert } from 'quasar'
 import Markdown from '@/components/Markdown'
 
 export default {
-  data () {
-    return { password: '' }
-  },
   props: {
     group: {
       default: null,
@@ -115,9 +124,9 @@ export default {
       default: false,
       type: Boolean,
     },
-    showClose: {
-      default: false,
-      type: Boolean,
+    user: {
+      default: null,
+      type: Object,
     },
   },
   components: { QCard, QCardTitle, QCardMain, QCardSeparator, QCardActions, QBtn, QField, QInput, QIcon, QTooltip, QAlert, Markdown },
@@ -130,6 +139,18 @@ export default {
     },
     anyFirstError () {
       return this.joinStatus && this.joinStatus.firstValidationError
+    },
+  },
+  methods: {
+    withdraw () {
+      Dialog.create({
+        title: this.$t('JOINGROUP.WITHDRAW_CONFIRMATION_HEADER'),
+        message: this.$t('JOINGROUP.WITHDRAW_CONFIRMATION_TEXT', { groupName: this.group.name }),
+        ok: this.$t('BUTTON.YES'),
+        cancel: this.$t('BUTTON.CANCEL'),
+      })
+        .then(() => this.$emit('withdraw', this.group.myApplication.id))
+        .catch(() => {})
     },
   },
 }

@@ -26,4 +26,13 @@ export default ({ user }) => ({
       markUserActive: jest.fn(),
     },
   },
+  groupApplications: {
+    namespaced: true,
+    getters: {
+      getByGroupId: () => () => null,
+    },
+    actions: {
+      fetchMine: jest.fn(),
+    },
+  },
 })

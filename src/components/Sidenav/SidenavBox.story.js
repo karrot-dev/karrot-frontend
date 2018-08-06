@@ -32,7 +32,11 @@ storiesOf('Sidenav Boxes', module)
   }))
 
   .add('Group', () => defaults({
-    render: h => h(SidenavGroupUI),
+    render: h => h(SidenavGroupUI, {
+      props: {
+        groupId: 1,
+      },
+    }),
     store: createStore({
       currentGroup: { getters: { id: () => 1, roles: () => [] } },
       stores: { getters: { all: () => stores } },
@@ -40,5 +44,10 @@ storiesOf('Sidenav Boxes', module)
   }))
 
   .add('Stores', () => defaults({
-    render: h => h(SidenavStoresUI, { props: { stores } }),
+    render: h => h(SidenavStoresUI, {
+      props: {
+        stores,
+        groupId: 1,
+      },
+    }),
   }))

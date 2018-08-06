@@ -6,62 +6,136 @@ import GroupPreviewUI from './GroupPreviewUI'
 
 import { groupsMock } from '>/mockdata'
 
-const methods = {
+const on = {
   join: action('join group'),
-  visit: action('visit group'),
+  withdraw: action('withdraw application'),
+  goVisit: action('visit group'),
+  goSettings: action('visit settings page'),
+  goSignup: action('visit signup page'),
+  goApply: action('visit apply page'),
 }
 
 storiesOf('GroupPreviewUI', module)
-  .add('is not member', () => defaults({
+  .add('not logged in', () => defaults({
     render: h => h(GroupPreviewUI, {
       props: {
-        group: { ...groupsMock[0], isMember: false },
-        isLoggedIn: true,
+        group: {
+          ...groupsMock[0],
+          isOpen: true,
+        },
+        isLoggedIn: false,
       },
-      on: { join: methods.join },
+      on,
     }),
   }))
-  .add('is member', () => defaults({
+  .add('not member, application needed, email verified', () => defaults({
     render: h => h(GroupPreviewUI, {
       props: {
-        group: { ...groupsMock[0], isMember: true },
+        group: {
+          ...groupsMock[0],
+          isOpen: false,
+        },
+        user: {
+          mailVerified: true,
+        },
         isLoggedIn: true,
       },
-      on: { visit: methods.visit },
+      on,
+    }),
+  }))
+  .add('not member, application needed, email not verified', () => defaults({
+    render: h => h(GroupPreviewUI, {
+      props: {
+        group: {
+          ...groupsMock[0],
+          isOpen: false,
+        },
+        user: {
+          mailVerified: false,
+        },
+        isLoggedIn: true,
+      },
+      on,
+    }),
+  }))
+  .add('not member, pending application', () => defaults({
+    render: h => h(GroupPreviewUI, {
+      props: {
+        group: {
+          ...groupsMock[0],
+          isOpen: false,
+          hasMyApplication: true,
+          myApplication: { id: 1 },
+        },
+        user: {
+          mailVerified: true,
+        },
+        isLoggedIn: true,
+      },
+      on,
+    }),
+  }))
+  .add('not member, open group', () => defaults({
+    render: h => h(GroupPreviewUI, {
+      props: {
+        group: {
+          ...groupsMock[0],
+          isOpen: true,
+        },
+        isLoggedIn: true,
+      },
+      on,
+    }),
+  }))
+  .add('not member, playground', () => defaults({
+    render: h => h(GroupPreviewUI, {
+      props: {
+        group: {
+          ...groupsMock[0],
+          isOpen: true,
+          isPlayground: true,
+        },
+        isLoggedIn: true,
+      },
+      on,
+    }),
+  }))
+  .add('member', () => defaults({
+    render: h => h(GroupPreviewUI, {
+      props: {
+        group: {
+          ...groupsMock[0],
+          isMember: true,
+        },
+        isLoggedIn: true,
+      },
+      on,
     }),
   }))
   .add('without public description', () => defaults({
     render: h => h(GroupPreviewUI, {
       props: {
-        group: { ...groupsMock[0], publicDescription: '', isMember: true },
+        group: {
+          ...groupsMock[0],
+          publicDescription: '',
+          isMember: true,
+        },
         isLoggedIn: true,
       },
-      on: { visit: methods.visit },
+      on,
     }),
   }))
-  .add('pending', () => defaults({
+  .add('pending join', () => defaults({
     render: h => h(GroupPreviewUI, {
       props: {
         group: {
           ...groupsMock[4],
           isMember: false,
+          isOpen: true,
           joinStatus: statusMocks.pending(),
         },
         isLoggedIn: true,
       },
-      on: { join: methods.join },
-    }),
-  }))
-  .add('error', () => defaults({
-    render: h => h(GroupPreviewUI, {
-      props: {
-        group: {
-          ...groupsMock[4],
-          isMember: false,
-          joinStatus: statusMocks.validationError('password', 'wrong!'),
-        },
-        isLoggedIn: true,
-      },
-      on: { join: methods.join },
+      on,
     }),
   }))

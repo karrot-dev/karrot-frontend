@@ -25,6 +25,10 @@
           v-if="feedbackPossible.length > 0"
           :feedback-possible="feedbackPossible"
         />
+        <PendingApplications
+          v-if="applications.length > 0"
+          :applications="applications"
+        />
       </div>
       <WallConversation
         :data="conversation"
@@ -45,6 +49,7 @@
 import AvailablePickups from './AvailablePickups'
 import FeedbackNotice from './FeedbackNotice'
 import JoinedPickups from './JoinedPickups'
+import PendingApplications from './PendingApplications'
 import WallConversation from '@/components/Conversation/WallConversation'
 import { QPullToRefresh } from 'quasar'
 
@@ -54,12 +59,14 @@ export default {
     AvailablePickups,
     WallConversation,
     FeedbackNotice,
+    PendingApplications,
     QPullToRefresh,
   },
   props: {
     joinedPickups: { required: true, type: Array },
     availablePickups: { required: true, type: Array },
     feedbackPossible: { required: true, type: Array },
+    applications: { required: true, type: Array },
     conversation: { required: true, type: Object },
     fetchPast: { required: true, type: Function },
     user: { default: null, type: Object },

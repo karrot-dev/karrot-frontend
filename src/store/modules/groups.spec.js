@@ -28,6 +28,8 @@ function enrich (group) {
     isCurrentGroup: false,
     isPlayground: false,
     isInactive: false,
+    hasMyApplication: false,
+    myApplication: undefined,
     ...defaultActionStatusesFor('save', 'join', 'leave'),
   }
 }
@@ -96,11 +98,18 @@ describe('groups', () => {
     },
   }
 
+  const groupApplications = {
+    getters: {
+      getByGroupId: () => () => {},
+    },
+  }
+
   describe('logged out', () => {
     beforeEach(() => {
       store = createStore({
         groups: require('./groups').default,
         agreements,
+        groupApplications,
       })
     })
 
@@ -113,7 +122,7 @@ describe('groups', () => {
     it('can not join a group', async () => {
       mockJoin.mockImplementationOnce(throws(new Error('some error')))
       store.commit('groups/set', [group1])
-      await expect(store.dispatch('groups/join', { id: group1.id })).rejects.toHaveProperty('message', 'some error')
+      await expect(store.dispatch('groups/join', group1.id)).rejects.toHaveProperty('message', 'some error')
     })
   })
 
@@ -126,6 +135,7 @@ describe('groups', () => {
         banners,
         currentGroup,
         toasts,
+        groupApplications,
       })
     })
 
@@ -140,7 +150,7 @@ describe('groups', () => {
     it('can join a group', async () => {
       mockJoin.mockReturnValueOnce({})
       expect(store.getters['groups/mine'].map(e => e.id)).toEqual([group2.id, group3.id])
-      await store.dispatch('groups/join', { id: group1.id })
+      await store.dispatch('groups/join', group1.id)
       expect(mockRouterPush).toBeCalledWith({ name: 'group', params: { groupId: group1.id } })
       expect(store.getters['groups/mine'].map(e => e.id)).toEqual([group1.id, group2.id, group3.id])
     })
@@ -183,6 +193,7 @@ describe('groups', () => {
         agreements,
         auth,
         users,
+        groupApplications,
       })
     })
 

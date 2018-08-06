@@ -25,7 +25,7 @@
           <q-field
             v-if="!edit.isPlayground"
             icon="fas fa-fw fa-question"
-            :label="$t('GROUP.PUBLIC_DESCRIPTION')"
+            :label="$t('GROUPINFO.TITLE')"
             :error="hasError('publicDescription')"
             :error-label="firstError('publicDescription')"
           >
@@ -33,7 +33,7 @@
               <q-input
                 v-model="edit.publicDescription"
                 type="textarea"
-                rows="3"
+                rows="4"
                 @keyup.ctrl.enter="maybeSave"
               />
             </MarkdownInput>
@@ -49,7 +49,7 @@
               <q-input
                 v-model="edit.description"
                 type="textarea"
-                rows="3"
+                rows="4"
                 @keyup.ctrl.enter="maybeSave"
               />
             </MarkdownInput>
@@ -71,11 +71,19 @@
           <q-field
             v-if="!edit.isPlayground"
             icon="fas fa-fw fa-question"
-            :label="$t('GROUP.PASSWORD')"
-            :error="hasError('password')"
-            :error-label="firstError('password')"
+            :label="$t('GROUP.APPLICATION_QUESTIONS')"
+            :error="hasError('applicationQuestions')"
+            :error-label="firstError('applicationQuestions')"
           >
-            <q-input v-model="edit.password"/>
+            <MarkdownInput :value="edit.applicationQuestions">
+              <q-input
+                @input="applicationQuestionsInput"
+                :value="applicationQuestionsOrDefault"
+                type="textarea"
+                rows="6"
+                @keyup.ctrl.enter="maybeSave"
+              />
+            </MarkdownInput>
           </q-field>
 
           <q-field
@@ -148,13 +156,13 @@ export default {
       required: false,
       default: () => ({
         name: undefined,
-        password: undefined,
         publicDescription: undefined,
         description: undefined,
         timezone: jstz.determine().name(),
         latitude: undefined,
         longitude: undefined,
         address: undefined,
+        applicationQuestions: undefined,
       }),
     },
     timezones: {
@@ -211,6 +219,9 @@ export default {
         if (this.hasError(field)) return this.firstError(field)
       }
     },
+    applicationQuestionsOrDefault () {
+      return this.edit.applicationQuestions || this.edit.applicationQuestionsDefault
+    },
   },
   methods: {
     maybeSave (event) {
@@ -222,6 +233,9 @@ export default {
     timezoneFilter (terms, { field, list }) {
       const token = terms.toLowerCase()
       return list.filter(item => item[field].toLowerCase().includes(token))
+    },
+    applicationQuestionsInput (value) {
+      this.edit.applicationQuestions = value
     },
   },
   validations: {

@@ -11,8 +11,8 @@ export default connect({
     isLoggedIn: 'auth/isLoggedIn',
   },
   methodsToEvents: {
-    preview: (store, { groupId }) => router.push({ name: 'groupPreview', params: { groupPreviewId: groupId } }),
-    visit: (store, { groupId }) => router.push({ name: 'group', params: { groupId } }),
+    preview: (store, groupId) => router.push({ name: 'groupPreview', params: { groupPreviewId: groupId } }),
+    visit: (store, groupId) => router.push({ name: 'group', params: { groupId } }),
   },
 })('GroupGallery', GroupGalleryUI)
 </script>

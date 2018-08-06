@@ -7,6 +7,7 @@ import configureQuasar from '@/configureQuasar'
 import { RouterLinkStub } from '@vue/test-utils'
 
 Vue.config.productionTip = false
+Vue.config.devtools = true
 configureQuasar(Vue)
 Vue.use(Vuex) // Install Vuex
 

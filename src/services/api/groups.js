@@ -15,8 +15,8 @@ export default {
     return convert((await axios.patch(`/api/groups/${groupId}/`, group)).data)
   },
 
-  async join (groupId, data) {
-    return (await axios.post(`/api/groups/${groupId}/join/`, data)).data
+  async join (groupId) {
+    return (await axios.post(`/api/groups/${groupId}/join/`)).data
   },
 
   async leave (groupId) {

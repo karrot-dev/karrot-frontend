@@ -44,27 +44,24 @@
     />
     <div
       v-if="showOverlay"
-      class="overlay row justify-center content-center"
+      class="overlay row justify-center items-center"
     >
-      <router-link
-        v-if="showStoreLocationPrompt && $store.getters['auth/isEditorInCurrentGroup']"
-        :to="{ name: 'storeEdit', params: { storeId: this.selectedStore && this.selectedStore.id } }"
-      >
-        <q-btn color="primary">
+      <template v-if="$store.getters['auth/isEditorInCurrentGroup']">
+        <q-btn
+          v-if="showStoreLocationPrompt"
+          color="primary"
+          :to="{ name: 'storeEdit', params: { storeId: this.selectedStore && this.selectedStore.id } }"
+        >
           {{ $t('GROUPMAP.SET_LOCATION') }}
         </q-btn>
-      </router-link>
-      <router-link
-        v-else-if="$store.getters['auth/isEditorInCurrentGroup']"
-        :to="{ name: 'groupEdit', params: { groupId: currentGroup && currentGroup.id, storeId: this.selectedStore && this.selectedStore.id } }"
-      >
-        <q-btn color="primary">
+        <q-btn
+          v-else
+          color="primary"
+          :to="{ name: 'groupEdit', params: { groupId: currentGroup && currentGroup.id, storeId: this.selectedStore && this.selectedStore.id } }"
+        >
           {{ $t('GROUPMAP.SET_LOCATION') }}
         </q-btn>
-      </router-link>
-      <div v-else>
-        No location
-      </div>
+      </template>
     </div>
   </div>
 </template>

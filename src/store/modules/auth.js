@@ -69,18 +69,18 @@ export default {
           await dispatch('invitations/accept', state.acceptInviteAfterLogin, { root: true })
         }
         else if (state.joinGroupAfterLogin) {
-          const joinParams = state.joinGroupAfterLogin
-          const group = () => rootGetters['groups/get'](joinParams.id)
+          const groupId = state.joinGroupAfterLogin
+          const group = () => rootGetters['groups/get'](groupId)
           if (group().isMember) {
             // go to group if already a member
-            router.push({ name: 'group', params: { groupId: joinParams.id } })
+            router.push({ name: 'group', params: { groupId } })
           }
           else {
-            await dispatch('groups/join', joinParams, { root: true })
+            await dispatch('groups/join', groupId, { root: true })
             if (group().joinStatus.hasValidationErrors) {
               // go back to goup preview if error occured
               // it should show the error status on group preview, thanks to persistent state!
-              router.push({ name: 'groupPreview', params: { groupPreviewId: joinParams.id } })
+              router.push({ name: 'groupPreview', params: { groupPreviewId: groupId } })
             }
           }
         }
@@ -167,8 +167,8 @@ export default {
       commit('setRedirectTo', { redirectTo })
     },
 
-    setJoinGroupAfterLogin ({ commit }, joinParams) {
-      commit('setJoinGroupAfterLogin', { joinParams })
+    setJoinGroupAfterLogin ({ commit }, groupId) {
+      commit('setJoinGroupAfterLogin', groupId)
     },
 
     setAcceptInviteAfterLogin ({ commit }, token) {
@@ -216,8 +216,8 @@ export default {
     },
 
     // Group to join after login
-    setJoinGroupAfterLogin (state, { joinParams }) {
-      state.joinGroupAfterLogin = joinParams
+    setJoinGroupAfterLogin (state, groupId) {
+      state.joinGroupAfterLogin = groupId
     },
     clearJoinGroupAfterLogin (state) {
       state.joinGroupAfterLogin = null

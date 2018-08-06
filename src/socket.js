@@ -6,6 +6,7 @@ import auth from '@/services/api/auth'
 import { getter } from '@/store/storeHelpers'
 
 import { camelizeKeys } from '@/services/utils'
+import { convert as convertApplication } from '@/services/api/groupApplications'
 import { convert as convertMessage } from '@/services/api/messages'
 import { convert as convertConversation } from '@/services/api/conversations'
 import { convert as convertPickup } from '@/services/api/pickups'
@@ -79,7 +80,10 @@ const socket = {
 }
 
 export function receiveMessage ({ topic, payload }) {
-  if (topic === 'conversations:message') {
+  if (topic === 'applications:update') {
+    store.dispatch('groupApplications/update', convertApplication(camelizeKeys(payload)))
+  }
+  else if (topic === 'conversations:message') {
     const message = convertMessage(camelizeKeys(payload))
     if (message.thread) {
       store.dispatch('currentThread/receiveMessage', message)

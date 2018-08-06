@@ -23,6 +23,7 @@ import deleteAccount from './modules/deleteAccount'
 import detail, { plugin as detailPlugin } from './modules/detail'
 import fcm, { plugin as fcmPlugin } from './modules/fcm'
 import feedback from './modules/feedback'
+import groupApplications from './modules/groupApplications'
 import groups from './modules/groups'
 import history from './modules/history'
 import i18n from './modules/i18n'
@@ -62,6 +63,7 @@ export default new Vuex.Store({
     detail,
     fcm,
     feedback,
+    groupApplications,
     groups,
     history,
     i18n,

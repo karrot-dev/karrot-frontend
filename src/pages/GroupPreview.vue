@@ -7,18 +7,20 @@ export default connect({
   gettersToProps: {
     group: 'groups/activePreview',
     isLoggedIn: 'auth/isLoggedIn',
+    user: 'auth/user',
+  },
+  actionsToEvents: {
+    join: 'groups/join',
+    withdraw: 'groupApplications/withdraw',
   },
   methodsToEvents: {
-    visit: (store, { groupId }) => router.push({ name: 'group', params: { groupId } }),
-    join: ({ dispatch, getters }, { groupId, password }) => {
-      if (getters['auth/isLoggedIn']) {
-        dispatch('groups/join', { id: groupId, password })
-      }
-      else {
-        dispatch('auth/setJoinGroupAfterLogin', { id: groupId, password })
-        router.push({ name: 'signup' })
-      }
+    goVisit: (store, groupId) => router.push({ name: 'group', params: { groupId } }),
+    goSettings: ({ dispatch }) => router.push({ name: 'settings', hash: '#change-email' }),
+    goSignup: ({ dispatch }, groupId) => {
+      dispatch('auth/setJoinGroupAfterLogin', groupId)
+      router.push({ name: 'signup' })
     },
+    goApply: (store, groupId) => router.push({ name: 'applicationForm', params: { groupPreviewId: groupId } }),
   },
 })('GroupPreview', GroupPreviewUI)
 </script>

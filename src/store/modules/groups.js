@@ -27,12 +27,16 @@ export default {
       const isCurrentGroup = group.id === rootGetters['currentGroup/id']
       const isPlayground = group.status === 'playground'
       const isInactive = group.status === 'inactive'
+      const hasMyApplication = Boolean(rootGetters['groupApplications/getByGroupId'](group.id))
+      const myApplication = rootGetters['groupApplications/getByGroupId'](group.id)
       return {
         ...group,
         isMember,
         isCurrentGroup,
         isPlayground,
         isInactive,
+        hasMyApplication,
+        myApplication,
         ...metaStatusesWithId(getters, ['save', 'join', 'leave'], group.id),
       }
     },
@@ -72,8 +76,8 @@ export default {
         router.push({ name: 'group', params: { groupId: group.id } })
       },
 
-      async join ({ commit, dispatch, rootGetters }, { id: groupId, password }) {
-        await groups.join(groupId, { password })
+      async join ({ commit, rootGetters }, groupId) {
+        await groups.join(groupId)
         commit('join', { groupId, userId: rootGetters['auth/userId'] })
         router.push({ name: 'group', params: { groupId } })
       },
@@ -123,6 +127,7 @@ export default {
         }
       }
       commit('setActivePreview', groupPreviewId)
+      dispatch('groupApplications/fetchMine', groupPreviewId, { root: true })
     },
     clearGroupPreview ({ commit }) {
       commit('setActivePreview', null)

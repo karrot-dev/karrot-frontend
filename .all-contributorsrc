@@ -45,7 +45,8 @@
         "ideas",
         "bug",
         "question",
-        "eventOrganizing"
+        "code",
+        "translation"
       ]
     },
     {
@@ -77,7 +78,21 @@
       "avatar_url": "https://avatars0.githubusercontent.com/u/7449720?v=4",
       "profile": "https://mrkvon.org",
       "contributions": [
-        "code"
+        "code",
+        "ideas"
+      ]
+    },
+    {
+      "login": "taistadam",
+      "name": "taistadam",
+      "avatar_url": "https://avatars0.githubusercontent.com/u/22643479?v=4",
+      "profile": "https://github.com/taistadam",
+      "contributions": [
+        "blog",
+        "code",
+        "design",
+        "ideas",
+        "translation"
       ]
     },
     {
@@ -106,7 +121,9 @@
       "avatar_url": "https://avatars2.githubusercontent.com/u/10246027?v=4",
       "profile": "https://gitlab.com/alangecker",
       "contributions": [
-        "code"
+        "code",
+        "design",
+        "ideas"
       ]
     },
     {
@@ -124,6 +141,35 @@
       "name": "Matthias Larisch",
       "avatar_url": "https://avatars0.githubusercontent.com/u/861660?v=4",
       "profile": "https://github.com/NerdyProjects",
+      "contributions": [
+        "code"
+      ]
+    },
+    {
+      "login": "pogopaule",
+      "name": "pogopaule",
+      "avatar_url": "https://avatars1.githubusercontent.com/u/576949?v=4",
+      "profile": "https://github.com/pogopaule",
+      "contributions": [
+        "code",
+        "ideas"
+      ]
+    },
+    {
+      "login": "trmendes",
+      "name": "Thiago Mendes",
+      "avatar_url": "https://avatars1.githubusercontent.com/u/16507629?v=4",
+      "profile": "https://tmendes.gitlab.io/38lbackpack",
+      "contributions": [
+        "code",
+        "translation"
+      ]
+    },
+    {
+      "login": "LyraXaph",
+      "name": "Xaph",
+      "avatar_url": "https://avatars3.githubusercontent.com/u/18754163?v=4",
+      "profile": "https://github.com/LyraXaph",
       "contributions": [
         "code"
       ]

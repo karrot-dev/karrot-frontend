@@ -3571,7 +3571,7 @@ exports[`Storyshots Sidenav Boxes Group 1`] = `
       Home
     </div>
     <div class="tools">
-      <a tabindex="0" type="button" href="#/" class="q-btn inline relative-position q-btn-item non-selectable q-btn-round q-btn-flat q-focusable q-hoverable q-btn-dense">
+      <a tabindex="0" type="button" href="#/group/1/settings" class="q-btn inline relative-position q-btn-item non-selectable q-btn-round q-btn-flat q-focusable q-hoverable q-btn-dense">
         <div class="q-focus-helper"></div>
         <div class="q-btn-inner row col items-center justify-center">
           <i aria-hidden="true" class="q-icon fas fa-cog fa-fw"> </i>
@@ -3738,7 +3738,7 @@ exports[`Storyshots Sidenav Boxes Stores 1`] = `
           <div></div>
         </div>
       </div>
-      <a tabindex="0" type="button" href="#/" class="q-btn inline relative-position q-btn-item non-selectable q-btn-round q-btn-flat q-focusable q-hoverable q-btn-dense">
+      <a tabindex="0" type="button" href="#/group/1/store/create" class="q-btn inline relative-position q-btn-item non-selectable q-btn-round q-btn-flat q-focusable q-hoverable q-btn-dense">
         <div class="q-focus-helper"></div>
         <div class="q-btn-inner row col items-center justify-center">
           <i aria-hidden="true" class="q-icon fas fa-fw fa-plus-circle"> </i>

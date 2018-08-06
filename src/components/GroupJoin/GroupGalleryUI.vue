@@ -229,6 +229,29 @@ export default {
 
 <style scoped lang="stylus">
 @import '~variables'
+.gallery-wrapper
+  .overlay-toggle-button
+    i
+      transition transform .5s
+      &.slightly-rotated
+        transform rotate(-180deg)
+  .sidebar
+    width 100%
+    z-index 2
+    background-color rgba(255, 255, 255, 0.8)
+    padding 5px
+    .text-primary
+      margin-left .2em
+    .searchbar
+      margin-top .2em
+      padding 5px
+    .underline
+      text-decoration underline
+    .header
+      font-size 1.4em
+      padding-top 14px
+      margin-left 10px
+
 body.desktop .gallery-wrapper
   .map-fixed
     position fixed
@@ -237,7 +260,6 @@ body.desktop .gallery-wrapper
     left 0
     z-index 0
   .sidebar
-    width 100%
     &.expanded
       padding-bottom 3em
     .alert
@@ -264,29 +286,6 @@ body.mobile .gallery-wrapper
     &.expanded
       margin-top -60vh
       min-height 60vh
-
-.gallery-wrapper
-  .overlay-toggle-button
-    i
-      transition transform .5s
-      &.slightly-rotated
-        transform rotate(-180deg)
-
-.sidebar
-  z-index 2
-  background-color rgba(255, 255, 255, 0.8)
-  padding 5px
-  .text-primary
-    margin-left .2em
-  .searchbar
-    margin-top .2em
-    padding 5px
-  .underline
-    text-decoration underline
-  .header
-    font-size 1.4em
-    padding-top 14px
-    margin-left 10px
 </style>
 
 <style lang="stylus">

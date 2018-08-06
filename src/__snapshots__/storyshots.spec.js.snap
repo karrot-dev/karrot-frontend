@@ -474,7 +474,8 @@ exports[`Storyshots GroupGallery signup view 1`] = `
       <div>
         <object type="text/html" data="about:blank" aria-hidden="true" style="display:block;position:absolute;top:0;left:0;right:0;bottom:0;height:100%;width:100%;overflow:hidden;pointer-events:none;z-index:-1;"></object>
         <div class="inline-block" style="width:100%;">
-          <div class="q-card groupPreviewCard">
+          <div class="q-card groupPreviewCard relative-position">
+            <!---->
             <!---->
             <div class="q-card-primary q-card-container row no-wrap ellipsis">
               <div class="col column">
@@ -504,7 +505,8 @@ exports[`Storyshots GroupGallery signup view 1`] = `
           </div>
         </div>
         <div class="inline-block" style="width:100%;">
-          <div class="q-card groupPreviewCard">
+          <div class="q-card groupPreviewCard relative-position">
+            <!---->
             <!---->
             <div class="q-card-primary q-card-container row no-wrap ellipsis">
               <div class="col column">
@@ -525,7 +527,8 @@ exports[`Storyshots GroupGallery signup view 1`] = `
           </div>
         </div>
         <div class="inline-block" style="width:100%;">
-          <div class="q-card groupPreviewCard">
+          <div class="q-card groupPreviewCard relative-position">
+            <!---->
             <!---->
             <div class="q-card-primary q-card-container row no-wrap ellipsis">
               <div class="col column">
@@ -546,7 +549,8 @@ exports[`Storyshots GroupGallery signup view 1`] = `
           </div>
         </div>
         <div class="inline-block" style="width:100%;">
-          <div class="q-card groupPreviewCard">
+          <div class="q-card groupPreviewCard relative-position">
+            <!---->
             <!---->
             <div class="q-card-primary q-card-container row no-wrap ellipsis">
               <div class="col column">
@@ -567,7 +571,8 @@ exports[`Storyshots GroupGallery signup view 1`] = `
           </div>
         </div>
         <div class="inline-block" style="width:100%;">
-          <div class="q-card groupPreviewCard">
+          <div class="q-card groupPreviewCard relative-position">
+            <!---->
             <!---->
             <div class="q-card-primary q-card-container row no-wrap ellipsis">
               <div class="col column">
@@ -592,7 +597,8 @@ exports[`Storyshots GroupGallery signup view 1`] = `
           </div>
         </div>
         <div class="inline-block" style="width:100%;">
-          <div class="q-card groupPreviewCard">
+          <div class="q-card groupPreviewCard relative-position">
+            <!---->
             <!---->
             <div class="q-card-primary q-card-container row no-wrap ellipsis">
               <div class="col column">
@@ -685,7 +691,8 @@ exports[`Storyshots GroupGallery switch and explore 1`] = `
       <div>
         <object type="text/html" data="about:blank" aria-hidden="true" style="display:block;position:absolute;top:0;left:0;right:0;bottom:0;height:100%;width:100%;overflow:hidden;pointer-events:none;z-index:-1;"></object>
         <div class="inline-block" style="width:100%;">
-          <div class="q-card groupPreviewCard">
+          <div class="q-card groupPreviewCard relative-position">
+            <!---->
             <!---->
             <div class="q-card-primary q-card-container row no-wrap ellipsis">
               <div class="col column">
@@ -738,7 +745,8 @@ exports[`Storyshots GroupGallery switch and explore 1`] = `
           </div>
         </div>
         <div class="inline-block" style="width:100%;">
-          <div class="q-card groupPreviewCard">
+          <div class="q-card groupPreviewCard relative-position">
+            <!---->
             <!---->
             <div class="q-card-primary q-card-container row no-wrap ellipsis">
               <div class="col column">
@@ -782,7 +790,8 @@ exports[`Storyshots GroupGallery switch and explore 1`] = `
           </div>
         </div>
         <div class="inline-block" style="width:100%;">
-          <div class="q-card groupPreviewCard">
+          <div class="q-card groupPreviewCard relative-position">
+            <!---->
             <!---->
             <div class="q-card-primary q-card-container row no-wrap ellipsis">
               <div class="col column">
@@ -834,7 +843,8 @@ exports[`Storyshots GroupGallery switch and explore 1`] = `
       <div>
         <object type="text/html" data="about:blank" aria-hidden="true" style="display:block;position:absolute;top:0;left:0;right:0;bottom:0;height:100%;width:100%;overflow:hidden;pointer-events:none;z-index:-1;"></object>
         <div class="inline-block" style="width:100%;">
-          <div class="q-card groupPreviewCard">
+          <div class="q-card groupPreviewCard relative-position">
+            <!---->
             <!---->
             <div class="q-card-primary q-card-container row no-wrap ellipsis">
               <div class="col column">
@@ -864,7 +874,8 @@ exports[`Storyshots GroupGallery switch and explore 1`] = `
           </div>
         </div>
         <div class="inline-block" style="width:100%;">
-          <div class="q-card groupPreviewCard">
+          <div class="q-card groupPreviewCard relative-position">
+            <!---->
             <!---->
             <div class="q-card-primary q-card-container row no-wrap ellipsis">
               <div class="col column">
@@ -885,7 +896,8 @@ exports[`Storyshots GroupGallery switch and explore 1`] = `
           </div>
         </div>
         <div class="inline-block" style="width:100%;">
-          <div class="q-card groupPreviewCard">
+          <div class="q-card groupPreviewCard relative-position">
+            <!---->
             <!---->
             <div class="q-card-primary q-card-container row no-wrap ellipsis">
               <div class="col column">
@@ -906,7 +918,8 @@ exports[`Storyshots GroupGallery switch and explore 1`] = `
           </div>
         </div>
         <div class="inline-block" style="width:100%;">
-          <div class="q-card groupPreviewCard">
+          <div class="q-card groupPreviewCard relative-position">
+            <!---->
             <!---->
             <div class="q-card-primary q-card-container row no-wrap ellipsis">
               <div class="col column">
@@ -927,7 +940,8 @@ exports[`Storyshots GroupGallery switch and explore 1`] = `
           </div>
         </div>
         <div class="inline-block" style="width:100%;">
-          <div class="q-card groupPreviewCard">
+          <div class="q-card groupPreviewCard relative-position">
+            <!---->
             <!---->
             <div class="q-card-primary q-card-container row no-wrap ellipsis">
               <div class="col column">
@@ -952,7 +966,8 @@ exports[`Storyshots GroupGallery switch and explore 1`] = `
           </div>
         </div>
         <div class="inline-block" style="width:100%;">
-          <div class="q-card groupPreviewCard">
+          <div class="q-card groupPreviewCard relative-position">
+            <!---->
             <!---->
             <div class="q-card-primary q-card-container row no-wrap ellipsis">
               <div class="col column">
@@ -986,7 +1001,8 @@ exports[`Storyshots GroupGallery switch and explore 1`] = `
 
 exports[`Storyshots GroupGalleryCard isMember = false 1`] = `
 <div class="inline-block">
-  <div class="q-card groupPreviewCard">
+  <div class="q-card groupPreviewCard relative-position">
+    <!---->
     <!---->
     <div class="q-card-primary q-card-container row no-wrap ellipsis">
       <div class="col column">
@@ -1019,7 +1035,8 @@ exports[`Storyshots GroupGalleryCard isMember = false 1`] = `
 
 exports[`Storyshots GroupGalleryCard isMember = true 1`] = `
 <div class="inline-block">
-  <div class="q-card groupPreviewCard">
+  <div class="q-card groupPreviewCard relative-position">
+    <!---->
     <!---->
     <div class="q-card-primary q-card-container row no-wrap ellipsis">
       <div class="col column">
@@ -1075,7 +1092,8 @@ exports[`Storyshots GroupGalleryCard isMember = true 1`] = `
 
 exports[`Storyshots GroupGalleryCard without public description 1`] = `
 <div class="inline-block">
-  <div class="q-card groupPreviewCard">
+  <div class="q-card groupPreviewCard relative-position">
+    <!---->
     <!---->
     <div class="q-card-primary q-card-container row no-wrap ellipsis">
       <div class="col column">

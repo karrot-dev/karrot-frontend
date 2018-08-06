@@ -17,7 +17,7 @@ const defaultProps = {
   joinedPickups: [],
   availablePickups: [],
   feedbackPossible: [],
-  pendingApplications: [],
+  applications: [],
   refresh: jest.fn(),
 }
 

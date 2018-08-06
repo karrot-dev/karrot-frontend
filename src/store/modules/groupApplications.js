@@ -28,8 +28,8 @@ export default {
     getByGroupId: state => groupId => {
       return Object.values(state.entries).find(a => a.group === groupId)
     },
-    pending: (state, getters) => Object.keys(state.entries).map(getters.get).filter(a => a.isPending).sort(),
-    allNonPending: (state, getters) => Object.keys(state.entries).map(getters.get).filter(a => !a.isPending).sort(),
+    pending: (state, getters) => Object.keys(state.entries).map(getters.get).filter(a => a.isPending).sort(sortByCreatedAt),
+    allNonPending: (state, getters) => Object.keys(state.entries).map(getters.get).filter(a => !a.isPending).sort(sortByCreatedAt),
     ...metaStatuses(['apply']),
   },
   actions: {
@@ -101,4 +101,8 @@ export default {
       Vue.set(state.entries, application.id, application)
     },
   },
+}
+
+export function sortByCreatedAt (a, b) {
+  return a.createdAt < b.createdAt
 }

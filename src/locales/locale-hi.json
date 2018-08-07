@@ -1,4 +1,5 @@
 {
+  "ENTRY": "1 entry | {count} entries",
   "GLOBAL": {
     "GITHUB_NOTE": "विकास",
     "FSWW_NOTE": "Read our info page!",
@@ -57,7 +58,9 @@
     "ARCHIVE": "पुरालेख",
     "DELETE_ACCOUNT": "Delete account",
     "SHOW": "Show",
-    "HIDE": "Hide"
+    "HIDE": "Hide",
+    "SUBMIT": "Submit",
+    "APPLY": "Apply"
   },
   "VALIDATION": {
     "MINLENGTH": "कृपया {न्यूनतम} वर्णों से अधिक दर्ज करें।",
@@ -81,7 +84,8 @@
     "PRIVATE_DESCRIPTION_TITLE": "निजी समूह चर्चा",
     "DESCRIPTION_VERBOSE": "सदस्य के लिए समूह विवरण उपलब्ध",
     "PUBLIC_DESCRIPTION": "एक समूह में शामिल होने से पहले आपको दिखाई देने वाला पाठ",
-    "PASSWORD": "अगर आप समूह निजी बनाना चाहते हैं तो यहां एक पासवर्ड दर्ज करें",
+    "APPLICATIONS": "Applications",
+    "APPLICATION_QUESTIONS": "Questions for people who want to join this group",
     "PICKUPS": "पिकप",
     "PICKUP": "Pickup",
     "MEMBERS": "सदस्य ",
@@ -184,16 +188,22 @@
     "WHICHGROUP": "आप किस समूह में शामिल होना चाहते हैं?",
     "NUM_MEMBERS": "सदस्य ",
     "NO_PUBLIC_DESCRIPTION": "(इस समूह में कोई सार्वजनिक विवरण नहीं है ... फिर भी)",
-    "PASSWORD_LABEL": "निजी समूह के लिए पासवर्ड दर्ज करें",
-    "PASSWORD_REQUIRED": "इस समूह को पासवर्ड की आवश्यकता है",
     "ALL_GROUPS": "सभी समूह",
     "SIGNUP_OR_LOGIN": "इस समूह में शामिल होने के लिए प्रवेश करें या साइन अप करें!",
+    "VERIFY_EMAIL_ADDRESS":"Verify your email address to apply",
     "MY_GROUPS": "मेरे समूह",
     "LOGOUT_MESSAGE": {
       "LOGGED_OUT": "आप फ़िलहाल लॉग आउट हो गए हैं। {लॉग इन करें}",
       "LOG_IN": "अपने समूह को देखने के लिए लॉग इन करें!"
     },
-    "PROFILE_NOTE": "इस समूह में शामिल होने से, आपका प्रोफ़ाइल डेटा अन्य समूह सदस्यों के लिए दृश्यमान हो जाएगा।"
+    "PROFILE_NOTE": "इस समूह में शामिल होने से, आपका प्रोफ़ाइल डेटा अन्य समूह सदस्यों के लिए दृश्यमान हो जाएगा।",
+    "APPLICATION_SUBMITTED": "Your application was successfully submitted!",
+    "APPLICATION_PENDING": "Your application is pending!",
+    "WITHDRAW_APPLICATION": "Withdraw",
+    "WITHDRAW_CONFIRMATION_HEADER": "Withdraw Application",
+    "WITHDRAW_CONFIRMATION_TEXT": "Are you sure you want to withdraw your application to join {groupName}?",
+    "APPLICATION_WITHDRAWN": "Your application was successfully withdrawn!"
+
   },
   "GROUPINFO": {
     "TITLE": "सार्वजनिक समूह की जानकारी",
@@ -423,6 +433,21 @@
     "NEGOTIATING": "बातचीत",
     "DECLINED": "सहयोग करना नहीं चाहते हैं",
     "ARCHIVED": "पुरालेख"
+  },
+  "APPLICATION": {
+    "FORM_HEADER": "Apply",
+    "FORM_TITLE": "Apply to join {groupName}",
+    "GALLERY_TOOLTIP": "You applied to join this group. Your application is still pending.",
+    "ACCESS_CHAT": "Open the application chat",
+    "WALL_NOTICE": "There is an application pending! | There are {count} applications pending!",
+    "ACCEPT_CONFIRMATION_HEADER": "Accept Application",
+    "ACCEPT_CONFIRMATION_TEXT": "Are you sure you want to accept {userName} into this group?",
+    "DECLINE_CONFIRMATION_HEADER": "Decline Application",
+    "DECLINE_CONFIRMATION_TEXT": "Are you sure you want to decline {userName}'s application?",
+    "ACCEPTED": "You accepted {userName}'s request to join this group!",
+    "DECLINED": "You declined {userName}'s request to join this group!",
+    "PAST": "Past applications",
+    "SUBMITTED_ON": "Submitted on {date}"
   },
   "COMMUNITY_FEED": {
     "HEADER": "Updates from the {community}",

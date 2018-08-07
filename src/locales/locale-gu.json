@@ -1,4 +1,5 @@
 {
+  "ENTRY": "1 entry | {count} entries",
   "GLOBAL": {
     "GITHUB_NOTE": "વિકાસ",
     "FSWW_NOTE": "Read our info page!",
@@ -57,7 +58,9 @@
     "ARCHIVE": "આર્કાઇવ",
     "DELETE_ACCOUNT": "Delete account",
     "SHOW": "Show",
-    "HIDE": "Hide"
+    "HIDE": "Hide",
+    "SUBMIT": "Submit",
+    "APPLY": "Apply"
   },
   "VALIDATION": {
     "MINLENGTH": "કૃપા કરીને {min} અક્ષરો કરતા વધુ દાખલ કરો",
@@ -81,7 +84,8 @@
     "PRIVATE_DESCRIPTION_TITLE": "ખાનગી જૂથનું વર્ણન",
     "DESCRIPTION_VERBOSE": "સભ્યો માટે દૃશ્યમાન ગ્રુપનું વર્ણન",
     "PUBLIC_DESCRIPTION": "જૂથમાં જોડાતા પહેલાં તમે જુઓ છો તે ટેક્સ્ટ",
-    "PASSWORD": "જો તમે જૂથ ખાનગી બનાવવા માંગો છો, તો પાસવર્ડ અહીં દાખલ કરો",
+    "APPLICATIONS": "Applications",
+    "APPLICATION_QUESTIONS": "Questions for people who want to join this group",
     "PICKUPS": "પિકઅપ્સ",
     "PICKUP": "Pickup",
     "MEMBERS": "સભ્યો",
@@ -184,16 +188,22 @@
     "WHICHGROUP": "તમે કઈ જૂથમાં જોડાવા માંગો છો?",
     "NUM_MEMBERS": "સભ્ય | સભ્યો",
     "NO_PUBLIC_DESCRIPTION": "(આ જૂથમાં હજી કોઈ જાહેર વર્ણન નથી ...)",
-    "PASSWORD_LABEL": "ખાનગી જૂથ માટે પાસવર્ડ દાખલ કરો",
-    "PASSWORD_REQUIRED": "આ જૂથને પાસવર્ડની જરૂર છે",
     "ALL_GROUPS": "બધા જૂથો",
     "SIGNUP_OR_LOGIN": "આ જૂથમાં જોડાવા માટે લોગ ઇન કરો અથવા સાઇન અપ કરો!",
+    "VERIFY_EMAIL_ADDRESS":"Verify your email address to apply",
     "MY_GROUPS": "મારા જૂથો",
     "LOGOUT_MESSAGE": {
       "LOGGED_OUT": "તમે હાલમાં લૉગ આઉટ થયા છો {login}",
       "LOG_IN": "તમારા જૂથો જોવા માટે પ્રવેશ કરો!"
     },
-    "PROFILE_NOTE": "આ જૂથમાં જોડાવાથી, તમારો પ્રોફાઇલ ડેટા અન્ય જૂથના સભ્યોને દૃશ્યક્ષમ બનશે."
+    "PROFILE_NOTE": "આ જૂથમાં જોડાવાથી, તમારો પ્રોફાઇલ ડેટા અન્ય જૂથના સભ્યોને દૃશ્યક્ષમ બનશે.",
+    "APPLICATION_SUBMITTED": "Your application was successfully submitted!",
+    "APPLICATION_PENDING": "Your application is pending!",
+    "WITHDRAW_APPLICATION": "Withdraw",
+    "WITHDRAW_CONFIRMATION_HEADER": "Withdraw Application",
+    "WITHDRAW_CONFIRMATION_TEXT": "Are you sure you want to withdraw your application to join {groupName}?",
+    "APPLICATION_WITHDRAWN": "Your application was successfully withdrawn!"
+
   },
   "GROUPINFO": {
     "TITLE": "જાહેર જૂથની માહિતી",
@@ -423,6 +433,21 @@
     "NEGOTIATING": "નેગોશીયેટિંગ",
     "DECLINED": "સહકાર ન કરવા માંગો છો",
     "ARCHIVED": "આર્કાઇવ કરેલ"
+  },
+  "APPLICATION": {
+    "FORM_HEADER": "Apply",
+    "FORM_TITLE": "Apply to join {groupName}",
+    "GALLERY_TOOLTIP": "You applied to join this group. Your application is still pending.",
+    "ACCESS_CHAT": "Open the application chat",
+    "WALL_NOTICE": "There is an application pending! | There are {count} applications pending!",
+    "ACCEPT_CONFIRMATION_HEADER": "Accept Application",
+    "ACCEPT_CONFIRMATION_TEXT": "Are you sure you want to accept {userName} into this group?",
+    "DECLINE_CONFIRMATION_HEADER": "Decline Application",
+    "DECLINE_CONFIRMATION_TEXT": "Are you sure you want to decline {userName}'s application?",
+    "ACCEPTED": "You accepted {userName}'s request to join this group!",
+    "DECLINED": "You declined {userName}'s request to join this group!",
+    "PAST": "Past applications",
+    "SUBMITTED_ON": "Submitted on {date}"
   },
   "COMMUNITY_FEED": {
     "HEADER": "Updates from the {community}",

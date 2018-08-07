@@ -1,4 +1,5 @@
 {
+  "ENTRY": "1 entry | {count} entries",
   "GLOBAL": {
     "GITHUB_NOTE": "Utveckling",
     "FSWW_NOTE": "Read our info page!",
@@ -57,7 +58,9 @@
     "ARCHIVE": "Archive",
     "DELETE_ACCOUNT": "Radera konto",
     "SHOW": "Show",
-    "HIDE": "Hide"
+    "HIDE": "Hide",
+    "SUBMIT": "Submit",
+    "APPLY": "Apply"
   },
   "VALIDATION": {
     "MINLENGTH": "Ange mer än {min} tecken",
@@ -81,7 +84,8 @@
     "PRIVATE_DESCRIPTION_TITLE": "Privat gruppbeskrivning",
     "DESCRIPTION_VERBOSE": "Beskrivning av gruppen, endast för medlemmar",
     "PUBLIC_DESCRIPTION": "Publik Beskrivning av gruppen",
-    "PASSWORD": "Ange ett lösenord för att göra gruppen privat",
+    "APPLICATIONS": "Applications",
+    "APPLICATION_QUESTIONS": "Questions for people who want to join this group",
     "PICKUPS": "Upphämtningar",
     "PICKUP": "Pickup",
     "MEMBERS": "Medlemmar",
@@ -184,16 +188,22 @@
     "WHICHGROUP": "Vilken grupp vill du gå med i?",
     "NUM_MEMBERS": "Medlem | Medlemmar",
     "NO_PUBLIC_DESCRIPTION": "(Denna grupp har ingen publik beskrivning än..)",
-    "PASSWORD_LABEL": "Ange lösenordet för den privata gruppen",
-    "PASSWORD_REQUIRED": "Denna grupp kräver ett lösenord",
     "ALL_GROUPS": "Alla grupper",
     "SIGNUP_OR_LOGIN": "Logga in eller registrera dig för att gå med i gruppen!",
+    "VERIFY_EMAIL_ADDRESS":"Verify your email address to apply",
     "MY_GROUPS": "Mina grupper",
     "LOGOUT_MESSAGE": {
       "LOGGED_OUT": "Du är utloggade nu. {login}",
       "LOG_IN": "Logga in för att se dina grupper!"
     },
-    "PROFILE_NOTE": "När du går med i gruppen blir din profildata synlig för andra medlemmar i gruppen."
+    "PROFILE_NOTE": "När du går med i gruppen blir din profildata synlig för andra medlemmar i gruppen.",
+    "APPLICATION_SUBMITTED": "Your application was successfully submitted!",
+    "APPLICATION_PENDING": "Your application is pending!",
+    "WITHDRAW_APPLICATION": "Withdraw",
+    "WITHDRAW_CONFIRMATION_HEADER": "Withdraw Application",
+    "WITHDRAW_CONFIRMATION_TEXT": "Are you sure you want to withdraw your application to join {groupName}?",
+    "APPLICATION_WITHDRAWN": "Your application was successfully withdrawn!"
+
   },
   "GROUPINFO": {
     "TITLE": "Offentlig information om gruppen",
@@ -423,6 +433,21 @@
     "NEGOTIATING": "Förhandlar",
     "DECLINED": "Vill inte samarbeta",
     "ARCHIVED": "Archived"
+  },
+  "APPLICATION": {
+    "FORM_HEADER": "Apply",
+    "FORM_TITLE": "Apply to join {groupName}",
+    "GALLERY_TOOLTIP": "You applied to join this group. Your application is still pending.",
+    "ACCESS_CHAT": "Open the application chat",
+    "WALL_NOTICE": "There is an application pending! | There are {count} applications pending!",
+    "ACCEPT_CONFIRMATION_HEADER": "Accept Application",
+    "ACCEPT_CONFIRMATION_TEXT": "Are you sure you want to accept {userName} into this group?",
+    "DECLINE_CONFIRMATION_HEADER": "Decline Application",
+    "DECLINE_CONFIRMATION_TEXT": "Are you sure you want to decline {userName}'s application?",
+    "ACCEPTED": "You accepted {userName}'s request to join this group!",
+    "DECLINED": "You declined {userName}'s request to join this group!",
+    "PAST": "Past applications",
+    "SUBMITTED_ON": "Submitted on {date}"
   },
   "COMMUNITY_FEED": {
     "HEADER": "Updates from the {community}",

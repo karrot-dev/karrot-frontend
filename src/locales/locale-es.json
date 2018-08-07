@@ -1,4 +1,5 @@
 {
+  "ENTRY": "1 entry | {count} entries",
   "GLOBAL": {
     "GITHUB_NOTE": "Desarrollo",
     "FSWW_NOTE": "Read our info page!",
@@ -57,7 +58,9 @@
     "ARCHIVE": "Archivo",
     "DELETE_ACCOUNT": "Eliminar cuenta",
     "SHOW": "Show",
-    "HIDE": "Hide"
+    "HIDE": "Hide",
+    "SUBMIT": "Submit",
+    "APPLY": "Apply"
   },
   "VALIDATION": {
     "MINLENGTH": "Por favor introduce más que {min} caracteres.",
@@ -81,7 +84,8 @@
     "PRIVATE_DESCRIPTION_TITLE": "Descripción privada del grupo ",
     "DESCRIPTION_VERBOSE": "Descripción del grupo, visible para los miembros",
     "PUBLIC_DESCRIPTION": "Texto visible antes de unirse al grupo",
-    "PASSWORD": "Introducir contraseña aquí para hacer el grupo privado",
+    "APPLICATIONS": "Applications",
+    "APPLICATION_QUESTIONS": "Questions for people who want to join this group",
     "PICKUPS": "Recogidas",
     "PICKUP": "Pickup",
     "MEMBERS": "Miembros",
@@ -184,16 +188,22 @@
     "WHICHGROUP": "¿A qué grupo quiere unirse?",
     "NUM_MEMBERS": "Miembro | Miembros",
     "NO_PUBLIC_DESCRIPTION": "(Este grupo no tiene una descripción pública... todavía)",
-    "PASSWORD_LABEL": "Introducir contraseña para grupo privado",
-    "PASSWORD_REQUIRED": "Este grupo requiere contraseña",
     "ALL_GROUPS": "Todos los grupos",
     "SIGNUP_OR_LOGIN": "Inicia sesión o regístrate para unirte a este grupo!",
+    "VERIFY_EMAIL_ADDRESS":"Verify your email address to apply",
     "MY_GROUPS": "Mis grupos",
     "LOGOUT_MESSAGE": {
       "LOGGED_OUT": "Está desconectado. {iniciar sesión}",
       "LOG_IN": "Iniciar sesión para ver tus grupos!"
     },
-    "PROFILE_NOTE": "Si te unes a este grupo tus datos de perfil serán visibles para otros miembros del grupo. "
+    "PROFILE_NOTE": "Si te unes a este grupo tus datos de perfil serán visibles para otros miembros del grupo. ",
+    "APPLICATION_SUBMITTED": "Your application was successfully submitted!",
+    "APPLICATION_PENDING": "Your application is pending!",
+    "WITHDRAW_APPLICATION": "Withdraw",
+    "WITHDRAW_CONFIRMATION_HEADER": "Withdraw Application",
+    "WITHDRAW_CONFIRMATION_TEXT": "Are you sure you want to withdraw your application to join {groupName}?",
+    "APPLICATION_WITHDRAWN": "Your application was successfully withdrawn!"
+
   },
   "GROUPINFO": {
     "TITLE": "Información pública del grupo",
@@ -423,6 +433,21 @@
     "NEGOTIATING": "En negociación",
     "DECLINED": "No está dispuesta a cooperar",
     "ARCHIVED": "Archivado"
+  },
+  "APPLICATION": {
+    "FORM_HEADER": "Apply",
+    "FORM_TITLE": "Apply to join {groupName}",
+    "GALLERY_TOOLTIP": "You applied to join this group. Your application is still pending.",
+    "ACCESS_CHAT": "Open the application chat",
+    "WALL_NOTICE": "There is an application pending! | There are {count} applications pending!",
+    "ACCEPT_CONFIRMATION_HEADER": "Accept Application",
+    "ACCEPT_CONFIRMATION_TEXT": "Are you sure you want to accept {userName} into this group?",
+    "DECLINE_CONFIRMATION_HEADER": "Decline Application",
+    "DECLINE_CONFIRMATION_TEXT": "Are you sure you want to decline {userName}'s application?",
+    "ACCEPTED": "You accepted {userName}'s request to join this group!",
+    "DECLINED": "You declined {userName}'s request to join this group!",
+    "PAST": "Past applications",
+    "SUBMITTED_ON": "Submitted on {date}"
   },
   "COMMUNITY_FEED": {
     "HEADER": "Updates from the {community}",

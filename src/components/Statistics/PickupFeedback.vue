@@ -36,12 +36,40 @@
         </div>
       </RandomArt>
       <div class="generic-padding">
+        <p>
+          You did this pickup together with
+          <ProfilePicture
+            v-for="user in fellowCollectors"
+            :user="user"
+            :key="user.id"
+            class="q-ml-xs"
+          />.
+        </p>
         <FeedbackForm
           style="padding: 1.5em 0"
           :value="feedbackDefault"
           :status="saveStatus"
           @save="$emit('save', arguments[0])"
         />
+        <p v-if="newcomerCollectors.length > 0">
+          One more moment please...<br>
+          These people are new to your group and did one of their first pickups.
+          Did they handle the situation well?
+          Then you could express your trust and help them becoming a group editor.
+        </p>
+        <div
+          v-for="user in newcomerCollectors"
+          :key="user.id"
+        >
+          <!-- TODO convert into list -->
+          <ProfilePicture
+            :user="user"
+            class="q-ml-xs"
+            :size="40"
+          />
+          {{ user.displayName }}<br>
+          5 pickups, 2 trust so far
+        </div>
       </div>
     </q-card>
     <KNotice v-else>
@@ -81,9 +109,10 @@ import cartImg from 'assets/people/cart.png'
 import RandomArt from '@/components/General/RandomArt'
 import FeedbackForm from './FeedbackForm'
 import KNotice from '@/components/General/KNotice'
+import ProfilePicture from '@/components/ProfilePictures/ProfilePicture'
 
 export default {
-  components: { RandomArt, QCard, QCardMain, QField, QInput, QBtn, QSelect, FeedbackForm, AmountPicker, FeedbackList, KNotice },
+  components: { RandomArt, ProfilePicture, QCard, QCardMain, QField, QInput, QBtn, QSelect, FeedbackForm, AmountPicker, FeedbackList, KNotice },
   props: {
     pickups: { required: true, type: Array },
     editFeedback: { default: null, type: Object },
@@ -140,6 +169,12 @@ export default {
         filtered = filtered.filter(e => e.id !== this.editFeedback.id)
       }
       return filtered
+    },
+    fellowCollectors () {
+      return this.select.collectors.filter(u => !u.isCurrentUser)
+    },
+    newcomerCollectors () {
+      return this.fellowCollectors.filter(u => !u.membershipInCurrentGroup.isEditor && !u.membershipInCurrentGroup.trusted)
     },
   },
 }

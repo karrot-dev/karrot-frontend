@@ -31,21 +31,31 @@ export default {
       }
       const authUserId = rootGetters['auth/userId']
       const currentGroup = rootGetters['currentGroup/value']
+      const membershipInCurrentGroup = currentGroup && currentGroup.memberships && currentGroup.memberships[user.id]
 
-      // should be renamed into membershipincurrentgroup or removed
-      const membership = currentGroup && currentGroup.memberships && currentGroup.memberships[user.id]
+      const enrichMembership = (membership) => {
+        if (!membership) return
+        const isEditor = membership.roles.includes('editor')
+        return {
+          ...membership,
+          isEditor,
+          trustedBy: membership.trustedBy.map(rootGetters['users/get']), // TODO can we live with a cyclic dependency?
+          trusted: membership.trustedBy.includes(authUserId),
+          trustProgress: isEditor ? 1 : membership.trustedBy.length / currentGroup.trustThresholdForNewcomer,
+        }
+      }
 
+      // User is member in these groups
       const memberships = user.memberships && Object.entries(user.memberships).map(([groupId, membership]) => ({
-        ...membership,
+        ...enrichMembership(membership),
         group: rootGetters['groups/get'](groupId),
-        trustedBy: membership.trustedBy.map(rootGetters['users/get']),
-        trusted: membership.trustedBy.includes(authUserId),
-        isEditor: membership.roles.includes('editor'),
       })).sort((a, b) => a.group.name.localeCompare(b.group.name))
+
       return {
         ...user,
         isCurrentUser: user.id === authUserId,
-        isEditor: membership && membership.roles.includes('editor'),
+        isEditor: membershipInCurrentGroup && membershipInCurrentGroup.roles.includes('editor'), // TODO remove
+        membershipInCurrentGroup: enrichMembership(membershipInCurrentGroup),
         memberships,
       }
     },
@@ -54,18 +64,8 @@ export default {
     },
     byCurrentGroup: (state, getters, rootState, rootGetters) => {
       const currentGroup = rootGetters['currentGroup/value']
-      if (currentGroup && currentGroup.memberships) {
-        return Object.entries(currentGroup.memberships).map(([userId, membership]) => {
-          userId = parseInt(userId)
-          return {
-            ...getters.get(userId),
-            membershipInCurrentGroup: {
-              ...membership,
-              trustedBy: membership.trustedBy.map(rootGetters['users/get']),
-              trustProgress: membership.roles.includes('editor') ? 1 : membership.trustedBy.length / currentGroup.trustThresholdForNewcomer,
-            },
-          }
-        })
+      if (currentGroup && currentGroup.members) {
+        return currentGroup.members.map(getters.get)
       }
       return []
     },

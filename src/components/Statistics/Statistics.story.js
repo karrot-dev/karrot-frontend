@@ -26,7 +26,16 @@ storiesOf('Statistics', module)
   .add('PickupFeedback', () => defaults({
     render: h => h(PickupFeedback, {
       props: {
-        pickups: pickupsMock,
+        pickups: pickupsMock.map(pickup => ({
+          ...pickup,
+          collectors: pickup.collectors.map(user => ({
+            ...user,
+            membershipInCurrentGroup: {
+              isEditor: Math.random() > 0.5,
+              trusted: Math.random() > 0.5,
+            },
+          })),
+        })),
         existingFeedback: feedbackMock,
         saveStatus: statusMocks.default(),
         fetchStatus: statusMocks.default(),

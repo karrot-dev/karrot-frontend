@@ -105,31 +105,52 @@
             </q-item-tile>
             <q-item-tile sublabel>
               {{ isEditor ? 'Editor' : 'Newcomer' }}
-              <small v-if="trusted">
-                / You trust this user
-              </small>
             </q-item-tile>
           </q-item-main>
           <q-item-side>
             <q-btn
-              v-if="!trusted && !user.isCurrentUser"
+              v-if="!user.isCurrentUser"
               round
-              @click="$emit('createTrust', { userId: user.id, groupId: group.id })"
               color="primary"
               class="karrot-button"
-            />
-            <span>
-              {{ trustedBy.length }} people trust this user
-              <q-popover>
-                <ProfilePicture
-                  v-for="u in trustedBy"
-                  :key="u.id"
-                  :user="u"
-                  :size="40"
-                />
+            >
+              <q-chip
+                floating
+                color="secondary"
+              >
+                {{ trustedBy.length }}
+              </q-chip>
+              <q-popover
+                self="center left"
+              >
+                <div class="bg-primary text-white generic-padding">
+                  <p>{{ trustedBy.length }} people trust {{ user.displayName }} in {{ group.name }}</p>
+                  <div>
+                    <ProfilePicture
+                      v-for="u in trustedBy"
+                      :key="u.id"
+                      :user="u"
+                      :size="20"
+                    />
+                  </div>
+                  <template v-if="trusted">
+                    <small>You trust this user</small>
+                  </template>
+                  <q-btn
+                    v-else
+                    rounded
+                    color="secondary"
+                    @click="$emit('createTrust', { userId: user.id, groupId: group.id })"
+                  >
+                    <span class="q-mr-xs">+</span>
+                    <img
+                      src="https://twemoji.maxcdn.com/2/72x72/1f955.png"
+                      width="20px"
+                    >
+                  </q-btn>
+                </div>
               </q-popover>
-            </span>
-
+            </q-btn>
           </q-item-side>
         </q-item>
 
@@ -151,10 +172,47 @@ import Markdown from '@/components/Markdown'
 import ProfilePicture from '@/components/ProfilePictures/ProfilePicture'
 import UserMapPreview from '@/components/Map/UserMapPreview'
 
-import { QCard, QCardTitle, QCardActions, QCardMain, QCardMedia, QBtn, QCardSeparator, QList, QListHeader, QItem, QItemMain, QItemSide, QItemTile, QPopover } from 'quasar'
+import {
+  QCard,
+  QCardTitle,
+  QCardActions,
+  QCardMain,
+  QCardMedia,
+  QBtn,
+  QCardSeparator,
+  QList,
+  QListHeader,
+  QItem,
+  QItemMain,
+  QItemSide,
+  QItemTile,
+  QPopover,
+  QChip,
+  QTooltip,
+} from 'quasar'
 
 export default {
-  components: { Markdown, UserMapPreview, QCard, QCardMain, QCardTitle, QCardMedia, QCardActions, QBtn, QCardSeparator, QList, QItem, QListHeader, QItemMain, QItemSide, QItemTile, QPopover, ProfilePicture },
+  components: {
+    Markdown,
+    UserMapPreview,
+    ProfilePicture,
+    QCard,
+    QCardTitle,
+    QCardActions,
+    QCardMain,
+    QCardMedia,
+    QBtn,
+    QCardSeparator,
+    QList,
+    QListHeader,
+    QItem,
+    QItemMain,
+    QItemSide,
+    QItemTile,
+    QPopover,
+    QChip,
+    QTooltip,
+  },
   props: {
     user: { required: true, type: Object },
     groups: { required: true, type: Array },

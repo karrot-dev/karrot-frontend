@@ -97,7 +97,7 @@
 
           <q-btn
             v-else
-            @click="$emit('goSignup', group.id)"
+            @click="$emit('goSignup', group)"
             color="secondary"
             class="float-right generic-margin"
             :loading="group.joinStatus.pending"

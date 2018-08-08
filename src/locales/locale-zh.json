@@ -1,4 +1,5 @@
 {
+  "ENTRY": "1 entry | {count} entries",
   "GLOBAL": {
     "GITHUB_NOTE": "開發",
     "FSWW_NOTE": "查看我們的資訊頁面 !",
@@ -57,7 +58,9 @@
     "ARCHIVE": "歸檔",
     "DELETE_ACCOUNT": "刪除帳戶",
     "SHOW": "顯示",
-    "HIDE": "隱藏"
+    "HIDE": "隱藏",
+    "SUBMIT": "Submit",
+    "APPLY": "Apply"
   },
   "VALIDATION": {
     "MINLENGTH": "請輸入至少 {最少} 個字。",
@@ -81,7 +84,8 @@
     "PRIVATE_DESCRIPTION_TITLE": "私密社團敘述",
     "DESCRIPTION_VERBOSE": "社團敘述（僅社團成員可見）",
     "PUBLIC_DESCRIPTION": "加入社團前顯示的文字",
-    "PASSWORD": "如果想設定為私密社團，請在此輸入密碼",
+    "APPLICATIONS": "Applications",
+    "APPLICATION_QUESTIONS": "Questions for people who want to join this group",
     "PICKUPS": "開放領取食物",
     "PICKUP": "領取",
     "MEMBERS": "成員",
@@ -184,16 +188,22 @@
     "WHICHGROUP": "你想要加入哪一個社團？",
     "NUM_MEMBERS": "成員 | 成員",
     "NO_PUBLIC_DESCRIPTION": "(此社團尚未建立公開的描述)",
-    "PASSWORD_LABEL": "輸入私密社團的密碼",
-    "PASSWORD_REQUIRED": "此社團需要密碼",
     "ALL_GROUPS": "所有社團",
     "SIGNUP_OR_LOGIN": "登入或註冊以加入社團！",
+    "VERIFY_EMAIL_ADDRESS":"Verify your email address to apply",
     "MY_GROUPS": "我的社團",
     "LOGOUT_MESSAGE": {
       "LOGGED_OUT": "你已經登出。 {登入}",
       "LOG_IN": "請登入檢視你的社團！"
     },
-    "PROFILE_NOTE": "加入此社團後，其他成員也能瀏覽你的個人檔案。"
+    "PROFILE_NOTE": "加入此社團後，其他成員也能瀏覽你的個人檔案。",
+    "APPLICATION_SUBMITTED": "Your application was successfully submitted!",
+    "APPLICATION_PENDING": "Your application is pending!",
+    "WITHDRAW_APPLICATION": "Withdraw",
+    "WITHDRAW_CONFIRMATION_HEADER": "Withdraw Application",
+    "WITHDRAW_CONFIRMATION_TEXT": "Are you sure you want to withdraw your application to join {groupName}?",
+    "APPLICATION_WITHDRAWN": "Your application was successfully withdrawn!"
+
   },
   "GROUPINFO": {
     "TITLE": "公開社團資訊",
@@ -423,6 +433,21 @@
     "NEGOTIATING": "交涉洽談中",
     "DECLINED": "無意願合作",
     "ARCHIVED": "已封存"
+  },
+  "APPLICATION": {
+    "FORM_HEADER": "Apply",
+    "FORM_TITLE": "Apply to join {groupName}",
+    "GALLERY_TOOLTIP": "You applied to join this group. Your application is still pending.",
+    "ACCESS_CHAT": "Open the application chat",
+    "WALL_NOTICE": "There is an application pending! | There are {count} applications pending!",
+    "ACCEPT_CONFIRMATION_HEADER": "Accept Application",
+    "ACCEPT_CONFIRMATION_TEXT": "Are you sure you want to accept {userName} into this group?",
+    "DECLINE_CONFIRMATION_HEADER": "Decline Application",
+    "DECLINE_CONFIRMATION_TEXT": "Are you sure you want to decline {userName}'s application?",
+    "ACCEPTED": "You accepted {userName}'s request to join this group!",
+    "DECLINED": "You declined {userName}'s request to join this group!",
+    "PAST": "Past applications",
+    "SUBMITTED_ON": "Submitted on {date}"
   },
   "COMMUNITY_FEED": {
     "HEADER": "Updates from the {community}",

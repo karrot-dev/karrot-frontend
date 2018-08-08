@@ -94,7 +94,8 @@ module.exports = {
         loader: 'babel-loader',
         include: [
           join(projectRoot, 'src'),
-          /quasar\//,
+          /quasar-framework\/src/,
+          /\.mjs$/,
         ],
       },
       {

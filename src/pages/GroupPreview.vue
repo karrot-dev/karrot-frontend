@@ -16,8 +16,8 @@ export default connect({
   methodsToEvents: {
     goVisit: (store, groupId) => router.push({ name: 'group', params: { groupId } }),
     goSettings: ({ dispatch }) => router.push({ name: 'settings', hash: '#change-email' }),
-    goSignup: ({ dispatch }, groupId) => {
-      dispatch('auth/setJoinGroupAfterLogin', groupId)
+    goSignup: ({ dispatch }, group) => {
+      if (group.isOpen) dispatch('auth/setJoinGroupAfterLogin', group.id)
       router.push({ name: 'signup' })
     },
     goApply: (store, groupId) => router.push({ name: 'applicationForm', params: { groupPreviewId: groupId } }),

@@ -4,6 +4,21 @@
     highlight
   >
     <q-item
+      tag="a"
+      href="https://www.transifex.com/yunity-1/karrot/dashboard/"
+      target="_blank"
+      rel="nofollow noopener noreferrer"
+      class="q-pt-xs"
+      style="min-height: 20px"
+    >
+      <q-item-main>
+        <q-item-tile sublabel>
+          <q-icon name="fas fa-external-link-alt" />
+          <small>{{ $t('LANGUAGECHOOSER.ADD_MORE') }}</small>
+        </q-item-tile>
+      </q-item-main>
+    </q-item>
+    <q-item
       v-for="locale in localeOptions"
       :key="locale.value"
       @click.native="setLocale(locale.value)"
@@ -20,18 +35,6 @@
             :percentage="locale.percentage"
           />
         </q-item-tile>
-      </q-item-main>
-    </q-item>
-    <q-item-separator />
-    <q-item
-      tag="a"
-      href="https://www.transifex.com/yunity-1/karrot/dashboard/"
-      target="_blank"
-      rel="nofollow noopener noreferrer"
-    >
-      <q-item-main>
-        <q-icon name="fas fa-external-link-alt" />
-        <small>{{ $t('LANGUAGECHOOSER.ADD_MORE') }}</small>
       </q-item-main>
     </q-item>
   </q-list>

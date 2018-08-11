@@ -81,7 +81,7 @@ export default {
       return this.stores && this.stores.length > 0
     },
     ...mapGetters({
-      isEditor: 'auth/isEditorInCurrentGroup',
+      isEditor: 'currentGroup/isEditor',
     }),
   },
   methods: {

@@ -150,7 +150,7 @@ export default {
       store: 'stores/activeStore',
       pickups: 'pickups/filtered',
       currentUser: 'auth/user',
-      isEditor: 'auth/isEditorInCurrentGroup',
+      isEditor: 'currentGroup/isEditor',
     }),
     hasNoPickups () {
       return this.pickups && this.pickups.length === 0

@@ -4,7 +4,7 @@
       no-border
     >
       <q-item
-        v-if="users.length > 15"
+        v-if="memberships.length > 15"
       >
         <q-search v-model="filterTerm" />
       </q-item>
@@ -16,9 +16,9 @@
         <span>Trusted by</span>
       </q-list-header>
       <UserItem
-        v-for="user in activeEditors"
-        :key="user.id"
-        :user="user"
+        v-for="membership in activeEditors"
+        :key="membership.user.id"
+        :membership="membership"
       />
       <q-list-header
         v-if="activeNewcomers.length > 0"
@@ -28,13 +28,13 @@
         <span>Trusted by</span>
       </q-list-header>
       <UserItem
-        v-for="user in activeNewcomers"
-        :key="user.id"
-        :user="user"
+        v-for="membership in activeNewcomers"
+        :key="membership.user.id"
+        :membership="membership"
       />
       <q-item-separator />
       <q-collapsible
-        v-if="inactiveUsers.length > 0"
+        v-if="inactiveMemberships.length > 0"
         icon="fas fa-bed"
         :label="$t('GROUP.INACTIVE')"
         :sublabel="inactiveSublabel"
@@ -43,9 +43,9 @@
       >
         <template v-if="showInactive">
           <UserItem
-            v-for="user in inactiveUsers"
-            :key="user.id"
-            :user="user"
+            v-for="membership in inactiveMemberships"
+            :key="membership.user.id"
+            :membership="membership"
             class="inactive"
           />
         </template>
@@ -77,7 +77,7 @@ export default {
     QSearch,
   },
   props: {
-    users: {
+    memberships: {
       type: Array,
       required: true,
     },
@@ -94,31 +94,30 @@ export default {
   },
   methods: {
     sort (list) {
-      const getJoinDate = a => a.membershipInCurrentGroup.createdAt
-      const sortByJoinDate = (a, b) => getJoinDate(b) - getJoinDate(a)
-      const sortByName = (a, b) => a.displayName.localeCompare(b.displayName)
+      const sortByJoinDate = (a, b) => b.createdAt - a.createdAt
+      const sortByName = (a, b) => a.user.displayName.localeCompare(b.user.displayName)
       return list.slice().sort(this.sorting === 'joinDate' ? sortByJoinDate : sortByName)
     },
     filterByTerms (list) {
       if (!this.filterTerm || this.filterTerm === '') return list
-      return list.filter(u => u.displayName.toLowerCase().includes(this.filterTerm.toLowerCase()))
+      return list.filter(m => m.user.displayName.toLowerCase().includes(this.filterTerm.toLowerCase()))
     },
   },
   computed: {
     inactiveSublabel () {
-      return this.inactiveUsers.length + ' ' + this.$tc('JOINGROUP.NUM_MEMBERS', this.inactiveUsers.length)
+      return this.inactiveMemberships.length + ' ' + this.$tc('JOINGROUP.NUM_MEMBERS', this.inactiveMemberships.length)
     },
-    activeUsers () {
-      return this.sort(this.filterByTerms(this.users.filter(u => u.membershipInCurrentGroup.active)))
+    activeMemberships () {
+      return this.sort(this.filterByTerms(this.memberships.filter(m => m.active)))
     },
     activeEditors () {
-      return this.activeUsers.filter(u => u.isEditor)
+      return this.activeMemberships.filter(m => m.isEditor)
     },
     activeNewcomers () {
-      return this.activeUsers.filter(u => !u.isEditor)
+      return this.activeMemberships.filter(m => !m.isEditor)
     },
-    inactiveUsers () {
-      return this.sort(this.filterByTerms(this.users.filter(u => !u.membershipInCurrentGroup.active)))
+    inactiveMemberships () {
+      return this.sort(this.filterByTerms(this.memberships.filter(m => !m.active)))
     },
   },
 }

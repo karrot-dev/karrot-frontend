@@ -30,33 +30,10 @@ export default {
         }
       }
       const authUserId = rootGetters['auth/userId']
-      const currentGroup = rootGetters['currentGroup/value']
-      const membershipInCurrentGroup = currentGroup && currentGroup.memberships && currentGroup.memberships[user.id]
-
-      const enrichMembership = (membership) => {
-        if (!membership) return
-        const isEditor = membership.roles.includes('editor')
-        return {
-          ...membership,
-          isEditor,
-          trustedBy: membership.trustedBy.map(rootGetters['users/get']), // TODO can we live with a cyclic dependency?
-          trusted: membership.trustedBy.includes(authUserId),
-          trustProgress: isEditor ? 1 : membership.trustedBy.length / currentGroup.trustThresholdForNewcomer,
-        }
-      }
-
-      // User is member in these groups
-      const memberships = user.memberships && Object.entries(user.memberships).map(([groupId, membership]) => ({
-        ...enrichMembership(membership),
-        group: rootGetters['groups/get'](groupId),
-      })).sort((a, b) => a.group.name.localeCompare(b.group.name))
 
       return {
         ...user,
         isCurrentUser: user.id === authUserId,
-        isEditor: membershipInCurrentGroup && membershipInCurrentGroup.roles.includes('editor'), // TODO remove
-        membershipInCurrentGroup: enrichMembership(membershipInCurrentGroup),
-        memberships,
       }
     },
     all: (state, getters, rootState, rootGetters) => {
@@ -70,7 +47,20 @@ export default {
       return []
     },
     activeUser: (state, getters, rootState, rootGetters) => {
-      return state.activeUserProfile && getters.enrich(state.activeUserProfile)
+      if (!state.activeUserProfile) return
+
+      const user = state.activeUserProfile
+
+      // User is member in these groups
+      const memberships = user.memberships && Object.entries(user.memberships).map(([groupId, membership]) => ({
+        ...rootGetters['groups/enrichMembership'](membership),
+        group: rootGetters['groups/get'](parseInt(groupId)), // parseInt necessary?
+      })).sort((a, b) => a.group.name.localeCompare(b.group.name))
+
+      return {
+        ...getters.enrich(user),
+        memberships,
+      }
     },
     activeUserId: state => state.activeUserProfile && state.activeUserProfile.id,
     ...metaStatuses(['signup', 'requestResetPassword', 'resetPassword', 'resendVerificationCode', 'requestDeleteAccount']),

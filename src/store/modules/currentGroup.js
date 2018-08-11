@@ -15,27 +15,48 @@ export default {
     value: (state, getters) => getters.enrich(state.current),
     enrich: (state, getters, rootState, rootGetters) => group => {
       if (!group) return
-      const userId = rootGetters['auth/userId']
-      const activeAgreement = rootGetters['agreements/get'](group.activeAgreement)
-      const membership = group.memberships ? group.memberships[userId] : {}
       const isPlayground = group.status === 'playground'
-      const isEditor = membership.roles && membership.roles.includes('editor')
+
       return {
         ...group,
-        membership,
-        activeAgreement,
-        awaitingAgreement: !!(activeAgreement && activeAgreement.agreed === false),
         isPlayground,
-        isEditor,
+        membership: getters.membership,
+        memberships: getters.memberships,
+        activeAgreement: getters.activeAgreement,
+        awaitingAgreement: !!(getters.activeAgreement && getters.activeAgreement.agreed === false),
       }
     },
-    roles: (state, getters) => (getters.value && getters.value.membership) ? getters.value.membership.roles : [],
-    agreement: (state, getters) => getters.value && getters.value.activeAgreement,
+    enrichMembership: (state, getters, rootState, rootGetters) => membership => {
+      if (!membership) return
+      const enrichedMembership = rootGetters['groups/enrichMembership'](membership)
+      return {
+        ...enrichedMembership,
+        trustProgress: enrichedMembership.isEditor ? 1 : enrichedMembership.trustedBy.length / state.current.trustThresholdForNewcomer,
+      }
+    },
+    memberships: (state, getters, rootState, rootGetters) => {
+      if (!state.current) return []
+      const group = state.current
+      const memberships = Object.entries(group.memberships).reduce((obj, [userId, membership]) => {
+        obj[userId] = {
+          ...getters.enrichMembership(membership),
+          user: rootGetters['users/get'](userId),
+        }
+        return obj
+      }, {})
+      return memberships
+    },
+    membershipList: (state, getters) => getters.memberships && Object.values(getters.memberships),
+    agreement: (state, getters, rootState, rootGetters) => rootGetters['agreements/get'](state.current.activeAgreement),
     conversation: (state, getters, rootState, rootGetters) => {
       if (!state.current) return
       return rootGetters['conversations/getForGroup'](state.current.id)
     },
     id: (state) => state.current && state.current.id,
+    // for current user:
+    membership: (state, getters, rootState, rootGetters) => getters.memberships[rootGetters['auth/userId']],
+    roles: (state, getters) => getters.membership ? getters.value.membership.roles : [],
+    isEditor: (state, getters) => getters.roles.includes('editor'),
   },
   actions: {
     ...withMeta({

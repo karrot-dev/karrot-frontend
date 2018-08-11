@@ -27,7 +27,7 @@ export default {
   computed: {
     ...mapGetters({
       store: 'stores/activeStore',
-      isEditor: 'auth/isEditorInCurrentGroup',
+      isEditor: 'currentGroup/isEditor',
     }),
   },
   methods: {

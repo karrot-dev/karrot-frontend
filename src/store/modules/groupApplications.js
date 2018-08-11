@@ -20,7 +20,7 @@ export default {
       return application && {
         ...application,
         isPending: application.status === 'pending',
-        canDecide: application.status === 'pending' && rootGetters['auth/isEditorInCurrentGroup'],
+        canDecide: application.status === 'pending' && rootGetters['currentGroup/isEditor'],
       }
     },
     getByGroupId: state => groupId => {

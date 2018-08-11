@@ -35,7 +35,7 @@
     </div>
     <UserList
       class="padding-top"
-      :users="users"
+      :memberships="memberships"
       :sorting="sorting"
     />
   </q-card>
@@ -69,7 +69,7 @@ export default {
   },
   computed: {
     ...mapGetters({
-      users: 'users/byCurrentGroup',
+      memberships: 'currentGroup/membershipList',
       group: 'currentGroup/value',
     }),
   },

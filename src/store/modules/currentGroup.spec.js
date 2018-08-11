@@ -7,6 +7,28 @@ jest.mock('@/services/api/groups', () => ({
 
 import { createStore, createValidationError, throws } from '>/helpers'
 
+const users = [
+  {
+    id: 5,
+  },
+  {
+    id: 6,
+  },
+]
+
+const memberships = {
+  5: {
+    createdAt: new Date(),
+    roles: [],
+    trustedBy: [],
+  },
+  6: {
+    createdAt: new Date(),
+    roles: [],
+    trustedBy: [],
+  },
+}
+
 function enrich (group) {
   return {
     ...group,
@@ -15,6 +37,23 @@ function enrich (group) {
     awaitingAgreement: false,
     isPlayground: false,
   }
+}
+
+function enrichMemberships (m) {
+  return Object.entries(m).reduce((obj, [userId, membership]) => {
+    const user = users.find(u => u.id === parseInt(userId))
+    obj[userId] = {
+      ...membership,
+      isEditor: membership.roles.includes('editor'),
+      trustProgress: 0,
+      trusted: membership.trustedBy.includes(5),
+      user: {
+        ...user,
+        isCurrentUser: user.id === 5,
+      },
+    }
+    return obj
+  }, {})
 }
 
 describe('currentGroup', () => {
@@ -27,7 +66,7 @@ describe('currentGroup', () => {
   let getForGroup
 
   beforeEach(() => {
-    group3 = { id: 3, name: 'group 3', members: [userId] }
+    group3 = { id: 3, name: 'group 3', members: [userId], trustThresholdForNewcomer: 3 }
     getForGroup = jest.fn()
   })
 
@@ -102,6 +141,31 @@ describe('currentGroup', () => {
       expect(store.getters['currentGroup/conversation']).toEqual(conversation)
       expect(getForGroup).toBeCalled()
       expect(getForGroup.mock.calls[0][0]).toEqual(group3.id)
+    })
+  })
+
+  describe('memberships getter', () => {
+    beforeEach(() => {
+      store = createStore({
+        currentGroup: require('./currentGroup').default,
+        groups: require('./groups').default,
+        users: require('./users').default,
+        agreements,
+        auth,
+        conversations,
+      })
+    })
+
+    beforeEach(() => {
+      store.commit('currentGroup/set', {
+        ...group3,
+        memberships,
+      })
+      store.commit('users/set', users)
+    })
+
+    it('can get memberships', () => {
+      expect(store.getters['currentGroup/memberships']).toEqual(enrichMemberships(memberships))
     })
   })
 

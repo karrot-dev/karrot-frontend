@@ -40,6 +40,16 @@ export default {
         ...metaStatusesWithId(getters, ['save', 'join', 'leave'], group.id),
       }
     },
+    enrichMembership: (state, getters, rootState, rootGetters) => membership => {
+      if (!membership) return
+      const authUserId = rootGetters['auth/userId']
+      return {
+        ...membership,
+        isEditor: membership.roles.includes('editor'),
+        trustedBy: membership.trustedBy.map(rootGetters['users/get']),
+        trusted: membership.trustedBy.includes(authUserId),
+      }
+    },
     all: (state, getters, rootState, rootGetters) => {
       return state.idsList.map(getters.get)
     },

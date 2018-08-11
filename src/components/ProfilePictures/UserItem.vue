@@ -24,12 +24,12 @@
           <DateAsWords
             place="relativeDate"
             style="display: inline"
-            :date="user.membershipInCurrentGroup.createdAt"
+            :date="membership.createdAt"
           />
         </i18n>
         <q-progress
-          v-if="user.membershipInCurrentGroup.trustProgress < 1"
-          :percentage="user.membershipInCurrentGroup.trustProgress * 100"
+          v-if="membership.trustProgress < 1"
+          :percentage="membership.trustProgress * 100"
           class="q-mt-xs"
           title="Trust needed to become Editor"
         />
@@ -38,7 +38,7 @@
     <q-item-side>
       <q-item-tile>
         <ProfilePicture
-          v-for="u in user.membershipInCurrentGroup.trustedBy"
+          v-for="u in membership.trustedBy"
           :key="u.id"
           :user="u"
         />
@@ -70,9 +70,14 @@ export default {
     QProgress,
   },
   props: {
-    user: {
+    membership: {
       type: Object,
       default: null,
+    },
+  },
+  computed: {
+    user () {
+      return membership.user
     },
   },
 }

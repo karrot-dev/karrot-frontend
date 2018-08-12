@@ -52,6 +52,7 @@ export default {
       const user = state.activeUserProfile
 
       // User is member in these groups
+      // TODO: do I really want to switch the representation from object to list? might be unexpected
       const memberships = user.memberships && Object.entries(user.memberships).map(([groupId, membership]) => ({
         ...getters.enrichMembership(membership),
         group: rootGetters['groups/get'](groupId),

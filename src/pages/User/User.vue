@@ -4,6 +4,9 @@
       :user="user"
       :groups="groups"
       @detail="detail"
+    />
+    <Memberships
+      :user="user"
       @createTrust="createTrust"
     />
     <q-card class="no-shadow grey-border">
@@ -20,11 +23,12 @@
 <script>
 import { mapGetters, mapActions } from 'vuex'
 import UserProfile from '@/components/User/Profile'
+import Memberships from '@/components/User/Memberships'
 import History from '@/components/History/HistoryList'
 import { QCard, QCardTitle, QCardMain } from 'quasar'
 
 export default {
-  components: { QCard, QCardTitle, QCardMain, History, UserProfile },
+  components: { QCard, QCardTitle, QCardMain, History, UserProfile, Memberships },
   computed: {
     ...mapGetters({
       user: 'users/activeUser',

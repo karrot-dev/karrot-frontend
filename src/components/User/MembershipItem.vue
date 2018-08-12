@@ -12,7 +12,8 @@
       <q-btn
         v-if="!user.isCurrentUser"
         round
-        color="primary"
+        :color="canGiveTrust ? 'primary' : (trusted ? 'positive' : 'white')"
+        :title="canGiveTrust ? 'You can give trust to this user' : (trusted ? 'You trust this user' : 'You are not member of this group')"
         class="karrot-button"
       >
         <q-chip
@@ -137,4 +138,3 @@ export default {
   min-height 100%
   min-width 100%
 </style>
-

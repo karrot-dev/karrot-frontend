@@ -6,6 +6,7 @@
           v-if="currentGroupMembership"
           :user="user"
           :membership="currentGroupMembership"
+          @createTrust="$emit('createTrust', arguments[0])"
         />
         <q-collapsible
           v-if="otherMemberships.length > 0"
@@ -21,6 +22,7 @@
             :key="membership.group.id"
             :user="user"
             :membership="membership"
+            @createTrust="$emit('createTrust', arguments[0])"
           />
         </q-collapsible>
       </q-list>
@@ -48,6 +50,7 @@ import {
   QPopover,
   QChip,
   QTooltip,
+  QCollapsible,
 } from 'quasar'
 
 export default {
@@ -69,6 +72,7 @@ export default {
     QPopover,
     QChip,
     QTooltip,
+    QCollapsible,
   },
   props: {
     user: { required: true, type: Object },
@@ -80,6 +84,6 @@ export default {
     otherMemberships () {
       return this.user.memberships.filter(m => !m.group.isCurrentGroup)
     },
-  }
+  },
 }
 </script>

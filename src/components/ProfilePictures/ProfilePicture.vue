@@ -56,10 +56,11 @@ export default {
   },
   computed: {
     tooltip () {
-      // TODO translate
-      // maybe show only "Newcomer", not Editor
-      const role = this.user.isEditor ? 'Editor' : 'Newcomer'
-      return `${this.user.displayName} (${role})`
+      // Problem: we don't really know in which context we show the profile picture
+      // -> assume current group
+      // const role = this.user.isEditor ? 'Editor' : 'Newcomer'
+      // return `${this.user.displayName} (${role})`
+      return this.user.displayName
     },
     pictureStyle () {
       return {

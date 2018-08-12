@@ -77,7 +77,7 @@ export default {
   },
   computed: {
     user () {
-      return membership.user
+      return this.membership.user
     },
   },
 }

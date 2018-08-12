@@ -34,6 +34,7 @@ export default {
       return {
         ...user,
         isCurrentUser: user.id === authUserId,
+        // isEditor has been deprecated, but is needed in ProfilePicture and PickupUsers
       }
     },
     all: (state, getters, rootState, rootGetters) => {

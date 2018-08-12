@@ -53,13 +53,23 @@ export default {
 
       // User is member in these groups
       const memberships = user.memberships && Object.entries(user.memberships).map(([groupId, membership]) => ({
-        ...rootGetters['groups/enrichMembership'](membership),
-        group: rootGetters['groups/get'](parseInt(groupId)), // parseInt necessary?
+        ...getters.enrichMembership(membership),
+        group: rootGetters['groups/get'](groupId),
       })).sort((a, b) => a.group.name.localeCompare(b.group.name))
 
       return {
         ...getters.enrich(user),
         memberships,
+      }
+    },
+    enrichMembership: (state, getters, rootState, rootGetters) => membership => {
+      if (!membership) return
+      const authUserId = rootGetters['auth/userId']
+      return {
+        ...membership,
+        isEditor: membership.roles.includes('editor'),
+        trustedBy: membership.trustedBy.map(getters.get),
+        trusted: membership.trustedBy.includes(authUserId),
       }
     },
     activeUserId: state => state.activeUserProfile && state.activeUserProfile.id,

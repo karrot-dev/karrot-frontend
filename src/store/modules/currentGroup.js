@@ -16,7 +16,6 @@ export default {
     enrich: (state, getters, rootState, rootGetters) => group => {
       if (!group) return
       const isPlayground = group.status === 'playground'
-
       return {
         ...group,
         isPlayground,
@@ -26,25 +25,18 @@ export default {
         awaitingAgreement: !!(getters.activeAgreement && getters.activeAgreement.agreed === false),
       }
     },
-    enrichMembership: (state, getters, rootState, rootGetters) => membership => {
-      if (!membership) return
-      const enrichedMembership = rootGetters['groups/enrichMembership'](membership)
-      return {
-        ...enrichedMembership,
-        trustProgress: enrichedMembership.isEditor ? 1 : enrichedMembership.trustedBy.length / state.current.trustThresholdForNewcomer,
-      }
-    },
     memberships: (state, getters, rootState, rootGetters) => {
       if (!state.current) return []
       const group = state.current
-      const memberships = Object.entries(group.memberships).reduce((obj, [userId, membership]) => {
+      return Object.entries(group.memberships).reduce((obj, [userId, membership]) => {
+        const enrichedMembership = rootGetters['users/enrichMembership'](membership)
         obj[userId] = {
-          ...getters.enrichMembership(membership),
+          ...enrichedMembership,
+          trustProgress: enrichedMembership.isEditor ? 1 : enrichedMembership.trustedBy.length / state.current.trustThresholdForNewcomer,
           user: rootGetters['users/get'](userId),
         }
         return obj
       }, {})
-      return memberships
     },
     membershipList: (state, getters) => getters.memberships && Object.values(getters.memberships),
     agreement: (state, getters, rootState, rootGetters) => rootGetters['agreements/get'](state.current.activeAgreement),

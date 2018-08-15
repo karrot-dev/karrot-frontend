@@ -46,16 +46,23 @@
       v-if="showOverlay"
       class="overlay row justify-center items-center"
     >
-      <template v-if="currentGroup.membership.isEditor">
+      <q-btn
+        v-if="showUserLocationPrompt"
+        color="primary"
+        :to="{ name: 'settings', params: { userId: selectedUser.id } }"
+      >
+        {{ $t('GROUPMAP.SET_LOCATION') }}
+      </q-btn>
+      <template v-else-if="currentGroup.membership.isEditor">
         <q-btn
           v-if="showStoreLocationPrompt"
           color="primary"
-          :to="{ name: 'storeEdit', params: { groupId: currentGroup.id, storeId: selectedStore &&selectedStore.id } }"
+          :to="{ name: 'storeEdit', params: { groupId: currentGroup.id, storeId: selectedStore && selectedStore.id } }"
         >
           {{ $t('GROUPMAP.SET_LOCATION') }}
         </q-btn>
         <q-btn
-          v-else
+          v-else-if="showGroupLocationPrompt"
           color="primary"
           :to="{ name: 'groupEdit', params: { groupId: currentGroup.id } }"
         >
@@ -97,6 +104,7 @@ export default {
     stores: { required: true, type: Array },
     groups: { default: null, type: Array },
     selectedStore: { default: null, type: Object },
+    selectedUser: { default: null, type: Object },
     showUsers: { default: false, type: Boolean },
     showStores: { default: true, type: Boolean },
     showGroups: { default: false, type: Boolean },
@@ -113,14 +121,18 @@ export default {
     },
   },
   computed: {
+    showUserLocationPrompt () {
+      return this.selectedUser && this.selectedUser.isCurrentUser && !hasLocation(this.selectedUser)
+    },
     showStoreLocationPrompt () {
       return this.selectedStore && !(this.storesWithLocation.findIndex(e => e.id === this.selectedStore.id) >= 0)
     },
     showGroupLocationPrompt () {
-      return !this.selectedStore && this.markers.length === 0 && !(this.currentGroup.latitude && this.currentGroup.longitude)
+      return this.markers.length === 0 && !(this.currentGroup.latitude && this.currentGroup.longitude)
     },
     showOverlay () {
-      return this.showStoreLocationPrompt || this.showGroupLocationPrompt
+      if (this.selectedUser && hasLocation(this.selectedUser)) return false
+      return this.showUserLocationPrompt || this.showStoreLocationPrompt || this.showGroupLocationPrompt
     },
     center () {
       const { latitude: lat, longitude: lng } = this.currentGroup
@@ -145,7 +157,12 @@ export default {
       return (this.groups && this.groups.filter(hasLocation)) || []
     },
     selectedMarkers () {
-      if (this.selectedStore) {
+      if (this.selectedUser) {
+        if (hasLocation(this.selectedUser)) {
+          return [userMarker(this.selectedUser)]
+        }
+      }
+      else if (this.selectedStore) {
         const markers = []
         if (hasLocation(this.selectedStore)) {
           markers.push(storeMarker(this.selectedStore))
@@ -167,9 +184,13 @@ export default {
       if (this.showUsers) {
         items.push(...this.usersWithLocation.map(userMarker))
       }
+      else if (this.selectedUser && hasLocation(this.selectedUser)) {
+        items.push(userMarker(this.selectedUser))
+      }
       if (this.showGroups) {
         items.push(...this.groupsWithLocation.map(groupMarker))
       }
+
       return items
     },
   },

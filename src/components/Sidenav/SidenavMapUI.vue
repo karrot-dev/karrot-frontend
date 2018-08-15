@@ -9,6 +9,7 @@
     :show-users="showUsers"
     :show-stores="showStores"
     :selected-store="selectedStore"
+    :selected-user="selectedUser"
     :current-group="currentGroup"
     @toggleUsers="$emit('toggleUsers')"
     @toggleStores="$emit('toggleStores')"
@@ -30,6 +31,10 @@ export default {
       type: Array,
     },
     selectedStore: {
+      default: null,
+      type: Object,
+    },
+    selectedUser: {
       default: null,
       type: Object,
     },

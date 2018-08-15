@@ -3,6 +3,7 @@
     <UserProfile
       :user="user"
       :groups="user.groups"
+      :current-group="currentGroup"
       @detail="detail"
     />
     <Memberships
@@ -32,6 +33,7 @@ export default {
   computed: {
     ...mapGetters({
       user: 'users/activeUser',
+      currentGroup: 'currentGroup/value',
     }),
   },
   methods: {

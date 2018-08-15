@@ -1,5 +1,11 @@
 <template>
   <div>
+    <q-alert
+      v-if="!currentGroupMembership"
+      type="info"
+    >
+      {{ user.displayName }} isn't member of {{ currentGroup.name }}.
+    </q-alert>
     <div class="row margin-sides no-wrap">
       <div>
         <transition
@@ -104,12 +110,12 @@
 </template>
 
 <script>
-
 import Markdown from '@/components/Markdown'
 import ProfilePicture from '@/components/ProfilePictures/ProfilePicture'
 import UserMapPreview from '@/components/Map/UserMapPreview'
 
 import {
+  QAlert,
   QCard,
   QCardTitle,
   QCardActions,
@@ -133,6 +139,7 @@ export default {
     Markdown,
     UserMapPreview,
     ProfilePicture,
+    QAlert,
     QCard,
     QCardTitle,
     QCardActions,
@@ -153,6 +160,7 @@ export default {
   props: {
     user: { required: true, type: Object },
     groups: { required: true, type: Array },
+    currentGroup: { default: null, type: Object },
   },
   computed: {
     profilePictureSize () {
@@ -160,6 +168,9 @@ export default {
         return 60
       }
       return 180
+    },
+    currentGroupMembership () {
+      return this.groups.find(g => g.isCurrentGroup)
     },
   },
 }

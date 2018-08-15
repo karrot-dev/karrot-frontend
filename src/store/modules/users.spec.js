@@ -73,6 +73,9 @@ describe('users', () => {
   const auth = {
     getters: {
       userId: () => userId,
+      user: () => ({
+        currentGroup: 1,
+      }),
     },
     actions: {
       login: jest.fn(),
@@ -82,7 +85,7 @@ describe('users', () => {
 
   const history = {
     actions: {
-      fetchForUser: jest.fn(),
+      fetchForUserInGroup: jest.fn(),
     },
   }
 
@@ -127,7 +130,7 @@ describe('users', () => {
     mockGetProfile.mockReturnValueOnce(user1Profile)
     await store.dispatch('users/selectUser', { userId: user1.id })
     expect(store.getters['users/activeUser']).toEqual(enrich(user1Profile, groups, userId))
-    expect(history.actions.fetchForUser).toBeCalled()
+    expect(history.actions.fetchForUserInGroup).toBeCalled()
   })
 
   it('can update user', () => {

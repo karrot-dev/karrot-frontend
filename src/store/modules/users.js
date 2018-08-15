@@ -122,7 +122,10 @@ export default {
         }
       }
       dispatch('currentGroup/selectFromCurrentUser', null, { root: true })
-      dispatch('history/fetchForUser', { userId }, { root: true })
+      const groupId = rootGetters['auth/user'].currentGroup
+      if (groupId) {
+        dispatch('history/fetchForUserInGroup', { userId, groupId }, { root: true })
+      }
     },
     async update ({ state, commit }, user) {
       commit('update', user)

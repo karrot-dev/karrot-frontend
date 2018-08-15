@@ -10,7 +10,10 @@
       :user="user"
       @createTrust="createTrust"
     />
-    <q-card class="no-shadow grey-border">
+    <q-card
+      v-if="history.length > 0"
+      class="no-shadow grey-border"
+    >
       <q-card-title>
         {{ $t('GROUP.HISTORY') }}
       </q-card-title>
@@ -34,6 +37,7 @@ export default {
     ...mapGetters({
       user: 'users/activeUser',
       currentGroup: 'currentGroup/value',
+      history: 'history/all',
     }),
   },
   methods: {

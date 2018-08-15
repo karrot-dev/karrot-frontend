@@ -37,7 +37,7 @@ export default {
         return obj
       }, {})
     },
-    agreement: (state, getters, rootState, rootGetters) => rootGetters['agreements/get'](state.current.activeAgreement),
+    agreement: (state, getters, rootState, rootGetters) => state.current && rootGetters['agreements/get'](state.current.activeAgreement),
     conversation: (state, getters, rootState, rootGetters) => {
       if (!state.current) return
       return rootGetters['conversations/getForGroup'](state.current.id)
@@ -133,6 +133,14 @@ export default {
       dispatch('groupApplications/fetchByGroupId', { groupId }, { root: true })
 
       dispatch('auth/maybeBackgroundSave', { currentGroup: groupId }, { root: true })
+    },
+
+    selectFromCurrentUser ({ dispatch, getters, rootGetters }) {
+      const selected = getters.id
+      const groupId = rootGetters['auth/user'].currentGroup
+      if (!selected && groupId) {
+        dispatch('select', { groupId })
+      }
     },
 
     clear ({ commit, dispatch }) {

@@ -1,6 +1,10 @@
-import { storybookDefaults as defaults } from '>/helpers'
+import { createStore, storybookDefaults as defaults } from '>/helpers'
 import { storiesOf } from '@storybook/vue'
 import { action } from '@storybook/addon-actions'
+
+const store = createStore({
+  users: { getters: { get: () => id => id } },
+})
 
 import Memberships from './Memberships'
 
@@ -61,4 +65,5 @@ storiesOf('User Profile', module)
       },
       on: defaultOn,
     }),
+    store,
   }))

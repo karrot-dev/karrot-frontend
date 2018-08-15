@@ -111,7 +111,7 @@ export default {
       },
     }),
 
-    async selectUser ({ state, commit, dispatch }, { userId }) {
+    async selectUser ({ state, commit, dispatch, rootGetters }, { userId }) {
       if (!state.activeUserProfile) {
         try {
           commit('setProfile', await users.getProfile(userId))
@@ -121,6 +121,7 @@ export default {
           throw createRouteError(data)
         }
       }
+      dispatch('currentGroup/selectFromCurrentUser', null, { root: true })
       dispatch('history/fetchForUser', { userId }, { root: true })
     },
     async update ({ state, commit }, user) {

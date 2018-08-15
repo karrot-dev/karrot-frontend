@@ -40,7 +40,7 @@
         <ProfilePicture
           v-for="u in user.membership.trustedBy"
           :key="u.id"
-          :user="u"
+          :user="getUser(u)"
         />
       </q-item-tile>
     </q-item-side>
@@ -48,6 +48,7 @@
 </template>
 
 <script>
+import { mapGetters } from 'vuex'
 import {
   QItem,
   QItemMain,
@@ -74,6 +75,11 @@ export default {
       type: Object,
       default: null,
     },
+  },
+  computed: {
+    ...mapGetters({
+      getUser: 'users/get',
+    }),
   },
 }
 </script>

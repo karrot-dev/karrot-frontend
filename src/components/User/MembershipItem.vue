@@ -33,7 +33,7 @@
               <ProfilePicture
                 v-for="u in trustedBy"
                 :key="u.id"
-                :user="u"
+                :user="getUser(u)"
                 :size="20"
               />
             </div>
@@ -60,6 +60,7 @@
 </template>
 
 <script>
+import { mapGetters } from 'vuex'
 import ProfilePicture from '@/components/ProfilePictures/ProfilePicture'
 
 import {
@@ -116,6 +117,9 @@ export default {
     },
   },
   computed: {
+    ...mapGetters({
+      getUser: 'users/get',
+    }),
     trustedBy () {
       return this.membership.trustedBy
     },

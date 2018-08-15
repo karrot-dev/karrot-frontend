@@ -52,7 +52,7 @@ export default {
       const groups = user.memberships && Object.entries(user.memberships).map(([groupId, membership]) => ({
         ...rootGetters['groups/get'](groupId),
         membership: getters.enrichMembership(membership),
-      })).sort((a, b) => a.group.name.localeCompare(b.group.name))
+      })).sort((a, b) => a.name.localeCompare(b.name))
 
       return {
         ...getters.enrich(user),
@@ -65,7 +65,8 @@ export default {
       return {
         ...membership,
         isEditor: membership.roles.includes('editor'),
-        trustedBy: membership.trustedBy.map(getters.get),
+        // Do not enrich trustedBy, as it would lead to cyclic dependencies
+        // trustedBy: membership.trustedBy.map(getters.get),
         trusted: membership.trustedBy.includes(authUserId),
       }
     },

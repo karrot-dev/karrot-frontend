@@ -119,7 +119,7 @@ export default {
     },
     isNewcomer (user) {
       return user.membership && !user.membership.isEditor
-    }
+    },
   },
   computed: {
     ...mapGetters({

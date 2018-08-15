@@ -32,7 +32,7 @@ export default store => {
     else if (to.path === '/') {
       const groupId = getUserGroupId()
       if (groupId && getGroup(groupId) && getGroup(groupId).isMember) {
-        next = { name: 'group', params: { groupId: getUserGroupId() } }
+        next = { name: 'group', params: { groupId } }
       }
       else {
         next = { name: 'groupsGallery' }
@@ -51,20 +51,19 @@ export default store => {
       next = { path: '/' }
     }
 
-    const { redirect } = await maybeDispatchActions(store, to, from)
-    if (redirect) {
-      next = redirect
-    }
-    else {
-      store.dispatch('breadcrumbs/setAll', findBreadcrumbs(to.matched) || [])
+    if (next) {
+      nextFn(next)
+      return
     }
 
-    if (next) {
-      nextFn({ replace: true, ...next })
+    const { redirect } = await maybeDispatchActions(store, to, from)
+    if (redirect) {
+      nextFn({ replace: true, ...redirect })
+      return
     }
-    else {
-      nextFn()
-    }
+    store.dispatch('breadcrumbs/setAll', findBreadcrumbs(to.matched) || [])
+
+    nextFn()
   })
 
   router.afterEach(() => {

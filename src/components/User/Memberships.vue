@@ -3,25 +3,27 @@
     <q-card-main>
       <q-list>
         <MembershipItem
-          v-if="currentGroupMembership"
+          v-if="currentGroup"
           :user="user"
-          :membership="currentGroupMembership"
+          :group="currentGroup"
+          :membership="currentGroup.membership"
           @createTrust="$emit('createTrust', arguments[0])"
         />
         <q-collapsible
-          v-if="otherMemberships.length > 0"
+          v-if="otherGroups.length > 0"
           icon="fas fa-users"
           :label="$tc(
             'USERDATA.OTHER_MEMBERSHIPS',
-            otherMemberships.length,
-            { count: otherMemberships.length, userName: user.displayName }
+            otherGroups.length,
+            { count: otherGroups.length, userName: user.displayName }
           )"
         >
           <MembershipItem
-            v-for="membership in otherMemberships"
-            :key="membership.group.id"
+            v-for="group in otherGroups"
+            :key="group.id"
             :user="user"
-            :membership="membership"
+            :group="group"
+            :membership="group.membership"
             @createTrust="$emit('createTrust', arguments[0])"
           />
         </q-collapsible>
@@ -78,11 +80,11 @@ export default {
     user: { required: true, type: Object },
   },
   computed: {
-    currentGroupMembership () {
-      return this.user.memberships.find(m => m.group.isCurrentGroup)
+    currentGroup () {
+      return this.user.groups.find(g => g.isCurrentGroup)
     },
-    otherMemberships () {
-      return this.user.memberships.filter(m => !m.group.isCurrentGroup)
+    otherGroups () {
+      return this.user.groups.filter(g => !g.isCurrentGroup)
     },
   },
 }

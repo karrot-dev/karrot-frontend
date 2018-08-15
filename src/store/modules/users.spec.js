@@ -12,7 +12,7 @@ function enrich (user, groups, currentUserId) {
     ...user,
     isCurrentUser: user.id === currentUserId,
     membership: {},
-    memberships: enrichMemberships(user.memberships, groups, currentUserId),
+    groups: enrichMemberships(user.memberships, groups, currentUserId),
   }
 }
 
@@ -20,10 +20,12 @@ function enrichMemberships (memberships, groups, currentUserId) {
   return Object.entries(memberships).map(([uId, membership]) => {
     const group = groups.find(u => u.id === parseInt(uId))
     return {
-      ...membership,
-      isEditor: membership.roles.includes('editor'),
-      trusted: membership.trustedBy.includes(currentUserId),
-      group: enrichGroup(group),
+      ...enrichGroup(group),
+      membership: {
+        ...membership,
+        isEditor: membership.roles.includes('editor'),
+        trusted: membership.trustedBy.includes(currentUserId),
+      },
     }
   })
 }

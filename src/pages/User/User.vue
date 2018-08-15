@@ -2,7 +2,7 @@
   <div v-if="user && user.id">
     <UserProfile
       :user="user"
-      :groups="groups"
+      :groups="user.groups"
       @detail="detail"
     />
     <Memberships
@@ -32,7 +32,6 @@ export default {
   computed: {
     ...mapGetters({
       user: 'users/activeUser',
-      groups: 'groups/activeUserGroups',
     }),
   },
   methods: {

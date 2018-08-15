@@ -174,7 +174,7 @@ export default {
       return this.select.collectors.filter(u => !u.isCurrentUser)
     },
     newcomerCollectors () {
-      return this.fellowCollectors.filter(u => !u.membershipInCurrentGroup.isEditor && !u.membershipInCurrentGroup.trusted)
+      return this.fellowCollectors.filter(u => u.membership && !u.membership.isEditor && !u.membership.trusted)
     },
   },
 }

@@ -14,7 +14,7 @@
       class="relative-position pic-wrapper"
     >
       <div
-        v-if="!user.isEditor"
+        v-if="isNewcomer(user)"
         class="newcomer-box"
         :title="`${user.displayName} is new to your group and might need some guidance.`"
       />
@@ -117,6 +117,9 @@ export default {
         this.slotsPerRow = Math.floor(this.$refs.wrapperDiv.clientWidth / (this.size + 3.8))
       }
     },
+    isNewcomer (user) {
+      return user.membership && !user.membership.isEditor
+    }
   },
   computed: {
     ...mapGetters({

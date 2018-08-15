@@ -20,7 +20,7 @@ export default {
   modules: { meta: createMetaModule() },
   state: initialState(),
   getters: {
-    get: (state, getters) => userId => {
+    get: (state, getters, rootState, rootGetters) => userId => {
       return getters.enrich(state.entries[userId])
     },
     enrich: (state, getters, rootState, rootGetters) => user => {
@@ -30,22 +30,19 @@ export default {
         }
       }
       const authUserId = rootGetters['auth/userId']
+      const membership = rootGetters['currentGroup/memberships'][user.id]
 
       return {
         ...user,
         isCurrentUser: user.id === authUserId,
-        // isEditor has been deprecated, but is needed in ProfilePicture and PickupUsers
+        membership,
       }
     },
     all: (state, getters, rootState, rootGetters) => {
       return state.idList.map(getters.get)
     },
     byCurrentGroup: (state, getters, rootState, rootGetters) => {
-      const currentGroup = rootGetters['currentGroup/value']
-      if (currentGroup && currentGroup.members) {
-        return currentGroup.members.map(getters.get)
-      }
-      return []
+      return getters.all.filter(u => u.membership)
     },
     activeUser: (state, getters, rootState, rootGetters) => {
       if (!state.activeUserProfile) return

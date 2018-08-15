@@ -15,7 +15,14 @@ function latLng (store) {
   return L.latLng(store.latitude, store.longitude)
 }
 
-const currentGroup = { latitude: 52.5198535, longitude: 13.4385964 }
+const currentGroup = {
+  id: 1,
+  latitude: 52.5198535,
+  longitude: 13.4385964,
+  membership: {
+    isEditor: true,
+  },
+}
 
 storiesOf('Map', module)
   .add('StandardMap', () => defaults({
@@ -106,7 +113,11 @@ storiesOf('Map', module)
         stores: [],
         showStores: true,
         showUsers: true,
-        currentGroup: {},
+        currentGroup: {
+          ...currentGroup,
+          latitude: null,
+          longitude: null,
+        },
       },
       style,
     }),

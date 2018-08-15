@@ -30,7 +30,7 @@ storiesOf('Statistics', module)
           ...pickup,
           collectors: pickup.collectors.map(user => ({
             ...user,
-            membershipInCurrentGroup: {
+            membership: {
               isEditor: Math.random() > 0.5,
               trusted: Math.random() > 0.5,
             },

@@ -11,6 +11,7 @@ function enrich (user, groups, currentUserId) {
   return {
     ...user,
     isCurrentUser: user.id === currentUserId,
+    membership: {},
     memberships: enrichMemberships(user.memberships, groups, currentUserId),
   }
 }
@@ -46,6 +47,7 @@ describe('users', () => {
       currentGroup: {
         getters: {
           value: () => ({ members: [1, 2], memberships: { 1: {}, 2: {} } }),
+          memberships: () => ({ 1: {}, 2: {} }),
         },
       },
     })

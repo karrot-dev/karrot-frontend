@@ -13,7 +13,7 @@
       @mapMoveEnd="mapMoveEnd"
     >
       <q-list
-        v-if="currentGroup.isEditor"
+        v-if="currentGroup.membership.isEditor"
         slot="contextmenu"
         slot-scope="{ latLng }"
         highlight
@@ -46,18 +46,18 @@
       v-if="showOverlay"
       class="overlay row justify-center items-center"
     >
-      <template v-if="currentGroup.isEditor">
+      <template v-if="currentGroup.membership.isEditor">
         <q-btn
           v-if="showStoreLocationPrompt"
           color="primary"
-          :to="{ name: 'storeEdit', params: { storeId: this.selectedStore && this.selectedStore.id } }"
+          :to="{ name: 'storeEdit', params: { groupId: currentGroup.id, storeId: selectedStore &&selectedStore.id } }"
         >
           {{ $t('GROUPMAP.SET_LOCATION') }}
         </q-btn>
         <q-btn
           v-else
           color="primary"
-          :to="{ name: 'groupEdit', params: { groupId: currentGroup && currentGroup.id, storeId: this.selectedStore && this.selectedStore.id } }"
+          :to="{ name: 'groupEdit', params: { groupId: currentGroup.id } }"
         >
           {{ $t('GROUPMAP.SET_LOCATION') }}
         </q-btn>

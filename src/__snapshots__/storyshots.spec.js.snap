@@ -1635,7 +1635,7 @@ exports[`Storyshots History List Default 1`] = `
           <div>
             <div class="wrapper" style="width:25px;height:25px;">
               <a title="Mira Bellenbaum">
-                <div text="Mira Bellenbaum" seed="1" class="randomArt" style="width:25px;height:25px;"></div>
+                <div text="Mira Bellenbaum" seed="1" class="randomArt fill"></div>
               </a>
             </div>
           </div>
@@ -1664,7 +1664,7 @@ exports[`Storyshots History List Default 1`] = `
           <div>
             <div class="wrapper" style="width:25px;height:25px;">
               <a title="Max Mustermann">
-                <div text="Max Mustermann" seed="2" class="randomArt" style="width:25px;height:25px;"></div>
+                <div text="Max Mustermann" seed="2" class="randomArt fill"></div>
               </a>
             </div>
           </div>
@@ -1693,7 +1693,7 @@ exports[`Storyshots History List Default 1`] = `
           <div>
             <div class="wrapper" style="width:25px;height:25px;">
               <a title="Karl Karlson">
-                <div text="Karl Karlson" seed="3" class="randomArt" style="width:25px;height:25px;"></div>
+                <div text="Karl Karlson" seed="3" class="randomArt fill"></div>
               </a>
             </div>
           </div>
@@ -1722,7 +1722,7 @@ exports[`Storyshots History List Default 1`] = `
           <div>
             <div class="wrapper" style="width:25px;height:25px;">
               <a title="Mona Mohnblume">
-                <div text="Mona Mohnblume" seed="4" class="randomArt" style="width:25px;height:25px;"></div>
+                <div text="Mona Mohnblume" seed="4" class="randomArt fill"></div>
               </a>
             </div>
           </div>
@@ -1751,7 +1751,7 @@ exports[`Storyshots History List Default 1`] = `
           <div>
             <div class="wrapper" style="width:25px;height:25px;">
               <a title="Current User">
-                <div text="Current User" seed="5" class="randomArt" style="width:25px;height:25px;"></div>
+                <div text="Current User" seed="5" class="randomArt fill"></div>
               </a>
             </div>
           </div>
@@ -1832,7 +1832,7 @@ exports[`Storyshots History List Default 1`] = `
           <div>
             <div class="wrapper" style="width:25px;height:25px;">
               <a title="Mira Bellenbaum">
-                <div text="Mira Bellenbaum" seed="1" class="randomArt" style="width:25px;height:25px;"></div>
+                <div text="Mira Bellenbaum" seed="1" class="randomArt fill"></div>
               </a>
             </div>
           </div>
@@ -1861,7 +1861,7 @@ exports[`Storyshots History List Default 1`] = `
           <div>
             <div class="wrapper" style="width:25px;height:25px;">
               <a title="Max Mustermann">
-                <div text="Max Mustermann" seed="2" class="randomArt" style="width:25px;height:25px;"></div>
+                <div text="Max Mustermann" seed="2" class="randomArt fill"></div>
               </a>
             </div>
           </div>
@@ -2215,7 +2215,7 @@ exports[`Storyshots Map GroupMap (group has no location) 1`] = `
   </div>
   <!---->
   <div class="overlay row justify-center items-center">
-    <a tabindex="0" type="button" href="#/" class="q-btn inline relative-position q-btn-item non-selectable q-btn-rectangle q-focusable q-hoverable bg-primary text-white">
+    <a tabindex="0" type="button" href="#/group/1/edit" class="q-btn inline relative-position q-btn-item non-selectable q-btn-rectangle q-focusable q-hoverable bg-primary text-white">
       <div class="q-focus-helper"></div>
       <div class="q-btn-inner row col items-center justify-center">
         Set location
@@ -2252,7 +2252,7 @@ exports[`Storyshots Map GroupMap (store has no location) 1`] = `
   </div>
   <!---->
   <div class="overlay row justify-center items-center">
-    <a tabindex="0" type="button" href="#/" class="q-btn inline relative-position q-btn-item non-selectable q-btn-rectangle q-focusable q-hoverable bg-primary text-white">
+    <a tabindex="0" type="button" href="#/group/1/store/62/edit" class="q-btn inline relative-position q-btn-item non-selectable q-btn-rectangle q-focusable q-hoverable bg-primary text-white">
       <div class="q-focus-helper"></div>
       <div class="q-btn-inner row col items-center justify-center">
         Set location
@@ -2482,20 +2482,29 @@ exports[`Storyshots PickupItem Full 1`] = `
       <div class="people full-width">
         <div class="row justify-start">
           <object type="text/html" data="about:blank" aria-hidden="true" style="display:block;position:absolute;top:0;left:0;right:0;bottom:0;height:100%;width:100%;overflow:hidden;pointer-events:none;z-index:-1;"></object>
-          <div class="wrapper profilePic clickable" style="width:36px;height:36px;">
-            <a title="Mira Bellenbaum">
-              <div text="Mira Bellenbaum" seed="1" class="randomArt" style="width:36px;height:36px;"></div>
-            </a>
+          <div class="relative-position pic-wrapper">
+            <!---->
+            <div class="wrapper hoverScale" style="width:36px;height:36px;">
+              <a title="Mira Bellenbaum">
+                <div text="Mira Bellenbaum" seed="1" class="randomArt fill"></div>
+              </a>
+            </div>
           </div>
-          <div class="wrapper profilePic clickable" style="width:36px;height:36px;">
-            <a title="Max Mustermann">
-              <div text="Max Mustermann" seed="2" class="randomArt" style="width:36px;height:36px;"></div>
-            </a>
+          <div class="relative-position pic-wrapper">
+            <!---->
+            <div class="wrapper hoverScale" style="width:36px;height:36px;">
+              <a title="Max Mustermann">
+                <div text="Max Mustermann" seed="2" class="randomArt fill"></div>
+              </a>
+            </div>
           </div>
-          <div class="wrapper profilePic clickable" style="width:36px;height:36px;">
-            <a title="Karl Karlson">
-              <div text="Karl Karlson" seed="3" class="randomArt" style="width:36px;height:36px;"></div>
-            </a>
+          <div class="relative-position pic-wrapper">
+            <!---->
+            <div class="wrapper hoverScale" style="width:36px;height:36px;">
+              <a title="Karl Karlson">
+                <div text="Karl Karlson" seed="3" class="randomArt fill"></div>
+              </a>
+            </div>
           </div>
           <!---->
           <!---->
@@ -2520,30 +2529,37 @@ exports[`Storyshots PickupItem Join 1`] = `
       <div class="people full-width">
         <div class="row justify-start">
           <object type="text/html" data="about:blank" aria-hidden="true" style="display:block;position:absolute;top:0;left:0;right:0;bottom:0;height:100%;width:100%;overflow:hidden;pointer-events:none;z-index:-1;"></object>
-          <div class="wrapper profilePic clickable" style="width:36px;height:36px;">
-            <a title="Mira Bellenbaum">
-              <div text="Mira Bellenbaum" seed="1" class="randomArt" style="width:36px;height:36px;"></div>
-            </a>
+          <div class="relative-position pic-wrapper">
+            <!---->
+            <div class="wrapper hoverScale" style="width:36px;height:36px;">
+              <a title="Mira Bellenbaum">
+                <div text="Mira Bellenbaum" seed="1" class="randomArt fill"></div>
+              </a>
+            </div>
           </div>
-          <div class="wrapper profilePic clickable" style="width:36px;height:36px;">
-            <a title="Max Mustermann">
-              <div text="Max Mustermann" seed="2" class="randomArt" style="width:36px;height:36px;"></div>
-            </a>
+          <div class="relative-position pic-wrapper">
+            <!---->
+            <div class="wrapper hoverScale" style="width:36px;height:36px;">
+              <a title="Max Mustermann">
+                <div text="Max Mustermann" seed="2" class="randomArt fill"></div>
+              </a>
+            </div>
           </div>
-          <div class="wrapper profilePic clickable" style="width:36px;height:36px;">
-            <a title="Karl Karlson">
-              <div text="Karl Karlson" seed="3" class="randomArt" style="width:36px;height:36px;"></div>
-            </a>
+          <div class="relative-position pic-wrapper">
+            <!---->
+            <div class="wrapper hoverScale" style="width:36px;height:36px;">
+              <a title="Karl Karlson">
+                <div text="Karl Karlson" seed="3" class="randomArt fill"></div>
+              </a>
+            </div>
           </div>
           <!---->
           <!---->
-          <div class="user-slot-wrapper profilePic active clickable" style="width:36px;height:36px;">
+          <div class="user-slot-wrapper active hoverScale" style="width:36px;height:36px;">
             <div class="hoverHide"></div>
             <div title="Join" class="hoverShow">
               <div class="wrapper" style="width:36px;height:36px;">
-                <div>
-                  <div text="Current User" seed="5" class="randomArt" style="width:36px;height:36px;"></div>
-                </div>
+                <div text="Current User" seed="5" class="randomArt fill"></div>
               </div>
             </div>
           </div>
@@ -2567,31 +2583,35 @@ exports[`Storyshots PickupItem Leave 1`] = `
       <div class="people full-width">
         <div class="row justify-start">
           <object type="text/html" data="about:blank" aria-hidden="true" style="display:block;position:absolute;top:0;left:0;right:0;bottom:0;height:100%;width:100%;overflow:hidden;pointer-events:none;z-index:-1;"></object>
-          <div class="wrapper profilePic clickable" style="width:36px;height:36px;">
-            <a title="Mira Bellenbaum">
-              <div text="Mira Bellenbaum" seed="1" class="randomArt" style="width:36px;height:36px;"></div>
-            </a>
+          <div class="relative-position pic-wrapper">
+            <!---->
+            <div class="wrapper hoverScale" style="width:36px;height:36px;">
+              <a title="Mira Bellenbaum">
+                <div text="Mira Bellenbaum" seed="1" class="randomArt fill"></div>
+              </a>
+            </div>
           </div>
-          <div class="wrapper profilePic clickable" style="width:36px;height:36px;">
-            <a title="Max Mustermann">
-              <div text="Max Mustermann" seed="2" class="randomArt" style="width:36px;height:36px;"></div>
-            </a>
+          <div class="relative-position pic-wrapper">
+            <!---->
+            <div class="wrapper hoverScale" style="width:36px;height:36px;">
+              <a title="Max Mustermann">
+                <div text="Max Mustermann" seed="2" class="randomArt fill"></div>
+              </a>
+            </div>
           </div>
           <!---->
           <!---->
-          <a title="Leave" appear="" duration="[object Object]" name="bounce" class="user-slot-wrapper profilePic clickable" style="width:36px;height:36px;">
+          <a title="Leave" appear="" duration="[object Object]" name="bounce" class="user-slot-wrapper hoverScale" style="width:36px;height:36px;">
             <div class="hoverShow">
               <i class="fas fa-fw fa-times" style="font-size:27px;"></i>
             </div>
             <div class="hoverHide">
               <div class="wrapper" style="width:36px;height:36px;">
-                <div>
-                  <div text="Current User" seed="5" class="randomArt" style="width:36px;height:36px;"></div>
-                </div>
+                <div text="Current User" seed="5" class="randomArt fill"></div>
               </div>
             </div>
           </a>
-          <div class="user-slot-wrapper profilePic greyedOut" style="width:36px;height:36px;">
+          <div class="user-slot-wrapper greyedOut" style="width:36px;height:36px;">
             <div></div>
             <!---->
           </div>
@@ -2616,22 +2636,31 @@ exports[`Storyshots PickupItem pending 1`] = `
       <div class="people full-width">
         <div class="row justify-start">
           <object type="text/html" data="about:blank" aria-hidden="true" style="display:block;position:absolute;top:0;left:0;right:0;bottom:0;height:100%;width:100%;overflow:hidden;pointer-events:none;z-index:-1;"></object>
-          <div class="wrapper profilePic clickable" style="width:36px;height:36px;">
-            <a title="Mira Bellenbaum">
-              <div text="Mira Bellenbaum" seed="1" class="randomArt" style="width:36px;height:36px;"></div>
-            </a>
+          <div class="relative-position pic-wrapper">
+            <!---->
+            <div class="wrapper hoverScale" style="width:36px;height:36px;">
+              <a title="Mira Bellenbaum">
+                <div text="Mira Bellenbaum" seed="1" class="randomArt fill"></div>
+              </a>
+            </div>
           </div>
-          <div class="wrapper profilePic clickable" style="width:36px;height:36px;">
-            <a title="Max Mustermann">
-              <div text="Max Mustermann" seed="2" class="randomArt" style="width:36px;height:36px;"></div>
-            </a>
+          <div class="relative-position pic-wrapper">
+            <!---->
+            <div class="wrapper hoverScale" style="width:36px;height:36px;">
+              <a title="Max Mustermann">
+                <div text="Max Mustermann" seed="2" class="randomArt fill"></div>
+              </a>
+            </div>
           </div>
-          <div class="wrapper profilePic clickable" style="width:36px;height:36px;">
-            <a title="Karl Karlson">
-              <div text="Karl Karlson" seed="3" class="randomArt" style="width:36px;height:36px;"></div>
-            </a>
+          <div class="relative-position pic-wrapper">
+            <!---->
+            <div class="wrapper hoverScale" style="width:36px;height:36px;">
+              <a title="Karl Karlson">
+                <div text="Karl Karlson" seed="3" class="randomArt fill"></div>
+              </a>
+            </div>
           </div>
-          <div class="emptySlots profilePic" style="border-color:black;width:36px;height:36px;">
+          <div class="emptySlots" style="border-color:black;width:36px;height:36px;">
             <svg width="32" height="32" viewBox="25 25 50 50" class="q-spinner q-spinner-mat">
               <circle cx="50" cy="50" r="20" fill="none" stroke="currentColor" stroke-width="3" stroke-miterlimit="10" class="path"></circle>
             </svg>
@@ -2656,30 +2685,37 @@ exports[`Storyshots PickupList Default 1`] = `
 <div class="people full-width">
   <div class="row justify-start">
     <object type="text/html" data="about:blank" aria-hidden="true" style="display:block;position:absolute;top:0;left:0;right:0;bottom:0;height:100%;width:100%;overflow:hidden;pointer-events:none;z-index:-1;"></object>
-    <div class="wrapper profilePic clickable" style="width:36px;height:36px;">
-      <a title="Mira Bellenbaum">
-        <div text="Mira Bellenbaum" seed="1" class="randomArt" style="width:36px;height:36px;"></div>
-      </a>
+    <div class="relative-position pic-wrapper">
+      <!---->
+      <div class="wrapper hoverScale" style="width:36px;height:36px;">
+        <a title="Mira Bellenbaum">
+          <div text="Mira Bellenbaum" seed="1" class="randomArt fill"></div>
+        </a>
+      </div>
     </div>
-    <div class="wrapper profilePic clickable" style="width:36px;height:36px;">
-      <a title="Max Mustermann">
-        <div text="Max Mustermann" seed="2" class="randomArt" style="width:36px;height:36px;"></div>
-      </a>
+    <div class="relative-position pic-wrapper">
+      <!---->
+      <div class="wrapper hoverScale" style="width:36px;height:36px;">
+        <a title="Max Mustermann">
+          <div text="Max Mustermann" seed="2" class="randomArt fill"></div>
+        </a>
+      </div>
     </div>
-    <div class="wrapper profilePic clickable" style="width:36px;height:36px;">
-      <a title="Karl Karlson">
-        <div text="Karl Karlson" seed="3" class="randomArt" style="width:36px;height:36px;"></div>
-      </a>
+    <div class="relative-position pic-wrapper">
+      <!---->
+      <div class="wrapper hoverScale" style="width:36px;height:36px;">
+        <a title="Karl Karlson">
+          <div text="Karl Karlson" seed="3" class="randomArt fill"></div>
+        </a>
+      </div>
     </div>
     <!---->
     <!---->
-    <div class="user-slot-wrapper profilePic active clickable" style="width:36px;height:36px;">
+    <div class="user-slot-wrapper active hoverScale" style="width:36px;height:36px;">
       <div class="hoverHide"></div>
       <div title="Join" class="hoverShow">
         <div class="wrapper" style="width:36px;height:36px;">
-          <div>
-            <div text="Current User" seed="5" class="randomArt" style="width:36px;height:36px;"></div>
-          </div>
+          <div text="Current User" seed="5" class="randomArt fill"></div>
         </div>
       </div>
     </div>
@@ -2700,31 +2736,35 @@ exports[`Storyshots PickupList Default 1`] = `
       <div class="people full-width">
         <div class="row justify-start">
           <object type="text/html" data="about:blank" aria-hidden="true" style="display:block;position:absolute;top:0;left:0;right:0;bottom:0;height:100%;width:100%;overflow:hidden;pointer-events:none;z-index:-1;"></object>
-          <div class="wrapper profilePic clickable" style="width:36px;height:36px;">
-            <a title="Mira Bellenbaum">
-              <div text="Mira Bellenbaum" seed="1" class="randomArt" style="width:36px;height:36px;"></div>
-            </a>
+          <div class="relative-position pic-wrapper">
+            <!---->
+            <div class="wrapper hoverScale" style="width:36px;height:36px;">
+              <a title="Mira Bellenbaum">
+                <div text="Mira Bellenbaum" seed="1" class="randomArt fill"></div>
+              </a>
+            </div>
           </div>
-          <div class="wrapper profilePic clickable" style="width:36px;height:36px;">
-            <a title="Max Mustermann">
-              <div text="Max Mustermann" seed="2" class="randomArt" style="width:36px;height:36px;"></div>
-            </a>
+          <div class="relative-position pic-wrapper">
+            <!---->
+            <div class="wrapper hoverScale" style="width:36px;height:36px;">
+              <a title="Max Mustermann">
+                <div text="Max Mustermann" seed="2" class="randomArt fill"></div>
+              </a>
+            </div>
           </div>
           <!---->
           <!---->
-          <a title="Leave" appear="" duration="[object Object]" name="bounce" class="user-slot-wrapper profilePic clickable" style="width:36px;height:36px;">
+          <a title="Leave" appear="" duration="[object Object]" name="bounce" class="user-slot-wrapper hoverScale" style="width:36px;height:36px;">
             <div class="hoverShow">
               <i class="fas fa-fw fa-times" style="font-size:27px;"></i>
             </div>
             <div class="hoverHide">
               <div class="wrapper" style="width:36px;height:36px;">
-                <div>
-                  <div text="Current User" seed="5" class="randomArt" style="width:36px;height:36px;"></div>
-                </div>
+                <div text="Current User" seed="5" class="randomArt fill"></div>
               </div>
             </div>
           </a>
-          <div class="user-slot-wrapper profilePic greyedOut" style="width:36px;height:36px;">
+          <div class="user-slot-wrapper greyedOut" style="width:36px;height:36px;">
             <div></div>
             <!---->
           </div>
@@ -2746,20 +2786,29 @@ exports[`Storyshots PickupList Default 1`] = `
       <div class="people full-width">
         <div class="row justify-start">
           <object type="text/html" data="about:blank" aria-hidden="true" style="display:block;position:absolute;top:0;left:0;right:0;bottom:0;height:100%;width:100%;overflow:hidden;pointer-events:none;z-index:-1;"></object>
-          <div class="wrapper profilePic clickable" style="width:36px;height:36px;">
-            <a title="Mira Bellenbaum">
-              <div text="Mira Bellenbaum" seed="1" class="randomArt" style="width:36px;height:36px;"></div>
-            </a>
+          <div class="relative-position pic-wrapper">
+            <!---->
+            <div class="wrapper hoverScale" style="width:36px;height:36px;">
+              <a title="Mira Bellenbaum">
+                <div text="Mira Bellenbaum" seed="1" class="randomArt fill"></div>
+              </a>
+            </div>
           </div>
-          <div class="wrapper profilePic clickable" style="width:36px;height:36px;">
-            <a title="Max Mustermann">
-              <div text="Max Mustermann" seed="2" class="randomArt" style="width:36px;height:36px;"></div>
-            </a>
+          <div class="relative-position pic-wrapper">
+            <!---->
+            <div class="wrapper hoverScale" style="width:36px;height:36px;">
+              <a title="Max Mustermann">
+                <div text="Max Mustermann" seed="2" class="randomArt fill"></div>
+              </a>
+            </div>
           </div>
-          <div class="wrapper profilePic clickable" style="width:36px;height:36px;">
-            <a title="Karl Karlson">
-              <div text="Karl Karlson" seed="3" class="randomArt" style="width:36px;height:36px;"></div>
-            </a>
+          <div class="relative-position pic-wrapper">
+            <!---->
+            <div class="wrapper hoverScale" style="width:36px;height:36px;">
+              <a title="Karl Karlson">
+                <div text="Karl Karlson" seed="3" class="randomArt fill"></div>
+              </a>
+            </div>
           </div>
           <!---->
           <!---->
@@ -2783,19 +2832,17 @@ exports[`Storyshots PickupList Default 1`] = `
           <object type="text/html" data="about:blank" aria-hidden="true" style="display:block;position:absolute;top:0;left:0;right:0;bottom:0;height:100%;width:100%;overflow:hidden;pointer-events:none;z-index:-1;"></object>
           <!---->
           <!---->
-          <div class="user-slot-wrapper profilePic active clickable" style="width:36px;height:36px;">
+          <div class="user-slot-wrapper active hoverScale" style="width:36px;height:36px;">
             <div class="hoverHide"></div>
             <div title="Join" class="hoverShow">
               <div class="wrapper" style="width:36px;height:36px;">
-                <div>
-                  <div text="Current User" seed="5" class="randomArt" style="width:36px;height:36px;"></div>
-                </div>
+                <div text="Current User" seed="5" class="randomArt fill"></div>
               </div>
             </div>
           </div>
           <!---->
-          <div class="user-slot-wrapper greyedOut profilePic" style="width:36px;height:36px;"></div>
-          <div class="user-slot-wrapper greyedOut profilePic" style="width:36px;height:36px;"></div>
+          <div class="user-slot-wrapper greyedOut" style="width:36px;height:36px;"></div>
+          <div class="user-slot-wrapper greyedOut" style="width:36px;height:36px;"></div>
           <!---->
         </div>
       </div>
@@ -3125,19 +3172,17 @@ exports[`Storyshots PickupUsers empty 1`] = `
   <object type="text/html" data="about:blank" aria-hidden="true" style="display:block;position:absolute;top:0;left:0;right:0;bottom:0;height:100%;width:100%;overflow:hidden;pointer-events:none;z-index:-1;"></object>
   <!---->
   <!---->
-  <div class="user-slot-wrapper profilePic active clickable" style="width:36px;height:36px;">
+  <div class="user-slot-wrapper active hoverScale" style="width:36px;height:36px;">
     <div class="hoverHide"></div>
     <div title="Join" class="hoverShow">
       <div class="wrapper" style="width:36px;height:36px;">
-        <div>
-          <div text="Current User" seed="5" class="randomArt" style="width:36px;height:36px;"></div>
-        </div>
+        <div text="Current User" seed="5" class="randomArt fill"></div>
       </div>
     </div>
   </div>
   <!---->
-  <div class="user-slot-wrapper greyedOut profilePic" style="width:36px;height:36px;"></div>
-  <div class="user-slot-wrapper greyedOut profilePic" style="width:36px;height:36px;"></div>
+  <div class="user-slot-wrapper greyedOut" style="width:36px;height:36px;"></div>
+  <div class="user-slot-wrapper greyedOut" style="width:36px;height:36px;"></div>
   <!---->
 </div>
 `;
@@ -3145,20 +3190,29 @@ exports[`Storyshots PickupUsers empty 1`] = `
 exports[`Storyshots PickupUsers full 1`] = `
 <div class="row justify-start">
   <object type="text/html" data="about:blank" aria-hidden="true" style="display:block;position:absolute;top:0;left:0;right:0;bottom:0;height:100%;width:100%;overflow:hidden;pointer-events:none;z-index:-1;"></object>
-  <div class="wrapper profilePic clickable" style="width:36px;height:36px;">
-    <a title="Mira Bellenbaum">
-      <div text="Mira Bellenbaum" seed="1" class="randomArt" style="width:36px;height:36px;"></div>
-    </a>
+  <div class="relative-position pic-wrapper">
+    <!---->
+    <div class="wrapper hoverScale" style="width:36px;height:36px;">
+      <a title="Mira Bellenbaum">
+        <div text="Mira Bellenbaum" seed="1" class="randomArt fill"></div>
+      </a>
+    </div>
   </div>
-  <div class="wrapper profilePic clickable" style="width:36px;height:36px;">
-    <a title="Max Mustermann">
-      <div text="Max Mustermann" seed="2" class="randomArt" style="width:36px;height:36px;"></div>
-    </a>
+  <div class="relative-position pic-wrapper">
+    <!---->
+    <div class="wrapper hoverScale" style="width:36px;height:36px;">
+      <a title="Max Mustermann">
+        <div text="Max Mustermann" seed="2" class="randomArt fill"></div>
+      </a>
+    </div>
   </div>
-  <div class="wrapper profilePic clickable" style="width:36px;height:36px;">
-    <a title="Karl Karlson">
-      <div text="Karl Karlson" seed="3" class="randomArt" style="width:36px;height:36px;"></div>
-    </a>
+  <div class="relative-position pic-wrapper">
+    <!---->
+    <div class="wrapper hoverScale" style="width:36px;height:36px;">
+      <a title="Karl Karlson">
+        <div text="Karl Karlson" seed="3" class="randomArt fill"></div>
+      </a>
+    </div>
   </div>
   <!---->
   <!---->
@@ -3170,30 +3224,37 @@ exports[`Storyshots PickupUsers full 1`] = `
 exports[`Storyshots PickupUsers joinable 1`] = `
 <div class="row justify-start">
   <object type="text/html" data="about:blank" aria-hidden="true" style="display:block;position:absolute;top:0;left:0;right:0;bottom:0;height:100%;width:100%;overflow:hidden;pointer-events:none;z-index:-1;"></object>
-  <div class="wrapper profilePic clickable" style="width:36px;height:36px;">
-    <a title="Mira Bellenbaum">
-      <div text="Mira Bellenbaum" seed="1" class="randomArt" style="width:36px;height:36px;"></div>
-    </a>
+  <div class="relative-position pic-wrapper">
+    <!---->
+    <div class="wrapper hoverScale" style="width:36px;height:36px;">
+      <a title="Mira Bellenbaum">
+        <div text="Mira Bellenbaum" seed="1" class="randomArt fill"></div>
+      </a>
+    </div>
   </div>
-  <div class="wrapper profilePic clickable" style="width:36px;height:36px;">
-    <a title="Max Mustermann">
-      <div text="Max Mustermann" seed="2" class="randomArt" style="width:36px;height:36px;"></div>
-    </a>
+  <div class="relative-position pic-wrapper">
+    <!---->
+    <div class="wrapper hoverScale" style="width:36px;height:36px;">
+      <a title="Max Mustermann">
+        <div text="Max Mustermann" seed="2" class="randomArt fill"></div>
+      </a>
+    </div>
   </div>
-  <div class="wrapper profilePic clickable" style="width:36px;height:36px;">
-    <a title="Karl Karlson">
-      <div text="Karl Karlson" seed="3" class="randomArt" style="width:36px;height:36px;"></div>
-    </a>
+  <div class="relative-position pic-wrapper">
+    <!---->
+    <div class="wrapper hoverScale" style="width:36px;height:36px;">
+      <a title="Karl Karlson">
+        <div text="Karl Karlson" seed="3" class="randomArt fill"></div>
+      </a>
+    </div>
   </div>
   <!---->
   <!---->
-  <div class="user-slot-wrapper profilePic active clickable" style="width:36px;height:36px;">
+  <div class="user-slot-wrapper active hoverScale" style="width:36px;height:36px;">
     <div class="hoverHide"></div>
     <div title="Join" class="hoverShow">
       <div class="wrapper" style="width:36px;height:36px;">
-        <div>
-          <div text="Current User" seed="5" class="randomArt" style="width:36px;height:36px;"></div>
-        </div>
+        <div text="Current User" seed="5" class="randomArt fill"></div>
       </div>
     </div>
   </div>
@@ -3205,31 +3266,35 @@ exports[`Storyshots PickupUsers joinable 1`] = `
 exports[`Storyshots PickupUsers leavable 1`] = `
 <div class="row justify-start">
   <object type="text/html" data="about:blank" aria-hidden="true" style="display:block;position:absolute;top:0;left:0;right:0;bottom:0;height:100%;width:100%;overflow:hidden;pointer-events:none;z-index:-1;"></object>
-  <div class="wrapper profilePic clickable" style="width:36px;height:36px;">
-    <a title="Mira Bellenbaum">
-      <div text="Mira Bellenbaum" seed="1" class="randomArt" style="width:36px;height:36px;"></div>
-    </a>
+  <div class="relative-position pic-wrapper">
+    <!---->
+    <div class="wrapper hoverScale" style="width:36px;height:36px;">
+      <a title="Mira Bellenbaum">
+        <div text="Mira Bellenbaum" seed="1" class="randomArt fill"></div>
+      </a>
+    </div>
   </div>
-  <div class="wrapper profilePic clickable" style="width:36px;height:36px;">
-    <a title="Max Mustermann">
-      <div text="Max Mustermann" seed="2" class="randomArt" style="width:36px;height:36px;"></div>
-    </a>
+  <div class="relative-position pic-wrapper">
+    <!---->
+    <div class="wrapper hoverScale" style="width:36px;height:36px;">
+      <a title="Max Mustermann">
+        <div text="Max Mustermann" seed="2" class="randomArt fill"></div>
+      </a>
+    </div>
   </div>
   <!---->
   <!---->
-  <a title="Leave" appear="" duration="[object Object]" name="bounce" class="user-slot-wrapper profilePic clickable" style="width:36px;height:36px;">
+  <a title="Leave" appear="" duration="[object Object]" name="bounce" class="user-slot-wrapper hoverScale" style="width:36px;height:36px;">
     <div class="hoverShow">
       <i class="fas fa-fw fa-times" style="font-size:27px;"></i>
     </div>
     <div class="hoverHide">
       <div class="wrapper" style="width:36px;height:36px;">
-        <div>
-          <div text="Current User" seed="5" class="randomArt" style="width:36px;height:36px;"></div>
-        </div>
+        <div text="Current User" seed="5" class="randomArt fill"></div>
       </div>
     </div>
   </a>
-  <div class="user-slot-wrapper profilePic greyedOut" style="width:36px;height:36px;">
+  <div class="user-slot-wrapper greyedOut" style="width:36px;height:36px;">
     <div></div>
     <!---->
   </div>
@@ -3240,9 +3305,7 @@ exports[`Storyshots PickupUsers leavable 1`] = `
 
 exports[`Storyshots ProfilePicture with user 1`] = `
 <div class="wrapper" style="width:100px;height:100px;">
-  <div>
-    <div text="Mira Bellenbaum" seed="1" class="randomArt" style="width:100px;height:100px;"></div>
-  </div>
+  <div text="Mira Bellenbaum" seed="1" class="randomArt fill"></div>
 </div>
 `;
 
@@ -3600,19 +3663,13 @@ exports[`Storyshots Sidenav Boxes Group 1`] = `
           <i aria-hidden="true" class="q-icon fas fa-fw fa-ellipsis-v"> </i>
           <div tabindex="-1" class="q-popover scroll">
             <div item-separator="" class="q-list q-list-link">
-              <a class="q-link q-item q-item-division relative-position q-item-link">
-                <i aria-hidden="true" class="q-icon fas fa-pencil-alt fa-fw on-left" style="font-size:1em;"> </i>
-                Edit group
-              </a>
+              <!---->
               <!---->
               <a class="q-link q-item q-item-division relative-position q-item-link">
                 <i aria-hidden="true" class="q-icon fas fa-info-circle fa-fw on-left" style="font-size:1em;"> </i>
                 Show public group information
               </a>
-              <a class="q-link q-item q-item-division relative-position q-item-link">
-                <i aria-hidden="true" class="q-icon fas fa-user-plus fa-fw on-left" style="font-size:1em;"> </i>
-                Invite users to your group
-              </a>
+              <!---->
               <div class="q-item q-item-division relative-position">
                 <i aria-hidden="true" class="q-icon fas fa-sign-out-alt fa-fw on-left" style="font-size:1em;"> </i>
                 Leave group...
@@ -3752,15 +3809,7 @@ exports[`Storyshots Sidenav Boxes Stores 1`] = `
           <div></div>
         </div>
       </div>
-      <a tabindex="0" type="button" href="#/group/1/store/create" class="q-btn inline relative-position q-btn-item non-selectable q-btn-round q-btn-flat q-focusable q-hoverable q-btn-dense">
-        <div class="q-focus-helper"></div>
-        <div class="q-btn-inner row col items-center justify-center">
-          <i aria-hidden="true" class="q-icon fas fa-fw fa-plus-circle"> </i>
-          <div class="q-tooltip animate-popup">
-            <div></div>
-          </div>
-        </div>
-      </a>
+      <!---->
     </div>
     <button tabindex="0" type="button" class="q-btn inline relative-position q-btn-item non-selectable card-arrow q-btn-round q-btn-flat q-focusable q-hoverable q-btn-dense" style="font-size:10px;">
       <div class="q-focus-helper"></div>
@@ -4180,7 +4229,7 @@ exports[`Storyshots Statistics FeedbackItem 1`] = `
         <div class="people">
           <div class="wrapper" style="width:22px;height:22px;">
             <a title="Mira Bellenbaum">
-              <div text="Mira Bellenbaum" seed="1" class="randomArt" style="width:22px;height:22px;"></div>
+              <div text="Mira Bellenbaum" seed="1" class="randomArt fill"></div>
             </a>
           </div>
           <!---->
@@ -4222,7 +4271,7 @@ exports[`Storyshots Statistics FeedbackList 1`] = `
             <div class="people">
               <div class="wrapper" style="width:22px;height:22px;">
                 <a title="Mira Bellenbaum">
-                  <div text="Mira Bellenbaum" seed="1" class="randomArt" style="width:22px;height:22px;"></div>
+                  <div text="Mira Bellenbaum" seed="1" class="randomArt fill"></div>
                 </a>
               </div>
               <!---->
@@ -4254,7 +4303,7 @@ exports[`Storyshots Statistics FeedbackList 1`] = `
             <div class="people">
               <div class="wrapper" style="width:22px;height:22px;">
                 <a title="Mira Bellenbaum">
-                  <div text="Mira Bellenbaum" seed="1" class="randomArt" style="width:22px;height:22px;"></div>
+                  <div text="Mira Bellenbaum" seed="1" class="randomArt fill"></div>
                 </a>
               </div>
               <!---->
@@ -4290,7 +4339,7 @@ exports[`Storyshots Statistics FeedbackList 1`] = `
             <div class="people">
               <div class="wrapper" style="width:22px;height:22px;">
                 <a title="Max Mustermann">
-                  <div text="Max Mustermann" seed="2" class="randomArt" style="width:22px;height:22px;"></div>
+                  <div text="Max Mustermann" seed="2" class="randomArt fill"></div>
                 </a>
               </div>
               <!---->
@@ -4356,6 +4405,24 @@ exports[`Storyshots Statistics PickupFeedback 1`] = `
       </div>
     </div>
     <div class="generic-padding">
+      <p>
+        You did this pickup together with
+        <div class="wrapper q-ml-xs" style="width:20px;height:20px;">
+          <a title="Mira Bellenbaum (Newcomer)">
+            <div text="Mira Bellenbaum" seed="1" class="randomArt fill"></div>
+          </a>
+        </div>
+        <div class="wrapper q-ml-xs" style="width:20px;height:20px;">
+          <a title="Max Mustermann (Newcomer)">
+            <div text="Max Mustermann" seed="2" class="randomArt fill"></div>
+          </a>
+        </div>
+        <div class="wrapper q-ml-xs" style="width:20px;height:20px;">
+          <a title="Karl Karlson (Newcomer)">
+            <div text="Karl Karlson" seed="3" class="randomArt fill"></div>
+          </a>
+        </div>.
+      </p>
       <form style="padding:1.5em 0;">
         <div>
           <div class="q-tabs flex no-wrap markdown-input q-tabs-position-top q-tabs-inverted">
@@ -4458,6 +4525,37 @@ exports[`Storyshots Statistics PickupFeedback 1`] = `
           </button>
         </div>
       </form>
+      <p>
+        One more moment please...
+        <br> These people are new to your group and did one of their first pickups. Did they handle the situation well? Then you could express your trust and help them becoming a group editor.
+      </p>
+      <div>
+        <div class="wrapper q-ml-xs" style="width:40px;height:40px;">
+          <a title="Mira Bellenbaum (Newcomer)">
+            <div text="Mira Bellenbaum" seed="1" class="randomArt fill"></div>
+          </a>
+        </div>
+        Mira Bellenbaum
+        <br> 5 pickups, 2 trust so far
+      </div>
+      <div>
+        <div class="wrapper q-ml-xs" style="width:40px;height:40px;">
+          <a title="Max Mustermann (Newcomer)">
+            <div text="Max Mustermann" seed="2" class="randomArt fill"></div>
+          </a>
+        </div>
+        Max Mustermann
+        <br> 5 pickups, 2 trust so far
+      </div>
+      <div>
+        <div class="wrapper q-ml-xs" style="width:40px;height:40px;">
+          <a title="Karl Karlson (Newcomer)">
+            <div text="Karl Karlson" seed="3" class="randomArt fill"></div>
+          </a>
+        </div>
+        Karl Karlson
+        <br> 5 pickups, 2 trust so far
+      </div>
     </div>
   </div>
   <div class="q-card no-shadow grey-border store-feedback">
@@ -4493,7 +4591,7 @@ exports[`Storyshots Statistics PickupFeedback 1`] = `
                 <div class="people">
                   <div class="wrapper" style="width:22px;height:22px;">
                     <a title="Mira Bellenbaum">
-                      <div text="Mira Bellenbaum" seed="1" class="randomArt" style="width:22px;height:22px;"></div>
+                      <div text="Mira Bellenbaum" seed="1" class="randomArt fill"></div>
                     </a>
                   </div>
                   <!---->
@@ -4525,7 +4623,7 @@ exports[`Storyshots Statistics PickupFeedback 1`] = `
                 <div class="people">
                   <div class="wrapper" style="width:22px;height:22px;">
                     <a title="Mira Bellenbaum">
-                      <div text="Mira Bellenbaum" seed="1" class="randomArt" style="width:22px;height:22px;"></div>
+                      <div text="Mira Bellenbaum" seed="1" class="randomArt fill"></div>
                     </a>
                   </div>
                   <!---->
@@ -4561,7 +4659,7 @@ exports[`Storyshots Statistics PickupFeedback 1`] = `
                 <div class="people">
                   <div class="wrapper" style="width:22px;height:22px;">
                     <a title="Max Mustermann">
-                      <div text="Max Mustermann" seed="2" class="randomArt" style="width:22px;height:22px;"></div>
+                      <div text="Max Mustermann" seed="2" class="randomArt fill"></div>
                     </a>
                   </div>
                   <!---->
@@ -5054,6 +5152,186 @@ exports[`Storyshots Stores StoreList 1`] = `
 </div>
 `;
 
+exports[`Storyshots User Profile memberships 1`] = `
+<div class="q-card no-shadow grey-border">
+  <div class="q-card-main q-card-container">
+    <div class="q-list">
+      <div class="q-item q-item-division relative-position">
+        <div class="q-item-main q-item-section">
+          <div class="q-item-label">
+            group 1
+          </div>
+          <div class="q-item-sublabel">
+            Newcomer
+          </div>
+        </div>
+        <div class="q-item-side q-item-section q-item-side-left">
+          <button tabindex="0" type="button" class="q-btn inline relative-position q-btn-item non-selectable karrot-button q-btn-round q-focusable q-hoverable bg-primary text-white">
+            <div class="q-focus-helper"></div>
+            <div class="q-btn-inner row col items-center justify-center">
+              <div class="q-chip row no-wrap inline items-center q-chip-floating q-chip-dense q-chip-square bg-negative text-white">
+                <div class="q-chip-main ellipsis">
+                  2
+                </div>
+              </div>
+              <div tabindex="-1" class="q-popover scroll">
+                <div class="bg-primary text-white generic-padding">
+                  <p>2 people trust storybook user in group 1</p>
+                  <div>
+                    <div class="wrapper" style="width:20px;height:20px;">
+                      <a title="user 1">
+                        <div text="user 1" seed="1" class="randomArt fill"></div>
+                      </a>
+                    </div>
+                    <div class="wrapper" style="width:20px;height:20px;">
+                      <a title="user 2">
+                        <div text="user 2" seed="2" class="randomArt fill"></div>
+                      </a>
+                    </div>
+                  </div>
+                  <button tabindex="0" type="button" class="q-btn inline relative-position q-btn-item non-selectable q-btn-rectangle q-focusable q-hoverable bg-secondary text-white q-btn-rounded">
+                    <div class="q-focus-helper"></div>
+                    <div class="q-btn-inner row col items-center justify-center"><span class="q-mr-xs">+</span>
+                      <img src="https://twemoji.maxcdn.com/2/72x72/1f955.png" width="20px">
+                    </div>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </button>
+        </div>
+      </div>
+      <div class="q-collapsible q-item-division relative-position q-collapsible-cursor-pointer">
+        <div class="q-collapsible-inner">
+          <div class="q-item q-item-division relative-position">
+            <div class="q-item-side q-item-section q-item-side-left">
+              <i aria-hidden="true" class="q-icon fas fa-users q-item-icon"> </i>
+            </div>
+            <div class="q-item-main q-item-section">
+              <div class="q-item-label" style="overflow:hidden;display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:NaN;">storybook user is member in 3 other groups</div>
+            </div>
+            <div class="q-item-side q-item-section q-item-side-right">
+              <i aria-hidden="true" class="q-icon cursor-pointer transition-generic relative-position q-collapsible-toggle-icon material-icons q-item-icon">arrow_drop_down</i>
+            </div>
+          </div>
+          <div style="display:none;">
+            <div class="q-collapsible-sub-item relative-position">
+              <div class="q-item q-item-division relative-position">
+                <div class="q-item-main q-item-section">
+                  <div class="q-item-label">
+                    group 2
+                  </div>
+                  <!---->
+                </div>
+                <div class="q-item-side q-item-section q-item-side-left">
+                  <button tabindex="0" type="button" class="q-btn inline relative-position q-btn-item non-selectable karrot-button q-btn-round q-focusable q-hoverable bg-primary text-white">
+                    <div class="q-focus-helper"></div>
+                    <div class="q-btn-inner row col items-center justify-center">
+                      <div class="q-chip row no-wrap inline items-center q-chip-floating q-chip-dense q-chip-square bg-positive text-white">
+                        <div class="q-chip-main ellipsis">
+                          2
+                        </div>
+                      </div>
+                      <div tabindex="-1" class="q-popover scroll">
+                        <div class="bg-primary text-white generic-padding">
+                          <p>2 people trust storybook user in group 2</p>
+                          <div>
+                            <div class="wrapper" style="width:20px;height:20px;">
+                              <a title="user 1">
+                                <div text="user 1" seed="1" class="randomArt fill"></div>
+                              </a>
+                            </div>
+                            <div class="wrapper" style="width:20px;height:20px;">
+                              <a title="user 2">
+                                <div text="user 2" seed="2" class="randomArt fill"></div>
+                              </a>
+                            </div>
+                          </div>
+                          <small>You trust this user</small>
+                        </div>
+                      </div>
+                    </div>
+                  </button>
+                </div>
+              </div>
+              <div class="q-item q-item-division relative-position">
+                <div class="q-item-main q-item-section">
+                  <div class="q-item-label">
+                    group 3
+                  </div>
+                  <div class="q-item-sublabel">
+                    Newcomer
+                  </div>
+                </div>
+                <div class="q-item-side q-item-section q-item-side-left">
+                  <button tabindex="0" type="button" class="q-btn inline relative-position q-btn-item non-selectable karrot-button q-btn-round q-focusable q-hoverable bg-primary text-white">
+                    <div class="q-focus-helper"></div>
+                    <div class="q-btn-inner row col items-center justify-center">
+                      <div class="q-chip row no-wrap inline items-center q-chip-floating q-chip-dense q-chip-square bg-negative text-white">
+                        <div class="q-chip-main ellipsis">
+                          5
+                        </div>
+                      </div>
+                      <div tabindex="-1" class="q-popover scroll">
+                        <div class="bg-primary text-white generic-padding">
+                          <p>5 people trust storybook user in group 3</p>
+                          <div>
+                            <div class="wrapper" style="width:20px;height:20px;">
+                              <a title="user 1">
+                                <div text="user 1" seed="1" class="randomArt fill"></div>
+                              </a>
+                            </div>
+                            <div class="wrapper" style="width:20px;height:20px;">
+                              <a title="user 2">
+                                <div text="user 2" seed="2" class="randomArt fill"></div>
+                              </a>
+                            </div>
+                            <div class="wrapper" style="width:20px;height:20px;">
+                              <a title="user 3">
+                                <div text="user 3" seed="3" class="randomArt fill"></div>
+                              </a>
+                            </div>
+                            <div class="wrapper" style="width:20px;height:20px;">
+                              <a title="user 4">
+                                <div text="user 4" seed="4" class="randomArt fill"></div>
+                              </a>
+                            </div>
+                            <div class="wrapper" style="width:20px;height:20px;">
+                              <a title="user 5">
+                                <div text="user 5" seed="5" class="randomArt fill"></div>
+                              </a>
+                            </div>
+                          </div>
+                          <button tabindex="0" type="button" class="q-btn inline relative-position q-btn-item non-selectable q-btn-rectangle q-focusable q-hoverable bg-secondary text-white q-btn-rounded">
+                            <div class="q-focus-helper"></div>
+                            <div class="q-btn-inner row col items-center justify-center"><span class="q-mr-xs">+</span>
+                              <img src="https://twemoji.maxcdn.com/2/72x72/1f955.png" width="20px">
+                            </div>
+                          </button>
+                        </div>
+                      </div>
+                    </div>
+                  </button>
+                </div>
+              </div>
+              <div class="q-item q-item-division relative-position">
+                <div class="q-item-main q-item-section">
+                  <div class="q-item-label">
+                    group 4
+                  </div>
+                  <!---->
+                </div>
+                <div class="q-item-side q-item-section q-item-side-left"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
 exports[`Storyshots VerifyMail error 1`] = `
 <div>
   <!---->
@@ -5127,7 +5405,7 @@ exports[`Storyshots WallConversation WallConversation 1`] = `
           <div class="q-item-side q-item-section q-item-side-left">
             <div class="wrapper" style="width:40px;height:40px;margin-top:36px;">
               <a title="Current User">
-                <div text="Current User" seed="5" class="randomArt" style="width:40px;height:40px;"></div>
+                <div text="Current User" seed="5" class="randomArt fill"></div>
               </a>
             </div>
           </div>
@@ -5219,7 +5497,7 @@ exports[`Storyshots WallConversation WallConversation 1`] = `
           <div class="q-item-side q-item-section q-item-side-left">
             <div class="wrapper" style="width:40px;height:40px;margin-top:6px;">
               <a title="Mira Bellenbaum">
-                <div text="Mira Bellenbaum" seed="1" class="randomArt" style="width:40px;height:40px;"></div>
+                <div text="Mira Bellenbaum" seed="1" class="randomArt fill"></div>
               </a>
             </div>
           </div>
@@ -5272,7 +5550,7 @@ exports[`Storyshots WallConversation WallConversation 1`] = `
         <div class="q-item-side q-item-section q-item-side-left">
           <div class="wrapper" style="width:40px;height:40px;margin-top:6px;">
             <a title="Max Mustermann">
-              <div text="Max Mustermann" seed="2" class="randomArt" style="width:40px;height:40px;"></div>
+              <div text="Max Mustermann" seed="2" class="randomArt fill"></div>
             </a>
           </div>
         </div>
@@ -5325,7 +5603,7 @@ exports[`Storyshots WallConversation WallConversation 1`] = `
       <div class="q-item-side q-item-section q-item-side-left">
         <div class="wrapper" style="width:40px;height:40px;margin-top:6px;">
           <a title="Max Mustermann">
-            <div text="Max Mustermann" seed="2" class="randomArt" style="width:40px;height:40px;"></div>
+            <div text="Max Mustermann" seed="2" class="randomArt fill"></div>
           </a>
         </div>
       </div>
@@ -5378,7 +5656,7 @@ exports[`Storyshots WallConversation WallConversation 1`] = `
     <div class="q-item-side q-item-section q-item-side-left">
       <div class="wrapper" style="width:40px;height:40px;margin-top:6px;">
         <a title="Max Mustermann">
-          <div text="Max Mustermann" seed="2" class="randomArt" style="width:40px;height:40px;"></div>
+          <div text="Max Mustermann" seed="2" class="randomArt fill"></div>
         </a>
       </div>
     </div>
@@ -5431,7 +5709,7 @@ exports[`Storyshots WallConversation WallConversation 1`] = `
   <div class="q-item-side q-item-section q-item-side-left">
     <div class="wrapper" style="width:40px;height:40px;margin-top:6px;">
       <a title="Karl Karlson">
-        <div text="Karl Karlson" seed="3" class="randomArt" style="width:40px;height:40px;"></div>
+        <div text="Karl Karlson" seed="3" class="randomArt fill"></div>
       </a>
     </div>
   </div>
@@ -5484,7 +5762,7 @@ exports[`Storyshots WallConversation WallConversation 1`] = `
   <div class="q-item-side q-item-section q-item-side-left">
     <div class="wrapper" style="width:40px;height:40px;margin-top:6px;">
       <a title="Max Mustermann">
-        <div text="Max Mustermann" seed="2" class="randomArt" style="width:40px;height:40px;"></div>
+        <div text="Max Mustermann" seed="2" class="randomArt fill"></div>
       </a>
     </div>
   </div>
@@ -5537,7 +5815,7 @@ exports[`Storyshots WallConversation WallConversation 1`] = `
   <div class="q-item-side q-item-section q-item-side-left">
     <div class="wrapper" style="width:40px;height:40px;margin-top:6px;">
       <a title="Mona Mohnblume">
-        <div text="Mona Mohnblume" seed="4" class="randomArt" style="width:40px;height:40px;"></div>
+        <div text="Mona Mohnblume" seed="4" class="randomArt fill"></div>
       </a>
     </div>
   </div>
@@ -5590,7 +5868,7 @@ exports[`Storyshots WallConversation WallConversation 1`] = `
   <div class="q-item-side q-item-section q-item-side-left">
     <div class="wrapper" style="width:40px;height:40px;margin-top:6px;">
       <a title="Mona Mohnblume">
-        <div text="Mona Mohnblume" seed="4" class="randomArt" style="width:40px;height:40px;"></div>
+        <div text="Mona Mohnblume" seed="4" class="randomArt fill"></div>
       </a>
     </div>
   </div>
@@ -5645,7 +5923,7 @@ exports[`Storyshots WallConversation WallConversation 1`] = `
   <div class="q-item-side q-item-section q-item-side-left">
     <div class="wrapper" style="width:40px;height:40px;margin-top:6px;">
       <a title="Max Mustermann">
-        <div text="Max Mustermann" seed="2" class="randomArt" style="width:40px;height:40px;"></div>
+        <div text="Max Mustermann" seed="2" class="randomArt fill"></div>
       </a>
     </div>
   </div>

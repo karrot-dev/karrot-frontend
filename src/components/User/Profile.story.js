@@ -11,6 +11,7 @@ function membershipFactory ({
   isMember = true,
   trusted = false,
   trustedByCount = 2,
+  isEditor = true,
 } = {}) {
   const groupId = groupIdCnt++
   const groupName = `group ${groupId}`
@@ -21,17 +22,21 @@ function membershipFactory ({
       displayName: `user ${i}`,
     })
   }
-  return {
+  const group = {
+    id: groupId,
+    name: groupName,
+    isMember,
+    isCurrentGroup,
+  }
+  return isMember ? {
     createdAt: new Date(),
     roles: [],
     trustedBy,
     trusted,
-    group: {
-      id: groupId,
-      name: groupName,
-      isMember,
-      isCurrentGroup,
-    },
+    isEditor,
+    group,
+  } : {
+    group,
   }
 }
 
@@ -40,10 +45,10 @@ const user = {
   displayName: 'storybook user',
   isCurrentUser: false,
   memberships: [
-    membershipFactory({ isCurrentGroup: true }),
-    membershipFactory({ isMember: false, trustedByCount: 5 }),
+    membershipFactory({ isCurrentGroup: true, isEditor: false }),
     membershipFactory({ trusted: true }),
-    membershipFactory({ trustedByCount: 5 }),
+    membershipFactory({ trustedByCount: 5, isEditor: false }),
+    membershipFactory({ isMember: false }),
   ],
 }
 

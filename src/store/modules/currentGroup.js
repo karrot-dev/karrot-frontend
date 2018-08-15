@@ -26,19 +26,17 @@ export default {
       }
     },
     memberships: (state, getters, rootState, rootGetters) => {
-      if (!state.current) return []
       const group = state.current
+      if (!group) return []
       return Object.entries(group.memberships).reduce((obj, [userId, membership]) => {
         const enrichedMembership = rootGetters['users/enrichMembership'](membership)
         obj[userId] = {
           ...enrichedMembership,
           trustProgress: enrichedMembership.isEditor ? 1 : enrichedMembership.trustedBy.length / state.current.trustThresholdForNewcomer,
-          user: rootGetters['users/get'](userId),
         }
         return obj
       }, {})
     },
-    membershipList: (state, getters) => getters.memberships && Object.values(getters.memberships),
     agreement: (state, getters, rootState, rootGetters) => rootGetters['agreements/get'](state.current.activeAgreement),
     conversation: (state, getters, rootState, rootGetters) => {
       if (!state.current) return

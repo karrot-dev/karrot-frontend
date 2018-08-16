@@ -2,7 +2,7 @@
   <div class="k-profile">
     <q-alert
       v-if="!currentGroupMembership && currentGroup"
-      type="info"
+      type="warning"
     >
       {{ $t('SWITCHGROUP.NOT_MEMBER', { userName: user.displayName, groupName: currentGroup.name })}}
     </q-alert>

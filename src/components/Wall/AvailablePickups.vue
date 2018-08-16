@@ -2,7 +2,7 @@
   <div>
     <q-card
       @click.native="showPickups = !showPickups"
-      color="warning"
+      color="info"
       class="generic-padding notice no-margin-bottom"
     >
       <i class="fas fa-exclamation-triangle on-left"/>

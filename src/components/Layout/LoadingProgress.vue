@@ -3,7 +3,7 @@
     v-if="loading || closing"
     indeterminate
     animate
-    color="warning"
+    color="info"
     class="fixed-top"
     style="height: 2px; z-index: 2500"
   />

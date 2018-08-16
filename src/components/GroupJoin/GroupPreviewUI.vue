@@ -37,7 +37,7 @@
             <template v-if="!group.isMember">
               <q-alert
                 v-if="!group.hasMyApplication"
-                color="warning"
+                color="info"
                 icon="info"
               >
                 {{ $t('JOINGROUP.PROFILE_NOTE' ) }}

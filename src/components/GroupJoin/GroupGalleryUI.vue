@@ -15,7 +15,7 @@
     >
       <q-alert
         v-if="!isLoggedIn"
-        color="info"
+        color="warning"
         icon="star"
         class="alert"
       >

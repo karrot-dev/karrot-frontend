@@ -2,7 +2,7 @@
   <q-alert
     v-if="!hasEmailVerified"
     icon="fas fa-exclamation-triangle"
-    type="warning"
+    color="warning"
   >
     <p>{{ $t('NOTIFICATIONS.NOT_VERIFIED', { email: user.unverifiedEmail }) }}</p>
     <p>{{ $t('WALL.VERIFY_EMAIL_FOR_NOTIFICATIONS') }}</p>

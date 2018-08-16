@@ -2,7 +2,7 @@
   <div v-if="store && store.status === 'archived'">
     <q-card>
       <k-banner
-        color="warning"
+        color="info"
         icon="fas fa-trash-alt"
         :actions="isEditor ? [{ label: $t('STOREEDIT.RESTORE'), handler: restore }] : []"
       >

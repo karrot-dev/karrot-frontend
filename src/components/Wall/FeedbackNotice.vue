@@ -2,7 +2,7 @@
   <div>
     <router-link :to="{name: 'pickupFeedback'}">
       <q-card
-        color="warning"
+        color="info"
         class="generic-padding notice"
       >
         <i class="fas fa-balance-scale on-left"/>

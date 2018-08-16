@@ -6,7 +6,7 @@ const store = createStore({
   users: { getters: { get: () => id => id } },
 })
 
-import Memberships from './Memberships'
+import Profile from './Profile'
 
 let groupIdCnt = 1
 
@@ -58,10 +58,12 @@ const defaultOn = {
 }
 
 storiesOf('User Profile', module)
-  .add('memberships', () => defaults({
-    render: h => h(Memberships, {
+  .add('Profile', () => defaults({
+    render: h => h(Profile, {
       props: {
         user,
+        groups: user.groups,
+        currentGroup: { name: 'my current group' },
       },
       on: defaultOn,
     }),

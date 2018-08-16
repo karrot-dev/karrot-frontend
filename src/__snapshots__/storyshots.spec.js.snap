@@ -5152,43 +5152,59 @@ exports[`Storyshots Stores StoreList 1`] = `
 </div>
 `;
 
-exports[`Storyshots User Profile memberships 1`] = `
-<div class="q-card no-shadow grey-border">
-  <div class="q-card-main q-card-container">
-    <div class="q-list">
-      <div class="q-item q-item-division relative-position">
-        <div class="q-item-main q-item-section">
-          <div class="q-item-label">
-            group 1
-          </div>
-          <div class="q-item-sublabel">
-            Newcomer
-          </div>
+exports[`Storyshots User Profile Profile 1`] = `
+<div>
+  <!---->
+  <div class="row q-my-lg q-ml-md">
+    <div duration="510" name="turn-in" appear="" class="q-mx-md q-mt-md q-pa-sm photoCard bg-white shadow-4">
+      <div class="wrapper" style="width:180px;height:180px;">
+        <div text="storybook user" seed="1" class="randomArt fill"></div>
+      </div>
+    </div>
+    <div class="self-center" style="overflow:hidden;">
+      <h1 class="accent-font q-my-sm q-ml-lg">
+        storybook user
+      </h1>
+    </div>
+  </div>
+  <div class="q-card profile-info relative-position">
+    <div class="user-actions">
+      <!---->
+      <button tabindex="0" type="button" small="" class="q-btn inline relative-position q-btn-item non-selectable q-btn-round q-focusable q-hoverable bg-secondary text-white">
+        <div class="q-focus-helper"></div>
+        <div class="q-btn-inner row col items-center justify-center">
+          <i aria-hidden="true" class="q-icon fas fa-comments"> </i>
         </div>
-        <div class="q-item-side q-item-section q-item-side-left">
-          <button tabindex="0" type="button" class="q-btn inline relative-position q-btn-item non-selectable karrot-button q-btn-round q-focusable q-hoverable bg-primary text-white">
-            <div class="q-focus-helper"></div>
-            <div class="q-btn-inner row col items-center justify-center">
-              <div class="q-chip row no-wrap inline items-center q-chip-floating q-chip-dense q-chip-square bg-negative text-white">
-                <div class="q-chip-main ellipsis">
-                  2
-                </div>
-              </div>
-              <div tabindex="-1" class="q-popover scroll">
-                <div class="bg-primary text-white generic-padding">
-                  <p>2 people trust storybook user in group 1</p>
-                  <div>
-                    <div class="wrapper" style="width:20px;height:20px;">
-                      <a title="user 1">
-                        <div text="user 1" seed="1" class="randomArt fill"></div>
-                      </a>
-                    </div>
-                    <div class="wrapper" style="width:20px;height:20px;">
-                      <a title="user 2">
-                        <div text="user 2" seed="2" class="randomArt fill"></div>
-                      </a>
-                    </div>
+      </button>
+      <button tabindex="0" type="button" class="q-btn inline relative-position q-btn-item non-selectable karrot-button q-btn-round q-focusable q-hoverable bg-primary text-white">
+        <div class="q-focus-helper"></div>
+        <div class="q-btn-inner row col items-center justify-center">
+          <div class="q-chip row no-wrap inline items-center q-chip-floating q-chip-dense q-chip-square bg-negative text-white">
+            <div class="q-chip-main ellipsis">
+              2
+            </div>
+          </div>
+          <div self="center left" class="modal fullscreen row flex-center" style="display:none;">
+            <div tabindex="-1" class="modal-content">
+              <div class="generic-padding">
+                <p>2 people trust storybook user in my current group</p>
+                <div>
+                  <div class="wrapper" style="width:20px;height:20px;">
+                    <a title="user 1">
+                      <div text="user 1" seed="1" class="randomArt fill"></div>
+                    </a>
                   </div>
+                  <div class="wrapper" style="width:20px;height:20px;">
+                    <a title="user 2">
+                      <div text="user 2" seed="2" class="randomArt fill"></div>
+                    </a>
+                  </div>
+                </div>
+                <div class="row justify-end actionButtons">
+                  <button tabindex="0" type="button" class="q-btn inline relative-position q-btn-item non-selectable q-btn-rectangle q-focusable q-hoverable q-btn-rounded">
+                    <div class="q-focus-helper"></div>
+                    <div class="q-btn-inner row col items-center justify-center"></div>
+                  </button>
                   <button tabindex="0" type="button" class="q-btn inline relative-position q-btn-item non-selectable q-btn-rectangle q-focusable q-hoverable bg-secondary text-white q-btn-rounded">
                     <div class="q-focus-helper"></div>
                     <div class="q-btn-inner row col items-center justify-center"><span class="q-mr-xs">+</span>
@@ -5198,136 +5214,24 @@ exports[`Storyshots User Profile memberships 1`] = `
                 </div>
               </div>
             </div>
-          </button>
-        </div>
-      </div>
-      <div class="q-collapsible q-item-division relative-position q-collapsible-cursor-pointer">
-        <div class="q-collapsible-inner">
-          <div class="q-item q-item-division relative-position">
-            <div class="q-item-side q-item-section q-item-side-left">
-              <i aria-hidden="true" class="q-icon fas fa-users q-item-icon"> </i>
-            </div>
-            <div class="q-item-main q-item-section">
-              <div class="q-item-label" style="overflow:hidden;display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:NaN;">storybook user is member in 3 other groups</div>
-            </div>
-            <div class="q-item-side q-item-section q-item-side-right">
-              <i aria-hidden="true" class="q-icon cursor-pointer transition-generic relative-position q-collapsible-toggle-icon material-icons q-item-icon">arrow_drop_down</i>
-            </div>
-          </div>
-          <div style="display:none;">
-            <div class="q-collapsible-sub-item relative-position">
-              <div class="q-item q-item-division relative-position">
-                <div class="q-item-main q-item-section">
-                  <div class="q-item-label">
-                    group 2
-                  </div>
-                  <!---->
-                </div>
-                <div class="q-item-side q-item-section q-item-side-left">
-                  <button tabindex="0" type="button" class="q-btn inline relative-position q-btn-item non-selectable karrot-button q-btn-round q-focusable q-hoverable bg-primary text-white">
-                    <div class="q-focus-helper"></div>
-                    <div class="q-btn-inner row col items-center justify-center">
-                      <div class="q-chip row no-wrap inline items-center q-chip-floating q-chip-dense q-chip-square bg-positive text-white">
-                        <div class="q-chip-main ellipsis">
-                          2
-                        </div>
-                      </div>
-                      <div tabindex="-1" class="q-popover scroll">
-                        <div class="bg-primary text-white generic-padding">
-                          <p>2 people trust storybook user in group 2</p>
-                          <div>
-                            <div class="wrapper" style="width:20px;height:20px;">
-                              <a title="user 1">
-                                <div text="user 1" seed="1" class="randomArt fill"></div>
-                              </a>
-                            </div>
-                            <div class="wrapper" style="width:20px;height:20px;">
-                              <a title="user 2">
-                                <div text="user 2" seed="2" class="randomArt fill"></div>
-                              </a>
-                            </div>
-                          </div>
-                          <small>You trust this user</small>
-                        </div>
-                      </div>
-                    </div>
-                  </button>
-                </div>
-              </div>
-              <div class="q-item q-item-division relative-position">
-                <div class="q-item-main q-item-section">
-                  <div class="q-item-label">
-                    group 3
-                  </div>
-                  <div class="q-item-sublabel">
-                    Newcomer
-                  </div>
-                </div>
-                <div class="q-item-side q-item-section q-item-side-left">
-                  <button tabindex="0" type="button" class="q-btn inline relative-position q-btn-item non-selectable karrot-button q-btn-round q-focusable q-hoverable bg-primary text-white">
-                    <div class="q-focus-helper"></div>
-                    <div class="q-btn-inner row col items-center justify-center">
-                      <div class="q-chip row no-wrap inline items-center q-chip-floating q-chip-dense q-chip-square bg-negative text-white">
-                        <div class="q-chip-main ellipsis">
-                          5
-                        </div>
-                      </div>
-                      <div tabindex="-1" class="q-popover scroll">
-                        <div class="bg-primary text-white generic-padding">
-                          <p>5 people trust storybook user in group 3</p>
-                          <div>
-                            <div class="wrapper" style="width:20px;height:20px;">
-                              <a title="user 1">
-                                <div text="user 1" seed="1" class="randomArt fill"></div>
-                              </a>
-                            </div>
-                            <div class="wrapper" style="width:20px;height:20px;">
-                              <a title="user 2">
-                                <div text="user 2" seed="2" class="randomArt fill"></div>
-                              </a>
-                            </div>
-                            <div class="wrapper" style="width:20px;height:20px;">
-                              <a title="user 3">
-                                <div text="user 3" seed="3" class="randomArt fill"></div>
-                              </a>
-                            </div>
-                            <div class="wrapper" style="width:20px;height:20px;">
-                              <a title="user 4">
-                                <div text="user 4" seed="4" class="randomArt fill"></div>
-                              </a>
-                            </div>
-                            <div class="wrapper" style="width:20px;height:20px;">
-                              <a title="user 5">
-                                <div text="user 5" seed="5" class="randomArt fill"></div>
-                              </a>
-                            </div>
-                          </div>
-                          <button tabindex="0" type="button" class="q-btn inline relative-position q-btn-item non-selectable q-btn-rectangle q-focusable q-hoverable bg-secondary text-white q-btn-rounded">
-                            <div class="q-focus-helper"></div>
-                            <div class="q-btn-inner row col items-center justify-center"><span class="q-mr-xs">+</span>
-                              <img src="https://twemoji.maxcdn.com/2/72x72/1f955.png" width="20px">
-                            </div>
-                          </button>
-                        </div>
-                      </div>
-                    </div>
-                  </button>
-                </div>
-              </div>
-              <div class="q-item q-item-division relative-position">
-                <div class="q-item-main q-item-section">
-                  <div class="q-item-label">
-                    group 4
-                  </div>
-                  <!---->
-                </div>
-                <div class="q-item-side q-item-section q-item-side-left"></div>
-              </div>
-            </div>
           </div>
         </div>
-      </div>
+      </button>
     </div>
+    <div class="q-list">
+      <div class="q-item q-item-division relative-position">
+        <div class="q-item-side q-item-section q-item-side-left">
+          <i aria-hidden="true" class="q-icon fas fa-fw fa-envelope q-item-icon"> </i>
+        </div>
+        <div class="q-item-main q-item-section" style="overflow:hidden;text-overflow:ellipsis;">
+          <a href="mailto:undefined"></a>
+        </div>
+      </div>
+      <!---->
+      <!---->
+    </div>
+    <!---->
+    <div class="q-card-main q-card-container"></div>
   </div>
 </div>
 `;

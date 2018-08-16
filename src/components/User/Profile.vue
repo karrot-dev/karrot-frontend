@@ -1,12 +1,12 @@
 <template>
   <div>
     <q-alert
-      v-if="!currentGroupMembership"
+      v-if="!currentGroupMembership && currentGroup"
       type="info"
     >
       {{ user.displayName }} isn't member of {{ currentGroup.name }}.
     </q-alert>
-    <div class="row q-my-md q-ml-md">
+    <div class="row q-my-lg q-ml-md">
       <transition
         duration="510"
         name="turn-in"

@@ -5,14 +5,10 @@
       :groups="user.groups"
       :current-group="currentGroup"
       @detail="detail"
-    />
-    <Memberships
-      :user="user"
       @createTrust="createTrust"
     />
     <q-card
       v-if="history.length > 0"
-      class="no-shadow grey-border"
     >
       <q-card-title>
         {{ $t('GROUP.HISTORY') }}
@@ -27,12 +23,11 @@
 <script>
 import { mapGetters, mapActions } from 'vuex'
 import UserProfile from '@/components/User/Profile'
-import Memberships from '@/components/User/Memberships'
 import History from '@/components/History/HistoryList'
 import { QCard, QCardTitle, QCardMain } from 'quasar'
 
 export default {
-  components: { QCard, QCardTitle, QCardMain, History, UserProfile, Memberships },
+  components: { QCard, QCardTitle, QCardMain, History, UserProfile },
   computed: {
     ...mapGetters({
       user: 'users/activeUser',
@@ -48,7 +43,3 @@ export default {
   },
 }
 </script>
-
-<style scoped lang="stylus">
-
-</style>

@@ -32,9 +32,16 @@
         "TITLE": "Account deletion",
         "MESSAGE": "Are you sure? Your account and your personal data will be permanently deleted. Anything you have done on this platform will be made anonymous. If you confirm, we send you an e-mail with a link to complete the deletion process.",
         "CONFIRM": "Confirm"
+      },
+      "GIVE_TRUST": {
+        "TITLE": "Trust user",
+        "MESSAGE": "Do you trust {userName} in {groupName}?"
       }
     },
-    "OTHER_MEMBERSHIPS": "{userName} is member in 1 other group | {userName} is member in {count} other groups"
+    "YOU_TRUST_USER": "You trust {userName} in {groupName}",
+    "OTHER_PEOPLE_TRUST_USER": "One person trusts {userName} in {groupName} | {count} people trust {userName} in {groupName}",
+    "PEOPLE_TRUST_USER": "You and one person trust {userName} in {groupName} | You and {count} people trust {userName} in {groupName}",
+    "FIRST_TRUST": "Be the first one to trust {userName} in {groupName}!"
   },
   "BUTTON": {
     "CREATE": "Create",

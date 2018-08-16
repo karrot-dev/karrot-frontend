@@ -419,7 +419,7 @@ exports[`Storyshots GroupGallery signup view 1`] = `
   </div>
   <div class="sidebar expanded">
     <div class="alert">
-      <div class="q-alert row no-wrap shadow-2 bg-info text-white">
+      <div class="q-alert row no-wrap shadow-2 bg-warning text-white">
         <div class="q-alert-side col-auto row flex-center">
           <i aria-hidden="true" class="q-icon material-icons">star</i>
         </div>
@@ -637,7 +637,7 @@ exports[`Storyshots GroupGallery switch and explore 1`] = `
   </div>
   <div class="sidebar expanded">
     <div class="alert">
-      <div class="q-alert row no-wrap shadow-2 bg-info text-white">
+      <div class="q-alert row no-wrap shadow-2 bg-warning text-white">
         <div class="q-alert-side col-auto row flex-center">
           <i aria-hidden="true" class="q-icon material-icons">star</i>
         </div>
@@ -1232,7 +1232,7 @@ exports[`Storyshots GroupPreviewUI not member, application needed, email not ver
     <div class="q-card-actions q-card-actions-horiz row justify-start">
       <div style="width:100%;">
         <div>
-          <div class="q-alert row no-wrap shadow-2 bg-warning text-white">
+          <div class="q-alert row no-wrap shadow-2 bg-info text-white">
             <div class="q-alert-side col-auto row flex-center">
               <i aria-hidden="true" class="q-icon material-icons">info</i>
             </div>
@@ -1288,7 +1288,7 @@ exports[`Storyshots GroupPreviewUI not member, application needed, email verifie
     <div class="q-card-actions q-card-actions-horiz row justify-start">
       <div style="width:100%;">
         <div>
-          <div class="q-alert row no-wrap shadow-2 bg-warning text-white">
+          <div class="q-alert row no-wrap shadow-2 bg-info text-white">
             <div class="q-alert-side col-auto row flex-center">
               <i aria-hidden="true" class="q-icon material-icons">info</i>
             </div>
@@ -1344,7 +1344,7 @@ exports[`Storyshots GroupPreviewUI not member, open group 1`] = `
     <div class="q-card-actions q-card-actions-horiz row justify-start">
       <div style="width:100%;">
         <div>
-          <div class="q-alert row no-wrap shadow-2 bg-warning text-white">
+          <div class="q-alert row no-wrap shadow-2 bg-info text-white">
             <div class="q-alert-side col-auto row flex-center">
               <i aria-hidden="true" class="q-icon material-icons">info</i>
             </div>
@@ -1462,7 +1462,7 @@ exports[`Storyshots GroupPreviewUI not member, playground 1`] = `
     <div class="q-card-actions q-card-actions-horiz row justify-start">
       <div style="width:100%;">
         <div>
-          <div class="q-alert row no-wrap shadow-2 bg-warning text-white">
+          <div class="q-alert row no-wrap shadow-2 bg-info text-white">
             <div class="q-alert-side col-auto row flex-center">
               <i aria-hidden="true" class="q-icon material-icons">info</i>
             </div>
@@ -1513,7 +1513,7 @@ exports[`Storyshots GroupPreviewUI pending join 1`] = `
     <div class="q-card-actions q-card-actions-horiz row justify-start">
       <div style="width:100%;">
         <div>
-          <div class="q-alert row no-wrap shadow-2 bg-warning text-white">
+          <div class="q-alert row no-wrap shadow-2 bg-info text-white">
             <div class="q-alert-side col-auto row flex-center">
               <i aria-hidden="true" class="q-icon material-icons">info</i>
             </div>

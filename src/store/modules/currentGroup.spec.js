@@ -14,6 +14,7 @@ function enrichMemberships (memberships, users, currentUserId) {
       isEditor: membership.roles.includes('editor'),
       trustProgress: membership.trustedBy.length / 3,
       trusted: membership.trustedBy.includes(currentUserId),
+      trustThresholdForNewcomer: 3,
     }
     return obj
   }, {})

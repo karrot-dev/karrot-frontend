@@ -59,7 +59,7 @@ export default {
       if (!this.user.membership || this.user.membership.isEditor) {
         return this.user.displayName
       }
-      const role = 'Newcomer'
+      const role = this.$t('USERDATA.NEWCOMER')
       return `${this.user.displayName} (${role})`
     },
     pictureStyle () {

@@ -4,7 +4,7 @@
       v-if="!currentGroupMembership && currentGroup"
       type="info"
     >
-      {{ user.displayName }} isn't member of {{ currentGroup.name }}.
+      {{ $t('SWITCHGROUP.NOT_MEMBER', { userName: user.displayName, groupName: currentGroup.name })}}
     </q-alert>
     <div
       class="row justify-end"

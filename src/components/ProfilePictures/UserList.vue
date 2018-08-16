@@ -10,10 +10,9 @@
       </q-item>
       <q-list-header
         v-if="activeEditors.length > 0"
-        class="row justify-between"
+        class="row justify-end"
       >
-        <span>Editors</span>
-        <span>Trusted by</span>
+        <span v-t="'USERDATA.TRUSTED_BY'" />
       </q-list-header>
       <UserItem
         v-for="user in activeEditors"
@@ -24,8 +23,8 @@
         v-if="activeNewcomers.length > 0"
         class="row justify-between"
       >
-        <span>Newcomers</span>
-        <span>Trusted by</span>
+        <span v-t="'USERDATA.NEWCOMER'" />
+        <span v-t="'USERDATA.TRUSTED_BY'" />
       </q-list-header>
       <UserItem
         v-for="user in activeNewcomers"

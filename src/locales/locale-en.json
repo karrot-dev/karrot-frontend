@@ -41,9 +41,14 @@
     "YOU_TRUST_USER": "You trust {userName} in {groupName}",
     "OTHER_PEOPLE_TRUST_USER": "One person trusts {userName} in {groupName} | {count} people trust {userName} in {groupName}",
     "PEOPLE_TRUST_USER": "You and one person trust {userName} in {groupName} | You and {count} people trust {userName} in {groupName}",
-    "FIRST_TRUST": "Be the first one to trust {userName} in {groupName}!"
+    "FIRST_TRUST": "Be the first one to trust {userName} in {groupName}!",
+    "NEWCOMER": "Newcomer",
+    "NEWCOMER_GUIDANCE": "{userName} is new to your group and might need some guidance.",
+    "TRUST_PROGRESS_TEXT": "{trustNeeded} more trust needed to become editor",
+    "TRUSTED_BY": "Trusted by"
   },
   "SWITCHGROUP": {
+    "NOT_MEMBER": "{userName} is not a member of {groupName}.",
     "COMMON_GROUPS": "Groups you have in common",
     "OTHER_GROUPS": "Other groups"
   },

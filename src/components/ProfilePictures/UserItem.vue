@@ -31,7 +31,7 @@
           v-if="user.membership.trustProgress < 1"
           :percentage="user.membership.trustProgress * 100"
           class="q-mt-xs"
-          title="Trust needed to become Editor"
+          :title="$t('USERDATA.TRUST_PROGRESS_TEXT', { trustNeeded })"
         />
       </q-item-tile>
     </q-item-main>
@@ -80,6 +80,10 @@ export default {
     ...mapGetters({
       getUser: 'users/get',
     }),
+    trustNeeded () {
+      const { trustedBy, trustThresholdForNewcomer } = this.user.membership
+      return trustThresholdForNewcomer - trustedBy.length
+    },
   },
 }
 </script>

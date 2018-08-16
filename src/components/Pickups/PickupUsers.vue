@@ -16,7 +16,7 @@
       <div
         v-if="isNewcomer(user)"
         class="newcomer-box"
-        :title="`${user.displayName} is new to your group and might need some guidance.`"
+        :title="$t('USERDATA.NEWCOMER_GUIDANCE', { userName: user.displayName })"
       />
       <ProfilePicture
         :user="user"

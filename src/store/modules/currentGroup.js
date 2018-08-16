@@ -30,9 +30,11 @@ export default {
       if (!group) return []
       return Object.entries(group.memberships).reduce((obj, [userId, membership]) => {
         const enrichedMembership = rootGetters['users/enrichMembership'](membership)
+        const { trustThresholdForNewcomer } = state.current
         obj[userId] = {
           ...enrichedMembership,
-          trustProgress: enrichedMembership.isEditor ? 1 : enrichedMembership.trustedBy.length / state.current.trustThresholdForNewcomer,
+          trustProgress: enrichedMembership.isEditor ? 1 : enrichedMembership.trustedBy.length / trustThresholdForNewcomer,
+          trustThresholdForNewcomer,
         }
         return obj
       }, {})

@@ -121,11 +121,6 @@ export default {
           throw createRouteError(data)
         }
       }
-      dispatch('currentGroup/selectFromCurrentUser', null, { root: true })
-      const groupId = rootGetters['auth/user'].currentGroup
-      if (groupId) {
-        dispatch('history/fetchForUserInGroup', { userId, groupId }, { root: true })
-      }
     },
     async update ({ state, commit }, user) {
       commit('update', user)
@@ -179,4 +174,23 @@ export default {
     },
 
   },
+}
+
+export const plugin = store => {
+  // keep dependent data for user profile updated, even when switching groups
+  // the watch fires too often, so we better to keep track what we last loaded to avoid concurrent requests
+  let lastLoadedGroupId = null
+  store.watch(state => ({
+    groupId: state.auth.user && state.auth.user.currentGroup,
+    profileUserId: state.users.activeUserProfile && state.users.activeUserProfile.id,
+  }), ({ groupId, profileUserId }) => {
+    if (profileUserId && groupId && lastLoadedGroupId !== groupId) {
+      lastLoadedGroupId = groupId
+      store.dispatch('currentGroup/selectFromCurrentUser')
+      store.dispatch('history/fetchForUserInGroup', { userId: profileUserId, groupId })
+    }
+    if (!profileUserId) {
+      lastLoadedGroupId = null
+    }
+  })
 }

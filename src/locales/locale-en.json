@@ -43,6 +43,10 @@
     "PEOPLE_TRUST_USER": "You and one person trust {userName} in {groupName} | You and {count} people trust {userName} in {groupName}",
     "FIRST_TRUST": "Be the first one to trust {userName} in {groupName}!"
   },
+  "SWITCHGROUP": {
+    "COMMON_GROUPS": "Groups you have in common",
+    "OTHER_GROUPS": "Other groups"
+  },
   "BUTTON": {
     "CREATE": "Create",
     "CANCEL": "Cancel",

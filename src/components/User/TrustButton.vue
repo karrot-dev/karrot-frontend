@@ -13,8 +13,8 @@
       {{ trustedBy.length }}
     </q-chip>
     <q-modal
-      self="center left"
       v-model="showModal"
+      minimized
     >
       <div class="generic-padding">
         <p>{{ headline }}</p>
@@ -55,44 +55,20 @@ import { mapGetters } from 'vuex'
 import ProfilePicture from '@/components/ProfilePictures/ProfilePicture'
 
 import {
-  QCard,
-  QCardTitle,
-  QCardActions,
-  QCardMain,
-  QCardMedia,
   QBtn,
-  QCardSeparator,
-  QList,
-  QListHeader,
-  QItem,
-  QItemMain,
-  QItemSide,
-  QItemTile,
+
   QModal,
   QChip,
-  QTooltip,
   Dialog,
 } from 'quasar'
 
 export default {
   components: {
     ProfilePicture,
-    QCard,
-    QCardTitle,
-    QCardActions,
-    QCardMain,
-    QCardMedia,
     QBtn,
-    QCardSeparator,
-    QList,
-    QListHeader,
-    QItem,
-    QItemMain,
-    QItemSide,
-    QItemTile,
+
     QModal,
     QChip,
-    QTooltip,
   },
   props: {
     user: {

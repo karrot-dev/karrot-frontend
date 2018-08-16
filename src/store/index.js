@@ -40,7 +40,7 @@ import sidenavBoxes from './modules/sidenavBoxes'
 import stores from './modules/stores'
 import timezones from './modules/timezones'
 import toasts from './modules/toasts'
-import users from './modules/users'
+import users, { plugin as usersPlugin } from './modules/users'
 import verifymail from './modules/verifymail'
 
 Vue.use(Vuex)
@@ -94,6 +94,7 @@ export default new Vuex.Store({
     fcmPlugin,
     authPushPlugin,
     aboutPlugin,
+    usersPlugin,
   ],
   strict: debug,
 })

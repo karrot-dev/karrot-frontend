@@ -152,10 +152,12 @@ export default {
       return dispatch('backgroundSave', diff)
     },
 
-    async backgroundSave ({ commit, state, dispatch }, data) {
+    async backgroundSave ({ commit, dispatch }, data) {
       const savedUser = await authUser.save(data)
       commit('setUser', { user: savedUser })
-      dispatch('users/update', savedUser, { root: true })
+      // Commented out because auth/user and users/user have a different data structure
+      // Instead, rely on websockets to update users/user
+      // dispatch('users/update', savedUser, { root: true })
       return savedUser
     },
 

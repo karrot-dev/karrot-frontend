@@ -70,6 +70,7 @@ export default {
 
 <style scoped lang='stylus'>
 .art-wrapper
+  user-select none
   position relative
   display: block
   z-index 0

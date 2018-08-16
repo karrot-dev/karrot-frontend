@@ -6,6 +6,7 @@
       :current-group="currentGroup"
       @detail="detail"
       @createTrust="createTrust"
+      @selectGroup="selectGroup"
     />
     <q-card
       v-if="history.length > 0"
@@ -39,6 +40,7 @@ export default {
     ...mapActions({
       detail: 'detail/openForUser',
       createTrust: 'groups/trustUser',
+      selectGroup: 'currentGroup/select',
     }),
   },
 }

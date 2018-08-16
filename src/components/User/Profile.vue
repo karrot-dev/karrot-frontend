@@ -1,18 +1,28 @@
 <template>
-  <div>
+  <div class="k-profile">
     <q-alert
       v-if="!currentGroupMembership && currentGroup"
       type="info"
     >
       {{ user.displayName }} isn't member of {{ currentGroup.name }}.
     </q-alert>
-    <div class="row q-my-lg q-ml-md">
+    <div
+      class="row justify-end"
+      style="margin-bottom: -32px"
+    >
+      <SwitchGroupButton
+        :user="user"
+        :groups="user.groups"
+        @selectGroup="$emit('selectGroup', arguments[0])"
+      />
+    </div>
+    <div class="photoAndName row no-wrap ellipsis">
       <transition
         duration="510"
         name="turn-in"
         appear
       >
-        <div class="q-mx-md q-mt-md q-pa-sm photoCard bg-white shadow-4">
+        <div class="photo q-pa-sm q-ma-md bg-white shadow-4">
           <ProfilePicture
             :is-link="false"
             :user="user"
@@ -24,12 +34,12 @@
         style="overflow: hidden"
         class="self-center"
       >
-        <h1 class="accent-font q-my-sm q-ml-lg">
+        <h1 class="name accent-font">
           {{ user.displayName }}
         </h1>
       </div>
     </div>
-    <q-card class="profile-info relative-position">
+    <q-card class="profile-info relative-position q-pt-sm">
       <div
         class="user-actions"
       >
@@ -57,7 +67,7 @@
           @createTrust="$emit('createTrust', arguments[0])"
         />
       </div>
-      <q-list :dense="$q.platform.is.mobile">
+      <q-list>
         <q-item>
           <q-item-side icon="fas fa-fw fa-envelope" />
           <q-item-main style="overflow: hidden; text-overflow: ellipsis">
@@ -100,6 +110,7 @@ import Markdown from '@/components/Markdown'
 import ProfilePicture from '@/components/ProfilePictures/ProfilePicture'
 import UserMapPreview from '@/components/Map/UserMapPreview'
 import TrustButton from '@/components/User/TrustButton'
+import SwitchGroupButton from '@/components/User/SwitchGroupButton'
 
 import {
   QAlert,
@@ -122,6 +133,7 @@ export default {
     UserMapPreview,
     ProfilePicture,
     TrustButton,
+    SwitchGroupButton,
     QAlert,
     QCard,
     QCardActions,
@@ -156,12 +168,27 @@ export default {
 </script>
 
 <style scoped lang="stylus">
-.user-actions
-  position absolute
-  top -20px
-  right 8px
-.photoCard
-  transform rotate(-3deg)
+body.desktop .k-profile
+  .photoAndName
+    margin-left 26px
+    margin-top 20px
+    margin-bottom 20px
+  .name
+    padding-left 18px
+
+.k-profile
+  .photoAndName
+    margin-left 10px
+    margin-top 14px
+    margin-bottom 14px
+  .name
+    padding-left 6px
+  .photo
+    transform rotate(-3deg)
+  .user-actions
+    position absolute
+    top -24px
+    right 10px
 
 .turn-in-enter
   transform rotate(-15deg)

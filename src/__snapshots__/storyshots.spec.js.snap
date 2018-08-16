@@ -5153,21 +5153,66 @@ exports[`Storyshots Stores StoreList 1`] = `
 `;
 
 exports[`Storyshots User Profile Profile 1`] = `
-<div>
+<div class="k-profile">
   <!---->
-  <div class="row q-my-lg q-ml-md">
-    <div duration="510" name="turn-in" appear="" class="q-mx-md q-mt-md q-pa-sm photoCard bg-white shadow-4">
+  <div class="row justify-end" style="margin-bottom:-32px;">
+    <button tabindex="0" type="button" class="q-btn inline relative-position q-btn-item non-selectable q-btn-rectangle q-focusable q-hoverable bg-primary text-white">
+      <div class="q-focus-helper"></div>
+      <div class="q-btn-inner row col items-center justify-center">
+        group 1
+        <div class="modal fullscreen row minimized flex-center" style="display:none;">
+          <div tabindex="-1" class="modal-content">
+            <div class="q-list">
+              <div class="q-list-header">
+                Groups you have in common
+              </div>
+              <div class="q-item q-item-division relative-position q-item-link">
+                <div class="q-item-main q-item-section">
+                  group 1
+                </div>
+                <div class="q-item-side q-item-section q-item-side-right">
+                  <i aria-hidden="true" class="q-icon fas fa-star q-item-icon text-secondary"> </i>
+                </div>
+              </div>
+              <div class="q-item q-item-division relative-position q-item-link">
+                <div class="q-item-main q-item-section">
+                  group 2
+                </div>
+                <!---->
+              </div>
+              <div class="q-item q-item-division relative-position q-item-link">
+                <div class="q-item-main q-item-section">
+                  group 3
+                </div>
+                <!---->
+              </div>
+              <div class="q-list-header">
+                Other groups
+              </div>
+              <a class="q-link q-item q-item-division relative-position q-item-link">
+                <div class="q-item-main q-item-section">
+                  group 4
+                </div>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </button>
+  </div>
+  <div class="photoAndName row no-wrap ellipsis">
+    <div duration="510" name="turn-in" appear="" class="photo q-pa-sm q-ma-md bg-white shadow-4">
       <div class="wrapper" style="width:180px;height:180px;">
         <div text="storybook user" seed="1" class="randomArt fill"></div>
       </div>
     </div>
     <div class="self-center" style="overflow:hidden;">
-      <h1 class="accent-font q-my-sm q-ml-lg">
+      <h1 class="name accent-font">
         storybook user
       </h1>
     </div>
   </div>
-  <div class="q-card profile-info relative-position">
+  <div class="q-card profile-info relative-position q-pt-sm">
     <div class="user-actions">
       <!---->
       <button tabindex="0" type="button" small="" class="q-btn inline relative-position q-btn-item non-selectable q-btn-round q-focusable q-hoverable bg-secondary text-white">
@@ -5184,7 +5229,7 @@ exports[`Storyshots User Profile Profile 1`] = `
               2
             </div>
           </div>
-          <div self="center left" class="modal fullscreen row flex-center" style="display:none;">
+          <div class="modal fullscreen row minimized flex-center" style="display:none;">
             <div tabindex="-1" class="modal-content">
               <div class="generic-padding">
                 <p>2 people trust storybook user in my current group</p>
@@ -5208,7 +5253,7 @@ exports[`Storyshots User Profile Profile 1`] = `
                   <button tabindex="0" type="button" class="q-btn inline relative-position q-btn-item non-selectable q-btn-rectangle q-focusable q-hoverable bg-secondary text-white q-btn-rounded">
                     <div class="q-focus-helper"></div>
                     <div class="q-btn-inner row col items-center justify-center"><span class="q-mr-xs">+</span>
-                      <img src="https://twemoji.maxcdn.com/2/72x72/1f955.png" width="20px">
+                      <img src="./twemoji-karrot.png" width="20px">
                     </div>
                   </button>
                 </div>

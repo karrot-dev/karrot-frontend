@@ -55,7 +55,7 @@ describe('users', () => {
           selectFromCurrentUser: jest.fn(),
         },
       },
-    })
+    }, { plugins: [require('./users').plugin] })
   })
 
   beforeEach(() => {
@@ -76,6 +76,7 @@ describe('users', () => {
       user: () => ({
         currentGroup: 1,
       }),
+      currentGroupId: () => 1,
     },
     actions: {
       login: jest.fn(),

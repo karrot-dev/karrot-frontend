@@ -180,16 +180,16 @@ export const plugin = store => {
   // keep dependent data for user profile updated, even when switching groups
   // the watch fires too often, so we better to keep track what we last loaded to avoid concurrent requests
   let lastLoadedGroupId = null
-  store.watch(state => ({
-    groupId: state.auth.user && state.auth.user.currentGroup,
-    profileUserId: state.users.activeUserProfile && state.users.activeUserProfile.id,
-  }), ({ groupId, profileUserId }) => {
-    if (profileUserId && groupId && lastLoadedGroupId !== groupId) {
+  store.watch((state, getters) => ({
+    groupId: getters['auth/currentGroupId'],
+    profileUser: getters['users/activeUser'],
+  }), ({ groupId, profileUser }) => {
+    if (profileUser && groupId && lastLoadedGroupId !== groupId) {
       lastLoadedGroupId = groupId
       store.dispatch('currentGroup/selectFromCurrentUser')
-      store.dispatch('history/fetchForUserInGroup', { userId: profileUserId, groupId })
+      store.dispatch('history/fetchForUserInGroup', { userId: profileUser.id, groupId })
     }
-    if (!profileUserId) {
+    if (!profileUser) {
       lastLoadedGroupId = null
     }
   })

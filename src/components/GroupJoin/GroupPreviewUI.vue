@@ -47,8 +47,8 @@
                 color="blue"
                 icon="info"
                 :actions="[
-                  // { label: 'Group chat', icon: 'fas fa-comments', handler: joinChat },
-                  { label: $t('JOINGROUP.WITHDRAW_APPLICATION'), icon: 'fas fa-trash-alt', handler: withdraw }
+                  { label: $t('BUTTON.OPEN'), icon: 'fas fa-fw fa-comments', handler: () => $emit('openChat', application) },
+                  { label: $t('BUTTON.WITHDRAW'), icon: 'fas fa-fw fa-trash-alt', handler: withdraw }
                 ]"
               >
                 {{ $t('JOINGROUP.APPLICATION_PENDING' ) }}
@@ -128,6 +128,10 @@ export default {
       default: null,
       type: Object,
     },
+    application: {
+      default: null,
+      type: Object,
+    },
   },
   components: { QCard, QCardTitle, QCardMain, QCardSeparator, QCardActions, QBtn, QField, QInput, QIcon, QTooltip, QAlert, Markdown },
   computed: {
@@ -149,7 +153,7 @@ export default {
         ok: this.$t('BUTTON.YES'),
         cancel: this.$t('BUTTON.CANCEL'),
       })
-        .then(() => this.$emit('withdraw', this.group.myApplication.id))
+        .then(() => this.$emit('withdraw', this.application.id))
         .catch(() => {})
     },
   },

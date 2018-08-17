@@ -43,6 +43,19 @@
               {{ $t('CONVERSATION.REPLIES') }}
             </q-toolbar-title>
           </template>
+          <template v-else-if="application">
+            <ProfilePicture
+              v-if="!application.user.isCurrentUser"
+              :user="application.user"
+              :size="$q.platform.is.mobile ? 25 : 40"
+            />
+            <q-toolbar-title>
+              <span v-t="'APPLICATION.APPLICATION'" />
+              <span slot="subtitle">
+                {{ application.user.isCurrentUser ? application.group.name : application.user.displayName }}
+              </span>
+            </q-toolbar-title>
+          </template>
           <NotificationToggle
             v-if="notifications !== null"
             :value="notifications"
@@ -75,6 +88,10 @@
           </div>
         </div>
       </div>
+      <div v-if="application">
+        <Markdown :source="application.questions" />
+        <Markdown :source="application.answers" />
+      </div>
       <ChatConversation
         v-if="conversation"
         :conversation="conversationWithMaybeReversedMessages"
@@ -96,6 +113,8 @@
 import ProfilePicture from '@/components/ProfilePictures/ProfilePicture'
 import NotificationToggle from '@/components/Conversation/NotificationToggle'
 import ChatConversation from '@/components/Conversation/ChatConversation'
+import Markdown from '@/components/Markdown'
+
 import {
   QBtn,
   QToolbar,
@@ -109,6 +128,7 @@ export default {
     ChatConversation,
     ProfilePicture,
     NotificationToggle,
+    Markdown,
     QBtn,
     QToolbar,
     QToolbarTitle,
@@ -118,6 +138,7 @@ export default {
   props: {
     user: { type: Object, default: null },
     pickup: { type: Object, default: null },
+    application: { type: Object, default: null },
     conversation: { type: Object, default: null },
     away: { type: Boolean, required: true },
     currentUser: { type: Object, default: null },

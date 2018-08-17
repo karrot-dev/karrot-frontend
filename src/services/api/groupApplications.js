@@ -5,10 +5,9 @@ export default {
     return convert((await axios.post('/api/group-applications/', data)).data)
   },
 
-  // TODO: create applicationChat which will use this service method:
-  // async get (data) {
-  //   return (await axios.get('/api/group-applications/{id}/', data)).data
-  // },
+  async get (applicationId) {
+    return convert((await axios.get(`/api/group-applications/${applicationId}/`)).data)
+  },
 
   async list (filter) {
     return convert((await axios.get('/api/group-applications/', { params: filter })).data)
@@ -32,7 +31,10 @@ export function convert (val) {
     return val.map(convert)
   }
   else {
-    let createdAt = new Date(val.createdAt)
-    return { ...val, createdAt }
+    return {
+      ...val,
+      createdAt: new Date(val.createdAt),
+      decidedAt: new Date(val.decidedAt),
+    }
   }
 }

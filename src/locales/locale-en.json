@@ -93,6 +93,7 @@
     "PICKUP": "Pickup",
     "MEMBERS": "Members",
     "JOINED": "joined {relativeDate}",
+    "ADDED_BY": "added by {userName}",
     "SORT_JOINDATE": "Sort by join date",
     "SORT_NAME": "Sort by name",
     "INACTIVE": "Inactive",

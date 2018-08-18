@@ -32,6 +32,9 @@ describe('users', () => {
       currentGroup: {
         getters: {
           value: () => ({ members: [1, 2], memberships: { 1: {}, 2: {} } }),
+          actions: {
+            selectFromCurrentUser: jest.fn(),
+          },
         },
       },
     })

@@ -122,6 +122,14 @@ export default {
       dispatch('auth/maybeBackgroundSave', { currentGroup: groupId }, { root: true })
     },
 
+    selectFromCurrentUser ({ dispatch, getters, rootGetters }) {
+      const selected = getters.id
+      const groupId = rootGetters['auth/user'].currentGroup
+      if (!selected && groupId) {
+        dispatch('select', { groupId })
+      }
+    },
+
     clear ({ commit, dispatch }) {
       commit('clear')
       dispatch('auth/maybeBackgroundSave', { currentGroup: null }, { root: true })

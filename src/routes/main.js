@@ -372,6 +372,7 @@ export default [
     meta: {
       requireLoggedIn: true,
       breadcrumbs: [
+        { type: 'currentGroup' },
         { type: 'activeUser' },
       ],
       beforeEnter: 'users/selectUser',

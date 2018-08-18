@@ -102,6 +102,7 @@ export default {
         }
       }
       commit('select', userId)
+      dispatch('currentGroup/selectFromCurrentUser', null, { root: true })
       await dispatch('history/fetchForUser', { userId }, { root: true })
     },
     update ({ commit }, user) {

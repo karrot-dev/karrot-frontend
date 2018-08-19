@@ -453,7 +453,8 @@
     "DECLINED": "You declined the application of {userName}.",
     "PAST": "Past applications",
     "SUBMITTED_ON": "Submitted on {date}",
-    "WITHDRAWN": "withdrawn {relativeDate}"
+    "WITHDRAWN": "withdrawn {relativeDate}",
+    "INITIAL": "Initial questions and answers"
   },
   "COMMUNITY_FEED": {
     "HEADER": "Updates from the {community}",

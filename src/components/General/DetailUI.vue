@@ -88,10 +88,33 @@
           </div>
         </div>
       </div>
-      <div v-if="application">
-        <Markdown :source="application.questions" />
-        <Markdown :source="application.answers" />
-      </div>
+      <q-collapsible
+        opened
+        v-if="application"
+        class="bg-grey-2"
+      >
+        <template slot="header">
+          <b>{{ $t('APPLICATION.INITIAL') }}</b>
+        </template>
+        <div class="q-ma-sm q-pa-sm bg-white">
+          <span class="text-bold text-secondary uppercase">{{ application.group.name }}</span>
+          <span class="message-date">
+            <small class="text-weight-light">
+              <DateAsWords :date="application.createdAt" />
+            </small>
+          </span>
+          <Markdown :source="application.questions" />
+        </div>
+        <div class="q-ma-sm q-pa-sm bg-white">
+          <span class="text-bold text-secondary uppercase">{{ application.user.displayName }}</span>
+          <span class="message-date">
+            <small class="text-weight-light">
+              <DateAsWords :date="application.createdAt" />
+            </small>
+          </span>
+          <Markdown :source="application.answers" />
+        </div>
+      </q-collapsible>
       <ChatConversation
         v-if="conversation"
         :conversation="conversationWithMaybeReversedMessages"
@@ -114,6 +137,7 @@ import ProfilePicture from '@/components/ProfilePictures/ProfilePicture'
 import NotificationToggle from '@/components/Conversation/NotificationToggle'
 import ChatConversation from '@/components/Conversation/ChatConversation'
 import Markdown from '@/components/Markdown'
+import DateAsWords from '@/components/General/DateAsWords'
 
 import {
   QBtn,
@@ -121,6 +145,7 @@ import {
   QToolbarTitle,
   QSpinnerDots,
   QIcon,
+  QCollapsible,
 } from 'quasar'
 
 export default {
@@ -129,11 +154,13 @@ export default {
     ProfilePicture,
     NotificationToggle,
     Markdown,
+    DateAsWords,
     QBtn,
     QToolbar,
     QToolbarTitle,
     QSpinnerDots,
     QIcon,
+    QCollapsible,
   },
   props: {
     user: { type: Object, default: null },
@@ -210,4 +237,7 @@ body.mobile .Detail .q-toolbar
   min-height 20px
   .q-toolbar-title
     font-size 16px
+.message-date
+    display inline-block
+    margin-left 2px
 </style>

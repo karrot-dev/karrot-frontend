@@ -140,19 +140,23 @@ export default {
       return this.$t('APPLICATION.SUBMITTED_ON', { date: date })
     },
     decision () {
-      return this.application.status === 'accepted'
-        ? 'GROUP.JOINED'
-        : (this.application.status === 'declined' ? 'GROUP.DECLINED' : 'APPLICATION.WITHDRAWN')
+      switch (this.application.status) {
+        case 'accepted':
+          return 'GROUP.JOINED'
+        case 'declined':
+          return 'GROUP.DECLINED'
+        case 'withdrawn':
+          return 'APPLICATION.WITHDRAWN'
+      }
     },
     personDeciding () {
-      if (this.application.status === 'accepted') {
-        return 'GROUP.ADDED_BY'
-      }
-      else if (this.application.status === 'declined') {
-        return 'GROUP.DECLINED_BY'
+      switch (this.application.status) {
+        case 'accepted':
+          return 'GROUP.ADDED_BY'
+        case 'declined':
+          return 'GROUP.DECLINED_BY'
       }
     },
-
   },
 }
 </script>

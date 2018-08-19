@@ -93,7 +93,9 @@
     "PICKUP": "Pickup",
     "MEMBERS": "Members",
     "JOINED": "joined {relativeDate}",
+    "DECLINED": "declined {relativeDate}",
     "ADDED_BY": "added by {userName}",
+    "DECLINED_BY": "declined by {userName}",
     "SORT_JOINDATE": "Sort by join date",
     "SORT_NAME": "Sort by name",
     "INACTIVE": "Inactive",
@@ -450,7 +452,8 @@
     "ACCEPTED": "You accepted {userName} into this group!",
     "DECLINED": "You declined the application of {userName}.",
     "PAST": "Past applications",
-    "SUBMITTED_ON": "Submitted on {date}"
+    "SUBMITTED_ON": "Submitted on {date}",
+    "WITHDRAWN": "withdrawn {relativeDate}"
   },
   "COMMUNITY_FEED": {
     "HEADER": "Updates from the {community}",

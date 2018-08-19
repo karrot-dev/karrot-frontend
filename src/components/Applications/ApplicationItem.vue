@@ -11,6 +11,7 @@
         class="applicants-picture"
       />
     </q-item-side>
+
     <q-item-main>
       <q-item-tile
         label
@@ -18,19 +19,44 @@
       >
         {{ userName }}
       </q-item-tile>
+
       <q-item-tile
         sublabel
         lines="1"
       >
-        {{ itemSublabel }}
+        {{ submittedOn }}
       </q-item-tile>
+
       <q-item-tile
         v-if="application.status !== 'pending'"
         sublabel
         lines="1"
       >
-        {{ this.application.status }}
+        <i18n
+          :path="decision"
+        >
+          <DateAsWords
+            place="relativeDate"
+            style="display: inline"
+            :date="application.decidedAt"
+          />
+        </i18n>
+
+        <template v-if="application.status !== 'withdrawn'">
+          ·
+          <i18n
+            :path="personDeciding"
+          >
+            <router-link
+              place="userName"
+              :to="{name: 'user', params: { userId: application.decidedBy.id }}"
+            >
+              {{ application.decidedBy.displayName }}
+            </router-link>
+          </i18n>
+        </template>
       </q-item-tile>
+
     </q-item-main>
     <q-item-side
       right
@@ -68,10 +94,11 @@
 <script>
 import { Dialog, QItem, QBtn, QItemMain, QItemSide, QItemTile } from 'quasar'
 import ProfilePicture from '@/components/ProfilePictures/ProfilePicture'
+import DateAsWords from '@/components/General/DateAsWords'
 
 export default {
   components: {
-    QItem, QBtn, QItemMain, QItemSide, QItemTile, ProfilePicture,
+    QItem, QBtn, QItemMain, QItemSide, QItemTile, ProfilePicture, DateAsWords,
   },
   props: {
     application: {
@@ -108,10 +135,24 @@ export default {
     userName () {
       return this.application.user.displayName
     },
-    itemSublabel () {
+    submittedOn () {
       const date = this.$d(this.application.createdAt, 'long')
       return this.$t('APPLICATION.SUBMITTED_ON', { date: date })
     },
+    decision () {
+      return this.application.status === 'accepted'
+        ? 'GROUP.JOINED'
+        : (this.application.status === 'declined' ? 'GROUP.DECLINED' : 'APPLICATION.WITHDRAWN')
+    },
+    personDeciding () {
+      if (this.application.status === 'accepted') {
+        return 'GROUP.ADDED_BY'
+      }
+      else if (this.application.status === 'declined') {
+        return 'GROUP.DECLINED_BY'
+      }
+    },
+
   },
 }
 </script>

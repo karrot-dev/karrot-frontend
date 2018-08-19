@@ -87,6 +87,7 @@
     "APPLICATIONS": "Applications",
     "APPLICATION_QUESTIONS": "Questions for people who want to join this group",
     "PICKUPS": "Pickups",
+    "MESSAGES": "Messages",
     "PICKUP": "Pickup",
     "MEMBERS": "Members",
     "JOINED": "joined {relativeDate}",
@@ -453,5 +454,6 @@
     "HEADER": "Updates from the {community}",
     "HEADER_LINK": "foodsaving worldwide community",
     "LAST_UPDATED": "Last updated {relativeDate}"
-  }
+  },
+  "YOU": "You"
 }

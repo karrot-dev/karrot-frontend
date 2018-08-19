@@ -1,6 +1,7 @@
 const GroupWall = () => import('@/pages/Group/Wall')
 const GroupPickups = () => import('@/pages/Group/Pickups')
 const GroupFeedback = () => import('@/pages/Group/Feedbacks')
+const GroupMessages = () => import('@/pages/Group/Messages')
 const GroupMap = () => import('@/pages/Map')
 const GroupSettings = () => import('@/pages/Group/Settings')
 const GroupEdit = () => import('@/pages/Group/Edit')
@@ -125,6 +126,18 @@ export default [
           ],
         },
         component: GroupPickups,
+      },
+      {
+        name: 'groupMessages',
+        path: 'messages',
+        meta: {
+          breadcrumbs: [
+            { translation: 'GROUP.MESSAGES', route: { name: 'groupMessages' } },
+          ],
+          beforeEnter: 'conversations/fetchOverview',
+          afterLeave: 'conversations/clearOverview',
+        },
+        component: GroupMessages,
       },
       {
         name: 'groupFeedback',

@@ -44,6 +44,15 @@ export default {
     }
   },
 
+  async listMyThreads () {
+    const response = (await axios.get('/api/messages/', { params: { my_threads: '1' } })).data
+    return {
+      ...response,
+      next: parseCursor(response.next),
+      results: convert(response.results),
+    }
+  },
+
   async listMore (cursor) {
     const response = (await axios.get(cursor)).data
     return {
@@ -62,6 +71,11 @@ export function convert (val) {
   else {
     const createdAt = new Date(val.createdAt)
     const updatedAt = new Date(val.updatedAt)
-    return { ...val, createdAt, updatedAt }
+    return {
+      ...val,
+      createdAt,
+      updatedAt,
+      latestMessage: val.latestMessage && convert(val.latestMessage),
+    }
   }
 }

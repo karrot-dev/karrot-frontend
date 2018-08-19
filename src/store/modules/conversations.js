@@ -65,6 +65,8 @@ function initialState () {
     groupConversationIds: {}, // { <group-id> : <conversation-id> }
     pickupConversationIds: {}, // { <pickup-id> : <conversation-id> }
     userConversationIds: {}, // { <user-id> : <conversation-id> }
+    latestIds: [],
+    latestThreads: [],
   }
 }
 
@@ -83,6 +85,15 @@ export default {
         canFetchPast,
         ...metaStatusesWithId(getters, ['send', 'fetch', 'fetchPast', 'mark'], conversationId),
       }
+    },
+    latest: (state, getters) => {
+      return state.latestIds.map(getters.get)
+    },
+    latestThreads: (state, getters) => {
+      return state.latestThreads.map(getters.enrichMessage).map(thread => ({
+        ...thread,
+        latestMessage: thread.latestMessage && getters.enrichMessage(thread.latestMessage),
+      }))
     },
     getForGroup: (state, getters) => groupId => {
       const conversationId = state.groupConversationIds[groupId]
@@ -147,9 +158,17 @@ export default {
     },
     enrichConversation: (state, getters, rootState, rootGetters) => conversation => {
       if (!conversation) return
+      const participants = conversation.participants.map(rootGetters['users/get'])
+
+      const { type, targetId } = conversation
+      let target = null
+      if (type === 'pickup') target = rootGetters['pickups/get'](targetId)
+      else if (type === 'private') target = participants.find(u => !u.isCurrentUser)
       return {
         ...conversation,
-        participants: conversation.participants.map(rootGetters['users/get']),
+        participants,
+        target,
+        latestMessage: conversation.latestMessage && getters.enrichMessage(conversation.latestMessage),
       }
     },
   },
@@ -201,6 +220,22 @@ export default {
         if (state.entries[id]) {
           commit('updateEmailNotifications', { conversationId: id, value })
         }
+      },
+
+      async fetchOverview ({ commit, dispatch }, { groupId }) {
+        const conversations = (await conversationsAPI.list()).results
+        conversations.forEach(conversation => commit('setConversation', { conversation }))
+        commit('setLatestIds', conversations)
+
+        conversations.filter(c => c.type === 'pickup').forEach(c => {
+          dispatch('pickups/maybeFetch', c.targetId, { root: true })
+        })
+
+        const threads = (await messageAPI.listMyThreads()).results
+        commit('setLatestThreads', threads)
+      },
+      async clearOverview ({ commit }) {
+
       },
     }),
 
@@ -333,6 +368,9 @@ export default {
         messages: [message],
         conversationId: message.conversation,
       })
+      if (message.thread) {
+        commit('updateLatestThread', message)
+      }
     },
 
     updateConversation ({ state, commit }, conversation) {
@@ -390,6 +428,16 @@ export default {
       if (userId) {
         Vue.set(state.userConversationIds, userId, conversation.id)
       }
+    },
+    setLatestIds (state, conversations) {
+      state.latestIds = conversations.map(c => c.id)
+    },
+    setLatestThreads (state, threads) {
+      state.latestThreads = threads
+    },
+    updateLatestThread (state, thread) {
+      const idx = state.latestThreads.findIndex(t => t.id === thread.id)
+      Vue.set(state.latestThreads, idx, thread)
     },
     updateEmailNotifications (state, { conversationId, value }) {
       state.entries[conversationId].emailNotifications = value

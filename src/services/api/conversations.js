@@ -1,8 +1,18 @@
-import axios from '@/services/axios'
+import axios, { parseCursor } from '@/services/axios'
+import { convert as convertMessage } from './messages'
 
 export default {
   async get (id) {
     return convert((await axios.get(`/api/conversations/${id}/`)).data)
+  },
+
+  async list () {
+    const response = (await axios.get('/api/conversations/')).data
+    return {
+      ...response,
+      next: parseCursor(response.next),
+      results: convert(response.results),
+    }
   },
 
   async mark (id, data) {
@@ -15,9 +25,15 @@ export default {
   },
 }
 
-export function convert (obj) {
-  return {
-    ...obj,
-    updatedAt: new Date(obj.updatedAt),
+export function convert (val) {
+  if (Array.isArray(val)) {
+    return val.map(convert)
+  }
+  else {
+    return {
+      ...val,
+      updatedAt: new Date(val.updatedAt),
+      latestMessage: val.latestMessage && convertMessage(val.latestMessage),
+    }
   }
 }

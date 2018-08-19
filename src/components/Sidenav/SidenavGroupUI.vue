@@ -54,6 +54,14 @@
             {{ $t("GROUP.PICKUPS") }}
           </q-item-main>
         </q-item>
+        <q-item :to="{ name: 'groupMessages', params: { groupId } }">
+          <q-item-side class="text-center">
+            <q-icon name="fas fa-comments" />
+          </q-item-side>
+          <q-item-main>
+            {{ $t("GROUP.MESSAGES") }}
+          </q-item-main>
+        </q-item>
         <q-item :to="{ name: 'groupFeedback', params: { groupId } }">
           <q-item-side class="text-center">
             <q-icon name="fas fa-balance-scale" />

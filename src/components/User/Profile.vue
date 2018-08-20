@@ -69,7 +69,7 @@
             <q-btn
               small
               round
-              color="secondary"
+              color="tertiary"
               icon="fas fa-comments"
               class="hoverScale"
               @click="$emit('detail', user)"

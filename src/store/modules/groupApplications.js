@@ -86,6 +86,9 @@ export default {
       dispatch('meta/clear', ['apply'])
       dispatch('groups/clearGroupPreview', null, { root: true })
     },
+    clearEntries ({ commit }) {
+      commit('clear')
+    },
     update ({ commit }, application) {
       commit('update', application)
     },
@@ -99,6 +102,9 @@ export default {
     },
     update (state, application) {
       Vue.set(state.entries, application.id, application)
+    },
+    clear (state) {
+      state.entries = {}
     },
   },
 }

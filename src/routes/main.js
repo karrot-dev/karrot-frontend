@@ -37,6 +37,7 @@ export default [
         { translation: 'JOINGROUP.ALL_GROUPS' },
       ],
       beforeEnter: 'groupApplications/fetchMine',
+      afterLeave: 'groupApplications/clearEntries',
     },
     components: {
       fullPage: GroupGallery,

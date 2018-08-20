@@ -454,6 +454,8 @@
     "PAST": "Past applications",
     "SUBMITTED_ON": "Submitted on {date}",
     "WITHDRAWN": "withdrawn {relativeDate}",
+    "WHAT": "What is this chat about?",
+    "HELP": "This is a chat between all existing members of {groupName} and the new applicant {userName}. It is meant to give you all a chance to get to know you before deciding wether to accept, decline or withdraw the application.",
     "INITIAL": "Initial questions and answers"
   },
   "COMMUNITY_FEED": {

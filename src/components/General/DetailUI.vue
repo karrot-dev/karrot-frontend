@@ -55,6 +55,13 @@
                 {{ application.user.isCurrentUser ? application.group.name : application.user.displayName }}
               </span>
             </q-toolbar-title>
+            <q-btn
+              flat
+              round
+              dense
+              icon="help_outline"
+              @click="applicationInfo"
+            />
           </template>
           <NotificationToggle
             v-if="notifications !== null"
@@ -140,6 +147,7 @@ import Markdown from '@/components/Markdown'
 import DateAsWords from '@/components/General/DateAsWords'
 
 import {
+  Dialog,
   QBtn,
   QToolbar,
   QToolbarTitle,
@@ -216,6 +224,13 @@ export default {
           value: !this.notifications,
         }
       this.$emit('toggleEmailNotifications', data)
+    },
+    applicationInfo () {
+      Dialog.create({
+        title: this.$t('APPLICATION.WHAT'),
+        message: this.$t('APPLICATION.HELP', { groupName: this.application.group.name, userName: this.application.user.displayName }),
+        ok: this.$t('BUTTON.BACK'),
+      })
     },
   },
 }

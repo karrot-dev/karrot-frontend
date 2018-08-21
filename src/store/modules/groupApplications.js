@@ -104,7 +104,7 @@ export default {
       Vue.set(state.entries, application.id, application)
     },
     clear (state) {
-      state.entries = {}
+      Object.assign(state, initialState())
     },
   },
 }

@@ -1415,7 +1415,16 @@ exports[`Storyshots GroupPreviewUI not member, pending application 1`] = `
                 <button tabindex="0" type="button" class="q-btn inline relative-position q-btn-item non-selectable full-width q-btn-rectangle q-btn-flat q-focusable q-hoverable q-btn-dense">
                   <div class="q-focus-helper"></div>
                   <div class="q-btn-inner row col items-center justify-start">
-                    <i aria-hidden="true" class="q-icon fas fa-trash-alt on-left"> </i>
+                    <i aria-hidden="true" class="q-icon fas fa-fw fa-comments on-left"> </i>
+                    <div>Open</div>
+                  </div>
+                </button>
+              </div>
+              <div class="full-width">
+                <button tabindex="0" type="button" class="q-btn inline relative-position q-btn-item non-selectable full-width q-btn-rectangle q-btn-flat q-focusable q-hoverable q-btn-dense">
+                  <div class="q-focus-helper"></div>
+                  <div class="q-btn-inner row col items-center justify-start">
+                    <i aria-hidden="true" class="q-icon fas fa-fw fa-trash-alt on-left"> </i>
                     <div>Withdraw</div>
                   </div>
                 </button>

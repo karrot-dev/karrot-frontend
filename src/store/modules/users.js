@@ -41,7 +41,10 @@ export default {
         return Object.entries(currentGroup.memberships).map(([userId, membership]) => {
           return {
             ...getters.get(userId),
-            membershipInCurrentGroup: membership,
+            membershipInCurrentGroup: {
+              ...membership,
+              addedBy: membership.addedBy && getters.get(membership.addedBy),
+            },
           }
         })
       }

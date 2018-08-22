@@ -50,7 +50,6 @@
 
 <script>
 import { Dialog, QCard, QCardMain, QBtn, QIcon } from 'quasar'
-import router from '@/router'
 import PickupUsers from './PickupUsers'
 
 export default {
@@ -91,12 +90,7 @@ export default {
     detailIfMember (event) {
       if (!this.pickup.isUserMember) return
       if (event.target.closest('a')) return // ignore actual links
-      if (this.$q.platform.is.mobile) {
-        router.push({name: 'pickupDetail', params: { storeId: this.pickup.store.id, pickupId: this.pickup.id }})
-      }
-      else {
-        this.$emit('detail', this.pickup)
-      }
+      this.$emit('detail', this.pickup)
     },
   },
 }

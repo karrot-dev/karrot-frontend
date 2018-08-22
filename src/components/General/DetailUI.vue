@@ -43,6 +43,26 @@
               {{ $t('CONVERSATION.REPLIES') }}
             </q-toolbar-title>
           </template>
+          <template v-else-if="application">
+            <ProfilePicture
+              v-if="!application.user.isCurrentUser"
+              :user="application.user"
+              :size="$q.platform.is.mobile ? 25 : 40"
+            />
+            <q-toolbar-title>
+              <span v-t="'APPLICATION.APPLICATION'" />
+              <span slot="subtitle">
+                {{ application.user.isCurrentUser ? application.group.name : application.user.displayName }}
+              </span>
+            </q-toolbar-title>
+            <q-btn
+              flat
+              round
+              dense
+              icon="help_outline"
+              @click="applicationInfo"
+            />
+          </template>
           <NotificationToggle
             v-if="notifications !== null"
             :value="notifications"
@@ -75,6 +95,33 @@
           </div>
         </div>
       </div>
+      <q-collapsible
+        opened
+        v-if="application"
+        class="bg-grey-2"
+      >
+        <template slot="header">
+          <b>{{ $t('APPLICATION.INITIAL') }}</b>
+        </template>
+        <div class="q-ma-sm q-pa-sm bg-white">
+          <span class="text-bold text-secondary uppercase">{{ application.group.name }}</span>
+          <span class="message-date">
+            <small class="text-weight-light">
+              <DateAsWords :date="application.createdAt" />
+            </small>
+          </span>
+          <Markdown :source="application.questions" />
+        </div>
+        <div class="q-ma-sm q-pa-sm bg-white">
+          <span class="text-bold text-secondary uppercase">{{ application.user.displayName }}</span>
+          <span class="message-date">
+            <small class="text-weight-light">
+              <DateAsWords :date="application.createdAt" />
+            </small>
+          </span>
+          <Markdown :source="application.answers" />
+        </div>
+      </q-collapsible>
       <ChatConversation
         v-if="conversation"
         :conversation="conversationWithMaybeReversedMessages"
@@ -96,12 +143,17 @@
 import ProfilePicture from '@/components/ProfilePictures/ProfilePicture'
 import NotificationToggle from '@/components/Conversation/NotificationToggle'
 import ChatConversation from '@/components/Conversation/ChatConversation'
+import Markdown from '@/components/Markdown'
+import DateAsWords from '@/components/General/DateAsWords'
+
 import {
+  Dialog,
   QBtn,
   QToolbar,
   QToolbarTitle,
   QSpinnerDots,
   QIcon,
+  QCollapsible,
 } from 'quasar'
 
 export default {
@@ -109,15 +161,19 @@ export default {
     ChatConversation,
     ProfilePicture,
     NotificationToggle,
+    Markdown,
+    DateAsWords,
     QBtn,
     QToolbar,
     QToolbarTitle,
     QSpinnerDots,
     QIcon,
+    QCollapsible,
   },
   props: {
     user: { type: Object, default: null },
     pickup: { type: Object, default: null },
+    application: { type: Object, default: null },
     conversation: { type: Object, default: null },
     away: { type: Boolean, required: true },
     currentUser: { type: Object, default: null },
@@ -169,6 +225,13 @@ export default {
         }
       this.$emit('toggleEmailNotifications', data)
     },
+    applicationInfo () {
+      Dialog.create({
+        title: this.$t('APPLICATION.WHAT'),
+        message: this.$t('APPLICATION.HELP', { groupName: this.application.group.name, userName: this.application.user.displayName }),
+        ok: this.$t('BUTTON.BACK'),
+      })
+    },
   },
 }
 </script>
@@ -189,4 +252,7 @@ body.mobile .Detail .q-toolbar
   min-height 20px
   .q-toolbar-title
     font-size 16px
+.message-date
+    display inline-block
+    margin-left 2px
 </style>

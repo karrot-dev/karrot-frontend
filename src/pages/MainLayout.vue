@@ -83,7 +83,7 @@
           :width="400"
           :overlay="false"
           :breakpoint="0"
-          :value="showSidenavRight"
+          :value="showRightDrawer"
         >
           <Detail @close="clearDetail"/>
         </q-layout-drawer>
@@ -161,7 +161,7 @@ export default {
     ...mapGetters({
       isLoggedIn: 'auth/isLoggedIn',
       routeError: 'routeError/status',
-      showSidenavRight: 'detail/isActive',
+      showRightDrawer: 'detail/isActive',
       disableDesktopSidenav: 'route/disableDesktopSidenav',
     }),
     layoutView () {

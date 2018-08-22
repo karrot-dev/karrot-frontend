@@ -15,6 +15,7 @@ Please document your changes in this format:
 - Replies to wall messages #1065 @nicksellen @tiltec
 - Link to external route planner for store directions #1020 @pogopaule @tiltec
 - Add notifications about new messages in community.foodsaving.world @tiltec
+- Group applications #1063 #1082 @djahnie @taistadam @tiltec @nicksellen
 
 ### Changed
 
@@ -23,7 +24,7 @@ Please document your changes in this format:
 - Hide markdown preview in sidebar @tiltec
 - External links, email links and phone links in markdown now have a small icon @tiltec
 - Internal links open in the same tab @tiltec
-- Unified desktop/mobile sidenav #1071 @nicksellen 
+- Unified desktop/mobile sidenav #1071 @nicksellen
 
 ### Removed
 

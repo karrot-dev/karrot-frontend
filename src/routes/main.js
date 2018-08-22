@@ -355,6 +355,20 @@ export default [
     ],
   },
   {
+    name: 'applicationDetail',
+    path: '/group/:groupId/applications/:applicationId',
+    meta: {
+      requiredLoggedIn: true,
+      breadcrumbs: [
+        { translation: 'APPLICATION.APPLICATION', route: { name: 'applicationDetail' } },
+      ],
+      beforeEnter: 'detail/applicationRouteEnter',
+      afterLeave: 'detail/routeLeave',
+    },
+    // On desktop will get redirected inside "detail/routeEnter" action
+    component: MobileDetail,
+  },
+  {
     name: 'settings',
     path: '/settings',
     meta: {

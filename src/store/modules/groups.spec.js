@@ -28,8 +28,6 @@ function enrich (group) {
     isCurrentGroup: false,
     isPlayground: false,
     isInactive: false,
-    hasMyApplication: false,
-    myApplication: undefined,
     ...defaultActionStatusesFor('save', 'join', 'leave'),
   }
 }
@@ -100,7 +98,7 @@ describe('groups', () => {
 
   const groupApplications = {
     getters: {
-      getByGroupId: () => () => {},
+      groupHasMyApplication: () => () => {},
     },
   }
 

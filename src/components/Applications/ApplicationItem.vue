@@ -11,6 +11,7 @@
         class="applicants-picture"
       />
     </q-item-side>
+
     <q-item-main>
       <q-item-tile
         label
@@ -18,30 +19,55 @@
       >
         {{ userName }}
       </q-item-tile>
+
       <q-item-tile
         sublabel
         lines="1"
       >
-        {{ itemSublabel }}
+        {{ submittedOn }}
       </q-item-tile>
+
       <q-item-tile
         v-if="application.status !== 'pending'"
         sublabel
         lines="1"
       >
-        {{ this.application.status }}
+        <i18n
+          :path="decision"
+        >
+          <DateAsWords
+            place="relativeDate"
+            style="display: inline"
+            :date="application.decidedAt"
+          />
+        </i18n>
+
+        <template v-if="application.status !== 'withdrawn'">
+          ·
+          <i18n
+            :path="personDeciding"
+          >
+            <router-link
+              place="userName"
+              :to="{name: 'user', params: { userId: application.decidedBy.id }}"
+            >
+              {{ application.decidedBy.displayName }}
+            </router-link>
+          </i18n>
+        </template>
       </q-item-tile>
+
     </q-item-main>
     <q-item-side
       right
     >
       <q-btn
         round
-        disable
         color="tertiary"
         icon="fas fa-comments"
         class="generic-margin"
         @click="openChat"
+        :title="$t('BUTTON.OPEN')"
       />
       <q-btn
         v-if="application.status === 'pending'"
@@ -50,6 +76,7 @@
         icon="fas fa-check"
         class="generic-margin"
         @click="pressAccept"
+        :title="$t('BUTTON.ACCEPT')"
       />
       <q-btn
         v-if="application.status === 'pending'"
@@ -58,6 +85,7 @@
         icon="fas fa-times"
         class="generic-margin"
         @click="decline"
+        :title="$t('BUTTON.DECLINE')"
       />
     </q-item-side>
   </q-item>
@@ -66,10 +94,11 @@
 <script>
 import { Dialog, QItem, QBtn, QItemMain, QItemSide, QItemTile } from 'quasar'
 import ProfilePicture from '@/components/ProfilePictures/ProfilePicture'
+import DateAsWords from '@/components/General/DateAsWords'
 
 export default {
   components: {
-    QItem, QBtn, QItemMain, QItemSide, QItemTile, ProfilePicture,
+    QItem, QBtn, QItemMain, QItemSide, QItemTile, ProfilePicture, DateAsWords,
   },
   props: {
     application: {
@@ -79,7 +108,7 @@ export default {
   },
   methods: {
     openChat () {
-      return console.log('This will lead to the ApplicationChat soon!')
+      this.$emit('openChat', this.application)
     },
     pressAccept () {
       Dialog.create({
@@ -106,9 +135,27 @@ export default {
     userName () {
       return this.application.user.displayName
     },
-    itemSublabel () {
+    submittedOn () {
       const date = this.$d(this.application.createdAt, 'long')
       return this.$t('APPLICATION.SUBMITTED_ON', { date: date })
+    },
+    decision () {
+      switch (this.application.status) {
+        case 'accepted':
+          return 'GROUP.JOINED'
+        case 'declined':
+          return 'GROUP.DECLINED'
+        case 'withdrawn':
+          return 'APPLICATION.WITHDRAWN'
+      }
+    },
+    personDeciding () {
+      switch (this.application.status) {
+        case 'accepted':
+          return 'GROUP.ADDED_BY'
+        case 'declined':
+          return 'GROUP.DECLINED_BY'
+      }
     },
   },
 }

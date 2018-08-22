@@ -11,6 +11,7 @@ export default connect({
   actionsToEvents: {
     accept: 'groupApplications/accept',
     decline: 'groupApplications/decline',
+    openChat: 'detail/openForApplication',
   },
 })('ApplicationList', ApplicationList)
 </script>

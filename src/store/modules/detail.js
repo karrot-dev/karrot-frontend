@@ -28,6 +28,11 @@ export default {
       if (type !== 'user') return
       return rootGetters['users/get'](id)
     },
+    application: (state, getters, rootState, rootGetters) => {
+      const { type, id } = state.scope
+      if (type !== 'application') return
+      return rootGetters['groupApplications/get'](id)
+    },
     conversation: (state, getters, rootState, rootGetters) => {
       const { type, id } = state.scope
       if (type === 'pickup') {
@@ -35,6 +40,9 @@ export default {
       }
       if (type === 'user') {
         return rootGetters['conversations/getForUser'](id)
+      }
+      if (type === 'application') {
+        return rootGetters['conversations/getForApplication'](id)
       }
       if (type === 'thread') {
         return rootGetters['currentThread/get']
@@ -70,6 +78,22 @@ export default {
         }
       }
     },
+    async applicationRouteEnter ({ dispatch, rootGetters }, { groupId, applicationId, routeTo }) {
+      if (!applicationId) return
+      const selectPromise = dispatch('selectApplication', applicationId)
+      if (!Platform.is.mobile) {
+        await selectPromise
+        const { isCurrentUser } = rootGetters['groupApplications/get'](applicationId).user
+        // On desktop we don't have a detail page, we go to the application list or the group preview, and have a sidebar open
+        throw createRouteRedirect({
+          ...(isCurrentUser
+            ? { name: 'groupPreview', params: { groupPreviewId: groupId } }
+            : { name: 'groupApplications', params: { groupId } }
+          ),
+          query: routeTo.query,
+        })
+      }
+    },
     routeLeave ({ dispatch }) {
       dispatch('clear')
     },
@@ -87,6 +111,14 @@ export default {
       }
       else {
         dispatch('selectUser', user.id)
+      }
+    },
+    openForApplication ({ dispatch }, application) {
+      if (Platform.is.mobile) {
+        router.push({ name: 'applicationDetail', params: { groupId: application.group.id, applicationId: application.id } })
+      }
+      else {
+        dispatch('selectApplication', application.id)
       }
     },
     openForThread ({ dispatch }, message) {
@@ -107,6 +139,12 @@ export default {
       commit('setUserId', userId)
       dispatch('conversations/fetchForUser', { userId }, { root: true })
     },
+    async selectApplication ({ commit, dispatch }, applicationId) {
+      dispatch('clear')
+      commit('setApplicationId', applicationId)
+      dispatch('conversations/fetchForApplication', { applicationId }, { root: true })
+      await dispatch('groupApplications/maybeFetchOne', applicationId, { root: true })
+    },
     selectThread ({ commit, dispatch }, id) {
       dispatch('clear')
       commit('setThreadId', id)
@@ -120,6 +158,9 @@ export default {
       else if (type === 'user') {
         dispatch('conversations/clearForUser', { userId: id }, { root: true })
       }
+      else if (type === 'application') {
+        dispatch('conversations/clearForApplication', { applicationId: id }, { root: true })
+      }
       else if (type === 'thread') {
         dispatch('currentThread/clear', null, { root: true })
       }
@@ -132,6 +173,9 @@ export default {
     },
     setUserId (state, userId) {
       state.scope = { type: 'user', id: userId }
+    },
+    setApplicationId (state, applicationId) {
+      state.scope = { type: 'application', id: applicationId }
     },
     setThreadId (state, id) {
       state.scope = { type: 'thread', id }

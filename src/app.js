@@ -44,9 +44,6 @@ export default async function initApp () {
   if (!__ENV.DEV) {
     store.dispatch('about/fetch')
   }
-  if (store.getters['auth/isLoggedIn']) {
-    store.dispatch('latestMessages/fetch')
-  }
   store.dispatch('communityFeed/fetchTopics')
 
   /* eslint-disable no-new */

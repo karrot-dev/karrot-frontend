@@ -28,7 +28,7 @@ import groups from './modules/groups'
 import history from './modules/history'
 import i18n from './modules/i18n'
 import invitations from './modules/invitations'
-import latestMessages from './modules/latestMessages'
+import latestMessages, { plugin as latestMessagesPlugin } from './modules/latestMessages'
 import loadingprogress from './modules/loadingprogress'
 import pickups from './modules/pickups'
 import pickupSeries from './modules/pickupSeries'
@@ -96,6 +96,7 @@ export default new Vuex.Store({
     fcmPlugin,
     authPushPlugin,
     aboutPlugin,
+    latestMessagesPlugin,
   ],
   strict: debug,
 })

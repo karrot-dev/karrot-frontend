@@ -6,8 +6,12 @@ export default {
     return convert((await axios.get(`/api/conversations/${id}/`)).data)
   },
 
-  async list () {
-    const response = (await axios.get('/api/conversations/')).data
+  async list (group) {
+    const response = (await axios.get('/api/conversations/', { params: {
+      in_group: group,
+      exclude_wall: 'yes',
+      exclude_empty: 'yes',
+    }})).data
     return {
       ...response,
       next: parseCursor(response.next),

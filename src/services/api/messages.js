@@ -44,8 +44,11 @@ export default {
     }
   },
 
-  async listMyThreads () {
-    const response = (await axios.get('/api/messages/', { params: { my_threads: '1' } })).data
+  async listMyThreads (group) {
+    const response = (await axios.get('/api/messages/', { params: {
+      my_threads: 'yes',
+      in_group: group,
+    } })).data
     return {
       ...response,
       next: parseCursor(response.next),

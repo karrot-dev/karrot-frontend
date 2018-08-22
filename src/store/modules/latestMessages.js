@@ -44,10 +44,10 @@ export default {
   },
   actions: {
     ...withMeta({
-      async fetch ({ commit, dispatch }) {
+      async fetch ({ commit, dispatch }, groupId) {
         const [conversations, threads] = await Promise.all([
-          dispatch('conversationsPagination/extractCursor', conversationsAPI.list()),
-          dispatch('threadsPagination/extractCursor', messageAPI.listMyThreads()),
+          dispatch('conversationsPagination/extractCursor', conversationsAPI.list(groupId)),
+          dispatch('threadsPagination/extractCursor', messageAPI.listMyThreads(groupId)),
         ])
         commit('updateConversations', conversations)
         commit('updateThreads', threads)
@@ -113,4 +113,15 @@ function sortByLatestMessage (a, b) {
   if (!a.latestMessage) return false
   if (!b.latestMessage) return true
   return a.latestMessage.createdAt > b.latestMessage.createdAt
+}
+
+export const plugin = store => {
+  store.watch((state, getters) => getters['currentGroup/id'], groupId => {
+    if (groupId) {
+      store.dispatch('latestMessages/fetch', groupId)
+    }
+    else {
+      store.dispatch('latestMessages/clear')
+    }
+  })
 }

@@ -152,16 +152,20 @@ export default {
     enrichConversation: (state, getters, rootState, rootGetters) => conversation => {
       if (!conversation) return
       const participants = conversation.participants.map(rootGetters['users/get'])
-
-      const { type, targetId } = conversation
-      let target = null
-      if (type === 'pickup') target = rootGetters['pickups/get'](targetId)
-      else if (type === 'private') target = participants.find(u => !u.isCurrentUser)
-      return {
+      const enriched = {
         ...conversation,
         participants,
-        target,
         latestMessage: conversation.latestMessage && getters.enrichMessage(conversation.latestMessage),
+      }
+      enriched.target = getters.getTarget(enriched)
+      return enriched
+    },
+    getTarget: (state, getters, rootState, rootGetters) => conversation => {
+      const { type, targetId, participants } = conversation
+      switch (type) {
+        case 'pickup': return rootGetters['pickups/get'](targetId)
+        case 'application': return rootGetters['groupApplications/get'](targetId)
+        case 'private': return participants.find(u => !u.isCurrentUser)
       }
     },
   },

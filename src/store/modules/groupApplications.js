@@ -37,13 +37,13 @@ export default {
     groupHasMyApplication: (state, getters) => groupId => {
       return Boolean(getters.getMineForGroupIdNotEnriched(groupId))
     },
-    pending: (state, getters) => Object.keys(state.entries).map(getters.get).filter(a => a.isPending).sort(sortByCreatedAt),
-    allNonPending: (state, getters) => Object.keys(state.entries).map(getters.get).filter(a => !a.isPending).sort(sortByCreatedAt),
+    forCurrentGroup: (state, getters) => Object.keys(state.entries).map(getters.get).filter(a => a.group.isCurrentGroup).sort(sortByCreatedAt),
+    forCurrentGroupPending: (state, getters) => getters.forCurrentGroup.filter(a => a.isPending),
+    forCurrentGroupNonPending: (state, getters) => getters.forCurrentGroup.filter(a => !a.isPending),
     ...metaStatuses(['apply']),
   },
   actions: {
     ...withMeta({
-
       async fetchMine ({ commit, rootGetters }) {
         const userId = rootGetters['auth/userId']
         const applicationList = await groupApplications.list({ user: userId, status: 'pending' })
@@ -96,8 +96,10 @@ export default {
       },
 
     }),
-    async maybeFetchOne ({ state, dispatch }, applicationId) {
-      if (state.entries[applicationId]) return
+    async maybeFetchOne ({ state, dispatch, getters }, applicationId) {
+      const isPending = getters['meta/status']('fetchOne', applicationId).pending
+      if (state.entries[applicationId] || isPending) return
+
       await dispatch('fetchOne', applicationId)
     },
     clearGroupPreviewAndStatus ({ dispatch }) {

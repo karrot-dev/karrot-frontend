@@ -5,10 +5,10 @@
     @click.native="$emit('open')"
   >
     <q-item-side
-      v-if="isPrivate"
+      v-if="isPrivate || isApplication"
     >
       <ProfilePicture
-        :user="user"
+        :user="user || application.user"
         :size="$q.platform.is.mobile ? 35 : 40"
       />
     </q-item-side>
@@ -35,6 +35,13 @@
             />
             <div class="ellipsis">{{ thread.content }}</div>
           </template>
+          <template v-else-if="isApplication">
+            <q-icon
+              name="fas fw-fw fa-user-plus"
+              class="q-mr-sm"
+            />
+            <div class="ellipsis">{{ application.user.displayName }}</div>
+          </template>
         </div>
         <span>
           <small>
@@ -47,13 +54,16 @@
         </span>
       </q-item-tile>
       <q-item-tile
-        v-if="isPickup"
+        v-if="isPickup || isApplication"
         label
-        class="q-mb-sm"
+        class="q-mb-xs"
       >
-        <small>
+        <small v-if="isPickup">
           {{ pickup.store.name }} ·
           {{ $d(pickup.date, 'dateShort') }}
+        </small>
+        <small v-else-if="isApplication">
+          {{ $t('APPLICATION.APPLICATION') }}
         </small>
       </q-item-tile>
       <q-item-tile
@@ -122,6 +132,10 @@ export default {
       type: Object,
       default: null,
     },
+    application: {
+      type: Object,
+      default: null,
+    },
     message: {
       type: Object,
       default: null,
@@ -140,6 +154,9 @@ export default {
     },
     isThread () {
       return Boolean(this.thread)
+    },
+    isApplication () {
+      return Boolean(this.application)
     },
   },
   methods: {

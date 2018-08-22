@@ -53,11 +53,14 @@ export default {
         commit('updateThreads', threads)
 
         dispatch('fetchRelatedPickups', conversations)
+        dispatch('fetchRelatedApplications', conversations)
       },
       async fetchPastConversations ({ commit, dispatch }) {
         const data = await dispatch('conversationsPagination/fetchNext', conversationsAPI.listMore)
         commit('updateConversations', data)
+
         dispatch('fetchRelatedPickups', data)
+        dispatch('fetchRelatedApplications', data)
       },
       async fetchPastThreads ({ commit, dispatch }) {
         const data = await dispatch('threadsPagination/fetchNext', messageAPI.listMore)
@@ -72,6 +75,12 @@ export default {
       // TODO: should be delivered by the backend API for better performance
       for (const c of conversations.filter(c => c.type === 'pickup')) {
         dispatch('pickups/maybeFetch', c.targetId, { root: true })
+      }
+    },
+    fetchRelatedApplications ({ dispatch }, conversations) {
+      // TODO: should be delivered by the backend API for better performance
+      for (const c of conversations.filter(c => c.type === 'application')) {
+        dispatch('groupApplications/maybeFetchOne', c.targetId, { root: true })
       }
     },
     updateConversation ({ commit }, conversation) {

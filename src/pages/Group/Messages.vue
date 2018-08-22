@@ -6,13 +6,13 @@
     <q-list>
       <MessageItem
         v-for="conv in conversations"
-        :key="(conv.threadMeta ? 'thread' : 'conv') + conv.id"
+        :key="'conv' + conv.id"
         :user="conv.type === 'private' ? conv.target : null"
         :pickup="conv.type === 'pickup' ? conv.target : null"
-        :thread="conv.threadMeta ? conv : null"
+        :application="conv.type === 'application' ? conv.target : null"
         :message="conv.latestMessage"
-        :unread-count="conv.threadMeta ? conv.threadMeta.unreadReplyCount : conv.unreadMessageCount"
-        @open="conv.threadMeta ? openForThread(conv) : open(conv)"
+        :unread-count="conv.unreadMessageCount"
+        @open="open(conv)"
       />
       <q-item
         v-if="canFetchPastConversations"
@@ -34,13 +34,11 @@
       </q-list-header>
       <MessageItem
         v-for="conv in threads"
-        :key="(conv.threadMeta ? 'thread' : 'conv') + conv.id"
-        :user="conv.type === 'private' ? conv.target : null"
-        :pickup="conv.type === 'pickup' ? conv.target : null"
-        :thread="conv.threadMeta ? conv : null"
+        :key="'thread' + conv.id"
+        :thread="conv"
         :message="conv.latestMessage"
-        :unread-count="conv.threadMeta ? conv.threadMeta.unreadReplyCount : conv.unreadMessageCount"
-        @open="conv.threadMeta ? openForThread(conv) : open(conv)"
+        :unread-count="conv.threadMeta.unreadReplyCount"
+        @open="openForThread(conv)"
       />
       <q-item
         v-if="canFetchPastThreads"
@@ -96,13 +94,17 @@ export default {
       openForPickup: 'detail/openForPickup',
       openForUser: 'detail/openForUser',
       openForThread: 'detail/openForThread',
+      openForApplication: 'detail/openForApplication',
       fetchPastConversations: 'latestMessages/fetchPastConversations',
       fetchPastThreads: 'latestMessages/fetchPastThreads',
     }),
     open (conv) {
       const { type, target } = conv
-      if (type === 'pickup') return this.openForPickup(target)
-      if (type === 'private') return this.openForUser(target)
+      switch (type) {
+        case 'pickup': return this.openForPickup(target)
+        case 'private': return this.openForUser(target)
+        case 'application': return this.openForApplication(target)
+      }
     },
   },
 }

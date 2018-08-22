@@ -60,7 +60,10 @@
     "SHOW": "顯示",
     "HIDE": "隱藏",
     "SUBMIT": "Submit",
-    "APPLY": "Apply"
+    "APPLY": "Apply",
+    "ACCEPT": "Accept",
+    "DECLINE": "Decline",
+    "WITHDRAW": "Withdraw"
   },
   "VALIDATION": {
     "MINLENGTH": "請輸入至少 {最少} 個字。",
@@ -90,6 +93,9 @@
     "PICKUP": "領取",
     "MEMBERS": "成員",
     "JOINED": "加入[相對日期]",
+    "DECLINED": "declined {relativeDate}",
+    "ADDED_BY": "added by {userName}",
+    "DECLINED_BY": "declined by {userName}",
     "SORT_JOINDATE": "由加入日期分類",
     "SORT_NAME": "由姓名分類",
     "INACTIVE": "非活躍",
@@ -120,6 +126,10 @@
       "daily_pickup_notification": {
         "NAME": "領取通知",
         "DESCRIPTION": "提醒你已加入的領取任務，並告訴你隔天的領取任務缺額數"
+      },
+      "new_application": {
+        "NAME": "New applications",
+        "DESCRIPTION": "Tells you when somebody wants to join your group"
       }
     },
     "PLAYGROUND_INFO": "這裡是遊樂區社團，不用擔心會破壞掉任何東西。自由的點擊、愉快的探索吧 !",
@@ -199,7 +209,6 @@
     "PROFILE_NOTE": "加入此社團後，其他成員也能瀏覽你的個人檔案。",
     "APPLICATION_SUBMITTED": "Your application was successfully submitted!",
     "APPLICATION_PENDING": "Your application is pending!",
-    "WITHDRAW_APPLICATION": "Withdraw",
     "WITHDRAW_CONFIRMATION_HEADER": "Withdraw Application",
     "WITHDRAW_CONFIRMATION_TEXT": "Are you sure you want to withdraw your application to join {groupName}?",
     "APPLICATION_WITHDRAWN": "Your application was successfully withdrawn!"
@@ -323,7 +332,7 @@
     }
   },
   "LANGUAGECHOOSER": {
-    "ADD_MORE": "增加更多語言！",
+    "ADD_MORE": "Help translating!",
     "SWITCH": "切換語言"
   },
   "MARKDOWN_INPUT": {
@@ -435,19 +444,23 @@
     "ARCHIVED": "已封存"
   },
   "APPLICATION": {
+    "APPLICATION": "Application",
     "FORM_HEADER": "Apply",
     "FORM_TITLE": "Apply to join {groupName}",
     "GALLERY_TOOLTIP": "You applied to join this group. Your application is still pending.",
-    "ACCESS_CHAT": "Open the application chat",
     "WALL_NOTICE": "There is an application pending! | There are {count} applications pending!",
     "ACCEPT_CONFIRMATION_HEADER": "Accept Application",
     "ACCEPT_CONFIRMATION_TEXT": "Are you sure you want to accept {userName} into this group?",
     "DECLINE_CONFIRMATION_HEADER": "Decline Application",
-    "DECLINE_CONFIRMATION_TEXT": "Are you sure you want to decline {userName}'s application?",
-    "ACCEPTED": "You accepted {userName}'s request to join this group!",
-    "DECLINED": "You declined {userName}'s request to join this group!",
+    "DECLINE_CONFIRMATION_TEXT": "Are you sure you want to decline the application of {userName}?",
+    "ACCEPTED": "You accepted {userName} into this group!",
+    "DECLINED": "You declined the application of {userName}.",
     "PAST": "Past applications",
-    "SUBMITTED_ON": "Submitted on {date}"
+    "SUBMITTED_ON": "Submitted on {date}",
+    "WITHDRAWN": "withdrawn {relativeDate}",
+    "WHAT": "What is this chat about?",
+    "HELP": "This is a chat between all existing members of {groupName} and the new applicant {userName}. It is meant to give you all a chance to get to know you before deciding wether to accept, decline or withdraw the application.",
+    "INITIAL": "Initial questions and answers"
   },
   "COMMUNITY_FEED": {
     "HEADER": "Updates from the {community}",

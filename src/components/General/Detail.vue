@@ -6,6 +6,7 @@ export default connect({
   gettersToProps: {
     user: 'detail/user',
     pickup: 'detail/pickup',
+    application: 'detail/application',
     conversation: 'detail/conversation',
     away: 'presence/toggle/away',
     currentUser: 'auth/user',

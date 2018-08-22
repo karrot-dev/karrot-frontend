@@ -60,7 +60,10 @@
     "SHOW": "Show",
     "HIDE": "Hide",
     "SUBMIT": "Submit",
-    "APPLY": "Apply"
+    "APPLY": "Apply",
+    "ACCEPT": "Accept",
+    "DECLINE": "Decline",
+    "WITHDRAW": "Withdraw"
   },
   "VALIDATION": {
     "MINLENGTH": "Ange mer än {min} tecken",
@@ -90,6 +93,9 @@
     "PICKUP": "Pickup",
     "MEMBERS": "Medlemmar",
     "JOINED": "joined {relativeDate}",
+    "DECLINED": "declined {relativeDate}",
+    "ADDED_BY": "added by {userName}",
+    "DECLINED_BY": "declined by {userName}",
     "SORT_JOINDATE": "Sort by join date",
     "SORT_NAME": "Sort by name",
     "INACTIVE": "Inaktive",
@@ -120,6 +126,10 @@
       "daily_pickup_notification": {
         "NAME": "Notifikationer om upphämtningar",
         "DESCRIPTION": "Påminner dig om dina upphämtningar och om lediga upphämtningar i kommande dagen."
+      },
+      "new_application": {
+        "NAME": "New applications",
+        "DESCRIPTION": "Tells you when somebody wants to join your group"
       }
     },
     "PLAYGROUND_INFO": "This is a playground group, you can't break anything. Explore, click around and have fun!",
@@ -199,7 +209,6 @@
     "PROFILE_NOTE": "När du går med i gruppen blir din profildata synlig för andra medlemmar i gruppen.",
     "APPLICATION_SUBMITTED": "Your application was successfully submitted!",
     "APPLICATION_PENDING": "Your application is pending!",
-    "WITHDRAW_APPLICATION": "Withdraw",
     "WITHDRAW_CONFIRMATION_HEADER": "Withdraw Application",
     "WITHDRAW_CONFIRMATION_TEXT": "Are you sure you want to withdraw your application to join {groupName}?",
     "APPLICATION_WITHDRAWN": "Your application was successfully withdrawn!"
@@ -323,7 +332,7 @@
     }
   },
   "LANGUAGECHOOSER": {
-    "ADD_MORE": "Lägg till mer språk!",
+    "ADD_MORE": "Help translating!",
     "SWITCH": "Ändra språk"
   },
   "MARKDOWN_INPUT": {
@@ -435,19 +444,23 @@
     "ARCHIVED": "Archived"
   },
   "APPLICATION": {
+    "APPLICATION": "Application",
     "FORM_HEADER": "Apply",
     "FORM_TITLE": "Apply to join {groupName}",
     "GALLERY_TOOLTIP": "You applied to join this group. Your application is still pending.",
-    "ACCESS_CHAT": "Open the application chat",
     "WALL_NOTICE": "There is an application pending! | There are {count} applications pending!",
     "ACCEPT_CONFIRMATION_HEADER": "Accept Application",
     "ACCEPT_CONFIRMATION_TEXT": "Are you sure you want to accept {userName} into this group?",
     "DECLINE_CONFIRMATION_HEADER": "Decline Application",
-    "DECLINE_CONFIRMATION_TEXT": "Are you sure you want to decline {userName}'s application?",
-    "ACCEPTED": "You accepted {userName}'s request to join this group!",
-    "DECLINED": "You declined {userName}'s request to join this group!",
+    "DECLINE_CONFIRMATION_TEXT": "Are you sure you want to decline the application of {userName}?",
+    "ACCEPTED": "You accepted {userName} into this group!",
+    "DECLINED": "You declined the application of {userName}.",
     "PAST": "Past applications",
-    "SUBMITTED_ON": "Submitted on {date}"
+    "SUBMITTED_ON": "Submitted on {date}",
+    "WITHDRAWN": "withdrawn {relativeDate}",
+    "WHAT": "What is this chat about?",
+    "HELP": "This is a chat between all existing members of {groupName} and the new applicant {userName}. It is meant to give you all a chance to get to know you before deciding wether to accept, decline or withdraw the application.",
+    "INITIAL": "Initial questions and answers"
   },
   "COMMUNITY_FEED": {
     "HEADER": "Updates from the {community}",

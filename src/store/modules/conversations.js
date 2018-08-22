@@ -6,6 +6,7 @@ import reactionsAPI from '@/services/api/reactions'
 import pickupsAPI from '@/services/api/pickups'
 import usersAPI from '@/services/api/users'
 import groupsAPI from '@/services/api/groups'
+import groupApplicationsAPI from '@/services/api/groupApplications'
 import i18n from '@/i18n'
 import { createMetaModule, withMeta, withPrefixedIdMeta, metaStatusesWithId } from '@/store/helpers'
 
@@ -65,6 +66,7 @@ function initialState () {
     groupConversationIds: {}, // { <group-id> : <conversation-id> }
     pickupConversationIds: {}, // { <pickup-id> : <conversation-id> }
     userConversationIds: {}, // { <user-id> : <conversation-id> }
+    applicationConversationIds: {}, // { <application-id> : <conversation-id> }
     latestIds: [],
     latestThreads: [],
   }
@@ -107,6 +109,11 @@ export default {
     },
     getForUser: (state, getters) => userId => {
       const conversationId = state.userConversationIds[userId]
+      if (!conversationId) return
+      return getters.get(conversationId)
+    },
+    getForApplication: (state, getters) => applicationId => {
+      const conversationId = state.applicationConversationIds[applicationId]
       if (!conversationId) return
       return getters.get(conversationId)
     },
@@ -302,6 +309,25 @@ export default {
       if (conversationId) commit('clearMessages', { conversationId })
     },
 
+    async fetchForApplication ({ state, dispatch, commit }, { applicationId }) {
+      let conversation
+      // TODO use mapping applicationId -> conversationId from groupApplications module
+      let conversationId = state.applicationConversationIds[applicationId]
+      if (conversationId) conversation = state.entries[conversationId]
+      if (!conversation) {
+        // TODO use already loaded application from groupApplications module
+        conversationId = (await groupApplicationsAPI.get(applicationId)).conversation
+        conversation = await conversationsAPI.get(conversationId)
+        commit('setConversation', { conversation, applicationId })
+      }
+      dispatch('fetch', conversation.id)
+    },
+
+    clearForApplication ({ state, commit }, { applicationId }) {
+      const conversationId = state.applicationConversationIds[applicationId]
+      if (conversationId) commit('clearMessages', { conversationId })
+    },
+
     async maybeToggleEmailNotifications ({ state, getters, dispatch }, { conversationId, threadId, value }) {
       if (threadId) {
         dispatch('currentThread/maybeSetMuted', { threadId, value: !value }, { root: true })
@@ -417,7 +443,7 @@ export default {
     setCursor (state, { conversationId, cursor }) {
       Vue.set(state.cursors, conversationId, cursor)
     },
-    setConversation (state, { conversation, groupId, pickupId, userId }) {
+    setConversation (state, { conversation, groupId, pickupId, userId, applicationId }) {
       Vue.set(state.entries, conversation.id, conversation)
       if (groupId) {
         Vue.set(state.groupConversationIds, groupId, conversation.id)
@@ -427,6 +453,9 @@ export default {
       }
       if (userId) {
         Vue.set(state.userConversationIds, userId, conversation.id)
+      }
+      if (applicationId) {
+        Vue.set(state.applicationConversationIds, applicationId, conversation.id)
       }
     },
     setLatestIds (state, conversations) {

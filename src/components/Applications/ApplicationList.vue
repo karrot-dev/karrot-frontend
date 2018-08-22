@@ -6,6 +6,7 @@
       :application="a"
       @accept="$emit('accept', arguments[0])"
       @decline="$emit('decline', arguments[0])"
+      @openChat="$emit('openChat', arguments[0])"
     />
     <q-collapsible
       v-if="otherApplications.length > 0"
@@ -20,6 +21,7 @@
           v-for="a in otherApplications"
           :key="a.id"
           :application="a"
+          @openChat="$emit('openChat', arguments[0])"
         />
       </template>
     </q-collapsible>

@@ -30,7 +30,6 @@
           <q-item-tile sublabel>
             <i18n
               path="GROUP.JOINED"
-              tag="div"
             >
               <DateAsWords
                 place="relativeDate"
@@ -38,6 +37,19 @@
                 :date="user.membershipInCurrentGroup.createdAt"
               />
             </i18n>
+            <template v-if="user.membershipInCurrentGroup.addedBy">
+              ·
+              <i18n
+                path="GROUP.ADDED_BY"
+              >
+                <router-link
+                  place="userName"
+                  :to="{name: 'user', params: { userId: user.membershipInCurrentGroup.addedBy.id }}"
+                >
+                  {{ user.membershipInCurrentGroup.addedBy.displayName }}
+                </router-link>
+              </i18n>
+            </template>
           </q-item-tile>
         </q-item-main>
       </q-item>
@@ -155,4 +167,6 @@ export default {
     margin-right .5em
 .inactive
   opacity 0.5
+.q-item-sublabel > span
+  font-weight initial
 </style>

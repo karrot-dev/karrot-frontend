@@ -38,6 +38,7 @@ export default [
         { translation: 'JOINGROUP.ALL_GROUPS' },
       ],
       beforeEnter: 'groupApplications/fetchMine',
+      afterLeave: 'groupApplications/clearEntries',
     },
     components: {
       fullPage: GroupGallery,
@@ -365,6 +366,20 @@ export default [
         component: PickupFeedback,
       },
     ],
+  },
+  {
+    name: 'applicationDetail',
+    path: '/group/:groupId/applications/:applicationId',
+    meta: {
+      requiredLoggedIn: true,
+      breadcrumbs: [
+        { translation: 'APPLICATION.APPLICATION', route: { name: 'applicationDetail' } },
+      ],
+      beforeEnter: 'detail/applicationRouteEnter',
+      afterLeave: 'detail/routeLeave',
+    },
+    // On desktop will get redirected inside "detail/routeEnter" action
+    component: MobileDetail,
   },
   {
     name: 'settings',

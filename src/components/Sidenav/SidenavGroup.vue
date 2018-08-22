@@ -6,6 +6,7 @@ export default connect({
   gettersToProps: {
     groupId: 'currentGroup/id',
     expanded: 'sidenavBoxes/toggle/group',
+    unreadCount: 'latestMessages/unreadCount',
   },
   actionsToEvents: {
     toggleBox: 'sidenavBoxes/toggle/group',

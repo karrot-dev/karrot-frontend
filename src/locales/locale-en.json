@@ -63,7 +63,8 @@
     "APPLY": "Apply",
     "ACCEPT": "Accept",
     "DECLINE": "Decline",
-    "WITHDRAW": "Withdraw"
+    "WITHDRAW": "Withdraw",
+    "SHOW_MORE": "Show more"
   },
   "VALIDATION": {
     "MINLENGTH": "Please enter more than {min} characters.",

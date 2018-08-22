@@ -20,10 +20,7 @@ export function readableReactionMessage (reaction) {
   if (!reaction.users.length) return ''
   // form the message which users reacted
   // i.e. "foo, bar and baz reacted with heart"
-  const names = reaction.users.filter(u => !u.isCurrentUser).map(u => u.displayName)
-  if (names.length !== reaction.users.length) {
-    names.unshift(i18n.t('CONVERSATION.REACTIONS.YOU'))
-  }
+  const names = reaction.users.map(u => u.isCurrentUser ? i18n.t('CONVERSATION.REACTIONS.YOU') : u.displayName)
 
   const andSeparated = names.slice(-2).join(` ${i18n.t('CONVERSATION.REACTIONS.AND')} `)
   const nameMessage = [...names.slice(0, -2), andSeparated].join(', ')
@@ -67,8 +64,6 @@ function initialState () {
     pickupConversationIds: {}, // { <pickup-id> : <conversation-id> }
     userConversationIds: {}, // { <user-id> : <conversation-id> }
     applicationConversationIds: {}, // { <application-id> : <conversation-id> }
-    latestIds: [],
-    latestThreads: [],
   }
 }
 
@@ -87,15 +82,6 @@ export default {
         canFetchPast,
         ...metaStatusesWithId(getters, ['send', 'fetch', 'fetchPast', 'mark'], conversationId),
       }
-    },
-    latest: (state, getters) => {
-      return state.latestIds.map(getters.get)
-    },
-    latestThreads: (state, getters) => {
-      return state.latestThreads.map(getters.enrichMessage).map(thread => ({
-        ...thread,
-        latestMessage: thread.latestMessage && getters.enrichMessage(thread.latestMessage),
-      }))
     },
     getForGroup: (state, getters) => groupId => {
       const conversationId = state.groupConversationIds[groupId]
@@ -218,6 +204,10 @@ export default {
         })
       },
 
+      async fetchPastConversations () {
+
+      },
+
       async mark ({ dispatch }, { id, seenUpTo }) {
         await conversationsAPI.mark(id, { seenUpTo })
       },
@@ -227,22 +217,6 @@ export default {
         if (state.entries[id]) {
           commit('updateEmailNotifications', { conversationId: id, value })
         }
-      },
-
-      async fetchOverview ({ commit, dispatch }, { groupId }) {
-        const conversations = (await conversationsAPI.list()).results
-        conversations.forEach(conversation => commit('setConversation', { conversation }))
-        commit('setLatestIds', conversations)
-
-        conversations.filter(c => c.type === 'pickup').forEach(c => {
-          dispatch('pickups/maybeFetch', c.targetId, { root: true })
-        })
-
-        const threads = (await messageAPI.listMyThreads()).results
-        commit('setLatestThreads', threads)
-      },
-      async clearOverview ({ commit }) {
-
       },
     }),
 
@@ -394,9 +368,6 @@ export default {
         messages: [message],
         conversationId: message.conversation,
       })
-      if (message.thread) {
-        commit('updateLatestThread', message)
-      }
     },
 
     updateConversation ({ state, commit }, conversation) {
@@ -457,16 +428,6 @@ export default {
       if (applicationId) {
         Vue.set(state.applicationConversationIds, applicationId, conversation.id)
       }
-    },
-    setLatestIds (state, conversations) {
-      state.latestIds = conversations.map(c => c.id)
-    },
-    setLatestThreads (state, threads) {
-      state.latestThreads = threads
-    },
-    updateLatestThread (state, thread) {
-      const idx = state.latestThreads.findIndex(t => t.id === thread.id)
-      Vue.set(state.latestThreads, idx, thread)
     },
     updateEmailNotifications (state, { conversationId, value }) {
       state.entries[conversationId].emailNotifications = value

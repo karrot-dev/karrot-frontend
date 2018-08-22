@@ -135,8 +135,6 @@ export default [
           breadcrumbs: [
             { translation: 'GROUP.MESSAGES', route: { name: 'groupMessages' } },
           ],
-          beforeEnter: 'conversations/fetchOverview',
-          afterLeave: 'conversations/clearOverview',
         },
         component: GroupMessages,
       },

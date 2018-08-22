@@ -90,10 +90,15 @@ export function receiveMessage ({ topic, payload }) {
     }
     if (!message.thread || message.thread === message.id) {
       store.dispatch('conversations/receiveMessage', message)
+      if (message.thread) {
+        store.dispatch('latestMessages/updateThread')
+      }
     }
   }
   else if (topic === 'conversations:conversation') {
-    store.dispatch('conversations/updateConversation', convertConversation(camelizeKeys(payload)))
+    const conversation = convertConversation(camelizeKeys(payload))
+    store.dispatch('conversations/updateConversation', conversation)
+    store.dispatch('latestMessages/updateConversation', conversation)
   }
   else if (topic === 'conversations:leave') {
     store.dispatch('conversations/clearConversation', payload.id)

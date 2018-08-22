@@ -170,7 +170,7 @@ export default {
 .isUnread
   background linear-gradient(to right, $lightGreen, $lighterGreen)
   &:hover
-    background-color $secondary !important
+    background alpha($grey, 0.5)
 
 .message-content
   width 100%

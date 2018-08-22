@@ -23,9 +23,6 @@ export default {
         group: rootGetters['groups/get'](application.group),
         decidedBy: rootGetters['users/get'](application.decidedBy),
         isPending: application.status === 'pending',
-        isDeclined: application.status === 'declined',
-        isAccepted: application.status === 'accepted',
-        isWithdrawn: application.status === 'withdrawn',
       }
     },
     getMineForGroupIdNotEnriched: (state, getters, rootState, rootGetters) => groupId => {

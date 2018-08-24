@@ -37,7 +37,10 @@ export default {
     groupHasMyApplication: (state, getters) => groupId => {
       return Boolean(getters.getMineForGroupIdNotEnriched(groupId))
     },
-    forCurrentGroup: (state, getters) => Object.keys(state.entries).map(getters.get).filter(a => a.group.isCurrentGroup).sort(sortByCreatedAt),
+    forCurrentGroup: (state, getters) => Object.keys(state.entries)
+      .map(getters.get)
+      .filter(a => a.group.isCurrentGroup)
+      .sort(sortByCreatedAt),
     forCurrentGroupPending: (state, getters) => getters.forCurrentGroup.filter(a => a.isPending),
     forCurrentGroupNonPending: (state, getters) => getters.forCurrentGroup.filter(a => !a.isPending),
     ...metaStatuses(['apply']),
@@ -130,5 +133,5 @@ export default {
 }
 
 export function sortByCreatedAt (a, b) {
-  return a.createdAt < b.createdAt
+  return b.createdAt - a.createdAt
 }

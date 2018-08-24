@@ -239,7 +239,12 @@ export default {
       findId: data => data.message.id,
     }),
 
-    async fetchForGroup ({ state, dispatch, commit }, { groupId }) {
+    async fetchForGroup ({ dispatch }, { groupId }) {
+      const conversation = await dispatch('fetchGroupConversation', groupId)
+      dispatch('fetch', conversation.id)
+    },
+
+    async fetchGroupConversation ({ state, commit }, groupId) {
       let conversation
       const conversationId = state.groupConversationIds[groupId]
       if (conversationId) conversation = state.entries[conversationId]
@@ -247,7 +252,7 @@ export default {
         conversation = await groupsAPI.conversation(groupId)
         commit('setConversation', { conversation, groupId })
       }
-      dispatch('fetch', conversation.id)
+      return conversation
     },
 
     clearForGroup ({ state, commit }, { groupId }) {

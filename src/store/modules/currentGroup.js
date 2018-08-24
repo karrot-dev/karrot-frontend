@@ -119,6 +119,8 @@ export default {
 
       dispatch('groupApplications/fetchByGroupId', { groupId }, { root: true })
 
+      dispatch('conversations/fetchGroupConversation', groupId, { root: true })
+
       dispatch('auth/maybeBackgroundSave', { currentGroup: groupId }, { root: true })
     },
 

@@ -53,14 +53,14 @@ export default {
         commit('set', applicationList)
       },
 
-      async fetchByGroupId ({ commit, getters }, { groupId }) {
+      async fetchByGroupId ({ commit }, { groupId }) {
         const applicationList = await groupApplications.list({ group: groupId })
         commit('set', applicationList)
       },
 
       async fetchOne ({ commit }, applicationId) {
         const application = await groupApplications.get(applicationId)
-        commit('set', [application])
+        commit('update', [application])
       },
 
       async apply ({ commit, dispatch }, data) {

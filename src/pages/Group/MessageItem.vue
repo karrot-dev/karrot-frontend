@@ -39,6 +39,7 @@
             <q-icon
               name="fas fw-fw fa-user-plus"
               class="q-mr-sm"
+              :title="$t('APPLICATION.APPLICATION')"
             />
             <div class="ellipsis">{{ application.user.displayName }}</div>
           </template>
@@ -48,6 +49,7 @@
             color="grey"
             class="q-ml-xs"
             name="fas fa-fw fa-bell-slash"
+            :title="$t('CONVERSATION.MUTED')"
           />
         </div>
         <span v-if="message">
@@ -61,22 +63,20 @@
         </span>
       </q-item-tile>
       <q-item-tile
-        v-if="isPickup || isApplication"
+        v-if="isPickup"
         label
         class="q-mb-xs"
       >
-        <small v-if="isPickup">
+        <small>
           {{ pickup.store.name }} ·
           {{ $d(pickup.date, 'dateShort') }}
-        </small>
-        <small v-else-if="isApplication">
-          {{ $t('APPLICATION.APPLICATION') }}
         </small>
       </q-item-tile>
       <q-item-tile
         v-if="message"
         sublabel
-        class="row no-wrap items-end"
+        class="row no-wrap items-baseline"
+        style="max-height: 18px"
       >
         <div
           v-if="!isPrivate && !message.author.isCurrentUser"
@@ -187,6 +187,8 @@ export default {
   overflow hidden
 
 .q-chip.inline-chip
+  position relative
+  bottom -3px
   min-height 22px
   padding 0 7px
   margin-left 2px

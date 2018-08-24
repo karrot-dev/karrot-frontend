@@ -13,6 +13,13 @@
       slot="tools"
       class="tools"
     >
+      <q-chip
+        v-if="!expanded && ((!allUnreadMuted && unreadCount > 0) || wallUnreadCount > 0)"
+        small
+        color="secondary"
+      >
+        {{ unreadCount + wallUnreadCount }}
+      </q-chip>
       <q-btn
         flat
         dense
@@ -45,6 +52,17 @@
           <q-item-main>
             {{ $t("GROUP.WALL") }}
           </q-item-main>
+          <q-item-side
+            v-if="wallUnreadCount > 0"
+            right
+          >
+            <q-chip
+              small
+              color="secondary"
+            >
+              {{ wallUnreadCount }}
+            </q-chip>
+          </q-item-side>
         </q-item>
         <q-item :to="{ name: 'groupPickups', params: { groupId } }">
           <q-item-side class="text-center">
@@ -133,6 +151,7 @@ export default {
   props: {
     groupId: { required: true, type: Number },
     expanded: { default: true, type: Boolean },
+    wallUnreadCount: { default: 0, type: Number },
     unreadCount: { default: 0, type: Number },
     allUnreadMuted: { default: true, type: Boolean },
   },

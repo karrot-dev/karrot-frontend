@@ -33,6 +33,7 @@ export default {
       if (!state.current) return
       return rootGetters['conversations/getForGroup'](state.current.id)
     },
+    conversationUnreadCount: (state, getters) => getters.conversation && getters.conversation.unreadMessageCount,
     id: (state) => state.current && state.current.id,
   },
   actions: {

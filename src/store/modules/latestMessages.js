@@ -44,7 +44,7 @@ export default {
       if (!groupId) return []
 
       return Object.values(state.conversations)
-        .filter(c => c.type === 'private' || c.group === groupId)
+        .filter(c => c.type !== 'group' && (c.type === 'private' || c.group === groupId))
         .map(enrichConversation)
         .map(conversation => ({
           ...conversation,

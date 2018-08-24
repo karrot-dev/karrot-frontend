@@ -438,7 +438,8 @@
     },
     "MESSAGE_NOT_FOUND": "Message not found",
     "NO_CONVERSATIONS": "No conversations yet.",
-    "NO_REPLIES": "No replies yet."
+    "NO_REPLIES": "No replies yet.",
+    "MUTED": "Notifications are disabled"
   },
   "STORESTATUS": {
     "ACTIVE": "Co-operating",

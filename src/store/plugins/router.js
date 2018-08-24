@@ -5,7 +5,7 @@ export default store => {
   const isLoggedIn = () => store.getters['auth/isLoggedIn']
   const getUserGroupId = () => isLoggedIn() && store.getters['auth/user'].currentGroup
   const getGroup = (id) => store.getters['groups/get'](id)
-  const getBreadcrumbNames = () => store.getters['breadcrumbs/allNames']
+
   const throttledMarkUserActive = throttle(
     () => store.dispatch('currentGroup/markUserActive').catch(() => {}),
     1000 * 60 * 10, // 10 minutes
@@ -71,10 +71,19 @@ export default store => {
     throttledMarkUserActive()
   })
 
-  store.watch(getBreadcrumbNames, () => {
-    let names = getBreadcrumbNames().slice().reverse()
+  store.watch((state, getters) => [
+    getters['breadcrumbs/allNames'],
+    getters['latestMessages/unreadCount'],
+  ], ([breadcrumbNames, unreadCount]) => {
+    let names = breadcrumbNames.slice().reverse()
     names.push('Karrot')
-    document.title = names.join(' · ')
+    let title = names.join(' · ')
+
+    if (unreadCount > 0) {
+      title = `(${unreadCount}) ${title}`
+    }
+
+    document.title = title
   })
 }
 

@@ -3612,6 +3612,7 @@ exports[`Storyshots Sidenav Boxes Group 1`] = `
       Home
     </div>
     <div class="tools">
+      <!---->
       <a tabindex="0" type="button" href="#/group/1/settings" class="q-btn inline relative-position q-btn-item non-selectable q-btn-round q-btn-flat q-focusable q-hoverable q-btn-dense">
         <div class="q-focus-helper"></div>
         <div class="q-btn-inner row col items-center justify-center">
@@ -3666,6 +3667,7 @@ exports[`Storyshots Sidenav Boxes Group 1`] = `
           <div class="q-item-main q-item-section">
             Wall
           </div>
+          <!---->
         </a>
         <a class="q-link q-item q-item-division relative-position q-item-link">
           <div class="q-item-side q-item-section text-center q-item-side-left">
@@ -3674,6 +3676,15 @@ exports[`Storyshots Sidenav Boxes Group 1`] = `
           <div class="q-item-main q-item-section">
             Pickups
           </div>
+        </a>
+        <a class="q-link q-item q-item-division relative-position q-item-link">
+          <div class="q-item-side q-item-section text-center q-item-side-left">
+            <i aria-hidden="true" class="q-icon fas fa-comments"> </i>
+          </div>
+          <div class="q-item-main q-item-section">
+            Messages
+          </div>
+          <!---->
         </a>
         <a class="q-link q-item q-item-division relative-position q-item-link">
           <div class="q-item-side q-item-section text-center q-item-side-left">

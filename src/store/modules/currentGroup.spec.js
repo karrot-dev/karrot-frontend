@@ -66,6 +66,9 @@ describe('currentGroup', () => {
     getters: {
       getForGroup: () => getForGroup,
     },
+    actions: {
+      fetchGroupConversation: jest.fn(),
+    },
   }
 
   const groupApplications = {
@@ -113,6 +116,7 @@ describe('currentGroup', () => {
         auth,
         pickups,
         groupApplications,
+        conversations,
       })
     })
 
@@ -125,6 +129,7 @@ describe('currentGroup', () => {
       expect(pickups.actions.fetchFeedbackPossible.mock.calls[0][1]).toEqual(group3.id)
       expect(auth.actions.maybeBackgroundSave.mock.calls[0][1]).toEqual({ currentGroup: group3.id })
       expect(groupApplications.actions.fetchByGroupId).toBeCalled()
+      expect(conversations.actions.fetchGroupConversation).toBeCalled()
     })
 
     it('can update a group', async () => {

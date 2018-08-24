@@ -20,7 +20,10 @@ export function readableReactionMessage (reaction) {
   if (!reaction.users.length) return ''
   // form the message which users reacted
   // i.e. "foo, bar and baz reacted with heart"
-  const names = reaction.users.map(u => u.isCurrentUser ? i18n.t('CONVERSATION.REACTIONS.YOU') : u.displayName)
+  const names = reaction.users.filter(u => !u.isCurrentUser).map(u => u.displayName)
+  if (names.length !== reaction.users.length) {
+    names.unshift(i18n.t('CONVERSATION.REACTIONS.YOU'))
+  }
 
   const andSeparated = names.slice(-2).join(` ${i18n.t('CONVERSATION.REACTIONS.AND')} `)
   const nameMessage = [...names.slice(0, -2), andSeparated].join(', ')

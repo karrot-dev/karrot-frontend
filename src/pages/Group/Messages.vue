@@ -4,6 +4,11 @@
     class="bg-white k-messages"
   >
     <q-list>
+      <q-item
+        v-if="conversations.length === 0"
+      >
+        {{ $t('CONVERSATION.NO_CONVERSATIONS') }}
+      </q-item>
       <MessageItem
         v-for="conv in conversations"
         :key="'conv' + conv.id"
@@ -32,6 +37,11 @@
       <q-list-header>
         {{ $t('CONVERSATION.REPLIES') }}
       </q-list-header>
+      <q-item
+        v-if="threads.length === 0"
+      >
+        {{ $t('CONVERSATION.NO_REPLIES') }}
+      </q-item>
       <MessageItem
         v-for="conv in threads"
         :key="'thread' + conv.id"

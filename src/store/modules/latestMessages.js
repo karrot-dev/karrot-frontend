@@ -22,10 +22,20 @@ export default {
   },
   state: initialState(),
   getters: {
+    unread: (state, getters) => {
+      return {
+        conversations: getters.conversations.filter(c => c.unreadMessageCount > 0),
+        threads: getters.threads.filter(t => t.unreadReplyCount > 0),
+      }
+    },
     unreadCount: (state, getters) => {
-      const unreadConversations = getters.conversations.filter(c => c.unreadMessageCount > 0).length
-      const unreadThreads = getters.threads.filter(t => t.unreadReplyCount > 0).length
-      return unreadConversations + unreadThreads
+      return getters.unread.conversations.length + getters.unread.threads.length
+    },
+    allUnreadMuted: (state, getters) => {
+      return (
+        getters.unread.conversations.filter(c => c.emailNotifications).length +
+        getters.unread.threads.filter(t => !t.muted).length
+      ) === 0
     },
     conversations: (state, getters, rootState, rootGetters) => {
       const enrichConversation = rootGetters['conversations/enrichConversation']

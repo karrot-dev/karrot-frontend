@@ -67,7 +67,7 @@
           >
             <q-chip
               small
-              color="secondary"
+              :color="allUnreadMuted ? 'grey' : 'secondary'"
             >
               {{ unreadCount }}
             </q-chip>
@@ -134,6 +134,7 @@ export default {
     groupId: { required: true, type: Number },
     expanded: { default: true, type: Boolean },
     unreadCount: { default: 0, type: Number },
+    allUnreadMuted: { default: true, type: Boolean },
   },
 }
 </script>

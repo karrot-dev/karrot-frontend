@@ -17,6 +17,7 @@
         :application="conv.type === 'application' ? conv.target : null"
         :message="conv.latestMessage"
         :unread-count="conv.unreadMessageCount"
+        :muted="!conv.emailNotifications"
         @open="open(conv)"
       />
       <q-item
@@ -48,6 +49,7 @@
         :thread="conv"
         :message="conv.latestMessage"
         :unread-count="conv.threadMeta.unreadReplyCount"
+        :muted="conv.threadMeta.muted"
         @open="openForThread(conv)"
       />
       <q-item

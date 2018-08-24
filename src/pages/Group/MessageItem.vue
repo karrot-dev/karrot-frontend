@@ -1,7 +1,7 @@
 <template>
   <q-item
     link
-    :class="{ isUnread: unreadCount > 0 }"
+    :class="{ isUnread: unreadCount > 0 && !muted }"
     @click.native="$emit('open')"
   >
     <q-item-side
@@ -42,6 +42,13 @@
             />
             <div class="ellipsis">{{ application.user.displayName }}</div>
           </template>
+          <q-icon
+            v-if="muted"
+            size="12px"
+            color="grey"
+            class="q-ml-xs"
+            name="fas fa-fw fa-bell-slash"
+          />
         </div>
         <span v-if="message">
           <small>
@@ -87,7 +94,7 @@
         <q-chip
           v-if="unreadCount > 0"
           round
-          color="secondary"
+          :color="muted ? 'grey' : 'secondary'"
           class="inline-chip"
         >
           {{ unreadCount }}
@@ -144,6 +151,10 @@ export default {
     unreadCount: {
       type: Number,
       default: 0,
+    },
+    muted: {
+      type: Boolean,
+      default: false,
     },
   },
   computed: {

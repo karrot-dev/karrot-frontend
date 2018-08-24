@@ -45,14 +45,14 @@ export default {
   },
 
   async listMyThreads (group) {
-    const response = (await axios.get('/api/messages/', { params: {
-      my_threads: 'yes',
-      in_group: group,
-    } })).data
+    const response = (await axios.get('/api/messages/my_threads/', { params: { group } })).data
     return {
       ...response,
       next: parseCursor(response.next),
-      results: convert(response.results),
+      results: {
+        threads: convert(response.results.threads),
+        messages: convert(response.results.messages),
+      },
     }
   },
 
@@ -78,7 +78,6 @@ export function convert (val) {
       ...val,
       createdAt,
       updatedAt,
-      latestMessage: val.latestMessage && convert(val.latestMessage),
     }
   }
 }

@@ -43,7 +43,7 @@
             <div class="ellipsis">{{ application.user.displayName }}</div>
           </template>
         </div>
-        <span>
+        <span v-if="message">
           <small>
             <DateAsWords
               class="q-pl-xs"
@@ -67,6 +67,7 @@
         </small>
       </q-item-tile>
       <q-item-tile
+        v-if="message"
         sublabel
         class="row no-wrap items-end"
       >
@@ -158,8 +159,6 @@ export default {
     isApplication () {
       return Boolean(this.application)
     },
-  },
-  methods: {
   },
 }
 </script>

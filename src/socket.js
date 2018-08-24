@@ -87,18 +87,20 @@ export function receiveMessage ({ topic, payload }) {
     const message = convertMessage(camelizeKeys(payload))
     if (message.thread) {
       store.dispatch('currentThread/receiveMessage', message)
+      store.dispatch('latestMessages/updateThreadsAndRelated', { messages: [message] })
     }
     if (!message.thread || message.thread === message.id) {
       store.dispatch('conversations/receiveMessage', message)
+      store.dispatch('latestMessages/updateConversationsAndRelated', { messages: [message] })
       if (message.thread) {
-        store.dispatch('latestMessages/updateThread')
+        store.dispatch('latestMessages/updateThreadsAndRelated', { threads: [message] })
       }
     }
   }
   else if (topic === 'conversations:conversation') {
     const conversation = convertConversation(camelizeKeys(payload))
     store.dispatch('conversations/updateConversation', conversation)
-    store.dispatch('latestMessages/updateConversation', conversation)
+    store.dispatch('latestMessages/updateConversationsAndRelated', { conversations: [conversation] })
   }
   else if (topic === 'conversations:leave') {
     store.dispatch('conversations/clearConversation', payload.id)

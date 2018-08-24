@@ -35,22 +35,23 @@ export function sortByName (a, b) {
   return a.name.localeCompare(b.name)
 }
 
-export function insertSorted (stateMessages, messages, compareFn) {
-  // simple insertion sort for new messages
+export function insertSorted (target, items, oldestFirst = false) {
+  // simple sorted list insertion
   // assumes that existing messages are sorted AND incoming messages are sorted
+  const compare = oldestFirst ? (a, b) => a.id < b.id : (a, b) => a.id > b.id
   let i = 0
-  for (let message of messages) {
-    while (i < stateMessages.length && compareFn(stateMessages[i], message)) i++
+  for (let item of items) {
+    while (i < target.length && compare(target[i], item)) i++
 
-    // decide if we should append, update or insert a message
-    if (i >= stateMessages.length) {
-      stateMessages.push(message)
+    // decide if we should append, update or insert an item
+    if (i >= target.length) {
+      target.push(item)
     }
-    else if (stateMessages[i].id === message.id) {
-      Vue.set(stateMessages, i, message)
+    else if (target[i].id === item.id) {
+      Vue.set(target, i, item)
     }
     else {
-      stateMessages.splice(i, 0, message)
+      target.splice(i, 0, item)
     }
   }
 }
@@ -155,7 +156,6 @@ export default {
       const enriched = {
         ...conversation,
         participants,
-        latestMessage: conversation.latestMessage && getters.enrichMessage(conversation.latestMessage),
       }
       enriched.target = getters.getTarget(enriched)
       return enriched
@@ -413,7 +413,7 @@ export default {
         Vue.set(state.messages, conversationId, messages)
         return
       }
-      insertSorted(stateMessages, messages, (a, b) => a.createdAt > b.createdAt)
+      insertSorted(stateMessages, messages)
     },
     setCursor (state, { conversationId, cursor }) {
       Vue.set(state.cursors, conversationId, cursor)

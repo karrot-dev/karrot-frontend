@@ -1,3 +1,4 @@
+import Vue from 'vue'
 import messageAPI from '@/services/api/messages'
 import conversationsAPI from '@/services/api/conversations'
 import { insertSorted } from './conversations'
@@ -5,8 +6,10 @@ import { createMetaModule, withMeta, createPaginationModule } from '@/store/help
 
 function initialState () {
   return {
-    conversations: [],
-    threads: [],
+    conversations: {},
+    conversationMessages: {},
+    threads: {},
+    threadMessages: {},
   }
 }
 
@@ -25,19 +28,40 @@ export default {
       return unreadConversations + unreadThreads
     },
     conversations: (state, getters, rootState, rootGetters) => {
-      return state.conversations.map(rootGetters['conversations/enrichConversation'])
+      const enrichConversation = rootGetters['conversations/enrichConversation']
+      const enrichMessage = rootGetters['conversations/enrichMessage']
+      const groupId = rootGetters['currentGroup/id']
+      if (!groupId) return []
+
+      return Object.values(state.conversations)
+        .filter(c => c.type === 'private' || c.group === groupId)
+        .map(enrichConversation)
+        .map(conversation => ({
+          ...conversation,
+          latestMessage: enrichMessage(getFirst(state.conversationMessages[conversation.id])),
+        }))
+        .filter(c => c.latestMessage)
+        .sort(sortByLatestMessage)
     },
     canFetchPastConversations: (state, getters) => getters['conversationsPagination/canFetchNext'],
     fetchingPastConversations: (state, getters) => getters['meta/status']('fetchPastConversations').pending,
     threads: (state, getters, rootState, rootGetters) => {
       const enrichMessage = rootGetters['conversations/enrichMessage']
-      return state.threads.map(enrichMessage).map(thread => {
-        if (!thread) return
-        return {
-          ...thread,
-          latestMessage: thread.latestMessage && enrichMessage(thread.latestMessage),
-        }
-      })
+      const { id: conversationId } = rootGetters['currentGroup/conversation'] || {}
+      if (!conversationId) return []
+
+      return Object.values(state.threads)
+        .filter(t => t.conversation === conversationId)
+        .map(enrichMessage)
+        .map(thread => {
+          if (!thread) return
+          return {
+            ...thread,
+            latestMessage: enrichMessage(getFirst(state.threadMessages[thread.id])),
+          }
+        })
+        .filter(c => c.latestMessage)
+        .sort(sortByLatestMessage)
     },
     canFetchPastThreads: (state, getters) => getters['threadsPagination/canFetchNext'],
     fetchingPastThreads: (state, getters) => getters['meta/status']('fetchPastThreads').pending,
@@ -45,49 +69,55 @@ export default {
   actions: {
     ...withMeta({
       async fetch ({ commit, dispatch }, groupId) {
-        const [conversations, threads] = await Promise.all([
+        const [conversationsAndRelated, threadsAndRelated] = await Promise.all([
           dispatch('conversationsPagination/extractCursor', conversationsAPI.list(groupId)),
           dispatch('threadsPagination/extractCursor', messageAPI.listMyThreads(groupId)),
         ])
-        commit('updateConversations', conversations)
-        commit('updateThreads', threads)
 
-        dispatch('fetchRelatedPickups', conversations)
-        dispatch('fetchRelatedApplications', conversations)
+        dispatch('updateConversationsAndRelated', conversationsAndRelated)
+        dispatch('updateThreadsAndRelated', threadsAndRelated)
       },
-      async fetchPastConversations ({ commit, dispatch }) {
+      async fetchPastConversations ({ dispatch }) {
         const data = await dispatch('conversationsPagination/fetchNext', conversationsAPI.listMore)
-        commit('updateConversations', data)
-
-        dispatch('fetchRelatedPickups', data)
-        dispatch('fetchRelatedApplications', data)
+        dispatch('updateConversationsAndRelated', data)
       },
-      async fetchPastThreads ({ commit, dispatch }) {
+      async fetchPastThreads ({ dispatch }) {
         const data = await dispatch('threadsPagination/fetchNext', messageAPI.listMore)
-        commit('updateThreads', data)
+        dispatch('updateThreadsAndRelated', data)
       },
       async clear ({ commit }) {
         commit('clear')
       },
     }),
-    fetchRelatedPickups ({ dispatch }, conversations) {
-      // fetch related pickups for pickup chat
-      // TODO: should be delivered by the backend API for better performance
-      for (const c of conversations.filter(c => c.type === 'pickup')) {
-        dispatch('pickups/maybeFetch', c.targetId, { root: true })
+    updateConversationsAndRelated ({ commit, dispatch }, { conversations, messages, pickups, applications }) {
+      if (conversations) commit('updateConversations', conversations)
+      if (messages) commit('updateConversationMessages', messages)
+      if (pickups) {
+        for (const pickup of pickups) {
+          dispatch('pickups/update', pickup, { root: true })
+        }
+      }
+      if (applications) {
+        for (const application of applications) {
+          dispatch('groupApplications/update', application, { root: true })
+        }
+      }
+
+      // fetch related objects one-by-one, in case they haven't been delivered already
+      // needed for websocket updates
+      if (!conversations) return
+      for (const conversation of conversations) {
+        if (conversation.type === 'pickup') {
+          dispatch('pickups/maybeFetch', conversation.targetId, { root: true })
+        }
+        else if (conversation.type === 'application') {
+          dispatch('groupApplications/maybeFetchOne', conversation.targetId, { root: true })
+        }
       }
     },
-    fetchRelatedApplications ({ dispatch }, conversations) {
-      // TODO: should be delivered by the backend API for better performance
-      for (const c of conversations.filter(c => c.type === 'application')) {
-        dispatch('groupApplications/maybeFetchOne', c.targetId, { root: true })
-      }
-    },
-    updateConversation ({ commit }, conversation) {
-      commit('updateConversations', [conversation])
-    },
-    updateThread ({ commit }, thread) {
-      commit('updateThreads', [thread])
+    updateThreadsAndRelated ({ commit }, { threads, messages }) {
+      if (threads) commit('updateThreads', threads)
+      if (messages) commit('updateThreadMessages', messages)
     },
   },
   mutations: {
@@ -95,13 +125,41 @@ export default {
       Object.assign(state, initialState())
     },
     updateConversations (state, conversations) {
-      insertSorted(state.conversations, conversations.filter(c => c.latestMessage), sortByLatestMessage)
+      for (const conversation of conversations) {
+        Vue.set(state.conversations, conversation.id, conversation)
+      }
+    },
+    updateConversationMessages (state, messages) {
+      for (const message of messages) {
+        const conversationId = message.conversation
+        const stateMessages = state.conversationMessages[conversationId]
+        if (!stateMessages) {
+          Vue.set(state.conversationMessages, conversationId, [message])
+        }
+        else {
+          insertSorted(stateMessages, [message])
+        }
+      }
     },
     setConversationsCursor (state, cursor) {
       state.conversationsCursor = cursor
     },
     updateThreads (state, threads) {
-      insertSorted(state.threads, threads.filter(c => c.latestMessage), sortByLatestMessage)
+      for (const thread of threads) {
+        Vue.set(state.threads, thread.id, thread)
+      }
+    },
+    updateThreadMessages (state, messages) {
+      for (const message of messages) {
+        const threadId = message.thread
+        const stateMessages = state.threadMessages[threadId]
+        if (!stateMessages) {
+          Vue.set(state.threadMessages, threadId, [message])
+        }
+        else {
+          insertSorted(stateMessages, [message])
+        }
+      }
     },
     setThreadsCursor (state, cursor) {
       state.threadsCursor = cursor
@@ -110,18 +168,21 @@ export default {
 }
 
 function sortByLatestMessage (a, b) {
-  if (!a.latestMessage) return false
-  if (!b.latestMessage) return true
-  return a.latestMessage.createdAt > b.latestMessage.createdAt
+  if (!a.latestMessage) return 1
+  if (!b.latestMessage) return -1
+  return b.latestMessage.createdAt - a.latestMessage.createdAt
+}
+
+function getFirst (list) {
+  if (!list || list.length === 0) return
+  return list[0]
 }
 
 export const plugin = store => {
   store.watch((state, getters) => getters['currentGroup/id'], groupId => {
+    store.dispatch('latestMessages/clear')
     if (groupId) {
       store.dispatch('latestMessages/fetch', groupId)
-    }
-    else {
-      store.dispatch('latestMessages/clear')
     }
   })
 }

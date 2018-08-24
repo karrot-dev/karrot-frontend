@@ -1,5 +1,7 @@
 import axios, { parseCursor } from '@/services/axios'
 import { convert as convertMessage } from './messages'
+import { convert as convertPickup } from './pickups'
+import { convert as convertApplication } from './groupApplications'
 
 export default {
   async get (id) {
@@ -8,14 +10,18 @@ export default {
 
   async list (group) {
     const response = (await axios.get('/api/conversations/', { params: {
-      in_group: group,
-      exclude_wall: 'yes',
-      exclude_empty: 'yes',
+      group,
+      exclude_wall: 'True',
     }})).data
     return {
       ...response,
       next: parseCursor(response.next),
-      results: convert(response.results),
+      results: {
+        conversations: convert(response.results.conversations),
+        messages: convertMessage(response.results.messages),
+        pickups: convertPickup(response.results.pickups),
+        applications: convertApplication(response.results.applications),
+      },
     }
   },
 
@@ -47,7 +53,6 @@ export function convert (val) {
     return {
       ...val,
       updatedAt: new Date(val.updatedAt),
-      latestMessage: val.latestMessage && convertMessage(val.latestMessage),
     }
   }
 }

@@ -34,7 +34,12 @@
               @click="toggleSidenav"
               class="mobile-only"
             >
-              <i class="fas fa-bars" />
+              <i class="fas fa-bars relative-position">
+                <div
+                  v-if="hasUnread"
+                  class="k-highlight-dot bg-secondary"
+                />
+              </i>
             </q-btn>
           </KTopbar>
           <KTopbarLoggedOut v-if="!isLoggedIn" />
@@ -163,6 +168,8 @@ export default {
       routeError: 'routeError/status',
       showRightDrawer: 'detail/isActive',
       disableDesktopSidenav: 'route/disableDesktopSidenav',
+      unreadCount: 'latestMessages/unreadCount',
+      wallUnreadCount: 'currentGroup/conversationUnreadCount',
     }),
     layoutView () {
       if (this.$q.platform.is.mobile) {
@@ -187,6 +194,9 @@ export default {
     },
     hasSidenavComponent () {
       return Boolean(this.routerComponents.sidenav)
+    },
+    hasUnread () {
+      return this.unreadCount + this.wallUnreadCount > 0
     },
   },
 }
@@ -217,6 +227,13 @@ body.desktop .mainContent
   background-attachment:fixed
 .q-layout-footer
   box-shadow none
+.k-highlight-dot
+  position absolute
+  right -4px
+  bottom -4px
+  width .5rem
+  height .5rem
+  border-radius 50%
 </style>
 
 <style lang="stylus">

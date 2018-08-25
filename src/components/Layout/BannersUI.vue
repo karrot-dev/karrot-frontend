@@ -7,6 +7,7 @@
       :icon="banner.icon"
       :position="banner.position"
       :actions="banner.actions || []"
+      style="min-width: 500px"
     >
       {{ $t(banner.message, banner.context) }}
     </k-banner>

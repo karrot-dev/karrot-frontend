@@ -13,7 +13,7 @@ The feature will get merged if there is no resistance from the development team.
 
 ## Development workflow
 
-To fix a bug or to add a new feature, the workflow is roughly the following. First, switch to master, get the lastest version and update your dependencies:
+To fix a bug or to add a new feature, the workflow is roughly the following. First, switch to master, get the latest version and update your dependencies:
 
 ```sh
 git checkout master

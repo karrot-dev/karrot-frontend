@@ -41,7 +41,9 @@ export default async function initApp () {
     store.dispatch('groups/fetch'),
   ])
 
-  store.dispatch('about/fetch')
+  if (!__ENV.DEV) {
+    store.dispatch('about/fetch')
+  }
   store.dispatch('communityFeed/fetchTopics')
 
   /* eslint-disable no-new */

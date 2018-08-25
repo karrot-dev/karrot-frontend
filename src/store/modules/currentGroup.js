@@ -33,6 +33,7 @@ export default {
       if (!state.current) return
       return rootGetters['conversations/getForGroup'](state.current.id)
     },
+    conversationUnreadCount: (state, getters) => getters.conversation && getters.conversation.unreadMessageCount,
     id: (state) => state.current && state.current.id,
   },
   actions: {
@@ -118,6 +119,8 @@ export default {
       dispatch('pickups/fetchFeedbackPossible', groupId, { root: true })
 
       dispatch('groupApplications/fetchByGroupId', { groupId }, { root: true })
+
+      dispatch('conversations/fetchGroupConversation', groupId, { root: true })
 
       dispatch('auth/maybeBackgroundSave', { currentGroup: groupId }, { root: true })
     },

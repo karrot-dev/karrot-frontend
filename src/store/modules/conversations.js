@@ -38,22 +38,23 @@ export function sortByName (a, b) {
   return a.name.localeCompare(b.name)
 }
 
-export function insertSorted (stateMessages, messages, compareFn) {
-  // simple insertion sort for new messages
+export function insertSorted (target, items, oldestFirst = false) {
+  // simple sorted list insertion
   // assumes that existing messages are sorted AND incoming messages are sorted
+  const compare = oldestFirst ? (a, b) => a.id < b.id : (a, b) => a.id > b.id
   let i = 0
-  for (let message of messages) {
-    while (i < stateMessages.length && compareFn(stateMessages[i], message)) i++
+  for (let item of items) {
+    while (i < target.length && compare(target[i], item)) i++
 
-    // decide if we should append, update or insert a message
-    if (i >= stateMessages.length) {
-      stateMessages.push(message)
+    // decide if we should append, update or insert an item
+    if (i >= target.length) {
+      target.push(item)
     }
-    else if (stateMessages[i].id === message.id) {
-      Vue.set(stateMessages, i, message)
+    else if (target[i].id === item.id) {
+      Vue.set(target, i, item)
     }
     else {
-      stateMessages.splice(i, 0, message)
+      target.splice(i, 0, item)
     }
   }
 }
@@ -154,9 +155,20 @@ export default {
     },
     enrichConversation: (state, getters, rootState, rootGetters) => conversation => {
       if (!conversation) return
-      return {
+      const participants = conversation.participants.map(rootGetters['users/get'])
+      const enriched = {
         ...conversation,
-        participants: conversation.participants.map(rootGetters['users/get']),
+        participants,
+      }
+      enriched.target = getters.getTarget(enriched)
+      return enriched
+    },
+    getTarget: (state, getters, rootState, rootGetters) => conversation => {
+      const { type, targetId, participants } = conversation
+      switch (type) {
+        case 'pickup': return rootGetters['pickups/get'](targetId)
+        case 'application': return rootGetters['groupApplications/get'](targetId)
+        case 'private': return participants.find(u => !u.isCurrentUser)
       }
     },
   },
@@ -199,6 +211,10 @@ export default {
         })
       },
 
+      async fetchPastConversations () {
+
+      },
+
       async mark ({ dispatch }, { id, seenUpTo }) {
         await conversationsAPI.mark(id, { seenUpTo })
       },
@@ -226,7 +242,12 @@ export default {
       findId: data => data.message.id,
     }),
 
-    async fetchForGroup ({ state, dispatch, commit }, { groupId }) {
+    async fetchForGroup ({ dispatch }, { groupId }) {
+      const conversation = await dispatch('fetchGroupConversation', groupId)
+      dispatch('fetch', conversation.id)
+    },
+
+    async fetchGroupConversation ({ state, commit }, groupId) {
       let conversation
       const conversationId = state.groupConversationIds[groupId]
       if (conversationId) conversation = state.entries[conversationId]
@@ -234,7 +255,7 @@ export default {
         conversation = await groupsAPI.conversation(groupId)
         commit('setConversation', { conversation, groupId })
       }
-      dispatch('fetch', conversation.id)
+      return conversation
     },
 
     clearForGroup ({ state, commit }, { groupId }) {
@@ -400,7 +421,7 @@ export default {
         Vue.set(state.messages, conversationId, messages)
         return
       }
-      insertSorted(stateMessages, messages, (a, b) => a.createdAt > b.createdAt)
+      insertSorted(stateMessages, messages)
     },
     setCursor (state, { conversationId, cursor }) {
       Vue.set(state.cursors, conversationId, cursor)

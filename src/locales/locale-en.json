@@ -63,7 +63,8 @@
     "APPLY": "Apply",
     "ACCEPT": "Accept",
     "DECLINE": "Decline",
-    "WITHDRAW": "Withdraw"
+    "WITHDRAW": "Withdraw",
+    "SHOW_MORE": "Show more"
   },
   "VALIDATION": {
     "MINLENGTH": "Please enter more than {min} characters.",
@@ -90,6 +91,7 @@
     "APPLICATIONS": "Applications",
     "APPLICATION_QUESTIONS": "Questions for people who want to join this group",
     "PICKUPS": "Pickups",
+    "MESSAGES": "Messages",
     "PICKUP": "Pickup",
     "MEMBERS": "Members",
     "JOINED": "joined {relativeDate}",
@@ -434,7 +436,10 @@
       "AND": "and",
       "REACTED_WITH":"{users} reacted with {reaction}"
     },
-    "MESSAGE_NOT_FOUND": "Message not found"
+    "MESSAGE_NOT_FOUND": "Message not found",
+    "NO_CONVERSATIONS": "No conversations yet.",
+    "NO_REPLIES": "No replies yet.",
+    "MUTED": "Notifications are disabled"
   },
   "STORESTATUS": {
     "ACTIVE": "Co-operating",
@@ -459,12 +464,13 @@
     "SUBMITTED_ON": "Submitted on {date}",
     "WITHDRAWN": "withdrawn {relativeDate}",
     "WHAT": "What is this chat about?",
-    "HELP": "This is a chat between all existing members of {groupName} and the new applicant {userName}. It is meant to give you all a chance to get to know you before deciding wether to accept, decline or withdraw the application.",
+    "HELP": "This is a chat between all existing members of {groupName} and the new applicant {userName}. It is meant to give you all a chance to get to know you before deciding whether to accept, decline or withdraw the application.",
     "INITIAL": "Initial questions and answers"
   },
   "COMMUNITY_FEED": {
     "HEADER": "Updates from the {community}",
     "HEADER_LINK": "foodsaving worldwide community",
     "LAST_UPDATED": "Last updated {relativeDate}"
-  }
+  },
+  "YOU": "You"
 }

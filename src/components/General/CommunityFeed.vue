@@ -14,11 +14,23 @@
     >
       {{ unreadCount }}
     </q-chip>
-    <q-popover
+    <component
+      :is="$q.platform.is.mobile ? 'q-modal' : 'q-popover'"
       @hide="mark"
       class="k-community-feed"
+      :class="$q.platform.is.mobile && 'relative-position'"
       v-model="showing"
     >
+      <q-btn
+        v-if="$q.platform.is.mobile"
+        dense
+        round
+        color="secondary"
+        @click="showing = false"
+        style="position: absolute; right: 10px; top: 2px"
+      >
+        <q-icon name="fas fa-times" />
+      </q-btn>
       <q-list
         link
         v-if="showing"
@@ -92,7 +104,7 @@
           </q-item-side>
         </q-item>
       </q-list>
-    </q-popover>
+    </component>
   </q-btn>
 </template>
 
@@ -105,6 +117,7 @@ import {
   QBtn,
   QIcon,
   QPopover,
+  QModal,
   QList,
   QListHeader,
   QItem,
@@ -121,6 +134,7 @@ export default {
     QBtn,
     QIcon,
     QPopover,
+    QModal,
     QList,
     QListHeader,
     QItem,

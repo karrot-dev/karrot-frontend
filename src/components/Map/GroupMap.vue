@@ -37,6 +37,7 @@
       :show-stores="showStores"
       :show-groups="showGroups"
       :show-back="false"
+      :group-id="currentGroupId"
       @toggleUsers="$emit('toggleUsers')"
       @toggleStores="$emit('toggleStores')"
       @toggleGroups="$emit('toggleGroups')"
@@ -168,6 +169,9 @@ export default {
         items.push(...this.groupsWithLocation.map(groupMarker))
       }
       return items
+    },
+    currentGroupId () {
+      return this.currentGroup && this.currentGroup.id
     },
   },
 }

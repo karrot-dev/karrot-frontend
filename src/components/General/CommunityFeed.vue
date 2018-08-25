@@ -5,6 +5,7 @@
     flat
     dense
     round
+    @click="showing = !showing"
   >
     <q-chip
       v-if="unreadCount > 0"
@@ -16,9 +17,11 @@
     <q-popover
       @hide="mark"
       class="k-community-feed"
+      v-model="showing"
     >
       <q-list
         link
+        v-if="showing"
       >
         <q-list-header>
           <q-icon
@@ -125,6 +128,11 @@ export default {
     QItemTile,
     QItemSide,
     QChip,
+  },
+  data () {
+    return {
+      showing: false,
+    }
   },
   methods: {
     ...mapActions({

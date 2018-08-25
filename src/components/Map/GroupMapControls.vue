@@ -4,7 +4,7 @@
       v-if="options.showFullScreenButton"
       :size="options.buttonSize"
       color="primary"
-      @click="$router.push({ name: 'map' })"
+      :to="{ name: 'map', params: { groupId } }"
     >
       <i class="fas fa-expand-arrows-alt fa-stack-1x" />
       <q-tooltip>
@@ -16,7 +16,7 @@
       v-if="options.showBack && !$q.platform.is.mobile"
       :size="options.buttonSize"
       color="primary"
-      @click="$router.push({ name: 'group' })"
+      :to="{ name: 'group', params: { groupId } }"
     >
       <i class="fas fa-fw fa-chevron-left" />
       <q-tooltip>
@@ -126,6 +126,10 @@ export default {
           'full',
         ].includes(value)
       },
+    },
+    groupId: {
+      default: null,
+      type: Number,
     },
   },
   computed: {

@@ -1,5 +1,5 @@
 # Change Log
-All notable changes to _karrot_ will be documented in this file.
+All notable changes to _Karrot_ will be documented in this file.
 
 The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
@@ -12,11 +12,22 @@ Please document your changes in this format:
 ## [Unreleased]
 ### Added
 
+- Conversations overview page #1070 @tiltec
+
+### Changed
+
+### Removed
+
+### Fixed
+
+
+## [Release 6] - 2018-08-25
+### Added
+
 - Replies to wall messages #1065 @nicksellen @tiltec
 - Link to external route planner for store directions #1020 @pogopaule @tiltec
 - Add notifications about new messages in community.foodsaving.world @tiltec
 - Group applications #1063 #1082 @djahnie @taistadam @tiltec @nicksellen
-- Conversations overview page #1070 @tiltec
 
 ### Changed
 
@@ -26,10 +37,6 @@ Please document your changes in this format:
 - External links, email links and phone links in markdown now have a small icon @tiltec
 - Internal links open in the same tab @tiltec
 - Unified desktop/mobile sidenav #1071 @nicksellen
-
-### Removed
-
-### Fixed
 
 
 ## [Release 5] - 2018-07-16
@@ -179,7 +186,8 @@ After months of planning and programming, the first version of ~the foodsaving t
 - **store**: create a store which belongs to a group, set up name, description, address and position of a store
 - **pick-up dates**: create a pick-up date which belongs to a store, set time and max. amount of people who can collect food, user can join/leave a pick-up date
 
-[Unreleased]: https://github.com/yunity/karrot-frontend/compare/v5.0.0...HEAD
+[Unreleased]: https://github.com/yunity/karrot-frontend/compare/v6.0.0...HEAD
+[Release 6]: https://github.com/yunity/karrot-frontend/compare/v5.0.0...v6.0.0
 [Release 5]: https://github.com/yunity/karrot-frontend/compare/v4.0.0...v5.0.0
 [Release 4]: https://github.com/yunity/karrot-frontend/compare/v3.0.0...v4.0.0
 [Release 3]: https://github.com/yunity/karrot-frontend/compare/r2...v3.0.0

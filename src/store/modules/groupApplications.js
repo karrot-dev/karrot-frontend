@@ -49,6 +49,7 @@ export default {
     ...withMeta({
       async fetchMine ({ commit, rootGetters }) {
         const userId = rootGetters['auth/userId']
+        if (!userId) return
         const applicationList = await groupApplications.list({ user: userId, status: 'pending' })
         commit('set', applicationList)
       },

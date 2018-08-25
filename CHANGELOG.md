@@ -16,6 +16,7 @@ Please document your changes in this format:
 - Link to external route planner for store directions #1020 @pogopaule @tiltec
 - Add notifications about new messages in community.foodsaving.world @tiltec
 - Group applications #1063 #1082 @djahnie @taistadam @tiltec @nicksellen
+- Conversations overview page #1070 @tiltec
 
 ### Changed
 

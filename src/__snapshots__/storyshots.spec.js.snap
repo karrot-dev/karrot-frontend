@@ -3852,7 +3852,7 @@ exports[`Storyshots Sidenav Boxes Map 1`] = `
     <!---->
   </div>
   <div class="q-btn-group row no-wrap inline k-groupmapcontrols">
-    <button tabindex="0" type="button" class="q-btn inline relative-position q-btn-item non-selectable q-btn-rectangle q-focusable q-hoverable bg-primary text-white" style="font-size:10px;">
+    <a tabindex="0" type="button" href="#/group/1/map" class="q-btn inline relative-position q-btn-item non-selectable q-btn-rectangle q-focusable q-hoverable bg-primary text-white" style="font-size:10px;">
       <div class="q-focus-helper"></div>
       <div class="q-btn-inner row col items-center justify-center">
         <i class="fas fa-expand-arrows-alt fa-stack-1x"></i>
@@ -3862,7 +3862,7 @@ exports[`Storyshots Sidenav Boxes Map 1`] = `
           </div>
         </div>
       </div>
-    </button>
+    </a>
     <!---->
     <button tabindex="0" type="button" class="q-btn inline relative-position q-btn-item non-selectable q-btn-rectangle q-focusable q-hoverable bg-primary text-white" style="font-size:10px;">
       <div class="q-focus-helper"></div>

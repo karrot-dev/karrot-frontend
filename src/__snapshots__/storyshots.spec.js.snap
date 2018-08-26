@@ -2036,14 +2036,11 @@ exports[`Storyshots Layout KTopbar 1`] = `
       <div tabindex="-1" class="q-popover scroll k-community-feed"></div>
     </div>
   </button>
-  <button tabindex="0" type="button" class="q-btn inline relative-position q-btn-item non-selectable q-btn-round q-btn-flat q-focusable q-hoverable q-btn-dense">
+  <button tabindex="0" type="button" title="Switch language" class="q-btn inline relative-position q-btn-item non-selectable q-btn-round q-btn-flat q-focusable q-hoverable q-btn-dense">
     <div class="q-focus-helper"></div>
     <div class="q-btn-inner row col items-center justify-center">
       <i aria-hidden="true" class="q-icon fas fa-globe fa-fw"> </i>
-      <div tabindex="-1" class="q-popover scroll"></div>
-      <div class="q-tooltip animate-popup">
-        <div></div>
-      </div>
+      <div tabindex="-1" minimized="" class="q-popover scroll"></div>
     </div>
   </button>
   <a>

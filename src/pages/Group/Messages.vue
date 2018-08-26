@@ -3,7 +3,7 @@
     :is="$q.platform.is.mobile ? 'div' : 'q-card'"
     class="bg-white k-messages"
   >
-    <q-list>
+    <q-list no-border>
       <q-item
         v-if="conversations.length === 0"
       >
@@ -33,7 +33,7 @@
         </q-btn>
       </q-item>
     </q-list>
-    <q-list>
+    <q-list no-border>
       <q-item-separator />
       <q-list-header>
         {{ $t('CONVERSATION.REPLIES') }}

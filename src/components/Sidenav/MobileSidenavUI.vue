@@ -1,6 +1,9 @@
 <template>
   <div>
-    <SidenavBox :expandable="false">
+    <SidenavBox
+      v-if="currentUserId"
+      :expandable="false"
+    >
       <template slot="icon">
         <q-icon name="fas fa-fw fa-user-circle" />
       </template>

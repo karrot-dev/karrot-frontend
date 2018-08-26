@@ -39,7 +39,7 @@ export default {
     },
     forCurrentGroup: (state, getters) => Object.keys(state.entries)
       .map(getters.get)
-      .filter(a => a.group.isCurrentGroup)
+      .filter(a => a.group && a.group.isCurrentGroup)
       .sort(sortByCreatedAt),
     forCurrentGroupPending: (state, getters) => getters.forCurrentGroup.filter(a => a.isPending),
     forCurrentGroupNonPending: (state, getters) => getters.forCurrentGroup.filter(a => !a.isPending),
@@ -61,7 +61,7 @@ export default {
 
       async fetchOne ({ commit }, applicationId) {
         const application = await groupApplications.get(applicationId)
-        commit('update', [application])
+        commit('update', application)
       },
 
       async apply ({ commit, dispatch }, data) {

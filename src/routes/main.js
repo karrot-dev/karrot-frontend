@@ -377,7 +377,10 @@ export default [
       afterLeave: 'detail/routeLeave',
     },
     // On desktop will get redirected inside "detail/routeEnter" action
-    component: MobileDetail,
+    components: {
+      default: MobileDetail,
+      sidenav: Sidenav,
+    },
   },
   {
     name: 'settings',

@@ -81,10 +81,9 @@ export default {
     },
     async applicationRouteEnter ({ dispatch, rootGetters }, { groupId, applicationId, routeTo }) {
       if (!applicationId) return
-      const selectPromise = dispatch('selectApplication', applicationId)
+      await dispatch('selectApplication', applicationId)
+      const { isCurrentUser } = rootGetters['groupApplications/get'](applicationId).user
       if (!Platform.is.mobile) {
-        await selectPromise
-        const { isCurrentUser } = rootGetters['groupApplications/get'](applicationId).user
         // On desktop we don't have a detail page, we go to the application list or the group preview, and have a sidebar open
         throw createRouteRedirect({
           ...(isCurrentUser
@@ -94,6 +93,7 @@ export default {
           query: routeTo.query,
         })
       }
+      if (!isCurrentUser) dispatch('currentGroup/select', { groupId }, { root: true })
     },
     routeLeave ({ dispatch }) {
       dispatch('clear')

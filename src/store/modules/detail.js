@@ -66,6 +66,7 @@ export default {
             // On desktop we don't have a user detail page, we go to the user page, and have a sidebar open
             throw createRouteRedirect({ name: 'user', params: { userId }, query: routeTo.query })
           }
+          dispatch('users/selectUser', { userId }, { root: true })
         }
         else {
           throw createRouteRedirect({ name: 'user', params: { userId }, query: routeTo.query })

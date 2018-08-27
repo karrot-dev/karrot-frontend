@@ -64,8 +64,7 @@ storiesOf('GroupPreviewUI', module)
         group: {
           ...groupsMock[0],
           isOpen: false,
-          hasMyApplication: true,
-          myApplication: { id: 1 },
+          application: { id: 1 },
         },
         user: {
           mailVerified: true,

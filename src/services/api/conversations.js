@@ -8,20 +8,12 @@ export default {
     return convert((await axios.get(`/api/conversations/${id}/`)).data)
   },
 
-  async list (group) {
-    const response = (await axios.get('/api/conversations/', { params: {
-      group,
-      exclude_wall: 'True',
-    }})).data
+  async list () {
+    const response = (await axios.get('/api/conversations/')).data
     return {
       ...response,
       next: parseCursor(response.next),
-      results: {
-        conversations: convert(response.results.conversations),
-        messages: convertMessage(response.results.messages),
-        pickups: convertPickup(response.results.pickups),
-        applications: convertApplication(response.results.applications),
-      },
+      results: convertListResults(response.results),
     }
   },
 
@@ -31,7 +23,7 @@ export default {
       ...response,
       next: parseCursor(response.next),
       prev: parseCursor(response.prev),
-      results: convert(response.results),
+      results: convertListResults(response.results),
     }
   },
 
@@ -43,6 +35,16 @@ export default {
     const data = { 'emailNotifications': value }
     return (await axios.post(`/api/conversations/${id}/email_notifications/`, data)).data
   },
+}
+
+function convertListResults (results) {
+  return {
+    conversations: convert(results.conversations),
+    messages: convertMessage(results.messages),
+    pickups: convertPickup(results.pickups),
+    applications: convertApplication(results.applications),
+    users: results.users,
+  }
 }
 
 export function convert (val) {

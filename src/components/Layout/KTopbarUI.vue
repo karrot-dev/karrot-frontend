@@ -37,6 +37,10 @@
     <template v-if="!$q.platform.is.mobile">
       <CommunityFeed />
       <LocaleSelect />
+      <LatestMessageButton
+        :all-unread-muted="allUnreadMuted"
+        :unread-count="unreadCount"
+      />
       <router-link
         :to="{name: 'user', params: {userId: user.id}}"
       >
@@ -129,16 +133,41 @@
 </template>
 
 <script>
-import { QToolbar, QToolbarTitle, QBtn, QIcon, QPopover, QList, QItem, QTooltip } from 'quasar'
+import {
+  QToolbar,
+  QToolbarTitle,
+  QBtn,
+  QIcon,
+  QChip,
+  QPopover,
+  QList,
+  QItem,
+  QTooltip,
+} from 'quasar'
 import KarrotLogo from './KarrotLogo'
 import KBreadcrumb from '@/components/General/KBreadcrumb'
 import Search from '@/components/General/Search'
 import LocaleSelect from '@/components/General/LocaleSelect'
 import CommunityFeed from '@/components/General/CommunityFeed'
+import LatestMessageButton from './LatestMessageButton'
 
 export default {
   components: {
-    QToolbar, QToolbarTitle, QBtn, QIcon, QPopover, QList, QItem, QTooltip, KarrotLogo, KBreadcrumb, Search, LocaleSelect, CommunityFeed,
+    QToolbar,
+    QToolbarTitle,
+    QBtn,
+    QIcon,
+    QChip,
+    QPopover,
+    QList,
+    QItem,
+    QTooltip,
+    KarrotLogo,
+    KBreadcrumb,
+    Search,
+    LocaleSelect,
+    CommunityFeed,
+    LatestMessageButton,
   },
   props: {
     breadcrumbs: {
@@ -157,6 +186,14 @@ export default {
     away: {
       type: Boolean,
       default: true,
+    },
+    unreadCount: {
+      default: 0,
+      type: Number,
+    },
+    allUnreadMuted: {
+      default: true,
+      type: Boolean,
     },
   },
   computed: {
@@ -180,6 +217,11 @@ export default {
         icon: 'fas fa-circle',
       }
     },
+  },
+  data () {
+    return {
+      showingMessages: false,
+    }
   },
 }
 </script>

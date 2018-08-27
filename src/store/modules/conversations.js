@@ -166,6 +166,7 @@ export default {
     getTarget: (state, getters, rootState, rootGetters) => conversation => {
       const { type, targetId, participants } = conversation
       switch (type) {
+        case 'group': return rootGetters['groups/get'](targetId)
         case 'pickup': return rootGetters['pickups/get'](targetId)
         case 'application': return rootGetters['groupApplications/get'](targetId)
         case 'private': return participants.find(u => !u.isCurrentUser)
@@ -209,10 +210,6 @@ export default {
           conversationId,
           cursor: data.next,
         })
-      },
-
-      async fetchPastConversations () {
-
       },
 
       async mark ({ dispatch }, { id, seenUpTo }) {
@@ -295,6 +292,11 @@ export default {
       if (conversationId) commit('clearMessages', { conversationId })
     },
 
+    async fetchApplicationConversation ({ commit }, { conversationId, applicationId }) {
+      const conversation = await conversationsAPI.get(conversationId)
+      commit('setConversation', { conversation, applicationId })
+    },
+
     async fetchForApplication ({ state, dispatch, commit }, { applicationId }) {
       let conversation
       // TODO use mapping applicationId -> conversationId from groupApplications module
@@ -303,8 +305,7 @@ export default {
       if (!conversation) {
         // TODO use already loaded application from groupApplications module
         conversationId = (await groupApplicationsAPI.get(applicationId)).conversation
-        conversation = await conversationsAPI.get(conversationId)
-        commit('setConversation', { conversation, applicationId })
+        dispatch('fetchApplicationConversation', { conversationId, applicationId })
       }
       dispatch('fetch', conversation.id)
     },

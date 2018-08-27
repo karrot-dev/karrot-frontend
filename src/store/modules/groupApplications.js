@@ -34,8 +34,8 @@ export default {
       if (!activePreview) return
       return getters.enrich(getters.getMineForGroupIdNotEnriched(activePreview.id))
     },
-    groupHasMyApplication: (state, getters) => groupId => {
-      return Boolean(getters.getMineForGroupIdNotEnriched(groupId))
+    getMyInGroup: (state, getters) => groupId => {
+      return getters.getMineForGroupIdNotEnriched(groupId)
     },
     forCurrentGroup: (state, getters) => Object.keys(state.entries)
       .map(getters.get)
@@ -51,7 +51,9 @@ export default {
         const userId = rootGetters['auth/userId']
         if (!userId) return
         const applicationList = await groupApplications.list({ user: userId, status: 'pending' })
-        commit('set', applicationList)
+        if (applicationList.length > 0) {
+          commit('set', applicationList)
+        }
       },
 
       async fetchByGroupId ({ commit }, { groupId }) {

@@ -40,11 +40,8 @@ export default {
     conversations: (state, getters, rootState, rootGetters) => {
       const enrichConversation = rootGetters['conversations/enrichConversation']
       const enrichMessage = rootGetters['conversations/enrichMessage']
-      const groupId = rootGetters['currentGroup/id']
-      if (!groupId) return []
 
       return Object.values(state.conversations)
-        .filter(c => c.type !== 'group' && (c.type === 'private' || c.group === groupId))
         .map(enrichConversation)
         .map(conversation => ({
           ...conversation,
@@ -57,11 +54,8 @@ export default {
     fetchingPastConversations: (state, getters) => getters['meta/status']('fetchPastConversations').pending,
     threads: (state, getters, rootState, rootGetters) => {
       const enrichMessage = rootGetters['conversations/enrichMessage']
-      const { id: conversationId } = rootGetters['currentGroup/conversation'] || {}
-      if (!conversationId) return []
 
       return Object.values(state.threads)
-        .filter(t => t.conversation === conversationId)
         .map(enrichMessage)
         .map(thread => {
           if (!thread) return
@@ -78,10 +72,10 @@ export default {
   },
   actions: {
     ...withMeta({
-      async fetch ({ commit, dispatch }, groupId) {
+      async fetch ({ dispatch }) {
         const [conversationsAndRelated, threadsAndRelated] = await Promise.all([
-          dispatch('conversationsPagination/extractCursor', conversationsAPI.list(groupId)),
-          dispatch('threadsPagination/extractCursor', messageAPI.listMyThreads(groupId)),
+          dispatch('conversationsPagination/extractCursor', conversationsAPI.list()),
+          dispatch('threadsPagination/extractCursor', messageAPI.listMyThreads()),
         ])
 
         dispatch('updateConversationsAndRelated', conversationsAndRelated)
@@ -92,14 +86,14 @@ export default {
         dispatch('updateConversationsAndRelated', data)
       },
       async fetchPastThreads ({ dispatch }) {
-        const data = await dispatch('threadsPagination/fetchNext', messageAPI.listMore)
+        const data = await dispatch('threadsPagination/fetchNext', messageAPI.listMyThreadsMore)
         dispatch('updateThreadsAndRelated', data)
       },
       async clear ({ commit }) {
         commit('clear')
       },
     }),
-    updateConversationsAndRelated ({ commit, dispatch }, { conversations, messages, pickups, applications }) {
+    updateConversationsAndRelated ({ commit, dispatch, rootState }, { conversations, messages, pickups, applications, users }) {
       if (conversations) commit('updateConversations', conversations)
       if (messages) commit('updateConversationMessages', messages)
       if (pickups) {
@@ -110,6 +104,14 @@ export default {
       if (applications) {
         for (const application of applications) {
           dispatch('groupApplications/update', application, { root: true })
+        }
+      }
+      if (users) {
+        for (const user of users) {
+          // contains only limited user info, so only update if we don't have the user already
+          if (!rootState.users.entries[user.id]) {
+            dispatch('users/update', user, { root: true })
+          }
         }
       }
 
@@ -178,21 +180,10 @@ export default {
 }
 
 function sortByLatestMessage (a, b) {
-  if (!a.latestMessage) return 1
-  if (!b.latestMessage) return -1
   return b.latestMessage.createdAt - a.latestMessage.createdAt
 }
 
 function getFirst (list) {
   if (!list || list.length === 0) return
   return list[0]
-}
-
-export const plugin = store => {
-  store.watch((state, getters) => getters['currentGroup/id'], groupId => {
-    store.dispatch('latestMessages/clear')
-    if (groupId) {
-      store.dispatch('latestMessages/fetch', groupId)
-    }
-  })
 }

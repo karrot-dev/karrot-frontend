@@ -1,17 +1,18 @@
 <template>
   <component
-    :is="$q.platform.is.mobile ? 'div' : 'q-card'"
+    :is="asPage ? 'q-card' : 'div'"
     class="bg-white k-messages"
   >
-    <q-list>
+    <q-list no-border>
       <q-item
         v-if="conversations.length === 0"
       >
         {{ $t('CONVERSATION.NO_CONVERSATIONS') }}
       </q-item>
-      <MessageItem
+      <LatestMessageItem
         v-for="conv in conversations"
         :key="'conv' + conv.id"
+        :group="conv.type === 'group' ? conv.target : null"
         :user="conv.type === 'private' ? conv.target : null"
         :pickup="conv.type === 'pickup' ? conv.target : null"
         :application="conv.type === 'application' ? conv.target : null"
@@ -21,7 +22,7 @@
         @open="open(conv)"
       />
       <q-item
-        v-if="canFetchPastConversations"
+        v-if="!hideLoadMore && canFetchPastConversations"
         class="row justify-center"
       >
         <q-btn
@@ -33,17 +34,15 @@
         </q-btn>
       </q-item>
     </q-list>
-    <q-list>
+    <q-list
+      v-if="threads.length > 0"
+      no-border
+    >
       <q-item-separator />
       <q-list-header>
         {{ $t('CONVERSATION.REPLIES') }}
       </q-list-header>
-      <q-item
-        v-if="threads.length === 0"
-      >
-        {{ $t('CONVERSATION.NO_REPLIES') }}
-      </q-item>
-      <MessageItem
+      <LatestMessageItem
         v-for="conv in threads"
         :key="'thread' + conv.id"
         :thread="conv"
@@ -53,7 +52,7 @@
         @open="openForThread(conv)"
       />
       <q-item
-        v-if="canFetchPastThreads"
+        v-if="!hideLoadMore && canFetchPastThreads"
         class="row justify-center"
       >
         <q-btn
@@ -79,7 +78,7 @@ import {
   QBtn,
 } from 'quasar'
 import { mapGetters, mapActions } from 'vuex'
-import MessageItem from './MessageItem'
+import LatestMessageItem from './LatestMessageItem'
 
 export default {
   components: {
@@ -89,7 +88,17 @@ export default {
     QItemSeparator,
     QItem,
     QBtn,
-    MessageItem,
+    LatestMessageItem,
+  },
+  props: {
+    asPage: {
+      type: Boolean,
+      default: false,
+    },
+    hideLoadMore: {
+      type: Boolean,
+      default: false,
+    },
   },
   computed: {
     ...mapGetters({
@@ -113,6 +122,7 @@ export default {
     open (conv) {
       const { type, target } = conv
       switch (type) {
+        case 'group': return this.$router.push({ name: 'group', params: { groupId: target.id } })
         case 'pickup': return this.openForPickup(target)
         case 'private': return this.openForUser(target)
         case 'application': return this.openForApplication(target)

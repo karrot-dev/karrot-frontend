@@ -43,6 +43,14 @@
             />
             <div class="ellipsis">{{ application.user.displayName }}</div>
           </template>
+          <template v-else-if="isGroup">
+            <q-icon
+              name="fas fw-fw fa-bullhorn"
+              class="q-mr-sm"
+              :title="$t('GROUP.WALL')"
+            />
+            <div class="ellipsis">{{ group.name }}</div>
+          </template>
           <q-icon
             v-if="muted"
             size="12px"
@@ -128,6 +136,10 @@ export default {
     ProfilePicture,
   },
   props: {
+    group: {
+      type: Object,
+      default: null,
+    },
     user: {
       type: Object,
       default: null,
@@ -158,6 +170,9 @@ export default {
     },
   },
   computed: {
+    isGroup () {
+      return Boolean(this.group)
+    },
     isPrivate () {
       return Boolean(this.user)
     },

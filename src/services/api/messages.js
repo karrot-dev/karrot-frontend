@@ -44,18 +44,6 @@ export default {
     }
   },
 
-  async listMyThreads (group) {
-    const response = (await axios.get('/api/messages/my_threads/', { params: { group } })).data
-    return {
-      ...response,
-      next: parseCursor(response.next),
-      results: {
-        threads: convert(response.results.threads),
-        messages: convert(response.results.messages),
-      },
-    }
-  },
-
   async listMore (cursor) {
     const response = (await axios.get(cursor)).data
     return {
@@ -65,6 +53,32 @@ export default {
       results: convert(response.results),
     }
   },
+
+  async listMyThreads () {
+    const response = (await axios.get('/api/messages/my_threads/')).data
+    return {
+      ...response,
+      next: parseCursor(response.next),
+      results: convertListMyThreadsResult(response.results),
+    }
+  },
+
+  async listMyThreadsMore (cursor) {
+    const response = (await axios.get(cursor)).data
+    return {
+      ...response,
+      next: parseCursor(response.next),
+      prev: parseCursor(response.prev),
+      results: convertListMyThreadsResult(response.results),
+    }
+  },
+}
+
+export function convertListMyThreadsResult (results) {
+  return {
+    threads: convert(results.threads),
+    messages: convert(results.messages),
+  }
 }
 
 export function convert (val) {

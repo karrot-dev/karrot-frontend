@@ -14,11 +14,11 @@
       class="tools"
     >
       <q-chip
-        v-if="!expanded && ((!allUnreadMuted && unreadCount > 0) || wallUnreadCount > 0)"
+        v-if="!expanded && wallUnreadCount > 0"
         small
         color="secondary"
       >
-        {{ unreadCount + wallUnreadCount }}
+        {{ wallUnreadCount }}
       </q-chip>
       <q-btn
         flat
@@ -71,25 +71,6 @@
           <q-item-main>
             {{ $t("GROUP.PICKUPS") }}
           </q-item-main>
-        </q-item>
-        <q-item :to="{ name: 'groupMessages', params: { groupId } }">
-          <q-item-side class="text-center">
-            <q-icon name="fas fa-comments" />
-          </q-item-side>
-          <q-item-main>
-            {{ $t("GROUP.MESSAGES") }}
-          </q-item-main>
-          <q-item-side
-            v-if="unreadCount > 0"
-            right
-          >
-            <q-chip
-              small
-              :color="allUnreadMuted ? 'grey' : 'secondary'"
-            >
-              {{ unreadCount }}
-            </q-chip>
-          </q-item-side>
         </q-item>
         <q-item :to="{ name: 'groupFeedback', params: { groupId } }">
           <q-item-side class="text-center">
@@ -149,11 +130,18 @@ export default {
     SidenavBox, GroupOptions, QBtn, QList, QItem, QItemSide, QItemMain, QIcon, QTooltip, QChip,
   },
   props: {
-    groupId: { required: true, type: Number },
-    expanded: { default: true, type: Boolean },
-    wallUnreadCount: { default: 0, type: Number },
-    unreadCount: { default: 0, type: Number },
-    allUnreadMuted: { default: true, type: Boolean },
+    groupId: {
+      required: true,
+      type: Number,
+    },
+    expanded: {
+      default: true,
+      type: Boolean,
+    },
+    wallUnreadCount: {
+      default: 0,
+      type: Number,
+    },
   },
 }
 </script>

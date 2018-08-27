@@ -55,7 +55,7 @@
           :overlay="false"
           @click.native="toggleSidenav"
         >
-          <SidenavTitle />
+          <SidenavTitle @click="toggleSidenav" />
           <router-view name="sidenav" />
           <MobileSidenav/>
         </q-layout-drawer>
@@ -172,7 +172,6 @@ export default {
       showRightDrawer: 'detail/isActive',
       disableDesktopSidenav: 'route/disableDesktopSidenav',
       unreadCount: 'latestMessages/unreadCount',
-      wallUnreadCount: 'currentGroup/conversationUnreadCount',
     }),
     layoutView () {
       if (this.$q.platform.is.mobile) {
@@ -199,7 +198,7 @@ export default {
       return Boolean(this.routerComponents.sidenav)
     },
     hasUnread () {
-      return this.unreadCount + this.wallUnreadCount > 0
+      return this.unreadCount > 0
     },
   },
 }

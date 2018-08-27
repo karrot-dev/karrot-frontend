@@ -16,7 +16,10 @@
     >
       {{ unreadCount }}
     </q-chip>
-    <q-popover v-model="showing">
+    <q-popover
+      v-if="!$q.platform.is.mobile"
+      v-model="showing"
+    >
       <LatestMessages
         v-if="showing"
         hide-load-more
@@ -39,6 +42,8 @@ import {
 } from 'quasar'
 const LatestMessages = () => import('@/components/Conversation/LatestMessages')
 
+import { mapGetters } from 'vuex'
+
 export default {
   components: {
     QToolbar,
@@ -52,21 +57,18 @@ export default {
     QTooltip,
     LatestMessages,
   },
-  props: {
-    unreadCount: {
-      default: 0,
-      type: Number,
-    },
-    allUnreadMuted: {
-      default: true,
-      type: Boolean,
-    },
+  computed: {
+    ...mapGetters({
+      unreadCount: 'latestMessages/unreadCount',
+      allUnreadMuted: 'latestMessages/allUnreadMuted',
+    }),
   },
   methods: {
     maybeOpen () {
       if (!this.$q.platform.is.mobile) {
         this.showing = true
       }
+      this.$emit('click')
     },
   },
   data () {

@@ -8,8 +8,6 @@ export default connect({
     user: 'auth/user',
     searchOpen: 'search/open',
     away: 'presence/toggle/away',
-    unreadCount: 'latestMessages/unreadCount',
-    allUnreadMuted: 'latestMessages/allUnreadMuted',
   },
   actionsToEvents: {
     logout: 'auth/logout',

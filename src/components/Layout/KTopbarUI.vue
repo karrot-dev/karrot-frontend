@@ -37,10 +37,7 @@
     <template v-if="!$q.platform.is.mobile">
       <CommunityFeed />
       <LocaleSelect />
-      <LatestMessageButton
-        :all-unread-muted="allUnreadMuted"
-        :unread-count="unreadCount"
-      />
+      <LatestMessageButton />
       <router-link
         :to="{name: 'user', params: {userId: user.id}}"
       >
@@ -149,7 +146,7 @@ import KBreadcrumb from '@/components/General/KBreadcrumb'
 import Search from '@/components/General/Search'
 import LocaleSelect from '@/components/General/LocaleSelect'
 import CommunityFeed from '@/components/General/CommunityFeed'
-import LatestMessageButton from './LatestMessageButton'
+import LatestMessageButton from '@/components/Layout/LatestMessageButton'
 
 export default {
   components: {
@@ -186,14 +183,6 @@ export default {
     away: {
       type: Boolean,
       default: true,
-    },
-    unreadCount: {
-      default: 0,
-      type: Number,
-    },
-    allUnreadMuted: {
-      default: true,
-      type: Boolean,
     },
   },
   computed: {

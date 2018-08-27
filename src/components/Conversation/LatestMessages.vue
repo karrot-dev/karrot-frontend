@@ -4,6 +4,19 @@
     class="bg-white k-messages"
   >
     <q-list no-border>
+      <div
+        v-if="hideLoadMore"
+        class="row justify-end q-mb-sm q-mr-sm"
+      >
+        <q-btn
+          v-close-overlay
+          size="sm"
+          color="secondary"
+          :to="{ name: 'messages' }"
+        >
+          {{ $t('BUTTON.SHOW_MORE') }}
+        </q-btn>
+      </div>
       <q-item
         v-if="conversations.length === 0"
       >

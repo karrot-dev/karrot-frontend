@@ -74,15 +74,13 @@ export default store => {
   store.watch((state, getters) => [
     getters['breadcrumbs/allNames'],
     getters['latestMessages/unreadCount'],
-    getters['currentGroup/conversationUnreadCount'],
-  ], ([breadcrumbNames, unreadCount, wallUnreadCount]) => {
+  ], ([breadcrumbNames, unreadCount]) => {
     let names = breadcrumbNames.slice().reverse()
     names.push('Karrot')
     let title = names.join(' · ')
 
-    if (unreadCount > 0 || wallUnreadCount > 0) {
-      const count = unreadCount + wallUnreadCount
-      title = `(${count}) ${title}`
+    if (unreadCount > 0) {
+      title = `(${unreadCount}) ${title}`
     }
 
     document.title = title

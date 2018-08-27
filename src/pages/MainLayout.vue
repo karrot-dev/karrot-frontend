@@ -55,6 +55,7 @@
           :overlay="false"
           @click.native="toggleSidenav"
         >
+          <SidenavTitle />
           <router-view name="sidenav" />
           <MobileSidenav/>
         </q-layout-drawer>
@@ -108,6 +109,7 @@
 import KTopbar from '@/components/Layout/KTopbar'
 import KTopbarLoggedOut from '@/components/Layout/LoggedOut/KTopbar'
 import KFooter from '@/components/Layout/KFooter'
+import SidenavTitle from '@/components/Sidenav/SidenavTitle'
 import MobileSidenav from '@/components/Sidenav/MobileSidenav'
 import Banners from '@/components/Layout/Banners'
 import RouteError from '@/components/RouteError'
@@ -133,6 +135,7 @@ export default {
     KTopbar,
     KTopbarLoggedOut,
     KFooter,
+    SidenavTitle,
     MobileSidenav,
     QLayout,
     QLayoutHeader,

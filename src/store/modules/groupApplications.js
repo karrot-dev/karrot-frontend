@@ -27,7 +27,8 @@ export default {
     },
     getMineForGroupIdNotEnriched: (state, getters, rootState, rootGetters) => groupId => {
       const authUserId = rootGetters['auth/userId']
-      return Object.values(state.entries).find(a => a.group === groupId && a.user.id === authUserId)
+      if (!authUserId) return []
+      return Object.values(state.entries).find(a => a.group === groupId && a.user.id === authUserId && a.status === 'pending')
     },
     getForActivePreview: (state, getters, rootState, rootGetters) => {
       const activePreview = rootGetters['groups/activePreview']
@@ -121,7 +122,10 @@ export default {
   },
   mutations: {
     set (state, applicationList) {
-      state.entries = indexById(applicationList)
+      state.entries = {
+        ...state.entries,
+        ...indexById(applicationList),
+      }
     },
     delete (state, id) {
       if (state.entries[id]) Vue.delete(state.entries, id)

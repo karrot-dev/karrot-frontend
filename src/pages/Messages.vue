@@ -1,5 +1,8 @@
 <template>
-  <LatestMessages :as-page="!$q.platform.is.mobile" />
+  <LatestMessages
+    class="k-messages"
+    :as-page="!$q.platform.is.mobile"
+  />
 </template>
 
 <script>
@@ -11,3 +14,10 @@ export default {
   },
 }
 </script>
+
+<style lang="stylus" scoped>
+.k-messages
+  max-width 500px
+  margin-left auto
+  margin-right auto
+</style>

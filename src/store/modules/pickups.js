@@ -4,9 +4,8 @@ import { indexById, createMetaModule, withMeta, isValidationError, withPrefixedI
 
 function initialState () {
   return {
+    now: new Date(), // reactive current time
     entries: {},
-    idList: [], // all upcoming pickups, in the current group
-    idListGroupId: null,
     storeIdFilter: null,
     feedbackPossibleIds: [],
   }
@@ -21,19 +20,27 @@ export default {
       return getters.enrich(state.entries[pickupId])
     },
     enrich: (state, getters, rootState, rootGetters) => pickup => {
+      if (!pickup) return
       const userId = rootGetters['auth/userId']
-      return pickup && {
+      const store = rootGetters['stores/get'](pickup.store)
+      const group = store && store.group
+      return {
         ...pickup,
         isUserMember: pickup.collectorIds.includes(userId),
         isEmpty: pickup.collectorIds.length === 0,
         isFull: pickup.maxCollectors > 0 && pickup.collectorIds.length >= pickup.maxCollectors,
-        store: rootGetters['stores/get'](pickup.store),
+        store,
+        group,
         collectors: pickup.collectorIds.map(rootGetters['users/get']),
         ...metaStatusesWithId(getters, ['save', 'join', 'leave'], pickup.id),
       }
     },
-    all: (state, getters, rootState, rootGetters) => {
-      return state.idList.map(getters.get).sort(sortByDate)
+    all: (state, getters) => {
+      return Object.values(state.entries)
+        .filter(p => p.date >= state.now)
+        .map(getters.enrich)
+        .filter(p => p.group && p.group.isCurrentGroup)
+        .sort(sortByDate)
     },
     filtered: (state, getters) => {
       return getters.all.filter(e => !state.storeIdFilter || (e.store && e.store.id === state.storeIdFilter))
@@ -52,23 +59,22 @@ export default {
       return getters.all.filter(e => e.collectorIds.includes(rootGetters['auth/userId']))
     },
     feedbackPossible: (state, getters) => state.feedbackPossibleIds.map(getters.get),
-    feedbackPossibleFiltered: (state, getters) => state.feedbackPossibleIds
-      .filter(e => !state.storeIdFilter || (e.store && e.store.id === state.storeIdFilter))
-      .map(getters.get),
+    feedbackPossibleFiltered: (state, getters) =>
+      state.feedbackPossibleIds
+        .filter(e => !state.storeIdFilter || (e.store && e.store.id === state.storeIdFilter))
+        .map(getters.get)
+        .filter(p => p.group && p.group.isCurrentGroup),
     ...metaStatuses(['create']),
   },
   actions: {
     ...withMeta({
-
       async fetch ({ commit }, pickupId) {
         commit('update', await pickups.get(pickupId))
       },
-
       async fetchList ({ commit }) {
         // TODO implement pagination
-        commit('set', { pickups: (await pickups.list()).results })
+        commit('set', (await pickups.list()).results)
       },
-
       async join ({ commit, dispatch, rootGetters }, pickupId) {
         try {
           await pickups.join(pickupId)
@@ -79,7 +85,6 @@ export default {
           throw error
         }
       },
-
       async leave ({ commit, dispatch, rootGetters }, pickupId) {
         try {
           await pickups.leave(pickupId)
@@ -90,70 +95,56 @@ export default {
           throw error
         }
       },
-
       async save ({ commit, dispatch }, pickup) {
         commit('update', await pickups.save(pickup))
       },
-
       async create ({ commit, dispatch }, data) {
         await pickups.create(data)
         dispatch('refresh')
       },
-
       async destroy ({ commit, dispatch }, id) {
         await pickups.delete(id)
         dispatch('refresh')
       },
-
       async fetchFeedbackPossible ({ commit }, groupId) {
         commit('setFeedbackPossible', (await pickups.listFeedbackPossible(groupId)).results)
       },
-
     }),
 
     ...withPrefixedIdMeta('group/', {
-
       async fetchListByGroupId ({ commit }, groupId) {
-        commit('set', { pickups: (await pickups.listByGroupId(groupId)).results, groupId })
+        commit('set', (await pickups.listByGroupId(groupId)).results)
       },
-
     }),
 
-    async maybeFetch ({ getters, dispatch }, pickupId) {
+    async maybeFetch ({ state, getters, dispatch }, pickupId) {
       const isPending = getters['meta/status']('fetch', pickupId).pending
-      if (!getters.get(pickupId) && !isPending) {
+      if (!state.entries[pickupId] && !isPending) {
         await dispatch('fetch', pickupId)
       }
     },
-
-    update ({ state, commit, getters }, pickup) {
-      // does it belong to the current group?
-      const { store } = getters.enrich(pickup)
-      if (store && store.group && store.group.id === state.idListGroupId) {
-        commit('update', pickup)
-      }
+    update ({ commit }, pickup) {
+      commit('update', pickup)
     },
-
     delete ({ commit }, pickupId) {
       commit('delete', pickupId)
     },
-
     clear ({ commit }) {
       commit('clear')
     },
-
+    clearUpcomingForStore ({ commit }, storeId) {
+      commit('clearUpcomingForStore', storeId)
+    },
     clearStoreFilter ({ commit }) {
       commit('clearStoreIdFilter')
     },
-
     setStoreFilter ({ commit }, storeId) {
       commit('setStoreIdFilter', storeId)
     },
-
-    addFeedbackPossible ({ state, commit, getters }, pickup) {
-      // does it belong to the current group?
-      const store = getters.enrich(pickup).store
-      if (store && store.group && store.group.id === state.idListGroupId) {
+    addFeedbackPossible ({ commit, getters, rootGetters }, pickup) {
+      const groupId = rootGetters['currentGroup/id']
+      const { group } = getters.enrich(pickup)
+      if (group && group.id === groupId) {
         commit('setFeedbackPossible', [pickup])
       }
     },
@@ -162,18 +153,17 @@ export default {
         commit('removeFeedbackPossible', pickupId)
       }
     },
-
-    refresh ({ state, dispatch }) {
-      if (state.idListGroupId) {
-        dispatch('fetchListByGroupId', state.idListGroupId)
-      }
-      else {
-        dispatch('fetchList')
+    refresh ({ dispatch, rootGetters }) {
+      const groupId = rootGetters['currentGroup/id']
+      if (groupId) {
+        dispatch('fetchListByGroupId', groupId)
       }
     },
-
   },
   mutations: {
+    updateNow (state) {
+      state.now = new Date()
+    },
     setStoreIdFilter (state, storeId) {
       state.storeIdFilter = parseInt(storeId, 10)
     },
@@ -184,31 +174,22 @@ export default {
       Object.entries(initialState())
         .forEach(([prop, value]) => Vue.set(state, prop, value))
     },
+    clearUpcomingForStore (state, storeId) {
+      const now = new Date()
+      state.entries
+        .filter(pickup => pickup.store === storeId && pickup.date >= now)
+        .forEach(pickup => Vue.delete(state.entries, pickup.id))
+    },
     update (state, pickup) {
       Vue.set(state.entries, pickup.id, pickup)
-
-      // only add to idList if upcoming and not already in list
-      const now = new Date()
-      const idList = state.idList
-      const entries = state.entries
-      if (pickup.date > now && !idList.includes(pickup.id)) {
-        let i = 0
-        while (i < idList.length && entries[idList[i]].date < pickup.date) i++
-        idList.splice(i, 0, pickup.id)
-      }
     },
-    set (state, { pickups, groupId }) {
-      // TODO clear if necessary
+    set (state, pickups) {
       state.entries = {
         ...state.entries,
         ...indexById(pickups),
       }
-      state.idList = pickups.map(e => e.id)
-      state.idListGroupId = groupId
     },
     delete (state, pickupId) {
-      const idx = state.idList.indexOf(pickupId)
-      if (idx !== -1) state.idList.splice(idx, 1)
       if (state.entries[pickupId]) Vue.delete(state.entries, pickupId)
     },
     join (state, { pickupId, userId }) {
@@ -219,7 +200,6 @@ export default {
       let idx = collectorIds.indexOf(userId)
       if (idx !== -1) collectorIds.splice(idx, 1)
     },
-
     setFeedbackPossible (state, pickups) {
       state.entries = {
         ...state.entries,
@@ -231,11 +211,10 @@ export default {
       ]
     },
     removeFeedbackPossible (state, pickupId) {
-      const pickups = state.feedbackPossibleIds
-      const idx = pickups.indexOf(pickupId)
-      if (idx !== -1) pickups.splice(idx, 1)
+      const pickupIds = state.feedbackPossibleIds
+      const idx = pickupIds.indexOf(pickupId)
+      if (idx !== -1) pickupIds.splice(idx, 1)
     },
-
   },
 }
 
@@ -245,4 +224,9 @@ export function isWithinOneWeek (pickup) {
 
 export function sortByDate (a, b) {
   return a.date - b.date
+}
+
+export function plugin (store) {
+  // keep state.now update to date
+  setInterval(() => store.commit('pickups/updateNow'), 60 * 1000)
 }

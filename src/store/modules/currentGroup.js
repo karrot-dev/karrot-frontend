@@ -113,8 +113,6 @@ export default {
         throw createRouteRedirect({ name: 'groupPreview', params: {groupPreviewId: groupId} })
       }
 
-      dispatch('pickups/clear', {}, { root: true })
-
       dispatch('pickups/fetchListByGroupId', groupId, { root: true })
       dispatch('pickups/fetchFeedbackPossible', groupId, { root: true })
 

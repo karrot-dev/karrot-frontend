@@ -36,8 +36,8 @@
     </q-btn>
     <template v-if="!$q.platform.is.mobile">
       <CommunityFeed />
-      <LocaleSelect />
       <LatestMessageButton />
+      <LocaleSelect />
       <router-link
         :to="{name: 'user', params: {userId: user.id}}"
       >

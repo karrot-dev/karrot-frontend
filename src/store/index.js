@@ -30,7 +30,7 @@ import i18n from './modules/i18n'
 import invitations from './modules/invitations'
 import latestMessages from './modules/latestMessages'
 import loadingprogress from './modules/loadingprogress'
-import pickups from './modules/pickups'
+import pickups, { plugin as pickupsPlugin } from './modules/pickups'
 import pickupSeries from './modules/pickupSeries'
 import presence from './modules/presence'
 import refresh from './modules/refresh'
@@ -96,6 +96,7 @@ export default new Vuex.Store({
     fcmPlugin,
     authPushPlugin,
     aboutPlugin,
+    pickupsPlugin,
   ],
   strict: debug,
 })

@@ -76,7 +76,7 @@
         class="q-mb-xs"
       >
         <small>
-          {{ pickup.store.name }} ·
+          {{ pickup.store && pickup.store.name }} ·
           {{ $d(pickup.date, 'dateShort') }}
         </small>
       </q-item-tile>

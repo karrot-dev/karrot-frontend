@@ -2,8 +2,8 @@
   <q-toolbar v-if="$q.platform.is.mobile">
     <q-toolbar-title v-if="currentGroup">{{ currentGroup.name }}</q-toolbar-title>
     <CommunityFeed />
-    <LocaleSelect />
     <LatestMessageButton @click="$emit('click')" />
+    <LocaleSelect />
     <q-btn
       v-if="currentGroup"
       flat

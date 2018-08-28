@@ -1,7 +1,7 @@
 <template>
   <component
     :is="asPage ? 'q-card' : 'div'"
-    class="bg-white k-messages"
+    class="bg-white"
   >
     <q-list no-border>
       <div
@@ -144,10 +144,3 @@ export default {
   },
 }
 </script>
-
-<style lang="stylus" scoped>
-.k-messages
-  max-width 500px
-  margin-left auto
-  margin-right auto
-</style>

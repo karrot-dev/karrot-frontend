@@ -19,6 +19,7 @@
     <q-popover
       v-if="!$q.platform.is.mobile"
       v-model="showing"
+      class="k-latest-messages-popover"
     >
       <LatestMessages
         v-if="showing"
@@ -78,3 +79,8 @@ export default {
   },
 }
 </script>
+
+<style lang="stylus" scoped>
+.k-latest-messages-popover
+  width 400px
+</style>

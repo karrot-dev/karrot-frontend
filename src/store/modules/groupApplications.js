@@ -27,7 +27,7 @@ export default {
     },
     getMineForGroupIdNotEnriched: (state, getters, rootState, rootGetters) => groupId => {
       const authUserId = rootGetters['auth/userId']
-      if (!authUserId) return []
+      if (!authUserId) return
       return Object.values(state.entries).find(a => a.group === groupId && a.user.id === authUserId && a.status === 'pending')
     },
     getForActivePreview: (state, getters, rootState, rootGetters) => {

@@ -32,7 +32,10 @@
         </p>
       </div>
     </div>
-    <q-card class="profile-info">
+    <q-card
+      v-if="!isInfoOnly"
+      class="profile-info"
+    >
       <q-card-media v-if="$q.platform.is.mobile && user.latitude && user.longitude">
         <UserMapPreview
           :user="user"
@@ -47,7 +50,7 @@
       <q-list :dense="$q.platform.is.mobile">
         <q-item style="height: 40px">
           <q-item-side icon="fas fa-fw fa-envelope" />
-          <q-item-main style="overflow: hidden; text-overflow: ellipsis">
+          <q-item-main class="ellipsis">
             <a :href='"mailto:" + user.email'>{{ user.email }}</a>
           </q-item-main>
           <q-item-side
@@ -122,6 +125,9 @@ export default {
         return 60
       }
       return 180
+    },
+    isInfoOnly () {
+      return !this.user.email
     },
   },
 }

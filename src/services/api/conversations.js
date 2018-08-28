@@ -43,7 +43,7 @@ function convertListResults (results) {
     messages: convertMessage(results.messages),
     pickups: convertPickup(results.pickups),
     applications: convertApplication(results.applications),
-    users: results.users,
+    usersInfo: results.usersInfo,
   }
 }
 

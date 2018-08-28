@@ -62,7 +62,7 @@
 
         <!-- desktop sidenav -->
         <q-layout-drawer
-          v-else-if="isLoggedIn && hasSidenavComponent && !disableDesktopSidenav"
+          v-else-if="isLoggedIn && currentGroup && hasSidenavComponent && !disableDesktopSidenav"
           side="left"
           :width="sidenavWidth"
           :breakpoint="0"
@@ -172,6 +172,7 @@ export default {
       showRightDrawer: 'detail/isActive',
       disableDesktopSidenav: 'route/disableDesktopSidenav',
       unreadCount: 'latestMessages/unreadCount',
+      currentGroup: 'currentGroup/value',
     }),
     layoutView () {
       if (this.$q.platform.is.mobile) {

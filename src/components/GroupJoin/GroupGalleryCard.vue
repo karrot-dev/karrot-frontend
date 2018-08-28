@@ -65,6 +65,7 @@
 </template>
 
 <script>
+import { mapGetters } from 'vuex'
 import { QCard, QCardTitle, QCardMain, QCardSeparator, QCardActions, QBtn, QTooltip, QIcon, QChip } from 'quasar'
 import Markdown from '@/components/Markdown'
 
@@ -79,6 +80,9 @@ export default {
     },
   },
   computed: {
+    ...mapGetters({
+      getMyApplicationInGroup: 'groupApplications/getMyInGroup',
+    }),
     cardColor () {
       return this.group.isPlayground ? 'secondary' : undefined
     },
@@ -90,14 +94,13 @@ export default {
     },
     myApplication () {
       if (!this.group) return
-      return this.$store.getters['groupApplications/getMyInGroup'](this.group.id)
+      return this.getMyApplicationInGroup(this.group.id)
     },
     hasMyApplication () {
       return Boolean(this.myApplication)
     },
   },
 }
-
 </script>
 
 <style scoped lang="stylus">

@@ -93,7 +93,7 @@ export default {
         commit('clear')
       },
     }),
-    updateConversationsAndRelated ({ commit, dispatch, rootState }, { conversations, messages, pickups, applications, users }) {
+    updateConversationsAndRelated ({ commit, dispatch, rootState }, { conversations, messages, pickups, applications, usersInfo }) {
       if (conversations) commit('updateConversations', conversations)
       if (messages) commit('updateConversationMessages', messages)
       if (pickups) {
@@ -106,8 +106,8 @@ export default {
           dispatch('groupApplications/update', application, { root: true })
         }
       }
-      if (users) {
-        for (const user of users) {
+      if (usersInfo) {
+        for (const user of usersInfo) {
           // contains only limited user info, so only update if we don't have the user already
           if (!rootState.users.entries[user.id]) {
             dispatch('users/update', user, { root: true })

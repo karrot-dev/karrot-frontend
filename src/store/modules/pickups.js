@@ -142,9 +142,8 @@ export default {
       commit('setStoreIdFilter', storeId)
     },
     addFeedbackPossible ({ commit, getters, rootGetters }, pickup) {
-      const groupId = rootGetters['currentGroup/id']
       const { group } = getters.enrich(pickup)
-      if (group && group.id === groupId) {
+      if (group && group.isCurrentGroup) {
         commit('setFeedbackPossible', [pickup])
       }
     },

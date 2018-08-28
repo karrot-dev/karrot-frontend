@@ -1440,35 +1440,14 @@ exports[`Storyshots GroupPreviewUI not member, pending application 1`] = `
     <div class="q-card-separator"></div>
     <div class="q-card-actions q-card-actions-horiz row justify-start">
       <div style="width:100%;">
-        <!---->
         <div>
-          <div class="q-alert row no-wrap shadow-2 bg-blue text-white">
+          <div class="q-alert row no-wrap shadow-2 bg-info text-white">
             <div class="q-alert-side col-auto row flex-center">
               <i aria-hidden="true" class="q-icon material-icons">info</i>
             </div>
             <div class="q-alert-content col self-center">
               <div>
-                Your application is pending!
-              </div>
-            </div>
-            <div class="q-alert-actions col-auto gutter-xs column flex-center">
-              <div class="full-width">
-                <button tabindex="0" type="button" class="q-btn inline relative-position q-btn-item non-selectable full-width q-btn-rectangle q-btn-flat q-focusable q-hoverable q-btn-dense">
-                  <div class="q-focus-helper"></div>
-                  <div class="q-btn-inner row col items-center justify-start">
-                    <i aria-hidden="true" class="q-icon fas fa-fw fa-comments on-left"> </i>
-                    <div>Open</div>
-                  </div>
-                </button>
-              </div>
-              <div class="full-width">
-                <button tabindex="0" type="button" class="q-btn inline relative-position q-btn-item non-selectable full-width q-btn-rectangle q-btn-flat q-focusable q-hoverable q-btn-dense">
-                  <div class="q-focus-helper"></div>
-                  <div class="q-btn-inner row col items-center justify-start">
-                    <i aria-hidden="true" class="q-icon fas fa-fw fa-trash-alt on-left"> </i>
-                    <div>Withdraw</div>
-                  </div>
-                </button>
+                By joining this group, your profile data will become visible to other group members.
               </div>
             </div>
           </div>
@@ -1476,6 +1455,12 @@ exports[`Storyshots GroupPreviewUI not member, pending application 1`] = `
         <!---->
         <!---->
         <!---->
+        <button tabindex="0" type="button" class="q-btn inline relative-position q-btn-item non-selectable float-right generic-margin q-btn-rectangle q-focusable q-hoverable bg-secondary text-white">
+          <div class="q-focus-helper"></div>
+          <div class="q-btn-inner row col items-center justify-center">
+            Apply
+          </div>
+        </button>
       </div>
     </div>
   </div>
@@ -1957,6 +1942,213 @@ exports[`Storyshots History List Default 1`] = `
 </div>
 `;
 
+exports[`Storyshots Latest Messages flag: muted 1`] = `
+<div class="q-item q-item-division relative-position q-item-link">
+  <div class="q-item-side q-item-section q-item-side-left">
+    <div class="wrapper" style="width:40px;height:40px;">
+      <a title="Mira Bellenbaum">
+        <div text="Mira Bellenbaum" seed="1" class="randomArt" style="width:40px;height:40px;"></div>
+      </a>
+    </div>
+  </div>
+  <div class="q-item-main q-item-section">
+    <div class="row no-wrap justify-between items-baseline q-item-label">
+      <div class="row no-wrap items-baseline ellipsis">
+        Mira Bellenbaum
+        <i aria-hidden="true" title="Notifications are disabled" class="q-icon q-ml-xs fas fa-fw fa-bell-slash text-grey" style="font-size:12px;"> </i>
+      </div> <span><small><div title="Aug 11, 2017, 3:43 PM" class="q-pl-xs" style="white-space:nowrap;">
+  4 months ago
+</div></small></span></div>
+    <!---->
+    <div class="row no-wrap items-baseline q-item-sublabel" style="max-height:18px;">
+      <!---->
+      <!---->
+      <div class="ellipsis col">first messsage</div>
+      <!---->
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Storyshots Latest Messages flag: unread 1`] = `
+<div class="q-item q-item-division relative-position q-item-link isUnread">
+  <div class="q-item-side q-item-section q-item-side-left">
+    <div class="wrapper" style="width:40px;height:40px;">
+      <a title="Mira Bellenbaum">
+        <div text="Mira Bellenbaum" seed="1" class="randomArt" style="width:40px;height:40px;"></div>
+      </a>
+    </div>
+  </div>
+  <div class="q-item-main q-item-section">
+    <div class="row no-wrap justify-between items-baseline q-item-label">
+      <div class="row no-wrap items-baseline ellipsis">
+        Mira Bellenbaum
+        <!---->
+      </div> <span><small><div title="Aug 11, 2017, 3:43 PM" class="q-pl-xs" style="white-space:nowrap;">
+  4 months ago
+</div></small></span></div>
+    <!---->
+    <div class="row no-wrap items-baseline q-item-sublabel" style="max-height:18px;">
+      <!---->
+      <!---->
+      <div class="ellipsis col">first messsage</div>
+      <div round="" class="q-chip row no-wrap inline items-center inline-chip bg-secondary text-white">
+        <div class="q-chip-main ellipsis">
+          1
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Storyshots Latest Messages flag: unread+muted 1`] = `
+<div class="q-item q-item-division relative-position q-item-link">
+  <div class="q-item-side q-item-section q-item-side-left">
+    <div class="wrapper" style="width:40px;height:40px;">
+      <a title="Mira Bellenbaum">
+        <div text="Mira Bellenbaum" seed="1" class="randomArt" style="width:40px;height:40px;"></div>
+      </a>
+    </div>
+  </div>
+  <div class="q-item-main q-item-section">
+    <div class="row no-wrap justify-between items-baseline q-item-label">
+      <div class="row no-wrap items-baseline ellipsis">
+        Mira Bellenbaum
+        <i aria-hidden="true" title="Notifications are disabled" class="q-icon q-ml-xs fas fa-fw fa-bell-slash text-grey" style="font-size:12px;"> </i>
+      </div> <span><small><div title="Aug 11, 2017, 3:43 PM" class="q-pl-xs" style="white-space:nowrap;">
+  4 months ago
+</div></small></span></div>
+    <!---->
+    <div class="row no-wrap items-baseline q-item-sublabel" style="max-height:18px;">
+      <!---->
+      <!---->
+      <div class="ellipsis col">first messsage</div>
+      <div round="" class="q-chip row no-wrap inline items-center inline-chip bg-grey text-white">
+        <div class="q-chip-main ellipsis">
+          1
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Storyshots Latest Messages type: application chat 1`] = `
+<div class="q-item q-item-division relative-position q-item-link">
+  <div class="q-item-side q-item-section q-item-side-left">
+    <div class="wrapper" style="width:40px;height:40px;">
+      <a title="Mira Bellenbaum">
+        <div text="Mira Bellenbaum" seed="1" class="randomArt" style="width:40px;height:40px;"></div>
+      </a>
+    </div>
+  </div>
+  <div class="q-item-main q-item-section">
+    <div class="row no-wrap justify-between items-baseline q-item-label">
+      <div class="row no-wrap items-baseline ellipsis">
+        <i aria-hidden="true" title="Application" class="q-icon q-mr-sm fas fw-fw fa-user-plus"> </i>
+        <div class="ellipsis">
+
+        </div>
+        <!---->
+      </div> <span><small><div title="Aug 11, 2017, 3:43 PM" class="q-pl-xs" style="white-space:nowrap;">
+  4 months ago
+</div></small></span></div>
+    <!---->
+    <div class="row no-wrap items-baseline q-item-sublabel" style="max-height:18px;">
+      <div class="text-secondary">
+        Mira Bellenbaum:
+      </div>
+      <!---->
+      <div class="ellipsis col">first messsage</div>
+      <!---->
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Storyshots Latest Messages type: pickup chat 1`] = `
+<div class="q-item q-item-division relative-position q-item-link">
+  <!---->
+  <div class="q-item-main q-item-section">
+    <div class="row no-wrap justify-between items-baseline q-item-label">
+      <div class="row no-wrap items-baseline ellipsis">
+        <i aria-hidden="true" class="q-icon q-mr-sm fas fa-fw fa-shopping-basket"> </i>
+        Saturday 8:00 AM
+        <!---->
+      </div> <span><small><div title="Aug 11, 2017, 3:43 PM" class="q-pl-xs" style="white-space:nowrap;">
+  4 months ago
+</div></small></span></div>
+    <div class="q-mb-xs q-item-label">
+      <small>
+        Griesheimer Markt · August 12, 2017
+      </small>
+    </div>
+    <div class="row no-wrap items-baseline q-item-sublabel" style="max-height:18px;">
+      <div class="text-secondary">
+        Mira Bellenbaum:
+      </div>
+      <!---->
+      <div class="ellipsis col">first messsage</div>
+      <!---->
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Storyshots Latest Messages type: private chat 1`] = `
+<div class="q-item q-item-division relative-position q-item-link">
+  <div class="q-item-side q-item-section q-item-side-left">
+    <div class="wrapper" style="width:40px;height:40px;">
+      <a title="Mira Bellenbaum">
+        <div text="Mira Bellenbaum" seed="1" class="randomArt" style="width:40px;height:40px;"></div>
+      </a>
+    </div>
+  </div>
+  <div class="q-item-main q-item-section">
+    <div class="row no-wrap justify-between items-baseline q-item-label">
+      <div class="row no-wrap items-baseline ellipsis">
+        Mira Bellenbaum
+        <!---->
+      </div> <span><small><div title="Aug 11, 2017, 3:43 PM" class="q-pl-xs" style="white-space:nowrap;">
+  4 months ago
+</div></small></span></div>
+    <!---->
+    <div class="row no-wrap items-baseline q-item-sublabel" style="max-height:18px;">
+      <!---->
+      <!---->
+      <div class="ellipsis col">first messsage</div>
+      <!---->
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Storyshots Latest Messages type: thread 1`] = `
+<div class="q-item q-item-division relative-position q-item-link">
+  <!---->
+  <div class="q-item-main q-item-section">
+    <div class="row no-wrap justify-between items-baseline q-item-label">
+      <div class="row no-wrap items-baseline ellipsis">
+        <i aria-hidden="true" class="q-icon q-mr-sm fas fw-fw fa-comments"> </i>
+        <div class="ellipsis">here is the message that started the thread</div>
+        <!---->
+      </div> <span><small><div title="Aug 11, 2017, 3:43 PM" class="q-pl-xs" style="white-space:nowrap;">
+  4 months ago
+</div></small></span></div>
+    <!---->
+    <div class="row no-wrap items-baseline q-item-sublabel" style="max-height:18px;">
+      <div class="text-secondary">
+        Mira Bellenbaum:
+      </div>
+      <!---->
+      <div class="ellipsis col">first messsage</div>
+      <!---->
+    </div>
+  </div>
+</div>
+`;
+
 exports[`Storyshots Layout KFooter 1`] = `
 <div class="footer row">
   <div class="k-logo-container col-xl-1 col-xs-4">
@@ -2034,6 +2226,18 @@ exports[`Storyshots Layout KTopbar 1`] = `
       <i aria-hidden="true" class="q-icon fab fa-discourse"> </i>
       <!---->
       <div tabindex="-1" class="q-popover scroll k-community-feed"></div>
+    </div>
+  </button>
+  <button tabindex="0" type="button" class="q-btn inline relative-position q-btn-item non-selectable q-btn-round q-btn-flat q-focusable q-hoverable q-btn-dense">
+    <div class="q-focus-helper"></div>
+    <div class="q-btn-inner row col items-center justify-center">
+      <i aria-hidden="true" class="q-icon fas fa-comments"> </i>
+      <div class="q-chip row no-wrap inline items-center q-chip-floating q-chip-dense q-chip-square bg-secondary text-white">
+        <div class="q-chip-main ellipsis">
+          1
+        </div>
+      </div>
+      <div tabindex="-1" class="q-popover scroll k-latest-messages-popover"></div>
     </div>
   </button>
   <button tabindex="0" type="button" title="Switch language" class="q-btn inline relative-position q-btn-item non-selectable q-btn-round q-btn-flat q-focusable q-hoverable q-btn-dense">
@@ -2384,211 +2588,6 @@ exports[`Storyshots Map UserMapPreview 1`] = `
     <!---->
   </div>
   <a class="overlay"></a>
-</div>
-`;
-
-exports[`Storyshots Messages flag: muted 1`] = `
-<div class="q-item q-item-division relative-position q-item-link">
-  <div class="q-item-side q-item-section q-item-side-left">
-    <div class="wrapper" style="width:40px;height:40px;">
-      <a title="Mira Bellenbaum">
-        <div text="Mira Bellenbaum" seed="1" class="randomArt" style="width:40px;height:40px;"></div>
-      </a>
-    </div>
-  </div>
-  <div class="q-item-main q-item-section">
-    <div class="row no-wrap justify-between items-baseline q-item-label">
-      <div class="row no-wrap items-baseline ellipsis">
-        Mira Bellenbaum
-        <i aria-hidden="true" title="Notifications are disabled" class="q-icon q-ml-xs fas fa-fw fa-bell-slash text-grey" style="font-size:12px;"> </i>
-      </div> <span><small><div title="Aug 11, 2017, 3:43 PM" class="q-pl-xs" style="white-space:nowrap;">
-  4 months ago
-</div></small></span></div>
-    <!---->
-    <div class="row no-wrap items-baseline q-item-sublabel" style="max-height:18px;">
-      <!---->
-      <!---->
-      <div class="ellipsis col">first messsage</div>
-      <!---->
-    </div>
-  </div>
-</div>
-`;
-
-exports[`Storyshots Messages flag: unread 1`] = `
-<div class="q-item q-item-division relative-position q-item-link isUnread">
-  <div class="q-item-side q-item-section q-item-side-left">
-    <div class="wrapper" style="width:40px;height:40px;">
-      <a title="Mira Bellenbaum">
-        <div text="Mira Bellenbaum" seed="1" class="randomArt" style="width:40px;height:40px;"></div>
-      </a>
-    </div>
-  </div>
-  <div class="q-item-main q-item-section">
-    <div class="row no-wrap justify-between items-baseline q-item-label">
-      <div class="row no-wrap items-baseline ellipsis">
-        Mira Bellenbaum
-        <!---->
-      </div> <span><small><div title="Aug 11, 2017, 3:43 PM" class="q-pl-xs" style="white-space:nowrap;">
-  4 months ago
-</div></small></span></div>
-    <!---->
-    <div class="row no-wrap items-baseline q-item-sublabel" style="max-height:18px;">
-      <!---->
-      <!---->
-      <div class="ellipsis col">first messsage</div>
-      <div round="" class="q-chip row no-wrap inline items-center inline-chip bg-secondary text-white">
-        <div class="q-chip-main ellipsis">
-          1
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-`;
-
-exports[`Storyshots Messages flag: unread+muted 1`] = `
-<div class="q-item q-item-division relative-position q-item-link">
-  <div class="q-item-side q-item-section q-item-side-left">
-    <div class="wrapper" style="width:40px;height:40px;">
-      <a title="Mira Bellenbaum">
-        <div text="Mira Bellenbaum" seed="1" class="randomArt" style="width:40px;height:40px;"></div>
-      </a>
-    </div>
-  </div>
-  <div class="q-item-main q-item-section">
-    <div class="row no-wrap justify-between items-baseline q-item-label">
-      <div class="row no-wrap items-baseline ellipsis">
-        Mira Bellenbaum
-        <i aria-hidden="true" title="Notifications are disabled" class="q-icon q-ml-xs fas fa-fw fa-bell-slash text-grey" style="font-size:12px;"> </i>
-      </div> <span><small><div title="Aug 11, 2017, 3:43 PM" class="q-pl-xs" style="white-space:nowrap;">
-  4 months ago
-</div></small></span></div>
-    <!---->
-    <div class="row no-wrap items-baseline q-item-sublabel" style="max-height:18px;">
-      <!---->
-      <!---->
-      <div class="ellipsis col">first messsage</div>
-      <div round="" class="q-chip row no-wrap inline items-center inline-chip bg-grey text-white">
-        <div class="q-chip-main ellipsis">
-          1
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-`;
-
-exports[`Storyshots Messages type: application chat 1`] = `
-<div class="q-item q-item-division relative-position q-item-link">
-  <div class="q-item-side q-item-section q-item-side-left">
-    <div class="wrapper" style="width:40px;height:40px;">
-      <a title="Mira Bellenbaum">
-        <div text="Mira Bellenbaum" seed="1" class="randomArt" style="width:40px;height:40px;"></div>
-      </a>
-    </div>
-  </div>
-  <div class="q-item-main q-item-section">
-    <div class="row no-wrap justify-between items-baseline q-item-label">
-      <div class="row no-wrap items-baseline ellipsis">
-        <i aria-hidden="true" title="Application" class="q-icon q-mr-sm fas fw-fw fa-user-plus"> </i>
-        <div class="ellipsis">Mira Bellenbaum</div>
-        <!---->
-      </div> <span><small><div title="Aug 11, 2017, 3:43 PM" class="q-pl-xs" style="white-space:nowrap;">
-  4 months ago
-</div></small></span></div>
-    <!---->
-    <div class="row no-wrap items-baseline q-item-sublabel" style="max-height:18px;">
-      <div class="text-secondary">
-        Mira Bellenbaum:
-      </div>
-      <!---->
-      <div class="ellipsis col">first messsage</div>
-      <!---->
-    </div>
-  </div>
-</div>
-`;
-
-exports[`Storyshots Messages type: pickup chat 1`] = `
-<div class="q-item q-item-division relative-position q-item-link">
-  <!---->
-  <div class="q-item-main q-item-section">
-    <div class="row no-wrap justify-between items-baseline q-item-label">
-      <div class="row no-wrap items-baseline ellipsis">
-        <i aria-hidden="true" class="q-icon q-mr-sm fas fa-fw fa-shopping-basket"> </i>
-        Saturday 8:00 AM
-        <!---->
-      </div> <span><small><div title="Aug 11, 2017, 3:43 PM" class="q-pl-xs" style="white-space:nowrap;">
-  4 months ago
-</div></small></span></div>
-    <div class="q-mb-xs q-item-label">
-      <small>
-        Griesheimer Markt · August 12, 2017
-      </small>
-    </div>
-    <div class="row no-wrap items-baseline q-item-sublabel" style="max-height:18px;">
-      <div class="text-secondary">
-        Mira Bellenbaum:
-      </div>
-      <!---->
-      <div class="ellipsis col">first messsage</div>
-      <!---->
-    </div>
-  </div>
-</div>
-`;
-
-exports[`Storyshots Messages type: private chat 1`] = `
-<div class="q-item q-item-division relative-position q-item-link">
-  <div class="q-item-side q-item-section q-item-side-left">
-    <div class="wrapper" style="width:40px;height:40px;">
-      <a title="Mira Bellenbaum">
-        <div text="Mira Bellenbaum" seed="1" class="randomArt" style="width:40px;height:40px;"></div>
-      </a>
-    </div>
-  </div>
-  <div class="q-item-main q-item-section">
-    <div class="row no-wrap justify-between items-baseline q-item-label">
-      <div class="row no-wrap items-baseline ellipsis">
-        Mira Bellenbaum
-        <!---->
-      </div> <span><small><div title="Aug 11, 2017, 3:43 PM" class="q-pl-xs" style="white-space:nowrap;">
-  4 months ago
-</div></small></span></div>
-    <!---->
-    <div class="row no-wrap items-baseline q-item-sublabel" style="max-height:18px;">
-      <!---->
-      <!---->
-      <div class="ellipsis col">first messsage</div>
-      <!---->
-    </div>
-  </div>
-</div>
-`;
-
-exports[`Storyshots Messages type: thread 1`] = `
-<div class="q-item q-item-division relative-position q-item-link">
-  <!---->
-  <div class="q-item-main q-item-section">
-    <div class="row no-wrap justify-between items-baseline q-item-label">
-      <div class="row no-wrap items-baseline ellipsis">
-        <i aria-hidden="true" class="q-icon q-mr-sm fas fw-fw fa-comments"> </i>
-        <div class="ellipsis">here is the message that started the thread</div>
-        <!---->
-      </div> <span><small><div title="Aug 11, 2017, 3:43 PM" class="q-pl-xs" style="white-space:nowrap;">
-  4 months ago
-</div></small></span></div>
-    <!---->
-    <div class="row no-wrap items-baseline q-item-sublabel" style="max-height:18px;">
-      <div class="text-secondary">
-        Mira Bellenbaum:
-      </div>
-      <!---->
-      <div class="ellipsis col">first messsage</div>
-      <!---->
-    </div>
-  </div>
 </div>
 `;
 
@@ -4010,15 +4009,6 @@ exports[`Storyshots Sidenav Boxes Group 1`] = `
           <div class="q-item-main q-item-section">
             Pickups
           </div>
-        </a>
-        <a class="q-link q-item q-item-division relative-position q-item-link">
-          <div class="q-item-side q-item-section text-center q-item-side-left">
-            <i aria-hidden="true" class="q-icon fas fa-comments"> </i>
-          </div>
-          <div class="q-item-main q-item-section">
-            Messages
-          </div>
-          <!---->
         </a>
         <a class="q-link q-item q-item-division relative-position q-item-link">
           <div class="q-item-side q-item-section text-center q-item-side-left">

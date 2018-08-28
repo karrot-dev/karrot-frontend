@@ -176,7 +176,7 @@ export default {
     },
     clearUpcomingForStore (state, storeId) {
       const now = new Date()
-      state.entries
+      Object.values(state.entries)
         .filter(pickup => pickup.store === storeId && pickup.date >= now)
         .forEach(pickup => Vue.delete(state.entries, pickup.id))
     },

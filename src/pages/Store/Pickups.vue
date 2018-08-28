@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div v-if="store">
     <q-card class="no-shadow no-padding grey-border">
       <RandomArt
         :seed="store.id"
@@ -132,7 +132,7 @@ export default {
   },
   computed: {
     markers () {
-      return [storeMarker(this.store)]
+      return this.store ? [storeMarker(this.store)] : []
     },
     ...mapGetters({
       store: 'stores/activeStore',
@@ -146,7 +146,7 @@ export default {
       return this.store && this.store.status !== 'active'
     },
     directionsURL () {
-      if (!this.store.latitude) return
+      if (!this.store || !this.store.latitude) return
       if (this.$q.platform.is.ios) {
         return directions.apple(this.store)
       }

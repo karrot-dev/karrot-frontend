@@ -15,6 +15,7 @@ export default {
         dispatch('currentGroup/refresh', null, { root: true }),
         dispatch('currentThread/refresh', null, { root: true }),
         dispatch('auth/refresh', null, { root: true }),
+        dispatch('latestMessages/refresh', null, { root: true }),
       ])
       if (done) done()
     },

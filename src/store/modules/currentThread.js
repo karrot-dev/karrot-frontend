@@ -116,7 +116,7 @@ export default {
     },
 
     refresh ({ dispatch, state }) {
-      dispatch('fetchOrRedirect', state.id)
+      if (state.id) dispatch('fetchOrRedirect', state.id)
     },
   },
   mutations: {

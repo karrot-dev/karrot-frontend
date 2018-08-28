@@ -32,6 +32,7 @@
         :message="conv.latestMessage"
         :unread-count="conv.unreadMessageCount"
         :muted="!conv.emailNotifications"
+        :selected="isSelected(conv)"
         @open="open(conv)"
       />
       <q-item
@@ -62,6 +63,7 @@
         :message="conv.latestMessage"
         :unread-count="conv.threadMeta.unreadReplyCount"
         :muted="conv.threadMeta.muted"
+        :selected="isSelected(conv)"
         @open="openForThread(conv)"
       />
       <q-item
@@ -121,6 +123,7 @@ export default {
       threads: 'latestMessages/threads',
       canFetchPastThreads: 'latestMessages/canFetchPastThreads',
       fetchingPastThreads: 'latestMessages/fetchingPastThreads',
+      selectedConversation: 'detail/conversation',
     }),
   },
   methods: {
@@ -140,6 +143,11 @@ export default {
         case 'private': return this.openForUser(target)
         case 'application': return this.openForApplication(target)
       }
+    },
+    isSelected (conv) {
+      if (!this.selectedConversation) return false
+      if (Boolean(conv.thread) !== Boolean(this.selectedConversation.thread)) return false
+      return conv.id === this.selectedConversation.id
     },
   },
 }

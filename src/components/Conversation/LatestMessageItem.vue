@@ -1,7 +1,7 @@
 <template>
   <q-item
     link
-    :class="{ isUnread: unreadCount > 0 && !muted }"
+    :class="{ isUnread: unreadCount > 0 && !muted, selected }"
     @click.native="$emit('open')"
   >
     <q-item-side
@@ -41,7 +41,9 @@
               class="q-mr-sm"
               :title="$t('APPLICATION.APPLICATION')"
             />
-            <div class="ellipsis">{{ application.user.displayName }}</div>
+            <div class="ellipsis">
+              {{ applicationTitle }}
+            </div>
           </template>
           <template v-else-if="isGroup">
             <q-icon
@@ -168,6 +170,10 @@ export default {
       type: Boolean,
       default: false,
     },
+    selected: {
+      type: Boolean,
+      default: false,
+    },
   },
   computed: {
     isGroup () {
@@ -184,6 +190,13 @@ export default {
     },
     isApplication () {
       return Boolean(this.application)
+    },
+    applicationTitle () {
+      if (this.isApplication && this.application.group) {
+        return this.application.user.isCurrentUser
+          ? this.application.group.name
+          : this.application.user.displayName
+      }
     },
   },
 }
@@ -207,4 +220,7 @@ export default {
   min-height 22px
   padding 0 7px
   margin-left 2px
+
+.selected
+  background $item-highlight-color
 </style>

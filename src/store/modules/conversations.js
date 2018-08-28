@@ -292,22 +292,16 @@ export default {
       if (conversationId) commit('clearMessages', { conversationId })
     },
 
-    async fetchApplicationConversation ({ commit }, { conversationId, applicationId }) {
-      const conversation = await conversationsAPI.get(conversationId)
-      commit('setConversation', { conversation, applicationId })
-    },
-
-    async fetchForApplication ({ state, dispatch, commit }, { applicationId }) {
-      let conversation
+    async fetchForApplication ({ commit, state, dispatch }, { applicationId }) {
       // TODO use mapping applicationId -> conversationId from groupApplications module
       let conversationId = state.applicationConversationIds[applicationId]
-      if (conversationId) conversation = state.entries[conversationId]
-      if (!conversation) {
+      if (!conversationId) {
         // TODO use already loaded application from groupApplications module
         conversationId = (await groupApplicationsAPI.get(applicationId)).conversation
-        dispatch('fetchApplicationConversation', { conversationId, applicationId })
+        const conversation = await conversationsAPI.get(conversationId)
+        commit('setConversation', { conversation, applicationId })
       }
-      dispatch('fetch', conversation.id)
+      dispatch('fetch', conversationId)
     },
 
     clearForApplication ({ state, commit }, { applicationId }) {
@@ -395,6 +389,7 @@ export default {
         dispatch('updateConversation', await conversationsAPI.get(conversationId))
       })
       Object.keys(state.messages).forEach(async conversationId => {
+        console.log(conversationId)
         commit('clearMessages', { conversationId })
         dispatch('fetch', conversationId)
       })

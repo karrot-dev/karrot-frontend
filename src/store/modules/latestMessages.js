@@ -131,6 +131,9 @@ export default {
       if (threads) commit('updateThreads', threads)
       if (messages) commit('updateThreadMessages', messages)
     },
+    refresh ({ dispatch }) {
+      dispatch('fetch')
+    },
   },
   mutations: {
     clear (state) {

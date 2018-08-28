@@ -21,7 +21,7 @@
             <strong>{{ $d(pickup.date, 'dayAndTime') }}</strong>
             <span slot="subtitle">
               <strong v-if="pickup.store">
-                <router-link :to="{ name: 'store', params: { storeId: pickup.store.id }}">
+                <router-link :to="{ name: 'store', params: { groupId: pickup.group.id, storeId: pickup.store.id }}">
                   {{ pickup.store.name }}
                 </router-link>
               </strong>
@@ -50,7 +50,9 @@
               :size="$q.platform.is.mobile ? 25 : 40"
             />
             <q-toolbar-title>
-              <span v-t="'APPLICATION.APPLICATION'" />
+              <router-link :to="applicationLink">
+                <span v-t="'APPLICATION.APPLICATION'" />
+              </router-link>
               <span slot="subtitle">
                 {{ application.user.isCurrentUser ? application.group.name : application.user.displayName }}
               </span>
@@ -207,6 +209,25 @@ export default {
         return this.conversation.threadMeta.participants
       }
       return this.conversation.participants
+    },
+    applicationLink () {
+      if (!this.application) return
+      if (this.application.user.isCurrentUser) {
+        return {
+          name: 'groupPreview',
+          params: {
+            groupPreviewId: this.application.group.id,
+          },
+        }
+      }
+      else {
+        return {
+          name: 'groupApplications',
+          params: {
+            groupId: this.application.group.id,
+          },
+        }
+      }
     },
   },
   methods: {

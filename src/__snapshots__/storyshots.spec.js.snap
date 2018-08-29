@@ -4694,7 +4694,7 @@ exports[`Storyshots Statistics FeedbackItem 1`] = `
 `;
 
 exports[`Storyshots Statistics FeedbackList 1`] = `
-<div class="q-infinite-scroll">
+<div class="q-infinite-scroll k-feedback-list">
   <div class="q-infinite-scroll-content">
     <!---->
     <div class="q-card no-shadow grey-border">
@@ -5004,7 +5004,7 @@ exports[`Storyshots Statistics PickupFeedback 1`] = `
   <div class="q-card no-shadow grey-border store-feedback">
     <div seed="61" type="banner" class="randomBanner"></div>
     <h4 class="generic-padding"></h4>
-    <div class="q-infinite-scroll">
+    <div class="q-infinite-scroll k-feedback-list">
       <div class="q-infinite-scroll-content">
         <!---->
         <div class="q-card no-shadow grey-border">

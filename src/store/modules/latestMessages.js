@@ -190,3 +190,14 @@ function getFirst (list) {
   if (!list || list.length === 0) return
   return list[0]
 }
+
+export function plugin (store) {
+  store.watch((state, getters) => getters['auth/isLoggedIn'], isLoggedIn => {
+    if (isLoggedIn) {
+      store.dispatch('latestMessages/fetch')
+    }
+    else {
+      store.dispatch('latestMessages/clear')
+    }
+  })
+}

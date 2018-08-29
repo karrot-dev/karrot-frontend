@@ -46,10 +46,6 @@ export default async function initApp () {
   }
   store.dispatch('communityFeed/fetchTopics')
 
-  if (store.getters['auth/isLoggedIn']) {
-    store.dispatch('latestMessages/fetch')
-  }
-
   /* eslint-disable no-new */
   const vueRoot = new Vue({
     el: '#q-app',

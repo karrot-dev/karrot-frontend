@@ -37,7 +37,8 @@
               <i class="fas fa-bars relative-position">
                 <div
                   v-if="hasUnread"
-                  class="k-highlight-dot bg-secondary"
+                  class="k-highlight-dot"
+                  :class="allUnreadMuted ? 'bg-grey' : 'bg-secondary'"
                 />
               </i>
             </q-btn>
@@ -172,6 +173,7 @@ export default {
       showRightDrawer: 'detail/isActive',
       disableDesktopSidenav: 'route/disableDesktopSidenav',
       unreadCount: 'latestMessages/unreadCount',
+      allUnreadMuted: 'latestMessages/allUnreadMuted',
       currentGroup: 'currentGroup/value',
     }),
     layoutView () {

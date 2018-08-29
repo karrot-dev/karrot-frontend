@@ -2,12 +2,12 @@
   <div v-if="store">
     <q-card class="no-shadow no-padding grey-border">
       <RandomArt
-        :seed="store.id"
+        :seed="storeId"
         type="banner"/>
       <div class="generic-padding">
 
         <div class="actionButtons">
-          <router-link :to="{name: 'storeEdit', params: { storeId: store.id }}">
+          <router-link :to="{name: 'storeEdit', params: { storeId }}">
             <q-btn
               small
               round
@@ -18,7 +18,7 @@
               <q-tooltip v-t="'STOREDETAIL.EDIT'" />
             </q-btn>
           </router-link>
-          <router-link :to="{name: 'storePickupsManage', params: { storeId: store.id }}">
+          <router-link :to="{name: 'storePickupsManage', params: { storeId }}">
             <q-btn
               small
               round
@@ -73,7 +73,7 @@
       </template>
       {{ $t('STOREDETAIL.INACTIVE') }}
       <template slot="desc">
-        <router-link :to="{name: 'storeEdit', params: { storeId: store.id }}">
+        <router-link :to="{name: 'storeEdit', params: { storeId }}">
           {{ $t('STOREDETAIL.CHANGE_STATUS') }}
           <q-btn
             small
@@ -90,7 +90,7 @@
       </template>
       {{ $t('PICKUPLIST.NONE') }}
       <template slot="desc">
-        <router-link :to="{name: 'storePickupsManage', params: { storeId: store.id }}">
+        <router-link :to="{name: 'storePickupsManage', params: { storeId }}">
           {{ $t('PICKUPLIST.STORE_NONE_HINT') }}
           <q-btn
             small
@@ -154,6 +154,9 @@ export default {
         return directions.google(this.store)
       }
       return directions.osm(this.currentUser, this.store)
+    },
+    storeId () {
+      return this.store && this.store.id
     },
   },
 }

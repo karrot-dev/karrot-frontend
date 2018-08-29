@@ -2,8 +2,8 @@
   <q-btn
     v-back-to-top
     round
-    small
-    class="fixed-bottom-right bg-primary btt-btn"
+    dense
+    class="fixed-bottom-right bg-primary q-mb-md q-mr-sm z-max"
   >
     <q-icon
       name="keyboard_arrow_up"
@@ -14,7 +14,6 @@
 
 <script>
 import {
-  Ripple,
   QBtn,
   QIcon,
   BackToTop,
@@ -26,13 +25,6 @@ export default {
   },
   directives: {
     BackToTop,
-    Ripple,
   },
-  name: 'BackToTopBtn',
 }
 </script>
-
-<style scoped lang = "stylus">
-  .btt-btn
-    margin: 0 15px 80px 0
-</style>

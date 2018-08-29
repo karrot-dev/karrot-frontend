@@ -42,8 +42,6 @@ describe('feedback module', () => {
     store = createStore({
       feedback: require('./feedback').default,
       pickups,
-      currentGroup,
-      auth,
       users,
     })
   })
@@ -54,9 +52,9 @@ describe('feedback module', () => {
 
   it('can update feedback', async () => {
     const changed = { ...feedback1, comment: 'new comment' }
-    const groupId = 1
+    const groupId = feedback1.about.group.id
     const userId = 1
-    mockPickupGet.mockReturnValueOnce({ store: { group: { id: groupId } } })
+    mockPickupGet.mockReturnValueOnce({ group: { id: groupId } })
     currentGroup.getters.id.mockReturnValueOnce(groupId)
     auth.getters.userId.mockReturnValueOnce(userId)
 

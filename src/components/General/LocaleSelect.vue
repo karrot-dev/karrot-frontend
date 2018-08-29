@@ -3,22 +3,41 @@
     flat
     dense
     round
+    @click="open = !open"
+    :title="$t('LANGUAGECHOOSER.SWITCH')"
   >
     <q-icon
       name="fas fa-globe fa-fw"
     />
-    <q-popover
-      @show="open = true"
-      @hide="open = false"
+    <component
+      :is="$q.platform.is.mobile ? 'q-modal' : 'q-popover'"
+      v-model="open"
+      minimized
     >
+      <div
+        v-if="$q.platform.is.mobile"
+        class="text-white bg-primary row no-wrap justify-between items-center"
+      >
+        <div class="ellipsis q-ml-md">
+          {{ $t('LANGUAGECHOOSER.SWITCH') }}
+        </div>
+        <q-btn
+          dense
+          round
+          color="secondary"
+          @click="open = false"
+          class="q-ma-xs q-mr-sm"
+        >
+          <q-icon name="fas fa-times" />
+        </q-btn>
+      </div>
       <LocaleSelectInner v-if="open"/>
-    </q-popover>
-    <q-tooltip v-t="'LANGUAGECHOOSER.SWITCH'" />
+    </component>
   </q-btn>
 </template>
 
 <script>
-import { QIcon, QBtn, QPopover, QList, QTooltip } from 'quasar'
+import { QIcon, QBtn, QPopover, QModal, QList } from 'quasar'
 
 const LocaleSelectInner = () => import('./LocaleSelectInner')
 
@@ -28,8 +47,8 @@ export default {
     QIcon,
     QBtn,
     QPopover,
+    QModal,
     QList,
-    QTooltip,
     LocaleSelectInner,
   },
   data () {

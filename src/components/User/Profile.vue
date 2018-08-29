@@ -39,7 +39,10 @@
         </h1>
       </div>
     </div>
-    <q-card class="profile-info relative-position q-pt-sm">
+    <q-card
+      v-if="!isInfoOnly"
+      class="profile-info relative-position q-pt-sm"
+    >
       <div
         class="user-actions"
       >
@@ -70,7 +73,7 @@
       <q-list>
         <q-item>
           <q-item-side icon="fas fa-fw fa-envelope" />
-          <q-item-main style="overflow: hidden; text-overflow: ellipsis">
+          <q-item-main class="ellipsis">
             <a :href='"mailto:" + user.email'>{{ user.email }}</a>
           </q-item-main>
         </q-item>
@@ -162,6 +165,9 @@ export default {
     currentGroupMembership () {
       const group = this.groups.find(g => g.isCurrentGroup)
       return group && group.membership
+    },
+    isInfoOnly () {
+      return !this.user.email
     },
   },
 }

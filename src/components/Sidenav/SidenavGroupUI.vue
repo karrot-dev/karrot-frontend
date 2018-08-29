@@ -13,6 +13,13 @@
       slot="tools"
       class="tools"
     >
+      <q-chip
+        v-if="!expanded && wallUnreadCount > 0"
+        small
+        color="secondary"
+      >
+        {{ wallUnreadCount }}
+      </q-chip>
       <q-btn
         flat
         dense
@@ -45,6 +52,17 @@
           <q-item-main>
             {{ $t("GROUP.WALL") }}
           </q-item-main>
+          <q-item-side
+            v-if="wallUnreadCount > 0"
+            right
+          >
+            <q-chip
+              small
+              color="secondary"
+            >
+              {{ wallUnreadCount }}
+            </q-chip>
+          </q-item-side>
         </q-item>
         <q-item :to="{ name: 'groupPickups', params: { groupId } }">
           <q-item-side class="text-center">
@@ -103,17 +121,27 @@
 </template>
 
 <script>
-import { QBtn, QList, QItem, QItemSide, QItemMain, QIcon, QTooltip } from 'quasar'
+import { QBtn, QList, QItem, QItemSide, QItemMain, QIcon, QTooltip, QChip } from 'quasar'
 import SidenavBox from './SidenavBox'
 import GroupOptions from './GroupOptions'
 
 export default {
   components: {
-    SidenavBox, GroupOptions, QBtn, QList, QItem, QItemSide, QItemMain, QIcon, QTooltip,
+    SidenavBox, GroupOptions, QBtn, QList, QItem, QItemSide, QItemMain, QIcon, QTooltip, QChip,
   },
   props: {
-    groupId: { required: true, type: Number },
-    expanded: { default: true, type: Boolean },
+    groupId: {
+      required: true,
+      type: Number,
+    },
+    expanded: {
+      default: true,
+      type: Boolean,
+    },
+    wallUnreadCount: {
+      default: 0,
+      type: Number,
+    },
   },
 }
 </script>

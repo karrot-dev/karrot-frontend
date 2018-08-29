@@ -1,4 +1,5 @@
 import axios, { parseCursor } from '@/services/axios'
+import { convert as convertPickup } from './pickups'
 
 export default {
   async create (feedback) {
@@ -14,7 +15,7 @@ export default {
     return {
       ...response,
       next: parseCursor(response.next),
-      results: convert(response.results),
+      results: convertListResults(response.results),
     }
   },
 
@@ -24,7 +25,7 @@ export default {
       ...response,
       next: parseCursor(response.next),
       prev: parseCursor(response.prev),
-      results: convert(response.results),
+      results: convertListResults(response.results),
     }
   },
 
@@ -43,5 +44,12 @@ export function convert (val) {
       createdAt: new Date(val.createdAt),
       weight: val.weight !== null ? parseFloat(val.weight) : null,
     }
+  }
+}
+
+function convertListResults (results) {
+  return {
+    feedback: convert(results.feedback),
+    pickups: convertPickup(results.pickups),
   }
 }

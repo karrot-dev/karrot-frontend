@@ -1,8 +1,30 @@
-import axios from '@/services/axios'
+import axios, { parseCursor } from '@/services/axios'
+import { convert as convertMessage } from './messages'
+import { convert as convertPickup } from './pickups'
+import { convert as convertApplication } from './groupApplications'
 
 export default {
   async get (id) {
     return convert((await axios.get(`/api/conversations/${id}/`)).data)
+  },
+
+  async list () {
+    const response = (await axios.get('/api/conversations/')).data
+    return {
+      ...response,
+      next: parseCursor(response.next),
+      results: convertListResults(response.results),
+    }
+  },
+
+  async listMore (cursor) {
+    const response = (await axios.get(cursor)).data
+    return {
+      ...response,
+      next: parseCursor(response.next),
+      prev: parseCursor(response.prev),
+      results: convertListResults(response.results),
+    }
   },
 
   async mark (id, data) {
@@ -15,9 +37,24 @@ export default {
   },
 }
 
-export function convert (obj) {
+function convertListResults (results) {
   return {
-    ...obj,
-    updatedAt: new Date(obj.updatedAt),
+    conversations: convert(results.conversations),
+    messages: convertMessage(results.messages),
+    pickups: convertPickup(results.pickups),
+    applications: convertApplication(results.applications),
+    usersInfo: results.usersInfo,
+  }
+}
+
+export function convert (val) {
+  if (Array.isArray(val)) {
+    return val.map(convert)
+  }
+  else {
+    return {
+      ...val,
+      updatedAt: new Date(val.updatedAt),
+    }
   }
 }

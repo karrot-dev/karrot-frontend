@@ -46,7 +46,7 @@ export default {
   },
   data () {
     return {
-      availableNotificationTypes: ['weekly_summary', 'daily_pickup_notification'],
+      availableNotificationTypes: ['weekly_summary', 'daily_pickup_notification', 'new_application'],
     }
   },
   methods: {

@@ -28,6 +28,11 @@ export default {
       if (type !== 'user') return
       return rootGetters['users/get'](id)
     },
+    application: (state, getters, rootState, rootGetters) => {
+      const { type, id } = state.scope
+      if (type !== 'application') return
+      return rootGetters['groupApplications/get'](id)
+    },
     conversation: (state, getters, rootState, rootGetters) => {
       const { type, id } = state.scope
       if (type === 'pickup') {
@@ -35,6 +40,9 @@ export default {
       }
       if (type === 'user') {
         return rootGetters['conversations/getForUser'](id)
+      }
+      if (type === 'application') {
+        return rootGetters['conversations/getForApplication'](id)
       }
       if (type === 'thread') {
         return rootGetters['currentThread/get']
@@ -58,6 +66,7 @@ export default {
             // On desktop we don't have a user detail page, we go to the user page, and have a sidebar open
             throw createRouteRedirect({ name: 'user', params: { userId }, query: routeTo.query })
           }
+          dispatch('users/selectUser', { userId }, { root: true })
         }
         else {
           throw createRouteRedirect({ name: 'user', params: { userId }, query: routeTo.query })
@@ -69,6 +78,22 @@ export default {
           throw createRouteRedirect({ name: 'wall', params: { groupId }, query: routeTo.query })
         }
       }
+    },
+    async applicationRouteEnter ({ dispatch, rootGetters }, { groupId, applicationId, routeTo }) {
+      if (!applicationId) return
+      await dispatch('selectApplication', applicationId)
+      const { isCurrentUser } = rootGetters['groupApplications/get'](applicationId).user
+      if (!Platform.is.mobile) {
+        // On desktop we don't have a detail page, we go to the application list or the group preview, and have a sidebar open
+        throw createRouteRedirect({
+          ...(isCurrentUser
+            ? { name: 'groupPreview', params: { groupPreviewId: groupId } }
+            : { name: 'groupApplications', params: { groupId } }
+          ),
+          query: routeTo.query,
+        })
+      }
+      if (!isCurrentUser) dispatch('currentGroup/select', { groupId }, { root: true })
     },
     routeLeave ({ dispatch }) {
       dispatch('clear')
@@ -89,6 +114,14 @@ export default {
         dispatch('selectUser', user.id)
       }
     },
+    openForApplication ({ dispatch }, application) {
+      if (Platform.is.mobile) {
+        router.push({ name: 'applicationDetail', params: { groupId: application.group.id, applicationId: application.id } })
+      }
+      else {
+        dispatch('selectApplication', application.id)
+      }
+    },
     openForThread ({ dispatch }, message) {
       if (Platform.is.mobile) {
         router.push({ name: 'messageReplies', params: { messageId: message.id } })
@@ -107,6 +140,12 @@ export default {
       commit('setUserId', userId)
       dispatch('conversations/fetchForUser', { userId }, { root: true })
     },
+    async selectApplication ({ commit, dispatch }, applicationId) {
+      dispatch('clear')
+      commit('setApplicationId', applicationId)
+      dispatch('conversations/fetchForApplication', { applicationId }, { root: true })
+      await dispatch('groupApplications/maybeFetchOne', applicationId, { root: true })
+    },
     selectThread ({ commit, dispatch }, id) {
       dispatch('clear')
       commit('setThreadId', id)
@@ -120,6 +159,9 @@ export default {
       else if (type === 'user') {
         dispatch('conversations/clearForUser', { userId: id }, { root: true })
       }
+      else if (type === 'application') {
+        dispatch('conversations/clearForApplication', { applicationId: id }, { root: true })
+      }
       else if (type === 'thread') {
         dispatch('currentThread/clear', null, { root: true })
       }
@@ -132,6 +174,9 @@ export default {
     },
     setUserId (state, userId) {
       state.scope = { type: 'user', id: userId }
+    },
+    setApplicationId (state, applicationId) {
+      state.scope = { type: 'application', id: applicationId }
     },
     setThreadId (state, id) {
       state.scope = { type: 'thread', id }

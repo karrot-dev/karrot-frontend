@@ -8,24 +8,32 @@ jest.mock('@/services/api/pickups', () => ({
 }))
 
 import { createStore, defaultActionStatusesFor } from '>/helpers'
+import lolex from 'lolex'
 
 describe('pickups', () => {
   beforeEach(() => jest.resetModules())
 
   let storeMocks
   let vstore
+  let clock
 
   let userId = 10
 
   let pickup1
   let pickup2
   let pickup3
-  const group = { id: 666 }
+  const group = { id: 666, isCurrentGroup: true }
 
   beforeEach(() => {
-    pickup1 = { id: 1, store: 10, date: new Date(), collectorIds: [] }
-    pickup2 = { id: 2, store: 11, date: new Date(), collectorIds: [userId], maxCollectors: 1 }
-    pickup3 = { id: 3, store: 12, date: new Date(), collectorIds: [userId] }
+    const now = new Date('2017-01-01T12:00:10Z')
+    clock = lolex.install({ now, toFake: ['Date'] })
+    pickup1 = { id: 1, store: 10, date: new Date(), collectorIds: [], group }
+    pickup2 = { id: 2, store: 11, date: new Date(), collectorIds: [userId], maxCollectors: 1, group }
+    pickup3 = { id: 3, store: 12, date: new Date(), collectorIds: [userId], group }
+  })
+
+  afterEach(() => {
+    clock = clock.uninstall()
   })
 
   describe('logged in', () => {
@@ -60,17 +68,17 @@ describe('pickups', () => {
     })
 
     beforeEach(() => {
-      vstore.commit('pickups/set', { pickups: [pickup1, pickup2, pickup3], groupId: group.id })
+      vstore.commit('pickups/set', [pickup1, pickup2, pickup3])
     })
 
     it('can enrich', async () => {
       expect(vstore.getters['pickups/enrich'](pickup2)).toEqual({
         ...pickup2,
+        ...defaultActionStatusesFor('save', 'join', 'leave'),
         store: { id: pickup2.store, group },
         isUserMember: true,
         isEmpty: false,
         isFull: true,
-        ...defaultActionStatusesFor('save', 'join', 'leave'),
         collectors: [{ id: userId, name: `Some Name${userId}` }],
       })
     })
@@ -112,6 +120,7 @@ describe('pickups', () => {
           id: storeId,
           group,
         },
+        group,
       })
     })
 

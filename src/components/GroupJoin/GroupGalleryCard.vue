@@ -3,18 +3,21 @@
     <q-card
       class="groupPreviewCard relative-position"
       :color="cardColor"
-      :class="{ application: group.hasMyApplication, highlight: group.isCurrentGroup }"
+      :class="{
+        application: hasMyApplication,
+        highlight: group.isCurrentGroup,
+      }"
       :style="cardStyle"
       @click.native="$emit(group.isMember ? 'visit' : 'preview')"
     >
       <q-chip
-        v-if="group.hasMyApplication"
+        v-if="hasMyApplication"
         floating
         class="q-pl-sm q-pt-xs q-pb-xs"
         color="blue"
         icon="fas fa-hourglass-half"
       />
-      <q-tooltip v-if="group.hasMyApplication">
+      <q-tooltip v-if="hasMyApplication">
         {{ $t('APPLICATION.GALLERY_TOOLTIP') }}
       </q-tooltip>
       <q-card-title class="ellipsis">
@@ -62,6 +65,7 @@
 </template>
 
 <script>
+import { mapGetters } from 'vuex'
 import { QCard, QCardTitle, QCardMain, QCardSeparator, QCardActions, QBtn, QTooltip, QIcon, QChip } from 'quasar'
 import Markdown from '@/components/Markdown'
 
@@ -76,6 +80,9 @@ export default {
     },
   },
   computed: {
+    ...mapGetters({
+      getMyApplicationInGroup: 'groupApplications/getMyInGroup',
+    }),
     cardColor () {
       return this.group.isPlayground ? 'secondary' : undefined
     },
@@ -85,9 +92,15 @@ export default {
         return { opacity: 0.5 }
       }
     },
+    myApplication () {
+      if (!this.group) return
+      return this.getMyApplicationInGroup(this.group.id)
+    },
+    hasMyApplication () {
+      return Boolean(this.myApplication)
+    },
   },
 }
-
 </script>
 
 <style scoped lang="stylus">

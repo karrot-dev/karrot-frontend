@@ -27,16 +27,12 @@ export default {
       const isCurrentGroup = group.id === rootGetters['currentGroup/id']
       const isPlayground = group.status === 'playground'
       const isInactive = group.status === 'inactive'
-      const hasMyApplication = Boolean(rootGetters['groupApplications/getByGroupId'](group.id))
-      const myApplication = rootGetters['groupApplications/getByGroupId'](group.id)
       return {
         ...group,
         isMember,
         isCurrentGroup,
         isPlayground,
         isInactive,
-        hasMyApplication,
-        myApplication,
         ...metaStatusesWithId(getters, ['save', 'join', 'leave'], group.id),
       }
     },
@@ -123,7 +119,7 @@ export default {
         }
       }
       commit('setActivePreview', groupPreviewId)
-      dispatch('groupApplications/fetchMine', groupPreviewId, { root: true })
+      dispatch('groupApplications/fetchMine', null, { root: true })
     },
     clearGroupPreview ({ commit }) {
       commit('setActivePreview', null)

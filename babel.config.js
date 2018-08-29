@@ -17,6 +17,8 @@ module.exports = {
         // Jest wants commonjs modules so we transform them
         '@babel/plugin-transform-modules-commonjs',
       ],
+      // Line numbers in jest tracebacks should make sense, even without sourcemaps
+      retainLines: true,
     },
     production: {
       plugins: [

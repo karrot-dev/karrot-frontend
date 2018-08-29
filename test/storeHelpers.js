@@ -7,8 +7,6 @@ export function enrichGroup (group) {
     isCurrentGroup: false,
     isPlayground: false,
     isInactive: false,
-    hasMyApplication: false,
-    myApplication: undefined,
     ...defaultActionStatusesFor('save', 'join', 'leave'),
   }
 }

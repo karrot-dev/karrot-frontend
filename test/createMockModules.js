@@ -29,7 +29,8 @@ export default ({ user }) => ({
   groupApplications: {
     namespaced: true,
     getters: {
-      getByGroupId: () => () => null,
+      groupHasMyApplication: () => () => null,
+      getForActivePreview: () => null,
     },
     actions: {
       fetchMine: jest.fn(),

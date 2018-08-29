@@ -53,6 +53,32 @@ export default {
       results: convert(response.results),
     }
   },
+
+  async listMyThreads () {
+    const response = (await axios.get('/api/messages/my_threads/')).data
+    return {
+      ...response,
+      next: parseCursor(response.next),
+      results: convertListMyThreadsResult(response.results),
+    }
+  },
+
+  async listMyThreadsMore (cursor) {
+    const response = (await axios.get(cursor)).data
+    return {
+      ...response,
+      next: parseCursor(response.next),
+      prev: parseCursor(response.prev),
+      results: convertListMyThreadsResult(response.results),
+    }
+  },
+}
+
+export function convertListMyThreadsResult (results) {
+  return {
+    threads: convert(results.threads),
+    messages: convert(results.messages),
+  }
 }
 
 export function convert (val) {
@@ -62,6 +88,10 @@ export function convert (val) {
   else {
     const createdAt = new Date(val.createdAt)
     const updatedAt = new Date(val.updatedAt)
-    return { ...val, createdAt, updatedAt }
+    return {
+      ...val,
+      createdAt,
+      updatedAt,
+    }
   }
 }

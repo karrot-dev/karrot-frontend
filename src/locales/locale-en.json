@@ -77,7 +77,11 @@
     "SHOW": "Show",
     "HIDE": "Hide",
     "SUBMIT": "Submit",
-    "APPLY": "Apply"
+    "APPLY": "Apply",
+    "ACCEPT": "Accept",
+    "DECLINE": "Decline",
+    "WITHDRAW": "Withdraw",
+    "SHOW_MORE": "Show more"
   },
   "VALIDATION": {
     "MINLENGTH": "Please enter more than {min} characters.",
@@ -104,9 +108,13 @@
     "APPLICATIONS": "Applications",
     "APPLICATION_QUESTIONS": "Questions for people who want to join this group",
     "PICKUPS": "Pickups",
+    "MESSAGES": "Messages",
     "PICKUP": "Pickup",
     "MEMBERS": "Members",
     "JOINED": "joined {relativeDate}",
+    "DECLINED": "declined {relativeDate}",
+    "ADDED_BY": "added by {userName}",
+    "DECLINED_BY": "declined by {userName}",
     "SORT_JOINDATE": "Sort by join date",
     "SORT_NAME": "Sort by name",
     "INACTIVE": "Inactive",
@@ -137,6 +145,10 @@
       "daily_pickup_notification": {
         "NAME": "Pickup notifications",
         "DESCRIPTION": "Reminds you of your pickups, and tells you about empty or not-full pickups in the next day"
+      },
+      "new_application": {
+        "NAME": "New applications",
+        "DESCRIPTION": "Tells you when somebody wants to join your group"
       }
     },
     "PLAYGROUND_INFO": "This is a playground group, you can't break anything. Explore, click around and have fun!",
@@ -216,7 +228,6 @@
     "PROFILE_NOTE": "By joining this group, your profile data will become visible to other group members.",
     "APPLICATION_SUBMITTED": "Your application was successfully submitted!",
     "APPLICATION_PENDING": "Your application is pending!",
-    "WITHDRAW_APPLICATION": "Withdraw",
     "WITHDRAW_CONFIRMATION_HEADER": "Withdraw Application",
     "WITHDRAW_CONFIRMATION_TEXT": "Are you sure you want to withdraw your application to join {groupName}?",
     "APPLICATION_WITHDRAWN": "Your application was successfully withdrawn!"
@@ -442,7 +453,9 @@
       "AND": "and",
       "REACTED_WITH":"{users} reacted with {reaction}"
     },
-    "MESSAGE_NOT_FOUND": "Message not found"
+    "MESSAGE_NOT_FOUND": "Message not found",
+    "NO_CONVERSATIONS": "No conversations yet.",
+    "MUTED": "Notifications are disabled"
   },
   "STORESTATUS": {
     "ACTIVE": "Co-operating",
@@ -452,23 +465,28 @@
     "ARCHIVED": "Archived"
   },
   "APPLICATION": {
+    "APPLICATION": "Application",
     "FORM_HEADER": "Apply",
     "FORM_TITLE": "Apply to join {groupName}",
     "GALLERY_TOOLTIP": "You applied to join this group. Your application is still pending.",
-    "ACCESS_CHAT": "Open the application chat",
     "WALL_NOTICE": "There is an application pending! | There are {count} applications pending!",
     "ACCEPT_CONFIRMATION_HEADER": "Accept Application",
     "ACCEPT_CONFIRMATION_TEXT": "Are you sure you want to accept {userName} into this group?",
     "DECLINE_CONFIRMATION_HEADER": "Decline Application",
-    "DECLINE_CONFIRMATION_TEXT": "Are you sure you want to decline {userName}'s application?",
-    "ACCEPTED": "You accepted {userName}'s request to join this group!",
-    "DECLINED": "You declined {userName}'s request to join this group!",
+    "DECLINE_CONFIRMATION_TEXT": "Are you sure you want to decline the application of {userName}?",
+    "ACCEPTED": "You accepted {userName} into this group!",
+    "DECLINED": "You declined the application of {userName}.",
     "PAST": "Past applications",
-    "SUBMITTED_ON": "Submitted on {date}"
+    "SUBMITTED_ON": "Submitted on {date}",
+    "WITHDRAWN": "withdrawn {relativeDate}",
+    "WHAT": "What is this chat about?",
+    "HELP": "This is a chat between all existing members of {groupName} and the new applicant {userName}. It is meant to give you all a chance to get to know you before deciding whether to accept, decline or withdraw the application.",
+    "INITIAL": "Initial questions and answers"
   },
   "COMMUNITY_FEED": {
     "HEADER": "Updates from the {community}",
     "HEADER_LINK": "foodsaving worldwide community",
     "LAST_UPDATED": "Last updated {relativeDate}"
-  }
+  },
+  "YOU": "You"
 }

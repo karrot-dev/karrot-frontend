@@ -19,29 +19,53 @@ export default {
     enrich: (state, getters, rootState, rootGetters) => application => {
       return application && {
         ...application,
+        user: rootGetters['users/enrich'](application.user),
+        group: rootGetters['groups/get'](application.group),
+        decidedBy: rootGetters['users/get'](application.decidedBy),
         isPending: application.status === 'pending',
         canDecide: application.status === 'pending' && rootGetters['currentGroup/isEditor'],
       }
     },
-    getByGroupId: state => groupId => {
-      return Object.values(state.entries).find(a => a.group === groupId)
+    getMineForGroupIdNotEnriched: (state, getters, rootState, rootGetters) => groupId => {
+      const authUserId = rootGetters['auth/userId']
+      if (!authUserId) return
+      return Object.values(state.entries).find(a => a.group === groupId && a.user.id === authUserId && a.status === 'pending')
     },
-    pending: (state, getters) => Object.keys(state.entries).map(getters.get).filter(a => a.isPending).sort(sortByCreatedAt),
-    allNonPending: (state, getters) => Object.keys(state.entries).map(getters.get).filter(a => !a.isPending).sort(sortByCreatedAt),
+    getForActivePreview: (state, getters, rootState, rootGetters) => {
+      const activePreview = rootGetters['groups/activePreview']
+      if (!activePreview) return
+      return getters.enrich(getters.getMineForGroupIdNotEnriched(activePreview.id))
+    },
+    getMyInGroup: (state, getters) => groupId => {
+      return getters.getMineForGroupIdNotEnriched(groupId)
+    },
+    forCurrentGroup: (state, getters) => Object.keys(state.entries)
+      .map(getters.get)
+      .filter(a => a.group && a.group.isCurrentGroup)
+      .sort(sortByCreatedAt),
+    forCurrentGroupPending: (state, getters) => getters.forCurrentGroup.filter(a => a.isPending),
+    forCurrentGroupNonPending: (state, getters) => getters.forCurrentGroup.filter(a => !a.isPending),
     ...metaStatuses(['apply']),
   },
   actions: {
     ...withMeta({
-
       async fetchMine ({ commit, rootGetters }) {
         const userId = rootGetters['auth/userId']
+        if (!userId) return
         const applicationList = await groupApplications.list({ user: userId, status: 'pending' })
-        commit('set', applicationList)
+        if (applicationList.length > 0) {
+          commit('set', applicationList)
+        }
       },
 
       async fetchByGroupId ({ commit }, { groupId }) {
         const applicationList = await groupApplications.list({ group: groupId })
         commit('set', applicationList)
+      },
+
+      async fetchOne ({ commit }, applicationId) {
+        const application = await groupApplications.get(applicationId)
+        commit('update', application)
       },
 
       async apply ({ commit, dispatch }, data) {
@@ -80,9 +104,18 @@ export default {
       },
 
     }),
+    async maybeFetchOne ({ state, dispatch, getters }, applicationId) {
+      const isPending = getters['meta/status']('fetchOne', applicationId).pending
+      if (state.entries[applicationId] || isPending) return
+
+      await dispatch('fetchOne', applicationId)
+    },
     clearGroupPreviewAndStatus ({ dispatch }) {
       dispatch('meta/clear', ['apply'])
       dispatch('groups/clearGroupPreview', null, { root: true })
+    },
+    clearEntries ({ commit }) {
+      commit('clear')
     },
     update ({ commit }, application) {
       commit('update', application)
@@ -90,7 +123,10 @@ export default {
   },
   mutations: {
     set (state, applicationList) {
-      state.entries = indexById(applicationList)
+      state.entries = {
+        ...state.entries,
+        ...indexById(applicationList),
+      }
     },
     delete (state, id) {
       if (state.entries[id]) Vue.delete(state.entries, id)
@@ -98,9 +134,12 @@ export default {
     update (state, application) {
       Vue.set(state.entries, application.id, application)
     },
+    clear (state) {
+      Object.assign(state, initialState())
+    },
   },
 }
 
 export function sortByCreatedAt (a, b) {
-  return a.createdAt < b.createdAt
+  return b.createdAt - a.createdAt
 }

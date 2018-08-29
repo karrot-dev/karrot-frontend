@@ -62,11 +62,10 @@ export default {
     enrichMembership: (state, getters, rootState, rootGetters) => membership => {
       if (!membership) return
       const authUserId = rootGetters['auth/userId']
+      // do not enrich trustedBy and addedBy, as it would create the cyclic dependency "user -> group -> user"
       return {
         ...membership,
         isEditor: membership.roles.includes('editor'),
-        // Do not enrich trustedBy, as it would lead to cyclic dependencies
-        // trustedBy: membership.trustedBy.map(getters.get),
         trusted: membership.trustedBy.includes(authUserId),
       }
     },
@@ -117,14 +116,20 @@ export default {
           commit('setProfile', await users.getProfile(userId))
         }
         catch (error) {
-          const data = { translation: 'PROFILE.INACCESSIBLE_OR_DELETED' }
-          throw createRouteError(data)
+          try {
+            commit('setProfile', await users.getInfo(userId))
+          }
+          catch (error) {
+            const data = { translation: 'PROFILE.INACCESSIBLE_OR_DELETED' }
+            throw createRouteError(data)
+          }
         }
       }
     },
     async update ({ state, commit }, user) {
       commit('update', user)
       if (state.activeUserProfile && state.activeUserProfile.id === user.id) {
+        // TODO catch error if profile is info-only
         commit('setProfile', await users.getProfile(user.id))
       }
     },
@@ -151,6 +156,7 @@ export default {
         dispatch('fetch')
       }
       if (state.activeUserProfile) {
+        // TODO catch error if profile is info-only
         commit('setProfile', await users.getProfile(userId))
       }
     },

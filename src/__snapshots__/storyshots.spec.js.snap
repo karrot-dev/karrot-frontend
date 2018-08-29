@@ -2,10 +2,15 @@
 
 exports[`Storyshots AddressPicker Default 1`] = `
 <div>
-  <div tabindex="-1" class="q-if row no-wrap items-end relative-position q-input q-search text-primary">
+  <div tabindex="-1" class="q-if row no-wrap relative-position q-input q-search q-if-standard q-if-has-content text-primary">
+    <div class="q-if-baseline">|</div>
     <i aria-hidden="true" class="q-icon q-if-control q-if-control-before material-icons">search</i>
-    <div class="q-if-inner col row no-wrap relative-position">
-      <input type="text" placeholder="Search" step="any" value="" class="col q-input-target q-no-input-spinner text-left">
+    <div class="q-if-inner col row">
+      <div class="col-12 row no-wrap relative-position">
+        <input type="search" placeholder="Search" step="any" value="" class="col q-input-target q-no-input-spinner ellipsis text-left">
+      </div>
+    </div>
+    <div class="absolute-full no-pointer-events">
       <div tabindex="-1" class="q-popover scroll">
         <div class="q-list no-border" style="min-width:0;"></div>
       </div>
@@ -35,17 +40,17 @@ exports[`Storyshots ApplicationForm create 1`] = `
         </div>
       </div>
       <div>
-        <div class="q-tabs flex no-wrap markdown-input q-tabs-position-top q-tabs-inverted">
+        <div class="q-tabs flex no-wrap overflow-hidden markdown-input q-tabs-position-top q-tabs-inverted">
           <div class="q-tabs-head row q-tabs-align-right text-primary">
             <div class="q-tabs-scroller row no-wrap">
-              <div class="q-tab column flex-center relative-position markdown-input-tab active disabled q-tab-only-label hide-none text-primary">
+              <div data-tab-name="edit" class="q-tab column flex-center relative-position markdown-input-tab active disabled q-tab-only-label hide-none text-primary">
                 <div class="q-tab-label-parent relative-position">
                   <div class="q-tab-label">Edit</div>
                 </div>
                 <div class="q-tabs-bar"></div>
                 <div tabindex="-1" class="q-tab-focus-helper absolute-full"></div>
               </div>
-              <div class="q-tab column flex-center relative-position markdown-input-tab disabled q-tab-only-label hide-none text-primary">
+              <div data-tab-name="preview" class="q-tab column flex-center relative-position markdown-input-tab disabled q-tab-only-label hide-none text-primary">
                 <div class="q-tab-label-parent relative-position">
                   <div class="q-tab-label">Preview</div>
                 </div>
@@ -65,12 +70,15 @@ exports[`Storyshots ApplicationForm create 1`] = `
           </div>
           <div class="q-tabs-panes">
             <div class="q-tab-pane">
-              <div tabindex="-1" id="group-title" rows="6" class="q-if row no-wrap items-end relative-position q-input text-primary">
-                <div class="q-if-inner col row no-wrap relative-position q-if-inner-dynamic">
-                  <div class="col row relative-position">
-                    <object type="text/html" data="about:blank" aria-hidden="true" style="display:block;position:absolute;top:0;left:0;right:0;bottom:0;height:100%;width:100%;overflow:hidden;pointer-events:none;z-index:-1;"></object>
-                    <textarea rows="6" id="group-title" class="col q-input-target q-input-shadow absolute-top"></textarea>
-                    <textarea rows="6" id="group-title" class="col q-input-target q-input-area"></textarea>
+              <div tabindex="-1" id="group-title" rows="6" class="q-if row no-wrap relative-position q-input q-if-standard text-primary">
+                <div class="q-if-baseline">|</div>
+                <div class="q-if-inner col row">
+                  <div class="col-12 row no-wrap relative-position">
+                    <div class="col row relative-position">
+                      <object type="text/html" data="about:blank" aria-hidden="true" style="display:block;position:absolute;top:0;left:0;right:0;bottom:0;height:100%;width:100%;overflow:hidden;pointer-events:none;z-index:-1;"></object>
+                      <textarea rows="6" id="group-title" class="col q-input-target q-input-shadow absolute-top"></textarea>
+                      <textarea rows="6" id="group-title" class="col q-input-target q-input-area"></textarea>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -129,15 +137,20 @@ exports[`Storyshots General Components KBreadcrumb 1`] = `
 
 exports[`Storyshots General Components Search 1`] = `
 <div class="wrapper">
-  <div tabindex="-1" separator="" class="q-if row no-wrap items-end relative-position q-input q-search lightgrey text-primary">
+  <div tabindex="-1" separator="" class="q-if row no-wrap relative-position q-input q-search lightgrey q-if-standard q-if-has-content text-primary">
+    <div class="q-if-baseline">|</div>
     <i aria-hidden="true" class="q-icon q-if-control q-if-control-before material-icons">search</i>
-    <div class="q-if-inner col row no-wrap relative-position">
-      <input separator="" type="text" placeholder="Search" step="any" class="col q-input-target q-no-input-spinner text-left">
+    <div class="q-if-inner col row">
+      <div class="col-12 row no-wrap relative-position">
+        <input separator="" type="search" placeholder="Search" step="any" class="col q-input-target q-no-input-spinner ellipsis text-left">
+      </div>
+    </div>
+    <i aria-hidden="true" class="q-icon q-if-control material-icons">cancel</i>
+    <div class="absolute-full no-pointer-events">
       <div tabindex="-1" class="q-popover scroll">
         <div class="q-list no-border" style="min-width:0;"></div>
       </div>
     </div>
-    <i aria-hidden="true" class="q-icon q-if-control material-icons">cancel</i>
   </div>
 </div>
 `;
@@ -147,22 +160,25 @@ exports[`Storyshots GroupEdit create 1`] = `
   <div class="q-card">
     <div class="edit-box">
       <form>
-        <div class="q-field row no-wrap items-start q-field-responsive">
+        <div class="q-field row no-wrap items-start q-field-responsive q-field-no-input">
           <i aria-hidden="true" class="q-icon q-field-icon q-field-margin fas fa-fw fa-star"> </i>
           <div class="row col">
             <div class="q-field-label q-field-margin col-xs-12 col-sm-5">
               <div class="q-field-label-inner row items-center">Title of this group</div>
             </div>
             <div class="q-field-content col-xs-12 col-sm">
-              <div tabindex="-1" id="group-title" autocomplete="off" class="q-if row no-wrap items-end relative-position q-input text-primary">
-                <div class="q-if-inner col row no-wrap relative-position">
-                  <input id="group-title" autocomplete="off" type="text" step="any" value="05_testgroup" class="col q-input-target q-no-input-spinner">
+              <div tabindex="-1" id="group-title" autocomplete="off" class="q-if row no-wrap relative-position q-input q-if-standard q-if-has-content text-primary">
+                <div class="q-if-baseline">|</div>
+                <div class="q-if-inner col row">
+                  <div class="col-12 row no-wrap relative-position">
+                    <input id="group-title" autocomplete="off" type="text" step="any" value="05_testgroup" class="col q-input-target q-no-input-spinner ellipsis">
+                  </div>
                 </div>
               </div>
             </div>
           </div>
         </div>
-        <div class="q-field row no-wrap items-start q-field-responsive">
+        <div class="q-field row no-wrap items-start q-field-responsive q-field-no-input">
           <i aria-hidden="true" class="q-icon q-field-icon q-field-margin fas fa-fw fa-question"> </i>
           <div class="row col">
             <div class="q-field-label q-field-margin col-xs-12 col-sm-5">
@@ -170,17 +186,17 @@ exports[`Storyshots GroupEdit create 1`] = `
             </div>
             <div class="q-field-content col-xs-12 col-sm">
               <div>
-                <div class="q-tabs flex no-wrap markdown-input q-tabs-position-top q-tabs-inverted">
+                <div class="q-tabs flex no-wrap overflow-hidden markdown-input q-tabs-position-top q-tabs-inverted">
                   <div class="q-tabs-head row q-tabs-align-right text-primary">
                     <div class="q-tabs-scroller row no-wrap">
-                      <div class="q-tab column flex-center relative-position markdown-input-tab active q-tab-only-label hide-none text-primary">
+                      <div data-tab-name="edit" class="q-tab column flex-center relative-position markdown-input-tab active q-tab-only-label hide-none text-primary">
                         <div class="q-tab-label-parent relative-position">
                           <div class="q-tab-label">Edit</div>
                         </div>
                         <div class="q-tabs-bar"></div>
                         <div tabindex="-1" class="q-tab-focus-helper absolute-full"></div>
                       </div>
-                      <div class="q-tab column flex-center relative-position markdown-input-tab q-tab-only-label hide-none text-primary">
+                      <div data-tab-name="preview" class="q-tab column flex-center relative-position markdown-input-tab q-tab-only-label hide-none text-primary">
                         <div class="q-tab-label-parent relative-position">
                           <div class="q-tab-label">Preview</div>
                         </div>
@@ -200,12 +216,15 @@ exports[`Storyshots GroupEdit create 1`] = `
                   </div>
                   <div class="q-tabs-panes">
                     <div class="q-tab-pane">
-                      <div tabindex="-1" rows="4" class="q-if row no-wrap items-end relative-position q-input text-primary">
-                        <div class="q-if-inner col row no-wrap relative-position q-if-inner-dynamic">
-                          <div class="col row relative-position">
-                            <object type="text/html" data="about:blank" aria-hidden="true" style="display:block;position:absolute;top:0;left:0;right:0;bottom:0;height:100%;width:100%;overflow:hidden;pointer-events:none;z-index:-1;"></object>
-                            <textarea rows="4" class="col q-input-target q-input-shadow absolute-top">This is the public description It would make sense if it was markdown # then this would be a header [and this a link](www.google.de)</textarea>
-                            <textarea rows="4" class="col q-input-target q-input-area">This is the public description It would make sense if it was markdown # then this would be a header [and this a link](www.google.de)</textarea>
+                      <div tabindex="-1" rows="4" class="q-if row no-wrap relative-position q-input q-if-standard q-if-has-content text-primary">
+                        <div class="q-if-baseline">|</div>
+                        <div class="q-if-inner col row">
+                          <div class="col-12 row no-wrap relative-position">
+                            <div class="col row relative-position">
+                              <object type="text/html" data="about:blank" aria-hidden="true" style="display:block;position:absolute;top:0;left:0;right:0;bottom:0;height:100%;width:100%;overflow:hidden;pointer-events:none;z-index:-1;"></object>
+                              <textarea rows="4" class="col q-input-target q-input-shadow absolute-top">This is the public description It would make sense if it was markdown # then this would be a header [and this a link](www.google.de)</textarea>
+                              <textarea rows="4" class="col q-input-target q-input-area">This is the public description It would make sense if it was markdown # then this would be a header [and this a link](www.google.de)</textarea>
+                            </div>
                           </div>
                         </div>
                       </div>
@@ -224,7 +243,7 @@ exports[`Storyshots GroupEdit create 1`] = `
             </div>
           </div>
         </div>
-        <div class="q-field row no-wrap items-start q-field-responsive">
+        <div class="q-field row no-wrap items-start q-field-responsive q-field-no-input">
           <i aria-hidden="true" class="q-icon q-field-icon q-field-margin fas fa-fw fa-address-card"> </i>
           <div class="row col">
             <div class="q-field-label q-field-margin col-xs-12 col-sm-5">
@@ -232,17 +251,17 @@ exports[`Storyshots GroupEdit create 1`] = `
             </div>
             <div class="q-field-content col-xs-12 col-sm">
               <div>
-                <div class="q-tabs flex no-wrap markdown-input q-tabs-position-top q-tabs-inverted">
+                <div class="q-tabs flex no-wrap overflow-hidden markdown-input q-tabs-position-top q-tabs-inverted">
                   <div class="q-tabs-head row q-tabs-align-right text-primary">
                     <div class="q-tabs-scroller row no-wrap">
-                      <div class="q-tab column flex-center relative-position markdown-input-tab active disabled q-tab-only-label hide-none text-primary">
+                      <div data-tab-name="edit" class="q-tab column flex-center relative-position markdown-input-tab active disabled q-tab-only-label hide-none text-primary">
                         <div class="q-tab-label-parent relative-position">
                           <div class="q-tab-label">Edit</div>
                         </div>
                         <div class="q-tabs-bar"></div>
                         <div tabindex="-1" class="q-tab-focus-helper absolute-full"></div>
                       </div>
-                      <div class="q-tab column flex-center relative-position markdown-input-tab disabled q-tab-only-label hide-none text-primary">
+                      <div data-tab-name="preview" class="q-tab column flex-center relative-position markdown-input-tab disabled q-tab-only-label hide-none text-primary">
                         <div class="q-tab-label-parent relative-position">
                           <div class="q-tab-label">Preview</div>
                         </div>
@@ -262,12 +281,15 @@ exports[`Storyshots GroupEdit create 1`] = `
                   </div>
                   <div class="q-tabs-panes">
                     <div class="q-tab-pane">
-                      <div tabindex="-1" rows="4" class="q-if row no-wrap items-end relative-position q-input text-primary">
-                        <div class="q-if-inner col row no-wrap relative-position q-if-inner-dynamic">
-                          <div class="col row relative-position">
-                            <object type="text/html" data="about:blank" aria-hidden="true" style="display:block;position:absolute;top:0;left:0;right:0;bottom:0;height:100%;width:100%;overflow:hidden;pointer-events:none;z-index:-1;"></object>
-                            <textarea rows="4" class="col q-input-target q-input-shadow absolute-top">undefined</textarea>
-                            <textarea rows="4" class="col q-input-target q-input-area">undefined</textarea>
+                      <div tabindex="-1" rows="4" class="q-if row no-wrap relative-position q-input q-if-standard text-primary">
+                        <div class="q-if-baseline">|</div>
+                        <div class="q-if-inner col row">
+                          <div class="col-12 row no-wrap relative-position">
+                            <div class="col row relative-position">
+                              <object type="text/html" data="about:blank" aria-hidden="true" style="display:block;position:absolute;top:0;left:0;right:0;bottom:0;height:100%;width:100%;overflow:hidden;pointer-events:none;z-index:-1;"></object>
+                              <textarea rows="4" class="col q-input-target q-input-shadow absolute-top">undefined</textarea>
+                              <textarea rows="4" class="col q-input-target q-input-area">undefined</textarea>
+                            </div>
                           </div>
                         </div>
                       </div>
@@ -286,7 +308,7 @@ exports[`Storyshots GroupEdit create 1`] = `
             </div>
           </div>
         </div>
-        <div class="q-field row no-wrap items-start q-field-responsive">
+        <div class="q-field row no-wrap items-start q-field-responsive q-field-no-input">
           <i aria-hidden="true" class="q-icon q-field-icon q-field-margin fas fa-fw fa-map-marker"> </i>
           <div class="row col">
             <div class="q-field-label q-field-margin col-xs-12 col-sm-5">
@@ -294,10 +316,15 @@ exports[`Storyshots GroupEdit create 1`] = `
             </div>
             <div class="q-field-content col-xs-12 col-sm">
               <div>
-                <div tabindex="-1" class="q-if row no-wrap items-end relative-position q-input q-search text-primary">
+                <div tabindex="-1" class="q-if row no-wrap relative-position q-input q-search q-if-standard q-if-has-content text-primary">
+                  <div class="q-if-baseline">|</div>
                   <i aria-hidden="true" class="q-icon q-if-control q-if-control-before material-icons">search</i>
-                  <div class="q-if-inner col row no-wrap relative-position">
-                    <input type="text" placeholder="Search" step="any" value="Darmstadt, Regierungsbezirk Darmstadt, Hessen, Deutschland" class="col q-input-target q-no-input-spinner text-left">
+                  <div class="q-if-inner col row">
+                    <div class="col-12 row no-wrap relative-position">
+                      <input type="search" placeholder="Search" step="any" value="Darmstadt, Regierungsbezirk Darmstadt, Hessen, Deutschland" class="col q-input-target q-no-input-spinner ellipsis text-left">
+                    </div>
+                  </div>
+                  <div class="absolute-full no-pointer-events">
                     <div tabindex="-1" class="q-popover scroll">
                       <div class="q-list no-border" style="min-width:0;"></div>
                     </div>
@@ -310,7 +337,7 @@ exports[`Storyshots GroupEdit create 1`] = `
             </div>
           </div>
         </div>
-        <div class="q-field row no-wrap items-start q-field-responsive">
+        <div class="q-field row no-wrap items-start q-field-responsive q-field-no-input">
           <i aria-hidden="true" class="q-icon q-field-icon q-field-margin fas fa-fw fa-question"> </i>
           <div class="row col">
             <div class="q-field-label q-field-margin col-xs-12 col-sm-5">
@@ -318,17 +345,17 @@ exports[`Storyshots GroupEdit create 1`] = `
             </div>
             <div class="q-field-content col-xs-12 col-sm">
               <div>
-                <div class="q-tabs flex no-wrap markdown-input q-tabs-position-top q-tabs-inverted">
+                <div class="q-tabs flex no-wrap overflow-hidden markdown-input q-tabs-position-top q-tabs-inverted">
                   <div class="q-tabs-head row q-tabs-align-right text-primary">
                     <div class="q-tabs-scroller row no-wrap">
-                      <div class="q-tab column flex-center relative-position markdown-input-tab active q-tab-only-label hide-none text-primary">
+                      <div data-tab-name="edit" class="q-tab column flex-center relative-position markdown-input-tab active q-tab-only-label hide-none text-primary">
                         <div class="q-tab-label-parent relative-position">
                           <div class="q-tab-label">Edit</div>
                         </div>
                         <div class="q-tabs-bar"></div>
                         <div tabindex="-1" class="q-tab-focus-helper absolute-full"></div>
                       </div>
-                      <div class="q-tab column flex-center relative-position markdown-input-tab q-tab-only-label hide-none text-primary">
+                      <div data-tab-name="preview" class="q-tab column flex-center relative-position markdown-input-tab q-tab-only-label hide-none text-primary">
                         <div class="q-tab-label-parent relative-position">
                           <div class="q-tab-label">Preview</div>
                         </div>
@@ -348,13 +375,16 @@ exports[`Storyshots GroupEdit create 1`] = `
                   </div>
                   <div class="q-tabs-panes">
                     <div class="q-tab-pane">
-                      <div tabindex="-1" rows="6" class="q-if row no-wrap items-end relative-position q-input text-primary">
-                        <div class="q-if-inner col row no-wrap relative-position q-if-inner-dynamic">
-                          <div class="col row relative-position">
-                            <object type="text/html" data="about:blank" aria-hidden="true" style="display:block;position:absolute;top:0;left:0;right:0;bottom:0;height:100%;width:100%;overflow:hidden;pointer-events:none;z-index:-1;"></object>
-                            <textarea rows="6" class="col q-input-target q-input-shadow absolute-top">Hello stranger! :smiley: :wave: Do you want to help us save all the good food from being wasted? Please tell us how you plan to contribute and who or what made you aware of our existence! Looking forward to working with you!</textarea>
-                            <textarea
-                              rows="6" class="col q-input-target q-input-area">Hello stranger! :smiley: :wave: Do you want to help us save all the good food from being wasted? Please tell us how you plan to contribute and who or what made you aware of our existence! Looking forward to working with you!</textarea>
+                      <div tabindex="-1" rows="6" class="q-if row no-wrap relative-position q-input q-if-standard q-if-has-content text-primary">
+                        <div class="q-if-baseline">|</div>
+                        <div class="q-if-inner col row">
+                          <div class="col-12 row no-wrap relative-position">
+                            <div class="col row relative-position">
+                              <object type="text/html" data="about:blank" aria-hidden="true" style="display:block;position:absolute;top:0;left:0;right:0;bottom:0;height:100%;width:100%;overflow:hidden;pointer-events:none;z-index:-1;"></object>
+                              <textarea rows="6" class="col q-input-target q-input-shadow absolute-top">Hello stranger! :smiley: :wave: Do you want to help us save all the good food from being wasted? Please tell us how you plan to contribute and who or what made you aware of our existence! Looking forward to working with you!</textarea>
+                              <textarea
+                                rows="6" class="col q-input-target q-input-area">Hello stranger! :smiley: :wave: Do you want to help us save all the good food from being wasted? Please tell us how you plan to contribute and who or what made you aware of our existence! Looking forward to working with you!</textarea>
+                            </div>
                           </div>
                         </div>
                       </div>
@@ -373,16 +403,21 @@ exports[`Storyshots GroupEdit create 1`] = `
             </div>
           </div>
         </div>
-        <div class="q-field row no-wrap items-start q-field-responsive">
+        <div class="q-field row no-wrap items-start q-field-responsive q-field-no-input">
           <i aria-hidden="true" class="q-icon q-field-icon q-field-margin fas fa-fw fa-globe"> </i>
           <div class="row col">
             <div class="q-field-label q-field-margin col-xs-12 col-sm-5">
               <div class="q-field-label-inner row items-center">Time zone of group</div>
             </div>
             <div class="q-field-content col-xs-12 col-sm">
-              <div tabindex="-1" class="q-if row no-wrap items-end relative-position q-input text-primary">
-                <div class="q-if-inner col row no-wrap relative-position">
-                  <input type="text" step="any" class="col q-input-target q-no-input-spinner">
+              <div tabindex="-1" class="q-if row no-wrap relative-position q-input q-if-standard text-primary">
+                <div class="q-if-baseline">|</div>
+                <div class="q-if-inner col row">
+                  <div class="col-12 row no-wrap relative-position">
+                    <input type="text" step="any" class="col q-input-target q-no-input-spinner ellipsis">
+                  </div>
+                </div>
+                <div class="absolute-full no-pointer-events">
                   <div tabindex="-1" class="q-popover scroll">
                     <div class="q-list no-border" style="min-width:0;"></div>
                   </div>
@@ -436,10 +471,13 @@ exports[`Storyshots GroupGallery signup view 1`] = `
     <div class="row items-start no-wrap">
       <div class="col">
         <div class="q-card">
-          <div tabindex="-1" class="q-if row no-wrap items-end relative-position q-input q-search searchbar q-if-hide-underline text-primary">
+          <div tabindex="-1" class="q-if row no-wrap relative-position q-input q-search searchbar q-if-hide-underline q-if-standard q-if-has-content text-primary">
+            <div class="q-if-baseline">|</div>
             <i aria-hidden="true" class="q-icon q-if-control q-if-control-before material-icons">search</i>
-            <div class="q-if-inner col row no-wrap relative-position">
-              <input type="text" placeholder="Search" step="any" value="" class="col q-input-target q-no-input-spinner text-left">
+            <div class="q-if-inner col row">
+              <div class="col-12 row no-wrap relative-position">
+                <input type="search" placeholder="Search" step="any" value="" class="col q-input-target q-no-input-spinner ellipsis text-left">
+              </div>
             </div>
           </div>
         </div>
@@ -652,10 +690,13 @@ exports[`Storyshots GroupGallery switch and explore 1`] = `
     <div class="row items-start no-wrap">
       <div class="col">
         <div class="q-card">
-          <div tabindex="-1" class="q-if row no-wrap items-end relative-position q-input q-search searchbar q-if-hide-underline text-primary">
+          <div tabindex="-1" class="q-if row no-wrap relative-position q-input q-search searchbar q-if-hide-underline q-if-standard q-if-has-content text-primary">
+            <div class="q-if-baseline">|</div>
             <i aria-hidden="true" class="q-icon q-if-control q-if-control-before material-icons">search</i>
-            <div class="q-if-inner col row no-wrap relative-position">
-              <input type="text" placeholder="Search" step="any" value="" class="col q-input-target q-no-input-spinner text-left">
+            <div class="q-if-inner col row">
+              <div class="col-12 row no-wrap relative-position">
+                <input type="search" placeholder="Search" step="any" value="" class="col q-input-target q-no-input-spinner ellipsis text-left">
+              </div>
             </div>
           </div>
         </div>
@@ -1415,7 +1456,16 @@ exports[`Storyshots GroupPreviewUI not member, pending application 1`] = `
                 <button tabindex="0" type="button" class="q-btn inline relative-position q-btn-item non-selectable full-width q-btn-rectangle q-btn-flat q-focusable q-hoverable q-btn-dense">
                   <div class="q-focus-helper"></div>
                   <div class="q-btn-inner row col items-center justify-start">
-                    <i aria-hidden="true" class="q-icon fas fa-trash-alt on-left"> </i>
+                    <i aria-hidden="true" class="q-icon fas fa-fw fa-comments on-left"> </i>
+                    <div>Open</div>
+                  </div>
+                </button>
+              </div>
+              <div class="full-width">
+                <button tabindex="0" type="button" class="q-btn inline relative-position q-btn-item non-selectable full-width q-btn-rectangle q-btn-flat q-focusable q-hoverable q-btn-dense">
+                  <div class="q-focus-helper"></div>
+                  <div class="q-btn-inner row col items-center justify-start">
+                    <i aria-hidden="true" class="q-icon fas fa-fw fa-trash-alt on-left"> </i>
                     <div>Withdraw</div>
                   </div>
                 </button>
@@ -1620,6 +1670,24 @@ exports[`Storyshots GroupSettings show 1`] = `
       <div class="q-item-main q-item-section">
         <div class="q-item-label">Pickup notifications</div>
         <div class="q-item-sublabel">Reminds you of your pickups, and tells you about empty or not-full pickups in the next day</div>
+      </div>
+    </label>
+    <label class="q-item q-item-division relative-position">
+      <div class="q-item-side q-item-section q-item-side-left">
+        <div tabindex="0" class="q-option cursor-pointer no-outline row inline no-wrap items-center q-checkbox q-focusable">
+          <div class="q-option-inner relative-position text-faded">
+            <input type="checkbox">
+            <div class="q-focus-helper q-focus-helper-rounded"></div>
+            <i aria-hidden="true" class="q-icon q-checkbox-icon cursor-pointer material-icons" style="opacity:1;">check_box_outline_blank</i>
+            <i aria-hidden="true" class="q-icon q-checkbox-icon cursor-pointer absolute-full material-icons" style="transition:opacity 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms, transform 0ms cubic-bezier(0.23, 1, 0.32, 1) 450ms;opacity:0;transform:scale(0);">indeterminate_check_box</i>
+            <i aria-hidden="true" class="q-icon q-checkbox-icon cursor-pointer absolute-full material-icons" style="transition:opacity 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms, transform 0ms cubic-bezier(0.23, 1, 0.32, 1) 450ms;opacity:0;transform:scale(0);">check_box</i>
+            <div class="q-radial-ripple"></div>
+          </div>
+        </div>
+      </div>
+      <div class="q-item-main q-item-section">
+        <div class="q-item-label">New applications</div>
+        <div class="q-item-sublabel">Tells you when somebody wants to join your group</div>
       </div>
     </label>
   </div>
@@ -1889,6 +1957,271 @@ exports[`Storyshots History List Default 1`] = `
 </div>
 `;
 
+exports[`Storyshots Latest Messages flag: muted 1`] = `
+<div class="q-item q-item-division relative-position q-item-link">
+  <div class="q-item-side q-item-section q-item-side-left">
+    <div class="wrapper" style="width:40px;height:40px;">
+      <a title="Mira Bellenbaum">
+        <div text="Mira Bellenbaum" seed="1" class="randomArt fill"></div>
+      </a>
+    </div>
+  </div>
+  <div class="q-item-main q-item-section">
+    <div class="row no-wrap justify-between items-baseline q-item-label">
+      <div class="row no-wrap items-baseline ellipsis">
+        Mira Bellenbaum
+        <i aria-hidden="true" title="Notifications are disabled" class="q-icon q-ml-xs fas fa-fw fa-bell-slash text-grey" style="font-size:12px;"> </i>
+      </div> <span><small><div title="Aug 11, 2017, 3:43 PM" class="q-pl-xs" style="white-space:nowrap;">
+  4 months ago
+</div></small></span></div>
+    <!---->
+    <div class="row no-wrap items-baseline q-item-sublabel" style="max-height:18px;">
+      <!---->
+      <!---->
+      <div class="ellipsis col">first messsage</div>
+      <!---->
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Storyshots Latest Messages flag: unread 1`] = `
+<div class="q-item q-item-division relative-position q-item-link isUnread">
+  <div class="q-item-side q-item-section q-item-side-left">
+    <div class="wrapper" style="width:40px;height:40px;">
+      <a title="Mira Bellenbaum">
+        <div text="Mira Bellenbaum" seed="1" class="randomArt fill"></div>
+      </a>
+    </div>
+  </div>
+  <div class="q-item-main q-item-section">
+    <div class="row no-wrap justify-between items-baseline q-item-label">
+      <div class="row no-wrap items-baseline ellipsis">
+        Mira Bellenbaum
+        <!---->
+      </div> <span><small><div title="Aug 11, 2017, 3:43 PM" class="q-pl-xs" style="white-space:nowrap;">
+  4 months ago
+</div></small></span></div>
+    <!---->
+    <div class="row no-wrap items-baseline q-item-sublabel" style="max-height:18px;">
+      <!---->
+      <!---->
+      <div class="ellipsis col">first messsage</div>
+      <div round="" class="q-chip row no-wrap inline items-center inline-chip bg-secondary text-white">
+        <div class="q-chip-main ellipsis">
+          1
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Storyshots Latest Messages flag: unread+muted 1`] = `
+<div class="q-item q-item-division relative-position q-item-link">
+  <div class="q-item-side q-item-section q-item-side-left">
+    <div class="wrapper" style="width:40px;height:40px;">
+      <a title="Mira Bellenbaum">
+        <div text="Mira Bellenbaum" seed="1" class="randomArt fill"></div>
+      </a>
+    </div>
+  </div>
+  <div class="q-item-main q-item-section">
+    <div class="row no-wrap justify-between items-baseline q-item-label">
+      <div class="row no-wrap items-baseline ellipsis">
+        Mira Bellenbaum
+        <i aria-hidden="true" title="Notifications are disabled" class="q-icon q-ml-xs fas fa-fw fa-bell-slash text-grey" style="font-size:12px;"> </i>
+      </div> <span><small><div title="Aug 11, 2017, 3:43 PM" class="q-pl-xs" style="white-space:nowrap;">
+  4 months ago
+</div></small></span></div>
+    <!---->
+    <div class="row no-wrap items-baseline q-item-sublabel" style="max-height:18px;">
+      <!---->
+      <!---->
+      <div class="ellipsis col">first messsage</div>
+      <div round="" class="q-chip row no-wrap inline items-center inline-chip bg-grey text-white">
+        <div class="q-chip-main ellipsis">
+          1
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Storyshots Latest Messages type: application chat 1`] = `
+<div class="q-item q-item-division relative-position q-item-link">
+  <div class="q-item-side q-item-section q-item-side-left">
+    <div class="wrapper" style="width:40px;height:40px;">
+      <a title="Mira Bellenbaum">
+        <div text="Mira Bellenbaum" seed="1" class="randomArt fill"></div>
+      </a>
+    </div>
+  </div>
+  <div class="q-item-main q-item-section">
+    <div class="row no-wrap justify-between items-baseline q-item-label">
+      <div class="row no-wrap items-baseline ellipsis">
+        <i aria-hidden="true" title="Application" class="q-icon q-mr-sm fas fw-fw fa-user-plus"> </i>
+        <div class="ellipsis">
+          Mira Bellenbaum
+        </div>
+        <!---->
+      </div> <span><small><div title="Aug 11, 2017, 3:43 PM" class="q-pl-xs" style="white-space:nowrap;">
+  4 months ago
+</div></small></span></div>
+    <!---->
+    <div class="row no-wrap items-baseline q-item-sublabel" style="max-height:18px;">
+      <div class="text-secondary">
+        Mira Bellenbaum:
+      </div>
+      <!---->
+      <div class="ellipsis col">first messsage</div>
+      <!---->
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Storyshots Latest Messages type: group wall 1`] = `
+<div class="q-item q-item-division relative-position q-item-link">
+  <!---->
+  <div class="q-item-main q-item-section">
+    <div class="row no-wrap justify-between items-baseline q-item-label">
+      <div class="row no-wrap items-baseline ellipsis">
+        <i aria-hidden="true" title="Wall" class="q-icon q-mr-sm fas fw-fw fa-bullhorn"> </i>
+        <div class="ellipsis">05_testgroup</div>
+        <!---->
+      </div> <span><small><div title="Aug 11, 2017, 3:43 PM" class="q-pl-xs" style="white-space:nowrap;">
+  4 months ago
+</div></small></span></div>
+    <!---->
+    <div class="row no-wrap items-baseline q-item-sublabel" style="max-height:18px;">
+      <div class="text-secondary">
+        Mira Bellenbaum:
+      </div>
+      <!---->
+      <div class="ellipsis col">first messsage</div>
+      <!---->
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Storyshots Latest Messages type: my application chat 1`] = `
+<div class="q-item q-item-division relative-position q-item-link">
+  <div class="q-item-side q-item-section q-item-side-left">
+    <div class="wrapper" style="width:40px;height:40px;">
+      <a title="Mira Bellenbaum">
+        <div text="Mira Bellenbaum" seed="1" class="randomArt fill"></div>
+      </a>
+    </div>
+  </div>
+  <div class="q-item-main q-item-section">
+    <div class="row no-wrap justify-between items-baseline q-item-label">
+      <div class="row no-wrap items-baseline ellipsis">
+        <i aria-hidden="true" title="Application" class="q-icon q-mr-sm fas fw-fw fa-user-plus"> </i>
+        <div class="ellipsis">
+          05_testgroup
+        </div>
+        <!---->
+      </div> <span><small><div title="Aug 11, 2017, 3:43 PM" class="q-pl-xs" style="white-space:nowrap;">
+  4 months ago
+</div></small></span></div>
+    <!---->
+    <div class="row no-wrap items-baseline q-item-sublabel" style="max-height:18px;">
+      <div class="text-secondary">
+        Mira Bellenbaum:
+      </div>
+      <!---->
+      <div class="ellipsis col">first messsage</div>
+      <!---->
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Storyshots Latest Messages type: pickup chat 1`] = `
+<div class="q-item q-item-division relative-position q-item-link">
+  <!---->
+  <div class="q-item-main q-item-section">
+    <div class="row no-wrap justify-between items-baseline q-item-label">
+      <div class="row no-wrap items-baseline ellipsis">
+        <i aria-hidden="true" class="q-icon q-mr-sm fas fa-fw fa-shopping-basket"> </i>
+        Saturday 8:00 AM
+        <!---->
+      </div> <span><small><div title="Aug 11, 2017, 3:43 PM" class="q-pl-xs" style="white-space:nowrap;">
+  4 months ago
+</div></small></span></div>
+    <div class="q-mb-xs q-item-label">
+      <small>
+        Griesheimer Markt · August 12, 2017
+      </small>
+    </div>
+    <div class="row no-wrap items-baseline q-item-sublabel" style="max-height:18px;">
+      <div class="text-secondary">
+        Mira Bellenbaum:
+      </div>
+      <!---->
+      <div class="ellipsis col">first messsage</div>
+      <!---->
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Storyshots Latest Messages type: private chat 1`] = `
+<div class="q-item q-item-division relative-position q-item-link">
+  <div class="q-item-side q-item-section q-item-side-left">
+    <div class="wrapper" style="width:40px;height:40px;">
+      <a title="Mira Bellenbaum">
+        <div text="Mira Bellenbaum" seed="1" class="randomArt fill"></div>
+      </a>
+    </div>
+  </div>
+  <div class="q-item-main q-item-section">
+    <div class="row no-wrap justify-between items-baseline q-item-label">
+      <div class="row no-wrap items-baseline ellipsis">
+        Mira Bellenbaum
+        <!---->
+      </div> <span><small><div title="Aug 11, 2017, 3:43 PM" class="q-pl-xs" style="white-space:nowrap;">
+  4 months ago
+</div></small></span></div>
+    <!---->
+    <div class="row no-wrap items-baseline q-item-sublabel" style="max-height:18px;">
+      <!---->
+      <!---->
+      <div class="ellipsis col">first messsage</div>
+      <!---->
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Storyshots Latest Messages type: thread 1`] = `
+<div class="q-item q-item-division relative-position q-item-link">
+  <!---->
+  <div class="q-item-main q-item-section">
+    <div class="row no-wrap justify-between items-baseline q-item-label">
+      <div class="row no-wrap items-baseline ellipsis">
+        <i aria-hidden="true" class="q-icon q-mr-sm fas fw-fw fa-comments"> </i>
+        <div class="ellipsis">here is the message that started the thread</div>
+        <!---->
+      </div> <span><small><div title="Aug 11, 2017, 3:43 PM" class="q-pl-xs" style="white-space:nowrap;">
+  4 months ago
+</div></small></span></div>
+    <!---->
+    <div class="row no-wrap items-baseline q-item-sublabel" style="max-height:18px;">
+      <div class="text-secondary">
+        Mira Bellenbaum:
+      </div>
+      <!---->
+      <div class="ellipsis col">first messsage</div>
+      <!---->
+    </div>
+  </div>
+</div>
+`;
+
 exports[`Storyshots Layout KFooter 1`] = `
 <div class="footer row">
   <div class="k-logo-container col-xl-1 col-xs-4">
@@ -1965,24 +2298,26 @@ exports[`Storyshots Layout KTopbar 1`] = `
     <div class="q-btn-inner row col items-center justify-center">
       <i aria-hidden="true" class="q-icon fab fa-discourse"> </i>
       <!---->
-      <div tabindex="-1" class="q-popover scroll k-community-feed">
-        <div class="q-list q-list-link">
-          <div class="q-list-header">
-            <i aria-hidden="true" class="q-icon q-mr-xs fab fa-discourse" style="font-size:20px;"> </i> <span>Updates from the <a place="community" href="https://community.foodsaving.world" target="_blank" rel="noopener" style="text-decoration:underline;">
-            foodsaving worldwide community
-          </a></span></div>
-        </div>
-      </div>
+      <div tabindex="-1" class="q-popover scroll k-community-feed"></div>
     </div>
   </button>
   <button tabindex="0" type="button" class="q-btn inline relative-position q-btn-item non-selectable q-btn-round q-btn-flat q-focusable q-hoverable q-btn-dense">
     <div class="q-focus-helper"></div>
     <div class="q-btn-inner row col items-center justify-center">
-      <i aria-hidden="true" class="q-icon fas fa-globe fa-fw"> </i>
-      <div tabindex="-1" class="q-popover scroll"></div>
-      <div class="q-tooltip animate-popup">
-        <div></div>
+      <i aria-hidden="true" class="q-icon fas fa-comments"> </i>
+      <div class="q-chip row no-wrap inline items-center q-chip-floating q-chip-dense q-chip-square bg-secondary text-white">
+        <div class="q-chip-main ellipsis">
+          1
+        </div>
       </div>
+      <div tabindex="-1" class="q-popover scroll k-latest-messages-popover"></div>
+    </div>
+  </button>
+  <button tabindex="0" type="button" title="Switch language" class="q-btn inline relative-position q-btn-item non-selectable q-btn-round q-btn-flat q-focusable q-hoverable q-btn-dense">
+    <div class="q-focus-helper"></div>
+    <div class="q-btn-inner row col items-center justify-center">
+      <i aria-hidden="true" class="q-icon fas fa-globe fa-fw"> </i>
+      <div tabindex="-1" minimized="" class="q-popover scroll"></div>
     </div>
   </button>
   <a>
@@ -2027,14 +2362,20 @@ exports[`Storyshots Login empty 1`] = `
 <div>
   <form name="login">
     <div class="white-box">
-      <div class="q-field row no-wrap items-start q-field-responsive q-field-no-label">
+      <div class="q-field row no-wrap items-start q-field-responsive q-field-no-label q-field-no-input">
         <i aria-hidden="true" class="q-icon q-field-icon q-field-margin fas fa-envelope"> </i>
         <div class="row col">
           <div class="q-field-content col-xs-12 col-sm">
-            <div tabindex="-1" autocorrect="off" autocapitalize="off" spellcheck="false" class="q-if row no-wrap items-end relative-position q-input q-if-has-label text-primary">
-              <div class="q-if-inner col row no-wrap relative-position">
-                <div class="q-if-label ellipsis full-width absolute self-start q-if-label-above">E-mail</div>
-                <input autocorrect="off" autocapitalize="off" spellcheck="false" type="email" step="any" value="foo@foo.com" class="col q-input-target q-no-input-spinner">
+            <div tabindex="-1" autocorrect="off" autocapitalize="off" spellcheck="false" class="q-if row no-wrap relative-position q-input q-if-has-label q-if-standard q-if-has-content text-primary">
+              <div class="q-if-baseline">|</div>
+              <div class="q-if-inner col row">
+                <div class="col-12 row no-wrap relative-position">
+                  <div class="q-if-label q-if-label-above">
+                    <div class="q-if-label-inner ellipsis">E-mail</div>
+                  </div>
+                  <input autocorrect="off" autocapitalize="off" spellcheck="false" type="email" step="any" value="foo@foo.com" class="col q-input-target q-no-input-spinner ellipsis">
+                </div>
+                <div class="q-if-label-spacer col-12">E-mail</div>
               </div>
             </div>
           </div>
@@ -2042,14 +2383,20 @@ exports[`Storyshots Login empty 1`] = `
       </div>
     </div>
     <div class="white-box">
-      <div class="q-field row no-wrap items-start q-field-responsive q-field-no-label">
+      <div class="q-field row no-wrap items-start q-field-responsive q-field-no-label q-field-no-input">
         <i aria-hidden="true" class="q-icon q-field-icon q-field-margin fas fa-lock"> </i>
         <div class="row col">
           <div class="q-field-content col-xs-12 col-sm">
-            <div tabindex="-1" autocorrect="off" autocapitalize="off" spellcheck="false" class="q-if row no-wrap items-end relative-position q-input q-if-has-label text-primary">
-              <div class="q-if-inner col row no-wrap relative-position">
-                <div class="q-if-label ellipsis full-width absolute self-start q-if-label-above">Password</div>
-                <input autocorrect="off" autocapitalize="off" spellcheck="false" type="password" step="any" value="foofoo" class="col q-input-target q-no-input-spinner">
+            <div tabindex="-1" autocorrect="off" autocapitalize="off" spellcheck="false" class="q-if row no-wrap relative-position q-input q-if-has-label q-if-standard q-if-has-content text-primary">
+              <div class="q-if-baseline">|</div>
+              <div class="q-if-inner col row">
+                <div class="col-12 row no-wrap relative-position">
+                  <div class="q-if-label q-if-label-above">
+                    <div class="q-if-label-inner ellipsis">Password</div>
+                  </div>
+                  <input autocorrect="off" autocapitalize="off" spellcheck="false" type="password" step="any" value="foofoo" class="col q-input-target q-no-input-spinner ellipsis">
+                </div>
+                <div class="q-if-label-spacer col-12">Password</div>
               </div>
               <i aria-hidden="true" class="q-icon q-if-control material-icons">visibility_off</i>
             </div>
@@ -2087,14 +2434,20 @@ exports[`Storyshots Login error 1`] = `
 <div>
   <form name="login">
     <div class="white-box shake">
-      <div class="q-field row no-wrap items-start q-field-responsive q-field-no-label">
+      <div class="q-field row no-wrap items-start q-field-responsive q-field-no-label q-field-no-input">
         <i aria-hidden="true" class="q-icon q-field-icon q-field-margin fas fa-envelope"> </i>
         <div class="row col">
           <div class="q-field-content col-xs-12 col-sm">
-            <div tabindex="-1" autocorrect="off" autocapitalize="off" spellcheck="false" class="q-if row no-wrap items-end relative-position q-input q-if-has-label q-if-error text-negative">
-              <div class="q-if-inner col row no-wrap relative-position">
-                <div class="q-if-label ellipsis full-width absolute self-start q-if-label-above">E-mail</div>
-                <input autocorrect="off" autocapitalize="off" spellcheck="false" type="email" step="any" value="foo@foo.com" class="col q-input-target q-no-input-spinner">
+            <div tabindex="-1" autocorrect="off" autocapitalize="off" spellcheck="false" class="q-if row no-wrap relative-position q-input q-if-has-label q-if-error q-if-standard q-if-has-content text-negative">
+              <div class="q-if-baseline">|</div>
+              <div class="q-if-inner col row">
+                <div class="col-12 row no-wrap relative-position">
+                  <div class="q-if-label q-if-label-above">
+                    <div class="q-if-label-inner ellipsis">E-mail</div>
+                  </div>
+                  <input autocorrect="off" autocapitalize="off" spellcheck="false" type="email" step="any" value="foo@foo.com" class="col q-input-target q-no-input-spinner ellipsis">
+                </div>
+                <div class="q-if-label-spacer col-12">E-mail</div>
               </div>
             </div>
           </div>
@@ -2102,14 +2455,20 @@ exports[`Storyshots Login error 1`] = `
       </div>
     </div>
     <div class="white-box shake">
-      <div class="q-field row no-wrap items-start q-field-responsive q-field-no-label">
+      <div class="q-field row no-wrap items-start q-field-responsive q-field-no-label q-field-no-input">
         <i aria-hidden="true" class="q-icon q-field-icon q-field-margin fas fa-lock"> </i>
         <div class="row col">
           <div class="q-field-content col-xs-12 col-sm">
-            <div tabindex="-1" autocorrect="off" autocapitalize="off" spellcheck="false" class="q-if row no-wrap items-end relative-position q-input q-if-has-label text-primary">
-              <div class="q-if-inner col row no-wrap relative-position">
-                <div class="q-if-label ellipsis full-width absolute self-start q-if-label-above">Password</div>
-                <input autocorrect="off" autocapitalize="off" spellcheck="false" type="password" step="any" value="foofoo" class="col q-input-target q-no-input-spinner">
+            <div tabindex="-1" autocorrect="off" autocapitalize="off" spellcheck="false" class="q-if row no-wrap relative-position q-input q-if-has-label q-if-standard q-if-has-content text-primary">
+              <div class="q-if-baseline">|</div>
+              <div class="q-if-inner col row">
+                <div class="col-12 row no-wrap relative-position">
+                  <div class="q-if-label q-if-label-above">
+                    <div class="q-if-label-inner ellipsis">Password</div>
+                  </div>
+                  <input autocorrect="off" autocapitalize="off" spellcheck="false" type="password" step="any" value="foofoo" class="col q-input-target q-no-input-spinner ellipsis">
+                </div>
+                <div class="q-if-label-spacer col-12">Password</div>
               </div>
               <i aria-hidden="true" class="q-icon q-if-control material-icons">visibility_off</i>
             </div>
@@ -2150,14 +2509,20 @@ exports[`Storyshots Login pending 1`] = `
 <div>
   <form name="login">
     <div class="white-box">
-      <div class="q-field row no-wrap items-start q-field-responsive q-field-no-label">
+      <div class="q-field row no-wrap items-start q-field-responsive q-field-no-label q-field-no-input">
         <i aria-hidden="true" class="q-icon q-field-icon q-field-margin fas fa-envelope"> </i>
         <div class="row col">
           <div class="q-field-content col-xs-12 col-sm">
-            <div tabindex="-1" autocorrect="off" autocapitalize="off" spellcheck="false" class="q-if row no-wrap items-end relative-position q-input q-if-has-label text-primary">
-              <div class="q-if-inner col row no-wrap relative-position">
-                <div class="q-if-label ellipsis full-width absolute self-start q-if-label-above">E-mail</div>
-                <input autocorrect="off" autocapitalize="off" spellcheck="false" type="email" step="any" value="foo@foo.com" class="col q-input-target q-no-input-spinner">
+            <div tabindex="-1" autocorrect="off" autocapitalize="off" spellcheck="false" class="q-if row no-wrap relative-position q-input q-if-has-label q-if-standard q-if-has-content text-primary">
+              <div class="q-if-baseline">|</div>
+              <div class="q-if-inner col row">
+                <div class="col-12 row no-wrap relative-position">
+                  <div class="q-if-label q-if-label-above">
+                    <div class="q-if-label-inner ellipsis">E-mail</div>
+                  </div>
+                  <input autocorrect="off" autocapitalize="off" spellcheck="false" type="email" step="any" value="foo@foo.com" class="col q-input-target q-no-input-spinner ellipsis">
+                </div>
+                <div class="q-if-label-spacer col-12">E-mail</div>
               </div>
             </div>
           </div>
@@ -2165,14 +2530,20 @@ exports[`Storyshots Login pending 1`] = `
       </div>
     </div>
     <div class="white-box">
-      <div class="q-field row no-wrap items-start q-field-responsive q-field-no-label">
+      <div class="q-field row no-wrap items-start q-field-responsive q-field-no-label q-field-no-input">
         <i aria-hidden="true" class="q-icon q-field-icon q-field-margin fas fa-lock"> </i>
         <div class="row col">
           <div class="q-field-content col-xs-12 col-sm">
-            <div tabindex="-1" autocorrect="off" autocapitalize="off" spellcheck="false" class="q-if row no-wrap items-end relative-position q-input q-if-has-label text-primary">
-              <div class="q-if-inner col row no-wrap relative-position">
-                <div class="q-if-label ellipsis full-width absolute self-start q-if-label-above">Password</div>
-                <input autocorrect="off" autocapitalize="off" spellcheck="false" type="password" step="any" value="foofoo" class="col q-input-target q-no-input-spinner">
+            <div tabindex="-1" autocorrect="off" autocapitalize="off" spellcheck="false" class="q-if row no-wrap relative-position q-input q-if-has-label q-if-standard q-if-has-content text-primary">
+              <div class="q-if-baseline">|</div>
+              <div class="q-if-inner col row">
+                <div class="col-12 row no-wrap relative-position">
+                  <div class="q-if-label q-if-label-above">
+                    <div class="q-if-label-inner ellipsis">Password</div>
+                  </div>
+                  <input autocorrect="off" autocapitalize="off" spellcheck="false" type="password" step="any" value="foofoo" class="col q-input-target q-no-input-spinner ellipsis">
+                </div>
+                <div class="q-if-label-spacer col-12">Password</div>
               </div>
               <i aria-hidden="true" class="q-icon q-if-control material-icons">visibility_off</i>
             </div>
@@ -2301,14 +2672,20 @@ exports[`Storyshots Password Reset empty 1`] = `
         Enter your Email address and we will send you a link to set a new password (if you have an account registered).
       </p>
       <div class="white-box">
-        <div class="q-field row no-wrap items-start q-field-responsive q-field-no-label">
+        <div class="q-field row no-wrap items-start q-field-responsive q-field-no-label q-field-no-input">
           <i aria-hidden="true" class="q-icon q-field-icon q-field-margin fas fa-envelope"> </i>
           <div class="row col">
             <div class="q-field-content col-xs-12 col-sm">
-              <div tabindex="-1" autocorrect="off" autocapitalize="off" spellcheck="false" class="q-if row no-wrap items-end relative-position q-input q-if-has-label text-primary">
-                <div class="q-if-inner col row no-wrap relative-position">
-                  <div class="q-if-label ellipsis full-width absolute self-start">Email address</div>
-                  <input autocorrect="off" autocapitalize="off" spellcheck="false" type="email" step="any" value="" class="col q-input-target q-no-input-spinner">
+              <div tabindex="-1" autocorrect="off" autocapitalize="off" spellcheck="false" class="q-if row no-wrap relative-position q-input q-if-has-label q-if-standard text-primary">
+                <div class="q-if-baseline">|</div>
+                <div class="q-if-inner col row">
+                  <div class="col-12 row no-wrap relative-position">
+                    <div class="q-if-label">
+                      <div class="q-if-label-inner ellipsis">Email address</div>
+                    </div>
+                    <input autocorrect="off" autocapitalize="off" spellcheck="false" type="email" step="any" value="" class="col q-input-target q-no-input-spinner ellipsis">
+                  </div>
+                  <div class="q-if-label-spacer col-12">Email address</div>
                 </div>
               </div>
             </div>
@@ -2344,14 +2721,20 @@ exports[`Storyshots Password Reset error 1`] = `
         Enter your Email address and we will send you a link to set a new password (if you have an account registered).
       </p>
       <div class="white-box">
-        <div class="q-field row no-wrap items-start q-field-responsive q-field-no-label">
+        <div class="q-field row no-wrap items-start q-field-responsive q-field-no-label q-field-no-input">
           <i aria-hidden="true" class="q-icon q-field-icon q-field-margin fas fa-envelope"> </i>
           <div class="row col">
             <div class="q-field-content col-xs-12 col-sm">
-              <div tabindex="-1" autocorrect="off" autocapitalize="off" spellcheck="false" class="q-if row no-wrap items-end relative-position q-input q-if-has-label q-if-error text-negative">
-                <div class="q-if-inner col row no-wrap relative-position">
-                  <div class="q-if-label ellipsis full-width absolute self-start">Email address</div>
-                  <input autocorrect="off" autocapitalize="off" spellcheck="false" type="email" step="any" value="" class="col q-input-target q-no-input-spinner">
+              <div tabindex="-1" autocorrect="off" autocapitalize="off" spellcheck="false" class="q-if row no-wrap relative-position q-input q-if-has-label q-if-error q-if-standard text-negative">
+                <div class="q-if-baseline">|</div>
+                <div class="q-if-inner col row">
+                  <div class="col-12 row no-wrap relative-position">
+                    <div class="q-if-label">
+                      <div class="q-if-label-inner ellipsis">Email address</div>
+                    </div>
+                    <input autocorrect="off" autocapitalize="off" spellcheck="false" type="email" step="any" value="" class="col q-input-target q-no-input-spinner ellipsis">
+                  </div>
+                  <div class="q-if-label-spacer col-12">Email address</div>
                 </div>
               </div>
             </div>
@@ -2390,14 +2773,20 @@ exports[`Storyshots Password Reset pending 1`] = `
         Enter your Email address and we will send you a link to set a new password (if you have an account registered).
       </p>
       <div class="white-box">
-        <div class="q-field row no-wrap items-start q-field-responsive q-field-no-label">
+        <div class="q-field row no-wrap items-start q-field-responsive q-field-no-label q-field-no-input">
           <i aria-hidden="true" class="q-icon q-field-icon q-field-margin fas fa-envelope"> </i>
           <div class="row col">
             <div class="q-field-content col-xs-12 col-sm">
-              <div tabindex="-1" autocorrect="off" autocapitalize="off" spellcheck="false" class="q-if row no-wrap items-end relative-position q-input q-if-has-label text-primary">
-                <div class="q-if-inner col row no-wrap relative-position">
-                  <div class="q-if-label ellipsis full-width absolute self-start">Email address</div>
-                  <input autocorrect="off" autocapitalize="off" spellcheck="false" type="email" step="any" value="" class="col q-input-target q-no-input-spinner">
+              <div tabindex="-1" autocorrect="off" autocapitalize="off" spellcheck="false" class="q-if row no-wrap relative-position q-input q-if-has-label q-if-standard text-primary">
+                <div class="q-if-baseline">|</div>
+                <div class="q-if-inner col row">
+                  <div class="col-12 row no-wrap relative-position">
+                    <div class="q-if-label">
+                      <div class="q-if-label-inner ellipsis">Email address</div>
+                    </div>
+                    <input autocorrect="off" autocapitalize="off" spellcheck="false" type="email" step="any" value="" class="col q-input-target q-no-input-spinner ellipsis">
+                  </div>
+                  <div class="q-if-label-spacer col-12">Email address</div>
                 </div>
               </div>
             </div>
@@ -2435,14 +2824,20 @@ exports[`Storyshots Password Reset success 1`] = `
         Enter your Email address and we will send you a link to set a new password (if you have an account registered).
       </p>
       <div class="white-box">
-        <div class="q-field row no-wrap items-start q-field-responsive q-field-no-label">
+        <div class="q-field row no-wrap items-start q-field-responsive q-field-no-label q-field-no-input">
           <i aria-hidden="true" class="q-icon q-field-icon q-field-margin fas fa-envelope"> </i>
           <div class="row col">
             <div class="q-field-content col-xs-12 col-sm">
-              <div tabindex="-1" autocorrect="off" autocapitalize="off" spellcheck="false" class="q-if row no-wrap items-end relative-position q-input q-if-has-label text-primary">
-                <div class="q-if-inner col row no-wrap relative-position">
-                  <div class="q-if-label ellipsis full-width absolute self-start">Email address</div>
-                  <input autocorrect="off" autocapitalize="off" spellcheck="false" type="email" step="any" value="" class="col q-input-target q-no-input-spinner">
+              <div tabindex="-1" autocorrect="off" autocapitalize="off" spellcheck="false" class="q-if row no-wrap relative-position q-input q-if-has-label q-if-standard text-primary">
+                <div class="q-if-baseline">|</div>
+                <div class="q-if-inner col row">
+                  <div class="col-12 row no-wrap relative-position">
+                    <div class="q-if-label">
+                      <div class="q-if-label-inner ellipsis">Email address</div>
+                    </div>
+                    <input autocorrect="off" autocapitalize="off" spellcheck="false" type="email" step="any" value="" class="col q-input-target q-no-input-spinner ellipsis">
+                  </div>
+                  <div class="q-if-label-spacer col-12">Email address</div>
                 </div>
               </div>
             </div>
@@ -2856,7 +3251,7 @@ exports[`Storyshots PickupList Default 1`] = `
 exports[`Storyshots PickupSeriesEdit Default 1`] = `
 <div class="edit-box">
   <form>
-    <div class="q-field row no-wrap items-start q-field-responsive">
+    <div class="q-field row no-wrap items-start q-field-responsive q-field-no-input">
       <i aria-hidden="true" class="q-icon q-field-icon q-field-margin fas fa-redo"> </i>
       <div class="row col">
         <div class="q-field-label q-field-margin col-xs-12 col-sm-5">
@@ -2889,48 +3284,51 @@ exports[`Storyshots PickupSeriesEdit Default 1`] = `
       </div>
     </div>
     <div>
-      <div class="q-field row no-wrap items-start q-field-responsive">
+      <div class="q-field row no-wrap items-start q-field-responsive q-field-no-input">
         <i aria-hidden="true" class="q-icon q-field-icon q-field-margin material-icons">access_time</i>
         <div class="row col">
           <div class="q-field-label q-field-margin col-xs-12 col-sm-5">
             <div class="q-field-label-inner row items-center">Time</div>
           </div>
           <div class="q-field-content col-xs-12 col-sm">
-            <div tabindex="0" class="q-if row no-wrap items-end relative-position q-datetime-input q-if-focusable text-primary">
-              <div class="q-if-inner col row no-wrap relative-position">
-                <div class="col q-input-target ellipsis justify-start">8:00 AM</div>
-                <div tabindex="-1" class="q-popover scroll">
-                  <div class="q-datetime row no-border text-primary">
-                    <div class="q-datetime-header column col-xs-12 col-md-4 justify-center">
-                      <div class="q-datetime-time row flex-center">
-                        <div class="q-datetime-clockstring col-auto col-md-12 row no-wrap flex-center"><span tabindex="0" class="q-datetime-link col-md text-right q-pr-sm active"><span tabindex="-1">8</span></span><span style="opacity:0.6;">:</span><span tabindex="0" class="q-datetime-link col-md text-left q-pl-sm"><span tabindex="-1">00</span></span>
-                        </div>
-                        <div class="q-datetime-ampm column col-auto col-md-12 justify-around">
-                          <div tabindex="0" class="q-datetime-link active"><span tabindex="-1">AM</span></div>
-                          <div tabindex="0" class="q-datetime-link"><span tabindex="-1">PM</span></div>
-                        </div>
+            <div tabindex="0" class="q-if row no-wrap relative-position q-datetime-input q-if-focusable q-if-standard q-if-has-content text-primary">
+              <div class="q-if-baseline">|</div>
+              <div class="q-if-inner col row">
+                <div class="col-12 row no-wrap relative-position">
+                  <div class="col q-input-target ellipsis justify-start">8:00 AM</div>
+                </div>
+              </div>
+              <div tabindex="-1" class="q-popover scroll">
+                <div class="q-datetime row no-border text-primary">
+                  <div class="q-datetime-header column col-xs-12 col-md-4 justify-center">
+                    <div class="q-datetime-time row flex-center">
+                      <div class="q-datetime-clockstring col-auto col-md-12 row no-wrap flex-center"><span tabindex="0" class="q-datetime-link col-md text-right q-pr-sm active"><span tabindex="-1">8</span></span><span style="opacity:0.6;">:</span><span tabindex="0" class="q-datetime-link col-md text-left q-pl-sm"><span tabindex="-1">00</span></span>
+                      </div>
+                      <div class="q-datetime-ampm column col-auto col-md-12 justify-around">
+                        <div tabindex="0" class="q-datetime-link active"><span tabindex="-1">AM</span></div>
+                        <div tabindex="0" class="q-datetime-link"><span tabindex="-1">PM</span></div>
                       </div>
                     </div>
-                    <div class="q-datetime-content col-xs-12 column col-md-8">
-                      <div class="q-datetime-selector auto row flex-center">
-                        <div class="column items-center content-center justify-center">
-                          <div class="q-datetime-clock cursor-pointer">
-                            <div class="q-datetime-clock-circle full-width full-height">
-                              <div class="q-datetime-clock-center"></div>
-                              <div class="q-datetime-clock-pointer" style="transform:rotate(60deg);-webkit-transform:rotate(60deg);-moz-transform:rotate(60deg);-ms-transform:rotate(60deg);-o-transform:rotate(60deg);"><span></span></div>
-                              <div class="q-datetime-clock-position q-datetime-clock-pos-1"><span>1</span></div>
-                              <div class="q-datetime-clock-position q-datetime-clock-pos-2"><span>2</span></div>
-                              <div class="q-datetime-clock-position q-datetime-clock-pos-3"><span>3</span></div>
-                              <div class="q-datetime-clock-position q-datetime-clock-pos-4"><span>4</span></div>
-                              <div class="q-datetime-clock-position q-datetime-clock-pos-5"><span>5</span></div>
-                              <div class="q-datetime-clock-position q-datetime-clock-pos-6"><span>6</span></div>
-                              <div class="q-datetime-clock-position q-datetime-clock-pos-7"><span>7</span></div>
-                              <div class="q-datetime-clock-position q-datetime-clock-pos-8 active"><span>8</span></div>
-                              <div class="q-datetime-clock-position q-datetime-clock-pos-9"><span>9</span></div>
-                              <div class="q-datetime-clock-position q-datetime-clock-pos-10"><span>10</span></div>
-                              <div class="q-datetime-clock-position q-datetime-clock-pos-11"><span>11</span></div>
-                              <div class="q-datetime-clock-position q-datetime-clock-pos-12"><span>12</span></div>
-                            </div>
+                  </div>
+                  <div class="q-datetime-content col-xs-12 column col-md-8">
+                    <div class="q-datetime-selector auto row flex-center">
+                      <div class="column items-center content-center justify-center">
+                        <div class="q-datetime-clock cursor-pointer">
+                          <div class="q-datetime-clock-circle full-width full-height">
+                            <div class="q-datetime-clock-center"></div>
+                            <div class="q-datetime-clock-pointer" style="transform:rotate(60deg);-webkit-transform:rotate(60deg);-moz-transform:rotate(60deg);-ms-transform:rotate(60deg);-o-transform:rotate(60deg);"><span></span></div>
+                            <div class="q-datetime-clock-position q-datetime-clock-pos-1"><span>1</span></div>
+                            <div class="q-datetime-clock-position q-datetime-clock-pos-2"><span>2</span></div>
+                            <div class="q-datetime-clock-position q-datetime-clock-pos-3"><span>3</span></div>
+                            <div class="q-datetime-clock-position q-datetime-clock-pos-4"><span>4</span></div>
+                            <div class="q-datetime-clock-position q-datetime-clock-pos-5"><span>5</span></div>
+                            <div class="q-datetime-clock-position q-datetime-clock-pos-6"><span>6</span></div>
+                            <div class="q-datetime-clock-position q-datetime-clock-pos-7"><span>7</span></div>
+                            <div class="q-datetime-clock-position q-datetime-clock-pos-8 active"><span>8</span></div>
+                            <div class="q-datetime-clock-position q-datetime-clock-pos-9"><span>9</span></div>
+                            <div class="q-datetime-clock-position q-datetime-clock-pos-10"><span>10</span></div>
+                            <div class="q-datetime-clock-position q-datetime-clock-pos-11"><span>11</span></div>
+                            <div class="q-datetime-clock-position q-datetime-clock-pos-12"><span>12</span></div>
                           </div>
                         </div>
                       </div>
@@ -2940,139 +3338,142 @@ exports[`Storyshots PickupSeriesEdit Default 1`] = `
               </div>
               <i aria-hidden="true" class="q-icon q-if-control material-icons">arrow_drop_down</i>
             </div>
-            <div class="q-field-bottom row no-wrap q-field-no-input">
+            <div class="q-field-bottom row no-wrap">
               <div class="q-field-helper col">When should the pick-up take place?</div>
             </div>
           </div>
         </div>
       </div>
-      <div class="q-field row no-wrap items-start q-field-responsive">
+      <div class="q-field row no-wrap items-start q-field-responsive q-field-no-input">
         <i aria-hidden="true" class="q-icon q-field-icon q-field-margin material-icons">today</i>
         <div class="row col">
           <div class="q-field-label q-field-margin col-xs-12 col-sm-5">
             <div class="q-field-label-inner row items-center">Weekdays</div>
           </div>
           <div class="q-field-content col-xs-12 col-sm">
-            <div tabindex="0" class="q-if row no-wrap items-end relative-position q-select q-if-focusable text-primary">
-              <div class="q-if-inner col row no-wrap relative-position">
-                <div class="col q-input-target ellipsis justify-start">Thursday, Sunday</div>
-                <div tabindex="-1" class="q-popover scroll column no-wrap">
-                  <div class="q-list no-border scroll">
-                    <div class="q-item q-item-division relative-position cursor-pointer q-select-highlight cursor-pointer">
-                      <div class="q-item-main q-item-section">
-                        <div class="q-item-label" style="overflow:hidden;display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:NaN;">Monday</div>
-                      </div>
-                      <div class="q-item-side q-item-section q-item-side-right">
-                        <div tabindex="-1" class="q-option cursor-pointer no-outline row inline no-wrap items-center q-toggle">
-                          <div class="q-option-inner relative-position text-primary">
-                            <input type="checkbox">
-                            <div class="q-focus-helper q-focus-helper-rounded"></div>
-                            <div class="q-toggle-base"></div>
-                            <div class="q-toggle-handle row flex-center">
-                              <div class="q-radial-ripple"></div>
-                            </div>
+            <div tabindex="0" class="q-if row no-wrap relative-position q-select q-if-focusable q-if-standard q-if-has-content text-primary">
+              <div class="q-if-baseline">|</div>
+              <div class="q-if-inner col row">
+                <div class="col-12 row no-wrap relative-position">
+                  <div class="col q-input-target ellipsis justify-start">Thursday, Sunday</div>
+                </div>
+              </div>
+              <div tabindex="-1" class="q-popover scroll column no-wrap">
+                <div class="q-list no-border scroll">
+                  <div class="q-item q-item-division relative-position cursor-pointer q-select-highlight cursor-pointer">
+                    <div class="q-item-main q-item-section">
+                      <div class="q-item-label" style="overflow:hidden;display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:NaN;">Monday</div>
+                    </div>
+                    <div class="q-item-side q-item-section q-item-side-right">
+                      <div tabindex="-1" class="q-option cursor-pointer no-outline row inline no-wrap items-center q-toggle">
+                        <div class="q-option-inner relative-position text-primary">
+                          <input type="checkbox">
+                          <div class="q-focus-helper q-focus-helper-rounded"></div>
+                          <div class="q-toggle-base"></div>
+                          <div class="q-toggle-handle row flex-center">
+                            <div class="q-radial-ripple"></div>
                           </div>
                         </div>
                       </div>
                     </div>
-                    <div class="q-item q-item-division relative-position cursor-pointer cursor-pointer">
-                      <div class="q-item-main q-item-section">
-                        <div class="q-item-label" style="overflow:hidden;display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:NaN;">Tuesday</div>
-                      </div>
-                      <div class="q-item-side q-item-section q-item-side-right">
-                        <div tabindex="-1" class="q-option cursor-pointer no-outline row inline no-wrap items-center q-toggle">
-                          <div class="q-option-inner relative-position text-primary">
-                            <input type="checkbox">
-                            <div class="q-focus-helper q-focus-helper-rounded"></div>
-                            <div class="q-toggle-base"></div>
-                            <div class="q-toggle-handle row flex-center">
-                              <div class="q-radial-ripple"></div>
-                            </div>
+                  </div>
+                  <div class="q-item q-item-division relative-position cursor-pointer cursor-pointer">
+                    <div class="q-item-main q-item-section">
+                      <div class="q-item-label" style="overflow:hidden;display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:NaN;">Tuesday</div>
+                    </div>
+                    <div class="q-item-side q-item-section q-item-side-right">
+                      <div tabindex="-1" class="q-option cursor-pointer no-outline row inline no-wrap items-center q-toggle">
+                        <div class="q-option-inner relative-position text-primary">
+                          <input type="checkbox">
+                          <div class="q-focus-helper q-focus-helper-rounded"></div>
+                          <div class="q-toggle-base"></div>
+                          <div class="q-toggle-handle row flex-center">
+                            <div class="q-radial-ripple"></div>
                           </div>
                         </div>
                       </div>
                     </div>
-                    <div class="q-item q-item-division relative-position cursor-pointer cursor-pointer">
-                      <div class="q-item-main q-item-section">
-                        <div class="q-item-label" style="overflow:hidden;display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:NaN;">Wednesday</div>
-                      </div>
-                      <div class="q-item-side q-item-section q-item-side-right">
-                        <div tabindex="-1" class="q-option cursor-pointer no-outline row inline no-wrap items-center q-toggle">
-                          <div class="q-option-inner relative-position text-primary">
-                            <input type="checkbox">
-                            <div class="q-focus-helper q-focus-helper-rounded"></div>
-                            <div class="q-toggle-base"></div>
-                            <div class="q-toggle-handle row flex-center">
-                              <div class="q-radial-ripple"></div>
-                            </div>
+                  </div>
+                  <div class="q-item q-item-division relative-position cursor-pointer cursor-pointer">
+                    <div class="q-item-main q-item-section">
+                      <div class="q-item-label" style="overflow:hidden;display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:NaN;">Wednesday</div>
+                    </div>
+                    <div class="q-item-side q-item-section q-item-side-right">
+                      <div tabindex="-1" class="q-option cursor-pointer no-outline row inline no-wrap items-center q-toggle">
+                        <div class="q-option-inner relative-position text-primary">
+                          <input type="checkbox">
+                          <div class="q-focus-helper q-focus-helper-rounded"></div>
+                          <div class="q-toggle-base"></div>
+                          <div class="q-toggle-handle row flex-center">
+                            <div class="q-radial-ripple"></div>
                           </div>
                         </div>
                       </div>
                     </div>
-                    <div class="q-item q-item-division relative-position cursor-pointer cursor-pointer">
-                      <div class="q-item-main q-item-section">
-                        <div class="q-item-label" style="overflow:hidden;display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:NaN;">Thursday</div>
-                      </div>
-                      <div class="q-item-side q-item-section q-item-side-right">
-                        <div tabindex="-1" class="q-option cursor-pointer no-outline row inline no-wrap items-center q-toggle">
-                          <div class="q-option-inner relative-position active text-primary">
-                            <input type="checkbox">
-                            <div class="q-focus-helper q-focus-helper-rounded"></div>
-                            <div class="q-toggle-base"></div>
-                            <div class="q-toggle-handle row flex-center">
-                              <div class="q-radial-ripple"></div>
-                            </div>
+                  </div>
+                  <div class="q-item q-item-division relative-position cursor-pointer cursor-pointer">
+                    <div class="q-item-main q-item-section">
+                      <div class="q-item-label" style="overflow:hidden;display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:NaN;">Thursday</div>
+                    </div>
+                    <div class="q-item-side q-item-section q-item-side-right">
+                      <div tabindex="-1" class="q-option cursor-pointer no-outline row inline no-wrap items-center q-toggle">
+                        <div class="q-option-inner relative-position active text-primary">
+                          <input type="checkbox">
+                          <div class="q-focus-helper q-focus-helper-rounded"></div>
+                          <div class="q-toggle-base"></div>
+                          <div class="q-toggle-handle row flex-center">
+                            <div class="q-radial-ripple"></div>
                           </div>
                         </div>
                       </div>
                     </div>
-                    <div class="q-item q-item-division relative-position cursor-pointer cursor-pointer">
-                      <div class="q-item-main q-item-section">
-                        <div class="q-item-label" style="overflow:hidden;display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:NaN;">Friday</div>
-                      </div>
-                      <div class="q-item-side q-item-section q-item-side-right">
-                        <div tabindex="-1" class="q-option cursor-pointer no-outline row inline no-wrap items-center q-toggle">
-                          <div class="q-option-inner relative-position text-primary">
-                            <input type="checkbox">
-                            <div class="q-focus-helper q-focus-helper-rounded"></div>
-                            <div class="q-toggle-base"></div>
-                            <div class="q-toggle-handle row flex-center">
-                              <div class="q-radial-ripple"></div>
-                            </div>
+                  </div>
+                  <div class="q-item q-item-division relative-position cursor-pointer cursor-pointer">
+                    <div class="q-item-main q-item-section">
+                      <div class="q-item-label" style="overflow:hidden;display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:NaN;">Friday</div>
+                    </div>
+                    <div class="q-item-side q-item-section q-item-side-right">
+                      <div tabindex="-1" class="q-option cursor-pointer no-outline row inline no-wrap items-center q-toggle">
+                        <div class="q-option-inner relative-position text-primary">
+                          <input type="checkbox">
+                          <div class="q-focus-helper q-focus-helper-rounded"></div>
+                          <div class="q-toggle-base"></div>
+                          <div class="q-toggle-handle row flex-center">
+                            <div class="q-radial-ripple"></div>
                           </div>
                         </div>
                       </div>
                     </div>
-                    <div class="q-item q-item-division relative-position cursor-pointer cursor-pointer">
-                      <div class="q-item-main q-item-section">
-                        <div class="q-item-label" style="overflow:hidden;display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:NaN;">Saturday</div>
-                      </div>
-                      <div class="q-item-side q-item-section q-item-side-right">
-                        <div tabindex="-1" class="q-option cursor-pointer no-outline row inline no-wrap items-center q-toggle">
-                          <div class="q-option-inner relative-position text-primary">
-                            <input type="checkbox">
-                            <div class="q-focus-helper q-focus-helper-rounded"></div>
-                            <div class="q-toggle-base"></div>
-                            <div class="q-toggle-handle row flex-center">
-                              <div class="q-radial-ripple"></div>
-                            </div>
+                  </div>
+                  <div class="q-item q-item-division relative-position cursor-pointer cursor-pointer">
+                    <div class="q-item-main q-item-section">
+                      <div class="q-item-label" style="overflow:hidden;display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:NaN;">Saturday</div>
+                    </div>
+                    <div class="q-item-side q-item-section q-item-side-right">
+                      <div tabindex="-1" class="q-option cursor-pointer no-outline row inline no-wrap items-center q-toggle">
+                        <div class="q-option-inner relative-position text-primary">
+                          <input type="checkbox">
+                          <div class="q-focus-helper q-focus-helper-rounded"></div>
+                          <div class="q-toggle-base"></div>
+                          <div class="q-toggle-handle row flex-center">
+                            <div class="q-radial-ripple"></div>
                           </div>
                         </div>
                       </div>
                     </div>
-                    <div class="q-item q-item-division relative-position cursor-pointer cursor-pointer">
-                      <div class="q-item-main q-item-section">
-                        <div class="q-item-label" style="overflow:hidden;display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:NaN;">Sunday</div>
-                      </div>
-                      <div class="q-item-side q-item-section q-item-side-right">
-                        <div tabindex="-1" class="q-option cursor-pointer no-outline row inline no-wrap items-center q-toggle">
-                          <div class="q-option-inner relative-position active text-primary">
-                            <input type="checkbox">
-                            <div class="q-focus-helper q-focus-helper-rounded"></div>
-                            <div class="q-toggle-base"></div>
-                            <div class="q-toggle-handle row flex-center">
-                              <div class="q-radial-ripple"></div>
-                            </div>
+                  </div>
+                  <div class="q-item q-item-division relative-position cursor-pointer cursor-pointer">
+                    <div class="q-item-main q-item-section">
+                      <div class="q-item-label" style="overflow:hidden;display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:NaN;">Sunday</div>
+                    </div>
+                    <div class="q-item-side q-item-section q-item-side-right">
+                      <div tabindex="-1" class="q-option cursor-pointer no-outline row inline no-wrap items-center q-toggle">
+                        <div class="q-option-inner relative-position active text-primary">
+                          <input type="checkbox">
+                          <div class="q-focus-helper q-focus-helper-rounded"></div>
+                          <div class="q-toggle-base"></div>
+                          <div class="q-toggle-handle row flex-center">
+                            <div class="q-radial-ripple"></div>
                           </div>
                         </div>
                       </div>
@@ -3082,23 +3483,26 @@ exports[`Storyshots PickupSeriesEdit Default 1`] = `
               </div>
               <i aria-hidden="true" class="q-icon q-if-control material-icons">arrow_drop_down</i>
             </div>
-            <div class="q-field-bottom row no-wrap q-field-no-input">
+            <div class="q-field-bottom row no-wrap">
               <div class="q-field-helper col">On which days should the pick-up take place?</div>
             </div>
           </div>
         </div>
       </div>
     </div>
-    <div class="q-field row no-wrap items-start q-field-responsive">
+    <div class="q-field row no-wrap items-start q-field-responsive q-field-no-input">
       <i aria-hidden="true" class="q-icon q-field-icon q-field-margin material-icons">group</i>
       <div class="row col">
         <div class="q-field-label q-field-margin col-xs-12 col-sm-5">
           <div class="q-field-label-inner row items-center">Max Slots</div>
         </div>
         <div class="q-field-content col-xs-12 col-sm">
-          <div tabindex="-1" class="q-if row no-wrap items-end relative-position q-input text-primary">
-            <div class="q-if-inner col row no-wrap relative-position">
-              <input type="number" placeholder="unlimited" step="any" value="2" class="col q-input-target q-no-input-spinner">
+          <div tabindex="-1" class="q-if row no-wrap relative-position q-input q-if-standard q-if-has-content text-primary">
+            <div class="q-if-baseline">|</div>
+            <div class="q-if-inner col row">
+              <div class="col-12 row no-wrap relative-position">
+                <input type="number" placeholder="unlimited" step="any" value="2" class="col q-input-target q-no-input-spinner ellipsis">
+              </div>
             </div>
           </div>
           <div class="q-slider non-selectable label-always">
@@ -3113,29 +3517,32 @@ exports[`Storyshots PickupSeriesEdit Default 1`] = `
               </div>
             </div>
           </div>
-          <div class="q-field-bottom row no-wrap q-field-no-input">
+          <div class="q-field-bottom row no-wrap">
             <div class="q-field-helper col">How many people should participate in the pick-up?</div>
           </div>
         </div>
       </div>
     </div>
-    <div class="q-field row no-wrap items-start q-field-responsive">
+    <div class="q-field row no-wrap items-start q-field-responsive q-field-no-input">
       <i aria-hidden="true" class="q-icon q-field-icon q-field-margin material-icons">info</i>
       <div class="row col">
         <div class="q-field-label q-field-margin col-xs-12 col-sm-5">
           <div class="q-field-label-inner row items-center">Additional information</div>
         </div>
         <div class="q-field-content col-xs-12 col-sm">
-          <div tabindex="-1" max-length="500" class="q-if row no-wrap items-end relative-position q-input text-primary">
-            <div class="q-if-inner col row no-wrap relative-position q-if-inner-dynamic">
-              <div class="col row relative-position">
-                <object type="text/html" data="about:blank" aria-hidden="true" style="display:block;position:absolute;top:0;left:0;right:0;bottom:0;height:100%;width:100%;overflow:hidden;pointer-events:none;z-index:-1;"></object>
-                <textarea rows="1" max-length="500" class="col q-input-target q-input-shadow absolute-top">a nice description for the series</textarea>
-                <textarea rows="1" max-length="500" class="col q-input-target q-input-area">a nice description for the series</textarea>
+          <div tabindex="-1" max-length="500" class="q-if row no-wrap relative-position q-input q-if-standard q-if-has-content text-primary">
+            <div class="q-if-baseline">|</div>
+            <div class="q-if-inner col row">
+              <div class="col-12 row no-wrap relative-position">
+                <div class="col row relative-position">
+                  <object type="text/html" data="about:blank" aria-hidden="true" style="display:block;position:absolute;top:0;left:0;right:0;bottom:0;height:100%;width:100%;overflow:hidden;pointer-events:none;z-index:-1;"></object>
+                  <textarea rows="1" max-length="500" class="col q-input-target q-input-shadow absolute-top">a nice description for the series</textarea>
+                  <textarea rows="1" max-length="500" class="col q-input-target q-input-area">a nice description for the series</textarea>
+                </div>
               </div>
             </div>
           </div>
-          <div class="q-field-bottom row no-wrap q-field-no-input">
+          <div class="q-field-bottom row no-wrap">
             <div class="q-field-helper col">What should people know when signing up to this pick-up?</div>
           </div>
         </div>
@@ -3327,7 +3734,7 @@ exports[`Storyshots Settings Page Default 1`] = `
     </div>
     <div class="q-card-main q-card-container">
       <div class="edit-box">
-        <div class="q-field row no-wrap items-start q-field-responsive">
+        <div class="q-field row no-wrap items-start q-field-responsive q-field-no-input">
           <i aria-hidden="true" class="q-icon q-field-icon q-field-margin fas fa-camera"> </i>
           <div class="row col">
             <div class="q-field-label q-field-margin col-xs-12 col-sm-5">
@@ -3343,7 +3750,7 @@ exports[`Storyshots Settings Page Default 1`] = `
                 <!---->
                 <!---->
               </div>
-              <div class="q-field-bottom row no-wrap q-field-no-input">
+              <div class="q-field-bottom row no-wrap">
                 <div class="q-field-helper col">Set your profile photo...</div>
               </div>
             </div>
@@ -3360,22 +3767,25 @@ exports[`Storyshots Settings Page Default 1`] = `
       <div class="q-card-separator"></div>
       <div class="edit-box">
         <form>
-          <div class="q-field row no-wrap items-start q-field-responsive">
+          <div class="q-field row no-wrap items-start q-field-responsive q-field-no-input">
             <i aria-hidden="true" class="q-icon q-field-icon q-field-margin fas fa-star"> </i>
             <div class="row col">
               <div class="q-field-label q-field-margin col-xs-12 col-sm-5">
                 <div class="q-field-label-inner row items-center">Name</div>
               </div>
               <div class="q-field-content col-xs-12 col-sm">
-                <div tabindex="-1" class="q-if row no-wrap items-end relative-position q-input text-primary">
-                  <div class="q-if-inner col row no-wrap relative-position">
-                    <input type="text" step="any" value="Current User" class="col q-input-target q-no-input-spinner">
+                <div tabindex="-1" class="q-if row no-wrap relative-position q-input q-if-standard q-if-has-content text-primary">
+                  <div class="q-if-baseline">|</div>
+                  <div class="q-if-inner col row">
+                    <div class="col-12 row no-wrap relative-position">
+                      <input type="text" step="any" value="Current User" class="col q-input-target q-no-input-spinner ellipsis">
+                    </div>
                   </div>
                 </div>
               </div>
             </div>
           </div>
-          <div class="q-field row no-wrap items-start q-field-responsive">
+          <div class="q-field row no-wrap items-start q-field-responsive q-field-no-input">
             <i aria-hidden="true" class="q-icon q-field-icon q-field-margin material-icons">info</i>
             <div class="row col">
               <div class="q-field-label q-field-margin col-xs-12 col-sm-5">
@@ -3383,17 +3793,17 @@ exports[`Storyshots Settings Page Default 1`] = `
               </div>
               <div class="q-field-content col-xs-12 col-sm">
                 <div>
-                  <div class="q-tabs flex no-wrap markdown-input q-tabs-position-top q-tabs-inverted">
+                  <div class="q-tabs flex no-wrap overflow-hidden markdown-input q-tabs-position-top q-tabs-inverted">
                     <div class="q-tabs-head row q-tabs-align-right text-primary">
                       <div class="q-tabs-scroller row no-wrap">
-                        <div class="q-tab column flex-center relative-position markdown-input-tab active q-tab-only-label hide-none text-primary">
+                        <div data-tab-name="edit" class="q-tab column flex-center relative-position markdown-input-tab active q-tab-only-label hide-none text-primary">
                           <div class="q-tab-label-parent relative-position">
                             <div class="q-tab-label">Edit</div>
                           </div>
                           <div class="q-tabs-bar"></div>
                           <div tabindex="-1" class="q-tab-focus-helper absolute-full"></div>
                         </div>
-                        <div class="q-tab column flex-center relative-position markdown-input-tab q-tab-only-label hide-none text-primary">
+                        <div data-tab-name="preview" class="q-tab column flex-center relative-position markdown-input-tab q-tab-only-label hide-none text-primary">
                           <div class="q-tab-label-parent relative-position">
                             <div class="q-tab-label">Preview</div>
                           </div>
@@ -3413,12 +3823,15 @@ exports[`Storyshots Settings Page Default 1`] = `
                     </div>
                     <div class="q-tabs-panes">
                       <div class="q-tab-pane">
-                        <div tabindex="-1" rows="1" class="q-if row no-wrap items-end relative-position q-input text-primary">
-                          <div class="q-if-inner col row no-wrap relative-position q-if-inner-dynamic">
-                            <div class="col row relative-position">
-                              <object type="text/html" data="about:blank" aria-hidden="true" style="display:block;position:absolute;top:0;left:0;right:0;bottom:0;height:100%;width:100%;overflow:hidden;pointer-events:none;z-index:-1;"></object>
-                              <textarea rows="1" class="col q-input-target q-input-shadow absolute-top">I am the current User!</textarea>
-                              <textarea rows="1" class="col q-input-target q-input-area">I am the current User!</textarea>
+                        <div tabindex="-1" rows="1" class="q-if row no-wrap relative-position q-input q-if-standard q-if-has-content text-primary">
+                          <div class="q-if-baseline">|</div>
+                          <div class="q-if-inner col row">
+                            <div class="col-12 row no-wrap relative-position">
+                              <div class="col row relative-position">
+                                <object type="text/html" data="about:blank" aria-hidden="true" style="display:block;position:absolute;top:0;left:0;right:0;bottom:0;height:100%;width:100%;overflow:hidden;pointer-events:none;z-index:-1;"></object>
+                                <textarea rows="1" class="col q-input-target q-input-shadow absolute-top">I am the current User!</textarea>
+                                <textarea rows="1" class="col q-input-target q-input-area">I am the current User!</textarea>
+                              </div>
                             </div>
                           </div>
                         </div>
@@ -3437,22 +3850,25 @@ exports[`Storyshots Settings Page Default 1`] = `
               </div>
             </div>
           </div>
-          <div class="q-field row no-wrap items-start q-field-responsive">
+          <div class="q-field row no-wrap items-start q-field-responsive q-field-no-input">
             <i aria-hidden="true" class="q-icon q-field-icon q-field-margin fas fa-phone"> </i>
             <div class="row col">
               <div class="q-field-label q-field-margin col-xs-12 col-sm-5">
                 <div class="q-field-label-inner row items-center">Phone number</div>
               </div>
               <div class="q-field-content col-xs-12 col-sm">
-                <div tabindex="-1" class="q-if row no-wrap items-end relative-position q-input text-primary">
-                  <div class="q-if-inner col row no-wrap relative-position">
-                    <input type="tel" step="any" class="col q-input-target q-no-input-spinner">
+                <div tabindex="-1" class="q-if row no-wrap relative-position q-input q-if-standard text-primary">
+                  <div class="q-if-baseline">|</div>
+                  <div class="q-if-inner col row">
+                    <div class="col-12 row no-wrap relative-position">
+                      <input type="tel" step="any" class="col q-input-target q-no-input-spinner ellipsis">
+                    </div>
                   </div>
                 </div>
               </div>
             </div>
           </div>
-          <div class="q-field row no-wrap items-start q-field-responsive">
+          <div class="q-field row no-wrap items-start q-field-responsive q-field-no-input">
             <i aria-hidden="true" class="q-icon q-field-icon q-field-margin fas fa-map-marker"> </i>
             <div class="row col">
               <div class="q-field-label q-field-margin col-xs-12 col-sm-5">
@@ -3460,10 +3876,15 @@ exports[`Storyshots Settings Page Default 1`] = `
               </div>
               <div class="q-field-content col-xs-12 col-sm">
                 <div>
-                  <div tabindex="-1" class="q-if row no-wrap items-end relative-position q-input q-search text-primary">
+                  <div tabindex="-1" class="q-if row no-wrap relative-position q-input q-search q-if-standard q-if-has-content text-primary">
+                    <div class="q-if-baseline">|</div>
                     <i aria-hidden="true" class="q-icon q-if-control q-if-control-before material-icons">search</i>
-                    <div class="q-if-inner col row no-wrap relative-position">
-                      <input type="text" placeholder="Search" step="any" value="Darmstadt, Regierungsbezirk Darmstadt, Hessen, Deutschland" class="col q-input-target q-no-input-spinner text-left">
+                    <div class="q-if-inner col row">
+                      <div class="col-12 row no-wrap relative-position">
+                        <input type="search" placeholder="Search" step="any" value="Darmstadt, Regierungsbezirk Darmstadt, Hessen, Deutschland" class="col q-input-target q-no-input-spinner ellipsis text-left">
+                      </div>
+                    </div>
+                    <div class="absolute-full no-pointer-events">
                       <div tabindex="-1" class="q-popover scroll">
                         <div class="q-list no-border" style="min-width:0;"></div>
                       </div>
@@ -3506,31 +3927,37 @@ exports[`Storyshots Settings Page Default 1`] = `
     <div class="q-card-main q-card-container">
       <div id="change-email" class="edit-box">
         <VerificationWarning></VerificationWarning>
-        <div class="q-field row no-wrap items-start q-field-responsive">
+        <div class="q-field row no-wrap items-start q-field-responsive q-field-no-input">
           <i aria-hidden="true" class="q-icon q-field-icon q-field-margin fas fa-envelope"> </i>
           <div class="row col">
             <div class="q-field-label q-field-margin col-xs-12 col-sm-5">
               <div class="q-field-label-inner row items-center">E-mail</div>
             </div>
             <div class="q-field-content col-xs-12 col-sm">
-              <div tabindex="-1" class="q-if row no-wrap items-end relative-position q-input text-primary">
-                <div class="q-if-inner col row no-wrap relative-position">
-                  <input type="email" step="any" value="" class="col q-input-target q-no-input-spinner">
+              <div tabindex="-1" class="q-if row no-wrap relative-position q-input q-if-standard text-primary">
+                <div class="q-if-baseline">|</div>
+                <div class="q-if-inner col row">
+                  <div class="col-12 row no-wrap relative-position">
+                    <input type="email" step="any" value="" class="col q-input-target q-no-input-spinner ellipsis">
+                  </div>
                 </div>
               </div>
             </div>
           </div>
         </div>
-        <div class="q-field row no-wrap items-start q-field-responsive">
+        <div class="q-field row no-wrap items-start q-field-responsive q-field-no-input">
           <i aria-hidden="true" class="q-icon q-field-icon q-field-margin fas fa-unlock"> </i>
           <div class="row col">
             <div class="q-field-label q-field-margin col-xs-12 col-sm-5">
               <div class="q-field-label-inner row items-center">Confirm your password</div>
             </div>
             <div class="q-field-content col-xs-12 col-sm">
-              <div tabindex="-1" class="q-if row no-wrap items-end relative-position q-input text-primary">
-                <div class="q-if-inner col row no-wrap relative-position">
-                  <input type="password" step="any" value="" class="col q-input-target q-no-input-spinner">
+              <div tabindex="-1" class="q-if row no-wrap relative-position q-input q-if-standard text-primary">
+                <div class="q-if-baseline">|</div>
+                <div class="q-if-inner col row">
+                  <div class="col-12 row no-wrap relative-position">
+                    <input type="password" step="any" value="" class="col q-input-target q-no-input-spinner ellipsis">
+                  </div>
                 </div>
               </div>
             </div>
@@ -3548,31 +3975,37 @@ exports[`Storyshots Settings Page Default 1`] = `
       </div>
       <div class="q-card-separator"></div>
       <div class="edit-box">
-        <div class="q-field row no-wrap items-start q-field-responsive">
+        <div class="q-field row no-wrap items-start q-field-responsive q-field-no-input">
           <i aria-hidden="true" class="q-icon q-field-icon q-field-margin fas fa-lock"> </i>
           <div class="row col">
             <div class="q-field-label q-field-margin col-xs-12 col-sm-5">
               <div class="q-field-label-inner row items-center">New password</div>
             </div>
             <div class="q-field-content col-xs-12 col-sm">
-              <div tabindex="-1" class="q-if row no-wrap items-end relative-position q-input text-primary">
-                <div class="q-if-inner col row no-wrap relative-position">
-                  <input type="password" step="any" value="" class="col q-input-target q-no-input-spinner">
+              <div tabindex="-1" class="q-if row no-wrap relative-position q-input q-if-standard text-primary">
+                <div class="q-if-baseline">|</div>
+                <div class="q-if-inner col row">
+                  <div class="col-12 row no-wrap relative-position">
+                    <input type="password" step="any" value="" class="col q-input-target q-no-input-spinner ellipsis">
+                  </div>
                 </div>
               </div>
             </div>
           </div>
         </div>
-        <div class="q-field row no-wrap items-start q-field-responsive">
+        <div class="q-field row no-wrap items-start q-field-responsive q-field-no-input">
           <i aria-hidden="true" class="q-icon q-field-icon q-field-margin fas fa-unlock"> </i>
           <div class="row col">
             <div class="q-field-label q-field-margin col-xs-12 col-sm-5">
               <div class="q-field-label-inner row items-center">Confirm your old password</div>
             </div>
             <div class="q-field-content col-xs-12 col-sm">
-              <div tabindex="-1" class="q-if row no-wrap items-end relative-position q-input text-primary">
-                <div class="q-if-inner col row no-wrap relative-position">
-                  <input type="password" step="any" value="" class="col q-input-target q-no-input-spinner">
+              <div tabindex="-1" class="q-if row no-wrap relative-position q-input q-if-standard text-primary">
+                <div class="q-if-baseline">|</div>
+                <div class="q-if-inner col row">
+                  <div class="col-12 row no-wrap relative-position">
+                    <input type="password" step="any" value="" class="col q-input-target q-no-input-spinner ellipsis">
+                  </div>
                 </div>
               </div>
             </div>
@@ -3612,7 +4045,7 @@ exports[`Storyshots Settings Page Default 1`] = `
     </div>
     <div class="q-card-main q-card-container">
       <div class="edit-box">
-        <div class="q-field row no-wrap items-start q-field-responsive">
+        <div class="q-field row no-wrap items-start q-field-responsive q-field-no-input">
           <i aria-hidden="true" class="q-icon q-field-icon q-field-margin fas fa-bell"> </i>
           <div class="row col">
             <div class="q-field-label q-field-margin col-xs-12 col-sm-5">
@@ -3648,6 +4081,7 @@ exports[`Storyshots Sidenav Boxes Group 1`] = `
       Home
     </div>
     <div class="tools">
+      <!---->
       <a tabindex="0" type="button" href="#/group/1/settings" class="q-btn inline relative-position q-btn-item non-selectable q-btn-round q-btn-flat q-focusable q-hoverable q-btn-dense">
         <div class="q-focus-helper"></div>
         <div class="q-btn-inner row col items-center justify-center">
@@ -3696,6 +4130,7 @@ exports[`Storyshots Sidenav Boxes Group 1`] = `
           <div class="q-item-main q-item-section">
             Wall
           </div>
+          <!---->
         </a>
         <a class="q-link q-item q-item-division relative-position q-item-link">
           <div class="q-item-side q-item-section text-center q-item-side-left">
@@ -3750,7 +4185,7 @@ exports[`Storyshots Sidenav Boxes Map 1`] = `
     <!---->
   </div>
   <div class="q-btn-group row no-wrap inline k-groupmapcontrols">
-    <button tabindex="0" type="button" class="q-btn inline relative-position q-btn-item non-selectable q-btn-rectangle q-focusable q-hoverable bg-primary text-white" style="font-size:10px;">
+    <a tabindex="0" type="button" href="#/group/1/map" class="q-btn inline relative-position q-btn-item non-selectable q-btn-rectangle q-focusable q-hoverable bg-primary text-white" style="font-size:10px;">
       <div class="q-focus-helper"></div>
       <div class="q-btn-inner row col items-center justify-center">
         <i class="fas fa-expand-arrows-alt fa-stack-1x"></i>
@@ -3760,7 +4195,7 @@ exports[`Storyshots Sidenav Boxes Map 1`] = `
           </div>
         </div>
       </div>
-    </button>
+    </a>
     <!---->
     <button tabindex="0" type="button" class="q-btn inline relative-position q-btn-item non-selectable q-btn-rectangle q-focusable q-hoverable bg-primary text-white" style="font-size:10px;">
       <div class="q-focus-helper"></div>
@@ -3898,14 +4333,20 @@ exports[`Storyshots Signup empty 1`] = `
   <form name="signup">
     <div class="content">
       <div class="white-box">
-        <div class="q-field row no-wrap items-start q-field-responsive q-field-no-label">
+        <div class="q-field row no-wrap items-start q-field-responsive q-field-no-label q-field-no-input">
           <i aria-hidden="true" class="q-icon q-field-icon q-field-margin fas fa-user"> </i>
           <div class="row col">
             <div class="q-field-content col-xs-12 col-sm">
-              <div tabindex="-1" autocorrect="off" autocapitalize="off" spellcheck="false" class="q-if row no-wrap items-end relative-position q-input q-if-has-label text-primary">
-                <div class="q-if-inner col row no-wrap relative-position">
-                  <div class="q-if-label ellipsis full-width absolute self-start">Name</div>
-                  <input autocorrect="off" autocapitalize="off" spellcheck="false" type="text" step="any" class="col q-input-target q-no-input-spinner">
+              <div tabindex="-1" autocorrect="off" autocapitalize="off" spellcheck="false" class="q-if row no-wrap relative-position q-input q-if-has-label q-if-standard text-primary">
+                <div class="q-if-baseline">|</div>
+                <div class="q-if-inner col row">
+                  <div class="col-12 row no-wrap relative-position">
+                    <div class="q-if-label">
+                      <div class="q-if-label-inner ellipsis">Name</div>
+                    </div>
+                    <input autocorrect="off" autocapitalize="off" spellcheck="false" type="text" step="any" class="col q-input-target q-no-input-spinner ellipsis">
+                  </div>
+                  <div class="q-if-label-spacer col-12">Name</div>
                 </div>
               </div>
             </div>
@@ -3913,14 +4354,20 @@ exports[`Storyshots Signup empty 1`] = `
         </div>
       </div>
       <div class="white-box">
-        <div class="q-field row no-wrap items-start q-field-responsive q-field-no-label">
+        <div class="q-field row no-wrap items-start q-field-responsive q-field-no-label q-field-no-input">
           <i aria-hidden="true" class="q-icon q-field-icon q-field-margin fas fa-envelope"> </i>
           <div class="row col">
             <div class="q-field-content col-xs-12 col-sm">
-              <div tabindex="-1" autocorrect="off" autocapitalize="off" spellcheck="false" class="q-if row no-wrap items-end relative-position q-input q-if-has-label text-primary">
-                <div class="q-if-inner col row no-wrap relative-position">
-                  <div class="q-if-label ellipsis full-width absolute self-start q-if-label-above">E-mail</div>
-                  <input autocorrect="off" autocapitalize="off" spellcheck="false" type="email" step="any" value="default@example.com" class="col q-input-target q-no-input-spinner">
+              <div tabindex="-1" autocorrect="off" autocapitalize="off" spellcheck="false" class="q-if row no-wrap relative-position q-input q-if-has-label q-if-standard q-if-has-content text-primary">
+                <div class="q-if-baseline">|</div>
+                <div class="q-if-inner col row">
+                  <div class="col-12 row no-wrap relative-position">
+                    <div class="q-if-label q-if-label-above">
+                      <div class="q-if-label-inner ellipsis">E-mail</div>
+                    </div>
+                    <input autocorrect="off" autocapitalize="off" spellcheck="false" type="email" step="any" value="default@example.com" class="col q-input-target q-no-input-spinner ellipsis">
+                  </div>
+                  <div class="q-if-label-spacer col-12">E-mail</div>
                 </div>
               </div>
             </div>
@@ -3928,14 +4375,20 @@ exports[`Storyshots Signup empty 1`] = `
         </div>
       </div>
       <div class="white-box">
-        <div class="q-field row no-wrap items-start q-field-responsive q-field-no-label">
+        <div class="q-field row no-wrap items-start q-field-responsive q-field-no-label q-field-no-input">
           <i aria-hidden="true" class="q-icon q-field-icon q-field-margin fas fa-lock"> </i>
           <div class="row col">
             <div class="q-field-content col-xs-12 col-sm">
-              <div tabindex="-1" autocorrect="off" autocapitalize="off" spellcheck="false" class="q-if row no-wrap items-end relative-position q-input q-if-has-label text-primary">
-                <div class="q-if-inner col row no-wrap relative-position">
-                  <div class="q-if-label ellipsis full-width absolute self-start">Password</div>
-                  <input autocorrect="off" autocapitalize="off" spellcheck="false" type="password" step="any" class="col q-input-target q-no-input-spinner">
+              <div tabindex="-1" autocorrect="off" autocapitalize="off" spellcheck="false" class="q-if row no-wrap relative-position q-input q-if-has-label q-if-standard text-primary">
+                <div class="q-if-baseline">|</div>
+                <div class="q-if-inner col row">
+                  <div class="col-12 row no-wrap relative-position">
+                    <div class="q-if-label">
+                      <div class="q-if-label-inner ellipsis">Password</div>
+                    </div>
+                    <input autocorrect="off" autocapitalize="off" spellcheck="false" type="password" step="any" class="col q-input-target q-no-input-spinner ellipsis">
+                  </div>
+                  <div class="q-if-label-spacer col-12">Password</div>
                 </div>
               </div>
             </div>
@@ -3984,14 +4437,20 @@ exports[`Storyshots Signup error 1`] = `
   <form name="signup">
     <div class="content">
       <div class="white-box">
-        <div class="q-field row no-wrap items-start q-field-responsive q-field-no-label">
+        <div class="q-field row no-wrap items-start q-field-responsive q-field-no-label q-field-no-input">
           <i aria-hidden="true" class="q-icon q-field-icon q-field-margin fas fa-user"> </i>
           <div class="row col">
             <div class="q-field-content col-xs-12 col-sm">
-              <div tabindex="-1" autocorrect="off" autocapitalize="off" spellcheck="false" class="q-if row no-wrap items-end relative-position q-input q-if-has-label text-primary">
-                <div class="q-if-inner col row no-wrap relative-position">
-                  <div class="q-if-label ellipsis full-width absolute self-start">Name</div>
-                  <input autocorrect="off" autocapitalize="off" spellcheck="false" type="text" step="any" class="col q-input-target q-no-input-spinner">
+              <div tabindex="-1" autocorrect="off" autocapitalize="off" spellcheck="false" class="q-if row no-wrap relative-position q-input q-if-has-label q-if-standard text-primary">
+                <div class="q-if-baseline">|</div>
+                <div class="q-if-inner col row">
+                  <div class="col-12 row no-wrap relative-position">
+                    <div class="q-if-label">
+                      <div class="q-if-label-inner ellipsis">Name</div>
+                    </div>
+                    <input autocorrect="off" autocapitalize="off" spellcheck="false" type="text" step="any" class="col q-input-target q-no-input-spinner ellipsis">
+                  </div>
+                  <div class="q-if-label-spacer col-12">Name</div>
                 </div>
               </div>
             </div>
@@ -3999,17 +4458,23 @@ exports[`Storyshots Signup error 1`] = `
         </div>
       </div>
       <div class="white-box">
-        <div class="q-field row no-wrap items-start q-field-responsive q-field-no-label q-field-with-error">
+        <div class="q-field row no-wrap items-start q-field-responsive q-field-no-label q-field-with-error q-field-no-input">
           <i aria-hidden="true" class="q-icon q-field-icon q-field-margin fas fa-envelope"> </i>
           <div class="row col">
             <div class="q-field-content col-xs-12 col-sm">
-              <div tabindex="-1" autocorrect="off" autocapitalize="off" spellcheck="false" class="q-if row no-wrap items-end relative-position q-input q-if-has-label q-if-error text-negative">
-                <div class="q-if-inner col row no-wrap relative-position">
-                  <div class="q-if-label ellipsis full-width absolute self-start q-if-label-above">E-mail</div>
-                  <input autocorrect="off" autocapitalize="off" spellcheck="false" type="email" step="any" value="default@example.com" class="col q-input-target q-no-input-spinner">
+              <div tabindex="-1" autocorrect="off" autocapitalize="off" spellcheck="false" class="q-if row no-wrap relative-position q-input q-if-has-label q-if-error q-if-standard q-if-has-content text-negative">
+                <div class="q-if-baseline">|</div>
+                <div class="q-if-inner col row">
+                  <div class="col-12 row no-wrap relative-position">
+                    <div class="q-if-label q-if-label-above">
+                      <div class="q-if-label-inner ellipsis">E-mail</div>
+                    </div>
+                    <input autocorrect="off" autocapitalize="off" spellcheck="false" type="email" step="any" value="default@example.com" class="col q-input-target q-no-input-spinner ellipsis">
+                  </div>
+                  <div class="q-if-label-spacer col-12">E-mail</div>
                 </div>
               </div>
-              <div class="q-field-bottom row no-wrap q-field-no-input">
+              <div class="q-field-bottom row no-wrap">
                 <div class="q-field-error col">error message</div>
               </div>
             </div>
@@ -4017,14 +4482,20 @@ exports[`Storyshots Signup error 1`] = `
         </div>
       </div>
       <div class="white-box">
-        <div class="q-field row no-wrap items-start q-field-responsive q-field-no-label">
+        <div class="q-field row no-wrap items-start q-field-responsive q-field-no-label q-field-no-input">
           <i aria-hidden="true" class="q-icon q-field-icon q-field-margin fas fa-lock"> </i>
           <div class="row col">
             <div class="q-field-content col-xs-12 col-sm">
-              <div tabindex="-1" autocorrect="off" autocapitalize="off" spellcheck="false" class="q-if row no-wrap items-end relative-position q-input q-if-has-label text-primary">
-                <div class="q-if-inner col row no-wrap relative-position">
-                  <div class="q-if-label ellipsis full-width absolute self-start">Password</div>
-                  <input autocorrect="off" autocapitalize="off" spellcheck="false" type="password" step="any" class="col q-input-target q-no-input-spinner">
+              <div tabindex="-1" autocorrect="off" autocapitalize="off" spellcheck="false" class="q-if row no-wrap relative-position q-input q-if-has-label q-if-standard text-primary">
+                <div class="q-if-baseline">|</div>
+                <div class="q-if-inner col row">
+                  <div class="col-12 row no-wrap relative-position">
+                    <div class="q-if-label">
+                      <div class="q-if-label-inner ellipsis">Password</div>
+                    </div>
+                    <input autocorrect="off" autocapitalize="off" spellcheck="false" type="password" step="any" class="col q-input-target q-no-input-spinner ellipsis">
+                  </div>
+                  <div class="q-if-label-spacer col-12">Password</div>
                 </div>
               </div>
             </div>
@@ -4073,14 +4544,20 @@ exports[`Storyshots Signup pending 1`] = `
   <form name="signup">
     <div class="content">
       <div class="white-box">
-        <div class="q-field row no-wrap items-start q-field-responsive q-field-no-label">
+        <div class="q-field row no-wrap items-start q-field-responsive q-field-no-label q-field-no-input">
           <i aria-hidden="true" class="q-icon q-field-icon q-field-margin fas fa-user"> </i>
           <div class="row col">
             <div class="q-field-content col-xs-12 col-sm">
-              <div tabindex="-1" autocorrect="off" autocapitalize="off" spellcheck="false" class="q-if row no-wrap items-end relative-position q-input q-if-has-label text-primary">
-                <div class="q-if-inner col row no-wrap relative-position">
-                  <div class="q-if-label ellipsis full-width absolute self-start">Name</div>
-                  <input autocorrect="off" autocapitalize="off" spellcheck="false" type="text" step="any" class="col q-input-target q-no-input-spinner">
+              <div tabindex="-1" autocorrect="off" autocapitalize="off" spellcheck="false" class="q-if row no-wrap relative-position q-input q-if-has-label q-if-standard text-primary">
+                <div class="q-if-baseline">|</div>
+                <div class="q-if-inner col row">
+                  <div class="col-12 row no-wrap relative-position">
+                    <div class="q-if-label">
+                      <div class="q-if-label-inner ellipsis">Name</div>
+                    </div>
+                    <input autocorrect="off" autocapitalize="off" spellcheck="false" type="text" step="any" class="col q-input-target q-no-input-spinner ellipsis">
+                  </div>
+                  <div class="q-if-label-spacer col-12">Name</div>
                 </div>
               </div>
             </div>
@@ -4088,14 +4565,20 @@ exports[`Storyshots Signup pending 1`] = `
         </div>
       </div>
       <div class="white-box">
-        <div class="q-field row no-wrap items-start q-field-responsive q-field-no-label">
+        <div class="q-field row no-wrap items-start q-field-responsive q-field-no-label q-field-no-input">
           <i aria-hidden="true" class="q-icon q-field-icon q-field-margin fas fa-envelope"> </i>
           <div class="row col">
             <div class="q-field-content col-xs-12 col-sm">
-              <div tabindex="-1" autocorrect="off" autocapitalize="off" spellcheck="false" class="q-if row no-wrap items-end relative-position q-input q-if-has-label text-primary">
-                <div class="q-if-inner col row no-wrap relative-position">
-                  <div class="q-if-label ellipsis full-width absolute self-start q-if-label-above">E-mail</div>
-                  <input autocorrect="off" autocapitalize="off" spellcheck="false" type="email" step="any" value="default@example.com" class="col q-input-target q-no-input-spinner">
+              <div tabindex="-1" autocorrect="off" autocapitalize="off" spellcheck="false" class="q-if row no-wrap relative-position q-input q-if-has-label q-if-standard q-if-has-content text-primary">
+                <div class="q-if-baseline">|</div>
+                <div class="q-if-inner col row">
+                  <div class="col-12 row no-wrap relative-position">
+                    <div class="q-if-label q-if-label-above">
+                      <div class="q-if-label-inner ellipsis">E-mail</div>
+                    </div>
+                    <input autocorrect="off" autocapitalize="off" spellcheck="false" type="email" step="any" value="default@example.com" class="col q-input-target q-no-input-spinner ellipsis">
+                  </div>
+                  <div class="q-if-label-spacer col-12">E-mail</div>
                 </div>
               </div>
             </div>
@@ -4103,14 +4586,20 @@ exports[`Storyshots Signup pending 1`] = `
         </div>
       </div>
       <div class="white-box">
-        <div class="q-field row no-wrap items-start q-field-responsive q-field-no-label">
+        <div class="q-field row no-wrap items-start q-field-responsive q-field-no-label q-field-no-input">
           <i aria-hidden="true" class="q-icon q-field-icon q-field-margin fas fa-lock"> </i>
           <div class="row col">
             <div class="q-field-content col-xs-12 col-sm">
-              <div tabindex="-1" autocorrect="off" autocapitalize="off" spellcheck="false" class="q-if row no-wrap items-end relative-position q-input q-if-has-label text-primary">
-                <div class="q-if-inner col row no-wrap relative-position">
-                  <div class="q-if-label ellipsis full-width absolute self-start">Password</div>
-                  <input autocorrect="off" autocapitalize="off" spellcheck="false" type="password" step="any" class="col q-input-target q-no-input-spinner">
+              <div tabindex="-1" autocorrect="off" autocapitalize="off" spellcheck="false" class="q-if row no-wrap relative-position q-input q-if-has-label q-if-standard text-primary">
+                <div class="q-if-baseline">|</div>
+                <div class="q-if-inner col row">
+                  <div class="col-12 row no-wrap relative-position">
+                    <div class="q-if-label">
+                      <div class="q-if-label-inner ellipsis">Password</div>
+                    </div>
+                    <input autocorrect="off" autocapitalize="off" spellcheck="false" type="password" step="any" class="col q-input-target q-no-input-spinner ellipsis">
+                  </div>
+                  <div class="q-if-label-spacer col-12">Password</div>
                 </div>
               </div>
             </div>
@@ -4192,9 +4681,12 @@ exports[`Storyshots Statistics AmountPicker 1`] = `
           </div>
         </div>
       </div>
-      <div tabindex="-1" class="q-if row no-wrap items-end relative-position q-input text-primary" style="width:5em;margin:0 5px 0 2em;text-align:right;">
-        <div class="q-if-inner col row no-wrap relative-position">
-          <input type="text" step="any" value="1" class="col q-input-target q-no-input-spinner text-right">
+      <div tabindex="-1" class="q-if row no-wrap relative-position q-input q-if-standard q-if-has-content text-primary" style="width:5em;margin:0 5px 0 2em;text-align:right;">
+        <div class="q-if-baseline">|</div>
+        <div class="q-if-inner col row">
+          <div class="col-12 row no-wrap relative-position">
+            <input type="text" step="any" value="1" class="col q-input-target q-no-input-spinner ellipsis text-right">
+          </div>
         </div>
       </div> <span style="padding:3px;">kg</span></div>
   </div>
@@ -4205,34 +4697,44 @@ exports[`Storyshots Statistics FeedbackItem 1`] = `
 <div class="q-card no-shadow grey-border">
   <div class="q-card-main q-card-container generic-padding">
     <div class="row no-wrap">
-      <div class="container amount-box" style="width:80px;height:80px;">
-        <img width="80px" height="80px" src="test-file-stub">
-        <img width="10px" height="16px" src="test-file-stub" class="pointer" style="transform:rotate(-41deg);top:8px;">
-        <div class="text-bottom" style="bottom:10px;"><span style="font-size:19px;">
-        2.5
-      </span> <span style="font-size:11px;">kg</span></div>
-      </div>
-      <div class="content">
-        <div><strong class="small-margin-right">Aug 12, 2017, 8:00 AM</strong>
-          <a><span class="text-secondary small-margin-right">Griesheimer Markt</span></a>
+      <div class="content full-width">
+        <div class="row no-wrap items-baseline"><strong class="q-mr-sm" style="white-space:nowrap;">
+            Aug 12, 2017, 8:00 AM
+          </strong>
+          <a class="ellipsis text-secondary">
+            Griesheimer Markt
+          </a>
           <!---->
         </div>
         <small class="text-weight-light">
-          <a place="user"><span>Mira Bellenbaum</span></a> <span place="date" class="message-date"><div title="Aug 11, 2017, 3:43 PM">
+          <a>
+            Mira Bellenbaum
+          </a> <span place="date" class="message-date"><div title="Aug 11, 2017, 3:43 PM">
   4 months ago
 </div></span></small>
-        <div class="comment">
-          <div class="markdown">
-            <p>All worked out perfectly!</p>
+        <div class="row no-wrap justify-between">
+          <div class="column">
+            <div class="comment">
+              <div class="markdown">
+                <p>All worked out perfectly!</p>
+              </div>
+            </div>
+            <div class="q-mt-sm">
+              <div class="wrapper" style="width:22px;height:22px;">
+                <a title="Mira Bellenbaum">
+                  <div text="Mira Bellenbaum" seed="1" class="randomArt fill"></div>
+                </a>
+              </div>
+              <!---->
+            </div>
           </div>
-        </div>
-        <div class="people">
-          <div class="wrapper" style="width:22px;height:22px;">
-            <a title="Mira Bellenbaum">
-              <div text="Mira Bellenbaum" seed="1" class="randomArt fill"></div>
-            </a>
+          <div class="container amount-box" style="width:80px;height:80px;">
+            <img width="80px" height="80px" src="test-file-stub">
+            <img width="10px" height="16px" src="test-file-stub" class="pointer" style="transform:rotate(-41deg);top:8px;">
+            <div class="text-bottom" style="bottom:10px;"><span style="font-size:19px;">
+        2.5
+      </span> <span style="font-size:11px;">kg</span></div>
           </div>
-          <!---->
         </div>
       </div>
     </div>
@@ -4247,34 +4749,44 @@ exports[`Storyshots Statistics FeedbackList 1`] = `
     <div class="q-card no-shadow grey-border">
       <div class="q-card-main q-card-container generic-padding">
         <div class="row no-wrap">
-          <div class="container amount-box" style="width:80px;height:80px;">
-            <img width="80px" height="80px" src="test-file-stub">
-            <img width="10px" height="16px" src="test-file-stub" class="pointer" style="transform:rotate(-41deg);top:8px;">
-            <div class="text-bottom" style="bottom:10px;"><span style="font-size:19px;">
-        2.5
-      </span> <span style="font-size:11px;">kg</span></div>
-          </div>
-          <div class="content">
-            <div><strong class="small-margin-right">Aug 12, 2017, 8:00 AM</strong>
-              <a><span class="text-secondary small-margin-right">Griesheimer Markt</span></a>
+          <div class="content full-width">
+            <div class="row no-wrap items-baseline"><strong class="q-mr-sm" style="white-space:nowrap;">
+            Aug 12, 2017, 8:00 AM
+          </strong>
+              <a class="ellipsis text-secondary">
+                Griesheimer Markt
+              </a>
               <!---->
             </div>
             <small class="text-weight-light">
-              <a place="user"><span>Mira Bellenbaum</span></a> <span place="date" class="message-date"><div title="Aug 11, 2017, 3:43 PM">
+              <a>
+                Mira Bellenbaum
+              </a> <span place="date" class="message-date"><div title="Aug 11, 2017, 3:43 PM">
   4 months ago
 </div></span></small>
-            <div class="comment">
-              <div class="markdown">
-                <p>All worked out perfectly!</p>
+            <div class="row no-wrap justify-between">
+              <div class="column">
+                <div class="comment">
+                  <div class="markdown">
+                    <p>All worked out perfectly!</p>
+                  </div>
+                </div>
+                <div class="q-mt-sm">
+                  <div class="wrapper" style="width:22px;height:22px;">
+                    <a title="Mira Bellenbaum">
+                      <div text="Mira Bellenbaum" seed="1" class="randomArt fill"></div>
+                    </a>
+                  </div>
+                  <!---->
+                </div>
               </div>
-            </div>
-            <div class="people">
-              <div class="wrapper" style="width:22px;height:22px;">
-                <a title="Mira Bellenbaum">
-                  <div text="Mira Bellenbaum" seed="1" class="randomArt fill"></div>
-                </a>
+              <div class="container amount-box" style="width:80px;height:80px;">
+                <img width="80px" height="80px" src="test-file-stub">
+                <img width="10px" height="16px" src="test-file-stub" class="pointer" style="transform:rotate(-41deg);top:8px;">
+                <div class="text-bottom" style="bottom:10px;"><span style="font-size:19px;">
+        2.5
+      </span> <span style="font-size:11px;">kg</span></div>
               </div>
-              <!---->
             </div>
           </div>
         </div>
@@ -4283,30 +4795,40 @@ exports[`Storyshots Statistics FeedbackList 1`] = `
     <div class="q-card no-shadow grey-border">
       <div class="q-card-main q-card-container generic-padding">
         <div class="row no-wrap">
-          <div class="container amount-box" style="width:80px;height:80px;">
-            <img width="80px" height="80px" src="test-file-stub">
-            <img width="10px" height="16px" src="test-file-stub" class="pointer" style="transform:rotate(-15deg);top:8px;">
-            <div class="text-bottom" style="bottom:10px;"><span style="font-size:19px;">
+          <div class="content full-width">
+            <div class="row no-wrap items-baseline"><strong class="q-mr-sm" style="white-space:nowrap;">
+            Aug 13, 2017, 8:00 AM
+          </strong>
+              <a class="ellipsis text-secondary">
+                Griesheimer Markt
+              </a>
+              <!---->
+            </div>
+            <small class="text-weight-light">
+              <a>
+                Mira Bellenbaum
+              </a> <span place="date" class="message-date"><div title="Sep 11, 2017, 3:40 PM">
+  3 months ago
+</div></span></small>
+            <div class="row no-wrap justify-between">
+              <div class="column">
+                <!---->
+                <div class="q-mt-sm">
+                  <div class="wrapper" style="width:22px;height:22px;">
+                    <a title="Mira Bellenbaum">
+                      <div text="Mira Bellenbaum" seed="1" class="randomArt fill"></div>
+                    </a>
+                  </div>
+                  <!---->
+                </div>
+              </div>
+              <div class="container amount-box" style="width:80px;height:80px;">
+                <img width="80px" height="80px" src="test-file-stub">
+                <img width="10px" height="16px" src="test-file-stub" class="pointer" style="transform:rotate(-15deg);top:8px;">
+                <div class="text-bottom" style="bottom:10px;"><span style="font-size:19px;">
         11.0
       </span> <span style="font-size:11px;">kg</span></div>
-          </div>
-          <div class="content">
-            <div><strong class="small-margin-right">Aug 13, 2017, 8:00 AM</strong>
-              <a><span class="text-secondary small-margin-right">Griesheimer Markt</span></a>
-              <!---->
-            </div>
-            <small class="text-weight-light">
-              <a place="user"><span>Mira Bellenbaum</span></a> <span place="date" class="message-date"><div title="Sep 11, 2017, 3:40 PM">
-  3 months ago
-</div></span></small>
-            <!---->
-            <div class="people">
-              <div class="wrapper" style="width:22px;height:22px;">
-                <a title="Mira Bellenbaum">
-                  <div text="Mira Bellenbaum" seed="1" class="randomArt fill"></div>
-                </a>
               </div>
-              <!---->
             </div>
           </div>
         </div>
@@ -4315,34 +4837,44 @@ exports[`Storyshots Statistics FeedbackList 1`] = `
     <div class="q-card no-shadow grey-border">
       <div class="q-card-main q-card-container generic-padding">
         <div class="row no-wrap">
-          <div class="container amount-box" style="width:80px;height:80px;">
-            <img width="80px" height="80px" src="test-file-stub">
-            <img width="10px" height="16px" src="test-file-stub" class="pointer" style="transform:rotate(-48deg);top:8px;">
-            <div class="text-bottom" style="bottom:10px;"><span style="font-size:19px;">
-        0
-      </span> <span style="font-size:11px;">g</span></div>
-          </div>
-          <div class="content">
-            <div><strong class="small-margin-right">Aug 13, 2017, 8:00 AM</strong>
-              <a><span class="text-secondary small-margin-right">Griesheimer Markt</span></a>
+          <div class="content full-width">
+            <div class="row no-wrap items-baseline"><strong class="q-mr-sm" style="white-space:nowrap;">
+            Aug 13, 2017, 8:00 AM
+          </strong>
+              <a class="ellipsis text-secondary">
+                Griesheimer Markt
+              </a>
               <!---->
             </div>
             <small class="text-weight-light">
-              <a place="user"><span>Max Mustermann</span></a> <span place="date" class="message-date"><div title="Sep 18, 2017, 12:12 PM">
+              <a>
+                Max Mustermann
+              </a> <span place="date" class="message-date"><div title="Sep 18, 2017, 12:12 PM">
   3 months ago
 </div></span></small>
-            <div class="comment">
-              <div class="markdown">
-                <p>They did not have anything today</p>
+            <div class="row no-wrap justify-between">
+              <div class="column">
+                <div class="comment">
+                  <div class="markdown">
+                    <p>They did not have anything today</p>
+                  </div>
+                </div>
+                <div class="q-mt-sm">
+                  <div class="wrapper" style="width:22px;height:22px;">
+                    <a title="Max Mustermann">
+                      <div text="Max Mustermann" seed="2" class="randomArt fill"></div>
+                    </a>
+                  </div>
+                  <!---->
+                </div>
               </div>
-            </div>
-            <div class="people">
-              <div class="wrapper" style="width:22px;height:22px;">
-                <a title="Max Mustermann">
-                  <div text="Max Mustermann" seed="2" class="randomArt fill"></div>
-                </a>
+              <div class="container amount-box" style="width:80px;height:80px;">
+                <img width="80px" height="80px" src="test-file-stub">
+                <img width="10px" height="16px" src="test-file-stub" class="pointer" style="transform:rotate(-48deg);top:8px;">
+                <div class="text-bottom" style="bottom:10px;"><span style="font-size:19px;">
+        0
+      </span> <span style="font-size:11px;">g</span></div>
               </div>
-              <!---->
             </div>
           </div>
         </div>
@@ -4364,33 +4896,36 @@ exports[`Storyshots Statistics PickupFeedback 1`] = `
         <div class="image-and-text-right">
           <h4>Thank you for your pickup!</h4>
           <p>
-            <div class="q-field row no-wrap items-start grey-font q-field-responsive q-field-no-label q-field-dark">
+            <div class="q-field row no-wrap items-start grey-font q-field-responsive q-field-no-label q-field-dark q-field-no-input">
               <div class="row col">
                 <div class="q-field-content col-xs-12 col-sm">
-                  <div tabindex="0" class="q-if row no-wrap items-end relative-position q-select q-if-focusable text-primary">
-                    <div class="q-if-inner col row no-wrap relative-position">
-                      <div class="col q-input-target ellipsis justify-start">Aug 12, 2017, 8:00 AM (Griesheimer Markt)</div>
-                      <div tabindex="-1" class="q-popover scroll column no-wrap">
-                        <div class="q-list no-border scroll">
-                          <div class="q-item q-item-division relative-position cursor-pointer q-select-highlight cursor-pointer">
-                            <div class="q-item-main q-item-section">
-                              <div class="q-item-label" style="overflow:hidden;display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:NaN;">Aug 12, 2017, 8:00 AM (Griesheimer Markt)</div>
-                            </div>
+                  <div tabindex="0" class="q-if row no-wrap relative-position q-select q-if-focusable q-if-standard q-if-has-content text-primary">
+                    <div class="q-if-baseline">|</div>
+                    <div class="q-if-inner col row">
+                      <div class="col-12 row no-wrap relative-position">
+                        <div class="col q-input-target ellipsis justify-start">Aug 12, 2017, 8:00 AM (Griesheimer Markt)</div>
+                      </div>
+                    </div>
+                    <div tabindex="-1" class="q-popover scroll column no-wrap">
+                      <div class="q-list no-border scroll">
+                        <div class="q-item q-item-division relative-position cursor-pointer q-select-highlight cursor-pointer">
+                          <div class="q-item-main q-item-section">
+                            <div class="q-item-label" style="overflow:hidden;display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:NaN;">Aug 12, 2017, 8:00 AM (Griesheimer Markt)</div>
                           </div>
-                          <div class="q-item q-item-division relative-position cursor-pointer cursor-pointer">
-                            <div class="q-item-main q-item-section">
-                              <div class="q-item-label" style="overflow:hidden;display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:NaN;">Aug 13, 2017, 8:00 AM (Griesheimer Markt)</div>
-                            </div>
+                        </div>
+                        <div class="q-item q-item-division relative-position cursor-pointer cursor-pointer">
+                          <div class="q-item-main q-item-section">
+                            <div class="q-item-label" style="overflow:hidden;display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:NaN;">Aug 13, 2017, 8:00 AM (Griesheimer Markt)</div>
                           </div>
-                          <div class="q-item q-item-division relative-position cursor-pointer cursor-pointer">
-                            <div class="q-item-main q-item-section">
-                              <div class="q-item-label" style="overflow:hidden;display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:NaN;">Aug 14, 2017, 8:00 AM (Griesheimer Markt)</div>
-                            </div>
+                        </div>
+                        <div class="q-item q-item-division relative-position cursor-pointer cursor-pointer">
+                          <div class="q-item-main q-item-section">
+                            <div class="q-item-label" style="overflow:hidden;display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:NaN;">Aug 14, 2017, 8:00 AM (Griesheimer Markt)</div>
                           </div>
-                          <div class="q-item q-item-division relative-position cursor-pointer cursor-pointer">
-                            <div class="q-item-main q-item-section">
-                              <div class="q-item-label" style="overflow:hidden;display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:NaN;">Aug 15, 2017, 8:00 AM (Griesheimer Markt)</div>
-                            </div>
+                        </div>
+                        <div class="q-item q-item-division relative-position cursor-pointer cursor-pointer">
+                          <div class="q-item-main q-item-section">
+                            <div class="q-item-label" style="overflow:hidden;display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:NaN;">Aug 15, 2017, 8:00 AM (Griesheimer Markt)</div>
                           </div>
                         </div>
                       </div>
@@ -4425,17 +4960,17 @@ exports[`Storyshots Statistics PickupFeedback 1`] = `
       </p>
       <form style="padding:1.5em 0;">
         <div>
-          <div class="q-tabs flex no-wrap markdown-input q-tabs-position-top q-tabs-inverted">
+          <div class="q-tabs flex no-wrap overflow-hidden markdown-input q-tabs-position-top q-tabs-inverted">
             <div class="q-tabs-head row q-tabs-align-right text-primary">
               <div class="q-tabs-scroller row no-wrap">
-                <div class="q-tab column flex-center relative-position markdown-input-tab active disabled q-tab-only-label hide-none text-primary">
+                <div data-tab-name="edit" class="q-tab column flex-center relative-position markdown-input-tab active disabled q-tab-only-label hide-none text-primary">
                   <div class="q-tab-label-parent relative-position">
                     <div class="q-tab-label">Edit</div>
                   </div>
                   <div class="q-tabs-bar"></div>
                   <div tabindex="-1" class="q-tab-focus-helper absolute-full"></div>
                 </div>
-                <div class="q-tab column flex-center relative-position markdown-input-tab disabled q-tab-only-label hide-none text-primary">
+                <div data-tab-name="preview" class="q-tab column flex-center relative-position markdown-input-tab disabled q-tab-only-label hide-none text-primary">
                   <div class="q-tab-label-parent relative-position">
                     <div class="q-tab-label">Preview</div>
                   </div>
@@ -4455,12 +4990,15 @@ exports[`Storyshots Statistics PickupFeedback 1`] = `
             </div>
             <div class="q-tabs-panes">
               <div class="q-tab-pane">
-                <div tabindex="-1" autocomplete="off" rows="1" class="q-if row no-wrap items-end relative-position q-input text-primary">
-                  <div class="q-if-inner col row no-wrap relative-position q-if-inner-dynamic">
-                    <div class="col row relative-position">
-                      <object type="text/html" data="about:blank" aria-hidden="true" style="display:block;position:absolute;top:0;left:0;right:0;bottom:0;height:100%;width:100%;overflow:hidden;pointer-events:none;z-index:-1;"></object>
-                      <textarea rows="1" autocomplete="off" class="col q-input-target q-input-shadow absolute-top"></textarea>
-                      <textarea rows="1" autocomplete="off" placeholder="Was everything fine? Did everyone show up? Your comment here..." class="col q-input-target q-input-area"></textarea>
+                <div tabindex="-1" autocomplete="off" rows="1" class="q-if row no-wrap relative-position q-input q-if-standard q-if-has-content text-primary">
+                  <div class="q-if-baseline">|</div>
+                  <div class="q-if-inner col row">
+                    <div class="col-12 row no-wrap relative-position">
+                      <div class="col row relative-position">
+                        <object type="text/html" data="about:blank" aria-hidden="true" style="display:block;position:absolute;top:0;left:0;right:0;bottom:0;height:100%;width:100%;overflow:hidden;pointer-events:none;z-index:-1;"></object>
+                        <textarea rows="1" autocomplete="off" class="col q-input-target q-input-shadow absolute-top"></textarea>
+                        <textarea rows="1" autocomplete="off" placeholder="Was everything fine? Did everyone show up? Your comment here..." class="col q-input-target q-input-area"></textarea>
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -4509,9 +5047,12 @@ exports[`Storyshots Statistics PickupFeedback 1`] = `
                   </div>
                 </div>
               </div>
-              <div tabindex="-1" class="q-if row no-wrap items-end relative-position q-input text-primary" style="width:5em;margin:0 5px 0 2em;text-align:right;">
-                <div class="q-if-inner col row no-wrap relative-position">
-                  <input type="text" step="any" class="col q-input-target q-no-input-spinner text-right">
+              <div tabindex="-1" class="q-if row no-wrap relative-position q-input q-if-standard text-primary" style="width:5em;margin:0 5px 0 2em;text-align:right;">
+                <div class="q-if-baseline">|</div>
+                <div class="q-if-inner col row">
+                  <div class="col-12 row no-wrap relative-position">
+                    <input type="text" step="any" class="col q-input-target q-no-input-spinner ellipsis text-right">
+                  </div>
                 </div>
               </div> <span style="padding:3px;">kg</span></div>
           </div>
@@ -4567,34 +5108,44 @@ exports[`Storyshots Statistics PickupFeedback 1`] = `
         <div class="q-card no-shadow grey-border">
           <div class="q-card-main q-card-container generic-padding">
             <div class="row no-wrap">
-              <div class="container amount-box" style="width:80px;height:80px;">
-                <img width="80px" height="80px" src="test-file-stub">
-                <img width="10px" height="16px" src="test-file-stub" class="pointer" style="transform:rotate(-41deg);top:8px;">
-                <div class="text-bottom" style="bottom:10px;"><span style="font-size:19px;">
-        2.5
-      </span> <span style="font-size:11px;">kg</span></div>
-              </div>
-              <div class="content">
-                <div><strong class="small-margin-right">Aug 12, 2017, 8:00 AM</strong>
-                  <a><span class="text-secondary small-margin-right">Griesheimer Markt</span></a>
+              <div class="content full-width">
+                <div class="row no-wrap items-baseline"><strong class="q-mr-sm" style="white-space:nowrap;">
+            Aug 12, 2017, 8:00 AM
+          </strong>
+                  <a class="ellipsis text-secondary">
+                    Griesheimer Markt
+                  </a>
                   <!---->
                 </div>
                 <small class="text-weight-light">
-                  <a place="user"><span>Mira Bellenbaum</span></a> <span place="date" class="message-date"><div title="Aug 11, 2017, 3:43 PM">
+                  <a>
+                    Mira Bellenbaum
+                  </a> <span place="date" class="message-date"><div title="Aug 11, 2017, 3:43 PM">
   4 months ago
 </div></span></small>
-                <div class="comment">
-                  <div class="markdown">
-                    <p>All worked out perfectly!</p>
+                <div class="row no-wrap justify-between">
+                  <div class="column">
+                    <div class="comment">
+                      <div class="markdown">
+                        <p>All worked out perfectly!</p>
+                      </div>
+                    </div>
+                    <div class="q-mt-sm">
+                      <div class="wrapper" style="width:22px;height:22px;">
+                        <a title="Mira Bellenbaum">
+                          <div text="Mira Bellenbaum" seed="1" class="randomArt fill"></div>
+                        </a>
+                      </div>
+                      <!---->
+                    </div>
                   </div>
-                </div>
-                <div class="people">
-                  <div class="wrapper" style="width:22px;height:22px;">
-                    <a title="Mira Bellenbaum">
-                      <div text="Mira Bellenbaum" seed="1" class="randomArt fill"></div>
-                    </a>
+                  <div class="container amount-box" style="width:80px;height:80px;">
+                    <img width="80px" height="80px" src="test-file-stub">
+                    <img width="10px" height="16px" src="test-file-stub" class="pointer" style="transform:rotate(-41deg);top:8px;">
+                    <div class="text-bottom" style="bottom:10px;"><span style="font-size:19px;">
+        2.5
+      </span> <span style="font-size:11px;">kg</span></div>
                   </div>
-                  <!---->
                 </div>
               </div>
             </div>
@@ -4603,30 +5154,40 @@ exports[`Storyshots Statistics PickupFeedback 1`] = `
         <div class="q-card no-shadow grey-border">
           <div class="q-card-main q-card-container generic-padding">
             <div class="row no-wrap">
-              <div class="container amount-box" style="width:80px;height:80px;">
-                <img width="80px" height="80px" src="test-file-stub">
-                <img width="10px" height="16px" src="test-file-stub" class="pointer" style="transform:rotate(-15deg);top:8px;">
-                <div class="text-bottom" style="bottom:10px;"><span style="font-size:19px;">
+              <div class="content full-width">
+                <div class="row no-wrap items-baseline"><strong class="q-mr-sm" style="white-space:nowrap;">
+            Aug 13, 2017, 8:00 AM
+          </strong>
+                  <a class="ellipsis text-secondary">
+                    Griesheimer Markt
+                  </a>
+                  <!---->
+                </div>
+                <small class="text-weight-light">
+                  <a>
+                    Mira Bellenbaum
+                  </a> <span place="date" class="message-date"><div title="Sep 11, 2017, 3:40 PM">
+  3 months ago
+</div></span></small>
+                <div class="row no-wrap justify-between">
+                  <div class="column">
+                    <!---->
+                    <div class="q-mt-sm">
+                      <div class="wrapper" style="width:22px;height:22px;">
+                        <a title="Mira Bellenbaum">
+                          <div text="Mira Bellenbaum" seed="1" class="randomArt fill"></div>
+                        </a>
+                      </div>
+                      <!---->
+                    </div>
+                  </div>
+                  <div class="container amount-box" style="width:80px;height:80px;">
+                    <img width="80px" height="80px" src="test-file-stub">
+                    <img width="10px" height="16px" src="test-file-stub" class="pointer" style="transform:rotate(-15deg);top:8px;">
+                    <div class="text-bottom" style="bottom:10px;"><span style="font-size:19px;">
         11.0
       </span> <span style="font-size:11px;">kg</span></div>
-              </div>
-              <div class="content">
-                <div><strong class="small-margin-right">Aug 13, 2017, 8:00 AM</strong>
-                  <a><span class="text-secondary small-margin-right">Griesheimer Markt</span></a>
-                  <!---->
-                </div>
-                <small class="text-weight-light">
-                  <a place="user"><span>Mira Bellenbaum</span></a> <span place="date" class="message-date"><div title="Sep 11, 2017, 3:40 PM">
-  3 months ago
-</div></span></small>
-                <!---->
-                <div class="people">
-                  <div class="wrapper" style="width:22px;height:22px;">
-                    <a title="Mira Bellenbaum">
-                      <div text="Mira Bellenbaum" seed="1" class="randomArt fill"></div>
-                    </a>
                   </div>
-                  <!---->
                 </div>
               </div>
             </div>
@@ -4635,34 +5196,44 @@ exports[`Storyshots Statistics PickupFeedback 1`] = `
         <div class="q-card no-shadow grey-border">
           <div class="q-card-main q-card-container generic-padding">
             <div class="row no-wrap">
-              <div class="container amount-box" style="width:80px;height:80px;">
-                <img width="80px" height="80px" src="test-file-stub">
-                <img width="10px" height="16px" src="test-file-stub" class="pointer" style="transform:rotate(-48deg);top:8px;">
-                <div class="text-bottom" style="bottom:10px;"><span style="font-size:19px;">
-        0
-      </span> <span style="font-size:11px;">g</span></div>
-              </div>
-              <div class="content">
-                <div><strong class="small-margin-right">Aug 13, 2017, 8:00 AM</strong>
-                  <a><span class="text-secondary small-margin-right">Griesheimer Markt</span></a>
+              <div class="content full-width">
+                <div class="row no-wrap items-baseline"><strong class="q-mr-sm" style="white-space:nowrap;">
+            Aug 13, 2017, 8:00 AM
+          </strong>
+                  <a class="ellipsis text-secondary">
+                    Griesheimer Markt
+                  </a>
                   <!---->
                 </div>
                 <small class="text-weight-light">
-                  <a place="user"><span>Max Mustermann</span></a> <span place="date" class="message-date"><div title="Sep 18, 2017, 12:12 PM">
+                  <a>
+                    Max Mustermann
+                  </a> <span place="date" class="message-date"><div title="Sep 18, 2017, 12:12 PM">
   3 months ago
 </div></span></small>
-                <div class="comment">
-                  <div class="markdown">
-                    <p>They did not have anything today</p>
+                <div class="row no-wrap justify-between">
+                  <div class="column">
+                    <div class="comment">
+                      <div class="markdown">
+                        <p>They did not have anything today</p>
+                      </div>
+                    </div>
+                    <div class="q-mt-sm">
+                      <div class="wrapper" style="width:22px;height:22px;">
+                        <a title="Max Mustermann">
+                          <div text="Max Mustermann" seed="2" class="randomArt fill"></div>
+                        </a>
+                      </div>
+                      <!---->
+                    </div>
                   </div>
-                </div>
-                <div class="people">
-                  <div class="wrapper" style="width:22px;height:22px;">
-                    <a title="Max Mustermann">
-                      <div text="Max Mustermann" seed="2" class="randomArt fill"></div>
-                    </a>
+                  <div class="container amount-box" style="width:80px;height:80px;">
+                    <img width="80px" height="80px" src="test-file-stub">
+                    <img width="10px" height="16px" src="test-file-stub" class="pointer" style="transform:rotate(-48deg);top:8px;">
+                    <div class="text-bottom" style="bottom:10px;"><span style="font-size:19px;">
+        0
+      </span> <span style="font-size:11px;">g</span></div>
                   </div>
-                  <!---->
                 </div>
               </div>
             </div>
@@ -4680,67 +5251,73 @@ exports[`Storyshots Stores StoreEdit (with server error) 1`] = `
   <div class="q-card no-shadow grey-border">
     <div class="edit-box">
       <form>
-        <div class="q-field row no-wrap items-start q-field-responsive q-field-with-error">
+        <div class="q-field row no-wrap items-start q-field-responsive q-field-with-error q-field-no-input">
           <i aria-hidden="true" class="q-icon q-field-icon q-field-margin fas fa-star"> </i>
           <div class="row col">
             <div class="q-field-label q-field-margin col-xs-12 col-sm-5">
               <div class="q-field-label-inner row items-center">Name</div>
             </div>
             <div class="q-field-content col-xs-12 col-sm">
-              <div tabindex="-1" autocomplete="off" class="q-if row no-wrap items-end relative-position q-input q-if-error text-negative">
-                <div class="q-if-inner col row no-wrap relative-position">
-                  <input autocomplete="off" type="text" step="any" value="Teststore1" class="col q-input-target q-no-input-spinner">
+              <div tabindex="-1" autocomplete="off" class="q-if row no-wrap relative-position q-input q-if-error q-if-standard q-if-has-content text-negative">
+                <div class="q-if-baseline">|</div>
+                <div class="q-if-inner col row">
+                  <div class="col-12 row no-wrap relative-position">
+                    <input autocomplete="off" type="text" step="any" value="Teststore1" class="col q-input-target q-no-input-spinner ellipsis">
+                  </div>
                 </div>
               </div>
-              <div class="q-field-bottom row no-wrap q-field-no-input">
+              <div class="q-field-bottom row no-wrap">
                 <div class="q-field-error col">a nice server error</div>
               </div>
             </div>
           </div>
         </div>
-        <div class="q-field row no-wrap items-start q-field-responsive">
+        <div class="q-field row no-wrap items-start q-field-responsive q-field-no-input">
           <i aria-hidden="true" class="q-icon q-field-icon q-field-margin fas fa-handshake"> </i>
           <div class="row col">
             <div class="q-field-label q-field-margin col-xs-12 col-sm-5">
               <div class="q-field-label-inner row items-center">Status</div>
             </div>
             <div class="q-field-content col-xs-12 col-sm">
-              <div tabindex="0" class="q-if row no-wrap items-end relative-position q-select q-if-focusable text-primary">
-                <div class="q-if-inner col row no-wrap relative-position">
-                  <div class="col q-input-target ellipsis justify-start"></div>
-                  <div tabindex="-1" class="q-popover scroll column no-wrap">
-                    <div class="q-list no-border scroll">
-                      <div class="q-item q-item-division relative-position cursor-pointer q-select-highlight cursor-pointer">
-                        <div class="q-item-side q-item-section q-item-side-left">
-                          <i aria-hidden="true" class="q-icon fas fa-circle q-item-icon text-grey"> </i>
-                        </div>
-                        <div class="q-item-main q-item-section">
-                          <div class="q-item-label" style="overflow:hidden;display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:NaN;">Just created</div>
-                        </div>
+              <div tabindex="0" class="q-if row no-wrap relative-position q-select q-if-focusable q-if-standard text-primary">
+                <div class="q-if-baseline">|</div>
+                <div class="q-if-inner col row">
+                  <div class="col-12 row no-wrap relative-position">
+                    <div class="col q-input-target ellipsis justify-start">undefined</div>
+                  </div>
+                </div>
+                <div tabindex="-1" class="q-popover scroll column no-wrap">
+                  <div class="q-list no-border scroll">
+                    <div class="q-item q-item-division relative-position cursor-pointer q-select-highlight cursor-pointer">
+                      <div class="q-item-side q-item-section q-item-side-left">
+                        <i aria-hidden="true" class="q-icon fas fa-circle q-item-icon text-grey"> </i>
                       </div>
-                      <div class="q-item q-item-division relative-position cursor-pointer cursor-pointer">
-                        <div class="q-item-side q-item-section q-item-side-left">
-                          <i aria-hidden="true" class="q-icon fas fa-circle q-item-icon text-blue"> </i>
-                        </div>
-                        <div class="q-item-main q-item-section">
-                          <div class="q-item-label" style="overflow:hidden;display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:NaN;">Negotiating</div>
-                        </div>
+                      <div class="q-item-main q-item-section">
+                        <div class="q-item-label" style="overflow:hidden;display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:NaN;">Just created</div>
                       </div>
-                      <div class="q-item q-item-division relative-position cursor-pointer cursor-pointer">
-                        <div class="q-item-side q-item-section q-item-side-left">
-                          <i aria-hidden="true" class="q-icon fas fa-circle q-item-icon text-positive"> </i>
-                        </div>
-                        <div class="q-item-main q-item-section">
-                          <div class="q-item-label" style="overflow:hidden;display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:NaN;">Co-operating</div>
-                        </div>
+                    </div>
+                    <div class="q-item q-item-division relative-position cursor-pointer cursor-pointer">
+                      <div class="q-item-side q-item-section q-item-side-left">
+                        <i aria-hidden="true" class="q-icon fas fa-circle q-item-icon text-blue"> </i>
                       </div>
-                      <div class="q-item q-item-division relative-position cursor-pointer cursor-pointer">
-                        <div class="q-item-side q-item-section q-item-side-left">
-                          <i aria-hidden="true" class="q-icon fas fa-circle q-item-icon text-negative"> </i>
-                        </div>
-                        <div class="q-item-main q-item-section">
-                          <div class="q-item-label" style="overflow:hidden;display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:NaN;">Don't want to cooperate</div>
-                        </div>
+                      <div class="q-item-main q-item-section">
+                        <div class="q-item-label" style="overflow:hidden;display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:NaN;">Negotiating</div>
+                      </div>
+                    </div>
+                    <div class="q-item q-item-division relative-position cursor-pointer cursor-pointer">
+                      <div class="q-item-side q-item-section q-item-side-left">
+                        <i aria-hidden="true" class="q-icon fas fa-circle q-item-icon text-positive"> </i>
+                      </div>
+                      <div class="q-item-main q-item-section">
+                        <div class="q-item-label" style="overflow:hidden;display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:NaN;">Co-operating</div>
+                      </div>
+                    </div>
+                    <div class="q-item q-item-division relative-position cursor-pointer cursor-pointer">
+                      <div class="q-item-side q-item-section q-item-side-left">
+                        <i aria-hidden="true" class="q-icon fas fa-circle q-item-icon text-negative"> </i>
+                      </div>
+                      <div class="q-item-main q-item-section">
+                        <div class="q-item-label" style="overflow:hidden;display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:NaN;">Don't want to cooperate</div>
                       </div>
                     </div>
                   </div>
@@ -4750,7 +5327,7 @@ exports[`Storyshots Stores StoreEdit (with server error) 1`] = `
             </div>
           </div>
         </div>
-        <div class="q-field row no-wrap items-start q-field-responsive">
+        <div class="q-field row no-wrap items-start q-field-responsive q-field-no-input">
           <i aria-hidden="true" class="q-icon q-field-icon q-field-margin fas fa-question"> </i>
           <div class="row col">
             <div class="q-field-label q-field-margin col-xs-12 col-sm-5">
@@ -4758,17 +5335,17 @@ exports[`Storyshots Stores StoreEdit (with server error) 1`] = `
             </div>
             <div class="q-field-content col-xs-12 col-sm">
               <div>
-                <div class="q-tabs flex no-wrap markdown-input q-tabs-position-top q-tabs-inverted">
+                <div class="q-tabs flex no-wrap overflow-hidden markdown-input q-tabs-position-top q-tabs-inverted">
                   <div class="q-tabs-head row q-tabs-align-right text-primary">
                     <div class="q-tabs-scroller row no-wrap">
-                      <div class="q-tab column flex-center relative-position markdown-input-tab active q-tab-only-label hide-none text-primary">
+                      <div data-tab-name="edit" class="q-tab column flex-center relative-position markdown-input-tab active q-tab-only-label hide-none text-primary">
                         <div class="q-tab-label-parent relative-position">
                           <div class="q-tab-label">Edit</div>
                         </div>
                         <div class="q-tabs-bar"></div>
                         <div tabindex="-1" class="q-tab-focus-helper absolute-full"></div>
                       </div>
-                      <div class="q-tab column flex-center relative-position markdown-input-tab q-tab-only-label hide-none text-primary">
+                      <div data-tab-name="preview" class="q-tab column flex-center relative-position markdown-input-tab q-tab-only-label hide-none text-primary">
                         <div class="q-tab-label-parent relative-position">
                           <div class="q-tab-label">Preview</div>
                         </div>
@@ -4788,12 +5365,15 @@ exports[`Storyshots Stores StoreEdit (with server error) 1`] = `
                   </div>
                   <div class="q-tabs-panes">
                     <div class="q-tab-pane">
-                      <div tabindex="-1" rows="3" class="q-if row no-wrap items-end relative-position q-input text-primary">
-                        <div class="q-if-inner col row no-wrap relative-position q-if-inner-dynamic">
-                          <div class="col row relative-position">
-                            <object type="text/html" data="about:blank" aria-hidden="true" style="display:block;position:absolute;top:0;left:0;right:0;bottom:0;height:100%;width:100%;overflow:hidden;pointer-events:none;z-index:-1;"></object>
-                            <textarea rows="3" class="col q-input-target q-input-shadow absolute-top">all the good stuff</textarea>
-                            <textarea rows="3" class="col q-input-target q-input-area">all the good stuff</textarea>
+                      <div tabindex="-1" rows="3" class="q-if row no-wrap relative-position q-input q-if-standard q-if-has-content text-primary">
+                        <div class="q-if-baseline">|</div>
+                        <div class="q-if-inner col row">
+                          <div class="col-12 row no-wrap relative-position">
+                            <div class="col row relative-position">
+                              <object type="text/html" data="about:blank" aria-hidden="true" style="display:block;position:absolute;top:0;left:0;right:0;bottom:0;height:100%;width:100%;overflow:hidden;pointer-events:none;z-index:-1;"></object>
+                              <textarea rows="3" class="col q-input-target q-input-shadow absolute-top">all the good stuff</textarea>
+                              <textarea rows="3" class="col q-input-target q-input-area">all the good stuff</textarea>
+                            </div>
                           </div>
                         </div>
                       </div>
@@ -4812,7 +5392,7 @@ exports[`Storyshots Stores StoreEdit (with server error) 1`] = `
             </div>
           </div>
         </div>
-        <div class="q-field row no-wrap items-start q-field-responsive">
+        <div class="q-field row no-wrap items-start q-field-responsive q-field-no-input">
           <i aria-hidden="true" class="q-icon q-field-icon q-field-margin fas fa-map-marker"> </i>
           <div class="row col">
             <div class="q-field-label q-field-margin col-xs-12 col-sm-5">
@@ -4820,10 +5400,15 @@ exports[`Storyshots Stores StoreEdit (with server error) 1`] = `
             </div>
             <div class="q-field-content col-xs-12 col-sm">
               <div>
-                <div tabindex="-1" class="q-if row no-wrap items-end relative-position q-input q-search text-primary">
+                <div tabindex="-1" class="q-if row no-wrap relative-position q-input q-search q-if-standard q-if-has-content text-primary">
+                  <div class="q-if-baseline">|</div>
                   <i aria-hidden="true" class="q-icon q-if-control q-if-control-before material-icons">search</i>
-                  <div class="q-if-inner col row no-wrap relative-position">
-                    <input type="text" placeholder="Search" step="any" value="Kranichstein, Darmstadt, Regierungsbezirk Darmstadt, Hesse, Germany" class="col q-input-target q-no-input-spinner text-left">
+                  <div class="q-if-inner col row">
+                    <div class="col-12 row no-wrap relative-position">
+                      <input type="search" placeholder="Search" step="any" value="Kranichstein, Darmstadt, Regierungsbezirk Darmstadt, Hesse, Germany" class="col q-input-target q-no-input-spinner ellipsis text-left">
+                    </div>
+                  </div>
+                  <div class="absolute-full no-pointer-events">
                     <div tabindex="-1" class="q-popover scroll">
                       <div class="q-list no-border" style="min-width:0;"></div>
                     </div>
@@ -4836,7 +5421,7 @@ exports[`Storyshots Stores StoreEdit (with server error) 1`] = `
             </div>
           </div>
         </div>
-        <div class="q-field row no-wrap items-start q-field-responsive">
+        <div class="q-field row no-wrap items-start q-field-responsive q-field-no-input">
           <i aria-hidden="true" class="q-icon q-field-icon q-field-margin fas fa-calendar-alt"> </i>
           <div class="row col">
             <div class="q-field-label q-field-margin col-xs-12 col-sm-5">
@@ -4891,64 +5476,70 @@ exports[`Storyshots Stores StoreEdit 1`] = `
   <div class="q-card no-shadow grey-border">
     <div class="edit-box">
       <form>
-        <div class="q-field row no-wrap items-start q-field-responsive">
+        <div class="q-field row no-wrap items-start q-field-responsive q-field-no-input">
           <i aria-hidden="true" class="q-icon q-field-icon q-field-margin fas fa-star"> </i>
           <div class="row col">
             <div class="q-field-label q-field-margin col-xs-12 col-sm-5">
               <div class="q-field-label-inner row items-center">Name</div>
             </div>
             <div class="q-field-content col-xs-12 col-sm">
-              <div tabindex="-1" autocomplete="off" class="q-if row no-wrap items-end relative-position q-input text-primary">
-                <div class="q-if-inner col row no-wrap relative-position">
-                  <input autocomplete="off" type="text" step="any" value="Teststore1" class="col q-input-target q-no-input-spinner">
+              <div tabindex="-1" autocomplete="off" class="q-if row no-wrap relative-position q-input q-if-standard q-if-has-content text-primary">
+                <div class="q-if-baseline">|</div>
+                <div class="q-if-inner col row">
+                  <div class="col-12 row no-wrap relative-position">
+                    <input autocomplete="off" type="text" step="any" value="Teststore1" class="col q-input-target q-no-input-spinner ellipsis">
+                  </div>
                 </div>
               </div>
             </div>
           </div>
         </div>
-        <div class="q-field row no-wrap items-start q-field-responsive">
+        <div class="q-field row no-wrap items-start q-field-responsive q-field-no-input">
           <i aria-hidden="true" class="q-icon q-field-icon q-field-margin fas fa-handshake"> </i>
           <div class="row col">
             <div class="q-field-label q-field-margin col-xs-12 col-sm-5">
               <div class="q-field-label-inner row items-center">Status</div>
             </div>
             <div class="q-field-content col-xs-12 col-sm">
-              <div tabindex="0" class="q-if row no-wrap items-end relative-position q-select q-if-focusable text-primary">
-                <div class="q-if-inner col row no-wrap relative-position">
-                  <div class="col q-input-target ellipsis justify-start"></div>
-                  <div tabindex="-1" class="q-popover scroll column no-wrap">
-                    <div class="q-list no-border scroll">
-                      <div class="q-item q-item-division relative-position cursor-pointer q-select-highlight cursor-pointer">
-                        <div class="q-item-side q-item-section q-item-side-left">
-                          <i aria-hidden="true" class="q-icon fas fa-circle q-item-icon text-grey"> </i>
-                        </div>
-                        <div class="q-item-main q-item-section">
-                          <div class="q-item-label" style="overflow:hidden;display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:NaN;">Just created</div>
-                        </div>
+              <div tabindex="0" class="q-if row no-wrap relative-position q-select q-if-focusable q-if-standard text-primary">
+                <div class="q-if-baseline">|</div>
+                <div class="q-if-inner col row">
+                  <div class="col-12 row no-wrap relative-position">
+                    <div class="col q-input-target ellipsis justify-start">undefined</div>
+                  </div>
+                </div>
+                <div tabindex="-1" class="q-popover scroll column no-wrap">
+                  <div class="q-list no-border scroll">
+                    <div class="q-item q-item-division relative-position cursor-pointer q-select-highlight cursor-pointer">
+                      <div class="q-item-side q-item-section q-item-side-left">
+                        <i aria-hidden="true" class="q-icon fas fa-circle q-item-icon text-grey"> </i>
                       </div>
-                      <div class="q-item q-item-division relative-position cursor-pointer cursor-pointer">
-                        <div class="q-item-side q-item-section q-item-side-left">
-                          <i aria-hidden="true" class="q-icon fas fa-circle q-item-icon text-blue"> </i>
-                        </div>
-                        <div class="q-item-main q-item-section">
-                          <div class="q-item-label" style="overflow:hidden;display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:NaN;">Negotiating</div>
-                        </div>
+                      <div class="q-item-main q-item-section">
+                        <div class="q-item-label" style="overflow:hidden;display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:NaN;">Just created</div>
                       </div>
-                      <div class="q-item q-item-division relative-position cursor-pointer cursor-pointer">
-                        <div class="q-item-side q-item-section q-item-side-left">
-                          <i aria-hidden="true" class="q-icon fas fa-circle q-item-icon text-positive"> </i>
-                        </div>
-                        <div class="q-item-main q-item-section">
-                          <div class="q-item-label" style="overflow:hidden;display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:NaN;">Co-operating</div>
-                        </div>
+                    </div>
+                    <div class="q-item q-item-division relative-position cursor-pointer cursor-pointer">
+                      <div class="q-item-side q-item-section q-item-side-left">
+                        <i aria-hidden="true" class="q-icon fas fa-circle q-item-icon text-blue"> </i>
                       </div>
-                      <div class="q-item q-item-division relative-position cursor-pointer cursor-pointer">
-                        <div class="q-item-side q-item-section q-item-side-left">
-                          <i aria-hidden="true" class="q-icon fas fa-circle q-item-icon text-negative"> </i>
-                        </div>
-                        <div class="q-item-main q-item-section">
-                          <div class="q-item-label" style="overflow:hidden;display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:NaN;">Don't want to cooperate</div>
-                        </div>
+                      <div class="q-item-main q-item-section">
+                        <div class="q-item-label" style="overflow:hidden;display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:NaN;">Negotiating</div>
+                      </div>
+                    </div>
+                    <div class="q-item q-item-division relative-position cursor-pointer cursor-pointer">
+                      <div class="q-item-side q-item-section q-item-side-left">
+                        <i aria-hidden="true" class="q-icon fas fa-circle q-item-icon text-positive"> </i>
+                      </div>
+                      <div class="q-item-main q-item-section">
+                        <div class="q-item-label" style="overflow:hidden;display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:NaN;">Co-operating</div>
+                      </div>
+                    </div>
+                    <div class="q-item q-item-division relative-position cursor-pointer cursor-pointer">
+                      <div class="q-item-side q-item-section q-item-side-left">
+                        <i aria-hidden="true" class="q-icon fas fa-circle q-item-icon text-negative"> </i>
+                      </div>
+                      <div class="q-item-main q-item-section">
+                        <div class="q-item-label" style="overflow:hidden;display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:NaN;">Don't want to cooperate</div>
                       </div>
                     </div>
                   </div>
@@ -4958,7 +5549,7 @@ exports[`Storyshots Stores StoreEdit 1`] = `
             </div>
           </div>
         </div>
-        <div class="q-field row no-wrap items-start q-field-responsive">
+        <div class="q-field row no-wrap items-start q-field-responsive q-field-no-input">
           <i aria-hidden="true" class="q-icon q-field-icon q-field-margin fas fa-question"> </i>
           <div class="row col">
             <div class="q-field-label q-field-margin col-xs-12 col-sm-5">
@@ -4966,17 +5557,17 @@ exports[`Storyshots Stores StoreEdit 1`] = `
             </div>
             <div class="q-field-content col-xs-12 col-sm">
               <div>
-                <div class="q-tabs flex no-wrap markdown-input q-tabs-position-top q-tabs-inverted">
+                <div class="q-tabs flex no-wrap overflow-hidden markdown-input q-tabs-position-top q-tabs-inverted">
                   <div class="q-tabs-head row q-tabs-align-right text-primary">
                     <div class="q-tabs-scroller row no-wrap">
-                      <div class="q-tab column flex-center relative-position markdown-input-tab active q-tab-only-label hide-none text-primary">
+                      <div data-tab-name="edit" class="q-tab column flex-center relative-position markdown-input-tab active q-tab-only-label hide-none text-primary">
                         <div class="q-tab-label-parent relative-position">
                           <div class="q-tab-label">Edit</div>
                         </div>
                         <div class="q-tabs-bar"></div>
                         <div tabindex="-1" class="q-tab-focus-helper absolute-full"></div>
                       </div>
-                      <div class="q-tab column flex-center relative-position markdown-input-tab q-tab-only-label hide-none text-primary">
+                      <div data-tab-name="preview" class="q-tab column flex-center relative-position markdown-input-tab q-tab-only-label hide-none text-primary">
                         <div class="q-tab-label-parent relative-position">
                           <div class="q-tab-label">Preview</div>
                         </div>
@@ -4996,12 +5587,15 @@ exports[`Storyshots Stores StoreEdit 1`] = `
                   </div>
                   <div class="q-tabs-panes">
                     <div class="q-tab-pane">
-                      <div tabindex="-1" rows="3" class="q-if row no-wrap items-end relative-position q-input text-primary">
-                        <div class="q-if-inner col row no-wrap relative-position q-if-inner-dynamic">
-                          <div class="col row relative-position">
-                            <object type="text/html" data="about:blank" aria-hidden="true" style="display:block;position:absolute;top:0;left:0;right:0;bottom:0;height:100%;width:100%;overflow:hidden;pointer-events:none;z-index:-1;"></object>
-                            <textarea rows="3" class="col q-input-target q-input-shadow absolute-top">all the good stuff</textarea>
-                            <textarea rows="3" class="col q-input-target q-input-area">all the good stuff</textarea>
+                      <div tabindex="-1" rows="3" class="q-if row no-wrap relative-position q-input q-if-standard q-if-has-content text-primary">
+                        <div class="q-if-baseline">|</div>
+                        <div class="q-if-inner col row">
+                          <div class="col-12 row no-wrap relative-position">
+                            <div class="col row relative-position">
+                              <object type="text/html" data="about:blank" aria-hidden="true" style="display:block;position:absolute;top:0;left:0;right:0;bottom:0;height:100%;width:100%;overflow:hidden;pointer-events:none;z-index:-1;"></object>
+                              <textarea rows="3" class="col q-input-target q-input-shadow absolute-top">all the good stuff</textarea>
+                              <textarea rows="3" class="col q-input-target q-input-area">all the good stuff</textarea>
+                            </div>
                           </div>
                         </div>
                       </div>
@@ -5020,7 +5614,7 @@ exports[`Storyshots Stores StoreEdit 1`] = `
             </div>
           </div>
         </div>
-        <div class="q-field row no-wrap items-start q-field-responsive">
+        <div class="q-field row no-wrap items-start q-field-responsive q-field-no-input">
           <i aria-hidden="true" class="q-icon q-field-icon q-field-margin fas fa-map-marker"> </i>
           <div class="row col">
             <div class="q-field-label q-field-margin col-xs-12 col-sm-5">
@@ -5028,10 +5622,15 @@ exports[`Storyshots Stores StoreEdit 1`] = `
             </div>
             <div class="q-field-content col-xs-12 col-sm">
               <div>
-                <div tabindex="-1" class="q-if row no-wrap items-end relative-position q-input q-search text-primary">
+                <div tabindex="-1" class="q-if row no-wrap relative-position q-input q-search q-if-standard q-if-has-content text-primary">
+                  <div class="q-if-baseline">|</div>
                   <i aria-hidden="true" class="q-icon q-if-control q-if-control-before material-icons">search</i>
-                  <div class="q-if-inner col row no-wrap relative-position">
-                    <input type="text" placeholder="Search" step="any" value="Kranichstein, Darmstadt, Regierungsbezirk Darmstadt, Hesse, Germany" class="col q-input-target q-no-input-spinner text-left">
+                  <div class="q-if-inner col row">
+                    <div class="col-12 row no-wrap relative-position">
+                      <input type="search" placeholder="Search" step="any" value="Kranichstein, Darmstadt, Regierungsbezirk Darmstadt, Hesse, Germany" class="col q-input-target q-no-input-spinner ellipsis text-left">
+                    </div>
+                  </div>
+                  <div class="absolute-full no-pointer-events">
                     <div tabindex="-1" class="q-popover scroll">
                       <div class="q-list no-border" style="min-width:0;"></div>
                     </div>
@@ -5044,7 +5643,7 @@ exports[`Storyshots Stores StoreEdit 1`] = `
             </div>
           </div>
         </div>
-        <div class="q-field row no-wrap items-start q-field-responsive">
+        <div class="q-field row no-wrap items-start q-field-responsive q-field-no-input">
           <i aria-hidden="true" class="q-icon q-field-icon q-field-margin fas fa-calendar-alt"> </i>
           <div class="row col">
             <div class="q-field-label q-field-margin col-xs-12 col-sm-5">
@@ -5212,72 +5811,7 @@ exports[`Storyshots User Profile Profile 1`] = `
       </h1>
     </div>
   </div>
-  <div class="q-card profile-info relative-position q-pt-sm">
-    <div class="user-actions">
-      <!---->
-      <button tabindex="0" type="button" small="" class="q-btn inline relative-position q-btn-item non-selectable q-btn-round q-focusable q-hoverable bg-secondary text-white">
-        <div class="q-focus-helper"></div>
-        <div class="q-btn-inner row col items-center justify-center">
-          <i aria-hidden="true" class="q-icon fas fa-comments"> </i>
-        </div>
-      </button>
-      <button tabindex="0" type="button" class="q-btn inline relative-position q-btn-item non-selectable karrot-button q-btn-round q-focusable q-hoverable bg-primary text-white">
-        <div class="q-focus-helper"></div>
-        <div class="q-btn-inner row col items-center justify-center">
-          <div class="q-chip row no-wrap inline items-center q-chip-floating q-chip-dense q-chip-square bg-negative text-white">
-            <div class="q-chip-main ellipsis">
-              2
-            </div>
-          </div>
-          <div class="modal fullscreen row minimized flex-center" style="display:none;">
-            <div tabindex="-1" class="modal-content">
-              <div class="generic-padding">
-                <p>2 people trust storybook user in my current group</p>
-                <div>
-                  <div class="wrapper" style="width:20px;height:20px;">
-                    <a title="user 1">
-                      <div text="user 1" seed="1" class="randomArt fill"></div>
-                    </a>
-                  </div>
-                  <div class="wrapper" style="width:20px;height:20px;">
-                    <a title="user 2">
-                      <div text="user 2" seed="2" class="randomArt fill"></div>
-                    </a>
-                  </div>
-                </div>
-                <div class="row justify-end actionButtons">
-                  <button tabindex="0" type="button" class="q-btn inline relative-position q-btn-item non-selectable q-btn-rectangle q-focusable q-hoverable q-btn-rounded">
-                    <div class="q-focus-helper"></div>
-                    <div class="q-btn-inner row col items-center justify-center"></div>
-                  </button>
-                  <button tabindex="0" type="button" class="q-btn inline relative-position q-btn-item non-selectable q-btn-rectangle q-focusable q-hoverable bg-secondary text-white q-btn-rounded">
-                    <div class="q-focus-helper"></div>
-                    <div class="q-btn-inner row col items-center justify-center"><span class="q-mr-xs">+</span>
-                      <img src="./twemoji-karrot.png" width="20px">
-                    </div>
-                  </button>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </button>
-    </div>
-    <div class="q-list">
-      <div class="q-item q-item-division relative-position">
-        <div class="q-item-side q-item-section q-item-side-left">
-          <i aria-hidden="true" class="q-icon fas fa-fw fa-envelope q-item-icon"> </i>
-        </div>
-        <div class="q-item-main q-item-section" style="overflow:hidden;text-overflow:ellipsis;">
-          <a href="mailto:undefined"></a>
-        </div>
-      </div>
-      <!---->
-      <!---->
-    </div>
-    <!---->
-    <div class="q-card-main q-card-container"></div>
-  </div>
+  <!---->
 </div>
 `;
 
@@ -5360,21 +5894,21 @@ exports[`Storyshots WallConversation WallConversation 1`] = `
           </div>
           <div class="q-item-main q-item-section">
             <div>
-              <div class="q-field row no-wrap items-start q-field-responsive q-field-no-label">
+              <div class="q-field row no-wrap items-start q-field-responsive q-field-no-label q-field-no-input">
                 <div class="row col">
                   <div class="q-field-content col-xs-12 col-sm">
                     <div>
-                      <div class="q-tabs flex no-wrap markdown-input q-tabs-position-top q-tabs-inverted">
+                      <div class="q-tabs flex no-wrap overflow-hidden markdown-input q-tabs-position-top q-tabs-inverted">
                         <div class="q-tabs-head row q-tabs-align-right text-primary">
                           <div class="q-tabs-scroller row no-wrap">
-                            <div class="q-tab column flex-center relative-position markdown-input-tab active disabled q-tab-only-label hide-none text-primary">
+                            <div data-tab-name="edit" class="q-tab column flex-center relative-position markdown-input-tab active disabled q-tab-only-label hide-none text-primary">
                               <div class="q-tab-label-parent relative-position">
                                 <div class="q-tab-label">Edit</div>
                               </div>
                               <div class="q-tabs-bar"></div>
                               <div tabindex="-1" class="q-tab-focus-helper absolute-full"></div>
                             </div>
-                            <div class="q-tab column flex-center relative-position markdown-input-tab disabled q-tab-only-label hide-none text-primary">
+                            <div data-tab-name="preview" class="q-tab column flex-center relative-position markdown-input-tab disabled q-tab-only-label hide-none text-primary">
                               <div class="q-tab-label-parent relative-position">
                                 <div class="q-tab-label">Preview</div>
                               </div>
@@ -5394,12 +5928,15 @@ exports[`Storyshots WallConversation WallConversation 1`] = `
                         </div>
                         <div class="q-tabs-panes">
                           <div class="q-tab-pane">
-                            <div tabindex="-1" rows="1" class="q-if row no-wrap items-end relative-position q-input text-primary">
-                              <div class="q-if-inner col row no-wrap relative-position q-if-inner-dynamic">
-                                <div class="col row relative-position">
-                                  <object type="text/html" data="about:blank" aria-hidden="true" style="display:block;position:absolute;top:0;left:0;right:0;bottom:0;height:100%;width:100%;overflow:hidden;pointer-events:none;z-index:-1;"></object>
-                                  <textarea rows="1" class="col q-input-target q-input-shadow absolute-top"></textarea>
-                                  <textarea rows="1" placeholder="Write a message..." class="col q-input-target q-input-area"></textarea>
+                            <div tabindex="-1" rows="1" class="q-if row no-wrap relative-position q-input q-if-standard q-if-has-content text-primary">
+                              <div class="q-if-baseline">|</div>
+                              <div class="q-if-inner col row">
+                                <div class="col-12 row no-wrap relative-position">
+                                  <div class="col row relative-position">
+                                    <object type="text/html" data="about:blank" aria-hidden="true" style="display:block;position:absolute;top:0;left:0;right:0;bottom:0;height:100%;width:100%;overflow:hidden;pointer-events:none;z-index:-1;"></object>
+                                    <textarea rows="1" class="col q-input-target q-input-shadow absolute-top"></textarea>
+                                    <textarea rows="1" placeholder="Write a message..." class="col q-input-target q-input-area"></textarea>
+                                  </div>
                                 </div>
                               </div>
                               <i aria-hidden="true" class="q-icon q-if-control fas fa-arrow-right hidden"> </i>

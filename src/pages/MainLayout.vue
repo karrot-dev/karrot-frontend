@@ -34,7 +34,13 @@
               @click="toggleSidenav"
               class="mobile-only"
             >
-              <i class="fas fa-bars" />
+              <i class="fas fa-bars relative-position">
+                <div
+                  v-if="hasUnread"
+                  class="k-highlight-dot"
+                  :class="allUnreadMuted ? 'bg-grey' : 'bg-secondary'"
+                />
+              </i>
             </q-btn>
           </KTopbar>
           <KTopbarLoggedOut v-if="!isLoggedIn" />
@@ -50,13 +56,14 @@
           :overlay="false"
           @click.native="toggleSidenav"
         >
+          <SidenavTitle @click="toggleSidenav" />
           <router-view name="sidenav" />
           <MobileSidenav/>
         </q-layout-drawer>
 
         <!-- desktop sidenav -->
         <q-layout-drawer
-          v-else-if="isLoggedIn && hasSidenavComponent && !disableDesktopSidenav"
+          v-else-if="isLoggedIn && currentGroup && hasSidenavComponent && !disableDesktopSidenav"
           side="left"
           :width="sidenavWidth"
           :breakpoint="0"
@@ -83,7 +90,7 @@
           :width="400"
           :overlay="false"
           :breakpoint="0"
-          :value="showSidenavRight"
+          :value="showRightDrawer"
         >
           <Detail @close="clearDetail"/>
         </q-layout-drawer>
@@ -103,6 +110,7 @@
 import KTopbar from '@/components/Layout/KTopbar'
 import KTopbarLoggedOut from '@/components/Layout/LoggedOut/KTopbar'
 import KFooter from '@/components/Layout/KFooter'
+import SidenavTitle from '@/components/Sidenav/SidenavTitle'
 import MobileSidenav from '@/components/Sidenav/MobileSidenav'
 import Banners from '@/components/Layout/Banners'
 import RouteError from '@/components/RouteError'
@@ -128,6 +136,7 @@ export default {
     KTopbar,
     KTopbarLoggedOut,
     KFooter,
+    SidenavTitle,
     MobileSidenav,
     QLayout,
     QLayoutHeader,
@@ -161,8 +170,11 @@ export default {
     ...mapGetters({
       isLoggedIn: 'auth/isLoggedIn',
       routeError: 'routeError/status',
-      showSidenavRight: 'detail/isActive',
+      showRightDrawer: 'detail/isActive',
       disableDesktopSidenav: 'route/disableDesktopSidenav',
+      unreadCount: 'latestMessages/unreadCount',
+      allUnreadMuted: 'latestMessages/allUnreadMuted',
+      currentGroup: 'currentGroup/value',
     }),
     layoutView () {
       if (this.$q.platform.is.mobile) {
@@ -187,6 +199,9 @@ export default {
     },
     hasSidenavComponent () {
       return Boolean(this.routerComponents.sidenav)
+    },
+    hasUnread () {
+      return this.unreadCount > 0
     },
   },
 }
@@ -217,6 +232,13 @@ body.desktop .mainContent
   background-attachment:fixed
 .q-layout-footer
   box-shadow none
+.k-highlight-dot
+  position absolute
+  right -4px
+  bottom -4px
+  width .5rem
+  height .5rem
+  border-radius 50%
 </style>
 
 <style lang="stylus">

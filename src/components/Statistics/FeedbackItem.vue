@@ -2,64 +2,72 @@
   <q-card class="no-shadow grey-border">
     <q-card-main class="generic-padding">
       <div class="row no-wrap">
-        <AmountBox
-          v-if="hasWeight"
-          class="amount-box"
-          :size="80"
-          :amount="weight"
-        />
-        <div class="content">
-          <div>
-            <strong class="small-margin-right">{{ $d(pickupDate, 'long') }}</strong>
+        <div class="content full-width">
+          <div class="row no-wrap items-baseline">
+            <strong
+              class="q-mr-sm"
+              style="white-space: nowrap"
+            >
+              {{ $d(pickupDate, 'long') }}
+            </strong>
             <router-link
               v-if="storeName && storeId"
-              :to="{ name: 'store', params: { storeId }}">
-              <span class="text-secondary small-margin-right">{{ storeName }}</span>
+              :to="{ name: 'store', params: { storeId }}"
+              class="ellipsis text-secondary"
+            >
+              {{ storeName }}
             </router-link>
             <router-link
               v-if="feedback.isEditable"
-              class="edit-button"
+              class="edit-button q-ml-sm"
               :to="{ name: 'pickupFeedback', params: { feedbackId: feedback.id }}"
             >
-              <q-icon name="fas fa-pencil-alt">
-                <q-tooltip v-t="'BUTTON.EDIT'" />
-              </q-icon>
+              <q-icon
+                name="fas fa-pencil-alt"
+                :title="$t('BUTTON.EDIT')"
+              />
             </router-link>
           </div>
           <small class="text-weight-light">
-            <router-link
-              place="user"
-              :to="{ name: 'user', params: { userId } }">
-              <span >{{ userName }}</span>
+            <router-link :to="{ name: 'user', params: { userId } }">
+              {{ userName }}
             </router-link>
             <span
               class="message-date"
-              place="date">
+              place="date"
+            >
               <DateAsWords :date="createdAt" />
             </span>
           </small>
-          <div
-            v-if="comment"
-            class="comment"
-          >
-            <Markdown :source="comment"/>
-          </div>
-          <div class="people">
-            <ProfilePicture
-              :user="feedback.givenBy"
-              :size="22"
+          <div class="row no-wrap justify-between">
+            <div class="column">
+              <div
+                v-if="comment"
+                class="comment"
+              >
+                <Markdown :source="comment" />
+              </div>
+              <div class="q-mt-sm">
+                <ProfilePicture
+                  :user="feedback.givenBy"
+                  :size="22"
+                />
+                <span v-if="membersWithoutGiver.length > 0">
+                  <ProfilePicture
+                    v-for="member in membersWithoutGiver"
+                    :key="member.id"
+                    user="member"
+                    :size="15"
+                  />
+                </span>
+              </div>
+            </div>
+            <AmountBox
+              v-if="hasWeight"
+              class="amount-box"
+              :size="80"
+              :amount="weight"
             />
-            <span
-              v-if="membersWithoutGiver.length > 0"
-              class="members"
-            >
-              <ProfilePicture
-                v-for="member in membersWithoutGiver"
-                :key="member.id"
-                user="member"
-                :size="15"
-              />
-            </span>
           </div>
         </div>
       </div>
@@ -109,7 +117,7 @@ export default {
       return id
     },
     userName () {
-      return this.feedback && this.feedback.givenBy && this.feedback.givenBy.displayName
+      return (this.feedback && this.feedback.givenBy && this.feedback.givenBy.displayName) || '?'
     },
     userId () {
       return this.feedback && this.feedback.givenBy && this.feedback.givenBy.id
@@ -124,20 +132,12 @@ export default {
 <style scoped lang="stylus">
 @import '~variables'
 .amount-box
-  margin: auto 0
-.content
-  padding: .5em
+  margin auto 0
 .comment
   padding-top 8px
   word-wrap break-word
   >>> p:last-child
     margin-bottom 5px
-.people
-  margin-top: .3em
-  .members
-    margin-left: .5em
-.members > div, .small-margin-right
-  margin-right: .2em
 .message-date
   display inline-block
 .edit-button

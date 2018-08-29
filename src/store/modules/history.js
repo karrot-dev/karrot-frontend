@@ -54,7 +54,7 @@ export default {
         if (!deepEqual(filters, state.idListScope)) return
         commit('update', { entries })
       },
-      async fetchById ({ commit, state }, id) {
+      async fetchById ({ commit }, id) {
         // add entry by ID, not add to list
         const entry = await historyAPI.get(id)
         commit('addEntry', entry)

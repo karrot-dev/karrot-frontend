@@ -108,6 +108,9 @@ describe('currentGroup', () => {
     getters: {
       getForGroup: () => getForGroup,
     },
+    actions: {
+      fetchGroupConversation: jest.fn(),
+    },
   }
 
   const groupApplications = {
@@ -162,6 +165,7 @@ describe('currentGroup', () => {
         auth,
         pickups,
         groupApplications,
+        conversations,
       })
     })
 
@@ -169,11 +173,11 @@ describe('currentGroup', () => {
       mockConversation.mockReturnValueOnce({ id: 66 })
       mockGet.mockReturnValueOnce(group3)
       await store.dispatch('currentGroup/select', { groupId: group3.id })
-      expect(pickups.actions.clear).toBeCalled()
       expect(pickups.actions.fetchListByGroupId.mock.calls[0][1]).toBe(group3.id)
       expect(pickups.actions.fetchFeedbackPossible.mock.calls[0][1]).toEqual(group3.id)
       expect(auth.actions.maybeBackgroundSave.mock.calls[0][1]).toEqual({ currentGroup: group3.id })
       expect(groupApplications.actions.fetchByGroupId).toBeCalled()
+      expect(conversations.actions.fetchGroupConversation).toBeCalled()
     })
 
     it('can update a group', async () => {

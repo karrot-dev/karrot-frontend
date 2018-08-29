@@ -116,7 +116,7 @@ export default {
     },
 
     refresh ({ dispatch, state }) {
-      dispatch('fetchOrRedirect', state.id)
+      if (state.id) dispatch('fetchOrRedirect', state.id)
     },
   },
   mutations: {
@@ -135,7 +135,7 @@ export default {
         state.messages = messages
         return
       }
-      insertSorted(stateMessages, messages, (a, b) => a.createdAt < b.createdAt)
+      insertSorted(stateMessages, messages, true)
     },
     addReaction (state, { userId, name, messageId }) {
       if (!state.messages) return

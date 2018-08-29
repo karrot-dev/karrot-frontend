@@ -36,19 +36,19 @@
           <template v-if="isLoggedIn">
             <template v-if="!group.isMember">
               <q-alert
-                v-if="!group.hasMyApplication"
+                v-if="!application"
                 color="info"
                 icon="info"
               >
                 {{ $t('JOINGROUP.PROFILE_NOTE' ) }}
               </q-alert>
               <q-alert
-                v-if="group.hasMyApplication"
+                v-if="application"
                 color="blue"
                 icon="info"
                 :actions="[
-                  // { label: 'Group chat', icon: 'fas fa-comments', handler: joinChat },
-                  { label: $t('JOINGROUP.WITHDRAW_APPLICATION'), icon: 'fas fa-trash-alt', handler: withdraw }
+                  { label: $t('BUTTON.OPEN'), icon: 'fas fa-fw fa-comments', handler: () => $emit('openChat', application) },
+                  { label: $t('BUTTON.WITHDRAW'), icon: 'fas fa-fw fa-trash-alt', handler: withdraw }
                 ]"
               >
                 {{ $t('JOINGROUP.APPLICATION_PENDING' ) }}
@@ -73,7 +73,7 @@
                 {{ $t('JOINGROUP.VERIFY_EMAIL_ADDRESS') }}
               </q-btn>
               <q-btn
-                v-if="!group.isOpen && user && user.mailVerified && !group.hasMyApplication"
+                v-if="!group.isOpen && user && user.mailVerified && !application"
                 @click="$emit('goApply', group.id)"
                 color="secondary"
                 class="float-right generic-margin"
@@ -128,6 +128,10 @@ export default {
       default: null,
       type: Object,
     },
+    application: {
+      default: null,
+      type: Object,
+    },
   },
   components: { QCard, QCardTitle, QCardMain, QCardSeparator, QCardActions, QBtn, QField, QInput, QIcon, QTooltip, QAlert, Markdown },
   computed: {
@@ -149,7 +153,7 @@ export default {
         ok: this.$t('BUTTON.YES'),
         cancel: this.$t('BUTTON.CANCEL'),
       })
-        .then(() => this.$emit('withdraw', this.group.myApplication.id))
+        .then(() => this.$emit('withdraw', this.application.id))
         .catch(() => {})
     },
   },

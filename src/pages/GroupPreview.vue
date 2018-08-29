@@ -8,10 +8,12 @@ export default connect({
     group: 'groups/activePreview',
     isLoggedIn: 'auth/isLoggedIn',
     user: 'auth/user',
+    application: 'groupApplications/getForActivePreview',
   },
   actionsToEvents: {
     join: 'groups/join',
     withdraw: 'groupApplications/withdraw',
+    openChat: 'detail/openForApplication',
   },
   methodsToEvents: {
     goVisit: (store, groupId) => router.push({ name: 'group', params: { groupId } }),

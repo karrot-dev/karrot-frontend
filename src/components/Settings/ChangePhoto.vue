@@ -18,6 +18,7 @@
         @file-choose="saveDisabled = false"
         @image-remove="saveDisabled = false"
         :class="{pointer: !hasPhoto}"
+        :zoom-speed="10"
       >
         <img
           v-if="hasPhoto"

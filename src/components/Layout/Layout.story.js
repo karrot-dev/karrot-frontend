@@ -22,6 +22,12 @@ const store = createStore({
       topics: () => [],
     },
   },
+  latestMessages: {
+    getters: {
+      unreadCount: () => 1,
+      allUnreadMuted: () => false,
+    },
+  },
 })
 
 storiesOf('Layout', module)

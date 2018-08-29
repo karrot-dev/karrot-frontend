@@ -6,6 +6,7 @@ import reactionsAPI from '@/services/api/reactions'
 import pickupsAPI from '@/services/api/pickups'
 import usersAPI from '@/services/api/users'
 import groupsAPI from '@/services/api/groups'
+import groupApplicationsAPI from '@/services/api/groupApplications'
 import i18n from '@/i18n'
 import { createMetaModule, withMeta, withPrefixedIdMeta, metaStatusesWithId } from '@/store/helpers'
 
@@ -37,22 +38,23 @@ export function sortByName (a, b) {
   return a.name.localeCompare(b.name)
 }
 
-export function insertSorted (stateMessages, messages, compareFn) {
-  // simple insertion sort for new messages
+export function insertSorted (target, items, oldestFirst = false) {
+  // simple sorted list insertion
   // assumes that existing messages are sorted AND incoming messages are sorted
+  const compare = oldestFirst ? (a, b) => a.id < b.id : (a, b) => a.id > b.id
   let i = 0
-  for (let message of messages) {
-    while (i < stateMessages.length && compareFn(stateMessages[i], message)) i++
+  for (let item of items) {
+    while (i < target.length && compare(target[i], item)) i++
 
-    // decide if we should append, update or insert a message
-    if (i >= stateMessages.length) {
-      stateMessages.push(message)
+    // decide if we should append, update or insert an item
+    if (i >= target.length) {
+      target.push(item)
     }
-    else if (stateMessages[i].id === message.id) {
-      Vue.set(stateMessages, i, message)
+    else if (target[i].id === item.id) {
+      Vue.set(target, i, item)
     }
     else {
-      stateMessages.splice(i, 0, message)
+      target.splice(i, 0, item)
     }
   }
 }
@@ -65,6 +67,7 @@ function initialState () {
     groupConversationIds: {}, // { <group-id> : <conversation-id> }
     pickupConversationIds: {}, // { <pickup-id> : <conversation-id> }
     userConversationIds: {}, // { <user-id> : <conversation-id> }
+    applicationConversationIds: {}, // { <application-id> : <conversation-id> }
   }
 }
 
@@ -96,6 +99,11 @@ export default {
     },
     getForUser: (state, getters) => userId => {
       const conversationId = state.userConversationIds[userId]
+      if (!conversationId) return
+      return getters.get(conversationId)
+    },
+    getForApplication: (state, getters) => applicationId => {
+      const conversationId = state.applicationConversationIds[applicationId]
       if (!conversationId) return
       return getters.get(conversationId)
     },
@@ -147,9 +155,21 @@ export default {
     },
     enrichConversation: (state, getters, rootState, rootGetters) => conversation => {
       if (!conversation) return
-      return {
+      const participants = conversation.participants.map(rootGetters['users/get'])
+      const enriched = {
         ...conversation,
-        participants: conversation.participants.map(rootGetters['users/get']),
+        participants,
+      }
+      enriched.target = getters.getTarget(enriched)
+      return enriched
+    },
+    getTarget: (state, getters, rootState, rootGetters) => conversation => {
+      const { type, targetId, participants } = conversation
+      switch (type) {
+        case 'group': return rootGetters['groups/get'](targetId)
+        case 'pickup': return rootGetters['pickups/get'](targetId)
+        case 'application': return rootGetters['groupApplications/get'](targetId)
+        case 'private': return participants.find(u => !u.isCurrentUser)
       }
     },
   },
@@ -219,7 +239,12 @@ export default {
       findId: data => data.message.id,
     }),
 
-    async fetchForGroup ({ state, dispatch, commit }, { groupId }) {
+    async fetchForGroup ({ dispatch }, { groupId }) {
+      const conversation = await dispatch('fetchGroupConversation', groupId)
+      dispatch('fetch', conversation.id)
+    },
+
+    async fetchGroupConversation ({ state, commit }, groupId) {
       let conversation
       const conversationId = state.groupConversationIds[groupId]
       if (conversationId) conversation = state.entries[conversationId]
@@ -227,7 +252,7 @@ export default {
         conversation = await groupsAPI.conversation(groupId)
         commit('setConversation', { conversation, groupId })
       }
-      dispatch('fetch', conversation.id)
+      return conversation
     },
 
     clearForGroup ({ state, commit }, { groupId }) {
@@ -264,6 +289,23 @@ export default {
 
     clearForUser ({ state, commit }, { userId }) {
       const conversationId = state.userConversationIds[userId]
+      if (conversationId) commit('clearMessages', { conversationId })
+    },
+
+    async fetchForApplication ({ commit, state, dispatch }, { applicationId }) {
+      // TODO use mapping applicationId -> conversationId from groupApplications module
+      let conversationId = state.applicationConversationIds[applicationId]
+      if (!conversationId) {
+        // TODO use already loaded application from groupApplications module
+        conversationId = (await groupApplicationsAPI.get(applicationId)).conversation
+        const conversation = await conversationsAPI.get(conversationId)
+        commit('setConversation', { conversation, applicationId })
+      }
+      dispatch('fetch', conversationId)
+    },
+
+    clearForApplication ({ state, commit }, { applicationId }) {
+      const conversationId = state.applicationConversationIds[applicationId]
       if (conversationId) commit('clearMessages', { conversationId })
     },
 
@@ -347,6 +389,7 @@ export default {
         dispatch('updateConversation', await conversationsAPI.get(conversationId))
       })
       Object.keys(state.messages).forEach(async conversationId => {
+        console.log(conversationId)
         commit('clearMessages', { conversationId })
         dispatch('fetch', conversationId)
       })
@@ -374,12 +417,12 @@ export default {
         Vue.set(state.messages, conversationId, messages)
         return
       }
-      insertSorted(stateMessages, messages, (a, b) => a.createdAt > b.createdAt)
+      insertSorted(stateMessages, messages)
     },
     setCursor (state, { conversationId, cursor }) {
       Vue.set(state.cursors, conversationId, cursor)
     },
-    setConversation (state, { conversation, groupId, pickupId, userId }) {
+    setConversation (state, { conversation, groupId, pickupId, userId, applicationId }) {
       Vue.set(state.entries, conversation.id, conversation)
       if (groupId) {
         Vue.set(state.groupConversationIds, groupId, conversation.id)
@@ -389,6 +432,9 @@ export default {
       }
       if (userId) {
         Vue.set(state.userConversationIds, userId, conversation.id)
+      }
+      if (applicationId) {
+        Vue.set(state.applicationConversationIds, applicationId, conversation.id)
       }
     },
     updateEmailNotifications (state, { conversationId, value }) {

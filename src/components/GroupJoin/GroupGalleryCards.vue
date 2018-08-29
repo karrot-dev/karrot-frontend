@@ -30,7 +30,10 @@ export default {
       type: Boolean,
     },
   },
-  components: { GroupGalleryCard, QResizeObservable },
+  components: {
+    GroupGalleryCard,
+    QResizeObservable,
+  },
   data () {
     return {
       width: 230,

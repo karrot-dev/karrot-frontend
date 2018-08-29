@@ -18,23 +18,14 @@
         <div/>
       </div>
     </q-toolbar-title>
-    <transition
-      duration="310"
-      name="search-slide-in"
-      appear
+    <div
+      class="k-searchbar row no-wrap"
+      v-if="searchOpen"
     >
-      <div
-        class="searchbar row no-wrap"
-        v-if="searchOpen"
-      >
-        <Search
-          style="margin-top: 6px; margin-left: 6px; vertical-align: middle; width: 100%"
-          @clear="$emit('hideSearch')"
-        />
-      </div>
-    </transition>
+      <Search @clear="$emit('hideSearch')" />
+    </div>
     <q-btn
-      v-if="!searchOpen"
+      v-show="!searchOpen"
       flat
       dense
       round
@@ -45,6 +36,7 @@
     </q-btn>
     <template v-if="!$q.platform.is.mobile">
       <CommunityFeed />
+      <LatestMessageButton />
       <LocaleSelect />
       <router-link
         :to="{name: 'user', params: {userId: user.id}}"
@@ -138,16 +130,41 @@
 </template>
 
 <script>
-import { QToolbar, QToolbarTitle, QBtn, QIcon, QPopover, QList, QItem, QTooltip } from 'quasar'
+import {
+  QToolbar,
+  QToolbarTitle,
+  QBtn,
+  QIcon,
+  QChip,
+  QPopover,
+  QList,
+  QItem,
+  QTooltip,
+} from 'quasar'
 import KarrotLogo from './KarrotLogo'
 import KBreadcrumb from '@/components/General/KBreadcrumb'
 import Search from '@/components/General/Search'
 import LocaleSelect from '@/components/General/LocaleSelect'
 import CommunityFeed from '@/components/General/CommunityFeed'
+import LatestMessageButton from '@/components/Layout/LatestMessageButton'
 
 export default {
   components: {
-    QToolbar, QToolbarTitle, QBtn, QIcon, QPopover, QList, QItem, QTooltip, KarrotLogo, KBreadcrumb, Search, LocaleSelect, CommunityFeed,
+    QToolbar,
+    QToolbarTitle,
+    QBtn,
+    QIcon,
+    QChip,
+    QPopover,
+    QList,
+    QItem,
+    QTooltip,
+    KarrotLogo,
+    KBreadcrumb,
+    Search,
+    LocaleSelect,
+    CommunityFeed,
+    LatestMessageButton,
   },
   props: {
     breadcrumbs: {
@@ -190,6 +207,11 @@ export default {
       }
     },
   },
+  data () {
+    return {
+      showingMessages: false,
+    }
+  },
 }
 </script>
 
@@ -201,28 +223,12 @@ export default {
 .profilePicture
   margin-left 1em
   height 36px
-.searchbar
+
+.k-searchbar
   background-color lightgrey
-  padding-right .2em
-  margin-right .2em
-  border-radius $borderRadiusSmall
-  width: 100%
-  min-width: 200px
-  max-width: 400px
+  min-width 251px
+  max-width 251px
 .presence-indicator
   margin-right .3em
   font-size 100%
-
-/* Enter and leave animations can use different */
-/* durations and timing functions.              */
-
-.search-slide-in-leave, .search-slide-in-enter-to
-  width: 17em
-
-.search-slide-in-leave-active, .search-slide-in-enter-active
-  transition: all .3s ease
-
-.search-slide-in-enter, .search-slide-in-leave-to
-  width: 0em
-  opacity 0
 </style>

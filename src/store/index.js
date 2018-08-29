@@ -28,8 +28,9 @@ import groups from './modules/groups'
 import history from './modules/history'
 import i18n from './modules/i18n'
 import invitations from './modules/invitations'
+import latestMessages, { plugin as latestMessagesPlugin } from './modules/latestMessages'
 import loadingprogress from './modules/loadingprogress'
-import pickups from './modules/pickups'
+import pickups, { plugin as pickupsPlugin } from './modules/pickups'
 import pickupSeries from './modules/pickupSeries'
 import presence from './modules/presence'
 import refresh from './modules/refresh'
@@ -68,6 +69,7 @@ export default new Vuex.Store({
     history,
     i18n,
     invitations,
+    latestMessages,
     loadingprogress,
     pickups,
     pickupSeries,
@@ -95,6 +97,8 @@ export default new Vuex.Store({
     authPushPlugin,
     aboutPlugin,
     usersPlugin,
+    pickupsPlugin,
+    latestMessagesPlugin,
   ],
   strict: debug,
 })

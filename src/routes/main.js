@@ -1,6 +1,7 @@
 const GroupWall = () => import('@/pages/Group/Wall')
 const GroupPickups = () => import('@/pages/Group/Pickups')
 const GroupFeedback = () => import('@/pages/Group/Feedbacks')
+const Messages = () => import('@/pages/Messages')
 const GroupMap = () => import('@/pages/Map')
 const GroupSettings = () => import('@/pages/Group/Settings')
 const GroupEdit = () => import('@/pages/Group/Edit')
@@ -37,6 +38,7 @@ export default [
         { translation: 'JOINGROUP.ALL_GROUPS' },
       ],
       beforeEnter: 'groupApplications/fetchMine',
+      afterLeave: 'groupApplications/clearEntries',
     },
     components: {
       fullPage: GroupGallery,
@@ -354,6 +356,23 @@ export default [
     ],
   },
   {
+    name: 'applicationDetail',
+    path: '/group/:groupId/applications/:applicationId',
+    meta: {
+      requiredLoggedIn: true,
+      breadcrumbs: [
+        { translation: 'APPLICATION.APPLICATION', route: { name: 'applicationDetail' } },
+      ],
+      beforeEnter: 'detail/applicationRouteEnter',
+      afterLeave: 'detail/routeLeave',
+    },
+    // On desktop will get redirected inside "detail/routeEnter" action
+    components: {
+      default: MobileDetail,
+      sidenav: Sidenav,
+    },
+  },
+  {
     name: 'settings',
     path: '/settings',
     meta: {
@@ -389,12 +408,26 @@ export default [
     meta: {
       requiredLoggedIn: true,
       breadcrumbs: [
+        { type: 'currentGroup' },
         { type: 'activeUser' },
       ],
       beforeEnter: 'detail/routeEnter',
       afterLeave: 'detail/routeLeave',
     },
     // On desktop will get redirected inside "detail/routeEnter" action
-    component: MobileDetail,
+    components: {
+      default: MobileDetail,
+      sidenav: Sidenav,
+    },
+  },
+  {
+    name: 'messages',
+    path: 'messages',
+    meta: {
+      breadcrumbs: [
+        { translation: 'GROUP.MESSAGES', route: { name: 'messages' } },
+      ],
+    },
+    component: Messages,
   },
 ]

@@ -58,7 +58,7 @@ export default store => {
 
     const { redirect } = await maybeDispatchActions(store, to, from)
     if (redirect) {
-      nextFn({ replace: true, ...next })
+      nextFn({ replace: true, ...redirect })
       return
     }
 

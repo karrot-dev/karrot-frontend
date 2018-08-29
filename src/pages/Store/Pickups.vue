@@ -2,14 +2,14 @@
   <div v-if="store">
     <q-card class="no-shadow no-padding grey-border">
       <RandomArt
-        :seed="store.id"
+        :seed="storeId"
         type="banner"/>
       <div class="generic-padding">
 
         <div class="actionButtons">
           <router-link
             v-if="isEditor"
-            :to="{name: 'storeEdit', params: { storeId: store.id }}"
+            :to="{name: 'storeEdit', params: { storeId }}"
           >
             <q-btn
               small
@@ -23,7 +23,7 @@
           </router-link>
           <router-link
             v-if="isEditor"
-            :to="{name: 'storePickupsManage', params: { storeId: store.id }}"
+            :to="{name: 'storePickupsManage', params: { storeId }}"
           >
             <q-btn
               small
@@ -81,7 +81,7 @@
       <template slot="desc">
         <router-link
           v-if="isEditor"
-          :to="{name: 'storeEdit', params: { storeId: store.id }}"
+          :to="{name: 'storeEdit', params: { storeId }}"
         >
           {{ $t('STOREDETAIL.CHANGE_STATUS') }}
           <q-btn
@@ -101,7 +101,7 @@
       <template slot="desc">
         <router-link
           v-if="isEditor"
-          :to="{name: 'storePickupsManage', params: { storeId: store.id }}"
+          :to="{name: 'storePickupsManage', params: { storeId }}"
         >
           {{ $t('PICKUPLIST.STORE_NONE_HINT') }}
           <q-btn
@@ -167,6 +167,9 @@ export default {
         return directions.google(this.store)
       }
       return directions.osm(this.currentUser, this.store)
+    },
+    storeId () {
+      return this.store && this.store.id
     },
   },
 }

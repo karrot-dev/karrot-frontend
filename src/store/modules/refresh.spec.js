@@ -30,7 +30,7 @@ describe('storeHelpers', () => {
     mockStoresList.mockReturnValueOnce([])
     mockPickupsList.mockReturnValueOnce({ results: [] })
     mockGroupsInfoList.mockReturnValueOnce([])
-    mockAuthUserGet.mockReturnValue({})
+    mockAuthUserGet.mockReturnValue({ id: 1, language: 'en' })
     mockMessagesGet.mockReturnValue({})
     mockMessagesListThread.mockReturnValue({ results: [] })
     mockListMyThreads.mockReturnValue({ results: {} })

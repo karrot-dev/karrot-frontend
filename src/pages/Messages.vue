@@ -17,7 +17,7 @@ export default {
 
 <style lang="stylus" scoped>
 .k-messages
-  max-width 500px
+  max-width 600px
   margin-left auto
   margin-right auto
 </style>

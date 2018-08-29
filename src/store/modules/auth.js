@@ -13,6 +13,7 @@ function initialState () {
     acceptInviteAfterLogin: null,
     muteConversationAfterLogin: [],
     failedEmailDeliveries: [],
+    maybeLoggedOut: false,
   }
 }
 
@@ -28,27 +29,14 @@ export default {
     failedEmailDeliveries: state => state.failedEmailDeliveries,
     redirectTo: state => state.redirectTo,
     hasJoinGroupAfterLogin: state => Boolean(state.joinGroupAfterLogin),
-    ...metaStatuses(['login', 'save', 'changePassword', 'changeEmail']),
+    ...metaStatuses(['login', 'logout', 'save', 'changePassword', 'changeEmail']),
   },
   actions: {
     clearLoginStatus: ({ dispatch }) => dispatch('meta/clear', ['login']),
-
     ...withMeta({
-
-      async check ({ commit, dispatch }) {
-        try {
-          await dispatch('refresh')
-          dispatch('afterLoggedIn')
-        }
-        catch (error) {
-          commit('clearUser')
-          throw error
-        }
-      },
-
       async login ({ state, commit, getters, dispatch, rootGetters }, data) {
         const user = await auth.login(data)
-        commit('setUser', user)
+        dispatch('update', user)
         dispatch('afterLoggedIn')
 
         state.muteConversationAfterLogin.forEach(conversationId => {
@@ -92,9 +80,15 @@ export default {
         commit('clearRedirectTo')
       },
 
-      async logout ({ commit, dispatch }) {
+      async logout ({ dispatch }) {
         await dispatch('push/disable')
-        commit('clearUser', { user: await auth.logout() })
+        await auth.logout()
+
+        dispatch('update', null)
+        dispatch('toasts/show', {
+          message: 'USERDATA.LOGOUT_SUCCESS',
+        }, { root: true })
+
         dispatch('conversations/clear', null, { root: true })
         dispatch('currentThread/clear', null, { root: true })
         router.push({ name: 'groupsGallery' })
@@ -153,12 +147,10 @@ export default {
       return dispatch('backgroundSave', diff)
     },
 
-    async backgroundSave ({ commit, dispatch }, data) {
+    async backgroundSave ({ dispatch }, data) {
       const savedUser = await authUser.save(data)
-      commit('setUser', savedUser)
-      // Commented out because auth/user and users/user have a different data structure
-      // Instead, rely on websockets to update users/user
-      // dispatch('users/update', savedUser, { root: true })
+      dispatch('update', savedUser)
+      dispatch('users/update', savedUser, { root: true })
       return savedUser
     },
 
@@ -187,8 +179,22 @@ export default {
       commit('setUser', user)
     },
 
-    async refresh ({ commit }) {
-      commit('setUser', await authUser.get())
+    async refresh ({ commit, dispatch, getters }) {
+      const wasLoggedIn = getters.isLoggedIn
+      let user = null
+      try {
+        user = await authUser.get()
+      }
+      catch (error) {}
+      dispatch('update', user)
+      commit('setMaybeLoggedOut', false)
+
+      if (user) {
+        dispatch('afterLoggedIn')
+      }
+      else if (wasLoggedIn && !getters.logoutStatus.pending) {
+        dispatch('logout')
+      }
     },
 
     clearSettingsStatus ({ commit, dispatch }) {
@@ -201,9 +207,6 @@ export default {
   mutations: {
     setUser (state, user) {
       state.user = user
-    },
-    clearUser (state) {
-      state.user = null
     },
 
     // Redirect
@@ -241,5 +244,22 @@ export default {
     setFailedEmailDeliveries (state, events) {
       state.failedEmailDeliveries = events
     },
+
+    setMaybeLoggedOut (state, value) {
+      if (state.user) {
+        state.maybeLoggedOut = value
+      }
+      else {
+        state.maybeLoggedOut = false
+      }
+    },
   },
+}
+
+export function plugin (store) {
+  store.watch(state => state.auth.maybeLoggedOut, async (maybeLoggedOut) => {
+    if (maybeLoggedOut) {
+      await store.dispatch('auth/refresh')
+    }
+  })
 }

@@ -1,5 +1,8 @@
 <template>
-  <q-infinite-scroll :handler="maybeFetchPast">
+  <q-infinite-scroll
+    :handler="maybeFetchPast"
+    class="k-feedback-list"
+  >
     <FeedbackNotice
       v-if="feedbackPossible.length > 0"
       :feedback-possible="feedbackPossible"
@@ -56,4 +59,8 @@ export default {
 </script>
 
 <style scoped lang="stylus">
+.k-feedback-list
+  max-width 600px
+  margin-left auto
+  margin-right auto
 </style>

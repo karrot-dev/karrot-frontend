@@ -38,6 +38,7 @@
         "MESSAGE": "Do you trust {userName} in {groupName}?"
       }
     },
+    "LOGOUT_SUCCESS": "You have been logged out!",
     "YOU_TRUST_USER": "You trust {userName} in {groupName}",
     "OTHER_PEOPLE_TRUST_USER": "One person trusts {userName} in {groupName} | {count} people trust {userName} in {groupName}",
     "PEOPLE_TRUST_USER": "You and one person trust {userName} in {groupName} | You and {count} people trust {userName} in {groupName}",
@@ -384,7 +385,7 @@
   },
   "NOTIFICATIONS": {
     "TITLE": "Notifications",
-    "NOT_VERIFIED": "{email} not verified",
+    "NOT_VERIFIED": "{email} is not verified",
     "CHECK_YOUR_MAILS": "Please check your emails or {resend}",
     "RESEND_VERIFICATION": "resend verification email",
     "VERIFICATION_EMAIL_SENT": "We sent you another verification mail. Please check your inbox.",

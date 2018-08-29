@@ -12,7 +12,7 @@ import dependentState from './plugins/dependentState'
 import about, { plugin as aboutPlugin } from './modules/about'
 import agreements from './modules/agreements'
 import banners from './modules/banners'
-import auth from './modules/auth'
+import auth, { plugin as authPlugin } from './modules/auth'
 import { plugin as authPushPlugin } from './modules/auth/push'
 import breadcrumbs from './modules/breadcrumbs'
 import communityFeed from './modules/communityFeed'
@@ -99,6 +99,7 @@ export default new Vuex.Store({
     usersPlugin,
     pickupsPlugin,
     latestMessagesPlugin,
+    authPlugin,
   ],
   strict: debug,
 })

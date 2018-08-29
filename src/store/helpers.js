@@ -167,6 +167,9 @@ function wrapAction ({ namespace, actionName, action, idPrefix, findId }) {
     catch (error) {
       if (isValidationError(error)) {
         update({ validationErrors: error.response.data })
+        if (error.response.status === 403) {
+          commit('auth/setMaybeLoggedOut', true, { root: true })
+        }
         return false
       }
       else {

@@ -1,27 +1,42 @@
 <template>
   <component
-    :is="$q.platform.is.mobile ? 'div' : 'q-card'"
-    class="bg-white k-messages"
+    :is="asPage ? 'q-card' : 'div'"
+    class="bg-white"
   >
     <q-list no-border>
+      <div
+        v-if="asPopover"
+        class="row justify-end q-mb-sm q-mr-sm"
+      >
+        <q-btn
+          v-close-overlay
+          size="sm"
+          color="secondary"
+          :to="{ name: 'messages' }"
+        >
+          {{ $t('BUTTON.SHOW_MORE') }}
+        </q-btn>
+      </div>
       <q-item
         v-if="conversations.length === 0"
       >
         {{ $t('CONVERSATION.NO_CONVERSATIONS') }}
       </q-item>
-      <MessageItem
+      <LatestMessageItem
         v-for="conv in conversations"
         :key="'conv' + conv.id"
+        :group="conv.type === 'group' ? conv.target : null"
         :user="conv.type === 'private' ? conv.target : null"
         :pickup="conv.type === 'pickup' ? conv.target : null"
         :application="conv.type === 'application' ? conv.target : null"
         :message="conv.latestMessage"
         :unread-count="conv.unreadMessageCount"
         :muted="!conv.emailNotifications"
+        :selected="isSelected(conv)"
         @open="open(conv)"
       />
       <q-item
-        v-if="canFetchPastConversations"
+        v-if="!asPopover && canFetchPastConversations"
         class="row justify-center"
       >
         <q-btn
@@ -33,27 +48,26 @@
         </q-btn>
       </q-item>
     </q-list>
-    <q-list no-border>
+    <q-list
+      v-if="threads.length > 0"
+      no-border
+    >
       <q-item-separator />
       <q-list-header>
         {{ $t('CONVERSATION.REPLIES') }}
       </q-list-header>
-      <q-item
-        v-if="threads.length === 0"
-      >
-        {{ $t('CONVERSATION.NO_REPLIES') }}
-      </q-item>
-      <MessageItem
+      <LatestMessageItem
         v-for="conv in threads"
         :key="'thread' + conv.id"
         :thread="conv"
         :message="conv.latestMessage"
         :unread-count="conv.threadMeta.unreadReplyCount"
         :muted="conv.threadMeta.muted"
+        :selected="isSelected(conv)"
         @open="openForThread(conv)"
       />
       <q-item
-        v-if="canFetchPastThreads"
+        v-if="!asPopover && canFetchPastThreads"
         class="row justify-center"
       >
         <q-btn
@@ -79,7 +93,7 @@ import {
   QBtn,
 } from 'quasar'
 import { mapGetters, mapActions } from 'vuex'
-import MessageItem from './MessageItem'
+import LatestMessageItem from './LatestMessageItem'
 
 export default {
   components: {
@@ -89,7 +103,17 @@ export default {
     QItemSeparator,
     QItem,
     QBtn,
-    MessageItem,
+    LatestMessageItem,
+  },
+  props: {
+    asPage: {
+      type: Boolean,
+      default: false,
+    },
+    asPopover: {
+      type: Boolean,
+      default: false,
+    },
   },
   computed: {
     ...mapGetters({
@@ -99,6 +123,7 @@ export default {
       threads: 'latestMessages/threads',
       canFetchPastThreads: 'latestMessages/canFetchPastThreads',
       fetchingPastThreads: 'latestMessages/fetchingPastThreads',
+      selectedConversation: 'detail/conversation',
     }),
   },
   methods: {
@@ -113,18 +138,17 @@ export default {
     open (conv) {
       const { type, target } = conv
       switch (type) {
+        case 'group': return this.$router.push({ name: 'group', params: { groupId: target.id } })
         case 'pickup': return this.openForPickup(target)
         case 'private': return this.openForUser(target)
         case 'application': return this.openForApplication(target)
       }
     },
+    isSelected (conv) {
+      if (!this.selectedConversation) return false
+      if (Boolean(conv.thread) !== Boolean(this.selectedConversation.thread)) return false
+      return conv.id === this.selectedConversation.id
+    },
   },
 }
 </script>
-
-<style lang="stylus" scoped>
-.k-messages
-  max-width 500px
-  margin-left auto
-  margin-right auto
-</style>

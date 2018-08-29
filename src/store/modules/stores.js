@@ -74,7 +74,7 @@ export default {
       dispatch('fetch')
     },
 
-    async selectStore ({ commit, dispatch, getters, rootState }, { storeId }) {
+    async selectStore ({ commit, dispatch, getters }, { storeId }) {
       if (!getters.get(storeId)) {
         try {
           const store = await stores.get(storeId)
@@ -101,7 +101,7 @@ export default {
       const old = getters.get(update.id)
       if (old && old.status !== update.status) {
         if (old.status === 'active' || update.status === 'active') {
-          dispatch('pickups/clear', {}, { root: true })
+          dispatch('pickups/clearUpcomingForStore', old.id, { root: true })
           dispatch('pickups/setStoreFilter', getters.activeStoreId, { root: true })
           dispatch('pickups/fetchListByGroupId', old.group.id, { root: true })
         }
@@ -109,7 +109,7 @@ export default {
       commit('update', update)
     },
 
-    clear ({ commit, dispatch }) {
+    clear ({ commit }) {
       commit('clear')
     },
 

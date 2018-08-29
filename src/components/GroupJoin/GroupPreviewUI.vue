@@ -36,14 +36,14 @@
           <template v-if="isLoggedIn">
             <template v-if="!group.isMember">
               <q-alert
-                v-if="!group.hasMyApplication"
+                v-if="!application"
                 color="info"
                 icon="info"
               >
                 {{ $t('JOINGROUP.PROFILE_NOTE' ) }}
               </q-alert>
               <q-alert
-                v-if="group.hasMyApplication"
+                v-if="application"
                 color="blue"
                 icon="info"
                 :actions="[
@@ -73,7 +73,7 @@
                 {{ $t('JOINGROUP.VERIFY_EMAIL_ADDRESS') }}
               </q-btn>
               <q-btn
-                v-if="!group.isOpen && user && user.mailVerified && !group.hasMyApplication"
+                v-if="!group.isOpen && user && user.mailVerified && !application"
                 @click="$emit('goApply', group.id)"
                 color="secondary"
                 class="float-right generic-margin"

@@ -55,6 +55,7 @@ function enrichPickup (e) {
   e.saveStatus = statusMocks.default()
   e.joinStatus = statusMocks.default()
   e.leaveStatus = statusMocks.default()
+  e.group = groupsMock[0]
   return e
 }
 

@@ -37,7 +37,8 @@
               <i class="fas fa-bars relative-position">
                 <div
                   v-if="hasUnread"
-                  class="k-highlight-dot bg-secondary"
+                  class="k-highlight-dot"
+                  :class="allUnreadMuted ? 'bg-grey' : 'bg-secondary'"
                 />
               </i>
             </q-btn>
@@ -55,14 +56,14 @@
           :overlay="false"
           @click.native="toggleSidenav"
         >
-          <SidenavTitle />
+          <SidenavTitle @click="toggleSidenav" />
           <router-view name="sidenav" />
           <MobileSidenav/>
         </q-layout-drawer>
 
         <!-- desktop sidenav -->
         <q-layout-drawer
-          v-else-if="isLoggedIn && hasSidenavComponent && !disableDesktopSidenav"
+          v-else-if="isLoggedIn && currentGroup && hasSidenavComponent && !disableDesktopSidenav"
           side="left"
           :width="sidenavWidth"
           :breakpoint="0"
@@ -172,7 +173,8 @@ export default {
       showRightDrawer: 'detail/isActive',
       disableDesktopSidenav: 'route/disableDesktopSidenav',
       unreadCount: 'latestMessages/unreadCount',
-      wallUnreadCount: 'currentGroup/conversationUnreadCount',
+      allUnreadMuted: 'latestMessages/allUnreadMuted',
+      currentGroup: 'currentGroup/value',
     }),
     layoutView () {
       if (this.$q.platform.is.mobile) {
@@ -199,7 +201,7 @@ export default {
       return Boolean(this.routerComponents.sidenav)
     },
     hasUnread () {
-      return this.unreadCount + this.wallUnreadCount > 0
+      return this.unreadCount > 0
     },
   },
 }

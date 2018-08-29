@@ -96,18 +96,11 @@ describe('groups', () => {
     },
   }
 
-  const groupApplications = {
-    getters: {
-      groupHasMyApplication: () => () => {},
-    },
-  }
-
   describe('logged out', () => {
     beforeEach(() => {
       store = createStore({
         groups: require('./groups').default,
         agreements,
-        groupApplications,
       })
     })
 
@@ -133,7 +126,6 @@ describe('groups', () => {
         banners,
         currentGroup,
         toasts,
-        groupApplications,
       })
     })
 
@@ -191,7 +183,6 @@ describe('groups', () => {
         agreements,
         auth,
         users,
-        groupApplications,
       })
     })
 

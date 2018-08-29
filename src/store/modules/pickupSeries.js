@@ -45,19 +45,16 @@ export default {
       async create ({ commit, dispatch }, series) {
         await pickupSeries.create(series)
         dispatch('fetchListForActiveStore')
-        dispatch('pickups/refresh', null, { root: true })
       },
 
       async save ({ commit, dispatch }, series) {
         let updatedSeries = await pickupSeries.save(series)
         commit('update', updatedSeries)
-        dispatch('pickups/refresh', null, { root: true })
       },
 
       async destroy ({ commit, dispatch }, id) {
         await pickupSeries.delete(id)
         dispatch('fetchListForActiveStore')
-        dispatch('pickups/refresh', null, { root: true })
       },
 
     }),

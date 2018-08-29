@@ -1,7 +1,7 @@
 <template>
   <q-item
     link
-    :class="{ isUnread: unreadCount > 0 && !muted }"
+    :class="{ isUnread: unreadCount > 0 && !muted, selected }"
     @click.native="$emit('open')"
   >
     <q-item-side
@@ -41,7 +41,17 @@
               class="q-mr-sm"
               :title="$t('APPLICATION.APPLICATION')"
             />
-            <div class="ellipsis">{{ application.user.displayName }}</div>
+            <div class="ellipsis">
+              {{ applicationTitle }}
+            </div>
+          </template>
+          <template v-else-if="isGroup">
+            <q-icon
+              name="fas fw-fw fa-bullhorn"
+              class="q-mr-sm"
+              :title="$t('GROUP.WALL')"
+            />
+            <div class="ellipsis">{{ group.name }}</div>
           </template>
           <q-icon
             v-if="muted"
@@ -68,7 +78,7 @@
         class="q-mb-xs"
       >
         <small>
-          {{ pickup.store.name }} ·
+          {{ pickup.store && pickup.store.name }} ·
           {{ $d(pickup.date, 'dateShort') }}
         </small>
       </q-item-tile>
@@ -128,6 +138,10 @@ export default {
     ProfilePicture,
   },
   props: {
+    group: {
+      type: Object,
+      default: null,
+    },
     user: {
       type: Object,
       default: null,
@@ -156,8 +170,15 @@ export default {
       type: Boolean,
       default: false,
     },
+    selected: {
+      type: Boolean,
+      default: false,
+    },
   },
   computed: {
+    isGroup () {
+      return Boolean(this.group)
+    },
     isPrivate () {
       return Boolean(this.user)
     },
@@ -169,6 +190,13 @@ export default {
     },
     isApplication () {
       return Boolean(this.application)
+    },
+    applicationTitle () {
+      if (this.isApplication && this.application.group) {
+        return this.application.user.isCurrentUser
+          ? this.application.group.name
+          : this.application.user.displayName
+      }
     },
   },
 }
@@ -192,4 +220,7 @@ export default {
   min-height 22px
   padding 0 7px
   margin-left 2px
+
+.selected
+  background $item-highlight-color
 </style>

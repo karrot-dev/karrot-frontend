@@ -27,15 +27,16 @@ export default {
     },
     getMineForGroupIdNotEnriched: (state, getters, rootState, rootGetters) => groupId => {
       const authUserId = rootGetters['auth/userId']
-      return Object.values(state.entries).find(a => a.group === groupId && a.user.id === authUserId)
+      if (!authUserId) return
+      return Object.values(state.entries).find(a => a.group === groupId && a.user.id === authUserId && a.status === 'pending')
     },
     getForActivePreview: (state, getters, rootState, rootGetters) => {
       const activePreview = rootGetters['groups/activePreview']
       if (!activePreview) return
       return getters.enrich(getters.getMineForGroupIdNotEnriched(activePreview.id))
     },
-    groupHasMyApplication: (state, getters) => groupId => {
-      return Boolean(getters.getMineForGroupIdNotEnriched(groupId))
+    getMyInGroup: (state, getters) => groupId => {
+      return getters.getMineForGroupIdNotEnriched(groupId)
     },
     forCurrentGroup: (state, getters) => Object.keys(state.entries)
       .map(getters.get)
@@ -51,7 +52,9 @@ export default {
         const userId = rootGetters['auth/userId']
         if (!userId) return
         const applicationList = await groupApplications.list({ user: userId, status: 'pending' })
-        commit('set', applicationList)
+        if (applicationList.length > 0) {
+          commit('set', applicationList)
+        }
       },
 
       async fetchByGroupId ({ commit }, { groupId }) {
@@ -119,7 +122,10 @@ export default {
   },
   mutations: {
     set (state, applicationList) {
-      state.entries = indexById(applicationList)
+      state.entries = {
+        ...state.entries,
+        ...indexById(applicationList),
+      }
     },
     delete (state, id) {
       if (state.entries[id]) Vue.delete(state.entries, id)

@@ -100,8 +100,13 @@ export default {
           await dispatch('refresh', { userId })
         }
         catch (error) {
-          const data = { translation: 'PROFILE.INACCESSIBLE_OR_DELETED' }
-          throw createRouteError(data)
+          try {
+            commit('update', await users.getInfo(userId))
+          }
+          catch (error) {
+            const data = { translation: 'PROFILE.INACCESSIBLE_OR_DELETED' }
+            throw createRouteError(data)
+          }
         }
       }
       commit('select', userId)

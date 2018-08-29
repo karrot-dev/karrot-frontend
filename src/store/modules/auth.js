@@ -47,7 +47,7 @@ export default {
 
       async login ({ state, commit, getters, dispatch, rootGetters }, data) {
         const user = await auth.login(data)
-        commit('setUser', { user })
+        commit('setUser', user)
         dispatch('afterLoggedIn')
 
         state.muteConversationAfterLogin.forEach(conversationId => {
@@ -154,7 +154,7 @@ export default {
 
     async backgroundSave ({ commit, state, dispatch }, data) {
       const savedUser = await authUser.save(data)
-      commit('setUser', { user: savedUser })
+      commit('setUser', savedUser)
       dispatch('users/update', savedUser, { root: true })
       return savedUser
     },
@@ -181,11 +181,11 @@ export default {
     },
 
     update ({ commit }, user) {
-      commit('setUser', { user })
+      commit('setUser', user)
     },
 
     async refresh ({ commit }) {
-      commit('setUser', { user: await authUser.get() })
+      commit('setUser', await authUser.get())
     },
 
     clearSettingsStatus ({ commit, dispatch }) {
@@ -196,7 +196,7 @@ export default {
     },
   },
   mutations: {
-    setUser (state, { user }) {
+    setUser (state, user) {
       state.user = user
     },
     clearUser (state) {

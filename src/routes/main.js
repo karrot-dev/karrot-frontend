@@ -424,10 +424,15 @@ export default [
     name: 'messages',
     path: 'messages',
     meta: {
+      requiredLoggedIn: true,
       breadcrumbs: [
         { translation: 'GROUP.MESSAGES', route: { name: 'messages' } },
       ],
+      beforeEnter: 'currentGroup/selectFromCurrentUser',
     },
-    component: Messages,
+    components: {
+      default: Messages,
+      sidenav: Sidenav,
+    },
   },
 ]

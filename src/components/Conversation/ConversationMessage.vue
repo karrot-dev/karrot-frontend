@@ -68,7 +68,7 @@
         <small class="text-italic">
           ({{ $t('CONVERSATION.EDITED') }}
           <DateAsWords
-            :date="message.updatedAt"
+            :date="message.editedAt"
             style="display: inline"
           />)
         </small>

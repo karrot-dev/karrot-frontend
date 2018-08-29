@@ -143,7 +143,7 @@ export default {
           ? isUnread(message, rootGetters['currentThread/thread'].threadMeta)
           : isUnread(message, state.entries[message.conversation]),
         saveStatus: getters['meta/status']('saveMessage', `message/${message.id}`),
-        isEdited: differenceInSeconds(message.updatedAt, message.createdAt) > 10,
+        isEdited: differenceInSeconds(message.editedAt, message.createdAt) > 30,
       }
       if (data.threadMeta) {
         data.threadMeta = {

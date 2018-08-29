@@ -5,7 +5,7 @@
   >
     <q-list no-border>
       <div
-        v-if="hideLoadMore"
+        v-if="asPopover"
         class="row justify-end q-mb-sm q-mr-sm"
       >
         <q-btn
@@ -36,7 +36,7 @@
         @open="open(conv)"
       />
       <q-item
-        v-if="!hideLoadMore && canFetchPastConversations"
+        v-if="!asPopover && canFetchPastConversations"
         class="row justify-center"
       >
         <q-btn
@@ -67,7 +67,7 @@
         @open="openForThread(conv)"
       />
       <q-item
-        v-if="!hideLoadMore && canFetchPastThreads"
+        v-if="!asPopover && canFetchPastThreads"
         class="row justify-center"
       >
         <q-btn
@@ -110,7 +110,7 @@ export default {
       type: Boolean,
       default: false,
     },
-    hideLoadMore: {
+    asPopover: {
       type: Boolean,
       default: false,
     },

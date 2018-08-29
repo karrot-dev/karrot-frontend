@@ -23,7 +23,7 @@
     >
       <LatestMessages
         v-if="showing"
-        hide-load-more
+        as-popover
       />
     </q-popover>
   </q-btn>

@@ -64,12 +64,12 @@ storiesOf('GroupPreviewUI', module)
         group: {
           ...groupsMock[0],
           isOpen: false,
-          application: { id: 1 },
         },
         user: {
           mailVerified: true,
         },
         isLoggedIn: true,
+        application: { id: 1 },
       },
       on,
     }),

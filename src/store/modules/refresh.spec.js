@@ -18,16 +18,13 @@ jest.mock('@/services/api/messages', () => ({ get: mockMessagesGet, listThread: 
 jest.mock('@/services/api/conversations', () => ({ list: mockConversationsList }))
 
 import Vue from 'vue'
-import { configureQuasar } from '>/helpers'
+import { configureQuasar, nextTicks } from '>/helpers'
 
 describe('storeHelpers', () => {
   beforeEach(() => jest.resetModules())
 
-  it('refreshes some data', () => {
+  it('refreshes some data', async () => {
     configureQuasar(Vue)
-    const store = require('@/store').default
-    store.commit('currentGroup/set', { id: 1 })
-    store.commit('currentThread/setScope', 1)
 
     mockUsersList.mockReturnValueOnce([])
     mockStoresList.mockReturnValueOnce([])
@@ -39,7 +36,17 @@ describe('storeHelpers', () => {
     mockListMyThreads.mockReturnValue({ results: {} })
     mockConversationsList.mockReturnValue({ results: {} })
 
-    store.dispatch('refresh/refresh')
+    const store = require('@/store').default
+    store.commit('currentGroup/set', { id: 1 })
+    store.commit('currentThread/setScope', 1)
+    store.commit('auth/setUser', { id: 1 })
+
+    // wait until plugins ran (e.g. latestMessages)
+    await nextTicks(2)
+    mockListMyThreads.mockClear()
+    mockConversationsList.mockClear()
+
+    await store.dispatch('refresh/refresh')
 
     expect(mockUsersList).toHaveBeenCalled()
     expect(mockStoresList).toHaveBeenCalled()

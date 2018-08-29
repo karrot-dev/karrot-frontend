@@ -28,7 +28,7 @@ export default {
     failedEmailDeliveries: state => state.failedEmailDeliveries,
     redirectTo: state => state.redirectTo,
     hasJoinGroupAfterLogin: state => Boolean(state.joinGroupAfterLogin),
-    ...metaStatuses(['login', 'save', 'changePassword', 'changeEmail']),
+    ...metaStatuses(['login', 'logout', 'save', 'changePassword', 'changeEmail']),
   },
   actions: {
     clearLoginStatus: ({ dispatch }) => dispatch('meta/clear', ['login']),
@@ -79,7 +79,7 @@ export default {
         commit('clearRedirectTo')
       },
 
-      async logout ({ getters, dispatch }) {
+      async logout ({ dispatch }) {
         await dispatch('push/disable')
         await auth.logout()
 
@@ -191,7 +191,7 @@ export default {
       if (user) {
         dispatch('afterLoggedIn')
       }
-      else if (wasLoggedIn) {
+      else if (wasLoggedIn && !getters.logoutStatus.pending) {
         dispatch('logout')
       }
     },

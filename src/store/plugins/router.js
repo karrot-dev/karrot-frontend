@@ -32,7 +32,7 @@ export default store => {
     else if (to.path === '/') {
       const groupId = getUserGroupId()
       if (groupId && getGroup(groupId) && getGroup(groupId).isMember) {
-        next = { name: 'group', params: { groupId: getUserGroupId() } }
+        next = { name: 'group', params: { groupId } }
       }
       else {
         next = { name: 'groupsGallery' }
@@ -41,7 +41,7 @@ export default store => {
 
     // check meta.requireLoggedIn
     else if (to.matched.some(m => m.meta.requireLoggedIn) && !isLoggedIn()) {
-      let { name, params, query } = to
+      const { name, params, query } = to
       store.dispatch('auth/setRedirectTo', { name, params, query })
       next = { name: 'login' }
     }
@@ -51,20 +51,19 @@ export default store => {
       next = { path: '/' }
     }
 
-    const { redirect } = await maybeDispatchActions(store, to, from)
-    if (redirect) {
-      next = redirect
-    }
-    else {
-      store.dispatch('breadcrumbs/setAll', findBreadcrumbs(to.matched) || [])
+    if (next) {
+      nextFn(next)
+      return
     }
 
-    if (next) {
+    const { redirect } = await maybeDispatchActions(store, to, from)
+    if (redirect) {
       nextFn({ replace: true, ...next })
+      return
     }
-    else {
-      nextFn()
-    }
+
+    nextFn()
+    store.dispatch('breadcrumbs/setAll', findBreadcrumbs(to.matched) || [])
   })
 
   router.afterEach(() => {

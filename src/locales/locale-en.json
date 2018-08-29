@@ -368,7 +368,7 @@
   },
   "NOTIFICATIONS": {
     "TITLE": "Notifications",
-    "NOT_VERIFIED": "{email} not verified",
+    "NOT_VERIFIED": "{email} is not verified",
     "CHECK_YOUR_MAILS": "Please check your emails or {resend}",
     "RESEND_VERIFICATION": "resend verification email",
     "VERIFICATION_EMAIL_SENT": "We sent you another verification mail. Please check your inbox.",

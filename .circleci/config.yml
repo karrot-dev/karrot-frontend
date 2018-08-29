@@ -398,9 +398,6 @@ workflows:
       - build-android-prod:
           requires:
             - build-cordova-prod
-      - e2e-test:
-          requires:
-            - build-prod
       - deploy-android-prod:
           filters:
             branches:
@@ -408,11 +405,11 @@ workflows:
                 - master
           requires:
             - build-android-prod
-            - e2e-test
+            - build-prod
       - deploy-release:
           filters:
             branches:
               only:
                 - master
           requires:
-            - e2e-test
+            - build-prod

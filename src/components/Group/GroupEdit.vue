@@ -69,7 +69,7 @@
           </q-field>
 
           <q-field
-            v-if="!edit.isPlayground"
+            v-if="!edit.isOpen"
             icon="fas fa-fw fa-question"
             :label="$t('GROUP.APPLICATION_QUESTIONS')"
             :error="hasError('applicationQuestions')"

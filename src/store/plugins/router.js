@@ -41,7 +41,7 @@ export default store => {
 
     // check meta.requireLoggedIn
     else if (to.matched.some(m => m.meta.requireLoggedIn) && !isLoggedIn()) {
-      let { name, params, query } = to
+      const { name, params, query } = to
       store.dispatch('auth/setRedirectTo', { name, params, query })
       next = { name: 'login' }
     }
@@ -61,9 +61,9 @@ export default store => {
       nextFn({ replace: true, ...redirect })
       return
     }
-    store.dispatch('breadcrumbs/setAll', findBreadcrumbs(to.matched) || [])
 
     nextFn()
+    store.dispatch('breadcrumbs/setAll', findBreadcrumbs(to.matched) || [])
   })
 
   router.afterEach(() => {

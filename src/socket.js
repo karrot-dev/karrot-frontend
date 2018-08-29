@@ -145,6 +145,9 @@ export function receiveMessage ({ topic, payload }) {
     store.dispatch('auth/update', user)
     store.dispatch('users/update', user)
   }
+  else if (topic === 'auth:logout') {
+    store.dispatch('auth/refresh')
+  }
   else if (topic === 'users:user') {
     store.dispatch('users/update', camelizeKeys(payload))
   }

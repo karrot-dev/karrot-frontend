@@ -31,7 +31,7 @@ describe('auth', () => {
 
   it('can check login status', async () => {
     mockStatus.mockReturnValueOnce(user())
-    await store.dispatch('auth/check')
+    await store.dispatch('auth/refresh')
     expect(store.getters['auth/isLoggedIn']).toBe(true)
     expect(store.getters['auth/user']).toBeDefined()
   })
@@ -53,7 +53,7 @@ describe('auth', () => {
 
   it('will not be logged when status throws', async () => {
     mockStatus.mockImplementation(throws(createValidationError({ foo: 'some error info' })))
-    await store.dispatch('auth/check')
+    await store.dispatch('auth/refresh')
     expect(store.getters['auth/isLoggedIn']).toBe(false)
     expect(store.getters['auth/user']).toBeNull()
   })

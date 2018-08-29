@@ -127,7 +127,7 @@ export function storybookDefaults (options) {
 export function createValidationError (data) {
   return Object.assign(new Error(), {
     response: {
-      status: 403,
+      status: 400,
       data,
     },
   })

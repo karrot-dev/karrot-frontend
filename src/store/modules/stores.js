@@ -68,30 +68,30 @@ export default {
       async fetch ({ commit }) {
         commit('set', await stores.list())
       },
+
+      async selectStore ({ commit, dispatch, getters }, { storeId }) {
+        if (!getters.get(storeId)) {
+          try {
+            const store = await stores.get(storeId)
+            commit('update', store)
+          }
+          catch (error) {
+            throw createRouteError()
+          }
+        }
+        const getStatistics = stores.statistics(storeId)
+        dispatch('pickups/setStoreFilter', storeId, { root: true })
+        dispatch('sidenavBoxes/toggle/group', false, { root: true })
+        commit('select', storeId)
+        commit('setStatistics', { data: await getStatistics, id: storeId })
+      },
     }),
 
-    async refresh ({ dispatch }) {
+    refresh ({ dispatch }) {
       dispatch('fetch')
     },
 
-    async selectStore ({ commit, dispatch, getters }, { storeId }) {
-      if (!getters.get(storeId)) {
-        try {
-          const store = await stores.get(storeId)
-          commit('update', store)
-        }
-        catch (error) {
-          throw createRouteError()
-        }
-      }
-      const getStatistics = stores.statistics(storeId)
-      dispatch('pickups/setStoreFilter', storeId, { root: true })
-      dispatch('sidenavBoxes/toggle/group', false, { root: true })
-      commit('select', storeId)
-      commit('setStatistics', { data: await getStatistics, id: storeId })
-    },
-
-    async clearSelectedStore ({ commit, dispatch }) {
+    clearSelectedStore ({ commit, dispatch }) {
       dispatch('pickups/clearStoreFilter', null, { root: true })
       dispatch('sidenavBoxes/toggle/group', true, { root: true })
       commit('clearSelected')

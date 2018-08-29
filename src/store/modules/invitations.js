@@ -56,7 +56,7 @@ export default {
         try {
           await invitations.accept(token)
           // Current group has changed, refresh user data
-          await dispatch('auth/check', { root: true })
+          await dispatch('auth/refresh', { root: true })
           dispatch('toasts/show', {
             message: 'GROUP.INVITATION_ACCEPT_SUCCESS',
           }, { root: true })

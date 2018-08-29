@@ -1,5 +1,5 @@
 {
-  "ENTRY": "1 entry | {count} entries",
+  "ENTRY": "1則輸入 | {數目}則輸入",
   "GLOBAL": {
     "GITHUB_NOTE": "開發",
     "FSWW_NOTE": "查看我們的資訊頁面 !",
@@ -59,11 +59,11 @@
     "DELETE_ACCOUNT": "刪除帳戶",
     "SHOW": "顯示",
     "HIDE": "隱藏",
-    "SUBMIT": "Submit",
-    "APPLY": "Apply",
-    "ACCEPT": "Accept",
-    "DECLINE": "Decline",
-    "WITHDRAW": "Withdraw"
+    "SUBMIT": "提交",
+    "APPLY": "申請",
+    "ACCEPT": "接受",
+    "DECLINE": "拒絕",
+    "WITHDRAW": "退出"
   },
   "VALIDATION": {
     "MINLENGTH": "請輸入至少 {最少} 個字。",
@@ -87,22 +87,22 @@
     "PRIVATE_DESCRIPTION_TITLE": "私密社團敘述",
     "DESCRIPTION_VERBOSE": "社團敘述（僅社團成員可見）",
     "PUBLIC_DESCRIPTION": "加入社團前顯示的文字",
-    "APPLICATIONS": "Applications",
-    "APPLICATION_QUESTIONS": "Questions for people who want to join this group",
+    "APPLICATIONS": "申請",
+    "APPLICATION_QUESTIONS": "給要加入社團者的問題",
     "PICKUPS": "開放領取食物",
     "PICKUP": "領取",
     "MEMBERS": "成員",
     "JOINED": "加入[相對日期]",
-    "DECLINED": "declined {relativeDate}",
-    "ADDED_BY": "added by {userName}",
-    "DECLINED_BY": "declined by {userName}",
+    "DECLINED": "拒絕 {相對日期}",
+    "ADDED_BY": "由{使用者名稱}加入",
+    "DECLINED_BY": "由{ 使用者名稱} 拒絕",
     "SORT_JOINDATE": "由加入日期分類",
     "SORT_NAME": "由姓名分類",
     "INACTIVE": "非活躍",
     "SHOW_INACTIVE": "顯示不活躍的社團",
     "STORES": "店面",
-    "HOME": "Home",
-    "CURRENT_STORE": "Current store",
+    "HOME": "首頁",
+    "CURRENT_STORE": "現有的店家",
     "HISTORY": "歷史",
     "DESCRIPTION": "敘述",
     "ADDRESS": "地址",
@@ -117,7 +117,7 @@
     "INVITATION_ACCEPT_ERROR": "糟糕，無法接受此邀請！",
     "SETTINGS": "設定",
     "NOTIFICATIONS": "通知",
-    "EMAIL_NOTIFICATIONS": "Email notifications",
+    "EMAIL_NOTIFICATIONS": "郵件通知",
     "NOTIFICATION_TYPES": {
       "weekly_summary": {
         "NAME": "每週摘要",
@@ -128,8 +128,8 @@
         "DESCRIPTION": "提醒你已加入的領取任務，並告訴你隔天的領取任務缺額數"
       },
       "new_application": {
-        "NAME": "New applications",
-        "DESCRIPTION": "Tells you when somebody wants to join your group"
+        "NAME": "新申請",
+        "DESCRIPTION": "當有人想加入你的社團時通知你"
       }
     },
     "PLAYGROUND_INFO": "這裡是遊樂區社團，不用擔心會破壞掉任何東西。自由的點擊、愉快的探索吧 !",
@@ -172,8 +172,8 @@
     "RESTORE": "恢復",
     "SHOW_ARCHIVED": "顯示已歸檔的店家",
     "HIDE_ARCHIVED": "隱藏已歸檔的店家",
-    "SHOW_ALL": "Show all stores",
-    "SHOW_ACTIVE_ONLY": "Only show active stores"
+    "SHOW_ALL": "顯示所有店家",
+    "SHOW_ACTIVE_ONLY": "只顯示活躍店家"
   },
   "PICKUPMANAGE": {
     "TITLE": "管理食物領取",
@@ -200,18 +200,18 @@
     "NO_PUBLIC_DESCRIPTION": "(此社團尚未建立公開的描述)",
     "ALL_GROUPS": "所有社團",
     "SIGNUP_OR_LOGIN": "登入或註冊以加入社團！",
-    "VERIFY_EMAIL_ADDRESS":"Verify your email address to apply",
+    "VERIFY_EMAIL_ADDRESS":"驗證你的電子郵件地址以利申請",
     "MY_GROUPS": "我的社團",
     "LOGOUT_MESSAGE": {
       "LOGGED_OUT": "你已經登出。 {登入}",
       "LOG_IN": "請登入檢視你的社團！"
     },
     "PROFILE_NOTE": "加入此社團後，其他成員也能瀏覽你的個人檔案。",
-    "APPLICATION_SUBMITTED": "Your application was successfully submitted!",
-    "APPLICATION_PENDING": "Your application is pending!",
-    "WITHDRAW_CONFIRMATION_HEADER": "Withdraw Application",
-    "WITHDRAW_CONFIRMATION_TEXT": "Are you sure you want to withdraw your application to join {groupName}?",
-    "APPLICATION_WITHDRAWN": "Your application was successfully withdrawn!"
+    "APPLICATION_SUBMITTED": "你的申請已成功提交",
+    "APPLICATION_PENDING": "你的申請尚未有結果",
+    "WITHDRAW_CONFIRMATION_HEADER": "撤銷申請",
+    "WITHDRAW_CONFIRMATION_TEXT": "你確定你要撤銷加入{ 社團名稱} 的申請?",
+    "APPLICATION_WITHDRAWN": "你的申請已成功撤銷"
 
   },
   "GROUPINFO": {
@@ -332,7 +332,7 @@
     }
   },
   "LANGUAGECHOOSER": {
-    "ADD_MORE": "Help translating!",
+    "ADD_MORE": "幫忙翻譯",
     "SWITCH": "切換語言"
   },
   "MARKDOWN_INPUT": {
@@ -444,16 +444,16 @@
     "ARCHIVED": "已封存"
   },
   "APPLICATION": {
-    "APPLICATION": "Application",
-    "FORM_HEADER": "Apply",
-    "FORM_TITLE": "Apply to join {groupName}",
-    "GALLERY_TOOLTIP": "You applied to join this group. Your application is still pending.",
-    "WALL_NOTICE": "There is an application pending! | There are {count} applications pending!",
-    "ACCEPT_CONFIRMATION_HEADER": "Accept Application",
-    "ACCEPT_CONFIRMATION_TEXT": "Are you sure you want to accept {userName} into this group?",
-    "DECLINE_CONFIRMATION_HEADER": "Decline Application",
-    "DECLINE_CONFIRMATION_TEXT": "Are you sure you want to decline the application of {userName}?",
-    "ACCEPTED": "You accepted {userName} into this group!",
+    "APPLICATION": "申請",
+    "FORM_HEADER": "申請",
+    "FORM_TITLE": "申請加入{團體名稱}",
+    "GALLERY_TOOLTIP": "你已申請加入社團，申請尚未有結果",
+    "WALL_NOTICE": "有一個申請尚未有結果! 有{數目} 個申請尚未有結果",
+    "ACCEPT_CONFIRMATION_HEADER": "接受申請",
+    "ACCEPT_CONFIRMATION_TEXT": "你確定你要{使用者名稱}加入此社團?",
+    "DECLINE_CONFIRMATION_HEADER": "拒絕申請",
+    "DECLINE_CONFIRMATION_TEXT": "你確定你要拒絕{使用者名稱}的申請嗎?",
+    "ACCEPTED": "你要接受{使用者名稱}加入社團嗎?",
     "DECLINED": "You declined the application of {userName}.",
     "PAST": "Past applications",
     "SUBMITTED_ON": "Submitted on {date}",

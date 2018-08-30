@@ -78,7 +78,7 @@ export default {
 
       async withdraw ({ commit, dispatch }, id) {
         const removedApplication = await groupApplications.withdraw(id)
-        commit('delete', removedApplication.id)
+        commit('update', removedApplication)
         dispatch('toasts/show', {
           message: 'JOINGROUP.APPLICATION_WITHDRAWN',
         }, { root: true })
@@ -113,9 +113,6 @@ export default {
       dispatch('meta/clear', ['apply'])
       dispatch('groups/clearGroupPreview', null, { root: true })
     },
-    clearEntries ({ commit }) {
-      commit('clear')
-    },
     update ({ commit }, application) {
       commit('update', application)
     },
@@ -126,9 +123,6 @@ export default {
         ...state.entries,
         ...indexById(applicationList),
       }
-    },
-    delete (state, id) {
-      if (state.entries[id]) Vue.delete(state.entries, id)
     },
     update (state, application) {
       Vue.set(state.entries, application.id, application)

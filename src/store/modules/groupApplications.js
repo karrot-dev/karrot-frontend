@@ -19,7 +19,7 @@ export default {
     enrich: (state, getters, rootState, rootGetters) => application => {
       return application && {
         ...application,
-        user: rootGetters['users/enrich'](application.user),
+        user: rootGetters['users/get'](application.user.id),
         group: rootGetters['groups/get'](application.group),
         decidedBy: rootGetters['users/get'](application.decidedBy),
         isPending: application.status === 'pending',
@@ -48,23 +48,27 @@ export default {
   },
   actions: {
     ...withMeta({
-      async fetchMine ({ commit, rootGetters }) {
+      async fetchMine ({ commit, dispatch, rootGetters }) {
         const userId = rootGetters['auth/userId']
         if (!userId) return
         const applicationList = await groupApplications.list({ user: userId, status: 'pending' })
+
         if (applicationList.length > 0) {
           commit('set', applicationList)
         }
+        applicationList.forEach(a => dispatch('users/update', a.user, { root: true }))
       },
 
-      async fetchByGroupId ({ commit }, { groupId }) {
+      async fetchByGroupId ({ commit, dispatch }, { groupId }) {
         const applicationList = await groupApplications.list({ group: groupId })
         commit('set', applicationList)
+        applicationList.forEach(a => dispatch('users/update', a.user, { root: true }))
       },
 
-      async fetchOne ({ commit }, applicationId) {
+      async fetchOne ({ commit, dispatch }, applicationId) {
         const application = await groupApplications.get(applicationId)
         commit('update', application)
+        dispatch('users/update', application.user, { root: true })
       },
 
       async apply ({ commit, dispatch }, data) {

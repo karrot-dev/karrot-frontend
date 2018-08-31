@@ -135,12 +135,25 @@ export default {
     enrichMessage: (state, getters, rootState, rootGetters) => message => {
       if (!message) return
       const isThreadReply = message.thread && message.thread !== message.id
+      const isUnreadIfThreadParticipant = (message) => {
+        // Show as read if user is not thread participant,
+        // as non-participants can't mark messages read
+
+        // TODO: what if message is not part of currentThread?
+        const threadMeta = rootGetters['currentThread/thread'].threadMeta
+        if (!threadMeta) return false
+
+        const isParticipant = Boolean(threadMeta.participants.find(u => u.isCurrentUser))
+        if (!isParticipant) return false
+
+        return isUnread(message, threadMeta)
+      }
       const data = {
         ...message,
         reactions: getters.enrichReactions(message.reactions),
         author: rootGetters['users/get'](message.author),
         isUnread: isThreadReply
-          ? isUnread(message, rootGetters['currentThread/thread'].threadMeta)
+          ? isUnreadIfThreadParticipant(message)
           : isUnread(message, state.entries[message.conversation]),
         saveStatus: getters['meta/status']('saveMessage', `message/${message.id}`),
         isEdited: differenceInSeconds(message.editedAt, message.createdAt) > 30,

@@ -1,4 +1,4 @@
-import { createStore, storybookDefaults as defaults } from '>/helpers'
+import { createStore, statusMocks, storybookDefaults as defaults } from '>/helpers'
 import { storiesOf } from '@storybook/vue'
 import { action } from '@storybook/addon-actions'
 
@@ -29,6 +29,7 @@ function membershipFactory ({
   trusted = false,
   trustedByCount = 2,
   isEditor = true,
+  trustThresholdForNewcomer = 3,
 } = {}) {
   const trustedBy = []
   for (let i = 1; i <= trustedByCount; i++) {
@@ -43,7 +44,10 @@ function membershipFactory ({
     roles: [],
     trustedBy,
     trusted,
+    trustProgress: isEditor ? 1 : trustedByCount / trustThresholdForNewcomer,
     isEditor,
+    trustThresholdForNewcomer,
+    trustUserStatus: statusMocks.default(),
   }
 }
 
@@ -77,7 +81,51 @@ storiesOf('User Profile', module)
     }),
     store,
   }))
-  .add('Trust Button - other people trust', () => defaults({
+  .add('Trust Button - is editor', () => defaults({
+    render: h => h(TrustButton, {
+      props: {
+        user: baseUser,
+        group: groupFactory(),
+        membership: membershipFactory({ trustedByCount: 2 }),
+      },
+      on: defaultOn,
+    }),
+    store,
+  }))
+  .add('Trust Button - is newcomer', () => defaults({
+    render: h => h(TrustButton, {
+      props: {
+        user: baseUser,
+        group: groupFactory(),
+        membership: membershipFactory({ isEditor: false, trustedByCount: 2 }),
+      },
+      on: defaultOn,
+    }),
+    store,
+  }))
+  .add('Trust Button - is newcomer without trust', () => defaults({
+    render: h => h(TrustButton, {
+      props: {
+        user: baseUser,
+        group: groupFactory(),
+        membership: membershipFactory({ isEditor: false, trustedByCount: 0 }),
+      },
+      on: defaultOn,
+    }),
+    store,
+  }))
+  .add('Trust Button - one other trust', () => defaults({
+    render: h => h(TrustButton, {
+      props: {
+        user: baseUser,
+        group: groupFactory(),
+        membership: membershipFactory({ trustedByCount: 1 }),
+      },
+      on: defaultOn,
+    }),
+    store,
+  }))
+  .add('Trust Button - multiple others trust', () => defaults({
     render: h => h(TrustButton, {
       props: {
         user: baseUser,
@@ -105,17 +153,6 @@ storiesOf('User Profile', module)
         user: baseUser,
         group: groupFactory(),
         membership: membershipFactory({ trusted: true, trustedByCount: 1 }),
-      },
-      on: defaultOn,
-    }),
-    store,
-  }))
-  .add('Trust Button - others trust', () => defaults({
-    render: h => h(TrustButton, {
-      props: {
-        user: baseUser,
-        group: groupFactory(),
-        membership: membershipFactory({ trustedByCount: 1 }),
       },
       on: defaultOn,
     }),

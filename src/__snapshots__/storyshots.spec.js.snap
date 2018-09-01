@@ -5,8 +5,8 @@ exports[`Storyshots AddressPicker Default 1`] = `
   <div tabindex="-1" class="q-if row no-wrap relative-position q-input q-search q-if-standard q-if-has-content text-primary">
     <div class="q-if-baseline">|</div>
     <i aria-hidden="true" class="q-icon q-if-control q-if-control-before material-icons">search</i>
-    <div class="q-if-inner col row">
-      <div class="col-12 row no-wrap relative-position">
+    <div class="q-if-inner col column">
+      <div class="row no-wrap relative-position">
         <input type="search" placeholder="Search" step="any" value="" class="col q-input-target q-no-input-spinner ellipsis text-left">
       </div>
     </div>
@@ -72,8 +72,8 @@ exports[`Storyshots ApplicationForm create 1`] = `
             <div class="q-tab-pane">
               <div tabindex="-1" id="group-title" rows="6" class="q-if row no-wrap relative-position q-input q-if-standard text-primary">
                 <div class="q-if-baseline">|</div>
-                <div class="q-if-inner col row">
-                  <div class="col-12 row no-wrap relative-position">
+                <div class="q-if-inner col column">
+                  <div class="row no-wrap relative-position">
                     <div class="col row relative-position">
                       <object type="text/html" data="about:blank" aria-hidden="true" style="display:block;position:absolute;top:0;left:0;right:0;bottom:0;height:100%;width:100%;overflow:hidden;pointer-events:none;z-index:-1;"></object>
                       <textarea rows="6" id="group-title" class="col q-input-target q-input-shadow absolute-top"></textarea>
@@ -140,8 +140,8 @@ exports[`Storyshots General Components Search 1`] = `
   <div tabindex="-1" separator="" class="q-if row no-wrap relative-position q-input q-search lightgrey q-if-standard q-if-has-content text-primary">
     <div class="q-if-baseline">|</div>
     <i aria-hidden="true" class="q-icon q-if-control q-if-control-before material-icons">search</i>
-    <div class="q-if-inner col row">
-      <div class="col-12 row no-wrap relative-position">
+    <div class="q-if-inner col column">
+      <div class="row no-wrap relative-position">
         <input separator="" type="search" placeholder="Search" step="any" class="col q-input-target q-no-input-spinner ellipsis text-left">
       </div>
     </div>
@@ -169,8 +169,8 @@ exports[`Storyshots GroupEdit create 1`] = `
             <div class="q-field-content col-xs-12 col-sm">
               <div tabindex="-1" id="group-title" autocomplete="off" class="q-if row no-wrap relative-position q-input q-if-standard q-if-has-content text-primary">
                 <div class="q-if-baseline">|</div>
-                <div class="q-if-inner col row">
-                  <div class="col-12 row no-wrap relative-position">
+                <div class="q-if-inner col column">
+                  <div class="row no-wrap relative-position">
                     <input id="group-title" autocomplete="off" type="text" step="any" value="05_testgroup" class="col q-input-target q-no-input-spinner ellipsis">
                   </div>
                 </div>
@@ -218,8 +218,8 @@ exports[`Storyshots GroupEdit create 1`] = `
                     <div class="q-tab-pane">
                       <div tabindex="-1" rows="4" class="q-if row no-wrap relative-position q-input q-if-standard q-if-has-content text-primary">
                         <div class="q-if-baseline">|</div>
-                        <div class="q-if-inner col row">
-                          <div class="col-12 row no-wrap relative-position">
+                        <div class="q-if-inner col column">
+                          <div class="row no-wrap relative-position">
                             <div class="col row relative-position">
                               <object type="text/html" data="about:blank" aria-hidden="true" style="display:block;position:absolute;top:0;left:0;right:0;bottom:0;height:100%;width:100%;overflow:hidden;pointer-events:none;z-index:-1;"></object>
                               <textarea rows="4" class="col q-input-target q-input-shadow absolute-top">This is the public description It would make sense if it was markdown # then this would be a header [and this a link](www.google.de)</textarea>
@@ -283,8 +283,8 @@ exports[`Storyshots GroupEdit create 1`] = `
                     <div class="q-tab-pane">
                       <div tabindex="-1" rows="4" class="q-if row no-wrap relative-position q-input q-if-standard text-primary">
                         <div class="q-if-baseline">|</div>
-                        <div class="q-if-inner col row">
-                          <div class="col-12 row no-wrap relative-position">
+                        <div class="q-if-inner col column">
+                          <div class="row no-wrap relative-position">
                             <div class="col row relative-position">
                               <object type="text/html" data="about:blank" aria-hidden="true" style="display:block;position:absolute;top:0;left:0;right:0;bottom:0;height:100%;width:100%;overflow:hidden;pointer-events:none;z-index:-1;"></object>
                               <textarea rows="4" class="col q-input-target q-input-shadow absolute-top">undefined</textarea>
@@ -319,8 +319,8 @@ exports[`Storyshots GroupEdit create 1`] = `
                 <div tabindex="-1" class="q-if row no-wrap relative-position q-input q-search q-if-standard q-if-has-content text-primary">
                   <div class="q-if-baseline">|</div>
                   <i aria-hidden="true" class="q-icon q-if-control q-if-control-before material-icons">search</i>
-                  <div class="q-if-inner col row">
-                    <div class="col-12 row no-wrap relative-position">
+                  <div class="q-if-inner col column">
+                    <div class="row no-wrap relative-position">
                       <input type="search" placeholder="Search" step="any" value="Darmstadt, Regierungsbezirk Darmstadt, Hessen, Deutschland" class="col q-input-target q-no-input-spinner ellipsis text-left">
                     </div>
                   </div>
@@ -377,8 +377,8 @@ exports[`Storyshots GroupEdit create 1`] = `
                     <div class="q-tab-pane">
                       <div tabindex="-1" rows="6" class="q-if row no-wrap relative-position q-input q-if-standard q-if-has-content text-primary">
                         <div class="q-if-baseline">|</div>
-                        <div class="q-if-inner col row">
-                          <div class="col-12 row no-wrap relative-position">
+                        <div class="q-if-inner col column">
+                          <div class="row no-wrap relative-position">
                             <div class="col row relative-position">
                               <object type="text/html" data="about:blank" aria-hidden="true" style="display:block;position:absolute;top:0;left:0;right:0;bottom:0;height:100%;width:100%;overflow:hidden;pointer-events:none;z-index:-1;"></object>
                               <textarea rows="6" class="col q-input-target q-input-shadow absolute-top">Hello stranger! :smiley: :wave: Do you want to help us save all the good food from being wasted? Please tell us how you plan to contribute and who or what made you aware of our existence! Looking forward to working with you!</textarea>
@@ -412,8 +412,8 @@ exports[`Storyshots GroupEdit create 1`] = `
             <div class="q-field-content col-xs-12 col-sm">
               <div tabindex="-1" class="q-if row no-wrap relative-position q-input q-if-standard text-primary">
                 <div class="q-if-baseline">|</div>
-                <div class="q-if-inner col row">
-                  <div class="col-12 row no-wrap relative-position">
+                <div class="q-if-inner col column">
+                  <div class="row no-wrap relative-position">
                     <input type="text" step="any" class="col q-input-target q-no-input-spinner ellipsis">
                   </div>
                 </div>
@@ -474,8 +474,8 @@ exports[`Storyshots GroupGallery signup view 1`] = `
           <div tabindex="-1" class="q-if row no-wrap relative-position q-input q-search searchbar q-if-hide-underline q-if-standard q-if-has-content text-primary">
             <div class="q-if-baseline">|</div>
             <i aria-hidden="true" class="q-icon q-if-control q-if-control-before material-icons">search</i>
-            <div class="q-if-inner col row">
-              <div class="col-12 row no-wrap relative-position">
+            <div class="q-if-inner col column">
+              <div class="row no-wrap relative-position">
                 <input type="search" placeholder="Search" step="any" value="" class="col q-input-target q-no-input-spinner ellipsis text-left">
               </div>
             </div>
@@ -693,8 +693,8 @@ exports[`Storyshots GroupGallery switch and explore 1`] = `
           <div tabindex="-1" class="q-if row no-wrap relative-position q-input q-search searchbar q-if-hide-underline q-if-standard q-if-has-content text-primary">
             <div class="q-if-baseline">|</div>
             <i aria-hidden="true" class="q-icon q-if-control q-if-control-before material-icons">search</i>
-            <div class="q-if-inner col row">
-              <div class="col-12 row no-wrap relative-position">
+            <div class="q-if-inner col column">
+              <div class="row no-wrap relative-position">
                 <input type="search" placeholder="Search" step="any" value="" class="col q-input-target q-no-input-spinner ellipsis text-left">
               </div>
             </div>
@@ -2368,14 +2368,14 @@ exports[`Storyshots Login empty 1`] = `
           <div class="q-field-content col-xs-12 col-sm">
             <div tabindex="-1" autocorrect="off" autocapitalize="off" spellcheck="false" class="q-if row no-wrap relative-position q-input q-if-has-label q-if-standard q-if-has-content text-primary">
               <div class="q-if-baseline">|</div>
-              <div class="q-if-inner col row">
-                <div class="col-12 row no-wrap relative-position">
+              <div class="q-if-inner col column">
+                <div class="row no-wrap relative-position">
                   <div class="q-if-label q-if-label-above">
                     <div class="q-if-label-inner ellipsis">E-mail</div>
                   </div>
                   <input autocorrect="off" autocapitalize="off" spellcheck="false" type="email" step="any" value="foo@foo.com" class="col q-input-target q-no-input-spinner ellipsis">
                 </div>
-                <div class="q-if-label-spacer col-12">E-mail</div>
+                <div class="q-if-label-spacer">E-mail</div>
               </div>
             </div>
           </div>
@@ -2389,14 +2389,14 @@ exports[`Storyshots Login empty 1`] = `
           <div class="q-field-content col-xs-12 col-sm">
             <div tabindex="-1" autocorrect="off" autocapitalize="off" spellcheck="false" class="q-if row no-wrap relative-position q-input q-if-has-label q-if-standard q-if-has-content text-primary">
               <div class="q-if-baseline">|</div>
-              <div class="q-if-inner col row">
-                <div class="col-12 row no-wrap relative-position">
+              <div class="q-if-inner col column">
+                <div class="row no-wrap relative-position">
                   <div class="q-if-label q-if-label-above">
                     <div class="q-if-label-inner ellipsis">Password</div>
                   </div>
                   <input autocorrect="off" autocapitalize="off" spellcheck="false" type="password" step="any" value="foofoo" class="col q-input-target q-no-input-spinner ellipsis">
                 </div>
-                <div class="q-if-label-spacer col-12">Password</div>
+                <div class="q-if-label-spacer">Password</div>
               </div>
               <i aria-hidden="true" class="q-icon q-if-control material-icons">visibility_off</i>
             </div>
@@ -2440,14 +2440,14 @@ exports[`Storyshots Login error 1`] = `
           <div class="q-field-content col-xs-12 col-sm">
             <div tabindex="-1" autocorrect="off" autocapitalize="off" spellcheck="false" class="q-if row no-wrap relative-position q-input q-if-has-label q-if-error q-if-standard q-if-has-content text-negative">
               <div class="q-if-baseline">|</div>
-              <div class="q-if-inner col row">
-                <div class="col-12 row no-wrap relative-position">
+              <div class="q-if-inner col column">
+                <div class="row no-wrap relative-position">
                   <div class="q-if-label q-if-label-above">
                     <div class="q-if-label-inner ellipsis">E-mail</div>
                   </div>
                   <input autocorrect="off" autocapitalize="off" spellcheck="false" type="email" step="any" value="foo@foo.com" class="col q-input-target q-no-input-spinner ellipsis">
                 </div>
-                <div class="q-if-label-spacer col-12">E-mail</div>
+                <div class="q-if-label-spacer">E-mail</div>
               </div>
             </div>
           </div>
@@ -2461,14 +2461,14 @@ exports[`Storyshots Login error 1`] = `
           <div class="q-field-content col-xs-12 col-sm">
             <div tabindex="-1" autocorrect="off" autocapitalize="off" spellcheck="false" class="q-if row no-wrap relative-position q-input q-if-has-label q-if-standard q-if-has-content text-primary">
               <div class="q-if-baseline">|</div>
-              <div class="q-if-inner col row">
-                <div class="col-12 row no-wrap relative-position">
+              <div class="q-if-inner col column">
+                <div class="row no-wrap relative-position">
                   <div class="q-if-label q-if-label-above">
                     <div class="q-if-label-inner ellipsis">Password</div>
                   </div>
                   <input autocorrect="off" autocapitalize="off" spellcheck="false" type="password" step="any" value="foofoo" class="col q-input-target q-no-input-spinner ellipsis">
                 </div>
-                <div class="q-if-label-spacer col-12">Password</div>
+                <div class="q-if-label-spacer">Password</div>
               </div>
               <i aria-hidden="true" class="q-icon q-if-control material-icons">visibility_off</i>
             </div>
@@ -2515,14 +2515,14 @@ exports[`Storyshots Login pending 1`] = `
           <div class="q-field-content col-xs-12 col-sm">
             <div tabindex="-1" autocorrect="off" autocapitalize="off" spellcheck="false" class="q-if row no-wrap relative-position q-input q-if-has-label q-if-standard q-if-has-content text-primary">
               <div class="q-if-baseline">|</div>
-              <div class="q-if-inner col row">
-                <div class="col-12 row no-wrap relative-position">
+              <div class="q-if-inner col column">
+                <div class="row no-wrap relative-position">
                   <div class="q-if-label q-if-label-above">
                     <div class="q-if-label-inner ellipsis">E-mail</div>
                   </div>
                   <input autocorrect="off" autocapitalize="off" spellcheck="false" type="email" step="any" value="foo@foo.com" class="col q-input-target q-no-input-spinner ellipsis">
                 </div>
-                <div class="q-if-label-spacer col-12">E-mail</div>
+                <div class="q-if-label-spacer">E-mail</div>
               </div>
             </div>
           </div>
@@ -2536,14 +2536,14 @@ exports[`Storyshots Login pending 1`] = `
           <div class="q-field-content col-xs-12 col-sm">
             <div tabindex="-1" autocorrect="off" autocapitalize="off" spellcheck="false" class="q-if row no-wrap relative-position q-input q-if-has-label q-if-standard q-if-has-content text-primary">
               <div class="q-if-baseline">|</div>
-              <div class="q-if-inner col row">
-                <div class="col-12 row no-wrap relative-position">
+              <div class="q-if-inner col column">
+                <div class="row no-wrap relative-position">
                   <div class="q-if-label q-if-label-above">
                     <div class="q-if-label-inner ellipsis">Password</div>
                   </div>
                   <input autocorrect="off" autocapitalize="off" spellcheck="false" type="password" step="any" value="foofoo" class="col q-input-target q-no-input-spinner ellipsis">
                 </div>
-                <div class="q-if-label-spacer col-12">Password</div>
+                <div class="q-if-label-spacer">Password</div>
               </div>
               <i aria-hidden="true" class="q-icon q-if-control material-icons">visibility_off</i>
             </div>
@@ -2678,14 +2678,14 @@ exports[`Storyshots Password Reset empty 1`] = `
             <div class="q-field-content col-xs-12 col-sm">
               <div tabindex="-1" autocorrect="off" autocapitalize="off" spellcheck="false" class="q-if row no-wrap relative-position q-input q-if-has-label q-if-standard text-primary">
                 <div class="q-if-baseline">|</div>
-                <div class="q-if-inner col row">
-                  <div class="col-12 row no-wrap relative-position">
+                <div class="q-if-inner col column">
+                  <div class="row no-wrap relative-position">
                     <div class="q-if-label">
                       <div class="q-if-label-inner ellipsis">Email address</div>
                     </div>
                     <input autocorrect="off" autocapitalize="off" spellcheck="false" type="email" step="any" value="" class="col q-input-target q-no-input-spinner ellipsis">
                   </div>
-                  <div class="q-if-label-spacer col-12">Email address</div>
+                  <div class="q-if-label-spacer">Email address</div>
                 </div>
               </div>
             </div>
@@ -2727,14 +2727,14 @@ exports[`Storyshots Password Reset error 1`] = `
             <div class="q-field-content col-xs-12 col-sm">
               <div tabindex="-1" autocorrect="off" autocapitalize="off" spellcheck="false" class="q-if row no-wrap relative-position q-input q-if-has-label q-if-error q-if-standard text-negative">
                 <div class="q-if-baseline">|</div>
-                <div class="q-if-inner col row">
-                  <div class="col-12 row no-wrap relative-position">
+                <div class="q-if-inner col column">
+                  <div class="row no-wrap relative-position">
                     <div class="q-if-label">
                       <div class="q-if-label-inner ellipsis">Email address</div>
                     </div>
                     <input autocorrect="off" autocapitalize="off" spellcheck="false" type="email" step="any" value="" class="col q-input-target q-no-input-spinner ellipsis">
                   </div>
-                  <div class="q-if-label-spacer col-12">Email address</div>
+                  <div class="q-if-label-spacer">Email address</div>
                 </div>
               </div>
             </div>
@@ -2779,14 +2779,14 @@ exports[`Storyshots Password Reset pending 1`] = `
             <div class="q-field-content col-xs-12 col-sm">
               <div tabindex="-1" autocorrect="off" autocapitalize="off" spellcheck="false" class="q-if row no-wrap relative-position q-input q-if-has-label q-if-standard text-primary">
                 <div class="q-if-baseline">|</div>
-                <div class="q-if-inner col row">
-                  <div class="col-12 row no-wrap relative-position">
+                <div class="q-if-inner col column">
+                  <div class="row no-wrap relative-position">
                     <div class="q-if-label">
                       <div class="q-if-label-inner ellipsis">Email address</div>
                     </div>
                     <input autocorrect="off" autocapitalize="off" spellcheck="false" type="email" step="any" value="" class="col q-input-target q-no-input-spinner ellipsis">
                   </div>
-                  <div class="q-if-label-spacer col-12">Email address</div>
+                  <div class="q-if-label-spacer">Email address</div>
                 </div>
               </div>
             </div>
@@ -2830,14 +2830,14 @@ exports[`Storyshots Password Reset success 1`] = `
             <div class="q-field-content col-xs-12 col-sm">
               <div tabindex="-1" autocorrect="off" autocapitalize="off" spellcheck="false" class="q-if row no-wrap relative-position q-input q-if-has-label q-if-standard text-primary">
                 <div class="q-if-baseline">|</div>
-                <div class="q-if-inner col row">
-                  <div class="col-12 row no-wrap relative-position">
+                <div class="q-if-inner col column">
+                  <div class="row no-wrap relative-position">
                     <div class="q-if-label">
                       <div class="q-if-label-inner ellipsis">Email address</div>
                     </div>
                     <input autocorrect="off" autocapitalize="off" spellcheck="false" type="email" step="any" value="" class="col q-input-target q-no-input-spinner ellipsis">
                   </div>
-                  <div class="q-if-label-spacer col-12">Email address</div>
+                  <div class="q-if-label-spacer">Email address</div>
                 </div>
               </div>
             </div>
@@ -3293,8 +3293,8 @@ exports[`Storyshots PickupSeriesEdit Default 1`] = `
           <div class="q-field-content col-xs-12 col-sm">
             <div tabindex="0" class="q-if row no-wrap relative-position q-datetime-input q-if-focusable q-if-standard q-if-has-content text-primary">
               <div class="q-if-baseline">|</div>
-              <div class="q-if-inner col row">
-                <div class="col-12 row no-wrap relative-position">
+              <div class="q-if-inner col column">
+                <div class="row no-wrap relative-position">
                   <div class="col q-input-target ellipsis justify-start">8:00 AM</div>
                 </div>
               </div>
@@ -3302,11 +3302,11 @@ exports[`Storyshots PickupSeriesEdit Default 1`] = `
                 <div class="q-datetime row no-border text-primary">
                   <div class="q-datetime-header column col-xs-12 col-md-4 justify-center">
                     <div class="q-datetime-time row flex-center">
-                      <div class="q-datetime-clockstring col-auto col-md-12 row no-wrap flex-center"><span tabindex="0" class="q-datetime-link col-md text-right q-pr-sm active"><span tabindex="-1">8</span></span><span style="opacity:0.6;">:</span><span tabindex="0" class="q-datetime-link col-md text-left q-pl-sm"><span tabindex="-1">00</span></span>
+                      <div class="q-datetime-clockstring col-auto col-md-12 row no-wrap flex-center"><span tabindex="0" class="q-datetime-link col-md q-pr-sm active" style="text-align:right;"><span tabindex="-1">8</span></span><span style="opacity:0.6;">:</span><span tabindex="0" class="q-datetime-link col-md q-pl-sm" style="text-align:left;"><span tabindex="-1">00</span></span>
                       </div>
-                      <div class="q-datetime-ampm column col-auto col-md-12 justify-around">
-                        <div tabindex="0" class="q-datetime-link active"><span tabindex="-1">AM</span></div>
-                        <div tabindex="0" class="q-datetime-link"><span tabindex="-1">PM</span></div>
+                      <div tabindex="0" class="q-datetime-ampm column col-auto col-md-12 justify-around">
+                        <div class="q-datetime-link active"><span tabindex="-1">AM</span></div>
+                        <div class="q-datetime-link"><span tabindex="-1">PM</span></div>
                       </div>
                     </div>
                   </div>
@@ -3353,8 +3353,8 @@ exports[`Storyshots PickupSeriesEdit Default 1`] = `
           <div class="q-field-content col-xs-12 col-sm">
             <div tabindex="0" class="q-if row no-wrap relative-position q-select q-if-focusable q-if-standard q-if-has-content text-primary">
               <div class="q-if-baseline">|</div>
-              <div class="q-if-inner col row">
-                <div class="col-12 row no-wrap relative-position">
+              <div class="q-if-inner col column">
+                <div class="row no-wrap relative-position">
                   <div class="col q-input-target ellipsis justify-start">Thursday, Sunday</div>
                 </div>
               </div>
@@ -3499,8 +3499,8 @@ exports[`Storyshots PickupSeriesEdit Default 1`] = `
         <div class="q-field-content col-xs-12 col-sm">
           <div tabindex="-1" class="q-if row no-wrap relative-position q-input q-if-standard q-if-has-content text-primary">
             <div class="q-if-baseline">|</div>
-            <div class="q-if-inner col row">
-              <div class="col-12 row no-wrap relative-position">
+            <div class="q-if-inner col column">
+              <div class="row no-wrap relative-position">
                 <input type="number" placeholder="unlimited" step="any" value="2" class="col q-input-target q-no-input-spinner ellipsis">
               </div>
             </div>
@@ -3532,8 +3532,8 @@ exports[`Storyshots PickupSeriesEdit Default 1`] = `
         <div class="q-field-content col-xs-12 col-sm">
           <div tabindex="-1" max-length="500" class="q-if row no-wrap relative-position q-input q-if-standard q-if-has-content text-primary">
             <div class="q-if-baseline">|</div>
-            <div class="q-if-inner col row">
-              <div class="col-12 row no-wrap relative-position">
+            <div class="q-if-inner col column">
+              <div class="row no-wrap relative-position">
                 <div class="col row relative-position">
                   <object type="text/html" data="about:blank" aria-hidden="true" style="display:block;position:absolute;top:0;left:0;right:0;bottom:0;height:100%;width:100%;overflow:hidden;pointer-events:none;z-index:-1;"></object>
                   <textarea rows="1" max-length="500" class="col q-input-target q-input-shadow absolute-top">a nice description for the series</textarea>
@@ -3776,8 +3776,8 @@ exports[`Storyshots Settings Page Default 1`] = `
               <div class="q-field-content col-xs-12 col-sm">
                 <div tabindex="-1" class="q-if row no-wrap relative-position q-input q-if-standard q-if-has-content text-primary">
                   <div class="q-if-baseline">|</div>
-                  <div class="q-if-inner col row">
-                    <div class="col-12 row no-wrap relative-position">
+                  <div class="q-if-inner col column">
+                    <div class="row no-wrap relative-position">
                       <input type="text" step="any" value="Current User" class="col q-input-target q-no-input-spinner ellipsis">
                     </div>
                   </div>
@@ -3825,8 +3825,8 @@ exports[`Storyshots Settings Page Default 1`] = `
                       <div class="q-tab-pane">
                         <div tabindex="-1" rows="1" class="q-if row no-wrap relative-position q-input q-if-standard q-if-has-content text-primary">
                           <div class="q-if-baseline">|</div>
-                          <div class="q-if-inner col row">
-                            <div class="col-12 row no-wrap relative-position">
+                          <div class="q-if-inner col column">
+                            <div class="row no-wrap relative-position">
                               <div class="col row relative-position">
                                 <object type="text/html" data="about:blank" aria-hidden="true" style="display:block;position:absolute;top:0;left:0;right:0;bottom:0;height:100%;width:100%;overflow:hidden;pointer-events:none;z-index:-1;"></object>
                                 <textarea rows="1" class="col q-input-target q-input-shadow absolute-top">I am the current User!</textarea>
@@ -3859,8 +3859,8 @@ exports[`Storyshots Settings Page Default 1`] = `
               <div class="q-field-content col-xs-12 col-sm">
                 <div tabindex="-1" class="q-if row no-wrap relative-position q-input q-if-standard text-primary">
                   <div class="q-if-baseline">|</div>
-                  <div class="q-if-inner col row">
-                    <div class="col-12 row no-wrap relative-position">
+                  <div class="q-if-inner col column">
+                    <div class="row no-wrap relative-position">
                       <input type="tel" step="any" class="col q-input-target q-no-input-spinner ellipsis">
                     </div>
                   </div>
@@ -3879,8 +3879,8 @@ exports[`Storyshots Settings Page Default 1`] = `
                   <div tabindex="-1" class="q-if row no-wrap relative-position q-input q-search q-if-standard q-if-has-content text-primary">
                     <div class="q-if-baseline">|</div>
                     <i aria-hidden="true" class="q-icon q-if-control q-if-control-before material-icons">search</i>
-                    <div class="q-if-inner col row">
-                      <div class="col-12 row no-wrap relative-position">
+                    <div class="q-if-inner col column">
+                      <div class="row no-wrap relative-position">
                         <input type="search" placeholder="Search" step="any" value="Darmstadt, Regierungsbezirk Darmstadt, Hessen, Deutschland" class="col q-input-target q-no-input-spinner ellipsis text-left">
                       </div>
                     </div>
@@ -3936,8 +3936,8 @@ exports[`Storyshots Settings Page Default 1`] = `
             <div class="q-field-content col-xs-12 col-sm">
               <div tabindex="-1" class="q-if row no-wrap relative-position q-input q-if-standard text-primary">
                 <div class="q-if-baseline">|</div>
-                <div class="q-if-inner col row">
-                  <div class="col-12 row no-wrap relative-position">
+                <div class="q-if-inner col column">
+                  <div class="row no-wrap relative-position">
                     <input type="email" step="any" value="" class="col q-input-target q-no-input-spinner ellipsis">
                   </div>
                 </div>
@@ -3954,8 +3954,8 @@ exports[`Storyshots Settings Page Default 1`] = `
             <div class="q-field-content col-xs-12 col-sm">
               <div tabindex="-1" class="q-if row no-wrap relative-position q-input q-if-standard text-primary">
                 <div class="q-if-baseline">|</div>
-                <div class="q-if-inner col row">
-                  <div class="col-12 row no-wrap relative-position">
+                <div class="q-if-inner col column">
+                  <div class="row no-wrap relative-position">
                     <input type="password" step="any" value="" class="col q-input-target q-no-input-spinner ellipsis">
                   </div>
                 </div>
@@ -3984,8 +3984,8 @@ exports[`Storyshots Settings Page Default 1`] = `
             <div class="q-field-content col-xs-12 col-sm">
               <div tabindex="-1" class="q-if row no-wrap relative-position q-input q-if-standard text-primary">
                 <div class="q-if-baseline">|</div>
-                <div class="q-if-inner col row">
-                  <div class="col-12 row no-wrap relative-position">
+                <div class="q-if-inner col column">
+                  <div class="row no-wrap relative-position">
                     <input type="password" step="any" value="" class="col q-input-target q-no-input-spinner ellipsis">
                   </div>
                 </div>
@@ -4002,8 +4002,8 @@ exports[`Storyshots Settings Page Default 1`] = `
             <div class="q-field-content col-xs-12 col-sm">
               <div tabindex="-1" class="q-if row no-wrap relative-position q-input q-if-standard text-primary">
                 <div class="q-if-baseline">|</div>
-                <div class="q-if-inner col row">
-                  <div class="col-12 row no-wrap relative-position">
+                <div class="q-if-inner col column">
+                  <div class="row no-wrap relative-position">
                     <input type="password" step="any" value="" class="col q-input-target q-no-input-spinner ellipsis">
                   </div>
                 </div>
@@ -4339,14 +4339,14 @@ exports[`Storyshots Signup empty 1`] = `
             <div class="q-field-content col-xs-12 col-sm">
               <div tabindex="-1" autocorrect="off" autocapitalize="off" spellcheck="false" class="q-if row no-wrap relative-position q-input q-if-has-label q-if-standard text-primary">
                 <div class="q-if-baseline">|</div>
-                <div class="q-if-inner col row">
-                  <div class="col-12 row no-wrap relative-position">
+                <div class="q-if-inner col column">
+                  <div class="row no-wrap relative-position">
                     <div class="q-if-label">
                       <div class="q-if-label-inner ellipsis">Name</div>
                     </div>
                     <input autocorrect="off" autocapitalize="off" spellcheck="false" type="text" step="any" class="col q-input-target q-no-input-spinner ellipsis">
                   </div>
-                  <div class="q-if-label-spacer col-12">Name</div>
+                  <div class="q-if-label-spacer">Name</div>
                 </div>
               </div>
             </div>
@@ -4360,14 +4360,14 @@ exports[`Storyshots Signup empty 1`] = `
             <div class="q-field-content col-xs-12 col-sm">
               <div tabindex="-1" autocorrect="off" autocapitalize="off" spellcheck="false" class="q-if row no-wrap relative-position q-input q-if-has-label q-if-standard q-if-has-content text-primary">
                 <div class="q-if-baseline">|</div>
-                <div class="q-if-inner col row">
-                  <div class="col-12 row no-wrap relative-position">
+                <div class="q-if-inner col column">
+                  <div class="row no-wrap relative-position">
                     <div class="q-if-label q-if-label-above">
                       <div class="q-if-label-inner ellipsis">E-mail</div>
                     </div>
                     <input autocorrect="off" autocapitalize="off" spellcheck="false" type="email" step="any" value="default@example.com" class="col q-input-target q-no-input-spinner ellipsis">
                   </div>
-                  <div class="q-if-label-spacer col-12">E-mail</div>
+                  <div class="q-if-label-spacer">E-mail</div>
                 </div>
               </div>
             </div>
@@ -4381,14 +4381,14 @@ exports[`Storyshots Signup empty 1`] = `
             <div class="q-field-content col-xs-12 col-sm">
               <div tabindex="-1" autocorrect="off" autocapitalize="off" spellcheck="false" class="q-if row no-wrap relative-position q-input q-if-has-label q-if-standard text-primary">
                 <div class="q-if-baseline">|</div>
-                <div class="q-if-inner col row">
-                  <div class="col-12 row no-wrap relative-position">
+                <div class="q-if-inner col column">
+                  <div class="row no-wrap relative-position">
                     <div class="q-if-label">
                       <div class="q-if-label-inner ellipsis">Password</div>
                     </div>
                     <input autocorrect="off" autocapitalize="off" spellcheck="false" type="password" step="any" class="col q-input-target q-no-input-spinner ellipsis">
                   </div>
-                  <div class="q-if-label-spacer col-12">Password</div>
+                  <div class="q-if-label-spacer">Password</div>
                 </div>
               </div>
             </div>
@@ -4443,14 +4443,14 @@ exports[`Storyshots Signup error 1`] = `
             <div class="q-field-content col-xs-12 col-sm">
               <div tabindex="-1" autocorrect="off" autocapitalize="off" spellcheck="false" class="q-if row no-wrap relative-position q-input q-if-has-label q-if-standard text-primary">
                 <div class="q-if-baseline">|</div>
-                <div class="q-if-inner col row">
-                  <div class="col-12 row no-wrap relative-position">
+                <div class="q-if-inner col column">
+                  <div class="row no-wrap relative-position">
                     <div class="q-if-label">
                       <div class="q-if-label-inner ellipsis">Name</div>
                     </div>
                     <input autocorrect="off" autocapitalize="off" spellcheck="false" type="text" step="any" class="col q-input-target q-no-input-spinner ellipsis">
                   </div>
-                  <div class="q-if-label-spacer col-12">Name</div>
+                  <div class="q-if-label-spacer">Name</div>
                 </div>
               </div>
             </div>
@@ -4464,14 +4464,14 @@ exports[`Storyshots Signup error 1`] = `
             <div class="q-field-content col-xs-12 col-sm">
               <div tabindex="-1" autocorrect="off" autocapitalize="off" spellcheck="false" class="q-if row no-wrap relative-position q-input q-if-has-label q-if-error q-if-standard q-if-has-content text-negative">
                 <div class="q-if-baseline">|</div>
-                <div class="q-if-inner col row">
-                  <div class="col-12 row no-wrap relative-position">
+                <div class="q-if-inner col column">
+                  <div class="row no-wrap relative-position">
                     <div class="q-if-label q-if-label-above">
                       <div class="q-if-label-inner ellipsis">E-mail</div>
                     </div>
                     <input autocorrect="off" autocapitalize="off" spellcheck="false" type="email" step="any" value="default@example.com" class="col q-input-target q-no-input-spinner ellipsis">
                   </div>
-                  <div class="q-if-label-spacer col-12">E-mail</div>
+                  <div class="q-if-label-spacer">E-mail</div>
                 </div>
               </div>
               <div class="q-field-bottom row no-wrap">
@@ -4488,14 +4488,14 @@ exports[`Storyshots Signup error 1`] = `
             <div class="q-field-content col-xs-12 col-sm">
               <div tabindex="-1" autocorrect="off" autocapitalize="off" spellcheck="false" class="q-if row no-wrap relative-position q-input q-if-has-label q-if-standard text-primary">
                 <div class="q-if-baseline">|</div>
-                <div class="q-if-inner col row">
-                  <div class="col-12 row no-wrap relative-position">
+                <div class="q-if-inner col column">
+                  <div class="row no-wrap relative-position">
                     <div class="q-if-label">
                       <div class="q-if-label-inner ellipsis">Password</div>
                     </div>
                     <input autocorrect="off" autocapitalize="off" spellcheck="false" type="password" step="any" class="col q-input-target q-no-input-spinner ellipsis">
                   </div>
-                  <div class="q-if-label-spacer col-12">Password</div>
+                  <div class="q-if-label-spacer">Password</div>
                 </div>
               </div>
             </div>
@@ -4550,14 +4550,14 @@ exports[`Storyshots Signup pending 1`] = `
             <div class="q-field-content col-xs-12 col-sm">
               <div tabindex="-1" autocorrect="off" autocapitalize="off" spellcheck="false" class="q-if row no-wrap relative-position q-input q-if-has-label q-if-standard text-primary">
                 <div class="q-if-baseline">|</div>
-                <div class="q-if-inner col row">
-                  <div class="col-12 row no-wrap relative-position">
+                <div class="q-if-inner col column">
+                  <div class="row no-wrap relative-position">
                     <div class="q-if-label">
                       <div class="q-if-label-inner ellipsis">Name</div>
                     </div>
                     <input autocorrect="off" autocapitalize="off" spellcheck="false" type="text" step="any" class="col q-input-target q-no-input-spinner ellipsis">
                   </div>
-                  <div class="q-if-label-spacer col-12">Name</div>
+                  <div class="q-if-label-spacer">Name</div>
                 </div>
               </div>
             </div>
@@ -4571,14 +4571,14 @@ exports[`Storyshots Signup pending 1`] = `
             <div class="q-field-content col-xs-12 col-sm">
               <div tabindex="-1" autocorrect="off" autocapitalize="off" spellcheck="false" class="q-if row no-wrap relative-position q-input q-if-has-label q-if-standard q-if-has-content text-primary">
                 <div class="q-if-baseline">|</div>
-                <div class="q-if-inner col row">
-                  <div class="col-12 row no-wrap relative-position">
+                <div class="q-if-inner col column">
+                  <div class="row no-wrap relative-position">
                     <div class="q-if-label q-if-label-above">
                       <div class="q-if-label-inner ellipsis">E-mail</div>
                     </div>
                     <input autocorrect="off" autocapitalize="off" spellcheck="false" type="email" step="any" value="default@example.com" class="col q-input-target q-no-input-spinner ellipsis">
                   </div>
-                  <div class="q-if-label-spacer col-12">E-mail</div>
+                  <div class="q-if-label-spacer">E-mail</div>
                 </div>
               </div>
             </div>
@@ -4592,14 +4592,14 @@ exports[`Storyshots Signup pending 1`] = `
             <div class="q-field-content col-xs-12 col-sm">
               <div tabindex="-1" autocorrect="off" autocapitalize="off" spellcheck="false" class="q-if row no-wrap relative-position q-input q-if-has-label q-if-standard text-primary">
                 <div class="q-if-baseline">|</div>
-                <div class="q-if-inner col row">
-                  <div class="col-12 row no-wrap relative-position">
+                <div class="q-if-inner col column">
+                  <div class="row no-wrap relative-position">
                     <div class="q-if-label">
                       <div class="q-if-label-inner ellipsis">Password</div>
                     </div>
                     <input autocorrect="off" autocapitalize="off" spellcheck="false" type="password" step="any" class="col q-input-target q-no-input-spinner ellipsis">
                   </div>
-                  <div class="q-if-label-spacer col-12">Password</div>
+                  <div class="q-if-label-spacer">Password</div>
                 </div>
               </div>
             </div>
@@ -4683,8 +4683,8 @@ exports[`Storyshots Statistics AmountPicker 1`] = `
       </div>
       <div tabindex="-1" class="q-if row no-wrap relative-position q-input q-if-standard q-if-has-content text-primary" style="width:5em;margin:0 5px 0 2em;text-align:right;">
         <div class="q-if-baseline">|</div>
-        <div class="q-if-inner col row">
-          <div class="col-12 row no-wrap relative-position">
+        <div class="q-if-inner col column">
+          <div class="row no-wrap relative-position">
             <input type="text" step="any" value="1" class="col q-input-target q-no-input-spinner ellipsis text-right">
           </div>
         </div>
@@ -4893,8 +4893,8 @@ exports[`Storyshots Statistics PickupFeedback 1`] = `
                 <div class="q-field-content col-xs-12 col-sm">
                   <div tabindex="0" class="q-if row no-wrap relative-position q-select q-if-focusable q-if-standard q-if-has-content text-primary">
                     <div class="q-if-baseline">|</div>
-                    <div class="q-if-inner col row">
-                      <div class="col-12 row no-wrap relative-position">
+                    <div class="q-if-inner col column">
+                      <div class="row no-wrap relative-position">
                         <div class="col q-input-target ellipsis justify-start">Aug 12, 2017, 8:00 AM (Griesheimer Markt)</div>
                       </div>
                     </div>
@@ -4984,8 +4984,8 @@ exports[`Storyshots Statistics PickupFeedback 1`] = `
               <div class="q-tab-pane">
                 <div tabindex="-1" autocomplete="off" rows="1" class="q-if row no-wrap relative-position q-input q-if-standard q-if-has-content text-primary">
                   <div class="q-if-baseline">|</div>
-                  <div class="q-if-inner col row">
-                    <div class="col-12 row no-wrap relative-position">
+                  <div class="q-if-inner col column">
+                    <div class="row no-wrap relative-position">
                       <div class="col row relative-position">
                         <object type="text/html" data="about:blank" aria-hidden="true" style="display:block;position:absolute;top:0;left:0;right:0;bottom:0;height:100%;width:100%;overflow:hidden;pointer-events:none;z-index:-1;"></object>
                         <textarea rows="1" autocomplete="off" class="col q-input-target q-input-shadow absolute-top"></textarea>
@@ -5041,8 +5041,8 @@ exports[`Storyshots Statistics PickupFeedback 1`] = `
               </div>
               <div tabindex="-1" class="q-if row no-wrap relative-position q-input q-if-standard text-primary" style="width:5em;margin:0 5px 0 2em;text-align:right;">
                 <div class="q-if-baseline">|</div>
-                <div class="q-if-inner col row">
-                  <div class="col-12 row no-wrap relative-position">
+                <div class="q-if-inner col column">
+                  <div class="row no-wrap relative-position">
                     <input type="text" step="any" class="col q-input-target q-no-input-spinner ellipsis text-right">
                   </div>
                 </div>
@@ -5246,8 +5246,8 @@ exports[`Storyshots Stores StoreEdit (with server error) 1`] = `
             <div class="q-field-content col-xs-12 col-sm">
               <div tabindex="-1" autocomplete="off" class="q-if row no-wrap relative-position q-input q-if-error q-if-standard q-if-has-content text-negative">
                 <div class="q-if-baseline">|</div>
-                <div class="q-if-inner col row">
-                  <div class="col-12 row no-wrap relative-position">
+                <div class="q-if-inner col column">
+                  <div class="row no-wrap relative-position">
                     <input autocomplete="off" type="text" step="any" value="Teststore1" class="col q-input-target q-no-input-spinner ellipsis">
                   </div>
                 </div>
@@ -5267,9 +5267,9 @@ exports[`Storyshots Stores StoreEdit (with server error) 1`] = `
             <div class="q-field-content col-xs-12 col-sm">
               <div tabindex="0" class="q-if row no-wrap relative-position q-select q-if-focusable q-if-standard text-primary">
                 <div class="q-if-baseline">|</div>
-                <div class="q-if-inner col row">
-                  <div class="col-12 row no-wrap relative-position">
-                    <div class="col q-input-target ellipsis justify-start">undefined</div>
+                <div class="q-if-inner col column">
+                  <div class="row no-wrap relative-position">
+                    <div class="col q-input-target ellipsis justify-start"></div>
                   </div>
                 </div>
                 <div tabindex="-1" class="q-popover scroll column no-wrap">
@@ -5353,8 +5353,8 @@ exports[`Storyshots Stores StoreEdit (with server error) 1`] = `
                     <div class="q-tab-pane">
                       <div tabindex="-1" rows="3" class="q-if row no-wrap relative-position q-input q-if-standard q-if-has-content text-primary">
                         <div class="q-if-baseline">|</div>
-                        <div class="q-if-inner col row">
-                          <div class="col-12 row no-wrap relative-position">
+                        <div class="q-if-inner col column">
+                          <div class="row no-wrap relative-position">
                             <div class="col row relative-position">
                               <object type="text/html" data="about:blank" aria-hidden="true" style="display:block;position:absolute;top:0;left:0;right:0;bottom:0;height:100%;width:100%;overflow:hidden;pointer-events:none;z-index:-1;"></object>
                               <textarea rows="3" class="col q-input-target q-input-shadow absolute-top">all the good stuff</textarea>
@@ -5389,8 +5389,8 @@ exports[`Storyshots Stores StoreEdit (with server error) 1`] = `
                 <div tabindex="-1" class="q-if row no-wrap relative-position q-input q-search q-if-standard q-if-has-content text-primary">
                   <div class="q-if-baseline">|</div>
                   <i aria-hidden="true" class="q-icon q-if-control q-if-control-before material-icons">search</i>
-                  <div class="q-if-inner col row">
-                    <div class="col-12 row no-wrap relative-position">
+                  <div class="q-if-inner col column">
+                    <div class="row no-wrap relative-position">
                       <input type="search" placeholder="Search" step="any" value="Kranichstein, Darmstadt, Regierungsbezirk Darmstadt, Hesse, Germany" class="col q-input-target q-no-input-spinner ellipsis text-left">
                     </div>
                   </div>
@@ -5471,8 +5471,8 @@ exports[`Storyshots Stores StoreEdit 1`] = `
             <div class="q-field-content col-xs-12 col-sm">
               <div tabindex="-1" autocomplete="off" class="q-if row no-wrap relative-position q-input q-if-standard q-if-has-content text-primary">
                 <div class="q-if-baseline">|</div>
-                <div class="q-if-inner col row">
-                  <div class="col-12 row no-wrap relative-position">
+                <div class="q-if-inner col column">
+                  <div class="row no-wrap relative-position">
                     <input autocomplete="off" type="text" step="any" value="Teststore1" class="col q-input-target q-no-input-spinner ellipsis">
                   </div>
                 </div>
@@ -5489,9 +5489,9 @@ exports[`Storyshots Stores StoreEdit 1`] = `
             <div class="q-field-content col-xs-12 col-sm">
               <div tabindex="0" class="q-if row no-wrap relative-position q-select q-if-focusable q-if-standard text-primary">
                 <div class="q-if-baseline">|</div>
-                <div class="q-if-inner col row">
-                  <div class="col-12 row no-wrap relative-position">
-                    <div class="col q-input-target ellipsis justify-start">undefined</div>
+                <div class="q-if-inner col column">
+                  <div class="row no-wrap relative-position">
+                    <div class="col q-input-target ellipsis justify-start"></div>
                   </div>
                 </div>
                 <div tabindex="-1" class="q-popover scroll column no-wrap">
@@ -5575,8 +5575,8 @@ exports[`Storyshots Stores StoreEdit 1`] = `
                     <div class="q-tab-pane">
                       <div tabindex="-1" rows="3" class="q-if row no-wrap relative-position q-input q-if-standard q-if-has-content text-primary">
                         <div class="q-if-baseline">|</div>
-                        <div class="q-if-inner col row">
-                          <div class="col-12 row no-wrap relative-position">
+                        <div class="q-if-inner col column">
+                          <div class="row no-wrap relative-position">
                             <div class="col row relative-position">
                               <object type="text/html" data="about:blank" aria-hidden="true" style="display:block;position:absolute;top:0;left:0;right:0;bottom:0;height:100%;width:100%;overflow:hidden;pointer-events:none;z-index:-1;"></object>
                               <textarea rows="3" class="col q-input-target q-input-shadow absolute-top">all the good stuff</textarea>
@@ -5611,8 +5611,8 @@ exports[`Storyshots Stores StoreEdit 1`] = `
                 <div tabindex="-1" class="q-if row no-wrap relative-position q-input q-search q-if-standard q-if-has-content text-primary">
                   <div class="q-if-baseline">|</div>
                   <i aria-hidden="true" class="q-icon q-if-control q-if-control-before material-icons">search</i>
-                  <div class="q-if-inner col row">
-                    <div class="col-12 row no-wrap relative-position">
+                  <div class="q-if-inner col column">
+                    <div class="row no-wrap relative-position">
                       <input type="search" placeholder="Search" step="any" value="Kranichstein, Darmstadt, Regierungsbezirk Darmstadt, Hesse, Germany" class="col q-input-target q-no-input-spinner ellipsis text-left">
                     </div>
                   </div>
@@ -5737,20 +5737,51 @@ exports[`Storyshots Stores StoreList 1`] = `
 </div>
 `;
 
-exports[`Storyshots User Profile Profile 1`] = `
-<div class="k-profile">
-  <div>
-    <div class="q-alert row no-wrap shadow-2 bg-warning text-white">
-      <div class="q-alert-side col-auto row flex-center">
-        <i aria-hidden="true" class="q-icon material-icons">priority_high</i>
+exports[`Storyshots User Profile My Trust Button 1`] = `
+<button tabindex="0" type="button" title="2 people trust you in group 19." class="q-btn inline relative-position q-btn-item non-selectable karrot-button q-btn-round q-focusable q-hoverable bg-primary text-white">
+  <div class="q-focus-helper"></div>
+  <div class="q-btn-inner row col items-center justify-center">
+    <!---->
+    <div class="q-chip row no-wrap inline items-center q-chip-floating q-chip-dense q-chip-square bg-positive text-white">
+      <div class="q-chip-main ellipsis">
+        2
       </div>
-      <div class="q-alert-content col self-center">
-        <div>
-          storybook user is not a member of my current group.
+    </div>
+    <div minimized="" class="modal fullscreen row minimized flex-center" style="display:none;">
+      <div tabindex="-1" class="modal-content">
+        <div class="modal-header">2 people trust you in group 19.</div>
+        <div class="modal-body modal-scroll">
+          <div>
+            <div class="wrapper q-mr-sm" style="width:35px;height:35px;">
+              <a title="user 1">
+                <div text="user 1" seed="1" class="randomArt fill"></div>
+              </a>
+            </div>
+            <div class="wrapper q-mr-sm" style="width:35px;height:35px;">
+              <a title="user 2">
+                <div text="user 2" seed="2" class="randomArt fill"></div>
+              </a>
+            </div>
+          </div>
+        </div>
+        <div class="modal-buttons row">
+          <button tabindex="0" type="button" class="q-btn inline relative-position q-btn-item non-selectable q-btn-rectangle q-btn-flat q-focusable q-hoverable">
+            <div class="q-focus-helper"></div>
+            <div class="q-btn-inner row col items-center justify-center">
+              <div>Close</div>
+            </div>
+          </button>
+          <!---->
         </div>
       </div>
     </div>
   </div>
+</button>
+`;
+
+exports[`Storyshots User Profile Profile 1`] = `
+<div class="k-profile">
+  <!---->
   <div class="row justify-end" style="margin-bottom:-32px;">
     <button tabindex="0" type="button" class="q-btn inline relative-position q-btn-item non-selectable q-btn-rectangle q-focusable q-hoverable bg-primary text-white">
       <div class="q-focus-helper"></div>
@@ -5776,18 +5807,12 @@ exports[`Storyshots User Profile Profile 1`] = `
                 </div>
                 <!---->
               </div>
-              <div class="q-item q-item-division relative-position q-item-link">
-                <div class="q-item-main q-item-section">
-                  group 3
-                </div>
-                <!---->
-              </div>
               <div class="q-list-header">
                 Other groups
               </div>
               <a class="q-link q-item q-item-division relative-position q-item-link">
                 <div class="q-item-main q-item-section">
-                  group 4
+                  group 3
                 </div>
               </a>
             </div>
@@ -5808,8 +5833,410 @@ exports[`Storyshots User Profile Profile 1`] = `
       </h1>
     </div>
   </div>
-  <!---->
+  <div class="q-card profile-info relative-position q-pt-sm">
+    <div class="user-actions">
+      <!---->
+      <button tabindex="0" type="button" small="" class="q-btn inline relative-position q-btn-item non-selectable q-btn-round q-focusable q-hoverable bg-secondary text-white">
+        <div class="q-focus-helper"></div>
+        <div class="q-btn-inner row col items-center justify-center">
+          <i aria-hidden="true" class="q-icon fas fa-comments"> </i>
+        </div>
+      </button>
+      <button tabindex="0" type="button" title="2 people trust storybook user in my current group." class="q-btn inline relative-position q-btn-item non-selectable karrot-button q-btn-round q-focusable q-hoverable bg-primary text-white">
+        <div class="q-focus-helper"></div>
+        <div class="q-btn-inner row col items-center justify-center">
+          <!---->
+          <div class="q-chip row no-wrap inline items-center q-chip-floating q-chip-dense q-chip-square bg-negative text-white">
+            <div class="q-chip-main ellipsis">
+              2
+            </div>
+          </div>
+          <div minimized="" class="modal fullscreen row minimized flex-center" style="display:none;">
+            <div tabindex="-1" class="modal-content">
+              <div class="modal-header">2 people trust storybook user in my current group.</div>
+              <div class="modal-body modal-scroll">
+                <div>
+                  <div class="wrapper q-mr-sm" style="width:35px;height:35px;">
+                    <a title="user 1">
+                      <div text="user 1" seed="1" class="randomArt fill"></div>
+                    </a>
+                  </div>
+                  <div class="wrapper q-mr-sm" style="width:35px;height:35px;">
+                    <a title="user 2">
+                      <div text="user 2" seed="2" class="randomArt fill"></div>
+                    </a>
+                  </div>
+                </div>
+              </div>
+              <div class="modal-buttons row">
+                <button tabindex="0" type="button" class="q-btn inline relative-position q-btn-item non-selectable q-btn-rectangle q-btn-flat q-focusable q-hoverable">
+                  <div class="q-focus-helper"></div>
+                  <div class="q-btn-inner row col items-center justify-center">
+                    <div>Close</div>
+                  </div>
+                </button>
+                <button tabindex="0" type="button" class="q-btn inline relative-position q-btn-item non-selectable q-btn-rectangle q-focusable q-hoverable bg-secondary text-white">
+                  <div class="q-focus-helper"></div>
+                  <div class="q-btn-inner row col items-center justify-center"><span class="q-mr-xs">+</span>
+                    <img src="./twemoji-karrot.png" width="20px">
+                  </div>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </button>
+    </div>
+    <div class="q-list">
+      <div class="q-item q-item-division relative-position">
+        <div class="q-item-side q-item-section q-item-side-left">
+          <i aria-hidden="true" class="q-icon fas fa-fw fa-envelope q-item-icon"> </i>
+        </div>
+        <div class="q-item-main q-item-section ellipsis">
+          <a href="mailto:asdf@asdf.com">asdf@asdf.com</a>
+        </div>
+      </div>
+      <!---->
+      <!---->
+    </div>
+    <!---->
+    <div class="q-card-main q-card-container"></div>
+  </div>
 </div>
+`;
+
+exports[`Storyshots User Profile Trust Button - I and others trust 1`] = `
+<button tabindex="0" type="button" title="You and 4 other people trust storybook user in group 15." class="q-btn inline relative-position q-btn-item non-selectable karrot-button q-btn-round q-focusable q-hoverable bg-primary text-white">
+  <div class="q-focus-helper"></div>
+  <div class="q-btn-inner row col items-center justify-center">
+    <!---->
+    <div class="q-chip row no-wrap inline items-center q-chip-floating q-chip-dense q-chip-square bg-positive text-white">
+      <div class="q-chip-main ellipsis">
+        5
+      </div>
+    </div>
+    <div minimized="" class="modal fullscreen row minimized flex-center" style="display:none;">
+      <div tabindex="-1" class="modal-content">
+        <div class="modal-header">You and 4 other people trust storybook user in group 15.</div>
+        <div class="modal-body modal-scroll">
+          <div>
+            <div class="wrapper q-mr-sm" style="width:35px;height:35px;">
+              <a title="user 1">
+                <div text="user 1" seed="1" class="randomArt fill"></div>
+              </a>
+            </div>
+            <div class="wrapper q-mr-sm" style="width:35px;height:35px;">
+              <a title="user 2">
+                <div text="user 2" seed="2" class="randomArt fill"></div>
+              </a>
+            </div>
+            <div class="wrapper q-mr-sm" style="width:35px;height:35px;">
+              <a title="user 3">
+                <div text="user 3" seed="3" class="randomArt fill"></div>
+              </a>
+            </div>
+            <div class="wrapper q-mr-sm" style="width:35px;height:35px;">
+              <a title="user 4">
+                <div text="user 4" seed="4" class="randomArt fill"></div>
+              </a>
+            </div>
+            <div class="wrapper q-mr-sm" style="width:35px;height:35px;">
+              <a title="user 5">
+                <div text="user 5" seed="5" class="randomArt fill"></div>
+              </a>
+            </div>
+          </div>
+        </div>
+        <div class="modal-buttons row">
+          <button tabindex="0" type="button" class="q-btn inline relative-position q-btn-item non-selectable q-btn-rectangle q-btn-flat q-focusable q-hoverable">
+            <div class="q-focus-helper"></div>
+            <div class="q-btn-inner row col items-center justify-center">
+              <div>Close</div>
+            </div>
+          </button>
+          <!---->
+        </div>
+      </div>
+    </div>
+  </div>
+</button>
+`;
+
+exports[`Storyshots User Profile Trust Button - I trust 1`] = `
+<button tabindex="0" type="button" title="You trust storybook user in group 17." class="q-btn inline relative-position q-btn-item non-selectable karrot-button q-btn-round q-focusable q-hoverable bg-primary text-white">
+  <div class="q-focus-helper"></div>
+  <div class="q-btn-inner row col items-center justify-center">
+    <!---->
+    <div class="q-chip row no-wrap inline items-center q-chip-floating q-chip-dense q-chip-square bg-positive text-white">
+      <div class="q-chip-main ellipsis">
+        1
+      </div>
+    </div>
+    <div minimized="" class="modal fullscreen row minimized flex-center" style="display:none;">
+      <div tabindex="-1" class="modal-content">
+        <div class="modal-header">You trust storybook user in group 17.</div>
+        <div class="modal-body modal-scroll">
+          <div>
+            <div class="wrapper q-mr-sm" style="width:35px;height:35px;">
+              <a title="user 1">
+                <div text="user 1" seed="1" class="randomArt fill"></div>
+              </a>
+            </div>
+          </div>
+        </div>
+        <div class="modal-buttons row">
+          <button tabindex="0" type="button" class="q-btn inline relative-position q-btn-item non-selectable q-btn-rectangle q-btn-flat q-focusable q-hoverable">
+            <div class="q-focus-helper"></div>
+            <div class="q-btn-inner row col items-center justify-center">
+              <div>Close</div>
+            </div>
+          </button>
+          <!---->
+        </div>
+      </div>
+    </div>
+  </div>
+</button>
+`;
+
+exports[`Storyshots User Profile Trust Button - is editor 1`] = `
+<button tabindex="0" type="button" title="2 people trust storybook user in group 5." class="q-btn inline relative-position q-btn-item non-selectable karrot-button q-btn-round q-focusable q-hoverable bg-primary text-white">
+  <div class="q-focus-helper"></div>
+  <div class="q-btn-inner row col items-center justify-center">
+    <!---->
+    <div class="q-chip row no-wrap inline items-center q-chip-floating q-chip-dense q-chip-square bg-negative text-white">
+      <div class="q-chip-main ellipsis">
+        2
+      </div>
+    </div>
+    <div minimized="" class="modal fullscreen row minimized flex-center" style="display:none;">
+      <div tabindex="-1" class="modal-content">
+        <div class="modal-header">2 people trust storybook user in group 5.</div>
+        <div class="modal-body modal-scroll">
+          <div>
+            <div class="wrapper q-mr-sm" style="width:35px;height:35px;">
+              <a title="user 1">
+                <div text="user 1" seed="1" class="randomArt fill"></div>
+              </a>
+            </div>
+            <div class="wrapper q-mr-sm" style="width:35px;height:35px;">
+              <a title="user 2">
+                <div text="user 2" seed="2" class="randomArt fill"></div>
+              </a>
+            </div>
+          </div>
+        </div>
+        <div class="modal-buttons row">
+          <button tabindex="0" type="button" class="q-btn inline relative-position q-btn-item non-selectable q-btn-rectangle q-btn-flat q-focusable q-hoverable">
+            <div class="q-focus-helper"></div>
+            <div class="q-btn-inner row col items-center justify-center">
+              <div>Close</div>
+            </div>
+          </button>
+          <button tabindex="0" type="button" class="q-btn inline relative-position q-btn-item non-selectable q-btn-rectangle q-focusable q-hoverable bg-secondary text-white">
+            <div class="q-focus-helper"></div>
+            <div class="q-btn-inner row col items-center justify-center"><span class="q-mr-xs">+</span>
+              <img src="./twemoji-karrot.png" width="20px">
+            </div>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</button>
+`;
+
+exports[`Storyshots User Profile Trust Button - is newcomer 1`] = `
+<button tabindex="0" type="button" title="Newcomer - 1 more trust needed" class="q-btn inline relative-position q-btn-item non-selectable karrot-button q-btn-round q-focusable q-hoverable bg-white text-white small">
+  <div class="q-focus-helper"></div>
+  <div class="q-btn-inner row col items-center justify-center">
+    <svg viewBox="0 0 106 106" class="knob">
+      <path d="M 53,53 m 0,-47 a 47,47 0 1 1 0,94 a 47,47 0 1 1 0,-94" fill-opacity="0" stroke="currentColor" stroke-width="12px" stroke-linecap="round" class="text-primary" style="stroke-dasharray:295.31px, 295.31px;stroke-dashoffset:98.43666666666668px;transition:stroke-dashoffset 0.6s ease 0s, stroke 0.6s ease;"></path>
+    </svg>
+    <div class="q-chip row no-wrap inline items-center q-chip-floating q-chip-dense q-chip-square bg-negative text-white">
+      <div class="q-chip-main ellipsis">
+        2
+      </div>
+    </div>
+    <div minimized="" class="modal fullscreen row minimized flex-center" style="display:none;">
+      <div tabindex="-1" class="modal-content">
+        <div class="modal-header">2 people trust storybook user in group 7.</div>
+        <div class="modal-body modal-message modal-scroll">1 more people need to express their trust in storybook user to grant editing permissions.</div>
+        <div class="modal-body modal-scroll">
+          <div>
+            <div class="wrapper q-mr-sm" style="width:35px;height:35px;">
+              <a title="user 1">
+                <div text="user 1" seed="1" class="randomArt fill"></div>
+              </a>
+            </div>
+            <div class="wrapper q-mr-sm" style="width:35px;height:35px;">
+              <a title="user 2">
+                <div text="user 2" seed="2" class="randomArt fill"></div>
+              </a>
+            </div>
+          </div>
+        </div>
+        <div class="modal-buttons row">
+          <button tabindex="0" type="button" class="q-btn inline relative-position q-btn-item non-selectable q-btn-rectangle q-btn-flat q-focusable q-hoverable">
+            <div class="q-focus-helper"></div>
+            <div class="q-btn-inner row col items-center justify-center">
+              <div>Close</div>
+            </div>
+          </button>
+          <button tabindex="0" type="button" class="q-btn inline relative-position q-btn-item non-selectable q-btn-rectangle q-focusable q-hoverable bg-secondary text-white">
+            <div class="q-focus-helper"></div>
+            <div class="q-btn-inner row col items-center justify-center"><span class="q-mr-xs">+</span>
+              <img src="./twemoji-karrot.png" width="20px">
+            </div>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</button>
+`;
+
+exports[`Storyshots User Profile Trust Button - is newcomer without trust 1`] = `
+<button tabindex="0" type="button" title="Newcomer - 3 more trust needed" class="q-btn inline relative-position q-btn-item non-selectable karrot-button q-btn-round q-focusable q-hoverable bg-white text-white small">
+  <div class="q-focus-helper"></div>
+  <div class="q-btn-inner row col items-center justify-center">
+    <svg viewBox="0 0 106 106" class="knob">
+      <path d="M 53,53 m 0,-47 a 47,47 0 1 1 0,94 a 47,47 0 1 1 0,-94" fill-opacity="0" stroke="currentColor" stroke-width="12px" stroke-linecap="round" class="text-primary" style="stroke-dasharray:295.31px, 295.31px;stroke-dashoffset:295.31px;transition:stroke-dashoffset 0.6s ease 0s, stroke 0.6s ease;"></path>
+    </svg>
+    <div class="q-chip row no-wrap inline items-center q-chip-floating q-chip-dense q-chip-square bg-negative text-white">
+      <div class="q-chip-main ellipsis">
+        0
+      </div>
+    </div>
+    <div minimized="" class="modal fullscreen row minimized flex-center" style="display:none;">
+      <div tabindex="-1" class="modal-content">
+        <div class="modal-header">Be the first one to trust storybook user in group 9!</div>
+        <div class="modal-body modal-message modal-scroll">3 more people need to express their trust in storybook user to grant editing permissions.</div>
+        <div class="modal-body modal-scroll">
+          <div></div>
+        </div>
+        <div class="modal-buttons row">
+          <button tabindex="0" type="button" class="q-btn inline relative-position q-btn-item non-selectable q-btn-rectangle q-btn-flat q-focusable q-hoverable">
+            <div class="q-focus-helper"></div>
+            <div class="q-btn-inner row col items-center justify-center">
+              <div>Close</div>
+            </div>
+          </button>
+          <button tabindex="0" type="button" class="q-btn inline relative-position q-btn-item non-selectable q-btn-rectangle q-focusable q-hoverable bg-secondary text-white">
+            <div class="q-focus-helper"></div>
+            <div class="q-btn-inner row col items-center justify-center"><span class="q-mr-xs">+</span>
+              <img src="./twemoji-karrot.png" width="20px">
+            </div>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</button>
+`;
+
+exports[`Storyshots User Profile Trust Button - multiple others trust 1`] = `
+<button tabindex="0" type="button" title="5 people trust storybook user in group 13." class="q-btn inline relative-position q-btn-item non-selectable karrot-button q-btn-round q-focusable q-hoverable bg-primary text-white">
+  <div class="q-focus-helper"></div>
+  <div class="q-btn-inner row col items-center justify-center">
+    <!---->
+    <div class="q-chip row no-wrap inline items-center q-chip-floating q-chip-dense q-chip-square bg-negative text-white">
+      <div class="q-chip-main ellipsis">
+        5
+      </div>
+    </div>
+    <div minimized="" class="modal fullscreen row minimized flex-center" style="display:none;">
+      <div tabindex="-1" class="modal-content">
+        <div class="modal-header">5 people trust storybook user in group 13.</div>
+        <div class="modal-body modal-scroll">
+          <div>
+            <div class="wrapper q-mr-sm" style="width:35px;height:35px;">
+              <a title="user 1">
+                <div text="user 1" seed="1" class="randomArt fill"></div>
+              </a>
+            </div>
+            <div class="wrapper q-mr-sm" style="width:35px;height:35px;">
+              <a title="user 2">
+                <div text="user 2" seed="2" class="randomArt fill"></div>
+              </a>
+            </div>
+            <div class="wrapper q-mr-sm" style="width:35px;height:35px;">
+              <a title="user 3">
+                <div text="user 3" seed="3" class="randomArt fill"></div>
+              </a>
+            </div>
+            <div class="wrapper q-mr-sm" style="width:35px;height:35px;">
+              <a title="user 4">
+                <div text="user 4" seed="4" class="randomArt fill"></div>
+              </a>
+            </div>
+            <div class="wrapper q-mr-sm" style="width:35px;height:35px;">
+              <a title="user 5">
+                <div text="user 5" seed="5" class="randomArt fill"></div>
+              </a>
+            </div>
+          </div>
+        </div>
+        <div class="modal-buttons row">
+          <button tabindex="0" type="button" class="q-btn inline relative-position q-btn-item non-selectable q-btn-rectangle q-btn-flat q-focusable q-hoverable">
+            <div class="q-focus-helper"></div>
+            <div class="q-btn-inner row col items-center justify-center">
+              <div>Close</div>
+            </div>
+          </button>
+          <button tabindex="0" type="button" class="q-btn inline relative-position q-btn-item non-selectable q-btn-rectangle q-focusable q-hoverable bg-secondary text-white">
+            <div class="q-focus-helper"></div>
+            <div class="q-btn-inner row col items-center justify-center"><span class="q-mr-xs">+</span>
+              <img src="./twemoji-karrot.png" width="20px">
+            </div>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</button>
+`;
+
+exports[`Storyshots User Profile Trust Button - one other trust 1`] = `
+<button tabindex="0" type="button" title="user 1 trusts storybook user in group 11." class="q-btn inline relative-position q-btn-item non-selectable karrot-button q-btn-round q-focusable q-hoverable bg-primary text-white">
+  <div class="q-focus-helper"></div>
+  <div class="q-btn-inner row col items-center justify-center">
+    <!---->
+    <div class="q-chip row no-wrap inline items-center q-chip-floating q-chip-dense q-chip-square bg-negative text-white">
+      <div class="q-chip-main ellipsis">
+        1
+      </div>
+    </div>
+    <div minimized="" class="modal fullscreen row minimized flex-center" style="display:none;">
+      <div tabindex="-1" class="modal-content">
+        <div class="modal-header">user 1 trusts storybook user in group 11.</div>
+        <div class="modal-body modal-scroll">
+          <div>
+            <div class="wrapper q-mr-sm" style="width:35px;height:35px;">
+              <a title="user 1">
+                <div text="user 1" seed="1" class="randomArt fill"></div>
+              </a>
+            </div>
+          </div>
+        </div>
+        <div class="modal-buttons row">
+          <button tabindex="0" type="button" class="q-btn inline relative-position q-btn-item non-selectable q-btn-rectangle q-btn-flat q-focusable q-hoverable">
+            <div class="q-focus-helper"></div>
+            <div class="q-btn-inner row col items-center justify-center">
+              <div>Close</div>
+            </div>
+          </button>
+          <button tabindex="0" type="button" class="q-btn inline relative-position q-btn-item non-selectable q-btn-rectangle q-focusable q-hoverable bg-secondary text-white">
+            <div class="q-focus-helper"></div>
+            <div class="q-btn-inner row col items-center justify-center"><span class="q-mr-xs">+</span>
+              <img src="./twemoji-karrot.png" width="20px">
+            </div>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</button>
 `;
 
 exports[`Storyshots VerifyMail error 1`] = `
@@ -5927,8 +6354,8 @@ exports[`Storyshots WallConversation WallConversation 1`] = `
                           <div class="q-tab-pane">
                             <div tabindex="-1" rows="1" class="q-if row no-wrap relative-position q-input q-if-standard q-if-has-content text-primary">
                               <div class="q-if-baseline">|</div>
-                              <div class="q-if-inner col row">
-                                <div class="col-12 row no-wrap relative-position">
+                              <div class="q-if-inner col column">
+                                <div class="row no-wrap relative-position">
                                   <div class="col row relative-position">
                                     <object type="text/html" data="about:blank" aria-hidden="true" style="display:block;position:absolute;top:0;left:0;right:0;bottom:0;height:100%;width:100%;overflow:hidden;pointer-events:none;z-index:-1;"></object>
                                     <textarea rows="1" class="col q-input-target q-input-shadow absolute-top"></textarea>

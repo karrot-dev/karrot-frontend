@@ -1,6 +1,6 @@
 <template>
   <q-card
-    class="no-mobile-margin no-shadow grey-border"
+    class="no-mobile-margin no-shadow grey-border k-members"
   >
     <RandomArt
       :seed="group.id"
@@ -36,7 +36,9 @@
     <UserList
       class="padding-top"
       :users="users"
+      :group="group"
       :sorting="sorting"
+      @createTrust="createTrust"
     />
   </q-card>
 </template>
@@ -48,6 +50,7 @@ import RandomArt from '@/components/General/RandomArt'
 
 import {
   mapGetters,
+  mapActions,
 } from 'vuex'
 
 export default {
@@ -58,6 +61,9 @@ export default {
     }
   },
   methods: {
+    ...mapActions({
+      createTrust: 'currentGroup/trustUser',
+    }),
     toggleSorting () {
       if (this.sorting === 'joinDate') {
         this.sorting = 'name'
@@ -78,6 +84,10 @@ export default {
 
 <style scoped lang="stylus">
 @import '~variables'
+.k-members
+  max-width 500px
+  margin-left auto
+  margin-right auto
 .actionButtons
   margin-top -36px
   float right

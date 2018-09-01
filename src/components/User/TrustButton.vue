@@ -56,7 +56,6 @@ import ProfilePicture from '@/components/ProfilePictures/ProfilePicture'
 
 import {
   QBtn,
-
   QModal,
   QChip,
   Dialog,
@@ -66,7 +65,6 @@ export default {
   components: {
     ProfilePicture,
     QBtn,
-
     QModal,
     QChip,
   },
@@ -109,6 +107,7 @@ export default {
           count: otherTrust.length,
           groupName: this.group.name,
           userName: this.user.isCurrentUser ? this.$t('CONVERSATION.REACTIONS.YOU') : this.user.displayName,
+          otherUser: otherTrust.length > 0 && otherTrust[0].displayName,
         },
       ) : this.$t(
         'USERDATA.FIRST_TRUST',

@@ -7,63 +7,129 @@ const store = createStore({
 })
 
 import Profile from './Profile'
+import TrustButton from './TrustButton'
 
 let groupIdCnt = 1
 
-function membershipFactory ({
+const groupFactory = ({
   isCurrentGroup = false,
   isMember = true,
-  trusted = false,
-  trustedByCount = 2,
-  isEditor = true,
-} = {}) {
+} = {}) => {
   const groupId = groupIdCnt++
   const groupName = `group ${groupId}`
-  const trustedBy = []
-  for (let i = 1; i <= trustedByCount; i++) {
-    trustedBy.push({
-      id: i,
-      displayName: `user ${i}`,
-    })
-  }
   return {
     id: groupId,
     name: groupName,
     isMember,
     isCurrentGroup,
-    membership: isMember && {
-      createdAt: new Date(),
-      roles: [],
-      trustedBy,
-      trusted,
-      isEditor,
-    },
   }
 }
 
-const user = {
+function membershipFactory ({
+  trusted = false,
+  trustedByCount = 2,
+  isEditor = true,
+} = {}) {
+  const trustedBy = []
+  for (let i = 1; i <= trustedByCount; i++) {
+    trustedBy.push({
+      id: i,
+      displayName: `user ${i}`,
+      isCurrentUser: trusted && i === 1,
+    })
+  }
+  return {
+    createdAt: new Date(),
+    roles: [],
+    trustedBy,
+    trusted,
+    isEditor,
+  }
+}
+
+const baseUser = {
   id: 1,
+  email: 'asdf@asdf.com',
   displayName: 'storybook user',
   isCurrentUser: false,
+  membership: membershipFactory(),
   groups: [
-    membershipFactory({ isCurrentGroup: true, isEditor: false }),
-    membershipFactory({ trusted: true }),
-    membershipFactory({ trustedByCount: 5, isEditor: false }),
-    membershipFactory({ isMember: false }),
+    groupFactory({ isCurrentGroup: true }),
+    groupFactory({ isMember: true }),
+    groupFactory({ isMember: false }),
   ],
 }
 
 const defaultOn = {
   createTrust: action('create trust'),
+  detail: action('open detail sidebar'),
+  selectGroup: action('select group'),
 }
 
 storiesOf('User Profile', module)
   .add('Profile', () => defaults({
     render: h => h(Profile, {
       props: {
-        user,
-        groups: user.groups,
+        user: baseUser,
         currentGroup: { name: 'my current group' },
+      },
+      on: defaultOn,
+    }),
+    store,
+  }))
+  .add('Trust Button - other people trust', () => defaults({
+    render: h => h(TrustButton, {
+      props: {
+        user: baseUser,
+        group: groupFactory(),
+        membership: membershipFactory({ trustedByCount: 5 }),
+      },
+      on: defaultOn,
+    }),
+    store,
+  }))
+  .add('Trust Button - I and others trust', () => defaults({
+    render: h => h(TrustButton, {
+      props: {
+        user: baseUser,
+        group: groupFactory(),
+        membership: membershipFactory({ trusted: true, trustedByCount: 5 }),
+      },
+      on: defaultOn,
+    }),
+    store,
+  }))
+  .add('Trust Button - I trust', () => defaults({
+    render: h => h(TrustButton, {
+      props: {
+        user: baseUser,
+        group: groupFactory(),
+        membership: membershipFactory({ trusted: true, trustedByCount: 1 }),
+      },
+      on: defaultOn,
+    }),
+    store,
+  }))
+  .add('Trust Button - others trust', () => defaults({
+    render: h => h(TrustButton, {
+      props: {
+        user: baseUser,
+        group: groupFactory(),
+        membership: membershipFactory({ trustedByCount: 1 }),
+      },
+      on: defaultOn,
+    }),
+    store,
+  }))
+  .add('My Trust Button', () => defaults({
+    render: h => h(TrustButton, {
+      props: {
+        user: {
+          ...baseUser,
+          isCurrentUser: true,
+        },
+        group: groupFactory(),
+        membership: membershipFactory({ trustedByCount: 2 }),
       },
       on: defaultOn,
     }),

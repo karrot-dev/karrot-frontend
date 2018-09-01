@@ -33,7 +33,8 @@
         "MESSAGE": "Jesteś pewna/-y? Twoje konto i dane osobiste zostaną trwale usunięte. Wszystko, co robiłeś na tej platformie zostanie oznaczone jako anonimowe. Jeśli potwierdzasz, wyślemy Ci wiadomość e-mail z linkiem do usunięcia konta.",
         "CONFIRM": "Potwierdzam"
       }
-    }
+    },
+    "LOGOUT_SUCCESS": "You have been logged out!"
   },
   "BUTTON": {
     "CREATE": "Utwórz",
@@ -63,7 +64,8 @@
     "APPLY": "Apply",
     "ACCEPT": "Accept",
     "DECLINE": "Decline",
-    "WITHDRAW": "Withdraw"
+    "WITHDRAW": "Withdraw",
+    "SHOW_MORE": "Show more"
   },
   "VALIDATION": {
     "MINLENGTH": "Musisz użyć więcej niż {min} znaków.",
@@ -90,6 +92,7 @@
     "APPLICATIONS": "Applications",
     "APPLICATION_QUESTIONS": "Questions for people who want to join this group",
     "PICKUPS": "Odbiory",
+    "MESSAGES": "Messages",
     "PICKUP": "Odbiór",
     "MEMBERS": "Członkowie",
     "JOINED": "dołączył/-a {relativeDate}",
@@ -365,7 +368,7 @@
   },
   "NOTIFICATIONS": {
     "TITLE": "Powiadomienia",
-    "NOT_VERIFIED": "nie zweryfikowano adresu {email}",
+    "NOT_VERIFIED": "{email} is not verified",
     "CHECK_YOUR_MAILS": "Sprawdź pocztę lub {resend}",
     "RESEND_VERIFICATION": "wyślij ponownie e-mail weryfikacyjny",
     "VERIFICATION_EMAIL_SENT": "Wysłaliśmy nowy e-mail weryfikacyjny. Sprawdź swoją pocztę.",
@@ -434,7 +437,9 @@
       "AND": "i",
       "REACTED_WITH":"{users} zareagowali {reaction}"
     },
-    "MESSAGE_NOT_FOUND": "Message not found"
+    "MESSAGE_NOT_FOUND": "Message not found",
+    "NO_CONVERSATIONS": "No conversations yet.",
+    "MUTED": "Notifications are disabled"
   },
   "STORESTATUS": {
     "ACTIVE": "Współpracuje",
@@ -459,12 +464,13 @@
     "SUBMITTED_ON": "Submitted on {date}",
     "WITHDRAWN": "withdrawn {relativeDate}",
     "WHAT": "What is this chat about?",
-    "HELP": "This is a chat between all existing members of {groupName} and the new applicant {userName}. It is meant to give you all a chance to get to know you before deciding wether to accept, decline or withdraw the application.",
+    "HELP": "This is a chat between all existing members of {groupName} and the new applicant {userName}. It is meant to give you all a chance to get to know you before deciding whether to accept, decline or withdraw the application.",
     "INITIAL": "Initial questions and answers"
   },
   "COMMUNITY_FEED": {
     "HEADER": "Updates from the {community}",
     "HEADER_LINK": "foodsaving worldwide community",
     "LAST_UPDATED": "Last updated {relativeDate}"
-  }
+  },
+  "YOU": "You"
 }

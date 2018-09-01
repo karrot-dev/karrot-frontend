@@ -4712,28 +4712,26 @@ exports[`Storyshots Statistics FeedbackItem 1`] = `
           </a> <span place="date" class="message-date"><div title="Aug 11, 2017, 3:43 PM">
   4 months ago
 </div></span></small>
-        <div class="row no-wrap justify-between">
-          <div class="column">
-            <div class="comment">
-              <div class="markdown">
-                <p>All worked out perfectly!</p>
-              </div>
-            </div>
-            <div class="q-mt-sm">
-              <div class="wrapper" style="width:22px;height:22px;">
-                <a title="Mira Bellenbaum">
-                  <div text="Mira Bellenbaum" seed="1" class="randomArt fill"></div>
-                </a>
-              </div>
-              <!---->
-            </div>
-          </div>
-          <div class="container amount-box" style="width:80px;height:80px;">
+        <div>
+          <div class="container on-right float-right amount-box" style="width:80px;height:80px;">
             <img width="80px" height="80px" src="test-file-stub">
             <img width="10px" height="16px" src="test-file-stub" class="pointer" style="transform:rotate(-41deg);top:8px;">
             <div class="text-bottom" style="bottom:10px;"><span style="font-size:19px;">
         2.5
       </span> <span style="font-size:11px;">kg</span></div>
+          </div>
+          <div class="comment">
+            <div class="markdown">
+              <p>All worked out perfectly!</p>
+            </div>
+          </div>
+          <div class="q-mt-sm">
+            <div class="wrapper" style="width:22px;height:22px;">
+              <a title="Mira Bellenbaum">
+                <div text="Mira Bellenbaum" seed="1" class="randomArt fill"></div>
+              </a>
+            </div>
+            <!---->
           </div>
         </div>
       </div>
@@ -4764,28 +4762,26 @@ exports[`Storyshots Statistics FeedbackList 1`] = `
               </a> <span place="date" class="message-date"><div title="Aug 11, 2017, 3:43 PM">
   4 months ago
 </div></span></small>
-            <div class="row no-wrap justify-between">
-              <div class="column">
-                <div class="comment">
-                  <div class="markdown">
-                    <p>All worked out perfectly!</p>
-                  </div>
-                </div>
-                <div class="q-mt-sm">
-                  <div class="wrapper" style="width:22px;height:22px;">
-                    <a title="Mira Bellenbaum">
-                      <div text="Mira Bellenbaum" seed="1" class="randomArt fill"></div>
-                    </a>
-                  </div>
-                  <!---->
-                </div>
-              </div>
-              <div class="container amount-box" style="width:80px;height:80px;">
+            <div>
+              <div class="container on-right float-right amount-box" style="width:80px;height:80px;">
                 <img width="80px" height="80px" src="test-file-stub">
                 <img width="10px" height="16px" src="test-file-stub" class="pointer" style="transform:rotate(-41deg);top:8px;">
                 <div class="text-bottom" style="bottom:10px;"><span style="font-size:19px;">
         2.5
       </span> <span style="font-size:11px;">kg</span></div>
+              </div>
+              <div class="comment">
+                <div class="markdown">
+                  <p>All worked out perfectly!</p>
+                </div>
+              </div>
+              <div class="q-mt-sm">
+                <div class="wrapper" style="width:22px;height:22px;">
+                  <a title="Mira Bellenbaum">
+                    <div text="Mira Bellenbaum" seed="1" class="randomArt fill"></div>
+                  </a>
+                </div>
+                <!---->
               </div>
             </div>
           </div>
@@ -4810,24 +4806,22 @@ exports[`Storyshots Statistics FeedbackList 1`] = `
               </a> <span place="date" class="message-date"><div title="Sep 11, 2017, 3:40 PM">
   3 months ago
 </div></span></small>
-            <div class="row no-wrap justify-between">
-              <div class="column">
-                <!---->
-                <div class="q-mt-sm">
-                  <div class="wrapper" style="width:22px;height:22px;">
-                    <a title="Mira Bellenbaum">
-                      <div text="Mira Bellenbaum" seed="1" class="randomArt fill"></div>
-                    </a>
-                  </div>
-                  <!---->
-                </div>
-              </div>
-              <div class="container amount-box" style="width:80px;height:80px;">
+            <div>
+              <div class="container on-right float-right amount-box" style="width:80px;height:80px;">
                 <img width="80px" height="80px" src="test-file-stub">
                 <img width="10px" height="16px" src="test-file-stub" class="pointer" style="transform:rotate(-15deg);top:8px;">
                 <div class="text-bottom" style="bottom:10px;"><span style="font-size:19px;">
         11.0
       </span> <span style="font-size:11px;">kg</span></div>
+              </div>
+              <!---->
+              <div class="q-mt-sm">
+                <div class="wrapper" style="width:22px;height:22px;">
+                  <a title="Mira Bellenbaum">
+                    <div text="Mira Bellenbaum" seed="1" class="randomArt fill"></div>
+                  </a>
+                </div>
+                <!---->
               </div>
             </div>
           </div>
@@ -4852,28 +4846,26 @@ exports[`Storyshots Statistics FeedbackList 1`] = `
               </a> <span place="date" class="message-date"><div title="Sep 18, 2017, 12:12 PM">
   3 months ago
 </div></span></small>
-            <div class="row no-wrap justify-between">
-              <div class="column">
-                <div class="comment">
-                  <div class="markdown">
-                    <p>They did not have anything today</p>
-                  </div>
-                </div>
-                <div class="q-mt-sm">
-                  <div class="wrapper" style="width:22px;height:22px;">
-                    <a title="Max Mustermann">
-                      <div text="Max Mustermann" seed="2" class="randomArt fill"></div>
-                    </a>
-                  </div>
-                  <!---->
-                </div>
-              </div>
-              <div class="container amount-box" style="width:80px;height:80px;">
+            <div>
+              <div class="container on-right float-right amount-box" style="width:80px;height:80px;">
                 <img width="80px" height="80px" src="test-file-stub">
                 <img width="10px" height="16px" src="test-file-stub" class="pointer" style="transform:rotate(-48deg);top:8px;">
                 <div class="text-bottom" style="bottom:10px;"><span style="font-size:19px;">
         0
       </span> <span style="font-size:11px;">g</span></div>
+              </div>
+              <div class="comment">
+                <div class="markdown">
+                  <p>They did not have anything today</p>
+                </div>
+              </div>
+              <div class="q-mt-sm">
+                <div class="wrapper" style="width:22px;height:22px;">
+                  <a title="Max Mustermann">
+                    <div text="Max Mustermann" seed="2" class="randomArt fill"></div>
+                  </a>
+                </div>
+                <!---->
               </div>
             </div>
           </div>
@@ -5123,28 +5115,26 @@ exports[`Storyshots Statistics PickupFeedback 1`] = `
                   </a> <span place="date" class="message-date"><div title="Aug 11, 2017, 3:43 PM">
   4 months ago
 </div></span></small>
-                <div class="row no-wrap justify-between">
-                  <div class="column">
-                    <div class="comment">
-                      <div class="markdown">
-                        <p>All worked out perfectly!</p>
-                      </div>
-                    </div>
-                    <div class="q-mt-sm">
-                      <div class="wrapper" style="width:22px;height:22px;">
-                        <a title="Mira Bellenbaum">
-                          <div text="Mira Bellenbaum" seed="1" class="randomArt fill"></div>
-                        </a>
-                      </div>
-                      <!---->
-                    </div>
-                  </div>
-                  <div class="container amount-box" style="width:80px;height:80px;">
+                <div>
+                  <div class="container on-right float-right amount-box" style="width:80px;height:80px;">
                     <img width="80px" height="80px" src="test-file-stub">
                     <img width="10px" height="16px" src="test-file-stub" class="pointer" style="transform:rotate(-41deg);top:8px;">
                     <div class="text-bottom" style="bottom:10px;"><span style="font-size:19px;">
         2.5
       </span> <span style="font-size:11px;">kg</span></div>
+                  </div>
+                  <div class="comment">
+                    <div class="markdown">
+                      <p>All worked out perfectly!</p>
+                    </div>
+                  </div>
+                  <div class="q-mt-sm">
+                    <div class="wrapper" style="width:22px;height:22px;">
+                      <a title="Mira Bellenbaum">
+                        <div text="Mira Bellenbaum" seed="1" class="randomArt fill"></div>
+                      </a>
+                    </div>
+                    <!---->
                   </div>
                 </div>
               </div>
@@ -5169,24 +5159,22 @@ exports[`Storyshots Statistics PickupFeedback 1`] = `
                   </a> <span place="date" class="message-date"><div title="Sep 11, 2017, 3:40 PM">
   3 months ago
 </div></span></small>
-                <div class="row no-wrap justify-between">
-                  <div class="column">
-                    <!---->
-                    <div class="q-mt-sm">
-                      <div class="wrapper" style="width:22px;height:22px;">
-                        <a title="Mira Bellenbaum">
-                          <div text="Mira Bellenbaum" seed="1" class="randomArt fill"></div>
-                        </a>
-                      </div>
-                      <!---->
-                    </div>
-                  </div>
-                  <div class="container amount-box" style="width:80px;height:80px;">
+                <div>
+                  <div class="container on-right float-right amount-box" style="width:80px;height:80px;">
                     <img width="80px" height="80px" src="test-file-stub">
                     <img width="10px" height="16px" src="test-file-stub" class="pointer" style="transform:rotate(-15deg);top:8px;">
                     <div class="text-bottom" style="bottom:10px;"><span style="font-size:19px;">
         11.0
       </span> <span style="font-size:11px;">kg</span></div>
+                  </div>
+                  <!---->
+                  <div class="q-mt-sm">
+                    <div class="wrapper" style="width:22px;height:22px;">
+                      <a title="Mira Bellenbaum">
+                        <div text="Mira Bellenbaum" seed="1" class="randomArt fill"></div>
+                      </a>
+                    </div>
+                    <!---->
                   </div>
                 </div>
               </div>
@@ -5211,28 +5199,26 @@ exports[`Storyshots Statistics PickupFeedback 1`] = `
                   </a> <span place="date" class="message-date"><div title="Sep 18, 2017, 12:12 PM">
   3 months ago
 </div></span></small>
-                <div class="row no-wrap justify-between">
-                  <div class="column">
-                    <div class="comment">
-                      <div class="markdown">
-                        <p>They did not have anything today</p>
-                      </div>
-                    </div>
-                    <div class="q-mt-sm">
-                      <div class="wrapper" style="width:22px;height:22px;">
-                        <a title="Max Mustermann">
-                          <div text="Max Mustermann" seed="2" class="randomArt fill"></div>
-                        </a>
-                      </div>
-                      <!---->
-                    </div>
-                  </div>
-                  <div class="container amount-box" style="width:80px;height:80px;">
+                <div>
+                  <div class="container on-right float-right amount-box" style="width:80px;height:80px;">
                     <img width="80px" height="80px" src="test-file-stub">
                     <img width="10px" height="16px" src="test-file-stub" class="pointer" style="transform:rotate(-48deg);top:8px;">
                     <div class="text-bottom" style="bottom:10px;"><span style="font-size:19px;">
         0
       </span> <span style="font-size:11px;">g</span></div>
+                  </div>
+                  <div class="comment">
+                    <div class="markdown">
+                      <p>They did not have anything today</p>
+                    </div>
+                  </div>
+                  <div class="q-mt-sm">
+                    <div class="wrapper" style="width:22px;height:22px;">
+                      <a title="Max Mustermann">
+                        <div text="Max Mustermann" seed="2" class="randomArt fill"></div>
+                      </a>
+                    </div>
+                    <!---->
                   </div>
                 </div>
               </div>

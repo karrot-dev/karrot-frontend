@@ -56,6 +56,28 @@
               <span slot="subtitle">
                 {{ application.user.isCurrentUser ? application.group.name : application.user.displayName }}
               </span>
+              <small>
+                <q-icon
+                  v-if="application.status === 'accepted'"
+                  name="fas fa-fw fa-check"
+                  :title="$t('GROUP.ADDED_BY', { userName: application.decidedBy.displayName })"
+                />
+                <q-icon
+                  v-else-if="application.status === 'pending'"
+                  name="fas fa-fw fa-hourglass-half"
+                  :title="application.user.isCurrentUser && $t('JOINGROUP.APPLICATION_PENDING')"
+                />
+                <q-icon
+                  v-else-if="application.status === 'declined'"
+                  name="fas fa-fw fa-times"
+                  :title="$t('GROUP.DECLINED_BY', { userName: application.decidedBy.displayName })"
+                />
+                <q-icon
+                  v-else-if="application.status === 'withdrawn'"
+                  name="fas fa-fw fa-trash-alt"
+                  :title="$t('APPLICATION.WITHDRAWN', { relativeDate: dateInWords(application.decidedAt) })"
+                />
+              </small>
             </q-toolbar-title>
             <q-btn
               flat
@@ -80,6 +102,7 @@
             dense
             icon="close"
             @click="$emit('close')"
+            :title="$t('BUTTON.CLOSE')"
           />
         </q-toolbar>
         <div
@@ -147,6 +170,7 @@ import NotificationToggle from '@/components/Conversation/NotificationToggle'
 import ChatConversation from '@/components/Conversation/ChatConversation'
 import Markdown from '@/components/Markdown'
 import DateAsWords from '@/components/General/DateAsWords'
+import dateFnsHelper from '@/services/dateFnsHelper'
 
 import {
   Dialog,
@@ -252,6 +276,9 @@ export default {
         message: this.$t('APPLICATION.HELP', { groupName: this.application.group.name, userName: this.application.user.displayName }),
         ok: this.$t('BUTTON.BACK'),
       })
+    },
+    dateInWords (date) {
+      return dateFnsHelper.distanceInWordsToNow(date, { addSuffix: true, disallowFuture: true })
     },
   },
 }

@@ -1,8 +1,9 @@
 <template>
   <q-item
-    highlight
+    link
     separator
     :class="{ isPending: application.isPending, isNonPending: !application.isPending }"
+    @click.native.self="openChat"
   >
     <q-item-side>
       <ProfilePicture

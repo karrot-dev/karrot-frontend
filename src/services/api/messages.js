@@ -86,12 +86,11 @@ export function convert (val) {
     return val.map(convert)
   }
   else {
-    const createdAt = new Date(val.createdAt)
-    const updatedAt = new Date(val.updatedAt)
     return {
       ...val,
-      createdAt,
-      updatedAt,
+      createdAt: new Date(val.createdAt),
+      updatedAt: new Date(val.updatedAt),
+      editedAt: new Date(val.editedAt),
     }
   }
 }

@@ -39,35 +39,33 @@
               <DateAsWords :date="createdAt" />
             </span>
           </small>
-          <div class="row no-wrap justify-between">
-            <div class="column">
-              <div
-                v-if="comment"
-                class="comment"
-              >
-                <Markdown :source="comment" />
-              </div>
-              <div class="q-mt-sm">
-                <ProfilePicture
-                  :user="feedback.givenBy"
-                  :size="22"
-                />
-                <span v-if="membersWithoutGiver.length > 0">
-                  <ProfilePicture
-                    v-for="member in membersWithoutGiver"
-                    :key="member.id"
-                    user="member"
-                    :size="15"
-                  />
-                </span>
-              </div>
-            </div>
+          <div>
             <AmountBox
               v-if="hasWeight"
-              class="amount-box"
+              class="on-right float-right amount-box"
               :size="80"
               :amount="weight"
             />
+            <div
+              v-if="comment"
+              class="comment"
+            >
+              <Markdown :source="comment" />
+            </div>
+            <div class="q-mt-sm">
+              <ProfilePicture
+                :user="feedback.givenBy"
+                :size="22"
+              />
+              <span v-if="membersWithoutGiver.length > 0">
+                <ProfilePicture
+                  v-for="member in membersWithoutGiver"
+                  :key="member.id"
+                  user="member"
+                  :size="15"
+                />
+              </span>
+            </div>
           </div>
         </div>
       </div>
@@ -131,8 +129,6 @@ export default {
 
 <style scoped lang="stylus">
 @import '~variables'
-.amount-box
-  margin auto 0
 .comment
   padding-top 8px
   word-wrap break-word

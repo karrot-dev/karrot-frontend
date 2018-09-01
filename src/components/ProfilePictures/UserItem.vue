@@ -1,9 +1,5 @@
 <template>
-  <q-item
-    link
-    highlight
-    :to="{name: 'user', params: { userId: user.id }}"
-  >
+  <q-item highlight>
     <q-item-side>
       <ProfilePicture
         :key="user.id"
@@ -14,7 +10,9 @@
     </q-item-side>
     <q-item-main>
       <q-item-tile label>
-        {{ user.displayName }}
+        <router-link :to="{name: 'user', params: { userId: user.id }}">
+          {{ user.displayName }}
+        </router-link>
       </q-item-tile>
       <q-item-tile sublabel>
         <i18n
@@ -40,20 +38,17 @@
           </i18n>
         </template>
         <br>
-        <q-progress
-          v-if="user.membership.trustProgress < 1"
-          :percentage="user.membership.trustProgress * 100"
-          class="q-mt-xs"
-          :title="$t('USERDATA.TRUST_PROGRESS_TEXT', { trustNeeded })"
-        />
       </q-item-tile>
     </q-item-main>
     <q-item-side>
       <q-item-tile>
-        <ProfilePicture
-          v-for="u in user.membership.trustedBy"
-          :key="u.id"
-          :user="getUser(u)"
+        <TrustButton
+          v-if="user.membership"
+          :user="user"
+          :group="group"
+          :membership="user.membership"
+          small
+          @createTrust="$emit('createTrust', arguments[0])"
         />
       </q-item-tile>
     </q-item-side>
@@ -67,24 +62,28 @@ import {
   QItemMain,
   QItemTile,
   QItemSide,
-  QProgress,
 } from 'quasar'
 
 import ProfilePicture from './ProfilePicture'
 import DateAsWords from '@/components/General/DateAsWords'
+import TrustButton from '@/components/User/TrustButton'
 
 export default {
   components: {
     ProfilePicture,
     DateAsWords,
+    TrustButton,
     QItem,
     QItemMain,
     QItemTile,
     QItemSide,
-    QProgress,
   },
   props: {
     user: {
+      type: Object,
+      default: null,
+    },
+    group: {
       type: Object,
       default: null,
     },
@@ -93,10 +92,6 @@ export default {
     ...mapGetters({
       getUser: 'users/get',
     }),
-    trustNeeded () {
-      const { trustedBy, trustThresholdForNewcomer } = this.user.membership
-      return trustThresholdForNewcomer - trustedBy.length
-    },
     addedBy () {
       const addedById = this.user.membership.addedBy
       if (!addedById) return

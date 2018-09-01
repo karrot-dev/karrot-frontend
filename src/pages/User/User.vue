@@ -38,7 +38,7 @@ export default {
   methods: {
     ...mapActions({
       detail: 'detail/openForUser',
-      createTrust: 'groups/trustUser',
+      createTrust: 'currentGroup/trustUser',
       selectGroup: 'currentGroup/select',
     }),
   },

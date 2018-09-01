@@ -1,5 +1,5 @@
 import groups from '@/services/api/groups'
-import { withMeta, createMetaModule, withPrefixedIdMeta, createRouteRedirect } from '@/store/helpers'
+import { withMeta, createMetaModule, withPrefixedIdMeta, metaStatusesWithId, createRouteRedirect } from '@/store/helpers'
 
 function initialState () {
   return {
@@ -29,25 +29,20 @@ export default {
       const group = state.current
       if (!group) return []
       return Object.entries(group.memberships).reduce((obj, [userId, membership]) => {
-        const enrichedMembership = getters.enrichMembership(membership)
+        // cannot enrich trustedBy and addedBy, as it would create the cyclic dependency "user -> group -> user"
+        const authUserId = rootGetters['auth/userId']
+        const isEditor = membership.roles.includes('editor')
         const { trustThresholdForNewcomer } = state.current
         obj[userId] = {
-          ...enrichedMembership,
-          trustProgress: enrichedMembership.isEditor ? 1 : enrichedMembership.trustedBy.length / trustThresholdForNewcomer,
+          ...membership,
+          isEditor,
+          trusted: membership.trustedBy.includes(authUserId),
+          trustProgress: isEditor ? 1 : membership.trustedBy.length / trustThresholdForNewcomer,
           trustThresholdForNewcomer,
+          ...metaStatusesWithId(getters, ['trustUser'], parseInt(userId)),
         }
         return obj
       }, {})
-    },
-    enrichMembership: (state, getters, rootState, rootGetters) => membership => {
-      if (!membership) return
-      const authUserId = rootGetters['auth/userId']
-      // do not enrich trustedBy and addedBy, as it would create the cyclic dependency "user -> group -> user"
-      return {
-        ...membership,
-        isEditor: membership.roles.includes('editor'),
-        trusted: membership.trustedBy.includes(authUserId),
-      }
     },
     agreement: (state, getters, rootState, rootGetters) => state.current && rootGetters['agreements/get'](state.current.activeAgreement),
     conversation: (state, getters, rootState, rootGetters) => {
@@ -88,6 +83,11 @@ export default {
           await groups.removeNotificationType(getters.id, notificationType)
         }
         await dispatch('fetch', getters.id)
+      },
+
+      async trustUser ({ getters }, userId) {
+        if (!getters.id) return
+        await groups.trustUser(getters.id, userId)
       },
 
     }),

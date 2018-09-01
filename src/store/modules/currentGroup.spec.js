@@ -5,7 +5,7 @@ jest.mock('@/services/api/groups', () => ({
   conversation: mockConversation,
 }))
 
-import { createStore, createValidationError, throws } from '>/helpers'
+import { createStore, createValidationError, throws, statusMocks } from '>/helpers'
 
 function enrichMemberships (memberships, users, currentUserId) {
   return Object.entries(memberships).reduce((obj, [uId, membership]) => {
@@ -15,6 +15,7 @@ function enrichMemberships (memberships, users, currentUserId) {
       trustProgress: membership.trustedBy.length / 3,
       trusted: membership.trustedBy.includes(currentUserId),
       trustThresholdForNewcomer: 3,
+      trustUserStatus: statusMocks.default(),
     }
     return obj
   }, {})

@@ -152,7 +152,6 @@ export default {
   },
   props: {
     user: { required: true, type: Object },
-    groups: { required: true, type: Array },
     currentGroup: { default: null, type: Object },
   },
   computed: {
@@ -163,8 +162,7 @@ export default {
       return 180
     },
     currentGroupMembership () {
-      const group = this.groups.find(g => g.isCurrentGroup)
-      return group && group.membership
+      return this.user.membership
     },
     isInfoOnly () {
       return !this.user.email

@@ -160,7 +160,6 @@ describe('currentGroup', () => {
     beforeEach(() => {
       store = createStore({
         currentGroup: require('./currentGroup').default,
-        users: require('./users').default,
         agreements,
         auth,
         pickups,

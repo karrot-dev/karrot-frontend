@@ -39,9 +39,9 @@
       }
     },
     "LOGOUT_SUCCESS": "You have been logged out!",
-    "YOU_TRUST_USER": "You trust {userName} in {groupName}",
-    "OTHER_PEOPLE_TRUST_USER": "One person trusts {userName} in {groupName} | {count} people trust {userName} in {groupName}",
-    "PEOPLE_TRUST_USER": "You and one person trust {userName} in {groupName} | You and {count} people trust {userName} in {groupName}",
+    "YOU_TRUST_USER": "You trust {userName} in {groupName}.",
+    "OTHER_PEOPLE_TRUST_USER": "One person trusts {userName} in {groupName}. | {count} people trust {userName} in {groupName}.",
+    "PEOPLE_TRUST_USER": "You and one person trust {userName} in {groupName}. | You and {count} people trust {userName} in {groupName}.",
     "FIRST_TRUST": "Be the first one to trust {userName} in {groupName}!",
     "NEWCOMER": "Newcomer",
     "NEWCOMER_GUIDANCE": "{userName} is new to your group and might need some guidance.",

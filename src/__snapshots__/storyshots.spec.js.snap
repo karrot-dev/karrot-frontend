@@ -5739,7 +5739,18 @@ exports[`Storyshots Stores StoreList 1`] = `
 
 exports[`Storyshots User Profile Profile 1`] = `
 <div class="k-profile">
-  <!---->
+  <div>
+    <div class="q-alert row no-wrap shadow-2 bg-warning text-white">
+      <div class="q-alert-side col-auto row flex-center">
+        <i aria-hidden="true" class="q-icon material-icons">priority_high</i>
+      </div>
+      <div class="q-alert-content col self-center">
+        <div>
+          storybook user is not a member of my current group.
+        </div>
+      </div>
+    </div>
+  </div>
   <div class="row justify-end" style="margin-bottom:-32px;">
     <button tabindex="0" type="button" class="q-btn inline relative-position q-btn-item non-selectable q-btn-rectangle q-focusable q-hoverable bg-primary text-white">
       <div class="q-focus-helper"></div>

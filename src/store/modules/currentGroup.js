@@ -29,7 +29,7 @@ export default {
       const group = state.current
       if (!group) return []
       return Object.entries(group.memberships).reduce((obj, [userId, membership]) => {
-        const enrichedMembership = rootGetters['users/enrichMembership'](membership)
+        const enrichedMembership = getters.enrichMembership(membership)
         const { trustThresholdForNewcomer } = state.current
         obj[userId] = {
           ...enrichedMembership,
@@ -38,6 +38,16 @@ export default {
         }
         return obj
       }, {})
+    },
+    enrichMembership: (state, getters, rootState, rootGetters) => membership => {
+      if (!membership) return
+      const authUserId = rootGetters['auth/userId']
+      // do not enrich trustedBy and addedBy, as it would create the cyclic dependency "user -> group -> user"
+      return {
+        ...membership,
+        isEditor: membership.roles.includes('editor'),
+        trusted: membership.trustedBy.includes(authUserId),
+      }
     },
     agreement: (state, getters, rootState, rootGetters) => state.current && rootGetters['agreements/get'](state.current.activeAgreement),
     conversation: (state, getters, rootState, rootGetters) => {

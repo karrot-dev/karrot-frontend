@@ -12,22 +12,8 @@ function enrich (user, groups, currentUserId) {
     ...user,
     isCurrentUser: user.id === currentUserId,
     membership: {},
-    groups: enrichMemberships(user.memberships, groups, currentUserId),
+    groups: user.groups.map(groupId => enrichGroup(groups.find(g => g.id === groupId))),
   }
-}
-
-function enrichMemberships (memberships, groups, currentUserId) {
-  return Object.entries(memberships).map(([uId, membership]) => {
-    const group = groups.find(u => u.id === parseInt(uId))
-    return {
-      ...enrichGroup(group),
-      membership: {
-        ...membership,
-        isEditor: membership.roles.includes('editor'),
-        trusted: membership.trustedBy.includes(currentUserId),
-      },
-    }
-  })
 }
 
 describe('users', () => {
@@ -120,13 +106,7 @@ describe('users', () => {
   it('can select user profile', async () => {
     const user1Profile = {
       ...user1,
-      memberships: {
-        1: {
-          createdAt: new Date(),
-          roles: [],
-          trustedBy: [],
-        },
-      },
+      groups: [1],
     }
     mockGetProfile.mockReturnValueOnce(user1Profile)
     await store.dispatch('users/selectUser', { userId: user1.id })

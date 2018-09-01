@@ -48,25 +48,11 @@ export default {
       if (!state.activeUserProfile) return
 
       const user = state.activeUserProfile
-
-      const groups = user.memberships && Object.entries(user.memberships).map(([groupId, membership]) => ({
-        ...rootGetters['groups/get'](groupId),
-        membership: getters.enrichMembership(membership),
-      })).sort((a, b) => a.name.localeCompare(b.name))
+      const groups = user.groups && user.groups.map(rootGetters['groups/get']).sort((a, b) => a.name.localeCompare(b.name))
 
       return {
         ...getters.enrich(user),
         groups,
-      }
-    },
-    enrichMembership: (state, getters, rootState, rootGetters) => membership => {
-      if (!membership) return
-      const authUserId = rootGetters['auth/userId']
-      // do not enrich trustedBy and addedBy, as it would create the cyclic dependency "user -> group -> user"
-      return {
-        ...membership,
-        isEditor: membership.roles.includes('editor'),
-        trusted: membership.trustedBy.includes(authUserId),
       }
     },
     activeUserId: state => state.activeUserProfile && state.activeUserProfile.id,

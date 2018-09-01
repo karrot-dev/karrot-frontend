@@ -8,28 +8,12 @@
       >
         <q-search v-model="filterTerm" />
       </q-item>
-      <q-list-header
-        v-if="activeEditors.length > 0"
-        class="row justify-end"
-      >
-        <span v-t="'USERDATA.TRUSTED_BY'" />
-      </q-list-header>
       <UserItem
-        v-for="user in activeEditors"
+        v-for="user in activeUsers"
         :key="user.id"
         :user="user"
-      />
-      <q-list-header
-        v-if="activeNewcomers.length > 0"
-        class="row justify-between"
-      >
-        <span v-t="'USERDATA.NEWCOMER'" />
-        <span v-t="'USERDATA.TRUSTED_BY'" />
-      </q-list-header>
-      <UserItem
-        v-for="user in activeNewcomers"
-        :key="user.id"
-        :user="user"
+        :group="group"
+        @createTrust="$emit('createTrust', arguments[0])"
       />
       <q-item-separator />
       <q-collapsible
@@ -45,7 +29,9 @@
             v-for="user in inactiveUsers"
             :key="user.id"
             :user="user"
+            :group="group"
             class="inactive"
+            @createTrust="$emit('createTrust', arguments[0])"
           />
         </template>
       </q-collapsible>
@@ -80,6 +66,10 @@ export default {
       type: Array,
       required: true,
     },
+    group: {
+      type: Object,
+      default: null,
+    },
     sorting: {
       type: String,
       default: 'joinDate',
@@ -109,12 +99,6 @@ export default {
     },
     activeUsers () {
       return this.sort(this.filterByTerms(this.users.filter(u => u.membership.active)))
-    },
-    activeEditors () {
-      return this.activeUsers.filter(u => u.membership.isEditor)
-    },
-    activeNewcomers () {
-      return this.activeUsers.filter(u => !u.membership.isEditor)
     },
     inactiveUsers () {
       return this.sort(this.filterByTerms(this.users.filter(u => !u.membership.active)))

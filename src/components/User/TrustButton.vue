@@ -10,7 +10,7 @@
   >
     <CircleProgress
       v-if="!isEditor"
-      class="knob"
+      class="circle-progress"
       :value="trustProgress"
     />
     <q-chip
@@ -23,9 +23,12 @@
     <q-dialog
       v-model="showing"
       minimized
-      :title="headline"
       :message="info"
     >
+      <template slot="title">
+        {{ headline }}
+        <TrustInfo class="trust-info" />
+      </template>
       <div slot="body">
         <ProfilePicture
           v-for="u in trustedBy"
@@ -65,6 +68,7 @@
 import { mapGetters } from 'vuex'
 import ProfilePicture from '@/components/ProfilePictures/ProfilePicture'
 import CircleProgress from '@/components/General/CircleProgress'
+import TrustInfo from '@/components/User/TrustInfo'
 
 import {
   QBtn,
@@ -77,6 +81,7 @@ export default {
   components: {
     ProfilePicture,
     CircleProgress,
+    TrustInfo,
     QBtn,
     QDialog,
     QChip,
@@ -195,8 +200,13 @@ export default {
 .karrot-button.small >>> .q-btn-inner
   background-size 50%
 
-.knob
+.circle-progress
   position absolute
   top 0
   left 0
+
+.trust-info
+  position absolute
+  top 0
+  right 0
 </style>

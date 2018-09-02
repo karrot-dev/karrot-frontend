@@ -47,7 +47,12 @@
     "NEWCOMER_GUIDANCE": "{userName} is new to your group and might need some guidance.",
     "TRUST_PROGRESS_TEXT": "{trustNeeded} more trust needed",
     "TRUST_PROGRESS_TEXT_LONG": "{trustNeeded} more people need to express their trust in {userName} to grant editing permissions.",
-    "NEWCOMER_INFO": "You are currently a newcomer in {groupName} and you can become active by writing messages, meeting fellow members, doing pickups and giving feedback. As soon as {threshold} members expressed their trust in you, you will gain editing permissions to help with group administration."
+    "NEWCOMER_INFO": "You are currently a newcomer in {groupName} and you can become active by writing messages, meeting fellow members, doing pickups and giving feedback. As soon as {threshold} members expressed their trust in you, you will gain editing permissions to help with group administration.",
+    "TRUST_INFO": {
+      "TITLE": "What is this carrot button about?",
+      "MESSAGE": "It is part of the Karrot trust system. It shows if a group member is newcomer and how much trust is needed until they gain editing permissions.",
+      "LINK": "Click here to find out more."
+    }
   },
   "SWITCHGROUP": {
     "NOT_MEMBER": "{userName} is not member of {groupName}.",

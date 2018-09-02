@@ -5749,7 +5749,15 @@ exports[`Storyshots User Profile My Trust Button 1`] = `
     </div>
     <div minimized="" class="modal fullscreen row minimized flex-center" style="display:none;">
       <div tabindex="-1" class="modal-content">
-        <div class="modal-header">2 people trust you in group 19.</div>
+        <div class="modal-header">
+          2 people trust you in group 19.
+          <button tabindex="0" type="button" class="q-btn inline relative-position q-btn-item non-selectable trust-info q-btn-round q-btn-flat q-focusable q-hoverable q-btn-dense">
+            <div class="q-focus-helper"></div>
+            <div class="q-btn-inner row col items-center justify-center">
+              <i aria-hidden="true" class="q-icon material-icons">help_outline</i>
+            </div>
+          </button>
+        </div>
         <div class="modal-body modal-scroll">
           <div>
             <div class="wrapper q-mr-sm" style="width:35px;height:35px;">
@@ -5853,7 +5861,15 @@ exports[`Storyshots User Profile Profile 1`] = `
           </div>
           <div minimized="" class="modal fullscreen row minimized flex-center" style="display:none;">
             <div tabindex="-1" class="modal-content">
-              <div class="modal-header">2 people trust storybook user in my current group.</div>
+              <div class="modal-header">
+                2 people trust storybook user in my current group.
+                <button tabindex="0" type="button" class="q-btn inline relative-position q-btn-item non-selectable trust-info q-btn-round q-btn-flat q-focusable q-hoverable q-btn-dense">
+                  <div class="q-focus-helper"></div>
+                  <div class="q-btn-inner row col items-center justify-center">
+                    <i aria-hidden="true" class="q-icon material-icons">help_outline</i>
+                  </div>
+                </button>
+              </div>
               <div class="modal-body modal-scroll">
                 <div>
                   <div class="wrapper q-mr-sm" style="width:35px;height:35px;">
@@ -5917,7 +5933,15 @@ exports[`Storyshots User Profile Trust Button - I and others trust 1`] = `
     </div>
     <div minimized="" class="modal fullscreen row minimized flex-center" style="display:none;">
       <div tabindex="-1" class="modal-content">
-        <div class="modal-header">You and 4 other people trust storybook user in group 15.</div>
+        <div class="modal-header">
+          You and 4 other people trust storybook user in group 15.
+          <button tabindex="0" type="button" class="q-btn inline relative-position q-btn-item non-selectable trust-info q-btn-round q-btn-flat q-focusable q-hoverable q-btn-dense">
+            <div class="q-focus-helper"></div>
+            <div class="q-btn-inner row col items-center justify-center">
+              <i aria-hidden="true" class="q-icon material-icons">help_outline</i>
+            </div>
+          </button>
+        </div>
         <div class="modal-body modal-scroll">
           <div>
             <div class="wrapper q-mr-sm" style="width:35px;height:35px;">
@@ -5974,7 +5998,15 @@ exports[`Storyshots User Profile Trust Button - I trust 1`] = `
     </div>
     <div minimized="" class="modal fullscreen row minimized flex-center" style="display:none;">
       <div tabindex="-1" class="modal-content">
-        <div class="modal-header">You trust storybook user in group 17.</div>
+        <div class="modal-header">
+          You trust storybook user in group 17.
+          <button tabindex="0" type="button" class="q-btn inline relative-position q-btn-item non-selectable trust-info q-btn-round q-btn-flat q-focusable q-hoverable q-btn-dense">
+            <div class="q-focus-helper"></div>
+            <div class="q-btn-inner row col items-center justify-center">
+              <i aria-hidden="true" class="q-icon material-icons">help_outline</i>
+            </div>
+          </button>
+        </div>
         <div class="modal-body modal-scroll">
           <div>
             <div class="wrapper q-mr-sm" style="width:35px;height:35px;">
@@ -6011,7 +6043,15 @@ exports[`Storyshots User Profile Trust Button - is editor 1`] = `
     </div>
     <div minimized="" class="modal fullscreen row minimized flex-center" style="display:none;">
       <div tabindex="-1" class="modal-content">
-        <div class="modal-header">2 people trust storybook user in group 5.</div>
+        <div class="modal-header">
+          2 people trust storybook user in group 5.
+          <button tabindex="0" type="button" class="q-btn inline relative-position q-btn-item non-selectable trust-info q-btn-round q-btn-flat q-focusable q-hoverable q-btn-dense">
+            <div class="q-focus-helper"></div>
+            <div class="q-btn-inner row col items-center justify-center">
+              <i aria-hidden="true" class="q-icon material-icons">help_outline</i>
+            </div>
+          </button>
+        </div>
         <div class="modal-body modal-scroll">
           <div>
             <div class="wrapper q-mr-sm" style="width:35px;height:35px;">
@@ -6050,7 +6090,7 @@ exports[`Storyshots User Profile Trust Button - is newcomer 1`] = `
 <button tabindex="0" type="button" title="Newcomer - 1 more trust needed" class="q-btn inline relative-position q-btn-item non-selectable karrot-button q-btn-round q-focusable q-hoverable bg-white text-white small">
   <div class="q-focus-helper"></div>
   <div class="q-btn-inner row col items-center justify-center">
-    <svg viewBox="0 0 106 106" class="knob">
+    <svg viewBox="0 0 106 106" class="circle-progress">
       <path d="M 53,53 m 0,-47 a 47,47 0 1 1 0,94 a 47,47 0 1 1 0,-94" fill-opacity="0" stroke="currentColor" stroke-width="12px" stroke-linecap="round" class="text-primary" style="stroke-dasharray:295.31px, 295.31px;stroke-dashoffset:98.43666666666668px;transition:stroke-dashoffset 0.6s ease 0s, stroke 0.6s ease;"></path>
     </svg>
     <div class="q-chip row no-wrap inline items-center q-chip-floating q-chip-dense q-chip-square bg-negative text-white">
@@ -6060,7 +6100,15 @@ exports[`Storyshots User Profile Trust Button - is newcomer 1`] = `
     </div>
     <div minimized="" class="modal fullscreen row minimized flex-center" style="display:none;">
       <div tabindex="-1" class="modal-content">
-        <div class="modal-header">2 people trust storybook user in group 7.</div>
+        <div class="modal-header">
+          2 people trust storybook user in group 7.
+          <button tabindex="0" type="button" class="q-btn inline relative-position q-btn-item non-selectable trust-info q-btn-round q-btn-flat q-focusable q-hoverable q-btn-dense">
+            <div class="q-focus-helper"></div>
+            <div class="q-btn-inner row col items-center justify-center">
+              <i aria-hidden="true" class="q-icon material-icons">help_outline</i>
+            </div>
+          </button>
+        </div>
         <div class="modal-body modal-message modal-scroll">1 more people need to express their trust in storybook user to grant editing permissions.</div>
         <div class="modal-body modal-scroll">
           <div>
@@ -6100,7 +6148,7 @@ exports[`Storyshots User Profile Trust Button - is newcomer without trust 1`] = 
 <button tabindex="0" type="button" title="Newcomer - 3 more trust needed" class="q-btn inline relative-position q-btn-item non-selectable karrot-button q-btn-round q-focusable q-hoverable bg-white text-white small">
   <div class="q-focus-helper"></div>
   <div class="q-btn-inner row col items-center justify-center">
-    <svg viewBox="0 0 106 106" class="knob">
+    <svg viewBox="0 0 106 106" class="circle-progress">
       <path d="M 53,53 m 0,-47 a 47,47 0 1 1 0,94 a 47,47 0 1 1 0,-94" fill-opacity="0" stroke="currentColor" stroke-width="12px" stroke-linecap="round" class="text-primary" style="stroke-dasharray:295.31px, 295.31px;stroke-dashoffset:295.31px;transition:stroke-dashoffset 0.6s ease 0s, stroke 0.6s ease;"></path>
     </svg>
     <div class="q-chip row no-wrap inline items-center q-chip-floating q-chip-dense q-chip-square bg-negative text-white">
@@ -6110,7 +6158,15 @@ exports[`Storyshots User Profile Trust Button - is newcomer without trust 1`] = 
     </div>
     <div minimized="" class="modal fullscreen row minimized flex-center" style="display:none;">
       <div tabindex="-1" class="modal-content">
-        <div class="modal-header">Be the first one to trust storybook user in group 9!</div>
+        <div class="modal-header">
+          Be the first one to trust storybook user in group 9!
+          <button tabindex="0" type="button" class="q-btn inline relative-position q-btn-item non-selectable trust-info q-btn-round q-btn-flat q-focusable q-hoverable q-btn-dense">
+            <div class="q-focus-helper"></div>
+            <div class="q-btn-inner row col items-center justify-center">
+              <i aria-hidden="true" class="q-icon material-icons">help_outline</i>
+            </div>
+          </button>
+        </div>
         <div class="modal-body modal-message modal-scroll">3 more people need to express their trust in storybook user to grant editing permissions.</div>
         <div class="modal-body modal-scroll">
           <div></div>
@@ -6147,7 +6203,15 @@ exports[`Storyshots User Profile Trust Button - multiple others trust 1`] = `
     </div>
     <div minimized="" class="modal fullscreen row minimized flex-center" style="display:none;">
       <div tabindex="-1" class="modal-content">
-        <div class="modal-header">5 people trust storybook user in group 13.</div>
+        <div class="modal-header">
+          5 people trust storybook user in group 13.
+          <button tabindex="0" type="button" class="q-btn inline relative-position q-btn-item non-selectable trust-info q-btn-round q-btn-flat q-focusable q-hoverable q-btn-dense">
+            <div class="q-focus-helper"></div>
+            <div class="q-btn-inner row col items-center justify-center">
+              <i aria-hidden="true" class="q-icon material-icons">help_outline</i>
+            </div>
+          </button>
+        </div>
         <div class="modal-body modal-scroll">
           <div>
             <div class="wrapper q-mr-sm" style="width:35px;height:35px;">
@@ -6209,7 +6273,15 @@ exports[`Storyshots User Profile Trust Button - one other trust 1`] = `
     </div>
     <div minimized="" class="modal fullscreen row minimized flex-center" style="display:none;">
       <div tabindex="-1" class="modal-content">
-        <div class="modal-header">user 1 trusts storybook user in group 11.</div>
+        <div class="modal-header">
+          user 1 trusts storybook user in group 11.
+          <button tabindex="0" type="button" class="q-btn inline relative-position q-btn-item non-selectable trust-info q-btn-round q-btn-flat q-focusable q-hoverable q-btn-dense">
+            <div class="q-focus-helper"></div>
+            <div class="q-btn-inner row col items-center justify-center">
+              <i aria-hidden="true" class="q-icon material-icons">help_outline</i>
+            </div>
+          </button>
+        </div>
         <div class="modal-body modal-scroll">
           <div>
             <div class="wrapper q-mr-sm" style="width:35px;height:35px;">

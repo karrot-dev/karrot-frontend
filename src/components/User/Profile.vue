@@ -175,7 +175,6 @@ export default {
 body.desktop .k-profile
   .photoAndName
     margin-left 26px
-    margin-top 20px
     margin-bottom 20px
   .name
     padding-left 18px
@@ -183,7 +182,7 @@ body.desktop .k-profile
 .k-profile
   .photoAndName
     margin-left 10px
-    margin-top 14px
+    margin-top 22px
     margin-bottom 14px
   .name
     padding-left 6px

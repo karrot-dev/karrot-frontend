@@ -2,7 +2,7 @@
   <q-btn
     color="primary"
     @click="showModal = true"
-    v-if="groups.length > 1"
+    v-if="groups.length > 1 || (isLoaded && !currentGroup)"
   >
     {{ currentGroup ? currentGroup.name : $t('TOPBAR.CHANGE_GROUP') }}
     <q-modal
@@ -84,6 +84,9 @@ export default {
     }
   },
   computed: {
+    isLoaded () {
+      return this.groups.length > 0
+    },
     currentGroup () {
       return this.groups.find(g => g.isCurrentGroup)
     },

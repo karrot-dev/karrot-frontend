@@ -4932,23 +4932,23 @@ exports[`Storyshots Statistics PickupFeedback 1`] = `
       </div>
     </div>
     <div class="generic-padding">
+      <p></p>
       <p>
-        You did this pickup together with
-        <div class="wrapper q-ml-xs" style="width:20px;height:20px;">
+        <div class="wrapper q-ml-xs" style="width:35px;height:35px;">
           <a title="Mira Bellenbaum (Newcomer)">
             <div text="Mira Bellenbaum" seed="1" class="randomArt fill"></div>
           </a>
         </div>
-        <div class="wrapper q-ml-xs" style="width:20px;height:20px;">
+        <div class="wrapper q-ml-xs" style="width:35px;height:35px;">
           <a title="Max Mustermann (Newcomer)">
             <div text="Max Mustermann" seed="2" class="randomArt fill"></div>
           </a>
         </div>
-        <div class="wrapper q-ml-xs" style="width:20px;height:20px;">
+        <div class="wrapper q-ml-xs" style="width:35px;height:35px;">
           <a title="Karl Karlson (Newcomer)">
             <div text="Karl Karlson" seed="3" class="randomArt fill"></div>
           </a>
-        </div>.
+        </div>
       </p>
       <form style="padding:1.5em 0;">
         <div>
@@ -5058,37 +5058,6 @@ exports[`Storyshots Statistics PickupFeedback 1`] = `
           </button>
         </div>
       </form>
-      <p>
-        One more moment please...
-        <br> These people are new to your group and did one of their first pickups. Did they handle the situation well? Then you could express your trust and help them becoming a group editor.
-      </p>
-      <div>
-        <div class="wrapper q-ml-xs" style="width:40px;height:40px;">
-          <a title="Mira Bellenbaum (Newcomer)">
-            <div text="Mira Bellenbaum" seed="1" class="randomArt fill"></div>
-          </a>
-        </div>
-        Mira Bellenbaum
-        <br> 5 pickups, 2 trust so far
-      </div>
-      <div>
-        <div class="wrapper q-ml-xs" style="width:40px;height:40px;">
-          <a title="Max Mustermann (Newcomer)">
-            <div text="Max Mustermann" seed="2" class="randomArt fill"></div>
-          </a>
-        </div>
-        Max Mustermann
-        <br> 5 pickups, 2 trust so far
-      </div>
-      <div>
-        <div class="wrapper q-ml-xs" style="width:40px;height:40px;">
-          <a title="Karl Karlson (Newcomer)">
-            <div text="Karl Karlson" seed="3" class="randomArt fill"></div>
-          </a>
-        </div>
-        Karl Karlson
-        <br> 5 pickups, 2 trust so far
-      </div>
     </div>
   </div>
   <div class="q-card no-shadow grey-border store-feedback">

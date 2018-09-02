@@ -36,14 +36,15 @@
         </div>
       </RandomArt>
       <div class="generic-padding">
+        <p v-t="'PICKUP_FEEDBACK.TOGETHER_WITH'" />
         <p>
-          You did this pickup together with
           <ProfilePicture
             v-for="user in fellowCollectors"
             :user="user"
             :key="user.id"
+            :size="35"
             class="q-ml-xs"
-          />.
+          />
         </p>
         <FeedbackForm
           style="padding: 1.5em 0"
@@ -51,25 +52,6 @@
           :status="saveStatus"
           @save="$emit('save', arguments[0])"
         />
-        <p v-if="newcomerCollectors.length > 0">
-          One more moment please...<br>
-          These people are new to your group and did one of their first pickups.
-          Did they handle the situation well?
-          Then you could express your trust and help them becoming a group editor.
-        </p>
-        <div
-          v-for="user in newcomerCollectors"
-          :key="user.id"
-        >
-          <!-- TODO convert into list -->
-          <ProfilePicture
-            :user="user"
-            class="q-ml-xs"
-            :size="40"
-          />
-          {{ user.displayName }}<br>
-          5 pickups, 2 trust so far
-        </div>
       </div>
     </q-card>
     <KNotice v-else>
@@ -172,9 +154,6 @@ export default {
     },
     fellowCollectors () {
       return this.select.collectors.filter(u => !u.isCurrentUser)
-    },
-    newcomerCollectors () {
-      return this.fellowCollectors.filter(u => u.membership && !u.membership.isEditor && !u.membership.trusted)
     },
   },
 }

@@ -337,7 +337,8 @@
     "DELETE_AMOUNT": "Delete amount",
     "AMOUNT": "Amount of food all of you were able to save (in kg)",
     "COMMENT_PLACEHOLDER": "Was everything fine? Did everyone show up? Your comment here...",
-    "PREVIOUS": "Previous feedback for {store}"
+    "PREVIOUS": "Previous feedback for {store}",
+    "TOGETHER_WITH": "You did this pickup together with:"
   },
   "PASSWORDRESET": {
     "TITLE": "Password reset",

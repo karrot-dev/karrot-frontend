@@ -50,7 +50,7 @@
     "NEWCOMER_INFO": "You are currently a newcomer in {groupName} and you can become active by writing messages, meeting fellow members, doing pickups and giving feedback. As soon as {threshold} members expressed their trust in you, you will gain editing permissions to help with group administration."
   },
   "SWITCHGROUP": {
-    "NOT_MEMBER": "{userName} is not a member of {groupName}.",
+    "NOT_MEMBER": "{userName} is not member of {groupName}.",
     "COMMON_GROUPS": "Groups you have in common",
     "OTHER_GROUPS": "Other groups"
   },

@@ -4,7 +4,7 @@
     @click="showModal = true"
     v-if="groups.length > 1"
   >
-    {{ currentGroup ? currentGroup.name : '?' }}
+    {{ currentGroup ? currentGroup.name : $t('TOPBAR.CHANGE_GROUP') }}
     <q-modal
       v-model="showModal"
       minimized

@@ -7,37 +7,31 @@
       <router-link
         v-if="isLink"
         :to="{name:'user', params: {userId: user.id}}"
-        :title="user.displayName"
+        :title="tooltip"
       >
         <img
           v-if="hasPhoto"
           :src="photo"
-          :width="size"
-          :height="size"
+          class="fill"
         >
         <RandomArt
           v-else
           :text="user.displayName"
           :seed="user.id"
-          class="randomArt"
-          :style="pictureStyle"
+          class="randomArt fill"
         />
       </router-link>
-      <div v-else>
-        <img
-          v-if="hasPhoto"
-          :src="photo"
-          :width="size"
-          :height="size"
-        >
-        <RandomArt
-          v-else
-          :text="user.displayName"
-          :seed="user.id"
-          class="randomArt"
-          :style="pictureStyle"
-        />
-      </div>
+      <img
+        v-else-if="hasPhoto"
+        :src="photo"
+        class="fill"
+      >
+      <RandomArt
+        v-else
+        :text="user.displayName"
+        :seed="user.id"
+        class="randomArt fill"
+      />
     </template>
     <div
       v-else
@@ -61,6 +55,13 @@ export default {
     RandomArt,
   },
   computed: {
+    tooltip () {
+      if (!this.user.membership || this.user.membership.isEditor) {
+        return this.user.displayName
+      }
+      const role = this.$t('USERDATA.NEWCOMER')
+      return `${this.user.displayName} (${role})`
+    },
     pictureStyle () {
       return {
         width: this.size + 'px',
@@ -100,4 +101,7 @@ export default {
   justify-content center
   align-items center
   user-select none
+.fill
+  width 100%
+  height 100%
 </style>

@@ -8,51 +8,13 @@
       >
         <q-search v-model="filterTerm" />
       </q-item>
-      <q-item
+      <UserItem
         v-for="user in activeUsers"
         :key="user.id"
-        link
-        highlight
-        :to="{name: 'user', params: { userId: user.id }}"
-      >
-        <q-item-side>
-          <ProfilePicture
-            :key="user.id"
-            :user="user"
-            :size="30"
-            class="profilePic"
-          />
-        </q-item-side>
-        <q-item-main>
-          <q-item-tile label>
-            {{ user.displayName }}
-          </q-item-tile>
-          <q-item-tile sublabel>
-            <i18n
-              path="GROUP.JOINED"
-            >
-              <DateAsWords
-                place="relativeDate"
-                style="display: inline"
-                :date="user.membershipInCurrentGroup.createdAt"
-              />
-            </i18n>
-            <template v-if="user.membershipInCurrentGroup.addedBy">
-              ·
-              <i18n
-                path="GROUP.ADDED_BY"
-              >
-                <router-link
-                  place="userName"
-                  :to="{name: 'user', params: { userId: user.membershipInCurrentGroup.addedBy.id }}"
-                >
-                  {{ user.membershipInCurrentGroup.addedBy.displayName }}
-                </router-link>
-              </i18n>
-            </template>
-          </q-item-tile>
-        </q-item-main>
-      </q-item>
+        :user="user"
+        :group="group"
+        @createTrust="$emit('createTrust', arguments[0])"
+      />
       <q-item-separator />
       <q-collapsible
         v-if="inactiveUsers.length > 0"
@@ -63,28 +25,14 @@
         @hide="showInactive = false"
       >
         <template v-if="showInactive">
-          <q-item
+          <UserItem
             v-for="user in inactiveUsers"
             :key="user.id"
-            link
-            highlight
-            :to="{name: 'user', params: { userId: user.id }}"
+            :user="user"
+            :group="group"
             class="inactive"
-          >
-            <q-item-side>
-              <ProfilePicture
-                :key="user.id"
-                :user="user"
-                :size="30"
-                class="profilePic"
-              />
-            </q-item-side>
-            <q-item-main>
-              <q-item-tile label>
-                {{ user.displayName }}
-              </q-item-tile>
-            </q-item-main>
-          </q-item>
+            @createTrust="$emit('createTrust', arguments[0])"
+          />
         </template>
       </q-collapsible>
     </q-list>
@@ -94,28 +42,22 @@
 <script>
 import {
   QList,
+  QListHeader,
   QItemSeparator,
   QItem,
-  QItemMain,
-  QItemTile,
-  QItemSide,
   QCollapsible,
   QSearch,
 } from 'quasar'
 
-import ProfilePicture from './ProfilePicture'
-import DateAsWords from '@/components/General/DateAsWords'
+import UserItem from './UserItem'
 
 export default {
   components: {
-    ProfilePicture,
-    DateAsWords,
+    UserItem,
     QList,
+    QListHeader,
     QItemSeparator,
     QItem,
-    QItemMain,
-    QItemTile,
-    QItemSide,
     QCollapsible,
     QSearch,
   },
@@ -123,6 +65,10 @@ export default {
     users: {
       type: Array,
       required: true,
+    },
+    group: {
+      type: Object,
+      default: null,
     },
     sorting: {
       type: String,
@@ -137,7 +83,7 @@ export default {
   },
   methods: {
     sort (list) {
-      const getJoinDate = a => a.membershipInCurrentGroup.createdAt
+      const getJoinDate = a => a.membership.createdAt
       const sortByJoinDate = (a, b) => getJoinDate(b) - getJoinDate(a)
       const sortByName = (a, b) => a.displayName.localeCompare(b.displayName)
       return list.slice().sort(this.sorting === 'joinDate' ? sortByJoinDate : sortByName)
@@ -152,10 +98,10 @@ export default {
       return this.inactiveUsers.length + ' ' + this.$tc('JOINGROUP.NUM_MEMBERS', this.inactiveUsers.length)
     },
     activeUsers () {
-      return this.sort(this.filterByTerms(this.users.filter(u => u.membershipInCurrentGroup.active)))
+      return this.sort(this.filterByTerms(this.users.filter(u => u.membership.active)))
     },
     inactiveUsers () {
-      return this.sort(this.filterByTerms(this.users.filter(u => !u.membershipInCurrentGroup.active)))
+      return this.sort(this.filterByTerms(this.users.filter(u => !u.membership.active)))
     },
   },
 }
@@ -167,6 +113,4 @@ export default {
     margin-right .5em
 .inactive
   opacity 0.5
-.q-item-sublabel > span
-  font-weight initial
 </style>

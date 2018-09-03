@@ -11,7 +11,18 @@ storiesOf('Sidenav Boxes', module)
     render (h) {
       let { showStores, showUsers, toggleUsers, toggleStores } = this
       return h(SidenavMapUI, {
-        props: { stores, users, showStores, showUsers, currentGroup: groupsMock[0] },
+        props: {
+          stores,
+          users,
+          showStores,
+          showUsers,
+          currentGroup: {
+            ...groupsMock[0],
+            membership: {
+              isEditor: true,
+            },
+          },
+        },
         on: { toggleStores, toggleUsers },
       })
     },

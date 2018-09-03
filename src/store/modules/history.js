@@ -2,13 +2,14 @@ import Vue from 'vue'
 import historyAPI from '@/services/api/history'
 import { indexById, createRouteError, createMetaModule, createPaginationModule, withMeta, metaStatuses } from '@/store/helpers'
 import i18n from '@/i18n'
+import deepEqual from 'deep-equal'
 
 function initialState () {
   return {
     activeId: null,
     entries: {},
     idList: [], // sorted, most recent on top
-    idListScope: { type: null, id: null }, // what kind of data currently is loaded in idList
+    idListScope: {}, // what kind of data currently is loaded in idList
   }
 }
 
@@ -27,6 +28,9 @@ export default {
       if (entry) {
         const store = rootGetters['stores/get'](entry.store)
         const msgValues = store ? { storeName: store.name, name: store.name } : {}
+        if (entry.typus === 'GROUP_APPLICATION_DECLINED') {
+          msgValues.applicantName = entry.payload.applicantName
+        }
         return {
           ...entry,
           users: entry.users.map(rootGetters['users/get']),
@@ -42,16 +46,15 @@ export default {
   },
   actions: {
     ...withMeta({
-      async fetchFiltered ({ state, dispatch, commit }, { filters, scope }) {
+      async fetchFiltered ({ state, dispatch, commit }, { filters }) {
         // only clear if scope changed
-        const {type, id} = state.idListScope
-        if (scope.type !== type || scope.id !== id) {
+        if (!deepEqual(filters, state.idListScope)) {
           dispatch('clear')
-          commit('setScope', scope)
+          commit('setScope', filters)
         }
         const entries = await dispatch('pagination/extractCursor', historyAPI.list(filters))
         // check for race condition when switching pages
-        if (scope.type !== state.idListScope.type || scope.id !== state.idListScope.id) return
+        if (!deepEqual(filters, state.idListScope)) return
         commit('update', { entries })
       },
       async fetchById ({ commit }, id) {
@@ -60,10 +63,10 @@ export default {
         commit('addEntry', entry)
       },
       async fetchPast ({ state, commit, dispatch }) {
-        const {type, id} = state.idListScope
+        const scope = state.idListScope
         const entries = await dispatch('pagination/fetchNext', historyAPI.listMore)
         // check for race condition when switching pages
-        if (type !== state.idListScope.type || id !== state.idListScope.id) return
+        if (!deepEqual(scope, state.idListScope)) return
         commit('update', { entries })
       },
 
@@ -85,29 +88,26 @@ export default {
     async fetchForGroup ({ dispatch }, { groupId }) {
       dispatch('fetchFiltered', {
         filters: { group: groupId },
-        scope: { type: 'group', id: groupId },
       })
     },
-    async fetchForUser ({ dispatch }, { userId }) {
+    async fetchForUserInGroup ({ dispatch }, { userId, groupId }) {
       dispatch('fetchFiltered', {
-        filters: { users: userId },
-        scope: { type: 'user', id: userId },
+        filters: { users: userId, group: groupId },
       })
     },
     async fetchForStore ({ dispatch }, { storeId }) {
       dispatch('fetchFiltered', {
         filters: { store: storeId },
-        scope: { type: 'store', id: storeId },
       })
     },
 
     update ({ state, commit }, entry) {
       // add entry if it fits current scope
-      const {type, id} = state.idListScope
-      const fitsGroupScope = () => type === 'group' && entry.group === id
-      const fitsStoreScope = () => type === 'store' && entry.store === id
-      const fitsUserScope = () => type === 'user' && entry.users && entry.users.includes(id)
-      if (fitsGroupScope() || fitsStoreScope() || fitsUserScope()) {
+      const { group, store, users } = state.idListScope
+      const fitsGroupScope = () => group && entry.group === group
+      const fitsStoreScope = () => store && entry.store === store
+      const fitsUserInGroupScope = () => users && entry.users && entry.users.includes(users) && fitsGroupScope()
+      if (fitsUserInGroupScope() || (fitsGroupScope() && !users) || fitsStoreScope()) {
         commit('update', { entries: [entry] })
       }
     },
@@ -117,21 +117,18 @@ export default {
     },
 
     refresh ({ state, dispatch }) {
-      const {type, id} = state.idListScope
-      switch (type) {
-        case 'group': return dispatch('fetchForGroup', { groupId: id })
-        case 'user': return dispatch('fetchForUser', { userId: id })
-        case 'store': return dispatch('fetchForStore', { storeId: id })
-      }
+      const { group, store, users } = state.idListScope
+      if (group && users) return dispatch('fetchForUserInGroup', { userId: users, groupId: group })
+      if (group) return dispatch('fetchForGroup', { groupId: group })
+      if (store) return dispatch('fetchForStore', { storeId: store })
     },
   },
   mutations: {
     setActive (state, { id }) {
       state.activeId = id
     },
-    setScope (state, { type, id }) {
-      state.idListScope.type = type
-      state.idListScope.id = id
+    setScope (state, scope) {
+      state.idListScope = scope
     },
     addEntry (state, entry) {
       // add entry without adding it to list

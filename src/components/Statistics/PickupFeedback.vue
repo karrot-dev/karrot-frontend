@@ -36,6 +36,16 @@
         </div>
       </RandomArt>
       <div class="generic-padding">
+        <p v-t="'PICKUP_FEEDBACK.TOGETHER_WITH'" />
+        <p>
+          <ProfilePicture
+            v-for="user in fellowCollectors"
+            :user="user"
+            :key="user.id"
+            :size="35"
+            class="q-ml-xs"
+          />
+        </p>
         <FeedbackForm
           style="padding: 1.5em 0"
           :value="feedbackDefault"
@@ -81,9 +91,10 @@ import cartImg from 'assets/people/cart.png'
 import RandomArt from '@/components/General/RandomArt'
 import FeedbackForm from './FeedbackForm'
 import KNotice from '@/components/General/KNotice'
+import ProfilePicture from '@/components/ProfilePictures/ProfilePicture'
 
 export default {
-  components: { RandomArt, QCard, QCardMain, QField, QInput, QBtn, QSelect, FeedbackForm, AmountPicker, FeedbackList, KNotice },
+  components: { RandomArt, ProfilePicture, QCard, QCardMain, QField, QInput, QBtn, QSelect, FeedbackForm, AmountPicker, FeedbackList, KNotice },
   props: {
     pickups: { required: true, type: Array },
     editFeedback: { default: null, type: Object },
@@ -140,6 +151,9 @@ export default {
         filtered = filtered.filter(e => e.id !== this.editFeedback.id)
       }
       return filtered
+    },
+    fellowCollectors () {
+      return this.select.collectors.filter(u => !u.isCurrentUser)
     },
   },
 }

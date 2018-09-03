@@ -9,6 +9,7 @@ export default connect({
     showStores: 'sidenavBoxes/toggle/storesOnMap',
     showUsers: 'sidenavBoxes/toggle/usersOnMap',
     selectedStore: 'stores/activeStore',
+    selectedUser: 'users/activeUser',
     currentGroup: 'currentGroup/value',
   },
   actionsToEvents: {

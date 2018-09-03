@@ -6,6 +6,7 @@ export default connect({
   gettersToProps: {
     storeId: 'stores/activeStoreId',
     expanded: 'sidenavBoxes/toggle/store',
+    isEditor: 'currentGroup/isEditor',
   },
   actionsToEvents: {
     toggleBox: 'sidenavBoxes/toggle/store',

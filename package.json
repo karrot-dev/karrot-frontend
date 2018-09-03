@@ -57,7 +57,7 @@
     "markdown-it-emoji": "^1.4.0",
     "markdown-it-link-attributes": "^2.0.0",
     "quasar-extras": "2.0.6",
-    "quasar-framework": "0.17.10",
+    "quasar-framework": "0.17.12",
     "raven-js": "^3.20.1",
     "reconnecting-websocket": "^4.0.0-rc5",
     "twemoji": "^11.0.1",

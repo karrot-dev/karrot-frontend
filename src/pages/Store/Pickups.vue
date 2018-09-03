@@ -7,7 +7,10 @@
       <div class="generic-padding">
 
         <div class="actionButtons">
-          <router-link :to="{name: 'storeEdit', params: { storeId }}">
+          <router-link
+            v-if="isEditor"
+            :to="{name: 'storeEdit', params: { storeId }}"
+          >
             <q-btn
               small
               round
@@ -18,7 +21,10 @@
               <q-tooltip v-t="'STOREDETAIL.EDIT'" />
             </q-btn>
           </router-link>
-          <router-link :to="{name: 'storePickupsManage', params: { storeId }}">
+          <router-link
+            v-if="isEditor"
+            :to="{name: 'storePickupsManage', params: { storeId }}"
+          >
             <q-btn
               small
               round
@@ -73,7 +79,10 @@
       </template>
       {{ $t('STOREDETAIL.INACTIVE') }}
       <template slot="desc">
-        <router-link :to="{name: 'storeEdit', params: { storeId }}">
+        <router-link
+          v-if="isEditor"
+          :to="{name: 'storeEdit', params: { storeId }}"
+        >
           {{ $t('STOREDETAIL.CHANGE_STATUS') }}
           <q-btn
             small
@@ -90,7 +99,10 @@
       </template>
       {{ $t('PICKUPLIST.NONE') }}
       <template slot="desc">
-        <router-link :to="{name: 'storePickupsManage', params: { storeId }}">
+        <router-link
+          v-if="isEditor"
+          :to="{name: 'storePickupsManage', params: { storeId }}"
+        >
           {{ $t('PICKUPLIST.STORE_NONE_HINT') }}
           <q-btn
             small
@@ -138,6 +150,7 @@ export default {
       store: 'stores/activeStore',
       pickups: 'pickups/filtered',
       currentUser: 'auth/user',
+      isEditor: 'currentGroup/isEditor',
     }),
     hasNoPickups () {
       return this.pickups && this.pickups.length === 0

@@ -7,18 +7,27 @@
       style="width: 100%"
       @resize="calculateSlotsPerRow"
     />
-    <ProfilePicture
+    <div
       v-for="user in pickup.collectors"
       v-if="!user.isCurrentUser"
       :key="'0' + user.id"
-      :user="user"
-      :size="size"
-      class="profilePic clickable"
-    />
+      class="relative-position pic-wrapper"
+    >
+      <div
+        v-if="isNewcomer(user)"
+        class="newcomer-box"
+        :title="$t('USERDATA.NEWCOMER_GUIDANCE', { userName: user.displayName })"
+      />
+      <ProfilePicture
+        :user="user"
+        :size="size"
+        class="hoverScale"
+      />
+    </div>
 
     <div
       v-if="isJoiningOrLeaving(pickup)"
-      class="emptySlots profilePic"
+      class="emptySlots"
       style="border-color: black"
       :style="{ width: size + 'px', height: size + 'px' }"
     >
@@ -34,7 +43,7 @@
         v-if="pickup.isUserMember && !isJoiningOrLeaving(pickup)"
         :size="size"
         :user="currentUser"
-        class="profilePic clickable"
+        class="hoverScale"
         @leave="$emit('leave')"
       />
     </transition>
@@ -44,8 +53,7 @@
       :hover-user="currentUser"
       :show-join="!pickup.isUserMember"
       v-if="!pickup.isFull && !(isJoiningOrLeaving(pickup) && !pickup.isUserMember)"
-      class="profilePic"
-      :class="{clickable: !pickup.isUserMember}"
+      :class="{hoverScale: !pickup.isUserMember}"
       @join="$emit('join')"
     />
 
@@ -54,12 +62,11 @@
       :key="n"
       :size="size"
       v-if="n > 1"
-      class="profilePic"
     />
 
     <div
       v-if="noNotShownEmptySlots > 0"
-      class="emptySlots profilePic"
+      class="emptySlots"
       :style="{ width: size + 'px', height: size + 'px' }"
     >
       <div/>
@@ -110,6 +117,9 @@ export default {
         this.slotsPerRow = Math.floor(this.$refs.wrapperDiv.clientWidth / (this.size + 3.8))
       }
     },
+    isNewcomer (user) {
+      return user.membership && !user.membership.isEditor
+    },
   },
   computed: {
     ...mapGetters({
@@ -143,23 +153,28 @@ export default {
 </script>
 
 <style scoped lang="stylus">
+@import '~variables'
+.pic-wrapper
+  margin-right 3px
+.newcomer-box
+  height 8px
+  width 100%
+  position absolute
+  bottom -4px
+  left 0
+  background linear-gradient(to bottom, $secondary, lighten($secondary, 50))
 .emptySlots
+  display inline-block
+  background-color rgba(255, 255, 255, 0.7)
+  border 2px dashed lightgrey
+  color grey
+  border-radius $borderRadius
+  margin-bottom 3.8px
+  text-align center
+  div
     display inline-block
-    background-color rgba(255, 255, 255, 0.7)
-    border 2px dashed lightgrey
-    color grey
-    border-radius $borderRadius
-    margin-bottom 3.8px
-    text-align center
-    div
-      display inline-block
-      height 100%
-      vertical-align middle
-.profilePic.clickable
-  margin-right .3em
-  transition transform .1s ease
-.profilePic.clickable:hover
-  transform scale(1.1)
+    height 100%
+    vertical-align middle
 
 .bounce-enter-active
   animation bounceIn .4s

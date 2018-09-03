@@ -23,6 +23,7 @@ export default {
         group: rootGetters['groups/get'](application.group),
         decidedBy: rootGetters['users/get'](application.decidedBy),
         isPending: application.status === 'pending',
+        canDecide: application.status === 'pending' && rootGetters['currentGroup/isEditor'],
       }
     },
     getMineForGroupIdNotEnriched: (state, getters, rootState, rootGetters) => groupId => {

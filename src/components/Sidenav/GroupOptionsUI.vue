@@ -10,6 +10,7 @@
       v-close-overlay
     >
       <q-item
+        v-if="isEditor"
         :to="{name: 'groupEdit', params: {groupId: currentGroupId}}"
       >
         <q-icon
@@ -41,6 +42,7 @@
       </q-item>
 
       <q-item
+        v-if="isEditor"
         :to="{name: 'groupInvitations', params: {groupId: currentGroupId}}"
       >
         <q-icon
@@ -80,6 +82,9 @@ export default {
   computed: {
     isAgreementManager () {
       return this.roles && this.roles.includes('agreement_manager')
+    },
+    isEditor () {
+      return this.roles && this.roles.includes('editor')
     },
   },
   methods: {

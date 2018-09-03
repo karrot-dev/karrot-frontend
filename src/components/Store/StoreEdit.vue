@@ -76,10 +76,10 @@
           </q-field>
 
           <div
-            v-if="hasNonFieldError"
+            v-if="hasNonFieldError || hasError('group')"
             class="text-negative"
           >
-            {{ firstNonFieldError }}
+            {{ firstNonFieldError || firstError('group') }}
           </div>
 
           <div class="actionButtons">

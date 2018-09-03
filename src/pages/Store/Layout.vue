@@ -4,7 +4,7 @@
       <k-banner
         color="info"
         icon="fas fa-trash-alt"
-        :actions="[{ label: $t('STOREEDIT.RESTORE'), handler: restore }]"
+        :actions="isEditor ? [{ label: $t('STOREEDIT.RESTORE'), handler: restore }] : []"
       >
         {{ $t('STOREDETAIL.ARCHIVED') }}
       </k-banner>
@@ -27,6 +27,7 @@ export default {
   computed: {
     ...mapGetters({
       store: 'stores/activeStore',
+      isEditor: 'currentGroup/isEditor',
     }),
   },
   methods: {

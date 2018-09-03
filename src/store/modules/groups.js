@@ -39,10 +39,6 @@ export default {
     all: (state, getters, rootState, rootGetters) => {
       return state.idsList.map(getters.get)
     },
-    activeUserGroups: (state, getters, rootState, rootGetters) => {
-      let activeUser = rootGetters['users/activeUser']
-      return activeUser ? getters.all.filter(el => el.members.includes(activeUser.id)) : []
-    },
     mine: (state, getters) => getters.all.filter(e => e.isMember).sort(sortByName),
     // A de-duplicated list of member ids of all groups the user is part of
     myMemberIds: (state, getters) => {
@@ -98,7 +94,6 @@ export default {
       async fetch ({ commit }) {
         commit('set', await groupsInfo.list())
       },
-
     }),
 
     update ({ commit }, group) {

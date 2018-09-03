@@ -12,13 +12,31 @@ Please document your changes in this format:
 ## [Unreleased]
 ### Added
 
-- Conversations overview page #1070 @tiltec
+- Newcomer role and trust system #1077 @tiltec
 
 ### Changed
 
 ### Removed
 
 ### Fixed
+
+
+## [Release 6.1] - 2018-08-31
+### Added
+
+- Conversations overview page #1070 @tiltec
+
+### Changed
+
+- Feedback list design @tiltec
+- LocaleSelect and CommunityFeed improved for mobile @tiltec
+- Speed up feedback loading by including related pickups @tiltec
+
+### Fixed
+
+- Loading of application chat @tiltec
+- Pickups: access to undefined properties while loading @tiltec
+- Redirect to groups gallery when user got logged out @tiltec
 
 
 ## [Release 6] - 2018-08-25
@@ -37,6 +55,10 @@ Please document your changes in this format:
 - External links, email links and phone links in markdown now have a small icon @tiltec
 - Internal links open in the same tab @tiltec
 - Unified desktop/mobile sidenav #1071 @nicksellen
+
+### Removed
+
+- Group password; affected groups have been migrated to applications
 
 
 ## [Release 5] - 2018-07-16
@@ -186,7 +208,8 @@ After months of planning and programming, the first version of ~the foodsaving t
 - **store**: create a store which belongs to a group, set up name, description, address and position of a store
 - **pick-up dates**: create a pick-up date which belongs to a store, set time and max. amount of people who can collect food, user can join/leave a pick-up date
 
-[Unreleased]: https://github.com/yunity/karrot-frontend/compare/v6.0.0...HEAD
+[Unreleased]: https://github.com/yunity/karrot-frontend/compare/v6.1.0...HEAD
+[Release 6.1]: https://github.com/yunity/karrot-frontend/compare/v6.0.0...v6.1.0
 [Release 6]: https://github.com/yunity/karrot-frontend/compare/v5.0.0...v6.0.0
 [Release 5]: https://github.com/yunity/karrot-frontend/compare/v4.0.0...v5.0.0
 [Release 4]: https://github.com/yunity/karrot-frontend/compare/v3.0.0...v4.0.0

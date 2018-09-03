@@ -1,5 +1,5 @@
 import groups from '@/services/api/groups'
-import { withMeta, createMetaModule, withPrefixedIdMeta, createRouteRedirect } from '@/store/helpers'
+import { withMeta, createMetaModule, withPrefixedIdMeta, metaStatusesWithId, createRouteRedirect } from '@/store/helpers'
 
 function initialState () {
   return {
@@ -15,26 +15,46 @@ export default {
     value: (state, getters) => getters.enrich(state.current),
     enrich: (state, getters, rootState, rootGetters) => group => {
       if (!group) return
-      const userId = rootGetters['auth/userId']
-      const activeAgreement = rootGetters['agreements/get'](group.activeAgreement)
-      const membership = group.memberships ? group.memberships[userId] : {}
       const isPlayground = group.status === 'playground'
       return {
         ...group,
-        membership,
-        activeAgreement,
-        awaitingAgreement: !!(activeAgreement && activeAgreement.agreed === false),
         isPlayground,
+        membership: getters.membership,
+        memberships: getters.memberships,
+        activeAgreement: getters.activeAgreement,
+        awaitingAgreement: !!(getters.activeAgreement && getters.activeAgreement.agreed === false),
       }
     },
-    roles: (state, getters) => (getters.value && getters.value.membership) ? getters.value.membership.roles : [],
-    agreement: (state, getters) => getters.value && getters.value.activeAgreement,
+    memberships: (state, getters, rootState, rootGetters) => {
+      const group = state.current
+      if (!group) return []
+      return Object.entries(group.memberships).reduce((obj, [userId, membership]) => {
+        // cannot enrich trustedBy and addedBy, as it would create the cyclic dependency "user -> group -> user"
+        const authUserId = rootGetters['auth/userId']
+        const isEditor = membership.roles.includes('editor')
+        const { trustThresholdForNewcomer } = state.current
+        obj[userId] = {
+          ...membership,
+          isEditor,
+          trusted: membership.trustedBy.includes(authUserId),
+          trustProgress: isEditor ? 1 : membership.trustedBy.length / trustThresholdForNewcomer,
+          trustThresholdForNewcomer,
+          ...metaStatusesWithId(getters, ['trustUser'], parseInt(userId)),
+        }
+        return obj
+      }, {})
+    },
+    agreement: (state, getters, rootState, rootGetters) => state.current && rootGetters['agreements/get'](state.current.activeAgreement),
     conversation: (state, getters, rootState, rootGetters) => {
       if (!state.current) return
       return rootGetters['conversations/getForGroup'](state.current.id)
     },
     conversationUnreadCount: (state, getters) => getters.conversation && getters.conversation.unreadMessageCount,
     id: (state) => state.current && state.current.id,
+    // for current user:
+    membership: (state, getters, rootState, rootGetters) => getters.memberships[rootGetters['auth/userId']],
+    roles: (state, getters) => getters.membership ? getters.value.membership.roles : [],
+    isEditor: (state, getters) => getters.roles.includes('editor'),
   },
   actions: {
     ...withMeta({
@@ -63,6 +83,11 @@ export default {
           await groups.removeNotificationType(getters.id, notificationType)
         }
         await dispatch('fetch', getters.id)
+      },
+
+      async trustUser ({ getters }, userId) {
+        if (!getters.id) return
+        await groups.trustUser(getters.id, userId)
       },
 
     }),

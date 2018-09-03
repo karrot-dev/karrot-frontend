@@ -71,7 +71,7 @@
         :title="$t('BUTTON.OPEN')"
       />
       <q-btn
-        v-if="application.status === 'pending'"
+        v-if="application.canDecide"
         round
         color="positive"
         icon="fas fa-check"
@@ -80,7 +80,7 @@
         :title="$t('BUTTON.ACCEPT')"
       />
       <q-btn
-        v-if="application.status === 'pending'"
+        v-if="application.canDecide"
         round
         color="negative"
         icon="fas fa-times"

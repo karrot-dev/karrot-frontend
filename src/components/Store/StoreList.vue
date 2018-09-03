@@ -25,7 +25,7 @@
     </q-item>
 
     <q-item
-      v-if="!hasStores"
+      v-if="!hasStores && isEditor"
       link
       :to="{ name: 'storeCreate', params: { groupId } }"
       class="bg-secondary"
@@ -43,7 +43,7 @@
     <q-item-separator v-if="archived.length > 0" />
 
     <q-collapsible
-      v-if="archived.length > 0"
+      v-if="archived.length > 0 && isEditor"
       icon="fas fa-trash-alt"
       :label="`${$t('STORESTATUS.ARCHIVED')} (${archived.length})`"
     >
@@ -65,6 +65,7 @@
 
 <script>
 import { QList, QListHeader, QItem, QItemMain, QItemTile, QItemSide, QIcon, QTooltip, QCollapsible, QItemSeparator } from 'quasar'
+import { mapGetters } from 'vuex'
 
 export default {
   components: { QList, QListHeader, QItem, QItemMain, QItemTile, QItemSide, QIcon, QTooltip, QCollapsible, QItemSeparator },
@@ -73,11 +74,15 @@ export default {
     stores: { required: true, type: Array },
     archived: { default: () => [], type: Array },
     linkTo: { default: 'store', type: String },
+
   },
   computed: {
     hasStores () {
       return this.stores && this.stores.length > 0
     },
+    ...mapGetters({
+      isEditor: 'currentGroup/isEditor',
+    }),
   },
   methods: {
     linkParamsFor (store) {

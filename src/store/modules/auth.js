@@ -25,6 +25,7 @@ export default {
     isLoggedIn: state => !!state.user,
     user: state => state.user,
     userId: state => state.user && state.user.id,
+    currentGroupId: state => state.user && state.user.currentGroup,
     failedEmailDeliveries: state => state.failedEmailDeliveries,
     redirectTo: state => state.redirectTo,
     hasJoinGroupAfterLogin: state => Boolean(state.joinGroupAfterLogin),

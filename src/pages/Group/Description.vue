@@ -24,7 +24,10 @@
       >
         <q-tooltip v-t="showPublicDescription ? 'GROUP.DESCRIPTION_VERBOSE' : 'GROUPINFO.META'" />
       </q-btn>
-      <router-link :to="{name: 'groupEdit'}">
+      <router-link
+        v-if="isEditor"
+        :to="{name: 'groupEdit'}"
+      >
         <q-btn
           small
           round
@@ -72,6 +75,7 @@ export default {
   computed: {
     ...mapGetters({
       group: 'currentGroup/value',
+      isEditor: 'currentGroup/isEditor',
     }),
   },
 }

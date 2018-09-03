@@ -9,7 +9,7 @@ function initialState () {
   return {
     entries: {},
     idList: [],
-    activeUserId: null,
+    activeUserProfile: null,
     resetPasswordSuccess: false,
     resendVerificationCodeSuccess: false,
   }
@@ -20,40 +20,42 @@ export default {
   modules: { meta: createMetaModule() },
   state: initialState(),
   getters: {
-    get: (state, getters) => userId => {
+    get: (state, getters, rootState, rootGetters) => userId => {
       return getters.enrich(state.entries[userId])
     },
     enrich: (state, getters, rootState, rootGetters) => user => {
+      if (!user) {
+        return {
+          isCurrentUser: false,
+        }
+      }
       const authUserId = rootGetters['auth/userId']
-      return user ? {
+      const membership = rootGetters['currentGroup/memberships'][user.id]
+
+      return {
         ...user,
         isCurrentUser: user.id === authUserId,
-      } : {
-        isCurrentUser: false,
+        membership,
       }
     },
     all: (state, getters, rootState, rootGetters) => {
       return state.idList.map(getters.get)
     },
     byCurrentGroup: (state, getters, rootState, rootGetters) => {
-      const currentGroup = rootGetters['currentGroup/value']
-      if (currentGroup && currentGroup.memberships) {
-        return Object.entries(currentGroup.memberships).map(([userId, membership]) => {
-          return {
-            ...getters.get(userId),
-            membershipInCurrentGroup: {
-              ...membership,
-              addedBy: membership.addedBy && getters.get(membership.addedBy),
-            },
-          }
-        })
-      }
-      return []
+      return getters.all.filter(u => u.membership)
     },
     activeUser: (state, getters, rootState, rootGetters) => {
-      return state.activeUserId && getters.get(state.activeUserId)
+      if (!state.activeUserProfile) return
+
+      const user = state.activeUserProfile
+      const groups = user.groups && user.groups.map(rootGetters['groups/get']).sort((a, b) => a.name.localeCompare(b.name))
+
+      return {
+        ...getters.enrich(user),
+        groups,
+      }
     },
-    activeUserId: state => state.activeUserId,
+    activeUserId: state => state.activeUserProfile && state.activeUserProfile.id,
     ...metaStatuses(['signup', 'requestResetPassword', 'resetPassword', 'resendVerificationCode', 'requestDeleteAccount']),
     resetPasswordSuccess: state => state.resetPasswordSuccess,
     resendVerificationCodeSuccess: state => state.resendVerificationCodeSuccess,
@@ -94,14 +96,14 @@ export default {
       },
     }),
 
-    async selectUser ({ commit, getters, dispatch }, { userId }) {
-      if (!getters.get(userId).id) {
+    async selectUser ({ state, commit, dispatch, rootGetters }, { userId }) {
+      if (!state.activeUserProfile) {
         try {
-          await dispatch('refresh', { userId })
+          commit('setProfile', await users.getProfile(userId))
         }
         catch (error) {
           try {
-            commit('update', await users.getInfo(userId))
+            commit('setProfile', await users.getInfo(userId))
           }
           catch (error) {
             const data = { translation: 'PROFILE.INACCESSIBLE_OR_DELETED' }
@@ -109,15 +111,16 @@ export default {
           }
         }
       }
-      commit('select', userId)
-      dispatch('currentGroup/selectFromCurrentUser', null, { root: true })
-      await dispatch('history/fetchForUser', { userId }, { root: true })
     },
-    update ({ commit }, user) {
+    async update ({ state, commit }, user) {
       commit('update', user)
+      if (state.activeUserProfile && state.activeUserProfile.id === user.id) {
+        // TODO catch error if profile is info-only
+        commit('setProfile', await users.getProfile(user.id))
+      }
     },
     clearSelectedUser ({ commit }) {
-      commit('select', null)
+      commit('setProfile', null)
     },
     clearSignup ({ commit, dispatch }) {
       dispatch('meta/clear', ['signup'])
@@ -130,7 +133,7 @@ export default {
       dispatch('meta/clear', ['resetPassword'])
       commit('resetPasswordSuccess', false)
     },
-    async refresh ({ dispatch, commit }, { userId } = {}) {
+    async refresh ({ state, dispatch, commit }, { userId } = {}) {
       if (userId) {
         const user = await users.get(userId)
         commit('update', user)
@@ -138,11 +141,15 @@ export default {
       else {
         dispatch('fetch')
       }
+      if (state.activeUserProfile) {
+        // TODO catch error if profile is info-only
+        commit('setProfile', await users.getProfile(userId))
+      }
     },
   },
   mutations: {
-    select (state, userId) {
-      state.activeUserId = userId
+    setProfile (state, userProfile) {
+      state.activeUserProfile = userProfile
     },
     set (state, users) {
       state.entries = indexById(users)
@@ -159,4 +166,23 @@ export default {
     },
 
   },
+}
+
+export const plugin = store => {
+  // keep dependent data for user profile updated, even when switching groups
+  // the watch fires too often, so we better to keep track what we last loaded to avoid concurrent requests
+  let lastLoadedGroupId = null
+  store.watch((state, getters) => ({
+    groupId: getters['auth/currentGroupId'],
+    profileUser: getters['users/activeUser'],
+  }), ({ groupId, profileUser }) => {
+    if (profileUser && groupId && lastLoadedGroupId !== groupId) {
+      lastLoadedGroupId = groupId
+      store.dispatch('currentGroup/selectFromCurrentUser')
+      store.dispatch('history/fetchForUserInGroup', { userId: profileUser.id, groupId })
+    }
+    if (!profileUser) {
+      lastLoadedGroupId = null
+    }
+  })
 }

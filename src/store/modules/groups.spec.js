@@ -19,21 +19,11 @@ jest.mock('@/router', () => ({
   replace: mockRouterReplace,
 }))
 
-import { createStore, createValidationError, defaultActionStatusesFor, throws, statusMocks } from '>/helpers'
-
-function enrich (group) {
-  return {
-    ...group,
-    isMember: false,
-    isCurrentGroup: false,
-    isPlayground: false,
-    isInactive: false,
-    ...defaultActionStatusesFor('save', 'join', 'leave'),
-  }
-}
+import { createStore, createValidationError, throws, statusMocks } from '>/helpers'
+import { enrichGroup } from '>/storeHelpers'
 
 function enrichAsMember (group) {
-  return { ...enrich(group), isMember: true }
+  return { ...enrichGroup(group), isMember: true }
 }
 
 describe('groups', () => {
@@ -107,7 +97,7 @@ describe('groups', () => {
     it('can fetch the group list', async () => {
       mockFetchGroupsPreview.mockReturnValueOnce([group1])
       await store.dispatch('groups/fetch')
-      expect(store.getters['groups/all']).toEqual([enrich(group1)])
+      expect(store.getters['groups/all']).toEqual([enrichGroup(group1)])
     })
 
     it('can not join a group', async () => {
@@ -191,7 +181,7 @@ describe('groups', () => {
     })
 
     it('can get a group', () => {
-      expect(store.getters['groups/get'](group1.id)).toEqual(enrich(group1))
+      expect(store.getters['groups/get'](group1.id)).toEqual(enrichGroup(group1))
     })
 
     it('can get myGroups', () => {
@@ -199,7 +189,7 @@ describe('groups', () => {
     })
 
     it('can get otherGroups', () => {
-      expect(store.getters['groups/other']).toEqual([group1].map(enrich))
+      expect(store.getters['groups/other']).toEqual([group1].map(enrichGroup))
     })
   })
 

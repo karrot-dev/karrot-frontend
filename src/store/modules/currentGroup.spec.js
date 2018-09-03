@@ -5,12 +5,28 @@ jest.mock('@/services/api/groups', () => ({
   conversation: mockConversation,
 }))
 
-import { createStore, createValidationError, throws } from '>/helpers'
+import { createStore, createValidationError, throws, statusMocks } from '>/helpers'
 
-function enrich (group) {
+function enrichMemberships (memberships, users, currentUserId) {
+  return Object.entries(memberships).reduce((obj, [uId, membership]) => {
+    obj[uId] = {
+      ...membership,
+      isEditor: membership.roles.includes('editor'),
+      trustProgress: membership.trustedBy.length / 3,
+      trusted: membership.trustedBy.includes(currentUserId),
+      trustThresholdForNewcomer: 3,
+      trustUserStatus: statusMocks.default(),
+    }
+    return obj
+  }, {})
+}
+
+function enrich (group, users, currentUserId) {
+  const membership = group.memberships[currentUserId]
   return {
     ...group,
-    membership: {},
+    membership: enrichMemberships({ [currentUserId]: membership }, users, currentUserId)[currentUserId],
+    memberships: enrichMemberships(group.memberships, users, currentUserId),
     activeAgreement: undefined,
     awaitingAgreement: false,
     isPlayground: false,
@@ -22,12 +38,39 @@ describe('currentGroup', () => {
 
   let store
 
-  let userId = 5
+  let userId
   let group3
+  let users
   let getForGroup
 
   beforeEach(() => {
-    group3 = { id: 3, name: 'group 3', members: [userId] }
+    userId = 5
+    group3 = {
+      id: 3,
+      name: 'group 3',
+      members: [userId, 6],
+      trustThresholdForNewcomer: 3,
+      memberships: {
+        [userId]: {
+          createdAt: new Date(),
+          roles: [],
+          trustedBy: [6],
+        },
+        6: {
+          createdAt: new Date(),
+          roles: [],
+          trustedBy: [userId],
+        },
+      },
+    }
+    users = {
+      [userId]: {
+        id: userId,
+      },
+      6: {
+        id: 6,
+      },
+    }
     getForGroup = jest.fn()
   })
 
@@ -81,6 +124,7 @@ describe('currentGroup', () => {
     beforeEach(() => {
       store = createStore({
         currentGroup: require('./currentGroup').default,
+        users: require('./users').default,
         agreements,
         auth,
         conversations,
@@ -89,6 +133,7 @@ describe('currentGroup', () => {
 
     beforeEach(() => {
       store.commit('currentGroup/set', group3)
+      store.commit('users/set', Object.values(users))
     })
 
     it('can get currentGroup Id', () => {
@@ -96,7 +141,7 @@ describe('currentGroup', () => {
     })
 
     it('can get currentGroup', () => {
-      expect(store.getters['currentGroup/value']).toEqual(enrich(group3))
+      expect(store.getters['currentGroup/value']).toEqual(enrich(group3, users, userId))
     })
 
     it('can get the conversation for the current group', () => {
@@ -105,6 +150,10 @@ describe('currentGroup', () => {
       expect(store.getters['currentGroup/conversation']).toEqual(conversation)
       expect(getForGroup).toBeCalled()
       expect(getForGroup.mock.calls[0][0]).toEqual(group3.id)
+    })
+
+    it('can get memberships', () => {
+      expect(store.getters['currentGroup/memberships']).toEqual(enrichMemberships(group3.memberships, users, userId))
     })
   })
 

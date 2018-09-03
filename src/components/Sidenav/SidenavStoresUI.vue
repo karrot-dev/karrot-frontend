@@ -20,7 +20,7 @@
         <q-tooltip v-t="showAllStores ? 'STOREEDIT.SHOW_ACTIVE_ONLY' : 'STOREEDIT.SHOW_ALL'"/>
       </q-toggle>
       <q-btn
-        v-if="hasStores"
+        v-if="hasStores && isEditor"
         flat
         dense
         round
@@ -52,6 +52,7 @@ export default {
     showAllStores: { default: false, type: Boolean },
     archived: { default: () => [], type: Array },
     expanded: { default: true, type: Boolean },
+    isEditor: { default: false, type: Boolean },
   },
   components: {
     SidenavBox, QBtn, QList, QItem, QItemMain, QItemSide, QIcon, QToggle, QTooltip, StoreList, QItemTile,

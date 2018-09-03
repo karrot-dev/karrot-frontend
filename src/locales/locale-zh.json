@@ -32,9 +32,32 @@
         "TITLE": "刪除帳戶",
         "MESSAGE": "你確定嗎? 你的帳戶和個人資料將被永久清除。你在這平台上所做過的一切都會變成匿名的。如果你確定要刪除帳戶，我們會寄給你完成刪除程序的連結。",
         "CONFIRM": "確認"
+      },
+      "GIVE_TRUST": {
+        "TITLE": "Trust user",
+        "MESSAGE": "Do you trust {userName} in {groupName}?"
       }
     },
-    "LOGOUT_SUCCESS": "你已經登出"
+    "LOGOUT_SUCCESS": "你已經登出",
+    "YOU_TRUST_USER": "You trust {userName} in {groupName}.",
+    "OTHER_PEOPLE_TRUST_USER": "{otherUser} trusts {userName} in {groupName}. | {count} people trust {userName} in {groupName}.",
+    "PEOPLE_TRUST_USER": "You and {otherUser} trust {userName} in {groupName}. | You and {count} other people trust {userName} in {groupName}.",
+    "FIRST_TRUST": "Be the first one to trust {userName} in {groupName}!",
+    "NEWCOMER": "Newcomer",
+    "NEWCOMER_GUIDANCE": "{userName} is new to your group and might need some guidance.",
+    "TRUST_PROGRESS_TEXT": "{trustNeeded} more trust needed",
+    "TRUST_PROGRESS_TEXT_LONG": "{trustNeeded} more people need to express their trust in {userName} to grant editing permissions.",
+    "NEWCOMER_INFO": "You are currently a newcomer in {groupName} and you can become active by writing messages, meeting fellow members, doing pickups and giving feedback. As soon as {threshold} members expressed their trust in you, you will gain editing permissions to help with group administration.",
+    "TRUST_INFO": {
+      "TITLE": "What is this carrot button about?",
+      "MESSAGE": "It is part of the Karrot trust system. It shows if a group member is newcomer and how much trust is needed until they gain editing permissions.",
+      "LINK": "Click here to find out more."
+    }
+  },
+  "SWITCHGROUP": {
+    "NOT_MEMBER": "{userName} is not member of {groupName}.",
+    "COMMON_GROUPS": "Groups you have in common",
+    "OTHER_GROUPS": "Other groups"
   },
   "BUTTON": {
     "CREATE": "創建",
@@ -314,7 +337,8 @@
     "DELETE_AMOUNT": "刪除數量",
     "AMOUNT": "你能領取的食物量(以公斤計算)",
     "COMMENT_PLACEHOLDER": "一切都順利嗎？大家都有到場嗎？在這裡留言...",
-    "PREVIOUS": "先前對於{商店名稱}的回饋"
+    "PREVIOUS": "先前對於{商店名稱}的回饋",
+    "TOGETHER_WITH": "You did this pickup together with:"
   },
   "PASSWORDRESET": {
     "TITLE": "重新設定密碼",
@@ -363,6 +387,8 @@
     "PICKUP_MISSED": "在{商店名稱}的取貨被放鳥了！",
     "PICKUP_JOIN": "註冊以在{商店名稱}取貨",
     "PICKUP_LEAVE": "取消開放領取食物",
+    "GROUP_APPLICATION_DECLINED": "declined an application from {applicantName}",
+    "MEMBER_BECAME_EDITOR": "gained editing permissions",
     "NOTHING_HAPPENEND": "目前沒有任何事情發生",
     "DETAILS": "更多資訊"
   },

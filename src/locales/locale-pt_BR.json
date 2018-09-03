@@ -32,9 +32,32 @@
         "TITLE": "Deletar a conta",
         "MESSAGE": "Você tem certeza? Sua conta e seus dados pessoais serão permanentemente deletados. Tudo que você tiver feito nesta plataforma será transformado em anonimo. Se você confirmar, nós lhe enviamos um e-mail com um link para finalizar o processo de remoção",
         "CONFIRM": "Confirmar"
+      },
+      "GIVE_TRUST": {
+        "TITLE": "Trust user",
+        "MESSAGE": "Do you trust {userName} in {groupName}?"
       }
     },
-    "LOGOUT_SUCCESS": "You have been logged out!"
+    "LOGOUT_SUCCESS": "You have been logged out!",
+    "YOU_TRUST_USER": "You trust {userName} in {groupName}.",
+    "OTHER_PEOPLE_TRUST_USER": "{otherUser} trusts {userName} in {groupName}. | {count} people trust {userName} in {groupName}.",
+    "PEOPLE_TRUST_USER": "You and {otherUser} trust {userName} in {groupName}. | You and {count} other people trust {userName} in {groupName}.",
+    "FIRST_TRUST": "Be the first one to trust {userName} in {groupName}!",
+    "NEWCOMER": "Newcomer",
+    "NEWCOMER_GUIDANCE": "{userName} is new to your group and might need some guidance.",
+    "TRUST_PROGRESS_TEXT": "{trustNeeded} more trust needed",
+    "TRUST_PROGRESS_TEXT_LONG": "{trustNeeded} more people need to express their trust in {userName} to grant editing permissions.",
+    "NEWCOMER_INFO": "You are currently a newcomer in {groupName} and you can become active by writing messages, meeting fellow members, doing pickups and giving feedback. As soon as {threshold} members expressed their trust in you, you will gain editing permissions to help with group administration.",
+    "TRUST_INFO": {
+      "TITLE": "What is this carrot button about?",
+      "MESSAGE": "It is part of the Karrot trust system. It shows if a group member is newcomer and how much trust is needed until they gain editing permissions.",
+      "LINK": "Click here to find out more."
+    }
+  },
+  "SWITCHGROUP": {
+    "NOT_MEMBER": "{userName} is not member of {groupName}.",
+    "COMMON_GROUPS": "Groups you have in common",
+    "OTHER_GROUPS": "Other groups"
   },
   "BUTTON": {
     "CREATE": "Criar",
@@ -314,7 +337,8 @@
     "DELETE_AMOUNT": "Delete amount",
     "AMOUNT": "Total de comida que você conseguiu salvar (em kg)",
     "COMMENT_PLACEHOLDER": "Foi tudo tranquilo? Alguém apareceu? Deixe seu comentário aqui...",
-    "PREVIOUS": "Comentários anteriores para {store}"
+    "PREVIOUS": "Comentários anteriores para {store}",
+    "TOGETHER_WITH": "You did this pickup together with:"
   },
   "PASSWORDRESET": {
     "TITLE": "Redefinir senha",
@@ -363,6 +387,8 @@
     "PICKUP_MISSED": "A coleta na {storeName} não foi feita!",
     "PICKUP_JOIN": "se candidatou para a coleta na loja {storeName}",
     "PICKUP_LEAVE": "desisistiu de fazer a coleta na loja {storeName}",
+    "GROUP_APPLICATION_DECLINED": "declined an application from {applicantName}",
+    "MEMBER_BECAME_EDITOR": "gained editing permissions",
     "NOTHING_HAPPENEND": "Nada aconteceu até agora...",
     "DETAILS": "Mais informação"
   },

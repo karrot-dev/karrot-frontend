@@ -75,3 +75,20 @@ export function objectDiff (a, b) {
   }
   return diff
 }
+
+// Escape html that occurs in text
+// Copied from vue.js: https://github.com/vuejs/vue/blob/833175e9d6e8f47367e49e1752cd149a677cdae8/src/platforms/web/server/util.js#L43
+const ESC = {
+  '<': '&lt;',
+  '>': '&gt;',
+  '"': '&quot;',
+  '&': '&amp;',
+}
+
+export function escape (s) {
+  return s.replace(/[<>"&]/g, escapeChar)
+}
+
+function escapeChar (a) {
+  return ESC[a] || a
+}

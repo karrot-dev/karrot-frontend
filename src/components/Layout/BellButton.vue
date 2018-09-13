@@ -1,27 +1,27 @@
 <template>
   <q-btn
-    :to="$q.platform.is.mobile && ({ name: 'messages' })"
+    :to="$q.platform.is.mobile && ({ name: 'bells' })"
     flat
     dense
     round
     @click="maybeOpen"
   >
     <q-icon
-      name="fas fa-comments"
+      name="fas fa-bell"
     />
     <q-chip
       v-if="unreadCount > 0"
       floating
-      :color="allUnreadMuted ? 'grey' : 'secondary'"
+      color="secondary"
     >
       {{ unreadCount }}
     </q-chip>
     <q-popover
       v-if="!$q.platform.is.mobile"
       v-model="showing"
-      class="k-latest-messages-popover"
+      class="k-bells-popover"
     >
-      <LatestMessages
+      <Bells
         v-if="showing"
         as-popover
       />
@@ -31,37 +31,26 @@
 
 <script>
 import {
-  QToolbar,
-  QToolbarTitle, // TODO cleanup
   QBtn,
   QIcon,
   QChip,
   QPopover,
-  QList,
-  QItem,
-  QTooltip,
 } from 'quasar'
-const LatestMessages = () => import('@/components/Conversation/LatestMessages')
+const Bells = () => import('@/components/Layout/Bells')
 
 import { mapGetters } from 'vuex'
 
 export default {
   components: {
-    QToolbar,
-    QToolbarTitle,
     QBtn,
     QIcon,
     QChip,
     QPopover,
-    QList,
-    QItem,
-    QTooltip,
-    LatestMessages,
+    Bells,
   },
   computed: {
     ...mapGetters({
-      unreadCount: 'latestMessages/unreadCount',
-      allUnreadMuted: 'latestMessages/allUnreadMuted',
+      unreadCount: 'bells/unreadCount',
     }),
   },
   methods: {
@@ -81,6 +70,6 @@ export default {
 </script>
 
 <style lang="stylus" scoped>
-.k-latest-messages-popover
+.k-bells-popover
   width 400px
 </style>

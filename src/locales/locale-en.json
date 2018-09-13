@@ -369,6 +369,10 @@
     "QUOTE": "quote",
     "HELP": "What is Markdown?"
   },
+  "BELLS": {
+    "YOU_BECAME_EDITOR": "You gained editing permissions in {groupName}",
+    "NEW_APPLICANT": "{userName} applied to join {groupName}"
+  },
   "HISTORY": {
     "GROUP_CREATE": "created this group",
     "GROUP_MODIFY": "changed the settings of this group",

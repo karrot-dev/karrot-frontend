@@ -11,9 +11,10 @@ import dependentState from './plugins/dependentState'
 // Alphabetical
 import about, { plugin as aboutPlugin } from './modules/about'
 import agreements from './modules/agreements'
-import banners from './modules/banners'
 import auth, { plugin as authPlugin } from './modules/auth'
 import { plugin as authPushPlugin } from './modules/auth/push'
+import banners from './modules/banners'
+import bells, { plugin as bellsPlugin } from './modules/bells'
 import breadcrumbs from './modules/breadcrumbs'
 import communityFeed from './modules/communityFeed'
 import conversations from './modules/conversations'
@@ -53,8 +54,9 @@ export default new Vuex.Store({
     // Alphabetical, too
     about,
     agreements,
-    banners,
     auth,
+    banners,
+    bells,
     breadcrumbs,
     communityFeed,
     conversations,
@@ -100,6 +102,7 @@ export default new Vuex.Store({
     pickupsPlugin,
     latestMessagesPlugin,
     authPlugin,
+    bellsPlugin,
   ],
   strict: debug,
 })

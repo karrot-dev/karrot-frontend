@@ -13,7 +13,7 @@
       <q-item-tile
         sublabel
       >
-        {{ bell.type }}, {{ bell.payload }}
+        {{ bell.type }}, {{ bell.context }}
       </q-item-tile>
     </q-item-main>
   </q-item>

@@ -30,8 +30,8 @@ export default {
       if (!entry) return
       return {
         ...entry,
-        group: entry.payload.group && rootGetters['groups/get'](entry.payload.group),
-        application: entry.payload.application && rootGetters['groupApplications/get'](entry.payload.application),
+        group: entry.context.group && rootGetters['groups/get'](entry.context.group),
+        application: entry.context.application && rootGetters['groupApplications/get'](entry.context.application),
       }
     },
     unreadCount: (state, getters) => getters.current.length,

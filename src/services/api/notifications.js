@@ -10,7 +10,7 @@ export default {
     return {
       ...response,
       next: parseCursor(response.next),
-      results: convert(response.results),
+      results: convertListResults(response.results),
     }
   },
 
@@ -20,13 +20,24 @@ export default {
       ...response,
       next: parseCursor(response.next),
       prev: parseCursor(response.prev),
-      results: convert(response.results),
+      results: convertListResults(response.results),
     }
   },
 
-  async delete (id) {
-    return (await axios.delete(`/api/notifications/${id}/`)).data
+  async markClicked (id) {
+    return (await axios.post(`/api/notifications/${id}/mark_clicked/`)).data
   },
+
+  async markSeen () {
+    return (await axios.post(`/api/notifications/mark_seen/`)).data
+  },
+}
+
+function convertListResults (results) {
+  return {
+    notifications: convert(results.notifications),
+    meta: convertMeta(results.meta),
+  }
 }
 
 export function convert (val) {
@@ -39,5 +50,12 @@ export function convert (val) {
       createdAt: new Date(val.createdAt),
       expiresAt: val.expiresAt && new Date(val.expiresAt),
     }
+  }
+}
+
+export function convertMeta (val) {
+  return {
+    ...val,
+    markedAt: new Date(val.markedAt),
   }
 }

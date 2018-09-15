@@ -10,11 +10,11 @@
       name="fas fa-bell"
     />
     <q-chip
-      v-if="unreadCount > 0"
+      v-if="unseenCount > 0"
       floating
       color="secondary"
     >
-      {{ unreadCount }}
+      {{ unseenCount }}
     </q-chip>
     <q-popover
       v-if="!$q.platform.is.mobile"
@@ -50,7 +50,7 @@ export default {
   },
   computed: {
     ...mapGetters({
-      unreadCount: 'notifications/unreadCount',
+      unseenCount: 'notifications/unseenCount',
     }),
   },
   methods: {

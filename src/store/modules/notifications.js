@@ -5,6 +5,9 @@ import notificationsAPI from '@/services/api/notifications'
 function initialState () {
   return {
     now: new Date(), // reactive current time
+    meta: {
+      markedAt: null,
+    },
     entries: {},
   }
 }
@@ -34,17 +37,27 @@ export default {
         application: entry.context.application && rootGetters['groupApplications/get'](entry.context.application),
       }
     },
-    unreadCount: (state, getters) => getters.current.length,
+    unseenCount: (state, getters) => {
+      return getters.current.filter(notification => !state.meta.markedAt || notification.createdAt > state.meta.markedAt).length
+    },
   },
   actions: {
     ...withMeta({
-      async fetch ({ dispatch, commit }) {
-        const entries = await dispatch('pagination/extractCursor', notificationsAPI.list())
-        commit('update', entries)
+      async fetch ({ commit, dispatch }) {
+        const { notifications, markedAt } = await dispatch('pagination/extractCursor', notificationsAPI.list())
+        commit('update', notifications)
+        commit('setMarkedAt', markedAt)
       },
-      async fetchPast ({ state, commit, dispatch }) {
-        const entries = await dispatch('pagination/fetchNext', notificationsAPI.listMore)
-        commit('update', entries)
+      async fetchPast ({ commit, dispatch }) {
+        const { notifications, markedAt } = await dispatch('pagination/fetchNext', notificationsAPI.listMore)
+        commit('update', notifications)
+        commit('setMarkedAt', markedAt)
+      },
+      async markClicked ({ commit }, notification) {
+        notificationsAPI.markClicked(notification.id)
+      },
+      async markSeen () {
+        notificationsAPI.markSeen()
       },
     }),
     update ({ commit }, entry) {
@@ -64,6 +77,9 @@ export default {
   mutations: {
     updateNow (state) {
       state.now = new Date()
+    },
+    setMeta (state, data) {
+      state.meta = data
     },
     update (state, entries) {
       for (const entry of entries) {

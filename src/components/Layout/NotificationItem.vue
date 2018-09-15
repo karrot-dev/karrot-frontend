@@ -1,8 +1,8 @@
 <template>
   <q-item
     link
-    class="isUnread"
-    @click.native="$emit('open')"
+    :class="{ isUnread: !notification.clicked }"
+    @click.native="$emit('open', notification)"
   >
     <q-item-main>
       <q-item-tile

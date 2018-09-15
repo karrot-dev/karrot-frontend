@@ -85,11 +85,17 @@ export default {
   },
   methods: {
     ...mapActions({
-      fetchPastConversations: 'notifications/fetchPast',
+      fetchPast: 'notifications/fetchPast',
+      markClicked: 'notifications/markClicked',
+      markSeen: 'notifications/markSeen',
     }),
-    open () {
-      console.log('do something!')
+    open (notification) {
+      console.log('do something with', notification)
+      this.markClicked(notification)
     },
+  },
+  mounted () {
+    this.markSeen()
   },
 }
 </script>

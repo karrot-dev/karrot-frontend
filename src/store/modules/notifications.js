@@ -1,6 +1,6 @@
 import Vue from 'vue'
 import { createMetaModule, createPaginationModule, withMeta } from '@/store/helpers'
-import bellsAPI from '@/services/api/bells'
+import notificationsAPI from '@/services/api/notifications'
 
 function initialState () {
   return {
@@ -21,7 +21,7 @@ export default {
     current: (state, getters, rootState, rootGetters) => {
       return Object.values(state.entries)
         .map(getters.enrich)
-        .filter(bell => !bell.expiresAt || bell.expiresAt > state.now)
+        .filter(notification => !notification.expiresAt || notification.expiresAt > state.now)
         .sort(sortByCreatedAt)
     },
     canFetchPast: (state, getters) => getters['pagination/canFetchNext'],
@@ -39,11 +39,11 @@ export default {
   actions: {
     ...withMeta({
       async fetch ({ dispatch, commit }) {
-        const entries = await dispatch('pagination/extractCursor', bellsAPI.list())
+        const entries = await dispatch('pagination/extractCursor', notificationsAPI.list())
         commit('update', entries)
       },
       async fetchPast ({ state, commit, dispatch }) {
-        const entries = await dispatch('pagination/fetchNext', bellsAPI.listMore)
+        const entries = await dispatch('pagination/fetchNext', notificationsAPI.listMore)
         commit('update', entries)
       },
     }),
@@ -83,15 +83,15 @@ export default {
 
 export function plugin (store) {
   // keep state.now update to date
-  setInterval(() => store.commit('bells/updateNow'), 60 * 1000)
+  setInterval(() => store.commit('notifications/updateNow'), 60 * 1000)
 
-  // load bells when logged in
+  // load notifications when logged in
   store.watch((state, getters) => getters['auth/isLoggedIn'], isLoggedIn => {
     if (isLoggedIn) {
-      store.dispatch('bells/fetch')
+      store.dispatch('notifications/fetch')
     }
     else {
-      store.dispatch('bells/clear')
+      store.dispatch('notifications/clear')
     }
   })
 }

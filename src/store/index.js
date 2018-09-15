@@ -14,7 +14,7 @@ import agreements from './modules/agreements'
 import auth, { plugin as authPlugin } from './modules/auth'
 import { plugin as authPushPlugin } from './modules/auth/push'
 import banners from './modules/banners'
-import bells, { plugin as bellsPlugin } from './modules/bells'
+import notifications, { plugin as notificationsPlugin } from './modules/notifications'
 import breadcrumbs from './modules/breadcrumbs'
 import communityFeed from './modules/communityFeed'
 import conversations from './modules/conversations'
@@ -56,7 +56,7 @@ export default new Vuex.Store({
     agreements,
     auth,
     banners,
-    bells,
+    notifications,
     breadcrumbs,
     communityFeed,
     conversations,
@@ -102,7 +102,7 @@ export default new Vuex.Store({
     pickupsPlugin,
     latestMessagesPlugin,
     authPlugin,
-    bellsPlugin,
+    notificationsPlugin,
   ],
   strict: debug,
 })

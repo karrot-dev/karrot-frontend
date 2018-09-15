@@ -2,11 +2,11 @@ import axios, { parseCursor } from '@/services/axios'
 
 export default {
   async get (id) {
-    return (await axios.get(`/api/bells/${id}/`)).data
+    return (await axios.get(`/api/notifications/${id}/`)).data
   },
 
   async list () {
-    const response = (await axios.get('/api/bells/')).data
+    const response = (await axios.get('/api/notifications/')).data
     return {
       ...response,
       next: parseCursor(response.next),
@@ -25,7 +25,7 @@ export default {
   },
 
   async delete (id) {
-    return (await axios.delete(`/api/bells/${id}/`)).data
+    return (await axios.delete(`/api/notifications/${id}/`)).data
   },
 }
 

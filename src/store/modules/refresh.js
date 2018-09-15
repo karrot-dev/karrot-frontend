@@ -16,7 +16,7 @@ export default {
         dispatch('currentThread/refresh', null, { root: true }),
         dispatch('auth/refresh', null, { root: true }),
         dispatch('latestMessages/refresh', null, { root: true }),
-        dispatch('bells/refresh', null, { root: true }),
+        dispatch('notifications/refresh', null, { root: true }),
       ])
       if (done) done()
     },

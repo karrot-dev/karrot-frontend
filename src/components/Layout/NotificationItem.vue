@@ -8,12 +8,12 @@
       <q-item-tile
         label
       >
-        {{ bellText }}
+        {{ notificationText }}
       </q-item-tile>
       <q-item-tile
         sublabel
       >
-        {{ bell.type }}, {{ bell.context }}
+        {{ notification.type }}, {{ notification.context }}
       </q-item-tile>
     </q-item-main>
   </q-item>
@@ -41,16 +41,24 @@ export default {
     DateAsWords,
   },
   props: {
-    bell: {
+    notification: {
       type: Object,
       default: null,
     },
   },
   computed: {
-    bellText () {
-      switch (this.bell.type) {
-        case 'new_applicant': return this.bell.application && this.$t('BELLS.NEW_APPLICANT', {userName: this.bell.application.user.displayName, groupName: this.bell.application.group.name})
-        case 'user_became_editor': return this.$t('BELLS.YOU_BECAME_EDITOR', {groupName: this.bell.group.name})
+    notificationText () {
+      switch (this.notification.type) {
+        case 'new_applicant':
+          return this.notification.application &&
+            this.$t('NOTIFICATIONS.BELLS.NEW_APPLICANT', {
+              userName: this.notification.application.user.displayName,
+              groupName: this.notification.application.group.name,
+            })
+        case 'user_became_editor':
+          return this.$t('NOTIFICATIONS.BELLS.YOU_BECAME_EDITOR', {
+            groupName: this.notification.group.name,
+          })
       }
     },
   },

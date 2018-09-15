@@ -2,7 +2,7 @@ const GroupWall = () => import('@/pages/Group/Wall')
 const GroupPickups = () => import('@/pages/Group/Pickups')
 const GroupFeedback = () => import('@/pages/Group/Feedbacks')
 const Messages = () => import('@/pages/Messages')
-const Bells = () => import('@/pages/Bells')
+const Notifications = () => import('@/pages/Notifications')
 const GroupMap = () => import('@/pages/Map')
 const GroupSettings = () => import('@/pages/Group/Settings')
 const GroupEdit = () => import('@/pages/Group/Edit')
@@ -436,17 +436,17 @@ export default [
     },
   },
   {
-    name: 'bells',
-    path: 'bells',
+    name: 'notifications',
+    path: 'notifications',
     meta: {
       requiredLoggedIn: true,
       breadcrumbs: [
-        { translation: 'BELLS.TITLE', route: { name: 'bells' } },
+        { translation: 'NOTIFICATIONS.BELLS.TITLE', route: { name: 'notifications' } },
       ],
       beforeEnter: 'currentGroup/selectFromCurrentUser',
     },
     components: {
-      default: Bells,
+      default: Notifications,
       sidenav: Sidenav,
     },
   },

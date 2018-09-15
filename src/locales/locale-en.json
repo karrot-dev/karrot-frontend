@@ -369,10 +369,6 @@
     "QUOTE": "quote",
     "HELP": "What is Markdown?"
   },
-  "BELLS": {
-    "YOU_BECAME_EDITOR": "You gained editing permissions in {groupName}",
-    "NEW_APPLICANT": "{userName} applied to join {groupName}"
-  },
   "HISTORY": {
     "GROUP_CREATE": "created this group",
     "GROUP_MODIFY": "changed the settings of this group",
@@ -404,7 +400,11 @@
     "VERIFICATION_EMAIL_SENT": "We sent you another verification mail. Please check your inbox.",
     "CHANGES_SAVED": "Your changes have been saved.",
     "CHANGES_ERROR": "An error occured. Try again later.",
-    "EMAIL_NOT_DELIVERED": "An email could not be delivered to you | {count} emails could not be delivered to you"
+    "EMAIL_NOT_DELIVERED": "An email could not be delivered to you | {count} emails could not be delivered to you",
+    "BELLS": {
+      "YOU_BECAME_EDITOR": "You gained editing permissions in {groupName}",
+      "NEW_APPLICANT": "{userName} applied to join {groupName}"
+    }
   },
   "OUTDATED_BROWSER": {
     "MESSAGE": "You are using an unsupported browser. {upgradeBrowser} to enjoy all features.",

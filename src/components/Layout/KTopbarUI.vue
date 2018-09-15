@@ -37,7 +37,7 @@
     <template v-if="!$q.platform.is.mobile">
       <CommunityFeed />
       <LatestMessageButton />
-      <BellButton />
+      <NotificationButton />
       <LocaleSelect />
       <router-link
         :to="{name: 'user', params: {userId: user.id}}"
@@ -148,7 +148,7 @@ import Search from '@/components/General/Search'
 import LocaleSelect from '@/components/General/LocaleSelect'
 import CommunityFeed from '@/components/General/CommunityFeed'
 import LatestMessageButton from '@/components/Layout/LatestMessageButton'
-import BellButton from '@/components/Layout/BellButton'
+import NotificationButton from '@/components/Layout/NotificationButton'
 
 export default {
   components: {
@@ -167,7 +167,7 @@ export default {
     LocaleSelect,
     CommunityFeed,
     LatestMessageButton,
-    BellButton,
+    NotificationButton,
   },
   props: {
     breadcrumbs: {

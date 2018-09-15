@@ -1,6 +1,6 @@
 <template>
   <q-btn
-    :to="$q.platform.is.mobile && ({ name: 'bells' })"
+    :to="$q.platform.is.mobile && ({ name: 'notifications' })"
     flat
     dense
     round
@@ -19,9 +19,9 @@
     <q-popover
       v-if="!$q.platform.is.mobile"
       v-model="showing"
-      class="k-bells-popover"
+      class="k-notifications-popover"
     >
-      <Bells
+      <Notifications
         v-if="showing"
         as-popover
       />
@@ -36,7 +36,7 @@ import {
   QChip,
   QPopover,
 } from 'quasar'
-const Bells = () => import('@/components/Layout/Bells')
+const Notifications = () => import('@/components/Layout/Notifications')
 
 import { mapGetters } from 'vuex'
 
@@ -46,11 +46,11 @@ export default {
     QIcon,
     QChip,
     QPopover,
-    Bells,
+    Notifications,
   },
   computed: {
     ...mapGetters({
-      unreadCount: 'bells/unreadCount',
+      unreadCount: 'notifications/unreadCount',
     }),
   },
   methods: {
@@ -70,6 +70,6 @@ export default {
 </script>
 
 <style lang="stylus" scoped>
-.k-bells-popover
+.k-notifications-popover
   width 400px
 </style>

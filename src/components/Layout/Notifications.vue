@@ -12,20 +12,20 @@
           v-close-overlay
           size="sm"
           color="secondary"
-          :to="{ name: 'bells' }"
+          :to="{ name: 'notifications' }"
         >
           {{ $t('BUTTON.SHOW_MORE') }}
         </q-btn>
       </div>
       <q-item
-        v-if="bells.length === 0"
+        v-if="notifications.length === 0"
       >
-        {{ $t('BELLS.NO_BELLS') }}
+        {{ $t('NOTIFICATIONS.BELLS.NO_BELLS') }}
       </q-item>
-      <BellItem
-        v-for="bell in bells"
-        :key="bell.id"
-        :bell="bell"
+      <NotificationItem
+        v-for="notification in notifications"
+        :key="notification.id"
+        :notification="notification"
         @open="open"
       />
       <q-item
@@ -54,7 +54,7 @@ import {
   QBtn,
 } from 'quasar'
 import { mapGetters, mapActions } from 'vuex'
-import BellItem from './BellItem'
+import NotificationItem from './NotificationItem'
 
 export default {
   components: {
@@ -64,7 +64,7 @@ export default {
     QItemSeparator,
     QItem,
     QBtn,
-    BellItem,
+    NotificationItem,
   },
   props: {
     asPage: {
@@ -78,14 +78,14 @@ export default {
   },
   computed: {
     ...mapGetters({
-      bells: 'bells/current',
-      canFetchPast: 'bells/canFetchPast',
-      fetchingPast: 'bells/fetchingPast',
+      notifications: 'notifications/current',
+      canFetchPast: 'notifications/canFetchPast',
+      fetchingPast: 'notifications/fetchingPast',
     }),
   },
   methods: {
     ...mapActions({
-      fetchPastConversations: 'bells/fetchPast',
+      fetchPastConversations: 'notifications/fetchPast',
     }),
     open () {
       console.log('do something!')

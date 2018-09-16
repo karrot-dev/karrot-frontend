@@ -120,33 +120,6 @@
           </div>
         </div>
       </div>
-      <q-collapsible
-        opened
-        v-if="application"
-        class="bg-grey-2"
-      >
-        <template slot="header">
-          <b>{{ $t('APPLICATION.INITIAL') }}</b>
-        </template>
-        <div class="q-ma-sm q-pa-sm bg-white">
-          <span class="text-bold text-secondary uppercase">{{ application.group.name }}</span>
-          <span class="message-date">
-            <small class="text-weight-light">
-              <DateAsWords :date="application.createdAt" />
-            </small>
-          </span>
-          <Markdown :source="application.questions" />
-        </div>
-        <div class="q-ma-sm q-pa-sm bg-white">
-          <span class="text-bold text-secondary uppercase">{{ application.user.displayName }}</span>
-          <span class="message-date">
-            <small class="text-weight-light">
-              <DateAsWords :date="application.createdAt" />
-            </small>
-          </span>
-          <Markdown :source="application.answers" />
-        </div>
-      </q-collapsible>
       <ChatConversation
         v-if="conversation"
         :conversation="conversationWithMaybeReversedMessages"
@@ -159,7 +132,36 @@
         @saveMessage="$emit('saveMessage', arguments[0])"
         @fetchPast="$emit('fetchPast', arguments[0])"
         @fetchFuture="$emit('fetchFuture')"
-      />
+      >
+        <q-collapsible
+          slot="beforeChatMessages"
+          opened
+          v-if="application"
+          class="bg-grey-2"
+        >
+          <template slot="header">
+            <b>{{ $t('APPLICATION.INITIAL') }}</b>
+          </template>
+          <div class="q-ma-sm q-pa-sm bg-white">
+            <span class="text-bold text-secondary uppercase">{{ application.group.name }}</span>
+            <span class="message-date">
+              <small class="text-weight-light">
+                <DateAsWords :date="application.createdAt" />
+              </small>
+            </span>
+            <Markdown :source="application.questions" />
+          </div>
+          <div class="q-ma-sm q-pa-sm bg-white">
+            <span class="text-bold text-secondary uppercase">{{ application.user.displayName }}</span>
+            <span class="message-date">
+              <small class="text-weight-light">
+                <DateAsWords :date="application.createdAt" />
+              </small>
+            </span>
+            <Markdown :source="application.answers" />
+          </div>
+        </q-collapsible>
+      </ChatConversation>
     </template>
   </div>
 </template>

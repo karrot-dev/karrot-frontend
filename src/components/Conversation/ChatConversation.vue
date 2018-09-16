@@ -6,6 +6,7 @@
       class="absolute-full scroll"
       ref="scroll"
     >
+      <slot name="beforeChatMessages"/>
       <div
         v-if="fetchingPast"
         class="full-width text-center generic-padding"

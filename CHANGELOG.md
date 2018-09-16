@@ -19,6 +19,7 @@ Please document your changes in this format:
 ### Removed
 
 ### Fixed
+- Fix application chat initial questions layout #1097 @nicksellen
 
 
 ## [Release 6.1] - 2018-08-31

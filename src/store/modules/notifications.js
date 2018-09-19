@@ -9,6 +9,7 @@ function initialState () {
       markedAt: null,
     },
     entries: {},
+    pageVisible: false,
   }
 }
 
@@ -83,6 +84,18 @@ export default {
         notificationsAPI.markSeen()
       },
     }),
+    fetchRelated ({ state, dispatch }) {
+      for (const notification of Object.values(state.entries)) {
+        const { context } = notification
+        if (!context) continue
+        if (context.application) {
+          dispatch('groupApplications/maybeFetchOne', context.application, { root: true })
+        }
+        if (context.pickup) {
+          dispatch('pickups/maybeFetch', context.pickup, { root: true })
+        }
+      }
+    },
     update ({ commit }, entry) {
       commit('update', [entry])
     },
@@ -99,10 +112,16 @@ export default {
     setEntryMeta ({ commit }, data) {
       commit('setEntryMeta', data)
     },
+    setPageVisible ({ commit }, visible) {
+      commit('setPageVisible', visible)
+    },
   },
   mutations: {
     updateNow (state) {
       state.now = new Date()
+    },
+    setPageVisible (state, visible) {
+      state.pageVisible = visible
     },
     setEntryMeta (state, data) {
       state.entryMeta = data
@@ -134,6 +153,16 @@ export function plugin (store) {
     }
     else {
       store.dispatch('notifications/clear')
+    }
+  })
+
+  // make sure related data stays gets loaded when page is visible
+  store.watch((state, getters) => ({
+    pageVisible: state.notifications.pageVisible,
+    entries: state.notifications.entries,
+  }), ({ pageVisible }) => {
+    if (pageVisible) {
+      store.dispatch('notifications/fetchRelated')
     }
   })
 }

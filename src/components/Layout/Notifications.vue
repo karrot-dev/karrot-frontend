@@ -87,6 +87,7 @@ export default {
     ...mapActions({
       fetchPast: 'notifications/fetchPast',
       markClicked: 'notifications/markClicked',
+      setPageVisible: 'notifications/setPageVisible',
     }),
     open (notification) {
       const { type, context } = notification
@@ -112,6 +113,12 @@ export default {
           return this.$router.push({ name: 'store', params: { groupId: context.group.id, storeId: context.store.id } })
       }
     },
+  },
+  mounted () {
+    this.setPageVisible(true)
+  },
+  beforeDestory () {
+    this.setPageVisible(false)
   },
 }
 </script>

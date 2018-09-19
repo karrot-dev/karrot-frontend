@@ -44,6 +44,9 @@ const router = new VueRouter({
     { path: '*', component: RouteError }, // Not found
   ],
   scrollBehavior (to, from, savedPosition) {
+    // keep scroll position if we stay on same page
+    if (from.name === to.name) return
+
     if (to.hash) {
       return {
         selector: to.hash,

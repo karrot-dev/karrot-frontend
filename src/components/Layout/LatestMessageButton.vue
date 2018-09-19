@@ -5,6 +5,7 @@
     dense
     round
     @click="maybeOpen"
+    :title="$t('GROUP.MESSAGES')"
   >
     <q-icon
       name="fas fa-comments"

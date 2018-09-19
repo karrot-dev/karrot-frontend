@@ -5,7 +5,7 @@ import notificationsAPI from '@/services/api/notifications'
 function initialState () {
   return {
     now: new Date(), // reactive current time
-    meta: {
+    entryMeta: {
       markedAt: null,
     },
     entries: {},
@@ -31,32 +31,55 @@ export default {
     fetchingPast: (state, getters) => getters['meta/status']('fetchPast').pending,
     enrich: (state, getters, rootState, rootGetters) => entry => {
       if (!entry) return
+      const { markedAt } = state.entryMeta
+
       return {
         ...entry,
-        group: entry.context.group && rootGetters['groups/get'](entry.context.group),
-        application: entry.context.application && rootGetters['groupApplications/get'](entry.context.application),
+        context: getters.enrichContext(entry.context),
+        isUnseen: !markedAt || entry.createdAt > markedAt,
+      }
+    },
+    enrichContext: (state, getters, rootState, rootGetters) => context => {
+      if (!context) return
+      const { group, application, user, store, pickup } = context
+      return {
+        ...context,
+        group: group && rootGetters['groups/get'](group),
+        application: application && rootGetters['groupApplications/get'](application),
+        user: user && rootGetters['users/get'](user),
+        store: store && rootGetters['stores/get'](store),
+        pickup: pickup && rootGetters['pickups/get'](pickup),
       }
     },
     unseenCount: (state, getters) => {
-      return getters.current.filter(notification => !state.meta.markedAt || notification.createdAt > state.meta.markedAt).length
+      return getters.current.filter(notification => notification.isUnseen).length
     },
   },
   actions: {
     ...withMeta({
       async fetch ({ commit, dispatch }) {
-        const { notifications, markedAt } = await dispatch('pagination/extractCursor', notificationsAPI.list())
+        const { notifications, meta } = await dispatch('pagination/extractCursor', notificationsAPI.list())
         commit('update', notifications)
-        commit('setMarkedAt', markedAt)
+        commit('setEntryMeta', meta)
       },
       async fetchPast ({ commit, dispatch }) {
-        const { notifications, markedAt } = await dispatch('pagination/fetchNext', notificationsAPI.listMore)
+        const { notifications, meta } = await dispatch('pagination/fetchNext', notificationsAPI.listMore)
         commit('update', notifications)
-        commit('setMarkedAt', markedAt)
+        commit('setEntryMeta', meta)
       },
-      async markClicked ({ commit }, notification) {
-        notificationsAPI.markClicked(notification.id)
+      async markClicked ({ dispatch, getters }, notification) {
+        if (!notification.clicked) {
+          notificationsAPI.markClicked(notification.id)
+        }
+
+        // make sure notifications are getting marked as seen, too
+        if (!getters['meta/status']('markSeen').pending) {
+          dispatch('markSeen')
+        }
       },
-      async markSeen () {
+      async markSeen ({ getters }) {
+        // we can skip marking if there are only seen notifications
+        if (!getters.unseenCount) return
         notificationsAPI.markSeen()
       },
     }),
@@ -73,13 +96,16 @@ export default {
       commit('clear')
       commit('fetch')
     },
+    setEntryMeta ({ commit }, data) {
+      commit('setEntryMeta', data)
+    },
   },
   mutations: {
     updateNow (state) {
       state.now = new Date()
     },
-    setMeta (state, data) {
-      state.meta = data
+    setEntryMeta (state, data) {
+      state.entryMeta = data
     },
     update (state, entries) {
       for (const entry of entries) {

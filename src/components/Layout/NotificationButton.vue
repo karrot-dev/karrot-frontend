@@ -5,6 +5,7 @@
     dense
     round
     @click="maybeOpen"
+    :title="$t('NOTIFICATION_BELLS_LIST.TITLE')"
   >
     <q-icon
       name="fas fa-bell"
@@ -38,7 +39,7 @@ import {
 } from 'quasar'
 const Notifications = () => import('@/components/Layout/Notifications')
 
-import { mapGetters } from 'vuex'
+import { mapGetters, mapActions } from 'vuex'
 
 export default {
   components: {
@@ -54,9 +55,13 @@ export default {
     }),
   },
   methods: {
+    ...mapActions({
+      markSeen: 'notifications/markSeen',
+    }),
     maybeOpen () {
       if (!this.$q.platform.is.mobile) {
         this.showing = true
+        this.markSeen()
       }
       this.$emit('click')
     },

@@ -162,7 +162,7 @@ export function receiveMessage ({ topic, payload }) {
     store.dispatch('notifications/delete', payload.id)
   }
   else if (topic === 'notifications:meta') {
-    store.dispatch('notifications/setMeta', convertNotificationMeta(camelizeKeys(payload)))
+    store.dispatch('notifications/setEntryMeta', convertNotificationMeta(camelizeKeys(payload)))
   }
 }
 

@@ -6,11 +6,20 @@
 </template>
 
 <script>
+import { mapActions } from 'vuex'
 import Notifications from '@/components/Layout/Notifications'
 
 export default {
   components: {
     Notifications,
+  },
+  methods: {
+    ...mapActions({
+      markSeen: 'notifications/markSeen',
+    }),
+  },
+  mounted () {
+    this.markSeen()
   },
 }
 </script>

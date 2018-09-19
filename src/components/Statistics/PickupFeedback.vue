@@ -36,16 +36,18 @@
         </div>
       </RandomArt>
       <div class="generic-padding">
-        <p v-t="'PICKUP_FEEDBACK.TOGETHER_WITH'" />
-        <p>
-          <ProfilePicture
-            v-for="user in fellowCollectors"
-            :user="user"
-            :key="user.id"
-            :size="35"
-            class="q-ml-xs"
-          />
-        </p>
+        <template v-if="fellowCollectors.length > 0">
+          <p v-t="'PICKUP_FEEDBACK.TOGETHER_WITH'" />
+          <p>
+            <ProfilePicture
+              v-for="user in fellowCollectors"
+              :user="user"
+              :key="user.id"
+              :size="35"
+              class="q-ml-xs"
+            />
+          </p>
+        </template>
         <FeedbackForm
           style="padding: 1.5em 0"
           :value="feedbackDefault"
@@ -106,7 +108,6 @@ export default {
   data () {
     return {
       cartImg,
-      selectedPickup: null,
     }
   },
   methods: {
@@ -127,11 +128,19 @@ export default {
     select: {
       get () {
         if (this.editFeedback) return this.editFeedback.about
-        if (this.selectedPickup) return this.selectedPickup
-        return this.pickups && this.pickups[0]
+        if (!this.pickups) return
+
+        const { pickupId } = this.$route.params
+        if (typeof pickupId !== 'undefined') {
+          const pickup = this.pickups.find(e => e.id === parseInt(pickupId))
+          if (pickup) return pickup
+        }
+
+        // default to first pickup
+        return this.pickups[0]
       },
-      set (v) {
-        this.selectedPickup = v
+      set (pickup) {
+        this.$router.push({ params: { pickupId: pickup.id } })
       },
     },
     feedbackOptions () {
@@ -153,6 +162,7 @@ export default {
       return filtered
     },
     fellowCollectors () {
+      if (!this.select) return []
       return this.select.collectors.filter(u => !u.isCurrentUser)
     },
   },

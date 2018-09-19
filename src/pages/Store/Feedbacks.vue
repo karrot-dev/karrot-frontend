@@ -5,7 +5,7 @@
         <div class="actionButtons">
           <router-link
             v-if="feedbackPossibleFiltered.length > 0"
-            :to="{name: 'pickupFeedback'}"
+            :to="{name: 'giveFeedback'}"
           >
             <q-btn
               small

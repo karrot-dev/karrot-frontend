@@ -342,11 +342,21 @@ export default [
         ],
       },
       {
-        name: 'pickupFeedback',
-        path: 'give-feedback/:feedbackId?',
+        name: 'giveFeedback',
+        path: 'give-feedback/:pickupId?',
         meta: {
           breadcrumbs: [
-            { translation: 'PICKUP_FEEDBACK.TITLE', route: { name: 'pickupFeedback' } },
+            { translation: 'PICKUP_FEEDBACK.TITLE', route: { name: 'giveFeedback' } },
+          ],
+        },
+        component: PickupFeedback,
+      },
+      {
+        name: 'editFeedback',
+        path: 'feedback/:feedbackId?',
+        meta: {
+          breadcrumbs: [
+            { translation: 'PICKUP_FEEDBACK.TITLE', route: { name: 'editFeedback' } },
           ],
           beforeEnter: 'feedback/select',
           afterLeave: 'feedback/clear',
@@ -441,7 +451,7 @@ export default [
     meta: {
       requiredLoggedIn: true,
       breadcrumbs: [
-        { translation: 'NOTIFICATIONS.BELLS.TITLE', route: { name: 'notifications' } },
+        { translation: 'NOTIFICATION_BELLS_LIST.TITLE', route: { name: 'notifications' } },
       ],
       beforeEnter: 'currentGroup/selectFromCurrentUser',
     },

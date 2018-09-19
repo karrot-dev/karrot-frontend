@@ -1,6 +1,6 @@
 <template>
   <div>
-    <router-link :to="{name: 'pickupFeedback'}">
+    <router-link :to="{name: 'giveFeedback'}">
       <q-card
         color="info"
         class="generic-padding notice"

@@ -4,9 +4,21 @@
     class="bg-white"
   >
     <q-list no-border>
+      <q-item
+        v-if="notifications.length === 0"
+      >
+        {{ $t('NOTIFICATIONS_BELLS_LIST.NO_ITEMS') }}
+      </q-item>
+      <NotificationItem
+        v-close-overlay
+        v-for="notification in notifications"
+        :key="notification.id"
+        :notification="notification"
+        @open="open"
+      />
       <div
         v-if="asPopover"
-        class="row justify-end q-mb-sm q-mr-sm"
+        class="row justify-end q-mt-sm q-mr-sm"
       >
         <q-btn
           v-close-overlay
@@ -17,17 +29,6 @@
           {{ $t('BUTTON.SHOW_MORE') }}
         </q-btn>
       </div>
-      <q-item
-        v-if="notifications.length === 0"
-      >
-        {{ $t('NOTIFICATIONS_BELLS_LIST.NO_ITEMS') }}
-      </q-item>
-      <NotificationItem
-        v-for="notification in notifications"
-        :key="notification.id"
-        :notification="notification"
-        @open="open"
-      />
       <q-item
         v-if="!asPopover && canFetchPast"
         class="row justify-center"
@@ -110,6 +111,7 @@ export default {
         case 'application_declined':
           return this.$router.push({ name: 'groupPreview', params: { groupPreviewId: context.group.id } })
         case 'new_store':
+        case 'pickup_upcoming':
           return this.$router.push({ name: 'store', params: { groupId: context.group.id, storeId: context.store.id } })
       }
     },

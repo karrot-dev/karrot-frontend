@@ -1,6 +1,6 @@
 <template>
   <q-btn
-    icon="fab fa-discourse"
+    icon="fab fa-discourse fa-fw"
     :title="$t('COMMUNITY_FEED.HEADER', { community: $t('COMMUNITY_FEED.HEADER_LINK') })"
     flat
     dense

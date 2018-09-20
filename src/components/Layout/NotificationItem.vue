@@ -20,12 +20,13 @@
         sublabel
       >
         <DateAsWords
-          :date="notification.createdAt"
+          :date="showExpiresAt ? notification.expiresAt : notification.createdAt"
           style="display: inline"
+          :allow-future="showExpiresAt"
         />
         · {{ groupName }}
-        <template v-if="context && context.pickup">
-          · {{ notification.context.pickup.store.name }}
+        <template v-if="storeName">
+          · {{ storeName }}
         </template>
       </q-item-tile>
     </q-item-main>
@@ -65,27 +66,38 @@ export default {
     context () {
       return this.notification && this.notification.context
     },
+    type () {
+      return this.notification && this.notification.type
+    },
     user () {
       if (!this.context) return
+      if (!this.context.user) return
+
+      // it shouldn't be needed to show your own picture
+      if (this.context.user.isCurrentUser) return
 
       // new_store is not about the user, but the store
-      if (this.notification.type === 'new_store') return
+      if (this.type === 'new_store') return
+
       return this.context.user
     },
     groupName () {
       if (!this.context) return
       return this.context.group && this.context.group.name
     },
+    storeName () {
+      if (!this.context) return
+      if (this.context.pickup) {
+        return this.context.pickup.store.name
+      }
+    },
     message () {
-      if (!this.notification) return
-      const { type } = this.notification
-      if (!type) return
-
-      return this.$t(`NOTIFICATION_BELLS.${type.toUpperCase()}`, this.messageParams)
+      if (!this.type) return
+      return this.$t(`NOTIFICATION_BELLS.${this.type.toUpperCase()}`, this.messageParams)
     },
     messageParams () {
       if (!this.context) return
-      const { context, type } = this.notification
+      const { context, type } = this
 
       const commonParams = {
         userName: context.user && context.user.displayName,
@@ -100,6 +112,10 @@ export default {
           return {
             date: context.pickup && this.$d(context.pickup.date, 'dayAndTime'),
           }
+        case 'pickup_upcoming':
+          return {
+            time: context.pickup && this.$d(context.pickup.date, 'timeShort'),
+          }
         case 'new_store':
           return {
             storeName: context.store.name,
@@ -107,6 +123,9 @@ export default {
       }
 
       return commonParams
+    },
+    showExpiresAt () {
+      return this.type === 'pickup_upcoming'
     },
   },
 }

@@ -2,7 +2,8 @@
   <q-item
     link
     :class="{ isUnread: !notification.clicked }"
-    @click.native="$emit('open', notification)"
+    @click.native="$emit('click', notification)"
+    :to="routeTo"
   >
     <q-item-side v-if="user">
       <ProfilePicture
@@ -108,6 +109,10 @@ export default {
     icon () {
       if (!this.config) return
       return this.config.icon
+    },
+    routeTo () {
+      if (!this.config) return
+      return this.config.routeTo
     },
     showExpiresAt () {
       return this.type === 'pickup_upcoming'

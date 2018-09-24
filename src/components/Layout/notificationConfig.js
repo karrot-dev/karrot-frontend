@@ -50,10 +50,32 @@ function getIcon (type, context) {
   }
 }
 
+function getRouteTo (type, context) {
+  switch (type) {
+    case 'user_became_editor':
+    case 'invitation_accepted':
+    case 'new_member':
+      return { name: 'user', params: { userId: context.user.id } }
+    case 'you_became_editor': // TODO show information about editing permissions
+    case 'application_accepted':
+      return { name: 'group', params: { groupId: context.group.id } }
+    case 'new_applicant':
+      return { name: 'groupApplications', params: { groupId: context.group.id } }
+    case 'feedback_possible':
+      return { name: 'giveFeedback', params: { groupId: context.group.id, pickupId: context.pickup.id } }
+    case 'application_declined':
+      return { name: 'groupPreview', params: { groupPreviewId: context.group.id } }
+    case 'new_store':
+    case 'pickup_upcoming':
+      return { name: 'store', params: { groupId: context.group.id, storeId: context.store.id } }
+  }
+}
+
 export default function getConfig (type, context) {
   const config = {
     message: i18n.t(`NOTIFICATION_BELLS.${type.toUpperCase()}`, getMessageParams(type, context)),
     icon: getIcon(type, context),
+    routeTo: getRouteTo(type, context),
   }
 
   return config

@@ -16,6 +16,8 @@ jest.mock('@/services/api/groupsInfo', () => ({ list: mockGroupsInfoList }))
 jest.mock('@/services/api/authUser', () => ({ get: mockAuthUserGet }))
 jest.mock('@/services/api/messages', () => ({ get: mockMessagesGet, listThread: mockMessagesListThread, listMyThreads: mockListMyThreads }))
 jest.mock('@/services/api/conversations', () => ({ list: mockConversationsList }))
+const mockNotificationsList = jest.fn()
+jest.mock('@/services/api/notifications', () => ({ list: mockNotificationsList }))
 
 import Vue from 'vue'
 import { configureQuasar, nextTicks } from '>/helpers'
@@ -35,6 +37,7 @@ describe('storeHelpers', () => {
     mockMessagesListThread.mockReturnValue({ results: [] })
     mockListMyThreads.mockReturnValue({ results: {} })
     mockConversationsList.mockReturnValue({ results: {} })
+    mockNotificationsList.mockReturnValue({ results: {} })
 
     const store = require('@/store').default
     store.commit('currentGroup/set', { id: 1 })
@@ -45,6 +48,7 @@ describe('storeHelpers', () => {
     await nextTicks(2)
     mockListMyThreads.mockClear()
     mockConversationsList.mockClear()
+    mockNotificationsList.mockClear()
 
     await store.dispatch('refresh/refresh')
 
@@ -57,5 +61,6 @@ describe('storeHelpers', () => {
     expect(mockMessagesListThread).toHaveBeenCalled()
     expect(mockListMyThreads).toHaveBeenCalled()
     expect(mockConversationsList).toHaveBeenCalled()
+    expect(mockNotificationsList).toHaveBeenCalled()
   })
 })

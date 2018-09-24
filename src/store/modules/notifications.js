@@ -60,13 +60,13 @@ export default {
     ...withMeta({
       async fetch ({ commit, dispatch }) {
         const { notifications, meta } = await dispatch('pagination/extractCursor', notificationsAPI.list())
-        commit('update', notifications)
-        commit('setEntryMeta', meta)
+        if (notifications) commit('update', notifications)
+        if (meta) commit('setEntryMeta', meta)
       },
       async fetchPast ({ commit, dispatch }) {
         const { notifications, meta } = await dispatch('pagination/fetchNext', notificationsAPI.listMore)
-        commit('update', notifications)
-        commit('setEntryMeta', meta)
+        if (notifications) commit('update', notifications)
+        if (meta) commit('setEntryMeta', meta)
       },
       async markClicked ({ dispatch, getters }, notification) {
         if (!notification.clicked) {
@@ -105,9 +105,9 @@ export default {
     clear ({ commit }) {
       commit('clear')
     },
-    refresh ({ commit }) {
+    refresh ({ commit, dispatch }) {
       commit('clear')
-      commit('fetch')
+      dispatch('fetch')
     },
     setEntryMeta ({ commit }, data) {
       commit('setEntryMeta', data)

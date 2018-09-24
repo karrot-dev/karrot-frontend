@@ -2296,12 +2296,12 @@ exports[`Storyshots Layout KTopbar 1`] = `
   <button tabindex="0" type="button" title="Updates from the foodsaving worldwide community" class="q-btn inline relative-position q-btn-item non-selectable q-btn-round q-btn-flat q-focusable q-hoverable q-btn-dense">
     <div class="q-focus-helper"></div>
     <div class="q-btn-inner row col items-center justify-center">
-      <i aria-hidden="true" class="q-icon fab fa-discourse"> </i>
+      <i aria-hidden="true" class="q-icon fab fa-discourse fa-fw"> </i>
       <!---->
       <div tabindex="-1" class="q-popover scroll k-community-feed"></div>
     </div>
   </button>
-  <button tabindex="0" type="button" class="q-btn inline relative-position q-btn-item non-selectable q-btn-round q-btn-flat q-focusable q-hoverable q-btn-dense">
+  <button tabindex="0" type="button" title="Messages" class="q-btn inline relative-position q-btn-item non-selectable q-btn-round q-btn-flat q-focusable q-hoverable q-btn-dense">
     <div class="q-focus-helper"></div>
     <div class="q-btn-inner row col items-center justify-center">
       <i aria-hidden="true" class="q-icon fas fa-comments"> </i>
@@ -2311,6 +2311,18 @@ exports[`Storyshots Layout KTopbar 1`] = `
         </div>
       </div>
       <div tabindex="-1" class="q-popover scroll k-latest-messages-popover"></div>
+    </div>
+  </button>
+  <button tabindex="0" type="button" title="Notifications" class="q-btn inline relative-position q-btn-item non-selectable q-btn-round q-btn-flat q-focusable q-hoverable q-btn-dense">
+    <div class="q-focus-helper"></div>
+    <div class="q-btn-inner row col items-center justify-center">
+      <i aria-hidden="true" class="q-icon fas fa-bell"> </i>
+      <div class="q-chip row no-wrap inline items-center q-chip-floating q-chip-dense q-chip-square bg-secondary text-white">
+        <div class="q-chip-main ellipsis">
+          1
+        </div>
+      </div>
+      <div tabindex="-1" class="q-popover scroll k-notifications-popover"></div>
     </div>
   </button>
   <button tabindex="0" type="button" title="Switch language" class="q-btn inline relative-position q-btn-item non-selectable q-btn-round q-btn-flat q-focusable q-hoverable q-btn-dense">
@@ -2662,6 +2674,218 @@ exports[`Storyshots Map UserMapPreview 1`] = `
   </div>
   <a class="overlay"></a>
 </div>
+`;
+
+exports[`Storyshots Notifications application_accepted 1`] = `
+<a class="q-link q-item q-item-division relative-position q-item-link isUnread">
+  <!---->
+  <div class="q-item-main q-item-section">
+    <div class="q-item-label">
+      <i aria-hidden="true" class="q-icon q-mr-xs vertical-baseline fas fa-check"> </i>
+      Your application was accepted!
+    </div>
+    <div class="q-item-sublabel">
+      <div title="Dec 24, 2017, 12:00 PM" style="display:inline;">
+        less than a minute ago
+      </div>
+      · Group 0
+      <!---->
+    </div>
+  </div>
+</a>
+`;
+
+exports[`Storyshots Notifications application_declined 1`] = `
+<a class="q-link q-item q-item-division relative-position q-item-link isUnread">
+  <!---->
+  <div class="q-item-main q-item-section">
+    <div class="q-item-label">
+      <i aria-hidden="true" class="q-icon q-mr-xs vertical-baseline fas fa-times"> </i>
+      Your application was declined
+    </div>
+    <div class="q-item-sublabel">
+      <div title="Dec 24, 2017, 12:00 PM" style="display:inline;">
+        less than a minute ago
+      </div>
+      · Group 0
+      <!---->
+    </div>
+  </div>
+</a>
+`;
+
+exports[`Storyshots Notifications feedback_possible 1`] = `
+<a class="q-link q-item q-item-division relative-position q-item-link isUnread">
+  <!---->
+  <div class="q-item-main q-item-section">
+    <div class="q-item-label">
+      <i aria-hidden="true" class="q-icon q-mr-xs vertical-baseline fas fa-balance-scale"> </i>
+      You can give feedback for the pickup you did on Sunday 12:00 PM
+    </div>
+    <div class="q-item-sublabel">
+      <div title="Dec 24, 2017, 12:00 PM" style="display:inline;">
+        less than a minute ago
+      </div>
+      · Group 0 · Store 0
+    </div>
+  </div>
+</a>
+`;
+
+exports[`Storyshots Notifications invitation_accepted 1`] = `
+<a class="q-link q-item q-item-division relative-position q-item-link isUnread">
+  <div class="q-item-side q-item-section q-item-side-left">
+    <div class="wrapper" style="width:40px;height:40px;">
+      <a title="User 8">
+        <div text="User 8" seed="8" class="randomArt fill"></div>
+      </a>
+    </div>
+  </div>
+  <div class="q-item-main q-item-section">
+    <div class="q-item-label">
+      <i aria-hidden="true" class="q-icon q-mr-xs vertical-baseline fas fa-user-plus"> </i>
+      User 8 accepted your invitation
+    </div>
+    <div class="q-item-sublabel">
+      <div title="Dec 24, 2017, 12:00 PM" style="display:inline;">
+        less than a minute ago
+      </div>
+      · Group 0
+      <!---->
+    </div>
+  </div>
+</a>
+`;
+
+exports[`Storyshots Notifications new_applicant 1`] = `
+<a class="q-link q-item q-item-division relative-position q-item-link isUnread">
+  <div class="q-item-side q-item-section q-item-side-left">
+    <div class="wrapper" style="width:40px;height:40px;">
+      <a title="User 2">
+        <div text="User 2" seed="2" class="randomArt fill"></div>
+      </a>
+    </div>
+  </div>
+  <div class="q-item-main q-item-section">
+    <div class="q-item-label">
+      <i aria-hidden="true" class="q-icon q-mr-xs vertical-baseline fas fa-address-card"> </i>
+      User 3 applied to join your group
+    </div>
+    <div class="q-item-sublabel">
+      <div title="Dec 24, 2017, 12:00 PM" style="display:inline;">
+        less than a minute ago
+      </div>
+      · Group 0
+      <!---->
+    </div>
+  </div>
+</a>
+`;
+
+exports[`Storyshots Notifications new_member 1`] = `
+<a class="q-link q-item q-item-division relative-position q-item-link isUnread">
+  <div class="q-item-side q-item-section q-item-side-left">
+    <div class="wrapper" style="width:40px;height:40px;">
+      <a title="User 7">
+        <div text="User 7" seed="7" class="randomArt fill"></div>
+      </a>
+    </div>
+  </div>
+  <div class="q-item-main q-item-section">
+    <div class="q-item-label">
+      <i aria-hidden="true" class="q-icon q-mr-xs vertical-baseline fas fa-user-plus"> </i>
+      User 7 joined your group
+    </div>
+    <div class="q-item-sublabel">
+      <div title="Dec 24, 2017, 12:00 PM" style="display:inline;">
+        less than a minute ago
+      </div>
+      · Group 0
+      <!---->
+    </div>
+  </div>
+</a>
+`;
+
+exports[`Storyshots Notifications new_store 1`] = `
+<a class="q-link q-item q-item-division relative-position q-item-link isUnread">
+  <!---->
+  <div class="q-item-main q-item-section">
+    <div class="q-item-label">
+      <i aria-hidden="true" class="q-icon q-mr-xs vertical-baseline fas fa-shopping-cart"> </i>
+      Store 0 has been created
+    </div>
+    <div class="q-item-sublabel">
+      <div title="Dec 24, 2017, 12:00 PM" style="display:inline;">
+        less than a minute ago
+      </div>
+      · Group 0
+      <!---->
+    </div>
+  </div>
+</a>
+`;
+
+exports[`Storyshots Notifications pickup_upcoming 1`] = `
+<a class="q-link q-item q-item-division relative-position q-item-link isUnread">
+  <!---->
+  <div class="q-item-main q-item-section">
+    <div class="q-item-label">
+      <i aria-hidden="true" class="q-icon q-mr-xs vertical-baseline fas fa-calendar-alt"> </i>
+      Reminder: You have a pickup at 12:00 PM
+    </div>
+    <div class="q-item-sublabel">
+      <div title="Dec 24, 2017, 2:00 PM" style="display:inline;">
+        in about 2 hours
+      </div>
+      · Group 0 · Store 0
+    </div>
+  </div>
+</a>
+`;
+
+exports[`Storyshots Notifications user_became_editor 1`] = `
+<a class="q-link q-item q-item-division relative-position q-item-link isUnread">
+  <div class="q-item-side q-item-section q-item-side-left">
+    <div class="wrapper" style="width:40px;height:40px;">
+      <a title="User 1">
+        <div text="User 1" seed="1" class="randomArt fill"></div>
+      </a>
+    </div>
+  </div>
+  <div class="q-item-main q-item-section">
+    <div class="q-item-label">
+      <i aria-hidden="true" class="q-icon q-mr-xs vertical-baseline fas fa-angle-double-up"> </i>
+      User 1 gained editing permissions
+    </div>
+    <div class="q-item-sublabel">
+      <div title="Dec 24, 2017, 12:00 PM" style="display:inline;">
+        less than a minute ago
+      </div>
+      · Group 0
+      <!---->
+    </div>
+  </div>
+</a>
+`;
+
+exports[`Storyshots Notifications you_became_editor 1`] = `
+<a class="q-link q-item q-item-division relative-position q-item-link isUnread">
+  <!---->
+  <div class="q-item-main q-item-section">
+    <div class="q-item-label">
+      <i aria-hidden="true" class="q-icon q-mr-xs vertical-baseline fas fa-angle-double-up"> </i>
+      You gained editing permissions
+    </div>
+    <div class="q-item-sublabel">
+      <div title="Dec 24, 2017, 12:00 PM" style="display:inline;">
+        less than a minute ago
+      </div>
+      · Group 0
+      <!---->
+    </div>
+  </div>
+</a>
 `;
 
 exports[`Storyshots Password Reset empty 1`] = `

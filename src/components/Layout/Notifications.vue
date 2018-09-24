@@ -7,7 +7,7 @@
       <q-item
         v-if="notifications.length === 0"
       >
-        {{ $t('NOTIFICATIONS_BELLS_LIST.NO_ITEMS') }}
+        {{ $t('NOTIFICATION_BELLS_LIST.NO_ITEMS') }}
       </q-item>
       <NotificationItem
         v-close-overlay

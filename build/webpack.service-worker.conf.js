@@ -1,7 +1,7 @@
 const path = require('path')
 const webpack = require('webpack')
 
-const UglifyJsPlugin = require('uglifyjs-webpack-plugin')
+const TerserPlugin = require('terser-webpack-plugin')
 
 function resolve (dir) {
   return path.join(__dirname, '..', dir)
@@ -28,7 +28,7 @@ module.exports = {
     new webpack.DefinePlugin({
       '__ENV.FCM_SENDER_ID': JSON.stringify(process.env.FCM_SENDER_ID),
     }),
-    new UglifyJsPlugin({
+    new TerserPlugin({
       sourceMap: false,
     }),
   ],

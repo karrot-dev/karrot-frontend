@@ -402,6 +402,22 @@
     "CHANGES_ERROR": "C'è stato un problema. Riprova più tardi.",
     "EMAIL_NOT_DELIVERED": "An email could not be delivered to you | {count} emails could not be delivered to you"
   },
+  "NOTIFICATION_BELLS_LIST": {
+    "TITLE": "Notifications",
+    "NO_ITEMS": "We currently don't have notifications for you."
+  },
+  "NOTIFICATION_BELLS": {
+    "YOU_BECAME_EDITOR": "You gained editing permissions",
+    "USER_BECAME_EDITOR": "{userName} gained editing permissions",
+    "NEW_APPLICANT": "{userName} applied to join your group",
+    "APPLICATION_ACCEPTED": "Your application was accepted!",
+    "APPLICATION_DECLINED": "Your application was declined",
+    "INVITATION_ACCEPTED": "{userName} accepted your invitation",
+    "FEEDBACK_POSSIBLE": "You can give feedback for the pickup you did on {date}",
+    "NEW_STORE": "{storeName} has been created",
+    "NEW_MEMBER": "{userName} joined your group",
+    "PICKUP_UPCOMING": "Reminder: You have a pickup at {time}"
+  },
   "OUTDATED_BROWSER": {
     "MESSAGE": "You are using an unsupported browser. {upgradeBrowser} to enjoy all features.",
     "LINK": "Please update or switch your browser"

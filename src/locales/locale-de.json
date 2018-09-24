@@ -402,6 +402,22 @@
     "CHANGES_ERROR": "Ein Fehler ist aufgetreten. Versuche es später noch einmal.",
     "EMAIL_NOT_DELIVERED": "Eine E-Mail konnte nicht zugestellt werden | {count} E-Mails konnten nicht zugestellt werden"
   },
+  "NOTIFICATION_BELLS_LIST": {
+    "TITLE": "Notifications",
+    "NO_ITEMS": "We currently don't have notifications for you."
+  },
+  "NOTIFICATION_BELLS": {
+    "YOU_BECAME_EDITOR": "You gained editing permissions",
+    "USER_BECAME_EDITOR": "{userName} gained editing permissions",
+    "NEW_APPLICANT": "{userName} applied to join your group",
+    "APPLICATION_ACCEPTED": "Your application was accepted!",
+    "APPLICATION_DECLINED": "Your application was declined",
+    "INVITATION_ACCEPTED": "{userName} accepted your invitation",
+    "FEEDBACK_POSSIBLE": "You can give feedback for the pickup you did on {date}",
+    "NEW_STORE": "{storeName} has been created",
+    "NEW_MEMBER": "{userName} joined your group",
+    "PICKUP_UPCOMING": "Reminder: You have a pickup at {time}"
+  },
   "OUTDATED_BROWSER": {
     "MESSAGE": "Du benutzt einen nicht unterstützten Browser. {upgradeBrowser} um alle Funktionen verwenden zu können.",
     "LINK": "Bitte aktualisiere oder wechsle deinen Browser"

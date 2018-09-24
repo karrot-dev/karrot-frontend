@@ -1,153 +1,19 @@
 import { storybookDefaults as defaults } from '>/helpers'
 import { storiesOf } from '@storybook/vue'
 import { action } from '@storybook/addon-actions'
+import addHours from 'date-fns/add_hours'
+import * as factories from '>/enrichedFactories'
 
 import NotificationItem from './NotificationItem'
 
-let notificationIdCnt = 0
-const makeNotification = data => {
-  return {
-    id: notificationIdCnt++,
-    type: 'new_applicant',
-    createdAt: new Date(),
-    expiresAt: null,
-    clicked: false,
-    context: {},
-    ...data,
-  }
-}
-
-let applicationIdCnt = 0
-const makeApplication = data => {
-  return {
-    id: applicationIdCnt++,
-    createdAt: new Date(),
-    user: makeUser(),
-    group: null,
-    conversation: null,
-    questions: 'What are your motivations for joining slköaslkfjasdfasfd?',
-    answers: 'asdfasdf',
-    status: 'pending',
-    decidedBy: null,
-    decidedAt: null,
-    ...data,
-  }
-}
-
-let groupIdCnt = 0
-const makeGroup = data => {
-  const id = groupIdCnt++
-  return {
-    id,
-    name: `Group ${id}`,
-    description: '',
-    publicDescription: '',
-    applicationQuestions: '',
-    applicationQuestionsDefault: '',
-    members: [],
-    memberships: {},
-    address: '',
-    latitude: 0,
-    longitude: 0,
-    timezone: 'Europe/Berlin',
-    activeAgreement: null,
-    status: 'active',
-    notificationTypes: [
-      'weekly_summary',
-      'daily_pickup_notification',
-      'new_application',
-    ],
-    isOpen: true,
-    trustThresholdForNewcomer: 1,
-    ...data,
-  }
-}
-
-const makeMembership = data => {
-  return {
-    createdAt: new Date(),
-    addedBy: null,
-    roles: [
-      'editor',
-    ],
-    active: true,
-    trustedBy: [],
-    ...data,
-  }
-}
-
-let userIdCnt = 0
-const makeUser = data => {
-  const id = userIdCnt++
-  return {
-    id,
-    displayName: `User ${id}`,
-    photoUrls: {},
-    latitude: null,
-    longitude: null,
-    ...data,
-  }
-}
-
-const makeUserProfile = data => {
-  return {
-    ...makeUser(),
-    email: 'foo@foo.com',
-    mobileNumber: '',
-    address: '',
-    description: '',
-    groups: [],
-    ...data,
-  }
-}
-
-const makeCurrentUser = data => {
-  return {
-    ...makeUserProfile(),
-    unverifiedEmail: 'foo@foo.com',
-    mailVerified: true,
-    currentGroup: 1,
-    language: 'en',
-    ...data,
-  }
-}
-
-let storeIdCnt = 0
-const makeStore = data => {
-  const id = storeIdCnt++
-  return {
-    id,
-    name: `Store ${id}`,
-    description: '',
-    group: null,
-    address: '',
-    latitude: 0,
-    longitude: 0,
-    weeksInAdvance: 4,
-    status: 'active',
-    ...data,
-  }
-}
-
-let pickupIdCnt = 0
-const makePickup = data => {
-  return {
-    id: pickupIdCnt++,
-    date: new Date(),
-    series: null,
-    store: null,
-    max_collectors: 10,
-    collector_ids: [],
-    description: '',
-    ...data,
-  }
-}
-
-const currentUser = makeCurrentUser()
-const group = makeGroup({
+const currentUser = factories.makeCurrentUser()
+const group = factories.makeGroup({
   memberships: {
-    [currentUser.id]: makeMembership(),
+    [currentUser.id]: factories.makeMembership(),
   },
+})
+const store = factories.makeStore({
+  group,
 })
 
 const notifications = [
@@ -155,7 +21,7 @@ const notifications = [
     type: 'user_became_editor',
     context: {
       group,
-      user: makeUser(),
+      user: factories.makeUser(),
     },
   },
   {
@@ -168,8 +34,8 @@ const notifications = [
     type: 'new_applicant',
     context: {
       group,
-      user: makeUser(),
-      application: makeApplication({
+      user: factories.makeUser(),
+      application: factories.makeApplication({
         group,
         createdAt: new Date('2018-07-23T19:28:09.875Z'),
       }),
@@ -179,7 +45,7 @@ const notifications = [
     type: 'application_accepted',
     context: {
       group,
-      application: makeApplication({
+      application: factories.makeApplication({
         group,
         status: 'accepted',
         decidedBy: currentUser,
@@ -191,7 +57,7 @@ const notifications = [
     type: 'application_declined',
     context: {
       group,
-      application: makeApplication({
+      application: factories.makeApplication({
         group,
         status: 'declined',
         decidedBy: currentUser,
@@ -203,10 +69,8 @@ const notifications = [
     type: 'feedback_possible',
     context: {
       group,
-      pickup: makePickup({
-        store: makeStore({
-          group,
-        }),
+      pickup: factories.makePickup({
+        store,
       }),
     },
   },
@@ -214,27 +78,36 @@ const notifications = [
     type: 'new_store',
     context: {
       group,
-      store: makeStore({
-        group,
-      }),
-      user: makeUser(),
+      store,
+      user: factories.makeUser(),
     },
   },
   {
     type: 'new_member',
     context: {
       group,
-      user: makeUser(),
+      user: factories.makeUser(),
     },
   },
   {
     type: 'invitation_accepted',
     context: {
       group,
-      user: makeUser(),
+      user: factories.makeUser(),
     },
   },
-].map(makeNotification)
+  {
+    type: 'pickup_upcoming',
+    expiresAt: addHours(new Date(), 2),
+    context: {
+      group,
+      store,
+      pickup: factories.makePickup({
+        store,
+      }),
+    },
+  },
+].map(factories.makeNotification)
 
 const on = {
   open: action('open'),

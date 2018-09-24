@@ -31,7 +31,6 @@ describe('services/api/auth', () => {
     it('saves the token after login', async () => {
       mock.onPost('/api/auth/token/').reply(200, { token })
       await auth.login({ email, password })
-      expect(localStorage.setItem).toHaveBeenCalledWith('token', token)
       expect(axios.defaults.headers.common.Authorization).toBe(`TOKEN ${token}`)
       expect(auth.getToken()).toBe(token)
     })
@@ -49,7 +48,6 @@ describe('services/api/auth', () => {
       await auth.login({ email, password })
       mock.onGet('/random/path').reply(403, { error_code: 'authentication_failed' })
       await axios.get('/random/path')
-      expect(localStorage.removeItem).toHaveBeenCalledWith('token')
       expect(axios.defaults.headers.common.Authorization).toBeUndefined()
       expect(auth.getToken()).toBeFalsy()
       expect(global.location.reload).toHaveBeenCalled()

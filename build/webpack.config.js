@@ -147,7 +147,7 @@ module.exports = {
     ...(dev ? [
       new HardSourceWebpackPlugin({
         configHash: function (webpackConfig) {
-          return require('node-object-hash')({sort: false}).hash([
+          return require('node-object-hash')({ sort: false }).hash([
             webpackConfig,
             appEnv,
           ])

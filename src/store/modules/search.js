@@ -24,19 +24,19 @@ export default {
 
       return [
         ...storeRes.map(e => ({
-          value: {name: 'store', params: {groupId: e.group.id, storeId: e.id}},
+          value: { name: 'store', params: { groupId: e.group.id, storeId: e.id } },
           label: e.name,
           sublabel: e.group.name,
           icon: 'fas fa-shopping-cart',
         })),
         ...groupRes.map(e => ({
-          value: {name: 'group', params: {groupId: e.id}},
+          value: { name: 'group', params: { groupId: e.id } },
           label: e.name,
           icon: 'fas fa-home',
           leftColor: e.isMember ? 'secondary' : undefined,
         })),
         ...userRes.map(e => ({
-          value: {name: 'user', params: {userId: e.id}},
+          value: { name: 'user', params: { userId: e.id } },
           label: e.displayName,
           icon: 'fas fa-user',
         })),

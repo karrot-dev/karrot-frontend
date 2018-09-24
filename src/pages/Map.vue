@@ -39,7 +39,7 @@ export default {
       showGroups: 'sidenavBoxes/toggle/groupsOnMap',
     }),
     center () {
-      return {lat: Number(this.$route.query.lat), lng: Number(this.$route.query.lng)}
+      return { lat: Number(this.$route.query.lat), lng: Number(this.$route.query.lng) }
     },
     zoom () {
       return Number(this.$route.query.zoom)
@@ -52,7 +52,7 @@ export default {
       toggleGroups: 'sidenavBoxes/toggle/groupsOnMap',
     }),
     mapMoveEnd (target) {
-      this.$router.replace({query: {lat: target.getCenter().lat, lng: target.getCenter().lng, zoom: target.getZoom()}})
+      this.$router.replace({ query: { lat: target.getCenter().lat, lng: target.getCenter().lng, zoom: target.getZoom() } })
     },
   },
 }

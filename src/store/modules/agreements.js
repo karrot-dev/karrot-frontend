@@ -33,7 +33,7 @@ export default {
         commit('set', agreement)
         return agreement
       },
-      clear ({commit}) {
+      clear ({ commit }) {
         commit('clear')
       },
     }),

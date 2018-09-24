@@ -54,9 +54,9 @@ export default {
     coords () {
       if (this.singleGroup) {
         let gp = this.singleGroup
-        return {lat: gp.latitude + this.offset[0], lng: gp.longitude + this.offset[1]}
+        return { lat: gp.latitude + this.offset[0], lng: gp.longitude + this.offset[1] }
       }
-      return {lat: 0.0, lng: -100}
+      return { lat: 0.0, lng: -100 }
     },
     zoom () {
       if (this.singleGroup) {

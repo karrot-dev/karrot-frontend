@@ -39,7 +39,7 @@ export default {
     ...withMeta({
       async fetch ({ state, dispatch, commit }, { filters, scope }) {
         // only clear if scope changed
-        const {type, id} = state.idListScope
+        const { type, id } = state.idListScope
         if (scope.type !== type || scope.id !== id) {
           dispatch('clear')
           commit('setScope', scope)
@@ -75,7 +75,7 @@ export default {
         const currentUserId = rootGetters['auth/userId']
 
         // make sure that feedback belongs to scope
-        const {type, id} = state.idListScope
+        const { type, id } = state.idListScope
         const fitsStoreScope = () => type === 'store' && pickup.store && pickup.store.id === id
         const fitsGroupScope = () => type === 'group' && pickup.group && pickup.group.id === id
         if (fitsStoreScope() || fitsGroupScope()) {
@@ -129,7 +129,7 @@ export default {
     },
 
     refresh ({ state, dispatch }) {
-      const {type, id} = state.idListScope
+      const { type, id } = state.idListScope
       switch (type) {
         case 'group': return dispatch('fetchForGroup', { groupId: id })
         case 'store': return dispatch('fetchForStore', { storeId: id })

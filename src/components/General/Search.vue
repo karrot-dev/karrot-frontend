@@ -40,7 +40,7 @@ export default {
       if (!terms) done([])
       this.setTerms(terms)
       if (!this.results.length) {
-        done([{label: this.$t('GLOBAL.SEARCH_NOT_FOUND')}])
+        done([{ label: this.$t('GLOBAL.SEARCH_NOT_FOUND') }])
       }
       else {
         done(this.results)

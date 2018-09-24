@@ -109,7 +109,7 @@ describe('conversations', () => {
         'message': 'user 1 and user 2 reacted with :tada:',
         'name': 'tada',
         'reacted': false,
-        'users': [{'displayName': 'user 1', 'id': 1}, {'displayName': 'user 2', 'id': 2}],
+        'users': [{ 'displayName': 'user 1', 'id': 1 }, { 'displayName': 'user 2', 'id': 2 }],
       }])
     })
 

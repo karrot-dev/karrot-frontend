@@ -120,7 +120,7 @@ export default {
     },
     openContextMenu (event) {
       this.closeContextMenu()
-      const {x, y} = event.containerPoint
+      const { x, y } = event.containerPoint
       this.popoverOffset = [-x, -y]
       this.popoverLatLng = event.latlng
       this.$refs.popover.show()

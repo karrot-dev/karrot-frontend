@@ -206,7 +206,7 @@ describe('currentGroup', () => {
       mockGet.mockImplementationOnce(throws(createValidationError({ detail: 'Not found' })))
       const select = store.dispatch('currentGroup/select', { groupId: 9999 })
       await expect(select).rejects.toHaveProperty('type', 'RouteRedirect')
-      await expect(select).rejects.toHaveProperty('data', { name: 'groupPreview', params: {groupPreviewId: 9999} })
+      await expect(select).rejects.toHaveProperty('data', { name: 'groupPreview', params: { groupPreviewId: 9999 } })
     })
   })
 })

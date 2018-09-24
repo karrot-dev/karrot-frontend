@@ -70,7 +70,7 @@ export default {
     join () {
       Dialog.create({
         title: this.$t('PICKUPLIST.ITEM.JOIN_CONFIRMATION_HEADER'),
-        message: this.$t('PICKUPLIST.ITEM.JOIN_CONFIRMATION_TEXT', {date: this.$d(this.pickup.date, 'long')}),
+        message: this.$t('PICKUPLIST.ITEM.JOIN_CONFIRMATION_TEXT', { date: this.$d(this.pickup.date, 'long') }),
         ok: this.$t('BUTTON.OF_COURSE'),
         cancel: this.$t('BUTTON.CANCEL'),
       })

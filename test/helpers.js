@@ -39,7 +39,7 @@ export async function nextTicks (n) {
 export function createStore (mods, { debug = false, plugins = [] } = {}) {
   let modules = {}
   for (let key of Object.keys(mods)) {
-    modules[key] = {...mods[key], namespaced: true}
+    modules[key] = { ...mods[key], namespaced: true }
   }
 
   const store = new Vuex.Store({
@@ -47,7 +47,7 @@ export function createStore (mods, { debug = false, plugins = [] } = {}) {
   })
 
   if (debug) {
-    store.subscribe(({type, payload}) => console.log('mutation', type, payload))
+    store.subscribe(({ type, payload }) => console.log('mutation', type, payload))
     store.subscribeAction(({ type, payload }) => console.log('action', type, payload))
   }
 

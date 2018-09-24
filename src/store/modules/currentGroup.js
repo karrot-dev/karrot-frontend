@@ -135,7 +135,7 @@ export default {
             },
           }, { root: true })
         }
-        throw createRouteRedirect({ name: 'groupPreview', params: {groupPreviewId: groupId} })
+        throw createRouteRedirect({ name: 'groupPreview', params: { groupPreviewId: groupId } })
       }
 
       dispatch('pickups/fetchListByGroupId', groupId, { root: true })

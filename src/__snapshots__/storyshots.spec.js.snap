@@ -75,7 +75,7 @@ exports[`Storyshots ApplicationForm create 1`] = `
                 <div class="q-if-inner col column">
                   <div class="row no-wrap relative-position">
                     <div class="col row relative-position">
-                      <object type="text/html" data="about:blank" aria-hidden="true" style="display:block;position:absolute;top:0;left:0;right:0;bottom:0;height:100%;width:100%;overflow:hidden;pointer-events:none;z-index:-1;"></object>
+                      <object tabindex="-1" type="text/html" data="about:blank" aria-hidden="true" style="display:block;position:absolute;top:0;left:0;right:0;bottom:0;height:100%;width:100%;overflow:hidden;pointer-events:none;z-index:-1;"></object>
                       <textarea rows="6" id="group-title" class="col q-input-target q-input-shadow absolute-top"></textarea>
                       <textarea rows="6" id="group-title" class="col q-input-target q-input-area"></textarea>
                     </div>
@@ -221,7 +221,7 @@ exports[`Storyshots GroupEdit create 1`] = `
                         <div class="q-if-inner col column">
                           <div class="row no-wrap relative-position">
                             <div class="col row relative-position">
-                              <object type="text/html" data="about:blank" aria-hidden="true" style="display:block;position:absolute;top:0;left:0;right:0;bottom:0;height:100%;width:100%;overflow:hidden;pointer-events:none;z-index:-1;"></object>
+                              <object tabindex="-1" type="text/html" data="about:blank" aria-hidden="true" style="display:block;position:absolute;top:0;left:0;right:0;bottom:0;height:100%;width:100%;overflow:hidden;pointer-events:none;z-index:-1;"></object>
                               <textarea rows="4" class="col q-input-target q-input-shadow absolute-top">This is the public description It would make sense if it was markdown # then this would be a header [and this a link](www.google.de)</textarea>
                               <textarea rows="4" class="col q-input-target q-input-area">This is the public description It would make sense if it was markdown # then this would be a header [and this a link](www.google.de)</textarea>
                             </div>
@@ -286,7 +286,7 @@ exports[`Storyshots GroupEdit create 1`] = `
                         <div class="q-if-inner col column">
                           <div class="row no-wrap relative-position">
                             <div class="col row relative-position">
-                              <object type="text/html" data="about:blank" aria-hidden="true" style="display:block;position:absolute;top:0;left:0;right:0;bottom:0;height:100%;width:100%;overflow:hidden;pointer-events:none;z-index:-1;"></object>
+                              <object tabindex="-1" type="text/html" data="about:blank" aria-hidden="true" style="display:block;position:absolute;top:0;left:0;right:0;bottom:0;height:100%;width:100%;overflow:hidden;pointer-events:none;z-index:-1;"></object>
                               <textarea rows="4" class="col q-input-target q-input-shadow absolute-top">undefined</textarea>
                               <textarea rows="4" class="col q-input-target q-input-area">undefined</textarea>
                             </div>
@@ -380,7 +380,7 @@ exports[`Storyshots GroupEdit create 1`] = `
                         <div class="q-if-inner col column">
                           <div class="row no-wrap relative-position">
                             <div class="col row relative-position">
-                              <object type="text/html" data="about:blank" aria-hidden="true" style="display:block;position:absolute;top:0;left:0;right:0;bottom:0;height:100%;width:100%;overflow:hidden;pointer-events:none;z-index:-1;"></object>
+                              <object tabindex="-1" type="text/html" data="about:blank" aria-hidden="true" style="display:block;position:absolute;top:0;left:0;right:0;bottom:0;height:100%;width:100%;overflow:hidden;pointer-events:none;z-index:-1;"></object>
                               <textarea rows="6" class="col q-input-target q-input-shadow absolute-top">Hello stranger! :smiley: :wave: Do you want to help us save all the good food from being wasted? Please tell us how you plan to contribute and who or what made you aware of our existence! Looking forward to working with you!</textarea>
                               <textarea
                                 rows="6" class="col q-input-target q-input-area">Hello stranger! :smiley: :wave: Do you want to help us save all the good food from being wasted? Please tell us how you plan to contribute and who or what made you aware of our existence! Looking forward to working with you!</textarea>
@@ -510,7 +510,7 @@ exports[`Storyshots GroupGallery signup view 1`] = `
     <!---->
     <div>
       <div>
-        <object type="text/html" data="about:blank" aria-hidden="true" style="display:block;position:absolute;top:0;left:0;right:0;bottom:0;height:100%;width:100%;overflow:hidden;pointer-events:none;z-index:-1;"></object>
+        <object tabindex="-1" type="text/html" data="about:blank" aria-hidden="true" style="display:block;position:absolute;top:0;left:0;right:0;bottom:0;height:100%;width:100%;overflow:hidden;pointer-events:none;z-index:-1;"></object>
         <div class="inline-block" style="width:100%;">
           <div class="q-card groupPreviewCard relative-position">
             <!---->
@@ -730,7 +730,7 @@ exports[`Storyshots GroupGallery switch and explore 1`] = `
         My groups
       </p>
       <div>
-        <object type="text/html" data="about:blank" aria-hidden="true" style="display:block;position:absolute;top:0;left:0;right:0;bottom:0;height:100%;width:100%;overflow:hidden;pointer-events:none;z-index:-1;"></object>
+        <object tabindex="-1" type="text/html" data="about:blank" aria-hidden="true" style="display:block;position:absolute;top:0;left:0;right:0;bottom:0;height:100%;width:100%;overflow:hidden;pointer-events:none;z-index:-1;"></object>
         <div class="inline-block" style="width:100%;">
           <div class="q-card groupPreviewCard relative-position">
             <!---->
@@ -882,7 +882,7 @@ exports[`Storyshots GroupGallery switch and explore 1`] = `
     </p>
     <div>
       <div>
-        <object type="text/html" data="about:blank" aria-hidden="true" style="display:block;position:absolute;top:0;left:0;right:0;bottom:0;height:100%;width:100%;overflow:hidden;pointer-events:none;z-index:-1;"></object>
+        <object tabindex="-1" type="text/html" data="about:blank" aria-hidden="true" style="display:block;position:absolute;top:0;left:0;right:0;bottom:0;height:100%;width:100%;overflow:hidden;pointer-events:none;z-index:-1;"></object>
         <div class="inline-block" style="width:100%;">
           <div class="q-card groupPreviewCard relative-position">
             <!---->
@@ -3100,7 +3100,7 @@ exports[`Storyshots PickupItem Full 1`] = `
       </div>
       <div class="people full-width">
         <div class="row justify-start">
-          <object type="text/html" data="about:blank" aria-hidden="true" style="display:block;position:absolute;top:0;left:0;right:0;bottom:0;height:100%;width:100%;overflow:hidden;pointer-events:none;z-index:-1;"></object>
+          <object tabindex="-1" type="text/html" data="about:blank" aria-hidden="true" style="display:block;position:absolute;top:0;left:0;right:0;bottom:0;height:100%;width:100%;overflow:hidden;pointer-events:none;z-index:-1;"></object>
           <div class="relative-position pic-wrapper">
             <!---->
             <div class="wrapper hoverScale" style="width:36px;height:36px;">
@@ -3147,7 +3147,7 @@ exports[`Storyshots PickupItem Join 1`] = `
       </div>
       <div class="people full-width">
         <div class="row justify-start">
-          <object type="text/html" data="about:blank" aria-hidden="true" style="display:block;position:absolute;top:0;left:0;right:0;bottom:0;height:100%;width:100%;overflow:hidden;pointer-events:none;z-index:-1;"></object>
+          <object tabindex="-1" type="text/html" data="about:blank" aria-hidden="true" style="display:block;position:absolute;top:0;left:0;right:0;bottom:0;height:100%;width:100%;overflow:hidden;pointer-events:none;z-index:-1;"></object>
           <div class="relative-position pic-wrapper">
             <!---->
             <div class="wrapper hoverScale" style="width:36px;height:36px;">
@@ -3201,7 +3201,7 @@ exports[`Storyshots PickupItem Leave 1`] = `
       </div>
       <div class="people full-width">
         <div class="row justify-start">
-          <object type="text/html" data="about:blank" aria-hidden="true" style="display:block;position:absolute;top:0;left:0;right:0;bottom:0;height:100%;width:100%;overflow:hidden;pointer-events:none;z-index:-1;"></object>
+          <object tabindex="-1" type="text/html" data="about:blank" aria-hidden="true" style="display:block;position:absolute;top:0;left:0;right:0;bottom:0;height:100%;width:100%;overflow:hidden;pointer-events:none;z-index:-1;"></object>
           <div class="relative-position pic-wrapper">
             <!---->
             <div class="wrapper hoverScale" style="width:36px;height:36px;">
@@ -3254,7 +3254,7 @@ exports[`Storyshots PickupItem pending 1`] = `
       </div>
       <div class="people full-width">
         <div class="row justify-start">
-          <object type="text/html" data="about:blank" aria-hidden="true" style="display:block;position:absolute;top:0;left:0;right:0;bottom:0;height:100%;width:100%;overflow:hidden;pointer-events:none;z-index:-1;"></object>
+          <object tabindex="-1" type="text/html" data="about:blank" aria-hidden="true" style="display:block;position:absolute;top:0;left:0;right:0;bottom:0;height:100%;width:100%;overflow:hidden;pointer-events:none;z-index:-1;"></object>
           <div class="relative-position pic-wrapper">
             <!---->
             <div class="wrapper hoverScale" style="width:36px;height:36px;">
@@ -3303,7 +3303,7 @@ exports[`Storyshots PickupList Default 1`] = `
 </div>
 <div class="people full-width">
   <div class="row justify-start">
-    <object type="text/html" data="about:blank" aria-hidden="true" style="display:block;position:absolute;top:0;left:0;right:0;bottom:0;height:100%;width:100%;overflow:hidden;pointer-events:none;z-index:-1;"></object>
+    <object tabindex="-1" type="text/html" data="about:blank" aria-hidden="true" style="display:block;position:absolute;top:0;left:0;right:0;bottom:0;height:100%;width:100%;overflow:hidden;pointer-events:none;z-index:-1;"></object>
     <div class="relative-position pic-wrapper">
       <!---->
       <div class="wrapper hoverScale" style="width:36px;height:36px;">
@@ -3354,7 +3354,7 @@ exports[`Storyshots PickupList Default 1`] = `
       </div>
       <div class="people full-width">
         <div class="row justify-start">
-          <object type="text/html" data="about:blank" aria-hidden="true" style="display:block;position:absolute;top:0;left:0;right:0;bottom:0;height:100%;width:100%;overflow:hidden;pointer-events:none;z-index:-1;"></object>
+          <object tabindex="-1" type="text/html" data="about:blank" aria-hidden="true" style="display:block;position:absolute;top:0;left:0;right:0;bottom:0;height:100%;width:100%;overflow:hidden;pointer-events:none;z-index:-1;"></object>
           <div class="relative-position pic-wrapper">
             <!---->
             <div class="wrapper hoverScale" style="width:36px;height:36px;">
@@ -3404,7 +3404,7 @@ exports[`Storyshots PickupList Default 1`] = `
       </div>
       <div class="people full-width">
         <div class="row justify-start">
-          <object type="text/html" data="about:blank" aria-hidden="true" style="display:block;position:absolute;top:0;left:0;right:0;bottom:0;height:100%;width:100%;overflow:hidden;pointer-events:none;z-index:-1;"></object>
+          <object tabindex="-1" type="text/html" data="about:blank" aria-hidden="true" style="display:block;position:absolute;top:0;left:0;right:0;bottom:0;height:100%;width:100%;overflow:hidden;pointer-events:none;z-index:-1;"></object>
           <div class="relative-position pic-wrapper">
             <!---->
             <div class="wrapper hoverScale" style="width:36px;height:36px;">
@@ -3448,7 +3448,7 @@ exports[`Storyshots PickupList Default 1`] = `
       </div>
       <div class="people full-width">
         <div class="row justify-start">
-          <object type="text/html" data="about:blank" aria-hidden="true" style="display:block;position:absolute;top:0;left:0;right:0;bottom:0;height:100%;width:100%;overflow:hidden;pointer-events:none;z-index:-1;"></object>
+          <object tabindex="-1" type="text/html" data="about:blank" aria-hidden="true" style="display:block;position:absolute;top:0;left:0;right:0;bottom:0;height:100%;width:100%;overflow:hidden;pointer-events:none;z-index:-1;"></object>
           <!---->
           <!---->
           <div class="user-slot-wrapper active hoverScale" style="width:36px;height:36px;">
@@ -3524,23 +3524,27 @@ exports[`Storyshots PickupSeriesEdit Default 1`] = `
               </div>
               <div tabindex="-1" class="q-popover scroll">
                 <div class="q-datetime row no-border text-primary">
-                  <div class="q-datetime-header column col-xs-12 col-md-4 justify-center">
-                    <div class="q-datetime-time row flex-center">
-                      <div class="q-datetime-clockstring col-auto col-md-12 row no-wrap flex-center"><span tabindex="0" class="q-datetime-link col-md q-pr-sm active" style="text-align:right;"><span tabindex="-1">8</span></span><span style="opacity:0.6;">:</span><span tabindex="0" class="q-datetime-link col-md q-pl-sm" style="text-align:left;"><span tabindex="-1">00</span></span>
-                      </div>
-                      <div tabindex="0" class="q-datetime-ampm column col-auto col-md-12 justify-around">
-                        <div class="q-datetime-link active"><span tabindex="-1">AM</span></div>
-                        <div class="q-datetime-link"><span tabindex="-1">PM</span></div>
+                  <div class="q-datetime-header column no-wrap items-center">
+                    <div class="col"></div>
+                    <div class="q-datetime-time row scroll flex-center">
+                      <div class="q-datetime-clockstring col row justify-center items-start"><span class="col" style="text-align:right;"><span tabindex="0" class="q-datetime-link active" style="text-align:right;"><span tabindex="-1">8</span></span>
+                        </span><span style="opacity:0.6;">:</span><span class="col row no-wrap items-center" style="text-align:left;"><span tabindex="0" class="q-datetime-link" style="text-align:left;"><span tabindex="-1">00</span></span><span tabindex="0" class="q-datetime-ampm column"><span class="q-datetime-link active"><span tabindex="-1">AM</span></span>
+                        <span
+                          class="q-datetime-link"><span tabindex="-1">PM</span></span>
+                          </span>
+                          </span>
                       </div>
                     </div>
+                    <div class="col"></div>
                   </div>
-                  <div class="q-datetime-content col-xs-12 column col-md-8">
-                    <div class="q-datetime-selector auto row flex-center">
+                  <div class="q-datetime-content scroll">
+                    <div class="q-datetime-selector row items-center">
+                      <div class="col"></div>
                       <div class="column items-center content-center justify-center">
                         <div class="q-datetime-clock cursor-pointer">
                           <div class="q-datetime-clock-circle full-width full-height">
                             <div class="q-datetime-clock-center"></div>
-                            <div class="q-datetime-clock-pointer" style="transform:rotate(60deg);-webkit-transform:rotate(60deg);-moz-transform:rotate(60deg);-ms-transform:rotate(60deg);-o-transform:rotate(60deg);"><span></span></div>
+                            <div class="q-datetime-clock-pointer" style="transform:rotate(60deg);"><span></span></div>
                             <div class="q-datetime-clock-position q-datetime-clock-pos-1"><span>1</span></div>
                             <div class="q-datetime-clock-position q-datetime-clock-pos-2"><span>2</span></div>
                             <div class="q-datetime-clock-position q-datetime-clock-pos-3"><span>3</span></div>
@@ -3556,6 +3560,7 @@ exports[`Storyshots PickupSeriesEdit Default 1`] = `
                           </div>
                         </div>
                       </div>
+                      <div class="col"></div>
                     </div>
                   </div>
                 </div>
@@ -3759,7 +3764,7 @@ exports[`Storyshots PickupSeriesEdit Default 1`] = `
             <div class="q-if-inner col column">
               <div class="row no-wrap relative-position">
                 <div class="col row relative-position">
-                  <object type="text/html" data="about:blank" aria-hidden="true" style="display:block;position:absolute;top:0;left:0;right:0;bottom:0;height:100%;width:100%;overflow:hidden;pointer-events:none;z-index:-1;"></object>
+                  <object tabindex="-1" type="text/html" data="about:blank" aria-hidden="true" style="display:block;position:absolute;top:0;left:0;right:0;bottom:0;height:100%;width:100%;overflow:hidden;pointer-events:none;z-index:-1;"></object>
                   <textarea rows="1" max-length="500" class="col q-input-target q-input-shadow absolute-top">a nice description for the series</textarea>
                   <textarea rows="1" max-length="500" class="col q-input-target q-input-area">a nice description for the series</textarea>
                 </div>
@@ -3800,7 +3805,7 @@ exports[`Storyshots PickupSeriesEdit Default 1`] = `
 
 exports[`Storyshots PickupUsers empty 1`] = `
 <div class="row justify-start">
-  <object type="text/html" data="about:blank" aria-hidden="true" style="display:block;position:absolute;top:0;left:0;right:0;bottom:0;height:100%;width:100%;overflow:hidden;pointer-events:none;z-index:-1;"></object>
+  <object tabindex="-1" type="text/html" data="about:blank" aria-hidden="true" style="display:block;position:absolute;top:0;left:0;right:0;bottom:0;height:100%;width:100%;overflow:hidden;pointer-events:none;z-index:-1;"></object>
   <!---->
   <!---->
   <div class="user-slot-wrapper active hoverScale" style="width:36px;height:36px;">
@@ -3820,7 +3825,7 @@ exports[`Storyshots PickupUsers empty 1`] = `
 
 exports[`Storyshots PickupUsers full 1`] = `
 <div class="row justify-start">
-  <object type="text/html" data="about:blank" aria-hidden="true" style="display:block;position:absolute;top:0;left:0;right:0;bottom:0;height:100%;width:100%;overflow:hidden;pointer-events:none;z-index:-1;"></object>
+  <object tabindex="-1" type="text/html" data="about:blank" aria-hidden="true" style="display:block;position:absolute;top:0;left:0;right:0;bottom:0;height:100%;width:100%;overflow:hidden;pointer-events:none;z-index:-1;"></object>
   <div class="relative-position pic-wrapper">
     <!---->
     <div class="wrapper hoverScale" style="width:36px;height:36px;">
@@ -3854,7 +3859,7 @@ exports[`Storyshots PickupUsers full 1`] = `
 
 exports[`Storyshots PickupUsers joinable 1`] = `
 <div class="row justify-start">
-  <object type="text/html" data="about:blank" aria-hidden="true" style="display:block;position:absolute;top:0;left:0;right:0;bottom:0;height:100%;width:100%;overflow:hidden;pointer-events:none;z-index:-1;"></object>
+  <object tabindex="-1" type="text/html" data="about:blank" aria-hidden="true" style="display:block;position:absolute;top:0;left:0;right:0;bottom:0;height:100%;width:100%;overflow:hidden;pointer-events:none;z-index:-1;"></object>
   <div class="relative-position pic-wrapper">
     <!---->
     <div class="wrapper hoverScale" style="width:36px;height:36px;">
@@ -3896,7 +3901,7 @@ exports[`Storyshots PickupUsers joinable 1`] = `
 
 exports[`Storyshots PickupUsers leavable 1`] = `
 <div class="row justify-start">
-  <object type="text/html" data="about:blank" aria-hidden="true" style="display:block;position:absolute;top:0;left:0;right:0;bottom:0;height:100%;width:100%;overflow:hidden;pointer-events:none;z-index:-1;"></object>
+  <object tabindex="-1" type="text/html" data="about:blank" aria-hidden="true" style="display:block;position:absolute;top:0;left:0;right:0;bottom:0;height:100%;width:100%;overflow:hidden;pointer-events:none;z-index:-1;"></object>
   <div class="relative-position pic-wrapper">
     <!---->
     <div class="wrapper hoverScale" style="width:36px;height:36px;">
@@ -4052,7 +4057,7 @@ exports[`Storyshots Settings Page Default 1`] = `
                           <div class="q-if-inner col column">
                             <div class="row no-wrap relative-position">
                               <div class="col row relative-position">
-                                <object type="text/html" data="about:blank" aria-hidden="true" style="display:block;position:absolute;top:0;left:0;right:0;bottom:0;height:100%;width:100%;overflow:hidden;pointer-events:none;z-index:-1;"></object>
+                                <object tabindex="-1" type="text/html" data="about:blank" aria-hidden="true" style="display:block;position:absolute;top:0;left:0;right:0;bottom:0;height:100%;width:100%;overflow:hidden;pointer-events:none;z-index:-1;"></object>
                                 <textarea rows="1" class="col q-input-target q-input-shadow absolute-top">I am the current User!</textarea>
                                 <textarea rows="1" class="col q-input-target q-input-area">I am the current User!</textarea>
                               </div>
@@ -5211,7 +5216,7 @@ exports[`Storyshots Statistics PickupFeedback 1`] = `
                   <div class="q-if-inner col column">
                     <div class="row no-wrap relative-position">
                       <div class="col row relative-position">
-                        <object type="text/html" data="about:blank" aria-hidden="true" style="display:block;position:absolute;top:0;left:0;right:0;bottom:0;height:100%;width:100%;overflow:hidden;pointer-events:none;z-index:-1;"></object>
+                        <object tabindex="-1" type="text/html" data="about:blank" aria-hidden="true" style="display:block;position:absolute;top:0;left:0;right:0;bottom:0;height:100%;width:100%;overflow:hidden;pointer-events:none;z-index:-1;"></object>
                         <textarea rows="1" autocomplete="off" class="col q-input-target q-input-shadow absolute-top"></textarea>
                         <textarea rows="1" autocomplete="off" placeholder="Was everything fine? Did everyone show up? Your comment here..." class="col q-input-target q-input-area"></textarea>
                       </div>
@@ -5549,7 +5554,7 @@ exports[`Storyshots Stores StoreEdit (with server error) 1`] = `
                         <div class="q-if-inner col column">
                           <div class="row no-wrap relative-position">
                             <div class="col row relative-position">
-                              <object type="text/html" data="about:blank" aria-hidden="true" style="display:block;position:absolute;top:0;left:0;right:0;bottom:0;height:100%;width:100%;overflow:hidden;pointer-events:none;z-index:-1;"></object>
+                              <object tabindex="-1" type="text/html" data="about:blank" aria-hidden="true" style="display:block;position:absolute;top:0;left:0;right:0;bottom:0;height:100%;width:100%;overflow:hidden;pointer-events:none;z-index:-1;"></object>
                               <textarea rows="3" class="col q-input-target q-input-shadow absolute-top">all the good stuff</textarea>
                               <textarea rows="3" class="col q-input-target q-input-area">all the good stuff</textarea>
                             </div>
@@ -5771,7 +5776,7 @@ exports[`Storyshots Stores StoreEdit 1`] = `
                         <div class="q-if-inner col column">
                           <div class="row no-wrap relative-position">
                             <div class="col row relative-position">
-                              <object type="text/html" data="about:blank" aria-hidden="true" style="display:block;position:absolute;top:0;left:0;right:0;bottom:0;height:100%;width:100%;overflow:hidden;pointer-events:none;z-index:-1;"></object>
+                              <object tabindex="-1" type="text/html" data="about:blank" aria-hidden="true" style="display:block;position:absolute;top:0;left:0;right:0;bottom:0;height:100%;width:100%;overflow:hidden;pointer-events:none;z-index:-1;"></object>
                               <textarea rows="3" class="col q-input-target q-input-shadow absolute-top">all the good stuff</textarea>
                               <textarea rows="3" class="col q-input-target q-input-area">all the good stuff</textarea>
                             </div>
@@ -5941,6 +5946,7 @@ exports[`Storyshots User Profile My Trust Button 1`] = `
       </div>
     </div>
     <div minimized="" class="modal fullscreen row minimized flex-center" style="display:none;">
+      <div class="modal-backdrop absolute-full"></div>
       <div tabindex="-1" class="modal-content">
         <div class="modal-header">
           2 people trust you in group 19.
@@ -5989,6 +5995,7 @@ exports[`Storyshots User Profile Profile 1`] = `
       <div class="q-btn-inner row col items-center justify-center">
         group 1
         <div class="modal fullscreen row minimized flex-center" style="display:none;">
+          <div class="modal-backdrop absolute-full"></div>
           <div tabindex="-1" class="modal-content">
             <div class="q-list">
               <div class="q-list-header">
@@ -6053,6 +6060,7 @@ exports[`Storyshots User Profile Profile 1`] = `
             </div>
           </div>
           <div minimized="" class="modal fullscreen row minimized flex-center" style="display:none;">
+            <div class="modal-backdrop absolute-full"></div>
             <div tabindex="-1" class="modal-content">
               <div class="modal-header">
                 2 people trust storybook user in my current group.
@@ -6125,6 +6133,7 @@ exports[`Storyshots User Profile Trust Button - I and others trust 1`] = `
       </div>
     </div>
     <div minimized="" class="modal fullscreen row minimized flex-center" style="display:none;">
+      <div class="modal-backdrop absolute-full"></div>
       <div tabindex="-1" class="modal-content">
         <div class="modal-header">
           You and 4 other people trust storybook user in group 15.
@@ -6190,6 +6199,7 @@ exports[`Storyshots User Profile Trust Button - I trust 1`] = `
       </div>
     </div>
     <div minimized="" class="modal fullscreen row minimized flex-center" style="display:none;">
+      <div class="modal-backdrop absolute-full"></div>
       <div tabindex="-1" class="modal-content">
         <div class="modal-header">
           You trust storybook user in group 17.
@@ -6235,6 +6245,7 @@ exports[`Storyshots User Profile Trust Button - is editor 1`] = `
       </div>
     </div>
     <div minimized="" class="modal fullscreen row minimized flex-center" style="display:none;">
+      <div class="modal-backdrop absolute-full"></div>
       <div tabindex="-1" class="modal-content">
         <div class="modal-header">
           2 people trust storybook user in group 5.
@@ -6292,6 +6303,7 @@ exports[`Storyshots User Profile Trust Button - is newcomer 1`] = `
       </div>
     </div>
     <div minimized="" class="modal fullscreen row minimized flex-center" style="display:none;">
+      <div class="modal-backdrop absolute-full"></div>
       <div tabindex="-1" class="modal-content">
         <div class="modal-header">
           2 people trust storybook user in group 7.
@@ -6350,6 +6362,7 @@ exports[`Storyshots User Profile Trust Button - is newcomer without trust 1`] = 
       </div>
     </div>
     <div minimized="" class="modal fullscreen row minimized flex-center" style="display:none;">
+      <div class="modal-backdrop absolute-full"></div>
       <div tabindex="-1" class="modal-content">
         <div class="modal-header">
           Be the first one to trust storybook user in group 9!
@@ -6395,6 +6408,7 @@ exports[`Storyshots User Profile Trust Button - multiple others trust 1`] = `
       </div>
     </div>
     <div minimized="" class="modal fullscreen row minimized flex-center" style="display:none;">
+      <div class="modal-backdrop absolute-full"></div>
       <div tabindex="-1" class="modal-content">
         <div class="modal-header">
           5 people trust storybook user in group 13.
@@ -6465,6 +6479,7 @@ exports[`Storyshots User Profile Trust Button - one other trust 1`] = `
       </div>
     </div>
     <div minimized="" class="modal fullscreen row minimized flex-center" style="display:none;">
+      <div class="modal-backdrop absolute-full"></div>
       <div tabindex="-1" class="modal-content">
         <div class="modal-header">
           user 1 trusts storybook user in group 11.
@@ -6622,7 +6637,7 @@ exports[`Storyshots WallConversation WallConversation 1`] = `
                               <div class="q-if-inner col column">
                                 <div class="row no-wrap relative-position">
                                   <div class="col row relative-position">
-                                    <object type="text/html" data="about:blank" aria-hidden="true" style="display:block;position:absolute;top:0;left:0;right:0;bottom:0;height:100%;width:100%;overflow:hidden;pointer-events:none;z-index:-1;"></object>
+                                    <object tabindex="-1" type="text/html" data="about:blank" aria-hidden="true" style="display:block;position:absolute;top:0;left:0;right:0;bottom:0;height:100%;width:100%;overflow:hidden;pointer-events:none;z-index:-1;"></object>
                                     <textarea rows="1" class="col q-input-target q-input-shadow absolute-top"></textarea>
                                     <textarea rows="1" placeholder="Write a message..." class="col q-input-target q-input-area"></textarea>
                                   </div>

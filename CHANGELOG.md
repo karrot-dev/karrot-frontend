@@ -13,6 +13,7 @@ Please document your changes in this format:
 ### Added
 
 - Newcomer role and trust system #1077 @tiltec
+- On-site notifications in topbar #1099 @tiltec
 
 ### Changed
 

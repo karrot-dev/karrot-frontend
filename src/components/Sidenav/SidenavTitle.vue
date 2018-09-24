@@ -3,6 +3,7 @@
     <q-toolbar-title v-if="currentGroup">{{ currentGroup.name }}</q-toolbar-title>
     <CommunityFeed />
     <LatestMessageButton @click="$emit('click')" />
+    <NotificationButton @click="$emit('click')" />
     <LocaleSelect />
     <q-btn
       v-if="currentGroup"
@@ -22,6 +23,7 @@
 import LocaleSelect from '@/components/General/LocaleSelect'
 import CommunityFeed from '@/components/General/CommunityFeed'
 import LatestMessageButton from '@/components/Layout/LatestMessageButton'
+import NotificationButton from '@/components/Layout/NotificationButton'
 
 import { QToolbar, QToolbarTitle, QBtn, QIcon, QTooltip } from 'quasar'
 
@@ -37,6 +39,7 @@ export default {
     LocaleSelect,
     CommunityFeed,
     LatestMessageButton,
+    NotificationButton,
   },
   computed: {
     ...mapGetters({

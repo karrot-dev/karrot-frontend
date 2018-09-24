@@ -1,3 +1,9 @@
+/**
+ * This file contains enriched mock data, similar to those coming from vuex getters.
+ *
+ * It is probably better for most use cases to use the factory functions from 'enrichedFactories.js' instead.
+ */
+
 import { statusMocks } from '>/helpers'
 import { optionsFor } from '@/services/storeStatus'
 

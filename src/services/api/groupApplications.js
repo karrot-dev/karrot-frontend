@@ -34,7 +34,7 @@ export function convert (val) {
     return {
       ...val,
       createdAt: new Date(val.createdAt),
-      decidedAt: new Date(val.decidedAt),
+      decidedAt: val.decidedAt && new Date(val.decidedAt),
     }
   }
 }

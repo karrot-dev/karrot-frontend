@@ -54,10 +54,6 @@ export default {
         .filter(isWithinOneWeek)
         .filter(e => !e.isFull)
         .filter(e => !e.isUserMember),
-    mine: (state, getters, rootState, rootGetters) => {
-      if (!rootGetters['auth/isLoggedIn']) return []
-      return getters.all.filter(e => e.collectorIds.includes(rootGetters['auth/userId']))
-    },
     feedbackPossible: (state, getters) => state.feedbackPossibleIds.map(getters.get),
     feedbackPossibleFiltered: (state, getters) =>
       state.feedbackPossibleIds

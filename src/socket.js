@@ -15,6 +15,7 @@ import { convert as convertFeedback } from '@/services/api/feedback'
 import { convert as convertHistory } from '@/services/api/history'
 import { convert as convertInvitation } from '@/services/api/invitations'
 import { convert as convertGroup } from '@/services/api/groups'
+import { convert as convertNotification, convertMeta as convertNotificationMeta } from '@/services/api/notifications'
 
 let WEBSOCKET_ENDPOINT
 
@@ -153,6 +154,15 @@ export function receiveMessage ({ topic, payload }) {
   }
   else if (topic === 'history:history') {
     store.dispatch('history/update', convertHistory(camelizeKeys(payload)))
+  }
+  else if (topic === 'notifications:notification') {
+    store.dispatch('notifications/update', convertNotification(camelizeKeys(payload)))
+  }
+  else if (topic === 'notifications:notification_deleted') {
+    store.dispatch('notifications/delete', payload.id)
+  }
+  else if (topic === 'notifications:meta') {
+    store.dispatch('notifications/setEntryMeta', convertNotificationMeta(camelizeKeys(payload)))
   }
 }
 

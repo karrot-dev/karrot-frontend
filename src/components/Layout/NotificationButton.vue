@@ -1,28 +1,28 @@
 <template>
   <q-btn
-    :to="$q.platform.is.mobile && ({ name: 'messages' })"
+    :to="$q.platform.is.mobile && ({ name: 'notifications' })"
     flat
     dense
     round
     @click="maybeOpen"
-    :title="$t('GROUP.MESSAGES')"
+    :title="$t('NOTIFICATION_BELLS_LIST.TITLE')"
   >
     <q-icon
-      name="fas fa-comments"
+      name="fas fa-bell"
     />
     <q-chip
-      v-if="unreadCount > 0"
+      v-if="unseenCount > 0"
       floating
-      :color="allUnreadMuted ? 'grey' : 'secondary'"
+      color="secondary"
     >
-      {{ unreadCount }}
+      {{ unseenCount }}
     </q-chip>
     <q-popover
       v-if="!$q.platform.is.mobile"
       v-model="showing"
-      class="k-latest-messages-popover"
+      class="k-notifications-popover"
     >
-      <LatestMessages
+      <Notifications
         v-if="showing"
         as-popover
       />
@@ -32,43 +32,36 @@
 
 <script>
 import {
-  QToolbar,
-  QToolbarTitle, // TODO cleanup
   QBtn,
   QIcon,
   QChip,
   QPopover,
-  QList,
-  QItem,
-  QTooltip,
 } from 'quasar'
-const LatestMessages = () => import('@/components/Conversation/LatestMessages')
+const Notifications = () => import('@/components/Layout/Notifications')
 
-import { mapGetters } from 'vuex'
+import { mapGetters, mapActions } from 'vuex'
 
 export default {
   components: {
-    QToolbar,
-    QToolbarTitle,
     QBtn,
     QIcon,
     QChip,
     QPopover,
-    QList,
-    QItem,
-    QTooltip,
-    LatestMessages,
+    Notifications,
   },
   computed: {
     ...mapGetters({
-      unreadCount: 'latestMessages/unreadCount',
-      allUnreadMuted: 'latestMessages/allUnreadMuted',
+      unseenCount: 'notifications/unseenCount',
     }),
   },
   methods: {
+    ...mapActions({
+      markSeen: 'notifications/markSeen',
+    }),
     maybeOpen () {
       if (!this.$q.platform.is.mobile) {
         this.showing = true
+        this.markSeen()
       }
       this.$emit('click')
     },
@@ -82,6 +75,6 @@ export default {
 </script>
 
 <style lang="stylus" scoped>
-.k-latest-messages-popover
+.k-notifications-popover
   width 400px
 </style>

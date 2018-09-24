@@ -28,6 +28,11 @@ const store = createStore({
       allUnreadMuted: () => false,
     },
   },
+  notifications: {
+    getters: {
+      unseenCount: () => 1,
+    },
+  },
 })
 
 storiesOf('Layout', module)

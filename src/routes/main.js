@@ -2,6 +2,7 @@ const GroupWall = () => import('@/pages/Group/Wall')
 const GroupPickups = () => import('@/pages/Group/Pickups')
 const GroupFeedback = () => import('@/pages/Group/Feedbacks')
 const Messages = () => import('@/pages/Messages')
+const Notifications = () => import('@/pages/Notifications')
 const GroupMap = () => import('@/pages/Map')
 const GroupSettings = () => import('@/pages/Group/Settings')
 const GroupEdit = () => import('@/pages/Group/Edit')
@@ -341,11 +342,21 @@ export default [
         ],
       },
       {
-        name: 'pickupFeedback',
-        path: 'give-feedback/:feedbackId?',
+        name: 'giveFeedback',
+        path: 'give-feedback/:pickupId?',
         meta: {
           breadcrumbs: [
-            { translation: 'PICKUP_FEEDBACK.TITLE', route: { name: 'pickupFeedback' } },
+            { translation: 'PICKUP_FEEDBACK.TITLE', route: { name: 'giveFeedback' } },
+          ],
+        },
+        component: PickupFeedback,
+      },
+      {
+        name: 'editFeedback',
+        path: 'feedback/:feedbackId?',
+        meta: {
+          breadcrumbs: [
+            { translation: 'PICKUP_FEEDBACK.TITLE', route: { name: 'editFeedback' } },
           ],
           beforeEnter: 'feedback/select',
           afterLeave: 'feedback/clear',
@@ -431,6 +442,21 @@ export default [
     },
     components: {
       default: Messages,
+      sidenav: Sidenav,
+    },
+  },
+  {
+    name: 'notifications',
+    path: 'notifications',
+    meta: {
+      requiredLoggedIn: true,
+      breadcrumbs: [
+        { translation: 'NOTIFICATION_BELLS_LIST.TITLE', route: { name: 'notifications' } },
+      ],
+      beforeEnter: 'currentGroup/selectFromCurrentUser',
+    },
+    components: {
+      default: Notifications,
       sidenav: Sidenav,
     },
   },

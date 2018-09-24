@@ -20,7 +20,7 @@
             <router-link
               v-if="feedback.isEditable"
               class="edit-button q-ml-sm"
-              :to="{ name: 'pickupFeedback', params: { feedbackId: feedback.id }}"
+              :to="{ name: 'editFeedback', params: { feedbackId: feedback.id }}"
             >
               <q-icon
                 name="fas fa-pencil-alt"

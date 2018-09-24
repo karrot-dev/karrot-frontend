@@ -36,9 +36,9 @@
             >
               <i class="fas fa-bars relative-position">
                 <div
-                  v-if="hasUnread"
+                  v-if="hasNotification"
                   class="k-highlight-dot"
-                  :class="allUnreadMuted ? 'bg-grey' : 'bg-secondary'"
+                  :class="hasImportantNotification ? 'bg-secondary' : 'bg-grey'"
                 />
               </i>
             </q-btn>
@@ -172,8 +172,9 @@ export default {
       routeError: 'routeError/status',
       showRightDrawer: 'detail/isActive',
       disableDesktopSidenav: 'route/disableDesktopSidenav',
-      unreadCount: 'latestMessages/unreadCount',
-      allUnreadMuted: 'latestMessages/allUnreadMuted',
+      messagesUnreadCount: 'latestMessages/unreadCount',
+      messagesAllUnreadMuted: 'latestMessages/allUnreadMuted',
+      notificationsUnseenCount: 'notifications/unseenCount',
       currentGroup: 'currentGroup/value',
     }),
     layoutView () {
@@ -200,8 +201,11 @@ export default {
     hasSidenavComponent () {
       return Boolean(this.routerComponents.sidenav)
     },
-    hasUnread () {
-      return this.unreadCount > 0
+    hasNotification () {
+      return this.messagesUnreadCount > 0 || this.notificationsUnseenCount > 0
+    },
+    hasImportantNotification () {
+      return !this.messagesAllUnreadMuted || this.notificationsUnseenCount > 0
     },
   },
 }

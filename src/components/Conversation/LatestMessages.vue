@@ -23,6 +23,7 @@
         {{ $t('CONVERSATION.NO_CONVERSATIONS') }}
       </q-item>
       <LatestMessageItem
+        v-close-overlay
         v-for="conv in conversations"
         :key="'conv' + conv.id"
         :group="conv.type === 'group' ? conv.target : null"

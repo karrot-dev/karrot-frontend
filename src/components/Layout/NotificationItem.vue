@@ -14,6 +14,11 @@
       <q-item-tile
         label
       >
+        <q-icon
+          v-if="icon"
+          :name="icon"
+          class="q-mr-xs vertical-baseline"
+        />
         {{ message }}
       </q-item-tile>
       <q-item-tile
@@ -34,6 +39,7 @@
 </template>
 
 <script>
+import notificationConfig from './notificationConfig'
 import {
   QItem,
   QItemMain,
@@ -69,6 +75,10 @@ export default {
     type () {
       return this.notification && this.notification.type
     },
+    config () {
+      if (!this.type || !this.context) return
+      return notificationConfig(this.type, this.context)
+    },
     user () {
       if (!this.context) return
       if (!this.context.user) return
@@ -92,37 +102,12 @@ export default {
       }
     },
     message () {
-      if (!this.type) return
-      return this.$t(`NOTIFICATION_BELLS.${this.type.toUpperCase()}`, this.messageParams)
+      if (!this.config) return
+      return this.config.message
     },
-    messageParams () {
-      if (!this.context) return
-      const { context, type } = this
-
-      const commonParams = {
-        userName: context.user && context.user.displayName,
-      }
-
-      switch (type) {
-        case 'new_applicant':
-          return {
-            userName: context.application && context.application.user.displayName,
-          }
-        case 'feedback_possible':
-          return {
-            date: context.pickup && this.$d(context.pickup.date, 'dayAndTime'),
-          }
-        case 'pickup_upcoming':
-          return {
-            time: context.pickup && this.$d(context.pickup.date, 'timeShort'),
-          }
-        case 'new_store':
-          return {
-            storeName: context.store.name,
-          }
-      }
-
-      return commonParams
+    icon () {
+      if (!this.config) return
+      return this.config.icon
     },
     showExpiresAt () {
       return this.type === 'pickup_upcoming'

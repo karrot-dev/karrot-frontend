@@ -44,12 +44,11 @@
 import { QBtn, QIcon, QTooltip } from 'quasar'
 
 export default {
-  name: 'Conversation',
   components: { QBtn, QIcon, QTooltip },
   props: {
     value: {
       type: Boolean,
-      required: true,
+      default: false,
     },
     user: {
       type: Object,

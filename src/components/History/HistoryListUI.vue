@@ -30,7 +30,7 @@ export default {
   mixins: [paginationMixin],
   props: {
     history: { required: true, type: Array },
-    status: { required: true, type: Object },
+    status: { default: null, type: Object },
   },
   components: { QIcon, QInfiniteScroll, QSpinnerDots, QList, HistoryEntry },
   computed: {

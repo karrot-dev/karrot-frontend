@@ -47,7 +47,7 @@ import StoreList from '@/components/Store/StoreList'
 
 export default {
   props: {
-    groupId: { required: true, type: Number },
+    groupId: { default: null, type: Number },
     stores: { required: true, type: Array },
     showAllStores: { default: false, type: Boolean },
     archived: { default: () => [], type: Array },

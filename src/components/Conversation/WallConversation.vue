@@ -64,7 +64,7 @@ import NotificationToggle from './NotificationToggle'
 import { QBtn, QInfiniteScroll, QSpinnerDots, QList, QAlert, QItem } from 'quasar'
 
 export default {
-  name: 'Conversation',
+  name: 'WallConversation',
   components: {
     ConversationMessage,
     ConversationCompose,

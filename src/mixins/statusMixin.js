@@ -1,6 +1,6 @@
 export default {
   props: {
-    status: { required: true, type: Object },
+    status: { default: null, type: Object },
   },
   computed: {
     isPending () {

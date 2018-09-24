@@ -131,7 +131,7 @@ export default {
   },
   props: {
     groupId: {
-      required: true,
+      default: null,
       type: Number,
     },
     expanded: {

@@ -103,7 +103,7 @@ export default {
     existingFeedback: { required: true, type: Array },
     saveStatus: { required: true, type: Object },
     fetchStatus: { required: true, type: Object },
-    seedId: { required: true, type: Number },
+    seedId: { default: 0, type: Number },
   },
   data () {
     return {

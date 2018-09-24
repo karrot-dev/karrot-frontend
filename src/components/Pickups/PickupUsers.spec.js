@@ -3,6 +3,7 @@ import { joinablePickup, currentUserMock } from '>/mockdata'
 import cloneDeep from 'clone-deep'
 
 import { mountWithDefaults, createStore, polyfillRequestAnimationFrame } from '>/helpers'
+import { makeUser } from '>/enrichedFactories'
 
 polyfillRequestAnimationFrame()
 
@@ -29,9 +30,11 @@ describe('PickupUsers', () => {
 
   it('shows more collectors than slots', () => {
     pickup.collectors = [
-      ...pickup.collectors,
-      pickup.collectors[0],
-      pickup.collectors[0],
+      makeUser(),
+      makeUser(),
+      makeUser(),
+      makeUser(),
+      makeUser(),
     ]
     pickup.maxCollectors = 4
     wrapper = mountWithDefaults(PickupUsers, {

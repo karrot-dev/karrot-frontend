@@ -109,6 +109,7 @@ export function mountWithDefaultsAndLocalVue (Component, localVue, options = {})
     router,
     localVue,
     i18n,
+    sync: false,
     ...options,
   })
   makeFindAllIterable(wrapper)

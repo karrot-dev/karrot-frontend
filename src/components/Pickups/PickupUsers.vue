@@ -10,7 +10,7 @@
     <div
       v-for="user in pickup.collectors"
       v-if="!user.isCurrentUser"
-      :key="'0' + user.id"
+      :key="'collector' + user.id"
       class="relative-position pic-wrapper"
     >
       <div

@@ -70,7 +70,7 @@ import { mapGetters } from 'vuex'
 export default {
   components: { QList, QListHeader, QItem, QItemMain, QItemTile, QItemSide, QIcon, QTooltip, QCollapsible, QItemSeparator },
   props: {
-    groupId: { required: true, type: Number },
+    groupId: { default: null, type: Number },
     stores: { required: true, type: Array },
     archived: { default: () => [], type: Array },
     linkTo: { default: 'store', type: String },

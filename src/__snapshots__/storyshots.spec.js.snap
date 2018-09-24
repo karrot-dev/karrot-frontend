@@ -1448,7 +1448,7 @@ exports[`Storyshots GroupSettings show 1`] = `
   </div>
   <div class="q-list q-list-link">
     <div class="q-list-header">Email notifications</div>
-    <VerificationWarning class="generic-margin"></VerificationWarning> <label class="q-item q-item-division relative-position">
+    <div class="generic-margin">VerificationWarning has been mocked</div> <label class="q-item q-item-division relative-position">
       <div class="q-item-side q-item-section q-item-side-left">
         <div tabindex="0" class="q-option cursor-pointer no-outline row inline no-wrap items-center q-checkbox q-focusable">
           <div class="q-option-inner relative-position text-faded"><input type="checkbox">
@@ -3676,7 +3676,7 @@ exports[`Storyshots Settings Page Default 1`] = `
     </div>
     <div class="q-card-main q-card-container">
       <div id="change-email" class="edit-box">
-        <VerificationWarning></VerificationWarning>
+        <div>VerificationWarning has been mocked</div>
         <div class="q-field row no-wrap items-start q-field-responsive q-field-no-input"><i aria-hidden="true" class="q-icon q-field-icon q-field-margin fas fa-envelope"> </i>
           <div class="row col">
             <div class="q-field-label q-field-margin col-xs-12 col-sm-5">
@@ -3801,7 +3801,7 @@ exports[`Storyshots Settings Page Default 1`] = `
 </div>
 `;
 
-exports[`Storyshots Settings Page verification warning 1`] = `<!---->`;
+exports[`Storyshots Settings Page verification warning 1`] = `<div>VerificationWarning has been mocked</div>`;
 
 exports[`Storyshots Sidenav Boxes Group 1`] = `
 <div class="k-sidenav-box expandable">
@@ -4487,7 +4487,7 @@ exports[`Storyshots Statistics FeedbackList 1`] = `
 exports[`Storyshots Statistics PickupFeedback 1`] = `
 <div class="pickup-feedback-wrapper">
   <div class="q-card no-mobile-margin no-shadow grey-border">
-    <div type="circles" style="color:white;">
+    <div seed="0" type="circles" style="color:white;">
       <div class="row no-wrap image-and-text">
         <div class="image-and-text-left gt-sm"><img src="test-file-stub" style="width:100%;"></div>
         <div class="image-and-text-right">

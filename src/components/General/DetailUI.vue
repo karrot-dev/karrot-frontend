@@ -203,7 +203,7 @@ export default {
     pickup: { type: Object, default: null },
     application: { type: Object, default: null },
     conversation: { type: Object, default: null },
-    away: { type: Boolean, required: true },
+    away: { type: Boolean, default: false },
     currentUser: { type: Object, default: null },
   },
   computed: {

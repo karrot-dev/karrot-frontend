@@ -104,6 +104,7 @@ export default {
       if (applications) {
         for (const application of applications) {
           dispatch('groupApplications/update', application, { root: true })
+          dispatch('users/update', application.user, { root: true })
         }
       }
       if (usersInfo) {

@@ -8,7 +8,6 @@ import router from '@/router'
 function initialState () {
   return {
     entries: {},
-    idList: [],
     activeUserProfile: null,
     resetPasswordSuccess: false,
     resendVerificationCodeSuccess: false,
@@ -29,6 +28,7 @@ export default {
           isCurrentUser: false,
         }
       }
+
       const authUserId = rootGetters['auth/userId']
       const membership = rootGetters['currentGroup/memberships'][user.id]
 
@@ -39,7 +39,7 @@ export default {
       }
     },
     all: (state, getters, rootState, rootGetters) => {
-      return state.idList.map(getters.get)
+      return Object.values(state.entries).map(getters.enrich)
     },
     byCurrentGroup: (state, getters, rootState, rootGetters) => {
       return getters.all.filter(u => u.membership)
@@ -152,14 +152,14 @@ export default {
       state.activeUserProfile = userProfile
     },
     set (state, users) {
-      state.entries = indexById(users)
-      state.idList = users.map(e => e.id)
+      state.entries = {
+        ...state.entries,
+        ...indexById(users),
+      }
     },
+
     update (state, user) {
       Vue.set(state.entries, user.id, user)
-      if (!state.idList.includes(user.id)) {
-        state.idList.push(user.id)
-      }
     },
     resendVerificationCodeSuccess (state, status) {
       Vue.set(state, 'resendVerificationCodeSuccess', status)

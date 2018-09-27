@@ -1,7 +1,7 @@
 defaults: &defaults
   working_directory: ~/repo
   docker:
-    - image: circleci/node:10.7
+    - image: karrot/python:1.6
 
 android-defaults: &android-defaults
   working_directory: ~/repo
@@ -9,11 +9,8 @@ android-defaults: &android-defaults
     - image: karrot/android-build:api-28-node8-alpha
 
 deploy-android: &deploy-android
-  working_directory: ~/repo
-  docker:
-    - image: karrot/python:1.6
+  <<: *defaults
   steps:
-    - run: sudo apt install -y rsync
     - attach_workspace:
         at: .
     - restore_cache:
@@ -318,7 +315,6 @@ jobs:
   deploy-dev:
     <<: *defaults
     steps:
-      - run: sudo apt install -y rsync
       - checkout
       - attach_workspace:
           at: ~/repo
@@ -330,7 +326,6 @@ jobs:
   deploy-release:
     <<: *defaults
     steps:
-      - run: sudo apt install -y rsync
       - checkout
       - attach_workspace:
           at: ~/repo

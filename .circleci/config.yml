@@ -8,6 +8,35 @@ android-defaults: &android-defaults
   docker:
     - image: karrot/android-build:api-28-node8-alpha
 
+deploy-android: &android-defaults
+  working_directory: ~/repo
+  docker:
+    - image: karrot/python:1.6
+  steps:
+    - run: sudo apt install -y rsync
+    - attach_workspace:
+        at: .
+    - restore_cache:
+        keys:
+          - v1-dependencies-playstorehelper-{{ checksum "requirements.txt" }}
+          - v1-dependencies-playstorehelper
+    - run:
+        name: decode playstore service account credentials
+        command: |
+          # note: update encrypted playstore credentials with:
+          # openssl aes-256-cbc -e -in playstore-service-account.json -out playstore-service-account.json.enc -md md5 -k <secret>
+          # we need to specify md5 explicitly, as the default changed in openssl 1.1
+          cd ~/repo/cordova/playstoreHelper
+          openssl aes-256-cbc -d -in playstore-service-account.json.enc -out playstore-service-account.json -md md5 -k "${PLAYSTORE_SECRET}"
+    - run:
+        name: deploy apk
+        command: |
+          ./deploy-android.sh "${CIRCLE_BRANCH}" "${DEPLOY_APK}" "${DEPLOY_DIR}"
+    - save_cache:
+        key: v1-dependencies-playstorehelper-{{ checksum "requirements.txt" }}
+        paths:
+          - ~/repo/cordova/playstoreHelper/env
+
 build-android: &build-android
   name: build android
   command: |
@@ -19,17 +48,6 @@ build-android: &build-android
     cordova platform add android
     ./build android "$CORDOVA_ENV" release "${!PASSWORD_VAR}"
     mv platforms/android/build/outputs/apk/release/android-release.apk ~/repo/android-${CORDOVA_ENV}.apk
-
-decode-playstore-service-account: &decode-playstore-service-account
-  name: decode playstore service account credentials
-  command: |
-    # note: update encrypted playstore credentials with:
-    # openssl aes-256-cbc -e -in playstore-service-account.json -out playstore-service-account.json.enc -md md5 -k <secret>
-    # we need to specify md5 explicitly, as the default changed in openssl 1.1
-    (
-      cd cordova/playstoreHelper
-      openssl aes-256-cbc -d -in playstore-service-account.json.enc -out playstore-service-account.json -md md5 -k "${PLAYSTORE_SECRET}"
-    )
 
 version: 2
 jobs:
@@ -260,30 +278,16 @@ jobs:
             - android-dev.apk
 
   deploy-android-dev:
-    <<: *defaults
-    steps:
-      - run: sudo apt install -y rsync
-      - attach_workspace:
-          at: .
-      - run:
-          <<: *decode-playstore-service-account
-      - run:
-          name: deploy apk
-          command: |
-            ./deploy-android.sh "${CIRCLE_BRANCH}" android-dev.apk "${CIRCLE_BRANCH}"
+    <<: *deploy-android
+    environment:
+      DEPLOY_APK: android-dev.apk
+      DEPLOY_DIR: master
 
   deploy-android-prod:
-    <<: *defaults
-    steps:
-      - run: sudo apt install -y rsync
-      - attach_workspace:
-          at: .
-      - run:
-          <<: *decode-playstore-service-account
-      - run:
-          name: deploy apk
-          command: |
-            ./deploy-android.sh "${CIRCLE_BRANCH}" android-prod.apk release
+    <<: *deploy-android
+    environment:
+      DEPLOY_APK: android-prod.apk
+      DEPLOY_DIR: release
 
   build-android-prod:
     <<: *android-defaults

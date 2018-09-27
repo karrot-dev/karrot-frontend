@@ -15,7 +15,7 @@ deploy-android: &deploy-android
         at: .
     - restore_cache:
         keys:
-          - v1-dependencies-playstorehelper-{{ checksum "requirements.txt" }}
+          - v1-dependencies-playstorehelper-{{ checksum "cordova/playstoreHelper/requirements.txt" }}
           - v1-dependencies-playstorehelper
     - run:
         name: decode playstore service account credentials
@@ -30,7 +30,7 @@ deploy-android: &deploy-android
         command: |
           ./deploy-android.sh "${CIRCLE_BRANCH}" "${DEPLOY_APK}" "${DEPLOY_DIR}"
     - save_cache:
-        key: v1-dependencies-playstorehelper-{{ checksum "requirements.txt" }}
+        key: v1-dependencies-playstorehelper-{{ checksum "cordova/playstoreHelper/requirements.txt" }}
         paths:
           - ~/repo/cordova/playstoreHelper/env
 

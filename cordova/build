@@ -47,7 +47,7 @@ function setconfig() {
     exit 1
   fi
 
-  if [ -f config/current ]; then
+  if [ -h config/current ]; then
     rm config/current
   fi
 

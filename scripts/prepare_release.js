@@ -36,15 +36,13 @@ if (hasNoUnreleased) {
 console.log('Writing back changelog.md for consistency')
 fs.writeFileSync(changelogFilePath, changelog.toString())
 
-// update version in package.json version
-// it will create a git tag for that version (and raise an error if version already exists)
 console.log('Updating version in package.json and creating tag')
 execSync(`yarn version --new-version ${latestVersion}`, { stdio: 'inherit' })
 console.log()
 
 const tag = `v${latestVersion}`
 console.log(`Pushing tag ${tag} to origin`)
-// execSync(`git push origin ${tag}`, { stdio: 'inherit' })
+execSync(`git push origin ${tag}`, { stdio: 'inherit' })
 console.log()
 
 cordovaConfigPaths.forEach(path => {

@@ -8,7 +8,7 @@ android-defaults: &android-defaults
   docker:
     - image: karrot/android-build:api-28-node8-alpha
 
-deploy-android: &android-defaults
+deploy-android: &deploy-android
   working_directory: ~/repo
   docker:
     - image: karrot/python:1.6

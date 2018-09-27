@@ -1,0 +1,10 @@
+[style]
+based_on_style = pep8
+split_before_logical_operator = true
+dedent_closing_brackets = true
+split_before_first_argument = true
+coalesce_brackets = true
+column_limit = 119
+each_dict_entry_on_separate_line = true
+split_arguments_when_comma_terminated = true
+split_before_bitwise_operator = false

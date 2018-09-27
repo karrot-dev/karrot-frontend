@@ -12,9 +12,13 @@ const { parser, Release } = require('keep-a-changelog')
 const fs = require('fs')
 const { execSync } = require('child_process')
 const CordovaConfig = require('cordova-config')
+const { resolve } = require('path')
 
-const changelogFilePath = './CHANGELOG.md'
-const cordovaConfigPaths = ['./cordova/config/dev/config.xml', './cordova/config/prod/config.xml']
+const changelogFilePath = resolve(__dirname, '../CHANGELOG.md')
+const cordovaConfigPaths = [
+  resolve(__dirname, '../cordova/config/dev/config.xml'),
+  resolve(__dirname, '../cordova/config/prod/config.xml'),
+]
 
 // Parse changelog file and get latest release
 const changelog = parser(fs.readFileSync(changelogFilePath, 'UTF-8'))

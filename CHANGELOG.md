@@ -1,32 +1,41 @@
 # Change Log
+
 All notable changes to _Karrot_ will be documented in this file.
 
 The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
+Types of changes:
+
+  - `Added` for new features.
+  - `Changed` for changes in existing functionality.
+  - `Deprecated` for soon-to-be removed features.
+  - `Removed` for now removed features.
+  - `Fixed` for any bug fixes.
+  - `Security` in case of vulnerabilities.
+
+
 Please document your changes in this format:
 
 ```
-- description of change #PR @username
+  - description of change [#PR] @username
 ```
 
 ## [Unreleased]
+
 ### Added
 
-- Newcomer role and trust system #1077 @tiltec
-- On-site notifications in topbar #1099 @tiltec
-
-### Changed
-
-### Removed
+- Newcomer role and trust system [#1077] @tiltec
+- On-site notifications in topbar [#1099] @tiltec
 
 ### Fixed
-- Fix application chat initial questions layout #1097 @nicksellen
 
+- Fix application chat initial questions layout [#1097] @nicksellen
 
-## [Release 6.1] - 2018-08-31
+## [6.1.0] - 2018-08-31
+
 ### Added
 
-- Conversations overview page #1070 @tiltec
+- Conversations overview page [#1070] @tiltec
 
 ### Changed
 
@@ -40,14 +49,14 @@ Please document your changes in this format:
 - Pickups: access to undefined properties while loading @tiltec
 - Redirect to groups gallery when user got logged out @tiltec
 
+## [6.0.0] - 2018-08-25
 
-## [Release 6] - 2018-08-25
 ### Added
 
-- Replies to wall messages #1065 @nicksellen @tiltec
-- Link to external route planner for store directions #1020 @pogopaule @tiltec
+- Replies to wall messages [#1065] @nicksellen @tiltec
+- Link to external route planner for store directions [#1020] @pogopaule @tiltec
 - Add notifications about new messages in community.foodsaving.world @tiltec
-- Group applications #1063 #1082 @djahnie @taistadam @tiltec @nicksellen
+- Group applications [#1063] [#1082] @djahnie @taistadam @tiltec @nicksellen
 
 ### Changed
 
@@ -56,14 +65,14 @@ Please document your changes in this format:
 - Hide markdown preview in sidebar @tiltec
 - External links, email links and phone links in markdown now have a small icon @tiltec
 - Internal links open in the same tab @tiltec
-- Unified desktop/mobile sidenav #1071 @nicksellen
+- Unified desktop/mobile sidenav [#1071] @nicksellen
 
 ### Removed
 
 - Group password; affected groups have been migrated to applications
 
+## [5.0.0] - 2018-07-16
 
-## [Release 5] - 2018-07-16
 ### Added
 
 - web browser push notifications @nicksellen
@@ -87,35 +96,35 @@ Please document your changes in this format:
 - custom leaflet marker component to allow quasar colors @tiltec
 - rework of feedback form to allow feedback without weight @tiltec
 
-### Removed
-
 ### Fixed
 
 - lots of bugs
 
-## [Release 4] - 2017-12-27
+## [4.0.0] - 2017-12-27
 
 Complete frontend rewrite with [VueJS](http://vuejs.org/) and [Quasar](http://quasar-framework.org/)
 
 ### Added
+
 - Group conversations
 - Store statuses
 - Pickup and series description field
 
 ### Changed
+
 - Broad design and UI changes; more colors
 - Rename from `foodsaving tool` to `karrot`
 
-
 ### Removed
+
 - AngularJS
 
-
 ### Fixed
+
 - Lots of stuff
 
+## [3.0.0] - 2017-07-03
 
-## [Release 3] - 2017-07-03
 ### Added
 
 - Landing page with a map of all groups, new title font (Cabin Sketch)
@@ -159,8 +168,8 @@ Complete frontend rewrite with [VueJS](http://vuejs.org/) and [Quasar](http://qu
 - Fix missing aria-label causing test to fail
 - After changing email addresses, show new addresses in the verification interface
 
+## [2.0.0] - 2017-02-21
 
-## [Release 2] - 2017-02-21
 ### Added
 
 - Pickup dates can now be created as weekly series
@@ -199,21 +208,31 @@ Complete frontend rewrite with [VueJS](http://vuejs.org/) and [Quasar](http://qu
 - Disabled auto-capitalization on login page
 - many small issues...
 
-
-## Release 1 - 2016-12-14
-### Added
+## 1.0.0 - 2016-12-14
 
 After months of planning and programming, the first version of ~the foodsaving tool~ _karrot_ is ready!
+
+### Added
 
 - **user**: sign-up with name, password and email address
 - **group**: create a group, add yourself to a group, leave a group, set up name and description
 - **store**: create a store which belongs to a group, set up name, description, address and position of a store
 - **pick-up dates**: create a pick-up date which belongs to a store, set time and max. amount of people who can collect food, user can join/leave a pick-up date
 
+[#1077]: https://github.com/yunity/karrot-frontend/issues/1077
+[#1099]: https://github.com/yunity/karrot-frontend/issues/1099
+[#1097]: https://github.com/yunity/karrot-frontend/issues/1097
+[#1070]: https://github.com/yunity/karrot-frontend/issues/1070
+[#1065]: https://github.com/yunity/karrot-frontend/issues/1065
+[#1020]: https://github.com/yunity/karrot-frontend/issues/1020
+[#1063]: https://github.com/yunity/karrot-frontend/issues/1063
+[#1082]: https://github.com/yunity/karrot-frontend/issues/1082
+[#1071]: https://github.com/yunity/karrot-frontend/issues/1071
+
 [Unreleased]: https://github.com/yunity/karrot-frontend/compare/v6.1.0...HEAD
-[Release 6.1]: https://github.com/yunity/karrot-frontend/compare/v6.0.0...v6.1.0
-[Release 6]: https://github.com/yunity/karrot-frontend/compare/v5.0.0...v6.0.0
-[Release 5]: https://github.com/yunity/karrot-frontend/compare/v4.0.0...v5.0.0
-[Release 4]: https://github.com/yunity/karrot-frontend/compare/v3.0.0...v4.0.0
-[Release 3]: https://github.com/yunity/karrot-frontend/compare/r2...v3.0.0
-[Release 2]: https://github.com/yunity/karrot-frontend/compare/r1...r2
+[6.1.0]: https://github.com/yunity/karrot-frontend/compare/v6.0.0...v6.1.0
+[6.0.0]: https://github.com/yunity/karrot-frontend/compare/v5.0.0...v6.0.0
+[5.0.0]: https://github.com/yunity/karrot-frontend/compare/v4.0.0...v5.0.0
+[4.0.0]: https://github.com/yunity/karrot-frontend/compare/v3.0.0...v4.0.0
+[3.0.0]: https://github.com/yunity/karrot-frontend/compare/v2.0.0...v3.0.0
+[2.0.0]: https://github.com/yunity/karrot-frontend/compare/v1.0.0...v2.0.0

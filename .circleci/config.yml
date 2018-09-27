@@ -257,6 +257,9 @@ jobs:
       - run:
           name: deploy apk
           command: |
+            # note: update encrypted playstore credentials with:
+            # openssl aes-256-cbc -e -in playstore-service-account.json -out playstore-service-account.json.enc -k $KEY
+            openssl aes-256-cbc -d -in playstore-service-account.json.enc -k "${PLAYSTORE_SECRET}" -out cordova/playstoreHelper/playstore-service-account.json
             ./deploy-android.sh "${CIRCLE_BRANCH}" android-dev.apk "${CIRCLE_BRANCH}"
 
   deploy-android-prod:
@@ -268,6 +271,10 @@ jobs:
       - run:
           name: deploy apk
           command: |
+            (
+              cd cordova/playstoreHelper
+              openssl aes-256-cbc -d -in playstore-service-account.json.enc -k "${PLAYSTORE_SECRET}" -out playstore-service-account.json
+            )
             ./deploy-android.sh "${CIRCLE_BRANCH}" android-prod.apk release
 
   build-android-prod:

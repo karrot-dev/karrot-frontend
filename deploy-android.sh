@@ -23,7 +23,7 @@ if [ "$DIR" == "release" ]; then
 
   DEPLOY_ENV="production"
   DEPLOY_EMOJI=":rocket:"
-  URL="https://karrot.world/app.apk"
+  URL="https://play.google.com/store/apps/details?id=world.karrot"
 
 elif [ "$DIR" == "master" ]; then
 
@@ -51,7 +51,16 @@ ssh-keyscan -H $HOST >> ~/.ssh/known_hosts
 
 echo "deploying app [$APK] to [$HOST] in [$DIR] dir"
 
+# always push apk to server
 rsync -avz "$APK" "deploy@$HOST:karrot-app/$DIR/app.apk"
+
+# publish in playstore if production
+if [ "$DIR" == "release" ]; then
+  (
+    cd cordova
+    ./publish_to_playstore
+  )
+fi
 
 if [ ! -z "$SLACK_WEBHOOK_URL" ]; then
 

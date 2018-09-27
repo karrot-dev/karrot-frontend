@@ -1,0 +1,13 @@
+#!/bin/bash
+
+set -xe
+
+(
+  cd playstoreHelper
+  # note: update encrypted playstore credentials with:
+  # openssl aes-256-cbc -e -in playstore-service-account.json -out playstore-service-account.json.enc -k $KEY
+  test -f playstore-service-account.json || openssl aes-256-cbc -d -in playstore-service-account.json.enc -k $KEY >> playstore-service-account.json
+  test -d env/bin || virtualenv -p python3 env
+  env/bin/pip install -r requirements.txt
+  env/bin/python publish_to_beta.py
+)

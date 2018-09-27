@@ -54,6 +54,8 @@ function setconfig() {
   ln -s $name config/current
 }
 
+../scripts/set_cordova_versioncode.js
+
 setconfig "$config_env" && cordova build "$platform" \
   --"$build_type" -- \
   --password "$password" \

@@ -58,7 +58,7 @@ rsync -avz "$APK" "deploy@$HOST:karrot-app/$DIR/app.apk"
 if [ "$DIR" == "release" ]; then
   (
     cd cordova
-    ./publish_to_playstore
+    KEY="$CORDOVA_PLAYSTORE_SERVICEACCOUNT_KEY" ./publish_to_playstore
   )
 fi
 

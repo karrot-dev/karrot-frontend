@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 
 /**
- * Set Cordova config.xml versionCode to a monotonically increasing value (the git commit count)
+ * Set Cordova config.xml versionCode to a ever increasing number (the git commit count)
  */
 
 const { execSync } = require('child_process')
@@ -12,8 +12,11 @@ const path = resolve(__dirname, '../cordova/config.xml')
 
 const commitCount = parseInt(execSync('git rev-list HEAD --count', { encoding: 'utf8' }).split('\n')[0])
 
-console.log(`Updating versionCode to ${commitCount} in ${path}`)
+// offset number because we started with version 10000 and play store requires ever increasing numbers
+const versionCode = commitCount * 10
+
+console.log(`Updating versionCode to ${versionCode} in ${path}`)
 
 const config = new CordovaConfig(path)
-config.setAndroidVersionCode(commitCount)
+config.setAndroidVersionCode(versionCode)
 config.writeSync()

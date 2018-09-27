@@ -31,7 +31,7 @@ def main(argv):
         apk_file = APK_FILE
 
     print('Retrieving release notes from CHANGELOG.md...')
-    releaseText = subprocess.run('../../scripts/get_newest_release.js', stdout=subprocess.PIPE).stdout
+    releaseText = subprocess.run('../../scripts/get_newest_release.js', stdout=subprocess.PIPE).stdout.decode()
     print()
     print(releaseText)
     print()

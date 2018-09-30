@@ -3,7 +3,7 @@
   "GLOBAL": {
     "GITHUB_NOTE": "Development",
     "FSWW_NOTE": "O nas",
-    "COMMUNITY_NOTE": "Join our community!",
+    "COMMUNITY_NOTE": "Dołącz do nas!",
     "WARNING": "Uwaga",
     "BETA_WARNING": "Nasz serwis jest wciąż w trakcie budowy i niektóre elementy mogą w przyszłości ulec zmianie. Nie możemy zagwarantować Ci pełnego bezpieczeństwa ani prywatności Twoich danych (ale będziemy się starać).",
     "CONNECTION_INTERRUPTED": "Błąd: przerwano połączenie!",
@@ -22,8 +22,8 @@
     "PHOTO": "Zdjęcie profilowe",
     "SET_PHOTO": "Ustaw zdjęcie profilowe...",
     "ACCOUNT": "Konto",
-    "PUSH": "Push notifications",
-    "PUSH_CURRENT_BROWSER": "Current browser",
+    "PUSH": "Powiadomienia push",
+    "PUSH_CURRENT_BROWSER": "Obecna przeglądarka",
     "REQUEST_DELETE_ACCOUNT": {
       "SUCCESS": "Wysłaliśmy Ci wiadomość e-mail z linkiem do usunięcia konta."
     },
@@ -34,30 +34,30 @@
         "CONFIRM": "Potwierdzam"
       },
       "GIVE_TRUST": {
-        "TITLE": "Trust user",
-        "MESSAGE": "Do you trust {userName} in {groupName}?"
+        "TITLE": "Zaufaj użytkownikowi",
+        "MESSAGE": "Czy ufasz {userName} w {groupName}?"
       }
     },
-    "LOGOUT_SUCCESS": "You have been logged out!",
-    "YOU_TRUST_USER": "You trust {userName} in {groupName}.",
-    "OTHER_PEOPLE_TRUST_USER": "{otherUser} trusts {userName} in {groupName}. | {count} people trust {userName} in {groupName}.",
-    "PEOPLE_TRUST_USER": "You and {otherUser} trust {userName} in {groupName}. | You and {count} other people trust {userName} in {groupName}.",
-    "FIRST_TRUST": "Be the first one to trust {userName} in {groupName}!",
-    "NEWCOMER": "Newcomer",
-    "NEWCOMER_GUIDANCE": "{userName} is new to your group and might need some guidance.",
-    "TRUST_PROGRESS_TEXT": "{trustNeeded} more trust needed",
-    "TRUST_PROGRESS_TEXT_LONG": "{trustNeeded} more people need to express their trust in {userName} to grant editing permissions.",
-    "NEWCOMER_INFO": "You are currently a newcomer in {groupName} and you can become active by writing messages, meeting fellow members, doing pickups and giving feedback. As soon as {threshold} members expressed their trust in you, you will gain editing permissions to help with group administration.",
+    "LOGOUT_SUCCESS": "Zostałaś/-eś wylogowana/-y!",
+    "YOU_TRUST_USER": "Zaufałaś/-eś {userName} w {groupName}.",
+    "OTHER_PEOPLE_TRUST_USER": "{otherUser} zaufał/-a {userName} w {groupName}. | {count} osób zaufało {userName} w {groupName}.",
+    "PEOPLE_TRUST_USER": "Ty i {otherUser} zaufaliście {userName} w {groupName}. | Ty i {count} osób zaufało {userName} w {groupName}.",
+    "FIRST_TRUST": "Zostań pierwszym użytkownikiem, który zaufał {userName} w {groupName}!",
+    "NEWCOMER": "Adept",
+    "NEWCOMER_GUIDANCE": "{userName} jest nowa/-y w Twojej grupie i może potrzebować wsparcia.",
+    "TRUST_PROGRESS_TEXT": "Brakuje zaufania od {trustNeeded} użytkowników",
+    "TRUST_PROGRESS_TEXT_LONG": "{trustNeeded} użytkowników musi jeszcze zaufać {userName}, aby przyznać uprawnienia do edycji",
+    "NEWCOMER_INFO": "Posiadasz obecnie status adepta w {groupName} i możesz pisać wiadomości, poznawać innych użytkowników, zapisywać się na odbiory i dodawać do nich komentarze. Gdy zaufa Ci {threshold} użytkowników, uzyskasz uprawnienia do edycji, które pozwolą na zarządzanie grupą.",
     "TRUST_INFO": {
-      "TITLE": "What is this carrot button about?",
-      "MESSAGE": "It is part of the Karrot trust system. It shows if a group member is newcomer and how much trust is needed until they gain editing permissions.",
-      "LINK": "Click here to find out more."
+      "TITLE": "Do czego służy ten przycisk?",
+      "MESSAGE": "To część sieci zaufania Karrot. Wskazuje, czy dany użytkownik jest adeptem oraz ile osób musi mu zaufać, aby uzyskał uprawnienia do edycji.",
+      "LINK": "Kliknij, aby dowiedzieć się więcej."
     }
   },
   "SWITCHGROUP": {
-    "NOT_MEMBER": "{userName} is not member of {groupName}.",
-    "COMMON_GROUPS": "Groups you have in common",
-    "OTHER_GROUPS": "Other groups"
+    "NOT_MEMBER": "{userName} nie jest członkiem {groupName}.",
+    "COMMON_GROUPS": "Grupy, do których wspólnie należycie",
+    "OTHER_GROUPS": "Inne grupy"
   },
   "BUTTON": {
     "CREATE": "Utwórz",
@@ -83,12 +83,12 @@
     "DELETE_ACCOUNT": "Usuń konto",
     "SHOW": "Pokaż",
     "HIDE": "Ukryj",
-    "SUBMIT": "Submit",
-    "APPLY": "Apply",
-    "ACCEPT": "Accept",
-    "DECLINE": "Decline",
-    "WITHDRAW": "Withdraw",
-    "SHOW_MORE": "Show more"
+    "SUBMIT": "Wyślij",
+    "APPLY": "Aplikuj",
+    "ACCEPT": "Zaakceptuj",
+    "DECLINE": "Odrzuć",
+    "WITHDRAW": "Wycofaj się",
+    "SHOW_MORE": "Pokaż więcej"
   },
   "VALIDATION": {
     "MINLENGTH": "Musisz użyć więcej niż {min} znaków.",
@@ -112,23 +112,23 @@
     "PRIVATE_DESCRIPTION_TITLE": "Opis grupy",
     "DESCRIPTION_VERBOSE": "Opis grupy widoczny dla członków",
     "PUBLIC_DESCRIPTION": "Tekst widoczny przed dołączeniem do grupy",
-    "APPLICATIONS": "Applications",
-    "APPLICATION_QUESTIONS": "Questions for people who want to join this group",
+    "APPLICATIONS": "Zgłoszenia",
+    "APPLICATION_QUESTIONS": "Pytania dla osób, które chcą dołączyć",
     "PICKUPS": "Odbiory",
-    "MESSAGES": "Messages",
+    "MESSAGES": "Wiadomości",
     "PICKUP": "Odbiór",
     "MEMBERS": "Członkowie",
     "JOINED": "dołączył/-a {relativeDate}",
-    "DECLINED": "declined {relativeDate}",
-    "ADDED_BY": "added by {userName}",
-    "DECLINED_BY": "declined by {userName}",
+    "DECLINED": "odrzucono {relativeDate}",
+    "ADDED_BY": "dodano przez {userName}",
+    "DECLINED_BY": "odrzucono przez {userName}",
     "SORT_JOINDATE": "Sortuj po dacie dołączenia",
     "SORT_NAME": "Sortuj po nazwie użytkownika",
     "INACTIVE": "Nieaktywni",
     "SHOW_INACTIVE": "Pokaż nieaktywne grupy",
     "STORES": "Punkty odbioru",
-    "HOME": "Home",
-    "CURRENT_STORE": "Current store",
+    "HOME": "Strona główna",
+    "CURRENT_STORE": "Obecny punkt odbioru",
     "HISTORY": "Historia",
     "DESCRIPTION": "Opis",
     "ADDRESS": "Adres",
@@ -143,7 +143,7 @@
     "INVITATION_ACCEPT_ERROR": "Ups, nie możesz przyjąć tego zaproszenia!",
     "SETTINGS": "Ustawienia",
     "NOTIFICATIONS": "Powiadomienia",
-    "EMAIL_NOTIFICATIONS": "Email notifications",
+    "EMAIL_NOTIFICATIONS": "Powiadomienia e-mail",
     "NOTIFICATION_TYPES": {
       "weekly_summary": {
         "NAME": "Podsumowanie tygodnia",
@@ -154,13 +154,13 @@
         "DESCRIPTION": "Przypomina Ci o nadchodzących odbiorach, na które się zapisałaś/-eś oraz o odbiorach, na które jeszcze nikt się nie zapisał albo na które są jeszcze wolne miejsca."
       },
       "new_application": {
-        "NAME": "New applications",
-        "DESCRIPTION": "Tells you when somebody wants to join your group"
+        "NAME": "Nowe zgłoszenia",
+        "DESCRIPTION": "Wskazuje, gdy nowa osoba chce dołączyć do grupy"
       }
     },
     "PLAYGROUND_INFO": "To specjalna grupa w trybie piaskownicy, gdzie nie musisz martwić się o to, że coś zepsujesz. Odkryj wszystkie funkcje, klikaj, gdzie tylko chcesz i baw się dobrze!",
     "JOIN_PLAYGROUND": "Dołącz do piaskownicy, aby szybko poznać wszystkie funkcje karrot",
-    "JOIN_ANOTHER_GROUP": "Join another group"
+    "JOIN_ANOTHER_GROUP": "Dołącz do innej grupy"
   },
   "GROUPMAP": {
     "TITLE": "Mapa",
@@ -174,7 +174,7 @@
     "FULL_SCREEN": "Pełny ekran"
   },
   "STOREDETAIL": {
-    "DIRECTIONS": "Show directions",
+    "DIRECTIONS": "Pokaż trasę",
     "EDIT": "Edytuj punkt odbioru",
     "MANAGE": "Zarządzaj odbiorami",
     "ARCHIVED": "Ten punkt odbioru został przeniesiony do archiwum",
@@ -198,8 +198,8 @@
     "RESTORE": "Przywróć",
     "SHOW_ARCHIVED": "Pokaż zarchiwizowane punkty odbioru",
     "HIDE_ARCHIVED": "Ukryj zarchiwizowane punkty odbioru",
-    "SHOW_ALL": "Show all stores",
-    "SHOW_ACTIVE_ONLY": "Only show active stores"
+    "SHOW_ALL": "Pokaż wszystkie punkty odbioru",
+    "SHOW_ACTIVE_ONLY": "Pokaż tylko aktywne punkty odbioru"
   },
   "PICKUPMANAGE": {
     "TITLE": "Zarządzaj odbiorami",
@@ -226,18 +226,18 @@
     "NO_PUBLIC_DESCRIPTION": "(Ta grupa nie ma jeszcze opisu...)",
     "ALL_GROUPS": "Wszystkie grupy",
     "SIGNUP_OR_LOGIN": "Zaloguj się lub zarejestruj, aby dołączyć do tej grupy!",
-    "VERIFY_EMAIL_ADDRESS":"Verify your email address to apply",
+    "VERIFY_EMAIL_ADDRESS":"Zweryfikuj adres e-mail, aby wysłać zgłoszenie",
     "MY_GROUPS": "Moje grupy",
     "LOGOUT_MESSAGE": {
-      "LOGGED_OUT": "Zostałeś wylogowana/-y. {login}",
+      "LOGGED_OUT": "Zostałaś/-eś wylogowana/-y. {login}",
       "LOG_IN": "Zaloguj się, aby zobaczyć swoje grupy!"
     },
     "PROFILE_NOTE": "Jeśli dołączysz do tej grupy, twoje dane profilowe będą widoczne dla innych członków tej grupy.",
-    "APPLICATION_SUBMITTED": "Your application was successfully submitted!",
-    "APPLICATION_PENDING": "Your application is pending!",
-    "WITHDRAW_CONFIRMATION_HEADER": "Withdraw Application",
-    "WITHDRAW_CONFIRMATION_TEXT": "Are you sure you want to withdraw your application to join {groupName}?",
-    "APPLICATION_WITHDRAWN": "Your application was successfully withdrawn!"
+    "APPLICATION_SUBMITTED": "Twoje zgłoszenie zostało wysłane!",
+    "APPLICATION_PENDING": "Twoje zgłoszenie jest w trakcie rozpatrywania!",
+    "WITHDRAW_CONFIRMATION_HEADER": "Wycofaj zgłoszenie",
+    "WITHDRAW_CONFIRMATION_TEXT": "Czy na pewno chcesz wycofać swoje zgłoszenie do {groupName}?",
+    "APPLICATION_WITHDRAWN": "Twoje zgłoszenie zostało wycofane!"
 
   },
   "GROUPINFO": {
@@ -319,9 +319,9 @@
   },
   "FEEDBACKLIST": {
     "SAVED_FOOD": "W tym punkcie uratowano już ponad 1 kg żywności. Dziękujemy! | W tym punkcie uratowano już {amount} kg żywności. Oby tak dalej!",
-    "NUMBER_PICKUPS": "{count} pickups done",
-    "NUMBER_FEEDBACK": "{count} feedback entries given",
-    "WEIGHT_SUM": "{sum} kg of food saved",
+    "NUMBER_PICKUPS": "odebrano {count} razy",
+    "NUMBER_FEEDBACK": "Dodano {count} komentarzy do odbiorów",
+    "WEIGHT_SUM": "uratowano {sum} kg jedzenia",
     "GIVE_FEEDBACK": "Dodaj komentarz",
     "NONE": "Brak komentarzy",
     "NONE_HINT": "Tutaj pojawią się komentarze",
@@ -338,7 +338,7 @@
     "AMOUNT": "Ilość jedzenia, które uratowałaś/-eś (w kg)",
     "COMMENT_PLACEHOLDER": "Czy wszystko przebiegło w porządku? Czy jedzenie zostało odebrane zgodnie z planem? Skomentuj...",
     "PREVIOUS": "Wcześniejsze komentarze dla {store}",
-    "TOGETHER_WITH": "You did this pickup together with:"
+    "TOGETHER_WITH": "Odebrałaś/-eś wspólnie z:"
   },
   "PASSWORDRESET": {
     "TITLE": "Resetuj hasło",
@@ -359,7 +359,7 @@
     }
   },
   "LANGUAGECHOOSER": {
-    "ADD_MORE": "Help translating!",
+    "ADD_MORE": "Pomóż tłumaczyć!",
     "SWITCH": "Zmień język"
   },
   "MARKDOWN_INPUT": {
@@ -387,14 +387,14 @@
     "PICKUP_MISSED": "Przegapiono odbiór w {storeName}!",
     "PICKUP_JOIN": "zapisał/-a się na odbiór w {storeName}",
     "PICKUP_LEAVE": "zrezygnował/-a z odbioru w {storeName}",
-    "GROUP_APPLICATION_DECLINED": "declined an application from {applicantName}",
-    "MEMBER_BECAME_EDITOR": "gained editing permissions",
+    "GROUP_APPLICATION_DECLINED": "odrzucono zgłoszenie od {applicantName}",
+    "MEMBER_BECAME_EDITOR": "otrzymał/-a uprawnienia do edycji",
     "NOTHING_HAPPENEND": "Jeszcze nic się nie wydarzyło...",
     "DETAILS": "Więcej informacji"
   },
   "NOTIFICATIONS": {
     "TITLE": "Powiadomienia",
-    "NOT_VERIFIED": "{email} is not verified",
+    "NOT_VERIFIED": "nie zweryfikowano adresu {email}",
     "CHECK_YOUR_MAILS": "Sprawdź pocztę lub {resend}",
     "RESEND_VERIFICATION": "wyślij ponownie e-mail weryfikacyjny",
     "VERIFICATION_EMAIL_SENT": "Wysłaliśmy nowy e-mail weryfikacyjny. Sprawdź swoją pocztę.",
@@ -403,28 +403,28 @@
     "EMAIL_NOT_DELIVERED": "Wiadomość e-mail nie mogła być do Ciebie dostarczona | {count} wiadomości e-mail nie mogło być do Ciebie dostarczonych"
   },
   "NOTIFICATION_BELLS_LIST": {
-    "TITLE": "Notifications",
-    "NO_ITEMS": "We currently don't have notifications for you."
+    "TITLE": "Powiadomienia",
+    "NO_ITEMS": "Nie masz obecnie żadnych powiadomień"
   },
   "NOTIFICATION_BELLS": {
-    "YOU_BECAME_EDITOR": "You gained editing permissions",
-    "USER_BECAME_EDITOR": "{userName} gained editing permissions",
-    "NEW_APPLICANT": "{userName} applied to join your group",
-    "APPLICATION_ACCEPTED": "Your application was accepted!",
-    "APPLICATION_DECLINED": "Your application was declined",
-    "INVITATION_ACCEPTED": "{userName} accepted your invitation",
-    "FEEDBACK_POSSIBLE": "You can give feedback for the pickup you did on {date}",
-    "NEW_STORE": "{storeName} has been created",
-    "NEW_MEMBER": "{userName} joined your group",
-    "PICKUP_UPCOMING": "Reminder: You have a pickup at {time}"
+    "YOU_BECAME_EDITOR": "Otrzymałaś/-eś uprawnienia do edycji",
+    "USER_BECAME_EDITOR": "{userName} otrzymał/-a uprawnienia do edycji",
+    "NEW_APPLICANT": "{userName} zgłosił/-a się do Twojej grupy",
+    "APPLICATION_ACCEPTED": "Twoje zgłoszenie zostało zaakceptowane!",
+    "APPLICATION_DECLINED": "Twoje zgłoszenie zostało odrzucone",
+    "INVITATION_ACCEPTED": "{userName} zaakceptował/-a twoje zaproszenie",
+    "FEEDBACK_POSSIBLE": "Możesz dodać komentarz do odbioru z {date}",
+    "NEW_STORE": "Utworzono {storeName}",
+    "NEW_MEMBER": "{userName} dołączył/-a do grupy",
+    "PICKUP_UPCOMING": "Przypomnienie: masz odbiór o {time}"
   },
   "OUTDATED_BROWSER": {
     "MESSAGE": "Twoja przeglądarka nie jest wspierana. {upgradeBrowser}, aby cieszyć się wszystkimi funkcjami.",
     "LINK": "Zaktualizuj lub zmień swoją przeglądarkę"
   },
   "UPDATE_AVAILABLE": {
-    "TITLE": "Update available",
-    "DETAIL": "A new version of karrot is available."
+    "TITLE": "Dostępna aktualizacja",
+    "DETAIL": "Nowa wersja karrota jest dostępna do pobrania."
   },
   "NOT_FOUND": {
     "EXPLANATION": "Przepraszamy, nie możemy znaleźć tej strony.",
@@ -468,9 +468,9 @@
   },
   "CONVERSATION": {
     "OPEN": "Otwórz czat",
-    "REPLY_TO_MESSAGE": "Reply to message...",
-    "REPLIES": "Replies",
-    "REPLIES_COUNT": "1 reply | {count} replies",
+    "REPLY_TO_MESSAGE": "Odpowiedz na wiadomość...",
+    "REPLIES": "Odpowiedzi",
+    "REPLIES_COUNT": "1 odpowiedź | {count} odpowiedzi",
     "UNREAD_MESSAGES": "Masz jedną nieprzeczytaną wiadomość | Masz {count} nieprzeczytane wiadomości",
     "EDITED": "edytowany",
     "MARK_READ": "Oznacz wszystkie jako przeczytane",
@@ -479,9 +479,9 @@
       "AND": "i",
       "REACTED_WITH":"{users} zareagowali {reaction}"
     },
-    "MESSAGE_NOT_FOUND": "Message not found",
-    "NO_CONVERSATIONS": "No conversations yet.",
-    "MUTED": "Notifications are disabled"
+    "MESSAGE_NOT_FOUND": "Nie znaleziono wiadomości",
+    "NO_CONVERSATIONS": "Brak konwersacji.",
+    "MUTED": "Powiadomienia są wyłączone"
   },
   "STORESTATUS": {
     "ACTIVE": "Współpracuje",
@@ -491,28 +491,28 @@
     "ARCHIVED": "Przeniesiono do archiwum"
   },
   "APPLICATION": {
-    "APPLICATION": "Application",
-    "FORM_HEADER": "Apply",
-    "FORM_TITLE": "Apply to join {groupName}",
-    "GALLERY_TOOLTIP": "You applied to join this group. Your application is still pending.",
-    "WALL_NOTICE": "There is an application pending! | There are {count} applications pending!",
-    "ACCEPT_CONFIRMATION_HEADER": "Accept Application",
-    "ACCEPT_CONFIRMATION_TEXT": "Are you sure you want to accept {userName} into this group?",
-    "DECLINE_CONFIRMATION_HEADER": "Decline Application",
-    "DECLINE_CONFIRMATION_TEXT": "Are you sure you want to decline the application of {userName}?",
-    "ACCEPTED": "You accepted {userName} into this group!",
-    "DECLINED": "You declined the application of {userName}.",
-    "PAST": "Past applications",
-    "SUBMITTED_ON": "Submitted on {date}",
-    "WITHDRAWN": "withdrawn {relativeDate}",
-    "WHAT": "What is this chat about?",
-    "HELP": "This is a chat between all existing members of {groupName} and the new applicant {userName}. It is meant to give you all a chance to get to know you before deciding whether to accept, decline or withdraw the application.",
-    "INITIAL": "Initial questions and answers"
+    "APPLICATION": "Zgłoszenie",
+    "FORM_HEADER": "Aplikuj",
+    "FORM_TITLE": "Aplikuj do {groupName}",
+    "GALLERY_TOOLTIP": "Wysłałaś/-eś zgłoszenie do tej grupy. Twoje zgłoszenie jest w trakcie rozpatrywania.",
+    "WALL_NOTICE": "Zgłoszenie do grupy czeka na rozpatrzenie! | {count} zgłoszenia czekają na rozpatrzenie!",
+    "ACCEPT_CONFIRMATION_HEADER": "Zaakceptuj zgłoszenie",
+    "ACCEPT_CONFIRMATION_TEXT": "Czy na pewno chcesz dodać {userName} do tej grupy?",
+    "DECLINE_CONFIRMATION_HEADER": "Odrzuć zgłoszenie",
+    "DECLINE_CONFIRMATION_TEXT": "Czy na pewno chcesz odrzucić zgłoszenie {userName}?",
+    "ACCEPTED": "Dodałaś/-eś {userName} do grupy!",
+    "DECLINED": "Odrzuciłaś/-eś zgłoszenie {userName}.",
+    "PAST": "Poprzednie zgłoszenia",
+    "SUBMITTED_ON": "Wysłano {date}",
+    "WITHDRAWN": "wycofano {relativeDate}",
+    "WHAT": "Do czego służy ten czat?",
+    "HELP": "To czat pomiędzy wszystkimi użytkownikami {groupName} a kandydatem/kandydatką do grupy, {userName}. Dzięki czatowi możecie lepiej się poznać zanim podejmiecie decyzję o zaakceptowaniu, odrzuceniu, bądź wycofaniu zgłoszenia.",
+    "INITIAL": "Wstępne pytania i odpowiedzi"
   },
   "COMMUNITY_FEED": {
-    "HEADER": "Updates from the {community}",
-    "HEADER_LINK": "foodsaving worldwide community",
-    "LAST_UPDATED": "Last updated {relativeDate}"
+    "HEADER": "Aktualności z {community}",
+    "HEADER_LINK": "społeczność foodsaving worldwide",
+    "LAST_UPDATED": "Ostatnia aktualizacja {relativeDate}"
   },
-  "YOU": "You"
+  "YOU": "Ty"
 }

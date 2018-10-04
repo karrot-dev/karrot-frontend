@@ -334,6 +334,61 @@ jobs:
           command: |
             ./deploy.sh "${CIRCLE_BRANCH}" release
 
+  sync-locale-messages:
+    <<: *defaults
+    steps:
+      - checkout
+      - attach_workspace:
+          at: ~/repo
+      - restore_cache:
+          keys:
+            - v1-dependencies-localeshelper-{{ checksum "updateLocalesHelper/requirements.txt" }}
+            - v1-dependencies-localeshelper
+      - run:
+          name: set up environment
+          environment:
+            LC_ALL: C.UTF-8
+            LANG: C.UTF-8
+          command: |
+            cd updateLocalesHelper
+            test -d env/bin || virtualenv -p python3 env
+            env/bin/pip install --upgrade pip
+            env/bin/pip install --upgrade pip-tools
+            env/bin/pip-sync requirements.txt
+      - save_cache:
+          paths:
+            - env
+          key: python-cache-{{ checksum "updateLocalesHelper/requirements.txt" }}
+      - run:
+          name: install hub
+          command: |
+            wget https://github.com/github/hub/releases/download/v2.5.1/hub-linux-amd64-2.5.1.tgz
+            tar -xf hub-linux-amd64-2.5.1.tgz
+            ./hub-linux-amd64-2.5.1/install
+            rm hub-linux-amd64-2.5.1.tgz
+            rm -r hub-linux-amd64-2.5.1
+      - run:
+          name: set git remote to include token
+          command: git remote set-url origin https://${GITHUB_TOKEN}@github.com/yunity/karrot-backend.git
+      - run:
+          name: update locales and make pull request
+          # needs TX_TOKEN and GITHUB_TOKEN
+          environment:
+            BRANCH: circleci-update-locales
+          command: |
+            set -xe
+            git config credential.helper 'cache --timeout=120'
+            git config user.email "ci@foodsaving.world"
+            git config user.name "CircleCI"
+            git branch --delete --force $BRANCH || true
+            git checkout -b $BRANCH
+            yarn locales:push
+            yarn locales:pull
+            git add src/locales
+            git commit -m "[CI] update locales" || exit 0
+            git push --force origin $BRANCH
+            hub pull-request -m "[CI] Update locales" || true
+
 workflows:
   version: 2
   all-the-things:
@@ -427,3 +482,14 @@ workflows:
                 - master
           requires:
             - build-prod
+
+  sync-locales-cronjob:
+    triggers:
+      - schedule:
+          cron: "0 6 * * *"
+          filters:
+            branches:
+              only: master
+    jobs:
+      - update-locale-messages
+

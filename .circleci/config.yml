@@ -491,5 +491,5 @@ workflows:
             branches:
               only: master
     jobs:
-      - update-locale-messages
+      - sync-locale-messages
 

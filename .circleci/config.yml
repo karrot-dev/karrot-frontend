@@ -369,7 +369,7 @@ jobs:
             rm -r hub-linux-amd64-2.5.1
       - run:
           name: set git remote to include token
-          command: git remote set-url origin https://${GITHUB_TOKEN}@github.com/yunity/karrot-backend.git
+          command: git remote set-url origin https://${GITHUB_TOKEN}@github.com/yunity/karrot-frontend.git
       - run:
           name: update locales and make pull request
           # needs TX_TOKEN and GITHUB_TOKEN

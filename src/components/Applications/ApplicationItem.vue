@@ -16,14 +16,12 @@
     <q-item-main>
       <q-item-tile
         label
-        lines="1"
       >
         {{ userName }}
       </q-item-tile>
 
       <q-item-tile
         sublabel
-        lines="1"
       >
         {{ submittedOn }}
       </q-item-tile>
@@ -31,7 +29,6 @@
       <q-item-tile
         v-if="application.status !== 'pending'"
         sublabel
-        lines="1"
       >
         <i18n
           :path="decision"

@@ -8,8 +8,8 @@
     <q-item-side>
       <ProfilePicture
         :user="application.user"
-        :size="80"
-        class="applicants-picture"
+        :size="30"
+        class="profilePic"
       />
     </q-item-side>
 

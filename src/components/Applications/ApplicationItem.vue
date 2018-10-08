@@ -3,7 +3,7 @@
     link
     separator
     :class="{ isPending: application.isPending, isNonPending: !application.isPending }"
-    @click.native.self="openChat"
+    @click.native="openChat"
   >
     <q-item-side>
       <ProfilePicture
@@ -56,36 +56,7 @@
       </q-item-tile>
 
     </q-item-main>
-    <q-item-side
-      right
-    >
-      <q-btn
-        round
-        color="tertiary"
-        icon="fas fa-comments"
-        class="generic-margin"
-        @click="openChat"
-        :title="$t('BUTTON.OPEN')"
-      />
-      <q-btn
-        v-if="application.canDecide"
-        round
-        color="positive"
-        icon="fas fa-check"
-        class="generic-margin"
-        @click="pressAccept"
-        :title="$t('BUTTON.ACCEPT')"
-      />
-      <q-btn
-        v-if="application.canDecide"
-        round
-        color="negative"
-        icon="fas fa-times"
-        class="generic-margin"
-        @click="decline"
-        :title="$t('BUTTON.DECLINE')"
-      />
-    </q-item-side>
+
   </q-item>
 </template>
 

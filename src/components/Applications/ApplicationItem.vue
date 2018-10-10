@@ -41,7 +41,7 @@
         </i18n>
 
         <template v-if="application.status !== 'withdrawn'">
-          ·
+          <br>
           <i18n
             :path="personDeciding"
           >

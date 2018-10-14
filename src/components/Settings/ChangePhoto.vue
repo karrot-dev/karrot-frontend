@@ -78,11 +78,11 @@ export default {
       return !!this.photo
     },
     photo () {
-      const url = this.value.photoUrls && this.value.photoUrls.fullSize
+      const url = this.value && this.value.photoUrls && this.value.photoUrls.fullSize
       if (!url) return
 
       // In development we want to force the images to load from our local proxy
-      // so that we don't issues with missing CORS headers
+      // so that we don't get issues with missing CORS headers
       if (__ENV.DEV) return ['http://localhost:8080', url.substring(url.indexOf('/media'))].join('')
 
       return url

@@ -69,6 +69,8 @@ export default {
         commit('set', await stores.list())
       },
 
+    }),
+    ...withMeta({
       async selectStore ({ commit, dispatch, getters }, { storeId }) {
         if (!getters.get(storeId)) {
           try {
@@ -85,6 +87,8 @@ export default {
         commit('select', storeId)
         commit('setStatistics', { data: await getStatistics, id: storeId })
       },
+    }, {
+      findId: ({ storeId }) => storeId,
     }),
 
     refresh ({ dispatch }) {

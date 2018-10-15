@@ -1,6 +1,6 @@
 <template>
   <q-alert
-    v-if="!hasEmailVerified"
+    v-if="user && !hasEmailVerified"
     icon="fas fa-exclamation-triangle"
     color="warning"
   >

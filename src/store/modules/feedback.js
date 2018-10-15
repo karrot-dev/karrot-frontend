@@ -33,7 +33,7 @@ export default {
     all: (state, getters) => state.idList.map(getters.get),
     selected: (state, getters) => getters.get(state.selectedFeedbackId),
     canFetchPast: (state, getters) => getters['pagination/canFetchNext'],
-    ...metaStatuses(['save', 'fetch']),
+    ...metaStatuses(['save', 'fetch', 'fetchPast']),
   },
   actions: {
     ...withMeta({
@@ -71,7 +71,9 @@ export default {
 
       async update ({ state, commit, rootGetters, dispatch }, feedback) {
         dispatch('fetchRelatedPickups', [feedback])
+        // TODO pickup is usually not available when receiving via websocket
         const pickup = rootGetters['pickups/get'](feedback.about)
+        if (!pickup) return
         const currentUserId = rootGetters['auth/userId']
 
         // make sure that feedback belongs to scope

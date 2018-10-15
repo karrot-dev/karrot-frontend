@@ -42,7 +42,7 @@ export default {
       }
     },
     active: (state, getters, rootState, rootGetters) => getters.get(state.activeId),
-    ...metaStatuses(['fetchFiltered']),
+    ...metaStatuses(['fetchFiltered', 'fetchPast']),
   },
   actions: {
     ...withMeta({

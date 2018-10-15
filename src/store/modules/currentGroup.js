@@ -164,9 +164,11 @@ export default {
       dispatch('feedback/clear', null, { root: true })
     },
 
-    update ({ state, commit }, group) {
+    update ({ getters, commit }, group) {
+      if (!getters.id) return
+
       // update group values, do not replace group
-      if (group.id === state.current.id) {
+      if (group.id === getters.id) {
         commit('set', group)
       }
     },

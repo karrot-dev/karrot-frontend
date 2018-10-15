@@ -17,6 +17,7 @@ import banners from './modules/banners'
 import notifications, { plugin as notificationsPlugin } from './modules/notifications'
 import breadcrumbs from './modules/breadcrumbs'
 import communityFeed from './modules/communityFeed'
+import connectivity from './modules/connectivity'
 import conversations from './modules/conversations'
 import currentGroup from './modules/currentGroup'
 import currentThread from './modules/currentThread'
@@ -59,6 +60,7 @@ export default new Vuex.Store({
     notifications,
     breadcrumbs,
     communityFeed,
+    connectivity,
     conversations,
     currentGroup,
     currentThread,

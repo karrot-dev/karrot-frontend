@@ -7,7 +7,7 @@
       :icon="banner.icon"
       :position="banner.position"
       :actions="banner.actions || []"
-      style="min-width: 500px"
+      class="k-banner"
     >
       {{ $t(banner.message, banner.context) }}
     </k-banner>
@@ -63,6 +63,20 @@ export default {
         ],
       }
     },
+
+    notConnected () {
+      return {
+        color: 'warning',
+        icon: 'report_problem',
+        message: 'GLOBAL.NOT_CONNECTED',
+        actions: [
+          {
+            icon: 'refresh',
+            handler: () => this.$emit('reconnect'),
+          },
+        ],
+      }
+    },
   },
   computed: {
     formattedBanners () {
@@ -78,3 +92,8 @@ export default {
   },
 }
 </script>
+
+<style lang="stylus" scoped>
+body.desktop .k-banner
+  min-width 500px
+</style>

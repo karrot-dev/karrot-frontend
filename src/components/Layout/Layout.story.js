@@ -33,6 +33,11 @@ const store = createStore({
       unseenCount: () => 1,
     },
   },
+  connectivity: {
+    getters: {
+      connected: () => true,
+    },
+  },
 })
 
 storiesOf('Layout', module)

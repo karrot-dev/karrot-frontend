@@ -5,7 +5,10 @@ import StoreEdit from '@/components/Store/StoreEdit'
 
 export default connect({
   stateToProps: {
-    status: () => store.getters['stores/activeStore'].saveStatus,
+    status: () => {
+      const active = store.getters['stores/activeStore']
+      return active && active.saveStatus
+    },
   },
   gettersToProps: {
     value: 'stores/activeStore',

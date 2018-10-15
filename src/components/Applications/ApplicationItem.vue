@@ -12,20 +12,17 @@
         class="profilePic"
       />
     </q-item-side>
-
     <q-item-main>
       <q-item-tile
         label
       >
         {{ userName }}
       </q-item-tile>
-
       <q-item-tile
         sublabel
       >
         {{ submittedOn }}
       </q-item-tile>
-
       <q-item-tile
         v-if="application.status !== 'pending'"
         sublabel
@@ -39,7 +36,6 @@
             :date="application.decidedAt"
           />
         </i18n>
-
         <template v-if="application.status !== 'withdrawn'">
           <br>
           <i18n
@@ -54,9 +50,29 @@
           </i18n>
         </template>
       </q-item-tile>
-
     </q-item-main>
-
+    <q-item-side
+      right
+    >
+      <q-btn
+        v-if="application.canDecide"
+        round
+        color="positive"
+        icon="fas fa-check"
+        class="generic-margin"
+        @click="pressAccept"
+        :title="$t('BUTTON.ACCEPT')"
+      />
+      <q-btn
+        v-if="application.canDecide"
+        round
+        color="negative"
+        icon="fas fa-times"
+        class="generic-margin"
+        @click="decline"
+        :title="$t('BUTTON.DECLINE')"
+      />
+    </q-item-side>
   </q-item>
 </template>
 

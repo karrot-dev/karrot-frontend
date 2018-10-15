@@ -8,6 +8,7 @@ export default connect({
     user: 'auth/user',
     searchOpen: 'search/open',
     away: 'presence/toggle/away',
+    connected: 'connectivity/connected',
   },
   actionsToEvents: {
     logout: 'auth/logout',

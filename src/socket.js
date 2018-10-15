@@ -1,4 +1,5 @@
 import ReconnectingWebsocket from 'reconnecting-websocket'
+import { debounce } from 'quasar'
 
 import store from '@/store'
 import log from '@/services/log'
@@ -34,28 +35,36 @@ else {
   ].join('')
 }
 
-export const options = {
+const options = {
   reconnectInterval: 500,
 }
 
-let ws, timer
+let ws, pingTimer, pingTimeout
 
 const socket = {
   connect (protocols) {
     if (ws) return
     ws = new ReconnectingWebsocket(WEBSOCKET_ENDPOINT, protocols, options)
 
-    timer = setInterval(() => {
+    const ping = () => {
       if (ws.readyState === WebSocket.OPEN) {
         ws.send(JSON.stringify({ type: 'ping' }))
       }
-    }, 10000)
+      clearTimeout(pingTimeout)
+      pingTimeout = setTimeout(() => {
+        store.commit('connectivity/websocket', false)
+      }, 2000)
+    }
+
+    pingTimer = setInterval(ping, 10000)
 
     ws.addEventListener('open', () => {
+      ping()
       log.debug('socket opened!')
     })
 
     ws.addEventListener('close', () => {
+      ping()
       log.debug('socket closed!')
     })
 
@@ -68,11 +77,33 @@ const socket = {
         log.error('socket message was not json', event.data)
         return
       }
+
+      store.commit('connectivity/websocket', true)
+      if (data.type && data.type === 'pong') {
+        clearTimeout(pingTimeout)
+      }
+
       receiveMessage(data)
     })
+
+    function watchConnection () {
+      // uses the draft Network Information API if available
+      // https://developer.mozilla.org/en-US/docs/Web/API/Network_Information_API
+      const connection = navigator.connection || navigator.mozConnection || navigator.webkitConnection
+      if (!connection) return
+
+      const debouncedReconnect = debounce(() => ws.reconnect(), 500)
+      connection.addEventListener('change', () => {
+        if (!store.getters['connectivity/websocket']) {
+          debouncedReconnect()
+        }
+      })
+    }
+
+    watchConnection()
   },
   disconnect () {
-    if (timer) clearTimeout(timer)
+    if (pingTimer) clearTimeout(pingTimer)
     if (ws) {
       ws.close(undefined, undefined, { keepClosed: true })
       ws = null
@@ -80,7 +111,7 @@ const socket = {
   },
 }
 
-export function receiveMessage ({ topic, payload }) {
+function receiveMessage ({ topic, payload }) {
   if (topic === 'applications:update') {
     store.dispatch('groupApplications/update', convertApplication(camelizeKeys(payload)))
   }
@@ -191,3 +222,9 @@ store.watch(getter('auth/isLoggedIn'), isLoggedIn => {
     socket.disconnect()
   }
 }, { immediate: true })
+
+store.watch(state => state.connectivity.requestReconnect, request => {
+  if (!request) return
+  store.commit('connectivity/requestReconnect', false)
+  ws.reconnect()
+})

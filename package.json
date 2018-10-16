@@ -112,7 +112,7 @@
     "file-loader": "^2.0.0",
     "gitbook-cli": "^2.3.2",
     "glob": "^7.1.2",
-    "hard-source-webpack-plugin": "^0.12.0",
+    "hard-source-webpack-plugin": "https://github.com/chronweigle/hard-source-webpack-plugin#add-prefix",
     "html-webpack-plugin": "^4.0.0-alpha",
     "http-proxy-middleware": "^0.19.0",
     "jest": "^23.5.0",

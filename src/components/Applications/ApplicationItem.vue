@@ -9,7 +9,6 @@
       <ProfilePicture
         :user="application.user"
         :size="30"
-        class="profilePic"
       />
     </q-item-side>
     <q-item-main>
@@ -148,9 +147,6 @@ export default {
 
 <style scoped lang="stylus">
 @import '~variables'
-.applicants-picture
-  vertical-align: text-bottom
-  margin-left: -0.5 rem
 .isNonPending
   opacity 0.5
 </style>

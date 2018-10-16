@@ -26,6 +26,8 @@ Please document your changes in this format:
 
 ### Fixed
 
+- Make applications more mobile-friendly [#1112] @djahnie
+
 ## [6.2.0] - 2018-08-27
 
 ### Added

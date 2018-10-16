@@ -24,12 +24,25 @@ Please document your changes in this format:
 
 ### Added
 
+### Fixed
+
+- Make applications more mobile-friendly [#1112] @djahnie
+
+## [6.2.0] - 2018-08-27
+
+### Added
+
 - Newcomer role and trust system [#1077] @tiltec
 - On-site notifications in topbar [#1099] @tiltec
+- Deploy android app to Play Store @tiltec @djahnie
+- Record statistics about which profile features are used @tiltec
 
 ### Fixed
 
 - Fix application chat initial questions layout [#1097] @nicksellen
+- Application user was sometimes missing @djahnie
+- Disable unwanted HTML support in map popups @tiltec
+- Invalid dates when application has been withdrawn @tiltec
 
 ## [6.1.0] - 2018-08-31
 
@@ -229,7 +242,8 @@ After months of planning and programming, the first version of ~the foodsaving t
 [#1082]: https://github.com/yunity/karrot-frontend/issues/1082
 [#1071]: https://github.com/yunity/karrot-frontend/issues/1071
 
-[Unreleased]: https://github.com/yunity/karrot-frontend/compare/v6.1.0...HEAD
+[Unreleased]: https://github.com/yunity/karrot-frontend/compare/v6.2.0...HEAD
+[6.2.0]: https://github.com/yunity/karrot-frontend/compare/v6.1.0...v6.2.0
 [6.1.0]: https://github.com/yunity/karrot-frontend/compare/v6.0.0...v6.1.0
 [6.0.0]: https://github.com/yunity/karrot-frontend/compare/v5.0.0...v6.0.0
 [5.0.0]: https://github.com/yunity/karrot-frontend/compare/v4.0.0...v5.0.0

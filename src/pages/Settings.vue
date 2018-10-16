@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div v-if="user">
     <q-card class="no-shadow grey-border">
       <q-card-title>{{ $t('USERDATA.PROFILE_TITLE') }}</q-card-title>
       <q-card-main>

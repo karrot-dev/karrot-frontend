@@ -3,35 +3,28 @@
     link
     separator
     :class="{ isPending: application.isPending, isNonPending: !application.isPending }"
-    @click.native.self="openChat"
+    @click.native="openChat"
   >
     <q-item-side>
       <ProfilePicture
         :user="application.user"
-        :size="80"
-        class="applicants-picture"
+        :size="30"
       />
     </q-item-side>
-
     <q-item-main>
       <q-item-tile
         label
-        lines="1"
       >
         {{ userName }}
       </q-item-tile>
-
       <q-item-tile
         sublabel
-        lines="1"
       >
         {{ submittedOn }}
       </q-item-tile>
-
       <q-item-tile
         v-if="application.status !== 'pending'"
         sublabel
-        lines="1"
       >
         <i18n
           :path="decision"
@@ -42,9 +35,8 @@
             :date="application.decidedAt"
           />
         </i18n>
-
         <template v-if="application.status !== 'withdrawn'">
-          ·
+          <br>
           <i18n
             :path="personDeciding"
           >
@@ -57,19 +49,10 @@
           </i18n>
         </template>
       </q-item-tile>
-
     </q-item-main>
     <q-item-side
       right
     >
-      <q-btn
-        round
-        color="tertiary"
-        icon="fas fa-comments"
-        class="generic-margin"
-        @click="openChat"
-        :title="$t('BUTTON.OPEN')"
-      />
       <q-btn
         v-if="application.canDecide"
         round
@@ -164,9 +147,6 @@ export default {
 
 <style scoped lang="stylus">
 @import '~variables'
-.applicants-picture
-  vertical-align: text-bottom
-  margin-left: -0.5 rem
 .isNonPending
   opacity 0.5
 </style>

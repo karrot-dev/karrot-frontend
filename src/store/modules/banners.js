@@ -5,6 +5,8 @@ export default {
       let banners = []
       const currentGroup = rootGetters['currentGroup/value']
       const isGroupPage = rootGetters['route/isGroupPage']
+      const isLoggedIn = rootGetters['auth/isLoggedIn']
+      const connected = rootGetters['connectivity/connected']
 
       if (isGroupPage && currentGroup && currentGroup.awaitingAgreement) {
         banners.push({
@@ -17,6 +19,12 @@ export default {
         banners.push({
           type: 'playgroundGroupInfo',
           desktopOnly: true,
+        })
+      }
+
+      if (isLoggedIn && !connected) {
+        banners.push({
+          type: 'notConnected',
         })
       }
 

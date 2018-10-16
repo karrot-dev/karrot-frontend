@@ -56,6 +56,7 @@ export default {
   mixins: [statusMixin],
   computed: {
     hasEmailChanged () {
+      if (!this.user) return
       const previousEmail = this.user.unverifiedEmail || this.user.email
       return this.newEmail && (previousEmail !== this.newEmail)
     },
@@ -82,9 +83,8 @@ export default {
       this.$emit('save', { newEmail, password, done: this.reset })
     },
     setEmail () {
-      if (this.user) {
-        this.newEmail = this.user.email || this.user.unverifiedEmail
-      }
+      if (!this.user) return
+      this.newEmail = this.user.email || this.user.unverifiedEmail
     },
   },
   watch: {

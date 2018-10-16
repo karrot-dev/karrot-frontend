@@ -59,6 +59,7 @@
       :status="fetchStatus"
       :can-fetch-past="canFetchPast"
       :fetch-past="fetchPast"
+      :fetch-past-status="fetchPastStatus"
     />
   </div>
 </template>
@@ -80,6 +81,7 @@ export default {
       feedback: 'feedback/all',
       fetchStatus: 'feedback/fetchStatus',
       canFetchPast: 'feedback/canFetchPast',
+      fetchPastStatus: 'feedback/fetchPastStatus',
       feedbackPossibleFiltered: 'pickups/feedbackPossibleFiltered',
     }),
     statistics () {

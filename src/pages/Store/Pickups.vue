@@ -159,7 +159,7 @@ export default {
       return this.store && this.store.status !== 'active'
     },
     directionsURL () {
-      if (!this.store || !this.store.latitude) return
+      if (!this.store || !this.store.latitude || !this.store.longitude) return
       if (this.$q.platform.is.ios) {
         return directions.apple(this.store)
       }

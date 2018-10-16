@@ -1,5 +1,5 @@
 <template>
-  <q-toolbar color="primary">
+  <q-toolbar :color="connected ? 'primary' : 'grey-8'">
     <slot />
     <router-link
       :to="'/'"
@@ -186,6 +186,10 @@ export default {
     away: {
       type: Boolean,
       default: true,
+    },
+    connected: {
+      type: Boolean,
+      default: false,
     },
   },
   computed: {

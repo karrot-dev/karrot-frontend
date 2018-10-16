@@ -23,7 +23,9 @@ if [ "$DIR" == "release" ]; then
 
   DEPLOY_ENV="production"
   DEPLOY_EMOJI=":rocket:"
-  URL="https://play.google.com/store/apps/details?id=world.karrot"
+  APK_URL="https://karrot.world/app.apk"
+  PLAYSTORE_URL="https://play.google.com/store/apps/details?id=world.karrot"
+  PACKAGE_NAME="world.karrot"
 
 elif [ "$DIR" == "master" ]; then
 
@@ -31,7 +33,9 @@ elif [ "$DIR" == "master" ]; then
 
   DEPLOY_ENV="development"
   DEPLOY_EMOJI=":beer:"
-  URL="https://dev.karrot.world/app.apk"
+  APK_URL="https://dev.karrot.world/app.apk"
+  PLAYSTORE_URL="https://play.google.com/store/apps/details?id=world.karrot.dev"
+  PACKAGE_NAME="world.karrot.dev"
 
 else
 
@@ -51,16 +55,15 @@ ssh-keyscan -H $HOST >> ~/.ssh/known_hosts
 
 echo "deploying app [$APK] to [$HOST] in [$DIR] dir"
 
-# always push apk to server
+# push apk to server
 rsync -avz "$APK" "deploy@$HOST:karrot-app/$DIR/app.apk"
 
-# publish in playstore if production
-if [ "$DIR" == "release" ]; then
-  (
-    cd cordova
-    KEY="$CORDOVA_PLAYSTORE_SERVICEACCOUNT_KEY" ./publish_to_playstore
-  )
-fi
+# publish in playstore
+(
+  APK_FILE="$(pwd)/$APK"
+  cd cordova
+  KEY="$CORDOVA_PLAYSTORE_SERVICEACCOUNT_KEY" PACKAGE_NAME="$PACKAGE_NAME" APK_FILE="$APK_FILE" ./publish_to_playstore
+)
 
 if [ ! -z "$SLACK_WEBHOOK_URL" ]; then
 
@@ -68,7 +71,7 @@ if [ ! -z "$SLACK_WEBHOOK_URL" ]; then
 
   ATTACHMENT_TEXT=""
 
-  ATTACHMENT_TEXT+=":android: <$URL|Download the app>"
+  ATTACHMENT_TEXT+=":android: Download <$PLAYSTORE_URL|from Play Store> or <$APK_URL|as APK>"
 
   ATTACHMENT_FOOTER="Using git ref <$REF_URL|$REF>, commit <$COMMIT_URL|$COMMIT_SHA_SHORT> - $COMMIT_MESSAGE"
 

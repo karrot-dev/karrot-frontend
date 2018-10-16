@@ -7,6 +7,7 @@ export default connect({
     history: 'history/all',
     status: 'history/fetchFilteredStatus',
     canFetchPast: 'history/canFetchPast',
+    fetchPastStatus: 'history/fetchPastStatus',
   },
   actionsToProps: {
     fetchPast: 'history/fetchPast',

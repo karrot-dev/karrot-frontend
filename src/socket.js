@@ -1,4 +1,5 @@
 import ReconnectingWebsocket from 'reconnecting-websocket'
+import { debounce, AppVisibility } from 'quasar'
 
 import store from '@/store'
 import log from '@/services/log'
@@ -34,28 +35,51 @@ else {
   ].join('')
 }
 
-export const options = {
+const options = {
   reconnectInterval: 500,
 }
 
-let ws, timer
+let ws, pingTimer, pingTimeout
+
+const ping = () => {
+  if (ws.readyState === WebSocket.OPEN) {
+    ws.send(JSON.stringify({ type: 'ping' }))
+  }
+  clearTimeout(pingTimeout)
+  pingTimeout = setTimeout(() => {
+    if (!AppVisibility.appVisible) return
+    store.commit('connectivity/websocket', false)
+  }, 2000)
+}
+
+const startPing = () => {
+  ping()
+  pingTimer = setInterval(ping, 10000)
+}
+
+const stopPing = () => {
+  clearTimeout(pingTimeout)
+  clearInterval(pingTimer)
+}
 
 const socket = {
   connect (protocols) {
     if (ws) return
     ws = new ReconnectingWebsocket(WEBSOCKET_ENDPOINT, protocols, options)
 
-    timer = setInterval(() => {
-      if (ws.readyState === WebSocket.OPEN) {
-        ws.send(JSON.stringify({ type: 'ping' }))
-      }
-    }, 10000)
-
     ws.addEventListener('open', () => {
+      // ping immediately if connection was opened
+      // we need to stop existing pings beforehand to avoid overlap
+      stopPing()
+      startPing()
       log.debug('socket opened!')
     })
 
     ws.addEventListener('close', () => {
+      // we check if we really lost the connection
+      // maybe a new connection was opened before the old one was closed
+      stopPing()
+      startPing()
       log.debug('socket closed!')
     })
 
@@ -68,11 +92,41 @@ const socket = {
         log.error('socket message was not json', event.data)
         return
       }
+
+      store.commit('connectivity/websocket', true)
+      if (data.type && data.type === 'pong') {
+        clearTimeout(pingTimeout)
+      }
+
       receiveMessage(data)
     })
+
+    function watchConnection () {
+      const debouncedReconnect = debounce(() => ws.reconnect(), 500)
+
+      // this should work in cordova, maybe
+      document.addEventListener('online', () => {
+        if (!store.getters['connectivity/websocket']) {
+          debouncedReconnect()
+        }
+      })
+
+      // this uses the draft Network Information API if available
+      // https://developer.mozilla.org/en-US/docs/Web/API/Network_Information_API
+      const connection = navigator.connection || navigator.mozConnection || navigator.webkitConnection
+      if (!connection) return
+
+      connection.addEventListener('change', () => {
+        if (!store.getters['connectivity/websocket']) {
+          debouncedReconnect()
+        }
+      })
+    }
+
+    watchConnection()
   },
   disconnect () {
-    if (timer) clearTimeout(timer)
+    stopPing()
     if (ws) {
       ws.close(undefined, undefined, { keepClosed: true })
       ws = null
@@ -80,7 +134,7 @@ const socket = {
   },
 }
 
-export function receiveMessage ({ topic, payload }) {
+function receiveMessage ({ topic, payload }) {
   if (topic === 'applications:update') {
     store.dispatch('groupApplications/update', convertApplication(camelizeKeys(payload)))
   }
@@ -191,3 +245,9 @@ store.watch(getter('auth/isLoggedIn'), isLoggedIn => {
     socket.disconnect()
   }
 }, { immediate: true })
+
+store.watch(state => state.connectivity.requestReconnect, request => {
+  if (!request) return
+  store.commit('connectivity/requestReconnect', false)
+  ws.reconnect()
+})

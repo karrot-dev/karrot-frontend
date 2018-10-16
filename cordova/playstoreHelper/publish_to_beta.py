@@ -7,6 +7,7 @@ from oauth2client.service_account import ServiceAccountCredentials
 import subprocess
 import xml.etree.ElementTree as ET
 import os
+from pathlib import Path
 
 TRACK = 'beta'
 USER_FRACTION = 1
@@ -75,6 +76,81 @@ def main(argv):
     ).execute()
 
     print('Track %s is set with releases: %s' % (track_response['track'], str(track_response['releases'])))
+
+    if package_name == 'world.karrot':
+        assets = Path('../playstoreAssets')
+        language = 'en-US'
+
+        listing = assets / language / 'listing'
+        with (listing / 'shortDescription.txt').open() as shortDescription, \
+             (listing / 'fullDescription.txt').open() as fullDescription:
+            service.edits().listings().update(
+                editId=edit_id,
+                packageName=package_name,
+                language=language,
+                body={
+                    'title': 'Karrot',
+                    'language': language,
+                    'shortDescription': shortDescription.read(),
+                    'fullDescription': fullDescription.read(),
+                    'video': '',
+                }
+            ).execute()
+
+        print('Listing of %s has been updated' % package_name)
+
+        images_path = assets / language / 'images'
+        imageTypes = (
+            'featureGraphic',
+            'icon',
+            'phoneScreenshots',
+            'promoGraphic',
+            'sevenInchScreenshots',
+            'tenInchScreenshots',
+            'tvBanner',
+            'tvScreenshots',
+            'wearScreenshots',
+        )
+        sha1 = subprocess.run(['sha1sum', *images_path.iterdir()], stdout=subprocess.PIPE).stdout.decode()
+        sha1_images = {sha1: path for (sha1, path) in [i.split() for i in sha1.splitlines()]}
+
+        for imageType in imageTypes:
+            our_images = {
+                sha1: path
+                for (sha1, path) in sha1_images.items() if path.split('/')[-1].startswith(imageType)
+            }
+
+            images_response = service.edits().images().list(
+                editId=edit_id,
+                packageName=package_name,
+                language=language,
+                imageType=imageType,
+            ).execute()
+            their_images = images_response.get('images') or []
+            their_images = {i['sha1']: i['id'] for i in their_images}
+
+            to_upload = [our_images.get(k) for k in (our_images.keys() - their_images.keys())]
+            to_delete = [their_images.get(k) for k in (their_images.keys() - our_images.keys())]
+
+            for image_id in to_delete:
+                service.edits().images().delete(
+                    editId=edit_id,
+                    packageName=package_name,
+                    language=language,
+                    imageType=imageType,
+                    imageId=image_id,
+                ).execute()
+                print('Deleted', image_id)
+
+            for path in to_upload:
+                service.edits().images().upload(
+                    editId=edit_id,
+                    packageName=package_name,
+                    language=language,
+                    imageType=imageType,
+                    media_body=path,
+                ).execute()
+                print('Uploaded', path)
 
     commit_request = service.edits().commit(editId=edit_id, packageName=package_name).execute()
 

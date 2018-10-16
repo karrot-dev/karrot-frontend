@@ -1,6 +1,5 @@
 #! /bin/env python
 import json
-import txclib.project as project
 from txclib import utils
 from txclib import config
 import requests
@@ -46,6 +45,3 @@ for key in percentage_dict.keys():
 with open(status_file, 'w') as f:
     json.dump(percentage_dict, f, sort_keys=True, indent=2)
     print("Updated", status_file)
-
-project = project.Project()
-project.pull()

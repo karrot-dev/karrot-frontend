@@ -36,7 +36,7 @@
     "fix": "npm run lint -- --fix",
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook",
-    "locales:pull": "updateLocalesHelper/env/bin/python updateLocalesHelper/updateLocales.py",
+    "locales:pull": "updateLocalesHelper/env/bin/python updateLocalesHelper/updateLocaleStatus.py && updateLocalesHelper/env/bin/tx pull -a --force --no-interactive",
     "locales:push": "updateLocalesHelper/env/bin/tx push -s",
     "docs": "gitbook install docs && gitbook serve docs",
     "build-docs": "gitbook install docs && gitbook build docs docs-dist"

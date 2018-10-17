@@ -8,6 +8,7 @@
     "BETA_WARNING": "Nasz serwis jest wciąż w trakcie budowy i niektóre elementy mogą w przyszłości ulec zmianie. Nie możemy zagwarantować Ci pełnego bezpieczeństwa ani prywatności Twoich danych (ale będziemy się starać).",
     "CONNECTION_INTERRUPTED": "Błąd: przerwano połączenie!",
     "SERVER_ERROR": "Błąd serwera",
+    "NOT_CONNECTED": "You aren't connected to the server",
     "INVALID_LINK": "Przepraszamy, otwarty przez Ciebie link jest nieprawidłowy.",
     "SEARCH_NOT_FOUND": "Nie znaleziono"
   },

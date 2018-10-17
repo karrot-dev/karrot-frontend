@@ -26,6 +26,14 @@ Please document your changes in this format:
 
 ### Fixed
 
+## [6.2.1] - 2018-10-17
+
+### Added
+
+- Notification if connection was lost @tiltec
+
+### Fixed
+
 - Make applications more mobile-friendly [#1112] @djahnie
 
 ## [6.2.0] - 2018-08-27
@@ -232,6 +240,7 @@ After months of planning and programming, the first version of ~the foodsaving t
 - **store**: create a store which belongs to a group, set up name, description, address and position of a store
 - **pick-up dates**: create a pick-up date which belongs to a store, set time and max. amount of people who can collect food, user can join/leave a pick-up date
 
+[#1112]: https://github.com/yunity/karrot-frontend/issues/1112
 [#1077]: https://github.com/yunity/karrot-frontend/issues/1077
 [#1099]: https://github.com/yunity/karrot-frontend/issues/1099
 [#1097]: https://github.com/yunity/karrot-frontend/issues/1097
@@ -242,7 +251,8 @@ After months of planning and programming, the first version of ~the foodsaving t
 [#1082]: https://github.com/yunity/karrot-frontend/issues/1082
 [#1071]: https://github.com/yunity/karrot-frontend/issues/1071
 
-[Unreleased]: https://github.com/yunity/karrot-frontend/compare/v6.2.0...HEAD
+[Unreleased]: https://github.com/yunity/karrot-frontend/compare/v6.2.1...HEAD
+[6.2.1]: https://github.com/yunity/karrot-frontend/compare/v6.2.0...v6.2.1
 [6.2.0]: https://github.com/yunity/karrot-frontend/compare/v6.1.0...v6.2.0
 [6.1.0]: https://github.com/yunity/karrot-frontend/compare/v6.0.0...v6.1.0
 [6.0.0]: https://github.com/yunity/karrot-frontend/compare/v5.0.0...v6.0.0

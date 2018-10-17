@@ -8,6 +8,7 @@
     "BETA_WARNING": "這個網站正在積極開發中，變動很快。我們無法保證您所輸入資料的安全與隱私(但我們量力而為)。",
     "CONNECTION_INTERRUPTED": "錯誤：連線中斷！",
     "SERVER_ERROR": "伺服器錯誤",
+    "NOT_CONNECTED": "You aren't connected to the server",
     "INVALID_LINK": "抱歉，你開啟的連結無效",
     "SEARCH_NOT_FOUND": "無符合的搜尋結果"
   },
@@ -34,16 +35,16 @@
         "CONFIRM": "確認"
       },
       "GIVE_TRUST": {
-        "TITLE": "Trust user",
-        "MESSAGE": "Do you trust {userName} in {groupName}?"
+        "TITLE": "信任的使用者",
+        "MESSAGE": "你信任{社團名稱}裡的{使用者名稱}嗎?"
       }
     },
     "LOGOUT_SUCCESS": "你已經登出",
-    "YOU_TRUST_USER": "You trust {userName} in {groupName}.",
-    "OTHER_PEOPLE_TRUST_USER": "{otherUser} trusts {userName} in {groupName}. | {count} people trust {userName} in {groupName}.",
-    "PEOPLE_TRUST_USER": "You and {otherUser} trust {userName} in {groupName}. | You and {count} other people trust {userName} in {groupName}.",
-    "FIRST_TRUST": "Be the first one to trust {userName} in {groupName}!",
-    "NEWCOMER": "Newcomer",
+    "YOU_TRUST_USER": "你信任{社團名稱}裡的{使用者名稱}",
+    "OTHER_PEOPLE_TRUST_USER": "{其他使用者}信任{社團名稱}裡的{使用者名稱}。| {數目}個人信任{社團名稱}裡的{使用者名稱}。",
+    "PEOPLE_TRUST_USER": "你及{其他使用者}信任{社團名稱}裡的{使用者名稱}。| 你和{數目}個人信任{社團名稱}裡的{使用者名稱}。",
+    "FIRST_TRUST": "成為{社團名稱}裡第一個信任{使用者名稱}的人!",
+    "NEWCOMER": "新加入成員",
     "NEWCOMER_GUIDANCE": "{userName} is new to your group and might need some guidance.",
     "TRUST_PROGRESS_TEXT": "{trustNeeded} more trust needed",
     "TRUST_PROGRESS_TEXT_LONG": "{trustNeeded} more people need to express their trust in {userName} to grant editing permissions.",

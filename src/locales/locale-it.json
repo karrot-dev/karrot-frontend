@@ -8,6 +8,7 @@
     "BETA_WARNING": "Questo sito internet è sotto sviluppo attivo e tutto è soggetto a cambiamenti continui. Non possiamo garantire per la sicurezza e la privacy dei dati che vengono immessi (ma proveremo a fare del nostro meglio)",
     "CONNECTION_INTERRUPTED": "Errore: connessione interrotta!",
     "SERVER_ERROR": "Errore del server",
+    "NOT_CONNECTED": "You aren't connected to the server",
     "INVALID_LINK": "Ci dispiace, il link che hai aperto non è valido.",
     "SEARCH_NOT_FOUND": "Non Trovato"
   },

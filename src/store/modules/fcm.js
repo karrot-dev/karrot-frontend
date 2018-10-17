@@ -12,7 +12,7 @@ export default {
     tokenExists: state => token => Boolean(state.tokens[token]),
   },
   actions: {
-    updateToken ({ commit, rootGetters }, token) {
+    updateToken ({ commit }, token) {
       commit('setToken', token)
     },
     async fetchTokens ({ commit }) {
@@ -33,9 +33,9 @@ export default {
 }
 
 export const plugin = store => {
-  store.watch(() => ({
-    isLoggedIn: store.getters['auth/isLoggedIn'],
-    token: store.getters['fcm/token'],
+  store.watch((state, getters) => ({
+    isLoggedIn: getters['auth/isLoggedIn'],
+    token: getters['fcm/token'],
   }), async ({ isLoggedIn, token }) => {
     if (isLoggedIn && token) {
       await store.dispatch('fcm/fetchTokens')

@@ -21,6 +21,9 @@
   <body style="overscroll-behavior: none">
     <div id="q-app"></div>
     <!-- built files will be auto injected -->
+    <% if (htmlWebpackPlugin.options.cordova) { %>
+      <script type="text/javascript" charset="utf-8" src="cordova.js"></script>
+    <% } %>
     <noscript>You don't have JavaScript enabled. This website needs JavaScript to work, because it uses client-side rendering.</noscript>
   </body>
 </html>

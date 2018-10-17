@@ -142,6 +142,7 @@ module.exports = {
       filename: 'index.html',
       template: 'src/index.html',
       minify: true,
+      cordova,
     }),
     new VueLoaderPlugin(),
     ...(dev ? [

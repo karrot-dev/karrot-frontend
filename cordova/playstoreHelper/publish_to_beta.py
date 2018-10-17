@@ -111,7 +111,8 @@ def main(argv):
             'tvScreenshots',
             'wearScreenshots',
         )
-        sha1 = subprocess.run(['sha1sum', *images_path.iterdir()], stdout=subprocess.PIPE).stdout.decode()
+        images = [str(p) for p in images_path.iterdir()]
+        sha1 = subprocess.run(['sha1sum', *images], stdout=subprocess.PIPE).stdout.decode()
         sha1_images = {sha1: path for (sha1, path) in [i.split() for i in sha1.splitlines()]}
 
         for imageType in imageTypes:

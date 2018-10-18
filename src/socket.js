@@ -62,12 +62,26 @@ const stopPing = () => {
   clearInterval(pingTimer)
 }
 
+let listeners = []
+function addEventListener (target, event, fn) {
+  target.addEventListener(event, fn)
+  listeners.push({ target, event, fn })
+}
+
+function removeEventListeners () {
+  const toBeRemoved = listeners
+  listeners = []
+  toBeRemoved.forEach(({ target, event, fn }) => {
+    target.removeEventListener(event, fn)
+  })
+}
+
 const socket = {
   connect (protocols) {
     if (ws) return
     ws = new ReconnectingWebsocket(WEBSOCKET_ENDPOINT, protocols, options)
 
-    ws.addEventListener('open', () => {
+    addEventListener(ws, 'open', () => {
       // ping immediately if connection was opened
       // we need to stop existing pings beforehand to avoid overlap
       stopPing()
@@ -75,7 +89,7 @@ const socket = {
       log.debug('socket opened!')
     })
 
-    ws.addEventListener('close', () => {
+    addEventListener(ws, 'close', () => {
       // we check if we really lost the connection
       // maybe a new connection was opened before the old one was closed
       stopPing()
@@ -83,7 +97,7 @@ const socket = {
       log.debug('socket closed!')
     })
 
-    ws.addEventListener('message', (event) => {
+    addEventListener(ws, 'message', (event) => {
       let data
       try {
         data = JSON.parse(event.data)
@@ -105,7 +119,7 @@ const socket = {
       const debouncedReconnect = debounce(() => ws.reconnect(), 500)
 
       // this should work in cordova, maybe
-      document.addEventListener('online', () => {
+      addEventListener(document, 'online', () => {
         if (!store.getters['connectivity/websocket']) {
           debouncedReconnect()
         }
@@ -116,7 +130,7 @@ const socket = {
       const connection = navigator.connection || navigator.mozConnection || navigator.webkitConnection
       if (!connection) return
 
-      connection.addEventListener('change', () => {
+      addEventListener(connection, 'change', () => {
         if (!store.getters['connectivity/websocket']) {
           debouncedReconnect()
         }
@@ -126,6 +140,7 @@ const socket = {
     watchConnection()
   },
   disconnect () {
+    removeEventListeners()
     stopPing()
     if (ws) {
       ws.close(undefined, undefined, { keepClosed: true })

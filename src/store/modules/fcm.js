@@ -1,5 +1,5 @@
 import Vue from 'vue'
-import axios from '@/services/axios'
+import subscriptionsAPI from '@/services/api/subscriptions'
 
 export default {
   namespaced: true,
@@ -16,7 +16,15 @@ export default {
       commit('setToken', token)
     },
     async fetchTokens ({ commit }) {
-      commit('receiveTokens', (await axios.get('/api/subscriptions/push/')).data.map(({ token }) => token))
+      const tokens = await subscriptionsAPI.list()
+      commit('receiveTokens', tokens.map(({ token }) => token))
+    },
+    async disable ({ state }) {
+      if (!state.token) return
+      const subscriptions = await subscriptionsAPI.list()
+      const subscription = subscriptions.find(({ token }) => token === state.token)
+      if (!subscription) return
+      await subscriptionsAPI.delete(subscription.id)
     },
   },
   mutations: {
@@ -40,7 +48,7 @@ export const plugin = store => {
     if (isLoggedIn && token) {
       await store.dispatch('fcm/fetchTokens')
       if (!store.getters['fcm/tokenExists'](token)) {
-        await axios.post('/api/subscriptions/push/', { token, platform: 'android' })
+        await subscriptionsAPI.create({ token, platform: 'android' })
         await store.dispatch('fcm/fetchTokens')
       }
     }

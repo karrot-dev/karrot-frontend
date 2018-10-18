@@ -402,7 +402,6 @@ export default {
         dispatch('updateConversation', await conversationsAPI.get(conversationId))
       })
       Object.keys(state.messages).forEach(async conversationId => {
-        console.log(conversationId)
         commit('clearMessages', { conversationId })
         dispatch('fetch', conversationId)
       })

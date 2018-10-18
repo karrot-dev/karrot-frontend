@@ -82,6 +82,7 @@ export default {
 
       async logout ({ dispatch }) {
         await dispatch('push/disable')
+        await dispatch('fcm/disable', null, { root: true })
         await auth.logout()
 
         dispatch('update', null)

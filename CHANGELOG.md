@@ -24,7 +24,14 @@ Please document your changes in this format:
 
 ### Added
 
+### Changed
+
+- App push icon now resembles the Karrot logo better @tiltec
+
 ### Fixed
+
+- App push notifications @tiltec
+- Clicking notification redirects to the appropriate page @tiltec
 
 ## [6.2.1] - 2018-10-17
 

@@ -1,4 +1,5 @@
 import store from '@/store'
+import router from '@/router'
 
 document.addEventListener('deviceready', onDeviceReady, false)
 
@@ -12,9 +13,19 @@ function onDeviceReady () {
   if (FCMPlugin) {
     FCMPlugin.onTokenRefresh(receiveFCMToken)
     FCMPlugin.getToken(receiveFCMToken)
+    FCMPlugin.onNotification(receiveNotification)
   }
   else {
     console.error('window.FCMPlugin is not available, push notifications will not work')
+  }
+}
+
+function receiveNotification (data) {
+  if (!data.wasTapped) return
+  // Notification was received on device tray and tapped by the user
+  const route = data.karrot_route
+  if (route) {
+    router.push(route)
   }
 }
 

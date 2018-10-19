@@ -17,6 +17,7 @@
     <allow-intent href="mailto:*" />
     <allow-intent href="geo:*" />
     <platform name="android">
+        <resource-file src="icon_push.png" target="res/drawable/icon_push.png" />
         <allow-intent href="market:*" />
         <preference name="android-minSdkVersion" value="23" />
         <preference name="AndroidLaunchMode" value="singleInstance" />
@@ -33,5 +34,6 @@
             <path url="/" />
         </host>
     </universal-links>
+    <plugin name="cordova-plugin-network-information" spec="^2.0.1" />
     <engine name="android" spec="^6.4.0" />
 </widget>

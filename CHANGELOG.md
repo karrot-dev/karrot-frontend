@@ -32,6 +32,8 @@ Please document your changes in this format:
 
 - App push notifications @tiltec
 - Clicking notification redirects to the appropriate page @tiltec
+- User profile picture did not show in app @tiltec
+- Upcoming pickup notifications have been deleted and recreated constantly @tiltec
 
 ## [6.2.1] - 2018-10-17
 

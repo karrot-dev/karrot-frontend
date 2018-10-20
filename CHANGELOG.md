@@ -27,6 +27,8 @@ Please document your changes in this format:
 ### Changed
 
 - App push icon now resembles the Karrot logo better @tiltec
+- Mobile chat and wall input now try to keep the cursor on screen @tiltec
+- Mobile chat header now collapses properly @tiltec
 
 ### Fixed
 

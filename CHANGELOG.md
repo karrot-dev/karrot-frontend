@@ -36,6 +36,7 @@ Please document your changes in this format:
 - Clicking notification redirects to the appropriate page @tiltec
 - User profile picture did not show in app @tiltec
 - Upcoming pickup notifications have been deleted and recreated constantly @tiltec
+- User profile didn't reliably load when another user profile was open before @tiltec
 
 ## [6.2.1] - 2018-10-17
 

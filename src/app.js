@@ -55,10 +55,8 @@ export default async function initApp () {
     render: h => h(Root),
   })
 
-  if (__ENV.DEV) {
-    // makes it easier to remote debug vue in cordova
-    // for example to access vuex, type this into the console
-    // window.vueRoot.$store.state
-    window.vueRoot = vueRoot
-  }
+  // makes it easier to remote debug vue in cordova
+  // for example to access vuex, type this into the console
+  // window.vueRoot.$store.state
+  window.vueRoot = vueRoot
 }

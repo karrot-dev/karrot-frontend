@@ -214,11 +214,6 @@ export default {
       }
     },
   },
-  data () {
-    return {
-      showingMessages: false,
-    }
-  },
 }
 </script>
 

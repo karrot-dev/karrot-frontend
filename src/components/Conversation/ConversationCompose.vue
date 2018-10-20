@@ -18,6 +18,7 @@
             :value="message"
           >
             <q-input
+              ref="input"
               type="textarea"
               rows="1"
               :autofocus="autofocus"
@@ -28,6 +29,8 @@
               :disable="isPending"
               @keyup.ctrl.enter="submit"
               @keyup.esc="leaveEdit"
+              @focus="onFocus"
+              @blur="onBlur"
             />
           </component>
         </q-field>
@@ -71,6 +74,7 @@ export default {
   data () {
     return {
       message: (this.value) || '',
+      hasFocus: false,
     }
   },
   watch: {
@@ -80,6 +84,14 @@ export default {
     isPending (val) {
       if (!val && !this.hasAnyError) this.message = ''
     },
+    '$keyboard.is.open' (val) {
+      // if mobile keyboard opens, try to keep q-input on screen
+      if (!val) return
+      const input = this.$refs.input
+      if (!input) return
+      input.blur()
+      input.focus()
+    },
   },
   methods: {
     submit () {
@@ -87,6 +99,12 @@ export default {
     },
     leaveEdit () {
       this.$emit('leaveEdit')
+    },
+    onFocus (event) {
+      this.hasFocus = true
+    },
+    onBlur () {
+      this.hasFocus = false
     },
   },
   computed: {

@@ -33,7 +33,7 @@
             slim
             @submit="sendMessage"
             :placeholder="messagePrompt"
-            :autofocus="startAtBottom"
+            :autofocus="!$q.platform.is.mobile && startAtBottom"
           />
         </q-list>
         <div
@@ -45,7 +45,6 @@
       </q-infinite-scroll>
       <q-scroll-observable @scroll="onScroll" />
     </div>
-    <q-resize-observable @resize="restoreScrollPosition" />
   </div>
 </template>
 
@@ -56,7 +55,6 @@ import {
   scroll,
   QSpinnerDots,
   QList,
-  QResizeObservable,
   QScrollObservable,
   QInfiniteScroll,
 } from 'quasar'
@@ -68,7 +66,6 @@ export default {
     ConversationCompose,
     QSpinnerDots,
     QList,
-    QResizeObservable,
     QScrollObservable,
     QInfiniteScroll,
   },

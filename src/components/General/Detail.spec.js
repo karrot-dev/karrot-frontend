@@ -1,6 +1,7 @@
 import { QBtn } from 'quasar'
 
 import DetailUI from './DetailUI'
+import DetailHeaderUI from './DetailHeaderUI'
 import { mountWithDefaults, polyfillRequestAnimationFrame, useMobileUserAgent, statusMocks } from '>/helpers'
 import { messagesMock } from '>/mockdata'
 
@@ -19,7 +20,7 @@ const propsData = {
 describe('Detail', () => {
   beforeEach(() => jest.resetModules())
   it('can be closed', () => {
-    const wrapper = mountWithDefaults(DetailUI, { propsData })
+    const wrapper = mountWithDefaults(DetailHeaderUI, { propsData })
     const closeButton = [...wrapper.findAll(QBtn)].find(btn => btn.vm.$props.icon === 'close')
     closeButton.trigger('click')
     expect(wrapper.emitted().close).toEqual([[]])
@@ -27,7 +28,7 @@ describe('Detail', () => {
 
   it('cannot be closed on mobile', () => {
     useMobileUserAgent()
-    const wrapper = mountWithDefaults(DetailUI, { propsData })
+    const wrapper = mountWithDefaults(DetailHeaderUI, { propsData })
     const closeButton = [...wrapper.findAll(QBtn)].find(btn => btn.vm.$props.icon === 'close')
     expect(closeButton).toBeUndefined()
   })

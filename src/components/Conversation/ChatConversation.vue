@@ -1,50 +1,46 @@
 <template>
   <div
-    class="col bar relative-position"
+    :class="inline && 'absolute-full scroll'"
+    ref="scroll"
   >
+    <slot name="beforeChatMessages"/>
     <div
-      class="absolute-full scroll"
-      ref="scroll"
+      v-if="fetchingPast"
+      class="full-width text-center generic-padding"
     >
-      <slot name="beforeChatMessages"/>
+      <q-spinner-dots :size="40" />
+    </div>
+    <q-infinite-scroll :handler="maybeFetchFuture">
+      <q-list
+        no-border
+        class="bg-white"
+      >
+        <ConversationMessage
+          v-for="message in conversation.messages"
+          :key="message.id"
+          :message="message"
+          slim
+          @toggleReaction="$emit('toggleReaction', arguments[0])"
+          @save="$emit('saveMessage', arguments[0])"
+        />
+        <ConversationCompose
+          v-if="!this.conversation.canFetchFuture"
+          ref="compose"
+          :status="conversation.sendStatus"
+          slim
+          @submit="sendMessage"
+          :placeholder="messagePrompt"
+          :autofocus="!$q.platform.is.mobile && startAtBottom"
+        />
+      </q-list>
       <div
-        v-if="fetchingPast"
+        slot="message"
         class="full-width text-center generic-padding"
       >
         <q-spinner-dots :size="40" />
       </div>
-      <q-infinite-scroll :handler="maybeFetchFuture">
-        <q-list
-          no-border
-          class="bg-white"
-        >
-          <ConversationMessage
-            v-for="message in conversation.messages"
-            :key="message.id"
-            :message="message"
-            slim
-            @toggleReaction="$emit('toggleReaction', arguments[0])"
-            @save="$emit('saveMessage', arguments[0])"
-          />
-          <ConversationCompose
-            v-if="!this.conversation.canFetchFuture"
-            ref="compose"
-            :status="conversation.sendStatus"
-            slim
-            @submit="sendMessage"
-            :placeholder="messagePrompt"
-            :autofocus="!$q.platform.is.mobile && startAtBottom"
-          />
-        </q-list>
-        <div
-          slot="message"
-          class="full-width text-center generic-padding"
-        >
-          <q-spinner-dots :size="40" />
-        </div>
-      </q-infinite-scroll>
-      <q-scroll-observable @scroll="onScroll" />
-    </div>
+    </q-infinite-scroll>
+    <q-scroll-observable @scroll="onScroll" />
   </div>
 </template>
 
@@ -53,12 +49,19 @@ import ConversationMessage from '@/components/Conversation/ConversationMessage'
 import ConversationCompose from '@/components/Conversation/ConversationCompose'
 import {
   scroll,
+  dom,
   QSpinnerDots,
   QList,
   QScrollObservable,
   QInfiniteScroll,
 } from 'quasar'
-const { getScrollHeight, getScrollPosition, setScrollPosition } = scroll
+const { getScrollHeight, getScrollPosition, setScrollPosition, getScrollTarget } = scroll
+const { height } = dom
+
+function getElementHeight (el) {
+  if (el === window) return height(window)
+  return el.getBoundingClientRect().height
+}
 
 export default {
   components: {
@@ -74,14 +77,25 @@ export default {
     away: { type: Boolean, required: true },
     currentUser: { type: Object, default: null },
     startAtBottom: { type: Boolean, default: false },
+    inline: {
+      // if true, create a new overflowed scroll container
+      type: Boolean,
+      default: false,
+    },
   },
   data () {
     return {
+      scrollContainer: null,
       newestMessageId: -1,
       oldestMessageId: -1,
       scrollPositionFromBottom: 0,
       hideBottomSpinner: null,
     }
+  },
+  mounted () {
+    this.$nextTick(() => {
+      this.scrollContainer = this.inline ? this.$refs.scroll : getScrollTarget(this.$el)
+    })
   },
   computed: {
     hasLoaded () {
@@ -183,10 +197,10 @@ export default {
       this.$emit('send', data)
     },
     getScrollPositionFromBottom () {
-      if (!this.$refs.scroll) return
-      const { height } = this.$refs.scroll.getBoundingClientRect()
-      const scrollHeight = getScrollHeight(this.$refs.scroll)
-      const scrollPosition = getScrollPosition(this.$refs.scroll)
+      if (!this.scrollContainer) return
+      const height = getElementHeight(this.scrollContainer)
+      const scrollHeight = getScrollHeight(this.scrollContainer)
+      const scrollPosition = getScrollPosition(this.scrollContainer)
       return scrollHeight - scrollPosition - height
     },
     saveScrollPosition () {
@@ -196,16 +210,16 @@ export default {
       }
     },
     restoreScrollPosition () {
-      if (!this.$refs.scroll || !this.startAtBottom) return
-      const { height } = this.$refs.scroll.getBoundingClientRect()
-      const scrollHeight = getScrollHeight(this.$refs.scroll)
+      if (!this.scrollContainer || !this.startAtBottom) return
+      const height = getElementHeight(this.scrollContainer)
+      const scrollHeight = getScrollHeight(this.scrollContainer)
       const scrollPosition = scrollHeight - height - this.scrollPositionFromBottom
-      setScrollPosition(this.$refs.scroll, scrollPosition)
+      setScrollPosition(this.scrollContainer, scrollPosition)
     },
     scrollToBottom () {
       this.$nextTick(() => {
-        if (this.$refs.scroll) {
-          setScrollPosition(this.$refs.scroll, getScrollHeight(this.$refs.scroll))
+        if (this.scrollContainer) {
+          setScrollPosition(this.scrollContainer, getScrollHeight(this.scrollContainer))
         }
       })
     },

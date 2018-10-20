@@ -29,6 +29,9 @@ describe('ChatConversation', () => {
   it('can send a message', async () => {
     const propsData = defaultProps()
     const wrapper = mountWithDefaults(ChatConversation, { propsData })
+    // let the mounted() hook run
+    await Vue.nextTick()
+
     expect(wrapper.findAll(QInput).length).toBe(1)
     expect(wrapper.findAll(ConversationCompose).length).toBe(1)
 
@@ -47,6 +50,7 @@ describe('ChatConversation', () => {
     const { conversation } = propsData
     conversation.unreadMessageCount = 0
     const wrapper = mountWithDefaults(ChatConversation, { propsData })
+    await Vue.nextTick()
 
     const { id, messages } = conversation
     conversation.unreadMessageCount = 1
@@ -60,6 +64,8 @@ describe('ChatConversation', () => {
   it('does not mark new messages as read when away', async () => {
     const propsData = { ...defaultProps(), away: true }
     const wrapper = mountWithDefaults(ChatConversation, { propsData })
+    await Vue.nextTick()
+
     const { id, messages } = propsData.conversation
     messages.splice(0, 0, { id: 99, author: 1, content: 'first messsage', conversation: id, createdAt: new Date() })
     expect(wrapper.emitted().mark).toBeUndefined()
@@ -68,6 +74,7 @@ describe('ChatConversation', () => {
   it('marks messages as read when returning from away', async () => {
     const propsData = { ...defaultProps(), away: true }
     const wrapper = mountWithDefaults(ChatConversation, { propsData })
+    await Vue.nextTick()
 
     const { id, messages } = propsData.conversation
     messages.push({ id: 99, author: 1, content: 'first messsage', conversation: id, createdAt: new Date() })

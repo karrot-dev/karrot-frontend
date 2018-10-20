@@ -28,7 +28,8 @@ const Sidenav = () => import('@/components/Sidenav/Sidenav')
 const Settings = () => import('@/pages/Settings')
 const User = () => import('@/pages/User/User')
 const PickupFeedback = () => import('@/pages/Group/Feedback')
-const MobileDetail = () => import('@/pages/MobileDetail')
+const Detail = () => import('@/components/General/Detail')
+const DetailHeader = () => import('@/components/General/DetailHeader')
 
 export default [
   {
@@ -95,6 +96,11 @@ export default [
     },
     components: {
       default: { render: h => h('router-view') }, // passthrough
+      subheader: { render: h => h('router-view', {
+        props: {
+          name: 'subheader',
+        },
+      }) },
       sidenav: Sidenav,
     },
     children: [
@@ -236,7 +242,10 @@ export default [
           afterLeave: 'detail/routeLeave',
         },
         // On desktop will get redirected inside "detail/routeEnter" action
-        component: MobileDetail,
+        components: {
+          default: Detail,
+          subheader: DetailHeader,
+        },
       },
       {
         name: 'stores',
@@ -292,7 +301,10 @@ export default [
               afterLeave: 'detail/routeLeave',
             },
             // On desktop will get redirected inside "detail/routeEnter" action
-            component: MobileDetail,
+            components: {
+              default: Detail,
+              subheader: DetailHeader,
+            },
           },
           {
             name: 'storePickupsManage',
@@ -378,7 +390,8 @@ export default [
     },
     // On desktop will get redirected inside "detail/routeEnter" action
     components: {
-      default: MobileDetail,
+      default: Detail,
+      subheader: DetailHeader,
       sidenav: Sidenav,
     },
   },
@@ -426,7 +439,8 @@ export default [
     },
     // On desktop will get redirected inside "detail/routeEnter" action
     components: {
-      default: MobileDetail,
+      default: Detail,
+      subheader: DetailHeader,
       sidenav: Sidenav,
     },
   },

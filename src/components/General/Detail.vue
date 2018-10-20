@@ -14,7 +14,6 @@ export default connect({
   actionsToEvents: {
     send: 'conversations/send',
     mark: 'conversations/maybeMark',
-    toggleEmailNotifications: 'conversations/maybeToggleEmailNotifications',
     toggleReaction: 'conversations/toggleReaction',
     saveMessage: 'conversations/saveMessage',
     fetchPast: 'conversations/fetchPast',

@@ -86,7 +86,7 @@ export default {
     },
     '$keyboard.is.open' (val) {
       // if mobile keyboard opens, try to keep q-input on screen
-      if (!val) return
+      if (!val || !this.hasFocus) return
       const input = this.$refs.input
       if (!input) return
       input.blur()

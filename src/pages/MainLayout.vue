@@ -44,6 +44,7 @@
             </q-btn>
           </KTopbar>
           <KTopbarLoggedOut v-if="!isLoggedIn" />
+          <router-view name="subheader" />
         </q-layout-header>
 
         <!-- mobile sidenav -->
@@ -92,7 +93,7 @@
           :breakpoint="0"
           :value="showRightDrawer"
         >
-          <Detail @close="clearDetail"/>
+          <DetailSidebar @close="clearDetail"/>
         </q-layout-drawer>
         <q-layout-footer>
           <UnsupportedBrowserWarning
@@ -115,7 +116,7 @@ import MobileSidenav from '@/components/Sidenav/MobileSidenav'
 import Banners from '@/components/Layout/Banners'
 import RouteError from '@/components/RouteError'
 import UnsupportedBrowserWarning from '@/components/UnsupportedBrowserWarning'
-import Detail from '@/components/General/Detail'
+import DetailSidebar from '@/components/General/DetailSidebar'
 import { mapGetters, mapActions } from 'vuex'
 import {
   dom,
@@ -132,7 +133,7 @@ const { width } = dom
 
 export default {
   components: {
-    Detail,
+    DetailSidebar,
     KTopbar,
     KTopbarLoggedOut,
     KFooter,

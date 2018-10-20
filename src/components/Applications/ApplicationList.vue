@@ -33,11 +33,18 @@
 
 <script>
 import ApplicationItem from './ApplicationItem'
-import { QCard, QCollapsible } from 'quasar'
+import {
+  QCollapsible,
+  QItemSeparator,
+  QList,
+} from 'quasar'
 
 export default {
   components: {
-    ApplicationItem, QCard, QCollapsible,
+    ApplicationItem,
+    QCollapsible,
+    QItemSeparator,
+    QList,
   },
   props: {
     pending: {

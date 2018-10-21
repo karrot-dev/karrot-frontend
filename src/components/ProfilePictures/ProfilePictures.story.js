@@ -17,7 +17,10 @@ storiesOf('ProfilePicture', module)
   .add('without user', () => defaults({
     render: h => h(ProfilePicture, {
       props: {
-        user: {},
+        user: {
+          id: 1,
+          displayName: '?',
+        },
         size: 100,
       },
     }),

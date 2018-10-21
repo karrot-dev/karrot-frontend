@@ -22,6 +22,10 @@ Please document your changes in this format:
 
 ## [Unreleased]
 
+### Changed
+
+- Better identification of messages from users who left the group @tiltec
+
 ## [6.2.2] - 2018-10-21
 
 ### Changed

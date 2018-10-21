@@ -34,12 +34,6 @@
         class="randomArt fill"
       />
     </template>
-    <div
-      v-else
-      class="deletedUser"
-      :style="deletedUserStyle"
-      :title="$t('PROFILE.INACCESSIBLE_OR_DELETED')"
-    >?</div>
   </div>
 </template>
 
@@ -57,6 +51,9 @@ export default {
   },
   computed: {
     tooltip () {
+      if (this.user.displayName === '?') {
+        return this.$t('PROFILE.INACCESSIBLE_OR_DELETED')
+      }
       if (!this.user.membership || this.user.membership.isEditor) {
         return this.user.displayName
       }
@@ -69,22 +66,13 @@ export default {
         height: this.size + 'px',
       }
     },
-    deletedUserStyle () {
-      return {
-        ...this.pictureStyle,
-        'font-size': this.size * 0.8 + 'px',
-      }
-    },
-    bigPhoto () {
-      return this.size > 120
-    },
     hasPhoto () {
       return !!this.photo
     },
     photo () {
       if (this.user && this.user.photoUrls) {
         const p = this.user.photoUrls
-        return this.bigPhoto ? p.fullSize : p.thumbnail
+        return this.size > 120 ? p.fullSize : p.thumbnail
       }
     },
   },
@@ -97,11 +85,6 @@ export default {
 .randomArt
   display block
   overflow hidden
-.deletedUser
-  display flex
-  justify-content center
-  align-items center
-  user-select none
 .fill
   width 100%
   height 100%

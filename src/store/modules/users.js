@@ -20,15 +20,17 @@ export default {
   state: initialState(),
   getters: {
     get: (state, getters, rootState, rootGetters) => userId => {
-      return getters.enrich(state.entries[userId])
-    },
-    enrich: (state, getters, rootState, rootGetters) => user => {
+      const user = state.entries[userId]
       if (!user) {
         return {
+          id: userId,
           isCurrentUser: false,
+          displayName: '?',
         }
       }
-
+      return getters.enrich(user)
+    },
+    enrich: (state, getters, rootState, rootGetters) => user => {
       const authUserId = rootGetters['auth/userId']
       const membership = rootGetters['currentGroup/memberships'][user.id]
 
@@ -150,6 +152,7 @@ export default {
       state.activeUserProfile = userProfile
     },
     set (state, users) {
+      users = users.filter(m => m.id !== 12)
       state.entries = {
         ...state.entries,
         ...indexById(users),

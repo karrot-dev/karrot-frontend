@@ -36,13 +36,8 @@ if (hasNoUnreleased) {
 console.log('Writing back changelog.md for consistency')
 fs.writeFileSync(changelogFilePath, changelog.toString())
 
-console.log('Updating version in package.json and creating tag')
-execSync(`yarn version --new-version ${latestVersion}`, { stdio: 'inherit' })
-console.log()
-
-const tag = `v${latestVersion}`
-console.log(`Pushing tag ${tag} to origin`)
-execSync(`git push origin ${tag}`, { stdio: 'inherit' })
+console.log('Updating version in package.json')
+execSync(`yarn version --new-version ${latestVersion} --no-git-tag-version`, { stdio: 'inherit' })
 console.log()
 
 cordovaConfigPaths.forEach(path => {
@@ -52,3 +47,14 @@ cordovaConfigPaths.forEach(path => {
   config.setVersion(latestVersion.toString())
   config.writeSync()
 })
+
+const tag = `v${latestVersion}`
+console.log(`Committing all changes`)
+execSync(`git commit -am "${tag}"`, { stdio: 'inherit' })
+
+console.log(`Creating tag ${tag}`)
+execSync(`git tag ${tag}`, { stdio: 'inherit' })
+
+console.log(`Pushing tag ${tag} to origin`)
+execSync(`git push origin ${tag}`, { stdio: 'inherit' })
+console.log()

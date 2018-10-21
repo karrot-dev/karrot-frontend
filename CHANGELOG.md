@@ -22,13 +22,14 @@ Please document your changes in this format:
 
 ## [Unreleased]
 
-### Added
+## [6.2.2] - 2018-10-21
 
 ### Changed
 
 - App push icon now resembles the Karrot logo better @tiltec
 - Mobile chat and wall input now try to keep the cursor on screen @tiltec
 - Mobile chat header now collapses properly @tiltec
+- Move application actions into popover @tiltec
 
 ### Fixed
 
@@ -37,6 +38,7 @@ Please document your changes in this format:
 - User profile picture did not show in app @tiltec
 - Upcoming pickup notifications have been deleted and recreated constantly @tiltec
 - User profile didn't reliably load when another user profile was open before @tiltec
+- Applications couldn't be accepted or declined on mobile @tiltec
 
 ## [6.2.1] - 2018-10-17
 
@@ -263,7 +265,8 @@ After months of planning and programming, the first version of ~the foodsaving t
 [#1082]: https://github.com/yunity/karrot-frontend/issues/1082
 [#1071]: https://github.com/yunity/karrot-frontend/issues/1071
 
-[Unreleased]: https://github.com/yunity/karrot-frontend/compare/v6.2.1...HEAD
+[Unreleased]: https://github.com/yunity/karrot-frontend/compare/v6.2.2...HEAD
+[6.2.2]: https://github.com/yunity/karrot-frontend/compare/v6.2.1...v6.2.2
 [6.2.1]: https://github.com/yunity/karrot-frontend/compare/v6.2.0...v6.2.1
 [6.2.0]: https://github.com/yunity/karrot-frontend/compare/v6.1.0...v6.2.0
 [6.1.0]: https://github.com/yunity/karrot-frontend/compare/v6.0.0...v6.1.0

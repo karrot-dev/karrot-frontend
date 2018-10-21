@@ -1,14 +1,14 @@
 <template>
   <q-item
     link
-    separator
-    :class="{ isPending: application.isPending, isNonPending: !application.isPending }"
-    @click.native="openChat"
+    :class="{ isNonPending: !application.isPending }"
+    @click.native="openChatIfCannotDecide"
   >
     <q-item-side>
       <ProfilePicture
         :user="application.user"
         :size="30"
+        :is-link="false"
       />
     </q-item-side>
     <q-item-main>
@@ -42,6 +42,7 @@
           >
             <router-link
               place="userName"
+              @click.native.stop=""
               :to="{name: 'user', params: { userId: application.decidedBy.id }}"
             >
               {{ application.decidedBy.displayName }}
@@ -50,39 +51,66 @@
         </template>
       </q-item-tile>
     </q-item-main>
-    <q-item-side
-      right
+    <q-popover
+      v-if="application.canDecide"
+      touch-position
     >
-      <q-btn
-        v-if="application.canDecide"
-        round
-        color="positive"
-        icon="fas fa-check"
-        class="generic-margin"
-        @click="pressAccept"
-        :title="$t('BUTTON.ACCEPT')"
-      />
-      <q-btn
-        v-if="application.canDecide"
-        round
-        color="negative"
-        icon="fas fa-times"
-        class="generic-margin"
-        @click="decline"
-        :title="$t('BUTTON.DECLINE')"
-      />
-    </q-item-side>
+      <q-list
+        v-close-overlay
+        link
+      >
+        <q-item
+          @click.native="openChat"
+        >
+          <q-item-side
+            icon="fas fa-fw fa-comments"
+          />
+          <q-item-main :label="$t('BUTTON.OPEN')" />
+        </q-item>
+        <q-item
+          @click.native="pressAccept"
+        >
+          <q-item-side
+            icon="fas fa-fw fa-check"
+          />
+          <q-item-main :label="$t('BUTTON.ACCEPT')" />
+        </q-item>
+        <q-item
+          @click.native="decline"
+        >
+          <q-item-side
+            icon="fas fa-fw fa-times"
+          />
+          <q-item-main :label="$t('BUTTON.DECLINE')" />
+        </q-item>
+      </q-list>
+    </q-popover>
   </q-item>
 </template>
 
 <script>
-import { Dialog, QItem, QBtn, QItemMain, QItemSide, QItemTile } from 'quasar'
+import {
+  Dialog,
+  QItem,
+  QItemMain,
+  QItemSide,
+  QItemTile,
+  QPopover,
+  QList,
+} from 'quasar'
 import ProfilePicture from '@/components/ProfilePictures/ProfilePicture'
 import DateAsWords from '@/components/General/DateAsWords'
 
 export default {
   components: {
-    QItem, QBtn, QItemMain, QItemSide, QItemTile, ProfilePicture, DateAsWords,
+    QItem,
+    QItemMain,
+    QItemSide,
+    QItemTile,
+    QPopover,
+    QList,
+    ProfilePicture,
+    DateAsWords,
   },
   props: {
     application: {
@@ -93,6 +121,10 @@ export default {
   methods: {
     openChat () {
       this.$emit('openChat', this.application)
+    },
+    openChatIfCannotDecide () {
+      if (this.application.canDecide) return
+      this.openChat()
     },
     pressAccept () {
       Dialog.create({
@@ -148,5 +180,5 @@ export default {
 <style scoped lang="stylus">
 @import '~variables'
 .isNonPending
-  opacity 0.5
+  opacity 0.8
 </style>

@@ -33,6 +33,8 @@ def main(argv):
 
     print('Retrieving release notes from CHANGELOG.md...')
     releaseText = subprocess.run('../../scripts/get_newest_release.js', stdout=subprocess.PIPE).stdout.decode()
+    if len(releaseText) > 500:
+        releaseText = releaseText[:495] + '\n...'
     print()
     print(releaseText)
     print()

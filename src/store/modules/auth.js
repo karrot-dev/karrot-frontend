@@ -4,6 +4,7 @@ import router from '@/router'
 import { createMetaModule, withMeta, metaStatuses } from '@/store/helpers'
 import { objectDiff } from '@/services/utils'
 import push from '@/store/modules/auth/push'
+import { throttle } from 'quasar'
 
 function initialState () {
   return {
@@ -16,6 +17,15 @@ function initialState () {
     maybeLoggedOut: false,
   }
 }
+
+const showLogoutToast = throttle((dispatch) => {
+  dispatch('toasts/show', {
+    message: 'USERDATA.LOGOUT_SUCCESS',
+    config: {
+      timeout: 5000,
+    },
+  }, { root: true })
+}, 5000)
 
 export default {
   namespaced: true,
@@ -86,9 +96,7 @@ export default {
         await auth.logout()
 
         dispatch('update', null)
-        dispatch('toasts/show', {
-          message: 'USERDATA.LOGOUT_SUCCESS',
-        }, { root: true })
+        showLogoutToast(dispatch)
 
         dispatch('conversations/clear', null, { root: true })
         dispatch('currentThread/clear', null, { root: true })

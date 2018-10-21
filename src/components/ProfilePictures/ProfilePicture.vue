@@ -7,6 +7,7 @@
       <router-link
         v-if="isLink"
         :to="{name:'user', params: {userId: user.id}}"
+        @click.native.stop=""
         :title="tooltip"
       >
         <img

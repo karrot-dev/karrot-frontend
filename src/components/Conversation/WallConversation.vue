@@ -28,7 +28,11 @@
             class="k-unread-alert"
           >
             <div class="row justify-between items-center">
-              <small>{{ $tc('CONVERSATION.UNREAD_MESSAGES', data.unreadMessageCount, { count: data.unreadMessageCount }) }}</small>
+              <small>
+                {{ $tc('CONVERSATION.UNREAD_MESSAGES', data.unreadMessageCount, {
+                  count: data.unreadMessageCount > 99 ? '99+' : data.unreadMessageCount,
+                }) }}
+              </small>
               <q-btn
                 no-caps
                 outline

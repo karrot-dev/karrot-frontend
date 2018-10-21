@@ -107,7 +107,7 @@
           :color="muted ? 'grey' : 'secondary'"
           class="inline-chip"
         >
-          {{ unreadCount }}
+          {{ unreadCount > 99 ? '99+' : unreadCount }}
         </q-chip>
       </q-item-tile>
     </q-item-main>

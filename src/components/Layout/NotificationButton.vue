@@ -15,7 +15,7 @@
       floating
       color="secondary"
     >
-      {{ unseenCount }}
+      {{ unseenCount > 9 ? '9+' : unseenCount }}
     </q-chip>
     <q-popover
       v-if="!$q.platform.is.mobile"

@@ -18,7 +18,7 @@
         small
         color="secondary"
       >
-        {{ wallUnreadCount }}
+        {{ cappedWallUnreadCount }}
       </q-chip>
       <q-btn
         flat
@@ -60,7 +60,7 @@
               small
               color="secondary"
             >
-              {{ wallUnreadCount }}
+              {{ cappedWallUnreadCount }}
             </q-chip>
           </q-item-side>
         </q-item>
@@ -128,6 +128,11 @@ import GroupOptions from './GroupOptions'
 export default {
   components: {
     SidenavBox, GroupOptions, QBtn, QList, QItem, QItemSide, QItemMain, QIcon, QTooltip, QChip,
+  },
+  computed: {
+    cappedWallUnreadCount () {
+      return this.wallUnreadCount > 99 ? '99+' : this.wallUnreadCount
+    },
   },
   props: {
     groupId: {

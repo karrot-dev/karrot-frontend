@@ -15,7 +15,7 @@
       floating
       :color="allUnreadMuted ? 'grey' : 'secondary'"
     >
-      {{ unreadCount }}
+      {{ unreadCount > 9 ? '9+' : unreadCount }}
     </q-chip>
     <q-popover
       v-if="!$q.platform.is.mobile"

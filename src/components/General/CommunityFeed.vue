@@ -12,7 +12,7 @@
       floating
       color="red"
     >
-      {{ unreadCount }}
+      {{ unreadCount > 9 ? '9+' : unreadCount }}
     </q-chip>
     <component
       :is="$q.platform.is.mobile ? 'q-modal' : 'q-popover'"

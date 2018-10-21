@@ -97,7 +97,13 @@
         />
         <span
           class="k-replies-count"
-          v-t="{ path: 'CONVERSATION.REPLIES_COUNT', choice: message.threadMeta.replyCount, args: { count: message.threadMeta.replyCount } }"
+          v-t="{
+            path: 'CONVERSATION.REPLIES_COUNT',
+            choice: message.threadMeta.replyCount,
+            args: {
+              count: message.threadMeta.replyCount > 99 ? '99+' : message.threadMeta.replyCount,
+            },
+          }"
         />
       </q-btn>
     </q-item-main>

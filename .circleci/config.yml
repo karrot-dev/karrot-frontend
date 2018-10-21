@@ -486,7 +486,7 @@ workflows:
   sync-locales-cronjob:
     triggers:
       - schedule:
-          cron: "0 6 * * *"
+          cron: "0 4 * * *"
           filters:
             branches:
               only: master

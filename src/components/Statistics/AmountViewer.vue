@@ -15,7 +15,7 @@ import bagImg from 'assets/feedback/bag.png'
 import flourImg from 'assets/feedback/flour.png'
 import flourGuyImg from 'assets/feedback/flourGuy.png'
 import milkImg from 'assets/feedback/milk.png'
-import cartImg from 'assets/people/cart.png'
+import cartImg from 'assets/feedback/cart.png'
 
 export default {
   data () {

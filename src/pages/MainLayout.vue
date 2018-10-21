@@ -232,7 +232,7 @@ body.desktop .mainContent
     margin-left auto
     margin-right auto
 .background
-  background-image url('../assets/repeating_grey.jpg')
+  background-image url('../assets/repeating_grey.png')
   background-size: 600px
   background-attachment:fixed
 .q-layout-footer

@@ -89,7 +89,7 @@
 import { QCard, QCardMain, QField, QInput, QBtn, QSelect } from 'quasar'
 import AmountPicker from './AmountPicker'
 import FeedbackList from './FeedbackList'
-import cartImg from 'assets/people/cart.png'
+import cartImg from 'assets/feedback/cart.png'
 import RandomArt from '@/components/General/RandomArt'
 import FeedbackForm from './FeedbackForm'
 import KNotice from '@/components/General/KNotice'

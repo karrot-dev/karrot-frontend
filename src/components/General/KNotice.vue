@@ -1,19 +1,25 @@
 <template>
-  <div class="notice">
+  <div
+    class="notice q-pa-sm"
+    style="margin: 0 auto"
+  >
     <q-card
       color="secondary"
-      class="generic-padding row no-wrap card"
+      class="generic-padding card items-center q-pa-none"
+      :class="$q.platform.is.mobile ? 'column' : 'row no-wrap'"
     >
-      <div>
-        <div class="icon">
-          <slot name="icon"/>
-        </div>
+      <div class="icon">
+        <slot name="icon"/>
       </div>
-      <div>
-        <h5>
+      <div :class="!$q.platform.is.mobile ? 'q-ml-md' : 'text-center'">
+        <div
+          :class="$q.platform.is.mobile && 'q-mt-sm'"
+        >
           <slot/>
-        </h5>
-        <slot name="desc"/>
+        </div>
+        <div class="desc q-mt-md">
+          <slot name="desc"/>
+        </div>
       </div>
     </q-card>
   </div>
@@ -31,20 +37,16 @@ export default {
 @import '~variables'
 @keyframes rotateIn
   0%
-    transform: translateZ(1px) rotate(0deg)
+    transform rotate(0deg)
   100%
-    transform: translateZ(1px) rotate(-3deg)
+    transform rotate(-3deg)
 
 .notice
-  animation: .3s ease-out 0s 1 rotateIn;
-  .card > div
-    margin-bottom 1em
+  max-width 90%
+  animation .3s ease-out 0s 1 rotateIn;
+  transform rotate(-3deg);
   .icon
     font-size 4.5rem
-    margin .1em 0 0 0
-    padding-right .3em
-  padding 2em 3em
-  transform: translateZ(1px) rotate(-3deg);
-  h5
-    padding 0
+  .desc
+    font-size 80%
 </style>

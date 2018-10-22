@@ -25,6 +25,9 @@ Please document your changes in this format:
 ### Changed
 
 - Better identification of messages from users who left the group @tiltec
+- Keep client data up-to-date when group members join or leave @tiltec
+- Always send android and web push notifications, even when the client is online @tiltec
+- Further improved KNotice especially for small screens @tiltec
 
 ## [6.2.2] - 2018-10-21
 

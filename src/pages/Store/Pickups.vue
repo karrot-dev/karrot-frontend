@@ -73,45 +73,31 @@
       @leave="leave"
       @detail="detail"
     />
-    <KNotice v-if="isInactive" >
+    <KNotice v-if="isInactive">
       <template slot="icon">
         <i class="far fa-handshake"/>
       </template>
       {{ $t('STOREDETAIL.INACTIVE') }}
-      <template slot="desc">
-        <router-link
-          v-if="isEditor"
-          :to="{name: 'storeEdit', params: { storeId }}"
-        >
-          {{ $t('STOREDETAIL.CHANGE_STATUS') }}
-          <q-btn
-            small
-            round
-            flat
-            icon="fas fa-pencil-alt"
-          />
-        </router-link>
-      </template>
+      <router-link
+        v-if="isEditor"
+        slot="desc"
+        :to="{name: 'storeEdit', params: { storeId }}"
+      >
+        {{ $t('STOREDETAIL.CHANGE_STATUS') }}
+      </router-link>
     </KNotice>
     <KNotice v-else-if="hasNoPickups" >
       <template slot="icon">
         <i class="fas fa-bed"/>
       </template>
       {{ $t('PICKUPLIST.NONE') }}
-      <template slot="desc">
-        <router-link
-          v-if="isEditor"
-          :to="{name: 'storePickupsManage', params: { storeId }}"
-        >
-          {{ $t('PICKUPLIST.STORE_NONE_HINT') }}
-          <q-btn
-            small
-            round
-            flat
-            icon="fas fa-calendar-alt"
-          />
-        </router-link>
-      </template>
+      <router-link
+        v-if="isEditor"
+        slot="desc"
+        :to="{name: 'storePickupsManage', params: { storeId }}"
+      >
+        {{ $t('PICKUPLIST.STORE_NONE_HINT') }}
+      </router-link>
     </KNotice>
   </div>
 </template>

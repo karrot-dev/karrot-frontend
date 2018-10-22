@@ -152,7 +152,6 @@ export default {
       state.activeUserProfile = userProfile
     },
     set (state, users) {
-      users = users.filter(m => m.id !== 12)
       state.entries = {
         ...state.entries,
         ...indexById(users),

@@ -38,8 +38,9 @@ export default async function initApp () {
   await Promise.all([
     polyfill.init(),
     store.dispatch('auth/refresh'),
-    store.dispatch('groups/fetch'),
   ])
+
+  store.dispatch('groups/fetch')
 
   if (!__ENV.DEV) {
     store.dispatch('about/fetch')

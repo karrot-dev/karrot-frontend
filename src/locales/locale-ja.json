@@ -1,10 +1,10 @@
 {
   "ENTRY": "1 entry | {count} entries",
   "GLOBAL": {
-    "GITHUB_NOTE": "Vývoj",
+    "GITHUB_NOTE": "Development",
     "FSWW_NOTE": "Read our info page!",
     "COMMUNITY_NOTE": "Join our community!",
-    "WARNING": "Varování",
+    "WARNING": "Warning",
     "BETA_WARNING": "This website is under active development and everything is subject to change. We can't guarantee for the safety and privacy of the data you enter (but we try our best).",
     "CONNECTION_INTERRUPTED": "Error: connection interrupted!",
     "SERVER_ERROR": "Server error",
@@ -16,9 +16,9 @@
     "EMAIL": "E-mail",
     "MOBILE_NUMBER": "Phone number",
     "PROFILE_TITLE": "Profile",
-    "PASSWORD": "Heslo",
+    "PASSWORD": "Password",
     "CONFIRM_PASSWORD": "Confirm your password",
-    "USERNAME": "Jméno",
+    "USERNAME": "Name",
     "WHERE_FROM": "Where you are from (not required)",
     "PHOTO": "Profile photo",
     "SET_PHOTO": "Set your profile photo...",
@@ -61,7 +61,7 @@
     "OTHER_GROUPS": "Other groups"
   },
   "BUTTON": {
-    "CREATE": "Vytvoř",
+    "CREATE": "Create",
     "CANCEL": "Cancel",
     "OPEN": "Open",
     "CLOSE": "Close",
@@ -70,7 +70,7 @@
     "JOIN": "Join",
     "LEAVE": "Leave",
     "PREVIEW": "Preview",
-    "BACK": "Zpět",
+    "BACK": "Back",
     "SEARCH": "Search",
     "OF_COURSE": "Yes, of course!",
     "YES": "Yes",
@@ -184,7 +184,7 @@
     "NO_DESCRIPTION": "This store does not have a description yet"
   },
   "STOREEDIT": {
-    "NAME": "Jméno",
+    "NAME": "Name",
     "STATUS":"Status",
     "DESCRIPTION": "Description",
     "ADDRESS": "Address",
@@ -213,7 +213,7 @@
     "DELETE_SERIES_TEXT": "Do you really want to delete this recurring pickup date? This will also delete all one-time pickup dates that belong to this recurring pickup date (except where people joined already)."
   },
   "USERDETAIL": {
-    "DISPLAY_NAME": "Jméno",
+    "DISPLAY_NAME": "Name",
     "DESCRIPTION": "About you",
     "OLD_PASSWORD": "Confirm your old password",
     "PASSWORD": "New password"

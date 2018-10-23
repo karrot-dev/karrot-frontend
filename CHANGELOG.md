@@ -28,6 +28,14 @@ Please document your changes in this format:
 - Keep client data up-to-date when group members join or leave @tiltec
 - Always send android and web push notifications, even when the client is online @tiltec
 - Further improved KNotice especially for small screens @tiltec
+- "Back to top" button has been removed to improve usability @tiltec
+- Do not collapse sidenav boxes on mobile @tiltec
+
+### Fixed
+
+- Applications of deleted users are now properly withdrawn @tiltec
+- Make login error message translatable @tiltec
+- Fix problematic concatenated translation message in trust dialog @tiltec
 
 ## [6.2.2] - 2018-10-21
 

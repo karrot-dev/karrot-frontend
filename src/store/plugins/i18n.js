@@ -4,9 +4,15 @@ import dateFnsHelper from '@/services/dateFnsHelper'
 import polyfill from '@/polyfill'
 import { messages as loadMessages, quasarMessages as loadQuasarMessages } from '@/locales'
 import Quasar from 'quasar-vue-plugin'
+import { debounce } from 'quasar'
 
 export default store => {
-  store.watch(state => state.i18n.locale, async locale => {
+  const loadLocale = debounce(async locale => {
+    axios.defaults.headers.common['Accept-Language'] = locale
+    document.documentElement.setAttribute('lang', locale)
+    dateFnsHelper.locale = locale
+    polyfill.locale = locale
+
     const [messages, { default: quasarMessages }] = await Promise.all([
       loadMessages(locale),
       loadQuasarMessages(locale),
@@ -18,10 +24,7 @@ export default store => {
     if (store.state.i18n.locale !== locale) return
 
     i18n.locale = locale
-    dateFnsHelper.locale = locale
-    polyfill.locale = locale
     Quasar.i18n.set(quasarMessages)
-    axios.defaults.headers.common['Accept-Language'] = locale
-    document.documentElement.setAttribute('lang', locale)
-  }, { immediate: true })
+  }, 100)
+  store.watch(state => state.i18n.locale, loadLocale, { immediate: true })
 }

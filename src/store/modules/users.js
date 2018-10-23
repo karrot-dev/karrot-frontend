@@ -37,6 +37,7 @@ export default {
       return {
         ...user,
         isCurrentUser: user.id === authUserId,
+        displayName: user.displayName === '' ? '?' : user.displayName,
         membership,
       }
     },

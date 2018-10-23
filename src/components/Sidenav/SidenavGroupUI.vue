@@ -1,7 +1,8 @@
 <template>
   <SidenavBox
     @toggle="$emit('toggleBox')"
-    :expanded="expanded"
+    :expanded="$q.platform.is.mobile || expanded"
+    :expandable="!$q.platform.is.mobile"
   >
     <template slot="icon">
       <q-icon name="fas fa-fw fa-home" />

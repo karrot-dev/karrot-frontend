@@ -126,13 +126,25 @@ const locales = {
     quasar: () => import('quasar-framework/i18n/sv'),
   },
 
-  zh: {
-    name: '中文',
-    locale: 'zh',
-    messages: () => import('@/locales/locale-zh.json'),
-    intlLocale: () => import('intl/locale-data/jsonp/zh'),
-    dateFnsLocale: () => import('date-fns/locale/zh_tw'),
+  /*
+  // Currently not used, please open issue if this should be enabled
+  'zh-hans': {
+    name: '中文 (Simplified)',
+    locale: 'zh-hans',
+    messages: () => import('@/locales/locale-zh_Hans.json'),
+    intlLocale: () => import('intl/locale-data/jsonp/zh-Hans'),
+    dateFnsLocale: () => import('date-fns/locale/zh_cn'),
     quasar: () => import('quasar-framework/i18n/zh-hans'),
+  },
+  */
+
+  'zh-hant': {
+    name: '中文',
+    locale: 'zh-hant',
+    messages: () => import('@/locales/locale-zh_Hant.json'),
+    intlLocale: () => import('intl/locale-data/jsonp/zh-Hant'),
+    dateFnsLocale: () => import('date-fns/locale/zh_tw'),
+    quasar: () => import('quasar-framework/i18n/zh-hant'),
   },
 }
 

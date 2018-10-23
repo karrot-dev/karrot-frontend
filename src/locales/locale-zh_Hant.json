@@ -1,0 +1,519 @@
+{
+  "ENTRY": "1則輸入 | {數目}則輸入",
+  "GLOBAL": {
+    "GITHUB_NOTE": "開發",
+    "FSWW_NOTE": "查看我們的資訊頁面 !",
+    "COMMUNITY_NOTE": "加入我們的社群!",
+    "WARNING": "警告",
+    "BETA_WARNING": "這個網站正在積極開發中，變動很快。我們無法保證您所輸入資料的安全與隱私(但我們量力而為)。",
+    "CONNECTION_INTERRUPTED": "錯誤：連線中斷！",
+    "SERVER_ERROR": "伺服器錯誤",
+    "NOT_CONNECTED": "You aren't connected to the server",
+    "INVALID_LINK": "抱歉，你開啟的連結無效",
+    "SEARCH_NOT_FOUND": "無符合的搜尋結果"
+  },
+  "USERDATA": {
+    "EMAIL": "電子郵件",
+    "MOBILE_NUMBER": "電話號碼",
+    "PROFILE_TITLE": "個人資料",
+    "PASSWORD": "密碼",
+    "CONFIRM_PASSWORD": "認證你的密碼",
+    "USERNAME": "名稱",
+    "WHERE_FROM": "請問你來自哪裡(選填)",
+    "PHOTO": "大頭貼照",
+    "SET_PHOTO": "設定你的大頭貼照",
+    "ACCOUNT": "帳戶",
+    "PUSH": "推送通知",
+    "PUSH_CURRENT_BROWSER": "目前的瀏覽器",
+    "REQUEST_DELETE_ACCOUNT": {
+      "SUCCESS": "我們寄給你了一封電子郵件，內含完成刪除程序的連結"
+    },
+    "DIALOGS": {
+      "REQUEST_DELETE_ACCOUNT": {
+        "TITLE": "刪除帳戶",
+        "MESSAGE": "你確定嗎? 你的帳戶和個人資料將被永久清除。你在這平台上所做過的一切都會變成匿名的。如果你確定要刪除帳戶，我們會寄給你完成刪除程序的連結。",
+        "CONFIRM": "確認"
+      },
+      "GIVE_TRUST": {
+        "TITLE": "信任的使用者",
+        "MESSAGE": "你信任{社團名稱}裡的{使用者名稱}嗎?"
+      }
+    },
+    "LOGOUT_SUCCESS": "你已經登出",
+    "YOU_TRUST_USER": "你信任{社團名稱}裡的{使用者名稱}",
+    "OTHER_PEOPLE_TRUST_USER": "{其他使用者}信任{社團名稱}裡的{使用者名稱}。| {數目}個人信任{社團名稱}裡的{使用者名稱}。",
+    "PEOPLE_TRUST_USER": "你及{其他使用者}信任{社團名稱}裡的{使用者名稱}。| 你和{數目}個人信任{社團名稱}裡的{使用者名稱}。",
+    "FIRST_TRUST": "成為{社團名稱}裡第一個信任{使用者名稱}的人!",
+    "NEWCOMER": "新加入成員",
+    "NEWCOMER_GUIDANCE": "{userName} is new to your group and might need some guidance.",
+    "TRUST_PROGRESS_TEXT": "{trustNeeded} more trust needed",
+    "TRUST_PROGRESS_TEXT_LONG": "{trustNeeded} more people need to express their trust in {userName} to grant editing permissions.",
+    "NEWCOMER_INFO": "You are currently a newcomer in {groupName} and you can become active by writing messages, meeting fellow members, doing pickups and giving feedback. As soon as {threshold} members expressed their trust in you, you will gain editing permissions to help with group administration.",
+    "TRUST_INFO": {
+      "TITLE": "What is this carrot button about?",
+      "MESSAGE": "It is part of the Karrot trust system. It shows if a group member is newcomer and how much trust is needed until they gain editing permissions.",
+      "LINK": "Click here to find out more."
+    }
+  },
+  "SWITCHGROUP": {
+    "NOT_MEMBER": "{userName} is not member of {groupName}.",
+    "COMMON_GROUPS": "Groups you have in common",
+    "OTHER_GROUPS": "Other groups"
+  },
+  "BUTTON": {
+    "CREATE": "創建",
+    "CANCEL": "取消",
+    "OPEN": "開放",
+    "CLOSE": "關閉",
+    "DELETE": "刪除",
+    "EDIT": "編輯",
+    "JOIN": "加入",
+    "LEAVE": "離開",
+    "PREVIEW": "預覽",
+    "BACK": "退回",
+    "SEARCH": "搜尋",
+    "OF_COURSE": "是的，當然！",
+    "YES": "是",
+    "SAVE_CHANGES": "儲存變更",
+    "RESET": "重新設定",
+    "CHANGE_PASSWORD": "變更密碼",
+    "CHANGE_EMAIL": "變更電子郵件地址",
+    "AGREE": "我同意",
+    "REMOVE": "移除",
+    "ARCHIVE": "歸檔",
+    "DELETE_ACCOUNT": "刪除帳戶",
+    "SHOW": "顯示",
+    "HIDE": "隱藏",
+    "SUBMIT": "提交",
+    "APPLY": "申請",
+    "ACCEPT": "接受",
+    "DECLINE": "拒絕",
+    "WITHDRAW": "退出",
+    "SHOW_MORE": "顯示更多"
+  },
+  "VALIDATION": {
+    "MINLENGTH": "請輸入至少 {最少} 個字。",
+    "MAXLENGTH": "太長囉！請勿超過 {最多} 個字。",
+    "UNIQUE": "此名稱已經存在，請選擇另一個。",
+    "REQUIRED": "此欄必須填寫。",
+    "VALID_EMAIL": "請輸入一個有效的Email電子信箱。",
+    "VALID_TIMEZONE": "請輸入一個有效的時區。"
+  },
+  "GROUP": {
+    "WALL": "留言板",
+    "GROUP": "社團",
+    "LEAVE": "離開社團...",
+    "LEAVE_TEXT": "您是否確定要離開這個社團？",
+    "LEAVE_CONFIRMATION": "你已經退出 {社團名稱}",
+    "NONMEMBER_REDIRECT": "你並非此社團的成員。",
+    "EDIT": "編輯社團",
+    "CREATE_TITLE": "創建新社團",
+    "MANAGE_AGREEMENT": "管理協議",
+    "TITLE": "社團名稱",
+    "PRIVATE_DESCRIPTION_TITLE": "私密社團敘述",
+    "DESCRIPTION_VERBOSE": "社團敘述（僅社團成員可見）",
+    "PUBLIC_DESCRIPTION": "加入社團前顯示的文字",
+    "APPLICATIONS": "申請",
+    "APPLICATION_QUESTIONS": "給要加入社團者的問題",
+    "PICKUPS": "開放領取食物",
+    "MESSAGES": "訊息",
+    "PICKUP": "領取",
+    "MEMBERS": "成員",
+    "JOINED": "加入[相對日期]",
+    "DECLINED": "拒絕 {相對日期}",
+    "ADDED_BY": "由{使用者名稱}加入",
+    "DECLINED_BY": "由{ 使用者名稱} 拒絕",
+    "SORT_JOINDATE": "由加入日期分類",
+    "SORT_NAME": "由姓名分類",
+    "INACTIVE": "非活躍",
+    "SHOW_INACTIVE": "顯示不活躍的社團",
+    "STORES": "店面",
+    "HOME": "首頁",
+    "CURRENT_STORE": "現有的店家",
+    "HISTORY": "歷史",
+    "DESCRIPTION": "敘述",
+    "ADDRESS": "地址",
+    "TIMEZONE": "社團時區",
+    "INVITE_EMAIL": "輸入電子郵件位址",
+    "INVITE_SEND": "寄發邀請",
+    "INVITED_LIST": "邀請信已寄送至下列電子郵件信箱：",
+    "ALREADY_INVITED": "邀請信已寄送至下列電子郵件信箱：",
+    "INVITATIONS": "邀請信",
+    "INVITE_TITLE": "邀請用戶到你的社團",
+    "INVITATION_ACCEPT_SUCCESS": "歡迎！你已成功接受邀請。",
+    "INVITATION_ACCEPT_ERROR": "糟糕，無法接受此邀請！",
+    "SETTINGS": "設定",
+    "NOTIFICATIONS": "通知",
+    "EMAIL_NOTIFICATIONS": "郵件通知",
+    "NOTIFICATION_TYPES": {
+      "weekly_summary": {
+        "NAME": "每週摘要",
+        "DESCRIPTION": "隨時關注此社團最新消息"
+      },
+      "daily_pickup_notification": {
+        "NAME": "領取通知",
+        "DESCRIPTION": "提醒你已加入的領取任務，並告訴你隔天的領取任務缺額數"
+      },
+      "new_application": {
+        "NAME": "新申請",
+        "DESCRIPTION": "當有人想加入你的社團時通知你"
+      }
+    },
+    "PLAYGROUND_INFO": "這裡是遊樂區社團，不用擔心會破壞掉任何東西。自由的點擊、愉快的探索吧 !",
+    "JOIN_PLAYGROUND": "加入遊樂區社團來探索karrot吧!",
+    "JOIN_ANOTHER_GROUP": "加入另一個社團"
+  },
+  "GROUPMAP": {
+    "TITLE": "地圖",
+    "SHOW_USERS": "顯示用戶",
+    "HIDE_USERS": "隱藏用戶",
+    "SHOW_STORES": "顯示店家",
+    "HIDE_STORES": "隱藏店家",
+    "SHOW_GROUPS": "顯示社團",
+    "HIDE_GROUPS": "隱藏社團",
+    "SET_LOCATION": "設定地點",
+    "FULL_SCREEN": "全螢幕顯示"
+  },
+  "STOREDETAIL": {
+    "DIRECTIONS": "顯示方向",
+    "EDIT": "編輯店家",
+    "MANAGE": "檢查與管理外帶品",
+    "ARCHIVED": "此店家已被歸檔",
+    "INACTIVE": "此商家目前並未參與合作",
+    "CHANGE_STATUS": "你可以在設定頁面更改狀態",
+    "NO_DESCRIPTION": "尚無關於此店家的敘述"
+  },
+  "STOREEDIT": {
+    "NAME": "名稱",
+    "STATUS":"狀態",
+    "DESCRIPTION": "敘述",
+    "ADDRESS": "地址",
+    "WEEKS_IN_ADVANCE": "多少週以前要顯示可重複開放領取的日期？",
+    "DIALOGS": {
+      "ARCHIVE": {
+        "TITLE": "將店家歸檔",
+        "MESSAGE": "你確定嗎？",
+        "CONFIRM": "是的，將店家歸檔"
+      }
+    },
+    "RESTORE": "恢復",
+    "SHOW_ARCHIVED": "顯示已歸檔的店家",
+    "HIDE_ARCHIVED": "隱藏已歸檔的店家",
+    "SHOW_ALL": "顯示所有店家",
+    "SHOW_ACTIVE_ONLY": "只顯示活躍店家"
+  },
+  "PICKUPMANAGE": {
+    "TITLE": "管理食物領取",
+    "SERIES": "重復開放領取",
+    "SINGLE": "一次性開放領取",
+    "UPCOMING_PICKUPS_IN_SERIES": "此系列接下來的開放領取日期"
+  },
+  "PICKUPDELETE": {
+    "DELETE_SERIES_TITLE": "刪除循環出現的開放領取日期",
+    "DELETE_SERIES_TEXT": "你真的想要刪除此固定開放食物領取日期？這也將刪除所有屬於此固定食物領取日期的一次性的開放食物領取日期（已有夥伴排班的日期將會保留）。"
+  },
+  "USERDETAIL": {
+    "DISPLAY_NAME": "名稱",
+    "DESCRIPTION": "關於你",
+    "OLD_PASSWORD": "確認你的舊密碼",
+    "PASSWORD": "新密碼"
+  },
+  "PROFILE": {
+    "INACCESSIBLE_OR_DELETED": "(用戶無法登入或已被刪除)"
+  },
+  "JOINGROUP": {
+    "WHICHGROUP": "你想要加入哪一個社團？",
+    "NUM_MEMBERS": "成員 | 成員",
+    "NO_PUBLIC_DESCRIPTION": "(此社團尚未建立公開的描述)",
+    "ALL_GROUPS": "所有社團",
+    "SIGNUP_OR_LOGIN": "登入或註冊以加入社團！",
+    "VERIFY_EMAIL_ADDRESS":"驗證你的電子郵件地址以利申請",
+    "MY_GROUPS": "我的社團",
+    "LOGOUT_MESSAGE": {
+      "LOGGED_OUT": "你已經登出。 {登入}",
+      "LOG_IN": "請登入檢視你的社團！"
+    },
+    "PROFILE_NOTE": "加入此社團後，其他成員也能瀏覽你的個人檔案。",
+    "APPLICATION_SUBMITTED": "你的申請已成功提交",
+    "APPLICATION_PENDING": "你的申請尚未有結果",
+    "WITHDRAW_CONFIRMATION_HEADER": "撤銷申請",
+    "WITHDRAW_CONFIRMATION_TEXT": "你確定你要撤銷加入{ 社團名稱} 的申請?",
+    "APPLICATION_WITHDRAWN": "你的申請已成功撤銷"
+
+  },
+  "GROUPINFO": {
+    "TITLE": "公開社團資訊",
+    "META": "顯示公開的社團資訊",
+    "MEMBER_VIEW": "你是社團成員之一。點擊這裡來切換成全螢幕。"
+  },
+  "TOPBAR": {
+    "LOGOUT": "登出",
+    "USERPROFILE": "進入你的個人檔案",
+    "CHANGE_GROUP": "變更社團"
+  },
+  "SIDENAV": {
+    "INFO_SUB": "如何建立你的惜食社團",
+    "BLOG_SUB": "所有關於karrot軟體的消息",
+    "GIT_SUB": "查看我們的程式碼"
+  },
+  "LOGIN": {
+    "TITLE": "登入",
+    "SUBMIT": "登入",
+    "SIGNUP": "註冊！",
+    "FORGOT_PASSWORD": "忘記你的密碼？"
+  },
+  "SIGNUP": {
+    "TITLE": "註冊！",
+    "BACK": "回到登入",
+    "OK": "加入"
+  },
+  "VERIFYMAIL": {
+    "TITLE": "電子郵件驗證",
+    "SUCCESS": "你的電郵地址已成功驗證!"
+  },
+  "DELETEACCOUNT": {
+    "TITLE": "帳戶刪除",
+    "SUCCESS": "你的帳戶已成功刪除"
+  },
+  "CREATEPICKUP": {
+    "FREQUENCY": "頻率",
+    "WEEKLY": "每周的",
+    "CUSTOM": "客製的",
+    "WEEKDAYS": "平日",
+    "WEEKDAYS_HELPER": "應該在哪幾天領取食物？",
+    "RRULE": "循環規則",
+    "RRULE_HELPER": "輸入有效的{規則幫手}, 例如: {規則範例} 或是 {規則範例2}",
+    "RRULE_HELPER_URL": "iCalender規則",
+    "RRULE_EXAMPLE": "每個月的最後一個工作天(星期一到五)",
+    "RRULE_EXAMPLE2": "每個月第二個星期一",
+    "STARTDATE": "開始日期",
+    "STARTDATE_HELPER": "此系列活動從甚麼時候開始?",
+    "TIME": "時間",
+    "TIME_HELPER": "應該在甚麼時候領取食物？",
+    "DATE": "日期",
+    "DATE_HELPER": "應該在甚麼時候領取食物？",
+    "MAX_COLLECTORS": "最大值",
+    "MAX_COLLECTORS_HELPER": "徵求多少人領取食物？",
+    "COMMENT": "更多資訊",
+    "COMMENT_HELPER": "有什麼事項是報名領取食物者應注意的？",
+    "DELETION_FORBIDDEN_HELPER": "這項領取任務不能刪除，因為已經有人認領了",
+    "UNLIMITED": "沒有限制"
+  },
+  "CREATESTORE": {
+    "TITLE": "創建新的店家資料"
+  },
+  "PICKUPLIST": {
+    "AVAILABLE": "接下來還有一項領取任務等著你! 接下來還有{count}項領取任務等著你!",
+    "AVAILABLE_FEEDBACK": "你能給予一項領取任務回饋 | {count}項領取任務等待你的回饋",
+    "JOINEDNOTICE": "接下來還有一份食物領取等著你！接下來還有 {count} 份食物領取等著你！",
+    "ITEM": {
+      "LEAVE": "離開",
+      "JOIN": "加入",
+      "JOIN_CONFIRMATION_HEADER": "加入排班領取食物",
+      "JOIN_CONFIRMATION_TEXT": "你確定你在 {date} 的時候有時間領取食物嗎？",
+      "LEAVE_CONFIRMATION_HEADER": "退出食物領取",
+      "LEAVE_CONFIRMATION_TEXT": "你真的確定其他人能夠在沒有你的情況下領取食物嗎？"
+    },
+    "NONE": "沒有後續的開放領取",
+    "NONE_HINT": "你可以在店面頁創建新的開放領取",
+    "STORE_NONE_HINT": "你可以在領取任務管理頁面創建新的領取任務"
+  },
+  "FEEDBACKLIST": {
+    "SAVED_FOOD": "至少有 1 公斤的食物不會被浪費掉了，| 謝謝你 ! 大家已經給  {數量}公斤的食物領取回饋了。繼續加油 !    ",
+    "NUMBER_PICKUPS": "{數目} 項領取已完成",
+    "NUMBER_FEEDBACK": "有{數目} 項領取回饋 ",
+    "WEIGHT_SUM": "{總數} 公斤的食物已被領取",
+    "GIVE_FEEDBACK": "給予回饋",
+    "NONE": "尚未有回饋",
+    "NONE_HINT": "當有更多回饋時，它們就會填入這個頁面",
+    "NO_DONE_PICKUPS": "都完成了",
+    "NO_DONE_PICKUPS_HINT": "你現在沒有食物領取要回饋了，何不再登記一個食物領取?"
+  },
+  "PICKUP_FEEDBACK": {
+    "TITLE": "回饋",
+    "HEADER": "謝謝你領取食物！",
+    "EDIT": "編輯回饋",
+    "SUBTITLE": "你可以把你這次pickup的回饋寫在這",
+    "SET_AMOUNT": "設定數量",
+    "DELETE_AMOUNT": "刪除數量",
+    "AMOUNT": "你能領取的食物量(以公斤計算)",
+    "COMMENT_PLACEHOLDER": "一切都順利嗎？大家都有到場嗎？在這裡留言...",
+    "PREVIOUS": "先前對於{商店名稱}的回饋",
+    "TOGETHER_WITH": "You did this pickup together with:"
+  },
+  "PASSWORDRESET": {
+    "TITLE": "重新設定密碼",
+    "INTRO": "輸入你的電子郵件地址，我們將會寄給你一個設定新密碼的連結(如果你已經有帳號了)",
+    "EMAIL": "電子郵件",
+    "SUBMIT": "申請新密碼",
+    "LOGIN": "回到登入頁",
+    "SUCCESS": "要求已成功送出，去看看你的信箱吧"
+  },
+  "PASSWORD": {
+    "RESET": {
+      "TITLE": "重設密碼",
+      "OK": "儲存",
+      "SUCCESS": "你的新密碼已儲存"
+    },
+    "CHANGE": {
+      "SUCCESS": "你的新密碼已儲存\n"
+    }
+  },
+  "LANGUAGECHOOSER": {
+    "ADD_MORE": "幫忙翻譯",
+    "SWITCH": "切換語言"
+  },
+  "MARKDOWN_INPUT": {
+    "BOLD": "粗體",
+    "ITALIC": "斜體",
+    "STRIKE": "刪除線",
+    "QUOTE": "引用",
+    "HELP": "什麼是Markdown語法？"
+  },
+  "HISTORY": {
+    "GROUP_CREATE": "創建此社團",
+    "GROUP_MODIFY": "變更此社團的設定",
+    "GROUP_JOIN": "加入此社團",
+    "GROUP_LEAVE": "離開此社團",
+    "STORE_CREATE": "創建店家 {名稱}",
+    "STORE_MODIFY": "變更店家設定 {名稱}",
+    "STORE_DELETE": "刪除商店{名字}",
+    "PICKUP_CREATE": "創建新的一次性開放外帶",
+    "PICKUP_MODIFY": "變更開放外帶的設定",
+    "PICKUP_DELETE": "刪除開放外帶",
+    "SERIES_CREATE": "創建新的循環出現開放外帶",
+    "SERIES_MODIFY": "變更循環出現的開放外帶設定",
+    "SERIES_DELETE": "刪除循環出現的開放外帶",
+    "PICKUP_DONE": "有去{商店名稱}拿取食物",
+    "PICKUP_MISSED": "在{商店名稱}的取貨被放鳥了！",
+    "PICKUP_JOIN": "註冊以在{商店名稱}取貨",
+    "PICKUP_LEAVE": "取消開放領取食物",
+    "GROUP_APPLICATION_DECLINED": "declined an application from {applicantName}",
+    "MEMBER_BECAME_EDITOR": "gained editing permissions",
+    "NOTHING_HAPPENEND": "目前沒有任何事情發生",
+    "DETAILS": "更多資訊"
+  },
+  "NOTIFICATIONS": {
+    "TITLE": "通知",
+    "NOT_VERIFIED": "{電子郵件} 尚未認證",
+    "CHECK_YOUR_MAILS": "請查看你的電子信箱或 {重新寄送}",
+    "RESEND_VERIFICATION": "重新寄送驗證信",
+    "VERIFICATION_EMAIL_SENT": "我們已經寄給你一封新的認證信。請檢查您的電子信箱。",
+    "CHANGES_SAVED": "你的修改已被保存.",
+    "CHANGES_ERROR": "發生錯誤。 稍後再試。",
+    "EMAIL_NOT_DELIVERED": "無法傳送郵件給你 | 有 {數目} 封郵件無法傳送給你"
+  },
+  "NOTIFICATION_BELLS_LIST": {
+    "TITLE": "Notifications",
+    "NO_ITEMS": "We currently don't have notifications for you."
+  },
+  "NOTIFICATION_BELLS": {
+    "YOU_BECAME_EDITOR": "You gained editing permissions",
+    "USER_BECAME_EDITOR": "{userName} gained editing permissions",
+    "NEW_APPLICANT": "{userName} applied to join your group",
+    "APPLICATION_ACCEPTED": "Your application was accepted!",
+    "APPLICATION_DECLINED": "Your application was declined",
+    "INVITATION_ACCEPTED": "{userName} accepted your invitation",
+    "FEEDBACK_POSSIBLE": "You can give feedback for the pickup you did on {date}",
+    "NEW_STORE": "{storeName} has been created",
+    "NEW_MEMBER": "{userName} joined your group",
+    "PICKUP_UPCOMING": "Reminder: You have a pickup at {time}"
+  },
+  "OUTDATED_BROWSER": {
+    "MESSAGE": "你目前使用的瀏覽器並不支援這些功能，{更新瀏覽器} 以便使用新功能",
+    "LINK": "請更新或是換一個瀏覽器"
+  },
+  "UPDATE_AVAILABLE": {
+    "TITLE": "有可用的更新",
+    "DETAIL": "有新版的karrot可使用"
+  },
+  "NOT_FOUND": {
+    "EXPLANATION": "不好意思，我們找不到您所搜尋的網頁",
+    "HOME": "帶我回家"
+  },
+  "SETTINGS": {
+    "TITLE": "設定"
+  },
+  "AGREEMENT": {
+    "NEW": "建立新版同意書",
+    "AGREE": "你必須同意 {title}",
+    "VIEW": "查看同意書",
+    "TITLE": "標題",
+    "TITLE_HELPER": "請為同意書下一個標題，例如：社群規範",
+    "CONTENT": "內文",
+    "CONTENT_HELPER": "同意書內文",
+    "MINOR_EDIT": "稍微修改？",
+    "MINOR_EDIT_HELPER": "錯字或格式等⋯⋯人們將不會被要求再次同意",
+    "BLURB1": "你還沒有簽署合約！",
+    "BLURB2": "如果你有新增，那人們將會需要在他們領取食物前先行同意。",
+    "DIALOGS": {
+      "REPLACE": {
+        "TITLE": "變更同意書？",
+        "MESSAGE": "每個人都將必須再次確認同意，才能排班領取食物",
+        "CONFIRM": "是的，變更同意書"
+      },
+      "REMOVE": {
+        "TITLE": "移除同意書？",
+        "MESSAGE": "這代表任何人都可以領取食物",
+        "CONFIRM": "是的，取消合作"
+      }
+    }
+  },
+  "WALL": {
+    "WRITE_MESSAGE": "留個言吧...",
+    "WRITE_FIRST_MESSAGE": "留下第一筆訊息吧...",
+    "DISABLE_NOTIFICATION_EMAILS": "電子郵件通知已開啟，點擊以關閉",
+    "ENABLE_NOTIFICATION_EMAILS": "電子郵件通知已關閉，點擊以開啟",
+    "VERIFY_EMAIL_FOR_NOTIFICATIONS": "請驗證你的電子郵件地址以收取通知信件",
+    "RECEIVED_VIA_EMAIL": "此訊息透過電子郵件傳送"
+  },
+  "CONVERSATION": {
+    "OPEN": "開放對話",
+    "REPLY_TO_MESSAGE": "回覆訊息",
+    "REPLIES": "回覆",
+    "REPLIES_COUNT": "1則回覆 | {數量} 則回覆 ",
+    "UNREAD_MESSAGES": "你有一則未讀訊息。| 你有{數目}則未讀訊息。",
+    "EDITED": "已編輯",
+    "MARK_READ": "將全部訊息標示為已讀",
+    "REACTIONS": {
+      "YOU": "你",
+      "AND": "以及",
+      "REACTED_WITH":"{使用者}反應了{反應}"
+    },
+    "MESSAGE_NOT_FOUND": "找不到訊息",
+    "NO_CONVERSATIONS": "沒有對話",
+    "MUTED": "通知已關閉"
+  },
+  "STORESTATUS": {
+    "ACTIVE": "合作中",
+    "CREATED": "新建立",
+    "NEGOTIATING": "交涉洽談中",
+    "DECLINED": "無意願合作",
+    "ARCHIVED": "已封存"
+  },
+  "APPLICATION": {
+    "APPLICATION": "申請",
+    "FORM_HEADER": "申請",
+    "FORM_TITLE": "申請加入{團體名稱}",
+    "GALLERY_TOOLTIP": "你已申請加入社團，申請尚未有結果",
+    "WALL_NOTICE": "有一個申請尚未有結果! 有{數目} 個申請尚未有結果",
+    "ACCEPT_CONFIRMATION_HEADER": "接受申請",
+    "ACCEPT_CONFIRMATION_TEXT": "你確定你要{使用者名稱}加入此社團?",
+    "DECLINE_CONFIRMATION_HEADER": "拒絕申請",
+    "DECLINE_CONFIRMATION_TEXT": "你確定你要拒絕{使用者名稱}的申請嗎?",
+    "ACCEPTED": "你要接受{使用者名稱}加入社團嗎?",
+    "DECLINED": "你拒絕了{使用者名稱}的申請",
+    "PAST": "過去的申請",
+    "SUBMITTED_ON": "於{日期}提交",
+    "WITHDRAWN": "撤銷{相對日期}",
+    "WHAT": "這個對話是關於甚麼?",
+    "HELP": "這是所有現有{社團名稱}成員與新申請者{使用者名稱}間的對話。這是為了要在決定申請結果前更了解你一點。",
+    "INITIAL": "初步的問答"
+  },
+  "COMMUNITY_FEED": {
+    "HEADER": "來自{社群}的更新",
+    "HEADER_LINK": "世界惜食社群",
+    "LAST_UPDATED": "最近一次更新{相對日期}"
+  },
+  "YOU": "你"
+}

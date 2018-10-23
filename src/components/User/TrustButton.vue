@@ -23,12 +23,17 @@
     <q-dialog
       v-model="showing"
       minimized
-      :message="info"
     >
       <template slot="title">
         {{ headline }}
         <TrustInfo class="trust-info" />
       </template>
+      <div
+        slot="message"
+        style="max-width: 700px"
+      >
+        {{ info }}
+      </div>
       <div slot="body">
         <ProfilePicture
           v-for="u in trustedBy"

@@ -138,7 +138,8 @@ export default {
       })
 
       const trustMessagePath = () => {
-        if (!youTrust || this.user.isCurrentUser) return 'USERDATA.OTHER_PEOPLE_TRUST_USER'
+        if (this.user.isCurrentUser) return 'USERDATA.OTHER_PEOPLE_TRUST_YOU'
+        if (!youTrust) return 'USERDATA.OTHER_PEOPLE_TRUST_USER'
         if (otherTrust.length === 0) return 'USERDATA.YOU_TRUST_USER'
         return 'USERDATA.PEOPLE_TRUST_USER'
       }
@@ -146,7 +147,7 @@ export default {
       const trustMessage = () => this.$tc(trustMessagePath(), otherTrust.length, {
         count: otherTrust.length,
         groupName: this.group.name,
-        userName: this.user.isCurrentUser ? this.$t('CONVERSATION.REACTIONS.YOU') : this.user.displayName,
+        userName: this.user.displayName,
         otherUser: otherTrust.length > 0 && otherTrust[0].displayName,
       })
 

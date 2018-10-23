@@ -11,6 +11,16 @@ export function detectLocale () {
       if (e.includes('-')) {
         requested.push(e.replace(/-.*$/, '').toLowerCase())
       }
+      // alias definitions
+      else if (e === 'zh') {
+        requested.push('zh-hans', 'zh-hant')
+      }
+      else if (e === 'zh_TW') {
+        requested.push('zh-hant')
+      }
+      else if (e === 'zh_CN') {
+        requested.push('zh-hans')
+      }
     })
   }
   else {

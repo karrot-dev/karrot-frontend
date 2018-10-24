@@ -32,6 +32,7 @@ Please document your changes in this format:
 - Do not collapse sidenav boxes on mobile @tiltec
 - Set minimum length of user names to 3 characters @tiltec
 - Move "show more" button in messages popover to bottom @tiltec
+- Load only conversations with unread messages by default @tiltec
 
 ### Fixed
 

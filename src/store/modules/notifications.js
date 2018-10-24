@@ -156,8 +156,8 @@ export function plugin (store) {
     }
   })
 
-  // make sure related data stays gets loaded when page is visible
-  store.watch((state, getters) => ({
+  // make sure related data stays loaded when page is visible
+  store.watch((state) => ({
     pageVisible: state.notifications.pageVisible,
     entries: state.notifications.entries,
   }), ({ pageVisible }) => {

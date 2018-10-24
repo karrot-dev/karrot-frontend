@@ -8,8 +8,8 @@ export default {
     return convert((await axios.get(`/api/conversations/${id}/`)).data)
   },
 
-  async list () {
-    const response = (await axios.get('/api/conversations/')).data
+  async list (filter) {
+    const response = (await axios.get('/api/conversations/', { params: filter })).data
     return {
       ...response,
       next: parseCursor(response.next),

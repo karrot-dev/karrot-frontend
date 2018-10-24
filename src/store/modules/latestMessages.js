@@ -10,6 +10,7 @@ function initialState () {
     conversationMessages: {},
     threads: {},
     threadMessages: {},
+    fetchInitialDone: false,
   }
 }
 
@@ -69,17 +70,14 @@ export default {
     },
     canFetchPastThreads: (state, getters) => getters['threadsPagination/canFetchNext'],
     fetchingPastThreads: (state, getters) => getters['meta/status']('fetchPastThreads').pending,
+    fetchInitialPending: (state, getters) => getters['meta/status']('fetchInitial').pending,
   },
   actions: {
     ...withMeta({
-      async fetch ({ dispatch }) {
-        const [conversationsAndRelated, threadsAndRelated] = await Promise.all([
-          dispatch('conversationsPagination/extractCursor', conversationsAPI.list()),
-          dispatch('threadsPagination/extractCursor', messageAPI.listMyThreads()),
-        ])
-
-        dispatch('updateConversationsAndRelated', conversationsAndRelated)
-        dispatch('updateThreadsAndRelated', threadsAndRelated)
+      async fetchInitial ({ state, commit, dispatch }) {
+        if (state.fetchInitialDone) return
+        await dispatch('fetch', { excludeRead: false })
+        commit('fetchInitialDone', true)
       },
       async fetchPastConversations ({ dispatch }) {
         const data = await dispatch('conversationsPagination/fetchNext', conversationsAPI.listMore)
@@ -93,6 +91,15 @@ export default {
         commit('clear')
       },
     }),
+    async fetch ({ dispatch }, { excludeRead = false } = {}) {
+      const [conversationsAndRelated, threadsAndRelated] = await Promise.all([
+        dispatch('conversationsPagination/extractCursor', conversationsAPI.list({ exclude_read: excludeRead })),
+        dispatch('threadsPagination/extractCursor', messageAPI.listMyThreads({ exclude_read: excludeRead })),
+      ])
+
+      dispatch('updateConversationsAndRelated', conversationsAndRelated)
+      dispatch('updateThreadsAndRelated', threadsAndRelated)
+    },
     updateConversationsAndRelated ({ commit, dispatch, rootState }, { conversations, messages, pickups, applications, usersInfo }) {
       if (conversations) commit('updateConversations', conversations)
       if (messages) commit('updateConversationMessages', messages)
@@ -180,6 +187,9 @@ export default {
     setThreadsCursor (state, cursor) {
       state.threadsCursor = cursor
     },
+    fetchInitialDone (state, value) {
+      state.fetchInitialDone = value
+    },
   },
 }
 
@@ -195,7 +205,8 @@ function getFirst (list) {
 export function plugin (store) {
   store.watch((state, getters) => getters['auth/isLoggedIn'], isLoggedIn => {
     if (isLoggedIn) {
-      store.dispatch('latestMessages/fetch')
+      // load unread messages for showing notifications
+      store.dispatch('latestMessages/fetch', { excludeRead: true })
     }
     else {
       store.dispatch('latestMessages/clear')

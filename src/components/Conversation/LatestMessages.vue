@@ -1,86 +1,93 @@
 <template>
   <component
     :is="asPage ? 'q-card' : 'div'"
-    class="bg-white"
+    class="bg-white relative-position"
   >
-    <q-list no-border>
-      <q-item
-        v-if="conversations.length === 0"
-      >
-        {{ $t('CONVERSATION.NO_CONVERSATIONS') }}
-      </q-item>
-      <LatestMessageItem
-        v-close-overlay
-        v-for="conv in conversations"
-        :key="'conv' + conv.id"
-        :group="conv.type === 'group' ? conv.target : null"
-        :user="conv.type === 'private' ? conv.target : null"
-        :pickup="conv.type === 'pickup' ? conv.target : null"
-        :application="conv.type === 'application' ? conv.target : null"
-        :message="conv.latestMessage"
-        :unread-count="conv.unreadMessageCount"
-        :muted="!conv.emailNotifications"
-        :selected="isSelected(conv)"
-        @open="open(conv)"
-      />
-      <q-item
-        v-if="!asPopover && canFetchPastConversations"
-        class="row justify-center"
-      >
-        <q-btn
-          size="sm"
-          :loading="fetchingPastConversations"
-          @click="fetchPastConversations"
-        >
-          {{ $t('BUTTON.SHOW_MORE') }}
-        </q-btn>
-      </q-item>
-    </q-list>
-    <q-list
-      v-if="threads.length > 0"
-      no-border
+    <div
+      v-if="fetchInitialPending"
+      class="full-width text-center generic-padding"
     >
-      <q-item-separator />
-      <q-list-header>
-        {{ $t('CONVERSATION.REPLIES') }}
-      </q-list-header>
-      <LatestMessageItem
-        v-for="conv in threads"
-        :key="'thread' + conv.id"
-        :thread="conv"
-        :message="conv.latestMessage"
-        :unread-count="conv.threadMeta.unreadReplyCount"
-        :muted="conv.threadMeta.muted"
-        :selected="isSelected(conv)"
-        @open="openForThread(conv)"
-      />
-      <q-item
-        v-if="!asPopover && canFetchPastThreads"
-        class="row justify-center"
-      >
-        <q-btn
-          size="sm"
-          :loading="fetchingPastThreads"
-          @click="fetchPastThreads"
+      <q-spinner-dots :size="40" />
+    </div>
+    <template v-else>
+      <q-list no-border>
+        <q-item
+          v-if="conversations.length === 0"
         >
-          {{ $t('BUTTON.SHOW_MORE') }}
-        </q-btn>
-      </q-item>
-      <div
-        v-if="asPopover"
-        class="row justify-end q-mt-sm q-mr-sm"
-      >
-        <q-btn
+          {{ $t('CONVERSATION.NO_CONVERSATIONS') }}
+        </q-item>
+        <LatestMessageItem
           v-close-overlay
-          size="sm"
-          color="secondary"
-          :to="{ name: 'messages' }"
+          v-for="conv in conversations"
+          :key="'conv' + conv.id"
+          :group="conv.type === 'group' ? conv.target : null"
+          :user="conv.type === 'private' ? conv.target : null"
+          :pickup="conv.type === 'pickup' ? conv.target : null"
+          :application="conv.type === 'application' ? conv.target : null"
+          :message="conv.latestMessage"
+          :unread-count="conv.unreadMessageCount"
+          :muted="!conv.emailNotifications"
+          :selected="isSelected(conv)"
+          @open="open(conv)"
+        />
+        <q-item
+          v-if="!asPopover && canFetchPastConversations"
+          class="row justify-center"
         >
-          {{ $t('BUTTON.SHOW_MORE') }}
-        </q-btn>
-      </div>
-    </q-list>
-
+          <q-btn
+            size="sm"
+            :loading="fetchingPastConversations"
+            @click="fetchPastConversations"
+          >
+            {{ $t('BUTTON.SHOW_MORE') }}
+          </q-btn>
+        </q-item>
+      </q-list>
+      <q-list
+        v-if="threads.length > 0"
+        no-border
+      >
+        <q-item-separator />
+        <q-list-header>
+          {{ $t('CONVERSATION.REPLIES') }}
+        </q-list-header>
+        <LatestMessageItem
+          v-for="conv in threads"
+          :key="'thread' + conv.id"
+          :thread="conv"
+          :message="conv.latestMessage"
+          :unread-count="conv.threadMeta.unreadReplyCount"
+          :muted="conv.threadMeta.muted"
+          :selected="isSelected(conv)"
+          @open="openForThread(conv)"
+        />
+        <q-item
+          v-if="!asPopover && canFetchPastThreads"
+          class="row justify-center"
+        >
+          <q-btn
+            size="sm"
+            :loading="fetchingPastThreads"
+            @click="fetchPastThreads"
+          >
+            {{ $t('BUTTON.SHOW_MORE') }}
+          </q-btn>
+        </q-item>
+        <div
+          v-if="asPopover"
+          class="row justify-end q-mt-sm q-mr-sm"
+        >
+          <q-btn
+            v-close-overlay
+            size="sm"
+            color="secondary"
+            :to="{ name: 'messages' }"
+          >
+            {{ $t('BUTTON.SHOW_MORE') }}
+          </q-btn>
+        </div>
+      </q-list>
+    </template>
   </component>
 </template>
 
@@ -92,6 +99,7 @@ import {
   QItemSeparator,
   QItem,
   QBtn,
+  QSpinnerDots,
 } from 'quasar'
 import { mapGetters, mapActions } from 'vuex'
 import LatestMessageItem from './LatestMessageItem'
@@ -104,6 +112,7 @@ export default {
     QItemSeparator,
     QItem,
     QBtn,
+    QSpinnerDots,
     LatestMessageItem,
   },
   props: {
@@ -124,6 +133,7 @@ export default {
       threads: 'latestMessages/threads',
       canFetchPastThreads: 'latestMessages/canFetchPastThreads',
       fetchingPastThreads: 'latestMessages/fetchingPastThreads',
+      fetchInitialPending: 'latestMessages/fetchInitialPending',
       selectedConversation: 'detail/conversation',
     }),
   },
@@ -135,6 +145,7 @@ export default {
       openForApplication: 'detail/openForApplication',
       fetchPastConversations: 'latestMessages/fetchPastConversations',
       fetchPastThreads: 'latestMessages/fetchPastThreads',
+      fetchInitial: 'latestMessages/fetchInitial',
     }),
     open (conv) {
       const { type, target } = conv
@@ -150,6 +161,9 @@ export default {
       if (Boolean(conv.thread) !== Boolean(this.selectedConversation.thread)) return false
       return conv.id === this.selectedConversation.id
     },
+  },
+  mounted () {
+    this.fetchInitial()
   },
 }
 </script>

@@ -54,8 +54,8 @@ export default {
     }
   },
 
-  async listMyThreads () {
-    const response = (await axios.get('/api/messages/my_threads/')).data
+  async listMyThreads (filter) {
+    const response = (await axios.get('/api/messages/my_threads/', { params: filter })).data
     return {
       ...response,
       next: parseCursor(response.next),

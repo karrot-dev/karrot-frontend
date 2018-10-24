@@ -17,8 +17,8 @@
         <div class="white-box">
           <q-field
             icon="fas fa-user"
-            :error="hasError('displayName')"
-            :error-label="firstError('displayName')"
+            :error="hasDisplayNameError"
+            :error-label="displayNameError"
           >
             <q-input
               :autofocus="true"
@@ -27,6 +27,7 @@
               autocorrect="off"
               autocapitalize="off"
               spellcheck="false"
+              @blur="$v.user.displayName.$touch"
             />
           </q-field>
         </div>
@@ -105,10 +106,12 @@
 import { QCard, QCardTitle, QCardMain, QIcon, QField, QInput, QBtn, QSpinner, QCheckbox } from 'quasar'
 import loginImage from 'assets/people/cherry.png'
 import statusMixin from '@/mixins/statusMixin'
+import { required, minLength, maxLength } from 'vuelidate/lib/validators'
+import { validationMixin } from 'vuelidate'
 
 export default {
   components: { QCard, QCardTitle, QCardMain, QIcon, QField, QInput, QBtn, QSpinner, QCheckbox },
-  mixins: [statusMixin],
+  mixins: [validationMixin, statusMixin],
   props: {
     prefillEmail: {
       required: true,
@@ -141,17 +144,45 @@ export default {
   },
   methods: {
     submit () {
-      if (!this.isPending) {
-        this.$emit('submit', {
-          userData: this.user,
-          joinPlayground: this.joinPlayground,
-        })
-      }
+      this.$v.user.$touch()
+      if (!this.canSave || this.isPending) return
+      this.$emit('submit', {
+        userData: this.user,
+        joinPlayground: this.joinPlayground,
+      })
+      this.$v.user.$reset()
     },
   },
   computed: {
     canJoinPlayground () {
       return this.hasPlayground && !this.hasGroupToJoin
+    },
+    hasDisplayNameError () {
+      return !!this.displayNameError
+    },
+    displayNameError () {
+      if (this.$v.user.displayName.$error) {
+        const m = this.$v.user.displayName
+        if (!m.required) return this.$t('VALIDATION.REQUIRED')
+        if (!m.minLength) return this.$t('VALIDATION.MINLENGTH', { min: 2 })
+        if (!m.maxLength) return this.$t('VALIDATION.MAXLENGTH', { max: 81 })
+      }
+      return this.firstError('displayName')
+    },
+    canSave () {
+      if (this.$v.user.$error) {
+        return false
+      }
+      return true
+    },
+  },
+  validations: {
+    user: {
+      displayName: {
+        required,
+        minLength: minLength(3),
+        maxLength: maxLength(80),
+      },
     },
   },
 }

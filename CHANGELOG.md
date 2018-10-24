@@ -31,6 +31,7 @@ Please document your changes in this format:
 - "Back to top" button has been removed to improve usability @tiltec
 - Do not collapse sidenav boxes on mobile @tiltec
 - Set minimum length of user names to 3 characters @tiltec
+- Move "show more" button in messages popover to bottom @tiltec
 
 ### Fixed
 

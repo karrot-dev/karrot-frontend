@@ -4,19 +4,6 @@
     class="bg-white"
   >
     <q-list no-border>
-      <div
-        v-if="asPopover"
-        class="row justify-end q-mb-sm q-mr-sm"
-      >
-        <q-btn
-          v-close-overlay
-          size="sm"
-          color="secondary"
-          :to="{ name: 'messages' }"
-        >
-          {{ $t('BUTTON.SHOW_MORE') }}
-        </q-btn>
-      </div>
       <q-item
         v-if="conversations.length === 0"
       >
@@ -79,6 +66,19 @@
           {{ $t('BUTTON.SHOW_MORE') }}
         </q-btn>
       </q-item>
+      <div
+        v-if="asPopover"
+        class="row justify-end q-mt-sm q-mr-sm"
+      >
+        <q-btn
+          v-close-overlay
+          size="sm"
+          color="secondary"
+          :to="{ name: 'messages' }"
+        >
+          {{ $t('BUTTON.SHOW_MORE') }}
+        </q-btn>
+      </div>
     </q-list>
 
   </component>

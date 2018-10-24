@@ -42,6 +42,7 @@
     "LOGOUT_SUCCESS": "Zostałaś/-eś wylogowana/-y!",
     "YOU_TRUST_USER": "Zaufałaś/-eś {userName} w {groupName}.",
     "OTHER_PEOPLE_TRUST_USER": "{otherUser} zaufał/-a {userName} w {groupName}. | {count} osób zaufało {userName} w {groupName}.",
+    "OTHER_PEOPLE_TRUST_YOU": "{otherUser} trusts you in {groupName}. | {count} people trust you in {groupName}.",
     "PEOPLE_TRUST_USER": "Ty i {otherUser} zaufaliście {userName} w {groupName}. | Ty i {count} osób zaufało {userName} w {groupName}.",
     "FIRST_TRUST": "Zostań pierwszym użytkownikiem, który zaufał {userName} w {groupName}!",
     "NEWCOMER": "Adept",

@@ -42,6 +42,7 @@
     "LOGOUT_SUCCESS": "你已經登出",
     "YOU_TRUST_USER": "你信任{社團名稱}裡的{使用者名稱}",
     "OTHER_PEOPLE_TRUST_USER": "{其他使用者}信任{社團名稱}裡的{使用者名稱}。| {數目}個人信任{社團名稱}裡的{使用者名稱}。",
+    "OTHER_PEOPLE_TRUST_YOU": "{otherUser} trusts you in {groupName}. | {count} people trust you in {groupName}.",
     "PEOPLE_TRUST_USER": "你及{其他使用者}信任{社團名稱}裡的{使用者名稱}。| 你和{數目}個人信任{社團名稱}裡的{使用者名稱}。",
     "FIRST_TRUST": "成為{社團名稱}裡第一個信任{使用者名稱}的人!",
     "NEWCOMER": "新加入成員",

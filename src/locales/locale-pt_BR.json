@@ -42,6 +42,7 @@
     "LOGOUT_SUCCESS": "You have been logged out!",
     "YOU_TRUST_USER": "You trust {userName} in {groupName}.",
     "OTHER_PEOPLE_TRUST_USER": "{otherUser} trusts {userName} in {groupName}. | {count} people trust {userName} in {groupName}.",
+    "OTHER_PEOPLE_TRUST_YOU": "{otherUser} trusts you in {groupName}. | {count} people trust you in {groupName}.",
     "PEOPLE_TRUST_USER": "You and {otherUser} trust {userName} in {groupName}. | You and {count} other people trust {userName} in {groupName}.",
     "FIRST_TRUST": "Be the first one to trust {userName} in {groupName}!",
     "NEWCOMER": "Newcomer",

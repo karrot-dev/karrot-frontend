@@ -42,6 +42,7 @@
     "LOGOUT_SUCCESS": "Tu as été déconnecté !",
     "YOU_TRUST_USER": "Tu fais confiance à {userName} dans {groupName}.",
     "OTHER_PEOPLE_TRUST_USER": "{otherUser} fait confiance à {userName} de {groupName}. | {count} personnes font confiance à {userName} de {groupName}.",
+    "OTHER_PEOPLE_TRUST_YOU": "{otherUser} trusts you in {groupName}. | {count} people trust you in {groupName}.",
     "PEOPLE_TRUST_USER": "Toi et {otherUser} faites confiance à {userName} de {groupName}. | Toi et {count} autres personnes faites confiance à {userName} de {groupName}. ",
     "FIRST_TRUST": "Sois le premier à faire confiance à {userName} de {groupName} !",
     "NEWCOMER": "Nouveau membre",

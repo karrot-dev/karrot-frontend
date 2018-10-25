@@ -1,14 +1,14 @@
 const mockJoin = jest.fn()
 const mockLeave = jest.fn()
 const mockSave = jest.fn()
-jest.mock('@/services/api/groups', () => ({
+jest.mock('@/group/api/groups', () => ({
   join: mockJoin,
   leave: mockLeave,
   save: mockSave,
 }))
 
 const mockFetchGroupsPreview = jest.fn()
-jest.mock('@/services/api/groupsInfo', () => ({
+jest.mock('@/groupInfo/api/groupsInfo', () => ({
   list: mockFetchGroupsPreview,
 }))
 

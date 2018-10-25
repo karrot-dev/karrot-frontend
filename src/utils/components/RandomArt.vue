@@ -7,7 +7,7 @@
 </template>
 
 <script>
-import { ensureBox, createUseElement, SVGNS } from '@/services/svgUtils'
+import { ensureBox, createUseElement, SVGNS } from '@/utils/svgUtils'
 
 export default {
   props: {

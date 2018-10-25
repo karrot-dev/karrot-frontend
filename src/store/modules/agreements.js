@@ -1,5 +1,5 @@
 import Vue from 'vue'
-import agreements from '@/services/api/agreements'
+import agreements from '@/agreements/api/agreements'
 import { createMetaModule, withMeta } from '@/store/helpers'
 
 function initialState () {

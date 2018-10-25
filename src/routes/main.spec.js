@@ -2,7 +2,7 @@ import { createLocalVue, mount } from '@vue/test-utils'
 import { nextTicks } from '>/helpers'
 import createMockModules from '>/createMockModules'
 
-jest.mock('@/services/api/groups', () => ({
+jest.mock('@/group/api/groups', () => ({
   join: jest.fn(),
 }))
 

@@ -1,6 +1,6 @@
 import Vue from 'vue'
 import { createMetaModule, createPaginationModule, withMeta } from '@/store/helpers'
-import notificationsAPI from '@/services/api/notifications'
+import notificationsAPI from '@/notifications/api/notifications'
 
 function initialState () {
   return {

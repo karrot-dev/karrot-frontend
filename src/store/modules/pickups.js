@@ -1,5 +1,5 @@
 import Vue from 'vue'
-import pickups from '@/services/api/pickups'
+import pickups from '@/pickups/api/pickups'
 import { indexById, createMetaModule, withMeta, isValidationError, withPrefixedIdMeta, metaStatusesWithId, metaStatuses } from '@/store/helpers'
 
 function initialState () {

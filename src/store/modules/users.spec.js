@@ -1,8 +1,8 @@
 const mockCreate = jest.fn()
-jest.mock('@/services/api/authUser', () => ({ create: mockCreate }))
+jest.mock('@/authuser/api/authUser', () => ({ create: mockCreate }))
 const mockGet = jest.fn()
 const mockGetProfile = jest.fn()
-jest.mock('@/services/api/users', () => ({ get: mockGet, getProfile: mockGetProfile }))
+jest.mock('@/users/api/users', () => ({ get: mockGet, getProfile: mockGetProfile }))
 
 import { createStore, throws, createValidationError } from '>/helpers'
 import { enrichGroup } from '>/storeHelpers'

@@ -1,6 +1,6 @@
 import Vue from 'vue'
-import messageAPI from '@/services/api/messages'
-import conversationsAPI from '@/services/api/conversations'
+import messageAPI from '@/messages/api/messages'
+import conversationsAPI from '@/messages/api/conversations'
 import { insertSorted } from './conversations'
 import { createMetaModule, withMeta, createPaginationModule } from '@/store/helpers'
 

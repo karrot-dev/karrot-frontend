@@ -1,8 +1,8 @@
-import auth from '@/services/api/auth'
-import authUser from '@/services/api/authUser'
+import auth from '@/authuser/api/auth'
+import authUser from '@/authuser/api/authUser'
 import router from '@/router'
 import { createMetaModule, withMeta, metaStatuses } from '@/store/helpers'
-import { objectDiff } from '@/services/utils'
+import { objectDiff } from '@/utils/utils'
 import push from '@/store/modules/auth/push'
 import { throttle } from 'quasar'
 

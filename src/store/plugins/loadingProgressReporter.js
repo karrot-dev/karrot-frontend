@@ -1,4 +1,4 @@
-import axios from '@/services/axios'
+import axios from '@/base/api/axios'
 
 export default store => {
   axios.interceptors.request.use(request => {

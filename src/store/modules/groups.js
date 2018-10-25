@@ -1,6 +1,6 @@
 import Vue from 'vue'
-import groups from '@/services/api/groups'
-import groupsInfo from '@/services/api/groupsInfo'
+import groups from '@/group/api/groups'
+import groupsInfo from '@/groupInfo/api/groupsInfo'
 import router from '@/router'
 import { indexById, withMeta, createMetaModule, metaStatusesWithId, metaStatuses, createRouteError } from '@/store/helpers'
 

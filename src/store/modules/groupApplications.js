@@ -1,5 +1,5 @@
 import Vue from 'vue'
-import groupApplications from '@/services/api/groupApplications'
+import groupApplications from '@/applications/api/groupApplications'
 import router from '@/router'
 import { indexById, withMeta, createMetaModule, metaStatuses } from '@/store/helpers'
 

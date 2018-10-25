@@ -1,4 +1,4 @@
-import groups from '@/services/api/groups'
+import groups from '@/group/api/groups'
 import { withMeta, createMetaModule, withPrefixedIdMeta, metaStatusesWithId, createRouteRedirect } from '@/store/helpers'
 
 function initialState () {

@@ -14,10 +14,10 @@ import router from './router'
 import store from './store'
 import './socket'
 import i18n from './i18n'
-import log from '@/services/log'
+import log from '@/utils/log'
 import './raven'
 import polyfill from '@/polyfill'
-import { DetectMobileKeyboardPlugin } from '@/services/detectMobileKeyboard'
+import { DetectMobileKeyboardPlugin } from '@/utils/detectMobileKeyboard'
 
 Vue.use(DetectMobileKeyboardPlugin)
 

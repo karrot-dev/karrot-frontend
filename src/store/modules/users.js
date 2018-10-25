@@ -1,7 +1,7 @@
 import Vue from 'vue'
-import users from '@/services/api/users'
-import authUser from '@/services/api/authUser'
-import auth from '@/services/api/auth'
+import users from '@/users/api/users'
+import authUser from '@/authuser/api/authUser'
+import auth from '@/authuser/api/auth'
 import { indexById, createRouteError, createMetaModule, withMeta, metaStatuses } from '@/store/helpers'
 import router from '@/router'
 

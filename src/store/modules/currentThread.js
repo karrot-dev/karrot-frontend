@@ -1,4 +1,4 @@
-import messageAPI from '@/services/api/messages'
+import messageAPI from '@/messages/api/messages'
 import { createMetaModule, withMeta, metaStatuses, createPaginationModule } from '@/store/helpers'
 import { insertSorted } from './conversations'
 import router from '@/router'

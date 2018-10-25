@@ -1,5 +1,5 @@
 import Vue from 'vue'
-import invitations from '@/services/api/invitations'
+import invitations from '@/invitations/api/invitations'
 import router from '@/router'
 import { indexById, createMetaModule, withMeta, metaStatuses } from '@/store/helpers'
 

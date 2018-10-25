@@ -1,6 +1,6 @@
 const mockGet = jest.fn()
 const mockConversation = jest.fn()
-jest.mock('@/services/api/groups', () => ({
+jest.mock('@/group/api/groups', () => ({
   get: mockGet,
   conversation: mockConversation,
 }))

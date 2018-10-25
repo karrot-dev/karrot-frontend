@@ -9,7 +9,7 @@
       We have to set a base url for all requests which we do via an interceptor.
 */
 
-import axios from '@/services/axios'
+import axios from '@/base/api/axios'
 
 axios.interceptors.request.use(request => {
   request.baseURL = __ENV.BACKEND

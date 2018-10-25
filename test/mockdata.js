@@ -5,7 +5,7 @@
  */
 
 import { statusMocks } from '>/helpers'
-import { optionsFor } from '@/services/storeStatus'
+import { optionsFor } from '@/stores/storeStatus'
 
 export const groupsMock = [
   { 'applicationQuestions': 'Hello stranger! :smiley: :wave: Do you want to help us save all the good food from being wasted? Please tell us how you plan to contribute and who or what made you aware of our existence! Looking forward to working with you!', 'id': 1, 'name': '05_testgroup', 'publicDescription': 'This is the public description\nIt would make sense if it was markdown\n\n# then this would be a header\n[and this a link](www.google.de)', 'address': 'Darmstadt, Regierungsbezirk Darmstadt, Hessen, Deutschland', 'latitude': 49.872775, 'longitude': 8.651177, 'members': [184, 6, 18, 28, 65, 76, 73, 96, 117, 17, 29, 45, 195, 1, 183, 196, 22, 8], 'protected': false, 'conversationId': 1 },

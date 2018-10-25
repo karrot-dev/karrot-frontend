@@ -1,6 +1,6 @@
 import i18n from '@/i18n'
 import axios from 'axios'
-import dateFnsHelper from '@/services/dateFnsHelper'
+import dateFnsHelper from '@/utils/dateFnsHelper'
 import polyfill from '@/polyfill'
 import { messages as loadMessages, quasarMessages as loadQuasarMessages } from '@/locales'
 import Quasar from 'quasar-vue-plugin'

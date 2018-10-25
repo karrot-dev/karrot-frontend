@@ -24,7 +24,7 @@ import { QSearch, QAutocomplete } from 'quasar'
 import StandardMap from '@/maps/components/StandardMap'
 import L from 'leaflet'
 
-import geocoding from '@/services/geocoding'
+import geocoding from '@/maps/api/geocoding'
 
 export default {
   props: {

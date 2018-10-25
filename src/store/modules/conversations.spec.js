@@ -1,5 +1,5 @@
 const mockList = jest.fn()
-jest.mock('@/services/api/messages', () => ({
+jest.mock('@/messages/api/messages', () => ({
   list: mockList,
 }))
 

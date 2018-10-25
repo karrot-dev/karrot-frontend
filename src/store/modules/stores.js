@@ -1,6 +1,6 @@
 import Vue from 'vue'
-import stores from '@/services/api/stores'
-import { optionsFor } from '@/services/storeStatus'
+import stores from '@/stores/api/stores'
+import { optionsFor } from '@/stores/storeStatus'
 import {
   createMetaModule,
   withMeta,

@@ -1,4 +1,4 @@
-import { escape } from '@/services/utils'
+import { escape } from '@/utils/utils'
 
 // TODO: popupcontent should also accept an HTML element
 // https://leafletjs.com/reference-1.3.4.html#popup-setcontent

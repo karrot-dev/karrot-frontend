@@ -1,5 +1,5 @@
 const mockGet = jest.fn()
-jest.mock('@/services/api/about', () => ({ get: mockGet }))
+jest.mock('@/utils/api/about', () => ({ get: mockGet }))
 
 import { createStore, throws } from '>/helpers'
 

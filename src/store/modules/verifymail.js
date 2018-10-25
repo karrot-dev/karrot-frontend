@@ -1,5 +1,5 @@
 import Vue from 'vue'
-import auth from '@/services/api/auth'
+import auth from '@/authuser/api/auth'
 import { createMetaModule, withMeta, metaStatuses } from '@/store/helpers'
 
 function initialState () {

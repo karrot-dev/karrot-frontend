@@ -1,6 +1,6 @@
-import subscriptionsAPI from '@/services/api/subscriptions'
+import subscriptionsAPI from '@/utils/api/subscriptions'
 import { createMetaModule, withMeta, metaStatuses } from '@/store/helpers'
-import { initializeMessaging, removeServiceWorkersOnUnload, hasServiceWorker, getServiceWorker } from '@/services/firebase'
+import { initializeMessaging, removeServiceWorkersOnUnload, hasServiceWorker, getServiceWorker } from '@/utils/firebase'
 
 function initialState () {
   return {

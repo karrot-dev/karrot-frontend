@@ -5,7 +5,7 @@
 </template>
 
 <script>
-import dateFnsHelper from '@/services/dateFnsHelper'
+import dateFnsHelper from '@/utils/dateFnsHelper'
 
 export default {
   props: {

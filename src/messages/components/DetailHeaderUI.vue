@@ -120,7 +120,7 @@
 <script>
 import ProfilePicture from '@/users/components/ProfilePicture'
 import NotificationToggle from '@/messages/components/NotificationToggle'
-import dateFnsHelper from '@/services/dateFnsHelper'
+import dateFnsHelper from '@/utils/dateFnsHelper'
 
 import {
   Dialog,

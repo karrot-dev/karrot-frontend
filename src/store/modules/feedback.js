@@ -1,6 +1,6 @@
 import Vue from 'vue'
 import router from '@/router'
-import feedbackAPI from '@/services/api/feedback'
+import feedbackAPI from '@/feedback/api/feedback'
 import { indexById, createMetaModule, withMeta, metaStatuses, createPaginationModule } from '@/store/helpers'
 
 function initialState () {

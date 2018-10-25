@@ -1,7 +1,7 @@
 const mockGet = jest.fn()
 const mockJoin = jest.fn()
 const mockLeave = jest.fn()
-jest.mock('@/services/api/pickups', () => ({
+jest.mock('@/pickups/api/pickups', () => ({
   get: mockGet,
   join: mockJoin,
   leave: mockLeave,

@@ -128,7 +128,7 @@ import { QDatetime, QField, QSlider, QOptionGroup, QInput, QBtn, QSelect, QToolt
 import { is24h } from '@/i18n'
 import editMixin from '@/utils/mixins/editMixin'
 import statusMixin from '@/utils/mixins/statusMixin'
-import dateFnsHelper from '@/services/dateFnsHelper'
+import dateFnsHelper from '@/utils/dateFnsHelper'
 
 export default {
   name: 'PickupEdit',

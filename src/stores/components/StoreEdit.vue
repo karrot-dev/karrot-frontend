@@ -130,7 +130,7 @@ import { validationMixin } from 'vuelidate'
 import editMixin from '@/utils/mixins/editMixin'
 import statusMixin from '@/utils/mixins/statusMixin'
 import { required, minLength, maxLength } from 'vuelidate/lib/validators'
-import { statusList, optionsFor } from '@/services/storeStatus'
+import { statusList, optionsFor } from '@/stores/storeStatus'
 
 export default {
   name: 'StoreEdit',

@@ -1,4 +1,4 @@
-import about from '@/services/api/about'
+import about from '@/utils/api/about'
 import { Platform } from 'quasar'
 
 function initialState () {

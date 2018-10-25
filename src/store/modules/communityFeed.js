@@ -1,4 +1,4 @@
-import communityFeedAPI from '@/services/api/communityFeed'
+import communityFeedAPI from '@/communityFeed/api/communityFeed'
 
 function initialState () {
   return {

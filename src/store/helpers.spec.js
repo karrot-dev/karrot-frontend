@@ -5,8 +5,8 @@ const mockStatus = jest.fn()
 const mockLogin = jest.fn()
 const mockRouterPush = jest.fn()
 jest.mock('@/router', () => ({ push: mockRouterPush }))
-jest.mock('@/services/api/auth', () => ({ login: mockLogin }))
-jest.mock('@/services/api/authUser', () => ({ get: mockStatus }))
+jest.mock('@/authuser/api/auth', () => ({ login: mockLogin }))
+jest.mock('@/authuser/api/authUser', () => ({ get: mockStatus }))
 
 import { createValidationError, statusMocks } from '>/helpers'
 import { withMeta, createMetaModule, defaultFindId, toggles } from '@/store/helpers'

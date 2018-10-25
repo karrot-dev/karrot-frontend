@@ -1,6 +1,6 @@
 const mockGet = jest.fn()
 const mockGetStatistics = jest.fn()
-jest.mock('@/services/api/stores', () => ({ get: mockGet, statistics: mockGetStatistics }))
+jest.mock('@/stores/api/stores', () => ({ get: mockGet, statistics: mockGetStatistics }))
 
 import { createStore, throws, createValidationError } from '>/helpers'
 

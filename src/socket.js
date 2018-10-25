@@ -1,10 +1,10 @@
 import ReconnectingWebsocket from 'reconnecting-websocket'
 import { debounce, AppVisibility } from 'quasar'
 
-import store from '@/store'
+import store from '@/base/store'
 import log from '@/utils/log'
 import auth from '@/authuser/api/auth'
-import { getter } from '@/store/storeHelpers'
+import { getter } from '@/utils/datafoo/storeHelpers'
 
 import { camelizeKeys } from '@/utils/utils'
 import { convert as convertApplication } from '@/applications/api/groupApplications'

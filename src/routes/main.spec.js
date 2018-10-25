@@ -90,9 +90,9 @@ describe('main routes', () => {
     store = new Vuex.Store({
       modules: {
         ...mockModules,
-        groups: require('@/store/modules/groups').default,
+        groups: require('@/groupInfo/datafoo/groups').default,
       },
-      plugins: [require('@/store/plugins/router').default],
+      plugins: [require('@/base/datafoo/routerPlugin').default],
     })
     wrapper = mountRouterViewWith({ localVue, store, router })
   })

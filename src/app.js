@@ -11,7 +11,7 @@ import 'typeface-cabin-sketch'
 
 import { sync } from 'vuex-router-sync'
 import router from './router'
-import store from './store'
+import store from './base/store'
 import './socket'
 import i18n from './i18n'
 import log from '@/utils/log'

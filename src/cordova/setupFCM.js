@@ -1,4 +1,4 @@
-import store from '@/store'
+import store from '@/base/store'
 import router from '@/router'
 
 document.addEventListener('deviceready', onDeviceReady, false)

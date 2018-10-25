@@ -1,6 +1,6 @@
 <script>
 import { connect } from 'vuex-connect'
-import store from '@/store/index'
+import store from '@/base/store'
 import StoreEdit from '@/stores/components/StoreEdit'
 
 export default connect({

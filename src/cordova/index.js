@@ -1,5 +1,5 @@
 import Vue from 'vue'
-import store from '@/store'
+import store from '@/base/store'
 
 import './setBaseURL'
 import './setupFCM'

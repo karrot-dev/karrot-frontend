@@ -22,7 +22,7 @@
 
 <script>
 import { mapGetters, mapActions } from 'vuex'
-import Profile from '@/users/pages/Profile'
+import Profile from '@/users/components/ProfileUI'
 import History from '@/history/components/HistoryList'
 import { QCard, QCardTitle, QCardMain } from 'quasar'
 

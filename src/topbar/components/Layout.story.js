@@ -10,11 +10,11 @@ const store = createStore({
   groups: { getters: { all: () => groupsMock } },
   stores: { getters: { all: () => storesMock } },
   users: { getters: { all: () => usersMock } },
-  search: require('@/store/modules/search').default,
+  search: require('@/topbar/datafoo/search').default,
   breadcrumbs: { getters: { all: () => [] } },
   auth: { getters: { user: () => currentUserMock } },
   i18n: { getters: { locale: () => 'en' } },
-  presence: require('@/store/modules/presence').default,
+  presence: require('@/utils/datafoo/presence').default,
   loadingprogress: { getters: { active: () => false, closing: () => false } },
   communityFeed: {
     getters: {

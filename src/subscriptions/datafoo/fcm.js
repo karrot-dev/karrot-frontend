@@ -1,5 +1,5 @@
 import Vue from 'vue'
-import subscriptionsAPI from '@/utils/api/subscriptions'
+import subscriptionsAPI from '@/subscriptions/api/subscriptions'
 
 export default {
   namespaced: true,

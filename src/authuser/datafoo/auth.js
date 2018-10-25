@@ -3,7 +3,7 @@ import authUser from '@/authuser/api/authUser'
 import router from '@/base/router'
 import { createMetaModule, withMeta, metaStatuses } from '@/utils/datafoo/helpers'
 import { objectDiff } from '@/utils/utils'
-import push from '@/utils/datafoo/auth/push'
+import push from '@/subscriptions/datafoo/auth/push'
 import { throttle } from 'quasar'
 
 function initialState () {

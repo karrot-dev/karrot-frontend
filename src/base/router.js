@@ -1,7 +1,7 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-import splashRoutes from '@/routes/splash'
-import mainRoutes from '@/routes/main'
+import splashRoutes from '@/base/routes/splash'
+import mainRoutes from '@/base/routes/main'
 
 const MainLayout = () => import('@/base/pages/MainLayout')
 const SplashLayout = () => import('@/base/pages/SplashLayout')

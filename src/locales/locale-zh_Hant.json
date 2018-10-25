@@ -401,7 +401,6 @@
     "RESEND_VERIFICATION": "重新寄送驗證信",
     "VERIFICATION_EMAIL_SENT": "我們已經寄給你一封新的認證信。請檢查您的電子信箱。",
     "CHANGES_SAVED": "你的修改已被保存.",
-    "CHANGES_ERROR": "發生錯誤。 稍後再試。",
     "EMAIL_NOT_DELIVERED": "無法傳送郵件給你 | 有 {數目} 封郵件無法傳送給你"
   },
   "NOTIFICATION_BELLS_LIST": {

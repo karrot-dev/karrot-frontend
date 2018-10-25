@@ -401,7 +401,6 @@
     "RESEND_VERIFICATION": "Skicka igen mejlverifiering",
     "VERIFICATION_EMAIL_SENT": "Vi skickade ett till verifieringsmejl. Varsågod och kolla din inkorg.",
     "CHANGES_SAVED": "Dina ändringar har sparats.",
-    "CHANGES_ERROR": "Ett fel uppstod. Försök igen senare.",
     "EMAIL_NOT_DELIVERED": "An email could not be delivered to you | {count} emails could not be delivered to you"
   },
   "NOTIFICATION_BELLS_LIST": {

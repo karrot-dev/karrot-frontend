@@ -401,7 +401,6 @@
     "RESEND_VERIFICATION": "ચકાસણી ઇમેઇલ ફરીથી મોકલો",
     "VERIFICATION_EMAIL_SENT": "અમે તમને બીજી ચકાસણી મેઇલ મોકલ્યો છે. કૃપા કરીને તમારા ઇનબૉક્સને તપાસો.",
     "CHANGES_SAVED": "તમારા ફેરફારો સાચવવામાં આવ્યા છે.",
-    "CHANGES_ERROR": "એક ભૂલ આવી. પછી ફરીથી પ્રયાસ કરો.",
     "EMAIL_NOT_DELIVERED": "An email could not be delivered to you | {count} emails could not be delivered to you"
   },
   "NOTIFICATION_BELLS_LIST": {

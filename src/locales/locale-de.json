@@ -401,7 +401,6 @@
     "RESEND_VERIFICATION": "sende eine neue Verifizierungs-E-Mail",
     "VERIFICATION_EMAIL_SENT": "We sent you another verification mail. Please check your inbox.",
     "CHANGES_SAVED": "Änderungen wurden gespeichert.",
-    "CHANGES_ERROR": "Ein Fehler ist aufgetreten. Versuche es später noch einmal.",
     "EMAIL_NOT_DELIVERED": "Eine E-Mail konnte nicht zugestellt werden | {count} E-Mails konnten nicht zugestellt werden"
   },
   "NOTIFICATION_BELLS_LIST": {

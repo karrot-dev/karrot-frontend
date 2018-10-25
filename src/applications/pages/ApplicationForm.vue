@@ -1,6 +1,6 @@
 <script>
 import { connect } from 'vuex-connect'
-import router from '@/router'
+import router from '@/base/router'
 import ApplicationFormUI from '@/applications/components/ApplicationFormUI'
 
 export default connect({

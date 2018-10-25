@@ -1,5 +1,5 @@
 import Vue from 'vue'
-import locales, { intlLocale } from '@/locales'
+import locales, { intlLocale } from '@/locales/index'
 
 // Allows us to use someElement.closest(selector)
 import 'element-closest'

@@ -1,7 +1,7 @@
 import Vue from 'vue'
 import VueI18n from 'vue-i18n'
 import status from '@/locales/translationStatus.json'
-import locales from '@/locales'
+import locales from '@/locales/index'
 
 Vue.use(VueI18n)
 

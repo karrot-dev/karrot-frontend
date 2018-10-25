@@ -191,7 +191,7 @@ import { QDatetime, QField, QSlider, QInput, QBtn, QSelect, Dialog, QOptionGroup
 import editMixin from '@/utils/mixins/editMixin'
 import statusMixin from '@/utils/mixins/statusMixin'
 
-import { is24h, dayOptions } from '@/i18n'
+import { is24h, dayOptions } from '@/base/i18n'
 
 export default {
   mixins: [editMixin, statusMixin],

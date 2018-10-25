@@ -1,7 +1,7 @@
 import Vue from 'vue'
 import historyAPI from '@/history/api/history'
 import { indexById, createRouteError, createMetaModule, createPaginationModule, withMeta, metaStatuses } from '@/utils/datafoo/helpers'
-import i18n from '@/i18n'
+import i18n from '@/base/i18n'
 import deepEqual from 'deep-equal'
 
 function initialState () {

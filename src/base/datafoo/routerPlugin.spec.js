@@ -4,7 +4,7 @@ import { createRouteError } from '@/utils/datafoo/helpers'
 import VueRouter from 'vue-router'
 import { maybeDispatchActions } from './routerPlugin'
 
-jest.mock('@/router')
+jest.mock('@/base/router')
 
 function makeTestModule () {
   return {

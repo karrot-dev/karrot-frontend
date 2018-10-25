@@ -43,7 +43,7 @@
 <script>
 import { QProgress, QIcon, QList, QItem, QItemTile, QItemSide, QListHeader, QItemSeparator, QItemMain } from 'quasar'
 import { mapGetters, mapActions } from 'vuex'
-import { localeOptions } from '@/i18n'
+import { localeOptions } from '@/base/i18n'
 
 export default {
   components: {

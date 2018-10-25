@@ -165,7 +165,7 @@ import PickupSeriesEdit from '@/pickups/components/PickupSeriesEdit'
 import PickupEdit from '@/pickups/components/PickupEdit'
 import RandomArt from '@/utils/components/RandomArt'
 
-import i18n, { dayNameForKey, sortByDay } from '@/i18n'
+import i18n, { dayNameForKey, sortByDay } from '@/base/i18n'
 
 export default {
   components: {

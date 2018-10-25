@@ -1,4 +1,4 @@
-import router from '@/router'
+import router from '@/base/router'
 import { throttle } from 'quasar'
 
 export default store => {

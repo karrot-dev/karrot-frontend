@@ -1,7 +1,7 @@
 import { Platform } from 'quasar'
 
 import { createRouteRedirect } from '@/utils/datafoo/helpers'
-import router from '@/router'
+import router from '@/base/router'
 
 function initialState () {
   return {

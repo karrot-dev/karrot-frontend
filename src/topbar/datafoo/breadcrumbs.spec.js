@@ -1,5 +1,5 @@
 const mockTranslate = jest.fn()
-jest.mock('@/i18n', () => ({ t: mockTranslate }))
+jest.mock('@/base/i18n', () => ({ t: mockTranslate }))
 
 import { createStore } from '>/helpers'
 

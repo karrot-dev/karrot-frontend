@@ -3,7 +3,7 @@ import '../src/base/css/app.mat.styl'
 
 import Vue from 'vue'
 import Vuex from 'vuex'
-import configureQuasar from '@/configureQuasar'
+import configureQuasar from '@/base/configureQuasar'
 import { RouterLinkStub } from '@vue/test-utils'
 
 Vue.config.productionTip = false

@@ -1,6 +1,6 @@
 <script>
 import { connect } from 'vuex-connect'
-import router from '@/router'
+import router from '@/base/router'
 import StoreEdit from '@/stores/components/StoreEdit'
 
 export default connect({

@@ -1,6 +1,6 @@
 import Vue from 'vue'
 import groupApplications from '@/applications/api/groupApplications'
-import router from '@/router'
+import router from '@/base/router'
 import { indexById, withMeta, createMetaModule, metaStatuses } from '@/utils/datafoo/helpers'
 
 function initialState () {

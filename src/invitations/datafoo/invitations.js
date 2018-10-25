@@ -1,6 +1,6 @@
 import Vue from 'vue'
 import invitations from '@/invitations/api/invitations'
-import router from '@/router'
+import router from '@/base/router'
 import { indexById, createMetaModule, withMeta, metaStatuses } from '@/utils/datafoo/helpers'
 
 function initialState () {

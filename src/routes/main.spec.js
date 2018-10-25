@@ -6,7 +6,7 @@ jest.mock('@/group/api/groups', () => ({
   join: jest.fn(),
 }))
 
-jest.mock('@/router', () => {
+jest.mock('@/base/router', () => {
   const VueRouter = require('vue-router')
   return new VueRouter({
     mode: 'hash',
@@ -37,7 +37,7 @@ jest.mock('@/groupInfo/components/GroupPreviewUI', () => ({
 }))
 
 function mountRouterViewWith ({ localVue, store, router }) {
-  const i18n = require('@/i18n')
+  const i18n = require('@/base/i18n')
 
   i18n.locale = 'en'
 
@@ -71,7 +71,7 @@ describe('main routes', () => {
   let routedPaths
   let user
 
-  beforeEach(() => { router = require('@/router') })
+  beforeEach(() => { router = require('@/base/router') })
 
   beforeEach(() => window.history.pushState({}, 'home', '#/')) // always reset location or tests will interfere
 

@@ -49,7 +49,7 @@ module.exports = {
   mode: dev ? 'development' : 'production',
   devtool: dev ? 'cheap-module-eval-source-map' : 'source-map',
   entry: {
-    app: './src/main.js',
+    app: './src/base/main.js',
   },
   output: {
     path: resolve(__dirname, '../dist'),
@@ -140,7 +140,7 @@ module.exports = {
     new webpack.DefinePlugin(appEnv),
     new HtmlWebpackPlugin({
       filename: 'index.html',
-      template: 'src/index.html',
+      template: 'src/base/index.html',
       minify: true,
       cordova,
     }),

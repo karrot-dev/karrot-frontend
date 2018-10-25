@@ -3,7 +3,7 @@ import users from '@/users/api/users'
 import authUser from '@/authuser/api/authUser'
 import auth from '@/authuser/api/auth'
 import { indexById, createRouteError, createMetaModule, withMeta, metaStatuses } from '@/utils/datafoo/helpers'
-import router from '@/router'
+import router from '@/base/router'
 
 function initialState () {
   return {

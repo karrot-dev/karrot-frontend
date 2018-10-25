@@ -1,5 +1,5 @@
 import store from '@/base/store'
-import router from '@/router'
+import router from '@/base/router'
 
 document.addEventListener('deviceready', onDeviceReady, false)
 

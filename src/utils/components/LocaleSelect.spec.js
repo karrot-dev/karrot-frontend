@@ -1,6 +1,6 @@
 import LocaleSelectInner from './LocaleSelectInner'
 import locales from '@/locales'
-import { localeOptions } from '@/i18n'
+import { localeOptions } from '@/base/i18n'
 import { mountWithDefaults, polyfillRequestAnimationFrame, createStore } from '>/helpers'
 
 polyfillRequestAnimationFrame()

@@ -7,7 +7,7 @@ import pickupsAPI from '@/pickups/api/pickups'
 import usersAPI from '@/users/api/users'
 import groupsAPI from '@/group/api/groups'
 import groupApplicationsAPI from '@/applications/api/groupApplications'
-import i18n from '@/i18n'
+import i18n from '@/base/i18n'
 import { createMetaModule, withMeta, withPrefixedIdMeta, metaStatusesWithId } from '@/utils/datafoo/helpers'
 
 export function isUnread (message, conversation) {

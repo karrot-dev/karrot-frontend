@@ -3,8 +3,8 @@ import Vuex from 'vuex'
 import raf from 'raf'
 import { createLocalVue, mount, TransitionStub, TransitionGroupStub, RouterLinkStub } from '@vue/test-utils'
 import deepmerge from 'deepmerge'
-import i18n from '@/i18n'
-import router from '@/router'
+import i18n from '@/base/i18n'
+import router from '@/base/router'
 
 Vue.use(Vuex)
 
@@ -90,7 +90,7 @@ export function polyfillRequestAnimationFrame () {
 }
 
 export function configureQuasar (Vue) {
-  const configure = require('@/configureQuasar').default
+  const configure = require('@/base/configureQuasar').default
   configure(Vue)
 }
 

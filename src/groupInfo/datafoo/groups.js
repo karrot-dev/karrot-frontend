@@ -1,7 +1,7 @@
 import Vue from 'vue'
 import groups from '@/group/api/groups'
 import groupsInfo from '@/groupInfo/api/groupsInfo'
-import router from '@/router'
+import router from '@/base/router'
 import { indexById, withMeta, createMetaModule, metaStatusesWithId, metaStatuses, createRouteError } from '@/utils/datafoo/helpers'
 
 function initialState () {

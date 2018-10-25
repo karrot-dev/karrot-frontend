@@ -4,7 +4,7 @@ import Vuex from 'vuex'
 const mockStatus = jest.fn()
 const mockLogin = jest.fn()
 const mockRouterPush = jest.fn()
-jest.mock('@/router', () => ({ push: mockRouterPush }))
+jest.mock('@/base/router', () => ({ push: mockRouterPush }))
 jest.mock('@/authuser/api/auth', () => ({ login: mockLogin }))
 jest.mock('@/authuser/api/authUser', () => ({ get: mockStatus }))
 

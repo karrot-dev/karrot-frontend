@@ -1,7 +1,7 @@
 import messageAPI from '@/messages/api/messages'
 import { createMetaModule, withMeta, metaStatuses, createPaginationModule } from '@/utils/datafoo/helpers'
 import { insertSorted } from './conversations'
-import router from '@/router'
+import router from '@/base/router'
 
 function initialState () {
   return {

@@ -1,6 +1,6 @@
 const mockGet = jest.fn()
 jest.mock('@/history/api/history', () => ({ get: mockGet }))
-jest.mock('@/i18n', () => ({ t: jest.fn() }))
+jest.mock('@/base/i18n', () => ({ t: jest.fn() }))
 
 import { createStore, throws, createValidationError } from '>/helpers'
 

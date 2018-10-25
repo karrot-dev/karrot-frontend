@@ -11,12 +11,12 @@ import 'typeface-cabin-sketch'
 
 import { sync } from 'vuex-router-sync'
 import router from './router'
-import store from './base/store'
+import store from './store'
 import './socket'
 import i18n from './i18n'
 import log from '@/utils/log'
 import './raven'
-import polyfill from '@/polyfill'
+import polyfill from '@/utils/polyfill'
 import { DetectMobileKeyboardPlugin } from '@/utils/detectMobileKeyboard'
 
 Vue.use(DetectMobileKeyboardPlugin)
@@ -29,8 +29,8 @@ if (__ENV.DEV) {
   log.setLevel('debug')
 }
 
-import Root from '@/Root'
-import '@/presenceReporter'
+import Root from '@/base/pages/Root'
+import '@/utils/datafoo/presenceReporter'
 
 export default async function initApp () {
   sync(store, router)

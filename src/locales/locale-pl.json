@@ -401,7 +401,6 @@
     "RESEND_VERIFICATION": "wyślij ponownie e-mail weryfikacyjny",
     "VERIFICATION_EMAIL_SENT": "Wysłaliśmy nowy e-mail weryfikacyjny. Sprawdź swoją pocztę.",
     "CHANGES_SAVED": "Twoje zmiany zostały zapisane.",
-    "CHANGES_ERROR": "Wystąpił błąd. Spróbuj ponownie później.",
     "EMAIL_NOT_DELIVERED": "Wiadomość e-mail nie mogła być do Ciebie dostarczona | {count} wiadomości e-mail nie mogło być do Ciebie dostarczonych"
   },
   "NOTIFICATION_BELLS_LIST": {

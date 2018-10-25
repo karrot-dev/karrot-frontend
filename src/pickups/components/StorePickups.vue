@@ -110,7 +110,7 @@ import StandardMap from '@/maps/components/StandardMap'
 import RandomArt from '@/utils/components/RandomArt'
 
 import { storeMarker } from '@/maps/components/markers'
-import directions from '@/utils/directions'
+import directions from '@/maps/directions'
 
 import {
   mapGetters,

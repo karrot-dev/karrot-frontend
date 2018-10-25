@@ -11,7 +11,7 @@
 /*
  * Root component
  */
-import LoadingProgress from '@/utils/components/LoadingProgress'
+import LoadingProgress from '@/topbar/components/LoadingProgress'
 export default {
   components: {
     LoadingProgress,

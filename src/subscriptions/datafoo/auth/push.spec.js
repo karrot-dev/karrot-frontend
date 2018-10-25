@@ -12,13 +12,13 @@ const mockRemoveServiceWorkersOnUnload = jest.fn()
 const mockListSubscriptions = jest.fn()
 const mockCreateSubscription = jest.fn()
 const mockDeleteSubscription = jest.fn()
-jest.mock('@/utils/api/subscriptions', () => ({
+jest.mock('@/subscriptions/api/subscriptions', () => ({
   list: mockListSubscriptions,
   create: mockCreateSubscription,
   delete: mockDeleteSubscription,
 }))
 
-jest.mock('@/utils/firebase', () => ({
+jest.mock('@/subscriptions/firebase', () => ({
   initializeMessaging: mockInitializeMessaging,
   removeServiceWorkersOnUnload: mockRemoveServiceWorkersOnUnload,
 }))

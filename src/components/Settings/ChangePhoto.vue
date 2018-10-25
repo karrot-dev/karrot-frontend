@@ -55,7 +55,7 @@
 import { QField, QInput, QBtn } from 'quasar'
 import CroppaPlugin from 'vue-croppa'
 const Croppa = CroppaPlugin.component
-import statusMixin from '@/mixins/statusMixin'
+import statusMixin from '@/utils/mixins/statusMixin'
 
 export default {
   components: { QField, QInput, QBtn, Croppa },

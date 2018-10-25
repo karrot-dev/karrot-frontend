@@ -188,8 +188,8 @@
 
 <script>
 import { QDatetime, QField, QSlider, QInput, QBtn, QSelect, Dialog, QOptionGroup, QTabs, QTab, QTabPane } from 'quasar'
-import editMixin from '@/mixins/editMixin'
-import statusMixin from '@/mixins/statusMixin'
+import editMixin from '@/utils/mixins/editMixin'
+import statusMixin from '@/utils/mixins/statusMixin'
 
 import { is24h, dayOptions } from '@/i18n'
 

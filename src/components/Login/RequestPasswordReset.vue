@@ -55,7 +55,7 @@
 
 <script>
 import { QField, QInput, QBtn } from 'quasar'
-import statusMixin from '@/mixins/statusMixin'
+import statusMixin from '@/utils/mixins/statusMixin'
 
 export default {
   components: { QField, QInput, QBtn },

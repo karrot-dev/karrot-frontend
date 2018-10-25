@@ -40,7 +40,7 @@
 import { QIcon, QField, QInput, QBtn, QTooltip } from 'quasar'
 import { validationMixin } from 'vuelidate'
 import { required, email } from 'vuelidate/lib/validators'
-import statusMixin from '@/mixins/statusMixin'
+import statusMixin from '@/utils/mixins/statusMixin'
 
 export default {
   mixins: [statusMixin, validationMixin],

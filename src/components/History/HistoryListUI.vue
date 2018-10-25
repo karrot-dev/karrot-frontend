@@ -23,7 +23,7 @@
 
 <script>
 import { QIcon, QInfiniteScroll, QSpinnerDots, QList } from 'quasar'
-import paginationMixin from '@/mixins/paginationMixin'
+import paginationMixin from '@/utils/mixins/paginationMixin'
 import HistoryEntry from '@/components/History/HistoryEntry'
 
 export default {

@@ -79,7 +79,7 @@
 import { QCard, QField, QInput, QBtn, QCheckbox, QTooltip, Dialog } from 'quasar'
 import { validationMixin } from 'vuelidate'
 import { required } from 'vuelidate/lib/validators'
-import editMixin from '@/mixins/editMixin'
+import editMixin from '@/utils/mixins/editMixin'
 
 export default {
   name: 'AgreementForm',

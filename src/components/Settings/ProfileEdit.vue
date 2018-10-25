@@ -90,8 +90,8 @@
 import { QDatetime, QField, QSlider, QInput, QBtn, QSelect } from 'quasar'
 import AddressPicker from '@/components/Address/AddressPicker'
 import MarkdownInput from '@/components/MarkdownInput'
-import editMixin from '@/mixins/editMixin'
-import statusMixin from '@/mixins/statusMixin'
+import editMixin from '@/utils/mixins/editMixin'
+import statusMixin from '@/utils/mixins/statusMixin'
 import { validationMixin } from 'vuelidate'
 import { required, minLength, maxLength } from 'vuelidate/lib/validators'
 

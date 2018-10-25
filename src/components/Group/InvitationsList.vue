@@ -38,7 +38,7 @@
 
 <script>
 import { QSpinnerDots, QList, QItem, QItemSide, QItemMain, QItemTile, QListHeader } from 'quasar'
-import statusMixin from '@/mixins/statusMixin'
+import statusMixin from '@/utils/mixins/statusMixin'
 import ProfilePicture from '@/components/ProfilePictures/ProfilePicture'
 import DateAsWords from '@/components/General/DateAsWords'
 

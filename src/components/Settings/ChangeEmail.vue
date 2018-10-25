@@ -48,7 +48,7 @@
 
 <script>
 import { QField, QInput, QBtn } from 'quasar'
-import statusMixin from '@/mixins/statusMixin'
+import statusMixin from '@/utils/mixins/statusMixin'
 import VerificationWarning from '@/components/Settings/VerificationWarning'
 
 export default {

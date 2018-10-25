@@ -126,8 +126,8 @@
 import { QDatetime, QField, QSlider, QOptionGroup, QInput, QBtn, QSelect, QTooltip } from 'quasar'
 
 import { is24h } from '@/i18n'
-import editMixin from '@/mixins/editMixin'
-import statusMixin from '@/mixins/statusMixin'
+import editMixin from '@/utils/mixins/editMixin'
+import statusMixin from '@/utils/mixins/statusMixin'
 import dateFnsHelper from '@/services/dateFnsHelper'
 
 export default {

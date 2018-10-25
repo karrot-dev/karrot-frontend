@@ -35,8 +35,8 @@
 
 <script>
 import FeedbackItem from './FeedbackItem'
-import statusMixin from '@/mixins/statusMixin'
-import paginationMixin from '@/mixins/paginationMixin'
+import statusMixin from '@/utils/mixins/statusMixin'
+import paginationMixin from '@/utils/mixins/paginationMixin'
 import { QSpinnerDots, QInfiniteScroll } from 'quasar'
 import KNotice from '@/components/General/KNotice'
 import FeedbackNotice from '@/components/Wall/FeedbackNotice'

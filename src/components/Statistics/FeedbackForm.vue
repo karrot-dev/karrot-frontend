@@ -51,8 +51,8 @@
 import { QCard, QField, QInput, QBtn, QSelect } from 'quasar'
 import AmountPicker from './AmountPicker'
 import MarkdownInput from '@/components/MarkdownInput'
-import editMixin from '@/mixins/editMixin'
-import statusMixin from '@/mixins/statusMixin'
+import editMixin from '@/utils/mixins/editMixin'
+import statusMixin from '@/utils/mixins/statusMixin'
 
 export default {
   components: { QCard, QField, QInput, QBtn, QSelect, AmountPicker, MarkdownInput },

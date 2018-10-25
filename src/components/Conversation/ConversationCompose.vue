@@ -42,7 +42,7 @@
 <script>
 import ProfilePicture from '@/components/ProfilePictures/ProfilePicture'
 import { QItem, QItemMain, QInput, QField, QBtn, QItemSide, QItemTile } from 'quasar'
-import statusMixin from '@/mixins/statusMixin'
+import statusMixin from '@/utils/mixins/statusMixin'
 import MarkdownInput from '@/components/MarkdownInput'
 
 export default {

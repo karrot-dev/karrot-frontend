@@ -21,7 +21,7 @@
 
 <script>
 import { QSpinner, QBtn } from 'quasar'
-import statusMixin from '@/mixins/statusMixin'
+import statusMixin from '@/utils/mixins/statusMixin'
 
 export default {
   components: { QSpinner, QBtn },

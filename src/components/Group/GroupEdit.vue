@@ -144,8 +144,8 @@ import AddressPicker from '@/components/Address/AddressPicker'
 import MarkdownInput from '@/components/MarkdownInput'
 import { validationMixin } from 'vuelidate'
 import { required, minLength, maxLength } from 'vuelidate/lib/validators'
-import editMixin from '@/mixins/editMixin'
-import statusMixin from '@/mixins/statusMixin'
+import editMixin from '@/utils/mixins/editMixin'
+import statusMixin from '@/utils/mixins/statusMixin'
 
 export default {
   name: 'GroupEdit',

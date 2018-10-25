@@ -53,7 +53,7 @@
 
 <script>
 import { QCard, QCardTitle, QCardMain, QIcon, QField, QInput, QBtn, QSpinner } from 'quasar'
-import statusMixin from '@/mixins/statusMixin'
+import statusMixin from '@/utils/mixins/statusMixin'
 
 export default {
   components: { QCard, QCardTitle, QCardMain, QIcon, QField, QInput, QBtn, QSpinner },

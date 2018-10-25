@@ -3,8 +3,8 @@ import VueRouter from 'vue-router'
 import splashRoutes from '@/routes/splash'
 import mainRoutes from '@/routes/main'
 
-const MainLayout = () => import('@/pages/MainLayout')
-const SplashLayout = () => import('@/pages/SplashLayout')
+const MainLayout = () => import('@/base/pages/MainLayout')
+const SplashLayout = () => import('@/base/pages/SplashLayout')
 const RouteError = () => import('@/components/RouteError')
 
 Vue.use(VueRouter)

@@ -65,7 +65,7 @@
 import { QItem, QItemSide, QItemMain, QField, QInput, QBtn } from 'quasar'
 import MarkdownInput from '@/components/MarkdownInput'
 import Markdown from '@/components/Markdown'
-import statusMixin from '@/mixins/statusMixin'
+import statusMixin from '@/utils/mixins/statusMixin'
 
 export default {
   components: {

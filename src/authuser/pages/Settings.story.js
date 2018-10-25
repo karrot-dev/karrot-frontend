@@ -1,7 +1,7 @@
 import { storiesOf } from '@storybook/vue'
 import { action } from '@storybook/addon-actions'
 
-import Settings from '@/pages/Settings'
+import Settings from '@/authuser/pages/Settings'
 import VerificationWarning from '@/components/Settings/VerificationWarning'
 import { currentUserMock } from '>/mockdata'
 

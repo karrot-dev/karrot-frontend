@@ -6,7 +6,7 @@ const store = createStore({
   users: { getters: { get: () => id => id } },
 })
 
-import Profile from './Profile'
+import Profile from './ProfileUI'
 import TrustButton from './TrustButton'
 
 let groupIdCnt = 1

@@ -142,7 +142,7 @@ import {
   QItem,
   QTooltip,
 } from 'quasar'
-import KarrotLogo from '../../utils/components/KarrotLogo'
+import KarrotLogo from '../../logo/components/KarrotLogo'
 import KBreadcrumb from '@/topbar/components/KBreadcrumb'
 import Search from '@/topbar/components/Search'
 import LocaleSelect from '@/utils/components/LocaleSelect'

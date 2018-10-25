@@ -35,7 +35,7 @@
 
 <script>
 import { QBtn, QIcon } from 'quasar'
-import rollingImg from 'assets/rolling.png'
+import rollingImg from '@/base/assets/rolling.png'
 
 export default {
   components: {

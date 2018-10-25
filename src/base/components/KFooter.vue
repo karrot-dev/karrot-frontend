@@ -64,7 +64,7 @@
 </template>
 
 <script>
-import KarrotLogo from '../../utils/components/KarrotLogo'
+import KarrotLogo from '../../logo/components/KarrotLogo'
 import { QBtn, QIcon, QList, QItem } from 'quasar'
 import { mapGetters } from 'vuex'
 

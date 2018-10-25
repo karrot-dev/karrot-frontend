@@ -1,7 +1,7 @@
 <script>
 import { connect } from 'vuex-connect'
 import store from '@/store/index'
-import StoreEdit from '@/components/Store/StoreEdit'
+import StoreEdit from '@/stores/components/StoreEdit'
 
 export default connect({
   stateToProps: {

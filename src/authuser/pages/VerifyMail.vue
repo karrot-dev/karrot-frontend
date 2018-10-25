@@ -1,6 +1,6 @@
 <script>
 import { connect } from 'vuex-connect'
-import VerifyMail from '@/components/Login/VerifyMail'
+import VerifyMail from '@/authuser/components/VerifyMail'
 
 export default connect({
   gettersToProps: {

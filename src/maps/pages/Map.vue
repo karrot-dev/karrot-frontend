@@ -22,7 +22,7 @@
 
 <script>
 
-import GroupMap from '@/components/Map/GroupMap'
+import GroupMap from '@/maps/components/GroupMap'
 
 import { mapGetters, mapActions } from 'vuex'
 

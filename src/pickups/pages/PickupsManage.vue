@@ -161,9 +161,9 @@
 <script>
 import { mapGetters, mapActions } from 'vuex'
 import { QCard, QCardTitle, QList, QListHeader, QItem, QItemSide, QItemMain, QItemTile, QCollapsible, QBtn, QTooltip, QIcon } from 'quasar'
-import PickupSeriesEdit from '@/components/Pickups/PickupSeriesEdit'
-import PickupEdit from '@/components/Pickups/PickupEdit'
-import RandomArt from '@/components/General/RandomArt'
+import PickupSeriesEdit from '@/pickups/components/PickupSeriesEdit'
+import PickupEdit from '@/pickups/components/PickupEdit'
+import RandomArt from '@/utils/components/RandomArt'
 
 import i18n, { dayNameForKey, sortByDay } from '@/i18n'
 

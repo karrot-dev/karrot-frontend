@@ -1,6 +1,6 @@
 <script>
 import { connect } from 'vuex-connect'
-import DeleteAccount from '@/components/Settings/DeleteAccount'
+import DeleteAccount from '@/authuser/components/Settings/DeleteAccount'
 
 export default connect({
   gettersToProps: {

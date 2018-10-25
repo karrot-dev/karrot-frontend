@@ -6,7 +6,7 @@
 </template>
 
 <script>
-import LatestMessages from '@/components/Conversation/LatestMessages'
+import LatestMessages from '@/messages/components/LatestMessages'
 
 export default {
   components: {

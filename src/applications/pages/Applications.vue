@@ -1,6 +1,6 @@
 <script>
 import { connect } from 'vuex-connect'
-import ApplicationList from '@/components/Applications/ApplicationList'
+import ApplicationList from '@/applications/components/ApplicationList'
 
 export default connect({
   gettersToProps: {

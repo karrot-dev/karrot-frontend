@@ -36,7 +36,7 @@ afterAll(() => {
 })
 
 // Mock RandomArt because it doesn't play nicely with JSDOM
-jest.mock('@/components/General/RandomArt', () => ({
+jest.mock('@/utils/components/RandomArt', () => ({
   functional: true,
   render: (h, context) => h('div', context.data, context.children),
 }))
@@ -65,7 +65,7 @@ jest.mock('@/locales/translationStatus.json', () => ({
 }))
 
 // Mock annoying components (e.g. too much vuex dependency)
-jest.mock('@/components/Settings/VerificationWarning', () => ({
+jest.mock('@/authuser/components/Settings/VerificationWarning', () => ({
   render: h => h('div', 'VerificationWarning has been mocked'),
 }))
 

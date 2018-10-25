@@ -5,7 +5,7 @@ import mainRoutes from '@/routes/main'
 
 const MainLayout = () => import('@/base/pages/MainLayout')
 const SplashLayout = () => import('@/base/pages/SplashLayout')
-const RouteError = () => import('@/components/RouteError')
+const RouteError = () => import('@/utils/components/RouteError')
 
 Vue.use(VueRouter)
 

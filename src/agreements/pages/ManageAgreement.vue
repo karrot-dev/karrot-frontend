@@ -1,6 +1,6 @@
 <script>
 import { connect } from 'vuex-connect'
-import GroupManageAgreement from '@/components/Group/GroupManageAgreement'
+import GroupManageAgreement from '@/agreements/components/GroupManageAgreement'
 
 export default connect({
   gettersToProps: {

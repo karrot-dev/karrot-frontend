@@ -58,8 +58,8 @@
 
 <script>
 import { QCard, QItem, QItemMain, QItemSide, QBtn, QTooltip } from 'quasar'
-import Markdown from '@/components/Markdown'
-import RandomArt from '@/components/General/RandomArt'
+import Markdown from '@/utils/components/Markdown'
+import RandomArt from '@/utils/components/RandomArt'
 
 import {
   mapGetters,

@@ -20,7 +20,7 @@ jest.mock('@/router', () => {
   })
 })
 
-jest.mock('@/components/GroupJoin/GroupPreviewUI', () => ({
+jest.mock('@/groupInfo/components/GroupPreviewUI', () => ({
   name: 'GroupPreviewUI',
   props: ['group', 'isLoggedIn', 'user'],
   methods: {

@@ -65,7 +65,7 @@
 </template>
 
 <script>
-import FeedbackList from '@/components/Statistics/FeedbackList'
+import FeedbackList from '@/feedback/components/FeedbackList'
 import { QCard, QTooltip, QBtn, QChip } from 'quasar'
 
 import {

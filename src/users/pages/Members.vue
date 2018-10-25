@@ -44,8 +44,8 @@
 
 <script>
 import { QCard, QBtn, QTooltip } from 'quasar'
-import UserList from '@/components/ProfilePictures/UserList'
-import RandomArt from '@/components/General/RandomArt'
+import UserList from '@/users/components/UserList'
+import RandomArt from '@/utils/components/RandomArt'
 
 import {
   mapGetters,

@@ -55,12 +55,12 @@
 import { QCard, QCardTitle, QCardMain, QCardSeparator, QCardActions } from 'quasar'
 import { mapGetters, mapActions } from 'vuex'
 
-import ProfileEdit from '@/components/Settings/ProfileEdit'
-import ChangePassword from '@/components/Settings/ChangePassword'
-import ChangeEmail from '@/components/Settings/ChangeEmail'
-import ChangePhoto from '@/components/Settings/ChangePhoto'
-import RequestDeleteAccount from '@/components/Settings/RequestDeleteAccount'
-import Push from '@/components/Settings/Push'
+import ProfileEdit from '@/authuser/components/Settings/ProfileEdit'
+import ChangePassword from '@/authuser/components/Settings/ChangePassword'
+import ChangeEmail from '@/authuser/components/Settings/ChangeEmail'
+import ChangePhoto from '@/authuser/components/Settings/ChangePhoto'
+import RequestDeleteAccount from '@/authuser/components/Settings/RequestDeleteAccount'
+import Push from '@/authuser/components/Settings/Push'
 
 export default {
   name: 'Settings',

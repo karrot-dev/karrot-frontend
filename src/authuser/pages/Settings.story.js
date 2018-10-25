@@ -2,7 +2,7 @@ import { storiesOf } from '@storybook/vue'
 import { action } from '@storybook/addon-actions'
 
 import Settings from '@/authuser/pages/Settings'
-import VerificationWarning from '@/components/Settings/VerificationWarning'
+import VerificationWarning from '@/authuser/components/Settings/VerificationWarning'
 import { currentUserMock } from '>/mockdata'
 
 import { createStore, statusMocks, storybookDefaults as defaults } from '>/helpers'

@@ -1,6 +1,6 @@
 <script>
 import { connect } from 'vuex-connect'
-import Wall from '@/components/Wall/Wall'
+import Wall from '@/group/components/Wall'
 
 export default connect({
   gettersToProps: {

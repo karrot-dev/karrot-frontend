@@ -1,6 +1,6 @@
 <script>
 import { connect } from 'vuex-connect'
-import FeedbackList from '@/components/Statistics/FeedbackList'
+import FeedbackList from '@/feedback/components/FeedbackList'
 
 export default connect({
   gettersToProps: {

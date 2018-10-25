@@ -1,7 +1,7 @@
 <script>
 import { connect } from 'vuex-connect'
 import router from '@/router'
-import GroupPreviewUI from '@/components/GroupJoin/GroupPreviewUI'
+import GroupPreviewUI from '@/groupInfo/components/GroupPreviewUI'
 
 export default connect({
   gettersToProps: {

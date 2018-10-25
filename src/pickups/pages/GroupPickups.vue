@@ -30,9 +30,9 @@
 </template>
 
 <script>
-import PickupList from '@/components/Pickups/PickupList'
-import KNotice from '@/components/General/KNotice'
-import StoreList from '@/components/Store/StoreList'
+import PickupList from '@/pickups/components/PickupList'
+import KNotice from '@/utils/components/KNotice'
+import StoreList from '@/stores/components/StoreList'
 import { QCard, QCardTitle, QCardMain } from 'quasar'
 
 import {

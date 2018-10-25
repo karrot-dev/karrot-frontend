@@ -24,12 +24,12 @@ const GroupApplications = () => import('@/applications/pages/Applications')
 const GroupDescription = () => import('@/group/pages/Description')
 const GroupMembers = () => import('@/users/pages/Members')
 const GroupHistory = () => import('@/history/pages/GroupHistory')
-const Sidenav = () => import('@/components/Sidenav/Sidenav')
+const Sidenav = () => import('@/sidenav/components/Sidenav')
 const Settings = () => import('@/authuser/pages/Settings')
 const User = () => import('@/users/pages/Profile')
 const PickupFeedback = () => import('@/feedback/pages/GiveFeedback')
-const Detail = () => import('@/components/General/Detail')
-const DetailHeader = () => import('@/components/General/DetailHeader')
+const Detail = () => import('@/messages/components/Detail')
+const DetailHeader = () => import('@/messages/components/DetailHeader')
 
 export default [
   {

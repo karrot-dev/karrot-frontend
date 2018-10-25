@@ -1,6 +1,6 @@
 <script>
 import { connect } from 'vuex-connect'
-import GroupSettings from '@/components/Group/GroupSettings'
+import GroupSettings from '@/group/components/GroupSettings'
 
 export default connect({
   gettersToProps: {

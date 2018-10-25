@@ -12,7 +12,7 @@
 
 <script>
 import { QCard, QBtn, QTooltip } from 'quasar'
-import HistoryList from '@/components/History/HistoryList'
+import HistoryList from '@/history/components/HistoryList'
 
 export default {
   components: { HistoryList, QCard, QBtn, QTooltip },

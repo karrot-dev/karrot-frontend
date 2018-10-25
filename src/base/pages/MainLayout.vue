@@ -108,15 +108,15 @@
 </template>
 
 <script>
-import KTopbar from '@/components/Layout/KTopbar'
-import KTopbarLoggedOut from '@/components/Layout/LoggedOut/KTopbar'
-import KFooter from '@/components/Layout/KFooter'
-import SidenavTitle from '@/components/Sidenav/SidenavTitle'
-import MobileSidenav from '@/components/Sidenav/MobileSidenav'
-import Banners from '@/components/Layout/Banners'
-import RouteError from '@/components/RouteError'
-import UnsupportedBrowserWarning from '@/components/UnsupportedBrowserWarning'
-import DetailSidebar from '@/components/General/DetailSidebar'
+import KTopbar from '@/topbar/components/KTopbar'
+import KTopbarLoggedOut from '@/topbar/components/LoggedOut/KTopbar'
+import KFooter from '@/base/components/KFooter'
+import SidenavTitle from '@/sidenav/components/SidenavTitle'
+import MobileSidenav from '@/sidenav/components/MobileSidenav'
+import Banners from '@/alerts/components/Banners'
+import RouteError from '@/utils/components/RouteError'
+import UnsupportedBrowserWarning from '@/utils/components/UnsupportedBrowserWarning'
+import DetailSidebar from '@/messages/components/DetailSidebar'
 import { mapGetters, mapActions } from 'vuex'
 import {
   dom,

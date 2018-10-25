@@ -7,7 +7,7 @@
 
 <script>
 import { mapActions } from 'vuex'
-import Notifications from '@/components/Layout/Notifications'
+import Notifications from '@/notifications/components/Notifications'
 
 export default {
   components: {

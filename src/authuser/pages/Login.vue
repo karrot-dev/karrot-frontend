@@ -1,6 +1,6 @@
 <script>
 import { connect } from 'vuex-connect'
-import Login from '@/components/Login/Login'
+import Login from '@/authuser/components/Login'
 
 export default connect({
   gettersToProps: {

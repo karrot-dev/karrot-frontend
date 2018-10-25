@@ -16,11 +16,11 @@
 <script>
 
 import { mapGetters } from 'vuex'
-import Markdown from '@/components/Markdown'
-import StoreOptions from '@/components/Sidenav/StoreOptions'
+import Markdown from '@/utils/components/Markdown'
+import StoreOptions from '@/sidenav/components/StoreOptions'
 
 import { QCard, QTabs, QRouteTab, QScrollArea, QBtn, QIcon } from 'quasar'
-import KBanner from '@/components/Layout/KBanner'
+import KBanner from '@/alerts/components/KBanner'
 
 export default {
   components: { QCard, QTabs, QRouteTab, QScrollArea, KBanner, QBtn, QIcon, StoreOptions, Markdown },

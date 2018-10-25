@@ -1,6 +1,6 @@
 <script>
 import { connect } from 'vuex-connect'
-import HistoryDetail from '@/components/History/HistoryDetail'
+import HistoryDetail from '@/history/components/HistoryDetail'
 export default connect({
   gettersToProps: {
     entry: 'history/active',

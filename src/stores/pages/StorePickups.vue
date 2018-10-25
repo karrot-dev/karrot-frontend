@@ -103,14 +103,14 @@
 </template>
 
 <script>
-import PickupList from '@/components/Pickups/PickupList'
-import KNotice from '@/components/General/KNotice'
-import Markdown from '@/components/Markdown'
-import StandardMap from '@/components/Map/StandardMap'
-import RandomArt from '@/components/General/RandomArt'
+import PickupList from '@/pickups/components/PickupList'
+import KNotice from '@/utils/components/KNotice'
+import Markdown from '@/utils/components/Markdown'
+import StandardMap from '@/maps/components/StandardMap'
+import RandomArt from '@/utils/components/RandomArt'
 
-import { storeMarker } from '@/components/Map/markers'
-import directions from '../../utils/directions'
+import { storeMarker } from '@/maps/components/markers'
+import directions from '@/utils/directions'
 
 import {
   mapGetters,

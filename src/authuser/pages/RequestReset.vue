@@ -1,6 +1,6 @@
 <script>
 import { connect } from 'vuex-connect'
-import RequestPasswordReset from '@/components/Login/RequestPasswordReset'
+import RequestPasswordReset from '@/authuser/components/RequestPasswordReset'
 
 export default connect({
   gettersToProps: {

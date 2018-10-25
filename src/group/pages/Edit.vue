@@ -1,6 +1,6 @@
 <script>
 import { connect } from 'vuex-connect'
-import GroupEdit from '@/components/Group/GroupEdit'
+import GroupEdit from '@/group/components/GroupEdit'
 
 export default connect({
   gettersToProps: {

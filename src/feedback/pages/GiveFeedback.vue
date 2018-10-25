@@ -1,6 +1,6 @@
 <script>
 import { connect } from 'vuex-connect'
-import PickupFeedback from '@/components/Statistics/PickupFeedback'
+import PickupFeedback from '@/feedback/components/PickupFeedback'
 
 export default connect({
   gettersToProps: {

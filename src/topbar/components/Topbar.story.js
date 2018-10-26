@@ -9,7 +9,7 @@ const store = createStore({
   groups: { getters: { all: () => groupsMock } },
   stores: { getters: { all: () => storesMock } },
   users: { getters: { all: () => usersMock } },
-  search: require('@/topbar/datafoo/search').default,
+  search: require('@/topbar/datastore/search').default,
 })
 
 storiesOf('General Components', module)

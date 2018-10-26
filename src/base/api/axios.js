@@ -3,7 +3,7 @@ import i18n from '@/base/i18n'
 import { Notify, throttle } from 'quasar'
 
 import { camelizeKeys, underscorizeKeys } from '@/utils/utils'
-import { isValidationError } from '@/utils/datafoo/helpers'
+import { isValidationError } from '@/utils/datastore/helpers'
 
 /*
 * Axios configured for Django REST API

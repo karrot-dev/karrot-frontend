@@ -4,7 +4,7 @@ import { debounce, AppVisibility } from 'quasar'
 import store from '@/base/store'
 import log from '@/utils/log'
 import auth from '@/authuser/api/auth'
-import { getter } from '@/utils/datafoo/storeHelpers'
+import { getter } from '@/utils/datastore/storeHelpers'
 
 import { camelizeKeys } from '@/utils/utils'
 import { convert as convertApplication } from '@/applications/api/groupApplications'

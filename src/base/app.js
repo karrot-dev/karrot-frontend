@@ -30,7 +30,7 @@ if (__ENV.DEV) {
 }
 
 import Root from '@/base/pages/Root'
-import '@/utils/datafoo/presenceReporter'
+import '@/utils/datastore/presenceReporter'
 
 export default async function initApp () {
   sync(store, router)

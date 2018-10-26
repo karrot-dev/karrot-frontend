@@ -1,4 +1,4 @@
-jest.mock('@/base/datafoo/i18nPlugin')
+jest.mock('@/base/datastore/i18nPlugin')
 
 import { currentUserMock } from '>/mockdata'
 

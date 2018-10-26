@@ -52,7 +52,7 @@ Vue.use(Vuex)
 const collectedModules = {}
 const collectedPlugins = []
 
-appModules.forEach(({modules = {}, plugins = []}) => {
+appModules.forEach(({ modules = {}, plugins = [] }) => {
   Object.assign(collectedModules, modules)
   collectedPlugins.push(...plugins)
 })

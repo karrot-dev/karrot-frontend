@@ -401,7 +401,6 @@
     "RESEND_VERIFICATION": "सत्यापन ईमेल पुनः भेजे",
     "VERIFICATION_EMAIL_SENT": "हमने आपको दूसरा सत्यापन ईमेल भेजा है कृपया अपने इनबॉक्स की जांच करें",
     "CHANGES_SAVED": "आपके परिवर्तनों को सहेजा गया है.",
-    "CHANGES_ERROR": "एक त्रुटि पाई गई। बाद में पुन: प्रयास करें.",
     "EMAIL_NOT_DELIVERED": "An email could not be delivered to you | {count} emails could not be delivered to you"
   },
   "NOTIFICATION_BELLS_LIST": {

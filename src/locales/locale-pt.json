@@ -401,7 +401,6 @@
     "RESEND_VERIFICATION": "envie a verificação mais uma vez",
     "VERIFICATION_EMAIL_SENT": "Nós enviamos outra verificação para seu e-mail. Por favor, verifique a sua caixa de entrada.",
     "CHANGES_SAVED": "Suas modificações foram salvas.",
-    "CHANGES_ERROR": "Erro. Tente outra vez mais tarde.",
     "EMAIL_NOT_DELIVERED": "An email could not be delivered to you | {count} emails could not be delivered to you"
   },
   "NOTIFICATION_BELLS_LIST": {

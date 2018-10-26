@@ -22,7 +22,7 @@ import { DetectMobileKeyboardPlugin } from '@/utils/detectMobileKeyboard'
 Vue.use(DetectMobileKeyboardPlugin)
 
 if (__ENV.CORDOVA && __ENV.BACKEND) {
-  require('@/cordova')
+  require('@/utils/cordova')
 }
 
 if (__ENV.DEV) {

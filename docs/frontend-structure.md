@@ -30,3 +30,6 @@ src/
       - ...
 ```
 
+The modules `base` and `utils` stand out as they don't focus on one area.
+`base` contains all bits that could be considered the core of Karrot, while `utils` are helpers that can be reused in other modules.
+They should be kept as small as possible, so consider creating a new module before adding to them.

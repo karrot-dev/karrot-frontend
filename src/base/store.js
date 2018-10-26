@@ -57,8 +57,6 @@ appModules.forEach(({ modules = {}, plugins = [] }) => {
   collectedPlugins.push(...plugins)
 })
 
-console.log('collected modules', collectedModules)
-
 const debug = __ENV.DEV
 
 export default new Vuex.Store({

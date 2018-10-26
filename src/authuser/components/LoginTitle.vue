@@ -6,7 +6,7 @@
 </template>
 
 <script>
-import loginImage from 'authuser/assets/cherry.png'
+import loginImage from '@/authuser/assets/cherry.png'
 
 export default {
   components: { },

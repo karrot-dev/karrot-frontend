@@ -9,13 +9,13 @@
 </template>
 
 <script>
-import appleImg from 'feedback/assets/apple.png'
-import appleGuyImg from 'feedback/assets/appleGuy.png'
-import bagImg from 'feedback/assets/bag.png'
-import flourImg from 'feedback/assets/flour.png'
-import flourGuyImg from 'feedback/assets/flourGuy.png'
-import milkImg from 'feedback/assets/milk.png'
-import cartImg from 'feedback/assets/cart.png'
+import appleImg from '@/feedback/assets/apple.png'
+import appleGuyImg from '@/feedback/assets/appleGuy.png'
+import bagImg from '@/feedback/assets/bag.png'
+import flourImg from '@/feedback/assets/flour.png'
+import flourGuyImg from '@/feedback/assets/flourGuy.png'
+import milkImg from '@/feedback/assets/milk.png'
+import cartImg from '@/feedback/assets/cart.png'
 
 export default {
   data () {

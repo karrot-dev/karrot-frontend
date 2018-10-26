@@ -1,5 +1,5 @@
 // Vue config (from main.js)
-import '../src/base/css/app.mat.styl'
+import '../src/base/style/app.mat.styl'
 
 import Vue from 'vue'
 import Vuex from 'vuex'

@@ -1,6 +1,6 @@
 import Vue from 'vue'
 
-import '@/base/css/app.mat.styl'
+import '@/base/style/app.mat.styl'
 import 'quasar-framework/dist/quasar.ie.polyfills'
 import 'quasar-extras/roboto-font/roboto-font.css'
 import 'quasar-extras/material-icons/material-icons.css'

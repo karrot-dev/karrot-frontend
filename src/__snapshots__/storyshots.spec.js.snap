@@ -5316,7 +5316,7 @@ exports[`Storyshots User Profile Profile 1`] = `
                   </div>
                 </button> <button tabindex="0" type="button" class="q-btn inline relative-position q-btn-item non-selectable q-btn-rectangle q-focusable q-hoverable bg-secondary text-white">
                   <div class="q-focus-helper"></div>
-                  <div class="q-btn-inner row col items-center justify-center"><span class="q-mr-xs">+</span> <img src="./twemoji-karrot.png" width="20px"></div>
+                  <div class="q-btn-inner row col items-center justify-center"><span class="q-mr-xs">+</span> <img src="twemoji-karrot.png" width="20px"></div>
                 </button></div>
             </div>
           </div>
@@ -5479,7 +5479,7 @@ exports[`Storyshots User Profile Trust Button - is editor 1`] = `
             </div>
           </button> <button tabindex="0" type="button" class="q-btn inline relative-position q-btn-item non-selectable q-btn-rectangle q-focusable q-hoverable bg-secondary text-white">
             <div class="q-focus-helper"></div>
-            <div class="q-btn-inner row col items-center justify-center"><span class="q-mr-xs">+</span> <img src="./twemoji-karrot.png" width="20px"></div>
+            <div class="q-btn-inner row col items-center justify-center"><span class="q-mr-xs">+</span> <img src="twemoji-karrot.png" width="20px"></div>
           </button></div>
       </div>
     </div>
@@ -5529,7 +5529,7 @@ exports[`Storyshots User Profile Trust Button - is newcomer 1`] = `
             </div>
           </button> <button tabindex="0" type="button" class="q-btn inline relative-position q-btn-item non-selectable q-btn-rectangle q-focusable q-hoverable bg-secondary text-white">
             <div class="q-focus-helper"></div>
-            <div class="q-btn-inner row col items-center justify-center"><span class="q-mr-xs">+</span> <img src="./twemoji-karrot.png" width="20px"></div>
+            <div class="q-btn-inner row col items-center justify-center"><span class="q-mr-xs">+</span> <img src="twemoji-karrot.png" width="20px"></div>
           </button></div>
       </div>
     </div>
@@ -5572,7 +5572,7 @@ exports[`Storyshots User Profile Trust Button - is newcomer without trust 1`] = 
             </div>
           </button> <button tabindex="0" type="button" class="q-btn inline relative-position q-btn-item non-selectable q-btn-rectangle q-focusable q-hoverable bg-secondary text-white">
             <div class="q-focus-helper"></div>
-            <div class="q-btn-inner row col items-center justify-center"><span class="q-mr-xs">+</span> <img src="./twemoji-karrot.png" width="20px"></div>
+            <div class="q-btn-inner row col items-center justify-center"><span class="q-mr-xs">+</span> <img src="twemoji-karrot.png" width="20px"></div>
           </button></div>
       </div>
     </div>
@@ -5630,7 +5630,7 @@ exports[`Storyshots User Profile Trust Button - multiple others trust 1`] = `
             </div>
           </button> <button tabindex="0" type="button" class="q-btn inline relative-position q-btn-item non-selectable q-btn-rectangle q-focusable q-hoverable bg-secondary text-white">
             <div class="q-focus-helper"></div>
-            <div class="q-btn-inner row col items-center justify-center"><span class="q-mr-xs">+</span> <img src="./twemoji-karrot.png" width="20px"></div>
+            <div class="q-btn-inner row col items-center justify-center"><span class="q-mr-xs">+</span> <img src="twemoji-karrot.png" width="20px"></div>
           </button></div>
       </div>
     </div>
@@ -5676,7 +5676,7 @@ exports[`Storyshots User Profile Trust Button - one other trust 1`] = `
             </div>
           </button> <button tabindex="0" type="button" class="q-btn inline relative-position q-btn-item non-selectable q-btn-rectangle q-focusable q-hoverable bg-secondary text-white">
             <div class="q-focus-helper"></div>
-            <div class="q-btn-inner row col items-center justify-center"><span class="q-mr-xs">+</span> <img src="./twemoji-karrot.png" width="20px"></div>
+            <div class="q-btn-inner row col items-center justify-center"><span class="q-mr-xs">+</span> <img src="twemoji-karrot.png" width="20px"></div>
           </button></div>
       </div>
     </div>

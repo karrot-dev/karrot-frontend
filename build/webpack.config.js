@@ -49,7 +49,7 @@ module.exports = {
   mode: dev ? 'development' : 'production',
   devtool: dev ? 'cheap-module-eval-source-map' : 'source-map',
   entry: {
-    app: './src/main.js',
+    app: './src/base/main.js',
   },
   output: {
     path: resolve(__dirname, '../dist'),
@@ -74,9 +74,9 @@ module.exports = {
       'quasar-vue-plugin': 'quasar-framework/src/vue-plugin',
       '@': resolve(__dirname, '../src'),
       '>': resolve(__dirname, '../test'),
-      variables: resolve(__dirname, '../src/themes/quasar.variables.styl'),
-      slidetoggle: resolve(__dirname, '../src/themes/karrot.slidetoggle.styl'),
-      editbox: resolve(__dirname, '../src/themes/karrot.editbox.styl'),
+      variables: resolve(__dirname, '../src/base/style/quasar.variables.styl'),
+      slidetoggle: resolve(__dirname, '../src/base/style/karrot.slidetoggle.styl'),
+      editbox: resolve(__dirname, '../src/base/style/karrot.editbox.styl'),
     },
     symlinks: false,
   },
@@ -140,7 +140,7 @@ module.exports = {
     new webpack.DefinePlugin(appEnv),
     new HtmlWebpackPlugin({
       filename: 'index.html',
-      template: 'src/index.html',
+      template: 'src/base/index.html',
       minify: true,
       cordova,
     }),

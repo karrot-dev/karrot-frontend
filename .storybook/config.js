@@ -1,9 +1,9 @@
 // Vue config (from main.js)
-import '../src/themes/app.mat.styl'
+import '../src/base/style/app.mat.styl'
 
 import Vue from 'vue'
 import Vuex from 'vuex'
-import configureQuasar from '@/configureQuasar'
+import configureQuasar from '@/base/configureQuasar'
 import { RouterLinkStub } from '@vue/test-utils'
 
 Vue.config.productionTip = false

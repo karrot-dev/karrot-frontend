@@ -9,7 +9,7 @@ function resolve (dir) {
 
 module.exports = {
   mode: 'production',
-  entry: resolve('src/service-worker.js'),
+  entry: resolve('src/subscriptions/service-worker.js'),
   devtool: false,
   output: {
     path: resolve('dist'),

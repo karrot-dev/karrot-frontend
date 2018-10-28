@@ -82,6 +82,7 @@ export default {
           messageParams: { groupName: getters.get(groupId).name },
         }, { root: true })
         dispatch('currentGroup/clear', null, { root: true })
+        dispatch('auth/maybeBackgroundSave', { currentGroup: null }, { root: true })
         router.replace({ name: 'groupsGallery' })
       },
 

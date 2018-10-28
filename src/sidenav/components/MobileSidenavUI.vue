@@ -158,8 +158,8 @@ export default {
   },
   props: {
     currentUserId: {
-      type: Number,
-      required: true,
+      type: Number | null,
+      default: null,
     },
   },
 }

@@ -56,6 +56,7 @@ describe('groups', () => {
     },
     actions: {
       update: jest.fn(),
+      maybeBackgroundSave: jest.fn(),
     },
   }
 
@@ -140,6 +141,8 @@ describe('groups', () => {
       expect(store.getters['groups/mine'].map(e => e.id)).toEqual([group2.id, group3.id])
       await store.dispatch('groups/leave', group2.id)
       expect(store.getters['groups/mine'].map(e => e.id)).toEqual([group3.id])
+      expect(auth.actions.maybeBackgroundSave).toBeCalled()
+      expect(auth.actions.maybeBackgroundSave.mock.calls[0][1]).toEqual({ currentGroup: null })
       expect(currentGroup.actions.clear).toBeCalled()
       expect(toasts.actions.show).toBeCalled()
     })

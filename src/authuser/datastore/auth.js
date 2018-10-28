@@ -98,8 +98,8 @@ export default {
         dispatch('update', null)
         showLogoutToast(dispatch)
 
-        dispatch('conversations/clear', null, { root: true })
-        dispatch('currentThread/clear', null, { root: true })
+        dispatch('conversations/clear', null, { root: true }) // TODO move into plugin
+        dispatch('currentThread/clear', null, { root: true }) // TODO move into plugin
         router.push({ name: 'groupsGallery' })
       },
 

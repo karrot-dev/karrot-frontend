@@ -158,7 +158,8 @@ export default {
 
     clear ({ commit, dispatch }) {
       commit('clear')
-      dispatch('auth/maybeBackgroundSave', { currentGroup: null }, { root: true })
+
+      // TODO move clear logic to downstream module plugins
       dispatch('agreements/clear', null, { root: true })
       dispatch('pickups/clear', {}, { root: true })
       dispatch('feedback/clear', null, { root: true })
@@ -187,4 +188,13 @@ export default {
       Object.assign(state, initialState())
     },
   },
+}
+
+export function plugin (store) {
+  // clear group when logged out
+  store.watch((state, getters) => getters['auth/isLoggedIn'], isLoggedIn => {
+    if (!isLoggedIn) {
+      store.dispatch('currentGroup/clear')
+    }
+  })
 }

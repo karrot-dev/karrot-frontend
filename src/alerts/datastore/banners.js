@@ -8,6 +8,12 @@ export default {
       const isLoggedIn = rootGetters['auth/isLoggedIn']
       const connected = rootGetters['connectivity/connected']
 
+      if (isLoggedIn && !connected) {
+        banners.push({
+          type: 'notConnected',
+        })
+      }
+
       if (isGroupPage && currentGroup && currentGroup.awaitingAgreement) {
         banners.push({
           type: 'awaitingAgreement',
@@ -19,12 +25,6 @@ export default {
         banners.push({
           type: 'playgroundGroupInfo',
           desktopOnly: true,
-        })
-      }
-
-      if (isLoggedIn && !connected) {
-        banners.push({
-          type: 'notConnected',
         })
       }
 

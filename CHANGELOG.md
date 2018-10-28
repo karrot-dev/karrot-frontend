@@ -22,6 +22,14 @@ Please document your changes in this format:
 
 ## [Unreleased]
 
+### Changed
+
+- Frontend code structure is now organized into modules @tiltec
+
+### Fixed
+
+- Notification items would sometimes cause errors when related pickups haven't been loaded @tiltec
+
 ## [6.2.3] - 2018-10-26
 
 ### Changed

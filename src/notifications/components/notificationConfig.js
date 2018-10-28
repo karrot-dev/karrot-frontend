@@ -20,7 +20,7 @@ function getMessageParams (type, context) {
       }
     case 'new_store':
       return {
-        storeName: context.store.name,
+        storeName: context.store && context.store.name,
       }
   }
 
@@ -55,19 +55,19 @@ function getRouteTo (type, context) {
     case 'user_became_editor':
     case 'invitation_accepted':
     case 'new_member':
-      return { name: 'user', params: { userId: context.user.id } }
+      return context.user && { name: 'user', params: { userId: context.user.id } }
     case 'you_became_editor': // TODO show information about editing permissions
     case 'application_accepted':
-      return { name: 'group', params: { groupId: context.group.id } }
+      return context.group && { name: 'group', params: { groupId: context.group.id } }
     case 'new_applicant':
-      return { name: 'groupApplications', params: { groupId: context.group.id } }
+      return context.group && { name: 'groupApplications', params: { groupId: context.group.id } }
     case 'feedback_possible':
-      return { name: 'giveFeedback', params: { groupId: context.group.id, pickupId: context.pickup.id } }
+      return context.pickup && context.group && { name: 'giveFeedback', params: { groupId: context.group.id, pickupId: context.pickup.id } }
     case 'application_declined':
-      return { name: 'groupPreview', params: { groupPreviewId: context.group.id } }
+      return context.group && { name: 'groupPreview', params: { groupPreviewId: context.group.id } }
     case 'new_store':
     case 'pickup_upcoming':
-      return { name: 'store', params: { groupId: context.group.id, storeId: context.store.id } }
+      return context.store && context.group && { name: 'store', params: { groupId: context.group.id, storeId: context.store.id } }
   }
 }
 

@@ -161,7 +161,7 @@ export default {
 
       // TODO move clear logic to downstream module plugins
       dispatch('agreements/clear', null, { root: true })
-      dispatch('pickups/clear', {}, { root: true })
+      commit('pickups/clear', null, { root: true })
       dispatch('feedback/clear', null, { root: true })
     },
 

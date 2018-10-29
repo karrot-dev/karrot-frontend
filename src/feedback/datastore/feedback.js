@@ -107,12 +107,10 @@ export default {
       })
     },
 
-    updateFeedbackAndRelated ({ commit, dispatch }, { feedback, pickups }) {
+    updateFeedbackAndRelated ({ commit }, { feedback, pickups }) {
       if (feedback) commit('update', feedback)
       if (pickups) {
-        for (const pickup of pickups) {
-          dispatch('pickups/update', pickup, { root: true })
-        }
+        commit('pickups/update', pickups, { root: true })
       }
     },
 

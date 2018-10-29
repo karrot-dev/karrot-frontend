@@ -104,9 +104,7 @@ export default {
       if (conversations) commit('updateConversations', conversations)
       if (messages) commit('updateConversationMessages', messages)
       if (pickups) {
-        for (const pickup of pickups) {
-          dispatch('pickups/update', pickup, { root: true })
-        }
+        commit('pickups/update', pickups, { root: true })
       }
       if (applications) {
         commit('groupApplications/update', applications, { root: true })

@@ -272,7 +272,7 @@ export default {
     ...mapGetters({
       storeId: 'stores/activeStoreId',
       pickupSeries: 'pickupSeries/byActiveStore',
-      oneTimePickups: 'pickups/filteredOneTime',
+      oneTimePickups: 'pickups/byActiveStoreOneTime',
       pickupCreateStatus: 'pickups/createStatus',
       seriesCreateStatus: 'pickupSeries/createStatus',
     }),

@@ -134,7 +134,7 @@ export default {
     },
     ...mapGetters({
       store: 'stores/activeStore',
-      pickups: 'pickups/filtered',
+      pickups: 'pickups/byActiveStore',
       currentUser: 'auth/user',
       isEditor: 'currentGroup/isEditor',
     }),

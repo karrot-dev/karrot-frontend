@@ -8,35 +8,36 @@ jest.mock('@/pickups/api/pickups', () => ({
 }))
 
 import { createStore, defaultActionStatusesFor } from '>/helpers'
+import { makeGroup, makeStore, makePickup } from '>/enrichedFactories'
 import lolex from 'lolex'
 
 describe('pickups', () => {
   beforeEach(() => jest.resetModules())
 
-  let storeMocks
-  let vstore
-  let clock
+  describe('with vuex', () => {
+    let storeMocks
+    let vstore
+    let clock
 
-  let userId = 10
+    let userId = 10
 
-  let pickup1
-  let pickup2
-  let pickup3
-  const group = { id: 666, isCurrentGroup: true }
+    let pickup1
+    let pickup2
+    let pickup3
+    const group = { id: 666, isCurrentGroup: true }
 
-  beforeEach(() => {
-    const now = new Date('2017-01-01T12:00:10Z')
-    clock = lolex.install({ now, toFake: ['Date'] })
-    pickup1 = { id: 1, store: 10, date: new Date(), collectorIds: [], group }
-    pickup2 = { id: 2, store: 11, date: new Date(), collectorIds: [userId], maxCollectors: 1, group }
-    pickup3 = { id: 3, store: 12, date: new Date(), collectorIds: [userId], group }
-  })
+    beforeEach(() => {
+      const now = new Date('2017-01-01T12:00:10Z')
+      clock = lolex.install({ now, toFake: ['Date'] })
+      pickup1 = { id: 1, store: 10, date: new Date(), collectorIds: [], group }
+      pickup2 = { id: 2, store: 11, date: new Date(), collectorIds: [userId], maxCollectors: 1, group }
+      pickup3 = { id: 3, store: 12, date: new Date(), collectorIds: [userId], group }
+    })
 
-  afterEach(() => {
-    clock = clock.uninstall()
-  })
+    afterEach(() => {
+      clock = clock.uninstall()
+    })
 
-  describe('logged in', () => {
     beforeEach(() => {
       storeMocks = {
         auth: {
@@ -68,7 +69,7 @@ describe('pickups', () => {
     })
 
     beforeEach(() => {
-      vstore.commit('pickups/set', [pickup1, pickup2, pickup3])
+      vstore.commit('pickups/update', [pickup1, pickup2, pickup3])
     })
 
     it('can enrich', async () => {
@@ -93,11 +94,6 @@ describe('pickups', () => {
 
     it('can get my pickups', async () => {
       expect(vstore.getters['pickups/joined'].map(getId)).toEqual([pickup2, pickup3].map(getId))
-    })
-
-    it('can get filtered', async () => {
-      vstore.commit('pickups/setStoreIdFilter', pickup2.store)
-      expect(vstore.getters['pickups/filtered'].map(getId)).toEqual([pickup2].map(getId))
     })
 
     it('can fetch a pickup', async () => {
@@ -138,22 +134,14 @@ describe('pickups', () => {
       expect(mockLeave).toBeCalledWith(pickup2.id)
     })
 
-    it('can set and clear store filter', () => {
-      expect(vstore.getters['pickups/filtered'].map(getId)).toEqual([pickup1, pickup2, pickup3].map(getId))
-      vstore.dispatch('pickups/setStoreFilter', pickup3.store)
-      expect(vstore.getters['pickups/filtered'].map(getId)).toEqual([pickup3].map(getId))
-      vstore.dispatch('pickups/clearStoreFilter')
-      expect(vstore.getters['pickups/filtered'].map(getId)).toEqual([pickup1, pickup2, pickup3].map(getId))
-    })
-
     it('can update a pickup', () => {
       const changed = { ...pickup1, maxCollectors: 987 }
-      vstore.dispatch('pickups/update', changed)
+      vstore.commit('pickups/update', [changed])
       expect(vstore.getters['pickups/get'](changed.id).maxCollectors).toEqual(changed.maxCollectors)
     })
 
     it('can delete a pickup', () => {
-      vstore.dispatch('pickups/delete', pickup1.id)
+      vstore.commit('pickups/delete', pickup1.id)
       expect(vstore.getters['pickups/get'](pickup1.id)).toBeUndefined()
     })
 
@@ -161,6 +149,40 @@ describe('pickups', () => {
       vstore.dispatch('pickups/addFeedbackPossible', pickup1)
       expect(vstore.getters['pickups/feedbackPossible'][0].date).toEqual(pickup1.date)
     })
+  })
+
+  it('filters by active store', () => {
+    const activePickup = makePickup({
+      store: makeStore({ isActiveStore: true }),
+    })
+    const inactivePickup = makePickup({
+      store: makeStore({ isActiveStore: false }),
+    })
+    const otherGetters = {
+      all: [activePickup, inactivePickup],
+    }
+    const { getters } = require('./pickups').default
+
+    const result = getters.byActiveStore(null, otherGetters)
+    expect(result.length).toEqual(1)
+    expect(result[0].id).toEqual(activePickup.id)
+  })
+
+  it('filters by current group', () => {
+    const activePickup = makePickup({
+      group: makeGroup({ isCurrentGroup: true }),
+    })
+    const inactivePickup = makePickup({
+      group: makeGroup({ isCurrentGroup: false }),
+    })
+    const otherGetters = {
+      all: [activePickup, inactivePickup],
+    }
+    const { getters } = require('./pickups').default
+
+    const result = getters.byCurrentGroup(null, otherGetters)
+    expect(result.length).toEqual(1)
+    expect(result[0].id).toEqual(activePickup.id)
   })
 })
 

@@ -83,7 +83,6 @@ export default {
           }
         }
         const getStatistics = stores.statistics(storeId)
-        dispatch('pickups/setStoreFilter', storeId, { root: true })
         dispatch('sidenavBoxes/toggle/group', false, { root: true })
         commit('select', storeId)
         commit('setStatistics', { data: await getStatistics, id: storeId })
@@ -97,17 +96,16 @@ export default {
     },
 
     clearSelectedStore ({ commit, dispatch }) {
-      dispatch('pickups/clearStoreFilter', null, { root: true })
       dispatch('sidenavBoxes/toggle/group', true, { root: true })
       commit('clearSelected')
     },
 
     update ({ commit, dispatch, getters }, update) {
       const old = getters.get(update.id)
+      // make sure we refresh pickups if store status changes
       if (old && old.status !== update.status) {
         if (old.status === 'active' || update.status === 'active') {
           dispatch('pickups/clearUpcomingForStore', old.id, { root: true })
-          dispatch('pickups/setStoreFilter', getters.activeStoreId, { root: true })
           dispatch('pickups/fetchListByGroupId', old.group.id, { root: true })
         }
       }

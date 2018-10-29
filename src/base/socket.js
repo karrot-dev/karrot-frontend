@@ -179,7 +179,7 @@ function receiveMessage ({ topic, payload }) {
     store.dispatch('currentGroup/update', convertGroup(camelizeKeys(payload)))
   }
   else if (topic === 'groups:group_preview') {
-    store.dispatch('groups/update', camelizeKeys(payload))
+    store.commit('groups/update', [camelizeKeys(payload)])
   }
   else if (topic === 'invitations:invitation') {
     store.dispatch('invitations/add', convertInvitation(camelizeKeys(payload)))

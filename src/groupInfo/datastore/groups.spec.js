@@ -164,7 +164,7 @@ describe('groups', () => {
 
     it('can update a group', async () => {
       const changed = { ...group1, name: 'new name' }
-      store.dispatch('groups/update', changed)
+      store.commit('groups/update', [changed])
       expect(store.getters['groups/get'](changed.id).name).toEqual(changed.name)
     })
   })

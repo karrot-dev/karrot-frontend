@@ -53,7 +53,7 @@
           side="left"
           :width="sidenavWidth"
           :breakpoint="Number.MAX_SAFE_INTEGER"
-          :value="showSidenav"
+          v-model="showSidenav"
           :overlay="false"
           @click.native="toggleSidenav"
         >

@@ -35,7 +35,7 @@ describe('stores module', () => {
 
   it('can update store', () => {
     const changed = { ...store1, name: 'new name' }
-    store.dispatch('stores/update', changed)
+    store.commit('stores/update', [changed])
     expect(store.getters['stores/get'](changed.id).name).toEqual(changed.name)
   })
 

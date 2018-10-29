@@ -189,7 +189,7 @@ function receiveMessage ({ topic, payload }) {
     store.dispatch('invitations/delete', payload.id)
   }
   else if (topic === 'stores:store') {
-    store.dispatch('stores/update', camelizeKeys(payload))
+    store.dispatch('stores/update', [camelizeKeys(payload)])
   }
   else if (topic === 'pickups:pickupdate') {
     store.commit('pickups/update', [convertPickup(camelizeKeys(payload))])

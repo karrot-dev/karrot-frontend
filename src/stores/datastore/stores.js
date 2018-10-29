@@ -16,7 +16,6 @@ function initialState () {
   return {
     entries: {},
     statistics: {},
-    idList: [],
     activeStoreId: null,
   }
 }
@@ -31,7 +30,7 @@ export default {
   },
   state: initialState(),
   getters: {
-    all: (state, getters) => state.idList.map(getters.get).sort(sortByName).sort(sortByStatus),
+    all: (state, getters) => Object.values(state.entries).map(getters.enrich).sort(sortByName).sort(sortByStatus),
     notArchived: (state, getters) => getters.all.filter(s => s.status !== 'archived'),
     archived: (state, getters) => getters.all.filter(s => s.status === 'archived'),
     filtered: (state, getters) => getters.notArchived.filter(store => getters['toggle/showAll'] || store.status === 'active'),
@@ -55,7 +54,7 @@ export default {
   actions: {
     ...withMeta({
       async save ({ dispatch }, store) {
-        dispatch('update', await stores.save(store))
+        dispatch('update', [await stores.save(store)])
         router.push({ name: 'store', params: { storeId: store.id } })
       },
       async create ({ dispatch, rootGetters }, store) {
@@ -63,7 +62,7 @@ export default {
           ...store,
           group: rootGetters['currentGroup/id'],
         })
-        dispatch('update', createdStore)
+        dispatch('update', [createdStore])
         router.push({ name: 'store', params: { storeId: createdStore.id } })
       },
       async fetch ({ commit }) {
@@ -76,7 +75,7 @@ export default {
         if (!getters.get(storeId)) {
           try {
             const store = await stores.get(storeId)
-            commit('update', store)
+            commit('update', [store])
           }
           catch (error) {
             throw createRouteError()
@@ -103,13 +102,14 @@ export default {
     update ({ commit, dispatch, getters }, update) {
       const old = getters.get(update.id)
       // make sure we refresh pickups if store status changes
+      // TODO move to vuex plugin in pickups module
       if (old && old.status !== update.status) {
         if (old.status === 'active' || update.status === 'active') {
           dispatch('pickups/clearUpcomingForStore', old.id, { root: true })
           dispatch('pickups/fetchListByGroupId', old.group.id, { root: true })
         }
       }
-      commit('update', update)
+      commit('update', [update])
     },
 
     clear ({ commit }) {
@@ -126,17 +126,14 @@ export default {
     },
     set (state, stores) {
       state.entries = indexById(stores)
-      state.idList = stores.map(e => e.id)
     },
     clear (state) {
       state.activeStoreId = null
       state.entries = {}
-      state.idList = []
     },
-    update (state, store) {
-      Vue.set(state.entries, store.id, store)
-      if (!state.idList.includes(store.id)) {
-        state.idList.push(store.id)
+    update (state, stores) {
+      for (const store of stores) {
+        Vue.set(state.entries, store.id, store)
       }
     },
     setStatistics (state, { id, data }) {

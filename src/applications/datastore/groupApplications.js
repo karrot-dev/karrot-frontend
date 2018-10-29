@@ -49,7 +49,7 @@ export default {
   },
   actions: {
     ...withMeta({
-      async fetchMine ({ commit, dispatch, rootGetters }) {
+      async fetchMine ({ commit, rootGetters }) {
         const userId = rootGetters['auth/userId']
         if (!userId) return
         const applicationList = await groupApplications.list({ user: userId, status: 'pending' })
@@ -58,20 +58,24 @@ export default {
           commit('clear')
           commit('update', applicationList)
         }
-        applicationList.forEach(a => dispatch('users/update', a.user, { root: true }))
+        const users = applicationList.map(a => a.user)
+        commit('users/update', users, { root: true })
       },
 
-      async fetchByGroupId ({ commit, dispatch }, { groupId }) {
+      async fetchByGroupId ({ commit }, { groupId }) {
         const applicationList = await groupApplications.list({ group: groupId })
         commit('clear')
         commit('update', applicationList)
-        applicationList.forEach(a => dispatch('users/update', a.user, { root: true }))
+
+        const users = applicationList.map(a => a.user)
+        commit('users/update', users, { root: true })
       },
 
-      async fetchOne ({ commit, dispatch }, applicationId) {
+      async fetchOne ({ commit }, applicationId) {
         const application = await groupApplications.get(applicationId)
         commit('update', [application])
-        dispatch('users/update', application.user, { root: true })
+
+        commit('users/update', [application.user], { root: true })
       },
 
       async apply ({ commit, dispatch }, data) {

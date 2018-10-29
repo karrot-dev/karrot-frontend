@@ -145,10 +145,10 @@ export default {
       return dispatch('backgroundSave', diff)
     },
 
-    async backgroundSave ({ dispatch }, data) {
+    async backgroundSave ({ commit, dispatch }, data) {
       const savedUser = await authUser.save(data)
       dispatch('update', savedUser)
-      dispatch('users/update', savedUser, { root: true })
+      commit('users/update', [savedUser], { root: true })
       return savedUser
     },
 

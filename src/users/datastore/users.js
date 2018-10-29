@@ -2,7 +2,7 @@ import Vue from 'vue'
 import users from '@/users/api/users'
 import authUser from '@/authuser/api/authUser'
 import auth from '@/authuser/api/auth'
-import { indexById, createRouteError, createMetaModule, withMeta, metaStatuses } from '@/utils/datastore/helpers'
+import { createRouteError, createMetaModule, withMeta, metaStatuses } from '@/utils/datastore/helpers'
 import router from '@/base/router'
 
 function initialState () {
@@ -66,9 +66,9 @@ export default {
   actions: {
     ...withMeta({
       async fetch ({ commit }) {
-        commit('set', await users.list())
+        commit('update', await users.list())
       },
-      async signup ({ commit, dispatch }, { userData, joinPlayground }) {
+      async signup ({ dispatch }, { userData, joinPlayground }) {
         await authUser.create(userData)
         await dispatch('auth/login', { email: userData.email, password: userData.password }, { root: true })
         if (joinPlayground) {
@@ -79,14 +79,14 @@ export default {
         await auth.requestResetPassword(email)
         router.push({ name: 'requestPasswordResetSuccess' })
       },
-      async resetPassword ({ commit, dispatch, getters }, data) {
+      async resetPassword ({ dispatch }, data) {
         await auth.resetPassword(data)
         router.push({ name: 'login' })
         dispatch('toasts/show', {
           message: 'PASSWORD.RESET.SUCCESS',
         }, { root: true })
       },
-      async resendVerificationCode ({ commit, state }) {
+      async resendVerificationCode ({ commit }) {
         await auth.resendVerificationCode()
         commit('resendVerificationCodeSuccess', true)
       },
@@ -113,17 +113,10 @@ export default {
         }
       }
     },
-    async update ({ state, commit }, user) {
-      commit('update', user)
-      if (state.activeUserProfile && state.activeUserProfile.id === user.id) {
-        // TODO catch error if profile is info-only
-        commit('setProfile', await users.getProfile(user.id))
-      }
-    },
     clearSelectedUser ({ commit }) {
       commit('setProfile', null)
     },
-    clearSignup ({ commit, dispatch }) {
+    clearSignup ({ dispatch }) {
       dispatch('meta/clear', ['signup'])
     },
     clearResendVerificationCode ({ commit, dispatch }) {
@@ -137,30 +130,30 @@ export default {
     async refresh ({ state, dispatch, commit }, { userId } = {}) {
       if (userId) {
         const user = await users.get(userId)
-        commit('update', user)
+        commit('update', [user])
       }
       else {
         dispatch('fetch')
       }
       if (state.activeUserProfile) {
-        // TODO catch error if profile is info-only
-        commit('setProfile', await users.getProfile(userId))
+        dispatch('refreshProfile', state.activeUserProfile)
       }
+    },
+    async refreshProfile ({ getters, commit }, user) {
+      if (!user || !getters.activeUserId || user.id !== getters.activeUserId) return
+
+      // TODO catch error if profile is info-only
+      commit('setProfile', await users.getProfile(getters.activeUserId))
     },
   },
   mutations: {
     setProfile (state, userProfile) {
       state.activeUserProfile = userProfile
     },
-    set (state, users) {
-      state.entries = {
-        ...state.entries,
-        ...indexById(users),
+    update (state, users) {
+      for (const user of users) {
+        Vue.set(state.entries, user.id, user)
       }
-    },
-
-    update (state, user) {
-      Vue.set(state.entries, user.id, user)
     },
     resendVerificationCodeSuccess (state, status) {
       Vue.set(state, 'resendVerificationCodeSuccess', status)
@@ -170,7 +163,7 @@ export default {
 }
 
 export const plugin = store => {
-  // keep dependent data for user profile updated, even when switching groups
+  // Keep dependent data for user profile updated, even when switching groups
   // the watch fires too often, so we better to keep track what we last loaded to avoid concurrent requests
   let lastLoadedGroupId = null
   store.watch((state, getters) => ({

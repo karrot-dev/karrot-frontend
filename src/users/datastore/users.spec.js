@@ -4,7 +4,7 @@ const mockGet = jest.fn()
 const mockGetProfile = jest.fn()
 jest.mock('@/users/api/users', () => ({ get: mockGet, getProfile: mockGetProfile }))
 
-import { createStore, throws, createValidationError } from '>/helpers'
+import { createStore, throws, createValidationError, nextTicks } from '>/helpers'
 import { enrichGroup } from '>/storeHelpers'
 
 function enrich (user, groups, currentUserId) {
@@ -83,7 +83,7 @@ describe('users', () => {
   }
 
   beforeEach(() => {
-    store.commit('users/set', [user1, user2, user3])
+    store.commit('users/update', [user1, user2, user3])
     store.commit('groups/set', groups)
   })
 
@@ -103,20 +103,23 @@ describe('users', () => {
     expect(store.getters['users/byCurrentGroup'].map(e => e.id)).toEqual([user1.id, user2.id])
   })
 
-  it('can select user profile', async () => {
+  it.only('can select user profile', async () => {
     const user1Profile = {
       ...user1,
       groups: [1],
     }
     mockGetProfile.mockReturnValueOnce(user1Profile)
     await store.dispatch('users/selectUser', { userId: user1.id })
+    await nextTicks(2)
+    store.commit('users/update', [{ ...user1, displayName: 'asdf' }])
+    await nextTicks(4)
     expect(store.getters['users/activeUser']).toEqual(enrich(user1Profile, groups, userId))
     expect(history.actions.fetchForUserInGroup).toBeCalled()
   })
 
   it('can update user', () => {
     const changed = { ...user1, displayName: 'new user 1' }
-    store.dispatch('users/update', changed)
+    store.commit('users/update', [changed])
     expect(store.getters['users/get'](changed.id).displayName).toEqual(changed.displayName)
   })
 

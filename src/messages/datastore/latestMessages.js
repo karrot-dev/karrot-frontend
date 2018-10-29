@@ -108,17 +108,13 @@ export default {
       }
       if (applications) {
         commit('groupApplications/update', applications, { root: true })
-        for (const application of applications) {
-          dispatch('users/update', application.user, { root: true })
-        }
+        const users = applications.map(a => a.user)
+        commit('users/update', users, { root: true })
       }
       if (usersInfo) {
-        for (const user of usersInfo) {
-          // contains only limited user info, so only update if we don't have the user already
-          if (!rootState.users.entries[user.id]) {
-            dispatch('users/update', user, { root: true })
-          }
-        }
+        // contains only limited user info, so only update if we don't have the user already
+        const users = usersInfo.filter(user => !rootState.users.entries[user.id])
+        commit('users/update', users, { root: true })
       }
 
       // fetch related objects one-by-one, in case they haven't been delivered already

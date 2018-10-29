@@ -213,13 +213,16 @@ function receiveMessage ({ topic, payload }) {
   else if (topic === 'auth:user') {
     const user = camelizeKeys(payload)
     store.dispatch('auth/update', user)
-    store.dispatch('users/update', user)
+    store.commit('users/update', [user])
+    store.dispatch('users/refreshProfile', user)
   }
   else if (topic === 'auth:logout') {
     store.dispatch('auth/refresh')
   }
   else if (topic === 'users:user') {
-    store.dispatch('users/update', camelizeKeys(payload))
+    const user = camelizeKeys(payload)
+    store.commit('users/update', [user])
+    store.dispatch('users/refreshProfile', user)
   }
   else if (topic === 'history:history') {
     store.dispatch('history/update', convertHistory(camelizeKeys(payload)))

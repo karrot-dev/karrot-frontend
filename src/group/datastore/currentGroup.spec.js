@@ -133,7 +133,7 @@ describe('currentGroup', () => {
 
     beforeEach(() => {
       store.commit('currentGroup/set', group3)
-      store.commit('users/set', Object.values(users))
+      store.commit('users/update', [Object.values(users)])
     })
 
     it('can get currentGroup Id', () => {

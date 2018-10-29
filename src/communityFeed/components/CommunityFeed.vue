@@ -93,15 +93,6 @@
               </i18n>
             </q-item-tile>
           </q-item-main>
-          <q-item-side
-            v-if="!$q.platform.is.mobile"
-            right
-            stamp
-          >
-            <DateAsWords
-              :date="topic.createdAt"
-            />
-          </q-item-side>
         </q-item>
       </q-list>
     </component>

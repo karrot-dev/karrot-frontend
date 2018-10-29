@@ -45,6 +45,7 @@ export default {
         ui: optionsFor(store),
         group: rootGetters['groups/get'](store.group),
         statistics: state.statistics[store.id],
+        isActiveStore: store.id === state.activeStoreId,
       }
     },
     activeStore: (state, getters) => getters.get(state.activeStoreId),

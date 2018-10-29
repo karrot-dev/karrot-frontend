@@ -91,7 +91,7 @@ export default {
         commit('clear')
       },
     }),
-    async fetch ({ dispatch }, { excludeRead = false } = {}) {
+    async fetch ({ commit, dispatch }, { excludeRead = false } = {}) {
       const [conversationsAndRelated, threadsAndRelated] = await Promise.all([
         dispatch('conversationsPagination/extractCursor', conversationsAPI.list({ exclude_read: excludeRead })),
         dispatch('threadsPagination/extractCursor', messageAPI.listMyThreads({ exclude_read: excludeRead })),
@@ -109,8 +109,8 @@ export default {
         }
       }
       if (applications) {
+        commit('groupApplications/update', applications, { root: true })
         for (const application of applications) {
-          dispatch('groupApplications/update', application, { root: true })
           dispatch('users/update', application.user, { root: true })
         }
       }

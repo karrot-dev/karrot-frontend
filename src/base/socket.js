@@ -151,7 +151,7 @@ const socket = {
 
 function receiveMessage ({ topic, payload }) {
   if (topic === 'applications:update') {
-    store.dispatch('groupApplications/update', convertApplication(camelizeKeys(payload)))
+    store.commit('groupApplications/update', [convertApplication(camelizeKeys(payload))])
   }
   else if (topic === 'conversations:message') {
     const message = convertMessage(camelizeKeys(payload))

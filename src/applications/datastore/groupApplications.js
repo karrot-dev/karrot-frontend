@@ -1,7 +1,7 @@
 import Vue from 'vue'
 import groupApplications from '@/applications/api/groupApplications'
 import router from '@/base/router'
-import { indexById, withMeta, createMetaModule, metaStatuses } from '@/utils/datastore/helpers'
+import { withMeta, createMetaModule, metaStatuses } from '@/utils/datastore/helpers'
 
 function initialState () {
   return {
@@ -55,26 +55,28 @@ export default {
         const applicationList = await groupApplications.list({ user: userId, status: 'pending' })
 
         if (applicationList.length > 0) {
-          commit('set', applicationList)
+          commit('clear')
+          commit('update', applicationList)
         }
         applicationList.forEach(a => dispatch('users/update', a.user, { root: true }))
       },
 
       async fetchByGroupId ({ commit, dispatch }, { groupId }) {
         const applicationList = await groupApplications.list({ group: groupId })
-        commit('set', applicationList)
+        commit('clear')
+        commit('update', applicationList)
         applicationList.forEach(a => dispatch('users/update', a.user, { root: true }))
       },
 
       async fetchOne ({ commit, dispatch }, applicationId) {
         const application = await groupApplications.get(applicationId)
-        commit('update', application)
+        commit('update', [application])
         dispatch('users/update', application.user, { root: true })
       },
 
       async apply ({ commit, dispatch }, data) {
         const newApplication = await groupApplications.create(data)
-        commit('update', newApplication)
+        commit('update', [newApplication])
         dispatch('toasts/show', {
           message: 'JOINGROUP.APPLICATION_SUBMITTED',
         }, { root: true })
@@ -83,7 +85,7 @@ export default {
 
       async withdraw ({ commit, dispatch }, id) {
         const removedApplication = await groupApplications.withdraw(id)
-        commit('update', removedApplication)
+        commit('update', [removedApplication])
         dispatch('toasts/show', {
           message: 'JOINGROUP.APPLICATION_WITHDRAWN',
         }, { root: true })
@@ -91,7 +93,7 @@ export default {
 
       async accept ({ commit, dispatch }, id) {
         const acceptedApplication = await groupApplications.accept(id)
-        commit('update', acceptedApplication)
+        commit('update', [acceptedApplication])
         dispatch('toasts/show', {
           message: 'APPLICATION.ACCEPTED',
           messageParams: { userName: acceptedApplication.user.displayName },
@@ -100,7 +102,7 @@ export default {
 
       async decline ({ commit, dispatch }, id) {
         const declinedApplication = await groupApplications.decline(id)
-        commit('update', declinedApplication)
+        commit('update', [declinedApplication])
         dispatch('toasts/show', {
           message: 'APPLICATION.DECLINED',
           messageParams: { userName: declinedApplication.user.displayName },
@@ -118,19 +120,12 @@ export default {
       dispatch('meta/clear', ['apply'])
       dispatch('groups/clearGroupPreview', null, { root: true })
     },
-    update ({ commit }, application) {
-      commit('update', application)
-    },
   },
   mutations: {
-    set (state, applicationList) {
-      state.entries = {
-        ...state.entries,
-        ...indexById(applicationList),
+    update (state, applications) {
+      for (const application of applications) {
+        Vue.set(state.entries, application.id, application)
       }
-    },
-    update (state, application) {
-      Vue.set(state.entries, application.id, application)
     },
     clear (state) {
       Object.assign(state, initialState())

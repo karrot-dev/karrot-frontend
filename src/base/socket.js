@@ -198,10 +198,10 @@ function receiveMessage ({ topic, payload }) {
     store.dispatch('pickups/delete', convertPickup(camelizeKeys(payload)).id)
   }
   else if (topic === 'pickups:series') {
-    store.dispatch('pickupSeries/update', convertSeries(camelizeKeys(payload)))
+    store.commit('pickupSeries/update', [convertSeries(camelizeKeys(payload))])
   }
   else if (topic === 'pickups:series_deleted') {
-    store.dispatch('pickupSeries/delete', convertSeries(camelizeKeys(payload)).id)
+    store.commit('pickupSeries/delete', convertSeries(camelizeKeys(payload)).id)
   }
   else if (topic === 'feedback:feedback') {
     store.dispatch('feedback/update', convertFeedback(camelizeKeys(payload)))

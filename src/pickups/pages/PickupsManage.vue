@@ -271,7 +271,7 @@ export default {
   computed: {
     ...mapGetters({
       storeId: 'stores/activeStoreId',
-      pickupSeries: 'pickupSeries/all',
+      pickupSeries: 'pickupSeries/byActiveStore',
       oneTimePickups: 'pickups/filteredOneTime',
       pickupCreateStatus: 'pickups/createStatus',
       seriesCreateStatus: 'pickupSeries/createStatus',

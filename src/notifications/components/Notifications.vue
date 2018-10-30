@@ -92,7 +92,7 @@ export default {
     }),
     ...mapMutations({
       setPageVisible: 'notifications/setPageVisible',
-    })
+    }),
   },
   mounted () {
     this.setPageVisible(true)

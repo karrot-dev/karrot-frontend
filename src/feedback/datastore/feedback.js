@@ -165,8 +165,7 @@ export default {
       state.selectedFeedbackId = feedbackId
     },
     clear (state) {
-      Object.entries(initialState())
-        .forEach(([prop, value]) => Vue.set(state, prop, value))
+      Object.assign(state, initialState())
     },
   },
 }

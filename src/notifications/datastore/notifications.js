@@ -120,8 +120,7 @@ export default {
       Vue.delete(state.entries, id)
     },
     clear (state) {
-      Object.entries(initialState())
-        .forEach(([prop, value]) => Vue.set(state, prop, value))
+      Object.assign(state, initialState())
     },
   },
 }

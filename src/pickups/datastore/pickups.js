@@ -143,8 +143,7 @@ export default {
       state.now = new Date()
     },
     clear (state) {
-      Object.entries(initialState())
-        .forEach(([prop, value]) => Vue.set(state, prop, value))
+      Object.assign(state, initialState())
     },
     clearUpcomingForStore (state, storeId) {
       const now = new Date()

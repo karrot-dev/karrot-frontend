@@ -105,7 +105,7 @@ export default {
       // TODO move to vuex plugin in pickups module
       if (old && old.status !== update.status) {
         if (old.status === 'active' || update.status === 'active') {
-          dispatch('pickups/clearUpcomingForStore', old.id, { root: true })
+          commit('pickups/clearUpcomingForStore', old.id, { root: true })
           dispatch('pickups/fetchListByGroupId', old.group.id, { root: true })
         }
       }

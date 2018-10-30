@@ -120,9 +120,6 @@ export default {
         await dispatch('fetch', pickupId)
       }
     },
-    clearUpcomingForStore ({ commit }, storeId) {
-      commit('clearUpcomingForStore', storeId)
-    },
     addFeedbackPossible ({ commit, getters, rootGetters }, pickup) {
       const { group } = getters.enrich(pickup)
       if (group && group.isCurrentGroup) {

@@ -22,7 +22,7 @@
 
 <script>
 import { QSearch, QAutocomplete } from 'quasar'
-import { mapActions, mapGetters } from 'vuex'
+import { mapMutations, mapGetters } from 'vuex'
 
 export default {
   components: { QSearch, QAutocomplete },
@@ -32,7 +32,7 @@ export default {
     }
   },
   methods: {
-    ...mapActions({
+    ...mapMutations({
       setTerms: 'search/setTerms',
       hide: 'search/hide',
     }),

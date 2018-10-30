@@ -42,21 +42,6 @@ export default {
         })),
       ]
     },
-
-  },
-  actions: {
-    show ({ commit }) {
-      commit('show')
-    },
-
-    hide ({ commit }) {
-      commit('hide')
-    },
-
-    setTerms ({ commit }, terms) {
-      commit('setTerms', terms)
-    },
-
   },
   mutations: {
     show (state) {

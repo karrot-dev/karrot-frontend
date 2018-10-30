@@ -1,8 +1,8 @@
 export default ({ user }) => ({
   breadcrumbs: {
     namespaced: true,
-    actions: {
-      setAll: jest.fn(),
+    mutations: {
+      set: jest.fn(),
     },
   },
   auth: {

@@ -38,28 +38,28 @@ describe('breadcrumbs', () => {
   })
 
   it('can create an currentGroup item', async () => {
-    await store.dispatch('breadcrumbs/setAll', [{ type: 'currentGroup' }])
+    await store.commit('breadcrumbs/set', [{ type: 'currentGroup' }])
     expect(store.getters['breadcrumbs/all']).toEqual([{ name: 'my current group', route: { name: 'group', groupId: 1 } }])
   })
 
   it('can create an activeGroupPreview item', async () => {
-    await store.dispatch('breadcrumbs/setAll', [{ type: 'activeGroupPreview' }])
+    await store.commit('breadcrumbs/set', [{ type: 'activeGroupPreview' }])
     expect(store.getters['breadcrumbs/all']).toEqual([{ name: 'my current group info', route: { name: 'groupPreview', groupPreviewId: 4 } }])
   })
 
   it('can create an activeStore item', async () => {
-    await store.dispatch('breadcrumbs/setAll', [{ type: 'activeStore' }])
+    await store.commit('breadcrumbs/set', [{ type: 'activeStore' }])
     expect(store.getters['breadcrumbs/all']).toEqual([{ name: 'my active store', route: { name: 'store', storeId: 2 } }])
   })
 
   it('can create an activeUser item', async () => {
-    await store.dispatch('breadcrumbs/setAll', [{ type: 'activeUser' }])
+    await store.commit('breadcrumbs/set', [{ type: 'activeUser' }])
     expect(store.getters['breadcrumbs/all']).toEqual([{ name: 'my active user', route: { name: 'user', userId: 3 } }])
   })
 
   it('can do translation stuff', async () => {
     mockTranslate.mockReturnValueOnce('translated value')
-    await store.dispatch('breadcrumbs/setAll', [{ translation: 'translation.key' }])
+    await store.commit('breadcrumbs/set', [{ translation: 'translation.key' }])
     expect(store.getters['breadcrumbs/all']).toEqual([{ name: 'translated value', translation: 'translation.key' }])
   })
 })

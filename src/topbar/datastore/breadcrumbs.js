@@ -57,13 +57,8 @@ export default {
     },
     allNames: (state, getters) => getters.all.map(item => item.name).filter(item => item),
   },
-  actions: {
-    setAll ({ commit }, breadcrumbs) {
-      commit('setAllBreadcrumbs', { breadcrumbs })
-    },
-  },
   mutations: {
-    setAllBreadcrumbs (state, { breadcrumbs }) {
+    set (state, breadcrumbs) {
       state.breadcrumbs = breadcrumbs
     },
   },

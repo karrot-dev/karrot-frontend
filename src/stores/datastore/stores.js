@@ -111,11 +111,6 @@ export default {
       }
       commit('update', [update])
     },
-
-    clear ({ commit }) {
-      commit('clear')
-    },
-
   },
   mutations: {
     select (state, storeId) {
@@ -128,8 +123,7 @@ export default {
       state.entries = indexById(stores)
     },
     clear (state) {
-      state.activeStoreId = null
-      state.entries = {}
+      Object.assign(state, initialState())
     },
     update (state, stores) {
       for (const store of stores) {

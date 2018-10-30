@@ -1,7 +1,7 @@
 import { storiesOf } from '@storybook/vue'
 
 import KTopbar from './KTopbar'
-import KFooter from '../../base/components/KFooter'
+import KFooter from '@/base/components/KFooter'
 import { createStore, storybookDefaults as defaults } from '>/helpers'
 import { groupsMock, storesMock, usersMock, currentUserMock } from '>/mockdata'
 

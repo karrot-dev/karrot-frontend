@@ -28,7 +28,7 @@ describe('users', () => {
   beforeEach(() => {
     store = createStore({
       users: require('./users').default,
-      groups: require('../../groupInfo/datastore/groups').default,
+      groups: require('@/groupInfo/datastore/groups').default,
       auth,
       history,
       groupApplications,

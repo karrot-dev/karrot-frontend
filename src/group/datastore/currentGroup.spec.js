@@ -124,7 +124,7 @@ describe('currentGroup', () => {
     beforeEach(() => {
       store = createStore({
         currentGroup: require('./currentGroup').default,
-        users: require('../../users/datastore/users').default,
+        users: require('@/users/datastore/users').default,
         agreements,
         auth,
         conversations,

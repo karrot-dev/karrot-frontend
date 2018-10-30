@@ -49,13 +49,13 @@ export default {
       async fetchFiltered ({ state, dispatch, commit }, { filters }) {
         // only clear if scope changed
         if (!deepEqual(filters, state.idListScope)) {
-          dispatch('clear')
+          commit('clear')
           commit('setScope', filters)
         }
         const entries = await dispatch('pagination/extractCursor', historyAPI.list(filters))
         // check for race condition when switching pages
         if (!deepEqual(filters, state.idListScope)) return
-        commit('update', { entries })
+        commit('update', entries)
       },
       async fetchById ({ commit }, id) {
         // add entry by ID, not add to list
@@ -67,7 +67,7 @@ export default {
         const entries = await dispatch('pagination/fetchNext', historyAPI.listMore)
         // check for race condition when switching pages
         if (!deepEqual(scope, state.idListScope)) return
-        commit('update', { entries })
+        commit('update', entries)
       },
 
     }),
@@ -101,19 +101,15 @@ export default {
       })
     },
 
-    update ({ state, commit }, entry) {
+    maybeUpdateOne ({ state, commit }, entry) {
       // add entry if it fits current scope
       const { group, store, users } = state.idListScope
       const fitsGroupScope = () => group && entry.group === group
       const fitsStoreScope = () => store && entry.store === store
       const fitsUserInGroupScope = () => users && entry.users && entry.users.includes(users) && fitsGroupScope()
       if (fitsUserInGroupScope() || (fitsGroupScope() && !users) || fitsStoreScope()) {
-        commit('update', { entries: [entry] })
+        commit('update', [entry])
       }
-    },
-
-    clear ({ commit }) {
-      commit('clear')
     },
 
     refresh ({ state, dispatch }) {
@@ -135,7 +131,7 @@ export default {
       // used for history detail view
       state.entries[entry.id] = entry
     },
-    update (state, { entries }) {
+    update (state, entries) {
       state.entries = {
         ...state.entries,
         ...indexById(entries),

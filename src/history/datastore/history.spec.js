@@ -19,18 +19,18 @@ describe('history module', () => {
   })
 
   it('updates the history list with correct sorting', () => {
-    store.commit('history/update', { entries: [
+    store.commit('history/update', [
       { id: 3, date: new Date('2017-11-21') },
       { id: 4, date: new Date('2017-11-20') },
-    ] })
-    store.commit('history/update', { entries: [
+    ])
+    store.commit('history/update', [
       { id: 5, date: new Date('2017-10-21') },
       { id: 6, date: new Date('2017-10-20') },
-    ] })
-    store.commit('history/update', { entries: [
+    ])
+    store.commit('history/update', [
       { id: 1, date: new Date('2017-12-21') },
       { id: 2, date: new Date('2017-12-20') },
-    ] })
+    ])
     expect(store.state.history.idList).toEqual([1, 2, 3, 4, 5, 6])
   })
 
@@ -38,7 +38,7 @@ describe('history module', () => {
     store.commit('history/setScope', { group: 1, users: 1 })
     const entry = { id: 10, group: 1, store: 1, users: [1], date: new Date('2018-01-20') }
 
-    store.dispatch('history/update', entry)
+    store.dispatch('history/maybeUpdateOne', entry)
     expect(store.getters['history/all'][0].id).toEqual(entry.id)
   })
 
@@ -46,7 +46,7 @@ describe('history module', () => {
     store.commit('history/setScope', { group: 1 })
     const entry = { id: 10, group: 1, store: 1, users: [1], date: new Date('2018-01-20') }
 
-    store.dispatch('history/update', entry)
+    store.dispatch('history/maybeUpdateOne', entry)
     expect(store.getters['history/all'][0].id).toEqual(entry.id)
   })
 
@@ -54,7 +54,7 @@ describe('history module', () => {
     store.commit('history/setScope', { store: 1 })
     const entry = { id: 10, group: 1, store: 1, users: [1], date: new Date('2018-01-20') }
 
-    store.dispatch('history/update', entry)
+    store.dispatch('history/maybeUpdateOne', entry)
     expect(store.getters['history/all'][0].id).toEqual(entry.id)
   })
 

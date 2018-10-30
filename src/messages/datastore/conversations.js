@@ -379,10 +379,6 @@ export default {
       commit('clearConversation', { conversationId })
     },
 
-    clear ({ commit }) {
-      commit('clear')
-    },
-
     receiveMessage ({ commit }, message) {
       commit('updateMessages', {
         messages: [message],

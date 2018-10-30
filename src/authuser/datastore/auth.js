@@ -90,7 +90,7 @@ export default {
         commit('clearRedirectTo')
       },
 
-      async logout ({ dispatch }) {
+      async logout ({ commit, dispatch }) {
         await dispatch('push/disable')
         await dispatch('fcm/disable', null, { root: true })
         await auth.logout()
@@ -98,7 +98,7 @@ export default {
         dispatch('update', null)
         showLogoutToast(dispatch)
 
-        dispatch('conversations/clear', null, { root: true }) // TODO move into plugin
+        commit('conversations/clear', null, { root: true }) // TODO move into plugin
         dispatch('currentThread/clear', null, { root: true }) // TODO move into plugin
         router.push({ name: 'groupsGallery' })
       },

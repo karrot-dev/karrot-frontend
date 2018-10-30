@@ -55,7 +55,7 @@ import {
   QItem,
   QBtn,
 } from 'quasar'
-import { mapGetters, mapActions } from 'vuex'
+import { mapGetters, mapActions, mapMutations } from 'vuex'
 import NotificationItem from './NotificationItem'
 
 export default {
@@ -89,8 +89,10 @@ export default {
     ...mapActions({
       fetchPast: 'notifications/fetchPast',
       markClicked: 'notifications/markClicked',
-      setPageVisible: 'notifications/setPageVisible',
     }),
+    ...mapMutations({
+      setPageVisible: 'notifications/setPageVisible',
+    })
   },
   mounted () {
     this.setPageVisible(true)

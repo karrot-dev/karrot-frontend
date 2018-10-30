@@ -228,13 +228,13 @@ function receiveMessage ({ topic, payload }) {
     store.dispatch('history/maybeUpdateOne', convertHistory(camelizeKeys(payload)))
   }
   else if (topic === 'notifications:notification') {
-    store.dispatch('notifications/update', convertNotification(camelizeKeys(payload)))
+    store.commit('notifications/update', [convertNotification(camelizeKeys(payload))])
   }
   else if (topic === 'notifications:notification_deleted') {
-    store.dispatch('notifications/delete', payload.id)
+    store.commit('notifications/delete', payload.id)
   }
   else if (topic === 'notifications:meta') {
-    store.dispatch('notifications/setEntryMeta', convertNotificationMeta(camelizeKeys(payload)))
+    store.commit('notifications/setEntryMeta', convertNotificationMeta(camelizeKeys(payload)))
   }
 }
 

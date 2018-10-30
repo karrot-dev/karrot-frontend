@@ -47,7 +47,7 @@ describe('auth', () => {
 
   it('can update user', () => {
     const changed = { ...user(), displayName: 'Alex2' }
-    store.dispatch('auth/update', changed)
+    store.commit('auth/setUser', changed)
     expect(store.getters['auth/user'].displayName).toEqual(changed.displayName)
   })
 

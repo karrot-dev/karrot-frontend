@@ -212,7 +212,7 @@ function receiveMessage ({ topic, payload }) {
   }
   else if (topic === 'auth:user') {
     const user = camelizeKeys(payload)
-    store.dispatch('auth/update', user)
+    store.dispatch('auth/setUser', user)
     store.commit('users/update', [user])
     store.dispatch('users/refreshProfile', user)
   }

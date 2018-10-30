@@ -1,4 +1,3 @@
-import Vue from 'vue'
 import historyAPI from '@/history/api/history'
 import { indexById, createRouteError, createMetaModule, createPaginationModule, withMeta, metaStatuses } from '@/utils/datastore/helpers'
 import i18n from '@/base/i18n'

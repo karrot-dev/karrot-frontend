@@ -1,4 +1,3 @@
-import Vue from 'vue'
 import router from '@/base/router'
 import feedbackAPI from '@/feedback/api/feedback'
 import { indexById, createMetaModule, withMeta, metaStatuses, createPaginationModule } from '@/utils/datastore/helpers'

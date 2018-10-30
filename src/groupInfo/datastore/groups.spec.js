@@ -82,7 +82,7 @@ describe('groups', () => {
 
   const currentGroup = {
     actions: {
-      update: jest.fn(),
+      maybeUpdate: jest.fn(),
       clear: jest.fn(),
     },
   }

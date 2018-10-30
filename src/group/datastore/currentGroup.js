@@ -165,7 +165,7 @@ export default {
       dispatch('feedback/clear', null, { root: true })
     },
 
-    update ({ getters, commit }, group) {
+    maybeUpdate ({ getters, commit }, group) {
       if (!getters.id) return
 
       // update group values, do not replace group

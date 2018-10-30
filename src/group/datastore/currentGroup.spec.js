@@ -185,7 +185,7 @@ describe('currentGroup', () => {
       mockGet.mockReturnValueOnce(group3)
       await store.dispatch('currentGroup/select', { groupId: group3.id })
       const changed = { ...group3, name: 'new name' }
-      store.dispatch('currentGroup/update', changed)
+      store.dispatch('currentGroup/maybeUpdate', changed)
       expect(store.getters['currentGroup/value'].name).toEqual(changed.name)
     })
   })

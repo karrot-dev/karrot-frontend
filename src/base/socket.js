@@ -176,7 +176,7 @@ function receiveMessage ({ topic, payload }) {
     store.dispatch('conversations/clearConversation', payload.id)
   }
   else if (topic === 'groups:group_detail') {
-    store.dispatch('currentGroup/update', convertGroup(camelizeKeys(payload)))
+    store.dispatch('currentGroup/maybeUpdate', convertGroup(camelizeKeys(payload)))
   }
   else if (topic === 'groups:group_preview') {
     store.commit('groups/update', [camelizeKeys(payload)])

@@ -7,7 +7,6 @@ import { indexById, withMeta, createMetaModule, metaStatusesWithId, metaStatuses
 function initialState () {
   return {
     entries: {},
-    idsList: [],
     activePreviewId: null,
   }
 }
@@ -37,7 +36,7 @@ export default {
       }
     },
     all: (state, getters, rootState, rootGetters) => {
-      return state.idsList.map(getters.get)
+      return Object.values(state.entries).map(getters.enrich)
     },
     mine: (state, getters) => getters.all.filter(e => e.isMember).sort(sortByName),
     // A de-duplicated list of member ids of all groups the user is part of
@@ -126,15 +125,11 @@ export default {
       state.activePreviewId = previewId
     },
     set (state, groups) {
-      state.idsList = groups.map((group) => group.id)
       state.entries = indexById(groups)
     },
     update (state, groups) {
       for (const group of groups) {
         Vue.set(state.entries, group.id, group)
-        if (!state.idsList.includes(group.id)) {
-          state.idsList.push(group.id)
-        }
       }
     },
     join (state, { groupId, userId }) {

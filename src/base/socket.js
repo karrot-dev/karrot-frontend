@@ -182,11 +182,11 @@ function receiveMessage ({ topic, payload }) {
     store.commit('groups/update', [camelizeKeys(payload)])
   }
   else if (topic === 'invitations:invitation') {
-    store.dispatch('invitations/add', convertInvitation(camelizeKeys(payload)))
+    store.commit('invitations/update', [convertInvitation(camelizeKeys(payload))])
   }
   else if (topic === 'invitations:invitation_accept') {
     // delete invitation from list until there is a better way to display it
-    store.dispatch('invitations/delete', payload.id)
+    store.commit('invitations/delete', payload.id)
   }
   else if (topic === 'stores:store') {
     store.dispatch('stores/update', [camelizeKeys(payload)])

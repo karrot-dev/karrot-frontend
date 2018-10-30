@@ -1,12 +1,11 @@
 import Vue from 'vue'
 import invitations from '@/invitations/api/invitations'
 import router from '@/base/router'
-import { indexById, createMetaModule, withMeta, metaStatuses } from '@/utils/datastore/helpers'
+import { createMetaModule, withMeta, metaStatuses } from '@/utils/datastore/helpers'
 
 function initialState () {
   return {
     entries: {},
-    idList: [],
   }
 }
 
@@ -25,7 +24,7 @@ export default {
       }
     },
     list: (state, getters, rootState, rootGetters) => {
-      return state.idList.map(getters.get).sort(sortByCreatedAt)
+      return Object.values(state.entries).map(getters.enrich).sort(sortByCreatedAt)
     },
     ...metaStatuses(['fetch', 'send', 'accept']),
   },
@@ -34,8 +33,8 @@ export default {
       /**
        * Fetch sent invitations for current group
        */
-      async fetch ({ commit, dispatch, rootGetters }, { groupId }) {
-        commit('set', await invitations.listByGroupId(groupId))
+      async fetch ({ commit }, { groupId }) {
+        commit('update', await invitations.listByGroupId(groupId))
       },
 
       /**
@@ -46,13 +45,13 @@ export default {
           email,
           group: rootGetters['currentGroup/id'],
         })
-        commit('append', invited)
+        commit('update', [invited])
       },
 
       /**
        * Accept invitation with token
        */
-      async accept ({ commit, dispatch }, token) {
+      async accept ({ dispatch }, token) {
         try {
           await invitations.accept(token)
           // Current group has changed, refresh user data
@@ -73,23 +72,6 @@ export default {
       },
     }),
 
-    /**
-     * Reset all state
-     */
-    clear ({ commit }) {
-      commit('clear')
-    },
-
-    add ({ state, commit }, invitation) {
-      if (!state.idList.includes(invitation.id)) {
-        commit('append', invitation)
-      }
-    },
-
-    delete ({ commit }, id) {
-      commit('delete', id)
-    },
-
     refresh ({ dispatch, rootGetters }) {
       const groupId = rootGetters['currentGroup/id']
       if (groupId) {
@@ -99,18 +81,13 @@ export default {
 
   },
   mutations: {
-    set (state, list) {
-      state.entries = indexById(list)
-      state.idList = list.map(e => e.id)
-    },
-    append (state, invited) {
-      Vue.set(state.entries, invited.id, invited)
-      state.idList.push(invited.id)
+    update (state, invitations) {
+      for (const invitation of invitations) {
+        Vue.set(state.entries, invitation.id, invitation)
+      }
     },
     delete (state, id) {
       Vue.delete(state.entries, id)
-      const idx = state.idList.indexOf(id)
-      if (idx !== -1) state.idList.splice(idx, 1)
     },
     clear (state) {
       Object.entries(initialState())

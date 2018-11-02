@@ -1,5 +1,5 @@
 {
-  "ENTRY": "1則輸入 | {數目}則輸入",
+  "ENTRY": "1則輸入 | {count}則輸入",
   "GLOBAL": {
     "GITHUB_NOTE": "開發",
     "FSWW_NOTE": "查看我們的資訊頁面 !",
@@ -8,7 +8,7 @@
     "BETA_WARNING": "這個網站正在積極開發中，變動很快。我們無法保證您所輸入資料的安全與隱私(但我們量力而為)。",
     "CONNECTION_INTERRUPTED": "錯誤：連線中斷！",
     "SERVER_ERROR": "伺服器錯誤",
-    "NOT_CONNECTED": "You aren't connected to the server",
+    "NOT_CONNECTED": "你並未連接至伺服器",
     "INVALID_LINK": "抱歉，你開啟的連結無效",
     "SEARCH_NOT_FOUND": "無符合的搜尋結果"
   },
@@ -36,30 +36,30 @@
       },
       "GIVE_TRUST": {
         "TITLE": "信任的使用者",
-        "MESSAGE": "你信任{社團名稱}裡的{使用者名稱}嗎?"
+        "MESSAGE": "你信任{groupName}裡的{userName}嗎?"
       }
     },
     "LOGOUT_SUCCESS": "你已經登出",
-    "YOU_TRUST_USER": "你信任{社團名稱}裡的{使用者名稱}",
-    "OTHER_PEOPLE_TRUST_USER": "{其他使用者}信任{社團名稱}裡的{使用者名稱}。| {數目}個人信任{社團名稱}裡的{使用者名稱}。",
-    "OTHER_PEOPLE_TRUST_YOU": "{otherUser} trusts you in {groupName}. | {count} people trust you in {groupName}.",
-    "PEOPLE_TRUST_USER": "你及{其他使用者}信任{社團名稱}裡的{使用者名稱}。| 你和{數目}個人信任{社團名稱}裡的{使用者名稱}。",
-    "FIRST_TRUST": "成為{社團名稱}裡第一個信任{使用者名稱}的人!",
+    "YOU_TRUST_USER": "你信任{groupName}裡的{userName}",
+    "OTHER_PEOPLE_TRUST_USER": "{otherUser}信任{groupName}裡的{userName}。| {count}個人信任{groupName}裡的{userName}。",
+    "OTHER_PEOPLE_TRUST_YOU": "在{groupName}裡的{otherUser}信任你。| {count}個{groupName}裡的成員信任你",
+    "PEOPLE_TRUST_USER": "你及{otherUser}信任{groupName}裡的{userName}。| 你和{count}個人信任{groupName}裡的{userName}。",
+    "FIRST_TRUST": "成為{groupName}裡第一個信任{userName}的人!",
     "NEWCOMER": "新加入成員",
-    "NEWCOMER_GUIDANCE": "{userName} is new to your group and might need some guidance.",
-    "TRUST_PROGRESS_TEXT": "{trustNeeded} more trust needed",
-    "TRUST_PROGRESS_TEXT_LONG": "{trustNeeded} more people need to express their trust in {userName} to grant editing permissions.",
-    "NEWCOMER_INFO": "You are currently a newcomer in {groupName} and you can become active by writing messages, meeting fellow members, doing pickups and giving feedback. As soon as {threshold} members expressed their trust in you, you will gain editing permissions to help with group administration.",
+    "NEWCOMER_GUIDANCE": "{userName}剛加入你的社團，可能需要一點指引",
+    "TRUST_PROGRESS_TEXT": "{trustNeeded}需要更多信任",
+    "TRUST_PROGRESS_TEXT_LONG": "{trustNeeded}需要更多人表示他們對{userName}的信任以批准編輯許可",
+    "NEWCOMER_INFO": "你現在是{groupName}裡的新成員，而你可能會因為寫訊息、認識其他成員、進行領取任務與給予回饋而開始活躍。一旦{threshold}個成員表示他們對你的信任，你就會得到編輯許可，一起協助社團管理。",
     "TRUST_INFO": {
-      "TITLE": "What is this carrot button about?",
-      "MESSAGE": "It is part of the Karrot trust system. It shows if a group member is newcomer and how much trust is needed until they gain editing permissions.",
-      "LINK": "Click here to find out more."
+      "TITLE": "carrot鈕是做甚麼的?",
+      "MESSAGE": "它是Karrot信任系統的一部分。它會顯示成員是否是新來的，以及他們還需要多少信任以取得編輯權。",
+      "LINK": "點擊此處以了解更多。"
     }
   },
   "SWITCHGROUP": {
-    "NOT_MEMBER": "{userName} is not member of {groupName}.",
-    "COMMON_GROUPS": "Groups you have in common",
-    "OTHER_GROUPS": "Other groups"
+    "NOT_MEMBER": "{userName}不是{groupName}的成員",
+    "COMMON_GROUPS": "你們共同有的社團",
+    "OTHER_GROUPS": "其他社團"
   },
   "BUTTON": {
     "CREATE": "創建",
@@ -93,8 +93,8 @@
     "SHOW_MORE": "顯示更多"
   },
   "VALIDATION": {
-    "MINLENGTH": "請輸入至少 {最少} 個字。",
-    "MAXLENGTH": "太長囉！請勿超過 {最多} 個字。",
+    "MINLENGTH": "請輸入至少 {min} 個字。",
+    "MAXLENGTH": "太長囉！請勿超過 {max} 個字。",
     "UNIQUE": "此名稱已經存在，請選擇另一個。",
     "REQUIRED": "此欄必須填寫。",
     "VALID_EMAIL": "請輸入一個有效的Email電子信箱。",
@@ -105,7 +105,7 @@
     "GROUP": "社團",
     "LEAVE": "離開社團...",
     "LEAVE_TEXT": "您是否確定要離開這個社團？",
-    "LEAVE_CONFIRMATION": "你已經退出 {社團名稱}",
+    "LEAVE_CONFIRMATION": "你已經退出 {groupName}",
     "NONMEMBER_REDIRECT": "你並非此社團的成員。",
     "EDIT": "編輯社團",
     "CREATE_TITLE": "創建新社團",
@@ -120,10 +120,10 @@
     "MESSAGES": "訊息",
     "PICKUP": "領取",
     "MEMBERS": "成員",
-    "JOINED": "加入[相對日期]",
-    "DECLINED": "拒絕 {相對日期}",
-    "ADDED_BY": "由{使用者名稱}加入",
-    "DECLINED_BY": "由{ 使用者名稱} 拒絕",
+    "JOINED": "已加入{relativeDate}",
+    "DECLINED": "已拒絕 {relativeDate}",
+    "ADDED_BY": "由{userName}加入",
+    "DECLINED_BY": "由{ userName} 拒絕",
     "SORT_JOINDATE": "由加入日期分類",
     "SORT_NAME": "由姓名分類",
     "INACTIVE": "非活躍",
@@ -231,14 +231,14 @@
     "VERIFY_EMAIL_ADDRESS":"驗證你的電子郵件地址以利申請",
     "MY_GROUPS": "我的社團",
     "LOGOUT_MESSAGE": {
-      "LOGGED_OUT": "你已經登出。 {登入}",
+      "LOGGED_OUT": "你已經登出。 {login}",
       "LOG_IN": "請登入檢視你的社團！"
     },
     "PROFILE_NOTE": "加入此社團後，其他成員也能瀏覽你的個人檔案。",
     "APPLICATION_SUBMITTED": "你的申請已成功提交",
     "APPLICATION_PENDING": "你的申請尚未有結果",
     "WITHDRAW_CONFIRMATION_HEADER": "撤銷申請",
-    "WITHDRAW_CONFIRMATION_TEXT": "你確定你要撤銷加入{ 社團名稱} 的申請?",
+    "WITHDRAW_CONFIRMATION_TEXT": "你確定你要撤銷加入{ groupName} 的申請?",
     "APPLICATION_WITHDRAWN": "你的申請已成功撤銷"
 
   },
@@ -283,7 +283,7 @@
     "WEEKDAYS": "平日",
     "WEEKDAYS_HELPER": "應該在哪幾天領取食物？",
     "RRULE": "循環規則",
-    "RRULE_HELPER": "輸入有效的{規則幫手}, 例如: {規則範例} 或是 {規則範例2}",
+    "RRULE_HELPER": "輸入有效的{ruleHelper}, 例如: {ruleExample} 或是{ruleExample2}",
     "RRULE_HELPER_URL": "iCalender規則",
     "RRULE_EXAMPLE": "每個月的最後一個工作天(星期一到五)",
     "RRULE_EXAMPLE2": "每個月第二個星期一",
@@ -320,10 +320,10 @@
     "STORE_NONE_HINT": "你可以在領取任務管理頁面創建新的領取任務"
   },
   "FEEDBACKLIST": {
-    "SAVED_FOOD": "至少有 1 公斤的食物不會被浪費掉了，| 謝謝你 ! 大家已經給  {數量}公斤的食物領取回饋了。繼續加油 !    ",
-    "NUMBER_PICKUPS": "{數目} 項領取已完成",
-    "NUMBER_FEEDBACK": "有{數目} 項領取回饋 ",
-    "WEIGHT_SUM": "{總數} 公斤的食物已被領取",
+    "SAVED_FOOD": "至少有 1 公斤的食物不會被浪費掉了，| 謝謝你 ! 大家已經給  {amout}公斤的食物領取回饋了。繼續加油 !    ",
+    "NUMBER_PICKUPS": "{count} 項領取已完成",
+    "NUMBER_FEEDBACK": "有{count} 項領取回饋 ",
+    "WEIGHT_SUM": "{sum} 公斤的食物已被領取",
     "GIVE_FEEDBACK": "給予回饋",
     "NONE": "尚未有回饋",
     "NONE_HINT": "當有更多回饋時，它們就會填入這個頁面",
@@ -339,8 +339,8 @@
     "DELETE_AMOUNT": "刪除數量",
     "AMOUNT": "你能領取的食物量(以公斤計算)",
     "COMMENT_PLACEHOLDER": "一切都順利嗎？大家都有到場嗎？在這裡留言...",
-    "PREVIOUS": "先前對於{商店名稱}的回饋",
-    "TOGETHER_WITH": "You did this pickup together with:"
+    "PREVIOUS": "先前對於{store}的回饋",
+    "TOGETHER_WITH": "你和:        一起領這次的食物"
   },
   "PASSWORDRESET": {
     "TITLE": "重新設定密碼",
@@ -376,51 +376,51 @@
     "GROUP_MODIFY": "變更此社團的設定",
     "GROUP_JOIN": "加入此社團",
     "GROUP_LEAVE": "離開此社團",
-    "STORE_CREATE": "創建店家 {名稱}",
-    "STORE_MODIFY": "變更店家設定 {名稱}",
-    "STORE_DELETE": "刪除商店{名字}",
+    "STORE_CREATE": "創建店家 {name}",
+    "STORE_MODIFY": "變更店家設定 {name}",
+    "STORE_DELETE": "刪除商店{name}",
     "PICKUP_CREATE": "創建新的一次性開放外帶",
     "PICKUP_MODIFY": "變更開放外帶的設定",
     "PICKUP_DELETE": "刪除開放外帶",
     "SERIES_CREATE": "創建新的循環出現開放外帶",
     "SERIES_MODIFY": "變更循環出現的開放外帶設定",
     "SERIES_DELETE": "刪除循環出現的開放外帶",
-    "PICKUP_DONE": "有去{商店名稱}拿取食物",
-    "PICKUP_MISSED": "在{商店名稱}的取貨被放鳥了！",
-    "PICKUP_JOIN": "註冊以在{商店名稱}取貨",
-    "PICKUP_LEAVE": "取消開放領取食物",
-    "GROUP_APPLICATION_DECLINED": "declined an application from {applicantName}",
-    "MEMBER_BECAME_EDITOR": "gained editing permissions",
+    "PICKUP_DONE": "有去{store}拿取食物",
+    "PICKUP_MISSED": "在{store}的食物領取被放鳥了！",
+    "PICKUP_JOIN": "註冊以在{store}取貨",
+    "PICKUP_LEAVE": "取消在{storeName}開放領取食物",
+    "GROUP_APPLICATION_DECLINED": "拒絕{applicantName}的申請",
+    "MEMBER_BECAME_EDITOR": "取得編輯許可",
     "NOTHING_HAPPENEND": "目前沒有任何事情發生",
     "DETAILS": "更多資訊"
   },
   "NOTIFICATIONS": {
     "TITLE": "通知",
-    "NOT_VERIFIED": "{電子郵件} 尚未認證",
-    "CHECK_YOUR_MAILS": "請查看你的電子信箱或 {重新寄送}",
+    "NOT_VERIFIED": "{email} 尚未驗證",
+    "CHECK_YOUR_MAILS": "請查看你的電子信箱或 {resend}",
     "RESEND_VERIFICATION": "重新寄送驗證信",
-    "VERIFICATION_EMAIL_SENT": "我們已經寄給你一封新的認證信。請檢查您的電子信箱。",
+    "VERIFICATION_EMAIL_SENT": "我們已經寄給你一封新的驗證信。請檢查您的電子信箱。",
     "CHANGES_SAVED": "你的修改已被保存.",
-    "EMAIL_NOT_DELIVERED": "無法傳送郵件給你 | 有 {數目} 封郵件無法傳送給你"
+    "EMAIL_NOT_DELIVERED": "無法傳送郵件給你 | 有 {count} 封郵件無法傳送給你"
   },
   "NOTIFICATION_BELLS_LIST": {
-    "TITLE": "Notifications",
-    "NO_ITEMS": "We currently don't have notifications for you."
+    "TITLE": "通知",
+    "NO_ITEMS": "現在你沒有通知"
   },
   "NOTIFICATION_BELLS": {
-    "YOU_BECAME_EDITOR": "You gained editing permissions",
-    "USER_BECAME_EDITOR": "{userName} gained editing permissions",
-    "NEW_APPLICANT": "{userName} applied to join your group",
-    "APPLICATION_ACCEPTED": "Your application was accepted!",
-    "APPLICATION_DECLINED": "Your application was declined",
-    "INVITATION_ACCEPTED": "{userName} accepted your invitation",
-    "FEEDBACK_POSSIBLE": "You can give feedback for the pickup you did on {date}",
-    "NEW_STORE": "{storeName} has been created",
-    "NEW_MEMBER": "{userName} joined your group",
-    "PICKUP_UPCOMING": "Reminder: You have a pickup at {time}"
+    "YOU_BECAME_EDITOR": "你已取得編輯權",
+    "USER_BECAME_EDITOR": "{userName}取得編輯權",
+    "NEW_APPLICANT": "{userName}申請加入社團",
+    "APPLICATION_ACCEPTED": "你的申請已通過!",
+    "APPLICATION_DECLINED": "你的申請被拒絕了",
+    "INVITATION_ACCEPTED": "{userName}接受了你的邀請",
+    "FEEDBACK_POSSIBLE": "你可以給你在{date}的食物領取回饋",
+    "NEW_STORE": "{storeName}已被創建",
+    "NEW_MEMBER": "{userName}加入了你的團隊",
+    "PICKUP_UPCOMING": "提醒: 你在{time}有領取任務"
   },
   "OUTDATED_BROWSER": {
-    "MESSAGE": "你目前使用的瀏覽器並不支援這些功能，{更新瀏覽器} 以便使用新功能",
+    "MESSAGE": "你目前使用的瀏覽器並不支援這些功能，{upgradeBrowser} 以便使用新功能",
     "LINK": "請更新或是換一個瀏覽器"
   },
   "UPDATE_AVAILABLE": {
@@ -471,14 +471,14 @@
     "OPEN": "開放對話",
     "REPLY_TO_MESSAGE": "回覆訊息",
     "REPLIES": "回覆",
-    "REPLIES_COUNT": "1則回覆 | {數量} 則回覆 ",
-    "UNREAD_MESSAGES": "你有一則未讀訊息。| 你有{數目}則未讀訊息。",
+    "REPLIES_COUNT": "1則回覆 | {count} 則回覆 ",
+    "UNREAD_MESSAGES": "你有一則未讀訊息。| 你有{count}則未讀訊息。",
     "EDITED": "已編輯",
     "MARK_READ": "將全部訊息標示為已讀",
     "REACTIONS": {
       "YOU": "你",
       "AND": "以及",
-      "REACTED_WITH":"{使用者}反應了{反應}"
+      "REACTED_WITH":"{users}反應了{reaction}"
     },
     "MESSAGE_NOT_FOUND": "找不到訊息",
     "NO_CONVERSATIONS": "沒有對話",
@@ -494,26 +494,26 @@
   "APPLICATION": {
     "APPLICATION": "申請",
     "FORM_HEADER": "申請",
-    "FORM_TITLE": "申請加入{團體名稱}",
+    "FORM_TITLE": "申請加入{groupName}",
     "GALLERY_TOOLTIP": "你已申請加入社團，申請尚未有結果",
-    "WALL_NOTICE": "有一個申請尚未有結果! 有{數目} 個申請尚未有結果",
+    "WALL_NOTICE": "有一個申請尚未有結果! 有{count} 個申請尚未有結果",
     "ACCEPT_CONFIRMATION_HEADER": "接受申請",
-    "ACCEPT_CONFIRMATION_TEXT": "你確定你要{使用者名稱}加入此社團?",
+    "ACCEPT_CONFIRMATION_TEXT": "你確定你要{userName}加入此社團?",
     "DECLINE_CONFIRMATION_HEADER": "拒絕申請",
-    "DECLINE_CONFIRMATION_TEXT": "你確定你要拒絕{使用者名稱}的申請嗎?",
-    "ACCEPTED": "你要接受{使用者名稱}加入社團嗎?",
-    "DECLINED": "你拒絕了{使用者名稱}的申請",
+    "DECLINE_CONFIRMATION_TEXT": "你確定你要拒絕{userName}的申請嗎?",
+    "ACCEPTED": "你要接受{userName}加入社團嗎?",
+    "DECLINED": "你拒絕了{userName}的申請",
     "PAST": "過去的申請",
-    "SUBMITTED_ON": "於{日期}提交",
-    "WITHDRAWN": "撤銷{相對日期}",
+    "SUBMITTED_ON": "於{date}提交",
+    "WITHDRAWN": "撤銷{relativeDate}",
     "WHAT": "這個對話是關於甚麼?",
-    "HELP": "這是所有現有{社團名稱}成員與新申請者{使用者名稱}間的對話。這是為了要在決定申請結果前更了解你一點。",
+    "HELP": "這是所有現有{groupName}成員與新申請者{userName}間的對話。這是為了要在決定申請結果前更了解你一點。",
     "INITIAL": "初步的問答"
   },
   "COMMUNITY_FEED": {
-    "HEADER": "來自{社群}的更新",
+    "HEADER": "來自{community}的更新",
     "HEADER_LINK": "世界惜食社群",
-    "LAST_UPDATED": "最近一次更新{相對日期}"
+    "LAST_UPDATED": "最近一次更新{relativeDate}"
   },
   "YOU": "你"
 }

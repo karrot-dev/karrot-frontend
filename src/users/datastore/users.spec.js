@@ -72,7 +72,7 @@ describe('users', () => {
 
   const history = {
     actions: {
-      fetchForUserInGroup: jest.fn(),
+      fetch: jest.fn(),
     },
   }
 
@@ -114,7 +114,7 @@ describe('users', () => {
     store.commit('users/update', [{ ...user1, displayName: 'asdf' }])
     await nextTicks(4)
     expect(store.getters['users/activeUser']).toEqual(enrich(user1Profile, groups, userId))
-    expect(history.actions.fetchForUserInGroup).toBeCalled()
+    expect(history.actions.fetch.mock.calls[0][1]).toEqual({ userId: 1, groupId: 1 })
   })
 
   it('can update user', () => {

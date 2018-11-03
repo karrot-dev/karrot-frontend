@@ -173,7 +173,7 @@ export const plugin = store => {
     if (profileUser && groupId && lastLoadedGroupId !== groupId) {
       lastLoadedGroupId = groupId
       store.dispatch('currentGroup/selectFromCurrentUser')
-      store.dispatch('history/fetchForUserInGroup', { userId: profileUser.id, groupId })
+      store.dispatch('history/fetch', { userId: profileUser.id, groupId })
     }
     if (!profileUser) {
       lastLoadedGroupId = null

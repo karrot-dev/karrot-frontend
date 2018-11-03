@@ -4,7 +4,7 @@ import HistoryListUI from '@/history/components/HistoryListUI'
 
 export default connect({
   gettersToProps: {
-    history: 'history/byActiveStore',
+    history: 'history/byCurrentGroupAndUser',
     status: 'history/fetchStatus',
     canFetchPast: 'history/canFetchPast',
     fetchPastStatus: 'history/fetchPastStatus',
@@ -12,5 +12,5 @@ export default connect({
   actionsToProps: {
     fetchPast: 'history/fetchPast',
   },
-})('StoreHistory', HistoryListUI)
+})('UserHistory', HistoryListUI)
 </script>

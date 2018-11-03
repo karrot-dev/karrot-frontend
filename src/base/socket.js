@@ -225,7 +225,7 @@ function receiveMessage ({ topic, payload }) {
     store.dispatch('users/refreshProfile', user)
   }
   else if (topic === 'history:history') {
-    store.dispatch('history/maybeUpdateOne', convertHistory(camelizeKeys(payload)))
+    store.commit('history/update', [convertHistory(camelizeKeys(payload))])
   }
   else if (topic === 'notifications:notification') {
     store.commit('notifications/update', [convertNotification(camelizeKeys(payload))])

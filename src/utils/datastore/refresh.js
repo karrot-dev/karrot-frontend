@@ -5,6 +5,7 @@ export default {
       const activeState = {
         groupId: rootGetters['currentGroup/id'],
         storeId: rootGetters['stores/activeStoreId'],
+        userId: rootGetters['user/activeUserId'],
       }
       await Promise.all([
         dispatch('users/refresh', {}, { root: true }),
@@ -12,7 +13,7 @@ export default {
         dispatch('pickups/refresh', null, { root: true }),
         dispatch('pickupSeries/refresh', null, { root: true }),
         dispatch('invitations/refresh', null, { root: true }),
-        dispatch('history/refresh', null, { root: true }),
+        dispatch('history/fetch', activeState, { root: true }),
         dispatch('groups/refresh', null, { root: true }),
         dispatch('conversations/refresh', null, { root: true }),
         dispatch('feedback/fetch', activeState, { root: true }),

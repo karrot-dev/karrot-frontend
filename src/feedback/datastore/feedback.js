@@ -96,7 +96,7 @@ export default {
 
     async select ({ dispatch, commit }, { groupId, feedbackId }) {
       if (feedbackId) {
-        dispatch('fetchForGroup', { groupId }) // ideally we would have the storeId here too, but it's not in the route
+        dispatch('fetch', { groupId }) // ideally we would have the storeId here too, but it's not in the route
         commit('update', [await feedbackAPI.get(feedbackId)])
         commit('select', feedbackId)
       }

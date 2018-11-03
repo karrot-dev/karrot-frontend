@@ -20,6 +20,8 @@ const mockNotificationsList = jest.fn()
 jest.mock('@/notifications/api/notifications', () => ({ list: mockNotificationsList }))
 const mockFeedbackList = jest.fn()
 jest.mock('@/feedback/api/feedback', () => ({ list: mockFeedbackList }))
+const mockHistoryList = jest.fn()
+jest.mock('@/history/api/history', () => ({ list: mockHistoryList }))
 
 import Vue from 'vue'
 import { configureQuasar, nextTicks } from '>/helpers'
@@ -41,6 +43,7 @@ describe('storeHelpers', () => {
     mockConversationsList.mockReturnValue({ results: {} })
     mockNotificationsList.mockReturnValue({ results: {} })
     mockFeedbackList.mockReturnValue({ results: [] })
+    mockHistoryList.mockReturnValue({ results: [] })
 
     const store = require('@/base/store').default
     store.commit('currentGroup/set', { id: 1 })
@@ -66,5 +69,6 @@ describe('storeHelpers', () => {
     expect(mockConversationsList).toHaveBeenCalled()
     expect(mockNotificationsList).toHaveBeenCalled()
     expect(mockFeedbackList).toHaveBeenCalledWith({ group: 1 })
+    expect(mockHistoryList).toHaveBeenCalledWith({ group: 1 })
   })
 })

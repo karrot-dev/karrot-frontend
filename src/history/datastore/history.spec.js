@@ -31,30 +31,13 @@ describe('history module', () => {
       { id: 1, date: new Date('2017-12-21') },
       { id: 2, date: new Date('2017-12-20') },
     ])
-    expect(store.state.history.idList).toEqual([1, 2, 3, 4, 5, 6])
+    expect(store.getters['history/all'].map(e => e.id)).toEqual([1, 2, 3, 4, 5, 6])
   })
 
-  it('can add a history entry if it fits user scope', () => {
-    store.commit('history/setScope', { group: 1, users: 1 })
+  it('can add a history entry', () => {
     const entry = { id: 10, group: 1, store: 1, users: [1], date: new Date('2018-01-20') }
 
-    store.dispatch('history/maybeUpdateOne', entry)
-    expect(store.getters['history/all'][0].id).toEqual(entry.id)
-  })
-
-  it('can add a history entry if it fits group scope', () => {
-    store.commit('history/setScope', { group: 1 })
-    const entry = { id: 10, group: 1, store: 1, users: [1], date: new Date('2018-01-20') }
-
-    store.dispatch('history/maybeUpdateOne', entry)
-    expect(store.getters['history/all'][0].id).toEqual(entry.id)
-  })
-
-  it('can add a history entry if it fits store scope', () => {
-    store.commit('history/setScope', { store: 1 })
-    const entry = { id: 10, group: 1, store: 1, users: [1], date: new Date('2018-01-20') }
-
-    store.dispatch('history/maybeUpdateOne', entry)
+    store.commit('history/update', [entry])
     expect(store.getters['history/all'][0].id).toEqual(entry.id)
   })
 

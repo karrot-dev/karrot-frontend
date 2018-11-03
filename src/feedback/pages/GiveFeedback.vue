@@ -6,7 +6,7 @@ export default connect({
   gettersToProps: {
     pickups: 'pickups/feedbackPossible',
     editFeedback: 'feedback/selected',
-    existingFeedback: 'feedback/all',
+    existingFeedback: 'feedback/byCurrentGroup',
     saveStatus: 'feedback/saveStatus',
     fetchStatus: 'feedback/fetchStatus',
     seedId: 'currentGroup/id',

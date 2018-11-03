@@ -103,7 +103,7 @@ describe('users', () => {
     expect(store.getters['users/byCurrentGroup'].map(e => e.id)).toEqual([user1.id, user2.id])
   })
 
-  it.only('can select user profile', async () => {
+  it('can select user profile', async () => {
     const user1Profile = {
       ...user1,
       groups: [1],

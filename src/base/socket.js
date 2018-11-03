@@ -204,7 +204,7 @@ function receiveMessage ({ topic, payload }) {
     store.commit('pickupSeries/delete', convertSeries(camelizeKeys(payload)).id)
   }
   else if (topic === 'feedback:feedback') {
-    store.dispatch('feedback/update', convertFeedback(camelizeKeys(payload)))
+    store.dispatch('feedback/updateOne', convertFeedback(camelizeKeys(payload)))
   }
   else if (topic === 'pickups:feedback_possible') {
     const pickup = convertPickup(camelizeKeys(payload))

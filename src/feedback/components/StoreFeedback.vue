@@ -78,7 +78,7 @@ export default {
   computed: {
     ...mapGetters({
       store: 'stores/activeStore',
-      feedback: 'feedback/all',
+      feedback: 'feedback/byActiveStore',
       fetchStatus: 'feedback/fetchStatus',
       canFetchPast: 'feedback/canFetchPast',
       fetchPastStatus: 'feedback/fetchPastStatus',

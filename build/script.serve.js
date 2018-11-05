@@ -9,7 +9,7 @@ const { join } = require('path')
 
 require('dotenv').config()
 
-const proxyTable = require('./config').proxyTable
+const { proxyTable } = require('./config')
 
 /**
  * Serve static files

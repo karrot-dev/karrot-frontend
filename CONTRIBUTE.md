@@ -67,21 +67,11 @@ Be careful to adapt your coding style to the already existing one. That makes it
 
 ### Translating and updating
 
-Use the [transifex command line client](https://docs.transifex.com/client/introduction) to upload the new messages to the translation service and download the translated files after they've been translated in our [transifex project](https://www.transifex.com/yunity-1/karrot/dashboard/).
+Every morning, a cron job runs on CirleCI that updates messages from the `master` branch on transifex (our translation manager service). New translations will open up a Pull Request shortly afterwards.
 
-```sh
-# push English source
-tx push -s
+## Making a new release
 
-# get translated files
-yarn update_i18n
-
-# (it will run the following commands:)
-# tx pull -a
-# curl https://www.transifex.com/api/2/project/foodsaving-tool/resource/frontend/stats/
-```
-
-Now you can commit those files and open a Pull Request in GitHub.
+Have a look at the file `scripts/prepare-release.js`.
 
 ## Used tools and libraries
 

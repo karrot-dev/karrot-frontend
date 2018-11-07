@@ -22,6 +22,8 @@ Please document your changes in this format:
 
 ## [Unreleased]
 
+## [6.2.4] - 2018-10-07
+
 ### Changed
 
 - Frontend code structure is now organized into modules @tiltec
@@ -295,7 +297,8 @@ After months of planning and programming, the first version of ~the foodsaving t
 [#1082]: https://github.com/yunity/karrot-frontend/issues/1082
 [#1071]: https://github.com/yunity/karrot-frontend/issues/1071
 
-[Unreleased]: https://github.com/yunity/karrot-frontend/compare/v6.2.3...HEAD
+[Unreleased]: https://github.com/yunity/karrot-frontend/compare/v6.2.4...HEAD
+[6.2.4]: https://github.com/yunity/karrot-frontend/compare/v6.2.3...v6.2.4
 [6.2.3]: https://github.com/yunity/karrot-frontend/compare/v6.2.2...v6.2.3
 [6.2.2]: https://github.com/yunity/karrot-frontend/compare/v6.2.1...v6.2.2
 [6.2.1]: https://github.com/yunity/karrot-frontend/compare/v6.2.0...v6.2.1

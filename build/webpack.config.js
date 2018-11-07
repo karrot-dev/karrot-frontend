@@ -12,7 +12,8 @@ const HardSourceWebpackPlugin = require('hard-source-webpack-plugin')
 
 const dev = process.env.NODE_ENV !== 'production'
 const cordova = process.env.CORDOVA === 'true'
-const backend = require('./config').backend
+const { backend, proxyTable } = require('./config')
+
 const appEnv = {
   // define the karrot environment
   __ENV: {
@@ -50,6 +51,17 @@ module.exports = {
   devtool: dev ? 'cheap-module-eval-source-map' : 'source-map',
   entry: {
     app: './src/base/main.js',
+  },
+  devServer: {
+    host: process.env.HOST || 'localhost',
+    port: 8080,
+    overlay: {
+      warnings: true,
+      errors: true,
+    },
+    historyApiFallback: true,
+    proxy: proxyTable,
+    contentBase: resolve(__dirname, '../src'),
   },
   output: {
     path: resolve(__dirname, '../dist'),

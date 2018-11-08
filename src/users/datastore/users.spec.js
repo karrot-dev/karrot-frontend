@@ -4,7 +4,7 @@ const mockGet = jest.fn()
 const mockGetProfile = jest.fn()
 jest.mock('@/users/api/users', () => ({ get: mockGet, getProfile: mockGetProfile }))
 
-import { createStore, throws, createValidationError, nextTicks } from '>/helpers'
+import { createStore, throws, createValidationError } from '>/helpers'
 import { enrichGroup } from '>/storeHelpers'
 
 function enrich (user, groups, currentUserId) {
@@ -110,9 +110,7 @@ describe('users', () => {
     }
     mockGetProfile.mockReturnValueOnce(user1Profile)
     await store.dispatch('users/selectUser', { userId: user1.id })
-    await nextTicks(2)
     store.commit('users/update', [{ ...user1, displayName: 'asdf' }])
-    await nextTicks(4)
     expect(store.getters['users/activeUser']).toEqual(enrich(user1Profile, groups, userId))
     expect(history.actions.fetch.mock.calls[0][1]).toEqual({ userId: 1, groupId: 1 })
   })

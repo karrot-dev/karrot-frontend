@@ -28,8 +28,8 @@ export default {
         ...feedback,
         givenBy: rootGetters['users/get'](feedback.givenBy),
         about: pickup,
-        store: pickup.store,
-        group: pickup.group,
+        store: pickup && pickup.store,
+        group: pickup && pickup.group,
       }
     },
     all: (state, getters) => Object.values(state.entries).map(getters.enrich).sort(sortByCreatedAt),

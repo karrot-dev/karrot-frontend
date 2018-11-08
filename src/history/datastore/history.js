@@ -1,5 +1,6 @@
 import historyAPI from '@/history/api/history'
 import { indexById, createRouteError, createMetaModule, createPaginationModule, withMeta, metaStatuses } from '@/utils/datastore/helpers'
+import { filterTruthy } from '@/utils/utils'
 import i18n from '@/base/i18n'
 
 function initialState () {
@@ -54,12 +55,11 @@ export default {
   actions: {
     ...withMeta({
       async fetch ({ dispatch, commit }, { groupId, storeId, userId }) {
-        const filters = Object.entries({
+        const filters = filterTruthy({
           store: storeId,
           group: groupId,
           users: userId,
-        }).filter(([_, v]) => v).reduce((acc, [k, v]) => ({ ...acc, [k]: v }), {})
-        // TODO maybe need to remove undefined or null values from filter
+        })
         const entries = await dispatch('pagination/extractCursor', historyAPI.list(filters))
         commit('update', entries)
       },

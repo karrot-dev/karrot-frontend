@@ -92,3 +92,7 @@ export function escape (s) {
 function escapeChar (a) {
   return ESC[a] || a
 }
+
+export function filterTruthy (obj) {
+  return Object.entries(obj).filter(([_, v]) => v).reduce((acc, [k, v]) => ({ ...acc, [k]: v }), {})
+}

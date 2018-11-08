@@ -42,10 +42,10 @@ export default {
         .sort(sortByDate)
     },
     byCurrentGroup: (state, getters) => {
-      return getters.all.filter(e => e.group && e.group.isCurrentGroup)
+      return getters.all.filter(({ group }) => group && group.isCurrentGroup)
     },
     byActiveStore: (state, getters) => {
-      return getters.all.filter(e => e.store && e.store.isActiveStore)
+      return getters.all.filter(({ store }) => store && store.isActiveStore)
     },
     byActiveStoreOneTime: (state, getters) => {
       return getters.byActiveStore.filter(e => !e.series)
@@ -60,7 +60,7 @@ export default {
     feedbackPossibleFiltered: (state, getters) =>
       state.feedbackPossibleIds
         .map(getters.get)
-        .filter(p => p.group && p.group.isCurrentGroup),
+        .filter(({ group }) => group && group.isCurrentGroup),
     ...metaStatuses(['create']),
   },
   actions: {

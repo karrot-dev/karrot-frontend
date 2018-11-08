@@ -34,10 +34,10 @@ export default {
     },
     all: (state, getters) => Object.values(state.entries).map(getters.enrich).sort(sortByCreatedAt),
     byCurrentGroup: (state, getters) => {
-      return getters.all.filter(e => e.group && e.isCurrentGroup)
+      return getters.all.filter(({ group }) => group && group.isCurrentGroup)
     },
     byActiveStore: (state, getters) => {
-      return getters.all.filter(e => e.store && e.isActiveStore)
+      return getters.all.filter(({ store }) => store && store.isActiveStore)
     },
     selected: (state, getters) => getters.get(state.selectedFeedbackId),
     canFetchPast: (state, getters) => getters['pagination/canFetchNext'],

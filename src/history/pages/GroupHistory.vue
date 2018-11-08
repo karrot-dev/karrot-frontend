@@ -6,15 +6,19 @@
       <RandomArt
         v-if="$q.platform.is.desktop"
         :seed="group.id"
-        type="circles" />
-      <HistoryList class="padding-top"/>
+        type="circles"
+      />
+      <HistoryContainer
+        class="padding-top"
+        :history="history"
+      />
     </q-card>
   </div>
 </template>
 
 <script>
 import { QCard, QBtn, QTooltip } from 'quasar'
-import HistoryList from '@/history/components/HistoryList'
+import HistoryContainer from '@/history/pages/HistoryContainer'
 import RandomArt from '@/utils/components/RandomArt'
 
 import {
@@ -22,10 +26,11 @@ import {
 } from 'vuex'
 
 export default {
-  components: { RandomArt, HistoryList, QCard, QBtn, QTooltip },
+  components: { RandomArt, HistoryContainer, QCard, QBtn, QTooltip },
   computed: {
     ...mapGetters({
       group: 'currentGroup/value',
+      history: 'history/byCurrentGroup',
     }),
   },
 }

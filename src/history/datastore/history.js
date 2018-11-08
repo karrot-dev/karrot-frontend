@@ -20,16 +20,16 @@ export default {
     get: (state, getters, rootState, rootGetters) => id => getters.enrich(state.entries[id]),
     all: (state, getters, rootState, rootGetters) => Object.values(state.entries).map(getters.enrich).sort(sortByCreatedAt),
     byCurrentGroup: (state, getters) => {
-      return getters.all.filter(e => e.group && e.isCurrentGroup)
+      return getters.all.filter(({ group }) => group && group.isCurrentGroup)
     },
     byActiveStore: (state, getters) => {
-      return getters.all.filter(e => e.store && e.isActiveStore)
+      return getters.all.filter(({ store }) => store && store.isActiveStore)
     },
     byCurrentGroupAndUser: (state, getters, rootState, rootGetters) => {
       // TODO could enrich user with isActiveUser property instead
       const activeUserId = rootGetters['users/activeUserId']
       if (!activeUserId) return []
-      return getters.byCurrentGroup.filter(e => e.users.find(u => u.id === activeUserId))
+      return getters.byCurrentGroup.filter(({ users }) => users.find(u => u.id === activeUserId))
     },
     canFetchPast: (state, getters) => getters['pagination/canFetchNext'],
     enrich: (state, getters, rootState, rootGetters) => entry => {

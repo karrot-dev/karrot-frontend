@@ -1,10 +1,10 @@
 <script>
 import { connect } from 'vuex-connect'
-import HistoryListUI from '@/history/components/HistoryListUI'
+import HistoryList from '@/history/components/HistoryList'
 
 export default connect({
   gettersToProps: {
-    history: 'history/byActiveStore',
+    // we do not pass in the 'history' prop to keep this component versatile
     status: 'history/fetchStatus',
     canFetchPast: 'history/canFetchPast',
     fetchPastStatus: 'history/fetchPastStatus',
@@ -12,5 +12,5 @@ export default connect({
   actionsToProps: {
     fetchPast: 'history/fetchPast',
   },
-})('StoreHistory', HistoryListUI)
+})('History', HistoryList)
 </script>

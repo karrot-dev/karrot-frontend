@@ -34,9 +34,9 @@ const status = new Vue({
 })
 
 status.$watch('online', val => {
-  if (val) store.dispatch('refresh/refresh')
+  if (val) store.dispatch('refresh/maybeRefresh')
 })
 
 status.$watch('foreground', val => {
-  if (val) store.dispatch('refresh/refresh')
+  if (val) store.dispatch('refresh/maybeRefresh')
 })

@@ -90,10 +90,6 @@ export default {
       findId: ({ storeId }) => storeId,
     }),
 
-    refresh ({ dispatch }) {
-      dispatch('fetch')
-    },
-
     clearSelectedStore ({ commit, dispatch }) {
       dispatch('sidenavBoxes/toggle/group', true, { root: true })
       commit('clearSelected')

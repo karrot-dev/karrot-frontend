@@ -91,7 +91,7 @@ export default {
         commit('clear')
       },
     }),
-    async fetch ({ commit, dispatch }, { excludeRead = false } = {}) {
+    async fetch ({ dispatch }, { excludeRead = false } = {}) {
       const [conversationsAndRelated, threadsAndRelated] = await Promise.all([
         dispatch('conversationsPagination/extractCursor', conversationsAPI.list({ exclude_read: excludeRead })),
         dispatch('threadsPagination/extractCursor', messageAPI.listMyThreads({ exclude_read: excludeRead })),
@@ -132,9 +132,6 @@ export default {
     updateThreadsAndRelated ({ commit }, { threads, messages }) {
       if (threads) commit('updateThreads', threads)
       if (messages) commit('updateThreadMessages', messages)
-    },
-    refresh ({ dispatch }) {
-      dispatch('fetch')
     },
   },
   mutations: {

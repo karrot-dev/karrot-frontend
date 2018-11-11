@@ -96,10 +96,6 @@ export default {
         }
       }
     },
-    refresh ({ commit, dispatch }) {
-      commit('clear')
-      dispatch('fetch')
-    },
   },
   mutations: {
     updateNow (state) {

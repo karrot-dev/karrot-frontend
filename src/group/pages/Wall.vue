@@ -24,6 +24,7 @@ export default connect({
   },
   actionsToProps: {
     fetchPast: 'conversations/fetchPast',
+    refresh: 'refresh/refresh',
   },
 })('GroupWall', Wall)
 </script>

@@ -115,10 +115,6 @@ export default {
     clearGroupPreview ({ commit }) {
       commit('setActivePreview', null)
     },
-
-    refresh ({ dispatch }) {
-      return dispatch('fetch')
-    },
   },
   mutations: {
     setActivePreview (state, previewId) {

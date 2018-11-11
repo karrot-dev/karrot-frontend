@@ -64,10 +64,6 @@ export default {
     clearList ({ commit }) {
       commit('clearList')
     },
-
-    refresh ({ dispatch }) {
-      dispatch('fetchListForActiveStore')
-    },
   },
   mutations: {
     set (state, list) {

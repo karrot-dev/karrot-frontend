@@ -398,7 +398,7 @@ export default {
         dispatch('updateConversation', await conversationsAPI.get(conversationId))
       })
       Object.keys(state.messages).forEach(async conversationId => {
-        commit('clearMessages', { conversationId })
+        // refreshes only first page of messages and resets pagination cursor
         dispatch('fetch', conversationId)
       })
     },

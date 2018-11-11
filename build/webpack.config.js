@@ -22,7 +22,7 @@ const appEnv = {
     BACKEND: JSON.stringify(backend),
     KARROT_THEME: JSON.stringify(process.env.KARROT_THEME),
     FCM_SENDER_ID: JSON.stringify(process.env.FCM_SENDER_ID),
-    RAVEN_CONFIG: JSON.stringify(process.env.RAVEN_CONFIG),
+    SENTRY_CONFIG: JSON.stringify(process.env.SENTRY_CONFIG),
     GIT_SHA1: JSON.stringify(process.env.GIT_SHA1 || process.env.CIRCLE_SHA1),
   },
   // Quasar requires process.env.THEME to be set

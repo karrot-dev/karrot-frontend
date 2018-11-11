@@ -15,7 +15,7 @@ import store from './store'
 import './socket'
 import i18n from './i18n'
 import log from '@/utils/log'
-import './raven'
+import './sentry'
 import polyfill from '@/utils/polyfill'
 import { DetectMobileKeyboardPlugin } from '@/utils/detectMobileKeyboard'
 

@@ -31,7 +31,7 @@ describe('history module', () => {
       { id: 1, date: new Date('2017-12-21') },
       { id: 2, date: new Date('2017-12-20') },
     ])
-    expect(store.getters['history/all'].map(e => e.id)).toEqual([1, 2, 3, 4, 5, 6])
+    expect(store.getters['history/all'].map(e => e.id)).toEqual([6, 5, 4, 3, 2, 1])
   })
 
   it('can add a history entry', () => {

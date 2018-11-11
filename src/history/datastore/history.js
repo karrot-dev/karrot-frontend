@@ -19,7 +19,7 @@ export default {
   state: initialState(),
   getters: {
     get: (state, getters, rootState, rootGetters) => id => getters.enrich(state.entries[id]),
-    all: (state, getters, rootState, rootGetters) => Object.values(state.entries).map(getters.enrich).sort(sortByCreatedAt),
+    all: (state, getters, rootState, rootGetters) => Object.values(state.entries).map(getters.enrich).sort(sortById),
     byCurrentGroup: (state, getters) => {
       return getters.all.filter(({ group }) => group && group.isCurrentGroup)
     },
@@ -102,6 +102,6 @@ export default {
   },
 }
 
-export function sortByCreatedAt (a, b) {
-  return b.createdAt - a.createdAt
+export function sortById (a, b) {
+  return b.id - a.id
 }

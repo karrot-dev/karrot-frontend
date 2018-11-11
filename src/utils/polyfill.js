@@ -1,5 +1,5 @@
 import Vue from 'vue'
-import locales, { intlLocale } from '@/locales/index'
+import { intlLocale } from '@/locales/index'
 
 // Allows us to use someElement.closest(selector)
 import 'element-closest'
@@ -22,7 +22,7 @@ export default new Vue({
       if (!window.Intl) {
         promises.push(
           import('intl'),
-          locales.en.intlLocale(),
+          intlLocale('en'),
         )
       }
       if (!window.requestAnimationFrame) {

@@ -2,12 +2,18 @@ import i18n from '@/base/i18n'
 import axios from 'axios'
 import dateFnsHelper from '@/utils/dateFnsHelper'
 import polyfill from '@/utils/polyfill'
-import { messages as loadMessages, quasarMessages as loadQuasarMessages } from '@/locales/index'
+import locales, { messages as loadMessages, quasarMessages as loadQuasarMessages } from '@/locales/index'
 import Quasar from 'quasar-vue-plugin'
 import { debounce } from 'quasar'
 
 export default store => {
   const loadLocale = debounce(async locale => {
+    // if we don't support the locale, reset to default
+    if (!locales[locale]) {
+      store.dispatch('i18n/setLocale', 'en')
+      return
+    }
+
     axios.defaults.headers.common['Accept-Language'] = locale
     document.documentElement.setAttribute('lang', locale)
     dateFnsHelper.locale = locale

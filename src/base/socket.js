@@ -130,6 +130,9 @@ const socket = {
       const connection = navigator.connection || navigator.mozConnection || navigator.webkitConnection
       if (!connection) return
 
+      // apparently cordova doesn't support addEventListener, but we don't need it there
+      if (!connection.addEventListener) return
+
       addEventListener(connection, 'change', () => {
         if (!store.getters['connectivity/websocket']) {
           debouncedReconnect()

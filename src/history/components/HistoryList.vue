@@ -1,16 +1,45 @@
-<script>
-import { connect } from 'vuex-connect'
-import HistoryListUI from '@/history/components/HistoryListUI'
+<template>
+  <q-infinite-scroll
+    ref="infiniteScroll"
+    :handler="maybeFetchPast"
+  >
+    <HistoryEntry
+      v-for="entry in history"
+      :entry="entry"
+      :key="entry.id"
+    />
+    <div v-if="empty">
+      <q-icon name="fas fa-bug" />
+      {{ $t('HISTORY.NOTHING_HAPPENEND') }}
+    </div>
+    <div
+      slot="message"
+      style="width: 100%; text-align: center"
+    >
+      <q-spinner-dots :size="40"/>
+    </div>
+  </q-infinite-scroll>
+</template>
 
-export default connect({
-  gettersToProps: {
-    history: 'history/all',
-    status: 'history/fetchFilteredStatus',
-    canFetchPast: 'history/canFetchPast',
-    fetchPastStatus: 'history/fetchPastStatus',
+<script>
+import { QIcon, QInfiniteScroll, QSpinnerDots, QList } from 'quasar'
+import paginationMixin from '@/utils/mixins/paginationMixin'
+import HistoryEntry from '@/history/components/HistoryEntry'
+
+export default {
+  mixins: [paginationMixin],
+  props: {
+    history: { required: true, type: Array },
+    status: { default: null, type: Object },
   },
-  actionsToProps: {
-    fetchPast: 'history/fetchPast',
+  components: { QIcon, QInfiniteScroll, QSpinnerDots, QList, HistoryEntry },
+  computed: {
+    empty () {
+      return !this.history.length && !this.status.pending && !this.status.hasValidationErrors
+    },
   },
-})('History', HistoryListUI)
+}
 </script>
+
+<style scoped lang="stylus">
+</style>

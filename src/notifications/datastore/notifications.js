@@ -96,24 +96,9 @@ export default {
         }
       }
     },
-    update ({ commit }, entry) {
-      commit('update', [entry])
-    },
-    delete ({ commit }, id) {
-      commit('delete', id)
-    },
-    clear ({ commit }) {
-      commit('clear')
-    },
     refresh ({ commit, dispatch }) {
       commit('clear')
       dispatch('fetch')
-    },
-    setEntryMeta ({ commit }, data) {
-      commit('setEntryMeta', data)
-    },
-    setPageVisible ({ commit }, visible) {
-      commit('setPageVisible', visible)
     },
   },
   mutations: {
@@ -132,12 +117,10 @@ export default {
       }
     },
     delete (state, id) {
-      // TODO what if id is not in entries?
       Vue.delete(state.entries, id)
     },
     clear (state) {
-      Object.entries(initialState())
-        .forEach(([prop, value]) => Vue.set(state, prop, value))
+      Object.assign(state, initialState())
     },
   },
 }
@@ -152,7 +135,7 @@ export function plugin (store) {
       store.dispatch('notifications/fetch')
     }
     else {
-      store.dispatch('notifications/clear')
+      store.commit('notifications/clear')
     }
   })
 

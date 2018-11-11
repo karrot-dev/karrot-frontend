@@ -91,7 +91,7 @@ export default {
         commit('clear')
       },
     }),
-    async fetch ({ dispatch }, { excludeRead = false } = {}) {
+    async fetch ({ commit, dispatch }, { excludeRead = false } = {}) {
       const [conversationsAndRelated, threadsAndRelated] = await Promise.all([
         dispatch('conversationsPagination/extractCursor', conversationsAPI.list({ exclude_read: excludeRead })),
         dispatch('threadsPagination/extractCursor', messageAPI.listMyThreads({ exclude_read: excludeRead })),
@@ -104,23 +104,17 @@ export default {
       if (conversations) commit('updateConversations', conversations)
       if (messages) commit('updateConversationMessages', messages)
       if (pickups) {
-        for (const pickup of pickups) {
-          dispatch('pickups/update', pickup, { root: true })
-        }
+        commit('pickups/update', pickups, { root: true })
       }
       if (applications) {
-        for (const application of applications) {
-          dispatch('groupApplications/update', application, { root: true })
-          dispatch('users/update', application.user, { root: true })
-        }
+        commit('groupApplications/update', applications, { root: true })
+        const users = applications.map(a => a.user)
+        commit('users/update', users, { root: true })
       }
       if (usersInfo) {
-        for (const user of usersInfo) {
-          // contains only limited user info, so only update if we don't have the user already
-          if (!rootState.users.entries[user.id]) {
-            dispatch('users/update', user, { root: true })
-          }
-        }
+        // contains only limited user info, so only update if we don't have the user already
+        const users = usersInfo.filter(user => !rootState.users.entries[user.id])
+        commit('users/update', users, { root: true })
       }
 
       // fetch related objects one-by-one, in case they haven't been delivered already

@@ -1,5 +1,5 @@
 import axios, { parseCursor } from '@/base/api/axios'
-import { convert as convertPickup } from '../../pickups/api/pickups'
+import { convert as convertPickup } from '@/pickups/api/pickups'
 
 export default {
   async create (feedback) {

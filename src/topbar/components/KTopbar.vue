@@ -12,6 +12,8 @@ export default connect({
   },
   actionsToEvents: {
     logout: 'auth/logout',
+  },
+  mutationsToEvents: {
     showSearch: 'search/show',
     hideSearch: 'search/hide',
   },

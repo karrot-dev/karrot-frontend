@@ -128,6 +128,7 @@ export const makeStore = data => {
     longitude: 0,
     weeksInAdvance: 4,
     status: 'active',
+    isActiveStore: false,
     ...data,
   }
 }
@@ -139,8 +140,24 @@ export const makePickup = data => {
     date: new Date(),
     series: null,
     store: null,
-    max_collectors: 10,
+    maxCollectors: 10,
     collector_ids: [],
+    description: '',
+    ...data,
+  }
+}
+
+let pickupSeriesIdCnt = 0
+export const makePickupSeries = data => {
+  return {
+    id: pickupSeriesIdCnt++,
+    store: null,
+    maxCollectors: 10,
+    byDay: ['TU'],
+    freq: 'WEEKLY',
+    isCustom: false,
+    custom: 'FREQ=WEEKLY;BYDAY=TU',
+    startDate: new Date(),
     description: '',
     ...data,
   }

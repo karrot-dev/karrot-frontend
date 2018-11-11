@@ -4,12 +4,6 @@ jest.mock('@/stores/api/stores', () => ({ get: mockGet, statistics: mockGetStati
 
 import { createStore, throws, createValidationError } from '>/helpers'
 
-const pickups = {
-  actions: {
-    setStoreFilter: jest.fn(),
-  },
-}
-
 const groups = {
   getters: {
     get: () => id => ({ id }),
@@ -25,7 +19,6 @@ describe('stores module', () => {
   beforeEach(() => {
     store = createStore({
       stores: require('./stores').default,
-      pickups,
       groups,
     })
   })
@@ -42,7 +35,7 @@ describe('stores module', () => {
 
   it('can update store', () => {
     const changed = { ...store1, name: 'new name' }
-    store.dispatch('stores/update', changed)
+    store.commit('stores/update', [changed])
     expect(store.getters['stores/get'](changed.id).name).toEqual(changed.name)
   })
 
@@ -51,6 +44,5 @@ describe('stores module', () => {
     mockGetStatistics.mockImplementationOnce()
     await expect(store.dispatch('stores/selectStore', { storeId: 9999 }))
       .rejects.toHaveProperty('type', 'RouteError')
-    expect(pickups.actions.setStoreFilter).not.toBeCalled()
   })
 })

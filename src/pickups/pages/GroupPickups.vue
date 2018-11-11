@@ -52,7 +52,7 @@ export default {
   computed: {
     ...mapGetters({
       groupId: 'currentGroup/id',
-      pickups: 'pickups/all',
+      pickups: 'pickups/byCurrentGroup',
       stores: 'stores/byCurrentGroup',
     }),
     hasPickups () {

@@ -63,7 +63,7 @@ export default store => {
     }
 
     nextFn()
-    store.dispatch('breadcrumbs/setAll', findBreadcrumbs(to.matched) || [])
+    store.commit('breadcrumbs/set', findBreadcrumbs(to.matched) || [])
   })
 
   router.afterEach(() => {

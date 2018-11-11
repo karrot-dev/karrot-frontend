@@ -30,5 +30,5 @@ function receiveNotification (data) {
 }
 
 function receiveFCMToken (token) {
-  store.dispatch('fcm/updateToken', token)
+  store.commit('fcm/setToken', token)
 }

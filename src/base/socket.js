@@ -151,7 +151,7 @@ const socket = {
 
 function receiveMessage ({ topic, payload }) {
   if (topic === 'applications:update') {
-    store.dispatch('groupApplications/update', convertApplication(camelizeKeys(payload)))
+    store.commit('groupApplications/update', [convertApplication(camelizeKeys(payload))])
   }
   else if (topic === 'conversations:message') {
     const message = convertMessage(camelizeKeys(payload))
@@ -176,35 +176,35 @@ function receiveMessage ({ topic, payload }) {
     store.dispatch('conversations/clearConversation', payload.id)
   }
   else if (topic === 'groups:group_detail') {
-    store.dispatch('currentGroup/update', convertGroup(camelizeKeys(payload)))
+    store.dispatch('currentGroup/maybeUpdate', convertGroup(camelizeKeys(payload)))
   }
   else if (topic === 'groups:group_preview') {
-    store.dispatch('groups/update', camelizeKeys(payload))
+    store.commit('groups/update', [camelizeKeys(payload)])
   }
   else if (topic === 'invitations:invitation') {
-    store.dispatch('invitations/add', convertInvitation(camelizeKeys(payload)))
+    store.commit('invitations/update', [convertInvitation(camelizeKeys(payload))])
   }
   else if (topic === 'invitations:invitation_accept') {
     // delete invitation from list until there is a better way to display it
-    store.dispatch('invitations/delete', payload.id)
+    store.commit('invitations/delete', payload.id)
   }
   else if (topic === 'stores:store') {
-    store.dispatch('stores/update', camelizeKeys(payload))
+    store.dispatch('stores/update', [camelizeKeys(payload)])
   }
   else if (topic === 'pickups:pickupdate') {
-    store.dispatch('pickups/update', convertPickup(camelizeKeys(payload)))
+    store.commit('pickups/update', [convertPickup(camelizeKeys(payload))])
   }
   else if (topic === 'pickups:pickupdate_deleted') {
-    store.dispatch('pickups/delete', convertPickup(camelizeKeys(payload)).id)
+    store.commit('pickups/delete', convertPickup(camelizeKeys(payload)).id)
   }
   else if (topic === 'pickups:series') {
-    store.dispatch('pickupSeries/update', convertSeries(camelizeKeys(payload)))
+    store.commit('pickupSeries/update', [convertSeries(camelizeKeys(payload))])
   }
   else if (topic === 'pickups:series_deleted') {
-    store.dispatch('pickupSeries/delete', convertSeries(camelizeKeys(payload)).id)
+    store.commit('pickupSeries/delete', convertSeries(camelizeKeys(payload)).id)
   }
   else if (topic === 'feedback:feedback') {
-    store.dispatch('feedback/update', convertFeedback(camelizeKeys(payload)))
+    store.dispatch('feedback/updateOne', convertFeedback(camelizeKeys(payload)))
   }
   else if (topic === 'pickups:feedback_possible') {
     const pickup = convertPickup(camelizeKeys(payload))
@@ -212,26 +212,29 @@ function receiveMessage ({ topic, payload }) {
   }
   else if (topic === 'auth:user') {
     const user = camelizeKeys(payload)
-    store.dispatch('auth/update', user)
-    store.dispatch('users/update', user)
+    store.dispatch('auth/setUser', user)
+    store.commit('users/update', [user])
+    store.dispatch('users/refreshProfile', user)
   }
   else if (topic === 'auth:logout') {
     store.dispatch('auth/refresh')
   }
   else if (topic === 'users:user') {
-    store.dispatch('users/update', camelizeKeys(payload))
+    const user = camelizeKeys(payload)
+    store.commit('users/update', [user])
+    store.dispatch('users/refreshProfile', user)
   }
   else if (topic === 'history:history') {
-    store.dispatch('history/update', convertHistory(camelizeKeys(payload)))
+    store.commit('history/update', [convertHistory(camelizeKeys(payload))])
   }
   else if (topic === 'notifications:notification') {
-    store.dispatch('notifications/update', convertNotification(camelizeKeys(payload)))
+    store.commit('notifications/update', [convertNotification(camelizeKeys(payload))])
   }
   else if (topic === 'notifications:notification_deleted') {
-    store.dispatch('notifications/delete', payload.id)
+    store.commit('notifications/delete', payload.id)
   }
   else if (topic === 'notifications:meta') {
-    store.dispatch('notifications/setEntryMeta', convertNotificationMeta(camelizeKeys(payload)))
+    store.commit('notifications/setEntryMeta', convertNotificationMeta(camelizeKeys(payload)))
   }
 }
 

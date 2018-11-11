@@ -46,7 +46,7 @@ export default {
     ...withMeta({
       async login ({ state, commit, getters, dispatch, rootGetters }, data) {
         const user = await auth.login(data)
-        dispatch('update', user)
+        commit('setUser', user)
         dispatch('afterLoggedIn')
 
         state.muteConversationAfterLogin.forEach(conversationId => {
@@ -90,15 +90,15 @@ export default {
         commit('clearRedirectTo')
       },
 
-      async logout ({ dispatch }) {
+      async logout ({ commit, dispatch }) {
         await dispatch('push/disable')
         await dispatch('fcm/disable', null, { root: true })
         await auth.logout()
 
-        dispatch('update', null)
+        commit('setUser', null)
         showLogoutToast(dispatch)
 
-        dispatch('conversations/clear', null, { root: true }) // TODO move into plugin
+        commit('conversations/clear', null, { root: true }) // TODO move into plugin
         dispatch('currentThread/clear', null, { root: true }) // TODO move into plugin
         router.push({ name: 'groupsGallery' })
       },
@@ -145,10 +145,10 @@ export default {
       return dispatch('backgroundSave', diff)
     },
 
-    async backgroundSave ({ dispatch }, data) {
+    async backgroundSave ({ commit, dispatch }, data) {
       const savedUser = await authUser.save(data)
-      dispatch('update', savedUser)
-      dispatch('users/update', savedUser, { root: true })
+      commit('setUser', savedUser)
+      commit('users/update', [savedUser], { root: true })
       return savedUser
     },
 
@@ -173,10 +173,6 @@ export default {
       dispatch('i18n/setLocale', user.language || 'en', { root: true })
     },
 
-    update ({ commit }, user) {
-      commit('setUser', user)
-    },
-
     async refresh ({ commit, dispatch, getters }) {
       const wasLoggedIn = getters.isLoggedIn
       let user = null
@@ -184,7 +180,7 @@ export default {
         user = await authUser.get()
       }
       catch (error) {}
-      dispatch('update', user)
+      commit('setUser', user)
       commit('setMaybeLoggedOut', false)
 
       if (user) {

@@ -7,7 +7,6 @@ import { indexById, withMeta, createMetaModule, metaStatusesWithId, metaStatuses
 function initialState () {
   return {
     entries: {},
-    idsList: [],
     activePreviewId: null,
   }
 }
@@ -37,7 +36,7 @@ export default {
       }
     },
     all: (state, getters, rootState, rootGetters) => {
-      return state.idsList.map(getters.get)
+      return Object.values(state.entries).map(getters.enrich)
     },
     mine: (state, getters) => getters.all.filter(e => e.isMember).sort(sortByName),
     // A de-duplicated list of member ids of all groups the user is part of
@@ -63,8 +62,8 @@ export default {
     ...withMeta({
       async save ({ commit, dispatch }, group) {
         const data = await groups.save(group)
-        commit('update', data)
-        dispatch('currentGroup/update', data, { root: true })
+        commit('update', [data])
+        dispatch('currentGroup/maybeUpdate', data, { root: true })
         router.push({ name: 'group', params: { groupId: group.id } })
       },
 
@@ -86,9 +85,9 @@ export default {
         router.replace({ name: 'groupsGallery' })
       },
 
-      async create ({ commit, dispatch }, group) {
+      async create ({ commit }, group) {
         const createdGroup = await groups.create(group)
-        commit('update', createdGroup)
+        commit('update', [createdGroup])
         router.push({ name: 'group', params: { groupId: createdGroup.id } })
       },
 
@@ -96,11 +95,6 @@ export default {
         commit('set', await groupsInfo.list())
       },
     }),
-
-    update ({ commit }, group) {
-      commit('update', group)
-    },
-
     joinPlayground ({ dispatch, getters }) {
       dispatch('join', { id: getters.playground.id })
     },
@@ -109,7 +103,7 @@ export default {
       if (!getters.get(groupPreviewId)) {
         try {
           const group = await groupsInfo.get(groupPreviewId)
-          commit('update', group)
+          commit('update', [group])
         }
         catch (error) {
           throw createRouteError({ translation: 'NOT_FOUND.EXPLANATION' })
@@ -131,13 +125,11 @@ export default {
       state.activePreviewId = previewId
     },
     set (state, groups) {
-      state.idsList = groups.map((group) => group.id)
       state.entries = indexById(groups)
     },
-    update (state, group) {
-      Vue.set(state.entries, group.id, group)
-      if (!state.idsList.includes(group.id)) {
-        state.idsList.push(group.id)
+    update (state, groups) {
+      for (const group of groups) {
+        Vue.set(state.entries, group.id, group)
       }
     },
     join (state, { groupId, userId }) {

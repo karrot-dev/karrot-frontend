@@ -6,7 +6,6 @@ function initialState () {
   return {
     now: new Date(), // reactive current time
     entries: {},
-    storeIdFilter: null,
     feedbackPossibleIds: [],
   }
 }
@@ -42,34 +41,36 @@ export default {
         .filter(p => p.group && p.group.isCurrentGroup)
         .sort(sortByDate)
     },
-    filtered: (state, getters) => {
-      return getters.all.filter(e => !state.storeIdFilter || (e.store && e.store.id === state.storeIdFilter))
+    byCurrentGroup: (state, getters) => {
+      return getters.all.filter(({ group }) => group && group.isCurrentGroup)
     },
-    filteredOneTime: (state, getters) => {
-      return getters.filtered.filter(e => !e.series)
+    byActiveStore: (state, getters) => {
+      return getters.all.filter(({ store }) => store && store.isActiveStore)
     },
-    joined: (state, getters) => getters.all.filter(e => e.isUserMember),
+    byActiveStoreOneTime: (state, getters) => {
+      return getters.byActiveStore.filter(e => !e.series)
+    },
+    joined: (state, getters) => getters.byCurrentGroup.filter(e => e.isUserMember),
     available: (state, getters) =>
-      getters.all
+      getters.byCurrentGroup
         .filter(isWithinOneWeek)
         .filter(e => !e.isFull)
         .filter(e => !e.isUserMember),
     feedbackPossible: (state, getters) => state.feedbackPossibleIds.map(getters.get),
     feedbackPossibleFiltered: (state, getters) =>
       state.feedbackPossibleIds
-        .filter(e => !state.storeIdFilter || (e.store && e.store.id === state.storeIdFilter))
         .map(getters.get)
-        .filter(p => p.group && p.group.isCurrentGroup),
+        .filter(({ group }) => group && group.isCurrentGroup),
     ...metaStatuses(['create']),
   },
   actions: {
     ...withMeta({
       async fetch ({ commit }, pickupId) {
-        commit('update', await pickups.get(pickupId))
+        commit('update', [await pickups.get(pickupId)])
       },
       async fetchList ({ commit }) {
         // TODO implement pagination
-        commit('set', (await pickups.list()).results)
+        commit('update', (await pickups.list()).results)
       },
       async join ({ commit, dispatch, rootGetters }, pickupId) {
         try {
@@ -92,7 +93,7 @@ export default {
         }
       },
       async save ({ commit, dispatch }, pickup) {
-        commit('update', await pickups.save(pickup))
+        commit('update', [await pickups.save(pickup)])
       },
       async create ({ commit, dispatch }, data) {
         await pickups.create(data)
@@ -109,7 +110,7 @@ export default {
 
     ...withPrefixedIdMeta('group/', {
       async fetchListByGroupId ({ commit }, groupId) {
-        commit('set', (await pickups.listByGroupId(groupId)).results)
+        commit('update', (await pickups.listByGroupId(groupId)).results)
       },
     }),
 
@@ -118,24 +119,6 @@ export default {
       if (!state.entries[pickupId] && !isPending) {
         await dispatch('fetch', pickupId)
       }
-    },
-    update ({ commit }, pickup) {
-      commit('update', pickup)
-    },
-    delete ({ commit }, pickupId) {
-      commit('delete', pickupId)
-    },
-    clear ({ commit }) {
-      commit('clear')
-    },
-    clearUpcomingForStore ({ commit }, storeId) {
-      commit('clearUpcomingForStore', storeId)
-    },
-    clearStoreFilter ({ commit }) {
-      commit('clearStoreIdFilter')
-    },
-    setStoreFilter ({ commit }, storeId) {
-      commit('setStoreIdFilter', storeId)
     },
     addFeedbackPossible ({ commit, getters, rootGetters }, pickup) {
       const { group } = getters.enrich(pickup)
@@ -159,15 +142,8 @@ export default {
     updateNow (state) {
       state.now = new Date()
     },
-    setStoreIdFilter (state, storeId) {
-      state.storeIdFilter = parseInt(storeId, 10)
-    },
-    clearStoreIdFilter (state) {
-      state.storeIdFilter = null
-    },
     clear (state) {
-      Object.entries(initialState())
-        .forEach(([prop, value]) => Vue.set(state, prop, value))
+      Object.assign(state, initialState())
     },
     clearUpcomingForStore (state, storeId) {
       const now = new Date()
@@ -175,13 +151,9 @@ export default {
         .filter(pickup => pickup.store === storeId && pickup.date >= now)
         .forEach(pickup => Vue.delete(state.entries, pickup.id))
     },
-    update (state, pickup) {
-      Vue.set(state.entries, pickup.id, pickup)
-    },
-    set (state, pickups) {
-      state.entries = {
-        ...state.entries,
-        ...indexById(pickups),
+    update (state, pickups) {
+      for (const pickup of pickups) {
+        Vue.set(state.entries, pickup.id, pickup)
       }
     },
     delete (state, pickupId) {

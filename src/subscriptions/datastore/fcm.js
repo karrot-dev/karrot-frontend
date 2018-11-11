@@ -12,9 +12,6 @@ export default {
     tokenExists: state => token => Boolean(state.tokens[token]),
   },
   actions: {
-    updateToken ({ commit }, token) {
-      commit('setToken', token)
-    },
     async fetchTokens ({ commit }) {
       const tokens = await subscriptionsAPI.list()
       commit('receiveTokens', tokens.map(({ token }) => token))

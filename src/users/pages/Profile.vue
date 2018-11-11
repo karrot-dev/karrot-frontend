@@ -14,7 +14,7 @@
         {{ $t('GROUP.HISTORY') }}
       </q-card-title>
       <q-card-main>
-        <History />
+        <HistoryContainer :history="history" />
       </q-card-main>
     </q-card>
   </div>
@@ -23,16 +23,16 @@
 <script>
 import { mapGetters, mapActions } from 'vuex'
 import Profile from '@/users/components/ProfileUI'
-import History from '@/history/components/HistoryList'
+import HistoryContainer from '@/history/pages/HistoryContainer'
 import { QCard, QCardTitle, QCardMain } from 'quasar'
 
 export default {
-  components: { QCard, QCardTitle, QCardMain, History, Profile },
+  components: { QCard, QCardTitle, QCardMain, HistoryContainer, Profile },
   computed: {
     ...mapGetters({
       user: 'users/activeUser',
       currentGroup: 'currentGroup/value',
-      history: 'history/all',
+      history: 'history/byCurrentGroupAndUser',
     }),
   },
   methods: {

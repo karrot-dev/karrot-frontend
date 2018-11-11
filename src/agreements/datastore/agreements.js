@@ -18,29 +18,28 @@ export default {
   actions: {
     ...withMeta({
       async fetch ({ commit }, id) {
-        commit('set', await agreements.get(id))
+        commit('update', [await agreements.get(id)])
       },
       async agree ({ commit }, id) {
-        commit('set', await agreements.agree(id))
+        commit('update', [await agreements.agree(id)])
       },
       async create ({ commit }, agreement) {
         agreement = await agreements.create(agreement)
-        commit('set', agreement)
+        commit('update', [agreement])
         return agreement
       },
       async save ({ commit }, agreement) {
         agreement = await agreements.save(agreement)
-        commit('set', agreement)
+        commit('update', [agreement])
         return agreement
-      },
-      clear ({ commit }) {
-        commit('clear')
       },
     }),
   },
   mutations: {
-    set (state, agreement) {
-      Vue.set(state.entries, agreement.id, agreement)
+    update (state, agreements) {
+      for (const agreement of agreements) {
+        Vue.set(state.entries, agreement.id, agreement)
+      }
     },
     clear (state) {
       Object.assign(state, initialState())

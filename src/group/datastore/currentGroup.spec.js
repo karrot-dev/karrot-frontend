@@ -124,7 +124,7 @@ describe('currentGroup', () => {
     beforeEach(() => {
       store = createStore({
         currentGroup: require('./currentGroup').default,
-        users: require('../../users/datastore/users').default,
+        users: require('@/users/datastore/users').default,
         agreements,
         auth,
         conversations,
@@ -133,7 +133,7 @@ describe('currentGroup', () => {
 
     beforeEach(() => {
       store.commit('currentGroup/set', group3)
-      store.commit('users/set', Object.values(users))
+      store.commit('users/update', [Object.values(users)])
     })
 
     it('can get currentGroup Id', () => {
@@ -185,7 +185,7 @@ describe('currentGroup', () => {
       mockGet.mockReturnValueOnce(group3)
       await store.dispatch('currentGroup/select', { groupId: group3.id })
       const changed = { ...group3, name: 'new name' }
-      store.dispatch('currentGroup/update', changed)
+      store.dispatch('currentGroup/maybeUpdate', changed)
       expect(store.getters['currentGroup/value'].name).toEqual(changed.name)
     })
   })

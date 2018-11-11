@@ -28,7 +28,7 @@ describe('users', () => {
   beforeEach(() => {
     store = createStore({
       users: require('./users').default,
-      groups: require('../../groupInfo/datastore/groups').default,
+      groups: require('@/groupInfo/datastore/groups').default,
       auth,
       history,
       groupApplications,
@@ -72,7 +72,7 @@ describe('users', () => {
 
   const history = {
     actions: {
-      fetchForUserInGroup: jest.fn(),
+      fetch: jest.fn(),
     },
   }
 
@@ -83,7 +83,7 @@ describe('users', () => {
   }
 
   beforeEach(() => {
-    store.commit('users/set', [user1, user2, user3])
+    store.commit('users/update', [user1, user2, user3])
     store.commit('groups/set', groups)
   })
 
@@ -110,13 +110,14 @@ describe('users', () => {
     }
     mockGetProfile.mockReturnValueOnce(user1Profile)
     await store.dispatch('users/selectUser', { userId: user1.id })
+    store.commit('users/update', [{ ...user1, displayName: 'asdf' }])
     expect(store.getters['users/activeUser']).toEqual(enrich(user1Profile, groups, userId))
-    expect(history.actions.fetchForUserInGroup).toBeCalled()
+    expect(history.actions.fetch.mock.calls[0][1]).toEqual({ userId: 1, groupId: 1 })
   })
 
   it('can update user', () => {
     const changed = { ...user1, displayName: 'new user 1' }
-    store.dispatch('users/update', changed)
+    store.commit('users/update', [changed])
     expect(store.getters['users/get'](changed.id).displayName).toEqual(changed.displayName)
   })
 

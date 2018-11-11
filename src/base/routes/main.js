@@ -13,7 +13,7 @@ const GroupGallery = () => import('@/groupInfo/pages/GroupGallery')
 const StoreLayout = () => import('@/stores/pages/Layout')
 const StorePickups = () => import('@/pickups/components/StorePickups')
 const StoreFeedback = () => import('@/feedback/components/StoreFeedback')
-const StoreHistory = () => import('@/history/components/StoreHistory')
+const StoreHistory = () => import('@/history/pages/StoreHistory')
 const StorePickupsManage = () => import('@/pickups/pages/PickupsManage')
 const StoreEdit = () => import('@/stores/pages/Edit')
 const StoreCreate = () => import('@/stores/pages/Create')
@@ -141,7 +141,7 @@ export default [
           breadcrumbs: [
             { translation: 'PICKUP_FEEDBACK.TITLE', route: { name: 'groupFeedback' } },
           ],
-          beforeEnter: 'feedback/fetchForGroup',
+          beforeEnter: 'feedback/fetch',
           afterLeave: 'feedback/clear',
         },
         component: GroupFeedback,
@@ -173,7 +173,7 @@ export default [
           breadcrumbs: [
             { translation: 'GROUP.HISTORY', route: { name: 'groupHistory' } },
           ],
-          beforeEnter: 'history/fetchForGroup',
+          beforeEnter: 'history/fetch',
         },
         component: GroupHistory,
       },
@@ -325,7 +325,7 @@ export default [
               breadcrumbs: [
                 { translation: 'PICKUP_FEEDBACK.TITLE', route: { name: 'storeFeedback' } },
               ],
-              beforeEnter: 'feedback/fetchForStore',
+              beforeEnter: 'feedback/fetch',
               afterLeave: 'feedback/clear',
             },
             component: StoreFeedback,
@@ -337,7 +337,7 @@ export default [
               breadcrumbs: [
                 { translation: 'GROUP.HISTORY', route: { name: 'storeHistory' } },
               ],
-              beforeEnter: 'history/fetchForStore',
+              beforeEnter: 'history/fetch',
             },
             component: StoreHistory,
           },

@@ -19,7 +19,9 @@
     <link rel="icon" type="image/png" href="statics/carrot_logo.png" sizes="32x32">
   </head>
   <body style="overscroll-behavior: none">
-    <div id="q-app"></div>
+    <div id="q-app">
+      <img style="position: fixed; top: 55%; left: 50%; transform: translate(-50%, -50%); max-width: 50%; opacity: 0.5;" src="statics/carrot_logo.png">
+    </div>
     <!-- built files will be auto injected -->
     <% if (htmlWebpackPlugin.options.cordova) { %>
       <script type="text/javascript" charset="utf-8" src="cordova.js"></script>

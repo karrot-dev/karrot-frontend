@@ -1,13 +1,14 @@
 import { createStore } from '>/helpers'
 
-describe('history module', () => {
+describe('invitations', () => {
   beforeEach(() => jest.resetModules())
   let store
 
   beforeEach(() => {
     store = createStore({
       invitations: require('./invitations').default,
-      users: { getters: { get: () => a => a } },
+      users: { getters: { get: () => id => ({ id }) } },
+      groups: { getters: { get: () => id => ({ id, isCurrentGroup: true }) } },
     })
   })
 
@@ -15,14 +16,14 @@ describe('history module', () => {
     const entry = { id: 1 }
 
     store.commit('invitations/update', [entry])
-    expect(store.getters['invitations/list'][0].id).toEqual(entry.id)
+    expect(store.getters['invitations/all'][0].id).toEqual(entry.id)
   })
 
   it('can delete invitation', () => {
     const entry = { id: 1 }
     store.commit('invitations/update', [entry])
     store.commit('invitations/delete', entry.id)
-    expect(store.getters['invitations/list'].length).toEqual(0)
+    expect(store.getters['invitations/all'].length).toEqual(0)
   })
 
   it('keeps entries sorted by creation date', () => {
@@ -32,7 +33,7 @@ describe('history module', () => {
     store.commit('invitations/update', [e1])
     store.commit('invitations/update', [e2])
     store.commit('invitations/update', [e3])
-    expect(store.getters['invitations/list'].length).toEqual(3)
-    expect(store.getters['invitations/list'].map(e => e.id)).toEqual([3, 1, 2])
+    expect(store.getters['invitations/all'].length).toEqual(3)
+    expect(store.getters['invitations/all'].map(e => e.id)).toEqual([3, 1, 2])
   })
 })

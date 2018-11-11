@@ -18,13 +18,18 @@ export default {
       return getters.enrich(state.entries[id])
     },
     enrich: (state, getters, rootState, rootGetters) => invitation => {
-      return invitation && {
+      if (!invitation) return
+      return {
         ...invitation,
         invitedBy: rootGetters['users/get'](invitation.invitedBy),
+        group: rootGetters['groups/get'](invitation.group),
       }
     },
-    list: (state, getters, rootState, rootGetters) => {
+    all: (state, getters, rootState, rootGetters) => {
       return Object.values(state.entries).map(getters.enrich).sort(sortByCreatedAt)
+    },
+    byCurrentGroup: (state, getters) => {
+      return getters.all.filter(({ group }) => group && group.isCurrentGroup)
     },
     ...metaStatuses(['fetch', 'send', 'accept']),
   },

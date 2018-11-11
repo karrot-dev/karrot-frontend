@@ -37,7 +37,10 @@
         </q-card-actions>
       </q-card-main>
     </q-card>
-    <q-card class="no-shadow grey-border">
+    <q-card
+      v-if="!$q.platform.is.cordova"
+      class="no-shadow grey-border"
+    >
       <q-card-title>{{ $t('USERDATA.PUSH') }}</q-card-title>
       <q-card-main>
         <Push

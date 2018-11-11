@@ -115,6 +115,7 @@ const socket = {
       receiveMessage(data)
     })
 
+    // reconnect when browser tells us the connection is back
     function watchConnection () {
       const debouncedReconnect = debounce(() => ws.reconnect(), 500)
 

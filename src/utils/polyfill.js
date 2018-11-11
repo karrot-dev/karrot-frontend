@@ -13,7 +13,7 @@ export default new Vue({
   watch: {
     locale (locale) {
       if (!window.IntlPolyfill) return
-      setTimeout(() => intlLocale(locale), 200)
+      setTimeout(() => intlLocale(locale), 500)
     },
   },
   methods: {

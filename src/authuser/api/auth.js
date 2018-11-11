@@ -1,5 +1,6 @@
 import axios from '@/base/api/axios'
 import authUser from '@/authuser/api/authUser'
+import * as Sentry from '@sentry/browser'
 
 let KEY, updateToken, clearToken
 
@@ -46,6 +47,7 @@ if (__ENV.CORDOVA) {
 
   axios.interceptors.response.use(response => response, async error => {
     if (isInvalidTokenError(error)) {
+      Sentry.captureMessage('Invalid auth token')
       clearToken()
       location.reload() // this is a bit of a heavy thing to do, a full page refresh, but it should be rare
     }

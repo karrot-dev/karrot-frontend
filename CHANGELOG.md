@@ -22,6 +22,19 @@ Please document your changes in this format:
 
 ## [Unreleased]
 
+### Added
+
+- Splash screen when app is bootstrapping @tiltec
+
+### Changed
+
+- Do not clear data on refresh, should reduce empty screens in app @tiltec
+- Hide browser push setting in app @tiltec
+
+### Fixed
+
+- Marker popup urls in app were broken @tiltec
+
 ## [6.2.4] - 2018-10-07
 
 ### Changed

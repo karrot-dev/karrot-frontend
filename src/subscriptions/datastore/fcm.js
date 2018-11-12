@@ -37,16 +37,16 @@ export default {
   },
 }
 
-export const plugin = store => {
-  store.watch((state, getters) => ({
+export const plugin = datastore => {
+  datastore.watch((state, getters) => ({
     isLoggedIn: getters['auth/isLoggedIn'],
     token: getters['fcm/token'],
   }), async ({ isLoggedIn, token }) => {
     if (isLoggedIn && token) {
-      await store.dispatch('fcm/fetchTokens')
-      if (!store.getters['fcm/tokenExists'](token)) {
+      await datastore.dispatch('fcm/fetchTokens')
+      if (!datastore.getters['fcm/tokenExists'](token)) {
         await subscriptionsAPI.create({ token, platform: 'android' })
-        await store.dispatch('fcm/fetchTokens')
+        await datastore.dispatch('fcm/fetchTokens')
       }
     }
   })

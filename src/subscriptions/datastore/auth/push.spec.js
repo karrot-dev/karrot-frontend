@@ -22,16 +22,16 @@ jest.mock('@/subscriptions/firebase', () => ({
   initializeMessaging: mockInitializeMessaging,
   removeServiceWorkersOnUnload: mockRemoveServiceWorkersOnUnload,
 }))
-import { createStore, nextTicks } from '>/helpers'
+import { createDatastore, nextTicks } from '>/helpers'
 
 describe('auth/push', () => {
   beforeEach(() => jest.resetModules())
   beforeEach(() => jest.clearAllMocks())
 
   describe('module', () => {
-    let store
+    let datastore
     beforeEach(() => {
-      store = createStore({
+      datastore = createDatastore({
         auth: {
           modules: {
             push: require('./push').default,
@@ -44,9 +44,9 @@ describe('auth/push', () => {
       const token = 'my token'
       mockGetToken.mockResolvedValueOnce(null)
       mockGetToken.mockResolvedValueOnce(token)
-      await store.dispatch('auth/push/enable')
-      expect(store.getters['auth/push/enabled']).toBe(true)
-      expect(store.state.auth.push.token).toBe(token)
+      await datastore.dispatch('auth/push/enable')
+      expect(datastore.getters['auth/push/enabled']).toBe(true)
+      expect(datastore.state.auth.push.token).toBe(token)
       expect(mockRequestPermission).toBeCalled()
     })
 
@@ -55,17 +55,17 @@ describe('auth/push', () => {
       mockGetToken.mockResolvedValueOnce(null)
       mockGetToken.mockResolvedValueOnce(token)
       mockRequestPermission.mockRejectedValueOnce({ code: 'messaging/permission-blocked' })
-      await store.dispatch('auth/push/enable')
-      expect(store.getters['auth/push/enabled']).toBe(false)
-      expect(store.state.auth.push.token).toBe(null)
+      await datastore.dispatch('auth/push/enable')
+      expect(datastore.getters['auth/push/enabled']).toBe(false)
+      expect(datastore.state.auth.push.token).toBe(null)
       expect(mockRequestPermission).toBeCalled()
     })
   })
 
   describe('plugin', () => {
-    let store
+    let datastore
     beforeEach(() => {
-      store = createStore({
+      datastore = createDatastore({
         auth: {
           getters: {
             isLoggedIn: () => true,
@@ -82,8 +82,8 @@ describe('auth/push', () => {
     it('saves the token', async () => {
       mockListSubscriptions.mockResolvedValueOnce([])
       const token = 'my token to save'
-      store.commit('auth/push/setToken', token)
-      expect(store.state.auth.push.token).toBe(token)
+      datastore.commit('auth/push/setToken', token)
+      expect(datastore.state.auth.push.token).toBe(token)
       await nextTicks(2)
       expect(mockCreateSubscription).toBeCalled()
       expect(mockCreateSubscription.mock.calls[0][0]).toEqual({ platform: 'web', token: token })
@@ -96,10 +96,10 @@ describe('auth/push', () => {
       }
       mockListSubscriptions.mockResolvedValue([oldSubscription])
       const token = 'my new token'
-      store.commit('auth/push/setToken', oldSubscription.token)
+      datastore.commit('auth/push/setToken', oldSubscription.token)
       await nextTicks(1)
-      store.commit('auth/push/setToken', token)
-      expect(store.state.auth.push.token).toBe(token)
+      datastore.commit('auth/push/setToken', token)
+      expect(datastore.state.auth.push.token).toBe(token)
       await nextTicks(2)
       expect(mockDeleteSubscription).toBeCalled()
       expect(mockDeleteSubscription.mock.calls[0][0]).toEqual(oldSubscription.id)

@@ -6,11 +6,11 @@ import locales, { messages as loadMessages, quasarMessages as loadQuasarMessages
 import Quasar from 'quasar-vue-plugin'
 import { debounce } from 'quasar'
 
-export default store => {
+export default datastore => {
   const loadLocale = debounce(async locale => {
     // if we don't support the locale, reset to default
     if (!locales[locale]) {
-      store.dispatch('i18n/setLocale', 'en')
+      datastore.dispatch('i18n/setLocale', 'en')
       return
     }
 
@@ -27,10 +27,10 @@ export default store => {
 
     // Prevent race condition when updating locales quickly
     // If the locale changed while loading messages from the server, don't continue
-    if (store.state.i18n.locale !== locale) return
+    if (datastore.state.i18n.locale !== locale) return
 
     i18n.locale = locale
     Quasar.i18n.set(quasarMessages)
   }, 100)
-  store.watch(state => state.i18n.locale, loadLocale, { immediate: true })
+  datastore.watch(state => state.i18n.locale, loadLocale, { immediate: true })
 }

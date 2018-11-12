@@ -187,10 +187,10 @@ export default {
   },
 }
 
-export const plugin = store => {
-  store.watch(state => state.route, route => {
+export const plugin = datastore => {
+  datastore.watch(state => state.route, route => {
     if (route.name === 'groupsGallery') {
-      store.dispatch('detail/clear')
+      datastore.dispatch('detail/clear')
     }
   })
 }

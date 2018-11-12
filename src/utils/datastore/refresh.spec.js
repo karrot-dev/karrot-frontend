@@ -45,10 +45,10 @@ describe('storeHelpers', () => {
     mockFeedbackList.mockReturnValue({ results: [] })
     mockHistoryList.mockReturnValue({ results: [] })
 
-    const store = require('@/base/store').default
-    store.commit('currentGroup/set', { id: 1 })
-    store.commit('currentThread/setScope', 1)
-    store.commit('auth/setUser', { id: 1 })
+    const datastore = require('@/base/datastore').default
+    datastore.commit('currentGroup/set', { id: 1 })
+    datastore.commit('currentThread/setScope', 1)
+    datastore.commit('auth/setUser', { id: 1 })
 
     // wait until plugins ran (e.g. latestMessages)
     await nextTicks(2)
@@ -56,7 +56,7 @@ describe('storeHelpers', () => {
     mockConversationsList.mockClear()
     mockNotificationsList.mockClear()
 
-    await store.dispatch('refresh/refresh')
+    await datastore.dispatch('refresh/refresh')
 
     expect(mockUsersList).toHaveBeenCalled()
     expect(mockStoresList).toHaveBeenCalled()

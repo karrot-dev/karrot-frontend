@@ -1,11 +1,11 @@
 const mockTranslate = jest.fn()
 jest.mock('@/base/i18n', () => ({ t: mockTranslate }))
 
-import { createStore } from '>/helpers'
+import { createDatastore } from '>/helpers'
 
 describe('breadcrumbs', () => {
   let storeMocks
-  let store
+  let datastore
 
   beforeEach(() => jest.resetModules())
   beforeEach(() => {
@@ -31,35 +31,35 @@ describe('breadcrumbs', () => {
         },
       },
     }
-    store = createStore({
+    datastore = createDatastore({
       breadcrumbs: require('./breadcrumbs').default,
       ...storeMocks,
     })
   })
 
   it('can create an currentGroup item', async () => {
-    await store.commit('breadcrumbs/set', [{ type: 'currentGroup' }])
-    expect(store.getters['breadcrumbs/all']).toEqual([{ name: 'my current group', route: { name: 'group', groupId: 1 } }])
+    await datastore.commit('breadcrumbs/set', [{ type: 'currentGroup' }])
+    expect(datastore.getters['breadcrumbs/all']).toEqual([{ name: 'my current group', route: { name: 'group', groupId: 1 } }])
   })
 
   it('can create an activeGroupPreview item', async () => {
-    await store.commit('breadcrumbs/set', [{ type: 'activeGroupPreview' }])
-    expect(store.getters['breadcrumbs/all']).toEqual([{ name: 'my current group info', route: { name: 'groupPreview', groupPreviewId: 4 } }])
+    await datastore.commit('breadcrumbs/set', [{ type: 'activeGroupPreview' }])
+    expect(datastore.getters['breadcrumbs/all']).toEqual([{ name: 'my current group info', route: { name: 'groupPreview', groupPreviewId: 4 } }])
   })
 
   it('can create an activeStore item', async () => {
-    await store.commit('breadcrumbs/set', [{ type: 'activeStore' }])
-    expect(store.getters['breadcrumbs/all']).toEqual([{ name: 'my active store', route: { name: 'store', storeId: 2 } }])
+    await datastore.commit('breadcrumbs/set', [{ type: 'activeStore' }])
+    expect(datastore.getters['breadcrumbs/all']).toEqual([{ name: 'my active store', route: { name: 'store', storeId: 2 } }])
   })
 
   it('can create an activeUser item', async () => {
-    await store.commit('breadcrumbs/set', [{ type: 'activeUser' }])
-    expect(store.getters['breadcrumbs/all']).toEqual([{ name: 'my active user', route: { name: 'user', userId: 3 } }])
+    await datastore.commit('breadcrumbs/set', [{ type: 'activeUser' }])
+    expect(datastore.getters['breadcrumbs/all']).toEqual([{ name: 'my active user', route: { name: 'user', userId: 3 } }])
   })
 
   it('can do translation stuff', async () => {
     mockTranslate.mockReturnValueOnce('translated value')
-    await store.commit('breadcrumbs/set', [{ translation: 'translation.key' }])
-    expect(store.getters['breadcrumbs/all']).toEqual([{ name: 'translated value', translation: 'translation.key' }])
+    await datastore.commit('breadcrumbs/set', [{ translation: 'translation.key' }])
+    expect(datastore.getters['breadcrumbs/all']).toEqual([{ name: 'translated value', translation: 'translation.key' }])
   })
 })

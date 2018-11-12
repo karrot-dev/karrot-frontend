@@ -20,11 +20,11 @@ describe('helpers', () => {
     const id = 'foo'
     let run
     let meta
-    let store
+    let datastore
     beforeEach(() => {
       run = jest.fn()
       meta = createMetaModule()
-      store = new Vuex.Store({
+      datastore = new Vuex.Store({
         modules: { meta },
         actions: withMeta({
           run,
@@ -37,37 +37,37 @@ describe('helpers', () => {
     })
 
     it('calls run', async () => {
-      await store.dispatch('run', { id })
+      await datastore.dispatch('run', { id })
       expect(run).toBeCalled()
-      expect(store.getters['meta/status']('run', id).pending).toEqual(false)
+      expect(datastore.getters['meta/status']('run', id).pending).toEqual(false)
     })
 
     it('handles validation errors', async () => {
       const validationErrors = { foo: ['bar'] }
       run.mockImplementationOnce(() => { throw createValidationError(validationErrors) })
-      await store.dispatch('run', { id })
+      await datastore.dispatch('run', { id })
       expect(run).toBeCalled()
-      expect(store.getters['meta/status']('run', id)).toEqual(statusMocks.validationError('foo', 'bar'))
+      expect(datastore.getters['meta/status']('run', id)).toEqual(statusMocks.validationError('foo', 'bar'))
     })
 
     it('throws any other errors back atcha', async () => {
       const error = new Error('raaaaaaaaaaa I am an error')
       run.mockImplementationOnce(() => { throw error })
-      await expect(store.dispatch('run', { id })).rejects.toBe(error)
+      await expect(datastore.dispatch('run', { id })).rejects.toBe(error)
       expect(run).toBeCalled()
-      expect(store.getters['meta/status']('run', id)).toEqual(statusMocks.default())
+      expect(datastore.getters['meta/status']('run', id)).toEqual(statusMocks.default())
     })
 
     it('goes into pending state during request', async () => {
-      const runPromise = store.dispatch('run', { id })
-      expect(store.getters['meta/status']('run', id).pending).toEqual(true)
+      const runPromise = datastore.dispatch('run', { id })
+      expect(datastore.getters['meta/status']('run', id).pending).toEqual(true)
       await runPromise
-      expect(store.getters['meta/status']('run', id).pending).toEqual(false)
+      expect(datastore.getters['meta/status']('run', id).pending).toEqual(false)
     })
 
     it('does not let concurrent actions', async () => {
-      const runPromise = store.dispatch('run', { id })
-      await expect(store.dispatch('run', { id })).rejects.toHaveProperty('message', `action already pending for run/${id}`)
+      const runPromise = datastore.dispatch('run', { id })
+      await expect(datastore.dispatch('run', { id })).rejects.toHaveProperty('message', `action already pending for run/${id}`)
       await runPromise
     })
   })
@@ -89,9 +89,9 @@ describe('helpers', () => {
   })
 
   describe('toggles', () => {
-    let store
+    let datastore
     beforeEach(() => {
-      store = new Vuex.Store({
+      datastore = new Vuex.Store({
         modules: { toggle: toggles({
           something: true,
           notSomething: false,
@@ -99,20 +99,20 @@ describe('helpers', () => {
       })
     })
     it('inits toggles', () => {
-      expect(store.getters['toggle/something']).toEqual(true)
-      expect(store.getters['toggle/notSomething']).toEqual(false)
+      expect(datastore.getters['toggle/something']).toEqual(true)
+      expect(datastore.getters['toggle/notSomething']).toEqual(false)
     })
     it('toggles with action', () => {
-      store.dispatch('toggle/something')
-      expect(store.getters['toggle/something']).toEqual(false)
-      store.dispatch('toggle/notSomething')
-      expect(store.getters['toggle/notSomething']).toEqual(true)
+      datastore.dispatch('toggle/something')
+      expect(datastore.getters['toggle/something']).toEqual(false)
+      datastore.dispatch('toggle/notSomething')
+      expect(datastore.getters['toggle/notSomething']).toEqual(true)
     })
     it('forces a value', () => {
-      store.dispatch('toggle/something', true)
-      expect(store.getters['toggle/something']).toEqual(true)
-      store.dispatch('toggle/something', true)
-      expect(store.getters['toggle/something']).toEqual(true)
+      datastore.dispatch('toggle/something', true)
+      expect(datastore.getters['toggle/something']).toEqual(true)
+      datastore.dispatch('toggle/something', true)
+      expect(datastore.getters['toggle/something']).toEqual(true)
     })
   })
 })

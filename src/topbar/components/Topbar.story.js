@@ -2,10 +2,10 @@ import { storiesOf } from '@storybook/vue'
 
 import KBreadcrumb from './KBreadcrumb'
 import Search from './Search'
-import { createStore, storybookDefaults as defaults } from '>/helpers'
+import { createDatastore, storybookDefaults as defaults } from '>/helpers'
 import { groupsMock, storesMock, usersMock } from '>/mockdata'
 
-const store = createStore({
+const datastore = createDatastore({
   groups: { getters: { all: () => groupsMock } },
   stores: { getters: { all: () => storesMock } },
   users: { getters: { all: () => usersMock } },
@@ -24,5 +24,5 @@ storiesOf('General Components', module)
 
   .add('Search', () => defaults({
     render: h => h(Search),
-    store,
+    store: datastore,
   }))

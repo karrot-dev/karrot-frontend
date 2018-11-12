@@ -3,9 +3,9 @@ import { action } from '@storybook/addon-actions'
 
 import PickupList from './PickupList'
 import { pickupsMock, storesMock, currentUserMock } from '>/mockdata'
-import { createStore, storybookDefaults as defaults } from '>/helpers'
+import { createDatastore, storybookDefaults as defaults } from '>/helpers'
 
-const store = createStore({
+const datastore = createDatastore({
   auth: {
     getters: {
       user: () => currentUserMock,
@@ -18,12 +18,12 @@ storiesOf('PickupList', module)
     render: h => h(PickupList, {
       props: {
         pickups: pickupsMock,
-        store: storesMock[0],
+        datastore: storesMock[0],
       },
       on: {
         join: action('join'),
         leave: action('leave'),
       },
     }),
-    store,
+    store: datastore,
   }))

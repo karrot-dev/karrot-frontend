@@ -1,12 +1,12 @@
 <script>
 import { connect } from 'vuex-connect'
-import store from '@/base/store'
+import datastore from '@/base/datastore'
 import StoreEdit from '@/stores/components/StoreEdit'
 
 export default connect({
   stateToProps: {
     status: () => {
-      const active = store.getters['stores/activeStore']
+      const active = datastore.getters['stores/activeStore']
       return active && active.saveStatus
     },
   },

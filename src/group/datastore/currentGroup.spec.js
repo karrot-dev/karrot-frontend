@@ -5,7 +5,7 @@ jest.mock('@/group/api/groups', () => ({
   conversation: mockConversation,
 }))
 
-import { createStore, createValidationError, throws, statusMocks } from '>/helpers'
+import { createDatastore, createValidationError, throws, statusMocks } from '>/helpers'
 
 function enrichMemberships (memberships, users, currentUserId) {
   return Object.entries(memberships).reduce((obj, [uId, membership]) => {
@@ -36,7 +36,7 @@ function enrich (group, users, currentUserId) {
 describe('currentGroup', () => {
   beforeEach(() => jest.resetModules())
 
-  let store
+  let datastore
 
   let userId
   let group3
@@ -122,7 +122,7 @@ describe('currentGroup', () => {
 
   describe('getters', () => {
     beforeEach(() => {
-      store = createStore({
+      datastore = createDatastore({
         currentGroup: require('./currentGroup').default,
         users: require('@/users/datastore/users').default,
         agreements,
@@ -132,34 +132,34 @@ describe('currentGroup', () => {
     })
 
     beforeEach(() => {
-      store.commit('currentGroup/set', group3)
-      store.commit('users/update', [Object.values(users)])
+      datastore.commit('currentGroup/set', group3)
+      datastore.commit('users/update', [Object.values(users)])
     })
 
     it('can get currentGroup Id', () => {
-      expect(store.getters['currentGroup/id']).toBe(group3.id)
+      expect(datastore.getters['currentGroup/id']).toBe(group3.id)
     })
 
     it('can get currentGroup', () => {
-      expect(store.getters['currentGroup/value']).toEqual(enrich(group3, users, userId))
+      expect(datastore.getters['currentGroup/value']).toEqual(enrich(group3, users, userId))
     })
 
     it('can get the conversation for the current group', () => {
       const conversation = { id: 10 }
       getForGroup.mockReturnValueOnce(conversation)
-      expect(store.getters['currentGroup/conversation']).toEqual(conversation)
+      expect(datastore.getters['currentGroup/conversation']).toEqual(conversation)
       expect(getForGroup).toBeCalled()
       expect(getForGroup.mock.calls[0][0]).toEqual(group3.id)
     })
 
     it('can get memberships', () => {
-      expect(store.getters['currentGroup/memberships']).toEqual(enrichMemberships(group3.memberships, users, userId))
+      expect(datastore.getters['currentGroup/memberships']).toEqual(enrichMemberships(group3.memberships, users, userId))
     })
   })
 
   describe('actions', () => {
     beforeEach(() => {
-      store = createStore({
+      datastore = createDatastore({
         currentGroup: require('./currentGroup').default,
         agreements,
         auth,
@@ -172,7 +172,7 @@ describe('currentGroup', () => {
     it('can select a group', async () => {
       mockConversation.mockReturnValueOnce({ id: 66 })
       mockGet.mockReturnValueOnce(group3)
-      await store.dispatch('currentGroup/select', { groupId: group3.id })
+      await datastore.dispatch('currentGroup/select', { groupId: group3.id })
       expect(pickups.actions.fetchListByGroupId.mock.calls[0][1]).toBe(group3.id)
       expect(pickups.actions.fetchFeedbackPossible.mock.calls[0][1]).toEqual(group3.id)
       expect(auth.actions.maybeBackgroundSave.mock.calls[0][1]).toEqual({ currentGroup: group3.id })
@@ -183,16 +183,16 @@ describe('currentGroup', () => {
     it('can update a group', async () => {
       mockConversation.mockReturnValueOnce({ id: 66 })
       mockGet.mockReturnValueOnce(group3)
-      await store.dispatch('currentGroup/select', { groupId: group3.id })
+      await datastore.dispatch('currentGroup/select', { groupId: group3.id })
       const changed = { ...group3, name: 'new name' }
-      store.dispatch('currentGroup/maybeUpdate', changed)
-      expect(store.getters['currentGroup/value'].name).toEqual(changed.name)
+      datastore.dispatch('currentGroup/maybeUpdate', changed)
+      expect(datastore.getters['currentGroup/value'].name).toEqual(changed.name)
     })
   })
 
   describe('error handling', () => {
     beforeEach(() => {
-      store = createStore({
+      datastore = createDatastore({
         currentGroup: require('./currentGroup').default,
         groups,
         agreements,
@@ -204,7 +204,7 @@ describe('currentGroup', () => {
 
     it('throws routeRedirect if not group does not exist or user is not member of the group', async () => {
       mockGet.mockImplementationOnce(throws(createValidationError({ detail: 'Not found' })))
-      const select = store.dispatch('currentGroup/select', { groupId: 9999 })
+      const select = datastore.dispatch('currentGroup/select', { groupId: 9999 })
       await expect(select).rejects.toHaveProperty('type', 'RouteRedirect')
       await expect(select).rejects.toHaveProperty('data', { name: 'groupPreview', params: { groupPreviewId: 9999 } })
     })

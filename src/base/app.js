@@ -11,7 +11,7 @@ import 'typeface-cabin-sketch'
 
 import { sync } from 'vuex-router-sync'
 import router from './router'
-import store from './store'
+import datastore from './datastore'
 import './socket'
 import i18n from './i18n'
 import log from '@/utils/log'
@@ -33,25 +33,25 @@ import Root from '@/base/pages/Root'
 import '@/utils/datastore/presenceReporter'
 
 export default async function initApp () {
-  sync(store, router)
+  sync(datastore, router)
 
   await Promise.all([
     polyfill.init(),
-    store.dispatch('auth/refresh'),
+    datastore.dispatch('auth/refresh'),
   ])
 
-  store.dispatch('groups/fetch')
+  datastore.dispatch('groups/fetch')
 
   if (!__ENV.DEV) {
-    store.dispatch('about/fetch')
+    datastore.dispatch('about/fetch')
   }
-  store.dispatch('communityFeed/fetchTopics')
+  datastore.dispatch('communityFeed/fetchTopics')
 
   /* eslint-disable no-new */
   const vueRoot = new Vue({
     el: '#q-app',
     router,
-    store,
+    store: datastore,
     i18n,
     render: h => h(Root),
   })

@@ -1,5 +1,5 @@
 import Vue from 'vue'
-import store from '@/base/store'
+import datastore from '@/base/store'
 
 import './setBaseURL'
 import './setupFCM'
@@ -34,9 +34,9 @@ const status = new Vue({
 })
 
 status.$watch('online', val => {
-  if (val) store.dispatch('refresh/maybeRefresh')
+  if (val) datastore.dispatch('refresh/maybeRefresh')
 })
 
 status.$watch('foreground', val => {
-  if (val) store.dispatch('refresh/maybeRefresh')
+  if (val) datastore.dispatch('refresh/maybeRefresh')
 })

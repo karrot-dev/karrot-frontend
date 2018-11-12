@@ -3,16 +3,16 @@ jest.mock('@/messages/api/messages', () => ({
   list: mockList,
 }))
 
-import { createStore, statusMocks } from '>/helpers'
+import { createDatastore, statusMocks } from '>/helpers'
 
 describe('conversations', () => {
-  let store, oneHourAgo
+  let datastore, oneHourAgo
   beforeEach(() => {
     jest.resetModules()
     const i18n = require('@/base/i18n').default
     i18n.locale = 'en'
 
-    store = createStore({
+    datastore = createDatastore({
       conversations: require('./conversations').default,
       users: { getters: { get: a => a => ({ id: a, displayName: `user ${a}` }) } },
     })
@@ -25,14 +25,14 @@ describe('conversations', () => {
     beforeEach(async () => {
       mockList.mockReturnValueOnce([])
       initialConversation = { id: 1, updatedAt: oneHourAgo, participants: [] }
-      await store.commit('conversations/setConversation', { conversation: initialConversation })
+      await datastore.commit('conversations/setConversation', { conversation: initialConversation })
     })
 
     it('updates the conversation', () => {
       const now = new Date()
       const newConversation = { id: 1, updatedAt: now, participants: [] }
-      store.dispatch('conversations/updateConversation', newConversation)
-      expect(store.getters['conversations/get'](newConversation.id)).toEqual({
+      datastore.dispatch('conversations/updateConversation', newConversation)
+      expect(datastore.getters['conversations/get'](newConversation.id)).toEqual({
         ...newConversation,
         messages: [],
         canFetchPast: false,
@@ -46,8 +46,8 @@ describe('conversations', () => {
     it('does not update the conversation if data is old', () => {
       const old = new Date(oneHourAgo.valueOf())
       old.setHours(old.getHours() - 1)
-      store.dispatch('conversations/updateConversation', { id: 1, updatedAt: old, participants: [] })
-      expect(store.getters['conversations/get'](1)).toEqual({
+      datastore.dispatch('conversations/updateConversation', { id: 1, updatedAt: old, participants: [] })
+      expect(datastore.getters['conversations/get'](1)).toEqual({
         ...initialConversation,
         messages: [],
         canFetchPast: false,
@@ -59,8 +59,8 @@ describe('conversations', () => {
     })
 
     it('ignores unknown conversation updates', () => {
-      store.dispatch('conversations/updateConversation', { id: 2, updatedAt: oneHourAgo, participants: [] })
-      expect(store.getters['conversations/get'](2)).toMatchObject({})
+      datastore.dispatch('conversations/updateConversation', { id: 2, updatedAt: oneHourAgo, participants: [] })
+      expect(datastore.getters['conversations/get'](2)).toMatchObject({})
     })
   })
 
@@ -71,15 +71,15 @@ describe('conversations', () => {
       oneHourAgo.setHours(oneHourAgo.getHours() - 1)
       mockList.mockReturnValueOnce([])
       initialConversation = { id: 1, updatedAt: oneHourAgo, participants: [] }
-      await store.commit('conversations/setConversation', { conversation: initialConversation })
+      await datastore.commit('conversations/setConversation', { conversation: initialConversation })
     })
 
     it('receives new message', () => {
       const message = { id: 1, conversation: 1, author: 1, reactions: [] }
-      store.dispatch('conversations/receiveMessage', message)
-      expect(store.getters['conversations/get'](1).messages).toEqual([{
+      datastore.dispatch('conversations/receiveMessage', message)
+      expect(datastore.getters['conversations/get'](1).messages).toEqual([{
         ...message,
-        author: store.getters['users/get'](message.author),
+        author: datastore.getters['users/get'](message.author),
         isUnread: true,
         isEdited: false,
         saveStatus: statusMocks.default(),
@@ -100,12 +100,12 @@ describe('conversations', () => {
         ],
       }
       const conversation = { id: 1, updatedAt: oneHourAgo, participants: [] }
-      await store.commit('conversations/setConversation', { conversation })
-      await store.dispatch('conversations/receiveMessage', message)
+      await datastore.commit('conversations/setConversation', { conversation })
+      await datastore.dispatch('conversations/receiveMessage', message)
     })
 
     it('groups reactions by name', () => {
-      expect(store.getters['conversations/get'](1).messages[0].reactions).toEqual([{
+      expect(datastore.getters['conversations/get'](1).messages[0].reactions).toEqual([{
         'message': 'user 1 and user 2 reacted with :tada:',
         'name': 'tada',
         'reacted': false,

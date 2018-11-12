@@ -5,9 +5,9 @@ import Settings from '@/authuser/pages/Settings'
 import VerificationWarning from '@/authuser/components/Settings/VerificationWarning'
 import { currentUserMock } from '>/mockdata'
 
-import { createStore, statusMocks, storybookDefaults as defaults } from '>/helpers'
+import { createDatastore, statusMocks, storybookDefaults as defaults } from '>/helpers'
 
-const store = createStore({
+const datastore = createDatastore({
   auth: {
     getters: {
       user: () => currentUserMock,
@@ -47,11 +47,11 @@ storiesOf('Settings Page', module)
     render (h) {
       return h(Settings)
     },
-    store,
+    store: datastore,
   }))
   .add('verification warning', () => defaults({
     render (h) {
       return h(VerificationWarning)
     },
-    store,
+    store: datastore,
   }))

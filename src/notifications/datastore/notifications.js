@@ -121,27 +121,27 @@ export default {
   },
 }
 
-export function plugin (store) {
+export function plugin (datastore) {
   // keep state.now update to date
-  setInterval(() => store.commit('notifications/updateNow'), 60 * 1000)
+  setInterval(() => datastore.commit('notifications/updateNow'), 60 * 1000)
 
   // load notifications when logged in
-  store.watch((state, getters) => getters['auth/isLoggedIn'], isLoggedIn => {
+  datastore.watch((state, getters) => getters['auth/isLoggedIn'], isLoggedIn => {
     if (isLoggedIn) {
-      store.dispatch('notifications/fetch')
+      datastore.dispatch('notifications/fetch')
     }
     else {
-      store.commit('notifications/clear')
+      datastore.commit('notifications/clear')
     }
   })
 
   // make sure related data stays loaded when page is visible
-  store.watch((state) => ({
+  datastore.watch((state) => ({
     pageVisible: state.notifications.pageVisible,
     entries: state.notifications.entries,
   }), ({ pageVisible }) => {
     if (pageVisible) {
-      store.dispatch('notifications/fetchRelated')
+      datastore.dispatch('notifications/fetchRelated')
     }
   })
 }

@@ -1,29 +1,29 @@
 import router from '@/base/router'
 import { throttle } from 'quasar'
 
-export default store => {
-  const isLoggedIn = () => store.getters['auth/isLoggedIn']
-  const getUserGroupId = () => isLoggedIn() && store.getters['auth/user'].currentGroup
-  const getGroup = (id) => store.getters['groups/get'](id)
+export default datastore => {
+  const isLoggedIn = () => datastore.getters['auth/isLoggedIn']
+  const getUserGroupId = () => isLoggedIn() && datastore.getters['auth/user'].currentGroup
+  const getGroup = (id) => datastore.getters['groups/get'](id)
 
   const throttledMarkUserActive = throttle(
-    () => store.dispatch('currentGroup/markUserActive').catch(() => {}),
+    () => datastore.dispatch('currentGroup/markUserActive').catch(() => {}),
     1000 * 60 * 10, // 10 minutes
   )
 
   router.beforeEach(async (to, from, nextFn) => {
-    store.dispatch('routeError/clear')
+    datastore.dispatch('routeError/clear')
     let next
 
     // handle invite parameter
     const inviteToken = to.query.invite
     if (inviteToken) {
       if (isLoggedIn()) {
-        store.dispatch('invitations/accept', inviteToken)
+        datastore.dispatch('invitations/accept', inviteToken)
         next = { path: '/' }
       }
       else {
-        store.dispatch('auth/setAcceptInviteAfterLogin', inviteToken)
+        datastore.dispatch('auth/setAcceptInviteAfterLogin', inviteToken)
         next = { name: 'signup' }
       }
     }
@@ -42,7 +42,7 @@ export default store => {
     // check meta.requireLoggedIn
     else if (to.matched.some(m => m.meta.requireLoggedIn) && !isLoggedIn()) {
       const { name, params, query } = to
-      store.dispatch('auth/setRedirectTo', { name, params, query })
+      datastore.dispatch('auth/setRedirectTo', { name, params, query })
       next = { name: 'login' }
     }
 
@@ -56,21 +56,21 @@ export default store => {
       return
     }
 
-    const { redirect } = await maybeDispatchActions(store, to, from)
+    const { redirect } = await maybeDispatchActions(datastore, to, from)
     if (redirect) {
       nextFn({ replace: true, ...redirect })
       return
     }
 
     nextFn()
-    store.commit('breadcrumbs/set', findBreadcrumbs(to.matched) || [])
+    datastore.commit('breadcrumbs/set', findBreadcrumbs(to.matched) || [])
   })
 
   router.afterEach(() => {
     throttledMarkUserActive()
   })
 
-  store.watch((state, getters) => [
+  datastore.watch((state, getters) => [
     getters['breadcrumbs/allNames'],
     getters['latestMessages/unreadCount'],
   ], ([breadcrumbNames, unreadCount]) => {
@@ -96,10 +96,10 @@ export function findBreadcrumbs (matched) {
   }, [])
 }
 
-export async function maybeDispatchActions (store, to, from) {
+export async function maybeDispatchActions (datastore, to, from) {
   for (let m of from.matched.slice().reverse()) {
     if (m.meta.afterLeave) {
-      await store.dispatch(m.meta.afterLeave, {
+      await datastore.dispatch(m.meta.afterLeave, {
         ...parseAsIntegers(from.params),
         routeFrom: from,
         routeTo: to,
@@ -109,7 +109,7 @@ export async function maybeDispatchActions (store, to, from) {
   for (let m of to.matched) {
     if (m.meta.beforeEnter) {
       try {
-        await store.dispatch(m.meta.beforeEnter, {
+        await datastore.dispatch(m.meta.beforeEnter, {
           ...parseAsIntegers(to.params),
           routeFrom: from,
           routeTo: to,
@@ -120,7 +120,7 @@ export async function maybeDispatchActions (store, to, from) {
           return { redirect: error.data }
         }
         else if (error.type === 'RouteError') {
-          await store.dispatch('routeError/set', error.data)
+          await datastore.dispatch('routeError/set', error.data)
           // no further loading should be done
           return {}
         }

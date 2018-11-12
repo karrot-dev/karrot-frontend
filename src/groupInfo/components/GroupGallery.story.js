@@ -1,11 +1,11 @@
-import { createStore, storybookDefaults as defaults } from '>/helpers'
+import { createDatastore, storybookDefaults as defaults } from '>/helpers'
 import { storiesOf } from '@storybook/vue'
 import { action } from '@storybook/addon-actions'
 
 import GroupGallery from './GroupGalleryUI'
 import { groupsMock } from '>/mockdata'
 
-const store = createStore({
+const datastore = createDatastore({
   groupApplications: {
     getters: {
       getMyInGroup: () => () => null,
@@ -26,7 +26,7 @@ storiesOf('GroupGallery', module)
       },
       on: defaultOn,
     }),
-    store,
+    store: datastore,
   }))
   .add('switch and explore', () => defaults({
     render: h => h(GroupGallery, {
@@ -36,5 +36,5 @@ storiesOf('GroupGallery', module)
       },
       on: defaultOn,
     }),
-    store,
+    store: datastore,
   }))

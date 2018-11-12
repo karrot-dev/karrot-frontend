@@ -1,8 +1,8 @@
-import { createStore, statusMocks, storybookDefaults as defaults } from '>/helpers'
+import { createDatastore, statusMocks, storybookDefaults as defaults } from '>/helpers'
 import { storiesOf } from '@storybook/vue'
 import { action } from '@storybook/addon-actions'
 
-const store = createStore({
+const datastore = createDatastore({
   users: { getters: { get: () => id => id } },
 })
 
@@ -79,7 +79,7 @@ storiesOf('User Profile', module)
       },
       on: defaultOn,
     }),
-    store,
+    store: datastore,
   }))
   .add('Trust Button - is editor', () => defaults({
     render: h => h(TrustButton, {
@@ -90,7 +90,7 @@ storiesOf('User Profile', module)
       },
       on: defaultOn,
     }),
-    store,
+    store: datastore,
   }))
   .add('Trust Button - is newcomer', () => defaults({
     render: h => h(TrustButton, {
@@ -101,7 +101,7 @@ storiesOf('User Profile', module)
       },
       on: defaultOn,
     }),
-    store,
+    store: datastore,
   }))
   .add('Trust Button - is newcomer without trust', () => defaults({
     render: h => h(TrustButton, {
@@ -112,7 +112,7 @@ storiesOf('User Profile', module)
       },
       on: defaultOn,
     }),
-    store,
+    store: datastore,
   }))
   .add('Trust Button - one other trust', () => defaults({
     render: h => h(TrustButton, {
@@ -123,7 +123,7 @@ storiesOf('User Profile', module)
       },
       on: defaultOn,
     }),
-    store,
+    store: datastore,
   }))
   .add('Trust Button - multiple others trust', () => defaults({
     render: h => h(TrustButton, {
@@ -134,7 +134,7 @@ storiesOf('User Profile', module)
       },
       on: defaultOn,
     }),
-    store,
+    store: datastore,
   }))
   .add('Trust Button - I and others trust', () => defaults({
     render: h => h(TrustButton, {
@@ -145,7 +145,7 @@ storiesOf('User Profile', module)
       },
       on: defaultOn,
     }),
-    store,
+    store: datastore,
   }))
   .add('Trust Button - I trust', () => defaults({
     render: h => h(TrustButton, {
@@ -156,7 +156,7 @@ storiesOf('User Profile', module)
       },
       on: defaultOn,
     }),
-    store,
+    store: datastore,
   }))
   .add('My Trust Button', () => defaults({
     render: h => h(TrustButton, {
@@ -170,5 +170,5 @@ storiesOf('User Profile', module)
       },
       on: defaultOn,
     }),
-    store,
+    store: datastore,
   }))

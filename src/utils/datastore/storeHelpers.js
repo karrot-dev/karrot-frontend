@@ -2,10 +2,10 @@
  * Store dependent helpers
  */
 
-import store from '@/base/store'
+import datastore from '@/base/datastore'
 
 /**
- * Create a function that refers to a getter that you can use in `store.watch()`
+ * Create a function that refers to a getter that you can use in `datastore.watch()`
  *
  * @param getterName namespaced getter name
  * @param args will be passed to the getter if it is a function
@@ -13,7 +13,7 @@ import store from '@/base/store'
  */
 export function getter (getterName, ...args) {
   return (...moreArgs) => {
-    let getter = store.getters[getterName]
+    let getter = datastore.getters[getterName]
     if (typeof getter === 'function') {
       return getter(...args, ...moreArgs)
     }

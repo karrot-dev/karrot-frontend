@@ -3,9 +3,9 @@ import { action } from '@storybook/addon-actions'
 
 import PickupUsers from './PickupUsers'
 import { joinablePickup, leavablePickup, fullPickup, emptyPickup, currentUserMock } from '>/mockdata'
-import { createStore, storybookDefaults as defaults } from '>/helpers'
+import { createDatastore, storybookDefaults as defaults } from '>/helpers'
 
-const store = createStore({
+const datastore = createDatastore({
   auth: {
     getters: {
       user: () => currentUserMock,
@@ -23,7 +23,7 @@ storiesOf('PickupUsers', module)
         join: action('join'),
       },
     }),
-    store,
+    store: datastore,
   }))
   .add('leavable', () => defaults({
     render: h => h(PickupUsers, {
@@ -34,7 +34,7 @@ storiesOf('PickupUsers', module)
         leave: action('leave'),
       },
     }),
-    store,
+    store: datastore,
   }))
   .add('full', () => defaults({
     render: h => h(PickupUsers, {
@@ -42,7 +42,7 @@ storiesOf('PickupUsers', module)
         pickup: fullPickup,
       },
     }),
-    store,
+    store: datastore,
   }))
   .add('empty', () => defaults({
     render: h => h(PickupUsers, {
@@ -53,5 +53,5 @@ storiesOf('PickupUsers', module)
         join: action('join'),
       },
     }),
-    store,
+    store: datastore,
   }))

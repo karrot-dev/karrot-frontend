@@ -1,4 +1,4 @@
-import store from '@/base/store'
+import datastore from '@/base/store'
 import router from '@/base/router'
 
 document.addEventListener('deviceready', onDeviceReady, false)
@@ -30,5 +30,5 @@ function receiveNotification (data) {
 }
 
 function receiveFCMToken (token) {
-  store.commit('fcm/setToken', token)
+  datastore.commit('fcm/setToken', token)
 }

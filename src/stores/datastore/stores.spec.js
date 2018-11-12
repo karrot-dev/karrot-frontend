@@ -2,7 +2,7 @@ const mockGet = jest.fn()
 const mockGetStatistics = jest.fn()
 jest.mock('@/stores/api/stores', () => ({ get: mockGet, statistics: mockGetStatistics }))
 
-import { createStore, throws, createValidationError } from '>/helpers'
+import { createDatastore, throws, createValidationError } from '>/helpers'
 
 const groups = {
   getters: {
@@ -13,11 +13,11 @@ const groups = {
 describe('stores module', () => {
   beforeEach(() => jest.resetModules())
 
-  let store
+  let datastore
 
   let store1, store2, store3
   beforeEach(() => {
-    store = createStore({
+    datastore = createDatastore({
       stores: require('./stores').default,
       groups,
     })
@@ -30,19 +30,19 @@ describe('stores module', () => {
   })
 
   beforeEach(() => {
-    store.commit('stores/set', [store1, store2, store3])
+    datastore.commit('stores/set', [store1, store2, store3])
   })
 
   it('can update store', () => {
     const changed = { ...store1, name: 'new name' }
-    store.commit('stores/update', [changed])
-    expect(store.getters['stores/get'](changed.id).name).toEqual(changed.name)
+    datastore.commit('stores/update', [changed])
+    expect(datastore.getters['stores/get'](changed.id).name).toEqual(changed.name)
   })
 
   it('throws routeError if store is not accessible', async () => {
     mockGet.mockImplementationOnce(throws(createValidationError({ detail: 'Not found' })))
     mockGetStatistics.mockImplementationOnce()
-    await expect(store.dispatch('stores/selectStore', { storeId: 9999 }))
+    await expect(datastore.dispatch('stores/selectStore', { storeId: 9999 }))
       .rejects.toHaveProperty('type', 'RouteError')
   })
 })

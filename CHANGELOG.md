@@ -31,11 +31,14 @@ Please document your changes in this format:
 - Do not clear data on refresh, should reduce empty screens in app @tiltec
 - Hide browser push setting in app @tiltec
 - Community forum notifier shows avatar of last poster instead of original poster @tiltec @djahnie
+- Show server and network errors when submitting forms @tiltec
 
 ### Fixed
 
 - Marker popup urls in app were broken @tiltec
 - Group description view didn't use full width @tiltec
+- Alerts about server errors were shown when network errors happened @tiltec
+- Message could get lost if network was unstable @tiltec
 
 ### Removed
 

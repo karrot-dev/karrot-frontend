@@ -8,14 +8,14 @@ export default {
     const users = data.users
     const topics = data.topicList.topics
     return topics.map(topic => {
-      const lastPoster = users.find(u => u.id === topic.posters[0].userId)
+      const lastPoster = users.find(u => u.username === topic.lastPosterUsername)
       return {
         ...topic,
         createdAt: new Date(topic.createdAt),
         lastPostedAt: new Date(topic.lastPostedAt),
         link: `https://community.foodsaving.world/t/${topic.slug}/${topic.id}`,
-        originalPosterAvatar: backend + '/community_proxy' + lastPoster.avatarTemplate.split('{size}').join('45'),
-        originalPosterUsername: lastPoster.username,
+        lastPosterAvatar: backend + '/community_proxy' + lastPoster.avatarTemplate.split('{size}').join('45'),
+        lastPosterUsername: lastPoster.username,
       }
     })
   },

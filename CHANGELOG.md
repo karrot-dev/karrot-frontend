@@ -30,6 +30,7 @@ Please document your changes in this format:
 
 - Do not clear data on refresh, should reduce empty screens in app @tiltec
 - Hide browser push setting in app @tiltec
+- Community forum notifier shows avatar of last poster instead of original poster @tiltec @djahnie
 
 ### Fixed
 

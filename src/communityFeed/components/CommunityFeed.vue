@@ -65,8 +65,8 @@
           <q-item-side>
             <q-item-tile avatar>
               <img
-                :src="topic.originalPosterAvatar"
-                :title="topic.originalPosterUsername"
+                :src="topic.lastPosterAvatar"
+                :title="topic.lastPosterUsername"
               >
             </q-item-tile>
           </q-item-side>

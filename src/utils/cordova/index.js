@@ -1,5 +1,5 @@
 import Vue from 'vue'
-import datastore from '@/base/store'
+import datastore from '@/base/datastore'
 
 import './setBaseURL'
 import './setupFCM'

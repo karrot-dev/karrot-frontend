@@ -6,14 +6,14 @@
       :seed="group.id"
       type="circles"
     >
-      <div class="art-overlay">
+      <div class="art-overlay q-px-md q-py-lg">
         <div
           class="header"
           v-t="showPublicDescription ? 'GROUPINFO.TITLE' : 'GROUP.DESCRIPTION_VERBOSE'"
         />
       </div>
     </RandomArt>
-    <div class="generic-padding actionButtons">
+    <div class="q-mx-md actionButtons">
       <q-btn
         small
         round
@@ -39,25 +39,21 @@
         </q-btn>
       </router-link>
     </div>
-    <q-item
-      class="padding-top"
-      multiline>
-      <q-item-main>
-        <Markdown
-          v-if="this.showPublicDescription && group.publicDescription"
-          :source="group.publicDescription"
-        />
-        <Markdown
-          v-if="!this.showPublicDescription && group.description"
-          :source="group.description"
-        />
-      </q-item-main>
-    </q-item>
+    <div class="q-pa-md">
+      <Markdown
+        v-if="this.showPublicDescription && group.publicDescription"
+        :source="group.publicDescription"
+      />
+      <Markdown
+        v-if="!this.showPublicDescription && group.description"
+        :source="group.description"
+      />
+    </div>
   </q-card>
 </template>
 
 <script>
-import { QCard, QItem, QItemMain, QItemSide, QBtn, QTooltip } from 'quasar'
+import { QCard, QBtn, QTooltip } from 'quasar'
 import Markdown from '@/utils/components/Markdown'
 import RandomArt from '@/utils/components/RandomArt'
 
@@ -66,7 +62,7 @@ import {
 } from 'vuex'
 
 export default {
-  components: { QCard, RandomArt, QItem, QItemMain, QItemSide, QBtn, QTooltip, Markdown },
+  components: { QCard, RandomArt, QBtn, QTooltip, Markdown },
   data () {
     return {
       showPublicDescription: false,
@@ -84,25 +80,18 @@ export default {
 <style scoped lang="stylus">
 @import '~variables'
 .actionButtons
-  margin-top -36px
   float right
+  margin-top -24px
   .q-btn
     margin 3px
 
-.padding-top
-  padding-top 25px
-
 .art-overlay
   color white
-  padding 3em 2em 1em 1em
-  background linear-gradient(to top, rgba(0,0,0,0.5) 0%, rgba(0,0,0,$groupNavOverlay) 58%, rgba(0,0,0,0) 90%)
+  background rgba(0,0,0,$groupNavOverlay)
   .header
     font-size 1.3em
   .subtitle
     margin-top 6px
-body.mobile .art-overlay
-  padding 10px
-  padding-top 1.6em
-  padding-bottom 20px
-  background rgba(0,0,0,$groupNavOverlay)
+body.desktop .art-overlay
+  background linear-gradient(to top, rgba(0,0,0,0.5) 0%, rgba(0,0,0,$groupNavOverlay) 58%, rgba(0,0,0,0) 90%)
 </style>

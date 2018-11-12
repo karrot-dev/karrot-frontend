@@ -34,6 +34,7 @@ Please document your changes in this format:
 ### Fixed
 
 - Marker popup urls in app were broken @tiltec
+- Group description view didn't use full width @tiltec
 
 ## [6.2.4] - 2018-10-07
 

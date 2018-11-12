@@ -81,9 +81,9 @@ export default {
 @import '~variables'
 .actionButtons
   float right
-  margin-top -24px
+  margin-top -21px
   .q-btn
-    margin 3px
+    margin-left 3px
 
 .art-overlay
   color white

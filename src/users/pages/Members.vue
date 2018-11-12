@@ -1,37 +1,35 @@
 <template>
   <q-card class="no-mobile-margin no-shadow grey-border k-members">
-    <div class="relative-position full-width z-top">
-      <div class="actionButtons">
-        <q-btn
-          small
-          round
-          color="secondary"
-          :icon="sorting === 'joinDate' ? 'fas fa-sort-alpha-down' : 'fas fa-sort-numeric-down'"
-          class="hoverScale"
-          @click="toggleSorting"
-        >
-          <q-tooltip v-t="sorting === 'joinDate' ? 'GROUP.SORT_NAME' : 'GROUP.SORT_JOINDATE'" />
-        </q-btn>
-        <router-link
-          v-if="isEditor"
-          :to="{name: 'groupInvitations', params: { groupId: group.id }}"
-        >
-          <q-btn
-            small
-            round
-            color="secondary"
-            icon="fas fa-user-plus"
-            class="hoverScale"
-          >
-            <q-tooltip v-t="'GROUP.INVITE_TITLE'" />
-          </q-btn>
-        </router-link>
-      </div>
-    </div>
     <RandomArt
       :seed="group.id"
       type="circles"
     />
+    <div class="q-mx-md actionButtons">
+      <q-btn
+        small
+        round
+        color="secondary"
+        :icon="sorting === 'joinDate' ? 'fas fa-sort-alpha-down' : 'fas fa-sort-numeric-down'"
+        class="hoverScale"
+        @click="toggleSorting"
+      >
+        <q-tooltip v-t="sorting === 'joinDate' ? 'GROUP.SORT_NAME' : 'GROUP.SORT_JOINDATE'" />
+      </q-btn>
+      <router-link
+        v-if="isEditor"
+        :to="{name: 'groupInvitations', params: { groupId: group.id }}"
+      >
+        <q-btn
+          small
+          round
+          color="secondary"
+          icon="fas fa-user-plus"
+          class="hoverScale"
+        >
+          <q-tooltip v-t="'GROUP.INVITE_TITLE'" />
+        </q-btn>
+      </router-link>
+    </div>
     <UserList
       class="q-pt-sm"
       :users="users"
@@ -89,9 +87,8 @@ export default {
   margin-left auto
   margin-right auto
 .actionButtons
-  position absolute
-  top 8px
-  right 8px
+  margin-top -21px
+  float right
   .q-btn
     margin-left 3px
 </style>

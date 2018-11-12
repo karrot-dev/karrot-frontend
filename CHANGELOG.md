@@ -24,7 +24,7 @@ Please document your changes in this format:
 
 ### Added
 
-- Splash screen when app is bootstrapping @tiltec
+- Splash screen while karrot is loading @tiltec
 
 ### Changed
 
@@ -35,6 +35,10 @@ Please document your changes in this format:
 
 - Marker popup urls in app were broken @tiltec
 - Group description view didn't use full width @tiltec
+
+### Removed
+
+- Built-in app updater; rely on Play Store for updates instead @tiltec
 
 ## [6.2.4] - 2018-10-07
 

@@ -58,7 +58,7 @@
                 @click="$emit('join', group.id)"
                 color="secondary"
                 class="float-right generic-margin"
-                :loading="group.joinStatus.pending"
+                :loading="isPending"
               >
                 {{ $t('BUTTON.JOIN') }}
               </q-btn>
@@ -68,7 +68,7 @@
                 @click="$emit('goSettings')"
                 color="secondary"
                 class="float-right generic-margin"
-                :loading="group.joinStatus.pending"
+                :loading="isPending"
               >
                 {{ $t('JOINGROUP.VERIFY_EMAIL_ADDRESS') }}
               </q-btn>
@@ -77,7 +77,7 @@
                 @click="$emit('goApply', group.id)"
                 color="secondary"
                 class="float-right generic-margin"
-                :loading="group.joinStatus.pending"
+                :loading="isPending"
               >
                 {{ $t('BUTTON.APPLY') }}
               </q-btn>
@@ -100,7 +100,7 @@
             @click="$emit('goSignup', group)"
             color="secondary"
             class="float-right generic-margin"
-            :loading="group.joinStatus.pending"
+            :loading="isPending"
           >
             {{ $t('JOINGROUP.SIGNUP_OR_LOGIN') }}
           </q-btn>
@@ -113,6 +113,7 @@
 <script>
 import { Dialog, QTooltip, QCard, QCardTitle, QCardMain, QCardSeparator, QCardActions, QBtn, QField, QInput, QIcon, QAlert } from 'quasar'
 import Markdown from '@/utils/components/Markdown'
+import statusMixin from '@/utils/mixins/statusMixin'
 
 export default {
   props: {
@@ -135,15 +136,10 @@ export default {
   },
   components: { QCard, QCardTitle, QCardMain, QCardSeparator, QCardActions, QBtn, QField, QInput, QIcon, QTooltip, QAlert, Markdown },
   computed: {
-    joinStatus () {
+    status () {
       return this.group && this.group.joinStatus
     },
-    hasAnyError () {
-      return this.joinStatus && this.joinStatus.hasValidationErrors
-    },
-    anyFirstError () {
-      return this.joinStatus && this.joinStatus.firstValidationError
-    },
+    ...statusMixin.computed,
   },
   methods: {
     withdraw () {

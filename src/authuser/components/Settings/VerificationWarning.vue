@@ -19,13 +19,14 @@
         {{ $t('NOTIFICATIONS.RESEND_VERIFICATION') }}
       </a>
     </i18n>
-    <span v-else>
+    <p v-else>
       {{ $t('NOTIFICATIONS.VERIFICATION_EMAIL_SENT') }}
-    </span>
+    </p>
     <p
       v-if="hasAnyError"
-      class="text-negative"
+      class="bg-white text-negative"
     >
+      <i class="fas fa-exclamation-triangle"/>
       {{ anyFirstError }}
     </p>
   </q-alert>
@@ -65,6 +66,7 @@
 <script>
 import { QAlert, QList, QItem, QItemMain, QItemSide, QCollapsible } from 'quasar'
 import { mapActions, mapGetters } from 'vuex'
+import statusMixin from '@/utils/mixins/statusMixin'
 
 export default {
   components: {
@@ -77,12 +79,7 @@ export default {
       status: 'users/resendVerificationCodeStatus',
       success: 'users/resendVerificationCodeSuccess',
     }),
-    hasAnyError () {
-      return this.status.hasValidationErrors
-    },
-    anyFirstError () {
-      return this.status.firstValidationError
-    },
+    ...statusMixin.computed,
     hasEmailVerified () {
       return this.user && this.user.mailVerified
     },

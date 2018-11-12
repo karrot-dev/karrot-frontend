@@ -1,3 +1,5 @@
+import i18n from '@/base/i18n'
+
 export default {
   props: {
     status: { default: null, type: Object },
@@ -7,16 +9,21 @@ export default {
       return this.status && this.status.pending
     },
     hasNonFieldError () {
-      return this.status && !!this.status.firstNonFieldError
+      return Boolean(this.firstNonFieldError)
     },
     firstNonFieldError () {
       return this.status && this.status.firstNonFieldError
     },
     hasAnyError () {
-      return this.status && this.status.hasValidationErrors
+      return Boolean(this.anyFirstError)
     },
     anyFirstError () {
-      return this.status && this.status.firstValidationError
+      const { status } = this
+      if (!status) return
+      const errorLabel = status.firstValidationError ||
+        (status.serverError && i18n.t('GLOBAL.SERVER_ERROR')) ||
+        (status.networkError && i18n.t('GLOBAL.NOT_CONNECTED'))
+      if (errorLabel) return errorLabel
     },
   },
   methods: {

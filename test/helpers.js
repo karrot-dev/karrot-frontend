@@ -162,7 +162,7 @@ export function mockActionOnce (datastore, actionName) {
 }
 
 export function defaultActionStatus () {
-  return { pending: false, validationErrors: {}, hasValidationErrors: false }
+  return { pending: false, validationErrors: {}, hasValidationErrors: false, serverError: false, networkError: false }
 }
 
 export function defaultActionStatusesFor (...actions) {
@@ -182,11 +182,9 @@ export function sleep (ms) {
  */
 function statusMock (override) {
   const defaults = {
-    pending: false,
+    ...defaultActionStatus(),
     firstNonFieldError: undefined,
-    hasValidationErrors: false,
     firstValidationError: undefined,
-    validationErrors: {},
   }
   return deepmerge(defaults, override || {})
 }

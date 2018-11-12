@@ -164,7 +164,7 @@ e.g. the status about a `save` action would be available as `saveStatus` or the 
 
 - Does the form edit an existing object? -> use `editMixin`
 - Does the form show server-side validation errors? -> `statusMixin`?
-    - uses `hasAnyError` and `anyFirstError` to show any server-side validation error?
+    - uses `hasAnyError` and `anyFirstError` to show any server-side validation error, server error or network error?
     - uses `hasError(field)` & `firstError(field)` methods to check for field-specific server-side validation errors?
     - uses `hasNonFieldError` & `firstNonFieldError` to show errors unrelated to fields?
     - sets `::loading="isPending"` on submit button?

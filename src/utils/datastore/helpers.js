@@ -34,7 +34,14 @@ export function isServerError (error) {
   return false
 }
 
-const defaultStatus = { pending: false, validationErrors: {} }
+export function isNetworkError (error) {
+  if (error && error.message === 'Network Error') {
+    return true
+  }
+  return false
+}
+
+const defaultStatus = { pending: false, validationErrors: {}, serverError: false, networkError: false }
 
 export function createMetaModule () {
   return {
@@ -157,6 +164,12 @@ function wrapAction ({ namespace, actionName, action, idPrefix, findId }) {
           commit('auth/setMaybeLoggedOut', true, { root: true })
         }
         return false
+      }
+      else if (isServerError(error)) {
+        update({ serverError: true })
+      }
+      else if (isNetworkError(error)) {
+        update({ networkError: true })
       }
       else {
         // some other error, can't handle it here

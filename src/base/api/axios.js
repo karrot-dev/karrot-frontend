@@ -3,7 +3,7 @@ import i18n from '@/base/i18n'
 import { Notify, throttle } from 'quasar'
 
 import { camelizeKeys, underscorizeKeys } from '@/utils/utils'
-import { isValidationError } from '@/utils/datastore/helpers'
+import { isServerError } from '@/utils/datastore/helpers'
 
 /*
 * Axios configured for Django REST API
@@ -24,7 +24,6 @@ const makeThrottledWarner = (message) =>
     }),
   5000)
 
-const showConnectionInterruptedWarning = makeThrottledWarner('GLOBAL.CONNECTION_INTERRUPTED')
 const showServerError = makeThrottledWarner('GLOBAL.SERVER_ERROR')
 
 axios.interceptors.request.use(request => {
@@ -33,9 +32,6 @@ axios.interceptors.request.use(request => {
   }
   request.data = underscorizeKeys(request.data)
   return request
-}, error => {
-  showConnectionInterruptedWarning()
-  return Promise.reject(error)
 })
 
 axios.interceptors.response.use(response => {
@@ -45,7 +41,7 @@ axios.interceptors.response.use(response => {
   if (error.response && error.response.data) {
     error.response.data = camelizeKeys(error.response.data)
   }
-  if (!isValidationError(error)) {
+  if (isServerError(error)) {
     showServerError()
   }
   throw error

@@ -18,17 +18,6 @@ export function indexById (iterable) {
   }, {})
 }
 
-export function onlyHandleAPIError (error, handleFn) {
-  const { response: { status = -1, data } = {} } = error
-  if (status >= 400 && status < 500) {
-    handleFn({ error: data })
-  }
-  else {
-    handleFn({ error })
-    throw error
-  }
-}
-
 export function isValidationError (error) {
   const { response: { status = -1 } = {} } = error
   if (status >= 400 && status < 500) {
@@ -37,12 +26,9 @@ export function isValidationError (error) {
   return false
 }
 
-export function isRequestError (error) {
+export function isServerError (error) {
   const { response: { status = -1 } = {} } = error
   if (status >= 500) {
-    return true
-  }
-  if (error.request) {
     return true
   }
   return false

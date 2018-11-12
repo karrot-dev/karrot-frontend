@@ -250,10 +250,10 @@ export default {
   },
 }
 
-export function plugin (store) {
-  store.watch(state => state.auth.maybeLoggedOut, async (maybeLoggedOut) => {
+export function plugin (datastore) {
+  datastore.watch(state => state.auth.maybeLoggedOut, async (maybeLoggedOut) => {
     if (maybeLoggedOut) {
-      await store.dispatch('auth/refresh')
+      await datastore.dispatch('auth/refresh')
     }
   })
 }

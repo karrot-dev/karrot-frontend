@@ -32,7 +32,7 @@ export default {
   },
   methods: {
     restore () {
-      this.$store.dispatch('stores/save', { id: this.store.id, status: 'created' })
+      this.$datastore.dispatch('stores/save', { id: this.store.id, status: 'created' })
     },
   },
 }

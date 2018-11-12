@@ -2,18 +2,18 @@ import PickupUsers from './PickupUsers'
 import { joinablePickup, currentUserMock } from '>/mockdata'
 import cloneDeep from 'clone-deep'
 
-import { mountWithDefaults, createStore, polyfillRequestAnimationFrame } from '>/helpers'
+import { mountWithDefaults, createDatastore, polyfillRequestAnimationFrame } from '>/helpers'
 import { makeUser } from '>/enrichedFactories'
 
 polyfillRequestAnimationFrame()
 
 describe('PickupUsers', () => {
   beforeEach(() => jest.resetModules())
-  let wrapper, pickup, store
+  let wrapper, pickup, datastore
 
   beforeEach(() => {
     pickup = cloneDeep(joinablePickup)
-    store = createStore({
+    datastore = createDatastore({
       auth: { getters: { user: () => currentUserMock } },
     })
   })
@@ -23,7 +23,7 @@ describe('PickupUsers', () => {
       propsData: {
         pickup,
       },
-      store,
+      datastore,
     })
     expect(wrapper.vm.emptyPlaces).toBe(1)
   })
@@ -41,7 +41,7 @@ describe('PickupUsers', () => {
       propsData: {
         pickup,
       },
-      store,
+      datastore,
     })
     expect(wrapper.vm.emptyPlaces).toBe(0)
   })

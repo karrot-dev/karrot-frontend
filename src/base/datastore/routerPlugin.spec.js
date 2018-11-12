@@ -1,5 +1,5 @@
 import Vue from 'vue'
-import { createStore, throws } from '>/helpers'
+import { createDatastore, throws } from '>/helpers'
 import { createRouteError } from '@/utils/datastore/helpers'
 import VueRouter from 'vue-router'
 import { maybeDispatchActions } from './routerPlugin'
@@ -28,12 +28,12 @@ function makeRouteErrorModule () {
 describe('router plugin / beforeEnter & afterLeave meta options', () => {
   beforeEach(() => jest.resetModules())
 
-  let store, router, test, routeError
+  let datastore, router, test, routeError
   beforeEach(() => {
     test = makeTestModule()
     routeError = makeRouteErrorModule()
 
-    store = createStore(
+    datastore = createDatastore(
       {
         routeError,
         test,
@@ -67,7 +67,7 @@ describe('router plugin / beforeEnter & afterLeave meta options', () => {
 
     router = new VueRouter({ routes })
     router.beforeEach(async (to, from, next) => {
-      await maybeDispatchActions(store, to, from)
+      await maybeDispatchActions(datastore, to, from)
       next()
     })
   })

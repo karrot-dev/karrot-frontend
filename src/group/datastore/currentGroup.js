@@ -190,11 +190,11 @@ export default {
   },
 }
 
-export function plugin (store) {
+export function plugin (datastore) {
   // clear group when logged out
-  store.watch((state, getters) => getters['auth/isLoggedIn'], isLoggedIn => {
+  datastore.watch((state, getters) => getters['auth/isLoggedIn'], isLoggedIn => {
     if (!isLoggedIn) {
-      store.dispatch('currentGroup/clear')
+      datastore.dispatch('currentGroup/clear')
     }
   })
 }

@@ -1,4 +1,4 @@
-import { createStore } from '>/helpers'
+import { createDatastore } from '>/helpers'
 import { pickupSeriesMock } from '>/mockdata'
 import { makeStore, makePickupSeries } from '>/enrichedFactories'
 
@@ -6,11 +6,11 @@ describe('pickupSeries module', () => {
   beforeEach(() => jest.resetModules())
 
   describe('with vuex', () => {
-    let store
+    let datastore
     let series1 = pickupSeriesMock[0]
 
     beforeEach(() => {
-      store = createStore({
+      datastore = createDatastore({
         pickupSeries: require('./pickupSeries').default,
         pickups: { getters: { all: () => [] } },
         stores: { getters: { get: () => () => null } },
@@ -18,18 +18,18 @@ describe('pickupSeries module', () => {
     })
 
     beforeEach(() => {
-      store.commit('pickupSeries/set', [series1])
+      datastore.commit('pickupSeries/set', [series1])
     })
 
     it('can update series', () => {
       const changed = { ...series1, description: 'new description' }
-      store.commit('pickupSeries/update', [changed])
-      expect(store.getters['pickupSeries/get'](changed.id).description).toEqual(changed.description)
+      datastore.commit('pickupSeries/update', [changed])
+      expect(datastore.getters['pickupSeries/get'](changed.id).description).toEqual(changed.description)
     })
 
     it('can delete series', () => {
-      store.commit('pickupSeries/delete', series1.id)
-      expect(store.getters['pickupSeries/get'](series1.id)).toBeUndefined()
+      datastore.commit('pickupSeries/delete', series1.id)
+      expect(datastore.getters['pickupSeries/get'](series1.id)).toBeUndefined()
     })
   })
 

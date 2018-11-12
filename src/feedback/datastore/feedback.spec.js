@@ -1,4 +1,4 @@
-import { createStore } from '>/helpers'
+import { createDatastore } from '>/helpers'
 import { feedbackMock } from '>/mockdata'
 
 const mockPickupGet = jest.fn()
@@ -33,13 +33,13 @@ const users = {
 
 describe('feedback module', () => {
   beforeEach(() => jest.resetModules())
-  let store
+  let datastore
   const feedback1 = feedbackMock[0]
   const feedback2 = feedbackMock[1]
   const feedback3 = feedbackMock[2]
 
   beforeEach(() => {
-    store = createStore({
+    datastore = createDatastore({
       feedback: require('./feedback').default,
       pickups,
       users,
@@ -47,7 +47,7 @@ describe('feedback module', () => {
   })
 
   beforeEach(() => {
-    store.commit('feedback/update', [feedback1, feedback2, feedback3])
+    datastore.commit('feedback/update', [feedback1, feedback2, feedback3])
   })
 
   it('can update feedback', async () => {
@@ -58,7 +58,7 @@ describe('feedback module', () => {
     currentGroup.getters.id.mockReturnValueOnce(groupId)
     auth.getters.userId.mockReturnValueOnce(userId)
 
-    await store.dispatch('feedback/updateOne', changed)
-    expect(store.getters['feedback/get'](changed.id).comment).toEqual(changed.comment)
+    await datastore.dispatch('feedback/updateOne', changed)
+    expect(datastore.getters['feedback/get'](changed.id).comment).toEqual(changed.comment)
   })
 })

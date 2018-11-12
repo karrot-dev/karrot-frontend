@@ -1,4 +1,4 @@
-import { createStore, storybookDefaults as defaults } from '>/helpers'
+import { createDatastore, storybookDefaults as defaults } from '>/helpers'
 import { storiesOf } from '@storybook/vue'
 import { action } from '@storybook/addon-actions'
 
@@ -6,7 +6,7 @@ import GroupGalleryCard from './GroupGalleryCard'
 
 import { groupsMock } from '>/mockdata'
 
-const store = createStore({
+const datastore = createDatastore({
   groupApplications: {
     getters: {
       getMyInGroup: () => () => null,
@@ -30,7 +30,7 @@ storiesOf('GroupGalleryCard', module)
       },
       on: methods,
     }),
-    store,
+    store: datastore,
   }))
   .add('isMember = false', () => defaults({
     render: h => h(GroupGalleryCard, {
@@ -42,7 +42,7 @@ storiesOf('GroupGalleryCard', module)
       },
       on: methods,
     }),
-    store,
+    store: datastore,
   }))
   .add('without public description', () => defaults({
     render: h => h(GroupGalleryCard, {
@@ -55,5 +55,5 @@ storiesOf('GroupGalleryCard', module)
       },
       on: methods,
     }),
-    store,
+    store: datastore,
   }))

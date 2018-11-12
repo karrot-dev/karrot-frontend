@@ -7,7 +7,7 @@ jest.mock('@/pickups/api/pickups', () => ({
   leave: mockLeave,
 }))
 
-import { createStore, defaultActionStatusesFor } from '>/helpers'
+import { createDatastore, defaultActionStatusesFor } from '>/helpers'
 import { makeGroup, makeStore, makePickup } from '>/enrichedFactories'
 import lolex from 'lolex'
 
@@ -62,7 +62,7 @@ describe('pickups', () => {
         },
       }
       let pickups = require('./pickups').default
-      vstore = createStore({
+      vstore = createDatastore({
         pickups,
         ...storeMocks,
       })

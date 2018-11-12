@@ -109,7 +109,7 @@ export default {
     showUsers: { default: false, type: Boolean },
     showStores: { default: true, type: Boolean },
     showGroups: { default: false, type: Boolean },
-    createStore: { default: false, type: Boolean },
+    createDatastore: { default: false, type: Boolean },
     currentGroup: { type: Object, default: () => ({}) },
     forceCenter: { type: Object, default: null },
     forceZoom: { type: Number, default: null },

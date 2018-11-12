@@ -36,22 +36,22 @@ export async function nextTicks (n) {
   }
 }
 
-export function createStore (mods, { debug = false, plugins = [] } = {}) {
+export function createDatastore (mods, { debug = false, plugins = [] } = {}) {
   let modules = {}
   for (let key of Object.keys(mods)) {
     modules[key] = { ...mods[key], namespaced: true }
   }
 
-  const store = new Vuex.Store({
+  const datastore = new Vuex.Store({
     modules, plugins, strict: false,
   })
 
   if (debug) {
-    store.subscribe(({ type, payload }) => console.log('mutation', type, payload))
-    store.subscribeAction(({ type, payload }) => console.log('action', type, payload))
+    datastore.subscribe(({ type, payload }) => console.log('mutation', type, payload))
+    datastore.subscribeAction(({ type, payload }) => console.log('action', type, payload))
   }
 
-  return store
+  return datastore
 }
 
 export function throws (val) {
@@ -105,11 +105,14 @@ export function mountWithDefaultsAndLocalVue (Component, localVue, options = {})
   localVue.component('router-link', RouterLinkStub)
   localVue.component('transition', TransitionStub)
   localVue.component('transition-group', TransitionGroupStub)
+  const datastore = options.datastore
+  delete options.datastore
   const wrapper = mount(Component, {
     router,
     localVue,
     i18n,
     sync: false,
+    store: datastore,
     ...options,
   })
   makeFindAllIterable(wrapper)
@@ -143,11 +146,11 @@ export function createRequestError () {
   })
 }
 
-export function mockActionOnce (store, actionName) {
-  const originalValue = store._actions[actionName]
-  const restore = () => { store._actions[actionName] = originalValue }
+export function mockActionOnce (datastore, actionName) {
+  const originalValue = datastore._actions[actionName]
+  const restore = () => { datastore._actions[actionName] = originalValue }
   const mockFn = jest.fn()
-  store._actions[actionName] = [async () => {
+  datastore._actions[actionName] = [async () => {
     try {
       return await mockFn()
     }

@@ -2,10 +2,10 @@ import { storiesOf } from '@storybook/vue'
 import { action } from '@storybook/addon-actions'
 
 import PickupItem from './PickupItem'
-import { createStore, storybookDefaults as defaults } from '>/helpers'
+import { createDatastore, storybookDefaults as defaults } from '>/helpers'
 import { currentUserMock, joinablePickup, fullPickup, leavablePickup } from '>/mockdata'
 
-const store = createStore({
+const datastore = createDatastore({
   auth: {
     getters: {
       user: () => currentUserMock,
@@ -26,7 +26,7 @@ storiesOf('PickupItem', module)
       },
       on: methods,
     }),
-    store,
+    store: datastore,
   }))
   .add('pending', () => defaults({
     render: h => h(PickupItem, {
@@ -41,7 +41,7 @@ storiesOf('PickupItem', module)
       },
       on: methods,
     }),
-    store,
+    store: datastore,
   }))
   .add('Full', () => defaults({
     render: h => h(PickupItem, {
@@ -50,7 +50,7 @@ storiesOf('PickupItem', module)
       },
       on: methods,
     }),
-    store,
+    store: datastore,
   }))
   .add('Leave', () => defaults({
     render: h => h(PickupItem, {
@@ -59,5 +59,5 @@ storiesOf('PickupItem', module)
       },
       on: methods,
     }),
-    store,
+    store: datastore,
   }))

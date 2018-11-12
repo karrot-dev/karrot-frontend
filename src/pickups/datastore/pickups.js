@@ -193,7 +193,7 @@ export function sortByDate (a, b) {
   return a.date - b.date
 }
 
-export function plugin (store) {
+export function plugin (datastore) {
   // keep state.now update to date
-  setInterval(() => store.commit('pickups/updateNow'), 60 * 1000)
+  setInterval(() => datastore.commit('pickups/updateNow'), 60 * 1000)
 }

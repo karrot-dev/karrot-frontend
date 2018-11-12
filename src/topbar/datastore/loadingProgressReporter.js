@@ -1,19 +1,19 @@
 import axios from '@/base/api/axios'
 
-export default store => {
+export default datastore => {
   axios.interceptors.request.use(request => {
-    store.dispatch('loadingprogress/start')
+    datastore.dispatch('loadingprogress/start')
     return request
   }, (error) => {
-    store.dispatch('loadingprogress/stop')
+    datastore.dispatch('loadingprogress/stop')
     return Promise.reject(error)
   })
 
   axios.interceptors.response.use(response => {
-    store.dispatch('loadingprogress/stop')
+    datastore.dispatch('loadingprogress/stop')
     return response
   }, (error) => {
-    store.dispatch('loadingprogress/stop')
+    datastore.dispatch('loadingprogress/stop')
     return Promise.reject(error)
   })
 }

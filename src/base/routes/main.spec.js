@@ -36,7 +36,7 @@ jest.mock('@/groupInfo/components/GroupPreviewUI', () => ({
   },
 }))
 
-function mountRouterViewWith ({ localVue, store, router }) {
+function mountRouterViewWith ({ localVue, datastore, router }) {
   const i18n = require('@/base/i18n')
 
   i18n.locale = 'en'
@@ -46,7 +46,7 @@ function mountRouterViewWith ({ localVue, store, router }) {
   }, {
     localVue,
     i18n,
-    store,
+    store: datastore,
     router,
   })
 }
@@ -65,7 +65,7 @@ describe('main routes', () => {
 
   let localVue
   let router
-  let store
+  let datastore
   let mockModules
   let wrapper
   let routedPaths
@@ -87,14 +87,14 @@ describe('main routes', () => {
     const Vuex = require('vuex')
     user = { id: getRandomId() }
     mockModules = createMockModules({ user })
-    store = new Vuex.Store({
+    datastore = new Vuex.Store({
       modules: {
         ...mockModules,
         groups: require('@/groupInfo/datastore/groups').default,
       },
       plugins: [require('@/base/datastore/routerPlugin').default],
     })
-    wrapper = mountRouterViewWith({ localVue, store, router })
+    wrapper = mountRouterViewWith({ localVue, datastore, router })
   })
 
   beforeEach(async () => {
@@ -131,7 +131,7 @@ describe('main routes', () => {
         name: 'some group name',
         members: [],
       }
-      store.commit('groups/set', [group])
+      datastore.commit('groups/set', [group])
     })
 
     it('lets you join the group', async () => {

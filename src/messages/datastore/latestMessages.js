@@ -193,14 +193,14 @@ function getFirst (list) {
   return list[0]
 }
 
-export function plugin (store) {
-  store.watch((state, getters) => getters['auth/isLoggedIn'], isLoggedIn => {
+export function plugin (datastore) {
+  datastore.watch((state, getters) => getters['auth/isLoggedIn'], isLoggedIn => {
     if (isLoggedIn) {
       // load unread messages for showing notifications
-      store.dispatch('latestMessages/fetch', { excludeRead: true })
+      datastore.dispatch('latestMessages/fetch', { excludeRead: true })
     }
     else {
-      store.dispatch('latestMessages/clear')
+      datastore.dispatch('latestMessages/clear')
     }
   })
 }

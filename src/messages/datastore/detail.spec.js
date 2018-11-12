@@ -1,7 +1,7 @@
-import { createStore, statusMocks } from '>/helpers'
+import { createDatastore, statusMocks } from '>/helpers'
 
 describe('detail', () => {
-  let store
+  let datastore
 
   let mockConversationsGetForPickup = jest.fn()
   let mockPickupsGet = jest.fn()
@@ -23,7 +23,7 @@ describe('detail', () => {
     const i18n = require('@/base/i18n').default
     i18n.locale = 'en'
 
-    store = createStore({
+    datastore = createDatastore({
       detail: require('./detail').default,
       conversations,
       pickups,
@@ -32,20 +32,20 @@ describe('detail', () => {
 
   describe('getters', () => {
     it('is inactive by default', () => {
-      expect(store.getters['detail/isActive']).toBe(false)
+      expect(datastore.getters['detail/isActive']).toBe(false)
     })
 
     it('is active if it has a pickupId', () => {
-      store.commit('detail/setPickupId', 10)
+      datastore.commit('detail/setPickupId', 10)
       mockConversationsGetForPickup.mockReturnValueOnce({ id: 55, fetchStatus: statusMocks.default() })
-      expect(store.getters['detail/isActive']).toBe(true)
+      expect(datastore.getters['detail/isActive']).toBe(true)
     })
 
     it('is has the full pickup', () => {
       const pickup = { id: 22 }
       mockPickupsGet.mockReturnValueOnce(pickup)
-      store.commit('detail/setPickupId', pickup.id)
-      expect(store.getters['detail/pickup']).toBe(pickup)
+      datastore.commit('detail/setPickupId', pickup.id)
+      expect(datastore.getters['detail/pickup']).toBe(pickup)
       expect(mockPickupsGet).toBeCalled()
       expect(mockPickupsGet.mock.calls[0][0]).toEqual(pickup.id)
     })
@@ -54,8 +54,8 @@ describe('detail', () => {
       const pickupId = 10
       const conversation = { id: 55 }
       mockConversationsGetForPickup.mockReturnValueOnce(conversation)
-      store.commit('detail/setPickupId', pickupId)
-      expect(store.getters['detail/conversation']).toBe(conversation)
+      datastore.commit('detail/setPickupId', pickupId)
+      expect(datastore.getters['detail/conversation']).toBe(conversation)
       expect(mockConversationsGetForPickup).toBeCalled()
       expect(mockConversationsGetForPickup.mock.calls[0][0]).toEqual(pickupId)
     })

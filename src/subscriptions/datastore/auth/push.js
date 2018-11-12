@@ -99,16 +99,16 @@ export default {
   },
 }
 
-export const plugin = store => {
+export const plugin = datastore => {
   // Trigger setup after logging in
   // (logout handling is in auth/logout action)
-  store.watch((state, getters) => getters['auth/isLoggedIn'], isLoggedIn => {
-    if (isLoggedIn) store.dispatch('auth/push/setup')
+  datastore.watch((state, getters) => getters['auth/isLoggedIn'], isLoggedIn => {
+    if (isLoggedIn) datastore.dispatch('auth/push/setup')
   })
 
   // Ensure the server has the correct tokens
-  store.watch((state) => state.auth.push.token, async (token, previousToken) => {
-    if (!store.getters['auth/isLoggedIn']) return // we can't modify the server if we're not logged in
+  datastore.watch((state) => state.auth.push.token, async (token, previousToken) => {
+    if (!datastore.getters['auth/isLoggedIn']) return // we can't modify the server if we're not logged in
 
     const subscriptions = await subscriptionsAPI.list()
 

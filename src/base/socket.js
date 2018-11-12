@@ -1,7 +1,7 @@
 import ReconnectingWebsocket from 'reconnecting-websocket'
 import { debounce, AppVisibility } from 'quasar'
 
-import store from '@/base/store'
+import datastore from '@/base/datastore'
 import log from '@/utils/log'
 import auth from '@/authuser/api/auth'
 import { getter } from '@/utils/datastore/storeHelpers'
@@ -48,7 +48,7 @@ const ping = () => {
   clearTimeout(pingTimeout)
   pingTimeout = setTimeout(() => {
     if (!AppVisibility.appVisible) return
-    store.commit('connectivity/websocket', false)
+    datastore.commit('connectivity/websocket', false)
   }, 2000)
 }
 
@@ -107,7 +107,7 @@ const socket = {
         return
       }
 
-      store.commit('connectivity/websocket', true)
+      datastore.commit('connectivity/websocket', true)
       if (data.type && data.type === 'pong') {
         clearTimeout(pingTimeout)
       }
@@ -121,7 +121,7 @@ const socket = {
 
       // this should work in cordova, maybe
       addEventListener(document, 'online', () => {
-        if (!store.getters['connectivity/websocket']) {
+        if (!datastore.getters['connectivity/websocket']) {
           debouncedReconnect()
         }
       })
@@ -135,7 +135,7 @@ const socket = {
       if (!connection.addEventListener) return
 
       addEventListener(connection, 'change', () => {
-        if (!store.getters['connectivity/websocket']) {
+        if (!datastore.getters['connectivity/websocket']) {
           debouncedReconnect()
         }
       })
@@ -155,100 +155,100 @@ const socket = {
 
 function receiveMessage ({ topic, payload }) {
   if (topic === 'applications:update') {
-    store.commit('groupApplications/update', [convertApplication(camelizeKeys(payload))])
+    datastore.commit('groupApplications/update', [convertApplication(camelizeKeys(payload))])
   }
   else if (topic === 'conversations:message') {
     const message = convertMessage(camelizeKeys(payload))
     if (message.thread) {
-      store.dispatch('currentThread/receiveMessage', message)
-      store.dispatch('latestMessages/updateThreadsAndRelated', { messages: [message] })
+      datastore.dispatch('currentThread/receiveMessage', message)
+      datastore.dispatch('latestMessages/updateThreadsAndRelated', { messages: [message] })
     }
     if (!message.thread || message.thread === message.id) {
-      store.dispatch('conversations/receiveMessage', message)
-      store.dispatch('latestMessages/updateConversationsAndRelated', { messages: [message] })
+      datastore.dispatch('conversations/receiveMessage', message)
+      datastore.dispatch('latestMessages/updateConversationsAndRelated', { messages: [message] })
       if (message.thread) {
-        store.dispatch('latestMessages/updateThreadsAndRelated', { threads: [message] })
+        datastore.dispatch('latestMessages/updateThreadsAndRelated', { threads: [message] })
       }
     }
   }
   else if (topic === 'conversations:conversation') {
     const conversation = convertConversation(camelizeKeys(payload))
-    store.dispatch('conversations/updateConversation', conversation)
-    store.dispatch('latestMessages/updateConversationsAndRelated', { conversations: [conversation] })
+    datastore.dispatch('conversations/updateConversation', conversation)
+    datastore.dispatch('latestMessages/updateConversationsAndRelated', { conversations: [conversation] })
   }
   else if (topic === 'conversations:leave') {
-    store.dispatch('conversations/clearConversation', payload.id)
+    datastore.dispatch('conversations/clearConversation', payload.id)
   }
   else if (topic === 'groups:group_detail') {
-    store.dispatch('currentGroup/maybeUpdate', convertGroup(camelizeKeys(payload)))
+    datastore.dispatch('currentGroup/maybeUpdate', convertGroup(camelizeKeys(payload)))
   }
   else if (topic === 'groups:group_preview') {
-    store.commit('groups/update', [camelizeKeys(payload)])
+    datastore.commit('groups/update', [camelizeKeys(payload)])
   }
   else if (topic === 'invitations:invitation') {
-    store.commit('invitations/update', [convertInvitation(camelizeKeys(payload))])
+    datastore.commit('invitations/update', [convertInvitation(camelizeKeys(payload))])
   }
   else if (topic === 'invitations:invitation_accept') {
     // delete invitation from list until there is a better way to display it
-    store.commit('invitations/delete', payload.id)
+    datastore.commit('invitations/delete', payload.id)
   }
   else if (topic === 'stores:store') {
-    store.dispatch('stores/update', [camelizeKeys(payload)])
+    datastore.dispatch('stores/update', [camelizeKeys(payload)])
   }
   else if (topic === 'pickups:pickupdate') {
-    store.commit('pickups/update', [convertPickup(camelizeKeys(payload))])
+    datastore.commit('pickups/update', [convertPickup(camelizeKeys(payload))])
   }
   else if (topic === 'pickups:pickupdate_deleted') {
-    store.commit('pickups/delete', convertPickup(camelizeKeys(payload)).id)
+    datastore.commit('pickups/delete', convertPickup(camelizeKeys(payload)).id)
   }
   else if (topic === 'pickups:series') {
-    store.commit('pickupSeries/update', [convertSeries(camelizeKeys(payload))])
+    datastore.commit('pickupSeries/update', [convertSeries(camelizeKeys(payload))])
   }
   else if (topic === 'pickups:series_deleted') {
-    store.commit('pickupSeries/delete', convertSeries(camelizeKeys(payload)).id)
+    datastore.commit('pickupSeries/delete', convertSeries(camelizeKeys(payload)).id)
   }
   else if (topic === 'feedback:feedback') {
-    store.dispatch('feedback/updateOne', convertFeedback(camelizeKeys(payload)))
+    datastore.dispatch('feedback/updateOne', convertFeedback(camelizeKeys(payload)))
   }
   else if (topic === 'pickups:feedback_possible') {
     const pickup = convertPickup(camelizeKeys(payload))
-    store.dispatch('pickups/addFeedbackPossible', pickup)
+    datastore.dispatch('pickups/addFeedbackPossible', pickup)
   }
   else if (topic === 'auth:user') {
     const user = camelizeKeys(payload)
-    store.commit('auth/setUser', user)
-    store.commit('users/update', [user])
-    store.dispatch('users/refreshProfile', user)
+    datastore.commit('auth/setUser', user)
+    datastore.commit('users/update', [user])
+    datastore.dispatch('users/refreshProfile', user)
   }
   else if (topic === 'auth:logout') {
-    store.dispatch('auth/refresh')
+    datastore.dispatch('auth/refresh')
   }
   else if (topic === 'users:user') {
     const user = camelizeKeys(payload)
-    store.commit('users/update', [user])
-    store.dispatch('users/refreshProfile', user)
+    datastore.commit('users/update', [user])
+    datastore.dispatch('users/refreshProfile', user)
   }
   else if (topic === 'history:history') {
-    store.commit('history/update', [convertHistory(camelizeKeys(payload))])
+    datastore.commit('history/update', [convertHistory(camelizeKeys(payload))])
   }
   else if (topic === 'notifications:notification') {
-    store.commit('notifications/update', [convertNotification(camelizeKeys(payload))])
+    datastore.commit('notifications/update', [convertNotification(camelizeKeys(payload))])
   }
   else if (topic === 'notifications:notification_deleted') {
-    store.commit('notifications/delete', payload.id)
+    datastore.commit('notifications/delete', payload.id)
   }
   else if (topic === 'notifications:meta') {
-    store.commit('notifications/setEntryMeta', convertNotificationMeta(camelizeKeys(payload)))
+    datastore.commit('notifications/setEntryMeta', convertNotificationMeta(camelizeKeys(payload)))
   }
 }
 
-store.watch(getter('presence/toggle/away'), away => {
+datastore.watch(getter('presence/toggle/away'), away => {
   if (ws && ws.readyState === WebSocket.OPEN) {
     ws.send(JSON.stringify({ type: away ? 'away' : 'back' }))
   }
 })
 
-store.watch(getter('auth/isLoggedIn'), isLoggedIn => {
+datastore.watch(getter('auth/isLoggedIn'), isLoggedIn => {
   if (isLoggedIn) {
     if (__ENV.CORDOVA) {
       const token = auth.getToken()
@@ -268,8 +268,8 @@ store.watch(getter('auth/isLoggedIn'), isLoggedIn => {
   }
 }, { immediate: true })
 
-store.watch(state => state.connectivity.requestReconnect, request => {
+datastore.watch(state => state.connectivity.requestReconnect, request => {
   if (!request) return
-  store.commit('connectivity/requestReconnect', false)
+  datastore.commit('connectivity/requestReconnect', false)
   ws.reconnect()
 })

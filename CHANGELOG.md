@@ -33,6 +33,8 @@ Please document your changes in this format:
 - Community forum notifier shows avatar of last poster instead of original poster @tiltec @djahnie
 - Show server and network errors when submitting forms @tiltec
 - Mobile pull-to-refresh on all pages (before just on wall) @tiltec
+- Better push notification titles @tiltec
+- Do not send push notifications about muted conversations @tiltec
 
 ### Fixed
 
@@ -46,7 +48,7 @@ Please document your changes in this format:
 
 - Built-in app updater; rely on Play Store for updates instead @tiltec
 
-## [6.2.4] - 2018-10-07
+## [6.2.4] - 2018-11-07
 
 ### Changed
 

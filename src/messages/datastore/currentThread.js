@@ -45,18 +45,22 @@ export default {
         dispatch('receiveMessage', message)
       },
       async fetch ({ state, commit, dispatch }, messageId) {
-        dispatch('clear')
+        // only clear if id changed, to make refresh behave nicer
+        if (state.id !== messageId) dispatch('clear')
+
         commit('setScope', messageId)
         const [firstMessage, messages] = await Promise.all([
           messageAPI.get(messageId),
           dispatch('pagination/extractCursor', messageAPI.listThread(messageId)),
         ])
+
+        // if thread changed: do not commit wrong data
         if (state.id !== messageId) return
 
         // initialize to make ConversationCompose detect a thread
         firstMessage.thread = firstMessage.id
         commit('setThread', firstMessage)
-        // make sure that we always have a message (but not two times)
+        // make sure that we always have a first message (but not two times)
         messages.shift()
         messages.unshift(firstMessage)
         commit('update', messages)
@@ -65,6 +69,8 @@ export default {
       async fetchFuture ({ state, dispatch, commit }) {
         const id = state.id
         const data = await dispatch('pagination/fetchNext', messageAPI.listMore)
+
+        // if thread changed: do not commit wrong data
         if (state.id !== id) return
         commit('update', data)
       },

@@ -1,56 +1,54 @@
 <template>
   <div class="Detail">
     <div
-      v-if="!hasLoaded"
+      v-if="isPending"
       class="full-width text-center generic-padding"
     >
       <q-spinner-dots :size="40" />
     </div>
-    <template v-else>
-      <ChatConversation
-        v-if="conversation"
-        :conversation="conversationWithMaybeReversedMessages"
-        :away="away"
-        :current-user="currentUser"
-        :start-at-bottom="Boolean(user) || Boolean(pickup)"
-        :inline="inline"
-        @send="$emit('send', arguments[0])"
-        @mark="$emit('mark', arguments[0])"
-        @toggleReaction="$emit('toggleReaction', arguments[0])"
-        @saveMessage="$emit('saveMessage', arguments[0])"
-        @fetchPast="$emit('fetchPast', arguments[0])"
-        @fetchFuture="$emit('fetchFuture')"
+    <ChatConversation
+      v-if="conversation"
+      :conversation="conversationWithMaybeReversedMessages"
+      :away="away"
+      :current-user="currentUser"
+      :start-at-bottom="Boolean(user) || Boolean(pickup)"
+      :inline="inline"
+      @send="$emit('send', arguments[0])"
+      @mark="$emit('mark', arguments[0])"
+      @toggleReaction="$emit('toggleReaction', arguments[0])"
+      @saveMessage="$emit('saveMessage', arguments[0])"
+      @fetchPast="$emit('fetchPast', arguments[0])"
+      @fetchFuture="$emit('fetchFuture')"
+    >
+      <q-collapsible
+        slot="beforeChatMessages"
+        opened
+        v-if="application"
+        class="bg-grey-2"
       >
-        <q-collapsible
-          slot="beforeChatMessages"
-          opened
-          v-if="application"
-          class="bg-grey-2"
-        >
-          <template slot="header">
-            <b>{{ $t('APPLICATION.INITIAL') }}</b>
-          </template>
-          <div class="q-ma-sm q-pa-sm bg-white">
-            <span class="text-bold text-secondary uppercase">{{ application.group.name }}</span>
-            <span class="message-date">
-              <small class="text-weight-light">
-                <DateAsWords :date="application.createdAt" />
-              </small>
-            </span>
-            <Markdown :source="application.questions" />
-          </div>
-          <div class="q-ma-sm q-pa-sm bg-white">
-            <span class="text-bold text-secondary uppercase">{{ application.user.displayName }}</span>
-            <span class="message-date">
-              <small class="text-weight-light">
-                <DateAsWords :date="application.createdAt" />
-              </small>
-            </span>
-            <Markdown :source="application.answers" />
-          </div>
-        </q-collapsible>
-      </ChatConversation>
-    </template>
+        <template slot="header">
+          <b>{{ $t('APPLICATION.INITIAL') }}</b>
+        </template>
+        <div class="q-ma-sm q-pa-sm bg-white">
+          <span class="text-bold text-secondary uppercase">{{ application.group.name }}</span>
+          <span class="message-date">
+            <small class="text-weight-light">
+              <DateAsWords :date="application.createdAt" />
+            </small>
+          </span>
+          <Markdown :source="application.questions" />
+        </div>
+        <div class="q-ma-sm q-pa-sm bg-white">
+          <span class="text-bold text-secondary uppercase">{{ application.user.displayName }}</span>
+          <span class="message-date">
+            <small class="text-weight-light">
+              <DateAsWords :date="application.createdAt" />
+            </small>
+          </span>
+          <Markdown :source="application.answers" />
+        </div>
+      </q-collapsible>
+    </ChatConversation>
   </div>
 </template>
 
@@ -103,10 +101,9 @@ export default {
     },
   },
   computed: {
-    hasLoaded () {
+    isPending () {
       if (!this.conversation) return false
-      const s = this.conversation.fetchStatus
-      return !s.pending && !s.hasValidationErrors
+      return this.conversation.fetchStatus.pending
     },
     conversationWithMaybeReversedMessages () {
       if (!this.conversation) return

@@ -4,7 +4,6 @@ import { throttle } from 'quasar'
 export default datastore => {
   const isLoggedIn = () => datastore.getters['auth/isLoggedIn']
   const getUserGroupId = () => isLoggedIn() && datastore.getters['auth/user'].currentGroup
-  const getGroup = (id) => datastore.getters['groups/get'](id)
 
   const throttledMarkUserActive = throttle(
     () => datastore.dispatch('currentGroup/markUserActive').catch(() => {}),
@@ -31,7 +30,8 @@ export default datastore => {
     // redirect homescreen correctly
     else if (to.path === '/') {
       const groupId = getUserGroupId()
-      if (groupId && getGroup(groupId) && getGroup(groupId).isMember) {
+
+      if (groupId) {
         next = { name: 'group', params: { groupId } }
       }
       else {

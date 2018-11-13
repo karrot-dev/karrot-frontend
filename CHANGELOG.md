@@ -40,6 +40,7 @@ Please document your changes in this format:
 - Group description view didn't use full width @tiltec
 - Alerts about server errors were shown when network errors happened @tiltec
 - Message could get lost if network was unstable @tiltec
+- User didn't get redirect to group @tiltec
 
 ### Removed
 

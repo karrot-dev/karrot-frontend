@@ -43,6 +43,7 @@ Please document your changes in this format:
 - Alerts about server errors were shown when network errors happened @tiltec
 - Message could get lost if network was unstable @tiltec
 - User didn't get redirect to group @tiltec
+- Pickup chat title bar was missing @tiltec
 
 ### Removed
 

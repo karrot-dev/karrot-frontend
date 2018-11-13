@@ -278,7 +278,14 @@ export default [
           beforeEnter: 'stores/selectStore',
           afterLeave: 'stores/clearSelectedStore',
         },
-        component: StoreLayout,
+        components: {
+          default: StoreLayout,
+          subheader: { render: h => h('router-view', {
+            props: {
+              name: 'subheader',
+            },
+          }) },
+        },
         children: [
           {
             name: 'store',

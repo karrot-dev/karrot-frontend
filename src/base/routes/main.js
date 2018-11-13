@@ -118,6 +118,7 @@ export default [
         path: 'map',
         meta: {
           disableDesktopSidenav: true,
+          disablePullToRefresh: true,
           breadcrumbs: [
             { translation: 'GROUPMAP.TITLE', route: { name: 'map' } },
           ],

@@ -8,7 +8,7 @@ export default {
   },
   actions: {
     ...withMeta({
-      async refresh ({ dispatch, rootGetters }) {
+      async refresh ({ dispatch, rootGetters }, done) {
         const activeState = {
           groupId: rootGetters['currentGroup/id'],
           storeId: rootGetters['stores/activeStoreId'],
@@ -30,6 +30,8 @@ export default {
           dispatch('latestMessages/fetch', {}, { root: true }),
           dispatch('notifications/fetch', null, { root: true }),
         ])
+
+        if (done) done()
       },
     }),
 

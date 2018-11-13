@@ -32,6 +32,7 @@ Please document your changes in this format:
 - Hide browser push setting in app @tiltec
 - Community forum notifier shows avatar of last poster instead of original poster @tiltec @djahnie
 - Show server and network errors when submitting forms @tiltec
+- Mobile pull-to-refresh on all pages (before just on wall) @tiltec
 
 ### Fixed
 

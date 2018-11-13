@@ -80,7 +80,13 @@
           <router-view name="fullPage"/>
           <div class="mainContent row justify-between no-wrap">
             <div class="mainContent-page">
-              <router-view />
+              <component
+                :is="disablePullToRefresh ? 'div' : 'q-pull-to-refresh'"
+                :handler="refresh"
+                style="max-height: none"
+              >
+                <router-view />
+              </component>
             </div>
           </div>
           <KFooter v-if="$q.platform.is.mobile && !isLoggedIn" />
@@ -127,6 +133,7 @@ import {
   QPageContainer,
   QWindowResizeObservable,
   QBtn,
+  QPullToRefresh,
 } from 'quasar'
 
 const { width } = dom
@@ -146,6 +153,7 @@ export default {
     QPageContainer,
     QWindowResizeObservable,
     QBtn,
+    QPullToRefresh,
     Banners,
     RouteError,
     UnsupportedBrowserWarning,
@@ -159,6 +167,7 @@ export default {
   methods: {
     ...mapActions({
       clearDetail: 'detail/clear',
+      refresh: 'refresh/refresh',
     }),
     toggleSidenav () {
       this.showSidenav = !this.showSidenav
@@ -207,6 +216,11 @@ export default {
     },
     hasImportantNotification () {
       return !this.messagesAllUnreadMuted || this.notificationsUnseenCount > 0
+    },
+    disablePullToRefresh () {
+      if (!this.$q.platform.is.mobile) return true
+      if (this.$route.matched.some(({ meta }) => meta && meta.disablePullToRefresh)) return true
+      return false
     },
   },
 }

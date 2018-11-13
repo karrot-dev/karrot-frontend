@@ -30,6 +30,6 @@ describe('Wall', () => {
     let wrapper = mountWithDefaults(Wall, {
       propsData: defaultProps,
     })
-    expect(wrapper.element.children[0].className).toBe('wrapper')
+    expect(wrapper.element.className).toBe('wrapper')
   })
 })

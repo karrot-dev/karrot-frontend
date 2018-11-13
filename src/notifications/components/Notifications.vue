@@ -15,7 +15,6 @@
         :key="notification.id"
         :notification="notification"
         @click="markClicked"
-        :to="{ name: 'wall' }"
       />
       <div
         v-if="asPopover"

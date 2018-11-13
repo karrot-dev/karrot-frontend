@@ -8,6 +8,7 @@ export default connect({
     myGroups: 'groups/mine',
     otherGroups: 'groups/other',
     playgroundGroup: 'groups/playground',
+    fetchStatus: 'groups/fetchStatus',
     isLoggedIn: 'auth/isLoggedIn',
   },
   methodsToEvents: {

@@ -70,6 +70,12 @@
           </q-btn>
         </div>
       </div>
+      <div
+        v-if="isPending"
+        class="full-width text-center generic-padding"
+      >
+        <q-spinner-dots :size="40" />
+      </div>
       <GroupGalleryCard
         v-if="showPlaygroundGroupAtTop"
         style="width: 100%"
@@ -130,6 +136,7 @@ import {
   QSearch,
   QCard,
   QCheckbox,
+  QSpinnerDots,
 } from 'quasar'
 
 export default {
@@ -143,6 +150,7 @@ export default {
     QSearch,
     QCard,
     QCheckbox,
+    QSpinnerDots,
   },
   props: {
     myGroups: {
@@ -160,6 +168,10 @@ export default {
     isLoggedIn: {
       default: false,
       type: Boolean,
+    },
+    fetchStatus: {
+      default: null,
+      type: Object,
     },
   },
   data () {
@@ -184,6 +196,9 @@ export default {
     },
   },
   computed: {
+    isPending () {
+      return this.fetchStatus && this.fetchStatus.pending
+    },
     hasJoinedGroups () {
       return this.myGroups.length > 0
     },

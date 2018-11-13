@@ -7,8 +7,6 @@ const compression = require('compression')
 const proxyMiddleware = require('http-proxy-middleware')
 const { join } = require('path')
 
-require('dotenv').config()
-
 const { proxyTable } = require('./config')
 
 /**

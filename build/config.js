@@ -1,3 +1,5 @@
+require('dotenv').config()
+
 const backend = (process.env.BACKEND || 'https://dev.karrot.world').replace(/\/$/, '') // no trailing slash
 
 const backendProxy = {

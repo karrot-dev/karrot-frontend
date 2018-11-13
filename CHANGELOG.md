@@ -22,6 +22,8 @@ Please document your changes in this format:
 
 ## [Unreleased]
 
+## [6.2.5] - 2018-11-13
+
 ### Added
 
 - Splash screen while karrot is loading @tiltec
@@ -36,6 +38,10 @@ Please document your changes in this format:
 - Better push notification titles @tiltec
 - Do not send push notifications about muted conversations @tiltec
 
+### Removed
+
+- Built-in app updater; rely on Play Store for updates instead @tiltec
+
 ### Fixed
 
 - Marker popup urls in app were broken @tiltec
@@ -44,10 +50,6 @@ Please document your changes in this format:
 - Message could get lost if network was unstable @tiltec
 - User didn't get redirect to group @tiltec
 - Pickup chat title bar was missing @tiltec
-
-### Removed
-
-- Built-in app updater; rely on Play Store for updates instead @tiltec
 
 ## [6.2.4] - 2018-11-07
 
@@ -324,7 +326,8 @@ After months of planning and programming, the first version of ~the foodsaving t
 [#1082]: https://github.com/yunity/karrot-frontend/issues/1082
 [#1071]: https://github.com/yunity/karrot-frontend/issues/1071
 
-[Unreleased]: https://github.com/yunity/karrot-frontend/compare/v6.2.4...HEAD
+[Unreleased]: https://github.com/yunity/karrot-frontend/compare/v6.2.5...HEAD
+[6.2.5]: https://github.com/yunity/karrot-frontend/compare/v6.2.4...v6.2.5
 [6.2.4]: https://github.com/yunity/karrot-frontend/compare/v6.2.3...v6.2.4
 [6.2.3]: https://github.com/yunity/karrot-frontend/compare/v6.2.2...v6.2.3
 [6.2.2]: https://github.com/yunity/karrot-frontend/compare/v6.2.1...v6.2.2

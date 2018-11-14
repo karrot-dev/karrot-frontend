@@ -104,7 +104,6 @@
 
 <script>
 import { QCard, QCardTitle, QCardMain, QIcon, QField, QInput, QBtn, QSpinner, QCheckbox } from 'quasar'
-import loginImage from '@/authuser/assets/cherry.png'
 import statusMixin from '@/utils/mixins/statusMixin'
 import { required, minLength, maxLength } from 'vuelidate/lib/validators'
 import { validationMixin } from 'vuelidate'
@@ -128,7 +127,6 @@ export default {
   },
   data () {
     return {
-      loginImage,
       user: {
         displayName: null,
         email: this.prefillEmail(),

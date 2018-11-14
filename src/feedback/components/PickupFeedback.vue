@@ -13,7 +13,7 @@
           <div class="image-and-text-left gt-sm">
             <img
               style="width: 100%;"
-              :src="cartImg"
+              src="@/feedback/assets/cart.png"
             >
           </div>
           <div class="image-and-text-right">
@@ -89,7 +89,6 @@
 import { QCard, QCardMain, QField, QInput, QBtn, QSelect } from 'quasar'
 import AmountPicker from './AmountPicker'
 import FeedbackList from './FeedbackList'
-import cartImg from '@/feedback/assets/cart.png'
 import RandomArt from '@/utils/components/RandomArt'
 import FeedbackForm from './FeedbackForm'
 import KNotice from '@/utils/components/KNotice'
@@ -104,11 +103,6 @@ export default {
     saveStatus: { required: true, type: Object },
     fetchStatus: { required: true, type: Object },
     seedId: { default: 0, type: Number },
-  },
-  data () {
-    return {
-      cartImg,
-    }
   },
   methods: {
     getDateWithStore (pickup) {

@@ -223,7 +223,7 @@ export default {
       }
     },
     async saveNewSeries (series) {
-      if ((await this.$datastore.dispatch('pickupSeries/create', series)) !== false) {
+      if ((await this.$store.dispatch('pickupSeries/create', series)) !== false) {
         this.newSeries = null
       }
     },
@@ -231,7 +231,7 @@ export default {
       this.newSeries = null
     },
     destroySeries (seriesId) {
-      this.$datastore.dispatch('pickupSeries/destroy', seriesId)
+      this.$store.dispatch('pickupSeries/destroy', seriesId)
     },
     createNewPickup () {
       const date = new Date()
@@ -244,7 +244,7 @@ export default {
       }
     },
     async saveNewPickup (pickup) {
-      if ((await this.$datastore.dispatch('pickups/create', pickup)) !== false) {
+      if ((await this.$store.dispatch('pickups/create', pickup)) !== false) {
         this.newPickup = null
       }
     },
@@ -253,19 +253,19 @@ export default {
       this.resetNewPickup()
     },
     resetSeries (seriesId) {
-      this.$datastore.dispatch('pickups/meta/clear', ['save', seriesId])
+      this.$store.dispatch('pickups/meta/clear', ['save', seriesId])
     },
     resetNewSeries () {
-      this.$datastore.dispatch('pickupSeries/meta/clear', ['create'])
+      this.$store.dispatch('pickupSeries/meta/clear', ['create'])
     },
     resetNewPickup () {
-      this.$datastore.dispatch('pickups/meta/clear', ['create'])
+      this.$store.dispatch('pickups/meta/clear', ['create'])
     },
     resetPickup (pickupId) {
-      this.$datastore.dispatch('pickups/meta/clear', ['save', pickupId])
+      this.$store.dispatch('pickups/meta/clear', ['save', pickupId])
     },
     destroyPickup (pickupId) {
-      this.$datastore.dispatch('pickups/destroy', pickupId)
+      this.$store.dispatch('pickups/destroy', pickupId)
     },
   },
   computed: {

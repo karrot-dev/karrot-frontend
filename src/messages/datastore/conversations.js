@@ -148,6 +148,8 @@ export default {
 
         return isUnread(message, threadMeta)
       }
+
+      const conversation = state.entries[message.conversation]
       const data = {
         ...message,
         reactions: getters.enrichReactions(message.reactions),
@@ -157,6 +159,7 @@ export default {
           : isUnread(message, state.entries[message.conversation]),
         saveStatus: getters['meta/status']('saveMessage', `message/${message.id}`),
         isEdited: differenceInSeconds(message.editedAt, message.createdAt) > 30,
+        groupId: conversation && conversation.type === 'group' ? conversation.targetId : null,
       }
       if (data.threadMeta) {
         data.threadMeta = {
@@ -223,6 +226,10 @@ export default {
           conversationId,
           cursor: data.next,
         })
+      },
+
+      async fetchConversation ({ dispatch }, id) {
+        dispatch('updateConversation', await conversationsAPI.get(id))
       },
 
       async mark ({ dispatch }, { id, seenUpTo }) {
@@ -388,14 +395,21 @@ export default {
 
     updateConversation ({ state, commit }, conversation) {
       const existing = state.entries[conversation.id]
-      if (existing && existing.updatedAt <= conversation.updatedAt) {
+      if (!existing || existing.updatedAt <= conversation.updatedAt) {
         commit('setConversation', { conversation })
       }
     },
 
-    refresh ({ state, dispatch, commit }) {
+    maybeFetchConversation ({ state, dispatch, getters }, id) {
+      const { pending } = getters['meta/status']('fetchConversation', id)
+      const { entries } = state
+      if (entries[id] || pending) return
+      dispatch('fetchConversation', id)
+    },
+
+    refresh ({ state, dispatch }) {
       Object.keys(state.entries).forEach(async conversationId => {
-        dispatch('updateConversation', await conversationsAPI.get(conversationId))
+        dispatch('fetchConversation', conversationId)
       })
       Object.keys(state.messages).forEach(async conversationId => {
         // refreshes only first page of messages and resets pagination cursor

@@ -101,7 +101,14 @@ export default {
       dispatch('updateThreadsAndRelated', threadsAndRelated)
     },
     updateConversationsAndRelated ({ commit, dispatch, rootState }, { conversations, messages, pickups, applications, usersInfo }) {
-      if (conversations) commit('updateConversations', conversations)
+      if (conversations) {
+        commit('updateConversations', conversations)
+
+        // we need conversation data for threads too, so let's add them to the shared datastore
+        for (const conversation of conversations) {
+          dispatch('conversations/updateConversation', conversation, { root: true })
+        }
+      }
       if (messages) commit('updateConversationMessages', messages)
       if (pickups) {
         commit('pickups/update', pickups, { root: true })
@@ -129,9 +136,15 @@ export default {
         }
       }
     },
-    updateThreadsAndRelated ({ commit }, { threads, messages }) {
+    updateThreadsAndRelated ({ commit, dispatch }, { threads, messages }) {
       if (threads) commit('updateThreads', threads)
       if (messages) commit('updateThreadMessages', messages)
+
+      // fetch related conversations, in case they haven't been delivered already
+      if (!threads) return
+      for (const thread of threads) {
+        dispatch('conversations/maybeFetchConversation', thread.conversation, { root: true })
+      }
     },
   },
   mutations: {

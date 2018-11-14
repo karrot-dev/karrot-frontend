@@ -75,7 +75,7 @@ export default {
       else if (messageId) {
         dispatch('selectThread', messageId)
         if (!Platform.is.mobile) {
-          throw createRouteRedirect({ name: 'wall', params: { groupId }, query: routeTo.query })
+          throw createRouteRedirect({ name: 'group', params: { groupId }, query: routeTo.query })
         }
       }
     },
@@ -100,7 +100,8 @@ export default {
     },
     openForPickup ({ dispatch }, pickup) {
       if (Platform.is.mobile) {
-        router.push({ name: 'pickupDetail', params: { storeId: pickup.store.id, pickupId: pickup.id } })
+        const { id, group, store } = pickup
+        router.push({ name: 'pickupDetail', params: { groupId: group.id, storeId: store.id, pickupId: id } })
       }
       else {
         dispatch('selectPickup', pickup.id)
@@ -116,7 +117,8 @@ export default {
     },
     openForApplication ({ dispatch }, application) {
       if (Platform.is.mobile) {
-        router.push({ name: 'applicationDetail', params: { groupId: application.group.id, applicationId: application.id } })
+        const { id, group } = application
+        router.push({ name: 'applicationDetail', params: { groupId: group.id, applicationId: id } })
       }
       else {
         dispatch('selectApplication', application.id)
@@ -124,7 +126,8 @@ export default {
     },
     openForThread ({ dispatch }, message) {
       if (Platform.is.mobile) {
-        router.push({ name: 'messageReplies', params: { messageId: message.id } })
+        const { id, groupId } = message
+        router.push({ name: 'messageReplies', params: { groupId, messageId: id } })
       }
       else {
         dispatch('selectThread', message.id)

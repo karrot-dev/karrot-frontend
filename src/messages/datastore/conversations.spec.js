@@ -83,6 +83,7 @@ describe('conversations', () => {
         isUnread: true,
         isEdited: false,
         saveStatus: statusMocks.default(),
+        groupId: null,
       }])
     })
   })

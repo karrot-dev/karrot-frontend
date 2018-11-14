@@ -159,7 +159,7 @@ export function messages (locale) {
 }
 
 export function intlLocale (locale) {
-  return locales[locale].IntlData()
+  return locales[locale].intlLocale()
 }
 
 export function dateFnsLocale (locale) {

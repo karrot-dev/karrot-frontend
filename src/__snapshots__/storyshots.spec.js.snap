@@ -4491,7 +4491,7 @@ exports[`Storyshots Statistics PickupFeedback 1`] = `
   <div class="q-card no-mobile-margin no-shadow grey-border">
     <div seed="0" type="circles" style="color:white;">
       <div class="row no-wrap image-and-text">
-        <div class="image-and-text-left gt-sm"><img src="test-file-stub" style="width:100%;"></div>
+        <div class="image-and-text-left gt-sm"><img src="@/feedback/assets/cart.png" style="width:100%;"></div>
         <div class="image-and-text-right">
           <h4>Thank you for your pickup!</h4>
           <p>
@@ -5318,7 +5318,7 @@ exports[`Storyshots User Profile Profile 1`] = `
                   </div>
                 </button> <button tabindex="0" type="button" class="q-btn inline relative-position q-btn-item non-selectable q-btn-rectangle q-focusable q-hoverable bg-secondary text-white">
                   <div class="q-focus-helper"></div>
-                  <div class="q-btn-inner row col items-center justify-center"><span class="q-mr-xs">+</span> <img src="twemoji-karrot.png" width="20px"></div>
+                  <div class="q-btn-inner row col items-center justify-center"><span class="q-mr-xs">+</span> <img src="./twemoji-carrot.png" width="20px"></div>
                 </button></div>
             </div>
           </div>
@@ -5481,7 +5481,7 @@ exports[`Storyshots User Profile Trust Button - is editor 1`] = `
             </div>
           </button> <button tabindex="0" type="button" class="q-btn inline relative-position q-btn-item non-selectable q-btn-rectangle q-focusable q-hoverable bg-secondary text-white">
             <div class="q-focus-helper"></div>
-            <div class="q-btn-inner row col items-center justify-center"><span class="q-mr-xs">+</span> <img src="twemoji-karrot.png" width="20px"></div>
+            <div class="q-btn-inner row col items-center justify-center"><span class="q-mr-xs">+</span> <img src="./twemoji-carrot.png" width="20px"></div>
           </button></div>
       </div>
     </div>
@@ -5531,7 +5531,7 @@ exports[`Storyshots User Profile Trust Button - is newcomer 1`] = `
             </div>
           </button> <button tabindex="0" type="button" class="q-btn inline relative-position q-btn-item non-selectable q-btn-rectangle q-focusable q-hoverable bg-secondary text-white">
             <div class="q-focus-helper"></div>
-            <div class="q-btn-inner row col items-center justify-center"><span class="q-mr-xs">+</span> <img src="twemoji-karrot.png" width="20px"></div>
+            <div class="q-btn-inner row col items-center justify-center"><span class="q-mr-xs">+</span> <img src="./twemoji-carrot.png" width="20px"></div>
           </button></div>
       </div>
     </div>
@@ -5574,7 +5574,7 @@ exports[`Storyshots User Profile Trust Button - is newcomer without trust 1`] = 
             </div>
           </button> <button tabindex="0" type="button" class="q-btn inline relative-position q-btn-item non-selectable q-btn-rectangle q-focusable q-hoverable bg-secondary text-white">
             <div class="q-focus-helper"></div>
-            <div class="q-btn-inner row col items-center justify-center"><span class="q-mr-xs">+</span> <img src="twemoji-karrot.png" width="20px"></div>
+            <div class="q-btn-inner row col items-center justify-center"><span class="q-mr-xs">+</span> <img src="./twemoji-carrot.png" width="20px"></div>
           </button></div>
       </div>
     </div>
@@ -5632,7 +5632,7 @@ exports[`Storyshots User Profile Trust Button - multiple others trust 1`] = `
             </div>
           </button> <button tabindex="0" type="button" class="q-btn inline relative-position q-btn-item non-selectable q-btn-rectangle q-focusable q-hoverable bg-secondary text-white">
             <div class="q-focus-helper"></div>
-            <div class="q-btn-inner row col items-center justify-center"><span class="q-mr-xs">+</span> <img src="twemoji-karrot.png" width="20px"></div>
+            <div class="q-btn-inner row col items-center justify-center"><span class="q-mr-xs">+</span> <img src="./twemoji-carrot.png" width="20px"></div>
           </button></div>
       </div>
     </div>
@@ -5678,7 +5678,7 @@ exports[`Storyshots User Profile Trust Button - one other trust 1`] = `
             </div>
           </button> <button tabindex="0" type="button" class="q-btn inline relative-position q-btn-item non-selectable q-btn-rectangle q-focusable q-hoverable bg-secondary text-white">
             <div class="q-focus-helper"></div>
-            <div class="q-btn-inner row col items-center justify-center"><span class="q-mr-xs">+</span> <img src="twemoji-karrot.png" width="20px"></div>
+            <div class="q-btn-inner row col items-center justify-center"><span class="q-mr-xs">+</span> <img src="./twemoji-carrot.png" width="20px"></div>
           </button></div>
       </div>
     </div>

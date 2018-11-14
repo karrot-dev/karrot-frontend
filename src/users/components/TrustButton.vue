@@ -60,7 +60,7 @@
         >
           <span class="q-mr-xs">+</span>
           <img
-            src="twemoji-karrot.png"
+            src="./twemoji-carrot.png"
             width="20px"
           >
         </q-btn>
@@ -197,7 +197,7 @@ export default {
 
 <style lang="stylus" scoped>
 .karrot-button >>> .q-btn-inner
-  background-image url('twemoji-karrot.png')
+  background-image url('twemoji-carrot.png')
   background-size 60%
   background-repeat no-repeat
   background-position center

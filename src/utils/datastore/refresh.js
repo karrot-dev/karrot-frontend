@@ -4,7 +4,7 @@ export default {
   namespaced: true,
   modules: { meta: createMetaModule() },
   getters: {
-    ...metaStatuses['refresh'],
+    ...metaStatuses(['refresh']),
   },
   actions: {
     ...withMeta({

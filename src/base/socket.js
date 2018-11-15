@@ -177,7 +177,7 @@ function receiveMessage ({ topic, payload }) {
     datastore.dispatch('latestMessages/updateConversationsAndRelated', { conversations: [conversation] })
   }
   else if (topic === 'conversations:leave') {
-    datastore.dispatch('conversations/clearConversation', payload.id)
+    datastore.commit('conversations/clearConversation', payload.id)
   }
   else if (topic === 'groups:group_detail') {
     datastore.dispatch('currentGroup/maybeUpdate', convertGroup(camelizeKeys(payload)))

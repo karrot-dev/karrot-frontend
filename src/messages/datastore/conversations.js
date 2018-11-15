@@ -257,42 +257,42 @@ export default {
       let conversation = getters.getForGroup(groupId)
       if (!conversation) {
         conversation = await groupsAPI.conversation(groupId)
-        commit('setConversation', { conversation })
+        commit('setConversation', conversation)
       }
       return conversation
     },
 
     clearForGroup ({ getters, commit }, { groupId }) {
       const { id: conversationId } = getters.getForGroup(groupId) || {}
-      if (conversationId) commit('clearMessages', { conversationId })
+      if (conversationId) commit('clearMessages', conversationId)
     },
 
     async fetchForPickup ({ getters, dispatch, commit }, { pickupId }) {
       let conversation = getters.getForPickup(pickupId)
       if (!conversation) {
         conversation = await pickupsAPI.conversation(pickupId)
-        commit('setConversation', { conversation })
+        commit('setConversation', conversation)
       }
       dispatch('fetch', conversation.id)
     },
 
     clearForPickup ({ getters, commit }, { pickupId }) {
       const { id: conversationId } = getters.getForPickup(pickupId) || {}
-      if (conversationId) commit('clearMessages', { conversationId })
+      if (conversationId) commit('clearMessages', conversationId)
     },
 
     async fetchForUser ({ getters, dispatch, commit }, { userId }) {
       let conversation = getters.getForUser(userId)
       if (!conversation) {
         conversation = await usersAPI.conversation(userId)
-        commit('setConversation', { conversation })
+        commit('setConversation', conversation)
       }
       dispatch('fetch', conversation.id)
     },
 
     clearForUser ({ getters, commit }, { userId }) {
       const { id: conversationId } = getters.getForPickup(userId) || {}
-      if (conversationId) commit('clearMessages', { conversationId })
+      if (conversationId) commit('clearMessages', conversationId)
     },
 
     async fetchForApplication ({ commit, getters, dispatch }, { applicationId }) {
@@ -301,14 +301,14 @@ export default {
         // TODO use already loaded application from groupApplications module
         conversationId = (await groupApplicationsAPI.get(applicationId)).conversation
         const conversation = await conversationsAPI.get(conversationId)
-        commit('setConversation', { conversation })
+        commit('setConversation', conversation)
       }
       dispatch('fetch', conversationId)
     },
 
     clearForApplication ({ getters, commit }, { applicationId }) {
       const { id: conversationId } = getters.getForApplication(applicationId) || {}
-      if (conversationId) commit('clearMessages', { conversationId })
+      if (conversationId) commit('clearMessages', conversationId)
     },
 
     async maybeToggleEmailNotifications ({ state, getters, dispatch }, { conversationId, threadId, value }) {
@@ -364,10 +364,6 @@ export default {
       }
     },
 
-    clearConversation ({ commit }, conversationId) {
-      commit('clearConversation', { conversationId })
-    },
-
     receiveMessage ({ commit }, message) {
       commit('updateMessages', {
         messages: [message],
@@ -378,7 +374,7 @@ export default {
     updateConversation ({ state, commit }, conversation) {
       const existing = state.entries[conversation.id]
       if (!existing || existing.updatedAt <= conversation.updatedAt) {
-        commit('setConversation', { conversation })
+        commit('setConversation', conversation)
       }
     },
 
@@ -403,11 +399,11 @@ export default {
     clear (state) {
       Object.assign(state, initialState())
     },
-    clearMessages (state, { conversationId }) {
+    clearMessages (state, conversationId) {
       Vue.delete(state.messages, conversationId)
       Vue.delete(state.cursors, conversationId)
     },
-    clearConversation (state, { conversationId }) {
+    clearConversation (state, conversationId) {
       Vue.delete(state.entries, conversationId)
       Vue.delete(state.messages, conversationId)
       Vue.delete(state.cursors, conversationId)
@@ -425,7 +421,7 @@ export default {
     setCursor (state, { conversationId, cursor }) {
       Vue.set(state.cursors, conversationId, cursor)
     },
-    setConversation (state, { conversation }) {
+    setConversation (state, conversation) {
       Vue.set(state.entries, conversation.id, conversation)
     },
     updateEmailNotifications (state, { conversationId, value }) {

@@ -25,7 +25,7 @@ describe('conversations', () => {
     beforeEach(async () => {
       mockList.mockReturnValueOnce([])
       initialConversation = { id: 1, updatedAt: oneHourAgo, participants: [] }
-      await datastore.commit('conversations/setConversation', { conversation: initialConversation })
+      await datastore.commit('conversations/setConversation', initialConversation)
     })
 
     it('updates the conversation', () => {
@@ -71,7 +71,7 @@ describe('conversations', () => {
       oneHourAgo.setHours(oneHourAgo.getHours() - 1)
       mockList.mockReturnValueOnce([])
       initialConversation = { id: 1, updatedAt: oneHourAgo, participants: [] }
-      await datastore.commit('conversations/setConversation', { conversation: initialConversation })
+      await datastore.commit('conversations/setConversation', initialConversation)
     })
 
     it('receives new message', () => {
@@ -101,7 +101,7 @@ describe('conversations', () => {
         ],
       }
       const conversation = { id: 1, updatedAt: oneHourAgo, participants: [] }
-      await datastore.commit('conversations/setConversation', { conversation })
+      await datastore.commit('conversations/setConversation', conversation)
       await datastore.dispatch('conversations/receiveMessage', message)
     })
 

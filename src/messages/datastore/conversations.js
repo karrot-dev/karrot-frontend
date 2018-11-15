@@ -64,10 +64,6 @@ function initialState () {
     entries: {},
     messages: {}, // { <conversation-id> : [<message>,...] }
     cursors: {}, // { <conversation-id> : [<cursor>, ...]}
-    groupConversationIds: {}, // { <group-id> : <conversation-id> }
-    pickupConversationIds: {}, // { <pickup-id> : <conversation-id> }
-    userConversationIds: {}, // { <user-id> : <conversation-id> }
-    applicationConversationIds: {}, // { <application-id> : <conversation-id> }
   }
 }
 
@@ -87,25 +83,18 @@ export default {
         ...metaStatusesWithId(getters, ['send', 'fetch', 'fetchPast', 'mark'], conversationId),
       }
     },
-    getForGroup: (state, getters) => groupId => {
-      const conversationId = state.groupConversationIds[groupId]
-      if (!conversationId) return
-      return getters.get(conversationId)
+    getForType: (state, getters) => (myType, myId) => {
+      const { id } = Object.values(state.entries).find(({ type, targetId }) => type === myType && targetId === myId) || {}
+      if (!id) return
+      return getters.get(id)
     },
-    getForPickup: (state, getters) => pickupId => {
-      const conversationId = state.pickupConversationIds[pickupId]
-      if (!conversationId) return
-      return getters.get(conversationId)
-    },
+    getForGroup: (state, getters) => groupId => getters.getForType('group', groupId),
+    getForPickup: (state, getters) => pickupId => getters.getForType('pickup', pickupId),
+    getForApplication: (state, getters) => applicationId => getters.getForType('application', applicationId),
     getForUser: (state, getters) => userId => {
-      const conversationId = state.userConversationIds[userId]
-      if (!conversationId) return
-      return getters.get(conversationId)
-    },
-    getForApplication: (state, getters) => applicationId => {
-      const conversationId = state.applicationConversationIds[applicationId]
-      if (!conversationId) return
-      return getters.get(conversationId)
+      const { id } = Object.values(state.entries).find(({ type, participants }) => type === 'private' && participants.includes(userId)) || {}
+      if (!id) return
+      return getters.get(id)
     },
     enrichReactions: (state, getters, rootState, rootGetters) => reactions => {
       if (!reactions || !reactions.length) return []
@@ -264,68 +253,61 @@ export default {
       dispatch('fetch', conversation.id)
     },
 
-    async fetchGroupConversation ({ state, commit }, groupId) {
-      let conversation
-      const conversationId = state.groupConversationIds[groupId]
-      if (conversationId) conversation = state.entries[conversationId]
+    async fetchGroupConversation ({ getters, commit }, groupId) {
+      let conversation = getters.getForGroup(groupId)
       if (!conversation) {
         conversation = await groupsAPI.conversation(groupId)
-        commit('setConversation', { conversation, groupId })
+        commit('setConversation', { conversation })
       }
       return conversation
     },
 
-    clearForGroup ({ state, commit }, { groupId }) {
-      const conversationId = state.groupConversationIds[groupId]
+    clearForGroup ({ getters, commit }, { groupId }) {
+      const { id: conversationId } = getters.getForGroup(groupId) || {}
       if (conversationId) commit('clearMessages', { conversationId })
     },
 
-    async fetchForPickup ({ state, dispatch, commit }, { pickupId }) {
-      let conversation
-      const conversationId = state.pickupConversationIds[pickupId]
-      if (conversationId) conversation = state.entries[conversationId]
+    async fetchForPickup ({ getters, dispatch, commit }, { pickupId }) {
+      let conversation = getters.getForPickup(pickupId)
       if (!conversation) {
         conversation = await pickupsAPI.conversation(pickupId)
-        commit('setConversation', { conversation, pickupId })
+        commit('setConversation', { conversation })
       }
       dispatch('fetch', conversation.id)
     },
 
-    clearForPickup ({ state, commit }, { pickupId }) {
-      const conversationId = state.pickupConversationIds[pickupId]
+    clearForPickup ({ getters, commit }, { pickupId }) {
+      const { id: conversationId } = getters.getForPickup(pickupId) || {}
       if (conversationId) commit('clearMessages', { conversationId })
     },
 
-    async fetchForUser ({ state, dispatch, commit }, { userId }) {
-      let conversation
-      const conversationId = state.userConversationIds[userId]
-      if (conversationId) conversation = state.entries[conversationId]
+    async fetchForUser ({ getters, dispatch, commit }, { userId }) {
+      let conversation = getters.getForUser(userId)
       if (!conversation) {
         conversation = await usersAPI.conversation(userId)
-        commit('setConversation', { conversation, userId })
+        commit('setConversation', { conversation })
       }
       dispatch('fetch', conversation.id)
     },
 
-    clearForUser ({ state, commit }, { userId }) {
-      const conversationId = state.userConversationIds[userId]
+    clearForUser ({ getters, commit }, { userId }) {
+      const { id: conversationId } = getters.getForPickup(userId) || {}
       if (conversationId) commit('clearMessages', { conversationId })
     },
 
-    async fetchForApplication ({ commit, state, dispatch }, { applicationId }) {
-      // TODO use mapping applicationId -> conversationId from groupApplications module
-      let conversationId = state.applicationConversationIds[applicationId]
+    async fetchForApplication ({ commit, getters, dispatch }, { applicationId }) {
+      let { id: conversationId } = getters.getForApplication(applicationId) || {}
       if (!conversationId) {
         // TODO use already loaded application from groupApplications module
         conversationId = (await groupApplicationsAPI.get(applicationId)).conversation
         const conversation = await conversationsAPI.get(conversationId)
-        commit('setConversation', { conversation, applicationId })
+        commit('setConversation', { conversation })
       }
       dispatch('fetch', conversationId)
     },
 
-    clearForApplication ({ state, commit }, { applicationId }) {
-      const conversationId = state.applicationConversationIds[applicationId]
+    clearForApplication ({ getters, commit }, { applicationId }) {
+      const { id: conversationId } = getters.getForApplication(applicationId) || {}
       if (conversationId) commit('clearMessages', { conversationId })
     },
 
@@ -429,7 +411,6 @@ export default {
       Vue.delete(state.entries, conversationId)
       Vue.delete(state.messages, conversationId)
       Vue.delete(state.cursors, conversationId)
-      // TODO: clear entry from state.pickupConversationIds etc
     },
     updateMessages (state, { conversationId, messages }) {
       if (!state.entries[conversationId]) return
@@ -444,20 +425,8 @@ export default {
     setCursor (state, { conversationId, cursor }) {
       Vue.set(state.cursors, conversationId, cursor)
     },
-    setConversation (state, { conversation, groupId, pickupId, userId, applicationId }) {
+    setConversation (state, { conversation }) {
       Vue.set(state.entries, conversation.id, conversation)
-      if (groupId) {
-        Vue.set(state.groupConversationIds, groupId, conversation.id)
-      }
-      if (pickupId) {
-        Vue.set(state.pickupConversationIds, pickupId, conversation.id)
-      }
-      if (userId) {
-        Vue.set(state.userConversationIds, userId, conversation.id)
-      }
-      if (applicationId) {
-        Vue.set(state.applicationConversationIds, applicationId, conversation.id)
-      }
     },
     updateEmailNotifications (state, { conversationId, value }) {
       state.entries[conversationId].emailNotifications = value

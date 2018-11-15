@@ -8,7 +8,7 @@ import { groupsMock } from '>/mockdata'
 const datastore = createDatastore({
   groupApplications: {
     getters: {
-      getMyInGroup: () => () => null,
+      getMineInGroup: () => () => null,
     },
   },
 })

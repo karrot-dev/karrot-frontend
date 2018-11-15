@@ -81,7 +81,7 @@ export default {
   },
   computed: {
     ...mapGetters({
-      getMyApplicationInGroup: 'groupApplications/getMyInGroup',
+      getMyApplicationInGroup: 'groupApplications/getMineInGroup',
     }),
     cardColor () {
       return this.group.isPlayground ? 'secondary' : undefined

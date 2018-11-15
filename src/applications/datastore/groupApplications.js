@@ -26,7 +26,7 @@ export default {
         canDecide: application.status === 'pending' && rootGetters['currentGroup/isEditor'],
       }
     },
-    getMineForGroupIdNotEnriched: (state, getters, rootState, rootGetters) => groupId => {
+    getMineInGroup: (state, getters, rootState, rootGetters) => groupId => {
       const authUserId = rootGetters['auth/userId']
       if (!authUserId) return
       return Object.values(state.entries).find(a => a.group === groupId && a.user.id === authUserId && a.status === 'pending')
@@ -34,10 +34,7 @@ export default {
     getForActivePreview: (state, getters, rootState, rootGetters) => {
       const activePreview = rootGetters['groups/activePreview']
       if (!activePreview) return
-      return getters.enrich(getters.getMineForGroupIdNotEnriched(activePreview.id))
-    },
-    getMyInGroup: (state, getters) => groupId => {
-      return getters.getMineForGroupIdNotEnriched(groupId)
+      return getters.enrich(getters.getMineInGroup(activePreview.id))
     },
     forCurrentGroup: (state, getters) => Object.keys(state.entries)
       .map(getters.get)
@@ -54,17 +51,13 @@ export default {
         if (!userId) return
         const applicationList = await groupApplications.list({ user: userId, status: 'pending' })
 
-        if (applicationList.length > 0) {
-          commit('clear')
-          commit('update', applicationList)
-        }
+        commit('update', applicationList)
         const users = applicationList.map(a => a.user)
         commit('users/update', users, { root: true })
       },
 
       async fetchByGroupId ({ commit }, { groupId }) {
         const applicationList = await groupApplications.list({ group: groupId })
-        commit('clear')
         commit('update', applicationList)
 
         const users = applicationList.map(a => a.user)

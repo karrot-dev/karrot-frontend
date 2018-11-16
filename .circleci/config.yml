@@ -43,6 +43,7 @@ build-android: &build-android
     rm -f config/current
     ln -s "$CORDOVA_ENV" config/current
     cordova platform add android
+    find www/assets -name *.js.map -type f -delete
     ./build android "$CORDOVA_ENV" release "${!PASSWORD_VAR}"
     mv platforms/android/build/outputs/apk/release/android-release.apk ~/repo/android-${CORDOVA_ENV}.apk
 

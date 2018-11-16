@@ -9,8 +9,9 @@
     "plugins": {
       "cordova-plugin-whitelist": {},
       "cordova-plugin-fcm": {},
-      "cordova-universal-links-plugin": {},
-      "cordova-plugin-network-information": {}
+      "cordova-plugin-network-information": {},
+      "cordova-universal-links-plugin-fix": {},
+      "cordova-universal-links-plugin": {}
     }
   },
   "dependencies": {

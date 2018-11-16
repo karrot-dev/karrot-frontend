@@ -29,6 +29,15 @@ deploy-android: &deploy-android
         name: deploy apk
         command: |
           ./deploy-android.sh "${CIRCLE_BRANCH}" "${DEPLOY_APK}" "${DEPLOY_DIR}"
+    - run:
+        name: upload sourcemaps to sentry
+        environment:
+          SENTRY_ORG: foodsaving-worldwide
+          SENTRY_PROJECT: karrot
+        command: |
+          VERSION=`./node_modules/.bin/sentry-cli releases propose-version`
+          ./node_modules/.bin/sentry-cli releases files "${VERSION}" upload-sourcemaps "${DIST_DIR}/assets/js" --rewrite
+
     - save_cache:
         key: v1-dependencies-playstorehelper-{{ checksum "cordova/playstoreHelper/requirements.txt" }}
         paths:
@@ -280,12 +289,14 @@ jobs:
     environment:
       DEPLOY_APK: android-dev.apk
       DEPLOY_DIR: master
+      DIST_DIR: dist-app-dev
 
   deploy-android-prod:
     <<: *deploy-android
     environment:
       DEPLOY_APK: android-prod.apk
       DEPLOY_DIR: release
+      DIST_DIR: dist-app-prod
 
   build-android-prod:
     <<: *android-defaults

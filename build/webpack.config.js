@@ -171,7 +171,7 @@ module.exports = {
         filename: 'assets/css/[contenthash].css',
       }),
       new BundleAnalyzerPlugin({
-        analyzerMode: 'static',
+        analyzerMode: cordova ? 'disabled' : 'static',
         reportFilename: 'bundlesize.html',
         defaultSizes: 'gzip',
         openAnalyzer: false,

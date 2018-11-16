@@ -22,6 +22,10 @@ Please document your changes in this format:
 
 ## [Unreleased]
 
+### Changed
+
+- Remove unneeded files from Android app, reduces size to 4 MB @tiltec
+
 ## [6.2.5] - 2018-11-13
 
 ### Added

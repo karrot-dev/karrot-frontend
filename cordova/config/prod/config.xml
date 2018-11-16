@@ -7,7 +7,7 @@
     <author email="karrot@foodsaving.world" href="https://foodsaving.world">
         Foodsaving World Team
     </author>
-    <icon density="mdpi" src="carrot_logo_144x144.png" />
+    <icon src="carrot_logo_144x144.png" />
     <content src="index.html" />
     <access origin="*" subdomains="true" />
     <allow-intent href="http://*/*" />
@@ -16,6 +16,10 @@
     <allow-intent href="sms:*" />
     <allow-intent href="mailto:*" />
     <allow-intent href="geo:*" />
+    <preference name="AutoHideSplashScreen" value="true" />
+    <preference name="SplashScreenDelay" value="0" />
+    <preference name="FadeSplashScreenDuration" value="0" />
+    <splash src="" />
     <platform name="android">
         <resource-file src="icon_push.png" target="res/drawable/icon_push.png" />
         <allow-intent href="market:*" />

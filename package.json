@@ -148,9 +148,7 @@
     "webpack-serve": "^2.0.2"
   },
   "browserslist": [
-    "> 1%",
-    "last 2 versions",
-    "not ie <= 10"
+    "defaults"
   ],
   "jest": {
     "roots": [

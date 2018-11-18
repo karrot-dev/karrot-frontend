@@ -1,7 +1,7 @@
 <template>
   <div
     v-if="unsupportedBrowser"
-    class="browser-warning"
+    class="browser-warning bg-warning text-white"
   >
     <i18n
       tag="span"
@@ -32,7 +32,7 @@ export default {
       } = this.$q.platform.is
 
       if (cordova) return false
-      if (safari && versionNumber < 9.1) {
+      if (safari && versionNumber < 10) {
         return true
       }
       else if (ie && versionNumber < 11) {
@@ -47,11 +47,9 @@ export default {
 <style scoped lang="stylus">
 @import '~variables'
 .browser-warning
-  background-color $warning
   width 100%
   text-align center
   padding 10px 4px
 .outdated-link
-  color #0000EE
   text-decoration underline
 </style>

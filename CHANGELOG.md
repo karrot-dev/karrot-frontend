@@ -22,6 +22,8 @@ Please document your changes in this format:
 
 ## [Unreleased]
 
+## [6.2.6] - 2018-11-18
+
 ### Changed
 
 - Remove unneeded files from Android app, reduces size to 4 MB @tiltec
@@ -335,7 +337,8 @@ After months of planning and programming, the first version of ~the foodsaving t
 [#1082]: https://github.com/yunity/karrot-frontend/issues/1082
 [#1071]: https://github.com/yunity/karrot-frontend/issues/1071
 
-[Unreleased]: https://github.com/yunity/karrot-frontend/compare/v6.2.5...HEAD
+[Unreleased]: https://github.com/yunity/karrot-frontend/compare/v6.2.6...HEAD
+[6.2.6]: https://github.com/yunity/karrot-frontend/compare/v6.2.5...v6.2.6
 [6.2.5]: https://github.com/yunity/karrot-frontend/compare/v6.2.4...v6.2.5
 [6.2.4]: https://github.com/yunity/karrot-frontend/compare/v6.2.3...v6.2.4
 [6.2.3]: https://github.com/yunity/karrot-frontend/compare/v6.2.2...v6.2.3

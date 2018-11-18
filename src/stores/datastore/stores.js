@@ -72,6 +72,7 @@ export default {
     }),
     ...withMeta({
       async selectStore ({ commit, dispatch, getters }, { storeId }) {
+        if (getters.activeStoreId === storeId) return
         if (!getters.get(storeId)) {
           try {
             const store = await stores.get(storeId)
@@ -90,7 +91,11 @@ export default {
       findId: ({ storeId }) => storeId,
     }),
 
-    clearSelectedStore ({ commit, dispatch }) {
+    clearSelectedStore ({ commit, dispatch, getters }, { routeTo }) {
+      // do not clear if store stays the same
+      const { storeId } = routeTo.params
+      if (storeId && parseInt(storeId) === getters.activeStoreId) return
+
       dispatch('sidenavBoxes/toggle/group', true, { root: true })
       commit('clearSelected')
     },

@@ -25,6 +25,11 @@ Please document your changes in this format:
 ### Changed
 
 - Remove unneeded files from Android app, reduces size to 4 MB @tiltec
+- Added Safari 9 as unsupported browser @tiltec
+
+### Fixed
+
+- Store did not update after saving @tiltec
 
 ## [6.2.5] - 2018-11-13
 

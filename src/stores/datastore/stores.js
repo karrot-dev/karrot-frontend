@@ -95,17 +95,19 @@ export default {
       commit('clearSelected')
     },
 
-    update ({ commit, dispatch, getters }, update) {
-      const old = getters.get(update.id)
-      // make sure we refresh pickups if store status changes
-      // TODO move to vuex plugin in pickups module
-      if (old && old.status !== update.status) {
-        if (old.status === 'active' || update.status === 'active') {
-          commit('pickups/clearUpcomingForStore', old.id, { root: true })
-          dispatch('pickups/fetchListByGroupId', old.group.id, { root: true })
+    update ({ commit, dispatch, getters }, stores) {
+      for (const store of stores) {
+        const old = getters.get(store.id)
+        // make sure we refresh pickups if store status changes
+        // TODO move to vuex plugin in pickups module
+        if (old && old.status !== store.status) {
+          if (old.status === 'active' || store.status === 'active') {
+            commit('pickups/clearUpcomingForStore', old.id, { root: true })
+            dispatch('pickups/fetchListByGroupId', old.group.id, { root: true })
+          }
         }
       }
-      commit('update', [update])
+      commit('update', stores)
     },
   },
   mutations: {

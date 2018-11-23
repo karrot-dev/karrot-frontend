@@ -22,7 +22,7 @@ Please document your changes in this format:
 
 ## [Unreleased]
 
-- Added info button and dialogue about inactivity @djahnie
+- Added info button and dialogue about inactivity [#1139] @djahnie
 
 ## [6.2.6] - 2018-11-18
 

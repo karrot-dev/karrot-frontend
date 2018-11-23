@@ -70,6 +70,9 @@ module.exports = {
     chunkFilename: 'assets/js/[id].[chunkhash].js',
     pathinfo: false,
   },
+  node: {
+    global: false,
+  },
   resolve: {
     extensions: [
       '.mat.js', // for use inside quasar

@@ -157,7 +157,7 @@ module.exports = {
     new HtmlWebpackPlugin({
       filename: 'index.html',
       template: 'src/base/index.html',
-      minify: true,
+      minify: false,
       cordova,
     }),
     new VueLoaderPlugin(),

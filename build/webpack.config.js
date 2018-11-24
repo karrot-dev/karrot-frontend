@@ -27,6 +27,9 @@ const appEnv = {
   },
   // Quasar requires process.env.THEME to be set
   'process.env.THEME': JSON.stringify('mat'),
+  // vuelidate wants this
+  // see https://github.com/monterail/vuelidate/issues/365
+  'process.env.BUILD': JSON.stringify('web'),
 }
 
 const styleLoaders = [

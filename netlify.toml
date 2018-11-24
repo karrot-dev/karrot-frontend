@@ -15,3 +15,16 @@
   NODE_VERSION = "10"
   YARN_VERSION = "1.7.0"
 
+[[headers]]
+  for = "/"
+
+  [headers.values]
+    X-Frame-Options = "DENY"
+    X-Content-Type-Pptions = "nosniff"
+    Content-Security-Policy-Report-Only = '''
+    default-src 'self';
+    connect-src 'self' wss: https://nominatim.openstreetmap.org https://fcm.googleapis.com https://sentry.io;
+    style-src 'self' 'unsafe-inline';
+    font-src 'self' data:;
+    img-src 'self' https: data:;
+    report-uri https://sentry.io/api/1249808/security/?sentry_key=5c7a0f337fbe4e9ca8626f0e203a2569&sentry_environment=development;'''

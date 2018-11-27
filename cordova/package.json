@@ -8,18 +8,17 @@
     ],
     "plugins": {
       "cordova-plugin-whitelist": {},
-      "cordova-plugin-fcm": {},
       "cordova-plugin-network-information": {},
-      "cordova-universal-links-plugin-fix": {},
-      "cordova-universal-links-plugin": {}
+      "cordova-plugin-fcm-with-dependecy-updated": {},
+      "cordova-plugin-deeplinks": {}
     }
   },
   "dependencies": {
     "cordova-android": "^6.4.0",
-    "cordova-plugin-fcm": "^2.1.2",
+    "cordova-plugin-deeplinks": "^1.1.0",
+    "cordova-plugin-fcm-with-dependecy-updated": "^2.3.0",
     "cordova-plugin-network-information": "^2.0.1",
     "cordova-plugin-whitelist": "^1.3.3",
-    "cordova-universal-links-plugin-fix": "^1.2.1",
     "fcm": "^1.0.3"
   }
 }

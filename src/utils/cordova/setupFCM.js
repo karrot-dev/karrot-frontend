@@ -23,9 +23,11 @@ function onDeviceReady () {
 function receiveNotification (data) {
   if (!data.wasTapped) return
   // Notification was received on device tray and tapped by the user
-  const route = data.karrot_route
-  if (route) {
-    router.push(route)
+  const path = data.karrot_route
+  if (path) {
+    const pendingRoute = datastore.state.routeMeta.next
+    if (pendingRoute && pendingRoute.path === path) return
+    router.push(path)
   }
 }
 

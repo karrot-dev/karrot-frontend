@@ -25,6 +25,8 @@ Please document your changes in this format:
 ### Fixed
 
 - App refreshed data too frequently, sometimes during route change @tiltec
+- Tapping on push notification showed login page when user is already logged in @tiltec
+- Tapping on push notification did not switch groups when app is in background @tiltec
 
 ## [6.2.6] - 2018-11-18
 

@@ -130,6 +130,14 @@ export function defaultFindId (data) {
   if (typeof data === 'number') {
     return data
   }
+  if (typeof data === 'string') {
+    try {
+      parseInt(data, 10)
+      console.warn('findId: number passed as string', data)
+    }
+    catch {}
+    return data
+  }
   else if (typeof data === 'object' && data.hasOwnProperty('id')) {
     return data.id
   }

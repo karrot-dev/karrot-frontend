@@ -22,6 +22,10 @@ Please document your changes in this format:
 
 ## [Unreleased]
 
+### Fixed
+
+- App refreshed data too frequently, sometimes during route change @tiltec
+
 ## [6.2.6] - 2018-11-18
 
 ### Changed

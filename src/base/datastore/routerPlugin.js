@@ -11,6 +11,7 @@ export default datastore => {
   )
 
   router.beforeEach(async (to, from, nextFn) => {
+    datastore.commit('routeMeta/setNext', to)
     datastore.dispatch('routeError/clear')
     let next
 
@@ -67,6 +68,7 @@ export default datastore => {
   })
 
   router.afterEach(() => {
+    datastore.commit('routeMeta/setNext', null)
     throttledMarkUserActive()
   })
 

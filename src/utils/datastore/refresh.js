@@ -1,14 +1,22 @@
 import { createMetaModule, withMeta, metaStatuses } from '@/utils/datastore/helpers'
 
+function initialState () {
+  return {
+    requested: false,
+    lastRefresh: new Date(),
+  }
+}
+
 export default {
   namespaced: true,
   modules: { meta: createMetaModule() },
+  state: initialState(),
   getters: {
     ...metaStatuses(['refresh']),
   },
   actions: {
     ...withMeta({
-      async refresh ({ dispatch, rootGetters }, done) {
+      async refresh ({ commit, dispatch, rootGetters }, done) {
         const activeState = {
           groupId: rootGetters['currentGroup/id'],
           storeId: rootGetters['stores/activeStoreId'],
@@ -30,14 +38,25 @@ export default {
           dispatch('latestMessages/fetch', {}, { root: true }),
           dispatch('notifications/fetch', null, { root: true }),
         ])
-
+        commit('setLastRefresh')
         if (done) done()
       },
     }),
 
-    maybeRefresh ({ dispatch, getters }) {
+    maybeRefresh ({ dispatch, commit, state, getters }) {
+      commit('requestRefresh', false)
       if (getters.refreshStatus.pending) return
+      // wait at least 15 seconds before and between refreshing
+      if (new Date() - state.lastRefresh < 1000 * 15) return
       dispatch('refresh')
+    },
+  },
+  mutations: {
+    requestRefresh (state, value) {
+      state.requested = value
+    },
+    setLastRefresh (state) {
+      state.lastRefresh = new Date()
     },
   },
 }

@@ -33,10 +33,12 @@ const status = new Vue({
   },
 })
 
+const refresh = () => setTimeout(() => datastore.commit('refresh/requestRefresh', true), 500)
+
 status.$watch('online', val => {
-  if (val) datastore.dispatch('refresh/maybeRefresh')
+  if (val) refresh()
 })
 
 status.$watch('foreground', val => {
-  if (val) datastore.dispatch('refresh/maybeRefresh')
+  if (val) refresh()
 })

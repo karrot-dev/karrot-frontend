@@ -1,5 +1,6 @@
 /**
- * Extend vuex-router-sync with getters
+ * Extend vuex-router-sync
+ * https://github.com/vuejs/vuex-router-sync
  * Joins the `route` namespace
  */
 

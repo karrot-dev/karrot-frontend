@@ -4,6 +4,7 @@ import { withMeta, createMetaModule, withPrefixedIdMeta, metaStatusesWithId, cre
 function initialState () {
   return {
     current: null,
+    id: null,
   }
 }
 
@@ -58,8 +59,13 @@ export default {
   },
   actions: {
     ...withMeta({
-      async fetch ({ commit, rootGetters, dispatch }, groupId) {
+      async fetch ({ state, commit, dispatch }, groupId) {
+        commit('setId', groupId)
         const group = await groups.get(groupId)
+
+        // aborting, another group has been loaded while we waited
+        if (state.id !== groupId) return
+
         if (group.activeAgreement) {
           dispatch('agreements/fetch', group.activeAgreement, { root: true })
         }
@@ -75,7 +81,7 @@ export default {
         if (getters.id) await groups.markUserActive(getters.id)
       },
 
-      async changeNotificationType ({ commit, dispatch, getters }, { notificationType, enabled }) {
+      async changeNotificationType ({ dispatch, getters }, { notificationType, enabled }) {
         if (enabled) {
           await groups.addNotificationType(getters.id, notificationType)
         }
@@ -124,6 +130,10 @@ export default {
       if (getters.id === groupId) return
 
       await dispatch('fetch', groupId)
+
+      // aborting, another group has been loaded while we waited
+      if (getters.id && getters.id !== groupId) return
+
       const hasError = getters['meta/status']('fetch', groupId).hasValidationErrors
       if (hasError) {
         const groupExists = Boolean(rootGetters['groups/get'](groupId))
@@ -138,6 +148,7 @@ export default {
         throw createRouteRedirect({ name: 'groupPreview', params: { groupPreviewId: groupId } })
       }
 
+      // TODO move to plugins
       dispatch('pickups/fetchListByGroupId', groupId, { root: true })
       dispatch('pickups/fetchFeedbackPossible', groupId, { root: true })
 
@@ -181,6 +192,9 @@ export default {
     },
   },
   mutations: {
+    setId (state, value) {
+      state.id = value
+    },
     set (state, group) {
       state.current = group
     },

@@ -387,9 +387,11 @@ export default {
 
     refresh ({ state, dispatch }) {
       Object.keys(state.entries).forEach(async conversationId => {
+        conversationId = parseInt(conversationId)
         dispatch('fetchConversation', conversationId)
       })
       Object.keys(state.messages).forEach(async conversationId => {
+        conversationId = parseInt(conversationId)
         // refreshes only first page of messages and resets pagination cursor
         dispatch('fetch', conversationId)
       })

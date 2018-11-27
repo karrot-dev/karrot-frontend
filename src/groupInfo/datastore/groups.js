@@ -46,7 +46,7 @@ export default {
           obj[member] = true
         }
         return obj
-      }, {})).sort()
+      }, {})).map(parseInt).sort()
     },
     other: (state, getters) => getters.all.filter(e => !e.isMember).sort(sortByMemberCount),
     activePreview: (state, getters) => getters.get(state.activePreviewId),

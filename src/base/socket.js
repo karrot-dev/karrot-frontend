@@ -4,7 +4,6 @@ import { debounce, AppVisibility } from 'quasar'
 import datastore from '@/base/datastore'
 import log from '@/utils/log'
 import auth from '@/authuser/api/auth'
-import { getter } from '@/utils/datastore/storeHelpers'
 
 import { camelizeKeys } from '@/utils/utils'
 import { convert as convertApplication } from '@/applications/api/groupApplications'
@@ -242,13 +241,13 @@ function receiveMessage ({ topic, payload }) {
   }
 }
 
-datastore.watch(getter('presence/toggle/away'), away => {
+datastore.watch((_, getters) => getters['presence/toggle/away'], away => {
   if (ws && ws.readyState === WebSocket.OPEN) {
     ws.send(JSON.stringify({ type: away ? 'away' : 'back' }))
   }
 })
 
-datastore.watch(getter('auth/isLoggedIn'), isLoggedIn => {
+datastore.watch((_, getters) => getters['auth/isLoggedIn'], isLoggedIn => {
   if (isLoggedIn) {
     if (__ENV.CORDOVA) {
       const token = auth.getToken()

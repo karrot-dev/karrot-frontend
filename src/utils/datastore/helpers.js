@@ -1,6 +1,6 @@
 /**
- * Store independent helpers
- * If a helper depends on the vuex store, put it in storeHelpers.js
+ * Datastore related helpers
+ * This file should not import the datastore itself, to avoid cyclic dependencies.
  */
 
 import Vue from 'vue'

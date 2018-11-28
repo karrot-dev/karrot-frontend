@@ -20,7 +20,7 @@ jest.mock('@/base/router', () => ({
 }))
 
 import { createDatastore, createValidationError, throws, statusMocks } from '>/helpers'
-import { enrichGroup } from '>/storeHelpers'
+import { enrichGroup } from '>/datastoreHelpers'
 
 function enrichAsMember (group) {
   return { ...enrichGroup(group), isMember: true }
@@ -42,7 +42,7 @@ describe('groups', () => {
     group3 = { id: 3, name: 'group 3', members: [userId] }
   })
 
-  // Reusable store mocks
+  // Reusable datastore mocks
 
   const agreements = {
     getters: {

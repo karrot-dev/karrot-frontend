@@ -26,7 +26,7 @@ jest.mock('@/history/api/history', () => ({ list: mockHistoryList }))
 import Vue from 'vue'
 import { configureQuasar, nextTicks } from '>/helpers'
 
-describe('storeHelpers', () => {
+describe('refresh', () => {
   beforeEach(() => jest.resetModules())
 
   it('refreshes some data', async () => {

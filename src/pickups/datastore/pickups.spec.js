@@ -15,7 +15,7 @@ describe('pickups', () => {
   beforeEach(() => jest.resetModules())
 
   describe('with vuex', () => {
-    let storeMocks
+    let datastoreMocks
     let vstore
     let clock
 
@@ -39,7 +39,7 @@ describe('pickups', () => {
     })
 
     beforeEach(() => {
-      storeMocks = {
+      datastoreMocks = {
         auth: {
           getters: {
             isLoggedIn: () => true,
@@ -64,7 +64,7 @@ describe('pickups', () => {
       let pickups = require('./pickups').default
       vstore = createDatastore({
         pickups,
-        ...storeMocks,
+        ...datastoreMocks,
       })
     })
 

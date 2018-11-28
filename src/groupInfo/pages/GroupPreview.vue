@@ -16,13 +16,13 @@ export default connect({
     openChat: 'detail/openForApplication',
   },
   methodsToEvents: {
-    goVisit: (store, groupId) => router.push({ name: 'group', params: { groupId } }),
+    goVisit: (_, groupId) => router.push({ name: 'group', params: { groupId } }),
     goSettings: ({ dispatch }) => router.push({ name: 'settings', hash: '#change-email' }),
     goSignup: ({ dispatch }, group) => {
       if (group.isOpen) dispatch('auth/setJoinGroupAfterLogin', group.id)
       router.push({ name: 'signup' })
     },
-    goApply: (store, groupId) => router.push({ name: 'applicationForm', params: { groupPreviewId: groupId } }),
+    goApply: (_, groupId) => router.push({ name: 'applicationForm', params: { groupPreviewId: groupId } }),
   },
 })('GroupPreview', GroupPreviewUI)
 </script>

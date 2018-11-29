@@ -34,7 +34,6 @@
           :status="seriesCreateStatus"
         />
       </q-item>
-
       <q-list
         class="pickups"
         separator
@@ -51,23 +50,23 @@
           icon="fas fa-calendar-alt"
           sparse
         >
-
           <q-item v-if="visible.series[series.id]">
             <pickup-series-edit
               :value="series"
-              @save="saveSeries"
+              @save="previewPickups"
               @destroy="destroySeries"
               @reset="resetPickup"
               :status="series.saveStatus"
             />
           </q-item>
-
+          <q-item v-if="preview">
+            <PickupPreview :value="preview" />
+          </q-item>
           <q-list
             no-border
             seperator
           >
             <q-list-header v-t="'PICKUPMANAGE.UPCOMING_PICKUPS_IN_SERIES'" />
-
             <q-collapsible
               v-for="pickup in series.pickups"
               @show="makeVisible('pickup', pickup.id)"
@@ -85,7 +84,6 @@
               />
             </q-collapsible>
           </q-list>
-
         </q-collapsible>
       </q-list>
     </q-card>
@@ -94,7 +92,8 @@
       <RandomArt
         class="randomBanner"
         :seed="storeId"
-        type="banner"/>
+        type="banner"
+      />
       <q-card-title>
         <h5>
           <i
@@ -114,12 +113,12 @@
             round
             class="bannerButton hoverScale"
             color="secondary"
-            icon="fas fa-plus">
+            icon="fas fa-plus"
+          >
             <q-tooltip v-t="'BUTTON.CREATE'" />
           </q-btn>
         </div>
       </q-card-title>
-
       <q-item v-if="newPickup" >
         <pickup-edit
           :value="newPickup"
@@ -129,7 +128,6 @@
           :status="pickupCreateStatus"
         />
       </q-item>
-
       <q-list
         class="pickups"
         separator
@@ -160,16 +158,46 @@
 
 <script>
 import { mapGetters, mapActions } from 'vuex'
-import { QCard, QCardTitle, QList, QListHeader, QItem, QItemSide, QItemMain, QItemTile, QCollapsible, QBtn, QTooltip, QIcon } from 'quasar'
+import {
+  QCard,
+  QCardTitle,
+  QList,
+  QListHeader,
+  QItem,
+  QItemSide,
+  QItemMain,
+  QItemTile,
+  QCollapsible,
+  QBtn,
+  QTooltip,
+  QIcon,
+} from 'quasar'
 import PickupSeriesEdit from '@/pickups/components/PickupSeriesEdit'
 import PickupEdit from '@/pickups/components/PickupEdit'
 import RandomArt from '@/utils/components/RandomArt'
+import PickupPreview from '@/pickups/components/PickupPreview'
+import pickupSeriesAPI from '@/pickups/api/pickupSeries'
 
 import i18n, { dayNameForKey, sortByDay } from '@/base/i18n'
 
 export default {
   components: {
-    RandomArt, QCard, QCardTitle, QItem, QItemSide, QItemMain, QItemTile, QList, QListHeader, QCollapsible, QBtn, PickupSeriesEdit, PickupEdit, QTooltip, QIcon,
+    PickupSeriesEdit,
+    PickupEdit,
+    RandomArt,
+    PickupPreview,
+    QCard,
+    QCardTitle,
+    QList,
+    QListHeader,
+    QItem,
+    QItemSide,
+    QItemMain,
+    QItemTile,
+    QCollapsible,
+    QBtn,
+    QTooltip,
+    QIcon,
   },
   data () {
     return {
@@ -179,6 +207,7 @@ export default {
         series: {},
         pickup: {},
       },
+      preview: null,
     }
   },
   methods: {
@@ -204,6 +233,10 @@ export default {
       else {
         return base
       }
+    },
+    async previewPickups (series) {
+      this.preview = await pickupSeriesAPI.pickupPreview(series)
+      console.log('preview', this.preview)
     },
     ...mapActions({
       saveSeries: 'pickupSeries/save',

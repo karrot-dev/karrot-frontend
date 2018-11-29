@@ -22,8 +22,8 @@
     >
       <q-collapsible
         slot="beforeChatMessages"
-        opened
         v-if="application"
+        opened
         class="bg-grey-2"
       >
         <template slot="header">
@@ -45,9 +45,38 @@
               <DateAsWords :date="application.createdAt" />
             </small>
           </span>
-          <Markdown :source="application.answers" />
+
         </div>
       </q-collapsible>
+      <q-list
+        slot="afterChatMessages"
+        v-if="pickup && pickup.isCancelled"
+        class="bg-grey-2"
+      >
+        <q-item>
+          <q-item-main>
+            <q-item-tile label>
+              <b class="text-negative">{{ $t('PICKUPLIST.PICKUP_CANCELLED') }}</b>
+            </q-item-tile>
+            <q-item-tile sublabel>
+              <ProfilePicture
+                :user="pickup.lastChangedBy"
+              />
+              <DateAsWords
+                :date="pickup.cancelledAt"
+                style="display: inline"
+                class="q-ml-xs"
+              />
+            </q-item-tile>
+            <div
+              v-if="pickup.lastChangedMessage"
+              class="q-ma-sm q-pa-sm bg-white"
+            >
+              <Markdown :source="pickup.lastChangedMessage" />
+            </div>
+          </q-item-main>
+        </q-item>
+      </q-list>
     </ChatConversation>
   </div>
 </template>
@@ -56,10 +85,15 @@
 import ChatConversation from '@/messages/components/ChatConversation'
 import Markdown from '@/utils/components/Markdown'
 import DateAsWords from '@/utils/components/DateAsWords'
+import ProfilePicture from '@/users/components/ProfilePicture'
 
 import {
   QSpinnerDots,
   QCollapsible,
+  QList,
+  QItem,
+  QItemMain,
+  QItemTile,
 } from 'quasar'
 
 export default {
@@ -67,8 +101,13 @@ export default {
     ChatConversation,
     Markdown,
     DateAsWords,
+    ProfilePicture,
     QSpinnerDots,
     QCollapsible,
+    QList,
+    QItem,
+    QItemMain,
+    QItemTile,
   },
   props: {
     inline: {

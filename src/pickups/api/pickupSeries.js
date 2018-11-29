@@ -1,4 +1,5 @@
 import axios from '@/base/api/axios'
+import { convert as convertPickup } from '@/pickups/api/pickups'
 
 export default {
 
@@ -19,12 +20,17 @@ export default {
   },
 
   async save (series) {
-    let { id } = series
+    const { id } = series
     return convert((await axios.patch(`/api/pickup-date-series/${id}/`, serialize(series))).data)
   },
 
-  delete (seriesId) {
-    return axios.delete(`/api/pickup-date-series/${seriesId}/`)
+  async pickupPreview (series) {
+    const { id } = series
+    return convertPickupPreview((await axios.post(`/api/pickup-date-series/${id}/get_pickup_preview/`, serialize(series))).data)
+  },
+
+  cancel (seriesId, data) {
+    return axios.post(`/api/pickup-date-series/${seriesId}/cancel/`, data)
   },
 
 }
@@ -86,4 +92,16 @@ export function serializeRule (obj) {
 
   // takes rule object and return string
   return `FREQ=${obj.freq};BYDAY=${obj.byDay.join()}`
+}
+
+export function convertPickupPreview (entry) {
+  if (Array.isArray(entry)) {
+    return entry.map(convertPickupPreview)
+  }
+  else {
+    return {
+      existingPickup: entry.existingPickup && convertPickup(entry.existingPickup),
+      newDate: entry.newDate && new Date(entry.newDate),
+    }
+  }
 }

@@ -64,7 +64,10 @@ export function convert (val) {
     return val.map(convert)
   }
   else {
-    let date = new Date(val.date)
-    return { ...val, date }
+    return {
+      ...val,
+      date: new Date(val.date),
+      cancelledAt: val.cancelledAt && new Date(val.cancelledAt),
+    }
   }
 }

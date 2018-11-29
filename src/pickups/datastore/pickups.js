@@ -28,9 +28,11 @@ export default {
         isUserMember: pickup.collectorIds.includes(userId),
         isEmpty: pickup.collectorIds.length === 0,
         isFull: pickup.maxCollectors > 0 && pickup.collectorIds.length >= pickup.maxCollectors,
+        isCancelled: Boolean(pickup.cancelledAt),
         store,
         group,
         collectors: pickup.collectorIds.map(rootGetters['users/get']),
+        lastChangedBy: rootGetters['users/get'](pickup.lastChangedBy),
         ...metaStatusesWithId(getters, ['save', 'join', 'leave'], pickup.id),
       }
     },
@@ -54,8 +56,7 @@ export default {
     available: (state, getters) =>
       getters.byCurrentGroup
         .filter(isWithinOneWeek)
-        .filter(e => !e.isFull)
-        .filter(e => !e.isUserMember),
+        .filter(e => !e.isFull && !e.isUserMember && !e.isCancelled),
     feedbackPossible: (state, getters) => state.feedbackPossibleIds.map(getters.get),
     feedbackPossibleFiltered: (state, getters) =>
       state.feedbackPossibleIds

@@ -316,7 +316,8 @@
     },
     "NONE": "No upcoming pickups",
     "NONE_HINT": "You can create a new pickup on the store page.",
-    "STORE_NONE_HINT": "You can create a new pickup on the pickup manage page."
+    "STORE_NONE_HINT": "You can create a new pickup on the pickup manage page.",
+    "PICKUP_CANCELLED": "This pickup has been cancelled."
   },
   "FEEDBACKLIST": {
     "SAVED_FOOD": "At least 1 kg was saved here. Thank you! | People gave feedback for {amount} kg of saved food already! Keep up the great work!",
@@ -416,7 +417,8 @@
     "FEEDBACK_POSSIBLE": "You can give feedback for the pickup you did on {date}",
     "NEW_STORE": "{storeName} has been created",
     "NEW_MEMBER": "{userName} joined your group",
-    "PICKUP_UPCOMING": "Reminder: You have a pickup at {time}"
+    "PICKUP_UPCOMING": "Reminder: You have a pickup at {time}",
+    "PICKUP_CANCELLED": "Pickup at {dateTime} was cancelled"
   },
   "OUTDATED_BROWSER": {
     "MESSAGE": "You are using an unsupported browser. {upgradeBrowser} to enjoy all features.",

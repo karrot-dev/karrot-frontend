@@ -30,6 +30,13 @@ const defaultDateTimeFormat = {
     minute: 'numeric',
     weekday: 'long',
   },
+  dateAndTime: {
+    month: 'long',
+    day: 'numeric',
+    weekday: 'long',
+    hour: 'numeric',
+    minute: 'numeric',
+  },
   dateWithDayName: {
     month: 'long',
     day: 'numeric',

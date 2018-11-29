@@ -5,7 +5,7 @@
   >
     <q-card-main
       class="row no-padding justify-between content"
-      :class="{ isEmpty: pickup.isEmpty, isUserMember: pickup.isUserMember }"
+      :class="{ isEmpty: pickup.isEmpty, isUserMember: pickup.isUserMember, isCancelled: pickup.isCancelled }"
     >
       <div class="column padding full-width">
         <div>
@@ -27,19 +27,20 @@
           </template>
         </div>
         <div
+          v-if="pickup.isCancelled"
+          class="q-py-xs"
+        >
+          <b class="text-negative">{{ $t('PICKUPLIST.PICKUP_CANCELLED') }}</b>
+        </div>
+        <div
           class="description multiline"
           v-if="pickup.description"
         >{{ pickup.description }}
         </div>
         <div class="people full-width">
           <PickupUsers
-            v-if="pickup.isUserMember"
             :pickup="pickup"
             @leave="leave"
-          />
-          <PickupUsers
-            v-else
-            :pickup="pickup"
             @join="join"
           />
         </div>
@@ -122,6 +123,9 @@ export default {
     $lightRed 30px
   )
 .content.isUserMember
-  background linear-gradient(to right, $lightGreen, $lighterGreen)
   cursor pointer
+  &:not(.isCancelled)
+    background linear-gradient(to right, $lightGreen, $lighterGreen)
+  &.isCancelled
+    background $lightRed
 </style>

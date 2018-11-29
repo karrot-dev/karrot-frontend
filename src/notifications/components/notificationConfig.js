@@ -18,6 +18,10 @@ function getMessageParams (type, context) {
       return {
         time: context.pickup && i18n.d(context.pickup.date, 'timeShort'),
       }
+    case 'pickup_cancelled':
+      return {
+        dateTime: context.pickup && i18n.d(context.pickup.date, 'dateAndTime'),
+      }
     case 'new_store':
       return {
         storeName: context.store && context.store.name,
@@ -31,6 +35,7 @@ function getIcon (type, context) {
   switch (type) {
     case 'application_accepted':
       return 'fas fa-check'
+    case 'pickup_cancelled':
     case 'application_declined':
       return 'fas fa-times'
     case 'invitation_accepted':
@@ -50,24 +55,26 @@ function getIcon (type, context) {
   }
 }
 
-function getRouteTo (type, context) {
+function getRouteTo (type, { group, user, store, pickup } = {}) {
   switch (type) {
     case 'user_became_editor':
     case 'invitation_accepted':
     case 'new_member':
-      return context.user && { name: 'user', params: { userId: context.user.id } }
+      return user && { name: 'user', params: { userId: user.id } }
     case 'you_became_editor': // TODO show information about editing permissions
     case 'application_accepted':
-      return context.group && { name: 'group', params: { groupId: context.group.id } }
+      return group && { name: 'group', params: { groupId: group.id } }
     case 'new_applicant':
-      return context.group && { name: 'groupApplications', params: { groupId: context.group.id } }
+      return group && { name: 'groupApplications', params: { groupId: group.id } }
     case 'feedback_possible':
-      return context.pickup && context.group && { name: 'giveFeedback', params: { groupId: context.group.id, pickupId: context.pickup.id } }
+      return group && pickup && { name: 'giveFeedback', params: { groupId: group.id, pickupId: pickup.id } }
     case 'application_declined':
-      return context.group && { name: 'groupPreview', params: { groupPreviewId: context.group.id } }
+      return group && { name: 'groupPreview', params: { groupPreviewId: group.id } }
     case 'new_store':
+      return group && store && { name: 'store', params: { groupId: group.id, storeId: store.id } }
     case 'pickup_upcoming':
-      return context.store && context.group && { name: 'store', params: { groupId: context.group.id, storeId: context.store.id } }
+    case 'pickup_cancelled':
+      return group && store && pickup && { name: 'pickupDetail', params: { groupId: group.id, storeId: store.id, pickupId: pickup.id } }
   }
 }
 

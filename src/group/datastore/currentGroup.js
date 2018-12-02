@@ -127,14 +127,16 @@ export default {
 
     async select ({ dispatch, getters, rootGetters }, { groupId }) {
       if (!groupId) throw createRouteRedirect({ name: 'groupsGallery' })
-      if (getters.id === groupId) return
+      const oldGroupId = getters.id
+      if (oldGroupId === groupId) return
 
       await dispatch('fetch', groupId)
 
       // aborting, another group has been loaded while we waited
-      if (getters.id && getters.id !== groupId) return
+      if (getters.id && getters.id !== groupId && getters.id !== oldGroupId) return
 
       const hasError = getters['meta/status']('fetch', groupId).hasValidationErrors
+
       if (hasError) {
         const groupExists = Boolean(rootGetters['groups/get'](groupId))
         if (groupExists) {

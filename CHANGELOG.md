@@ -22,6 +22,10 @@ Please document your changes in this format:
 
 ## [Unreleased]
 
+### Fixed
+
+- Group info did not load when clicking on map popup, regression in 6.2.7 @tiltec
+
 ## [6.2.7] - 2018-11-28
 
 ### Fixed

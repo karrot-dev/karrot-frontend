@@ -26,7 +26,7 @@
             icon="add circle"
           />
           <q-item-main
-            :label="'Create new store'"
+            :label="$t('CREATESTORE.TITLE')"
           />
         </q-item>
       </q-list>

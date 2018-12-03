@@ -27,6 +27,9 @@ const appEnv = {
   },
   // Quasar requires process.env.THEME to be set
   'process.env.THEME': JSON.stringify('mat'),
+  // vuelidate wants this
+  // see https://github.com/monterail/vuelidate/issues/365
+  'process.env.BUILD': JSON.stringify('web'),
 }
 
 const styleLoaders = [
@@ -70,6 +73,7 @@ module.exports = {
     chunkFilename: 'assets/js/[id].[chunkhash].js',
     pathinfo: false,
   },
+  node: false,
   resolve: {
     extensions: [
       '.mat.js', // for use inside quasar
@@ -153,7 +157,7 @@ module.exports = {
     new HtmlWebpackPlugin({
       filename: 'index.html',
       template: 'src/base/index.html',
-      minify: true,
+      minify: false,
       cordova,
     }),
     new VueLoaderPlugin(),

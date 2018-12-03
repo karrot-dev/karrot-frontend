@@ -18,6 +18,7 @@ import log from '@/utils/log'
 import './sentry'
 import polyfill from '@/utils/polyfill'
 import { DetectMobileKeyboardPlugin } from '@/utils/detectMobileKeyboard'
+import loadInitialData from './loadInitialData'
 
 Vue.use(DetectMobileKeyboardPlugin)
 
@@ -36,16 +37,9 @@ export default async function initApp () {
   sync(datastore, router)
 
   await Promise.all([
+    loadInitialData(),
     polyfill.init(),
-    datastore.dispatch('auth/refresh'),
   ])
-
-  datastore.dispatch('groups/fetch')
-
-  if (!__ENV.DEV) {
-    datastore.dispatch('about/fetch')
-  }
-  datastore.dispatch('communityFeed/fetchTopics')
 
   /* eslint-disable no-new */
   const vueRoot = new Vue({

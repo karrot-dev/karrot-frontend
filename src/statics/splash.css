@@ -1,0 +1,15 @@
+.root-splash {
+  position: fixed;
+  top: 55%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  max-width: 50%;
+}
+.root-splash-first {
+  animation: root-splash-fadein-first 1s;
+  opacity: 0.3;
+}
+@keyframes root-splash-fadein-first {
+  from { opacity: 0; }
+  to   { opacity: 0.3; }
+}

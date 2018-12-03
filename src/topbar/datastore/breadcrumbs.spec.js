@@ -4,12 +4,12 @@ jest.mock('@/base/i18n', () => ({ t: mockTranslate }))
 import { createDatastore } from '>/helpers'
 
 describe('breadcrumbs', () => {
-  let storeMocks
+  let datastoreMocks
   let datastore
 
   beforeEach(() => jest.resetModules())
   beforeEach(() => {
-    storeMocks = {
+    datastoreMocks = {
       currentGroup: {
         getters: {
           value: () => ({ id: 1, name: 'my current group' }),
@@ -33,7 +33,7 @@ describe('breadcrumbs', () => {
     }
     datastore = createDatastore({
       breadcrumbs: require('./breadcrumbs').default,
-      ...storeMocks,
+      ...datastoreMocks,
     })
   })
 

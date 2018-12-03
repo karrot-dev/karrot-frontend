@@ -22,7 +22,22 @@ Please document your changes in this format:
 
 ## [Unreleased]
 
+### Added
+
 - Added info button and dialogue about inactivity [#1139] @djahnie
+
+### Fixed
+
+- Group info did not load when clicking on map popup, regression in 6.2.7 @tiltec
+
+## [6.2.7] - 2018-11-28
+
+### Fixed
+
+- App refreshed data too frequently, sometimes during route change @tiltec
+- Tapping on push notification showed login page when user is already logged in @tiltec
+- Tapping on push notification did not switch groups when app is in background @tiltec
+- Conversation metadata did not get refreshed sometimes @tiltec
 
 ## [6.2.6] - 2018-11-18
 
@@ -339,7 +354,8 @@ After months of planning and programming, the first version of ~the foodsaving t
 [#1082]: https://github.com/yunity/karrot-frontend/issues/1082
 [#1071]: https://github.com/yunity/karrot-frontend/issues/1071
 
-[Unreleased]: https://github.com/yunity/karrot-frontend/compare/v6.2.6...HEAD
+[Unreleased]: https://github.com/yunity/karrot-frontend/compare/v6.2.7...HEAD
+[6.2.7]: https://github.com/yunity/karrot-frontend/compare/v6.2.6...v6.2.7
 [6.2.6]: https://github.com/yunity/karrot-frontend/compare/v6.2.5...v6.2.6
 [6.2.5]: https://github.com/yunity/karrot-frontend/compare/v6.2.4...v6.2.5
 [6.2.4]: https://github.com/yunity/karrot-frontend/compare/v6.2.3...v6.2.4

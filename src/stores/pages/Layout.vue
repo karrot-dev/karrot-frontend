@@ -37,21 +37,3 @@ export default {
   },
 }
 </script>
-
-<style scoped lang="stylus">
-@import '~variables'
-.store-banner
-  margin: 8px 8px -13px 8px
-  > span
-    display: block
-    height 5vw
-    min-height 30px
-    max-height 48px
-    overflow hidden
-
-body.mobile .store-banner
-  margin: 0px 0px -13px 0px
-  border 0
-  max-height: 30px
-  overflow: hidden
-</style>

@@ -12,7 +12,7 @@ export default connect({
     apply: 'groupApplications/apply',
   },
   methodsToEvents: {
-    cancel: (store, groupId) => {
+    cancel: (_, groupId) => {
       router.push({ name: 'groupPreview', params: { groupId } })
     },
   },

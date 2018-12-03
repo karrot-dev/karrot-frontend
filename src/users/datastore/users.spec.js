@@ -5,7 +5,7 @@ const mockGetProfile = jest.fn()
 jest.mock('@/users/api/users', () => ({ get: mockGet, getProfile: mockGetProfile }))
 
 import { createDatastore, throws, createValidationError } from '>/helpers'
-import { enrichGroup } from '>/storeHelpers'
+import { enrichGroup } from '>/datastoreHelpers'
 
 function enrich (user, groups, currentUserId) {
   return {

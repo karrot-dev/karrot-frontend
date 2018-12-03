@@ -91,6 +91,7 @@ describe('main routes', () => {
       modules: {
         ...mockModules,
         groups: require('@/groupInfo/datastore/groups').default,
+        routeMeta: require('@/base/datastore/routeMeta').default,
       },
       plugins: [require('@/base/datastore/routerPlugin').default],
     })

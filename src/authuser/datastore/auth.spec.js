@@ -9,12 +9,12 @@ import { createDatastore, createValidationError, throws } from '>/helpers'
 
 describe('auth', () => {
   let datastore
-  let storeMocks
+  let datastoreMocks
 
   beforeEach(() => jest.resetModules())
 
   beforeEach(() => {
-    storeMocks = {
+    datastoreMocks = {
       i18n: {
         actions: {
           setLocale: jest.fn(),
@@ -23,7 +23,7 @@ describe('auth', () => {
     }
     datastore = createDatastore({
       auth: require('./auth').default,
-      ...storeMocks,
+      ...datastoreMocks,
     })
   })
 

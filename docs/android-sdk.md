@@ -11,7 +11,7 @@ If using Arch Linux there is a [nice page about it](https://wiki.archlinux.org/i
 In summary, install these AUR packages:
 
 ```
-android-platform android-platform-25 android-sdk android-sdk-build-tools android-sdk-platform-tools
+android-platform-27 android-sdk android-sdk-build-tools android-sdk-platform-tools
 ```
 
 Then setup env/path stuff:

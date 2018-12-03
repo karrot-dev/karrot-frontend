@@ -1,6 +1,6 @@
 /**
- * Store independent helpers
- * If a helper depends on the vuex store, put it in storeHelpers.js
+ * Datastore related helpers
+ * This file should not import the datastore itself, to avoid cyclic dependencies.
  */
 
 import Vue from 'vue'
@@ -128,6 +128,14 @@ export function withPrefixedIdMeta (idPrefix, actions, options) {
 export function defaultFindId (data) {
   if (!data) return undefined
   if (typeof data === 'number') {
+    return data
+  }
+  if (typeof data === 'string') {
+    try {
+      parseInt(data, 10)
+      console.warn('findId: number passed as string', data)
+    }
+    catch {}
     return data
   }
   else if (typeof data === 'object' && data.hasOwnProperty('id')) {

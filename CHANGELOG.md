@@ -22,6 +22,10 @@ Please document your changes in this format:
 
 ## [Unreleased]
 
+### Added
+
+- Added info button and dialogue about inactivity [#1139] @djahnie
+
 ### Fixed
 
 - Group info did not load when clicking on map popup, regression in 6.2.7 @tiltec

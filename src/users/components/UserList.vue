@@ -18,12 +18,28 @@
       <q-item-separator />
       <q-collapsible
         v-if="inactiveUsers.length > 0"
-        icon="fas fa-bed"
-        :label="$t('GROUP.INACTIVE')"
-        :sublabel="inactiveSublabel"
         @show="showInactive = true"
         @hide="showInactive = false"
       >
+        <template slot="header">
+          <q-item-side>
+            <q-item-tile icon="fas fa-bed" />
+          </q-item-side>
+          <q-item-main
+            :label="$t('GROUP.INACTIVE')"
+            :sublabel="inactiveSublabel"
+          />
+          <q-item-side>
+            <q-btn
+              flat
+              round
+              dense
+              icon="help_outline"
+              @click.stop="inactivityInfo"
+            />
+          </q-item-side>
+        </template>
+
         <template v-if="showInactive">
           <UserItem
             v-for="user in inactiveUsers"
@@ -41,11 +57,16 @@
 
 <script>
 import {
+  Dialog,
   QList,
   QListHeader,
   QItemSeparator,
   QItem,
+  QItemSide,
+  QItemMain,
+  QItemTile,
   QCollapsible,
+  QBtn,
   QSearch,
 } from 'quasar'
 
@@ -58,7 +79,11 @@ export default {
     QListHeader,
     QItemSeparator,
     QItem,
+    QItemSide,
+    QItemMain,
+    QItemTile,
     QCollapsible,
+    QBtn,
     QSearch,
   },
   props: {
@@ -91,6 +116,13 @@ export default {
     filterByTerms (list) {
       if (!this.filterTerm || this.filterTerm === '') return list
       return list.filter(u => u.displayName.toLowerCase().includes(this.filterTerm.toLowerCase()))
+    },
+    inactivityInfo () {
+      Dialog.create({
+        title: this.$t('INACTIVITY.WHAT'),
+        message: this.$t('INACTIVITY.HELP', { dayCount: this.group.memberInactiveAfterDays }),
+        ok: this.$t('BUTTON.BACK'),
+      })
     },
   },
   computed: {

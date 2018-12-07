@@ -12,7 +12,7 @@
             </strong>
             <router-link
               v-if="storeName && storeId"
-              :to="{ name: 'store', params: { storeId }}"
+              :to="{ name: 'storeFeedback', params: { storeId }}"
               class="ellipsis text-secondary"
             >
               {{ storeName }}

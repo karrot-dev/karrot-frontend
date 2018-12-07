@@ -26,6 +26,10 @@ Please document your changes in this format:
 
 - Added info button and dialogue about inactivity [#1139] @djahnie
 
+### Changed
+
+- Green store link in feedback list now points to store feedback list, pointed to store pickup list before @tiltec
+
 ### Fixed
 
 - Group info did not load when clicking on map popup, regression in 6.2.7 @tiltec

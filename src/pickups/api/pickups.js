@@ -65,6 +65,7 @@ export function convert (val) {
   }
   else {
     let date = new Date(val.date)
-    return { ...val, date }
+    let feedbackDue = new Date(val.feedbackDue)
+    return { ...val, date, feedbackDue }
   }
 }

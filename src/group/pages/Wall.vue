@@ -6,7 +6,7 @@ export default connect({
   gettersToProps: {
     joinedPickups: 'pickups/joined',
     availablePickups: 'pickups/available',
-    feedbackPossible: 'pickups/feedbackPossible',
+    feedbackPossible: 'pickups/feedbackPossibleByCurrentGroup',
     applications: 'groupApplications/forCurrentGroupPending',
     conversation: 'currentGroup/conversation',
     user: 'auth/user',

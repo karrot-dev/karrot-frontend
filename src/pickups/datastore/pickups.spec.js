@@ -81,11 +81,8 @@ describe('pickups', () => {
         isEmpty: false,
         isFull: true,
         collectors: [{ id: userId, name: `Some Name${userId}` }],
+        feedbackGivenBy: [],
       })
-    })
-
-    it('can fetch list', async () => {
-      expect(vstore.getters['pickups/all'].map(getId)).toEqual([pickup1, pickup2, pickup3].map(getId))
     })
 
     it('can get available pickups', async () => {
@@ -107,6 +104,7 @@ describe('pickups', () => {
         id: pickupId,
         collectorIds: [],
         collectors: [],
+        feedbackGivenBy: [],
         date,
         isUserMember: false,
         isEmpty: true,
@@ -144,11 +142,6 @@ describe('pickups', () => {
       vstore.commit('pickups/delete', pickup1.id)
       expect(vstore.getters['pickups/get'](pickup1.id)).toBeUndefined()
     })
-
-    it('can add possible feedback', () => {
-      vstore.dispatch('pickups/addFeedbackPossible', pickup1)
-      expect(vstore.getters['pickups/feedbackPossible'][0].date).toEqual(pickup1.date)
-    })
   })
 
   it('filters by active store', () => {
@@ -159,7 +152,7 @@ describe('pickups', () => {
       store: makeStore({ isActiveStore: false }),
     })
     const otherGetters = {
-      all: [activePickup, inactivePickup],
+      byCurrentGroup: [activePickup, inactivePickup],
     }
     const { getters } = require('./pickups').default
 
@@ -176,7 +169,7 @@ describe('pickups', () => {
       group: makeGroup({ isCurrentGroup: false }),
     })
     const otherGetters = {
-      all: [activePickup, inactivePickup],
+      upcoming: [activePickup, inactivePickup],
     }
     const { getters } = require('./pickups').default
 

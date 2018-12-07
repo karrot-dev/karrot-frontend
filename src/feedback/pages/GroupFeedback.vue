@@ -8,10 +8,10 @@ export default connect({
     status: 'feedback/fetchStatus',
     canFetchPast: 'feedback/canFetchPast',
     fetchPastStatus: 'feedback/fetchPastStatus',
-    feedbackPossible: 'pickups/feedbackPossible',
+    feedbackPossible: 'pickups/feedbackPossibleByCurrentGroup',
   },
   actionsToProps: {
     fetchPast: 'feedback/fetchPast',
   },
-})('GroupFeedbackList', FeedbackList)
+})('GroupFeedback', FeedbackList)
 </script>

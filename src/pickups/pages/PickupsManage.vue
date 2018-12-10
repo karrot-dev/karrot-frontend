@@ -46,21 +46,18 @@
           @show="makeVisible('series', series.id)"
           :key="series.id"
           :label="seriesLabel(series)"
-          :sublabel="$d(series.startDate, 'timeShort')"
+          :sublabel="$d(series.startDate, 'hourMinute')"
           icon="fas fa-calendar-alt"
           sparse
         >
           <q-item v-if="visible.series[series.id]">
             <pickup-series-edit
               :value="series"
-              @save="previewPickups"
+              @save="saveSeries"
               @destroy="destroySeries"
               @reset="resetPickup"
               :status="series.saveStatus"
             />
-          </q-item>
-          <q-item v-if="preview">
-            <PickupPreview :value="preview" />
           </q-item>
           <q-list
             no-border
@@ -71,14 +68,56 @@
               v-for="pickup in series.pickups"
               @show="makeVisible('pickup', pickup.id)"
               :key="pickup.id"
-              :label="seriesPickupLabel(series, pickup)"
-              icon="fas fa-shopping-basket"
             >
+              <template slot="header">
+                <q-item-side
+                  v-if="!$q.platform.is.mobile"
+                  icon="fas fa-shopping-basket"
+                />
+                <q-item-main
+                  :tag="pickup.isDisabled ? 's' : 'div'"
+                  label
+                  title="Pickup is disabled"
+                >
+                  {{ $d(pickup.date, 'yearMonthDay') }}
+                  <template v-if="!series.isSameWeekday">
+                    ({{ $d(pickup.date, 'dayName') }})
+                  </template>
+                  <template v-if="!series.isSameHour || !series.isSameMinute">
+                    ({{ $d(pickup.date, 'hourMinute') }})
+                  </template>
+                </q-item-main>
+                <q-item-side
+                  class="text-bold"
+                  right
+                >
+                  <q-icon
+                    v-if="!pickup.seriesMeta.matchesRule"
+                    class="text-warning"
+                    name="access time"
+                    size="150%"
+                    title="This pickup doesn't fit in the recurrence rule"
+                  />
+                  <q-icon
+                    v-if="pickup.seriesMeta.isDescriptionChanged"
+                    class="text-info"
+                    name="info"
+                    size="150%"
+                    title="Description is changed"
+                  />
+                  <q-icon
+                    v-if="pickup.seriesMeta.isMaxCollectorsChanged"
+                    class="text-info"
+                    name="group"
+                    size="150%"
+                    title="Max slots are changed"
+                  />
+                </q-item-side>
+              </template>
               <pickup-edit
                 v-if="visible.pickup[pickup.id]"
                 :value="pickup"
                 @save="savePickup"
-                @destroy="destroyPickup"
                 @reset="resetPickup"
                 :status="pickup.saveStatus"
               />
@@ -138,7 +177,7 @@
           @show="makeVisible('pickup', pickup.id)"
           :key="pickup.id"
           :label="$d(pickup.date, 'dateWithDayName')"
-          :sublabel="$d(pickup.date, 'timeShort')"
+          :sublabel="$d(pickup.date, 'hourMinute')"
           icon="fas fa-calendar-alt"
           sparse
         >
@@ -146,7 +185,6 @@
             v-if="visible.pickup[pickup.id]"
             :value="pickup"
             @save="savePickup"
-            @destroy="destroyPickup"
             @reset="resetPickup"
             :status="pickup.saveStatus"
           />
@@ -175,8 +213,6 @@ import {
 import PickupSeriesEdit from '@/pickups/components/PickupSeriesEdit'
 import PickupEdit from '@/pickups/components/PickupEdit'
 import RandomArt from '@/utils/components/RandomArt'
-import PickupPreview from '@/pickups/components/PickupPreview'
-import pickupSeriesAPI from '@/pickups/api/pickupSeries'
 
 import i18n, { dayNameForKey, sortByDay } from '@/base/i18n'
 
@@ -185,7 +221,6 @@ export default {
     PickupSeriesEdit,
     PickupEdit,
     RandomArt,
-    PickupPreview,
     QCard,
     QCardTitle,
     QList,
@@ -207,7 +242,6 @@ export default {
         series: {},
         pickup: {},
       },
-      preview: null,
     }
   },
   methods: {
@@ -223,23 +257,11 @@ export default {
       }
       return series.rule.byDay.slice().sort(sortByDay).map(dayNameForKey).join(', ')
     },
-    seriesPickupLabel (series, pickup) {
-      const base = this.$d(pickup.date, 'dateShort')
-      const seriesTime = this.$d(series.startDate, 'timeShort')
-      const pickupTime = this.$d(pickup.date, 'timeShort')
-      if (seriesTime !== pickupTime) {
-        return `${base} (${pickupTime})`
-      }
-      else {
-        return base
-      }
-    },
-    async previewPickups (series) {
-      this.preview = await pickupSeriesAPI.pickupPreview(series)
-      console.log('preview', this.preview)
-    },
     ...mapActions({
+      createSeries: 'pickupSeries/create',
       saveSeries: 'pickupSeries/save',
+      destroySeries: 'pickupSeries/destroy',
+      createPickup: 'pickups/create',
       savePickup: 'pickups/save',
     }),
     createNewSeries () {
@@ -256,15 +278,13 @@ export default {
       }
     },
     async saveNewSeries (series) {
-      if ((await this.$store.dispatch('pickupSeries/create', series)) !== false) {
+      await this.createSeries(series)
+      if (this.seriesCreateStatus.hasValidationErrors) {
         this.newSeries = null
       }
     },
     cancelNewSeries () {
       this.newSeries = null
-    },
-    destroySeries (seriesId) {
-      this.$store.dispatch('pickupSeries/destroy', seriesId)
     },
     createNewPickup () {
       const date = new Date()
@@ -277,7 +297,8 @@ export default {
       }
     },
     async saveNewPickup (pickup) {
-      if ((await this.$store.dispatch('pickups/create', pickup)) !== false) {
+      await this.createPickup(pickup)
+      if (this.pickupCreateStatus.hasValidationErrors) {
         this.newPickup = null
       }
     },
@@ -296,9 +317,6 @@ export default {
     },
     resetPickup (pickupId) {
       this.$store.dispatch('pickups/meta/clear', ['save', pickupId])
-    },
-    destroyPickup (pickupId) {
-      this.$store.dispatch('pickups/destroy', pickupId)
     },
   },
   computed: {

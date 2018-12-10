@@ -30,7 +30,7 @@
             type="time"
             v-model="edit.startDate"
             :format24h="is24h"
-            :display-value="$d(edit.startDate, 'timeShort')"
+            :display-value="$d(edit.startDate, 'hourMinute')"
           />
         </q-field>
         <q-field

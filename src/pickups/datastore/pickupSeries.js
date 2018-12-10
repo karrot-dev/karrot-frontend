@@ -18,12 +18,30 @@ export default {
     },
     enrich: (state, getters, rootState, rootGetters) => entry => {
       if (!entry) return
-      const pickups = rootGetters['pickups/all'].filter(pickup => pickup.series === entry.id)
+      const pickups = rootGetters['pickups/all']
+        .filter(({ series }) => series === entry.id)
+        .map(pickup => ({
+          ...pickup,
+          seriesMeta: {
+            isDescriptionChanged: entry.description !== pickup.description,
+            isMaxCollectorsChanged: entry.maxCollectors !== pickup.maxCollectors,
+            matchesRule: entry.datesPreview && Boolean(entry.datesPreview.find(d => Math.abs(d - pickup.date) < 1000)),
+          },
+        }))
       const store = rootGetters['stores/get'](entry.store)
+
+      const firstDate = pickups.length > 0 && pickups[0].date
+      const isSame = lookup => pickups.every(p => p.date[lookup]() === firstDate[lookup]())
+      const similarities = firstDate ? {
+        isSameWeekday: isSame('getDay'),
+        isSameHour: isSame('getHours'),
+        isSameMinute: isSame('getMinutes'),
+      } : {}
       return {
         ...entry,
         pickups,
         store,
+        ...similarities,
         ...metaStatusesWithId(getters, ['save', 'destroy'], entry.id),
       }
     },

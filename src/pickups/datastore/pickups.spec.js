@@ -159,7 +159,7 @@ describe('pickups', () => {
       store: makeStore({ isActiveStore: false }),
     })
     const otherGetters = {
-      all: [activePickup, inactivePickup],
+      byCurrentGroup: [activePickup, inactivePickup],
     }
     const { getters } = require('./pickups').default
 

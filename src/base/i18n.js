@@ -6,11 +6,11 @@ import locales from '@/locales/index'
 Vue.use(VueI18n)
 
 const defaultDateTimeFormat = {
-  timeShort: {
+  hourMinute: {
     hour: 'numeric',
     minute: 'numeric',
   },
-  dateShort: {
+  yearMonthDay: {
     year: 'numeric',
     month: 'long',
     day: 'numeric',
@@ -25,7 +25,7 @@ const defaultDateTimeFormat = {
   dayName: {
     weekday: 'long',
   },
-  dayAndTime: {
+  weekdayHourMinute: {
     hour: 'numeric',
     minute: 'numeric',
     weekday: 'long',
@@ -70,7 +70,7 @@ const TEN_PM = new Date()
 TEN_PM.setHours(22, 0)
 
 export function is24h () {
-  return i18n.d(TEN_PM, 'timeShort') === '22:00'
+  return i18n.d(TEN_PM, 'hourMinute') === '22:00'
 }
 
 const DAY_KEYS = ['MO', 'TU', 'WE', 'TH', 'FR', 'SA', 'SU']

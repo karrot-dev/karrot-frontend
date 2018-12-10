@@ -28,7 +28,6 @@ export default {
         isUserMember: pickup.collectorIds.includes(userId),
         isEmpty: pickup.collectorIds.length === 0,
         isFull: pickup.maxCollectors > 0 && pickup.collectorIds.length >= pickup.maxCollectors,
-        isCancelled: Boolean(pickup.cancelledAt),
         store,
         group,
         collectors: pickup.collectorIds.map(rootGetters['users/get']),
@@ -40,14 +39,13 @@ export default {
       return Object.values(state.entries)
         .filter(p => p.date >= state.now)
         .map(getters.enrich)
-        .filter(p => p.group && p.group.isCurrentGroup)
         .sort(sortByDate)
     },
     byCurrentGroup: (state, getters) => {
       return getters.all.filter(({ group }) => group && group.isCurrentGroup)
     },
     byActiveStore: (state, getters) => {
-      return getters.all.filter(({ store }) => store && store.isActiveStore)
+      return getters.byCurrentGroup.filter(({ store }) => store && store.isActiveStore)
     },
     byActiveStoreOneTime: (state, getters) => {
       return getters.byActiveStore.filter(e => !e.series)
@@ -56,7 +54,7 @@ export default {
     available: (state, getters) =>
       getters.byCurrentGroup
         .filter(isWithinOneWeek)
-        .filter(e => !e.isFull && !e.isUserMember && !e.isCancelled),
+        .filter(e => !e.isFull && !e.isUserMember && !e.isDisabled),
     feedbackPossible: (state, getters) => state.feedbackPossibleIds.map(getters.get),
     feedbackPossibleFiltered: (state, getters) =>
       state.feedbackPossibleIds

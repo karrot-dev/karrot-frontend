@@ -26,7 +26,7 @@
               name="fas fa-fw fa-shopping-basket"
               class="q-mr-sm"
             />
-            {{ $d(pickup.date, 'dayAndTime') }}
+            {{ $d(pickup.date, 'weekdayHourMinute') }}
           </template>
           <template v-else-if="isThread">
             <q-icon
@@ -79,7 +79,7 @@
       >
         <small>
           {{ pickup.store && pickup.store.name }} ·
-          {{ $d(pickup.date, 'dateShort') }}
+          {{ $d(pickup.date, 'yearMonthDay') }}
         </small>
       </q-item-tile>
       <q-item-tile

@@ -7,7 +7,7 @@
       <q-field
         icon="access time"
         :label="$t('CREATEPICKUP.TIME')"
-        :helper="$t('CREATEPICKUP.TIME_HELPER')"
+        :helper="!canEditDate ? '' : $t('CREATEPICKUP.TIME_HELPER')"
         :error="hasError('date')"
         :error-label="firstError('date')"
       >
@@ -15,14 +15,15 @@
           type="time"
           v-model="edit.date"
           :format24h="is24h"
-          :display-value="$d(edit.date, 'timeShort')"
+          :display-value="$d(edit.date, 'hourMinute')"
+          :disable="!canEditDate"
         />
       </q-field>
 
       <q-field
         icon="today"
         :label="$t('CREATEPICKUP.DATE')"
-        :helper="$t('CREATEPICKUP.DATE_HELPER')"
+        :helper="!canEditDate ? '' : $t('CREATEPICKUP.DATE_HELPER')"
         :error="hasError('date')"
         :error-label="firstError('date')"
       >
@@ -30,7 +31,8 @@
           type="date"
           v-model="edit.date"
           :min="now"
-          :display-value="$d(edit.date, 'dateShort')"
+          :display-value="$d(edit.date, 'yearMonthDay')"
+          :disable="!canEditDate"
         />
       </q-field>
 
@@ -88,17 +90,21 @@
         </q-btn>
 
         <q-btn
+          v-if="!isNew && !edit.isDisabled"
           type="button"
           color="red"
-          @click="destroy"
-          v-if="!isNew"
-          :disable="!canDestroy"
+          @click="disable"
         >
-          <q-tooltip
-            v-if="!canDestroy"
-            v-t="'CREATEPICKUP.DELETION_FORBIDDEN_HELPER'"
-          />
-          {{ $t('BUTTON.DELETE') }}
+          {{ $t('BUTTON.DISABLE') }}
+        </q-btn>
+
+        <q-btn
+          v-if="!isNew && edit.isDisabled"
+          type="button"
+          color="secondary"
+          @click="enable"
+        >
+          {{ $t('BUTTON.ENABLE') }}
         </q-btn>
 
         <q-btn
@@ -147,14 +153,27 @@ export default {
       }
       return true
     },
-    canDestroy () {
-      return this.edit.isEmpty
+    canEditDate () {
+      if (this.edit.series) return false
+      return true
     },
   },
   methods: {
     maybeSave () {
       if (!this.canSave) return
       this.save()
+    },
+    disable () {
+      this.$emit('save', {
+        id: this.edit.id,
+        isDisabled: true,
+      })
+    },
+    enable () {
+      this.$emit('save', {
+        id: this.edit.id,
+        isDisabled: false,
+      })
     },
   },
 }

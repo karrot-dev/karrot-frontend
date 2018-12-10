@@ -5,11 +5,11 @@
   >
     <q-card-main
       class="row no-padding justify-between content"
-      :class="{ isEmpty: pickup.isEmpty, isUserMember: pickup.isUserMember, isCancelled: pickup.isCancelled }"
+      :class="{ isEmpty: pickup.isEmpty, isUserMember: pickup.isUserMember, isDisabled: pickup.isDisabled }"
     >
       <div class="column padding full-width">
         <div>
-          <span class="featured-text">{{ $d(pickup.date, 'timeShort') }}</span>
+          <span class="featured-text">{{ $d(pickup.date, 'hourMinute') }}</span>
           <template v-if="storeLink">
             <strong v-if="pickup.store">
               <router-link :to="{ name: 'store', params: { storeId: pickup.store.id }}">
@@ -27,10 +27,10 @@
           </template>
         </div>
         <div
-          v-if="pickup.isCancelled"
+          v-if="pickup.isDisabled"
           class="q-py-xs"
         >
-          <b class="text-negative">{{ $t('PICKUPLIST.PICKUP_CANCELLED') }}</b>
+          <b class="text-negative">{{ $t('PICKUPLIST.PICKUP_DISABLED') }}</b>
         </div>
         <div
           class="description multiline"
@@ -124,8 +124,8 @@ export default {
   )
 .content.isUserMember
   cursor pointer
-  &:not(.isCancelled)
+  &:not(.isDisabled)
     background linear-gradient(to right, $lightGreen, $lighterGreen)
-  &.isCancelled
+  &.isDisabled
     background $lightRed
 </style>

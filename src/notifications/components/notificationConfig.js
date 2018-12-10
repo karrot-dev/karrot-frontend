@@ -12,13 +12,15 @@ function getMessageParams (type, context) {
       }
     case 'feedback_possible':
       return {
-        date: context.pickup && i18n.d(context.pickup.date, 'dayAndTime'),
+        date: context.pickup && i18n.d(context.pickup.date, 'weekdayHourMinute'),
       }
     case 'pickup_upcoming':
       return {
-        time: context.pickup && i18n.d(context.pickup.date, 'timeShort'),
+        time: context.pickup && i18n.d(context.pickup.date, 'hourMinute'),
       }
-    case 'pickup_cancelled':
+    case 'pickup_disabled':
+    case 'pickup_enabled':
+    case 'pickup_moved':
       return {
         dateTime: context.pickup && i18n.d(context.pickup.date, 'dateAndTime'),
       }
@@ -33,9 +35,10 @@ function getMessageParams (type, context) {
 
 function getIcon (type, context) {
   switch (type) {
+    case 'pickup_enabled':
     case 'application_accepted':
       return 'fas fa-check'
-    case 'pickup_cancelled':
+    case 'pickup_disabled':
     case 'application_declined':
       return 'fas fa-times'
     case 'invitation_accepted':
@@ -52,6 +55,8 @@ function getIcon (type, context) {
     case 'user_became_editor':
     case 'you_became_editor':
       return 'fas fa-angle-double-up'
+    case 'pickup_moved':
+      return 'access time'
   }
 }
 
@@ -73,7 +78,9 @@ function getRouteTo (type, { group, user, store, pickup } = {}) {
     case 'new_store':
       return group && store && { name: 'store', params: { groupId: group.id, storeId: store.id } }
     case 'pickup_upcoming':
-    case 'pickup_cancelled':
+    case 'pickup_disabled':
+    case 'pickup_enabled':
+    case 'pickup_moved':
       return group && store && pickup && { name: 'pickupDetail', params: { groupId: group.id, storeId: store.id, pickupId: pickup.id } }
   }
 }

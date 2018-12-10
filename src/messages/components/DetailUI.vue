@@ -45,35 +45,24 @@
               <DateAsWords :date="application.createdAt" />
             </small>
           </span>
-
+          <Markdown :source="application.answers" />
         </div>
       </q-collapsible>
       <q-list
         slot="afterChatMessages"
-        v-if="pickup && pickup.isCancelled"
+        v-if="pickup && pickup.isDisabled"
         class="bg-grey-2"
       >
         <q-item>
           <q-item-main>
             <q-item-tile label>
-              <b class="text-negative">{{ $t('PICKUPLIST.PICKUP_CANCELLED') }}</b>
+              <b class="text-negative">{{ $t('PICKUPLIST.PICKUP_DISABLED') }}</b>
             </q-item-tile>
             <q-item-tile sublabel>
               <ProfilePicture
                 :user="pickup.lastChangedBy"
               />
-              <DateAsWords
-                :date="pickup.cancelledAt"
-                style="display: inline"
-                class="q-ml-xs"
-              />
             </q-item-tile>
-            <div
-              v-if="pickup.lastChangedMessage"
-              class="q-ma-sm q-pa-sm bg-white"
-            >
-              <Markdown :source="pickup.lastChangedMessage" />
-            </div>
           </q-item-main>
         </q-item>
       </q-list>

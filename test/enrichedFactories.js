@@ -143,6 +143,7 @@ export const makePickup = data => {
     maxCollectors: 10,
     collector_ids: [],
     description: '',
+    isDisabled: false,
     ...data,
   }
 }
@@ -159,6 +160,7 @@ export const makePickupSeries = data => {
     custom: 'FREQ=WEEKLY;BYDAY=TU',
     startDate: new Date(),
     description: '',
+    datesPreview: [],
     ...data,
   }
 }

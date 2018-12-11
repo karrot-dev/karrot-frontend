@@ -58,11 +58,6 @@
             <q-item-tile label>
               <b class="text-negative">{{ $t('PICKUPLIST.PICKUP_DISABLED') }}</b>
             </q-item-tile>
-            <q-item-tile sublabel>
-              <ProfilePicture
-                :user="pickup.lastChangedBy"
-              />
-            </q-item-tile>
           </q-item-main>
         </q-item>
       </q-list>
@@ -74,7 +69,6 @@
 import ChatConversation from '@/messages/components/ChatConversation'
 import Markdown from '@/utils/components/Markdown'
 import DateAsWords from '@/utils/components/DateAsWords'
-import ProfilePicture from '@/users/components/ProfilePicture'
 
 import {
   QSpinnerDots,
@@ -90,7 +84,6 @@ export default {
     ChatConversation,
     Markdown,
     DateAsWords,
-    ProfilePicture,
     QSpinnerDots,
     QCollapsible,
     QList,

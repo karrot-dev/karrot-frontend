@@ -2761,6 +2761,7 @@ exports[`Storyshots PickupItem Full 1`] = `
         Monday, August 14, 2017
         <!---->
       </div>
+      <!---->
       <div class="description multiline">this pickup is already full!
       </div>
       <div class="people full-width">
@@ -2802,6 +2803,7 @@ exports[`Storyshots PickupItem Join 1`] = `
         Saturday, August 12, 2017
         <!---->
       </div>
+      <!---->
       <div class="description multiline">you can join this pickup
       </div>
       <div class="people full-width">
@@ -2850,6 +2852,7 @@ exports[`Storyshots PickupItem Leave 1`] = `
       <div><span class="featured-text">8:00 AM</span>
         Sunday, August 13, 2017
         <span><strong>Open Chat <i aria-hidden="true" class="q-icon material-icons">chat</i></strong></span></div>
+      <!---->
       <div class="description multiline">you are collector and can leave this pickup
       </div>
       <div class="people full-width">
@@ -2896,6 +2899,7 @@ exports[`Storyshots PickupItem pending 1`] = `
         Saturday, August 12, 2017
         <!---->
       </div>
+      <!---->
       <div class="description multiline">you can join this pickup
       </div>
       <div class="people full-width">
@@ -2937,6 +2941,7 @@ exports[`Storyshots PickupList Default 1`] = `
   Saturday, August 12, 2017
   <!---->
 </div>
+<!---->
 <div class="description multiline">you can join this pickup
 </div>
 <div class="people full-width">
@@ -2982,6 +2987,7 @@ exports[`Storyshots PickupList Default 1`] = `
       <div><span class="featured-text">8:00 AM</span>
         Sunday, August 13, 2017
         <span><strong>Open Chat <i aria-hidden="true" class="q-icon material-icons">chat</i></strong></span></div>
+      <!---->
       <div class="description multiline">you are collector and can leave this pickup
       </div>
       <div class="people full-width">
@@ -3025,6 +3031,7 @@ exports[`Storyshots PickupList Default 1`] = `
         Monday, August 14, 2017
         <!---->
       </div>
+      <!---->
       <div class="description multiline">this pickup is already full!
       </div>
       <div class="people full-width">
@@ -3063,6 +3070,7 @@ exports[`Storyshots PickupList Default 1`] = `
         Tuesday, August 15, 2017
         <!---->
       </div>
+      <!---->
       <div class="description multiline">this pickup is fresh and empty
       </div>
       <div class="people full-width">

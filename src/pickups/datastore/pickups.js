@@ -31,7 +31,6 @@ export default {
         store,
         group,
         collectors: pickup.collectorIds.map(rootGetters['users/get']),
-        lastChangedBy: rootGetters['users/get'](pickup.lastChangedBy),
         ...metaStatusesWithId(getters, ['save', 'join', 'leave'], pickup.id),
       }
     },

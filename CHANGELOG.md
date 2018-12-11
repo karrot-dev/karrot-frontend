@@ -22,6 +22,8 @@ Please document your changes in this format:
 
 ## [Unreleased]
 
+## [6.2.8] - 2018-12-11
+
 ### Added
 
 - Added info button and dialogue about inactivity [#1139] @djahnie
@@ -33,7 +35,7 @@ Please document your changes in this format:
 ### Fixed
 
 - Group info did not load when clicking on map popup, regression in 6.2.7 @tiltec
-- Alerts to give feedback were not filtered properly #1138 @tiltec
+- Alerts to give feedback were not filtered properly [#1138] @tiltec
 
 ## [6.2.7] - 2018-11-28
 
@@ -348,6 +350,8 @@ After months of planning and programming, the first version of ~the foodsaving t
 - **store**: create a store which belongs to a group, set up name, description, address and position of a store
 - **pick-up dates**: create a pick-up date which belongs to a store, set time and max. amount of people who can collect food, user can join/leave a pick-up date
 
+[#1139]: https://github.com/yunity/karrot-frontend/issues/1139
+[#1138]: https://github.com/yunity/karrot-frontend/issues/1138
 [#1112]: https://github.com/yunity/karrot-frontend/issues/1112
 [#1077]: https://github.com/yunity/karrot-frontend/issues/1077
 [#1099]: https://github.com/yunity/karrot-frontend/issues/1099
@@ -359,7 +363,8 @@ After months of planning and programming, the first version of ~the foodsaving t
 [#1082]: https://github.com/yunity/karrot-frontend/issues/1082
 [#1071]: https://github.com/yunity/karrot-frontend/issues/1071
 
-[Unreleased]: https://github.com/yunity/karrot-frontend/compare/v6.2.7...HEAD
+[Unreleased]: https://github.com/yunity/karrot-frontend/compare/v6.2.8...HEAD
+[6.2.8]: https://github.com/yunity/karrot-frontend/compare/v6.2.7...v6.2.8
 [6.2.7]: https://github.com/yunity/karrot-frontend/compare/v6.2.6...v6.2.7
 [6.2.6]: https://github.com/yunity/karrot-frontend/compare/v6.2.5...v6.2.6
 [6.2.5]: https://github.com/yunity/karrot-frontend/compare/v6.2.4...v6.2.5

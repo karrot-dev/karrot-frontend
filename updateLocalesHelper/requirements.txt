@@ -4,12 +4,12 @@
 #
 #    pip-compile --output-file requirements.txt requirements.in
 #
-certifi==2018.10.15       # via requests
+certifi==2018.11.29       # via requests
 chardet==3.0.4            # via requests
-idna==2.7                 # via requests
+idna==2.8                 # via requests
 python-slugify==1.2.6     # via transifex-client
-requests==2.20.1          # via transifex-client
+requests==2.21.0          # via transifex-client
 six==1.11.0               # via transifex-client
 transifex-client==0.13.5
-unidecode==1.0.22         # via python-slugify
+unidecode==1.0.23         # via python-slugify
 urllib3==1.23             # via requests, transifex-client

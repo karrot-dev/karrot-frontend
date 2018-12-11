@@ -211,7 +211,7 @@ function receiveMessage ({ topic, payload }) {
   }
   else if (topic === 'pickups:feedback_possible') {
     const pickup = convertPickup(camelizeKeys(payload))
-    datastore.dispatch('pickups/addFeedbackPossible', pickup)
+    datastore.commit('pickups/update', [pickup])
   }
   else if (topic === 'auth:user') {
     const user = camelizeKeys(payload)

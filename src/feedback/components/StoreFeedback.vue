@@ -2,22 +2,6 @@
   <div>
     <q-card class="no-shadow no-padding grey-border">
       <div class="generic-padding relative-position">
-        <div class="actionButtons">
-          <router-link
-            v-if="feedbackPossibleFiltered.length > 0"
-            :to="{name: 'giveFeedback'}"
-          >
-            <q-btn
-              small
-              round
-              color="secondary"
-              icon="fas fa-plus"
-              class="hoverScale"
-            >
-              <q-tooltip v-t="'FEEDBACKLIST.GIVE_FEEDBACK'" />
-            </q-btn>
-          </router-link>
-        </div>
         <div
           v-if="statistics"
           class="infoChips row no-wrap"
@@ -60,13 +44,14 @@
       :can-fetch-past="canFetchPast"
       :fetch-past="fetchPast"
       :fetch-past-status="fetchPastStatus"
+      :feedback-possible="feedbackPossible"
     />
   </div>
 </template>
 
 <script>
 import FeedbackList from '@/feedback/components/FeedbackList'
-import { QCard, QTooltip, QBtn, QChip } from 'quasar'
+import { QCard, QChip } from 'quasar'
 
 import {
   mapGetters,
@@ -74,7 +59,7 @@ import {
 } from 'vuex'
 
 export default {
-  components: { FeedbackList, QCard, QTooltip, QBtn, QChip },
+  components: { FeedbackList, QCard, QChip },
   computed: {
     ...mapGetters({
       store: 'stores/activeStore',
@@ -82,7 +67,7 @@ export default {
       fetchStatus: 'feedback/fetchStatus',
       canFetchPast: 'feedback/canFetchPast',
       fetchPastStatus: 'feedback/fetchPastStatus',
-      feedbackPossibleFiltered: 'pickups/feedbackPossibleFiltered',
+      feedbackPossible: 'pickups/feedbackPossibleByActiveStore',
     }),
     statistics () {
       return this.store && this.store.statistics
@@ -97,13 +82,6 @@ export default {
 </script>
 
 <style scoped lang="stylus">
-.q-btn-round
-  margin-bottom .5em
-.actionButtons
-  margin-top -36px
-  float right
-  .q-btn
-    margin 3px
 .infoChips
   padding-bottom 15px
   .q-chip

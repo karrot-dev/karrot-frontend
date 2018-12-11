@@ -4,7 +4,7 @@ import PickupFeedback from '@/feedback/components/PickupFeedback'
 
 export default connect({
   gettersToProps: {
-    pickups: 'pickups/feedbackPossible',
+    pickups: 'pickups/feedbackPossibleByCurrentGroup',
     editFeedback: 'feedback/selected',
     existingFeedback: 'feedback/byCurrentGroup',
     saveStatus: 'feedback/saveStatus',
@@ -14,5 +14,5 @@ export default connect({
   actionsToEvents: {
     save: 'feedback/save',
   },
-})('PickupFeedback', PickupFeedback)
+})('GiveFeedback', PickupFeedback)
 </script>

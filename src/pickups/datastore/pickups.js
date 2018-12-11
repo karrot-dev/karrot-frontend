@@ -1,12 +1,11 @@
 import Vue from 'vue'
 import pickups from '@/pickups/api/pickups'
-import { indexById, createMetaModule, withMeta, isValidationError, withPrefixedIdMeta, metaStatusesWithId, metaStatuses } from '@/utils/datastore/helpers'
+import { createMetaModule, withMeta, isValidationError, withPrefixedIdMeta, metaStatusesWithId, metaStatuses } from '@/utils/datastore/helpers'
 
 function initialState () {
   return {
     now: new Date(), // reactive current time
     entries: {},
-    feedbackPossibleIds: [],
   }
 }
 
@@ -31,17 +30,18 @@ export default {
         store,
         group,
         collectors: pickup.collectorIds.map(rootGetters['users/get']),
+        feedbackGivenBy: pickup.feedbackGivenBy ? pickup.feedbackGivenBy.map(rootGetters['users/get']) : [],
         ...metaStatusesWithId(getters, ['save', 'join', 'leave'], pickup.id),
       }
     },
-    all: (state, getters) => {
+    upcoming: (state, getters) => {
       return Object.values(state.entries)
         .filter(p => p.date >= state.now)
         .map(getters.enrich)
         .sort(sortByDate)
     },
     byCurrentGroup: (state, getters) => {
-      return getters.all.filter(({ group }) => group && group.isCurrentGroup)
+      return getters.upcoming.filter(({ group }) => group && group.isCurrentGroup)
     },
     byActiveStore: (state, getters) => {
       return getters.byCurrentGroup.filter(({ store }) => store && store.isActiveStore)
@@ -54,11 +54,18 @@ export default {
       getters.byCurrentGroup
         .filter(isWithinOneWeek)
         .filter(e => !e.isFull && !e.isUserMember && !e.isDisabled),
-    feedbackPossible: (state, getters) => state.feedbackPossibleIds.map(getters.get),
-    feedbackPossibleFiltered: (state, getters) =>
-      state.feedbackPossibleIds
-        .map(getters.get)
-        .filter(({ group }) => group && group.isCurrentGroup),
+    feedbackPossibleByCurrentGroup: (state, getters) => {
+      return Object.values(state.entries)
+        .filter(p => p.date < state.now && p.feedbackDue > state.now)
+        .map(getters.enrich)
+        .filter(p => p.isUserMember)
+        .filter(p => p.group && p.group.isCurrentGroup)
+        .filter(p => !p.feedbackGivenBy.find(u => u.isCurrentUser))
+        .sort(sortByDate)
+    },
+    feedbackPossibleByActiveStore: (state, getters) =>
+      getters.feedbackPossibleByCurrentGroup
+        .filter(({ store }) => store && store.isActiveStore),
     ...metaStatuses(['create']),
   },
   actions: {
@@ -102,7 +109,7 @@ export default {
         dispatch('refresh')
       },
       async fetchFeedbackPossible ({ commit }, groupId) {
-        commit('setFeedbackPossible', (await pickups.listFeedbackPossible(groupId)).results)
+        commit('update', (await pickups.listFeedbackPossible(groupId)).results)
       },
     }),
 
@@ -116,17 +123,6 @@ export default {
       const isPending = getters['meta/status']('fetch', pickupId).pending
       if (!state.entries[pickupId] && !isPending) {
         await dispatch('fetch', pickupId)
-      }
-    },
-    addFeedbackPossible ({ commit, getters, rootGetters }, pickup) {
-      const { group } = getters.enrich(pickup)
-      if (group && group.isCurrentGroup) {
-        commit('setFeedbackPossible', [pickup])
-      }
-    },
-    removeFeedbackPossible ({ state, commit }, pickupId) {
-      if (state.feedbackPossibleIds.includes(pickupId)) {
-        commit('removeFeedbackPossible', pickupId)
       }
     },
     refresh ({ dispatch, rootGetters }) {
@@ -164,21 +160,6 @@ export default {
       let { collectorIds } = state.entries[pickupId]
       let idx = collectorIds.indexOf(userId)
       if (idx !== -1) collectorIds.splice(idx, 1)
-    },
-    setFeedbackPossible (state, pickups) {
-      state.entries = {
-        ...state.entries,
-        ...indexById(pickups),
-      }
-      state.feedbackPossibleIds = [
-        ...state.feedbackPossibleIds,
-        ...pickups.map(e => e.id),
-      ]
-    },
-    removeFeedbackPossible (state, pickupId) {
-      const pickupIds = state.feedbackPossibleIds
-      const idx = pickupIds.indexOf(pickupId)
-      if (idx !== -1) pickupIds.splice(idx, 1)
     },
   },
 }

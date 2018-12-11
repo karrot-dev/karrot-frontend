@@ -55,7 +55,7 @@ export default {
         dispatch('updateFeedbackAndRelated', data)
       },
 
-      async save ({ dispatch }, feedback) {
+      async save ({ commit }, feedback) {
         let entry
         if (feedback.id) {
           entry = await feedbackAPI.save(feedback)
@@ -63,18 +63,13 @@ export default {
         else {
           entry = await feedbackAPI.create(feedback)
         }
-        await dispatch('update', entry)
+        await commit('update', entry)
         router.push({ name: 'groupFeedback' })
       },
 
-      async updateOne ({ commit, rootGetters, dispatch }, feedback) {
+      async updateOne ({ commit, dispatch }, feedback) {
         dispatch('fetchRelatedPickups', [feedback])
         commit('update', [feedback])
-
-        const currentUserId = rootGetters['auth/userId']
-        if (feedback.givenBy === currentUserId) {
-          dispatch('pickups/removeFeedbackPossible', feedback.about, { root: true })
-        }
       },
     }, {
       // ignore ID to have simple saveStatus

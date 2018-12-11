@@ -63,6 +63,7 @@ export function convert (val) {
     return {
       ...val,
       date: new Date(val.date),
+      feedbackDue: new Date(val.feedbackDue),
     }
   }
 }

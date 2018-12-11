@@ -514,5 +514,9 @@
     "HEADER_LINK": "communauté internationale de foodsaving",
     "LAST_UPDATED": "Dernière mise à jour {relativeDate}"
   },
+  "INACTIVITY": {
+    "WHAT": "What does it mean to be inactive?",
+    "HELP": "Everyone who did not log into the group for {dayCount} days or more counts as inactive. These users will not receive notification emails anymore."
+  },
   "YOU": "Toi"
 }

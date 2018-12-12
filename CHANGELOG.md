@@ -20,55 +20,43 @@ Please document your changes in this format:
   - description of change [#PR] @username
 ```
 
+## [Unreleased]
+
 ## [6.2.9] - 2018-12-12
-
 ### Fixed
-
 - Pickups manage page could not be loaded, regression in 6.2.8 @tiltec
 
 ## [6.2.8] - 2018-12-11
-
 ### Added
-
 - Added info button and dialogue about inactivity [#1139] @djahnie
 
 ### Changed
-
 - Green store link in feedback list now points to store feedback list, pointed to store pickup list before @tiltec
 
 ### Fixed
-
 - Group info did not load when clicking on map popup, regression in 6.2.7 @tiltec
 - Alerts to give feedback were not filtered properly [#1138] @tiltec
 
 ## [6.2.7] - 2018-11-28
-
 ### Fixed
-
 - App refreshed data too frequently, sometimes during route change @tiltec
 - Tapping on push notification showed login page when user is already logged in @tiltec
 - Tapping on push notification did not switch groups when app is in background @tiltec
 - Conversation metadata did not get refreshed sometimes @tiltec
 
 ## [6.2.6] - 2018-11-18
-
 ### Changed
-
 - Remove unneeded files from Android app, reduces size to 4 MB @tiltec
 - Added Safari 9 as unsupported browser @tiltec
 
 ### Fixed
-
 - Store did not update after saving @tiltec
 
 ## [6.2.5] - 2018-11-13
-
 ### Added
-
 - Splash screen while karrot is loading @tiltec
 
 ### Changed
-
 - Do not clear data on refresh, should reduce empty screens in app @tiltec
 - Hide browser push setting in app @tiltec
 - Community forum notifier shows avatar of last poster instead of original poster @tiltec @djahnie
@@ -78,11 +66,9 @@ Please document your changes in this format:
 - Do not send push notifications about muted conversations @tiltec
 
 ### Removed
-
 - Built-in app updater; rely on Play Store for updates instead @tiltec
 
 ### Fixed
-
 - Marker popup urls in app were broken @tiltec
 - Group description view didn't use full width @tiltec
 - Alerts about server errors were shown when network errors happened @tiltec
@@ -91,21 +77,16 @@ Please document your changes in this format:
 - Pickup chat title bar was missing @tiltec
 
 ## [6.2.4] - 2018-11-07
-
 ### Changed
-
 - Frontend code structure is now organized into modules @tiltec
 
 ### Fixed
-
 - Notification items would sometimes cause errors when related pickups haven't been loaded @tiltec
 - Sidenav title on mobile shows notification and message icons when logged out @tiltec
 - Sidenav open/closed state was sometimes inconsistent @tiltec
 
 ## [6.2.3] - 2018-10-26
-
 ### Changed
-
 - Better identification of messages from users who left the group @tiltec
 - Keep client data up-to-date when group members join or leave @tiltec
 - Always send android and web push notifications, even when the client is online @tiltec
@@ -117,22 +98,18 @@ Please document your changes in this format:
 - Load only conversations with unread messages by default @tiltec
 
 ### Fixed
-
 - Applications of deleted users are now properly withdrawn @tiltec
 - Make login error message translatable @tiltec
 - Fix problematic concatenated translation message in trust dialog @tiltec
 
 ## [6.2.2] - 2018-10-21
-
 ### Changed
-
 - App push icon now resembles the Karrot logo better @tiltec
 - Mobile chat and wall input now try to keep the cursor on screen @tiltec
 - Mobile chat header now collapses properly @tiltec
 - Move application actions into popover @tiltec
 
 ### Fixed
-
 - App push notifications @tiltec
 - Clicking notification redirects to the appropriate page @tiltec
 - User profile picture did not show in app @tiltec
@@ -141,60 +118,47 @@ Please document your changes in this format:
 - Applications couldn't be accepted or declined on mobile @tiltec
 
 ## [6.2.1] - 2018-10-17
-
 ### Added
-
 - Notification if connection was lost @tiltec
 
 ### Fixed
-
 - Make applications more mobile-friendly [#1112] @djahnie
 
 ## [6.2.0] - 2018-08-27
-
 ### Added
-
 - Newcomer role and trust system [#1077] @tiltec
 - On-site notifications in topbar [#1099] @tiltec
 - Deploy android app to Play Store @tiltec @djahnie
 - Record statistics about which profile features are used @tiltec
 
 ### Fixed
-
 - Fix application chat initial questions layout [#1097] @nicksellen
 - Application user was sometimes missing @djahnie
 - Disable unwanted HTML support in map popups @tiltec
 - Invalid dates when application has been withdrawn @tiltec
 
 ## [6.1.0] - 2018-08-31
-
 ### Added
-
 - Conversations overview page [#1070] @tiltec
 
 ### Changed
-
 - Feedback list design @tiltec
 - LocaleSelect and CommunityFeed improved for mobile @tiltec
 - Speed up feedback loading by including related pickups @tiltec
 
 ### Fixed
-
 - Loading of application chat @tiltec
 - Pickups: access to undefined properties while loading @tiltec
 - Redirect to groups gallery when user got logged out @tiltec
 
 ## [6.0.0] - 2018-08-25
-
 ### Added
-
 - Replies to wall messages [#1065] @nicksellen @tiltec
 - Link to external route planner for store directions [#1020] @pogopaule @tiltec
 - Add notifications about new messages in community.foodsaving.world @tiltec
 - Group applications [#1063] [#1082] @djahnie @taistadam @tiltec @nicksellen
 
 ### Changed
-
 - Merge message notification emails together if messages are sent within 5 minutes @tiltec
 - Prevent notifications for seen messages @tiltec
 - Hide markdown preview in sidebar @tiltec
@@ -203,13 +167,10 @@ Please document your changes in this format:
 - Unified desktop/mobile sidenav [#1071] @nicksellen
 
 ### Removed
-
 - Group password; affected groups have been migrated to applications
 
 ## [5.0.0] - 2018-07-16
-
 ### Added
-
 - web browser push notifications @nicksellen
 - sorting and search for the group member list @tiltec
 - show failed email notifications @tiltec
@@ -225,43 +186,34 @@ Please document your changes in this format:
 - (more, but we didn't keep a changelog lately...)
 
 ### Changed
-
 - speed up initial loading and rendering @nicksellen
 - unify color usage @tiltec
 - custom leaflet marker component to allow quasar colors @tiltec
 - rework of feedback form to allow feedback without weight @tiltec
 
 ### Fixed
-
 - lots of bugs
 
 ## [4.0.0] - 2017-12-27
-
 Complete frontend rewrite with [VueJS](http://vuejs.org/) and [Quasar](http://quasar-framework.org/)
 
 ### Added
-
 - Group conversations
 - Store statuses
 - Pickup and series description field
 
 ### Changed
-
 - Broad design and UI changes; more colors
 - Rename from `foodsaving tool` to `karrot`
 
 ### Removed
-
 - AngularJS
 
 ### Fixed
-
 - Lots of stuff
 
 ## [3.0.0] - 2017-07-03
-
 ### Added
-
 - Landing page with a map of all groups, new title font (Cabin Sketch)
 - User action history for groups and stores, with extensive filtering capabilities
 - Store management page with overview of all pickup date settings, incl. editing/deleting of pickup dates and series, and even pickup dates that are part of a series
@@ -275,7 +227,6 @@ Complete frontend rewrite with [VueJS](http://vuejs.org/) and [Quasar](http://qu
 - Translation progress indicator in the menu
 
 ### Changed
-
 - Store editing with markdown preview
 - Store create now uses the same form as store editing, incl. nice address input
 - Minimum group & store name length (5 resp. 3 characters)
@@ -288,11 +239,9 @@ Complete frontend rewrite with [VueJS](http://vuejs.org/) and [Quasar](http://qu
 - Date selector only allows today and dates in the future
 
 ### Removed
-
 - Inline editing. Now all editing happens on separate edit pages with URLs
 
 ### Fixed
-
 - Removed nested scrollbars
 - Translatable markdown help
 - Translated backend error messages
@@ -304,9 +253,7 @@ Complete frontend rewrite with [VueJS](http://vuejs.org/) and [Quasar](http://qu
 - After changing email addresses, show new addresses in the verification interface
 
 ## [2.0.0] - 2017-02-21
-
 ### Added
-
 - Pickup dates can now be created as weekly series
 - Translations: German, French, Swedish, Spanish, Italian, Russian and Esperanto
 - Show group information before joining
@@ -322,7 +269,6 @@ Complete frontend rewrite with [VueJS](http://vuejs.org/) and [Quasar](http://qu
 - Small popup to inform users about timeouts and server errors
 
 ### Changed
-
 - Main deployment to foodsaving.world
 - Two-column layout for groups and stores
 - New brown-ish color scheme
@@ -331,11 +277,9 @@ Complete frontend rewrite with [VueJS](http://vuejs.org/) and [Quasar](http://qu
 - Groups need a timezone setting (defaults to Europe/Berlin)
 
 ### Removed
-
 - Inline-editing with angular-xeditable
 
 ### Fixed
-
 - Hide map when there is no location
 - Dialog is hidden by map
 - Scrolling issues
@@ -344,30 +288,29 @@ Complete frontend rewrite with [VueJS](http://vuejs.org/) and [Quasar](http://qu
 - many small issues...
 
 ## 1.0.0 - 2016-12-14
-
 After months of planning and programming, the first version of ~the foodsaving tool~ _karrot_ is ready!
 
 ### Added
-
 - **user**: sign-up with name, password and email address
 - **group**: create a group, add yourself to a group, leave a group, set up name and description
 - **store**: create a store which belongs to a group, set up name, description, address and position of a store
 - **pick-up dates**: create a pick-up date which belongs to a store, set time and max. amount of people who can collect food, user can join/leave a pick-up date
 
-[#1139]: https://github.com/yunity/karrot-frontend/issues/1139
-[#1138]: https://github.com/yunity/karrot-frontend/issues/1138
-[#1112]: https://github.com/yunity/karrot-frontend/issues/1112
-[#1077]: https://github.com/yunity/karrot-frontend/issues/1077
-[#1099]: https://github.com/yunity/karrot-frontend/issues/1099
-[#1097]: https://github.com/yunity/karrot-frontend/issues/1097
-[#1070]: https://github.com/yunity/karrot-frontend/issues/1070
-[#1065]: https://github.com/yunity/karrot-frontend/issues/1065
 [#1020]: https://github.com/yunity/karrot-frontend/issues/1020
 [#1063]: https://github.com/yunity/karrot-frontend/issues/1063
-[#1082]: https://github.com/yunity/karrot-frontend/issues/1082
+[#1065]: https://github.com/yunity/karrot-frontend/issues/1065
+[#1070]: https://github.com/yunity/karrot-frontend/issues/1070
 [#1071]: https://github.com/yunity/karrot-frontend/issues/1071
+[#1077]: https://github.com/yunity/karrot-frontend/issues/1077
+[#1082]: https://github.com/yunity/karrot-frontend/issues/1082
+[#1097]: https://github.com/yunity/karrot-frontend/issues/1097
+[#1099]: https://github.com/yunity/karrot-frontend/issues/1099
+[#1112]: https://github.com/yunity/karrot-frontend/issues/1112
+[#1138]: https://github.com/yunity/karrot-frontend/issues/1138
+[#1139]: https://github.com/yunity/karrot-frontend/issues/1139
 
-[Unreleased]: https://github.com/yunity/karrot-frontend/compare/v6.2.8...HEAD
+[Unreleased]: https://github.com/yunity/karrot-frontend/compare/v6.2.9...HEAD
+[6.2.9]: https://github.com/yunity/karrot-frontend/compare/v6.2.8...v6.2.9
 [6.2.8]: https://github.com/yunity/karrot-frontend/compare/v6.2.7...v6.2.8
 [6.2.7]: https://github.com/yunity/karrot-frontend/compare/v6.2.6...v6.2.7
 [6.2.6]: https://github.com/yunity/karrot-frontend/compare/v6.2.5...v6.2.6

@@ -12,7 +12,7 @@ describe('pickupSeries module', () => {
     beforeEach(() => {
       datastore = createDatastore({
         pickupSeries: require('./pickupSeries').default,
-        pickups: { getters: { all: () => [] } },
+        pickups: { getters: { upcoming: () => [] } },
         stores: { getters: { get: () => () => null } },
       })
     })

@@ -20,7 +20,11 @@ Please document your changes in this format:
   - description of change [#PR] @username
 ```
 
-## [Unreleased]
+## [6.2.9] - 2018-12-12
+
+### Fixed
+
+- Pickups manage page could not be loaded, regression in 6.2.8 @tiltec
 
 ## [6.2.8] - 2018-12-11
 

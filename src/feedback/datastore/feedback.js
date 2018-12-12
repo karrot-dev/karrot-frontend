@@ -63,7 +63,7 @@ export default {
         else {
           entry = await feedbackAPI.create(feedback)
         }
-        await commit('update', entry)
+        await commit('update', [entry])
         router.push({ name: 'groupFeedback' })
       },
 

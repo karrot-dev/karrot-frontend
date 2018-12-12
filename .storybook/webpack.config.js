@@ -14,7 +14,6 @@ module.exports = (baseConfig, storybookEnv) => {
     ...webpackConfig.plugins.filter(plugin => {
       return ['DefinePlugin', 'MiniCssExtractPlugin'].includes(plugin.constructor.name)
     }),
-    new VueLoaderPlugin(),
     new HardSourceWebpackPlugin(),
   )
   return baseConfig

@@ -18,7 +18,7 @@ export default {
     },
     enrich: (state, getters, rootState, rootGetters) => entry => {
       if (!entry) return
-      const pickups = rootGetters['pickups/all']
+      const pickups = rootGetters['pickups/upcoming']
         .filter(({ series }) => series === entry.id)
         .map(pickup => ({
           ...pickup,

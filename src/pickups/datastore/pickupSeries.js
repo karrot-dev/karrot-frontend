@@ -37,6 +37,7 @@ export default {
         isSameHour: isSame('getHours'),
         isSameMinute: isSame('getMinutes'),
       } : {}
+
       return {
         ...entry,
         pickups,

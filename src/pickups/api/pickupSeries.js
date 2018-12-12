@@ -23,10 +23,9 @@ export default {
     return convert((await axios.patch(`/api/pickup-date-series/${id}/`, serialize(series))).data)
   },
 
-  cancel (seriesId, data) {
-    return axios.post(`/api/pickup-date-series/${seriesId}/cancel/`, data)
+  delete (seriesId) {
+    return axios.delete(`/api/pickup-date-series/${seriesId}/`)
   },
-
 }
 
 export function convert (entry) {

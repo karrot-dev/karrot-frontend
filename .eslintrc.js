@@ -24,16 +24,16 @@ module.exports = {
   // add your custom rules here
   'rules': {
     // allow paren-less arrow functions
-    'arrow-parens': 0,
-    'one-var': 0,
-    'import/first': 0,
-    'import/named': 2,
-    'import/namespace': 2,
-    'import/default': 2,
-    'import/export': 2,
+    'arrow-parens': 'off',
+    'one-var': 'off',
+    'import/first': 'off',
+    'import/named': 'error',
+    'import/namespace': 'error',
+    'import/default': 'error',
+    'import/export': 'error',
     // allow debugger during development
-    'no-debugger': process.env.NODE_ENV !== 'development' ? 2 : 0,
-    'brace-style': [2, 'stroustrup', { 'allowSingleLine': true }],
+    'no-debugger': process.env.NODE_ENV !== 'development' ? 'error' : 'off',
+    'brace-style': ['error', 'stroustrup', { 'allowSingleLine': true }],
     'comma-dangle': ['error', {
       'arrays': 'always-multiline',
       'objects': 'always-multiline',
@@ -41,5 +41,16 @@ module.exports = {
       'exports': 'always-multiline',
       'functions': 'always-multiline'
     }],
-  }
+    // all below: temporarily disabled
+    // TODO fixup our codebase
+    'vue/component-name-in-template-casing': 'off',
+    'vue/return-in-computed-property': 'off',
+    'vue/no-unused-components': 'off',
+    'vue/require-prop-type-constructor': 'off',
+    'vue/no-use-v-if-with-v-for': 'off',
+    'vue/singleline-html-element-content-newline': 'off',
+    'vue/multiline-html-element-content-newline': 'off',
+    'vue/html-closing-bracket-newline': 'off',
+    'vue/html-closing-bracket-spacing': 'off',
+  },
 }

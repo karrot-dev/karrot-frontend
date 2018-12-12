@@ -74,7 +74,7 @@
         <q-item>
           <q-item-side icon="fas fa-fw fa-envelope" />
           <q-item-main class="ellipsis">
-            <a :href='"mailto:" + user.email'>{{ user.email }}</a>
+            <a :href="mailto(user.email)">{{ user.email }}</a>
           </q-item-main>
         </q-item>
 
@@ -166,6 +166,11 @@ export default {
     },
     isInfoOnly () {
       return !this.user.email
+    },
+  },
+  methods: {
+    mailto (email) {
+      return `mailto:${email}`
     },
   },
 }

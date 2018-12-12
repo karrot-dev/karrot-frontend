@@ -44,7 +44,7 @@
         color="primary"
         @click="save"
         :loading="isPending"
-        :disabled = "saveDisabled"
+        :disabled="saveDisabled"
         v-t="'BUTTON.SAVE_CHANGES'"
       />
     </div>

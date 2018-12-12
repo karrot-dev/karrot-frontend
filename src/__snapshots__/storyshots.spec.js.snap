@@ -3137,7 +3137,7 @@ exports[`Storyshots PickupSeriesEdit Default 1`] = `
                   <div class="q-datetime-header column no-wrap items-center">
                     <div class="col"></div>
                     <div class="q-datetime-time row scroll flex-center">
-                      <div class="q-datetime-clockstring col row justify-center items-start"><span class="col" style="text-align:right;"><span tabindex="0" class="q-datetime-link active" style="text-align:right;"><span tabindex="-1">8</span></span></span><span style="opacity:0.6;">:</span><span class="col row no-wrap items-center" style="text-align:left;"><span tabindex="0" class="q-datetime-link" style="text-align:left;"><span tabindex="-1">00</span></span><span tabindex="0" class="q-datetime-ampm column"><span class="q-datetime-link active"><span tabindex="-1">AM</span></span><span class="q-datetime-link"><span tabindex="-1">PM</span></span></span></span></div>
+                      <div class="q-datetime-clockstring col row justify-center items-start"><span class="col-auto" style="text-align:right;"><span tabindex="0" class="q-datetime-link active" style="text-align:right;"><span tabindex="-1">8</span></span></span><span style="opacity:0.6;">:</span><span class="col-auto row no-wrap items-center" style="text-align:left;"><span tabindex="0" class="q-datetime-link" style="text-align:left;"><span tabindex="-1">00</span></span><span tabindex="0" class="q-datetime-ampm column"><span class="q-datetime-link active"><span tabindex="-1">AM</span></span><span class="q-datetime-link"><span tabindex="-1">PM</span></span></span></span></div>
                     </div>
                     <div class="col"></div>
                   </div>

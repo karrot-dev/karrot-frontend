@@ -74,6 +74,9 @@ for (const f of files) {
   require(f)
 }
 
+// use server side renderer to get renderered html string
+const renderer = createRenderer()
+
 for (const group of mockStories) {
   describe('Storyshots', () => {
     describe(group.kind, () => {
@@ -88,10 +91,8 @@ for (const group of mockStories) {
           delete component.i18n
 
           const wrapper = mountWithDefaults(component)
-
-          // use server side renderer to get renderered html string
-          const renderer = createRenderer()
-          expect(renderer.renderToString(wrapper.vm)).resolves.toMatchSnapshot()
+          const html = await renderer.renderToString(wrapper.vm)
+          expect(html).toMatchSnapshot()
         })
       }
     })

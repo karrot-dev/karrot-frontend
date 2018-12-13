@@ -7,7 +7,7 @@
       class="row no-padding justify-between content"
       :class="{ isEmpty: pickup.isEmpty, isUserMember: pickup.isUserMember, isDisabled: pickup.isDisabled }"
     >
-      <div class="column padding full-width">
+      <div class="column q-pa-sm full-width">
         <div>
           <span class="featured-text">{{ $d(pickup.date, 'hourMinute') }}</span>
           <template v-if="storeLink">
@@ -28,16 +28,16 @@
         </div>
         <div
           v-if="pickup.isDisabled"
-          class="q-py-xs"
+          class="q-my-xs"
         >
           <b class="text-negative">{{ $t('PICKUPLIST.PICKUP_DISABLED') }}</b>
         </div>
         <div
-          class="description multiline"
+          class="q-my-xs multiline"
           v-if="pickup.description"
         >{{ pickup.description }}
         </div>
-        <div class="people full-width">
+        <div class="q-my-xs full-width">
           <PickupUsers
             :pickup="pickup"
             @leave="leave"
@@ -104,16 +104,10 @@ export default {
   transition: background-color 2s ease
   width 100%
   font-size: .8em
-  .padding
-    padding 7px
-    .featured-text
-      font-size 1.5em
-      display inline
-      margin-right .5em
-  .people
-    padding: .3em
-.description
-  padding: .3em
+  .featured-text
+    font-size 1.5em
+    display inline
+    margin-right .5em
 .content.isEmpty
   background repeating-linear-gradient(
     135deg,

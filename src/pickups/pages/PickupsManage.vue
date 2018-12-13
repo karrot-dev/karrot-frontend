@@ -77,7 +77,7 @@
                 <q-item-main
                   :tag="pickup.isDisabled ? 's' : 'div'"
                   label
-                  title="Pickup is disabled"
+                  :title="pickup.isDisabled ? $t('PICKUPLIST.PICKUP_DISABLED') : null"
                 >
                   {{ $d(pickup.date, 'yearMonthDay') }}
                   <template v-if="!series.isSameWeekday">
@@ -96,30 +96,31 @@
                     class="text-warning"
                     name="access time"
                     size="150%"
-                    title="This pickup doesn't fit in the recurrence rule"
+                    :title="$t('PICKUPMANAGE.PICKUP_DOES_NOT_MATCH')"
                   />
                   <q-icon
                     v-if="pickup.seriesMeta.isDescriptionChanged"
-                    class="text-info"
+                    class="text-warning"
                     name="info"
                     size="150%"
-                    title="Description is changed"
+                    :title="$t('PICKUPMANAGE.PICKUP_DESCRIPTION_CHANGED')"
                   />
                   <q-icon
                     v-if="pickup.seriesMeta.isMaxCollectorsChanged"
-                    class="text-info"
+                    class="text-warning"
                     name="group"
                     size="150%"
-                    title="Max slots are changed"
+                    :title="$t('PICKUPMANAGE.PICKUP_MAX_COLLECTORS_CHANGED')"
                   />
                 </q-item-side>
               </template>
               <pickup-edit
                 v-if="visible.pickup[pickup.id]"
                 :value="pickup"
+                :status="pickup.saveStatus"
+                :series="series"
                 @save="savePickup"
                 @reset="resetPickup"
-                :status="pickup.saveStatus"
               />
             </q-collapsible>
           </q-list>

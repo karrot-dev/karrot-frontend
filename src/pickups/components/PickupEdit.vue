@@ -5,9 +5,10 @@
   >
     <form @submit.prevent="maybeSave">
       <q-field
+        v-if="canEditDate"
         icon="access time"
         :label="$t('CREATEPICKUP.TIME')"
-        :helper="!canEditDate ? '' : $t('CREATEPICKUP.TIME_HELPER')"
+        :helper="$t('CREATEPICKUP.TIME_HELPER')"
         :error="hasError('date')"
         :error-label="firstError('date')"
       >
@@ -21,9 +22,10 @@
       </q-field>
 
       <q-field
+        v-if="canEditDate"
         icon="today"
         :label="$t('CREATEPICKUP.DATE')"
-        :helper="!canEditDate ? '' : $t('CREATEPICKUP.DATE_HELPER')"
+        :helper="$t('CREATEPICKUP.DATE_HELPER')"
         :error="hasError('date')"
         :error-label="firstError('date')"
       >
@@ -42,11 +44,14 @@
         :helper="$t('CREATEPICKUP.MAX_COLLECTORS_HELPER')"
         :error="hasError('maxCollectors')"
         :error-label="firstError('maxCollectors')"
+        :warning="seriesMeta.isMaxCollectorsChanged"
+        :warning-label="$t('CREATEPICKUP.DIFFERS_WARNING')"
       >
         <q-input
           v-model="edit.maxCollectors"
           type="number"
           :placeholder="$t('CREATEPICKUP.UNLIMITED')"
+          :after="[resetToSeriesButton('maxCollectors')]"
         />
         <q-slider
           v-if="edit.maxCollectors > 0 && edit.maxCollectors <= 10"
@@ -55,6 +60,7 @@
           :max="10"
           label
           label-always
+          :color="seriesMeta.isMaxCollectorsChanged ? 'warning' : ''"
         />
       </q-field>
 
@@ -64,11 +70,14 @@
         :helper="$t('CREATEPICKUP.COMMENT_HELPER')"
         :error="hasError('description')"
         :error-label="firstError('description')"
+        :warning="seriesMeta.isDescriptionChanged"
+        :warning-label="$t('CREATEPICKUP.DIFFERS_WARNING')"
       >
         <q-input
           v-model="edit.description"
           type="textarea"
           max-length="500"
+          :after="[resetToSeriesButton('description')]"
           @keyup.ctrl.enter="maybeSave"
         />
       </q-field>
@@ -129,7 +138,16 @@
 </template>
 
 <script>
-import { QDatetime, QField, QSlider, QOptionGroup, QInput, QBtn, QSelect, QTooltip } from 'quasar'
+import {
+  QDatetime,
+  QField,
+  QSlider,
+  QOptionGroup,
+  QInput,
+  QBtn,
+  QSelect,
+  QTooltip,
+} from 'quasar'
 
 import { is24h } from '@/base/i18n'
 import editMixin from '@/utils/mixins/editMixin'
@@ -139,8 +157,21 @@ import dateFnsHelper from '@/utils/dateFnsHelper'
 export default {
   name: 'PickupEdit',
   mixins: [editMixin, statusMixin],
+  props: {
+    series: {
+      type: Object,
+      default: null,
+    },
+  },
   components: {
-    QDatetime, QField, QSlider, QOptionGroup, QInput, QBtn, QSelect, QTooltip,
+    QDatetime,
+    QField,
+    QSlider,
+    QOptionGroup,
+    QInput,
+    QBtn,
+    QSelect,
+    QTooltip,
   },
   computed: {
     is24h,
@@ -157,8 +188,21 @@ export default {
       if (this.edit.series) return false
       return true
     },
+    seriesMeta () {
+      if (!this.edit.seriesMeta) return {}
+      return this.edit.seriesMeta
+    },
   },
   methods: {
+    resetToSeriesButton (field) {
+      return {
+        icon: 'undo',
+        condition: this.series && this.series[field] !== this.edit[field],
+        handler: () => {
+          this.edit[field] = this.series[field]
+        },
+      }
+    },
     maybeSave () {
       if (!this.canSave) return
       this.save()

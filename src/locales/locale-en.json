@@ -208,7 +208,10 @@
     "TITLE": "Manage pickups",
     "SERIES": "Recurring pickups",
     "SINGLE": "One-time pickups",
-    "UPCOMING_PICKUPS_IN_SERIES": "Upcoming pickups in this series"
+    "UPCOMING_PICKUPS_IN_SERIES": "Upcoming pickups in this series",
+    "PICKUP_DOES_NOT_MATCH": "This pickups' date doesn't match the recurrence pattern",
+    "PICKUP_DESCRIPTION_CHANGED": "'Additional information' has been changed",
+    "PICKUP_MAX_COLLECTORS_CHANGED": "'Max slots' has been changed"
   },
   "PICKUPDELETE": {
     "DELETE_SERIES_TITLE": "Delete recurring pickup date",
@@ -298,7 +301,8 @@
     "MAX_COLLECTORS_HELPER": "How many people should participate in the pick-up?",
     "COMMENT": "Additional information",
     "COMMENT_HELPER": "What should people know when signing up to this pick-up?",
-    "UNLIMITED": "unlimited"
+    "UNLIMITED": "unlimited",
+    "DIFFERS_WARNING": "This value differs from the default. To undo this change, click on the arrow button and save the changes."
   },
   "CREATESTORE": {
     "TITLE": "Create a new store"

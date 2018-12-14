@@ -3,6 +3,14 @@
     class="edit-box"
     :class="{ changed: hasChanged }"
   >
+
+    <b
+      v-if="edit.isDisabled"
+      class="text-negative"
+    >
+      {{ $t('PICKUPLIST.PICKUP_DISABLED') }}
+    </b>
+
     <form @submit.prevent="maybeSave">
       <q-field
         v-if="canEditDate"
@@ -147,6 +155,7 @@ import {
   QBtn,
   QSelect,
   QTooltip,
+  Dialog,
 } from 'quasar'
 
 import { is24h } from '@/base/i18n'
@@ -207,17 +216,43 @@ export default {
       if (!this.canSave) return
       this.save()
     },
-    disable () {
-      this.$emit('save', {
-        id: this.edit.id,
-        isDisabled: true,
-      })
+    async disable () {
+      try {
+        const description = await Dialog.create({
+          title: this.$t('CREATEPICKUP.DISABLE_TITLE'),
+          message: this.$t('CREATEPICKUP.DISABLE_MESSAGE'),
+          prompt: {
+            model: this.edit.description,
+            type: 'text',
+          },
+          cancel: true,
+        })
+        this.$emit('save', {
+          id: this.edit.id,
+          description,
+          isDisabled: true,
+        })
+      }
+      catch (e) {}
     },
-    enable () {
-      this.$emit('save', {
-        id: this.edit.id,
-        isDisabled: false,
-      })
+    async enable () {
+      try {
+        const description = await Dialog.create({
+          title: this.$t('CREATEPICKUP.ENABLE_TITLE'),
+          message: this.$t('CREATEPICKUP.ENABLE_MESSAGE'),
+          prompt: {
+            model: (this.series && this.series.description) || this.edit.description,
+            type: 'text',
+          },
+          cancel: true,
+        })
+        this.$emit('save', {
+          id: this.edit.id,
+          description,
+          isDisabled: false,
+        })
+      }
+      catch (e) {}
     },
   },
 }

@@ -74,18 +74,20 @@
                   v-if="!$q.platform.is.mobile"
                   icon="fas fa-shopping-basket"
                 />
-                <q-item-main
-                  :tag="pickup.isDisabled ? 's' : 'div'"
-                  label
-                  :title="pickup.isDisabled ? $t('PICKUPLIST.PICKUP_DISABLED') : null"
-                >
-                  {{ $d(pickup.date, 'yearMonthDay') }}
-                  <template v-if="!series.isSameWeekday">
-                    ({{ $d(pickup.date, 'dayName') }})
-                  </template>
-                  <template v-if="!series.isSameHour || !series.isSameMinute">
-                    ({{ $d(pickup.date, 'hourMinute') }})
-                  </template>
+                <q-item-main>
+                  <q-item-tile
+                    :tag="pickup.isDisabled ? 's' : 'div'"
+                    label
+                    :title="pickup.isDisabled ? $t('PICKUPLIST.PICKUP_DISABLED') : null"
+                  >
+                    {{ $d(pickup.date, 'yearMonthDay') }}
+                    <template v-if="!series.isSameWeekday">
+                      ({{ $d(pickup.date, 'dayName') }})
+                    </template>
+                    <template v-if="!series.isSameHour || !series.isSameMinute">
+                      ({{ $d(pickup.date, 'hourMinute') }})
+                    </template>
+                  </q-item-tile>
                 </q-item-main>
                 <q-item-side
                   class="text-bold"
@@ -177,11 +179,26 @@
           v-for="pickup in oneTimePickups"
           @show="makeVisible('pickup', pickup.id)"
           :key="pickup.id"
-          :label="$d(pickup.date, 'dateWithDayName')"
-          :sublabel="$d(pickup.date, 'hourMinute')"
-          icon="fas fa-calendar-alt"
           sparse
         >
+          <template slot="header">
+            <q-item-side
+              v-if="!$q.platform.is.mobile"
+              icon="fas fa-calendar-alt"
+            />
+            <q-item-main>
+              <q-item-tile
+                label
+                :tag="pickup.isDisabled ? 's' : 'div'"
+                :title="pickup.isDisabled ? $t('PICKUPLIST.PICKUP_DISABLED') : null"
+              >
+                {{ $d(pickup.date, 'dateWithDayName') }}
+              </q-item-tile>
+              <q-item-tile sublabel>
+                {{ $d(pickup.date, 'hourMinute') }}
+              </q-item-tile>
+            </q-item-main>
+          </template>
           <pickup-edit
             v-if="visible.pickup[pickup.id]"
             :value="pickup"

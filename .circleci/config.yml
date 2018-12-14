@@ -86,11 +86,11 @@ jobs:
             JEST_JUNIT_OUTPUT: test-reports/junit.xml
           command: |
             mkdir -p test-reports
-            yarn add jest-junit
             yarn test \
               --ci \
               --runInBand \
-              --testResultsProcessor="./node_modules/jest-junit"
+              --reporters=default \
+              --reporters=jest-junit
       - run: bash <(curl -s https://codecov.io/bash)
       - store_test_results:
           path: test-reports

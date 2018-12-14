@@ -63,5 +63,5 @@ export default {
   .hoverShow
     display inline-block
     height 100%
-    widht 100%
+    width 100%
 </style>

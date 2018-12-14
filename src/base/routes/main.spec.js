@@ -109,7 +109,7 @@ describe('main routes', () => {
   })
 
   afterEach(() => {
-    expect(mockModules.routeError.actions.set).toBeCalled()
+    expect(mockModules.routeError.actions.set).not.toBeCalled()
   })
 
   it('sends us to group gallery by default', async () => {

@@ -86,7 +86,6 @@ jobs:
             JEST_JUNIT_OUTPUT: test-reports/junit.xml
           command: |
             mkdir -p test-reports
-            yarn add jest-junit
             yarn test \
               --ci \
               --runInBand \

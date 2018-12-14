@@ -387,6 +387,8 @@
     "PICKUP_CREATE": "created a new one-time pick-up",
     "PICKUP_MODIFY": "changed the settings of a pick-up",
     "PICKUP_DELETE": "deleted a pick-up",
+    "PICKUP_ENABLE": "enabled a pickup",
+    "PICKUP_DISABLE": "disabled a pickup",
     "SERIES_CREATE": "created a new recurring pick-up",
     "SERIES_MODIFY": "changed the settings of a recurring pick-up",
     "SERIES_DELETE": "deleted a recurring pick-up",

@@ -56,7 +56,7 @@ function getIcon (type, context) {
     case 'you_became_editor':
       return 'fas fa-angle-double-up'
     case 'pickup_moved':
-      return 'access time'
+      return 'far fa-clock'
   }
 }
 

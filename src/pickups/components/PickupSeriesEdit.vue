@@ -45,6 +45,7 @@
             toggle
             v-model="byDay"
             :options="dayOptions"
+            class="ellipsis"
           />
         </q-field>
       </div>

@@ -108,18 +108,18 @@ export default {
     font-size 1.5em
     display inline
     margin-right .5em
-.content.isEmpty
-  background repeating-linear-gradient(
-    135deg,
-    white,
-    white 15px,
-    $lightRed 15px,
-    $lightRed 30px
-  )
-.content.isUserMember
-  cursor pointer
-  &:not(.isDisabled)
-    background linear-gradient(to right, $lightGreen, $lighterGreen)
+  &.isEmpty:not(.isDisabled)
+    background repeating-linear-gradient(
+      135deg,
+      white,
+      white 15px,
+      $lightRed 15px,
+      $lightRed 30px
+    )
+  &.isUserMember
+    cursor pointer
+    &:not(.isDisabled)
+      background linear-gradient(to right, $lightGreen, $lighterGreen)
   &.isDisabled
     background $lightRed
 </style>

@@ -220,12 +220,13 @@ export default {
       try {
         const description = await Dialog.create({
           title: this.$t('CREATEPICKUP.DISABLE_TITLE'),
-          message: this.$t('CREATEPICKUP.DISABLE_MESSAGE'),
+          message: this.$t('CREATEPICKUP.ENABLE_DISABLE_MESSAGE'),
           prompt: {
             model: this.edit.description,
             type: 'text',
           },
-          cancel: true,
+          cancel: this.$t('BUTTON.CANCEL'),
+          ok: this.$t('BUTTON.YES'),
         })
         this.$emit('save', {
           id: this.edit.id,
@@ -239,12 +240,14 @@ export default {
       try {
         const description = await Dialog.create({
           title: this.$t('CREATEPICKUP.ENABLE_TITLE'),
-          message: this.$t('CREATEPICKUP.ENABLE_MESSAGE'),
+          message: this.$t('CREATEPICKUP.ENABLE_DISABLE_MESSAGE'),
           prompt: {
+            // reset if there's a series default
             model: this.series ? this.series.description : this.edit.description,
             type: 'text',
           },
-          cancel: true,
+          cancel: this.$t('BUTTON.CANCEL'),
+          ok: this.$t('BUTTON.YES'),
         })
         this.$emit('save', {
           id: this.edit.id,

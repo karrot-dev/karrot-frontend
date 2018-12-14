@@ -304,9 +304,10 @@
     "UNLIMITED": "unlimited",
     "DIFFERS_WARNING": "This value differs from the default. To undo this change, click on the arrow button and save the changes.",
     "ENABLE_TITLE": "Enable pickup?",
-    "ENABLE_MESSAGE": "Do you want to enable this pickup again? All joined collectors will get a notification. You can change this text to provide a reason:",
     "DISABLE_TITLE": "Disable pickup?",
-    "DISABLE_MESSAGE": "Do you want to disable this pickup? All joined collectors will get a notification. You can change this text to provide a reason:"
+    "ENABLE_DISABLE_MESSAGE": "All joined collectors will get a notification. You can change this text to provide a reason:",
+    "EXCEPTIONS_TITLE": "Check your pickups",
+    "EXCEPTIONS_MESSAGE": "Some upcoming pickups don't match this recurring pickup. Have a look below at the '{upcomingLabel}' to change or disable pickups, if needed."
   },
   "CREATESTORE": {
     "TITLE": "Create a new store"

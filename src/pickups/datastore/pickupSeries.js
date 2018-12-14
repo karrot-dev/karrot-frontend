@@ -25,7 +25,7 @@ export default {
           seriesMeta: {
             isDescriptionChanged: entry.description !== pickup.description,
             isMaxCollectorsChanged: entry.maxCollectors !== pickup.maxCollectors,
-            matchesRule: entry.datesPreview && Boolean(entry.datesPreview.find(d => Math.abs(d - pickup.date) < 1000)),
+            matchesRule: entry.datesPreview && entry.datesPreview.some(d => Math.abs(d - pickup.date) < 1000),
           },
         }))
       const store = rootGetters['stores/get'](entry.store)

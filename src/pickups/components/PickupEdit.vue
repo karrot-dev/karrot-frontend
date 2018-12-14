@@ -241,7 +241,7 @@ export default {
           title: this.$t('CREATEPICKUP.ENABLE_TITLE'),
           message: this.$t('CREATEPICKUP.ENABLE_MESSAGE'),
           prompt: {
-            model: (this.series && this.series.description) || this.edit.description,
+            model: this.series ? this.series.description : this.edit.description,
             type: 'text',
           },
           cancel: true,

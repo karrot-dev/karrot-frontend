@@ -4984,6 +4984,9 @@ exports[`Storyshots Stores StoreEdit (with server error) 1`] = `
                   </div>
                 </div>
               </div>
+              <div class="q-field-bottom row no-wrap">
+                <div class="col text-transparent">|</div>
+              </div>
             </div>
           </div>
         </div>
@@ -5168,6 +5171,9 @@ exports[`Storyshots Stores StoreEdit 1`] = `
                     <div class="q-slider-ring"></div>
                   </div>
                 </div>
+              </div>
+              <div class="q-field-bottom row no-wrap">
+                <div class="col text-transparent">|</div>
               </div>
             </div>
           </div>

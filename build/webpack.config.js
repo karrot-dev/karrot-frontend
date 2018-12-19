@@ -9,6 +9,7 @@ const TerserPlugin = require('terser-webpack-plugin')
 const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const HardSourceWebpackPlugin = require('hard-source-webpack-plugin')
+const StyleLintPlugin = require('stylelint-webpack-plugin')
 
 const dev = process.env.NODE_ENV !== 'production'
 const cordova = process.env.CORDOVA === 'true'
@@ -185,6 +186,10 @@ module.exports = {
         logLevel: 'info',
       }),
     ]),
+    new StyleLintPlugin({
+      files: '**/*.vue',
+      syntax: 'sugarss',
+    }),
   ],
   optimization: {
     minimizer: [

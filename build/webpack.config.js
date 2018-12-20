@@ -187,7 +187,7 @@ module.exports = {
       }),
     ]),
     new StyleLintPlugin({
-      files: '**/*.vue',
+       files: '**/*.{vue,styl}',
       syntax: 'sugarss',
     }),
   ],

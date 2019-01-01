@@ -7,7 +7,7 @@
     "WARNING": "Attenzione",
     "BETA_WARNING": "Questo sito internet è sotto sviluppo attivo e tutto è soggetto a cambiamenti continui. Non possiamo garantire per la sicurezza e la privacy dei dati che vengono immessi (ma proveremo a fare del nostro meglio)",
     "SERVER_ERROR": "Errore del server",
-    "NOT_CONNECTED": "You aren't connected to the server",
+    "NOT_CONNECTED": "Non sei connesso al server",
     "INVALID_LINK": "Ci dispiace, il link che hai aperto non è valido.",
     "SEARCH_NOT_FOUND": "Non Trovato"
   },
@@ -58,7 +58,7 @@
   "SWITCHGROUP": {
     "NOT_MEMBER": "{userName} is not member of {groupName}.",
     "COMMON_GROUPS": "Groups you have in common",
-    "OTHER_GROUPS": "Other groups"
+    "OTHER_GROUPS": "Altri gruppi"
   },
   "BUTTON": {
     "CREATE": "Crea",
@@ -86,7 +86,7 @@
     "HIDE": "Nascondi",
     "SUBMIT": "Submit",
     "APPLY": "Apply",
-    "ACCEPT": "Accept",
+    "ACCEPT": "Accetta",
     "DECLINE": "Decline",
     "WITHDRAW": "Withdraw",
     "SHOW_MORE": "Show more"
@@ -116,7 +116,7 @@
     "APPLICATIONS": "Applications",
     "APPLICATION_QUESTIONS": "Questions for people who want to join this group",
     "PICKUPS": "Recupera",
-    "MESSAGES": "Messages",
+    "MESSAGES": "Messaggi",
     "PICKUP": "Recupera",
     "MEMBERS": "Membri",
     "JOINED": "si è unito/a {relativeDate}",
@@ -518,5 +518,5 @@
     "WHAT": "What does it mean to be inactive?",
     "HELP": "Everyone who did not log into the group for {dayCount} days or more counts as inactive. These users will not receive notification emails anymore."
   },
-  "YOU": "You"
+  "YOU": "Tu"
 }

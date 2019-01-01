@@ -2,25 +2,25 @@
   "ENTRY": "1 entry | {count} entries",
   "GLOBAL": {
     "GITHUB_NOTE": "Utveckling",
-    "FSWW_NOTE": "Read our info page!",
-    "COMMUNITY_NOTE": "Join our community!",
+    "FSWW_NOTE": "Läs vår informationssida!",
+    "COMMUNITY_NOTE": "Gå med i vår gemenskap!",
     "WARNING": "Varning",
     "BETA_WARNING": "Denna website är under aktiv utveckling och allt kan ändras. Vi kan inte garantera integriteten på din data, men vi kommer att göra så gott vi kan.",
     "SERVER_ERROR": "Server fel",
-    "NOT_CONNECTED": "You aren't connected to the server",
+    "NOT_CONNECTED": "Du är inte ansluten till servern",
     "INVALID_LINK": "Sorry, the link you've opened is invalid.",
     "SEARCH_NOT_FOUND": "Not Found"
   },
   "USERDATA": {
-    "EMAIL": "E-mail",
+    "EMAIL": "mail",
     "MOBILE_NUMBER": "Mobilnr.",
     "PROFILE_TITLE": "Profil",
     "PASSWORD": "Lösenord",
     "CONFIRM_PASSWORD": "Bekräfta ditt lösenord",
     "USERNAME": "Namn",
-    "WHERE_FROM": "Where you are from (not required)",
+    "WHERE_FROM": "Varifrån kommer du? (krävs inte)",
     "PHOTO": "Profilbild",
-    "SET_PHOTO": "Set your profile photo...",
+    "SET_PHOTO": "Ange din profilfoto...",
     "ACCOUNT": "Konto",
     "PUSH": "Push notifications",
     "PUSH_CURRENT_BROWSER": "Current browser",
@@ -34,23 +34,23 @@
         "CONFIRM": "Bekräfta"
       },
       "GIVE_TRUST": {
-        "TITLE": "Trust user",
+        "TITLE": "Lita på användaren",
         "MESSAGE": "Do you trust {userName} in {groupName}?"
       }
     },
-    "LOGOUT_SUCCESS": "You have been logged out!",
+    "LOGOUT_SUCCESS": "Du har loggats ut!",
     "YOU_TRUST_USER": "You trust {userName} in {groupName}.",
     "OTHER_PEOPLE_TRUST_USER": "{otherUser} trusts {userName} in {groupName}. | {count} people trust {userName} in {groupName}.",
     "OTHER_PEOPLE_TRUST_YOU": "{otherUser} trusts you in {groupName}. | {count} people trust you in {groupName}.",
     "PEOPLE_TRUST_USER": "You and {otherUser} trust {userName} in {groupName}. | You and {count} other people trust {userName} in {groupName}.",
     "FIRST_TRUST": "Be the first one to trust {userName} in {groupName}!",
-    "NEWCOMER": "Newcomer",
-    "NEWCOMER_GUIDANCE": "{userName} is new to your group and might need some guidance.",
+    "NEWCOMER": "Nykomling",
+    "NEWCOMER_GUIDANCE": "{userName} är ny i din grup och kan behöver lite vägledning.",
     "TRUST_PROGRESS_TEXT": "{trustNeeded} more trust needed",
     "TRUST_PROGRESS_TEXT_LONG": "{trustNeeded} more people need to express their trust in {userName} to grant editing permissions.",
     "NEWCOMER_INFO": "You are currently a newcomer in {groupName} and you can become active by writing messages, meeting fellow members, doing pickups and giving feedback. As soon as {threshold} members expressed their trust in you, you will gain editing permissions to help with group administration.",
     "TRUST_INFO": {
-      "TITLE": "What is this carrot button about?",
+      "TITLE": "Vad är karrot om?",
       "MESSAGE": "It is part of the Karrot trust system. It shows if a group member is newcomer and how much trust is needed until they gain editing permissions.",
       "LINK": "Click here to find out more."
     }
@@ -58,7 +58,7 @@
   "SWITCHGROUP": {
     "NOT_MEMBER": "{userName} is not member of {groupName}.",
     "COMMON_GROUPS": "Groups you have in common",
-    "OTHER_GROUPS": "Other groups"
+    "OTHER_GROUPS": "Andra grupper"
   },
   "BUTTON": {
     "CREATE": "Skapa",
@@ -80,13 +80,13 @@
     "CHANGE_EMAIL": "Ändra mejladress",
     "AGREE": "Jag håller med",
     "REMOVE": "Ta bort",
-    "ARCHIVE": "Archive",
+    "ARCHIVE": "Arkivera",
     "DELETE_ACCOUNT": "Radera konto",
-    "SHOW": "Show",
-    "HIDE": "Hide",
-    "SUBMIT": "Submit",
-    "APPLY": "Apply",
-    "ACCEPT": "Accept",
+    "SHOW": "visa",
+    "HIDE": "Gömma",
+    "SUBMIT": "Skicka in",
+    "APPLY": "Tillämpa",
+    "ACCEPT": "Acceptera",
     "DECLINE": "Decline",
     "WITHDRAW": "Withdraw",
     "SHOW_MORE": "Show more"
@@ -116,20 +116,20 @@
     "APPLICATIONS": "Applications",
     "APPLICATION_QUESTIONS": "Questions for people who want to join this group",
     "PICKUPS": "Upphämtningar",
-    "MESSAGES": "Messages",
-    "PICKUP": "Pickup",
+    "MESSAGES": "Medellanden",
+    "PICKUP": "Upphämtning",
     "MEMBERS": "Medlemmar",
-    "JOINED": "joined {relativeDate}",
+    "JOINED": "gick med {relativeDate}",
     "DECLINED": "declined {relativeDate}",
-    "ADDED_BY": "added by {userName}",
+    "ADDED_BY": "tillagd av {userName}",
     "DECLINED_BY": "declined by {userName}",
-    "SORT_JOINDATE": "Sort by join date",
-    "SORT_NAME": "Sort by name",
+    "SORT_JOINDATE": "Sortera efter anmälningsdatum",
+    "SORT_NAME": "Sortera efter namn",
     "INACTIVE": "Inaktive",
     "SHOW_INACTIVE": "Visa inaktiva grupper",
     "STORES": "Butiker",
-    "HOME": "Home",
-    "CURRENT_STORE": "Current store",
+    "HOME": "Hem",
+    "CURRENT_STORE": "Nuvarande butik",
     "HISTORY": "Historik",
     "DESCRIPTION": "Beskrivning",
     "ADDRESS": "Adress",
@@ -144,7 +144,7 @@
     "INVITATION_ACCEPT_ERROR": "Oj, kunde inte acceptera inbjudan!",
     "SETTINGS": "Inställningar",
     "NOTIFICATIONS": "Notifikationer",
-    "EMAIL_NOTIFICATIONS": "Email notifications",
+    "EMAIL_NOTIFICATIONS": "E-postmedellanden",
     "NOTIFICATION_TYPES": {
       "weekly_summary": {
         "NAME": "Veckans sammanfattning",
@@ -159,7 +159,7 @@
         "DESCRIPTION": "Tells you when somebody wants to join your group"
       }
     },
-    "PLAYGROUND_INFO": "This is a playground group, you can't break anything. Explore, click around and have fun!",
+    "PLAYGROUND_INFO": "Det här är en lekplats grup, du kan inte bryta i något . Utforska, klicka och ha det kul!",
     "JOIN_PLAYGROUND": "Join the playground group to explore karrot",
     "JOIN_ANOTHER_GROUP": "Join another group"
   },
@@ -253,8 +253,8 @@
   },
   "SIDENAV": {
     "INFO_SUB": "How to build your foodsaving group",
-    "BLOG_SUB": "All news around the karrot software",
-    "GIT_SUB": "See our code!"
+    "BLOG_SUB": "Alla nyheter runt karrot programvaran",
+    "GIT_SUB": "Se vår kod!"
   },
   "LOGIN": {
     "TITLE": "Logga in",
@@ -320,11 +320,11 @@
   },
   "FEEDBACKLIST": {
     "SAVED_FOOD": "At least 1 kg was saved here. Thank you! | People gave feedback for {amount} kg of saved food already! Keep up the great work!",
-    "NUMBER_PICKUPS": "{count} pickups done",
+    "NUMBER_PICKUPS": "{count} upphämntningar gjort",
     "NUMBER_FEEDBACK": "{count} feedback entries given",
-    "WEIGHT_SUM": "{sum} kg of food saved",
+    "WEIGHT_SUM": "{sum} kg räddade mat",
     "GIVE_FEEDBACK": "Ge feedback",
-    "NONE": "No feedback yet",
+    "NONE": "Ingen feedback ännu",
     "NONE_HINT": "This page will be filled once more feedback is available",
     "NO_DONE_PICKUPS": "All done!",
     "NO_DONE_PICKUPS_HINT": "You currently have no pickups to give feedback to. Why not join another pickup?"
@@ -334,9 +334,9 @@
     "HEADER": "Thank you for your pickup!",
     "EDIT": "Edit feedback",
     "SUBTITLE": "You can provide feedback for your pickup here",
-    "SET_AMOUNT": "Set amount",
-    "DELETE_AMOUNT": "Delete amount",
-    "AMOUNT": "Amount of food all of you were able to save (in kg)",
+    "SET_AMOUNT": "Ställa in mängd",
+    "DELETE_AMOUNT": "Radera mängd",
+    "AMOUNT": "Mängden mat kunde alla spara (i kg)",
     "COMMENT_PLACEHOLDER": "Was everything fine? Did everyone show up? Your comment here...",
     "PREVIOUS": "Previous feedback for {store}",
     "TOGETHER_WITH": "You did this pickup together with:"
@@ -360,7 +360,7 @@
     }
   },
   "LANGUAGECHOOSER": {
-    "ADD_MORE": "Help translating!",
+    "ADD_MORE": "Hjälp översätta",
     "SWITCH": "Ändra språk"
   },
   "MARKDOWN_INPUT": {
@@ -416,7 +416,7 @@
     "FEEDBACK_POSSIBLE": "You can give feedback for the pickup you did on {date}",
     "NEW_STORE": "{storeName} has been created",
     "NEW_MEMBER": "{userName} joined your group",
-    "PICKUP_UPCOMING": "Reminder: You have a pickup at {time}"
+    "PICKUP_UPCOMING": "Påminnelse: Du har en upphämtning klockan {time}  "
   },
   "OUTDATED_BROWSER": {
     "MESSAGE": "You are using an unsupported browser. {upgradeBrowser} to enjoy all features.",
@@ -468,8 +468,8 @@
   },
   "CONVERSATION": {
     "OPEN": "Open Chat",
-    "REPLY_TO_MESSAGE": "Reply to message...",
-    "REPLIES": "Replies",
+    "REPLY_TO_MESSAGE": "Svara till meddelandet...",
+    "REPLIES": "Svar",
     "REPLIES_COUNT": "1 reply | {count} replies",
     "UNREAD_MESSAGES": "Du har ett oläst meddelande. | Du har {count} olästa meddelande.",
     "EDITED": "edited",
@@ -518,5 +518,5 @@
     "WHAT": "What does it mean to be inactive?",
     "HELP": "Everyone who did not log into the group for {dayCount} days or more counts as inactive. These users will not receive notification emails anymore."
   },
-  "YOU": "You"
+  "YOU": "Du"
 }

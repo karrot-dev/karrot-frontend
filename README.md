@@ -32,8 +32,10 @@ This is the frontend repository, i.e. the browser-side software that powers [kar
 - manage information about store cooperations :apple:
 - schedule one-time and recurring food pickups :calendar:
 - gather feedback about pickups :mag:
-- communicate with your team with built-in messaging support :speech_balloon:
-- receive notifications via e-mail, Android app and web browser push :loudspeaker:
+- talk with users before they become group members :heavy_plus_sign:
+- express your trust and let newcomers take responsibility :bulb:
+- communicate with your team :speech_balloon:
+- receive notifications in real-time via e-mail, Android app and web browser push :loudspeaker:
 - use karrot in your preferred language :globe_with_meridians:
 
 ## foodsaving worldwide

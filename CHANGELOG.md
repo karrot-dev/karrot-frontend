@@ -21,6 +21,15 @@ Please document your changes in this format:
 ```
 
 ## [Unreleased]
+### Added
+- Pickups can be disabled and enabled again #1147 @tiltec
+- Notifications for enabled, disabled and moved pickups #1147 @tiltec
+- Show dialog when editing recurring pickups if pickups diverge from defaults #1147 @tiltec
+- Buttons to reset pickups to defaults #1147 @tiltec
+
+### Changed
+- More details for the pickup series manage page #1147 @tiltec
+- Pickups in a pickup series can't be moved anymore, to prevent hard-to-predict problems #1147 @tiltec
 
 ## [6.2.9] - 2018-12-12
 ### Fixed

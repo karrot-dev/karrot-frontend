@@ -34,7 +34,6 @@
           :status="seriesCreateStatus"
         />
       </q-item>
-
       <q-list
         class="pickups"
         separator
@@ -47,11 +46,10 @@
           @show="makeVisible('series', series.id)"
           :key="series.id"
           :label="seriesLabel(series)"
-          :sublabel="$d(series.startDate, 'timeShort')"
+          :sublabel="$d(series.startDate, 'hourMinute')"
           icon="fas fa-calendar-alt"
           sparse
         >
-
           <q-item v-if="visible.series[series.id]">
             <pickup-series-edit
               :value="series"
@@ -61,31 +59,73 @@
               :status="series.saveStatus"
             />
           </q-item>
-
           <q-list
             no-border
             seperator
           >
             <q-list-header v-t="'PICKUPMANAGE.UPCOMING_PICKUPS_IN_SERIES'" />
-
             <q-collapsible
               v-for="pickup in series.pickups"
               @show="makeVisible('pickup', pickup.id)"
               :key="pickup.id"
-              :label="seriesPickupLabel(series, pickup)"
-              icon="fas fa-shopping-basket"
             >
+              <template slot="header">
+                <q-item-side
+                  v-if="!$q.platform.is.mobile"
+                  icon="fas fa-shopping-basket"
+                />
+                <q-item-main>
+                  <q-item-tile
+                    :tag="pickup.isDisabled ? 's' : 'div'"
+                    label
+                    :title="pickup.isDisabled ? $t('PICKUPLIST.PICKUP_DISABLED') : null"
+                  >
+                    {{ $d(pickup.date, 'yearMonthDay') }}
+                    <template v-if="!series.isSameWeekday">
+                      ({{ $d(pickup.date, 'dayName') }})
+                    </template>
+                    <template v-if="!series.isSameHour || !series.isSameMinute">
+                      ({{ $d(pickup.date, 'hourMinute') }})
+                    </template>
+                  </q-item-tile>
+                </q-item-main>
+                <q-item-side
+                  class="text-bold"
+                  right
+                >
+                  <q-icon
+                    v-if="!pickup.seriesMeta.matchesRule"
+                    class="text-warning"
+                    name="access time"
+                    size="150%"
+                    :title="$t('PICKUPMANAGE.PICKUP_DOES_NOT_MATCH')"
+                  />
+                  <q-icon
+                    v-if="pickup.seriesMeta.isDescriptionChanged"
+                    class="text-warning"
+                    name="info"
+                    size="150%"
+                    :title="$t('PICKUPMANAGE.PICKUP_DESCRIPTION_CHANGED')"
+                  />
+                  <q-icon
+                    v-if="pickup.seriesMeta.isMaxCollectorsChanged"
+                    class="text-warning"
+                    name="group"
+                    size="150%"
+                    :title="$t('PICKUPMANAGE.PICKUP_MAX_COLLECTORS_CHANGED')"
+                  />
+                </q-item-side>
+              </template>
               <pickup-edit
                 v-if="visible.pickup[pickup.id]"
                 :value="pickup"
-                @save="savePickup"
-                @destroy="destroyPickup"
-                @reset="resetPickup"
                 :status="pickup.saveStatus"
+                :series="series"
+                @save="savePickup"
+                @reset="resetPickup"
               />
             </q-collapsible>
           </q-list>
-
         </q-collapsible>
       </q-list>
     </q-card>
@@ -94,7 +134,8 @@
       <RandomArt
         class="randomBanner"
         :seed="storeId"
-        type="banner"/>
+        type="banner"
+      />
       <q-card-title>
         <h5>
           <i
@@ -114,12 +155,12 @@
             round
             class="bannerButton hoverScale"
             color="secondary"
-            icon="fas fa-plus">
+            icon="fas fa-plus"
+          >
             <q-tooltip v-t="'BUTTON.CREATE'" />
           </q-btn>
         </div>
       </q-card-title>
-
       <q-item v-if="newPickup" >
         <pickup-edit
           :value="newPickup"
@@ -129,7 +170,6 @@
           :status="pickupCreateStatus"
         />
       </q-item>
-
       <q-list
         class="pickups"
         separator
@@ -139,16 +179,30 @@
           v-for="pickup in oneTimePickups"
           @show="makeVisible('pickup', pickup.id)"
           :key="pickup.id"
-          :label="$d(pickup.date, 'dateWithDayName')"
-          :sublabel="$d(pickup.date, 'timeShort')"
-          icon="fas fa-calendar-alt"
           sparse
         >
+          <template slot="header">
+            <q-item-side
+              v-if="!$q.platform.is.mobile"
+              icon="fas fa-calendar-alt"
+            />
+            <q-item-main>
+              <q-item-tile
+                label
+                :tag="pickup.isDisabled ? 's' : 'div'"
+                :title="pickup.isDisabled ? $t('PICKUPLIST.PICKUP_DISABLED') : null"
+              >
+                {{ $d(pickup.date, 'dateWithDayName') }}
+              </q-item-tile>
+              <q-item-tile sublabel>
+                {{ $d(pickup.date, 'hourMinute') }}
+              </q-item-tile>
+            </q-item-main>
+          </template>
           <pickup-edit
             v-if="visible.pickup[pickup.id]"
             :value="pickup"
             @save="savePickup"
-            @destroy="destroyPickup"
             @reset="resetPickup"
             :status="pickup.saveStatus"
           />
@@ -160,7 +214,20 @@
 
 <script>
 import { mapGetters, mapActions } from 'vuex'
-import { QCard, QCardTitle, QList, QListHeader, QItem, QItemSide, QItemMain, QItemTile, QCollapsible, QBtn, QTooltip, QIcon } from 'quasar'
+import {
+  QCard,
+  QCardTitle,
+  QList,
+  QListHeader,
+  QItem,
+  QItemSide,
+  QItemMain,
+  QItemTile,
+  QCollapsible,
+  QBtn,
+  QTooltip,
+  QIcon,
+} from 'quasar'
 import PickupSeriesEdit from '@/pickups/components/PickupSeriesEdit'
 import PickupEdit from '@/pickups/components/PickupEdit'
 import RandomArt from '@/utils/components/RandomArt'
@@ -169,7 +236,21 @@ import i18n, { dayNameForKey, sortByDay } from '@/base/i18n'
 
 export default {
   components: {
-    RandomArt, QCard, QCardTitle, QItem, QItemSide, QItemMain, QItemTile, QList, QListHeader, QCollapsible, QBtn, PickupSeriesEdit, PickupEdit, QTooltip, QIcon,
+    PickupSeriesEdit,
+    PickupEdit,
+    RandomArt,
+    QCard,
+    QCardTitle,
+    QList,
+    QListHeader,
+    QItem,
+    QItemSide,
+    QItemMain,
+    QItemTile,
+    QCollapsible,
+    QBtn,
+    QTooltip,
+    QIcon,
   },
   data () {
     return {
@@ -194,19 +275,11 @@ export default {
       }
       return series.rule.byDay.slice().sort(sortByDay).map(dayNameForKey).join(', ')
     },
-    seriesPickupLabel (series, pickup) {
-      const base = this.$d(pickup.date, 'dateShort')
-      const seriesTime = this.$d(series.startDate, 'timeShort')
-      const pickupTime = this.$d(pickup.date, 'timeShort')
-      if (seriesTime !== pickupTime) {
-        return `${base} (${pickupTime})`
-      }
-      else {
-        return base
-      }
-    },
     ...mapActions({
+      createSeries: 'pickupSeries/create',
       saveSeries: 'pickupSeries/save',
+      destroySeries: 'pickupSeries/destroy',
+      createPickup: 'pickups/create',
       savePickup: 'pickups/save',
     }),
     createNewSeries () {
@@ -223,15 +296,13 @@ export default {
       }
     },
     async saveNewSeries (series) {
-      if ((await this.$store.dispatch('pickupSeries/create', series)) !== false) {
+      await this.createSeries(series)
+      if (this.seriesCreateStatus.hasValidationErrors) {
         this.newSeries = null
       }
     },
     cancelNewSeries () {
       this.newSeries = null
-    },
-    destroySeries (seriesId) {
-      this.$store.dispatch('pickupSeries/destroy', seriesId)
     },
     createNewPickup () {
       const date = new Date()
@@ -244,7 +315,8 @@ export default {
       }
     },
     async saveNewPickup (pickup) {
-      if ((await this.$store.dispatch('pickups/create', pickup)) !== false) {
+      await this.createPickup(pickup)
+      if (this.pickupCreateStatus.hasValidationErrors) {
         this.newPickup = null
       }
     },
@@ -263,9 +335,6 @@ export default {
     },
     resetPickup (pickupId) {
       this.$store.dispatch('pickups/meta/clear', ['save', pickupId])
-    },
-    destroyPickup (pickupId) {
-      this.$store.dispatch('pickups/destroy', pickupId)
     },
   },
   computed: {

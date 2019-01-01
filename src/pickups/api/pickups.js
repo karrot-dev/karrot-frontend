@@ -41,10 +41,6 @@ export default {
     return convert((await axios.patch(`/api/pickup-dates/${pickup.id}/`, pickup)).data)
   },
 
-  async delete (pickupId) {
-    return (await axios.delete(`/api/pickup-dates/${pickupId}/`)).data
-  },
-
   async join (pickupId) {
     return convert((await axios.post(`/api/pickup-dates/${pickupId}/add/`, {})).data)
   },
@@ -64,8 +60,10 @@ export function convert (val) {
     return val.map(convert)
   }
   else {
-    let date = new Date(val.date)
-    let feedbackDue = new Date(val.feedbackDue)
-    return { ...val, date, feedbackDue }
+    return {
+      ...val,
+      date: new Date(val.date),
+      feedbackDue: new Date(val.feedbackDue),
+    }
   }
 }

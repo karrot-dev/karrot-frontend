@@ -49,10 +49,10 @@
     </transition>
 
     <UserSlot
+      v-if="!pickup.isDisabled && !pickup.isFull && !(isJoiningOrLeaving(pickup) && !pickup.isUserMember)"
       :size="size"
       :hover-user="currentUser"
       :show-join="!pickup.isUserMember"
-      v-if="!pickup.isFull && !(isJoiningOrLeaving(pickup) && !pickup.isUserMember)"
       :class="{hoverScale: !pickup.isUserMember}"
       @join="$emit('join')"
     />

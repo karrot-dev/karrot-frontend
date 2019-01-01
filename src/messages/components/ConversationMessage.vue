@@ -120,9 +120,12 @@
 </template>
 
 <script>
-import ProfilePicture from '@/users/components/ProfilePicture'
 import ConversationReactions from '@/messages/components/ConversationReactions'
+import ConversationAddReaction from './ConversationAddReaction'
 import ConversationCompose from '@/messages/components/ConversationCompose'
+import ProfilePicture from '@/users/components/ProfilePicture'
+import Markdown from '@/utils/components/Markdown'
+import DateAsWords from '@/utils/components/DateAsWords'
 import {
   QBtn,
   QBtnGroup,
@@ -133,9 +136,6 @@ import {
   QIcon,
   QTooltip,
 } from 'quasar'
-import DateAsWords from '@/utils/components/DateAsWords'
-import Markdown from '@/utils/components/Markdown'
-import ConversationAddReaction from './ConversationAddReaction'
 export default {
   name: 'ConversationMessage',
   components: {
@@ -143,16 +143,16 @@ export default {
     ConversationAddReaction,
     ConversationCompose,
     ProfilePicture,
+    Markdown,
+    DateAsWords,
     QBtn,
     QBtnGroup,
     QItem,
     QItemSide,
     QItemMain,
     QItemTile,
-    DateAsWords,
     QIcon,
     QTooltip,
-    Markdown,
   },
   props: {
     message: {

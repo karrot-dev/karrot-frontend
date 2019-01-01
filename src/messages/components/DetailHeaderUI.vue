@@ -13,14 +13,14 @@
           v-if="!$q.platform.is.mobile"
           v-t="'GROUP.PICKUP'"
         >&nbsp;</span>
-        <strong>{{ $d(pickup.date, 'dayAndTime') }}</strong>
+        <strong>{{ $d(pickup.date, 'weekdayHourMinute') }}</strong>
         <span slot="subtitle">
           <strong v-if="pickup.store">
             <router-link :to="{ name: 'store', params: { groupId: pickup.group.id, storeId: pickup.store.id }}">
               {{ pickup.store.name }}
             </router-link>
           </strong>
-          {{ $d(pickup.date, 'dateShort') }}
+          {{ $d(pickup.date, 'yearMonthDay') }}
         </span>
       </q-toolbar-title>
       <template v-else-if="user">

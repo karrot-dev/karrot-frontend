@@ -209,10 +209,6 @@ function receiveMessage ({ topic, payload }) {
   else if (topic === 'feedback:feedback') {
     datastore.dispatch('feedback/updateOne', convertFeedback(camelizeKeys(payload)))
   }
-  else if (topic === 'pickups:feedback_possible') {
-    const pickup = convertPickup(camelizeKeys(payload))
-    datastore.commit('pickups/update', [pickup])
-  }
   else if (topic === 'auth:user') {
     const user = camelizeKeys(payload)
     datastore.commit('auth/setUser', user)

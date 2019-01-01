@@ -30,7 +30,7 @@
             type="time"
             v-model="edit.startDate"
             :format24h="is24h"
-            :display-value="$d(edit.startDate, 'timeShort')"
+            :display-value="$d(edit.startDate, 'hourMinute')"
           />
         </q-field>
         <q-field
@@ -197,6 +197,21 @@ export default {
   mixins: [editMixin, statusMixin],
   components: {
     QDatetime, QField, QSlider, QInput, QBtn, QSelect, QOptionGroup, QTabs, QTab, QTabPane,
+  },
+  watch: {
+    isPending (val) {
+      const hasExceptions = () => {
+        const { pickups } = this.edit
+        return pickups.some(({ seriesMeta }) => seriesMeta.isDescriptionChanged || seriesMeta.isMaxCollectorsChanged || !seriesMeta.matchesRule)
+      }
+      if (!val && !this.hasAnyError && hasExceptions()) {
+        Dialog.create({
+          title: this.$t('CREATEPICKUP.EXCEPTIONS_TITLE'),
+          message: this.$t('CREATEPICKUP.EXCEPTIONS_MESSAGE', { upcomingLabel: this.$t('PICKUPMANAGE.UPCOMING_PICKUPS_IN_SERIES') }),
+          ok: this.$t('BUTTON.YES'),
+        }).catch(() => {})
+      }
+    },
   },
   computed: {
     dayOptions,

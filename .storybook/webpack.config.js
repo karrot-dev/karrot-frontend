@@ -1,6 +1,5 @@
 const webpackConfig = require('../build/webpack.config')
 
-const VueLoaderPlugin = require('vue-loader/lib/plugin')
 const HardSourceWebpackPlugin = require('hard-source-webpack-plugin')
 
 module.exports = (baseConfig, storybookEnv) => {

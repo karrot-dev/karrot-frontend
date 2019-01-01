@@ -65,6 +65,8 @@
             :label="$t('STOREEDIT.WEEKS_IN_ADVANCE')"
             :error="hasError('weeksInAdvance')"
             :error-label="firstError('weeksInAdvance')"
+            :warning="value.weeksInAdvance > edit.weeksInAdvance"
+            :warning-label="$t('STOREEDIT.WEEKS_IN_ADVANCE_WARNING')"
           >
             <q-slider
               v-model="edit.weeksInAdvance"

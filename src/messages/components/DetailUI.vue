@@ -22,8 +22,8 @@
     >
       <q-collapsible
         slot="beforeChatMessages"
-        opened
         v-if="application"
+        opened
         class="bg-grey-2"
       >
         <template slot="header">
@@ -48,6 +48,19 @@
           <Markdown :source="application.answers" />
         </div>
       </q-collapsible>
+      <q-list
+        slot="afterChatMessages"
+        v-if="pickup && pickup.isDisabled"
+        class="bg-grey-2"
+      >
+        <q-item>
+          <q-item-main>
+            <q-item-tile label>
+              <b class="text-negative">{{ $t('PICKUPLIST.PICKUP_DISABLED') }}</b>
+            </q-item-tile>
+          </q-item-main>
+        </q-item>
+      </q-list>
     </ChatConversation>
   </div>
 </template>
@@ -60,6 +73,10 @@ import DateAsWords from '@/utils/components/DateAsWords'
 import {
   QSpinnerDots,
   QCollapsible,
+  QList,
+  QItem,
+  QItemMain,
+  QItemTile,
 } from 'quasar'
 
 export default {
@@ -69,6 +86,10 @@ export default {
     DateAsWords,
     QSpinnerDots,
     QCollapsible,
+    QList,
+    QItem,
+    QItemMain,
+    QItemTile,
   },
   props: {
     inline: {

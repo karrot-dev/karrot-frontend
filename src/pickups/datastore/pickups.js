@@ -53,8 +53,7 @@ export default {
     available: (state, getters) =>
       getters.byCurrentGroup
         .filter(isWithinOneWeek)
-        .filter(e => !e.isFull)
-        .filter(e => !e.isUserMember),
+        .filter(e => !e.isFull && !e.isUserMember && !e.isDisabled),
     feedbackPossibleByCurrentGroup: (state, getters) => {
       return Object.values(state.entries)
         .filter(p => p.date < state.now && p.feedbackDue > state.now)

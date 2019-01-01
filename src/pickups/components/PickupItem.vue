@@ -5,11 +5,11 @@
   >
     <q-card-main
       class="row no-padding justify-between content"
-      :class="{ isEmpty: pickup.isEmpty, isUserMember: pickup.isUserMember }"
+      :class="{ isEmpty: pickup.isEmpty, isUserMember: pickup.isUserMember, isDisabled: pickup.isDisabled }"
     >
-      <div class="column padding full-width">
+      <div class="column q-pa-sm full-width">
         <div>
-          <span class="featured-text">{{ $d(pickup.date, 'timeShort') }}</span>
+          <span class="featured-text">{{ $d(pickup.date, 'hourMinute') }}</span>
           <template v-if="storeLink">
             <strong v-if="pickup.store">
               <router-link :to="{ name: 'store', params: { storeId: pickup.store.id }}">
@@ -27,19 +27,20 @@
           </template>
         </div>
         <div
-          class="description multiline"
+          v-if="pickup.isDisabled"
+          class="q-my-xs"
+        >
+          <b class="text-negative">{{ $t('PICKUPLIST.PICKUP_DISABLED') }}</b>
+        </div>
+        <div
+          class="q-my-xs multiline"
           v-if="pickup.description"
         >{{ pickup.description }}
         </div>
-        <div class="people full-width">
+        <div class="q-my-xs full-width">
           <PickupUsers
-            v-if="pickup.isUserMember"
             :pickup="pickup"
             @leave="leave"
-          />
-          <PickupUsers
-            v-else
-            :pickup="pickup"
             @join="join"
           />
         </div>
@@ -103,25 +104,22 @@ export default {
   transition: background-color 2s ease
   width 100%
   font-size: .8em
-  .padding
-    padding 7px
-    .featured-text
-      font-size 1.5em
-      display inline
-      margin-right .5em
-  .people
-    padding: .3em
-.description
-  padding: .3em
-.content.isEmpty
-  background repeating-linear-gradient(
-    135deg,
-    white,
-    white 15px,
-    $lightRed 15px,
-    $lightRed 30px
-  )
-.content.isUserMember
-  background linear-gradient(to right, $lightGreen, $lighterGreen)
-  cursor pointer
+  .featured-text
+    font-size 1.5em
+    display inline
+    margin-right .5em
+  &.isEmpty:not(.isDisabled)
+    background repeating-linear-gradient(
+      135deg,
+      white,
+      white 15px,
+      $lightRed 15px,
+      $lightRed 30px
+    )
+  &.isUserMember
+    cursor pointer
+    &:not(.isDisabled)
+      background linear-gradient(to right, $lightGreen, $lighterGreen)
+  &.isDisabled
+    background $lightRed
 </style>

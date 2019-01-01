@@ -19,14 +19,13 @@ export default {
   },
 
   async save (series) {
-    let { id } = series
+    const { id } = series
     return convert((await axios.patch(`/api/pickup-date-series/${id}/`, serialize(series))).data)
   },
 
   delete (seriesId) {
     return axios.delete(`/api/pickup-date-series/${seriesId}/`)
   },
-
 }
 
 export function convert (entry) {
@@ -38,6 +37,7 @@ export function convert (entry) {
       ...entry,
       startDate: new Date(entry.startDate),
       rule: convertRule(entry.rule),
+      datesPreview: (entry.datesPreview || []).map(val => new Date(val)),
     }
   }
 }

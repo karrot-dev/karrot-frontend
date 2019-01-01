@@ -107,6 +107,36 @@ const notifications = [
       }),
     },
   },
+  {
+    type: 'pickup_disabled',
+    context: {
+      group,
+      store,
+      pickup: factories.makePickup({
+        store,
+      }),
+    },
+  },
+  {
+    type: 'pickup_enabled',
+    context: {
+      group,
+      store,
+      pickup: factories.makePickup({
+        store,
+      }),
+    },
+  },
+  {
+    type: 'pickup_moved',
+    context: {
+      group,
+      store,
+      pickup: factories.makePickup({
+        store,
+      }),
+    },
+  },
 ].map(factories.makeNotification)
 
 const on = {

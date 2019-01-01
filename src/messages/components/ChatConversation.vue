@@ -40,6 +40,7 @@
         <q-spinner-dots :size="40" />
       </div>
     </q-infinite-scroll>
+    <slot name="afterChatMessages"/>
     <q-scroll-observable @scroll="onScroll" />
   </div>
 </template>

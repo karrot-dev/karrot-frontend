@@ -20,26 +20,30 @@ import polyfill from '@/utils/polyfill'
 import { DetectMobileKeyboardPlugin } from '@/utils/detectMobileKeyboard'
 import loadInitialData from './loadInitialData'
 
-Vue.use(DetectMobileKeyboardPlugin)
-
-if (__ENV.CORDOVA && __ENV.BACKEND) {
-  require('@/utils/cordova')
-}
-
-if (__ENV.DEV) {
-  log.setLevel('debug')
-}
-
 import Root from '@/base/pages/Root'
 import '@/utils/datastore/presenceReporter'
 
 export default async function initApp () {
+  Vue.use(DetectMobileKeyboardPlugin)
+
+  if (__ENV.DEV) {
+    log.setLevel('debug')
+  }
+
   sync(datastore, router)
+
+  if (__ENV.CORDOVA) {
+    require('@/utils/cordova/setBaseURL')
+  }
 
   await Promise.all([
     loadInitialData(),
     polyfill.init(),
   ])
+
+  if (__ENV.CORDOVA) {
+    require('@/utils/cordova')
+  }
 
   /* eslint-disable no-new */
   const vueRoot = new Vue({

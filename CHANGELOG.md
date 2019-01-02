@@ -31,6 +31,10 @@ Please document your changes in this format:
 - More details for the pickup series manage page #1147 @tiltec
 - Pickups in a pickup series can't be moved anymore, to prevent hard-to-predict problems #1147 @tiltec
 
+### Fixed
+- Tapping on push notification showed login page when user is already logged in (second try) @tiltec
+
+
 ## [6.2.9] - 2018-12-12
 ### Fixed
 - Pickups manage page could not be loaded, regression in 6.2.8 @tiltec

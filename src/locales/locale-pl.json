@@ -89,7 +89,9 @@
     "ACCEPT": "Zaakceptuj",
     "DECLINE": "Odrzuć",
     "WITHDRAW": "Wycofaj się",
-    "SHOW_MORE": "Pokaż więcej"
+    "SHOW_MORE": "Pokaż więcej",
+    "ENABLE": "Enable",
+    "DISABLE": "Disable"
   },
   "VALIDATION": {
     "MINLENGTH": "Musisz użyć więcej niż {min} znaków.",
@@ -189,6 +191,7 @@
     "DESCRIPTION": "Opis",
     "ADDRESS": "Adres",
     "WEEKS_IN_ADVANCE": "Ile tygodni do przodu ma być widoczna tabelka odbiorów?",
+    "WEEKS_IN_ADVANCE_WARNING": "Existing leftover pickups will get deleted if they are empty. You can disable non-empty pickups manually, if needed.",
     "DIALOGS": {
       "ARCHIVE": {
         "TITLE": "Przenieś punkt odbioru do archiwum",
@@ -206,7 +209,10 @@
     "TITLE": "Zarządzaj odbiorami",
     "SERIES": "Powtarzające się odbiory",
     "SINGLE": "Odbiory jednorazowe",
-    "UPCOMING_PICKUPS_IN_SERIES": "Nadchodzące odbiory"
+    "UPCOMING_PICKUPS_IN_SERIES": "Nadchodzące odbiory",
+    "PICKUP_DOES_NOT_MATCH": "This pickups' date doesn't match the recurrence pattern",
+    "PICKUP_DESCRIPTION_CHANGED": "'Additional information' has been changed",
+    "PICKUP_MAX_COLLECTORS_CHANGED": "'Max slots' has been changed"
   },
   "PICKUPDELETE": {
     "DELETE_SERIES_TITLE": "Usuń powtarzające się odbiory",
@@ -296,8 +302,13 @@
     "MAX_COLLECTORS_HELPER": "Ile osób może maksymalnie uczestniczyć w odbiorze?",
     "COMMENT": "Dodatkowe informacje",
     "COMMENT_HELPER": "Co powinni wiedzieć ratownicy, którzy zapisują się na ten odbiór?",
-    "DELETION_FORBIDDEN_HELPER": "Nie można usunąć tego odbioru, ponieważ ktoś już się na niego zapisał",
-    "UNLIMITED": "bez ograniczeń"
+    "UNLIMITED": "bez ograniczeń",
+    "DIFFERS_WARNING": "This value differs from the default. To undo this change, click on the arrow button and save the changes.",
+    "ENABLE_TITLE": "Enable pickup?",
+    "DISABLE_TITLE": "Disable pickup?",
+    "ENABLE_DISABLE_MESSAGE": "All joined collectors will get a notification. You can change this text to provide a reason:",
+    "EXCEPTIONS_TITLE": "Check your pickups",
+    "EXCEPTIONS_MESSAGE": "Some upcoming pickups don't match the settings of this recurring pickup. Have a look below at '{upcomingLabel}' to change or disable pickups, if needed."
   },
   "CREATESTORE": {
     "TITLE": "Dodaj nowy punkt odbioru"
@@ -316,7 +327,8 @@
     },
     "NONE": "Brak nadchodzących odbiorów",
     "NONE_HINT": "Możesz dodać nowe odbiory na stronie punktu odbioru.",
-    "STORE_NONE_HINT": "Możesz dodać nowe odbiory na stronie zarządzania odbiorami."
+    "STORE_NONE_HINT": "Możesz dodać nowe odbiory na stronie zarządzania odbiorami.",
+    "PICKUP_DISABLED": "This pickup has been disabled."
   },
   "FEEDBACKLIST": {
     "SAVED_FOOD": "W tym punkcie uratowano już ponad 1 kg żywności. Dziękujemy! | W tym punkcie uratowano już {amount} kg żywności. Oby tak dalej!",
@@ -381,6 +393,8 @@
     "PICKUP_CREATE": "dodał/-a jednorazowy odbiór",
     "PICKUP_MODIFY": "zmienił/-a ustawienia odbioru",
     "PICKUP_DELETE": "usunął/-ęła odbiór",
+    "PICKUP_ENABLE": "enabled a pickup",
+    "PICKUP_DISABLE": "disabled a pickup",
     "SERIES_CREATE": "dodał/-a powtarzający się odbiór",
     "SERIES_MODIFY": "zmienił/-a ustawienia powtarzającego się odbioru",
     "SERIES_DELETE": "usunął/-ęła powtarzający się odbiór",
@@ -416,7 +430,10 @@
     "FEEDBACK_POSSIBLE": "Możesz dodać komentarz do odbioru z {date}",
     "NEW_STORE": "Utworzono {storeName}",
     "NEW_MEMBER": "{userName} dołączył/-a do grupy",
-    "PICKUP_UPCOMING": "Przypomnienie: masz odbiór o {time}"
+    "PICKUP_UPCOMING": "Przypomnienie: masz odbiór o {time}",
+    "PICKUP_DISABLED": "Pickup at {dateTime} was disabled",
+    "PICKUP_ENABLED": "Pickup at {dateTime} was enabled again",
+    "PICKUP_MOVED": "Pickup was moved to {dateTime}"
   },
   "OUTDATED_BROWSER": {
     "MESSAGE": "Twoja przeglądarka nie jest wspierana. {upgradeBrowser}, aby cieszyć się wszystkimi funkcjami.",

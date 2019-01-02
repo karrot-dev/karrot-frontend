@@ -89,7 +89,9 @@
     "ACCEPT": "Accepter",
     "DECLINE": "Refuser",
     "WITHDRAW": "Retirer",
-    "SHOW_MORE": "Afficher plus"
+    "SHOW_MORE": "Afficher plus",
+    "ENABLE": "Enable",
+    "DISABLE": "Disable"
   },
   "VALIDATION": {
     "MINLENGTH": "S'il te plaît, entre plus de {min} caractères",
@@ -189,6 +191,7 @@
     "DESCRIPTION": "Description",
     "ADDRESS": "Adresse",
     "WEEKS_IN_ADVANCE": "Les récoltes récurrentes sont affichées combien de semaines en avance?",
+    "WEEKS_IN_ADVANCE_WARNING": "Existing leftover pickups will get deleted if they are empty. You can disable non-empty pickups manually, if needed.",
     "DIALOGS": {
       "ARCHIVE": {
         "TITLE": "Archiver le magasin",
@@ -206,7 +209,10 @@
     "TITLE": "Gérer les récoltes",
     "SERIES": "Récolte récurrente",
     "SINGLE": "Récoltes individuelles",
-    "UPCOMING_PICKUPS_IN_SERIES": "Récoltes à venir dans cette série"
+    "UPCOMING_PICKUPS_IN_SERIES": "Récoltes à venir dans cette série",
+    "PICKUP_DOES_NOT_MATCH": "This pickups' date doesn't match the recurrence pattern",
+    "PICKUP_DESCRIPTION_CHANGED": "'Additional information' has been changed",
+    "PICKUP_MAX_COLLECTORS_CHANGED": "'Max slots' has been changed"
   },
   "PICKUPDELETE": {
     "DELETE_SERIES_TITLE": "Effacer récolte récurrente",
@@ -296,8 +302,13 @@
     "MAX_COLLECTORS_HELPER": "Combien de personnes participent à la récolte ?",
     "COMMENT": "Informations supplémentaires",
     "COMMENT_HELPER": "Que devraient savoir les membres à propos de cette récolte ?",
-    "DELETION_FORBIDDEN_HELPER": "Cette récolte ne peut être supprimée car des gens s'y sont déjà inscrits",
-    "UNLIMITED": "illimité"
+    "UNLIMITED": "illimité",
+    "DIFFERS_WARNING": "This value differs from the default. To undo this change, click on the arrow button and save the changes.",
+    "ENABLE_TITLE": "Enable pickup?",
+    "DISABLE_TITLE": "Disable pickup?",
+    "ENABLE_DISABLE_MESSAGE": "All joined collectors will get a notification. You can change this text to provide a reason:",
+    "EXCEPTIONS_TITLE": "Check your pickups",
+    "EXCEPTIONS_MESSAGE": "Some upcoming pickups don't match the settings of this recurring pickup. Have a look below at '{upcomingLabel}' to change or disable pickups, if needed."
   },
   "CREATESTORE": {
     "TITLE": "Créer un nouveau magasin"
@@ -316,7 +327,8 @@
     },
     "NONE": "Aucune récolte à venir",
     "NONE_HINT": "Tu peux créer une nouvelle récolte sur la page du magasin.",
-    "STORE_NONE_HINT": "Tu peux créer une nouvelle récolte sur la page des récoltes."
+    "STORE_NONE_HINT": "Tu peux créer une nouvelle récolte sur la page des récoltes.",
+    "PICKUP_DISABLED": "This pickup has been disabled."
   },
   "FEEDBACKLIST": {
     "SAVED_FOOD": "Au moins 1 kg a été sauvé. Merci ! Les autres participants ont déjà indiqué que {amount} kg de nourriture ont été sauvés ! Continue, c'est génial !",
@@ -381,6 +393,8 @@
     "PICKUP_CREATE": "a crée une récolte individuelle",
     "PICKUP_MODIFY": "a changé les détails d'une récolte",
     "PICKUP_DELETE": "a effacé une récolte",
+    "PICKUP_ENABLE": "enabled a pickup",
+    "PICKUP_DISABLE": "disabled a pickup",
     "SERIES_CREATE": "a crée une nouvelle récolte récurrent",
     "SERIES_MODIFY": "a changé les détails d'une récolte récurrent",
     "SERIES_DELETE": "a effacé une récolte récurrent",
@@ -416,7 +430,10 @@
     "FEEDBACK_POSSIBLE": "You can give feedback for the pickup you did on {date}",
     "NEW_STORE": "{storeName} has been created",
     "NEW_MEMBER": "{userName} joined your group",
-    "PICKUP_UPCOMING": "Reminder: You have a pickup at {time}"
+    "PICKUP_UPCOMING": "Reminder: You have a pickup at {time}",
+    "PICKUP_DISABLED": "Pickup at {dateTime} was disabled",
+    "PICKUP_ENABLED": "Pickup at {dateTime} was enabled again",
+    "PICKUP_MOVED": "Pickup was moved to {dateTime}"
   },
   "OUTDATED_BROWSER": {
     "MESSAGE": "Tu utilises un navigateur incompatible. {upgradeBrowser} pour que tout fonctionne.",

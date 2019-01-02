@@ -89,7 +89,9 @@
     "ACCEPT": "接受",
     "DECLINE": "拒絕",
     "WITHDRAW": "退出",
-    "SHOW_MORE": "顯示更多"
+    "SHOW_MORE": "顯示更多",
+    "ENABLE": "Enable",
+    "DISABLE": "Disable"
   },
   "VALIDATION": {
     "MINLENGTH": "請輸入至少 {最少} 個字。",
@@ -189,6 +191,7 @@
     "DESCRIPTION": "敘述",
     "ADDRESS": "地址",
     "WEEKS_IN_ADVANCE": "多少週以前要顯示可重複開放領取的日期？",
+    "WEEKS_IN_ADVANCE_WARNING": "Existing leftover pickups will get deleted if they are empty. You can disable non-empty pickups manually, if needed.",
     "DIALOGS": {
       "ARCHIVE": {
         "TITLE": "將店家歸檔",
@@ -206,7 +209,10 @@
     "TITLE": "管理食物領取",
     "SERIES": "重復開放領取",
     "SINGLE": "一次性開放領取",
-    "UPCOMING_PICKUPS_IN_SERIES": "此系列接下來的開放領取日期"
+    "UPCOMING_PICKUPS_IN_SERIES": "此系列接下來的開放領取日期",
+    "PICKUP_DOES_NOT_MATCH": "This pickups' date doesn't match the recurrence pattern",
+    "PICKUP_DESCRIPTION_CHANGED": "'Additional information' has been changed",
+    "PICKUP_MAX_COLLECTORS_CHANGED": "'Max slots' has been changed"
   },
   "PICKUPDELETE": {
     "DELETE_SERIES_TITLE": "刪除循環出現的開放領取日期",
@@ -296,8 +302,13 @@
     "MAX_COLLECTORS_HELPER": "徵求多少人領取食物？",
     "COMMENT": "更多資訊",
     "COMMENT_HELPER": "有什麼事項是報名領取食物者應注意的？",
-    "DELETION_FORBIDDEN_HELPER": "這項領取任務不能刪除，因為已經有人認領了",
-    "UNLIMITED": "沒有限制"
+    "UNLIMITED": "沒有限制",
+    "DIFFERS_WARNING": "This value differs from the default. To undo this change, click on the arrow button and save the changes.",
+    "ENABLE_TITLE": "Enable pickup?",
+    "DISABLE_TITLE": "Disable pickup?",
+    "ENABLE_DISABLE_MESSAGE": "All joined collectors will get a notification. You can change this text to provide a reason:",
+    "EXCEPTIONS_TITLE": "Check your pickups",
+    "EXCEPTIONS_MESSAGE": "Some upcoming pickups don't match the settings of this recurring pickup. Have a look below at '{upcomingLabel}' to change or disable pickups, if needed."
   },
   "CREATESTORE": {
     "TITLE": "創建新的店家資料"
@@ -316,7 +327,8 @@
     },
     "NONE": "沒有後續的開放領取",
     "NONE_HINT": "你可以在店面頁創建新的開放領取",
-    "STORE_NONE_HINT": "你可以在領取任務管理頁面創建新的領取任務"
+    "STORE_NONE_HINT": "你可以在領取任務管理頁面創建新的領取任務",
+    "PICKUP_DISABLED": "This pickup has been disabled."
   },
   "FEEDBACKLIST": {
     "SAVED_FOOD": "至少有 1 公斤的食物不會被浪費掉了，| 謝謝你 ! 大家已經給  {數量}公斤的食物領取回饋了。繼續加油 !    ",
@@ -381,6 +393,8 @@
     "PICKUP_CREATE": "創建新的一次性開放外帶",
     "PICKUP_MODIFY": "變更開放外帶的設定",
     "PICKUP_DELETE": "刪除開放外帶",
+    "PICKUP_ENABLE": "enabled a pickup",
+    "PICKUP_DISABLE": "disabled a pickup",
     "SERIES_CREATE": "創建新的循環出現開放外帶",
     "SERIES_MODIFY": "變更循環出現的開放外帶設定",
     "SERIES_DELETE": "刪除循環出現的開放外帶",
@@ -416,7 +430,10 @@
     "FEEDBACK_POSSIBLE": "You can give feedback for the pickup you did on {date}",
     "NEW_STORE": "{storeName} has been created",
     "NEW_MEMBER": "{userName} joined your group",
-    "PICKUP_UPCOMING": "Reminder: You have a pickup at {time}"
+    "PICKUP_UPCOMING": "Reminder: You have a pickup at {time}",
+    "PICKUP_DISABLED": "Pickup at {dateTime} was disabled",
+    "PICKUP_ENABLED": "Pickup at {dateTime} was enabled again",
+    "PICKUP_MOVED": "Pickup was moved to {dateTime}"
   },
   "OUTDATED_BROWSER": {
     "MESSAGE": "你目前使用的瀏覽器並不支援這些功能，{更新瀏覽器} 以便使用新功能",

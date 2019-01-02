@@ -89,7 +89,9 @@
     "ACCEPT": "Accept",
     "DECLINE": "Decline",
     "WITHDRAW": "Withdraw",
-    "SHOW_MORE": "Show more"
+    "SHOW_MORE": "Show more",
+    "ENABLE": "Enable",
+    "DISABLE": "Disable"
   },
   "VALIDATION": {
     "MINLENGTH": "Bitte mehr als {min} Zeichen eingeben.",
@@ -189,6 +191,7 @@
     "DESCRIPTION": "Beschreibung",
     "ADDRESS": "Adresse",
     "WEEKS_IN_ADVANCE": "Wieviele Wochen im Voraus sollen die wiederkehrenden Abholungen angezeigt werden?",
+    "WEEKS_IN_ADVANCE_WARNING": "Existing leftover pickups will get deleted if they are empty. You can disable non-empty pickups manually, if needed.",
     "DIALOGS": {
       "ARCHIVE": {
         "TITLE": "Betrieb archivieren",
@@ -206,7 +209,10 @@
     "TITLE": "Abholzeiten-Editor",
     "SERIES": "Wiederkehrende Abholungen",
     "SINGLE": "Einmalige Abholungen",
-    "UPCOMING_PICKUPS_IN_SERIES": "Kommende Einzelabholungen"
+    "UPCOMING_PICKUPS_IN_SERIES": "Kommende Einzelabholungen",
+    "PICKUP_DOES_NOT_MATCH": "This pickups' date doesn't match the recurrence pattern",
+    "PICKUP_DESCRIPTION_CHANGED": "'Additional information' has been changed",
+    "PICKUP_MAX_COLLECTORS_CHANGED": "'Max slots' has been changed"
   },
   "PICKUPDELETE": {
     "DELETE_SERIES_TITLE": "Regelmäßige Abholung löschen",
@@ -296,8 +302,13 @@
     "MAX_COLLECTORS_HELPER": "Wie viele Leute sollen bei der Abholung teilnehmen?",
     "COMMENT": "Zusätzliche Informationen",
     "COMMENT_HELPER": "Was sollten die Leute wissen, wenn sie bei dieser Abholung teilnehmen?",
-    "DELETION_FORBIDDEN_HELPER": "Dieser Abholtermin kann nicht gelöscht werden, weil sich bereits jemand eingetragen hat",
-    "UNLIMITED": "unbegrenzt"
+    "UNLIMITED": "unbegrenzt",
+    "DIFFERS_WARNING": "This value differs from the default. To undo this change, click on the arrow button and save the changes.",
+    "ENABLE_TITLE": "Enable pickup?",
+    "DISABLE_TITLE": "Disable pickup?",
+    "ENABLE_DISABLE_MESSAGE": "All joined collectors will get a notification. You can change this text to provide a reason:",
+    "EXCEPTIONS_TITLE": "Check your pickups",
+    "EXCEPTIONS_MESSAGE": "Some upcoming pickups don't match the settings of this recurring pickup. Have a look below at '{upcomingLabel}' to change or disable pickups, if needed."
   },
   "CREATESTORE": {
     "TITLE": "Neuen Betrieb anlegen"
@@ -316,7 +327,8 @@
     },
     "NONE": "Es stehen keine Abholungen an.",
     "NONE_HINT": "Auf der Betriebsseite kannst du Abholtermine erstellen.",
-    "STORE_NONE_HINT": "Im Abholzeiten-Editor kannst du eine neue Abholung erstellen."
+    "STORE_NONE_HINT": "Im Abholzeiten-Editor kannst du eine neue Abholung erstellen.",
+    "PICKUP_DISABLED": "This pickup has been disabled."
   },
   "FEEDBACKLIST": {
     "SAVED_FOOD": "Mindestens 1 kg wurde hier gerettet. Dankeschön! | Es wurde bereits für {amount} kg gerettete Lebensmittel Feedback gegeben! Weiter so!",
@@ -381,6 +393,8 @@
     "PICKUP_CREATE": "hat einen neuen einmaligen Abholtermin erstellt",
     "PICKUP_MODIFY": "hat die Eigenschaften eines Abholtermins geändert",
     "PICKUP_DELETE": "hat einen Abholtermin gelöscht",
+    "PICKUP_ENABLE": "enabled a pickup",
+    "PICKUP_DISABLE": "disabled a pickup",
     "SERIES_CREATE": "hat einen neuen regelmäßigen Abholtermin erstellt",
     "SERIES_MODIFY": "hat die Eigenschaften eines regelmäßigen Abholtermins geändert",
     "SERIES_DELETE": "hat einen regelmäßigen Abholtermin gelöscht",
@@ -416,7 +430,10 @@
     "FEEDBACK_POSSIBLE": "You can give feedback for the pickup you did on {date}",
     "NEW_STORE": "{storeName} has been created",
     "NEW_MEMBER": "{userName} joined your group",
-    "PICKUP_UPCOMING": "Reminder: You have a pickup at {time}"
+    "PICKUP_UPCOMING": "Reminder: You have a pickup at {time}",
+    "PICKUP_DISABLED": "Pickup at {dateTime} was disabled",
+    "PICKUP_ENABLED": "Pickup at {dateTime} was enabled again",
+    "PICKUP_MOVED": "Pickup was moved to {dateTime}"
   },
   "OUTDATED_BROWSER": {
     "MESSAGE": "Du benutzt einen nicht unterstützten Browser. {upgradeBrowser} um alle Funktionen verwenden zu können.",

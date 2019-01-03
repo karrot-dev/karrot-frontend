@@ -6,7 +6,7 @@
   >
     <p>{{ $t('NOTIFICATIONS.NOT_VERIFIED', { email: user.unverifiedEmail }) }}</p>
     <p>{{ $t('WALL.VERIFY_EMAIL_FOR_NOTIFICATIONS') }}</p>
-    <I18n
+    <i18n
       v-if="!success"
       path="NOTIFICATIONS.CHECK_YOUR_MAILS"
       tag="span"
@@ -18,7 +18,7 @@
       >
         {{ $t('NOTIFICATIONS.RESEND_VERIFICATION') }}
       </a>
-    </I18n>
+    </i18n>
     <p v-else>
       {{ $t('NOTIFICATIONS.VERIFICATION_EMAIL_SENT') }}
     </p>

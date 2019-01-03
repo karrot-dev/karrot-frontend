@@ -41,7 +41,7 @@
             size="20px"
             class="q-mr-xs"
           />
-          <I18n path="COMMUNITY_FEED.HEADER">
+          <i18n path="COMMUNITY_FEED.HEADER">
             <a
               place="community"
               href="https://community.foodsaving.world"
@@ -51,7 +51,7 @@
             >
               {{ $t('COMMUNITY_FEED.HEADER_LINK') }}
             </a>
-          </I18n>
+          </i18n>
         </QListHeader>
         <QItem
           v-for="topic in topics"
@@ -81,7 +81,7 @@
               sublabel
               lines="1"
             >
-              <I18n
+              <i18n
                 path="COMMUNITY_FEED.LAST_UPDATED"
                 tag="div"
               >
@@ -90,7 +90,7 @@
                   style="display: inline"
                   :date="topic.lastPostedAt"
                 />
-              </I18n>
+              </i18n>
             </QItemTile>
           </QItemMain>
         </QItem>

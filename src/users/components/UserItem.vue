@@ -15,7 +15,7 @@
         </RouterLink>
       </QItemTile>
       <QItemTile sublabel>
-        <I18n
+        <i18n
           path="GROUP.JOINED"
         >
           <DateAsWords
@@ -23,10 +23,10 @@
             style="display: inline"
             :date="user.membership.createdAt"
           />
-        </I18n>
+        </i18n>
         <template v-if="addedBy">
           ·
-          <I18n
+          <i18n
             path="GROUP.ADDED_BY"
           >
             <RouterLink
@@ -35,7 +35,7 @@
             >
               {{ addedBy.displayName }}
             </RouterLink>
-          </I18n>
+          </i18n>
         </template>
         <br>
       </QItemTile>

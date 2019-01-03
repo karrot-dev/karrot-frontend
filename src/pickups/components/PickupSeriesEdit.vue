@@ -76,7 +76,7 @@
             @keyup.ctrl.enter="maybeSave"
           />
           <div class="q-field-bottom">
-            <I18n path="CREATEPICKUP.RRULE_HELPER">
+            <i18n path="CREATEPICKUP.RRULE_HELPER">
               <a
                 place="ruleHelper"
                 href="https://www.kanzaki.com/docs/ical/rrule.html"
@@ -101,7 +101,7 @@
                 style="text-decoration: underline"
                 v-t="'CREATEPICKUP.RRULE_EXAMPLE2'"
               />
-            </I18n>
+            </i18n>
           </div>
         </QField>
       </div>

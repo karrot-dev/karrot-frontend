@@ -26,7 +26,7 @@
         v-if="application.status !== 'pending'"
         sublabel
       >
-        <I18n
+        <i18n
           :path="decision"
         >
           <DateAsWords
@@ -34,10 +34,10 @@
             style="display: inline"
             :date="application.decidedAt"
           />
-        </I18n>
+        </i18n>
         <template v-if="application.status !== 'withdrawn'">
           <br>
-          <I18n
+          <i18n
             :path="personDeciding"
           >
             <RouterLink
@@ -47,7 +47,7 @@
             >
               {{ application.decidedBy.displayName }}
             </RouterLink>
-          </I18n>
+          </i18n>
         </template>
       </QItemTile>
     </QItemMain>

@@ -19,7 +19,7 @@
         icon="star"
         class="alert"
       >
-        <I18n path="JOINGROUP.LOGOUT_MESSAGE.LOGGED_OUT">
+        <i18n path="JOINGROUP.LOGOUT_MESSAGE.LOGGED_OUT">
           <RouterLink
             place="login"
             :to="{ name: 'login' }"
@@ -27,7 +27,7 @@
           >
             {{ $t('JOINGROUP.LOGOUT_MESSAGE.LOG_IN') }}
           </RouterLink>
-        </I18n>
+        </i18n>
       </QAlert>
       <p
         class="text-primary header"

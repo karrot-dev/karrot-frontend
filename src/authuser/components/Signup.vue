@@ -1,14 +1,5 @@
 <template>
   <div>
-    <QCard class="bg-warning margin-bottom">
-      <QCardTitle>
-        <QIcon name="fas fa-exclamation-triangle" />
-        {{ $t('GLOBAL.WARNING') }}
-      </QCardTitle>
-      <QCardMain>
-        {{ $t('GLOBAL.BETA_WARNING') }}
-      </QCardMain>
-    </QCard>
     <form
       name="signup"
       @submit.prevent="submit"

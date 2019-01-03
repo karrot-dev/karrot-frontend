@@ -4,8 +4,14 @@ import emoji from 'markdown-it-emoji'
 import twemoji from 'twemoji'
 import escapeRegExp from 'escape-string-regexp'
 
-const escapedHost = escapeRegExp(window.location.href.split('/#')[0])
-const pattern = RegExp(`^(?!$)(?!${escapedHost})`)
+const internalLinkParts = ['$']
+if (!window.location.href.startsWith('file:///')) {
+  internalLinkParts.push(escapeRegExp(window.location.href.split('/#')[0]))
+}
+if (__ENV.BACKEND) {
+  internalLinkParts.push(escapeRegExp(__ENV.BACKEND))
+}
+const internalLinkPattern = RegExp(`^(${internalLinkParts.join('|')})`)
 
 const md = markdownIt('zero', {
   html: false,
@@ -28,7 +34,12 @@ const md = markdownIt('zero', {
       },
     },
     {
-      pattern,
+      pattern: internalLinkPattern,
+      attrs: {},
+    },
+    {
+      // default to external link
+      pattern: /.*/,
       attrs: {
         target: '_blank',
         rel: 'noopener nofollow noreferrer',

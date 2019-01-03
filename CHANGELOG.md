@@ -33,7 +33,7 @@ Please document your changes in this format:
 
 ### Fixed
 - Tapping on push notification showed login page when user is already logged in (second try) @tiltec
-
+- External link detection was not working in app @tiltec
 
 ## [6.2.9] - 2018-12-12
 ### Fixed

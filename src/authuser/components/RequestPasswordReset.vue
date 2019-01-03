@@ -9,8 +9,8 @@
           {{ $t('PASSWORDRESET.INTRO') }}
         </p>
         <div class="white-box">
-          <q-field icon="fas fa-envelope">
-            <q-input
+          <QField icon="fas fa-envelope">
+            <QInput
               :autofocus="true"
               :float-label="$t('PASSWORDRESET.EMAIL')"
               type="email"
@@ -20,7 +20,7 @@
               spellcheck="false"
               :error="hasError('email')"
             />
-          </q-field>
+          </QField>
         </div>
 
         <div
@@ -32,20 +32,20 @@
         </div>
 
         <div class="actions">
-          <q-btn
+          <QBtn
             type="button"
             :to="{ name: 'login' }"
             flat
           >
             {{ $t('PASSWORDRESET.LOGIN') }}
-          </q-btn>
-          <q-btn
+          </QBtn>
+          <QBtn
             type="submit"
             class="submit shadow-4"
             :loading="isPending"
           >
             {{ $t('PASSWORDRESET.SUBMIT') }}
-          </q-btn>
+          </QBtn>
         </div>
         <div style="clear: both"/>
       </div>

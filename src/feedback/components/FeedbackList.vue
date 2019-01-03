@@ -1,5 +1,5 @@
 <template>
-  <q-infinite-scroll
+  <QInfiniteScroll
     :handler="maybeFetchPast"
     class="k-feedback-list"
   >
@@ -28,9 +28,9 @@
       slot="message"
       style="width: 100%; text-align: center"
     >
-      <q-spinner-dots :size="40"/>
+      <QSpinnerDots :size="40"/>
     </div>
-  </q-infinite-scroll>
+  </QInfiniteScroll>
 </template>
 
 <script>

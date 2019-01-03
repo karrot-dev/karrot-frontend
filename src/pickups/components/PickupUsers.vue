@@ -3,7 +3,7 @@
     class="row justify-start"
     ref="wrapperDiv"
   >
-    <q-resize-observable
+    <QResizeObservable
       style="width: 100%"
       @resize="calculateSlotsPerRow"
     />
@@ -31,10 +31,10 @@
       style="border-color: black"
       :style="{ width: size + 'px', height: size + 'px' }"
     >
-      <q-spinner :size="size - 4" />
+      <QSpinner :size="size - 4" />
     </div>
 
-    <transition
+    <Transition
       appear
       :duration="{ enter: 500, leave: 0 }"
       name="bounce"
@@ -46,7 +46,7 @@
         class="hoverScale"
         @leave="$emit('leave')"
       />
-    </transition>
+    </Transition>
 
     <UserSlot
       v-if="!pickup.isDisabled && !pickup.isFull && !(isJoiningOrLeaving(pickup) && !pickup.isUserMember)"

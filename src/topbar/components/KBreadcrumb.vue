@@ -5,19 +5,19 @@
       v-for="breadcrumb in prevElements"
       :key="breadcrumb.name"
     >
-      <router-link
+      <RouterLink
         v-if="breadcrumb.route"
         :to="breadcrumb.route"
       >
-        <q-btn
+        <QBtn
           class="text-white"
           flat
           small
           v-if="breadcrumb.name"
         >
           {{ breadcrumb.name }}
-        </q-btn>
-      </router-link>
+        </QBtn>
+      </RouterLink>
       <div
         class="label"
         v-if="!breadcrumb.route"
@@ -30,14 +30,14 @@
       v-if="secondlastElement"
       class="xs"
     >
-      <router-link
+      <RouterLink
         v-if="secondlastElement.route"
         :to="secondlastElement.route"
       >
         <div style="min-width: 20px; text-align: right; padding: 4px">
           <i class="fas fa-fw fa-angle-left"/>
         </div>
-      </router-link>
+      </RouterLink>
     </div>
     <div v-if="lastElement">
       <div

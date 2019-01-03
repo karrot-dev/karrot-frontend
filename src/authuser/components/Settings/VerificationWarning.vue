@@ -1,12 +1,12 @@
 <template>
-  <q-alert
+  <QAlert
     v-if="user && !hasEmailVerified"
     icon="fas fa-exclamation-triangle"
     color="warning"
   >
     <p>{{ $t('NOTIFICATIONS.NOT_VERIFIED', { email: user.unverifiedEmail }) }}</p>
     <p>{{ $t('WALL.VERIFY_EMAIL_FOR_NOTIFICATIONS') }}</p>
-    <i18n
+    <I18n
       v-if="!success"
       path="NOTIFICATIONS.CHECK_YOUR_MAILS"
       tag="span"
@@ -18,7 +18,7 @@
       >
         {{ $t('NOTIFICATIONS.RESEND_VERIFICATION') }}
       </a>
-    </i18n>
+    </I18n>
     <p v-else>
       {{ $t('NOTIFICATIONS.VERIFICATION_EMAIL_SENT') }}
     </p>
@@ -29,38 +29,38 @@
       <i class="fas fa-exclamation-triangle"/>
       {{ anyFirstError }}
     </p>
-  </q-alert>
-  <q-collapsible
+  </QAlert>
+  <QCollapsible
     v-else-if="hasFailedEmailDeliveries"
     header-class="bg-warning text-white"
   >
     <template
       slot="header"
     >
-      <q-item-side
+      <QItemSide
         color="white"
         icon="fas fa-exclamation-triangle"
       />
-      <q-item-main
+      <QItemMain
         :label="failedEmailDeliveryMessage"
       />
     </template>
-    <q-list>
-      <q-item
+    <QList>
+      <QItem
         v-for="(event, idx) in failedEmailDeliveries"
         :key="idx"
       >
-        <q-item-main
+        <QItemMain
           :label="event.subject"
           :sublabel="`${event.event}: ${event.reason}`"
         />
-        <q-item-side
+        <QItemSide
           right
           :stamp="$d(event.createdAt, 'long')"
         />
-      </q-item>
-    </q-list>
-  </q-collapsible>
+      </QItem>
+    </QList>
+  </QCollapsible>
 </template>
 
 <script>

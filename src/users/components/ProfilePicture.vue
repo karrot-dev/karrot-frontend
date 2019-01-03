@@ -4,7 +4,7 @@
     :style="pictureStyle"
   >
     <template v-if="user && user.id">
-      <router-link
+      <RouterLink
         v-if="isLink"
         :to="{name:'user', params: {userId: user.id}}"
         @click.native.stop=""
@@ -21,7 +21,7 @@
           :seed="user.id"
           class="randomArt fill"
         />
-      </router-link>
+      </RouterLink>
       <img
         v-else-if="hasPhoto"
         :src="photo"

@@ -1,37 +1,37 @@
 <template>
   <div>
-    <q-spinner-dots
+    <QSpinnerDots
       v-if="isPending"
       size="40"
     />
     <template v-else>
-      <q-list
+      <QList
         v-if="invitations.length > 0"
         class="no-border"
       >
-        <q-list-header>
+        <QListHeader>
           {{ $t('GROUP.INVITED_LIST') }}
-        </q-list-header>
-        <q-item
+        </QListHeader>
+        <QItem
           v-for="invite in invitations"
           :key="invite.id"
         >
-          <q-item-main>
-            <q-item-tile label>
+          <QItemMain>
+            <QItemTile label>
               {{ invite.email }}
-            </q-item-tile>
-            <q-item-tile sublabel>
+            </QItemTile>
+            <QItemTile sublabel>
               <DateAsWords :date="invite.createdAt" />
-            </q-item-tile>
-          </q-item-main>
-          <q-item-side right>
+            </QItemTile>
+          </QItemMain>
+          <QItemSide right>
             <ProfilePicture
               :user="invite.invitedBy"
               :size="25"
             />
-          </q-item-side>
-        </q-item>
-      </q-list>
+          </QItemSide>
+        </QItem>
+      </QList>
     </template>
   </div>
 </template>

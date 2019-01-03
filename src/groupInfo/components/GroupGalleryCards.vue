@@ -1,6 +1,6 @@
 <template>
   <div>
-    <q-resize-observable
+    <QResizeObservable
       style="width: 100%"
       @resize="onResize"
     />

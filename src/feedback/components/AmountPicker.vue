@@ -3,7 +3,7 @@
     class="wrapper"
     :class="{showOverlay}"
   >
-    <q-btn
+    <QBtn
       v-if="showOverlay"
       class="absolute-center"
       style="z-index: 1"
@@ -30,7 +30,7 @@
             :amount="value"
           />
         </div>
-        <q-btn
+        <QBtn
           v-if="!showOverlay"
           round
           flat
@@ -38,12 +38,12 @@
           color="red"
           class="self-start"
         >
-          <q-icon name="fas fa-times" />
-          <q-tooltip v-t="'PICKUP_FEEDBACK.DELETE_AMOUNT'" />
-        </q-btn>
+          <QIcon name="fas fa-times" />
+          <QTooltip v-t="'PICKUP_FEEDBACK.DELETE_AMOUNT'" />
+        </QBtn>
       </div>
       <div class="row no-wrap">
-        <q-slider
+        <QSlider
           :value="limitedValue"
           @input="$emit('input', arguments[0])"
           :min="0"
@@ -54,7 +54,7 @@
         />
         <!-- don't use type="number" here because browsers might enforce different decimal setting
         depending on browser locale-->
-        <q-input
+        <QInput
           style="width: 5em; margin: 0 5px 0 2em; text-align: right"
           v-model="valueToNumber"
           align="right"

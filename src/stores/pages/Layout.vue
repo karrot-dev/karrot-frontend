@@ -1,16 +1,16 @@
 <template>
   <div v-if="store && store.status === 'archived'">
-    <q-card>
-      <k-banner
+    <QCard>
+      <KBanner
         color="info"
         icon="fas fa-trash-alt"
         :actions="isEditor ? [{ label: $t('STOREEDIT.RESTORE'), handler: restore }] : []"
       >
         {{ $t('STOREDETAIL.ARCHIVED') }}
-      </k-banner>
-    </q-card>
+      </KBanner>
+    </QCard>
   </div>
-  <router-view v-else/>
+  <RouterView v-else/>
 </template>
 
 <script>

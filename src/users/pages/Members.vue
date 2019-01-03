@@ -1,11 +1,11 @@
 <template>
-  <q-card class="no-mobile-margin no-shadow grey-border k-members">
+  <QCard class="no-mobile-margin no-shadow grey-border k-members">
     <RandomArt
       :seed="group.id"
       type="circles"
     />
     <div class="q-mx-md actionButtons">
-      <q-btn
+      <QBtn
         small
         round
         color="secondary"
@@ -13,22 +13,22 @@
         class="hoverScale"
         @click="toggleSorting"
       >
-        <q-tooltip v-t="sorting === 'joinDate' ? 'GROUP.SORT_NAME' : 'GROUP.SORT_JOINDATE'" />
-      </q-btn>
-      <router-link
+        <QTooltip v-t="sorting === 'joinDate' ? 'GROUP.SORT_NAME' : 'GROUP.SORT_JOINDATE'" />
+      </QBtn>
+      <RouterLink
         v-if="isEditor"
         :to="{name: 'groupInvitations', params: { groupId: group.id }}"
       >
-        <q-btn
+        <QBtn
           small
           round
           color="secondary"
           icon="fas fa-user-plus"
           class="hoverScale"
         >
-          <q-tooltip v-t="'GROUP.INVITE_TITLE'" />
-        </q-btn>
-      </router-link>
+          <QTooltip v-t="'GROUP.INVITE_TITLE'" />
+        </QBtn>
+      </RouterLink>
     </div>
     <UserList
       class="q-pt-sm"
@@ -37,7 +37,7 @@
       :sorting="sorting"
       @createTrust="createTrust"
     />
-  </q-card>
+  </QCard>
 </template>
 
 <script>

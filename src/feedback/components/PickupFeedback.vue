@@ -1,6 +1,6 @@
 <template>
   <div class="pickup-feedback-wrapper">
-    <q-card
+    <QCard
       v-if="pickups.length > 0 || editFeedback"
       class="no-mobile-margin no-shadow grey-border"
     >
@@ -19,15 +19,15 @@
           <div class="image-and-text-right">
             <h4>{{ $t(editFeedback ? 'PICKUP_FEEDBACK.EDIT' : 'PICKUP_FEEDBACK.HEADER') }}</h4>
             <p>
-              <q-field
+              <QField
                 v-if="!editFeedback"
                 dark
                 class="grey-font">
-                <q-select
+                <QSelect
                   v-model="select"
                   :options="feedbackOptions"
                 />
-              </q-field>
+              </QField>
               <span v-else>
                 {{ getDateWithStore(editFeedback.about) }}
               </span>
@@ -55,7 +55,7 @@
           @save="$emit('save', arguments[0])"
         />
       </div>
-    </q-card>
+    </QCard>
     <KNotice v-else>
       <template slot="icon">
         <i class="fas fa-bed"/>
@@ -65,7 +65,7 @@
         {{ $t('FEEDBACKLIST.NO_DONE_PICKUPS_HINT') }}
       </template>
     </KNotice>
-    <q-card
+    <QCard
       class="no-shadow grey-border store-feedback"
       v-if="select && feedbackForStore.length !== 0"
     >
@@ -81,7 +81,7 @@
         :feedback="feedbackForStore"
         :status="fetchStatus"
       />
-    </q-card>
+    </QCard>
   </div>
 </template>
 

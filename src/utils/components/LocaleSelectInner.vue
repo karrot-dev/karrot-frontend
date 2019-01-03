@@ -1,9 +1,9 @@
 <template>
-  <q-list
+  <QList
     v-close-overlay
     highlight
   >
-    <q-item
+    <QItem
       tag="a"
       href="https://www.transifex.com/yunity-1/karrot/dashboard/"
       target="_blank"
@@ -11,33 +11,33 @@
       class="q-pt-xs"
       style="min-height: 20px"
     >
-      <q-item-main>
-        <q-item-tile sublabel>
-          <q-icon name="fas fa-external-link-alt" />
+      <QItemMain>
+        <QItemTile sublabel>
+          <QIcon name="fas fa-external-link-alt" />
           <small>{{ $t('LANGUAGECHOOSER.ADD_MORE') }}</small>
-        </q-item-tile>
-      </q-item-main>
-    </q-item>
-    <q-item
+        </QItemTile>
+      </QItemMain>
+    </QItem>
+    <QItem
       v-for="locale in localeOptions"
       :key="locale.value"
       @click.native="setLocale(locale.value)"
       :class="{ active: locale.value === current }"
     >
-      <q-item-main>
-        <q-item-tile label>
+      <QItemMain>
+        <QItemTile label>
           {{ locale.label }}
           <small>({{ locale.percentage }}%)</small>
-        </q-item-tile>
-        <q-item-tile sublabel>
-          <q-progress
+        </QItemTile>
+        <QItemTile sublabel>
+          <QProgress
             v-if="locale.percentage < 100"
             :percentage="locale.percentage"
           />
-        </q-item-tile>
-      </q-item-main>
-    </q-item>
-  </q-list>
+        </QItemTile>
+      </QItemMain>
+    </QItem>
+  </QList>
 </template>
 
 <script>

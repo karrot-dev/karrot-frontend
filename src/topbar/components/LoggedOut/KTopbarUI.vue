@@ -1,12 +1,12 @@
 <template>
-  <q-toolbar>
-    <router-link
+  <QToolbar>
+    <RouterLink
       :to="'/'"
       class="logo"
     >
       <KarrotLogo />
-    </router-link>
-    <q-toolbar-title>
+    </RouterLink>
+    <QToolbarTitle>
       <div class="row justify-between no-wrap">
         <div/>
         <KBreadcrumb
@@ -15,27 +15,27 @@
         />
         <div/>
       </div>
-    </q-toolbar-title>
+    </QToolbarTitle>
     <div class="actions">
       <LocaleSelect />
-      <router-link :to="{ name: 'login' }">
-        <q-btn class="text-white">
+      <RouterLink :to="{ name: 'login' }">
+        <QBtn class="text-white">
           {{ $t('LOGIN.SUBMIT') }}
-        </q-btn>
-      </router-link>
-      <router-link
+        </QBtn>
+      </RouterLink>
+      <RouterLink
         v-if="!$q.platform.is.mobile"
         :to="{ name: 'signup' }"
       >
-        <q-btn
+        <QBtn
           flat
           class="text-white bg-secondary"
         >
           {{ $t('LOGIN.SIGNUP') }}
-        </q-btn>
-      </router-link>
+        </QBtn>
+      </RouterLink>
     </div>
-  </q-toolbar>
+  </QToolbar>
 </template>
 
 <script>

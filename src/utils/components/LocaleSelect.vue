@@ -1,16 +1,16 @@
 <template>
-  <q-btn
+  <QBtn
     flat
     dense
     round
     @click="open = !open"
     :title="$t('LANGUAGECHOOSER.SWITCH')"
   >
-    <q-icon
+    <QIcon
       name="fas fa-globe fa-fw"
     />
-    <component
-      :is="$q.platform.is.mobile ? 'q-modal' : 'q-popover'"
+    <Component
+      :is="$q.platform.is.mobile ? 'QModal' : 'QPopover'"
       v-model="open"
       minimized
     >
@@ -21,19 +21,19 @@
         <div class="ellipsis q-ml-md">
           {{ $t('LANGUAGECHOOSER.SWITCH') }}
         </div>
-        <q-btn
+        <QBtn
           dense
           round
           color="secondary"
           @click="open = false"
           class="q-ma-xs q-mr-sm"
         >
-          <q-icon name="fas fa-times" />
-        </q-btn>
+          <QIcon name="fas fa-times" />
+        </QBtn>
       </div>
       <LocaleSelectInner v-if="open"/>
-    </component>
-  </q-btn>
+    </Component>
+  </QBtn>
 </template>
 
 <script>

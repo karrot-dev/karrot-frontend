@@ -1,5 +1,5 @@
 <template>
-  <q-card
+  <QCard
     class="no-mobile-margin no-padding no-shadow grey-border"
   >
     <RandomArt
@@ -27,7 +27,7 @@
       :invitations="invitations"
       :status="fetchStatus"
     />
-  </q-card>
+  </QCard>
 </template>
 
 <script>

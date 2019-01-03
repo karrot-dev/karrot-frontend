@@ -3,7 +3,7 @@
     class="notice q-pa-sm"
     style="margin: 0 auto"
   >
-    <q-card
+    <QCard
       color="secondary"
       class="generic-padding card items-center q-pa-none"
       :class="$q.platform.is.mobile ? 'column' : 'row no-wrap'"
@@ -21,7 +21,7 @@
           <slot name="desc"/>
         </div>
       </div>
-    </q-card>
+    </QCard>
   </div>
 </template>
 

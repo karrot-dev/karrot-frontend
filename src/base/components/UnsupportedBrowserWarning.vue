@@ -3,7 +3,7 @@
     v-if="unsupportedBrowser"
     class="browser-warning bg-warning text-white"
   >
-    <i18n
+    <I18n
       tag="span"
       path="OUTDATED_BROWSER.MESSAGE"
     >
@@ -16,7 +16,7 @@
         translate="yes"
         v-t="'OUTDATED_BROWSER.LINK'"
       />
-    </i18n>
+    </I18n>
   </div>
 </template>
 

@@ -1,21 +1,21 @@
 <template>
-  <component
-    :is="asPage ? 'q-card' : 'div'"
+  <Component
+    :is="asPage ? 'QCard' : 'div'"
     class="bg-white relative-position"
   >
     <div
       v-if="fetchInitialPending"
       class="full-width text-center generic-padding"
     >
-      <q-spinner-dots :size="40" />
+      <QSpinnerDots :size="40" />
     </div>
     <template v-else>
-      <q-list no-border>
-        <q-item
+      <QList no-border>
+        <QItem
           v-if="conversations.length === 0"
         >
           {{ $t('CONVERSATION.NO_CONVERSATIONS') }}
-        </q-item>
+        </QItem>
         <LatestMessageItem
           v-close-overlay
           v-for="conv in conversations"
@@ -30,27 +30,27 @@
           :selected="isSelected(conv)"
           @open="open(conv)"
         />
-        <q-item
+        <QItem
           v-if="!asPopover && canFetchPastConversations"
           class="row justify-center"
         >
-          <q-btn
+          <QBtn
             size="sm"
             :loading="fetchingPastConversations"
             @click="fetchPastConversations"
           >
             {{ $t('BUTTON.SHOW_MORE') }}
-          </q-btn>
-        </q-item>
-      </q-list>
-      <q-list
+          </QBtn>
+        </QItem>
+      </QList>
+      <QList
         v-if="threads.length > 0"
         no-border
       >
-        <q-item-separator />
-        <q-list-header>
+        <QItemSeparator />
+        <QListHeader>
           {{ $t('CONVERSATION.REPLIES') }}
-        </q-list-header>
+        </QListHeader>
         <LatestMessageItem
           v-for="conv in threads"
           :key="'thread' + conv.id"
@@ -61,34 +61,34 @@
           :selected="isSelected(conv)"
           @open="openForThread(conv)"
         />
-        <q-item
+        <QItem
           v-if="!asPopover && canFetchPastThreads"
           class="row justify-center"
         >
-          <q-btn
+          <QBtn
             size="sm"
             :loading="fetchingPastThreads"
             @click="fetchPastThreads"
           >
             {{ $t('BUTTON.SHOW_MORE') }}
-          </q-btn>
-        </q-item>
+          </QBtn>
+        </QItem>
         <div
           v-if="asPopover"
           class="row justify-end q-mt-sm q-mr-sm"
         >
-          <q-btn
+          <QBtn
             v-close-overlay
             size="sm"
             color="secondary"
             :to="{ name: 'messages' }"
           >
             {{ $t('BUTTON.SHOW_MORE') }}
-          </q-btn>
+          </QBtn>
         </div>
-      </q-list>
+      </QList>
     </template>
-  </component>
+  </Component>
 </template>
 
 <script>

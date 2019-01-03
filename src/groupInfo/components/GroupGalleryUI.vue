@@ -13,22 +13,22 @@
       :class="{'expanded': expanded}"
       class="sidebar"
     >
-      <q-alert
+      <QAlert
         v-if="!isLoggedIn"
         color="warning"
         icon="star"
         class="alert"
       >
-        <i18n path="JOINGROUP.LOGOUT_MESSAGE.LOGGED_OUT">
-          <router-link
+        <I18n path="JOINGROUP.LOGOUT_MESSAGE.LOGGED_OUT">
+          <RouterLink
             place="login"
             :to="{ name: 'login' }"
             class="underline"
           >
             {{ $t('JOINGROUP.LOGOUT_MESSAGE.LOG_IN') }}
-          </router-link>
-        </i18n>
-      </q-alert>
+          </RouterLink>
+        </I18n>
+      </QAlert>
       <p
         class="text-primary header"
         v-if="!hasJoinedGroups"
@@ -37,15 +37,15 @@
       </p>
       <div class="row items-start no-wrap">
         <div class="col">
-          <q-card>
-            <q-search
+          <QCard>
+            <QSearch
               :value="search"
               @input="filterGroups"
               class="searchbar"
               hide-underline
             />
-          </q-card>
-          <q-checkbox
+          </QCard>
+          <QCheckbox
             :value="showInactive"
             @input="setShowInactive"
             :label="$t('GROUP.SHOW_INACTIVE')"
@@ -53,7 +53,7 @@
           />
         </div>
         <div style="margin-top: 4px">
-          <q-btn
+          <QBtn
             @click="expanded = !expanded"
             flat
             round
@@ -64,17 +64,17 @@
               class="fa fa-2x"
               :class="{'slightly-rotated': !expanded, 'fa-angle-down': $q.platform.is.mobile, 'fa-angle-up': !$q.platform.is.mobile}"
             />
-            <q-tooltip>
+            <QTooltip>
               {{ $t(expanded ? 'BUTTON.HIDE' : 'BUTTON.SHOW') }}
-            </q-tooltip>
-          </q-btn>
+            </QTooltip>
+          </QBtn>
         </div>
       </div>
       <div
         v-if="isPending"
         class="full-width text-center generic-padding"
       >
-        <q-spinner-dots :size="40" />
+        <QSpinnerDots :size="40" />
       </div>
       <GroupGalleryCard
         v-if="showPlaygroundGroupAtTop"

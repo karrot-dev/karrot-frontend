@@ -5,7 +5,7 @@
     :expandable="!$q.platform.is.mobile"
   >
     <template slot="icon">
-      <q-icon name="fas fa-fw fa-home" />
+      <QIcon name="fas fa-fw fa-home" />
     </template>
     <template slot="name">
       {{ $t('GROUP.HOME') }}
@@ -14,109 +14,109 @@
       slot="tools"
       class="tools"
     >
-      <q-chip
+      <QChip
         v-if="!expanded && wallUnreadCount > 0"
         small
         color="secondary"
       >
         {{ cappedWallUnreadCount }}
-      </q-chip>
-      <q-btn
+      </QChip>
+      <QBtn
         flat
         dense
         round
         :to="{ name: 'groupSettings', params: { groupId } }"
       >
-        <q-icon name="fas fa-cog fa-fw" />
-        <q-tooltip v-t="'GROUP.SETTINGS'" />
-      </q-btn>
-      <q-btn
+        <QIcon name="fas fa-cog fa-fw" />
+        <QTooltip v-t="'GROUP.SETTINGS'" />
+      </QBtn>
+      <QBtn
         flat
         dense
         round
       >
-        <q-icon name="fas fa-fw fa-ellipsis-v" />
+        <QIcon name="fas fa-fw fa-ellipsis-v" />
         <GroupOptions/>
-      </q-btn>
+      </QBtn>
     </div>
 
     <div>
-      <q-list
+      <QList
         highlight
         no-border
         class="no-padding"
       >
-        <q-item :to="{ name: 'group', params: { groupId } }">
-          <q-item-side class="text-center">
-            <q-icon name="fas fa-bullhorn" />
-          </q-item-side>
-          <q-item-main>
+        <QItem :to="{ name: 'group', params: { groupId } }">
+          <QItemSide class="text-center">
+            <QIcon name="fas fa-bullhorn" />
+          </QItemSide>
+          <QItemMain>
             {{ $t("GROUP.WALL") }}
-          </q-item-main>
-          <q-item-side
+          </QItemMain>
+          <QItemSide
             v-if="wallUnreadCount > 0"
             right
           >
-            <q-chip
+            <QChip
               small
               color="secondary"
             >
               {{ cappedWallUnreadCount }}
-            </q-chip>
-          </q-item-side>
-        </q-item>
-        <q-item :to="{ name: 'groupPickups', params: { groupId } }">
-          <q-item-side class="text-center">
-            <q-icon name="fas fa-shopping-basket" />
-          </q-item-side>
-          <q-item-main>
+            </QChip>
+          </QItemSide>
+        </QItem>
+        <QItem :to="{ name: 'groupPickups', params: { groupId } }">
+          <QItemSide class="text-center">
+            <QIcon name="fas fa-shopping-basket" />
+          </QItemSide>
+          <QItemMain>
             {{ $t("GROUP.PICKUPS") }}
-          </q-item-main>
-        </q-item>
-        <q-item :to="{ name: 'groupFeedback', params: { groupId } }">
-          <q-item-side class="text-center">
-            <q-icon name="fas fa-balance-scale" />
-          </q-item-side>
-          <q-item-main>
+          </QItemMain>
+        </QItem>
+        <QItem :to="{ name: 'groupFeedback', params: { groupId } }">
+          <QItemSide class="text-center">
+            <QIcon name="fas fa-balance-scale" />
+          </QItemSide>
+          <QItemMain>
             {{ $t("PICKUP_FEEDBACK.TITLE") }}
-          </q-item-main>
-        </q-item>
-        <q-item :to="{ name: 'groupDescription', params: { groupId } }">
-          <q-item-side class="text-center">
+          </QItemMain>
+        </QItem>
+        <QItem :to="{ name: 'groupDescription', params: { groupId } }">
+          <QItemSide class="text-center">
             <i class="far fa-address-card"/>
-          </q-item-side>
-          <q-item-main>
+          </QItemSide>
+          <QItemMain>
             {{ $t("GROUP.DESCRIPTION") }}
-          </q-item-main>
-        </q-item>
-        <q-item :to="{ name: 'groupMembers', params: { groupId } }">
-          <q-item-side class="text-center">
-            <q-icon name="fas fa-users" />
-          </q-item-side>
-          <q-item-main>
+          </QItemMain>
+        </QItem>
+        <QItem :to="{ name: 'groupMembers', params: { groupId } }">
+          <QItemSide class="text-center">
+            <QIcon name="fas fa-users" />
+          </QItemSide>
+          <QItemMain>
             {{ $t("GROUP.MEMBERS") }}
-          </q-item-main>
-        </q-item>
-        <q-item :to="{ name: 'groupHistory', params: { groupId } }">
-          <q-item-side class="text-center">
+          </QItemMain>
+        </QItem>
+        <QItem :to="{ name: 'groupHistory', params: { groupId } }">
+          <QItemSide class="text-center">
             <i class="far fa-clock"/>
-          </q-item-side>
-          <q-item-main>
+          </QItemSide>
+          <QItemMain>
             {{ $t("GROUP.HISTORY") }}
-          </q-item-main>
-        </q-item>
-        <q-item
+          </QItemMain>
+        </QItem>
+        <QItem
           v-if="$q.platform.is.mobile"
           :to="{ name: 'map', params: { groupId } }"
         >
-          <q-item-side class="text-center">
-            <q-icon name="fas fa-map" />
-          </q-item-side>
-          <q-item-main>
+          <QItemSide class="text-center">
+            <QIcon name="fas fa-map" />
+          </QItemSide>
+          <QItemMain>
             {{ $t('GROUPMAP.TITLE') }}
-          </q-item-main>
-        </q-item>
-      </q-list>
+          </QItemMain>
+        </QItem>
+      </QList>
     </div>
   </SidenavBox>
 </template>

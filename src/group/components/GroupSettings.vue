@@ -1,5 +1,5 @@
 <template>
-  <q-card
+  <QCard
     class="no-mobile-margin no-shadow grey-border"
   >
     <RandomArt
@@ -7,27 +7,27 @@
       type="circles">
       <div class="art-overlay"/>
     </RandomArt>
-    <q-list link>
-      <q-list-header>{{ $t('GROUP.EMAIL_NOTIFICATIONS') }}</q-list-header>
+    <QList link>
+      <QListHeader>{{ $t('GROUP.EMAIL_NOTIFICATIONS') }}</QListHeader>
       <VerificationWarning class="generic-margin" />
-      <q-item
+      <QItem
         tag="label"
         v-for="type in availableNotificationTypes"
         :key="type"
       >
-        <q-item-side>
-          <q-checkbox
+        <QItemSide>
+          <QCheckbox
             :value="notificationIsEnabled(type)"
             @input="change(type, arguments[0])"
           />
-        </q-item-side>
-        <q-item-main>
-          <q-item-tile label>{{ $t('GROUP.NOTIFICATION_TYPES.' + type + '.NAME') }}</q-item-tile>
-          <q-item-tile sublabel>{{ $t('GROUP.NOTIFICATION_TYPES.' + type + '.DESCRIPTION') }}</q-item-tile>
-        </q-item-main>
-      </q-item>
-    </q-list>
-  </q-card>
+        </QItemSide>
+        <QItemMain>
+          <QItemTile label>{{ $t('GROUP.NOTIFICATION_TYPES.' + type + '.NAME') }}</QItemTile>
+          <QItemTile sublabel>{{ $t('GROUP.NOTIFICATION_TYPES.' + type + '.DESCRIPTION') }}</QItemTile>
+        </QItemMain>
+      </QItem>
+    </QList>
+  </QCard>
 </template>
 
 <script>

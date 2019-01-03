@@ -1,5 +1,5 @@
 <template>
-  <q-btn
+  <QBtn
     round
     :size="small ? 'sm' : null"
     :color="isEditor ? 'primary' : 'white'"
@@ -13,14 +13,14 @@
       class="circle-progress"
       :value="trustProgress"
     />
-    <q-chip
+    <QChip
       floating
       :style="small && 'top: 5px; right: -12px'"
       :color="trusted || user.isCurrentUser ? 'positive' : 'negative'"
     >
       {{ trustedBy.length }}
-    </q-chip>
-    <q-dialog
+    </QChip>
+    <QDialog
       v-model="showing"
       minimized
     >
@@ -47,12 +47,12 @@
         slot="buttons"
         slot-scope="props"
       >
-        <q-btn
+        <QBtn
           flat
           :label="$t('BUTTON.CLOSE')"
           @click="props.cancel"
         />
-        <q-btn
+        <QBtn
           v-if="!trusted && !user.isCurrentUser"
           color="secondary"
           :loading="membership.trustUserStatus.pending"
@@ -63,10 +63,10 @@
             src="./twemoji-carrot.png"
             width="20px"
           >
-        </q-btn>
+        </QBtn>
       </template>
-    </q-dialog>
-  </q-btn>
+    </QDialog>
+  </QBtn>
 </template>
 
 <script>

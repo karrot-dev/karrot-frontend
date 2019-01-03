@@ -3,10 +3,10 @@
     v-if="conversation"
     class="DetailHeader"
   >
-    <q-toolbar
+    <QToolbar
       color="secondary"
     >
-      <q-toolbar-title
+      <QToolbarTitle
         v-if="pickup"
       >
         <span
@@ -16,27 +16,27 @@
         <strong>{{ $d(pickup.date, 'weekdayHourMinute') }}</strong>
         <span slot="subtitle">
           <strong v-if="pickup.store">
-            <router-link :to="{ name: 'store', params: { groupId: pickup.group.id, storeId: pickup.store.id }}">
+            <RouterLink :to="{ name: 'store', params: { groupId: pickup.group.id, storeId: pickup.store.id }}">
               {{ pickup.store.name }}
-            </router-link>
+            </RouterLink>
           </strong>
           {{ $d(pickup.date, 'yearMonthDay') }}
         </span>
-      </q-toolbar-title>
+      </QToolbarTitle>
       <template v-else-if="user">
         <ProfilePicture
           :user="conversationPartner"
           :size="$q.platform.is.mobile ? 25 : 40"
         />
-        <q-toolbar-title>
+        <QToolbarTitle>
           {{ user.displayName }}
-        </q-toolbar-title>
+        </QToolbarTitle>
       </template>
       <template v-else-if="conversation.thread">
-        <q-icon name="fas fw-fw fa-comments" />
-        <q-toolbar-title>
+        <QIcon name="fas fw-fw fa-comments" />
+        <QToolbarTitle>
           {{ $t('CONVERSATION.REPLIES') }}
-        </q-toolbar-title>
+        </QToolbarTitle>
       </template>
       <template v-else-if="application">
         <ProfilePicture
@@ -44,37 +44,37 @@
           :user="application.user"
           :size="$q.platform.is.mobile ? 25 : 40"
         />
-        <q-toolbar-title>
-          <router-link :to="applicationLink">
+        <QToolbarTitle>
+          <RouterLink :to="applicationLink">
             <span v-t="'APPLICATION.APPLICATION'" />
-          </router-link>
+          </RouterLink>
           <span slot="subtitle">
             {{ application.user.isCurrentUser ? application.group.name : application.user.displayName }}
           </span>
           <small>
-            <q-icon
+            <QIcon
               v-if="application.status === 'accepted'"
               name="fas fa-fw fa-check"
               :title="$t('GROUP.ADDED_BY', { userName: application.decidedBy.displayName })"
             />
-            <q-icon
+            <QIcon
               v-else-if="application.status === 'pending'"
               name="fas fa-fw fa-hourglass-half"
               :title="application.user.isCurrentUser && $t('JOINGROUP.APPLICATION_PENDING')"
             />
-            <q-icon
+            <QIcon
               v-else-if="application.status === 'declined'"
               name="fas fa-fw fa-times"
               :title="$t('GROUP.DECLINED_BY', { userName: application.decidedBy.displayName })"
             />
-            <q-icon
+            <QIcon
               v-else-if="application.status === 'withdrawn'"
               name="fas fa-fw fa-trash-alt"
               :title="$t('APPLICATION.WITHDRAWN', { relativeDate: dateInWords(application.decidedAt) })"
             />
           </small>
-        </q-toolbar-title>
-        <q-btn
+        </QToolbarTitle>
+        <QBtn
           flat
           round
           dense
@@ -90,7 +90,7 @@
         @click="toggleNotifications"
         :size="$q.platform.is.mobile ? 'sm' : 'md'"
       />
-      <q-btn
+      <QBtn
         v-if="!$q.platform.is.mobile"
         flat
         round
@@ -99,7 +99,7 @@
         @click="$emit('close')"
         :title="$t('BUTTON.CLOSE')"
       />
-    </q-toolbar>
+    </QToolbar>
     <div
       v-if="pickup || conversation.thread"
       class="k-participant-list row"

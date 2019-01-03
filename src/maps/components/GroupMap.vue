@@ -12,24 +12,24 @@
       :force-zoom="forceZoom"
       @mapMoveEnd="mapMoveEnd"
     >
-      <q-list
+      <QList
         v-if="currentGroup.membership.isEditor"
         slot="contextmenu"
         slot-scope="{ latLng }"
         highlight
         dense
       >
-        <q-item
+        <QItem
           :to="{name: 'storeCreate', query: latLng}"
         >
-          <q-item-side
+          <QItemSide
             icon="add circle"
           />
-          <q-item-main
+          <QItemMain
             :label="$t('CREATESTORE.TITLE')"
           />
-        </q-item>
-      </q-list>
+        </QItem>
+      </QList>
     </StandardMap>
     <GroupMapControls
       v-if="controls !== 'none'"
@@ -47,28 +47,28 @@
       v-if="showOverlay"
       class="overlay row justify-center items-center"
     >
-      <q-btn
+      <QBtn
         v-if="showUserLocationPrompt"
         color="primary"
         :to="{ name: 'settings', params: { userId: selectedUser.id } }"
       >
         {{ $t('GROUPMAP.SET_LOCATION') }}
-      </q-btn>
+      </QBtn>
       <template v-else-if="currentGroup.membership.isEditor">
-        <q-btn
+        <QBtn
           v-if="showStoreLocationPrompt"
           color="primary"
           :to="{ name: 'storeEdit', params: { groupId: currentGroup.id, storeId: selectedStore && selectedStore.id } }"
         >
           {{ $t('GROUPMAP.SET_LOCATION') }}
-        </q-btn>
-        <q-btn
+        </QBtn>
+        <QBtn
           v-else-if="showGroupLocationPrompt"
           color="primary"
           :to="{ name: 'groupEdit', params: { groupId: currentGroup.id } }"
         >
           {{ $t('GROUPMAP.SET_LOCATION') }}
-        </q-btn>
+        </QBtn>
       </template>
     </div>
   </div>

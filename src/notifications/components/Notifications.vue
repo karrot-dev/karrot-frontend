@@ -1,14 +1,14 @@
 <template>
-  <component
-    :is="asPage ? 'q-card' : 'div'"
+  <Component
+    :is="asPage ? 'QCard' : 'div'"
     class="bg-white"
   >
-    <q-list no-border>
-      <q-item
+    <QList no-border>
+      <QItem
         v-if="notifications.length === 0"
       >
         {{ $t('NOTIFICATION_BELLS_LIST.NO_ITEMS') }}
-      </q-item>
+      </QItem>
       <NotificationItem
         v-close-overlay
         v-for="notification in notifications"
@@ -20,29 +20,29 @@
         v-if="asPopover"
         class="row justify-end q-mt-sm q-mr-sm"
       >
-        <q-btn
+        <QBtn
           v-close-overlay
           size="sm"
           color="secondary"
           :to="{ name: 'notifications' }"
         >
           {{ $t('BUTTON.SHOW_MORE') }}
-        </q-btn>
+        </QBtn>
       </div>
-      <q-item
+      <QItem
         v-if="!asPopover && canFetchPast"
         class="row justify-center"
       >
-        <q-btn
+        <QBtn
           size="sm"
           :loading="fetchingPast"
           @click="fetchPast"
         >
           {{ $t('BUTTON.SHOW_MORE') }}
-        </q-btn>
-      </q-item>
-    </q-list>
-  </component>
+        </QBtn>
+      </QItem>
+    </QList>
+  </Component>
 </template>
 
 <script>

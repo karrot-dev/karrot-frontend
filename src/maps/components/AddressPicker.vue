@@ -1,15 +1,15 @@
 <template>
   <div>
-    <q-search
+    <QSearch
       v-model="value.address"
       :placeholder="$t('BUTTON.SEARCH')"
     >
-      <q-autocomplete
+      <QAutocomplete
         @search="autocompleteSearch"
         @selected="autocompleteSelected"
       />
-    </q-search>
-    <standard-map
+    </QSearch>
+    <StandardMap
       class="map"
       :markers="marker ? [marker] : []"
       :prevent-zoom="preventZoom"

@@ -1,12 +1,12 @@
 <template>
   <div v-if="group">
-    <q-card class="shadow-6">
-      <q-card-title
+    <QCard class="shadow-6">
+      <QCardTitle
         :class="group.isPlayground ? 'text-secondary' : ''"
       >
         <span class="row group items-start">
           {{ group.name }}
-          <q-icon
+          <QIcon
             v-if="group.isPlayground"
             name="fas fa-child"
             color="secondary"
@@ -15,8 +15,8 @@
         <span slot="subtitle">
           {{ group.members.length }} {{ $tc('JOINGROUP.NUM_MEMBERS', group.members.length) }}
         </span>
-      </q-card-title>
-      <q-card-main>
+      </QCardTitle>
+      <QCardMain>
         <div
           v-if="group.publicDescription"
           class="quote"
@@ -29,20 +29,20 @@
         >
           {{ $t('JOINGROUP.NO_PUBLIC_DESCRIPTION') }}
         </span>
-      </q-card-main>
-      <q-card-separator />
-      <q-card-actions>
+      </QCardMain>
+      <QCardSeparator />
+      <QCardActions>
         <div style="width: 100%">
           <template v-if="isLoggedIn">
             <template v-if="!group.isMember">
-              <q-alert
+              <QAlert
                 v-if="!application"
                 color="info"
                 icon="info"
               >
                 {{ $t('JOINGROUP.PROFILE_NOTE' ) }}
-              </q-alert>
-              <q-alert
+              </QAlert>
+              <QAlert
                 v-if="application"
                 color="blue"
                 icon="info"
@@ -52,8 +52,8 @@
                 ]"
               >
                 {{ $t('JOINGROUP.APPLICATION_PENDING' ) }}
-              </q-alert>
-              <q-btn
+              </QAlert>
+              <QBtn
                 v-if="group.isOpen"
                 @click="$emit('join', group.id)"
                 color="secondary"
@@ -61,9 +61,9 @@
                 :loading="isPending"
               >
                 {{ $t('BUTTON.JOIN') }}
-              </q-btn>
+              </QBtn>
 
-              <q-btn
+              <QBtn
                 v-if="!group.isOpen && user && !user.mailVerified"
                 @click="$emit('goSettings')"
                 color="secondary"
@@ -71,8 +71,8 @@
                 :loading="isPending"
               >
                 {{ $t('JOINGROUP.VERIFY_EMAIL_ADDRESS') }}
-              </q-btn>
-              <q-btn
+              </QBtn>
+              <QBtn
                 v-if="!group.isOpen && user && user.mailVerified && !application"
                 @click="$emit('goApply', group.id)"
                 color="secondary"
@@ -80,22 +80,22 @@
                 :loading="isPending"
               >
                 {{ $t('BUTTON.APPLY') }}
-              </q-btn>
+              </QBtn>
 
             </template>
-            <q-btn
+            <QBtn
               v-else
               @click="$emit('goVisit', group.id)"
               class="q-btn-flat"
             >
-              <q-icon name="fas fa-home" />
-              <q-tooltip>
+              <QIcon name="fas fa-home" />
+              <QTooltip>
                 {{ $t('GROUPINFO.MEMBER_VIEW') }}
-              </q-tooltip>
-            </q-btn>
+              </QTooltip>
+            </QBtn>
           </template>
 
-          <q-btn
+          <QBtn
             v-else
             @click="$emit('goSignup', group)"
             color="secondary"
@@ -103,10 +103,10 @@
             :loading="isPending"
           >
             {{ $t('JOINGROUP.SIGNUP_OR_LOGIN') }}
-          </q-btn>
+          </QBtn>
         </div>
-      </q-card-actions>
-    </q-card>
+      </QCardActions>
+    </QCard>
   </div>
 </template>
 

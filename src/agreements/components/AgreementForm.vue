@@ -4,73 +4,73 @@
     :class="{ changed: hasChanged }"
   >
     <form @submit.prevent="maybeSave">
-      <q-field
+      <QField
         icon="fas fa-star"
         :label="$t('AGREEMENT.TITLE')"
         :helper="$t('AGREEMENT.TITLE_HELPER')">
-        <q-input
+        <QInput
           v-model="edit.title"
           :autofocus="true"
           @blur="$v.edit.title.$touch"
           autocomplete="off"
         />
-      </q-field>
+      </QField>
 
-      <q-field
+      <QField
         icon="fas fa-file-alt"
         :label="$t('AGREEMENT.CONTENT')"
         :helper="$t('AGREEMENT.CONTENT_HELPER')">
-        <q-input
+        <QInput
           v-model="edit.content"
           @blur="$v.edit.content.$touch"
           type="textarea"
           rows="20"
           @keyup.ctrl.enter="maybeSave"
         />
-      </q-field>
+      </QField>
 
-      <q-btn
+      <QBtn
         type="submit"
         color="primary"
         :disable="!canSave"
       >
         {{ $t(isNew ? 'BUTTON.CREATE' : 'BUTTON.SAVE_CHANGES') }}
-      </q-btn>
+      </QBtn>
 
-      <q-checkbox
+      <QCheckbox
         v-if="!isNew"
         class="minor"
         v-model="minor"
         :label="$t('AGREEMENT.MINOR_EDIT')"
       >
-        <q-tooltip>{{ $t('AGREEMENT.MINOR_EDIT_HELPER') }}</q-tooltip>
-      </q-checkbox>
+        <QTooltip>{{ $t('AGREEMENT.MINOR_EDIT_HELPER') }}</QTooltip>
+      </QCheckbox>
 
-      <q-btn
+      <QBtn
         type="button"
         @click="reset"
         v-if="!isNew"
         :disable="!hasChanged"
       >
         {{ $t('BUTTON.RESET') }}
-      </q-btn>
+      </QBtn>
 
-      <q-btn
+      <QBtn
         type="button"
         @click="$emit('cancel')"
         v-if="isNew"
       >
         {{ $t('BUTTON.CANCEL') }}
-      </q-btn>
+      </QBtn>
 
-      <q-btn
+      <QBtn
         type="button"
         color="red"
         @click="maybeDestroy"
         v-if="!isNew"
       >
         {{ $t('BUTTON.REMOVE') }}
-      </q-btn>
+      </QBtn>
     </form>
   </div>
 </template>

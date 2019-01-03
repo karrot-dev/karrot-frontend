@@ -1,63 +1,63 @@
 <template>
-  <q-item
+  <QItem
     v-if="!editMode"
     multiline
     :class="{ isUnread: message.isUnread, slim }"
     class="conversation-message relative-position"
     highlight
   >
-    <q-btn-group
+    <QBtnGroup
       flat
       class="hover-button k-message-controls"
     >
-      <q-btn
+      <QBtn
         v-if="message.isEditable"
         flat
         @click="toggleEdit"
       >
         <i class="fas fa-pencil-alt" />
-        <q-tooltip v-t="'BUTTON.EDIT'" />
-      </q-btn>
-      <q-btn
+        <QTooltip v-t="'BUTTON.EDIT'" />
+      </QBtn>
+      <QBtn
         v-if="!slim"
         flat
         @click="$emit('openThread')"
       >
         <i class="fas fa-comments" />
-        <q-tooltip v-t="'CONVERSATION.REPLIES'" />
-      </q-btn>
+        <QTooltip v-t="'CONVERSATION.REPLIES'" />
+      </QBtn>
       <ConversationAddReaction
         :reacted="currentUserReactions"
         @toggle="toggleReaction"
       />
-    </q-btn-group>
-    <q-item-side v-if="!slim">
+    </QBtnGroup>
+    <QItemSide v-if="!slim">
       <ProfilePicture
         :user="message.author"
         :size="$q.platform.is.mobile ? 30 : 40"
         style="margin-top: 6px"
       />
-    </q-item-side>
-    <q-item-main>
-      <q-item-tile
+    </QItemSide>
+    <QItemMain>
+      <QItemTile
         class="no-wrap k-message-meta"
       >
-        <router-link :to="{ name: 'user', params: { userId: message.author.id } }">
+        <RouterLink :to="{ name: 'user', params: { userId: message.author.id } }">
           <span class="k-message-author text-bold text-secondary uppercase">{{ message.author.displayName }}</span>
-        </router-link>
+        </RouterLink>
         <span class="message-date">
           <small class="text-weight-light">
             <DateAsWords :date="message.createdAt" />
           </small>
         </span>
-        <q-icon
+        <QIcon
           v-if="message.receivedVia === 'email'"
           name="far fa-envelope"
           class="email-icon"
         >
-          <q-tooltip v-t="'WALL.RECEIVED_VIA_EMAIL'" />
-        </q-icon>
-      </q-item-tile>
+          <QTooltip v-t="'WALL.RECEIVED_VIA_EMAIL'" />
+        </QIcon>
+      </QItemTile>
       <div class="content">
         <Markdown :source="message.content" />
       </div>
@@ -80,7 +80,7 @@
         @toggle="toggleReaction"
         style="margin-top: 8px; display: block"
       />
-      <q-btn
+      <QBtn
         v-if="showReplies"
         :outline="message.threadMeta.unreadReplyCount < 1"
         :color="message.threadMeta.unreadReplyCount > 0 ? 'secondary' : null"
@@ -105,9 +105,9 @@
             },
           }"
         />
-      </q-btn>
-    </q-item-main>
-  </q-item>
+      </QBtn>
+    </QItemMain>
+  </QItem>
   <ConversationCompose
     v-else
     :status="message.saveStatus"

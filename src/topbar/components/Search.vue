@@ -1,6 +1,6 @@
 <template>
   <div class="wrapper">
-    <q-search
+    <QSearch
       :autofocus="true"
       separator
       class="lightgrey"
@@ -12,11 +12,11 @@
       @clear="clear"
       @keyup.esc="clear"
     >
-      <q-autocomplete
+      <QAutocomplete
         @search="search"
         @selected="selected"
       />
-    </q-search>
+    </QSearch>
   </div>
 </template>
 

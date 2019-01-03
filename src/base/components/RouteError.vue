@@ -11,7 +11,7 @@
         </p>
       </slot>
       <p class="text-center group">
-        <q-btn
+        <QBtn
           v-if="canGoBack"
           color="secondary"
           push
@@ -19,15 +19,15 @@
           icon="keyboard_arrow_left"
         >
           {{ $t('BUTTON.BACK') }}
-        </q-btn>
-        <q-btn
+        </QBtn>
+        <QBtn
           color="secondary"
           push
           @click="$router.replace('/')"
           icon-right="fas fa-home"
         >
           {{ $t('NOT_FOUND.HOME') }}
-        </q-btn>
+        </QBtn>
       </p>
     </div>
   </div>

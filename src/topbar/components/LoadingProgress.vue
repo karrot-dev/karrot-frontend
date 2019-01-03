@@ -1,5 +1,5 @@
 <template>
-  <q-progress
+  <QProgress
     v-if="loading || closing"
     indeterminate
     animate

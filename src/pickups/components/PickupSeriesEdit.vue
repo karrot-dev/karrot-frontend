@@ -4,11 +4,11 @@
     :class="{ changed: hasChanged }"
   >
     <form @submit.prevent="maybeSave">
-      <q-field
+      <QField
         icon="fas fa-redo"
         :label="$t('CREATEPICKUP.FREQUENCY')"
       >
-        <q-option-group
+        <QOptionGroup
           type="radio"
           v-model="edit.rule.isCustom"
           :options="[
@@ -16,67 +16,67 @@
             { label: $t('CREATEPICKUP.CUSTOM'), value: true },
           ]"
         />
-      </q-field>
+      </QField>
 
       <div v-if="!edit.rule.isCustom">
-        <q-field
+        <QField
           icon="access time"
           :label="$t('CREATEPICKUP.TIME')"
           :helper="$t('CREATEPICKUP.TIME_HELPER')"
           :error="hasError('startDate')"
           :error-label="firstError('startDate')"
         >
-          <q-datetime
+          <QDatetime
             type="time"
             v-model="edit.startDate"
             :format24h="is24h"
             :display-value="$d(edit.startDate, 'hourMinute')"
           />
-        </q-field>
-        <q-field
+        </QField>
+        <QField
           icon="today"
           :label="$t('CREATEPICKUP.WEEKDAYS')"
           :helper="$t('CREATEPICKUP.WEEKDAYS_HELPER')"
           :error="hasError('rule')"
           :error-label="firstError('rule')"
         >
-          <q-select
+          <QSelect
             multiple
             toggle
             v-model="byDay"
             :options="dayOptions"
           />
-        </q-field>
+        </QField>
       </div>
 
       <div v-else>
-        <q-field
+        <QField
           icon="access time"
           :label="$t('CREATEPICKUP.STARTDATE')"
           :helper="$t('CREATEPICKUP.STARTDATE_HELPER')"
           :error="hasError('startDate')"
           :error-label="firstError('startDate')"
         >
-          <q-datetime
+          <QDatetime
             type="datetime"
             v-model="edit.startDate"
             :format24h="is24h"
             :display-value="$d(edit.startDate, 'long')"
           />
-        </q-field>
-        <q-field
+        </QField>
+        <QField
           icon="code"
           :label="$t('CREATEPICKUP.RRULE')"
           :error="hasError('rule')"
           :error-label="firstError('rule')"
         >
-          <q-input
+          <QInput
             v-model="edit.rule.custom"
             type="textarea"
             @keyup.ctrl.enter="maybeSave"
           />
           <div class="q-field-bottom">
-            <i18n path="CREATEPICKUP.RRULE_HELPER">
+            <I18n path="CREATEPICKUP.RRULE_HELPER">
               <a
                 place="ruleHelper"
                 href="https://www.kanzaki.com/docs/ical/rrule.html"
@@ -101,24 +101,24 @@
                 style="text-decoration: underline"
                 v-t="'CREATEPICKUP.RRULE_EXAMPLE2'"
               />
-            </i18n>
+            </I18n>
           </div>
-        </q-field>
+        </QField>
       </div>
 
-      <q-field
+      <QField
         icon="group"
         :label="$t('CREATEPICKUP.MAX_COLLECTORS')"
         :helper="$t('CREATEPICKUP.MAX_COLLECTORS_HELPER')"
         :error="hasError('maxCollectors')"
         :error-label="firstError('maxCollectors')"
       >
-        <q-input
+        <QInput
           v-model="edit.maxCollectors"
           type="number"
           :placeholder="$t('CREATEPICKUP.UNLIMITED')"
         />
-        <q-slider
+        <QSlider
           v-if="edit.maxCollectors > 0 && edit.maxCollectors <= 10"
           v-model="edit.maxCollectors"
           :min="1"
@@ -126,22 +126,22 @@
           label
           label-always
         />
-      </q-field>
+      </QField>
 
-      <q-field
+      <QField
         icon="info"
         :label="$t('CREATEPICKUP.COMMENT')"
         :helper="$t('CREATEPICKUP.COMMENT_HELPER')"
         :error="hasError('description')"
         :error-label="firstError('description')"
       >
-        <q-input
+        <QInput
           v-model="edit.description"
           type="textarea"
           max-length="500"
           @keyup.ctrl.enter="maybeSave"
         />
-      </q-field>
+      </QField>
 
       <div
         v-if="hasNonFieldError"
@@ -151,36 +151,36 @@
       </div>
 
       <div class="actionButtons">
-        <q-btn
+        <QBtn
           type="submit"
           color="primary"
           :disable="!canSave"
           :loading="isPending"
         >
           {{ $t(isNew ? 'BUTTON.CREATE' : 'BUTTON.SAVE_CHANGES') }}
-        </q-btn>
-        <q-btn
+        </QBtn>
+        <QBtn
           type="button"
           @click="$emit('cancel')"
           v-if="isNew"
         >
           {{ $t('BUTTON.CANCEL') }}
-        </q-btn>
-        <q-btn
+        </QBtn>
+        <QBtn
           type="button"
           color="red"
           @click="destroy"
           v-if="!isNew"
         >
           {{ $t('BUTTON.DELETE') }}
-        </q-btn>
-        <q-btn
+        </QBtn>
+        <QBtn
           type="button"
           @click="reset"
           :disable="!hasChanged"
         >
           {{ $t('BUTTON.RESET') }}
-        </q-btn>
+        </QBtn>
       </div>
     </form>
   </div>

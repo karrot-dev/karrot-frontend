@@ -1,6 +1,6 @@
 <template>
-  <q-toolbar v-if="$q.platform.is.mobile">
-    <q-toolbar-title>{{ currentGroup && currentGroup.name }}</q-toolbar-title>
+  <QToolbar v-if="$q.platform.is.mobile">
+    <QToolbarTitle>{{ currentGroup && currentGroup.name }}</QToolbarTitle>
     <CommunityFeed
       @click.native="$emit('click')"
     />
@@ -13,7 +13,7 @@
       @click="$emit('click')"
     />
     <LocaleSelect />
-    <q-btn
+    <QBtn
       flat
       dense
       round
@@ -21,10 +21,10 @@
       :title="$t('TOPBAR.CHANGE_GROUP')"
       @click.native="$emit('click')"
     >
-      <q-icon name="fas fa-exchange-alt" />
-      <q-tooltip v-t="'TOPBAR.CHANGE_GROUP'" />
-    </q-btn>
-  </q-toolbar>
+      <QIcon name="fas fa-exchange-alt" />
+      <QTooltip v-t="'TOPBAR.CHANGE_GROUP'" />
+    </QBtn>
+  </QToolbar>
 </template>
 
 <script>

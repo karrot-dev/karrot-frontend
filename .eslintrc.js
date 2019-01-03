@@ -43,7 +43,6 @@ module.exports = {
     }],
     // all below: temporarily disabled
     // TODO fixup our codebase
-    'vue/component-name-in-template-casing': 'off',
     'vue/return-in-computed-property': 'off',
     'vue/no-unused-components': 'off',
     'vue/require-prop-type-constructor': 'off',

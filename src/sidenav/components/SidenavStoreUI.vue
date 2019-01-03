@@ -6,7 +6,7 @@
     :expandable="!$q.platform.is.mobile"
   >
     <template slot="icon">
-      <q-icon name="fas fa-fw fa-shopping-cart" />
+      <QIcon name="fas fa-fw fa-shopping-cart" />
     </template>
     <template slot="name">
       {{ $t('GROUP.CURRENT_STORE') }}
@@ -15,47 +15,47 @@
       slot="tools"
       class="tools"
     >
-      <q-btn
+      <QBtn
         v-if="isEditor"
         flat
         dense
         round
       >
-        <q-icon name="fas fa-fw fa-ellipsis-v" />
+        <QIcon name="fas fa-fw fa-ellipsis-v" />
         <StoreOptions/>
-      </q-btn>
+      </QBtn>
     </div>
 
-    <q-list
+    <QList
       highlight
       no-border
       class="no-padding"
     >
-      <q-item :to="{name: 'storePickups', params: { storeId }}">
-        <q-item-side class="text-center">
-          <q-icon name="fas fa-shopping-basket" />
-        </q-item-side>
-        <q-item-main>
+      <QItem :to="{name: 'storePickups', params: { storeId }}">
+        <QItemSide class="text-center">
+          <QIcon name="fas fa-shopping-basket" />
+        </QItemSide>
+        <QItemMain>
           {{ $t("GROUP.PICKUPS") }}
-        </q-item-main>
-      </q-item>
-      <q-item :to="{name: 'storeFeedback', params: { storeId }}">
-        <q-item-side class="text-center">
-          <q-icon name="fas fa-balance-scale" />
-        </q-item-side>
-        <q-item-main>
+        </QItemMain>
+      </QItem>
+      <QItem :to="{name: 'storeFeedback', params: { storeId }}">
+        <QItemSide class="text-center">
+          <QIcon name="fas fa-balance-scale" />
+        </QItemSide>
+        <QItemMain>
           {{ $t("PICKUP_FEEDBACK.TITLE") }}
-        </q-item-main>
-      </q-item>
-      <q-item :to="{name: 'storeHistory', params: { storeId }}">
-        <q-item-side class="text-center">
+        </QItemMain>
+      </QItem>
+      <QItem :to="{name: 'storeHistory', params: { storeId }}">
+        <QItemSide class="text-center">
           <i class="far fa-clock"/>
-        </q-item-side>
-        <q-item-main>
+        </QItemSide>
+        <QItemMain>
           {{ $t("GROUP.HISTORY") }}
-        </q-item-main>
-      </q-item>
-    </q-list>
+        </QItemMain>
+      </QItem>
+    </QList>
 
   </SidenavBox>
 </template>

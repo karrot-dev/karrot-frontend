@@ -1,5 +1,5 @@
 <template>
-  <q-btn
+  <QBtn
     icon="fab fa-discourse fa-fw"
     :title="$t('COMMUNITY_FEED.HEADER', { community: $t('COMMUNITY_FEED.HEADER_LINK') })"
     flat
@@ -7,21 +7,21 @@
     round
     @click="showing = !showing"
   >
-    <q-chip
+    <QChip
       v-if="unreadCount > 0"
       floating
       color="red"
     >
       {{ unreadCount > 9 ? '9+' : unreadCount }}
-    </q-chip>
-    <component
-      :is="$q.platform.is.mobile ? 'q-modal' : 'q-popover'"
+    </QChip>
+    <Component
+      :is="$q.platform.is.mobile ? 'QModal' : 'QPopover'"
       @hide="mark"
       class="k-community-feed"
       :class="$q.platform.is.mobile && 'relative-position'"
       v-model="showing"
     >
-      <q-btn
+      <QBtn
         v-if="$q.platform.is.mobile"
         dense
         round
@@ -29,19 +29,19 @@
         @click="showing = false"
         style="position: absolute; right: 10px; top: 2px"
       >
-        <q-icon name="fas fa-times" />
-      </q-btn>
-      <q-list
+        <QIcon name="fas fa-times" />
+      </QBtn>
+      <QList
         link
         v-if="showing"
       >
-        <q-list-header>
-          <q-icon
+        <QListHeader>
+          <QIcon
             name="fab fa-discourse"
             size="20px"
             class="q-mr-xs"
           />
-          <i18n path="COMMUNITY_FEED.HEADER">
+          <I18n path="COMMUNITY_FEED.HEADER">
             <a
               place="community"
               href="https://community.foodsaving.world"
@@ -51,9 +51,9 @@
             >
               {{ $t('COMMUNITY_FEED.HEADER_LINK') }}
             </a>
-          </i18n>
-        </q-list-header>
-        <q-item
+          </I18n>
+        </QListHeader>
+        <QItem
           v-for="topic in topics"
           :key="topic.id"
           tag="a"
@@ -62,26 +62,26 @@
           rel="noopener"
           :class="{ isUnread: topic.isUnread }"
         >
-          <q-item-side>
-            <q-item-tile avatar>
+          <QItemSide>
+            <QItemTile avatar>
               <img
                 :src="topic.lastPosterAvatar"
                 :title="topic.lastPosterUsername"
               >
-            </q-item-tile>
-          </q-item-side>
-          <q-item-main>
-            <q-item-tile
+            </QItemTile>
+          </QItemSide>
+          <QItemMain>
+            <QItemTile
               label
               lines="1"
             >
               {{ topic.title }}
-            </q-item-tile>
-            <q-item-tile
+            </QItemTile>
+            <QItemTile
               sublabel
               lines="1"
             >
-              <i18n
+              <I18n
                 path="COMMUNITY_FEED.LAST_UPDATED"
                 tag="div"
               >
@@ -90,13 +90,13 @@
                   style="display: inline"
                   :date="topic.lastPostedAt"
                 />
-              </i18n>
-            </q-item-tile>
-          </q-item-main>
-        </q-item>
-      </q-list>
-    </component>
-  </q-btn>
+              </I18n>
+            </QItemTile>
+          </QItemMain>
+        </QItem>
+      </QList>
+    </Component>
+  </QBtn>
 </template>
 
 <script>

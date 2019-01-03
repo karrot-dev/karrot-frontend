@@ -8,10 +8,10 @@
       v-if="fetchingPast"
       class="full-width text-center generic-padding"
     >
-      <q-spinner-dots :size="40" />
+      <QSpinnerDots :size="40" />
     </div>
-    <q-infinite-scroll :handler="maybeFetchFuture">
-      <q-list
+    <QInfiniteScroll :handler="maybeFetchFuture">
+      <QList
         no-border
         class="bg-white"
       >
@@ -32,16 +32,16 @@
           :placeholder="messagePrompt"
           :autofocus="!$q.platform.is.mobile && startAtBottom"
         />
-      </q-list>
+      </QList>
       <div
         slot="message"
         class="full-width text-center generic-padding"
       >
-        <q-spinner-dots :size="40" />
+        <QSpinnerDots :size="40" />
       </div>
-    </q-infinite-scroll>
+    </QInfiniteScroll>
     <slot name="afterChatMessages"/>
-    <q-scroll-observable @scroll="onScroll" />
+    <QScrollObservable @scroll="onScroll" />
   </div>
 </template>
 

@@ -1,38 +1,38 @@
 <template>
   <div>
-    <q-item
+    <QItem
       multiline
       class="clickable"
       :class="{'greyed': detailIsShown}"
       @click.native="toggleDetail"
     >
-      <q-item-side>
+      <QItemSide>
         <HistoryProfilePictures
           :users="entry.users"
         />
-      </q-item-side>
-      <q-item-main>
-        <q-item-tile>
+      </QItemSide>
+      <QItemMain>
+        <QItemTile>
           <span class="content">
             {{ entry.message }}
           </span>
-        </q-item-tile>
-        <q-item-tile
+        </QItemTile>
+        <QItemTile
           stamp
           class="mobile-only text-weight-light"
         >
           <DateAsWords :date="entry.date" />
-        </q-item-tile>
-      </q-item-main>
-      <q-item-side
+        </QItemTile>
+      </QItemMain>
+      <QItemSide
         class="desktop-only"
         stamp
         right
       >
         <DateAsWords :date="entry.date" />
-      </q-item-side>
-    </q-item>
-    <transition name="slide-toggle">
+      </QItemSide>
+    </QItem>
+    <Transition name="slide-toggle">
       <div
         @click.self="toggleDetail"
         class="detail-wrapper greyed"
@@ -44,7 +44,7 @@
           :entry="entry"
         />
       </div>
-    </transition>
+    </Transition>
   </div>
 </template>
 

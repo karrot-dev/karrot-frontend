@@ -1,5 +1,5 @@
 <template>
-  <q-btn
+  <QBtn
     :to="$q.platform.is.mobile && ({ name: 'messages' })"
     flat
     dense
@@ -7,17 +7,17 @@
     @click="maybeOpen"
     :title="$t('GROUP.MESSAGES')"
   >
-    <q-icon
+    <QIcon
       name="fas fa-comments"
     />
-    <q-chip
+    <QChip
       v-if="unreadCount > 0"
       floating
       :color="allUnreadMuted ? 'grey' : 'secondary'"
     >
       {{ unreadCount > 9 ? '9+' : unreadCount }}
-    </q-chip>
-    <q-popover
+    </QChip>
+    <QPopover
       v-if="!$q.platform.is.mobile"
       v-model="showing"
       class="k-latest-messages-popover"
@@ -26,8 +26,8 @@
         v-if="showing"
         as-popover
       />
-    </q-popover>
-  </q-btn>
+    </QPopover>
+  </QBtn>
 </template>
 
 <script>

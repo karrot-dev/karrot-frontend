@@ -1,6 +1,6 @@
 <template>
   <div>
-    <q-card
+    <QCard
       class="no-padding no-shadow grey-border"
     >
       <div>
@@ -9,7 +9,7 @@
           :history="history"
         />
       </div>
-    </q-card>
+    </QCard>
   </div>
 </template>
 

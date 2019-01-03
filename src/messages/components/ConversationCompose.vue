@@ -1,23 +1,23 @@
 <template>
-  <q-item multiline>
-    <q-item-side v-if="!slim">
+  <QItem multiline>
+    <QItemSide v-if="!slim">
       <ProfilePicture
         :user="user"
         :size="40"
         style="margin-top: 36px"
       />
-    </q-item-side>
-    <q-item-main>
-      <q-item-tile>
-        <q-field
+    </QItemSide>
+    <QItemMain>
+      <QItemTile>
+        <QField
           :error="hasAnyError"
           :error-label="anyFirstError"
         >
-          <component
+          <Component
             :is="slim ? 'div' : 'MarkdownInput'"
             :value="message"
           >
-            <q-input
+            <QInput
               ref="input"
               type="textarea"
               rows="1"
@@ -32,11 +32,11 @@
               @focus="onFocus"
               @blur="onBlur"
             />
-          </component>
-        </q-field>
-      </q-item-tile>
-    </q-item-main>
-  </q-item>
+          </Component>
+        </QField>
+      </QItemTile>
+    </QItemMain>
+  </QItem>
 </template>
 
 <script>

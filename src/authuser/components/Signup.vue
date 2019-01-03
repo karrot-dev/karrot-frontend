@@ -1,26 +1,26 @@
 <template>
   <div>
-    <q-card class="bg-warning margin-bottom">
-      <q-card-title>
-        <q-icon name="fas fa-exclamation-triangle" />
+    <QCard class="bg-warning margin-bottom">
+      <QCardTitle>
+        <QIcon name="fas fa-exclamation-triangle" />
         {{ $t('GLOBAL.WARNING') }}
-      </q-card-title>
-      <q-card-main>
+      </QCardTitle>
+      <QCardMain>
         {{ $t('GLOBAL.BETA_WARNING') }}
-      </q-card-main>
-    </q-card>
+      </QCardMain>
+    </QCard>
     <form
       name="signup"
       @submit.prevent="submit"
     >
       <div class="content">
         <div class="white-box">
-          <q-field
+          <QField
             icon="fas fa-user"
             :error="hasDisplayNameError"
             :error-label="displayNameError"
           >
-            <q-input
+            <QInput
               :autofocus="true"
               v-model="user.displayName"
               :float-label="$t('USERDATA.USERNAME')"
@@ -29,15 +29,15 @@
               spellcheck="false"
               @blur="$v.user.displayName.$touch"
             />
-          </q-field>
+          </QField>
         </div>
         <div class="white-box">
-          <q-field
+          <QField
             icon="fas fa-envelope"
             :error="hasError('email')"
             :error-label="firstError('email')"
           >
-            <q-input
+            <QInput
               v-model="user.email"
               type="email"
               :float-label="$t('USERDATA.EMAIL')"
@@ -45,15 +45,15 @@
               autocapitalize="off"
               spellcheck="false"
             />
-          </q-field>
+          </QField>
         </div>
         <div class="white-box">
-          <q-field
+          <QField
             icon="fas fa-lock"
             :error="hasError('password')"
             :error-label="firstError('password')"
           >
-            <q-input
+            <QInput
               v-model="user.password"
               type="password"
               :float-label="$t('USERDATA.PASSWORD')"
@@ -61,10 +61,10 @@
               autocapitalize="off"
               spellcheck="false"
             />
-          </q-field>
+          </QField>
         </div>
         <div v-if="canJoinPlayground">
-          <q-checkbox
+          <QCheckbox
             v-model="joinPlayground"
             color="white"
             :label="$t('GROUP.JOIN_PLAYGROUND')"
@@ -81,20 +81,20 @@
         </div>
 
         <div class="actions">
-          <q-btn
+          <QBtn
             type="button"
             :to="{ name: 'login' }"
             flat
           >
             {{ $t('SIGNUP.BACK') }}
-          </q-btn>
-          <q-btn
+          </QBtn>
+          <QBtn
             type="submit"
             class="submit shadow-4"
             :loading="isPending"
           >
             {{ $t('SIGNUP.OK') }}
-          </q-btn>
+          </QBtn>
         </div>
         <div style="clear: both"/>
       </div>

@@ -1,53 +1,53 @@
 <template>
   <div>
-    <q-card class="no-shadow grey-border">
+    <QCard class="no-shadow grey-border">
       <div
         class="edit-box"
         :class="{ changed: hasChanged }"
       >
         <form @submit.prevent="maybeSave">
-          <q-field
+          <QField
             icon="fas fa-star"
             :label="$t('STOREEDIT.NAME')"
             :error="hasNameError"
             :error-label="nameError"
           >
-            <q-input
+            <QInput
               v-model="edit.name"
               :autofocus="true"
               autocomplete="off"
               @blur="$v.edit.name.$touch"
             />
-          </q-field>
-          <q-field
+          </QField>
+          <QField
             icon="fas fa-handshake"
             :label="$t('STOREEDIT.STATUS')"
             :error="hasError('status')"
             :error-label="firstError('status')"
           >
-            <q-select
+            <QSelect
               v-model="edit.status"
               :options="statusOptions"
             />
-          </q-field>
+          </QField>
 
-          <q-field
+          <QField
             icon="fas fa-question"
             :label="$t('STOREEDIT.DESCRIPTION')"
             :error="hasError('description')"
             :error-label="firstError('description')"
           >
             <MarkdownInput :value="edit.description">
-              <q-input
+              <QInput
                 v-model="edit.description"
                 type="textarea"
                 rows="3"
                 @keyup.ctrl.enter="maybeSave"
               />
             </MarkdownInput>
-          </q-field>
+          </QField>
 
-          <q-field
+          <QField
             icon="fas fa-map-marker"
             :label="$t('STOREEDIT.ADDRESS')"
             :error="hasAddressError"
@@ -58,9 +58,9 @@
               :color="markerColor"
               font-icon="fas fa-shopping-cart"
             />
-          </q-field>
+          </QField>
 
-          <q-field
+          <QField
             icon="fas fa-calendar-alt"
             :label="$t('STOREEDIT.WEEKS_IN_ADVANCE')"
             :error="hasError('weeksInAdvance')"
@@ -68,14 +68,14 @@
             :warning="value.weeksInAdvance > edit.weeksInAdvance"
             :warning-label="$t('STOREEDIT.WEEKS_IN_ADVANCE_WARNING')"
           >
-            <q-slider
+            <QSlider
               v-model="edit.weeksInAdvance"
               :min="1"
               :max="10"
               label
               label-always
             />
-          </q-field>
+          </QField>
 
           <div
             v-if="hasNonFieldError || hasError('group')"
@@ -85,41 +85,41 @@
           </div>
 
           <div class="actionButtons">
-            <q-btn
+            <QBtn
               type="submit"
               color="primary"
               :disable="!canSave"
               :loading="isPending"
             >
               {{ $t(isNew ? 'BUTTON.CREATE' : 'BUTTON.SAVE_CHANGES') }}
-            </q-btn>
-            <q-btn
+            </QBtn>
+            <QBtn
               type="button"
               color="red"
               @click="archive"
               v-if="!isNew"
             >
               {{ $t('BUTTON.ARCHIVE') }}
-            </q-btn>
-            <q-btn
+            </QBtn>
+            <QBtn
               type="button"
               @click="reset"
               v-if="!isNew"
               :disable="!hasChanged"
             >
               {{ $t('BUTTON.RESET') }}
-            </q-btn>
-            <q-btn
+            </QBtn>
+            <QBtn
               type="button"
               @click="$emit('cancel')"
               v-if="isNew"
             >
               {{ $t('BUTTON.CANCEL') }}
-            </q-btn>
+            </QBtn>
           </div>
         </form>
       </div>
-    </q-card>
+    </QCard>
   </div>
 </template>
 

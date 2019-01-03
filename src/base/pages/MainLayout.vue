@@ -23,13 +23,13 @@
       v-else
       class="background mainLayoutDesktop"
     >
-      <q-layout :view="layoutView">
-        <q-layout-header reveal>
+      <QLayout :view="layoutView">
+        <QLayoutHeader reveal>
           <KTopbar
             v-if="isLoggedIn"
             @toggleSidenav="toggleSidenav"
           >
-            <q-btn
+            <QBtn
               flat
               @click="toggleSidenav"
               class="mobile-only"
@@ -41,14 +41,14 @@
                   :class="hasImportantNotification ? 'bg-secondary' : 'bg-grey'"
                 />
               </i>
-            </q-btn>
+            </QBtn>
           </KTopbar>
           <KTopbarLoggedOut v-if="!isLoggedIn" />
-          <router-view name="subheader" />
-        </q-layout-header>
+          <RouterView name="subheader" />
+        </QLayoutHeader>
 
         <!-- mobile sidenav -->
-        <q-layout-drawer
+        <QLayoutDrawer
           v-if="$q.platform.is.mobile"
           side="left"
           :width="sidenavWidth"
@@ -58,12 +58,12 @@
           @click.native="toggleSidenav"
         >
           <SidenavTitle @click="toggleSidenav" />
-          <router-view name="sidenav" />
+          <RouterView name="sidenav" />
           <MobileSidenav/>
-        </q-layout-drawer>
+        </QLayoutDrawer>
 
         <!-- desktop sidenav -->
-        <q-layout-drawer
+        <QLayoutDrawer
           v-else-if="isLoggedIn && currentGroup && hasSidenavComponent && !disableDesktopSidenav"
           side="left"
           :width="sidenavWidth"
@@ -72,26 +72,26 @@
           :overlay="false"
           @click.native="toggleSidenav"
         >
-          <router-view name="sidenav" />
-        </q-layout-drawer>
+          <RouterView name="sidenav" />
+        </QLayoutDrawer>
 
-        <q-page-container>
+        <QPageContainer>
           <Banners />
-          <router-view name="fullPage"/>
+          <RouterView name="fullPage"/>
           <div class="mainContent row justify-between no-wrap">
             <div class="mainContent-page">
-              <component
-                :is="disablePullToRefresh ? 'div' : 'q-pull-to-refresh'"
+              <Component
+                :is="disablePullToRefresh ? 'div' : 'QPullToRefresh'"
                 :handler="refresh"
                 style="max-height: none"
               >
-                <router-view />
-              </component>
+                <RouterView />
+              </Component>
             </div>
           </div>
           <KFooter v-if="$q.platform.is.mobile && !isLoggedIn" />
-        </q-page-container>
-        <q-layout-drawer
+        </QPageContainer>
+        <QLayoutDrawer
           v-if="!$q.platform.is.mobile"
           side="right"
           :width="400"
@@ -100,15 +100,15 @@
           :value="showRightDrawer"
         >
           <DetailSidebar @close="clearDetail"/>
-        </q-layout-drawer>
-        <q-layout-footer>
+        </QLayoutDrawer>
+        <QLayoutFooter>
           <UnsupportedBrowserWarning
             v-if="$q.platform.is.mobile && !$keyboard.is.open"
           />
           <KFooter v-if="!$q.platform.is.mobile" />
-        </q-layout-footer>
-        <q-window-resize-observable @resize="onResize" />
-      </q-layout>
+        </QLayoutFooter>
+        <QWindowResizeObservable @resize="onResize" />
+      </QLayout>
     </div>
   </div>
 </template>

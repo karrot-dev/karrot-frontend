@@ -1,6 +1,6 @@
 <template>
   <div>
-    <q-card
+    <QCard
       class="no-mobile-margin no-shadow grey-border"
     >
       <RandomArt
@@ -12,7 +12,7 @@
         class="padding-top"
         :history="history"
       />
-    </q-card>
+    </QCard>
   </div>
 </template>
 

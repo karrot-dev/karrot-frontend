@@ -1,56 +1,56 @@
 <template>
   <div v-if="user">
-    <q-card class="no-shadow grey-border">
-      <q-card-title>{{ $t('USERDATA.PROFILE_TITLE') }}</q-card-title>
-      <q-card-main>
+    <QCard class="no-shadow grey-border">
+      <QCardTitle>{{ $t('USERDATA.PROFILE_TITLE') }}</QCardTitle>
+      <QCardMain>
         <ChangePhoto
           :value="user"
           :status="profileEditStatus"
           @save="saveUser"
         />
-        <q-card-separator />
+        <QCardSeparator />
         <ProfileEdit
           :value="user"
           :status="profileEditStatus"
           @save="saveUser"
         />
-      </q-card-main>
-    </q-card>
-    <q-card class="no-shadow grey-border">
-      <q-card-title>{{ $t('USERDATA.ACCOUNT') }}</q-card-title>
-      <q-card-main>
+      </QCardMain>
+    </QCard>
+    <QCard class="no-shadow grey-border">
+      <QCardTitle>{{ $t('USERDATA.ACCOUNT') }}</QCardTitle>
+      <QCardMain>
         <ChangeEmail
           :user="user"
           :status="changeEmailStatus"
           @save="changeEmail"
         />
-        <q-card-separator />
+        <QCardSeparator />
         <ChangePassword
           :status="changePasswordStatus"
           @save="changePassword"
         />
-        <q-card-actions>
+        <QCardActions>
           <RequestDeleteAccount
             :status="requestDeleteAccountStatus"
             @requestDeleteAccount="requestDeleteAccount"
           />
-        </q-card-actions>
-      </q-card-main>
-    </q-card>
-    <q-card
+        </QCardActions>
+      </QCardMain>
+    </QCard>
+    <QCard
       v-if="!$q.platform.is.cordova"
       class="no-shadow grey-border"
     >
-      <q-card-title>{{ $t('USERDATA.PUSH') }}</q-card-title>
-      <q-card-main>
+      <QCardTitle>{{ $t('USERDATA.PUSH') }}</QCardTitle>
+      <QCardMain>
         <Push
           :value="pushEnabled"
           :pending="pushPending"
           @enable="enablePush"
           @disable="disablePush"
         />
-      </q-card-main>
-    </q-card>
+      </QCardMain>
+    </QCard>
   </div>
 </template>
 

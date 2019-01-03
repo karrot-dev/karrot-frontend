@@ -1,13 +1,13 @@
 <template>
   <div class="edit-box">
-    <q-field
+    <QField
       icon="fas fa-camera"
       :label="$t('USERDATA.PHOTO')"
       :error="hasError('photo')"
       :error-label="firstError('photo')"
       :helper="$t('USERDATA.SET_PHOTO')"
     >
-      <croppa
+      <Croppa
         ref="croppaPhoto"
         :width="300"
         :height="300"
@@ -29,8 +29,8 @@
           slot="placeholder"
           src="statics/ic_person_black_24px.svg"
         >
-      </croppa>
-    </q-field>
+      </Croppa>
+    </QField>
 
     <div
       v-if="hasNonFieldError"
@@ -40,7 +40,7 @@
     </div>
 
     <div class="actionButtons">
-      <q-btn
+      <QBtn
         color="primary"
         @click="save"
         :loading="isPending"

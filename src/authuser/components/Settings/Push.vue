@@ -1,16 +1,16 @@
 <template>
   <div class="edit-box">
 
-    <q-field
+    <QField
       icon="fas fa-bell"
       :label="$t('USERDATA.PUSH_CURRENT_BROWSER')"
     >
-      <q-toggle
+      <QToggle
         :disable="pending"
         :value="value"
         @change="onChange"
       />
-    </q-field>
+    </QField>
   </div>
 </template>
 

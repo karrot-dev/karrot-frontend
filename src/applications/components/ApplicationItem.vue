@@ -1,32 +1,32 @@
 <template>
-  <q-item
+  <QItem
     link
     :class="{ isNonPending: !application.isPending }"
     @click.native="openChatIfCannotDecide"
   >
-    <q-item-side>
+    <QItemSide>
       <ProfilePicture
         :user="application.user"
         :size="30"
         :is-link="false"
       />
-    </q-item-side>
-    <q-item-main>
-      <q-item-tile
+    </QItemSide>
+    <QItemMain>
+      <QItemTile
         label
       >
         {{ userName }}
-      </q-item-tile>
-      <q-item-tile
+      </QItemTile>
+      <QItemTile
         sublabel
       >
         {{ submittedOn }}
-      </q-item-tile>
-      <q-item-tile
+      </QItemTile>
+      <QItemTile
         v-if="application.status !== 'pending'"
         sublabel
       >
-        <i18n
+        <I18n
           :path="decision"
         >
           <DateAsWords
@@ -34,58 +34,58 @@
             style="display: inline"
             :date="application.decidedAt"
           />
-        </i18n>
+        </I18n>
         <template v-if="application.status !== 'withdrawn'">
           <br>
-          <i18n
+          <I18n
             :path="personDeciding"
           >
-            <router-link
+            <RouterLink
               place="userName"
               @click.native.stop=""
               :to="{name: 'user', params: { userId: application.decidedBy.id }}"
             >
               {{ application.decidedBy.displayName }}
-            </router-link>
-          </i18n>
+            </RouterLink>
+          </I18n>
         </template>
-      </q-item-tile>
-    </q-item-main>
-    <q-popover
+      </QItemTile>
+    </QItemMain>
+    <QPopover
       v-if="application.canDecide"
       touch-position
     >
-      <q-list
+      <QList
         v-close-overlay
         link
       >
-        <q-item
+        <QItem
           @click.native="openChat"
         >
-          <q-item-side
+          <QItemSide
             icon="fas fa-fw fa-comments"
           />
-          <q-item-main :label="$t('BUTTON.OPEN')" />
-        </q-item>
-        <q-item
+          <QItemMain :label="$t('BUTTON.OPEN')" />
+        </QItem>
+        <QItem
           @click.native="pressAccept"
         >
-          <q-item-side
+          <QItemSide
             icon="fas fa-fw fa-check"
           />
-          <q-item-main :label="$t('BUTTON.ACCEPT')" />
-        </q-item>
-        <q-item
+          <QItemMain :label="$t('BUTTON.ACCEPT')" />
+        </QItem>
+        <QItem
           @click.native="decline"
         >
-          <q-item-side
+          <QItemSide
             icon="fas fa-fw fa-times"
           />
-          <q-item-main :label="$t('BUTTON.DECLINE')" />
-        </q-item>
-      </q-list>
-    </q-popover>
-  </q-item>
+          <QItemMain :label="$t('BUTTON.DECLINE')" />
+        </QItem>
+      </QList>
+    </QPopover>
+  </QItem>
 </template>
 
 <script>

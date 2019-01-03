@@ -6,12 +6,12 @@
     >
       <div class="content">
         <div class="white-box">
-          <q-field
+          <QField
             icon="fas fa-lock"
             :error="hasError('newPassword')"
             :error-label="firstError('newPassword')"
           >
-            <q-input
+            <QInput
               v-model="newPassword"
               type="password"
               :float-label="$t('USERDATA.PASSWORD')"
@@ -19,7 +19,7 @@
               autocapitalize="off"
               spellcheck="false"
             />
-          </q-field>
+          </QField>
         </div>
         <div
           v-if="hasError('code')"
@@ -37,13 +37,13 @@
         </div>
 
         <div class="actions">
-          <q-btn
+          <QBtn
             type="submit"
             class="submit shadow-4"
             :loading="isPending"
           >
             {{ $t('PASSWORD.RESET.OK') }}
-          </q-btn>
+          </QBtn>
         </div>
         <div style="clear: both"/>
       </div>

@@ -1,14 +1,14 @@
 <template>
-  <q-toolbar :color="connected ? 'primary' : 'grey-8'">
+  <QToolbar :color="connected ? 'primary' : 'grey-8'">
     <slot />
-    <router-link
+    <RouterLink
       :to="'/'"
       v-if="!$q.platform.is.mobile"
       class="logo"
     >
       <KarrotLogo/>
-    </router-link>
-    <q-toolbar-title>
+    </RouterLink>
+    <QToolbarTitle>
       <div class="row justify-between no-wrap">
         <div/>
         <KBreadcrumb
@@ -17,38 +17,38 @@
         />
         <div/>
       </div>
-    </q-toolbar-title>
+    </QToolbarTitle>
     <div
       class="k-searchbar row no-wrap"
       v-if="searchOpen"
     >
       <Search @clear="$emit('hideSearch')" />
     </div>
-    <q-btn
+    <QBtn
       v-show="!searchOpen"
       flat
       dense
       round
       @click="$emit('showSearch')"
     >
-      <q-icon name="fas fa-fw fa-search" />
-      <q-tooltip v-t="'BUTTON.SEARCH'" />
-    </q-btn>
+      <QIcon name="fas fa-fw fa-search" />
+      <QTooltip v-t="'BUTTON.SEARCH'" />
+    </QBtn>
     <template v-if="!$q.platform.is.mobile">
       <CommunityFeed />
       <LatestMessageButton />
       <NotificationButton />
       <LocaleSelect />
-      <router-link
+      <RouterLink
         :to="{name: 'user', params: {userId: user.id}}"
       >
-        <q-btn
+        <QBtn
           v-if="hasPhoto"
           flat
           dense
         >
           <div class="row items-center no-wrap">
-            <q-icon
+            <QIcon
               :name="presence.icon"
               :color="presence.color"
               class="presence-indicator"
@@ -59,75 +59,75 @@
               class="profilePicture"
             >
           </div>
-          <q-tooltip v-t="'TOPBAR.USERPROFILE'" />
-        </q-btn>
-        <q-btn
+          <QTooltip v-t="'TOPBAR.USERPROFILE'" />
+        </QBtn>
+        <QBtn
           v-else
           flat
           dense
         >
-          <q-icon
+          <QIcon
             :name="presence.icon"
             :color="presence.color"
             class="presence-indicator"
           />
           {{ user.displayName }}
-          <q-icon name="fas fa-fw fa-user" />
-          <q-tooltip v-t="'TOPBAR.USERPROFILE'" />
-        </q-btn>
-      </router-link>
-      <q-btn
+          <QIcon name="fas fa-fw fa-user" />
+          <QTooltip v-t="'TOPBAR.USERPROFILE'" />
+        </QBtn>
+      </RouterLink>
+      <QBtn
         flat
         dense
         round
       >
-        <q-icon name="fas fa-ellipsis-v" />
-        <q-popover
+        <QIcon name="fas fa-ellipsis-v" />
+        <QPopover
           :touch-position="false"
           fit
           anchor="bottom right"
           self="top right"
         >
-          <q-list
+          <QList
             item-separator
             link
             v-close-overlay
           >
-            <q-item
+            <QItem
               :to="{name: 'groupsGallery'}"
             >
-              <q-icon
+              <QIcon
                 size="1em"
                 class="on-left"
                 name="fas fa-home fa-fw"
               />
               {{ $t('TOPBAR.CHANGE_GROUP') }}
-            </q-item>
-            <q-item
+            </QItem>
+            <QItem
               :to="{name: 'settings'}"
             >
-              <q-icon
+              <QIcon
                 size="1em"
                 class="on-left"
                 name="fas fa-cog fa-fw"
               />
               {{ $t('SETTINGS.TITLE') }}
-            </q-item>
-            <q-item
+            </QItem>
+            <QItem
               @click.native="$emit('logout')"
             >
-              <q-icon
+              <QIcon
                 size="1em"
                 class="on-left"
                 name="fas fa-sign-out-alt fa-fw"
               />
               {{ $t('TOPBAR.LOGOUT') }}
-            </q-item>
-          </q-list>
-        </q-popover>
-      </q-btn>
+            </QItem>
+          </QList>
+        </QPopover>
+      </QBtn>
     </template>
-  </q-toolbar>
+  </QToolbar>
 </template>
 
 <script>

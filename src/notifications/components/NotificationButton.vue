@@ -1,5 +1,5 @@
 <template>
-  <q-btn
+  <QBtn
     :to="$q.platform.is.mobile && ({ name: 'notifications' })"
     flat
     dense
@@ -7,17 +7,17 @@
     @click="maybeOpen"
     :title="$t('NOTIFICATION_BELLS_LIST.TITLE')"
   >
-    <q-icon
+    <QIcon
       name="fas fa-bell"
     />
-    <q-chip
+    <QChip
       v-if="unseenCount > 0"
       floating
       color="secondary"
     >
       {{ unseenCount > 9 ? '9+' : unseenCount }}
-    </q-chip>
-    <q-popover
+    </QChip>
+    <QPopover
       v-if="!$q.platform.is.mobile"
       v-model="showing"
       class="k-notifications-popover"
@@ -26,8 +26,8 @@
         v-if="showing"
         as-popover
       />
-    </q-popover>
-  </q-btn>
+    </QPopover>
+  </QBtn>
 </template>
 
 <script>

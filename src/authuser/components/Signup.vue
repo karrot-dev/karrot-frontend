@@ -61,6 +61,14 @@
             :label="$t('GROUP.JOIN_PLAYGROUND')"
             class="playground-checkbox"
           />
+          <QAlert
+            v-if="joinPlayground"
+            color="info"
+            icon="info"
+            class="q-my-md"
+          >
+            {{ $t('JOINGROUP.PROFILE_NOTE' ) }}
+          </QAlert>
         </div>
 
         <div
@@ -94,13 +102,35 @@
 </template>
 
 <script>
-import { QCard, QCardTitle, QCardMain, QIcon, QField, QInput, QBtn, QSpinner, QCheckbox } from 'quasar'
+import {
+  QCard,
+  QCardTitle,
+  QCardMain,
+  QIcon,
+  QField,
+  QInput,
+  QBtn,
+  QSpinner,
+  QCheckbox,
+  QAlert,
+} from 'quasar'
 import statusMixin from '@/utils/mixins/statusMixin'
 import { required, minLength, maxLength } from 'vuelidate/lib/validators'
 import { validationMixin } from 'vuelidate'
 
 export default {
-  components: { QCard, QCardTitle, QCardMain, QIcon, QField, QInput, QBtn, QSpinner, QCheckbox },
+  components: {
+    QCard,
+    QCardTitle,
+    QCardMain,
+    QIcon,
+    QField,
+    QInput,
+    QBtn,
+    QSpinner,
+    QCheckbox,
+    QAlert,
+  },
   mixins: [validationMixin, statusMixin],
   props: {
     prefillEmail: {

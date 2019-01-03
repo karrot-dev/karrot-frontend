@@ -29,7 +29,8 @@ const status = new Vue({
   },
 })
 
-const refresh = () => setTimeout(() => datastore.commit('refresh/requestRefresh', true), 500)
+// wait 5 seconds before triggering refresh
+const refresh = () => setTimeout(() => datastore.commit('refresh/requestRefresh', true), 5000)
 
 status.$watch('online', val => {
   if (val) refresh()

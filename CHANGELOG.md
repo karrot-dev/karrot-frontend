@@ -30,6 +30,7 @@ Please document your changes in this format:
 ### Changed
 - More details for the pickup series manage page #1147 @tiltec
 - Pickups in a pickup series can't be moved anymore, to prevent hard-to-predict problems #1147 @tiltec
+- Wait 5 seconds before triggering refresh in app @tiltec
 
 ### Fixed
 - Tapping on push notification showed login page when user is already logged in (second try) @tiltec

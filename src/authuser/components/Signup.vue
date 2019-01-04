@@ -103,10 +103,6 @@
 
 <script>
 import {
-  QCard,
-  QCardTitle,
-  QCardMain,
-  QIcon,
   QField,
   QInput,
   QAlert,
@@ -119,10 +115,6 @@ import { validationMixin } from 'vuelidate'
 
 export default {
   components: {
-    QCard,
-    QCardTitle,
-    QCardMain,
-    QIcon,
     QField,
     QInput,
     QAlert,

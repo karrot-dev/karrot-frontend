@@ -126,7 +126,7 @@ module.exports = {
           limit: 10000,
           name: '[name].[hash:7].[ext]',
           outputPath: (dev ? '' : '/') + 'assets/images',
-          publicPath: cordova && '../images',
+          publicPath: cordova ? '../images' : '',
         },
       },
       {
@@ -136,7 +136,7 @@ module.exports = {
           limit: 10000,
           name: '[name].[hash:7].[ext]',
           outputPath: (dev ? '' : '/') + 'assets/fonts',
-          publicPath: cordova && '../fonts',
+          publicPath: cordova ? '../fonts' : '',
         },
       },
       {

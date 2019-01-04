@@ -1,66 +1,66 @@
 <template>
-  <q-popover
+  <QPopover
     fit
     anchor="bottom right"
     self="top right"
   >
-    <q-list
+    <QList
       item-separator
       link
       v-close-overlay
     >
-      <q-item
+      <QItem
         v-if="isEditor"
         :to="{name: 'groupEdit', params: {groupId: currentGroupId}}"
       >
-        <q-icon
+        <QIcon
           size="1em"
           name="fas fa-pencil-alt fa-fw on-left"
         />
         {{ $t('GROUP.EDIT') }}
-      </q-item>
+      </QItem>
 
-      <q-item
+      <QItem
         v-if="isAgreementManager"
         :to="{name: 'groupManageAgreement', params: {groupId: currentGroupId}}"
       >
-        <q-icon
+        <QIcon
           size="1em"
           name="fas fa-file-alt fa-fw on-left"
         />
         {{ $t('GROUP.MANAGE_AGREEMENT') }}
-      </q-item>
+      </QItem>
 
-      <q-item
+      <QItem
         :to="{name: 'groupPreview', params: {groupPreviewId: currentGroupId}}"
       >
-        <q-icon
+        <QIcon
           size="1em"
           name="fas fa-info-circle fa-fw on-left"
         />
         {{ $t('GROUPINFO.META') }}
-      </q-item>
+      </QItem>
 
-      <q-item
+      <QItem
         v-if="isEditor"
         :to="{name: 'groupInvitations', params: {groupId: currentGroupId}}"
       >
-        <q-icon
+        <QIcon
           size="1em"
           name="fas fa-user-plus fa-fw on-left"
         />
         {{ $t('GROUP.INVITE_TITLE') }}
-      </q-item>
+      </QItem>
 
-      <q-item @click.native="leave">
-        <q-icon
+      <QItem @click.native="leave">
+        <QIcon
           size="1em"
           name="fas fa-sign-out-alt fa-fw on-left"
         />
         {{ $t('GROUP.LEAVE') }}
-      </q-item>
-    </q-list>
-  </q-popover>
+      </QItem>
+    </QList>
+  </QPopover>
 </template>
 
 <script>

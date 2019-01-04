@@ -5,7 +5,7 @@
     :expandable="!$q.platform.is.mobile"
   >
     <template slot="icon">
-      <q-icon name="fas fa-fw fa-shopping-cart" />
+      <QIcon name="fas fa-fw fa-shopping-cart" />
     </template>
     <template slot="name">
       {{ $t('GROUP.STORES') }}
@@ -14,22 +14,22 @@
       slot="tools"
       class="tools"
     >
-      <q-toggle
+      <QToggle
         :value="showAllStores"
         @input="$emit('toggleShowAllStores')"
       >
-        <q-tooltip v-t="showAllStores ? 'STOREEDIT.SHOW_ACTIVE_ONLY' : 'STOREEDIT.SHOW_ALL'"/>
-      </q-toggle>
-      <q-btn
+        <QTooltip v-t="showAllStores ? 'STOREEDIT.SHOW_ACTIVE_ONLY' : 'STOREEDIT.SHOW_ALL'"/>
+      </QToggle>
+      <QBtn
         v-if="hasStores && isEditor"
         flat
         dense
         round
         :to="{ name: 'storeCreate', params: { groupId } }"
       >
-        <q-icon name="fas fa-fw fa-plus-circle" />
-        <q-tooltip v-t="'BUTTON.CREATE'" />
-      </q-btn>
+        <QIcon name="fas fa-fw fa-plus-circle" />
+        <QTooltip v-t="'BUTTON.CREATE'" />
+      </QBtn>
     </div>
 
     <StoreList

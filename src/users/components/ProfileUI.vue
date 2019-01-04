@@ -1,11 +1,11 @@
 <template>
   <div class="k-profile">
-    <q-alert
+    <QAlert
       v-if="!currentGroupMembership && currentGroup"
       type="warning"
     >
       {{ $t('SWITCHGROUP.NOT_MEMBER', { userName: user.displayName, groupName: currentGroup.name }) }}
-    </q-alert>
+    </QAlert>
     <div
       class="row justify-end"
       style="margin-bottom: -32px"
@@ -17,7 +17,7 @@
       />
     </div>
     <div class="photoAndName row no-wrap ellipsis">
-      <transition
+      <Transition
         duration="510"
         name="turn-in"
         appear
@@ -29,7 +29,7 @@
             :size="profilePictureSize"
           />
         </div>
-      </transition>
+      </Transition>
       <div
         style="overflow: hidden"
         class="self-center"
@@ -39,14 +39,14 @@
         </h1>
       </div>
     </div>
-    <q-card
+    <QCard
       v-if="!isInfoOnly"
       class="profile-info relative-position q-pt-sm"
     >
       <div
         class="user-actions"
       >
-        <q-btn
+        <QBtn
           v-if="user.isCurrentUser"
           icon="fas fa-pencil-alt"
           small
@@ -54,7 +54,7 @@
           color="secondary"
           :to="{ name: 'settings' }"
         />
-        <q-btn
+        <QBtn
           v-if="!user.isCurrentUser"
           small
           round
@@ -70,41 +70,41 @@
           @createTrust="$emit('createTrust', arguments[0])"
         />
       </div>
-      <q-list>
-        <q-item>
-          <q-item-side icon="fas fa-fw fa-envelope" />
-          <q-item-main class="ellipsis">
+      <QList>
+        <QItem>
+          <QItemSide icon="fas fa-fw fa-envelope" />
+          <QItemMain class="ellipsis">
             <a :href="mailto(user.email)">{{ user.email }}</a>
-          </q-item-main>
-        </q-item>
+          </QItemMain>
+        </QItem>
 
-        <q-item v-if="user.mobileNumber">
-          <q-item-side icon="fas fa-fw fa-phone" />
-          <q-item-main>
+        <QItem v-if="user.mobileNumber">
+          <QItemSide icon="fas fa-fw fa-phone" />
+          <QItemMain>
             {{ user.mobileNumber }}
-          </q-item-main>
-        </q-item>
+          </QItemMain>
+        </QItem>
 
-        <q-item v-if="user.address">
-          <q-item-side icon="fas fa-fw fa-map-marker-alt" />
-          <q-item-main>
+        <QItem v-if="user.address">
+          <QItemSide icon="fas fa-fw fa-map-marker-alt" />
+          <QItemMain>
             {{ user.address }}
-          </q-item-main>
-        </q-item>
-      </q-list>
-      <q-card-media v-if="$q.platform.is.mobile && user.latitude && user.longitude">
+          </QItemMain>
+        </QItem>
+      </QList>
+      <QCardMedia v-if="$q.platform.is.mobile && user.latitude && user.longitude">
         <UserMapPreview
           :user="user"
           style="height: 100px"
         />
-      </q-card-media>
-      <q-card-main>
+      </QCardMedia>
+      <QCardMain>
         <Markdown
           v-if="user.description"
           :source="user.description"
         />
-      </q-card-main>
-    </q-card>
+      </QCardMain>
+    </QCard>
   </div>
 </template>
 

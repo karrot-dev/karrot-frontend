@@ -2,9 +2,9 @@
   <div class="footer row">
     <div class="k-logo-container col-xl-1 col-xs-4">
       <div>
-        <router-link :to="'/'">
+        <RouterLink :to="'/'">
           <KarrotLogo/>
-        </router-link>
+        </RouterLink>
       </div>
     </div>
     <small class="row group col-xl-4 col-xs-8">

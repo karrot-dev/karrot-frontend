@@ -3,19 +3,19 @@
     class="k-sidenav-box"
     :class="{ expandable }"
   >
-    <q-toolbar
+    <QToolbar
       class="toolbar"
       inverted
       @click.native.stop.self="$emit('toggle')"
     >
       <slot name="icon" />
-      <q-toolbar-title
+      <QToolbarTitle
         @click.native.stop.self="$emit('toggle')"
       >
         <slot name="name" />
-      </q-toolbar-title>
+      </QToolbarTitle>
       <slot name="tools" />
-      <q-btn
+      <QBtn
         v-if="expandable"
         flat
         round
@@ -24,17 +24,17 @@
         class="card-arrow"
         @click.stop="$emit('toggle')"
       >
-        <q-icon
+        <QIcon
           name="fas fa-angle-down arrow"
           :class="{ upsideDown: expanded }"
         />
-      </q-btn>
-    </q-toolbar>
-    <transition name="slide-toggle">
+      </QBtn>
+    </QToolbar>
+    <Transition name="slide-toggle">
       <div v-show="expanded">
         <slot />
       </div>
-    </transition>
+    </Transition>
   </div>
 </template>
 

@@ -1,6 +1,6 @@
 <template>
   <div>
-    <q-card
+    <QCard
       @click.native="showPickups = !showPickups"
       color="info"
       class="generic-padding notice no-margin-bottom"
@@ -13,7 +13,7 @@
       >
         <i class="fas fa-angle-down"/>
       </div>
-    </q-card>
+    </QCard>
     <PickupList
       v-if="showPickups"
       :pickups="pickups"

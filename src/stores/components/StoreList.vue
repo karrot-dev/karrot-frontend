@@ -1,66 +1,66 @@
 <template>
-  <q-list
+  <QList
     highlight
     no-border
     class="no-padding"
   >
-    <q-item
+    <QItem
       v-for="store in stores"
       :key="store.id"
       link
       :to="linkParamsFor(store)"
     >
-      <q-item-side class="text-center">
-        <q-icon
+      <QItemSide class="text-center">
+        <QIcon
           :name="store.ui.icon"
           :color="store.ui.color"
           :title="$t(store.ui.label)"
         />
-      </q-item-side>
-      <q-item-main>
-        <q-item-tile label>
+      </QItemSide>
+      <QItemMain>
+        <QItemTile label>
           {{ store.name }}
-        </q-item-tile>
-      </q-item-main>
-    </q-item>
+        </QItemTile>
+      </QItemMain>
+    </QItem>
 
-    <q-item
+    <QItem
       v-if="!hasStores && isEditor"
       link
       :to="{ name: 'storeCreate', params: { groupId } }"
       class="bg-secondary"
       multiline
     >
-      <q-item-main class="text-center">
-        <q-item-tile
+      <QItemMain class="text-center">
+        <QItemTile
           icon="add circle"
           class="text-white"
         />
-        <q-tooltip v-t="'BUTTON.CREATE'" />
-      </q-item-main>
-    </q-item>
+        <QTooltip v-t="'BUTTON.CREATE'" />
+      </QItemMain>
+    </QItem>
 
-    <q-item-separator v-if="archived.length > 0" />
+    <QItemSeparator v-if="archived.length > 0" />
 
-    <q-collapsible
+    <QCollapsible
       v-if="archived.length > 0 && isEditor"
       icon="fas fa-trash-alt"
       :label="`${$t('STORESTATUS.ARCHIVED')} (${archived.length})`"
     >
-      <q-item
+      <QItem
         v-for="store in archived"
         :key="store.id"
         link
         :to="linkParamsFor(store)"
       >
-        <q-item-main>
-          <q-item-tile label>
+        <QItemMain>
+          <QItemTile label>
             {{ store.name }}
-          </q-item-tile>
-        </q-item-main>
-      </q-item>
-    </q-collapsible>
-  </q-list>
+          </QItemTile>
+        </QItemMain>
+      </QItem>
+    </QCollapsible>
+  </QList>
 </template>
 
 <script>

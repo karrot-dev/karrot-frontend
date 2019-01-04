@@ -1,30 +1,30 @@
 <template>
-  <q-btn-group class="k-groupmapcontrols">
-    <q-btn
+  <QBtnGroup class="k-groupmapcontrols">
+    <QBtn
       v-if="options.showFullScreenButton"
       :size="options.buttonSize"
       color="primary"
       :to="{ name: 'map', params: { groupId } }"
     >
       <i class="fas fa-expand-arrows-alt fa-stack-1x" />
-      <q-tooltip>
+      <QTooltip>
         {{ $t('GROUPMAP.FULL_SCREEN') }}
-      </q-tooltip>
-    </q-btn>
+      </QTooltip>
+    </QBtn>
 
-    <q-btn
+    <QBtn
       v-if="options.showBack && !$q.platform.is.mobile"
       :size="options.buttonSize"
       color="primary"
       :to="{ name: 'group', params: { groupId } }"
     >
       <i class="fas fa-fw fa-chevron-left" />
-      <q-tooltip>
+      <QTooltip>
         {{ $t('BUTTON.BACK') }}
-      </q-tooltip>
-    </q-btn>
+      </QTooltip>
+    </QBtn>
 
-    <q-btn
+    <QBtn
       color="primary"
       :size="options.buttonSize"
       @click="$emit('toggleStores')"
@@ -40,12 +40,12 @@
           class="fas fa-times bottom-right fa-stack-1x"
         />
       </span>
-      <q-tooltip>
+      <QTooltip>
         {{ $t( showStores ? 'GROUPMAP.HIDE_STORES' : 'GROUPMAP.SHOW_STORES') }}
-      </q-tooltip>
-    </q-btn>
+      </QTooltip>
+    </QBtn>
 
-    <q-btn
+    <QBtn
       color="primary"
       :size="options.buttonSize"
       @click="$emit('toggleUsers')"
@@ -61,12 +61,12 @@
           class="fas fa-times bottom-right fa-stack-1x"
         />
       </span>
-      <q-tooltip>
+      <QTooltip>
         {{ $t( showUsers ? 'GROUPMAP.HIDE_USERS' : 'GROUPMAP.SHOW_USERS') }}
-      </q-tooltip>
-    </q-btn>
+      </QTooltip>
+    </QBtn>
 
-    <q-btn
+    <QBtn
       v-if="options.showGroupsButton"
       color="primary"
       :size="options.buttonSize"
@@ -83,11 +83,11 @@
           class="fas fa-times bottom-right fa-stack-1x"
         />
       </span>
-      <q-tooltip>
+      <QTooltip>
         {{ $t( showGroups ? 'GROUPMAP.HIDE_GROUPS' : 'GROUPMAP.SHOW_GROUPS') }}
-      </q-tooltip>
-    </q-btn>
-  </q-btn-group>
+      </QTooltip>
+    </QBtn>
+  </QBtnGroup>
 </template>
 
 <script>

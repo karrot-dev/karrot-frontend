@@ -12,7 +12,7 @@
     </b>
 
     <form @submit.prevent="maybeSave">
-      <q-field
+      <QField
         v-if="canEditDate"
         icon="access time"
         :label="$t('CREATEPICKUP.TIME')"
@@ -20,16 +20,16 @@
         :error="hasError('date')"
         :error-label="firstError('date')"
       >
-        <q-datetime
+        <QDatetime
           type="time"
           v-model="edit.date"
           :format24h="is24h"
           :display-value="$d(edit.date, 'hourMinute')"
           :disable="!canEditDate"
         />
-      </q-field>
+      </QField>
 
-      <q-field
+      <QField
         v-if="canEditDate"
         icon="today"
         :label="$t('CREATEPICKUP.DATE')"
@@ -37,16 +37,16 @@
         :error="hasError('date')"
         :error-label="firstError('date')"
       >
-        <q-datetime
+        <QDatetime
           type="date"
           v-model="edit.date"
           :min="now"
           :display-value="$d(edit.date, 'yearMonthDay')"
           :disable="!canEditDate"
         />
-      </q-field>
+      </QField>
 
-      <q-field
+      <QField
         icon="group"
         :label="$t('CREATEPICKUP.MAX_COLLECTORS')"
         :helper="$t('CREATEPICKUP.MAX_COLLECTORS_HELPER')"
@@ -55,13 +55,13 @@
         :warning="seriesMeta.isMaxCollectorsChanged"
         :warning-label="$t('CREATEPICKUP.DIFFERS_WARNING')"
       >
-        <q-input
+        <QInput
           v-model="edit.maxCollectors"
           type="number"
           :placeholder="$t('CREATEPICKUP.UNLIMITED')"
           :after="[resetToSeriesButton('maxCollectors')]"
         />
-        <q-slider
+        <QSlider
           v-if="edit.maxCollectors > 0 && edit.maxCollectors <= 10"
           v-model="edit.maxCollectors"
           :min="1"
@@ -70,9 +70,9 @@
           label-always
           :color="seriesMeta.isMaxCollectorsChanged ? 'warning' : ''"
         />
-      </q-field>
+      </QField>
 
-      <q-field
+      <QField
         icon="info"
         :label="$t('CREATEPICKUP.COMMENT')"
         :helper="$t('CREATEPICKUP.COMMENT_HELPER')"
@@ -81,14 +81,14 @@
         :warning="seriesMeta.isDescriptionChanged"
         :warning-label="$t('CREATEPICKUP.DIFFERS_WARNING')"
       >
-        <q-input
+        <QInput
           v-model="edit.description"
           type="textarea"
           max-length="500"
           :after="[resetToSeriesButton('description')]"
           @keyup.ctrl.enter="maybeSave"
         />
-      </q-field>
+      </QField>
 
       <div
         v-if="hasNonFieldError"
@@ -97,49 +97,49 @@
         {{ firstNonFieldError }}
       </div>
       <div class="actionButtons">
-        <q-btn
+        <QBtn
           type="submit"
           color="primary"
           :disable="!canSave"
           :loading="isPending"
         >
           {{ $t(isNew ? 'BUTTON.CREATE' : 'BUTTON.SAVE_CHANGES') }}
-        </q-btn>
+        </QBtn>
 
-        <q-btn
+        <QBtn
           v-if="!isNew && !edit.isDisabled"
           type="button"
           color="red"
           @click="disable"
         >
           {{ $t('BUTTON.DISABLE') }}
-        </q-btn>
+        </QBtn>
 
-        <q-btn
+        <QBtn
           v-if="!isNew && edit.isDisabled"
           type="button"
           color="secondary"
           @click="enable"
         >
           {{ $t('BUTTON.ENABLE') }}
-        </q-btn>
+        </QBtn>
 
-        <q-btn
+        <QBtn
           type="button"
           @click="reset"
           v-if="!isNew"
           :disable="!hasChanged"
         >
           {{ $t('BUTTON.RESET') }}
-        </q-btn>
+        </QBtn>
 
-        <q-btn
+        <QBtn
           type="button"
           @click="$emit('cancel')"
           v-if="isNew"
         >
           {{ $t('BUTTON.CANCEL') }}
-        </q-btn>
+        </QBtn>
       </div>
     </form>
   </div>

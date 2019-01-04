@@ -1,20 +1,20 @@
 <template>
   <div>
-    <q-card class="no-shadow no-padding grey-border">
+    <QCard class="no-shadow no-padding grey-border">
       <div class="generic-padding relative-position">
         <div
           v-if="statistics"
           class="infoChips row no-wrap"
         >
-          <q-chip
+          <QChip
             icon="fas fa-shopping-basket"
             color="secondary"
             square
             :title="$t('FEEDBACKLIST.NUMBER_PICKUPS', { count: statistics.pickupsDone })"
           >
             <strong>{{ statistics.pickupsDone }}</strong>
-          </q-chip>
-          <q-chip
+          </QChip>
+          <QChip
             v-if="statistics.feedbackCount > 0"
             icon="fas fa-balance-scale"
             color="secondary"
@@ -22,8 +22,8 @@
             :title="$t('FEEDBACKLIST.NUMBER_FEEDBACK', { count: statistics.feedbackCount })"
           >
             <strong>{{ statistics.feedbackCount }}</strong>
-          </q-chip>
-          <q-chip
+          </QChip>
+          <QChip
             v-if="statistics.feedbackWeight > 0"
             icon="fas fa-weight"
             color="secondary"
@@ -31,13 +31,13 @@
             :title="$t('FEEDBACKLIST.WEIGHT_SUM', { sum: statistics.feedbackWeight })"
           >
             <strong>{{ statistics.feedbackWeight }}&nbsp;kg</strong>
-          </q-chip>
+          </QChip>
         </div>
         <span v-if="statistics && statistics.feedbackWeight > 0">
           {{ $tc('FEEDBACKLIST.SAVED_FOOD', 2, { amount: statistics.feedbackWeight }) }}
         </span>
       </div>
-    </q-card>
+    </QCard>
     <FeedbackList
       :feedback="feedback"
       :status="fetchStatus"

@@ -1,5 +1,5 @@
 <template>
-  <q-btn
+  <QBtn
     @click="$emit('click')"
     class="row no-wrap items-center"
     flat
@@ -9,7 +9,7 @@
       ref="emoji"
     />
     <slot />
-  </q-btn>
+  </QBtn>
 </template>
 
 <script>

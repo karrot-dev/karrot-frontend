@@ -9,7 +9,7 @@
       src="statics/carrot_logo.png"
     >
     <LoadingProgress />
-    <router-view />
+    <RouterView />
   </div>
 </template>
 

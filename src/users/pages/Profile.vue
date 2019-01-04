@@ -7,16 +7,16 @@
       @createTrust="createTrust"
       @selectGroup="selectGroup"
     />
-    <q-card
+    <QCard
       v-if="history.length > 0"
     >
-      <q-card-title>
+      <QCardTitle>
         {{ $t('GROUP.HISTORY') }}
-      </q-card-title>
-      <q-card-main>
+      </QCardTitle>
+      <QCardMain>
         <HistoryContainer :history="history" />
-      </q-card-main>
-    </q-card>
+      </QCardMain>
+    </QCard>
   </div>
 </template>
 

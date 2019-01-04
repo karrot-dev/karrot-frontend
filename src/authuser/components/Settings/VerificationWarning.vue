@@ -1,5 +1,5 @@
 <template>
-  <q-alert
+  <QAlert
     v-if="user && !hasEmailVerified"
     icon="fas fa-exclamation-triangle"
     color="warning"
@@ -29,38 +29,38 @@
       <i class="fas fa-exclamation-triangle"/>
       {{ anyFirstError }}
     </p>
-  </q-alert>
-  <q-collapsible
+  </QAlert>
+  <QCollapsible
     v-else-if="hasFailedEmailDeliveries"
     header-class="bg-warning text-white"
   >
     <template
       slot="header"
     >
-      <q-item-side
+      <QItemSide
         color="white"
         icon="fas fa-exclamation-triangle"
       />
-      <q-item-main
+      <QItemMain
         :label="failedEmailDeliveryMessage"
       />
     </template>
-    <q-list>
-      <q-item
+    <QList>
+      <QItem
         v-for="(event, idx) in failedEmailDeliveries"
         :key="idx"
       >
-        <q-item-main
+        <QItemMain
           :label="event.subject"
           :sublabel="`${event.event}: ${event.reason}`"
         />
-        <q-item-side
+        <QItemSide
           right
           :stamp="$d(event.createdAt, 'long')"
         />
-      </q-item>
-    </q-list>
-  </q-collapsible>
+      </QItem>
+    </QList>
+  </QCollapsible>
 </template>
 
 <script>

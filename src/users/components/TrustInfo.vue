@@ -1,12 +1,12 @@
 <template>
-  <q-btn
+  <QBtn
     flat
     round
     dense
     icon="help_outline"
     @click="showInfo = true"
   >
-    <q-dialog
+    <QDialog
       v-if="showInfo"
       v-model="showInfo"
       :title="$t('USERDATA.TRUST_INFO.TITLE')"
@@ -22,8 +22,8 @@
           style="text-decoration: underline"
         />
       </template>
-    </q-dialog>
-  </q-btn>
+    </QDialog>
+  </QBtn>
 </template>
 
 <script>

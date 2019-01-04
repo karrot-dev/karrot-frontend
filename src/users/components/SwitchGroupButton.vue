@@ -1,50 +1,50 @@
 <template>
-  <q-btn
+  <QBtn
     color="primary"
     @click="showModal = true"
     v-if="groups.length > 1 || (isLoaded && !currentGroup)"
   >
     {{ currentGroup ? currentGroup.name : $t('TOPBAR.CHANGE_GROUP') }}
-    <q-modal
+    <QModal
       v-model="showModal"
       minimized
     >
-      <q-list>
-        <q-list-header>
+      <QList>
+        <QListHeader>
           {{ user.isCurrentUser ? $t('JOINGROUP.MY_GROUPS') : $t('SWITCHGROUP.COMMON_GROUPS') }}
-        </q-list-header>
-        <q-item
+        </QListHeader>
+        <QItem
           v-for="group in commonGroups"
           :key="group.id"
           link
           @click.native="$emit('selectGroup', { groupId: group.id })"
           v-close-overlay
         >
-          <q-item-main>
+          <QItemMain>
             {{ group.name }}
-          </q-item-main>
-          <q-item-side
+          </QItemMain>
+          <QItemSide
             v-if="group.isCurrentGroup"
             right
             icon="fas fa-star"
             color="secondary"
           />
-        </q-item>
-        <q-list-header v-if="otherGroups.length > 0">
+        </QItem>
+        <QListHeader v-if="otherGroups.length > 0">
           {{ $t('SWITCHGROUP.OTHER_GROUPS') }}
-        </q-list-header>
-        <q-item
+        </QListHeader>
+        <QItem
           v-for="group in otherGroups"
           :key="group.id"
           :to="{ name: 'groupPreview', params: { groupPreviewId: group.id } }"
         >
-          <q-item-main>
+          <QItemMain>
             {{ group.name }}
-          </q-item-main>
-        </q-item>
-      </q-list>
-    </q-modal>
-  </q-btn>
+          </QItemMain>
+        </QItem>
+      </QList>
+    </QModal>
+  </QBtn>
 </template>
 
 <script>

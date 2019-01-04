@@ -1,6 +1,6 @@
 <template>
   <div class="inline-block">
-    <q-card
+    <QCard
       class="groupPreviewCard relative-position"
       :color="cardColor"
       :class="{
@@ -10,23 +10,23 @@
       :style="cardStyle"
       @click.native="$emit(group.isMember ? 'visit' : 'preview')"
     >
-      <q-chip
+      <QChip
         v-if="hasMyApplication"
         floating
         class="q-pl-sm q-pt-xs q-pb-xs"
         color="blue"
         icon="fas fa-hourglass-half"
       />
-      <q-tooltip v-if="hasMyApplication">
+      <QTooltip v-if="hasMyApplication">
         {{ $t('APPLICATION.GALLERY_TOOLTIP') }}
-      </q-tooltip>
-      <q-card-title class="ellipsis">
+      </QTooltip>
+      <QCardTitle class="ellipsis">
         {{ group.name }}
         <span slot="subtitle">
           {{ group.members.length }} {{ $tc('JOINGROUP.NUM_MEMBERS', group.members.length) }}
         </span>
-      </q-card-title>
-      <q-card-main class="fixed-height smaller-text">
+      </QCardTitle>
+      <QCardMain class="fixed-height smaller-text">
         <div
           v-if="group.publicDescription"
         >
@@ -38,29 +38,29 @@
         >
           {{ $t('JOINGROUP.NO_PUBLIC_DESCRIPTION') }}
         </span>
-      </q-card-main>
-      <q-card-separator />
-      <q-card-actions v-if="group.isMember">
-        <q-btn
+      </QCardMain>
+      <QCardSeparator />
+      <QCardActions v-if="group.isMember">
+        <QBtn
           @click.stop="$emit('visit')"
           class="q-btn-flat"
         >
-          <q-icon name="fas fa-home" />
-          <q-tooltip>
+          <QIcon name="fas fa-home" />
+          <QTooltip>
             {{ $t('GROUPINFO.MEMBER_VIEW') }}
-          </q-tooltip>
-        </q-btn>
-        <q-btn
+          </QTooltip>
+        </QBtn>
+        <QBtn
           @click.stop="$emit('preview')"
           class="q-btn-flat"
         >
-          <q-icon name="fas fa-info-circle" />
-          <q-tooltip>
+          <QIcon name="fas fa-info-circle" />
+          <QTooltip>
             {{ $t('GROUPINFO.META') }}
-          </q-tooltip>
-        </q-btn>
-      </q-card-actions>
-    </q-card>
+          </QTooltip>
+        </QBtn>
+      </QCardActions>
+    </QCard>
   </div>
 </template>
 

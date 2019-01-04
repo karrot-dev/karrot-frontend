@@ -1,13 +1,13 @@
 <template>
   <div>
-    <q-tabs
+    <QTabs
       class="markdown-input"
       inverted
       align="right"
       position="top"
       v-model="tab"
     >
-      <q-tab
+      <QTab
         class="markdown-input-tab"
         default
         name="edit"
@@ -15,14 +15,14 @@
         :label="$t('BUTTON.EDIT')"
         :disable="!value"
       />
-      <q-tab
+      <QTab
         class="markdown-input-tab"
         name="preview"
         slot="title"
         :label="$t('BUTTON.PREVIEW')"
         :disable="!value"
       />
-      <q-tab-pane name="edit">
+      <QTabPane name="edit">
         <slot />
         <small
           v-if="!$q.platform.is.mobile && tab === 'edit'"
@@ -38,19 +38,19 @@
             rel="nofollow noopener noreferrer"
             :title="$t('MARKDOWN_INPUT.HELP')"
           >
-            <q-icon name="fas fa-question-circle" />
+            <QIcon name="fas fa-question-circle" />
           </a>
         </small>
-      </q-tab-pane>
-      <q-tab-pane name="preview">
+      </QTabPane>
+      <QTabPane name="preview">
         <div class="preview">
           <Markdown
             v-if="value"
             :source="value"
           />
         </div>
-      </q-tab-pane>
-    </q-tabs>
+      </QTabPane>
+    </QTabs>
   </div>
 </template>
 

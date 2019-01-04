@@ -1,9 +1,9 @@
 <template>
-  <q-btn flat>
+  <QBtn flat>
     <span :style="{opacity}">
       <i class="far fa-smile" /> +
     </span>
-    <q-popover
+    <QPopover
       anchor="top left"
       self="top left"
       @show="open = true"
@@ -14,8 +14,8 @@
         :reacted="reacted"
         @toggle="$emit('toggle', arguments[0])"
       />
-    </q-popover>
-  </q-btn>
+    </QPopover>
+  </QBtn>
 </template>
 
 <script>

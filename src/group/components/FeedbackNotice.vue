@@ -1,14 +1,14 @@
 <template>
   <div>
-    <router-link :to="{name: 'giveFeedback'}">
-      <q-card
+    <RouterLink :to="{name: 'giveFeedback'}">
+      <QCard
         color="info"
         class="generic-padding notice"
       >
         <i class="fas fa-balance-scale on-left"/>
         {{ $tc('PICKUPLIST.AVAILABLE_FEEDBACK', feedbackPossible.length, { count: feedbackPossible.length }) }}
-      </q-card>
-    </router-link>
+      </QCard>
+    </RouterLink>
   </div>
 </template>
 

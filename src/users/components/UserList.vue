@@ -1,13 +1,13 @@
 <template>
   <div class="list-wrapper">
-    <q-list
+    <QList
       no-border
     >
-      <q-item
+      <QItem
         v-if="users.length > 15"
       >
-        <q-search v-model="filterTerm" />
-      </q-item>
+        <QSearch v-model="filterTerm" />
+      </QItem>
       <UserItem
         v-for="user in activeUsers"
         :key="user.id"
@@ -15,29 +15,29 @@
         :group="group"
         @createTrust="$emit('createTrust', arguments[0])"
       />
-      <q-item-separator />
-      <q-collapsible
+      <QItemSeparator />
+      <QCollapsible
         v-if="inactiveUsers.length > 0"
         @show="showInactive = true"
         @hide="showInactive = false"
       >
         <template slot="header">
-          <q-item-side>
-            <q-item-tile icon="fas fa-bed" />
-          </q-item-side>
-          <q-item-main
+          <QItemSide>
+            <QItemTile icon="fas fa-bed" />
+          </QItemSide>
+          <QItemMain
             :label="$t('GROUP.INACTIVE')"
             :sublabel="inactiveSublabel"
           />
-          <q-item-side>
-            <q-btn
+          <QItemSide>
+            <QBtn
               flat
               round
               dense
               icon="help_outline"
               @click.stop="inactivityInfo"
             />
-          </q-item-side>
+          </QItemSide>
         </template>
 
         <template v-if="showInactive">
@@ -50,8 +50,8 @@
             @createTrust="$emit('createTrust', arguments[0])"
           />
         </template>
-      </q-collapsible>
-    </q-list>
+      </QCollapsible>
+    </QList>
   </div>
 </template>
 

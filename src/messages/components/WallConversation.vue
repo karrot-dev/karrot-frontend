@@ -1,9 +1,9 @@
 <template>
   <div v-if="data">
-    <q-infinite-scroll
+    <QInfiniteScroll
       :handler="maybeFetchPast"
     >
-      <q-list
+      <QList
         class="bg-white desktop-margin relative-position"
       >
         <template v-if="hasLoaded">
@@ -21,7 +21,7 @@
             :slim="$q.platform.is.mobile"
             :autofocus="!$q.platform.is.mobile"
           />
-          <q-alert
+          <QAlert
             v-if="data.unreadMessageCount > 0"
             color="secondary"
             icon="star"
@@ -33,7 +33,7 @@
                   count: data.unreadMessageCount > 99 ? '99+' : data.unreadMessageCount,
                 }) }}
               </small>
-              <q-btn
+              <QBtn
                 no-caps
                 outline
                 size="sm"
@@ -41,7 +41,7 @@
                 v-t="'CONVERSATION.MARK_READ'"
               />
             </div>
-          </q-alert>
+          </QAlert>
           <ConversationMessage
             v-for="message in data.messages"
             :key="message.id"
@@ -54,10 +54,10 @@
         <div
           v-if="data.fetchStatus.pending || data.fetchPastStatus.pending"
           style="width: 100%; text-align: center">
-          <q-spinner-dots :size="40"/>
+          <QSpinnerDots :size="40"/>
         </div>
-      </q-list>
-    </q-infinite-scroll>
+      </QList>
+    </QInfiniteScroll>
   </div>
 </template>
 

@@ -4,7 +4,7 @@
       v-if="isPending"
       class="full-width text-center generic-padding"
     >
-      <q-spinner-dots :size="40" />
+      <QSpinnerDots :size="40" />
     </div>
     <ChatConversation
       v-if="conversation"
@@ -20,7 +20,7 @@
       @fetchPast="$emit('fetchPast', arguments[0])"
       @fetchFuture="$emit('fetchFuture')"
     >
-      <q-collapsible
+      <QCollapsible
         slot="beforeChatMessages"
         v-if="application"
         opened
@@ -47,20 +47,20 @@
           </span>
           <Markdown :source="application.answers" />
         </div>
-      </q-collapsible>
-      <q-list
+      </QCollapsible>
+      <QList
         slot="afterChatMessages"
         v-if="pickup && pickup.isDisabled"
         class="bg-grey-2"
       >
-        <q-item>
-          <q-item-main>
-            <q-item-tile label>
+        <QItem>
+          <QItemMain>
+            <QItemTile label>
               <b class="text-negative">{{ $t('PICKUPLIST.PICKUP_DISABLED') }}</b>
-            </q-item-tile>
-          </q-item-main>
-        </q-item>
-      </q-list>
+            </QItemTile>
+          </QItemMain>
+        </QItem>
+      </QList>
     </ChatConversation>
   </div>
 </template>

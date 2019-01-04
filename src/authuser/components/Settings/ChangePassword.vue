@@ -1,27 +1,27 @@
 <template>
   <div class="edit-box">
-    <q-field
+    <QField
       icon="fas fa-lock"
       :label="$t('USERDETAIL.PASSWORD')"
       :error="hasError('newPassword')"
       :error-label="firstError('newPassword')"
     >
-      <q-input
+      <QInput
         type="password"
         v-model="newPassword"
       />
-    </q-field>
-    <q-field
+    </QField>
+    <QField
       icon="fas fa-unlock"
       :label="$t('USERDETAIL.OLD_PASSWORD')"
       :error="hasError('oldPassword')"
       :error-label="firstError('oldPassword')"
     >
-      <q-input
+      <QInput
         type="password"
         v-model="oldPassword"
       />
-    </q-field>
+    </QField>
 
     <div
       v-if="hasNonFieldError"
@@ -31,14 +31,14 @@
     </div>
 
     <div class="actionButtons">
-      <q-btn
+      <QBtn
         color="primary"
         @click="save"
         :disable="!hasNewPassword || !hasOldPassword || !hasPasswordChanged"
         :loading="isPending"
       >
         {{ $t('BUTTON.CHANGE_PASSWORD') }}
-      </q-btn>
+      </QBtn>
     </div>
   </div>
 </template>

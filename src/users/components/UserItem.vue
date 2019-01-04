@@ -1,20 +1,20 @@
 <template>
-  <q-item highlight>
-    <q-item-side>
+  <QItem highlight>
+    <QItemSide>
       <ProfilePicture
         :key="user.id"
         :user="user"
         :size="30"
         class="profilePic"
       />
-    </q-item-side>
-    <q-item-main>
-      <q-item-tile label>
-        <router-link :to="{name: 'user', params: { userId: user.id }}">
+    </QItemSide>
+    <QItemMain>
+      <QItemTile label>
+        <RouterLink :to="{name: 'user', params: { userId: user.id }}">
           {{ user.displayName }}
-        </router-link>
-      </q-item-tile>
-      <q-item-tile sublabel>
+        </RouterLink>
+      </QItemTile>
+      <QItemTile sublabel>
         <i18n
           path="GROUP.JOINED"
         >
@@ -29,19 +29,19 @@
           <i18n
             path="GROUP.ADDED_BY"
           >
-            <router-link
+            <RouterLink
               place="userName"
               :to="{name: 'user', params: { userId: addedBy.id }}"
             >
               {{ addedBy.displayName }}
-            </router-link>
+            </RouterLink>
           </i18n>
         </template>
         <br>
-      </q-item-tile>
-    </q-item-main>
-    <q-item-side>
-      <q-item-tile>
+      </QItemTile>
+    </QItemMain>
+    <QItemSide>
+      <QItemTile>
         <TrustButton
           v-if="user.membership"
           :user="user"
@@ -50,9 +50,9 @@
           small
           @createTrust="$emit('createTrust', arguments[0])"
         />
-      </q-item-tile>
-    </q-item-side>
-  </q-item>
+      </QItemTile>
+    </QItemSide>
+  </QItem>
 </template>
 
 <script>

@@ -1,61 +1,61 @@
 <template>
-  <q-item
+  <QItem
     v-if="label === 'collectorIds'"
     dense
   >
-    <q-item-main>
-      <q-item-tile label>
-        <router-link
+    <QItemMain>
+      <QItemTile label>
+        <RouterLink
           style="margin-right: .4em"
           :key="user"
           v-for="user in value"
           :to="{name:'user', params: {userId: user}}"
         >
           {{ user }}
-        </router-link>
-      </q-item-tile>
-      <q-item-tile sublabel>
+        </RouterLink>
+      </QItemTile>
+      <QItemTile sublabel>
         {{ label }}
-      </q-item-tile>
-    </q-item-main>
-  </q-item>
+      </QItemTile>
+    </QItemMain>
+  </QItem>
 
-  <q-item
+  <QItem
     v-else-if="label === 'date'"
     dense
   >
-    <q-item-main>
-      <q-item-tile label>
+    <QItemMain>
+      <QItemTile label>
         {{ $d(new Date(value), 'long') }}
-      </q-item-tile>
-      <q-item-tile sublabel>
+      </QItemTile>
+      <QItemTile sublabel>
         {{ $t('CREATEPICKUP.DATE') }}
-      </q-item-tile>
-    </q-item-main>
-  </q-item>
+      </QItemTile>
+    </QItemMain>
+  </QItem>
 
-  <q-item
+  <QItem
     v-else
     dense
   >
-    <q-item-main>
-      <q-item-tile
+    <QItemMain>
+      <QItemTile
         v-if="value"
         label
       >
         {{ value }}
-      </q-item-tile>
-      <q-item-tile
+      </QItemTile>
+      <QItemTile
         v-else
         color="grey"
         icon="fas fa-question-circle"
         label
       />
-      <q-item-tile sublabel>
+      <QItemTile sublabel>
         {{ convertedLabel }}
-      </q-item-tile>
-    </q-item-main>
-  </q-item>
+      </QItemTile>
+    </QItemMain>
+  </QItem>
 </template>
 
 <script>

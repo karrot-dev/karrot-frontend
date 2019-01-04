@@ -1,28 +1,28 @@
 <template>
-  <q-popover
+  <QPopover
     fit
   >
-    <q-list
+    <QList
       item-separator
       link
       v-close-overlay
     >
-      <q-item :to="{name: 'storeEdit', params: { storeId }}">
-        <q-icon
+      <QItem :to="{name: 'storeEdit', params: { storeId }}">
+        <QIcon
           size="1em"
           name="fas fa-fw fa-pencil-alt on-left"
         />
         {{ $t('STOREDETAIL.EDIT') }}
-      </q-item>
-      <q-item :to="{name: 'storePickupsManage', params: { storeId }}">
-        <q-icon
+      </QItem>
+      <QItem :to="{name: 'storePickupsManage', params: { storeId }}">
+        <QIcon
           size="1em"
           name="fas fa-fw fa-calendar-alt on-left"
         />
         {{ $t('STOREDETAIL.MANAGE') }}
-      </q-item>
-    </q-list>
-  </q-popover>
+      </QItem>
+    </QList>
+  </QPopover>
 </template>
 
 <script>

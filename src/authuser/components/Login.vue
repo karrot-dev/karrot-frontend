@@ -8,8 +8,8 @@
         class="white-box"
         :class="{ shake: hasAnyError }"
       >
-        <q-field icon="fas fa-envelope">
-          <q-input
+        <QField icon="fas fa-envelope">
+          <QInput
             :autofocus="true"
             :error="hasError('email')"
             :float-label="$t('USERDATA.EMAIL')"
@@ -19,14 +19,14 @@
             autocapitalize="off"
             spellcheck="false"
           />
-        </q-field>
+        </QField>
       </div>
       <div
         class="white-box"
         :class="{ shake: hasAnyError }"
       >
-        <q-field icon="fas fa-lock">
-          <q-input
+        <QField icon="fas fa-lock">
+          <QInput
             :error="hasError('password')"
             v-model="password"
             type="password"
@@ -35,7 +35,7 @@
             autocapitalize="off"
             spellcheck="false"
           />
-        </q-field>
+        </QField>
       </div>
       <div
         v-if="hasAnyError"
@@ -45,27 +45,27 @@
         {{ anyFirstError }}
       </div>
       <div class="actions">
-        <q-btn
+        <QBtn
           type="button"
           @click.prevent="$router.push({ name: 'requestPasswordReset' })"
           flat
         >
           {{ $t('LOGIN.FORGOT_PASSWORD') }}
-        </q-btn>
-        <q-btn
+        </QBtn>
+        <QBtn
           type="button"
           @click.prevent="$router.push({ name: 'signup' })"
           flat
         >
           {{ $t('LOGIN.SIGNUP') }}
-        </q-btn>
-        <q-btn
+        </QBtn>
+        <QBtn
           type="submit"
           class="submit shadow-4"
           :loading="isPending"
         >
           {{ $t('LOGIN.SUBMIT') }}
-        </q-btn>
+        </QBtn>
       </div>
       <div style="clear: both"/>
     </form>

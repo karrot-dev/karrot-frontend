@@ -1,7 +1,7 @@
 <template>
   <div>
-    <transition name="slide-toggle">
-      <transition-group
+    <Transition name="slide-toggle">
+      <TransitionGroup
         name="list"
         tag="div"
       >
@@ -14,8 +14,8 @@
           @leave="$emit('leave', arguments[0])"
           @detail="$emit('detail', arguments[0])"
         />
-      </transition-group>
-    </transition>
+      </TransitionGroup>
+    </Transition>
   </div>
 </template>
 

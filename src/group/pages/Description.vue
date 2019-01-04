@@ -1,5 +1,5 @@
 <template>
-  <q-card
+  <QCard
     class="no-mobile-margin no-shadow grey-border"
   >
     <RandomArt
@@ -14,7 +14,7 @@
       </div>
     </RandomArt>
     <div class="q-mx-md actionButtons">
-      <q-btn
+      <QBtn
         small
         round
         color="secondary"
@@ -22,22 +22,22 @@
         class="hoverScale "
         @click="showPublicDescription = !showPublicDescription"
       >
-        <q-tooltip v-t="showPublicDescription ? 'GROUP.DESCRIPTION_VERBOSE' : 'GROUPINFO.META'" />
-      </q-btn>
-      <router-link
+        <QTooltip v-t="showPublicDescription ? 'GROUP.DESCRIPTION_VERBOSE' : 'GROUPINFO.META'" />
+      </QBtn>
+      <RouterLink
         v-if="isEditor"
         :to="{name: 'groupEdit'}"
       >
-        <q-btn
+        <QBtn
           small
           round
           color="secondary"
           icon="fas fa-pencil-alt "
           class="hoverScale"
         >
-          <q-tooltip v-t="'GROUP.EDIT'" />
-        </q-btn>
-      </router-link>
+          <QTooltip v-t="'GROUP.EDIT'" />
+        </QBtn>
+      </RouterLink>
     </div>
     <div class="q-pa-md">
       <Markdown
@@ -49,7 +49,7 @@
         :source="group.description"
       />
     </div>
-  </q-card>
+  </QCard>
 </template>
 
 <script>

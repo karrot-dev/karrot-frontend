@@ -4,47 +4,47 @@
     :class="{ changed: hasChanged }"
   >
     <form @submit.prevent="maybeSave">
-      <q-field
+      <QField
         icon="fas fa-star"
         :label="$t('USERDETAIL.DISPLAY_NAME')"
         :error="hasDisplayNameError"
         :error-label="displayNameError"
       >
-        <q-input
+        <QInput
           v-model="edit.displayName"
           @blur="$v.edit.displayName.$touch"
         />
-      </q-field>
+      </QField>
 
-      <q-field
+      <QField
         icon="info"
         :label="$t('USERDETAIL.DESCRIPTION')"
         :error="hasError('description')"
         :error-label="firstError('description')"
       >
         <MarkdownInput :value="edit.description">
-          <q-input
+          <QInput
             v-model="edit.description"
             type="textarea"
             rows="1"
             @keyup.ctrl.enter="maybeSave"
           />
         </MarkdownInput>
-      </q-field>
+      </QField>
 
-      <q-field
+      <QField
         icon="fas fa-phone"
         :label="$t('USERDATA.MOBILE_NUMBER')"
         :error="hasError('mobileNumber')"
         :error-label="firstError('mobileNumber')"
       >
-        <q-input
+        <QInput
           type="tel"
           v-model="edit.mobileNumber"
         />
-      </q-field>
+      </QField>
 
-      <q-field
+      <QField
         icon="fas fa-map-marker"
         :label="$t('USERDATA.WHERE_FROM')"
         :error="hasAddressError"
@@ -55,7 +55,7 @@
           color="positive"
           font-icon="fas fa-user"
         />
-      </q-field>
+      </QField>
 
       <div
         v-if="hasNonFieldError"
@@ -65,22 +65,22 @@
       </div>
 
       <div class="actionButtons">
-        <q-btn
+        <QBtn
           type="submit"
           color="primary"
           :disable="!hasChanged"
           :loading="isPending"
         >
           {{ $t('BUTTON.SAVE_CHANGES') }}
-        </q-btn>
+        </QBtn>
 
-        <q-btn
+        <QBtn
           type="button"
           @click="reset"
           :disable="!hasChanged"
         >
           {{ $t('BUTTON.RESET') }}
-        </q-btn>
+        </QBtn>
       </div>
     </form>
   </div>

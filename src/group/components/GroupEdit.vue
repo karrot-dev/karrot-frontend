@@ -1,28 +1,28 @@
 <template>
   <div>
-    <q-card>
+    <QCard>
       <div
         class="edit-box"
         :class="{ changed: hasChanged }"
       >
         <form @submit.prevent="maybeSave">
-          <q-field
+          <QField
             v-if="!edit.isPlayground"
             icon="fas fa-fw fa-star"
             :label="$t('GROUP.TITLE')"
             :error="hasNameError"
             :error-label="nameError"
           >
-            <q-input
+            <QInput
               id="group-title"
               v-model="edit.name"
               :autofocus="true"
               autocomplete="off"
               @blur="$v.edit.name.$touch"
             />
-          </q-field>
+          </QField>
 
-          <q-field
+          <QField
             v-if="!edit.isPlayground"
             icon="fas fa-fw fa-question"
             :label="$t('GROUPINFO.TITLE')"
@@ -30,32 +30,32 @@
             :error-label="firstError('publicDescription')"
           >
             <MarkdownInput :value="edit.publicDescription">
-              <q-input
+              <QInput
                 v-model="edit.publicDescription"
                 type="textarea"
                 rows="4"
                 @keyup.ctrl.enter="maybeSave"
               />
             </MarkdownInput>
-          </q-field>
+          </QField>
 
-          <q-field
+          <QField
             icon="fas fa-fw fa-address-card"
             :label="$t('GROUP.DESCRIPTION_VERBOSE')"
             :error="hasError('description')"
             :error-label="firstError('description')"
           >
             <MarkdownInput :value="edit.description">
-              <q-input
+              <QInput
                 v-model="edit.description"
                 type="textarea"
                 rows="4"
                 @keyup.ctrl.enter="maybeSave"
               />
             </MarkdownInput>
-          </q-field>
+          </QField>
 
-          <q-field
+          <QField
             icon="fas fa-fw fa-map-marker"
             :label="$t('GROUP.ADDRESS')"
             :error="hasAddressError"
@@ -66,9 +66,9 @@
               :color="isNew ? 'blue' : 'positive'"
               font-icon="fas fa-home"
             />
-          </q-field>
+          </QField>
 
-          <q-field
+          <QField
             v-if="!edit.isOpen"
             icon="fas fa-fw fa-question"
             :label="$t('GROUP.APPLICATION_QUESTIONS')"
@@ -76,7 +76,7 @@
             :error-label="firstError('applicationQuestions')"
           >
             <MarkdownInput :value="edit.applicationQuestions">
-              <q-input
+              <QInput
                 @input="applicationQuestionsInput"
                 :value="applicationQuestionsOrDefault"
                 type="textarea"
@@ -84,26 +84,26 @@
                 @keyup.ctrl.enter="maybeSave"
               />
             </MarkdownInput>
-          </q-field>
+          </QField>
 
-          <q-field
+          <QField
             icon="fas fa-fw fa-globe"
             :label="$t('GROUP.TIMEZONE')"
             :error="hasTimezoneError"
             :error-label="timezoneError"
           >
-            <q-input
+            <QInput
               v-model="edit.timezone"
               @blur="$v.edit.timezone.$touch"
             >
-              <q-autocomplete
+              <QAutocomplete
                 :static-data="timezones"
                 :max-results="10"
                 :debounce="300"
                 :filter="timezoneFilter"
               />
-            </q-input>
-          </q-field>
+            </QInput>
+          </QField>
 
           <div
             v-if="hasNonFieldError"
@@ -112,27 +112,27 @@
             {{ firstNonFieldError }}
           </div>
           <div class="actionButtons">
-            <q-btn
+            <QBtn
               type="button"
               @click="reset"
               v-if="!isNew"
               :disable="!hasChanged"
             >
               {{ $t('BUTTON.RESET') }}
-            </q-btn>
+            </QBtn>
 
-            <q-btn
+            <QBtn
               type="submit"
               color="primary"
               :disable="!canSave"
               :loading="isPending"
             >
               {{ $t(isNew ? 'BUTTON.CREATE' : 'BUTTON.SAVE_CHANGES') }}
-            </q-btn>
+            </QBtn>
           </div>
         </form>
       </div>
-    </q-card>
+    </QCard>
   </div>
 </template>
 

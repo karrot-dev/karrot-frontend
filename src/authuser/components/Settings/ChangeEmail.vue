@@ -5,28 +5,28 @@
   >
     <VerificationWarning />
 
-    <q-field
+    <QField
       icon="fas fa-envelope"
       :label="$t('USERDATA.EMAIL')"
       :error="hasError('newEmail')"
       :error-label="firstError('newEmail')"
     >
-      <q-input
+      <QInput
         type="email"
         v-model="newEmail"
       />
-    </q-field>
-    <q-field
+    </QField>
+    <QField
       icon="fas fa-unlock"
       :label="$t('USERDATA.CONFIRM_PASSWORD')"
       :error="hasError('password')"
       :error-label="firstError('password')"
     >
-      <q-input
+      <QInput
         type="password"
         v-model="password"
       />
-    </q-field>
+    </QField>
     <div
       v-if="hasNonFieldError"
       class="text-negative"
@@ -34,14 +34,14 @@
       {{ firstNonFieldError }}
     </div>
     <div class="actionButtons">
-      <q-btn
+      <QBtn
         color="primary"
         @click="save"
         :disable="!hasEmailChanged || !hasPassword"
         :loading="isPending"
       >
         {{ $t('BUTTON.CHANGE_EMAIL') }}
-      </q-btn>
+      </QBtn>
     </div>
   </div>
 </template>

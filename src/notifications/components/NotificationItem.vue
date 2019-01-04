@@ -1,28 +1,28 @@
 <template>
-  <q-item
+  <QItem
     link
     :class="{ isUnread: !notification.clicked }"
     @click.native="$emit('click', notification)"
     :to="routeTo"
   >
-    <q-item-side v-if="user">
+    <QItemSide v-if="user">
       <ProfilePicture
         :user="user"
         :size="$q.platform.is.mobile ? 35 : 40"
       />
-    </q-item-side>
-    <q-item-main>
-      <q-item-tile
+    </QItemSide>
+    <QItemMain>
+      <QItemTile
         label
       >
-        <q-icon
+        <QIcon
           v-if="icon"
           :name="icon"
           class="q-mr-xs vertical-baseline"
         />
         {{ message }}
-      </q-item-tile>
-      <q-item-tile
+      </QItemTile>
+      <QItemTile
         sublabel
       >
         <DateAsWords
@@ -34,9 +34,9 @@
         <template v-if="storeName">
           · {{ storeName }}
         </template>
-      </q-item-tile>
-    </q-item-main>
-  </q-item>
+      </QItemTile>
+    </QItemMain>
+  </QItem>
 </template>
 
 <script>

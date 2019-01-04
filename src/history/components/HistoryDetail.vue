@@ -1,117 +1,117 @@
 <template>
-  <q-card
+  <QCard
     v-if="entry"
     class="no-margin"
   >
-    <q-list
+    <QList
       class="full-width"
       v-if="entry"
     >
-      <q-item
+      <QItem
         class="bg-tertiary"
       >
-        <q-item-side
+        <QItemSide
           color="white"
           icon="fas fa-fw fa-info"
         />
-      </q-item>
+      </QItem>
 
-      <q-item dense>
-        <q-item-side icon="far fa-fw fa-clock" />
-        <q-item-main>
-          <q-item-tile label>
+      <QItem dense>
+        <QItemSide icon="far fa-fw fa-clock" />
+        <QItemMain>
+          <QItemTile label>
             {{ $d(new Date(entry.date), 'long') }},
             <DateAsWords
               :date="entry.date"
               style="display: inline"
             />
-          </q-item-tile>
-        </q-item-main>
-      </q-item>
+          </QItemTile>
+        </QItemMain>
+      </QItem>
 
-      <q-item dense>
-        <q-item-side icon="fas fa-fw fa-user" />
-        <q-item-main>
-          <q-item-tile>
+      <QItem dense>
+        <QItemSide icon="fas fa-fw fa-user" />
+        <QItemMain>
+          <QItemTile>
             <ProfilePicture
               v-for="user in entry.users"
               :key="user.id"
               :user="user"
             />
-          </q-item-tile>
-        </q-item-main>
-      </q-item>
+          </QItemTile>
+        </QItemMain>
+      </QItem>
 
-      <q-item dense>
-        <q-item-side icon="far fa-fw fa-comment" />
-        <q-item-main>
-          <q-item-tile label>
+      <QItem dense>
+        <QItemSide icon="far fa-fw fa-comment" />
+        <QItemMain>
+          <QItemTile label>
             {{ entry.message }}
-          </q-item-tile>
-        </q-item-main>
-      </q-item>
+          </QItemTile>
+        </QItemMain>
+      </QItem>
 
-      <q-item
+      <QItem
         v-if="entry.group && entry.group.name"
         dense
       >
-        <q-item-side icon="fas fa-fw fa-home" />
-        <q-item-main>
-          <q-item-tile label>
-            <router-link :to="{name: 'group', params: { groupId: entry.group.id }}">
+        <QItemSide icon="fas fa-fw fa-home" />
+        <QItemMain>
+          <QItemTile label>
+            <RouterLink :to="{name: 'group', params: { groupId: entry.group.id }}">
               {{ entry.group.name }}
-            </router-link>
-          </q-item-tile>
-        </q-item-main>
-      </q-item>
+            </RouterLink>
+          </QItemTile>
+        </QItemMain>
+      </QItem>
 
-      <q-item
+      <QItem
         v-if="entry.store && entry.store.name"
         dense
       >
-        <q-item-side icon="fas fa-fw fa-shopping-cart" />
-        <q-item-main>
-          <q-item-tile label>
-            <router-link :to="{name: 'store', params: { groupId: entry.store.group.id, storeId: entry.store.id }}">
+        <QItemSide icon="fas fa-fw fa-shopping-cart" />
+        <QItemMain>
+          <QItemTile label>
+            <RouterLink :to="{name: 'store', params: { groupId: entry.store.group.id, storeId: entry.store.id }}">
               {{ entry.store.name }}
-            </router-link>
-          </q-item-tile>
-        </q-item-main>
-      </q-item>
-    </q-list>
-    <q-list
+            </RouterLink>
+          </QItemTile>
+        </QItemMain>
+      </QItem>
+    </QList>
+    <QList
       v-if="entry.payload"
       striped
     >
-      <q-item
+      <QItem
         class="bg-tertiary"
       >
-        <q-item-side
+        <QItemSide
           color="white"
           icon="far fa-fw fa-file-alt"
         />
-      </q-item>
+      </QItem>
       <HistoryPayloadDetail
         v-for="(value, key) in entry.payload"
         :key="key"
         :label="key"
         :value="value"
       />
-    </q-list>
-    <q-list>
-      <q-item class="text-white">
-        <q-btn
+    </QList>
+    <QList>
+      <QItem class="text-white">
+        <QBtn
           @click="toggleRaw()"
           color="secondary">Raw data
-        </q-btn>
-      </q-item>
-      <q-item v-if="raw">
+        </QBtn>
+      </QItem>
+      <QItem v-if="raw">
         <pre style="white-space: pre-wrap">
           {{ entry }}
         </pre>
-      </q-item>
-    </q-list>
-  </q-card>
+      </QItem>
+    </QList>
+  </QCard>
 </template>
 
 <script>

@@ -7,7 +7,7 @@
       :markers="markers"
       :show-attribution="false"
     />
-    <router-link
+    <RouterLink
       class="overlay"
       :to="{name: 'map', params: {userId: user.id}}"
     />

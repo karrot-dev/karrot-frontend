@@ -1,5 +1,5 @@
 <template>
-  <q-infinite-scroll
+  <QInfiniteScroll
     ref="infiniteScroll"
     :handler="maybeFetchPast"
   >
@@ -9,16 +9,16 @@
       :key="entry.id"
     />
     <div v-if="empty">
-      <q-icon name="fas fa-bug" />
+      <QIcon name="fas fa-bug" />
       {{ $t('HISTORY.NOTHING_HAPPENEND') }}
     </div>
     <div
       slot="message"
       style="width: 100%; text-align: center"
     >
-      <q-spinner-dots :size="40"/>
+      <QSpinnerDots :size="40"/>
     </div>
-  </q-infinite-scroll>
+  </QInfiniteScroll>
 </template>
 
 <script>

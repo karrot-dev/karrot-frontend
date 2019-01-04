@@ -1,7 +1,7 @@
 <template>
   <div>
-    <q-card class="no-shadow grey-border">
-      <q-card-title>
+    <QCard class="no-shadow grey-border">
+      <QCardTitle>
         <h5>
           <i
             class="icon fas fa-redo on-left"
@@ -13,7 +13,7 @@
           slot="right"
           class="row items-center"
         >
-          <q-btn
+          <QBtn
             v-if="!newSeries"
             @click="createNewSeries"
             small
@@ -21,27 +21,27 @@
             class="bannerButton hoverScale"
             color="secondary"
             icon="fas fa-plus">
-            <q-tooltip v-t="'BUTTON.CREATE'" />
-          </q-btn>
+            <QTooltip v-t="'BUTTON.CREATE'" />
+          </QBtn>
         </div>
-      </q-card-title>
-      <q-item v-if="newSeries" >
-        <pickup-series-edit
+      </QCardTitle>
+      <QItem v-if="newSeries" >
+        <PickupSeriesEdit
           :value="newSeries"
           @save="saveNewSeries"
           @cancel="cancelNewSeries"
           @reset="resetNewSeries"
           :status="seriesCreateStatus"
         />
-      </q-item>
-      <q-list
+      </QItem>
+      <QList
         class="pickups"
         separator
         no-border
         highlight
         sparse
       >
-        <q-collapsible
+        <QCollapsible
           v-for="series in pickupSeries"
           @show="makeVisible('series', series.id)"
           :key="series.id"
@@ -50,32 +50,32 @@
           icon="fas fa-calendar-alt"
           sparse
         >
-          <q-item v-if="visible.series[series.id]">
-            <pickup-series-edit
+          <QItem v-if="visible.series[series.id]">
+            <PickupSeriesEdit
               :value="series"
               @save="saveSeries"
               @destroy="destroySeries"
               @reset="resetPickup"
               :status="series.saveStatus"
             />
-          </q-item>
-          <q-list
+          </QItem>
+          <QList
             no-border
             seperator
           >
-            <q-list-header v-t="'PICKUPMANAGE.UPCOMING_PICKUPS_IN_SERIES'" />
-            <q-collapsible
+            <QListHeader v-t="'PICKUPMANAGE.UPCOMING_PICKUPS_IN_SERIES'" />
+            <QCollapsible
               v-for="pickup in series.pickups"
               @show="makeVisible('pickup', pickup.id)"
               :key="pickup.id"
             >
               <template slot="header">
-                <q-item-side
+                <QItemSide
                   v-if="!$q.platform.is.mobile"
                   icon="fas fa-shopping-basket"
                 />
-                <q-item-main>
-                  <q-item-tile
+                <QItemMain>
+                  <QItemTile
                     :tag="pickup.isDisabled ? 's' : 'div'"
                     label
                     :title="pickup.isDisabled ? $t('PICKUPLIST.PICKUP_DISABLED') : null"
@@ -87,36 +87,36 @@
                     <template v-if="!series.isSameHour || !series.isSameMinute">
                       ({{ $d(pickup.date, 'hourMinute') }})
                     </template>
-                  </q-item-tile>
-                </q-item-main>
-                <q-item-side
+                  </QItemTile>
+                </QItemMain>
+                <QItemSide
                   class="text-bold"
                   right
                 >
-                  <q-icon
+                  <QIcon
                     v-if="!pickup.seriesMeta.matchesRule"
                     class="text-warning"
                     name="access time"
                     size="150%"
                     :title="$t('PICKUPMANAGE.PICKUP_DOES_NOT_MATCH')"
                   />
-                  <q-icon
+                  <QIcon
                     v-if="pickup.seriesMeta.isDescriptionChanged"
                     class="text-warning"
                     name="info"
                     size="150%"
                     :title="$t('PICKUPMANAGE.PICKUP_DESCRIPTION_CHANGED')"
                   />
-                  <q-icon
+                  <QIcon
                     v-if="pickup.seriesMeta.isMaxCollectorsChanged"
                     class="text-warning"
                     name="group"
                     size="150%"
                     :title="$t('PICKUPMANAGE.PICKUP_MAX_COLLECTORS_CHANGED')"
                   />
-                </q-item-side>
+                </QItemSide>
               </template>
-              <pickup-edit
+              <PickupEdit
                 v-if="visible.pickup[pickup.id]"
                 :value="pickup"
                 :status="pickup.saveStatus"
@@ -124,19 +124,19 @@
                 @save="savePickup"
                 @reset="resetPickup"
               />
-            </q-collapsible>
-          </q-list>
-        </q-collapsible>
-      </q-list>
-    </q-card>
+            </QCollapsible>
+          </QList>
+        </QCollapsible>
+      </QList>
+    </QCard>
 
-    <q-card class="no-shadow grey-border secondCard">
+    <QCard class="no-shadow grey-border secondCard">
       <RandomArt
         class="randomBanner"
         :seed="storeId"
         type="banner"
       />
-      <q-card-title>
+      <QCardTitle>
         <h5>
           <i
             class="icon fas fa-shopping-basket on-left"
@@ -148,7 +148,7 @@
           slot="right"
           class="row items-center"
         >
-          <q-btn
+          <QBtn
             v-if="!newPickup"
             @click="createNewPickup"
             small
@@ -157,58 +157,58 @@
             color="secondary"
             icon="fas fa-plus"
           >
-            <q-tooltip v-t="'BUTTON.CREATE'" />
-          </q-btn>
+            <QTooltip v-t="'BUTTON.CREATE'" />
+          </QBtn>
         </div>
-      </q-card-title>
-      <q-item v-if="newPickup" >
-        <pickup-edit
+      </QCardTitle>
+      <QItem v-if="newPickup" >
+        <PickupEdit
           :value="newPickup"
           @save="saveNewPickup"
           @cancel="cancelNewPickup"
           @reset="resetNewPickup"
           :status="pickupCreateStatus"
         />
-      </q-item>
-      <q-list
+      </QItem>
+      <QList
         class="pickups"
         separator
         no-border
       >
-        <q-collapsible
+        <QCollapsible
           v-for="pickup in oneTimePickups"
           @show="makeVisible('pickup', pickup.id)"
           :key="pickup.id"
           sparse
         >
           <template slot="header">
-            <q-item-side
+            <QItemSide
               v-if="!$q.platform.is.mobile"
               icon="fas fa-calendar-alt"
             />
-            <q-item-main>
-              <q-item-tile
+            <QItemMain>
+              <QItemTile
                 label
                 :tag="pickup.isDisabled ? 's' : 'div'"
                 :title="pickup.isDisabled ? $t('PICKUPLIST.PICKUP_DISABLED') : null"
               >
                 {{ $d(pickup.date, 'dateWithDayName') }}
-              </q-item-tile>
-              <q-item-tile sublabel>
+              </QItemTile>
+              <QItemTile sublabel>
                 {{ $d(pickup.date, 'hourMinute') }}
-              </q-item-tile>
-            </q-item-main>
+              </QItemTile>
+            </QItemMain>
           </template>
-          <pickup-edit
+          <PickupEdit
             v-if="visible.pickup[pickup.id]"
             :value="pickup"
             @save="savePickup"
             @reset="resetPickup"
             :status="pickup.saveStatus"
           />
-        </q-collapsible>
-      </q-list>
-    </q-card>
+        </QCollapsible>
+      </QList>
+    </QCard>
   </div>
 </template>
 
@@ -264,7 +264,7 @@ export default {
   },
   methods: {
     makeVisible (type, id) {
-      // prevents rending q-collabsible children before they are displayed
+      // prevents rending QCollabsible children before they are displayed
       // if we don't do this, the textarea in pickupEdit won't autogrow
       this.$set(this.visible[type], id, true)
     },

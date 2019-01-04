@@ -12,18 +12,18 @@
     </p>
     <form @submit.prevent="apply">
       <div class="white-box shadow-6 q-py-md q-px-sm">
-        <q-item>
-          <q-item-side
+        <QItem>
+          <QItemSide
             icon="fas fa-fw fa-question"
           />
-          <q-item-main>
+          <QItemMain>
             <Markdown
               :source="group.applicationQuestions"
             />
-          </q-item-main>
-        </q-item>
+          </QItemMain>
+        </QItem>
         <MarkdownInput :value="applicationAnswers">
-          <q-input
+          <QInput
             id="group-title"
             v-model="applicationAnswers"
             type="textarea"
@@ -41,21 +41,21 @@
         </div>
       </div>
       <div class="actionButtons">
-        <q-btn
+        <QBtn
           type="button"
           color="primary"
           class="shadow-4"
           @click="$emit('cancel', group.id)"
         >
           {{ $t('BUTTON.CANCEL') }}
-        </q-btn>
-        <q-btn
+        </QBtn>
+        <QBtn
           type="submit"
           color="secondary"
           class="shadow-4"
         >
           {{ $t('BUTTON.SUBMIT') }}
-        </q-btn>
+        </QBtn>
       </div>
     </form>
   </div>

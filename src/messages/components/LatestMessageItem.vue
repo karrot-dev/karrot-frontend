@@ -1,19 +1,19 @@
 <template>
-  <q-item
+  <QItem
     link
     :class="{ isUnread: unreadCount > 0 && !muted, selected }"
     @click.native="$emit('open')"
   >
-    <q-item-side
+    <QItemSide
       v-if="isPrivate || isApplication"
     >
       <ProfilePicture
         :user="user || application.user"
         :size="$q.platform.is.mobile ? 35 : 40"
       />
-    </q-item-side>
-    <q-item-main>
-      <q-item-tile
+    </QItemSide>
+    <QItemMain>
+      <QItemTile
         label
         class="row no-wrap justify-between items-baseline"
       >
@@ -22,21 +22,21 @@
             {{ user.displayName }}
           </template>
           <template v-else-if="isPickup">
-            <q-icon
+            <QIcon
               name="fas fa-fw fa-shopping-basket"
               class="q-mr-sm"
             />
             {{ $d(pickup.date, 'weekdayHourMinute') }}
           </template>
           <template v-else-if="isThread">
-            <q-icon
+            <QIcon
               name="fas fw-fw fa-comments"
               class="q-mr-sm"
             />
             <div class="ellipsis">{{ thread.content }}</div>
           </template>
           <template v-else-if="isApplication">
-            <q-icon
+            <QIcon
               name="fas fw-fw fa-user-plus"
               class="q-mr-sm"
               :title="$t('APPLICATION.APPLICATION')"
@@ -46,14 +46,14 @@
             </div>
           </template>
           <template v-else-if="isGroup">
-            <q-icon
+            <QIcon
               name="fas fw-fw fa-bullhorn"
               class="q-mr-sm"
               :title="$t('GROUP.WALL')"
             />
             <div class="ellipsis">{{ group.name }}</div>
           </template>
-          <q-icon
+          <QIcon
             v-if="muted"
             size="12px"
             color="grey"
@@ -71,8 +71,8 @@
             />
           </small>
         </span>
-      </q-item-tile>
-      <q-item-tile
+      </QItemTile>
+      <QItemTile
         v-if="isPickup"
         label
         class="q-mb-xs"
@@ -81,8 +81,8 @@
           {{ pickup.store && pickup.store.name }} ·
           {{ $d(pickup.date, 'yearMonthDay') }}
         </small>
-      </q-item-tile>
-      <q-item-tile
+      </QItemTile>
+      <QItemTile
         v-if="message"
         sublabel
         class="row no-wrap items-baseline"
@@ -101,17 +101,17 @@
           {{ $t('YOU') }}:&nbsp;
         </div>
         <div class="ellipsis col">{{ message.content }}</div>
-        <q-chip
+        <QChip
           v-if="unreadCount > 0"
           round
           :color="muted ? 'grey' : 'secondary'"
           class="inline-chip"
         >
           {{ unreadCount > 99 ? '99+' : unreadCount }}
-        </q-chip>
-      </q-item-tile>
-    </q-item-main>
-  </q-item>
+        </QChip>
+      </QItemTile>
+    </QItemMain>
+  </QItem>
 </template>
 
 <script>

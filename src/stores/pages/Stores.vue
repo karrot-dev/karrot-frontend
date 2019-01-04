@@ -1,12 +1,12 @@
 <template>
-  <q-card>
+  <QCard>
     <StoreList
       class="white-background"
       :group-id="groupId"
       :stores="stores"
       :archived="archived"
     />
-  </q-card>
+  </QCard>
 </template>
 
 <script>

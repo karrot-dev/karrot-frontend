@@ -1,5 +1,5 @@
 <template>
-  <l-map
+  <LMap
     class="k-map"
     :bounds="bounds"
     :center="center"
@@ -10,7 +10,7 @@
     @update:zoom="updateZoom"
     @contextmenu="openContextMenu"
   >
-    <l-tile-layer
+    <LTileLayer
       :url="url"
       :attribution="attribution"
     />
@@ -21,12 +21,12 @@
       @dragend="$emit('markerMoved', $event.target._latlng, marker)"
       :opacity="opacityFor(marker)"
     >
-      <l-popup
+      <LPopup
         v-if="marker.popupcontent"
         :content="marker.popupcontent"
       />
     </ExtendedMarker>
-    <q-popover
+    <QPopover
       ref="popover"
       anchor="top left"
       :anchor-click="false"
@@ -36,8 +36,8 @@
         name="contextmenu"
         :latLng="popoverLatLng"
       />
-    </q-popover>
-  </l-map>
+    </QPopover>
+  </LMap>
 </template>
 
 <script>

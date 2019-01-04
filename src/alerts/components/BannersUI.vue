@@ -1,6 +1,6 @@
 <template>
   <div>
-    <k-banner
+    <KBanner
       v-for="banner in formattedBanners"
       :key="banner.type"
       :color="banner.color"
@@ -10,7 +10,7 @@
       class="k-banner"
     >
       {{ $t(banner.message, banner.context) }}
-    </k-banner>
+    </KBanner>
   </div>
 </template>
 

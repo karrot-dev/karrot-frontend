@@ -1,13 +1,13 @@
 <template>
   <div>
     <form @submit.prevent="maybeSave">
-      <q-field
+      <QField
         icon="fas fa-envelope"
         :helper="helperMessage"
         dark
         class="white-font"
       >
-        <q-input
+        <QInput
           v-model="form.email"
           type="email"
           autocorrect="off"
@@ -17,20 +17,20 @@
           style="padding: 4px;"
           @blur="$v.form.email.$touch"
         />
-      </q-field>
+      </QField>
 
-      <q-btn
+      <QBtn
         type="submit"
         :loading="isPending"
         :disable="!canSave"
         class="bg-secondary float-right"
         style="min-width: 5.5em"
       >
-        <q-icon name="fas fa-paper-plane" />
-        <q-tooltip>
+        <QIcon name="fas fa-paper-plane" />
+        <QTooltip>
           {{ $t('GROUP.INVITE_SEND') }}
-        </q-tooltip>
-      </q-btn>
+        </QTooltip>
+      </QBtn>
       <div style="clear:both"/>
     </form>
   </div>

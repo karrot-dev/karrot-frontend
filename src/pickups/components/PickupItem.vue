@@ -1,9 +1,9 @@
 <template>
-  <q-card
+  <QCard
     :class="{ full: pickup.isFull }"
     @click.native.stop="detailIfMember"
   >
-    <q-card-main
+    <QCardMain
       class="row no-padding justify-between content"
       :class="{ isEmpty: pickup.isEmpty, isUserMember: pickup.isUserMember, isDisabled: pickup.isDisabled }"
     >
@@ -12,9 +12,9 @@
           <span class="featured-text">{{ $d(pickup.date, 'hourMinute') }}</span>
           <template v-if="storeLink">
             <strong v-if="pickup.store">
-              <router-link :to="{ name: 'store', params: { storeId: pickup.store.id }}">
+              <RouterLink :to="{ name: 'store', params: { storeId: pickup.store.id }}">
                 {{ pickup.store.name }}
-              </router-link>
+              </RouterLink>
             </strong> {{ $d(pickup.date, 'dateWithDayName') }}
           </template>
           <template v-else>
@@ -22,7 +22,7 @@
           </template>
           <template v-if="pickup.isUserMember">
             <span>
-              <strong>{{ $t('CONVERSATION.OPEN') }} <q-icon name="chat" /></strong>
+              <strong>{{ $t('CONVERSATION.OPEN') }} <QIcon name="chat" /></strong>
             </span>
           </template>
         </div>
@@ -45,8 +45,8 @@
           />
         </div>
       </div>
-    </q-card-main>
-  </q-card>
+    </QCardMain>
+  </QCard>
 </template>
 
 <script>

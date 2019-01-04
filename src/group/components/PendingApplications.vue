@@ -1,14 +1,14 @@
 <template>
   <div>
-    <router-link :to="{name: 'groupApplications'}">
-      <q-card
+    <RouterLink :to="{name: 'groupApplications'}">
+      <QCard
         color="blue"
         class="generic-padding notice"
       >
         <i class="fas fa-address-card on-left"/>
         {{ $tc('APPLICATION.WALL_NOTICE', applications.length, { count: applications.length }) }}
-      </q-card>
-    </router-link>
+      </QCard>
+    </RouterLink>
   </div>
 </template>
 

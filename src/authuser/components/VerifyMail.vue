@@ -1,6 +1,6 @@
 <template>
   <div>
-    <q-spinner v-if="isPending" />
+    <QSpinner v-if="isPending" />
     <p v-if="success">
       {{ $t('VERIFYMAIL.SUCCESS') }}
     </p>
@@ -8,14 +8,14 @@
       <i class="fas fa-exclamation-triangle"/>
       {{ anyFirstError }}
     </p>
-    <router-link to="/">
-      <q-btn
+    <RouterLink to="/">
+      <QBtn
         v-t="'NOT_FOUND.HOME'"
         icon-right="fas fa-home"
         color="secondary"
         push
       />
-    </router-link>
+    </RouterLink>
   </div>
 </template>
 

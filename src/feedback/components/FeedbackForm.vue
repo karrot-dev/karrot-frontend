@@ -3,7 +3,7 @@
     @submit.prevent="maybeSave"
   >
     <MarkdownInput :value="edit.comment">
-      <q-input
+      <QInput
         v-model="edit.comment"
         type="textarea"
         :placeholder="$t('PICKUP_FEEDBACK.COMMENT_PLACEHOLDER')"
@@ -28,15 +28,15 @@
     </div>
 
     <div class="row justify-end generic-margin group">
-      <q-btn
+      <QBtn
         type="button"
         @click="reset"
         v-if="!isNew"
         :disable="!hasChanged"
       >
         {{ $t('BUTTON.RESET') }}
-      </q-btn>
-      <q-btn
+      </QBtn>
+      <QBtn
         type="submit"
         color="secondary"
         :loading="isPending"

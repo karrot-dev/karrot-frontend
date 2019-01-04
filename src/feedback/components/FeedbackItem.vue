@@ -1,6 +1,6 @@
 <template>
-  <q-card class="no-shadow grey-border">
-    <q-card-main class="generic-padding">
+  <QCard class="no-shadow grey-border">
+    <QCardMain class="generic-padding">
       <div class="row no-wrap">
         <div class="content full-width">
           <div class="row no-wrap items-baseline">
@@ -10,28 +10,28 @@
             >
               {{ $d(pickupDate, 'long') }}
             </strong>
-            <router-link
+            <RouterLink
               v-if="storeName && storeId"
               :to="{ name: 'storeFeedback', params: { storeId }}"
               class="ellipsis text-secondary"
             >
               {{ storeName }}
-            </router-link>
-            <router-link
+            </RouterLink>
+            <RouterLink
               v-if="feedback.isEditable"
               class="edit-button q-ml-sm"
               :to="{ name: 'editFeedback', params: { feedbackId: feedback.id }}"
             >
-              <q-icon
+              <QIcon
                 name="fas fa-pencil-alt"
                 :title="$t('BUTTON.EDIT')"
               />
-            </router-link>
+            </RouterLink>
           </div>
           <small class="text-weight-light">
-            <router-link :to="{ name: 'user', params: { userId } }">
+            <RouterLink :to="{ name: 'user', params: { userId } }">
               {{ userName }}
-            </router-link>
+            </RouterLink>
             <span
               class="message-date"
               place="date"
@@ -69,8 +69,8 @@
           </div>
         </div>
       </div>
-    </q-card-main>
-  </q-card>
+    </QCardMain>
+  </QCard>
 </template>
 
 <script>

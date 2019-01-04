@@ -5,130 +5,130 @@
       :expandable="false"
     >
       <template slot="icon">
-        <q-icon name="fas fa-fw fa-user-circle" />
+        <QIcon name="fas fa-fw fa-user-circle" />
       </template>
 
       <template slot="name">
         {{ $t('USERDATA.ACCOUNT') }}
       </template>
 
-      <q-list
+      <QList
         no-border
         link
       >
-        <q-item
+        <QItem
           item
           :to="{name: 'user', params: {userId: currentUserId}}"
         >
-          <q-item-side>
+          <QItemSide>
             <i class="fas fa-user fa-fw"/>
-          </q-item-side>
-          <q-item-main :label="$t('TOPBAR.USERPROFILE')" />
-        </q-item>
+          </QItemSide>
+          <QItemMain :label="$t('TOPBAR.USERPROFILE')" />
+        </QItem>
 
-        <q-item
+        <QItem
           item
           :to="{name: 'groupsGallery'}"
         >
-          <q-item-side>
+          <QItemSide>
             <i class="fas fa-exchange-alt"/>
-          </q-item-side>
-          <q-item-main :label="$t('TOPBAR.CHANGE_GROUP')" />
-        </q-item>
+          </QItemSide>
+          <QItemMain :label="$t('TOPBAR.CHANGE_GROUP')" />
+        </QItem>
 
-        <q-item
+        <QItem
           item
           :to="{name: 'settings'}"
         >
-          <q-item-side>
+          <QItemSide>
             <i class="fas fa-cog fa-fw"/>
-          </q-item-side>
-          <q-item-main :label="$t('SETTINGS.TITLE')" />
-        </q-item>
+          </QItemSide>
+          <QItemMain :label="$t('SETTINGS.TITLE')" />
+        </QItem>
 
-        <q-item
+        <QItem
           @click.native="$emit('logout'), $emit('toggleSidenav')"
         >
-          <q-item-side>
+          <QItemSide>
             <i class="fas fa-sign-out-alt fa-fw"/>
-          </q-item-side>
-          <q-item-main :label="$t('TOPBAR.LOGOUT')" />
-        </q-item>
-      </q-list>
+          </QItemSide>
+          <QItemMain :label="$t('TOPBAR.LOGOUT')" />
+        </QItem>
+      </QList>
     </SidenavBox>
     <SidenavBox :expandable="false">
       <template slot="icon">
-        <q-icon name="fas fa-info-circle" />
+        <QIcon name="fas fa-info-circle" />
       </template>
 
       <template slot="name">
         Info
       </template>
 
-      <q-list
+      <QList
         no-border
         link
       >
-        <q-item
+        <QItem
           link
           tag="a"
           rel="nofollow noopener noreferrer"
           href="https://community.foodsaving.world"
         >
-          <q-item-side>
+          <QItemSide>
             <i class="fas fa-users"/>
-          </q-item-side>
-          <q-item-main
+          </QItemSide>
+          <QItemMain
             label="Community"
             :sublabel="$t('GLOBAL.COMMUNITY_NOTE')"
           />
-        </q-item>
+        </QItem>
 
-        <q-item
+        <QItem
           link
           tag="a"
           rel="nofollow noopener noreferrer"
           href="https://foodsaving.world"
         >
-          <q-item-side>
+          <QItemSide>
             <i class="fas fa-paint-roller"/>
-          </q-item-side>
-          <q-item-main
+          </QItemSide>
+          <QItemMain
             label="Info"
             :sublabel="$t('SIDENAV.INFO_SUB')"
           />
-        </q-item>
+        </QItem>
 
-        <q-item
+        <QItem
           link
           tag="a"
           rel="nofollow noopener noreferrer"
           href="https://blog.karrot.world"
         >
-          <q-item-side>
+          <QItemSide>
             <i class="far fa-newspaper"/>
-          </q-item-side>
-          <q-item-main
+          </QItemSide>
+          <QItemMain
             label="Blog"
             :sublabel="$t('SIDENAV.BLOG_SUB')"
           />
-        </q-item>
+        </QItem>
 
-        <q-item
+        <QItem
           link
           tag="a"
           rel="nofollow noopener noreferrer"
           href="https://github.com/yunity/karrot-frontend"
         >
-          <q-item-side>
+          <QItemSide>
             <i class="fab fa-git"/>
-          </q-item-side>
-          <q-item-main
+          </QItemSide>
+          <QItemMain
             label="Git"
             :sublabel="$t('SIDENAV.GIT_SUB')"
           />
-        </q-item>
-      </q-list>
+        </QItem>
+      </QList>
     </SidenavBox>
   </div>
 </template>

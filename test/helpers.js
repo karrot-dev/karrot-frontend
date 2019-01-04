@@ -102,9 +102,9 @@ export function mountWithDefaults (Component, options = {}) {
 export function mountWithDefaultsAndLocalVue (Component, localVue, options = {}) {
   configureQuasar(localVue)
   i18n.locale = 'en'
-  localVue.component('router-link', RouterLinkStub)
-  localVue.component('transition', TransitionStub)
-  localVue.component('transition-group', TransitionGroupStub)
+  localVue.component('RouterLink', RouterLinkStub)
+  localVue.component('Transition', TransitionStub)
+  localVue.component('TransitionGroup', TransitionGroupStub)
   const datastore = options.datastore
   delete options.datastore
   const wrapper = mount(Component, {

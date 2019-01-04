@@ -48,7 +48,7 @@
     "date-fns": "^1.29.0",
     "deep-equal": "^1.0.1",
     "deepmerge": "^2.0.1",
-    "element-closest": "^2.0.2",
+    "element-closest": "^3.0.0",
     "escape-string-regexp": "^1.0.5",
     "firebase": "^5.5.1",
     "intl": "^1.2.5",

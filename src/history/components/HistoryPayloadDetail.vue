@@ -59,9 +59,17 @@
 </template>
 
 <script>
-import { QItem, QItemMain, QItemSide, QItemTile } from 'quasar'
+import {
+  QItem,
+  QItemMain,
+  QItemTile,
+} from 'quasar'
 export default {
-  components: { QItem, QItemMain, QItemSide, QItemTile },
+  components: {
+    QItem,
+    QItemMain,
+    QItemTile,
+  },
   props: {
     label: {
       required: true,

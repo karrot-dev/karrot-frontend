@@ -80,7 +80,6 @@ import StandardMap from '@/maps/components/StandardMap'
 import GroupMapControls from '@/maps/components/GroupMapControls'
 import {
   QBtn,
-  QPopover,
   QList,
   QItem,
   QItemMain,
@@ -93,7 +92,6 @@ export default {
   components: {
     StandardMap,
     QBtn,
-    QPopover,
     QList,
     QItem,
     QItemMain,

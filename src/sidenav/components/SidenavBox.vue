@@ -39,9 +39,19 @@
 </template>
 
 <script>
-import { QSlideTransition, QCard, QToolbar, QToolbarTitle, QBtn, QIcon } from 'quasar'
+import {
+  QToolbar,
+  QToolbarTitle,
+  QBtn,
+  QIcon,
+} from 'quasar'
 export default {
-  components: { QSlideTransition, QCard, QToolbar, QToolbarTitle, QBtn, QIcon },
+  components: {
+    QToolbar,
+    QToolbarTitle,
+    QBtn,
+    QIcon,
+  },
   props: {
     expandable: { default: true, type: Boolean },
     expanded: { default: true, type: Boolean },

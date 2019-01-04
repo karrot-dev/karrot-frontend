@@ -111,7 +111,18 @@
 </template>
 
 <script>
-import { Dialog, QTooltip, QCard, QCardTitle, QCardMain, QCardSeparator, QCardActions, QBtn, QField, QInput, QIcon, QAlert } from 'quasar'
+import {
+  Dialog,
+  QTooltip,
+  QCard,
+  QCardTitle,
+  QCardMain,
+  QCardSeparator,
+  QCardActions,
+  QBtn,
+  QIcon,
+  QAlert,
+} from 'quasar'
 import Markdown from '@/utils/components/Markdown'
 import statusMixin from '@/utils/mixins/statusMixin'
 
@@ -134,7 +145,18 @@ export default {
       type: Object,
     },
   },
-  components: { QCard, QCardTitle, QCardMain, QCardSeparator, QCardActions, QBtn, QField, QInput, QIcon, QTooltip, QAlert, Markdown },
+  components: {
+    QCard,
+    QCardTitle,
+    QCardMain,
+    QCardSeparator,
+    QCardActions,
+    QBtn,
+    QIcon,
+    QTooltip,
+    QAlert,
+    Markdown,
+  },
   computed: {
     status () {
       return this.group && this.group.joinStatus

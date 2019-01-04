@@ -65,7 +65,13 @@
 import ConversationMessage from './ConversationMessage'
 import ConversationCompose from './ConversationCompose'
 import NotificationToggle from './NotificationToggle'
-import { QBtn, QInfiniteScroll, QSpinnerDots, QList, QAlert, QItem } from 'quasar'
+import {
+  QBtn,
+  QInfiniteScroll,
+  QSpinnerDots,
+  QList,
+  QAlert,
+} from 'quasar'
 
 export default {
   name: 'WallConversation',
@@ -78,7 +84,6 @@ export default {
     QSpinnerDots,
     QList,
     QAlert,
-    QItem,
   },
   props: {
     data: {

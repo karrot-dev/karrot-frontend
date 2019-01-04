@@ -31,7 +31,7 @@
 </template>
 
 <script>
-import { QCard, QBtn, QTooltip, QIcon } from 'quasar'
+import { QCard } from 'quasar'
 import InvitationsForm from './InvitationsForm'
 import InvitationsList from './InvitationsList'
 import RandomArt from '@/utils/components/RandomArt'
@@ -41,7 +41,12 @@ import {
 } from 'vuex'
 
 export default {
-  components: { RandomArt, QCard, QBtn, QTooltip, QIcon, InvitationsForm, InvitationsList },
+  components: {
+    RandomArt,
+    QCard,
+    InvitationsForm,
+    InvitationsList,
+  },
   props: {
     invitations: {
       type: Array,

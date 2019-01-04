@@ -14,12 +14,15 @@
 </template>
 
 <script>
-import { QCard, QBtn, QTooltip } from 'quasar'
+import { QCard } from 'quasar'
 import HistoryContainer from '@/history/pages/HistoryContainer'
 import { mapGetters } from 'vuex'
 
 export default {
-  components: { HistoryContainer, QCard, QBtn, QTooltip },
+  components: {
+    HistoryContainer,
+    QCard,
+  },
   computed: {
     ...mapGetters({
       history: 'history/byActiveStore',

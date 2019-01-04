@@ -117,10 +117,23 @@ import {
   mapActions,
 } from 'vuex'
 
-import { QCard, QCardTitle, QCardActions, QItem, QItemMain, QItemSide, QBtn, QTabs, QRouteTab, QIcon, QTooltip } from 'quasar'
+import {
+  QCard,
+  QBtn,
+  QTooltip,
+} from 'quasar'
 
 export default {
-  components: { PickupList, QCard, QCardTitle, QCardActions, QItem, QItemMain, QItemSide, QBtn, QTabs, QRouteTab, QIcon, QTooltip, KNotice, Markdown, StandardMap, RandomArt },
+  components: {
+    PickupList,
+    QCard,
+    QBtn,
+    QTooltip,
+    KNotice,
+    Markdown,
+    StandardMap,
+    RandomArt,
+  },
   methods: {
     ...mapActions({
       join: 'pickups/join',

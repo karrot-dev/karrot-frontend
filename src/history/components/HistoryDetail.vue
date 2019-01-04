@@ -115,7 +115,15 @@
 </template>
 
 <script>
-import { QIcon, QBtn, QCard, QCardTitle, QList, QItem, QItemMain, QItemTile, QItemSide } from 'quasar'
+import {
+  QBtn,
+  QCard,
+  QList,
+  QItem,
+  QItemMain,
+  QItemTile,
+  QItemSide,
+} from 'quasar'
 import ProfilePicture from '@/users/components/ProfilePicture'
 import DateAsWords from '@/utils/components/DateAsWords'
 import HistoryPayloadDetail from '@/history/components/HistoryPayloadDetail'
@@ -127,7 +135,18 @@ export default {
       default: null,
     },
   },
-  components: { QIcon, QBtn, QCard, QCardTitle, QList, QItem, QItemMain, QItemTile, QItemSide, ProfilePicture, DateAsWords, HistoryPayloadDetail },
+  components: {
+    QBtn,
+    QCard,
+    QList,
+    QItem,
+    QItemMain,
+    QItemTile,
+    QItemSide,
+    ProfilePicture,
+    DateAsWords,
+    HistoryPayloadDetail,
+  },
   methods: {
     toggleRaw () {
       this.raw = !this.raw

@@ -138,8 +138,13 @@
 
 <script>
 import jstz from 'jstimezonedetect'
-import { QCard, QField, QInput, QBtn, QAutocomplete } from 'quasar'
-import StandardMap from '@/maps/components/StandardMap'
+import {
+  QCard,
+  QField,
+  QInput,
+  QBtn,
+  QAutocomplete,
+} from 'quasar'
 import AddressPicker from '@/maps/components/AddressPicker'
 import MarkdownInput from '@/utils/components/MarkdownInput'
 import { validationMixin } from 'vuelidate'
@@ -175,7 +180,13 @@ export default {
     },
   },
   components: {
-    QCard, QField, QInput, QBtn, QAutocomplete, StandardMap, AddressPicker, MarkdownInput,
+    QCard,
+    QField,
+    QInput,
+    QBtn,
+    QAutocomplete,
+    AddressPicker,
+    MarkdownInput,
   },
   computed: {
     canSave () {

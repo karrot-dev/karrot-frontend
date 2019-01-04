@@ -76,7 +76,14 @@
 </template>
 
 <script>
-import { QCard, QField, QInput, QBtn, QCheckbox, QTooltip, Dialog } from 'quasar'
+import {
+  QField,
+  QInput,
+  QBtn,
+  QCheckbox,
+  QTooltip,
+  Dialog,
+} from 'quasar'
 import { validationMixin } from 'vuelidate'
 import { required } from 'vuelidate/lib/validators'
 import editMixin from '@/utils/mixins/editMixin'
@@ -85,7 +92,11 @@ export default {
   name: 'AgreementForm',
   mixins: [validationMixin, editMixin],
   components: {
-    QCard, QField, QInput, QBtn, QCheckbox, QTooltip,
+    QField,
+    QInput,
+    QBtn,
+    QCheckbox,
+    QTooltip,
   },
   data () {
     return {

@@ -42,7 +42,12 @@
 
 <script>
 
-import { QBtn, QList, QItem, QItemMain, QItemSide, QIcon, QToggle, QTooltip, QItemTile } from 'quasar'
+import {
+  QBtn,
+  QIcon,
+  QToggle,
+  QTooltip,
+} from 'quasar'
 import SidenavBox from './SidenavBox'
 import StoreList from '@/stores/components/StoreList'
 
@@ -56,7 +61,12 @@ export default {
     isEditor: { default: false, type: Boolean },
   },
   components: {
-    SidenavBox, QBtn, QList, QItem, QItemMain, QItemSide, QIcon, QToggle, QTooltip, StoreList, QItemTile,
+    SidenavBox,
+    QBtn,
+    QIcon,
+    QToggle,
+    QTooltip,
+    StoreList,
   },
   data () {
     return {

@@ -87,7 +87,11 @@
 </template>
 
 <script>
-import { QDatetime, QField, QSlider, QInput, QBtn, QSelect } from 'quasar'
+import {
+  QField,
+  QInput,
+  QBtn,
+} from 'quasar'
 import AddressPicker from '@/maps/components/AddressPicker'
 import MarkdownInput from '@/utils/components/MarkdownInput'
 import editMixin from '@/utils/mixins/editMixin'
@@ -97,7 +101,11 @@ import { required, minLength, maxLength } from 'vuelidate/lib/validators'
 
 export default {
   components: {
-    QDatetime, QField, QSlider, QInput, QBtn, QSelect, AddressPicker, MarkdownInput,
+    QField,
+    QInput,
+    QBtn,
+    AddressPicker,
+    MarkdownInput,
   },
   mixins: [statusMixin, editMixin, validationMixin],
   computed: {

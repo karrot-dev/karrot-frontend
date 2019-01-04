@@ -46,7 +46,6 @@ import {
   QItemMain,
   QItemTile,
   QItemSide,
-  QChip,
   QIcon,
 } from 'quasar'
 import DateAsWords from '@/utils/components/DateAsWords'
@@ -58,7 +57,6 @@ export default {
     QItemMain,
     QItemTile,
     QItemSide,
-    QChip,
     QIcon,
     DateAsWords,
     ProfilePicture,

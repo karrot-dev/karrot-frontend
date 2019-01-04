@@ -50,7 +50,12 @@
 </template>
 
 <script>
-import { Dialog, QCard, QCardMain, QBtn, QIcon } from 'quasar'
+import {
+  Dialog,
+  QCard,
+  QCardMain,
+  QIcon,
+} from 'quasar'
 import PickupUsers from './PickupUsers'
 
 export default {
@@ -65,7 +70,10 @@ export default {
     },
   },
   components: {
-    QCard, QCardMain, QBtn, QIcon, PickupUsers,
+    QCard,
+    QCardMain,
+    QIcon,
+    PickupUsers,
   },
   methods: {
     join () {

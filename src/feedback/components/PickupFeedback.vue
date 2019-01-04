@@ -86,8 +86,11 @@
 </template>
 
 <script>
-import { QCard, QCardMain, QField, QInput, QBtn, QSelect } from 'quasar'
-import AmountPicker from './AmountPicker'
+import {
+  QCard,
+  QField,
+  QSelect,
+} from 'quasar'
 import FeedbackList from './FeedbackList'
 import RandomArt from '@/utils/components/RandomArt'
 import FeedbackForm from './FeedbackForm'
@@ -95,7 +98,16 @@ import KNotice from '@/utils/components/KNotice'
 import ProfilePicture from '@/users/components/ProfilePicture'
 
 export default {
-  components: { RandomArt, ProfilePicture, QCard, QCardMain, QField, QInput, QBtn, QSelect, FeedbackForm, AmountPicker, FeedbackList, KNotice },
+  components: {
+    RandomArt,
+    ProfilePicture,
+    QCard,
+    QField,
+    QSelect,
+    FeedbackForm,
+    FeedbackList,
+    KNotice,
+  },
   props: {
     pickups: { required: true, type: Array },
     editFeedback: { default: null, type: Object },

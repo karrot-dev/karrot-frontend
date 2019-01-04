@@ -136,10 +136,8 @@
 
 import {
   QList,
-  QListHeader,
   QIcon,
   QItem,
-  QItemSeparator,
   QItemSide,
   QItemMain,
 } from 'quasar'
@@ -148,10 +146,8 @@ import SidenavBox from '@/sidenav/components/SidenavBox'
 export default {
   components: {
     QList,
-    QListHeader,
     QIcon,
     QItem,
-    QItemSeparator,
     QItemSide,
     QItemMain,
     SidenavBox,

@@ -32,15 +32,10 @@
 
 <script>
 import {
-  QToolbar,
-  QToolbarTitle, // TODO cleanup
   QBtn,
   QIcon,
   QChip,
   QPopover,
-  QList,
-  QItem,
-  QTooltip,
 } from 'quasar'
 const LatestMessages = () => import('@/messages/components/LatestMessages')
 
@@ -48,15 +43,10 @@ import { mapGetters } from 'vuex'
 
 export default {
   components: {
-    QToolbar,
-    QToolbarTitle,
     QBtn,
     QIcon,
     QChip,
     QPopover,
-    QList,
-    QItem,
-    QTooltip,
     LatestMessages,
   },
   computed: {

@@ -83,7 +83,7 @@
     "@octokit/rest": "^16.3.2",
     "@sentry/cli": "^1.36.4",
     "@storybook/addon-actions": "4.0.12",
-    "@storybook/addon-links": "4.0.12",
+    "@storybook/addon-links": "4.1.4",
     "@storybook/vue": "4.0.12",
     "@vue/test-utils": "1.0.0-beta.25",
     "autoprefixer": "^9.0.2",

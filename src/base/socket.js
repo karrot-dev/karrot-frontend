@@ -191,8 +191,8 @@ function receiveMessage ({ topic, payload }) {
     // delete invitation from list until there is a better way to display it
     datastore.commit('invitations/delete', payload.id)
   }
-  else if (topic === 'stores:store') {
-    datastore.dispatch('stores/update', [camelizeKeys(payload)])
+  else if (topic === 'places:place') {
+    datastore.dispatch('places/update', [camelizeKeys(payload)])
   }
   else if (topic === 'pickups:pickupdate') {
     datastore.commit('pickups/update', [convertPickup(camelizeKeys(payload))])

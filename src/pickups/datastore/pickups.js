@@ -20,14 +20,14 @@ export default {
     enrich: (state, getters, rootState, rootGetters) => pickup => {
       if (!pickup) return
       const userId = rootGetters['auth/userId']
-      const store = rootGetters['stores/get'](pickup.store)
-      const group = store && store.group
+      const place = rootGetters['places/get'](pickup.place)
+      const group = place && place.group
       return {
         ...pickup,
         isUserMember: pickup.collectorIds.includes(userId),
         isEmpty: pickup.collectorIds.length === 0,
         isFull: pickup.maxCollectors > 0 && pickup.collectorIds.length >= pickup.maxCollectors,
-        store,
+        place,
         group,
         collectors: pickup.collectorIds.map(rootGetters['users/get']),
         feedbackGivenBy: pickup.feedbackGivenBy ? pickup.feedbackGivenBy.map(rootGetters['users/get']) : [],
@@ -43,11 +43,11 @@ export default {
     byCurrentGroup: (state, getters) => {
       return getters.upcoming.filter(({ group }) => group && group.isCurrentGroup)
     },
-    byActiveStore: (state, getters) => {
-      return getters.byCurrentGroup.filter(({ store }) => store && store.isActiveStore)
+    byActivePlace: (state, getters) => {
+      return getters.byCurrentGroup.filter(({ place }) => place && place.isActivePlace)
     },
-    byActiveStoreOneTime: (state, getters) => {
-      return getters.byActiveStore.filter(e => !e.series)
+    byActivePlaceOneTime: (state, getters) => {
+      return getters.byActivePlace.filter(e => !e.series)
     },
     joined: (state, getters) => getters.byCurrentGroup.filter(e => e.isUserMember),
     available: (state, getters) =>
@@ -63,9 +63,9 @@ export default {
         .filter(p => !p.feedbackGivenBy.find(u => u.isCurrentUser))
         .sort(sortByDate)
     },
-    feedbackPossibleByActiveStore: (state, getters) =>
+    feedbackPossibleByActivePlace: (state, getters) =>
       getters.feedbackPossibleByCurrentGroup
-        .filter(({ store }) => store && store.isActiveStore),
+        .filter(({ place }) => place && place.isActivePlace),
     ...metaStatuses(['create']),
   },
   actions: {
@@ -139,10 +139,10 @@ export default {
     clear (state) {
       Object.assign(state, initialState())
     },
-    clearUpcomingForStore (state, storeId) {
+    clearUpcomingForPlace (state, placeId) {
       const now = new Date()
       Object.values(state.entries)
-        .filter(pickup => pickup.store === storeId && pickup.date >= now)
+        .filter(pickup => pickup.place === placeId && pickup.date >= now)
         .forEach(pickup => Vue.delete(state.entries, pickup.id))
     },
     update (state, pickups) {

@@ -1,18 +1,18 @@
 <script>
 import { connect } from 'vuex-connect'
 import router from '@/base/router'
-import StoreEdit from '@/stores/components/StoreEdit'
+import PlaceEdit from '@/places/components/PlaceEdit'
 
 export default connect({
   gettersToProps: {
-    allStores: 'stores/byCurrentGroup',
-    status: 'stores/createStatus',
+    allPlaces: 'places/byCurrentGroup',
+    status: 'places/createStatus',
   },
   actionsToEvents: {
-    save: 'stores/create',
+    save: 'places/create',
   },
   methodsToEvents: {
     cancel: () => router.go(-1),
   },
-})('StoreCreate', StoreEdit)
+})('PlaceCreate', PlaceEdit)
 </script>

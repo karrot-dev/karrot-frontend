@@ -22,7 +22,7 @@ export default {
   components: { HistoryContainer, QCard, QBtn, QTooltip },
   computed: {
     ...mapGetters({
-      history: 'history/byActiveStore',
+      history: 'history/byActivePlace',
     }),
   },
 }

@@ -21,12 +21,12 @@ export default {
             }
           }
         }
-        else if (item.type === 'activeStore') {
-          let store = rootGetters['stores/activeStore']
-          if (store) {
+        else if (item.type === 'activePlace') {
+          let place = rootGetters['places/activePlace']
+          if (place) {
             return {
-              name: store.name,
-              route: { name: 'store', storeId: store.id },
+              name: place.name,
+              route: { name: 'place', placeId: place.id },
             }
           }
         }

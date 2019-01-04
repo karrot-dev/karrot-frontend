@@ -4,17 +4,17 @@
       class="map"
       controls="full"
       :users="users"
-      :stores="stores"
+      :places="places"
       :groups="groups"
       :current-group="currentGroup"
       :force-center="center"
       :force-zoom="zoom"
       :show-users="showUsers"
-      :show-stores="showStores"
+      :show-places="showPlaces"
       :show-groups="showGroups"
       @mapMoveEnd="mapMoveEnd"
       @toggleUsers="toggleUsers"
-      @toggleStores="toggleStores"
+      @togglePlaces="togglePlaces"
       @toggleGroups="toggleGroups"
     />
   </div>
@@ -30,11 +30,11 @@ export default {
   components: { GroupMap },
   computed: {
     ...mapGetters({
-      stores: 'stores/byCurrentGroup',
+      places: 'places/byCurrentGroup',
       users: 'users/byCurrentGroup',
       groups: 'groups/all',
       currentGroup: 'currentGroup/value',
-      showStores: 'sidenavBoxes/toggle/storesOnMap',
+      showPlaces: 'sidenavBoxes/toggle/placesOnMap',
       showUsers: 'sidenavBoxes/toggle/usersOnMap',
       showGroups: 'sidenavBoxes/toggle/groupsOnMap',
     }),
@@ -47,7 +47,7 @@ export default {
   },
   methods: {
     ...mapActions({
-      toggleStores: 'sidenavBoxes/toggle/storesOnMap',
+      togglePlaces: 'sidenavBoxes/toggle/placesOnMap',
       toggleUsers: 'sidenavBoxes/toggle/usersOnMap',
       toggleGroups: 'sidenavBoxes/toggle/groupsOnMap',
     }),

@@ -10,10 +10,10 @@
       <div class="column q-pa-sm full-width">
         <div>
           <span class="featured-text">{{ $d(pickup.date, 'hourMinute') }}</span>
-          <template v-if="storeLink">
-            <strong v-if="pickup.store">
-              <RouterLink :to="{ name: 'store', params: { storeId: pickup.store.id }}">
-                {{ pickup.store.name }}
+          <template v-if="placeLink">
+            <strong v-if="pickup.place">
+              <RouterLink :to="{ name: 'place', params: { placeId: pickup.place.id }}">
+                {{ pickup.place.name }}
               </RouterLink>
             </strong> {{ $d(pickup.date, 'dateWithDayName') }}
           </template>
@@ -59,7 +59,7 @@ export default {
       type: Object,
       required: true,
     },
-    storeLink: {
+    placeLink: {
       type: Boolean,
       default: false,
     },

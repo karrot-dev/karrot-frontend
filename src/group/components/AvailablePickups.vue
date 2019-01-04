@@ -17,7 +17,7 @@
     <PickupList
       v-if="showPickups"
       :pickups="pickups"
-      store-link
+      place-link
       @join="$emit('join', arguments[0])"
       @leave="$emit('leave', arguments[0])"
     />

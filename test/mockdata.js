@@ -5,7 +5,7 @@
  */
 
 import { statusMocks } from '>/helpers'
-import { optionsFor } from '@/stores/storeStatus'
+import { optionsFor } from '@/places/placeStatus'
 
 export const groupsMock = [
   { 'applicationQuestions': 'Hello stranger! :smiley: :wave: Do you want to help us save all the good food from being wasted? Please tell us how you plan to contribute and who or what made you aware of our existence! Looking forward to working with you!', 'id': 1, 'name': '05_testgroup', 'publicDescription': 'This is the public description\nIt would make sense if it was markdown\n\n# then this would be a header\n[and this a link](www.google.de)', 'address': 'Darmstadt, Regierungsbezirk Darmstadt, Hessen, Deutschland', 'latitude': 49.872775, 'longitude': 8.651177, 'members': [184, 6, 18, 28, 65, 76, 73, 96, 117, 17, 29, 45, 195, 1, 183, 196, 22, 8], 'protected': false, 'conversationId': 1 },
@@ -35,29 +35,29 @@ export const usersMockWithoutCurrent = [
 
 export const usersMock = [ ...usersMockWithoutCurrent, currentUserMock ]
 
-function convertStore (store) {
+function convertPlace (place) {
   return {
-    ...store,
+    ...place,
     saveStatus: statusMocks.default(),
-    ui: optionsFor(store),
-    group: groupsMock.find(g => g.id === store.group),
+    ui: optionsFor(place),
+    group: groupsMock.find(g => g.id === place.group),
   }
 }
 
-export const storesMock = [
+export const placesMock = [
   { 'id': 1, 'name': 'Teststore1', 'description': 'all the good stuff', 'group': 1, 'address': 'Kranichstein, Darmstadt, Regierungsbezirk Darmstadt, Hesse, Germany', 'latitude': 49.8965397, 'longitude': 8.6847644, 'weeksInAdvance': 4, 'upcomingNotificationHours': 4 },
   { 'id': 60, 'name': 'New Tienda', 'description': 'bla bla', 'group': 1, 'address': null, 'latitude': 49.8701892656281, 'longitude': 8.65070343017578, 'weeksInAdvance': 4, 'upcomingNotificationHours': 4 },
   { 'id': 56, 'name': 'Supermarkt Arheilgen', 'description': 'blabla', 'group': 1, 'address': 'Frankfurter Landstraße 147 Arheilgen', 'latitude': 49.9105778076202, 'longitude': 8.65834236145019, 'weeksInAdvance': 4, 'upcomingNotificationHours': 4 },
   { 'id': 2, 'name': 'asd', 'description': 'asd', 'group': 1, 'address': 'Luisenplatz, Darmstadt, Regierungsbezirk Darmstadt, Hessen, 64283, Deutschland', 'latitude': 49.8728175, 'longitude': 8.65062690796964, 'weeksInAdvance': 4, 'upcomingNotificationHours': 4 },
   { 'id': 61, 'name': 'Griesheimer Markt', 'description': 'Frisches Essen dies das', 'group': 1, 'address': 'Griesheim Marktplatz', 'latitude': 49.8615586173026, 'longitude': 8.57465744018555, 'weeksInAdvance': 4, 'upcomingNotificationHours': 4 },
-].map(convertStore)
+].map(convertPlace)
 
-export const storeWithoutLocation = convertStore({ 'id': 62, 'name': 'Griesheimer Markt 2', 'description': 'Frisches Essen dies das', 'group': 1, 'address': 'Griesheim Marktplatz 1', 'latitude': undefined, 'longitude': undefined, 'weeksInAdvance': 4, 'upcomingNotificationHours': 4 })
+export const placeWithoutLocation = convertPlace({ 'id': 62, 'name': 'Griesheimer Markt 2', 'description': 'Frisches Essen dies das', 'group': 1, 'address': 'Griesheim Marktplatz 1', 'latitude': undefined, 'longitude': undefined, 'weeksInAdvance': 4, 'upcomingNotificationHours': 4 })
 
 function enrichPickup (e) {
   e.date = new Date(e.date)
   e.collectors = e.collectorIds.map(i => usersMock.find(u => u.id === i))
-  e.store = storesMock.find(s => e.store === s.id)
+  e.place = placesMock.find(s => e.place === s.id)
   e.saveStatus = statusMocks.default()
   e.joinStatus = statusMocks.default()
   e.leaveStatus = statusMocks.default()
@@ -65,15 +65,15 @@ function enrichPickup (e) {
   return e
 }
 
-export const joinablePickup = enrichPickup({ 'id': 234, 'date': '2017-08-12T08:00:00Z', 'series': 36, 'store': 61, 'maxCollectors': 4, 'collectorIds': [1, 2, 3], 'description': 'you can join this pickup', isFull: false, isUserMember: false })
-export const leavablePickup = enrichPickup({ 'id': 235, 'date': '2017-08-13T08:00:00Z', 'series': 36, 'store': 61, 'maxCollectors': 4, 'collectorIds': [1, 2, 5], 'description': 'you are collector and can leave this pickup', isFull: false, isUserMember: true })
-export const fullPickup = enrichPickup({ 'id': 236, 'date': '2017-08-14T08:00:00Z', 'series': 36, 'store': 61, 'maxCollectors': 3, 'collectorIds': [1, 2, 3], 'description': 'this pickup is already full!', isFull: true, isUserMember: false })
-export const emptyPickup = enrichPickup({ 'id': 237, 'date': '2017-08-15T08:00:00Z', 'series': 36, 'store': 61, 'maxCollectors': 3, 'collectorIds': [], 'description': 'this pickup is fresh and empty', isFull: false, isUserMember: false, isEmpty: true })
+export const joinablePickup = enrichPickup({ 'id': 234, 'date': '2017-08-12T08:00:00Z', 'series': 36, 'place': 61, 'maxCollectors': 4, 'collectorIds': [1, 2, 3], 'description': 'you can join this pickup', isFull: false, isUserMember: false })
+export const leavablePickup = enrichPickup({ 'id': 235, 'date': '2017-08-13T08:00:00Z', 'series': 36, 'place': 61, 'maxCollectors': 4, 'collectorIds': [1, 2, 5], 'description': 'you are collector and can leave this pickup', isFull: false, isUserMember: true })
+export const fullPickup = enrichPickup({ 'id': 236, 'date': '2017-08-14T08:00:00Z', 'series': 36, 'place': 61, 'maxCollectors': 3, 'collectorIds': [1, 2, 3], 'description': 'this pickup is already full!', isFull: true, isUserMember: false })
+export const emptyPickup = enrichPickup({ 'id': 237, 'date': '2017-08-15T08:00:00Z', 'series': 36, 'place': 61, 'maxCollectors': 3, 'collectorIds': [], 'description': 'this pickup is fresh and empty', isFull: false, isUserMember: false, isEmpty: true })
 
 export const pickupsMock = [ joinablePickup, leavablePickup, fullPickup, emptyPickup ]
 
 export const pickupSeriesMock = [
-  { 'id': 38, 'maxCollectors': 2, 'store': 2, 'rule': { 'freq': 'WEEKLY', 'byDay': ['TH', 'SU'], 'isCustom': false, 'rule': 'FREQ=WEEKLY;BYDAY=TH,SU' }, 'startDate': new Date('2017-09-17T08:00:00.000Z'), 'description': 'a nice description for the series' },
+  { 'id': 38, 'maxCollectors': 2, 'place': 2, 'rule': { 'freq': 'WEEKLY', 'byDay': ['TH', 'SU'], 'isCustom': false, 'rule': 'FREQ=WEEKLY;BYDAY=TH,SU' }, 'startDate': new Date('2017-09-17T08:00:00.000Z'), 'description': 'a nice description for the series' },
 ].map(e => ({
   ...e,
   saveStatus: statusMocks.default(),
@@ -109,20 +109,20 @@ export const feedbackMock = [
 })
 
 export const historyMock = [
-  { 'id': 4155, 'date': '2017-10-02T09:15:42.484Z', 'typus': 'PICKUP_JOIN', 'group': 1, 'store': 56, 'users': [1], 'payload': { 'description': 'This is default...', 'store': 56, 'id': 1037, 'series': 31, 'maxCollectors': 4, 'date': '2017-10-03T17:00:00.000Z', 'collectorIds': [1] } },
-  { 'id': 4154, 'date': '2017-10-02T09:15:19.072Z', 'typus': 'PICKUP_LEAVE', 'group': 1, 'store': 56, 'users': [2], 'payload': { 'description': '', 'store': 56, 'id': 1044, 'series': 30, 'maxCollectors': 4, 'date': '2017-10-05T08:00:00.000Z', 'collectorIds': [] } },
-  { 'id': 4153, 'date': '2017-10-02T09:15:16.568Z', 'typus': 'PICKUP_JOIN', 'group': 1, 'store': 56, 'users': [3], 'payload': { 'description': '', 'store': 56, 'id': 1044, 'series': 30, 'maxCollectors': 4, 'date': '2017-10-05T08:00:00.000Z', 'collectorIds': [3] } },
-  { 'id': 4152, 'date': '2017-10-02T09:12:33.954Z', 'typus': 'PICKUP_LEAVE', 'group': 1, 'store': 56, 'users': [4], 'payload': { 'description': '', 'store': 56, 'id': 1044, 'series': 30, 'maxCollectors': 4, 'date': '2017-10-05T08:00:00.000Z', 'collectorIds': [] } },
-  { 'id': 4151, 'date': '2017-10-02T09:12:30.903Z', 'typus': 'PICKUP_JOIN', 'group': 1, 'store': 56, 'users': [5], 'payload': { 'description': '', 'store': 56, 'id': 1044, 'series': 30, 'maxCollectors': 4, 'date': '2017-10-05T08:00:00.000Z', 'collectorIds': [5] } },
-  { 'id': 4149, 'date': '2017-10-02T08:00:00.000Z', 'typus': 'PICKUP_MISSED', 'group': 1, 'store': 56, 'users': [], 'payload': { 'series': 30, 'pickupDate': 1032, 'maxCollectors': 4 } },
-  { 'id': 4147, 'date': '2017-10-01T16:28:04.960Z', 'typus': 'PICKUP_DONE', 'group': 1, 'store': 56, 'users': [1, 2, 3, 4], 'payload': { 'description': '', 'store': 56, 'id': 1044, 'series': 30, 'maxCollectors': 4, 'date': '2017-10-05T08:00:00.000Z', 'collectorIds': [1, 2, 3, 4] } },
-  { 'id': 4146, 'date': '2017-10-01T16:28:02.494Z', 'typus': 'PICKUP_LEAVE', 'group': 1, 'store': 56, 'users': [1], 'payload': { 'description': '', 'store': 56, 'id': 1032, 'series': 30, 'maxCollectors': 4, 'date': '2017-10-02T08:00:00.000Z', 'collectorIds': [] } },
-  { 'id': 4145, 'date': '2017-10-01T16:27:57.393Z', 'typus': 'PICKUP_JOIN', 'group': 1, 'store': 56, 'users': [2], 'payload': { 'description': '', 'store': 56, 'id': 1044, 'series': 30, 'maxCollectors': 4, 'date': '2017-10-05T08:00:00.000Z', 'collectorIds': [22] } },
+  { 'id': 4155, 'date': '2017-10-02T09:15:42.484Z', 'typus': 'PICKUP_JOIN', 'group': 1, 'place': 56, 'users': [1], 'payload': { 'description': 'This is default...', 'place': 56, 'id': 1037, 'series': 31, 'maxCollectors': 4, 'date': '2017-10-03T17:00:00.000Z', 'collectorIds': [1] } },
+  { 'id': 4154, 'date': '2017-10-02T09:15:19.072Z', 'typus': 'PICKUP_LEAVE', 'group': 1, 'place': 56, 'users': [2], 'payload': { 'description': '', 'place': 56, 'id': 1044, 'series': 30, 'maxCollectors': 4, 'date': '2017-10-05T08:00:00.000Z', 'collectorIds': [] } },
+  { 'id': 4153, 'date': '2017-10-02T09:15:16.568Z', 'typus': 'PICKUP_JOIN', 'group': 1, 'place': 56, 'users': [3], 'payload': { 'description': '', 'place': 56, 'id': 1044, 'series': 30, 'maxCollectors': 4, 'date': '2017-10-05T08:00:00.000Z', 'collectorIds': [3] } },
+  { 'id': 4152, 'date': '2017-10-02T09:12:33.954Z', 'typus': 'PICKUP_LEAVE', 'group': 1, 'place': 56, 'users': [4], 'payload': { 'description': '', 'place': 56, 'id': 1044, 'series': 30, 'maxCollectors': 4, 'date': '2017-10-05T08:00:00.000Z', 'collectorIds': [] } },
+  { 'id': 4151, 'date': '2017-10-02T09:12:30.903Z', 'typus': 'PICKUP_JOIN', 'group': 1, 'place': 56, 'users': [5], 'payload': { 'description': '', 'place': 56, 'id': 1044, 'series': 30, 'maxCollectors': 4, 'date': '2017-10-05T08:00:00.000Z', 'collectorIds': [5] } },
+  { 'id': 4149, 'date': '2017-10-02T08:00:00.000Z', 'typus': 'PICKUP_MISSED', 'group': 1, 'place': 56, 'users': [], 'payload': { 'series': 30, 'pickupDate': 1032, 'maxCollectors': 4 } },
+  { 'id': 4147, 'date': '2017-10-01T16:28:04.960Z', 'typus': 'PICKUP_DONE', 'group': 1, 'place': 56, 'users': [1, 2, 3, 4], 'payload': { 'description': '', 'place': 56, 'id': 1044, 'series': 30, 'maxCollectors': 4, 'date': '2017-10-05T08:00:00.000Z', 'collectorIds': [1, 2, 3, 4] } },
+  { 'id': 4146, 'date': '2017-10-01T16:28:02.494Z', 'typus': 'PICKUP_LEAVE', 'group': 1, 'place': 56, 'users': [1], 'payload': { 'description': '', 'place': 56, 'id': 1032, 'series': 30, 'maxCollectors': 4, 'date': '2017-10-02T08:00:00.000Z', 'collectorIds': [] } },
+  { 'id': 4145, 'date': '2017-10-01T16:27:57.393Z', 'typus': 'PICKUP_JOIN', 'group': 1, 'place': 56, 'users': [2], 'payload': { 'description': '', 'place': 56, 'id': 1044, 'series': 30, 'maxCollectors': 4, 'date': '2017-10-05T08:00:00.000Z', 'collectorIds': [22] } },
 ].map(e => {
   e.date = new Date(e.date)
   e.users = e.users.map(i => usersMock.find(u => u.id === i))
   e.group = groupsMock.find(g => g.id === e.group)
-  e.store = storesMock.find(s => s.id === e.store)
+  e.place = placesMock.find(s => s.id === e.place)
   e.message = 'did something'
   return e
 })

@@ -35,7 +35,7 @@ export async function initializeMessaging () {
 /*
  * When we disable push notifications we need to remove the service workers.
  * If we remove them immediately, then re-enable push notifications then
- * firebase messsaging library gets upset. So we just store whether we want them removed
+ * firebase messsaging library gets upset. So we just place whether we want them removed
  * only do it when the page actually closes.
  */
 

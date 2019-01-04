@@ -8,7 +8,7 @@ jest.mock('@/pickups/api/pickups', () => ({
 }))
 
 import { createDatastore, defaultActionStatusesFor } from '>/helpers'
-import { makeGroup, makeStore, makePickup } from '>/enrichedFactories'
+import { makeGroup, makePlace, makePickup } from '>/enrichedFactories'
 import lolex from 'lolex'
 
 describe('pickups', () => {
@@ -29,9 +29,9 @@ describe('pickups', () => {
     beforeEach(() => {
       const now = new Date('2017-01-01T12:00:10Z')
       clock = lolex.install({ now, toFake: ['Date'] })
-      pickup1 = { id: 1, store: 10, date: new Date(), collectorIds: [], group }
-      pickup2 = { id: 2, store: 11, date: new Date(), collectorIds: [userId], maxCollectors: 1, group }
-      pickup3 = { id: 3, store: 12, date: new Date(), collectorIds: [userId], group }
+      pickup1 = { id: 1, place: 10, date: new Date(), collectorIds: [], group }
+      pickup2 = { id: 2, place: 11, date: new Date(), collectorIds: [userId], maxCollectors: 1, group }
+      pickup3 = { id: 3, place: 12, date: new Date(), collectorIds: [userId], group }
     })
 
     afterEach(() => {
@@ -46,7 +46,7 @@ describe('pickups', () => {
             userId: () => userId,
           },
         },
-        stores: {
+        places: {
           getters: {
             get () {
               return id => ({ id, group })
@@ -76,7 +76,7 @@ describe('pickups', () => {
       expect(vstore.getters['pickups/enrich'](pickup2)).toEqual({
         ...pickup2,
         ...defaultActionStatusesFor('save', 'join', 'leave'),
-        store: { id: pickup2.store, group },
+        place: { id: pickup2.place, group },
         isUserMember: true,
         isEmpty: false,
         isFull: true,
@@ -96,8 +96,8 @@ describe('pickups', () => {
     it('can fetch a pickup', async () => {
       let date = new Date()
       let pickupId = 99
-      let storeId = 101
-      mockGet.mockImplementationOnce(id => ({ id, date, store: storeId, collectorIds: [] }))
+      let placeId = 101
+      mockGet.mockImplementationOnce(id => ({ id, date, place: placeId, collectorIds: [] }))
       await vstore.dispatch('pickups/fetch', pickupId)
       const pickup = vstore.getters['pickups/get'](pickupId)
       expect(pickup).toEqual({
@@ -110,8 +110,8 @@ describe('pickups', () => {
         isEmpty: true,
         isFull: false,
         ...defaultActionStatusesFor('save', 'join', 'leave'),
-        store: {
-          id: storeId,
+        place: {
+          id: placeId,
           group,
         },
         group,
@@ -144,19 +144,19 @@ describe('pickups', () => {
     })
   })
 
-  it('filters by active store', () => {
+  it('filters by active place', () => {
     const activePickup = makePickup({
-      store: makeStore({ isActiveStore: true }),
+      place: makePlace({ isActivePlace: true }),
     })
     const inactivePickup = makePickup({
-      store: makeStore({ isActiveStore: false }),
+      place: makePlace({ isActivePlace: false }),
     })
     const otherGetters = {
       byCurrentGroup: [activePickup, inactivePickup],
     }
     const { getters } = require('./pickups').default
 
-    const result = getters.byActiveStore(null, otherGetters)
+    const result = getters.byActivePlace(null, otherGetters)
     expect(result.length).toEqual(1)
     expect(result[0].id).toEqual(activePickup.id)
   })

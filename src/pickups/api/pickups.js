@@ -25,8 +25,8 @@ export default {
     return this.list({ group: groupId, 'date_min': new Date() })
   },
 
-  async listByStoreId (storeId) {
-    return this.list({ store: storeId, 'date_min': new Date() })
+  async listByPlaceId (placeId) {
+    return this.list({ place: placeId, 'date_min': new Date() })
   },
 
   async listBySeriesId (seriesId) {

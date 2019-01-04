@@ -33,16 +33,16 @@ export function userMarker (user) {
   }
 }
 
-function storeUrl (groupId, storeId) {
-  return router.resolve({ name: 'store', params: { groupId, storeId } }).href
+function placeUrl (groupId, placeId) {
+  return router.resolve({ name: 'place', params: { groupId, placeId } }).href
 }
 
-export function storeMarker (store) {
+export function placeMarker (place) {
   return {
-    latLng: { lat: store.latitude, lng: store.longitude },
-    id: 'store_' + store.id,
+    latLng: { lat: place.latitude, lng: place.longitude },
+    id: 'place_' + place.id,
     fontIcon: 'fas fa-shopping-cart',
-    color: store.ui.color,
-    popupcontent: `<a href="${storeUrl(store.group.id, store.id)}">${escape(store.name)}</a>`,
+    color: place.ui.color,
+    popupcontent: `<a href="${placeUrl(place.group.id, place.id)}">${escape(place.name)}</a>`,
   }
 }

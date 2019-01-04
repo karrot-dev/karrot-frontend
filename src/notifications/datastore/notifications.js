@@ -42,13 +42,13 @@ export default {
     },
     enrichContext: (state, getters, rootState, rootGetters) => context => {
       if (!context) return
-      const { group, application, user, store, pickup } = context
+      const { group, application, user, place, pickup } = context
       return {
         ...context,
         group: group && rootGetters['groups/get'](group),
         application: application && rootGetters['groupApplications/get'](application),
         user: user && rootGetters['users/get'](user),
-        store: store && rootGetters['stores/get'](store),
+        place: place && rootGetters['places/get'](place),
         pickup: pickup && rootGetters['pickups/get'](pickup),
       }
     },

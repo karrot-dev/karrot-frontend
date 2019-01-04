@@ -15,27 +15,27 @@
       class="tools"
     >
       <QToggle
-        :value="showAllStores"
-        @input="$emit('toggleShowAllStores')"
+        :value="showAllPlaces"
+        @input="$emit('toggleShowAllPlaces')"
       >
-        <QTooltip v-t="showAllStores ? 'STOREEDIT.SHOW_ACTIVE_ONLY' : 'STOREEDIT.SHOW_ALL'"/>
+        <QTooltip v-t="showAllPlaces ? 'STOREEDIT.SHOW_ACTIVE_ONLY' : 'STOREEDIT.SHOW_ALL'"/>
       </QToggle>
       <QBtn
-        v-if="hasStores && isEditor"
+        v-if="hasPlaces && isEditor"
         flat
         dense
         round
-        :to="{ name: 'storeCreate', params: { groupId } }"
+        :to="{ name: 'placeCreate', params: { groupId } }"
       >
         <QIcon name="fas fa-fw fa-plus-circle" />
         <QTooltip v-t="'BUTTON.CREATE'" />
       </QBtn>
     </div>
 
-    <StoreList
+    <PlaceList
       :group-id="groupId"
-      :stores="stores"
-      :archived="showAllStores ? archived : []"
+      :places="places"
+      :archived="showAllPlaces ? archived : []"
     />
   </SidenavBox>
 </template>
@@ -44,19 +44,19 @@
 
 import { QBtn, QList, QItem, QItemMain, QItemSide, QIcon, QToggle, QTooltip, QItemTile } from 'quasar'
 import SidenavBox from './SidenavBox'
-import StoreList from '@/stores/components/StoreList'
+import PlaceList from '@/places/components/PlaceList'
 
 export default {
   props: {
     groupId: { default: null, type: Number },
-    stores: { required: true, type: Array },
-    showAllStores: { default: false, type: Boolean },
+    places: { required: true, type: Array },
+    showAllPlaces: { default: false, type: Boolean },
     archived: { default: () => [], type: Array },
     expanded: { default: true, type: Boolean },
     isEditor: { default: false, type: Boolean },
   },
   components: {
-    SidenavBox, QBtn, QList, QItem, QItemMain, QItemSide, QIcon, QToggle, QTooltip, StoreList, QItemTile,
+    SidenavBox, QBtn, QList, QItem, QItemMain, QItemSide, QIcon, QToggle, QTooltip, PlaceList, QItemTile,
   },
   data () {
     return {
@@ -69,8 +69,8 @@ export default {
     },
   },
   computed: {
-    hasStores () {
-      return this.stores && this.stores.length > 0
+    hasPlaces () {
+      return this.places && this.places.length > 0
     },
   },
 }

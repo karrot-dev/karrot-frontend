@@ -1,21 +1,21 @@
 <script>
 import { connect } from 'vuex-connect'
 import datastore from '@/base/datastore'
-import StoreEdit from '@/stores/components/StoreEdit'
+import PlaceEdit from '@/places/components/PlaceEdit'
 
 export default connect({
   stateToProps: {
     status: () => {
-      const active = datastore.getters['stores/activeStore']
+      const active = datastore.getters['places/activePlace']
       return active && active.saveStatus
     },
   },
   gettersToProps: {
-    value: 'stores/activeStore',
-    allStores: 'stores/byCurrentGroup',
+    value: 'places/activePlace',
+    allPlaces: 'places/byCurrentGroup',
   },
   actionsToEvents: {
-    save: 'stores/save',
+    save: 'places/save',
   },
-})('StoreEdit', StoreEdit)
+})('PlaceEdit', PlaceEdit)
 </script>

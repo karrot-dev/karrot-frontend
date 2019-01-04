@@ -29,7 +29,7 @@
                 />
               </QField>
               <span v-else>
-                {{ getDateWithStore(editFeedback.about) }}
+                {{ getDateWithPlace(editFeedback.about) }}
               </span>
             </p>
           </div>
@@ -66,19 +66,19 @@
       </template>
     </KNotice>
     <QCard
-      class="no-shadow grey-border store-feedback"
-      v-if="select && feedbackForStore.length !== 0"
+      class="no-shadow grey-border place-feedback"
+      v-if="select && feedbackForPlace.length !== 0"
     >
       <RandomArt
         class="randomBanner"
-        :seed="select.store.id"
+        :seed="select.place.id"
         type="banner"/>
       <h4
         class="generic-padding"
-        v-t="{ path: 'PICKUP_FEEDBACK.PREVIOUS', args: { store: select.store.name } }"
+        v-t="{ path: 'PICKUP_FEEDBACK.PREVIOUS', args: { place: select.place.name } }"
       />
       <FeedbackList
-        :feedback="feedbackForStore"
+        :feedback="feedbackForPlace"
         :status="fetchStatus"
       />
     </QCard>
@@ -105,9 +105,9 @@ export default {
     seedId: { default: 0, type: Number },
   },
   methods: {
-    getDateWithStore (pickup) {
+    getDateWithPlace (pickup) {
       if (!pickup) return ''
-      return `${this.$d(pickup.date, 'long')} (${pickup.store.name})`
+      return `${this.$d(pickup.date, 'long')} (${pickup.place.name})`
     },
   },
   computed: {
@@ -142,14 +142,14 @@ export default {
       if (!list) return []
       return list.map((e) => {
         return {
-          label: this.getDateWithStore(e),
+          label: this.getDateWithPlace(e),
           value: e,
         }
       })
     },
-    feedbackForStore () {
+    feedbackForPlace () {
       if (!this.select) return []
-      let filtered = this.existingFeedback.filter(e => e.about && e.about.store.id === this.select.store.id)
+      let filtered = this.existingFeedback.filter(e => e.about && e.about.place.id === this.select.place.id)
       if (this.editFeedback) {
         filtered = filtered.filter(e => e.id !== this.editFeedback.id)
       }
@@ -176,7 +176,7 @@ export default {
     width: 100%
     padding 0 1em
     margin 0 auto
-.store-feedback
+.place-feedback
   margin-top 2.5em !important
   .randomBanner
     display: block

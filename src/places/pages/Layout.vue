@@ -1,5 +1,5 @@
 <template>
-  <div v-if="store && store.status === 'archived'">
+  <div v-if="place && place.status === 'archived'">
     <QCard>
       <KBanner
         color="info"
@@ -17,22 +17,22 @@
 
 import { mapGetters } from 'vuex'
 import Markdown from '@/utils/components/Markdown'
-import StoreOptions from '@/sidenav/components/StoreOptions'
+import PlaceOptions from '@/sidenav/components/PlaceOptions'
 
 import { QCard, QTabs, QRouteTab, QScrollArea, QBtn, QIcon } from 'quasar'
 import KBanner from '@/alerts/components/KBanner'
 
 export default {
-  components: { QCard, QTabs, QRouteTab, QScrollArea, KBanner, QBtn, QIcon, StoreOptions, Markdown },
+  components: { QCard, QTabs, QRouteTab, QScrollArea, KBanner, QBtn, QIcon, PlaceOptions, Markdown },
   computed: {
     ...mapGetters({
-      store: 'stores/activeStore',
+      place: 'places/activePlace',
       isEditor: 'currentGroup/isEditor',
     }),
   },
   methods: {
     restore () {
-      this.$store.dispatch('stores/save', { id: this.store.id, status: 'created' })
+      this.$store.dispatch('places/save', { id: this.place.id, status: 'created' })
     },
   },
 }

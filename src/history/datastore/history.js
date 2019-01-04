@@ -23,8 +23,8 @@ export default {
     byCurrentGroup: (state, getters) => {
       return getters.all.filter(({ group }) => group && group.isCurrentGroup)
     },
-    byActiveStore: (state, getters) => {
-      return getters.all.filter(({ store }) => store && store.isActiveStore)
+    byActivePlace: (state, getters) => {
+      return getters.all.filter(({ place }) => place && place.isActivePlace)
     },
     byCurrentGroupAndUser: (state, getters, rootState, rootGetters) => {
       // TODO could enrich user with isActiveUser property instead
@@ -35,8 +35,8 @@ export default {
     canFetchPast: (state, getters) => getters['pagination/canFetchNext'],
     enrich: (state, getters, rootState, rootGetters) => entry => {
       if (!entry) return
-      const store = rootGetters['stores/get'](entry.store)
-      const msgValues = store ? { storeName: store.name, name: store.name } : {}
+      const place = rootGetters['places/get'](entry.place)
+      const msgValues = place ? { storeName: place.name, name: place.name } : {}
       if (entry.typus === 'GROUP_APPLICATION_DECLINED') {
         msgValues.applicantName = entry.payload.applicantName
       }
@@ -44,7 +44,7 @@ export default {
         ...entry,
         users: entry.users && entry.users.map(rootGetters['users/get']),
         group: rootGetters['groups/get'](entry.group),
-        store,
+        place,
         message: i18n.t(`HISTORY.${entry.typus}`, msgValues),
         // TODO enrich payload
       }
@@ -54,9 +54,9 @@ export default {
   },
   actions: {
     ...withMeta({
-      async fetch ({ dispatch, commit }, { groupId, storeId, userId }) {
+      async fetch ({ dispatch, commit }, { groupId, placeId, userId }) {
         const filters = filterTruthy({
-          store: storeId,
+          place: placeId,
           group: groupId,
           users: userId,
         })

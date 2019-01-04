@@ -2,7 +2,7 @@
   <div>
     <PickupList
       :pickups="pickups"
-      store-link
+      place-link
       @join="join"
       @leave="leave"
       @detail="detail"
@@ -19,10 +19,10 @@
     <QCard v-if="!hasPickups">
       <QCardTitle v-t="'GROUP.STORES'" />
       <QCardMain>
-        <StoreList
+        <PlaceList
           :group-id="groupId"
-          :stores="stores"
-          link-to="storePickupsManage"
+          :places="places"
+          link-to="placePickupsManage"
         />
       </QCardMain>
     </QCard>
@@ -32,7 +32,7 @@
 <script>
 import PickupList from '@/pickups/components/PickupList'
 import KNotice from '@/utils/components/KNotice'
-import StoreList from '@/stores/components/StoreList'
+import PlaceList from '@/places/components/PlaceList'
 import { QCard, QCardTitle, QCardMain } from 'quasar'
 
 import {
@@ -41,7 +41,7 @@ import {
 } from 'vuex'
 
 export default {
-  components: { QCard, QCardTitle, QCardMain, PickupList, KNotice, StoreList },
+  components: { QCard, QCardTitle, QCardMain, PickupList, KNotice, PlaceList },
   methods: {
     ...mapActions({
       join: 'pickups/join',
@@ -53,7 +53,7 @@ export default {
     ...mapGetters({
       groupId: 'currentGroup/id',
       pickups: 'pickups/byCurrentGroup',
-      stores: 'stores/byCurrentGroup',
+      places: 'places/byCurrentGroup',
     }),
     hasPickups () {
       return this.pickups && this.pickups.length > 0

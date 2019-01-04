@@ -31,8 +31,8 @@
           :allow-future="showExpiresAt"
         />
         · {{ groupName }}
-        <template v-if="storeName">
-          · {{ storeName }}
+        <template v-if="placeName">
+          · {{ placeName }}
         </template>
       </QItemTile>
     </QItemMain>
@@ -87,8 +87,8 @@ export default {
       // it shouldn't be needed to show your own picture
       if (this.context.user.isCurrentUser) return
 
-      // new_store is not about the user, but the store
-      if (this.type === 'new_store') return
+      // new_place is not about the user, but the place
+      if (this.type === 'new_place') return
 
       return this.context.user
     },
@@ -96,10 +96,10 @@ export default {
       if (!this.context) return
       return this.context.group && this.context.group.name
     },
-    storeName () {
+    placeName () {
       if (!this.context) return
       if (this.context.pickup) {
-        return this.context.pickup.store.name
+        return this.context.pickup.place.name
       }
     },
     message () {

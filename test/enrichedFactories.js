@@ -115,12 +115,12 @@ export const makeCurrentUser = data => {
   }
 }
 
-let storeIdCnt = 0
-export const makeStore = data => {
-  const id = storeIdCnt++
+let placeIdCnt = 0
+export const makePlace = data => {
+  const id = placeIdCnt++
   return {
     id,
-    name: `Store ${id}`,
+    name: `Place ${id}`,
     description: '',
     group: null,
     address: '',
@@ -128,7 +128,7 @@ export const makeStore = data => {
     longitude: 0,
     weeksInAdvance: 4,
     status: 'active',
-    isActiveStore: false,
+    isActivePlace: false,
     ...data,
   }
 }
@@ -139,7 +139,7 @@ export const makePickup = data => {
     id: pickupIdCnt++,
     date: new Date(),
     series: null,
-    store: null,
+    place: null,
     maxCollectors: 10,
     collectorIds: [],
     feedbackGivenBy: [],
@@ -153,7 +153,7 @@ let pickupSeriesIdCnt = 0
 export const makePickupSeries = data => {
   return {
     id: pickupSeriesIdCnt++,
-    store: null,
+    place: null,
     maxCollectors: 10,
     byDay: ['TU'],
     freq: 'WEEKLY',

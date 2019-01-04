@@ -54,7 +54,7 @@ build-android: &build-android
     cordova platform add android
     find www/assets -name *.js.map -type f -delete
     ./build android "$CORDOVA_ENV" release "${!PASSWORD_VAR}"
-    mv platforms/android/build/outputs/apk/release/android-release.apk ~/repo/android-${CORDOVA_ENV}.apk
+    mv platforms/android/app/build/outputs/apk/release/app-release.apk ~/repo/android-${CORDOVA_ENV}.apk
 
 version: 2
 jobs:

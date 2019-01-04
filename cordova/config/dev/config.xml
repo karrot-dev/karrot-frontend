@@ -21,7 +21,7 @@
     <preference name="FadeSplashScreenDuration" value="0" />
     <splash src="" />
     <platform name="android">
-        <resource-file src="icon_push.png" target="res/drawable/icon_push.png" />
+        <resource-file src="icon_push.png" target="app/src/main/res/drawable/icon_push.png" />
         <allow-intent href="market:*" />
         <preference name="android-minSdkVersion" value="23" />
         <preference name="AndroidLaunchMode" value="singleInstance" />
@@ -45,5 +45,5 @@
     <plugin name="cordova-plugin-network-information" spec="^2.0.1" />
     <plugin name="cordova-plugin-fcm-with-dependecy-updated" spec="^2.3.0" />
     <plugin name="cordova-plugin-deeplinks" spec="^1.1.0" />
-    <engine name="android" spec="^6.4.0" />
+    <engine name="android" spec="^7.1.4" />
 </widget>

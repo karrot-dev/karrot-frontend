@@ -1,14 +1,5 @@
 <template>
   <div>
-    <QCard class="bg-warning margin-bottom">
-      <QCardTitle>
-        <QIcon name="fas fa-exclamation-triangle" />
-        {{ $t('GLOBAL.WARNING') }}
-      </QCardTitle>
-      <QCardMain>
-        {{ $t('GLOBAL.BETA_WARNING') }}
-      </QCardMain>
-    </QCard>
     <form
       name="signup"
       @submit.prevent="submit"
@@ -70,6 +61,14 @@
             :label="$t('GROUP.JOIN_PLAYGROUND')"
             class="playground-checkbox"
           />
+          <QAlert
+            v-if="joinPlayground"
+            color="info"
+            icon="info"
+            class="q-my-md"
+          >
+            {{ $t('JOINGROUP.PROFILE_NOTE' ) }}
+          </QAlert>
         </div>
 
         <div
@@ -110,6 +109,7 @@ import {
   QIcon,
   QField,
   QInput,
+  QAlert,
   QBtn,
   QCheckbox,
 } from 'quasar'
@@ -125,6 +125,7 @@ export default {
     QIcon,
     QField,
     QInput,
+    QAlert,
     QBtn,
     QCheckbox,
   },

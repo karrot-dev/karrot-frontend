@@ -11,7 +11,7 @@ Vue.config.devtools = true
 configureQuasar(Vue)
 Vue.use(Vuex) // Install Vuex
 
-Vue.component('router-link', RouterLinkStub)
+Vue.component('RouterLink', RouterLinkStub)
 Vue.config.errorHandler = (err, vm, info) => {
   console.log(err, vm, info)
 }

@@ -46,8 +46,8 @@ export default {
     maybeRefresh ({ dispatch, commit, state, getters }) {
       commit('requestRefresh', false)
       if (getters.refreshStatus.pending) return
-      // wait at least 15 seconds before and between refreshing
-      if (new Date() - state.lastRefresh < 1000 * 15) return
+      // wait at least 60 seconds before and between refreshing
+      if (new Date() - state.lastRefresh < 1000 * 60) return
       dispatch('refresh')
     },
   },

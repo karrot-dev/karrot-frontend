@@ -30,7 +30,12 @@
 </template>
 
 <script>
-import { QCard, QCardMain, QCardActions, QCardSeparator, QBtn } from 'quasar'
+import {
+  QCard,
+  QCardMain,
+  QCardActions,
+  QBtn,
+} from 'quasar'
 
 import AgreementForm from '@/agreements/components/AgreementForm'
 
@@ -51,7 +56,11 @@ export default {
     }
   },
   components: {
-    QCard, QCardMain, QCardActions, QCardSeparator, QBtn, AgreementForm,
+    QCard,
+    QCardMain,
+    QCardActions,
+    QBtn,
+    AgreementForm,
   },
   computed: {
     showForm () {

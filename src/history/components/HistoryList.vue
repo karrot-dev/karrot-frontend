@@ -22,7 +22,11 @@
 </template>
 
 <script>
-import { QIcon, QInfiniteScroll, QSpinnerDots, QList } from 'quasar'
+import {
+  QIcon,
+  QInfiniteScroll,
+  QSpinnerDots,
+} from 'quasar'
 import paginationMixin from '@/utils/mixins/paginationMixin'
 import HistoryEntry from '@/history/components/HistoryEntry'
 
@@ -32,7 +36,12 @@ export default {
     history: { required: true, type: Array },
     status: { default: null, type: Object },
   },
-  components: { QIcon, QInfiniteScroll, QSpinnerDots, QList, HistoryEntry },
+  components: {
+    QIcon,
+    QInfiniteScroll,
+    QSpinnerDots,
+    HistoryEntry,
+  },
   computed: {
     empty () {
       return !this.history.length && !this.status.pending && !this.status.hasValidationErrors

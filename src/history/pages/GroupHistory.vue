@@ -17,7 +17,7 @@
 </template>
 
 <script>
-import { QCard, QBtn, QTooltip } from 'quasar'
+import { QCard } from 'quasar'
 import HistoryContainer from '@/history/pages/HistoryContainer'
 import RandomArt from '@/utils/components/RandomArt'
 
@@ -26,7 +26,11 @@ import {
 } from 'vuex'
 
 export default {
-  components: { RandomArt, HistoryContainer, QCard, QBtn, QTooltip },
+  components: {
+    RandomArt,
+    HistoryContainer,
+    QCard,
+  },
   computed: {
     ...mapGetters({
       group: 'currentGroup/value',

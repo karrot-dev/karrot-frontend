@@ -59,7 +59,6 @@
 import {
   Dialog,
   QList,
-  QListHeader,
   QItemSeparator,
   QItem,
   QItemSide,
@@ -76,7 +75,6 @@ export default {
   components: {
     UserItem,
     QList,
-    QListHeader,
     QItemSeparator,
     QItem,
     QItemSide,

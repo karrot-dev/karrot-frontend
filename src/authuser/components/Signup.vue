@@ -103,16 +103,11 @@
 
 <script>
 import {
-  QCard,
-  QCardTitle,
-  QCardMain,
-  QIcon,
   QField,
   QInput,
-  QBtn,
-  QSpinner,
-  QCheckbox,
   QAlert,
+  QBtn,
+  QCheckbox,
 } from 'quasar'
 import statusMixin from '@/utils/mixins/statusMixin'
 import { required, minLength, maxLength } from 'vuelidate/lib/validators'
@@ -120,16 +115,11 @@ import { validationMixin } from 'vuelidate'
 
 export default {
   components: {
-    QCard,
-    QCardTitle,
-    QCardMain,
-    QIcon,
     QField,
     QInput,
-    QBtn,
-    QSpinner,
-    QCheckbox,
     QAlert,
+    QBtn,
+    QCheckbox,
   },
   mixins: [validationMixin, statusMixin],
   props: {

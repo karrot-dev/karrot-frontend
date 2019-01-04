@@ -65,13 +65,10 @@
 
 <script>
 import KarrotLogo from '@/logo/components/KarrotLogo'
-import { QBtn, QIcon, QList, QItem } from 'quasar'
 import { mapGetters } from 'vuex'
 
 export default {
-  components: {
-    KarrotLogo, QBtn, QIcon, QList, QItem,
-  },
+  components: { KarrotLogo },
   computed: {
     ...mapGetters({
       deployed: 'about/deployed',

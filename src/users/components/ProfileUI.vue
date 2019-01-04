@@ -118,7 +118,6 @@ import SwitchGroupButton from '@/users/components/SwitchGroupButton'
 import {
   QAlert,
   QCard,
-  QCardActions,
   QCardMain,
   QCardMedia,
   QBtn,
@@ -126,8 +125,6 @@ import {
   QItem,
   QItemMain,
   QItemSide,
-  QItemTile,
-  QChip,
 } from 'quasar'
 
 export default {
@@ -139,7 +136,6 @@ export default {
     SwitchGroupButton,
     QAlert,
     QCard,
-    QCardActions,
     QCardMain,
     QCardMedia,
     QBtn,
@@ -147,8 +143,6 @@ export default {
     QItem,
     QItemMain,
     QItemSide,
-    QItemTile,
-    QChip,
   },
   props: {
     user: { required: true, type: Object },

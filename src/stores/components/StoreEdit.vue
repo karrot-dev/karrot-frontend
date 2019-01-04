@@ -124,8 +124,15 @@
 </template>
 
 <script>
-import { QCard, QDatetime, QField, QSlider, QOptionGroup, QInput, QBtn, QSelect, Dialog } from 'quasar'
-import StandardMap from '@/maps/components/StandardMap'
+import {
+  QCard,
+  QField,
+  QSlider,
+  QInput,
+  QBtn,
+  QSelect,
+  Dialog,
+} from 'quasar'
 import AddressPicker from '@/maps/components/AddressPicker'
 import MarkdownInput from '@/utils/components/MarkdownInput'
 import { validationMixin } from 'vuelidate'
@@ -154,7 +161,14 @@ export default {
     allStores: { required: true, type: Array },
   },
   components: {
-    QCard, QDatetime, QField, QSlider, QOptionGroup, QInput, QBtn, QSelect, MarkdownInput, StandardMap, AddressPicker,
+    QCard,
+    QField,
+    QSlider,
+    QInput,
+    QBtn,
+    QSelect,
+    MarkdownInput,
+    AddressPicker,
   },
   mounted () {
     if (this.$route && this.$route.query) this.setLocation(this.$route.query)

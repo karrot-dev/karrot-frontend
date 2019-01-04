@@ -45,7 +45,6 @@ module.exports = {
     // TODO fixup our codebase
     'vue/component-name-in-template-casing': ['error', 'PascalCase', {'ignores': ['i18n']}],
     'vue/return-in-computed-property': 'off',
-    'vue/no-unused-components': 'off',
     'vue/require-prop-type-constructor': 'off',
     'vue/no-use-v-if-with-v-for': 'off',
     'vue/singleline-html-element-content-newline': 'off',

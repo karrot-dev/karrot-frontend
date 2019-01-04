@@ -16,14 +16,15 @@
 <script>
 
 import { mapGetters } from 'vuex'
-import Markdown from '@/utils/components/Markdown'
-import StoreOptions from '@/sidenav/components/StoreOptions'
 
-import { QCard, QTabs, QRouteTab, QScrollArea, QBtn, QIcon } from 'quasar'
+import { QCard } from 'quasar'
 import KBanner from '@/alerts/components/KBanner'
 
 export default {
-  components: { QCard, QTabs, QRouteTab, QScrollArea, KBanner, QBtn, QIcon, StoreOptions, Markdown },
+  components: {
+    QCard,
+    KBanner,
+  },
   computed: {
     ...mapGetters({
       store: 'stores/activeStore',

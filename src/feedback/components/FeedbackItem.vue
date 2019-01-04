@@ -74,7 +74,11 @@
 </template>
 
 <script>
-import { QCard, QCardMain, QCardTitle, QTooltip, QIcon } from 'quasar'
+import {
+  QCard,
+  QCardMain,
+  QIcon,
+} from 'quasar'
 import AmountBox from './AmountBox'
 import ProfilePicture from '@/users/components/ProfilePicture'
 import DateAsWords from '@/utils/components/DateAsWords'
@@ -82,7 +86,13 @@ import Markdown from '@/utils/components/Markdown'
 
 export default {
   components: {
-    QCard, QCardMain, QCardTitle, QTooltip, QIcon, AmountBox, ProfilePicture, DateAsWords, Markdown,
+    QCard,
+    QCardMain,
+    QIcon,
+    AmountBox,
+    ProfilePicture,
+    DateAsWords,
+    Markdown,
   },
   props: {
     feedback: { required: true, type: Object },

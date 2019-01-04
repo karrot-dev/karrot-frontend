@@ -41,7 +41,14 @@
 </template>
 
 <script>
-import { QProgress, QIcon, QList, QItem, QItemTile, QItemSide, QListHeader, QItemSeparator, QItemMain } from 'quasar'
+import {
+  QProgress,
+  QIcon,
+  QList,
+  QItem,
+  QItemTile,
+  QItemMain,
+} from 'quasar'
 import { mapGetters, mapActions } from 'vuex'
 import { localeOptions } from '@/base/i18n'
 
@@ -52,9 +59,6 @@ export default {
     QList,
     QItem,
     QItemTile,
-    QItemSide,
-    QListHeader,
-    QItemSeparator,
     QItemMain,
   },
   data () {

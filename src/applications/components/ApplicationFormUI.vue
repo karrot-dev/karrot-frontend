@@ -62,14 +62,26 @@
 </template>
 
 <script>
-import { QItem, QItemSide, QItemMain, QField, QInput, QBtn } from 'quasar'
+import {
+  QItem,
+  QItemSide,
+  QItemMain,
+  QInput,
+  QBtn,
+} from 'quasar'
 import MarkdownInput from '@/utils/components/MarkdownInput'
 import Markdown from '@/utils/components/Markdown'
 import statusMixin from '@/utils/mixins/statusMixin'
 
 export default {
   components: {
-    QItem, QItemSide, QItemMain, QField, QInput, QBtn, MarkdownInput, Markdown,
+    QItem,
+    QItemSide,
+    QItemMain,
+    QInput,
+    QBtn,
+    MarkdownInput,
+    Markdown,
   },
   mixins: [statusMixin],
   props: {

@@ -187,7 +187,16 @@
 </template>
 
 <script>
-import { QDatetime, QField, QSlider, QInput, QBtn, QSelect, Dialog, QOptionGroup, QTabs, QTab, QTabPane } from 'quasar'
+import {
+  QDatetime,
+  QField,
+  QSlider,
+  QInput,
+  QBtn,
+  QSelect,
+  Dialog,
+  QOptionGroup,
+} from 'quasar'
 import editMixin from '@/utils/mixins/editMixin'
 import statusMixin from '@/utils/mixins/statusMixin'
 
@@ -196,7 +205,13 @@ import { is24h, dayOptions } from '@/base/i18n'
 export default {
   mixins: [editMixin, statusMixin],
   components: {
-    QDatetime, QField, QSlider, QInput, QBtn, QSelect, QOptionGroup, QTabs, QTab, QTabPane,
+    QDatetime,
+    QField,
+    QSlider,
+    QInput,
+    QBtn,
+    QSelect,
+    QOptionGroup,
   },
   watch: {
     isPending (val) {

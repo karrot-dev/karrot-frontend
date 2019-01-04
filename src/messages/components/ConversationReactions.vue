@@ -25,11 +25,13 @@
 <script>
 import ConversationAddReaction from './ConversationAddReaction'
 import EmojiButton from './EmojiButton'
-import { QBtn, QPopover, QTooltip } from 'quasar'
 
 export default {
   name: 'ConversationReactions',
-  components: { QBtn, QPopover, QTooltip, ConversationAddReaction, EmojiButton },
+  components: {
+    ConversationAddReaction,
+    EmojiButton,
+  },
   props: {
     reactions: {
       type: Array,

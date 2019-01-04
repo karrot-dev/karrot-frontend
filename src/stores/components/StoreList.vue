@@ -64,11 +64,31 @@
 </template>
 
 <script>
-import { QList, QListHeader, QItem, QItemMain, QItemTile, QItemSide, QIcon, QTooltip, QCollapsible, QItemSeparator } from 'quasar'
+import {
+  QList,
+  QItem,
+  QItemMain,
+  QItemTile,
+  QItemSide,
+  QIcon,
+  QTooltip,
+  QCollapsible,
+  QItemSeparator,
+} from 'quasar'
 import { mapGetters } from 'vuex'
 
 export default {
-  components: { QList, QListHeader, QItem, QItemMain, QItemTile, QItemSide, QIcon, QTooltip, QCollapsible, QItemSeparator },
+  components: {
+    QList,
+    QItem,
+    QItemMain,
+    QItemTile,
+    QItemSide,
+    QIcon,
+    QTooltip,
+    QCollapsible,
+    QItemSeparator,
+  },
   props: {
     groupId: { default: null, type: Number },
     stores: { required: true, type: Array },

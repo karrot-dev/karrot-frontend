@@ -19,11 +19,14 @@
 </template>
 
 <script>
-import { QField, QInput, QBtn, Dialog } from 'quasar'
+import {
+  QBtn,
+  Dialog,
+} from 'quasar'
 import statusMixin from '@/utils/mixins/statusMixin'
 
 export default {
-  components: { QField, QInput, QBtn },
+  components: { QBtn },
   mixins: [statusMixin],
   data () {
     return {

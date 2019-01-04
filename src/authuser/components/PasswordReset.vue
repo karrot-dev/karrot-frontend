@@ -52,11 +52,19 @@
 </template>
 
 <script>
-import { QCard, QCardTitle, QCardMain, QIcon, QField, QInput, QBtn, QSpinner } from 'quasar'
+import {
+  QField,
+  QInput,
+  QBtn,
+} from 'quasar'
 import statusMixin from '@/utils/mixins/statusMixin'
 
 export default {
-  components: { QCard, QCardTitle, QCardMain, QIcon, QField, QInput, QBtn, QSpinner },
+  components: {
+    QField,
+    QInput,
+    QBtn,
+  },
   mixins: [statusMixin],
   props: {
     code: {

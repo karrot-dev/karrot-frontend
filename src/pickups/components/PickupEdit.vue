@@ -150,11 +150,8 @@ import {
   QDatetime,
   QField,
   QSlider,
-  QOptionGroup,
   QInput,
   QBtn,
-  QSelect,
-  QTooltip,
   Dialog,
 } from 'quasar'
 
@@ -176,11 +173,8 @@ export default {
     QDatetime,
     QField,
     QSlider,
-    QOptionGroup,
     QInput,
     QBtn,
-    QSelect,
-    QTooltip,
   },
   computed: {
     is24h,

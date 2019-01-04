@@ -34,12 +34,11 @@
 </template>
 
 <script>
-import { QBtn, QIcon } from 'quasar'
+import { QBtn } from 'quasar'
 
 export default {
   components: {
     QBtn,
-    QIcon,
   },
   data () {
     return {

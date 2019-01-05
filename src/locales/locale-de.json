@@ -4,8 +4,6 @@
     "GITHUB_NOTE": "Entwicklung",
     "FSWW_NOTE": "Lies unsere Infoseite!",
     "COMMUNITY_NOTE": "Besuche unsere Community!",
-    "WARNING": "Warnung",
-    "BETA_WARNING": "Diese Website ist in aktiver Entwicklung und alles verändert sich ständig. Die Sicherheit der eingegebenen Daten kann nicht garantiert werden, aber wir tun unser Bestes!",
     "SERVER_ERROR": "Der Server gibt einen Fehler zurück.",
     "NOT_CONNECTED": "You aren't connected to the server",
     "INVALID_LINK": "Ups, der Link ist ungültig.",

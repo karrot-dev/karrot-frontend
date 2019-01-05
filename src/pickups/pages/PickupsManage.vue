@@ -297,7 +297,7 @@ export default {
     },
     async saveNewSeries (series) {
       await this.createSeries(series)
-      if (this.seriesCreateStatus.hasValidationErrors) {
+      if (!this.seriesCreateStatus.hasValidationErrors) {
         this.newSeries = null
       }
     },
@@ -316,7 +316,7 @@ export default {
     },
     async saveNewPickup (pickup) {
       await this.createPickup(pickup)
-      if (this.pickupCreateStatus.hasValidationErrors) {
+      if (!this.pickupCreateStatus.hasValidationErrors) {
         this.newPickup = null
       }
     },
@@ -324,11 +324,11 @@ export default {
       this.newPickup = null
       this.resetNewPickup()
     },
-    resetSeries (seriesId) {
-      this.$store.dispatch('pickups/meta/clear', ['save', seriesId])
-    },
     resetNewSeries () {
       this.$store.dispatch('pickupSeries/meta/clear', ['create'])
+    },
+    resetSeries (seriesId) {
+      this.$store.dispatch('pickupSeries/meta/clear', ['save', seriesId])
     },
     resetNewPickup () {
       this.$store.dispatch('pickups/meta/clear', ['create'])

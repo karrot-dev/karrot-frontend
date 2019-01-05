@@ -200,7 +200,7 @@ export default {
     resetToSeriesButton (field) {
       return {
         icon: 'undo',
-        condition: this.series && this.series[field] !== this.edit[field],
+        condition: this.series ? this.series[field] !== this.edit[field] : false,
         handler: () => {
           this.edit[field] = this.series[field]
         },

@@ -22,9 +22,10 @@
       :opacity="opacityFor(marker)"
     >
       <LPopup
-        v-if="marker.popupcontent"
-        :content="marker.popupcontent"
-      />
+        v-if="marker.popup"
+      >
+        <Component :is="marker.popup" />
+      </LPopup>
     </ExtendedMarker>
     <QPopover
       ref="popover"

@@ -22,7 +22,6 @@ We are working on this either right now or pretty soon in the future. Should be 
 
 Issue is understood well enough for development to start, but not currently assigned to a developer.
 
-- [User profiles are sometimes unexpectedly empty](https://github.com/yunity/karrot-frontend/issues/1117)
 - [When creating or editing feedback, weight number is off the screen](https://github.com/yunity/karrot-frontend/issues/1111)
 - [On wall, replies button is not visible if the message is taller than screen](https://github.com/yunity/karrot-frontend/issues/1107)
 - [Messages should be marked as read when joining a conversation](https://github.com/yunity/karrot-frontend/issues/1106)

@@ -77,6 +77,7 @@ export default {
   },
   methods: {
     join () {
+      if (this.inProgress) return
       Dialog.create({
         title: this.$t('PICKUPLIST.ITEM.JOIN_CONFIRMATION_HEADER'),
         message: this.$t('PICKUPLIST.ITEM.JOIN_CONFIRMATION_TEXT', { date: this.$d(this.pickup.date, 'long') }),
@@ -87,6 +88,7 @@ export default {
         .catch(() => {})
     },
     leave () {
+      if (this.inProgress) return
       Dialog.create({
         title: this.$t('PICKUPLIST.ITEM.LEAVE_CONFIRMATION_HEADER'),
         message: this.$t('PICKUPLIST.ITEM.LEAVE_CONFIRMATION_TEXT'),
@@ -100,6 +102,11 @@ export default {
       if (!this.pickup.isUserMember) return
       if (event.target.closest('a')) return // ignore actual links
       this.$emit('detail', this.pickup)
+    },
+  },
+  computed: {
+    inProgress () {
+      return (this.pickup.date <= new Date())
     },
   },
 }

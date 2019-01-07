@@ -1,11 +1,21 @@
 import Vue from 'vue'
 import pickups from '@/pickups/api/pickups'
 import { createMetaModule, withMeta, isValidationError, withPrefixedIdMeta, metaStatusesWithId, metaStatuses } from '@/utils/datastore/helpers'
+import subMinutes from 'date-fns/sub_minutes'
 
 function initialState () {
   return {
     now: new Date(), // reactive current time
-    entries: {},
+    entries: {
+      234: {
+        'id': 234,
+        'date': subMinutes(new Date(), 5),
+        'store': 130,
+        'maxCollectors': 4,
+        'collectorIds': [1, 2, 3],
+        'description': 'you can join this pickup',
+      },
+    },
   }
 }
 
@@ -36,7 +46,7 @@ export default {
     },
     upcoming: (state, getters) => {
       return Object.values(state.entries)
-        .filter(p => p.date >= state.now)
+        .filter(p => p.date >= subMinutes(state.now, 30))
         .map(getters.enrich)
         .sort(sortByDate)
     },

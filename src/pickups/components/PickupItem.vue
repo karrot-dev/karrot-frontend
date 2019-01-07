@@ -77,7 +77,6 @@ export default {
   },
   methods: {
     join () {
-      if (this.inProgress) return
       Dialog.create({
         title: this.$t('PICKUPLIST.ITEM.JOIN_CONFIRMATION_HEADER'),
         message: this.$t('PICKUPLIST.ITEM.JOIN_CONFIRMATION_TEXT', { date: this.$d(this.pickup.date, 'long') }),
@@ -88,25 +87,21 @@ export default {
         .catch(() => {})
     },
     leave () {
-      if (this.inProgress) return
-      Dialog.create({
-        title: this.$t('PICKUPLIST.ITEM.LEAVE_CONFIRMATION_HEADER'),
-        message: this.$t('PICKUPLIST.ITEM.LEAVE_CONFIRMATION_TEXT'),
-        ok: this.$t('BUTTON.YES'),
-        cancel: this.$t('BUTTON.CANCEL'),
-      })
-        .then(() => this.$emit('leave', this.pickup.id))
-        .catch(() => {})
+      if (this.pickup.date > new Date()) {
+        Dialog.create({
+          title: this.$t('PICKUPLIST.ITEM.LEAVE_CONFIRMATION_HEADER'),
+          message: this.$t('PICKUPLIST.ITEM.LEAVE_CONFIRMATION_TEXT'),
+          ok: this.$t('BUTTON.YES'),
+          cancel: this.$t('BUTTON.CANCEL'),
+        })
+          .then(() => this.$emit('leave', this.pickup.id))
+          .catch(() => {})
+      }
     },
     detailIfMember (event) {
       if (!this.pickup.isUserMember) return
       if (event.target.closest('a')) return // ignore actual links
       this.$emit('detail', this.pickup)
-    },
-  },
-  computed: {
-    inProgress () {
-      return (this.pickup.date <= new Date())
     },
   },
 }

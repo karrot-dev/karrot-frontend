@@ -48,6 +48,7 @@ export default {
       return Object.values(state.entries)
         .filter(p => p.date >= subMinutes(state.now, 30))
         .map(getters.enrich)
+        .filter(p => p.date >= state.now || (p.isUserMember && p.date <= state.now))
         .sort(sortByDate)
     },
     byCurrentGroup: (state, getters) => {

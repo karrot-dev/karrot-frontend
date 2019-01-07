@@ -2,13 +2,15 @@
   <a
     @click.stop="$emit('leave')"
     class="user-slot-wrapper"
+    :pickup="pickup"
     :style="{ width: size + 'px', height: size + 'px' }"
-    :title="$t('PICKUPLIST.ITEM.LEAVE')"
   >
     <div class="hoverShow">
       <i
+        v-if="!inProgress(pickup)"
         :style="{fontSize: (size - 9) + 'px'}"
         class="fas fa-fw fa-times"
+        :title="$t('PICKUPLIST.ITEM.LEAVE')"
       />
     </div>
     <div class="hoverHide">
@@ -34,11 +36,19 @@ export default {
       type: Object,
       required: true,
     },
+    pickup: {
+      type: Object,
+      required: true,
+    },
   },
   components: {
     ProfilePicture,
   },
-
+  methods: {
+    inProgress (pickup) {
+      return (pickup.date <= new Date())
+    },
+  },
 }
 </script>
 

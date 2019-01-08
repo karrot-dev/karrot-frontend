@@ -29,7 +29,7 @@ describe('pickups', () => {
     beforeEach(() => {
       const now = new Date('2017-01-01T12:00:10Z')
       clock = lolex.install({ now, toFake: ['Date'] })
-      pickup1 = { id: 1, store: 10, date: new Date(), collectorIds: [], group }
+      pickup1 = { id: 1, store: 10, date: new Date('2017-01-01T12:01:10Z'), collectorIds: [], group }
       pickup2 = { id: 2, store: 11, date: new Date(), collectorIds: [userId], maxCollectors: 1, group }
       pickup3 = { id: 3, store: 12, date: new Date(), collectorIds: [userId], group }
     })
@@ -82,6 +82,7 @@ describe('pickups', () => {
         isFull: true,
         collectors: [{ id: userId, name: `Some Name${userId}` }],
         feedbackGivenBy: [],
+        hasStarted: true,
       })
     })
 
@@ -109,6 +110,7 @@ describe('pickups', () => {
         isUserMember: false,
         isEmpty: true,
         isFull: false,
+        hasStarted: true,
         ...defaultActionStatusesFor('save', 'join', 'leave'),
         store: {
           id: storeId,

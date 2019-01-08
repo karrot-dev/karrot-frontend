@@ -7,16 +7,7 @@ import subMinutes from 'date-fns/sub_minutes'
 function initialState () {
   return {
     now: new Date(), // reactive current time
-    entries: {
-      234: {
-        'id': 234,
-        'date': subMinutes(new Date(), 5),
-        'store': 130,
-        'maxCollectors': 4,
-        'collectorIds': [1, 2, 422],
-        'description': 'you can join this pickup',
-      },
-    },
+    entries: {},
   }
 }
 
@@ -42,19 +33,19 @@ export default {
         group,
         collectors: pickup.collectorIds.map(rootGetters['users/get']),
         feedbackGivenBy: pickup.feedbackGivenBy ? pickup.feedbackGivenBy.map(rootGetters['users/get']) : [],
-        hasStarted: pickup.date <= new Date(),
+        hasStarted: pickup.date <= state.now,
         ...metaStatusesWithId(getters, ['save', 'join', 'leave'], pickup.id),
       }
     },
-    upcoming: (state, getters) => {
+    upcomingAndOngoing: (state, getters) => {
       return Object.values(state.entries)
         .filter(p => p.date >= subMinutes(state.now, pickupRunningTime))
         .map(getters.enrich)
-        .filter(p => p.date >= state.now || (p.isUserMember && p.date <= state.now))
+        .filter(p => !p.hasStarted || (p.isUserMember && p.hasStarted))
         .sort(sortByDate)
     },
     byCurrentGroup: (state, getters) => {
-      return getters.upcoming.filter(({ group }) => group && group.isCurrentGroup)
+      return getters.upcomingAndOngoing.filter(({ group }) => group && group.isCurrentGroup)
     },
     byActiveStore: (state, getters) => {
       return getters.byCurrentGroup.filter(({ store }) => store && store.isActiveStore)
@@ -62,7 +53,7 @@ export default {
     byActiveStoreOneTime: (state, getters) => {
       return getters.byActiveStore
         .filter(e => !e.series)
-        .filter(p => !p.hasStarted)
+        .filter(p => !p.hasStarted) // only displays upcoming pickups in manage page but not store page
     },
     joined: (state, getters) => getters.byCurrentGroup.filter(e => e.isUserMember),
     available: (state, getters) =>

@@ -2839,7 +2839,7 @@ exports[`Storyshots PickupItem Full 1`] = `
         <!---->
       </div>
       <!---->
-      <div class="q-my-xs"><b class="text-orange">This pickup is happening right now.</b></div>
+      <!---->
       <div class="q-my-xs multiline">this pickup is already full!
       </div>
       <div class="q-my-xs full-width">
@@ -2882,7 +2882,7 @@ exports[`Storyshots PickupItem Join 1`] = `
         <!---->
       </div>
       <!---->
-      <div class="q-my-xs"><b class="text-orange">This pickup is happening right now.</b></div>
+      <!---->
       <div class="q-my-xs multiline">you can join this pickup
       </div>
       <div class="q-my-xs full-width">
@@ -2932,7 +2932,7 @@ exports[`Storyshots PickupItem Leave 1`] = `
         Sunday, August 13, 2017
         <span><strong>Open Chat <i aria-hidden="true" class="q-icon material-icons">chat</i></strong></span></div>
       <!---->
-      <div class="q-my-xs"><b class="text-orange">This pickup is happening right now.</b></div>
+      <!---->
       <div class="q-my-xs multiline">you are collector and can leave this pickup
       </div>
       <div class="q-my-xs full-width">
@@ -2950,10 +2950,8 @@ exports[`Storyshots PickupItem Leave 1`] = `
               </a></div>
           </div>
           <!---->
-          <!----> <a pickup="[object Object]" appear="" duration="[object Object]" name="bounce" class="user-slot-wrapper hoverScale" style="width:36px;height:36px;">
-            <div class="hoverShow">
-              <!---->
-            </div>
+          <!----> <a appear="" duration="[object Object]" name="bounce" class="user-slot-wrapper hoverScale" style="width:36px;height:36px;">
+            <div class="hoverShow"><i title="Leave" class="fas fa-fw fa-times" style="font-size:27px;"></i></div>
             <div class="hoverHide">
               <div class="wrapper" style="width:36px;height:36px;">
                 <div text="Current User" seed="5" class="randomArt fill"></div>
@@ -2982,7 +2980,7 @@ exports[`Storyshots PickupItem pending 1`] = `
         <!---->
       </div>
       <!---->
-      <div class="q-my-xs"><b class="text-orange">This pickup is happening right now.</b></div>
+      <!---->
       <div class="q-my-xs multiline">you can join this pickup
       </div>
       <div class="q-my-xs full-width">
@@ -3025,7 +3023,7 @@ exports[`Storyshots PickupList Default 1`] = `
   <!---->
 </div>
 <!---->
-<div class="q-my-xs"><b class="text-orange">This pickup is happening right now.</b></div>
+<!---->
 <div class="q-my-xs multiline">you can join this pickup
 </div>
 <div class="q-my-xs full-width">
@@ -3072,7 +3070,7 @@ exports[`Storyshots PickupList Default 1`] = `
         Sunday, August 13, 2017
         <span><strong>Open Chat <i aria-hidden="true" class="q-icon material-icons">chat</i></strong></span></div>
       <!---->
-      <div class="q-my-xs"><b class="text-orange">This pickup is happening right now.</b></div>
+      <!---->
       <div class="q-my-xs multiline">you are collector and can leave this pickup
       </div>
       <div class="q-my-xs full-width">
@@ -3090,10 +3088,8 @@ exports[`Storyshots PickupList Default 1`] = `
               </a></div>
           </div>
           <!---->
-          <!----> <a pickup="[object Object]" appear="" duration="[object Object]" name="bounce" class="user-slot-wrapper hoverScale" style="width:36px;height:36px;">
-            <div class="hoverShow">
-              <!---->
-            </div>
+          <!----> <a appear="" duration="[object Object]" name="bounce" class="user-slot-wrapper hoverScale" style="width:36px;height:36px;">
+            <div class="hoverShow"><i title="Leave" class="fas fa-fw fa-times" style="font-size:27px;"></i></div>
             <div class="hoverHide">
               <div class="wrapper" style="width:36px;height:36px;">
                 <div text="Current User" seed="5" class="randomArt fill"></div>
@@ -3119,7 +3115,7 @@ exports[`Storyshots PickupList Default 1`] = `
         <!---->
       </div>
       <!---->
-      <div class="q-my-xs"><b class="text-orange">This pickup is happening right now.</b></div>
+      <!---->
       <div class="q-my-xs multiline">this pickup is already full!
       </div>
       <div class="q-my-xs full-width">
@@ -3159,7 +3155,7 @@ exports[`Storyshots PickupList Default 1`] = `
         <!---->
       </div>
       <!---->
-      <div class="q-my-xs"><b class="text-orange">This pickup is happening right now.</b></div>
+      <!---->
       <div class="q-my-xs multiline">this pickup is fresh and empty
       </div>
       <div class="q-my-xs full-width">
@@ -3579,10 +3575,8 @@ exports[`Storyshots PickupUsers leavable 1`] = `
       </a></div>
   </div>
   <!---->
-  <!----> <a pickup="[object Object]" appear="" duration="[object Object]" name="bounce" class="user-slot-wrapper hoverScale" style="width:36px;height:36px;">
-    <div class="hoverShow">
-      <!---->
-    </div>
+  <!----> <a appear="" duration="[object Object]" name="bounce" class="user-slot-wrapper hoverScale" style="width:36px;height:36px;">
+    <div class="hoverShow"><i title="Leave" class="fas fa-fw fa-times" style="font-size:27px;"></i></div>
     <div class="hoverHide">
       <div class="wrapper" style="width:36px;height:36px;">
         <div text="Current User" seed="5" class="randomArt fill"></div>

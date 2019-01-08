@@ -93,7 +93,6 @@ export default {
         .catch(() => {})
     },
     leave () {
-      console.log(this.pickup.hasStarted)
       if (!this.pickup.hasStarted) {
         Dialog.create({
           title: this.$t('PICKUPLIST.ITEM.LEAVE_CONFIRMATION_HEADER'),

@@ -37,7 +37,7 @@ export default {
         ...metaStatusesWithId(getters, ['save', 'join', 'leave'], pickup.id),
       }
     },
-    upcomingAndOngoing: (state, getters) => {
+    upcomingAndStarted: (state, getters) => {
       return Object.values(state.entries)
         .filter(p => p.date >= subMinutes(state.now, pickupRunningTime))
         .map(getters.enrich)
@@ -45,15 +45,10 @@ export default {
         .sort(sortByDate)
     },
     byCurrentGroup: (state, getters) => {
-      return getters.upcomingAndOngoing.filter(({ group }) => group && group.isCurrentGroup)
+      return getters.upcomingAndStarted.filter(({ group }) => group && group.isCurrentGroup)
     },
     byActiveStore: (state, getters) => {
       return getters.byCurrentGroup.filter(({ store }) => store && store.isActiveStore)
-    },
-    byActiveStoreOneTime: (state, getters) => {
-      return getters.byActiveStore
-        .filter(e => !e.series)
-        .filter(p => !p.hasStarted) // only displays upcoming pickups in manage page but not store page
     },
     joined: (state, getters) => getters.byCurrentGroup.filter(e => e.isUserMember),
     available: (state, getters) =>

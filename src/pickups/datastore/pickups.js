@@ -1,6 +1,7 @@
 import Vue from 'vue'
 import pickups from '@/pickups/api/pickups'
 import { createMetaModule, withMeta, isValidationError, withPrefixedIdMeta, metaStatusesWithId, metaStatuses } from '@/utils/datastore/helpers'
+import { pickupRunningTime } from '@/pickups/settings'
 import subMinutes from 'date-fns/sub_minutes'
 
 function initialState () {
@@ -47,7 +48,7 @@ export default {
     },
     upcoming: (state, getters) => {
       return Object.values(state.entries)
-        .filter(p => p.date >= subMinutes(state.now, 30))
+        .filter(p => p.date >= subMinutes(state.now, pickupRunningTime))
         .map(getters.enrich)
         .filter(p => p.date >= state.now || (p.isUserMember && p.date <= state.now))
         .sort(sortByDate)

@@ -1,5 +1,7 @@
 import axios, { parseCursor } from '@/base/api/axios'
 import { convert as convertConversation } from '@/messages/api/conversations'
+import { pickupRunningTime } from '@/pickups/settings'
+import subMinutes from 'date-fns/sub_minutes'
 
 export default {
 
@@ -12,7 +14,7 @@ export default {
   },
 
   async list (filter) {
-    const params = filter || { 'date_min': new Date() }
+    const params = filter || { 'date_min': subMinutes(new Date(), pickupRunningTime) }
     const response = (await axios.get('/api/pickup-dates/', { params })).data
     return {
       ...response,

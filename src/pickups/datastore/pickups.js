@@ -3,6 +3,7 @@ import pickups from '@/pickups/api/pickups'
 import { createMetaModule, withMeta, isValidationError, withPrefixedIdMeta, metaStatusesWithId, metaStatuses } from '@/utils/datastore/helpers'
 import { pickupRunningTime } from '@/pickups/settings'
 import subMinutes from 'date-fns/sub_minutes'
+import reactiveNow from '@/utils/reactiveNow'
 
 function initialState () {
   return {
@@ -33,13 +34,13 @@ export default {
         group,
         collectors: pickup.collectorIds.map(rootGetters['users/get']),
         feedbackGivenBy: pickup.feedbackGivenBy ? pickup.feedbackGivenBy.map(rootGetters['users/get']) : [],
-        hasStarted: pickup.date <= state.now,
+        hasStarted: pickup.date <= reactiveNow.value,
         ...metaStatusesWithId(getters, ['save', 'join', 'leave'], pickup.id),
       }
     },
     upcomingAndStarted: (state, getters) => {
       return Object.values(state.entries)
-        .filter(p => p.date >= subMinutes(state.now, pickupRunningTime))
+        .filter(p => p.date >= subMinutes(reactiveNow.value, pickupRunningTime))
         .map(getters.enrich)
         .filter(p => !p.hasStarted || (p.isUserMember && p.hasStarted))
         .sort(sortByDate)
@@ -57,7 +58,7 @@ export default {
         .filter(e => !e.isFull && !e.isUserMember && !e.isDisabled),
     feedbackPossibleByCurrentGroup: (state, getters) => {
       return Object.values(state.entries)
-        .filter(p => p.date < state.now && p.feedbackDue > state.now)
+        .filter(p => p.date < reactiveNow.value && p.feedbackDue > reactiveNow.value)
         .map(getters.enrich)
         .filter(p => p.isUserMember)
         .filter(p => p.group && p.group.isCurrentGroup)
@@ -134,9 +135,6 @@ export default {
     },
   },
   mutations: {
-    updateNow (state) {
-      state.now = new Date()
-    },
     clear (state) {
       Object.assign(state, initialState())
     },
@@ -171,9 +169,4 @@ export function isWithinOneWeek (pickup) {
 
 export function sortByDate (a, b) {
   return a.date - b.date
-}
-
-export function plugin (datastore) {
-  // keep state.now update to date
-  setInterval(() => datastore.commit('pickups/updateNow'), 60 * 1000)
 }

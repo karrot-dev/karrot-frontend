@@ -158,7 +158,7 @@ import {
 import { is24h } from '@/base/i18n'
 import editMixin from '@/utils/mixins/editMixin'
 import statusMixin from '@/utils/mixins/statusMixin'
-import dateFnsHelper from '@/utils/dateFnsHelper'
+import reactiveNow from '@/utils/reactiveNow'
 
 export default {
   name: 'PickupEdit',
@@ -179,7 +179,7 @@ export default {
   computed: {
     is24h,
     now () {
-      return dateFnsHelper.now
+      return reactiveNow.value
     },
     canSave () {
       if (!this.isNew && !this.hasChanged) {

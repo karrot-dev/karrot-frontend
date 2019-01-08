@@ -1,4 +1,4 @@
-import pickups, { plugin as pickupsPlugin } from '@/pickups/datastore/pickups'
+import pickups from '@/pickups/datastore/pickups'
 import pickupSeries from '@/pickups/datastore/pickupSeries'
 
 export default {
@@ -7,6 +7,5 @@ export default {
     pickupSeries,
   },
   plugins: [
-    pickupsPlugin,
   ],
 }

@@ -1,10 +1,10 @@
 import Vue from 'vue'
 import { createMetaModule, createPaginationModule, withMeta } from '@/utils/datastore/helpers'
 import notificationsAPI from '@/notifications/api/notifications'
+import reactiveNow from '@/utils/reactiveNow'
 
 function initialState () {
   return {
-    now: new Date(), // reactive current time
     entryMeta: {
       markedAt: null,
     },
@@ -25,7 +25,7 @@ export default {
     current: (state, getters, rootState, rootGetters) => {
       return Object.values(state.entries)
         .map(getters.enrich)
-        .filter(notification => !notification.expiresAt || notification.expiresAt > state.now)
+        .filter(notification => !notification.expiresAt || notification.expiresAt > reactiveNow.value)
         .sort(sortByCreatedAt)
     },
     canFetchPast: (state, getters) => getters['pagination/canFetchNext'],
@@ -98,9 +98,6 @@ export default {
     },
   },
   mutations: {
-    updateNow (state) {
-      state.now = new Date()
-    },
     setPageVisible (state, visible) {
       state.pageVisible = visible
     },
@@ -122,9 +119,6 @@ export default {
 }
 
 export function plugin (datastore) {
-  // keep state.now update to date
-  setInterval(() => datastore.commit('notifications/updateNow'), 60 * 1000)
-
   // load notifications when logged in
   datastore.watch((state, getters) => getters['auth/isLoggedIn'], isLoggedIn => {
     if (isLoggedIn) {

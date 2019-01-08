@@ -33,6 +33,12 @@
           <b class="text-negative">{{ $t('PICKUPLIST.PICKUP_DISABLED') }}</b>
         </div>
         <div
+          v-if="inProgress(pickup)"
+          class="q-my-xs"
+        >
+          <b class="text-orange">{{ $t('PICKUPLIST.PICKUP_ONGOING') }}</b>
+        </div>
+        <div
           class="q-my-xs multiline"
           v-if="pickup.description"
         >{{ pickup.description }}
@@ -102,6 +108,9 @@ export default {
       if (!this.pickup.isUserMember) return
       if (event.target.closest('a')) return // ignore actual links
       this.$emit('detail', this.pickup)
+    },
+    inProgress (pickup) {
+      return (pickup.date <= new Date())
     },
   },
 }

@@ -327,7 +327,7 @@
     "NONE_HINT": "You can create a new pickup on the store page.",
     "STORE_NONE_HINT": "You can create a new pickup on the pickup manage page.",
     "PICKUP_DISABLED": "This pickup has been disabled.",
-    "PICKUP_ONGOING": "This pickup is happening right now."
+    "PICKUP_STARTED": "This pickup has already started."
   },
   "FEEDBACKLIST": {
     "SAVED_FOOD": "At least 1 kg was saved here. Thank you! | People gave feedback for {amount} kg of saved food already! Keep up the great work!",

@@ -2,12 +2,11 @@
   <a
     @click.stop="$emit('leave')"
     class="user-slot-wrapper"
-    :pickup="pickup"
     :style="{ width: size + 'px', height: size + 'px' }"
   >
     <div class="hoverShow">
       <i
-        v-if="!inProgress(pickup)"
+        v-if="!pickup.hasStarted"
         :style="{fontSize: (size - 9) + 'px'}"
         class="fas fa-fw fa-times"
         :title="$t('PICKUPLIST.ITEM.LEAVE')"
@@ -43,11 +42,6 @@ export default {
   },
   components: {
     ProfilePicture,
-  },
-  methods: {
-    inProgress (pickup) {
-      return (pickup.date <= new Date())
-    },
   },
 }
 </script>

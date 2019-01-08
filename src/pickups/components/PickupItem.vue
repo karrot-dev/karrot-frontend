@@ -33,10 +33,10 @@
           <b class="text-negative">{{ $t('PICKUPLIST.PICKUP_DISABLED') }}</b>
         </div>
         <div
-          v-if="inProgress(pickup)"
+          v-if="pickup.hasStarted"
           class="q-my-xs"
         >
-          <b class="text-orange">{{ $t('PICKUPLIST.PICKUP_ONGOING') }}</b>
+          <b class="text-orange">{{ $t('PICKUPLIST.PICKUP_STARTED') }}</b>
         </div>
         <div
           class="q-my-xs multiline"
@@ -93,7 +93,8 @@ export default {
         .catch(() => {})
     },
     leave () {
-      if (this.pickup.date > new Date()) {
+      console.log(this.pickup.hasStarted)
+      if (!this.pickup.hasStarted) {
         Dialog.create({
           title: this.$t('PICKUPLIST.ITEM.LEAVE_CONFIRMATION_HEADER'),
           message: this.$t('PICKUPLIST.ITEM.LEAVE_CONFIRMATION_TEXT'),
@@ -108,9 +109,6 @@ export default {
       if (!this.pickup.isUserMember) return
       if (event.target.closest('a')) return // ignore actual links
       this.$emit('detail', this.pickup)
-    },
-    inProgress (pickup) {
-      return (pickup.date <= new Date())
     },
   },
 }

@@ -6,7 +6,16 @@ import subMinutes from 'date-fns/sub_minutes'
 function initialState () {
   return {
     now: new Date(), // reactive current time
-    entries: {},
+    entries: {
+      234: {
+        'id': 234,
+        'date': subMinutes(new Date(), 5),
+        'store': 130,
+        'maxCollectors': 4,
+        'collectorIds': [1, 2, 422],
+        'description': 'you can join this pickup',
+      },
+    },
   }
 }
 
@@ -32,6 +41,7 @@ export default {
         group,
         collectors: pickup.collectorIds.map(rootGetters['users/get']),
         feedbackGivenBy: pickup.feedbackGivenBy ? pickup.feedbackGivenBy.map(rootGetters['users/get']) : [],
+        hasStarted: pickup.date <= new Date(),
         ...metaStatusesWithId(getters, ['save', 'join', 'leave'], pickup.id),
       }
     },

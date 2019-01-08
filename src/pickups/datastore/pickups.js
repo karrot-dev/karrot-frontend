@@ -1,6 +1,8 @@
 import Vue from 'vue'
 import pickups from '@/pickups/api/pickups'
 import { createMetaModule, withMeta, isValidationError, withPrefixedIdMeta, metaStatusesWithId, metaStatuses } from '@/utils/datastore/helpers'
+import { pickupRunningTime } from '@/pickups/settings'
+import subMinutes from 'date-fns/sub_minutes'
 
 function initialState () {
   return {
@@ -31,23 +33,22 @@ export default {
         group,
         collectors: pickup.collectorIds.map(rootGetters['users/get']),
         feedbackGivenBy: pickup.feedbackGivenBy ? pickup.feedbackGivenBy.map(rootGetters['users/get']) : [],
+        hasStarted: pickup.date <= state.now,
         ...metaStatusesWithId(getters, ['save', 'join', 'leave'], pickup.id),
       }
     },
-    upcoming: (state, getters) => {
+    upcomingAndStarted: (state, getters) => {
       return Object.values(state.entries)
-        .filter(p => p.date >= state.now)
+        .filter(p => p.date >= subMinutes(state.now, pickupRunningTime))
         .map(getters.enrich)
+        .filter(p => !p.hasStarted || (p.isUserMember && p.hasStarted))
         .sort(sortByDate)
     },
     byCurrentGroup: (state, getters) => {
-      return getters.upcoming.filter(({ group }) => group && group.isCurrentGroup)
+      return getters.upcomingAndStarted.filter(({ group }) => group && group.isCurrentGroup)
     },
     byActiveStore: (state, getters) => {
       return getters.byCurrentGroup.filter(({ store }) => store && store.isActiveStore)
-    },
-    byActiveStoreOneTime: (state, getters) => {
-      return getters.byActiveStore.filter(e => !e.series)
     },
     joined: (state, getters) => getters.byCurrentGroup.filter(e => e.isUserMember),
     available: (state, getters) =>

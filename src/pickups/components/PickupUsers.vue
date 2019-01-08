@@ -43,6 +43,7 @@
         v-if="pickup.isUserMember && !isJoiningOrLeaving(pickup)"
         :size="size"
         :user="currentUser"
+        :pickup="pickup"
         class="hoverScale"
         @leave="$emit('leave')"
       />

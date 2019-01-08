@@ -33,6 +33,12 @@
           <b class="text-negative">{{ $t('PICKUPLIST.PICKUP_DISABLED') }}</b>
         </div>
         <div
+          v-if="pickup.hasStarted"
+          class="q-my-xs"
+        >
+          <b class="text-orange">{{ $t('PICKUPLIST.PICKUP_STARTED') }}</b>
+        </div>
+        <div
           class="q-my-xs multiline"
           v-if="pickup.description"
         >{{ pickup.description }}
@@ -87,14 +93,16 @@ export default {
         .catch(() => {})
     },
     leave () {
-      Dialog.create({
-        title: this.$t('PICKUPLIST.ITEM.LEAVE_CONFIRMATION_HEADER'),
-        message: this.$t('PICKUPLIST.ITEM.LEAVE_CONFIRMATION_TEXT'),
-        ok: this.$t('BUTTON.YES'),
-        cancel: this.$t('BUTTON.CANCEL'),
-      })
-        .then(() => this.$emit('leave', this.pickup.id))
-        .catch(() => {})
+      if (!this.pickup.hasStarted) {
+        Dialog.create({
+          title: this.$t('PICKUPLIST.ITEM.LEAVE_CONFIRMATION_HEADER'),
+          message: this.$t('PICKUPLIST.ITEM.LEAVE_CONFIRMATION_TEXT'),
+          ok: this.$t('BUTTON.YES'),
+          cancel: this.$t('BUTTON.CANCEL'),
+        })
+          .then(() => this.$emit('leave', this.pickup.id))
+          .catch(() => {})
+      }
     },
     detailIfMember (event) {
       if (!this.pickup.isUserMember) return

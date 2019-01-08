@@ -3,12 +3,13 @@
     @click.stop="$emit('leave')"
     class="user-slot-wrapper"
     :style="{ width: size + 'px', height: size + 'px' }"
-    :title="$t('PICKUPLIST.ITEM.LEAVE')"
   >
     <div class="hoverShow">
       <i
+        v-if="!pickup.hasStarted"
         :style="{fontSize: (size - 9) + 'px'}"
         class="fas fa-fw fa-times"
+        :title="$t('PICKUPLIST.ITEM.LEAVE')"
       />
     </div>
     <div class="hoverHide">
@@ -34,11 +35,14 @@ export default {
       type: Object,
       required: true,
     },
+    pickup: {
+      type: Object,
+      required: true,
+    },
   },
   components: {
     ProfilePicture,
   },
-
 }
 </script>
 

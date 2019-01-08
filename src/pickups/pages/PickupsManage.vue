@@ -341,10 +341,14 @@ export default {
     ...mapGetters({
       storeId: 'stores/activeStoreId',
       pickupSeries: 'pickupSeries/byActiveStore',
-      oneTimePickups: 'pickups/byActiveStoreOneTime',
+      pickups: 'pickups/byActiveStore',
       pickupCreateStatus: 'pickups/createStatus',
       seriesCreateStatus: 'pickupSeries/createStatus',
     }),
+    oneTimePickups () {
+      // filter out already started pickups
+      return this.pickups.filter(p => !p.series && !p.hasStarted)
+    },
   },
 }
 </script>

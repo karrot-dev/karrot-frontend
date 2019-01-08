@@ -33,6 +33,7 @@ Please document your changes in this format:
 - Replies to wall message via email now go into a thread #1079 @tiltec
 - Wait 5 seconds before triggering refresh in app @tiltec
 - Order of pickup collectors is now kept #1157 @lwm
+- Displaying past pickups (-30min) for users who are members of that pickup #1178 @djahnie @taistadam
 
 ### Fixed
 - Tapping on push notification showed login page when user is already logged in (second try) @tiltec

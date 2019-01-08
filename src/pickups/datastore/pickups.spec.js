@@ -169,7 +169,7 @@ describe('pickups', () => {
       group: makeGroup({ isCurrentGroup: false }),
     })
     const otherGetters = {
-      upcoming: [activePickup, inactivePickup],
+      upcomingAndOngoing: [activePickup, inactivePickup],
     }
     const { getters } = require('./pickups').default
 

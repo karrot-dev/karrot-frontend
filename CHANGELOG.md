@@ -39,8 +39,6 @@ Please document your changes in this format:
 - Tapping on push notification showed login page when user is already logged in (second try) @tiltec
 - External link detection was not working in app @tiltec
 - Group links on map didn't work when logged out @tiltec
-- Removed imported but unused components to satisfy eslint rule #1171 @taistadam
-- Convert components' names to template casing to satisfy eslint rule #1163 @taistadam
 
 ## [6.2.9] - 2018-12-12
 ### Fixed

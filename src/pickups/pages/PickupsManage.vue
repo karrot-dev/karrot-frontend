@@ -347,7 +347,7 @@ export default {
     }),
     oneTimePickups () {
       // filter out already started pickups
-      return this.pickups.filter(e => !e.series && !p.hasStarted)
+      return this.pickups.filter(p => !p.series && !p.hasStarted)
     },
   },
 }

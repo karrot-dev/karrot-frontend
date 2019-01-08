@@ -60,7 +60,9 @@ export default {
       return getters.byCurrentGroup.filter(({ store }) => store && store.isActiveStore)
     },
     byActiveStoreOneTime: (state, getters) => {
-      return getters.byActiveStore.filter(e => !e.series)
+      return getters.byActiveStore
+        .filter(e => !e.series)
+        .filter(p => !p.hasStarted)
     },
     joined: (state, getters) => getters.byCurrentGroup.filter(e => e.isUserMember),
     available: (state, getters) =>

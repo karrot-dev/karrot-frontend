@@ -20,6 +20,7 @@ export default {
       if (!entry) return
       const pickups = rootGetters['pickups/upcoming']
         .filter(({ series }) => series === entry.id)
+        .filter(p => !p.hasStarted)
         .map(pickup => ({
           ...pickup,
           seriesMeta: {

@@ -6,16 +6,7 @@ import subMinutes from 'date-fns/sub_minutes'
 function initialState () {
   return {
     now: new Date(), // reactive current time
-    entries: {
-      234: {
-        'id': 234,
-        'date': subMinutes(new Date(), 5),
-        'store': 130,
-        'maxCollectors': 4,
-        'collectorIds': [1, 2, 423],
-        'description': 'you can join this pickup',
-      },
-    },
+    entries: {},
   }
 }
 

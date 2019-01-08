@@ -50,15 +50,15 @@ export default {
     all: (state, getters) => {
       return Object.values(state.entries).map(getters.enrich)
     },
-    byActiveStore: (state, getters) => {
-      return getters.all.filter(series => series.store && series.store.isActiveStore)
+    byCurrentStore: (state, getters) => {
+      return getters.all.filter(series => series.store && series.store.isCurrentStore)
     },
     ...metaStatuses(['create']),
   },
   actions: {
     ...withMeta({
-      async fetchListForActiveStore ({ commit, rootGetters }) {
-        let storeId = rootGetters['stores/activeStoreId']
+      async fetchListForCurrentStore ({ commit, rootGetters }) {
+        let storeId = rootGetters['stores/currentStoreId']
         if (storeId) {
           commit('set', await pickupSeries.listByStoreId(storeId))
         }
@@ -66,7 +66,7 @@ export default {
 
       async create ({ commit, dispatch }, series) {
         await pickupSeries.create(series)
-        dispatch('fetchListForActiveStore')
+        dispatch('fetchListForCurrentStore')
       },
 
       async save ({ commit, dispatch }, series) {
@@ -76,7 +76,7 @@ export default {
 
       async destroy ({ commit, dispatch }, id) {
         await pickupSeries.delete(id)
-        dispatch('fetchListForActiveStore')
+        dispatch('fetchListForCurrentStore')
       },
 
     }),

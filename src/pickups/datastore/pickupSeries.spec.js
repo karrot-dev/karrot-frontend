@@ -34,16 +34,16 @@ describe('pickupSeries module', () => {
   })
 
   it('filters by active store', () => {
-    const activeStore = makeStore({ isActiveStore: true })
-    const activeSeries = makePickupSeries({ store: activeStore })
-    const inactiveStore = makeStore({ isActiveStore: false })
+    const currentStore = makeStore({ isCurrentStore: true })
+    const activeSeries = makePickupSeries({ store: currentStore })
+    const inactiveStore = makeStore({ isCurrentStore: false })
     const inactiveSeries = makePickupSeries({ store: inactiveStore })
     const { getters } = require('./pickupSeries').default
     const otherGetters = {
       all: [activeSeries, inactiveSeries],
     }
 
-    const result = getters.byActiveStore(null, otherGetters)
+    const result = getters.byCurrentStore(null, otherGetters)
     expect(result.length).toEqual(1)
     expect(result[0].id).toEqual(activeSeries.id)
   })

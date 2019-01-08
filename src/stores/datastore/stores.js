@@ -16,7 +16,7 @@ function initialState () {
   return {
     entries: {},
     statistics: {},
-    activeStoreId: null,
+    currentStoreId: null,
   }
 }
 
@@ -44,11 +44,11 @@ export default {
         ui: optionsFor(store),
         group: rootGetters['groups/get'](store.group),
         statistics: state.statistics[store.id],
-        isActiveStore: store.id === state.activeStoreId,
+        isCurrentStore: store.id === state.currentStoreId,
       }
     },
-    activeStore: (state, getters) => getters.get(state.activeStoreId),
-    activeStoreId: state => state.activeStoreId,
+    currentStore: (state, getters) => getters.get(state.currentStoreId),
+    currentStoreId: state => state.currentStoreId,
     ...metaStatuses(['create']),
   },
   actions: {
@@ -72,7 +72,7 @@ export default {
     }),
     ...withMeta({
       async selectStore ({ commit, dispatch, getters }, { storeId }) {
-        if (getters.activeStoreId === storeId) return
+        if (getters.currentStoreId === storeId) return
         if (!getters.get(storeId)) {
           try {
             const store = await stores.get(storeId)
@@ -91,10 +91,10 @@ export default {
       findId: ({ storeId }) => storeId,
     }),
 
-    clearSelectedStore ({ commit, dispatch, getters }, { routeTo }) {
+    clearCurrentStore ({ commit, dispatch, getters }, { routeTo }) {
       // do not clear if store stays the same
       const { storeId } = routeTo.params
-      if (storeId && parseInt(storeId) === getters.activeStoreId) return
+      if (storeId && parseInt(storeId) === getters.currentStoreId) return
 
       dispatch('sidenavBoxes/toggle/group', true, { root: true })
       commit('clearSelected')
@@ -117,10 +117,10 @@ export default {
   },
   mutations: {
     select (state, storeId) {
-      state.activeStoreId = storeId
+      state.currentStoreId = storeId
     },
     clearSelected (state) {
-      state.activeStoreId = null
+      state.currentStoreId = null
     },
     set (state, stores) {
       state.entries = indexById(stores)

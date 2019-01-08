@@ -128,7 +128,7 @@ export const makeStore = data => {
     longitude: 0,
     weeksInAdvance: 4,
     status: 'active',
-    isActiveStore: false,
+    isCurrentStore: false,
     ...data,
   }
 }

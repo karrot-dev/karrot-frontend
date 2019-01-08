@@ -9,7 +9,7 @@
         <QSearch v-model="filterTerm" />
       </QItem>
       <UserItem
-        v-for="user in activeUsers"
+        v-for="user in currentUsers"
         :key="user.id"
         :user="user"
         :group="group"
@@ -127,7 +127,7 @@ export default {
     inactiveSublabel () {
       return this.inactiveUsers.length + ' ' + this.$tc('JOINGROUP.NUM_MEMBERS', this.inactiveUsers.length)
     },
-    activeUsers () {
+    currentUsers () {
       return this.sort(this.filterByTerms(this.users.filter(u => u.membership.active)))
     },
     inactiveUsers () {

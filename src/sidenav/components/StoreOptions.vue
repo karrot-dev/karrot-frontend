@@ -4,7 +4,7 @@ import StoreOptionsUI from './StoreOptionsUI'
 
 export default connect({
   gettersToProps: {
-    storeId: 'stores/activeStoreId',
+    storeId: 'stores/currentStoreId',
   },
 })('StoreOptions', StoreOptionsUI)
 </script>

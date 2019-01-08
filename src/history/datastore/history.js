@@ -23,14 +23,14 @@ export default {
     byCurrentGroup: (state, getters) => {
       return getters.all.filter(({ group }) => group && group.isCurrentGroup)
     },
-    byActiveStore: (state, getters) => {
-      return getters.all.filter(({ store }) => store && store.isActiveStore)
+    byCurrentStore: (state, getters) => {
+      return getters.all.filter(({ store }) => store && store.isCurrentStore)
     },
     byCurrentGroupAndUser: (state, getters, rootState, rootGetters) => {
-      // TODO could enrich user with isActiveUser property instead
-      const activeUserId = rootGetters['users/activeUserId']
-      if (!activeUserId) return []
-      return getters.byCurrentGroup.filter(({ users }) => users.find(u => u.id === activeUserId))
+      // TODO could enrich user with isCurrentUser property instead
+      const currentUserId = rootGetters['users/currentUserId']
+      if (!currentUserId) return []
+      return getters.byCurrentGroup.filter(({ users }) => users.find(u => u.id === currentUserId))
     },
     canFetchPast: (state, getters) => getters['pagination/canFetchNext'],
     enrich: (state, getters, rootState, rootGetters) => entry => {

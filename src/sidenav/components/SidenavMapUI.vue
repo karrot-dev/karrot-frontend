@@ -8,8 +8,8 @@
     :users="users"
     :show-users="showUsers"
     :show-stores="showStores"
-    :selected-store="selectedStore"
-    :selected-user="selectedUser"
+    :current-store="currentStore"
+    :current-user="currentUser"
     :current-group="currentGroup"
     @toggleUsers="$emit('toggleUsers')"
     @toggleStores="$emit('toggleStores')"
@@ -30,11 +30,11 @@ export default {
       default: () => [],
       type: Array,
     },
-    selectedStore: {
+    currentStore: {
       default: null,
       type: Object,
     },
-    selectedUser: {
+    currentUser: {
       default: null,
       type: Object,
     },

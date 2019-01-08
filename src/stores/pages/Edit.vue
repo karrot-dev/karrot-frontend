@@ -6,12 +6,12 @@ import StoreEdit from '@/stores/components/StoreEdit'
 export default connect({
   stateToProps: {
     status: () => {
-      const active = datastore.getters['stores/activeStore']
+      const active = datastore.getters['stores/currentStore']
       return active && active.saveStatus
     },
   },
   gettersToProps: {
-    value: 'stores/activeStore',
+    value: 'stores/currentStore',
     allStores: 'stores/byCurrentGroup',
   },
   actionsToEvents: {

@@ -149,17 +149,17 @@ describe('pickups', () => {
 
   it('filters by active store', () => {
     const activePickup = makePickup({
-      store: makeStore({ isActiveStore: true }),
+      store: makeStore({ isCurrentStore: true }),
     })
     const inactivePickup = makePickup({
-      store: makeStore({ isActiveStore: false }),
+      store: makeStore({ isCurrentStore: false }),
     })
     const otherGetters = {
       byCurrentGroup: [activePickup, inactivePickup],
     }
     const { getters } = require('./pickups').default
 
-    const result = getters.byActiveStore(null, otherGetters)
+    const result = getters.byCurrentStore(null, otherGetters)
     expect(result.length).toEqual(1)
     expect(result[0].id).toEqual(activePickup.id)
   })

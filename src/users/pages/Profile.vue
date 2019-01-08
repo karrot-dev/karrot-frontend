@@ -30,7 +30,7 @@ export default {
   components: { QCard, QCardTitle, QCardMain, HistoryContainer, Profile },
   computed: {
     ...mapGetters({
-      user: 'users/activeUser',
+      user: 'users/currentUser',
       currentGroup: 'currentGroup/value',
       history: 'history/byCurrentGroupAndUser',
     }),

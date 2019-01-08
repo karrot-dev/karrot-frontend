@@ -27,7 +27,7 @@ export default {
   },
   computed: {
     ...mapGetters({
-      store: 'stores/activeStore',
+      store: 'stores/currentStore',
       isEditor: 'currentGroup/isEditor',
     }),
   },

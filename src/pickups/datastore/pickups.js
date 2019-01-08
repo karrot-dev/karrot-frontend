@@ -48,8 +48,8 @@ export default {
     byCurrentGroup: (state, getters) => {
       return getters.upcomingAndStarted.filter(({ group }) => group && group.isCurrentGroup)
     },
-    byActiveStore: (state, getters) => {
-      return getters.byCurrentGroup.filter(({ store }) => store && store.isActiveStore)
+    byCurrentStore: (state, getters) => {
+      return getters.byCurrentGroup.filter(({ store }) => store && store.isCurrentStore)
     },
     joined: (state, getters) => getters.byCurrentGroup.filter(e => e.isUserMember),
     available: (state, getters) =>
@@ -65,9 +65,9 @@ export default {
         .filter(p => !p.feedbackGivenBy.find(u => u.isCurrentUser))
         .sort(sortByDate)
     },
-    feedbackPossibleByActiveStore: (state, getters) =>
+    feedbackPossibleByCurrentStore: (state, getters) =>
       getters.feedbackPossibleByCurrentGroup
-        .filter(({ store }) => store && store.isActiveStore),
+        .filter(({ store }) => store && store.isCurrentStore),
     ...metaStatuses(['create']),
   },
   actions: {

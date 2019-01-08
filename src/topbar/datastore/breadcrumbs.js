@@ -21,8 +21,8 @@ export default {
             }
           }
         }
-        else if (item.type === 'activeStore') {
-          let store = rootGetters['stores/activeStore']
+        else if (item.type === 'currentStore') {
+          let store = rootGetters['stores/currentStore']
           if (store) {
             return {
               name: store.name,
@@ -30,8 +30,8 @@ export default {
             }
           }
         }
-        else if (item.type === 'activeUser') {
-          let user = rootGetters['users/activeUser']
+        else if (item.type === 'currentUser') {
+          let user = rootGetters['users/currentUser']
           if (user) {
             return {
               name: user.displayName,

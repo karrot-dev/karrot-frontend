@@ -36,8 +36,8 @@ export default {
     byCurrentGroup: (state, getters) => {
       return getters.all.filter(({ group }) => group && group.isCurrentGroup)
     },
-    byActiveStore: (state, getters) => {
-      return getters.all.filter(({ store }) => store && store.isActiveStore)
+    byCurrentStore: (state, getters) => {
+      return getters.all.filter(({ store }) => store && store.isCurrentStore)
     },
     selected: (state, getters) => getters.get(state.selectedFeedbackId),
     canFetchPast: (state, getters) => getters['pagination/canFetchNext'],

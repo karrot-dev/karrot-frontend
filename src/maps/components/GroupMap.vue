@@ -50,7 +50,7 @@
       <QBtn
         v-if="showUserLocationPrompt"
         color="primary"
-        :to="{ name: 'settings', params: { userId: selectedUser.id } }"
+        :to="{ name: 'settings', params: { userId: currentUser.id } }"
       >
         {{ $t('GROUPMAP.SET_LOCATION') }}
       </QBtn>
@@ -58,7 +58,7 @@
         <QBtn
           v-if="showStoreLocationPrompt"
           color="primary"
-          :to="{ name: 'storeEdit', params: { groupId: currentGroup.id, storeId: selectedStore && selectedStore.id } }"
+          :to="{ name: 'storeEdit', params: { groupId: currentGroup.id, storeId: currentStore && currentStore.id } }"
         >
           {{ $t('GROUPMAP.SET_LOCATION') }}
         </QBtn>
@@ -102,8 +102,8 @@ export default {
     users: { required: true, type: Array },
     stores: { required: true, type: Array },
     groups: { default: null, type: Array },
-    selectedStore: { default: null, type: Object },
-    selectedUser: { default: null, type: Object },
+    currentStore: { default: null, type: Object },
+    currentUser: { default: null, type: Object },
     showUsers: { default: false, type: Boolean },
     showStores: { default: true, type: Boolean },
     showGroups: { default: false, type: Boolean },
@@ -121,16 +121,16 @@ export default {
   },
   computed: {
     showUserLocationPrompt () {
-      return this.selectedUser && this.selectedUser.isCurrentUser && !hasLocation(this.selectedUser)
+      return this.currentUser && this.currentUser.isCurrentUser && !hasLocation(this.currentUser)
     },
     showStoreLocationPrompt () {
-      return this.selectedStore && !(this.storesWithLocation.findIndex(e => e.id === this.selectedStore.id) >= 0)
+      return this.currentStore && !(this.storesWithLocation.findIndex(e => e.id === this.currentStore.id) >= 0)
     },
     showGroupLocationPrompt () {
       return this.markers.length === 0 && !(this.currentGroup.latitude && this.currentGroup.longitude)
     },
     showOverlay () {
-      if (this.selectedUser && hasLocation(this.selectedUser)) return false
+      if (this.currentUser && hasLocation(this.currentUser)) return false
       return this.showUserLocationPrompt || this.showStoreLocationPrompt || this.showGroupLocationPrompt
     },
     center () {
@@ -156,15 +156,15 @@ export default {
       return (this.groups && this.groups.filter(hasLocation)) || []
     },
     selectedMarkers () {
-      if (this.selectedUser) {
-        if (hasLocation(this.selectedUser)) {
-          return [userMarker(this.selectedUser)]
+      if (this.currentUser) {
+        if (hasLocation(this.currentUser)) {
+          return [userMarker(this.currentUser)]
         }
       }
-      else if (this.selectedStore) {
+      else if (this.currentStore) {
         const markers = []
-        if (hasLocation(this.selectedStore)) {
-          markers.push(storeMarker(this.selectedStore))
+        if (hasLocation(this.currentStore)) {
+          markers.push(storeMarker(this.currentStore))
         }
         if (this.showUsers) {
           markers.push(...this.usersWithLocation.map(userMarker))
@@ -183,8 +183,8 @@ export default {
       if (this.showUsers) {
         items.push(...this.usersWithLocation.map(userMarker))
       }
-      else if (this.selectedUser && hasLocation(this.selectedUser)) {
-        items.push(userMarker(this.selectedUser))
+      else if (this.currentUser && hasLocation(this.currentUser)) {
+        items.push(userMarker(this.currentUser))
       }
       if (this.showGroups) {
         items.push(...this.groupsWithLocation.map(groupMarker))

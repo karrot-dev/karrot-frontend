@@ -273,10 +273,10 @@ export default [
         path: 'store/:storeId',
         meta: {
           breadcrumbs: [
-            { type: 'activeStore' },
+            { type: 'currentStore' },
           ],
           beforeEnter: 'stores/selectStore',
-          afterLeave: 'stores/clearSelectedStore',
+          afterLeave: 'stores/clearCurrentStore',
         },
         components: {
           default: StoreLayout,
@@ -321,7 +321,7 @@ export default [
               breadcrumbs: [
                 { translation: 'PICKUPMANAGE.TITLE', route: { name: 'storePickupsManage' } },
               ],
-              beforeEnter: 'pickupSeries/fetchListForActiveStore',
+              beforeEnter: 'pickupSeries/fetchListForCurrentStore',
               afterLeave: 'pickupSeries/clearList',
             },
             component: StorePickupsManage,
@@ -423,10 +423,10 @@ export default [
       requireLoggedIn: true,
       breadcrumbs: [
         { type: 'currentGroup' },
-        { type: 'activeUser' },
+        { type: 'currentUser' },
       ],
       beforeEnter: 'users/selectUser',
-      afterLeave: 'users/clearSelectedUser',
+      afterLeave: 'users/clearCurrentUser',
     },
     components: {
       default: User,
@@ -440,7 +440,7 @@ export default [
       requiredLoggedIn: true,
       breadcrumbs: [
         { type: 'currentGroup' },
-        { type: 'activeUser' },
+        { type: 'currentUser' },
       ],
       beforeEnter: 'detail/routeEnter',
       afterLeave: 'detail/routeLeave',

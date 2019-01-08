@@ -146,8 +146,8 @@ export default {
       return this.store ? [storeMarker(this.store)] : []
     },
     ...mapGetters({
-      store: 'stores/activeStore',
-      pickups: 'pickups/byActiveStore',
+      store: 'stores/currentStore',
+      pickups: 'pickups/byCurrentStore',
       currentUser: 'auth/user',
       isEditor: 'currentGroup/isEditor',
     }),

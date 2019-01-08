@@ -62,12 +62,12 @@ export default {
   components: { FeedbackList, QCard, QChip },
   computed: {
     ...mapGetters({
-      store: 'stores/activeStore',
-      feedback: 'feedback/byActiveStore',
+      store: 'stores/currentStore',
+      feedback: 'feedback/byCurrentStore',
       fetchStatus: 'feedback/fetchStatus',
       canFetchPast: 'feedback/canFetchPast',
       fetchPastStatus: 'feedback/fetchPastStatus',
-      feedbackPossible: 'pickups/feedbackPossibleByActiveStore',
+      feedbackPossible: 'pickups/feedbackPossibleByCurrentStore',
     }),
     statistics () {
       return this.store && this.store.statistics

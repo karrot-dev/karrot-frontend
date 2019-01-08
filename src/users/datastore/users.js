@@ -8,7 +8,7 @@ import router from '@/base/router'
 function initialState () {
   return {
     entries: {},
-    activeUserProfile: null,
+    currentUserProfile: null,
     resetPasswordSuccess: false,
     resendVerificationCodeSuccess: false,
   }
@@ -47,10 +47,10 @@ export default {
     byCurrentGroup: (state, getters, rootState, rootGetters) => {
       return getters.all.filter(u => u.membership)
     },
-    activeUser: (state, getters, rootState, rootGetters) => {
-      if (!state.activeUserProfile) return
+    currentUser: (state, getters, rootState, rootGetters) => {
+      if (!state.currentUserProfile) return
 
-      const user = state.activeUserProfile
+      const user = state.currentUserProfile
       const groups = user.groups && user.groups.map(rootGetters['groups/get']).sort((a, b) => a.name.localeCompare(b.name))
 
       return {
@@ -58,7 +58,7 @@ export default {
         groups,
       }
     },
-    activeUserId: state => state.activeUserProfile && state.activeUserProfile.id,
+    currentUserId: state => state.currentUserProfile && state.currentUserProfile.id,
     ...metaStatuses(['signup', 'requestResetPassword', 'resetPassword', 'resendVerificationCode', 'requestDeleteAccount']),
     resetPasswordSuccess: state => state.resetPasswordSuccess,
     resendVerificationCodeSuccess: state => state.resendVerificationCodeSuccess,
@@ -113,7 +113,7 @@ export default {
         }
       }
     },
-    clearSelectedUser ({ commit }) {
+    clearCurrentUser ({ commit }) {
       commit('setProfile', null)
     },
     clearSignup ({ dispatch }) {
@@ -135,20 +135,20 @@ export default {
       else {
         dispatch('fetch')
       }
-      if (state.activeUserProfile) {
-        dispatch('refreshProfile', state.activeUserProfile)
+      if (state.currentUserProfile) {
+        dispatch('refreshProfile', state.currentUserProfile)
       }
     },
     async refreshProfile ({ getters, commit }, user) {
-      if (!user || !getters.activeUserId || user.id !== getters.activeUserId) return
+      if (!user || !getters.currentUserId || user.id !== getters.currentUserId) return
 
       // TODO catch error if profile is info-only
-      commit('setProfile', await users.getProfile(getters.activeUserId))
+      commit('setProfile', await users.getProfile(getters.currentUserId))
     },
   },
   mutations: {
     setProfile (state, userProfile) {
-      state.activeUserProfile = userProfile
+      state.currentUserProfile = userProfile
     },
     update (state, users) {
       for (const user of users) {
@@ -168,7 +168,7 @@ export const plugin = datastore => {
   let lastLoadedGroupId = null
   datastore.watch((state, getters) => ({
     groupId: getters['auth/currentGroupId'],
-    profileUser: getters['users/activeUser'],
+    profileUser: getters['users/currentUser'],
   }), ({ groupId, profileUser }) => {
     if (profileUser && groupId && lastLoadedGroupId !== groupId) {
       lastLoadedGroupId = groupId

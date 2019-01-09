@@ -38,7 +38,7 @@ export default {
   },
   methods: {
     ...mapActions({
-      report: 'conflictResolution/report',
+      report: 'conflictResolution/startSetup',
       detail: 'detail/openForUser',
       createTrust: 'currentGroup/trustUser',
       selectGroup: 'currentGroup/select',

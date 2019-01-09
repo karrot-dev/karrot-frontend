@@ -62,6 +62,14 @@
           icon="fas fa-comments"
           @click="$emit('detail', user)"
         />
+        <QBtn
+          v-if="!user.isCurrentUser"
+          icon="fas fa-frown-open"
+          small
+          round
+          color="negative"
+          @click="$emit('report', user)"
+        />
         <TrustButton
           v-if="currentGroupMembership"
           :user="user"

@@ -133,4 +133,18 @@ export default [
       header: ApplicationFormTitle,
     },
   },
+  {
+    name: 'conflictResolutionSetup',
+    path: 'group/:groupId/conflict-resolution-setup',
+    meta: {
+      requireLoggedIn: true,
+      breadcrumbs: [
+        { translation: 'CONFLICT.SETUP' },
+      ],
+    },
+    components: {
+      default: ConflictResolutionSetup,
+      header: ConflictResolutionSetupTitle,
+    },
+  }
 ]

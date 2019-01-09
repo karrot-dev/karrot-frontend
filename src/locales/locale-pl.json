@@ -326,7 +326,8 @@
     "NONE": "Brak nadchodzących odbiorów",
     "NONE_HINT": "Możesz dodać nowe odbiory na stronie punktu odbioru.",
     "STORE_NONE_HINT": "Możesz dodać nowe odbiory na stronie zarządzania odbiorami.",
-    "PICKUP_DISABLED": "This pickup has been disabled."
+    "PICKUP_DISABLED": "This pickup has been disabled.",
+    "PICKUP_STARTED": "This pickup has already started."
   },
   "FEEDBACKLIST": {
     "SAVED_FOOD": "W tym punkcie uratowano już ponad 1 kg żywności. Dziękujemy! | W tym punkcie uratowano już {amount} kg żywności. Oby tak dalej!",

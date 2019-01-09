@@ -326,7 +326,8 @@
     "NONE": "કોઈ આગામી પિક અપ્સ નથી",
     "NONE_HINT": "તમે સ્ટોર પૃષ્ઠ પર એક નવું પિક અપ બનાવી શકો છો",
     "STORE_NONE_HINT": "તમે પૃષ્ઠને સંચાલિત કરો પર એક નવો બનાવ્યો બનાવી શકો છો",
-    "PICKUP_DISABLED": "This pickup has been disabled."
+    "PICKUP_DISABLED": "This pickup has been disabled.",
+    "PICKUP_STARTED": "This pickup has already started."
   },
   "FEEDBACKLIST": {
     "SAVED_FOOD": "At least 1 kg was saved here. Thank you! | People gave feedback for {amount} kg of saved food already! Keep up the great work!",

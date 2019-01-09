@@ -326,7 +326,8 @@
     "NONE": "Es stehen keine Abholungen an.",
     "NONE_HINT": "Auf der Betriebsseite kannst du Abholtermine erstellen.",
     "STORE_NONE_HINT": "Im Abholzeiten-Editor kannst du eine neue Abholung erstellen.",
-    "PICKUP_DISABLED": "This pickup has been disabled."
+    "PICKUP_DISABLED": "This pickup has been disabled.",
+    "PICKUP_STARTED": "This pickup has already started."
   },
   "FEEDBACKLIST": {
     "SAVED_FOOD": "Mindestens 1 kg wurde hier gerettet. Dankeschön! | Es wurde bereits für {amount} kg gerettete Lebensmittel Feedback gegeben! Weiter so!",

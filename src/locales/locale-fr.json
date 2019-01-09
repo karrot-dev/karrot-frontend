@@ -326,7 +326,8 @@
     "NONE": "Aucune récolte à venir",
     "NONE_HINT": "Tu peux créer une nouvelle récolte sur la page du magasin.",
     "STORE_NONE_HINT": "Tu peux créer une nouvelle récolte sur la page des récoltes.",
-    "PICKUP_DISABLED": "This pickup has been disabled."
+    "PICKUP_DISABLED": "This pickup has been disabled.",
+    "PICKUP_STARTED": "This pickup has already started."
   },
   "FEEDBACKLIST": {
     "SAVED_FOOD": "Au moins 1 kg a été sauvé. Merci ! Les autres participants ont déjà indiqué que {amount} kg de nourriture ont été sauvés ! Continue, c'est génial !",

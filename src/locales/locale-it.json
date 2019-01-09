@@ -326,7 +326,8 @@
     "NONE": "Nessuna recupera in vista",
     "NONE_HINT": "Puoi creare una nuova recupera sulla pagina del negozio.",
     "STORE_NONE_HINT": "Puoi creare una nuova recupera sulla pagina della gestione delle recupere.",
-    "PICKUP_DISABLED": "This pickup has been disabled."
+    "PICKUP_DISABLED": "This pickup has been disabled.",
+    "PICKUP_STARTED": "This pickup has already started."
   },
   "FEEDBACKLIST": {
     "SAVED_FOOD": "At least 1 kg was saved here. Thank you! | People gave feedback for {amount} kg of saved food already! Keep up the great work!",

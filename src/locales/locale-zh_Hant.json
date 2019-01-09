@@ -326,7 +326,8 @@
     "NONE": "沒有後續的開放領取",
     "NONE_HINT": "你可以在店面頁創建新的開放領取",
     "STORE_NONE_HINT": "你可以在領取任務管理頁面創建新的領取任務",
-    "PICKUP_DISABLED": "This pickup has been disabled."
+    "PICKUP_DISABLED": "This pickup has been disabled.",
+    "PICKUP_STARTED": "This pickup has already started."
   },
   "FEEDBACKLIST": {
     "SAVED_FOOD": "至少有 1 公斤的食物不會被浪費掉了，| 謝謝你 ! 大家已經給  {amout}公斤的食物領取回饋了。繼續加油 !    ",

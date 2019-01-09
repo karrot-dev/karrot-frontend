@@ -1,4 +1,6 @@
 import router from '@/base/router'
+import { withMeta } from '@/utils/datastore/helpers'
+
 
 function initialState () {
   return {
@@ -17,13 +19,8 @@ function initialState () {
 export default {
   state: initialState(),
   getters: {
-    get: (state, getters, rootState, rootGetters) => conflictId => {
+    get: (state, getters) => conflictId => {
       return getters.enrich(state.entries[conflictId])
-    },
-  },
-  actions: {
-    startSetup ({ dispatch }) {
-      router.push({ name: 'conflictResolutionSetup', params: { groupId: currentGroup.id } })
     },
   },
 }

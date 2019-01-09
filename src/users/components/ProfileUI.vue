@@ -68,7 +68,7 @@
           small
           round
           color="negative"
-          @click="$emit('report', user)"
+          @click="$emit('report', currentGroup)"
         />
         <TrustButton
           v-if="currentGroupMembership"

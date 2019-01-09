@@ -26,6 +26,7 @@ import { mapGetters, mapActions } from 'vuex'
 import Profile from '@/users/components/ProfileUI'
 import HistoryContainer from '@/history/pages/HistoryContainer'
 import { QCard, QCardTitle, QCardMain } from 'quasar'
+import router from '@/base/router'
 
 export default {
   components: { QCard, QCardTitle, QCardMain, HistoryContainer, Profile },
@@ -37,8 +38,10 @@ export default {
     }),
   },
   methods: {
+    report (groupId) {
+      router.push({ name: 'conflictResolutionSetup', params: { groupId: groupId } })
+    },
     ...mapActions({
-      report: 'conflictResolution/startSetup',
       detail: 'detail/openForUser',
       createTrust: 'currentGroup/trustUser',
       selectGroup: 'currentGroup/select',

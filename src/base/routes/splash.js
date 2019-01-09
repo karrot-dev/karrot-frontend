@@ -148,5 +148,5 @@ export default [
       default: ConflictResolutionSetup,
       header: ConflictResolutionSetupTitle,
     },
-  }
+  },
 ]

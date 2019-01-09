@@ -3,6 +3,7 @@
     <Profile
       :user="user"
       :current-group="currentGroup"
+      @report="report"
       @detail="detail"
       @createTrust="createTrust"
       @selectGroup="selectGroup"
@@ -37,6 +38,7 @@ export default {
   },
   methods: {
     ...mapActions({
+      report: 'conflictResolution/report',
       detail: 'detail/openForUser',
       createTrust: 'currentGroup/trustUser',
       selectGroup: 'currentGroup/select',

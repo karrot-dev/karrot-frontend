@@ -44,6 +44,7 @@
   "dependencies": {
     "@sentry/browser": "^4.3.0",
     "axios": "^0.18.0",
+    "base62": "^2.0.0",
     "clone-deep": "4.0.1",
     "date-fns": "^1.29.0",
     "deep-equal": "^1.0.1",

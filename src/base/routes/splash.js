@@ -13,6 +13,8 @@ const DeleteAccount = () => import('@/authuser/pages/DeleteAccount')
 const DeleteAccountTitle = () => import('@/authuser/components/Settings/DeleteAccountTitle')
 const ApplicationForm = () => import('@/applications/pages/ApplicationForm')
 const ApplicationFormTitle = () => import('@/applications/components/ApplicationFormTitle')
+const Unsubscribe = () => import('@/unsubscribe/pages/Unsubscribe')
+const UnsubscribeTitle = () => import('@/unsubscribe/components/UnsubscribeTitle')
 
 export default [
   {
@@ -131,6 +133,14 @@ export default [
     components: {
       default: ApplicationForm,
       header: ApplicationFormTitle,
+    },
+  },
+  {
+    name: 'unsubscribe',
+    path: 'unsubscribe/:token',
+    components: {
+      default: Unsubscribe,
+      header: UnsubscribeTitle,
     },
   },
 ]

@@ -1,7 +1,3 @@
-import router from '@/base/router'
-import { withMeta } from '@/utils/datastore/helpers'
-
-
 function initialState () {
   return {
     entries: {

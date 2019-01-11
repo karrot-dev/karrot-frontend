@@ -2,40 +2,53 @@
   <QCard>
     <QStepper
       ref="setup"
-      vertical
       v-model="setup"
     >
       <QStep
         name="thanks"
         icon="fas fa-hand-holding-heart"
         done-icon="fas fa-hand-holding-heart"
-        title="Thank you!"
+        :title="$t('THANKS')"
       >
-        <p>Thank you for being an active member of your community and caring for it!</p>
+        <p>... for caring about your community!</p>
+        <p>It is important to openly address conflicts and you obviously know this. People like you are the ones that keep a community healthy, that is highly appreciated!</p>
       </QStep>
       <QStep
         name="attention"
         icon="fas fa-exclamation"
         done-icon="fas fa-exclamation"
-        title="Attention!"
+        :title="$t('ATTENTION')"
       >
         <p>You are about to start a group-wide conflict process!</p>
+        <p>This will involve all of your group's editors to try and find the best way to proceed regarding this conflict.</p>
       </QStep>
       <QStep
         name="consequences"
         icon="fas fa-info"
         done-icon="fas fa-info"
-        title="Info"
+        :title="$t('INFO')"
       >
-        <p>This process will start an open chat and a vote</p>
+        <p>This process will start an open chat and a vote.</p>
+        <p>Every message in the chat will be visible for every editor in the group - including the ppp!</p>
+        <p>The voting will last for 7 days during which all voters will still be able to change their minds and vote differently as many times as they want.</p>
       </QStep>
       <QStep
         name="statement"
         icon="fas fa-pen-alt"
         done-icon="fas fa-pen-alt"
-        title="Statement"
+        :title="$t('CONFLICT.STATEMENT')"
       >
-        <p>Please tell your group why you think this conflict resolution is justified</p>
+        <p>Please make an initial statement for the open group chat!</p>
+        <p>Tell your group why you think this process is justified and needed.</p>
+        <MarkdownInput :value="initialStatement">
+          <QInput
+            id="initial-statement"
+            v-model="initialStatement"
+            type="textarea"
+            rows="6"
+            @keyup.ctrl.enter="startConflict"
+          />
+        </MarkdownInput>
       </QStep>
       <QStepperNavigation>
         <QBtn
@@ -44,15 +57,25 @@
           color="secondary"
           @click="$refs.setup.previous()"
         >
-          Back
+          {{ $t('BUTTON.BACK') }}
         </QBtn>
         <QBtn
+          v-if="setup !== 'statement'"
           flat
           class="q-ml-sm"
           color="secondary"
           @click="$refs.setup.next()"
         >
-          {{ setup === 'statement' ? 'Submit' : 'Next' }}
+          {{ $t('BUTTON.NEXT') }}
+        </QBtn>
+        <QBtn
+          v-if="setup == 'statement'"
+          flat
+          class="q-ml-sm"
+          color="secondary"
+          @click="startConflict"
+        >
+          {{ $t('BUTTON.SUBMIT') }}
         </QBtn>
       </QStepperNavigation>
     </QStepper>
@@ -66,7 +89,9 @@ import {
   QStepperNavigation,
   QBtn,
   QCard,
+  QInput,
 } from 'quasar'
+import MarkdownInput from '@/utils/components/MarkdownInput'
 
 export default {
   components: {
@@ -75,11 +100,19 @@ export default {
     QStepperNavigation,
     QBtn,
     QCard,
+    QInput,
+    MarkdownInput,
   },
   data () {
     return {
       setup: 'thanks',
+      initialStatement: '',
     }
+  },
+  methods: {
+    startConflict () {
+      console.log('We now have a conflict and this is why: ', this.initialStatement)
+    },
   },
 }
 </script>

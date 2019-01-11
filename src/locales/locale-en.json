@@ -51,7 +51,8 @@
       "TITLE": "What is this carrot button about?",
       "MESSAGE": "It is part of the Karrot trust system. It shows if a group member is newcomer and how much trust is needed until they gain editing permissions.",
       "LINK": "Click here to find out more."
-    }
+    },
+    "RELATIVE_PROFILE": "User profile relative to group:"
   },
   "SWITCHGROUP": {
     "NOT_MEMBER": "{userName} is not member of {groupName}.",

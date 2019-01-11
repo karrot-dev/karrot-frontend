@@ -26,6 +26,7 @@ Please document your changes in this format:
 - Notifications for enabled, disabled and moved pickups #1147 @tiltec
 - Show dialog when editing recurring pickups if pickups diverge from defaults #1147 @tiltec
 - Buttons to reset pickups to defaults #1147 @tiltec
+- Can unsubscribe to notifications without being signed in #1174 @nicksellen
 
 ### Changed
 - More details for the pickup series manage page #1147 @tiltec

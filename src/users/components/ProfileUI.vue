@@ -8,11 +8,8 @@
     </QAlert>
     <div
       class="row justify-end"
-      style="margin-bottom: -32px"
+      style="margin-top: 5px; margin-right: 5px; margin-bottom: -32px"
     >
-      <div style="margin-top: 7px; margin-right: 3px">
-        {{ $t('USERDATA.RELATIVE_PROFILE') }}
-      </div>
       <SwitchGroupButton
         :user="user"
         :groups="user.groups"

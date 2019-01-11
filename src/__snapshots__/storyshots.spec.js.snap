@@ -5297,7 +5297,10 @@ exports[`Storyshots User Profile My Trust Button 1`] = `
 exports[`Storyshots User Profile Profile 1`] = `
 <div class="k-profile">
   <!---->
-  <div class="row justify-end" style="margin-bottom:-32px;"><button tabindex="0" type="button" class="q-btn inline relative-position q-btn-item non-selectable q-btn-rectangle q-focusable q-hoverable bg-primary text-white">
+  <div class="row justify-end" style="margin-bottom:-32px;">
+    <div style="margin-top:7px;margin-right:3px;">
+      User profile relative to group:
+    </div> <button tabindex="0" type="button" class="q-btn inline relative-position q-btn-item non-selectable q-btn-rectangle q-focusable q-hoverable bg-primary text-white">
       <div class="q-focus-helper"></div>
       <div class="q-btn-inner row col items-center q-popup--skip justify-center">
         group 1
@@ -5331,7 +5334,8 @@ exports[`Storyshots User Profile Profile 1`] = `
           </div>
         </div>
       </div>
-    </button></div>
+    </button>
+  </div>
   <div class="photoAndName row no-wrap ellipsis">
     <div duration="510" name="turn-in" appear="" class="photo q-pa-sm q-ma-md bg-white shadow-4">
       <div class="wrapper" style="width:180px;height:180px;">

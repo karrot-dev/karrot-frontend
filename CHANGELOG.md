@@ -26,6 +26,7 @@ Please document your changes in this format:
 - Notifications for enabled, disabled and moved pickups #1147 @tiltec
 - Show dialog when editing recurring pickups if pickups diverge from defaults #1147 @tiltec
 - Buttons to reset pickups to defaults #1147 @tiltec
+- Explanatory note about user profiles being relative to groups #1196 @djahnie
 
 ### Changed
 - More details for the pickup series manage page #1147 @tiltec

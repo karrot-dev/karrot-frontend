@@ -39,7 +39,7 @@ export default {
   },
   methods: {
     report (groupId) {
-      router.push({ name: 'conflictResolutionSetup', params: { groupId: groupId } })
+      router.push({ name: 'conflictResolutionSetup', params: { groupId } })
     },
     ...mapActions({
       detail: 'detail/openForUser',

@@ -13,7 +13,7 @@ const DeleteAccount = () => import('@/authuser/pages/DeleteAccount')
 const DeleteAccountTitle = () => import('@/authuser/components/Settings/DeleteAccountTitle')
 const ApplicationForm = () => import('@/applications/pages/ApplicationForm')
 const ApplicationFormTitle = () => import('@/applications/components/ApplicationFormTitle')
-const ConflictResolutionSetup = () => import('@/conflictResolution/components/Setup')
+const ConflictResolutionSetup = () => import('@/conflictResolution/pages/Setup')
 const ConflictResolutionSetupTitle = () => import('@/conflictResolution/components/SetupTitle')
 
 export default [

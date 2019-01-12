@@ -73,6 +73,15 @@
           flat
           class="q-ml-sm"
           color="secondary"
+          @click="$emit('cancel', user.id)"
+        >
+          {{ $t('BUTTON.CANCEL') }}
+        </QBtn>
+        <QBtn
+          v-if="setup == 'statement'"
+          flat
+          class="q-ml-sm"
+          color="secondary"
           @click="startConflict"
         >
           {{ $t('BUTTON.SUBMIT') }}
@@ -103,6 +112,16 @@ export default {
     QInput,
     MarkdownInput,
   },
+  props: {
+    user: {
+      required: true,
+      type: Object,
+    },
+    group: {
+      type: Object,
+      default: null,
+    },
+  },
   data () {
     return {
       setup: 'thanks',
@@ -111,7 +130,7 @@ export default {
   },
   methods: {
     startConflict () {
-      console.log('We now have a conflict and this is why: ', this.initialStatement)
+      this.$emit('startConflictResolution', { affectedUser: this.user.id, group: this.group.id, topic: this.initialStatement })
     },
   },
 }

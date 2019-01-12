@@ -7,6 +7,7 @@
     "SERVER_ERROR": "सर्वर त्रुटि",
     "NOT_CONNECTED": "You aren't connected to the server",
     "INVALID_LINK": "Sorry, the link you've opened is invalid.",
+    "GENERIC_ERROR": "Sorry, something went wrong",
     "SEARCH_NOT_FOUND": "Not Found"
   },
   "USERDATA": {
@@ -89,7 +90,8 @@
     "WITHDRAW": "Withdraw",
     "SHOW_MORE": "Show more",
     "ENABLE": "Enable",
-    "DISABLE": "Disable"
+    "DISABLE": "Disable",
+    "UNSUBSCRIBE": "Unsubscribe"
   },
   "VALIDATION": {
     "MINLENGTH": "कृपया {न्यूनतम} वर्णों से अधिक दर्ज करें।",
@@ -533,6 +535,13 @@
   "INACTIVITY": {
     "WHAT": "What does it mean to be inactive?",
     "HELP": "Everyone who did not log into the group for {dayCount} days or more counts as inactive. These users will not receive notification emails anymore."
+  },
+  "UNSUBSCRIBE": {
+    "HEADER": "Unsubscribe",
+    "FROM_CONVERSATION": "unsubscribe from just this conversation",
+    "FROM_THREAD": "unsubscribe from just this thread",
+    "FROM_GROUP": "unsubscribe from everything in {groupName}",
+    "SUCCESS": "You were successfully unsubscribed!"
   },
   "YOU": "You"
 }

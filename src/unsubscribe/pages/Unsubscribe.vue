@@ -60,7 +60,7 @@ export default {
       hasError: false,
       hasSuccess: false,
       token: this.$router.currentRoute.params.token,
-      choice: 'conversation',
+      choice: null,
     }
   },
   methods: {
@@ -82,6 +82,13 @@ export default {
         this.hasInvalidToken = true
       }
     },
+    ensureDefaultChoice () {
+      if (this.choice || this.options.length === 0) return
+      this.choice = this.options[0].value
+    },
+  },
+  mounted () {
+    this.ensureDefaultChoice()
   },
   computed: {
     tokenData () {
@@ -101,6 +108,14 @@ export default {
           label: this.$t('UNSUBSCRIBE.FROM_THREAD'),
           value: 'thread',
           color: 'secondary',
+        })
+      }
+      if (this.tokenData.notificationType) {
+        const notificationType = this.$t(`GROUP.NOTIFICATION_TYPES.${this.tokenData.notificationType}.NAME`)
+        options.push({
+          label: this.$t('UNSUBSCRIBE.FROM_NOTIFICATION_TYPE', { notificationType }),
+          value: 'notification_type',
+          color: 'amber',
         })
       }
       if (this.tokenData.groupId) {

@@ -21,20 +21,22 @@ Please document your changes in this format:
 ```
 
 ## [Unreleased]
+
+## [6.3.0] - 2019-01-13
 ### Added
-- Pickups can be disabled and enabled again #1147 @tiltec
-- Notifications for enabled, disabled and moved pickups #1147 @tiltec
-- Show dialog when editing recurring pickups if pickups diverge from defaults #1147 @tiltec
-- Buttons to reset pickups to defaults #1147 @tiltec
-- Can unsubscribe to notifications without being signed in #1174 @nicksellen
+- Pickups can be disabled and enabled again [#1147] @tiltec
+- Notifications for enabled, disabled and moved pickups [#1147] @tiltec
+- Show dialog when editing recurring pickups if pickups diverge from defaults [#1147] @tiltec
+- Buttons to reset pickups to defaults [#1147] @tiltec
+- Can unsubscribe to notifications without being signed in [#1174] @nicksellen
 
 ### Changed
-- More details for the pickup series manage page #1147 @tiltec
-- Pickups in a pickup series can't be moved anymore, to prevent hard-to-predict problems #1147 @tiltec
-- Replies to wall message via email now go into a thread #1079 @tiltec
+- More details for the pickup series manage page [#1147] @tiltec
+- Pickups in a pickup series can't be moved anymore, to prevent hard-to-predict problems [#1147] @tiltec
+- Replies to wall message via email now go into a thread [#1079] @tiltec
 - Wait 5 seconds before triggering refresh in app @tiltec
-- Order of pickup collectors is now kept #1157 @lwm
-- Displaying past pickups (-30min) for users who are members of that pickup #1178 @djahnie @taistadam
+- Order of pickup collectors is now kept [#1157] @lwm
+- Displaying past pickups (-30min) for users who are members of that pickup [#1178] @djahnie @taistadam
 
 ### Fixed
 - Tapping on push notification showed login page when user is already logged in (second try) @tiltec
@@ -321,14 +323,20 @@ After months of planning and programming, the first version of ~the foodsaving t
 [#1070]: https://github.com/yunity/karrot-frontend/issues/1070
 [#1071]: https://github.com/yunity/karrot-frontend/issues/1071
 [#1077]: https://github.com/yunity/karrot-frontend/issues/1077
+[#1079]: https://github.com/yunity/karrot-frontend/issues/1079
 [#1082]: https://github.com/yunity/karrot-frontend/issues/1082
 [#1097]: https://github.com/yunity/karrot-frontend/issues/1097
 [#1099]: https://github.com/yunity/karrot-frontend/issues/1099
 [#1112]: https://github.com/yunity/karrot-frontend/issues/1112
 [#1138]: https://github.com/yunity/karrot-frontend/issues/1138
 [#1139]: https://github.com/yunity/karrot-frontend/issues/1139
+[#1147]: https://github.com/yunity/karrot-frontend/issues/1147
+[#1157]: https://github.com/yunity/karrot-frontend/issues/1157
+[#1174]: https://github.com/yunity/karrot-frontend/issues/1174
+[#1178]: https://github.com/yunity/karrot-frontend/issues/1178
 
-[Unreleased]: https://github.com/yunity/karrot-frontend/compare/v6.2.9...HEAD
+[Unreleased]: https://github.com/yunity/karrot-frontend/compare/v6.3.0...HEAD
+[6.3.0]: https://github.com/yunity/karrot-frontend/compare/v6.2.9...v6.3.0
 [6.2.9]: https://github.com/yunity/karrot-frontend/compare/v6.2.8...v6.2.9
 [6.2.8]: https://github.com/yunity/karrot-frontend/compare/v6.2.7...v6.2.8
 [6.2.7]: https://github.com/yunity/karrot-frontend/compare/v6.2.6...v6.2.7

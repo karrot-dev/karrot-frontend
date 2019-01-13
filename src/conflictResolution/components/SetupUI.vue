@@ -3,6 +3,7 @@
     <QStepper
       ref="setup"
       v-model="setup"
+      contractable
     >
       <QStep
         name="thanks"
@@ -52,6 +53,13 @@
       </QStep>
       <QStepperNavigation>
         <QBtn
+          flat
+          color="secondary"
+          @click="$emit('cancel', user.id)"
+        >
+          {{ $t('BUTTON.CANCEL') }}
+        </QBtn>
+        <QBtn
           v-if="setup !== 'thanks'"
           flat
           color="secondary"
@@ -62,7 +70,6 @@
         <QBtn
           v-if="setup !== 'statement'"
           flat
-          class="q-ml-sm"
           color="secondary"
           @click="$refs.setup.next()"
         >
@@ -71,16 +78,6 @@
         <QBtn
           v-if="setup == 'statement'"
           flat
-          class="q-ml-sm"
-          color="secondary"
-          @click="$emit('cancel', user.id)"
-        >
-          {{ $t('BUTTON.CANCEL') }}
-        </QBtn>
-        <QBtn
-          v-if="setup == 'statement'"
-          flat
-          class="q-ml-sm"
           color="secondary"
           @click="startConflict"
         >
@@ -135,3 +132,7 @@ export default {
   },
 }
 </script>
+
+<style scoped lang="stylus">
+@import '~editbox'
+</style>

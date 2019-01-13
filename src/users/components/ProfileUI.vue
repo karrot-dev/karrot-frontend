@@ -63,7 +63,7 @@
           @click="$emit('detail', user)"
         />
         <QBtn
-          v-if="!user.isCurrentUser"
+          v-if="currentGroupMembership && !user.isCurrentUser"
           icon="fas fa-frown-open"
           small
           round

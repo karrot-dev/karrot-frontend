@@ -540,6 +540,7 @@
     "HEADER": "Unsubscribe",
     "FROM_CONVERSATION": "unsubscribe from just this conversation",
     "FROM_THREAD": "unsubscribe from just this thread",
+    "FROM_NOTIFICATION_TYPE": "unsubscribe from {notificationType}",
     "FROM_GROUP": "unsubscribe from everything in {groupName}",
     "SUCCESS": "You were successfully unsubscribed!"
   },

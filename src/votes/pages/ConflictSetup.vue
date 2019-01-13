@@ -1,6 +1,6 @@
 <script>
 import { connect } from 'vuex-connect'
-import SetupUI from '@/conflictResolution/components/SetupUI'
+import ConflictSetupUI from '@/votes/components/ConflictSetupUI'
 import router from '@/base/router'
 
 export default connect({
@@ -15,5 +15,5 @@ export default connect({
       router.push({ name: 'user', params: { userId } })
     },
   },
-})('Setup', SetupUI)
+})('ConflictSetup', ConflictSetupUI)
 </script>

@@ -11,8 +11,7 @@
         done-icon="fas fa-hand-holding-heart"
         :title="$t('THANKS')"
       >
-        <p>... for caring about your community!</p>
-        <p>It is important to openly address conflicts and you obviously know this. People like you are the ones that keep a community healthy, that is highly appreciated!</p>
+        <p> {{ $t('CONFLICT.STEPPER1') }} </p>
       </QStep>
       <QStep
         name="attention"
@@ -20,8 +19,7 @@
         done-icon="fas fa-exclamation"
         :title="$t('ATTENTION')"
       >
-        <p>You are about to start a group-wide conflict process!</p>
-        <p>This will involve all of your group's editors to try and find the best way to proceed regarding this conflict.</p>
+        <p> {{ $t('CONFLICT.STEPPER2') }} </p>
       </QStep>
       <QStep
         name="consequences"
@@ -29,9 +27,7 @@
         done-icon="fas fa-info"
         :title="$t('INFO')"
       >
-        <p>This process will start an open chat and a vote.</p>
-        <p>Every message in the chat will be visible for every editor in the group - including the ppp!</p>
-        <p>The voting will last for 7 days during which all voters will still be able to change their minds and vote differently as many times as they want.</p>
+        <p> {{ $t('CONFLICT.STEPPER3') }} </p>
       </QStep>
       <QStep
         name="statement"
@@ -39,8 +35,7 @@
         done-icon="fas fa-pen-alt"
         :title="$t('CONFLICT.STATEMENT')"
       >
-        <p>Please make an initial statement for the open group chat!</p>
-        <p>Tell your group why you think this process is justified and needed.</p>
+        <p> {{ $t('CONFLICT.STEPPER4') }} </p>
         <MarkdownInput :value="initialStatement">
           <QInput
             id="initial-statement"
@@ -50,6 +45,14 @@
             @keyup.ctrl.enter="startConflict"
           />
         </MarkdownInput>
+        <div
+          v-if="hasAnyError"
+          class="text-negative"
+          style="margin-bottom: 2em"
+        >
+          <i class="fas fa-exclamation-triangle"/>
+          {{ anyFirstError }}
+        </div>
       </QStep>
       <QStepperNavigation>
         <QBtn
@@ -98,6 +101,7 @@ import {
   QInput,
 } from 'quasar'
 import MarkdownInput from '@/utils/components/MarkdownInput'
+import statusMixin from '@/utils/mixins/statusMixin'
 
 export default {
   components: {
@@ -115,6 +119,7 @@ export default {
       default: null,
     },
   },
+  mixins: [statusMixin],
   data () {
     return {
       setup: 'thanks',

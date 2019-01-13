@@ -5,14 +5,15 @@ import router from '@/base/router'
 
 export default connect({
   gettersToProps: {
+    user: 'users/activeUser',
     group: 'groups/activePreview',
   },
   actionsToEvents: {
     startConflictResolution: 'conflictResolution/startConflictResolution',
   },
   methodsToEvents: {
-    cancel: (_, groupId) => {
-      router.push({ name: 'group', params: { groupId } })
+    cancel: (_, userId) => {
+      router.push({ name: 'user', params: { userId } })
     },
   },
 })('Setup', SetupUI)

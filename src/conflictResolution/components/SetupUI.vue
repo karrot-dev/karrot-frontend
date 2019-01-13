@@ -55,7 +55,7 @@
         <QBtn
           flat
           color="secondary"
-          @click="$emit('cancel', user.id)"
+          @click="cancel"
         >
           {{ $t('BUTTON.CANCEL') }}
         </QBtn>
@@ -110,10 +110,6 @@ export default {
     MarkdownInput,
   },
   props: {
-    user: {
-      required: true,
-      type: Object,
-    },
     group: {
       type: Object,
       default: null,
@@ -128,6 +124,9 @@ export default {
   methods: {
     startConflict () {
       this.$emit('startConflictResolution', { affectedUser: this.user.id, group: this.group.id, topic: this.initialStatement })
+    },
+    cancel () {
+      this.$emit('cancel', this.$route.params.userId)
     },
   },
 }

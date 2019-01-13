@@ -38,8 +38,8 @@ export default {
     }),
   },
   methods: {
-    report (groupId) {
-      router.push({ name: 'conflictResolutionSetup', params: { groupId } })
+    report (params) {
+      router.push({ name: 'conflictResolutionSetup', params })
     },
     ...mapActions({
       detail: 'detail/openForUser',

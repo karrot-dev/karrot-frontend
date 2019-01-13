@@ -5,7 +5,6 @@ import router from '@/base/router'
 
 export default connect({
   gettersToProps: {
-    user: 'users/activeUser',
     group: 'groups/activePreview',
   },
   actionsToEvents: {

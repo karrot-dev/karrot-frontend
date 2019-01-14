@@ -1,11 +1,11 @@
 <template>
-  <div class="edit-box">
+  <div class="edit-box k-change-photo">
     <QField
       icon="fas fa-camera"
-      :label="$t('USERDATA.PHOTO')"
+      :label="label"
       :error="hasError('photo')"
       :error-label="firstError('photo')"
-      :helper="$t('USERDATA.SET_PHOTO')"
+      :helper="helper"
     >
       <Croppa
         ref="croppaPhoto"
@@ -69,6 +69,8 @@ export default {
   props: {
     value: { required: true, type: Object },
     mimeType: { type: String, default: 'image/png' },
+    label: { type: String, default: '' },
+    helper: { type: String, default: '' },
   },
   data () {
     return {
@@ -112,14 +114,11 @@ export default {
 
 <style scoped lang="stylus">
 @import '~editbox'
-</style>
-
-<style lang="stylus">
-.croppa-container canvas
-  width 100% !important
-  height 100% !important
-  max-width 300px
-  max-height 300px
-.croppa-container.pointer canvas
-  cursor pointer
+.k-change-photo
+  >>> .croppa-container
+    canvas
+      width 100% !important
+      height 100% !important
+      max-width 300px
+      max-height 300px
 </style>

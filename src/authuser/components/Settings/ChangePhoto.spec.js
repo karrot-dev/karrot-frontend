@@ -19,7 +19,7 @@ describe('ChangePhoto', () => {
   })
 
   it('renders', () => {
-    expect(wrapper.element.className).toBe('edit-box')
+    expect(wrapper.element.className).toBe('edit-box k-change-photo')
   })
 
   it('renders placeholder image', () => {
@@ -42,6 +42,6 @@ describe('ChangePhoto', () => {
 
   it('emits a save event', async () => {
     wrapper.vm.save()
-    expect(wrapper.emitted().save[0][0]).toEqual({ photo: null })
+    expect(wrapper.emitted().save[0][0]).toEqual(null)
   })
 })

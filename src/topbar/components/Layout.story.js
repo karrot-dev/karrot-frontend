@@ -12,6 +12,7 @@ const datastore = createDatastore({
   users: { getters: { all: () => usersMock } },
   search: require('@/topbar/datastore/search').default,
   breadcrumbs: { getters: { all: () => [] } },
+  currentGroup: { getters: { value: () => ({}) } },
   auth: { getters: { user: () => currentUserMock } },
   i18n: { getters: { locale: () => 'en' } },
   presence: require('@/utils/datastore/presence').default,

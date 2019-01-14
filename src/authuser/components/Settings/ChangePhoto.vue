@@ -12,7 +12,6 @@
         :width="300"
         :height="300"
         placeholder=""
-        canvas-color="#fff"
         :prevent-white-space="true"
         :show-loading="true"
         @file-choose="saveDisabled = false"
@@ -69,6 +68,7 @@ export default {
   mixins: [statusMixin],
   props: {
     value: { required: true, type: Object },
+    mimeType: { type: String, default: 'image/png' },
   },
   data () {
     return {
@@ -98,13 +98,11 @@ export default {
   methods: {
     async save () {
       if (this.$refs.croppaPhoto.hasImage()) {
-        const photoBlob = await this.$refs.croppaPhoto.promisedBlob('image/jpeg', 0.9)
-        const data = new FormData()
-        data.append('photo', photoBlob, 'photo.jpeg')
-        this.$emit('save', data)
+        const photoBlob = await this.$refs.croppaPhoto.promisedBlob(this.mimeType, 0.9)
+        this.$emit('save', photoBlob)
       }
       else {
-        this.$emit('save', { photo: null })
+        this.$emit('save', null)
       }
       this.saveDisabled = true
     },

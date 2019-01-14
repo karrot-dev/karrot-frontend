@@ -1,6 +1,11 @@
 <template>
   <div>
     <QCard>
+      <ChangePhoto
+        :value="value"
+        :status="status"
+        @save="$emit('save', { id: value.id, photo: arguments[0] })"
+      />
       <div
         class="edit-box"
         :class="{ changed: hasChanged }"

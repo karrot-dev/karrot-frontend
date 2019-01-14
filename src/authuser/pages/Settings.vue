@@ -6,7 +6,8 @@
         <ChangePhoto
           :value="user"
           :status="profileEditStatus"
-          @save="saveUser"
+          mime-type="image/jpeg"
+          @save="saveUser({ photo: arguments[0] })"
         />
         <QCardSeparator />
         <ProfileEdit

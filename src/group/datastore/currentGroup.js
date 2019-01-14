@@ -78,7 +78,7 @@ export default {
          * Should only be triggered when the user visits a group page
          * It currently also gets triggered when the user visits the profile page, but that seems fine.
         */
-        if (getters.id) await groups.markUserActive(getters.id)
+        if (getters.id) await groups.throttledMarkUserActive(getters.id)
       },
 
       async changeNotificationType ({ dispatch, getters }, { notificationType, enabled }) {

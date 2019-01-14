@@ -32,6 +32,7 @@ export default {
         isCurrentGroup,
         isPlayground,
         isInactive,
+        hasPhoto: group.photoUrls && group.photoUrls.fullSize,
         ...metaStatusesWithId(getters, ['save', 'join', 'leave'], group.id),
       }
     },

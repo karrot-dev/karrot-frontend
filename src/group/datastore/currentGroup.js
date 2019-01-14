@@ -20,6 +20,7 @@ export default {
       return {
         ...group,
         isPlayground,
+        hasPhoto: group.photoUrls && group.photoUrls.fullSize,
         membership: getters.membership,
         memberships: getters.memberships,
         activeAgreement: getters.activeAgreement,

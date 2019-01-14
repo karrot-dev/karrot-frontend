@@ -20,12 +20,28 @@
       <QTooltip v-if="hasMyApplication">
         {{ $t('APPLICATION.GALLERY_TOOLTIP') }}
       </QTooltip>
-      <QCardTitle class="ellipsis">
-        {{ group.name }}
-        <span slot="subtitle">
-          {{ group.members.length }} {{ $tc('JOINGROUP.NUM_MEMBERS', group.members.length) }}
-        </span>
-      </QCardTitle>
+      <QCardMedia
+        class="photo"
+      >
+        <img
+          v-if="group.hasPhoto"
+          :src="group.photoUrls.fullSize">
+        <RandomArt
+          v-else
+          :seed="group.id"
+          type="circles"
+          class="full-height"
+        />
+        <QCardTitle
+          slot="overlay"
+          class="ellipsis"
+        >
+          {{ group.name }}
+          <span slot="subtitle">
+            {{ group.members.length }} {{ $tc('JOINGROUP.NUM_MEMBERS', group.members.length) }}
+          </span>
+        </QCardTitle>
+      </QCardMedia>
       <QCardMain class="fixed-height smaller-text">
         <div
           v-if="group.publicDescription"
@@ -66,11 +82,36 @@
 
 <script>
 import { mapGetters } from 'vuex'
-import { QCard, QCardTitle, QCardMain, QCardSeparator, QCardActions, QBtn, QTooltip, QIcon, QChip } from 'quasar'
+import {
+  QCard,
+  QCardTitle,
+  QCardMain,
+  QCardSeparator,
+  QCardActions,
+  QCardMedia,
+  QBtn,
+  QTooltip,
+  QIcon,
+  QChip,
+} from 'quasar'
 import Markdown from '@/utils/components/Markdown'
+import RandomArt from '@/utils/components/RandomArt'
 
 export default {
-  components: { Markdown, QCard, QCardTitle, QCardMain, QCardSeparator, QCardActions, QBtn, QTooltip, QIcon, QChip },
+  components: {
+    Markdown,
+    RandomArt,
+    QCard,
+    QCardTitle,
+    QCardMain,
+    QCardSeparator,
+    QCardActions,
+    QCardMedia,
+    QBtn,
+    QTooltip,
+    QIcon,
+    QChip,
+  },
   props: {
     group: {
       type: Object,
@@ -121,4 +162,11 @@ export default {
     max-height 60px
   .smaller-text >>> *
     font-size 1em
+  .photo
+    height 160px
+    img
+      max-height 100%
+      max-width 100%
+      width auto
+      margin 0 auto
 </style>

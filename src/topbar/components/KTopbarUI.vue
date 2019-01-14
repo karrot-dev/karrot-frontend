@@ -6,7 +6,12 @@
       v-if="!$q.platform.is.mobile"
       class="logo"
     >
-      <KarrotLogo/>
+      <img
+        v-if="currentGroup && currentGroup.hasPhoto"
+        :src="currentGroup.photoUrls.thumbnail"
+        style="height: 95%"
+      >
+      <KarrotLogo v-else />
     </RouterLink>
     <QToolbarTitle>
       <div class="row justify-between no-wrap">
@@ -168,6 +173,10 @@ export default {
     NotificationButton,
   },
   props: {
+    currentGroup: {
+      default: null,
+      type: Object,
+    },
     breadcrumbs: {
       type: Array,
       required: false,

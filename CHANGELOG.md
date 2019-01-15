@@ -21,6 +21,11 @@ Please document your changes in this format:
 ```
 
 ## [Unreleased]
+### Changed
+- Don't send application conversation notification emails to inactive group members @tiltec
+
+### Fixed
+- User sometimes wouldn't get marked as active if they switched between groups @tiltec
 
 ## [6.3.0] - 2019-01-13
 ### Added
@@ -37,6 +42,7 @@ Please document your changes in this format:
 - Wait 5 seconds before triggering refresh in app @tiltec
 - Order of pickup collectors is now kept [#1157] @lwm
 - Displaying past pickups (-30min) for users who are members of that pickup [#1178] @djahnie @taistadam
+- Always try to send account-related emails, even if the user triggered a List-Unsubscribe before @tiltec
 
 ### Fixed
 - Tapping on push notification showed login page when user is already logged in (second try) @tiltec

@@ -135,9 +135,13 @@ export const timezones = [
 ]
 
 export const applicationMock = [
-  { 'id': 87, 'created_at': '2019-01-15T14:52:16.965Z', 'questions': 'What do you want with us?!', 'user': { 'display_name': 'Salamander', 'id': 456 }, 'group': { 'name': 'Reptile saving', 'id': 675 } },
+  { 'id': 87, 'created_at': '2019-01-15T14:52:16.965Z', 'questions': 'What do you want with us?!', 'user': { 'display_name': 'Salamander', 'id': 456 }, 'group': { 'name': 'Reptile saving', 'id': 675 }, 'answers': 'I can live off fire!' },
 ]
 
 export const conflictCaseMock = [
-  { 'affected_user': 174, 'created_at': '2019-01-10T13:56:24.556407Z', 'created_by': 173, 'group': 36, 'id': 35, 'is_decided': 'False', 'topic': 'I complain about this user', 'type': 'conflict_resolution' },
+  { 'affected_user': 174, 'created_at': '2019-01-10T13:56:24.556407Z', 'created_by': 173, 'group': 36, 'id': 35, 'is_decided': false, 'topic': 'I complain about this user', 'type': 'conflict_resolution' },
+]
+
+export const conversationMock = [
+  { 'id': 34, 'participants': [ 222, 12, 2, 87, 123 ], 'updated_at': '2019-01-16T11:50:04.912Z', 'seen_up_to': null, 'unread_message_count': 1, 'email_notification': true, 'target': { 'id': 87, 'created_at': '2019-01-15T14:52:16.965Z', 'questions': 'What do you want with us?!', 'user': { 'display_name': 'Salamander', 'id': 456 }, 'group': { 'name': 'Reptile saving', 'id': 675 }, 'answers': 'I can live off fire!' } },
 ]

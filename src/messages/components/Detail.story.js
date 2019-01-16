@@ -1,6 +1,6 @@
 import { storiesOf } from '@storybook/vue'
 import { createDatastore, storybookDefaults as defaults } from '>/helpers'
-import { currentUserMock, applicationMock } from '>/mockdata'
+import { conversationMock, currentUserMock, applicationMock } from '>/mockdata'
 
 import DetailUI from './DetailUI'
 
@@ -17,6 +17,7 @@ storiesOf('Detail', module)
     render: h => h(DetailUI, {
       props: {
         application: applicationMock[0],
+        conversation: conversationMock[0],
       },
     }),
     data () {

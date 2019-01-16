@@ -1,10 +1,10 @@
 <template>
   <QCard>
     <QCardTitle>
-      <p>How do you wish to resolve this conflict with Mara Sants?</p>
+      {{ $t('CONFLICT.VOTE.HEADLINE', { userName: conflict.affectedUser.displayName }) }}
     </QCardTitle>
     <QCardMain>
-      {{ $t('CONFLICT.DAYS_LEFT', { count: days }) }}
+      {{ $t('CONFLICT.VOTE.DAYS_LEFT', { count: days }) }}
     </QCardMain>
   </QCard>
 </template>

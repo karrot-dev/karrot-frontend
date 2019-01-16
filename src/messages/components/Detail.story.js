@@ -22,7 +22,7 @@ const application = {
 const conflict = {
   affectedUser: {
     id: 174,
-    displayName: 'Mara Sants',
+    displayName: 'Amara Sails',
   },
   createdAt: '2019-01-15T13:56:24.556407Z',
   createdBy: {

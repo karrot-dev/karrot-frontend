@@ -58,7 +58,7 @@
           <b>{{ $t('CONFLICT.INITIAL') }}</b>
         </template>
         <div class="q-ma-sm q-pa-sm bg-white">
-          <span class="text-bold text-secondary uppercase">{{ conflict.affectedUser.displayName }}</span>
+          <span class="text-bold text-secondary uppercase">{{ conflict.createdBy.displayName }}</span>
           <span class="message-date">
             <small class="text-weight-light">
               <DateAsWords :date="conflict.createdAt" />

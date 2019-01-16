@@ -20,9 +20,15 @@ const application = {
 }
 
 const conflict = {
-  affectedUser: 174,
+  affectedUser: {
+    id: 174,
+    displayName: 'Mara Sants',
+  },
   createdAt: '2019-01-10T13:56:24.556407Z',
-  createdBy: 173,
+  createdBy: {
+    id: 173,
+    displayName: 'Luisa Lant',
+  },
   group: 36,
   id: 35,
   isDecided: false,
@@ -45,7 +51,10 @@ const conversation = {
   messages: [
     {
       id: 1489,
-      author: 444,
+      author: {
+        id: 444,
+        displayName: 'Thomas Tipi'
+      },
       content: '> gvgff',
       conversation: 2,
       createdAt: '2019-01-13T10:51:03.745353Z',
@@ -59,7 +68,10 @@ const conversation = {
     },
     {
       id: 1487,
-      author: 22,
+      author: {
+        id: 22,
+        displayName: 'Margharita Molla'
+      },
       content: 'So glad that this displays! Even if all red!',
       conversation: 2576,
       createdAt: '2019-01-13T10:39:34.244037Z',

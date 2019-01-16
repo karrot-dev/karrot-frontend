@@ -113,12 +113,6 @@ export default {
     QInput,
     MarkdownInput,
   },
-  props: {
-    group: {
-      type: Object,
-      default: null,
-    },
-  },
   mixins: [statusMixin],
   data () {
     return {
@@ -128,7 +122,8 @@ export default {
   },
   methods: {
     startConflict () {
-      this.$emit('startConflictResolution', { affectedUser: this.user.id, group: this.group.id, topic: this.initialStatement })
+      console.log('let\'s get serious!', this.$route.params.groupId, this.initialStatement)
+      this.$emit('startConflictResolution', { userId: this.$route.params.userId, groupId: this.$route.params.groupId, conflictId: this.case.id })
     },
     cancel () {
       this.$emit('cancel', this.$route.params.userId)

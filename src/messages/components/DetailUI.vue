@@ -48,6 +48,25 @@
           <Markdown :source="application.answers" />
         </div>
       </QCollapsible>
+      <QCollapsible
+        slot="beforeChatMessages"
+        v-if="conflict"
+        opened
+        class="bg-grey-2"
+      >
+        <template slot="header">
+          <b>{{ $t('CONFLICT.INITIAL') }}</b>
+        </template>
+        <div class="q-ma-sm q-pa-sm bg-white">
+          <span class="text-bold text-secondary uppercase">{{ conflictCase.affectedUser.displayName }}</span>
+          <span class="message-date">
+            <small class="text-weight-light">
+              <DateAsWords :date="conflictCase.createdAt" />
+            </small>
+          </span>
+          <Markdown :source="conflictCase.topic" />
+        </div>
+      </QCollapsible>
       <QList
         slot="afterChatMessages"
         v-if="pickup && pickup.isDisabled"
@@ -117,6 +136,10 @@ export default {
       default: false,
     },
     currentUser: {
+      type: Object,
+      default: null,
+    },
+    conflict: {
       type: Object,
       default: null,
     },

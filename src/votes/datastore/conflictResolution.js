@@ -3,11 +3,11 @@ function initialState () {
     entries: {
       1: {
         'id': 1,
-        'submitDate': '',
+        'createdAt': '2019-01-15T11:13:17.828Z',
         'group': 13,
-        'ppp': 4,
-        'initiator': 1,
-        'initialStatement': 'He is so unreliable and I cannot stand him!',
+        'affectedUser': 4,
+        'createdBy': 1,
+        'topic': 'He is so unreliable and I cannot stand him!',
       },
     },
   }

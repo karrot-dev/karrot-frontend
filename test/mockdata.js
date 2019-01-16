@@ -133,3 +133,11 @@ export const timezones = [
   'America/Santiago',
   'Europe/Madrid',
 ]
+
+export const applicationMock = [
+  { 'id': 87, 'created_at': '2019-01-15T14:52:16.965Z', 'questions': 'What do you want with us?!', 'user': { 'display_name': 'Salamander', 'id': 456 }, 'group': { 'name': 'Reptile saving', 'id': 675 } },
+]
+
+export const conflictCaseMock = [
+  { 'affected_user': 174, 'created_at': '2019-01-10T13:56:24.556407Z', 'created_by': 173, 'group': 36, 'id': 35, 'is_decided': 'False', 'topic': 'I complain about this user', 'type': 'conflict_resolution' },
+]

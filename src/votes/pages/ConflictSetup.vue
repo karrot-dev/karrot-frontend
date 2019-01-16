@@ -8,11 +8,14 @@ export default connect({
     group: 'groups/activePreview',
   },
   actionsToEvents: {
-    startConflictResolution: 'conflictResolution/startConflictResolution',
+    startConflictResolution: 'detail/openForConflict',
   },
   methodsToEvents: {
     cancel: (_, userId) => {
       router.push({ name: 'user', params: { userId } })
+    },
+    startConflictResolution: (params) => {
+      router.push({ name: 'conflictDetail', params })
     },
   },
 })('ConflictSetup', ConflictSetupUI)

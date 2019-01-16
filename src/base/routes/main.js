@@ -482,4 +482,23 @@ export default [
       sidenav: Sidenav,
     },
   },
+  {
+    name: 'conflictDetail',
+    path: '/user/:userId/conflict/:conflictId',
+    meta: {
+      requiredLoggedIn: true,
+      breadcrumbs: [
+        { type: 'currentGroup' },
+        { type: 'activeUser' },
+      ],
+      beforeEnter: 'detail/routeEnter',
+      afterLeave: 'detail/routeLeave',
+    },
+    // On desktop will get redirected inside "detail/routeEnter" action
+    components: {
+      default: Detail,
+      subheader: DetailHeader,
+      sidenav: Sidenav,
+    },
+  },
 ]

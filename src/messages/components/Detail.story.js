@@ -29,7 +29,10 @@ const conflict = {
     id: 173,
     displayName: 'Luisa Lant',
   },
-  group: 36,
+  group: {
+    id: 36,
+    displayName: 'Gothenburg FoodShaving Inc.',
+  },
   id: 35,
   isDecided: false,
   topic: 'I complain about this user',

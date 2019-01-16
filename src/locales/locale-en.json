@@ -550,7 +550,11 @@
     "DAYS_LEFT": "{count} days left to vote",
     "VOTE": {
       "DAYS_LEFT": "{count} days left to vote",
-      "HEADLINE": "How do you want to proceed with the ongoing conflict with {userName}?"
+      "HEADLINE": "How do you want to proceed with the ongoing conflict with {userName}?",
+      "OPTION_ONE": "{userName} stays in {groupName}",
+      "OPTION_TWO": "We organise offline mediation",
+      "OPTION_THREE": "{userName} get removed from {groupName}",
+      "OPTION_FOUR": "Extend the vote to keep discussing"
     }
   }
 }

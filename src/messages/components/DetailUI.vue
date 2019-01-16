@@ -58,13 +58,13 @@
           <b>{{ $t('CONFLICT.INITIAL') }}</b>
         </template>
         <div class="q-ma-sm q-pa-sm bg-white">
-          <span class="text-bold text-secondary uppercase">{{ conflictCase.affectedUser.displayName }}</span>
+          <span class="text-bold text-secondary uppercase">{{ conflict.affectedUser.displayName }}</span>
           <span class="message-date">
             <small class="text-weight-light">
-              <DateAsWords :date="conflictCase.createdAt" />
+              <DateAsWords :date="conflict.createdAt" />
             </small>
           </span>
-          <Markdown :source="conflictCase.topic" />
+          <Markdown :source="conflict.topic" />
         </div>
       </QCollapsible>
       <QList

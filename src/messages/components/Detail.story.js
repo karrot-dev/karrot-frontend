@@ -1,8 +1,78 @@
 import { storiesOf } from '@storybook/vue'
 import { createDatastore, storybookDefaults as defaults } from '>/helpers'
-import { conversationMock, currentUserMock, applicationMock } from '>/mockdata'
+import { currentUserMock } from '>/mockdata'
 
 import DetailUI from './DetailUI'
+
+const application = {
+  id: 87,
+  createdAt: '2019-01-15T14:52:16.965Z',
+  questions: 'What do you want with us?!',
+  user: {
+    displayName: 'Salamander',
+    id: 456,
+  },
+  group: {
+    name: 'Reptile saving',
+    id: 675,
+  },
+  answers: 'I can live off fire!',
+}
+
+const conflict = {
+  affectedUser: 174,
+  createdAt: '2019-01-10T13:56:24.556407Z',
+  createdBy: 173,
+  group: 36,
+  id: 35,
+  isDecided: false,
+  topic: 'I complain about this user',
+  type: 'conflict_resolution',
+}
+
+const conversation = {
+  id: 34,
+  participants: [ 222, 12, 2, 87, 123 ],
+  updatedAt: '2019-01-16T11:50:04.912Z',
+  seenUpTo: null,
+  unreadMessageCount: 1,
+  emailNotification: true,
+  target: application,
+  answers: 'I can live off fire',
+  fetchStatus: {
+    isPending: false,
+  },
+  messages: [
+    {
+      id: 1489,
+      author: 444,
+      content: '> gvgff',
+      conversation: 2,
+      createdAt: '2019-01-13T10:51:03.745353Z',
+      updatedAt: '2019-01-13T10:51:28.537544Z',
+      editedAt: '2019-01-13T10:51:28.537359Z',
+      reactions: [],
+      receivedVia: '',
+      isEditable: false,
+      thread: null,
+      threadMeta: null,
+    },
+    {
+      id: 1487,
+      author: 22,
+      content: 'So glad that this displays! Even if all red!',
+      conversation: 2576,
+      createdAt: '2019-01-13T10:39:34.244037Z',
+      updatedAt: '2019-01-13T10:39:34.244494Z',
+      editedAt: null,
+      reactions: [],
+      receivedVia: '',
+      isEditable: false,
+      thread: null,
+      threadMeta: null,
+    },
+  ],
+}
 
 const datastore = createDatastore({
   auth: {
@@ -16,14 +86,18 @@ storiesOf('Detail', module)
   .add('application', () => defaults({
     render: h => h(DetailUI, {
       props: {
-        application: applicationMock[0],
-        conversation: conversationMock[0],
+        application,
+        conversation,
       },
     }),
-    data () {
-      return {
-        isPending: true,
-      }
-    },
     store: datastore,
+  }))
+
+  .add('conflict', () => defaults({
+    render: h => h(DetailUI, {
+      props: {
+        conflict,
+        conversation,
+      },
+    }),
   }))

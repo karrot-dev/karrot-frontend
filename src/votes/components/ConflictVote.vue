@@ -7,6 +7,11 @@
       class="relative-position fixed-center"
     >
       {{ $t('CONFLICT.VOTE.DAYS_LEFT', { count: days }) }}
+      <QProgress
+        :percentage="progress"
+        style="height: 8px"
+        color="secondary"
+      />
     </QCardMain>
     <QCardMain>
       {{ $t('CONFLICT.VOTE.OPTION_ONE', { userName: conflict.affectedUser.displayName, groupName: conflict.group.displayName }) }}
@@ -65,6 +70,7 @@ import {
   QCardTitle,
   QCardMain,
   QSlider,
+  QProgress,
 } from 'quasar'
 import differenceInDays from 'date-fns/difference_in_days'
 import addDays from 'date-fns/add_days'
@@ -75,6 +81,7 @@ export default {
     QCardTitle,
     QCardMain,
     QSlider,
+    QProgress,
   },
   props: {
     conflict: {
@@ -89,14 +96,10 @@ export default {
   },
   computed: {
     days () {
-      const now = new Date()
-      const endDate = addDays(this.conflict.createdAt, 7)
-      return differenceInDays(endDate, now)
-    },
+      return differenceInDays(addDays(this.conflict.createdAt, 7), new Date())
   },
-  methods: {
-    test () {
-      console.log(this.days)
+    progress () {
+      return differenceInDays(new Date(), this.conflict.createdAt) / 7 * 100
     },
   },
 }

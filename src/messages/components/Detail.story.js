@@ -24,7 +24,7 @@ const conflict = {
     id: 174,
     displayName: 'Mara Sants',
   },
-  createdAt: '2019-01-10T13:56:24.556407Z',
+  createdAt: '2019-01-15T13:56:24.556407Z',
   createdBy: {
     id: 173,
     displayName: 'Luisa Lant',
@@ -53,7 +53,7 @@ const conversation = {
       id: 1489,
       author: {
         id: 444,
-        displayName: 'Thomas Tipi'
+        displayName: 'Thomas Tipi',
       },
       content: '> gvgff',
       conversation: 2,
@@ -70,7 +70,7 @@ const conversation = {
       id: 1487,
       author: {
         id: 22,
-        displayName: 'Margharita Molla'
+        displayName: 'Margharita Molla',
       },
       content: 'So glad that this displays! Even if all red!',
       conversation: 2576,

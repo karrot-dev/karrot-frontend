@@ -66,6 +66,10 @@
           </span>
           <Markdown :source="conflict.topic" />
         </div>
+        <ConflictVote
+          class="q-ma-sm q-pa-sm bg-white"
+          :conflict="conflict"
+        />
       </QCollapsible>
       <QList
         slot="afterChatMessages"
@@ -88,6 +92,7 @@
 import ChatConversation from '@/messages/components/ChatConversation'
 import Markdown from '@/utils/components/Markdown'
 import DateAsWords from '@/utils/components/DateAsWords'
+import ConflictVote from '@/votes/components/ConflictVote'
 
 import {
   QSpinnerDots,
@@ -103,6 +108,7 @@ export default {
     ChatConversation,
     Markdown,
     DateAsWords,
+    ConflictVote,
     QSpinnerDots,
     QCollapsible,
     QList,

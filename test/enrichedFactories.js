@@ -6,6 +6,7 @@
  *
  * The implementations are not complete, so if you miss a property that you need, please add it!
  */
+import subHours from 'date-fns/sub_hours'
 
 let notificationIdCnt = 0
 export const makeNotification = data => {
@@ -26,13 +27,14 @@ export const makeApplication = data => {
     id: applicationIdCnt++,
     createdAt: new Date(),
     user: makeUser(),
-    group: null,
+    group: makeGroup(),
     conversation: null,
     questions: 'What are your motivations for joining slköaslkfjasdfasfd?',
-    answers: 'asdfasdf',
+    answers: 'I can live off fire!',
     status: 'pending',
     decidedBy: null,
     decidedAt: null,
+    type: 'application',
     ...data,
   }
 }
@@ -43,6 +45,7 @@ export const makeGroup = data => {
   return {
     id,
     name: `Group ${id}`,
+    displayName: 'FoodShaving Inc.',
     description: '',
     publicDescription: '',
     applicationQuestions: '',
@@ -163,6 +166,53 @@ export const makePickupSeries = data => {
     startDate: new Date(),
     description: '',
     datesPreview: [],
+    ...data,
+  }
+}
+
+let conversationIdCnt = 0
+export const makeConversation = data => {
+  return {
+    id: conversationIdCnt++,
+    participants: [],
+    seenUpTo: new Date(),
+    unreadMessageCount: null,
+    emailNotification: true,
+    fetchStatus: {
+      pending: false,
+    },
+    messages: [
+      makeMessage(),
+      makeMessage(),
+      makeMessage(),
+    ],
+    type: 'group',
+    ...data,
+  }
+}
+
+let messageIdCnt = 0
+export const makeMessage = data => {
+  return {
+    id: messageIdCnt++,
+    author: makeUser(),
+    content: 'and then I went to the beach',
+    createdAt: subHours(new Date(), 3),
+    ...data,
+  }
+}
+
+let conflictIdCnt = 0
+export const makeConflict = data => {
+  return {
+    id: conflictIdCnt++,
+    createdAt: subHours(new Date(), 26),
+    topic: 'I complain about this user',
+    type: 'conflictResolution',
+    createdBy: makeUser(),
+    affectedUser: makeUser(),
+    group: makeGroup(),
+    isDecided: false,
     ...data,
   }
 }

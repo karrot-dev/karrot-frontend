@@ -33,7 +33,6 @@
         label-always
         snap
         markers
-        color="primary"
       />
     </QCardMain>
     <QCardMain>

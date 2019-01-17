@@ -554,7 +554,8 @@
       "OPTION_TWO": "We organise offline mediation",
       "OPTION_THREE": "{userName} get removed from {groupName}",
       "OPTION_FOUR": "Extend the vote to keep discussing",
-      "VOTING": "Vote now"
+      "VOTING": "Vote now",
+      "DELETE": "Delete vote"
     }
   }
 }

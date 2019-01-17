@@ -7,27 +7,43 @@
       class="absolute-center"
       style="z-index: 1"
       color="primary"
+      @click="value = 0"
       v-t="'CONFLICT.VOTE.VOTING'"
     />
-    <QCardTitle>
-      {{ $t('CONFLICT.VOTE.HEADLINE', { userName: conflict.affectedUser.displayName }) }}
-    </QCardTitle>
-    <QCardMain>
-      {{ $t('CONFLICT.VOTE.DAYS_LEFT', { count: days }) }}
-      <QProgress
-        :percentage="progress"
-        style="height: 8px"
-        color="secondary"
-      />
-      <QBtn
-        label="test"
-        type="button"
-        @click="test"
-      />
-    </QCardMain>
+    <div>
+      <QCardTitle>
+        {{ $t('CONFLICT.VOTE.HEADLINE', { userName: conflict.affectedUser.displayName }) }}
+      </QCardTitle>
+      <QCardMain>
+        {{ $t('CONFLICT.VOTE.DAYS_LEFT', { count: days }) }}
+        <QProgress
+          :percentage="progress"
+          style="height: 8px"
+          color="secondary"
+        />
+        <QBtn
+          label="test"
+          type="button"
+          @click="test"
+        />
+      </QCardMain>
+    </div>
     <div
       class="content"
     >
+      <QBtn
+        class="absolute-right"
+        v-if="!showOverlay"
+        round
+        flat
+        color="red"
+        @click="value = null"
+      >
+        <QIcon name="fas fa-times" />
+        <QTooltip
+          v-t="'CONFLICT.VOTE.DELETE'"
+        />
+      </QBtn>
       <QCardMain>
         {{ $t('CONFLICT.VOTE.OPTION_ONE', { userName: conflict.affectedUser.displayName, groupName: conflict.group.displayName }) }}
         <QSlider
@@ -80,6 +96,11 @@
           markers
         />
       </QCardMain>
+      <QBtn
+        type="submit"
+        color="secondary"
+        v-t="value != null ? 'BUTTON.CREATE' : null"
+      />
     </div>
   </QCard>
 </template>
@@ -92,6 +113,8 @@ import {
   QSlider,
   QProgress,
   QBtn,
+  QIcon,
+  QTooltip,
 } from 'quasar'
 
 import addDays from 'date-fns/add_days'
@@ -106,6 +129,8 @@ export default {
     QSlider,
     QProgress,
     QBtn,
+    QIcon,
+    QTooltip,
   },
   props: {
     conflict: {

@@ -97,10 +97,18 @@ export default {
   },
   computed: {
     days () {
-      return differenceInDays(addDays(this.conflict.createdAt, 7), new Date())
+      return distanceInWordsStrict(addDays(this.conflict.createdAt, 7), new Date())
     },
     progress () {
-      return differenceInDays(new Date(), this.conflict.createdAt) / 7 * 100
+      return differenceInHours(new Date(), this.conflict.createdAt) / 168 * 100
+    },
+  },
+    test () {
+      const difference = distanceInWordsStrict(
+        addDays(this.conflict.createdAt, 1),
+        new Date(),
+      )
+      console.log(difference)
     },
   },
 }

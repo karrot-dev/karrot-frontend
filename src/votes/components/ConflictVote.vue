@@ -15,6 +15,7 @@
       {{ $t('CONFLICT.VOTE.OPTION_ONE', { userName: conflict.affectedUser.displayName, groupName: conflict.group.displayName }) }}
       <QSlider
         v-model="marker1"
+        :label-value="fancylabels(marker1)"
         :min="-2"
         :max="2"
         :step="1"
@@ -27,6 +28,7 @@
       {{ $t('CONFLICT.VOTE.OPTION_TWO') }}
       <QSlider
         v-model="marker2"
+        :label-value="fancylabels(marker2)"
         :min="-2"
         :max="2"
         :step="1"
@@ -39,6 +41,7 @@
       {{ $t('CONFLICT.VOTE.OPTION_THREE', { userName: conflict.affectedUser.displayName, groupName: conflict.group.displayName }) }}
       <QSlider
         v-model="marker3"
+        :label-value="fancylabels(marker3)"
         :min="-2"
         :max="2"
         :step="1"
@@ -51,6 +54,7 @@
       {{ $t('CONFLICT.VOTE.OPTION_FOUR') }}
       <QSlider
         v-model="marker4"
+        :label-value="fancylabels(marker4)"
         :min="-2"
         :max="2"
         :step="1"
@@ -103,6 +107,21 @@ export default {
       return differenceInHours(new Date(), this.conflict.createdAt) / 168 * 100
     },
   },
+  methods: {
+    fancylabels (vote) {
+      switch (vote) {
+        case 0:
+          return 'neutral'
+        case 1:
+          return 'agree'
+        case 2:
+          return 'strongly agree'
+        case -1:
+          return 'disagree'
+        case -2:
+          return 'strongly disagree'
+      }
+    },
     test () {
       const difference = distanceInWordsStrict(
         addDays(this.conflict.createdAt, 1),

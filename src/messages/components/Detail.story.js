@@ -11,6 +11,7 @@ const conversation = factories.makeConversation({
     factories.makeUser(),
   ],
 })
+const value = null
 
 const conflict = factories.makeConflict()
 const application = factories.makeApplication()
@@ -21,6 +22,7 @@ storiesOf('Detail', module)
       props: {
         conflict,
         conversation,
+        value,
       },
     }),
   }))

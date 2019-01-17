@@ -69,6 +69,7 @@
         <ConflictVote
           class="q-ma-sm q-pa-sm bg-white"
           :conflict="conflict"
+          :value="value"
         />
       </QCollapsible>
       <QList
@@ -147,6 +148,10 @@ export default {
     },
     conflict: {
       type: Object,
+      default: null,
+    },
+    value: {
+      type: Number,
       default: null,
     },
   },

@@ -1,5 +1,14 @@
 <template>
-  <QCard>
+  <QCard
+    class="wrapper"
+    :class="{showOverlay}">
+    <QBtn
+      v-if="showOverlay"
+      class="absolute-center"
+      style="z-index: 1"
+      color="primary"
+      v-t="'CONFLICT.VOTE.VOTING'"
+    />
     <QCardTitle>
       {{ $t('CONFLICT.VOTE.HEADLINE', { userName: conflict.affectedUser.displayName }) }}
     </QCardTitle>
@@ -16,58 +25,62 @@
         @click="test"
       />
     </QCardMain>
-    <QCardMain>
-      {{ $t('CONFLICT.VOTE.OPTION_ONE', { userName: conflict.affectedUser.displayName, groupName: conflict.group.displayName }) }}
-      <QSlider
-        v-model="marker1"
-        :label-value="fancylabels(marker1)"
-        :min="-2"
-        :max="2"
-        :step="1"
-        label-always
-        snap
-        markers
-      />
-    </QCardMain>
-    <QCardMain>
-      {{ $t('CONFLICT.VOTE.OPTION_TWO') }}
-      <QSlider
-        v-model="marker2"
-        :label-value="fancylabels(marker2)"
-        :min="-2"
-        :max="2"
-        :step="1"
-        label-always
-        snap
-        markers
-      />
-    </QCardMain>
-    <QCardMain>
-      {{ $t('CONFLICT.VOTE.OPTION_THREE', { userName: conflict.affectedUser.displayName, groupName: conflict.group.displayName }) }}
-      <QSlider
-        v-model="marker3"
-        :label-value="fancylabels(marker3)"
-        :min="-2"
-        :max="2"
-        :step="1"
-        label-always
-        snap
-        markers
-      />
-    </QCardMain>
-    <QCardMain>
-      {{ $t('CONFLICT.VOTE.OPTION_FOUR') }}
-      <QSlider
-        v-model="marker4"
-        :label-value="fancylabels(marker4)"
-        :min="-2"
-        :max="2"
-        :step="1"
-        label-always
-        snap
-        markers
-      />
-    </QCardMain>
+    <div
+      class="content"
+    >
+      <QCardMain>
+        {{ $t('CONFLICT.VOTE.OPTION_ONE', { userName: conflict.affectedUser.displayName, groupName: conflict.group.displayName }) }}
+        <QSlider
+          v-model="marker1"
+          :label-value="fancylabels(marker1)"
+          :min="-2"
+          :max="2"
+          :step="1"
+          label-always
+          snap
+          markers
+        />
+      </QCardMain>
+      <QCardMain>
+        {{ $t('CONFLICT.VOTE.OPTION_TWO') }}
+        <QSlider
+          v-model="marker2"
+          :label-value="fancylabels(marker2)"
+          :min="-2"
+          :max="2"
+          :step="1"
+          label-always
+          snap
+          markers
+        />
+      </QCardMain>
+      <QCardMain>
+        {{ $t('CONFLICT.VOTE.OPTION_THREE', { userName: conflict.affectedUser.displayName, groupName: conflict.group.displayName }) }}
+        <QSlider
+          v-model="marker3"
+          :label-value="fancylabels(marker3)"
+          :min="-2"
+          :max="2"
+          :step="1"
+          label-always
+          snap
+          markers
+        />
+      </QCardMain>
+      <QCardMain>
+        {{ $t('CONFLICT.VOTE.OPTION_FOUR') }}
+        <QSlider
+          v-model="marker4"
+          :label-value="fancylabels(marker4)"
+          :min="-2"
+          :max="2"
+          :step="1"
+          label-always
+          snap
+          markers
+        />
+      </QCardMain>
+    </div>
   </QCard>
 </template>
 
@@ -99,6 +112,10 @@ export default {
       type: Object,
       required: true,
     },
+    value: {
+      type: Number,
+      default: null,
+    },
   },
   data () {
     return {
@@ -114,6 +131,9 @@ export default {
     },
     progress () {
       return differenceInHours(new Date(), this.conflict.createdAt) / 168 * 100
+    },
+    showOverlay () {
+      return this.value === null
     },
   },
   methods: {
@@ -141,3 +161,11 @@ export default {
   },
 }
 </script>
+
+<style scoped lang="stylus">
+.wrapper
+  position relative
+.showOverlay .content
+  opacity 0.3
+  filter blur(3px)
+</style>

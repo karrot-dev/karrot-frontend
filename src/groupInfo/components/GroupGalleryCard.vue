@@ -2,7 +2,6 @@
   <div class="inline-block">
     <QCard
       class="groupPreviewCard relative-position"
-      :color="cardColor"
       :class="{
         application: hasMyApplication,
         highlight: group.isCurrentGroup,
@@ -36,7 +35,13 @@
           slot="overlay"
           class="ellipsis"
         >
-          {{ group.name }}
+          <span class="row group items-start">
+            {{ group.name }}
+            <QIcon
+              v-if="group.isPlayground"
+              name="fas fa-child"
+            />
+          </span>
           <span slot="subtitle">
             {{ group.members.length }} {{ $tc('JOINGROUP.NUM_MEMBERS', group.members.length) }}
           </span>
@@ -46,7 +51,7 @@
         <div
           v-if="group.publicDescription"
         >
-          <Markdown :source="group.publicDescription.slice(0, 150)" />
+          <Markdown :source="group.publicDescription.slice(0, 300)" />
         </div>
         <span
           v-else
@@ -124,9 +129,6 @@ export default {
     ...mapGetters({
       getMyApplicationInGroup: 'groupApplications/getMineInGroup',
     }),
-    cardColor () {
-      return this.group.isPlayground ? 'secondary' : undefined
-    },
     cardStyle () {
       const reduceOpacity = this.group.isInactive && !this.group.isMember
       if (reduceOpacity) {
@@ -158,8 +160,8 @@ export default {
   &.application
     border 2px solid $blue
   .fixed-height
-    min-height 60px
-    max-height 60px
+    min-height 80px
+    max-height 80px
   .smaller-text >>> *
     font-size 1em
   .photo
@@ -169,4 +171,14 @@ export default {
       max-width 100%
       width auto
       margin 0 auto
+
+  .fixed-height:before {
+    content ''
+    width 100%
+    height 100%
+    position absolute
+    left 0
+    top 0
+    background linear-gradient(transparent 220px, white);
+  }
 </style>

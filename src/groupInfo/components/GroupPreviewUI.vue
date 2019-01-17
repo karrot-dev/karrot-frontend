@@ -16,7 +16,6 @@
           class="full-height"
         />
         <QCardTitle
-          :class="group.isPlayground ? 'text-secondary' : ''"
           slot="overlay"
         >
           <span class="row group items-start">
@@ -24,7 +23,6 @@
             <QIcon
               v-if="group.isPlayground"
               name="fas fa-child"
-              color="secondary"
             />
           </span>
           <span slot="subtitle">
@@ -35,7 +33,6 @@
       <QCardMain>
         <div
           v-if="group.publicDescription"
-          class="quote"
         >
           <Markdown :source="group.publicDescription" />
         </div>

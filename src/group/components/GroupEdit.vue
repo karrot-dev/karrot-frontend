@@ -1,6 +1,13 @@
 <template>
   <div>
     <QCard>
+      <ChangePhoto
+        :value="value"
+        :status="status"
+        :label="$t('GROUP.LOGO')"
+        :helper="$t('GROUP.SET_LOGO')"
+        @save="$emit('save', { id: value.id, photo: arguments[0] })"
+      />
       <div
         class="edit-box"
         :class="{ changed: hasChanged }"
@@ -151,6 +158,7 @@ import { validationMixin } from 'vuelidate'
 import { required, minLength, maxLength } from 'vuelidate/lib/validators'
 import editMixin from '@/utils/mixins/editMixin'
 import statusMixin from '@/utils/mixins/statusMixin'
+import ChangePhoto from '@/authuser/components/Settings/ChangePhoto'
 
 export default {
   name: 'GroupEdit',
@@ -187,6 +195,7 @@ export default {
     QAutocomplete,
     AddressPicker,
     MarkdownInput,
+    ChangePhoto,
   },
   computed: {
     canSave () {

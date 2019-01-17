@@ -10,7 +10,12 @@ export default {
   },
 
   async save (obj) {
-    return (await axios.patch('/api/auth/user/', obj)).data
+    let data = obj
+    if (obj.photo) {
+      data = new FormData()
+      data.append('photo', obj.photo, 'photo.jpeg')
+    }
+    return (await axios.patch('/api/auth/user/', data)).data
   },
 
   delete (id) {

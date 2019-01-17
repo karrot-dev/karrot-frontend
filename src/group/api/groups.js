@@ -33,8 +33,14 @@ export default {
   },
 
   async save (group) {
-    let groupId = group.id
-    return convert((await axios.patch(`/api/groups/${groupId}/`, group)).data)
+    let data = group
+    if (group.photo) {
+      data = new FormData()
+      data.append('photo', group.photo, 'photo.png')
+    }
+
+    const groupId = group.id
+    return convert((await axios.patch(`/api/groups/${groupId}/`, data)).data)
   },
 
   async join (groupId) {

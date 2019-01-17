@@ -21,6 +21,9 @@ Please document your changes in this format:
 ```
 
 ## [Unreleased]
+### Added
+- Support for group logos #891 @cstefanj @tiltec
+
 ### Changed
 - Don't send application conversation notification emails to inactive group members @tiltec
 

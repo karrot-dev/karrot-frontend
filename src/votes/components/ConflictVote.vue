@@ -10,6 +10,11 @@
         style="height: 8px"
         color="secondary"
       />
+      <QBtn
+        label="test"
+        type="button"
+        @click="test"
+      />
     </QCardMain>
     <QCardMain>
       {{ $t('CONFLICT.VOTE.OPTION_ONE', { userName: conflict.affectedUser.displayName, groupName: conflict.group.displayName }) }}
@@ -73,9 +78,12 @@ import {
   QCardMain,
   QSlider,
   QProgress,
+  QBtn,
 } from 'quasar'
-import differenceInDays from 'date-fns/difference_in_days'
+
 import addDays from 'date-fns/add_days'
+import distanceInWordsStrict from 'date-fns/distance_in_words_strict'
+import differenceInHours from 'date-fns/difference_in_hours'
 
 export default {
   components: {
@@ -84,6 +92,7 @@ export default {
     QCardMain,
     QSlider,
     QProgress,
+    QBtn,
   },
   props: {
     conflict: {

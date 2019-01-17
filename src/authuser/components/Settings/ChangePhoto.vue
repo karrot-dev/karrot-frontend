@@ -26,7 +26,7 @@
         >
         <img
           slot="placeholder"
-          src="statics/ic_person_black_24px.svg"
+          src="statics/add_a_photo.svg"
         >
       </Croppa>
     </QField>
@@ -121,4 +121,5 @@ export default {
       height 100% !important
       max-width 300px
       max-height 300px
+      cursor pointer
 </style>

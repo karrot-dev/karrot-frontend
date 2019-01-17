@@ -26,7 +26,7 @@ describe('ChangePhoto', () => {
     // src contains the full path
     // location is set to 'localhost' by jest, but can be configured
     // https://jestjs.io/docs/en/configuration.html#testurl-string
-    expect(wrapper.find('img').element.src).toBe('http://localhost/statics/ic_person_black_24px.svg')
+    expect(wrapper.find('img').element.src).toBe('http://localhost/statics/add_a_photo.svg')
   })
 
   it('renders image from localhost in development/test', async () => {

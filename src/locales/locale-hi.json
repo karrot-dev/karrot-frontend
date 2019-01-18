@@ -115,6 +115,8 @@
     "PRIVATE_DESCRIPTION_TITLE": "निजी समूह चर्चा",
     "DESCRIPTION_VERBOSE": "सदस्य के लिए समूह विवरण उपलब्ध",
     "PUBLIC_DESCRIPTION": "एक समूह में शामिल होने से पहले आपको दिखाई देने वाला पाठ",
+    "LOGO": "Group logo",
+    "SET_LOGO": "Click to upload your group logo!",
     "APPLICATIONS": "Applications",
     "APPLICATION_QUESTIONS": "Questions for people who want to join this group",
     "PICKUPS": "पिकप",

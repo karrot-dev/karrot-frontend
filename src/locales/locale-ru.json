@@ -115,6 +115,8 @@
     "PRIVATE_DESCRIPTION_TITLE": "Private group description",
     "DESCRIPTION_VERBOSE": "Описание группы, которое видят участники",
     "PUBLIC_DESCRIPTION": "Текст, который вы видите перед тем, как вступить в группу",
+    "LOGO": "Group logo",
+    "SET_LOGO": "Click to upload your group logo!",
     "APPLICATIONS": "Applications",
     "APPLICATION_QUESTIONS": "Questions for people who want to join this group",
     "PICKUPS": "Pickups",

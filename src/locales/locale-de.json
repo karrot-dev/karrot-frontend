@@ -115,6 +115,8 @@
     "PRIVATE_DESCRIPTION_TITLE": "Interne Gruppenbeschreibung",
     "DESCRIPTION_VERBOSE": "Gruppenbeschreibung, nur für Mitglieder sichtbar",
     "PUBLIC_DESCRIPTION": "Text, der vorm Beitritt zur Gruppe angezeigt wird",
+    "LOGO": "Group logo",
+    "SET_LOGO": "Click to upload your group logo!",
     "APPLICATIONS": "Applications",
     "APPLICATION_QUESTIONS": "Questions for people who want to join this group",
     "PICKUPS": "Abholungen",

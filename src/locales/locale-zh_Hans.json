@@ -115,6 +115,8 @@
     "PRIVATE_DESCRIPTION_TITLE": "私密社團敘述",
     "DESCRIPTION_VERBOSE": "社團敘述（僅社團成員可見）",
     "PUBLIC_DESCRIPTION": "加入社團前顯示的文字",
+    "LOGO": "Group logo",
+    "SET_LOGO": "Click to upload your group logo!",
     "APPLICATIONS": "申請",
     "APPLICATION_QUESTIONS": "給要加入社團者的問題",
     "PICKUPS": "開放領取食物",

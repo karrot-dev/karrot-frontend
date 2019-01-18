@@ -115,6 +115,8 @@
     "PRIVATE_DESCRIPTION_TITLE": "Privat gruppbeskrivning",
     "DESCRIPTION_VERBOSE": "Beskrivning av gruppen, endast för medlemmar",
     "PUBLIC_DESCRIPTION": "Publik Beskrivning av gruppen",
+    "LOGO": "Group logo",
+    "SET_LOGO": "Click to upload your group logo!",
     "APPLICATIONS": "Applications",
     "APPLICATION_QUESTIONS": "Questions for people who want to join this group",
     "PICKUPS": "Upphämtningar",

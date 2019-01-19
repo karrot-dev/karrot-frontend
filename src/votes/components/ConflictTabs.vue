@@ -96,7 +96,6 @@ export default {
     QList,
     Markdown,
     DateAsWords,
-    QBtn,
   },
   props: {
     conflict: {

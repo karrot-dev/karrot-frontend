@@ -113,6 +113,12 @@
         :class="{'greyed': detailIsShown}"
         @click.native="toggleDetail"
       >
+        <QItemSide>
+          <ProfilePicture
+            :user="conflict.affectedUser"
+            :size="size"
+          />
+        </QItemSide>
         <QItemMain>
           <QItemTile>
             {{ $t('CONFLICT.VOTE.HISTORY') }}
@@ -139,7 +145,7 @@
           style="cursor: pointer"
           v-if="detailIsShown"
         >
-          <ConflictVoteFinished
+          <ConflictResults
             style="cursor: initial"
           />
         </div>
@@ -169,6 +175,7 @@ import distanceInWordsStrict from 'date-fns/distance_in_words_strict'
 import differenceInHours from 'date-fns/difference_in_hours'
 import DateAsWords from '@/utils/components/DateAsWords'
 import ConflictResults from './ConflictResults'
+import ProfilePicture from '@/users/components/ProfilePicture'
 
 export default {
   components: {
@@ -186,6 +193,7 @@ export default {
     QItemTile,
     DateAsWords,
     ConflictResults,
+    ProfilePicture,
   },
   props: {
     conflict: {
@@ -199,6 +207,10 @@ export default {
     latest: {
       type: Object,
       required: true,
+    },
+    size: {
+      default: 25,
+      type: Number,
     },
   },
   data () {

@@ -24,6 +24,14 @@ const conflicts = [
   }),
 ]
 const conflict = factories.makeConflict()
+const history = [
+  factories.makeHistory({
+    typus: 'PICKUP_MISSED',
+  }),
+  factories.makeHistory(),
+  factories.makeHistory(),
+  factories.makeHistory(),
+]
 
 storiesOf('Votes', module)
   .add('conflict', () => defaults({
@@ -33,6 +41,7 @@ storiesOf('Votes', module)
         conflict,
         conversation,
         value,
+        history,
       },
     }),
   }))

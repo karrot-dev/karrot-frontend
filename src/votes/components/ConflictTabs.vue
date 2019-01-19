@@ -70,6 +70,7 @@
 <script>
 import ConflictVote from '@/votes/components/ConflictVote'
 import ChatConversation from '@/messages/components/ChatConversation'
+import HistoryList from '@/history/components/HistoryList'
 import Markdown from '@/utils/components/Markdown'
 import DateAsWords from '@/utils/components/DateAsWords'
 
@@ -96,6 +97,7 @@ export default {
     QList,
     Markdown,
     DateAsWords,
+    QBtn,
   },
   props: {
     conflict: {
@@ -124,6 +126,10 @@ export default {
     },
     currentUser: {
       type: Object,
+      default: null,
+    },
+    history: {
+      type: Array,
       default: null,
     },
   },

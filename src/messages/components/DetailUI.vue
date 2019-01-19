@@ -120,14 +120,6 @@ export default {
       type: Object,
       default: null,
     },
-    conflict: {
-      type: Object,
-      default: null,
-    },
-    value: {
-      type: Number,
-      default: null,
-    },
   },
   computed: {
     isPending () {

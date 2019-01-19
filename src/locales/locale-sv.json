@@ -407,6 +407,9 @@
     "PICKUP_LEAVE": "gav upp om att hämta upp på {storeName}",
     "GROUP_APPLICATION_DECLINED": "declined an application from {applicantName}",
     "MEMBER_BECAME_EDITOR": "gained editing permissions",
+    "GROUP_LEAVE_INACTIVE": "was removed due to inactivity",
+    "GROUP_CHANGE_PHOTO": "changed the group logo",
+    "GROUP_DELETE_PHOTO": "deleted the group logo",
     "NOTHING_HAPPENEND": "Inget händer än så länge...",
     "DETAILS": "Mer information"
   },

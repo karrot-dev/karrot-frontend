@@ -407,6 +407,9 @@
     "PICKUP_LEAVE": "取消開放領取食物",
     "GROUP_APPLICATION_DECLINED": "declined an application from {applicantName}",
     "MEMBER_BECAME_EDITOR": "gained editing permissions",
+    "GROUP_LEAVE_INACTIVE": "was removed due to inactivity",
+    "GROUP_CHANGE_PHOTO": "changed the group logo",
+    "GROUP_DELETE_PHOTO": "deleted the group logo",
     "NOTHING_HAPPENEND": "目前沒有任何事情發生",
     "DETAILS": "更多資訊"
   },

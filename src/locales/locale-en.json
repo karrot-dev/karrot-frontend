@@ -546,7 +546,7 @@
     "STEPPER2": "You are about to start a group-wide conflict process! This will involve all of your group's editors to try and find the best way to proceed regarding this conflict.",
     "STEPPER3": "This process will start an open chat and a vote. Every message in the chat will be visible for every editor in the group - including the ppp! The voting will last for 7 days during which all voters will still be able to change their minds and vote differently as many times as they want.",
     "STEPPER4": "Please make an initial statement for the open group chat! Tell your group why you think this process is justified and needed.",
-    "INITIAL": "Initial statement and vote",
+    "INITIAL": "Initial statement",
     "VOTE": {
       "DAYS_LEFT": "{count} days left to vote",
       "HEADLINE": "How do you want to proceed with the ongoing conflict with {userName}?",

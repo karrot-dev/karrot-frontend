@@ -48,30 +48,6 @@
           <Markdown :source="application.answers" />
         </div>
       </QCollapsible>
-      <QCollapsible
-        slot="beforeChatMessages"
-        v-if="conflict"
-        opened
-        class="bg-grey-2"
-      >
-        <template slot="header">
-          <b>{{ $t('CONFLICT.INITIAL') }}</b>
-        </template>
-        <div class="q-ma-sm q-pa-sm bg-white">
-          <span class="text-bold text-secondary uppercase">{{ conflict.createdBy.displayName }}</span>
-          <span class="message-date">
-            <small class="text-weight-light">
-              <DateAsWords :date="conflict.createdAt" />
-            </small>
-          </span>
-          <Markdown :source="conflict.topic" />
-        </div>
-        <ConflictVote
-          class="q-ma-sm q-pa-sm bg-white"
-          :conflict="conflict"
-          :value="value"
-        />
-      </QCollapsible>
       <QList
         slot="afterChatMessages"
         v-if="pickup && pickup.isDisabled"
@@ -93,7 +69,6 @@
 import ChatConversation from '@/messages/components/ChatConversation'
 import Markdown from '@/utils/components/Markdown'
 import DateAsWords from '@/utils/components/DateAsWords'
-import ConflictVote from '@/votes/components/ConflictVote'
 
 import {
   QSpinnerDots,
@@ -109,7 +84,6 @@ export default {
     ChatConversation,
     Markdown,
     DateAsWords,
-    ConflictVote,
     QSpinnerDots,
     QCollapsible,
     QList,

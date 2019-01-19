@@ -9,17 +9,12 @@
           default
           slot="title"
           name="chat"
-          icon="message"
+          icon="fas fa-comments"
         />
         <QTab
           slot="title"
           name="vote"
-          icon="accessibility"
-        />
-        <QTab
-          slot="title"
-          name="history"
-          icon="alarm"
+          icon="fas fa-vote-yea"
         />
 
         <QTabPane name="chat">
@@ -55,15 +50,13 @@
             @fetchFuture="$emit('fetchFuture')"
           />
         </QTabPane>
+
         <QTabPane name="vote">
           <ConflictVote
             class="q-ma-sm q-pa-sm bg-white"
             :conflict="conflict"
             :value="value"
           />
-        </QTabPane>
-        <QTabPane name="history">
-          I am your history
         </QTabPane>
       </QTabs>
     </QLayoutHeader>

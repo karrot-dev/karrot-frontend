@@ -52,11 +52,15 @@
         </QTabPane>
 
         <QTabPane name="vote">
-          <ConflictVote
-            class="q-ma-sm q-pa-sm bg-white"
-            :conflict="conflict"
-            :value="value"
-          />
+          <QList>
+            <ConflictVote
+              v-for="c in conflicts"
+              :key="c.id"
+              :conflict="c"
+              :value="value"
+              :latest="conflicts[0]"
+            />
+          </QList>
         </QTabPane>
       </QTabs>
     </QLayoutHeader>
@@ -76,6 +80,7 @@ import {
   QTab,
   QTabPane,
   QCollapsible,
+  QList,
 } from 'quasar'
 
 export default {
@@ -88,12 +93,18 @@ export default {
     QTab,
     QTabPane,
     QCollapsible,
+    QList,
     Markdown,
     DateAsWords,
+    QBtn,
   },
   props: {
     conflict: {
       type: Object,
+      default: null,
+    },
+    conflicts: {
+      type: Array,
       default: null,
     },
     value: {

@@ -12,12 +12,24 @@ const conversation = factories.makeConversation({
   ],
 })
 const value = null
+const conflicts = [
+  factories.makeConflict(),
+  factories.makeConflict({
+    createdAt: '2019-01-02T21:22:54.730980Z',
+    isDecided: true,
+  }),
+  factories.makeConflict({
+    createdAt: '2019-01-10T21:22:54.730980Z',
+    isDecided: true,
+  }),
+]
 const conflict = factories.makeConflict()
 
 storiesOf('Votes', module)
   .add('conflict', () => defaults({
     render: h => h(ConflictTabs, {
       props: {
+        conflicts,
         conflict,
         conversation,
         value,

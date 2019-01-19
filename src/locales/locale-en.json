@@ -555,7 +555,8 @@
       "OPTION_THREE": "{userName} get removed from {groupName}",
       "OPTION_FOUR": "Extend the vote to keep discussing",
       "VOTING": "Vote now",
-      "DELETE": "Delete vote"
+      "DELETE": "Delete vote",
+      "HISTORY": "Your group voted to keep discussing"
     }
   }
 }

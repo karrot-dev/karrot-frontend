@@ -216,3 +216,17 @@ export const makeConflict = data => {
     ...data,
   }
 }
+
+let historyIdCnt = 0
+export const makeHistory = data => {
+  return {
+    id: historyIdCnt++,
+    date: subHours(new Date(), 26),
+    typus: 'GROUP_CHANGE_PHOTO',
+    group: makeGroup(),
+    users: [ 222 ],
+    store: null,
+    message: 'Changed the group picture',
+    ...data,
+  }
+}

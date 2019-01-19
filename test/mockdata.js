@@ -118,12 +118,13 @@ export const historyMock = [
   { 'id': 4147, 'date': '2017-10-01T16:28:04.960Z', 'typus': 'PICKUP_DONE', 'group': 1, 'store': 56, 'users': [1, 2, 3, 4], 'payload': { 'description': '', 'store': 56, 'id': 1044, 'series': 30, 'maxCollectors': 4, 'date': '2017-10-05T08:00:00.000Z', 'collectorIds': [1, 2, 3, 4] } },
   { 'id': 4146, 'date': '2017-10-01T16:28:02.494Z', 'typus': 'PICKUP_LEAVE', 'group': 1, 'store': 56, 'users': [1], 'payload': { 'description': '', 'store': 56, 'id': 1032, 'series': 30, 'maxCollectors': 4, 'date': '2017-10-02T08:00:00.000Z', 'collectorIds': [] } },
   { 'id': 4145, 'date': '2017-10-01T16:27:57.393Z', 'typus': 'PICKUP_JOIN', 'group': 1, 'store': 56, 'users': [2], 'payload': { 'description': '', 'store': 56, 'id': 1044, 'series': 30, 'maxCollectors': 4, 'date': '2017-10-05T08:00:00.000Z', 'collectorIds': [22] } },
+  { id: 10673, date: '2019-01-18T22:04:26.944715Z', typus: 'GROUP_CHANGE_PHOTO', group: 3, store: null, users: [2], payload: null },
 ].map(e => {
   e.date = new Date(e.date)
   e.users = e.users.map(i => usersMock.find(u => u.id === i))
   e.group = groupsMock.find(g => g.id === e.group)
   e.store = storesMock.find(s => s.id === e.store)
-  e.message = 'did something'
+  e.message = 'did something cool'
   return e
 })
 

@@ -407,6 +407,9 @@
     "PICKUP_LEAVE": "zrezygnował/-a z odbioru w {storeName}",
     "GROUP_APPLICATION_DECLINED": "odrzucono zgłoszenie od {applicantName}",
     "MEMBER_BECAME_EDITOR": "otrzymał/-a uprawnienia do edycji",
+    "GROUP_LEAVE_INACTIVE": "was removed due to inactivity",
+    "GROUP_CHANGE_PHOTO": "changed the group logo",
+    "GROUP_DELETE_PHOTO": "deleted the group logo",
     "NOTHING_HAPPENEND": "Jeszcze nic się nie wydarzyło...",
     "DETAILS": "Więcej informacji"
   },

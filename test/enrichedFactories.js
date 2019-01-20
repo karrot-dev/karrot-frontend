@@ -221,6 +221,7 @@ export const makeVoting = data => {
       message: null,
       type: 'remove_user',
     }],
+    participantCount: 6,
     ...data,
   }
 }
@@ -235,7 +236,7 @@ export const makeConflict = data => {
     createdBy: makeUser(),
     affectedUser: makeUser(),
     group: makeGroup(),
-    isDecided: false,
+    isDecided: true,
     votings: [
       makeVoting(),
       makeVoting(),

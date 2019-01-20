@@ -40,6 +40,7 @@
       >
         <ConflictResults
           style="cursor: initial"
+          :conflict="conflict"
         />
       </div>
     </Transition>
@@ -56,6 +57,7 @@ import {
 
 import DateAsWords from '@/utils/components/DateAsWords'
 import ProfilePicture from '@/users/components/ProfilePicture'
+import ConflictResults from './ConflictResults'
 
 export default {
   components: {
@@ -65,6 +67,7 @@ export default {
     QItemTile,
     DateAsWords,
     ProfilePicture,
+    ConflictResults,
   },
   props: {
     conflict: {
@@ -80,6 +83,11 @@ export default {
     toggleDetail (event) {
       this.detailIsShown = !this.detailIsShown
     },
+  },
+  data () {
+    return {
+      detailIsShown: false,
+    }
   },
 }
 </script>

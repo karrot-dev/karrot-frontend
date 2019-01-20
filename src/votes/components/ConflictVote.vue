@@ -1,7 +1,7 @@
 <template>
   <div>
     <QCard
-      v-if="ongoingOrRecent"
+      v-if="!conflict.isDecided"
       class="wrapper"
       :class="{showOverlay}">
       <QBtn
@@ -106,7 +106,7 @@
       </div>
     </QCard>
     <QCard
-      v-if="!ongoingOrRecent">
+      v-if="conflict.isDecided">
       <ConflictResults
         :conflict="conflict"
       />
@@ -168,7 +168,6 @@ export default {
       marker2: 0,
       marker3: 0,
       marker4: 0,
-      detailIsShown: false,
     }
   },
   computed: {
@@ -180,17 +179,6 @@ export default {
     },
     showOverlay () {
       return this.value === null
-    },
-    ongoingOrRecent () {
-      if (!this.conflict.isDecided) {
-        return true
-      }
-      else if (this.conflict === this.latest) {
-        return true
-      }
-      else {
-        return false
-      }
     },
   },
   methods: {

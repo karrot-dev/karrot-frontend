@@ -15,7 +15,7 @@
                 round
                 color="secondary"
               >
-              <p>1</p>
+                <p>1</p>
               </QBtn>
             </QItemSide>
             <QItemMain>
@@ -53,6 +53,12 @@ export default {
     QItemSide,
     QItemMain,
     QBtn,
+  },
+  props: {
+    conflict: {
+      type: Object,
+      required: true,
+    },
   },
 }
 </script>

@@ -105,12 +105,12 @@
         />
       </div>
     </QCard>
-    <QCard
+    <div
       v-if="conflict.isDecided">
       <ConflictResults
         :conflict="conflict"
       />
-    </QCard>
+    </div>
     <QList>
       <ConflictHistoryItem
         v-for="v in conflict.votings"

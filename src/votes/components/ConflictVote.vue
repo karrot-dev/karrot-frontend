@@ -131,6 +131,7 @@ import {
   QBtn,
   QIcon,
   QTooltip,
+  QList,
 } from 'quasar'
 
 import addDays from 'date-fns/add_days'
@@ -151,6 +152,7 @@ export default {
     QTooltip,
     ConflictHistoryItem,
     ConflictResults,
+    QList,
   },
   props: {
     conflict: {

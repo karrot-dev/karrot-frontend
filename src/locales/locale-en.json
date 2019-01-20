@@ -556,7 +556,9 @@
       "OPTION_FOUR": "Extend the vote to keep discussing",
       "VOTING": "Vote now",
       "DELETE": "Delete vote",
-      "HISTORY": "Your group voted to keep discussing"
+      "HISTORY": "Your group voted to keep discussing",
+      "TIME_UP": "Time is up!",
+      "INITIATED_BY": "Initiated by {initiatorName}"
     }
   }
 }

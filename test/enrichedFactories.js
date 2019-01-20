@@ -203,6 +203,28 @@ export const makeMessage = data => {
   }
 }
 
+let votingIdCnt = 0
+export const makeVoting = data => {
+  return {
+    id: votingIdCnt++,
+    acceptedOption: 74,
+    expiresAt: addHours(new Date(), 106),
+    options: [{
+      affected_user: null,
+      id: 73,
+      meanScore: 1.0,
+      message: null,
+      type: 'further_discussion' },
+    { affectedUser: 174,
+      id: 74,
+      meanScore: 5.0,
+      message: null,
+      type: 'remove_user',
+    }],
+    ...data,
+  }
+}
+
 let conflictIdCnt = 0
 export const makeConflict = data => {
   return {
@@ -214,20 +236,11 @@ export const makeConflict = data => {
     affectedUser: makeUser(),
     group: makeGroup(),
     isDecided: false,
-    votings: [{
-      acceptedOption: 74,
-      expiresAt: addHours(new Date(), 106),
-      options: [{
-        affected_user: null,
-        id: 73,
-        meanScore: 1.0,
-        message: null,
-        type: 'further_discussion' },
-      { affectedUser: 174,
-        id: 74,
-        meanScore: 5.0,
-        message: null,
-        type: 'remove_user' }] }],
+    votings: [
+      makeVoting(),
+      makeVoting(),
+      makeVoting(),
+    ],
     ...data,
   }
 }

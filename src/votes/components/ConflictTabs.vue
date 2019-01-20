@@ -94,10 +94,6 @@ export default {
       type: Object,
       default: null,
     },
-    value: {
-      type: Number,
-      default: null,
-    },
     conversation: {
       type: Object,
       default: null,
@@ -112,10 +108,6 @@ export default {
     },
     currentUser: {
       type: Object,
-      default: null,
-    },
-    history: {
-      type: Array,
       default: null,
     },
   },

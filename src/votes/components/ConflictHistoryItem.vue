@@ -38,7 +38,9 @@
         style="cursor: pointer"
         v-if="detailIsShown"
       >
-      Deeeeeeetaaaaaaails!!!!
+        <ConflictResults
+          style="cursor: initial"
+        />
       </div>
     </Transition>
   </div>
@@ -50,7 +52,7 @@ import {
   QItemSide,
   QItemMain,
   QItemTile,
-} from quasar
+} from 'quasar'
 
 import DateAsWords from '@/utils/components/DateAsWords'
 import ProfilePicture from '@/users/components/ProfilePicture'
@@ -65,7 +67,7 @@ export default {
     ProfilePicture,
   },
   props: {
-    voting: {
+    conflict: {
       type: Object,
       default: null,
     },

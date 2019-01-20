@@ -107,39 +107,15 @@
     </QCard>
     <QCard
       v-if="!ongoingOrRecent">
-      <QCardTitle>
-        {{ $t('CONFLICT.VOTE.TIME_UP') }}
-      </QCardTitle>
-      <QCardMain>
-        {{ $t('CONFLICT.VOTE.RESULTS') }}
-        <QList
-          separator
-        >
-          <QItem>
-            <QItemSide>
-              <QBtn
-                round
-                color="secondary"
-              >
-                <p>1</p>
-              </QBtn>
-            </QItemSide>
-            <QItemMain>
-              {{ $t('CONFLICT.VOTE.OPTION_ONE') }}
-            </QItemMain>
-            <QItemSide
-              icon="far fa-grin"
-            />
-          </QItem>
-        </QList>
-      </QCardMain>
+      <ConflictResults
+        :conflict="conflict"
+      />
     </QCard>
-    <QList
-      v-if="conflict.votings > 1"
-    >
+    <QList>
       <ConflictHistoryItem
         v-for="v in conflict.votings"
         :key="v.id"
+        :conflict="conflict"
       />
     </QList>
   </div>
@@ -160,6 +136,8 @@ import {
 import addDays from 'date-fns/add_days'
 import distanceInWordsStrict from 'date-fns/distance_in_words_strict'
 import differenceInHours from 'date-fns/difference_in_hours'
+import ConflictHistoryItem from './ConflictHistoryItem'
+import ConflictResults from './ConflictResults'
 
 export default {
   components: {
@@ -171,6 +149,8 @@ export default {
     QBtn,
     QIcon,
     QTooltip,
+    ConflictHistoryItem,
+    ConflictResults,
   },
   props: {
     conflict: {
@@ -180,10 +160,6 @@ export default {
     value: {
       type: Number,
       default: null,
-    },
-    latest: {
-      type: Object,
-      required: true,
     },
   },
   data () {

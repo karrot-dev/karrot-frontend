@@ -52,15 +52,9 @@
         </QTabPane>
 
         <QTabPane name="vote">
-          <QList>
-            <ConflictVote
-              v-for="c in conflicts"
-              :key="c.id"
-              :conflict="c"
-              :value="value"
-              :latest="conflicts[0]"
-            />
-          </QList>
+          <ConflictVote
+            :conflict="conflict"
+          />
         </QTabPane>
       </QTabs>
     </QLayoutHeader>
@@ -70,7 +64,6 @@
 <script>
 import ConflictVote from '@/votes/components/ConflictVote'
 import ChatConversation from '@/messages/components/ChatConversation'
-import HistoryList from '@/history/components/HistoryList'
 import Markdown from '@/utils/components/Markdown'
 import DateAsWords from '@/utils/components/DateAsWords'
 
@@ -81,7 +74,6 @@ import {
   QTab,
   QTabPane,
   QCollapsible,
-  QList,
 } from 'quasar'
 
 export default {
@@ -94,18 +86,12 @@ export default {
     QTab,
     QTabPane,
     QCollapsible,
-    QList,
     Markdown,
     DateAsWords,
-    QBtn,
   },
   props: {
     conflict: {
       type: Object,
-      default: null,
-    },
-    conflicts: {
-      type: Array,
       default: null,
     },
     value: {

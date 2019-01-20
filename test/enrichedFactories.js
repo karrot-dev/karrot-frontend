@@ -7,6 +7,7 @@
  * The implementations are not complete, so if you miss a property that you need, please add it!
  */
 import subHours from 'date-fns/sub_hours'
+import addHours from 'date-fns/add_hours'
 
 let notificationIdCnt = 0
 export const makeNotification = data => {
@@ -213,6 +214,20 @@ export const makeConflict = data => {
     affectedUser: makeUser(),
     group: makeGroup(),
     isDecided: false,
+    votings: [{
+      acceptedOption: 74,
+      expiresAt: addHours(new Date(), 106),
+      options: [{
+        affected_user: null,
+        id: 73,
+        meanScore: 1.0,
+        message: null,
+        type: 'further_discussion' },
+      { affectedUser: 174,
+        id: 74,
+        meanScore: 5.0,
+        message: null,
+        type: 'remove_user' }] }],
     ...data,
   }
 }

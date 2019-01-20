@@ -105,52 +105,43 @@
         />
       </div>
     </QCard>
-    <div
+    <QCard
       v-if="!ongoingOrRecent">
-      <QItem
-        multiline
-        class="clickable"
-        :class="{'greyed': detailIsShown}"
-        @click.native="toggleDetail"
-      >
-        <QItemSide>
-          <ProfilePicture
-            :user="conflict.affectedUser"
-            :size="size"
-          />
-        </QItemSide>
-        <QItemMain>
-          <QItemTile>
-            {{ $t('CONFLICT.VOTE.HISTORY') }}
-          </QItemTile>
-          <QItemTile
-            stamp
-            class="mobile-only text-weight-light"
-          >
-            <DateAsWords :date="conflict.createdAt" />
-          </QItemTile>
-        </QItemMain>
-        <QItemSide
-          class="desktop-only"
-          stamp
-          right
+      <QCardTitle>
+        {{ $t('CONFLICT.VOTE.TIME_UP') }}
+      </QCardTitle>
+      <QCardMain>
+        {{ $t('CONFLICT.VOTE.RESULTS') }}
+        <QList
+          separator
         >
-          <DateAsWords :date="conflict.createdAt" />
-        </QItemSide>
-      </QItem>
-      <Transition name="slide-toggle">
-        <div
-          @click.self="toggleDetail"
-          class="detail-wrapper greyed"
-          style="cursor: pointer"
-          v-if="detailIsShown"
-        >
-          <ConflictResults
-            style="cursor: initial"
-          />
-        </div>
-      </Transition>
-    </div>
+          <QItem>
+            <QItemSide>
+              <QBtn
+                round
+                color="secondary"
+              >
+                <p>1</p>
+              </QBtn>
+            </QItemSide>
+            <QItemMain>
+              {{ $t('CONFLICT.VOTE.OPTION_ONE') }}
+            </QItemMain>
+            <QItemSide
+              icon="far fa-grin"
+            />
+          </QItem>
+        </QList>
+      </QCardMain>
+    </QCard>
+    <QList
+      v-if="conflict.votings > 1"
+    >
+      <ConflictHistoryItem
+        v-for="v in conflict.votings"
+        :key="v.id"
+      />
+    </QList>
   </div>
 </template>
 
@@ -164,18 +155,11 @@ import {
   QBtn,
   QIcon,
   QTooltip,
-  QItem,
-  QItemSide,
-  QItemMain,
-  QItemTile,
 } from 'quasar'
 
 import addDays from 'date-fns/add_days'
 import distanceInWordsStrict from 'date-fns/distance_in_words_strict'
 import differenceInHours from 'date-fns/difference_in_hours'
-import DateAsWords from '@/utils/components/DateAsWords'
-import ConflictResults from './ConflictResults'
-import ProfilePicture from '@/users/components/ProfilePicture'
 
 export default {
   components: {
@@ -187,13 +171,6 @@ export default {
     QBtn,
     QIcon,
     QTooltip,
-    QItem,
-    QItemSide,
-    QItemMain,
-    QItemTile,
-    DateAsWords,
-    ConflictResults,
-    ProfilePicture,
   },
   props: {
     conflict: {
@@ -207,10 +184,6 @@ export default {
     latest: {
       type: Object,
       required: true,
-    },
-    size: {
-      default: 25,
-      type: Number,
     },
   },
   data () {
@@ -259,9 +232,7 @@ export default {
           return 'strongly disagree'
       }
     },
-    toggleDetail (event) {
-      this.detailIsShown = !this.detailIsShown
-    },
+
     test () {
       const difference = distanceInWordsStrict(
         addDays(this.conflict.createdAt, 1),
@@ -280,16 +251,4 @@ export default {
 .showOverlay .content
   opacity 0.3
   filter blur(3px)
-.clickable
-  transition padding .5s ease
-  &:hover
-    cursor pointer
-    background-color rgb(235, 235, 235)
-.clickable.greyed
-  padding 1em 3em 10px 3em
-.greyed
-  background-color rgb(235, 235, 235)
-.detail-wrapper
-  padding: 0 2em
-  padding-bottom 2em
 </style>

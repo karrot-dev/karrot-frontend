@@ -12,36 +12,27 @@ const conversation = factories.makeConversation({
   ],
 })
 const value = null
-const conflicts = [
-  factories.makeConflict(),
+const votings = [
+  factories.makeConflict().votings,
   factories.makeConflict({
     createdAt: '2019-01-02T21:22:54.730980Z',
     isDecided: true,
-  }),
+  }).votings,
   factories.makeConflict({
     createdAt: '2019-01-10T21:22:54.730980Z',
     isDecided: true,
-  }),
+  }).votings,
 ]
 const conflict = factories.makeConflict()
-const history = [
-  factories.makeHistory({
-    typus: 'PICKUP_MISSED',
-  }),
-  factories.makeHistory(),
-  factories.makeHistory(),
-  factories.makeHistory(),
-]
 
 storiesOf('Votes', module)
   .add('conflict', () => defaults({
     render: h => h(ConflictTabs, {
       props: {
-        conflicts,
+        votings,
         conflict,
         conversation,
         value,
-        history,
       },
     }),
   }))

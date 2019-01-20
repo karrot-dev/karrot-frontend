@@ -66,13 +66,33 @@
 </template>
 
 <script>
-import { QInput, QSlider, QBtn, QIcon, QTooltip } from 'quasar'
+import {
+  QInput,
+  QSlider,
+  QBtn,
+  QIcon,
+  QTooltip
+} from 'quasar'
+
 import AmountViewer from './AmountViewer'
 import AmountBox from './AmountBox'
 
 export default {
-  props: { value: { default: null, type: Number } },
-  components: { QInput, QSlider, QBtn, QIcon, QTooltip, AmountViewer, AmountBox },
+  props: {
+    value: {
+      default: null,
+      type: Number
+    }
+  },
+  components: {
+    QInput,
+    QSlider,
+    QBtn,
+    QIcon,
+    QTooltip,
+    AmountViewer,
+    AmountBox,
+  },
   computed: {
     showOverlay () {
       return this.value === null

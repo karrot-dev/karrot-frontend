@@ -16,6 +16,17 @@ const store = factories.makeStore({
   group,
 })
 
+// TODO move this to enrichedFactories
+let issueIdCnt = 0
+const makeIssue = data => {
+  return {
+    id: issueIdCnt++,
+    created_by: factories.makeUser(),
+    affectedUser: factories.makeUser(),
+    ...data,
+  }
+}
+
 const notifications = [
   {
     type: 'user_became_editor',
@@ -135,6 +146,65 @@ const notifications = [
       pickup: factories.makePickup({
         store,
       }),
+    },
+  },
+  {
+    type: 'conflict_resolution_created',
+    context: {
+      group,
+      issue: makeIssue(),
+      affectedUser: factories.makeUser(),
+    },
+  },
+  {
+    type: 'conflict_resolution_created_about_you',
+    context: {
+      group,
+      issue: makeIssue(),
+    },
+  },
+  {
+    type: 'conflict_resolution_continued',
+    context: {
+      group,
+      issue: makeIssue(),
+      affectedUser: factories.makeUser(),
+    },
+  },
+  {
+    type: 'conflict_resolution_continued_about_you',
+    context: {
+      group,
+      issue: makeIssue(),
+    },
+  },
+  {
+    type: 'conflict_resolution_decided',
+    context: {
+      group,
+      issue: makeIssue(),
+      affectedUser: factories.makeUser(),
+    },
+  },
+  {
+    type: 'conflict_resolution_decided_about_you',
+    context: {
+      group,
+      issue: makeIssue(),
+    },
+  },
+  {
+    type: 'conflict_resolution_you_were_removed',
+    context: {
+      group,
+    },
+  },
+  {
+    type: 'voting_ends_soon',
+    expiresAt: addHours(new Date(), 2),
+    context: {
+      group,
+      issue: makeIssue(),
     },
   },
 ].map(factories.makeNotification)

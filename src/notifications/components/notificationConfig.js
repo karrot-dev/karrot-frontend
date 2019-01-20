@@ -28,6 +28,12 @@ function getMessageParams (type, context) {
       return {
         storeName: context.store && context.store.name,
       }
+    case 'conflict_resolution_created':
+    case 'conflict_resolution_continued':
+    case 'conflict_resolution_decided':
+      return {
+        userName: context.affectedUser && context.affectedUser.displayName,
+      }
   }
 
   return commonParams
@@ -40,6 +46,7 @@ function getIcon (type, context) {
       return 'fas fa-check'
     case 'pickup_disabled':
     case 'application_declined':
+    case 'you_were_removed':
       return 'fas fa-times'
     case 'invitation_accepted':
     case 'new_member':
@@ -56,11 +63,19 @@ function getIcon (type, context) {
     case 'you_became_editor':
       return 'fas fa-angle-double-up'
     case 'pickup_moved':
+    case 'voting_ends_soon':
       return 'far fa-clock'
+    case 'conflict_resolution_created':
+    case 'conflict_resolution_created_about_you':
+    case 'conflict_resolution_continued':
+    case 'conflict_resolution_continued_about_you':
+    case 'conflict_resolution_decided':
+    case 'conflict_resolution_decided_about_you':
+      return 'fas fa-bomb'
   }
 }
 
-function getRouteTo (type, { group, user, store, pickup } = {}) {
+function getRouteTo (type, { group, user, store, pickup, issue } = {}) {
   switch (type) {
     case 'user_became_editor':
     case 'invitation_accepted':
@@ -82,6 +97,14 @@ function getRouteTo (type, { group, user, store, pickup } = {}) {
     case 'pickup_enabled':
     case 'pickup_moved':
       return group && store && pickup && { name: 'pickupDetail', params: { groupId: group.id, storeId: store.id, pickupId: pickup.id } }
+    case 'conflict_resolution_created':
+    case 'conflict_resolution_created_about_you':
+    case 'conflict_resolution_continued':
+    case 'conflict_resolution_continued_about_you':
+    case 'conflict_resolution_decided':
+    case 'conflict_resolution_decided_about_you':
+    case 'voting_ends_soon':
+      return group && issue && { name: 'conflictResolution', params: { groupId: group.id, issueId: issue.id } }
   }
 }
 

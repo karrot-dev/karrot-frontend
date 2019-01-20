@@ -113,7 +113,7 @@ export default {
       return this.config.routeTo
     },
     showExpiresAt () {
-      return this.type === 'pickup_upcoming'
+      return this.notification && Boolean(this.notification.expiresAt)
     },
   },
 }

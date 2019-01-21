@@ -1,11 +1,15 @@
 <template>
-  <div class="wrapper row">
+  <TransitionGroup
+    name="imageTransition"
+    tag="div"
+    class="wrapper col"
+  >
     <img
       v-for="(photoSrc, idx) in photosArray"
       :src="photoSrc"
       :key="idx"
     >
-  </div>
+  </TransitionGroup>
 </template>
 
 <script>
@@ -77,8 +81,22 @@ export default {
 <style scoped lang="stylus">
 @import '~variables'
 .wrapper
-  .amount
-    margin-right .6em
+  display flex
+  flex 1
+  min-height 60px
+  overflow-x hidden
   img
+    margin-right: -10px
     height 60px
+
+.imageTransition-enter-active
+  transition: all 1s 1s
+.imageTransition-leave-active
+  transition: all 1s
+.imageTransition-leave-to
+  opacity: 0;
+  transform: translateY(30px)
+.imageTransition-enter
+  opacity: 0;
+  transform: translateX(60px)
 </style>

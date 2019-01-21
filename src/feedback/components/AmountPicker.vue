@@ -18,7 +18,6 @@
           :amount="value"
         />
         <div
-          style="margin-left: .6em"
           class="col"
         >
           <div
@@ -55,7 +54,7 @@
         <!-- don't use type="number" here because browsers might enforce different decimal setting
         depending on browser locale-->
         <QInput
-          style="width: 5em; margin: 0 5px 0 2em; text-align: right"
+          style="width: 3em; margin: 0 5px 0 2em; text-align: right"
           v-model="valueToNumber"
           align="right"
         />
@@ -100,6 +99,8 @@ export default {
 </script>
 
 <style scoped lang="stylus">
+.amount
+  margin-right: 0.6em
 .wrapper
   position relative
 .showOverlay .content

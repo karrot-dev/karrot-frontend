@@ -1,102 +1,101 @@
 <template>
-    <QCard
-      class="wrapper"
-      :class="{showOverlay}">
-      <QBtn
-        v-if="showOverlay"
-        class="absolute-center"
-        style="z-index: 1"
-        color="primary"
-        @click="value = 0"
-        v-t="'CONFLICT.VOTE.VOTING'"
-      />
-      <div>
-        <QCardTitle>
-          {{ $t('CONFLICT.VOTE.HEADLINE', { userName: conflict.affectedUser.displayName }) }}
-        </QCardTitle>
-        <QCardMain>
-          {{ $t('CONFLICT.VOTE.DAYS_LEFT', { count: days }) }}
-          <QProgress
-            :percentage="progress"
-            style="height: 8px"
-            color="secondary"
-          />
-        </QCardMain>
-      </div>
-      <div
-        class="content"
-      >
-        <QBtn
-          class="absolute-right"
-          v-if="!showOverlay"
-          round
-          flat
-          color="red"
-          @click="value = null"
-        >
-          <QIcon name="fas fa-times" />
-          <QTooltip
-            v-t="'CONFLICT.VOTE.DELETE'"
-          />
-        </QBtn>
-        <QCardMain>
-          {{ $t('CONFLICT.VOTE.OPTION_ONE', { userName: conflict.affectedUser.displayName, groupName: conflict.group.displayName }) }}
-          <QSlider
-            v-model="marker1"
-            :label-value="fancylabels(marker1)"
-            :min="-2"
-            :max="2"
-            :step="1"
-            label-always
-            snap
-            markers
-          />
-        </QCardMain>
-        <QCardMain>
-          {{ $t('CONFLICT.VOTE.OPTION_TWO') }}
-          <QSlider
-            v-model="marker2"
-            :label-value="fancylabels(marker2)"
-            :min="-2"
-            :max="2"
-            :step="1"
-            label-always
-            snap
-            markers
-          />
-        </QCardMain>
-        <QCardMain>
-          {{ $t('CONFLICT.VOTE.OPTION_THREE', { userName: conflict.affectedUser.displayName, groupName: conflict.group.displayName }) }}
-          <QSlider
-            v-model="marker3"
-            :label-value="fancylabels(marker3)"
-            :min="-2"
-            :max="2"
-            :step="1"
-            label-always
-            snap
-            markers
-          />
-        </QCardMain>
-        <QCardMain>
-          {{ $t('CONFLICT.VOTE.OPTION_FOUR') }}
-          <QSlider
-            v-model="marker4"
-            :label-value="fancylabels(marker4)"
-            :min="-2"
-            :max="2"
-            :step="1"
-            label-always
-            snap
-            markers
-          />
-        </QCardMain>
-        <QBtn
-          type="submit"
+  <QCard
+    class="wrapper"
+    :class="{showOverlay}">
+    <QBtn
+      v-if="showOverlay"
+      class="absolute-center"
+      style="z-index: 1"
+      color="primary"
+      @click="value = 0"
+      v-t="'CONFLICT.VOTE.VOTING'"
+    />
+    <div>
+      <QCardTitle>
+        {{ $t('CONFLICT.VOTE.HEADLINE', { userName: conflict.affectedUser.displayName }) }}
+      </QCardTitle>
+      <QCardMain>
+        {{ $t('CONFLICT.VOTE.DAYS_LEFT', { count: days }) }}
+        <QProgress
+          :percentage="progress"
+          style="height: 8px"
           color="secondary"
-          v-t="value != null ? 'BUTTON.CREATE' : null"
         />
-      </div>
+      </QCardMain>
+    </div>
+    <div
+      class="content"
+    >
+      <QBtn
+        class="absolute-right"
+        v-if="!showOverlay"
+        round
+        flat
+        color="red"
+        @click="value = null"
+      >
+        <QIcon name="fas fa-times" />
+        <QTooltip
+          v-t="'CONFLICT.VOTE.DELETE'"
+        />
+      </QBtn>
+      <QCardMain>
+        {{ $t('CONFLICT.VOTE.OPTION_ONE', { userName: conflict.affectedUser.displayName, groupName: conflict.group.displayName }) }}
+        <QSlider
+          v-model="marker1"
+          :label-value="fancylabels(marker1)"
+          :min="-2"
+          :max="2"
+          :step="1"
+          label-always
+          snap
+          markers
+        />
+      </QCardMain>
+      <QCardMain>
+        {{ $t('CONFLICT.VOTE.OPTION_TWO') }}
+        <QSlider
+          v-model="marker2"
+          :label-value="fancylabels(marker2)"
+          :min="-2"
+          :max="2"
+          :step="1"
+          label-always
+          snap
+          markers
+        />
+      </QCardMain>
+      <QCardMain>
+        {{ $t('CONFLICT.VOTE.OPTION_THREE', { userName: conflict.affectedUser.displayName, groupName: conflict.group.displayName }) }}
+        <QSlider
+          v-model="marker3"
+          :label-value="fancylabels(marker3)"
+          :min="-2"
+          :max="2"
+          :step="1"
+          label-always
+          snap
+          markers
+        />
+      </QCardMain>
+      <QCardMain>
+        {{ $t('CONFLICT.VOTE.OPTION_FOUR') }}
+        <QSlider
+          v-model="marker4"
+          :label-value="fancylabels(marker4)"
+          :min="-2"
+          :max="2"
+          :step="1"
+          label-always
+          snap
+          markers
+        />
+      </QCardMain>
+      <QBtn
+        type="submit"
+        color="secondary"
+        v-t="value != null ? 'BUTTON.CREATE' : null"
+      />
     </div>
   </QCard>
 </template>

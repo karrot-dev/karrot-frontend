@@ -13,14 +13,14 @@ const conversation = factories.makeConversation({
 })
 const value = null
 
-const conflict = factories.makeConflict()
+const issue = factories.makeIssue()
 const application = factories.makeApplication()
 
 storiesOf('Detail', module)
   .add('conflict', () => defaults({
     render: h => h(DetailUI, {
       props: {
-        conflict,
+        issue,
         conversation,
         value,
       },

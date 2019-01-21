@@ -8,19 +8,19 @@
     >
       <QItemSide>
         <ProfilePicture
-          :user="conflict.affectedUser"
+          :user="issue.affectedUser"
           :size="size"
         />
       </QItemSide>
       <QItemMain>
         <QItemTile>
-          {{ $t('CONFLICT.VOTE.HISTORY') }}
+          {{ $t('ISSUE.VOTING.HISTORY') }}
         </QItemTile>
         <QItemTile
           stamp
           class="mobile-only text-weight-light"
         >
-          <DateAsWords :date="conflict.createdAt" />
+          <DateAsWords :date="issue.createdAt" />
         </QItemTile>
       </QItemMain>
       <QItemSide
@@ -28,7 +28,7 @@
         stamp
         right
       >
-        <DateAsWords :date="conflict.createdAt" />
+        <DateAsWords :date="issue.createdAt" />
       </QItemSide>
     </QItem>
     <Transition name="slide-toggle">
@@ -38,9 +38,9 @@
         style="cursor: pointer"
         v-if="detailIsShown"
       >
-        <ConflictResults
+        <IssueResults
           style="cursor: initial"
-          :conflict="conflict"
+          :issue="issue"
         />
       </div>
     </Transition>
@@ -57,7 +57,7 @@ import {
 
 import DateAsWords from '@/utils/components/DateAsWords'
 import ProfilePicture from '@/users/components/ProfilePicture'
-import ConflictResults from './ConflictResults'
+import IssueResults from './IssueResults'
 
 export default {
   components: {
@@ -67,10 +67,10 @@ export default {
     QItemTile,
     DateAsWords,
     ProfilePicture,
-    ConflictResults,
+    IssueResults,
   },
   props: {
-    conflict: {
+    issue: {
       type: Object,
       default: null,
     },

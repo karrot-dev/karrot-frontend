@@ -26,13 +26,13 @@
               <b>{{ $t('CONFLICT.INITIAL') }}</b>
             </template>
             <div class="q-ma-sm q-pa-sm bg-white">
-              <span class="text-bold text-secondary uppercase">{{ conflict.createdBy.displayName }}</span>
+              <span class="text-bold text-secondary uppercase">{{ issue.createdBy.displayName }}</span>
               <span class="message-date">
                 <small class="text-weight-light">
-                  <DateAsWords :date="conflict.createdAt" />
+                  <DateAsWords :date="issue.createdAt" />
                 </small>
               </span>
-              <Markdown :source="conflict.topic" />
+              <Markdown :source="issue.topic" />
             </div>
           </QCollapsible>
           <ChatConversation
@@ -51,19 +51,19 @@
           />
         </QTabPane>
         <QTabPane name="vote">
-          <ConflictVote
-            v-if="!conflict.isDecided"
-            :conflict="conflict"
+          <IssueVote
+            v-if="!issue.isDecided"
+            :issue="issue"
           />
-          <ConflictResults
-            v-if="conflict.isDecided"
-            :conflict="conflict"
+          <IssueResults
+            v-if="issue.isDecided"
+            :issue="issue"
           />
           <QList>
-            <ConflictHistoryItem
-              v-for="v in conflict.votings"
+            <IssueHistoryItem
+              v-for="v in issue.votings"
               :key="v.id"
-              :conflict="conflict"
+              :issue="issue"
             />
           </QList>
         </QTabPane>
@@ -73,9 +73,9 @@
 </template>
 
 <script>
-import ConflictVote from '@/votes/components/ConflictVote'
-import ConflictResults from '@/votes/components/ConflictResults'
-import ConflictHistoryItem from '@/votes/components/ConflictHistoryItem'
+import IssueVote from '@/issues/components/IssueVote'
+import IssueResults from '@/issues/components/IssueResults'
+import IssueHistoryItem from '@/issues/components/IssueHistoryItem'
 import ChatConversation from '@/messages/components/ChatConversation'
 import Markdown from '@/utils/components/Markdown'
 import DateAsWords from '@/utils/components/DateAsWords'
@@ -92,9 +92,9 @@ import {
 export default {
   components: {
     ChatConversation,
-    ConflictVote,
-    ConflictResults,
-    ConflictHistoryItem,
+    IssueVote,
+    IssueResults,
+    IssueHistoryItem,
     QLayout,
     QLayoutHeader,
     QTabs,
@@ -105,7 +105,7 @@ export default {
     DateAsWords,
   },
   props: {
-    conflict: {
+    issue: {
       type: Object,
       default: null,
     },

@@ -2,7 +2,7 @@ import { storiesOf } from '@storybook/vue'
 import { storybookDefaults as defaults } from '>/helpers'
 import * as factories from '>/enrichedFactories'
 
-import ConflictTabs from './ConflictTabs'
+import IssueTabs from './IssueTabs'
 
 const conversation = factories.makeConversation({
   participants: [
@@ -12,13 +12,13 @@ const conversation = factories.makeConversation({
   ],
 })
 const value = null
-const conflict = factories.makeConflict()
+const issue = factories.makeIssue()
 
 storiesOf('Votes', module)
   .add('conflict', () => defaults({
-    render: h => h(ConflictTabs, {
+    render: h => h(IssueTabs, {
       props: {
-        conflict,
+        issue,
         conversation,
         value,
       },

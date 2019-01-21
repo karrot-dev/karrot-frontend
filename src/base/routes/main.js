@@ -483,8 +483,8 @@ export default [
     },
   },
   {
-    name: 'conflictDetail',
-    path: '/user/:userId/conflict/:conflictId',
+    name: 'issueDetail',
+    path: '/user/:userId/issue/:issueId',
     meta: {
       requiredLoggedIn: true,
       breadcrumbs: [

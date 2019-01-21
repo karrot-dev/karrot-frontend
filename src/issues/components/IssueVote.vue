@@ -8,14 +8,14 @@
       style="z-index: 1"
       color="primary"
       @click="value = 0"
-      v-t="'CONFLICT.VOTE.VOTING'"
+      v-t="'ISSUE.VOTING.BTN_START'"
     />
     <div>
       <QCardTitle>
-        {{ $t('CONFLICT.VOTE.HEADLINE', { userName: conflict.affectedUser.displayName }) }}
+        {{ $t('CONFLICT.VOTING.HEADLINE', { userName: issue.affectedUser.displayName }) }}
       </QCardTitle>
       <QCardMain>
-        {{ $t('CONFLICT.VOTE.DAYS_LEFT', { count: days }) }}
+        {{ $t('ISSUE.VOTING.DAYS_LEFT', { count: days }) }}
         <QProgress
           :percentage="progress"
           style="height: 8px"
@@ -36,11 +36,11 @@
       >
         <QIcon name="fas fa-times" />
         <QTooltip
-          v-t="'CONFLICT.VOTE.DELETE'"
+          v-t="'ISSUE.VOTING.BTN_DELETE'"
         />
       </QBtn>
       <QCardMain>
-        {{ $t('CONFLICT.VOTE.OPTION_ONE', { userName: conflict.affectedUser.displayName, groupName: conflict.group.displayName }) }}
+        {{ $t('CONFLICT.VOTING.OPTION_ONE', { userName: issue.affectedUser.displayName, groupName: issue.group.displayName }) }}
         <QSlider
           v-model="marker1"
           :label-value="fancylabels(marker1)"
@@ -53,7 +53,7 @@
         />
       </QCardMain>
       <QCardMain>
-        {{ $t('CONFLICT.VOTE.OPTION_TWO') }}
+        {{ $t('CONFLICT.VOTING.OPTION_TWO') }}
         <QSlider
           v-model="marker2"
           :label-value="fancylabels(marker2)"
@@ -66,7 +66,7 @@
         />
       </QCardMain>
       <QCardMain>
-        {{ $t('CONFLICT.VOTE.OPTION_THREE', { userName: conflict.affectedUser.displayName, groupName: conflict.group.displayName }) }}
+        {{ $t('CONFLICT.VOTING.OPTION_THREE', { userName: issue.affectedUser.displayName, groupName: issue.group.displayName }) }}
         <QSlider
           v-model="marker3"
           :label-value="fancylabels(marker3)"
@@ -79,7 +79,7 @@
         />
       </QCardMain>
       <QCardMain>
-        {{ $t('CONFLICT.VOTE.OPTION_FOUR') }}
+        {{ $t('CONFLICT.VOTING.OPTION_FOUR') }}
         <QSlider
           v-model="marker4"
           :label-value="fancylabels(marker4)"
@@ -128,7 +128,7 @@ export default {
     QTooltip,
   },
   props: {
-    conflict: {
+    issue: {
       type: Object,
       required: true,
     },
@@ -147,10 +147,10 @@ export default {
   },
   computed: {
     days () {
-      return distanceInWordsStrict(addDays(this.conflict.createdAt, 7), new Date())
+      return distanceInWordsStrict(addDays(this.issue.createdAt, 7), new Date())
     },
     progress () {
-      return differenceInHours(new Date(), this.conflict.createdAt) / 168 * 100
+      return differenceInHours(new Date(), this.issue.createdAt) / 168 * 100
     },
     showOverlay () {
       return this.value === null
@@ -174,7 +174,7 @@ export default {
 
     test () {
       const difference = distanceInWordsStrict(
-        addDays(this.conflict.createdAt, 1),
+        addDays(this.issue.createdAt, 1),
         new Date(),
       )
       console.log(difference)

@@ -1,7 +1,7 @@
 <template>
   <QCard>
     <QCardTitle>
-      {{ $t('CONFLICT.VOTE.TIME_UP') }}
+      {{ $t('ISSUE.VOTING.TIME_UP') }}
     </QCardTitle>
     <QCardMain>
       <div class="row no-wrap">
@@ -9,14 +9,14 @@
           class="q-mr-sm"
           style="white-space: nowrap"
         >
-          {{ $d(conflict.votings.expiresAt, 'long') }}
+          {{ $d(issue.votings.expiresAt, 'long') }}
         </strong>
       </div>
       <div class="row">
         <small class="text-weight-light">
           <span>
-            {{ $t('CONFLICT.VOTE.INITIATED_BY', { initiatorName: conflict.createdBy.displayName }) }}
-            <DateAsWords :date="conflict.createdAt" />
+            {{ $t('ISSUE.VOTING.INITIATED_BY', { initiatorName: issue.createdBy.displayName }) }}
+            <DateAsWords :date="issue.createdAt" />
           </span>
         </small>
       </div>
@@ -102,14 +102,14 @@ export default {
     DateAsWords,
   },
   props: {
-    conflict: {
+    issue: {
       type: Object,
       required: true,
     },
   },
   computed: {
     sortedArray () {
-      return this.conflict.votings[0].options.slice().sort(function (a, b) {
+      return this.issue.votings[0].options.slice().sort(function (a, b) {
         return b.sumScore - a.sumScore
       })
     },
@@ -118,13 +118,13 @@ export default {
     displayOutcomes (index) {
       switch (this.sortedArray[index].type) {
         case 'furtherDiscussion':
-          return this.$t('CONFLICT.VOTE.OPTION_FOUR')
+          return this.$t('CONFLICT.VOTING.OPTION_FOUR')
         case 'removeUser':
-          return this.$t('CONFLICT.VOTE.OPTION_THREE', { userName: this.conflict.affectedUser.displayName, groupName: this.conflict.group.displayName })
+          return this.$t('CONFLICT.VOTING.OPTION_THREE', { userName: this.issue.affectedUser.displayName, groupName: this.issue.group.displayName })
         case 'offlineMediation':
-          return this.$t('CONFLICT.VOTE.OPTION_TWO')
+          return this.$t('CONFLICT.VOTING.OPTION_TWO')
         case 'noChange':
-          return this.$t('CONFLICT.VOTE.OPTION_ONE', { userName: this.conflict.affectedUser.displayName, groupName: this.conflict.group.displayName })
+          return this.$t('CONFLICT.VOTING.OPTION_ONE', { userName: this.issue.affectedUser.displayName, groupName: this.issue.group.displayName })
       }
     },
   },

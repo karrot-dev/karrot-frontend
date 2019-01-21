@@ -236,10 +236,10 @@ export const makeVoting = data => {
   }
 }
 
-let conflictIdCnt = 0
-export const makeConflict = data => {
+let issueIdCnt = 0
+export const makeIssue = data => {
   return {
-    id: conflictIdCnt++,
+    id: issueIdCnt++,
     createdAt: subHours(new Date(), 26),
     topic: 'I complain about this user',
     type: 'conflictResolution',

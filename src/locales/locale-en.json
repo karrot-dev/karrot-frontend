@@ -547,15 +547,19 @@
     "STEPPER3": "This process will start an open chat and a vote. Every message in the chat will be visible for every editor in the group - including the ppp! The voting will last for 7 days during which all voters will still be able to change their minds and vote differently as many times as they want.",
     "STEPPER4": "Please make an initial statement for the open group chat! Tell your group why you think this process is justified and needed.",
     "INITIAL": "Initial statement",
-    "VOTE": {
-      "DAYS_LEFT": "{count} left to vote",
+    "VOTING": {
       "HEADLINE": "How do you want to proceed with the ongoing conflict with {userName}?",
       "OPTION_ONE": "{userName} stays in {groupName}",
-      "OPTION_TWO": "We organise offline mediation",
-      "OPTION_THREE": "{userName} get removed from {groupName}",
-      "OPTION_FOUR": "Extend the vote to keep discussing",
-      "VOTING": "Vote now",
-      "DELETE": "Delete vote",
+      "OPTION_TWO": "We organize offline mediation",
+      "OPTION_THREE": "{userName} gets removed from {groupName}",
+      "OPTION_FOUR": "Extend the time to keep discussing"
+    }
+  },
+  "ISSUE": {
+    "VOTING": {
+      "DAYS_LEFT": "{count} left to vote",
+      "BTN_START": "Vote now",
+      "BTN_DELETE": "Delete vote",
       "HISTORY": "Your group voted to keep discussing",
       "TIME_UP": "Time is up!",
       "INITIATED_BY": "Initiated by {initiatorName}"

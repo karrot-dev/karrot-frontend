@@ -7,7 +7,7 @@
       class="absolute-center"
       style="z-index: 1"
       color="primary"
-      @click="value = 0"
+      @click="setToZero"
       v-t="'ISSUE.VOTING.BTN_START'"
     />
     <div>
@@ -32,7 +32,7 @@
         round
         flat
         color="red"
-        @click="value = null"
+        @click="setToNull"
       >
         <QIcon name="fas fa-times" />
         <QTooltip
@@ -94,7 +94,7 @@
       <QBtn
         type="submit"
         color="secondary"
-        v-t="value != null ? 'BUTTON.CREATE' : null"
+        v-t="'BUTTON.CREATE'"
       />
     </div>
   </QCard>
@@ -132,10 +132,6 @@ export default {
       type: Object,
       required: true,
     },
-    value: {
-      type: Number,
-      default: null,
-    },
   },
   data () {
     return {
@@ -152,8 +148,9 @@ export default {
     progress () {
       return differenceInHours(new Date(), this.issue.createdAt) / 168 * 100
     },
+
     showOverlay () {
-      return this.value === null
+      return (this.marker1 && this.marker2 && this.marker3 && this.marker4) === null
     },
   },
   methods: {
@@ -171,7 +168,18 @@ export default {
           return 'strongly disagree'
       }
     },
-
+    setToNull () {
+      this.marker1 = null
+      this.marker2 = null
+      this.marker3 = null
+      this.marker4 = null
+    },
+    setToZero () {
+      this.marker1 = 0
+      this.marker2 = 0
+      this.marker3 = 0
+      this.marker4 = 0
+    },
     test () {
       const difference = distanceInWordsStrict(
         addDays(this.issue.createdAt, 1),

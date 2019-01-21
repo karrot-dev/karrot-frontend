@@ -246,7 +246,7 @@ export const makeConflict = data => {
     createdBy: makeUser(),
     affectedUser: makeUser(),
     group: makeGroup(),
-    isDecided: true,
+    isDecided: false,
     votings: [
       makeVoting({
         expiresAt: '2019-01-24T21:22:54.730980Z',

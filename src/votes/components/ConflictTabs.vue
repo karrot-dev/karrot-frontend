@@ -50,11 +50,22 @@
             @fetchFuture="$emit('fetchFuture')"
           />
         </QTabPane>
-
         <QTabPane name="vote">
           <ConflictVote
+            v-if="!conflict.isDecided"
             :conflict="conflict"
           />
+          <ConflictResults
+            v-if="conflict.isDecided"
+            :conflict="conflict"
+          />
+          <QList>
+            <ConflictHistoryItem
+              v-for="v in conflict.votings"
+              :key="v.id"
+              :conflict="conflict"
+            />
+          </QList>
         </QTabPane>
       </QTabs>
     </QLayoutHeader>
@@ -63,6 +74,8 @@
 
 <script>
 import ConflictVote from '@/votes/components/ConflictVote'
+import ConflictResults from '@/votes/components/ConflictResults'
+import ConflictHistoryItem from '@/votes/components/ConflictHistoryItem'
 import ChatConversation from '@/messages/components/ChatConversation'
 import Markdown from '@/utils/components/Markdown'
 import DateAsWords from '@/utils/components/DateAsWords'
@@ -80,6 +93,8 @@ export default {
   components: {
     ChatConversation,
     ConflictVote,
+    ConflictResults,
+    ConflictHistoryItem,
     QLayout,
     QLayoutHeader,
     QTabs,

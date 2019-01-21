@@ -548,7 +548,7 @@
     "STEPPER4": "Please make an initial statement for the open group chat! Tell your group why you think this process is justified and needed.",
     "INITIAL": "Initial statement",
     "VOTE": {
-      "DAYS_LEFT": "{count} days left to vote",
+      "DAYS_LEFT": "{count} left to vote",
       "HEADLINE": "How do you want to proceed with the ongoing conflict with {userName}?",
       "OPTION_ONE": "{userName} stays in {groupName}",
       "OPTION_TWO": "We organise offline mediation",

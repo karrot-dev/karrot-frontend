@@ -1,7 +1,5 @@
 <template>
-  <div>
     <QCard
-      v-if="!conflict.isDecided"
       class="wrapper"
       :class="{showOverlay}">
       <QBtn
@@ -22,11 +20,6 @@
             :percentage="progress"
             style="height: 8px"
             color="secondary"
-          />
-          <QBtn
-            label="test"
-            type="button"
-            @click="test"
           />
         </QCardMain>
       </div>
@@ -104,21 +97,8 @@
           v-t="value != null ? 'BUTTON.CREATE' : null"
         />
       </div>
-    </QCard>
-    <div
-      v-if="conflict.isDecided">
-      <ConflictResults
-        :conflict="conflict"
-      />
     </div>
-    <QList>
-      <ConflictHistoryItem
-        v-for="v in conflict.votings"
-        :key="v.id"
-        :conflict="conflict"
-      />
-    </QList>
-  </div>
+  </QCard>
 </template>
 
 <script>
@@ -131,14 +111,11 @@ import {
   QBtn,
   QIcon,
   QTooltip,
-  QList,
 } from 'quasar'
 
 import addDays from 'date-fns/add_days'
 import distanceInWordsStrict from 'date-fns/distance_in_words_strict'
 import differenceInHours from 'date-fns/difference_in_hours'
-import ConflictHistoryItem from './ConflictHistoryItem'
-import ConflictResults from './ConflictResults'
 
 export default {
   components: {
@@ -150,9 +127,6 @@ export default {
     QBtn,
     QIcon,
     QTooltip,
-    ConflictHistoryItem,
-    ConflictResults,
-    QList,
   },
   props: {
     conflict: {

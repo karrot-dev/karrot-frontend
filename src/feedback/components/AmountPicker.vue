@@ -71,7 +71,7 @@ import {
   QSlider,
   QBtn,
   QIcon,
-  QTooltip
+  QTooltip,
 } from 'quasar'
 
 import AmountViewer from './AmountViewer'
@@ -81,8 +81,8 @@ export default {
   props: {
     value: {
       default: null,
-      type: Number
-    }
+      type: Number,
+    },
   },
   components: {
     QInput,

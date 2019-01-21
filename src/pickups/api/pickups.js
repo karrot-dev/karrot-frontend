@@ -62,22 +62,28 @@ export function convert (val) {
     return val.map(convert)
   }
   else {
-    return {
-      ...val,
-      feedbackDue: new Date(val.feedbackDue),
-      ...(val.date ? {
-        date: new Date(val.date[0]),
-        dateEnd: new Date(val.date[1]),
-      } : {}),
+    const result = { ...val }
+
+    if (val.feedbackDue) {
+      result.feedbackDue = new Date(val.feedbackDue)
     }
+
+    if (val.date) {
+      result.date = new Date(val.date[0])
+      result.dateEnd = new Date(val.date[1])
+    }
+
+    return result
   }
 }
 
-function convertDateToRange (pickup) {
-  return {
-    ...pickup,
-    ...(pickup.date ? {
-      date: [pickup.date],
-    } : {}),
+export function convertDateToRange (pickup) {
+  const result = { ...pickup }
+  if (pickup.date) {
+    result.date = [pickup.date]
+    if (pickup.dateEnd) {
+      result.date.push(pickup.dateEnd)
+    }
   }
+  return result
 }

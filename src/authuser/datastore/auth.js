@@ -51,7 +51,7 @@ export default {
 
         state.muteConversationAfterLogin.forEach(conversationId => {
           try {
-            dispatch('conversations/maybeToggleEmailNotifications', {
+            dispatch('conversations/maybeSetMuted', {
               conversationId,
               value: false,
             }, { root: true })

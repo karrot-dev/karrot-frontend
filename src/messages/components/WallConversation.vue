@@ -8,7 +8,7 @@
       >
         <template v-if="hasLoaded">
           <NotificationToggle
-            :value="data.emailNotifications"
+            :value="!data.muted"
             :user="user"
             class="actionButton hoverScale"
             @click="toggleNotifications"
@@ -110,9 +110,9 @@ export default {
       done()
     },
     toggleNotifications () {
-      this.$emit('toggleEmailNotifications', {
+      this.$emit('setMuted', {
         conversationId: this.data.id,
-        value: !this.data.emailNotifications,
+        value: !this.data.muted,
       })
     },
   },

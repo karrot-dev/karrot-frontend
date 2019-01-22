@@ -19,7 +19,7 @@ export default connect({
     send: 'conversations/send',
     saveMessage: 'conversations/saveMessage',
     markAllRead: 'conversations/markAllRead',
-    toggleEmailNotifications: 'conversations/maybeToggleEmailNotifications',
+    setMuted: 'conversations/maybeSetMuted',
     toggleReaction: 'conversations/toggleReaction',
   },
   actionsToProps: {

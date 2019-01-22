@@ -5964,9 +5964,9 @@ exports[`Storyshots WallConversation WallConversation 1`] = `
 <div>
   <div class="q-infinite-scroll">
     <div class="q-infinite-scroll-content">
-      <div class="q-list bg-white desktop-margin relative-position"><button tabindex="0" type="button" class="q-btn inline relative-position q-btn-item non-selectable actionButton hoverScale q-btn-round q-focusable q-hoverable bg-negative text-white">
+      <div class="q-list bg-white desktop-margin relative-position"><button tabindex="0" type="button" class="q-btn inline relative-position q-btn-item non-selectable actionButton hoverScale q-btn-round q-focusable q-hoverable bg-secondary text-white">
           <div class="q-focus-helper"></div>
-          <div class="q-btn-inner row col items-center q-popup--skip justify-center"><i aria-hidden="true" class="q-icon fas fa-bell-slash"> </i>
+          <div class="q-btn-inner row col items-center q-popup--skip justify-center"><i aria-hidden="true" class="q-icon fas fa-bell"> </i>
             <div class="q-tooltip animate-popup">
               <div></div>
             </div>

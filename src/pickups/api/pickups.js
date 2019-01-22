@@ -6,7 +6,7 @@ import subMinutes from 'date-fns/sub_minutes'
 export default {
 
   async create (pickup) {
-    return convert((await axios.post('/api/pickup-dates/', pickup)).data)
+    return convert((await axios.post('/api/pickup-dates/', convertDateToRange(pickup))).data)
   },
 
   async get (pickupId) {
@@ -40,7 +40,7 @@ export default {
   },
 
   async save (pickup) {
-    return convert((await axios.patch(`/api/pickup-dates/${pickup.id}/`, pickup)).data)
+    return convert((await axios.patch(`/api/pickup-dates/${pickup.id}/`, convertDateToRange(pickup))).data)
   },
 
   async join (pickupId) {
@@ -62,10 +62,28 @@ export function convert (val) {
     return val.map(convert)
   }
   else {
-    return {
-      ...val,
-      date: new Date(val.date),
-      feedbackDue: new Date(val.feedbackDue),
+    const result = { ...val }
+
+    if (val.feedbackDue) {
+      result.feedbackDue = new Date(val.feedbackDue)
+    }
+
+    if (val.date) {
+      result.date = new Date(val.date[0])
+      result.dateEnd = new Date(val.date[1])
+    }
+
+    return result
+  }
+}
+
+export function convertDateToRange (pickup) {
+  const result = { ...pickup }
+  if (pickup.date) {
+    result.date = [pickup.date]
+    if (pickup.dateEnd) {
+      result.date.push(pickup.dateEnd)
     }
   }
+  return result
 }

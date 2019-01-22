@@ -34,7 +34,7 @@ export default {
     },
     allUnreadMuted: (state, getters) => {
       return (
-        getters.unread.conversations.filter(c => c.emailNotifications).length +
+        getters.unread.conversations.filter(c => !c.muted).length +
         getters.unread.threads.filter(t => !t.muted).length
       ) === 0
     },

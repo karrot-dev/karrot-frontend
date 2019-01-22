@@ -166,8 +166,8 @@ export default {
       if (this.conversation.thread && this.conversation.threadMeta) {
         return !this.conversation.threadMeta.muted
       }
-      if (typeof this.conversation.emailNotifications !== 'undefined') {
-        return this.conversation.emailNotifications
+      if (typeof this.conversation.muted !== 'undefined') {
+        return !this.conversation.muted
       }
       return null
     },
@@ -202,16 +202,16 @@ export default {
   },
   methods: {
     toggleNotifications () {
-      const data = this.conversation.thread
+      const data = (this.conversation.thread && this.conversation.threadMeta)
         ? {
           threadId: this.conversation.thread,
-          value: !this.notifications,
+          value: this.notifications,
         }
         : {
           conversationId: this.conversation.id,
-          value: !this.notifications,
+          value: this.notifications,
         }
-      this.$emit('toggleEmailNotifications', data)
+      this.$emit('setMuted', data)
     },
     applicationInfo () {
       Dialog.create({

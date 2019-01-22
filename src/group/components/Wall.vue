@@ -32,7 +32,7 @@
       @send="$emit('send', arguments[0])"
       @saveMessage="$emit('saveMessage', arguments[0])"
       @markAllRead="$emit('markAllRead', arguments[0])"
-      @toggleEmailNotifications="$emit('toggleEmailNotifications', arguments[0])"
+      @setMuted="$emit('setMuted', arguments[0])"
       @toggleReaction="$emit('toggleReaction', arguments[0])"
       @openThread="$emit('openThread', arguments[0])"
     />

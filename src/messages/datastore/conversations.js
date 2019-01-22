@@ -222,13 +222,13 @@ export default {
       },
 
       async mark ({ dispatch }, { id, seenUpTo }) {
-        await conversationsAPI.mark(id, { seenUpTo })
+        await conversationsAPI.mark(id, seenUpTo)
       },
 
-      async toggleEmailNotifications ({ state, commit }, { id, value }) {
-        await conversationsAPI.toggleEmailNotifications(id, value)
+      async setMuted ({ state, commit }, { id, value }) {
+        await conversationsAPI.setMuted(id, value)
         if (state.entries[id]) {
-          commit('updateEmailNotifications', { conversationId: id, value })
+          commit('setMuted', { conversationId: id, value })
         }
       },
     }),
@@ -311,15 +311,15 @@ export default {
       if (conversationId) commit('clearMessages', conversationId)
     },
 
-    async maybeToggleEmailNotifications ({ state, getters, dispatch }, { conversationId, threadId, value }) {
+    async maybeSetMuted ({ state, getters, dispatch }, { conversationId, threadId, value }) {
       if (threadId) {
-        dispatch('currentThread/maybeSetMuted', { threadId, value: !value }, { root: true })
+        dispatch('currentThread/maybeSetMuted', { threadId, value }, { root: true })
         return
       }
-      const pending = getters['meta/status']('toggleEmailNotifications', conversationId).pending
-      const prevent = state.entries[conversationId] && state.entries[conversationId].emailNotifications === value
+      const pending = getters['meta/status']('setMuted', conversationId).pending
+      const prevent = state.entries[conversationId] && state.entries[conversationId].muted === value
       if (!pending && !prevent) {
-        await dispatch('toggleEmailNotifications', { id: conversationId, value })
+        await dispatch('setMuted', { id: conversationId, value })
       }
     },
 
@@ -426,8 +426,8 @@ export default {
     setConversation (state, conversation) {
       Vue.set(state.entries, conversation.id, conversation)
     },
-    updateEmailNotifications (state, { conversationId, value }) {
-      state.entries[conversationId].emailNotifications = value
+    setMuted (state, { conversationId, value }) {
+      state.entries[conversationId].muted = value
     },
     addReaction (state, { userId, name, messageId, conversationId }) {
       if (!state.messages[conversationId]) return

@@ -3,7 +3,7 @@ export default datastore => {
     if (muteConversation) {
       const isLoggedIn = datastore.getters['auth/isLoggedIn']
       if (isLoggedIn) {
-        datastore.dispatch('conversations/maybeToggleEmailNotifications', {
+        datastore.dispatch('conversations/maybeSetMuted', {
           conversationId: muteConversation,
           value: false,
         })

@@ -26,7 +26,7 @@
           :application="conv.type === 'application' ? conv.target : null"
           :message="conv.latestMessage"
           :unread-count="conv.unreadMessageCount"
-          :muted="!conv.emailNotifications"
+          :muted="conv.muted"
           :selected="isSelected(conv)"
           @open="open(conv)"
         />

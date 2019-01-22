@@ -58,7 +58,7 @@
         <QBtn
           flat
           color="secondary"
-          @click="cancel"
+          @click="$emit('cancel', $route.params.userId)"
         >
           {{ $t('BUTTON.CANCEL') }}
         </QBtn>
@@ -82,7 +82,7 @@
           v-if="setup == 'statement'"
           flat
           color="secondary"
-          @click="startConflict"
+          @click="$emit('startConflictResolution')"
         >
           {{ $t('BUTTON.SUBMIT') }}
         </QBtn>
@@ -119,15 +119,6 @@ export default {
       setup: 'thanks',
       initialStatement: '',
     }
-  },
-  methods: {
-    startConflict () {
-      console.log('let\'s get serious!', this.$route.params.groupId, this.initialStatement)
-      this.$emit('startConflictResolution', { userId: this.$route.params.userId, groupId: this.$route.params.groupId, conflictId: this.case.id })
-    },
-    cancel () {
-      this.$emit('cancel', this.$route.params.userId)
-    },
   },
 }
 </script>

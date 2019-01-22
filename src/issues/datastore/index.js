@@ -1,7 +1,7 @@
-import conflictResolution from '@/issues/datastore/conflictResolution'
+import issues from '@/datastore/issues'
 
 export default {
   modules: {
-    conflictResolution,
+    issues
   },
 }

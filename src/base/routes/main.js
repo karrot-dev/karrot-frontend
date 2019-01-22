@@ -30,6 +30,7 @@ const User = () => import('@/users/pages/Profile')
 const PickupFeedback = () => import('@/feedback/pages/GiveFeedback')
 const Detail = () => import('@/messages/components/Detail')
 const DetailHeader = () => import('@/messages/components/DetailHeader')
+const IssueTabs = () => import('@/issues/pages/IssueTabs')
 
 export default [
   {
@@ -483,22 +484,17 @@ export default [
     },
   },
   {
-    name: 'issueDetail',
-    path: '/user/:userId/issue/:issueId',
+    name: 'issueTabs',
+    path: '/group/:groupId/issue/:issueId',
     meta: {
       requiredLoggedIn: true,
       breadcrumbs: [
         { type: 'currentGroup' },
         { type: 'activeUser' },
       ],
-      beforeEnter: 'detail/routeEnter',
-      afterLeave: 'detail/routeLeave',
     },
-    // On desktop will get redirected inside "detail/routeEnter" action
     components: {
-      default: Detail,
-      subheader: DetailHeader,
-      sidenav: Sidenav,
+      default: IssueTabs,
     },
   },
 ]

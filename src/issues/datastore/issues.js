@@ -1,18 +1,20 @@
+import router from '@/base/router'
+import { withMeta } from '@/utils/datastore/helpers'
+
 function initialState () {
   return {
     entries: {
-      1: {
-        'id': 1,
-        'createdAt': '2019-01-15T11:13:17.828Z',
-        'group': 13,
-        'affectedUser': 4,
-        'createdBy': 1,
-        'topic': 'He is so unreliable and I cannot stand him!',
-      },
+      'id': 1,
+      'createdAt': '2019-01-15T11:13:17.828Z',
+      'group': 13,
+      'affectedUser': 4,
+      'createdBy': 1,
+      'topic': 'He is so unreliable and I cannot stand him!',
     },
   }
 }
 export default {
+  namespaced: true,
   state: initialState(),
   getters: {
     get: (state, getters) => issueId => {
@@ -25,11 +27,16 @@ export default {
         group: rootGetters['groups/get'](issue.group),
         createdBy: rootGetters['users/get'](issue.createdBy),
       }
-    }
+    },
   },
   actions: {
-    createIssue (data) {
-      router.push({ name: 'issueTabs', params: { groupId: data.group.id, issueId: data.id } })
-    }
-  }
+    ...withMeta({
+      createIssue (state) {
+        router.push({ name: 'issueTabs', params: { groupId: state.entries.group.id, issueId: state.entries.id } })
+      },
+      test (state) {
+        console.log(state.entries)
+      },
+    }),
+  },
 }

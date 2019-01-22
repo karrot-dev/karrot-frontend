@@ -1,7 +1,7 @@
-import issues from '@/datastore/issues'
+import issues from './issues'
 
 export default {
   modules: {
-    issues
+    issues,
   },
 }

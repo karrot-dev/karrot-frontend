@@ -22,6 +22,7 @@ import subscriptions from '@/subscriptions/datastore'
 import topbar from '@/topbar/datastore'
 import users from '@/users/datastore'
 import utils from '@/utils/datastore'
+import issues from '@/issues/datastore'
 
 // alphabetical
 const appModules = [
@@ -45,6 +46,7 @@ const appModules = [
   topbar,
   users,
   utils,
+  issues,
 ]
 
 Vue.use(Vuex)

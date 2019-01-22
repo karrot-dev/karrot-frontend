@@ -7,7 +7,6 @@ export default connect({
     user: 'detail/user',
     pickup: 'detail/pickup',
     application: 'detail/application',
-    conflict: 'detail/conflictResolution',
     conversation: 'detail/conversation',
     away: 'presence/toggle/away',
     currentUser: 'auth/user',

@@ -45,11 +45,6 @@ export default {
       if (type !== 'application') return
       return rootGetters['groupApplications/get'](id)
     },
-    conflictResolution: (state, getters, rootState, rootGetters) => {
-      const { type, id } = state.scope
-      if (type !== 'conflictResolution') return
-      return rootGetters['conflictResolution/get'](id)
-    },
     conversation: (state, getters, rootState, rootGetters) => {
       const { type, id } = state.scope
       if (type === 'pickup') {

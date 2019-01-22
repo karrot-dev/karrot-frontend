@@ -1,25 +1,38 @@
 <template>
   <div v-if="group">
     <QCard class="shadow-6">
-      <QCardTitle
-        :class="group.isPlayground ? 'text-secondary' : ''"
+      <QCardMedia
+        class="photo"
+        :class="{ hasPhoto: group.hasPhoto }"
       >
-        <span class="row group items-start">
-          {{ group.name }}
-          <QIcon
-            v-if="group.isPlayground"
-            name="fas fa-child"
-            color="secondary"
-          />
-        </span>
-        <span slot="subtitle">
-          {{ group.members.length }} {{ $tc('JOINGROUP.NUM_MEMBERS', group.members.length) }}
-        </span>
-      </QCardTitle>
+        <img
+          v-if="group.hasPhoto"
+          :src="group.photoUrls.fullSize"
+        >
+        <RandomArt
+          v-else
+          :seed="group.id"
+          type="circles"
+          class="full-height"
+        />
+        <QCardTitle
+          slot="overlay"
+        >
+          <span class="row group items-start">
+            {{ group.name }}
+            <QIcon
+              v-if="group.isPlayground"
+              name="fas fa-child"
+            />
+          </span>
+          <span slot="subtitle">
+            {{ group.members.length }} {{ $tc('JOINGROUP.NUM_MEMBERS', group.members.length) }}
+          </span>
+        </QCardTitle>
+      </QCardMedia>
       <QCardMain>
         <div
           v-if="group.publicDescription"
-          class="quote"
         >
           <Markdown :source="group.publicDescription" />
         </div>
@@ -119,12 +132,14 @@ import {
   QCardMain,
   QCardSeparator,
   QCardActions,
+  QCardMedia,
   QBtn,
   QIcon,
   QAlert,
 } from 'quasar'
 import Markdown from '@/utils/components/Markdown'
 import statusMixin from '@/utils/mixins/statusMixin'
+import RandomArt from '@/utils/components/RandomArt'
 
 export default {
   props: {
@@ -151,11 +166,13 @@ export default {
     QCardMain,
     QCardSeparator,
     QCardActions,
+    QCardMedia,
     QBtn,
     QIcon,
     QTooltip,
     QAlert,
     Markdown,
+    RandomArt,
   },
   computed: {
     status () {
@@ -181,4 +198,14 @@ export default {
 <style scoped lang="stylus">
 .q-card *
   overflow: hidden
+.photo
+  &.hasPhoto
+    height 200px
+  &:not(.hasPhoto)
+    height 140px
+  img
+    max-height 100%
+    max-width 100%
+    width auto
+    margin 0 auto
 </style>

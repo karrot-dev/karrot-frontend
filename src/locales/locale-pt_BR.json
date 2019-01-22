@@ -7,6 +7,7 @@
     "SERVER_ERROR": "Erro no servidor",
     "NOT_CONNECTED": "You aren't connected to the server",
     "INVALID_LINK": "Desculpe, o link que você abriu é inválido.",
+    "GENERIC_ERROR": "Sorry, something went wrong",
     "SEARCH_NOT_FOUND": "Não encontrado"
   },
   "USERDATA": {
@@ -89,7 +90,8 @@
     "WITHDRAW": "Withdraw",
     "SHOW_MORE": "Show more",
     "ENABLE": "Enable",
-    "DISABLE": "Disable"
+    "DISABLE": "Disable",
+    "UNSUBSCRIBE": "Unsubscribe"
   },
   "VALIDATION": {
     "MINLENGTH": "Por favor entre com mais de {min} caracteres.",
@@ -113,6 +115,8 @@
     "PRIVATE_DESCRIPTION_TITLE": "Descrição privada do grupo",
     "DESCRIPTION_VERBOSE": "Descrição do grupo. Visível para os membros",
     "PUBLIC_DESCRIPTION": "Texto que você ve antes de entrar no grupo",
+    "LOGO": "Group logo",
+    "SET_LOGO": "Click to upload your group logo!",
     "APPLICATIONS": "Applications",
     "APPLICATION_QUESTIONS": "Questions for people who want to join this group",
     "PICKUPS": "Coletas",
@@ -403,6 +407,9 @@
     "PICKUP_LEAVE": "desisistiu de fazer a coleta na loja {storeName}",
     "GROUP_APPLICATION_DECLINED": "declined an application from {applicantName}",
     "MEMBER_BECAME_EDITOR": "gained editing permissions",
+    "GROUP_LEAVE_INACTIVE": "was removed due to inactivity",
+    "GROUP_CHANGE_PHOTO": "changed the group logo",
+    "GROUP_DELETE_PHOTO": "deleted the group logo",
     "NOTHING_HAPPENEND": "Nada aconteceu até agora...",
     "DETAILS": "Mais informação"
   },
@@ -533,6 +540,14 @@
   "INACTIVITY": {
     "WHAT": "What does it mean to be inactive?",
     "HELP": "Everyone who did not log into the group for {dayCount} days or more counts as inactive. These users will not receive notification emails anymore."
+  },
+  "UNSUBSCRIBE": {
+    "HEADER": "Unsubscribe",
+    "FROM_CONVERSATION": "unsubscribe from just this conversation",
+    "FROM_THREAD": "unsubscribe from just this thread",
+    "FROM_NOTIFICATION_TYPE": "unsubscribe from {notificationType}",
+    "FROM_GROUP": "unsubscribe from everything in {groupName}",
+    "SUCCESS": "You were successfully unsubscribed!"
   },
   "YOU": "You"
 }

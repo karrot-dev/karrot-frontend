@@ -1,5 +1,27 @@
 import axios from '@/base/api/axios'
+import { throttle } from 'quasar'
 import { convert as convertConversation } from '@/messages/api/conversations'
+
+async function markUserActive (groupId) {
+  return axios.post(`/api/groups/${groupId}/mark_user_active/`)
+}
+
+const markUserActiveThrottles = {}
+
+function getOrCreateMarkUserActiveThrottleFn (groupId) {
+  if (!markUserActiveThrottles[groupId]) {
+    markUserActiveThrottles[groupId] = throttle(
+      () => markUserActive(groupId),
+      1000 * 60 * 10, // 10 minutes
+    )
+  }
+  return markUserActiveThrottles[groupId]
+}
+
+async function throttledMarkUserActive (groupId) {
+  const fn = getOrCreateMarkUserActiveThrottleFn(groupId)
+  fn()
+}
 
 export default {
   async create (data) {
@@ -11,8 +33,14 @@ export default {
   },
 
   async save (group) {
-    let groupId = group.id
-    return convert((await axios.patch(`/api/groups/${groupId}/`, group)).data)
+    let data = group
+    if (group.photo) {
+      data = new FormData()
+      data.append('photo', group.photo, 'photo.png')
+    }
+
+    const groupId = group.id
+    return convert((await axios.patch(`/api/groups/${groupId}/`, data)).data)
   },
 
   async join (groupId) {
@@ -31,9 +59,7 @@ export default {
     return convertConversation((await axios.get(`/api/groups/${groupId}/conversation/`)).data)
   },
 
-  async markUserActive (groupId) {
-    return axios.post(`/api/groups/${groupId}/mark_user_active/`)
-  },
+  throttledMarkUserActive,
 
   addNotificationType (groupId, notificationType) {
     return axios.put(`/api/groups/${groupId}/notification_types/${notificationType}/`)

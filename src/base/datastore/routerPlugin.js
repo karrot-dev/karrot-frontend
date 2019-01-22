@@ -1,14 +1,9 @@
 import router from '@/base/router'
-import { throttle } from 'quasar'
+import * as Sentry from '@sentry/browser'
 
 export default datastore => {
   const isLoggedIn = () => datastore.getters['auth/isLoggedIn']
   const getUserGroupId = () => isLoggedIn() && datastore.getters['auth/user'].currentGroup
-
-  const throttledMarkUserActive = throttle(
-    () => datastore.dispatch('currentGroup/markUserActive').catch(() => {}),
-    1000 * 60 * 10, // 10 minutes
-  )
 
   router.beforeEach(async (to, from, nextFn) => {
     datastore.commit('routeMeta/setNext', to)
@@ -67,9 +62,14 @@ export default datastore => {
     datastore.commit('breadcrumbs/set', findBreadcrumbs(to.matched) || [])
   })
 
-  router.afterEach(() => {
+  router.afterEach(async () => {
+    try {
+      datastore.dispatch('currentGroup/markUserActive')
+    }
+    catch (err) {
+      Sentry.captureException(err)
+    }
     datastore.commit('routeMeta/setNext', null)
-    throttledMarkUserActive()
   })
 
   datastore.watch((state, getters) => [

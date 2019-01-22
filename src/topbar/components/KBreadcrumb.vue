@@ -90,7 +90,6 @@ export default {
     text-overflow ellipsis
     justify-content center
     outline 0
-    border
     vertical-align middle
     padding 0 16px
     font-weight 500

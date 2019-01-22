@@ -7,6 +7,7 @@
     "SERVER_ERROR": "伺服器錯誤",
     "NOT_CONNECTED": "You aren't connected to the server",
     "INVALID_LINK": "抱歉，你開啟的連結無效",
+    "GENERIC_ERROR": "Sorry, something went wrong",
     "SEARCH_NOT_FOUND": "無符合的搜尋結果"
   },
   "USERDATA": {
@@ -89,7 +90,8 @@
     "WITHDRAW": "退出",
     "SHOW_MORE": "顯示更多",
     "ENABLE": "Enable",
-    "DISABLE": "Disable"
+    "DISABLE": "Disable",
+    "UNSUBSCRIBE": "Unsubscribe"
   },
   "VALIDATION": {
     "MINLENGTH": "請輸入至少 {最少} 個字。",
@@ -113,6 +115,8 @@
     "PRIVATE_DESCRIPTION_TITLE": "私密社團敘述",
     "DESCRIPTION_VERBOSE": "社團敘述（僅社團成員可見）",
     "PUBLIC_DESCRIPTION": "加入社團前顯示的文字",
+    "LOGO": "Group logo",
+    "SET_LOGO": "Click to upload your group logo!",
     "APPLICATIONS": "申請",
     "APPLICATION_QUESTIONS": "給要加入社團者的問題",
     "PICKUPS": "開放領取食物",
@@ -403,6 +407,9 @@
     "PICKUP_LEAVE": "取消開放領取食物",
     "GROUP_APPLICATION_DECLINED": "declined an application from {applicantName}",
     "MEMBER_BECAME_EDITOR": "gained editing permissions",
+    "GROUP_LEAVE_INACTIVE": "was removed due to inactivity",
+    "GROUP_CHANGE_PHOTO": "changed the group logo",
+    "GROUP_DELETE_PHOTO": "deleted the group logo",
     "NOTHING_HAPPENEND": "目前沒有任何事情發生",
     "DETAILS": "更多資訊"
   },
@@ -533,6 +540,14 @@
   "INACTIVITY": {
     "WHAT": "What does it mean to be inactive?",
     "HELP": "Everyone who did not log into the group for {dayCount} days or more counts as inactive. These users will not receive notification emails anymore."
+  },
+  "UNSUBSCRIBE": {
+    "HEADER": "Unsubscribe",
+    "FROM_CONVERSATION": "unsubscribe from just this conversation",
+    "FROM_THREAD": "unsubscribe from just this thread",
+    "FROM_NOTIFICATION_TYPE": "unsubscribe from {notificationType}",
+    "FROM_GROUP": "unsubscribe from everything in {groupName}",
+    "SUCCESS": "You were successfully unsubscribed!"
   },
   "YOU": "你"
 }

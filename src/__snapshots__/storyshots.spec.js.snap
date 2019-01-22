@@ -127,6 +127,31 @@ exports[`Storyshots General Components Search 1`] = `
 exports[`Storyshots GroupEdit create 1`] = `
 <div>
   <div class="q-card">
+    <div class="edit-box k-change-photo">
+      <div class="q-field row no-wrap items-start q-field-responsive q-field-no-input"><i aria-hidden="true" class="q-icon q-field-icon q-field-margin fas fa-camera"> </i>
+        <div class="row col">
+          <div class="q-field-label q-field-margin col-xs-12 col-sm-5">
+            <div class="q-field-label-inner row items-center">Group logo</div>
+          </div>
+          <div class="q-field-content col-xs-12 col-sm">
+            <div class="croppa-container       pointer"><input type="file" style="height:1px;width:1px;overflow:hidden;margin-left:-99999px;position:absolute;">
+              <div class="slots" style="width:0;height:0;visibility:hidden;"> <img src="statics/add_a_photo.svg"></div> <canvas></canvas>
+              <!---->
+              <!---->
+            </div>
+            <div class="q-field-bottom row no-wrap">
+              <div class="q-field-helper col">Click to upload your group logo!</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!---->
+      <div class="actionButtons"><button tabindex="0" type="button" disabled="disabled" class="q-btn inline relative-position q-btn-item non-selectable q-btn-rectangle q-focusable q-hoverable bg-primary text-white">
+          <div class="q-focus-helper"></div>
+          <div class="q-btn-inner row col items-center q-popup--skip justify-center"></div>
+          <!---->
+        </button></div>
+    </div>
     <div class="edit-box">
       <form>
         <div class="q-field row no-wrap items-start q-field-responsive q-field-no-input"><i aria-hidden="true" class="q-icon q-field-icon q-field-margin fas fa-fw fa-star"> </i>
@@ -420,16 +445,21 @@ exports[`Storyshots GroupGallery signup view 1`] = `
           <div class="q-card groupPreviewCard relative-position">
             <!---->
             <!---->
-            <div class="q-card-primary q-card-container row no-wrap ellipsis">
-              <div class="col column">
-                <div class="q-card-title">
-                  05_testgroup
+            <div class="q-card-media relative-position photo">
+              <div seed="1" type="circles" class="full-height"></div>
+              <div class="q-card-media-overlay absolute-bottom">
+                <div class="q-card-primary q-card-container row no-wrap ellipsis">
+                  <div class="col column">
+                    <div class="q-card-title"><span class="row group items-start">
+          05_testgroup
+          <!----></span> </div>
+                    <div class="q-card-subtitle"><span>
+          18 Members
+        </span></div>
+                  </div>
+                  <div class="col-auto self-center q-card-title-extra"></div>
                 </div>
-                <div class="q-card-subtitle"><span>
-        18 Members
-      </span></div>
               </div>
-              <div class="col-auto self-center q-card-title-extra"></div>
             </div>
             <div class="q-card-main q-card-container fixed-height smaller-text">
               <div>
@@ -449,16 +479,21 @@ exports[`Storyshots GroupGallery signup view 1`] = `
           <div class="q-card groupPreviewCard relative-position">
             <!---->
             <!---->
-            <div class="q-card-primary q-card-container row no-wrap ellipsis">
-              <div class="col column">
-                <div class="q-card-title">
-                  06_testgroup
+            <div class="q-card-media relative-position photo">
+              <div seed="2" type="circles" class="full-height"></div>
+              <div class="q-card-media-overlay absolute-bottom">
+                <div class="q-card-primary q-card-container row no-wrap ellipsis">
+                  <div class="col column">
+                    <div class="q-card-title"><span class="row group items-start">
+          06_testgroup
+          <!----></span> </div>
+                    <div class="q-card-subtitle"><span>
+          13 Members
+        </span></div>
+                  </div>
+                  <div class="col-auto self-center q-card-title-extra"></div>
                 </div>
-                <div class="q-card-subtitle"><span>
-        13 Members
-      </span></div>
               </div>
-              <div class="col-auto self-center q-card-title-extra"></div>
             </div>
             <div class="q-card-main q-card-container fixed-height smaller-text"><span class="text-italic">
         (This group has no public description... yet)
@@ -471,16 +506,21 @@ exports[`Storyshots GroupGallery signup view 1`] = `
           <div class="q-card groupPreviewCard relative-position">
             <!---->
             <!---->
-            <div class="q-card-primary q-card-container row no-wrap ellipsis">
-              <div class="col column">
-                <div class="q-card-title">
-                  02_testgroup
+            <div class="q-card-media relative-position photo">
+              <div seed="3" type="circles" class="full-height"></div>
+              <div class="q-card-media-overlay absolute-bottom">
+                <div class="q-card-primary q-card-container row no-wrap ellipsis">
+                  <div class="col column">
+                    <div class="q-card-title"><span class="row group items-start">
+          02_testgroup
+          <!----></span> </div>
+                    <div class="q-card-subtitle"><span>
+          33 Members
+        </span></div>
+                  </div>
+                  <div class="col-auto self-center q-card-title-extra"></div>
                 </div>
-                <div class="q-card-subtitle"><span>
-        33 Members
-      </span></div>
               </div>
-              <div class="col-auto self-center q-card-title-extra"></div>
             </div>
             <div class="q-card-main q-card-container fixed-height smaller-text"><span class="text-italic">
         (This group has no public description... yet)
@@ -493,16 +533,21 @@ exports[`Storyshots GroupGallery signup view 1`] = `
           <div class="q-card groupPreviewCard relative-position">
             <!---->
             <!---->
-            <div class="q-card-primary q-card-container row no-wrap ellipsis">
-              <div class="col column">
-                <div class="q-card-title">
-                  03_testgroup
+            <div class="q-card-media relative-position photo">
+              <div seed="4" type="circles" class="full-height"></div>
+              <div class="q-card-media-overlay absolute-bottom">
+                <div class="q-card-primary q-card-container row no-wrap ellipsis">
+                  <div class="col column">
+                    <div class="q-card-title"><span class="row group items-start">
+          03_testgroup
+          <!----></span> </div>
+                    <div class="q-card-subtitle"><span>
+          12 Members
+        </span></div>
+                  </div>
+                  <div class="col-auto self-center q-card-title-extra"></div>
                 </div>
-                <div class="q-card-subtitle"><span>
-        12 Members
-      </span></div>
               </div>
-              <div class="col-auto self-center q-card-title-extra"></div>
             </div>
             <div class="q-card-main q-card-container fixed-height smaller-text"><span class="text-italic">
         (This group has no public description... yet)
@@ -515,16 +560,21 @@ exports[`Storyshots GroupGallery signup view 1`] = `
           <div class="q-card groupPreviewCard relative-position">
             <!---->
             <!---->
-            <div class="q-card-primary q-card-container row no-wrap ellipsis">
-              <div class="col column">
-                <div class="q-card-title">
-                  01_testgroup_with_maps_and_password
+            <div class="q-card-media relative-position photo">
+              <div seed="6" type="circles" class="full-height"></div>
+              <div class="q-card-media-overlay absolute-bottom">
+                <div class="q-card-primary q-card-container row no-wrap ellipsis">
+                  <div class="col column">
+                    <div class="q-card-title"><span class="row group items-start">
+          01_testgroup_with_maps_and_password
+          <!----></span> </div>
+                    <div class="q-card-subtitle"><span>
+          53 Members
+        </span></div>
+                  </div>
+                  <div class="col-auto self-center q-card-title-extra"></div>
                 </div>
-                <div class="q-card-subtitle"><span>
-        53 Members
-      </span></div>
               </div>
-              <div class="col-auto self-center q-card-title-extra"></div>
             </div>
             <div class="q-card-main q-card-container fixed-height smaller-text">
               <div>
@@ -541,16 +591,21 @@ exports[`Storyshots GroupGallery signup view 1`] = `
           <div class="q-card groupPreviewCard relative-position">
             <!---->
             <!---->
-            <div class="q-card-primary q-card-container row no-wrap ellipsis">
-              <div class="col column">
-                <div class="q-card-title">
-                  04_testgroup
+            <div class="q-card-media relative-position photo">
+              <div seed="13" type="circles" class="full-height"></div>
+              <div class="q-card-media-overlay absolute-bottom">
+                <div class="q-card-primary q-card-container row no-wrap ellipsis">
+                  <div class="col column">
+                    <div class="q-card-title"><span class="row group items-start">
+          04_testgroup
+          <!----></span> </div>
+                    <div class="q-card-subtitle"><span>
+          18 Members
+        </span></div>
+                  </div>
+                  <div class="col-auto self-center q-card-title-extra"></div>
                 </div>
-                <div class="q-card-subtitle"><span>
-        18 Members
-      </span></div>
               </div>
-              <div class="col-auto self-center q-card-title-extra"></div>
             </div>
             <div class="q-card-main q-card-container fixed-height smaller-text">
               <div>
@@ -627,16 +682,21 @@ exports[`Storyshots GroupGallery switch and explore 1`] = `
           <div class="q-card groupPreviewCard relative-position">
             <!---->
             <!---->
-            <div class="q-card-primary q-card-container row no-wrap ellipsis">
-              <div class="col column">
-                <div class="q-card-title">
-                  05_testgroup
+            <div class="q-card-media relative-position photo">
+              <div seed="1" type="circles" class="full-height"></div>
+              <div class="q-card-media-overlay absolute-bottom">
+                <div class="q-card-primary q-card-container row no-wrap ellipsis">
+                  <div class="col column">
+                    <div class="q-card-title"><span class="row group items-start">
+          05_testgroup
+          <!----></span> </div>
+                    <div class="q-card-subtitle"><span>
+          18 Members
+        </span></div>
+                  </div>
+                  <div class="col-auto self-center q-card-title-extra"></div>
                 </div>
-                <div class="q-card-subtitle"><span>
-        18 Members
-      </span></div>
               </div>
-              <div class="col-auto self-center q-card-title-extra"></div>
             </div>
             <div class="q-card-main q-card-container fixed-height smaller-text">
               <div>
@@ -674,16 +734,21 @@ exports[`Storyshots GroupGallery switch and explore 1`] = `
           <div class="q-card groupPreviewCard relative-position">
             <!---->
             <!---->
-            <div class="q-card-primary q-card-container row no-wrap ellipsis">
-              <div class="col column">
-                <div class="q-card-title">
-                  06_testgroup
+            <div class="q-card-media relative-position photo">
+              <div seed="2" type="circles" class="full-height"></div>
+              <div class="q-card-media-overlay absolute-bottom">
+                <div class="q-card-primary q-card-container row no-wrap ellipsis">
+                  <div class="col column">
+                    <div class="q-card-title"><span class="row group items-start">
+          06_testgroup
+          <!----></span> </div>
+                    <div class="q-card-subtitle"><span>
+          13 Members
+        </span></div>
+                  </div>
+                  <div class="col-auto self-center q-card-title-extra"></div>
                 </div>
-                <div class="q-card-subtitle"><span>
-        13 Members
-      </span></div>
               </div>
-              <div class="col-auto self-center q-card-title-extra"></div>
             </div>
             <div class="q-card-main q-card-container fixed-height smaller-text"><span class="text-italic">
         (This group has no public description... yet)
@@ -714,16 +779,21 @@ exports[`Storyshots GroupGallery switch and explore 1`] = `
           <div class="q-card groupPreviewCard relative-position">
             <!---->
             <!---->
-            <div class="q-card-primary q-card-container row no-wrap ellipsis">
-              <div class="col column">
-                <div class="q-card-title">
-                  02_testgroup
+            <div class="q-card-media relative-position photo">
+              <div seed="3" type="circles" class="full-height"></div>
+              <div class="q-card-media-overlay absolute-bottom">
+                <div class="q-card-primary q-card-container row no-wrap ellipsis">
+                  <div class="col column">
+                    <div class="q-card-title"><span class="row group items-start">
+          02_testgroup
+          <!----></span> </div>
+                    <div class="q-card-subtitle"><span>
+          33 Members
+        </span></div>
+                  </div>
+                  <div class="col-auto self-center q-card-title-extra"></div>
                 </div>
-                <div class="q-card-subtitle"><span>
-        33 Members
-      </span></div>
               </div>
-              <div class="col-auto self-center q-card-title-extra"></div>
             </div>
             <div class="q-card-main q-card-container fixed-height smaller-text"><span class="text-italic">
         (This group has no public description... yet)
@@ -761,16 +831,21 @@ exports[`Storyshots GroupGallery switch and explore 1`] = `
           <div class="q-card groupPreviewCard relative-position">
             <!---->
             <!---->
-            <div class="q-card-primary q-card-container row no-wrap ellipsis">
-              <div class="col column">
-                <div class="q-card-title">
-                  05_testgroup
+            <div class="q-card-media relative-position photo">
+              <div seed="1" type="circles" class="full-height"></div>
+              <div class="q-card-media-overlay absolute-bottom">
+                <div class="q-card-primary q-card-container row no-wrap ellipsis">
+                  <div class="col column">
+                    <div class="q-card-title"><span class="row group items-start">
+          05_testgroup
+          <!----></span> </div>
+                    <div class="q-card-subtitle"><span>
+          18 Members
+        </span></div>
+                  </div>
+                  <div class="col-auto self-center q-card-title-extra"></div>
                 </div>
-                <div class="q-card-subtitle"><span>
-        18 Members
-      </span></div>
               </div>
-              <div class="col-auto self-center q-card-title-extra"></div>
             </div>
             <div class="q-card-main q-card-container fixed-height smaller-text">
               <div>
@@ -790,16 +865,21 @@ exports[`Storyshots GroupGallery switch and explore 1`] = `
           <div class="q-card groupPreviewCard relative-position">
             <!---->
             <!---->
-            <div class="q-card-primary q-card-container row no-wrap ellipsis">
-              <div class="col column">
-                <div class="q-card-title">
-                  06_testgroup
+            <div class="q-card-media relative-position photo">
+              <div seed="2" type="circles" class="full-height"></div>
+              <div class="q-card-media-overlay absolute-bottom">
+                <div class="q-card-primary q-card-container row no-wrap ellipsis">
+                  <div class="col column">
+                    <div class="q-card-title"><span class="row group items-start">
+          06_testgroup
+          <!----></span> </div>
+                    <div class="q-card-subtitle"><span>
+          13 Members
+        </span></div>
+                  </div>
+                  <div class="col-auto self-center q-card-title-extra"></div>
                 </div>
-                <div class="q-card-subtitle"><span>
-        13 Members
-      </span></div>
               </div>
-              <div class="col-auto self-center q-card-title-extra"></div>
             </div>
             <div class="q-card-main q-card-container fixed-height smaller-text"><span class="text-italic">
         (This group has no public description... yet)
@@ -812,16 +892,21 @@ exports[`Storyshots GroupGallery switch and explore 1`] = `
           <div class="q-card groupPreviewCard relative-position">
             <!---->
             <!---->
-            <div class="q-card-primary q-card-container row no-wrap ellipsis">
-              <div class="col column">
-                <div class="q-card-title">
-                  02_testgroup
+            <div class="q-card-media relative-position photo">
+              <div seed="3" type="circles" class="full-height"></div>
+              <div class="q-card-media-overlay absolute-bottom">
+                <div class="q-card-primary q-card-container row no-wrap ellipsis">
+                  <div class="col column">
+                    <div class="q-card-title"><span class="row group items-start">
+          02_testgroup
+          <!----></span> </div>
+                    <div class="q-card-subtitle"><span>
+          33 Members
+        </span></div>
+                  </div>
+                  <div class="col-auto self-center q-card-title-extra"></div>
                 </div>
-                <div class="q-card-subtitle"><span>
-        33 Members
-      </span></div>
               </div>
-              <div class="col-auto self-center q-card-title-extra"></div>
             </div>
             <div class="q-card-main q-card-container fixed-height smaller-text"><span class="text-italic">
         (This group has no public description... yet)
@@ -834,16 +919,21 @@ exports[`Storyshots GroupGallery switch and explore 1`] = `
           <div class="q-card groupPreviewCard relative-position">
             <!---->
             <!---->
-            <div class="q-card-primary q-card-container row no-wrap ellipsis">
-              <div class="col column">
-                <div class="q-card-title">
-                  03_testgroup
+            <div class="q-card-media relative-position photo">
+              <div seed="4" type="circles" class="full-height"></div>
+              <div class="q-card-media-overlay absolute-bottom">
+                <div class="q-card-primary q-card-container row no-wrap ellipsis">
+                  <div class="col column">
+                    <div class="q-card-title"><span class="row group items-start">
+          03_testgroup
+          <!----></span> </div>
+                    <div class="q-card-subtitle"><span>
+          12 Members
+        </span></div>
+                  </div>
+                  <div class="col-auto self-center q-card-title-extra"></div>
                 </div>
-                <div class="q-card-subtitle"><span>
-        12 Members
-      </span></div>
               </div>
-              <div class="col-auto self-center q-card-title-extra"></div>
             </div>
             <div class="q-card-main q-card-container fixed-height smaller-text"><span class="text-italic">
         (This group has no public description... yet)
@@ -856,16 +946,21 @@ exports[`Storyshots GroupGallery switch and explore 1`] = `
           <div class="q-card groupPreviewCard relative-position">
             <!---->
             <!---->
-            <div class="q-card-primary q-card-container row no-wrap ellipsis">
-              <div class="col column">
-                <div class="q-card-title">
-                  01_testgroup_with_maps_and_password
+            <div class="q-card-media relative-position photo">
+              <div seed="6" type="circles" class="full-height"></div>
+              <div class="q-card-media-overlay absolute-bottom">
+                <div class="q-card-primary q-card-container row no-wrap ellipsis">
+                  <div class="col column">
+                    <div class="q-card-title"><span class="row group items-start">
+          01_testgroup_with_maps_and_password
+          <!----></span> </div>
+                    <div class="q-card-subtitle"><span>
+          53 Members
+        </span></div>
+                  </div>
+                  <div class="col-auto self-center q-card-title-extra"></div>
                 </div>
-                <div class="q-card-subtitle"><span>
-        53 Members
-      </span></div>
               </div>
-              <div class="col-auto self-center q-card-title-extra"></div>
             </div>
             <div class="q-card-main q-card-container fixed-height smaller-text">
               <div>
@@ -882,16 +977,21 @@ exports[`Storyshots GroupGallery switch and explore 1`] = `
           <div class="q-card groupPreviewCard relative-position">
             <!---->
             <!---->
-            <div class="q-card-primary q-card-container row no-wrap ellipsis">
-              <div class="col column">
-                <div class="q-card-title">
-                  04_testgroup
+            <div class="q-card-media relative-position photo">
+              <div seed="13" type="circles" class="full-height"></div>
+              <div class="q-card-media-overlay absolute-bottom">
+                <div class="q-card-primary q-card-container row no-wrap ellipsis">
+                  <div class="col column">
+                    <div class="q-card-title"><span class="row group items-start">
+          04_testgroup
+          <!----></span> </div>
+                    <div class="q-card-subtitle"><span>
+          18 Members
+        </span></div>
+                  </div>
+                  <div class="col-auto self-center q-card-title-extra"></div>
                 </div>
-                <div class="q-card-subtitle"><span>
-        18 Members
-      </span></div>
               </div>
-              <div class="col-auto self-center q-card-title-extra"></div>
             </div>
             <div class="q-card-main q-card-container fixed-height smaller-text">
               <div>
@@ -917,16 +1017,21 @@ exports[`Storyshots GroupGalleryCard isMember = false 1`] = `
   <div class="q-card groupPreviewCard relative-position">
     <!---->
     <!---->
-    <div class="q-card-primary q-card-container row no-wrap ellipsis">
-      <div class="col column">
-        <div class="q-card-title">
+    <div class="q-card-media relative-position photo">
+      <div seed="1" type="circles" class="full-height"></div>
+      <div class="q-card-media-overlay absolute-bottom">
+        <div class="q-card-primary q-card-container row no-wrap ellipsis">
+          <div class="col column">
+            <div class="q-card-title"><span class="row group items-start">
           05_testgroup
+          <!----></span> </div>
+            <div class="q-card-subtitle"><span>
+          18 Members
+        </span></div>
+          </div>
+          <div class="col-auto self-center q-card-title-extra"></div>
         </div>
-        <div class="q-card-subtitle"><span>
-        18 Members
-      </span></div>
       </div>
-      <div class="col-auto self-center q-card-title-extra"></div>
     </div>
     <div class="q-card-main q-card-container fixed-height smaller-text">
       <div>
@@ -949,16 +1054,21 @@ exports[`Storyshots GroupGalleryCard isMember = true 1`] = `
   <div class="q-card groupPreviewCard relative-position">
     <!---->
     <!---->
-    <div class="q-card-primary q-card-container row no-wrap ellipsis">
-      <div class="col column">
-        <div class="q-card-title">
+    <div class="q-card-media relative-position photo">
+      <div seed="1" type="circles" class="full-height"></div>
+      <div class="q-card-media-overlay absolute-bottom">
+        <div class="q-card-primary q-card-container row no-wrap ellipsis">
+          <div class="col column">
+            <div class="q-card-title"><span class="row group items-start">
           05_testgroup
+          <!----></span> </div>
+            <div class="q-card-subtitle"><span>
+          18 Members
+        </span></div>
+          </div>
+          <div class="col-auto self-center q-card-title-extra"></div>
         </div>
-        <div class="q-card-subtitle"><span>
-        18 Members
-      </span></div>
       </div>
-      <div class="col-auto self-center q-card-title-extra"></div>
     </div>
     <div class="q-card-main q-card-container fixed-height smaller-text">
       <div>
@@ -999,16 +1109,21 @@ exports[`Storyshots GroupGalleryCard without public description 1`] = `
   <div class="q-card groupPreviewCard relative-position">
     <!---->
     <!---->
-    <div class="q-card-primary q-card-container row no-wrap ellipsis">
-      <div class="col column">
-        <div class="q-card-title">
+    <div class="q-card-media relative-position photo">
+      <div seed="1" type="circles" class="full-height"></div>
+      <div class="q-card-media-overlay absolute-bottom">
+        <div class="q-card-primary q-card-container row no-wrap ellipsis">
+          <div class="col column">
+            <div class="q-card-title"><span class="row group items-start">
           05_testgroup
+          <!----></span> </div>
+            <div class="q-card-subtitle"><span>
+          18 Members
+        </span></div>
+          </div>
+          <div class="col-auto self-center q-card-title-extra"></div>
         </div>
-        <div class="q-card-subtitle"><span>
-        18 Members
-      </span></div>
       </div>
-      <div class="col-auto self-center q-card-title-extra"></div>
     </div>
     <div class="q-card-main q-card-container fixed-height smaller-text"><span class="text-italic">
         (This group has no public description... yet)
@@ -1022,19 +1137,24 @@ exports[`Storyshots GroupGalleryCard without public description 1`] = `
 exports[`Storyshots GroupPreviewUI member 1`] = `
 <div>
   <div class="q-card shadow-6">
-    <div class="q-card-primary q-card-container row no-wrap">
-      <div class="col column">
-        <div class="q-card-title"><span class="row group items-start">
-        05_testgroup
-        <!----></span> </div>
-        <div class="q-card-subtitle"><span>
-        18 Members
-      </span></div>
+    <div class="q-card-media relative-position photo">
+      <div seed="1" type="circles" class="full-height"></div>
+      <div class="q-card-media-overlay absolute-bottom">
+        <div class="q-card-primary q-card-container row no-wrap">
+          <div class="col column">
+            <div class="q-card-title"><span class="row group items-start">
+          05_testgroup
+          <!----></span> </div>
+            <div class="q-card-subtitle"><span>
+          18 Members
+        </span></div>
+          </div>
+          <div class="col-auto self-center q-card-title-extra"></div>
+        </div>
       </div>
-      <div class="col-auto self-center q-card-title-extra"></div>
     </div>
     <div class="q-card-main q-card-container">
-      <div class="quote">
+      <div>
         <div class="markdown">
           <p>This is the public description<br>
             It would make sense if it was markdown</p>
@@ -1063,19 +1183,24 @@ exports[`Storyshots GroupPreviewUI member 1`] = `
 exports[`Storyshots GroupPreviewUI not logged in 1`] = `
 <div>
   <div class="q-card shadow-6">
-    <div class="q-card-primary q-card-container row no-wrap">
-      <div class="col column">
-        <div class="q-card-title"><span class="row group items-start">
-        05_testgroup
-        <!----></span> </div>
-        <div class="q-card-subtitle"><span>
-        18 Members
-      </span></div>
+    <div class="q-card-media relative-position photo">
+      <div seed="1" type="circles" class="full-height"></div>
+      <div class="q-card-media-overlay absolute-bottom">
+        <div class="q-card-primary q-card-container row no-wrap">
+          <div class="col column">
+            <div class="q-card-title"><span class="row group items-start">
+          05_testgroup
+          <!----></span> </div>
+            <div class="q-card-subtitle"><span>
+          18 Members
+        </span></div>
+          </div>
+          <div class="col-auto self-center q-card-title-extra"></div>
+        </div>
       </div>
-      <div class="col-auto self-center q-card-title-extra"></div>
     </div>
     <div class="q-card-main q-card-container">
-      <div class="quote">
+      <div>
         <div class="markdown">
           <p>This is the public description<br>
             It would make sense if it was markdown</p>
@@ -1101,19 +1226,24 @@ exports[`Storyshots GroupPreviewUI not logged in 1`] = `
 exports[`Storyshots GroupPreviewUI not member, application needed, email not verified 1`] = `
 <div>
   <div class="q-card shadow-6">
-    <div class="q-card-primary q-card-container row no-wrap">
-      <div class="col column">
-        <div class="q-card-title"><span class="row group items-start">
-        05_testgroup
-        <!----></span> </div>
-        <div class="q-card-subtitle"><span>
-        18 Members
-      </span></div>
+    <div class="q-card-media relative-position photo">
+      <div seed="1" type="circles" class="full-height"></div>
+      <div class="q-card-media-overlay absolute-bottom">
+        <div class="q-card-primary q-card-container row no-wrap">
+          <div class="col column">
+            <div class="q-card-title"><span class="row group items-start">
+          05_testgroup
+          <!----></span> </div>
+            <div class="q-card-subtitle"><span>
+          18 Members
+        </span></div>
+          </div>
+          <div class="col-auto self-center q-card-title-extra"></div>
+        </div>
       </div>
-      <div class="col-auto self-center q-card-title-extra"></div>
     </div>
     <div class="q-card-main q-card-container">
-      <div class="quote">
+      <div>
         <div class="markdown">
           <p>This is the public description<br>
             It would make sense if it was markdown</p>
@@ -1153,19 +1283,24 @@ exports[`Storyshots GroupPreviewUI not member, application needed, email not ver
 exports[`Storyshots GroupPreviewUI not member, application needed, email verified 1`] = `
 <div>
   <div class="q-card shadow-6">
-    <div class="q-card-primary q-card-container row no-wrap">
-      <div class="col column">
-        <div class="q-card-title"><span class="row group items-start">
-        05_testgroup
-        <!----></span> </div>
-        <div class="q-card-subtitle"><span>
-        18 Members
-      </span></div>
+    <div class="q-card-media relative-position photo">
+      <div seed="1" type="circles" class="full-height"></div>
+      <div class="q-card-media-overlay absolute-bottom">
+        <div class="q-card-primary q-card-container row no-wrap">
+          <div class="col column">
+            <div class="q-card-title"><span class="row group items-start">
+          05_testgroup
+          <!----></span> </div>
+            <div class="q-card-subtitle"><span>
+          18 Members
+        </span></div>
+          </div>
+          <div class="col-auto self-center q-card-title-extra"></div>
+        </div>
       </div>
-      <div class="col-auto self-center q-card-title-extra"></div>
     </div>
     <div class="q-card-main q-card-container">
-      <div class="quote">
+      <div>
         <div class="markdown">
           <p>This is the public description<br>
             It would make sense if it was markdown</p>
@@ -1205,19 +1340,24 @@ exports[`Storyshots GroupPreviewUI not member, application needed, email verifie
 exports[`Storyshots GroupPreviewUI not member, open group 1`] = `
 <div>
   <div class="q-card shadow-6">
-    <div class="q-card-primary q-card-container row no-wrap">
-      <div class="col column">
-        <div class="q-card-title"><span class="row group items-start">
-        05_testgroup
-        <!----></span> </div>
-        <div class="q-card-subtitle"><span>
-        18 Members
-      </span></div>
+    <div class="q-card-media relative-position photo">
+      <div seed="1" type="circles" class="full-height"></div>
+      <div class="q-card-media-overlay absolute-bottom">
+        <div class="q-card-primary q-card-container row no-wrap">
+          <div class="col column">
+            <div class="q-card-title"><span class="row group items-start">
+          05_testgroup
+          <!----></span> </div>
+            <div class="q-card-subtitle"><span>
+          18 Members
+        </span></div>
+          </div>
+          <div class="col-auto self-center q-card-title-extra"></div>
+        </div>
       </div>
-      <div class="col-auto self-center q-card-title-extra"></div>
     </div>
     <div class="q-card-main q-card-container">
-      <div class="quote">
+      <div>
         <div class="markdown">
           <p>This is the public description<br>
             It would make sense if it was markdown</p>
@@ -1257,19 +1397,24 @@ exports[`Storyshots GroupPreviewUI not member, open group 1`] = `
 exports[`Storyshots GroupPreviewUI not member, pending application 1`] = `
 <div>
   <div class="q-card shadow-6">
-    <div class="q-card-primary q-card-container row no-wrap">
-      <div class="col column">
-        <div class="q-card-title"><span class="row group items-start">
-        05_testgroup
-        <!----></span> </div>
-        <div class="q-card-subtitle"><span>
-        18 Members
-      </span></div>
+    <div class="q-card-media relative-position photo">
+      <div seed="1" type="circles" class="full-height"></div>
+      <div class="q-card-media-overlay absolute-bottom">
+        <div class="q-card-primary q-card-container row no-wrap">
+          <div class="col column">
+            <div class="q-card-title"><span class="row group items-start">
+          05_testgroup
+          <!----></span> </div>
+            <div class="q-card-subtitle"><span>
+          18 Members
+        </span></div>
+          </div>
+          <div class="col-auto self-center q-card-title-extra"></div>
+        </div>
       </div>
-      <div class="col-auto self-center q-card-title-extra"></div>
     </div>
     <div class="q-card-main q-card-container">
-      <div class="quote">
+      <div>
         <div class="markdown">
           <p>This is the public description<br>
             It would make sense if it was markdown</p>
@@ -1318,19 +1463,24 @@ exports[`Storyshots GroupPreviewUI not member, pending application 1`] = `
 exports[`Storyshots GroupPreviewUI not member, playground 1`] = `
 <div>
   <div class="q-card shadow-6">
-    <div class="q-card-primary q-card-container row no-wrap text-secondary">
-      <div class="col column">
-        <div class="q-card-title"><span class="row group items-start">
-        05_testgroup
-        <i aria-hidden="true" class="q-icon fas fa-child text-secondary"> </i></span> </div>
-        <div class="q-card-subtitle"><span>
-        18 Members
-      </span></div>
+    <div class="q-card-media relative-position photo">
+      <div seed="1" type="circles" class="full-height"></div>
+      <div class="q-card-media-overlay absolute-bottom">
+        <div class="q-card-primary q-card-container row no-wrap">
+          <div class="col column">
+            <div class="q-card-title"><span class="row group items-start">
+          05_testgroup
+          <i aria-hidden="true" class="q-icon fas fa-child"> </i></span> </div>
+            <div class="q-card-subtitle"><span>
+          18 Members
+        </span></div>
+          </div>
+          <div class="col-auto self-center q-card-title-extra"></div>
+        </div>
       </div>
-      <div class="col-auto self-center q-card-title-extra"></div>
     </div>
     <div class="q-card-main q-card-container">
-      <div class="quote">
+      <div>
         <div class="markdown">
           <p>This is the public description<br>
             It would make sense if it was markdown</p>
@@ -1370,19 +1520,24 @@ exports[`Storyshots GroupPreviewUI not member, playground 1`] = `
 exports[`Storyshots GroupPreviewUI pending join 1`] = `
 <div>
   <div class="q-card shadow-6">
-    <div class="q-card-primary q-card-container row no-wrap">
-      <div class="col column">
-        <div class="q-card-title"><span class="row group items-start">
-        01_testgroup_with_maps_and_password
-        <!----></span> </div>
-        <div class="q-card-subtitle"><span>
-        53 Members
-      </span></div>
+    <div class="q-card-media relative-position photo">
+      <div seed="6" type="circles" class="full-height"></div>
+      <div class="q-card-media-overlay absolute-bottom">
+        <div class="q-card-primary q-card-container row no-wrap">
+          <div class="col column">
+            <div class="q-card-title"><span class="row group items-start">
+          01_testgroup_with_maps_and_password
+          <!----></span> </div>
+            <div class="q-card-subtitle"><span>
+          53 Members
+        </span></div>
+          </div>
+          <div class="col-auto self-center q-card-title-extra"></div>
+        </div>
       </div>
-      <div class="col-auto self-center q-card-title-extra"></div>
     </div>
     <div class="q-card-main q-card-container">
-      <div class="quote">
+      <div>
         <div class="markdown">
           <p>To enter this group, type &quot;abc&quot; as password (if nobody changed it!)</p>
         </div>
@@ -1421,16 +1576,21 @@ exports[`Storyshots GroupPreviewUI pending join 1`] = `
 exports[`Storyshots GroupPreviewUI without public description 1`] = `
 <div>
   <div class="q-card shadow-6">
-    <div class="q-card-primary q-card-container row no-wrap">
-      <div class="col column">
-        <div class="q-card-title"><span class="row group items-start">
-        05_testgroup
-        <!----></span> </div>
-        <div class="q-card-subtitle"><span>
-        18 Members
-      </span></div>
+    <div class="q-card-media relative-position photo">
+      <div seed="1" type="circles" class="full-height"></div>
+      <div class="q-card-media-overlay absolute-bottom">
+        <div class="q-card-primary q-card-container row no-wrap">
+          <div class="col column">
+            <div class="q-card-title"><span class="row group items-start">
+          05_testgroup
+          <!----></span> </div>
+            <div class="q-card-subtitle"><span>
+          18 Members
+        </span></div>
+          </div>
+          <div class="col-auto self-center q-card-title-extra"></div>
+        </div>
       </div>
-      <div class="col-auto self-center q-card-title-extra"></div>
     </div>
     <div class="q-card-main q-card-container"><span class="text-italic">
         (This group has no public description... yet)
@@ -3615,7 +3775,7 @@ exports[`Storyshots Settings Page Default 1`] = `
       <div class="col-auto self-center q-card-title-extra"></div>
     </div>
     <div class="q-card-main q-card-container">
-      <div class="edit-box">
+      <div class="edit-box k-change-photo">
         <div class="q-field row no-wrap items-start q-field-responsive q-field-no-input"><i aria-hidden="true" class="q-icon q-field-icon q-field-margin fas fa-camera"> </i>
           <div class="row col">
             <div class="q-field-label q-field-margin col-xs-12 col-sm-5">
@@ -3623,7 +3783,7 @@ exports[`Storyshots Settings Page Default 1`] = `
             </div>
             <div class="q-field-content col-xs-12 col-sm">
               <div class="croppa-container       pointer"><input type="file" style="height:1px;width:1px;overflow:hidden;margin-left:-99999px;position:absolute;">
-                <div class="slots" style="width:0;height:0;visibility:hidden;"> <img src="statics/ic_person_black_24px.svg"></div> <canvas></canvas>
+                <div class="slots" style="width:0;height:0;visibility:hidden;"> <img src="statics/add_a_photo.svg"></div> <canvas></canvas>
                 <!---->
                 <!---->
               </div>

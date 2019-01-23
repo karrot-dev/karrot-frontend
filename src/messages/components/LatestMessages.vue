@@ -146,6 +146,7 @@ export default {
       fetchPastConversations: 'latestMessages/fetchPastConversations',
       fetchPastThreads: 'latestMessages/fetchPastThreads',
       fetchInitial: 'latestMessages/fetchInitial',
+      markAllSeen: 'latestMessages/markAllSeen',
     }),
     open (conv) {
       const { type, target } = conv
@@ -164,6 +165,7 @@ export default {
   },
   mounted () {
     this.fetchInitial()
+    this.markAllSeen()
   },
 }
 </script>

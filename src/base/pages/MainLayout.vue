@@ -182,7 +182,7 @@ export default {
       routeError: 'routeError/status',
       showRightDrawer: 'detail/isActive',
       disableDesktopSidenav: 'route/disableDesktopSidenav',
-      messagesUnreadCount: 'latestMessages/unreadCount',
+      messagesUnseenCount: 'latestMessages/unseenCount',
       messagesAllUnreadMuted: 'latestMessages/allUnreadMuted',
       notificationsUnseenCount: 'notifications/unseenCount',
       currentGroup: 'currentGroup/value',
@@ -212,7 +212,7 @@ export default {
       return Boolean(this.routerComponents.sidenav)
     },
     hasNotification () {
-      return this.messagesUnreadCount > 0 || this.notificationsUnseenCount > 0
+      return this.messagesUnseenCount > 0 || this.notificationsUnseenCount > 0
     },
     hasImportantNotification () {
       return !this.messagesAllUnreadMuted || this.notificationsUnseenCount > 0

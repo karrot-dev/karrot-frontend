@@ -26,6 +26,7 @@ const datastore = createDatastore({
   latestMessages: {
     getters: {
       unreadCount: () => 1,
+      unseenCount: () => 1,
       allUnreadMuted: () => false,
     },
   },

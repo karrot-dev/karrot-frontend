@@ -2209,7 +2209,7 @@ exports[`Storyshots Layout KTopbar 1`] = `
       <div></div>
     </div>
   </div>
-  <!----> <button tabindex="0" type="button" class="q-btn inline relative-position q-btn-item non-selectable q-btn-round q-btn-flat q-focusable q-hoverable q-btn-dense">
+  <!----> <button tabindex="0" type="button" class="q-btn inline relative-position q-btn-item non-selectable k-search-button q-btn-round q-btn-flat q-focusable q-hoverable q-btn-dense">
     <div class="q-focus-helper"></div>
     <div class="q-btn-inner row col items-center q-popup--skip justify-center"><i aria-hidden="true" class="q-icon fas fa-fw fa-search"> </i>
       <div class="q-tooltip animate-popup">
@@ -2224,7 +2224,7 @@ exports[`Storyshots Layout KTopbar 1`] = `
     </div>
   </button> <button tabindex="0" type="button" title="Messages" class="q-btn inline relative-position q-btn-item non-selectable q-btn-round q-btn-flat q-focusable q-hoverable q-btn-dense">
     <div class="q-focus-helper"></div>
-    <div class="q-btn-inner row col items-center q-popup--skip justify-center"><i aria-hidden="true" class="q-icon fas fa-comments"> </i>
+    <div class="q-btn-inner row col items-center q-popup--skip justify-center"><i aria-hidden="true" class="q-icon fas fa-comments hasUnread"> </i>
       <div class="q-chip row no-wrap inline items-center q-chip-floating q-chip-dense q-chip-square bg-secondary text-white">
         <div class="q-chip-main ellipsis q-popup--skip">
           1
@@ -2234,7 +2234,7 @@ exports[`Storyshots Layout KTopbar 1`] = `
     </div>
   </button> <button tabindex="0" type="button" title="Notifications" class="q-btn inline relative-position q-btn-item non-selectable q-btn-round q-btn-flat q-focusable q-hoverable q-btn-dense">
     <div class="q-focus-helper"></div>
-    <div class="q-btn-inner row col items-center q-popup--skip justify-center"><i aria-hidden="true" class="q-icon fas fa-bell"> </i>
+    <div class="q-btn-inner row col items-center q-popup--skip justify-center"><i aria-hidden="true" class="q-icon fas fa-bell hasUnseen"> </i>
       <div class="q-chip row no-wrap inline items-center q-chip-floating q-chip-dense q-chip-square bg-secondary text-white">
         <div class="q-chip-main ellipsis q-popup--skip">
           1
@@ -2242,7 +2242,7 @@ exports[`Storyshots Layout KTopbar 1`] = `
       </div>
       <div tabindex="-1" class="q-popover scroll k-notifications-popover"></div>
     </div>
-  </button> <button tabindex="0" type="button" title="Switch language" class="q-btn inline relative-position q-btn-item non-selectable q-btn-round q-btn-flat q-focusable q-hoverable q-btn-dense">
+  </button> <button tabindex="0" type="button" title="Switch language" class="q-btn inline relative-position q-btn-item non-selectable k-locale-select q-btn-round q-btn-flat q-focusable q-hoverable q-btn-dense">
     <div class="q-focus-helper"></div>
     <div class="q-btn-inner row col items-center q-popup--skip justify-center"><i aria-hidden="true" class="q-icon fas fa-globe fa-fw"> </i>
       <div tabindex="-1" minimized="" class="q-popover scroll"></div>
@@ -2256,7 +2256,7 @@ exports[`Storyshots Layout KTopbar 1`] = `
           <div></div>
         </div>
       </div>
-    </button></a> <button tabindex="0" type="button" class="q-btn inline relative-position q-btn-item non-selectable q-btn-round q-btn-flat q-focusable q-hoverable q-btn-dense">
+    </button></a> <button tabindex="0" type="button" class="q-btn inline relative-position q-btn-item non-selectable k-more-options q-btn-round q-btn-flat q-focusable q-hoverable q-btn-dense">
     <div class="q-focus-helper"></div>
     <div class="q-btn-inner row col items-center q-popup--skip justify-center"><i aria-hidden="true" class="q-icon fas fa-ellipsis-v"> </i>
       <div tabindex="-1" class="q-popover scroll">

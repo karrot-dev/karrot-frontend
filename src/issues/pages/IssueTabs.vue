@@ -1,10 +1,10 @@
 <script>
 import { connect } from 'vuex-connect'
-import IssueTabs from '@/issues/components/IssueTabs'
+import IssueTabsUI from '@/issues/components/IssueTabsUI'
 
 export default connect({
   gettersToProps: {
     issue: 'issues/get',
   },
-})('IssueTabs', IssueTabs)
+})('IssueTabs', IssueTabsUI)
 </script>

@@ -490,8 +490,9 @@ export default [
       requiredLoggedIn: true,
       breadcrumbs: [
         { type: 'currentGroup' },
-        { type: 'activeUser' },
+        { translation: 'CONFLICT.TITLE', route: { name: 'issueTabs' } },
       ],
+      beforeEnter: 'currentGroup/selectFromCurrentUser',
     },
     components: {
       default: IssueTabs,

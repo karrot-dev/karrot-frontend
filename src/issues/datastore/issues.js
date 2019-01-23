@@ -1,5 +1,5 @@
 import router from '@/base/router'
-import { withMeta } from '@/utils/datastore/helpers'
+import { withMeta, createMetaModule } from '@/utils/datastore/helpers'
 
 function initialState () {
   return {
@@ -16,8 +16,9 @@ function initialState () {
 export default {
   namespaced: true,
   state: initialState(),
+  modules: { meta: createMetaModule() },
   getters: {
-    get: (state, getters) => issueId => {
+    get: (state, getters, rootState, rootGetters) => issueId => {
       return getters.enrich(state.entries[issueId])
     },
     enrich: (state, getters, rootState, rootGetters) => issue => {
@@ -31,11 +32,8 @@ export default {
   },
   actions: {
     ...withMeta({
-      createIssue (state) {
-        router.push({ name: 'issueTabs', params: { groupId: state.entries.group.id, issueId: state.entries.id } })
-      },
-      test (state) {
-        console.log(state.entries)
+      createIssue () {
+        router.push({ name: 'issueTabs', params: { groupId: '13', issueId: '1' } })
       },
     }),
   },

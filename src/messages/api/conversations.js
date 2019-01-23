@@ -38,6 +38,10 @@ export default {
       muted,
     })).data)
   },
+
+  async markAllSeen () {
+    return (await axios.post(`/api/conversations/mark_all_seen/`)).data
+  },
 }
 
 function convertListResults (results) {
@@ -47,6 +51,7 @@ function convertListResults (results) {
     pickups: convertPickup(results.pickups),
     applications: convertApplication(results.applications),
     usersInfo: results.usersInfo,
+    meta: convertMeta(results.meta),
   }
 }
 
@@ -59,5 +64,12 @@ export function convert (val) {
       ...val,
       updatedAt: new Date(val.updatedAt),
     }
+  }
+}
+
+export function convertMeta (val) {
+  return {
+    ...val,
+    markedAt: new Date(val.markedAt),
   }
 }

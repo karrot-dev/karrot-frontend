@@ -35,6 +35,7 @@
       dense
       round
       @click="$emit('showSearch')"
+      class="k-search-button"
     >
       <QIcon name="fas fa-fw fa-search" />
       <QTooltip v-t="'BUTTON.SEARCH'" />
@@ -85,6 +86,7 @@
         flat
         dense
         round
+        class="k-more-options"
       >
         <QIcon name="fas fa-ellipsis-v" />
         <QPopover
@@ -237,6 +239,11 @@ export default {
   background-color lightgrey
   min-width 251px
   max-width 251px
+.k-search-button, .k-more-options
+  opacity $topbar-opacity-low
+  &:hover
+    opacity 1
+
 .presence-indicator
   margin-right .3em
   font-size 100%

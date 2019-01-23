@@ -74,14 +74,14 @@ export default datastore => {
 
   datastore.watch((state, getters) => [
     getters['breadcrumbs/allNames'],
-    getters['latestMessages/unreadCount'],
-  ], ([breadcrumbNames, unreadCount]) => {
+    getters['latestMessages/unseenCount'],
+  ], ([breadcrumbNames, unseenCount]) => {
     let names = breadcrumbNames.slice().reverse()
     names.push('Karrot')
     let title = names.join(' · ')
 
-    if (unreadCount > 0) {
-      title = `(${unreadCount}) ${title}`
+    if (unseenCount > 0) {
+      title = `(${unseenCount}) ${title}`
     }
 
     document.title = title

@@ -6,7 +6,7 @@ import log from '@/utils/log'
 import auth from '@/authuser/api/auth'
 
 import { camelizeKeys } from '@/utils/utils'
-import { convert as convertApplication } from '@/applications/api/groupApplications'
+import { convert as convertApplication } from '@/applications/api/applications'
 import { convert as convertMessage } from '@/messages/api/messages'
 import { convert as convertConversation, convertMeta as convertConversationMeta } from '@/messages/api/conversations'
 import { convert as convertPickup } from '@/pickups/api/pickups'
@@ -154,7 +154,7 @@ const socket = {
 
 function receiveMessage ({ topic, payload }) {
   if (topic === 'applications:update') {
-    datastore.commit('groupApplications/update', [convertApplication(camelizeKeys(payload))])
+    datastore.commit('applications/update', [convertApplication(camelizeKeys(payload))])
   }
   else if (topic === 'conversations:message') {
     const message = convertMessage(camelizeKeys(payload))

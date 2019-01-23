@@ -7,7 +7,7 @@ export default connect({
     joinedPickups: 'pickups/joined',
     availablePickups: 'pickups/available',
     feedbackPossible: 'pickups/feedbackPossibleByCurrentGroup',
-    applications: 'groupApplications/forCurrentGroupPending',
+    applications: 'applications/forCurrentGroupPending',
     conversation: 'currentGroup/conversation',
     user: 'auth/user',
   },

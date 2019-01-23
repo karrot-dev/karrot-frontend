@@ -127,7 +127,7 @@ export default {
   },
   computed: {
     ...mapGetters({
-      getMyApplicationInGroup: 'groupApplications/getMineInGroup',
+      getMyApplicationInGroup: 'applications/getMineInGroup',
     }),
     cardStyle () {
       const reduceOpacity = this.group.isInactive && !this.group.isMember

@@ -114,7 +114,7 @@ describe('currentGroup', () => {
     },
   }
 
-  const groupApplications = {
+  const applications = {
     actions: {
       fetchByGroupId: jest.fn(),
     },
@@ -164,7 +164,7 @@ describe('currentGroup', () => {
         agreements,
         auth,
         pickups,
-        groupApplications,
+        applications,
         conversations,
       })
     })
@@ -176,7 +176,7 @@ describe('currentGroup', () => {
       expect(pickups.actions.fetchListByGroupId.mock.calls[0][1]).toBe(group3.id)
       expect(pickups.actions.fetchFeedbackPossible.mock.calls[0][1]).toEqual(group3.id)
       expect(auth.actions.maybeBackgroundSave.mock.calls[0][1]).toEqual({ currentGroup: group3.id })
-      expect(groupApplications.actions.fetchByGroupId).toBeCalled()
+      expect(applications.actions.fetchByGroupId).toBeCalled()
       expect(conversations.actions.fetchGroupConversation).toBeCalled()
     })
 
@@ -198,7 +198,7 @@ describe('currentGroup', () => {
         agreements,
         auth,
         pickups,
-        groupApplications,
+        applications,
       })
     })
 

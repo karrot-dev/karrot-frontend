@@ -8,11 +8,11 @@ export default connect({
     group: 'groups/activePreview',
     isLoggedIn: 'auth/isLoggedIn',
     user: 'auth/user',
-    application: 'groupApplications/getForActivePreview',
+    application: 'applications/getForActivePreview',
   },
   actionsToEvents: {
     join: 'groups/join',
-    withdraw: 'groupApplications/withdraw',
+    withdraw: 'applications/withdraw',
     openChat: 'detail/openForApplication',
   },
   methodsToEvents: {

@@ -1,6 +1,6 @@
 <template>
   <QItem
-    v-if="label === 'collectorIds'"
+    v-if="label === 'collectors'"
     dense
   >
     <QItemMain>

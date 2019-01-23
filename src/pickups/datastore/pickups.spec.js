@@ -105,7 +105,6 @@ describe('pickups', () => {
       expect(pickup).toEqual({
         id: pickupId,
         collectors: [],
-        collectors: [],
         feedbackGivenBy: [],
         date,
         isUserMember: false,

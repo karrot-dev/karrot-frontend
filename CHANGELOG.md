@@ -27,6 +27,9 @@ Please document your changes in this format:
 - Mark latest messages as seen when visiting the menu, without the need to mark all messages as read @tiltec
 - Dim topbar buttons and make them brighter when there's something interesting in them @tiltec
 
+### Fixed
+- Long group names would break the applicant chat @tiltec
+
 ## [6.4.0] - 2019-01-18
 ### Added
 - Support for group logos [#891] @cstefanj @tiltec

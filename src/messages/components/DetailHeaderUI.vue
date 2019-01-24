@@ -1,7 +1,7 @@
 <template>
   <div
     v-if="conversation"
-    class="DetailHeader"
+    class="DetailHeader full-width"
   >
     <QToolbar
       color="secondary"

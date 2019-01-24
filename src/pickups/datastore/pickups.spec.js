@@ -30,9 +30,9 @@ describe('pickups', () => {
       const now = new Date('2017-01-01T12:00:10Z')
       clock = lolex.install({ now, toFake: ['Date'] })
       const date = new Date('2017-01-01T13:00:10Z')
-      pickup1 = { id: 1, store: 10, date, collectorIds: [], group }
-      pickup2 = { id: 2, store: 11, date, collectorIds: [userId], maxCollectors: 1, group }
-      pickup3 = { id: 3, store: 12, date, collectorIds: [userId], group }
+      pickup1 = { id: 1, store: 10, date, collectors: [], group }
+      pickup2 = { id: 2, store: 11, date, collectors: [userId], maxCollectors: 1, group }
+      pickup3 = { id: 3, store: 12, date, collectors: [userId], group }
     })
 
     afterEach(() => {
@@ -99,12 +99,11 @@ describe('pickups', () => {
       let date = new Date()
       let pickupId = 99
       let storeId = 101
-      mockGet.mockImplementationOnce(id => ({ id, date, store: storeId, collectorIds: [] }))
+      mockGet.mockImplementationOnce(id => ({ id, date, store: storeId, collectors: [] }))
       await vstore.dispatch('pickups/fetch', pickupId)
       const pickup = vstore.getters['pickups/get'](pickupId)
       expect(pickup).toEqual({
         id: pickupId,
-        collectorIds: [],
         collectors: [],
         feedbackGivenBy: [],
         date,

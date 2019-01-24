@@ -145,7 +145,7 @@ export const makePickup = data => {
     series: null,
     store: null,
     maxCollectors: 10,
-    collectorIds: [],
+    collectors: [],
     feedbackGivenBy: [],
     hasStarted: false,
     description: '',

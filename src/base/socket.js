@@ -8,7 +8,7 @@ import auth from '@/authuser/api/auth'
 import { camelizeKeys } from '@/utils/utils'
 import { convert as convertApplication } from '@/applications/api/groupApplications'
 import { convert as convertMessage } from '@/messages/api/messages'
-import { convert as convertConversation } from '@/messages/api/conversations'
+import { convert as convertConversation, convertMeta as convertConversationMeta } from '@/messages/api/conversations'
 import { convert as convertPickup } from '@/pickups/api/pickups'
 import { convert as convertSeries } from '@/pickups/api/pickupSeries'
 import { convert as convertFeedback } from '@/feedback/api/feedback'
@@ -174,6 +174,9 @@ function receiveMessage ({ topic, payload }) {
     const conversation = convertConversation(camelizeKeys(payload))
     datastore.dispatch('conversations/updateConversation', conversation)
     datastore.dispatch('latestMessages/updateConversationsAndRelated', { conversations: [conversation] })
+  }
+  else if (topic === 'conversations:meta') {
+    datastore.commit('latestMessages/setEntryMeta', convertConversationMeta(camelizeKeys(payload)))
   }
   else if (topic === 'conversations:leave') {
     datastore.commit('conversations/clearConversation', payload.id)

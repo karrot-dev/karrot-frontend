@@ -1,12 +1,15 @@
 <template>
   <QBtn
-    icon="fab fa-discourse fa-fw"
     :title="$t('COMMUNITY_FEED.HEADER', { community: $t('COMMUNITY_FEED.HEADER_LINK') })"
     flat
     dense
     round
     @click="showing = !showing"
   >
+    <QIcon
+      name="fab fa-discourse fa-fw"
+      :class="{ hasUnread: unreadCount > 0 }"
+    />
     <QChip
       v-if="unreadCount > 0"
       floating
@@ -160,5 +163,8 @@ export default {
   background linear-gradient(to right, $lightGreen, $lighterGreen)
 body.desktop .k-community-feed
   max-width 700px
-
+.q-icon:not(.hasUnread)
+  opacity $topbar-opacity-low
+.q-btn:hover .q-icon
+  opacity 1
 </style>

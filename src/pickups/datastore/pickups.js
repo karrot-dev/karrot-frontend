@@ -27,12 +27,12 @@ export default {
       const group = store && store.group
       return {
         ...pickup,
-        isUserMember: pickup.collectorIds.includes(userId),
-        isEmpty: pickup.collectorIds.length === 0,
-        isFull: pickup.maxCollectors > 0 && pickup.collectorIds.length >= pickup.maxCollectors,
+        isUserMember: pickup.collectors.includes(userId),
+        isEmpty: pickup.collectors.length === 0,
+        isFull: pickup.maxCollectors > 0 && pickup.collectors.length >= pickup.maxCollectors,
         store,
         group,
-        collectors: pickup.collectorIds.map(rootGetters['users/get']),
+        collectors: pickup.collectors.map(rootGetters['users/get']),
         feedbackGivenBy: pickup.feedbackGivenBy ? pickup.feedbackGivenBy.map(rootGetters['users/get']) : [],
         hasStarted: pickup.date <= reactiveNow.value,
         ...metaStatusesWithId(getters, ['save', 'join', 'leave'], pickup.id),
@@ -153,12 +153,12 @@ export default {
       if (state.entries[pickupId]) Vue.delete(state.entries, pickupId)
     },
     join (state, { pickupId, userId }) {
-      state.entries[pickupId].collectorIds.push(userId)
+      state.entries[pickupId].collectors.push(userId)
     },
     leave (state, { pickupId, userId }) {
-      let { collectorIds } = state.entries[pickupId]
-      let idx = collectorIds.indexOf(userId)
-      if (idx !== -1) collectorIds.splice(idx, 1)
+      let { collectors } = state.entries[pickupId]
+      let idx = collectors.indexOf(userId)
+      if (idx !== -1) collectors.splice(idx, 1)
     },
   },
 }

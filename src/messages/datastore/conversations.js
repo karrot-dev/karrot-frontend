@@ -296,14 +296,12 @@ export default {
     },
 
     async fetchForApplication ({ commit, getters, dispatch }, { applicationId }) {
-      let { id: conversationId } = getters.getForApplication(applicationId) || {}
-      if (!conversationId) {
-        // TODO use already loaded application from groupApplications module
-        conversationId = (await groupApplicationsAPI.get(applicationId)).conversation
-        const conversation = await conversationsAPI.get(conversationId)
+      let conversation = getters.getForApplication(applicationId)
+      if (!conversation) {
+        conversation = await groupApplicationsAPI.conversation(applicationId)
         commit('setConversation', conversation)
       }
-      dispatch('fetch', conversationId)
+      dispatch('fetch', conversation.id)
     },
 
     clearForApplication ({ getters, commit }, { applicationId }) {

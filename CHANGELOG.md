@@ -21,6 +21,11 @@ Please document your changes in this format:
 ```
 
 ## [Unreleased]
+### Added
+
+### Changed
+- Mark latest messages as seen when visiting the menu, without the need to mark all messages as read @tiltec
+- Dim topbar buttons and make them brighter when there's something interesting in them @tiltec
 
 ## [6.4.0] - 2019-01-18
 ### Added

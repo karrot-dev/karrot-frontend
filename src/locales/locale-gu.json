@@ -189,7 +189,7 @@
   },
   "STOREEDIT": {
     "NAME": "નામ",
-    "STATUS":"સ્થિતિ",
+    "STATUS": "સ્થિતિ",
     "DESCRIPTION": "વર્ણન",
     "ADDRESS": "સરનામું",
     "WEEKS_IN_ADVANCE": "અગાઉથી કેટલા અઠવાડિયામાં રિકરિંગની દુકાનની તારીખો બતાવવી જોઈએ?",
@@ -235,7 +235,7 @@
     "NO_PUBLIC_DESCRIPTION": "(આ જૂથમાં હજી કોઈ જાહેર વર્ણન નથી ...)",
     "ALL_GROUPS": "બધા જૂથો",
     "SIGNUP_OR_LOGIN": "આ જૂથમાં જોડાવા માટે લોગ ઇન કરો અથવા સાઇન અપ કરો!",
-    "VERIFY_EMAIL_ADDRESS":"Verify your email address to apply",
+    "VERIFY_EMAIL_ADDRESS": "Verify your email address to apply",
     "MY_GROUPS": "મારા જૂથો",
     "LOGOUT_MESSAGE": {
       "LOGGED_OUT": "તમે હાલમાં લૉગ આઉટ થયા છો {login}",
@@ -247,7 +247,6 @@
     "WITHDRAW_CONFIRMATION_HEADER": "Withdraw Application",
     "WITHDRAW_CONFIRMATION_TEXT": "Are you sure you want to withdraw your application to join {groupName}?",
     "APPLICATION_WITHDRAWN": "Your application was successfully withdrawn!"
-
   },
   "GROUPINFO": {
     "TITLE": "જાહેર જૂથની માહિતી",
@@ -405,7 +404,7 @@
     "PICKUP_MISSED": "{સ્ટોર નામ} પરનો દુકાન ચૂકી ગયો હતો!",
     "PICKUP_JOIN": "{સ્ટોર નામ} પર પિક-અપ કરવા માટે સાઇન અપ કર્યું",
     "PICKUP_LEAVE": "{સ્ટોર નામ} પર પિક-અપ કરવાથી પાછા ઊતર્યા",
-    "GROUP_APPLICATION_DECLINED": "declined an application from {applicantName}",
+    "APPLICATION_DECLINED": "declined an application from {applicantName}",
     "MEMBER_BECAME_EDITOR": "gained editing permissions",
     "GROUP_LEAVE_INACTIVE": "was removed due to inactivity",
     "GROUP_CHANGE_PHOTO": "changed the group logo",
@@ -500,7 +499,7 @@
     "REACTIONS": {
       "YOU": "you",
       "AND": "and",
-      "REACTED_WITH":"{users} reacted with {reaction}"
+      "REACTED_WITH": "{users} reacted with {reaction}"
     },
     "MESSAGE_NOT_FOUND": "Message not found",
     "NO_CONVERSATIONS": "No conversations yet.",

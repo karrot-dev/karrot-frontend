@@ -189,7 +189,7 @@
   },
   "STOREEDIT": {
     "NAME": "名稱",
-    "STATUS":"狀態",
+    "STATUS": "狀態",
     "DESCRIPTION": "敘述",
     "ADDRESS": "地址",
     "WEEKS_IN_ADVANCE": "多少週以前要顯示可重複開放領取的日期？",
@@ -235,7 +235,7 @@
     "NO_PUBLIC_DESCRIPTION": "(此社團尚未建立公開的描述)",
     "ALL_GROUPS": "所有社團",
     "SIGNUP_OR_LOGIN": "登入或註冊以加入社團！",
-    "VERIFY_EMAIL_ADDRESS":"驗證你的電子郵件地址以利申請",
+    "VERIFY_EMAIL_ADDRESS": "驗證你的電子郵件地址以利申請",
     "MY_GROUPS": "我的社團",
     "LOGOUT_MESSAGE": {
       "LOGGED_OUT": "你已經登出。 {登入}",
@@ -247,7 +247,6 @@
     "WITHDRAW_CONFIRMATION_HEADER": "撤銷申請",
     "WITHDRAW_CONFIRMATION_TEXT": "你確定你要撤銷加入{ 社團名稱} 的申請?",
     "APPLICATION_WITHDRAWN": "你的申請已成功撤銷"
-
   },
   "GROUPINFO": {
     "TITLE": "公開社團資訊",
@@ -405,7 +404,7 @@
     "PICKUP_MISSED": "在{商店名稱}的取貨被放鳥了！",
     "PICKUP_JOIN": "註冊以在{商店名稱}取貨",
     "PICKUP_LEAVE": "取消開放領取食物",
-    "GROUP_APPLICATION_DECLINED": "declined an application from {applicantName}",
+    "APPLICATION_DECLINED": "declined an application from {applicantName}",
     "MEMBER_BECAME_EDITOR": "gained editing permissions",
     "GROUP_LEAVE_INACTIVE": "was removed due to inactivity",
     "GROUP_CHANGE_PHOTO": "changed the group logo",
@@ -500,7 +499,7 @@
     "REACTIONS": {
       "YOU": "你",
       "AND": "以及",
-      "REACTED_WITH":"{使用者}反應了{反應}"
+      "REACTED_WITH": "{使用者}反應了{反應}"
     },
     "MESSAGE_NOT_FOUND": "找不到訊息",
     "NO_CONVERSATIONS": "沒有對話",

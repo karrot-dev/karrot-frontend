@@ -37,7 +37,7 @@ export default {
       if (!entry) return
       const store = rootGetters['stores/get'](entry.store)
       const msgValues = store ? { storeName: store.name, name: store.name } : {}
-      if (entry.typus === 'GROUP_APPLICATION_DECLINED') {
+      if (entry.typus === 'APPLICATION_DECLINED') {
         msgValues.applicantName = entry.payload.applicantName
       }
       return {

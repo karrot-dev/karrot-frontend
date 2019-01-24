@@ -1,7 +1,7 @@
-import groupApplications from '@/applications/datastore/groupApplications'
+import applications from '@/applications/datastore/applications'
 
 export default {
   modules: {
-    groupApplications,
+    applications,
   },
 }

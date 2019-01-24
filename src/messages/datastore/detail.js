@@ -31,7 +31,7 @@ export default {
     application: (state, getters, rootState, rootGetters) => {
       const { type, id } = state.scope
       if (type !== 'application') return
-      return rootGetters['groupApplications/get'](id)
+      return rootGetters['applications/get'](id)
     },
     conversation: (state, getters, rootState, rootGetters) => {
       const { type, id } = state.scope
@@ -82,13 +82,13 @@ export default {
     async applicationRouteEnter ({ dispatch, rootGetters }, { groupId, applicationId, routeTo }) {
       if (!applicationId) return
       await dispatch('selectApplication', applicationId)
-      const { isCurrentUser } = rootGetters['groupApplications/get'](applicationId).user
+      const { isCurrentUser } = rootGetters['applications/get'](applicationId).user
       if (!Platform.is.mobile) {
         // On desktop we don't have a detail page, we go to the application list or the group preview, and have a sidebar open
         throw createRouteRedirect({
           ...(isCurrentUser
             ? { name: 'groupPreview', params: { groupPreviewId: groupId } }
-            : { name: 'groupApplications', params: { groupId } }
+            : { name: 'applications', params: { groupId } }
           ),
           query: routeTo.query,
         })
@@ -147,7 +147,7 @@ export default {
       dispatch('clear')
       commit('setApplicationId', applicationId)
       dispatch('conversations/fetchForApplication', { applicationId }, { root: true })
-      await dispatch('groupApplications/maybeFetchOne', applicationId, { root: true })
+      await dispatch('applications/maybeFetchOne', applicationId, { root: true })
     },
     selectThread ({ commit, dispatch }, id) {
       dispatch('clear')

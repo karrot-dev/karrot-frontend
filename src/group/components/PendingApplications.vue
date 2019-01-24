@@ -1,6 +1,6 @@
 <template>
   <div>
-    <RouterLink :to="{name: 'groupApplications'}">
+    <RouterLink :to="{name: 'applications'}">
       <QCard
         color="blue"
         class="generic-padding notice"

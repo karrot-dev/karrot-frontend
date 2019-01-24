@@ -155,7 +155,7 @@ export default {
       dispatch('pickups/fetchListByGroupId', groupId, { root: true })
       dispatch('pickups/fetchFeedbackPossible', groupId, { root: true })
 
-      dispatch('groupApplications/fetchByGroupId', { groupId }, { root: true })
+      dispatch('applications/fetchByGroupId', { groupId }, { root: true })
 
       dispatch('conversations/fetchGroupConversation', groupId, { root: true })
 

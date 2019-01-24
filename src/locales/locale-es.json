@@ -189,7 +189,7 @@
   },
   "STOREEDIT": {
     "NAME": "Nombre",
-    "STATUS":"Estado",
+    "STATUS": "Estado",
     "DESCRIPTION": "Descripción",
     "ADDRESS": "Dirección",
     "WEEKS_IN_ADVANCE": "¿Con cuántas semanas de anticipación se mostrarán las fechas recurrentes de recolección?",
@@ -235,7 +235,7 @@
     "NO_PUBLIC_DESCRIPTION": "(Este grupo no tiene una descripción pública... todavía)",
     "ALL_GROUPS": "Todos los grupos",
     "SIGNUP_OR_LOGIN": "Inicia sesión o regístrate para unirte a este grupo!",
-    "VERIFY_EMAIL_ADDRESS":"Verify your email address to apply",
+    "VERIFY_EMAIL_ADDRESS": "Verify your email address to apply",
     "MY_GROUPS": "Mis grupos",
     "LOGOUT_MESSAGE": {
       "LOGGED_OUT": "Está desconectado. {iniciar sesión}",
@@ -247,7 +247,6 @@
     "WITHDRAW_CONFIRMATION_HEADER": "Withdraw Application",
     "WITHDRAW_CONFIRMATION_TEXT": "Are you sure you want to withdraw your application to join {groupName}?",
     "APPLICATION_WITHDRAWN": "Your application was successfully withdrawn!"
-
   },
   "GROUPINFO": {
     "TITLE": "Información pública del grupo",
@@ -405,7 +404,7 @@
     "PICKUP_MISSED": "Faltó una recogida en {storeName}!",
     "PICKUP_JOIN": "se apuntó a una recogida en {storeName}",
     "PICKUP_LEAVE": "dio un paso atrás al hacer una recolección en {storeName}",
-    "GROUP_APPLICATION_DECLINED": "declined an application from {applicantName}",
+    "APPLICATION_DECLINED": "declined an application from {applicantName}",
     "MEMBER_BECAME_EDITOR": "gained editing permissions",
     "GROUP_LEAVE_INACTIVE": "was removed due to inactivity",
     "GROUP_CHANGE_PHOTO": "changed the group logo",
@@ -500,7 +499,7 @@
     "REACTIONS": {
       "YOU": "you",
       "AND": "y",
-      "REACTED_WITH":"{users} reacted with {reaction}"
+      "REACTED_WITH": "{users} reacted with {reaction}"
     },
     "MESSAGE_NOT_FOUND": "Message not found",
     "NO_CONVERSATIONS": "No conversations yet.",

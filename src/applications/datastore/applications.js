@@ -1,5 +1,5 @@
 import Vue from 'vue'
-import groupApplications from '@/applications/api/groupApplications'
+import applications from '@/applications/api/applications'
 import router from '@/base/router'
 import { withMeta, createMetaModule, metaStatuses } from '@/utils/datastore/helpers'
 
@@ -49,7 +49,7 @@ export default {
       async fetchMine ({ commit, rootGetters }) {
         const userId = rootGetters['auth/userId']
         if (!userId) return
-        const applicationList = await groupApplications.list({ user: userId, status: 'pending' })
+        const applicationList = await applications.list({ user: userId, status: 'pending' })
 
         commit('update', applicationList)
         const users = applicationList.map(a => a.user)
@@ -57,7 +57,7 @@ export default {
       },
 
       async fetchByGroupId ({ commit }, { groupId }) {
-        const applicationList = await groupApplications.list({ group: groupId })
+        const applicationList = await applications.list({ group: groupId })
         commit('update', applicationList)
 
         const users = applicationList.map(a => a.user)
@@ -65,14 +65,14 @@ export default {
       },
 
       async fetchOne ({ commit }, applicationId) {
-        const application = await groupApplications.get(applicationId)
+        const application = await applications.get(applicationId)
         commit('update', [application])
 
         commit('users/update', [application.user], { root: true })
       },
 
       async apply ({ commit, dispatch }, data) {
-        const newApplication = await groupApplications.create(data)
+        const newApplication = await applications.create(data)
         commit('update', [newApplication])
         dispatch('toasts/show', {
           message: 'JOINGROUP.APPLICATION_SUBMITTED',
@@ -81,7 +81,7 @@ export default {
       },
 
       async withdraw ({ commit, dispatch }, id) {
-        const removedApplication = await groupApplications.withdraw(id)
+        const removedApplication = await applications.withdraw(id)
         commit('update', [removedApplication])
         dispatch('toasts/show', {
           message: 'JOINGROUP.APPLICATION_WITHDRAWN',
@@ -89,7 +89,7 @@ export default {
       },
 
       async accept ({ commit, dispatch }, id) {
-        const acceptedApplication = await groupApplications.accept(id)
+        const acceptedApplication = await applications.accept(id)
         commit('update', [acceptedApplication])
         dispatch('toasts/show', {
           message: 'APPLICATION.ACCEPTED',
@@ -98,7 +98,7 @@ export default {
       },
 
       async decline ({ commit, dispatch }, id) {
-        const declinedApplication = await groupApplications.decline(id)
+        const declinedApplication = await applications.decline(id)
         commit('update', [declinedApplication])
         dispatch('toasts/show', {
           message: 'APPLICATION.DECLINED',

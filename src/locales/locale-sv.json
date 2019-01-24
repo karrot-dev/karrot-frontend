@@ -6,9 +6,9 @@
     "COMMUNITY_NOTE": "Gå med i vår gemenskap!",
     "SERVER_ERROR": "Server fel",
     "NOT_CONNECTED": "Du är inte ansluten till servern",
-    "INVALID_LINK": "Sorry, the link you've opened is invalid.",
-    "GENERIC_ERROR": "Sorry, something went wrong",
-    "SEARCH_NOT_FOUND": "Not Found"
+    "INVALID_LINK": "Oj, länken du försöker komma åt är ogiltig.",
+    "GENERIC_ERROR": "Oj, något gick fel!",
+    "SEARCH_NOT_FOUND": "Kunde inte hittas"
   },
   "USERDATA": {
     "EMAIL": "mail",
@@ -29,24 +29,24 @@
     "DIALOGS": {
       "REQUEST_DELETE_ACCOUNT": {
         "TITLE": "Radera konto",
-        "MESSAGE": "Are you sure? Your account and your personal data will be permanently deleted. Anything you have done on this platform will be made anonymous. If you confirm, we send you an e-mail with a link to complete the deletion process.",
+        "MESSAGE": "Är du säker? Ditt konto och all dina data kommer att raderas permanent. Allt du har gjort i denna plattform kommer att anonymiseras. Om du bekräftar, skickar vi ett mejl med länken för att genomföra raderingen.",
         "CONFIRM": "Bekräfta"
       },
       "GIVE_TRUST": {
         "TITLE": "Lita på användaren",
-        "MESSAGE": "Do you trust {userName} in {groupName}?"
+        "MESSAGE": "Litar du på {userName} i {groupName}?"
       }
     },
     "LOGOUT_SUCCESS": "Du har loggats ut!",
-    "YOU_TRUST_USER": "You trust {userName} in {groupName}.",
-    "OTHER_PEOPLE_TRUST_USER": "{otherUser} trusts {userName} in {groupName}. | {count} people trust {userName} in {groupName}.",
-    "OTHER_PEOPLE_TRUST_YOU": "{otherUser} trusts you in {groupName}. | {count} people trust you in {groupName}.",
-    "PEOPLE_TRUST_USER": "You and {otherUser} trust {userName} in {groupName}. | You and {count} other people trust {userName} in {groupName}.",
-    "FIRST_TRUST": "Be the first one to trust {userName} in {groupName}!",
+    "YOU_TRUST_USER": "Du litar på {userName} i {groupName}.",
+    "OTHER_PEOPLE_TRUST_USER": "{otherUser} litar på {userName} i {groupName}. | {count} person(er) litar på {userName} i {groupName}.",
+    "OTHER_PEOPLE_TRUST_YOU": "{otherUser} litar på dig {groupName}. | {count} litar på dig i {groupName}.",
+    "PEOPLE_TRUST_USER": "Du och {otherUser} litar på {userName} i {groupName}. | Du och {count} till litar på {userName} i {groupName}.",
+    "FIRST_TRUST": "Var den första att lita på {userName} i {groupName}!",
     "NEWCOMER": "Nykomling",
     "NEWCOMER_GUIDANCE": "{userName} är ny i din grup och kan behöver lite vägledning.",
-    "TRUST_PROGRESS_TEXT": "{trustNeeded} more trust needed",
-    "TRUST_PROGRESS_TEXT_LONG": "{trustNeeded} more people need to express their trust in {userName} to grant editing permissions.",
+    "TRUST_PROGRESS_TEXT": "{trustNeeded} mer tillit behövs",
+    "TRUST_PROGRESS_TEXT_LONG": "{trustNeeded} till måste lita på {userName} för att bevilja personen rättigheter att redigera.",
     "NEWCOMER_INFO": "You are currently a newcomer in {groupName} and you can become active by writing messages, meeting fellow members, doing pickups and giving feedback. As soon as {threshold} members expressed their trust in you, you will gain editing permissions to help with group administration.",
     "TRUST_INFO": {
       "TITLE": "Vad är karrot om?",
@@ -189,7 +189,7 @@
   },
   "STOREEDIT": {
     "NAME": "Namn",
-    "STATUS":"Status",
+    "STATUS": "Status",
     "DESCRIPTION": "Beskrivning",
     "ADDRESS": "Adress",
     "WEEKS_IN_ADVANCE": "Hur många veckor i förväg skall återkommande upphämtningar synas?",
@@ -235,7 +235,7 @@
     "NO_PUBLIC_DESCRIPTION": "(Denna grupp har ingen publik beskrivning än..)",
     "ALL_GROUPS": "Alla grupper",
     "SIGNUP_OR_LOGIN": "Logga in eller registrera dig för att gå med i gruppen!",
-    "VERIFY_EMAIL_ADDRESS":"Verify your email address to apply",
+    "VERIFY_EMAIL_ADDRESS": "Verify your email address to apply",
     "MY_GROUPS": "Mina grupper",
     "LOGOUT_MESSAGE": {
       "LOGGED_OUT": "Du är utloggade nu. {login}",
@@ -247,7 +247,6 @@
     "WITHDRAW_CONFIRMATION_HEADER": "Withdraw Application",
     "WITHDRAW_CONFIRMATION_TEXT": "Are you sure you want to withdraw your application to join {groupName}?",
     "APPLICATION_WITHDRAWN": "Your application was successfully withdrawn!"
-
   },
   "GROUPINFO": {
     "TITLE": "Offentlig information om gruppen",
@@ -405,7 +404,7 @@
     "PICKUP_MISSED": "Ingen hämtade upp på {storeName}!",
     "PICKUP_JOIN": "skrev upp sig för att hämta upp på {storeName}",
     "PICKUP_LEAVE": "gav upp om att hämta upp på {storeName}",
-    "GROUP_APPLICATION_DECLINED": "declined an application from {applicantName}",
+    "APPLICATION_DECLINED": "declined an application from {applicantName}",
     "MEMBER_BECAME_EDITOR": "gained editing permissions",
     "GROUP_LEAVE_INACTIVE": "was removed due to inactivity",
     "GROUP_CHANGE_PHOTO": "changed the group logo",
@@ -500,7 +499,7 @@
     "REACTIONS": {
       "YOU": "du",
       "AND": "och",
-      "REACTED_WITH":"{users} reagerade med {reaction}"
+      "REACTED_WITH": "{users} reagerade med {reaction}"
     },
     "MESSAGE_NOT_FOUND": "Message not found",
     "NO_CONVERSATIONS": "No conversations yet.",

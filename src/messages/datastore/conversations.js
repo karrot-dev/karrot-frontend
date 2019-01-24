@@ -6,7 +6,7 @@ import reactionsAPI from '@/messages/api/reactions'
 import pickupsAPI from '@/pickups/api/pickups'
 import usersAPI from '@/users/api/users'
 import groupsAPI from '@/group/api/groups'
-import groupApplicationsAPI from '@/applications/api/groupApplications'
+import applicationsAPI from '@/applications/api/applications'
 import i18n from '@/base/i18n'
 import { createMetaModule, withMeta, withPrefixedIdMeta, metaStatusesWithId } from '@/utils/datastore/helpers'
 
@@ -173,7 +173,7 @@ export default {
       switch (type) {
         case 'group': return rootGetters['groups/get'](targetId)
         case 'pickup': return rootGetters['pickups/get'](targetId)
-        case 'application': return rootGetters['groupApplications/get'](targetId)
+        case 'application': return rootGetters['applications/get'](targetId)
         case 'private': return participants.find(u => !u.isCurrentUser)
       }
     },
@@ -298,7 +298,7 @@ export default {
     async fetchForApplication ({ commit, getters, dispatch }, { applicationId }) {
       let conversation = getters.getForApplication(applicationId)
       if (!conversation) {
-        conversation = await groupApplicationsAPI.conversation(applicationId)
+        conversation = await applicationsAPI.conversation(applicationId)
         commit('setConversation', conversation)
       }
       dispatch('fetch', conversation.id)

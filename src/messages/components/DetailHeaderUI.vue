@@ -189,7 +189,7 @@ export default {
       }
       else {
         return {
-          name: 'groupApplications',
+          name: 'applications',
           params: {
             groupId: this.application.group.id,
           },

@@ -70,7 +70,7 @@ function getRouteTo (type, { group, user, store, pickup } = {}) {
     case 'application_accepted':
       return group && { name: 'group', params: { groupId: group.id } }
     case 'new_applicant':
-      return group && { name: 'groupApplications', params: { groupId: group.id } }
+      return group && { name: 'applications', params: { groupId: group.id } }
     case 'feedback_possible':
       return group && pickup && { name: 'giveFeedback', params: { groupId: group.id, pickupId: pickup.id } }
     case 'application_declined':

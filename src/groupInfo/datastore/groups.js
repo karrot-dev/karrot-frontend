@@ -111,7 +111,7 @@ export default {
         }
       }
       commit('setActivePreview', groupPreviewId)
-      dispatch('groupApplications/fetchMine', null, { root: true })
+      dispatch('applications/fetchMine', null, { root: true })
     },
     clearGroupPreview ({ commit }) {
       commit('setActivePreview', null)

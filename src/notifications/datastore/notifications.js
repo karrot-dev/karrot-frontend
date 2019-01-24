@@ -46,7 +46,7 @@ export default {
       return {
         ...context,
         group: group && rootGetters['groups/get'](group),
-        application: application && rootGetters['groupApplications/get'](application),
+        application: application && rootGetters['applications/get'](application),
         user: user && rootGetters['users/get'](user),
         store: store && rootGetters['stores/get'](store),
         pickup: pickup && rootGetters['pickups/get'](pickup),
@@ -89,7 +89,7 @@ export default {
         const { context } = notification
         if (!context) continue
         if (context.application) {
-          dispatch('groupApplications/maybeFetchOne', context.application, { root: true })
+          dispatch('applications/maybeFetchOne', context.application, { root: true })
         }
         if (context.pickup) {
           dispatch('pickups/maybeFetch', context.pickup, { root: true })

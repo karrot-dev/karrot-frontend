@@ -2,6 +2,7 @@
   <div>
     <QCard>
       <ChangePhoto
+        v-if="!isNew"
         :value="value"
         :status="status"
         :label="$t('GROUP.LOGO')"

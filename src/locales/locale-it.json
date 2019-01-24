@@ -148,7 +148,7 @@
     "INVITATION_ACCEPT_ERROR": "Ooops, non è stato possibile accettare l'invito!",
     "SETTINGS": "Impostazioni",
     "NOTIFICATIONS": "Notifiche",
-    "EMAIL_NOTIFICATIONS": "Email notifications",
+    "EMAIL_NOTIFICATIONS": "Notifiche via email",
     "NOTIFICATION_TYPES": {
       "weekly_summary": {
         "NAME": "Sommario settimanale",
@@ -422,7 +422,7 @@
     "EMAIL_NOT_DELIVERED": "An email could not be delivered to you | {count} emails could not be delivered to you"
   },
   "NOTIFICATION_BELLS_LIST": {
-    "TITLE": "Notifications",
+    "TITLE": "Notifiche",
     "NO_ITEMS": "We currently don't have notifications for you."
   },
   "NOTIFICATION_BELLS": {

@@ -422,7 +422,7 @@
     "EMAIL_NOT_DELIVERED": "無法傳送郵件給你 | 有 {數目} 封郵件無法傳送給你"
   },
   "NOTIFICATION_BELLS_LIST": {
-    "TITLE": "Notifications",
+    "TITLE": "通知",
     "NO_ITEMS": "We currently don't have notifications for you."
   },
   "NOTIFICATION_BELLS": {

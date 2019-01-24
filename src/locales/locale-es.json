@@ -146,8 +146,8 @@
     "INVITE_TITLE": "Invitar usuarios a tu grupo",
     "INVITATION_ACCEPT_SUCCESS": "Bienvenid@! Has acceptado la invitación. ",
     "INVITATION_ACCEPT_ERROR": "Ooops, no se podía aceptar la invitación!",
-    "SETTINGS": "Settings",
-    "NOTIFICATIONS": "Notifications",
+    "SETTINGS": "Configuraciones",
+    "NOTIFICATIONS": "Notificatiónes",
     "EMAIL_NOTIFICATIONS": "Email notifications",
     "NOTIFICATION_TYPES": {
       "weekly_summary": {
@@ -224,7 +224,7 @@
     "DISPLAY_NAME": "Nombre",
     "DESCRIPTION": "Sobre usted",
     "OLD_PASSWORD": "Confirm your old password",
-    "PASSWORD": "New password"
+    "PASSWORD": "Nueva contraseña"
   },
   "PROFILE": {
     "INACCESSIBLE_OR_DELETED": "(Usuario inaccesible o eliminado)"
@@ -422,7 +422,7 @@
     "EMAIL_NOT_DELIVERED": "An email could not be delivered to you | {count} emails could not be delivered to you"
   },
   "NOTIFICATION_BELLS_LIST": {
-    "TITLE": "Notifications",
+    "TITLE": "Notificatiónes",
     "NO_ITEMS": "We currently don't have notifications for you."
   },
   "NOTIFICATION_BELLS": {

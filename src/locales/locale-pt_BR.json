@@ -148,7 +148,7 @@
     "INVITATION_ACCEPT_ERROR": "Ooops, não foi possível aceitar este convite!",
     "SETTINGS": "Configurações",
     "NOTIFICATIONS": "Notificações",
-    "EMAIL_NOTIFICATIONS": "Email notifications",
+    "EMAIL_NOTIFICATIONS": "Notificações por e-mail",
     "NOTIFICATION_TYPES": {
       "weekly_summary": {
         "NAME": "Resumo semanal",
@@ -422,7 +422,7 @@
     "EMAIL_NOT_DELIVERED": "An email could not be delivered to you | {count} emails could not be delivered to you"
   },
   "NOTIFICATION_BELLS_LIST": {
-    "TITLE": "Notifications",
+    "TITLE": "Notificações",
     "NO_ITEMS": "We currently don't have notifications for you."
   },
   "NOTIFICATION_BELLS": {

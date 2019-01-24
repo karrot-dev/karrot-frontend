@@ -146,8 +146,8 @@
     "INVITE_TITLE": "उपयोगकर्ताओं को अपने समूह में आमंत्रित करें",
     "INVITATION_ACCEPT_SUCCESS": "स्वागत हे!आपने आमंत्रण सफलतापूर्वक स्वीकार कर लिया है",
     "INVITATION_ACCEPT_ERROR": "ओह, निमंत्रण स्वीकार नहीं कर सका!",
-    "SETTINGS": "Settings",
-    "NOTIFICATIONS": "Notifications",
+    "SETTINGS": "सेटिंग्स",
+    "NOTIFICATIONS": "सूचनाएं",
     "EMAIL_NOTIFICATIONS": "Email notifications",
     "NOTIFICATION_TYPES": {
       "weekly_summary": {
@@ -224,7 +224,7 @@
     "DISPLAY_NAME": "नाम",
     "DESCRIPTION": "आपके बारे में",
     "OLD_PASSWORD": "Confirm your old password",
-    "PASSWORD": "New password"
+    "PASSWORD": "नया पासवर्ड"
   },
   "PROFILE": {
     "INACCESSIBLE_OR_DELETED": "(उपयोगकर्ता अनुपलब्ध या हटाया गया)"
@@ -422,7 +422,7 @@
     "EMAIL_NOT_DELIVERED": "An email could not be delivered to you | {count} emails could not be delivered to you"
   },
   "NOTIFICATION_BELLS_LIST": {
-    "TITLE": "Notifications",
+    "TITLE": "सूचनाएं",
     "NO_ITEMS": "We currently don't have notifications for you."
   },
   "NOTIFICATION_BELLS": {

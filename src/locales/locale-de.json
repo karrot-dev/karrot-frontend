@@ -83,7 +83,7 @@
     "DELETE_ACCOUNT": "Account löschen",
     "SHOW": "Zeigen",
     "HIDE": "Verstecken",
-    "SUBMIT": "Submit",
+    "SUBMIT": "Absenden",
     "APPLY": "Apply",
     "ACCEPT": "Accept",
     "DECLINE": "Decline",
@@ -148,7 +148,7 @@
     "INVITATION_ACCEPT_ERROR": "Ups, die Einladung konnte nicht akzeptiert werden!",
     "SETTINGS": "Einstellungen",
     "NOTIFICATIONS": "Benachrichtigungen",
-    "EMAIL_NOTIFICATIONS": "Email notifications",
+    "EMAIL_NOTIFICATIONS": "Email-Benachrichtigungen",
     "NOTIFICATION_TYPES": {
       "weekly_summary": {
         "NAME": "Wöchentliche Zusammenfassung",
@@ -422,7 +422,7 @@
     "EMAIL_NOT_DELIVERED": "Eine E-Mail konnte nicht zugestellt werden | {count} E-Mails konnten nicht zugestellt werden"
   },
   "NOTIFICATION_BELLS_LIST": {
-    "TITLE": "Notifications",
+    "TITLE": "Benachrichtigungen",
     "NO_ITEMS": "We currently don't have notifications for you."
   },
   "NOTIFICATION_BELLS": {

@@ -259,7 +259,7 @@
     "CHANGE_GROUP": "Ändra grupp"
   },
   "SIDENAV": {
-    "INFO_SUB": "How to build your foodsaving group",
+    "INFO_SUB": "Hur man skapa sin maträddningsgrupp",
     "BLOG_SUB": "Alla nyheter runt karrot programvaran",
     "GIT_SUB": "Se vår kod!"
   },
@@ -422,7 +422,7 @@
     "EMAIL_NOT_DELIVERED": "An email could not be delivered to you | {count} emails could not be delivered to you"
   },
   "NOTIFICATION_BELLS_LIST": {
-    "TITLE": "Notifications",
+    "TITLE": "Notifikationer",
     "NO_ITEMS": "We currently don't have notifications for you."
   },
   "NOTIFICATION_BELLS": {
@@ -514,7 +514,7 @@
   },
   "APPLICATION": {
     "APPLICATION": "Application",
-    "FORM_HEADER": "Apply",
+    "FORM_HEADER": "Tillämpa",
     "FORM_TITLE": "Apply to join {groupName}",
     "GALLERY_TOOLTIP": "You applied to join this group. Your application is still pending.",
     "WALL_NOTICE": "There is an application pending! | There are {count} applications pending!",

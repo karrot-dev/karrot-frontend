@@ -115,6 +115,20 @@ export default [
         component: GroupWall,
       },
       {
+        name: 'issueTabs',
+        path: 'issue/:issueId',
+        meta: {
+          requiredLoggedIn: true,
+          breadcrumbs: [
+            { translation: 'CONFLICT.TITLE', route: { name: 'issueTabs' } },
+          ],
+          beforeEnter: 'issues/beforeEnter',
+        },
+        components: {
+          default: IssueTabs,
+        },
+      },
+      {
         name: 'map',
         path: 'map',
         meta: {
@@ -480,22 +494,6 @@ export default [
     },
     components: {
       default: Notifications,
-      sidenav: Sidenav,
-    },
-  },
-  {
-    name: 'issueTabs',
-    path: '/group/:groupId/issue/:issueId',
-    meta: {
-      requiredLoggedIn: true,
-      breadcrumbs: [
-        { type: 'currentGroup' },
-        { translation: 'CONFLICT.TITLE', route: { name: 'issueTabs' } },
-      ],
-      beforeEnter: 'issues/beforeEnter',
-    },
-    components: {
-      default: IssueTabs,
       sidenav: Sidenav,
     },
   },

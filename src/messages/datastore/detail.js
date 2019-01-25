@@ -5,19 +5,7 @@ import router from '@/base/router'
 
 function initialState () {
   return {
-    scope: {
-      conflictCase: {
-        type: 'conflictResolution',
-        id: 2,
-        affectedUser: {
-          id: 222,
-          displayName: 'Nick Sellen',
-        },
-        group: 13,
-        createdAt: '2019-01-14T14:46:12.663092Z',
-        topic: 'I\'ve been to three pickups with him and he was always late. Like _really_ late, I mean, we\'re talking 25 minutes here! When I told him that this is not okay he always made fun of it, mocking my perception of time or just making stupid jokes. And then he actually once took all the food _I_ had saved while he was still on the way and just left with it. Seriously, this was like a ninja move - he just vanished with the huge bag of pastries and I didn\'t even notice! I think this is in no way the behavior of a foodsaver and I think he should be excluded from the group.',
-      },
-    },
+    scope: {},
   }
 }
 
@@ -62,7 +50,7 @@ export default {
     },
   },
   actions: {
-    routeEnter ({ dispatch, rootGetters }, { groupId, storeId, pickupId, userId, messageId, conflictId, routeTo }) {
+    routeEnter ({ dispatch, rootGetters }, { groupId, storeId, pickupId, userId, messageId, routeTo }) {
       if (pickupId) {
         dispatch('selectPickup', pickupId)
         if (!Platform.is.mobile) {
@@ -86,12 +74,6 @@ export default {
       }
       else if (messageId) {
         dispatch('selectThread', messageId)
-        if (!Platform.is.mobile) {
-          throw createRouteRedirect({ name: 'group', params: { groupId }, query: routeTo.query })
-        }
-      }
-      else if (conflictId) {
-        dispatch('selectThread', conflictId)
         if (!Platform.is.mobile) {
           throw createRouteRedirect({ name: 'group', params: { groupId }, query: routeTo.query })
         }
@@ -141,9 +123,6 @@ export default {
       else {
         dispatch('selectApplication', application.id)
       }
-    },
-    openForConflict (params) {
-      router.push({ name: 'conflictDetail', params })
     },
     openForThread ({ dispatch }, message) {
       if (Platform.is.mobile) {
@@ -204,9 +183,6 @@ export default {
     },
     setThreadId (state, id) {
       state.scope = { type: 'thread', id }
-    },
-    setConflictId (state, id) {
-      state.scope = { type: 'conflictResolution', id }
     },
     clear (state) {
       Object.assign(state, initialState())

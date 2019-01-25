@@ -503,7 +503,8 @@
     },
     "MESSAGE_NOT_FOUND": "Message not found",
     "NO_CONVERSATIONS": "No conversations yet.",
-    "MUTED": "Notifications are disabled"
+    "MUTED": "Notifications are disabled",
+    "CLOSED": "This conversation has been closed automatically."
   },
   "STORESTATUS": {
     "ACTIVE": "Co-operating",

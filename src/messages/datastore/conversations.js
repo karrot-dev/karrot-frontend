@@ -6,6 +6,7 @@ import reactionsAPI from '@/messages/api/reactions'
 import pickupsAPI from '@/pickups/api/pickups'
 import usersAPI from '@/users/api/users'
 import groupsAPI from '@/group/api/groups'
+import storesAPI from '@/stores/api/stores'
 import applicationsAPI from '@/applications/api/applications'
 import i18n from '@/base/i18n'
 import { createMetaModule, withMeta, withPrefixedIdMeta, metaStatusesWithId } from '@/utils/datastore/helpers'
@@ -89,6 +90,7 @@ export default {
       return getters.get(id)
     },
     getForGroup: (state, getters) => groupId => getters.getForType('group', groupId),
+    getForStore: (state, getters) => storeId => getters.getForType('store', storeId),
     getForPickup: (state, getters) => pickupId => getters.getForType('pickup', pickupId),
     getForApplication: (state, getters) => applicationId => getters.getForType('application', applicationId),
     getForUser: (state, getters) => userId => {
@@ -172,6 +174,7 @@ export default {
       const { type, targetId, participants } = conversation
       switch (type) {
         case 'group': return rootGetters['groups/get'](targetId)
+        case 'store': return rootGetters['stores/get'](targetId)
         case 'pickup': return rootGetters['pickups/get'](targetId)
         case 'application': return rootGetters['applications/get'](targetId)
         case 'private': return participants.find(u => !u.isCurrentUser)
@@ -264,6 +267,25 @@ export default {
 
     clearForGroup ({ getters, commit }, { groupId }) {
       const { id: conversationId } = getters.getForGroup(groupId) || {}
+      if (conversationId) commit('clearMessages', conversationId)
+    },
+
+    async fetchForStore ({ dispatch }, { storeId }) {
+      const conversation = await dispatch('fetchStoreConversation', storeId)
+      dispatch('fetch', conversation.id)
+    },
+
+    async fetchStoreConversation ({ getters, commit }, storeId) {
+      let conversation = getters.getForStore(storeId)
+      if (!conversation) {
+        conversation = await storesAPI.conversation(storeId)
+        commit('setConversation', conversation)
+      }
+      return conversation
+    },
+
+    clearForStore ({ getters, commit }, { storeId }) {
+      const { id: conversationId } = getters.getForStore(storeId) || {}
       if (conversationId) commit('clearMessages', conversationId)
     },
 

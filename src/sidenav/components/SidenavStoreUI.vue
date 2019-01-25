@@ -31,6 +31,14 @@
       no-border
       class="no-padding"
     >
+      <QItem :to="{name: 'storeWall', params: { storeId }}">
+        <QItemSide class="text-center">
+          <QIcon name="fas fa-bullhorn" />
+        </QItemSide>
+        <QItemMain>
+          {{ $t("GROUP.WALL") }}
+        </QItemMain>
+      </QItem>
       <QItem :to="{name: 'storePickups', params: { storeId }}">
         <QItemSide class="text-center">
           <QIcon name="fas fa-shopping-basket" />

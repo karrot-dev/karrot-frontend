@@ -10,6 +10,7 @@ const GroupManageAgreement = () => import('@/agreements/pages/ManageAgreement')
 const GroupCreate = () => import('@/group/pages/Create')
 const GroupPreview = () => import('@/groupInfo/pages/GroupPreview')
 const GroupGallery = () => import('@/groupInfo/pages/GroupGallery')
+const StoreWall = () => import('@/stores/pages/Wall')
 const StoreLayout = () => import('@/stores/pages/Layout')
 const StorePickups = () => import('@/pickups/components/StorePickups')
 const StoreFeedback = () => import('@/feedback/components/StoreFeedback')
@@ -290,7 +291,16 @@ export default [
           {
             name: 'store',
             path: '',
-            redirect: 'pickups',
+            redirect: 'wall',
+          },
+          {
+            name: 'storeWall',
+            path: 'wall',
+            component: StoreWall,
+            meta: {
+              beforeEnter: 'conversations/fetchForStore',
+              afterLeave: 'conversations/clearForStore',
+            },
           },
           {
             name: 'storePickups',

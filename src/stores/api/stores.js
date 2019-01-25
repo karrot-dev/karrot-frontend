@@ -1,4 +1,5 @@
 import axios from '@/base/api/axios'
+import { convert as convertConversation } from '@/messages/api/conversations'
 
 export default {
   async create (data) {
@@ -23,5 +24,9 @@ export default {
 
   async statistics (id) {
     return (await axios.get(`/api/stores/${id}/statistics/`)).data
+  },
+
+  async conversation (id) {
+    return convertConversation((await axios.get(`/api/stores/${id}/conversation/`)).data)
   },
 }

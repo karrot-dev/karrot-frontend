@@ -50,6 +50,10 @@ export default {
     activeStore: (state, getters) => getters.get(state.activeStoreId),
     activeStoreId: state => state.activeStoreId,
     ...metaStatuses(['create']),
+    conversation: (state, getters, rootState, rootGetters) => {
+      if (!state.activeStoreId) return
+      return rootGetters['conversations/getForStore'](state.activeStoreId)
+    },
   },
   actions: {
     ...withMeta({

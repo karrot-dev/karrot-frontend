@@ -87,6 +87,7 @@ import {
   QTab,
   QTabPane,
   QCollapsible,
+  QList,
 } from 'quasar'
 
 export default {
@@ -103,6 +104,7 @@ export default {
     QCollapsible,
     Markdown,
     DateAsWords,
+    QList,
   },
   props: {
     issue: {

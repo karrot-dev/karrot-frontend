@@ -40,7 +40,7 @@
         />
       </QBtn>
       <QCardMain>
-        {{ $t('CONFLICT.VOTING.OPTION_ONE', { userName: issue.affectedUser.displayName, groupName: issue.group.displayName }) }}
+        {{ $t('CONFLICT.VOTING.OPTION_ONE', { userName: issue.affectedUser.displayName, groupName: issue.group.name }) }}
         <QSlider
           v-model="marker1"
           :label-value="fancylabels(marker1)"
@@ -66,7 +66,7 @@
         />
       </QCardMain>
       <QCardMain>
-        {{ $t('CONFLICT.VOTING.OPTION_THREE', { userName: issue.affectedUser.displayName, groupName: issue.group.displayName }) }}
+        {{ $t('CONFLICT.VOTING.OPTION_THREE', { userName: issue.affectedUser.displayName, groupName: issue.group.name }) }}
         <QSlider
           v-model="marker3"
           :label-value="fancylabels(marker3)"

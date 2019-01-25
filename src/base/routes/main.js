@@ -492,10 +492,11 @@ export default [
         { type: 'currentGroup' },
         { translation: 'CONFLICT.TITLE', route: { name: 'issueTabs' } },
       ],
-      beforeEnter: 'currentGroup/selectFromCurrentUser',
+      beforeEnter: 'issues/beforeEnter',
     },
     components: {
       default: IssueTabs,
+      sidenav: Sidenav,
     },
   },
 ]

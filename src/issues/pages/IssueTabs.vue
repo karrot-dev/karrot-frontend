@@ -4,7 +4,7 @@ import IssueTabsUI from '@/issues/components/IssueTabsUI'
 
 export default connect({
   gettersToProps: {
-    issue: 'issues/get',
+    issue: 'issues/getCurrent',
   },
 })('IssueTabs', IssueTabsUI)
 </script>

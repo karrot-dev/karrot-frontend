@@ -10,6 +10,7 @@ const GroupManageAgreement = () => import('@/agreements/pages/ManageAgreement')
 const GroupCreate = () => import('@/group/pages/Create')
 const GroupPreview = () => import('@/groupInfo/pages/GroupPreview')
 const GroupGallery = () => import('@/groupInfo/pages/GroupGallery')
+const PlaceWall = () => import('@/places/pages/Wall')
 const PlaceLayout = () => import('@/places/pages/Layout')
 const PlacePickups = () => import('@/pickups/components/PlacePickups')
 const PlaceFeedback = () => import('@/feedback/components/PlaceFeedback')
@@ -296,7 +297,16 @@ export default [
           {
             name: 'place',
             path: '',
-            redirect: 'pickups',
+            redirect: 'wall',
+          },
+          {
+            name: 'placeWall',
+            path: 'wall',
+            component: PlaceWall,
+            meta: {
+              beforeEnter: 'conversations/fetchForPlace',
+              afterLeave: 'conversations/clearForPlace',
+            },
           },
           {
             name: 'placePickups',

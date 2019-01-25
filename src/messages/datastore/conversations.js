@@ -6,6 +6,7 @@ import reactionsAPI from '@/messages/api/reactions'
 import pickupsAPI from '@/pickups/api/pickups'
 import usersAPI from '@/users/api/users'
 import groupsAPI from '@/group/api/groups'
+import placesAPI from '@/places/api/places'
 import applicationsAPI from '@/applications/api/applications'
 import i18n from '@/base/i18n'
 import { createMetaModule, withMeta, withPrefixedIdMeta, metaStatusesWithId } from '@/utils/datastore/helpers'
@@ -89,6 +90,7 @@ export default {
       return getters.get(id)
     },
     getForGroup: (state, getters) => groupId => getters.getForType('group', groupId),
+    getForPlace: (state, getters) => placeId => getters.getForType('place', placeId),
     getForPickup: (state, getters) => pickupId => getters.getForType('pickup', pickupId),
     getForApplication: (state, getters) => applicationId => getters.getForType('application', applicationId),
     getForUser: (state, getters) => userId => {
@@ -172,6 +174,7 @@ export default {
       const { type, targetId, participants } = conversation
       switch (type) {
         case 'group': return rootGetters['groups/get'](targetId)
+        case 'place': return rootGetters['places/get'](targetId)
         case 'pickup': return rootGetters['pickups/get'](targetId)
         case 'application': return rootGetters['applications/get'](targetId)
         case 'private': return participants.find(u => !u.isCurrentUser)
@@ -264,6 +267,25 @@ export default {
 
     clearForGroup ({ getters, commit }, { groupId }) {
       const { id: conversationId } = getters.getForGroup(groupId) || {}
+      if (conversationId) commit('clearMessages', conversationId)
+    },
+
+    async fetchForPlace ({ dispatch }, { placeId }) {
+      const conversation = await dispatch('fetchPlaceConversation', placeId)
+      dispatch('fetch', conversation.id)
+    },
+
+    async fetchPlaceConversation ({ getters, commit }, placeId) {
+      let conversation = getters.getForPlace(placeId)
+      if (!conversation) {
+        conversation = await placesAPI.conversation(placeId)
+        commit('setConversation', conversation)
+      }
+      return conversation
+    },
+
+    clearForPlace ({ getters, commit }, { placeId }) {
+      const { id: conversationId } = getters.getForPlace(placeId) || {}
       if (conversationId) commit('clearMessages', conversationId)
     },
 

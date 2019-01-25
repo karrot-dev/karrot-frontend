@@ -81,8 +81,11 @@ export default {
     beforeEnter ({ commit }, data) {
       commit('setCurrentIssue', data.issueId)
     },
-    saveVotings ({ commit }, data) {
-      commit('saveVotings', data)
+    saveVotes ({ commit, dispatch }, data) {
+      commit('saveVotes', data)
+      dispatch('toasts/show', {
+        message: 'Your vote was successfully saved.',
+      }, { root: true })
     },
   },
   mutations: {

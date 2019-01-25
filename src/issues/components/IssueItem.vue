@@ -16,11 +16,11 @@
       >
         {{ this.issue.id }}
       </QItemTile>
-      <QItmTile
+      <QItemTile
         sublabel
       >
         {{ this.issue.createdAt }}
-      </QItmTile>
+      </QItemTile>
     </QItemMain>
   </QItem>
 </template>

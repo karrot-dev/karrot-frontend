@@ -136,10 +136,10 @@ export default {
   },
   data () {
     return {
-      marker1: this.issue.votings.options[0].yourScore,
-      marker2: this.issue.votings.options[1].yourScore,
-      marker3: this.issue.votings.options[2].yourScore,
-      marker4: this.issue.votings.options[3].yourScore,
+      marker1: this.issue.votings[0].options[0].yourScore,
+      marker2: this.issue.votings[0].options[1].yourScore,
+      marker3: this.issue.votings[0].options[2].yourScore,
+      marker4: this.issue.votings[0].options[3].yourScore,
     }
   },
   computed: {

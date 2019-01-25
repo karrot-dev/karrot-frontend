@@ -11,7 +11,7 @@ function initialState () {
         'affectedUser': 222,
         'createdBy': 1,
         'topic': 'He is so unreliable and I cannot stand him!',
-        'votings': {
+        'votings': [{
           'id': 1,
           'acceptedOption': 74,
           'expiresAt': '2019-01-22T11:13:17.828Z',
@@ -39,6 +39,7 @@ function initialState () {
           },
           ],
         },
+        ],
       },
       2: {
         'id': 2,
@@ -118,10 +119,10 @@ export default {
       state.currentId = issueId
     },
     saveVotes (state, votes) {
-      state.entries[state.currentId].votings.options[0].yourScore = votes[0]
-      state.entries[state.currentId].votings.options[1].yourScore = votes[1]
-      state.entries[state.currentId].votings.options[2].yourScore = votes[2]
-      state.entries[state.currentId].votings.options[3].yourScore = votes[3]
+      state.entries[state.currentId].votings[0].options[0].yourScore = votes[0]
+      state.entries[state.currentId].votings[0].options[1].yourScore = votes[1]
+      state.entries[state.currentId].votings[0].options[2].yourScore = votes[2]
+      state.entries[state.currentId].votings[0].options[3].yourScore = votes[3]
     },
   },
 }

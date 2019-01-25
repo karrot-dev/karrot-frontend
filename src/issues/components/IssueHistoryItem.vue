@@ -2,6 +2,7 @@
   <div>
     <QItem
       multiline
+      v-if="!issue.votings[0]"
       class="clickable"
       :class="{'greyed': detailIsShown}"
       @click.native="toggleDetail"

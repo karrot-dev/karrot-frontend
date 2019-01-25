@@ -59,7 +59,9 @@
           v-if="issue.isDecided"
           :issue="issue"
         />
-        <QList>
+        <QList
+          v-if="!issue.votings[0]"
+        >
           <IssueHistoryItem
             v-for="v in issue.votings"
             :key="v.id"

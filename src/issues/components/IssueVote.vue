@@ -95,6 +95,7 @@
         type="submit"
         color="secondary"
         v-t="'BUTTON.CREATE'"
+        @click="$emit('saveVote', [marker1, marker2, marker3, marker4])"
       />
     </div>
   </QCard>
@@ -135,10 +136,10 @@ export default {
   },
   data () {
     return {
-      marker1: 0,
-      marker2: 0,
-      marker3: 0,
-      marker4: 0,
+      marker1: this.issue.votings.options[0].yourScore,
+      marker2: this.issue.votings.options[1].yourScore,
+      marker3: this.issue.votings.options[2].yourScore,
+      marker4: this.issue.votings.options[3].yourScore,
     }
   },
   computed: {

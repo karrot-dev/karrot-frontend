@@ -11,6 +11,34 @@ function initialState () {
         'affectedUser': 222,
         'createdBy': 1,
         'topic': 'He is so unreliable and I cannot stand him!',
+        'votings': {
+          'id': 1,
+          'acceptedOption': 74,
+          'expiresAt': '2019-01-22T11:13:17.828Z',
+          'options': [{
+            'id': 73,
+            'sumScore': 7.0,
+            'type': 'furtherDiscussion',
+            'yourScore': null,
+          },
+          {
+            'id': 74,
+            'sumScore': 5.0,
+            'type': 'removeUser',
+            'yourScore': null,
+          },
+          { 'id': 75,
+            'sumScore': 8.0,
+            'type': 'offlineMediation',
+            'yourScore': null,
+          },
+          { 'id': 76,
+            'sumScore': -1.0,
+            'type': 'noChange',
+            'yourScore': null,
+          },
+          ],
+        },
       },
       2: {
         'id': 2,
@@ -53,10 +81,19 @@ export default {
     beforeEnter ({ commit }, data) {
       commit('setCurrentIssue', data.issueId)
     },
+    saveVotings ({ commit }, data) {
+      commit('saveVotings', data)
+    },
   },
   mutations: {
     setCurrentIssue (state, issueId) {
       state.currentId = issueId
+    },
+    saveVotings (state, votes) {
+      state.entries[state.currentId].votings.options[0].yourScore = votes[0]
+      state.entries[state.currentId].votings.options[1].yourScore = votes[1]
+      state.entries[state.currentId].votings.options[2].yourScore = votes[2]
+      state.entries[state.currentId].votings.options[3].yourScore = votes[3]
     },
   },
 }

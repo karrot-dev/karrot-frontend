@@ -46,7 +46,6 @@ export const makeGroup = data => {
   return {
     id,
     name: `Group ${id}`,
-    displayName: 'FoodShaving Inc.',
     description: '',
     publicDescription: '',
     applicationQuestions: '',

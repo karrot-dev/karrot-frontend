@@ -6,5 +6,8 @@ export default connect({
   gettersToProps: {
     issue: 'issues/getCurrent',
   },
+  actionsToEvents: {
+    saveVote: 'issues/saveVotings',
+  },
 })('IssueTabs', IssueTabsUI)
 </script>

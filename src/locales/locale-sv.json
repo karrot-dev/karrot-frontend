@@ -3,7 +3,7 @@
   "GLOBAL": {
     "GITHUB_NOTE": "Utveckling",
     "FSWW_NOTE": "Läs vår informationssida!",
-    "COMMUNITY_NOTE": "Gå med i vår gemenskap!",
+    "COMMUNITY_NOTE": "Gå med i vårt gemenskap!",
     "SERVER_ERROR": "Server fel",
     "NOT_CONNECTED": "Du är inte ansluten till servern",
     "INVALID_LINK": "Oj, länken du försöker komma åt är ogiltig.",
@@ -11,7 +11,7 @@
     "SEARCH_NOT_FOUND": "Kunde inte hittas"
   },
   "USERDATA": {
-    "EMAIL": "mail",
+    "EMAIL": "E-mail",
     "MOBILE_NUMBER": "Mobilnr.",
     "PROFILE_TITLE": "Profil",
     "PASSWORD": "Lösenord",
@@ -19,7 +19,7 @@
     "USERNAME": "Namn",
     "WHERE_FROM": "Varifrån kommer du? (krävs inte)",
     "PHOTO": "Profilbild",
-    "SET_PHOTO": "Ange din profilfoto...",
+    "SET_PHOTO": "Ange din profilbild...",
     "ACCOUNT": "Konto",
     "PUSH": "Push notifications",
     "PUSH_CURRENT_BROWSER": "Current browser",
@@ -44,19 +44,19 @@
     "PEOPLE_TRUST_USER": "Du och {otherUser} litar på {userName} i {groupName}. | Du och {count} till litar på {userName} i {groupName}.",
     "FIRST_TRUST": "Var den första att lita på {userName} i {groupName}!",
     "NEWCOMER": "Nykomling",
-    "NEWCOMER_GUIDANCE": "{userName} är ny i din grup och kan behöver lite vägledning.",
+    "NEWCOMER_GUIDANCE": "{userName} är ny i din grupp och kanske behöver lite vägledning.",
     "TRUST_PROGRESS_TEXT": "{trustNeeded} mer tillit behövs",
-    "TRUST_PROGRESS_TEXT_LONG": "{trustNeeded} till måste lita på {userName} för att bevilja personen rättigheter att redigera.",
+    "TRUST_PROGRESS_TEXT_LONG": "{trustNeeded} till måste lita på {userName} för att bevilja personen behörighet att redigera.",
     "NEWCOMER_INFO": "You are currently a newcomer in {groupName} and you can become active by writing messages, meeting fellow members, doing pickups and giving feedback. As soon as {threshold} members expressed their trust in you, you will gain editing permissions to help with group administration.",
     "TRUST_INFO": {
-      "TITLE": "Vad är karrot om?",
-      "MESSAGE": "It is part of the Karrot trust system. It shows if a group member is newcomer and how much trust is needed until they gain editing permissions.",
-      "LINK": "Click here to find out more."
+      "TITLE": "Vad handlar karrotknappen om?",
+      "MESSAGE": "Det är en del av Karrots tillitssystemet. Det visar om en medlem i gruppen är en nybörjare och hur mycket tillit behövs till hen får behörighet att redigera.",
+      "LINK": "Klicka här för att få redo på mer."
     }
   },
   "SWITCHGROUP": {
-    "NOT_MEMBER": "{userName} is not member of {groupName}.",
-    "COMMON_GROUPS": "Groups you have in common",
+    "NOT_MEMBER": "{userName} är inte en medlem i {groupName}.",
+    "COMMON_GROUPS": "Gemensamma grupper",
     "OTHER_GROUPS": "Andra grupper"
   },
   "BUTTON": {
@@ -81,25 +81,25 @@
     "REMOVE": "Ta bort",
     "ARCHIVE": "Arkivera",
     "DELETE_ACCOUNT": "Radera konto",
-    "SHOW": "visa",
+    "SHOW": "Visa",
     "HIDE": "Gömma",
     "SUBMIT": "Skicka in",
     "APPLY": "Tillämpa",
     "ACCEPT": "Acceptera",
-    "DECLINE": "Decline",
-    "WITHDRAW": "Withdraw",
-    "SHOW_MORE": "Show more",
-    "ENABLE": "Enable",
-    "DISABLE": "Disable",
-    "UNSUBSCRIBE": "Unsubscribe"
+    "DECLINE": "Avböja",
+    "WITHDRAW": "Ta bort",
+    "SHOW_MORE": "Visa mer",
+    "ENABLE": "aktivera",
+    "DISABLE": "inaktivera",
+    "UNSUBSCRIBE": "Avsluta prenumeration"
   },
   "VALIDATION": {
     "MINLENGTH": "Ange mer än {min} tecken",
     "MAXLENGTH": "För långt. Ange mindre än  {max} tecken",
     "UNIQUE": "Namn finns redan. Välj ett annat",
-    "REQUIRED": "This field is required.",
+    "REQUIRED": "Fältet är obligatoriskt",
     "VALID_EMAIL": "Ange giltig mejladress.",
-    "VALID_TIMEZONE": "Enter a valid timezone."
+    "VALID_TIMEZONE": "Ange giltig tidszon"
   },
   "GROUP": {
     "WALL": "Anslagstavla",
@@ -110,24 +110,24 @@
     "NONMEMBER_REDIRECT": "Du är inte en medlem i denna grupp",
     "EDIT": "Redigera gruppen",
     "CREATE_TITLE": "Skapa ny grupp",
-    "MANAGE_AGREEMENT": "Manage agreement",
+    "MANAGE_AGREEMENT": "Redigera överenskommelse",
     "TITLE": "Gruppens namn",
     "PRIVATE_DESCRIPTION_TITLE": "Privat gruppbeskrivning",
     "DESCRIPTION_VERBOSE": "Beskrivning av gruppen, endast för medlemmar",
     "PUBLIC_DESCRIPTION": "Publik Beskrivning av gruppen",
-    "LOGO": "Group logo",
-    "SET_LOGO": "Click to upload your group logo!",
-    "APPLICATIONS": "Applications",
-    "APPLICATION_QUESTIONS": "Questions for people who want to join this group",
+    "LOGO": "Gruppens logga",
+    "SET_LOGO": "Klicka för att ladda upp gruppens logotyp!",
+    "APPLICATIONS": "Ansökningar",
+    "APPLICATION_QUESTIONS": "Frågor till folk som vill gå med gruppen",
     "PICKUPS": "Upphämtningar",
     "MESSAGES": "Medellanden",
     "PICKUP": "Upphämtning",
     "MEMBERS": "Medlemmar",
     "JOINED": "gick med {relativeDate}",
-    "DECLINED": "declined {relativeDate}",
+    "DECLINED": "avböjd {relativeDate}",
     "ADDED_BY": "tillagd av {userName}",
-    "DECLINED_BY": "declined by {userName}",
-    "SORT_JOINDATE": "Sortera efter anmälningsdatum",
+    "DECLINED_BY": "avböjd av {userName}",
+    "SORT_JOINDATE": "Sortera efter inträdesdatum",
     "SORT_NAME": "Sortera efter namn",
     "INACTIVE": "Inaktive",
     "SHOW_INACTIVE": "Visa inaktiva grupper",
@@ -159,13 +159,13 @@
         "DESCRIPTION": "Påminner dig om dina upphämtningar och om lediga upphämtningar i kommande dagen."
       },
       "new_application": {
-        "NAME": "New applications",
-        "DESCRIPTION": "Tells you when somebody wants to join your group"
+        "NAME": "Nya ansökningar",
+        "DESCRIPTION": "När någon vill gå med i gruppen"
       }
     },
-    "PLAYGROUND_INFO": "Det här är en lekplats grup, du kan inte bryta i något . Utforska, klicka och ha det kul!",
-    "JOIN_PLAYGROUND": "Join the playground group to explore karrot",
-    "JOIN_ANOTHER_GROUP": "Join another group"
+    "PLAYGROUND_INFO": "Det här är en grupp för att leka och inget kan slås sönder. Utforska, klicka och ha det kul!",
+    "JOIN_PLAYGROUND": "Gå med gruppen Playground för att utförska Karrot",
+    "JOIN_ANOTHER_GROUP": "Gå med en annan grupp"
   },
   "GROUPMAP": {
     "TITLE": "Karta",
@@ -173,16 +173,16 @@
     "HIDE_USERS": "Göm användare",
     "SHOW_STORES": "Visa butiker",
     "HIDE_STORES": "Göm butiker",
-    "SHOW_GROUPS": "Show groups",
-    "HIDE_GROUPS": "Hide groups",
-    "SET_LOCATION": "Set location",
+    "SHOW_GROUPS": "Visa grupper",
+    "HIDE_GROUPS": "Göm grupper",
+    "SET_LOCATION": "Sätta plats",
     "FULL_SCREEN": "Visa fullskärm"
   },
   "STOREDETAIL": {
-    "DIRECTIONS": "Show directions",
+    "DIRECTIONS": "Visa vägbeskrivning",
     "EDIT": "Redigera butik",
     "MANAGE": "Hantera upphämtningarna",
-    "ARCHIVED": "This store has been archived",
+    "ARCHIVED": "Butiken har arkiverats",
     "INACTIVE": "Denna butik samarbetar inte i dagsläget",
     "CHANGE_STATUS": "Du kan ändra statusen på inställningssidan.",
     "NO_DESCRIPTION": "Denna butik har fortfarande ingen beskrivning."
@@ -193,28 +193,28 @@
     "DESCRIPTION": "Beskrivning",
     "ADDRESS": "Adress",
     "WEEKS_IN_ADVANCE": "Hur många veckor i förväg skall återkommande upphämtningar synas?",
-    "WEEKS_IN_ADVANCE_WARNING": "Existing leftover pickups will get deleted if they are empty. You can disable non-empty pickups manually, if needed.",
+    "WEEKS_IN_ADVANCE_WARNING": "Befinnande upphämtningar som är kvar kommer att raderas om de är tomma. Du kan inaktivera upptagna hämtningar manuellt om det behövs.",
     "DIALOGS": {
       "ARCHIVE": {
-        "TITLE": "Archive store",
+        "TITLE": "Arkivera butiken",
         "MESSAGE": "Är du säker?",
-        "CONFIRM": "Yes, archive store"
+        "CONFIRM": "Ja, arkivera butiken"
       }
     },
     "RESTORE": "Återställa",
-    "SHOW_ARCHIVED": "Show archived stores",
-    "HIDE_ARCHIVED": "Hide archived stores",
-    "SHOW_ALL": "Show all stores",
-    "SHOW_ACTIVE_ONLY": "Only show active stores"
+    "SHOW_ARCHIVED": "Visa arkiverade butiker",
+    "HIDE_ARCHIVED": "Göm arkiverade butiker",
+    "SHOW_ALL": "Visa alla butiker",
+    "SHOW_ACTIVE_ONLY": "Visa bara aktiva butiker"
   },
   "PICKUPMANAGE": {
     "TITLE": "Hantera upphämtningar",
     "SERIES": "Regelbundna upphämtningar",
     "SINGLE": "Engångs upphämtning",
     "UPCOMING_PICKUPS_IN_SERIES": "Kommande upphämtningar i denna serie",
-    "PICKUP_DOES_NOT_MATCH": "This pickups' date doesn't match the recurrence pattern",
-    "PICKUP_DESCRIPTION_CHANGED": "'Additional information' has been changed",
-    "PICKUP_MAX_COLLECTORS_CHANGED": "'Max slots' has been changed"
+    "PICKUP_DOES_NOT_MATCH": "Upphämtningsdatumet passar inte återkommande mönstret",
+    "PICKUP_DESCRIPTION_CHANGED": "'Mer information' har ändrats",
+    "PICKUP_MAX_COLLECTORS_CHANGED": "'Max antal platser' har ändrats"
   },
   "PICKUPDELETE": {
     "DELETE_SERIES_TITLE": "Radera regelbundet upphämtningsdatum",
@@ -235,18 +235,18 @@
     "NO_PUBLIC_DESCRIPTION": "(Denna grupp har ingen publik beskrivning än..)",
     "ALL_GROUPS": "Alla grupper",
     "SIGNUP_OR_LOGIN": "Logga in eller registrera dig för att gå med i gruppen!",
-    "VERIFY_EMAIL_ADDRESS": "Verify your email address to apply",
+    "VERIFY_EMAIL_ADDRESS": "Verifiera din mejladress för att kunna ansöka",
     "MY_GROUPS": "Mina grupper",
     "LOGOUT_MESSAGE": {
       "LOGGED_OUT": "Du är utloggade nu. {login}",
       "LOG_IN": "Logga in för att se dina grupper!"
     },
     "PROFILE_NOTE": "När du går med i gruppen blir din profildata synlig för andra medlemmar i gruppen.",
-    "APPLICATION_SUBMITTED": "Your application was successfully submitted!",
-    "APPLICATION_PENDING": "Your application is pending!",
-    "WITHDRAW_CONFIRMATION_HEADER": "Withdraw Application",
-    "WITHDRAW_CONFIRMATION_TEXT": "Are you sure you want to withdraw your application to join {groupName}?",
-    "APPLICATION_WITHDRAWN": "Your application was successfully withdrawn!"
+    "APPLICATION_SUBMITTED": "Din ansökan har skickats in!",
+    "APPLICATION_PENDING": "Din ansökan väntar på svar!",
+    "WITHDRAW_CONFIRMATION_HEADER": "Ta bort ansökan",
+    "WITHDRAW_CONFIRMATION_TEXT": "Är du säker på att du vill ta bort din ansökan för att gå med {groupName}?",
+    "APPLICATION_WITHDRAWN": "Din ansökan har tagits bort!"
   },
   "GROUPINFO": {
     "TITLE": "Offentlig information om gruppen",
@@ -260,7 +260,7 @@
   },
   "SIDENAV": {
     "INFO_SUB": "Hur man skapa sin maträddningsgrupp",
-    "BLOG_SUB": "Alla nyheter runt karrot programvaran",
+    "BLOG_SUB": "Alla nyheter om karrot programvaran",
     "GIT_SUB": "Se vår kod!"
   },
   "LOGIN": {
@@ -275,8 +275,8 @@
     "OK": "gå med"
   },
   "VERIFYMAIL": {
-    "TITLE": "E-Mail verification",
-    "SUCCESS": "Your e-mail address was successfully verified!"
+    "TITLE": "Mejlverifiering",
+    "SUCCESS": "Din mejladress har verifierats!"
   },
   "DELETEACCOUNT": {
     "TITLE": "Radera konto",
@@ -285,12 +285,12 @@
   "CREATEPICKUP": {
     "FREQUENCY": "Hur ofta",
     "WEEKLY": "Varje vecka",
-    "CUSTOM": "Custom",
+    "CUSTOM": "Skräddarsytt",
     "WEEKDAYS": "Helg",
     "WEEKDAYS_HELPER": "Vilka dagar ska man hämta upp?",
-    "RRULE": "Recurrence rule",
+    "RRULE": "Återkomstregel",
     "RRULE_HELPER": "Type in a valid {ruleHelper}, e.g. {ruleExample} or {ruleExample2}",
-    "RRULE_HELPER_URL": "iCalender rule",
+    "RRULE_HELPER_URL": "iCalenders regel",
     "RRULE_EXAMPLE": "Sista arbetsdag (Mån-Fre) varje månad",
     "RRULE_EXAMPLE2": "varannan måndag",
     "STARTDATE": "Startdatum",
@@ -305,11 +305,11 @@
     "COMMENT_HELPER": "Vad bör folk veta när de ska gå med upphämtningen?",
     "UNLIMITED": "obegränsat",
     "DIFFERS_WARNING": "This value differs from the default. To undo this change, click on the arrow button and save the changes.",
-    "ENABLE_TITLE": "Enable pickup?",
-    "DISABLE_TITLE": "Disable pickup?",
-    "ENABLE_DISABLE_MESSAGE": "Users who joined this pickup will get a notification. You can change this text to provide a reason:",
-    "EXCEPTIONS_TITLE": "Check your pickups",
-    "EXCEPTIONS_MESSAGE": "Some upcoming pickups don't match the settings of this recurring pickup. Have a look below at '{upcomingLabel}' to change or disable pickups, if needed."
+    "ENABLE_TITLE": "Aktivera upphämtning?",
+    "DISABLE_TITLE": "Inaktivera upphämtning?",
+    "ENABLE_DISABLE_MESSAGE": "Alla som skrev upp sig till denna upphämtning kommer att få ett meddelande. Du kan ändra texten för att ge en anledning:",
+    "EXCEPTIONS_TITLE": "Kolla dina upphämtningar",
+    "EXCEPTIONS_MESSAGE": "Vissa kommande upphämtningar passar inte inställningar för denna återkommande upphämtning. Ta en titt där nere på '{upcomingLabel}' för att ändra eller inaktivera upphämtningar om det behövs."
   },
   "CREATESTORE": {
     "TITLE": "Skapa ny butik"
@@ -329,39 +329,39 @@
     "NONE": "Inga bokade upphämtningar",
     "NONE_HINT": "Du kan boka en ny upphämtning på butik sidan.",
     "STORE_NONE_HINT": "Du kan skapa en ny upphämtning i sidan för att hantera upphämtningar",
-    "PICKUP_DISABLED": "This pickup has been disabled.",
-    "PICKUP_STARTED": "This pickup has already started."
+    "PICKUP_DISABLED": "Upphämtningen har inaktiverats.",
+    "PICKUP_STARTED": "Upphämtningen har redan påbörjats."
   },
   "FEEDBACKLIST": {
-    "SAVED_FOOD": "At least 1 kg was saved here. Thank you! | People gave feedback for {amount} kg of saved food already! Keep up the great work!",
+    "SAVED_FOOD": "Minst 1 kg räddades här. Tack ska du ha! Folk har redan gett feedback för {amount} kg räddad mat! Bra jobbat!",
     "NUMBER_PICKUPS": "{count} upphämntningar gjort",
-    "NUMBER_FEEDBACK": "{count} feedback entries given",
+    "NUMBER_FEEDBACK": "{count} feedbacks",
     "WEIGHT_SUM": "{sum} kg räddade mat",
     "GIVE_FEEDBACK": "Ge feedback",
     "NONE": "Ingen feedback ännu",
-    "NONE_HINT": "This page will be filled once more feedback is available",
-    "NO_DONE_PICKUPS": "All done!",
-    "NO_DONE_PICKUPS_HINT": "You currently have no pickups to give feedback to. Why not join another pickup?"
+    "NONE_HINT": "Den här sidan kommer att fyllas när det finns mer feedback",
+    "NO_DONE_PICKUPS": "Klar!",
+    "NO_DONE_PICKUPS_HINT": "Du har ingen feedback att ge. Varför inte gå med en upphämtning?"
   },
   "PICKUP_FEEDBACK": {
     "TITLE": "Feedback",
-    "HEADER": "Thank you for your pickup!",
-    "EDIT": "Edit feedback",
-    "SUBTITLE": "You can provide feedback for your pickup here",
+    "HEADER": "Tack för din upphämtning!",
+    "EDIT": "Redigera feedback",
+    "SUBTITLE": "Du kan ange en feedback för din upphämtning här",
     "SET_AMOUNT": "Ställa in mängd",
     "DELETE_AMOUNT": "Radera mängd",
-    "AMOUNT": "Mängden mat kunde alla spara (i kg)",
-    "COMMENT_PLACEHOLDER": "Was everything fine? Did everyone show up? Your comment here...",
-    "PREVIOUS": "Previous feedback for {store}",
-    "TOGETHER_WITH": "You did this pickup together with:"
+    "AMOUNT": "Mängden mat som räddades av alla (i kg)",
+    "COMMENT_PLACEHOLDER": "Gick allt bra? Var alla med? Din kommentar här...",
+    "PREVIOUS": "Föregående feedback för {store}",
+    "TOGETHER_WITH": "Du gjorde upphämtningen tillsammans med:"
   },
   "PASSWORDRESET": {
     "TITLE": "Återställ lösenordet",
-    "INTRO": "Enter your Email address and we will send you a link to set a new password (if you have an account registered).",
-    "EMAIL": "Email address",
+    "INTRO": "Ange din mejladress så skickar vi en länk till dig för att sätta ett nytt lösenord (om du har ett registrerade konto).",
+    "EMAIL": "Mejladress",
     "SUBMIT": "Skicka",
     "LOGIN": "Tillbacks till logga in sidan",
-    "SUCCESS": "The request was successfully sent. Have a look at your Emails!"
+    "SUCCESS": "Begäran har skickats. Kolla din mejl!"
   },
   "PASSWORD": {
     "RESET": {
@@ -374,7 +374,7 @@
     }
   },
   "LANGUAGECHOOSER": {
-    "ADD_MORE": "Hjälp översätta",
+    "ADD_MORE": "Hjälp att översätta!",
     "SWITCH": "Ändra språk"
   },
   "MARKDOWN_INPUT": {
@@ -395,8 +395,8 @@
     "PICKUP_CREATE": "skapade en upphämtning",
     "PICKUP_MODIFY": "ändrade inställningarna för en upphämtninng",
     "PICKUP_DELETE": "tog bort en upphämtning",
-    "PICKUP_ENABLE": "enabled a pickup",
-    "PICKUP_DISABLE": "disabled a pickup",
+    "PICKUP_ENABLE": "aktivera en upphämtning",
+    "PICKUP_DISABLE": "inaktivera en upphämtning",
     "SERIES_CREATE": "skapade en återkommande upphämtning",
     "SERIES_MODIFY": "ändrade inställningarna för en återkommande upphämtning",
     "SERIES_DELETE": "tog bort en återkommande upphämtning",
@@ -404,49 +404,49 @@
     "PICKUP_MISSED": "Ingen hämtade upp på {storeName}!",
     "PICKUP_JOIN": "skrev upp sig för att hämta upp på {storeName}",
     "PICKUP_LEAVE": "gav upp om att hämta upp på {storeName}",
-    "APPLICATION_DECLINED": "declined an application from {applicantName}",
-    "MEMBER_BECAME_EDITOR": "gained editing permissions",
-    "GROUP_LEAVE_INACTIVE": "was removed due to inactivity",
-    "GROUP_CHANGE_PHOTO": "changed the group logo",
-    "GROUP_DELETE_PHOTO": "deleted the group logo",
+    "APPLICATION_DECLINED": "avböjde en ansökan från {applicantName}",
+    "MEMBER_BECAME_EDITOR": "fick behörighet att redigera",
+    "GROUP_LEAVE_INACTIVE": "hat tagits bort på grund av inaktivitet",
+    "GROUP_CHANGE_PHOTO": "ändrade gruppens logotyp",
+    "GROUP_DELETE_PHOTO": "raderade gruppens logotyp",
     "NOTHING_HAPPENEND": "Inget händer än så länge...",
     "DETAILS": "Mer information"
   },
   "NOTIFICATIONS": {
     "TITLE": "Notifikationer",
-    "NOT_VERIFIED": "{email} is not verified",
+    "NOT_VERIFIED": "{email} är inte verifierad",
     "CHECK_YOUR_MAILS": "Varsågod och kolla dina mejl eller {resend}",
     "RESEND_VERIFICATION": "Skicka igen mejlverifiering",
     "VERIFICATION_EMAIL_SENT": "Vi skickade ett till verifieringsmejl. Varsågod och kolla din inkorg.",
     "CHANGES_SAVED": "Dina ändringar har sparats.",
-    "EMAIL_NOT_DELIVERED": "An email could not be delivered to you | {count} emails could not be delivered to you"
+    "EMAIL_NOT_DELIVERED": "Ett mejl kunde inte skickas till dig | {count} mejl kunde inte skickas till dig"
   },
   "NOTIFICATION_BELLS_LIST": {
     "TITLE": "Notifikationer",
-    "NO_ITEMS": "We currently don't have notifications for you."
+    "NO_ITEMS": "Vi har för tillfälle ingen notis för dig"
   },
   "NOTIFICATION_BELLS": {
-    "YOU_BECAME_EDITOR": "You gained editing permissions",
-    "USER_BECAME_EDITOR": "{userName} gained editing permissions",
-    "NEW_APPLICANT": "{userName} applied to join your group",
-    "APPLICATION_ACCEPTED": "Your application was accepted!",
-    "APPLICATION_DECLINED": "Your application was declined",
-    "INVITATION_ACCEPTED": "{userName} accepted your invitation",
-    "FEEDBACK_POSSIBLE": "You can give feedback for the pickup you did on {date}",
-    "NEW_STORE": "{storeName} has been created",
-    "NEW_MEMBER": "{userName} joined your group",
-    "PICKUP_UPCOMING": "Påminnelse: Du har en upphämtning klockan {time}  ",
-    "PICKUP_DISABLED": "Pickup at {dateTime} was disabled",
-    "PICKUP_ENABLED": "Pickup at {dateTime} was enabled again",
-    "PICKUP_MOVED": "Pickup was moved to {dateTime}"
+    "YOU_BECAME_EDITOR": "Du fick behörighet att redigera",
+    "USER_BECAME_EDITOR": "{userName} har fått behörighet att redigera",
+    "NEW_APPLICANT": "{userName} ansökte till att gå med i din grupp",
+    "APPLICATION_ACCEPTED": "Din ansökan har beviljats!",
+    "APPLICATION_DECLINED": "Din ansökan har avböjts",
+    "INVITATION_ACCEPTED": "{userName} beviljade din ansökan",
+    "FEEDBACK_POSSIBLE": "Du kan ge feedback för en upphämtning du gjorde den {date}",
+    "NEW_STORE": "{storeName} har skapats",
+    "NEW_MEMBER": "{userName} gick med i din grupp",
+    "PICKUP_UPCOMING": "Påminnelse: Du har en upphämtning kl {time}  ",
+    "PICKUP_DISABLED": "Upphämtning den {dateTime} har inaktiverats",
+    "PICKUP_ENABLED": "Upphämtning den {dateTime} har aktiverats igen",
+    "PICKUP_MOVED": "Upphämtningen har ändrats till {dateTime}"
   },
   "OUTDATED_BROWSER": {
-    "MESSAGE": "You are using an unsupported browser. {upgradeBrowser} to enjoy all features.",
-    "LINK": "Please update or switch your browser"
+    "MESSAGE": "Du använder en webbläsare som inte har stöd. {upgradeBrowser} för att komma åt alla funktionaliteter.",
+    "LINK": "Snälla uppdatera eller ändra din webbläsare"
   },
   "UPDATE_AVAILABLE": {
-    "TITLE": "Update available",
-    "DETAIL": "A new version of karrot is available."
+    "TITLE": "Uppdatering tillgänglig",
+    "DETAIL": "En ny version av Karrot finns tillgänglig."
   },
   "NOT_FOUND": {
     "EXPLANATION": "Jag är ledsen, men vi kunde inte hitta sidan nånstans.",
@@ -464,18 +464,18 @@
     "CONTENT": "Innehåll",
     "CONTENT_HELPER": "Texten i överenskommelse",
     "MINOR_EDIT": "Mindre redigering?",
-    "MINOR_EDIT_HELPER": "Typos, formatting, etc... people will not be asked to re-agree",
+    "MINOR_EDIT_HELPER": "Felstavningar, format, osv. Folk ska inte tillfrågas igen för att hålla med.",
     "BLURB1": "Du har fortfarande ingen överenskommelse!",
-    "BLURB2": "If you add one then people will have to agree to it before they can do pickups.",
+    "BLURB2": "Om du lägger till en, då måste folk hålla med innan de kan gå med upphämtningar.",
     "DIALOGS": {
       "REPLACE": {
-        "TITLE": "Change agreement?",
+        "TITLE": "Ändra överenskommelse?",
         "MESSAGE": "Everyone will have to agree again before they can signup for pickups",
         "CONFIRM": "Yes, change agreement"
       },
       "REMOVE": {
         "TITLE": "Remove agreement?",
-        "MESSAGE": "This means anyone will be able to do a pickup",
+        "MESSAGE": "Det betyder att alla ska kunna göra en upphämtning",
         "CONFIRM": "Yes, remove agreement"
       }
     }
@@ -489,64 +489,64 @@
     "RECEIVED_VIA_EMAIL": "Det här meddelande skickades via mejl"
   },
   "CONVERSATION": {
-    "OPEN": "Open Chat",
-    "REPLY_TO_MESSAGE": "Svara till meddelandet...",
+    "OPEN": "Öppna chatten",
+    "REPLY_TO_MESSAGE": "Svara på meddelandet...",
     "REPLIES": "Svar",
-    "REPLIES_COUNT": "1 reply | {count} replies",
+    "REPLIES_COUNT": "1 svar | {count} svar",
     "UNREAD_MESSAGES": "Du har ett oläst meddelande. | Du har {count} olästa meddelande.",
-    "EDITED": "edited",
+    "EDITED": "redigerad",
     "MARK_READ": "Markera alla som lästa",
     "REACTIONS": {
       "YOU": "du",
       "AND": "och",
       "REACTED_WITH": "{users} reagerade med {reaction}"
     },
-    "MESSAGE_NOT_FOUND": "Message not found",
-    "NO_CONVERSATIONS": "No conversations yet.",
-    "MUTED": "Notifications are disabled"
+    "MESSAGE_NOT_FOUND": "Meddelande hittades inte",
+    "NO_CONVERSATIONS": "Fortfarande inga samtal",
+    "MUTED": "Notifieringar är inaktiverad"
   },
   "STORESTATUS": {
     "ACTIVE": "Samarbetar",
     "CREATED": "Nyligen skapad",
     "NEGOTIATING": "Förhandlar",
     "DECLINED": "Vill inte samarbeta",
-    "ARCHIVED": "Archived"
+    "ARCHIVED": "Arkiverad"
   },
   "APPLICATION": {
-    "APPLICATION": "Application",
+    "APPLICATION": "Ansökan",
     "FORM_HEADER": "Tillämpa",
-    "FORM_TITLE": "Apply to join {groupName}",
-    "GALLERY_TOOLTIP": "You applied to join this group. Your application is still pending.",
-    "WALL_NOTICE": "There is an application pending! | There are {count} applications pending!",
-    "ACCEPT_CONFIRMATION_HEADER": "Accept Application",
-    "ACCEPT_CONFIRMATION_TEXT": "Are you sure you want to accept {userName} into this group?",
-    "DECLINE_CONFIRMATION_HEADER": "Decline Application",
-    "DECLINE_CONFIRMATION_TEXT": "Are you sure you want to decline the application of {userName}?",
-    "ACCEPTED": "You accepted {userName} into this group!",
-    "DECLINED": "You declined the application of {userName}.",
-    "PAST": "Past applications",
-    "SUBMITTED_ON": "Submitted on {date}",
-    "WITHDRAWN": "withdrawn {relativeDate}",
-    "WHAT": "What is this chat about?",
-    "HELP": "This is a chat between all existing members of {groupName} and the new applicant {userName}. It is meant to give you all a chance to get to know you before deciding whether to accept, decline or withdraw the application.",
-    "INITIAL": "Initial questions and answers"
+    "FORM_TITLE": "Ansök till att gå med {groupName}",
+    "GALLERY_TOOLTIP": "Du ansökte till att gå med den här gruppen. Din ansökan väntar på svar.",
+    "WALL_NOTICE": "En ansökan väntar på svar! | {count} ansökningar väntar på svar!",
+    "ACCEPT_CONFIRMATION_HEADER": "Bevilja Ansökan",
+    "ACCEPT_CONFIRMATION_TEXT": "Är du säker på att du vill släppa {userName} in i gruppen?",
+    "DECLINE_CONFIRMATION_HEADER": "Avböja Ansökan",
+    "DECLINE_CONFIRMATION_TEXT": "Är du säker på att du inte vill släppa {userName} in i gruppen?",
+    "ACCEPTED": "You släppte {userName} in i gruppen!",
+    "DECLINED": "Du avböjde {userName}s ansökan.",
+    "PAST": "Föregående ansökningar",
+    "SUBMITTED_ON": "Inskickat {date}",
+    "WITHDRAWN": "bortagit {relativeDate}",
+    "WHAT": "Vad handlar chatten om?",
+    "HELP": "Det här är en chatt mellan alla medlemmar i {groupName} och {userName}. Meningen är att du får en chans att lära känna personen innan du bestämmer dig för att bevilja, avböja eller ta bort personens ansökan.",
+    "INITIAL": "Inledande frågor och svar"
   },
   "COMMUNITY_FEED": {
-    "HEADER": "Updates from the {community}",
+    "HEADER": "Uppdateringar från {community}",
     "HEADER_LINK": "foodsaving worldwide community",
-    "LAST_UPDATED": "Last updated {relativeDate}"
+    "LAST_UPDATED": "Sist uppdaterad {relativeDate}"
   },
   "INACTIVITY": {
-    "WHAT": "What does it mean to be inactive?",
-    "HELP": "Everyone who did not log into the group for {dayCount} days or more counts as inactive. These users will not receive notification emails anymore."
+    "WHAT": "Vad betyder att vara inaktiv?",
+    "HELP": "Alla som inte loggade in i gruppen i {dayCount} dagar eller mer räknas som inaktiv. Dessa användare kommer inte längre få e-postnotifieringar"
   },
   "UNSUBSCRIBE": {
-    "HEADER": "Unsubscribe",
-    "FROM_CONVERSATION": "unsubscribe from just this conversation",
-    "FROM_THREAD": "unsubscribe from just this thread",
-    "FROM_NOTIFICATION_TYPE": "unsubscribe from {notificationType}",
-    "FROM_GROUP": "unsubscribe from everything in {groupName}",
-    "SUCCESS": "You were successfully unsubscribed!"
+    "HEADER": "Avprenumerera",
+    "FROM_CONVERSATION": "Stäng av notiser för detta samtal",
+    "FROM_THREAD": "stäng av notiser för just den här tråden",
+    "FROM_NOTIFICATION_TYPE": "stäng av notiser från {notificationType}",
+    "FROM_GROUP": "stäng av notiser för allt i {groupName}",
+    "SUCCESS": "Du avslutade prenumeration!"
   },
   "YOU": "Du"
 }

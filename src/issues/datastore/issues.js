@@ -49,6 +49,24 @@ function initialState () {
         'topic': 'She is so unreliable and I cannot stand her!',
       },
     },
+    past: {
+      3: {
+        'id': 3,
+        'createdAt': '2019-01-01T11:13:17.828Z',
+        'group': 13,
+        'affectedUser': 222,
+        'createdBy': 1,
+        'topic': 'We should talk about this attitude, mister...',
+      },
+      4: {
+        'id': 4,
+        'createdAt': '2018-05-21T11:13:17.828Z',
+        'group': 13,
+        'affectedUser': 222,
+        'createdBy': 1,
+        'topic': 'I have a problem with how you behave in front of store employees. I think it makes us look unprofessional and impolite.',
+      },
+    },
     currentId: 1,
   }
 }
@@ -71,6 +89,8 @@ export default {
     getCurrent: (state, getters) => {
       return getters.enrich(state.entries[state.currentId])
     },
+    getOngoing: (state, getters) => Object.values(state.entries).sort(sortByCreatedAt),
+    getPast: (state, getters) => Object.values(state.past),
   },
   actions: {
     ...withMeta({
@@ -87,6 +107,11 @@ export default {
         message: 'Your vote was successfully saved.',
       }, { root: true })
     },
+    openOne (data) {
+      console.log('In the store: ', data)
+      const { id, group } = data
+      router.push({ name: 'issueTabs', params: { groupId: group.id, issueId: id } })
+    },
   },
   mutations: {
     setCurrentIssue (state, issueId) {
@@ -99,4 +124,8 @@ export default {
       state.entries[state.currentId].votings.options[3].yourScore = votes[3]
     },
   },
+}
+
+export function sortByCreatedAt (a, b) {
+  return b.createdAt - a.createdAt
 }

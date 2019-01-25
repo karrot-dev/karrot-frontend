@@ -31,6 +31,7 @@ const PickupFeedback = () => import('@/feedback/pages/GiveFeedback')
 const Detail = () => import('@/messages/components/Detail')
 const DetailHeader = () => import('@/messages/components/DetailHeader')
 const IssueTabs = () => import('@/issues/pages/IssueTabs')
+const IssueList = () => import('@/issues/pages/IssueList')
 
 export default [
   {
@@ -116,7 +117,7 @@ export default [
       },
       {
         name: 'issueTabs',
-        path: 'issue/:issueId',
+        path: 'issues/:issueId',
         meta: {
           requiredLoggedIn: true,
           breadcrumbs: [
@@ -126,6 +127,20 @@ export default [
         },
         components: {
           default: IssueTabs,
+        },
+      },
+      {
+        name: 'issueList',
+        path: 'issues',
+        meta: {
+          requiredLoggedIn: true,
+          breadcrumbs: [
+            { translation: 'ISSUE.TITLE', route: { name: 'issueList' } },
+          ],
+          beforeEnter: 'issues/getForGroup',
+        },
+        components: {
+          default: IssueList,
         },
       },
       {

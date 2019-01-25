@@ -575,7 +575,8 @@
       "BTN_DELETE": "Delete vote",
       "HISTORY": "Your group voted to keep discussing",
       "TIME_UP": "Time is up!",
-      "INITIATED_BY": "Initiated by {initiatorName}"
+      "INITIATED_BY": "Initiated by {initiatorName}",
+      "TOAST": "Your vote was successfully submitted"
     }
   },
   "UNSUBSCRIBE": {

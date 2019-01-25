@@ -144,7 +144,7 @@ export default {
   },
   computed: {
     days () {
-      return distanceInWordsStrict(addDays(this.issue.createdAt, 7), new Date())
+      return distanceInWordsStrict(this.issue.votings[0].expiresAt, new Date())
     },
     progress () {
       return differenceInHours(new Date(), this.issue.createdAt) / 168 * 100

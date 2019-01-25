@@ -1,4 +1,5 @@
 import router from '@/base/router'
+import issues from '@/issues/api/issues'
 import { withMeta, createMetaModule } from '@/utils/datastore/helpers'
 
 function initialState () {
@@ -6,7 +7,7 @@ function initialState () {
     entries: {
       1: {
         'id': 1,
-        'createdAt': '2019-01-15T11:13:17.828Z',
+        'createdAt': '2019-01-21T11:13:17.828Z',
         'group': 13,
         'affectedUser': 222,
         'createdBy': 1,
@@ -14,7 +15,7 @@ function initialState () {
         'votings': [{
           'id': 1,
           'acceptedOption': 74,
-          'expiresAt': '2019-01-22T11:13:17.828Z',
+          'expiresAt': '2019-01-28T11:13:17.828Z',
           'options': [{
             'id': 73,
             'sumScore': 7.0,
@@ -90,7 +91,7 @@ export default {
     getCurrent: (state, getters) => {
       return getters.enrich(state.entries[state.currentId])
     },
-    getOngoing: (state, getters) => Object.values(state.entries).sort(sortByCreatedAt),
+    getOngoing: (state, getters) => Object.values(state.entries).filter,
     getPast: (state, getters) => Object.values(state.past),
   },
   actions: {
@@ -102,10 +103,11 @@ export default {
     beforeEnter ({ commit }, data) {
       commit('setCurrentIssue', data.issueId)
     },
-    saveVotes ({ commit, dispatch }, data) {
+    async saveVotes ({ commit, dispatch, state }, data) {
+      await issues.list({ id: state.currentId, listOfVOtes: data })
       commit('saveVotes', data)
       dispatch('toasts/show', {
-        message: 'Your vote was successfully saved.',
+        message: 'ISSUE.VOTING.TOAST',
       }, { root: true })
     },
     openOne (data) {

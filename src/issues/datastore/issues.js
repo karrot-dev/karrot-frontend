@@ -92,7 +92,7 @@ export default {
     setCurrentIssue (state, issueId) {
       state.currentId = issueId
     },
-    saveVotings (state, votes) {
+    saveVotes (state, votes) {
       state.entries[state.currentId].votings.options[0].yourScore = votes[0]
       state.entries[state.currentId].votings.options[1].yourScore = votes[1]
       state.entries[state.currentId].votings.options[2].yourScore = votes[2]

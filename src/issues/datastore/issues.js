@@ -1,11 +1,12 @@
 import router from '@/base/router'
+import Vue from 'vue'
 import issues from '@/issues/api/issues'
 import { withMeta, createMetaModule } from '@/utils/datastore/helpers'
 
 function initialState () {
   return {
     entries: {
-      1: {
+      /* 1: {
         'id': 1,
         'createdAt': '2019-01-21T11:13:17.828Z',
         'group': 13,
@@ -67,9 +68,9 @@ function initialState () {
         'affectedUser': 222,
         'createdBy': 1,
         'topic': 'I have a problem with how you behave in front of store employees. I think it makes us look unprofessional and impolite.',
-      },
+      }, */
     },
-    currentId: 1,
+    currentId: null,
   }
 }
 export default {
@@ -96,12 +97,13 @@ export default {
   },
   actions: {
     ...withMeta({
-      async createIssue ({ dispatch }, data) {
-        await issues.create({ affectedUser: data.affectedUser, group: data.group, topic: data.topic })
+      async createIssue ({ dispatch, commit }, data) {
+        const newIssue = await issues.create({ affectedUser: data.affectedUser, group: data.group, topic: data.topic })
+        commit('update', [newIssue])
         dispatch('toasts/show', {
           message: 'ISSUE.CREATION.TOAST',
         }, { root: true })
-        router.push({ name: 'issueTabs', params: { groupId: data.group, issueId: '1' } })
+        router.push({ name: 'issueTabs', params: { groupId: newIssue.group, issueId: newIssue.id } })
       },
     }),
     beforeEnter ({ commit }, data) {
@@ -124,6 +126,11 @@ export default {
       state.entries[state.currentId].votings[0].options[1].yourScore = votes[1]
       state.entries[state.currentId].votings[0].options[2].yourScore = votes[2]
       state.entries[state.currentId].votings[0].options[3].yourScore = votes[3]
+    },
+    update (state, issues) {
+      for (const issue of issues) {
+        Vue.set(state.entries, issue.id, issue)
+      }
     },
   },
 }

@@ -14,6 +14,7 @@
     <QItemMain>
       <QItemTile
         label
+        lines="2"
       >
         <QIcon
           v-if="icon"

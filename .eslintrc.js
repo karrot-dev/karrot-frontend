@@ -12,11 +12,9 @@ module.exports = {
   extends: [
     'standard',
     'plugin:vue/strongly-recommended',
-    'plugin:testcafe/recommended',
   ],
   plugins: [
     'import',
-    'testcafe',
   ],
   globals: {
     '__ENV': true,

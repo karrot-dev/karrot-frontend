@@ -9,7 +9,6 @@ yarn-error.log
 nbproject/
 storybook-static
 coverage/
-e2e-screenshots
 .env
 docs-dist/
 karrot-backend/

@@ -2,6 +2,10 @@ import axios from '@/base/api/axios'
 import { convert as convertConversation } from '@/messages/api/conversations'
 
 export default {
+  async create (data) {
+    return convert((await axios.post(`/api/issues/`, data)).data)
+  },
+
   async get (id) {
     return convert((await axios.get(`/api/issues/${id}/`)).data)
   },

@@ -82,7 +82,7 @@
           v-if="setup == 'statement'"
           flat
           color="secondary"
-          @click="$emit('startConflictResolution')"
+          @click="$emit('startConflictResolution', { group: $route.params.groupId, affectedUser: $route.params.userId, topic: initialStatement })"
         >
           {{ $t('BUTTON.SUBMIT') }}
         </QBtn>

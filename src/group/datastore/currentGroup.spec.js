@@ -116,7 +116,7 @@ describe('currentGroup', () => {
 
   const applications = {
     actions: {
-      fetchByGroupId: jest.fn(),
+      fetchPendingByGroupId: jest.fn(),
     },
   }
 
@@ -172,18 +172,18 @@ describe('currentGroup', () => {
     it('can select a group', async () => {
       mockConversation.mockReturnValueOnce({ id: 66 })
       mockGet.mockReturnValueOnce(group3)
-      await datastore.dispatch('currentGroup/select', { groupId: group3.id })
+      await datastore.dispatch('currentGroup/select', { groupId: group3.id, routeTo: {} })
       expect(pickups.actions.fetchListByGroupId.mock.calls[0][1]).toBe(group3.id)
       expect(pickups.actions.fetchFeedbackPossible.mock.calls[0][1]).toEqual(group3.id)
       expect(auth.actions.maybeBackgroundSave.mock.calls[0][1]).toEqual({ currentGroup: group3.id })
-      expect(applications.actions.fetchByGroupId).toBeCalled()
+      expect(applications.actions.fetchPendingByGroupId).toBeCalled()
       expect(conversations.actions.fetchGroupConversation).toBeCalled()
     })
 
     it('can update a group', async () => {
       mockConversation.mockReturnValueOnce({ id: 66 })
       mockGet.mockReturnValueOnce(group3)
-      await datastore.dispatch('currentGroup/select', { groupId: group3.id })
+      await datastore.dispatch('currentGroup/select', { groupId: group3.id, routeTo: {} })
       const changed = { ...group3, name: 'new name' }
       datastore.dispatch('currentGroup/maybeUpdate', changed)
       expect(datastore.getters['currentGroup/value'].name).toEqual(changed.name)

@@ -27,6 +27,7 @@ Please document your changes in this format:
 ### Changed
 - Mark latest messages as seen when visiting the menu, without the need to mark all messages as read @tiltec
 - Dim topbar buttons and make them brighter when there's something interesting in them @tiltec
+- Application list now supports pagination @tiltec
 
 ### Fixed
 - Long group names would break the applicant chat @tiltec

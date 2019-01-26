@@ -3268,7 +3268,7 @@ exports[`Storyshots Notifications application_accepted 1`] = `
 <a class="q-link q-item q-item-division relative-position q-item-link isUnread">
   <!---->
   <div class="q-item-main q-item-section">
-    <div class="q-item-label"><i aria-hidden="true" class="q-icon q-mr-xs vertical-baseline fas fa-check"> </i>
+    <div class="q-item-label" style="overflow:hidden;display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:2;"><i aria-hidden="true" class="q-icon q-mr-xs vertical-baseline fas fa-check"> </i>
       Your application was accepted!
     </div>
     <div class="q-item-sublabel">
@@ -3286,7 +3286,7 @@ exports[`Storyshots Notifications application_declined 1`] = `
 <a class="q-link q-item q-item-division relative-position q-item-link isUnread">
   <!---->
   <div class="q-item-main q-item-section">
-    <div class="q-item-label"><i aria-hidden="true" class="q-icon q-mr-xs vertical-baseline fas fa-times"> </i>
+    <div class="q-item-label" style="overflow:hidden;display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:2;"><i aria-hidden="true" class="q-icon q-mr-xs vertical-baseline fas fa-times"> </i>
       Your application was declined
     </div>
     <div class="q-item-sublabel">
@@ -3304,7 +3304,7 @@ exports[`Storyshots Notifications feedback_possible 1`] = `
 <a class="q-link q-item q-item-division relative-position q-item-link isUnread">
   <!---->
   <div class="q-item-main q-item-section">
-    <div class="q-item-label"><i aria-hidden="true" class="q-icon q-mr-xs vertical-baseline fas fa-balance-scale"> </i>
+    <div class="q-item-label" style="overflow:hidden;display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:2;"><i aria-hidden="true" class="q-icon q-mr-xs vertical-baseline fas fa-balance-scale"> </i>
       You can give feedback for the pickup you did on Sunday 12:00 PM
     </div>
     <div class="q-item-sublabel">
@@ -3327,7 +3327,7 @@ exports[`Storyshots Notifications invitation_accepted 1`] = `
       </a></div>
   </div>
   <div class="q-item-main q-item-section">
-    <div class="q-item-label"><i aria-hidden="true" class="q-icon q-mr-xs vertical-baseline fas fa-user-plus"> </i>
+    <div class="q-item-label" style="overflow:hidden;display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:2;"><i aria-hidden="true" class="q-icon q-mr-xs vertical-baseline fas fa-user-plus"> </i>
       User 25 accepted your invitation
     </div>
     <div class="q-item-sublabel">
@@ -3349,7 +3349,7 @@ exports[`Storyshots Notifications new_applicant 1`] = `
       </a></div>
   </div>
   <div class="q-item-main q-item-section">
-    <div class="q-item-label"><i aria-hidden="true" class="q-icon q-mr-xs vertical-baseline fas fa-address-card"> </i>
+    <div class="q-item-label" style="overflow:hidden;display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:2;"><i aria-hidden="true" class="q-icon q-mr-xs vertical-baseline fas fa-address-card"> </i>
       User 20 applied to join your group
     </div>
     <div class="q-item-sublabel">
@@ -3371,7 +3371,7 @@ exports[`Storyshots Notifications new_member 1`] = `
       </a></div>
   </div>
   <div class="q-item-main q-item-section">
-    <div class="q-item-label"><i aria-hidden="true" class="q-icon q-mr-xs vertical-baseline fas fa-user-plus"> </i>
+    <div class="q-item-label" style="overflow:hidden;display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:2;"><i aria-hidden="true" class="q-icon q-mr-xs vertical-baseline fas fa-user-plus"> </i>
       User 24 joined your group
     </div>
     <div class="q-item-sublabel">
@@ -3389,7 +3389,7 @@ exports[`Storyshots Notifications new_store 1`] = `
 <a class="q-link q-item q-item-division relative-position q-item-link isUnread">
   <!---->
   <div class="q-item-main q-item-section">
-    <div class="q-item-label"><i aria-hidden="true" class="q-icon q-mr-xs vertical-baseline fas fa-shopping-cart"> </i>
+    <div class="q-item-label" style="overflow:hidden;display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:2;"><i aria-hidden="true" class="q-icon q-mr-xs vertical-baseline fas fa-shopping-cart"> </i>
       Store 0 has been created
     </div>
     <div class="q-item-sublabel">
@@ -3407,7 +3407,7 @@ exports[`Storyshots Notifications pickup_disabled 1`] = `
 <a class="q-link q-item q-item-division relative-position q-item-link isUnread">
   <!---->
   <div class="q-item-main q-item-section">
-    <div class="q-item-label"><i aria-hidden="true" class="q-icon q-mr-xs vertical-baseline fas fa-times"> </i>
+    <div class="q-item-label" style="overflow:hidden;display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:2;"><i aria-hidden="true" class="q-icon q-mr-xs vertical-baseline fas fa-times"> </i>
       Pickup at Sunday, December 24, 12:00 PM was disabled
     </div>
     <div class="q-item-sublabel">
@@ -3426,7 +3426,7 @@ exports[`Storyshots Notifications pickup_enabled 1`] = `
 <a class="q-link q-item q-item-division relative-position q-item-link isUnread">
   <!---->
   <div class="q-item-main q-item-section">
-    <div class="q-item-label"><i aria-hidden="true" class="q-icon q-mr-xs vertical-baseline fas fa-check"> </i>
+    <div class="q-item-label" style="overflow:hidden;display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:2;"><i aria-hidden="true" class="q-icon q-mr-xs vertical-baseline fas fa-check"> </i>
       Pickup at Sunday, December 24, 12:00 PM was enabled again
     </div>
     <div class="q-item-sublabel">
@@ -3445,7 +3445,7 @@ exports[`Storyshots Notifications pickup_moved 1`] = `
 <a class="q-link q-item q-item-division relative-position q-item-link isUnread">
   <!---->
   <div class="q-item-main q-item-section">
-    <div class="q-item-label"><i aria-hidden="true" class="q-icon q-mr-xs vertical-baseline far fa-clock"> </i>
+    <div class="q-item-label" style="overflow:hidden;display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:2;"><i aria-hidden="true" class="q-icon q-mr-xs vertical-baseline far fa-clock"> </i>
       Pickup was moved to Sunday, December 24, 12:00 PM
     </div>
     <div class="q-item-sublabel">
@@ -3464,7 +3464,7 @@ exports[`Storyshots Notifications pickup_upcoming 1`] = `
 <a class="q-link q-item q-item-division relative-position q-item-link isUnread">
   <!---->
   <div class="q-item-main q-item-section">
-    <div class="q-item-label"><i aria-hidden="true" class="q-icon q-mr-xs vertical-baseline fas fa-calendar-alt"> </i>
+    <div class="q-item-label" style="overflow:hidden;display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:2;"><i aria-hidden="true" class="q-icon q-mr-xs vertical-baseline fas fa-calendar-alt"> </i>
       Reminder: You have a pickup at 12:00 PM
     </div>
     <div class="q-item-sublabel">
@@ -3487,7 +3487,7 @@ exports[`Storyshots Notifications user_became_editor 1`] = `
       </a></div>
   </div>
   <div class="q-item-main q-item-section">
-    <div class="q-item-label"><i aria-hidden="true" class="q-icon q-mr-xs vertical-baseline fas fa-angle-double-up"> </i>
+    <div class="q-item-label" style="overflow:hidden;display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:2;"><i aria-hidden="true" class="q-icon q-mr-xs vertical-baseline fas fa-angle-double-up"> </i>
       User 18 gained editing permissions
     </div>
     <div class="q-item-sublabel">
@@ -3505,7 +3505,7 @@ exports[`Storyshots Notifications you_became_editor 1`] = `
 <a class="q-link q-item q-item-division relative-position q-item-link isUnread">
   <!---->
   <div class="q-item-main q-item-section">
-    <div class="q-item-label"><i aria-hidden="true" class="q-icon q-mr-xs vertical-baseline fas fa-angle-double-up"> </i>
+    <div class="q-item-label" style="overflow:hidden;display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:2;"><i aria-hidden="true" class="q-icon q-mr-xs vertical-baseline fas fa-angle-double-up"> </i>
       You gained editing permissions
     </div>
     <div class="q-item-sublabel">

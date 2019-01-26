@@ -126,7 +126,7 @@ export default {
 
     }),
 
-    async select ({ dispatch, getters, rootGetters }, { groupId }) {
+    async select ({ dispatch, getters, rootGetters }, { groupId, routeTo }) {
       if (!groupId) throw createRouteRedirect({ name: 'groupsGallery' })
       const oldGroupId = getters.id
       if (oldGroupId === groupId) return
@@ -155,7 +155,10 @@ export default {
       dispatch('pickups/fetchListByGroupId', groupId, { root: true })
       dispatch('pickups/fetchFeedbackPossible', groupId, { root: true })
 
-      dispatch('applications/fetchByGroupId', { groupId }, { root: true })
+      if (routeTo.name !== 'applications') {
+        // applications route loads their own data, no need to load twice
+        dispatch('applications/fetchPendingByGroupId', { groupId }, { root: true })
+      }
 
       dispatch('conversations/fetchGroupConversation', groupId, { root: true })
 

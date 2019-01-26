@@ -137,7 +137,7 @@ export default [
           breadcrumbs: [
             { translation: 'ISSUE.TITLE', route: { name: 'issueList' } },
           ],
-          beforeEnter: 'issues/getForGroup',
+          beforeEnter: 'issues/fetchByGroupId',
         },
         components: {
           default: IssueList,

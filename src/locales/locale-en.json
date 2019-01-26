@@ -569,6 +569,7 @@
     }
   },
   "ISSUE": {
+    "TITLE": "Issues",
     "VOTING": {
       "DAYS_LEFT": "{count} left to vote",
       "BTN_START": "Vote now",

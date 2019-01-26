@@ -92,8 +92,12 @@ export default {
     getCurrent: (state, getters) => {
       return getters.enrich(state.entries[state.currentId])
     },
-    getOngoing: (state, getters) => Object.values(state.entries).filter,
-    getPast: (state, getters) => Object.values(state.past),
+    getForGroup: (state, getters) => Object.values(state.entries)
+      .map(getters.enrich)
+      .filter(i => i.group && i.group.isCurrentGroup)
+      .sort(sortByCreatedAt),
+    getOngoing: (state, getters) => getters.getForGroup.filter(i => i.status === 'ongoing'),
+    getPast: (state, getters) => getters.getForGroup.filter(i => i.status !== 'ongoing'),
   },
   actions: {
     ...withMeta({
@@ -104,6 +108,11 @@ export default {
           message: 'ISSUE.CREATION.TOAST',
         }, { root: true })
         router.push({ name: 'issueTabs', params: { groupId: newIssue.group, issueId: newIssue.id } })
+      },
+      async fetchByGroupId ({ commit }, { groupId }) {
+        const issueList = await issues.list({ group: groupId })
+        console.log('The list :', issueList.results[0])
+        commit('update', issueList.results)
       },
     }),
     beforeEnter ({ commit }, data) {

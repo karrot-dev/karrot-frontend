@@ -51,7 +51,6 @@ export default {
   },
   methods: {
     open () {
-      console.log('In the Item: ', this.issue.id)
       this.$emit('open', this.issue)
     },
   },

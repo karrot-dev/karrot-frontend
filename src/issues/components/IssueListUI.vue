@@ -5,7 +5,7 @@
         v-for="i in ongoingIssues"
         :key="i.id"
         :issue="i"
-        @open="openCheck"
+        @open="open"
       />
       <QItemSeparator />
       <QCollapsible
@@ -21,7 +21,7 @@
             v-for="i in pastIssues"
             :key="i.id"
             :issue="i"
-            @open="$emit('open', arguments[0])"
+            @open="open"
           />
         </template>
       </QCollapsible>
@@ -65,9 +65,8 @@ export default {
     },
   },
   methods: {
-    openCheck (stuff) {
-      console.log('In the List: ', stuff.id)
-      this.$emit('open', stuff)
+    open (data) {
+      this.$emit('open', data)
     },
   },
 }

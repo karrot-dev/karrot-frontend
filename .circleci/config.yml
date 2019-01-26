@@ -1,12 +1,12 @@
 defaults: &defaults
   working_directory: ~/repo
   docker:
-    - image: karrot/python:1.7
+    - image: karrot/python:1.9
 
 android-defaults: &android-defaults
   working_directory: ~/repo
   docker:
-    - image: karrot/android-build:api-28-node8-alpha-2
+    - image: karrot/android:api-28-node8-alpha-3
 
 deploy-android: &deploy-android
   <<: *defaults

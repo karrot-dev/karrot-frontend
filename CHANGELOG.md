@@ -22,6 +22,7 @@ Please document your changes in this format:
 
 ## [Unreleased]
 ### Added
+- Close application, pickup and issue chats after they ended #1088 @tiltec
 
 ### Changed
 - Mark latest messages as seen when visiting the menu, without the need to mark all messages as read @tiltec

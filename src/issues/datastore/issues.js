@@ -96,8 +96,12 @@ export default {
   },
   actions: {
     ...withMeta({
-      createIssue () {
-        router.push({ name: 'issueTabs', params: { groupId: '13', issueId: '1' } })
+      async createIssue ({ dispatch }, data) {
+        await issues.create({ affectedUser: data.affectedUser, group: data.group, topic: data.topic })
+        dispatch('toasts/show', {
+          message: 'ISSUE.CREATION.TOAST',
+        }, { root: true })
+        router.push({ name: 'issueTabs', params: { groupId: data.group, issueId: '1' } })
       },
     }),
     beforeEnter ({ commit }, data) {

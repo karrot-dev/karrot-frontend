@@ -115,8 +115,12 @@ export default {
         commit('update', issueList.results)
       },
     }),
-    beforeEnter ({ commit }, data) {
+    async beforeEnter ({ commit }, data) {
+      console.log('In beforeEnter: ', data.issueId)
+      const currentIssue = await issues.get(data.issueId)
+      console.log('What was fetched: ', currentIssue)
       commit('setCurrentIssue', data.issueId)
+      commit('update', [currentIssue])
     },
     async saveVotes ({ commit, dispatch, state }, data) {
       await issues.list({ id: state.currentId, listOfVOtes: data })

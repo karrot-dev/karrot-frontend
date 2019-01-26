@@ -11,7 +11,6 @@ export default connect({
   },
   actionsToEvents: {
     startConflictResolution: 'issues/createIssue',
-    test: 'issues/test',
   },
 })('ConflictSetup', ConflictSetupUI)
 </script>

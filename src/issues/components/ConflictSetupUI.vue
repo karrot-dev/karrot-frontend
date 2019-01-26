@@ -86,13 +86,6 @@
         >
           {{ $t('BUTTON.SUBMIT') }}
         </QBtn>
-        <QBtn
-          flat
-          color="negative"
-          @click="test"
-        >
-          TEST
-        </QBtn>
       </QStepperNavigation>
     </QStepper>
   </QCard>
@@ -126,12 +119,6 @@ export default {
       setup: 'thanks',
       initialStatement: '',
     }
-  },
-  methods: {
-    test () {
-      console.log('WTF?!')
-      this.$emit('test')
-    },
   },
 }
 </script>

@@ -39,6 +39,10 @@
           v-t="'ISSUE.VOTING.BTN_DELETE'"
         />
       </QBtn>
+      <QBtn
+        label="test"
+        @click="test"
+      />
       <QCardMain>
         {{ $t('CONFLICT.VOTING.OPTION_ONE', { userName: issue.affectedUser.displayName, groupName: issue.group.name }) }}
         <QSlider
@@ -78,19 +82,6 @@
           markers
         />
       </QCardMain>
-      <QCardMain>
-        {{ $t('CONFLICT.VOTING.OPTION_FOUR') }}
-        <QSlider
-          v-model="marker4"
-          :label-value="fancylabels(marker4)"
-          :min="-2"
-          :max="2"
-          :step="1"
-          label-always
-          snap
-          markers
-        />
-      </QCardMain>
       <QBtn
         type="submit"
         color="secondary"
@@ -113,7 +104,6 @@ import {
   QTooltip,
 } from 'quasar'
 
-import addDays from 'date-fns/add_days'
 import distanceInWordsStrict from 'date-fns/distance_in_words_strict'
 import differenceInHours from 'date-fns/difference_in_hours'
 
@@ -139,7 +129,6 @@ export default {
       marker1: this.issue.votings[0].options[0].yourScore,
       marker2: this.issue.votings[0].options[1].yourScore,
       marker3: this.issue.votings[0].options[2].yourScore,
-      marker4: this.issue.votings[0].options[3].yourScore,
     }
   },
   computed: {
@@ -151,7 +140,7 @@ export default {
     },
 
     showOverlay () {
-      return (this.marker1 && this.marker2 && this.marker3 && this.marker4) === null
+      return (this.marker1 && this.marker2 && this.marker3) === null
     },
   },
   methods: {
@@ -173,20 +162,14 @@ export default {
       this.marker1 = null
       this.marker2 = null
       this.marker3 = null
-      this.marker4 = null
     },
     setToZero () {
       this.marker1 = 0
       this.marker2 = 0
       this.marker3 = 0
-      this.marker4 = 0
     },
     test () {
-      const difference = distanceInWordsStrict(
-        addDays(this.issue.createdAt, 1),
-        new Date(),
-      )
-      console.log(difference)
+      console.log(this.issue.votings[0].options[2].id)
     },
   },
 }

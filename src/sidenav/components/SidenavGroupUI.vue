@@ -81,6 +81,14 @@
             {{ $t("PICKUP_FEEDBACK.TITLE") }}
           </QItemMain>
         </QItem>
+        <QItem :to="{ name: 'issueList', params: { groupId } }">
+          <QItemSide class="text-center">
+            <QIcon name="fas fa-vote-yea" />
+          </QItemSide>
+          <QItemMain>
+            {{ $t("ISSUE.TITLE") }}
+          </QItemMain>
+        </QItem>
         <QItem :to="{ name: 'groupDescription', params: { groupId } }">
           <QItemSide class="text-center">
             <i class="far fa-address-card"/>

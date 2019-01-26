@@ -61,6 +61,14 @@
             name="fas fa-fw fa-bell-slash"
             :title="$t('CONVERSATION.MUTED')"
           />
+          <QIcon
+            v-if="closed"
+            size="12px"
+            color="grey"
+            class="q-ml-xs"
+            name="fas fa-fw fa-lock"
+            :title="$t('CONVERSATION.CLOSED')"
+          />
         </div>
         <span v-if="message">
           <small>
@@ -167,6 +175,10 @@ export default {
       default: 0,
     },
     muted: {
+      type: Boolean,
+      default: false,
+    },
+    closed: {
       type: Boolean,
       default: false,
     },

@@ -110,11 +110,6 @@ export default {
         message: 'ISSUE.VOTING.TOAST',
       }, { root: true })
     },
-    openOne (data) {
-      console.log('In the store: ', data)
-      const { id, group } = data
-      router.push({ name: 'issueTabs', params: { groupId: group.id, issueId: id } })
-    },
   },
   mutations: {
     setCurrentIssue (state, issueId) {

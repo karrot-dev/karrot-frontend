@@ -485,8 +485,8 @@
     "WRITE_FIRST_MESSAGE": "Schreibe die erste Nachricht...",
     "DISABLE_NOTIFICATION_EMAILS": "Email-Benachrichtigungen aktiv, klick um zu deaktivieren",
     "ENABLE_NOTIFICATION_EMAILS": "Email-Benachrichtigungen inaktiv, klick um zu aktivieren",
-    "VERIFY_EMAIL_FOR_NOTIFICATIONS": "Bitte verifiziere deine Email-Adresse, um Email-Benachrichtigungen zu erhalten.",
-    "RECEIVED_VIA_EMAIL": "Diese Nachricht wurde per Mail geschickt."
+    "VERIFY_EMAIL_FOR_NOTIFICATIONS": "Bitte verifiziere deine E-Mail-Adresse, um E-Mail-Benachrichtigungen zu erhalten.",
+    "RECEIVED_VIA_EMAIL": "Diese Nachricht wurde per E-Mail geschickt."
   },
   "CONVERSATION": {
     "OPEN": "Unterhaltung öffnen",
@@ -503,7 +503,8 @@
     },
     "MESSAGE_NOT_FOUND": "Nachricht nicht gefunden",
     "NO_CONVERSATIONS": "No conversations yet.",
-    "MUTED": "Notifications are disabled"
+    "MUTED": "Notifications are disabled",
+    "CLOSED": "This conversation has been closed automatically."
   },
   "STORESTATUS": {
     "ACTIVE": "Kooperiert",

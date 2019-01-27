@@ -503,7 +503,8 @@
     },
     "MESSAGE_NOT_FOUND": "找不到訊息",
     "NO_CONVERSATIONS": "沒有對話",
-    "MUTED": "通知已關閉"
+    "MUTED": "通知已關閉",
+    "CLOSED": "This conversation has been closed automatically."
   },
   "STORESTATUS": {
     "ACTIVE": "合作中",

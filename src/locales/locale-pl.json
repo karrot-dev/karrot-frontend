@@ -503,7 +503,8 @@
     },
     "MESSAGE_NOT_FOUND": "Nie znaleziono wiadomości",
     "NO_CONVERSATIONS": "Brak konwersacji.",
-    "MUTED": "Powiadomienia są wyłączone"
+    "MUTED": "Powiadomienia są wyłączone",
+    "CLOSED": "This conversation has been closed automatically."
   },
   "STORESTATUS": {
     "ACTIVE": "Współpracuje",

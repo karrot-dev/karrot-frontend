@@ -503,7 +503,8 @@
     },
     "MESSAGE_NOT_FOUND": "Meddelande hittades inte",
     "NO_CONVERSATIONS": "Fortfarande inga samtal",
-    "MUTED": "Notifieringar är inaktiverad"
+    "MUTED": "Notifieringar är inaktiverad",
+    "CLOSED": "This conversation has been closed automatically."
   },
   "STORESTATUS": {
     "ACTIVE": "Samarbetar",

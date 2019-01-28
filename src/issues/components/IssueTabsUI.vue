@@ -51,12 +51,12 @@
       </QTabPane>
       <QTabPane name="vote">
         <IssueVote
-          v-if="!issue.isDecided"
+          v-if="issue.status === 'ongoing'"
           :issue="issue"
           @saveScores="$emit('saveScores', arguments[0])"
         />
         <IssueResults
-          v-if="issue.isDecided"
+          v-if="issue.status === 'decided'"
           :issue="issue"
         />
         <QList

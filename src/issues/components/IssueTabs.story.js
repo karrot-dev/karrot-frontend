@@ -1,5 +1,6 @@
 import { storiesOf } from '@storybook/vue'
 import { storybookDefaults as defaults } from '>/helpers'
+import subHours from 'date-fns/sub_hours'
 import * as factories from '>/enrichedFactories'
 
 import IssueTabsUI from './IssueTabsUI'
@@ -12,7 +13,11 @@ const conversation = factories.makeConversation({
   ],
 })
 const value = null
-const issue = factories.makeIssue()
+const issue = factories.makeIssue({
+  createdAt: subHours(new Date(), 2000),
+  topic: 'Just some random thought',
+  status: 'decided',
+})
 
 storiesOf('Votes', module)
   .add('conflict', () => defaults({

@@ -245,16 +245,16 @@ export const makeIssue = data => {
     createdBy: makeUser(),
     affectedUser: makeUser(),
     group: makeGroup(),
-    isDecided: false,
+    status: 'ongoing',
     votings: [
       makeVoting({
-        expiresAt: '2019-01-24T21:22:54.730980Z',
+        expiresAt: '2018-01-24T21:22:54.730980Z',
       }),
       makeVoting({
-        expiresAt: '2019-01-20T21:22:54.730980Z',
+        expiresAt: '2018-05-20T21:22:54.730980Z',
       }),
       makeVoting({
-        expiresAt: '2019-01-22T21:22:54.730980Z',
+        expiresAt: '2018-11-22T21:22:54.730980Z',
       }),
     ],
     ...data,

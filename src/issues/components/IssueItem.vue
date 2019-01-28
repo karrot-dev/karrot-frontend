@@ -5,7 +5,7 @@
   >
     <QItemSide>
       <ProfilePicture
-        :user="issue.affectedUser.displayName"
+        :user="issue.affectedUser"
         :size="30"
         :is-link="false"
       />

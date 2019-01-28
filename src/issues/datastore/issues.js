@@ -136,8 +136,7 @@ export default {
     },
     saveScores (state, results) {
       for (let i = 0; i < results.length; i++) {
-        console.log(state.entries[state.currentId].votings[0].options[i].yourScore)
-        Vue.set(state.entries[state.currentId].votings[0].options[i].yourScore, i, results[i].score)
+        Vue.set(state.entries[state.currentId].votings[0].options[i], 'yourScore', results[i].score)
       }
     },
     update (state, issues) {

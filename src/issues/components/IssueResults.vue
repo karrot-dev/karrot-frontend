@@ -21,55 +21,21 @@
         </small>
       </div>
       <QList
-        inset-separator
         no-border
+        v-for="(o, index) in sortedArray"
+        :key="o.id"
+        inset-separator
       >
         <QItem>
           <QItemSide
-            icon="fas fa-grin"
-            color="secondary"
-          />
-          <QItemMain>
-            {{ displayOutcomes(0) }}
-          </QItemMain>
-          <QItemSide>
-            {{ sortedArray[0].sumScore }}
-          </QItemSide>
-        </QItem>
-        <QItem>
-          <QItemSide
-            icon="fas fa-smile"
+            :icon="getIcon(index)"
             color="primary"
           />
           <QItemMain>
-            {{ displayOutcomes(1) }}
+            {{ displayOutcomes(index) }}
           </QItemMain>
           <QItemSide>
-            {{ sortedArray[1].sumScore }}
-          </QItemSide>
-        </QItem>
-        <QItem>
-          <QItemSide
-            icon="fas fa-frown"
-            color="primary"
-          />
-          <QItemMain>
-            {{ displayOutcomes(2) }}
-          </QItemMain>
-          <QItemSide>
-            {{ sortedArray[2].sumScore }}
-          </QItemSide>
-        </QItem>
-        <QItem>
-          <QItemSide
-            icon="fas fa-frown-open"
-            color="primary"
-          />
-          <QItemMain>
-            {{ displayOutcomes(3) }}
-          </QItemMain>
-          <QItemSide>
-            {{ sortedArray[3].sumScore }}
+            {{ sortedArray[index].sumScore }}
           </QItemSide>
         </QItem>
       </QList>
@@ -118,13 +84,31 @@ export default {
     displayOutcomes (index) {
       switch (this.sortedArray[index].type) {
         case 'furtherDiscussion':
-          return this.$t('CONFLICT.VOTING.OPTION_FOUR')
+          return this.$t('ISSUE.VOTING.CONFLICT_ONE')
         case 'removeUser':
-          return this.$t('CONFLICT.VOTING.OPTION_THREE', { userName: this.issue.affectedUser.displayName, groupName: this.issue.group.displayName })
-        case 'offlineMediation':
-          return this.$t('CONFLICT.VOTING.OPTION_TWO')
+          return this.$t('ISSUE.VOTING.CONFLICT_THREE', { userName: this.issue.affectedUser.displayName, groupName: this.issue.group.displayName })
         case 'noChange':
-          return this.$t('CONFLICT.VOTING.OPTION_ONE', { userName: this.issue.affectedUser.displayName, groupName: this.issue.group.displayName })
+          return this.$t('ISSUE.VOTING.CONFLICT_TWO', { userName: this.issue.affectedUser.displayName, groupName: this.issue.group.displayName })
+      }
+    },
+    getIcon (index) {
+      if (this.sortedArray.length === 2) {
+        switch (index) {
+          case 0:
+            return 'fas fa-smile'
+          case 1:
+            return 'fas fa-frown'
+        }
+      }
+      else if (this.sortedArray.length === 3) {
+        switch (index) {
+          case 0:
+            return 'fas fa-smile'
+          case 1:
+            return 'fas fa-meh'
+          case 2:
+            return 'fas fa-frown'
+        }
       }
     },
   },

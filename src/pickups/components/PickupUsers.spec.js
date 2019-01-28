@@ -25,7 +25,9 @@ describe('PickupUsers', () => {
       },
       datastore,
     })
-    expect(wrapper.vm.emptyPlaces).toBe(1)
+    expect(wrapper.vm.emptyPlaces).toBe(0)
+    expect(wrapper.vm.emptySlots).toBe(0)
+    expect(wrapper.vm.canJoin).toBe(true)
   })
 
   it('shows more collectors than slots', () => {

@@ -43,14 +43,47 @@ export default {
       },
 
       /**
-       * Send invitation to e-mail
+       * Send or resend invitation to e-mail
        */
-      async send ({ commit, rootGetters }, email) {
-        const invited = await invitations.create({
-          email,
-          group: rootGetters['currentGroup/id'],
-        })
-        commit('update', [invited])
+      async send ({ commit, dispatch, rootGetters }, email) {
+        const invitees = await invitations.listByGroupId(rootGetters['currentGroup/id'])
+
+        const invitation = invitees.find((invitation) => invitation.email === email)
+
+        if (invitation) {
+          try {
+            await invitations.resendEmail(invitation.id, { 'created_at': invitation.createdAt })
+            dispatch('toasts/show', {
+              message: 'GROUP.INVITE_SEND_SUCCESS',
+            }, { root: true })
+          }
+          catch (error) {
+            dispatch('toasts/show', {
+              message: 'GROUP.INVITE_SEND_ERROR',
+              config: { type: 'negative' },
+            }, { root: true })
+            throw error
+          }
+        }
+        else {
+          try {
+            const invited = await invitations.create({
+              email,
+              group: rootGetters['currentGroup/id'],
+            })
+            commit('update', [invited])
+            dispatch('toasts/show', {
+              message: 'GROUP.INVITE_SEND_SUCCESS',
+            }, { root: true })
+          }
+          catch (error) {
+            dispatch('toasts/show', {
+              message: 'GROUP.INVITE_SEND_ERROR',
+              config: { type: 'negative' },
+            }, { root: true })
+            throw error
+          }
+        }
       },
 
       /**

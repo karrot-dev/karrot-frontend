@@ -137,7 +137,7 @@
     "terser-webpack-plugin": "^1.1.0",
     "url-loader": "^1.1.1",
     "vue-jest": "^3.0.0",
-    "vue-loader": "^15.5.1",
+    "vue-loader": "^15.6.2",
     "vue-server-renderer": "^2.5.17",
     "vue-template-compiler": "^2.5.17",
     "webpack": "^4.17.1",

@@ -59,7 +59,7 @@
         type="submit"
         color="secondary"
         v-t="'BUTTON.CREATE'"
-        @click="$emit('saveScores', scores)"
+        @click="$emit('saveScores', results)"
       />
     </div>
   </QCard>
@@ -111,6 +111,16 @@ export default {
     },
     showOverlay () {
       return this.scores.every(s => s === null)
+    },
+    results () {
+      let resultsArray = []
+      for (let i = 0; i < this.issue.votings[0].options.length; i++) {
+        resultsArray[i] = {
+          option: this.issue.votings[0].options[i].id,
+          score: this.scores[i],
+        }
+      }
+      return resultsArray
     },
   },
   methods: {

@@ -114,6 +114,13 @@ export default {
         console.log('The list :', issueList.results[0])
         commit('update', issueList.results)
       },
+      async saveScores ({ commit, dispatch, state }, data) {
+        await issues.vote(state.currentId, data)
+        dispatch('toasts/show', {
+          message: 'ISSUE.VOTING.TOAST',
+        }, { root: true })
+        commit('saveScores', data)
+      },
     }),
     async beforeEnter ({ commit }, data) {
       console.log('In beforeEnter: ', data.issueId)
@@ -122,22 +129,15 @@ export default {
       commit('setCurrentIssue', data.issueId)
       commit('update', [currentIssue])
     },
-    async saveScores ({ commit, dispatch, state }, data) {
-      const votes = await issues.list({ id: state.currentId, listOfVotes: data })
-      console.log('hello', votes)
-      commit('saveScores', votes)
-      dispatch('toasts/show', {
-        message: 'ISSUE.VOTING.TOAST',
-      }, { root: true })
-    },
   },
   mutations: {
     setCurrentIssue (state, issueId) {
       state.currentId = issueId
     },
-    saveScores (state, scores) {
-      for (let i = 0; i < scores.length; i++) {
-        Vue.set(state.entries[state.currentId].votings[0].options[i].yourScore, i, scores[i])
+    saveScores (state, results) {
+      for (let i = 0; i < results.length; i++) {
+        console.log(state.entries[state.currentId].votings[0].options[i].yourScore)
+        Vue.set(state.entries[state.currentId].votings[0].options[i].yourScore, i, results[i].score)
       }
     },
     update (state, issues) {

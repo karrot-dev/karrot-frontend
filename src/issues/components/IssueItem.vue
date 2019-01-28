@@ -14,12 +14,12 @@
       <QItemTile
         label
       >
-        {{ this.issue.id }}
+        {{ this.issue.affectedUser.displayName }}
       </QItemTile>
       <QItemTile
         sublabel
       >
-        {{ this.issue.createdAt }}
+        {{ submittedOn }}
       </QItemTile>
     </QItemMain>
   </QItem>
@@ -47,6 +47,12 @@ export default {
     issue: {
       required: true,
       type: Object,
+    },
+  },
+  computed: {
+    submittedOn () {
+      const date = this.$d(new Date(this.issue.createdAt), 'long')
+      return this.$t('ISSUE.SUBMITTED_ON', { date: date })
     },
   },
   methods: {

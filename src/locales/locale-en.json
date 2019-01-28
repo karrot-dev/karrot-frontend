@@ -566,6 +566,7 @@
   },
   "ISSUE": {
     "TITLE": "Issues",
+    "SUBMITTED_ON": "Process started on {date}",
     "VOTING": {
       "DAYS_LEFT": "{count} left to vote",
       "BTN_START": "Vote now",

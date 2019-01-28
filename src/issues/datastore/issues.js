@@ -122,9 +122,10 @@ export default {
       commit('setCurrentIssue', data.issueId)
       commit('update', [currentIssue])
     },
-    async saveVotes ({ commit, dispatch, state }, data) {
-      await issues.list({ id: state.currentId, listOfVOtes: data })
-      commit('saveVotes', data)
+    async saveScores ({ commit, dispatch, state }, data) {
+      const votes = await issues.list({ id: state.currentId, listOfVotes: data })
+      console.log('hello', votes)
+      commit('saveScores', votes)
       dispatch('toasts/show', {
         message: 'ISSUE.VOTING.TOAST',
       }, { root: true })
@@ -134,11 +135,10 @@ export default {
     setCurrentIssue (state, issueId) {
       state.currentId = issueId
     },
-    saveVotes (state, votes) {
-      state.entries[state.currentId].votings[0].options[0].yourScore = votes[0]
-      state.entries[state.currentId].votings[0].options[1].yourScore = votes[1]
-      state.entries[state.currentId].votings[0].options[2].yourScore = votes[2]
-      state.entries[state.currentId].votings[0].options[3].yourScore = votes[3]
+    saveScores (state, scores) {
+      for (let i = 0; i < scores.length; i++) {
+        Vue.set(state.entries[state.currentId].votings[0].options[i].yourScore, i, scores[i])
+      }
     },
     update (state, issues) {
       for (const issue of issues) {

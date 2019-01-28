@@ -7,7 +7,7 @@ export default connect({
     issue: 'issues/getCurrent',
   },
   actionsToEvents: {
-    saveVote: 'issues/saveVotes',
+    saveScores: 'issues/saveScores',
   },
 })('IssueTabs', IssueTabsUI)
 </script>

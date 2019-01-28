@@ -53,7 +53,7 @@
         <IssueVote
           v-if="!issue.isDecided"
           :issue="issue"
-          @saveVote="$emit('saveVote', arguments[0])"
+          @saveScores="$emit('saveScores', arguments[0])"
         />
         <IssueResults
           v-if="issue.isDecided"

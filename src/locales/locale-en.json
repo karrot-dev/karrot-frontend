@@ -561,10 +561,7 @@
     "STEPPER4": "Please make an initial statement for the open group chat! Tell your group why you think this process is justified and needed.",
     "INITIAL": "Initial statement",
     "VOTING": {
-      "HEADLINE": "How do you want to proceed with the ongoing conflict with {userName}?",
-      "OPTION_ONE": "{userName} stays in {groupName}",
-      "OPTION_TWO": "Extend the time to keep discussing",
-      "OPTION_THREE": "{userName} gets removed from {groupName}"
+      "HEADLINE": "How do you want to proceed with the ongoing conflict with {userName}?"
     }
   },
   "ISSUE": {
@@ -576,7 +573,10 @@
       "HISTORY": "Your group voted to keep discussing",
       "TIME_UP": "Time is up!",
       "INITIATED_BY": "Initiated by {initiatorName}",
-      "TOAST": "Your vote was successfully submitted"
+      "TOAST": "Your vote was successfully submitted",
+      "CONFLICT_ONE": "{userName} stays in {groupName}",
+      "CONFLICT_TWO": "Extend the time to keep discussing",
+      "CONFLICT_THREE": "{userName} gets removed from {groupName}"
     }
   },
   "UNSUBSCRIBE": {

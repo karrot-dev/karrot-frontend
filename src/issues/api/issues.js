@@ -1,4 +1,4 @@
-import axios from '@/base/api/axios'
+import axios, { parseCursor } from '@/base/api/axios'
 import { convert as convertConversation } from '@/messages/api/conversations'
 
 export default {
@@ -10,8 +10,13 @@ export default {
     return convert((await axios.get(`/api/issues/${id}/`)).data)
   },
 
-  async list (params) {
-    return convert((await axios.get('/api/issues/', { params })).data)
+  async list (filter) {
+    const response = (await axios.get('/api/issues/', { params: filter })).data
+    return {
+      ...response,
+      next: parseCursor(response.next),
+      results: convert(response.results),
+    }
   },
 
   async conversation (id) {

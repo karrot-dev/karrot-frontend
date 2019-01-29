@@ -51,7 +51,7 @@ export default {
   },
   computed: {
     submittedOn () {
-      const date = this.$d(new Date(this.issue.createdAt), 'long')
+      const date = this.$d(this.issue.createdAt, 'long')
       return this.$t('ISSUE.SUBMITTED_ON', { date: date })
     },
   },

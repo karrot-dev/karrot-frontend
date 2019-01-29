@@ -1,7 +1,7 @@
 import router from '@/base/router'
 import Vue from 'vue'
-import issues from '@/issues/api/issues'
-import { withMeta, createMetaModule } from '@/utils/datastore/helpers'
+import issuesAPI from '@/issues/api/issues'
+import { withMeta, createMetaModule, createPaginationModule } from '@/utils/datastore/helpers'
 
 function initialState () {
   return {
@@ -76,7 +76,10 @@ function initialState () {
 export default {
   namespaced: true,
   state: initialState(),
-  modules: { meta: createMetaModule() },
+  modules: {
+    meta: createMetaModule(),
+    pagination: createPaginationModule(),
+  },
   getters: {
     get: (state, getters, rootState, rootGetters) => issueId => {
       return getters.enrich(state.entries[issueId])
@@ -102,20 +105,19 @@ export default {
   actions: {
     ...withMeta({
       async createIssue ({ dispatch, commit }, data) {
-        const newIssue = await issues.create({ affectedUser: data.affectedUser, group: data.group, topic: data.topic })
+        const newIssue = await issuesAPI.create({ affectedUser: data.affectedUser, group: data.group, topic: data.topic })
         commit('update', [newIssue])
         dispatch('toasts/show', {
           message: 'ISSUE.CREATION.TOAST',
         }, { root: true })
         router.push({ name: 'issueTabs', params: { groupId: newIssue.group, issueId: newIssue.id } })
       },
-      async fetchByGroupId ({ commit }, { groupId }) {
-        const issueList = await issues.list({ group: groupId })
-        console.log('The list :', issueList.results[0])
-        commit('update', issueList.results)
+      async fetchByGroupId ({ dispatch, commit }, { groupId }) {
+        const issueList = await dispatch('pagination/extractCursor', issuesAPI.list({ group: groupId }))
+        commit('update', issueList)
       },
       async saveScores ({ commit, dispatch, state }, data) {
-        await issues.vote(state.currentId, data)
+        await issuesAPI.vote(state.currentId, data)
         dispatch('toasts/show', {
           message: 'ISSUE.VOTING.TOAST',
         }, { root: true })
@@ -124,7 +126,7 @@ export default {
     }),
     async beforeEnter ({ commit }, data) {
       console.log('In beforeEnter: ', data.issueId)
-      const currentIssue = await issues.get(data.issueId)
+      const currentIssue = await issuesAPI.get(data.issueId)
       console.log('What was fetched: ', currentIssue)
       commit('setCurrentIssue', data.issueId)
       commit('update', [currentIssue])

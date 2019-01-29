@@ -92,23 +92,13 @@ export default {
       }
     },
     getIcon (index) {
-      if (this.sortedArray.length === 2) {
-        switch (index) {
-          case 0:
-            return 'fas fa-smile'
-          case 1:
-            return 'fas fa-frown'
-        }
-      }
-      else if (this.sortedArray.length === 3) {
-        switch (index) {
-          case 0:
-            return 'fas fa-smile'
-          case 1:
-            return 'fas fa-meh'
-          case 2:
-            return 'fas fa-frown'
-        }
+      switch (index) {
+        case 0:
+          return 'fas fa-smile'
+        case 1:
+          return 'fas fa-meh'
+        case 2:
+          return 'fas fa-frown'
       }
     },
   },

@@ -24,7 +24,7 @@
           @save="$emit('saveMessage', arguments[0])"
         />
         <ConversationCompose
-          v-if="!this.conversation.canFetchFuture"
+          v-if="!this.conversation.canFetchFuture && !this.conversation.isClosed"
           ref="compose"
           :status="conversation.sendStatus"
           slim
@@ -32,6 +32,21 @@
           :placeholder="messagePrompt"
           :autofocus="!$q.platform.is.mobile && startAtBottom"
         />
+        <QItem
+          v-if="this.conversation.isClosed"
+          class="q-mt-md"
+        >
+          <QItemSide
+            icon="fas fa-lock"
+            color="light"
+            inverted
+          />
+          <QItemMain
+            class="q-body-1"
+            :label="$t('CONVERSATION.CLOSED')"
+            label-lines="3"
+          />
+        </QItem>
       </QList>
       <div
         slot="message"
@@ -53,6 +68,9 @@ import {
   dom,
   QSpinnerDots,
   QList,
+  QItem,
+  QItemSide,
+  QItemMain,
   QScrollObservable,
   QInfiniteScroll,
 } from 'quasar'
@@ -70,6 +88,9 @@ export default {
     ConversationCompose,
     QSpinnerDots,
     QList,
+    QItem,
+    QItemSide,
+    QItemMain,
     QScrollObservable,
     QInfiniteScroll,
   },

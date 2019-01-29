@@ -153,7 +153,9 @@ export default {
       if (state.entries[pickupId]) Vue.delete(state.entries, pickupId)
     },
     join (state, { pickupId, userId }) {
-      state.entries[pickupId].collectors.push(userId)
+      const { collectors } = state.entries[pickupId]
+      if (collectors.includes(userId)) return
+      collectors.push(userId)
     },
     leave (state, { pickupId, userId }) {
       let { collectors } = state.entries[pickupId]

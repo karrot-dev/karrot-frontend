@@ -1,7 +1,7 @@
 <template>
   <div
     v-if="conversation"
-    class="DetailHeader"
+    class="DetailHeader full-width"
   >
     <QToolbar
       color="secondary"
@@ -189,7 +189,7 @@ export default {
       }
       else {
         return {
-          name: 'groupApplications',
+          name: 'applications',
           params: {
             groupId: this.application.group.id,
           },

@@ -1,12 +1,12 @@
 defaults: &defaults
   working_directory: ~/repo
   docker:
-    - image: karrot/python:1.7
+    - image: karrot/python:1.9
 
 android-defaults: &android-defaults
   working_directory: ~/repo
   docker:
-    - image: karrot/android-build:api-28-node8-alpha-2
+    - image: karrot/android:api-28-node8-alpha-3
 
 deploy-android: &deploy-android
   <<: *defaults
@@ -96,79 +96,6 @@ jobs:
           path: test-reports
       - store_artifacts:
           path: test-reports
-
-  e2e-test:
-    working_directory: ~/repo
-    docker:
-      - image: karrot/python:1.7
-        environment:
-          PGHOST: 127.0.0.1
-      - image: circleci/postgres:9.6.2
-        environment:
-          POSTGRES_USER: ubuntu
-          POSTGRES_DB: fstool_e2etest
-      - image: redis:3.2.11
-    steps:
-      - attach_workspace:
-          at: ~/repo
-      - restore_cache:
-          key: python-cache-{{ checksum "requirements.txt" }}-{{ checksum "requirements-dev.txt" }}
-          key: python-cache-{{ checksum "requirements.txt" }}-
-          key: python-cache-
-      - run:
-          name: prepare backend
-          environment:
-            LC_ALL: C.UTF-8
-            LANG: C.UTF-8
-          command: |
-            set -x
-            apt-get install wget
-            test -d env/bin || virtualenv -p python3 env
-            source env/bin/activate
-            git clone https://github.com/yunity/karrot-backend
-            cd karrot-backend
-            pip install --upgrade pip
-            pip install --upgrade pip-tools
-            pip-sync requirements*.txt
-            cp config/local_settings.py.ci config/local_settings.py
-            (cd mjml && yarn)
-            mjml/convert
-      - run:
-          name: run backend
-          environment:
-            LC_ALL: C.UTF-8
-            LANG: C.UTF-8
-          command: |
-            set -x
-            source env/bin/activate
-            cd karrot-backend
-            python manage.py migrate
-            python manage.py runserver
-          background: true
-      - run:
-          name: run frontend
-          environment:
-            BACKEND: https://localhost:8000
-          command: yarn serve
-          background: true
-      - run:
-          name: wait for frontend to get ready
-          command: wget --retry-connrefused -T 30 http://localhost:8080
-      - run:
-          name: wait for backend to get ready
-          command: wget --retry-connrefused -T 30 http://localhost:8000/api/groups-info/
-      - run:
-          name: list all available browsers for your personal benefit
-          command: $(yarn bin)/testcafe -b saucelabs
-          background: true
-      - run:
-          name: testcafe
-          command: yarn e2e --ci
-      - save_cache:
-          paths:
-            - env
-            - ~/.cache/pip
-          key: python-cache-{{ checksum "karrot-backend/requirements.txt" }}-{{ checksum "karrot-backend/requirements-dev.txt" }}
 
   lint:
     <<: *defaults

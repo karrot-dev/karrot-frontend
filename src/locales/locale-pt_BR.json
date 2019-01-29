@@ -148,7 +148,7 @@
     "INVITATION_ACCEPT_ERROR": "Ooops, não foi possível aceitar este convite!",
     "SETTINGS": "Configurações",
     "NOTIFICATIONS": "Notificações",
-    "EMAIL_NOTIFICATIONS": "Email notifications",
+    "EMAIL_NOTIFICATIONS": "Notificações por e-mail",
     "NOTIFICATION_TYPES": {
       "weekly_summary": {
         "NAME": "Resumo semanal",
@@ -189,7 +189,7 @@
   },
   "STOREEDIT": {
     "NAME": "Nome",
-    "STATUS":"Estado",
+    "STATUS": "Estado",
     "DESCRIPTION": "Descricão",
     "ADDRESS": "Endereço",
     "WEEKS_IN_ADVANCE": "Com quantas semanas de antecedência as coletas recorrentes devem ser mostradas??",
@@ -235,7 +235,7 @@
     "NO_PUBLIC_DESCRIPTION": "(Este grupo não tem uma descrição pública... ainda)",
     "ALL_GROUPS": "Todos os grupos",
     "SIGNUP_OR_LOGIN": "Entre ou registre-se para participar deste grupo!",
-    "VERIFY_EMAIL_ADDRESS":"Verify your email address to apply",
+    "VERIFY_EMAIL_ADDRESS": "Verify your email address to apply",
     "MY_GROUPS": "Meus grupos",
     "LOGOUT_MESSAGE": {
       "LOGGED_OUT": "Você esta deslogado. {login}",
@@ -247,7 +247,6 @@
     "WITHDRAW_CONFIRMATION_HEADER": "Withdraw Application",
     "WITHDRAW_CONFIRMATION_TEXT": "Are you sure you want to withdraw your application to join {groupName}?",
     "APPLICATION_WITHDRAWN": "Your application was successfully withdrawn!"
-
   },
   "GROUPINFO": {
     "TITLE": "Informação pública do grupo",
@@ -405,7 +404,7 @@
     "PICKUP_MISSED": "A coleta na {storeName} não foi feita!",
     "PICKUP_JOIN": "se candidatou para a coleta na loja {storeName}",
     "PICKUP_LEAVE": "desisistiu de fazer a coleta na loja {storeName}",
-    "GROUP_APPLICATION_DECLINED": "declined an application from {applicantName}",
+    "APPLICATION_DECLINED": "declined an application from {applicantName}",
     "MEMBER_BECAME_EDITOR": "gained editing permissions",
     "GROUP_LEAVE_INACTIVE": "was removed due to inactivity",
     "GROUP_CHANGE_PHOTO": "changed the group logo",
@@ -423,7 +422,7 @@
     "EMAIL_NOT_DELIVERED": "An email could not be delivered to you | {count} emails could not be delivered to you"
   },
   "NOTIFICATION_BELLS_LIST": {
-    "TITLE": "Notifications",
+    "TITLE": "Notificações",
     "NO_ITEMS": "We currently don't have notifications for you."
   },
   "NOTIFICATION_BELLS": {
@@ -500,11 +499,12 @@
     "REACTIONS": {
       "YOU": "você",
       "AND": "e",
-      "REACTED_WITH":"{users} reagiram com {reaction}"
+      "REACTED_WITH": "{users} reagiram com {reaction}"
     },
     "MESSAGE_NOT_FOUND": "Message not found",
     "NO_CONVERSATIONS": "No conversations yet.",
-    "MUTED": "Notifications are disabled"
+    "MUTED": "Notifications are disabled",
+    "CLOSED": "This conversation has been closed automatically."
   },
   "STORESTATUS": {
     "ACTIVE": "cooperação",

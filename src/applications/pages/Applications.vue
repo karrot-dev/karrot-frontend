@@ -4,13 +4,17 @@ import ApplicationList from '@/applications/components/ApplicationList'
 
 export default connect({
   gettersToProps: {
-    pending: 'groupApplications/forCurrentGroupPending',
-    otherApplications: 'groupApplications/forCurrentGroupNonPending',
+    pending: 'applications/forCurrentGroupPending',
+    otherApplications: 'applications/forCurrentGroupNonPending',
+    canFetchPast: 'applications/canFetchPast',
+    fetchPastStatus: 'applications/fetchPastStatus',
   },
-
+  actionsToProps: {
+    fetchPast: 'applications/fetchPast',
+  },
   actionsToEvents: {
-    accept: 'groupApplications/accept',
-    decline: 'groupApplications/decline',
+    accept: 'applications/accept',
+    decline: 'applications/decline',
     openChat: 'detail/openForApplication',
   },
 })('ApplicationList', ApplicationList)

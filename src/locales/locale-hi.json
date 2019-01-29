@@ -146,8 +146,8 @@
     "INVITE_TITLE": "उपयोगकर्ताओं को अपने समूह में आमंत्रित करें",
     "INVITATION_ACCEPT_SUCCESS": "स्वागत हे!आपने आमंत्रण सफलतापूर्वक स्वीकार कर लिया है",
     "INVITATION_ACCEPT_ERROR": "ओह, निमंत्रण स्वीकार नहीं कर सका!",
-    "SETTINGS": "Settings",
-    "NOTIFICATIONS": "Notifications",
+    "SETTINGS": "सेटिंग्स",
+    "NOTIFICATIONS": "सूचनाएं",
     "EMAIL_NOTIFICATIONS": "Email notifications",
     "NOTIFICATION_TYPES": {
       "weekly_summary": {
@@ -189,7 +189,7 @@
   },
   "STOREEDIT": {
     "NAME": "नाम",
-    "STATUS":"स्थिति",
+    "STATUS": "स्थिति",
     "DESCRIPTION": "विवरण",
     "ADDRESS": "पता",
     "WEEKS_IN_ADVANCE": "कितने सप्ताह अग्रिम में पिकअप की तारीखों को दिखाया जाना चाहिए?",
@@ -224,7 +224,7 @@
     "DISPLAY_NAME": "नाम",
     "DESCRIPTION": "आपके बारे में",
     "OLD_PASSWORD": "Confirm your old password",
-    "PASSWORD": "New password"
+    "PASSWORD": "नया पासवर्ड"
   },
   "PROFILE": {
     "INACCESSIBLE_OR_DELETED": "(उपयोगकर्ता अनुपलब्ध या हटाया गया)"
@@ -235,7 +235,7 @@
     "NO_PUBLIC_DESCRIPTION": "(इस समूह में कोई सार्वजनिक विवरण नहीं है ... फिर भी)",
     "ALL_GROUPS": "सभी समूह",
     "SIGNUP_OR_LOGIN": "इस समूह में शामिल होने के लिए प्रवेश करें या साइन अप करें!",
-    "VERIFY_EMAIL_ADDRESS":"Verify your email address to apply",
+    "VERIFY_EMAIL_ADDRESS": "Verify your email address to apply",
     "MY_GROUPS": "मेरे समूह",
     "LOGOUT_MESSAGE": {
       "LOGGED_OUT": "आप फ़िलहाल लॉग आउट हो गए हैं। {लॉग इन करें}",
@@ -247,7 +247,6 @@
     "WITHDRAW_CONFIRMATION_HEADER": "Withdraw Application",
     "WITHDRAW_CONFIRMATION_TEXT": "Are you sure you want to withdraw your application to join {groupName}?",
     "APPLICATION_WITHDRAWN": "Your application was successfully withdrawn!"
-
   },
   "GROUPINFO": {
     "TITLE": "सार्वजनिक समूह की जानकारी",
@@ -405,7 +404,7 @@
     "PICKUP_MISSED": "{स्टोर नाम} पर एक पिकअप छूट गया था!",
     "PICKUP_JOIN": "{स्टोर नाम} पर पिक-अप करने के लिए साइन अप हुआ",
     "PICKUP_LEAVE": "{स्टोर नाम} पर पिक-अप करने का कदम वापस लिया",
-    "GROUP_APPLICATION_DECLINED": "declined an application from {applicantName}",
+    "APPLICATION_DECLINED": "declined an application from {applicantName}",
     "MEMBER_BECAME_EDITOR": "gained editing permissions",
     "GROUP_LEAVE_INACTIVE": "was removed due to inactivity",
     "GROUP_CHANGE_PHOTO": "changed the group logo",
@@ -423,7 +422,7 @@
     "EMAIL_NOT_DELIVERED": "An email could not be delivered to you | {count} emails could not be delivered to you"
   },
   "NOTIFICATION_BELLS_LIST": {
-    "TITLE": "Notifications",
+    "TITLE": "सूचनाएं",
     "NO_ITEMS": "We currently don't have notifications for you."
   },
   "NOTIFICATION_BELLS": {
@@ -500,11 +499,12 @@
     "REACTIONS": {
       "YOU": "you",
       "AND": "and",
-      "REACTED_WITH":"{users} reacted with {reaction}"
+      "REACTED_WITH": "{users} reacted with {reaction}"
     },
     "MESSAGE_NOT_FOUND": "Message not found",
     "NO_CONVERSATIONS": "No conversations yet.",
-    "MUTED": "Notifications are disabled"
+    "MUTED": "Notifications are disabled",
+    "CLOSED": "This conversation has been closed automatically."
   },
   "STORESTATUS": {
     "ACTIVE": "सहयोग",

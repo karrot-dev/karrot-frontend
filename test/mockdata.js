@@ -67,8 +67,8 @@ function enrichPickup (e) {
 
 export const joinablePickup = enrichPickup({ 'id': 234, 'date': '2017-08-12T08:00:00Z', 'series': 36, 'store': 61, 'maxCollectors': 4, 'collectors': [1, 2, 3], 'description': 'you can join this pickup', isFull: false, isUserMember: false })
 export const leavablePickup = enrichPickup({ 'id': 235, 'date': '2017-08-13T08:00:00Z', 'series': 36, 'store': 61, 'maxCollectors': 4, 'collectors': [1, 2, 5], 'description': 'you are collector and can leave this pickup', isFull: false, isUserMember: true })
-export const fullPickup = enrichPickup({ 'id': 236, 'date': '2017-08-14T08:00:00Z', 'series': 36, 'store': 61, 'maxCollectors': 3, 'collectors': [1, 2, 3], 'description': 'this pickup is already full!', isFull: true, isUserMember: false })
-export const emptyPickup = enrichPickup({ 'id': 237, 'date': '2017-08-15T08:00:00Z', 'series': 36, 'store': 61, 'maxCollectors': 3, 'collectors': [], 'description': 'this pickup is fresh and empty', isFull: false, isUserMember: false, isEmpty: true })
+export const fullPickup = enrichPickup({ 'id': 236, 'date': '2017-08-14T08:00:00Z', 'series': 36, 'store': 61, 'maxCollectors': 4, 'collectors': [1, 2, 3, 4], 'description': 'this pickup is already full!', isFull: true, isUserMember: false })
+export const emptyPickup = enrichPickup({ 'id': 237, 'date': '2017-08-15T08:00:00Z', 'series': 36, 'store': 61, 'maxCollectors': 4, 'collectors': [], 'description': 'this pickup is fresh and empty', isFull: false, isUserMember: false, isEmpty: true })
 
 export const pickupsMock = [ joinablePickup, leavablePickup, fullPickup, emptyPickup ]
 

@@ -27,6 +27,7 @@
           :message="conv.latestMessage"
           :unread-count="conv.unreadMessageCount"
           :muted="conv.muted"
+          :closed="conv.isClosed"
           :selected="isSelected(conv)"
           @open="open(conv)"
         />

@@ -189,7 +189,7 @@
   },
   "STOREEDIT": {
     "NAME": "Nazwa",
-    "STATUS":"Status",
+    "STATUS": "Status",
     "DESCRIPTION": "Opis",
     "ADDRESS": "Adres",
     "WEEKS_IN_ADVANCE": "Ile tygodni do przodu ma być widoczna tabelka odbiorów?",
@@ -235,7 +235,7 @@
     "NO_PUBLIC_DESCRIPTION": "(Ta grupa nie ma jeszcze opisu...)",
     "ALL_GROUPS": "Wszystkie grupy",
     "SIGNUP_OR_LOGIN": "Zaloguj się lub zarejestruj, aby dołączyć do tej grupy!",
-    "VERIFY_EMAIL_ADDRESS":"Zweryfikuj adres e-mail, aby wysłać zgłoszenie",
+    "VERIFY_EMAIL_ADDRESS": "Zweryfikuj adres e-mail, aby wysłać zgłoszenie",
     "MY_GROUPS": "Moje grupy",
     "LOGOUT_MESSAGE": {
       "LOGGED_OUT": "Zostałaś/-eś wylogowana/-y. {login}",
@@ -247,7 +247,6 @@
     "WITHDRAW_CONFIRMATION_HEADER": "Wycofaj zgłoszenie",
     "WITHDRAW_CONFIRMATION_TEXT": "Czy na pewno chcesz wycofać swoje zgłoszenie do {groupName}?",
     "APPLICATION_WITHDRAWN": "Twoje zgłoszenie zostało wycofane!"
-
   },
   "GROUPINFO": {
     "TITLE": "Informacje o grupie",
@@ -405,7 +404,7 @@
     "PICKUP_MISSED": "Przegapiono odbiór w {storeName}!",
     "PICKUP_JOIN": "zapisał/-a się na odbiór w {storeName}",
     "PICKUP_LEAVE": "zrezygnował/-a z odbioru w {storeName}",
-    "GROUP_APPLICATION_DECLINED": "odrzucono zgłoszenie od {applicantName}",
+    "APPLICATION_DECLINED": "odrzucono zgłoszenie od {applicantName}",
     "MEMBER_BECAME_EDITOR": "otrzymał/-a uprawnienia do edycji",
     "GROUP_LEAVE_INACTIVE": "was removed due to inactivity",
     "GROUP_CHANGE_PHOTO": "changed the group logo",
@@ -500,11 +499,12 @@
     "REACTIONS": {
       "YOU": "ty",
       "AND": "i",
-      "REACTED_WITH":"{users} zareagowali {reaction}"
+      "REACTED_WITH": "{users} zareagowali {reaction}"
     },
     "MESSAGE_NOT_FOUND": "Nie znaleziono wiadomości",
     "NO_CONVERSATIONS": "Brak konwersacji.",
-    "MUTED": "Powiadomienia są wyłączone"
+    "MUTED": "Powiadomienia są wyłączone",
+    "CLOSED": "This conversation has been closed automatically."
   },
   "STORESTATUS": {
     "ACTIVE": "Współpracuje",

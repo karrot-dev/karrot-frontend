@@ -27,24 +27,42 @@
           />
         </template>
       </QCollapsible>
+      <QItem
+        v-if="canFetchPast"
+        class="row justify-center"
+      >
+        <QBtn
+          size="sm"
+          :loading="fetchPastStatus.pending"
+          @click="fetchPast"
+        >
+          {{ $t('BUTTON.SHOW_MORE') }}
+        </QBtn>
+      </QItem>
     </QList>
   </div>
 </template>
 
 <script>
 import ApplicationItem from './ApplicationItem'
+import paginationMixin from '@/utils/mixins/paginationMixin'
 import {
   QCollapsible,
   QItemSeparator,
   QList,
+  QItem,
+  QBtn,
 } from 'quasar'
 
 export default {
+  mixins: [paginationMixin],
   components: {
     ApplicationItem,
     QCollapsible,
     QItemSeparator,
     QList,
+    QItem,
+    QBtn,
   },
   props: {
     pending: {
@@ -68,6 +86,3 @@ export default {
   },
 }
 </script>
-
-<style scoped lang="stylus">
-</style>

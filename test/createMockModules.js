@@ -26,7 +26,7 @@ export default ({ user }) => ({
       markUserActive: jest.fn(),
     },
   },
-  groupApplications: {
+  applications: {
     namespaced: true,
     getters: {
       groupHasMyApplication: () => () => null,

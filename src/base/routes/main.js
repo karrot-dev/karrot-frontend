@@ -20,7 +20,7 @@ const StoreCreate = () => import('@/stores/pages/Create')
 const StoreList = () => import('@/stores/pages/Stores')
 const HistoryDetail = () => import('@/history/pages/HistoryDetail')
 const GroupInvitations = () => import('@/invitations/pages/Invitations')
-const GroupApplications = () => import('@/applications/pages/Applications')
+const Applications = () => import('@/applications/pages/Applications')
 const GroupDescription = () => import('@/group/pages/Description')
 const GroupMembers = () => import('@/users/pages/Members')
 const GroupHistory = () => import('@/history/pages/GroupHistory')
@@ -41,7 +41,7 @@ export default [
       breadcrumbs: [
         { translation: 'JOINGROUP.ALL_GROUPS' },
       ],
-      beforeEnter: 'groupApplications/fetchMine',
+      beforeEnter: 'applications/fetchMine',
     },
     components: {
       fullPage: GroupGallery,
@@ -220,14 +220,15 @@ export default [
         component: GroupInvitations,
       },
       {
-        name: 'groupApplications',
+        name: 'applications',
         path: 'applications',
         meta: {
           breadcrumbs: [
-            { translation: 'GROUP.APPLICATIONS', route: { name: 'groupApplications' } },
+            { translation: 'GROUP.APPLICATIONS', route: { name: 'applications' } },
           ],
+          beforeEnter: 'applications/fetchByGroupId',
         },
-        component: GroupApplications,
+        component: Applications,
       },
       {
         name: 'groupEdit',

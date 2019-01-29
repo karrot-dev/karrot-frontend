@@ -128,7 +128,7 @@ export default {
         commit('pickups/update', pickups, { root: true })
       }
       if (applications) {
-        commit('groupApplications/update', applications, { root: true })
+        commit('applications/update', applications, { root: true })
         const users = applications.map(a => a.user)
         commit('users/update', users, { root: true })
       }
@@ -150,7 +150,7 @@ export default {
           dispatch('pickups/maybeFetch', conversation.targetId, { root: true })
         }
         else if (conversation.type === 'application') {
-          dispatch('groupApplications/maybeFetchOne', conversation.targetId, { root: true })
+          dispatch('applications/maybeFetchOne', conversation.targetId, { root: true })
         }
       }
     },

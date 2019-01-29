@@ -7,7 +7,7 @@ import GroupGalleryCard from './GroupGalleryCard'
 import { groupsMock } from '>/mockdata'
 
 const datastore = createDatastore({
-  groupApplications: {
+  applications: {
     getters: {
       getMineInGroup: () => () => null,
     },

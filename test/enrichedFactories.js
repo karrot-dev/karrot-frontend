@@ -9,6 +9,8 @@
 import subHours from 'date-fns/sub_hours'
 import addHours from 'date-fns/add_hours'
 
+import { statusMocks } from '>/helpers'
+
 let notificationIdCnt = 0
 export const makeNotification = data => {
   return {
@@ -170,38 +172,6 @@ export const makePickupSeries = data => {
   }
 }
 
-let conversationIdCnt = 0
-export const makeConversation = data => {
-  return {
-    id: conversationIdCnt++,
-    participants: [],
-    seenUpTo: new Date(),
-    unreadMessageCount: null,
-    emailNotification: true,
-    fetchStatus: {
-      pending: false,
-    },
-    messages: [
-      makeMessage(),
-      makeMessage(),
-      makeMessage(),
-    ],
-    type: 'group',
-    ...data,
-  }
-}
-
-let messageIdCnt = 0
-export const makeMessage = data => {
-  return {
-    id: messageIdCnt++,
-    author: makeUser(),
-    content: 'and then I went to the beach',
-    createdAt: subHours(new Date(), 3),
-    ...data,
-  }
-}
-
 let votingIdCnt = 0
 export const makeVoting = data => {
   return {
@@ -266,6 +236,85 @@ export const makeHistory = data => {
     users: [ 222 ],
     store: null,
     message: 'Changed the group picture',
+    ...data,
+  }
+}
+
+export const makeReaction = date => {
+  return {
+    name: 'thumbsup',
+    users: [makeUser()],
+    reacted: false,
+    message: 'a reacted with :thumbsup:',
+    ...date,
+  }
+}
+
+let messageIdCnt = 0
+export const makeMessage = data => {
+  const id = messageIdCnt++
+  return {
+    id,
+    content: `hello ${id}!`,
+    author: makeUser(),
+    createdAt: new Date(),
+    updatedAt: new Date(),
+    editedAt: new Date(),
+    receivedVia: '',
+    isEditable: false,
+    reactions: [makeReaction()],
+    isUnread: false,
+    isEdited: false,
+    groupId: null,
+    thread: null,
+    threadMeta: null,
+    saveStatus: statusMocks.default(),
+    ...data,
+  }
+}
+
+export const makeThread = data => {
+  return {
+    ...makeMessage(),
+    messages: [
+      makeMessage(),
+      makeMessage(),
+      makeMessage(),
+    ],
+    sendStatus: statusMocks.default(),
+    fetchStatus: statusMocks.default(),
+    canFetchFuture: false,
+    fetchFutureStatus: statusMocks.default(),
+    ...data,
+  }
+}
+
+let conversationIdCnt = 0
+export const makeConversation = data => {
+  return {
+    id: conversationIdCnt++,
+    participants: [makeUser()],
+    updatedAt: new Date(),
+    seenUpTo: null,
+    unreadMessageCount: 0,
+    muted: false,
+    isClosed: false,
+    type: null,
+    targetId: null,
+    target: null,
+    sendStatus: statusMocks.default(),
+    fetchStatus: statusMocks.default(),
+    canFetchPast: false,
+    fetchPastStatus: statusMocks.default(),
+    canFetchFuture: false,
+    fetchFutureStatus: statusMocks.default(),
+    markStatus: statusMocks.default(),
+    messages: [
+      makeMessage(),
+      makeMessage(),
+      makeMessage(),
+      makeMessage(),
+    ],
     ...data,
   }
 }

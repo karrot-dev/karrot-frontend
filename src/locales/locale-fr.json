@@ -189,7 +189,7 @@
   },
   "STOREEDIT": {
     "NAME": "Nom",
-    "STATUS":"Statut",
+    "STATUS": "Statut",
     "DESCRIPTION": "Description",
     "ADDRESS": "Adresse",
     "WEEKS_IN_ADVANCE": "Les récoltes récurrentes sont affichées combien de semaines en avance?",
@@ -235,7 +235,7 @@
     "NO_PUBLIC_DESCRIPTION": "(Ce groupe n'a pas encore de description publique)",
     "ALL_GROUPS": "Tous les groupes",
     "SIGNUP_OR_LOGIN": "Il faut s'enregistrer pour joindre ce groupe !",
-    "VERIFY_EMAIL_ADDRESS":"Vérifie ton adresse email pour postuler",
+    "VERIFY_EMAIL_ADDRESS": "Vérifie ton adresse email pour postuler",
     "MY_GROUPS": "Mes groupes",
     "LOGOUT_MESSAGE": {
       "LOGGED_OUT": "Tu es en ce moment déconnecté. {login}",
@@ -247,7 +247,6 @@
     "WITHDRAW_CONFIRMATION_HEADER": "Retirer ma candidature",
     "WITHDRAW_CONFIRMATION_TEXT": "Es-tu sûr(e) de vouloir retirer ta candidature à {groupName} ?",
     "APPLICATION_WITHDRAWN": "Ta candidature a bien été retirée !"
-
   },
   "GROUPINFO": {
     "TITLE": "Information publique du groupe",
@@ -405,7 +404,7 @@
     "PICKUP_MISSED": "Une récolte à {storeName} a été manqué!",
     "PICKUP_JOIN": "s'est enregistré pour faire une récolte à {storeName}",
     "PICKUP_LEAVE": "a annulé sa récolte à {storeName}",
-    "GROUP_APPLICATION_DECLINED": "a refusé la candidature de {userName} ",
+    "APPLICATION_DECLINED": "a refusé la candidature de {userName} ",
     "MEMBER_BECAME_EDITOR": "a obtenu des droits d'admin",
     "GROUP_LEAVE_INACTIVE": "was removed due to inactivity",
     "GROUP_CHANGE_PHOTO": "changed the group logo",
@@ -500,11 +499,12 @@
     "REACTIONS": {
       "YOU": "toi",
       "AND": "et",
-      "REACTED_WITH":"{users} ont réagi avec {reaction}"
+      "REACTED_WITH": "{users} ont réagi avec {reaction}"
     },
     "MESSAGE_NOT_FOUND": "Message non trouvé",
     "NO_CONVERSATIONS": "Pas encore de conversation.",
-    "MUTED": "Les notifications sont désactivées."
+    "MUTED": "Les notifications sont désactivées.",
+    "CLOSED": "This conversation has been closed automatically."
   },
   "STORESTATUS": {
     "ACTIVE": "En coopération",

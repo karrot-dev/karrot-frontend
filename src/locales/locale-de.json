@@ -83,7 +83,7 @@
     "DELETE_ACCOUNT": "Account löschen",
     "SHOW": "Zeigen",
     "HIDE": "Verstecken",
-    "SUBMIT": "Submit",
+    "SUBMIT": "Absenden",
     "APPLY": "Apply",
     "ACCEPT": "Accept",
     "DECLINE": "Decline",
@@ -148,7 +148,7 @@
     "INVITATION_ACCEPT_ERROR": "Ups, die Einladung konnte nicht akzeptiert werden!",
     "SETTINGS": "Einstellungen",
     "NOTIFICATIONS": "Benachrichtigungen",
-    "EMAIL_NOTIFICATIONS": "Email notifications",
+    "EMAIL_NOTIFICATIONS": "Email-Benachrichtigungen",
     "NOTIFICATION_TYPES": {
       "weekly_summary": {
         "NAME": "Wöchentliche Zusammenfassung",
@@ -189,7 +189,7 @@
   },
   "STOREEDIT": {
     "NAME": "Name",
-    "STATUS":"Status",
+    "STATUS": "Status",
     "DESCRIPTION": "Beschreibung",
     "ADDRESS": "Adresse",
     "WEEKS_IN_ADVANCE": "Wieviele Wochen im Voraus sollen die wiederkehrenden Abholungen angezeigt werden?",
@@ -235,7 +235,7 @@
     "NO_PUBLIC_DESCRIPTION": "(Diese Gruppe hat bisher keine Beschreibung)",
     "ALL_GROUPS": "Alle Gruppen",
     "SIGNUP_OR_LOGIN": "Anmelden, um dieser Gruppe beizutreten!",
-    "VERIFY_EMAIL_ADDRESS":"Verify your email address to apply",
+    "VERIFY_EMAIL_ADDRESS": "Verify your email address to apply",
     "MY_GROUPS": "Meine Gruppen",
     "LOGOUT_MESSAGE": {
       "LOGGED_OUT": "Du bist derzeit nicht angemeldet. {login}",
@@ -247,7 +247,6 @@
     "WITHDRAW_CONFIRMATION_HEADER": "Withdraw Application",
     "WITHDRAW_CONFIRMATION_TEXT": "Are you sure you want to withdraw your application to join {groupName}?",
     "APPLICATION_WITHDRAWN": "Your application was successfully withdrawn!"
-
   },
   "GROUPINFO": {
     "TITLE": "Öffentliche Gruppenbeschreibung",
@@ -405,7 +404,7 @@
     "PICKUP_MISSED": "Eine Abholung bei {storeName} wurde verpasst!",
     "PICKUP_JOIN": "hat sich gemeldet, um bei Betrieb {storeName} abzuholen",
     "PICKUP_LEAVE": "ist von der Abholung bei {storeName} zurückgetreten",
-    "GROUP_APPLICATION_DECLINED": "declined an application from {applicantName}",
+    "APPLICATION_DECLINED": "declined an application from {applicantName}",
     "MEMBER_BECAME_EDITOR": "gained editing permissions",
     "GROUP_LEAVE_INACTIVE": "was removed due to inactivity",
     "GROUP_CHANGE_PHOTO": "changed the group logo",
@@ -423,7 +422,7 @@
     "EMAIL_NOT_DELIVERED": "Eine E-Mail konnte nicht zugestellt werden | {count} E-Mails konnten nicht zugestellt werden"
   },
   "NOTIFICATION_BELLS_LIST": {
-    "TITLE": "Notifications",
+    "TITLE": "Benachrichtigungen",
     "NO_ITEMS": "We currently don't have notifications for you."
   },
   "NOTIFICATION_BELLS": {
@@ -486,8 +485,8 @@
     "WRITE_FIRST_MESSAGE": "Schreibe die erste Nachricht...",
     "DISABLE_NOTIFICATION_EMAILS": "Email-Benachrichtigungen aktiv, klick um zu deaktivieren",
     "ENABLE_NOTIFICATION_EMAILS": "Email-Benachrichtigungen inaktiv, klick um zu aktivieren",
-    "VERIFY_EMAIL_FOR_NOTIFICATIONS": "Bitte verifiziere deine Email-Adresse, um Email-Benachrichtigungen zu erhalten.",
-    "RECEIVED_VIA_EMAIL": "Diese Nachricht wurde per Mail geschickt."
+    "VERIFY_EMAIL_FOR_NOTIFICATIONS": "Bitte verifiziere deine E-Mail-Adresse, um E-Mail-Benachrichtigungen zu erhalten.",
+    "RECEIVED_VIA_EMAIL": "Diese Nachricht wurde per E-Mail geschickt."
   },
   "CONVERSATION": {
     "OPEN": "Unterhaltung öffnen",
@@ -500,11 +499,12 @@
     "REACTIONS": {
       "YOU": "du",
       "AND": "und",
-      "REACTED_WITH":"{users} - {reaction}"
+      "REACTED_WITH": "{users} - {reaction}"
     },
     "MESSAGE_NOT_FOUND": "Nachricht nicht gefunden",
     "NO_CONVERSATIONS": "No conversations yet.",
-    "MUTED": "Notifications are disabled"
+    "MUTED": "Notifications are disabled",
+    "CLOSED": "This conversation has been closed automatically."
   },
   "STORESTATUS": {
     "ACTIVE": "Kooperiert",

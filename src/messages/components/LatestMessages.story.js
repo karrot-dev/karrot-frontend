@@ -43,6 +43,27 @@ storiesOf('Latest Messages', module)
       on,
     }),
   }))
+  .add('flag: closed', () => defaults({
+    render: h => h(LatestMessageItem, {
+      props: {
+        application,
+        message,
+        closed: true,
+      },
+      on,
+    }),
+  }))
+  .add('flag: closed+muted', () => defaults({
+    render: h => h(LatestMessageItem, {
+      props: {
+        application,
+        message,
+        closed: true,
+        muted: true,
+      },
+      on,
+    }),
+  }))
   .add('flag: unread', () => defaults({
     render: h => h(LatestMessageItem, {
       props: {

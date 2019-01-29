@@ -1,7 +1,7 @@
 import Vue from 'vue'
-import groupApplications from '@/applications/api/groupApplications'
+import applications from '@/applications/api/applications'
 import router from '@/base/router'
-import { withMeta, createMetaModule, metaStatuses } from '@/utils/datastore/helpers'
+import { withMeta, createMetaModule, metaStatuses, createPaginationModule } from '@/utils/datastore/helpers'
 
 function initialState () {
   return {
@@ -10,7 +10,10 @@ function initialState () {
 }
 export default {
   namespaced: true,
-  modules: { meta: createMetaModule() },
+  modules: {
+    meta: createMetaModule(),
+    pagination: createPaginationModule(),
+  },
   state: initialState(),
   getters: {
     get: (state, getters, rootState, rootGetters) => applicationId => {
@@ -42,22 +45,34 @@ export default {
       .sort(sortByCreatedAt),
     forCurrentGroupPending: (state, getters) => getters.forCurrentGroup.filter(a => a.isPending),
     forCurrentGroupNonPending: (state, getters) => getters.forCurrentGroup.filter(a => !a.isPending),
-    ...metaStatuses(['apply']),
+    canFetchPast: (state, getters) => getters['pagination/canFetchNext'],
+    ...metaStatuses(['apply', 'fetchPast']),
   },
   actions: {
+    async fetch ({ commit, dispatch }, filters) {
+      const applicationList = await dispatch('pagination/extractCursor', applications.list(filters))
+      commit('update', applicationList)
+
+      const users = applicationList.map(a => a.user)
+      commit('users/update', users, { root: true })
+    },
     ...withMeta({
-      async fetchMine ({ commit, rootGetters }) {
+      async fetchMine ({ dispatch, rootGetters }) {
         const userId = rootGetters['auth/userId']
         if (!userId) return
-        const applicationList = await groupApplications.list({ user: userId, status: 'pending' })
-
-        commit('update', applicationList)
-        const users = applicationList.map(a => a.user)
-        commit('users/update', users, { root: true })
+        await dispatch('fetch', { user: userId, status: 'pending' })
       },
 
-      async fetchByGroupId ({ commit }, { groupId }) {
-        const applicationList = await groupApplications.list({ group: groupId })
+      async fetchByGroupId ({ dispatch }, { groupId }) {
+        await dispatch('fetch', { group: groupId })
+      },
+
+      async fetchPendingByGroupId ({ dispatch }, { groupId }) {
+        await dispatch('fetch', { group: groupId, status: 'pending' })
+      },
+
+      async fetchPast ({ commit, dispatch }) {
+        const applicationList = await dispatch('pagination/fetchNext', applications.listMore)
         commit('update', applicationList)
 
         const users = applicationList.map(a => a.user)
@@ -65,14 +80,14 @@ export default {
       },
 
       async fetchOne ({ commit }, applicationId) {
-        const application = await groupApplications.get(applicationId)
+        const application = await applications.get(applicationId)
         commit('update', [application])
 
         commit('users/update', [application.user], { root: true })
       },
 
       async apply ({ commit, dispatch }, data) {
-        const newApplication = await groupApplications.create(data)
+        const newApplication = await applications.create(data)
         commit('update', [newApplication])
         dispatch('toasts/show', {
           message: 'JOINGROUP.APPLICATION_SUBMITTED',
@@ -81,7 +96,7 @@ export default {
       },
 
       async withdraw ({ commit, dispatch }, id) {
-        const removedApplication = await groupApplications.withdraw(id)
+        const removedApplication = await applications.withdraw(id)
         commit('update', [removedApplication])
         dispatch('toasts/show', {
           message: 'JOINGROUP.APPLICATION_WITHDRAWN',
@@ -89,7 +104,7 @@ export default {
       },
 
       async accept ({ commit, dispatch }, id) {
-        const acceptedApplication = await groupApplications.accept(id)
+        const acceptedApplication = await applications.accept(id)
         commit('update', [acceptedApplication])
         dispatch('toasts/show', {
           message: 'APPLICATION.ACCEPTED',
@@ -98,7 +113,7 @@ export default {
       },
 
       async decline ({ commit, dispatch }, id) {
-        const declinedApplication = await groupApplications.decline(id)
+        const declinedApplication = await applications.decline(id)
         commit('update', [declinedApplication])
         dispatch('toasts/show', {
           message: 'APPLICATION.DECLINED',

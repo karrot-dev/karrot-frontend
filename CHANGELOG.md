@@ -22,10 +22,16 @@ Please document your changes in this format:
 
 ## [Unreleased]
 ### Added
+- Close application, pickup and issue chats after they ended #1088 @tiltec
 
 ### Changed
 - Mark latest messages as seen when visiting the menu, without the need to mark all messages as read @tiltec
 - Dim topbar buttons and make them brighter when there's something interesting in them @tiltec
+- Application list now supports pagination @tiltec
+
+### Fixed
+- Long group names would break the applicant chat @tiltec
+- Group photo upload was broken when creating a new group, it's now hidden from the from @tiltec
 
 ## [6.4.0] - 2019-01-18
 ### Added

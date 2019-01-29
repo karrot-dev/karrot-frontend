@@ -7,7 +7,7 @@
       class="absolute-center"
       style="z-index: 1"
       color="primary"
-      @click="setToZero"
+      @click="setToZero()"
       v-t="'ISSUE.VOTING.BTN_START'"
     />
     <div>
@@ -32,7 +32,7 @@
         round
         flat
         color="red"
-        @click="setToNull"
+        @click="setToNull()"
       >
         <QIcon name="fas fa-times" />
         <QTooltip

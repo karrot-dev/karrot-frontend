@@ -52,7 +52,7 @@ export default {
 
         if (invitation) {
           try {
-            await invitations.resendEmail(invitation.id, { 'created_at': invitation.createdAt })
+            await invitations.resendEmail(invitation.id)
             dispatch('toasts/show', {
               message: 'GROUP.INVITE_SEND_SUCCESS',
             }, { root: true })

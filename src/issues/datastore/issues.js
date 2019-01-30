@@ -116,6 +116,11 @@ export default {
         const issueList = await dispatch('pagination/extractCursor', issuesAPI.list({ group: groupId }))
         commit('update', issueList)
       },
+      async fetchOne ({ commit }, data) {
+        const currentIssue = await issuesAPI.get(data.issueId)
+        commit('setCurrentIssue', data.issueId)
+        commit('update', [currentIssue])
+      },
       async saveScores ({ commit, dispatch, state }, data) {
         await issuesAPI.vote(state.currentId, data)
         dispatch('toasts/show', {
@@ -124,13 +129,6 @@ export default {
         commit('saveScores', data)
       },
     }),
-    async beforeEnter ({ commit }, data) {
-      console.log('In beforeEnter: ', data.issueId)
-      const currentIssue = await issuesAPI.get(data.issueId)
-      console.log('What was fetched: ', currentIssue)
-      commit('setCurrentIssue', data.issueId)
-      commit('update', [currentIssue])
-    },
   },
   mutations: {
     setCurrentIssue (state, issueId) {

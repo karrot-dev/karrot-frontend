@@ -123,7 +123,7 @@ export default [
           breadcrumbs: [
             { translation: 'CONFLICT.TITLE', route: { name: 'issueTabs' } },
           ],
-          beforeEnter: 'issues/beforeEnter',
+          beforeEnter: 'issues/fetchOne',
         },
         components: {
           default: IssueTabs,

@@ -149,14 +149,7 @@ export default {
       }
     },
     getTitle (type) {
-      switch (type) {
-        case ('no_change'):
-          return this.$t('ISSUE.VOTING.CONFLICT_ONE', { userName: this.issue.affectedUser.displayName, groupName: this.issue.group.name })
-        case ('remove_user'):
-          return this.$t('ISSUE.VOTING.CONFLICT_THREE', { userName: this.issue.affectedUser.displayName, groupName: this.issue.group.name })
-        case ('further_discussion'):
-          return this.$t('ISSUE.VOTING.CONFLICT_TWO')
-      }
+      return this.$t(`ISSUE.VOTING.${type.toUpperCase()}`, { userName: this.issue.affectedUser.displayName, groupName: this.issue.group.name })
     },
   },
 }

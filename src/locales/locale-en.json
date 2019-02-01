@@ -575,9 +575,9 @@
       "TIME_UP": "Time is up!",
       "INITIATED_BY": "Initiated by {initiatorName}",
       "TOAST": "Your vote was successfully submitted",
-      "CONFLICT_ONE": "{userName} stays in {groupName}",
-      "CONFLICT_TWO": "Extend the time to keep discussing",
-      "CONFLICT_THREE": "{userName} gets removed from {groupName}"
+      "NO_CHANGE": "{userName} stays in {groupName}",
+      "FURTHER_DISCUSSION": "Extend the time to keep discussing",
+      "REMOVE_USER": "{userName} gets removed from {groupName}"
     }
   },
   "UNSUBSCRIBE": {

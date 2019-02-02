@@ -153,10 +153,6 @@
         >
           {{ $t('BUTTON.CANCEL') }}
         </QBtn>
-        <pre>
-          date    : {{ edit.date }}
-          dateEnd : {{ edit.dateEnd }}
-        </pre>
       </div>
     </form>
   </div>

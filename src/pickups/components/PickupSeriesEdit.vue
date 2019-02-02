@@ -34,6 +34,18 @@
           />
         </QField>
         <QField
+          icon="duration"
+          :label="$t('CREATEPICKUP.DURATION')"
+          :helper="$t('CREATEPICKUP.DURATION_HELPER')"
+          :error="hasError('duration')"
+          :error-label="firstError('duration')"
+        >
+          <QSelect
+            v-model="edit.duration"
+            :options="durationOptions"
+          />
+        </QField>
+        <QField
           icon="today"
           :label="$t('CREATEPICKUP.WEEKDAYS')"
           :helper="$t('CREATEPICKUP.WEEKDAYS_HELPER')"
@@ -199,8 +211,26 @@ import {
 } from 'quasar'
 import editMixin from '@/utils/mixins/editMixin'
 import statusMixin from '@/utils/mixins/statusMixin'
+import dateFnsHelper from '@/utils/dateFnsHelper'
+import addSeconds from 'date-fns/add_seconds'
 
 import { is24h, dayOptions } from '@/base/i18n'
+
+const durations = [
+  300,
+  900,
+  1800,
+  3600,
+  7200,
+  10800,
+  14400,
+  28800,
+]
+
+function toDurationLabel (seconds) {
+  const date = new Date()
+  return dateFnsHelper.distanceInWordsStrict(date, addSeconds(date, seconds))
+}
 
 export default {
   mixins: [editMixin, statusMixin],
@@ -253,6 +283,12 @@ export default {
         // enforce having at least one day selected
         if (v.length > 0) this.edit.rule.byDay = v
       },
+    },
+    durationOptions () {
+      return durations.map(duration => ({
+        label: toDurationLabel(duration),
+        value: duration,
+      }))
     },
   },
   methods: {

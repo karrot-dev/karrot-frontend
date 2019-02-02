@@ -13,7 +13,9 @@
           v-if="!$q.platform.is.mobile"
           v-t="'GROUP.PICKUP'"
         >&nbsp;</span>
-        <strong>{{ $d(pickup.date, 'weekdayHourMinute') }}</strong>
+        <strong>
+          {{ $d(pickup.date, 'weekdayHourMinute') }} &mdash; {{ $d(pickup.dateEnd, 'hourMinute') }}
+        </strong>
         <span slot="subtitle">
           <strong v-if="pickup.store">
             <RouterLink :to="{ name: 'store', params: { groupId: pickup.group.id, storeId: pickup.store.id }}">
@@ -238,8 +240,8 @@ export default {
     display inline-block
     margin-right 0.3em
     margin-bottom 0.3em
-body.mobile .DetailHeader .q-toolbar
-  min-height 20px
   .q-toolbar-title
     font-size 16px
+body.mobile .DetailHeader .q-toolbar
+  min-height 20px
 </style>

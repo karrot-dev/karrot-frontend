@@ -14,7 +14,8 @@
           v-t="'GROUP.PICKUP'"
         >&nbsp;</span>
         <strong>
-          {{ $d(pickup.date, 'weekdayHourMinute') }} &mdash; {{ $d(pickup.dateEnd, 'hourMinute') }}
+          {{ $d(pickup.date, 'weekdayHourMinute') }}
+          <template v-if="pickup.hasDuration"> &mdash; {{ $d(pickup.dateEnd, 'hourMinute') }}</template>
         </strong>
         <span slot="subtitle">
           <strong v-if="pickup.store">

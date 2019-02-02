@@ -10,7 +10,8 @@
       <div class="column q-pa-sm full-width">
         <div>
           <span class="featured-text">
-            {{ $d(pickup.date, 'hourMinute') }} &mdash; {{ $d(pickup.dateEnd, 'hourMinute') }}
+            {{ $d(pickup.date, 'hourMinute') }}
+            <template v-if="pickup.hasDuration"> &mdash; {{ $d(pickup.dateEnd, 'hourMinute') }}</template>
           </span>
           <template v-if="storeLink">
             <strong v-if="pickup.store">

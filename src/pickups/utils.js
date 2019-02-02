@@ -3,9 +3,19 @@ import addSeconds from 'date-fns/add_seconds'
 
 import { pickupDurations } from '@/pickups/settings'
 
-export function toDurationLabel (seconds) {
+const oneHourInSeconds = 60 * 60
+
+function formatSeconds (seconds) {
   const date = new Date()
   return dateFnsHelper.distanceInWordsStrict(date, addSeconds(date, seconds))
+}
+
+export function toDurationLabel (seconds) {
+  // distanceInWordsStrict will render 1.5 hours as 1 hour, so we need to do a bit more work...
+  const hoursAsSeconds = Math.floor(seconds / oneHourInSeconds) * oneHourInSeconds
+  const remainderSeconds = seconds % oneHourInSeconds
+  const parts = [hoursAsSeconds, remainderSeconds]
+  return parts.filter(part => part > 0).map(formatSeconds).join(' ')
 }
 
 export function durationOptions () {

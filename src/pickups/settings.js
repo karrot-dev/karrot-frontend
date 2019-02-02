@@ -5,6 +5,7 @@ export const pickupDurations = [
   900,
   1800,
   3600,
+  5400,
   7200,
   10800,
   14400,

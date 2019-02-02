@@ -48,6 +48,25 @@
         <QField
           icon="arrow_right_alt"
           :label="$t('CREATEPICKUP.DURATION')"
+          :helper="edit.hasDuration && $t('CREATEPICKUP.DURATION_HELPER')"
+          :error="hasError('duration')"
+          :error-label="firstError('duration')"
+        >
+          <QCheckbox
+            v-model="hasDuration"
+            :label="$t('CREATEPICKUP.ENABLE_DURATION')"
+          />
+          <QSelect
+            v-show="edit.hasDuration"
+            v-model="duration"
+            :options="durationOptions"
+          />
+        </QField>
+
+        <!--
+        <QField
+          icon="arrow_right_alt"
+          :label="$t('CREATEPICKUP.DURATION')"
           :helper="$t('CREATEPICKUP.DURATION_HELPER')"
           :error="hasError('duration')"
           :error-label="firstError('duration')"
@@ -57,6 +76,7 @@
             :options="durationOptions"
           />
         </QField>
+        -->
       </template>
 
       <QField
@@ -162,6 +182,7 @@
 import {
   QDatetime,
   QField,
+  QCheckbox,
   QSlider,
   QInput,
   QBtn,
@@ -176,6 +197,7 @@ import reactiveNow from '@/utils/reactiveNow'
 
 import differenceInSeconds from 'date-fns/difference_in_seconds'
 import addSeconds from 'date-fns/add_seconds'
+import { defaultDuration } from '@/pickups/settings'
 import { durationOptions } from '@/pickups/utils'
 import { objectDiff } from '@/utils/utils'
 
@@ -191,6 +213,7 @@ export default {
   components: {
     QDatetime,
     QField,
+    QCheckbox,
     QSlider,
     QInput,
     QBtn,
@@ -233,6 +256,16 @@ export default {
       },
       set (val) {
         this.edit.dateEnd = addSeconds(this.edit.date, val)
+      },
+    },
+    hasDuration: {
+      get () {
+        return this.edit.hasDuration
+      },
+      set (val) {
+        // reset to default duration when un-setting hasDuration
+        if (!val) this.edit.dateEnd = addSeconds(this.edit.date, defaultDuration)
+        this.edit.hasDuration = val
       },
     },
   },
@@ -303,4 +336,7 @@ export default {
 
 <style scoped lang="stylus">
 @import '~editbox'
+.q-field-content .q-checkbox
+  padding-top 6px
+  padding-bottom 6px
 </style>

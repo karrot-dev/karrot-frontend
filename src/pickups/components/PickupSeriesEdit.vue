@@ -34,18 +34,6 @@
           />
         </QField>
         <QField
-          icon="arrow_right_alt"
-          :label="$t('CREATEPICKUP.DURATION')"
-          :helper="$t('CREATEPICKUP.DURATION_HELPER')"
-          :error="hasError('duration')"
-          :error-label="firstError('duration')"
-        >
-          <QSelect
-            v-model="edit.duration"
-            :options="durationOptions"
-          />
-        </QField>
-        <QField
           icon="today"
           :label="$t('CREATEPICKUP.WEEKDAYS')"
           :helper="$t('CREATEPICKUP.WEEKDAYS_HELPER')"
@@ -117,6 +105,24 @@
           </div>
         </QField>
       </div>
+
+      <QField
+        icon="arrow_right_alt"
+        :label="$t('CREATEPICKUP.DURATION')"
+        :helper="hasDuration ? $t('CREATEPICKUP.DURATION_HELPER') : ''"
+        :error="hasError('duration')"
+        :error-label="firstError('duration')"
+      >
+        <QCheckbox
+          v-model="hasDuration"
+          :label="$t('CREATEPICKUP.ENABLE_DURATION')"
+        />
+        <QSelect
+          v-show="hasDuration"
+          v-model="edit.duration"
+          :options="durationOptions"
+        />
+      </QField>
 
       <QField
         icon="group"
@@ -201,6 +207,7 @@
 <script>
 import {
   QDatetime,
+  QCheckbox,
   QField,
   QSlider,
   QInput,
@@ -214,12 +221,14 @@ import statusMixin from '@/utils/mixins/statusMixin'
 
 import { is24h, dayOptions } from '@/base/i18n'
 
+import { defaultDuration } from '@/pickups/settings'
 import { durationOptions } from '@/pickups/utils'
 
 export default {
   mixins: [editMixin, statusMixin],
   components: {
     QDatetime,
+    QCheckbox,
     QField,
     QSlider,
     QInput,
@@ -269,6 +278,19 @@ export default {
       },
     },
     durationOptions,
+    hasDuration: {
+      get () {
+        return Boolean(this.edit.duration)
+      },
+      set (val) {
+        if (val) {
+          if (!this.edit.duration) this.edit.duration = defaultDuration
+        }
+        else {
+          this.edit.duration = null
+        }
+      },
+    },
   },
   methods: {
     maybeSave () {
@@ -291,4 +313,7 @@ export default {
 
 <style scoped lang="stylus">
 @import '~editbox'
+.q-field-content .q-checkbox
+  padding-top 6px
+  padding-bottom 6px
 </style>

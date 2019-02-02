@@ -46,7 +46,7 @@
           @show="makeVisible('series', series.id)"
           :key="series.id"
           :label="seriesLabel(series)"
-          :sublabel="$d(series.startDate, 'hourMinute')"
+          :sublabel="seriesSublabel(series)"
           icon="fas fa-calendar-alt"
           sparse
         >
@@ -196,6 +196,7 @@
               </QItemTile>
               <QItemTile sublabel>
                 {{ $d(pickup.date, 'hourMinute') }}
+                <template v-if="pickup.hasDuration"> &mdash; {{ $d(pickup.dateEnd, 'hourMinute') }}</template>
               </QItemTile>
             </QItemMain>
           </template>
@@ -280,6 +281,16 @@ export default {
       }
       return series.rule.byDay.slice().sort(sortByDay).map(dayNameForKey).join(', ')
     },
+    seriesSublabel (series) {
+      const formatDate = date => i18n.d(date, 'hourMinute')
+      if (series.duration) {
+        return [
+          series.startDate,
+          addSeconds(series.startDate, series.duration),
+        ].map(formatDate).join(' — ')
+      }
+      return formatDate(series.startDate)
+    },
     ...mapActions({
       createSeries: 'pickupSeries/create',
       saveSeries: 'pickupSeries/save',
@@ -291,7 +302,8 @@ export default {
       this.newSeries = {
         maxCollectors: 2,
         description: '',
-        startDate: new Date(),
+        startDate: addHours(startOfTomorrow(), 10),
+        duration: null,
         store: this.storeId,
         rule: {
           isCustom: false,

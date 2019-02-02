@@ -3708,7 +3708,7 @@ exports[`Storyshots PickupItem Full 1`] = `
   <div class="q-card-main q-card-container row no-padding justify-between content">
     <div class="column q-pa-sm full-width">
       <div><span class="featured-text">
-          8:00 AM — 1:29 PM
+          8:00 AM — 8:30 AM
         </span>
         Monday, August 14, 2017
         <!---->
@@ -3758,7 +3758,7 @@ exports[`Storyshots PickupItem Join 1`] = `
   <div class="q-card-main q-card-container row no-padding justify-between content">
     <div class="column q-pa-sm full-width">
       <div><span class="featured-text">
-          8:00 AM — 1:29 PM
+          8:00 AM — 8:30 AM
         </span>
         Saturday, August 12, 2017
         <!---->
@@ -3809,7 +3809,7 @@ exports[`Storyshots PickupItem Leave 1`] = `
   <div class="q-card-main q-card-container row no-padding justify-between content isUserMember">
     <div class="column q-pa-sm full-width">
       <div><span class="featured-text">
-          8:00 AM — 1:29 PM
+          8:00 AM — 8:30 AM
         </span>
         Sunday, August 13, 2017
         <span><strong>Open Chat <i aria-hidden="true" class="q-icon material-icons">chat</i></strong></span></div>
@@ -3855,7 +3855,7 @@ exports[`Storyshots PickupItem pending 1`] = `
   <div class="q-card-main q-card-container row no-padding justify-between content">
     <div class="column q-pa-sm full-width">
       <div><span class="featured-text">
-          8:00 AM — 1:29 PM
+          8:00 AM — 8:30 AM
         </span>
         Saturday, August 12, 2017
         <!---->
@@ -3898,7 +3898,7 @@ exports[`Storyshots PickupItem pending 1`] = `
 
 exports[`Storyshots PickupList Default 1`] = `
 <div><span name="slide-toggle" tag="div"><div class="q-card"><div class="q-card-main q-card-container row no-padding justify-between content"><div class="column q-pa-sm full-width"><div><span class="featured-text">
-          8:00 AM — 1:29 PM
+          8:00 AM — 8:30 AM
         </span>
   Saturday, August 12, 2017
   <!---->
@@ -3946,7 +3946,7 @@ exports[`Storyshots PickupList Default 1`] = `
   <div class="q-card-main q-card-container row no-padding justify-between content isUserMember">
     <div class="column q-pa-sm full-width">
       <div><span class="featured-text">
-          8:00 AM — 1:29 PM
+          8:00 AM — 8:30 AM
         </span>
         Sunday, August 13, 2017
         <span><strong>Open Chat <i aria-hidden="true" class="q-icon material-icons">chat</i></strong></span></div>
@@ -3989,7 +3989,7 @@ exports[`Storyshots PickupList Default 1`] = `
   <div class="q-card-main q-card-container row no-padding justify-between content">
     <div class="column q-pa-sm full-width">
       <div><span class="featured-text">
-          8:00 AM — 1:29 PM
+          8:00 AM — 8:30 AM
         </span>
         Monday, August 14, 2017
         <!---->
@@ -4036,7 +4036,7 @@ exports[`Storyshots PickupList Default 1`] = `
   <div class="q-card-main q-card-container row no-padding justify-between content isEmpty">
     <div class="column q-pa-sm full-width">
       <div><span class="featured-text">
-          8:00 AM — 1:29 PM
+          8:00 AM — 8:30 AM
         </span>
         Tuesday, August 15, 2017
         <!---->

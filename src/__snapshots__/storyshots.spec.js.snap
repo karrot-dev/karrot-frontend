@@ -4104,50 +4104,55 @@ exports[`Storyshots PickupSeriesEdit Default 1`] = `
             <div class="q-field-label-inner row items-center">Time</div>
           </div>
           <div class="q-field-content col-xs-12 col-sm">
-            <div tabindex="0" class="q-if row no-wrap relative-position q-datetime-input q-if-focusable q-if-standard q-if-has-content text-primary">
-              <div class="q-if-baseline">|</div>
-              <div class="q-if-inner col column q-popup--skip">
-                <div class="row no-wrap relative-position">
-                  <div class="col q-input-target ellipsis justify-start">8:00 AM</div>
-                </div>
-              </div>
-              <div tabindex="-1" class="q-popover scroll">
-                <div class="q-datetime row no-border text-primary">
-                  <div class="q-datetime-header column no-wrap items-center">
-                    <div class="col"></div>
-                    <div class="q-datetime-time row scroll flex-center">
-                      <div class="q-datetime-clockstring col row justify-center items-start"><span class="col-auto" style="text-align:right;"><span tabindex="0" class="q-datetime-link active" style="text-align:right;"><span tabindex="-1">8</span></span></span><span style="opacity:0.6;">:</span><span class="col-auto row no-wrap items-center" style="text-align:left;"><span tabindex="0" class="q-datetime-link" style="text-align:left;"><span tabindex="-1">00</span></span><span tabindex="0" class="q-datetime-ampm column"><span class="q-datetime-link active"><span tabindex="-1">AM</span></span><span class="q-datetime-link"><span tabindex="-1">PM</span></span></span></span></div>
-                    </div>
-                    <div class="col"></div>
+            <div class="row">
+              <div tabindex="0" class="q-if row no-wrap relative-position q-datetime-input q-if-focusable q-if-standard q-if-has-content text-primary">
+                <div class="q-if-baseline">|</div>
+                <div class="q-if-inner col column q-popup--skip">
+                  <div class="row no-wrap relative-position">
+                    <div class="col q-input-target ellipsis justify-start">8:00 AM</div>
                   </div>
-                  <div class="q-datetime-content scroll">
-                    <div class="q-datetime-selector row items-center">
+                </div>
+                <div tabindex="-1" class="q-popover scroll">
+                  <div class="q-datetime row no-border text-primary">
+                    <div class="q-datetime-header column no-wrap items-center">
                       <div class="col"></div>
-                      <div class="column items-center content-center justify-center">
-                        <div class="q-datetime-clock cursor-pointer">
-                          <div class="q-datetime-clock-circle full-width full-height">
-                            <div class="q-datetime-clock-center"></div>
-                            <div class="q-datetime-clock-pointer" style="transform:rotate(60deg);"><span></span></div>
-                            <div class="q-datetime-clock-position q-datetime-clock-pos-1"><span>1</span></div>
-                            <div class="q-datetime-clock-position q-datetime-clock-pos-2"><span>2</span></div>
-                            <div class="q-datetime-clock-position q-datetime-clock-pos-3"><span>3</span></div>
-                            <div class="q-datetime-clock-position q-datetime-clock-pos-4"><span>4</span></div>
-                            <div class="q-datetime-clock-position q-datetime-clock-pos-5"><span>5</span></div>
-                            <div class="q-datetime-clock-position q-datetime-clock-pos-6"><span>6</span></div>
-                            <div class="q-datetime-clock-position q-datetime-clock-pos-7"><span>7</span></div>
-                            <div class="q-datetime-clock-position q-datetime-clock-pos-8 active"><span>8</span></div>
-                            <div class="q-datetime-clock-position q-datetime-clock-pos-9"><span>9</span></div>
-                            <div class="q-datetime-clock-position q-datetime-clock-pos-10"><span>10</span></div>
-                            <div class="q-datetime-clock-position q-datetime-clock-pos-11"><span>11</span></div>
-                            <div class="q-datetime-clock-position q-datetime-clock-pos-12"><span>12</span></div>
-                          </div>
-                        </div>
+                      <div class="q-datetime-time row scroll flex-center">
+                        <div class="q-datetime-clockstring col row justify-center items-start"><span class="col-auto" style="text-align:right;"><span tabindex="0" class="q-datetime-link active" style="text-align:right;"><span tabindex="-1">8</span></span></span><span style="opacity:0.6;">:</span><span class="col-auto row no-wrap items-center" style="text-align:left;"><span tabindex="0" class="q-datetime-link" style="text-align:left;"><span tabindex="-1">00</span></span><span tabindex="0" class="q-datetime-ampm column"><span class="q-datetime-link active"><span tabindex="-1">AM</span></span><span class="q-datetime-link"><span tabindex="-1">PM</span></span></span></span></div>
                       </div>
                       <div class="col"></div>
                     </div>
+                    <div class="q-datetime-content scroll">
+                      <div class="q-datetime-selector row items-center">
+                        <div class="col"></div>
+                        <div class="column items-center content-center justify-center">
+                          <div class="q-datetime-clock cursor-pointer">
+                            <div class="q-datetime-clock-circle full-width full-height">
+                              <div class="q-datetime-clock-center"></div>
+                              <div class="q-datetime-clock-pointer" style="transform:rotate(60deg);"><span></span></div>
+                              <div class="q-datetime-clock-position q-datetime-clock-pos-1"><span>1</span></div>
+                              <div class="q-datetime-clock-position q-datetime-clock-pos-2"><span>2</span></div>
+                              <div class="q-datetime-clock-position q-datetime-clock-pos-3"><span>3</span></div>
+                              <div class="q-datetime-clock-position q-datetime-clock-pos-4"><span>4</span></div>
+                              <div class="q-datetime-clock-position q-datetime-clock-pos-5"><span>5</span></div>
+                              <div class="q-datetime-clock-position q-datetime-clock-pos-6"><span>6</span></div>
+                              <div class="q-datetime-clock-position q-datetime-clock-pos-7"><span>7</span></div>
+                              <div class="q-datetime-clock-position q-datetime-clock-pos-8 active"><span>8</span></div>
+                              <div class="q-datetime-clock-position q-datetime-clock-pos-9"><span>9</span></div>
+                              <div class="q-datetime-clock-position q-datetime-clock-pos-10"><span>10</span></div>
+                              <div class="q-datetime-clock-position q-datetime-clock-pos-11"><span>11</span></div>
+                              <div class="q-datetime-clock-position q-datetime-clock-pos-12"><span>12</span></div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="col"></div>
+                      </div>
+                    </div>
                   </div>
-                </div>
-              </div><i aria-hidden="true" class="q-icon q-if-control material-icons">arrow_drop_down</i>
+                </div><i aria-hidden="true" class="q-icon q-if-control material-icons">arrow_drop_down</i>
+              </div> <button tabindex="0" type="button" class="q-btn inline relative-position q-btn-item non-selectable q-ml-sm q-mt-sm no-shadow q-btn-round q-focusable q-hoverable bg-grey text-white" style="font-size:8px;">
+                <div class="q-focus-helper"></div>
+                <div class="q-btn-inner row col items-center q-popup--skip justify-center"><i aria-hidden="true" class="q-icon fas fa-plus"> </i></div>
+              </button>
             </div>
             <div class="q-field-bottom row no-wrap">
               <div class="q-field-helper col">When should the pick-up take place?</div>
@@ -4288,78 +4293,6 @@ exports[`Storyshots PickupSeriesEdit Default 1`] = `
             <div class="q-field-bottom row no-wrap">
               <div class="q-field-helper col">On which days should the pick-up take place?</div>
             </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="q-field row no-wrap items-start q-field-responsive q-field-no-input"><i aria-hidden="true" class="q-icon q-field-icon q-field-margin material-icons">arrow_right_alt</i>
-      <div class="row col">
-        <div class="q-field-label q-field-margin col-xs-12 col-sm-5">
-          <div class="q-field-label-inner row items-center">Duration</div>
-        </div>
-        <div class="q-field-content col-xs-12 col-sm">
-          <div tabindex="0" class="q-option cursor-pointer no-outline row inline no-wrap items-center q-checkbox q-focusable">
-            <div class="q-option-inner relative-position text-faded"><input type="checkbox">
-              <div class="q-focus-helper q-focus-helper-rounded"></div><i aria-hidden="true" class="q-icon q-checkbox-icon cursor-pointer material-icons" style="opacity:1;">check_box_outline_blank</i><i aria-hidden="true" class="q-icon q-checkbox-icon cursor-pointer absolute-full material-icons" style="transition:opacity 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms, transform 0ms cubic-bezier(0.23, 1, 0.32, 1) 450ms;opacity:0;transform:scale(0);">indeterminate_check_box</i><i aria-hidden="true" class="q-icon q-checkbox-icon cursor-pointer absolute-full material-icons" style="transition:opacity 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms, transform 0ms cubic-bezier(0.23, 1, 0.32, 1) 450ms;opacity:0;transform:scale(0);">check_box</i>
-              <div class="q-radial-ripple"></div>
-            </div><span class="q-option-label">Specify a duration?</span>
-          </div>
-          <div tabindex="0" class="q-if row no-wrap relative-position q-select q-if-focusable q-if-standard text-primary" style="display:none;">
-            <div class="q-if-baseline">|</div>
-            <div class="q-if-inner col column q-popup--skip">
-              <div class="row no-wrap relative-position">
-                <div class="col q-input-target ellipsis justify-start"></div>
-              </div>
-            </div>
-            <div tabindex="-1" class="q-popover scroll column no-wrap">
-              <div class="q-list no-border scroll">
-                <div class="q-item q-item-division relative-position cursor-pointer q-select-highlight cursor-pointer">
-                  <div class="q-item-main q-item-section">
-                    <div class="q-item-label" style="overflow:hidden;display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:NaN;">5 minutes</div>
-                  </div>
-                </div>
-                <div class="q-item q-item-division relative-position cursor-pointer cursor-pointer">
-                  <div class="q-item-main q-item-section">
-                    <div class="q-item-label" style="overflow:hidden;display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:NaN;">15 minutes</div>
-                  </div>
-                </div>
-                <div class="q-item q-item-division relative-position cursor-pointer cursor-pointer">
-                  <div class="q-item-main q-item-section">
-                    <div class="q-item-label" style="overflow:hidden;display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:NaN;">30 minutes</div>
-                  </div>
-                </div>
-                <div class="q-item q-item-division relative-position cursor-pointer cursor-pointer">
-                  <div class="q-item-main q-item-section">
-                    <div class="q-item-label" style="overflow:hidden;display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:NaN;">1 hour</div>
-                  </div>
-                </div>
-                <div class="q-item q-item-division relative-position cursor-pointer cursor-pointer">
-                  <div class="q-item-main q-item-section">
-                    <div class="q-item-label" style="overflow:hidden;display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:NaN;">1 hour 30 minutes</div>
-                  </div>
-                </div>
-                <div class="q-item q-item-division relative-position cursor-pointer cursor-pointer">
-                  <div class="q-item-main q-item-section">
-                    <div class="q-item-label" style="overflow:hidden;display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:NaN;">2 hours</div>
-                  </div>
-                </div>
-                <div class="q-item q-item-division relative-position cursor-pointer cursor-pointer">
-                  <div class="q-item-main q-item-section">
-                    <div class="q-item-label" style="overflow:hidden;display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:NaN;">3 hours</div>
-                  </div>
-                </div>
-                <div class="q-item q-item-division relative-position cursor-pointer cursor-pointer">
-                  <div class="q-item-main q-item-section">
-                    <div class="q-item-label" style="overflow:hidden;display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:NaN;">4 hours</div>
-                  </div>
-                </div>
-                <div class="q-item q-item-division relative-position cursor-pointer cursor-pointer">
-                  <div class="q-item-main q-item-section">
-                    <div class="q-item-label" style="overflow:hidden;display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:NaN;">8 hours</div>
-                  </div>
-                </div>
-              </div>
-            </div><i aria-hidden="true" class="q-icon q-if-control material-icons">arrow_drop_down</i>
           </div>
         </div>
       </div>

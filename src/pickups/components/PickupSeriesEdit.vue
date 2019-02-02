@@ -26,12 +26,36 @@
           :error="hasError('startDate')"
           :error-label="firstError('startDate')"
         >
-          <QDatetime
-            type="time"
-            v-model="edit.startDate"
-            :format24h="is24h"
-            :display-value="$d(edit.startDate, 'hourMinute')"
-          />
+          <div class="row">
+            <QDatetime
+              type="time"
+              v-model="edit.startDate"
+              :format24h="is24h"
+              :display-value="$d(edit.startDate, 'hourMinute')"
+            />
+            <template v-if="hasDuration">
+              <div
+                class="q-pa-sm"
+                v-t="'TO'"/>
+              <QDatetime
+                type="time"
+                no-parent-field
+                v-model="endDate"
+                :format24h="is24h"
+                :display-value="$d(endDate, 'hourMinute') + ' (' + formattedDuration + ')'"
+                :after="[{ icon: 'cancel', handler: toggleDuration }]"
+              />
+            </template>
+            <QBtn
+              v-else
+              class="q-ml-sm q-mt-sm no-shadow"
+              size="xs"
+              round
+              color="grey"
+              icon="fas fa-plus"
+              @click.stop.prevent="toggleDuration"
+            />
+          </div>
         </QField>
         <QField
           icon="today"
@@ -105,24 +129,6 @@
           </div>
         </QField>
       </div>
-
-      <QField
-        icon="arrow_right_alt"
-        :label="$t('CREATEPICKUP.DURATION')"
-        :helper="hasDuration ? $t('CREATEPICKUP.DURATION_HELPER') : ''"
-        :error="hasError('duration')"
-        :error-label="firstError('duration')"
-      >
-        <QCheckbox
-          v-model="hasDuration"
-          :label="$t('CREATEPICKUP.ENABLE_DURATION')"
-        />
-        <QSelect
-          v-show="hasDuration"
-          v-model="edit.duration"
-          :options="durationOptions"
-        />
-      </QField>
 
       <QField
         icon="group"
@@ -207,7 +213,6 @@
 <script>
 import {
   QDatetime,
-  QCheckbox,
   QField,
   QSlider,
   QInput,
@@ -222,13 +227,15 @@ import statusMixin from '@/utils/mixins/statusMixin'
 import { is24h, dayOptions } from '@/base/i18n'
 
 import { defaultDuration } from '@/pickups/settings'
-import { durationOptions } from '@/pickups/utils'
+import { formatSeconds } from '@/pickups/utils'
+
+import addSeconds from 'date-fns/add_seconds'
+import differenceInSeconds from 'date-fns/difference_in_seconds'
 
 export default {
   mixins: [editMixin, statusMixin],
   components: {
     QDatetime,
-    QCheckbox,
     QField,
     QSlider,
     QInput,
@@ -277,7 +284,6 @@ export default {
         if (v.length > 0) this.edit.rule.byDay = v
       },
     },
-    durationOptions,
     hasDuration: {
       get () {
         return Boolean(this.edit.duration)
@@ -291,8 +297,27 @@ export default {
         }
       },
     },
+    endDate: {
+      get () {
+        return addSeconds(this.edit.startDate, this.edit.duration)
+      },
+      set (val) {
+        if (val > this.edit.startDate) {
+          this.edit.duration = differenceInSeconds(val, this.edit.startDate)
+        }
+        else {
+          this.edit.duration = defaultDuration
+        }
+      },
+    },
+    formattedDuration () {
+      return this.edit.duration && formatSeconds(this.edit.duration)
+    },
   },
   methods: {
+    toggleDuration () {
+      this.hasDuration = !this.hasDuration
+    },
     maybeSave () {
       if (!this.canSave) return
       this.save()

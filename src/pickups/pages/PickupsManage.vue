@@ -329,6 +329,7 @@ export default {
         date,
         dateEnd: addSeconds(date, defaultDuration),
         store: this.storeId,
+        hasDuration: false,
       }
     },
     async saveNewPickup (pickup) {

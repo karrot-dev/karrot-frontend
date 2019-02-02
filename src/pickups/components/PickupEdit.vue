@@ -22,12 +22,36 @@
           :error="hasError('date')"
           :error-label="firstError('date')"
         >
-          <QDatetime
-            type="time"
-            v-model="date"
-            :format24h="is24h"
-            :display-value="$d(date, 'hourMinute')"
-          />
+          <div class="row">
+            <QDatetime
+              type="time"
+              v-model="date"
+              :format24h="is24h"
+              :display-value="$d(date, 'hourMinute')"
+            />
+            <template v-if="edit.hasDuration">
+              <div
+                class="q-pa-sm"
+                v-t="'TO'"/>
+              <QDatetime
+                type="time"
+                no-parent-field
+                v-model="dateEnd"
+                :format24h="is24h"
+                :display-value="$d(edit.dateEnd, 'hourMinute') + ' (' + formattedDuration + ')'"
+                :after="[{ icon: 'cancel', handler: toggleDuration }]"
+              />
+            </template>
+            <QBtn
+              v-else
+              class="q-ml-sm q-mt-sm no-shadow"
+              size="xs"
+              round
+              color="grey"
+              icon="fas fa-plus"
+              @click.stop.prevent="toggleDuration"
+            />
+          </div>
         </QField>
 
         <QField
@@ -44,39 +68,6 @@
             :display-value="$d(date, 'yearMonthDay')"
           />
         </QField>
-
-        <QField
-          icon="arrow_right_alt"
-          :label="$t('CREATEPICKUP.DURATION')"
-          :helper="edit.hasDuration && $t('CREATEPICKUP.DURATION_HELPER')"
-          :error="hasError('duration')"
-          :error-label="firstError('duration')"
-        >
-          <QCheckbox
-            v-model="hasDuration"
-            :label="$t('CREATEPICKUP.ENABLE_DURATION')"
-          />
-          <QSelect
-            v-show="edit.hasDuration"
-            v-model="duration"
-            :options="durationOptions"
-          />
-        </QField>
-
-        <!--
-        <QField
-          icon="arrow_right_alt"
-          :label="$t('CREATEPICKUP.DURATION')"
-          :helper="$t('CREATEPICKUP.DURATION_HELPER')"
-          :error="hasError('duration')"
-          :error-label="firstError('duration')"
-        >
-          <QSelect
-            v-model="duration"
-            :options="durationOptions"
-          />
-        </QField>
-        -->
       </template>
 
       <QField
@@ -182,11 +173,9 @@
 import {
   QDatetime,
   QField,
-  QCheckbox,
   QSlider,
   QInput,
   QBtn,
-  QSelect,
   Dialog,
 } from 'quasar'
 
@@ -198,7 +187,7 @@ import reactiveNow from '@/utils/reactiveNow'
 import differenceInSeconds from 'date-fns/difference_in_seconds'
 import addSeconds from 'date-fns/add_seconds'
 import { defaultDuration } from '@/pickups/settings'
-import { durationOptions } from '@/pickups/utils'
+import { durationOptions, formatSeconds } from '@/pickups/utils'
 import { objectDiff } from '@/utils/utils'
 
 export default {
@@ -213,11 +202,9 @@ export default {
   components: {
     QDatetime,
     QField,
-    QCheckbox,
     QSlider,
     QInput,
     QBtn,
-    QSelect,
   },
   computed: {
     is24h,
@@ -250,13 +237,21 @@ export default {
         this.edit.date = val
       },
     },
-    duration: {
+    dateEnd: {
       get () {
-        return differenceInSeconds(this.edit.dateEnd, this.edit.date)
+        return this.edit.dateEnd
       },
       set (val) {
-        this.edit.dateEnd = addSeconds(this.edit.date, val)
+        if (val > this.edit.date) {
+          this.edit.dateEnd = val
+        }
+        else {
+          this.edit.dateEnd = addSeconds(this.date, defaultDuration)
+        }
       },
+    },
+    formattedDuration () {
+      return formatSeconds(differenceInSeconds(this.edit.dateEnd, this.edit.date))
     },
     hasDuration: {
       get () {
@@ -270,6 +265,9 @@ export default {
     },
   },
   methods: {
+    toggleDuration () {
+      this.hasDuration = !this.hasDuration
+    },
     resetToSeriesButton (field) {
       return {
         icon: 'undo',

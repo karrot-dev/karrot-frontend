@@ -5,22 +5,22 @@ import { pickupDurations } from '@/pickups/settings'
 
 const oneHourInSeconds = 60 * 60
 
-function formatSeconds (seconds) {
+function secondsInWordsStrict (seconds) {
   const date = new Date()
   return dateFnsHelper.distanceInWordsStrict(date, addSeconds(date, seconds))
 }
 
-export function toDurationLabel (seconds) {
+export function formatSeconds (seconds) {
   // distanceInWordsStrict will render 1.5 hours as 1 hour, so we need to do a bit more work...
   const hoursAsSeconds = Math.floor(seconds / oneHourInSeconds) * oneHourInSeconds
   const remainderSeconds = seconds % oneHourInSeconds
   const parts = [hoursAsSeconds, remainderSeconds]
-  return parts.filter(part => part > 0).map(formatSeconds).join(' ')
+  return parts.filter(part => part > 0).map(secondsInWordsStrict).join(' ')
 }
 
 export function durationOptions () {
   return pickupDurations.map(duration => ({
-    label: toDurationLabel(duration),
+    label: formatSeconds(duration),
     value: duration,
   }))
 }

@@ -12,39 +12,52 @@
     </b>
 
     <form @submit.prevent="maybeSave">
-      <QField
-        v-if="canEditDate"
-        icon="access time"
-        :label="$t('CREATEPICKUP.TIME')"
-        :helper="$t('CREATEPICKUP.TIME_HELPER')"
-        :error="hasError('date')"
-        :error-label="firstError('date')"
-      >
-        <QDatetime
-          type="time"
-          v-model="edit.date"
-          :format24h="is24h"
-          :display-value="$d(edit.date, 'hourMinute')"
-          :disable="!canEditDate"
-        />
-      </QField>
 
-      <QField
-        v-if="canEditDate"
-        icon="today"
-        :label="$t('CREATEPICKUP.DATE')"
-        :helper="$t('CREATEPICKUP.DATE_HELPER')"
-        :error="hasError('date')"
-        :error-label="firstError('date')"
-      >
-        <QDatetime
-          type="date"
-          v-model="edit.date"
-          :min="now"
-          :display-value="$d(edit.date, 'yearMonthDay')"
-          :disable="!canEditDate"
-        />
-      </QField>
+      <template v-if="canEditDate">
+
+        <QField
+          icon="access time"
+          :label="$t('CREATEPICKUP.TIME')"
+          :helper="$t('CREATEPICKUP.TIME_HELPER')"
+          :error="hasError('date')"
+          :error-label="firstError('date')"
+        >
+          <QDatetime
+            type="time"
+            v-model="date"
+            :format24h="is24h"
+            :display-value="$d(date, 'hourMinute')"
+          />
+        </QField>
+
+        <QField
+          icon="today"
+          :label="$t('CREATEPICKUP.DATE')"
+          :helper="$t('CREATEPICKUP.DATE_HELPER')"
+          :error="hasError('date')"
+          :error-label="firstError('date')"
+        >
+          <QDatetime
+            type="date"
+            v-model="date"
+            :min="now"
+            :display-value="$d(date, 'yearMonthDay')"
+          />
+        </QField>
+
+        <QField
+          icon="arrow_right_alt"
+          :label="$t('CREATEPICKUP.DURATION')"
+          :helper="$t('CREATEPICKUP.DURATION_HELPER')"
+          :error="hasError('duration')"
+          :error-label="firstError('duration')"
+        >
+          <QSelect
+            v-model="duration"
+            :options="durationOptions"
+          />
+        </QField>
+      </template>
 
       <QField
         icon="group"
@@ -140,6 +153,10 @@
         >
           {{ $t('BUTTON.CANCEL') }}
         </QBtn>
+        <pre>
+          date    : {{ edit.date }}
+          dateEnd : {{ edit.dateEnd }}
+        </pre>
       </div>
     </form>
   </div>
@@ -152,6 +169,7 @@ import {
   QSlider,
   QInput,
   QBtn,
+  QSelect,
   Dialog,
 } from 'quasar'
 
@@ -159,6 +177,11 @@ import { is24h } from '@/base/i18n'
 import editMixin from '@/utils/mixins/editMixin'
 import statusMixin from '@/utils/mixins/statusMixin'
 import reactiveNow from '@/utils/reactiveNow'
+
+import differenceInSeconds from 'date-fns/difference_in_seconds'
+import addSeconds from 'date-fns/add_seconds'
+import { durationOptions } from '@/pickups/utils'
+import { objectDiff } from '@/utils/utils'
 
 export default {
   name: 'PickupEdit',
@@ -175,9 +198,11 @@ export default {
     QSlider,
     QInput,
     QBtn,
+    QSelect,
   },
   computed: {
     is24h,
+    durationOptions,
     now () {
       return reactiveNow.value
     },
@@ -195,6 +220,25 @@ export default {
       if (!this.edit.seriesMeta) return {}
       return this.edit.seriesMeta
     },
+    date: {
+      get () {
+        return this.edit.date
+      },
+      set (val) {
+        // keep the duration the same when setting the date
+        const duration = differenceInSeconds(this.edit.dateEnd, this.edit.date)
+        this.edit.dateEnd = addSeconds(val, duration)
+        this.edit.date = val
+      },
+    },
+    duration: {
+      get () {
+        return differenceInSeconds(this.edit.dateEnd, this.edit.date)
+      },
+      set (val) {
+        this.edit.dateEnd = addSeconds(this.edit.date, val)
+      },
+    },
   },
   methods: {
     resetToSeriesButton (field) {
@@ -209,6 +253,12 @@ export default {
     maybeSave () {
       if (!this.canSave) return
       this.save()
+    },
+    // Overrides mixin method to always provide start date if we have modified end date
+    getPatchData () {
+      const diff = objectDiff(this.value, this.edit)
+      if (diff.dateEnd && !diff.date) diff.date = this.edit.date
+      return diff
     },
     async disable () {
       try {

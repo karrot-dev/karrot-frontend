@@ -81,9 +81,11 @@ export function convertDateToRange (pickup) {
   const result = { ...pickup }
   if (pickup.date) {
     result.date = [pickup.date]
-    if (pickup.dateEnd) {
-      result.date.push(pickup.dateEnd)
-    }
+  }
+  if (pickup.dateEnd) {
+    if (!result.date) result.date = []
+    result.date[1] = pickup.dateEnd
+    delete result.dateEnd
   }
   return result
 }

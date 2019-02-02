@@ -234,6 +234,11 @@ import RandomArt from '@/utils/components/RandomArt'
 
 import i18n, { dayNameForKey, sortByDay } from '@/base/i18n'
 
+import addSeconds from 'date-fns/add_seconds'
+import addHours from 'date-fns/add_hours'
+import startOfTomorrow from 'date-fns/start_of_tomorrow'
+import { defaultDuration } from '@/pickups/settings'
+
 export default {
   components: {
     PickupSeriesEdit,
@@ -305,12 +310,12 @@ export default {
       this.newSeries = null
     },
     createNewPickup () {
-      const date = new Date()
-      date.setDate(date.getDate() + 1)
+      const date = addHours(startOfTomorrow(), 10) // default to 10am tomorrow
       this.newPickup = {
         maxCollectors: 2,
         description: '',
         date,
+        dateEnd: addSeconds(date, defaultDuration),
         store: this.storeId,
       }
     },

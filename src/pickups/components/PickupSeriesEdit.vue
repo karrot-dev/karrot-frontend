@@ -34,7 +34,7 @@
           />
         </QField>
         <QField
-          icon="duration"
+          icon="arrow_right_alt"
           :label="$t('CREATEPICKUP.DURATION')"
           :helper="$t('CREATEPICKUP.DURATION_HELPER')"
           :error="hasError('duration')"
@@ -211,26 +211,10 @@ import {
 } from 'quasar'
 import editMixin from '@/utils/mixins/editMixin'
 import statusMixin from '@/utils/mixins/statusMixin'
-import dateFnsHelper from '@/utils/dateFnsHelper'
-import addSeconds from 'date-fns/add_seconds'
 
 import { is24h, dayOptions } from '@/base/i18n'
 
-const durations = [
-  300,
-  900,
-  1800,
-  3600,
-  7200,
-  10800,
-  14400,
-  28800,
-]
-
-function toDurationLabel (seconds) {
-  const date = new Date()
-  return dateFnsHelper.distanceInWordsStrict(date, addSeconds(date, seconds))
-}
+import { durationOptions } from '@/pickups/utils'
 
 export default {
   mixins: [editMixin, statusMixin],
@@ -284,12 +268,7 @@ export default {
         if (v.length > 0) this.edit.rule.byDay = v
       },
     },
-    durationOptions () {
-      return durations.map(duration => ({
-        label: toDurationLabel(duration),
-        value: duration,
-      }))
-    },
+    durationOptions,
   },
   methods: {
     maybeSave () {

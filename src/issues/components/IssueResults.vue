@@ -82,14 +82,7 @@ export default {
   },
   methods: {
     displayOutcomes (index) {
-      switch (this.sortedArray[index].type) {
-        case 'furtherDiscussion':
-          return this.$t('ISSUE.VOTING.CONFLICT_ONE')
-        case 'removeUser':
-          return this.$t('ISSUE.VOTING.CONFLICT_THREE', { userName: this.issue.affectedUser.displayName, groupName: this.issue.group.displayName })
-        case 'noChange':
-          return this.$t('ISSUE.VOTING.CONFLICT_TWO', { userName: this.issue.affectedUser.displayName, groupName: this.issue.group.displayName })
-      }
+      return this.$t(`ISSUE.VOTING.${this.sortedArray[index].type.toUpperCase()}`, { userName: this.issue.affectedUser.displayName, groupName: this.issue.group.name })
     },
     getIcon (index) {
       switch (index) {

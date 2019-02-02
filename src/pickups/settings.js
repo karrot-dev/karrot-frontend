@@ -1,5 +1,3 @@
-export const pickupRunningTime = 30
-
 export const pickupDurations = [
   300,
   900,

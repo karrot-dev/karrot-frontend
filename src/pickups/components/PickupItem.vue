@@ -66,8 +66,6 @@ import {
   QIcon,
 } from 'quasar'
 import PickupUsers from './PickupUsers'
-import dateFnsHelper from '@/utils/dateFnsHelper'
-import differenceInMinutes from 'date-fns/difference_in_minutes'
 
 export default {
   props: {
@@ -85,14 +83,6 @@ export default {
     QCardMain,
     QIcon,
     PickupUsers,
-  },
-  computed: {
-    isLessThanAnHour () {
-      return differenceInMinutes(this.pickup.dateEnd, this.pickup.date) < 60
-    },
-    duration () {
-      return dateFnsHelper.distanceInWordsStrict(this.pickup.date, this.pickup.dateEnd)
-    },
   },
   methods: {
     join () {

@@ -578,7 +578,8 @@
       "NO_CHANGE": "{userName} stays in {groupName}",
       "FURTHER_DISCUSSION": "Extend the time to keep discussing",
       "REMOVE_USER": "{userName} gets removed from {groupName}"
-    }
+    },
+    "PAST": "Past issues"
   },
   "UNSUBSCRIBE": {
     "HEADER": "Unsubscribe",

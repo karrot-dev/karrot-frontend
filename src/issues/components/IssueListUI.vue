@@ -11,7 +11,7 @@
       <QCollapsible
         v-if="pastIssues.length > 0"
         icon="fas fa-archive"
-        :label="$t('ISSUES.PAST')"
+        :label="$t('ISSUE.PAST')"
         :sublabel="othersSublabel"
         @show="showOthers = true"
         @hide="showOthers = false"

@@ -3708,8 +3708,8 @@ exports[`Storyshots PickupItem Full 1`] = `
   <div class="q-card-main q-card-container row no-padding justify-between content">
     <div class="column q-pa-sm full-width">
       <div><span class="featured-text">
-          8:00 AM — 8:30 AM
-        </span>
+          8:00 AM
+          <!----></span>
         Monday, August 14, 2017
         <!---->
       </div>
@@ -3758,8 +3758,8 @@ exports[`Storyshots PickupItem Join 1`] = `
   <div class="q-card-main q-card-container row no-padding justify-between content">
     <div class="column q-pa-sm full-width">
       <div><span class="featured-text">
-          8:00 AM — 8:30 AM
-        </span>
+          8:00 AM
+          <!----></span>
         Saturday, August 12, 2017
         <!---->
       </div>
@@ -3809,8 +3809,8 @@ exports[`Storyshots PickupItem Leave 1`] = `
   <div class="q-card-main q-card-container row no-padding justify-between content isUserMember">
     <div class="column q-pa-sm full-width">
       <div><span class="featured-text">
-          8:00 AM — 8:30 AM
-        </span>
+          8:00 AM
+          <!----></span>
         Sunday, August 13, 2017
         <span><strong>Open Chat <i aria-hidden="true" class="q-icon material-icons">chat</i></strong></span></div>
       <!---->
@@ -3855,8 +3855,8 @@ exports[`Storyshots PickupItem pending 1`] = `
   <div class="q-card-main q-card-container row no-padding justify-between content">
     <div class="column q-pa-sm full-width">
       <div><span class="featured-text">
-          8:00 AM — 8:30 AM
-        </span>
+          8:00 AM
+          <!----></span>
         Saturday, August 12, 2017
         <!---->
       </div>
@@ -3898,8 +3898,8 @@ exports[`Storyshots PickupItem pending 1`] = `
 
 exports[`Storyshots PickupList Default 1`] = `
 <div><span name="slide-toggle" tag="div"><div class="q-card"><div class="q-card-main q-card-container row no-padding justify-between content"><div class="column q-pa-sm full-width"><div><span class="featured-text">
-          8:00 AM — 8:30 AM
-        </span>
+          8:00 AM
+          <!----></span>
   Saturday, August 12, 2017
   <!---->
 </div>
@@ -3946,8 +3946,8 @@ exports[`Storyshots PickupList Default 1`] = `
   <div class="q-card-main q-card-container row no-padding justify-between content isUserMember">
     <div class="column q-pa-sm full-width">
       <div><span class="featured-text">
-          8:00 AM — 8:30 AM
-        </span>
+          8:00 AM
+          <!----></span>
         Sunday, August 13, 2017
         <span><strong>Open Chat <i aria-hidden="true" class="q-icon material-icons">chat</i></strong></span></div>
       <!---->
@@ -3989,8 +3989,8 @@ exports[`Storyshots PickupList Default 1`] = `
   <div class="q-card-main q-card-container row no-padding justify-between content">
     <div class="column q-pa-sm full-width">
       <div><span class="featured-text">
-          8:00 AM — 8:30 AM
-        </span>
+          8:00 AM
+          <!----></span>
         Monday, August 14, 2017
         <!---->
       </div>
@@ -4036,8 +4036,8 @@ exports[`Storyshots PickupList Default 1`] = `
   <div class="q-card-main q-card-container row no-padding justify-between content isEmpty">
     <div class="column q-pa-sm full-width">
       <div><span class="featured-text">
-          8:00 AM — 8:30 AM
-        </span>
+          8:00 AM
+          <!----></span>
         Tuesday, August 15, 2017
         <!---->
       </div>
@@ -4151,70 +4151,6 @@ exports[`Storyshots PickupSeriesEdit Default 1`] = `
             </div>
             <div class="q-field-bottom row no-wrap">
               <div class="q-field-helper col">When should the pick-up take place?</div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="q-field row no-wrap items-start q-field-responsive q-field-no-input"><i aria-hidden="true" class="q-icon q-field-icon q-field-margin material-icons">arrow_right_alt</i>
-        <div class="row col">
-          <div class="q-field-label q-field-margin col-xs-12 col-sm-5">
-            <div class="q-field-label-inner row items-center">Duration</div>
-          </div>
-          <div class="q-field-content col-xs-12 col-sm">
-            <div tabindex="0" class="q-if row no-wrap relative-position q-select q-if-focusable q-if-standard text-primary">
-              <div class="q-if-baseline">|</div>
-              <div class="q-if-inner col column q-popup--skip">
-                <div class="row no-wrap relative-position">
-                  <div class="col q-input-target ellipsis justify-start"></div>
-                </div>
-              </div>
-              <div tabindex="-1" class="q-popover scroll column no-wrap">
-                <div class="q-list no-border scroll">
-                  <div class="q-item q-item-division relative-position cursor-pointer q-select-highlight cursor-pointer">
-                    <div class="q-item-main q-item-section">
-                      <div class="q-item-label" style="overflow:hidden;display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:NaN;">5 minutes</div>
-                    </div>
-                  </div>
-                  <div class="q-item q-item-division relative-position cursor-pointer cursor-pointer">
-                    <div class="q-item-main q-item-section">
-                      <div class="q-item-label" style="overflow:hidden;display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:NaN;">15 minutes</div>
-                    </div>
-                  </div>
-                  <div class="q-item q-item-division relative-position cursor-pointer cursor-pointer">
-                    <div class="q-item-main q-item-section">
-                      <div class="q-item-label" style="overflow:hidden;display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:NaN;">30 minutes</div>
-                    </div>
-                  </div>
-                  <div class="q-item q-item-division relative-position cursor-pointer cursor-pointer">
-                    <div class="q-item-main q-item-section">
-                      <div class="q-item-label" style="overflow:hidden;display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:NaN;">1 hour</div>
-                    </div>
-                  </div>
-                  <div class="q-item q-item-division relative-position cursor-pointer cursor-pointer">
-                    <div class="q-item-main q-item-section">
-                      <div class="q-item-label" style="overflow:hidden;display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:NaN;">2 hours</div>
-                    </div>
-                  </div>
-                  <div class="q-item q-item-division relative-position cursor-pointer cursor-pointer">
-                    <div class="q-item-main q-item-section">
-                      <div class="q-item-label" style="overflow:hidden;display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:NaN;">3 hours</div>
-                    </div>
-                  </div>
-                  <div class="q-item q-item-division relative-position cursor-pointer cursor-pointer">
-                    <div class="q-item-main q-item-section">
-                      <div class="q-item-label" style="overflow:hidden;display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:NaN;">4 hours</div>
-                    </div>
-                  </div>
-                  <div class="q-item q-item-division relative-position cursor-pointer cursor-pointer">
-                    <div class="q-item-main q-item-section">
-                      <div class="q-item-label" style="overflow:hidden;display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:NaN;">8 hours</div>
-                    </div>
-                  </div>
-                </div>
-              </div><i aria-hidden="true" class="q-icon q-if-control material-icons">arrow_drop_down</i>
-            </div>
-            <div class="q-field-bottom row no-wrap">
-              <div class="q-field-helper col">How long is the pickup?</div>
             </div>
           </div>
         </div>
@@ -4352,6 +4288,78 @@ exports[`Storyshots PickupSeriesEdit Default 1`] = `
             <div class="q-field-bottom row no-wrap">
               <div class="q-field-helper col">On which days should the pick-up take place?</div>
             </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="q-field row no-wrap items-start q-field-responsive q-field-no-input"><i aria-hidden="true" class="q-icon q-field-icon q-field-margin material-icons">arrow_right_alt</i>
+      <div class="row col">
+        <div class="q-field-label q-field-margin col-xs-12 col-sm-5">
+          <div class="q-field-label-inner row items-center">Duration</div>
+        </div>
+        <div class="q-field-content col-xs-12 col-sm">
+          <div tabindex="0" class="q-option cursor-pointer no-outline row inline no-wrap items-center q-checkbox q-focusable">
+            <div class="q-option-inner relative-position text-faded"><input type="checkbox">
+              <div class="q-focus-helper q-focus-helper-rounded"></div><i aria-hidden="true" class="q-icon q-checkbox-icon cursor-pointer material-icons" style="opacity:1;">check_box_outline_blank</i><i aria-hidden="true" class="q-icon q-checkbox-icon cursor-pointer absolute-full material-icons" style="transition:opacity 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms, transform 0ms cubic-bezier(0.23, 1, 0.32, 1) 450ms;opacity:0;transform:scale(0);">indeterminate_check_box</i><i aria-hidden="true" class="q-icon q-checkbox-icon cursor-pointer absolute-full material-icons" style="transition:opacity 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms, transform 0ms cubic-bezier(0.23, 1, 0.32, 1) 450ms;opacity:0;transform:scale(0);">check_box</i>
+              <div class="q-radial-ripple"></div>
+            </div><span class="q-option-label">Specify a duration?</span>
+          </div>
+          <div tabindex="0" class="q-if row no-wrap relative-position q-select q-if-focusable q-if-standard text-primary" style="display:none;">
+            <div class="q-if-baseline">|</div>
+            <div class="q-if-inner col column q-popup--skip">
+              <div class="row no-wrap relative-position">
+                <div class="col q-input-target ellipsis justify-start"></div>
+              </div>
+            </div>
+            <div tabindex="-1" class="q-popover scroll column no-wrap">
+              <div class="q-list no-border scroll">
+                <div class="q-item q-item-division relative-position cursor-pointer q-select-highlight cursor-pointer">
+                  <div class="q-item-main q-item-section">
+                    <div class="q-item-label" style="overflow:hidden;display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:NaN;">5 minutes</div>
+                  </div>
+                </div>
+                <div class="q-item q-item-division relative-position cursor-pointer cursor-pointer">
+                  <div class="q-item-main q-item-section">
+                    <div class="q-item-label" style="overflow:hidden;display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:NaN;">15 minutes</div>
+                  </div>
+                </div>
+                <div class="q-item q-item-division relative-position cursor-pointer cursor-pointer">
+                  <div class="q-item-main q-item-section">
+                    <div class="q-item-label" style="overflow:hidden;display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:NaN;">30 minutes</div>
+                  </div>
+                </div>
+                <div class="q-item q-item-division relative-position cursor-pointer cursor-pointer">
+                  <div class="q-item-main q-item-section">
+                    <div class="q-item-label" style="overflow:hidden;display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:NaN;">1 hour</div>
+                  </div>
+                </div>
+                <div class="q-item q-item-division relative-position cursor-pointer cursor-pointer">
+                  <div class="q-item-main q-item-section">
+                    <div class="q-item-label" style="overflow:hidden;display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:NaN;">1 hour 30 minutes</div>
+                  </div>
+                </div>
+                <div class="q-item q-item-division relative-position cursor-pointer cursor-pointer">
+                  <div class="q-item-main q-item-section">
+                    <div class="q-item-label" style="overflow:hidden;display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:NaN;">2 hours</div>
+                  </div>
+                </div>
+                <div class="q-item q-item-division relative-position cursor-pointer cursor-pointer">
+                  <div class="q-item-main q-item-section">
+                    <div class="q-item-label" style="overflow:hidden;display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:NaN;">3 hours</div>
+                  </div>
+                </div>
+                <div class="q-item q-item-division relative-position cursor-pointer cursor-pointer">
+                  <div class="q-item-main q-item-section">
+                    <div class="q-item-label" style="overflow:hidden;display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:NaN;">4 hours</div>
+                  </div>
+                </div>
+                <div class="q-item q-item-division relative-position cursor-pointer cursor-pointer">
+                  <div class="q-item-main q-item-section">
+                    <div class="q-item-label" style="overflow:hidden;display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:NaN;">8 hours</div>
+                  </div>
+                </div>
+              </div>
+            </div><i aria-hidden="true" class="q-icon q-if-control material-icons">arrow_drop_down</i>
           </div>
         </div>
       </div>

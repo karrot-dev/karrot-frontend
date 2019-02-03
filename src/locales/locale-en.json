@@ -309,10 +309,7 @@
     "DISABLE_TITLE": "Disable pickup?",
     "ENABLE_DISABLE_MESSAGE": "Users who joined this pickup will get a notification. You can change this text to provide a reason:",
     "EXCEPTIONS_TITLE": "Check your pickups",
-    "EXCEPTIONS_MESSAGE": "Some upcoming pickups don't match the settings of this recurring pickup. Have a look below at '{upcomingLabel}' to change or disable pickups, if needed.",
-    "DURATION": "Duration",
-    "ENABLE_DURATION": "Specify a duration?",
-    "DURATION_HELPER": "How long is the pickup?"
+    "EXCEPTIONS_MESSAGE": "Some upcoming pickups don't match the settings of this recurring pickup. Have a look below at '{upcomingLabel}' to change or disable pickups, if needed."
   },
   "CREATESTORE": {
     "TITLE": "Create a new store"

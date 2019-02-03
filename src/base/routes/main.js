@@ -250,6 +250,11 @@ export default [
         },
       },
       {
+        // Redirect legacy "store" urls
+        path: 'store/:rest*',
+        redirect: to => `place/${to.params.rest}`,
+      },
+      {
         name: 'places',
         path: 'place',
         meta: {

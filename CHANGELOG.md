@@ -21,8 +21,10 @@ Please document your changes in this format:
 ```
 
 ## [Unreleased]
+
+## [6.5.0] - 2019-02-03
 ### Added
-- Close application, pickup and issue chats after they ended #1088 @tiltec
+- Close application, pickup and issue chats after they ended [#1088] @tiltec
 
 ### Changed
 - Mark latest messages as seen when visiting the menu, without the need to mark all messages as read @tiltec
@@ -32,7 +34,7 @@ Please document your changes in this format:
 ### Fixed
 - Long group names would break the applicant chat @tiltec
 - Group photo upload was broken when creating a new group, it's now hidden from the from @tiltec
-- "User became editor" bell notification would show each time when a user joins the playground group, introduced in 6.4.0 #1140 @tiltec
+- "User became editor" bell notification would show each time when a user joins the playground group, introduced in 6.4.0 [#1140] @tiltec
 
 ## [6.4.0] - 2019-01-18
 ### Added
@@ -349,17 +351,20 @@ After months of planning and programming, the first version of ~the foodsaving t
 [#1077]: https://github.com/yunity/karrot-frontend/issues/1077
 [#1079]: https://github.com/yunity/karrot-frontend/issues/1079
 [#1082]: https://github.com/yunity/karrot-frontend/issues/1082
+[#1088]: https://github.com/yunity/karrot-frontend/issues/1088
 [#1097]: https://github.com/yunity/karrot-frontend/issues/1097
 [#1099]: https://github.com/yunity/karrot-frontend/issues/1099
 [#1112]: https://github.com/yunity/karrot-frontend/issues/1112
 [#1138]: https://github.com/yunity/karrot-frontend/issues/1138
 [#1139]: https://github.com/yunity/karrot-frontend/issues/1139
+[#1140]: https://github.com/yunity/karrot-frontend/issues/1140
 [#1147]: https://github.com/yunity/karrot-frontend/issues/1147
 [#1157]: https://github.com/yunity/karrot-frontend/issues/1157
 [#1174]: https://github.com/yunity/karrot-frontend/issues/1174
 [#1178]: https://github.com/yunity/karrot-frontend/issues/1178
 
-[Unreleased]: https://github.com/yunity/karrot-frontend/compare/v6.4.0...HEAD
+[Unreleased]: https://github.com/yunity/karrot-frontend/compare/v6.5.0...HEAD
+[6.5.0]: https://github.com/yunity/karrot-frontend/compare/v6.4.0...v6.5.0
 [6.4.0]: https://github.com/yunity/karrot-frontend/compare/v6.3.0...v6.4.0
 [6.3.0]: https://github.com/yunity/karrot-frontend/compare/v6.2.9...v6.3.0
 [6.2.9]: https://github.com/yunity/karrot-frontend/compare/v6.2.8...v6.2.9

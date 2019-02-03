@@ -71,24 +71,26 @@ export default {
 
     }),
     ...withMeta({
-      async selectStore ({ commit, dispatch, getters }, { storeId }) {
-        if (getters.activeStoreId === storeId) return
+      async selectStore ({ commit, state, dispatch, getters }, { storeId }) {
         if (!getters.get(storeId)) {
+          let store
           try {
-            const store = await stores.get(storeId)
-            commit('update', [store])
+            store = await stores.get(storeId)
           }
           catch (error) {
+            console.log('error', error)
             throw createRouteError()
           }
+          commit('update', [store])
         }
         const getStatistics = stores.statistics(storeId)
         dispatch('sidenavBoxes/toggle/group', false, { root: true })
-        commit('select', storeId)
         commit('setStatistics', { data: await getStatistics, id: storeId })
       },
     }, {
       findId: ({ storeId }) => storeId,
+      setCurrentId: ({ commit }, { storeId }) => commit('select', storeId),
+      getCurrentId: ({ state }) => state.activeStoreId,
     }),
 
     clearSelectedStore ({ commit, dispatch, getters }, { routeTo }) {

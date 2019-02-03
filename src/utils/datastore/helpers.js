@@ -41,7 +41,12 @@ export function isNetworkError (error) {
   return false
 }
 
-const defaultStatus = { pending: false, validationErrors: {}, serverError: false, networkError: false }
+const defaultStatus = {
+  pending: false,
+  validationErrors: {},
+  serverError: false,
+  networkError: false,
+}
 
 export function createMetaModule () {
   return {
@@ -113,10 +118,10 @@ export function createMetaModule () {
   }
 }
 
-export function withMeta (actions, { namespace = 'meta', idPrefix = '', findId = defaultFindId } = {}) {
+export function withMeta (actions, { namespace = 'meta', idPrefix = '', findId = defaultFindId, setCurrentId, getCurrentId } = {}) {
   const wrappedActions = {}
   for (const [actionName, action] of Object.entries(actions)) {
-    wrappedActions[actionName] = wrapAction({ namespace, actionName, action, idPrefix, findId })
+    wrappedActions[actionName] = wrapAction({ namespace, actionName, action, idPrefix, findId, setCurrentId, getCurrentId })
   }
   return wrappedActions
 }
@@ -143,15 +148,39 @@ export function defaultFindId (data) {
   }
 }
 
-function wrapAction ({ namespace, actionName, action, idPrefix, findId }) {
+function wrapAction ({ namespace, actionName, action, idPrefix, findId, setCurrentId, getCurrentId }) {
   return async function (ctx, data) {
-    const { commit, getters } = ctx
+    const { commit, dispatch, getters } = ctx
     let id = findId(data)
 
     if (id && idPrefix) id = idPrefix + id
 
-    if (getters[`${namespace}/status`](actionName, id).pending) {
-      throw new Error(`action already pending for ${actionName}/${id}`)
+    const status = getters[`${namespace}/status`](actionName, id)
+    if (status.pending) {
+      console.warn('action not started, already pending', actionName, id)
+      return
+    }
+
+    const isActionAborted = () => {
+      if (!getCurrentId) return false
+      return getCurrentId(ctx) !== id
+    }
+
+    // wrap commit and dispatch
+    arguments[0] = {
+      ...ctx,
+      commit () {
+        if (isActionAborted()) {
+          throw createActionAbortedError()
+        }
+        commit.apply(this, arguments)
+      },
+      async dispatch () {
+        if (isActionAborted()) {
+          throw createActionAbortedError()
+        }
+        return dispatch.apply(this, arguments)
+      },
     }
 
     const runAction = () => action.apply(this, arguments)
@@ -161,12 +190,22 @@ function wrapAction ({ namespace, actionName, action, idPrefix, findId }) {
     update({ pending: true })
 
     try {
+      if (getCurrentId && getCurrentId(ctx) === id) {
+        console.warn('action not started, already loaded', actionName, id)
+        clear()
+        return
+      }
+      if (setCurrentId) setCurrentId(ctx, data)
       const result = await runAction()
       clear()
       return result
     }
     catch (error) {
-      if (isValidationError(error)) {
+      if (error.type === 'ActionAborted') {
+        console.warn('action aborted!', actionName, id)
+        clear()
+      }
+      else if (isValidationError(error)) {
         update({ validationErrors: error.response.data })
         if (error.response.status === 403) {
           commit('auth/setMaybeLoggedOut', true, { root: true })
@@ -215,6 +254,12 @@ export function createRouteRedirect (data) {
   return Object.assign(new Error(), {
     type: 'RouteRedirect',
     data,
+  })
+}
+
+export function createActionAbortedError () {
+  return Object.assign(new Error(), {
+    type: 'ActionAborted',
   })
 }
 

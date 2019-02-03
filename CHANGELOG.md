@@ -32,6 +32,7 @@ Please document your changes in this format:
 ### Fixed
 - Long group names would break the applicant chat @tiltec
 - Group photo upload was broken when creating a new group, it's now hidden from the from @tiltec
+- "User became editor" bell notification would show each time when a user joins the playground group, introduced in 6.4.0 #1140 @tiltec
 
 ## [6.4.0] - 2019-01-18
 ### Added

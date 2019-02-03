@@ -19,14 +19,14 @@ export default {
       async refresh ({ commit, dispatch, rootGetters }, done) {
         const activeState = {
           groupId: rootGetters['currentGroup/id'],
-          storeId: rootGetters['stores/activeStoreId'],
+          placeId: rootGetters['places/activePlaceId'],
           userId: rootGetters['user/activeUserId'],
         }
         await Promise.all([
           dispatch('users/refresh', {}, { root: true }),
-          dispatch('stores/fetch', null, { root: true }),
+          dispatch('places/fetch', null, { root: true }),
           dispatch('pickups/refresh', null, { root: true }),
-          dispatch('pickupSeries/fetchListForActiveStore', null, { root: true }),
+          dispatch('pickupSeries/fetchListForActivePlace', null, { root: true }),
           dispatch('invitations/refresh', null, { root: true }),
           dispatch('history/fetch', activeState, { root: true }),
           dispatch('groups/fetch', null, { root: true }),

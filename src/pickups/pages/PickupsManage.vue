@@ -133,7 +133,7 @@
     <QCard class="no-shadow grey-border secondCard">
       <RandomArt
         class="randomBanner"
-        :seed="storeId"
+        :seed="placeId"
         type="banner"
       />
       <QCardTitle>
@@ -287,7 +287,7 @@ export default {
         maxCollectors: 2,
         description: '',
         startDate: new Date(),
-        store: this.storeId,
+        place: this.placeId,
         rule: {
           isCustom: false,
           byDay: ['MO'],
@@ -311,7 +311,7 @@ export default {
         maxCollectors: 2,
         description: '',
         date,
-        store: this.storeId,
+        place: this.placeId,
       }
     },
     async saveNewPickup (pickup) {
@@ -339,9 +339,9 @@ export default {
   },
   computed: {
     ...mapGetters({
-      storeId: 'stores/activeStoreId',
-      pickupSeries: 'pickupSeries/byActiveStore',
-      pickups: 'pickups/byActiveStore',
+      placeId: 'places/activePlaceId',
+      pickupSeries: 'pickupSeries/byActivePlace',
+      pickups: 'pickups/byActivePlace',
       pickupCreateStatus: 'pickups/createStatus',
       seriesCreateStatus: 'pickupSeries/createStatus',
     }),

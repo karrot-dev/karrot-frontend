@@ -9,7 +9,7 @@
           v-for="pickup in pickups"
           :key="pickup.id"
           :pickup="pickup"
-          :store-link="storeLink"
+          :place-link="placeLink"
           @join="$emit('join', arguments[0])"
           @leave="$emit('leave', arguments[0])"
           @detail="$emit('detail', arguments[0])"
@@ -28,7 +28,7 @@ export default {
       type: Array,
       required: true,
     },
-    storeLink: {
+    placeLink: {
       type: Boolean,
       default: false,
     },

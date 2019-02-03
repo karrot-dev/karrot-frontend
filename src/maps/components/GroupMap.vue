@@ -20,7 +20,7 @@
         dense
       >
         <QItem
-          :to="{name: 'storeCreate', query: latLng}"
+          :to="{name: 'placeCreate', query: latLng}"
         >
           <QItemSide
             icon="add circle"
@@ -35,12 +35,12 @@
       v-if="controls !== 'none'"
       :type="controls"
       :show-users="showUsers"
-      :show-stores="showStores"
+      :show-places="showPlaces"
       :show-groups="showGroups"
       :show-back="false"
       :group-id="currentGroupId"
       @toggleUsers="$emit('toggleUsers')"
-      @toggleStores="$emit('toggleStores')"
+      @togglePlaces="$emit('togglePlaces')"
       @toggleGroups="$emit('toggleGroups')"
     />
     <div
@@ -56,9 +56,9 @@
       </QBtn>
       <template v-else-if="currentGroup.membership.isEditor">
         <QBtn
-          v-if="showStoreLocationPrompt"
+          v-if="showPlaceLocationPrompt"
           color="primary"
-          :to="{ name: 'storeEdit', params: { groupId: currentGroup.id, storeId: selectedStore && selectedStore.id } }"
+          :to="{ name: 'placeEdit', params: { groupId: currentGroup.id, placeId: selectedPlace && selectedPlace.id } }"
         >
           {{ $t('GROUPMAP.SET_LOCATION') }}
         </QBtn>
@@ -86,7 +86,7 @@ import {
   QItemSide,
 } from 'quasar'
 
-import { groupMarker, storeMarker, userMarker } from '@/maps/components/markers'
+import { groupMarker, placeMarker, userMarker } from '@/maps/components/markers'
 
 export default {
   components: {
@@ -100,12 +100,12 @@ export default {
   },
   props: {
     users: { required: true, type: Array },
-    stores: { required: true, type: Array },
+    places: { required: true, type: Array },
     groups: { default: null, type: Array },
-    selectedStore: { default: null, type: Object },
+    selectedPlace: { default: null, type: Object },
     selectedUser: { default: null, type: Object },
     showUsers: { default: false, type: Boolean },
-    showStores: { default: true, type: Boolean },
+    showPlaces: { default: true, type: Boolean },
     showGroups: { default: false, type: Boolean },
     createDatastore: { default: false, type: Boolean },
     currentGroup: { type: Object, default: () => ({}) },
@@ -123,15 +123,15 @@ export default {
     showUserLocationPrompt () {
       return this.selectedUser && this.selectedUser.isCurrentUser && !hasLocation(this.selectedUser)
     },
-    showStoreLocationPrompt () {
-      return this.selectedStore && !(this.storesWithLocation.findIndex(e => e.id === this.selectedStore.id) >= 0)
+    showPlaceLocationPrompt () {
+      return this.selectedPlace && !(this.placesWithLocation.findIndex(e => e.id === this.selectedPlace.id) >= 0)
     },
     showGroupLocationPrompt () {
       return this.markers.length === 0 && !(this.currentGroup.latitude && this.currentGroup.longitude)
     },
     showOverlay () {
       if (this.selectedUser && hasLocation(this.selectedUser)) return false
-      return this.showUserLocationPrompt || this.showStoreLocationPrompt || this.showGroupLocationPrompt
+      return this.showUserLocationPrompt || this.showPlaceLocationPrompt || this.showGroupLocationPrompt
     },
     center () {
       const { latitude: lat, longitude: lng } = this.currentGroup
@@ -146,8 +146,8 @@ export default {
     style () {
       return { opacity: this.showOverlay ? 0.5 : 1 }
     },
-    storesWithLocation () {
-      return this.stores.filter(hasLocation)
+    placesWithLocation () {
+      return this.places.filter(hasLocation)
     },
     usersWithLocation () {
       return this.users.filter(hasLocation)
@@ -161,10 +161,10 @@ export default {
           return [userMarker(this.selectedUser)]
         }
       }
-      else if (this.selectedStore) {
+      else if (this.selectedPlace) {
         const markers = []
-        if (hasLocation(this.selectedStore)) {
-          markers.push(storeMarker(this.selectedStore))
+        if (hasLocation(this.selectedPlace)) {
+          markers.push(placeMarker(this.selectedPlace))
         }
         if (this.showUsers) {
           markers.push(...this.usersWithLocation.map(userMarker))
@@ -177,8 +177,8 @@ export default {
     },
     markers () {
       let items = []
-      if (this.showStores) {
-        items.push(...this.storesWithLocation.map(storeMarker))
+      if (this.showPlaces) {
+        items.push(...this.placesWithLocation.map(placeMarker))
       }
       if (this.showUsers) {
         items.push(...this.usersWithLocation.map(userMarker))

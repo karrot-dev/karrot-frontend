@@ -4,15 +4,15 @@ import { storiesOf } from '@storybook/vue'
 import GroupMap from './GroupMap'
 import UserMapPreview from './UserMapPreview'
 import StandardMap from './StandardMap'
-import { usersMock, storesMock, storeWithoutLocation } from '>/mockdata'
+import { usersMock, placesMock, placeWithoutLocation } from '>/mockdata'
 import L from 'leaflet'
 
 const style = {
   height: '200px',
 }
 
-function latLng (store) {
-  return L.latLng(store.latitude, store.longitude)
+function latLng (place) {
+  return L.latLng(place.latitude, place.longitude)
 }
 
 const currentGroup = {
@@ -30,7 +30,7 @@ storiesOf('Map', module)
       props: {
         markers: [
           {
-            latLng: latLng(storesMock[0]),
+            latLng: latLng(placesMock[0]),
             fontIcon: 'fas fa-shopping-cart',
             color: 'blue',
           },
@@ -44,13 +44,13 @@ storiesOf('Map', module)
       props: {
         markers: [
           {
-            latLng: latLng(storesMock[1]),
+            latLng: latLng(placesMock[1]),
             id: 'marker1',
             fontIcon: 'fas fa-shopping-cart',
             color: 'blue',
           },
           {
-            latLng: latLng(storesMock[3]),
+            latLng: latLng(placesMock[3]),
             id: 'marker2',
             fontIcon: 'fas fa-shopping-cart',
             color: 'blue',
@@ -58,7 +58,7 @@ storiesOf('Map', module)
         ],
         selectedMarkers: [
           {
-            latLng: latLng(storesMock[1]),
+            latLng: latLng(placesMock[1]),
             id: 'marker1',
             fontIcon: 'fas fa-shopping-cart',
             color: 'blue',
@@ -72,35 +72,35 @@ storiesOf('Map', module)
     render: h => h(GroupMap, {
       props: {
         users: usersMock,
-        stores: storesMock,
-        showStores: true,
+        places: placesMock,
+        showPlaces: true,
         showUsers: true,
         currentGroup,
       },
       style,
     }),
   }))
-  .add('GroupMap (selected store)', () => defaults({
+  .add('GroupMap (selected place)', () => defaults({
     render: h => h(GroupMap, {
       props: {
         users: usersMock,
-        stores: storesMock,
-        showStores: true,
+        places: placesMock,
+        showPlaces: true,
         showUsers: true,
-        selectedStore: storesMock[1],
+        selectedPlace: placesMock[1],
         currentGroup,
       },
       style,
     }),
   }))
-  .add('GroupMap (store has no location)', () => defaults({
+  .add('GroupMap (place has no location)', () => defaults({
     render: h => h(GroupMap, {
       props: {
         users: usersMock,
-        stores: [...storesMock, storeWithoutLocation],
-        showStores: true,
+        places: [...placesMock, placeWithoutLocation],
+        showPlaces: true,
         showUsers: true,
-        selectedStore: storeWithoutLocation,
+        selectedPlace: placeWithoutLocation,
         currentGroup,
       },
       style,
@@ -110,8 +110,8 @@ storiesOf('Map', module)
     render: h => h(GroupMap, {
       props: {
         users: [],
-        stores: [],
-        showStores: true,
+        places: [],
+        showPlaces: true,
         showUsers: true,
         currentGroup: {
           ...currentGroup,
@@ -126,8 +126,8 @@ storiesOf('Map', module)
     render: h => h(GroupMap, {
       props: {
         users: [],
-        stores: [],
-        showStores: true,
+        places: [],
+        showPlaces: true,
         showUsers: true,
         currentGroup,
       },

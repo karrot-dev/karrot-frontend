@@ -1,6 +1,6 @@
 import { createDatastore } from '>/helpers'
 import { pickupSeriesMock } from '>/mockdata'
-import { makeStore, makePickupSeries } from '>/enrichedFactories'
+import { makePlace, makePickupSeries } from '>/enrichedFactories'
 
 describe('pickupSeries module', () => {
   beforeEach(() => jest.resetModules())
@@ -13,7 +13,7 @@ describe('pickupSeries module', () => {
       datastore = createDatastore({
         pickupSeries: require('./pickupSeries').default,
         pickups: { getters: { upcomingAndStarted: () => [] } },
-        stores: { getters: { get: () => () => null } },
+        places: { getters: { get: () => () => null } },
       })
     })
 
@@ -33,17 +33,17 @@ describe('pickupSeries module', () => {
     })
   })
 
-  it('filters by active store', () => {
-    const activeStore = makeStore({ isActiveStore: true })
-    const activeSeries = makePickupSeries({ store: activeStore })
-    const inactiveStore = makeStore({ isActiveStore: false })
-    const inactiveSeries = makePickupSeries({ store: inactiveStore })
+  it('filters by active place', () => {
+    const activePlace = makePlace({ isActivePlace: true })
+    const activeSeries = makePickupSeries({ place: activePlace })
+    const inactivePlace = makePlace({ isActivePlace: false })
+    const inactiveSeries = makePickupSeries({ place: inactivePlace })
     const { getters } = require('./pickupSeries').default
     const otherGetters = {
       all: [activeSeries, inactiveSeries],
     }
 
-    const result = getters.byActiveStore(null, otherGetters)
+    const result = getters.byActivePlace(null, otherGetters)
     expect(result.length).toEqual(1)
     expect(result[0].id).toEqual(activeSeries.id)
   })

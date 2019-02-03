@@ -6,7 +6,7 @@ import AmountBox from './AmountBox'
 import PickupFeedback from './PickupFeedback'
 import FeedbackItem from './FeedbackItem'
 import FeedbackList from './FeedbackList'
-import { feedbackMock, storesMock, pickupsMock } from '>/mockdata'
+import { feedbackMock, placesMock, pickupsMock } from '>/mockdata'
 
 storiesOf('Statistics', module)
   .add('AmountPicker', () => defaults({
@@ -53,7 +53,7 @@ storiesOf('Statistics', module)
     render: h => h(FeedbackList, {
       props: {
         feedback: feedbackMock,
-        store: storesMock[0],
+        place: placesMock[0],
         status: statusMocks.default(),
       },
     }),

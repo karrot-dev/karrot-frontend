@@ -23,7 +23,7 @@ const router = new VueRouter({
    *
    * BREADCRUMBS - Available types:
    *  - currentGroup
-   *  - activeStore
+   *  - activePlace
    * ...you can define other ones in KBreadcrumb.
    */
   routes: [

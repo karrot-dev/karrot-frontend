@@ -86,7 +86,7 @@
         class="q-mb-xs"
       >
         <small>
-          {{ pickup.store && pickup.store.name }} ·
+          {{ pickup.place && pickup.place.name }} ·
           {{ $d(pickup.date, 'yearMonthDay') }}
         </small>
       </QItemTile>

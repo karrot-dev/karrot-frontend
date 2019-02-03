@@ -14,8 +14,8 @@ export default {
     return convert((await axios.get('/api/pickup-date-series/')).data)
   },
 
-  async listByStoreId (storeId) {
-    return convert((await axios.get('/api/pickup-date-series/', { params: { store: storeId } })).data)
+  async listByPlaceId (placeId) {
+    return convert((await axios.get('/api/pickup-date-series/', { params: { place: placeId } })).data)
   },
 
   async save (series) {

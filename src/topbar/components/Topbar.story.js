@@ -3,11 +3,11 @@ import { storiesOf } from '@storybook/vue'
 import KBreadcrumb from './KBreadcrumb'
 import Search from './Search'
 import { createDatastore, storybookDefaults as defaults } from '>/helpers'
-import { groupsMock, storesMock, usersMock } from '>/mockdata'
+import { groupsMock, placesMock, usersMock } from '>/mockdata'
 
 const datastore = createDatastore({
   groups: { getters: { all: () => groupsMock } },
-  stores: { getters: { all: () => storesMock } },
+  places: { getters: { all: () => placesMock } },
   users: { getters: { all: () => usersMock } },
   search: require('@/topbar/datastore/search').default,
 })

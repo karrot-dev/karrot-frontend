@@ -161,12 +161,17 @@ function wrapAction ({ namespace, actionName, action, idPrefix, findId, setCurre
       return
     }
 
+    if (getCurrentId && getCurrentId(ctx) === id) {
+      console.warn('action not started, page already loaded', actionName, id)
+      return
+    }
+
     const isActionAborted = () => {
       if (!getCurrentId) return false
       return getCurrentId(ctx) !== id
     }
 
-    // wrap commit and dispatch
+    // wrap commit and dispatch to throw an error if the action should be aborted
     arguments[0] = {
       ...ctx,
       commit () {
@@ -188,14 +193,9 @@ function wrapAction ({ namespace, actionName, action, idPrefix, findId, setCurre
     const clear = () => commit(`${namespace}/clear`, { actionName, id })
 
     update({ pending: true })
+    if (setCurrentId) setCurrentId(ctx, data)
 
     try {
-      if (getCurrentId && getCurrentId(ctx) === id) {
-        console.warn('action not started, already loaded', actionName, id)
-        clear()
-        return
-      }
-      if (setCurrentId) setCurrentId(ctx, data)
       const result = await runAction()
       clear()
       return result

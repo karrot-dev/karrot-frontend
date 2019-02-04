@@ -26,6 +26,7 @@
       />
     </div>
     <WallConversation
+      v-if="conversation"
       :data="conversation"
       :user="user"
       :fetch-past="fetchPast"
@@ -59,7 +60,7 @@ export default {
     availablePickups: { required: true, type: Array },
     feedbackPossible: { required: true, type: Array },
     applications: { required: true, type: Array },
-    conversation: { required: true, type: Object },
+    conversation: { type: Object, default: null },
     fetchPast: { required: true, type: Function },
     user: { default: null, type: Object },
   },

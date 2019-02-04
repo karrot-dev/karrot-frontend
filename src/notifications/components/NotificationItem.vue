@@ -97,7 +97,7 @@ export default {
     },
     storeName () {
       if (!this.context) return
-      if (this.context.pickup) {
+      if (this.context.pickup && this.context.pickup.store) {
         return this.context.pickup.store.name
       }
     },

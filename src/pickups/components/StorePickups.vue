@@ -1,5 +1,5 @@
 <template>
-  <div v-if="store">
+  <div>
     <QCard class="no-shadow no-padding grey-border">
       <RandomArt
         :seed="storeId"
@@ -52,8 +52,11 @@
             </QBtn>
           </a>
         </div>
+        <div v-if="!store">
+          loading...
+        </div>
         <Markdown
-          v-if="store.description"
+          v-else-if="store.description"
           :source="store.description"
         />
         <i v-else>
@@ -73,7 +76,10 @@
       @leave="leave"
       @detail="detail"
     />
-    <KNotice v-if="isInactive">
+    <div v-if="!store">
+      loading...
+    </div>
+    <KNotice v-else-if="isInactive">
       <template slot="icon">
         <i class="far fa-handshake"/>
       </template>
@@ -146,6 +152,7 @@ export default {
       return this.store ? [storeMarker(this.store)] : []
     },
     ...mapGetters({
+      storeId: 'stores/activeStoreId',
       store: 'stores/activeStore',
       pickups: 'pickups/byActiveStore',
       currentUser: 'auth/user',
@@ -166,9 +173,6 @@ export default {
         return directions.google(this.store)
       }
       return directions.osm(this.currentUser, this.store)
-    },
-    storeId () {
-      return this.store && this.store.id
     },
   },
 }

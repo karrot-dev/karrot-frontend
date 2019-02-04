@@ -4,7 +4,7 @@ import SidenavStoreUI from './SidenavStoreUI'
 
 export default connect({
   gettersToProps: {
-    storeId: 'stores/activeStoreId',
+    store: 'stores/activeStore',
     expanded: 'sidenavBoxes/toggle/store',
     isEditor: 'currentGroup/isEditor',
   },

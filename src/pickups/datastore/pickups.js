@@ -68,7 +68,7 @@ export default {
     feedbackPossibleByActiveStore: (state, getters) =>
       getters.feedbackPossibleByCurrentGroup
         .filter(({ store }) => store && store.isActiveStore),
-    ...metaStatuses(['create']),
+    ...metaStatuses(['create', 'fetchFeedbackPossible']),
   },
   actions: {
     ...withMeta({
@@ -110,9 +110,13 @@ export default {
         await pickups.delete(id)
         dispatch('refresh')
       },
+    }),
+    ...withMeta({
       async fetchFeedbackPossible ({ commit }, groupId) {
         commit('update', (await pickups.listFeedbackPossible(groupId)).results)
       },
+    }, {
+      findId: () => null,
     }),
 
     ...withPrefixedIdMeta('group/', {

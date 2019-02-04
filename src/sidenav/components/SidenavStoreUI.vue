@@ -1,6 +1,6 @@
 <template>
   <SidenavBox
-    v-if="storeId"
+    v-if="store"
     @toggle="$emit('toggleBox')"
     :expanded="$q.platform.is.mobile || expanded"
     :expandable="!$q.platform.is.mobile"
@@ -9,7 +9,7 @@
       <QIcon name="fas fa-fw fa-shopping-cart" />
     </template>
     <template slot="name">
-      {{ $t('GROUP.CURRENT_STORE') }}
+      {{ store.name }}
     </template>
     <div
       slot="tools"
@@ -67,12 +67,17 @@ import StoreOptions from './StoreOptions'
 
 export default {
   props: {
-    storeId: { default: null, type: Number },
+    store: { default: null, type: Object },
     expanded: { default: true, type: Boolean },
     isEditor: { default: false, type: Boolean },
   },
   components: {
     SidenavBox, StoreOptions, QBtn, QList, QItem, QItemSide, QIcon, QItemMain,
+  },
+  computed: {
+    storeId () {
+      return this.store && this.store.id
+    },
   },
 }
 </script>

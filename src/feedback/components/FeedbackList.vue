@@ -1,21 +1,16 @@
 <template>
-  <QInfiniteScroll
-    :handler="maybeFetchPast"
-    class="k-feedback-list"
-  >
+  <div class="k-feedback-list">
     <FeedbackNotice
       v-if="feedbackPossible.length > 0"
       :feedback-possible="feedbackPossible"
     />
-    <FeedbackItem
-      v-for="feedbackitem in feedback"
-      :key="feedbackitem.id"
-      :feedback="feedbackitem"
+    <div
+      v-if="isPending"
+      style="width: 100%; text-align: center"
     >
-      {{ $d(feedbackitem.createdAt, 'dateLongWithDayName') }}
-    </FeedbackItem>
-
-    <KNotice v-if="empty" >
+      <QSpinnerDots :size="40"/>
+    </div>
+    <KNotice v-else-if="empty" >
       <template slot="icon">
         <i class="fas fa-balance-scale"/>
       </template>
@@ -24,13 +19,25 @@
         {{ $t('FEEDBACKLIST.NONE_HINT') }}
       </template>
     </KNotice>
-    <div
-      slot="message"
-      style="width: 100%; text-align: center"
+    <QInfiniteScroll
+      v-else
+      :handler="maybeFetchPast"
     >
-      <QSpinnerDots :size="40"/>
-    </div>
-  </QInfiniteScroll>
+      <FeedbackItem
+        v-for="feedbackitem in feedback"
+        :key="feedbackitem.id"
+        :feedback="feedbackitem"
+      >
+        {{ $d(feedbackitem.createdAt, 'dateLongWithDayName') }}
+      </FeedbackItem>
+      <div
+        slot="message"
+        style="width: 100%; text-align: center"
+      >
+        <QSpinnerDots :size="40"/>
+      </div>
+    </QInfiniteScroll>
+  </div>
 </template>
 
 <script>

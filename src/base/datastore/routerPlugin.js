@@ -52,23 +52,23 @@ export default datastore => {
       return
     }
 
-    const { redirect } = await maybeDispatchActions(datastore, to, from)
-    if (redirect) {
-      nextFn({ replace: true, ...redirect })
-      return
-    }
-
     nextFn()
-    datastore.commit('breadcrumbs/set', findBreadcrumbs(to.matched) || [])
   })
 
-  router.afterEach(async () => {
+  router.afterEach(async (to, from) => {
     try {
       datastore.dispatch('currentGroup/markUserActive')
     }
     catch (err) {
       Sentry.captureException(err)
     }
+
+    const { redirect } = await maybeDispatchActions(datastore, to, from)
+    if (redirect) {
+      router.replace(redirect)
+    }
+
+    datastore.commit('breadcrumbs/set', findBreadcrumbs(to.matched) || [])
     datastore.commit('routeMeta/setNext', null)
   })
 
@@ -99,6 +99,27 @@ export function findBreadcrumbs (matched) {
 }
 
 export async function maybeDispatchActions (datastore, to, from) {
+  const runBeforeEnter = async (beforeEnter) => {
+    try {
+      await datastore.dispatch(beforeEnter, {
+        ...parseAsIntegers(to.params),
+        routeFrom: from,
+        routeTo: to,
+      })
+    }
+    catch (error) {
+      if (error.type === 'RouteRedirect') {
+        return { redirect: error.data }
+      }
+      else if (error.type === 'RouteError') {
+        await datastore.dispatch('routeError/set', error.data)
+      }
+      else {
+        // can't be handled here
+        return { error }
+      }
+    }
+  }
   for (let m of from.matched.slice().reverse()) {
     if (m.meta.afterLeave) {
       await datastore.dispatch(m.meta.afterLeave, {
@@ -108,32 +129,10 @@ export async function maybeDispatchActions (datastore, to, from) {
       })
     }
   }
-  for (let m of to.matched) {
-    if (m.meta.beforeEnter) {
-      try {
-        await datastore.dispatch(m.meta.beforeEnter, {
-          ...parseAsIntegers(to.params),
-          routeFrom: from,
-          routeTo: to,
-        })
-      }
-      catch (error) {
-        if (error.type === 'RouteRedirect') {
-          return { redirect: error.data }
-        }
-        else if (error.type === 'RouteError') {
-          await datastore.dispatch('routeError/set', error.data)
-          // no further loading should be done
-          return {}
-        }
-        else {
-          // can't be handled here
-          throw error
-        }
-      }
-    }
-  }
-  return {}
+  const results = await Promise.all(to.matched.map(m => m.meta.beforeEnter).filter(v => !!v).map(runBeforeEnter))
+  // show a warning for every error that occured
+  results.filter(r => r && r.error).forEach(r => console.warn('Error while loading the page:', r.error))
+  return results.find(r => r && r.redirect) || {}
 }
 
 export function parseAsIntegers (obj) {

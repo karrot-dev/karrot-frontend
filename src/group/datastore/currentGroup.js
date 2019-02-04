@@ -155,7 +155,7 @@ export default {
       dispatch('pickups/fetchListByGroupId', groupId, { root: true })
       dispatch('pickups/fetchFeedbackPossible', groupId, { root: true })
 
-      if (routeTo.name !== 'applications') {
+      if (!routeTo || routeTo.name !== 'applications') {
         // applications route loads their own data, no need to load twice
         dispatch('applications/fetchPendingByGroupId', { groupId }, { root: true })
       }

@@ -71,7 +71,8 @@ export default {
 
     }),
     ...withMeta({
-      async selectStore ({ commit, state, dispatch, getters }, { storeId }) {
+      async selectStore ({ commit, dispatch, getters }, { storeId }) {
+        dispatch('sidenavBoxes/toggle/group', false, { root: true })
         if (!getters.get(storeId)) {
           let store
           try {
@@ -83,9 +84,6 @@ export default {
           }
           commit('update', [store])
         }
-        const getStatistics = stores.statistics(storeId)
-        dispatch('sidenavBoxes/toggle/group', false, { root: true })
-        commit('setStatistics', { data: await getStatistics, id: storeId })
       },
     }, {
       findId: ({ storeId }) => storeId,
@@ -93,13 +91,18 @@ export default {
       getCurrentId: ({ state }) => state.activeStoreId,
     }),
 
-    clearSelectedStore ({ commit, dispatch, getters }, { routeTo }) {
-      // do not clear if store stays the same
+    clearSelectedStore ({ commit, dispatch }, { routeTo }) {
+      // do not clear if we stay on a store route
       const { storeId } = routeTo.params
-      if (storeId && parseInt(storeId) === getters.activeStoreId) return
+      if (storeId) return
 
       dispatch('sidenavBoxes/toggle/group', true, { root: true })
       commit('clearSelected')
+    },
+
+    async beforeEnterFeedback ({ commit, dispatch }, { storeId }) {
+      dispatch('feedback/fetch', { storeId }, { root: true })
+      commit('setStatistics', { data: await stores.statistics(storeId), id: storeId })
     },
 
     update ({ commit, dispatch, getters }, stores) {

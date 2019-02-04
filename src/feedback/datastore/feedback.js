@@ -39,6 +39,7 @@ export default {
     byActiveStore: (state, getters) => {
       return getters.all.filter(({ store }) => store && store.isActiveStore)
     },
+    selectedId: (state) => state.selectedFeedbackId,
     selected: (state, getters) => getters.get(state.selectedFeedbackId),
     canFetchPast: (state, getters) => getters['pagination/canFetchNext'],
     ...metaStatuses(['save', 'fetch', 'fetchPast']),
@@ -89,13 +90,18 @@ export default {
       }
     },
 
-    async select ({ dispatch, commit }, { groupId, feedbackId }) {
-      if (feedbackId) {
-        dispatch('fetch', { groupId }) // ideally we would have the storeId here too, but it's not in the route
-        commit('update', [await feedbackAPI.get(feedbackId)])
-        commit('select', feedbackId)
-      }
-    },
+    ...withMeta({
+      async select ({ dispatch, commit }, { groupId, feedbackId }) {
+        if (feedbackId) {
+          dispatch('fetch', { groupId }) // ideally we would have the storeId here too, but it's not in the route
+          commit('update', [await feedbackAPI.get(feedbackId)])
+        }
+      },
+    }, {
+      findId: ({ feedbackId }) => feedbackId,
+      setCurrentId: ({ commit }, { feedbackId }) => commit('select', feedbackId),
+      getCurrentId: ({ state }) => state.selectedFeedbackId,
+    }),
 
     clear ({ commit }) {
       commit('clear')

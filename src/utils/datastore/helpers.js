@@ -46,6 +46,7 @@ const defaultStatus = {
   validationErrors: {},
   serverError: false,
   networkError: false,
+  startedAt: null,
 }
 
 export function createMetaModule () {
@@ -156,15 +157,17 @@ function wrapAction ({ namespace, actionName, action, idPrefix, findId, setCurre
     if (id && idPrefix) id = idPrefix + id
 
     const status = getters[`${namespace}/status`](actionName, id)
-    if (status.pending) {
-      console.warn('action not started, already pending', actionName, id)
+    if (status.pending && (new Date() - status.startedAt) < 1000) {
+      console.warn('debounce: action recently started and still pending', actionName, id)
       return
     }
 
+    /*
     if (getCurrentId && getCurrentId(ctx) === id) {
       console.warn('action not started, page already loaded', actionName, id)
       return
     }
+    */
 
     const isActionAborted = () => {
       if (!getCurrentId) return false
@@ -192,7 +195,7 @@ function wrapAction ({ namespace, actionName, action, idPrefix, findId, setCurre
     const update = value => commit(`${namespace}/update`, { actionName, id, value })
     const clear = () => commit(`${namespace}/clear`, { actionName, id })
 
-    update({ pending: true })
+    update({ pending: true, startedAt: new Date() })
     if (setCurrentId) setCurrentId(ctx, data)
 
     try {

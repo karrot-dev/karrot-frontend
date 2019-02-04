@@ -334,7 +334,7 @@ export default [
               breadcrumbs: [
                 { translation: 'PICKUP_FEEDBACK.TITLE', route: { name: 'storeFeedback' } },
               ],
-              beforeEnter: 'feedback/fetch',
+              beforeEnter: 'stores/beforeEnterFeedback',
               afterLeave: 'feedback/clear',
             },
             component: StoreFeedback,

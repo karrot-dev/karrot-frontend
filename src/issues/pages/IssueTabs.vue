@@ -4,7 +4,7 @@ import IssueTabsUI from '@/issues/components/IssueTabsUI'
 
 export default connect({
   gettersToProps: {
-    issue: 'issues/getCurrent',
+    issue: 'issues/current',
   },
   actionsToEvents: {
     saveScores: 'issues/saveScores',

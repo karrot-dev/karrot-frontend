@@ -92,15 +92,15 @@ export default {
         createdBy: rootGetters['users/get'](issue.createdBy),
       }
     },
-    getCurrent: (state, getters) => {
+    current: (state, getters) => {
       return getters.enrich(state.entries[state.currentId])
     },
-    getForGroup: (state, getters) => Object.values(state.entries)
+    forGroup: (state, getters) => Object.values(state.entries)
       .map(getters.enrich)
       .filter(i => i.group && i.group.isCurrentGroup)
       .sort(sortByCreatedAt),
-    getOngoing: (state, getters) => getters.getForGroup.filter(i => i.status === 'ongoing'),
-    getPast: (state, getters) => getters.getForGroup.filter(i => i.status !== 'ongoing'),
+    ongoing: (state, getters) => getters.forGroup.filter(i => i.status === 'ongoing'),
+    past: (state, getters) => getters.forGroup.filter(i => i.status !== 'ongoing'),
   },
   actions: {
     ...withMeta({

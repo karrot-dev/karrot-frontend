@@ -5,8 +5,8 @@ import router from '@/base/router'
 
 export default connect({
   gettersToProps: {
-    ongoingIssues: 'issues/getOngoing',
-    pastIssues: 'issues/getPast',
+    ongoingIssues: 'issues/ongoing',
+    pastIssues: 'issues/past',
   },
   methodsToEvents: {
     open: (_, issue) => {

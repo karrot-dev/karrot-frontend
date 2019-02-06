@@ -79,7 +79,7 @@
     "@babel/preset-env": "^7.0.0-beta.56",
     "@babel/runtime": "^7.0.0-beta.56",
     "@octokit/rest": "^16.8.0",
-    "@sentry/cli": "^1.36.4",
+    "@sentry/cli": "^1.38.0",
     "@storybook/addon-actions": "4.1.11",
     "@storybook/addon-links": "4.1.11",
     "@storybook/addon-options": "^4.1.11",

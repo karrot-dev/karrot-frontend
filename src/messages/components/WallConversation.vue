@@ -8,6 +8,7 @@
       >
         <template v-if="hasLoaded">
           <NotificationToggle
+            v-if="data.isParticipant"
             :value="!data.muted"
             :user="user"
             class="actionButton hoverScale"
@@ -15,11 +16,12 @@
           />
           <ConversationCompose
             :status="data.sendStatus"
-            @submit="$emit('send', { id: data.id, content: arguments[0] })"
             :placeholder="messagePrompt"
             :user="user"
             :slim="$q.platform.is.mobile"
             :autofocus="!$q.platform.is.mobile"
+            :is-participant="data.isParticipant"
+            @submit="$emit('send', { id: data.id, content: arguments[0] })"
           />
           <QAlert
             v-if="data.unreadMessageCount > 0"

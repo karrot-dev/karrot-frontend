@@ -35,6 +35,12 @@
           </Component>
         </QField>
       </QItemTile>
+      <QItemTile
+        v-if="!isParticipant"
+        sublabel
+        class="q-mt-md q-caption"
+        v-t="'CONVERSATION.NOT_PARTICIPATED'"
+      />
     </QItemMain>
   </QItem>
 </template>
@@ -67,6 +73,10 @@ export default {
       default: false,
     },
     autofocus: {
+      type: Boolean,
+      default: true,
+    },
+    isParticipant: {
       type: Boolean,
       default: true,
     },

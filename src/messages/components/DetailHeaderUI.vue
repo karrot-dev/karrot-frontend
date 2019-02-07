@@ -166,7 +166,7 @@ export default {
       if (this.conversation.thread && this.conversation.threadMeta) {
         return !this.conversation.threadMeta.muted
       }
-      if (typeof this.conversation.muted !== 'undefined') {
+      if (this.conversation.isParticipant && typeof this.conversation.muted !== 'undefined') {
         return !this.conversation.muted
       }
       return null

@@ -26,6 +26,14 @@ export default {
     return (await axios.get(`/api/places/${id}/statistics/`)).data
   },
 
+  async subscribe (id) {
+    await axios.post(`/api/places/${id}/subscription/`)
+  },
+
+  async unsubscribe (id) {
+    await axios.delete(`/api/places/${id}/subscription/`)
+  },
+
   async conversation (id) {
     return convertConversation((await axios.get(`/api/places/${id}/conversation/`)).data)
   },

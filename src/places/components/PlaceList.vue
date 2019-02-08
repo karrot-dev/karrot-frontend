@@ -22,6 +22,16 @@
           {{ place.name }}
         </QItemTile>
       </QItemMain>
+      <QItemSide
+        v-if="place.isSubscribed"
+        class="text-center"
+        right
+      >
+        <QIcon
+          name="fas fa-star"
+          color="pink"
+        />
+      </QItemSide>
     </QItem>
 
     <QItem

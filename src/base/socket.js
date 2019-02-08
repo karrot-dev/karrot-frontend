@@ -172,6 +172,7 @@ function receiveMessage ({ topic, payload }) {
   }
   else if (topic === 'conversations:conversation') {
     const conversation = convertConversation(camelizeKeys(payload))
+    console.log('conversation', conversation)
     datastore.dispatch('conversations/updateConversation', conversation)
     datastore.dispatch('latestMessages/updateConversationsAndRelated', { conversations: [conversation] })
   }
@@ -179,7 +180,8 @@ function receiveMessage ({ topic, payload }) {
     datastore.commit('latestMessages/setEntryMeta', convertConversationMeta(camelizeKeys(payload)))
   }
   else if (topic === 'conversations:leave') {
-    datastore.commit('conversations/clearConversation', payload.id)
+    // TODO only clear conversation if it is really inaccessible
+    // datastore.commit('conversations/clearConversation', payload.id)
   }
   else if (topic === 'groups:group_detail') {
     datastore.dispatch('currentGroup/maybeUpdate', convertGroup(camelizeKeys(payload)))

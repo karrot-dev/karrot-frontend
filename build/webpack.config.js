@@ -65,6 +65,9 @@ module.exports = {
     historyApiFallback: true,
     proxy: proxyTable,
     contentBase: resolve(__dirname, '../src'),
+    stats: {
+      errorDetails: true,
+    },
   },
   output: {
     path: resolve(__dirname, '../dist'),

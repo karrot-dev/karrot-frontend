@@ -31,7 +31,7 @@ storiesOf('GroupGallery', module)
   .add('switch and explore', () => defaults({
     render: h => h(GroupGallery, {
       props: {
-        myGroups: groupsMock.slice(0, 3).map(g => ({ ...g, isMember: true })),
+        myGroups: groupsMock.slice(0, 3).map(g => ({ ...g, id: g.id * 10, isMember: true })),
         otherGroups: groupsMock,
       },
       on: defaultOn,

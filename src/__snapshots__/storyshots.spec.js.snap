@@ -1497,7 +1497,7 @@ exports[`Storyshots GroupGallery switch and explore 1`] = `
             <!---->
             <!---->
             <div class="q-card-media relative-position photo">
-              <div seed="1" type="circles" class="full-height"></div>
+              <div seed="10" type="circles" class="full-height"></div>
               <div class="q-card-media-overlay absolute-bottom">
                 <div class="q-card-primary q-card-container row no-wrap ellipsis">
                   <div class="col column">
@@ -1549,7 +1549,7 @@ exports[`Storyshots GroupGallery switch and explore 1`] = `
             <!---->
             <!---->
             <div class="q-card-media relative-position photo">
-              <div seed="2" type="circles" class="full-height"></div>
+              <div seed="20" type="circles" class="full-height"></div>
               <div class="q-card-media-overlay absolute-bottom">
                 <div class="q-card-primary q-card-container row no-wrap ellipsis">
                   <div class="col column">
@@ -1594,7 +1594,7 @@ exports[`Storyshots GroupGallery switch and explore 1`] = `
             <!---->
             <!---->
             <div class="q-card-media relative-position photo">
-              <div seed="3" type="circles" class="full-height"></div>
+              <div seed="30" type="circles" class="full-height"></div>
               <div class="q-card-media-overlay absolute-bottom">
                 <div class="q-card-primary q-card-container row no-wrap ellipsis">
                   <div class="col column">

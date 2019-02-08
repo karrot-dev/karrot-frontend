@@ -233,7 +233,7 @@ exports[`Storyshots ChatConversation closed 1`] = `
     <div class="q-item-icon bg-light q-item-inverted flex flex-center"><i aria-hidden="true" class="q-icon fas fa-lock"> </i></div>
   </div>
   <div class="q-item-main q-item-section q-body-1">
-    <div class="q-item-label" style="overflow:hidden;display:-webkit-box;-webkit-box-orient:vertical;">This conversation has been closed automatically.</div>
+    <div class="q-item-label" style="overflow:hidden;display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:3;">This conversation has been closed automatically.</div>
   </div>
 </div>
 </div>
@@ -4156,7 +4156,7 @@ exports[`Storyshots PickupSeriesEdit Default 1`] = `
                 <div class="q-list no-border scroll">
                   <div class="q-item q-item-division relative-position cursor-pointer q-select-highlight cursor-pointer">
                     <div class="q-item-main q-item-section">
-                      <div class="q-item-label" style="overflow:hidden;display:-webkit-box;-webkit-box-orient:vertical;">Monday</div>
+                      <div class="q-item-label" style="overflow:hidden;display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:NaN;">Monday</div>
                     </div>
                     <div class="q-item-side q-item-section q-item-side-right">
                       <div tabindex="-1" class="q-option cursor-pointer no-outline row inline no-wrap items-center q-toggle">
@@ -4172,7 +4172,7 @@ exports[`Storyshots PickupSeriesEdit Default 1`] = `
                   </div>
                   <div class="q-item q-item-division relative-position cursor-pointer cursor-pointer">
                     <div class="q-item-main q-item-section">
-                      <div class="q-item-label" style="overflow:hidden;display:-webkit-box;-webkit-box-orient:vertical;">Tuesday</div>
+                      <div class="q-item-label" style="overflow:hidden;display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:NaN;">Tuesday</div>
                     </div>
                     <div class="q-item-side q-item-section q-item-side-right">
                       <div tabindex="-1" class="q-option cursor-pointer no-outline row inline no-wrap items-center q-toggle">
@@ -4188,7 +4188,7 @@ exports[`Storyshots PickupSeriesEdit Default 1`] = `
                   </div>
                   <div class="q-item q-item-division relative-position cursor-pointer cursor-pointer">
                     <div class="q-item-main q-item-section">
-                      <div class="q-item-label" style="overflow:hidden;display:-webkit-box;-webkit-box-orient:vertical;">Wednesday</div>
+                      <div class="q-item-label" style="overflow:hidden;display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:NaN;">Wednesday</div>
                     </div>
                     <div class="q-item-side q-item-section q-item-side-right">
                       <div tabindex="-1" class="q-option cursor-pointer no-outline row inline no-wrap items-center q-toggle">
@@ -4204,7 +4204,7 @@ exports[`Storyshots PickupSeriesEdit Default 1`] = `
                   </div>
                   <div class="q-item q-item-division relative-position cursor-pointer cursor-pointer">
                     <div class="q-item-main q-item-section">
-                      <div class="q-item-label" style="overflow:hidden;display:-webkit-box;-webkit-box-orient:vertical;">Thursday</div>
+                      <div class="q-item-label" style="overflow:hidden;display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:NaN;">Thursday</div>
                     </div>
                     <div class="q-item-side q-item-section q-item-side-right">
                       <div tabindex="-1" class="q-option cursor-pointer no-outline row inline no-wrap items-center q-toggle">
@@ -4220,7 +4220,7 @@ exports[`Storyshots PickupSeriesEdit Default 1`] = `
                   </div>
                   <div class="q-item q-item-division relative-position cursor-pointer cursor-pointer">
                     <div class="q-item-main q-item-section">
-                      <div class="q-item-label" style="overflow:hidden;display:-webkit-box;-webkit-box-orient:vertical;">Friday</div>
+                      <div class="q-item-label" style="overflow:hidden;display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:NaN;">Friday</div>
                     </div>
                     <div class="q-item-side q-item-section q-item-side-right">
                       <div tabindex="-1" class="q-option cursor-pointer no-outline row inline no-wrap items-center q-toggle">
@@ -4236,7 +4236,7 @@ exports[`Storyshots PickupSeriesEdit Default 1`] = `
                   </div>
                   <div class="q-item q-item-division relative-position cursor-pointer cursor-pointer">
                     <div class="q-item-main q-item-section">
-                      <div class="q-item-label" style="overflow:hidden;display:-webkit-box;-webkit-box-orient:vertical;">Saturday</div>
+                      <div class="q-item-label" style="overflow:hidden;display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:NaN;">Saturday</div>
                     </div>
                     <div class="q-item-side q-item-section q-item-side-right">
                       <div tabindex="-1" class="q-option cursor-pointer no-outline row inline no-wrap items-center q-toggle">
@@ -4252,7 +4252,7 @@ exports[`Storyshots PickupSeriesEdit Default 1`] = `
                   </div>
                   <div class="q-item q-item-division relative-position cursor-pointer cursor-pointer">
                     <div class="q-item-main q-item-section">
-                      <div class="q-item-label" style="overflow:hidden;display:-webkit-box;-webkit-box-orient:vertical;">Sunday</div>
+                      <div class="q-item-label" style="overflow:hidden;display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:NaN;">Sunday</div>
                     </div>
                     <div class="q-item-side q-item-section q-item-side-right">
                       <div tabindex="-1" class="q-option cursor-pointer no-outline row inline no-wrap items-center q-toggle">
@@ -4641,25 +4641,25 @@ exports[`Storyshots Places PlaceEdit (with server error) 1`] = `
                     <div class="q-item q-item-division relative-position cursor-pointer q-select-highlight cursor-pointer">
                       <div class="q-item-side q-item-section q-item-side-left"><i aria-hidden="true" class="q-icon fas fa-circle q-item-icon text-grey"> </i></div>
                       <div class="q-item-main q-item-section">
-                        <div class="q-item-label" style="overflow:hidden;display:-webkit-box;-webkit-box-orient:vertical;">Just created</div>
+                        <div class="q-item-label" style="overflow:hidden;display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:NaN;">Just created</div>
                       </div>
                     </div>
                     <div class="q-item q-item-division relative-position cursor-pointer cursor-pointer">
                       <div class="q-item-side q-item-section q-item-side-left"><i aria-hidden="true" class="q-icon fas fa-circle q-item-icon text-blue"> </i></div>
                       <div class="q-item-main q-item-section">
-                        <div class="q-item-label" style="overflow:hidden;display:-webkit-box;-webkit-box-orient:vertical;">Negotiating</div>
+                        <div class="q-item-label" style="overflow:hidden;display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:NaN;">Negotiating</div>
                       </div>
                     </div>
                     <div class="q-item q-item-division relative-position cursor-pointer cursor-pointer">
                       <div class="q-item-side q-item-section q-item-side-left"><i aria-hidden="true" class="q-icon fas fa-circle q-item-icon text-positive"> </i></div>
                       <div class="q-item-main q-item-section">
-                        <div class="q-item-label" style="overflow:hidden;display:-webkit-box;-webkit-box-orient:vertical;">Co-operating</div>
+                        <div class="q-item-label" style="overflow:hidden;display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:NaN;">Co-operating</div>
                       </div>
                     </div>
                     <div class="q-item q-item-division relative-position cursor-pointer cursor-pointer">
                       <div class="q-item-side q-item-section q-item-side-left"><i aria-hidden="true" class="q-icon fas fa-circle q-item-icon text-negative"> </i></div>
                       <div class="q-item-main q-item-section">
-                        <div class="q-item-label" style="overflow:hidden;display:-webkit-box;-webkit-box-orient:vertical;">Don't want to cooperate</div>
+                        <div class="q-item-label" style="overflow:hidden;display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:NaN;">Don't want to cooperate</div>
                       </div>
                     </div>
                   </div>
@@ -4830,25 +4830,25 @@ exports[`Storyshots Places PlaceEdit 1`] = `
                     <div class="q-item q-item-division relative-position cursor-pointer q-select-highlight cursor-pointer">
                       <div class="q-item-side q-item-section q-item-side-left"><i aria-hidden="true" class="q-icon fas fa-circle q-item-icon text-grey"> </i></div>
                       <div class="q-item-main q-item-section">
-                        <div class="q-item-label" style="overflow:hidden;display:-webkit-box;-webkit-box-orient:vertical;">Just created</div>
+                        <div class="q-item-label" style="overflow:hidden;display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:NaN;">Just created</div>
                       </div>
                     </div>
                     <div class="q-item q-item-division relative-position cursor-pointer cursor-pointer">
                       <div class="q-item-side q-item-section q-item-side-left"><i aria-hidden="true" class="q-icon fas fa-circle q-item-icon text-blue"> </i></div>
                       <div class="q-item-main q-item-section">
-                        <div class="q-item-label" style="overflow:hidden;display:-webkit-box;-webkit-box-orient:vertical;">Negotiating</div>
+                        <div class="q-item-label" style="overflow:hidden;display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:NaN;">Negotiating</div>
                       </div>
                     </div>
                     <div class="q-item q-item-division relative-position cursor-pointer cursor-pointer">
                       <div class="q-item-side q-item-section q-item-side-left"><i aria-hidden="true" class="q-icon fas fa-circle q-item-icon text-positive"> </i></div>
                       <div class="q-item-main q-item-section">
-                        <div class="q-item-label" style="overflow:hidden;display:-webkit-box;-webkit-box-orient:vertical;">Co-operating</div>
+                        <div class="q-item-label" style="overflow:hidden;display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:NaN;">Co-operating</div>
                       </div>
                     </div>
                     <div class="q-item q-item-division relative-position cursor-pointer cursor-pointer">
                       <div class="q-item-side q-item-section q-item-side-left"><i aria-hidden="true" class="q-icon fas fa-circle q-item-icon text-negative"> </i></div>
                       <div class="q-item-main q-item-section">
-                        <div class="q-item-label" style="overflow:hidden;display:-webkit-box;-webkit-box-orient:vertical;">Don't want to cooperate</div>
+                        <div class="q-item-label" style="overflow:hidden;display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:NaN;">Don't want to cooperate</div>
                       </div>
                     </div>
                   </div>
@@ -6003,22 +6003,22 @@ exports[`Storyshots Statistics PickupFeedback 1`] = `
                       <div class="q-list no-border scroll">
                         <div class="q-item q-item-division relative-position cursor-pointer q-select-highlight cursor-pointer">
                           <div class="q-item-main q-item-section">
-                            <div class="q-item-label" style="overflow:hidden;display:-webkit-box;-webkit-box-orient:vertical;">Aug 12, 2017, 8:00 AM (Griesheimer Markt)</div>
+                            <div class="q-item-label" style="overflow:hidden;display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:NaN;">Aug 12, 2017, 8:00 AM (Griesheimer Markt)</div>
                           </div>
                         </div>
                         <div class="q-item q-item-division relative-position cursor-pointer cursor-pointer">
                           <div class="q-item-main q-item-section">
-                            <div class="q-item-label" style="overflow:hidden;display:-webkit-box;-webkit-box-orient:vertical;">Aug 13, 2017, 8:00 AM (Griesheimer Markt)</div>
+                            <div class="q-item-label" style="overflow:hidden;display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:NaN;">Aug 13, 2017, 8:00 AM (Griesheimer Markt)</div>
                           </div>
                         </div>
                         <div class="q-item q-item-division relative-position cursor-pointer cursor-pointer">
                           <div class="q-item-main q-item-section">
-                            <div class="q-item-label" style="overflow:hidden;display:-webkit-box;-webkit-box-orient:vertical;">Aug 14, 2017, 8:00 AM (Griesheimer Markt)</div>
+                            <div class="q-item-label" style="overflow:hidden;display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:NaN;">Aug 14, 2017, 8:00 AM (Griesheimer Markt)</div>
                           </div>
                         </div>
                         <div class="q-item q-item-division relative-position cursor-pointer cursor-pointer">
                           <div class="q-item-main q-item-section">
-                            <div class="q-item-label" style="overflow:hidden;display:-webkit-box;-webkit-box-orient:vertical;">Aug 15, 2017, 8:00 AM (Griesheimer Markt)</div>
+                            <div class="q-item-label" style="overflow:hidden;display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:NaN;">Aug 15, 2017, 8:00 AM (Griesheimer Markt)</div>
                           </div>
                         </div>
                       </div>

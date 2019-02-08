@@ -51,8 +51,8 @@ export default {
     activePlaceId: state => state.activePlaceId,
     ...metaStatuses(['create']),
     conversation: (state, getters, rootState, rootGetters) => {
-      if (!state.activeStoreId) return
-      return rootGetters['conversations/getForStore'](state.activeStoreId)
+      if (!state.activePlaceId) return
+      return rootGetters['conversations/getForPlace'](state.activePlaceId)
     },
   },
   actions: {

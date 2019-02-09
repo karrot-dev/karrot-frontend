@@ -1324,7 +1324,7 @@ exports[`Storyshots GroupGallery switch and explore 1`] = `
             <!---->
             <!---->
             <div class="q-card-media relative-position photo">
-              <div seed="1" type="circles" class="full-height"></div>
+              <div seed="10" type="circles" class="full-height"></div>
               <div class="q-card-media-overlay absolute-bottom">
                 <div class="q-card-primary q-card-container row no-wrap ellipsis">
                   <div class="col column">
@@ -1376,7 +1376,7 @@ exports[`Storyshots GroupGallery switch and explore 1`] = `
             <!---->
             <!---->
             <div class="q-card-media relative-position photo">
-              <div seed="2" type="circles" class="full-height"></div>
+              <div seed="20" type="circles" class="full-height"></div>
               <div class="q-card-media-overlay absolute-bottom">
                 <div class="q-card-primary q-card-container row no-wrap ellipsis">
                   <div class="col column">
@@ -1421,7 +1421,7 @@ exports[`Storyshots GroupGallery switch and explore 1`] = `
             <!---->
             <!---->
             <div class="q-card-media relative-position photo">
-              <div seed="3" type="circles" class="full-height"></div>
+              <div seed="30" type="circles" class="full-height"></div>
               <div class="q-card-media-overlay absolute-bottom">
                 <div class="q-card-primary q-card-container row no-wrap ellipsis">
                   <div class="col column">
@@ -3209,28 +3209,28 @@ exports[`Storyshots Map GroupMap (only group location) 1`] = `
 </div>
 `;
 
-exports[`Storyshots Map GroupMap (selected store) 1`] = `
+exports[`Storyshots Map GroupMap (place has no location) 1`] = `
+<div class="container" style="height:200px;">
+  <div class="vue2leaflet-map k-map" style="opacity:0.5;">
+    <!---->
+  </div>
+  <!---->
+  <div class="overlay row justify-center items-center"><a tabindex="0" type="button" href="#/group/1/place/62/edit" class="q-btn inline relative-position q-btn-item non-selectable q-btn-rectangle q-focusable q-hoverable bg-primary text-white">
+      <div class="q-focus-helper"></div>
+      <div class="q-btn-inner row col items-center q-popup--skip justify-center">
+        Set location
+      </div>
+    </a></div>
+</div>
+`;
+
+exports[`Storyshots Map GroupMap (selected place) 1`] = `
 <div class="container" style="height:200px;">
   <div class="vue2leaflet-map k-map" style="opacity:1;">
     <!---->
   </div>
   <!---->
   <!---->
-</div>
-`;
-
-exports[`Storyshots Map GroupMap (store has no location) 1`] = `
-<div class="container" style="height:200px;">
-  <div class="vue2leaflet-map k-map" style="opacity:0.5;">
-    <!---->
-  </div>
-  <!---->
-  <div class="overlay row justify-center items-center"><a tabindex="0" type="button" href="#/group/1/store/62/edit" class="q-btn inline relative-position q-btn-item non-selectable q-btn-rectangle q-focusable q-hoverable bg-primary text-white">
-      <div class="q-focus-helper"></div>
-      <div class="q-btn-inner row col items-center q-popup--skip justify-center">
-        Set location
-      </div>
-    </a></div>
 </div>
 `;
 
@@ -3313,7 +3313,7 @@ exports[`Storyshots Notifications feedback_possible 1`] = `
       </div>
       · Group 0
 
-      · Store 0
+      · Place 0
     </div>
   </div>
 </a>
@@ -3385,12 +3385,12 @@ exports[`Storyshots Notifications new_member 1`] = `
 </a>
 `;
 
-exports[`Storyshots Notifications new_store 1`] = `
+exports[`Storyshots Notifications new_place 1`] = `
 <a class="q-link q-item q-item-division relative-position q-item-link isUnread">
   <!---->
   <div class="q-item-main q-item-section">
     <div class="q-item-label" style="overflow:hidden;display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:2;"><i aria-hidden="true" class="q-icon q-mr-xs vertical-baseline fas fa-shopping-cart"> </i>
-      Store 0 has been created
+      has been created
     </div>
     <div class="q-item-sublabel">
       <div title="Dec 24, 2017, 12:00 PM" style="display:inline;">
@@ -3416,7 +3416,7 @@ exports[`Storyshots Notifications pickup_disabled 1`] = `
       </div>
       · Group 0
 
-      · Store 0
+      · Place 0
     </div>
   </div>
 </a>
@@ -3435,7 +3435,7 @@ exports[`Storyshots Notifications pickup_enabled 1`] = `
       </div>
       · Group 0
 
-      · Store 0
+      · Place 0
     </div>
   </div>
 </a>
@@ -3454,7 +3454,7 @@ exports[`Storyshots Notifications pickup_moved 1`] = `
       </div>
       · Group 0
 
-      · Store 0
+      · Place 0
     </div>
   </div>
 </a>
@@ -3473,7 +3473,7 @@ exports[`Storyshots Notifications pickup_upcoming 1`] = `
       </div>
       · Group 0
 
-      · Store 0
+      · Place 0
     </div>
   </div>
 </a>
@@ -4621,6 +4621,430 @@ exports[`Storyshots PickupUsers leave pending (middle) 1`] = `
 </div>
 `;
 
+exports[`Storyshots Places PlaceEdit (with server error) 1`] = `
+<div>
+  <div class="q-card no-shadow grey-border">
+    <div class="edit-box">
+      <form>
+        <div class="q-field row no-wrap items-start q-field-responsive q-field-with-error q-field-no-input"><i aria-hidden="true" class="q-icon q-field-icon q-field-margin fas fa-star"> </i>
+          <div class="row col">
+            <div class="q-field-label q-field-margin col-xs-12 col-sm-5">
+              <div class="q-field-label-inner row items-center">Name</div>
+            </div>
+            <div class="q-field-content col-xs-12 col-sm">
+              <div tabindex="-1" autocomplete="off" class="q-if row no-wrap relative-position q-input q-if-error q-if-standard q-if-has-content text-negative">
+                <div class="q-if-baseline">|</div>
+                <div class="q-if-inner col column q-popup--skip">
+                  <div class="row no-wrap relative-position"><input autocomplete="off" type="text" step="any" value="Teststore1" class="col q-input-target q-no-input-spinner ellipsis"></div>
+                </div>
+              </div>
+              <div class="q-field-bottom row no-wrap">
+                <div class="q-field-error col">a nice server error</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="q-field row no-wrap items-start q-field-responsive q-field-no-input"><i aria-hidden="true" class="q-icon q-field-icon q-field-margin fas fa-handshake"> </i>
+          <div class="row col">
+            <div class="q-field-label q-field-margin col-xs-12 col-sm-5">
+              <div class="q-field-label-inner row items-center">Status</div>
+            </div>
+            <div class="q-field-content col-xs-12 col-sm">
+              <div tabindex="0" class="q-if row no-wrap relative-position q-select q-if-focusable q-if-standard text-primary">
+                <div class="q-if-baseline">|</div>
+                <div class="q-if-inner col column q-popup--skip">
+                  <div class="row no-wrap relative-position">
+                    <div class="col q-input-target ellipsis justify-start"></div>
+                  </div>
+                </div>
+                <div tabindex="-1" class="q-popover scroll column no-wrap">
+                  <div class="q-list no-border scroll">
+                    <div class="q-item q-item-division relative-position cursor-pointer q-select-highlight cursor-pointer">
+                      <div class="q-item-side q-item-section q-item-side-left"><i aria-hidden="true" class="q-icon fas fa-circle q-item-icon text-grey"> </i></div>
+                      <div class="q-item-main q-item-section">
+                        <div class="q-item-label" style="overflow:hidden;display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:NaN;">Just created</div>
+                      </div>
+                    </div>
+                    <div class="q-item q-item-division relative-position cursor-pointer cursor-pointer">
+                      <div class="q-item-side q-item-section q-item-side-left"><i aria-hidden="true" class="q-icon fas fa-circle q-item-icon text-blue"> </i></div>
+                      <div class="q-item-main q-item-section">
+                        <div class="q-item-label" style="overflow:hidden;display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:NaN;">Negotiating</div>
+                      </div>
+                    </div>
+                    <div class="q-item q-item-division relative-position cursor-pointer cursor-pointer">
+                      <div class="q-item-side q-item-section q-item-side-left"><i aria-hidden="true" class="q-icon fas fa-circle q-item-icon text-positive"> </i></div>
+                      <div class="q-item-main q-item-section">
+                        <div class="q-item-label" style="overflow:hidden;display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:NaN;">Co-operating</div>
+                      </div>
+                    </div>
+                    <div class="q-item q-item-division relative-position cursor-pointer cursor-pointer">
+                      <div class="q-item-side q-item-section q-item-side-left"><i aria-hidden="true" class="q-icon fas fa-circle q-item-icon text-negative"> </i></div>
+                      <div class="q-item-main q-item-section">
+                        <div class="q-item-label" style="overflow:hidden;display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:NaN;">Don't want to cooperate</div>
+                      </div>
+                    </div>
+                  </div>
+                </div><i aria-hidden="true" class="q-icon q-if-control material-icons">arrow_drop_down</i>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="q-field row no-wrap items-start q-field-responsive q-field-no-input"><i aria-hidden="true" class="q-icon q-field-icon q-field-margin fas fa-question"> </i>
+          <div class="row col">
+            <div class="q-field-label q-field-margin col-xs-12 col-sm-5">
+              <div class="q-field-label-inner row items-center">Description</div>
+            </div>
+            <div class="q-field-content col-xs-12 col-sm">
+              <div>
+                <div class="q-tabs flex no-wrap overflow-hidden markdown-input q-tabs-position-top q-tabs-inverted">
+                  <div class="q-tabs-head row q-tabs-align-right text-primary">
+                    <div class="q-tabs-scroller row no-wrap">
+                      <div data-tab-name="edit" class="q-tab column flex-center relative-position markdown-input-tab active q-tab-only-label hide-none text-primary">
+                        <div class="q-tab-label-parent relative-position">
+                          <div class="q-tab-label">Edit</div>
+                        </div>
+                        <div class="q-tabs-bar"></div>
+                        <div tabindex="-1" class="q-tab-focus-helper absolute-full"></div>
+                      </div>
+                      <div data-tab-name="preview" class="q-tab column flex-center relative-position markdown-input-tab q-tab-only-label hide-none text-primary">
+                        <div class="q-tab-label-parent relative-position">
+                          <div class="q-tab-label">Preview</div>
+                        </div>
+                        <div class="q-tabs-bar" style="display:none;"></div>
+                        <div tabindex="0" class="q-tab-focus-helper absolute-full"></div>
+                      </div>
+                      <div class="relative-position self-stretch q-tabs-global-bar-container text-primary highlight">
+                        <div class="q-tabs-bar q-tabs-global-bar"></div>
+                      </div>
+                    </div>
+                    <div class="row flex-center q-tabs-left-scroll"><i aria-hidden="true" class="q-icon material-icons">chevron_left</i></div>
+                    <div class="row flex-center q-tabs-right-scroll"><i aria-hidden="true" class="q-icon material-icons">chevron_right</i></div>
+                  </div>
+                  <div class="q-tabs-panes">
+                    <div class="q-tab-pane">
+                      <div tabindex="-1" rows="3" class="q-if row no-wrap relative-position q-input q-if-standard q-if-has-content text-primary">
+                        <div class="q-if-baseline">|</div>
+                        <div class="q-if-inner col column q-popup--skip">
+                          <div class="row no-wrap relative-position">
+                            <div class="col row relative-position"><object tabindex="-1" type="text/html" data="about:blank" aria-hidden="true" style="display:block;position:absolute;top:0;left:0;right:0;bottom:0;height:100%;width:100%;overflow:hidden;pointer-events:none;z-index:-1;"></object><textarea rows="3" class="col q-input-target q-input-shadow absolute-top">all the good stuff</textarea><textarea rows="3" class="col q-input-target q-input-area">all the good stuff</textarea></div>
+                          </div>
+                        </div>
+                      </div> <small class="row justify-end text-weight-light markdown-helper"><b>**bold**</b> <i>_italic_</i> <span>~~strike~~</span> <span>&gt;quote</span> <a href="https://guides.github.com/features/mastering-markdown/" target="_blank" rel="nofollow noopener noreferrer" title="What is Markdown?"><i aria-hidden="true" class="q-icon fas fa-question-circle"> </i></a></small>
+                    </div>
+                    <!---->
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="q-field row no-wrap items-start q-field-responsive q-field-no-input"><i aria-hidden="true" class="q-icon q-field-icon q-field-margin fas fa-map-marker"> </i>
+          <div class="row col">
+            <div class="q-field-label q-field-margin col-xs-12 col-sm-5">
+              <div class="q-field-label-inner row items-center">Address</div>
+            </div>
+            <div class="q-field-content col-xs-12 col-sm">
+              <div>
+                <div tabindex="-1" class="q-if row no-wrap relative-position q-input q-search q-if-standard q-if-has-content text-primary">
+                  <div class="q-if-baseline">|</div><i aria-hidden="true" class="q-icon q-if-control q-if-control-before material-icons">search</i>
+                  <div class="q-if-inner col column q-popup--skip">
+                    <div class="row no-wrap relative-position"><input type="search" placeholder="Search" step="any" value="Kranichstein, Darmstadt, Regierungsbezirk Darmstadt, Hesse, Germany" class="col q-input-target q-no-input-spinner ellipsis text-left"></div>
+                  </div>
+                  <div class="absolute-full no-pointer-events">
+                    <div tabindex="-1" class="q-popover scroll">
+                      <div class="q-list no-border" style="min-width:0;"></div>
+                    </div>
+                  </div>
+                </div>
+                <div class="vue2leaflet-map k-map map">
+                  <!---->
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="q-field row no-wrap items-start q-field-responsive q-field-no-input"><i aria-hidden="true" class="q-icon q-field-icon q-field-margin fas fa-calendar-alt"> </i>
+          <div class="row col">
+            <div class="q-field-label q-field-margin col-xs-12 col-sm-5">
+              <div class="q-field-label-inner row items-center">How many weeks in advance should recurring pickup dates be shown?</div>
+            </div>
+            <div class="q-field-content col-xs-12 col-sm">
+              <div class="q-slider non-selectable label-always">
+                <div class="q-slider-handle-container">
+                  <div class="q-slider-track"></div>
+                  <div class="q-slider-track active-track" style="width:33.33333333333333%;"></div>
+                  <div tabindex="0" class="q-slider-handle" style="left:33.33333333333333%;border-radius:50%;">
+                    <div class="q-chip row no-wrap inline items-center q-slider-label no-pointer-events q-chip-pointing-down q-chip-square q-chip-pointing q-chip-dense bg-primary text-white label-always">
+                      <div class="q-chip-main ellipsis q-popup--skip">4</div>
+                    </div>
+                    <div class="q-slider-ring"></div>
+                  </div>
+                </div>
+              </div>
+              <div class="q-field-bottom row no-wrap">
+                <div class="col text-transparent">|</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!---->
+        <div class="actionButtons"><button tabindex="-1" type="submit" class="q-btn inline relative-position q-btn-item non-selectable q-btn-rectangle disabled bg-primary text-white">
+            <div class="q-focus-helper"></div>
+            <div class="q-btn-inner row col items-center q-popup--skip justify-center">
+              Save changes
+            </div>
+            <!---->
+          </button> <button tabindex="0" type="button" class="q-btn inline relative-position q-btn-item non-selectable q-btn-rectangle q-focusable q-hoverable bg-red text-white">
+            <div class="q-focus-helper"></div>
+            <div class="q-btn-inner row col items-center q-popup--skip justify-center">
+              Archive
+            </div>
+          </button> <button tabindex="-1" type="button" class="q-btn inline relative-position q-btn-item non-selectable q-btn-rectangle disabled">
+            <div class="q-focus-helper"></div>
+            <div class="q-btn-inner row col items-center q-popup--skip justify-center">
+              Reset
+            </div>
+          </button>
+          <!---->
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Storyshots Places PlaceEdit 1`] = `
+<div>
+  <div class="q-card no-shadow grey-border">
+    <div class="edit-box">
+      <form>
+        <div class="q-field row no-wrap items-start q-field-responsive q-field-no-input"><i aria-hidden="true" class="q-icon q-field-icon q-field-margin fas fa-star"> </i>
+          <div class="row col">
+            <div class="q-field-label q-field-margin col-xs-12 col-sm-5">
+              <div class="q-field-label-inner row items-center">Name</div>
+            </div>
+            <div class="q-field-content col-xs-12 col-sm">
+              <div tabindex="-1" autocomplete="off" class="q-if row no-wrap relative-position q-input q-if-standard q-if-has-content text-primary">
+                <div class="q-if-baseline">|</div>
+                <div class="q-if-inner col column q-popup--skip">
+                  <div class="row no-wrap relative-position"><input autocomplete="off" type="text" step="any" value="Teststore1" class="col q-input-target q-no-input-spinner ellipsis"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="q-field row no-wrap items-start q-field-responsive q-field-no-input"><i aria-hidden="true" class="q-icon q-field-icon q-field-margin fas fa-handshake"> </i>
+          <div class="row col">
+            <div class="q-field-label q-field-margin col-xs-12 col-sm-5">
+              <div class="q-field-label-inner row items-center">Status</div>
+            </div>
+            <div class="q-field-content col-xs-12 col-sm">
+              <div tabindex="0" class="q-if row no-wrap relative-position q-select q-if-focusable q-if-standard text-primary">
+                <div class="q-if-baseline">|</div>
+                <div class="q-if-inner col column q-popup--skip">
+                  <div class="row no-wrap relative-position">
+                    <div class="col q-input-target ellipsis justify-start"></div>
+                  </div>
+                </div>
+                <div tabindex="-1" class="q-popover scroll column no-wrap">
+                  <div class="q-list no-border scroll">
+                    <div class="q-item q-item-division relative-position cursor-pointer q-select-highlight cursor-pointer">
+                      <div class="q-item-side q-item-section q-item-side-left"><i aria-hidden="true" class="q-icon fas fa-circle q-item-icon text-grey"> </i></div>
+                      <div class="q-item-main q-item-section">
+                        <div class="q-item-label" style="overflow:hidden;display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:NaN;">Just created</div>
+                      </div>
+                    </div>
+                    <div class="q-item q-item-division relative-position cursor-pointer cursor-pointer">
+                      <div class="q-item-side q-item-section q-item-side-left"><i aria-hidden="true" class="q-icon fas fa-circle q-item-icon text-blue"> </i></div>
+                      <div class="q-item-main q-item-section">
+                        <div class="q-item-label" style="overflow:hidden;display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:NaN;">Negotiating</div>
+                      </div>
+                    </div>
+                    <div class="q-item q-item-division relative-position cursor-pointer cursor-pointer">
+                      <div class="q-item-side q-item-section q-item-side-left"><i aria-hidden="true" class="q-icon fas fa-circle q-item-icon text-positive"> </i></div>
+                      <div class="q-item-main q-item-section">
+                        <div class="q-item-label" style="overflow:hidden;display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:NaN;">Co-operating</div>
+                      </div>
+                    </div>
+                    <div class="q-item q-item-division relative-position cursor-pointer cursor-pointer">
+                      <div class="q-item-side q-item-section q-item-side-left"><i aria-hidden="true" class="q-icon fas fa-circle q-item-icon text-negative"> </i></div>
+                      <div class="q-item-main q-item-section">
+                        <div class="q-item-label" style="overflow:hidden;display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:NaN;">Don't want to cooperate</div>
+                      </div>
+                    </div>
+                  </div>
+                </div><i aria-hidden="true" class="q-icon q-if-control material-icons">arrow_drop_down</i>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="q-field row no-wrap items-start q-field-responsive q-field-no-input"><i aria-hidden="true" class="q-icon q-field-icon q-field-margin fas fa-question"> </i>
+          <div class="row col">
+            <div class="q-field-label q-field-margin col-xs-12 col-sm-5">
+              <div class="q-field-label-inner row items-center">Description</div>
+            </div>
+            <div class="q-field-content col-xs-12 col-sm">
+              <div>
+                <div class="q-tabs flex no-wrap overflow-hidden markdown-input q-tabs-position-top q-tabs-inverted">
+                  <div class="q-tabs-head row q-tabs-align-right text-primary">
+                    <div class="q-tabs-scroller row no-wrap">
+                      <div data-tab-name="edit" class="q-tab column flex-center relative-position markdown-input-tab active q-tab-only-label hide-none text-primary">
+                        <div class="q-tab-label-parent relative-position">
+                          <div class="q-tab-label">Edit</div>
+                        </div>
+                        <div class="q-tabs-bar"></div>
+                        <div tabindex="-1" class="q-tab-focus-helper absolute-full"></div>
+                      </div>
+                      <div data-tab-name="preview" class="q-tab column flex-center relative-position markdown-input-tab q-tab-only-label hide-none text-primary">
+                        <div class="q-tab-label-parent relative-position">
+                          <div class="q-tab-label">Preview</div>
+                        </div>
+                        <div class="q-tabs-bar" style="display:none;"></div>
+                        <div tabindex="0" class="q-tab-focus-helper absolute-full"></div>
+                      </div>
+                      <div class="relative-position self-stretch q-tabs-global-bar-container text-primary highlight">
+                        <div class="q-tabs-bar q-tabs-global-bar"></div>
+                      </div>
+                    </div>
+                    <div class="row flex-center q-tabs-left-scroll"><i aria-hidden="true" class="q-icon material-icons">chevron_left</i></div>
+                    <div class="row flex-center q-tabs-right-scroll"><i aria-hidden="true" class="q-icon material-icons">chevron_right</i></div>
+                  </div>
+                  <div class="q-tabs-panes">
+                    <div class="q-tab-pane">
+                      <div tabindex="-1" rows="3" class="q-if row no-wrap relative-position q-input q-if-standard q-if-has-content text-primary">
+                        <div class="q-if-baseline">|</div>
+                        <div class="q-if-inner col column q-popup--skip">
+                          <div class="row no-wrap relative-position">
+                            <div class="col row relative-position"><object tabindex="-1" type="text/html" data="about:blank" aria-hidden="true" style="display:block;position:absolute;top:0;left:0;right:0;bottom:0;height:100%;width:100%;overflow:hidden;pointer-events:none;z-index:-1;"></object><textarea rows="3" class="col q-input-target q-input-shadow absolute-top">all the good stuff</textarea><textarea rows="3" class="col q-input-target q-input-area">all the good stuff</textarea></div>
+                          </div>
+                        </div>
+                      </div> <small class="row justify-end text-weight-light markdown-helper"><b>**bold**</b> <i>_italic_</i> <span>~~strike~~</span> <span>&gt;quote</span> <a href="https://guides.github.com/features/mastering-markdown/" target="_blank" rel="nofollow noopener noreferrer" title="What is Markdown?"><i aria-hidden="true" class="q-icon fas fa-question-circle"> </i></a></small>
+                    </div>
+                    <!---->
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="q-field row no-wrap items-start q-field-responsive q-field-no-input"><i aria-hidden="true" class="q-icon q-field-icon q-field-margin fas fa-map-marker"> </i>
+          <div class="row col">
+            <div class="q-field-label q-field-margin col-xs-12 col-sm-5">
+              <div class="q-field-label-inner row items-center">Address</div>
+            </div>
+            <div class="q-field-content col-xs-12 col-sm">
+              <div>
+                <div tabindex="-1" class="q-if row no-wrap relative-position q-input q-search q-if-standard q-if-has-content text-primary">
+                  <div class="q-if-baseline">|</div><i aria-hidden="true" class="q-icon q-if-control q-if-control-before material-icons">search</i>
+                  <div class="q-if-inner col column q-popup--skip">
+                    <div class="row no-wrap relative-position"><input type="search" placeholder="Search" step="any" value="Kranichstein, Darmstadt, Regierungsbezirk Darmstadt, Hesse, Germany" class="col q-input-target q-no-input-spinner ellipsis text-left"></div>
+                  </div>
+                  <div class="absolute-full no-pointer-events">
+                    <div tabindex="-1" class="q-popover scroll">
+                      <div class="q-list no-border" style="min-width:0;"></div>
+                    </div>
+                  </div>
+                </div>
+                <div class="vue2leaflet-map k-map map">
+                  <!---->
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="q-field row no-wrap items-start q-field-responsive q-field-no-input"><i aria-hidden="true" class="q-icon q-field-icon q-field-margin fas fa-calendar-alt"> </i>
+          <div class="row col">
+            <div class="q-field-label q-field-margin col-xs-12 col-sm-5">
+              <div class="q-field-label-inner row items-center">How many weeks in advance should recurring pickup dates be shown?</div>
+            </div>
+            <div class="q-field-content col-xs-12 col-sm">
+              <div class="q-slider non-selectable label-always">
+                <div class="q-slider-handle-container">
+                  <div class="q-slider-track"></div>
+                  <div class="q-slider-track active-track" style="width:33.33333333333333%;"></div>
+                  <div tabindex="0" class="q-slider-handle" style="left:33.33333333333333%;border-radius:50%;">
+                    <div class="q-chip row no-wrap inline items-center q-slider-label no-pointer-events q-chip-pointing-down q-chip-square q-chip-pointing q-chip-dense bg-primary text-white label-always">
+                      <div class="q-chip-main ellipsis q-popup--skip">4</div>
+                    </div>
+                    <div class="q-slider-ring"></div>
+                  </div>
+                </div>
+              </div>
+              <div class="q-field-bottom row no-wrap">
+                <div class="col text-transparent">|</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!---->
+        <div class="actionButtons"><button tabindex="-1" type="submit" class="q-btn inline relative-position q-btn-item non-selectable q-btn-rectangle disabled bg-primary text-white">
+            <div class="q-focus-helper"></div>
+            <div class="q-btn-inner row col items-center q-popup--skip justify-center">
+              Save changes
+            </div>
+            <!---->
+          </button> <button tabindex="0" type="button" class="q-btn inline relative-position q-btn-item non-selectable q-btn-rectangle q-focusable q-hoverable bg-red text-white">
+            <div class="q-focus-helper"></div>
+            <div class="q-btn-inner row col items-center q-popup--skip justify-center">
+              Archive
+            </div>
+          </button> <button tabindex="-1" type="button" class="q-btn inline relative-position q-btn-item non-selectable q-btn-rectangle disabled">
+            <div class="q-focus-helper"></div>
+            <div class="q-btn-inner row col items-center q-popup--skip justify-center">
+              Reset
+            </div>
+          </button>
+          <!---->
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Storyshots Places PlaceList 1`] = `
+<div class="q-list no-padding no-border q-list-highlight"><a class="q-link q-item q-item-division relative-position q-item-link">
+    <div class="q-item-side q-item-section text-center q-item-side-left"><i aria-hidden="true" title="Just created" class="q-icon fas fa-circle text-grey"> </i></div>
+    <div class="q-item-main q-item-section">
+      <div class="q-item-label">
+        Teststore1
+      </div>
+    </div>
+  </a><a class="q-link q-item q-item-division relative-position q-item-link">
+    <div class="q-item-side q-item-section text-center q-item-side-left"><i aria-hidden="true" title="Just created" class="q-icon fas fa-circle text-grey"> </i></div>
+    <div class="q-item-main q-item-section">
+      <div class="q-item-label">
+        New Tienda
+      </div>
+    </div>
+  </a><a class="q-link q-item q-item-division relative-position q-item-link">
+    <div class="q-item-side q-item-section text-center q-item-side-left"><i aria-hidden="true" title="Just created" class="q-icon fas fa-circle text-grey"> </i></div>
+    <div class="q-item-main q-item-section">
+      <div class="q-item-label">
+        Supermarkt Arheilgen
+      </div>
+    </div>
+  </a><a class="q-link q-item q-item-division relative-position q-item-link">
+    <div class="q-item-side q-item-section text-center q-item-side-left"><i aria-hidden="true" title="Just created" class="q-icon fas fa-circle text-grey"> </i></div>
+    <div class="q-item-main q-item-section">
+      <div class="q-item-label">
+        asd
+      </div>
+    </div>
+  </a><a class="q-link q-item q-item-division relative-position q-item-link">
+    <div class="q-item-side q-item-section text-center q-item-side-left"><i aria-hidden="true" title="Just created" class="q-icon fas fa-circle text-grey"> </i></div>
+    <div class="q-item-main q-item-section">
+      <div class="q-item-label">
+        Griesheimer Markt
+      </div>
+    </div>
+  </a>
+  <!---->
+  <!---->
+  <!---->
+</div>
+`;
+
 exports[`Storyshots ProfilePicture with user 1`] = `
 <div class="wrapper" style="width:100px;height:100px;">
   <div text="Mira Bellenbaum" seed="1" class="randomArt fill"></div>
@@ -5049,7 +5473,7 @@ exports[`Storyshots Sidenav Boxes Map 1`] = `
 </div>
 `;
 
-exports[`Storyshots Sidenav Boxes Stores 1`] = `
+exports[`Storyshots Sidenav Boxes Places 1`] = `
 <div class="k-sidenav-box expandable">
   <div class="q-toolbar row no-wrap items-center relative-position toolbar q-toolbar-inverted text-primary"><i aria-hidden="true" class="q-icon fas fa-fw fa-shopping-cart"> </i>
     <div class="q-toolbar-title">
@@ -5731,7 +6155,7 @@ exports[`Storyshots Statistics PickupFeedback 1`] = `
       </form>
     </div>
   </div>
-  <div class="q-card no-shadow grey-border store-feedback">
+  <div class="q-card no-shadow grey-border place-feedback">
     <div seed="61" type="banner" class="randomBanner"></div>
     <h4 class="generic-padding"></h4>
     <div class="q-infinite-scroll k-feedback-list">
@@ -5848,430 +6272,6 @@ exports[`Storyshots Statistics PickupFeedback 1`] = `
       </div>
     </div>
   </div>
-</div>
-`;
-
-exports[`Storyshots Stores StoreEdit (with server error) 1`] = `
-<div>
-  <div class="q-card no-shadow grey-border">
-    <div class="edit-box">
-      <form>
-        <div class="q-field row no-wrap items-start q-field-responsive q-field-with-error q-field-no-input"><i aria-hidden="true" class="q-icon q-field-icon q-field-margin fas fa-star"> </i>
-          <div class="row col">
-            <div class="q-field-label q-field-margin col-xs-12 col-sm-5">
-              <div class="q-field-label-inner row items-center">Name</div>
-            </div>
-            <div class="q-field-content col-xs-12 col-sm">
-              <div tabindex="-1" autocomplete="off" class="q-if row no-wrap relative-position q-input q-if-error q-if-standard q-if-has-content text-negative">
-                <div class="q-if-baseline">|</div>
-                <div class="q-if-inner col column q-popup--skip">
-                  <div class="row no-wrap relative-position"><input autocomplete="off" type="text" step="any" value="Teststore1" class="col q-input-target q-no-input-spinner ellipsis"></div>
-                </div>
-              </div>
-              <div class="q-field-bottom row no-wrap">
-                <div class="q-field-error col">a nice server error</div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="q-field row no-wrap items-start q-field-responsive q-field-no-input"><i aria-hidden="true" class="q-icon q-field-icon q-field-margin fas fa-handshake"> </i>
-          <div class="row col">
-            <div class="q-field-label q-field-margin col-xs-12 col-sm-5">
-              <div class="q-field-label-inner row items-center">Status</div>
-            </div>
-            <div class="q-field-content col-xs-12 col-sm">
-              <div tabindex="0" class="q-if row no-wrap relative-position q-select q-if-focusable q-if-standard text-primary">
-                <div class="q-if-baseline">|</div>
-                <div class="q-if-inner col column q-popup--skip">
-                  <div class="row no-wrap relative-position">
-                    <div class="col q-input-target ellipsis justify-start"></div>
-                  </div>
-                </div>
-                <div tabindex="-1" class="q-popover scroll column no-wrap">
-                  <div class="q-list no-border scroll">
-                    <div class="q-item q-item-division relative-position cursor-pointer q-select-highlight cursor-pointer">
-                      <div class="q-item-side q-item-section q-item-side-left"><i aria-hidden="true" class="q-icon fas fa-circle q-item-icon text-grey"> </i></div>
-                      <div class="q-item-main q-item-section">
-                        <div class="q-item-label" style="overflow:hidden;display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:NaN;">Just created</div>
-                      </div>
-                    </div>
-                    <div class="q-item q-item-division relative-position cursor-pointer cursor-pointer">
-                      <div class="q-item-side q-item-section q-item-side-left"><i aria-hidden="true" class="q-icon fas fa-circle q-item-icon text-blue"> </i></div>
-                      <div class="q-item-main q-item-section">
-                        <div class="q-item-label" style="overflow:hidden;display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:NaN;">Negotiating</div>
-                      </div>
-                    </div>
-                    <div class="q-item q-item-division relative-position cursor-pointer cursor-pointer">
-                      <div class="q-item-side q-item-section q-item-side-left"><i aria-hidden="true" class="q-icon fas fa-circle q-item-icon text-positive"> </i></div>
-                      <div class="q-item-main q-item-section">
-                        <div class="q-item-label" style="overflow:hidden;display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:NaN;">Co-operating</div>
-                      </div>
-                    </div>
-                    <div class="q-item q-item-division relative-position cursor-pointer cursor-pointer">
-                      <div class="q-item-side q-item-section q-item-side-left"><i aria-hidden="true" class="q-icon fas fa-circle q-item-icon text-negative"> </i></div>
-                      <div class="q-item-main q-item-section">
-                        <div class="q-item-label" style="overflow:hidden;display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:NaN;">Don't want to cooperate</div>
-                      </div>
-                    </div>
-                  </div>
-                </div><i aria-hidden="true" class="q-icon q-if-control material-icons">arrow_drop_down</i>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="q-field row no-wrap items-start q-field-responsive q-field-no-input"><i aria-hidden="true" class="q-icon q-field-icon q-field-margin fas fa-question"> </i>
-          <div class="row col">
-            <div class="q-field-label q-field-margin col-xs-12 col-sm-5">
-              <div class="q-field-label-inner row items-center">Description</div>
-            </div>
-            <div class="q-field-content col-xs-12 col-sm">
-              <div>
-                <div class="q-tabs flex no-wrap overflow-hidden markdown-input q-tabs-position-top q-tabs-inverted">
-                  <div class="q-tabs-head row q-tabs-align-right text-primary">
-                    <div class="q-tabs-scroller row no-wrap">
-                      <div data-tab-name="edit" class="q-tab column flex-center relative-position markdown-input-tab active q-tab-only-label hide-none text-primary">
-                        <div class="q-tab-label-parent relative-position">
-                          <div class="q-tab-label">Edit</div>
-                        </div>
-                        <div class="q-tabs-bar"></div>
-                        <div tabindex="-1" class="q-tab-focus-helper absolute-full"></div>
-                      </div>
-                      <div data-tab-name="preview" class="q-tab column flex-center relative-position markdown-input-tab q-tab-only-label hide-none text-primary">
-                        <div class="q-tab-label-parent relative-position">
-                          <div class="q-tab-label">Preview</div>
-                        </div>
-                        <div class="q-tabs-bar" style="display:none;"></div>
-                        <div tabindex="0" class="q-tab-focus-helper absolute-full"></div>
-                      </div>
-                      <div class="relative-position self-stretch q-tabs-global-bar-container text-primary highlight">
-                        <div class="q-tabs-bar q-tabs-global-bar"></div>
-                      </div>
-                    </div>
-                    <div class="row flex-center q-tabs-left-scroll"><i aria-hidden="true" class="q-icon material-icons">chevron_left</i></div>
-                    <div class="row flex-center q-tabs-right-scroll"><i aria-hidden="true" class="q-icon material-icons">chevron_right</i></div>
-                  </div>
-                  <div class="q-tabs-panes">
-                    <div class="q-tab-pane">
-                      <div tabindex="-1" rows="3" class="q-if row no-wrap relative-position q-input q-if-standard q-if-has-content text-primary">
-                        <div class="q-if-baseline">|</div>
-                        <div class="q-if-inner col column q-popup--skip">
-                          <div class="row no-wrap relative-position">
-                            <div class="col row relative-position"><object tabindex="-1" type="text/html" data="about:blank" aria-hidden="true" style="display:block;position:absolute;top:0;left:0;right:0;bottom:0;height:100%;width:100%;overflow:hidden;pointer-events:none;z-index:-1;"></object><textarea rows="3" class="col q-input-target q-input-shadow absolute-top">all the good stuff</textarea><textarea rows="3" class="col q-input-target q-input-area">all the good stuff</textarea></div>
-                          </div>
-                        </div>
-                      </div> <small class="row justify-end text-weight-light markdown-helper"><b>**bold**</b> <i>_italic_</i> <span>~~strike~~</span> <span>&gt;quote</span> <a href="https://guides.github.com/features/mastering-markdown/" target="_blank" rel="nofollow noopener noreferrer" title="What is Markdown?"><i aria-hidden="true" class="q-icon fas fa-question-circle"> </i></a></small>
-                    </div>
-                    <!---->
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="q-field row no-wrap items-start q-field-responsive q-field-no-input"><i aria-hidden="true" class="q-icon q-field-icon q-field-margin fas fa-map-marker"> </i>
-          <div class="row col">
-            <div class="q-field-label q-field-margin col-xs-12 col-sm-5">
-              <div class="q-field-label-inner row items-center">Address</div>
-            </div>
-            <div class="q-field-content col-xs-12 col-sm">
-              <div>
-                <div tabindex="-1" class="q-if row no-wrap relative-position q-input q-search q-if-standard q-if-has-content text-primary">
-                  <div class="q-if-baseline">|</div><i aria-hidden="true" class="q-icon q-if-control q-if-control-before material-icons">search</i>
-                  <div class="q-if-inner col column q-popup--skip">
-                    <div class="row no-wrap relative-position"><input type="search" placeholder="Search" step="any" value="Kranichstein, Darmstadt, Regierungsbezirk Darmstadt, Hesse, Germany" class="col q-input-target q-no-input-spinner ellipsis text-left"></div>
-                  </div>
-                  <div class="absolute-full no-pointer-events">
-                    <div tabindex="-1" class="q-popover scroll">
-                      <div class="q-list no-border" style="min-width:0;"></div>
-                    </div>
-                  </div>
-                </div>
-                <div class="vue2leaflet-map k-map map">
-                  <!---->
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="q-field row no-wrap items-start q-field-responsive q-field-no-input"><i aria-hidden="true" class="q-icon q-field-icon q-field-margin fas fa-calendar-alt"> </i>
-          <div class="row col">
-            <div class="q-field-label q-field-margin col-xs-12 col-sm-5">
-              <div class="q-field-label-inner row items-center">How many weeks in advance should recurring pickup dates be shown?</div>
-            </div>
-            <div class="q-field-content col-xs-12 col-sm">
-              <div class="q-slider non-selectable label-always">
-                <div class="q-slider-handle-container">
-                  <div class="q-slider-track"></div>
-                  <div class="q-slider-track active-track" style="width:33.33333333333333%;"></div>
-                  <div tabindex="0" class="q-slider-handle" style="left:33.33333333333333%;border-radius:50%;">
-                    <div class="q-chip row no-wrap inline items-center q-slider-label no-pointer-events q-chip-pointing-down q-chip-square q-chip-pointing q-chip-dense bg-primary text-white label-always">
-                      <div class="q-chip-main ellipsis q-popup--skip">4</div>
-                    </div>
-                    <div class="q-slider-ring"></div>
-                  </div>
-                </div>
-              </div>
-              <div class="q-field-bottom row no-wrap">
-                <div class="col text-transparent">|</div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <!---->
-        <div class="actionButtons"><button tabindex="-1" type="submit" class="q-btn inline relative-position q-btn-item non-selectable q-btn-rectangle disabled bg-primary text-white">
-            <div class="q-focus-helper"></div>
-            <div class="q-btn-inner row col items-center q-popup--skip justify-center">
-              Save changes
-            </div>
-            <!---->
-          </button> <button tabindex="0" type="button" class="q-btn inline relative-position q-btn-item non-selectable q-btn-rectangle q-focusable q-hoverable bg-red text-white">
-            <div class="q-focus-helper"></div>
-            <div class="q-btn-inner row col items-center q-popup--skip justify-center">
-              Archive
-            </div>
-          </button> <button tabindex="-1" type="button" class="q-btn inline relative-position q-btn-item non-selectable q-btn-rectangle disabled">
-            <div class="q-focus-helper"></div>
-            <div class="q-btn-inner row col items-center q-popup--skip justify-center">
-              Reset
-            </div>
-          </button>
-          <!---->
-        </div>
-      </form>
-    </div>
-  </div>
-</div>
-`;
-
-exports[`Storyshots Stores StoreEdit 1`] = `
-<div>
-  <div class="q-card no-shadow grey-border">
-    <div class="edit-box">
-      <form>
-        <div class="q-field row no-wrap items-start q-field-responsive q-field-no-input"><i aria-hidden="true" class="q-icon q-field-icon q-field-margin fas fa-star"> </i>
-          <div class="row col">
-            <div class="q-field-label q-field-margin col-xs-12 col-sm-5">
-              <div class="q-field-label-inner row items-center">Name</div>
-            </div>
-            <div class="q-field-content col-xs-12 col-sm">
-              <div tabindex="-1" autocomplete="off" class="q-if row no-wrap relative-position q-input q-if-standard q-if-has-content text-primary">
-                <div class="q-if-baseline">|</div>
-                <div class="q-if-inner col column q-popup--skip">
-                  <div class="row no-wrap relative-position"><input autocomplete="off" type="text" step="any" value="Teststore1" class="col q-input-target q-no-input-spinner ellipsis"></div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="q-field row no-wrap items-start q-field-responsive q-field-no-input"><i aria-hidden="true" class="q-icon q-field-icon q-field-margin fas fa-handshake"> </i>
-          <div class="row col">
-            <div class="q-field-label q-field-margin col-xs-12 col-sm-5">
-              <div class="q-field-label-inner row items-center">Status</div>
-            </div>
-            <div class="q-field-content col-xs-12 col-sm">
-              <div tabindex="0" class="q-if row no-wrap relative-position q-select q-if-focusable q-if-standard text-primary">
-                <div class="q-if-baseline">|</div>
-                <div class="q-if-inner col column q-popup--skip">
-                  <div class="row no-wrap relative-position">
-                    <div class="col q-input-target ellipsis justify-start"></div>
-                  </div>
-                </div>
-                <div tabindex="-1" class="q-popover scroll column no-wrap">
-                  <div class="q-list no-border scroll">
-                    <div class="q-item q-item-division relative-position cursor-pointer q-select-highlight cursor-pointer">
-                      <div class="q-item-side q-item-section q-item-side-left"><i aria-hidden="true" class="q-icon fas fa-circle q-item-icon text-grey"> </i></div>
-                      <div class="q-item-main q-item-section">
-                        <div class="q-item-label" style="overflow:hidden;display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:NaN;">Just created</div>
-                      </div>
-                    </div>
-                    <div class="q-item q-item-division relative-position cursor-pointer cursor-pointer">
-                      <div class="q-item-side q-item-section q-item-side-left"><i aria-hidden="true" class="q-icon fas fa-circle q-item-icon text-blue"> </i></div>
-                      <div class="q-item-main q-item-section">
-                        <div class="q-item-label" style="overflow:hidden;display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:NaN;">Negotiating</div>
-                      </div>
-                    </div>
-                    <div class="q-item q-item-division relative-position cursor-pointer cursor-pointer">
-                      <div class="q-item-side q-item-section q-item-side-left"><i aria-hidden="true" class="q-icon fas fa-circle q-item-icon text-positive"> </i></div>
-                      <div class="q-item-main q-item-section">
-                        <div class="q-item-label" style="overflow:hidden;display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:NaN;">Co-operating</div>
-                      </div>
-                    </div>
-                    <div class="q-item q-item-division relative-position cursor-pointer cursor-pointer">
-                      <div class="q-item-side q-item-section q-item-side-left"><i aria-hidden="true" class="q-icon fas fa-circle q-item-icon text-negative"> </i></div>
-                      <div class="q-item-main q-item-section">
-                        <div class="q-item-label" style="overflow:hidden;display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:NaN;">Don't want to cooperate</div>
-                      </div>
-                    </div>
-                  </div>
-                </div><i aria-hidden="true" class="q-icon q-if-control material-icons">arrow_drop_down</i>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="q-field row no-wrap items-start q-field-responsive q-field-no-input"><i aria-hidden="true" class="q-icon q-field-icon q-field-margin fas fa-question"> </i>
-          <div class="row col">
-            <div class="q-field-label q-field-margin col-xs-12 col-sm-5">
-              <div class="q-field-label-inner row items-center">Description</div>
-            </div>
-            <div class="q-field-content col-xs-12 col-sm">
-              <div>
-                <div class="q-tabs flex no-wrap overflow-hidden markdown-input q-tabs-position-top q-tabs-inverted">
-                  <div class="q-tabs-head row q-tabs-align-right text-primary">
-                    <div class="q-tabs-scroller row no-wrap">
-                      <div data-tab-name="edit" class="q-tab column flex-center relative-position markdown-input-tab active q-tab-only-label hide-none text-primary">
-                        <div class="q-tab-label-parent relative-position">
-                          <div class="q-tab-label">Edit</div>
-                        </div>
-                        <div class="q-tabs-bar"></div>
-                        <div tabindex="-1" class="q-tab-focus-helper absolute-full"></div>
-                      </div>
-                      <div data-tab-name="preview" class="q-tab column flex-center relative-position markdown-input-tab q-tab-only-label hide-none text-primary">
-                        <div class="q-tab-label-parent relative-position">
-                          <div class="q-tab-label">Preview</div>
-                        </div>
-                        <div class="q-tabs-bar" style="display:none;"></div>
-                        <div tabindex="0" class="q-tab-focus-helper absolute-full"></div>
-                      </div>
-                      <div class="relative-position self-stretch q-tabs-global-bar-container text-primary highlight">
-                        <div class="q-tabs-bar q-tabs-global-bar"></div>
-                      </div>
-                    </div>
-                    <div class="row flex-center q-tabs-left-scroll"><i aria-hidden="true" class="q-icon material-icons">chevron_left</i></div>
-                    <div class="row flex-center q-tabs-right-scroll"><i aria-hidden="true" class="q-icon material-icons">chevron_right</i></div>
-                  </div>
-                  <div class="q-tabs-panes">
-                    <div class="q-tab-pane">
-                      <div tabindex="-1" rows="3" class="q-if row no-wrap relative-position q-input q-if-standard q-if-has-content text-primary">
-                        <div class="q-if-baseline">|</div>
-                        <div class="q-if-inner col column q-popup--skip">
-                          <div class="row no-wrap relative-position">
-                            <div class="col row relative-position"><object tabindex="-1" type="text/html" data="about:blank" aria-hidden="true" style="display:block;position:absolute;top:0;left:0;right:0;bottom:0;height:100%;width:100%;overflow:hidden;pointer-events:none;z-index:-1;"></object><textarea rows="3" class="col q-input-target q-input-shadow absolute-top">all the good stuff</textarea><textarea rows="3" class="col q-input-target q-input-area">all the good stuff</textarea></div>
-                          </div>
-                        </div>
-                      </div> <small class="row justify-end text-weight-light markdown-helper"><b>**bold**</b> <i>_italic_</i> <span>~~strike~~</span> <span>&gt;quote</span> <a href="https://guides.github.com/features/mastering-markdown/" target="_blank" rel="nofollow noopener noreferrer" title="What is Markdown?"><i aria-hidden="true" class="q-icon fas fa-question-circle"> </i></a></small>
-                    </div>
-                    <!---->
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="q-field row no-wrap items-start q-field-responsive q-field-no-input"><i aria-hidden="true" class="q-icon q-field-icon q-field-margin fas fa-map-marker"> </i>
-          <div class="row col">
-            <div class="q-field-label q-field-margin col-xs-12 col-sm-5">
-              <div class="q-field-label-inner row items-center">Address</div>
-            </div>
-            <div class="q-field-content col-xs-12 col-sm">
-              <div>
-                <div tabindex="-1" class="q-if row no-wrap relative-position q-input q-search q-if-standard q-if-has-content text-primary">
-                  <div class="q-if-baseline">|</div><i aria-hidden="true" class="q-icon q-if-control q-if-control-before material-icons">search</i>
-                  <div class="q-if-inner col column q-popup--skip">
-                    <div class="row no-wrap relative-position"><input type="search" placeholder="Search" step="any" value="Kranichstein, Darmstadt, Regierungsbezirk Darmstadt, Hesse, Germany" class="col q-input-target q-no-input-spinner ellipsis text-left"></div>
-                  </div>
-                  <div class="absolute-full no-pointer-events">
-                    <div tabindex="-1" class="q-popover scroll">
-                      <div class="q-list no-border" style="min-width:0;"></div>
-                    </div>
-                  </div>
-                </div>
-                <div class="vue2leaflet-map k-map map">
-                  <!---->
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="q-field row no-wrap items-start q-field-responsive q-field-no-input"><i aria-hidden="true" class="q-icon q-field-icon q-field-margin fas fa-calendar-alt"> </i>
-          <div class="row col">
-            <div class="q-field-label q-field-margin col-xs-12 col-sm-5">
-              <div class="q-field-label-inner row items-center">How many weeks in advance should recurring pickup dates be shown?</div>
-            </div>
-            <div class="q-field-content col-xs-12 col-sm">
-              <div class="q-slider non-selectable label-always">
-                <div class="q-slider-handle-container">
-                  <div class="q-slider-track"></div>
-                  <div class="q-slider-track active-track" style="width:33.33333333333333%;"></div>
-                  <div tabindex="0" class="q-slider-handle" style="left:33.33333333333333%;border-radius:50%;">
-                    <div class="q-chip row no-wrap inline items-center q-slider-label no-pointer-events q-chip-pointing-down q-chip-square q-chip-pointing q-chip-dense bg-primary text-white label-always">
-                      <div class="q-chip-main ellipsis q-popup--skip">4</div>
-                    </div>
-                    <div class="q-slider-ring"></div>
-                  </div>
-                </div>
-              </div>
-              <div class="q-field-bottom row no-wrap">
-                <div class="col text-transparent">|</div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <!---->
-        <div class="actionButtons"><button tabindex="-1" type="submit" class="q-btn inline relative-position q-btn-item non-selectable q-btn-rectangle disabled bg-primary text-white">
-            <div class="q-focus-helper"></div>
-            <div class="q-btn-inner row col items-center q-popup--skip justify-center">
-              Save changes
-            </div>
-            <!---->
-          </button> <button tabindex="0" type="button" class="q-btn inline relative-position q-btn-item non-selectable q-btn-rectangle q-focusable q-hoverable bg-red text-white">
-            <div class="q-focus-helper"></div>
-            <div class="q-btn-inner row col items-center q-popup--skip justify-center">
-              Archive
-            </div>
-          </button> <button tabindex="-1" type="button" class="q-btn inline relative-position q-btn-item non-selectable q-btn-rectangle disabled">
-            <div class="q-focus-helper"></div>
-            <div class="q-btn-inner row col items-center q-popup--skip justify-center">
-              Reset
-            </div>
-          </button>
-          <!---->
-        </div>
-      </form>
-    </div>
-  </div>
-</div>
-`;
-
-exports[`Storyshots Stores StoreList 1`] = `
-<div class="q-list no-padding no-border q-list-highlight"><a class="q-link q-item q-item-division relative-position q-item-link">
-    <div class="q-item-side q-item-section text-center q-item-side-left"><i aria-hidden="true" title="Just created" class="q-icon fas fa-circle text-grey"> </i></div>
-    <div class="q-item-main q-item-section">
-      <div class="q-item-label">
-        Teststore1
-      </div>
-    </div>
-  </a><a class="q-link q-item q-item-division relative-position q-item-link">
-    <div class="q-item-side q-item-section text-center q-item-side-left"><i aria-hidden="true" title="Just created" class="q-icon fas fa-circle text-grey"> </i></div>
-    <div class="q-item-main q-item-section">
-      <div class="q-item-label">
-        New Tienda
-      </div>
-    </div>
-  </a><a class="q-link q-item q-item-division relative-position q-item-link">
-    <div class="q-item-side q-item-section text-center q-item-side-left"><i aria-hidden="true" title="Just created" class="q-icon fas fa-circle text-grey"> </i></div>
-    <div class="q-item-main q-item-section">
-      <div class="q-item-label">
-        Supermarkt Arheilgen
-      </div>
-    </div>
-  </a><a class="q-link q-item q-item-division relative-position q-item-link">
-    <div class="q-item-side q-item-section text-center q-item-side-left"><i aria-hidden="true" title="Just created" class="q-icon fas fa-circle text-grey"> </i></div>
-    <div class="q-item-main q-item-section">
-      <div class="q-item-label">
-        asd
-      </div>
-    </div>
-  </a><a class="q-link q-item q-item-division relative-position q-item-link">
-    <div class="q-item-side q-item-section text-center q-item-side-left"><i aria-hidden="true" title="Just created" class="q-icon fas fa-circle text-grey"> </i></div>
-    <div class="q-item-main q-item-section">
-      <div class="q-item-label">
-        Griesheimer Markt
-      </div>
-    </div>
-  </a>
-  <!---->
-  <!---->
-  <!---->
 </div>
 `;
 

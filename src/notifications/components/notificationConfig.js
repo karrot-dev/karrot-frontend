@@ -87,10 +87,14 @@ function getRouteTo (type, { group, user, place, pickup } = {}) {
 
 export default function getConfig (type, context) {
   const config = {
-    message: i18n.t(`NOTIFICATION_BELLS.${type.toUpperCase()}`, getMessageParams(type, context)),
+    message: i18n.t(`NOTIFICATION_BELLS.${mapType(type).toUpperCase()}`, getMessageParams(type, context)),
     icon: getIcon(type, context),
     routeTo: getRouteTo(type, context),
   }
 
   return config
+}
+
+function mapType (type) {
+  return type === 'new_place' ? 'new_store' : type
 }

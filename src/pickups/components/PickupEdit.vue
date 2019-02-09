@@ -186,6 +186,7 @@ import reactiveNow from '@/utils/reactiveNow'
 
 import differenceInSeconds from 'date-fns/difference_in_seconds'
 import addSeconds from 'date-fns/add_seconds'
+import addDays from 'date-fns/add_days'
 import { defaultDuration } from '@/pickups/settings'
 import { formatSeconds } from '@/pickups/utils'
 import { objectDiff } from '@/utils/utils'
@@ -241,12 +242,11 @@ export default {
         return this.edit.dateEnd
       },
       set (val) {
-        if (val > this.edit.date) {
-          this.edit.dateEnd = val
+        if (val < this.edit.date) {
+          // if the value is in the past add a day (allows pickups over midnight)
+          val = addDays(val, 1)
         }
-        else {
-          this.edit.dateEnd = addSeconds(this.date, defaultDuration)
-        }
+        this.edit.dateEnd = val
       },
     },
     formattedDuration () {

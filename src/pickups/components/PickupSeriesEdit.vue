@@ -230,6 +230,7 @@ import { defaultDuration } from '@/pickups/settings'
 import { formatSeconds } from '@/pickups/utils'
 
 import addSeconds from 'date-fns/add_seconds'
+import addDays from 'date-fns/add_days'
 import differenceInSeconds from 'date-fns/difference_in_seconds'
 
 export default {
@@ -302,12 +303,11 @@ export default {
         return addSeconds(this.edit.startDate, this.edit.duration)
       },
       set (val) {
-        if (val > this.edit.startDate) {
-          this.edit.duration = differenceInSeconds(val, this.edit.startDate)
+        if (val < this.edit.startDate) {
+          // if the value is in the past add a day (allows pickups over midnight)
+          val = addDays(val, 1)
         }
-        else {
-          this.edit.duration = defaultDuration
-        }
+        this.edit.duration = differenceInSeconds(val, this.edit.startDate)
       },
     },
     formattedDuration () {

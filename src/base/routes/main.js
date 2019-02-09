@@ -10,14 +10,14 @@ const GroupManageAgreement = () => import('@/agreements/pages/ManageAgreement')
 const GroupCreate = () => import('@/group/pages/Create')
 const GroupPreview = () => import('@/groupInfo/pages/GroupPreview')
 const GroupGallery = () => import('@/groupInfo/pages/GroupGallery')
-const StoreLayout = () => import('@/stores/pages/Layout')
-const StorePickups = () => import('@/pickups/components/StorePickups')
-const StoreFeedback = () => import('@/feedback/components/StoreFeedback')
-const StoreHistory = () => import('@/history/pages/StoreHistory')
-const StorePickupsManage = () => import('@/pickups/pages/PickupsManage')
-const StoreEdit = () => import('@/stores/pages/Edit')
-const StoreCreate = () => import('@/stores/pages/Create')
-const StoreList = () => import('@/stores/pages/Stores')
+const PlaceLayout = () => import('@/places/pages/Layout')
+const PlacePickups = () => import('@/pickups/components/PlacePickups')
+const PlaceFeedback = () => import('@/feedback/components/PlaceFeedback')
+const PlaceHistory = () => import('@/history/pages/PlaceHistory')
+const PlacePickupsManage = () => import('@/pickups/pages/PickupsManage')
+const PlaceEdit = () => import('@/places/pages/Edit')
+const PlaceCreate = () => import('@/places/pages/Create')
+const PlaceList = () => import('@/places/pages/Places')
 const HistoryDetail = () => import('@/history/pages/HistoryDetail')
 const GroupInvitations = () => import('@/invitations/pages/Invitations')
 const Applications = () => import('@/applications/pages/Applications')
@@ -280,37 +280,42 @@ export default [
         },
       },
       {
-        name: 'stores',
-        path: 'store',
-        meta: {
-          breadcrumbs: [
-            { translation: 'GROUP.STORES', route: { name: 'stores' } },
-          ],
-        },
-        component: StoreList,
+        // Redirect legacy "store" urls
+        path: 'store/:rest*',
+        redirect: to => `place/${to.params.rest}`,
       },
       {
-        name: 'storeCreate',
-        path: 'store/create',
+        name: 'places',
+        path: 'place',
         meta: {
           breadcrumbs: [
-            { translation: 'CREATESTORE.TITLE', route: { name: 'storeCreate' } },
+            { translation: 'GROUP.STORES', route: { name: 'places' } },
           ],
         },
-        component: StoreCreate,
+        component: PlaceList,
       },
       {
-        redirect: '/group/:groupId/store/:storeId/wall',
-        path: 'store/:storeId',
+        name: 'placeCreate',
+        path: 'place/create',
         meta: {
           breadcrumbs: [
-            { type: 'activeStore' },
+            { translation: 'CREATESTORE.TITLE', route: { name: 'placeCreate' } },
           ],
-          beforeEnter: 'stores/selectStore',
-          afterLeave: 'stores/clearSelectedStore',
+        },
+        component: PlaceCreate,
+      },
+      {
+        redirect: '/group/:groupId/place/:placeId/wall',
+        path: 'place/:placeId',
+        meta: {
+          breadcrumbs: [
+            { type: 'activePlace' },
+          ],
+          beforeEnter: 'places/selectPlace',
+          afterLeave: 'places/clearSelectedPlace',
         },
         components: {
-          default: StoreLayout,
+          default: PlaceLayout,
           subheader: { render: h => h('router-view', {
             props: {
               name: 'subheader',
@@ -319,14 +324,14 @@ export default [
         },
         children: [
           {
-            name: 'store',
+            name: 'place',
             path: '',
             redirect: 'pickups',
           },
           {
-            name: 'storePickups',
+            name: 'placePickups',
             path: 'pickups',
-            component: StorePickups,
+            component: PlacePickups,
           },
           {
             name: 'pickupDetail',
@@ -346,49 +351,49 @@ export default [
             },
           },
           {
-            name: 'storePickupsManage',
+            name: 'placePickupsManage',
             path: 'pickups/manage',
             meta: {
               breadcrumbs: [
-                { translation: 'PICKUPMANAGE.TITLE', route: { name: 'storePickupsManage' } },
+                { translation: 'PICKUPMANAGE.TITLE', route: { name: 'placePickupsManage' } },
               ],
-              beforeEnter: 'pickupSeries/fetchListForActiveStore',
+              beforeEnter: 'pickupSeries/fetchListForActivePlace',
               afterLeave: 'pickupSeries/clearList',
             },
-            component: StorePickupsManage,
+            component: PlacePickupsManage,
           },
           {
-            name: 'storeFeedback',
+            name: 'placeFeedback',
             path: 'feedback',
             meta: {
               breadcrumbs: [
-                { translation: 'PICKUP_FEEDBACK.TITLE', route: { name: 'storeFeedback' } },
+                { translation: 'PICKUP_FEEDBACK.TITLE', route: { name: 'placeFeedback' } },
               ],
               beforeEnter: 'feedback/fetch',
               afterLeave: 'feedback/clear',
             },
-            component: StoreFeedback,
+            component: PlaceFeedback,
           },
           {
-            name: 'storeHistory',
+            name: 'placeHistory',
             path: 'history',
             meta: {
               breadcrumbs: [
-                { translation: 'GROUP.HISTORY', route: { name: 'storeHistory' } },
+                { translation: 'GROUP.HISTORY', route: { name: 'placeHistory' } },
               ],
               beforeEnter: 'history/fetch',
             },
-            component: StoreHistory,
+            component: PlaceHistory,
           },
           {
-            name: 'storeEdit',
+            name: 'placeEdit',
             path: 'edit',
             meta: {
               breadcrumbs: [
-                { translation: 'STOREDETAIL.EDIT', route: { name: 'storeEdit' } },
+                { translation: 'STOREDETAIL.EDIT', route: { name: 'placeEdit' } },
               ],
             },
-            component: StoreEdit,
+            component: PlaceEdit,
           },
         ],
       },

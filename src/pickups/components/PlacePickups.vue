@@ -1,15 +1,15 @@
 <template>
-  <div v-if="store">
+  <div v-if="place">
     <QCard class="no-shadow no-padding grey-border">
       <RandomArt
-        :seed="storeId"
+        :seed="placeId"
         type="banner"/>
       <div class="generic-padding">
 
         <div class="actionButtons">
           <RouterLink
             v-if="isEditor"
-            :to="{name: 'storeEdit', params: { storeId }}"
+            :to="{name: 'placeEdit', params: { placeId }}"
           >
             <QBtn
               small
@@ -23,7 +23,7 @@
           </RouterLink>
           <RouterLink
             v-if="isEditor"
-            :to="{name: 'storePickupsManage', params: { storeId }}"
+            :to="{name: 'placePickupsManage', params: { placeId }}"
           >
             <QBtn
               small
@@ -53,8 +53,8 @@
           </a>
         </div>
         <Markdown
-          v-if="store.description"
-          :source="store.description"
+          v-if="place.description"
+          :source="place.description"
         />
         <i v-else>
           {{ $t("STOREDETAIL.NO_DESCRIPTION") }}
@@ -81,7 +81,7 @@
       <RouterLink
         v-if="isEditor"
         slot="desc"
-        :to="{name: 'storeEdit', params: { storeId }}"
+        :to="{name: 'placeEdit', params: { placeId }}"
       >
         {{ $t('STOREDETAIL.CHANGE_STATUS') }}
       </RouterLink>
@@ -94,7 +94,7 @@
       <RouterLink
         v-if="isEditor"
         slot="desc"
-        :to="{name: 'storePickupsManage', params: { storeId }}"
+        :to="{name: 'placePickupsManage', params: { placeId }}"
       >
         {{ $t('PICKUPLIST.STORE_NONE_HINT') }}
       </RouterLink>
@@ -109,7 +109,7 @@ import Markdown from '@/utils/components/Markdown'
 import StandardMap from '@/maps/components/StandardMap'
 import RandomArt from '@/utils/components/RandomArt'
 
-import { storeMarker } from '@/maps/components/markers'
+import { placeMarker } from '@/maps/components/markers'
 import directions from '@/maps/directions'
 
 import {
@@ -143,11 +143,11 @@ export default {
   },
   computed: {
     markers () {
-      return this.store ? [storeMarker(this.store)] : []
+      return this.place ? [placeMarker(this.place)] : []
     },
     ...mapGetters({
-      store: 'stores/activeStore',
-      pickups: 'pickups/byActiveStore',
+      place: 'places/activePlace',
+      pickups: 'pickups/byActivePlace',
       currentUser: 'auth/user',
       isEditor: 'currentGroup/isEditor',
     }),
@@ -155,20 +155,20 @@ export default {
       return this.pickups && this.pickups.length === 0
     },
     isInactive () {
-      return this.store && this.store.status !== 'active'
+      return this.place && this.place.status !== 'active'
     },
     directionsURL () {
-      if (!this.store || !this.store.latitude || !this.store.longitude) return
+      if (!this.place || !this.place.latitude || !this.place.longitude) return
       if (this.$q.platform.is.ios) {
-        return directions.apple(this.store)
+        return directions.apple(this.place)
       }
       if (this.$q.platform.is.android) {
-        return directions.google(this.store)
+        return directions.google(this.place)
       }
-      return directions.osm(this.currentUser, this.store)
+      return directions.osm(this.currentUser, this.place)
     },
-    storeId () {
-      return this.store && this.store.id
+    placeId () {
+      return this.place && this.place.id
     },
   },
 }

@@ -139,10 +139,10 @@ import { validationMixin } from 'vuelidate'
 import editMixin from '@/utils/mixins/editMixin'
 import statusMixin from '@/utils/mixins/statusMixin'
 import { required, minLength, maxLength } from 'vuelidate/lib/validators'
-import { statusList, optionsFor } from '@/stores/storeStatus'
+import { statusList, optionsFor } from '@/places/placeStatus'
 
 export default {
-  name: 'StoreEdit',
+  name: 'PlaceEdit',
   mixins: [validationMixin, editMixin, statusMixin],
   props: {
     value: {
@@ -158,7 +158,7 @@ export default {
         status: 'created',
       }),
     },
-    allStores: { required: true, type: Array },
+    allPlaces: { required: true, type: Array },
   },
   components: {
     QCard,
@@ -261,7 +261,7 @@ export default {
         maxLength: maxLength(80),
         isUnique (value) {
           if (value === '') return true
-          return !this.allStores
+          return !this.allPlaces
             .filter(e => e.id !== this.edit.id)
             .find(e => e.name === value)
         },

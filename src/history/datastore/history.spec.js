@@ -12,7 +12,7 @@ describe('history module', () => {
   beforeEach(() => {
     datastore = createDatastore({
       history: require('./history').default,
-      stores: { getters: { get: () => jest.fn() } },
+      places: { getters: { get: () => jest.fn() } },
       users: { getters: { get: () => jest.fn() } },
       groups: { getters: { get: () => jest.fn() } },
     })
@@ -35,7 +35,7 @@ describe('history module', () => {
   })
 
   it('can add a history entry', () => {
-    const entry = { id: 10, group: 1, store: 1, users: [1], date: new Date('2018-01-20') }
+    const entry = { id: 10, group: 1, place: 1, users: [1], date: new Date('2018-01-20') }
 
     datastore.commit('history/update', [entry])
     expect(datastore.getters['history/all'][0].id).toEqual(entry.id)

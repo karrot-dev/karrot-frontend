@@ -66,14 +66,14 @@
       </QItem>
 
       <QItem
-        v-if="entry.store && entry.store.name"
+        v-if="entry.place && entry.place.name"
         dense
       >
         <QItemSide icon="fas fa-fw fa-shopping-cart" />
         <QItemMain>
           <QItemTile label>
-            <RouterLink :to="{name: 'store', params: { groupId: entry.store.group.id, storeId: entry.store.id }}">
-              {{ entry.store.name }}
+            <RouterLink :to="{name: 'place', params: { groupId: entry.place.group.id, placeId: entry.place.id }}">
+              {{ entry.place.name }}
             </RouterLink>
           </QItemTile>
         </QItemMain>

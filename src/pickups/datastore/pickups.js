@@ -1,8 +1,6 @@
 import Vue from 'vue'
 import pickups from '@/pickups/api/pickups'
 import { createMetaModule, withMeta, isValidationError, withPrefixedIdMeta, metaStatusesWithId, metaStatuses } from '@/utils/datastore/helpers'
-import { pickupRunningTime } from '@/pickups/settings'
-import subMinutes from 'date-fns/sub_minutes'
 import reactiveNow from '@/utils/reactiveNow'
 
 function initialState () {
@@ -34,15 +32,15 @@ export default {
         group,
         collectors: pickup.collectors.map(rootGetters['users/get']),
         feedbackGivenBy: pickup.feedbackGivenBy ? pickup.feedbackGivenBy.map(rootGetters['users/get']) : [],
-        hasStarted: pickup.date <= reactiveNow.value,
+        hasStarted: pickup.date <= reactiveNow.value && pickup.dateEnd > reactiveNow.value,
         ...metaStatusesWithId(getters, ['save', 'join', 'leave'], pickup.id),
       }
     },
     upcomingAndStarted: (state, getters) => {
       return Object.values(state.entries)
-        .filter(p => p.date >= subMinutes(reactiveNow.value, pickupRunningTime))
         .map(getters.enrich)
-        .filter(p => !p.hasStarted || (p.isUserMember && p.hasStarted))
+        .filter(p => p.dateEnd > reactiveNow.value)
+        .filter(p => !p.hasStarted || p.isUserMember)
         .sort(sortByDate)
     },
     byCurrentGroup: (state, getters) => {
@@ -58,7 +56,7 @@ export default {
         .filter(e => !e.isFull && !e.isUserMember && !e.isDisabled),
     feedbackPossibleByCurrentGroup: (state, getters) => {
       return Object.values(state.entries)
-        .filter(p => p.date < reactiveNow.value && p.feedbackDue > reactiveNow.value)
+        .filter(p => p.dateEnd < reactiveNow.value && p.feedbackDue > reactiveNow.value)
         .map(getters.enrich)
         .filter(p => p.isUserMember)
         .filter(p => p.group && p.group.isCurrentGroup)

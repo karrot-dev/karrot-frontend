@@ -31,8 +31,11 @@ export default {
         this.$emit('save', this.edit, event)
       }
       else {
-        this.$emit('save', { ...objectDiff(this.value, this.edit), id: this.value.id }, event)
+        this.$emit('save', { ...this.getPatchData(), id: this.value.id }, event)
       }
+    },
+    getPatchData () {
+      return objectDiff(this.value, this.edit)
     },
     destroy (event) {
       this.$emit('destroy', this.value.id, event)

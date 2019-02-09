@@ -9,7 +9,10 @@
     >
       <div class="column q-pa-sm full-width">
         <div>
-          <span class="featured-text">{{ $d(pickup.date, 'hourMinute') }}</span>
+          <span class="featured-text">
+            {{ $d(pickup.date, 'hourMinute') }}
+            <template v-if="pickup.hasDuration"> &mdash; {{ $d(pickup.dateEnd, 'hourMinute') }}</template>
+          </span>
           <template v-if="placeLink">
             <strong v-if="pickup.place">
               <RouterLink :to="{ name: 'place', params: { placeId: pickup.place.id }}">

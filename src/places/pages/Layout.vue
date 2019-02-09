@@ -1,5 +1,5 @@
 <template>
-  <div v-if="store && store.status === 'archived'">
+  <div v-if="place && place.status === 'archived'">
     <QCard>
       <KBanner
         color="info"
@@ -27,13 +27,13 @@ export default {
   },
   computed: {
     ...mapGetters({
-      store: 'stores/activeStore',
+      place: 'places/activePlace',
       isEditor: 'currentGroup/isEditor',
     }),
   },
   methods: {
     restore () {
-      this.$store.dispatch('stores/save', { id: this.store.id, status: 'created' })
+      this.$store.dispatch('places/save', { id: this.place.id, status: 'created' })
     },
   },
 }

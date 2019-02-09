@@ -8,7 +8,7 @@ jest.mock('@/pickups/api/pickups', () => ({
 }))
 
 import { createDatastore, defaultActionStatusesFor } from '>/helpers'
-import { makeGroup, makeStore, makePickup } from '>/enrichedFactories'
+import { makeGroup, makePlace, makePickup } from '>/enrichedFactories'
 import lolex from 'lolex'
 import addSeconds from 'date-fns/add_seconds'
 import subSeconds from 'date-fns/sub_seconds'
@@ -41,13 +41,13 @@ describe('pickups', () => {
     beforeEach(() => {
       const now = new Date('2017-01-01T12:00:10Z')
       clock = lolex.install({ now, toFake: ['Date'] })
-      pickup1 = { id: 1, store: 10, collectors: [], group, ...dates('2017-01-01T13:00:10Z') }
-      pickup2 = { id: 2, store: 11, collectors: [userId], maxCollectors: 1, group, ...dates('2017-01-01T13:00:10Z') }
-      pickup3 = { id: 3, store: 12, collectors: [userId], group, ...dates('2017-01-01T13:00:10Z') }
-      pastPickup1 = { id: 4, store: 13, collectors: [], group, ...dates('2017-01-01T09:00:10Z') }
-      pastPickup2 = { id: 4, store: 13, collectors: [], group, ...dates('2017-01-01T10:00:10Z') }
-      startedPickup1 = { id: 5, store: 13, collectors: [userId], group, ...dates('2017-01-01T09:00:10Z', 28800) }
-      startedPickup2 = { id: 6, store: 13, collectors: [], group, ...dates('2017-01-01T11:50:10Z') }
+      pickup1 = { id: 1, place: 10, collectors: [], group, ...dates('2017-01-01T13:00:10Z') }
+      pickup2 = { id: 2, place: 11, collectors: [userId], maxCollectors: 1, group, ...dates('2017-01-01T13:00:10Z') }
+      pickup3 = { id: 3, place: 12, collectors: [userId], group, ...dates('2017-01-01T13:00:10Z') }
+      pastPickup1 = { id: 4, place: 13, collectors: [], group, ...dates('2017-01-01T09:00:10Z') }
+      pastPickup2 = { id: 4, place: 13, collectors: [], group, ...dates('2017-01-01T10:00:10Z') }
+      startedPickup1 = { id: 5, place: 13, collectors: [userId], group, ...dates('2017-01-01T09:00:10Z', 28800) }
+      startedPickup2 = { id: 6, place: 13, collectors: [], group, ...dates('2017-01-01T11:50:10Z') }
     })
 
     afterEach(() => {
@@ -62,7 +62,7 @@ describe('pickups', () => {
             userId: () => userId,
           },
         },
-        stores: {
+        places: {
           getters: {
             get () {
               return id => ({ id, group })
@@ -92,7 +92,7 @@ describe('pickups', () => {
       expect(vstore.getters['pickups/enrich'](pickup2)).toEqual({
         ...pickup2,
         ...defaultActionStatusesFor('save', 'join', 'leave'),
-        store: { id: pickup2.store, group },
+        place: { id: pickup2.place, group },
         isUserMember: true,
         isEmpty: false,
         isFull: true,
@@ -114,8 +114,8 @@ describe('pickups', () => {
       let date = subSeconds(new Date(), 60)
       let dateEnd = addSeconds(date, 1800)
       let pickupId = 99
-      let storeId = 101
-      mockGet.mockImplementationOnce(id => ({ id, date, dateEnd, store: storeId, collectors: [] }))
+      let placeId = 101
+      mockGet.mockImplementationOnce(id => ({ id, date, dateEnd, place: placeId, collectors: [] }))
       await vstore.dispatch('pickups/fetch', pickupId)
       const pickup = vstore.getters['pickups/get'](pickupId)
       expect(pickup).toEqual({
@@ -129,8 +129,8 @@ describe('pickups', () => {
         isFull: false,
         hasStarted: true,
         ...defaultActionStatusesFor('save', 'join', 'leave'),
-        store: {
-          id: storeId,
+        place: {
+          id: placeId,
           group,
         },
         group,
@@ -171,19 +171,19 @@ describe('pickups', () => {
     })
   })
 
-  it('filters by active store', () => {
+  it('filters by active place', () => {
     const activePickup = makePickup({
-      store: makeStore({ isActiveStore: true }),
+      place: makePlace({ isActivePlace: true }),
     })
     const inactivePickup = makePickup({
-      store: makeStore({ isActiveStore: false }),
+      place: makePlace({ isActivePlace: false }),
     })
     const otherGetters = {
       byCurrentGroup: [activePickup, inactivePickup],
     }
     const { getters } = require('./pickups').default
 
-    const result = getters.byActiveStore(null, otherGetters)
+    const result = getters.byActivePlace(null, otherGetters)
     expect(result.length).toEqual(1)
     expect(result[0].id).toEqual(activePickup.id)
   })

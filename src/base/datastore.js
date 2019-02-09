@@ -17,7 +17,7 @@ import messages from '@/messages/datastore'
 import notifications from '@/notifications/datastore'
 import pickups from '@/pickups/datastore'
 import sidenav from '@/sidenav/datastore'
-import stores from '@/stores/datastore'
+import places from '@/places/datastore'
 import subscriptions from '@/subscriptions/datastore'
 import topbar from '@/topbar/datastore'
 import users from '@/users/datastore'
@@ -40,7 +40,7 @@ const appModules = [
   notifications,
   pickups,
   sidenav,
-  stores,
+  places,
   subscriptions,
   topbar,
   users,

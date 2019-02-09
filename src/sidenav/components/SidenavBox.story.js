@@ -2,19 +2,19 @@ import { storiesOf } from '@storybook/vue'
 
 import SidenavMapUI from './SidenavMapUI'
 import SidenavGroupUI from './SidenavGroupUI'
-import SidenavStoresUI from './SidenavStoresUI'
-import { storesMock as stores, usersMock as users, groupsMock } from '>/mockdata'
+import SidenavPlacesUI from './SidenavPlacesUI'
+import { placesMock as places, usersMock as users, groupsMock } from '>/mockdata'
 import { createDatastore, storybookDefaults as defaults } from '>/helpers'
 
 storiesOf('Sidenav Boxes', module)
   .add('Map', () => defaults({
     render (h) {
-      let { showStores, showUsers, toggleUsers, toggleStores } = this
+      let { showPlaces, showUsers, toggleUsers, togglePlaces } = this
       return h(SidenavMapUI, {
         props: {
-          stores,
+          places,
           users,
-          showStores,
+          showPlaces,
           showUsers,
           currentGroup: {
             ...groupsMock[0],
@@ -23,18 +23,18 @@ storiesOf('Sidenav Boxes', module)
             },
           },
         },
-        on: { toggleStores, toggleUsers },
+        on: { togglePlaces, toggleUsers },
       })
     },
     data () {
       return {
-        showStores: true,
+        showPlaces: true,
         showUsers: true,
       }
     },
     methods: {
-      toggleStores () {
-        this.showStores = !this.showStores
+      togglePlaces () {
+        this.showPlaces = !this.showPlaces
       },
       toggleUsers () {
         this.showUsers = !this.showUsers
@@ -50,14 +50,14 @@ storiesOf('Sidenav Boxes', module)
     }),
     store: createDatastore({
       currentGroup: { getters: { id: () => 1, roles: () => [] } },
-      stores: { getters: { all: () => stores } },
+      places: { getters: { all: () => places } },
     }),
   }))
 
-  .add('Stores', () => defaults({
-    render: h => h(SidenavStoresUI, {
+  .add('Places', () => defaults({
+    render: h => h(SidenavPlacesUI, {
       props: {
-        stores,
+        places,
         groupId: 1,
       },
     }),

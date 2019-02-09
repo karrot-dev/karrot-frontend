@@ -5,29 +5,29 @@
     class="no-padding"
   >
     <QItem
-      v-for="store in stores"
-      :key="store.id"
+      v-for="place in places"
+      :key="place.id"
       link
-      :to="linkParamsFor(store)"
+      :to="linkParamsFor(place)"
     >
       <QItemSide class="text-center">
         <QIcon
-          :name="store.ui.icon"
-          :color="store.ui.color"
-          :title="$t(store.ui.label)"
+          :name="place.ui.icon"
+          :color="place.ui.color"
+          :title="$t(place.ui.label)"
         />
       </QItemSide>
       <QItemMain>
         <QItemTile label>
-          {{ store.name }}
+          {{ place.name }}
         </QItemTile>
       </QItemMain>
     </QItem>
 
     <QItem
-      v-if="!hasStores && isEditor"
+      v-if="!hasPlaces && isEditor"
       link
-      :to="{ name: 'storeCreate', params: { groupId } }"
+      :to="{ name: 'placeCreate', params: { groupId } }"
       class="bg-secondary"
       multiline
     >
@@ -48,14 +48,14 @@
       :label="`${$t('STORESTATUS.ARCHIVED')} (${archived.length})`"
     >
       <QItem
-        v-for="store in archived"
-        :key="store.id"
+        v-for="place in archived"
+        :key="place.id"
         link
-        :to="linkParamsFor(store)"
+        :to="linkParamsFor(place)"
       >
         <QItemMain>
           <QItemTile label>
-            {{ store.name }}
+            {{ place.name }}
           </QItemTile>
         </QItemMain>
       </QItem>
@@ -91,26 +91,26 @@ export default {
   },
   props: {
     groupId: { default: null, type: Number },
-    stores: { required: true, type: Array },
+    places: { required: true, type: Array },
     archived: { default: () => [], type: Array },
-    linkTo: { default: 'store', type: String },
+    linkTo: { default: 'place', type: String },
 
   },
   computed: {
-    hasStores () {
-      return this.stores && this.stores.length > 0
+    hasPlaces () {
+      return this.places && this.places.length > 0
     },
     ...mapGetters({
       isEditor: 'currentGroup/isEditor',
     }),
   },
   methods: {
-    linkParamsFor (store) {
+    linkParamsFor (place) {
       return {
         name: this.linkTo,
         params: {
-          groupId: store.group.id,
-          storeId: store.id,
+          groupId: place.group.id,
+          placeId: place.id,
         },
       }
     },

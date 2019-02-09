@@ -18,9 +18,9 @@
           <template v-if="pickup.hasDuration"> &mdash; {{ $d(pickup.dateEnd, 'hourMinute') }}</template>
         </strong>
         <span slot="subtitle">
-          <strong v-if="pickup.store">
-            <RouterLink :to="{ name: 'store', params: { groupId: pickup.group.id, storeId: pickup.store.id }}">
-              {{ pickup.store.name }}
+          <strong v-if="pickup.place">
+            <RouterLink :to="{ name: 'place', params: { groupId: pickup.group.id, placeId: pickup.place.id }}">
+              {{ pickup.place.name }}
             </RouterLink>
           </strong>
           {{ $d(pickup.date, 'yearMonthDay') }}

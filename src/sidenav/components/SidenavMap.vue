@@ -4,16 +4,16 @@ import SidenavMapUI from './SidenavMapUI'
 
 export default connect({
   gettersToProps: {
-    stores: 'stores/byCurrentGroup',
+    places: 'places/byCurrentGroup',
     users: 'users/byCurrentGroup',
-    showStores: 'sidenavBoxes/toggle/storesOnMap',
+    showPlaces: 'sidenavBoxes/toggle/placesOnMap',
     showUsers: 'sidenavBoxes/toggle/usersOnMap',
-    selectedStore: 'stores/activeStore',
+    selectedPlace: 'places/activePlace',
     selectedUser: 'users/activeUser',
     currentGroup: 'currentGroup/value',
   },
   actionsToEvents: {
-    toggleStores: 'sidenavBoxes/toggle/storesOnMap',
+    togglePlaces: 'sidenavBoxes/toggle/placesOnMap',
     toggleUsers: 'sidenavBoxes/toggle/usersOnMap',
     toggleBox: 'sidenavBoxes/toggle/map',
   },

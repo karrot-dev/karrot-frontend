@@ -1,6 +1,6 @@
 <template>
   <SidenavBox
-    v-if="storeId"
+    v-if="placeId"
     @toggle="$emit('toggleBox')"
     :expanded="$q.platform.is.mobile || expanded"
     :expandable="!$q.platform.is.mobile"
@@ -22,7 +22,7 @@
         round
       >
         <QIcon name="fas fa-fw fa-ellipsis-v" />
-        <StoreOptions/>
+        <PlaceOptions/>
       </QBtn>
     </div>
 
@@ -31,7 +31,7 @@
       no-border
       class="no-padding"
     >
-      <QItem :to="{name: 'storePickups', params: { storeId }}">
+      <QItem :to="{name: 'placePickups', params: { placeId }}">
         <QItemSide class="text-center">
           <QIcon name="fas fa-shopping-basket" />
         </QItemSide>
@@ -39,7 +39,7 @@
           {{ $t("GROUP.PICKUPS") }}
         </QItemMain>
       </QItem>
-      <QItem :to="{name: 'storeFeedback', params: { storeId }}">
+      <QItem :to="{name: 'placeFeedback', params: { placeId }}">
         <QItemSide class="text-center">
           <QIcon name="fas fa-balance-scale" />
         </QItemSide>
@@ -47,7 +47,7 @@
           {{ $t("PICKUP_FEEDBACK.TITLE") }}
         </QItemMain>
       </QItem>
-      <QItem :to="{name: 'storeHistory', params: { storeId }}">
+      <QItem :to="{name: 'placeHistory', params: { placeId }}">
         <QItemSide class="text-center">
           <i class="far fa-clock"/>
         </QItemSide>
@@ -63,16 +63,16 @@
 <script>
 import { QBtn, QList, QItem, QItemSide, QIcon, QItemMain } from 'quasar'
 import SidenavBox from './SidenavBox'
-import StoreOptions from './StoreOptions'
+import PlaceOptions from './PlaceOptions'
 
 export default {
   props: {
-    storeId: { default: null, type: Number },
+    placeId: { default: null, type: Number },
     expanded: { default: true, type: Boolean },
     isEditor: { default: false, type: Boolean },
   },
   components: {
-    SidenavBox, StoreOptions, QBtn, QList, QItem, QItemSide, QIcon, QItemMain,
+    SidenavBox, PlaceOptions, QBtn, QList, QItem, QItemSide, QIcon, QItemMain,
   },
 }
 </script>

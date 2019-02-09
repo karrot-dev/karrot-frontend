@@ -40,8 +40,8 @@ for (let key of Object.keys(statusOptions)) {
   statusOptions[key].key = key
 }
 
-export function optionsFor (store) {
-  return statusOptions[store.status] || statusOptions.created
+export function optionsFor (place) {
+  return statusOptions[place.status] || statusOptions.created
 }
 
 export const statusList = Object.values(statusOptions)

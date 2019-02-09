@@ -133,7 +133,7 @@
     <QCard class="no-shadow grey-border secondCard">
       <RandomArt
         class="randomBanner"
-        :seed="storeId"
+        :seed="placeId"
         type="banner"
       />
       <QCardTitle>
@@ -304,7 +304,7 @@ export default {
         description: '',
         startDate: addHours(startOfTomorrow(), 10),
         duration: null,
-        store: this.storeId,
+        place: this.placeId,
         rule: {
           isCustom: false,
           byDay: ['MO'],
@@ -328,7 +328,7 @@ export default {
         description: '',
         date,
         dateEnd: addSeconds(date, defaultDuration),
-        store: this.storeId,
+        place: this.placeId,
         hasDuration: false,
       }
     },
@@ -357,9 +357,9 @@ export default {
   },
   computed: {
     ...mapGetters({
-      storeId: 'stores/activeStoreId',
-      pickupSeries: 'pickupSeries/byActiveStore',
-      pickups: 'pickups/byActiveStore',
+      placeId: 'places/activePlaceId',
+      pickupSeries: 'pickupSeries/byActivePlace',
+      pickups: 'pickups/byActivePlace',
       pickupCreateStatus: 'pickups/createStatus',
       seriesCreateStatus: 'pickupSeries/createStatus',
     }),

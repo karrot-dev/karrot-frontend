@@ -57,7 +57,7 @@ for (const locale of Object.values(locales)) {
 
 const i18n = new VueI18n({
   // Just need to include 'en' here as it is the fallback locale
-  // All other locales are loaded on demand in store/plugins/i18n
+  // All other locales are loaded on demand in base/datastore/i18nPlugin
   messages: {
     en: require('@/locales/locale-en.json'),
   },

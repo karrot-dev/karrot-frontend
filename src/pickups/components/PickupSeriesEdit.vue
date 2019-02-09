@@ -338,7 +338,4 @@ export default {
 
 <style scoped lang="stylus">
 @import '~editbox'
-.q-field-content .q-checkbox
-  padding-top 6px
-  padding-bottom 6px
 </style>

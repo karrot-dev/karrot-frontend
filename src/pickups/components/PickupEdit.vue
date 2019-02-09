@@ -187,7 +187,7 @@ import reactiveNow from '@/utils/reactiveNow'
 import differenceInSeconds from 'date-fns/difference_in_seconds'
 import addSeconds from 'date-fns/add_seconds'
 import { defaultDuration } from '@/pickups/settings'
-import { durationOptions, formatSeconds } from '@/pickups/utils'
+import { formatSeconds } from '@/pickups/utils'
 import { objectDiff } from '@/utils/utils'
 
 export default {
@@ -208,7 +208,6 @@ export default {
   },
   computed: {
     is24h,
-    durationOptions,
     now () {
       return reactiveNow.value
     },
@@ -334,7 +333,4 @@ export default {
 
 <style scoped lang="stylus">
 @import '~editbox'
-.q-field-content .q-checkbox
-  padding-top 6px
-  padding-bottom 6px
 </style>

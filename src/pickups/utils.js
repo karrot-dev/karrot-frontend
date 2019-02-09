@@ -1,8 +1,6 @@
 import dateFnsHelper from '@/utils/dateFnsHelper'
 import addSeconds from 'date-fns/add_seconds'
 
-import { pickupDurations } from '@/pickups/settings'
-
 const oneHourInSeconds = 60 * 60
 
 function secondsInWordsStrict (seconds) {
@@ -16,11 +14,4 @@ export function formatSeconds (seconds) {
   const remainderSeconds = seconds % oneHourInSeconds
   const parts = [hoursAsSeconds, remainderSeconds]
   return parts.filter(part => part > 0).map(secondsInWordsStrict).join(' ')
-}
-
-export function durationOptions () {
-  return pickupDurations.map(duration => ({
-    label: formatSeconds(duration),
-    value: duration,
-  }))
 }

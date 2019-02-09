@@ -21,11 +21,15 @@ Please document your changes in this format:
 ```
 
 ## [Unreleased]
+### Added
+- Add ability to specify pickups with end times #709 @nicksellen
+
+### Changed
+- Allow non-collectors to read and write in pickup chat @tiltec
 
 ## [6.5.0] - 2019-02-03
 ### Added
 - Close application, pickup and issue chats after they ended [#1088] @tiltec
-- Add ability to specify pickups with end times [#709] @nicksellen
 
 ### Changed
 - Mark latest messages as seen when visiting the menu, without the need to mark all messages as read @tiltec

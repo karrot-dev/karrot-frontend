@@ -1,1 +1,1 @@
-export const pickupRunningTime = 30
+export const defaultDuration = 1800

@@ -1,5 +1,6 @@
 import Vue from 'vue'
 import distanceInWords from 'date-fns/distance_in_words'
+import distanceInWordsStrict from 'date-fns/distance_in_words_strict'
 import { dateFnsLocale } from '@/locales/index'
 import reactiveNow from '@/utils/reactiveNow'
 
@@ -16,6 +17,9 @@ export default new Vue({
     },
   },
   methods: {
+    distanceInWordsStrict (dateA, dateB) {
+      return distanceInWordsStrict(dateA, dateB, { locale: this.localeData })
+    },
     distanceInWordsToNow (date, options = {}) {
       const now = reactiveNow.value
       if (options.disallowFuture && date > now) date = now

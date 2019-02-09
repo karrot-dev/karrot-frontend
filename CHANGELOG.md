@@ -21,6 +21,11 @@ Please document your changes in this format:
 ```
 
 ## [Unreleased]
+### Added
+- Add ability to specify pickups with end times #709 @nicksellen
+
+### Changed
+- Allow non-collectors to read and write in pickup chat @tiltec
 
 ## [6.5.0] - 2019-02-03
 ### Added

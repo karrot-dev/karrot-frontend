@@ -550,5 +550,6 @@
     "FROM_GROUP": "unsubscribe from everything in {groupName}",
     "SUCCESS": "You were successfully unsubscribed!"
   },
-  "YOU": "You"
+  "YOU": "You",
+  "TO": "to"
 }

@@ -56,7 +56,7 @@
           @saveScores="$emit('saveScores', arguments[0])"
         />
         <IssueResults
-          v-if="issue.status === 'decided'"
+          v-if="issue.status !== 'ongoing'"
           :issue="issue"
         />
         <QList

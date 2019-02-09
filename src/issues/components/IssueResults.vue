@@ -4,29 +4,48 @@
       {{ $t('ISSUE.VOTING.TIME_UP') }}
     </QCardTitle>
     <QCardMain>
-      <div class="row no-wrap">
+      <div class="no-wrap">
         <strong
           class="q-mr-sm"
-          style="white-space: nowrap"
         >
-          {{ $d(issue.votings.expiresAt, 'long') }}
+          {{ $t('ISSUE.VOTING.ENDED_AT', { date: $d(issue.votings.expiresAt, 'long') }) }}
         </strong>
       </div>
-      <div class="row">
+      <QItem>
         <small class="text-weight-light">
           <span>
             {{ $t('ISSUE.VOTING.INITIATED_BY', { initiatorName: issue.createdBy.displayName }) }}
             <DateAsWords :date="issue.createdAt" />
           </span>
         </small>
-      </div>
-      <QList
-        no-border
-        v-for="(o, index) in sortedArray"
-        :key="o.id"
-        inset-separator
+        <QItemMain/>
+        <QItemSide
+          v-if="issue.status === 'decided'"
+          right
+          stamp="Total score"
+        />
+      </QItem>
+      <QItem
+        v-if="issue.status === 'cancelled'"
       >
-        <QItem>
+        <QItemMain>
+          Unfortunately this conflict could not be decided. There are two possible reasons for that:
+          <QItemTile
+            class="q-pt-sm"
+          >
+            - the affected user left the group while the conflict resolution process was still going on<br>
+            - nobody voted on this issue
+          </QItemTile>
+        </QItemMain>
+      </QItem>
+      <QList
+        v-if="issue.status === 'decided'"
+        no-border
+      >
+        <QItem
+          v-for="(o, index) in sortedArray"
+          :key="o.id"
+        >
           <QItemSide
             :icon="getIcon(index)"
             color="primary"
@@ -54,6 +73,7 @@ import {
   QItem,
   QItemSide,
   QItemMain,
+  QItemTile,
 } from 'quasar'
 
 export default {
@@ -65,6 +85,7 @@ export default {
     QItem,
     QItemSide,
     QItemMain,
+    QItemTile,
     DateAsWords,
   },
   props: {
@@ -85,14 +106,13 @@ export default {
       return this.$t(`ISSUE.VOTING.${this.sortedArray[index].type.toUpperCase()}`, { userName: this.issue.affectedUser.displayName, groupName: this.issue.group.name })
     },
     getIcon (index) {
-      switch (index) {
-        case 0:
-          return 'fas fa-smile'
-        case 1:
-          return 'fas fa-meh'
-        case 2:
-          return 'fas fa-frown'
+      if (this.sortedArray[index].sumScore > 0) {
+        return 'fas fa-smile'
       }
+      if (this.sortedArray[index].sumScore < 0) {
+        return 'fas fa-frown'
+      }
+      return 'fas fa-meh'
     },
   },
 }

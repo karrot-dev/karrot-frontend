@@ -402,6 +402,7 @@ exports[`Storyshots ChatConversation default 1`] = `
         </div>
       </div>
     </div>
+    <!---->
   </div>
 </div>
 <!---->
@@ -584,6 +585,177 @@ exports[`Storyshots ChatConversation fetching past 1`] = `
         </div>
       </div>
     </div>
+    <!---->
+  </div>
+</div>
+<!---->
+</div>
+</div>
+</div>
+<!---->
+</div>
+`;
+
+exports[`Storyshots ChatConversation not participant 1`] = `
+<div>
+  <!---->
+  <div class="q-infinite-scroll">
+    <div class="q-infinite-scroll-content">
+      <div class="q-list bg-white no-border">
+        <div class="conversation-message relative-position q-item q-item-division relative-position q-item-multiline q-item-highlight slim">
+          <div class="q-btn-group row no-wrap inline hover-button k-message-controls q-btn-group-flat">
+            <!---->
+            <!----> <button tabindex="0" type="button" class="q-btn inline relative-position q-btn-item non-selectable q-btn-rectangle q-btn-flat q-focusable q-hoverable">
+              <div class="q-focus-helper"></div>
+              <div class="q-btn-inner row col items-center q-popup--skip justify-center"><span style="opacity:1;"><i class="far fa-smile"></i> +
+  </span>
+                <div tabindex="-1" class="q-popover scroll"></div>
+              </div>
+            </button></div>
+          <!---->
+          <div class="q-item-main q-item-section">
+            <div class="no-wrap k-message-meta"><a><span class="k-message-author text-bold text-secondary uppercase">User 1</span></a> <span class="message-date"><small class="text-weight-light"><div title="Dec 24, 2017, 12:00 PM">
+  less than a minute ago
+</div></small></span>
+              <!---->
+            </div>
+            <div class="content">
+              <div class="markdown">
+                <p>hello 0!</p>
+              </div>
+            </div>
+            <!----> <span class="conversation-reactions" style="margin-top:8px;display:block;"><span class="reactions"><button tabindex="0" type="button" title="a reacted with :thumbsup:" class="q-btn inline relative-position q-btn-item non-selectable row no-wrap items-center reaction-box q-btn-rectangle q-btn-flat q-focusable q-hoverable"><div class="q-focus-helper"></div><div class="q-btn-inner row col items-center q-popup--skip justify-center"><div class="emoji"></div> <span class="reactions-number">1</span>
+          </div></button></span> <button tabindex="0" type="button" class="q-btn inline relative-position q-btn-item non-selectable add-button reaction-box q-btn-rectangle q-btn-flat q-focusable q-hoverable">
+            <div class="q-focus-helper"></div>
+            <div class="q-btn-inner row col items-center q-popup--skip justify-center"><span style="opacity:0.5;"><i class="far fa-smile"></i> +
+  </span>
+              <div tabindex="-1" class="q-popover scroll"></div>
+            </div>
+          </button></span>
+          <!---->
+        </div>
+      </div>
+      <div class="conversation-message relative-position q-item q-item-division relative-position q-item-multiline q-item-highlight slim">
+        <div class="q-btn-group row no-wrap inline hover-button k-message-controls q-btn-group-flat">
+          <!---->
+          <!----> <button tabindex="0" type="button" class="q-btn inline relative-position q-btn-item non-selectable q-btn-rectangle q-btn-flat q-focusable q-hoverable">
+            <div class="q-focus-helper"></div>
+            <div class="q-btn-inner row col items-center q-popup--skip justify-center"><span style="opacity:1;"><i class="far fa-smile"></i> +
+  </span>
+              <div tabindex="-1" class="q-popover scroll"></div>
+            </div>
+          </button></div>
+        <!---->
+        <div class="q-item-main q-item-section">
+          <div class="no-wrap k-message-meta"><a><span class="k-message-author text-bold text-secondary uppercase">User 3</span></a> <span class="message-date"><small class="text-weight-light"><div title="Dec 24, 2017, 12:00 PM">
+  less than a minute ago
+</div></small></span>
+            <!---->
+          </div>
+          <div class="content">
+            <div class="markdown">
+              <p>hello 1!</p>
+            </div>
+          </div>
+          <!----> <span class="conversation-reactions" style="margin-top:8px;display:block;"><span class="reactions"><button tabindex="0" type="button" title="a reacted with :thumbsup:" class="q-btn inline relative-position q-btn-item non-selectable row no-wrap items-center reaction-box q-btn-rectangle q-btn-flat q-focusable q-hoverable"><div class="q-focus-helper"></div><div class="q-btn-inner row col items-center q-popup--skip justify-center"><div class="emoji"></div> <span class="reactions-number">1</span>
+        </div></button></span> <button tabindex="0" type="button" class="q-btn inline relative-position q-btn-item non-selectable add-button reaction-box q-btn-rectangle q-btn-flat q-focusable q-hoverable">
+          <div class="q-focus-helper"></div>
+          <div class="q-btn-inner row col items-center q-popup--skip justify-center"><span style="opacity:0.5;"><i class="far fa-smile"></i> +
+  </span>
+            <div tabindex="-1" class="q-popover scroll"></div>
+          </div>
+        </button></span>
+        <!---->
+      </div>
+    </div>
+    <div class="conversation-message relative-position q-item q-item-division relative-position q-item-multiline q-item-highlight slim">
+      <div class="q-btn-group row no-wrap inline hover-button k-message-controls q-btn-group-flat">
+        <!---->
+        <!----> <button tabindex="0" type="button" class="q-btn inline relative-position q-btn-item non-selectable q-btn-rectangle q-btn-flat q-focusable q-hoverable">
+          <div class="q-focus-helper"></div>
+          <div class="q-btn-inner row col items-center q-popup--skip justify-center"><span style="opacity:1;"><i class="far fa-smile"></i> +
+  </span>
+            <div tabindex="-1" class="q-popover scroll"></div>
+          </div>
+        </button></div>
+      <!---->
+      <div class="q-item-main q-item-section">
+        <div class="no-wrap k-message-meta"><a><span class="k-message-author text-bold text-secondary uppercase">User 5</span></a> <span class="message-date"><small class="text-weight-light"><div title="Dec 24, 2017, 12:00 PM">
+  less than a minute ago
+</div></small></span>
+          <!---->
+        </div>
+        <div class="content">
+          <div class="markdown">
+            <p>hello 2!</p>
+          </div>
+        </div>
+        <!----> <span class="conversation-reactions" style="margin-top:8px;display:block;"><span class="reactions"><button tabindex="0" type="button" title="a reacted with :thumbsup:" class="q-btn inline relative-position q-btn-item non-selectable row no-wrap items-center reaction-box q-btn-rectangle q-btn-flat q-focusable q-hoverable"><div class="q-focus-helper"></div><div class="q-btn-inner row col items-center q-popup--skip justify-center"><div class="emoji"></div> <span class="reactions-number">1</span>
+      </div></button></span> <button tabindex="0" type="button" class="q-btn inline relative-position q-btn-item non-selectable add-button reaction-box q-btn-rectangle q-btn-flat q-focusable q-hoverable">
+        <div class="q-focus-helper"></div>
+        <div class="q-btn-inner row col items-center q-popup--skip justify-center"><span style="opacity:0.5;"><i class="far fa-smile"></i> +
+  </span>
+          <div tabindex="-1" class="q-popover scroll"></div>
+        </div>
+      </button></span>
+      <!---->
+    </div>
+  </div>
+  <div class="conversation-message relative-position q-item q-item-division relative-position q-item-multiline q-item-highlight slim">
+    <div class="q-btn-group row no-wrap inline hover-button k-message-controls q-btn-group-flat">
+      <!---->
+      <!----> <button tabindex="0" type="button" class="q-btn inline relative-position q-btn-item non-selectable q-btn-rectangle q-btn-flat q-focusable q-hoverable">
+        <div class="q-focus-helper"></div>
+        <div class="q-btn-inner row col items-center q-popup--skip justify-center"><span style="opacity:1;"><i class="far fa-smile"></i> +
+  </span>
+          <div tabindex="-1" class="q-popover scroll"></div>
+        </div>
+      </button></div>
+    <!---->
+    <div class="q-item-main q-item-section">
+      <div class="no-wrap k-message-meta"><a><span class="k-message-author text-bold text-secondary uppercase">User 7</span></a> <span class="message-date"><small class="text-weight-light"><div title="Dec 24, 2017, 12:00 PM">
+  less than a minute ago
+</div></small></span>
+        <!---->
+      </div>
+      <div class="content">
+        <div class="markdown">
+          <p>hello 3!</p>
+        </div>
+      </div>
+      <!----> <span class="conversation-reactions" style="margin-top:8px;display:block;"><span class="reactions"><button tabindex="0" type="button" title="a reacted with :thumbsup:" class="q-btn inline relative-position q-btn-item non-selectable row no-wrap items-center reaction-box q-btn-rectangle q-btn-flat q-focusable q-hoverable"><div class="q-focus-helper"></div><div class="q-btn-inner row col items-center q-popup--skip justify-center"><div class="emoji"></div> <span class="reactions-number">1</span>
+    </div></button></span> <button tabindex="0" type="button" class="q-btn inline relative-position q-btn-item non-selectable add-button reaction-box q-btn-rectangle q-btn-flat q-focusable q-hoverable">
+      <div class="q-focus-helper"></div>
+      <div class="q-btn-inner row col items-center q-popup--skip justify-center"><span style="opacity:0.5;"><i class="far fa-smile"></i> +
+  </span>
+        <div tabindex="-1" class="q-popover scroll"></div>
+      </div>
+    </button></span>
+    <!---->
+  </div>
+</div>
+<div class="q-item q-item-division relative-position q-item-multiline">
+  <!---->
+  <div class="q-item-main q-item-section">
+    <div>
+      <div class="q-field row no-wrap items-start q-field-responsive q-field-no-label q-field-no-input">
+        <div class="row col">
+          <div class="q-field-content col-xs-12 col-sm">
+            <div value="">
+              <div tabindex="-1" rows="1" class="q-if row no-wrap relative-position q-input q-if-standard q-if-has-content text-primary">
+                <div class="q-if-baseline">|</div>
+                <div class="q-if-inner col column q-popup--skip">
+                  <div class="row no-wrap relative-position">
+                    <div class="col row relative-position"><object tabindex="-1" type="text/html" data="about:blank" aria-hidden="true" style="display:block;position:absolute;top:0;left:0;right:0;bottom:0;height:100%;width:100%;overflow:hidden;pointer-events:none;z-index:-1;"></object><textarea rows="1" class="col q-input-target q-input-shadow absolute-top"></textarea><textarea rows="1" placeholder="Write a message..." class="col q-input-target q-input-area"></textarea></div>
+                  </div>
+                </div><i aria-hidden="true" class="q-icon q-if-control fas fa-arrow-right hidden"> </i>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="q-mt-md q-caption q-item-sublabel"></div>
   </div>
 </div>
 <!---->
@@ -720,6 +892,7 @@ exports[`Storyshots ChatConversation thread 1`] = `
           </div>
         </div>
       </div>
+      <!---->
     </div>
   </div>
   <!---->
@@ -3711,8 +3884,7 @@ exports[`Storyshots PickupItem Full 1`] = `
           8:00 AM
           <!----></span>
         Monday, August 14, 2017
-        <!---->
-      </div>
+        <span><strong>Open Chat <i aria-hidden="true" class="q-icon material-icons">chat</i></strong></span></div>
       <!---->
       <!---->
       <div class="q-my-xs multiline">this pickup is already full!
@@ -3761,8 +3933,7 @@ exports[`Storyshots PickupItem Join 1`] = `
           8:00 AM
           <!----></span>
         Saturday, August 12, 2017
-        <!---->
-      </div>
+        <span><strong>Open Chat <i aria-hidden="true" class="q-icon material-icons">chat</i></strong></span></div>
       <!---->
       <!---->
       <div class="q-my-xs multiline">you can join this pickup
@@ -3858,8 +4029,7 @@ exports[`Storyshots PickupItem pending 1`] = `
           8:00 AM
           <!----></span>
         Saturday, August 12, 2017
-        <!---->
-      </div>
+        <span><strong>Open Chat <i aria-hidden="true" class="q-icon material-icons">chat</i></strong></span></div>
       <!---->
       <!---->
       <div class="q-my-xs multiline">you can join this pickup
@@ -3901,8 +4071,7 @@ exports[`Storyshots PickupList Default 1`] = `
           8:00 AM
           <!----></span>
   Saturday, August 12, 2017
-  <!---->
-</div>
+  <span><strong>Open Chat <i aria-hidden="true" class="q-icon material-icons">chat</i></strong></span></div>
 <!---->
 <!---->
 <div class="q-my-xs multiline">you can join this pickup
@@ -3992,8 +4161,7 @@ exports[`Storyshots PickupList Default 1`] = `
           8:00 AM
           <!----></span>
         Monday, August 14, 2017
-        <!---->
-      </div>
+        <span><strong>Open Chat <i aria-hidden="true" class="q-icon material-icons">chat</i></strong></span></div>
       <!---->
       <!---->
       <div class="q-my-xs multiline">this pickup is already full!
@@ -4039,8 +4207,7 @@ exports[`Storyshots PickupList Default 1`] = `
           8:00 AM
           <!----></span>
         Tuesday, August 15, 2017
-        <!---->
-      </div>
+        <span><strong>Open Chat <i aria-hidden="true" class="q-icon material-icons">chat</i></strong></span></div>
       <!---->
       <!---->
       <div class="q-my-xs multiline">this pickup is fresh and empty
@@ -6833,14 +7000,8 @@ exports[`Storyshots WallConversation WallConversation 1`] = `
 <div>
   <div class="q-infinite-scroll">
     <div class="q-infinite-scroll-content">
-      <div class="q-list bg-white desktop-margin relative-position"><button tabindex="0" type="button" class="q-btn inline relative-position q-btn-item non-selectable actionButton hoverScale q-btn-round q-focusable q-hoverable bg-secondary text-white">
-          <div class="q-focus-helper"></div>
-          <div class="q-btn-inner row col items-center q-popup--skip justify-center"><i aria-hidden="true" class="q-icon fas fa-bell"> </i>
-            <div class="q-tooltip animate-popup">
-              <div></div>
-            </div>
-          </div>
-        </button>
+      <div class="q-list bg-white desktop-margin relative-position">
+        <!---->
         <div class="q-item q-item-division relative-position q-item-multiline">
           <div class="q-item-side q-item-section q-item-side-left">
             <div class="wrapper" style="width:40px;height:40px;margin-top:36px;"><a title="Current User">
@@ -6896,6 +7057,7 @@ exports[`Storyshots WallConversation WallConversation 1`] = `
                 </div>
               </div>
             </div>
+            <!---->
           </div>
         </div>
         <!---->

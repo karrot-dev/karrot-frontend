@@ -86,11 +86,13 @@
         />
       </template>
       <NotificationToggle
-        v-if="notifications !== null"
-        :value="notifications"
+        v-if="isThread ? notifications !== null : true"
+        :is-watched="notifications"
+        :is-participant="isThread ? false : conversation.isParticipant"
+        :can-unsubscribe="!isThread"
         :user="currentUser"
         in-toolbar
-        @click="toggleNotifications"
+        @set="toggleNotifications"
         :size="$q.platform.is.mobile ? 'sm' : 'md'"
       />
       <QBtn
@@ -165,6 +167,9 @@ export default {
     },
   },
   computed: {
+    isThread () {
+      return Boolean(this.conversation.thread && this.conversation.id === this.conversation.thread)
+    },
     notifications () {
       if (this.conversation.thread && this.conversation.threadMeta) {
         return !this.conversation.threadMeta.muted
@@ -204,15 +209,15 @@ export default {
     },
   },
   methods: {
-    toggleNotifications () {
+    toggleNotifications (value) {
       const data = (this.conversation.thread && this.conversation.threadMeta)
         ? {
           threadId: this.conversation.thread,
-          value: this.notifications,
+          value,
         }
         : {
           conversationId: this.conversation.id,
-          value: this.notifications,
+          value,
         }
       this.$emit('setMuted', data)
     },

@@ -150,7 +150,7 @@ export default {
           : isUnread(message, state.entries[message.conversation]),
         saveStatus: getters['meta/status']('saveMessage', `message/${message.id}`),
         isEdited: differenceInSeconds(message.editedAt, message.createdAt) > 30,
-        groupId: conversation && conversation.type === 'group' ? conversation.targetId : null,
+        groupId: conversation && conversation.group,
       }
       if (data.threadMeta) {
         data.threadMeta = {
@@ -229,9 +229,9 @@ export default {
       },
 
       async setMuted ({ state, commit }, { id, value }) {
-        await conversationsAPI.setMuted(id, value)
+        await conversationsAPI.save(id, value)
         if (state.entries[id]) {
-          commit('setMuted', { conversationId: id, value })
+          // commit('setMuted', { conversationId: id, value })
         }
       },
     }),

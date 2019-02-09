@@ -172,7 +172,6 @@ function receiveMessage ({ topic, payload }) {
   }
   else if (topic === 'conversations:conversation') {
     const conversation = convertConversation(camelizeKeys(payload))
-    console.log('conversation', conversation)
     datastore.dispatch('conversations/updateConversation', conversation)
     datastore.dispatch('latestMessages/updateConversationsAndRelated', { conversations: [conversation] })
   }

@@ -8,11 +8,11 @@
       >
         <template v-if="hasLoaded">
           <NotificationToggle
-            v-if="data.isParticipant"
-            :value="!data.muted"
+            :is-watched="!data.muted"
+            :is-participant="data.isParticipant"
             :user="user"
             class="actionButton hoverScale"
-            @click="toggleNotifications"
+            @set="setNotifications"
           />
           <ConversationCompose
             :status="data.sendStatus"
@@ -111,10 +111,10 @@ export default {
       await this.fetchPast(this.data.id)
       done()
     },
-    toggleNotifications () {
+    setNotifications (value) {
       this.$emit('setMuted', {
         conversationId: this.data.id,
-        value: !this.data.muted,
+        value,
       })
     },
   },

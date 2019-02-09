@@ -33,10 +33,8 @@ export default {
     })).data)
   },
 
-  async setMuted (id, muted) {
-    return convert((await axios.patch(`/api/conversations/${id}/`, {
-      muted,
-    })).data)
+  async save (id, data) {
+    return convert((await axios.patch(`/api/conversations/${id}/`, data)).data)
   },
 
   async markAllSeen () {

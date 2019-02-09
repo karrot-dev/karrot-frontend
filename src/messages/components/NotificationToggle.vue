@@ -1,54 +1,96 @@
 <template>
   <QBtn
-    v-if="user && !user.mailVerified"
     round
     :dense="inToolbar"
     :flat="inToolbar"
-    :color="inToolbar ? 'white' : 'negative'"
-    :to="{ name: 'settings', hash: '#change-email' }"
+    :color="inToolbar ? 'white' : selected.color"
     :size="size"
   >
     <QIcon
-      name="fas fa-exclamation-triangle"
+      :name="selected.icon"
     />
-    <QTooltip
-      v-t="'WALL.VERIFY_EMAIL_FOR_NOTIFICATIONS'"
-      :delay="300"
-    />
-  </QBtn>
-  <QBtn
-    v-else
-    round
-    :dense="inToolbar"
-    :flat="inToolbar"
-    :color="inToolbar ? 'white' : (isEnabled ? 'secondary' : 'negative')"
-    @click="$emit('click')"
-    :size="size"
-  >
-    <QIcon
-      v-if="isEnabled"
-      name="fas fa-bell"
-    />
-    <QIcon
-      v-else
-      name="fas fa-bell-slash"
-    />
-    <QTooltip
-      v-t="isEnabled ? 'WALL.DISABLE_NOTIFICATION_EMAILS' : 'WALL.ENABLE_NOTIFICATION_EMAILS'"
-      :delay="300"
-    />
+    <QPopover>
+      <QList
+        link
+        v-close-overlay
+      >
+        <template v-if="user && !user.mailVerified">
+          <QItem
+            :to="{ name: 'settings', hash: '#change-email' }"
+          >
+            <QItemSide
+              color="negative"
+              class="text-align: center"
+              icon="fas fa-fw fa-exclamation-triangle"
+            />
+            <QItemMain
+              :label="$t('WALL.VERIFY_EMAIL_FOR_NOTIFICATIONS')"
+            />
+          </QItem>
+          <QItemSeparator />
+        </template>
+        <QListHeader>
+          How do you want to receive notifications about new messages in this conversation/thread?
+        </QListHeader>
+
+        <QItem
+          v-for="o in options"
+          :key="o.id"
+          @click.native="select(o)"
+          :class="o.selected ? 'bg-grey-2' : ''"
+        >
+          <QItemSide
+            class="text-align: center"
+            :color="o.color"
+            :icon="o.icon"
+          />
+          <QItemMain
+            :label="o.label"
+            :sublabel="o.sublabel"
+          />
+        </QItem>
+      </QList>
+    </QPopover>
   </QBtn>
 </template>
 
 <script>
-import { QBtn, QIcon, QTooltip } from 'quasar'
+import {
+  QPopover,
+  QBtn,
+  QIcon,
+  QList,
+  QItem,
+  QItemMain,
+  QItemSide,
+  QListHeader,
+  QItemSeparator,
+} from 'quasar'
 
 export default {
-  components: { QBtn, QIcon, QTooltip },
+  components: {
+    QPopover,
+    QBtn,
+    QIcon,
+    QList,
+    QItem,
+    QItemMain,
+    QItemSide,
+    QListHeader,
+    QItemSeparator,
+  },
   props: {
-    value: {
+    isWatched: {
       type: Boolean,
       default: false,
+    },
+    isParticipant: {
+      type: Boolean,
+      default: false,
+    },
+    canUnsubscribe: {
+      type: Boolean,
+      default: true,
     },
     user: {
       type: Object,
@@ -64,8 +106,44 @@ export default {
     },
   },
   computed: {
-    isEnabled () {
-      return this.value === true
+    options () {
+      return [
+        {
+          id: 'watched',
+          label: 'all',
+          sublabel: 'Via app/website, email and push notifications.',
+          icon: 'fas fa-fw fa-bell',
+          color: 'secondary',
+          selected: this.isWatched,
+        },
+        {
+          id: 'muted',
+          label: 'some',
+          sublabel: 'Via app/website.',
+          icon: 'fas fa-fw fa-bell-slash',
+          color: 'grey-8',
+          selected: this.isParticipant && !this.isWatched,
+        },
+        {
+          id: 'unsubscribed',
+          label: 'none',
+          sublabel: 'No notifications.',
+          icon: 'fas fa-fw fa-eye-slash',
+          color: 'grey-5',
+          selected: !this.isParticipant,
+        },
+      ].filter(o => o.id === 'unsubscribed' ? this.canUnsubscribe : true)
+    },
+    selected () {
+      return this.options.find(o => o.selected)
+    },
+  },
+  methods: {
+    select (option) {
+      this.$emit('set', {
+        isParticipant: option.id !== 'unsubscribed',
+        muted: option.id === 'muted',
+      })
     },
   },
 }

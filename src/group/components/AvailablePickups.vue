@@ -14,6 +14,7 @@
         <i class="fas fa-angle-down"/>
       </div>
     </QCard>
+    <p v-if="showPickups">This shows pickups from subscribed stores. You can subscribe to more stores</p>
     <PickupList
       v-if="showPickups"
       :pickups="pickups"

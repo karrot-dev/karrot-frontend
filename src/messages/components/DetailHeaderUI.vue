@@ -86,10 +86,10 @@
         />
       </template>
       <NotificationToggle
-        v-if="isThread ? notifications !== null : true"
-        :is-watched="notifications"
-        :is-participant="isThread ? false : conversation.isParticipant"
-        :can-unsubscribe="!isThread"
+        v-if="isThread ? muted !== null : true"
+        :muted="muted"
+        :is-participant="isThread ? true : conversation.isParticipant"
+        :can-unsubscribe="!isThread && !isPrivate"
         :user="currentUser"
         in-toolbar
         @set="toggleNotifications"
@@ -170,12 +170,15 @@ export default {
     isThread () {
       return Boolean(this.conversation.thread && this.conversation.id === this.conversation.thread)
     },
-    notifications () {
+    isPrivate () {
+      return this.conversation && this.conversation.type === 'private'
+    },
+    muted () {
       if (this.conversation.thread && this.conversation.threadMeta) {
-        return !this.conversation.threadMeta.muted
+        return this.conversation.threadMeta.muted
       }
-      if (this.conversation.isParticipant && typeof this.conversation.muted !== 'undefined') {
-        return !this.conversation.muted
+      if (typeof this.conversation.muted !== 'undefined') {
+        return this.conversation.muted
       }
       return null
     },
@@ -219,7 +222,7 @@ export default {
           conversationId: this.conversation.id,
           value,
         }
-      this.$emit('setMuted', data)
+      this.$emit('saveConversation', data)
     },
     applicationInfo () {
       Dialog.create({

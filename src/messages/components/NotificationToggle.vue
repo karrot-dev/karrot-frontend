@@ -80,9 +80,9 @@ export default {
     QItemSeparator,
   },
   props: {
-    isWatched: {
+    muted: {
       type: Boolean,
-      default: false,
+      default: true,
     },
     isParticipant: {
       type: Boolean,
@@ -109,12 +109,12 @@ export default {
     options () {
       return [
         {
-          id: 'watched',
+          id: 'all',
           label: 'all',
           sublabel: 'Via app/website, email and push notifications.',
           icon: 'fas fa-fw fa-bell',
           color: 'secondary',
-          selected: this.isWatched,
+          selected: this.isParticipant && !this.muted,
         },
         {
           id: 'muted',
@@ -122,17 +122,17 @@ export default {
           sublabel: 'Via app/website.',
           icon: 'fas fa-fw fa-bell-slash',
           color: 'grey-8',
-          selected: this.isParticipant && !this.isWatched,
+          selected: this.muted,
         },
         {
-          id: 'unsubscribed',
+          id: 'none',
           label: 'none',
           sublabel: 'No notifications.',
           icon: 'fas fa-fw fa-eye-slash',
           color: 'grey-5',
           selected: !this.isParticipant,
         },
-      ].filter(o => o.id === 'unsubscribed' ? this.canUnsubscribe : true)
+      ].filter(o => o.id === 'none' ? this.canUnsubscribe : true)
     },
     selected () {
       return this.options.find(o => o.selected)
@@ -141,8 +141,7 @@ export default {
   methods: {
     select (option) {
       this.$emit('set', {
-        isParticipant: option.id !== 'unsubscribed',
-        muted: option.id === 'muted',
+        notifications: option.id,
       })
     },
   },

@@ -13,7 +13,7 @@ export default connect({
     send: 'conversations/send',
     saveMessage: 'conversations/saveMessage',
     markAllRead: 'conversations/markAllRead',
-    setMuted: 'conversations/maybeSetMuted',
+    saveConversation: 'conversations/maybeSave',
     toggleReaction: 'conversations/toggleReaction',
   },
   actionsToProps: {

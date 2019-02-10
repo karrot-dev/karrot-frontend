@@ -13,6 +13,11 @@ import { createMetaModule, withMeta, withPrefixedIdMeta, metaStatusesWithId } fr
 
 export function isUnread (message, conversation) {
   if (!message || !conversation) return
+  if (conversation.notifications === 'none') {
+    // don't show unread status if user is not participant
+    // does not apply to thread replies
+    return false
+  }
   if (!conversation.seenUpTo) return true
   return message.id > conversation.seenUpTo
 }
@@ -166,6 +171,8 @@ export default {
       const enriched = {
         ...conversation,
         participants,
+        isParticipant: conversation.notifications !== 'none',
+        muted: conversation.notifications === 'muted',
       }
       enriched.target = getters.getTarget(enriched)
       return enriched
@@ -228,11 +235,8 @@ export default {
         await conversationsAPI.mark(id, seenUpTo)
       },
 
-      async setMuted ({ state, commit }, { id, value }) {
+      async save ({ state }, { id, value }) {
         await conversationsAPI.save(id, value)
-        if (state.entries[id]) {
-          // commit('setMuted', { conversationId: id, value })
-        }
       },
     }),
 
@@ -331,15 +335,15 @@ export default {
       if (conversationId) commit('clearMessages', conversationId)
     },
 
-    async maybeSetMuted ({ state, getters, dispatch }, { conversationId, threadId, value }) {
-      if (threadId) {
-        dispatch('currentThread/maybeSetMuted', { threadId, value }, { root: true })
+    async maybeSave ({ state, getters, dispatch }, { conversationId, threadId, value }) {
+      if (threadId && value.notifications) {
+        const muted = value.notifications !== 'all'
+        dispatch('currentThread/maybeSetMuted', { threadId, value: muted }, { root: true })
         return
       }
-      const pending = getters['meta/status']('setMuted', conversationId).pending
-      const prevent = state.entries[conversationId] && state.entries[conversationId].muted === value
-      if (!pending && !prevent) {
-        await dispatch('setMuted', { id: conversationId, value })
+      const pending = getters['meta/status']('save', conversationId).pending
+      if (!pending) {
+        await dispatch('save', { id: conversationId, value })
       }
     },
 
@@ -445,9 +449,6 @@ export default {
     },
     setConversation (state, conversation) {
       Vue.set(state.entries, conversation.id, conversation)
-    },
-    setMuted (state, { conversationId, value }) {
-      state.entries[conversationId].muted = value
     },
     addReaction (state, { userId, name, messageId, conversationId }) {
       if (!state.messages[conversationId]) return

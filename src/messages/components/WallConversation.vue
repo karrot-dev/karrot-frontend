@@ -8,7 +8,7 @@
       >
         <template v-if="hasLoaded">
           <NotificationToggle
-            :is-watched="!data.muted"
+            :muted="data.muted"
             :is-participant="data.isParticipant"
             :user="user"
             class="actionButton hoverScale"
@@ -24,7 +24,7 @@
             @submit="$emit('send', { id: data.id, content: arguments[0] })"
           />
           <QAlert
-            v-if="data.unreadMessageCount > 0"
+            v-if="data.isParticipant && data.unreadMessageCount > 0"
             color="secondary"
             icon="star"
             class="k-unread-alert"
@@ -112,7 +112,7 @@ export default {
       done()
     },
     setNotifications (value) {
-      this.$emit('setMuted', {
+      this.$emit('saveConversation', {
         conversationId: this.data.id,
         value,
       })

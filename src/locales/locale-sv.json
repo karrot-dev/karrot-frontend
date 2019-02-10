@@ -504,7 +504,8 @@
     "MESSAGE_NOT_FOUND": "Meddelande hittades inte",
     "NO_CONVERSATIONS": "Fortfarande inga samtal",
     "MUTED": "Notifieringar är inaktiverad",
-    "CLOSED": "This conversation has been closed automatically."
+    "CLOSED": "This conversation has been closed automatically.",
+    "NOT_PARTICIPATED": "By sending a message, you will be subscribed to notifications about this conversation."
   },
   "STORESTATUS": {
     "ACTIVE": "Samarbetar",
@@ -549,5 +550,6 @@
     "FROM_GROUP": "stäng av notiser för allt i {groupName}",
     "SUCCESS": "Du avslutade prenumeration!"
   },
-  "YOU": "Du"
+  "YOU": "Du",
+  "TO": "to"
 }

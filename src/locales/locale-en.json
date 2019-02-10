@@ -565,6 +565,9 @@
     }
   },
   "ISSUE": {
+    "CREATION": {
+      "TOAST": "You successfully started a conflict resolution process"
+    },
     "TITLE": "Issues",
     "SUBMITTED_ON": "Process started on {date}",
     "VOTING": {
@@ -578,7 +581,8 @@
       "NO_CHANGE": "{userName} stays in {groupName}",
       "FURTHER_DISCUSSION": "Extend the time to keep discussing",
       "REMOVE_USER": "{userName} gets removed from {groupName}",
-      "ENDED_AT": "The last voting round ended on {date}"
+      "ENDED_AT": "The last voting round ended on {date}",
+      "PARTICIPANTS": "{number} members participated in the voting."
     },
     "PAST": "Past issues"
   },

@@ -63,7 +63,7 @@
           @click="$emit('detail', user)"
         />
         <QBtn
-          v-if="currentGroupMembership && !user.isCurrentUser"
+          v-if="triggerCriteria"
           icon="fas fa-frown-open"
           small
           round
@@ -117,6 +117,7 @@
 </template>
 
 <script>
+import { mapGetters } from 'vuex'
 import Markdown from '@/utils/components/Markdown'
 import ProfilePicture from '@/users/components/ProfilePicture'
 import UserMapPreview from '@/maps/components/UserMapPreview'
@@ -157,6 +158,12 @@ export default {
     currentGroup: { default: null, type: Object },
   },
   computed: {
+    ...mapGetters({
+      getIssues: 'issues/ongoing',
+    }),
+    conflictOngoing () {
+      return this.getIssues.some(i => i.affectedUser.id === this.user.id)
+    },
     profilePictureSize () {
       if (this.$q.platform.is.mobile) {
         return 80
@@ -168,6 +175,18 @@ export default {
     },
     isInfoOnly () {
       return !this.user.email
+    },
+    triggerCriteria () {
+      if (
+        this.user.isCurrentUser ||
+        !this.currentGroupMembership ||
+        this.conflictOngoing ||
+        (this.currentGroup.isOpen && !this.currentGroup.isPlayground) ||
+        (this.currentGroup.activeEditorsCount < this.currentGroup.activeEditorsRequiredForConflictResolution)
+      ) {
+        return false
+      }
+      return true
     },
   },
   methods: {

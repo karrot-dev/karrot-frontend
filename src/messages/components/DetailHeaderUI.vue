@@ -183,6 +183,9 @@ export default {
       return null
     },
     participants () {
+      if (this.pickup) {
+        return this.pickup.collectors
+      }
       if (this.conversation.thread && this.conversation.threadMeta) {
         return this.conversation.threadMeta.participants
       }

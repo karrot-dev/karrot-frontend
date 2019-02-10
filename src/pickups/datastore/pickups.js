@@ -5,7 +5,6 @@ import reactiveNow from '@/utils/reactiveNow'
 
 function initialState () {
   return {
-    now: new Date(), // reactive current time
     entries: {},
   }
 }

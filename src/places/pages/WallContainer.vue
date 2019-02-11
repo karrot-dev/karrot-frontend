@@ -2,7 +2,7 @@
   <Wall>
     <QBtn
       v-if="isEditor"
-      :to="{name: 'placeEdit', params: { placeId }}"
+      :to="{name: 'placeEdit', params: { groupId: place.group.id, placeId }}"
       round
       color="secondary"
       icon="fas fa-pencil-alt"

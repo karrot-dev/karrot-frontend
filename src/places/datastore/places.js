@@ -81,6 +81,12 @@ export default {
       async fetch ({ commit }) {
         commit('set', await places.list())
       },
+      async subscribe (_, id) {
+        await places.subscribe(id)
+      },
+      async unsubscribe (_, id) {
+        await places.unsubscribe(id)
+      },
 
     }),
     ...withMeta({

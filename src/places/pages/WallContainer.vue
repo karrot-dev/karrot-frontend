@@ -48,11 +48,8 @@
 </template>
 
 <script>
-import { mapGetters } from 'vuex'
+import { mapGetters, mapActions } from 'vuex'
 import Wall from './Wall'
-
-// TODO move into vuex
-import placesAPI from '@/places/api/places'
 
 import {
   QBtn,
@@ -111,12 +108,16 @@ export default {
     },
   },
   methods: {
+    ...mapActions({
+      subscribe: 'places/subscribe',
+      unsubscribe: 'places/unsubscribe',
+    }),
     select (option) {
       if (option.id === 'subscribe') {
-        placesAPI.subscribe(this.placeId)
+        this.subscribe(this.placeId)
       }
       else {
-        placesAPI.unsubscribe(this.placeId)
+        this.unsubscribe(this.placeId)
       }
     },
   },

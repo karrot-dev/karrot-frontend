@@ -570,21 +570,27 @@
     },
     "TITLE": "Issues",
     "SUBMITTED_ON": "Process started on {date}",
+    "INITIATED_BY": "Initiated by {initiatorName}",
+    "PAST": "Past issues",
     "VOTING": {
       "DAYS_LEFT": "{count} left to vote",
       "BTN_START": "Vote now",
       "BTN_DELETE": "Delete vote",
-      "HISTORY": "Your group voted to keep discussing",
-      "TIME_UP": "Time is up!",
-      "INITIATED_BY": "Initiated by {initiatorName}",
       "TOAST": "Your vote was successfully submitted",
       "NO_CHANGE": "{userName} stays in {groupName}",
       "FURTHER_DISCUSSION": "Extend the time to keep discussing",
       "REMOVE_USER": "{userName} gets removed from {groupName}",
-      "ENDED_AT": "The last voting round ended on {date}",
-      "PARTICIPANTS": "{number} members participated in the voting."
-    },
-    "PAST": "Past issues"
+      "RESULTS": {
+        "KEEP_DISCUSSING": "Your group voted to keep discussing",
+        "TIME_UP": "Time is up!",
+        "ENDED_AT": "The last voting round ended on {date}",
+        "PARTICIPANTS": "{number} members participated in the voting.",
+        "UNDECIDED": "Unfortunately this conflict could not be decided.",
+        "UNDECIDED_WHY": "There are two possible reasons for that:",
+        "UNDECIDED_REASON_1": "the affected user left the group while the conflict resolution process was still onsgoing",
+        "UNDECIDED_REASON_2": "nobody voted on this issue"
+      }
+    }
   },
   "UNSUBSCRIBE": {
     "HEADER": "Unsubscribe",

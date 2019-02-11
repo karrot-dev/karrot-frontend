@@ -1,20 +1,25 @@
 <template>
   <QCard>
     <QCardTitle>
-      {{ $t('ISSUE.VOTING.TIME_UP') }}
+      {{ $t('ISSUE.VOTING.RESULTS.TIME_UP') }}
     </QCardTitle>
     <QCardMain>
-      <div class="no-wrap">
+      <div>
         <strong
           class="q-mr-sm"
         >
-          {{ $t('ISSUE.VOTING.ENDED_AT', { date: $d(issue.votings.expiresAt, 'long') }) }}
+          {{ $t('ISSUE.VOTING.RESULTS.ENDED_AT', { date: $d(issue.votings.expiresAt, 'long') }) }}
         </strong>
+      </div>
+      <div
+        class="q-pt-xs"
+      >
+        {{ $t('ISSUE.VOTING.RESULTS.PARTICIPANTS', { number: lastDecision.participantCount }) }}
       </div>
       <QItem>
         <small class="text-weight-light">
           <span>
-            {{ $t('ISSUE.VOTING.INITIATED_BY', { initiatorName: issue.createdBy.displayName }) }}
+            {{ $t('ISSUE.INITIATED_BY', { initiatorName: issue.createdBy.displayName }) }}
             <DateAsWords :date="issue.createdAt" />
           </span>
         </small>
@@ -29,12 +34,21 @@
         v-if="issue.status === 'cancelled'"
       >
         <QItemMain>
-          Unfortunately this conflict could not be decided. There are two possible reasons for that:
+          <strong>
+            {{ $t('ISSUE.VOTING.RESULTS.UNDECIDED') }}
+          </strong>
           <QItemTile
             class="q-pt-sm"
           >
-            - the affected user left the group while the conflict resolution process was still going on<br>
-            - nobody voted on this issue
+            {{ $t('ISSUE.VOTING.RESULTS.UNDECIDED_WHY') }}
+            <ul>
+              <li>
+                {{ $t('ISSUE.VOTING.RESULTS.UNDECIDED_REASON_1') }}
+              </li>
+              <li>
+                {{ $t('ISSUE.VOTING.RESULTS.UNDECIDED_REASON_2') }}
+              </li>
+            </ul>
           </QItemTile>
         </QItemMain>
       </QItem>
@@ -64,6 +78,7 @@
 
 <script>
 import DateAsWords from '@/utils/components/DateAsWords'
+import max from 'date-fns/max'
 
 import {
   QCard,
@@ -95,8 +110,11 @@ export default {
     },
   },
   computed: {
+    lastDecision () {
+      return this.issue.votings.find(v => max(v.expiredAt))
+    },
     sortedArray () {
-      return this.issue.votings[0].options.slice().sort(function (a, b) {
+      return this.lastDecision.options.slice().sort(function (a, b) {
         return b.sumScore - a.sumScore
       })
     },

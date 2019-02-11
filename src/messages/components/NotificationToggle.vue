@@ -29,9 +29,7 @@
           </QItem>
           <QItemSeparator />
         </template>
-        <QListHeader>
-          How do you want to receive notifications about new messages in this conversation/thread?
-        </QListHeader>
+        <QListHeader v-t="'NOTIFICATION_TOGGLE.HEADER'" />
 
         <QItem
           v-for="o in options"
@@ -110,24 +108,24 @@ export default {
       return [
         {
           id: 'all',
-          label: 'all',
-          sublabel: 'Via app/website, email and push notifications.',
+          label: this.$t('NOTIFICATION_TOGGLE.ALL'),
+          sublabel: this.$t('NOTIFICATION_TOGGLE.ALL_TEXT'),
           icon: 'fas fa-fw fa-bell',
           color: 'secondary',
           selected: this.isParticipant && !this.muted,
         },
         {
           id: 'muted',
-          label: 'some',
-          sublabel: 'Via app/website.',
+          label: this.$t('NOTIFICATION_TOGGLE.SOME'),
+          sublabel: this.$t('NOTIFICATION_TOGGLE.SOME_TEXT'),
           icon: 'fas fa-fw fa-bell-slash',
           color: 'grey-8',
           selected: this.muted,
         },
         {
           id: 'none',
-          label: 'none',
-          sublabel: 'No notifications.',
+          label: this.$t('NOTIFICATION_TOGGLE.NONE'),
+          sublabel: this.$t('NOTIFICATION_TOGGLE.NONE_TEXT'),
           icon: 'fas fa-fw fa-eye-slash',
           color: 'grey-5',
           selected: !this.isParticipant,

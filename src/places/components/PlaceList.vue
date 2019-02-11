@@ -28,8 +28,8 @@
         right
       >
         <QIcon
-          name="fas fa-star"
-          color="pink"
+          name="fas fa-fw fa-star"
+          color="secondary"
         />
       </QItemSide>
     </QItem>

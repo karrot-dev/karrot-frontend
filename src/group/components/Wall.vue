@@ -36,7 +36,9 @@
       @saveConversation="$emit('saveConversation', arguments[0])"
       @toggleReaction="$emit('toggleReaction', arguments[0])"
       @openThread="$emit('openThread', arguments[0])"
-    />
+    >
+      <slot />
+    </WallConversation>
   </div>
 </template>
 

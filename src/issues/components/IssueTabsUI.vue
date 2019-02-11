@@ -25,6 +25,20 @@
             <b>{{ $t('CONFLICT.INITIAL') }}</b>
           </template>
           <div class="q-ma-sm q-pa-sm bg-white">
+            <span class="text-bold text-primary">
+              {{ $t('CONFLICT.WITH') }}
+            </span>
+            <div>
+              <ProfilePicture
+                :user="issue.affectedUser"
+                :size="25"
+                :is-link="true"
+                class="q-mt-sm"
+              />
+              {{ issue.affectedUser.displayName }}
+            </div>
+          </div>
+          <div class="q-ma-sm q-pa-sm bg-white">
             <span class="text-bold text-secondary uppercase">{{ issue.createdBy.displayName }}</span>
             <span class="message-date">
               <small class="text-weight-light">
@@ -60,10 +74,10 @@
           :issue="issue"
         />
         <QList
-          v-if="!issue.votings[0]"
+          v-if="multipleVotings"
         >
           <IssueHistoryItem
-            v-for="v in issue.votings"
+            v-for="v in pastVotings"
             :key="v.id"
             :issue="issue"
           />
@@ -80,6 +94,7 @@ import IssueHistoryItem from '@/issues/components/IssueHistoryItem'
 import ChatConversation from '@/messages/components/ChatConversation'
 import Markdown from '@/utils/components/Markdown'
 import DateAsWords from '@/utils/components/DateAsWords'
+import ProfilePicture from '@/users/components/ProfilePicture'
 
 import {
   QTabs,
@@ -102,6 +117,7 @@ export default {
     Markdown,
     DateAsWords,
     QList,
+    ProfilePicture,
   },
   props: {
     issue: {
@@ -123,6 +139,14 @@ export default {
     currentUser: {
       type: Object,
       default: null,
+    },
+  },
+  computed: {
+    multipleVotings () {
+      return this.issue.votings.length > 1
+    },
+    pastVotings () {
+      return this.issue.votings.filter(v => new Date(v.expiresAt) <= new Date())
     },
   },
 }

@@ -55,7 +55,7 @@
           </template>
           <template v-else-if="isPlace">
             <QIcon
-              name="fas fw-fw fa-bullhorn"
+              name="fas fw-fw fa-star"
               class="q-mr-sm"
               :title="$t('GROUP.WALL')"
             />

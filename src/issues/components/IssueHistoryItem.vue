@@ -2,20 +2,13 @@
   <div>
     <QItem
       multiline
-      v-if="!issue.votings[0]"
       class="clickable"
       :class="{'greyed': detailIsShown}"
       @click.native="toggleDetail"
     >
-      <QItemSide>
-        <ProfilePicture
-          :user="issue.affectedUser"
-          :size="size"
-        />
-      </QItemSide>
       <QItemMain>
         <QItemTile>
-          {{ $t('ISSUE.VOTING.HISTORY') }}
+          {{ $t('ISSUE.VOTING.RESULTS.KEEP_DISCUSSING') }}
         </QItemTile>
         <QItemTile
           stamp
@@ -57,7 +50,6 @@ import {
 } from 'quasar'
 
 import DateAsWords from '@/utils/components/DateAsWords'
-import ProfilePicture from '@/users/components/ProfilePicture'
 import IssueResults from './IssueResults'
 
 export default {
@@ -67,17 +59,12 @@ export default {
     QItemMain,
     QItemTile,
     DateAsWords,
-    ProfilePicture,
     IssueResults,
   },
   props: {
     issue: {
       type: Object,
       default: null,
-    },
-    size: {
-      default: 25,
-      type: Number,
     },
   },
   methods: {

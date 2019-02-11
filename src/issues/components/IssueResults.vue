@@ -25,7 +25,7 @@
         </small>
         <QItemMain/>
         <QItemSide
-          v-if="issue.status === 'decided'"
+          v-if="issue.status !== 'cancelled'"
           right
           stamp="Total score"
         />
@@ -53,7 +53,7 @@
         </QItemMain>
       </QItem>
       <QList
-        v-if="issue.status === 'decided'"
+        v-if="issue.status !== 'cancelled'"
         no-border
       >
         <QItem

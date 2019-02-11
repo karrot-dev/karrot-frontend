@@ -20,7 +20,6 @@
           >
             <QItemSide
               color="negative"
-              class="text-align: center"
               icon="fas fa-fw fa-exclamation-triangle"
             />
             <QItemMain
@@ -30,7 +29,6 @@
           <QItemSeparator />
         </template>
         <QListHeader v-t="'NOTIFICATION_TOGGLE.HEADER'" />
-
         <QItem
           v-for="o in options"
           :key="o.id"
@@ -38,7 +36,6 @@
           :class="o.selected ? 'bg-grey-2' : ''"
         >
           <QItemSide
-            class="text-align: center"
             :color="o.color"
             :icon="o.icon"
           />

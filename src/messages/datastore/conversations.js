@@ -168,11 +168,13 @@ export default {
     enrichConversation: (state, getters, rootState, rootGetters) => conversation => {
       if (!conversation) return
       const participants = conversation.participants.map(rootGetters['users/get'])
+      const isParticipant = conversation.notifications !== 'none'
       const enriched = {
         ...conversation,
         participants,
-        isParticipant: conversation.notifications !== 'none',
+        isParticipant,
         muted: conversation.notifications === 'muted',
+        unreadMessageCount: isParticipant ? conversation.unreadMessageCount : 0,
       }
       enriched.target = getters.getTarget(enriched)
       return enriched

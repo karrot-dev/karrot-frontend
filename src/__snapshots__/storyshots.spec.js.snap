@@ -5173,40 +5173,45 @@ exports[`Storyshots Places PlaceList 1`] = `
 <div class="q-list no-padding no-border q-list-highlight"><a class="q-link q-item q-item-division relative-position q-item-link">
     <div class="q-item-side q-item-section text-center q-item-side-left"><i aria-hidden="true" title="Just created" class="q-icon fas fa-circle text-grey"> </i></div>
     <div class="q-item-main q-item-section">
-      <div class="q-item-label">
+      <div class="items-baseline q-item-label">
         Teststore1
+        <!---->
       </div>
     </div>
     <!---->
   </a><a class="q-link q-item q-item-division relative-position q-item-link">
     <div class="q-item-side q-item-section text-center q-item-side-left"><i aria-hidden="true" title="Just created" class="q-icon fas fa-circle text-grey"> </i></div>
     <div class="q-item-main q-item-section">
-      <div class="q-item-label">
+      <div class="items-baseline q-item-label">
         New Tienda
+        <!---->
       </div>
     </div>
     <!---->
   </a><a class="q-link q-item q-item-division relative-position q-item-link">
     <div class="q-item-side q-item-section text-center q-item-side-left"><i aria-hidden="true" title="Just created" class="q-icon fas fa-circle text-grey"> </i></div>
     <div class="q-item-main q-item-section">
-      <div class="q-item-label">
+      <div class="items-baseline q-item-label">
         Supermarkt Arheilgen
+        <!---->
       </div>
     </div>
     <!---->
   </a><a class="q-link q-item q-item-division relative-position q-item-link">
     <div class="q-item-side q-item-section text-center q-item-side-left"><i aria-hidden="true" title="Just created" class="q-icon fas fa-circle text-grey"> </i></div>
     <div class="q-item-main q-item-section">
-      <div class="q-item-label">
+      <div class="items-baseline q-item-label">
         asd
+        <!---->
       </div>
     </div>
     <!---->
   </a><a class="q-link q-item q-item-division relative-position q-item-link">
     <div class="q-item-side q-item-section text-center q-item-side-left"><i aria-hidden="true" title="Just created" class="q-icon fas fa-circle text-grey"> </i></div>
     <div class="q-item-main q-item-section">
-      <div class="q-item-label">
+      <div class="items-baseline q-item-label">
         Griesheimer Markt
+        <!---->
       </div>
     </div>
     <!---->
@@ -5674,40 +5679,45 @@ exports[`Storyshots Sidenav Boxes Places 1`] = `
     <div class="q-list no-padding no-border q-list-highlight"><a class="q-link q-item q-item-division relative-position q-item-link">
         <div class="q-item-side q-item-section text-center q-item-side-left"><i aria-hidden="true" title="Just created" class="q-icon fas fa-circle text-grey"> </i></div>
         <div class="q-item-main q-item-section">
-          <div class="q-item-label">
+          <div class="items-baseline q-item-label">
             Teststore1
+            <!---->
           </div>
         </div>
         <!---->
       </a><a class="q-link q-item q-item-division relative-position q-item-link">
         <div class="q-item-side q-item-section text-center q-item-side-left"><i aria-hidden="true" title="Just created" class="q-icon fas fa-circle text-grey"> </i></div>
         <div class="q-item-main q-item-section">
-          <div class="q-item-label">
+          <div class="items-baseline q-item-label">
             New Tienda
+            <!---->
           </div>
         </div>
         <!---->
       </a><a class="q-link q-item q-item-division relative-position q-item-link">
         <div class="q-item-side q-item-section text-center q-item-side-left"><i aria-hidden="true" title="Just created" class="q-icon fas fa-circle text-grey"> </i></div>
         <div class="q-item-main q-item-section">
-          <div class="q-item-label">
+          <div class="items-baseline q-item-label">
             Supermarkt Arheilgen
+            <!---->
           </div>
         </div>
         <!---->
       </a><a class="q-link q-item q-item-division relative-position q-item-link">
         <div class="q-item-side q-item-section text-center q-item-side-left"><i aria-hidden="true" title="Just created" class="q-icon fas fa-circle text-grey"> </i></div>
         <div class="q-item-main q-item-section">
-          <div class="q-item-label">
+          <div class="items-baseline q-item-label">
             asd
+            <!---->
           </div>
         </div>
         <!---->
       </a><a class="q-link q-item q-item-division relative-position q-item-link">
         <div class="q-item-side q-item-section text-center q-item-side-left"><i aria-hidden="true" title="Just created" class="q-icon fas fa-circle text-grey"> </i></div>
         <div class="q-item-main q-item-section">
-          <div class="q-item-label">
+          <div class="items-baseline q-item-label">
             Griesheimer Markt
+            <!---->
           </div>
         </div>
         <!---->
@@ -7019,21 +7029,21 @@ exports[`Storyshots WallConversation WallConversation 1`] = `
                   <!---->
                   <div class="q-list-header"></div>
                   <div class="q-item q-item-division relative-position">
-                    <div class="q-item-side q-item-section text-align: center q-item-side-left"><i aria-hidden="true" class="q-icon fas fa-fw fa-bell q-item-icon text-secondary"> </i></div>
+                    <div class="q-item-side q-item-section q-item-side-left"><i aria-hidden="true" class="q-icon fas fa-fw fa-bell q-item-icon text-secondary"> </i></div>
                     <div class="q-item-main q-item-section">
                       <div class="q-item-label" style="overflow:hidden;display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:NaN;">all</div>
                       <div class="q-item-sublabel" style="overflow:hidden;display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:NaN;">Via app/website, email and push notifications.</div>
                     </div>
                   </div>
                   <div class="q-item q-item-division relative-position bg-grey-2">
-                    <div class="q-item-side q-item-section text-align: center q-item-side-left"><i aria-hidden="true" class="q-icon fas fa-fw fa-bell-slash q-item-icon text-grey-8"> </i></div>
+                    <div class="q-item-side q-item-section q-item-side-left"><i aria-hidden="true" class="q-icon fas fa-fw fa-bell-slash q-item-icon text-grey-8"> </i></div>
                     <div class="q-item-main q-item-section">
                       <div class="q-item-label" style="overflow:hidden;display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:NaN;">some</div>
                       <div class="q-item-sublabel" style="overflow:hidden;display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:NaN;">Via app/website.</div>
                     </div>
                   </div>
                   <div class="q-item q-item-division relative-position bg-grey-2">
-                    <div class="q-item-side q-item-section text-align: center q-item-side-left"><i aria-hidden="true" class="q-icon fas fa-fw fa-eye-slash q-item-icon text-grey-5"> </i></div>
+                    <div class="q-item-side q-item-section q-item-side-left"><i aria-hidden="true" class="q-icon fas fa-fw fa-eye-slash q-item-icon text-grey-5"> </i></div>
                     <div class="q-item-main q-item-section">
                       <div class="q-item-label" style="overflow:hidden;display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:NaN;">none</div>
                       <div class="q-item-sublabel" style="overflow:hidden;display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:NaN;">No notifications.</div>

@@ -18,19 +18,29 @@
         />
       </QItemSide>
       <QItemMain>
-        <QItemTile label>
+        <QItemTile
+          label
+          class="items-baseline"
+        >
           {{ place.name }}
+          <QIcon
+            v-if="place.isSubscribed"
+            name="fas fa-fw fa-star"
+            class="vertical-baseline"
+            color="secondary"
+          />
         </QItemTile>
       </QItemMain>
       <QItemSide
-        v-if="place.isSubscribed"
-        class="text-center"
+        v-if="place.conversationUnreadCount > 0"
         right
       >
-        <QIcon
-          name="fas fa-fw fa-star"
+        <QChip
+          small
           color="secondary"
-        />
+        >
+          {{ place.conversationUnreadCount > 99 ? '99+' : place.conversationUnreadCount }}
+        </QChip>
       </QItemSide>
     </QItem>
 
@@ -84,6 +94,7 @@ import {
   QTooltip,
   QCollapsible,
   QItemSeparator,
+  QChip,
 } from 'quasar'
 import { mapGetters } from 'vuex'
 
@@ -98,6 +109,7 @@ export default {
     QTooltip,
     QCollapsible,
     QItemSeparator,
+    QChip,
   },
   props: {
     groupId: { default: null, type: Number },

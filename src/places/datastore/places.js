@@ -33,7 +33,15 @@ export default {
     all: (state, getters) => Object.values(state.entries).map(getters.enrich).sort(sortByName).sort(sortByStatus),
     notArchived: (state, getters) => getters.all.filter(s => s.status !== 'archived'),
     archived: (state, getters) => getters.all.filter(s => s.status === 'archived'),
-    filtered: (state, getters) => getters.notArchived.filter(place => getters['toggle/showAll'] || place.status === 'active' || place.isSubscribed),
+    filtered: (state, getters, rootState, rootGetters) => getters.notArchived
+      .filter(place => getters['toggle/showAll'] || place.status === 'active' || place.isSubscribed)
+      .map(place => {
+        const conversation = rootGetters['conversations/getForPlace'](place.id)
+        return {
+          ...place,
+          conversationUnreadCount: conversation && conversation.unreadMessageCount,
+        }
+      }),
     byCurrentGroup: (state, getters, rootState, rootGetters) => getters.filtered.filter(({ group }) => group && group.isCurrentGroup),
     byCurrentGroupArchived: (state, getters, rootState, rootGetters) => getters.archived.filter(({ group }) => group && group.isCurrentGroup),
     get: (state, getters) => id => getters.enrich(state.entries[id]),
@@ -50,6 +58,7 @@ export default {
     activePlace: (state, getters) => getters.get(state.activePlaceId),
     activePlaceId: state => state.activePlaceId,
     ...metaStatuses(['create']),
+    conversationUnreadCount: (state, getters) => getters.conversation && getters.conversation.unreadMessageCount,
     conversation: (state, getters, rootState, rootGetters) => {
       if (!state.activePlaceId) return
       return rootGetters['conversations/getForPlace'](state.activePlaceId)

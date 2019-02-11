@@ -33,7 +33,6 @@
             :class="o.selected ? 'bg-grey-2' : ''"
           >
             <QItemSide
-              class="text-align: center"
               :color="o.color"
               :icon="o.icon"
             />

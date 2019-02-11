@@ -5,7 +5,7 @@
     class="no-padding"
   >
     <QItem
-      v-for="place in places"
+      v-for="place in sortedPlaces"
       :key="place.id"
       link
       :to="linkParamsFor(place)"
@@ -107,6 +107,11 @@ export default {
 
   },
   computed: {
+    sortedPlaces () {
+      const subscribed = this.places.filter(e => e.isSubscribed)
+      const notSubscribed = this.places.filter(e => !e.isSubscribed)
+      return subscribed.concat(notSubscribed)
+    },
     hasPlaces () {
       return this.places && this.places.length > 0
     },

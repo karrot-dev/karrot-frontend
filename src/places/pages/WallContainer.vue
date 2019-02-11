@@ -1,6 +1,16 @@
 <template>
   <Wall>
     <QBtn
+      v-if="isEditor"
+      :to="{name: 'placeEdit', params: { placeId }}"
+      round
+      color="secondary"
+      icon="fas fa-pencil-alt"
+      class="hoverScale"
+    >
+      <QTooltip v-t="'STOREDETAIL.EDIT'" />
+    </QBtn>
+    <QBtn
       round
       color="white"
       class="hoverScale"
@@ -34,16 +44,6 @@
           </QItem>
         </QList>
       </QPopover>
-    </QBtn>
-    <QBtn
-      v-if="isEditor"
-      :to="{name: 'placeEdit', params: { placeId }}"
-      round
-      color="secondary"
-      icon="fas fa-pencil-alt"
-      class="hoverScale"
-    >
-      <QTooltip v-t="'STOREDETAIL.EDIT'" />
     </QBtn>
   </Wall>
 </template>

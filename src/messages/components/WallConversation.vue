@@ -148,6 +148,8 @@ export default {
   position absolute
   top -24px
   right 6px
+  >>> > *
+    margin-left 3px
 .k-unread-alert >>>
   .q-alert-content, .q-alert-side
     padding-top 6px

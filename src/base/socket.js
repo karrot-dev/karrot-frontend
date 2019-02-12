@@ -14,6 +14,7 @@ import { convert as convertSeries } from '@/pickups/api/pickupSeries'
 import { convert as convertFeedback } from '@/feedback/api/feedback'
 import { convert as convertHistory } from '@/history/api/history'
 import { convert as convertInvitation } from '@/invitations/api/invitations'
+import { convert as convertIssue } from '@/issues/api/issues'
 import { convert as convertGroup } from '@/group/api/groups'
 import { convert as convertNotification, convertMeta as convertNotificationMeta } from '@/notifications/api/notifications'
 
@@ -193,6 +194,9 @@ function receiveMessage ({ topic, payload }) {
   else if (topic === 'invitations:invitation_accept') {
     // delete invitation from list until there is a better way to display it
     datastore.commit('invitations/delete', payload.id)
+  }
+  else if (topic === 'issues:issue') {
+    datastore.commit('issues/update', [convertIssue(camelizeKeys(payload))])
   }
   else if (topic === 'places:place') {
     datastore.dispatch('places/update', [camelizeKeys(payload)])

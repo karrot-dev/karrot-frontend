@@ -8,7 +8,7 @@ storiesOf('ConflictSetup', module)
   .add('create', () => defaults({
     render: h => h(ConflictSetupUI, {
       props: {
-        group: groupsMock[0],
+        currentGroup: groupsMock[0],
       },
     }),
   }))

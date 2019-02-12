@@ -22,6 +22,7 @@ export const groupsMock = [
   saveStatus: statusMocks.default(),
   leaveStatus: statusMocks.default(),
   notificationTypes: [],
+  issueVotingDurationDays: 7,
 }))
 
 export const currentUserMock = { 'id': 5, 'displayName': 'Current User', 'email': 'current@user.de', 'unverifiedEmail': 'current@user.de', 'address': 'Darmstadt, Regierungsbezirk Darmstadt, Hessen, Deutschland', 'latitude': 49.8980022441358, 'longitude': 8.66015739059448, 'description': 'I am the current User!', 'mailVerified': true, 'keyExpiresAt': '2017-08-02T21:22:54.730980Z', 'currentGroup': 1, 'language': 'de', isCurrentUser: true, photoUrls: {} }

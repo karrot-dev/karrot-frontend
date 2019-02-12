@@ -27,7 +27,7 @@
         done-icon="fas fa-info"
         :title="$t('INFO')"
       >
-        <p> {{ $t('CONFLICT.STEPPER3') }} </p>
+        <p> {{ $t('CONFLICT.STEPPER3', { votingDuration: currentGroup.issueVotingDurationDays }) }} </p>
       </QStep>
       <QStep
         name="statement"
@@ -114,6 +114,12 @@ export default {
     MarkdownInput,
   },
   mixins: [statusMixin],
+  props: {
+    currentGroup: {
+      type: Object,
+      default: () => ({}),
+    },
+  },
   data () {
     return {
       setup: 'thanks',

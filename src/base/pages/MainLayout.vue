@@ -60,6 +60,20 @@
           <SidenavTitle @click="toggleSidenav" />
           <RouterView name="sidenav" />
           <MobileSidenav/>
+          <QItem
+            link
+            @click.native="toggleAbout()"
+          >
+            <QItemSide class="text-center">
+              <KarrotLogo
+                disable-loading="true"
+                class="logo"
+              />
+            </QItemSide>
+            <QItemMain>
+              {{ $t("GLOBAL.ABOUT_KARROT") }}
+            </QItemMain>
+          </QItem>
         </QLayoutDrawer>
 
         <!-- desktop sidenav -->
@@ -73,6 +87,20 @@
           @click.native="toggleSidenav"
         >
           <RouterView name="sidenav" />
+          <QItem
+            link
+            @click.native="toggleAbout()"
+          >
+            <QItemSide class="text-center">
+              <KarrotLogo
+                disable-loading="true"
+                class="logo"
+              />
+            </QItemSide>
+            <QItemMain>
+              {{ $t("GLOBAL.ABOUT_KARROT") }}
+            </QItemMain>
+          </QItem>
         </QLayoutDrawer>
 
         <QPageContainer>
@@ -89,7 +117,6 @@
               </Component>
             </div>
           </div>
-          <KFooter v-if="$q.platform.is.mobile && !isLoggedIn" />
         </QPageContainer>
         <QLayoutDrawer
           v-if="!$q.platform.is.mobile"
@@ -101,28 +128,27 @@
         >
           <DetailSidebar @close="clearDetail"/>
         </QLayoutDrawer>
-        <QLayoutFooter>
-          <UnsupportedBrowserWarning
-            v-if="$q.platform.is.mobile && !$keyboard.is.open"
-          />
-          <KFooter v-if="!$q.platform.is.mobile" />
-        </QLayoutFooter>
         <QWindowResizeObservable @resize="onResize" />
       </QLayout>
     </div>
+
+    <QModal v-model="showAbout">
+      <KAbout @close="toggleAbout()"/>
+    </QModal>
   </div>
 </template>
 
 <script>
 import KTopbar from '@/topbar/components/KTopbar'
 import KTopbarLoggedOut from '@/topbar/components/LoggedOut/KTopbar'
-import KFooter from '@/base/components/KFooter'
+import KAbout from '@/base/components/KAbout'
 import SidenavTitle from '@/sidenav/components/SidenavTitle'
 import MobileSidenav from '@/sidenav/components/MobileSidenav'
 import Banners from '@/alerts/components/Banners'
 import RouteError from '@/base/components/RouteError'
 import UnsupportedBrowserWarning from '@/base/components/UnsupportedBrowserWarning'
 import DetailSidebar from '@/messages/components/DetailSidebar'
+import KarrotLogo from '@/logo/components/KarrotLogo'
 import { mapGetters, mapActions } from 'vuex'
 import {
   dom,
@@ -130,8 +156,13 @@ import {
   QLayoutHeader,
   QLayoutDrawer,
   QLayoutFooter,
+  QModal,
   QPageContainer,
   QWindowResizeObservable,
+  QItem,
+  QIcon,
+  QItemMain,
+  QItemSide,
   QBtn,
   QPullToRefresh,
 } from 'quasar'
@@ -140,10 +171,12 @@ const { width } = dom
 
 export default {
   components: {
+    KarrotLogo,
+    QModal,
     DetailSidebar,
+    KAbout,
     KTopbar,
     KTopbarLoggedOut,
-    KFooter,
     SidenavTitle,
     MobileSidenav,
     QLayout,
@@ -153,6 +186,10 @@ export default {
     QPageContainer,
     QWindowResizeObservable,
     QBtn,
+    QIcon,
+    QItem,
+    QItemMain,
+    QItemSide,
     QPullToRefresh,
     Banners,
     RouteError,
@@ -161,6 +198,7 @@ export default {
   data () {
     return {
       showSidenav: false,
+      showAbout: false,
       windowWidth: width(window),
     }
   },
@@ -171,6 +209,9 @@ export default {
     }),
     toggleSidenav () {
       this.showSidenav = !this.showSidenav
+    },
+    toggleAbout () {
+      this.showAbout = !this.showAbout
     },
     onResize ({ width }) {
       this.windowWidth = width
@@ -258,6 +299,8 @@ body.desktop .mainContent
   width .5rem
   height .5rem
   border-radius 50%
+.logo
+  height 25px
 </style>
 
 <style lang="stylus">

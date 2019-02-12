@@ -66,7 +66,7 @@
           >
             <QItemSide class="text-center">
               <KarrotLogo
-                disable-loading="true"
+                :disable-loading="true"
                 class="logo"
               />
             </QItemSide>
@@ -93,7 +93,7 @@
           >
             <QItemSide class="text-center">
               <KarrotLogo
-                disable-loading="true"
+                :disable-loading="true"
                 class="logo"
               />
             </QItemSide>

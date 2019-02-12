@@ -128,6 +128,9 @@
         >
           <DetailSidebar @close="clearDetail"/>
         </QLayoutDrawer>
+        <QLayoutFooter v-if="$q.platform.is.mobile && !$keyboard.is.open">
+          <UnsupportedBrowserWarning/>
+        </QLayoutFooter>
         <QWindowResizeObservable @resize="onResize" />
       </QLayout>
     </div>

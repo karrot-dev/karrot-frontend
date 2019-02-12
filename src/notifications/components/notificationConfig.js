@@ -71,7 +71,7 @@ function getIcon (type, context) {
     case 'conflict_resolution_continued_about_you':
     case 'conflict_resolution_decided':
     case 'conflict_resolution_decided_about_you':
-      return 'fas fa-frown-open'
+      return 'far fa-frown-open'
   }
 }
 

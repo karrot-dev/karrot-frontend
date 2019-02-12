@@ -176,6 +176,8 @@ export default {
     isInfoOnly () {
       return !this.user.email
     },
+    // TODO: would be nice to say _why_ I can't create a conflict
+    // TODO: does not check if I am an editor first, let's me write a message...
     triggerCriteria () {
       if (
         this.user.isCurrentUser ||

@@ -3052,38 +3052,8 @@ exports[`Storyshots Latest Messages type: thread 1`] = `
 </div>
 `;
 
-exports[`Storyshots Layout KFooter 1`] = `
-<div class="footer row">
-  <div class="k-logo-container col-xl-1 col-xs-4">
-    <div><a>
-        <div><img src="test-file-stub"></div>
-      </a></div>
-  </div> <small class="row group col-xl-4 col-xs-8"><span>
-      karrot
-      <a href="" target="_blank" rel="noopener">
-        local dev
-      </a>
-      — made with
-      <i class="fas fa-heart"></i>
-      by
-      <a href="https://foodsaving.world" target="_blank" rel="noopener">
-        foodsaving worldwide
-      </a></span></small> <small class="row justify-center group col-xl-7 col-xs-12"><a href="https://github.com/yunity/karrot-frontend" target="_blank" rel="noopener"><i class="fab fa-fw fa-github"></i>
-      Development
-    </a> <a href="https://foodsaving.world" target="_blank" rel="noopener"><i class="fas fa-fw fa-globe"></i>
-      Read our info page!
-    </a> <a href="https://community.foodsaving.world/" target="_blank" rel="noopener"><i class="fab fa-fw fa-discourse"></i>
-      Join our community!
-    </a> <a href="mail:karrot@foodsaving.world"><i class="fas fa-fw fa-envelope"></i>
-      karrot@foodsaving.world
-    </a></small>
-</div>
-`;
-
 exports[`Storyshots Layout KTopbar 1`] = `
-<div class="q-toolbar row no-wrap items-center relative-position q-toolbar-normal bg-primary text-white"> <a class="logo">
-    <div><img src="test-file-stub"></div>
-  </a>
+<div class="q-toolbar row no-wrap items-center relative-position q-toolbar-normal bg-primary text-white"> <a class="logo"><img src="test-file-stub"></a>
   <div class="q-toolbar-title">
     <div class="row justify-between no-wrap">
       <div></div>

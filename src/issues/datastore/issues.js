@@ -31,6 +31,10 @@ export default {
     current: (state, getters) => {
       return getters.enrich(state.entries[state.currentId])
     },
+    currentConversation: (state, getters, rootState, rootGetters) => {
+      if (!state.currentId) return
+      return rootGetters['conversations/getForIssue'](state.currentId)
+    },
     forGroup: (state, getters) => Object.values(state.entries)
       .map(getters.enrich)
       .filter(i => i.group && i.group.isCurrentGroup)
@@ -51,9 +55,10 @@ export default {
       const issueList = await dispatch('pagination/extractCursor', issuesAPI.list({ group: groupId }))
       commit('update', issueList)
     },
-    async fetchOne ({ commit }, data) {
-      const currentIssue = await issuesAPI.get(data.issueId)
-      commit('setCurrentIssue', data.issueId)
+    async fetchOne ({ commit, dispatch }, { issueId }) {
+      const currentIssue = await issuesAPI.get(issueId)
+      dispatch('conversations/fetchForIssue', { issueId }, { root: true })
+      commit('setCurrentIssue', issueId)
       commit('update', [currentIssue])
     },
     async saveScores ({ commit, dispatch, state }, data) {

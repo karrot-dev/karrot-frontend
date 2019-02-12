@@ -6,6 +6,7 @@ import reactionsAPI from '@/messages/api/reactions'
 import pickupsAPI from '@/pickups/api/pickups'
 import usersAPI from '@/users/api/users'
 import groupsAPI from '@/group/api/groups'
+import issuesAPI from '@/issues/api/issues'
 import applicationsAPI from '@/applications/api/applications'
 import i18n from '@/base/i18n'
 import { createMetaModule, withMeta, withPrefixedIdMeta, metaStatusesWithId } from '@/utils/datastore/helpers'
@@ -91,6 +92,7 @@ export default {
     getForGroup: (state, getters) => groupId => getters.getForType('group', groupId),
     getForPickup: (state, getters) => pickupId => getters.getForType('pickup', pickupId),
     getForApplication: (state, getters) => applicationId => getters.getForType('application', applicationId),
+    getForIssue: (state, getters) => issueId => getters.getForType('issue', issueId),
     getForUser: (state, getters) => userId => {
       const { id } = Object.values(state.entries).find(({ type, participants }) => type === 'private' && participants.includes(userId)) || {}
       if (!id) return
@@ -306,6 +308,20 @@ export default {
 
     clearForApplication ({ getters, commit }, { applicationId }) {
       const { id: conversationId } = getters.getForApplication(applicationId) || {}
+      if (conversationId) commit('clearMessages', conversationId)
+    },
+
+    async fetchForIssue ({ commit, getters, dispatch }, { issueId }) {
+      let conversation = getters.getForIssue(issueId)
+      if (!conversation) {
+        conversation = await issuesAPI.conversation(issueId)
+        commit('setConversation', conversation)
+      }
+      dispatch('fetch', conversation.id)
+    },
+
+    clearForIssue ({ getters, commit }, { issueId }) {
+      const { id: conversationId } = getters.getForIssue(issueId) || {}
       if (conversationId) commit('clearMessages', conversationId)
     },
 

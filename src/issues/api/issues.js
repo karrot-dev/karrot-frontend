@@ -40,6 +40,14 @@ export function convert (val) {
     return {
       ...val,
       createdAt: new Date(val.createdAt),
+      votings: val.votings.map(convertVoting),
     }
+  }
+}
+
+function convertVoting (val) {
+  return {
+    ...val,
+    expiresAt: new Date(val.expiresAt),
   }
 }

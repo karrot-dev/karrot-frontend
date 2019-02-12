@@ -146,7 +146,8 @@ export default {
       return this.issue.votings.length > 1
     },
     pastVotings () {
-      return this.issue.votings.filter(v => new Date(v.expiresAt) <= new Date())
+      // TODO should use reactiveNow!
+      return this.issue.votings.filter(v => v.expiresAt <= new Date())
     },
   },
 }

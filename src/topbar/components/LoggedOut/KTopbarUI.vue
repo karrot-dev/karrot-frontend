@@ -4,7 +4,7 @@
       :to="'/'"
       class="logo"
     >
-      <KarrotLogo />
+      <KarrotLogo :show-loading="true"/>
     </RouterLink>
     <QToolbarTitle>
       <div class="row justify-between no-wrap">

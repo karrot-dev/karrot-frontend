@@ -65,10 +65,7 @@
             @click.native="toggleAbout()"
           >
             <QItemSide class="text-center">
-              <KarrotLogo
-                :disable-loading="true"
-                class="logo"
-              />
+              <KarrotLogo class="logo"/>
             </QItemSide>
             <QItemMain>
               {{ $t("GLOBAL.ABOUT_KARROT") }}
@@ -92,10 +89,7 @@
             @click.native="toggleAbout()"
           >
             <QItemSide class="text-center">
-              <KarrotLogo
-                :disable-loading="true"
-                class="logo"
-              />
+              <KarrotLogo class="logo"/>
             </QItemSide>
             <QItemMain>
               {{ $t("GLOBAL.ABOUT_KARROT") }}

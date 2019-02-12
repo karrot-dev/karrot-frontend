@@ -10,14 +10,14 @@ import { mapGetters } from 'vuex'
 
 export default {
   props: {
-    disableLoading: {
+    showLoading: {
       type: Boolean,
       default: false,
     },
   },
   computed: {
     isLoading () {
-      return !this.disableLoading && (this.loading || this.closing)
+      return this.showLoading && (this.loading || this.closing)
     },
     logo () {
       return __ENV.KARROT_THEME === 'dev' ? require('@/logo/assets/carrot-logo.dev.svg') : require('@/logo/assets/carrot-logo.svg')

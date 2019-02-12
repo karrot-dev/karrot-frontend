@@ -95,6 +95,7 @@ import ChatConversation from '@/messages/components/ChatConversation'
 import Markdown from '@/utils/components/Markdown'
 import DateAsWords from '@/utils/components/DateAsWords'
 import ProfilePicture from '@/users/components/ProfilePicture'
+import reactiveNow from '@/utils/reactiveNow'
 
 import {
   QTabs,
@@ -146,8 +147,8 @@ export default {
       return this.issue.votings.length > 1
     },
     pastVotings () {
-      // TODO should use reactiveNow!
-      return this.issue.votings.filter(v => v.expiresAt <= new Date())
+      console.log('recalculate past votings', reactiveNow.value)
+      return this.issue.votings.filter(v => v.expiresAt <= reactiveNow.value)
     },
   },
 }

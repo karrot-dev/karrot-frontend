@@ -3,11 +3,11 @@ import pickups from '@/pickups/api/pickups'
 import { createMetaModule, withMeta, isValidationError, withPrefixedIdMeta, metaStatusesWithId, metaStatuses } from '@/utils/datastore/helpers'
 import { pickupRunningTime } from '@/pickups/settings'
 import subMinutes from 'date-fns/sub_minutes'
+import addDays from 'date-fns/add_days'
 import reactiveNow from '@/utils/reactiveNow'
 
 function initialState () {
   return {
-    now: new Date(), // reactive current time
     entries: {},
   }
 }
@@ -166,7 +166,7 @@ export default {
 }
 
 export function isWithinOneWeek (pickup) {
-  return pickup.date < new Date(+new Date() + 6096e5)
+  return pickup.date < addDays(reactiveNow, 7)
 }
 
 export function sortByDate (a, b) {

@@ -81,6 +81,7 @@ import distanceInWordsStrict from 'date-fns/distance_in_words_strict'
 import differenceInHours from 'date-fns/difference_in_hours'
 import cloneDeep from 'clone-deep'
 // import { objectDiff } from '@/utils/utils'
+import reactiveNow from '@/utils/reactiveNow'
 
 export default {
   components: {
@@ -118,10 +119,10 @@ export default {
   },
   computed: {
     days () {
-      return distanceInWordsStrict(this.ongoingVoting.expiresAt, new Date())
+      return distanceInWordsStrict(this.ongoingVoting.expiresAt, reactiveNow.value)
     },
     progress () {
-      return 100 - (differenceInHours(this.ongoingVoting.expiresAt, new Date()) / 168 * 100)
+      return 100 - (differenceInHours(this.ongoingVoting.expiresAt, reactiveNow.value) / 168 * 100)
     },
     showOverlay () {
       if (!this.edit) return

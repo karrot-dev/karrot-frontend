@@ -32,7 +32,7 @@ function getMessageParams (type, context) {
     case 'conflict_resolution_continued':
     case 'conflict_resolution_decided':
       return {
-        userName: context.affectedUser && context.affectedUser.displayName,
+        userName: context.user && context.user.displayName,
       }
   }
 

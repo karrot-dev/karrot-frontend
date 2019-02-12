@@ -10,7 +10,7 @@ export default connect({
   },
   methodsToEvents: {
     open: (_, issue) => {
-      router.push({ name: 'issueTabs', params: { issueId: issue.id } })
+      router.push({ name: 'issue', params: { issueId: issue.id } })
     },
   },
 })('IssueList', IssueListUI)

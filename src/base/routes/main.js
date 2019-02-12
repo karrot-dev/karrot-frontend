@@ -116,14 +116,14 @@ export default [
         component: GroupWall,
       },
       {
-        name: 'issueTabs',
+        name: 'issue',
         path: 'issues/:issueId',
         meta: {
           requiredLoggedIn: true,
           breadcrumbs: [
-            { translation: 'CONFLICT.TITLE', route: { name: 'issueTabs' } },
+            { translation: 'CONFLICT.TITLE', route: { name: 'issue' } },
           ],
-          beforeEnter: 'issues/fetchOne',
+          beforeEnter: 'issues/select',
         },
         components: {
           default: IssueTabs,

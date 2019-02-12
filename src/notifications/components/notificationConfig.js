@@ -104,7 +104,7 @@ function getRouteTo (type, { group, user, place, pickup, issue } = {}) {
     case 'conflict_resolution_decided':
     case 'conflict_resolution_decided_about_you':
     case 'voting_ends_soon':
-      return group && issue && { name: 'conflictResolution', params: { groupId: group.id, issueId: issue.id } }
+      return group && issue && { name: 'issue', params: { groupId: group.id, issueId: issue.id } }
   }
 }
 

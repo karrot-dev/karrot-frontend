@@ -1,7 +1,7 @@
 import router from '@/base/router'
 import Vue from 'vue'
 import issuesAPI from '@/issues/api/issues'
-import { createMetaModule, createPaginationModule } from '@/utils/datastore/helpers'
+import { createMetaModule, createPaginationModule, withMeta } from '@/utils/datastore/helpers'
 
 function initialState () {
   return {
@@ -49,24 +49,39 @@ export default {
       dispatch('toasts/show', {
         message: 'ISSUE.CREATION.TOAST',
       }, { root: true })
-      router.push({ name: 'issueTabs', params: { groupId: newIssue.group, issueId: newIssue.id } })
+      router.push({ name: 'issue', params: { groupId: newIssue.group, issueId: newIssue.id } })
     },
     async fetchByGroupId ({ dispatch, commit }, { groupId }) {
       const issueList = await dispatch('pagination/extractCursor', issuesAPI.list({ group: groupId }))
       commit('update', issueList)
     },
-    async fetchOne ({ commit, dispatch }, { issueId }) {
-      const currentIssue = await issuesAPI.get(issueId)
-      dispatch('conversations/fetchForIssue', { issueId }, { root: true })
-      commit('setCurrentIssue', issueId)
-      commit('update', [currentIssue])
-    },
+    ...withMeta({
+      async fetchOne ({ commit, dispatch }, issueId) {
+        const currentIssue = await issuesAPI.get(issueId)
+        commit('update', [currentIssue])
+      },
+    }),
+    ...withMeta({
+      async select ({ commit, dispatch }, { issueId }) {
+        await dispatch('fetchOne', issueId)
+        dispatch('conversations/fetchForIssue', { issueId }, { root: true })
+        commit('setCurrentIssue', issueId)
+      },
+    }, {
+      findId: ({ issueId }) => issueId,
+    }),
     async saveScores ({ commit, dispatch, state }, data) {
       await issuesAPI.vote(state.currentId, data)
       dispatch('toasts/show', {
         message: 'ISSUE.VOTING.TOAST',
       }, { root: true })
       commit('saveScores', data)
+    },
+    async maybeFetchOne ({ state, dispatch, getters }, issueId) {
+      const isPending = getters['meta/status']('fetchOne', issueId).pending
+      if (state.entries[issueId] || isPending) return
+
+      await dispatch('fetchOne', issueId)
     },
   },
   mutations: {

@@ -41,7 +41,7 @@
     "build-docs": "gitbook install docs && gitbook build docs docs-dist"
   },
   "dependencies": {
-    "@sentry/browser": "^4.3.0",
+    "@sentry/browser": "^4.5.4",
     "axios": "^0.18.0",
     "clone-deep": "4.0.1",
     "date-fns": "^1.29.0",

@@ -65,10 +65,7 @@
             @click.native="toggleAbout()"
           >
             <QItemSide class="text-center">
-              <KarrotLogo
-                disable-loading
-                class="logo"
-              />
+              <KarrotLogo class="logo"/>
             </QItemSide>
             <QItemMain>
               {{ $t("GLOBAL.ABOUT_KARROT") }}
@@ -92,10 +89,7 @@
             @click.native="toggleAbout()"
           >
             <QItemSide class="text-center">
-              <KarrotLogo
-                disable-loading
-                class="logo"
-              />
+              <KarrotLogo class="logo"/>
             </QItemSide>
             <QItemMain>
               {{ $t("GLOBAL.ABOUT_KARROT") }}
@@ -128,6 +122,9 @@
         >
           <DetailSidebar @close="clearDetail"/>
         </QLayoutDrawer>
+        <QLayoutFooter v-if="$q.platform.is.mobile && !$keyboard.is.open">
+          <UnsupportedBrowserWarning/>
+        </QLayoutFooter>
         <QWindowResizeObservable @resize="onResize" />
       </QLayout>
     </div>

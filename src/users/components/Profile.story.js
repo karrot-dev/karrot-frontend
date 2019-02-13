@@ -4,6 +4,7 @@ import { action } from '@storybook/addon-actions'
 
 const datastore = createDatastore({
   users: { getters: { get: () => id => id } },
+  issues: { getters: { ongoing: () => [] } },
 })
 
 import Profile from './ProfileUI'

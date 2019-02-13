@@ -614,14 +614,14 @@ exports[`Storyshots ChatConversation not participant 1`] = `
             </button></div>
           <!---->
           <div class="q-item-main q-item-section">
-            <div class="no-wrap k-message-meta"><a><span class="k-message-author text-bold text-secondary uppercase">User 1</span></a> <span class="message-date"><small class="text-weight-light"><div title="Dec 24, 2017, 12:00 PM">
+            <div class="no-wrap k-message-meta"><a><span class="k-message-author text-bold text-secondary uppercase">User 15</span></a> <span class="message-date"><small class="text-weight-light"><div title="Dec 24, 2017, 12:00 PM">
   less than a minute ago
 </div></small></span>
               <!---->
             </div>
             <div class="content">
               <div class="markdown">
-                <p>hello 0!</p>
+                <p>hello 4!</p>
               </div>
             </div>
             <!----> <span class="conversation-reactions" style="margin-top:8px;display:block;"><span class="reactions"><button tabindex="0" type="button" title="a reacted with :thumbsup:" class="q-btn inline relative-position q-btn-item non-selectable row no-wrap items-center reaction-box q-btn-rectangle q-btn-flat q-focusable q-hoverable"><div class="q-focus-helper"></div><div class="q-btn-inner row col items-center q-popup--skip justify-center"><div class="emoji"></div> <span class="reactions-number">1</span>
@@ -647,14 +647,14 @@ exports[`Storyshots ChatConversation not participant 1`] = `
           </button></div>
         <!---->
         <div class="q-item-main q-item-section">
-          <div class="no-wrap k-message-meta"><a><span class="k-message-author text-bold text-secondary uppercase">User 3</span></a> <span class="message-date"><small class="text-weight-light"><div title="Dec 24, 2017, 12:00 PM">
+          <div class="no-wrap k-message-meta"><a><span class="k-message-author text-bold text-secondary uppercase">User 17</span></a> <span class="message-date"><small class="text-weight-light"><div title="Dec 24, 2017, 12:00 PM">
   less than a minute ago
 </div></small></span>
             <!---->
           </div>
           <div class="content">
             <div class="markdown">
-              <p>hello 1!</p>
+              <p>hello 5!</p>
             </div>
           </div>
           <!----> <span class="conversation-reactions" style="margin-top:8px;display:block;"><span class="reactions"><button tabindex="0" type="button" title="a reacted with :thumbsup:" class="q-btn inline relative-position q-btn-item non-selectable row no-wrap items-center reaction-box q-btn-rectangle q-btn-flat q-focusable q-hoverable"><div class="q-focus-helper"></div><div class="q-btn-inner row col items-center q-popup--skip justify-center"><div class="emoji"></div> <span class="reactions-number">1</span>
@@ -680,14 +680,14 @@ exports[`Storyshots ChatConversation not participant 1`] = `
         </button></div>
       <!---->
       <div class="q-item-main q-item-section">
-        <div class="no-wrap k-message-meta"><a><span class="k-message-author text-bold text-secondary uppercase">User 5</span></a> <span class="message-date"><small class="text-weight-light"><div title="Dec 24, 2017, 12:00 PM">
+        <div class="no-wrap k-message-meta"><a><span class="k-message-author text-bold text-secondary uppercase">User 19</span></a> <span class="message-date"><small class="text-weight-light"><div title="Dec 24, 2017, 12:00 PM">
   less than a minute ago
 </div></small></span>
           <!---->
         </div>
         <div class="content">
           <div class="markdown">
-            <p>hello 2!</p>
+            <p>hello 6!</p>
           </div>
         </div>
         <!----> <span class="conversation-reactions" style="margin-top:8px;display:block;"><span class="reactions"><button tabindex="0" type="button" title="a reacted with :thumbsup:" class="q-btn inline relative-position q-btn-item non-selectable row no-wrap items-center reaction-box q-btn-rectangle q-btn-flat q-focusable q-hoverable"><div class="q-focus-helper"></div><div class="q-btn-inner row col items-center q-popup--skip justify-center"><div class="emoji"></div> <span class="reactions-number">1</span>
@@ -713,14 +713,14 @@ exports[`Storyshots ChatConversation not participant 1`] = `
       </button></div>
     <!---->
     <div class="q-item-main q-item-section">
-      <div class="no-wrap k-message-meta"><a><span class="k-message-author text-bold text-secondary uppercase">User 7</span></a> <span class="message-date"><small class="text-weight-light"><div title="Dec 24, 2017, 12:00 PM">
+      <div class="no-wrap k-message-meta"><a><span class="k-message-author text-bold text-secondary uppercase">User 21</span></a> <span class="message-date"><small class="text-weight-light"><div title="Dec 24, 2017, 12:00 PM">
   less than a minute ago
 </div></small></span>
         <!---->
       </div>
       <div class="content">
         <div class="markdown">
-          <p>hello 3!</p>
+          <p>hello 7!</p>
         </div>
       </div>
       <!----> <span class="conversation-reactions" style="margin-top:8px;display:block;"><span class="reactions"><button tabindex="0" type="button" title="a reacted with :thumbsup:" class="q-btn inline relative-position q-btn-item non-selectable row no-wrap items-center reaction-box q-btn-rectangle q-btn-flat q-focusable q-hoverable"><div class="q-focus-helper"></div><div class="q-btn-inner row col items-center q-popup--skip justify-center"><div class="emoji"></div> <span class="reactions-number">1</span>
@@ -1122,6 +1122,7 @@ exports[`Storyshots Detail application 1`] = `
           </div>
         </div>
       </div>
+      <!---->
     </div>
   </div>
   <!---->
@@ -1294,6 +1295,7 @@ exports[`Storyshots Detail conflict 1`] = `
           </div>
         </div>
       </div>
+      <!---->
     </div>
   </div>
   <!---->
@@ -7189,6 +7191,9 @@ exports[`Storyshots User Profile Profile 1`] = `
       <!----> <button tabindex="0" type="button" small="" class="q-btn inline relative-position q-btn-item non-selectable q-btn-round q-focusable q-hoverable bg-secondary text-white">
         <div class="q-focus-helper"></div>
         <div class="q-btn-inner row col items-center q-popup--skip justify-center"><i aria-hidden="true" class="q-icon fas fa-comments"> </i></div>
+      </button> <button tabindex="0" type="button" small="" class="q-btn inline relative-position q-btn-item non-selectable q-btn-round q-focusable q-hoverable bg-negative text-white">
+        <div class="q-focus-helper"></div>
+        <div class="q-btn-inner row col items-center q-popup--skip justify-center"><i aria-hidden="true" class="q-icon fas fa-frown-open"> </i></div>
       </button> <button tabindex="0" type="button" title="2 people trust storybook user in my current group." class="q-btn inline relative-position q-btn-item non-selectable karrot-button q-btn-round q-focusable q-hoverable bg-primary text-white">
         <div class="q-focus-helper"></div>
         <div class="q-btn-inner row col items-center q-popup--skip justify-center">

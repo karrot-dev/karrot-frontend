@@ -147,7 +147,6 @@ export default {
       return this.issue.votings.length > 1
     },
     pastVotings () {
-      console.log('recalculate past votings', reactiveNow.value)
       return this.issue.votings.filter(v => v.expiresAt <= reactiveNow.value)
     },
   },

@@ -164,7 +164,7 @@ export default {
 }
 
 export function isWithinOneWeek (pickup) {
-  return pickup.date < addDays(reactiveNow, 7)
+  return pickup.date < addDays(reactiveNow.value, 7)
 }
 
 export function sortByDate (a, b) {

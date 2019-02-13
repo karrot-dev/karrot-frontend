@@ -13,7 +13,7 @@
       >
       <KarrotLogo
         v-else
-        :show-loading="true"
+        show-loading
       />
     </RouterLink>
     <QToolbarTitle>

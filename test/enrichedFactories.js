@@ -305,6 +305,7 @@ export const makeConversation = data => {
     unreadMessageCount: 0,
     muted: false,
     isClosed: false,
+    isParticipant: true,
     type: null,
     targetId: null,
     target: null,

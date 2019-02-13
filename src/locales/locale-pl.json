@@ -504,7 +504,8 @@
     "MESSAGE_NOT_FOUND": "Nie znaleziono wiadomości",
     "NO_CONVERSATIONS": "Brak konwersacji.",
     "MUTED": "Powiadomienia są wyłączone",
-    "CLOSED": "This conversation has been closed automatically."
+    "CLOSED": "This conversation has been closed automatically.",
+    "NOT_PARTICIPATED": "By sending a message, you will be subscribed to notifications about this conversation."
   },
   "STORESTATUS": {
     "ACTIVE": "Współpracuje",
@@ -549,5 +550,6 @@
     "FROM_GROUP": "unsubscribe from everything in {groupName}",
     "SUCCESS": "You were successfully unsubscribed!"
   },
-  "YOU": "Ty"
+  "YOU": "Ty",
+  "TO": "to"
 }

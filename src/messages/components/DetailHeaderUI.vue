@@ -13,7 +13,10 @@
           v-if="!$q.platform.is.mobile"
           v-t="'GROUP.PICKUP'"
         >&nbsp;</span>
-        <strong>{{ $d(pickup.date, 'weekdayHourMinute') }}</strong>
+        <strong>
+          {{ $d(pickup.date, 'weekdayHourMinute') }}
+          <template v-if="pickup.hasDuration"> &mdash; {{ $d(pickup.dateEnd, 'hourMinute') }}</template>
+        </strong>
         <span slot="subtitle">
           <strong v-if="pickup.place">
             <RouterLink :to="{ name: 'place', params: { groupId: pickup.group.id, placeId: pickup.place.id }}">
@@ -166,7 +169,7 @@ export default {
       if (this.conversation.thread && this.conversation.threadMeta) {
         return !this.conversation.threadMeta.muted
       }
-      if (typeof this.conversation.muted !== 'undefined') {
+      if (this.conversation.isParticipant && typeof this.conversation.muted !== 'undefined') {
         return !this.conversation.muted
       }
       return null
@@ -238,8 +241,8 @@ export default {
     display inline-block
     margin-right 0.3em
     margin-bottom 0.3em
-body.mobile .DetailHeader .q-toolbar
-  min-height 20px
   .q-toolbar-title
     font-size 16px
+body.mobile .DetailHeader .q-toolbar
+  min-height 20px
 </style>

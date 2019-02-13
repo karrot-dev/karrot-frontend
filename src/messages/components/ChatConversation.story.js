@@ -42,6 +42,16 @@ storiesOf('ChatConversation', module)
       }),
     }),
   }))
+  .add('not participant', () => defaults({
+    render: h => h(ChatConversation, {
+      props: defaultProps({
+        conversation: {
+          ...conversation,
+          isParticipant: false,
+        },
+      }),
+    }),
+  }))
   .add('thread', () => defaults({
     render: h => h(ChatConversation, {
       props: defaultProps({

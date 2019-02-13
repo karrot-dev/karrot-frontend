@@ -1,7 +1,7 @@
 <template>
   <QCard
     :class="{ full: pickup.isFull }"
-    @click.native.stop="detailIfMember"
+    @click.native.stop="detail"
   >
     <QCardMain
       class="row no-padding justify-between content"
@@ -9,7 +9,10 @@
     >
       <div class="column q-pa-sm full-width">
         <div>
-          <span class="featured-text">{{ $d(pickup.date, 'hourMinute') }}</span>
+          <span class="featured-text">
+            {{ $d(pickup.date, 'hourMinute') }}
+            <template v-if="pickup.hasDuration"> &mdash; {{ $d(pickup.dateEnd, 'hourMinute') }}</template>
+          </span>
           <template v-if="placeLink">
             <strong v-if="pickup.place">
               <RouterLink :to="{ name: 'place', params: { placeId: pickup.place.id }}">
@@ -20,11 +23,9 @@
           <template v-else>
             {{ $d(pickup.date, 'dateLongWithDayName') }}
           </template>
-          <template v-if="pickup.isUserMember">
-            <span>
-              <strong>{{ $t('CONVERSATION.OPEN') }} <QIcon name="chat" /></strong>
-            </span>
-          </template>
+          <span>
+            <strong>{{ $t('CONVERSATION.OPEN') }} <QIcon name="chat" /></strong>
+          </span>
         </div>
         <div
           v-if="pickup.isDisabled"
@@ -104,8 +105,7 @@ export default {
           .catch(() => {})
       }
     },
-    detailIfMember (event) {
-      if (!this.pickup.isUserMember) return
+    detail (event) {
       if (event.target.closest('a')) return // ignore actual links
       this.$emit('detail', this.pickup)
     },
@@ -117,9 +117,10 @@ export default {
 @import '~variables'
 
 .content
-  transition: background-color 2s ease
+  transition background-color 2s ease
   width 100%
-  font-size: .8em
+  font-size .8em
+  cursor pointer
   .featured-text
     font-size 1.5em
     display inline
@@ -133,7 +134,6 @@ export default {
       $lightRed 30px
     )
   &.isUserMember
-    cursor pointer
     &:not(.isDisabled)
       background linear-gradient(to right, $lightGreen, $lighterGreen)
   &.isDisabled

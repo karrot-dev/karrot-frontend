@@ -14,7 +14,7 @@
           stamp
           class="mobile-only text-weight-light"
         >
-          <DateAsWords :date="issue.createdAt" />
+          <DateAsWords :date="voting.expiresAt" />
         </QItemTile>
       </QItemMain>
       <QItemSide
@@ -22,7 +22,7 @@
         stamp
         right
       >
-        <DateAsWords :date="issue.createdAt" />
+        <DateAsWords :date="voting.expiresAt" />
       </QItemSide>
     </QItem>
     <Transition name="slide-toggle">
@@ -32,9 +32,11 @@
         style="cursor: pointer"
         v-if="detailIsShown"
       >
-        <IssueResults
+        <VotingResults
           style="cursor: initial"
-          :issue="issue"
+          :voting="voting"
+          :affected-user="affectedUser"
+          :group-name="groupName"
         />
       </div>
     </Transition>
@@ -50,7 +52,7 @@ import {
 } from 'quasar'
 
 import DateAsWords from '@/utils/components/DateAsWords'
-import IssueResults from './IssueResults'
+import VotingResults from './VotingResults'
 
 export default {
   components: {
@@ -59,12 +61,20 @@ export default {
     QItemMain,
     QItemTile,
     DateAsWords,
-    IssueResults,
+    VotingResults,
   },
   props: {
-    issue: {
+    voting: {
       type: Object,
       default: null,
+    },
+    affectedUser: {
+      type: Object,
+      required: true,
+    },
+    groupName: {
+      type: String,
+      default: '',
     },
   },
   methods: {

@@ -139,7 +139,7 @@ export default [
   },
   {
     name: 'conflictResolutionSetup',
-    path: 'group/:groupId/:userId/conflict-resolution-setup',
+    path: 'group/:groupId/user/:userId/report',
     meta: {
       requireLoggedIn: true,
       breadcrumbs: [

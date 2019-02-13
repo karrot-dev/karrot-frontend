@@ -6,6 +6,7 @@ import * as factories from '>/enrichedFactories'
 
 import IssueTabsUI from './IssueTabsUI'
 import IssueVote from './IssueVote'
+import VotingResults from './VotingResults'
 
 const conversation = factories.makeConversation({
   participants: [
@@ -46,6 +47,38 @@ storiesOf('IssueTabs', module)
             factories.makeVoting({
               acceptedOption: 73,
               expiresAt: subHours(new Date(), 150),
+            }),
+          ],
+        }),
+      },
+    }),
+  }))
+  .add('results - expelled', () => defaults({
+    render: h => h(VotingResults, {
+      props: {
+        issue: factories.makeIssue({
+          createdAt: addHours(new Date(), 2000),
+          topic: 'Such an annoying person, really.',
+          status: 'decided',
+          votings: [
+            factories.makeVoting({
+              acceptedOption: 16,
+              expiresAt: addHours(new Date(), 150),
+              options: [
+                factories.makeOption({
+                  type: 'remove_user',
+                  id: 16,
+                  sumScore: 9,
+                }),
+                factories.makeOption({
+                  type: 'further_discussion',
+                  sumScore: 3,
+                }),
+                factories.makeOption({
+                  type: 'no_change',
+                  sumScore: 0,
+                }),
+              ],
             }),
           ],
         }),

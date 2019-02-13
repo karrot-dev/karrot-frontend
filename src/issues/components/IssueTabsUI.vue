@@ -64,24 +64,51 @@
         />
       </QTabPane>
       <QTabPane name="vote">
-        <IssueVote
+        <QCard
           v-if="issue.status === 'ongoing'"
-          :issue="issue"
-          @saveScores="$emit('saveScores', arguments[0])"
-        />
-        <IssueResults
-          v-if="issue.status !== 'ongoing'"
-          :issue="issue"
-        />
-        <QList
-          v-if="multipleVotings"
         >
-          <IssueHistoryItem
-            v-for="v in pastVotings"
-            :key="v.id"
+          <IssueVote
             :issue="issue"
+            @saveScores="$emit('saveScores', arguments[0])"
           />
-        </QList>
+          <QList
+            v-if="multipleVotings"
+          >
+            <IssueHistoryItem
+              v-for="v in allPastVotings"
+              :key="v.id"
+              :voting="v"
+            />
+          </QList>
+        </QCard>
+
+        <QCard
+          v-if="issue.status !== 'ongoing'"
+        >
+          <QCardTitle>
+            {{ $t('ISSUE.VOTING.RESULTS.TIME_UP') }}
+          </QCardTitle>
+          <QCardMain>
+            <VotingResults
+              :voting="newestVoting"
+              :affected-user="issue.affectedUser"
+              :group-name="issue.group.name"
+              :issue-status="issue.status"
+            />
+            <QList
+              v-if="multipleVotings"
+            >
+              <IssueHistoryItem
+                v-for="v in olderVotings"
+                :key="v.id"
+                :voting="v"
+                :affected-user="issue.affectedUser"
+                :group-name="issue.group.name"
+                :issue-status="issue.status"
+              />
+            </QList>
+          </QCardMain>
+        </QCard>
       </QTabPane>
     </QTabs>
   </div>
@@ -89,7 +116,7 @@
 
 <script>
 import IssueVote from '@/issues/components/IssueVote'
-import IssueResults from '@/issues/components/IssueResults'
+import VotingResults from '@/issues/components/VotingResults'
 import IssueHistoryItem from '@/issues/components/IssueHistoryItem'
 import ChatConversation from '@/messages/components/ChatConversation'
 import Markdown from '@/utils/components/Markdown'
@@ -103,13 +130,17 @@ import {
   QTabPane,
   QCollapsible,
   QList,
+  QCard,
+  QCardMain,
+  QCardTitle,
+
 } from 'quasar'
 
 export default {
   components: {
     ChatConversation,
     IssueVote,
-    IssueResults,
+    VotingResults,
     IssueHistoryItem,
     QTabs,
     QTab,
@@ -118,6 +149,9 @@ export default {
     Markdown,
     DateAsWords,
     QList,
+    QCard,
+    QCardMain,
+    QCardTitle,
     ProfilePicture,
   },
   props: {
@@ -143,11 +177,18 @@ export default {
     },
   },
   computed: {
+    newestVoting () {
+      const tempArray = this.issue.votings.slice().sort((a, b) => new Date(b.expiresAt) - new Date(a.expiresAt))
+      return tempArray[0]
+    },
     multipleVotings () {
       return this.issue.votings.length > 1
     },
-    pastVotings () {
+    allPastVotings () {
       return this.issue.votings.filter(v => v.expiresAt <= reactiveNow.value)
+    },
+    olderVotings () {
+      return this.allPastVotings.filter(v => v.id !== this.newestVoting.id)
     },
   },
 }

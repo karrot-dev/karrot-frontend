@@ -1,17 +1,24 @@
 <template>
-  <div>
-    <img
-      :src="logo"
-      :class="{ loading: loading || closing }"
-    >
-  </div>
+  <img
+    :src="logo"
+    :class="{ loading: isLoading }"
+  >
 </template>
 
 <script>
 import { mapGetters } from 'vuex'
 
 export default {
+  props: {
+    showLoading: {
+      type: Boolean,
+      default: false,
+    },
+  },
   computed: {
+    isLoading () {
+      return this.showLoading && (this.loading || this.closing)
+    },
     logo () {
       return __ENV.KARROT_THEME === 'dev' ? require('@/logo/assets/carrot-logo.dev.svg') : require('@/logo/assets/carrot-logo.svg')
     },
@@ -32,8 +39,8 @@ export default {
     opacity 1
     transform scale(1)
 
-img, div
-  height 95%
+img
+  height 90%
 .loading
   animation myanim 1s cubic-bezier(.4, 0, .5, 1) infinite
 </style>

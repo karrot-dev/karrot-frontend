@@ -1,7 +1,6 @@
 import { storiesOf } from '@storybook/vue'
 
 import KTopbar from './KTopbar'
-import KFooter from '@/base/components/KFooter'
 import { createDatastore, storybookDefaults as defaults } from '>/helpers'
 import { groupsMock, placesMock, usersMock, currentUserMock } from '>/mockdata'
 
@@ -45,9 +44,5 @@ const datastore = createDatastore({
 storiesOf('Layout', module)
   .add('KTopbar', () => defaults({
     render: h => h(KTopbar),
-    store: datastore,
-  }))
-  .add('KFooter', () => defaults({
-    render: h => h(KFooter),
     store: datastore,
   }))

@@ -2,13 +2,13 @@
   "ENTRY": "1 entry | {count} entries",
   "GLOBAL": {
     "GITHUB_NOTE": "Development",
-    "FSWW_NOTE": "O nas",
     "COMMUNITY_NOTE": "Dołącz do nas!",
     "SERVER_ERROR": "Błąd serwera",
     "NOT_CONNECTED": "You aren't connected to the server",
     "INVALID_LINK": "Przepraszamy, otwarty przez Ciebie link jest nieprawidłowy.",
     "GENERIC_ERROR": "Sorry, something went wrong",
-    "SEARCH_NOT_FOUND": "Nie znaleziono"
+    "SEARCH_NOT_FOUND": "Nie znaleziono",
+    "ABOUT_KARROT": "About Karrot"
   },
   "USERDATA": {
     "EMAIL": "E-mail",

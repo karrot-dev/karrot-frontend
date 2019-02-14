@@ -5,7 +5,6 @@ import reactiveNow from '@/utils/reactiveNow'
 
 function initialState () {
   return {
-    now: new Date(), // reactive current time
     entries: {},
   }
 }
@@ -53,7 +52,8 @@ export default {
     available: (state, getters) =>
       getters.byCurrentGroup
         .filter(isWithinOneWeek)
-        .filter(e => !e.isFull && !e.isUserMember && !e.isDisabled),
+        .filter(e => !e.isFull && !e.isUserMember && !e.isDisabled)
+        .filter(e => e.place.isSubscribed),
     feedbackPossibleByCurrentGroup: (state, getters) => {
       return Object.values(state.entries)
         .filter(p => p.dateEnd < reactiveNow.value && p.feedbackDue > reactiveNow.value)

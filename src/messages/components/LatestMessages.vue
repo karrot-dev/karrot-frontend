@@ -23,6 +23,7 @@
           :group="conv.type === 'group' ? conv.target : null"
           :user="conv.type === 'private' ? conv.target : null"
           :pickup="conv.type === 'pickup' ? conv.target : null"
+          :place="conv.type === 'place' ? conv.target : null"
           :application="conv.type === 'application' ? conv.target : null"
           :message="conv.latestMessage"
           :unread-count="conv.unreadMessageCount"
@@ -153,6 +154,7 @@ export default {
       const { type, target } = conv
       switch (type) {
         case 'group': return this.$router.push({ name: 'group', params: { groupId: target.id } })
+        case 'place': return this.$router.push({ name: 'placeWall', params: { groupId: target.group.id, placeId: target.id } })
         case 'pickup': return this.openForPickup(target)
         case 'private': return this.openForUser(target)
         case 'application': return this.openForApplication(target)

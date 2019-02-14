@@ -5,7 +5,7 @@
     class="no-padding"
   >
     <QItem
-      v-for="place in places"
+      v-for="place in sortedPlaces"
       :key="place.id"
       link
       :to="linkParamsFor(place)"
@@ -18,10 +18,30 @@
         />
       </QItemSide>
       <QItemMain>
-        <QItemTile label>
+        <QItemTile
+          label
+          class="items-baseline"
+        >
           {{ place.name }}
+          <QIcon
+            v-if="place.isSubscribed"
+            name="fas fa-fw fa-star"
+            class="vertical-baseline"
+            color="secondary"
+          />
         </QItemTile>
       </QItemMain>
+      <QItemSide
+        v-if="place.conversationUnreadCount > 0"
+        right
+      >
+        <QChip
+          small
+          color="secondary"
+        >
+          {{ place.conversationUnreadCount > 99 ? '99+' : place.conversationUnreadCount }}
+        </QChip>
+      </QItemSide>
     </QItem>
 
     <QItem
@@ -74,6 +94,7 @@ import {
   QTooltip,
   QCollapsible,
   QItemSeparator,
+  QChip,
 } from 'quasar'
 import { mapGetters } from 'vuex'
 
@@ -88,6 +109,7 @@ export default {
     QTooltip,
     QCollapsible,
     QItemSeparator,
+    QChip,
   },
   props: {
     groupId: { default: null, type: Number },
@@ -97,6 +119,11 @@ export default {
 
   },
   computed: {
+    sortedPlaces () {
+      const subscribed = this.places.filter(e => e.isSubscribed)
+      const notSubscribed = this.places.filter(e => !e.isSubscribed)
+      return subscribed.concat(notSubscribed)
+    },
     hasPlaces () {
       return this.places && this.places.length > 0
     },

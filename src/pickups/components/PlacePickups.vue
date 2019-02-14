@@ -3,24 +3,11 @@
     <QCard class="no-shadow no-padding grey-border">
       <RandomArt
         :seed="placeId"
-        type="banner"/>
+        type="banner"
+      />
       <div class="generic-padding">
 
         <div class="actionButtons">
-          <RouterLink
-            v-if="isEditor"
-            :to="{name: 'placeEdit', params: { placeId }}"
-          >
-            <QBtn
-              small
-              round
-              color="secondary"
-              icon="fas fa-pencil-alt"
-              class="hoverScale"
-            >
-              <QTooltip v-t="'STOREDETAIL.EDIT'" />
-            </QBtn>
-          </RouterLink>
           <RouterLink
             v-if="isEditor"
             :to="{name: 'placePickupsManage', params: { placeId }}"

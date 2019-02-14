@@ -2,13 +2,13 @@
   "ENTRY": "1則輸入 | {count}則輸入",
   "GLOBAL": {
     "GITHUB_NOTE": "開發",
-    "FSWW_NOTE": "查看我們的資訊頁面 !",
     "COMMUNITY_NOTE": "加入我們的社群!",
     "SERVER_ERROR": "伺服器錯誤",
     "NOT_CONNECTED": "你並未連接至伺服器",
     "INVALID_LINK": "抱歉，你開啟的連結無效",
     "GENERIC_ERROR": "Sorry, something went wrong",
-    "SEARCH_NOT_FOUND": "無符合的搜尋結果"
+    "SEARCH_NOT_FOUND": "無符合的搜尋結果",
+    "ABOUT_KARROT": "About Karrot"
   },
   "USERDATA": {
     "EMAIL": "電子郵件",

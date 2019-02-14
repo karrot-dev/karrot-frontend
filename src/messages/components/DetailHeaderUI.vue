@@ -92,7 +92,7 @@
         :can-unsubscribe="!isThread && !isPrivate"
         :user="currentUser"
         in-toolbar
-        @set="toggleNotifications"
+        @set="setNotifications"
         :size="$q.platform.is.mobile ? 'sm' : 'md'"
       />
       <QBtn
@@ -215,7 +215,7 @@ export default {
     },
   },
   methods: {
-    toggleNotifications (value) {
+    setNotifications (value) {
       const data = (this.conversation.thread && this.conversation.threadMeta)
         ? {
           threadId: this.conversation.thread,

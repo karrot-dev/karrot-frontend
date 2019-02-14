@@ -3,7 +3,8 @@
     <QCard class="no-shadow no-padding grey-border">
       <RandomArt
         :seed="placeId"
-        type="banner"/>
+        type="banner"
+      />
       <div class="generic-padding">
 
         <div class="actionButtons">

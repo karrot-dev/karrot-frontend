@@ -234,7 +234,9 @@ export default {
       },
 
       async mark ({ dispatch }, { id, seenUpTo }) {
-        await conversationsAPI.mark(id, seenUpTo)
+        await conversationsAPI.save(id, {
+          seenUpTo,
+        })
       },
 
       async save ({ state }, { id, value }) {

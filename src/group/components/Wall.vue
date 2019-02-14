@@ -37,9 +37,7 @@
       @saveConversation="$emit('saveConversation', arguments[0])"
       @toggleReaction="$emit('toggleReaction', arguments[0])"
       @openThread="$emit('openThread', arguments[0])"
-    >
-      <slot />
-    </WallConversation>
+    />
   </div>
 </template>
 
@@ -71,8 +69,6 @@ export default {
 </script>
 
 <style scoped lang="stylus">
-@import '~variables'
-
 .notices
   margin-top .5em
   margin-bottom 3em

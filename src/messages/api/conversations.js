@@ -27,12 +27,6 @@ export default {
     }
   },
 
-  async mark (id, seenUpTo) {
-    return convert((await axios.patch(`/api/conversations/${id}/`, {
-      seenUpTo,
-    })).data)
-  },
-
   async save (id, data) {
     return convert((await axios.patch(`/api/conversations/${id}/`, data)).data)
   },

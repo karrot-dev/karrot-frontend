@@ -1,11 +1,57 @@
 <template>
   <div>
-    <QCard class="no-shadow no-padding grey-border">
+    <QCard class="no-shadow no-padding grey-border relative-position">
       <RandomArt
         :seed="placeId"
         type="banner"
       />
       <div class="generic-padding">
+        <div class="actionButtons">
+          <QBtn
+            round
+            color="white"
+            class="hoverScale"
+            :icon="selected.icon"
+            :text-color="selected.color"
+          >
+            <QPopover>
+              <QList
+                link
+                v-close-overlay
+              >
+                <QListHeader
+                  v-t="'PLACEWALL.SUBSCRIPTION.HEADER'"
+                />
+
+                <QItem
+                  v-for="o in options"
+                  :key="o.id"
+                  @click.native="select(o)"
+                  :class="o.selected ? 'bg-grey-2' : ''"
+                >
+                  <QItemSide
+                    :color="o.color"
+                    :icon="o.icon"
+                  />
+                  <QItemMain
+                    :label="o.label"
+                    :sublabel="o.sublabel"
+                  />
+                </QItem>
+              </QList>
+            </QPopover>
+          </QBtn>
+          <QBtn
+            v-if="isEditor"
+            :to="{name: 'placeEdit', params: { groupId: place.group.id, placeId }}"
+            round
+            color="secondary"
+            icon="fas fa-pencil-alt"
+            class="hoverScale"
+          >
+            <QTooltip v-t="'STOREDETAIL.EDIT'" />
+          </QBtn>
+        </div>
         <Markdown
           v-if="place.description"
           :source="place.description"
@@ -28,52 +74,7 @@
       @saveConversation="saveConversation"
       @toggleReaction="toggleReaction"
       @openThread="openThread"
-    >
-      <QBtn
-        v-if="isEditor"
-        :to="{name: 'placeEdit', params: { groupId: place.group.id, placeId }}"
-        round
-        color="secondary"
-        icon="fas fa-pencil-alt"
-        class="hoverScale"
-      >
-        <QTooltip v-t="'STOREDETAIL.EDIT'" />
-      </QBtn>
-      <QBtn
-        round
-        color="white"
-        class="hoverScale"
-        :icon="selected.icon"
-        :text-color="selected.color"
-      >
-        <QPopover>
-          <QList
-            link
-            v-close-overlay
-          >
-            <QListHeader
-              v-t="'PLACEWALL.SUBSCRIPTION.HEADER'"
-            />
-
-            <QItem
-              v-for="o in options"
-              :key="o.id"
-              @click.native="select(o)"
-              :class="o.selected ? 'bg-grey-2' : ''"
-            >
-              <QItemSide
-                :color="o.color"
-                :icon="o.icon"
-              />
-              <QItemMain
-                :label="o.label"
-                :sublabel="o.sublabel"
-              />
-            </QItem>
-          </QList>
-        </QPopover>
-      </QBtn>
-    </WallConversation>
+    />
   </div>
 </template>
 
@@ -168,3 +169,12 @@ export default {
   },
 }
 </script>
+
+<style lang="stylus" scoped>
+.actionButtons
+  position absolute
+  top 22px
+  right 6px
+  .q-btn
+    margin 3px
+</style>

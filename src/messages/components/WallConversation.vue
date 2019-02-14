@@ -7,18 +7,13 @@
         class="bg-white desktop-margin relative-position"
       >
         <template v-if="hasLoaded">
-          <div
-            class="actionButton"
-          >
-            <slot />
             <NotificationToggle
               :muted="data.muted"
               :is-participant="data.isParticipant"
               :user="user"
-              class="hoverScale"
+            class="actionButton hoverScale"
               @set="setNotifications"
             />
-          </div>
           <ConversationCompose
             :status="data.sendStatus"
             :placeholder="messagePrompt"
@@ -148,8 +143,6 @@ export default {
   position absolute
   top -24px
   right 6px
-  >>> > *
-    margin-left 3px
 .k-unread-alert >>>
   .q-alert-content, .q-alert-side
     padding-top 6px

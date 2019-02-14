@@ -50,7 +50,7 @@
         </QCollapsible>
         <ChatConversation
           v-if="conversation"
-          :conversation="conversation"
+          :conversation="conversationWithReversedMessages"
           :away="away"
           :current-user="currentUser"
           :start-at-bottom="true"
@@ -133,7 +133,6 @@ import {
   QCard,
   QCardMain,
   QCardTitle,
-
 } from 'quasar'
 
 export default {
@@ -177,6 +176,12 @@ export default {
     },
   },
   computed: {
+    conversationWithReversedMessages () {
+      return {
+        ...this.conversation,
+        messages: this.conversation.messages.slice().reverse(),
+      }
+    },
     newestVoting () {
       const tempArray = this.issue.votings.slice().sort((a, b) => new Date(b.expiresAt) - new Date(a.expiresAt))
       return tempArray[0]

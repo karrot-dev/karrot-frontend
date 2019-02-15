@@ -207,6 +207,15 @@
     "SHOW_ALL": "Show all stores",
     "SHOW_ACTIVE_ONLY": "Only show active stores"
   },
+  "PLACEWALL": {
+    "SUBSCRIPTION": {
+      "HEADER": "Do you want to mark this store as your favourite?",
+      "YES": "yes",
+      "YES_TEXT": "Shows available pickups on the group wall and sends emails about upcoming pickups.",
+      "NO": "no",
+      "NO_TEXT": "None of the above. You can still sign up for pickups though."
+    }
+  },
   "PICKUPMANAGE": {
     "TITLE": "પસંદ અપ્સ મેનેજ કરો",
     "SERIES": "રિકરિંગ પિક અપ્સ",
@@ -318,6 +327,7 @@
     "AVAILABLE": "તમારા માટે રાહ જોઈ રહેલા દિવસોમાં એક દુકાન છે! | તમારા માટે રાહ જોઈ રહેલા દિવસોમાં {count} પિકઅપ્સ છે!",
     "AVAILABLE_FEEDBACK": "તમે દુકાનમાં પ્રતિક્રિયા આપી શકો છો | {count} પિકઅપ્સ તમારી પ્રતિસાદની રાહ જોવામાં આવે છે",
     "JOINEDNOTICE": "તમારી પાસે એક આગામી દુકાન છે | તમારી પાસે {ગણતરી} આગામી પિકઅપ્સ છે",
+    "AVAILABLE_FROM_STORES": "This shows pickups from your favorite stores. You can access other stores in the sidebar.",
     "ITEM": {
       "LEAVE": "છોડો",
       "JOIN": "જોડાઓ",
@@ -440,6 +450,15 @@
     "PICKUP_ENABLED": "Pickup at {dateTime} was enabled again",
     "PICKUP_MOVED": "Pickup was moved to {dateTime}"
   },
+  "NOTIFICATION_TOGGLE": {
+    "HEADER": "How do you want to receive notifications about new messages in this conversation/thread?",
+    "ALL": "all",
+    "ALL_TEXT": "Via app/website, email and push notifications.",
+    "SOME": "some",
+    "SOME_TEXT": "Via app/website.",
+    "NONE": "none",
+    "NONE_TEXT": "No notifications."
+  },
   "OUTDATED_BROWSER": {
     "MESSAGE": "You are using an unsupported browser. {upgradeBrowser} to enjoy all features.",
     "LINK": "Please update or switch your browser"
@@ -483,8 +502,6 @@
   "WALL": {
     "WRITE_MESSAGE": "સંદેશ લખો ...",
     "WRITE_FIRST_MESSAGE": "પ્રથમ સંદેશ લખો ...",
-    "DISABLE_NOTIFICATION_EMAILS": "Notification e-mails enabled, click to mute",
-    "ENABLE_NOTIFICATION_EMAILS": "Notification e-mails muted, click to enable",
     "VERIFY_EMAIL_FOR_NOTIFICATIONS": "Please verify your e-mail address to receive notification e-mails",
     "RECEIVED_VIA_EMAIL": "This message was sent via e-mail"
   },

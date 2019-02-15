@@ -39,7 +39,7 @@
             </QBtn>
           </a>
         </div>
-        <div v-if="!store">
+        <div v-if="!place">
           loading...
         </div>
         <Markdown
@@ -63,7 +63,7 @@
       @leave="leave"
       @detail="detail"
     />
-    <div v-if="!store">
+    <div v-if="!place">
       loading...
     </div>
     <KNotice v-else-if="isInactive">

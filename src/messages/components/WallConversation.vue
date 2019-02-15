@@ -8,10 +8,10 @@
       >
         <template v-if="hasLoaded">
           <NotificationToggle
+            class="actionButton hoverScale"
             :muted="data.muted"
             :is-participant="data.isParticipant"
             :user="user"
-            class="actionButton hoverScale"
             @set="setNotifications"
           />
           <ConversationCompose

@@ -7,13 +7,13 @@
         class="bg-white desktop-margin relative-position"
       >
         <template v-if="hasLoaded">
-            <NotificationToggle
-              :muted="data.muted"
-              :is-participant="data.isParticipant"
-              :user="user"
+          <NotificationToggle
+            :muted="data.muted"
+            :is-participant="data.isParticipant"
+            :user="user"
             class="actionButton hoverScale"
-              @set="setNotifications"
-            />
+            @set="setNotifications"
+          />
           <ConversationCompose
             :status="data.sendStatus"
             :placeholder="messagePrompt"

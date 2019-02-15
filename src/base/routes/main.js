@@ -349,7 +349,7 @@ export default [
               breadcrumbs: [
                 { translation: 'PICKUP_FEEDBACK.TITLE', route: { name: 'placeFeedback' } },
               ],
-              beforeEnter: 'stores/beforeEnterFeedback',
+              beforeEnter: 'places/beforeEnterFeedback',
               afterLeave: 'feedback/clear',
             },
             component: PlaceFeedback,

@@ -53,6 +53,14 @@
             />
             <div class="ellipsis">{{ group.name }}</div>
           </template>
+          <template v-else-if="isPlace">
+            <QIcon
+              name="fas fw-fw fa-star"
+              class="q-mr-sm"
+              :title="$t('GROUP.WALL')"
+            />
+            <div class="ellipsis">{{ place.name }}</div>
+          </template>
           <QIcon
             v-if="muted"
             size="12px"
@@ -86,7 +94,7 @@
         class="q-mb-xs"
       >
         <small>
-          {{ pickup.store && pickup.store.name }} ·
+          {{ pickup.place && pickup.place.name }} ·
           {{ $d(pickup.date, 'yearMonthDay') }}
         </small>
       </QItemTile>
@@ -158,6 +166,10 @@ export default {
       type: Object,
       default: null,
     },
+    place: {
+      type: Object,
+      default: null,
+    },
     thread: {
       type: Object,
       default: null,
@@ -190,6 +202,9 @@ export default {
   computed: {
     isGroup () {
       return Boolean(this.group)
+    },
+    isPlace () {
+      return Boolean(this.place)
     },
     isPrivate () {
       return Boolean(this.user)

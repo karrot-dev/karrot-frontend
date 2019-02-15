@@ -2,13 +2,13 @@
   "ENTRY": "1 entry | {count} entries",
   "GLOBAL": {
     "GITHUB_NOTE": "Desenvolvimento",
-    "FSWW_NOTE": "Leia nossa página de informações!",
     "COMMUNITY_NOTE": "Join our community!",
     "SERVER_ERROR": "Erro no servidor",
     "NOT_CONNECTED": "You aren't connected to the server",
     "INVALID_LINK": "Desculpe, o link que você abriu é inválido.",
     "GENERIC_ERROR": "Sorry, something went wrong",
-    "SEARCH_NOT_FOUND": "Não encontrado"
+    "SEARCH_NOT_FOUND": "Não encontrado",
+    "ABOUT_KARROT": "About Karrot"
   },
   "USERDATA": {
     "EMAIL": "E-mail",
@@ -207,6 +207,15 @@
     "SHOW_ALL": "Show all stores",
     "SHOW_ACTIVE_ONLY": "Only show active stores"
   },
+  "PLACEWALL": {
+    "SUBSCRIPTION": {
+      "HEADER": "Do you want to mark this store as your favourite?",
+      "YES": "yes",
+      "YES_TEXT": "Shows available pickups on the group wall and sends emails about upcoming pickups.",
+      "NO": "no",
+      "NO_TEXT": "None of the above. You can still sign up for pickups though."
+    }
+  },
   "PICKUPMANAGE": {
     "TITLE": "Gerenciar coletas",
     "SERIES": "Coletas recorrentes",
@@ -318,6 +327,7 @@
     "AVAILABLE": "Tem uma coleta esperando por você nos próximos dias | Temos {count} coletas esperando por você nos próximos dias!",
     "AVAILABLE_FEEDBACK": "Você pode deixar sua impressão de uma coleta | {count} coletas esperando seus comentários",
     "JOINEDNOTICE": "Você possuí uma coleta para fazer | Você possuí {count} coletas para fazer",
+    "AVAILABLE_FROM_STORES": "This shows pickups from your favorite stores. You can access other stores in the sidebar.",
     "ITEM": {
       "LEAVE": "Sair",
       "JOIN": "Participar",
@@ -440,6 +450,15 @@
     "PICKUP_ENABLED": "Pickup at {dateTime} was enabled again",
     "PICKUP_MOVED": "Pickup was moved to {dateTime}"
   },
+  "NOTIFICATION_TOGGLE": {
+    "HEADER": "How do you want to receive notifications about new messages in this conversation/thread?",
+    "ALL": "all",
+    "ALL_TEXT": "Via app/website, email and push notifications.",
+    "SOME": "some",
+    "SOME_TEXT": "Via app/website.",
+    "NONE": "none",
+    "NONE_TEXT": "No notifications."
+  },
   "OUTDATED_BROWSER": {
     "MESSAGE": "Você esta utilizando um navegador sem suporte a nossa plataforma. {upgradeBrowser} e aproveite.",
     "LINK": "Por favor, troque ou atualize seu navegador"
@@ -483,8 +502,6 @@
   "WALL": {
     "WRITE_MESSAGE": "Escreva uma mensagem...",
     "WRITE_FIRST_MESSAGE": "Escreva a primeira mensagem...",
-    "DISABLE_NOTIFICATION_EMAILS": "Notificação por e-mail ativada, clique para desativar",
-    "ENABLE_NOTIFICATION_EMAILS": "Notificação por e-mail desativada, clique para ativar",
     "VERIFY_EMAIL_FOR_NOTIFICATIONS": "Por favor verique seu e-mail no sistema para poder receber notificações por e-mail",
     "RECEIVED_VIA_EMAIL": "Esta mensagem foi mandada por e-mail"
   },
@@ -504,7 +521,8 @@
     "MESSAGE_NOT_FOUND": "Message not found",
     "NO_CONVERSATIONS": "No conversations yet.",
     "MUTED": "Notifications are disabled",
-    "CLOSED": "This conversation has been closed automatically."
+    "CLOSED": "This conversation has been closed automatically.",
+    "NOT_PARTICIPATED": "By sending a message, you will be subscribed to notifications about this conversation."
   },
   "STORESTATUS": {
     "ACTIVE": "cooperação",
@@ -549,5 +567,6 @@
     "FROM_GROUP": "unsubscribe from everything in {groupName}",
     "SUCCESS": "You were successfully unsubscribed!"
   },
-  "YOU": "You"
+  "YOU": "You",
+  "TO": "to"
 }

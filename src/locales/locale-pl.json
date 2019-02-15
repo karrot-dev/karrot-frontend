@@ -2,13 +2,13 @@
   "ENTRY": "1 entry | {count} entries",
   "GLOBAL": {
     "GITHUB_NOTE": "Development",
-    "FSWW_NOTE": "O nas",
     "COMMUNITY_NOTE": "Dołącz do nas!",
     "SERVER_ERROR": "Błąd serwera",
     "NOT_CONNECTED": "You aren't connected to the server",
     "INVALID_LINK": "Przepraszamy, otwarty przez Ciebie link jest nieprawidłowy.",
     "GENERIC_ERROR": "Sorry, something went wrong",
-    "SEARCH_NOT_FOUND": "Nie znaleziono"
+    "SEARCH_NOT_FOUND": "Nie znaleziono",
+    "ABOUT_KARROT": "About Karrot"
   },
   "USERDATA": {
     "EMAIL": "E-mail",
@@ -207,6 +207,15 @@
     "SHOW_ALL": "Pokaż wszystkie punkty odbioru",
     "SHOW_ACTIVE_ONLY": "Pokaż tylko aktywne punkty odbioru"
   },
+  "PLACEWALL": {
+    "SUBSCRIPTION": {
+      "HEADER": "Do you want to mark this store as your favourite?",
+      "YES": "yes",
+      "YES_TEXT": "Shows available pickups on the group wall and sends emails about upcoming pickups.",
+      "NO": "no",
+      "NO_TEXT": "None of the above. You can still sign up for pickups though."
+    }
+  },
   "PICKUPMANAGE": {
     "TITLE": "Zarządzaj odbiorami",
     "SERIES": "Powtarzające się odbiory",
@@ -318,6 +327,7 @@
     "AVAILABLE": "Czeka Cię odbiór w najbliższych dniach! | W najbliższych dniach czeka Cię {count} odbiorów!",
     "AVAILABLE_FEEDBACK": "Możesz dodać komentarz do odbioru | Możesz dodać komentarz do {count} odbiorów",
     "JOINEDNOTICE": "Masz jeden nadchodzący odbiór | Masz {count} nadchodzące odbiory",
+    "AVAILABLE_FROM_STORES": "This shows pickups from your favorite stores. You can access other stores in the sidebar.",
     "ITEM": {
       "LEAVE": "Zrezygnuj",
       "JOIN": "Zapisz się",
@@ -440,6 +450,15 @@
     "PICKUP_ENABLED": "Pickup at {dateTime} was enabled again",
     "PICKUP_MOVED": "Pickup was moved to {dateTime}"
   },
+  "NOTIFICATION_TOGGLE": {
+    "HEADER": "How do you want to receive notifications about new messages in this conversation/thread?",
+    "ALL": "all",
+    "ALL_TEXT": "Via app/website, email and push notifications.",
+    "SOME": "some",
+    "SOME_TEXT": "Via app/website.",
+    "NONE": "none",
+    "NONE_TEXT": "No notifications."
+  },
   "OUTDATED_BROWSER": {
     "MESSAGE": "Twoja przeglądarka nie jest wspierana. {upgradeBrowser}, aby cieszyć się wszystkimi funkcjami.",
     "LINK": "Zaktualizuj lub zmień swoją przeglądarkę"
@@ -483,8 +502,6 @@
   "WALL": {
     "WRITE_MESSAGE": "Napisz wiadomość...",
     "WRITE_FIRST_MESSAGE": "Napisz pierwszą wiadomość...",
-    "DISABLE_NOTIFICATION_EMAILS": "Włączono powiadomienia e-mail, kliknij aby wyłączyć",
-    "ENABLE_NOTIFICATION_EMAILS": "Wyłączono powiadomienia e-mail, kliknij aby włączyć",
     "VERIFY_EMAIL_FOR_NOTIFICATIONS": "Zweryfikuj swój adres e-mail, aby móc odbierać powiadomienia",
     "RECEIVED_VIA_EMAIL": "Ta wiadomość została wysłana za pośrednictwem e-maila"
   },
@@ -504,7 +521,8 @@
     "MESSAGE_NOT_FOUND": "Nie znaleziono wiadomości",
     "NO_CONVERSATIONS": "Brak konwersacji.",
     "MUTED": "Powiadomienia są wyłączone",
-    "CLOSED": "This conversation has been closed automatically."
+    "CLOSED": "This conversation has been closed automatically.",
+    "NOT_PARTICIPATED": "By sending a message, you will be subscribed to notifications about this conversation."
   },
   "STORESTATUS": {
     "ACTIVE": "Współpracuje",
@@ -549,5 +567,6 @@
     "FROM_GROUP": "unsubscribe from everything in {groupName}",
     "SUCCESS": "You were successfully unsubscribed!"
   },
-  "YOU": "Ty"
+  "YOU": "Ty",
+  "TO": "to"
 }

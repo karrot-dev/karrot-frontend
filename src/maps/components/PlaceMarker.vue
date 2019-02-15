@@ -1,7 +1,7 @@
 <template>
   <div>
-    <RouterLink :to="{ name: 'store', params: { groupId: store.group.id, storeId: store.id } }">
-      {{ store.name }}
+    <RouterLink :to="{ name: 'place', params: { groupId: place.group.id, placeId: place.id } }">
+      {{ place.name }}
     </RouterLink>
   </div>
 </template>
@@ -9,7 +9,7 @@
 <script>
 export default {
   props: {
-    store: {
+    place: {
       type: Object,
       required: true,
     },

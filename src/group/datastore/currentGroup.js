@@ -158,7 +158,7 @@ export default {
           dispatch('applications/fetchPendingByGroupId', { groupId }, { root: true })
         }
 
-        dispatch('conversations/fetchGroupConversation', groupId, { root: true })
+        dispatch('conversations/fetchGroupConversation', groupId, { root: true }) // TODO needed?
 
         dispatch('auth/maybeBackgroundSave', { currentGroup: groupId }, { root: true })
       },

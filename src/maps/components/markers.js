@@ -1,6 +1,6 @@
 import GroupMarker from './GroupMarker'
 import UserMarker from './UserMarker'
-import StoreMarker from './StoreMarker'
+import PlaceMarker from './PlaceMarker'
 
 export function groupMarker (group) {
   return {
@@ -26,14 +26,14 @@ export function userMarker (user) {
   }
 }
 
-export function storeMarker (store) {
+export function placeMarker (place) {
   return {
-    latLng: { lat: store.latitude, lng: store.longitude },
-    id: 'store_' + store.id,
+    latLng: { lat: place.latitude, lng: place.longitude },
+    id: 'place_' + place.id,
     fontIcon: 'fas fa-shopping-cart',
-    color: store.ui.color,
+    color: place.ui.color,
     popup: {
-      render: h => h(StoreMarker, { props: { store } }),
+      render: h => h(PlaceMarker, { props: { place } }),
     },
   }
 }

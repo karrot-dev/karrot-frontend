@@ -8,21 +8,23 @@
       >
         <template v-if="hasLoaded">
           <NotificationToggle
-            :value="!data.muted"
+            :muted="data.muted"
+            :is-participant="data.isParticipant"
             :user="user"
             class="actionButton hoverScale"
-            @click="toggleNotifications"
+            @set="setNotifications"
           />
           <ConversationCompose
             :status="data.sendStatus"
-            @submit="$emit('send', { id: data.id, content: arguments[0] })"
             :placeholder="messagePrompt"
             :user="user"
             :slim="$q.platform.is.mobile"
             :autofocus="!$q.platform.is.mobile"
+            :is-participant="data.isParticipant"
+            @submit="$emit('send', { id: data.id, content: arguments[0] })"
           />
           <QAlert
-            v-if="data.unreadMessageCount > 0"
+            v-if="data.isParticipant && data.unreadMessageCount > 0"
             color="secondary"
             icon="star"
             class="k-unread-alert"
@@ -109,10 +111,10 @@ export default {
       await this.fetchPast(this.data.id)
       done()
     },
-    toggleNotifications () {
-      this.$emit('setMuted', {
+    setNotifications (value) {
+      this.$emit('saveConversation', {
         conversationId: this.data.id,
-        value: !this.data.muted,
+        value,
       })
     },
   },

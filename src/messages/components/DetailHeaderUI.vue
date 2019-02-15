@@ -13,11 +13,14 @@
           v-if="!$q.platform.is.mobile"
           v-t="'GROUP.PICKUP'"
         >&nbsp;</span>
-        <strong>{{ $d(pickup.date, 'weekdayHourMinute') }}</strong>
+        <strong>
+          {{ $d(pickup.date, 'weekdayHourMinute') }}
+          <template v-if="pickup.hasDuration"> &mdash; {{ $d(pickup.dateEnd, 'hourMinute') }}</template>
+        </strong>
         <span slot="subtitle">
-          <strong v-if="pickup.store">
-            <RouterLink :to="{ name: 'store', params: { groupId: pickup.group.id, storeId: pickup.store.id }}">
-              {{ pickup.store.name }}
+          <strong v-if="pickup.place">
+            <RouterLink :to="{ name: 'place', params: { groupId: pickup.group.id, placeId: pickup.place.id }}">
+              {{ pickup.place.name }}
             </RouterLink>
           </strong>
           {{ $d(pickup.date, 'yearMonthDay') }}
@@ -83,11 +86,13 @@
         />
       </template>
       <NotificationToggle
-        v-if="notifications !== null"
-        :value="notifications"
+        v-if="isThread ? muted !== null : true"
+        :muted="muted"
+        :is-participant="isThread ? true : conversation.isParticipant"
+        :can-unsubscribe="!isThread && !isPrivate"
         :user="currentUser"
         in-toolbar
-        @click="toggleNotifications"
+        @set="setNotifications"
         :size="$q.platform.is.mobile ? 'sm' : 'md'"
       />
       <QBtn
@@ -162,16 +167,25 @@ export default {
     },
   },
   computed: {
-    notifications () {
+    isThread () {
+      return Boolean(this.conversation.thread && this.conversation.id === this.conversation.thread)
+    },
+    isPrivate () {
+      return this.conversation && this.conversation.type === 'private'
+    },
+    muted () {
       if (this.conversation.thread && this.conversation.threadMeta) {
-        return !this.conversation.threadMeta.muted
+        return this.conversation.threadMeta.muted
       }
       if (typeof this.conversation.muted !== 'undefined') {
-        return !this.conversation.muted
+        return this.conversation.muted
       }
       return null
     },
     participants () {
+      if (this.pickup) {
+        return this.pickup.collectors
+      }
       if (this.conversation.thread && this.conversation.threadMeta) {
         return this.conversation.threadMeta.participants
       }
@@ -201,17 +215,17 @@ export default {
     },
   },
   methods: {
-    toggleNotifications () {
+    setNotifications (value) {
       const data = (this.conversation.thread && this.conversation.threadMeta)
         ? {
           threadId: this.conversation.thread,
-          value: this.notifications,
+          value,
         }
         : {
           conversationId: this.conversation.id,
-          value: this.notifications,
+          value,
         }
-      this.$emit('setMuted', data)
+      this.$emit('saveConversation', data)
     },
     applicationInfo () {
       Dialog.create({
@@ -238,8 +252,8 @@ export default {
     display inline-block
     margin-right 0.3em
     margin-bottom 0.3em
-body.mobile .DetailHeader .q-toolbar
-  min-height 20px
   .q-toolbar-title
     font-size 16px
+body.mobile .DetailHeader .q-toolbar
+  min-height 20px
 </style>

@@ -5,29 +5,49 @@
     class="no-padding"
   >
     <QItem
-      v-for="store in stores"
-      :key="store.id"
+      v-for="place in sortedPlaces"
+      :key="place.id"
       link
-      :to="linkParamsFor(store)"
+      :to="linkParamsFor(place)"
     >
       <QItemSide class="text-center">
         <QIcon
-          :name="store.ui.icon"
-          :color="store.ui.color"
-          :title="$t(store.ui.label)"
+          :name="place.ui.icon"
+          :color="place.ui.color"
+          :title="$t(place.ui.label)"
         />
       </QItemSide>
       <QItemMain>
-        <QItemTile label>
-          {{ store.name }}
+        <QItemTile
+          label
+          class="items-baseline"
+        >
+          {{ place.name }}
+          <QIcon
+            v-if="place.isSubscribed"
+            name="fas fa-fw fa-star"
+            class="vertical-baseline"
+            color="secondary"
+          />
         </QItemTile>
       </QItemMain>
+      <QItemSide
+        v-if="place.conversationUnreadCount > 0"
+        right
+      >
+        <QChip
+          small
+          color="secondary"
+        >
+          {{ place.conversationUnreadCount > 99 ? '99+' : place.conversationUnreadCount }}
+        </QChip>
+      </QItemSide>
     </QItem>
 
     <QItem
-      v-if="!hasStores && isEditor"
+      v-if="!hasPlaces && isEditor"
       link
-      :to="{ name: 'storeCreate', params: { groupId } }"
+      :to="{ name: 'placeCreate', params: { groupId } }"
       class="bg-secondary"
       multiline
     >
@@ -48,14 +68,14 @@
       :label="`${$t('STORESTATUS.ARCHIVED')} (${archived.length})`"
     >
       <QItem
-        v-for="store in archived"
-        :key="store.id"
+        v-for="place in archived"
+        :key="place.id"
         link
-        :to="linkParamsFor(store)"
+        :to="linkParamsFor(place)"
       >
         <QItemMain>
           <QItemTile label>
-            {{ store.name }}
+            {{ place.name }}
           </QItemTile>
         </QItemMain>
       </QItem>
@@ -74,6 +94,7 @@ import {
   QTooltip,
   QCollapsible,
   QItemSeparator,
+  QChip,
 } from 'quasar'
 import { mapGetters } from 'vuex'
 
@@ -88,29 +109,35 @@ export default {
     QTooltip,
     QCollapsible,
     QItemSeparator,
+    QChip,
   },
   props: {
     groupId: { default: null, type: Number },
-    stores: { required: true, type: Array },
+    places: { required: true, type: Array },
     archived: { default: () => [], type: Array },
-    linkTo: { default: 'store', type: String },
+    linkTo: { default: 'place', type: String },
 
   },
   computed: {
-    hasStores () {
-      return this.stores && this.stores.length > 0
+    sortedPlaces () {
+      const subscribed = this.places.filter(e => e.isSubscribed)
+      const notSubscribed = this.places.filter(e => !e.isSubscribed)
+      return subscribed.concat(notSubscribed)
+    },
+    hasPlaces () {
+      return this.places && this.places.length > 0
     },
     ...mapGetters({
       isEditor: 'currentGroup/isEditor',
     }),
   },
   methods: {
-    linkParamsFor (store) {
+    linkParamsFor (place) {
       return {
         name: this.linkTo,
         params: {
-          groupId: store.group.id,
-          storeId: store.id,
+          groupId: place.group.id,
+          placeId: place.id,
         },
       }
     },

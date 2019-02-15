@@ -21,6 +21,15 @@ Please document your changes in this format:
 ```
 
 ## [Unreleased]
+### Added
+- Add ability to specify pickups with end times #709 @nicksellen
+- Add store wall #986 @tiltec
+- Add feature to mark stores as favorite #986 @tiltec
+
+### Changed
+- Allow non-collectors to read and write in pickup chat @tiltec
+- Pickups from non-favorited stores won't show up in the "available pickup" in the group wall and don't send emails about upcoming pickups @tiltec
+- Can now unsubscribe from conversations (except private conversation and threads) @tiltec
 
 ## [6.5.0] - 2019-02-03
 ### Added

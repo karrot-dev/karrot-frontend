@@ -11,7 +11,10 @@
         :src="currentGroup.photoUrls.thumbnail"
         style="height: 95%"
       >
-      <KarrotLogo v-else />
+      <KarrotLogo
+        v-else
+        show-loading
+      />
     </RouterLink>
     <QToolbarTitle>
       <div class="row justify-between no-wrap">

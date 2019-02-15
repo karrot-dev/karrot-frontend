@@ -28,9 +28,10 @@
           ref="compose"
           :status="conversation.sendStatus"
           slim
-          @submit="sendMessage"
           :placeholder="messagePrompt"
           :autofocus="!$q.platform.is.mobile && startAtBottom"
+          :is-participant="conversation.isParticipant"
+          @submit="sendMessage"
         />
         <QItem
           v-if="this.conversation.isClosed"

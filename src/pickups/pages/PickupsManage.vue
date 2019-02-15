@@ -46,7 +46,7 @@
           @show="makeVisible('series', series.id)"
           :key="series.id"
           :label="seriesLabel(series)"
-          :sublabel="$d(series.startDate, 'hourMinute')"
+          :sublabel="seriesSublabel(series)"
           icon="fas fa-calendar-alt"
           sparse
         >
@@ -133,7 +133,7 @@
     <QCard class="no-shadow grey-border secondCard">
       <RandomArt
         class="randomBanner"
-        :seed="storeId"
+        :seed="placeId"
         type="banner"
       />
       <QCardTitle>
@@ -196,6 +196,7 @@
               </QItemTile>
               <QItemTile sublabel>
                 {{ $d(pickup.date, 'hourMinute') }}
+                <template v-if="pickup.hasDuration"> &mdash; {{ $d(pickup.dateEnd, 'hourMinute') }}</template>
               </QItemTile>
             </QItemMain>
           </template>
@@ -233,6 +234,11 @@ import PickupEdit from '@/pickups/components/PickupEdit'
 import RandomArt from '@/utils/components/RandomArt'
 
 import i18n, { dayNameForKey, sortByDay } from '@/base/i18n'
+
+import addSeconds from 'date-fns/add_seconds'
+import addHours from 'date-fns/add_hours'
+import startOfTomorrow from 'date-fns/start_of_tomorrow'
+import { defaultDuration } from '@/pickups/settings'
 
 export default {
   components: {
@@ -275,6 +281,16 @@ export default {
       }
       return series.rule.byDay.slice().sort(sortByDay).map(dayNameForKey).join(', ')
     },
+    seriesSublabel (series) {
+      const formatDate = date => i18n.d(date, 'hourMinute')
+      if (series.duration) {
+        return [
+          series.startDate,
+          addSeconds(series.startDate, series.duration),
+        ].map(formatDate).join(' — ')
+      }
+      return formatDate(series.startDate)
+    },
     ...mapActions({
       createSeries: 'pickupSeries/create',
       saveSeries: 'pickupSeries/save',
@@ -286,8 +302,9 @@ export default {
       this.newSeries = {
         maxCollectors: 2,
         description: '',
-        startDate: new Date(),
-        store: this.storeId,
+        startDate: addHours(startOfTomorrow(), 10),
+        duration: null,
+        place: this.placeId,
         rule: {
           isCustom: false,
           byDay: ['MO'],
@@ -305,13 +322,14 @@ export default {
       this.newSeries = null
     },
     createNewPickup () {
-      const date = new Date()
-      date.setDate(date.getDate() + 1)
+      const date = addHours(startOfTomorrow(), 10) // default to 10am tomorrow
       this.newPickup = {
         maxCollectors: 2,
         description: '',
         date,
-        store: this.storeId,
+        dateEnd: addSeconds(date, defaultDuration),
+        place: this.placeId,
+        hasDuration: false,
       }
     },
     async saveNewPickup (pickup) {
@@ -339,9 +357,9 @@ export default {
   },
   computed: {
     ...mapGetters({
-      storeId: 'stores/activeStoreId',
-      pickupSeries: 'pickupSeries/byActiveStore',
-      pickups: 'pickups/byActiveStore',
+      placeId: 'places/activePlaceId',
+      pickupSeries: 'pickupSeries/byActivePlace',
+      pickups: 'pickups/byActivePlace',
       pickupCreateStatus: 'pickups/createStatus',
       seriesCreateStatus: 'pickupSeries/createStatus',
     }),

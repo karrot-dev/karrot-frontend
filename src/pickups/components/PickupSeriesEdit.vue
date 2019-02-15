@@ -26,12 +26,36 @@
           :error="hasError('startDate')"
           :error-label="firstError('startDate')"
         >
-          <QDatetime
-            type="time"
-            v-model="edit.startDate"
-            :format24h="is24h"
-            :display-value="$d(edit.startDate, 'hourMinute')"
-          />
+          <div class="row">
+            <QDatetime
+              type="time"
+              v-model="edit.startDate"
+              :format24h="is24h"
+              :display-value="$d(edit.startDate, 'hourMinute')"
+            />
+            <template v-if="hasDuration">
+              <div
+                class="q-pa-sm"
+                v-t="'TO'"/>
+              <QDatetime
+                type="time"
+                no-parent-field
+                v-model="endDate"
+                :format24h="is24h"
+                :display-value="$d(endDate, 'hourMinute') + ' (' + formattedDuration + ')'"
+                :after="[{ icon: 'cancel', handler: toggleDuration }]"
+              />
+            </template>
+            <QBtn
+              v-else
+              class="q-ml-sm q-mt-sm no-shadow"
+              size="xs"
+              round
+              color="grey"
+              icon="fas fa-plus"
+              @click.stop.prevent="toggleDuration"
+            />
+          </div>
         </QField>
         <QField
           icon="today"
@@ -202,6 +226,13 @@ import statusMixin from '@/utils/mixins/statusMixin'
 
 import { is24h, dayOptions } from '@/base/i18n'
 
+import { defaultDuration } from '@/pickups/settings'
+import { formatSeconds } from '@/pickups/utils'
+
+import addSeconds from 'date-fns/add_seconds'
+import addDays from 'date-fns/add_days'
+import differenceInSeconds from 'date-fns/difference_in_seconds'
+
 export default {
   mixins: [editMixin, statusMixin],
   components: {
@@ -254,8 +285,39 @@ export default {
         if (v.length > 0) this.edit.rule.byDay = v
       },
     },
+    hasDuration: {
+      get () {
+        return Boolean(this.edit.duration)
+      },
+      set (val) {
+        if (val) {
+          if (!this.edit.duration) this.edit.duration = defaultDuration
+        }
+        else {
+          this.edit.duration = null
+        }
+      },
+    },
+    endDate: {
+      get () {
+        return addSeconds(this.edit.startDate, this.edit.duration)
+      },
+      set (val) {
+        if (val < this.edit.startDate) {
+          // if the value is in the past add a day (allows pickups over midnight)
+          val = addDays(val, 1)
+        }
+        this.edit.duration = differenceInSeconds(val, this.edit.startDate)
+      },
+    },
+    formattedDuration () {
+      return this.edit.duration && formatSeconds(this.edit.duration)
+    },
   },
   methods: {
+    toggleDuration () {
+      this.hasDuration = !this.hasDuration
+    },
     maybeSave () {
       if (!this.canSave) return
       this.save()

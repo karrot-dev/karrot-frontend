@@ -2,13 +2,13 @@
   "ENTRY": "1 entry | {count} entries",
   "GLOBAL": {
     "GITHUB_NOTE": "Utveckling",
-    "FSWW_NOTE": "Läs vår informationssida!",
     "COMMUNITY_NOTE": "Gå med i vårt gemenskap!",
     "SERVER_ERROR": "Server fel",
     "NOT_CONNECTED": "Du är inte ansluten till servern",
     "INVALID_LINK": "Oj, länken du försöker komma åt är ogiltig.",
     "GENERIC_ERROR": "Oj, något gick fel!",
-    "SEARCH_NOT_FOUND": "Kunde inte hittas"
+    "SEARCH_NOT_FOUND": "Kunde inte hittas",
+    "ABOUT_KARROT": "About Karrot"
   },
   "USERDATA": {
     "EMAIL": "E-mail",
@@ -207,6 +207,15 @@
     "SHOW_ALL": "Visa alla butiker",
     "SHOW_ACTIVE_ONLY": "Visa bara aktiva butiker"
   },
+  "PLACEWALL": {
+    "SUBSCRIPTION": {
+      "HEADER": "Do you want to mark this store as your favourite?",
+      "YES": "yes",
+      "YES_TEXT": "Shows available pickups on the group wall and sends emails about upcoming pickups.",
+      "NO": "no",
+      "NO_TEXT": "None of the above. You can still sign up for pickups though."
+    }
+  },
   "PICKUPMANAGE": {
     "TITLE": "Hantera upphämtningar",
     "SERIES": "Regelbundna upphämtningar",
@@ -318,6 +327,7 @@
     "AVAILABLE": "Det finns en ledig upphämtning i kommande dagar! | Det finns {count} lediga upphämtningar i kommande dagar!",
     "AVAILABLE_FEEDBACK": "Du kan ge feedback till en upphämtning | {count} upphämtningar väntar på din feedback",
     "JOINEDNOTICE": "Du har en kommande upphämtning | Du har {count} kommande upphämtningar",
+    "AVAILABLE_FROM_STORES": "This shows pickups from your favorite stores. You can access other stores in the sidebar.",
     "ITEM": {
       "LEAVE": "Lämna",
       "JOIN": "Gå med",
@@ -440,6 +450,15 @@
     "PICKUP_ENABLED": "Upphämtning den {dateTime} har aktiverats igen",
     "PICKUP_MOVED": "Upphämtningen har ändrats till {dateTime}"
   },
+  "NOTIFICATION_TOGGLE": {
+    "HEADER": "How do you want to receive notifications about new messages in this conversation/thread?",
+    "ALL": "all",
+    "ALL_TEXT": "Via app/website, email and push notifications.",
+    "SOME": "some",
+    "SOME_TEXT": "Via app/website.",
+    "NONE": "none",
+    "NONE_TEXT": "No notifications."
+  },
   "OUTDATED_BROWSER": {
     "MESSAGE": "Du använder en webbläsare som inte har stöd. {upgradeBrowser} för att komma åt alla funktionaliteter.",
     "LINK": "Snälla uppdatera eller ändra din webbläsare"
@@ -483,8 +502,6 @@
   "WALL": {
     "WRITE_MESSAGE": "Skriva ett meddelande",
     "WRITE_FIRST_MESSAGE": "Skriv första meddelande...",
-    "DISABLE_NOTIFICATION_EMAILS": "Mejlnotifikationer är på, klicka för att stänga av dem.",
-    "ENABLE_NOTIFICATION_EMAILS": "Mejlnotifikationer är av, klicka för att aktivera dem",
     "VERIFY_EMAIL_FOR_NOTIFICATIONS": "Snälla verifiera din mejladress för att få mejlnotifikationer",
     "RECEIVED_VIA_EMAIL": "Det här meddelande skickades via mejl"
   },
@@ -504,7 +521,8 @@
     "MESSAGE_NOT_FOUND": "Meddelande hittades inte",
     "NO_CONVERSATIONS": "Fortfarande inga samtal",
     "MUTED": "Notifieringar är inaktiverad",
-    "CLOSED": "This conversation has been closed automatically."
+    "CLOSED": "This conversation has been closed automatically.",
+    "NOT_PARTICIPATED": "By sending a message, you will be subscribed to notifications about this conversation."
   },
   "STORESTATUS": {
     "ACTIVE": "Samarbetar",
@@ -549,5 +567,6 @@
     "FROM_GROUP": "stäng av notiser för allt i {groupName}",
     "SUCCESS": "Du avslutade prenumeration!"
   },
-  "YOU": "Du"
+  "YOU": "Du",
+  "TO": "to"
 }

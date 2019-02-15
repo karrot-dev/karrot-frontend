@@ -4,10 +4,10 @@ export default {
   namespaced: true,
   modules: {
     toggle: toggles({
-      store: true,
-      stores: true,
+      place: true,
+      places: true,
       group: true,
-      storesOnMap: true,
+      placesOnMap: true,
       usersOnMap: false,
       groupsOnMap: false,
     }),

@@ -30,11 +30,13 @@ describe('conversations', () => {
 
     it('updates the conversation', () => {
       const now = new Date()
-      const newConversation = { id: 1, updatedAt: now, participants: [] }
+      const newConversation = { id: 1, updatedAt: now, participants: [], notifications: 'all' }
       datastore.dispatch('conversations/updateConversation', newConversation)
       expect(datastore.getters['conversations/get'](newConversation.id)).toEqual({
         ...newConversation,
         messages: [],
+        isParticipant: true,
+        muted: false,
         canFetchPast: false,
         sendStatus: statusMocks.default(),
         fetchStatus: statusMocks.default(),
@@ -46,10 +48,12 @@ describe('conversations', () => {
     it('does not update the conversation if data is old', () => {
       const old = new Date(oneHourAgo.valueOf())
       old.setHours(old.getHours() - 1)
-      datastore.dispatch('conversations/updateConversation', { id: 1, updatedAt: old, participants: [] })
+      datastore.dispatch('conversations/updateConversation', { id: 1, updatedAt: old, participants: [], notifications: 'all' })
       expect(datastore.getters['conversations/get'](1)).toEqual({
         ...initialConversation,
         messages: [],
+        isParticipant: true,
+        muted: false,
         canFetchPast: false,
         sendStatus: statusMocks.default(),
         fetchStatus: statusMocks.default(),
@@ -70,7 +74,7 @@ describe('conversations', () => {
       oneHourAgo = new Date()
       oneHourAgo.setHours(oneHourAgo.getHours() - 1)
       mockList.mockReturnValueOnce([])
-      initialConversation = { id: 1, updatedAt: oneHourAgo, participants: [] }
+      initialConversation = { id: 1, updatedAt: oneHourAgo, participants: [], notifications: 'all', group: 1 }
       await datastore.commit('conversations/setConversation', initialConversation)
     })
 
@@ -83,7 +87,7 @@ describe('conversations', () => {
         isUnread: true,
         isEdited: false,
         saveStatus: statusMocks.default(),
-        groupId: null,
+        groupId: 1,
       }])
     })
   })

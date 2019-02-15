@@ -2,13 +2,13 @@
   "ENTRY": "1則輸入 | {數目}則輸入",
   "GLOBAL": {
     "GITHUB_NOTE": "開發",
-    "FSWW_NOTE": "查看我們的資訊頁面 !",
     "COMMUNITY_NOTE": "加入我們的社群!",
     "SERVER_ERROR": "伺服器錯誤",
     "NOT_CONNECTED": "You aren't connected to the server",
     "INVALID_LINK": "抱歉，你開啟的連結無效",
     "GENERIC_ERROR": "Sorry, something went wrong",
-    "SEARCH_NOT_FOUND": "無符合的搜尋結果"
+    "SEARCH_NOT_FOUND": "無符合的搜尋結果",
+    "ABOUT_KARROT": "About Karrot"
   },
   "USERDATA": {
     "EMAIL": "電子郵件",
@@ -207,6 +207,15 @@
     "SHOW_ALL": "顯示所有店家",
     "SHOW_ACTIVE_ONLY": "只顯示活躍店家"
   },
+  "PLACEWALL": {
+    "SUBSCRIPTION": {
+      "HEADER": "Do you want to mark this store as your favourite?",
+      "YES": "yes",
+      "YES_TEXT": "Shows available pickups on the group wall and sends emails about upcoming pickups.",
+      "NO": "no",
+      "NO_TEXT": "None of the above. You can still sign up for pickups though."
+    }
+  },
   "PICKUPMANAGE": {
     "TITLE": "管理食物領取",
     "SERIES": "重復開放領取",
@@ -318,6 +327,7 @@
     "AVAILABLE": "接下來還有一項領取任務等著你! 接下來還有{count}項領取任務等著你!",
     "AVAILABLE_FEEDBACK": "你能給予一項領取任務回饋 | {count}項領取任務等待你的回饋",
     "JOINEDNOTICE": "接下來還有一份食物領取等著你！接下來還有 {count} 份食物領取等著你！",
+    "AVAILABLE_FROM_STORES": "This shows pickups from your favorite stores. You can access other stores in the sidebar.",
     "ITEM": {
       "LEAVE": "離開",
       "JOIN": "加入",
@@ -440,6 +450,15 @@
     "PICKUP_ENABLED": "Pickup at {dateTime} was enabled again",
     "PICKUP_MOVED": "Pickup was moved to {dateTime}"
   },
+  "NOTIFICATION_TOGGLE": {
+    "HEADER": "How do you want to receive notifications about new messages in this conversation/thread?",
+    "ALL": "all",
+    "ALL_TEXT": "Via app/website, email and push notifications.",
+    "SOME": "some",
+    "SOME_TEXT": "Via app/website.",
+    "NONE": "none",
+    "NONE_TEXT": "No notifications."
+  },
   "OUTDATED_BROWSER": {
     "MESSAGE": "你目前使用的瀏覽器並不支援這些功能，{更新瀏覽器} 以便使用新功能",
     "LINK": "請更新或是換一個瀏覽器"
@@ -483,8 +502,6 @@
   "WALL": {
     "WRITE_MESSAGE": "留個言吧...",
     "WRITE_FIRST_MESSAGE": "留下第一筆訊息吧...",
-    "DISABLE_NOTIFICATION_EMAILS": "電子郵件通知已開啟，點擊以關閉",
-    "ENABLE_NOTIFICATION_EMAILS": "電子郵件通知已關閉，點擊以開啟",
     "VERIFY_EMAIL_FOR_NOTIFICATIONS": "請驗證你的電子郵件地址以收取通知信件",
     "RECEIVED_VIA_EMAIL": "此訊息透過電子郵件傳送"
   },
@@ -504,7 +521,8 @@
     "MESSAGE_NOT_FOUND": "找不到訊息",
     "NO_CONVERSATIONS": "沒有對話",
     "MUTED": "通知已關閉",
-    "CLOSED": "This conversation has been closed automatically."
+    "CLOSED": "This conversation has been closed automatically.",
+    "NOT_PARTICIPATED": "By sending a message, you will be subscribed to notifications about this conversation."
   },
   "STORESTATUS": {
     "ACTIVE": "合作中",
@@ -549,5 +567,6 @@
     "FROM_GROUP": "unsubscribe from everything in {groupName}",
     "SUCCESS": "You were successfully unsubscribed!"
   },
-  "YOU": "你"
+  "YOU": "你",
+  "TO": "to"
 }

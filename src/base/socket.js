@@ -179,7 +179,11 @@ function receiveMessage ({ topic, payload }) {
     datastore.commit('latestMessages/setEntryMeta', convertConversationMeta(camelizeKeys(payload)))
   }
   else if (topic === 'conversations:leave') {
-    datastore.commit('conversations/clearConversation', payload.id)
+    // refresh latest messages
+    if (!datastore.getters['latestMessages/fetchInitialPending']) {
+      datastore.dispatch('latestMessages/clear')
+      datastore.dispatch('latestMessages/fetchInitial')
+    }
   }
   else if (topic === 'groups:group_detail') {
     datastore.dispatch('currentGroup/maybeUpdate', convertGroup(camelizeKeys(payload)))
@@ -194,8 +198,8 @@ function receiveMessage ({ topic, payload }) {
     // delete invitation from list until there is a better way to display it
     datastore.commit('invitations/delete', payload.id)
   }
-  else if (topic === 'stores:store') {
-    datastore.dispatch('stores/update', [camelizeKeys(payload)])
+  else if (topic === 'places:place') {
+    datastore.dispatch('places/update', [camelizeKeys(payload)])
   }
   else if (topic === 'pickups:pickupdate') {
     datastore.commit('pickups/update', [convertPickup(camelizeKeys(payload))])

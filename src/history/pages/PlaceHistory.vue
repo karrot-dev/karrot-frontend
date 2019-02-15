@@ -25,7 +25,7 @@ export default {
   },
   computed: {
     ...mapGetters({
-      history: 'history/byActiveStore',
+      history: 'history/byActivePlace',
     }),
   },
 }

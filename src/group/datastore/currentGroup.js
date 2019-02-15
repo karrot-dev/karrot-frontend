@@ -149,17 +149,6 @@ export default {
           throw createRouteRedirect({ name: 'groupPreview', params: { groupPreviewId: groupId } })
         }
 
-        // TODO move to plugins
-        dispatch('pickups/fetchListByGroupId', groupId, { root: true })
-        dispatch('pickups/fetchFeedbackPossible', groupId, { root: true })
-
-        if (!routeTo || routeTo.name !== 'applications') {
-          // applications route loads their own data, no need to load twice
-          dispatch('applications/fetchPendingByGroupId', { groupId }, { root: true })
-        }
-
-        dispatch('conversations/fetchGroupConversation', groupId, { root: true }) // TODO needed?
-
         dispatch('auth/maybeBackgroundSave', { currentGroup: groupId }, { root: true })
       },
     }, {
@@ -181,7 +170,6 @@ export default {
 
       // TODO move clear logic to downstream module plugins
       commit('agreements/clear', null, { root: true })
-      commit('pickups/clear', null, { root: true })
       dispatch('feedback/clear', null, { root: true })
     },
 

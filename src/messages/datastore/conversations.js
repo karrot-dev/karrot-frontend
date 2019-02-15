@@ -7,12 +7,18 @@ import pickupsAPI from '@/pickups/api/pickups'
 import usersAPI from '@/users/api/users'
 import groupsAPI from '@/group/api/groups'
 import issuesAPI from '@/issues/api/issues'
+import placesAPI from '@/places/api/places'
 import applicationsAPI from '@/applications/api/applications'
 import i18n from '@/base/i18n'
 import { createMetaModule, withMeta, withPrefixedIdMeta, metaStatusesWithId } from '@/utils/datastore/helpers'
 
 export function isUnread (message, conversation) {
   if (!message || !conversation) return
+  if (conversation.notifications === 'none') {
+    // don't show unread status if user is not participant
+    // does not apply to thread replies
+    return false
+  }
   if (!conversation.seenUpTo) return true
   return message.id > conversation.seenUpTo
 }
@@ -90,6 +96,7 @@ export default {
       return getters.get(id)
     },
     getForGroup: (state, getters) => groupId => getters.getForType('group', groupId),
+    getForPlace: (state, getters) => placeId => getters.getForType('place', placeId),
     getForPickup: (state, getters) => pickupId => getters.getForType('pickup', pickupId),
     getForApplication: (state, getters) => applicationId => getters.getForType('application', applicationId),
     getForIssue: (state, getters) => issueId => getters.getForType('issue', issueId),
@@ -150,7 +157,7 @@ export default {
           : isUnread(message, state.entries[message.conversation]),
         saveStatus: getters['meta/status']('saveMessage', `message/${message.id}`),
         isEdited: differenceInSeconds(message.editedAt, message.createdAt) > 30,
-        groupId: conversation && conversation.type === 'group' ? conversation.targetId : null,
+        groupId: conversation && conversation.group,
       }
       if (data.threadMeta) {
         data.threadMeta = {
@@ -163,9 +170,13 @@ export default {
     enrichConversation: (state, getters, rootState, rootGetters) => conversation => {
       if (!conversation) return
       const participants = conversation.participants.map(rootGetters['users/get'])
+      const isParticipant = conversation.notifications !== 'none'
       const enriched = {
         ...conversation,
         participants,
+        isParticipant,
+        muted: conversation.notifications === 'muted',
+        unreadMessageCount: isParticipant ? conversation.unreadMessageCount : 0,
       }
       enriched.target = getters.getTarget(enriched)
       return enriched
@@ -174,6 +185,7 @@ export default {
       const { type, targetId, participants } = conversation
       switch (type) {
         case 'group': return rootGetters['groups/get'](targetId)
+        case 'place': return rootGetters['places/get'](targetId)
         case 'pickup': return rootGetters['pickups/get'](targetId)
         case 'application': return rootGetters['applications/get'](targetId)
         case 'private': return participants.find(u => !u.isCurrentUser)
@@ -224,14 +236,13 @@ export default {
       },
 
       async mark ({ dispatch }, { id, seenUpTo }) {
-        await conversationsAPI.mark(id, seenUpTo)
+        await conversationsAPI.save(id, {
+          seenUpTo,
+        })
       },
 
-      async setMuted ({ state, commit }, { id, value }) {
-        await conversationsAPI.setMuted(id, value)
-        if (state.entries[id]) {
-          commit('setMuted', { conversationId: id, value })
-        }
+      async save ({ state }, { id, value }) {
+        await conversationsAPI.save(id, value)
       },
     }),
 
@@ -266,6 +277,25 @@ export default {
 
     clearForGroup ({ getters, commit }, { groupId }) {
       const { id: conversationId } = getters.getForGroup(groupId) || {}
+      if (conversationId) commit('clearMessages', conversationId)
+    },
+
+    async fetchForPlace ({ dispatch }, { placeId }) {
+      const conversation = await dispatch('fetchPlaceConversation', placeId)
+      dispatch('fetch', conversation.id)
+    },
+
+    async fetchPlaceConversation ({ getters, commit }, placeId) {
+      let conversation = getters.getForPlace(placeId)
+      if (!conversation) {
+        conversation = await placesAPI.conversation(placeId)
+        commit('setConversation', conversation)
+      }
+      return conversation
+    },
+
+    clearForPlace ({ getters, commit }, { placeId }) {
+      const { id: conversationId } = getters.getForPlace(placeId) || {}
       if (conversationId) commit('clearMessages', conversationId)
     },
 
@@ -325,15 +355,16 @@ export default {
       if (conversationId) commit('clearMessages', conversationId)
     },
 
-    async maybeSetMuted ({ state, getters, dispatch }, { conversationId, threadId, value }) {
+    async maybeSave ({ state, getters, dispatch }, { conversationId, threadId, value }) {
       if (threadId) {
-        dispatch('currentThread/maybeSetMuted', { threadId, value }, { root: true })
+        if (!value.notifications) return
+        const muted = value.notifications !== 'all'
+        dispatch('currentThread/maybeSetMuted', { threadId, value: muted }, { root: true })
         return
       }
-      const pending = getters['meta/status']('setMuted', conversationId).pending
-      const prevent = state.entries[conversationId] && state.entries[conversationId].muted === value
-      if (!pending && !prevent) {
-        await dispatch('setMuted', { id: conversationId, value })
+      const pending = getters['meta/status']('save', conversationId).pending
+      if (!pending) {
+        await dispatch('save', { id: conversationId, value })
       }
     },
 
@@ -439,9 +470,6 @@ export default {
     },
     setConversation (state, conversation) {
       Vue.set(state.entries, conversation.id, conversation)
-    },
-    setMuted (state, { conversationId, value }) {
-      state.entries[conversationId].muted = value
     },
     addReaction (state, { userId, name, messageId, conversationId }) {
       if (!state.messages[conversationId]) return

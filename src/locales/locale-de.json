@@ -207,6 +207,15 @@
     "SHOW_ALL": "Show all stores",
     "SHOW_ACTIVE_ONLY": "Only show active stores"
   },
+  "PLACEWALL": {
+    "SUBSCRIPTION": {
+      "HEADER": "Do you want to mark this store as your favourite?",
+      "YES": "yes",
+      "YES_TEXT": "Shows available pickups on the group wall and sends emails about upcoming pickups.",
+      "NO": "no",
+      "NO_TEXT": "None of the above. You can still sign up for pickups though."
+    }
+  },
   "PICKUPMANAGE": {
     "TITLE": "Abholzeiten-Editor",
     "SERIES": "Wiederkehrende Abholungen",
@@ -318,6 +327,7 @@
     "AVAILABLE": "In den nächsten Tagen wartet eine Abholung auf dich! | In den nächsten Tagen warten {count} Abholungen auf dich! ",
     "AVAILABLE_FEEDBACK": "Du kannst Feedback zu einer Abholung geben | {count} Abholungen warten auf dein Feedback.",
     "JOINEDNOTICE": "Du hast dich für eine Abholung gemeldet | Du hast dich für {count} Abholungen gemeldet",
+    "AVAILABLE_FROM_STORES": "This shows pickups from your favorite stores. You can access other stores in the sidebar.",
     "ITEM": {
       "LEAVE": "Nicht mehr abholen",
       "JOIN": "Abholen",
@@ -440,6 +450,15 @@
     "PICKUP_ENABLED": "Pickup at {dateTime} was enabled again",
     "PICKUP_MOVED": "Pickup was moved to {dateTime}"
   },
+  "NOTIFICATION_TOGGLE": {
+    "HEADER": "How do you want to receive notifications about new messages in this conversation/thread?",
+    "ALL": "all",
+    "ALL_TEXT": "Via app/website, email and push notifications.",
+    "SOME": "some",
+    "SOME_TEXT": "Via app/website.",
+    "NONE": "none",
+    "NONE_TEXT": "No notifications."
+  },
   "OUTDATED_BROWSER": {
     "MESSAGE": "Du benutzt einen nicht unterstützten Browser. {upgradeBrowser} um alle Funktionen verwenden zu können.",
     "LINK": "Bitte aktualisiere oder wechsle deinen Browser"
@@ -483,8 +502,6 @@
   "WALL": {
     "WRITE_MESSAGE": "Schreibe eine Nachricht...",
     "WRITE_FIRST_MESSAGE": "Schreibe die erste Nachricht...",
-    "DISABLE_NOTIFICATION_EMAILS": "Email-Benachrichtigungen aktiv, klick um zu deaktivieren",
-    "ENABLE_NOTIFICATION_EMAILS": "Email-Benachrichtigungen inaktiv, klick um zu aktivieren",
     "VERIFY_EMAIL_FOR_NOTIFICATIONS": "Bitte verifiziere deine E-Mail-Adresse, um E-Mail-Benachrichtigungen zu erhalten.",
     "RECEIVED_VIA_EMAIL": "Diese Nachricht wurde per E-Mail geschickt."
   },

@@ -86,11 +86,13 @@
         />
       </template>
       <NotificationToggle
-        v-if="notifications !== null"
-        :value="notifications"
+        v-if="isThread ? muted !== null : true"
+        :muted="muted"
+        :is-participant="isThread ? true : conversation.isParticipant"
+        :can-unsubscribe="!isThread && !isPrivate"
         :user="currentUser"
         in-toolbar
-        @click="toggleNotifications"
+        @set="setNotifications"
         :size="$q.platform.is.mobile ? 'sm' : 'md'"
       />
       <QBtn
@@ -165,16 +167,25 @@ export default {
     },
   },
   computed: {
-    notifications () {
+    isThread () {
+      return Boolean(this.conversation.thread && this.conversation.id === this.conversation.thread)
+    },
+    isPrivate () {
+      return this.conversation && this.conversation.type === 'private'
+    },
+    muted () {
       if (this.conversation.thread && this.conversation.threadMeta) {
-        return !this.conversation.threadMeta.muted
+        return this.conversation.threadMeta.muted
       }
-      if (this.conversation.isParticipant && typeof this.conversation.muted !== 'undefined') {
-        return !this.conversation.muted
+      if (typeof this.conversation.muted !== 'undefined') {
+        return this.conversation.muted
       }
       return null
     },
     participants () {
+      if (this.pickup) {
+        return this.pickup.collectors
+      }
       if (this.conversation.thread && this.conversation.threadMeta) {
         return this.conversation.threadMeta.participants
       }
@@ -204,17 +215,17 @@ export default {
     },
   },
   methods: {
-    toggleNotifications () {
+    setNotifications (value) {
       const data = (this.conversation.thread && this.conversation.threadMeta)
         ? {
           threadId: this.conversation.thread,
-          value: this.notifications,
+          value,
         }
         : {
           conversationId: this.conversation.id,
-          value: this.notifications,
+          value,
         }
-      this.$emit('setMuted', data)
+      this.$emit('saveConversation', data)
     },
     applicationInfo () {
       Dialog.create({

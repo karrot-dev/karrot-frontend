@@ -65,7 +65,7 @@ describe('pickups', () => {
         places: {
           getters: {
             get () {
-              return id => ({ id, group })
+              return id => ({ id, group, isSubscribed: true })
             },
           },
         },
@@ -92,7 +92,7 @@ describe('pickups', () => {
       expect(vstore.getters['pickups/enrich'](pickup2)).toEqual({
         ...pickup2,
         ...defaultActionStatusesFor('save', 'join', 'leave'),
-        place: { id: pickup2.place, group },
+        place: { id: pickup2.place, group, isSubscribed: true },
         isUserMember: true,
         isEmpty: false,
         isFull: true,
@@ -132,6 +132,7 @@ describe('pickups', () => {
         place: {
           id: placeId,
           group,
+          isSubscribed: true,
         },
         group,
       })

@@ -207,6 +207,15 @@
     "SHOW_ALL": "Afficher tous les magasins",
     "SHOW_ACTIVE_ONLY": "Afficher les magasins actifs"
   },
+  "PLACEWALL": {
+    "SUBSCRIPTION": {
+      "HEADER": "Do you want to mark this store as your favourite?",
+      "YES": "yes",
+      "YES_TEXT": "Shows available pickups on the group wall and sends emails about upcoming pickups.",
+      "NO": "no",
+      "NO_TEXT": "None of the above. You can still sign up for pickups though."
+    }
+  },
   "PICKUPMANAGE": {
     "TITLE": "Gérer les récoltes",
     "SERIES": "Récolte récurrente",
@@ -318,6 +327,7 @@
     "AVAILABLE": "Il y a une récolte qui t'attend dans les prochains jours !  | Il y a {count} récoltes qui t'attendent dans les prochains jours !",
     "AVAILABLE_FEEDBACK": "Tu peux donner ton feedback sur la récolte | {count} récoltes attendent ton feedback ",
     "JOINEDNOTICE": "Tu as une récolte qui arrive | Tu as {count} récoltes qui arrivent",
+    "AVAILABLE_FROM_STORES": "This shows pickups from your favorite stores. You can access other stores in the sidebar.",
     "ITEM": {
       "LEAVE": "Quitter",
       "JOIN": "Rejoindre",
@@ -440,6 +450,15 @@
     "PICKUP_ENABLED": "Pickup at {dateTime} was enabled again",
     "PICKUP_MOVED": "Pickup was moved to {dateTime}"
   },
+  "NOTIFICATION_TOGGLE": {
+    "HEADER": "How do you want to receive notifications about new messages in this conversation/thread?",
+    "ALL": "all",
+    "ALL_TEXT": "Via app/website, email and push notifications.",
+    "SOME": "some",
+    "SOME_TEXT": "Via app/website.",
+    "NONE": "none",
+    "NONE_TEXT": "No notifications."
+  },
   "OUTDATED_BROWSER": {
     "MESSAGE": "Tu utilises un navigateur incompatible. {upgradeBrowser} pour que tout fonctionne.",
     "LINK": "Mets à jour ou bien change de navigateur"
@@ -483,8 +502,6 @@
   "WALL": {
     "WRITE_MESSAGE": "Écris un message...",
     "WRITE_FIRST_MESSAGE": "Écris le premier message...",
-    "DISABLE_NOTIFICATION_EMAILS": "Notifications par email activées, clique pour désactiver",
-    "ENABLE_NOTIFICATION_EMAILS": "Notifications par email désactivées, clique pour activer",
     "VERIFY_EMAIL_FOR_NOTIFICATIONS": "Vérifie ton adresse email pour recevoir les notifications par email",
     "RECEIVED_VIA_EMAIL": "Ce message a été envoyé par email"
   },

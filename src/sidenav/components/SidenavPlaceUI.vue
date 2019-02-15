@@ -15,6 +15,13 @@
       slot="tools"
       class="tools"
     >
+      <QChip
+        v-if="!expanded && wallUnreadCount > 0"
+        small
+        color="secondary"
+      >
+        {{ cappedWallUnreadCount }}
+      </QChip>
       <QBtn
         v-if="isEditor"
         flat
@@ -31,6 +38,25 @@
       no-border
       class="no-padding"
     >
+      <QItem :to="{name: 'placeWall', params: { placeId }}">
+        <QItemSide class="text-center">
+          <QIcon name="fas fa-bullhorn" />
+        </QItemSide>
+        <QItemMain>
+          {{ $t("GROUP.WALL") }}
+        </QItemMain>
+        <QItemSide
+          v-if="wallUnreadCount > 0"
+          right
+        >
+          <QChip
+            small
+            color="secondary"
+          >
+            {{ cappedWallUnreadCount }}
+          </QChip>
+        </QItemSide>
+      </QItem>
       <QItem :to="{name: 'placePickups', params: { placeId }}">
         <QItemSide class="text-center">
           <QIcon name="fas fa-shopping-basket" />
@@ -61,18 +87,52 @@
 </template>
 
 <script>
-import { QBtn, QList, QItem, QItemSide, QIcon, QItemMain } from 'quasar'
+import {
+  QBtn,
+  QList,
+  QItem,
+  QItemSide,
+  QIcon,
+  QItemMain,
+  QChip,
+} from 'quasar'
 import SidenavBox from './SidenavBox'
 import PlaceOptions from './PlaceOptions'
 
 export default {
   props: {
-    placeId: { default: null, type: Number },
-    expanded: { default: true, type: Boolean },
-    isEditor: { default: false, type: Boolean },
+    placeId: {
+      default: null,
+      type: Number,
+    },
+    expanded: {
+      default: true,
+      type: Boolean,
+    },
+    isEditor: {
+      default: false,
+      type: Boolean,
+    },
+    wallUnreadCount: {
+      default: 0,
+      type: Number,
+    },
   },
   components: {
-    SidenavBox, PlaceOptions, QBtn, QList, QItem, QItemSide, QIcon, QItemMain,
+    SidenavBox,
+    PlaceOptions,
+    QBtn,
+    QList,
+    QItem,
+    QItemSide,
+    QIcon,
+    QItemMain,
+    QChip,
+  },
+  computed: {
+    cappedWallUnreadCount () {
+      return this.wallUnreadCount > 99 ? '99+' : this.wallUnreadCount
+    },
   },
 }
 </script>

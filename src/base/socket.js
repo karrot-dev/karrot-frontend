@@ -180,7 +180,11 @@ function receiveMessage ({ topic, payload }) {
     datastore.commit('latestMessages/setEntryMeta', convertConversationMeta(camelizeKeys(payload)))
   }
   else if (topic === 'conversations:leave') {
-    datastore.commit('conversations/clearConversation', payload.id)
+    // refresh latest messages
+    if (!datastore.getters['latestMessages/fetchInitialPending']) {
+      datastore.dispatch('latestMessages/clear')
+      datastore.dispatch('latestMessages/fetchInitial')
+    }
   }
   else if (topic === 'groups:group_detail') {
     datastore.dispatch('currentGroup/maybeUpdate', convertGroup(camelizeKeys(payload)))

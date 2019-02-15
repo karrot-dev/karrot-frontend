@@ -303,6 +303,7 @@ export const makeConversation = data => {
     updatedAt: new Date(),
     seenUpTo: null,
     unreadMessageCount: 0,
+    notifications: 'all',
     muted: false,
     isClosed: false,
     isParticipant: true,

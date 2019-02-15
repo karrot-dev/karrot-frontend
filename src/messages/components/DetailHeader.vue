@@ -11,7 +11,7 @@ export default connect({
     currentUser: 'auth/user',
   },
   actionsToEvents: {
-    setMuted: 'conversations/maybeSetMuted',
+    saveConversation: 'conversations/maybeSave',
   },
 })('DetailHeader', DetailHeaderUI)
 </script>

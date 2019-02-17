@@ -6,6 +6,7 @@ import reactiveNow from '@/utils/reactiveNow'
 function initialState () {
   return {
     entries: {},
+    fetchedForGroup: null,
   }
 }
 
@@ -72,10 +73,6 @@ export default {
     ...withMeta({
       async fetch ({ commit }, pickupId) {
         commit('update', [await pickups.get(pickupId)])
-      },
-      async fetchList ({ commit }) {
-        // TODO implement pagination
-        commit('update', (await pickups.list()).results)
       },
       async join ({ commit, dispatch, rootGetters }, pickupId) {
         try {

@@ -64,12 +64,6 @@ describe('helpers', () => {
       await runPromise
       expect(datastore.getters['meta/status']('run', id).pending).toEqual(false)
     })
-
-    it('does not let concurrent actions', async () => {
-      const runPromise = datastore.dispatch('run', { id })
-      await expect(datastore.dispatch('run', { id })).rejects.toHaveProperty('message', `action already pending for run/${id}`)
-      await runPromise
-    })
   })
 
   describe('defaultFindId', () => {

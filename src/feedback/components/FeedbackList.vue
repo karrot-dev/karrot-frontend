@@ -63,7 +63,7 @@ export default {
   },
   computed: {
     empty () {
-      return this.status.empty
+      return !this.isPending && !this.hasAnyErrors && this.feedback.length < 1
     },
   },
 }

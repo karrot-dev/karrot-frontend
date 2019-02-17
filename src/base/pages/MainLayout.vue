@@ -75,7 +75,7 @@
 
         <!-- desktop sidenav -->
         <QLayoutDrawer
-          v-else-if="isLoggedIn && currentGroup && hasSidenavComponent && !disableDesktopSidenav"
+          v-else-if="isLoggedIn && currentGroupId && hasSidenavComponent && !disableDesktopSidenav"
           side="left"
           :width="sidenavWidth"
           :breakpoint="0"
@@ -146,7 +146,7 @@ import RouteError from '@/base/components/RouteError'
 import UnsupportedBrowserWarning from '@/base/components/UnsupportedBrowserWarning'
 import DetailSidebar from '@/messages/components/DetailSidebar'
 import KarrotLogo from '@/logo/components/KarrotLogo'
-import { mapGetters, mapActions } from 'vuex'
+import { mapGetters, mapActions, mapState } from 'vuex'
 import {
   dom,
   QLayout,
@@ -223,7 +223,9 @@ export default {
       messagesUnseenCount: 'latestMessages/unseenCount',
       messagesAllUnreadMuted: 'latestMessages/allUnreadMuted',
       notificationsUnseenCount: 'notifications/unseenCount',
-      currentGroup: 'currentGroup/value',
+    }),
+    ...mapState({
+      currentGroupId: state => state.currentGroup.id,
     }),
     layoutView () {
       if (this.$q.platform.is.mobile) {

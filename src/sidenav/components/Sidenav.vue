@@ -1,5 +1,5 @@
 <template>
-  <span v-if="currentGroup">
+  <span>
     <SidenavMap v-if="!$q.platform.is.mobile"/>
     <SidenavGroup/>
     <SidenavPlace/>
@@ -13,19 +13,12 @@ import SidenavGroup from './SidenavGroup'
 import SidenavPlace from './SidenavPlace'
 import SidenavPlaces from './SidenavPlaces'
 
-import { mapGetters } from 'vuex'
-
 export default {
   components: {
     SidenavMap,
     SidenavGroup,
     SidenavPlace,
     SidenavPlaces,
-  },
-  computed: {
-    ...mapGetters({
-      currentGroup: 'currentGroup/value',
-    }),
   },
 }
 </script>

@@ -162,13 +162,6 @@ function wrapAction ({ namespace, actionName, action, idPrefix, findId, setCurre
       return
     }
 
-    /*
-    if (getCurrentId && getCurrentId(ctx) === id) {
-      console.warn('action not started, page already loaded', actionName, id)
-      return
-    }
-    */
-
     const isActionAborted = () => {
       if (!getCurrentId) return false
       return getCurrentId(ctx) !== id

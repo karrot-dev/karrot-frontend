@@ -43,7 +43,7 @@
           </QBtn>
           <QBtn
             v-if="isEditor"
-            :to="{name: 'placeEdit', params: { groupId: place.group.id, placeId }}"
+            :to="{name: 'placeEdit', params: { groupId, placeId }}"
             round
             color="secondary"
             icon="fas fa-pencil-alt"
@@ -53,7 +53,7 @@
           </QBtn>
         </div>
         <Markdown
-          v-if="place.description"
+          v-if="place && place.description"
           :source="place.description"
         />
         <i v-else>
@@ -64,7 +64,6 @@
 
     <WallConversation
       class="q-pt-lg"
-      v-if="conversation"
       :data="conversation"
       :user="user"
       :fetch-past="fetchPast"
@@ -120,7 +119,7 @@ export default {
       user: 'auth/user',
     }),
     isSubscribed () {
-      return this.place.isSubscribed
+      return this.place && this.place.isSubscribed
     },
     options () {
       return [
@@ -144,6 +143,9 @@ export default {
     },
     selected () {
       return this.options.find(o => o.selected)
+    },
+    groupId () {
+      return this.place && this.place.group && this.place.group.id
     },
   },
   methods: {

@@ -5,7 +5,7 @@
   >
     <slot name="beforeChatMessages"/>
     <div
-      v-if="fetchingPast"
+      v-show="fetchingPast"
       class="full-width text-center generic-padding"
     >
       <QSpinnerDots :size="40" />

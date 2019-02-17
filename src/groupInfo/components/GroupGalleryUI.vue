@@ -71,7 +71,7 @@
         </div>
       </div>
       <div
-        v-if="isPending"
+        v-show="isPending"
         class="full-width text-center generic-padding"
       >
         <QSpinnerDots :size="40" />

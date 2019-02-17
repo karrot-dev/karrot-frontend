@@ -1,5 +1,5 @@
 <template>
-  <div v-if="data">
+  <div>
     <QInfiniteScroll
       :handler="maybeFetchPast"
     >
@@ -54,8 +54,9 @@
           />
         </template>
         <div
-          v-if="data.fetchStatus.pending || data.fetchPastStatus.pending"
-          style="width: 100%; text-align: center">
+          v-show="!data || data.fetchStatus.pending || data.fetchPastStatus.pending"
+          style="width: 100%; text-align: center"
+        >
           <QSpinnerDots :size="40"/>
         </div>
       </QList>

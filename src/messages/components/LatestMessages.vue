@@ -4,12 +4,12 @@
     class="bg-white relative-position"
   >
     <div
-      v-if="fetchInitialPending"
+      v-show="fetchInitialPending"
       class="full-width text-center generic-padding"
     >
       <QSpinnerDots :size="40" />
     </div>
-    <template v-else>
+    <template v-if="!fetchInitialPending">
       <QList no-border>
         <QItem
           v-if="conversations.length === 0"

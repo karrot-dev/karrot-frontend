@@ -7,7 +7,10 @@
       />
       <div class="generic-padding">
 
-        <div class="actionButtons">
+        <div
+          v-if="place"
+          class="actionButtons"
+        >
           <RouterLink
             v-if="isEditor"
             :to="{name: 'placePickupsManage', params: { placeId }}"
@@ -39,34 +42,30 @@
             </QBtn>
           </a>
         </div>
-        <div v-if="!place">
-          loading...
+        <div
+          v-show="!place"
+          style="width: 100%; text-align: center"
+        >
+          <QSpinnerDots :size="40"/>
         </div>
-        <Markdown
-          v-else-if="place.description"
-          :source="place.description"
-        />
-        <i v-else>
-          {{ $t("STOREDETAIL.NO_DESCRIPTION") }}
-        </i>
-        <StandardMap
-          v-if="$q.platform.is.mobile"
-          :markers="markers"
-          class="map"
-        />
+        <template v-if="place">
+          <Markdown
+            v-if="place.description"
+            :source="place.description"
+          />
+          <i v-else>
+            {{ $t("STOREDETAIL.NO_DESCRIPTION") }}
+          </i>
+          <StandardMap
+            v-if="$q.platform.is.mobile"
+            :markers="markers"
+            class="map"
+          />
+        </template>
       </div>
     </QCard>
 
-    <PickupList
-      :pickups="pickups"
-      @join="join"
-      @leave="leave"
-      @detail="detail"
-    />
-    <div v-if="!place">
-      loading...
-    </div>
-    <KNotice v-else-if="isInactive">
+    <KNotice v-if="isInactive">
       <template slot="icon">
         <i class="far fa-handshake"/>
       </template>
@@ -92,6 +91,13 @@
         {{ $t('PICKUPLIST.STORE_NONE_HINT') }}
       </RouterLink>
     </KNotice>
+    <PickupList
+      :pending="fetchPending"
+      :pickups="pickups"
+      @join="join"
+      @leave="leave"
+      @detail="detail"
+    />
   </div>
 </template>
 
@@ -114,6 +120,7 @@ import {
   QCard,
   QBtn,
   QTooltip,
+  QSpinnerDots,
 } from 'quasar'
 
 export default {
@@ -122,6 +129,7 @@ export default {
     QCard,
     QBtn,
     QTooltip,
+    QSpinnerDots,
     KNotice,
     Markdown,
     StandardMap,
@@ -143,9 +151,11 @@ export default {
       place: 'places/activePlace',
       pickups: 'pickups/byActivePlace',
       currentUser: 'auth/user',
+      fetchPending: 'pickups/fetchingForCurrentGroup',
       isEditor: 'currentGroup/isEditor',
     }),
     hasNoPickups () {
+      if (this.fetchPending) return false
       return this.pickups && this.pickups.length === 0
     },
     isInactive () {

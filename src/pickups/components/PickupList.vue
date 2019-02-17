@@ -1,5 +1,11 @@
 <template>
   <div>
+    <div
+      v-show="pending"
+      style="width: 100%; text-align: center"
+    >
+      <QSpinnerDots :size="40"/>
+    </div>
     <PickupItem
       v-for="pickup in pickups"
       :key="pickup.id"
@@ -14,8 +20,15 @@
 
 <script>
 import PickupItem from './PickupItem'
+import {
+  QSpinnerDots,
+} from 'quasar'
 
 export default {
+  components: {
+    PickupItem,
+    QSpinnerDots,
+  },
   props: {
     pickups: {
       type: Array,
@@ -25,9 +38,10 @@ export default {
       type: Boolean,
       default: false,
     },
-  },
-  components: {
-    PickupItem,
+    pending: {
+      type: Boolean,
+      default: false,
+    },
   },
 }
 </script>

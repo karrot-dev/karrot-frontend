@@ -3,6 +3,12 @@
     ref="infiniteScroll"
     :handler="maybeFetchPast"
   >
+    <div
+      v-show="isPending"
+      style="width: 100%; text-align: center"
+    >
+      <QSpinnerDots :size="40"/>
+    </div>
     <HistoryEntry
       v-for="entry in history"
       :entry="entry"
@@ -28,10 +34,11 @@ import {
   QSpinnerDots,
 } from 'quasar'
 import paginationMixin from '@/utils/mixins/paginationMixin'
+import statusMixin from '@/utils/mixins/statusMixin'
 import HistoryEntry from '@/history/components/HistoryEntry'
 
 export default {
-  mixins: [paginationMixin],
+  mixins: [statusMixin, paginationMixin],
   props: {
     history: { required: true, type: Array },
     status: { default: null, type: Object },

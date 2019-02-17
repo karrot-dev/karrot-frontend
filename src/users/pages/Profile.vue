@@ -7,9 +7,13 @@
       @createTrust="createTrust"
       @selectGroup="selectGroup"
     />
-    <QCard
-      v-if="history.length > 0"
+    <div
+      v-show="historyStatus.pending"
+      style="width: 100%; text-align: center"
     >
+      <QSpinnerDots :size="40"/>
+    </div>
+    <QCard v-if="history.length > 0">
       <QCardTitle>
         {{ $t('GROUP.HISTORY') }}
       </QCardTitle>
@@ -24,15 +28,16 @@
 import { mapGetters, mapActions } from 'vuex'
 import Profile from '@/users/components/ProfileUI'
 import HistoryContainer from '@/history/pages/HistoryContainer'
-import { QCard, QCardTitle, QCardMain } from 'quasar'
+import { QCard, QCardTitle, QCardMain, QSpinnerDots } from 'quasar'
 
 export default {
-  components: { QCard, QCardTitle, QCardMain, HistoryContainer, Profile },
+  components: { QCard, QCardTitle, QCardMain, QSpinnerDots, HistoryContainer, Profile },
   computed: {
     ...mapGetters({
       user: 'users/activeUser',
       currentGroup: 'currentGroup/value',
       history: 'history/byCurrentGroupAndUser',
+      historyStatus: 'history/fetchStatus',
     }),
   },
   methods: {

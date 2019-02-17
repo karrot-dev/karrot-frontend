@@ -21,6 +21,7 @@ export default {
         ...group,
         isPlayground,
         hasPhoto: group.photoUrls && group.photoUrls.fullSize,
+        hasLocation: group.latitude && group.longitude,
         membership: getters.membership,
         memberships: getters.memberships,
         activeAgreement: getters.activeAgreement,

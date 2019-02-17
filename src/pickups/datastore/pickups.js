@@ -6,7 +6,6 @@ import reactiveNow from '@/utils/reactiveNow'
 function initialState () {
   return {
     entries: {},
-    fetchedForGroup: null,
   }
 }
 
@@ -68,6 +67,12 @@ export default {
       getters.feedbackPossibleByCurrentGroup
         .filter(({ place }) => place && place.isActivePlace),
     ...metaStatuses(['create', 'fetchFeedbackPossible']),
+    fetchingForCurrentGroup: (state, getters, rootState, rootGetters) => {
+      const currentGroupId = rootState.currentGroup.id
+      if (!currentGroupId) return false
+      const status = getters['meta/status']('fetchListByGroupId', `group/${currentGroupId}`)
+      return status.pending
+    },
   },
   actions: {
     ...withMeta({

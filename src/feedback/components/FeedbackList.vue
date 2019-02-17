@@ -5,12 +5,12 @@
       :feedback-possible="feedbackPossible"
     />
     <div
-      v-if="isPending"
+      v-show="isPending || (feedbackPossibleStatus && feedbackPossibleStatus.pending)"
       style="width: 100%; text-align: center"
     >
       <QSpinnerDots :size="40"/>
     </div>
-    <KNotice v-else-if="empty" >
+    <KNotice v-if="empty" >
       <template slot="icon">
         <i class="fas fa-balance-scale"/>
       </template>
@@ -56,10 +56,14 @@ export default {
   props: {
     feedback: { required: true, type: Array },
     feedbackPossible: { default: () => [], type: Array },
+    feedbackPossibleStatus: {
+      default: null,
+      type: Object,
+    },
   },
   computed: {
     empty () {
-      return !this.isPending && !this.hasAnyErrors && this.feedback.length < 1
+      return this.status.empty
     },
   },
 }

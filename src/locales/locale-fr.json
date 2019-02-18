@@ -4,11 +4,11 @@
     "GITHUB_NOTE": "Développement",
     "COMMUNITY_NOTE": "Rejoins notre communauté !",
     "SERVER_ERROR": "Erreur de serveur",
-    "NOT_CONNECTED": "You aren't connected to the server",
+    "NOT_CONNECTED": "Vous n'êtes pas connecté au serveur.",
     "INVALID_LINK": "Désolé, le lien que tu as ouvert n'est pas valide.",
-    "GENERIC_ERROR": "Sorry, something went wrong",
+    "GENERIC_ERROR": "Désolé quelque chose n'a pas fonctionné :-/ ",
     "SEARCH_NOT_FOUND": "Pas trouvé",
-    "ABOUT_KARROT": "About Karrot"
+    "ABOUT_KARROT": "A propos de Karrot"
   },
   "USERDATA": {
     "EMAIL": "e-mail",
@@ -40,7 +40,7 @@
     "LOGOUT_SUCCESS": "Tu as été déconnecté !",
     "YOU_TRUST_USER": "Tu fais confiance à {userName} dans {groupName}.",
     "OTHER_PEOPLE_TRUST_USER": "{otherUser} fait confiance à {userName} de {groupName}. | {count} personnes font confiance à {userName} de {groupName}.",
-    "OTHER_PEOPLE_TRUST_YOU": "{otherUser} trusts you in {groupName}. | {count} people trust you in {groupName}.",
+    "OTHER_PEOPLE_TRUST_YOU": "{otherUser} vous fait confiance dans le {groupName} . Je \n{count} personnes vous font confiance in {groupName}",
     "PEOPLE_TRUST_USER": "Toi et {otherUser} faites confiance à {userName} de {groupName}. | Toi et {count} autres personnes faites confiance à {userName} de {groupName}. ",
     "FIRST_TRUST": "Sois le premier à faire confiance à {userName} de {groupName} !",
     "NEWCOMER": "Nouveau membre",
@@ -89,9 +89,9 @@
     "DECLINE": "Refuser",
     "WITHDRAW": "Retirer",
     "SHOW_MORE": "Afficher plus",
-    "ENABLE": "Enable",
-    "DISABLE": "Disable",
-    "UNSUBSCRIBE": "Unsubscribe"
+    "ENABLE": "activer",
+    "DISABLE": "Désactiver",
+    "UNSUBSCRIBE": "Désinscrire"
   },
   "VALIDATION": {
     "MINLENGTH": "S'il te plaît, entre plus de {min} caractères",
@@ -115,8 +115,8 @@
     "PRIVATE_DESCRIPTION_TITLE": "Description privée du groupe",
     "DESCRIPTION_VERBOSE": "Description du groupe, visible par les membres",
     "PUBLIC_DESCRIPTION": "Texte visible avant de rejoindre le groupe",
-    "LOGO": "Group logo",
-    "SET_LOGO": "Click to upload your group logo!",
+    "LOGO": "Groupe logo",
+    "SET_LOGO": "Cliquez pour télécharger votre groupe logo !",
     "APPLICATIONS": "Candidatures",
     "APPLICATION_QUESTIONS": "Questions pour celles/ceux qui veulent rejoindre ce groupe",
     "PICKUPS": "Récoltes",
@@ -193,7 +193,7 @@
     "DESCRIPTION": "Description",
     "ADDRESS": "Adresse",
     "WEEKS_IN_ADVANCE": "Les récoltes récurrentes sont affichées combien de semaines en avance?",
-    "WEEKS_IN_ADVANCE_WARNING": "Existing leftover pickups will get deleted if they are empty. You can disable non-empty pickups manually, if needed.",
+    "WEEKS_IN_ADVANCE_WARNING": "Les récoltes en cours seront supprimées si elles sont vides. Vous pouvez désactiver les récoltes non vide manuellement si besoins.",
     "DIALOGS": {
       "ARCHIVE": {
         "TITLE": "Archiver le magasin",
@@ -209,11 +209,11 @@
   },
   "PLACEWALL": {
     "SUBSCRIPTION": {
-      "HEADER": "Do you want to mark this store as your favourite?",
-      "YES": "yes",
-      "YES_TEXT": "Shows available pickups on the group wall and sends emails about upcoming pickups.",
-      "NO": "no",
-      "NO_TEXT": "None of the above. You can still sign up for pickups though."
+      "HEADER": "Veux tu indiquer ce magasin parmi tes favoris ?",
+      "YES": "oui",
+      "YES_TEXT": "Montres les récoltes sur le mur du groupe et envoie des mails à propos des récoltes à venir.",
+      "NO": "non",
+      "NO_TEXT": "Aucun de celle-ci dessus. Tu peux toujours t'inscrire pour ces récoltes."
     }
   },
   "PICKUPMANAGE": {
@@ -221,9 +221,9 @@
     "SERIES": "Récolte récurrente",
     "SINGLE": "Récoltes individuelles",
     "UPCOMING_PICKUPS_IN_SERIES": "Récoltes à venir dans cette série",
-    "PICKUP_DOES_NOT_MATCH": "This pickups' date doesn't match the recurrence pattern",
-    "PICKUP_DESCRIPTION_CHANGED": "'Additional information' has been changed",
-    "PICKUP_MAX_COLLECTORS_CHANGED": "'Max slots' has been changed"
+    "PICKUP_DOES_NOT_MATCH": "Ces dates de récoltes ne correspondent pas avec le modèle de récurrence",
+    "PICKUP_DESCRIPTION_CHANGED": "'Une information additionnelle' a été modifiée.",
+    "PICKUP_MAX_COLLECTORS_CHANGED": "' le nombre maximum de places' a été modifié."
   },
   "PICKUPDELETE": {
     "DELETE_SERIES_TITLE": "Effacer récolte récurrente",
@@ -313,12 +313,12 @@
     "COMMENT": "Informations supplémentaires",
     "COMMENT_HELPER": "Que devraient savoir les membres à propos de cette récolte ?",
     "UNLIMITED": "illimité",
-    "DIFFERS_WARNING": "This value differs from the default. To undo this change, click on the arrow button and save the changes.",
-    "ENABLE_TITLE": "Enable pickup?",
-    "DISABLE_TITLE": "Disable pickup?",
-    "ENABLE_DISABLE_MESSAGE": "Users who joined this pickup will get a notification. You can change this text to provide a reason:",
-    "EXCEPTIONS_TITLE": "Check your pickups",
-    "EXCEPTIONS_MESSAGE": "Some upcoming pickups don't match the settings of this recurring pickup. Have a look below at '{upcomingLabel}' to change or disable pickups, if needed."
+    "DIFFERS_WARNING": "Cette valeur est différente de celle définie par défaut. Pour ne pas effectuer cette modification, clique sur le bouton en flèche et sauvegarde les changements.",
+    "ENABLE_TITLE": "Veux-tu activer la récolte ?",
+    "DISABLE_TITLE": "Veux-tu désactiver la récolte ?",
+    "ENABLE_DISABLE_MESSAGE": "Les utilisateurs qui ont rejoint cette récolte recevront une notification. Tu peux changer ce texte pour donner une raison : ",
+    "EXCEPTIONS_TITLE": "Consulte tes récoltes  ",
+    "EXCEPTIONS_MESSAGE": "Quelques récoltes à venir ne correspondent pas aux paramètres de cette récoltes récurrente. Jette un oeil sur '{upcomingLabel}' pour modifier ou désactiver des récoltes, si besoins."
   },
   "CREATESTORE": {
     "TITLE": "Créer un nouveau magasin"
@@ -327,7 +327,7 @@
     "AVAILABLE": "Il y a une récolte qui t'attend dans les prochains jours !  | Il y a {count} récoltes qui t'attendent dans les prochains jours !",
     "AVAILABLE_FEEDBACK": "Tu peux donner ton feedback sur la récolte | {count} récoltes attendent ton feedback ",
     "JOINEDNOTICE": "Tu as une récolte qui arrive | Tu as {count} récoltes qui arrivent",
-    "AVAILABLE_FROM_STORES": "This shows pickups from your favorite stores. You can access other stores in the sidebar.",
+    "AVAILABLE_FROM_STORES": "Ceci montre les récoltes de vos magasins favoris.  Tu peux accéder aux autres magasins dans la barre latérale.",
     "ITEM": {
       "LEAVE": "Quitter",
       "JOIN": "Rejoindre",
@@ -339,8 +339,8 @@
     "NONE": "Aucune récolte à venir",
     "NONE_HINT": "Tu peux créer une nouvelle récolte sur la page du magasin.",
     "STORE_NONE_HINT": "Tu peux créer une nouvelle récolte sur la page des récoltes.",
-    "PICKUP_DISABLED": "This pickup has been disabled.",
-    "PICKUP_STARTED": "This pickup has already started."
+    "PICKUP_DISABLED": "Cette récolte a été désactivée.",
+    "PICKUP_STARTED": "Cette récolte a déjà commencée."
   },
   "FEEDBACKLIST": {
     "SAVED_FOOD": "Au moins 1 kg a été sauvé. Merci ! Les autres participants ont déjà indiqué que {amount} kg de nourriture ont été sauvés ! Continue, c'est génial !",
@@ -405,8 +405,8 @@
     "PICKUP_CREATE": "a crée une récolte individuelle",
     "PICKUP_MODIFY": "a changé les détails d'une récolte",
     "PICKUP_DELETE": "a effacé une récolte",
-    "PICKUP_ENABLE": "enabled a pickup",
-    "PICKUP_DISABLE": "disabled a pickup",
+    "PICKUP_ENABLE": "activer une récolte",
+    "PICKUP_DISABLE": "Annuler une récolte",
     "SERIES_CREATE": "a crée une nouvelle récolte récurrent",
     "SERIES_MODIFY": "a changé les détails d'une récolte récurrent",
     "SERIES_DELETE": "a effacé une récolte récurrent",
@@ -416,9 +416,9 @@
     "PICKUP_LEAVE": "a annulé sa récolte à {storeName}",
     "APPLICATION_DECLINED": "a refusé la candidature de {userName} ",
     "MEMBER_BECAME_EDITOR": "a obtenu des droits d'admin",
-    "GROUP_LEAVE_INACTIVE": "was removed due to inactivity",
-    "GROUP_CHANGE_PHOTO": "changed the group logo",
-    "GROUP_DELETE_PHOTO": "deleted the group logo",
+    "GROUP_LEAVE_INACTIVE": "a été enlevé à cause d'un manque d'activité ",
+    "GROUP_CHANGE_PHOTO": "modifier le logo",
+    "GROUP_DELETE_PHOTO": "supprimer le logo",
     "NOTHING_HAPPENEND": "Il ne se passe pas grand chose par ici...",
     "DETAILS": "Plus d'information"
   },
@@ -433,31 +433,31 @@
   },
   "NOTIFICATION_BELLS_LIST": {
     "TITLE": "Notifications",
-    "NO_ITEMS": "We currently don't have notifications for you."
+    "NO_ITEMS": "Nous n'avons actuellement pas de notifications à té transmettre."
   },
   "NOTIFICATION_BELLS": {
-    "YOU_BECAME_EDITOR": "You gained editing permissions",
-    "USER_BECAME_EDITOR": "{userName} gained editing permissions",
-    "NEW_APPLICANT": "{userName} applied to join your group",
-    "APPLICATION_ACCEPTED": "Your application was accepted!",
-    "APPLICATION_DECLINED": "Your application was declined",
-    "INVITATION_ACCEPTED": "{userName} accepted your invitation",
-    "FEEDBACK_POSSIBLE": "You can give feedback for the pickup you did on {date}",
-    "NEW_STORE": "{storeName} has been created",
-    "NEW_MEMBER": "{userName} joined your group",
-    "PICKUP_UPCOMING": "Reminder: You have a pickup at {time}",
-    "PICKUP_DISABLED": "Pickup at {dateTime} was disabled",
-    "PICKUP_ENABLED": "Pickup at {dateTime} was enabled again",
-    "PICKUP_MOVED": "Pickup was moved to {dateTime}"
+    "YOU_BECAME_EDITOR": "Tu as obtenus les permissions pour éditer.",
+    "USER_BECAME_EDITOR": "{userName}a obtenu les permissions pour éditer.",
+    "NEW_APPLICANT": "{userName}a demandé à rejoindre votre groupe",
+    "APPLICATION_ACCEPTED": "Votre candidature a été acceptée !",
+    "APPLICATION_DECLINED": "Votre candidature a été refusée",
+    "INVITATION_ACCEPTED": "{userName}a accepté votre invitation",
+    "FEEDBACK_POSSIBLE": "Tu peux donner un retour d'information sur la récolte que tu as fait le {date}",
+    "NEW_STORE": "{storeName}a été créé",
+    "NEW_MEMBER": "{userName} a rejoint le groupe",
+    "PICKUP_UPCOMING": "Rappel : Vous avez une récolte à {time}",
+    "PICKUP_DISABLED": "La récolte à {dateTime} a été annulée",
+    "PICKUP_ENABLED": "La récolte à {dateTime} a été réactivée",
+    "PICKUP_MOVED": "La récolte a été déplacée à {dateTime}"
   },
   "NOTIFICATION_TOGGLE": {
-    "HEADER": "How do you want to receive notifications about new messages in this conversation/thread?",
-    "ALL": "all",
-    "ALL_TEXT": "Via app/website, email and push notifications.",
-    "SOME": "some",
-    "SOME_TEXT": "Via app/website.",
-    "NONE": "none",
-    "NONE_TEXT": "No notifications."
+    "HEADER": "Comment souhaites tu recevoir les notifications à propos des nouveaux messages ? Dans cette conversation ou dans le fil de discussion ?",
+    "ALL": "Tous",
+    "ALL_TEXT": "Via application/Site web, email et notifications \"push\".",
+    "SOME": "certains",
+    "SOME_TEXT": "Via application/Site web",
+    "NONE": "aucun",
+    "NONE_TEXT": "pas de notifications"
   },
   "OUTDATED_BROWSER": {
     "MESSAGE": "Tu utilises un navigateur incompatible. {upgradeBrowser} pour que tout fonctionne.",
@@ -521,8 +521,8 @@
     "MESSAGE_NOT_FOUND": "Message non trouvé",
     "NO_CONVERSATIONS": "Pas encore de conversation.",
     "MUTED": "Les notifications sont désactivées.",
-    "CLOSED": "This conversation has been closed automatically.",
-    "NOT_PARTICIPATED": "By sending a message, you will be subscribed to notifications about this conversation."
+    "CLOSED": "Cette conversation a été stoppée automatiquement.",
+    "NOT_PARTICIPATED": "Suite à l'envoie de ce message, vous recevrez les notifications concernant cette conversation."
   },
   "STORESTATUS": {
     "ACTIVE": "En coopération",
@@ -556,17 +556,17 @@
     "LAST_UPDATED": "Dernière mise à jour {relativeDate}"
   },
   "INACTIVITY": {
-    "WHAT": "What does it mean to be inactive?",
-    "HELP": "Everyone who did not log into the group for {dayCount} days or more counts as inactive. These users will not receive notification emails anymore."
+    "WHAT": "Que veut dire être inactif ?",
+    "HELP": "Toutes les personnes ne se connectant pas au groupe pendant {dayCount} jours ou plus seront considérés comme inactifs. Ces utilisateurs ne recevront plus de notifications par email."
   },
   "UNSUBSCRIBE": {
-    "HEADER": "Unsubscribe",
-    "FROM_CONVERSATION": "unsubscribe from just this conversation",
-    "FROM_THREAD": "unsubscribe from just this thread",
-    "FROM_NOTIFICATION_TYPE": "unsubscribe from {notificationType}",
-    "FROM_GROUP": "unsubscribe from everything in {groupName}",
-    "SUCCESS": "You were successfully unsubscribed!"
+    "HEADER": "Se désabonner",
+    "FROM_CONVERSATION": "Quitter seulement cette conversation.",
+    "FROM_THREAD": "Quitter seulement ce fil de discussion",
+    "FROM_NOTIFICATION_TYPE": "Quitter {notificationType}",
+    "FROM_GROUP": "Se désabonner de tout dans {groupName}",
+    "SUCCESS": "Vous avez été désabonner avec succès !"
   },
   "YOU": "Toi",
-  "TO": "to"
+  "TO": "à"
 }

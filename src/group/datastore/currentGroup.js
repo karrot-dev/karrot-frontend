@@ -128,7 +128,7 @@ export default {
     }),
 
     ...withMeta({
-      async select ({ dispatch, getters, rootGetters }, { groupId, routeTo }) {
+      async select ({ dispatch, getters, rootGetters }, { groupId }) {
         if (!groupId) throw createRouteRedirect({ name: 'groupsGallery' })
         const oldGroupId = getters.id
         if (oldGroupId === groupId) return

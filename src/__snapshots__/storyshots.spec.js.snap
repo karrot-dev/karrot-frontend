@@ -91,7 +91,20 @@ exports[`Storyshots ApplicationForm create 1`] = `
 
 exports[`Storyshots ChatConversation closed 1`] = `
 <div>
-  <!---->
+  <div class="full-width text-center generic-padding" style="display:none;"><svg fill="currentColor" width="40" height="40" viewBox="0 0 120 30" xmlns="http://www.w3.org/2000/svg" class="q-spinner">
+      <circle cx="15" cy="15" r="15">
+        <animate attributeName="r" from="15" to="15" begin="0s" dur="0.8s" values="15;9;15" calcMode="linear" repeatCount="indefinite"></animate>
+        <animate attributeName="fill-opacity" from="1" to="1" begin="0s" dur="0.8s" values="1;.5;1" calcMode="linear" repeatCount="indefinite"></animate>
+      </circle>
+      <circle cx="60" cy="15" r="9" fill-opacity=".3">
+        <animate attributeName="r" from="9" to="9" begin="0s" dur="0.8s" values="9;15;9" calcMode="linear" repeatCount="indefinite"></animate>
+        <animate attributeName="fill-opacity" from=".5" to=".5" begin="0s" dur="0.8s" values=".5;1;.5" calcMode="linear" repeatCount="indefinite"></animate>
+      </circle>
+      <circle cx="105" cy="15" r="15">
+        <animate attributeName="r" from="15" to="15" begin="0s" dur="0.8s" values="15;9;15" calcMode="linear" repeatCount="indefinite"></animate>
+        <animate attributeName="fill-opacity" from="1" to="1" begin="0s" dur="0.8s" values="1;.5;1" calcMode="linear" repeatCount="indefinite"></animate>
+      </circle>
+    </svg></div>
   <div class="q-infinite-scroll">
     <div class="q-infinite-scroll-content">
       <div class="q-list bg-white no-border">
@@ -245,7 +258,20 @@ exports[`Storyshots ChatConversation closed 1`] = `
 
 exports[`Storyshots ChatConversation default 1`] = `
 <div>
-  <!---->
+  <div class="full-width text-center generic-padding" style="display:none;"><svg fill="currentColor" width="40" height="40" viewBox="0 0 120 30" xmlns="http://www.w3.org/2000/svg" class="q-spinner">
+      <circle cx="15" cy="15" r="15">
+        <animate attributeName="r" from="15" to="15" begin="0s" dur="0.8s" values="15;9;15" calcMode="linear" repeatCount="indefinite"></animate>
+        <animate attributeName="fill-opacity" from="1" to="1" begin="0s" dur="0.8s" values="1;.5;1" calcMode="linear" repeatCount="indefinite"></animate>
+      </circle>
+      <circle cx="60" cy="15" r="9" fill-opacity=".3">
+        <animate attributeName="r" from="9" to="9" begin="0s" dur="0.8s" values="9;15;9" calcMode="linear" repeatCount="indefinite"></animate>
+        <animate attributeName="fill-opacity" from=".5" to=".5" begin="0s" dur="0.8s" values=".5;1;.5" calcMode="linear" repeatCount="indefinite"></animate>
+      </circle>
+      <circle cx="105" cy="15" r="15">
+        <animate attributeName="r" from="15" to="15" begin="0s" dur="0.8s" values="15;9;15" calcMode="linear" repeatCount="indefinite"></animate>
+        <animate attributeName="fill-opacity" from="1" to="1" begin="0s" dur="0.8s" values="1;.5;1" calcMode="linear" repeatCount="indefinite"></animate>
+      </circle>
+    </svg></div>
   <div class="q-infinite-scroll">
     <div class="q-infinite-scroll-content">
       <div class="q-list bg-white no-border">
@@ -598,7 +624,20 @@ exports[`Storyshots ChatConversation fetching past 1`] = `
 
 exports[`Storyshots ChatConversation not participant 1`] = `
 <div>
-  <!---->
+  <div class="full-width text-center generic-padding" style="display:none;"><svg fill="currentColor" width="40" height="40" viewBox="0 0 120 30" xmlns="http://www.w3.org/2000/svg" class="q-spinner">
+      <circle cx="15" cy="15" r="15">
+        <animate attributeName="r" from="15" to="15" begin="0s" dur="0.8s" values="15;9;15" calcMode="linear" repeatCount="indefinite"></animate>
+        <animate attributeName="fill-opacity" from="1" to="1" begin="0s" dur="0.8s" values="1;.5;1" calcMode="linear" repeatCount="indefinite"></animate>
+      </circle>
+      <circle cx="60" cy="15" r="9" fill-opacity=".3">
+        <animate attributeName="r" from="9" to="9" begin="0s" dur="0.8s" values="9;15;9" calcMode="linear" repeatCount="indefinite"></animate>
+        <animate attributeName="fill-opacity" from=".5" to=".5" begin="0s" dur="0.8s" values=".5;1;.5" calcMode="linear" repeatCount="indefinite"></animate>
+      </circle>
+      <circle cx="105" cy="15" r="15">
+        <animate attributeName="r" from="15" to="15" begin="0s" dur="0.8s" values="15;9;15" calcMode="linear" repeatCount="indefinite"></animate>
+        <animate attributeName="fill-opacity" from="1" to="1" begin="0s" dur="0.8s" values="1;.5;1" calcMode="linear" repeatCount="indefinite"></animate>
+      </circle>
+    </svg></div>
   <div class="q-infinite-scroll">
     <div class="q-infinite-scroll-content">
       <div class="q-list bg-white no-border">
@@ -768,7 +807,20 @@ exports[`Storyshots ChatConversation not participant 1`] = `
 
 exports[`Storyshots ChatConversation thread 1`] = `
 <div>
-  <!---->
+  <div class="full-width text-center generic-padding" style="display:none;"><svg fill="currentColor" width="40" height="40" viewBox="0 0 120 30" xmlns="http://www.w3.org/2000/svg" class="q-spinner">
+      <circle cx="15" cy="15" r="15">
+        <animate attributeName="r" from="15" to="15" begin="0s" dur="0.8s" values="15;9;15" calcMode="linear" repeatCount="indefinite"></animate>
+        <animate attributeName="fill-opacity" from="1" to="1" begin="0s" dur="0.8s" values="1;.5;1" calcMode="linear" repeatCount="indefinite"></animate>
+      </circle>
+      <circle cx="60" cy="15" r="9" fill-opacity=".3">
+        <animate attributeName="r" from="9" to="9" begin="0s" dur="0.8s" values="9;15;9" calcMode="linear" repeatCount="indefinite"></animate>
+        <animate attributeName="fill-opacity" from=".5" to=".5" begin="0s" dur="0.8s" values=".5;1;.5" calcMode="linear" repeatCount="indefinite"></animate>
+      </circle>
+      <circle cx="105" cy="15" r="15">
+        <animate attributeName="r" from="15" to="15" begin="0s" dur="0.8s" values="15;9;15" calcMode="linear" repeatCount="indefinite"></animate>
+        <animate attributeName="fill-opacity" from="1" to="1" begin="0s" dur="0.8s" values="1;.5;1" calcMode="linear" repeatCount="indefinite"></animate>
+      </circle>
+    </svg></div>
   <div class="q-infinite-scroll">
     <div class="q-infinite-scroll-content">
       <div class="q-list bg-white no-border">
@@ -905,6 +957,7 @@ exports[`Storyshots ChatConversation thread 1`] = `
 
 exports[`Storyshots General Components KBreadcrumb 1`] = `
 <div class="wrapper">
+  <!---->
   <div class="prevBread gt-xs">
     <!---->
     <div class="label"><span>Foodsharing Berlin</span></div>
@@ -1249,7 +1302,20 @@ exports[`Storyshots GroupGallery signup view 1`] = `
           </div>
         </button></div>
     </div>
-    <!---->
+    <div class="full-width text-center generic-padding" style="display:none;"><svg fill="currentColor" width="40" height="40" viewBox="0 0 120 30" xmlns="http://www.w3.org/2000/svg" class="q-spinner">
+        <circle cx="15" cy="15" r="15">
+          <animate attributeName="r" from="15" to="15" begin="0s" dur="0.8s" values="15;9;15" calcMode="linear" repeatCount="indefinite"></animate>
+          <animate attributeName="fill-opacity" from="1" to="1" begin="0s" dur="0.8s" values="1;.5;1" calcMode="linear" repeatCount="indefinite"></animate>
+        </circle>
+        <circle cx="60" cy="15" r="9" fill-opacity=".3">
+          <animate attributeName="r" from="9" to="9" begin="0s" dur="0.8s" values="9;15;9" calcMode="linear" repeatCount="indefinite"></animate>
+          <animate attributeName="fill-opacity" from=".5" to=".5" begin="0s" dur="0.8s" values=".5;1;.5" calcMode="linear" repeatCount="indefinite"></animate>
+        </circle>
+        <circle cx="105" cy="15" r="15">
+          <animate attributeName="r" from="15" to="15" begin="0s" dur="0.8s" values="15;9;15" calcMode="linear" repeatCount="indefinite"></animate>
+          <animate attributeName="fill-opacity" from="1" to="1" begin="0s" dur="0.8s" values="1;.5;1" calcMode="linear" repeatCount="indefinite"></animate>
+        </circle>
+      </svg></div>
     <!---->
     <!---->
     <!---->
@@ -1485,7 +1551,20 @@ exports[`Storyshots GroupGallery switch and explore 1`] = `
           </div>
         </button></div>
     </div>
-    <!---->
+    <div class="full-width text-center generic-padding" style="display:none;"><svg fill="currentColor" width="40" height="40" viewBox="0 0 120 30" xmlns="http://www.w3.org/2000/svg" class="q-spinner">
+        <circle cx="15" cy="15" r="15">
+          <animate attributeName="r" from="15" to="15" begin="0s" dur="0.8s" values="15;9;15" calcMode="linear" repeatCount="indefinite"></animate>
+          <animate attributeName="fill-opacity" from="1" to="1" begin="0s" dur="0.8s" values="1;.5;1" calcMode="linear" repeatCount="indefinite"></animate>
+        </circle>
+        <circle cx="60" cy="15" r="9" fill-opacity=".3">
+          <animate attributeName="r" from="9" to="9" begin="0s" dur="0.8s" values="9;15;9" calcMode="linear" repeatCount="indefinite"></animate>
+          <animate attributeName="fill-opacity" from=".5" to=".5" begin="0s" dur="0.8s" values=".5;1;.5" calcMode="linear" repeatCount="indefinite"></animate>
+        </circle>
+        <circle cx="105" cy="15" r="15">
+          <animate attributeName="r" from="15" to="15" begin="0s" dur="0.8s" values="15;9;15" calcMode="linear" repeatCount="indefinite"></animate>
+          <animate attributeName="fill-opacity" from="1" to="1" begin="0s" dur="0.8s" values="1;.5;1" calcMode="linear" repeatCount="indefinite"></animate>
+        </circle>
+      </svg></div>
     <!---->
     <div class="join-groups">
       <p class="text-primary header">
@@ -2480,6 +2559,20 @@ exports[`Storyshots GroupSettings show 1`] = `
 exports[`Storyshots History List Default 1`] = `
 <div class="q-infinite-scroll">
   <div class="q-infinite-scroll-content">
+    <div style="width:100%;text-align:center;display:none;"><svg fill="currentColor" width="40" height="40" viewBox="0 0 120 30" xmlns="http://www.w3.org/2000/svg" class="q-spinner">
+        <circle cx="15" cy="15" r="15">
+          <animate attributeName="r" from="15" to="15" begin="0s" dur="0.8s" values="15;9;15" calcMode="linear" repeatCount="indefinite"></animate>
+          <animate attributeName="fill-opacity" from="1" to="1" begin="0s" dur="0.8s" values="1;.5;1" calcMode="linear" repeatCount="indefinite"></animate>
+        </circle>
+        <circle cx="60" cy="15" r="9" fill-opacity=".3">
+          <animate attributeName="r" from="9" to="9" begin="0s" dur="0.8s" values="9;15;9" calcMode="linear" repeatCount="indefinite"></animate>
+          <animate attributeName="fill-opacity" from=".5" to=".5" begin="0s" dur="0.8s" values=".5;1;.5" calcMode="linear" repeatCount="indefinite"></animate>
+        </circle>
+        <circle cx="105" cy="15" r="15">
+          <animate attributeName="r" from="15" to="15" begin="0s" dur="0.8s" values="15;9;15" calcMode="linear" repeatCount="indefinite"></animate>
+          <animate attributeName="fill-opacity" from="1" to="1" begin="0s" dur="0.8s" values="1;.5;1" calcMode="linear" repeatCount="indefinite"></animate>
+        </circle>
+      </svg></div>
     <div>
       <div class="clickable q-item q-item-division relative-position q-item-multiline">
         <div class="q-item-side q-item-section q-item-side-left">
@@ -3058,6 +3151,9 @@ exports[`Storyshots Layout KTopbar 1`] = `
     <div class="row justify-between no-wrap">
       <div></div>
       <div class="wrapper bread">
+        <div>
+          ...
+        </div>
         <!---->
         <!---->
         <!---->
@@ -3333,22 +3429,21 @@ exports[`Storyshots Map GroupMap (group has no location) 1`] = `
     <!---->
   </div>
   <!---->
-  <div class="overlay row justify-center items-center"><a tabindex="0" type="button" href="#/group/1/edit" class="q-btn inline relative-position q-btn-item non-selectable q-btn-rectangle q-focusable q-hoverable bg-primary text-white">
-      <div class="q-focus-helper"></div>
-      <div class="q-btn-inner row col items-center q-popup--skip justify-center">
-        Set location
-      </div>
-    </a></div>
+  <div class="overlay row justify-center items-center">
+    <!---->
+  </div>
 </div>
 `;
 
 exports[`Storyshots Map GroupMap (only group location) 1`] = `
 <div class="container" style="height:200px;">
-  <div class="vue2leaflet-map k-map" style="opacity:1;">
+  <div class="vue2leaflet-map k-map" style="opacity:0.5;">
     <!---->
   </div>
   <!---->
-  <!---->
+  <div class="overlay row justify-center items-center">
+    <!---->
+  </div>
 </div>
 `;
 
@@ -3358,12 +3453,9 @@ exports[`Storyshots Map GroupMap (place has no location) 1`] = `
     <!---->
   </div>
   <!---->
-  <div class="overlay row justify-center items-center"><a tabindex="0" type="button" href="#/group/1/place/62/edit" class="q-btn inline relative-position q-btn-item non-selectable q-btn-rectangle q-focusable q-hoverable bg-primary text-white">
-      <div class="q-focus-helper"></div>
-      <div class="q-btn-inner row col items-center q-popup--skip justify-center">
-        Set location
-      </div>
-    </a></div>
+  <div class="overlay row justify-center items-center">
+    <!---->
+  </div>
 </div>
 `;
 
@@ -4037,171 +4129,190 @@ exports[`Storyshots PickupItem pending 1`] = `
 `;
 
 exports[`Storyshots PickupList Default 1`] = `
-<div><span name="slide-toggle" tag="div"><div class="q-card"><div class="q-card-main q-card-container row no-padding justify-between content"><div class="column q-pa-sm full-width"><div><span class="featured-text">
+<div>
+  <div style="width:100%;text-align:center;display:none;"><svg fill="currentColor" width="40" height="40" viewBox="0 0 120 30" xmlns="http://www.w3.org/2000/svg" class="q-spinner">
+      <circle cx="15" cy="15" r="15">
+        <animate attributeName="r" from="15" to="15" begin="0s" dur="0.8s" values="15;9;15" calcMode="linear" repeatCount="indefinite"></animate>
+        <animate attributeName="fill-opacity" from="1" to="1" begin="0s" dur="0.8s" values="1;.5;1" calcMode="linear" repeatCount="indefinite"></animate>
+      </circle>
+      <circle cx="60" cy="15" r="9" fill-opacity=".3">
+        <animate attributeName="r" from="9" to="9" begin="0s" dur="0.8s" values="9;15;9" calcMode="linear" repeatCount="indefinite"></animate>
+        <animate attributeName="fill-opacity" from=".5" to=".5" begin="0s" dur="0.8s" values=".5;1;.5" calcMode="linear" repeatCount="indefinite"></animate>
+      </circle>
+      <circle cx="105" cy="15" r="15">
+        <animate attributeName="r" from="15" to="15" begin="0s" dur="0.8s" values="15;9;15" calcMode="linear" repeatCount="indefinite"></animate>
+        <animate attributeName="fill-opacity" from="1" to="1" begin="0s" dur="0.8s" values="1;.5;1" calcMode="linear" repeatCount="indefinite"></animate>
+      </circle>
+    </svg></div>
+  <div class="q-card">
+    <div class="q-card-main q-card-container row no-padding justify-between content">
+      <div class="column q-pa-sm full-width">
+        <div><span class="featured-text">
           8:00 AM
           <!----></span>
-  Saturday, August 12, 2017
-  <span><strong>Open Chat <i aria-hidden="true" class="q-icon material-icons">chat</i></strong></span></div>
-<!---->
-<!---->
-<div class="q-my-xs multiline">you can join this pickup
-</div>
-<div class="q-my-xs full-width">
-  <div class="row justify-start"><object tabindex="-1" type="text/html" data="about:blank" aria-hidden="true" style="display:block;position:absolute;top:0;left:0;right:0;bottom:0;height:100%;width:100%;overflow:hidden;pointer-events:none;z-index:-1;"></object>
-    <div class="relative-position pic-wrapper">
-      <!---->
-      <div class="wrapper" style="width:36px;height:36px;"><a title="Mira Bellenbaum">
-          <div text="Mira Bellenbaum" seed="1" class="randomArt fill"></div>
-        </a></div>
-    </div>
-    <div class="relative-position pic-wrapper">
-      <!---->
-      <div class="wrapper" style="width:36px;height:36px;"><a title="Max Mustermann">
-          <div text="Max Mustermann" seed="2" class="randomArt fill"></div>
-        </a></div>
-    </div>
-    <div class="relative-position pic-wrapper">
-      <!---->
-      <div class="wrapper" style="width:36px;height:36px;"><a title="Karl Karlson">
-          <div text="Karl Karlson" seed="3" class="randomArt fill"></div>
-        </a></div>
-    </div>
-    <!---->
-    <div class="user-slot-wrapper active" style="width:36px;height:36px;">
-      <div class="hoverHide"></div>
-      <div title="Join" class="hoverShow">
-        <div class="wrapper" style="width:36px;height:36px;">
-          <div text="Current User" seed="5" class="randomArt fill"></div>
+          Saturday, August 12, 2017
+          <span><strong>Open Chat <i aria-hidden="true" class="q-icon material-icons">chat</i></strong></span></div>
+        <!---->
+        <!---->
+        <div class="q-my-xs multiline">you can join this pickup
         </div>
-      </div>
-    </div>
-    <!---->
-  </div>
-</div>
-</div>
-</div>
-</div>
-<div class="q-card">
-  <div class="q-card-main q-card-container row no-padding justify-between content isUserMember">
-    <div class="column q-pa-sm full-width">
-      <div><span class="featured-text">
-          8:00 AM
-          <!----></span>
-        Sunday, August 13, 2017
-        <span><strong>Open Chat <i aria-hidden="true" class="q-icon material-icons">chat</i></strong></span></div>
-      <!---->
-      <!---->
-      <div class="q-my-xs multiline">you are collector and can leave this pickup
-      </div>
-      <div class="q-my-xs full-width">
-        <div class="row justify-start"><object tabindex="-1" type="text/html" data="about:blank" aria-hidden="true" style="display:block;position:absolute;top:0;left:0;right:0;bottom:0;height:100%;width:100%;overflow:hidden;pointer-events:none;z-index:-1;"></object>
-          <div class="relative-position pic-wrapper">
-            <!---->
-            <div class="wrapper" style="width:36px;height:36px;"><a title="Mira Bellenbaum">
-                <div text="Mira Bellenbaum" seed="1" class="randomArt fill"></div>
-              </a></div>
-          </div>
-          <div class="relative-position pic-wrapper">
-            <!---->
-            <div class="wrapper" style="width:36px;height:36px;"><a title="Max Mustermann">
-                <div text="Max Mustermann" seed="2" class="randomArt fill"></div>
-              </a></div>
-          </div>
-          <div class="relative-position pic-wrapper">
-            <div class="user-slot-wrapper relative-position" style="width:36px;height:36px;">
-              <div class="wrapper profile-picture" style="width:36px;height:36px;">
-                <div text="Current User" seed="5" class="randomArt fill"></div>
-              </div>
-              <div title="Leave" class="absolute-full leave-icon" style="font-size:28.8px;"><i class="fas fa-fw fa-times"></i></div>
+        <div class="q-my-xs full-width">
+          <div class="row justify-start"><object tabindex="-1" type="text/html" data="about:blank" aria-hidden="true" style="display:block;position:absolute;top:0;left:0;right:0;bottom:0;height:100%;width:100%;overflow:hidden;pointer-events:none;z-index:-1;"></object>
+            <div class="relative-position pic-wrapper">
+              <!---->
+              <div class="wrapper" style="width:36px;height:36px;"><a title="Mira Bellenbaum">
+                  <div text="Mira Bellenbaum" seed="1" class="randomArt fill"></div>
+                </a></div>
             </div>
-          </div>
-          <!---->
-          <!---->
-          <div class="user-slot-wrapper greyedOut" style="width:36px;height:36px;"></div>
-          <!---->
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-<div class="q-card full">
-  <div class="q-card-main q-card-container row no-padding justify-between content">
-    <div class="column q-pa-sm full-width">
-      <div><span class="featured-text">
-          8:00 AM
-          <!----></span>
-        Monday, August 14, 2017
-        <span><strong>Open Chat <i aria-hidden="true" class="q-icon material-icons">chat</i></strong></span></div>
-      <!---->
-      <!---->
-      <div class="q-my-xs multiline">this pickup is already full!
-      </div>
-      <div class="q-my-xs full-width">
-        <div class="row justify-start"><object tabindex="-1" type="text/html" data="about:blank" aria-hidden="true" style="display:block;position:absolute;top:0;left:0;right:0;bottom:0;height:100%;width:100%;overflow:hidden;pointer-events:none;z-index:-1;"></object>
-          <div class="relative-position pic-wrapper">
+            <div class="relative-position pic-wrapper">
+              <!---->
+              <div class="wrapper" style="width:36px;height:36px;"><a title="Max Mustermann">
+                  <div text="Max Mustermann" seed="2" class="randomArt fill"></div>
+                </a></div>
+            </div>
+            <div class="relative-position pic-wrapper">
+              <!---->
+              <div class="wrapper" style="width:36px;height:36px;"><a title="Karl Karlson">
+                  <div text="Karl Karlson" seed="3" class="randomArt fill"></div>
+                </a></div>
+            </div>
             <!---->
-            <div class="wrapper" style="width:36px;height:36px;"><a title="Mira Bellenbaum">
-                <div text="Mira Bellenbaum" seed="1" class="randomArt fill"></div>
-              </a></div>
-          </div>
-          <div class="relative-position pic-wrapper">
-            <!---->
-            <div class="wrapper" style="width:36px;height:36px;"><a title="Max Mustermann">
-                <div text="Max Mustermann" seed="2" class="randomArt fill"></div>
-              </a></div>
-          </div>
-          <div class="relative-position pic-wrapper">
-            <!---->
-            <div class="wrapper" style="width:36px;height:36px;"><a title="Karl Karlson">
-                <div text="Karl Karlson" seed="3" class="randomArt fill"></div>
-              </a></div>
-          </div>
-          <div class="relative-position pic-wrapper">
-            <!---->
-            <div class="wrapper" style="width:36px;height:36px;"><a title="Mona Mohnblume">
-                <div text="Mona Mohnblume" seed="4" class="randomArt fill"></div>
-              </a></div>
-          </div>
-          <!---->
-          <!---->
-          <!---->
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-<div class="q-card">
-  <div class="q-card-main q-card-container row no-padding justify-between content isEmpty">
-    <div class="column q-pa-sm full-width">
-      <div><span class="featured-text">
-          8:00 AM
-          <!----></span>
-        Tuesday, August 15, 2017
-        <span><strong>Open Chat <i aria-hidden="true" class="q-icon material-icons">chat</i></strong></span></div>
-      <!---->
-      <!---->
-      <div class="q-my-xs multiline">this pickup is fresh and empty
-      </div>
-      <div class="q-my-xs full-width">
-        <div class="row justify-start"><object tabindex="-1" type="text/html" data="about:blank" aria-hidden="true" style="display:block;position:absolute;top:0;left:0;right:0;bottom:0;height:100%;width:100%;overflow:hidden;pointer-events:none;z-index:-1;"></object>
-          <!---->
-          <div class="user-slot-wrapper active" style="width:36px;height:36px;">
-            <div class="hoverHide"></div>
-            <div title="Join" class="hoverShow">
-              <div class="wrapper" style="width:36px;height:36px;">
-                <div text="Current User" seed="5" class="randomArt fill"></div>
+            <div class="user-slot-wrapper active" style="width:36px;height:36px;">
+              <div class="hoverHide"></div>
+              <div title="Join" class="hoverShow">
+                <div class="wrapper" style="width:36px;height:36px;">
+                  <div text="Current User" seed="5" class="randomArt fill"></div>
+                </div>
               </div>
             </div>
+            <!---->
           </div>
-          <div class="user-slot-wrapper greyedOut" style="width:36px;height:36px;"></div>
-          <div class="user-slot-wrapper greyedOut" style="width:36px;height:36px;"></div>
-          <div class="user-slot-wrapper greyedOut" style="width:36px;height:36px;"></div>
-          <!---->
         </div>
       </div>
     </div>
   </div>
-</div></span></div>
+  <div class="q-card">
+    <div class="q-card-main q-card-container row no-padding justify-between content isUserMember">
+      <div class="column q-pa-sm full-width">
+        <div><span class="featured-text">
+          8:00 AM
+          <!----></span>
+          Sunday, August 13, 2017
+          <span><strong>Open Chat <i aria-hidden="true" class="q-icon material-icons">chat</i></strong></span></div>
+        <!---->
+        <!---->
+        <div class="q-my-xs multiline">you are collector and can leave this pickup
+        </div>
+        <div class="q-my-xs full-width">
+          <div class="row justify-start"><object tabindex="-1" type="text/html" data="about:blank" aria-hidden="true" style="display:block;position:absolute;top:0;left:0;right:0;bottom:0;height:100%;width:100%;overflow:hidden;pointer-events:none;z-index:-1;"></object>
+            <div class="relative-position pic-wrapper">
+              <!---->
+              <div class="wrapper" style="width:36px;height:36px;"><a title="Mira Bellenbaum">
+                  <div text="Mira Bellenbaum" seed="1" class="randomArt fill"></div>
+                </a></div>
+            </div>
+            <div class="relative-position pic-wrapper">
+              <!---->
+              <div class="wrapper" style="width:36px;height:36px;"><a title="Max Mustermann">
+                  <div text="Max Mustermann" seed="2" class="randomArt fill"></div>
+                </a></div>
+            </div>
+            <div class="relative-position pic-wrapper">
+              <div class="user-slot-wrapper relative-position" style="width:36px;height:36px;">
+                <div class="wrapper profile-picture" style="width:36px;height:36px;">
+                  <div text="Current User" seed="5" class="randomArt fill"></div>
+                </div>
+                <div title="Leave" class="absolute-full leave-icon" style="font-size:28.8px;"><i class="fas fa-fw fa-times"></i></div>
+              </div>
+            </div>
+            <!---->
+            <!---->
+            <div class="user-slot-wrapper greyedOut" style="width:36px;height:36px;"></div>
+            <!---->
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="q-card full">
+    <div class="q-card-main q-card-container row no-padding justify-between content">
+      <div class="column q-pa-sm full-width">
+        <div><span class="featured-text">
+          8:00 AM
+          <!----></span>
+          Monday, August 14, 2017
+          <span><strong>Open Chat <i aria-hidden="true" class="q-icon material-icons">chat</i></strong></span></div>
+        <!---->
+        <!---->
+        <div class="q-my-xs multiline">this pickup is already full!
+        </div>
+        <div class="q-my-xs full-width">
+          <div class="row justify-start"><object tabindex="-1" type="text/html" data="about:blank" aria-hidden="true" style="display:block;position:absolute;top:0;left:0;right:0;bottom:0;height:100%;width:100%;overflow:hidden;pointer-events:none;z-index:-1;"></object>
+            <div class="relative-position pic-wrapper">
+              <!---->
+              <div class="wrapper" style="width:36px;height:36px;"><a title="Mira Bellenbaum">
+                  <div text="Mira Bellenbaum" seed="1" class="randomArt fill"></div>
+                </a></div>
+            </div>
+            <div class="relative-position pic-wrapper">
+              <!---->
+              <div class="wrapper" style="width:36px;height:36px;"><a title="Max Mustermann">
+                  <div text="Max Mustermann" seed="2" class="randomArt fill"></div>
+                </a></div>
+            </div>
+            <div class="relative-position pic-wrapper">
+              <!---->
+              <div class="wrapper" style="width:36px;height:36px;"><a title="Karl Karlson">
+                  <div text="Karl Karlson" seed="3" class="randomArt fill"></div>
+                </a></div>
+            </div>
+            <div class="relative-position pic-wrapper">
+              <!---->
+              <div class="wrapper" style="width:36px;height:36px;"><a title="Mona Mohnblume">
+                  <div text="Mona Mohnblume" seed="4" class="randomArt fill"></div>
+                </a></div>
+            </div>
+            <!---->
+            <!---->
+            <!---->
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="q-card">
+    <div class="q-card-main q-card-container row no-padding justify-between content isEmpty">
+      <div class="column q-pa-sm full-width">
+        <div><span class="featured-text">
+          8:00 AM
+          <!----></span>
+          Tuesday, August 15, 2017
+          <span><strong>Open Chat <i aria-hidden="true" class="q-icon material-icons">chat</i></strong></span></div>
+        <!---->
+        <!---->
+        <div class="q-my-xs multiline">this pickup is fresh and empty
+        </div>
+        <div class="q-my-xs full-width">
+          <div class="row justify-start"><object tabindex="-1" type="text/html" data="about:blank" aria-hidden="true" style="display:block;position:absolute;top:0;left:0;right:0;bottom:0;height:100%;width:100%;overflow:hidden;pointer-events:none;z-index:-1;"></object>
+            <!---->
+            <div class="user-slot-wrapper active" style="width:36px;height:36px;">
+              <div class="hoverHide"></div>
+              <div title="Join" class="hoverShow">
+                <div class="wrapper" style="width:36px;height:36px;">
+                  <div text="Current User" seed="5" class="randomArt fill"></div>
+                </div>
+              </div>
+            </div>
+            <div class="user-slot-wrapper greyedOut" style="width:36px;height:36px;"></div>
+            <div class="user-slot-wrapper greyedOut" style="width:36px;height:36px;"></div>
+            <div class="user-slot-wrapper greyedOut" style="width:36px;height:36px;"></div>
+            <!---->
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
 `;
 
 exports[`Storyshots PickupSeriesEdit Default 1`] = `
@@ -6043,117 +6154,132 @@ exports[`Storyshots Statistics FeedbackItem 1`] = `
 `;
 
 exports[`Storyshots Statistics FeedbackList 1`] = `
-<div class="q-infinite-scroll k-feedback-list">
-  <div class="q-infinite-scroll-content">
-    <!---->
-    <div class="q-card no-shadow grey-border">
-      <div class="q-card-main q-card-container generic-padding">
-        <div class="row no-wrap">
-          <div class="content full-width">
-            <div class="row no-wrap items-baseline"><strong class="q-mr-sm" style="white-space:nowrap;">
+<div class="k-feedback-list">
+  <!---->
+  <div style="width:100%;text-align:center;display:none;"><svg fill="currentColor" width="40" height="40" viewBox="0 0 120 30" xmlns="http://www.w3.org/2000/svg" class="q-spinner">
+      <circle cx="15" cy="15" r="15">
+        <animate attributeName="r" from="15" to="15" begin="0s" dur="0.8s" values="15;9;15" calcMode="linear" repeatCount="indefinite"></animate>
+        <animate attributeName="fill-opacity" from="1" to="1" begin="0s" dur="0.8s" values="1;.5;1" calcMode="linear" repeatCount="indefinite"></animate>
+      </circle>
+      <circle cx="60" cy="15" r="9" fill-opacity=".3">
+        <animate attributeName="r" from="9" to="9" begin="0s" dur="0.8s" values="9;15;9" calcMode="linear" repeatCount="indefinite"></animate>
+        <animate attributeName="fill-opacity" from=".5" to=".5" begin="0s" dur="0.8s" values=".5;1;.5" calcMode="linear" repeatCount="indefinite"></animate>
+      </circle>
+      <circle cx="105" cy="15" r="15">
+        <animate attributeName="r" from="15" to="15" begin="0s" dur="0.8s" values="15;9;15" calcMode="linear" repeatCount="indefinite"></animate>
+        <animate attributeName="fill-opacity" from="1" to="1" begin="0s" dur="0.8s" values="1;.5;1" calcMode="linear" repeatCount="indefinite"></animate>
+      </circle>
+    </svg></div>
+  <div class="q-infinite-scroll">
+    <div class="q-infinite-scroll-content">
+      <div class="q-card no-shadow grey-border">
+        <div class="q-card-main q-card-container generic-padding">
+          <div class="row no-wrap">
+            <div class="content full-width">
+              <div class="row no-wrap items-baseline"><strong class="q-mr-sm" style="white-space:nowrap;">
             Aug 12, 2017, 8:00 AM
           </strong> <a class="ellipsis text-secondary">
-                Griesheimer Markt
-              </a>
-              <!---->
-            </div> <small class="text-weight-light"><a>
-                Mira Bellenbaum
-              </a> <span place="date" class="message-date"><div title="Aug 11, 2017, 3:43 PM">
+                  Griesheimer Markt
+                </a>
+                <!---->
+              </div> <small class="text-weight-light"><a>
+                  Mira Bellenbaum
+                </a> <span place="date" class="message-date"><div title="Aug 11, 2017, 3:43 PM">
   4 months ago
 </div></span></small>
-            <div>
-              <div class="container on-right float-right amount-box" style="width:80px;height:80px;"><img width="80px" height="80px" src="test-file-stub"> <img width="10px" height="16px" src="test-file-stub" class="pointer" style="transform:rotate(-41deg);top:8px;">
-                <div class="text-bottom" style="bottom:10px;"><span style="font-size:19px;">
+              <div>
+                <div class="container on-right float-right amount-box" style="width:80px;height:80px;"><img width="80px" height="80px" src="test-file-stub"> <img width="10px" height="16px" src="test-file-stub" class="pointer" style="transform:rotate(-41deg);top:8px;">
+                  <div class="text-bottom" style="bottom:10px;"><span style="font-size:19px;">
         2.5
       </span> <span style="font-size:11px;">kg</span></div>
-              </div>
-              <div class="comment">
-                <div class="markdown">
-                  <p>All worked out perfectly!</p>
                 </div>
-              </div>
-              <div class="q-mt-sm">
-                <div class="wrapper" style="width:22px;height:22px;"><a title="Mira Bellenbaum">
-                    <div text="Mira Bellenbaum" seed="1" class="randomArt fill"></div>
-                  </a></div>
-                <!---->
+                <div class="comment">
+                  <div class="markdown">
+                    <p>All worked out perfectly!</p>
+                  </div>
+                </div>
+                <div class="q-mt-sm">
+                  <div class="wrapper" style="width:22px;height:22px;"><a title="Mira Bellenbaum">
+                      <div text="Mira Bellenbaum" seed="1" class="randomArt fill"></div>
+                    </a></div>
+                  <!---->
+                </div>
               </div>
             </div>
           </div>
         </div>
       </div>
-    </div>
-    <div class="q-card no-shadow grey-border">
-      <div class="q-card-main q-card-container generic-padding">
-        <div class="row no-wrap">
-          <div class="content full-width">
-            <div class="row no-wrap items-baseline"><strong class="q-mr-sm" style="white-space:nowrap;">
+      <div class="q-card no-shadow grey-border">
+        <div class="q-card-main q-card-container generic-padding">
+          <div class="row no-wrap">
+            <div class="content full-width">
+              <div class="row no-wrap items-baseline"><strong class="q-mr-sm" style="white-space:nowrap;">
             Aug 13, 2017, 8:00 AM
           </strong> <a class="ellipsis text-secondary">
-                Griesheimer Markt
-              </a>
-              <!---->
-            </div> <small class="text-weight-light"><a>
-                Mira Bellenbaum
-              </a> <span place="date" class="message-date"><div title="Sep 11, 2017, 3:40 PM">
+                  Griesheimer Markt
+                </a>
+                <!---->
+              </div> <small class="text-weight-light"><a>
+                  Mira Bellenbaum
+                </a> <span place="date" class="message-date"><div title="Sep 11, 2017, 3:40 PM">
   3 months ago
 </div></span></small>
-            <div>
-              <div class="container on-right float-right amount-box" style="width:80px;height:80px;"><img width="80px" height="80px" src="test-file-stub"> <img width="10px" height="16px" src="test-file-stub" class="pointer" style="transform:rotate(-15deg);top:8px;">
-                <div class="text-bottom" style="bottom:10px;"><span style="font-size:19px;">
+              <div>
+                <div class="container on-right float-right amount-box" style="width:80px;height:80px;"><img width="80px" height="80px" src="test-file-stub"> <img width="10px" height="16px" src="test-file-stub" class="pointer" style="transform:rotate(-15deg);top:8px;">
+                  <div class="text-bottom" style="bottom:10px;"><span style="font-size:19px;">
         11.0
       </span> <span style="font-size:11px;">kg</span></div>
-              </div>
-              <!---->
-              <div class="q-mt-sm">
-                <div class="wrapper" style="width:22px;height:22px;"><a title="Mira Bellenbaum">
-                    <div text="Mira Bellenbaum" seed="1" class="randomArt fill"></div>
-                  </a></div>
+                </div>
                 <!---->
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="q-card no-shadow grey-border">
-      <div class="q-card-main q-card-container generic-padding">
-        <div class="row no-wrap">
-          <div class="content full-width">
-            <div class="row no-wrap items-baseline"><strong class="q-mr-sm" style="white-space:nowrap;">
-            Aug 13, 2017, 8:00 AM
-          </strong> <a class="ellipsis text-secondary">
-                Griesheimer Markt
-              </a>
-              <!---->
-            </div> <small class="text-weight-light"><a>
-                Max Mustermann
-              </a> <span place="date" class="message-date"><div title="Sep 18, 2017, 12:12 PM">
-  3 months ago
-</div></span></small>
-            <div>
-              <div class="container on-right float-right amount-box" style="width:80px;height:80px;"><img width="80px" height="80px" src="test-file-stub"> <img width="10px" height="16px" src="test-file-stub" class="pointer" style="transform:rotate(-48deg);top:8px;">
-                <div class="text-bottom" style="bottom:10px;"><span style="font-size:19px;">
-        0
-      </span> <span style="font-size:11px;">g</span></div>
-              </div>
-              <div class="comment">
-                <div class="markdown">
-                  <p>They did not have anything today</p>
+                <div class="q-mt-sm">
+                  <div class="wrapper" style="width:22px;height:22px;"><a title="Mira Bellenbaum">
+                      <div text="Mira Bellenbaum" seed="1" class="randomArt fill"></div>
+                    </a></div>
+                  <!---->
                 </div>
               </div>
-              <div class="q-mt-sm">
-                <div class="wrapper" style="width:22px;height:22px;"><a title="Max Mustermann">
-                    <div text="Max Mustermann" seed="2" class="randomArt fill"></div>
-                  </a></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="q-card no-shadow grey-border">
+        <div class="q-card-main q-card-container generic-padding">
+          <div class="row no-wrap">
+            <div class="content full-width">
+              <div class="row no-wrap items-baseline"><strong class="q-mr-sm" style="white-space:nowrap;">
+            Aug 13, 2017, 8:00 AM
+          </strong> <a class="ellipsis text-secondary">
+                  Griesheimer Markt
+                </a>
                 <!---->
+              </div> <small class="text-weight-light"><a>
+                  Max Mustermann
+                </a> <span place="date" class="message-date"><div title="Sep 18, 2017, 12:12 PM">
+  3 months ago
+</div></span></small>
+              <div>
+                <div class="container on-right float-right amount-box" style="width:80px;height:80px;"><img width="80px" height="80px" src="test-file-stub"> <img width="10px" height="16px" src="test-file-stub" class="pointer" style="transform:rotate(-48deg);top:8px;">
+                  <div class="text-bottom" style="bottom:10px;"><span style="font-size:19px;">
+        0
+      </span> <span style="font-size:11px;">g</span></div>
+                </div>
+                <div class="comment">
+                  <div class="markdown">
+                    <p>They did not have anything today</p>
+                  </div>
+                </div>
+                <div class="q-mt-sm">
+                  <div class="wrapper" style="width:22px;height:22px;"><a title="Max Mustermann">
+                      <div text="Max Mustermann" seed="2" class="randomArt fill"></div>
+                    </a></div>
+                  <!---->
+                </div>
               </div>
             </div>
           </div>
         </div>
       </div>
     </div>
-    <!---->
   </div>
 </div>
 `;
@@ -6315,117 +6441,132 @@ exports[`Storyshots Statistics PickupFeedback 1`] = `
   <div class="q-card no-shadow grey-border place-feedback">
     <div seed="61" type="banner" class="randomBanner"></div>
     <h4 class="generic-padding"></h4>
-    <div class="q-infinite-scroll k-feedback-list">
-      <div class="q-infinite-scroll-content">
-        <!---->
-        <div class="q-card no-shadow grey-border">
-          <div class="q-card-main q-card-container generic-padding">
-            <div class="row no-wrap">
-              <div class="content full-width">
-                <div class="row no-wrap items-baseline"><strong class="q-mr-sm" style="white-space:nowrap;">
+    <div class="k-feedback-list">
+      <!---->
+      <div style="width:100%;text-align:center;display:none;"><svg fill="currentColor" width="40" height="40" viewBox="0 0 120 30" xmlns="http://www.w3.org/2000/svg" class="q-spinner">
+          <circle cx="15" cy="15" r="15">
+            <animate attributeName="r" from="15" to="15" begin="0s" dur="0.8s" values="15;9;15" calcMode="linear" repeatCount="indefinite"></animate>
+            <animate attributeName="fill-opacity" from="1" to="1" begin="0s" dur="0.8s" values="1;.5;1" calcMode="linear" repeatCount="indefinite"></animate>
+          </circle>
+          <circle cx="60" cy="15" r="9" fill-opacity=".3">
+            <animate attributeName="r" from="9" to="9" begin="0s" dur="0.8s" values="9;15;9" calcMode="linear" repeatCount="indefinite"></animate>
+            <animate attributeName="fill-opacity" from=".5" to=".5" begin="0s" dur="0.8s" values=".5;1;.5" calcMode="linear" repeatCount="indefinite"></animate>
+          </circle>
+          <circle cx="105" cy="15" r="15">
+            <animate attributeName="r" from="15" to="15" begin="0s" dur="0.8s" values="15;9;15" calcMode="linear" repeatCount="indefinite"></animate>
+            <animate attributeName="fill-opacity" from="1" to="1" begin="0s" dur="0.8s" values="1;.5;1" calcMode="linear" repeatCount="indefinite"></animate>
+          </circle>
+        </svg></div>
+      <div class="q-infinite-scroll">
+        <div class="q-infinite-scroll-content">
+          <div class="q-card no-shadow grey-border">
+            <div class="q-card-main q-card-container generic-padding">
+              <div class="row no-wrap">
+                <div class="content full-width">
+                  <div class="row no-wrap items-baseline"><strong class="q-mr-sm" style="white-space:nowrap;">
             Aug 12, 2017, 8:00 AM
           </strong> <a class="ellipsis text-secondary">
-                    Griesheimer Markt
-                  </a>
-                  <!---->
-                </div> <small class="text-weight-light"><a>
-                    Mira Bellenbaum
-                  </a> <span place="date" class="message-date"><div title="Aug 11, 2017, 3:43 PM">
+                      Griesheimer Markt
+                    </a>
+                    <!---->
+                  </div> <small class="text-weight-light"><a>
+                      Mira Bellenbaum
+                    </a> <span place="date" class="message-date"><div title="Aug 11, 2017, 3:43 PM">
   4 months ago
 </div></span></small>
-                <div>
-                  <div class="container on-right float-right amount-box" style="width:80px;height:80px;"><img width="80px" height="80px" src="test-file-stub"> <img width="10px" height="16px" src="test-file-stub" class="pointer" style="transform:rotate(-41deg);top:8px;">
-                    <div class="text-bottom" style="bottom:10px;"><span style="font-size:19px;">
+                  <div>
+                    <div class="container on-right float-right amount-box" style="width:80px;height:80px;"><img width="80px" height="80px" src="test-file-stub"> <img width="10px" height="16px" src="test-file-stub" class="pointer" style="transform:rotate(-41deg);top:8px;">
+                      <div class="text-bottom" style="bottom:10px;"><span style="font-size:19px;">
         2.5
       </span> <span style="font-size:11px;">kg</span></div>
-                  </div>
-                  <div class="comment">
-                    <div class="markdown">
-                      <p>All worked out perfectly!</p>
                     </div>
-                  </div>
-                  <div class="q-mt-sm">
-                    <div class="wrapper" style="width:22px;height:22px;"><a title="Mira Bellenbaum">
-                        <div text="Mira Bellenbaum" seed="1" class="randomArt fill"></div>
-                      </a></div>
-                    <!---->
+                    <div class="comment">
+                      <div class="markdown">
+                        <p>All worked out perfectly!</p>
+                      </div>
+                    </div>
+                    <div class="q-mt-sm">
+                      <div class="wrapper" style="width:22px;height:22px;"><a title="Mira Bellenbaum">
+                          <div text="Mira Bellenbaum" seed="1" class="randomArt fill"></div>
+                        </a></div>
+                      <!---->
+                    </div>
                   </div>
                 </div>
               </div>
             </div>
           </div>
-        </div>
-        <div class="q-card no-shadow grey-border">
-          <div class="q-card-main q-card-container generic-padding">
-            <div class="row no-wrap">
-              <div class="content full-width">
-                <div class="row no-wrap items-baseline"><strong class="q-mr-sm" style="white-space:nowrap;">
+          <div class="q-card no-shadow grey-border">
+            <div class="q-card-main q-card-container generic-padding">
+              <div class="row no-wrap">
+                <div class="content full-width">
+                  <div class="row no-wrap items-baseline"><strong class="q-mr-sm" style="white-space:nowrap;">
             Aug 13, 2017, 8:00 AM
           </strong> <a class="ellipsis text-secondary">
-                    Griesheimer Markt
-                  </a>
-                  <!---->
-                </div> <small class="text-weight-light"><a>
-                    Mira Bellenbaum
-                  </a> <span place="date" class="message-date"><div title="Sep 11, 2017, 3:40 PM">
+                      Griesheimer Markt
+                    </a>
+                    <!---->
+                  </div> <small class="text-weight-light"><a>
+                      Mira Bellenbaum
+                    </a> <span place="date" class="message-date"><div title="Sep 11, 2017, 3:40 PM">
   3 months ago
 </div></span></small>
-                <div>
-                  <div class="container on-right float-right amount-box" style="width:80px;height:80px;"><img width="80px" height="80px" src="test-file-stub"> <img width="10px" height="16px" src="test-file-stub" class="pointer" style="transform:rotate(-15deg);top:8px;">
-                    <div class="text-bottom" style="bottom:10px;"><span style="font-size:19px;">
+                  <div>
+                    <div class="container on-right float-right amount-box" style="width:80px;height:80px;"><img width="80px" height="80px" src="test-file-stub"> <img width="10px" height="16px" src="test-file-stub" class="pointer" style="transform:rotate(-15deg);top:8px;">
+                      <div class="text-bottom" style="bottom:10px;"><span style="font-size:19px;">
         11.0
       </span> <span style="font-size:11px;">kg</span></div>
-                  </div>
-                  <!---->
-                  <div class="q-mt-sm">
-                    <div class="wrapper" style="width:22px;height:22px;"><a title="Mira Bellenbaum">
-                        <div text="Mira Bellenbaum" seed="1" class="randomArt fill"></div>
-                      </a></div>
+                    </div>
                     <!---->
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="q-card no-shadow grey-border">
-          <div class="q-card-main q-card-container generic-padding">
-            <div class="row no-wrap">
-              <div class="content full-width">
-                <div class="row no-wrap items-baseline"><strong class="q-mr-sm" style="white-space:nowrap;">
-            Aug 13, 2017, 8:00 AM
-          </strong> <a class="ellipsis text-secondary">
-                    Griesheimer Markt
-                  </a>
-                  <!---->
-                </div> <small class="text-weight-light"><a>
-                    Max Mustermann
-                  </a> <span place="date" class="message-date"><div title="Sep 18, 2017, 12:12 PM">
-  3 months ago
-</div></span></small>
-                <div>
-                  <div class="container on-right float-right amount-box" style="width:80px;height:80px;"><img width="80px" height="80px" src="test-file-stub"> <img width="10px" height="16px" src="test-file-stub" class="pointer" style="transform:rotate(-48deg);top:8px;">
-                    <div class="text-bottom" style="bottom:10px;"><span style="font-size:19px;">
-        0
-      </span> <span style="font-size:11px;">g</span></div>
-                  </div>
-                  <div class="comment">
-                    <div class="markdown">
-                      <p>They did not have anything today</p>
+                    <div class="q-mt-sm">
+                      <div class="wrapper" style="width:22px;height:22px;"><a title="Mira Bellenbaum">
+                          <div text="Mira Bellenbaum" seed="1" class="randomArt fill"></div>
+                        </a></div>
+                      <!---->
                     </div>
                   </div>
-                  <div class="q-mt-sm">
-                    <div class="wrapper" style="width:22px;height:22px;"><a title="Max Mustermann">
-                        <div text="Max Mustermann" seed="2" class="randomArt fill"></div>
-                      </a></div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="q-card no-shadow grey-border">
+            <div class="q-card-main q-card-container generic-padding">
+              <div class="row no-wrap">
+                <div class="content full-width">
+                  <div class="row no-wrap items-baseline"><strong class="q-mr-sm" style="white-space:nowrap;">
+            Aug 13, 2017, 8:00 AM
+          </strong> <a class="ellipsis text-secondary">
+                      Griesheimer Markt
+                    </a>
                     <!---->
+                  </div> <small class="text-weight-light"><a>
+                      Max Mustermann
+                    </a> <span place="date" class="message-date"><div title="Sep 18, 2017, 12:12 PM">
+  3 months ago
+</div></span></small>
+                  <div>
+                    <div class="container on-right float-right amount-box" style="width:80px;height:80px;"><img width="80px" height="80px" src="test-file-stub"> <img width="10px" height="16px" src="test-file-stub" class="pointer" style="transform:rotate(-48deg);top:8px;">
+                      <div class="text-bottom" style="bottom:10px;"><span style="font-size:19px;">
+        0
+      </span> <span style="font-size:11px;">g</span></div>
+                    </div>
+                    <div class="comment">
+                      <div class="markdown">
+                        <p>They did not have anything today</p>
+                      </div>
+                    </div>
+                    <div class="q-mt-sm">
+                      <div class="wrapper" style="width:22px;height:22px;"><a title="Max Mustermann">
+                          <div text="Max Mustermann" seed="2" class="randomArt fill"></div>
+                        </a></div>
+                      <!---->
+                    </div>
                   </div>
                 </div>
               </div>
             </div>
           </div>
         </div>
-        <!---->
       </div>
     </div>
   </div>
@@ -7468,7 +7609,20 @@ exports[`Storyshots WallConversation WallConversation 1`] = `
   <!---->
 </div>
 </div>
-<!---->
+<div style="width:100%;text-align:center;display:none;"><svg fill="currentColor" width="40" height="40" viewBox="0 0 120 30" xmlns="http://www.w3.org/2000/svg" class="q-spinner">
+    <circle cx="15" cy="15" r="15">
+      <animate attributeName="r" from="15" to="15" begin="0s" dur="0.8s" values="15;9;15" calcMode="linear" repeatCount="indefinite"></animate>
+      <animate attributeName="fill-opacity" from="1" to="1" begin="0s" dur="0.8s" values="1;.5;1" calcMode="linear" repeatCount="indefinite"></animate>
+    </circle>
+    <circle cx="60" cy="15" r="9" fill-opacity=".3">
+      <animate attributeName="r" from="9" to="9" begin="0s" dur="0.8s" values="9;15;9" calcMode="linear" repeatCount="indefinite"></animate>
+      <animate attributeName="fill-opacity" from=".5" to=".5" begin="0s" dur="0.8s" values=".5;1;.5" calcMode="linear" repeatCount="indefinite"></animate>
+    </circle>
+    <circle cx="105" cy="15" r="15">
+      <animate attributeName="r" from="15" to="15" begin="0s" dur="0.8s" values="15;9;15" calcMode="linear" repeatCount="indefinite"></animate>
+      <animate attributeName="fill-opacity" from="1" to="1" begin="0s" dur="0.8s" values="1;.5;1" calcMode="linear" repeatCount="indefinite"></animate>
+    </circle>
+  </svg></div>
 </div>
 </div>
 </div>

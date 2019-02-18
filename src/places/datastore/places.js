@@ -91,7 +91,6 @@ export default {
     }),
     ...withMeta({
       async selectPlace ({ commit, dispatch, getters }, { placeId }) {
-        dispatch('sidenavBoxes/toggle/group', false, { root: true })
         if (!getters.get(placeId)) {
           let place
           try {
@@ -102,6 +101,7 @@ export default {
           }
           commit('update', [place])
         }
+        dispatch('sidenavBoxes/toggle/group', false, { root: true })
       },
     }, {
       findId: ({ placeId }) => placeId,

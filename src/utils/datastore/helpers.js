@@ -158,7 +158,7 @@ function wrapAction ({ namespace, actionName, action, idPrefix, findId, setCurre
 
     const status = getters[`${namespace}/status`](actionName, id)
     if (status.pending && (new Date() - status.startedAt) < 1000) {
-      console.warn('debounce: action recently started and still pending', actionName, id)
+      console.warn(`debounce: action recently started and still pending (${actionName} ${id})`)
       return
     }
 

@@ -63,9 +63,13 @@ export default datastore => {
       Sentry.captureException(err)
     }
 
-    const { redirect } = await maybeDispatchActions(datastore, to, from)
-    if (redirect) {
-      router.replace(redirect)
+    const { redirects, routeErrors } = await maybeDispatchActions(datastore, to, from)
+    // trigger first redirect or routeError, if any
+    if (redirects.length > 0) {
+      router.replace(redirects[0])
+    }
+    else if (routeErrors.length > 0) {
+      datastore.dispatch('routeError/set', routeErrors[0])
     }
 
     datastore.commit('breadcrumbs/set', findBreadcrumbs(to.matched) || [])
@@ -99,27 +103,6 @@ export function findBreadcrumbs (matched) {
 }
 
 export async function maybeDispatchActions (datastore, to, from) {
-  const runBeforeEnter = async (beforeEnter) => {
-    try {
-      await datastore.dispatch(beforeEnter, {
-        ...parseAsIntegers(to.params),
-        routeFrom: from,
-        routeTo: to,
-      })
-    }
-    catch (error) {
-      if (error.type === 'RouteRedirect') {
-        return { redirect: error.data }
-      }
-      else if (error.type === 'RouteError') {
-        await datastore.dispatch('routeError/set', error.data)
-      }
-      else {
-        // can't be handled here
-        return { error }
-      }
-    }
-  }
   for (let m of from.matched.slice().reverse()) {
     if (m.meta.afterLeave) {
       await datastore.dispatch(m.meta.afterLeave, {
@@ -129,10 +112,43 @@ export async function maybeDispatchActions (datastore, to, from) {
       })
     }
   }
-  const results = await Promise.all(to.matched.map(m => m.meta.beforeEnter).filter(v => !!v).map(runBeforeEnter))
+
+  const runBeforeEnter = async (beforeEnter) => {
+    try {
+      await datastore.dispatch(beforeEnter, {
+        ...parseAsIntegers(to.params),
+        routeFrom: from,
+        routeTo: to,
+      })
+      return {}
+    }
+    catch (error) {
+      if (error.type === 'RouteRedirect') {
+        return { redirect: error.data }
+      }
+      else if (error.type === 'RouteError') {
+        return { routeError: error.data }
+      }
+      else {
+        // can't be handled here
+        return { error }
+      }
+    }
+  }
+  const results = await Promise.all(to.matched
+    .map(m => m.meta.beforeEnter)
+    .filter(v => !!v)
+    .map(runBeforeEnter))
+
   // show a warning for every error that occured
-  results.filter(r => r && r.error).forEach(r => console.warn('Error while loading the page:', r.error))
-  return results.find(r => r && r.redirect) || {}
+  results
+    .filter(r => r.error)
+    .forEach(r => console.warn('Error while loading the page:', r.error))
+
+  return {
+    redirects: results.map(r => r.redirect).filter(v => !!v),
+    routeErrors: results.map(r => r.routeError).filter(v => !!v),
+  }
 }
 
 export function parseAsIntegers (obj) {

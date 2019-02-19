@@ -2,12 +2,7 @@
   <div>
     <QCard class="no-shadow no-padding grey-border">
       <div class="generic-padding relative-position">
-        <div
-          v-show="!statistics"
-          style="width: 100%; text-align: center"
-        >
-          <QSpinnerDots :size="40"/>
-        </div>
+        <KSpinner v-show="!statistics" />
         <div
           v-if="statistics"
           class="infoChips row no-wrap"
@@ -58,10 +53,11 @@
 
 <script>
 import FeedbackList from '@/feedback/components/FeedbackList'
+import KSpinner from '@/utils/components/KSpinner'
+
 import {
   QCard,
   QChip,
-  QSpinnerDots,
 } from 'quasar'
 
 import {
@@ -72,9 +68,9 @@ import {
 export default {
   components: {
     FeedbackList,
+    KSpinner,
     QCard,
     QChip,
-    QSpinnerDots,
   },
   computed: {
     ...mapGetters({

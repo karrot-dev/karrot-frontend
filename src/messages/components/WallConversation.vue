@@ -53,12 +53,7 @@
             @openThread="$emit('openThread', message)"
           />
         </template>
-        <div
-          v-show="!data || data.fetchStatus.pending || data.fetchPastStatus.pending"
-          style="width: 100%; text-align: center"
-        >
-          <QSpinnerDots :size="40"/>
-        </div>
+        <KSpinner v-show="!data || data.fetchStatus.pending || data.fetchPastStatus.pending" />
       </QList>
     </QInfiniteScroll>
   </div>
@@ -68,10 +63,10 @@
 import ConversationMessage from './ConversationMessage'
 import ConversationCompose from './ConversationCompose'
 import NotificationToggle from './NotificationToggle'
+import KSpinner from '@/utils/components/KSpinner'
 import {
   QBtn,
   QInfiniteScroll,
-  QSpinnerDots,
   QList,
   QAlert,
 } from 'quasar'
@@ -82,9 +77,9 @@ export default {
     ConversationMessage,
     ConversationCompose,
     NotificationToggle,
+    KSpinner,
     QBtn,
     QInfiniteScroll,
-    QSpinnerDots,
     QList,
     QAlert,
   },

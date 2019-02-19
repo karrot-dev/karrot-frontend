@@ -1,11 +1,6 @@
 <template>
   <div>
-    <div
-      v-show="pending"
-      style="width: 100%; text-align: center"
-    >
-      <QSpinnerDots :size="40"/>
-    </div>
+    <KSpinner v-show="pending" />
     <PickupItem
       v-for="pickup in pickups"
       :key="pickup.id"
@@ -20,14 +15,12 @@
 
 <script>
 import PickupItem from './PickupItem'
-import {
-  QSpinnerDots,
-} from 'quasar'
+import KSpinner from '@/utils/components/KSpinner'
 
 export default {
   components: {
     PickupItem,
-    QSpinnerDots,
+    KSpinner,
   },
   props: {
     pickups: {

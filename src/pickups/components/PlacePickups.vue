@@ -42,12 +42,7 @@
             </QBtn>
           </a>
         </div>
-        <div
-          v-show="!place"
-          style="width: 100%; text-align: center"
-        >
-          <QSpinnerDots :size="40"/>
-        </div>
+        <KSpinner v-show="!place" />
         <template v-if="place">
           <Markdown
             v-if="place.description"
@@ -107,6 +102,7 @@ import KNotice from '@/utils/components/KNotice'
 import Markdown from '@/utils/components/Markdown'
 import StandardMap from '@/maps/components/StandardMap'
 import RandomArt from '@/utils/components/RandomArt'
+import KSpinner from '@/utils/components/KSpinner'
 
 import { placeMarker } from '@/maps/components/markers'
 import directions from '@/maps/directions'
@@ -120,20 +116,19 @@ import {
   QCard,
   QBtn,
   QTooltip,
-  QSpinnerDots,
 } from 'quasar'
 
 export default {
   components: {
     PickupList,
-    QCard,
-    QBtn,
-    QTooltip,
-    QSpinnerDots,
     KNotice,
     Markdown,
     StandardMap,
     RandomArt,
+    KSpinner,
+    QCard,
+    QBtn,
+    QTooltip,
   },
   methods: {
     ...mapActions({

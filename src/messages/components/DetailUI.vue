@@ -1,11 +1,6 @@
 <template>
   <div class="Detail">
-    <div
-      v-show="isPending"
-      class="full-width text-center generic-padding"
-    >
-      <QSpinnerDots :size="40" />
-    </div>
+    <KSpinner v-show="isPending" />
     <ChatConversation
       v-if="conversation"
       :conversation="conversationWithMaybeReversedMessages"
@@ -69,9 +64,9 @@
 import ChatConversation from '@/messages/components/ChatConversation'
 import Markdown from '@/utils/components/Markdown'
 import DateAsWords from '@/utils/components/DateAsWords'
+import KSpinner from '@/utils/components/KSpinner'
 
 import {
-  QSpinnerDots,
   QCollapsible,
   QList,
   QItem,
@@ -84,7 +79,7 @@ export default {
     ChatConversation,
     Markdown,
     DateAsWords,
-    QSpinnerDots,
+    KSpinner,
     QCollapsible,
     QList,
     QItem,

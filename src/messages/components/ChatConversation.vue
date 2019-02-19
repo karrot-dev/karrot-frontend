@@ -4,12 +4,10 @@
     ref="scroll"
   >
     <slot name="beforeChatMessages"/>
-    <div
+    <KSpinner
       v-show="fetchingPast"
-      class="full-width text-center generic-padding"
-    >
-      <QSpinnerDots :size="40" />
-    </div>
+      class="generic-padding"
+    />
     <QInfiniteScroll :handler="maybeFetchFuture">
       <QList
         no-border
@@ -49,12 +47,10 @@
           />
         </QItem>
       </QList>
-      <div
+      <KSpinner
         slot="message"
-        class="full-width text-center generic-padding"
-      >
-        <QSpinnerDots :size="40" />
-      </div>
+        class="generic-padding"
+      />
     </QInfiniteScroll>
     <slot name="afterChatMessages"/>
     <QScrollObservable @scroll="onScroll" />
@@ -64,10 +60,10 @@
 <script>
 import ConversationMessage from '@/messages/components/ConversationMessage'
 import ConversationCompose from '@/messages/components/ConversationCompose'
+import KSpinner from '@/utils/components/KSpinner'
 import {
   scroll,
   dom,
-  QSpinnerDots,
   QList,
   QItem,
   QItemSide,
@@ -87,7 +83,7 @@ export default {
   components: {
     ConversationMessage,
     ConversationCompose,
-    QSpinnerDots,
+    KSpinner,
     QList,
     QItem,
     QItemSide,

@@ -4,12 +4,7 @@
       v-if="feedbackPossible.length > 0"
       :feedback-possible="feedbackPossible"
     />
-    <div
-      v-show="isPending || (feedbackPossibleStatus && feedbackPossibleStatus.pending)"
-      style="width: 100%; text-align: center"
-    >
-      <QSpinnerDots :size="40"/>
-    </div>
+    <KSpinner v-show="isPending || (feedbackPossibleStatus && feedbackPossibleStatus.pending)" />
     <KNotice v-if="empty" >
       <template slot="icon">
         <i class="fas fa-balance-scale"/>
@@ -30,12 +25,7 @@
       >
         {{ $d(feedbackitem.createdAt, 'dateLongWithDayName') }}
       </FeedbackItem>
-      <div
-        slot="message"
-        style="width: 100%; text-align: center"
-      >
-        <QSpinnerDots :size="40"/>
-      </div>
+      <KSpinner slot="message" />
     </QInfiniteScroll>
   </div>
 </template>
@@ -44,14 +34,19 @@
 import FeedbackItem from './FeedbackItem'
 import statusMixin from '@/utils/mixins/statusMixin'
 import paginationMixin from '@/utils/mixins/paginationMixin'
-import { QSpinnerDots, QInfiniteScroll } from 'quasar'
+import { QInfiniteScroll } from 'quasar'
 import KNotice from '@/utils/components/KNotice'
+import KSpinner from '@/utils/components/KSpinner'
 import FeedbackNotice from '@/group/components/FeedbackNotice'
 
 export default {
   mixins: [statusMixin, paginationMixin],
   components: {
-    QSpinnerDots, QInfiniteScroll, FeedbackItem, KNotice, FeedbackNotice,
+    QInfiniteScroll,
+    FeedbackItem,
+    KNotice,
+    FeedbackNotice,
+    KSpinner,
   },
   props: {
     feedback: { required: true, type: Array },

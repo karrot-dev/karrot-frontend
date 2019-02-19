@@ -1,12 +1,7 @@
 <template>
   <div class="wrapper">
     <div class="notices">
-      <div
-        v-show="fetchingPickups || feedbackPossibleStatus.pending || applicationStatus.pending"
-        style="width: 100%; text-align: center"
-      >
-        <QSpinnerDots :size="40"/>
-      </div>
+      <KSpinner v-show="fetchingPickups || feedbackPossibleStatus.pending || applicationStatus.pending" />
       <div v-if="joinedPickups.length > 0">
         <JoinedPickups
           :pickups="joinedPickups"
@@ -52,12 +47,9 @@ import FeedbackNotice from '@/group/components/FeedbackNotice'
 import JoinedPickups from '@/group/components/JoinedPickups'
 import PendingApplications from '@/group/components/PendingApplications'
 import WallConversation from '@/messages/components/WallConversation'
+import KSpinner from '@/utils/components/KSpinner'
 
 import { mapGetters, mapActions } from 'vuex'
-
-import {
-  QSpinnerDots,
-} from 'quasar'
 
 export default {
   components: {
@@ -66,7 +58,7 @@ export default {
     WallConversation,
     FeedbackNotice,
     PendingApplications,
-    QSpinnerDots,
+    KSpinner,
   },
   computed: {
     ...mapGetters({

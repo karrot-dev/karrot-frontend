@@ -2559,7 +2559,7 @@ exports[`Storyshots GroupSettings show 1`] = `
 exports[`Storyshots History List Default 1`] = `
 <div class="q-infinite-scroll">
   <div class="q-infinite-scroll-content">
-    <div style="width:100%;text-align:center;display:none;"><svg fill="currentColor" width="40" height="40" viewBox="0 0 120 30" xmlns="http://www.w3.org/2000/svg" class="q-spinner">
+    <div class="full-width text-center generic-padding" style="display:none;"><svg fill="currentColor" width="40" height="40" viewBox="0 0 120 30" xmlns="http://www.w3.org/2000/svg" class="q-spinner">
         <circle cx="15" cy="15" r="15">
           <animate attributeName="r" from="15" to="15" begin="0s" dur="0.8s" values="15;9;15" calcMode="linear" repeatCount="indefinite"></animate>
           <animate attributeName="fill-opacity" from="1" to="1" begin="0s" dur="0.8s" values="1;.5;1" calcMode="linear" repeatCount="indefinite"></animate>
@@ -4130,7 +4130,7 @@ exports[`Storyshots PickupItem pending 1`] = `
 
 exports[`Storyshots PickupList Default 1`] = `
 <div>
-  <div style="width:100%;text-align:center;display:none;"><svg fill="currentColor" width="40" height="40" viewBox="0 0 120 30" xmlns="http://www.w3.org/2000/svg" class="q-spinner">
+  <div class="full-width text-center generic-padding" style="display:none;"><svg fill="currentColor" width="40" height="40" viewBox="0 0 120 30" xmlns="http://www.w3.org/2000/svg" class="q-spinner">
       <circle cx="15" cy="15" r="15">
         <animate attributeName="r" from="15" to="15" begin="0s" dur="0.8s" values="15;9;15" calcMode="linear" repeatCount="indefinite"></animate>
         <animate attributeName="fill-opacity" from="1" to="1" begin="0s" dur="0.8s" values="1;.5;1" calcMode="linear" repeatCount="indefinite"></animate>
@@ -6156,7 +6156,7 @@ exports[`Storyshots Statistics FeedbackItem 1`] = `
 exports[`Storyshots Statistics FeedbackList 1`] = `
 <div class="k-feedback-list">
   <!---->
-  <div style="width:100%;text-align:center;display:none;"><svg fill="currentColor" width="40" height="40" viewBox="0 0 120 30" xmlns="http://www.w3.org/2000/svg" class="q-spinner">
+  <div class="full-width text-center generic-padding" style="display:none;"><svg fill="currentColor" width="40" height="40" viewBox="0 0 120 30" xmlns="http://www.w3.org/2000/svg" class="q-spinner">
       <circle cx="15" cy="15" r="15">
         <animate attributeName="r" from="15" to="15" begin="0s" dur="0.8s" values="15;9;15" calcMode="linear" repeatCount="indefinite"></animate>
         <animate attributeName="fill-opacity" from="1" to="1" begin="0s" dur="0.8s" values="1;.5;1" calcMode="linear" repeatCount="indefinite"></animate>
@@ -6443,7 +6443,7 @@ exports[`Storyshots Statistics PickupFeedback 1`] = `
     <h4 class="generic-padding"></h4>
     <div class="k-feedback-list">
       <!---->
-      <div style="width:100%;text-align:center;display:none;"><svg fill="currentColor" width="40" height="40" viewBox="0 0 120 30" xmlns="http://www.w3.org/2000/svg" class="q-spinner">
+      <div class="full-width text-center generic-padding" style="display:none;"><svg fill="currentColor" width="40" height="40" viewBox="0 0 120 30" xmlns="http://www.w3.org/2000/svg" class="q-spinner">
           <circle cx="15" cy="15" r="15">
             <animate attributeName="r" from="15" to="15" begin="0s" dur="0.8s" values="15;9;15" calcMode="linear" repeatCount="indefinite"></animate>
             <animate attributeName="fill-opacity" from="1" to="1" begin="0s" dur="0.8s" values="1;.5;1" calcMode="linear" repeatCount="indefinite"></animate>
@@ -7092,7 +7092,20 @@ exports[`Storyshots User Profile Trust Button - one other trust 1`] = `
 
 exports[`Storyshots VerifyMail error 1`] = `
 <div>
-  <!---->
+  <div class="full-width text-center generic-padding" style="display:none;"><svg fill="currentColor" width="40" height="40" viewBox="0 0 120 30" xmlns="http://www.w3.org/2000/svg" class="q-spinner">
+      <circle cx="15" cy="15" r="15">
+        <animate attributeName="r" from="15" to="15" begin="0s" dur="0.8s" values="15;9;15" calcMode="linear" repeatCount="indefinite"></animate>
+        <animate attributeName="fill-opacity" from="1" to="1" begin="0s" dur="0.8s" values="1;.5;1" calcMode="linear" repeatCount="indefinite"></animate>
+      </circle>
+      <circle cx="60" cy="15" r="9" fill-opacity=".3">
+        <animate attributeName="r" from="9" to="9" begin="0s" dur="0.8s" values="9;15;9" calcMode="linear" repeatCount="indefinite"></animate>
+        <animate attributeName="fill-opacity" from=".5" to=".5" begin="0s" dur="0.8s" values=".5;1;.5" calcMode="linear" repeatCount="indefinite"></animate>
+      </circle>
+      <circle cx="105" cy="15" r="15">
+        <animate attributeName="r" from="15" to="15" begin="0s" dur="0.8s" values="15;9;15" calcMode="linear" repeatCount="indefinite"></animate>
+        <animate attributeName="fill-opacity" from="1" to="1" begin="0s" dur="0.8s" values="1;.5;1" calcMode="linear" repeatCount="indefinite"></animate>
+      </circle>
+    </svg></div>
   <!---->
   <p><i class="fas fa-exclamation-triangle"></i>
     this error is returned by the server
@@ -7104,19 +7117,45 @@ exports[`Storyshots VerifyMail error 1`] = `
 `;
 
 exports[`Storyshots VerifyMail pending 1`] = `
-<div><svg width="1em" height="1em" viewBox="25 25 50 50" class="q-spinner q-spinner-mat">
-    <circle cx="50" cy="50" r="20" fill="none" stroke="currentColor" stroke-width="3" stroke-miterlimit="10" class="path"></circle>
-  </svg>
+<div>
+  <div class="full-width text-center generic-padding"><svg fill="currentColor" width="40" height="40" viewBox="0 0 120 30" xmlns="http://www.w3.org/2000/svg" class="q-spinner">
+      <circle cx="15" cy="15" r="15">
+        <animate attributeName="r" from="15" to="15" begin="0s" dur="0.8s" values="15;9;15" calcMode="linear" repeatCount="indefinite"></animate>
+        <animate attributeName="fill-opacity" from="1" to="1" begin="0s" dur="0.8s" values="1;.5;1" calcMode="linear" repeatCount="indefinite"></animate>
+      </circle>
+      <circle cx="60" cy="15" r="9" fill-opacity=".3">
+        <animate attributeName="r" from="9" to="9" begin="0s" dur="0.8s" values="9;15;9" calcMode="linear" repeatCount="indefinite"></animate>
+        <animate attributeName="fill-opacity" from=".5" to=".5" begin="0s" dur="0.8s" values=".5;1;.5" calcMode="linear" repeatCount="indefinite"></animate>
+      </circle>
+      <circle cx="105" cy="15" r="15">
+        <animate attributeName="r" from="15" to="15" begin="0s" dur="0.8s" values="15;9;15" calcMode="linear" repeatCount="indefinite"></animate>
+        <animate attributeName="fill-opacity" from="1" to="1" begin="0s" dur="0.8s" values="1;.5;1" calcMode="linear" repeatCount="indefinite"></animate>
+      </circle>
+    </svg></div>
   <!---->
   <!----> <a><button tabindex="0" type="button" class="q-btn inline relative-position q-btn-item non-selectable q-btn-rectangle q-btn-push q-focusable q-hoverable bg-secondary text-white">
       <div class="q-focus-helper"></div>
       <div class="q-btn-inner row col items-center q-popup--skip justify-center"><i aria-hidden="true" class="q-icon on-right fas fa-home"> </i></div>
-    </button></a></div>
+    </button></a>
+</div>
 `;
 
 exports[`Storyshots VerifyMail success 1`] = `
 <div>
-  <!---->
+  <div class="full-width text-center generic-padding" style="display:none;"><svg fill="currentColor" width="40" height="40" viewBox="0 0 120 30" xmlns="http://www.w3.org/2000/svg" class="q-spinner">
+      <circle cx="15" cy="15" r="15">
+        <animate attributeName="r" from="15" to="15" begin="0s" dur="0.8s" values="15;9;15" calcMode="linear" repeatCount="indefinite"></animate>
+        <animate attributeName="fill-opacity" from="1" to="1" begin="0s" dur="0.8s" values="1;.5;1" calcMode="linear" repeatCount="indefinite"></animate>
+      </circle>
+      <circle cx="60" cy="15" r="9" fill-opacity=".3">
+        <animate attributeName="r" from="9" to="9" begin="0s" dur="0.8s" values="9;15;9" calcMode="linear" repeatCount="indefinite"></animate>
+        <animate attributeName="fill-opacity" from=".5" to=".5" begin="0s" dur="0.8s" values=".5;1;.5" calcMode="linear" repeatCount="indefinite"></animate>
+      </circle>
+      <circle cx="105" cy="15" r="15">
+        <animate attributeName="r" from="15" to="15" begin="0s" dur="0.8s" values="15;9;15" calcMode="linear" repeatCount="indefinite"></animate>
+        <animate attributeName="fill-opacity" from="1" to="1" begin="0s" dur="0.8s" values="1;.5;1" calcMode="linear" repeatCount="indefinite"></animate>
+      </circle>
+    </svg></div>
   <p>
     Your e-mail address was successfully verified!
   </p>
@@ -7609,7 +7648,7 @@ exports[`Storyshots WallConversation WallConversation 1`] = `
   <!---->
 </div>
 </div>
-<div style="width:100%;text-align:center;display:none;"><svg fill="currentColor" width="40" height="40" viewBox="0 0 120 30" xmlns="http://www.w3.org/2000/svg" class="q-spinner">
+<div class="full-width text-center generic-padding" style="display:none;"><svg fill="currentColor" width="40" height="40" viewBox="0 0 120 30" xmlns="http://www.w3.org/2000/svg" class="q-spinner">
     <circle cx="15" cy="15" r="15">
       <animate attributeName="r" from="15" to="15" begin="0s" dur="0.8s" values="15;9;15" calcMode="linear" repeatCount="indefinite"></animate>
       <animate attributeName="fill-opacity" from="1" to="1" begin="0s" dur="0.8s" values="1;.5;1" calcMode="linear" repeatCount="indefinite"></animate>

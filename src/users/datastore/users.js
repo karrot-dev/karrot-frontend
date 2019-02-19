@@ -60,7 +60,7 @@ export default {
       }
     },
     activeUserId: state => state.activeUserProfile && state.activeUserProfile.id,
-    ...metaStatuses(['signup', 'requestResetPassword', 'resetPassword', 'resendVerificationCode', 'requestDeleteAccount']),
+    ...metaStatuses(['signup', 'requestResetPassword', 'resetPassword', 'resendVerificationCode', 'requestDeleteAccount', 'fetch']),
     resetPasswordSuccess: state => state.resetPasswordSuccess,
     resendVerificationCodeSuccess: state => state.resendVerificationCodeSuccess,
   },

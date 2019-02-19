@@ -3,11 +3,8 @@
     :class="inline && 'absolute-full scroll'"
     ref="scroll"
   >
-    <slot name="beforeChatMessages"/>
-    <KSpinner
-      v-show="fetchingPast"
-      class="generic-padding"
-    />
+    <slot name="beforeChatMessages" />
+    <KSpinner v-show="fetchingPast" />
     <QInfiniteScroll :handler="maybeFetchFuture">
       <QList
         no-border
@@ -47,10 +44,7 @@
           />
         </QItem>
       </QList>
-      <KSpinner
-        slot="message"
-        class="generic-padding"
-      />
+      <KSpinner slot="message" />
     </QInfiniteScroll>
     <slot name="afterChatMessages"/>
     <QScrollObservable @scroll="onScroll" />

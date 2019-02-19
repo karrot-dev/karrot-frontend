@@ -6,7 +6,6 @@
         type="banner"
       />
       <div class="generic-padding">
-
         <div
           v-if="place"
           class="actionButtons"

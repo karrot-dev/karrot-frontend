@@ -70,10 +70,7 @@
           </QBtn>
         </div>
       </div>
-      <KSpinner
-        v-show="isPending"
-        class="generic-padding"
-      />
+      <KSpinner v-show="isPending" />
       <GroupGalleryCard
         v-if="showPlaygroundGroupAtTop"
         style="width: 100%"

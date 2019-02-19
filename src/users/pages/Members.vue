@@ -32,6 +32,7 @@
         </RouterLink>
       </div>
     </div>
+    <KSpinner v-show="fetchStatus.pending" />
     <UserList
       class="q-pt-md"
       :users="users"
@@ -46,6 +47,7 @@
 import { QCard, QBtn, QTooltip } from 'quasar'
 import UserList from '@/users/components/UserList'
 import RandomArt from '@/utils/components/RandomArt'
+import KSpinner from '@/utils/components/KSpinner'
 
 import {
   mapGetters,
@@ -53,7 +55,14 @@ import {
 } from 'vuex'
 
 export default {
-  components: { RandomArt, UserList, QCard, QBtn, QTooltip },
+  components: {
+    RandomArt,
+    UserList,
+    KSpinner,
+    QCard,
+    QBtn,
+    QTooltip,
+  },
   data () {
     return {
       sorting: 'joinDate',
@@ -77,6 +86,7 @@ export default {
       users: 'users/byCurrentGroup',
       group: 'currentGroup/value',
       isEditor: 'currentGroup/isEditor',
+      fetchStatus: 'users/fetchStatus',
     }),
     groupId () {
       return this.group && this.group.id

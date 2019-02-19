@@ -1,6 +1,6 @@
 <template>
   <div>
-    <QSpinner v-if="isPending" />
+    <KSpinner v-show="isPending" />
     <p v-if="success">
       {{ $t('DELETEACCOUNT.SUCCESS') }}
     </p>
@@ -30,11 +30,15 @@
 </template>
 
 <script>
-import { QSpinner, QBtn } from 'quasar'
+import { QBtn } from 'quasar'
 import statusMixin from '@/utils/mixins/statusMixin'
+import KSpinner from '@/utils/components/KSpinner'
 
 export default {
-  components: { QSpinner, QBtn },
+  components: {
+    QBtn,
+    KSpinner,
+  },
   mixins: [statusMixin],
   props: {
     success: { required: true, type: Boolean },

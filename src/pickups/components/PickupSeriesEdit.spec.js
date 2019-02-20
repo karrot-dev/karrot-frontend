@@ -50,7 +50,7 @@ describe('PickupSeriesEdit', () => {
     expect(wrapper.vm.edit).toEqual(series)
   })
 
-  it.only('does not let you remove all days', async () => {
+  it('does not let you remove all days', async () => {
     wrapper.vm.byDay = []
     await Vue.nextTick()
     expect(wrapper.vm.edit.rule.byDay).toEqual(series.rule.byDay)

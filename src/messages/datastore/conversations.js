@@ -71,6 +71,7 @@ function initialState () {
     entries: {},
     messages: {}, // { <conversation-id> : [<message>,...] }
     cursors: {}, // { <conversation-id> : [<cursor>, ...]}
+    drafts: {}, // { <conversation-id> : draft text }
   }
 }
 
@@ -86,6 +87,7 @@ export default {
       return {
         ...conversation,
         messages,
+        draft: state.drafts[conversationId] || '',
         canFetchPast,
         ...metaStatusesWithId(getters, ['send', 'fetch', 'fetchPast', 'mark'], conversationId),
       }
@@ -470,6 +472,9 @@ export default {
     },
     setConversation (state, conversation) {
       Vue.set(state.entries, conversation.id, conversation)
+    },
+    saveDraft (state, { conversationId, value }) {
+      Vue.set(state.drafts, conversationId, value)
     },
     addReaction (state, { userId, name, messageId, conversationId }) {
       if (!state.messages[conversationId]) return

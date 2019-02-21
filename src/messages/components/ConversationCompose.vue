@@ -15,18 +15,19 @@
         >
           <Component
             :is="slim ? 'div' : 'MarkdownInput'"
-            :value="message"
+            :value="value"
           >
             <QInput
               ref="input"
               type="textarea"
               rows="1"
               :autofocus="autofocus"
-              v-model="message"
               :placeholder="placeholder"
               :after="afterInput"
               :loading="isPending"
               :disable="isPending"
+              :value="value"
+              @input="$emit('input', arguments[0])"
               @keyup.ctrl.enter="submit"
               @keyup.esc="leaveEdit"
               @focus="onFocus"
@@ -83,16 +84,12 @@ export default {
   },
   data () {
     return {
-      message: (this.value) || '',
       hasFocus: false,
     }
   },
   watch: {
-    value (val) {
-      if (val) this.message = val.content
-    },
     isPending (val) {
-      if (!val && !this.hasAnyError) this.message = ''
+      if (!val && !this.hasAnyError) this.$emit('input', '')
     },
     '$keyboard.is.open' (val) {
       // if mobile keyboard opens, try to keep q-input on screen
@@ -105,7 +102,7 @@ export default {
   },
   methods: {
     submit () {
-      this.$emit('submit', this.message)
+      this.$emit('submit', this.value)
     },
     leaveEdit () {
       this.$emit('leaveEdit')

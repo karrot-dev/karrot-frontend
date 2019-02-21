@@ -31,6 +31,7 @@ const User = () => import('@/users/pages/Profile')
 const PickupFeedback = () => import('@/feedback/pages/GiveFeedback')
 const Detail = () => import('@/messages/components/Detail')
 const DetailHeader = () => import('@/messages/components/DetailHeader')
+const DetailFooter = () => import('@/messages/components/DetailFooter')
 const IssueTabs = () => import('@/issues/pages/IssueTabs')
 const IssueList = () => import('@/issues/pages/IssueList')
 
@@ -278,6 +279,7 @@ export default [
         components: {
           default: Detail,
           subheader: DetailHeader,
+          footer: DetailFooter,
         },
       },
       {
@@ -358,6 +360,7 @@ export default [
             components: {
               default: Detail,
               subheader: DetailHeader,
+              footer: DetailFooter,
             },
           },
           {
@@ -446,6 +449,7 @@ export default [
     components: {
       default: Detail,
       subheader: DetailHeader,
+      footer: DetailFooter,
       sidenav: Sidenav,
     },
   },
@@ -495,6 +499,7 @@ export default [
     components: {
       default: Detail,
       subheader: DetailHeader,
+      footer: DetailFooter,
       sidenav: Sidenav,
     },
   },

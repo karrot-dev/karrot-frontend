@@ -1,32 +1,33 @@
 <template>
-  <div class="bg-white">
-    <QList no-border>
-      <IssueItem
-        v-for="i in ongoingIssues"
-        :key="i.id"
-        :issue="i"
-        @open="open"
-      />
-      <QItemSeparator />
-      <QCollapsible
-        v-if="pastIssues.length > 0"
-        icon="fas fa-archive"
-        :label="$t('ISSUE.PAST')"
-        :sublabel="othersSublabel"
-        @show="showOthers = true"
-        @hide="showOthers = false"
-      >
-        <template v-if="showOthers">
-          <IssueItem
-            v-for="i in pastIssues"
-            :key="i.id"
-            :issue="i"
-            @open="open"
-          />
-        </template>
-      </QCollapsible>
-    </QList>
-  </div>
+  <QList
+    no-border
+    class="bg-white"
+  >
+    <IssueItem
+      v-for="i in ongoingIssues"
+      :key="i.id"
+      :issue="i"
+      @open="open"
+    />
+    <QItemSeparator />
+    <QCollapsible
+      v-if="pastIssues.length > 0"
+      icon="fas fa-archive"
+      :label="$t('ISSUE.PAST')"
+      :sublabel="othersSublabel"
+      @show="showOthers = true"
+      @hide="showOthers = false"
+    >
+      <template v-if="showOthers">
+        <IssueItem
+          v-for="i in pastIssues"
+          :key="i.id"
+          :issue="i"
+          @open="open"
+        />
+      </template>
+    </QCollapsible>
+  </QList>
 </template>
 
 <script>

@@ -39,7 +39,15 @@
             </div>
           </div>
           <div class="q-ma-sm q-pa-sm bg-white">
-            <span class="text-bold text-secondary uppercase">{{ issue.createdBy.displayName }}</span>
+            <span class="text-bold text-secondary uppercase">
+              <RouterLink
+                place="userName"
+                @click.native.stop
+                :to="{name: 'user', params: { userId: issue.createdBy.id }}"
+              >
+                {{ issue.createdBy.displayName }}
+              </RouterLink>
+            </span>
             <span class="message-date">
               <small class="text-weight-light">
                 <DateAsWords :date="issue.createdAt" />

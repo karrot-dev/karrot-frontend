@@ -80,7 +80,6 @@ import {
 import distanceInWordsStrict from 'date-fns/distance_in_words_strict'
 import differenceInHours from 'date-fns/difference_in_hours'
 import cloneDeep from 'clone-deep'
-// import { objectDiff } from '@/utils/utils'
 import reactiveNow from '@/utils/reactiveNow'
 
 export default {
@@ -109,10 +108,6 @@ export default {
     options: {
       immediate: true,
       handler (current, previous) {
-        /*
-        const changes = (current && previous) ? objectDiff(previous, current) : {}
-        this.edit = cloneDeep({ ...this.edit, ...changes })
-        */
         this.edit = cloneDeep(current)
       },
     },

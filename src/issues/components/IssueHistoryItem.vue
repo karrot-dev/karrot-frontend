@@ -2,7 +2,7 @@
   <div>
     <QItem
       multiline
-      class="clickable"
+      link
       :class="{'greyed': detailIsShown}"
       @click.native="toggleDetail"
     >

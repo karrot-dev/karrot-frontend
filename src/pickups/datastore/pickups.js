@@ -66,16 +66,18 @@ export default {
     feedbackPossibleByActivePlace: (state, getters) =>
       getters.feedbackPossibleByCurrentGroup
         .filter(({ place }) => place && place.isActivePlace),
-    ...metaStatuses(['create']),
+    ...metaStatuses(['create', 'fetchFeedbackPossible']),
+    fetchingForCurrentGroup: (state, getters, rootState, rootGetters) => {
+      const currentGroupId = rootState.currentGroup.id
+      if (!currentGroupId) return false
+      const status = getters['meta/status']('fetchListByGroupId', `group/${currentGroupId}`)
+      return status.pending
+    },
   },
   actions: {
     ...withMeta({
       async fetch ({ commit }, pickupId) {
         commit('update', [await pickups.get(pickupId)])
-      },
-      async fetchList ({ commit }) {
-        // TODO implement pagination
-        commit('update', (await pickups.list()).results)
       },
       async join ({ commit, dispatch, rootGetters }, pickupId) {
         try {
@@ -108,9 +110,13 @@ export default {
         await pickups.delete(id)
         dispatch('refresh')
       },
+    }),
+    ...withMeta({
       async fetchFeedbackPossible ({ commit }, groupId) {
         commit('update', (await pickups.listFeedbackPossible(groupId)).results)
       },
+    }, {
+      findId: () => null,
     }),
 
     ...withPrefixedIdMeta('group/', {

@@ -3,9 +3,10 @@
     :is="asPage ? 'QCard' : 'div'"
     class="bg-white"
   >
+    <KSpinner v-show="fetching" />
     <QList no-border>
       <QItem
-        v-if="notifications.length === 0"
+        v-if="!fetching && notifications.length === 0"
       >
         {{ $t('NOTIFICATION_BELLS_LIST.NO_ITEMS') }}
       </QItem>
@@ -56,6 +57,7 @@ import {
 } from 'quasar'
 import { mapGetters, mapActions, mapMutations } from 'vuex'
 import NotificationItem from './NotificationItem'
+import KSpinner from '@/utils/components/KSpinner'
 
 export default {
   components: {
@@ -66,6 +68,7 @@ export default {
     QItem,
     QBtn,
     NotificationItem,
+    KSpinner,
   },
   props: {
     asPage: {
@@ -80,6 +83,7 @@ export default {
   computed: {
     ...mapGetters({
       notifications: 'notifications/current',
+      fetching: 'notifications/fetching',
       canFetchPast: 'notifications/canFetchPast',
       fetchingPast: 'notifications/fetchingPast',
     }),

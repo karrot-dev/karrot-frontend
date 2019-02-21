@@ -276,7 +276,8 @@ export default [
         component: PlaceCreate,
       },
       {
-        redirect: '/group/:groupId/place/:placeId/wall',
+        name: 'place',
+        redirect: 'place/:placeId/wall',
         path: 'place/:placeId',
         meta: {
           breadcrumbs: [
@@ -294,11 +295,6 @@ export default [
           }) },
         },
         children: [
-          {
-            name: 'place',
-            path: '',
-            redirect: 'wall',
-          },
           {
             name: 'placeWall',
             path: 'wall',
@@ -349,7 +345,7 @@ export default [
               breadcrumbs: [
                 { translation: 'PICKUP_FEEDBACK.TITLE', route: { name: 'placeFeedback' } },
               ],
-              beforeEnter: 'feedback/fetch',
+              beforeEnter: 'places/beforeEnterFeedback',
               afterLeave: 'feedback/clear',
             },
             component: PlaceFeedback,

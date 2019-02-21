@@ -7,9 +7,8 @@
       @createTrust="createTrust"
       @selectGroup="selectGroup"
     />
-    <QCard
-      v-if="history.length > 0"
-    >
+    <KSpinner v-show="historyStatus.pending" />
+    <QCard v-if="history.length > 0">
       <QCardTitle>
         {{ $t('GROUP.HISTORY') }}
       </QCardTitle>
@@ -24,15 +23,28 @@
 import { mapGetters, mapActions } from 'vuex'
 import Profile from '@/users/components/ProfileUI'
 import HistoryContainer from '@/history/pages/HistoryContainer'
-import { QCard, QCardTitle, QCardMain } from 'quasar'
+import KSpinner from '@/utils/components/KSpinner'
+import {
+  QCard,
+  QCardTitle,
+  QCardMain,
+} from 'quasar'
 
 export default {
-  components: { QCard, QCardTitle, QCardMain, HistoryContainer, Profile },
+  components: {
+    Profile,
+    HistoryContainer,
+    KSpinner,
+    QCard,
+    QCardTitle,
+    QCardMain,
+  },
   computed: {
     ...mapGetters({
       user: 'users/activeUser',
       currentGroup: 'currentGroup/value',
       history: 'history/byCurrentGroupAndUser',
+      historyStatus: 'history/fetchStatus',
     }),
   },
   methods: {

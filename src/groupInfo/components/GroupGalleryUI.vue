@@ -70,12 +70,7 @@
           </QBtn>
         </div>
       </div>
-      <div
-        v-if="isPending"
-        class="full-width text-center generic-padding"
-      >
-        <QSpinnerDots :size="40" />
-      </div>
+      <KSpinner v-show="isPending" />
       <GroupGalleryCard
         v-if="showPlaygroundGroupAtTop"
         style="width: 100%"
@@ -129,6 +124,8 @@
 import GroupGalleryMap from './GroupGalleryMap'
 import GroupGalleryCards from './GroupGalleryCards'
 import GroupGalleryCard from './GroupGalleryCard'
+import KSpinner from '@/utils/components/KSpinner'
+
 import {
   QBtn,
   QTooltip,
@@ -136,7 +133,6 @@ import {
   QSearch,
   QCard,
   QCheckbox,
-  QSpinnerDots,
 } from 'quasar'
 
 export default {
@@ -144,13 +140,13 @@ export default {
     GroupGalleryMap,
     GroupGalleryCards,
     GroupGalleryCard,
+    KSpinner,
     QBtn,
     QTooltip,
     QAlert,
     QSearch,
     QCard,
     QCheckbox,
-    QSpinnerDots,
   },
   props: {
     myGroups: {

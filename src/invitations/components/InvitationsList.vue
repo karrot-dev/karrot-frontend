@@ -1,9 +1,6 @@
 <template>
   <div>
-    <QSpinnerDots
-      v-if="isPending"
-      size="40"
-    />
+    <KSpinner v-if="isPending" />
     <template v-else>
       <QList
         v-if="invitations.length > 0"
@@ -37,13 +34,31 @@
 </template>
 
 <script>
-import { QSpinnerDots, QList, QItem, QItemSide, QItemMain, QItemTile, QListHeader } from 'quasar'
+import {
+  QList,
+  QItem,
+  QItemSide,
+  QItemMain,
+  QItemTile,
+  QListHeader,
+} from 'quasar'
 import statusMixin from '@/utils/mixins/statusMixin'
 import ProfilePicture from '@/users/components/ProfilePicture'
 import DateAsWords from '@/utils/components/DateAsWords'
+import KSpinner from '@/utils/components/KSpinner'
 
 export default {
-  components: { QSpinnerDots, QList, QItem, QItemSide, QItemMain, QItemTile, QListHeader, ProfilePicture, DateAsWords },
+  components: {
+    QList,
+    QItem,
+    QItemSide,
+    QItemMain,
+    QItemTile,
+    QListHeader,
+    ProfilePicture,
+    DateAsWords,
+    KSpinner,
+  },
   mixins: [statusMixin],
   props: {
     invitations: {
@@ -53,6 +68,3 @@ export default {
   },
 }
 </script>
-
-<style scoped lang="stylus">
-</style>

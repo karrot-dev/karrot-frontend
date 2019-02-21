@@ -1,6 +1,6 @@
 <template>
   <SidenavBox
-    v-if="placeId"
+    v-if="place"
     @toggle="$emit('toggleBox')"
     :expanded="$q.platform.is.mobile || expanded"
     :expandable="!$q.platform.is.mobile"
@@ -9,7 +9,7 @@
       <QIcon name="fas fa-fw fa-shopping-cart" />
     </template>
     <template slot="name">
-      {{ $t('GROUP.CURRENT_STORE') }}
+      {{ place.name }}
     </template>
     <div
       slot="tools"
@@ -101,9 +101,9 @@ import PlaceOptions from './PlaceOptions'
 
 export default {
   props: {
-    placeId: {
+    place: {
       default: null,
-      type: Number,
+      type: Object,
     },
     expanded: {
       default: true,
@@ -133,9 +133,9 @@ export default {
     cappedWallUnreadCount () {
       return this.wallUnreadCount > 99 ? '99+' : this.wallUnreadCount
     },
+    placeId () {
+      return this.place && this.place.id
+    },
   },
 }
 </script>
-
-<style scoped lang="stylus">
-</style>

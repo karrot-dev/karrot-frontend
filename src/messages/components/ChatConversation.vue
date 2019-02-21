@@ -3,13 +3,8 @@
     :class="inline && 'absolute-full scroll'"
     ref="scroll"
   >
-    <slot name="beforeChatMessages"/>
-    <div
-      v-if="fetchingPast"
-      class="full-width text-center generic-padding"
-    >
-      <QSpinnerDots :size="40" />
-    </div>
+    <slot name="beforeChatMessages" />
+    <KSpinner v-show="fetchingPast" />
     <QInfiniteScroll :handler="maybeFetchFuture">
       <QList
         no-border
@@ -49,12 +44,7 @@
           />
         </QItem>
       </QList>
-      <div
-        slot="message"
-        class="full-width text-center generic-padding"
-      >
-        <QSpinnerDots :size="40" />
-      </div>
+      <KSpinner slot="message" />
     </QInfiniteScroll>
     <slot name="afterChatMessages"/>
     <QScrollObservable @scroll="onScroll" />
@@ -64,10 +54,10 @@
 <script>
 import ConversationMessage from '@/messages/components/ConversationMessage'
 import ConversationCompose from '@/messages/components/ConversationCompose'
+import KSpinner from '@/utils/components/KSpinner'
 import {
   scroll,
   dom,
-  QSpinnerDots,
   QList,
   QItem,
   QItemSide,
@@ -87,7 +77,7 @@ export default {
   components: {
     ConversationMessage,
     ConversationCompose,
-    QSpinnerDots,
+    KSpinner,
     QList,
     QItem,
     QItemSide,

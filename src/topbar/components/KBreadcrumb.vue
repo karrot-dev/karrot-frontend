@@ -1,5 +1,8 @@
 <template>
   <div class="wrapper">
+    <div v-if="!hasBreadcrumbs">
+      ...
+    </div>
     <div
       class="prevBread gt-xs"
       v-for="breadcrumb in prevElements"
@@ -67,6 +70,9 @@ export default {
     },
   },
   computed: {
+    hasBreadcrumbs () {
+      return this.breadcrumbs && this.breadcrumbs.length > 0
+    },
     prevElements () {
       return this.breadcrumbs.slice(0, this.breadcrumbs.length - 1)
     },

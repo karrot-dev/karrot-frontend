@@ -1,13 +1,15 @@
 <template>
-  <div v-if="place">
+  <div>
     <QCard class="no-shadow no-padding grey-border">
       <RandomArt
         :seed="placeId"
         type="banner"
       />
       <div class="generic-padding">
-
-        <div class="actionButtons">
+        <div
+          v-if="place"
+          class="actionButtons"
+        >
           <RouterLink
             v-if="isEditor"
             :to="{name: 'placePickupsManage', params: { placeId }}"
@@ -39,27 +41,24 @@
             </QBtn>
           </a>
         </div>
-        <Markdown
-          v-if="place.description"
-          :source="place.description"
-        />
-        <i v-else>
-          {{ $t("STOREDETAIL.NO_DESCRIPTION") }}
-        </i>
-        <StandardMap
-          v-if="$q.platform.is.mobile"
-          :markers="markers"
-          class="map"
-        />
+        <KSpinner v-show="!place" />
+        <template v-if="place">
+          <Markdown
+            v-if="place.description"
+            :source="place.description"
+          />
+          <i v-else>
+            {{ $t("STOREDETAIL.NO_DESCRIPTION") }}
+          </i>
+          <StandardMap
+            v-if="$q.platform.is.mobile"
+            :markers="markers"
+            class="map"
+          />
+        </template>
       </div>
     </QCard>
 
-    <PickupList
-      :pickups="pickups"
-      @join="join"
-      @leave="leave"
-      @detail="detail"
-    />
     <KNotice v-if="isInactive">
       <template slot="icon">
         <i class="far fa-handshake"/>
@@ -86,6 +85,13 @@
         {{ $t('PICKUPLIST.STORE_NONE_HINT') }}
       </RouterLink>
     </KNotice>
+    <PickupList
+      :pending="fetchPending"
+      :pickups="pickups"
+      @join="join"
+      @leave="leave"
+      @detail="detail"
+    />
   </div>
 </template>
 
@@ -95,6 +101,7 @@ import KNotice from '@/utils/components/KNotice'
 import Markdown from '@/utils/components/Markdown'
 import StandardMap from '@/maps/components/StandardMap'
 import RandomArt from '@/utils/components/RandomArt'
+import KSpinner from '@/utils/components/KSpinner'
 
 import { placeMarker } from '@/maps/components/markers'
 import directions from '@/maps/directions'
@@ -113,13 +120,14 @@ import {
 export default {
   components: {
     PickupList,
-    QCard,
-    QBtn,
-    QTooltip,
     KNotice,
     Markdown,
     StandardMap,
     RandomArt,
+    KSpinner,
+    QCard,
+    QBtn,
+    QTooltip,
   },
   methods: {
     ...mapActions({
@@ -133,12 +141,15 @@ export default {
       return this.place ? [placeMarker(this.place)] : []
     },
     ...mapGetters({
+      placeId: 'places/activePlaceId',
       place: 'places/activePlace',
       pickups: 'pickups/byActivePlace',
       currentUser: 'auth/user',
+      fetchPending: 'pickups/fetchingForCurrentGroup',
       isEditor: 'currentGroup/isEditor',
     }),
     hasNoPickups () {
+      if (this.fetchPending) return false
       return this.pickups && this.pickups.length === 0
     },
     isInactive () {
@@ -153,9 +164,6 @@ export default {
         return directions.google(this.place)
       }
       return directions.osm(this.currentUser, this.place)
-    },
-    placeId () {
-      return this.place && this.place.id
     },
   },
 }

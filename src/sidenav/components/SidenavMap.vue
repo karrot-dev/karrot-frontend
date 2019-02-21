@@ -11,6 +11,7 @@ export default connect({
     selectedPlace: 'places/activePlace',
     selectedUser: 'users/activeUser',
     currentGroup: 'currentGroup/value',
+    isEditor: 'currentGroup/isEditor',
   },
   actionsToEvents: {
     togglePlaces: 'sidenavBoxes/toggle/placesOnMap',

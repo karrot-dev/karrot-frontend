@@ -91,32 +91,36 @@ export default {
     }),
     ...withMeta({
       async selectPlace ({ commit, dispatch, getters }, { placeId }) {
-        if (getters.activePlaceId === placeId) return
         if (!getters.get(placeId)) {
+          let place
           try {
-            const place = await places.get(placeId)
-            commit('update', [place])
+            place = await places.get(placeId)
           }
           catch (error) {
             throw createRouteError()
           }
+          commit('update', [place])
         }
-        const getStatistics = places.statistics(placeId)
         dispatch('sidenavBoxes/toggle/group', false, { root: true })
-        commit('select', placeId)
-        commit('setStatistics', { data: await getStatistics, id: placeId })
       },
     }, {
       findId: ({ placeId }) => placeId,
+      setCurrentId: ({ commit }, { placeId }) => commit('select', placeId),
+      getCurrentId: ({ state }) => state.activePlaceId,
     }),
 
-    clearSelectedPlace ({ commit, dispatch, getters }, { routeTo }) {
-      // do not clear if place stays the same
+    clearSelectedPlace ({ commit, dispatch }, { routeTo }) {
+      // do not clear if we stay on a place route
       const { placeId } = routeTo.params
-      if (placeId && parseInt(placeId) === getters.activePlaceId) return
+      if (placeId) return
 
       dispatch('sidenavBoxes/toggle/group', true, { root: true })
       commit('clearSelected')
+    },
+
+    async beforeEnterFeedback ({ commit, dispatch }, { placeId }) {
+      dispatch('feedback/fetch', { placeId }, { root: true })
+      commit('setStatistics', { data: await places.statistics(placeId), id: placeId })
     },
 
     update ({ commit, dispatch, getters }, places) {

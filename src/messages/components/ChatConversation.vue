@@ -23,16 +23,6 @@
           @toggleReaction="$emit('toggleReaction', arguments[0])"
           @save="$emit('saveMessage', arguments[0])"
         />
-        <ConversationCompose
-          v-if="!this.conversation.canFetchFuture && !this.conversation.isClosed"
-          ref="compose"
-          :status="conversation.sendStatus"
-          slim
-          :placeholder="messagePrompt"
-          :autofocus="!$q.platform.is.mobile && startAtBottom"
-          :is-participant="conversation.isParticipant"
-          @submit="sendMessage"
-        />
         <QItem
           v-if="this.conversation.isClosed"
           class="q-mt-md"
@@ -63,7 +53,6 @@
 
 <script>
 import ConversationMessage from '@/messages/components/ConversationMessage'
-import ConversationCompose from '@/messages/components/ConversationCompose'
 import {
   scroll,
   dom,
@@ -86,7 +75,6 @@ function getElementHeight (el) {
 export default {
   components: {
     ConversationMessage,
-    ConversationCompose,
     QSpinnerDots,
     QList,
     QItem,
@@ -124,15 +112,6 @@ export default {
     hasLoaded () {
       const s = this.conversation.fetchStatus
       return !s.pending && !s.hasValidationErrors
-    },
-    messagePrompt () {
-      if (this.conversation.thread) {
-        return this.$t('CONVERSATION.REPLY_TO_MESSAGE')
-      }
-      if (this.conversation.messages.length > 0) {
-        return this.$t('WALL.WRITE_MESSAGE')
-      }
-      return this.$t('WALL.WRITE_FIRST_MESSAGE')
     },
     fetchingPast () {
       return this.conversation.fetchPastStatus && this.conversation.fetchPastStatus.pending
@@ -205,19 +184,6 @@ export default {
           seenUpTo: messageId,
         })
       }
-    },
-    sendMessage (content) {
-      const data = this.conversation.thread
-        ? {
-          id: this.conversation.conversation,
-          threadId: this.conversation.id,
-          content,
-        }
-        : {
-          id: this.conversation.id,
-          content,
-        }
-      this.$emit('send', data)
     },
     getScrollPositionFromBottom () {
       if (!this.scrollContainer) return

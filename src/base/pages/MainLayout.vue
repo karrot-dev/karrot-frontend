@@ -122,6 +122,9 @@
         >
           <DetailSidebar @close="clearDetail"/>
         </QLayoutDrawer>
+        <QLayoutFooter v-if="hasFooterComponent">
+          <RouterView name="footer" />
+        </QLayoutFooter>
         <QLayoutFooter v-if="$q.platform.is.mobile && !$keyboard.is.open">
           <UnsupportedBrowserWarning/>
         </QLayoutFooter>
@@ -248,6 +251,9 @@ export default {
     },
     hasSidenavComponent () {
       return Boolean(this.routerComponents.sidenav)
+    },
+    hasFooterComponent () {
+      return Boolean(this.routerComponents.footer)
     },
     hasNotification () {
       return this.messagesUnseenCount > 0 || this.notificationsUnseenCount > 0

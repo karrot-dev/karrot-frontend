@@ -1,7 +1,7 @@
 <template>
   <div class="pickup-feedback-wrapper">
     <QCard
-      v-if="pickups.length > 0 || editFeedback"
+      v-if="pickups.length > 0 || editFeedbackId || fetchFeedbackPossibleStatus.pending"
       class="no-mobile-margin no-shadow grey-border"
     >
       <RandomArt
@@ -17,12 +17,13 @@
             >
           </div>
           <div class="image-and-text-right">
-            <h4>{{ $t(editFeedback ? 'PICKUP_FEEDBACK.EDIT' : 'PICKUP_FEEDBACK.HEADER') }}</h4>
+            <h4>{{ $t(editFeedbackId ? 'PICKUP_FEEDBACK.EDIT' : 'PICKUP_FEEDBACK.HEADER') }}</h4>
             <p>
               <QField
-                v-if="!editFeedback"
+                v-if="!editFeedbackId"
                 dark
-                class="grey-font">
+                class="grey-font"
+              >
                 <QSelect
                   v-model="select"
                   :options="feedbackOptions"
@@ -110,10 +111,12 @@ export default {
   },
   props: {
     pickups: { required: true, type: Array },
+    editFeedbackId: { default: null, type: Number },
     editFeedback: { default: null, type: Object },
     existingFeedback: { required: true, type: Array },
     saveStatus: { required: true, type: Object },
     fetchStatus: { required: true, type: Object },
+    fetchFeedbackPossibleStatus: { type: Object, default: () => ({}) },
     seedId: { default: 0, type: Number },
   },
   methods: {
@@ -162,7 +165,7 @@ export default {
     feedbackForPlace () {
       if (!this.select) return []
       let filtered = this.existingFeedback.filter(e => e.about && e.about.place.id === this.select.place.id)
-      if (this.editFeedback) {
+      if (this.editFeedbackId) {
         filtered = filtered.filter(e => e.id !== this.editFeedback.id)
       }
       return filtered

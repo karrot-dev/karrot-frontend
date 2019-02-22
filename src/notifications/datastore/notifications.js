@@ -28,6 +28,7 @@ export default {
         .filter(notification => !notification.expiresAt || notification.expiresAt > reactiveNow.value)
         .sort(sortByCreatedAt)
     },
+    fetching: (state, getters) => getters['meta/status']('fetch').pending,
     canFetchPast: (state, getters) => getters['pagination/canFetchNext'],
     fetchingPast: (state, getters) => getters['meta/status']('fetchPast').pending,
     enrich: (state, getters, rootState, rootGetters) => entry => {

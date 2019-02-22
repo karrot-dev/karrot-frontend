@@ -2,6 +2,7 @@
   <div>
     <QCard class="no-shadow no-padding grey-border">
       <div class="generic-padding relative-position">
+        <KSpinner v-show="!statistics" />
         <div
           v-if="statistics"
           class="infoChips row no-wrap"
@@ -45,13 +46,19 @@
       :fetch-past="fetchPast"
       :fetch-past-status="fetchPastStatus"
       :feedback-possible="feedbackPossible"
+      :feedback-possible-status="feedbackPossibleStatus"
     />
   </div>
 </template>
 
 <script>
 import FeedbackList from '@/feedback/components/FeedbackList'
-import { QCard, QChip } from 'quasar'
+import KSpinner from '@/utils/components/KSpinner'
+
+import {
+  QCard,
+  QChip,
+} from 'quasar'
 
 import {
   mapGetters,
@@ -59,7 +66,12 @@ import {
 } from 'vuex'
 
 export default {
-  components: { FeedbackList, QCard, QChip },
+  components: {
+    FeedbackList,
+    KSpinner,
+    QCard,
+    QChip,
+  },
   computed: {
     ...mapGetters({
       place: 'places/activePlace',
@@ -68,6 +80,7 @@ export default {
       canFetchPast: 'feedback/canFetchPast',
       fetchPastStatus: 'feedback/fetchPastStatus',
       feedbackPossible: 'pickups/feedbackPossibleByActivePlace',
+      feedbackPossibleStatus: 'pickups/fetchFeedbackPossibleStatus',
     }),
     statistics () {
       return this.place && this.place.statistics

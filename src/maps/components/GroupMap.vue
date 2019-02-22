@@ -13,7 +13,7 @@
       @mapMoveEnd="mapMoveEnd"
     >
       <QList
-        v-if="currentGroup.membership.isEditor"
+        v-if="isEditor"
         slot="contextmenu"
         slot-scope="{ latLng }"
         highlight
@@ -54,18 +54,18 @@
       >
         {{ $t('GROUPMAP.SET_LOCATION') }}
       </QBtn>
-      <template v-else-if="currentGroup.membership.isEditor">
+      <template v-else-if="isEditor">
         <QBtn
           v-if="showPlaceLocationPrompt"
           color="primary"
-          :to="{ name: 'placeEdit', params: { groupId: currentGroup.id, placeId: selectedPlace && selectedPlace.id } }"
+          :to="{ name: 'placeEdit', params: { groupId: currentGroupId, placeId: selectedPlace && selectedPlace.id } }"
         >
           {{ $t('GROUPMAP.SET_LOCATION') }}
         </QBtn>
         <QBtn
           v-else-if="showGroupLocationPrompt"
           color="primary"
-          :to="{ name: 'groupEdit', params: { groupId: currentGroup.id } }"
+          :to="{ name: 'groupEdit', params: { groupId: currentGroupId } }"
         >
           {{ $t('GROUPMAP.SET_LOCATION') }}
         </QBtn>
@@ -108,7 +108,8 @@ export default {
     showPlaces: { default: true, type: Boolean },
     showGroups: { default: false, type: Boolean },
     createDatastore: { default: false, type: Boolean },
-    currentGroup: { type: Object, default: () => ({}) },
+    currentGroup: { type: Object, default: null },
+    isEditor: { type: Boolean, default: false },
     forceCenter: { type: Object, default: null },
     forceZoom: { type: Number, default: null },
     controls: { type: String, default: 'none' },
@@ -127,14 +128,15 @@ export default {
       return this.selectedPlace && !(this.placesWithLocation.findIndex(e => e.id === this.selectedPlace.id) >= 0)
     },
     showGroupLocationPrompt () {
-      return this.markers.length === 0 && !(this.currentGroup.latitude && this.currentGroup.longitude)
+      if (!this.currentGroup) return
+      return this.markers.length === 0 && !this.currentGroup.hasLocation
     },
     showOverlay () {
       if (this.selectedUser && hasLocation(this.selectedUser)) return false
       return this.showUserLocationPrompt || this.showPlaceLocationPrompt || this.showGroupLocationPrompt
     },
     center () {
-      const { latitude: lat, longitude: lng } = this.currentGroup
+      const { latitude: lat, longitude: lng } = this.currentGroup || {}
       if (lat && lng) return { lat, lng }
     },
     containerStyle () {

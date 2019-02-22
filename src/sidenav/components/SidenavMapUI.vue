@@ -1,6 +1,5 @@
 <template>
   <GroupMap
-    v-if="currentGroup"
     class="map"
     controls="mini"
     :height="260"
@@ -11,6 +10,7 @@
     :selected-place="selectedPlace"
     :selected-user="selectedUser"
     :current-group="currentGroup"
+    :is-editor="isEditor"
     @toggleUsers="$emit('toggleUsers')"
     @togglePlaces="$emit('togglePlaces')"
   />
@@ -49,6 +49,10 @@ export default {
     currentGroup: {
       default: null,
       type: Object,
+    },
+    isEditor: {
+      default: false,
+      type: Boolean,
     },
   },
 }

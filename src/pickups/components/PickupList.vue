@@ -1,28 +1,27 @@
 <template>
   <div>
-    <Transition name="slide-toggle">
-      <TransitionGroup
-        name="list"
-        tag="div"
-      >
-        <PickupItem
-          v-for="pickup in pickups"
-          :key="pickup.id"
-          :pickup="pickup"
-          :place-link="placeLink"
-          @join="$emit('join', arguments[0])"
-          @leave="$emit('leave', arguments[0])"
-          @detail="$emit('detail', arguments[0])"
-        />
-      </TransitionGroup>
-    </Transition>
+    <KSpinner v-show="pending" />
+    <PickupItem
+      v-for="pickup in pickups"
+      :key="pickup.id"
+      :pickup="pickup"
+      :place-link="placeLink"
+      @join="$emit('join', arguments[0])"
+      @leave="$emit('leave', arguments[0])"
+      @detail="$emit('detail', arguments[0])"
+    />
   </div>
 </template>
 
 <script>
 import PickupItem from './PickupItem'
+import KSpinner from '@/utils/components/KSpinner'
 
 export default {
+  components: {
+    PickupItem,
+    KSpinner,
+  },
   props: {
     pickups: {
       type: Array,
@@ -32,18 +31,10 @@ export default {
       type: Boolean,
       default: false,
     },
-  },
-  components: {
-    PickupItem,
+    pending: {
+      type: Boolean,
+      default: false,
+    },
   },
 }
 </script>
-
-<style scoped lang="stylus">
-@import '~slidetoggle'
-.list-leave-active
-  transition: all .5s
-.list-leave-to
-  opacity: 0
-  transform: translateX(-50px)
-</style>

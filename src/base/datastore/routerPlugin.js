@@ -52,23 +52,27 @@ export default datastore => {
       return
     }
 
-    const { redirect } = await maybeDispatchActions(datastore, to, from)
-    if (redirect) {
-      nextFn({ replace: true, ...redirect })
-      return
-    }
-
     nextFn()
-    datastore.commit('breadcrumbs/set', findBreadcrumbs(to.matched) || [])
   })
 
-  router.afterEach(async () => {
+  router.afterEach(async (to, from) => {
     try {
       datastore.dispatch('currentGroup/markUserActive')
     }
     catch (err) {
       Sentry.captureException(err)
     }
+
+    const { redirects, routeErrors } = await maybeDispatchActions(datastore, to, from)
+    // trigger first redirect or routeError, if any
+    if (redirects.length > 0) {
+      router.replace(redirects[0])
+    }
+    else if (routeErrors.length > 0) {
+      datastore.dispatch('routeError/set', routeErrors[0])
+    }
+
+    datastore.commit('breadcrumbs/set', findBreadcrumbs(to.matched) || [])
     datastore.commit('routeMeta/setNext', null)
   })
 
@@ -108,32 +112,43 @@ export async function maybeDispatchActions (datastore, to, from) {
       })
     }
   }
-  for (let m of to.matched) {
-    if (m.meta.beforeEnter) {
-      try {
-        await datastore.dispatch(m.meta.beforeEnter, {
-          ...parseAsIntegers(to.params),
-          routeFrom: from,
-          routeTo: to,
-        })
+
+  const runBeforeEnter = async (beforeEnter) => {
+    try {
+      await datastore.dispatch(beforeEnter, {
+        ...parseAsIntegers(to.params),
+        routeFrom: from,
+        routeTo: to,
+      })
+      return {}
+    }
+    catch (error) {
+      if (error.type === 'RouteRedirect') {
+        return { redirect: error.data }
       }
-      catch (error) {
-        if (error.type === 'RouteRedirect') {
-          return { redirect: error.data }
-        }
-        else if (error.type === 'RouteError') {
-          await datastore.dispatch('routeError/set', error.data)
-          // no further loading should be done
-          return {}
-        }
-        else {
-          // can't be handled here
-          throw error
-        }
+      else if (error.type === 'RouteError') {
+        return { routeError: error.data }
+      }
+      else {
+        // can't be handled here
+        return { error }
       }
     }
   }
-  return {}
+  const results = await Promise.all(to.matched
+    .map(m => m.meta.beforeEnter)
+    .filter(v => !!v)
+    .map(runBeforeEnter))
+
+  // show a warning for every error that occured
+  results
+    .filter(r => r.error)
+    .forEach(r => console.warn('Error while loading the page:', r.error))
+
+  return {
+    redirects: results.map(r => r.redirect).filter(v => !!v),
+    routeErrors: results.map(r => r.routeError).filter(v => !!v),
+  }
 }
 
 export function parseAsIntegers (obj) {

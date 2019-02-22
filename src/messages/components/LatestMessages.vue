@@ -3,13 +3,8 @@
     :is="asPage ? 'QCard' : 'div'"
     class="bg-white relative-position"
   >
-    <div
-      v-if="fetchInitialPending"
-      class="full-width text-center generic-padding"
-    >
-      <QSpinnerDots :size="40" />
-    </div>
-    <template v-else>
+    <KSpinner v-show="fetchInitialPending" />
+    <template v-if="!fetchInitialPending">
       <QList no-border>
         <QItem
           v-if="conversations.length === 0"
@@ -101,10 +96,10 @@ import {
   QItemSeparator,
   QItem,
   QBtn,
-  QSpinnerDots,
 } from 'quasar'
 import { mapGetters, mapActions } from 'vuex'
 import LatestMessageItem from './LatestMessageItem'
+import KSpinner from '@/utils/components/KSpinner'
 
 export default {
   components: {
@@ -114,8 +109,8 @@ export default {
     QItemSeparator,
     QItem,
     QBtn,
-    QSpinnerDots,
     LatestMessageItem,
+    KSpinner,
   },
   props: {
     asPage: {

@@ -4,7 +4,7 @@ import SidenavPlaceUI from './SidenavPlaceUI'
 
 export default connect({
   gettersToProps: {
-    placeId: 'places/activePlaceId',
+    place: 'places/activePlace',
     wallUnreadCount: 'places/conversationUnreadCount',
     expanded: 'sidenavBoxes/toggle/place',
     isEditor: 'currentGroup/isEditor',

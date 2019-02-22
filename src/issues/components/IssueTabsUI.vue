@@ -62,7 +62,6 @@
           :away="away"
           :current-user="currentUser"
           :start-at-bottom="true"
-          :inline="inline"
           @send="$emit('send', arguments[0])"
           @mark="$emit('mark', arguments[0])"
           @toggleReaction="$emit('toggleReaction', arguments[0])"
@@ -171,10 +170,6 @@ export default {
       default: null,
     },
     away: {
-      type: Boolean,
-      default: false,
-    },
-    inline: {
       type: Boolean,
       default: false,
     },

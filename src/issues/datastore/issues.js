@@ -49,7 +49,7 @@ export default {
       dispatch('toasts/show', {
         message: 'ISSUE.CREATION.TOAST',
       }, { root: true })
-      router.push({ name: 'issue', params: { groupId: newIssue.group, issueId: newIssue.id } })
+      router.push({ name: 'issueDetail', params: { groupId: newIssue.group, issueId: newIssue.id } })
     },
     async fetchByGroupId ({ dispatch, commit }, { groupId }) {
       const issueList = await dispatch('pagination/extractCursor', issuesAPI.list({ group: groupId }))

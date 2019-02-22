@@ -34,6 +34,9 @@ const DetailHeader = () => import('@/messages/components/DetailHeader')
 const DetailFooter = () => import('@/messages/components/DetailFooter')
 const IssueTabs = () => import('@/issues/pages/IssueTabs')
 const IssueList = () => import('@/issues/pages/IssueList')
+const IssueChat = () => import('@/issues/pages/IssueChat')
+const IssueCompose = () => import('@/issues/pages/IssueCompose')
+const IssueVoteAndHistory = () => import('@/issues/pages/IssueVoteAndHistory')
 
 export default [
   {
@@ -105,6 +108,16 @@ export default [
           name: 'subheader',
         },
       }) },
+      detail: { render: h => h('router-view', {
+        props: {
+          name: 'detail',
+        },
+      }) },
+      footer: { render: h => h('router-view', {
+        props: {
+          name: 'footer',
+        },
+      }) },
       sidenav: Sidenav,
     },
     children: [
@@ -118,18 +131,43 @@ export default [
         component: GroupWall,
       },
       {
-        name: 'issue',
+        name: 'issueDetail',
         path: 'issues/:issueId',
+        redirect: { name: 'issueChat' },
         meta: {
           requiredLoggedIn: true,
           breadcrumbs: [
-            { translation: 'CONFLICT.TITLE', route: { name: 'issue' } },
+            { translation: 'CONFLICT.TITLE', route: { name: 'issueDetail' } },
           ],
           beforeEnter: 'issues/select',
         },
         components: {
-          default: IssueTabs,
+          default: IssueList,
+          detail: { render: h => h('router-view', { props: { name: 'detail' } }) },
         },
+        children: [
+          {
+            path: '',
+            components: {
+              detail: IssueTabs,
+            },
+            children: [
+              {
+                name: 'issueChat',
+                path: 'chat',
+                components: {
+                  default: IssueChat,
+                  issueFooter: IssueCompose,
+                },
+              },
+              {
+                name: 'issueVote',
+                path: 'vote',
+                component: IssueVoteAndHistory,
+              },
+            ],
+          },
+        ],
       },
       {
         name: 'issueList',

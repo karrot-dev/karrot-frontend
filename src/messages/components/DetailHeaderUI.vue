@@ -85,6 +85,11 @@
           @click="applicationInfo"
         />
       </template>
+      <template v-else-if="issue">
+        <QToolbarTitle>
+          issue
+        </QToolbarTitle>
+      </template>
       <NotificationToggle
         v-if="isThread ? muted !== null : true"
         :muted="muted"
@@ -119,6 +124,18 @@
         />
       </div>
     </div>
+    <QTabs v-if="issue">
+      <QRouteTab
+        :to="{ name: 'issueVote' }"
+      >
+        chat
+      </QRouteTab>
+      <QRouteTab
+        :to="{ name: 'issueVote' }"
+      >
+        vote
+      </QRouteTab>
+    </QTabs>
   </div>
 </template>
 
@@ -133,6 +150,8 @@ import {
   QToolbar,
   QToolbarTitle,
   QIcon,
+  QTabs,
+  QRouteTab,
 } from 'quasar'
 
 export default {
@@ -143,6 +162,8 @@ export default {
     QToolbar,
     QToolbarTitle,
     QIcon,
+    QTabs,
+    QRouteTab,
   },
   props: {
     user: {
@@ -154,6 +175,10 @@ export default {
       default: null,
     },
     application: {
+      type: Object,
+      default: null,
+    },
+    issue: {
       type: Object,
       default: null,
     },

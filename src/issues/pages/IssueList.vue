@@ -1,7 +1,6 @@
 <script>
 import { connect } from 'vuex-connect'
 import IssueListUI from '@/issues/components/IssueListUI'
-import router from '@/base/router'
 
 export default connect({
   gettersToProps: {
@@ -9,8 +8,8 @@ export default connect({
     pastIssues: 'issues/past',
   },
   methodsToEvents: {
-    open: (_, issue) => {
-      router.push({ name: 'issue', params: { issueId: issue.id } })
+    open: ({ dispatch }, issue) => {
+      dispatch('detail/openForIssue', issue)
     },
   },
 })('IssueList', IssueListUI)

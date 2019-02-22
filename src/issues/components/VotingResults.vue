@@ -90,7 +90,7 @@ export default {
     },
     affectedUser: {
       type: Object,
-      required: true,
+      default: null,
     },
     groupName: {
       type: String,
@@ -110,6 +110,7 @@ export default {
   },
   methods: {
     displayOutcomes (index) {
+      if (!this.affectedUser) return
       return this.$t(`ISSUE.VOTING.${this.sortedOptions[index].type.toUpperCase()}`, { userName: this.affectedUser.displayName, groupName: this.groupName })
     },
     getIcon (index) {

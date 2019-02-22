@@ -118,9 +118,9 @@
           :width="400"
           :overlay="false"
           :breakpoint="0"
-          :value="showRightDrawer"
+          :value="hasDetailComponent"
         >
-          <DetailSidebar @close="clearDetail"/>
+          <RouterView name="detail" />
         </QLayoutDrawer>
         <QLayoutFooter v-if="hasFooterComponent">
           <RouterView name="footer" />
@@ -256,6 +256,9 @@ export default {
     },
     hasFooterComponent () {
       return Boolean(this.routerComponents.footer)
+    },
+    hasDetailComponent () {
+      return Boolean(this.routerComponents.detail)
     },
     hasNotification () {
       return this.messagesUnseenCount > 0 || this.notificationsUnseenCount > 0

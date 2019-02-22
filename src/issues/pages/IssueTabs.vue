@@ -1,19 +1,59 @@
-<script>
-import { connect } from 'vuex-connect'
-import IssueTabsUI from '@/issues/components/IssueTabsUI'
+<template>
+  <QLayout
+    container
+    class="full-height full-width"
+  >
+    <QLayoutHeader reveal>
+      <QTabs
+        animated
+        align="justify"
+      >
+        <QRouteTab
+          :to="{ name: 'issueChat' }"
+          default
+          slot="title"
+          name="chat"
+          icon="fas fa-comments"
+        />
+        <QRouteTab
+          :to="{ name: 'issueVote' }"
+          slot="title"
+          name="vote"
+          icon="fas fa-vote-yea"
+        />
+      </QTabs>
+    </QLayoutHeader>
+    <QPageContainer>
+      <QPage>
+        <RouterView />
+      </QPage>
+    </QPageContainer>
+    <QLayoutFooter>
+      <RouterView name="issueFooter" />
+    </QLayoutFooter>
+  </QLayout>
+</template>
 
-export default connect({
-  gettersToProps: {
-    issue: 'issues/current',
-    conversation: 'issues/currentConversation',
+<script>
+import {
+  QTabs,
+  QRouteTab,
+  QLayout,
+  QLayoutHeader,
+  QLayoutFooter,
+  QPageContainer,
+  QPage,
+} from 'quasar'
+
+export default {
+  components: {
+    QTabs,
+    QRouteTab,
+    QLayout,
+    QLayoutHeader,
+    QLayoutFooter,
+    QPageContainer,
+    QPage,
   },
-  actionsToEvents: {
-    saveScores: 'issues/saveScores',
-    send: 'conversations/send',
-    saveMessage: 'conversations/saveMessage',
-    markAllRead: 'conversations/markAllRead',
-    setMuted: 'conversations/maybeSetMuted',
-    toggleReaction: 'conversations/toggleReaction',
-  },
-})('IssueTabs', IssueTabsUI)
+}
 </script>

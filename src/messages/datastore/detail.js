@@ -33,6 +33,11 @@ export default {
       if (type !== 'application') return
       return rootGetters['applications/get'](id)
     },
+    issue: (state, getters, rootState, rootGetters) => {
+      const { type, id } = state.scope
+      if (type !== 'issue') return
+      return rootGetters['issues/get'](id)
+    },
     conversation: (state, getters, rootState, rootGetters) => {
       const { type, id } = state.scope
       if (type === 'pickup') {
@@ -43,6 +48,9 @@ export default {
       }
       if (type === 'application') {
         return rootGetters['conversations/getForApplication'](id)
+      }
+      if (type === 'issue') {
+        return rootGetters['conversations/getForIssue'](id)
       }
       if (type === 'thread') {
         return rootGetters['currentThread/get']
@@ -95,6 +103,15 @@ export default {
       }
       if (!isCurrentUser) dispatch('currentGroup/select', { groupId }, { root: true })
     },
+    async issueRouteEnter ({ dispatch }, { groupId, issueId, routeTo }) {
+      if (!issueId) return
+      await dispatch('selectIssue', issueId)
+      /*
+      if (!Platform.is.mobile) {
+        throw createRouteRedirect({ name: 'issueList', params: { groupId }, query: routeTo.query })
+      }
+      */
+    },
     routeLeave ({ dispatch }) {
       dispatch('clear')
     },
@@ -124,6 +141,15 @@ export default {
         dispatch('selectApplication', application.id)
       }
     },
+    openForIssue ({ dispatch }, issue) {
+      if (Platform.is.mobile) {
+        const { id, group } = issue
+        router.push({ name: 'issueDetail', params: { groupId: group.id, issueId: id } })
+      }
+      else {
+        dispatch('selectIssue', issue.id)
+      }
+    },
     openForThread ({ dispatch }, message) {
       if (Platform.is.mobile) {
         const { id, groupId } = message
@@ -149,6 +175,12 @@ export default {
       dispatch('conversations/fetchForApplication', { applicationId }, { root: true })
       await dispatch('applications/maybeFetchOne', applicationId, { root: true })
     },
+    async selectIssue ({ commit, dispatch }, issueId) {
+      dispatch('clear')
+      commit('setIssueId', issueId)
+      dispatch('conversations/fetchForIssue', { issueId }, { root: true })
+      await dispatch('issues/maybeFetchOne', issueId, { root: true })
+    },
     selectThread ({ commit, dispatch }, id) {
       dispatch('clear')
       commit('setThreadId', id)
@@ -165,6 +197,9 @@ export default {
       else if (type === 'application') {
         dispatch('conversations/clearForApplication', { applicationId: id }, { root: true })
       }
+      else if (type === 'issue') {
+        dispatch('conversations/clearForIssue', { issueId: id }, { root: true })
+      }
       else if (type === 'thread') {
         dispatch('currentThread/clear', null, { root: true })
       }
@@ -180,6 +215,9 @@ export default {
     },
     setApplicationId (state, applicationId) {
       state.scope = { type: 'application', id: applicationId }
+    },
+    setIssueId (state, issueId) {
+      state.scope = { type: 'issue', id: issueId }
     },
     setThreadId (state, id) {
       state.scope = { type: 'thread', id }

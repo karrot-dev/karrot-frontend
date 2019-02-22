@@ -70,7 +70,7 @@ export default {
     },
     affectedUser: {
       type: Object,
-      required: true,
+      default: null,
     },
     groupName: {
       type: String,

@@ -7,10 +7,5 @@ export default connect({
     ongoingIssues: 'issues/ongoing',
     pastIssues: 'issues/past',
   },
-  methodsToEvents: {
-    open: ({ dispatch }, issue) => {
-      dispatch('detail/openForIssue', issue)
-    },
-  },
 })('IssueList', IssueListUI)
 </script>

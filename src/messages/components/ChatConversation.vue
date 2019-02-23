@@ -1,5 +1,8 @@
 <template>
-  <div>
+  <div
+    :class="inline && 'absolute-full scroll'"
+    ref="scroll"
+  >
     <slot name="beforeChatMessages"/>
     <KSpinner v-show="fetchingPast" />
     <QInfiniteScroll :handler="maybeFetchFuture">
@@ -91,6 +94,11 @@ export default {
       type: Boolean,
       default: false,
     },
+    inline: {
+      // if true, create a new overflowed scroll container
+      type: Boolean,
+      default: false,
+    },
   },
   data () {
     return {
@@ -103,7 +111,7 @@ export default {
   },
   mounted () {
     this.$nextTick(() => {
-      this.scrollContainer = getScrollTarget(this.$el)
+      this.scrollContainer = this.inline ? this.$refs.scroll : getScrollTarget(this.$el)
     })
   },
   computed: {

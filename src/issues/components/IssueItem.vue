@@ -1,7 +1,7 @@
 <template>
   <QItem
     link
-    @click.native="open"
+    :to="{name: 'issueDetail', params: { issueId: issue.id }}"
   >
     <QItemSide>
       <ProfilePicture
@@ -53,11 +53,6 @@ export default {
     submittedOn () {
       const date = this.$d(this.issue.createdAt, 'long')
       return this.$t('ISSUE.SUBMITTED_ON', { date: date })
-    },
-  },
-  methods: {
-    open () {
-      this.$emit('open', this.issue)
     },
   },
 }

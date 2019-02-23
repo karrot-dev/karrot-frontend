@@ -118,7 +118,7 @@
           :width="400"
           :overlay="false"
           :breakpoint="0"
-          :value="hasDetailComponent"
+          :value="isDetailActive || hasDetailComponent"
         >
           <DetailSidebar
             v-if="isDetailActive"
@@ -259,7 +259,7 @@ export default {
       return Boolean(this.routerComponents.sidenav)
     },
     hasDetailComponent () {
-      return Boolean(this.routerComponents.detail)
+      return this.$route.matched.some(({ meta }) => meta && meta.hasDetail === true)
     },
     hasNotification () {
       return this.messagesUnseenCount > 0 || this.notificationsUnseenCount > 0

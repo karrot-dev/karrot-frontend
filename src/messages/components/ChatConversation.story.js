@@ -12,6 +12,7 @@ const defaultProps = data => ({
   conversation,
   away: false,
   startAtBottom: false,
+  inline: false,
   ...data,
 })
 

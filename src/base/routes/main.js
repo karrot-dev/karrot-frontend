@@ -112,11 +112,6 @@ export default [
           name: 'detail',
         },
       }) },
-      footer: { render: h => h('router-view', {
-        props: {
-          name: 'footer',
-        },
-      }) },
       sidenav: Sidenav,
     },
     children: [
@@ -142,13 +137,14 @@ export default [
         },
         components: {
           default: IssueList,
-          detail: { render: h => h('router-view', { props: { name: 'detail' } }) },
+          detail: { render: h => h('router-view') },
         },
         children: [
           {
             path: '',
-            components: {
-              detail: IssueTabs,
+            component: IssueTabs,
+            meta: {
+              hasDetail: true,
             },
             children: [
               {

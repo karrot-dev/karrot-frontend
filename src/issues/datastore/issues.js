@@ -63,6 +63,10 @@ export default {
     }),
     ...withMeta({
       async select ({ commit, dispatch }, { issueId }) {
+        // clear right drawer
+        // TODO can be removed once detail are bound to routes
+        dispatch('detail/clear', null, { root: true })
+
         await dispatch('fetchOne', issueId)
         dispatch('conversations/fetchForIssue', { issueId }, { root: true })
         commit('setCurrentIssue', issueId)

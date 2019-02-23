@@ -7,7 +7,6 @@
       v-for="i in ongoingIssues"
       :key="i.id"
       :issue="i"
-      @open="open"
     />
     <QItemSeparator />
     <QCollapsible
@@ -23,7 +22,6 @@
           v-for="i in pastIssues"
           :key="i.id"
           :issue="i"
-          @open="open"
         />
       </template>
     </QCollapsible>
@@ -65,13 +63,5 @@ export default {
       return this.$tc('ENTRY', this.pastIssues.length, { count: this.pastIssues.length })
     },
   },
-  methods: {
-    open (data) {
-      this.$emit('open', data)
-    },
-  },
 }
 </script>
-
-<style scoped lang="stylus">
-</style>

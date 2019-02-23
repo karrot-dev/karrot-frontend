@@ -6,6 +6,5 @@ export default createPersistedState({
     'auth.push.intention',
     'auth.push.token',
     'communityFeed.lastSeenId',
-    'conversations.drafts',
   ],
 })

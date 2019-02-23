@@ -120,11 +120,15 @@
           :breakpoint="0"
           :value="hasDetailComponent"
         >
-          <RouterView name="detail" />
+          <DetailSidebar
+            v-if="isDetailActive"
+            @close="clearDetail"
+          />
+          <RouterView
+            v-else
+            name="detail"
+          />
         </QLayoutDrawer>
-        <QLayoutFooter v-if="hasFooterComponent">
-          <RouterView name="footer" />
-        </QLayoutFooter>
         <QLayoutFooter v-if="$q.platform.is.mobile && !$keyboard.is.open">
           <UnsupportedBrowserWarning/>
         </QLayoutFooter>
@@ -221,7 +225,7 @@ export default {
     ...mapGetters({
       isLoggedIn: 'auth/isLoggedIn',
       routeError: 'routeError/status',
-      showRightDrawer: 'detail/isActive',
+      isDetailActive: 'detail/isActive',
       disableDesktopSidenav: 'route/disableDesktopSidenav',
       messagesUnseenCount: 'latestMessages/unseenCount',
       messagesAllUnreadMuted: 'latestMessages/allUnreadMuted',
@@ -253,9 +257,6 @@ export default {
     },
     hasSidenavComponent () {
       return Boolean(this.routerComponents.sidenav)
-    },
-    hasFooterComponent () {
-      return Boolean(this.routerComponents.footer)
     },
     hasDetailComponent () {
       return Boolean(this.routerComponents.detail)

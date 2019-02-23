@@ -12,6 +12,7 @@ export default connect({
     currentUser: 'auth/user',
   },
   actionsToEvents: {
+    send: 'conversations/send',
     mark: 'conversations/maybeMark',
     toggleReaction: 'conversations/toggleReaction',
     saveMessage: 'conversations/saveMessage',

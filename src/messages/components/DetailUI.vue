@@ -7,6 +7,9 @@
       :away="away"
       :current-user="currentUser"
       :start-at-bottom="Boolean(user) || Boolean(pickup)"
+      :inline="inline"
+      compose
+      @send="$emit('send', arguments[0])"
       @mark="$emit('mark', arguments[0])"
       @toggleReaction="$emit('toggleReaction', arguments[0])"
       @saveMessage="$emit('saveMessage', arguments[0])"
@@ -85,6 +88,10 @@ export default {
     QItemTile,
   },
   props: {
+    inline: {
+      type: Boolean,
+      default: false,
+    },
     user: {
       type: Object,
       default: null,

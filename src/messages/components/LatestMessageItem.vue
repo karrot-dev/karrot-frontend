@@ -30,14 +30,14 @@
           </template>
           <template v-else-if="isThread">
             <QIcon
-              name="fas fw-fw fa-comments"
+              name="fas fa-fw fa-comments"
               class="q-mr-sm"
             />
             <div class="ellipsis">{{ thread.content }}</div>
           </template>
           <template v-else-if="isApplication">
             <QIcon
-              name="fas fw-fw fa-user-plus"
+              name="fas fa-fw fa-user-plus"
               class="q-mr-sm"
               :title="$t('APPLICATION.APPLICATION')"
             />
@@ -47,7 +47,7 @@
           </template>
           <template v-else-if="isGroup">
             <QIcon
-              name="fas fw-fw fa-bullhorn"
+              name="fas fa-fw fa-bullhorn"
               class="q-mr-sm"
               :title="$t('GROUP.WALL')"
             />
@@ -55,11 +55,19 @@
           </template>
           <template v-else-if="isPlace">
             <QIcon
-              name="fas fw-fw fa-star"
+              name="fas fa-fw fa-star"
               class="q-mr-sm"
               :title="$t('GROUP.WALL')"
             />
             <div class="ellipsis">{{ place.name }}</div>
+          </template>
+          <template v-else-if="isIssue">
+            <QIcon
+              name="fas fa-fw fa-vote-yea"
+              class="q-mr-sm"
+              :title="$t('ISSUE.TITLE')"
+            />
+            <div class="ellipsis">{{ issue.affectedUser && issue.affectedUser.displayName }}</div>
           </template>
           <QIcon
             v-if="muted"
@@ -178,6 +186,10 @@ export default {
       type: Object,
       default: null,
     },
+    issue: {
+      type: Object,
+      default: null,
+    },
     message: {
       type: Object,
       default: null,
@@ -217,6 +229,9 @@ export default {
     },
     isApplication () {
       return Boolean(this.application)
+    },
+    isIssue () {
+      return Boolean(this.issue)
     },
     applicationTitle () {
       if (this.isApplication && this.application.group) {

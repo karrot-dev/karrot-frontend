@@ -67,7 +67,7 @@ export default {
         // TODO can be removed once detail are bound to routes
         dispatch('detail/clear', null, { root: true })
 
-        await dispatch('fetchOne', issueId)
+        await dispatch('maybeFetchOne', issueId)
         dispatch('conversations/fetchForIssue', { issueId }, { root: true })
         commit('setCurrentIssue', issueId)
       },

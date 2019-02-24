@@ -1,27 +1,14 @@
 <template>
+  <RouterView
+    v-if="$q.platform.is.mobile"
+  />
   <QLayout
+    v-else
     container
     class="full-height full-width"
   >
     <QLayoutHeader reveal>
-      <QTabs
-        animated
-        align="justify"
-      >
-        <QRouteTab
-          :to="{ name: 'issueChat' }"
-          default
-          slot="title"
-          name="chat"
-          icon="fas fa-comments"
-        />
-        <QRouteTab
-          :to="{ name: 'issueVote' }"
-          slot="title"
-          name="vote"
-          icon="fas fa-vote-yea"
-        />
-      </QTabs>
+      <IssueTabs />
     </QLayoutHeader>
     <QPageContainer>
       <QPage>
@@ -35,9 +22,8 @@
 </template>
 
 <script>
+import IssueTabs from '@/issues/components/IssueTabs'
 import {
-  QTabs,
-  QRouteTab,
   QLayout,
   QLayoutHeader,
   QLayoutFooter,
@@ -47,8 +33,7 @@ import {
 
 export default {
   components: {
-    QTabs,
-    QRouteTab,
+    IssueTabs,
     QLayout,
     QLayoutHeader,
     QLayoutFooter,

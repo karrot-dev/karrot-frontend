@@ -63,7 +63,7 @@
           @click="$emit('detail', user)"
         />
         <QBtn
-          v-if="triggerCriteria"
+          v-if="canStartConflictResolution"
           @click="toggleConflictSetup"
           icon="fas fa-frown-open"
           small
@@ -209,7 +209,7 @@ export default {
     },
     // TODO: would be nice to say _why_ I can't create a conflict
     // TODO: does not check if I am an editor first, let's me write a message...
-    triggerCriteria () {
+    canStartConflictResolution () {
       if (
         this.user.isCurrentUser ||
         !this.currentGroupMembership ||

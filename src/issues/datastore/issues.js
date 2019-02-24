@@ -84,7 +84,6 @@ export default {
       dispatch('toasts/show', {
         message: 'ISSUE.VOTING.TOAST',
       }, { root: true })
-      commit('saveScores', data)
     },
     async maybeFetchOne ({ state, dispatch, getters }, issueId) {
       const isPending = getters['meta/status']('fetchOne', issueId).pending
@@ -96,11 +95,6 @@ export default {
   mutations: {
     setCurrentIssue (state, issueId) {
       state.currentId = issueId
-    },
-    saveScores (state, results) {
-      for (let i = 0; i < results.length; i++) {
-        Vue.set(state.entries[state.currentId].votings[0].options[i], 'yourScore', results[i].score)
-      }
     },
     update (state, issues) {
       for (const issue of issues) {

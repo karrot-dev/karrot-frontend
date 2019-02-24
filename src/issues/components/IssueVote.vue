@@ -138,18 +138,21 @@ export default {
   },
   methods: {
     getLabel (score) {
-      switch (score) {
-        case 0:
-          return 'neutral'
-        case 1:
-          return 'agree'
-        case 2:
-          return 'strongly agree'
-        case -1:
-          return 'disagree'
-        case -2:
-          return 'strongly disagree'
+      const getTranslationId = () => {
+        switch (score) {
+          case 0:
+            return 'NEUTRAL'
+          case 1:
+            return 'AGREE'
+          case 2:
+            return 'STRONGLY_AGREE'
+          case -1:
+            return 'DISAGREE'
+          case -2:
+            return 'STRONGLY_DISAGREE'
+        }
       }
+      return this.$t(`ISSUE.SCORE_LABELS.${getTranslationId()}`)
     },
     setToNull () {
       this.edit = this.edit.map(o => ({

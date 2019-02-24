@@ -14,7 +14,7 @@
       <QItemTile
         label
       >
-        {{ this.issue.affectedUser.displayName }}
+        {{ issue.affectedUser.displayName }}
       </QItemTile>
       <QItemTile
         sublabel

@@ -3,7 +3,6 @@
     <Profile
       :user="user"
       :current-group="currentGroup"
-      @report="report"
       @detail="detail"
       @createTrust="createTrust"
       @selectGroup="selectGroup"
@@ -22,7 +21,6 @@
 
 <script>
 import { mapGetters, mapActions } from 'vuex'
-import router from '@/base/router'
 
 import Profile from '@/users/components/ProfileUI'
 import HistoryContainer from '@/history/pages/HistoryContainer'
@@ -51,9 +49,6 @@ export default {
     }),
   },
   methods: {
-    report (params) {
-      router.push({ name: 'conflictResolutionSetup', params })
-    },
     ...mapActions({
       detail: 'detail/openForUser',
       createTrust: 'currentGroup/trustUser',

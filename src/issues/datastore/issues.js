@@ -1,7 +1,7 @@
 import router from '@/base/router'
 import Vue from 'vue'
 import issuesAPI from '@/issues/api/issues'
-import { createMetaModule, createPaginationModule, withMeta } from '@/utils/datastore/helpers'
+import { createMetaModule, createPaginationModule, withMeta, metaStatuses } from '@/utils/datastore/helpers'
 
 function initialState () {
   return {
@@ -41,16 +41,19 @@ export default {
       .sort(sortByCreatedAt),
     ongoing: (state, getters) => getters.forGroup.filter(i => i.status === 'ongoing'),
     past: (state, getters) => getters.forGroup.filter(i => i.status !== 'ongoing'),
+    ...metaStatuses(['create']),
   },
   actions: {
-    async createIssue ({ dispatch, commit }, data) {
-      const newIssue = await issuesAPI.create({ affectedUser: data.affectedUser, group: data.group, topic: data.topic })
-      commit('update', [newIssue])
-      dispatch('toasts/show', {
-        message: 'ISSUE.CREATION.TOAST',
-      }, { root: true })
-      router.push({ name: 'issueDetail', params: { groupId: newIssue.group, issueId: newIssue.id } })
-    },
+    ...withMeta({
+      async create ({ dispatch, commit }, data) {
+        const newIssue = await issuesAPI.create({ affectedUser: data.affectedUser, group: data.group, topic: data.topic })
+        commit('update', [newIssue])
+        dispatch('toasts/show', {
+          message: 'ISSUE.CREATION.TOAST',
+        }, { root: true })
+        router.push({ name: 'issueDetail', params: { groupId: newIssue.group, issueId: newIssue.id } })
+      },
+    }),
     async fetchByGroupId ({ dispatch, commit }, { groupId }) {
       const issueList = await dispatch('pagination/extractCursor', issuesAPI.list({ group: groupId }))
       commit('update', issueList)

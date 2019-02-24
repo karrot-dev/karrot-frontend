@@ -569,6 +569,7 @@
     "HELP": "Everyone who did not log into the group for {dayCount} days or more counts as inactive. These users will not receive notification emails anymore."
   },
   "CONFLICT": {
+    "SETUP_HEADER": "Start a bloody conflict",
     "SETUP": "Conflict resolution setup",
     "STATEMENT": "Statement",
     "TITLE": "Conflict resolution",

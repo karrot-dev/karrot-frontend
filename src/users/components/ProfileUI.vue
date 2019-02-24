@@ -64,11 +64,11 @@
         />
         <QBtn
           v-if="triggerCriteria"
+          @click="toggleConflictSetup"
           icon="fas fa-frown-open"
           small
           round
           color="negative"
-          @click="$emit('report', {groupId: currentGroup.id, userId: user.id})"
         />
         <TrustButton
           v-if="currentGroupMembership"
@@ -113,16 +113,31 @@
         />
       </QCardMain>
     </QCard>
+
+    <QModal
+      v-model="showConflictSetup"
+    >
+      <ConflictSetup
+        v-if="showConflictSetup"
+        :current-group="currentGroup"
+        :user="user"
+        :status="issueCreateStatus"
+        @startConflictResolution="startConflictResolution"
+        @close="toggleConflictSetup"
+      />
+    </QModal>
   </div>
 </template>
 
 <script>
-import { mapGetters } from 'vuex'
+import { mapGetters, mapActions } from 'vuex'
 import Markdown from '@/utils/components/Markdown'
 import ProfilePicture from '@/users/components/ProfilePicture'
 import UserMapPreview from '@/maps/components/UserMapPreview'
 import TrustButton from '@/users/components/TrustButton'
 import SwitchGroupButton from '@/users/components/SwitchGroupButton'
+
+const ConflictSetup = () => import('@/issues/components/ConflictSetup')
 
 import {
   QAlert,
@@ -134,6 +149,7 @@ import {
   QItem,
   QItemMain,
   QItemSide,
+  QModal,
 } from 'quasar'
 
 export default {
@@ -143,6 +159,7 @@ export default {
     ProfilePicture,
     TrustButton,
     SwitchGroupButton,
+    ConflictSetup,
     QAlert,
     QCard,
     QCardMain,
@@ -152,14 +169,28 @@ export default {
     QItem,
     QItemMain,
     QItemSide,
+    QModal,
   },
   props: {
     user: { required: true, type: Object },
     currentGroup: { default: null, type: Object },
   },
+  data () {
+    return {
+      showConflictSetup: false,
+    }
+  },
+  watch: {
+    showConflictSetup (val) {
+      if (!val) {
+        this.clearIssueMeta(['create'])
+      }
+    },
+  },
   computed: {
     ...mapGetters({
       getIssues: 'issues/ongoing',
+      issueCreateStatus: 'issues/createStatus',
     }),
     conflictOngoing () {
       return this.getIssues.some(i => i.affectedUser.id === this.user.id)
@@ -192,8 +223,15 @@ export default {
     },
   },
   methods: {
+    ...mapActions({
+      startConflictResolution: 'issues/create',
+      clearIssueMeta: 'issues/meta/clear',
+    }),
     mailto (email) {
       return `mailto:${email}`
+    },
+    toggleConflictSetup () {
+      this.showConflictSetup = !this.showConflictSetup
     },
   },
 }

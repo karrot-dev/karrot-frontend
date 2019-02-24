@@ -13,8 +13,6 @@ const DeleteAccount = () => import('@/authuser/pages/DeleteAccount')
 const DeleteAccountTitle = () => import('@/authuser/components/Settings/DeleteAccountTitle')
 const ApplicationForm = () => import('@/applications/pages/ApplicationForm')
 const ApplicationFormTitle = () => import('@/applications/components/ApplicationFormTitle')
-const ConflictResolutionSetup = () => import('@/issues/pages/ConflictSetup')
-const ConflictResolutionSetupTitle = () => import('@/issues/components/ConflictSetupTitle')
 const Unsubscribe = () => import('@/unsubscribe/pages/Unsubscribe')
 const UnsubscribeTitle = () => import('@/unsubscribe/components/UnsubscribeTitle')
 
@@ -135,20 +133,6 @@ export default [
     components: {
       default: ApplicationForm,
       header: ApplicationFormTitle,
-    },
-  },
-  {
-    name: 'conflictResolutionSetup',
-    path: 'group/:groupId/user/:userId/report',
-    meta: {
-      requireLoggedIn: true,
-      breadcrumbs: [
-        { translation: 'CONFLICT.SETUP' },
-      ],
-    },
-    components: {
-      default: ConflictResolutionSetup,
-      header: ConflictResolutionSetupTitle,
     },
   },
   {

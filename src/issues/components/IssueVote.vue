@@ -1,7 +1,8 @@
 <template>
   <QCard
-    class="wrapper"
-    :class="{showOverlay}">
+    class="relative-position"
+    :class="{showOverlay}"
+  >
     <QBtn
       v-if="showOverlay"
       class="absolute-center"
@@ -121,7 +122,7 @@ export default {
     },
     showOverlay () {
       if (!this.edit) return
-      return this.edit.every(o => o.yourScore === null)
+      return this.edit.some(o => o.yourScore === null)
     },
     results () {
       return this.edit.map(o => ({
@@ -174,9 +175,6 @@ export default {
 </script>
 
 <style scoped lang="stylus">
-@import '~slidetoggle'
-.wrapper
-  position relative
 .showOverlay .content
   opacity 0.3
   filter blur(3px)

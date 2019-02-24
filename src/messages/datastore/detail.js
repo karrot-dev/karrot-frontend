@@ -5,7 +5,7 @@ import router from '@/base/router'
 
 function initialState () {
   return {
-    scope: {},
+    scope: { type: null, id: null },
   }
 }
 

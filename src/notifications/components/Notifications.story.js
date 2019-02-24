@@ -16,17 +16,6 @@ const place = factories.makePlace({
   group,
 })
 
-// TODO move this to enrichedFactories
-let issueIdCnt = 0
-const makeIssue = data => {
-  return {
-    id: issueIdCnt++,
-    created_by: factories.makeUser(),
-    affectedUser: factories.makeUser(),
-    ...data,
-  }
-}
-
 const notifications = [
   {
     type: 'user_became_editor',
@@ -152,7 +141,7 @@ const notifications = [
     type: 'conflict_resolution_created',
     context: {
       group,
-      issue: makeIssue(),
+      issue: factories.makeIssue(),
       affectedUser: factories.makeUser(),
     },
   },
@@ -160,14 +149,14 @@ const notifications = [
     type: 'conflict_resolution_created_about_you',
     context: {
       group,
-      issue: makeIssue(),
+      issue: factories.makeIssue(),
     },
   },
   {
     type: 'conflict_resolution_continued',
     context: {
       group,
-      issue: makeIssue(),
+      issue: factories.makeIssue(),
       affectedUser: factories.makeUser(),
     },
   },
@@ -175,14 +164,14 @@ const notifications = [
     type: 'conflict_resolution_continued_about_you',
     context: {
       group,
-      issue: makeIssue(),
+      issue: factories.makeIssue(),
     },
   },
   {
     type: 'conflict_resolution_decided',
     context: {
       group,
-      issue: makeIssue(),
+      issue: factories.makeIssue(),
       affectedUser: factories.makeUser(),
     },
   },
@@ -190,7 +179,7 @@ const notifications = [
     type: 'conflict_resolution_decided_about_you',
     context: {
       group,
-      issue: makeIssue(),
+      issue: factories.makeIssue(),
     },
   },
   {
@@ -204,7 +193,7 @@ const notifications = [
     expiresAt: addHours(new Date(), 2),
     context: {
       group,
-      issue: makeIssue(),
+      issue: factories.makeIssue(),
     },
   },
 ].map(factories.makeNotification)

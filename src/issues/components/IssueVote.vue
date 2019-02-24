@@ -153,7 +153,7 @@ export default {
             return 'STRONGLY_DISAGREE'
         }
       }
-      return this.$t(`ISSUE.SCORE_LABELS.${getTranslationId()}`)
+      return this.$t(`ISSUE.VOTING.SCORE_LABELS.${getTranslationId()}`)
     },
     setToNull () {
       this.edit = this.edit.map(o => ({

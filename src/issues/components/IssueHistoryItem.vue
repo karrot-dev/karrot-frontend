@@ -1,11 +1,8 @@
 <template>
-  <div>
-    <QItem
-      multiline
-      link
-      :class="{'greyed': detailIsShown}"
-      @click.native="toggleDetail"
-    >
+  <QCollapsible
+    separator
+  >
+    <template slot="header">
       <QItemMain>
         <QItemTile>
           {{ $t('ISSUE.VOTING.RESULTS.KEEP_DISCUSSING') }}
@@ -24,32 +21,22 @@
       >
         <DateAsWords :date="voting.expiresAt" />
       </QItemSide>
-    </QItem>
-    <Transition name="slide-toggle">
-      <div
-        @click.self="toggleDetail"
-        class="detail-wrapper greyed"
-        style="cursor: pointer"
-        v-if="detailIsShown"
-      >
-        <VotingResults
-          style="cursor: initial"
-          :voting="voting"
-          :affected-user="affectedUser"
-          :group-name="groupName"
-          :is-cancelled="isCancelled"
-        />
-      </div>
-    </Transition>
-  </div>
+    </template>
+    <VotingResults
+      :voting="voting"
+      :affected-user="affectedUser"
+      :group-name="groupName"
+      :is-cancelled="isCancelled"
+    />
+  </QCollapsible>
 </template>
 
 <script>
 import {
-  QItem,
   QItemSide,
   QItemMain,
   QItemTile,
+  QCollapsible,
 } from 'quasar'
 
 import DateAsWords from '@/utils/components/DateAsWords'
@@ -57,10 +44,10 @@ import VotingResults from './VotingResults'
 
 export default {
   components: {
-    QItem,
     QItemSide,
     QItemMain,
     QItemTile,
+    QCollapsible,
     DateAsWords,
     VotingResults,
   },
@@ -82,31 +69,5 @@ export default {
       default: false,
     },
   },
-  methods: {
-    toggleDetail (event) {
-      this.detailIsShown = !this.detailIsShown
-    },
-  },
-  data () {
-    return {
-      detailIsShown: false,
-    }
-  },
 }
 </script>
-
-<style scoped lang="stylus">
-@import '~slidetoggle'
-.clickable
-  transition padding .5s ease
-  &:hover
-    cursor pointer
-    background-color rgb(235, 235, 235)
-.clickable.greyed
-  padding 1em 3em 10px 3em
-.greyed
-  background-color rgb(235, 235, 235)
-.detail-wrapper
-  padding: 0 2em
-  padding-bottom 2em
-</style>

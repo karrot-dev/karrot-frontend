@@ -1,6 +1,6 @@
 <template>
   <QCard
-    class="relative-position"
+    class="relative-position no-shadow"
     :class="{showOverlay}"
   >
     <QBtn
@@ -141,7 +141,7 @@ export default {
     getLabel (score) {
       const getTranslationId = () => {
         switch (score) {
-          case 0:
+          default:
             return 'NEUTRAL'
           case 1:
             return 'AGREE'

@@ -2,6 +2,7 @@
   <div v-if="issue">
     <QCard
       v-if="issue.isOngoing"
+      class="no-shadow"
     >
       <IssueVote
         :issue="issue"
@@ -20,7 +21,7 @@
     </QCard>
 
     <QCard
-      v-if="!issue.isOngoing"
+      v-else
     >
       <QCardTitle>
         {{ $t('ISSUE.VOTING.RESULTS.TIME_UP') }}

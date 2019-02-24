@@ -26,6 +26,8 @@ export default {
         affectedUser: rootGetters['users/get'](issue.affectedUser),
         group: rootGetters['groups/get'](issue.group),
         createdBy: rootGetters['users/get'](issue.createdBy),
+        isCancelled: issue.status === 'cancelled',
+        isOngoing: issue.status === 'ongoing',
       }
     },
     current: (state, getters) => {
@@ -39,8 +41,8 @@ export default {
       .map(getters.enrich)
       .filter(i => i.group && i.group.isCurrentGroup)
       .sort(sortByCreatedAt),
-    ongoing: (state, getters) => getters.forGroup.filter(i => i.status === 'ongoing'),
-    past: (state, getters) => getters.forGroup.filter(i => i.status !== 'ongoing'),
+    ongoing: (state, getters) => getters.forGroup.filter(i => i.isOngoing),
+    past: (state, getters) => getters.forGroup.filter(i => !i.isOngoing),
     ...metaStatuses(['create']),
   },
   actions: {

@@ -172,34 +172,33 @@ export const makePickupSeries = data => {
   }
 }
 
+let optionIdCnt = 0
+export const makeOption = data => {
+  return {
+    id: optionIdCnt++,
+    sumScore: null,
+    yourScore: 0,
+    type: 'further_discussion',
+    ...data,
+  }
+}
+
 let votingIdCnt = 0
 export const makeVoting = data => {
   return {
     id: votingIdCnt++,
     acceptedOption: 74,
     expiresAt: addHours(new Date(), 106),
-    options: [{
-      affectedUser: 174,
-      id: 73,
-      sumScore: 7.0,
-      message: null,
-      yourScore: null,
-      type: 'further_discussion',
-    },
-    { affectedUser: 174,
-      id: 74,
-      sumScore: 5.0,
-      message: null,
-      yourScore: null,
-      type: 'remove_user',
-    },
-    { affectedUser: 174,
-      id: 76,
-      sumScore: -1.0,
-      message: null,
-      yourScore: null,
-      type: 'no_change',
-    },
+    options: [
+      makeOption({
+        type: 'further_discussion',
+      }),
+      makeOption({
+        type: 'remove_user',
+      }),
+      makeOption({
+        type: 'no_change',
+      }),
     ],
     participantCount: 6,
     ...data,
@@ -217,6 +216,8 @@ export const makeIssue = data => {
     affectedUser: makeUser(),
     group: makeGroup(),
     status: 'ongoing',
+    isCancelled: false,
+    isOngoing: true,
     votings: [
       makeVoting({
         expiresAt: new Date('2018-01-24T21:22:54.730980Z'),

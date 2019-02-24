@@ -37,6 +37,7 @@
           :voting="voting"
           :affected-user="affectedUser"
           :group-name="groupName"
+          :is-cancelled="isCancelled"
         />
       </div>
     </Transition>
@@ -75,6 +76,10 @@ export default {
     groupName: {
       type: String,
       default: '',
+    },
+    isCancelled: {
+      type: Boolean,
+      default: false,
     },
   },
   methods: {

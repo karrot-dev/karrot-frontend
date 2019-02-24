@@ -1,7 +1,7 @@
 <template>
   <div v-if="issue">
     <QCard
-      v-if="issue.status === 'ongoing'"
+      v-if="issue.isOngoing"
     >
       <IssueVote
         :issue="issue"
@@ -14,12 +14,13 @@
           v-for="v in allPastVotings"
           :key="v.id"
           :voting="v"
+          :is-cancelled="issue.isCancelled"
         />
       </QList>
     </QCard>
 
     <QCard
-      v-if="issue.status !== 'ongoing'"
+      v-if="!issue.isOngoing"
     >
       <QCardTitle>
         {{ $t('ISSUE.VOTING.RESULTS.TIME_UP') }}
@@ -29,7 +30,7 @@
           :voting="newestVoting"
           :affected-user="issue.affectedUser"
           :group-name="issue.group.name"
-          :issue-status="issue.status"
+          :is-cancelled="issue.isCancelled"
         />
         <QList
           v-if="multipleVotings"
@@ -40,7 +41,7 @@
             :voting="v"
             :affected-user="issue.affectedUser"
             :group-name="issue.group.name"
-            :issue-status="issue.status"
+            :is-cancelled="issue.isCancelled"
           />
         </QList>
       </QCardMain>

@@ -4,31 +4,35 @@ import subHours from 'date-fns/sub_hours'
 import addHours from 'date-fns/add_hours'
 import * as factories from '>/enrichedFactories'
 
-import IssueTabsUI from './IssueTabsUI'
 import IssueVote from './IssueVote'
 import VotingResults from './VotingResults'
+import IssueHistoryItem from './IssueHistoryItem'
 
-const conversation = factories.makeConversation({
-  participants: [
-    factories.makeUser(),
-    factories.makeUser(),
-    factories.makeUser(),
-  ],
-})
-const value = null
-const issue = factories.makeIssue({
-  createdAt: subHours(new Date(), 2000),
-  topic: 'Just some random thought',
-  status: 'decided',
-})
-
-storiesOf('IssueTabs', module)
-  .add('singleVoting', () => defaults({
-    render: h => h(IssueTabsUI, {
+storiesOf('Issues', module)
+  .add('history item', () => defaults({
+    render: h => h(IssueHistoryItem, {
       props: {
-        issue,
-        conversation,
-        value,
+        voting: factories.makeVoting({
+          acceptedOption: 16,
+          expiresAt: addHours(new Date(), 150),
+          options: [
+            factories.makeOption({
+              type: 'remove_user',
+              id: 16,
+              sumScore: 9,
+            }),
+            factories.makeOption({
+              type: 'further_discussion',
+              sumScore: 3,
+            }),
+            factories.makeOption({
+              type: 'no_change',
+              sumScore: 0,
+            }),
+          ],
+        }),
+        affectedUser: factories.makeUser(),
+        groupName: 'asdf',
       },
     }),
   }))
@@ -38,7 +42,6 @@ storiesOf('IssueTabs', module)
         issue: factories.makeIssue({
           createdAt: subHours(new Date(), 2000),
           topic: 'Just some random thought',
-          status: 'ongoing',
           votings: [
             factories.makeVoting({
               acceptedOption: null,
@@ -56,32 +59,28 @@ storiesOf('IssueTabs', module)
   .add('results - expelled', () => defaults({
     render: h => h(VotingResults, {
       props: {
-        issue: factories.makeIssue({
-          createdAt: addHours(new Date(), 2000),
-          topic: 'Such an annoying person, really.',
-          status: 'decided',
-          votings: [
-            factories.makeVoting({
-              acceptedOption: 16,
-              expiresAt: addHours(new Date(), 150),
-              options: [
-                factories.makeOption({
-                  type: 'remove_user',
-                  id: 16,
-                  sumScore: 9,
-                }),
-                factories.makeOption({
-                  type: 'further_discussion',
-                  sumScore: 3,
-                }),
-                factories.makeOption({
-                  type: 'no_change',
-                  sumScore: 0,
-                }),
-              ],
+        voting: factories.makeVoting({
+          acceptedOption: 16,
+          expiresAt: addHours(new Date(), 150),
+          options: [
+            factories.makeOption({
+              type: 'remove_user',
+              id: 16,
+              sumScore: 9,
+            }),
+            factories.makeOption({
+              type: 'further_discussion',
+              sumScore: 3,
+            }),
+            factories.makeOption({
+              type: 'no_change',
+              sumScore: 0,
             }),
           ],
         }),
+        affectedUser: factories.makeUser(),
+        isCancelled: false,
+        groupName: 'asdf',
       },
     }),
   }))

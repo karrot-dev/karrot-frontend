@@ -14,13 +14,13 @@
         {{ $t('ISSUE.VOTING.RESULTS.PARTICIPANTS', { number: voting.participantCount }) }}
       </div>
       <QItemSide
-        v-if="issueStatus !== 'cancelled'"
+        v-if="!isCancelled"
         right
         stamp="Total score"
       />
     </QItemMain>
     <QList
-      v-if="issueStatus !== 'cancelled'"
+      v-if="!isCancelled"
       no-border
     >
       <QItem
@@ -40,7 +40,7 @@
       </QItem>
     </QList>
     <QItem
-      v-if="issueStatus === 'cancelled'"
+      v-if="isCancelled"
     >
       <QItemMain
         class="q-pt-md"
@@ -96,9 +96,9 @@ export default {
       type: String,
       default: '',
     },
-    issueStatus: {
-      type: String,
-      default: '',
+    isCancelled: {
+      type: Boolean,
+      default: false,
     },
   },
   computed: {

@@ -118,7 +118,7 @@
         <QLayoutDrawer
           v-if="!$q.platform.is.mobile"
           side="right"
-          :width="500"
+          :width="detailWidth"
           :overlay="false"
           :breakpoint="0"
           :value="isDetailActive || hasDetailComponent"
@@ -254,6 +254,11 @@ export default {
         return Math.min(380, this.windowWidth)
       }
       return this.windowWidth > 1000 ? 380 : 280
+    },
+    detailWidth () {
+      const contentWidth = this.windowWidth - this.sidenavWidth
+      const columnWidth = Math.floor(contentWidth / 2)
+      return Math.max(280, columnWidth)
     },
     routerComponents () {
       const components = {}

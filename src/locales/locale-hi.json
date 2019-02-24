@@ -2,50 +2,50 @@
   "ENTRY": "1 entry | {count} entries",
   "GLOBAL": {
     "GITHUB_NOTE": "विकास",
-    "COMMUNITY_NOTE": "Join our community!",
+    "COMMUNITY_NOTE": "समूह में शामिल हो",
     "SERVER_ERROR": "सर्वर त्रुटि",
-    "NOT_CONNECTED": "You aren't connected to the server",
-    "INVALID_LINK": "Sorry, the link you've opened is invalid.",
-    "GENERIC_ERROR": "Sorry, something went wrong",
-    "SEARCH_NOT_FOUND": "Not Found",
-    "ABOUT_KARROT": "About Karrot"
+    "NOT_CONNECTED": "आप सर्वर से जुड़े हुए नहीं है ",
+    "INVALID_LINK": "क्षमा करे, आपके द्वारा खोला गया लिंक गलत है",
+    "GENERIC_ERROR": "क्षमा करे, कुछ गलत हो गया",
+    "SEARCH_NOT_FOUND": "नहीं मिला",
+    "ABOUT_KARROT": "Karrot के बारेमे"
   },
   "USERDATA": {
-    "EMAIL": "E-mail",
-    "MOBILE_NUMBER": "Phone number",
+    "EMAIL": "ई-मेल",
+    "MOBILE_NUMBER": "दूरध्वनी",
     "PROFILE_TITLE": " पार्श्व चित्र \\ वर्णन",
     "PASSWORD": "पारण शब्द",
-    "CONFIRM_PASSWORD": "Confirm your password",
+    "CONFIRM_PASSWORD": "अपने पासवर्ड की पुष्टि करें",
     "USERNAME": "नाम",
     "WHERE_FROM": "आप कहां से हैं (आवश्यक नहीं)",
     "PHOTO": "पार्श्व चित्र \\\\ वर्णन",
     "SET_PHOTO": "अपनी प्रोफाइल पिक्चर सेट करो",
-    "ACCOUNT": "Account",
-    "PUSH": "Push notifications",
-    "PUSH_CURRENT_BROWSER": "Current browser",
+    "ACCOUNT": "अकाउंट",
+    "PUSH": "भेजी हुवी सूचनाएं",
+    "PUSH_CURRENT_BROWSER": "वर्तमान ब्राउज़र",
     "REQUEST_DELETE_ACCOUNT": {
-      "SUCCESS": "We sent you an e-mail with a link to complete the deletion process."
+      "SUCCESS": "हमने आपको हटाने की प्रक्रिया को पूरा करने के लिए एक लिंक के साथ एक ई-मेल भेजा है"
     },
     "DIALOGS": {
       "REQUEST_DELETE_ACCOUNT": {
-        "TITLE": "Account deletion",
-        "MESSAGE": "Are you sure? Your account and your personal data will be permanently deleted. Anything you have done on this platform will be made anonymous. If you confirm, we send you an e-mail with a link to complete the deletion process.",
-        "CONFIRM": "Confirm"
+        "TITLE": "अकाउंट हटाना",
+        "MESSAGE": "क्या आपको यकीन है? आपका खाता और आपका व्यक्तिगत डेटा स्थायी रूप से हटा दिया जाएगा। इस प्लेटफॉर्म पर आपने जो कुछ भी किया है, उसे गुमनाम कर दिया जाएगा। यदि आप पुष्टि करते हैं, तो हम आपको डिलीट प्रक्रिया को पूरा करने के लिए एक लिंक के साथ एक ई-मेल भेजते हैं।",
+        "CONFIRM": "पुष्टि करें"
       },
       "GIVE_TRUST": {
-        "TITLE": "Trust user",
-        "MESSAGE": "Do you trust {userName} in {groupName}?"
+        "TITLE": "भरोसेमंद यूजर",
+        "MESSAGE": "क्या आप {groupName}से {userName} पे भरोसा करते है "
       }
     },
-    "LOGOUT_SUCCESS": "You have been logged out!",
-    "YOU_TRUST_USER": "You trust {userName} in {groupName}.",
+    "LOGOUT_SUCCESS": "आप लॉग आउट हो गए हैं। ",
+    "YOU_TRUST_USER": "आप {groupName}से {userName} पे भरोसा करते है ",
     "OTHER_PEOPLE_TRUST_USER": "{otherUser} trusts {userName} in {groupName}. | {count} people trust {userName} in {groupName}.",
     "OTHER_PEOPLE_TRUST_YOU": "{otherUser} trusts you in {groupName}. | {count} people trust you in {groupName}.",
     "PEOPLE_TRUST_USER": "You and {otherUser} trust {userName} in {groupName}. | You and {count} other people trust {userName} in {groupName}.",
     "FIRST_TRUST": "Be the first one to trust {userName} in {groupName}!",
-    "NEWCOMER": "Newcomer",
-    "NEWCOMER_GUIDANCE": "{userName} is new to your group and might need some guidance.",
-    "TRUST_PROGRESS_TEXT": "{trustNeeded} more trust needed",
+    "NEWCOMER": "नवागंतुक",
+    "NEWCOMER_GUIDANCE": "{userName}आपके समूह के लिए नया है और उन्हें कुछ मार्गदर्शन की आवश्यकता हो सकती है ",
+    "TRUST_PROGRESS_TEXT": "{trustNeeded}को अधिक विश्वास की जरूरत है ",
     "TRUST_PROGRESS_TEXT_LONG": "{trustNeeded} more people need to express their trust in {userName} to grant editing permissions.",
     "NEWCOMER_INFO": "You are currently a newcomer in {groupName} and you can become active by writing messages, meeting fellow members, doing pickups and giving feedback. As soon as {threshold} members expressed their trust in you, you will gain editing permissions to help with group administration.",
     "TRUST_INFO": {
@@ -57,13 +57,13 @@
   "SWITCHGROUP": {
     "NOT_MEMBER": "{userName} is not member of {groupName}.",
     "COMMON_GROUPS": "Groups you have in common",
-    "OTHER_GROUPS": "Other groups"
+    "OTHER_GROUPS": "अन्य समूह"
   },
   "BUTTON": {
     "CREATE": "सर्जन करना",
     "CANCEL": "रद्द करना",
-    "OPEN": "Open",
-    "CLOSE": "Close",
+    "OPEN": "खुला",
+    "CLOSE": "बंद",
     "DELETE": "हटाना",
     "EDIT": "संपादित करें",
     "JOIN": "शामिल होना",
@@ -80,18 +80,18 @@
     "AGREE": "मैं सहमत हूँ",
     "REMOVE": "हटाना \\  निकालना ",
     "ARCHIVE": "पुरालेख",
-    "DELETE_ACCOUNT": "Delete account",
-    "SHOW": "Show",
-    "HIDE": "Hide",
+    "DELETE_ACCOUNT": "अकाउंट हटाए",
+    "SHOW": "दिखाए",
+    "HIDE": "छिपाये ",
     "SUBMIT": "Submit",
-    "APPLY": "Apply",
-    "ACCEPT": "Accept",
-    "DECLINE": "Decline",
-    "WITHDRAW": "Withdraw",
-    "SHOW_MORE": "Show more",
-    "ENABLE": "Enable",
-    "DISABLE": "Disable",
-    "UNSUBSCRIBE": "Unsubscribe"
+    "APPLY": "लागू करें",
+    "ACCEPT": "स्वीकार करे",
+    "DECLINE": "मनाई",
+    "WITHDRAW": "निकालना",
+    "SHOW_MORE": "और दिखाए",
+    "ENABLE": "सक्षम",
+    "DISABLE": "अक्षम",
+    "UNSUBSCRIBE": "सदस्यता समाप्त"
   },
   "VALIDATION": {
     "MINLENGTH": "कृपया {न्यूनतम} वर्णों से अधिक दर्ज करें।",
@@ -117,11 +117,11 @@
     "PUBLIC_DESCRIPTION": "एक समूह में शामिल होने से पहले आपको दिखाई देने वाला पाठ",
     "LOGO": "Group logo",
     "SET_LOGO": "Click to upload your group logo!",
-    "APPLICATIONS": "Applications",
+    "APPLICATIONS": "आवेदन",
     "APPLICATION_QUESTIONS": "Questions for people who want to join this group",
     "PICKUPS": "पिकप",
-    "MESSAGES": "Messages",
-    "PICKUP": "Pickup",
+    "MESSAGES": "संदेश",
+    "PICKUP": "पिक अप",
     "MEMBERS": "सदस्य ",
     "JOINED": "joined {relativeDate}",
     "DECLINED": "declined {relativeDate}",
@@ -132,7 +132,7 @@
     "INACTIVE": "Inactive",
     "SHOW_INACTIVE": "Show inactive groups",
     "STORES": "भंडार",
-    "HOME": "Home",
+    "HOME": "होम",
     "HISTORY": "इतिहास",
     "DESCRIPTION": "विवरण",
     "ADDRESS": "पता",
@@ -147,7 +147,7 @@
     "INVITATION_ACCEPT_ERROR": "ओह, निमंत्रण स्वीकार नहीं कर सका!",
     "SETTINGS": "सेटिंग्स",
     "NOTIFICATIONS": "सूचनाएं",
-    "EMAIL_NOTIFICATIONS": "Email notifications",
+    "EMAIL_NOTIFICATIONS": "ईमेल सूचनाएं",
     "NOTIFICATION_TYPES": {
       "weekly_summary": {
         "NAME": "Weekly summary",

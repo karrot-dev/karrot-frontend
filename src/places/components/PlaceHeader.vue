@@ -16,6 +16,9 @@
           :icon="selected.icon"
           :text-color="selected.color"
         >
+          <QTooltip>
+            {{ $t('PLACEWALL.SUBSCRIPTION.HEADER') }}
+          </QTooltip>
           <QPopover>
             <QList
               link

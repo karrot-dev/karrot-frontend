@@ -277,7 +277,7 @@ export default [
       },
       {
         name: 'place',
-        redirect: 'place/:placeId/wall',
+        redirect: { name: 'placePickups' },
         path: 'place/:placeId',
         meta: {
           breadcrumbs: [

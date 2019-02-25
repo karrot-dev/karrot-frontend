@@ -38,6 +38,14 @@
       no-border
       class="no-padding"
     >
+      <QItem :to="{name: 'placePickups', params: { placeId }}">
+        <QItemSide class="text-center">
+          <QIcon name="fas fa-shopping-basket" />
+        </QItemSide>
+        <QItemMain>
+          {{ $t("GROUP.PICKUPS") }}
+        </QItemMain>
+      </QItem>
       <QItem :to="{name: 'placeWall', params: { placeId }}">
         <QItemSide class="text-center">
           <QIcon name="fas fa-bullhorn" />
@@ -56,14 +64,6 @@
             {{ cappedWallUnreadCount }}
           </QChip>
         </QItemSide>
-      </QItem>
-      <QItem :to="{name: 'placePickups', params: { placeId }}">
-        <QItemSide class="text-center">
-          <QIcon name="fas fa-shopping-basket" />
-        </QItemSide>
-        <QItemMain>
-          {{ $t("GROUP.PICKUPS") }}
-        </QItemMain>
       </QItem>
       <QItem :to="{name: 'placeFeedback', params: { placeId }}">
         <QItemSide class="text-center">

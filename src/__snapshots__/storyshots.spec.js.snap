@@ -2536,7 +2536,7 @@ exports[`Storyshots GroupSettings show 1`] = `
       </div>
       <div class="q-item-main q-item-section">
         <div class="q-item-label">Pickup notifications</div>
-        <div class="q-item-sublabel">Reminds you of your pickups, and tells you about empty or not-full pickups in the next day</div>
+        <div class="q-item-sublabel">Reminds you of your pickups, and tells you about empty or not-full pickups of your favorite stores in the next day</div>
       </div>
     </label><label class="q-item q-item-division relative-position">
       <div class="q-item-side q-item-section q-item-side-left">
@@ -7172,7 +7172,12 @@ exports[`Storyshots WallConversation WallConversation 1`] = `
     <div class="q-infinite-scroll-content">
       <div class="q-list bg-white desktop-margin relative-position"><button tabindex="0" type="button" class="q-btn inline relative-position q-btn-item non-selectable actionButton hoverScale q-btn-round q-focusable q-hoverable bg-grey-8 text-white">
           <div class="q-focus-helper"></div>
-          <div class="q-btn-inner row col items-center q-popup--skip justify-center"><i aria-hidden="true" class="q-icon fas fa-fw fa-bell-slash"> </i>
+          <div class="q-btn-inner row col items-center q-popup--skip justify-center">
+            <div class="q-tooltip animate-popup">
+              <div>
+                How do you want to receive notifications about new messages in this conversation/thread?
+              </div>
+            </div> <i aria-hidden="true" class="q-icon fas fa-fw fa-bell-slash"> </i>
             <div tabindex="-1" class="q-popover scroll">
               <div class="q-list q-list-link">
                 <!---->

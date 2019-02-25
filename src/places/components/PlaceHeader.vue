@@ -1,5 +1,5 @@
 <template>
-  <QCard class="no-shadow no-padding grey-border">
+  <div class="q-my-sm grey-border relative-position desktop-margin">
     <RandomArt
       :seed="placeId"
       type="banner"
@@ -83,21 +83,27 @@
       </div>
       <KSpinner v-show="!place" />
       <template v-if="place">
-        <Markdown
+        <div
           v-if="place.description"
-          :source="place.description"
-        />
+          class="q-pt-xs"
+        >
+          <Markdown
+            :source="place.description"
+          />
+        </div>
         <i v-else>
           {{ $t("STOREDETAIL.NO_DESCRIPTION") }}
         </i>
-        <StandardMap
-          v-if="$q.platform.is.mobile"
-          :markers="markers"
-          class="map"
-        />
+        <template v-if="$q.platform.is.mobile">
+          <QCardSeparator class="q-mb-sm" />
+          <StandardMap
+            :markers="markers"
+            class="map"
+          />
+        </template>
       </template>
     </div>
-  </QCard>
+  </div>
 </template>
 
 <script>
@@ -115,7 +121,7 @@ import {
 } from 'vuex'
 
 import {
-  QCard,
+  QCardSeparator,
   QBtn,
   QTooltip,
   QPopover,
@@ -132,7 +138,7 @@ export default {
     StandardMap,
     RandomArt,
     KSpinner,
-    QCard,
+    QCardSeparator,
     QBtn,
     QTooltip,
     QPopover,
@@ -212,13 +218,14 @@ export default {
 <style scoped lang="stylus">
 .q-btn-round
   margin-bottom .5em
+body.desktop .actionButtons
+  top 6px
 .actionButtons
-  margin-top -36px
-  float right
+  top 2px
+  right 3px
+  position absolute
   .q-btn
     margin 3px
-.textcontent
-  margin-top 0
 .map
-  height: 30vh
+  height 30vh
 </style>

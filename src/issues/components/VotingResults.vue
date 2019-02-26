@@ -5,7 +5,7 @@
         <strong
           class="q-mr-sm"
         >
-          {{ $t('ISSUE.VOTING.RESULTS.ENDED_AT', { date: $d(new Date(voting.expiresAt), 'long') }) }}
+          {{ $t('ISSUE.VOTING.RESULTS.ENDED_AT', { date: $d(voting.expiresAt, 'long') }) }}
         </strong>
       </div>
       <div

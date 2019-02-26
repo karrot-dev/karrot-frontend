@@ -81,7 +81,7 @@ export default {
     }),
     newestVoting () {
       if (!this.issue) return
-      const tempArray = this.issue.votings.slice().sort((a, b) => new Date(b.expiresAt) - new Date(a.expiresAt))
+      const tempArray = this.issue.votings.slice().sort((a, b) => b.expiresAt - a.expiresAt)
       return tempArray[0]
     },
     multipleVotings () {

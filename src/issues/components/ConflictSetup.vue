@@ -2,7 +2,7 @@
   <div>
     <h3
       class="q-pl-lg q-mb-sm"
-      v-t="'CONFLICT.SETUP_HEADER'"
+      v-t="{ path: 'CONFLICT.SETUP_HEADER', args: { user: user.displayName } }"
     />
     <div>
       <QStepper
@@ -12,20 +12,22 @@
         contractable
       >
         <QStep
-          name="thanks"
-          icon="fas fa-hand-holding-heart"
-          done-icon="fas fa-hand-holding-heart"
-          :title="$t('THANKS')"
-        >
-          <p> {{ $t('CONFLICT.STEPPER1') }} </p>
-        </QStep>
-        <QStep
           name="attention"
           icon="fas fa-exclamation"
           done-icon="fas fa-exclamation"
           :title="$t('ATTENTION')"
         >
-          <p> {{ $t('CONFLICT.STEPPER2') }} </p>
+          <p><strong> {{ $t('CONFLICT.STEPPER1a') }} </strong></p>
+          <p> {{ $t('CONFLICT.STEPPER1b') }} </p>
+        </QStep>
+        <QStep
+          name="thanks"
+          icon="fas fa-hand-holding-heart"
+          done-icon="fas fa-hand-holding-heart"
+          :title="$t('THANKS')"
+        >
+          <p><strong> {{ $t('CONFLICT.STEPPER2a') }} </strong></p>
+          <p> {{ $t('CONFLICT.STEPPER2b') }} </p>
         </QStep>
         <QStep
           name="consequences"
@@ -33,7 +35,21 @@
           done-icon="fas fa-info"
           :title="$t('INFO')"
         >
-          <p> {{ $t('CONFLICT.STEPPER3', { votingDuration: currentGroup && currentGroup.issueVotingDurationDays }) }} </p>
+          <p><strong> {{ $t('CONFLICT.STEPPER3a') }} </strong></p>
+          <ul>
+            <li> {{ $t('CONFLICT.STEPPER3b') }} </li>
+            <li> {{ $t('CONFLICT.STEPPER3c') }} </li>
+            <li> {{ $t('CONFLICT.STEPPER3d') }} </li>
+            <li> {{ $t('CONFLICT.STEPPER3e', { votingDuration: currentGroup && currentGroup.issueVotingDurationDays }) }} </li>
+            <li> {{ $t('CONFLICT.STEPPER3f') }} </li>
+          </ul>
+          <a
+            href="https://community.foodsaving.world/t/LINK-TO-BE-ADDED"
+            target="_blank"
+            rel="noopener"
+            v-t="'USERDATA.TRUST_INFO.LINK'"
+            style="text-decoration: underline"
+          />
         </QStep>
         <QStep
           name="statement"
@@ -41,7 +57,8 @@
           done-icon="fas fa-pen-alt"
           :title="$t('CONFLICT.STATEMENT')"
         >
-          <p> {{ $t('CONFLICT.STEPPER4') }} </p>
+          <p><strong> {{ $t('CONFLICT.STEPPER4a') }} </strong></p>
+          <p> {{ $t('CONFLICT.STEPPER4b') }} </p>
           <MarkdownInput :value="initialStatement">
             <QInput
               id="initial-statement"
@@ -61,7 +78,7 @@
             {{ $t('BUTTON.CANCEL') }}
           </QBtn>
           <QBtn
-            v-if="setup !== 'thanks'"
+            v-if="setup !== 'attention'"
             flat
             color="secondary"
             @click="$refs.setup.previous()"
@@ -131,7 +148,7 @@ export default {
   },
   data () {
     return {
-      setup: 'thanks',
+      setup: 'attention',
       initialStatement: '',
     }
   },

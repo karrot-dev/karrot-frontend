@@ -323,6 +323,11 @@
     "TITLE": "Create a new store"
   },
   "PICKUPLIST": {
+    "FILTER": {
+      "ALL": "All",
+      "EMPTY": "Only empty",
+      "FREE": "With free slots"
+    },
     "AVAILABLE": "There is one pickup in your favorite stores waiting for you! | There are {count} pickups in your favorite stores waiting for you!",
     "AVAILABLE_FEEDBACK": "You can give feedback to a pickup | {count} pickups await your feedback",
     "JOINEDNOTICE": "You have one upcoming pickup | You have {count} upcoming pickups",

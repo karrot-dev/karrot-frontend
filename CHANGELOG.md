@@ -25,6 +25,7 @@ Please document your changes in this format:
 - Add ability to specify pickups with end times #709 @nicksellen
 - Add store wall #986 @tiltec
 - Add feature to mark stores as favorite #986 @tiltec
+- Add slots filter to group pickup list @tiltec
 
 ### Changed
 - Allow non-collectors to read and write in pickup chat @tiltec

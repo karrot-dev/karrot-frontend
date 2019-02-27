@@ -33,6 +33,9 @@ Please document your changes in this format:
 - Can now unsubscribe from conversations (except private conversation and threads) @tiltec
 - Show store name instead of "Current store" in sidenav @tiltec
 
+### Fixed
+- Ended conversations weren't closed if they had no messages @tiltec
+
 ## [6.5.0] - 2019-02-03
 ### Added
 - Close application, pickup and issue chats after they ended [#1088] @tiltec

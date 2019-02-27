@@ -155,7 +155,7 @@
       },
       "daily_pickup_notification": {
         "NAME": "Notifications de récolte",
-        "DESCRIPTION": "Te rappelle tes prochaines récoltes et t'indique quelles récoltes sont encore libres pour le lendemain"
+        "DESCRIPTION": "Reminds you of your pickups, and tells you about empty or not-full pickups of your favorite stores in the next day"
       },
       "new_application": {
         "NAME": "Nouvelles candidatures",
@@ -323,10 +323,15 @@
     "TITLE": "Créer un nouveau magasin"
   },
   "PICKUPLIST": {
-    "AVAILABLE": "Il y a une récolte qui t'attend dans les prochains jours !  | Il y a {count} récoltes qui t'attendent dans les prochains jours !",
+    "FILTER": {
+      "ALL": "All",
+      "EMPTY": "Only empty",
+      "FREE": "With free slots"
+    },
+    "AVAILABLE": "There is one pickup in your favorite stores waiting for you! | There are {count} pickups in your favorite stores waiting for you!",
     "AVAILABLE_FEEDBACK": "Tu peux donner ton feedback sur la récolte | {count} récoltes attendent ton feedback ",
     "JOINEDNOTICE": "Tu as une récolte qui arrive | Tu as {count} récoltes qui arrivent",
-    "AVAILABLE_FROM_STORES": "Ceci montre les récoltes de vos magasins favoris.  Tu peux accéder aux autres magasins dans la barre latérale.",
+    "AVAILABLE_FROM_STORES": "This shows pickups from your favorite stores in the next days. You can access other stores in the sidebar.",
     "ITEM": {
       "LEAVE": "Quitter",
       "JOIN": "Rejoindre",

@@ -6,6 +6,7 @@ export default connect({
   gettersToProps: {
     ongoingIssues: 'issues/ongoing',
     pastIssues: 'issues/past',
+    status: 'issues/fetchByGroupIdStatus',
   },
 })('IssueList', IssueListUI)
 </script>

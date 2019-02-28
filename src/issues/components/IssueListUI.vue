@@ -3,11 +3,18 @@
     no-border
     class="bg-white"
   >
+    <KSpinner v-show="isPending" />
     <IssueItem
       v-for="i in ongoingIssues"
       :key="i.id"
       :issue="i"
     />
+    <KNotice v-if="hasNoOngoing">
+      <template slot="icon">
+        <i class="fas fa-bed"/>
+      </template>
+      {{ $t('ISSUE.NO_ONGOING') }}
+    </KNotice>
     <QItemSeparator />
     <QCollapsible
       v-if="pastIssues.length > 0"
@@ -30,6 +37,11 @@
 
 <script>
 import IssueItem from './IssueItem'
+import KSpinner from '@/utils/components/KSpinner'
+import KNotice from '@/utils/components/KNotice'
+
+import statusMixin from '@/utils/mixins/statusMixin'
+
 import {
   QCollapsible,
   QItemSeparator,
@@ -39,10 +51,13 @@ import {
 export default {
   components: {
     IssueItem,
+    KSpinner,
+    KNotice,
     QCollapsible,
     QItemSeparator,
     QList,
   },
+  mixins: [statusMixin],
   props: {
     ongoingIssues: {
       type: Array,
@@ -61,6 +76,9 @@ export default {
   computed: {
     othersSublabel () {
       return this.$tc('ENTRY', this.pastIssues.length, { count: this.pastIssues.length })
+    },
+    hasNoOngoing () {
+      return !this.isPending && this.ongoingIssues && this.ongoingIssues.length < 1
     },
   },
 }

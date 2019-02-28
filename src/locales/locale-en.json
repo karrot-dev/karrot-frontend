@@ -624,7 +624,8 @@
         "DISAGREE": "disagree",
         "STRONGLY_DISAGREE": "strongly disagree"
       }
-    }
+    },
+    "NO_ONGOING": "No ongoing issues."
   },
   "UNSUBSCRIBE": {
     "HEADER": "Unsubscribe",

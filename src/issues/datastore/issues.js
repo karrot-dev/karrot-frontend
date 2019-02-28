@@ -43,7 +43,7 @@ export default {
       .sort(sortByCreatedAt),
     ongoing: (state, getters) => getters.forGroup.filter(i => i.isOngoing),
     past: (state, getters) => getters.forGroup.filter(i => !i.isOngoing),
-    ...metaStatuses(['create']),
+    ...metaStatuses(['create', 'fetchByGroupId']),
   },
   actions: {
     ...withMeta({
@@ -55,13 +55,13 @@ export default {
         }, { root: true })
         router.push({ name: 'issueDetail', params: { groupId: newIssue.group, issueId: newIssue.id } })
       },
+      async fetchByGroupId ({ dispatch, commit }, { groupId }) {
+        const issueList = await dispatch('pagination/extractCursor', issuesAPI.list({ group: groupId }))
+        commit('update', issueList)
+      },
     }),
-    async fetchByGroupId ({ dispatch, commit }, { groupId }) {
-      const issueList = await dispatch('pagination/extractCursor', issuesAPI.list({ group: groupId }))
-      commit('update', issueList)
-    },
     ...withMeta({
-      async fetchOne ({ commit, dispatch }, issueId) {
+      async fetchOne ({ commit }, issueId) {
         const currentIssue = await issuesAPI.get(issueId)
         commit('update', [currentIssue])
       },

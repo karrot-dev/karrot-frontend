@@ -4,14 +4,14 @@
     align="justify"
   >
     <QRouteTab
-      :to="{ name: 'issueChat' }"
+      :to="{ name: 'issueChat', params: { groupId, issueId } }"
       default
       slot="title"
       name="chat"
       icon="fas fa-comments"
     />
     <QRouteTab
-      :to="{ name: 'issueVote' }"
+      :to="{ name: 'issueVote', params: { groupId, issueId } }"
       slot="title"
       name="vote"
       icon="fas fa-vote-yea"
@@ -20,6 +20,8 @@
 </template>
 
 <script>
+import { mapState } from 'vuex'
+
 import {
   QTabs,
   QRouteTab,
@@ -29,6 +31,12 @@ export default {
   components: {
     QTabs,
     QRouteTab,
+  },
+  computed: {
+    ...mapState({
+      groupId: state => state.currentGroup.id,
+      issueId: state => state.issues.currentId,
+    }),
   },
 }
 </script>

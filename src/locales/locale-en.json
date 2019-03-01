@@ -604,6 +604,7 @@
       "BTN_START": "Vote now",
       "BTN_DELETE": "Delete vote",
       "TOAST": "Your vote was successfully submitted",
+      "TOAST_DELETE": "Your vote was deleted",
       "NO_CHANGE": "{userName} stays in {groupName}",
       "FURTHER_DISCUSSION": "Extend the time to keep discussing",
       "REMOVE_USER": "{userName} gets removed from {groupName}",

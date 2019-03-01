@@ -6,7 +6,9 @@
     >
       <IssueVote
         :issue="issue"
-        @saveScores="saveScores"
+        :status="saveVoteStatus"
+        @save="saveVote"
+        @delete="deleteVote"
       />
       <QList
         v-if="multipleVotings"
@@ -78,6 +80,7 @@ export default {
   computed: {
     ...mapGetters({
       issue: 'issues/current',
+      saveVoteStatus: 'issues/saveVoteStatus',
     }),
     newestVoting () {
       if (!this.issue) return
@@ -98,7 +101,8 @@ export default {
   },
   methods: {
     ...mapActions({
-      saveScores: 'issues/saveScores',
+      saveVote: 'issues/saveVote',
+      deleteVote: 'issues/deleteVote',
     }),
   },
 }

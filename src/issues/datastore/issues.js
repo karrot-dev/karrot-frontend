@@ -43,7 +43,7 @@ export default {
       .sort(sortByCreatedAt),
     ongoing: (state, getters) => getters.forGroup.filter(i => i.isOngoing),
     past: (state, getters) => getters.forGroup.filter(i => !i.isOngoing),
-    ...metaStatuses(['create', 'fetchByGroupId']),
+    ...metaStatuses(['create', 'fetchByGroupId', 'saveVote']),
   },
   actions: {
     ...withMeta({
@@ -59,11 +59,21 @@ export default {
         const issueList = await dispatch('pagination/extractCursor', issuesAPI.list({ group: groupId }))
         commit('update', issueList)
       },
-    }),
-    ...withMeta({
       async fetchOne ({ commit }, issueId) {
         const currentIssue = await issuesAPI.get(issueId)
         commit('update', [currentIssue])
+      },
+      async saveVote ({ dispatch, state }, data) {
+        await issuesAPI.vote(state.currentId, data)
+        dispatch('toasts/show', {
+          message: 'ISSUE.VOTING.TOAST',
+        }, { root: true })
+      },
+      async deleteVote ({ dispatch, state }) {
+        await issuesAPI.deleteVote(state.currentId)
+        dispatch('toasts/show', {
+          message: 'ISSUE.VOTING.TOAST_DELETE',
+        }, { root: true })
       },
     }),
     ...withMeta({
@@ -79,12 +89,6 @@ export default {
     }, {
       findId: ({ issueId }) => issueId,
     }),
-    async saveScores ({ commit, dispatch, state }, data) {
-      await issuesAPI.vote(state.currentId, data)
-      dispatch('toasts/show', {
-        message: 'ISSUE.VOTING.TOAST',
-      }, { root: true })
-    },
     async maybeFetchOne ({ state, dispatch, getters }, issueId) {
       const isPending = getters['meta/status']('fetchOne', issueId).pending
       if (state.entries[issueId] || isPending) return

@@ -33,7 +33,7 @@
         round
         flat
         color="red"
-        @click="setToNull()"
+        @click="deleteVote"
       >
         <QIcon name="fas fa-times" />
         <QTooltip
@@ -59,9 +59,11 @@
       <QBtn
         type="submit"
         color="secondary"
-        v-t="'BUTTON.SUBMIT'"
-        @click="$emit('saveScores', results)"
-      />
+        :loading="isPending"
+        @click="$emit('save', results)"
+      >
+        {{ $t('BUTTON.SUBMIT') }}
+      </QBtn>
     </div>
   </QCard>
 </template>
@@ -82,6 +84,7 @@ import distanceInWordsStrict from 'date-fns/distance_in_words_strict'
 import differenceInHours from 'date-fns/difference_in_hours'
 import cloneDeep from 'clone-deep'
 import reactiveNow from '@/utils/reactiveNow'
+import statusMixin from '@/utils/mixins/statusMixin'
 
 export default {
   components: {
@@ -94,6 +97,7 @@ export default {
     QIcon,
     QTooltip,
   },
+  mixins: [statusMixin],
   props: {
     issue: {
       type: Object,
@@ -155,7 +159,8 @@ export default {
       }
       return this.$t(`ISSUE.VOTING.SCORE_LABELS.${getTranslationId()}`)
     },
-    setToNull () {
+    async deleteVote () {
+      this.$emit('delete')
       this.edit = this.edit.map(o => ({
         ...o,
         yourScore: null,

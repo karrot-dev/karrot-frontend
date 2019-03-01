@@ -2,6 +2,7 @@
   <QList
     v-if="issue"
     class="bg-white"
+    style="overflow-x: hidden"
   >
     <template v-if="issue.isOngoing">
       <QItem>

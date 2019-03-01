@@ -84,9 +84,10 @@ export default {
 
         await dispatch('maybeFetchOne', issueId)
         dispatch('conversations/fetchForIssue', { issueId }, { root: true })
-        commit('setCurrentIssue', issueId)
       },
     }, {
+      setCurrentId: ({ commit }, { issueId }) => commit('setCurrentIssue', issueId),
+      getCurrentId: ({ state }) => state.currentId,
       findId: ({ issueId }) => issueId,
     }),
     async maybeFetchOne ({ state, dispatch, getters }, issueId) {

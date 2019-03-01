@@ -1,101 +1,89 @@
 <template>
-  <QCard
-    class="relative-position no-shadow"
+  <div
+    class="relative-position"
     :class="{showOverlay}"
   >
+    <div class="q-title q-mb-md">
+      {{ $t('CONFLICT.VOTING.HEADLINE', { userName: issue.affectedUser.displayName }) }}
+    </div>
+    <div class="q-subheading q-mb-lg">
+      {{ $t('ISSUE.VOTING.DAYS_LEFT', { count: days }) }}
+      <QProgress
+        :percentage="progress"
+        style="height: 8px"
+        color="secondary"
+      />
+    </div>
+    <div class="content">
+      <div>
+        <div
+          v-for="o in edit"
+          :key="o.id"
+        >
+          <div class="q-mt-md">
+            {{ getTitle(o.type) }}
+          </div>
+          <QSlider
+            style="width: 85%; margin: 0 auto"
+            v-model="o.yourScore"
+            :label-value="getLabel(o.yourScore)"
+            :min="-2"
+            :max="2"
+            :step="1"
+            label-always
+            snap
+            markers
+          />
+        </div>
+      </div>
+      <div class="row justify-end group">
+        <QBtn
+          v-if="canDelete"
+          color="negative"
+          @click="deleteVote"
+        >
+          {{ $t('ISSUE.VOTING.BTN_DELETE') }}
+        </QBtn>
+        <QBtn
+          type="submit"
+          color="secondary"
+          :loading="isPending"
+          :disable="!hasChanged"
+          @click="$emit('save', results)"
+        >
+          {{ $t('BUTTON.SUBMIT') }}
+        </QBtn>
+      </div>
+    </div>
     <QBtn
       v-if="showOverlay"
       class="absolute-center"
-      style="z-index: 1"
       color="primary"
       @click="setToZero()"
       v-t="'ISSUE.VOTING.BTN_START'"
     />
-    <div>
-      <QCardTitle>
-        {{ $t('CONFLICT.VOTING.HEADLINE', { userName: issue.affectedUser.displayName }) }}
-      </QCardTitle>
-      <QCardMain>
-        {{ $t('ISSUE.VOTING.DAYS_LEFT', { count: days }) }}
-        <QProgress
-          :percentage="progress"
-          style="height: 8px"
-          color="secondary"
-        />
-      </QCardMain>
-    </div>
-    <div
-      class="content"
-    >
-      <QBtn
-        class="absolute-right"
-        v-if="!showOverlay"
-        round
-        flat
-        color="red"
-        @click="deleteVote"
-      >
-        <QIcon name="fas fa-times" />
-        <QTooltip
-          v-t="'ISSUE.VOTING.BTN_DELETE'"
-        />
-      </QBtn>
-      <QCardMain
-        v-for="o in edit"
-        :key="o.id"
-      >
-        {{ getTitle(o.type) }}
-        <QSlider
-          v-model="o.yourScore"
-          :label-value="getLabel(o.yourScore)"
-          :min="-2"
-          :max="2"
-          :step="1"
-          label-always
-          snap
-          markers
-        />
-      </QCardMain>
-      <QBtn
-        type="submit"
-        color="secondary"
-        :loading="isPending"
-        @click="$emit('save', results)"
-      >
-        {{ $t('BUTTON.SUBMIT') }}
-      </QBtn>
-    </div>
-  </QCard>
+  </div>
 </template>
 
 <script>
 import {
-  QCard,
-  QCardTitle,
-  QCardMain,
   QSlider,
   QProgress,
   QBtn,
-  QIcon,
-  QTooltip,
 } from 'quasar'
 
 import distanceInWordsStrict from 'date-fns/distance_in_words_strict'
 import differenceInHours from 'date-fns/difference_in_hours'
 import cloneDeep from 'clone-deep'
+import deepEqual from 'deep-equal'
 import reactiveNow from '@/utils/reactiveNow'
 import statusMixin from '@/utils/mixins/statusMixin'
 
 export default {
   components: {
-    QCard,
-    QCardTitle,
-    QCardMain,
     QSlider,
     QProgress,
     QBtn,
-    QIcon,
-    QTooltip,
   },
   mixins: [statusMixin],
   props: {
@@ -139,6 +127,12 @@ export default {
     },
     options () {
       return this.ongoingVoting.options
+    },
+    hasChanged () {
+      return !deepEqual(this.options, this.edit)
+    },
+    canDelete () {
+      return this.options.some(o => o.yourScore !== null)
     },
   },
   methods: {

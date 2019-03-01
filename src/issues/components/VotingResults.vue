@@ -1,55 +1,48 @@
 <template>
-  <div>
-    <QItemMain>
-      <div>
-        <strong
-          class="q-mr-sm"
-        >
-          {{ $t('ISSUE.VOTING.RESULTS.ENDED_AT', { date: $d(voting.expiresAt, 'long') }) }}
-        </strong>
-      </div>
-      <div
-        class="q-pt-xs"
-      >
-        {{ $t('ISSUE.VOTING.RESULTS.PARTICIPANTS', { number: voting.participantCount }) }}
-      </div>
-      <QItemSide
-        v-if="!isCancelled"
-        right
-        stamp="Total score"
+  <QList>
+    <QItem>
+      <QItemMain
+        :label="$t('ISSUE.VOTING.RESULTS.ENDED_AT', { date: $d(voting.expiresAt, 'long') })"
+        :sublabel="$t('ISSUE.VOTING.RESULTS.PARTICIPANTS', { number: voting.participantCount })"
       />
-    </QItemMain>
-    <QList
+    </QItem>
+    <template
       v-if="!isCancelled"
-      no-border
     >
       <QItem
-        v-for="(o, index) in sortedOptions"
-        :key="o.id"
+        dense
+        class="justify-end"
       >
         <QItemSide
-          :icon="getIcon(index)"
+          right
+          :stamp="$t('ISSUE.VOTING.RESULTS.TOTAL_SCORE')"
+        />
+      </QItem>
+      <QItem
+        v-for="{ id, icon, label, sumScore} in options"
+        :key="id"
+      >
+        <QItemSide
+          :icon="icon"
           color="primary"
         />
         <QItemMain>
-          {{ displayOutcomes(index) }}
+          {{ label }}
         </QItemMain>
-        <QItemSide>
-          {{ sortedOptions[index].sumScore }}
+        <QItemSide stamp>
+          {{ sumScore }}
         </QItemSide>
       </QItem>
-    </QList>
+    </template>
     <QItem
-      v-if="isCancelled"
+      v-else
     >
-      <QItemMain
-        class="q-pt-md"
-      >
-        <strong>
+      <QItemMain>
+        <QItemTile label>
           {{ $t('ISSUE.VOTING.RESULTS.UNDECIDED') }}
-        </strong>
+        </QItemTile>
         <QItemTile
-          class="q-pt-sm"
+          sublabel
         >
           {{ $t('ISSUE.VOTING.RESULTS.UNDECIDED_WHY') }}
           <ul>
@@ -63,7 +56,7 @@
         </QItemTile>
       </QItemMain>
     </QItem>
-  </div>
+  </QList>
 </template>
 
 <script>
@@ -102,22 +95,29 @@ export default {
     },
   },
   computed: {
-    sortedOptions () {
-      return this.voting.options.slice().sort(function (a, b) {
+    options () {
+      return this.voting.options.map(o => ({
+        ...o,
+        icon: this.getIcon(o.sumScore),
+        label: this.getLabel(o.type),
+      })).sort(function (a, b) {
         return b.sumScore - a.sumScore
       })
     },
   },
   methods: {
-    displayOutcomes (index) {
+    getLabel (type) {
       if (!this.affectedUser) return
-      return this.$t(`ISSUE.VOTING.${this.sortedOptions[index].type.toUpperCase()}`, { userName: this.affectedUser.displayName, groupName: this.groupName })
+      return this.$t(`ISSUE.VOTING.${type.toUpperCase()}`, {
+        userName: this.affectedUser.displayName,
+        groupName: this.groupName,
+      })
     },
-    getIcon (index) {
-      if (this.sortedOptions[index].sumScore > 0) {
+    getIcon (sumScore) {
+      if (sumScore > 0) {
         return 'fas fa-smile'
       }
-      if (this.sortedOptions[index].sumScore < 0) {
+      if (sumScore < 0) {
         return 'fas fa-frown'
       }
       return 'fas fa-meh'

@@ -1,81 +1,67 @@
 <template>
-  <div v-if="issue">
-    <QCard
-      v-if="issue.isOngoing"
-      class="no-shadow"
-    >
-      <IssueVote
-        :issue="issue"
-        :status="saveVoteStatus"
-        @save="saveVote"
-        @delete="deleteVote"
-      />
-      <QList
-        v-if="multipleVotings"
-      >
-        <IssueHistoryItem
-          v-for="v in allPastVotings"
-          :key="v.id"
-          :voting="v"
-          :is-cancelled="issue.isCancelled"
+  <QList
+    v-if="issue"
+    class="bg-white"
+  >
+    <template v-if="issue.isOngoing">
+      <QItem>
+        <IssueVote
+          v-if="issue.isOngoing"
+          :issue="issue"
+          :status="saveVoteStatus"
+          @save="saveVote"
+          @delete="deleteVote"
         />
-      </QList>
-    </QCard>
-
-    <QCard
-      v-else
-    >
-      <QCardTitle>
+      </QItem>
+      <QItem>
+        <PreviousVotingList
+          :votings="allPastVotings"
+          :issue="issue"
+        />
+      </QItem>
+    </template>
+    <template v-else>
+      <QItem class="q-title">
         {{ $t('ISSUE.VOTING.RESULTS.TIME_UP') }}
-      </QCardTitle>
-      <QCardMain>
+      </QItem>
+      <QItem>
         <VotingResults
           :voting="newestVoting"
           :affected-user="issue.affectedUser"
           :group-name="issue.group.name"
           :is-cancelled="issue.isCancelled"
         />
-        <QList
-          v-if="multipleVotings"
-        >
-          <IssueHistoryItem
-            v-for="v in olderVotings"
-            :key="v.id"
-            :voting="v"
-            :affected-user="issue.affectedUser"
-            :group-name="issue.group.name"
-            :is-cancelled="issue.isCancelled"
-          />
-        </QList>
-      </QCardMain>
-    </QCard>
-  </div>
+      </QItem>
+      <QItem>
+        <PreviousVotingList
+          :votings="olderVotings"
+          :issue="issue"
+        />
+      </QItem>
+    </template>
+  </QList>
 </template>
 
 <script>
 import IssueVote from '@/issues/components/IssueVote'
 import VotingResults from '@/issues/components/VotingResults'
-import IssueHistoryItem from '@/issues/components/IssueHistoryItem'
+import PreviousVotingList from '@/issues/components/PreviousVotingList'
 import reactiveNow from '@/utils/reactiveNow'
 
 import { mapGetters, mapActions } from 'vuex'
 
 import {
   QList,
-  QCard,
-  QCardMain,
-  QCardTitle,
+  QItem,
 } from 'quasar'
 
 export default {
   components: {
     IssueVote,
     VotingResults,
-    IssueHistoryItem,
+    PreviousVotingList,
     QList,
-    QCard,
-    QCardMain,
-    QCardTitle,
+    QItem,
   },
   computed: {
     ...mapGetters({
@@ -86,10 +72,6 @@ export default {
       if (!this.issue) return
       const tempArray = this.issue.votings.slice().sort((a, b) => b.expiresAt - a.expiresAt)
       return tempArray[0]
-    },
-    multipleVotings () {
-      if (!this.issue) return
-      return this.issue.votings.length > 1
     },
     allPastVotings () {
       if (!this.issue) return

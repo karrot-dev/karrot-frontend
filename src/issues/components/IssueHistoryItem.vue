@@ -1,7 +1,5 @@
 <template>
-  <QCollapsible
-    separator
-  >
+  <QCollapsible>
     <template slot="header">
       <QItemMain>
         <QItemTile>

@@ -599,6 +599,7 @@
     "SUBMITTED_ON": "Process started on {date}",
     "INITIATED_BY": "Initiated by {initiatorName}",
     "PAST": "Past issues",
+    "PREVIOUS_VOTINGS": "Previous votings in this issue",
     "VOTING": {
       "DAYS_LEFT": "{count} left to vote",
       "BTN_START": "Vote now",
@@ -611,6 +612,7 @@
       "RESULTS": {
         "KEEP_DISCUSSING": "Your group voted to keep discussing",
         "TIME_UP": "Time is up!",
+        "TOTAL_SCORE": "Total score",
         "ENDED_AT": "This voting round ended on {date}",
         "PARTICIPANTS": "{number} members participated in the voting.",
         "UNDECIDED": "Unfortunately this conflict could not be decided.",

@@ -7,7 +7,7 @@
     container
     class="full-height full-width"
   >
-    <QLayoutHeader reveal>
+    <QLayoutHeader>
       <IssueTabs />
     </QLayoutHeader>
     <QPageContainer>

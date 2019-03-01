@@ -6,7 +6,7 @@
     <div class="q-title q-mb-md">
       {{ $t('CONFLICT.VOTING.HEADLINE', { userName: issue.affectedUser.displayName }) }}
     </div>
-    <div class="q-subheading q-mb-lg">
+    <div class="q-pb-lg">
       {{ $t('ISSUE.VOTING.DAYS_LEFT', { count: days }) }}
       <QProgress
         :percentage="progress"

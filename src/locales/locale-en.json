@@ -572,7 +572,6 @@
     "SETUP_HEADER": "Is there a conflict with {user}?",
     "SETUP": "Conflict resolution setup",
     "STATEMENT": "Statement",
-    "TITLE": "Conflict resolution",
     "STEPPER1a": "You are about to start a group-wide conflict resolution process!",
     "STEPPER1b": "This will involve all of your group's editors to try and find the best way to proceed regarding this conflict.",
     "STEPPER2a": "Thank you for caring for your community!",
@@ -586,7 +585,7 @@
     "STEPPER4a": "Please make an initial statement for the open group chat!",
     "STEPPER4b": "Tell your group what made you think this process is justified and needed.",
     "INITIAL": "Initial statement",
-    "WITH": "This process is to resolve a conflict with:",
+    "WITH": "This process is to resolve a conflict with {userName}",
     "VOTING": {
       "HEADLINE": "How do you want to proceed with the ongoing conflict with {userName}?"
     }

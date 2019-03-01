@@ -9,17 +9,14 @@
       </template>
       <div class="q-ma-sm q-pa-sm bg-white">
         <span class="text-bold text-primary">
-          {{ $t('CONFLICT.WITH') }}
+          {{ $t('CONFLICT.WITH', { userName: issue.affectedUser.displayName }) }}
         </span>
-        <div>
-          <ProfilePicture
-            :user="issue.affectedUser"
-            :size="25"
-            :is-link="true"
-            class="q-mt-sm"
-          />
-          {{ issue.affectedUser.displayName }}
-        </div>
+        <ProfilePicture
+          :user="issue.affectedUser"
+          :size="25"
+          :is-link="true"
+          class="q-mt-sm"
+        />
       </div>
       <div class="q-ma-sm q-pa-sm bg-white">
         <span class="text-bold text-secondary uppercase">

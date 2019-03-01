@@ -157,7 +157,7 @@ export default [
             meta: {
               requiredLoggedIn: true,
               breadcrumbs: [
-                { translation: 'CONFLICT.TITLE', route: { name: 'issueDetail' } },
+                { type: 'activeIssue' },
               ],
               beforeEnter: 'issues/select',
               isDetail: true,

@@ -48,6 +48,7 @@ export function convert (val) {
 function convertVoting (val) {
   return {
     ...val,
+    createdAt: new Date(val.createdAt),
     expiresAt: new Date(val.expiresAt),
   }
 }

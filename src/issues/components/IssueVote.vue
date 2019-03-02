@@ -80,7 +80,6 @@ import {
 } from 'quasar'
 
 import distanceInWordsStrict from 'date-fns/distance_in_words_strict'
-import differenceInHours from 'date-fns/difference_in_hours'
 import cloneDeep from 'clone-deep'
 import deepEqual from 'deep-equal'
 import reactiveNow from '@/utils/reactiveNow'
@@ -114,10 +113,18 @@ export default {
   },
   computed: {
     days () {
-      return distanceInWordsStrict(this.ongoingVoting.expiresAt, reactiveNow.value)
+      const { expiresAt } = this.ongoingVoting
+      if (reactiveNow.value >= expiresAt) {
+        // "0 seconds"
+        return distanceInWordsStrict(expiresAt, expiresAt)
+      }
+      return distanceInWordsStrict(expiresAt, reactiveNow.value)
     },
     progress () {
-      return 100 - (differenceInHours(this.ongoingVoting.expiresAt, reactiveNow.value) / 168 * 100)
+      const { expiresAt, createdAt } = this.ongoingVoting
+      const duration = expiresAt - createdAt
+      const elapsed = reactiveNow.value - createdAt
+      return Math.min(elapsed / duration, 1) * 100
     },
     showOverlay () {
       if (!this.edit) return

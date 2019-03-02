@@ -39,7 +39,6 @@
         </div>
         <div class="row justify-end group">
           <QBtn
-            v-if="canDelete"
             color="negative"
             @click="deleteVote"
           >
@@ -149,9 +148,6 @@ export default {
     hasChanged () {
       return !deepEqual(this.options, this.edit)
     },
-    canDelete () {
-      return this.options.some(o => o.yourScore !== null)
-    },
   },
   methods: {
     getLabel (score) {
@@ -172,11 +168,16 @@ export default {
       return this.$t(`ISSUE.VOTING.SCORE_LABELS.${getTranslationId()}`)
     },
     async deleteVote () {
-      this.$emit('delete')
-      this.edit = this.edit.map(o => ({
-        ...o,
-        yourScore: null,
-      }))
+      // only emit 'delete' event if the vote has been saved already, otherwise just reset the sliders
+      if (this.options.some(o => o.yourScore !== null)) {
+        this.$emit('delete')
+      }
+      else {
+        this.edit = this.edit.map(o => ({
+          ...o,
+          yourScore: null,
+        }))
+      }
     },
     setToZero () {
       this.edit = this.edit.map(o => ({

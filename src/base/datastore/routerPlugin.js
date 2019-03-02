@@ -103,7 +103,19 @@ export function findBreadcrumbs (matched) {
 }
 
 export async function maybeDispatchActions (datastore, to, from) {
-  for (let m of from.matched.slice().reverse()) {
+  const sameParams = Object.entries(to.params).every(([k, v]) => {
+    // route params are sometimes strings, sometimes integers - let's just gloss over that...
+    // eslint-disable-next-line eqeqeq
+    return v == from.params[k]
+  })
+  let newMatched = to.matched, leftMatched = from.matched
+  if (sameParams) {
+    // if 'from' and 'to' has the same params, we can skip some shared matches
+    newMatched = to.matched.filter((f, i) => f.path !== (from.matched[i] || {}).path)
+    leftMatched = from.matched.filter((f, i) => f.path !== (to.matched[i] || {}).path)
+  }
+
+  for (let m of leftMatched.slice().reverse()) {
     if (m.meta.afterLeave) {
       await datastore.dispatch(m.meta.afterLeave, {
         ...parseAsIntegers(from.params),
@@ -135,7 +147,7 @@ export async function maybeDispatchActions (datastore, to, from) {
       }
     }
   }
-  const results = await Promise.all(to.matched
+  const results = await Promise.all(newMatched
     .map(m => m.meta.beforeEnter)
     .filter(v => !!v)
     .map(runBeforeEnter))

@@ -29,7 +29,7 @@
         <DateAsWords
           :date="showExpiresAt ? notification.expiresAt : notification.createdAt"
           style="display: inline"
-          :allow-future="showExpiresAt"
+          :future="showExpiresAt"
         />
         · {{ groupName }}
         <template v-if="placeName">

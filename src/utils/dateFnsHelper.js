@@ -22,8 +22,14 @@ export default new Vue({
     },
     distanceInWordsToNow (date, options = {}) {
       const now = reactiveNow.value
-      if (options.disallowFuture && date > now) date = now
-      return distanceInWords(now, date, { locale: this.localeData, ...options })
+      if (options.future) {
+        if (date < now) date = now
+      }
+      else {
+        if (date > now) date = now
+      }
+      const fn = options.strict ? distanceInWordsStrict : distanceInWords
+      return fn(now, date, { locale: this.localeData, ...options })
     },
   },
 })

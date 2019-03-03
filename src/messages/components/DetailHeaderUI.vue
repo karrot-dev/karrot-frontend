@@ -235,7 +235,7 @@ export default {
       })
     },
     dateInWords (date) {
-      return dateFnsHelper.distanceInWordsToNow(date, { addSuffix: true, disallowFuture: true })
+      return dateFnsHelper.distanceInWordsToNow(date, { addSuffix: true, future: false, strict: false })
     },
   },
 }

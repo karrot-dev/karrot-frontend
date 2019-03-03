@@ -69,14 +69,16 @@ export default {
       issue: 'issues/current',
       saveVoteStatus: 'issues/saveVoteStatus',
     }),
+    sortedVotings () {
+      if (!this.issue) return []
+      return this.issue.votings.slice().sort((a, b) => b.expiresAt - a.expiresAt)
+    },
     newestVoting () {
-      if (!this.issue) return
-      const tempArray = this.issue.votings.slice().sort((a, b) => b.expiresAt - a.expiresAt)
-      return tempArray[0]
+      if (this.sortedVotings.length < 1) return
+      return this.sortedVotings[0]
     },
     allPastVotings () {
-      if (!this.issue) return
-      return this.issue.votings.filter(v => v.expiresAt <= reactiveNow.value)
+      return this.sortedVotings.filter(v => v.expiresAt <= reactiveNow.value)
     },
     olderVotings () {
       return this.allPastVotings.filter(v => v.id !== this.newestVoting.id)

@@ -1,7 +1,7 @@
 <template>
   <QItem
     link
-    :to="{name: 'issueDetail', params: { issueId: issue.id }}"
+    :to="{name: issue.isOngoing ? 'issueChat' : 'issueVote', params: { issueId: issue.id }}"
   >
     <QItemSide>
       <ProfilePicture

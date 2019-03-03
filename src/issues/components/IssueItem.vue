@@ -19,7 +19,9 @@
       <QItemTile
         sublabel
       >
-        {{ submittedOn }}
+        <DateAsWords
+          :date="issue.createdAt"
+        />
       </QItemTile>
     </QItemMain>
   </QItem>
@@ -34,6 +36,7 @@ import {
 } from 'quasar'
 
 import ProfilePicture from '@/users/components/ProfilePicture'
+import DateAsWords from '@/utils/components/DateAsWords'
 
 export default {
   components: {
@@ -42,17 +45,12 @@ export default {
     QItemSide,
     QItemTile,
     ProfilePicture,
+    DateAsWords,
   },
   props: {
     issue: {
       required: true,
       type: Object,
-    },
-  },
-  computed: {
-    submittedOn () {
-      const date = this.$d(this.issue.createdAt, 'long')
-      return this.$t('ISSUE.SUBMITTED_ON', { date: date })
     },
   },
 }

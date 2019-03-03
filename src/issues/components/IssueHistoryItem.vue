@@ -7,18 +7,11 @@
         </QItemTile>
         <QItemTile
           stamp
-          class="mobile-only text-weight-light"
+          class="text-weight-light"
         >
           <DateAsWords :date="voting.expiresAt" />
         </QItemTile>
       </QItemMain>
-      <QItemSide
-        class="desktop-only"
-        stamp
-        right
-      >
-        <DateAsWords :date="voting.expiresAt" />
-      </QItemSide>
     </template>
     <VotingResults
       :voting="voting"
@@ -31,7 +24,6 @@
 
 <script>
 import {
-  QItemSide,
   QItemMain,
   QItemTile,
   QCollapsible,
@@ -42,7 +34,6 @@ import VotingResults from './VotingResults'
 
 export default {
   components: {
-    QItemSide,
     QItemMain,
     QItemTile,
     QCollapsible,

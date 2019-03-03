@@ -4,7 +4,16 @@
       {{ $t('CONFLICT.VOTING.HEADLINE', { userName: issue.affectedUser.displayName }) }}
     </div>
     <div class="q-pb-lg">
-      {{ $t('ISSUE.VOTING.DAYS_LEFT', { count: days }) }}
+      <div class="q-caption q-caption-opacity row inline">
+        <div>{{ $t('ISSUE.VOTING.TIME_LEFT') }}</div>:
+        <DateAsWords
+          class="q-pl-xs"
+          :date="ongoingVoting.expiresAt"
+          future
+          strict
+          no-suffix
+        />
+      </div>
       <QProgress
         :percentage="progress"
         style="height: 8px"
@@ -82,7 +91,7 @@ import {
   QBtn,
 } from 'quasar'
 
-import distanceInWordsStrict from 'date-fns/distance_in_words_strict'
+import DateAsWords from '@/utils/components/DateAsWords'
 import cloneDeep from 'clone-deep'
 import deepEqual from 'deep-equal'
 import reactiveNow from '@/utils/reactiveNow'
@@ -93,6 +102,7 @@ export default {
     QSlider,
     QProgress,
     QBtn,
+    DateAsWords,
   },
   mixins: [statusMixin],
   props: {
@@ -115,14 +125,6 @@ export default {
     },
   },
   computed: {
-    days () {
-      const { expiresAt } = this.ongoingVoting
-      if (reactiveNow.value >= expiresAt) {
-        // "0 seconds"
-        return distanceInWordsStrict(expiresAt, expiresAt)
-      }
-      return distanceInWordsStrict(expiresAt, reactiveNow.value)
-    },
     progress () {
       const { expiresAt, createdAt } = this.ongoingVoting
       const duration = expiresAt - createdAt

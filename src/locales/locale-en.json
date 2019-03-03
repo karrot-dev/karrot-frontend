@@ -595,12 +595,11 @@
       "TOAST": "You successfully started a conflict resolution process"
     },
     "TITLE": "Issues",
-    "SUBMITTED_ON": "Process started on {date}",
     "INITIATED_BY": "Initiated by {initiatorName}",
     "PAST": "Past issues",
     "PREVIOUS_VOTINGS": "Previous votings in this issue",
     "VOTING": {
-      "DAYS_LEFT": "{count} left to vote",
+      "TIME_LEFT": "Time left to vote",
       "BTN_START": "Vote now",
       "BTN_DELETE": "Delete vote",
       "TOAST": "Your vote was successfully submitted",

@@ -103,7 +103,20 @@ export function findBreadcrumbs (matched) {
 }
 
 export async function maybeDispatchActions (datastore, to, from) {
-  for (let m of from.matched.slice().reverse()) {
+  const changedParams = Object.keys(to.params).filter(k => {
+    // route params are sometimes strings, sometimes integers - let's just gloss over that...
+    // eslint-disable-next-line eqeqeq
+    return to.params[k] != from.params[k]
+  })
+
+  // find all common matches, to skip their actions
+  const isNewMatch = (f, i) =>
+    f.path !== (from.matched[i] || {}).path || // identify same matches by path
+    changedParams.some(p => f.path.includes(`/:${p}`)) // make a new match if params in this route have been updated
+
+  const firstNewMatchIdx = Math.max(0, to.matched.findIndex(isNewMatch))
+
+  for (let m of from.matched.slice(firstNewMatchIdx).reverse()) {
     if (m.meta.afterLeave) {
       await datastore.dispatch(m.meta.afterLeave, {
         ...parseAsIntegers(from.params),
@@ -135,7 +148,7 @@ export async function maybeDispatchActions (datastore, to, from) {
       }
     }
   }
-  const results = await Promise.all(to.matched
+  const results = await Promise.all(to.matched.slice(firstNewMatchIdx)
     .map(m => m.meta.beforeEnter)
     .filter(v => !!v)
     .map(runBeforeEnter))

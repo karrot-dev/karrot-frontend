@@ -343,7 +343,7 @@ export default [
       },
       {
         name: 'place',
-        redirect: 'place/:placeId/wall',
+        redirect: { name: 'placePickups' },
         path: 'place/:placeId',
         meta: {
           breadcrumbs: [
@@ -366,6 +366,9 @@ export default [
             path: 'wall',
             component: PlaceWall,
             meta: {
+              breadcrumbs: [
+                { translation: 'GROUP.WALL', route: { name: 'placeWall' } },
+              ],
               beforeEnter: 'conversations/fetchForPlace',
               afterLeave: 'conversations/clearForPlace',
             },

@@ -172,13 +172,12 @@ export default {
       width auto
       margin 0 auto
 
-  .fixed-height:before {
+  .fixed-height:before
     content ''
     width 100%
     height 100%
     position absolute
     left 0
     top 0
-    background linear-gradient(transparent 220px, white);
-  }
+    background linear-gradient(transparent 220px, white)
 </style>

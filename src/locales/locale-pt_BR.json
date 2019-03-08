@@ -155,7 +155,7 @@
       },
       "daily_pickup_notification": {
         "NAME": "Notificação de coletas",
-        "DESCRIPTION": "Lembra você de suas coletas e lhe diz sobre as coletas do próximo dia"
+        "DESCRIPTION": "Reminds you of your pickups, and tells you about empty or not-full pickups of your favorite stores in the next day"
       },
       "new_application": {
         "NAME": "New applications",
@@ -323,10 +323,15 @@
     "TITLE": "Crie uma nova loja"
   },
   "PICKUPLIST": {
-    "AVAILABLE": "Tem uma coleta esperando por você nos próximos dias | Temos {count} coletas esperando por você nos próximos dias!",
+    "FILTER": {
+      "ALL": "All",
+      "EMPTY": "Only empty",
+      "FREE": "With free slots"
+    },
+    "AVAILABLE": "There is one pickup in your favorite stores waiting for you! | There are {count} pickups in your favorite stores waiting for you!",
     "AVAILABLE_FEEDBACK": "Você pode deixar sua impressão de uma coleta | {count} coletas esperando seus comentários",
     "JOINEDNOTICE": "Você possuí uma coleta para fazer | Você possuí {count} coletas para fazer",
-    "AVAILABLE_FROM_STORES": "This shows pickups from your favorite stores. You can access other stores in the sidebar.",
+    "AVAILABLE_FROM_STORES": "This shows pickups from your favorite stores in the next days. You can access other stores in the sidebar.",
     "ITEM": {
       "LEAVE": "Sair",
       "JOIN": "Participar",

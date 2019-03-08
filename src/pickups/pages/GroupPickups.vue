@@ -4,6 +4,7 @@
       :pickups="pickups"
       :pending="pending"
       place-link
+      filter
       @join="join"
       @leave="leave"
       @detail="detail"

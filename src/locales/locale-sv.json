@@ -155,7 +155,7 @@
       },
       "daily_pickup_notification": {
         "NAME": "Notifikationer om hämtningar",
-        "DESCRIPTION": "Påminner dig om dina hämtningar och om lediga hämtningar i kommande dagen."
+        "DESCRIPTION": "Reminds you of your pickups, and tells you about empty or not-full pickups of your favorite stores in the next day"
       },
       "new_application": {
         "NAME": "Nya ansökningar",
@@ -264,7 +264,7 @@
   "TOPBAR": {
     "LOGOUT": "Logga ut",
     "USERPROFILE": "Gå till din profil",
-    "CHANGE_GROUP": "Ändra grupp"
+    "CHANGE_GROUP": "Byta grupp"
   },
   "SIDENAV": {
     "INFO_SUB": "Hur man skapar en maträddningsgrupp",
@@ -323,10 +323,15 @@
     "TITLE": "Skapa ny butik"
   },
   "PICKUPLIST": {
-    "AVAILABLE": "Det finns en ledig hämtning i kommande dagar! | Det finns {count} lediga hämtningar i kommande dagar!",
+    "FILTER": {
+      "ALL": "All",
+      "EMPTY": "Only empty",
+      "FREE": "With free slots"
+    },
+    "AVAILABLE": "There is one pickup in your favorite stores waiting for you! | There are {count} pickups in your favorite stores waiting for you!",
     "AVAILABLE_FEEDBACK": "Du kan ge feedback till en hämtning | {count} hämtningar väntar på din feedback",
     "JOINEDNOTICE": "Du har en kommande hämtning | Du har {count} kommande hämtningar",
-    "AVAILABLE_FROM_STORES": "Detta visar hämtningar från dina favorit butiker. ",
+    "AVAILABLE_FROM_STORES": "This shows pickups from your favorite stores in the next days. You can access other stores in the sidebar.",
     "ITEM": {
       "LEAVE": "Lämna",
       "JOIN": "Gå med",

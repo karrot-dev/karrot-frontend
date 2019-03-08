@@ -63,12 +63,20 @@
           @click="$emit('detail', user)"
         />
         <QBtn
-          v-if="canStartConflictResolution"
-          @click="toggleConflictSetup"
+          v-if="isConflictOngoing"
+          :to="{ name: 'issueDetail', params: { groupId: currentGroup.id, issueId: ongoingConflict.id } }"
           icon="fas fa-frown-open"
           small
           round
           color="negative"
+        />
+        <QBtn
+          v-else-if="conflictResolutionPossible"
+          @click="toggleConflictSetup()"
+          icon="fas fa-frown-open"
+          small
+          round
+          :color="canStartConflictResolution ? 'grey-8' : 'grey-5'"
         />
         <TrustButton
           v-if="currentGroupMembership"
@@ -117,14 +125,29 @@
     <QModal
       v-model="showConflictSetup"
     >
-      <ConflictSetup
-        v-if="showConflictSetup"
-        :current-group="currentGroup"
-        :user="user"
-        :status="issueCreateStatus"
-        @startConflictResolution="startConflictResolution"
-        @close="toggleConflictSetup"
-      />
+      <template v-if="showConflictSetup">
+        <div
+          v-if="!canStartConflictResolution"
+          class="generic-padding"
+          style="max-width: 700px"
+        >
+          <h3 v-t="{ path: 'CONFLICT.SETUP_HEADER', args: { user: user.displayName } }" />
+          <p
+            v-for="(message, idx) in solvableConflictSetupRequirements"
+            :key="idx"
+          >
+            {{ message }}
+          </p>
+        </div>
+        <ConflictSetup
+          v-else
+          :current-group="currentGroup"
+          :user="user"
+          :status="issueCreateStatus"
+          @startConflictResolution="startConflictResolution"
+          @close="toggleConflictSetup"
+        />
+      </template>
     </QModal>
   </div>
 </template>
@@ -182,9 +205,8 @@ export default {
   },
   watch: {
     showConflictSetup (val) {
-      if (!val) {
-        this.clearIssueMeta(['create'])
-      }
+      if (val) return
+      this.clearIssueMeta(['create'])
     },
   },
   computed: {
@@ -192,8 +214,11 @@ export default {
       getIssues: 'issues/ongoing',
       issueCreateStatus: 'issues/createStatus',
     }),
-    conflictOngoing () {
-      return this.getIssues.some(i => i.affectedUser.id === this.user.id)
+    ongoingConflict () {
+      return this.getIssues.find(i => i.affectedUser.id === this.user.id)
+    },
+    isConflictOngoing () {
+      return Boolean(this.ongoingConflict)
     },
     profilePictureSize () {
       if (this.$q.platform.is.mobile) {
@@ -207,19 +232,22 @@ export default {
     isInfoOnly () {
       return !this.user.email
     },
-    // TODO: would be nice to say _why_ I can't create a conflict
-    // TODO: does not check if I am an editor first, let's me write a message...
+    conflictResolutionPossible () {
+      // is it possible at all to start a conflict resolution process?
+      return this.currentGroupMembership && !this.user.isCurrentUser
+    },
     canStartConflictResolution () {
-      if (
-        this.user.isCurrentUser ||
-        !this.currentGroupMembership ||
-        this.conflictOngoing ||
-        (this.currentGroup.isOpen && !this.currentGroup.isPlayground) ||
-        (this.currentGroup.activeEditorsCount < this.currentGroup.activeEditorsRequiredForConflictResolution)
-      ) {
-        return false
+      return this.conflictResolutionPossible && this.solvableConflictSetupRequirements.length === 0
+    },
+    solvableConflictSetupRequirements () {
+      const { activeEditorsCount, activeEditorsRequiredForConflictResolution: requiredCount } = this.currentGroup
+      if (activeEditorsCount < requiredCount) {
+        return [this.$t('CONFLICT.REQUIREMENTS.ACTIVE_EDITORS', { activeEditorsCount, requiredCount })]
       }
-      return true
+      if (this.currentGroup && this.currentGroup.membership && !this.currentGroup.membership.isEditor) {
+        return [this.$t('CONFLICT.REQUIREMENTS.NEWCOMER')]
+      }
+      return []
     },
   },
   methods: {

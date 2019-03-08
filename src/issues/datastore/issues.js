@@ -55,6 +55,10 @@ export default {
         }, { root: true })
         router.push({ name: 'issueDetail', params: { groupId: newIssue.group, issueId: newIssue.id } })
       },
+      async fetchOngoingByGroupId ({ commit }, { groupId }) {
+        const issueList = (await issuesAPI.list({ group: groupId, status: 'ongoing' })).results
+        commit('update', issueList)
+      },
       async fetchByGroupId ({ dispatch, commit }, { groupId }) {
         const issueList = await dispatch('pagination/extractCursor', issuesAPI.list({ group: groupId }))
         commit('update', issueList)

@@ -33,10 +33,13 @@ deploy-android: &deploy-android
         name: upload sourcemaps to sentry
         environment:
           SENTRY_ORG: foodsaving-worldwide
-          SENTRY_PROJECT: karrot
+          SENTRY_PROJECT: app
         command: |
           VERSION=`./node_modules/.bin/sentry-cli releases propose-version`
-          ./node_modules/.bin/sentry-cli releases files "${VERSION}" upload-sourcemaps "${DIST_DIR}/assets/js" --rewrite
+          ./node_modules/.bin/sentry-cli releases new ${VERSION}
+          ./node_modules/.bin/sentry-cli releases set-commits --auto ${VERSION}
+          ./node_modules/.bin/sentry-cli releases files "${VERSION}" upload-sourcemaps "${DIST_DIR}/assets/js" --rewrite --url-prefix "~/android_asset/www/assets/js"
+          ./node_modules/.bin/sentry-cli releases finalize "${VERSION}"
 
     - save_cache:
         key: v1-dependencies-playstorehelper-{{ checksum "cordova/playstoreHelper/requirements.txt" }}

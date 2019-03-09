@@ -15,7 +15,7 @@ import datastore from './datastore'
 import './socket'
 import i18n from './i18n'
 import log from '@/utils/log'
-import './sentry'
+
 import polyfill from '@/utils/polyfill'
 import { DetectMobileKeyboardPlugin } from '@/utils/detectMobileKeyboard'
 import loadInitialData from './loadInitialData'
@@ -24,6 +24,13 @@ import Root from '@/base/pages/Root'
 import '@/utils/datastore/presenceReporter'
 
 export default async function initApp () {
+  if (!__ENV.CORDOVA) {
+    require('./sentry')
+  }
+  else {
+    require('@/utils/cordova/sentry')
+  }
+
   Vue.use(DetectMobileKeyboardPlugin)
 
   if (__ENV.DEV) {

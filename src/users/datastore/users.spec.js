@@ -41,6 +41,11 @@ describe('users', () => {
           selectFromCurrentUser: jest.fn(),
         },
       },
+      issues: {
+        actions: {
+          fetchOngoingByGroupId: jest.fn(),
+        },
+      },
     }, { plugins: [require('./users').plugin] })
   })
 

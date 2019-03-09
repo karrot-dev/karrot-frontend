@@ -7,18 +7,17 @@
       <template slot="header">
         <b>{{ $t('CONFLICT.INITIAL') }}</b>
       </template>
-      <div class="q-ma-sm q-pa-sm bg-white">
+      <div class="q-mx-sm q-mb-sm q-pa-sm">
         <span class="text-bold text-primary">
           {{ $t('CONFLICT.WITH', { userName: issue.affectedUser.displayName }) }}
         </span>
         <ProfilePicture
           :user="issue.affectedUser"
           :size="25"
-          :is-link="true"
-          class="q-mt-sm"
+          class="q-mt-xs"
         />
       </div>
-      <div class="q-ma-sm q-pa-sm bg-white">
+      <div class="q-mx-sm q-mb-sm q-pa-sm bg-white">
         <span class="text-bold text-secondary uppercase">
           <RouterLink
             place="userName"
@@ -34,6 +33,23 @@
           </small>
         </span>
         <Markdown :source="issue.topic" />
+      </div>
+      <div
+        v-if="conversation"
+        class="q-ml-sm q-pt-sm q-pl-sm"
+      >
+        <div>
+          <ProfilePicture
+            v-for="user in conversation.participants"
+            :key="user.id"
+            :user="user"
+            :size="20"
+            class="q-mr-xs"
+          />
+        </div>
+        <div class="q-caption q-caption-opacity q-mt-xs">
+          {{ $t('ISSUE.PARTICIPANTS', { count: conversation.participants.length }) }}
+        </div>
       </div>
     </QCollapsible>
     <ChatConversation
@@ -67,8 +83,8 @@ export default {
     ChatConversation,
     Markdown,
     DateAsWords,
-    QCollapsible,
     ProfilePicture,
+    QCollapsible,
   },
   computed: {
     ...mapGetters({

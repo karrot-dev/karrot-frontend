@@ -589,7 +589,7 @@
     "STEPPER3f": "During this time all voters can change their minds and vote differently as many times as they want.",
     "STEPPER4a": "Please make an initial statement for the open group chat!",
     "STEPPER4b": "Tell your group what made you think this process is justified and needed.",
-    "INITIAL": "Initial statement",
+    "INITIAL": "Information",
     "WITH": "This process is to resolve a conflict with {userName}",
     "VOTING": {
       "HEADLINE": "How do you want to proceed with the ongoing conflict with {userName}?"
@@ -607,6 +607,7 @@
     "INITIATED_BY": "Initiated by {initiatorName}",
     "PAST": "Past issues",
     "PREVIOUS_VOTINGS": "Previous votings in this issue",
+    "PARTICIPANTS": "{count} members have been added to this discussion.",
     "VOTING": {
       "TIME_LEFT": "Time left to vote",
       "BTN_START": "Vote now",

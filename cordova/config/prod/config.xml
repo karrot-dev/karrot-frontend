@@ -46,5 +46,4 @@
     <plugin name="cordova-plugin-fcm-with-dependecy-updated" spec="^2.3.0" />
     <plugin name="cordova-plugin-deeplinks" spec="^1.1.0" />
     <engine name="android" spec="^7.1.4" />
-    <plugin name="sentry-cordova" spec="^0.13.1" />
 </widget>

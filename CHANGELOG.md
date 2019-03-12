@@ -21,10 +21,12 @@ Please document your changes in this format:
 ```
 
 ## [Unreleased]
+
+## [7.0.0] - 2019-03-12
 ### Added
-- Add ability to specify pickups with end times #709 @nicksellen
-- Add store wall #986 @tiltec
-- Add feature to mark stores as favorite #986 @tiltec
+- Add ability to specify pickups with end times [#709] @nicksellen
+- Add store wall [#986] @tiltec
+- Add feature to mark stores as favorite [#986] @tiltec
 - Add slots filter to group pickup list @tiltec
 
 ### Changed
@@ -356,7 +358,9 @@ After months of planning and programming, the first version of ~the foodsaving t
 - **store**: create a store which belongs to a group, set up name, description, address and position of a store
 - **pick-up dates**: create a pick-up date which belongs to a store, set time and max. amount of people who can collect food, user can join/leave a pick-up date
 
+[#709]: https://github.com/yunity/karrot-frontend/issues/709
 [#891]: https://github.com/yunity/karrot-frontend/issues/891
+[#986]: https://github.com/yunity/karrot-frontend/issues/986
 [#1020]: https://github.com/yunity/karrot-frontend/issues/1020
 [#1063]: https://github.com/yunity/karrot-frontend/issues/1063
 [#1065]: https://github.com/yunity/karrot-frontend/issues/1065
@@ -377,7 +381,8 @@ After months of planning and programming, the first version of ~the foodsaving t
 [#1174]: https://github.com/yunity/karrot-frontend/issues/1174
 [#1178]: https://github.com/yunity/karrot-frontend/issues/1178
 
-[Unreleased]: https://github.com/yunity/karrot-frontend/compare/v6.5.0...HEAD
+[Unreleased]: https://github.com/yunity/karrot-frontend/compare/v7.0.0...HEAD
+[7.0.0]: https://github.com/yunity/karrot-frontend/compare/v6.5.0...v7.0.0
 [6.5.0]: https://github.com/yunity/karrot-frontend/compare/v6.4.0...v6.5.0
 [6.4.0]: https://github.com/yunity/karrot-frontend/compare/v6.3.0...v6.4.0
 [6.3.0]: https://github.com/yunity/karrot-frontend/compare/v6.2.9...v6.3.0

@@ -578,12 +578,12 @@
     "SETUP": "Conflict resolution setup",
     "STATEMENT": "Statement",
     "STEPPER1a": "You are about to start a group-wide conflict resolution process!",
-    "STEPPER1b": "This will involve all of your group's editors to try and find the best way to proceed regarding this conflict.",
+    "STEPPER1b": "This will involve all of your group's members with editing permissions to try and find the best way to proceed regarding this conflict.",
     "STEPPER2a": "Thank you for caring for your community!",
     "STEPPER2b": "It is important to openly address conflicts and you seem to know this. Thank you for caring enough to not shy away from the unpleasant task of surfacing a social issue!",
     "STEPPER3a": "Here's what will happen:",
     "STEPPER3b": "This process will start an open chat and a vote.",
-    "STEPPER3c": "Every message in the chat will be visible for every editor in the group - including the person this process is about!",
+    "STEPPER3c": "Every message in the chat will be visible for every member in the group - including the person this process is about!",
     "STEPPER3d": "The voting is anonymous.",
     "STEPPER3e": "It will go on for {votingDuration} days.",
     "STEPPER3f": "During this time all voters can change their minds and vote differently as many times as they want.",
@@ -596,7 +596,7 @@
     },
     "REQUIREMENTS": {
       "ACTIVE_EDITORS": "Your group has {activeEditorsCount} active users with editing permissions. You need {requiredCount} to start a conflict resolution process.",
-      "NEWCOMER": "Before you can start a conflict resolution process, you need to receive more trust and gain editing permissions. In the meantime, please ask fellow group member to start the process for you."
+      "NEWCOMER": "Before you can start a conflict resolution process, you need to receive more trust and gain editing permissions. In the meantime, please ask a fellow group member to start the process for you."
     }
   },
   "ISSUE": {
@@ -625,15 +625,15 @@
         "PARTICIPANTS": "{number} members participated in the voting.",
         "UNDECIDED": "Unfortunately this conflict could not be decided.",
         "UNDECIDED_WHY": "There are two possible reasons for that:",
-        "UNDECIDED_REASON_1": "the affected user left the group while the conflict resolution process was still onsgoing",
+        "UNDECIDED_REASON_1": "the affected user left the group while the conflict resolution process was still ongoing",
         "UNDECIDED_REASON_2": "nobody voted on this issue"
       },
       "SCORE_LABELS": {
         "NEUTRAL": "neutral",
-        "AGREE": "agree",
-        "STRONGLY_AGREE": "strongly agree",
-        "DISAGREE": "disagree",
-        "STRONGLY_DISAGREE": "strongly disagree"
+        "SLIGHT_SUPPORT": "slight support",
+        "STRONG_SUPPORT": "strong support",
+        "SLIGHT_RESISTANCE": "slight resistance",
+        "STRONG_RESISTANCE": "strong resistance"
       }
     },
     "NO_ONGOING": "No ongoing issues."

@@ -158,13 +158,13 @@ export default {
           default:
             return 'NEUTRAL'
           case 1:
-            return 'AGREE'
+            return 'SLIGHT_SUPPORT'
           case 2:
-            return 'STRONGLY_AGREE'
+            return 'STRONG_SUPPORT'
           case -1:
-            return 'DISAGREE'
+            return 'SLIGHT_RESISTANCE'
           case -2:
-            return 'STRONGLY_DISAGREE'
+            return 'STRONG_RESISTANCE'
         }
       }
       return this.$t(`ISSUE.VOTING.SCORE_LABELS.${getTranslationId()}`)

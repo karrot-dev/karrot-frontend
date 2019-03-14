@@ -1,7 +1,7 @@
 import GroupMap from './GroupMap'
 import { usersMock, placesMock } from '>/mockdata'
 
-import Vue2Leaflet from 'vue2-leaflet'
+import * as Vue2Leaflet from 'vue2-leaflet'
 import ExtendedMarker from './ExtendedMarker'
 import { mountWithDefaults } from '>/helpers'
 import Vue from 'vue'

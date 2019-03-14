@@ -925,14 +925,14 @@ exports[`Storyshots Detail application 1`] = `
         </div>
         <div>
           <div class="q-collapsible-sub-item relative-position">
-            <div class="q-ma-sm q-pa-sm bg-white"><span class="text-bold text-secondary uppercase">Group 1</span> <span class="message-date"><small class="text-weight-light"><div title="Dec 24, 2017, 12:00 PM">
+            <div class="q-ma-sm q-pa-sm bg-white"><span class="text-bold text-secondary uppercase">Group 0</span> <span class="message-date"><small class="text-weight-light"><div title="Dec 24, 2017, 12:00 PM">
   less than a minute ago
 </div></small></span>
               <div class="markdown">
                 <p>What are your motivations for joining slköaslkfjasdfasfd?</p>
               </div>
             </div>
-            <div class="q-ma-sm q-pa-sm bg-white"><span class="text-bold text-secondary uppercase">User 31</span> <span class="message-date"><small class="text-weight-light"><div title="Dec 24, 2017, 12:00 PM">
+            <div class="q-ma-sm q-pa-sm bg-white"><span class="text-bold text-secondary uppercase">User 29</span> <span class="message-date"><small class="text-weight-light"><div title="Dec 24, 2017, 12:00 PM">
   less than a minute ago
 </div></small></span>
               <div class="markdown">
@@ -943,205 +943,6 @@ exports[`Storyshots Detail application 1`] = `
         </div>
       </div>
     </div>
-    <div class="full-width text-center generic-padding" style="display:none;"><svg fill="currentColor" width="40" height="40" viewBox="0 0 120 30" xmlns="http://www.w3.org/2000/svg" class="q-spinner">
-        <circle cx="15" cy="15" r="15">
-          <animate attributeName="r" from="15" to="15" begin="0s" dur="0.8s" values="15;9;15" calcMode="linear" repeatCount="indefinite"></animate>
-          <animate attributeName="fill-opacity" from="1" to="1" begin="0s" dur="0.8s" values="1;.5;1" calcMode="linear" repeatCount="indefinite"></animate>
-        </circle>
-        <circle cx="60" cy="15" r="9" fill-opacity=".3">
-          <animate attributeName="r" from="9" to="9" begin="0s" dur="0.8s" values="9;15;9" calcMode="linear" repeatCount="indefinite"></animate>
-          <animate attributeName="fill-opacity" from=".5" to=".5" begin="0s" dur="0.8s" values=".5;1;.5" calcMode="linear" repeatCount="indefinite"></animate>
-        </circle>
-        <circle cx="105" cy="15" r="15">
-          <animate attributeName="r" from="15" to="15" begin="0s" dur="0.8s" values="15;9;15" calcMode="linear" repeatCount="indefinite"></animate>
-          <animate attributeName="fill-opacity" from="1" to="1" begin="0s" dur="0.8s" values="1;.5;1" calcMode="linear" repeatCount="indefinite"></animate>
-        </circle>
-      </svg></div>
-    <div class="q-infinite-scroll">
-      <div class="q-infinite-scroll-content">
-        <div class="q-list bg-white no-border">
-          <div class="conversation-message relative-position q-item q-item-division relative-position q-item-multiline q-item-highlight slim">
-            <div class="q-btn-group row no-wrap inline hover-button k-message-controls q-btn-group-flat">
-              <!---->
-              <!----> <button tabindex="0" type="button" class="q-btn inline relative-position q-btn-item non-selectable q-btn-rectangle q-btn-flat q-focusable q-hoverable">
-                <div class="q-focus-helper"></div>
-                <div class="q-btn-inner row col items-center q-popup--skip justify-center"><span style="opacity:1;"><i class="far fa-smile"></i> +
-  </span>
-                  <div tabindex="-1" class="q-popover scroll"></div>
-                </div>
-              </button></div>
-            <!---->
-            <div class="q-item-main q-item-section">
-              <div class="no-wrap k-message-meta"><a><span class="k-message-author text-bold text-secondary uppercase">User 27</span></a> <span class="message-date"><small class="text-weight-light"><div title="Dec 24, 2017, 12:00 PM">
-  less than a minute ago
-</div></small></span>
-                <!---->
-              </div>
-              <div class="content">
-                <div class="markdown">
-                  <p>hello 11!</p>
-                </div>
-              </div>
-              <!----> <span class="conversation-reactions" style="margin-top:8px;display:block;"><span class="reactions"><button tabindex="0" type="button" title="a reacted with :thumbsup:" class="q-btn inline relative-position q-btn-item non-selectable row no-wrap items-center reaction-box q-btn-rectangle q-btn-flat q-focusable q-hoverable"><div class="q-focus-helper"></div><div class="q-btn-inner row col items-center q-popup--skip justify-center"><div class="emoji"></div> <span class="reactions-number">1</span>
-            </div></button></span> <button tabindex="0" type="button" class="q-btn inline relative-position q-btn-item non-selectable add-button reaction-box q-btn-rectangle q-btn-flat q-focusable q-hoverable">
-              <div class="q-focus-helper"></div>
-              <div class="q-btn-inner row col items-center q-popup--skip justify-center"><span style="opacity:0.5;"><i class="far fa-smile"></i> +
-  </span>
-                <div tabindex="-1" class="q-popover scroll"></div>
-              </div>
-            </button></span>
-            <!---->
-          </div>
-        </div>
-        <div class="conversation-message relative-position q-item q-item-division relative-position q-item-multiline q-item-highlight slim">
-          <div class="q-btn-group row no-wrap inline hover-button k-message-controls q-btn-group-flat">
-            <!---->
-            <!----> <button tabindex="0" type="button" class="q-btn inline relative-position q-btn-item non-selectable q-btn-rectangle q-btn-flat q-focusable q-hoverable">
-              <div class="q-focus-helper"></div>
-              <div class="q-btn-inner row col items-center q-popup--skip justify-center"><span style="opacity:1;"><i class="far fa-smile"></i> +
-  </span>
-                <div tabindex="-1" class="q-popover scroll"></div>
-              </div>
-            </button></div>
-          <!---->
-          <div class="q-item-main q-item-section">
-            <div class="no-wrap k-message-meta"><a><span class="k-message-author text-bold text-secondary uppercase">User 25</span></a> <span class="message-date"><small class="text-weight-light"><div title="Dec 24, 2017, 12:00 PM">
-  less than a minute ago
-</div></small></span>
-              <!---->
-            </div>
-            <div class="content">
-              <div class="markdown">
-                <p>hello 10!</p>
-              </div>
-            </div>
-            <!----> <span class="conversation-reactions" style="margin-top:8px;display:block;"><span class="reactions"><button tabindex="0" type="button" title="a reacted with :thumbsup:" class="q-btn inline relative-position q-btn-item non-selectable row no-wrap items-center reaction-box q-btn-rectangle q-btn-flat q-focusable q-hoverable"><div class="q-focus-helper"></div><div class="q-btn-inner row col items-center q-popup--skip justify-center"><div class="emoji"></div> <span class="reactions-number">1</span>
-          </div></button></span> <button tabindex="0" type="button" class="q-btn inline relative-position q-btn-item non-selectable add-button reaction-box q-btn-rectangle q-btn-flat q-focusable q-hoverable">
-            <div class="q-focus-helper"></div>
-            <div class="q-btn-inner row col items-center q-popup--skip justify-center"><span style="opacity:0.5;"><i class="far fa-smile"></i> +
-  </span>
-              <div tabindex="-1" class="q-popover scroll"></div>
-            </div>
-          </button></span>
-          <!---->
-        </div>
-      </div>
-      <div class="conversation-message relative-position q-item q-item-division relative-position q-item-multiline q-item-highlight slim">
-        <div class="q-btn-group row no-wrap inline hover-button k-message-controls q-btn-group-flat">
-          <!---->
-          <!----> <button tabindex="0" type="button" class="q-btn inline relative-position q-btn-item non-selectable q-btn-rectangle q-btn-flat q-focusable q-hoverable">
-            <div class="q-focus-helper"></div>
-            <div class="q-btn-inner row col items-center q-popup--skip justify-center"><span style="opacity:1;"><i class="far fa-smile"></i> +
-  </span>
-              <div tabindex="-1" class="q-popover scroll"></div>
-            </div>
-          </button></div>
-        <!---->
-        <div class="q-item-main q-item-section">
-          <div class="no-wrap k-message-meta"><a><span class="k-message-author text-bold text-secondary uppercase">User 23</span></a> <span class="message-date"><small class="text-weight-light"><div title="Dec 24, 2017, 12:00 PM">
-  less than a minute ago
-</div></small></span>
-            <!---->
-          </div>
-          <div class="content">
-            <div class="markdown">
-              <p>hello 9!</p>
-            </div>
-          </div>
-          <!----> <span class="conversation-reactions" style="margin-top:8px;display:block;"><span class="reactions"><button tabindex="0" type="button" title="a reacted with :thumbsup:" class="q-btn inline relative-position q-btn-item non-selectable row no-wrap items-center reaction-box q-btn-rectangle q-btn-flat q-focusable q-hoverable"><div class="q-focus-helper"></div><div class="q-btn-inner row col items-center q-popup--skip justify-center"><div class="emoji"></div> <span class="reactions-number">1</span>
-        </div></button></span> <button tabindex="0" type="button" class="q-btn inline relative-position q-btn-item non-selectable add-button reaction-box q-btn-rectangle q-btn-flat q-focusable q-hoverable">
-          <div class="q-focus-helper"></div>
-          <div class="q-btn-inner row col items-center q-popup--skip justify-center"><span style="opacity:0.5;"><i class="far fa-smile"></i> +
-  </span>
-            <div tabindex="-1" class="q-popover scroll"></div>
-          </div>
-        </button></span>
-        <!---->
-      </div>
-    </div>
-    <div class="conversation-message relative-position q-item q-item-division relative-position q-item-multiline q-item-highlight slim">
-      <div class="q-btn-group row no-wrap inline hover-button k-message-controls q-btn-group-flat">
-        <!---->
-        <!----> <button tabindex="0" type="button" class="q-btn inline relative-position q-btn-item non-selectable q-btn-rectangle q-btn-flat q-focusable q-hoverable">
-          <div class="q-focus-helper"></div>
-          <div class="q-btn-inner row col items-center q-popup--skip justify-center"><span style="opacity:1;"><i class="far fa-smile"></i> +
-  </span>
-            <div tabindex="-1" class="q-popover scroll"></div>
-          </div>
-        </button></div>
-      <!---->
-      <div class="q-item-main q-item-section">
-        <div class="no-wrap k-message-meta"><a><span class="k-message-author text-bold text-secondary uppercase">User 21</span></a> <span class="message-date"><small class="text-weight-light"><div title="Dec 24, 2017, 12:00 PM">
-  less than a minute ago
-</div></small></span>
-          <!---->
-        </div>
-        <div class="content">
-          <div class="markdown">
-            <p>hello 8!</p>
-          </div>
-        </div>
-        <!----> <span class="conversation-reactions" style="margin-top:8px;display:block;"><span class="reactions"><button tabindex="0" type="button" title="a reacted with :thumbsup:" class="q-btn inline relative-position q-btn-item non-selectable row no-wrap items-center reaction-box q-btn-rectangle q-btn-flat q-focusable q-hoverable"><div class="q-focus-helper"></div><div class="q-btn-inner row col items-center q-popup--skip justify-center"><div class="emoji"></div> <span class="reactions-number">1</span>
-      </div></button></span> <button tabindex="0" type="button" class="q-btn inline relative-position q-btn-item non-selectable add-button reaction-box q-btn-rectangle q-btn-flat q-focusable q-hoverable">
-        <div class="q-focus-helper"></div>
-        <div class="q-btn-inner row col items-center q-popup--skip justify-center"><span style="opacity:0.5;"><i class="far fa-smile"></i> +
-  </span>
-          <div tabindex="-1" class="q-popover scroll"></div>
-        </div>
-      </button></span>
-      <!---->
-    </div>
-  </div>
-  <div class="q-item q-item-division relative-position q-item-multiline">
-    <!---->
-    <div class="q-item-main q-item-section">
-      <div>
-        <div class="q-field row no-wrap items-start q-field-responsive q-field-no-label q-field-no-input">
-          <div class="row col">
-            <div class="q-field-content col-xs-12 col-sm">
-              <div value="">
-                <div tabindex="-1" rows="1" class="q-if row no-wrap relative-position q-input q-if-standard q-if-has-content text-primary">
-                  <div class="q-if-baseline">|</div>
-                  <div class="q-if-inner col column q-popup--skip">
-                    <div class="row no-wrap relative-position">
-                      <div class="col row relative-position"><object tabindex="-1" type="text/html" data="about:blank" aria-hidden="true" style="display:block;position:absolute;top:0;left:0;right:0;bottom:0;height:100%;width:100%;overflow:hidden;pointer-events:none;z-index:-1;"></object><textarea rows="1" class="col q-input-target q-input-shadow absolute-top"></textarea><textarea rows="1" placeholder="Write a message..." class="col q-input-target q-input-area"></textarea></div>
-                    </div>
-                  </div><i aria-hidden="true" class="q-icon q-if-control fas fa-arrow-right hidden"> </i>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <!---->
-    </div>
-  </div>
-  <!---->
-</div>
-</div>
-</div>
-<!---->
-</div>
-</div>
-`;
-
-exports[`Storyshots Detail conflict 1`] = `
-<div class="Detail">
-  <div class="full-width text-center generic-padding" style="display:none;"><svg fill="currentColor" width="40" height="40" viewBox="0 0 120 30" xmlns="http://www.w3.org/2000/svg" class="q-spinner">
-      <circle cx="15" cy="15" r="15">
-        <animate attributeName="r" from="15" to="15" begin="0s" dur="0.8s" values="15;9;15" calcMode="linear" repeatCount="indefinite"></animate>
-        <animate attributeName="fill-opacity" from="1" to="1" begin="0s" dur="0.8s" values="1;.5;1" calcMode="linear" repeatCount="indefinite"></animate>
-      </circle>
-      <circle cx="60" cy="15" r="9" fill-opacity=".3">
-        <animate attributeName="r" from="9" to="9" begin="0s" dur="0.8s" values="9;15;9" calcMode="linear" repeatCount="indefinite"></animate>
-        <animate attributeName="fill-opacity" from=".5" to=".5" begin="0s" dur="0.8s" values=".5;1;.5" calcMode="linear" repeatCount="indefinite"></animate>
-      </circle>
-      <circle cx="105" cy="15" r="15">
-        <animate attributeName="r" from="15" to="15" begin="0s" dur="0.8s" values="15;9;15" calcMode="linear" repeatCount="indefinite"></animate>
-        <animate attributeName="fill-opacity" from="1" to="1" begin="0s" dur="0.8s" values="1;.5;1" calcMode="linear" repeatCount="indefinite"></animate>
-      </circle>
-    </svg></div>
-  <div>
     <div class="full-width text-center generic-padding" style="display:none;"><svg fill="currentColor" width="40" height="40" viewBox="0 0 120 30" xmlns="http://www.w3.org/2000/svg" class="q-spinner">
         <circle cx="15" cy="15" r="15">
           <animate attributeName="r" from="15" to="15" begin="0s" dur="0.8s" values="15;9;15" calcMode="linear" repeatCount="indefinite"></animate>
@@ -3221,7 +3022,7 @@ exports[`Storyshots Issues history item 1`] = `
           <div class="q-item q-item-division relative-position">
             <div class="q-item-side q-item-section q-item-side-left"><i aria-hidden="true" class="q-icon fas fa-smile q-item-icon text-primary"> </i></div>
             <div class="q-item-main q-item-section">
-              User 61 gets removed from asdf
+              User 59 gets removed from asdf
             </div>
             <div class="q-item-side q-item-section q-item-side-left">
               9
@@ -3239,7 +3040,7 @@ exports[`Storyshots Issues history item 1`] = `
           <div class="q-item q-item-division relative-position">
             <div class="q-item-side q-item-section q-item-side-left"><i aria-hidden="true" class="q-icon fas fa-meh q-item-icon text-primary"> </i></div>
             <div class="q-item-main q-item-section">
-              User 61 stays in asdf
+              User 59 stays in asdf
             </div>
             <div class="q-item-side q-item-section q-item-side-left">
               0
@@ -3268,7 +3069,7 @@ exports[`Storyshots Issues results - expelled 1`] = `
   <div class="q-item q-item-division relative-position">
     <div class="q-item-side q-item-section q-item-side-left"><i aria-hidden="true" class="q-icon fas fa-smile q-item-icon text-primary"> </i></div>
     <div class="q-item-main q-item-section">
-      User 67 gets removed from asdf
+      User 65 gets removed from asdf
     </div>
     <div class="q-item-side q-item-section q-item-side-left">
       9
@@ -3286,7 +3087,7 @@ exports[`Storyshots Issues results - expelled 1`] = `
   <div class="q-item q-item-division relative-position">
     <div class="q-item-side q-item-section q-item-side-left"><i aria-hidden="true" class="q-icon fas fa-meh q-item-icon text-primary"> </i></div>
     <div class="q-item-main q-item-section">
-      User 67 stays in asdf
+      User 65 stays in asdf
     </div>
     <div class="q-item-side q-item-section q-item-side-left">
       0
@@ -3298,7 +3099,7 @@ exports[`Storyshots Issues results - expelled 1`] = `
 exports[`Storyshots Issues vote - furtherDiscussion 1`] = `
 <div>
   <div class="q-title q-mb-md">
-    How do you want to proceed with the ongoing conflict with User 65?
+    How do you want to proceed with the ongoing conflict with User 63?
   </div>
   <div class="q-pb-lg">
     <div class="q-caption q-caption-opacity row inline">
@@ -3339,7 +3140,7 @@ exports[`Storyshots Issues vote - furtherDiscussion 1`] = `
         </div>
         <div>
           <div class="q-mt-md">
-            User 65 gets removed from Group 14
+            User 63 gets removed from Group 13
           </div>
           <div class="q-slider non-selectable label-always" style="width:85%;margin:0 auto;">
             <div class="q-slider-handle-container">
@@ -3361,7 +3162,7 @@ exports[`Storyshots Issues vote - furtherDiscussion 1`] = `
         </div>
         <div>
           <div class="q-mt-md">
-            User 65 stays in Group 14
+            User 63 stays in Group 13
           </div>
           <div class="q-slider non-selectable label-always" style="width:85%;margin:0 auto;">
             <div class="q-slider-handle-container">
@@ -3617,7 +3418,7 @@ exports[`Storyshots Latest Messages type: issue chat 1`] = `
   <div class="q-item-main q-item-section">
     <div class="row no-wrap justify-between items-baseline q-item-label">
       <div class="row no-wrap items-baseline ellipsis"><i aria-hidden="true" title="Issues" class="q-icon q-mr-sm fas fa-fw fa-vote-yea"> </i>
-        <div class="ellipsis">User 81</div>
+        <div class="ellipsis">User 79</div>
         <!---->
         <!---->
       </div> <span><small><div title="Aug 11, 2017, 3:43 PM" class="q-pl-xs" style="white-space:nowrap;">
@@ -4143,7 +3944,7 @@ exports[`Storyshots Notifications application_accepted 1`] = `
       <div title="Dec 24, 2017, 12:00 PM" style="display:inline;">
         less than a minute ago
       </div>
-      · Group 2
+      · Group 1
       <!---->
     </div>
   </div>
@@ -4161,7 +3962,7 @@ exports[`Storyshots Notifications application_declined 1`] = `
       <div title="Dec 24, 2017, 12:00 PM" style="display:inline;">
         less than a minute ago
       </div>
-      · Group 2
+      · Group 1
       <!---->
     </div>
   </div>
@@ -4179,7 +3980,7 @@ exports[`Storyshots Notifications conflict_resolution_continued 1`] = `
       <div title="Dec 24, 2017, 12:00 PM" style="display:inline;">
         less than a minute ago
       </div>
-      · Group 2
+      · Group 1
       <!---->
     </div>
   </div>
@@ -4197,7 +3998,7 @@ exports[`Storyshots Notifications conflict_resolution_continued_about_you 1`] = 
       <div title="Dec 24, 2017, 12:00 PM" style="display:inline;">
         less than a minute ago
       </div>
-      · Group 2
+      · Group 1
       <!---->
     </div>
   </div>
@@ -4215,7 +4016,7 @@ exports[`Storyshots Notifications conflict_resolution_created 1`] = `
       <div title="Dec 24, 2017, 12:00 PM" style="display:inline;">
         less than a minute ago
       </div>
-      · Group 2
+      · Group 1
       <!---->
     </div>
   </div>
@@ -4233,7 +4034,7 @@ exports[`Storyshots Notifications conflict_resolution_created_about_you 1`] = `
       <div title="Dec 24, 2017, 12:00 PM" style="display:inline;">
         less than a minute ago
       </div>
-      · Group 2
+      · Group 1
       <!---->
     </div>
   </div>
@@ -4251,7 +4052,7 @@ exports[`Storyshots Notifications conflict_resolution_decided 1`] = `
       <div title="Dec 24, 2017, 12:00 PM" style="display:inline;">
         less than a minute ago
       </div>
-      · Group 2
+      · Group 1
       <!---->
     </div>
   </div>
@@ -4269,7 +4070,7 @@ exports[`Storyshots Notifications conflict_resolution_decided_about_you 1`] = `
       <div title="Dec 24, 2017, 12:00 PM" style="display:inline;">
         less than a minute ago
       </div>
-      · Group 2
+      · Group 1
       <!---->
     </div>
   </div>
@@ -4288,7 +4089,7 @@ exports[`Storyshots Notifications conflict_resolution_you_were_removed 1`] = `
       <div title="Dec 24, 2017, 12:00 PM" style="display:inline;">
         less than a minute ago
       </div>
-      · Group 2
+      · Group 1
       <!---->
     </div>
   </div>
@@ -4306,7 +4107,7 @@ exports[`Storyshots Notifications feedback_possible 1`] = `
       <div title="Dec 24, 2017, 12:00 PM" style="display:inline;">
         less than a minute ago
       </div>
-      · Group 2
+      · Group 1
 
       · Place 0
     </div>
@@ -4317,19 +4118,19 @@ exports[`Storyshots Notifications feedback_possible 1`] = `
 exports[`Storyshots Notifications invitation_accepted 1`] = `
 <a class="q-link q-item q-item-division relative-position q-item-link isUnread">
   <div class="q-item-side q-item-section q-item-side-left">
-    <div class="wrapper" style="width:40px;height:40px;"><a title="User 40">
-        <div text="User 40" seed="40" class="randomArt fill"></div>
+    <div class="wrapper" style="width:40px;height:40px;"><a title="User 38">
+        <div text="User 38" seed="38" class="randomArt fill"></div>
       </a></div>
   </div>
   <div class="q-item-main q-item-section">
     <div class="q-item-label" style="overflow:hidden;display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:2;"><i aria-hidden="true" class="q-icon q-mr-xs vertical-baseline fas fa-user-plus"> </i>
-      User 40 accepted your invitation
+      User 38 accepted your invitation
     </div>
     <div class="q-item-sublabel">
       <div title="Dec 24, 2017, 12:00 PM" style="display:inline;">
         less than a minute ago
       </div>
-      · Group 2
+      · Group 1
       <!---->
     </div>
   </div>
@@ -4339,19 +4140,19 @@ exports[`Storyshots Notifications invitation_accepted 1`] = `
 exports[`Storyshots Notifications new_applicant 1`] = `
 <a class="q-link q-item q-item-division relative-position q-item-link isUnread">
   <div class="q-item-side q-item-section q-item-side-left">
-    <div class="wrapper" style="width:40px;height:40px;"><a title="User 34">
-        <div text="User 34" seed="34" class="randomArt fill"></div>
+    <div class="wrapper" style="width:40px;height:40px;"><a title="User 32">
+        <div text="User 32" seed="32" class="randomArt fill"></div>
       </a></div>
   </div>
   <div class="q-item-main q-item-section">
     <div class="q-item-label" style="overflow:hidden;display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:2;"><i aria-hidden="true" class="q-icon q-mr-xs vertical-baseline fas fa-address-card"> </i>
-      User 35 applied to join your group
+      User 33 applied to join your group
     </div>
     <div class="q-item-sublabel">
       <div title="Dec 24, 2017, 12:00 PM" style="display:inline;">
         less than a minute ago
       </div>
-      · Group 2
+      · Group 1
       <!---->
     </div>
   </div>
@@ -4361,19 +4162,19 @@ exports[`Storyshots Notifications new_applicant 1`] = `
 exports[`Storyshots Notifications new_member 1`] = `
 <a class="q-link q-item q-item-division relative-position q-item-link isUnread">
   <div class="q-item-side q-item-section q-item-side-left">
-    <div class="wrapper" style="width:40px;height:40px;"><a title="User 39">
-        <div text="User 39" seed="39" class="randomArt fill"></div>
+    <div class="wrapper" style="width:40px;height:40px;"><a title="User 37">
+        <div text="User 37" seed="37" class="randomArt fill"></div>
       </a></div>
   </div>
   <div class="q-item-main q-item-section">
     <div class="q-item-label" style="overflow:hidden;display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:2;"><i aria-hidden="true" class="q-icon q-mr-xs vertical-baseline fas fa-user-plus"> </i>
-      User 39 joined your group
+      User 37 joined your group
     </div>
     <div class="q-item-sublabel">
       <div title="Dec 24, 2017, 12:00 PM" style="display:inline;">
         less than a minute ago
       </div>
-      · Group 2
+      · Group 1
       <!---->
     </div>
   </div>
@@ -4391,7 +4192,7 @@ exports[`Storyshots Notifications new_place 1`] = `
       <div title="Dec 24, 2017, 12:00 PM" style="display:inline;">
         less than a minute ago
       </div>
-      · Group 2
+      · Group 1
       <!---->
     </div>
   </div>
@@ -4409,7 +4210,7 @@ exports[`Storyshots Notifications pickup_disabled 1`] = `
       <div title="Dec 24, 2017, 12:00 PM" style="display:inline;">
         less than a minute ago
       </div>
-      · Group 2
+      · Group 1
 
       · Place 0
     </div>
@@ -4428,7 +4229,7 @@ exports[`Storyshots Notifications pickup_enabled 1`] = `
       <div title="Dec 24, 2017, 12:00 PM" style="display:inline;">
         less than a minute ago
       </div>
-      · Group 2
+      · Group 1
 
       · Place 0
     </div>
@@ -4447,7 +4248,7 @@ exports[`Storyshots Notifications pickup_moved 1`] = `
       <div title="Dec 24, 2017, 12:00 PM" style="display:inline;">
         less than a minute ago
       </div>
-      · Group 2
+      · Group 1
 
       · Place 0
     </div>
@@ -4466,7 +4267,7 @@ exports[`Storyshots Notifications pickup_upcoming 1`] = `
       <div title="Dec 24, 2017, 2:00 PM" style="display:inline;">
         in about 2 hours
       </div>
-      · Group 2
+      · Group 1
 
       · Place 0
     </div>
@@ -4477,19 +4278,19 @@ exports[`Storyshots Notifications pickup_upcoming 1`] = `
 exports[`Storyshots Notifications user_became_editor 1`] = `
 <a class="q-link q-item q-item-division relative-position q-item-link isUnread">
   <div class="q-item-side q-item-section q-item-side-left">
-    <div class="wrapper" style="width:40px;height:40px;"><a title="User 33">
-        <div text="User 33" seed="33" class="randomArt fill"></div>
+    <div class="wrapper" style="width:40px;height:40px;"><a title="User 31">
+        <div text="User 31" seed="31" class="randomArt fill"></div>
       </a></div>
   </div>
   <div class="q-item-main q-item-section">
     <div class="q-item-label" style="overflow:hidden;display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:2;"><i aria-hidden="true" class="q-icon q-mr-xs vertical-baseline fas fa-angle-double-up"> </i>
-      User 33 gained editing permissions
+      User 31 gained editing permissions
     </div>
     <div class="q-item-sublabel">
       <div title="Dec 24, 2017, 12:00 PM" style="display:inline;">
         less than a minute ago
       </div>
-      · Group 2
+      · Group 1
       <!---->
     </div>
   </div>
@@ -4507,7 +4308,7 @@ exports[`Storyshots Notifications voting_ends_soon 1`] = `
       <div title="Dec 24, 2017, 2:00 PM" style="display:inline;">
         in about 2 hours
       </div>
-      · Group 2
+      · Group 1
       <!---->
     </div>
   </div>
@@ -4525,7 +4326,7 @@ exports[`Storyshots Notifications you_became_editor 1`] = `
       <div title="Dec 24, 2017, 12:00 PM" style="display:inline;">
         less than a minute ago
       </div>
-      · Group 2
+      · Group 1
       <!---->
     </div>
   </div>

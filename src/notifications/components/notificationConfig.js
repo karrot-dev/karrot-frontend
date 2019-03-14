@@ -46,7 +46,7 @@ function getIcon (type, context) {
       return 'fas fa-check'
     case 'pickup_disabled':
     case 'application_declined':
-    case 'you_were_removed':
+    case 'conflict_resolution_you_were_removed':
       return 'fas fa-times'
     case 'invitation_accepted':
     case 'new_member':

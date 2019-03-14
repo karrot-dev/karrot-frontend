@@ -4081,8 +4081,7 @@ exports[`Storyshots Notifications conflict_resolution_you_were_removed 1`] = `
 <div class="q-item q-item-division relative-position q-item-link isUnread">
   <!---->
   <div class="q-item-main q-item-section">
-    <div class="q-item-label" style="overflow:hidden;display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:2;">
-      <!---->
+    <div class="q-item-label" style="overflow:hidden;display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:2;"><i aria-hidden="true" class="q-icon q-mr-xs vertical-baseline fas fa-times"> </i>
       You were removed from the group
     </div>
     <div class="q-item-sublabel">

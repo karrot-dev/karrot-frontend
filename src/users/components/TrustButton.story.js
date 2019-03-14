@@ -4,14 +4,13 @@ import { action } from '@storybook/addon-actions'
 
 const datastore = createDatastore({
   users: { getters: { get: () => id => id } },
-  issues: { getters: { ongoing: () => [] } },
 })
 
-import Profile from './ProfileUI'
 import TrustButton from './TrustButton'
 
 let groupIdCnt = 1
 
+// TODO use enrichedFactories
 const groupFactory = ({
   isCurrentGroup = false,
   isMember = true,
@@ -72,16 +71,6 @@ const defaultOn = {
 }
 
 storiesOf('User Profile', module)
-  .add('Profile', () => defaults({
-    render: h => h(Profile, {
-      props: {
-        user: baseUser,
-        currentGroup: { name: 'my current group' },
-      },
-      on: defaultOn,
-    }),
-    store: datastore,
-  }))
   .add('Trust Button - is editor', () => defaults({
     render: h => h(TrustButton, {
       props: {

@@ -4,7 +4,7 @@ const backend = __ENV.CORDOVA ? __ENV.BACKEND : ''
 
 export default {
   async latestTopics () {
-    const data = (await axios.get('/community_proxy/latest.json?order=created')).data
+    const data = (await axios.get('/community_proxy/latest.json?order=updated')).data
     const users = data.users
     const topics = data.topicList.topics
     return topics.map(topic => {

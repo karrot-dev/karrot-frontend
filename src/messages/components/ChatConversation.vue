@@ -3,7 +3,7 @@
     :class="inline && 'absolute-full scroll'"
     ref="scroll"
   >
-    <slot name="beforeChatMessages"/>
+    <slot name="beforeChatMessages" />
     <KSpinner v-show="fetchingPast" />
     <QInfiniteScroll :handler="maybeFetchFuture">
       <QList

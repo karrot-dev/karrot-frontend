@@ -17,7 +17,7 @@
 <script>
 import ConversationCompose from '@/messages/components/ConversationCompose'
 
-import { mapActions, mapMutations } from 'vuex'
+import { mapActions } from 'vuex'
 
 export default {
   components: {

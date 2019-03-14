@@ -9,8 +9,6 @@
       :autofocus="!$q.platform.is.mobile"
       :is-participant="conversation.isParticipant"
       slim
-      :value="draft"
-      @input="saveDraft"
       @submit="sendMessage"
     />
   </div>
@@ -45,16 +43,10 @@ export default {
     isClosed () {
       return this.conversation && this.conversation.isClosed
     },
-    draft () {
-      return this.conversation && this.conversation.draft
-    },
   },
   methods: {
     ...mapActions({
       send: 'conversations/send',
-    }),
-    ...mapMutations({
-      commitDraft: 'conversations/saveDraft',
     }),
     sendMessage (content) {
       const data = this.conversation.thread
@@ -68,13 +60,6 @@ export default {
           content,
         }
       this.send(data)
-    },
-    saveDraft (content) {
-      // TODO handle threads
-      this.commitDraft({
-        conversationId: this.conversation.id,
-        value: content,
-      })
     },
   },
 

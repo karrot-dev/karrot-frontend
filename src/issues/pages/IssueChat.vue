@@ -1,5 +1,8 @@
 <template>
-  <div v-if="issue">
+  <div
+    class="relative-position"
+    v-if="issue"
+  >
     <QCollapsible
       opened
       class="bg-grey-2"
@@ -52,6 +55,19 @@
         </div>
       </div>
     </QCollapsible>
+    <div
+      v-if="conversation"
+      class="bg-secondary absolute-top-right round-borders q-pa-xs"
+    >
+      <NotificationToggle
+        :muted="conversation.muted"
+        :is-participant="conversation.isParticipant"
+        :user="currentUser"
+        in-toolbar
+        @set.stop="setNotifications"
+        :size="$q.platform.is.mobile ? 'sm' : 'md'"
+      />
+    </div>
     <ChatConversation
       v-if="conversation"
       :conversation="conversationWithReversedMessages"
@@ -71,6 +87,7 @@ import ChatConversation from '@/messages/components/ChatConversation'
 import Markdown from '@/utils/components/Markdown'
 import DateAsWords from '@/utils/components/DateAsWords'
 import ProfilePicture from '@/users/components/ProfilePicture'
+import NotificationToggle from '@/messages/components/NotificationToggle'
 
 import { mapGetters, mapActions } from 'vuex'
 
@@ -84,6 +101,7 @@ export default {
     Markdown,
     DateAsWords,
     ProfilePicture,
+    NotificationToggle,
     QCollapsible,
   },
   computed: {
@@ -107,7 +125,14 @@ export default {
       setMuted: 'conversations/maybeSetMuted',
       toggleReaction: 'conversations/toggleReaction',
       fetchPast: 'conversations/fetchPast',
+      saveConversation: 'conversations/maybeSave',
     }),
+    setNotifications (value) {
+      this.saveConversation({
+        conversationId: this.conversation.id,
+        value,
+      })
+    },
   },
 
 }

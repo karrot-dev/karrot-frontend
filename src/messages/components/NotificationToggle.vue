@@ -5,10 +5,8 @@
     :flat="inToolbar"
     :color="inToolbar ? 'white' : selected.color"
     :size="size"
+    :title="$t('NOTIFICATION_TOGGLE.HEADER')"
   >
-    <QTooltip>
-      {{ $t('NOTIFICATION_TOGGLE.HEADER') }}
-    </QTooltip>
     <QIcon
       :name="selected.icon"
     />
@@ -55,7 +53,6 @@
 <script>
 import {
   QPopover,
-  QTooltip,
   QBtn,
   QIcon,
   QList,
@@ -69,7 +66,6 @@ import {
 export default {
   components: {
     QPopover,
-    QTooltip,
     QBtn,
     QIcon,
     QList,

@@ -4,9 +4,9 @@
     "GITHUB_NOTE": "Development",
     "COMMUNITY_NOTE": "Dołącz do nas!",
     "SERVER_ERROR": "Błąd serwera",
-    "NOT_CONNECTED": "You aren't connected to the server",
+    "NOT_CONNECTED": "Brak połączenia z serwerem",
     "INVALID_LINK": "Przepraszamy, otwarty przez Ciebie link jest nieprawidłowy.",
-    "GENERIC_ERROR": "Sorry, something went wrong",
+    "GENERIC_ERROR": "Ups, coś poszło nie tak...",
     "SEARCH_NOT_FOUND": "Nie znaleziono",
     "ABOUT_KARROT": "About Karrot"
   },
@@ -40,7 +40,7 @@
     "LOGOUT_SUCCESS": "Zostałaś/-eś wylogowana/-y!",
     "YOU_TRUST_USER": "Zaufałaś/-eś {userName} w {groupName}.",
     "OTHER_PEOPLE_TRUST_USER": "{otherUser} zaufał/-a {userName} w {groupName}. | {count} osób zaufało {userName} w {groupName}.",
-    "OTHER_PEOPLE_TRUST_YOU": "{otherUser} trusts you in {groupName}. | {count} people trust you in {groupName}.",
+    "OTHER_PEOPLE_TRUST_YOU": "{otherUser}zaufał/a Tobie w {groupName}. | {count}osób zaufało Tobie w {groupName}.",
     "PEOPLE_TRUST_USER": "Ty i {otherUser} zaufaliście {userName} w {groupName}. | Ty i {count} osób zaufało {userName} w {groupName}.",
     "FIRST_TRUST": "Zostań pierwszym użytkownikiem, który zaufał {userName} w {groupName}!",
     "NEWCOMER": "Adept",
@@ -89,9 +89,9 @@
     "DECLINE": "Odrzuć",
     "WITHDRAW": "Wycofaj się",
     "SHOW_MORE": "Pokaż więcej",
-    "ENABLE": "Enable",
-    "DISABLE": "Disable",
-    "UNSUBSCRIBE": "Unsubscribe"
+    "ENABLE": "Aktywuj",
+    "DISABLE": "Dezaktywuj",
+    "UNSUBSCRIBE": "Wypisz się"
   },
   "VALIDATION": {
     "MINLENGTH": "Musisz użyć więcej niż {min} znaków.",
@@ -155,7 +155,7 @@
       },
       "daily_pickup_notification": {
         "NAME": "Powiadomienia o odbiorach",
-        "DESCRIPTION": "Reminds you of your pickups, and tells you about empty or not-full pickups of your favorite stores in the next day"
+        "DESCRIPTION": "Przypomina Ci o nadchodzących odbiorach, na które się zapisałaś/-eś oraz o odbiorach, na które jeszcze nikt się nie zapisał albo na które są jeszcze wolne miejsca w Twoich ulubionych punktach."
       },
       "new_application": {
         "NAME": "Nowe zgłoszenia",
@@ -208,10 +208,10 @@
   },
   "PLACEWALL": {
     "SUBSCRIPTION": {
-      "HEADER": "Do you want to mark this store as your favourite?",
-      "YES": "yes",
+      "HEADER": "Czy chcesz oznaczyć ten punkt jako ulubiony?",
+      "YES": "Tak",
       "YES_TEXT": "Shows available pickups on the group wall and sends emails about upcoming pickups.",
-      "NO": "no",
+      "NO": "Nie",
       "NO_TEXT": "None of the above. You can still sign up for pickups though."
     }
   },
@@ -313,10 +313,10 @@
     "COMMENT_HELPER": "Co powinni wiedzieć ratownicy, którzy zapisują się na ten odbiór?",
     "UNLIMITED": "bez ograniczeń",
     "DIFFERS_WARNING": "This value differs from the default. To undo this change, click on the arrow button and save the changes.",
-    "ENABLE_TITLE": "Enable pickup?",
-    "DISABLE_TITLE": "Disable pickup?",
+    "ENABLE_TITLE": "Aktywować odbiór?",
+    "DISABLE_TITLE": "Dezaktywować odbiór?",
     "ENABLE_DISABLE_MESSAGE": "Users who joined this pickup will get a notification. You can change this text to provide a reason:",
-    "EXCEPTIONS_TITLE": "Check your pickups",
+    "EXCEPTIONS_TITLE": "Sprawdź swoje odbiory",
     "EXCEPTIONS_MESSAGE": "Some upcoming pickups don't match the settings of this recurring pickup. Have a look below at '{upcomingLabel}' to change or disable pickups, if needed."
   },
   "CREATESTORE": {
@@ -324,14 +324,14 @@
   },
   "PICKUPLIST": {
     "FILTER": {
-      "ALL": "All",
-      "EMPTY": "Only empty",
-      "FREE": "With free slots"
+      "ALL": "Wszystkie odbiory",
+      "EMPTY": "Odbiory, na które nikt się nie zapisał",
+      "FREE": "Odbiory z wolnymi okienkami"
     },
-    "AVAILABLE": "There is one pickup in your favorite stores waiting for you! | There are {count} pickups in your favorite stores waiting for you!",
+    "AVAILABLE": "Dostępny jest jeden odbiór w Twoich ulubionych punktach w najbliższych dniach! | Dostępne są {count} odbiory w Twoich ulubionych punktach w najbliższych dniach!",
     "AVAILABLE_FEEDBACK": "Możesz dodać komentarz do odbioru | Możesz dodać komentarz do {count} odbiorów",
     "JOINEDNOTICE": "Masz jeden nadchodzący odbiór | Masz {count} nadchodzące odbiory",
-    "AVAILABLE_FROM_STORES": "This shows pickups from your favorite stores in the next days. You can access other stores in the sidebar.",
+    "AVAILABLE_FROM_STORES": "Lista pokazuje dostępne odbiory w Twoich ulubionych punktach w najbliższych dniach. Aby zobaczyć wszystkie odbiory, wejdź w sekcję \"Odbiory\" lub wybierz konkretny punkt z panelu bocznego.",
     "ITEM": {
       "LEAVE": "Zrezygnuj",
       "JOIN": "Zapisz się",
@@ -343,8 +343,8 @@
     "NONE": "Brak nadchodzących odbiorów",
     "NONE_HINT": "Możesz dodać nowe odbiory na stronie punktu odbioru.",
     "STORE_NONE_HINT": "Możesz dodać nowe odbiory na stronie zarządzania odbiorami.",
-    "PICKUP_DISABLED": "This pickup has been disabled.",
-    "PICKUP_STARTED": "This pickup has already started."
+    "PICKUP_DISABLED": "Odbiór został zdezaktywowany.",
+    "PICKUP_STARTED": "Odbiór już się rozpoczął."
   },
   "FEEDBACKLIST": {
     "SAVED_FOOD": "W tym punkcie uratowano już ponad 1 kg żywności. Dziękujemy! | W tym punkcie uratowano już {amount} kg żywności. Oby tak dalej!",
@@ -450,12 +450,12 @@
     "NEW_STORE": "Utworzono {storeName}",
     "NEW_MEMBER": "{userName} dołączył/-a do grupy",
     "PICKUP_UPCOMING": "Przypomnienie: masz odbiór o {time}",
-    "PICKUP_DISABLED": "Pickup at {dateTime} was disabled",
-    "PICKUP_ENABLED": "Pickup at {dateTime} was enabled again",
-    "PICKUP_MOVED": "Pickup was moved to {dateTime}"
+    "PICKUP_DISABLED": "Odbiór w dniu {dateTime} został zdezaktywowany",
+    "PICKUP_ENABLED": "Odbiór w dniu {dateTime} został ponownie zaktywowany",
+    "PICKUP_MOVED": "Odbiór został przeniesiony na {dateTime}"
   },
   "NOTIFICATION_TOGGLE": {
-    "HEADER": "How do you want to receive notifications about new messages in this conversation/thread?",
+    "HEADER": "W jaki sposób chcesz otrzymywać powiadomienia o nowych wiadomościach w tej konwersacji?",
     "ALL": "all",
     "ALL_TEXT": "Via app/website, email and push notifications.",
     "SOME": "some",

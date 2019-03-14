@@ -7,7 +7,8 @@
  * The implementations are not complete, so if you miss a property that you need, please add it!
  */
 import subHours from 'date-fns/sub_hours'
-import addHours from 'date-fns/add_hours'
+import subDays from 'date-fns/sub_days'
+import addDays from 'date-fns/add_days'
 
 import { statusMocks } from '>/helpers'
 
@@ -188,7 +189,7 @@ export const makeVoting = data => {
   return {
     id: votingIdCnt++,
     acceptedOption: 74,
-    expiresAt: addHours(new Date(), 106),
+    expiresAt: addDays(new Date(), 7),
     options: [
       makeOption({
         type: 'further_discussion',
@@ -209,7 +210,7 @@ let issueIdCnt = 0
 export const makeIssue = data => {
   return {
     id: issueIdCnt++,
-    createdAt: subHours(new Date(), 26),
+    createdAt: subDays(new Date(), 7 + 6),
     topic: 'I complain about this user',
     type: 'conflictResolution',
     createdBy: makeUser(),
@@ -220,13 +221,13 @@ export const makeIssue = data => {
     isOngoing: true,
     votings: [
       makeVoting({
-        expiresAt: new Date('2018-01-24T21:22:54.730980Z'),
+        expiresAt: subDays(new Date(), 7 + 6),
       }),
       makeVoting({
-        expiresAt: new Date('2018-05-20T21:22:54.730980Z'),
+        expiresAt: subDays(new Date(), 6),
       }),
       makeVoting({
-        expiresAt: new Date('2018-11-22T21:22:54.730980Z'),
+        expiresAt: addDays(new Date(), 1),
       }),
     ],
     ...data,

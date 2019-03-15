@@ -44,10 +44,10 @@
             <li> {{ $t('CONFLICT.STEPPER3f') }} </li>
           </ul>
           <a
-            href="https://community.foodsaving.world/t/LINK-TO-BE-ADDED"
+            href="https://community.foodsaving.world/t/how-does-the-conflict-resolution-feature-work/254"
             target="_blank"
             rel="noopener"
-            v-t="'USERDATA.TRUST_INFO.LINK'"
+            v-t="'CONFLICT.FIND_OUT_MORE'"
             style="text-decoration: underline"
           />
         </QStep>

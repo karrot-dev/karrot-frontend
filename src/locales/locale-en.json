@@ -589,6 +589,7 @@
     "STEPPER3f": "During this time all voters can change their minds and vote differently as many times as they want.",
     "STEPPER4a": "Please make an initial statement for the open group chat!",
     "STEPPER4b": "Tell your group what made you think this process is justified and needed.",
+    "FIND_OUT_MORE": "Find out more!",
     "INITIAL": "Information",
     "WITH": "This process is to resolve a conflict with {userName}",
     "VOTING": {

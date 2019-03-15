@@ -614,6 +614,7 @@
     "VOTING": {
       "TIME_LEFT": "Time left to vote",
       "BTN_START": "Vote now",
+      "SAVE": "Save",
       "BTN_DELETE": "Delete vote",
       "TOAST": "Your vote was successfully submitted",
       "TOAST_DELETE": "Your vote was deleted",

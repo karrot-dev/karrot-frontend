@@ -60,7 +60,7 @@
             :disable="!hasChanged"
             @click="$emit('save', results)"
           >
-            {{ $t('BUTTON.SUBMIT') }}
+            {{ $t('ISSUE.VOTING.SAVE') }}
           </QBtn>
         </div>
       </div>

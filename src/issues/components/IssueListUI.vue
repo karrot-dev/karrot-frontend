@@ -26,9 +26,9 @@
     >
       <template v-if="showOthers">
         <IssueItem
-          v-for="i in pastIssues"
-          :key="i.id"
-          :issue="i"
+          v-for="issue in pastIssues"
+          :key="issue.id"
+          :issue="issue"
         />
       </template>
     </QCollapsible>

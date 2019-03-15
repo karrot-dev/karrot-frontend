@@ -229,11 +229,11 @@ export default {
       currentGroup: 'currentGroup/value',
       history: 'history/byCurrentGroupAndUser',
       historyStatus: 'history/fetchStatus',
-      getIssues: 'issues/ongoing',
+      ongoingIssues: 'issues/ongoing',
       issueCreateStatus: 'issues/createStatus',
     }),
     ongoingConflict () {
-      return this.getIssues.find(i => i.affectedUser.id === this.user.id)
+      return this.ongoingIssues.find(i => i.affectedUser.id === this.user.id)
     },
     isConflictOngoing () {
       return Boolean(this.ongoingConflict)

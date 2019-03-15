@@ -3040,7 +3040,7 @@ exports[`Storyshots Issues history item 1`] = `
           <div class="q-item q-item-division relative-position">
             <div class="q-item-side q-item-section q-item-side-left"><i aria-hidden="true" class="q-icon fas fa-meh q-item-icon text-primary"> </i></div>
             <div class="q-item-main q-item-section">
-              User 59 stays in asdf
+              No change: User 59 stays in asdf
             </div>
             <div class="q-item-side q-item-section q-item-side-left">
               0
@@ -3087,7 +3087,7 @@ exports[`Storyshots Issues results - expelled 1`] = `
   <div class="q-item q-item-division relative-position">
     <div class="q-item-side q-item-section q-item-side-left"><i aria-hidden="true" class="q-icon fas fa-meh q-item-icon text-primary"> </i></div>
     <div class="q-item-main q-item-section">
-      User 65 stays in asdf
+      No change: User 65 stays in asdf
     </div>
     <div class="q-item-side q-item-section q-item-side-left">
       0
@@ -3120,7 +3120,7 @@ exports[`Storyshots Issues vote - furtherDiscussion 1`] = `
           <div class="q-mt-md">
             Extend the time to keep discussing
           </div>
-          <div class="q-slider non-selectable label-always" style="width:85%;margin:0 auto;">
+          <div class="q-slider non-selectable k-vote-slider label-always">
             <div class="q-slider-handle-container">
               <div class="q-slider-track"></div>
               <div class="q-slider-mark" style="left:0%;"></div>
@@ -3142,7 +3142,7 @@ exports[`Storyshots Issues vote - furtherDiscussion 1`] = `
           <div class="q-mt-md">
             User 63 gets removed from Group 13
           </div>
-          <div class="q-slider non-selectable label-always" style="width:85%;margin:0 auto;">
+          <div class="q-slider non-selectable k-vote-slider label-always">
             <div class="q-slider-handle-container">
               <div class="q-slider-track"></div>
               <div class="q-slider-mark" style="left:0%;"></div>
@@ -3162,9 +3162,9 @@ exports[`Storyshots Issues vote - furtherDiscussion 1`] = `
         </div>
         <div>
           <div class="q-mt-md">
-            User 63 stays in Group 13
+            No change: User 63 stays in Group 13
           </div>
-          <div class="q-slider non-selectable label-always" style="width:85%;margin:0 auto;">
+          <div class="q-slider non-selectable k-vote-slider label-always">
             <div class="q-slider-handle-container">
               <div class="q-slider-track"></div>
               <div class="q-slider-mark" style="left:0%;"></div>
@@ -3191,7 +3191,7 @@ exports[`Storyshots Issues vote - furtherDiscussion 1`] = `
         </button> <button tabindex="-1" type="submit" class="q-btn inline relative-position q-btn-item non-selectable q-btn-rectangle disabled bg-secondary text-white">
           <div class="q-focus-helper"></div>
           <div class="q-btn-inner row col items-center q-popup--skip justify-center">
-            Submit
+            Save
           </div>
         </button></div>
     </div>

@@ -258,7 +258,7 @@ export default {
     detailWidth () {
       const contentWidth = this.windowWidth - this.sidenavWidth
       const columnWidth = Math.floor(contentWidth / 2)
-      return Math.max(280, columnWidth)
+      return Math.min(500, Math.max(280, columnWidth))
     },
     routerComponents () {
       const components = {}

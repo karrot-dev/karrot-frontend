@@ -64,7 +64,7 @@
         :is-participant="conversation.isParticipant"
         :user="currentUser"
         in-toolbar
-        @set.stop="setNotifications"
+        @set="setNotifications"
         :size="$q.platform.is.mobile ? 'sm' : 'md'"
       />
     </div>

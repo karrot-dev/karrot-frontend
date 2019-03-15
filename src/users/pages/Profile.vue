@@ -239,10 +239,7 @@ export default {
       return Boolean(this.ongoingConflict)
     },
     profilePictureSize () {
-      if (this.$q.platform.is.mobile) {
-        return 80
-      }
-      return 180
+      return this.$q.platform.is.mobile ? 80 : 180
     },
     currentGroupMembership () {
       return this.user.membership

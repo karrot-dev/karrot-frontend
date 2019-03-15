@@ -605,6 +605,8 @@
       "TOAST": "You successfully started a conflict resolution process"
     },
     "TITLE": "Issues",
+    "VOTE": "Vote",
+    "CHAT": "Chat",
     "INITIATED_BY": "Initiated by {initiatorName}",
     "PAST": "Past issues",
     "PREVIOUS_VOTINGS": "Previous votings in this issue",

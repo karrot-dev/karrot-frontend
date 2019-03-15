@@ -115,6 +115,7 @@ describe('currentGroup', () => {
     })
 
     beforeEach(() => {
+      datastore.commit('currentGroup/setId', group3.id)
       datastore.commit('currentGroup/set', group3)
       datastore.commit('users/update', [Object.values(users)])
     })

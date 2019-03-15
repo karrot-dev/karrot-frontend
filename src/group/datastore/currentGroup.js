@@ -53,7 +53,7 @@ export default {
       return rootGetters['conversations/getForGroup'](state.current.id)
     },
     conversationUnreadCount: (state, getters) => getters.conversation && getters.conversation.unreadMessageCount,
-    id: (state) => state.current && state.current.id,
+    id: (state) => state.id,
     // for current user:
     membership: (state, getters, rootState, rootGetters) => getters.memberships[rootGetters['auth/userId']],
     roles: (state, getters) => getters.membership ? getters.value.membership.roles : [],
@@ -130,8 +130,6 @@ export default {
     ...withMeta({
       async select ({ dispatch, getters, rootGetters }, { groupId }) {
         if (!groupId) throw createRouteRedirect({ name: 'groupsGallery' })
-        const oldGroupId = getters.id
-        if (oldGroupId === groupId) return
 
         await dispatch('fetch', groupId)
 

@@ -33,6 +33,9 @@ export default {
     current: (state, getters) => {
       return getters.enrich(state.entries[state.currentId])
     },
+    currentId: (state) => {
+      return state.currentId
+    },
     currentConversation: (state, getters, rootState, rootGetters) => {
       if (!state.currentId) return
       return rootGetters['conversations/getForIssue'](state.currentId)

@@ -160,7 +160,7 @@ import RouteError from '@/base/components/RouteError'
 import UnsupportedBrowserWarning from '@/base/components/UnsupportedBrowserWarning'
 import DetailSidebar from '@/messages/components/DetailSidebar'
 import KarrotLogo from '@/logo/components/KarrotLogo'
-import { mapGetters, mapActions, mapState } from 'vuex'
+import { mapGetters, mapActions } from 'vuex'
 import {
   dom,
   QLayout,
@@ -239,9 +239,7 @@ export default {
       messagesUnseenCount: 'latestMessages/unseenCount',
       messagesAllUnreadMuted: 'latestMessages/allUnreadMuted',
       notificationsUnseenCount: 'notifications/unseenCount',
-    }),
-    ...mapState({
-      currentGroupId: state => state.currentGroup.id,
+      currentGroupId: 'currentGroup/id',
     }),
     layoutView () {
       if (this.$q.platform.is.mobile) {

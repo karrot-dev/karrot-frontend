@@ -22,7 +22,7 @@
 </template>
 
 <script>
-import { mapState } from 'vuex'
+import { mapGetters } from 'vuex'
 
 import {
   QTabs,
@@ -35,9 +35,9 @@ export default {
     QRouteTab,
   },
   computed: {
-    ...mapState({
-      groupId: state => state.currentGroup.id,
-      issueId: state => state.issues.currentId,
+    ...mapGetters({
+      groupId: 'currentGroup/id',
+      issueId: 'issues/currentId',
     }),
   },
 }

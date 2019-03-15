@@ -62,6 +62,7 @@
       <NotificationToggle
         :muted="conversation.muted"
         :is-participant="conversation.isParticipant"
+        :can-unsubscribe="false"
         :user="currentUser"
         in-toolbar
         @set="setNotifications"

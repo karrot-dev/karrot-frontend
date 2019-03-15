@@ -5,9 +5,9 @@
   >
     <KSpinner v-show="isPending" />
     <IssueItem
-      v-for="i in ongoingIssues"
-      :key="i.id"
-      :issue="i"
+      v-for="issue in ongoingIssues"
+      :key="issue.id"
+      :issue="issue"
     />
     <KNotice v-if="hasNoOngoing">
       <template slot="icon">

@@ -34,7 +34,7 @@
               {{ getTitle(o.type) }}
             </div>
             <QSlider
-              style="width: 85%; margin: 0 auto"
+              class="k-vote-slider"
               v-model="o.yourScore"
               :label-value="getLabel(o.yourScore)"
               :min="-2"
@@ -198,4 +198,7 @@ export default {
 .showOverlay.content
   opacity 0.3
   filter blur(3px)
+.k-vote-slider
+  width 85%
+  margin 0 auto
 </style>

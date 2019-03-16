@@ -21,6 +21,9 @@ Please document your changes in this format:
 ```
 
 ## [Unreleased]
+###
+- Mobile page: reduce width of sidenav @tiltec
+
 ### Fixed
 - Previous feedback didn't show when giving/editing feedback @tiltec
 

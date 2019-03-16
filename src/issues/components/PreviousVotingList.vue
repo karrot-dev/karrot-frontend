@@ -1,6 +1,7 @@
 <template>
   <QList
     v-if="votings && votings.length > 0"
+    class="full-width"
   >
     <QListHeader>
       {{ $t('ISSUE.PREVIOUS_VOTINGS') }}
@@ -10,7 +11,6 @@
       :key="voting.id"
       :voting="voting"
       :affected-user="issue.affectedUser"
-      :is-cancelled="issue.isCancelled"
       :group-name="issue.group.name"
     />
   </QList>

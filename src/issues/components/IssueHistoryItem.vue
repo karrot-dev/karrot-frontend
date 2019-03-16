@@ -17,7 +17,6 @@
       :voting="voting"
       :affected-user="affectedUser"
       :group-name="groupName"
-      :is-cancelled="isCancelled"
     />
   </QCollapsible>
 </template>
@@ -52,10 +51,6 @@ export default {
     groupName: {
       type: String,
       default: '',
-    },
-    isCancelled: {
-      type: Boolean,
-      default: false,
     },
   },
 }

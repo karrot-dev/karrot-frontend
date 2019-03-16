@@ -28,6 +28,7 @@ export default {
         createdBy: rootGetters['users/get'](issue.createdBy),
         isCancelled: issue.status === 'cancelled',
         isOngoing: issue.status === 'ongoing',
+        isSelected: issue.id === state.currentId,
       }
     },
     current: (state, getters) => {

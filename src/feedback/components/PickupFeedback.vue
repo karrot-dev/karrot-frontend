@@ -29,7 +29,7 @@
                   :options="feedbackOptions"
                 />
               </QField>
-              <span v-else>
+              <span v-else-if="editFeedback">
                 {{ getDateWithPlace(editFeedback.about) }}
               </span>
             </p>
@@ -76,7 +76,7 @@
         type="banner"/>
       <h4
         class="generic-padding"
-        v-t="{ path: 'PICKUP_FEEDBACK.PREVIOUS', args: { place: select.place.name } }"
+        v-t="{ path: 'PICKUP_FEEDBACK.PREVIOUS', args: { store: select.place.name } }"
       />
       <FeedbackList
         :feedback="feedbackForPlace"
@@ -122,7 +122,8 @@ export default {
   methods: {
     getDateWithPlace (pickup) {
       if (!pickup) return ''
-      return `${this.$d(pickup.date, 'long')} (${pickup.place.name})`
+      const { name } = pickup.place || {}
+      return `${this.$d(pickup.date, 'long')} (${name || ''})`
     },
   },
   computed: {
@@ -166,7 +167,7 @@ export default {
       if (!this.select) return []
       let filtered = this.existingFeedback.filter(e => e.about && e.about.place.id === this.select.place.id)
       if (this.editFeedbackId) {
-        filtered = filtered.filter(e => e.id !== this.editFeedback.id)
+        filtered = filtered.filter(e => e.id !== this.editFeedbackId)
       }
       return filtered
     },

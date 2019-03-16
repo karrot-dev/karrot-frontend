@@ -10,6 +10,7 @@ export default connect({
     archived: 'places/byCurrentGroupArchived',
     expanded: 'sidenavBoxes/toggle/places',
     isEditor: 'currentGroup/isEditor',
+    fetchStatus: 'places/fetchStatus',
   },
   actionsToEvents: {
     toggleBox: 'sidenavBoxes/toggle/places',

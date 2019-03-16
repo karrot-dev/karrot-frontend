@@ -51,11 +51,9 @@
         <QLayoutDrawer
           v-if="$q.platform.is.mobile"
           side="left"
-          :width="sidenavWidth"
           :breakpoint="Number.MAX_SAFE_INTEGER"
           v-model="showSidenav"
-          :overlay="false"
-          @click.native="toggleSidenav"
+          :overlay="true"
         >
           <SidenavTitle @click="toggleSidenav" />
           <RouterView name="sidenav" />

@@ -32,7 +32,9 @@
       </QBtn>
     </div>
 
+    <KSpinner v-if="!hasPlaces && fetchStatus.pending" />
     <PlaceList
+      v-else
       :group-id="groupId"
       :places="places"
       :archived="showAllPlaces ? archived : []"
@@ -50,6 +52,7 @@ import {
 } from 'quasar'
 import SidenavBox from './SidenavBox'
 import PlaceList from '@/places/components/PlaceList'
+import KSpinner from '@/utils/components/KSpinner'
 
 export default {
   props: {
@@ -59,6 +62,7 @@ export default {
     archived: { default: () => [], type: Array },
     expanded: { default: true, type: Boolean },
     isEditor: { default: false, type: Boolean },
+    fetchStatus: { default: null, type: Object },
   },
   components: {
     SidenavBox,
@@ -67,6 +71,7 @@ export default {
     QToggle,
     QTooltip,
     PlaceList,
+    KSpinner,
   },
   data () {
     return {

@@ -21,6 +21,8 @@ Please document your changes in this format:
 ```
 
 ## [Unreleased]
+### Fixed
+- Previous feedback didn't show when giving/editing feedback @tiltec
 
 ## [7.0.0] - 2019-03-12
 ### Added

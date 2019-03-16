@@ -29,7 +29,7 @@
                   :options="feedbackOptions"
                 />
               </QField>
-              <span v-else>
+              <span v-else-if="editFeedback">
                 {{ getDateWithPlace(editFeedback.about) }}
               </span>
             </p>
@@ -122,7 +122,8 @@ export default {
   methods: {
     getDateWithPlace (pickup) {
       if (!pickup) return ''
-      return `${this.$d(pickup.date, 'long')} (${pickup.place.name})`
+      const { name } = pickup.place || {}
+      return `${this.$d(pickup.date, 'long')} (${name || ''})`
     },
   },
   computed: {

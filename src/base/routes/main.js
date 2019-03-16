@@ -383,12 +383,14 @@ export default [
           breadcrumbs: [
             { translation: 'PICKUP_FEEDBACK.TITLE', route: { name: 'giveFeedback' } },
           ],
+          beforeEnter: 'feedback/fetch',
+          afterLeave: 'feedback/clear',
         },
         component: PickupFeedback,
       },
       {
         name: 'editFeedback',
-        path: 'feedback/:feedbackId?',
+        path: 'feedback/:feedbackId',
         meta: {
           breadcrumbs: [
             { translation: 'PICKUP_FEEDBACK.TITLE', route: { name: 'editFeedback' } },

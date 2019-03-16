@@ -57,7 +57,7 @@ export default {
     },
     activePlace: (state, getters) => getters.get(state.activePlaceId),
     activePlaceId: state => state.activePlaceId,
-    ...metaStatuses(['create']),
+    ...metaStatuses(['create', 'fetch']),
     conversationUnreadCount: (state, getters) => getters.conversation && getters.conversation.unreadMessageCount,
     conversation: (state, getters, rootState, rootGetters) => {
       if (!state.activePlaceId) return

@@ -116,7 +116,6 @@ export default {
     places: { required: true, type: Array },
     archived: { default: () => [], type: Array },
     linkTo: { default: 'place', type: String },
-
   },
   computed: {
     sortedPlaces () {

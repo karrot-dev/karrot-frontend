@@ -52,7 +52,10 @@ export default {
       if (!state.activeUserProfile) return
 
       const user = state.activeUserProfile
-      const groups = user.groups && user.groups.map(rootGetters['groups/get']).sort((a, b) => a.name.localeCompare(b.name))
+      const groups = user.groups && user.groups
+        .map(rootGetters['groups/get'])
+        .filter(v => !!v)
+        .sort((a, b) => a.name.localeCompare(b.name))
 
       return {
         ...getters.enrich(user),

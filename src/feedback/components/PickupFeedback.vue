@@ -76,7 +76,7 @@
         type="banner"/>
       <h4
         class="generic-padding"
-        v-t="{ path: 'PICKUP_FEEDBACK.PREVIOUS', args: { place: select.place.name } }"
+        v-t="{ path: 'PICKUP_FEEDBACK.PREVIOUS', args: { store: select.place.name } }"
       />
       <FeedbackList
         :feedback="feedbackForPlace"
@@ -166,7 +166,7 @@ export default {
       if (!this.select) return []
       let filtered = this.existingFeedback.filter(e => e.about && e.about.place.id === this.select.place.id)
       if (this.editFeedbackId) {
-        filtered = filtered.filter(e => e.id !== this.editFeedback.id)
+        filtered = filtered.filter(e => e.id !== this.editFeedbackId)
       }
       return filtered
     },

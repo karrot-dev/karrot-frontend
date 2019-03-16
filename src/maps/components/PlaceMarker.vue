@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div v-if="place && place.group">
     <RouterLink :to="{ name: 'place', params: { groupId: place.group.id, placeId: place.id } }">
       {{ place.name }}
     </RouterLink>

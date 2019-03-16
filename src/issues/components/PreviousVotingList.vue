@@ -6,9 +6,9 @@
       {{ $t('ISSUE.PREVIOUS_VOTINGS') }}
     </QListHeader>
     <IssueHistoryItem
-      v-for="v in votings"
-      :key="v.id"
-      :voting="v"
+      v-for="voting in votings"
+      :key="voting.id"
+      :voting="voting"
       :affected-user="issue.affectedUser"
       :is-cancelled="issue.isCancelled"
       :group-name="issue.group.name"

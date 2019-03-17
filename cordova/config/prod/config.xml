@@ -7,7 +7,7 @@
     <author email="karrot@foodsaving.world" href="https://foodsaving.world">
         Foodsaving World Team
     </author>
-    <icon src="carrot_logo_144x144.png" />
+    <icon src="config/current/carrot_logo_144x144.png" />
     <content src="index.html" />
     <access origin="*" subdomains="true" />
     <allow-intent href="http://*/*" />
@@ -45,5 +45,5 @@
     <plugin name="cordova-plugin-network-information" spec="^2.0.1" />
     <plugin name="cordova-plugin-fcm-with-dependecy-updated" spec="^2.3.0" />
     <plugin name="cordova-plugin-deeplinks" spec="^1.1.0" />
-    <engine name="android" spec="^7.1.4" />
+    <engine name="android" spec="^8.0.0" />
 </widget>

@@ -6,6 +6,9 @@
  *
  * The implementations are not complete, so if you miss a property that you need, please add it!
  */
+import subHours from 'date-fns/sub_hours'
+import subDays from 'date-fns/sub_days'
+import addDays from 'date-fns/add_days'
 
 import { statusMocks } from '>/helpers'
 
@@ -28,13 +31,14 @@ export const makeApplication = data => {
     id: applicationIdCnt++,
     createdAt: new Date(),
     user: makeUser(),
-    group: null,
+    group: makeGroup(),
     conversation: null,
     questions: 'What are your motivations for joining slköaslkfjasdfasfd?',
-    answers: 'asdfasdf',
+    answers: 'I can live off fire!',
     status: 'pending',
     decidedBy: null,
     decidedAt: null,
+    type: 'application',
     ...data,
   }
 }
@@ -165,6 +169,81 @@ export const makePickupSeries = data => {
     startDate: new Date(),
     description: '',
     datesPreview: [],
+    ...data,
+  }
+}
+
+let optionIdCnt = 0
+export const makeOption = data => {
+  return {
+    id: optionIdCnt++,
+    sumScore: null,
+    yourScore: 0,
+    type: 'further_discussion',
+    ...data,
+  }
+}
+
+let votingIdCnt = 0
+export const makeVoting = data => {
+  return {
+    id: votingIdCnt++,
+    acceptedOption: 74,
+    expiresAt: addDays(new Date(), 7),
+    options: [
+      makeOption({
+        type: 'further_discussion',
+      }),
+      makeOption({
+        type: 'remove_user',
+      }),
+      makeOption({
+        type: 'no_change',
+      }),
+    ],
+    participantCount: 6,
+    ...data,
+  }
+}
+
+let issueIdCnt = 0
+export const makeIssue = data => {
+  return {
+    id: issueIdCnt++,
+    createdAt: subDays(new Date(), 7 + 6),
+    topic: 'I complain about this user',
+    type: 'conflictResolution',
+    createdBy: makeUser(),
+    affectedUser: makeUser(),
+    group: makeGroup(),
+    status: 'ongoing',
+    isCancelled: false,
+    isOngoing: true,
+    votings: [
+      makeVoting({
+        expiresAt: subDays(new Date(), 7 + 6),
+      }),
+      makeVoting({
+        expiresAt: subDays(new Date(), 6),
+      }),
+      makeVoting({
+        expiresAt: addDays(new Date(), 1),
+      }),
+    ],
+    ...data,
+  }
+}
+
+let historyIdCnt = 0
+export const makeHistory = data => {
+  return {
+    id: historyIdCnt++,
+    date: subHours(new Date(), 26),
+    typus: 'GROUP_CHANGE_PHOTO',
+    group: makeGroup(),
+    users: [ 222 ],
+    store: null,
+    message: 'Changed the group picture',
     ...data,
   }
 }

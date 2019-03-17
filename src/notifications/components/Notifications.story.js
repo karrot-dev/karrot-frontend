@@ -137,6 +137,65 @@ const notifications = [
       }),
     },
   },
+  {
+    type: 'conflict_resolution_created',
+    context: {
+      group,
+      issue: factories.makeIssue(),
+      affectedUser: factories.makeUser(),
+    },
+  },
+  {
+    type: 'conflict_resolution_created_about_you',
+    context: {
+      group,
+      issue: factories.makeIssue(),
+    },
+  },
+  {
+    type: 'conflict_resolution_continued',
+    context: {
+      group,
+      issue: factories.makeIssue(),
+      affectedUser: factories.makeUser(),
+    },
+  },
+  {
+    type: 'conflict_resolution_continued_about_you',
+    context: {
+      group,
+      issue: factories.makeIssue(),
+    },
+  },
+  {
+    type: 'conflict_resolution_decided',
+    context: {
+      group,
+      issue: factories.makeIssue(),
+      affectedUser: factories.makeUser(),
+    },
+  },
+  {
+    type: 'conflict_resolution_decided_about_you',
+    context: {
+      group,
+      issue: factories.makeIssue(),
+    },
+  },
+  {
+    type: 'conflict_resolution_you_were_removed',
+    context: {
+      group,
+    },
+  },
+  {
+    type: 'voting_ends_soon',
+    expiresAt: addHours(new Date(), 2),
+    context: {
+      group,
+      issue: factories.makeIssue(),
+    },
+  },
 ].map(factories.makeNotification)
 
 const on = {

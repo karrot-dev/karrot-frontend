@@ -29,7 +29,7 @@
         <DateAsWords
           :date="showExpiresAt ? notification.expiresAt : notification.createdAt"
           style="display: inline"
-          :allow-future="showExpiresAt"
+          :future="showExpiresAt"
         />
         · {{ groupName }}
         <template v-if="placeName">
@@ -114,7 +114,10 @@ export default {
       return this.config.routeTo
     },
     showExpiresAt () {
-      return this.type === 'pickup_upcoming'
+      const blacklist = [
+        'feedback_possible',
+      ]
+      return this.notification && Boolean(this.notification.expiresAt) && !blacklist.includes(this.type)
     },
   },
 }

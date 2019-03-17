@@ -1,6 +1,7 @@
 import Vue from 'vue'
 import pickups from '@/pickups/api/pickups'
 import { createMetaModule, withMeta, isValidationError, withPrefixedIdMeta, metaStatusesWithId, metaStatuses } from '@/utils/datastore/helpers'
+import addDays from 'date-fns/add_days'
 import reactiveNow from '@/utils/reactiveNow'
 
 function initialState () {
@@ -170,7 +171,7 @@ export default {
 }
 
 export function isWithinOneWeek (pickup) {
-  return pickup.date < new Date(+new Date() + 6096e5)
+  return pickup.date < addDays(reactiveNow.value, 7)
 }
 
 export function sortByDate (a, b) {

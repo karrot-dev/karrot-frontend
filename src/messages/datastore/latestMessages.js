@@ -114,7 +114,7 @@ export default {
       dispatch('updateConversationsAndRelated', conversationsAndRelated)
       dispatch('updateThreadsAndRelated', threadsAndRelated)
     },
-    updateConversationsAndRelated ({ commit, dispatch, rootState }, { conversations, messages, pickups, applications, usersInfo, meta }) {
+    updateConversationsAndRelated ({ commit, dispatch, rootState }, { conversations, messages, pickups, applications, issues, usersInfo, meta }) {
       if (conversations) {
         commit('updateConversations', conversations)
 
@@ -131,6 +131,9 @@ export default {
         commit('applications/update', applications, { root: true })
         const users = applications.map(a => a.user)
         commit('users/update', users, { root: true })
+      }
+      if (issues) {
+        commit('issues/update', issues, { root: true })
       }
       if (usersInfo) {
         // contains only limited user info, so only update if we don't have the user already

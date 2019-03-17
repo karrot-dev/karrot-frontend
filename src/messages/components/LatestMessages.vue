@@ -20,6 +20,7 @@
           :pickup="conv.type === 'pickup' ? conv.target : null"
           :place="conv.type === 'place' ? conv.target : null"
           :application="conv.type === 'application' ? conv.target : null"
+          :issue="conv.type === 'issue' ? conv.target : null"
           :message="conv.latestMessage"
           :unread-count="conv.unreadMessageCount"
           :muted="conv.muted"
@@ -153,6 +154,7 @@ export default {
         case 'pickup': return this.openForPickup(target)
         case 'private': return this.openForUser(target)
         case 'application': return this.openForApplication(target)
+        case 'issue': return this.$router.push({ name: 'issueChat', params: { groupId: target.group.id, issueId: target.id } })
       }
     },
     isSelected (conv) {

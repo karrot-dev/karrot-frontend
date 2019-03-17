@@ -188,6 +188,7 @@ export const plugin = datastore => {
       lastLoadedGroupId = groupId
       datastore.dispatch('currentGroup/selectFromCurrentUser')
       datastore.dispatch('history/fetch', { userId: profileUser.id, groupId })
+      datastore.dispatch('issues/fetchOngoingByGroupId', { groupId })
     }
     if (!profileUser) {
       lastLoadedGroupId = null

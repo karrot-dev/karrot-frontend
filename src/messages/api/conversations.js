@@ -2,6 +2,7 @@ import axios, { parseCursor } from '@/base/api/axios'
 import { convert as convertMessage } from './messages'
 import { convert as convertPickup } from '@/pickups/api/pickups'
 import { convert as convertApplication } from '@/applications/api/applications'
+import { convert as convertIssue } from '@/issues/api/issues'
 
 export default {
   async get (id) {
@@ -42,6 +43,7 @@ function convertListResults (results) {
     messages: convertMessage(results.messages),
     pickups: convertPickup(results.pickups),
     applications: convertApplication(results.applications),
+    issues: convertIssue(results.issues),
     usersInfo: results.usersInfo,
     meta: convertMeta(results.meta),
   }

@@ -1,3 +1,5 @@
+import { Platform } from 'quasar'
+
 const GroupWall = () => import('@/group/pages/Wall')
 const GroupPickups = () => import('@/pickups/pages/GroupPickups')
 const GroupFeedback = () => import('@/feedback/pages/GroupFeedback')
@@ -31,6 +33,12 @@ const User = () => import('@/users/pages/Profile')
 const PickupFeedback = () => import('@/feedback/pages/GiveFeedback')
 const Detail = () => import('@/messages/components/Detail')
 const DetailHeader = () => import('@/messages/components/DetailHeader')
+const IssueLayout = () => import('@/issues/pages/IssueLayout')
+const IssueTabsIfMobile = () => Platform.is.mobile ? import('@/issues/components/IssueTabs') : Promise.resolve({ render: () => null })
+const IssueList = () => import('@/issues/pages/IssueList')
+const IssueChat = () => import('@/issues/pages/IssueChat')
+const IssueCompose = () => import('@/issues/pages/IssueCompose')
+const IssueVoteAndHistory = () => import('@/issues/pages/IssueVoteAndHistory')
 
 export default [
   {
@@ -102,6 +110,12 @@ export default [
           name: 'subheader',
         },
       }) },
+      detail: { render: h => h('router-view', {
+        props: {
+          name: 'detail',
+        },
+      }) },
+      footer: { render: h => h('router-view', { props: { name: 'footer' } }) },
       sidenav: Sidenav,
     },
     children: [
@@ -113,6 +127,58 @@ export default [
           afterLeave: 'conversations/clearForGroup',
         },
         component: GroupWall,
+      },
+      {
+        name: 'issueList',
+        path: 'issues',
+        meta: {
+          requiredLoggedIn: true,
+          breadcrumbs: [
+            { translation: 'ISSUE.TITLE', route: { name: 'issueList' } },
+          ],
+          beforeEnter: 'issues/fetchByGroupId',
+        },
+        components: {
+          default: IssueList,
+          detail: { render: h => h('router-view') },
+          subheader: { render: h => h('router-view', { props: { name: 'subheader' } }) },
+          footer: { render: h => h('router-view', { props: { name: 'footer' } }) },
+        },
+        children: [
+          {
+            name: 'issueDetail',
+            path: ':issueId',
+            redirect: { name: 'issueChat' },
+            components: {
+              default: IssueLayout,
+              subheader: IssueTabsIfMobile,
+              footer: { render: h => Platform.is.mobile ? h('router-view', { props: { name: 'issueFooter' } }) : null },
+            },
+            meta: {
+              requiredLoggedIn: true,
+              breadcrumbs: [
+                { type: 'activeIssue' },
+              ],
+              beforeEnter: 'issues/select',
+              isDetail: true,
+            },
+            children: [
+              {
+                name: 'issueChat',
+                path: 'chat',
+                components: {
+                  default: IssueChat,
+                  issueFooter: IssueCompose,
+                },
+              },
+              {
+                name: 'issueVote',
+                path: 'vote',
+                component: IssueVoteAndHistory,
+              },
+            ],
+          },
+        ],
       },
       {
         name: 'map',

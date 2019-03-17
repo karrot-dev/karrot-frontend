@@ -21,6 +21,8 @@ Please document your changes in this format:
 ```
 
 ## [Unreleased]
+### Added
+- Conflict resolution within groups @taistadam @djahnie @tiltec @nicksellen
 
 ## [7.1.0] - 2019-03-17
 ### Added

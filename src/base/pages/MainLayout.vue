@@ -98,30 +98,44 @@
         <QPageContainer>
           <Banners />
           <RouterView name="fullPage"/>
-          <div class="mainContent row justify-between no-wrap">
-            <div class="mainContent-page">
-              <Component
-                :is="disablePullToRefresh ? 'div' : 'QPullToRefresh'"
-                :handler="refresh"
-                style="max-height: none"
-              >
-                <RouterView />
-              </Component>
-            </div>
-          </div>
+          <QPage class="mainContent-page">
+            <Component
+              :is="disablePullToRefresh ? 'div' : 'QPullToRefresh'"
+              :handler="refresh"
+              style="max-height: none"
+            >
+              <RouterView
+                v-if="$q.platform.is.mobile && hasDetailComponent"
+                name="detail"
+              />
+              <RouterView v-else />
+            </Component>
+          </QPage>
         </QPageContainer>
+
         <QLayoutDrawer
           v-if="!$q.platform.is.mobile"
           side="right"
-          :width="400"
+          :width="detailWidth"
           :overlay="false"
           :breakpoint="0"
-          :value="showRightDrawer"
+          :value="isDetailActive || hasDetailComponent"
         >
-          <DetailSidebar @close="clearDetail"/>
+          <DetailSidebar
+            v-if="isDetailActive"
+            @close="clearDetail"
+          />
+          <RouterView
+            v-else
+            name="detail"
+          />
         </QLayoutDrawer>
-        <QLayoutFooter v-if="$q.platform.is.mobile && !$keyboard.is.open">
-          <UnsupportedBrowserWarning/>
+
+        <QLayoutFooter>
+          <RouterView name="footer" />
+          <UnsupportedBrowserWarning
+            v-if="$q.platform.is.mobile && !$keyboard.is.open"
+          />
         </QLayoutFooter>
         <QWindowResizeObservable @resize="onResize" />
       </QLayout>
@@ -144,7 +158,7 @@ import RouteError from '@/base/components/RouteError'
 import UnsupportedBrowserWarning from '@/base/components/UnsupportedBrowserWarning'
 import DetailSidebar from '@/messages/components/DetailSidebar'
 import KarrotLogo from '@/logo/components/KarrotLogo'
-import { mapGetters, mapActions, mapState } from 'vuex'
+import { mapGetters, mapActions } from 'vuex'
 import {
   dom,
   QLayout,
@@ -153,6 +167,7 @@ import {
   QLayoutFooter,
   QModal,
   QPageContainer,
+  QPage,
   QWindowResizeObservable,
   QItem,
   QIcon,
@@ -179,6 +194,7 @@ export default {
     QLayoutDrawer,
     QLayoutFooter,
     QPageContainer,
+    QPage,
     QWindowResizeObservable,
     QBtn,
     QIcon,
@@ -216,14 +232,12 @@ export default {
     ...mapGetters({
       isLoggedIn: 'auth/isLoggedIn',
       routeError: 'routeError/status',
-      showRightDrawer: 'detail/isActive',
+      isDetailActive: 'detail/isActive',
       disableDesktopSidenav: 'route/disableDesktopSidenav',
       messagesUnseenCount: 'latestMessages/unseenCount',
       messagesAllUnreadMuted: 'latestMessages/allUnreadMuted',
       notificationsUnseenCount: 'notifications/unseenCount',
-    }),
-    ...mapState({
-      currentGroupId: state => state.currentGroup.id,
+      currentGroupId: 'currentGroup/id',
     }),
     layoutView () {
       if (this.$q.platform.is.mobile) {
@@ -237,6 +251,11 @@ export default {
       }
       return this.windowWidth > 1000 ? 380 : 280
     },
+    detailWidth () {
+      const contentWidth = this.windowWidth - this.sidenavWidth
+      const columnWidth = Math.floor(contentWidth / 2)
+      return Math.min(500, Math.max(280, columnWidth))
+    },
     routerComponents () {
       const components = {}
       for (const m of this.$route.matched) {
@@ -248,6 +267,9 @@ export default {
     },
     hasSidenavComponent () {
       return Boolean(this.routerComponents.sidenav)
+    },
+    hasDetailComponent () {
+      return this.$route.matched.some(({ meta }) => meta && meta.isDetail === true)
     },
     hasNotification () {
       return this.messagesUnseenCount > 0 || this.notificationsUnseenCount > 0
@@ -274,10 +296,7 @@ export default {
   max-width 30em
   margin-left auto
   margin-right .4em
-body.desktop .mainContent
-  max-width 1500px
-  margin auto
-  .mainContent-page
+body.desktop .mainContent-page
     min-width 350px
     max-width: 57em
     margin-bottom 4.5em
@@ -287,8 +306,6 @@ body.desktop .mainContent
   background-image url('../assets/repeating_grey.png')
   background-size: 600px
   background-attachment:fixed
-.q-layout-footer
-  box-shadow none
 .k-highlight-dot
   position absolute
   right -4px

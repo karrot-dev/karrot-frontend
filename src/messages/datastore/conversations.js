@@ -6,6 +6,7 @@ import reactionsAPI from '@/messages/api/reactions'
 import pickupsAPI from '@/pickups/api/pickups'
 import usersAPI from '@/users/api/users'
 import groupsAPI from '@/group/api/groups'
+import issuesAPI from '@/issues/api/issues'
 import placesAPI from '@/places/api/places'
 import applicationsAPI from '@/applications/api/applications'
 import i18n from '@/base/i18n'
@@ -98,6 +99,7 @@ export default {
     getForPlace: (state, getters) => placeId => getters.getForType('place', placeId),
     getForPickup: (state, getters) => pickupId => getters.getForType('pickup', pickupId),
     getForApplication: (state, getters) => applicationId => getters.getForType('application', applicationId),
+    getForIssue: (state, getters) => issueId => getters.getForType('issue', issueId),
     getForUser: (state, getters) => userId => {
       const { id } = Object.values(state.entries).find(({ type, participants }) => type === 'private' && participants.includes(userId)) || {}
       if (!id) return
@@ -186,6 +188,7 @@ export default {
         case 'place': return rootGetters['places/get'](targetId)
         case 'pickup': return rootGetters['pickups/get'](targetId)
         case 'application': return rootGetters['applications/get'](targetId)
+        case 'issue': return rootGetters['issues/get'](targetId)
         case 'private': return participants.find(u => !u.isCurrentUser)
       }
     },
@@ -339,8 +342,23 @@ export default {
       if (conversationId) commit('clearMessages', conversationId)
     },
 
+    async fetchForIssue ({ commit, getters, dispatch }, { issueId }) {
+      let conversation = getters.getForIssue(issueId)
+      if (!conversation) {
+        conversation = await issuesAPI.conversation(issueId)
+        commit('setConversation', conversation)
+      }
+      dispatch('fetch', conversation.id)
+    },
+
+    clearForIssue ({ getters, commit }, { issueId }) {
+      const { id: conversationId } = getters.getForIssue(issueId) || {}
+      if (conversationId) commit('clearMessages', conversationId)
+    },
+
     async maybeSave ({ state, getters, dispatch }, { conversationId, threadId, value }) {
-      if (threadId && value.notifications) {
+      if (threadId) {
+        if (!value.notifications) return
         const muted = value.notifications !== 'all'
         dispatch('currentThread/maybeSetMuted', { threadId, value: muted }, { root: true })
         return

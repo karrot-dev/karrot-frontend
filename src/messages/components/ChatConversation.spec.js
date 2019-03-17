@@ -10,7 +10,7 @@ import { QInput } from 'quasar-framework/dist/quasar.mat.esm'
 
 polyfillRequestAnimationFrame()
 
-const defaultProps = () => ({
+const defaultProps = data => ({
   currentUser: cloneDeep(currentUserMock),
   conversation: {
     id: 50,
@@ -22,12 +22,15 @@ const defaultProps = () => ({
     unreadMessageCount: 1,
   },
   away: false,
+  ...data,
 })
 
 describe('ChatConversation', () => {
   beforeEach(() => jest.resetModules())
   it('can send a message', async () => {
-    const propsData = defaultProps()
+    const propsData = defaultProps({
+      compose: true,
+    })
     const wrapper = mountWithDefaults(ChatConversation, { propsData })
     // let the mounted() hook run
     await Vue.nextTick()

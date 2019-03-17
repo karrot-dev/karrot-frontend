@@ -42,7 +42,7 @@
           >
             <RouterLink
               place="userName"
-              @click.native.stop=""
+              @click.native.stop
               :to="{name: 'user', params: { userId: application.decidedBy.id }}"
             >
               {{ application.decidedBy.displayName }}

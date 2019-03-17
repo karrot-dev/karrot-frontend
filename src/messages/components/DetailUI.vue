@@ -8,6 +8,7 @@
       :current-user="currentUser"
       :start-at-bottom="Boolean(user) || Boolean(pickup)"
       :inline="inline"
+      compose
       @send="$emit('send', arguments[0])"
       @mark="$emit('mark', arguments[0])"
       @toggleReaction="$emit('toggleReaction', arguments[0])"

@@ -19,7 +19,7 @@
           @save="$emit('saveMessage', arguments[0])"
         />
         <ConversationCompose
-          v-if="!this.conversation.canFetchFuture && !this.conversation.isClosed"
+          v-if="compose && !this.conversation.canFetchFuture && !this.conversation.isClosed"
           ref="compose"
           :status="conversation.sendStatus"
           slim
@@ -90,6 +90,10 @@ export default {
     away: { type: Boolean, required: true },
     currentUser: { type: Object, default: null },
     startAtBottom: { type: Boolean, default: false },
+    compose: {
+      type: Boolean,
+      default: false,
+    },
     inline: {
       // if true, create a new overflowed scroll container
       type: Boolean,

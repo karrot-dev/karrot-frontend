@@ -407,30 +407,7 @@ exports[`Storyshots ChatConversation default 1`] = `
     <!---->
   </div>
 </div>
-<div class="q-item q-item-division relative-position q-item-multiline">
-  <!---->
-  <div class="q-item-main q-item-section">
-    <div>
-      <div class="q-field row no-wrap items-start q-field-responsive q-field-no-label q-field-no-input">
-        <div class="row col">
-          <div class="q-field-content col-xs-12 col-sm">
-            <div value="">
-              <div tabindex="-1" rows="1" class="q-if row no-wrap relative-position q-input q-if-standard q-if-has-content text-primary">
-                <div class="q-if-baseline">|</div>
-                <div class="q-if-inner col column q-popup--skip">
-                  <div class="row no-wrap relative-position">
-                    <div class="col row relative-position"><object tabindex="-1" type="text/html" data="about:blank" aria-hidden="true" style="display:block;position:absolute;top:0;left:0;right:0;bottom:0;height:100%;width:100%;overflow:hidden;pointer-events:none;z-index:-1;"></object><textarea rows="1" class="col q-input-target q-input-shadow absolute-top"></textarea><textarea rows="1" placeholder="Write a message..." class="col q-input-target q-input-area"></textarea></div>
-                  </div>
-                </div><i aria-hidden="true" class="q-icon q-if-control fas fa-arrow-right hidden"> </i>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <!---->
-  </div>
-</div>
+<!---->
 <!---->
 </div>
 </div>
@@ -590,30 +567,7 @@ exports[`Storyshots ChatConversation fetching past 1`] = `
     <!---->
   </div>
 </div>
-<div class="q-item q-item-division relative-position q-item-multiline">
-  <!---->
-  <div class="q-item-main q-item-section">
-    <div>
-      <div class="q-field row no-wrap items-start q-field-responsive q-field-no-label q-field-no-input">
-        <div class="row col">
-          <div class="q-field-content col-xs-12 col-sm">
-            <div value="">
-              <div tabindex="-1" rows="1" class="q-if row no-wrap relative-position q-input q-if-standard q-if-has-content text-primary">
-                <div class="q-if-baseline">|</div>
-                <div class="q-if-inner col column q-popup--skip">
-                  <div class="row no-wrap relative-position">
-                    <div class="col row relative-position"><object tabindex="-1" type="text/html" data="about:blank" aria-hidden="true" style="display:block;position:absolute;top:0;left:0;right:0;bottom:0;height:100%;width:100%;overflow:hidden;pointer-events:none;z-index:-1;"></object><textarea rows="1" class="col q-input-target q-input-shadow absolute-top"></textarea><textarea rows="1" placeholder="Write a message..." class="col q-input-target q-input-area"></textarea></div>
-                  </div>
-                </div><i aria-hidden="true" class="q-icon q-if-control fas fa-arrow-right hidden"> </i>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <!---->
-  </div>
-</div>
+<!---->
 <!---->
 </div>
 </div>
@@ -773,30 +727,7 @@ exports[`Storyshots ChatConversation not participant 1`] = `
     <!---->
   </div>
 </div>
-<div class="q-item q-item-division relative-position q-item-multiline">
-  <!---->
-  <div class="q-item-main q-item-section">
-    <div>
-      <div class="q-field row no-wrap items-start q-field-responsive q-field-no-label q-field-no-input">
-        <div class="row col">
-          <div class="q-field-content col-xs-12 col-sm">
-            <div value="">
-              <div tabindex="-1" rows="1" class="q-if row no-wrap relative-position q-input q-if-standard q-if-has-content text-primary">
-                <div class="q-if-baseline">|</div>
-                <div class="q-if-inner col column q-popup--skip">
-                  <div class="row no-wrap relative-position">
-                    <div class="col row relative-position"><object tabindex="-1" type="text/html" data="about:blank" aria-hidden="true" style="display:block;position:absolute;top:0;left:0;right:0;bottom:0;height:100%;width:100%;overflow:hidden;pointer-events:none;z-index:-1;"></object><textarea rows="1" class="col q-input-target q-input-shadow absolute-top"></textarea><textarea rows="1" placeholder="Write a message..." class="col q-input-target q-input-area"></textarea></div>
-                  </div>
-                </div><i aria-hidden="true" class="q-icon q-if-control fas fa-arrow-right hidden"> </i>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="q-mt-md q-caption q-item-sublabel"></div>
-  </div>
-</div>
+<!---->
 <!---->
 </div>
 </div>
@@ -923,6 +854,244 @@ exports[`Storyshots ChatConversation thread 1`] = `
       <!---->
     </div>
   </div>
+  <!---->
+  <!---->
+</div>
+</div>
+</div>
+<!---->
+</div>
+`;
+
+exports[`Storyshots ConflictSetup create 1`] = `
+<div>
+  <h3 class="q-pl-lg q-mb-sm"></h3>
+  <div>
+    <div class="q-stepper column overflow-hidden relative-position no-shadow q-stepper-horizontal text-primary q-stepper-contractable">
+      <div class="q-stepper-header row items-stretch justify-between shadow-1"></div>
+      <div class="q-stepper-step" style="-webkit-box-ordinal-group:0;-ms-flex-order:0;order:0;">
+        <div class="q-stepper-step-content">
+          <div class="q-stepper-step-inner">
+            <p><strong> You are about to start a group-wide conflict resolution process! </strong></p>
+            <p> This will involve all of your group's members with editing permissions to try and find the best way to proceed regarding this conflict. </p>
+          </div>
+        </div>
+      </div>
+      <div class="q-stepper-step" style="-webkit-box-ordinal-group:0;-ms-flex-order:0;order:0;"></div>
+      <div class="q-stepper-step" style="-webkit-box-ordinal-group:0;-ms-flex-order:0;order:0;"></div>
+      <div class="q-stepper-step" style="-webkit-box-ordinal-group:0;-ms-flex-order:0;order:0;"></div>
+      <div class="q-stepper-nav order-last row items-center">
+        <div class="col"></div><button tabindex="0" type="button" class="q-btn inline relative-position q-btn-item non-selectable q-btn-rectangle q-btn-flat q-focusable q-hoverable text-secondary">
+          <div class="q-focus-helper"></div>
+          <div class="q-btn-inner row col items-center q-popup--skip justify-center">
+            Cancel
+          </div>
+        </button>
+        <!----> <button tabindex="0" type="button" class="q-btn inline relative-position q-btn-item non-selectable q-btn-rectangle q-btn-flat q-focusable q-hoverable text-secondary">
+          <div class="q-focus-helper"></div>
+          <div class="q-btn-inner row col items-center q-popup--skip justify-center">
+            Next
+          </div>
+        </button>
+        <!---->
+      </div>
+    </div>
+    <!---->
+  </div>
+</div>
+`;
+
+exports[`Storyshots Detail application 1`] = `
+<div class="Detail">
+  <div class="full-width text-center generic-padding" style="display:none;"><svg fill="currentColor" width="40" height="40" viewBox="0 0 120 30" xmlns="http://www.w3.org/2000/svg" class="q-spinner">
+      <circle cx="15" cy="15" r="15">
+        <animate attributeName="r" from="15" to="15" begin="0s" dur="0.8s" values="15;9;15" calcMode="linear" repeatCount="indefinite"></animate>
+        <animate attributeName="fill-opacity" from="1" to="1" begin="0s" dur="0.8s" values="1;.5;1" calcMode="linear" repeatCount="indefinite"></animate>
+      </circle>
+      <circle cx="60" cy="15" r="9" fill-opacity=".3">
+        <animate attributeName="r" from="9" to="9" begin="0s" dur="0.8s" values="9;15;9" calcMode="linear" repeatCount="indefinite"></animate>
+        <animate attributeName="fill-opacity" from=".5" to=".5" begin="0s" dur="0.8s" values=".5;1;.5" calcMode="linear" repeatCount="indefinite"></animate>
+      </circle>
+      <circle cx="105" cy="15" r="15">
+        <animate attributeName="r" from="15" to="15" begin="0s" dur="0.8s" values="15;9;15" calcMode="linear" repeatCount="indefinite"></animate>
+        <animate attributeName="fill-opacity" from="1" to="1" begin="0s" dur="0.8s" values="1;.5;1" calcMode="linear" repeatCount="indefinite"></animate>
+      </circle>
+    </svg></div>
+  <div>
+    <div class="q-collapsible q-item-division relative-position bg-grey-2 q-collapsible-opened q-collapsible-cursor-pointer">
+      <div class="q-collapsible-inner">
+        <div class="q-item q-item-division relative-position"><b>Initial questions and answers</b>
+          <div class="q-item-side q-item-section relative-position q-item-side-right"><i aria-hidden="true" class="q-icon cursor-pointer transition-generic relative-position q-collapsible-toggle-icon material-icons q-item-icon rotate-180">arrow_drop_down</i></div>
+        </div>
+        <div>
+          <div class="q-collapsible-sub-item relative-position">
+            <div class="q-ma-sm q-pa-sm bg-white"><span class="text-bold text-secondary uppercase">Group 0</span> <span class="message-date"><small class="text-weight-light"><div title="Dec 24, 2017, 12:00 PM">
+  less than a minute ago
+</div></small></span>
+              <div class="markdown">
+                <p>What are your motivations for joining slköaslkfjasdfasfd?</p>
+              </div>
+            </div>
+            <div class="q-ma-sm q-pa-sm bg-white"><span class="text-bold text-secondary uppercase">User 29</span> <span class="message-date"><small class="text-weight-light"><div title="Dec 24, 2017, 12:00 PM">
+  less than a minute ago
+</div></small></span>
+              <div class="markdown">
+                <p>I can live off fire!</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="full-width text-center generic-padding" style="display:none;"><svg fill="currentColor" width="40" height="40" viewBox="0 0 120 30" xmlns="http://www.w3.org/2000/svg" class="q-spinner">
+        <circle cx="15" cy="15" r="15">
+          <animate attributeName="r" from="15" to="15" begin="0s" dur="0.8s" values="15;9;15" calcMode="linear" repeatCount="indefinite"></animate>
+          <animate attributeName="fill-opacity" from="1" to="1" begin="0s" dur="0.8s" values="1;.5;1" calcMode="linear" repeatCount="indefinite"></animate>
+        </circle>
+        <circle cx="60" cy="15" r="9" fill-opacity=".3">
+          <animate attributeName="r" from="9" to="9" begin="0s" dur="0.8s" values="9;15;9" calcMode="linear" repeatCount="indefinite"></animate>
+          <animate attributeName="fill-opacity" from=".5" to=".5" begin="0s" dur="0.8s" values=".5;1;.5" calcMode="linear" repeatCount="indefinite"></animate>
+        </circle>
+        <circle cx="105" cy="15" r="15">
+          <animate attributeName="r" from="15" to="15" begin="0s" dur="0.8s" values="15;9;15" calcMode="linear" repeatCount="indefinite"></animate>
+          <animate attributeName="fill-opacity" from="1" to="1" begin="0s" dur="0.8s" values="1;.5;1" calcMode="linear" repeatCount="indefinite"></animate>
+        </circle>
+      </svg></div>
+    <div class="q-infinite-scroll">
+      <div class="q-infinite-scroll-content">
+        <div class="q-list bg-white no-border">
+          <div class="conversation-message relative-position q-item q-item-division relative-position q-item-multiline q-item-highlight slim">
+            <div class="q-btn-group row no-wrap inline hover-button k-message-controls q-btn-group-flat">
+              <!---->
+              <!----> <button tabindex="0" type="button" class="q-btn inline relative-position q-btn-item non-selectable q-btn-rectangle q-btn-flat q-focusable q-hoverable">
+                <div class="q-focus-helper"></div>
+                <div class="q-btn-inner row col items-center q-popup--skip justify-center"><span style="opacity:1;"><i class="far fa-smile"></i> +
+  </span>
+                  <div tabindex="-1" class="q-popover scroll"></div>
+                </div>
+              </button></div>
+            <!---->
+            <div class="q-item-main q-item-section">
+              <div class="no-wrap k-message-meta"><a><span class="k-message-author text-bold text-secondary uppercase">User 27</span></a> <span class="message-date"><small class="text-weight-light"><div title="Dec 24, 2017, 12:00 PM">
+  less than a minute ago
+</div></small></span>
+                <!---->
+              </div>
+              <div class="content">
+                <div class="markdown">
+                  <p>hello 11!</p>
+                </div>
+              </div>
+              <!----> <span class="conversation-reactions" style="margin-top:8px;display:block;"><span class="reactions"><button tabindex="0" type="button" title="a reacted with :thumbsup:" class="q-btn inline relative-position q-btn-item non-selectable row no-wrap items-center reaction-box q-btn-rectangle q-btn-flat q-focusable q-hoverable"><div class="q-focus-helper"></div><div class="q-btn-inner row col items-center q-popup--skip justify-center"><div class="emoji"></div> <span class="reactions-number">1</span>
+            </div></button></span> <button tabindex="0" type="button" class="q-btn inline relative-position q-btn-item non-selectable add-button reaction-box q-btn-rectangle q-btn-flat q-focusable q-hoverable">
+              <div class="q-focus-helper"></div>
+              <div class="q-btn-inner row col items-center q-popup--skip justify-center"><span style="opacity:0.5;"><i class="far fa-smile"></i> +
+  </span>
+                <div tabindex="-1" class="q-popover scroll"></div>
+              </div>
+            </button></span>
+            <!---->
+          </div>
+        </div>
+        <div class="conversation-message relative-position q-item q-item-division relative-position q-item-multiline q-item-highlight slim">
+          <div class="q-btn-group row no-wrap inline hover-button k-message-controls q-btn-group-flat">
+            <!---->
+            <!----> <button tabindex="0" type="button" class="q-btn inline relative-position q-btn-item non-selectable q-btn-rectangle q-btn-flat q-focusable q-hoverable">
+              <div class="q-focus-helper"></div>
+              <div class="q-btn-inner row col items-center q-popup--skip justify-center"><span style="opacity:1;"><i class="far fa-smile"></i> +
+  </span>
+                <div tabindex="-1" class="q-popover scroll"></div>
+              </div>
+            </button></div>
+          <!---->
+          <div class="q-item-main q-item-section">
+            <div class="no-wrap k-message-meta"><a><span class="k-message-author text-bold text-secondary uppercase">User 25</span></a> <span class="message-date"><small class="text-weight-light"><div title="Dec 24, 2017, 12:00 PM">
+  less than a minute ago
+</div></small></span>
+              <!---->
+            </div>
+            <div class="content">
+              <div class="markdown">
+                <p>hello 10!</p>
+              </div>
+            </div>
+            <!----> <span class="conversation-reactions" style="margin-top:8px;display:block;"><span class="reactions"><button tabindex="0" type="button" title="a reacted with :thumbsup:" class="q-btn inline relative-position q-btn-item non-selectable row no-wrap items-center reaction-box q-btn-rectangle q-btn-flat q-focusable q-hoverable"><div class="q-focus-helper"></div><div class="q-btn-inner row col items-center q-popup--skip justify-center"><div class="emoji"></div> <span class="reactions-number">1</span>
+          </div></button></span> <button tabindex="0" type="button" class="q-btn inline relative-position q-btn-item non-selectable add-button reaction-box q-btn-rectangle q-btn-flat q-focusable q-hoverable">
+            <div class="q-focus-helper"></div>
+            <div class="q-btn-inner row col items-center q-popup--skip justify-center"><span style="opacity:0.5;"><i class="far fa-smile"></i> +
+  </span>
+              <div tabindex="-1" class="q-popover scroll"></div>
+            </div>
+          </button></span>
+          <!---->
+        </div>
+      </div>
+      <div class="conversation-message relative-position q-item q-item-division relative-position q-item-multiline q-item-highlight slim">
+        <div class="q-btn-group row no-wrap inline hover-button k-message-controls q-btn-group-flat">
+          <!---->
+          <!----> <button tabindex="0" type="button" class="q-btn inline relative-position q-btn-item non-selectable q-btn-rectangle q-btn-flat q-focusable q-hoverable">
+            <div class="q-focus-helper"></div>
+            <div class="q-btn-inner row col items-center q-popup--skip justify-center"><span style="opacity:1;"><i class="far fa-smile"></i> +
+  </span>
+              <div tabindex="-1" class="q-popover scroll"></div>
+            </div>
+          </button></div>
+        <!---->
+        <div class="q-item-main q-item-section">
+          <div class="no-wrap k-message-meta"><a><span class="k-message-author text-bold text-secondary uppercase">User 23</span></a> <span class="message-date"><small class="text-weight-light"><div title="Dec 24, 2017, 12:00 PM">
+  less than a minute ago
+</div></small></span>
+            <!---->
+          </div>
+          <div class="content">
+            <div class="markdown">
+              <p>hello 9!</p>
+            </div>
+          </div>
+          <!----> <span class="conversation-reactions" style="margin-top:8px;display:block;"><span class="reactions"><button tabindex="0" type="button" title="a reacted with :thumbsup:" class="q-btn inline relative-position q-btn-item non-selectable row no-wrap items-center reaction-box q-btn-rectangle q-btn-flat q-focusable q-hoverable"><div class="q-focus-helper"></div><div class="q-btn-inner row col items-center q-popup--skip justify-center"><div class="emoji"></div> <span class="reactions-number">1</span>
+        </div></button></span> <button tabindex="0" type="button" class="q-btn inline relative-position q-btn-item non-selectable add-button reaction-box q-btn-rectangle q-btn-flat q-focusable q-hoverable">
+          <div class="q-focus-helper"></div>
+          <div class="q-btn-inner row col items-center q-popup--skip justify-center"><span style="opacity:0.5;"><i class="far fa-smile"></i> +
+  </span>
+            <div tabindex="-1" class="q-popover scroll"></div>
+          </div>
+        </button></span>
+        <!---->
+      </div>
+    </div>
+    <div class="conversation-message relative-position q-item q-item-division relative-position q-item-multiline q-item-highlight slim">
+      <div class="q-btn-group row no-wrap inline hover-button k-message-controls q-btn-group-flat">
+        <!---->
+        <!----> <button tabindex="0" type="button" class="q-btn inline relative-position q-btn-item non-selectable q-btn-rectangle q-btn-flat q-focusable q-hoverable">
+          <div class="q-focus-helper"></div>
+          <div class="q-btn-inner row col items-center q-popup--skip justify-center"><span style="opacity:1;"><i class="far fa-smile"></i> +
+  </span>
+            <div tabindex="-1" class="q-popover scroll"></div>
+          </div>
+        </button></div>
+      <!---->
+      <div class="q-item-main q-item-section">
+        <div class="no-wrap k-message-meta"><a><span class="k-message-author text-bold text-secondary uppercase">User 21</span></a> <span class="message-date"><small class="text-weight-light"><div title="Dec 24, 2017, 12:00 PM">
+  less than a minute ago
+</div></small></span>
+          <!---->
+        </div>
+        <div class="content">
+          <div class="markdown">
+            <p>hello 8!</p>
+          </div>
+        </div>
+        <!----> <span class="conversation-reactions" style="margin-top:8px;display:block;"><span class="reactions"><button tabindex="0" type="button" title="a reacted with :thumbsup:" class="q-btn inline relative-position q-btn-item non-selectable row no-wrap items-center reaction-box q-btn-rectangle q-btn-flat q-focusable q-hoverable"><div class="q-focus-helper"></div><div class="q-btn-inner row col items-center q-popup--skip justify-center"><div class="emoji"></div> <span class="reactions-number">1</span>
+      </div></button></span> <button tabindex="0" type="button" class="q-btn inline relative-position q-btn-item non-selectable add-button reaction-box q-btn-rectangle q-btn-flat q-focusable q-hoverable">
+        <div class="q-focus-helper"></div>
+        <div class="q-btn-inner row col items-center q-popup--skip justify-center"><span style="opacity:0.5;"><i class="far fa-smile"></i> +
+  </span>
+          <div tabindex="-1" class="q-popover scroll"></div>
+        </div>
+      </button></span>
+      <!---->
+    </div>
+  </div>
   <div class="q-item q-item-division relative-position q-item-multiline">
     <!---->
     <div class="q-item-main q-item-section">
@@ -952,6 +1121,7 @@ exports[`Storyshots ChatConversation thread 1`] = `
 </div>
 </div>
 <!---->
+</div>
 </div>
 `;
 
@@ -2819,6 +2989,218 @@ exports[`Storyshots History List Default 1`] = `
 </div>
 `;
 
+exports[`Storyshots Issues history item 1`] = `
+<div class="q-collapsible q-item-division relative-position q-collapsible-closed q-collapsible-cursor-pointer">
+  <div class="q-collapsible-inner">
+    <div class="q-item q-item-division relative-position">
+      <div class="q-item-main q-item-section">
+        <div>
+          Your group voted to keep discussing
+        </div>
+        <div class="text-weight-light q-item-stamp">
+          <div title="Dec 30, 2017, 6:00 PM">
+            less than a minute ago
+          </div>
+        </div>
+      </div>
+      <div class="q-item-side q-item-section relative-position q-item-side-right"><i aria-hidden="true" class="q-icon cursor-pointer transition-generic relative-position q-collapsible-toggle-icon material-icons q-item-icon">arrow_drop_down</i></div>
+    </div>
+    <div style="display:none;">
+      <div class="q-collapsible-sub-item relative-position">
+        <div class="q-list">
+          <div class="q-item q-item-division relative-position">
+            <div class="q-item-main q-item-section">
+              <div class="q-item-label" style="overflow:hidden;display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:NaN;">This voting round ended on Dec 30, 2017, 6:00 PM</div>
+              <div class="q-item-sublabel" style="overflow:hidden;display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:NaN;">6 members participated in the voting.</div>
+            </div>
+          </div>
+          <div class="justify-end q-item q-item-division relative-position q-item-dense">
+            <div class="q-item-side q-item-section q-item-side-right">
+              <div class="q-item-stamp">Total score</div>
+            </div>
+          </div>
+          <div class="q-item q-item-division relative-position">
+            <div class="q-item-side q-item-section q-item-side-left"><i aria-hidden="true" class="q-icon fas fa-smile q-item-icon text-primary"> </i></div>
+            <div class="q-item-main q-item-section">
+              User 59 gets removed from asdf
+            </div>
+            <div class="q-item-side q-item-section q-item-side-left">
+              9
+            </div>
+          </div>
+          <div class="q-item q-item-division relative-position">
+            <div class="q-item-side q-item-section q-item-side-left"><i aria-hidden="true" class="q-icon fas fa-smile q-item-icon text-primary"> </i></div>
+            <div class="q-item-main q-item-section">
+              Extend the time to keep discussing
+            </div>
+            <div class="q-item-side q-item-section q-item-side-left">
+              3
+            </div>
+          </div>
+          <div class="q-item q-item-division relative-position">
+            <div class="q-item-side q-item-section q-item-side-left"><i aria-hidden="true" class="q-icon fas fa-meh q-item-icon text-primary"> </i></div>
+            <div class="q-item-main q-item-section">
+              No change: User 59 stays in asdf
+            </div>
+            <div class="q-item-side q-item-section q-item-side-left">
+              0
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Storyshots Issues results - expelled 1`] = `
+<div class="q-list">
+  <div class="q-item q-item-division relative-position">
+    <div class="q-item-main q-item-section">
+      <div class="q-item-label" style="overflow:hidden;display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:NaN;">This voting round ended on Dec 30, 2017, 6:00 PM</div>
+      <div class="q-item-sublabel" style="overflow:hidden;display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:NaN;">6 members participated in the voting.</div>
+    </div>
+  </div>
+  <div class="justify-end q-item q-item-division relative-position q-item-dense">
+    <div class="q-item-side q-item-section q-item-side-right">
+      <div class="q-item-stamp">Total score</div>
+    </div>
+  </div>
+  <div class="q-item q-item-division relative-position">
+    <div class="q-item-side q-item-section q-item-side-left"><i aria-hidden="true" class="q-icon fas fa-smile q-item-icon text-primary"> </i></div>
+    <div class="q-item-main q-item-section">
+      User 65 gets removed from asdf
+    </div>
+    <div class="q-item-side q-item-section q-item-side-left">
+      9
+    </div>
+  </div>
+  <div class="q-item q-item-division relative-position">
+    <div class="q-item-side q-item-section q-item-side-left"><i aria-hidden="true" class="q-icon fas fa-smile q-item-icon text-primary"> </i></div>
+    <div class="q-item-main q-item-section">
+      Extend the time to keep discussing
+    </div>
+    <div class="q-item-side q-item-section q-item-side-left">
+      3
+    </div>
+  </div>
+  <div class="q-item q-item-division relative-position">
+    <div class="q-item-side q-item-section q-item-side-left"><i aria-hidden="true" class="q-icon fas fa-meh q-item-icon text-primary"> </i></div>
+    <div class="q-item-main q-item-section">
+      No change: User 65 stays in asdf
+    </div>
+    <div class="q-item-side q-item-section q-item-side-left">
+      0
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Storyshots Issues vote - furtherDiscussion 1`] = `
+<div>
+  <div class="q-title q-mb-md">
+    How do you want to proceed with the ongoing conflict with User 63?
+  </div>
+  <div class="q-pb-lg">
+    <div class="q-caption q-caption-opacity row inline">
+      <div>Time left to vote</div>:
+      <div title="Dec 30, 2017, 6:00 PM" class="q-pl-xs">
+        6 days
+      </div>
+    </div>
+    <div class="q-progress text-secondary" style="height:8px;">
+      <div class="q-progress-track" style="width:100%;"></div>
+      <div class="q-progress-model" style="width:NaN%;"></div>
+    </div>
+  </div>
+  <div class="relative-position">
+    <div class="content">
+      <div>
+        <div>
+          <div class="q-mt-md">
+            Extend the time to keep discussing
+          </div>
+          <div class="q-slider non-selectable k-vote-slider label-always">
+            <div class="q-slider-handle-container">
+              <div class="q-slider-track"></div>
+              <div class="q-slider-mark" style="left:0%;"></div>
+              <div class="q-slider-mark" style="left:25%;"></div>
+              <div class="q-slider-mark" style="left:50%;"></div>
+              <div class="q-slider-mark" style="left:75%;"></div>
+              <div class="q-slider-mark" style="left:100%;"></div>
+              <div class="q-slider-track active-track" style="width:50%;"></div>
+              <div tabindex="0" class="q-slider-handle" style="left:50%;border-radius:50%;">
+                <div class="q-chip row no-wrap inline items-center q-slider-label no-pointer-events q-chip-pointing-down q-chip-square q-chip-pointing q-chip-dense bg-primary text-white label-always">
+                  <div class="q-chip-main ellipsis q-popup--skip">neutral</div>
+                </div>
+                <div class="q-slider-ring"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div>
+          <div class="q-mt-md">
+            User 63 gets removed from Group 13
+          </div>
+          <div class="q-slider non-selectable k-vote-slider label-always">
+            <div class="q-slider-handle-container">
+              <div class="q-slider-track"></div>
+              <div class="q-slider-mark" style="left:0%;"></div>
+              <div class="q-slider-mark" style="left:25%;"></div>
+              <div class="q-slider-mark" style="left:50%;"></div>
+              <div class="q-slider-mark" style="left:75%;"></div>
+              <div class="q-slider-mark" style="left:100%;"></div>
+              <div class="q-slider-track active-track" style="width:50%;"></div>
+              <div tabindex="0" class="q-slider-handle" style="left:50%;border-radius:50%;">
+                <div class="q-chip row no-wrap inline items-center q-slider-label no-pointer-events q-chip-pointing-down q-chip-square q-chip-pointing q-chip-dense bg-primary text-white label-always">
+                  <div class="q-chip-main ellipsis q-popup--skip">neutral</div>
+                </div>
+                <div class="q-slider-ring"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div>
+          <div class="q-mt-md">
+            No change: User 63 stays in Group 13
+          </div>
+          <div class="q-slider non-selectable k-vote-slider label-always">
+            <div class="q-slider-handle-container">
+              <div class="q-slider-track"></div>
+              <div class="q-slider-mark" style="left:0%;"></div>
+              <div class="q-slider-mark" style="left:25%;"></div>
+              <div class="q-slider-mark" style="left:50%;"></div>
+              <div class="q-slider-mark" style="left:75%;"></div>
+              <div class="q-slider-mark" style="left:100%;"></div>
+              <div class="q-slider-track active-track" style="width:50%;"></div>
+              <div tabindex="0" class="q-slider-handle" style="left:50%;border-radius:50%;">
+                <div class="q-chip row no-wrap inline items-center q-slider-label no-pointer-events q-chip-pointing-down q-chip-square q-chip-pointing q-chip-dense bg-primary text-white label-always">
+                  <div class="q-chip-main ellipsis q-popup--skip">neutral</div>
+                </div>
+                <div class="q-slider-ring"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row justify-end group"><button tabindex="0" type="button" class="q-btn inline relative-position q-btn-item non-selectable q-btn-rectangle q-focusable q-hoverable bg-negative text-white">
+          <div class="q-focus-helper"></div>
+          <div class="q-btn-inner row col items-center q-popup--skip justify-center">
+            Delete vote
+          </div>
+        </button> <button tabindex="-1" type="submit" class="q-btn inline relative-position q-btn-item non-selectable q-btn-rectangle disabled bg-secondary text-white">
+          <div class="q-focus-helper"></div>
+          <div class="q-btn-inner row col items-center q-popup--skip justify-center">
+            Save
+          </div>
+        </button></div>
+    </div>
+    <!---->
+    <!---->
+  </div>
+</div>
+`;
+
 exports[`Storyshots Latest Messages flag: closed 1`] = `
 <div class="q-item q-item-division relative-position q-item-link">
   <div class="q-item-side q-item-section q-item-side-left">
@@ -2828,7 +3210,7 @@ exports[`Storyshots Latest Messages flag: closed 1`] = `
   </div>
   <div class="q-item-main q-item-section">
     <div class="row no-wrap justify-between items-baseline q-item-label">
-      <div class="row no-wrap items-baseline ellipsis"><i aria-hidden="true" title="Application" class="q-icon q-mr-sm fas fw-fw fa-user-plus"> </i>
+      <div class="row no-wrap items-baseline ellipsis"><i aria-hidden="true" title="Application" class="q-icon q-mr-sm fas fa-fw fa-user-plus"> </i>
         <div class="ellipsis">
           Mira Bellenbaum
         </div>
@@ -2859,7 +3241,7 @@ exports[`Storyshots Latest Messages flag: closed+muted 1`] = `
   </div>
   <div class="q-item-main q-item-section">
     <div class="row no-wrap justify-between items-baseline q-item-label">
-      <div class="row no-wrap items-baseline ellipsis"><i aria-hidden="true" title="Application" class="q-icon q-mr-sm fas fw-fw fa-user-plus"> </i>
+      <div class="row no-wrap items-baseline ellipsis"><i aria-hidden="true" title="Application" class="q-icon q-mr-sm fas fa-fw fa-user-plus"> </i>
         <div class="ellipsis">
           Mira Bellenbaum
         </div> <i aria-hidden="true" title="Notifications are disabled" class="q-icon q-ml-xs fas fa-fw fa-bell-slash text-grey" style="font-size:12px;"> </i> <i aria-hidden="true" title="This conversation has been closed automatically." class="q-icon q-ml-xs fas fa-fw fa-lock text-grey" style="font-size:12px;"> </i>
@@ -2981,7 +3363,7 @@ exports[`Storyshots Latest Messages type: application chat 1`] = `
   </div>
   <div class="q-item-main q-item-section">
     <div class="row no-wrap justify-between items-baseline q-item-label">
-      <div class="row no-wrap items-baseline ellipsis"><i aria-hidden="true" title="Application" class="q-icon q-mr-sm fas fw-fw fa-user-plus"> </i>
+      <div class="row no-wrap items-baseline ellipsis"><i aria-hidden="true" title="Application" class="q-icon q-mr-sm fas fa-fw fa-user-plus"> </i>
         <div class="ellipsis">
           Mira Bellenbaum
         </div>
@@ -3009,8 +3391,34 @@ exports[`Storyshots Latest Messages type: group wall 1`] = `
   <!---->
   <div class="q-item-main q-item-section">
     <div class="row no-wrap justify-between items-baseline q-item-label">
-      <div class="row no-wrap items-baseline ellipsis"><i aria-hidden="true" title="Wall" class="q-icon q-mr-sm fas fw-fw fa-bullhorn"> </i>
+      <div class="row no-wrap items-baseline ellipsis"><i aria-hidden="true" title="Wall" class="q-icon q-mr-sm fas fa-fw fa-bullhorn"> </i>
         <div class="ellipsis">05_testgroup</div>
+        <!---->
+        <!---->
+      </div> <span><small><div title="Aug 11, 2017, 3:43 PM" class="q-pl-xs" style="white-space:nowrap;">
+  4 months ago
+</div></small></span>
+    </div>
+    <!---->
+    <div class="row no-wrap items-baseline q-item-sublabel" style="max-height:18px;">
+      <div class="text-secondary">
+        Mira Bellenbaum: 
+      </div>
+      <!---->
+      <div class="ellipsis col">first messsage</div>
+      <!---->
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Storyshots Latest Messages type: issue chat 1`] = `
+<div class="q-item q-item-division relative-position q-item-link">
+  <!---->
+  <div class="q-item-main q-item-section">
+    <div class="row no-wrap justify-between items-baseline q-item-label">
+      <div class="row no-wrap items-baseline ellipsis"><i aria-hidden="true" title="Issues" class="q-icon q-mr-sm fas fa-fw fa-vote-yea"> </i>
+        <div class="ellipsis">User 79</div>
         <!---->
         <!---->
       </div> <span><small><div title="Aug 11, 2017, 3:43 PM" class="q-pl-xs" style="white-space:nowrap;">
@@ -3039,7 +3447,7 @@ exports[`Storyshots Latest Messages type: my application chat 1`] = `
   </div>
   <div class="q-item-main q-item-section">
     <div class="row no-wrap justify-between items-baseline q-item-label">
-      <div class="row no-wrap items-baseline ellipsis"><i aria-hidden="true" title="Application" class="q-icon q-mr-sm fas fw-fw fa-user-plus"> </i>
+      <div class="row no-wrap items-baseline ellipsis"><i aria-hidden="true" title="Application" class="q-icon q-mr-sm fas fa-fw fa-user-plus"> </i>
         <div class="ellipsis">
           05_testgroup
         </div>
@@ -3091,6 +3499,32 @@ exports[`Storyshots Latest Messages type: pickup chat 1`] = `
 </div>
 `;
 
+exports[`Storyshots Latest Messages type: place wall 1`] = `
+<div class="q-item q-item-division relative-position q-item-link">
+  <!---->
+  <div class="q-item-main q-item-section">
+    <div class="row no-wrap justify-between items-baseline q-item-label">
+      <div class="row no-wrap items-baseline ellipsis"><i aria-hidden="true" title="Wall" class="q-icon q-mr-sm fas fa-fw fa-star"> </i>
+        <div class="ellipsis">Place 2</div>
+        <!---->
+        <!---->
+      </div> <span><small><div title="Aug 11, 2017, 3:43 PM" class="q-pl-xs" style="white-space:nowrap;">
+  4 months ago
+</div></small></span>
+    </div>
+    <!---->
+    <div class="row no-wrap items-baseline q-item-sublabel" style="max-height:18px;">
+      <div class="text-secondary">
+        Mira Bellenbaum: 
+      </div>
+      <!---->
+      <div class="ellipsis col">first messsage</div>
+      <!---->
+    </div>
+  </div>
+</div>
+`;
+
 exports[`Storyshots Latest Messages type: private chat 1`] = `
 <div class="q-item q-item-division relative-position q-item-link">
   <div class="q-item-side q-item-section q-item-side-left">
@@ -3124,7 +3558,7 @@ exports[`Storyshots Latest Messages type: thread 1`] = `
   <!---->
   <div class="q-item-main q-item-section">
     <div class="row no-wrap justify-between items-baseline q-item-label">
-      <div class="row no-wrap items-baseline ellipsis"><i aria-hidden="true" class="q-icon q-mr-sm fas fw-fw fa-comments"> </i>
+      <div class="row no-wrap items-baseline ellipsis"><i aria-hidden="true" class="q-icon q-mr-sm fas fa-fw fa-comments"> </i>
         <div class="ellipsis">here is the message that started the thread</div>
         <!---->
         <!---->
@@ -3510,7 +3944,7 @@ exports[`Storyshots Notifications application_accepted 1`] = `
       <div title="Dec 24, 2017, 12:00 PM" style="display:inline;">
         less than a minute ago
       </div>
-      · Group 0
+      · Group 1
       <!---->
     </div>
   </div>
@@ -3528,11 +3962,137 @@ exports[`Storyshots Notifications application_declined 1`] = `
       <div title="Dec 24, 2017, 12:00 PM" style="display:inline;">
         less than a minute ago
       </div>
-      · Group 0
+      · Group 1
       <!---->
     </div>
   </div>
 </a>
+`;
+
+exports[`Storyshots Notifications conflict_resolution_continued 1`] = `
+<a class="q-link q-item q-item-division relative-position q-item-link isUnread">
+  <!---->
+  <div class="q-item-main q-item-section">
+    <div class="q-item-label" style="overflow:hidden;display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:2;"><i aria-hidden="true" class="q-icon q-mr-xs vertical-baseline far fa-frown-open"> </i>
+      The conflict resolution process with continues
+    </div>
+    <div class="q-item-sublabel">
+      <div title="Dec 24, 2017, 12:00 PM" style="display:inline;">
+        less than a minute ago
+      </div>
+      · Group 1
+      <!---->
+    </div>
+  </div>
+</a>
+`;
+
+exports[`Storyshots Notifications conflict_resolution_continued_about_you 1`] = `
+<a class="q-link q-item q-item-division relative-position q-item-link isUnread">
+  <!---->
+  <div class="q-item-main q-item-section">
+    <div class="q-item-label" style="overflow:hidden;display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:2;"><i aria-hidden="true" class="q-icon q-mr-xs vertical-baseline far fa-frown-open"> </i>
+      The conflict resolution process with you continues
+    </div>
+    <div class="q-item-sublabel">
+      <div title="Dec 24, 2017, 12:00 PM" style="display:inline;">
+        less than a minute ago
+      </div>
+      · Group 1
+      <!---->
+    </div>
+  </div>
+</a>
+`;
+
+exports[`Storyshots Notifications conflict_resolution_created 1`] = `
+<a class="q-link q-item q-item-division relative-position q-item-link isUnread">
+  <!---->
+  <div class="q-item-main q-item-section">
+    <div class="q-item-label" style="overflow:hidden;display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:2;"><i aria-hidden="true" class="q-icon q-mr-xs vertical-baseline far fa-frown-open"> </i>
+      Join the discussion about a conflict with
+    </div>
+    <div class="q-item-sublabel">
+      <div title="Dec 24, 2017, 12:00 PM" style="display:inline;">
+        less than a minute ago
+      </div>
+      · Group 1
+      <!---->
+    </div>
+  </div>
+</a>
+`;
+
+exports[`Storyshots Notifications conflict_resolution_created_about_you 1`] = `
+<a class="q-link q-item q-item-division relative-position q-item-link isUnread">
+  <!---->
+  <div class="q-item-main q-item-section">
+    <div class="q-item-label" style="overflow:hidden;display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:2;"><i aria-hidden="true" class="q-icon q-mr-xs vertical-baseline far fa-frown-open"> </i>
+      A conflict resolution process was started with you
+    </div>
+    <div class="q-item-sublabel">
+      <div title="Dec 24, 2017, 12:00 PM" style="display:inline;">
+        less than a minute ago
+      </div>
+      · Group 1
+      <!---->
+    </div>
+  </div>
+</a>
+`;
+
+exports[`Storyshots Notifications conflict_resolution_decided 1`] = `
+<a class="q-link q-item q-item-division relative-position q-item-link isUnread">
+  <!---->
+  <div class="q-item-main q-item-section">
+    <div class="q-item-label" style="overflow:hidden;display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:2;"><i aria-hidden="true" class="q-icon q-mr-xs vertical-baseline far fa-frown-open"> </i>
+      The conflict resolution process with was decided
+    </div>
+    <div class="q-item-sublabel">
+      <div title="Dec 24, 2017, 12:00 PM" style="display:inline;">
+        less than a minute ago
+      </div>
+      · Group 1
+      <!---->
+    </div>
+  </div>
+</a>
+`;
+
+exports[`Storyshots Notifications conflict_resolution_decided_about_you 1`] = `
+<a class="q-link q-item q-item-division relative-position q-item-link isUnread">
+  <!---->
+  <div class="q-item-main q-item-section">
+    <div class="q-item-label" style="overflow:hidden;display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:2;"><i aria-hidden="true" class="q-icon q-mr-xs vertical-baseline far fa-frown-open"> </i>
+      The conflict resolution process with you was decided
+    </div>
+    <div class="q-item-sublabel">
+      <div title="Dec 24, 2017, 12:00 PM" style="display:inline;">
+        less than a minute ago
+      </div>
+      · Group 1
+      <!---->
+    </div>
+  </div>
+</a>
+`;
+
+exports[`Storyshots Notifications conflict_resolution_you_were_removed 1`] = `
+<div class="q-item q-item-division relative-position q-item-link isUnread">
+  <!---->
+  <div class="q-item-main q-item-section">
+    <div class="q-item-label" style="overflow:hidden;display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:2;"><i aria-hidden="true" class="q-icon q-mr-xs vertical-baseline fas fa-times"> </i>
+      You were removed from the group
+    </div>
+    <div class="q-item-sublabel">
+      <div title="Dec 24, 2017, 12:00 PM" style="display:inline;">
+        less than a minute ago
+      </div>
+      · Group 1
+      <!---->
+    </div>
+  </div>
+</div>
 `;
 
 exports[`Storyshots Notifications feedback_possible 1`] = `
@@ -3546,7 +4106,7 @@ exports[`Storyshots Notifications feedback_possible 1`] = `
       <div title="Dec 24, 2017, 12:00 PM" style="display:inline;">
         less than a minute ago
       </div>
-      · Group 0
+      · Group 1
 
       · Place 0
     </div>
@@ -3557,19 +4117,19 @@ exports[`Storyshots Notifications feedback_possible 1`] = `
 exports[`Storyshots Notifications invitation_accepted 1`] = `
 <a class="q-link q-item q-item-division relative-position q-item-link isUnread">
   <div class="q-item-side q-item-section q-item-side-left">
-    <div class="wrapper" style="width:40px;height:40px;"><a title="User 25">
-        <div text="User 25" seed="25" class="randomArt fill"></div>
+    <div class="wrapper" style="width:40px;height:40px;"><a title="User 38">
+        <div text="User 38" seed="38" class="randomArt fill"></div>
       </a></div>
   </div>
   <div class="q-item-main q-item-section">
     <div class="q-item-label" style="overflow:hidden;display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:2;"><i aria-hidden="true" class="q-icon q-mr-xs vertical-baseline fas fa-user-plus"> </i>
-      User 25 accepted your invitation
+      User 38 accepted your invitation
     </div>
     <div class="q-item-sublabel">
       <div title="Dec 24, 2017, 12:00 PM" style="display:inline;">
         less than a minute ago
       </div>
-      · Group 0
+      · Group 1
       <!---->
     </div>
   </div>
@@ -3579,19 +4139,19 @@ exports[`Storyshots Notifications invitation_accepted 1`] = `
 exports[`Storyshots Notifications new_applicant 1`] = `
 <a class="q-link q-item q-item-division relative-position q-item-link isUnread">
   <div class="q-item-side q-item-section q-item-side-left">
-    <div class="wrapper" style="width:40px;height:40px;"><a title="User 19">
-        <div text="User 19" seed="19" class="randomArt fill"></div>
+    <div class="wrapper" style="width:40px;height:40px;"><a title="User 32">
+        <div text="User 32" seed="32" class="randomArt fill"></div>
       </a></div>
   </div>
   <div class="q-item-main q-item-section">
     <div class="q-item-label" style="overflow:hidden;display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:2;"><i aria-hidden="true" class="q-icon q-mr-xs vertical-baseline fas fa-address-card"> </i>
-      User 20 applied to join your group
+      User 33 applied to join your group
     </div>
     <div class="q-item-sublabel">
       <div title="Dec 24, 2017, 12:00 PM" style="display:inline;">
         less than a minute ago
       </div>
-      · Group 0
+      · Group 1
       <!---->
     </div>
   </div>
@@ -3601,19 +4161,19 @@ exports[`Storyshots Notifications new_applicant 1`] = `
 exports[`Storyshots Notifications new_member 1`] = `
 <a class="q-link q-item q-item-division relative-position q-item-link isUnread">
   <div class="q-item-side q-item-section q-item-side-left">
-    <div class="wrapper" style="width:40px;height:40px;"><a title="User 24">
-        <div text="User 24" seed="24" class="randomArt fill"></div>
+    <div class="wrapper" style="width:40px;height:40px;"><a title="User 37">
+        <div text="User 37" seed="37" class="randomArt fill"></div>
       </a></div>
   </div>
   <div class="q-item-main q-item-section">
     <div class="q-item-label" style="overflow:hidden;display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:2;"><i aria-hidden="true" class="q-icon q-mr-xs vertical-baseline fas fa-user-plus"> </i>
-      User 24 joined your group
+      User 37 joined your group
     </div>
     <div class="q-item-sublabel">
       <div title="Dec 24, 2017, 12:00 PM" style="display:inline;">
         less than a minute ago
       </div>
-      · Group 0
+      · Group 1
       <!---->
     </div>
   </div>
@@ -3631,7 +4191,7 @@ exports[`Storyshots Notifications new_place 1`] = `
       <div title="Dec 24, 2017, 12:00 PM" style="display:inline;">
         less than a minute ago
       </div>
-      · Group 0
+      · Group 1
       <!---->
     </div>
   </div>
@@ -3649,7 +4209,7 @@ exports[`Storyshots Notifications pickup_disabled 1`] = `
       <div title="Dec 24, 2017, 12:00 PM" style="display:inline;">
         less than a minute ago
       </div>
-      · Group 0
+      · Group 1
 
       · Place 0
     </div>
@@ -3668,7 +4228,7 @@ exports[`Storyshots Notifications pickup_enabled 1`] = `
       <div title="Dec 24, 2017, 12:00 PM" style="display:inline;">
         less than a minute ago
       </div>
-      · Group 0
+      · Group 1
 
       · Place 0
     </div>
@@ -3687,7 +4247,7 @@ exports[`Storyshots Notifications pickup_moved 1`] = `
       <div title="Dec 24, 2017, 12:00 PM" style="display:inline;">
         less than a minute ago
       </div>
-      · Group 0
+      · Group 1
 
       · Place 0
     </div>
@@ -3706,7 +4266,7 @@ exports[`Storyshots Notifications pickup_upcoming 1`] = `
       <div title="Dec 24, 2017, 2:00 PM" style="display:inline;">
         in about 2 hours
       </div>
-      · Group 0
+      · Group 1
 
       · Place 0
     </div>
@@ -3717,19 +4277,37 @@ exports[`Storyshots Notifications pickup_upcoming 1`] = `
 exports[`Storyshots Notifications user_became_editor 1`] = `
 <a class="q-link q-item q-item-division relative-position q-item-link isUnread">
   <div class="q-item-side q-item-section q-item-side-left">
-    <div class="wrapper" style="width:40px;height:40px;"><a title="User 18">
-        <div text="User 18" seed="18" class="randomArt fill"></div>
+    <div class="wrapper" style="width:40px;height:40px;"><a title="User 31">
+        <div text="User 31" seed="31" class="randomArt fill"></div>
       </a></div>
   </div>
   <div class="q-item-main q-item-section">
     <div class="q-item-label" style="overflow:hidden;display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:2;"><i aria-hidden="true" class="q-icon q-mr-xs vertical-baseline fas fa-angle-double-up"> </i>
-      User 18 gained editing permissions
+      User 31 gained editing permissions
     </div>
     <div class="q-item-sublabel">
       <div title="Dec 24, 2017, 12:00 PM" style="display:inline;">
         less than a minute ago
       </div>
-      · Group 0
+      · Group 1
+      <!---->
+    </div>
+  </div>
+</a>
+`;
+
+exports[`Storyshots Notifications voting_ends_soon 1`] = `
+<a class="q-link q-item q-item-division relative-position q-item-link isUnread">
+  <!---->
+  <div class="q-item-main q-item-section">
+    <div class="q-item-label" style="overflow:hidden;display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:2;"><i aria-hidden="true" class="q-icon q-mr-xs vertical-baseline far fa-clock"> </i>
+      Voting ends soon, don't forget to participate!
+    </div>
+    <div class="q-item-sublabel">
+      <div title="Dec 24, 2017, 2:00 PM" style="display:inline;">
+        in about 2 hours
+      </div>
+      · Group 1
       <!---->
     </div>
   </div>
@@ -3747,7 +4325,7 @@ exports[`Storyshots Notifications you_became_editor 1`] = `
       <div title="Dec 24, 2017, 12:00 PM" style="display:inline;">
         less than a minute ago
       </div>
-      · Group 0
+      · Group 1
       <!---->
     </div>
   </div>
@@ -5670,6 +6248,11 @@ exports[`Storyshots Sidenav Boxes Group 1`] = `
             Feedback
           </div>
         </a> <a class="q-link q-item q-item-division relative-position q-item-link">
+          <div class="q-item-side q-item-section text-center q-item-side-left"><i aria-hidden="true" class="q-icon fas fa-vote-yea"> </i></div>
+          <div class="q-item-main q-item-section">
+            Issues
+          </div>
+        </a> <a class="q-link q-item q-item-division relative-position q-item-link">
           <div class="q-item-side q-item-section text-center q-item-side-left"><i class="far fa-address-card"></i></div>
           <div class="q-item-main q-item-section">
             Description
@@ -6622,122 +7205,6 @@ exports[`Storyshots User Profile My Trust Button 1`] = `
 </button>
 `;
 
-exports[`Storyshots User Profile Profile 1`] = `
-<div class="k-profile">
-  <!---->
-  <div class="row justify-end" style="margin-bottom:-32px;"><button tabindex="0" type="button" class="q-btn inline relative-position q-btn-item non-selectable q-btn-rectangle q-focusable q-hoverable bg-primary text-white">
-      <div class="q-focus-helper"></div>
-      <div class="q-btn-inner row col items-center q-popup--skip justify-center">
-        group 1
-        <div class="modal fullscreen row minimized flex-center" style="display:none;">
-          <div class="modal-backdrop absolute-full"></div>
-          <div tabindex="-1" class="modal-content">
-            <div class="q-list">
-              <div class="q-list-header">
-                Groups you have in common
-              </div>
-              <div class="q-item q-item-division relative-position q-item-link">
-                <div class="q-item-main q-item-section">
-                  group 1
-                </div>
-                <div class="q-item-side q-item-section q-item-side-right"><i aria-hidden="true" class="q-icon fas fa-star q-item-icon text-secondary"> </i></div>
-              </div>
-              <div class="q-item q-item-division relative-position q-item-link">
-                <div class="q-item-main q-item-section">
-                  group 2
-                </div>
-                <!---->
-              </div>
-              <div class="q-list-header">
-                Other groups
-              </div> <a class="q-link q-item q-item-division relative-position q-item-link">
-                <div class="q-item-main q-item-section">
-                  group 3
-                </div>
-              </a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </button></div>
-  <div class="photoAndName row no-wrap ellipsis">
-    <div duration="510" name="turn-in" appear="" class="photo q-pa-sm q-ma-md bg-white shadow-4">
-      <div class="wrapper" style="width:180px;height:180px;">
-        <div text="storybook user" seed="1" class="randomArt fill"></div>
-      </div>
-    </div>
-    <div class="self-center" style="overflow:hidden;">
-      <h1 class="name accent-font">
-        storybook user
-      </h1>
-    </div>
-  </div>
-  <div class="q-card profile-info relative-position q-pt-sm">
-    <div class="user-actions">
-      <!----> <button tabindex="0" type="button" small="" class="q-btn inline relative-position q-btn-item non-selectable q-btn-round q-focusable q-hoverable bg-secondary text-white">
-        <div class="q-focus-helper"></div>
-        <div class="q-btn-inner row col items-center q-popup--skip justify-center"><i aria-hidden="true" class="q-icon fas fa-comments"> </i></div>
-      </button> <button tabindex="0" type="button" title="2 people trust storybook user in my current group." class="q-btn inline relative-position q-btn-item non-selectable karrot-button q-btn-round q-focusable q-hoverable bg-primary text-white">
-        <div class="q-focus-helper"></div>
-        <div class="q-btn-inner row col items-center q-popup--skip justify-center">
-          <!---->
-          <div class="q-chip row no-wrap inline items-center q-chip-floating q-chip-dense q-chip-square bg-negative text-white">
-            <div class="q-chip-main ellipsis q-popup--skip">
-              2
-            </div>
-          </div>
-          <div minimized="" class="modal fullscreen row minimized flex-center" style="display:none;">
-            <div class="modal-backdrop absolute-full"></div>
-            <div tabindex="-1" class="modal-content">
-              <div class="modal-header">
-                2 people trust storybook user in my current group.
-                <button tabindex="0" type="button" class="q-btn inline relative-position q-btn-item non-selectable trust-info q-btn-round q-btn-flat q-focusable q-hoverable q-btn-dense">
-                  <div class="q-focus-helper"></div>
-                  <div class="q-btn-inner row col items-center q-popup--skip justify-center"><i aria-hidden="true" class="q-icon material-icons">help_outline</i></div>
-                </button></div>
-              <div class="modal-body modal-message modal-scroll">
-                <div style="max-width:700px;">
-
-                </div>
-              </div>
-              <div class="modal-body modal-scroll">
-                <div>
-                  <div class="wrapper q-mr-sm" style="width:35px;height:35px;"><a title="user 1">
-                      <div text="user 1" seed="1" class="randomArt fill"></div>
-                    </a></div>
-                  <div class="wrapper q-mr-sm" style="width:35px;height:35px;"><a title="user 2">
-                      <div text="user 2" seed="2" class="randomArt fill"></div>
-                    </a></div>
-                </div>
-              </div>
-              <div class="modal-buttons row"><button tabindex="0" type="button" class="q-btn inline relative-position q-btn-item non-selectable q-btn-rectangle q-btn-flat q-focusable q-hoverable">
-                  <div class="q-focus-helper"></div>
-                  <div class="q-btn-inner row col items-center q-popup--skip justify-center">
-                    <div>Close</div>
-                  </div>
-                </button> <button tabindex="0" type="button" class="q-btn inline relative-position q-btn-item non-selectable q-btn-rectangle q-focusable q-hoverable bg-secondary text-white">
-                  <div class="q-focus-helper"></div>
-                  <div class="q-btn-inner row col items-center q-popup--skip justify-center"><span class="q-mr-xs">+</span> <img src="./twemoji-carrot.png" width="20px"></div>
-                  <!---->
-                </button></div>
-            </div>
-          </div>
-        </div>
-      </button></div>
-    <div class="q-list">
-      <div class="q-item q-item-division relative-position">
-        <div class="q-item-side q-item-section q-item-side-left"><i aria-hidden="true" class="q-icon fas fa-fw fa-envelope q-item-icon"> </i></div>
-        <div class="q-item-main q-item-section ellipsis"><a href="mailto:asdf@asdf.com">asdf@asdf.com</a></div>
-      </div>
-      <!---->
-      <!---->
-    </div>
-    <!---->
-    <div class="q-card-main q-card-container"></div>
-  </div>
-</div>
-`;
-
 exports[`Storyshots User Profile Trust Button - I and others trust 1`] = `
 <button tabindex="0" type="button" title="You and 4 other people trust storybook user in group 15." class="q-btn inline relative-position q-btn-item non-selectable karrot-button q-btn-round q-focusable q-hoverable bg-primary text-white">
   <div class="q-focus-helper"></div>
@@ -7171,14 +7638,9 @@ exports[`Storyshots WallConversation WallConversation 1`] = `
 <div>
   <div class="q-infinite-scroll">
     <div class="q-infinite-scroll-content">
-      <div class="q-list bg-white desktop-margin relative-position"><button tabindex="0" type="button" class="q-btn inline relative-position q-btn-item non-selectable actionButton hoverScale q-btn-round q-focusable q-hoverable bg-grey-8 text-white">
+      <div class="q-list bg-white desktop-margin relative-position"><button tabindex="0" type="button" title="How do you want to receive notifications about new messages in this conversation/thread?" class="q-btn inline relative-position q-btn-item non-selectable actionButton hoverScale q-btn-round q-focusable q-hoverable bg-grey-8 text-white">
           <div class="q-focus-helper"></div>
-          <div class="q-btn-inner row col items-center q-popup--skip justify-center">
-            <div class="q-tooltip animate-popup">
-              <div>
-                How do you want to receive notifications about new messages in this conversation/thread?
-              </div>
-            </div> <i aria-hidden="true" class="q-icon fas fa-fw fa-bell-slash"> </i>
+          <div class="q-btn-inner row col items-center q-popup--skip justify-center"><i aria-hidden="true" class="q-icon fas fa-fw fa-bell-slash"> </i>
             <div tabindex="-1" class="q-popover scroll">
               <div class="q-list q-list-link">
                 <!---->

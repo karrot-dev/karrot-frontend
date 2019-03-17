@@ -1,5 +1,6 @@
 <template>
   <QCard
+    v-if="group"
     class="no-mobile-margin no-shadow grey-border"
   >
     <RandomArt

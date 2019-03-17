@@ -114,7 +114,10 @@ export default {
       return this.config.routeTo
     },
     showExpiresAt () {
-      return this.notification && Boolean(this.notification.expiresAt)
+      const blacklist = [
+        'feedback_possible',
+      ]
+      return this.notification && Boolean(this.notification.expiresAt) && !blacklist.includes(this.type)
     },
   },
 }

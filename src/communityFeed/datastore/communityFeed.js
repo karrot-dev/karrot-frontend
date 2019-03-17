@@ -3,7 +3,9 @@ import communityFeedAPI from '@/communityFeed/api/communityFeed'
 function initialState () {
   return {
     topics: [],
-    lastSeenId: 0,
+    meta: {
+      markedAt: null,
+    },
   }
 }
 
@@ -13,24 +15,25 @@ export default {
   getters: {
     topics: state => state.topics.map(topic => ({
       ...topic,
-      isUnread: topic.id > state.lastSeenId,
+      isUnread: state.meta.markedAt && topic.lastPostedAt > state.meta.markedAt,
     })),
-    unreadCount: state => state.topics.filter(topic => topic.id > state.lastSeenId).length,
+    unreadCount: (state, getters) => getters.topics.filter(t => t.isUnread).length,
   },
   actions: {
     async fetchTopics ({ commit }) {
+      commit('setMeta', await communityFeedAPI.getMeta())
       commit('setTopics', await communityFeedAPI.latestTopics())
     },
     mark ({ commit }) {
-      commit('mark')
+      communityFeedAPI.markSeen()
     },
   },
   mutations: {
     setTopics (state, topics) {
       state.topics = topics
     },
-    mark (state) {
-      state.lastSeenId = state.topics[0].id
+    setMeta (state, meta) {
+      state.meta = meta
     },
   },
 }

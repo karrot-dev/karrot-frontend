@@ -8,6 +8,7 @@ import auth from '@/authuser/api/auth'
 import { camelizeKeys } from '@/utils/utils'
 import { convert as convertApplication } from '@/applications/api/applications'
 import { convert as convertMessage } from '@/messages/api/messages'
+import { convert as convertCommunityFeedMeta } from '@/communityFeed/api/communityFeed'
 import { convert as convertConversation, convertMeta as convertConversationMeta } from '@/messages/api/conversations'
 import { convert as convertPickup } from '@/pickups/api/pickups'
 import { convert as convertSeries } from '@/pickups/api/pickupSeries'
@@ -178,6 +179,9 @@ function receiveMessage ({ topic, payload }) {
   }
   else if (topic === 'conversations:meta') {
     datastore.commit('latestMessages/setEntryMeta', convertConversationMeta(camelizeKeys(payload)))
+  }
+  else if (topic === 'community_feed:meta') {
+    datastore.commit('communityFeed/setMeta', convertCommunityFeedMeta(camelizeKeys(payload)))
   }
   else if (topic === 'conversations:leave') {
     // refresh latest messages

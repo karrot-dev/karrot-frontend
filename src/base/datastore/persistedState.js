@@ -5,6 +5,5 @@ export default createPersistedState({
     'i18n.locale',
     'auth.push.intention',
     'auth.push.token',
-    'communityFeed.lastSeenId',
   ],
 })

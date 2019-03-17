@@ -24,6 +24,9 @@ Please document your changes in this format:
 ### Added
 - Conflict resolution within groups @taistadam @djahnie @tiltec @nicksellen
 
+### Changed
+- Synchronize community feed notifications with backend @tiltec
+
 ## [7.1.0] - 2019-03-17
 ### Added
 - Initial Marathi translation @Rahul Shinde

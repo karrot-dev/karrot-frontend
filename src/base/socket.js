@@ -48,7 +48,7 @@ const ping = () => {
   pingTimeout = setTimeout(() => {
     if (!AppVisibility.appVisible) return
     datastore.commit('connectivity/websocket', false)
-  }, 2000)
+  }, 5000)
 }
 
 const startPing = () => {

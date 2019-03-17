@@ -114,6 +114,13 @@ export default {
         Vue.set(state.entries, issue.id, issue)
       }
     },
+    clear (state) {
+      Object.assign(state, initialState())
+    },
+    clearForGroup (state, groupId) {
+      const toClear = Object.entries(state.entries).filter(([_, v]) => v.group === groupId).map(([k]) => k)
+      toClear.forEach(idx => Vue.delete(state.entries, idx))
+    },
   },
 }
 

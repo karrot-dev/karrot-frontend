@@ -7,7 +7,7 @@ export default datastore => {
 
   datastore.watch((state, getters) => getters['auth/isLoggedIn'], isLoggedIn => {
     if (!isLoggedIn) {
-      datastore.dispatch('pickups/clear')
+      datastore.commit('pickups/clear')
     }
   })
 }

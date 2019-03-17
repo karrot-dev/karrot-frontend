@@ -24,8 +24,13 @@ Please document your changes in this format:
 ### Added
 - Conflict resolution within groups @taistadam @djahnie @tiltec @nicksellen
 
-###
+## [7.1.0] - 2019-03-17
+### Added
+- Initial Marathi translation @Rahul Shinde
+
+### Changed
 - Mobile page: reduce width of sidenav @tiltec
+- Relax connectivity check timeout from 2 to 5 seconds @tiltec
 
 ### Fixed
 - Previous feedback didn't show when giving/editing feedback @tiltec
@@ -389,7 +394,8 @@ After months of planning and programming, the first version of ~the foodsaving t
 [#1174]: https://github.com/yunity/karrot-frontend/issues/1174
 [#1178]: https://github.com/yunity/karrot-frontend/issues/1178
 
-[Unreleased]: https://github.com/yunity/karrot-frontend/compare/v7.0.0...HEAD
+[Unreleased]: https://github.com/yunity/karrot-frontend/compare/v7.1.0...HEAD
+[7.1.0]: https://github.com/yunity/karrot-frontend/compare/v7.0.0...v7.1.0
 [7.0.0]: https://github.com/yunity/karrot-frontend/compare/v6.5.0...v7.0.0
 [6.5.0]: https://github.com/yunity/karrot-frontend/compare/v6.4.0...v6.5.0
 [6.4.0]: https://github.com/yunity/karrot-frontend/compare/v6.3.0...v6.4.0

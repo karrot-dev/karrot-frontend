@@ -59,7 +59,7 @@ const locales = {
     locale: 'gu',
     messages: () => import('@/locales/locale-gu.json'),
     intlLocale: () => import('intl/locale-data/jsonp/gu'),
-    dateFnsLocale: () => import('date-fns/locale/en'), // TODO switch to Gujarati when datefns supports it
+    dateFnsLocale: () => import('date-fns/locale/en'), // TODO switch when translated
     quasar: () => import('quasar-framework/i18n/en-us'), // TODO switch when translated
   },
 
@@ -68,7 +68,7 @@ const locales = {
     locale: 'hi',
     messages: () => import('@/locales/locale-hi.json'),
     intlLocale: () => import('intl/locale-data/jsonp/hi'),
-    dateFnsLocale: () => import('date-fns/locale/en'), // TODO switch to Hindi when datefns supports it
+    dateFnsLocale: () => import('date-fns/locale/en'), // TODO switch when translated
     quasar: () => import('quasar-framework/i18n/en-us'), // TODO switch when translated
   },
 
@@ -81,6 +81,15 @@ const locales = {
     quasar: () => import('quasar-framework/i18n/it'),
   },
 
+  mr: {
+    name: 'मराठी',
+    locale: 'mr',
+    messages: () => import('@/locales/locale-mr.json'),
+    intlLocale: () => import('intl/locale-data/jsonp/mr'),
+    dateFnsLocale: () => import('date-fns/locale/en'), // TODO switch when translated
+    quasar: () => import('quasar-framework/i18n/en-us'), // TODO switch when translated
+  },
+
   pl: {
     name: 'Polski',
     locale: 'pl',
@@ -90,7 +99,7 @@ const locales = {
     quasar: () => import('quasar-framework/i18n/pl'),
   },
 
-  'pt': {
+  pt: {
     name: 'Português',
     locale: 'pt',
     messages: () => import('@/locales/locale-pt.json'),

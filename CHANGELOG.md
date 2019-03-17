@@ -21,6 +21,9 @@ Please document your changes in this format:
 ```
 
 ## [Unreleased]
+### Added
+- Initial Marathi translation @Rahul Shinde
+
 ### Changed
 - Mobile page: reduce width of sidenav @tiltec
 - Relax connectivity check timeout from 2 to 5 seconds @tiltec

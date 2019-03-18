@@ -70,6 +70,7 @@
     "LEAVE": "Sair",
     "PREVIEW": "Visualizar",
     "BACK": "Voltar",
+    "NEXT": "Next",
     "SEARCH": "Buscar",
     "OF_COURSE": "Sim, com certeza!",
     "YES": "Sim",
@@ -423,6 +424,7 @@
     "GROUP_LEAVE_INACTIVE": "was removed due to inactivity",
     "GROUP_CHANGE_PHOTO": "changed the group logo",
     "GROUP_DELETE_PHOTO": "deleted the group logo",
+    "MEMBER_REMOVED": "was removed due to group decision",
     "NOTHING_HAPPENEND": "Nada aconteceu até agora...",
     "DETAILS": "Mais informação"
   },
@@ -452,7 +454,15 @@
     "PICKUP_UPCOMING": "Reminder: You have a pickup at {time}",
     "PICKUP_DISABLED": "Pickup at {dateTime} was disabled",
     "PICKUP_ENABLED": "Pickup at {dateTime} was enabled again",
-    "PICKUP_MOVED": "Pickup was moved to {dateTime}"
+    "PICKUP_MOVED": "Pickup was moved to {dateTime}",
+    "CONFLICT_RESOLUTION_CREATED": "Join the discussion about a conflict with {userName}",
+    "CONFLICT_RESOLUTION_CREATED_ABOUT_YOU": "A conflict resolution process was started with you",
+    "CONFLICT_RESOLUTION_CONTINUED": "The conflict resolution process with {userName} continues",
+    "CONFLICT_RESOLUTION_CONTINUED_ABOUT_YOU": "The conflict resolution process with you continues",
+    "CONFLICT_RESOLUTION_DECIDED": "The conflict resolution process with {userName} was decided",
+    "CONFLICT_RESOLUTION_DECIDED_ABOUT_YOU": "The conflict resolution process with you was decided",
+    "CONFLICT_RESOLUTION_YOU_WERE_REMOVED": "You were removed from the group",
+    "VOTING_ENDS_SOON": "Voting ends soon, don't forget to participate!"
   },
   "NOTIFICATION_TOGGLE": {
     "HEADER": "How do you want to receive notifications about new messages in this conversation/thread?",
@@ -563,6 +573,75 @@
     "WHAT": "What does it mean to be inactive?",
     "HELP": "Everyone who did not log into the group for {dayCount} days or more counts as inactive. These users will not receive notification emails anymore."
   },
+  "CONFLICT": {
+    "SETUP_HEADER": "Is there a conflict with {user}?",
+    "SETUP": "Conflict resolution setup",
+    "STATEMENT": "Statement",
+    "STEPPER1a": "You are about to start a group-wide conflict resolution process!",
+    "STEPPER1b": "This will involve all of your group's members with editing permissions to try and find the best way to proceed regarding this conflict.",
+    "STEPPER2a": "Thank you for caring for your community!",
+    "STEPPER2b": "It is important to openly address conflicts and you seem to know this. Thank you for caring enough to not shy away from the unpleasant task of surfacing a social issue!",
+    "STEPPER3a": "Here's what will happen:",
+    "STEPPER3b": "This process will start an open chat and a vote.",
+    "STEPPER3c": "Every message in the chat will be visible for every member in the group - including the person this process is about!",
+    "STEPPER3d": "The voting is anonymous.",
+    "STEPPER3e": "It will go on for {votingDuration} days.",
+    "STEPPER3f": "During this time all voters can change their minds and vote differently as many times as they want.",
+    "STEPPER4a": "Please make an initial statement for the open group chat!",
+    "STEPPER4b": "Tell your group what made you think this process is justified and needed.",
+    "FIND_OUT_MORE": "Find out more!",
+    "INITIAL": "Information",
+    "WITH": "This process is to resolve a conflict with {userName}",
+    "VOTING": {
+      "HEADLINE": "How do you want to proceed with the ongoing conflict with {userName}?"
+    },
+    "REQUIREMENTS": {
+      "ACTIVE_EDITORS": "Your group has {activeEditorsCount} active users with editing permissions. You need {requiredCount} to start a conflict resolution process.",
+      "NEWCOMER": "Before you can start a conflict resolution process, you need to receive more trust and gain editing permissions. In the meantime, please ask a fellow group member to start the process for you."
+    }
+  },
+  "ISSUE": {
+    "CREATION": {
+      "TOAST": "You successfully started a conflict resolution process"
+    },
+    "TITLE": "Issues",
+    "VOTE": "Vote",
+    "CHAT": "Chat",
+    "INITIATED_BY": "Initiated by {initiatorName}",
+    "PAST": "Past issues",
+    "PREVIOUS_VOTINGS": "Previous votings in this issue",
+    "PARTICIPANTS": "{count} members have been added to this discussion.",
+    "VOTING": {
+      "TIME_LEFT": "Time left to vote",
+      "BTN_START": "Vote now",
+      "SAVE": "Save",
+      "BTN_DELETE": "Delete vote",
+      "TOAST": "Your vote was successfully submitted",
+      "TOAST_DELETE": "Your vote was deleted",
+      "NO_CHANGE": "No change: {userName} stays in {groupName}",
+      "FURTHER_DISCUSSION": "Extend the time to keep discussing",
+      "REMOVE_USER": "{userName} gets removed from {groupName}",
+      "RESULTS": {
+        "KEEP_DISCUSSING": "Your group voted to keep discussing",
+        "TIME_UP": "Time is up!",
+        "TOTAL_SCORE": "Total score",
+        "ENDED_AT": "This voting round ended on {date}",
+        "PARTICIPANTS": "{number} members participated in the voting.",
+        "UNDECIDED": "Unfortunately this conflict could not be decided.",
+        "UNDECIDED_WHY": "There are two possible reasons for that:",
+        "UNDECIDED_REASON_1": "the affected user left the group while the conflict resolution process was still ongoing",
+        "UNDECIDED_REASON_2": "nobody voted on this issue"
+      },
+      "SCORE_LABELS": {
+        "NEUTRAL": "neutral",
+        "SLIGHT_SUPPORT": "slight support",
+        "STRONG_SUPPORT": "strong support",
+        "SLIGHT_RESISTANCE": "slight resistance",
+        "STRONG_RESISTANCE": "strong resistance"
+      }
+    },
+    "NO_ONGOING": "No ongoing issues."
+  },
   "UNSUBSCRIBE": {
     "HEADER": "Unsubscribe",
     "FROM_CONVERSATION": "unsubscribe from just this conversation",
@@ -571,6 +650,9 @@
     "FROM_GROUP": "unsubscribe from everything in {groupName}",
     "SUCCESS": "You were successfully unsubscribed!"
   },
+  "THANKS": "Thank you!",
+  "ATTENTION": "Attention!",
+  "INFO": "Info",
   "YOU": "You",
   "TO": "to"
 }

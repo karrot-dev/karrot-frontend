@@ -29,6 +29,13 @@ export default {
         isCancelled: issue.status === 'cancelled',
         isOngoing: issue.status === 'ongoing',
         isSelected: issue.id === state.currentId,
+        votings: issue.votings.map(voting => ({
+          ...voting,
+          options: voting.options.map(option => ({
+            ...option,
+            meanScore: voting.participantCount ? option.sumScore / voting.participantCount : null,
+          })),
+        })),
       }
     },
     current: (state, getters) => {

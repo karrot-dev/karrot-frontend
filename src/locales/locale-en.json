@@ -622,7 +622,7 @@
       "RESULTS": {
         "KEEP_DISCUSSING": "Your group voted to keep discussing",
         "TIME_UP": "Time is up!",
-        "TOTAL_SCORE": "Total score",
+        "MEAN_SCORE": "Mean score",
         "ENDED_AT": "This voting round ended on {date}",
         "PARTICIPANTS": "{number} members participated in the voting.",
         "UNDECIDED": "Unfortunately this conflict could not be decided.",

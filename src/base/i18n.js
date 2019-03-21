@@ -50,9 +50,18 @@ const defaultDateTimeFormat = {
   },
 }
 
-let dateTimeFormats = {}
+const defaultNumberFormat = {
+  twoDigitNumber: {
+    minimumSignificantDigits: 2,
+    maximumSignificantDigits: 2,
+  },
+}
+
+const dateTimeFormats = {}
+const numberFormats = {}
 for (const locale of Object.values(locales)) {
   dateTimeFormats[locale.locale] = defaultDateTimeFormat
+  numberFormats[locale.locale] = defaultNumberFormat
 }
 
 const i18n = new VueI18n({
@@ -62,6 +71,7 @@ const i18n = new VueI18n({
     en: require('@/locales/locale-en.json'),
   },
   dateTimeFormats,
+  numberFormats,
   fallbackLocale: 'en', // if you change this make sure to always load the locale too
 })
 export default i18n

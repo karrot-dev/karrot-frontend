@@ -179,6 +179,7 @@ export const makeOption = data => {
     id: optionIdCnt++,
     sumScore: null,
     yourScore: 0,
+    meanScore: null,
     type: 'further_discussion',
     ...data,
   }

@@ -15,11 +15,11 @@
       >
         <QItemSide
           right
-          :stamp="$t('ISSUE.VOTING.RESULTS.TOTAL_SCORE')"
+          :stamp="$t('ISSUE.VOTING.RESULTS.MEAN_SCORE')"
         />
       </QItem>
       <QItem
-        v-for="{ id, icon, label, sumScore} in options"
+        v-for="{ id, icon, label, meanScore} in options"
         :key="id"
       >
         <QItemSide
@@ -30,7 +30,7 @@
           {{ label }}
         </QItemMain>
         <QItemSide stamp>
-          {{ sumScore }}
+          {{ meanScore ? $n(meanScore, 'twoDigitNumber') : '' }}
         </QItemSide>
       </QItem>
     </template>
@@ -98,7 +98,7 @@ export default {
     options () {
       return this.voting.options.map(o => ({
         ...o,
-        icon: this.getIcon(o.sumScore),
+        icon: this.getIcon(o.meanScore),
         label: this.getLabel(o.type),
       })).sort(function (a, b) {
         return b.sumScore - a.sumScore
@@ -113,11 +113,11 @@ export default {
         groupName: this.groupName,
       })
     },
-    getIcon (sumScore) {
-      if (sumScore > 0) {
+    getIcon (meanScore) {
+      if (meanScore > 0.5) {
         return 'fas fa-smile'
       }
-      if (sumScore < 0) {
+      if (meanScore < -0.5) {
         return 'fas fa-frown'
       }
       return 'fas fa-meh'

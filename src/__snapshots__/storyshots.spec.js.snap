@@ -3031,7 +3031,7 @@ exports[`Storyshots Issues history item 1`] = `
           <div class="q-item q-item-division relative-position">
             <div class="q-item-side q-item-section q-item-side-left"><i aria-hidden="true" class="q-icon fas fa-smile q-item-icon text-primary"> </i></div>
             <div class="q-item-main q-item-section">
-              Extend the time to keep discussing
+              Further discussion: extend time by starting another voting
             </div>
             <div class="q-item-side q-item-section q-item-side-left">
               3
@@ -3078,7 +3078,7 @@ exports[`Storyshots Issues results - expelled 1`] = `
   <div class="q-item q-item-division relative-position">
     <div class="q-item-side q-item-section q-item-side-left"><i aria-hidden="true" class="q-icon fas fa-smile q-item-icon text-primary"> </i></div>
     <div class="q-item-main q-item-section">
-      Extend the time to keep discussing
+      Further discussion: extend time by starting another voting
     </div>
     <div class="q-item-side q-item-section q-item-side-left">
       3
@@ -3118,7 +3118,7 @@ exports[`Storyshots Issues vote - furtherDiscussion 1`] = `
       <div>
         <div>
           <div class="q-mt-md">
-            Extend the time to keep discussing
+            Further discussion: extend time by starting another voting
           </div>
           <div class="q-slider non-selectable k-vote-slider label-always">
             <div class="q-slider-handle-container">
@@ -3182,6 +3182,9 @@ exports[`Storyshots Issues vote - furtherDiscussion 1`] = `
             </div>
           </div>
         </div>
+      </div>
+      <div class="q-caption q-caption-opacity q-my-xs">
+        Your vote will be anonymous.
       </div>
       <div class="row justify-end group"><button tabindex="0" type="button" class="q-btn inline relative-position q-btn-item non-selectable q-btn-rectangle q-focusable q-hoverable bg-negative text-white">
           <div class="q-focus-helper"></div>

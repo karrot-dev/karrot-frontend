@@ -617,7 +617,7 @@
       "TOAST": "Your vote was successfully submitted",
       "TOAST_DELETE": "Your vote was deleted",
       "NO_CHANGE": "No change: {userName} stays in {groupName}",
-      "FURTHER_DISCUSSION": "Extend the time to keep discussing",
+      "FURTHER_DISCUSSION": "Further discussion: extend time by starting another voting",
       "REMOVE_USER": "{userName} gets removed from {groupName}",
       "RESULTS": {
         "KEEP_DISCUSSING": "Your group voted to keep discussing",
@@ -632,11 +632,12 @@
       },
       "SCORE_LABELS": {
         "NEUTRAL": "neutral",
-        "SLIGHT_SUPPORT": "slight support",
+        "SLIGHT_SUPPORT": "support",
         "STRONG_SUPPORT": "strong support",
-        "SLIGHT_RESISTANCE": "slight resistance",
+        "SLIGHT_RESISTANCE": "resistance",
         "STRONG_RESISTANCE": "strong resistance"
-      }
+      },
+      "ANONYMOUS": "Your vote will be anonymous."
     },
     "NO_ONGOING": "No ongoing issues."
   },

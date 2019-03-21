@@ -46,6 +46,9 @@
             />
           </div>
         </div>
+        <div class="q-caption q-caption-opacity q-my-xs">
+          {{ $t('ISSUE.VOTING.ANONYMOUS') }}
+        </div>
         <div class="row justify-end group">
           <QBtn
             color="negative"

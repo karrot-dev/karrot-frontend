@@ -4201,7 +4201,7 @@ exports[`Storyshots Notifications new_place 1`] = `
   <!---->
   <div class="q-item-main q-item-section">
     <div class="q-item-label" style="overflow:hidden;display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:2;"><i aria-hidden="true" class="q-icon q-mr-xs vertical-baseline fas fa-shopping-cart"> </i>
-      has been created
+      Place 0 has been created
     </div>
     <div class="q-item-sublabel">
       <div title="Dec 24, 2017, 12:00 PM" style="display:inline;">

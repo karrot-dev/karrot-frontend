@@ -26,7 +26,7 @@ function getMessageParams (type, context) {
       }
     case 'new_place':
       return {
-        placeName: context.place && context.place.name,
+        storeName: context.place && context.place.name,
       }
     case 'conflict_resolution_created':
     case 'conflict_resolution_continued':

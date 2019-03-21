@@ -64,7 +64,7 @@ storiesOf('Issues', module)
                   type: 'no_change',
                   meanScore: 1.4,
                 }),
-              ]
+              ],
             }),
           ],
         }),

@@ -161,6 +161,10 @@
       "new_application": {
         "NAME": "New applications",
         "DESCRIPTION": "Tells you when somebody wants to join your group"
+      },
+      "conflict_resolution": {
+        "NAME": "New conflict resolution processes",
+        "DESCRIPTION": "Tells you when a new conflict resolution process has been started in your group"
       }
     },
     "PLAYGROUND_INFO": "This is a playground group, you can't break anything. Explore, click around and have fun!",

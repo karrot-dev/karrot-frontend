@@ -1,6 +1,7 @@
 <template>
   <QCard
     class="no-mobile-margin no-shadow grey-border"
+    v-if="group"
   >
     <RandomArt
       :seed="group.id"
@@ -41,12 +42,12 @@ export default {
   props: {
     group: {
       type: Object,
-      required: true,
+      default: null,
     },
   },
   data () {
     return {
-      availableNotificationTypes: ['weekly_summary', 'daily_pickup_notification', 'new_application'],
+      availableNotificationTypes: ['weekly_summary', 'daily_pickup_notification', 'new_application', 'conflict_resolution'],
     }
   },
   methods: {
@@ -54,11 +55,9 @@ export default {
       this.$emit('changeNotificationType', { notificationType, enabled })
     },
     notificationIsEnabled (type) {
+      if (!this.group) return
       return this.group.notificationTypes.indexOf(type) !== -1
     },
   },
 }
 </script>
-
-<style scoped lang="stylus">
-</style>

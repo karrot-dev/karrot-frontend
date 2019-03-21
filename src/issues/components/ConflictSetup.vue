@@ -17,8 +17,8 @@
           done-icon="fas fa-exclamation"
           :title="$t('ATTENTION')"
         >
-          <p><strong> {{ $t('CONFLICT.STEPPER1a') }} </strong></p>
-          <p> {{ $t('CONFLICT.STEPPER1b') }} </p>
+          <p><strong>{{ $t('CONFLICT.STEPPER1a') }}</strong></p>
+          <p>{{ $t('CONFLICT.STEPPER1b') }}</p>
         </QStep>
         <QStep
           name="thanks"
@@ -26,8 +26,8 @@
           done-icon="fas fa-hand-holding-heart"
           :title="$t('THANKS')"
         >
-          <p><strong> {{ $t('CONFLICT.STEPPER2a') }} </strong></p>
-          <p> {{ $t('CONFLICT.STEPPER2b') }} </p>
+          <p><strong> {{ $t('CONFLICT.STEPPER2a') }}</strong></p>
+          <p>{{ $t('CONFLICT.STEPPER2b') }}</p>
         </QStep>
         <QStep
           name="consequences"
@@ -36,13 +36,9 @@
           :title="$t('INFO')"
         >
           <p><strong> {{ $t('CONFLICT.STEPPER3a') }} </strong></p>
-          <ul>
-            <li> {{ $t('CONFLICT.STEPPER3b') }} </li>
-            <li> {{ $t('CONFLICT.STEPPER3c') }} </li>
-            <li> {{ $t('CONFLICT.STEPPER3d') }} </li>
-            <li> {{ $t('CONFLICT.STEPPER3e', { votingDuration: currentGroup && currentGroup.issueVotingDurationDays }) }} </li>
-            <li> {{ $t('CONFLICT.STEPPER3f') }} </li>
-          </ul>
+          <p>{{ $t('CONFLICT.STEPPER3b') }}</p>
+          <p>{{ $t('CONFLICT.STEPPER3c', { userName: user.displayName }) }}</p>
+          <p>{{ $t('CONFLICT.STEPPER3d', { votingDuration: currentGroup && currentGroup.issueVotingDurationDays }) }}</p>
           <a
             href="https://community.foodsaving.world/t/how-does-the-conflict-resolution-feature-work/254"
             target="_blank"
@@ -58,7 +54,7 @@
           :title="$t('CONFLICT.STATEMENT')"
         >
           <p><strong> {{ $t('CONFLICT.STEPPER4a') }} </strong></p>
-          <p> {{ $t('CONFLICT.STEPPER4b') }} </p>
+          <p>{{ $t('CONFLICT.STEPPER4b', { userName: user.displayName }) }}</p>
           <MarkdownInput :value="initialStatement">
             <QInput
               id="initial-statement"

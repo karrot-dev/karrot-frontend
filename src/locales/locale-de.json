@@ -161,6 +161,10 @@
       "new_application": {
         "NAME": "New applications",
         "DESCRIPTION": "Tells you when somebody wants to join your group"
+      },
+      "conflict_resolution": {
+        "NAME": "New conflict resolution processes",
+        "DESCRIPTION": "Tells you when a new conflict resolution process has been started in your group"
       }
     },
     "PLAYGROUND_INFO": "Dies ist eine Spielplatz-Gruppe, du kannst nichts kaputtmachen. Probiere gerne alles aus!",
@@ -578,17 +582,15 @@
     "SETUP": "Conflict resolution setup",
     "STATEMENT": "Statement",
     "STEPPER1a": "You are about to start a group-wide conflict resolution process!",
-    "STEPPER1b": "This will involve all of your group's members with editing permissions to try and find the best way to proceed regarding this conflict.",
+    "STEPPER1b": "This will involve all members with editing permissions to find the best way to proceed.",
     "STEPPER2a": "Thank you for caring for your community!",
-    "STEPPER2b": "It is important to openly address conflicts and you seem to know this. Thank you for caring enough to not shy away from the unpleasant task of surfacing a social issue!",
+    "STEPPER2b": "It is important to address social issues, although it can be unpleasant sometimes. Thank you for your courage!",
     "STEPPER3a": "Here's what will happen:",
-    "STEPPER3b": "This process will start an open chat and a vote.",
-    "STEPPER3c": "Every message in the chat will be visible for every member in the group - including the person this process is about!",
-    "STEPPER3d": "The voting is anonymous.",
-    "STEPPER3e": "It will go on for {votingDuration} days.",
-    "STEPPER3f": "During this time all voters can change their minds and vote differently as many times as they want.",
-    "STEPPER4a": "Please make an initial statement for the open group chat!",
-    "STEPPER4b": "Tell your group what made you think this process is justified and needed.",
+    "STEPPER3b": "This process will start a chat and a vote.",
+    "STEPPER3c": "The chat will be visible for members with editing permissions and includes {userName}.",
+    "STEPPER3d": "The voting is anonymous. It will go on for {votingDuration} days. During this time all voters can change their minds and vote differently as many times as they want.",
+    "STEPPER4a": "Please explain why you are starting this conflict resolution process!",
+    "STEPPER4b": "Tell your group what made you think this process is justified and needed. This statement will be visible to {userName} and group members with editing permissions.",
     "FIND_OUT_MORE": "Find out more!",
     "INITIAL": "Information",
     "WITH": "This process is to resolve a conflict with {userName}",
@@ -619,12 +621,12 @@
       "TOAST": "Your vote was successfully submitted",
       "TOAST_DELETE": "Your vote was deleted",
       "NO_CHANGE": "No change: {userName} stays in {groupName}",
-      "FURTHER_DISCUSSION": "Extend the time to keep discussing",
+      "FURTHER_DISCUSSION": "Further discussion: extend time by starting another voting",
       "REMOVE_USER": "{userName} gets removed from {groupName}",
       "RESULTS": {
         "KEEP_DISCUSSING": "Your group voted to keep discussing",
         "TIME_UP": "Time is up!",
-        "TOTAL_SCORE": "Total score",
+        "MEAN_SCORE": "Mean score",
         "ENDED_AT": "This voting round ended on {date}",
         "PARTICIPANTS": "{number} members participated in the voting.",
         "UNDECIDED": "Unfortunately this conflict could not be decided.",
@@ -634,11 +636,12 @@
       },
       "SCORE_LABELS": {
         "NEUTRAL": "neutral",
-        "SLIGHT_SUPPORT": "slight support",
+        "SLIGHT_SUPPORT": "support",
         "STRONG_SUPPORT": "strong support",
-        "SLIGHT_RESISTANCE": "slight resistance",
+        "SLIGHT_RESISTANCE": "resistance",
         "STRONG_RESISTANCE": "strong resistance"
-      }
+      },
+      "ANONYMOUS": "Your vote will be anonymous."
     },
     "NO_ONGOING": "No ongoing issues."
   },

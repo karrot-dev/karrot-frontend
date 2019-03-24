@@ -81,9 +81,9 @@ export default {
       }
     },
   },
-  data () {
-    return {
-      slotsOptions: [
+  computed: {
+    slotsOptions () {
+      return [
         {
           label: this.$t('PICKUPLIST.FILTER.ALL'),
           value: 'all',
@@ -96,10 +96,8 @@ export default {
           label: this.$t('PICKUPLIST.FILTER.EMPTY'),
           value: 'empty',
         },
-      ],
-    }
-  },
-  computed: {
+      ]
+    },
     filteredPickups () {
       if (!this.pickups) return []
       if (this.slots === 'free') return this.pickups.filter(e => !e.isFull)

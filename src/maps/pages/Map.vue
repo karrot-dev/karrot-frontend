@@ -63,9 +63,9 @@ export default {
   height 100%
   width 100%
 .placeholder
-  height calc(100% - 50px)
+  height 100%
   width 100%
   position absolute
   left 0
-  top 50px
+  top 0
 </style>

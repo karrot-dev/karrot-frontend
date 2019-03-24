@@ -45,14 +45,13 @@ export default [
     name: 'groupsGallery',
     path: '/groupPreview',
     meta: {
+      fullpage: true,
       breadcrumbs: [
         { translation: 'JOINGROUP.ALL_GROUPS' },
       ],
       beforeEnter: 'applications/fetchMine',
     },
-    components: {
-      fullPage: GroupGallery,
-    },
+    component: GroupGallery,
   },
   {
     name: 'groupPreview',
@@ -186,6 +185,7 @@ export default [
         meta: {
           disableDesktopSidenav: true,
           disablePullToRefresh: true,
+          fullpage: true,
           breadcrumbs: [
             { translation: 'GROUPMAP.TITLE', route: { name: 'map' } },
           ],

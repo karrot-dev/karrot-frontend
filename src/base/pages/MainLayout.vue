@@ -97,8 +97,10 @@
 
         <QPageContainer>
           <Banners />
-          <RouterView name="fullPage"/>
-          <QPage class="mainContent-page">
+          <QPage
+            class="mainContent-page"
+            :class="{fullpage}"
+          >
             <Component
               :is="disablePullToRefresh ? 'div' : 'QPullToRefresh'"
               :handler="refresh"
@@ -265,6 +267,9 @@ export default {
       }
       return components
     },
+    fullpage () {
+      return this.$route.matched.some(m => m.meta.fullpage)
+    },
     hasSidenavComponent () {
       return Boolean(this.routerComponents.sidenav)
     },
@@ -296,12 +301,12 @@ export default {
   max-width 30em
   margin-left auto
   margin-right .4em
-body.desktop .mainContent-page
-    min-width 350px
-    max-width: 57em
-    margin-bottom 4.5em
-    margin-left auto
-    margin-right auto
+body.desktop .mainContent-page:not(.fullpage)
+  min-width 350px
+  max-width: 57em
+  margin-bottom 4.5em
+  margin-left auto
+  margin-right auto
 .background
   background-image url('../assets/repeating_grey.png')
   background-size: 600px

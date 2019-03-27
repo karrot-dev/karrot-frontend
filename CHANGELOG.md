@@ -21,6 +21,8 @@ Please document your changes in this format:
 ```
 
 ## [Unreleased]
+### Added
+- For mobile users: touch and hold on a reaction emoji to show who reacted @tiltec
 
 ## [7.2.0] - 2019-03-27
 ### Added

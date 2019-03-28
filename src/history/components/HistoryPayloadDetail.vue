@@ -26,7 +26,7 @@
   >
     <QItemMain>
       <QItemTile label>
-        {{ $d(new Date(value), 'long') }}
+        {{ $d(new Date(Array.isArray(value) ? value[0] : value), 'long') }}
       </QItemTile>
       <QItemTile sublabel>
         {{ $t('CREATEPICKUP.DATE') }}

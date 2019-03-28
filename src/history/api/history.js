@@ -34,10 +34,15 @@ export function convert (val) {
     let payload = val.payload
     if (payload) {
       // convert some known payload dates
-      let dates = {};
+      const dates = {};
       ['date', 'startDate', 'invitedAt'].forEach(k => {
         if (payload[k]) {
-          dates[k] = new Date(payload[k])
+          if (Array.isArray(payload[k])) {
+            dates[k] = payload[k].map(d => new Date(d))
+          }
+          else {
+            dates[k] = new Date(payload[k])
+          }
         }
       })
       payload = {

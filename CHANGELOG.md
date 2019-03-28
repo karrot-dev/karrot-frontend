@@ -21,7 +21,15 @@ Please document your changes in this format:
 ```
 
 ## [Unreleased]
+### Added
+- For mobile users: touch and hold on a reaction emoji to show who reacted @tiltec
+
+### Changed
 - Some design improvements for conflict resolution @djahnie
+
+### Fixed
+- Pickup "join" and "leave" history entries didn't show the date of the pickup, regression from adding pickups with end times @tiltec
+
 
 ## [7.2.0] - 2019-03-27
 ### Added

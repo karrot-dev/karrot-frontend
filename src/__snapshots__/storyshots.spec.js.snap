@@ -137,7 +137,8 @@ exports[`Storyshots ChatConversation closed 1`] = `
   </span>
               <div tabindex="-1" class="q-popover scroll"></div>
             </div>
-          </button></span>
+          </button>
+          <!----></span>
           <!---->
         </div>
       </div>
@@ -170,7 +171,8 @@ exports[`Storyshots ChatConversation closed 1`] = `
   </span>
             <div tabindex="-1" class="q-popover scroll"></div>
           </div>
-        </button></span>
+        </button>
+        <!----></span>
         <!---->
       </div>
     </div>
@@ -203,7 +205,8 @@ exports[`Storyshots ChatConversation closed 1`] = `
   </span>
           <div tabindex="-1" class="q-popover scroll"></div>
         </div>
-      </button></span>
+      </button>
+      <!----></span>
       <!---->
     </div>
   </div>
@@ -236,7 +239,8 @@ exports[`Storyshots ChatConversation closed 1`] = `
   </span>
         <div tabindex="-1" class="q-popover scroll"></div>
       </div>
-    </button></span>
+    </button>
+    <!----></span>
     <!---->
   </div>
 </div>
@@ -304,7 +308,8 @@ exports[`Storyshots ChatConversation default 1`] = `
   </span>
               <div tabindex="-1" class="q-popover scroll"></div>
             </div>
-          </button></span>
+          </button>
+          <!----></span>
           <!---->
         </div>
       </div>
@@ -337,7 +342,8 @@ exports[`Storyshots ChatConversation default 1`] = `
   </span>
             <div tabindex="-1" class="q-popover scroll"></div>
           </div>
-        </button></span>
+        </button>
+        <!----></span>
         <!---->
       </div>
     </div>
@@ -370,7 +376,8 @@ exports[`Storyshots ChatConversation default 1`] = `
   </span>
           <div tabindex="-1" class="q-popover scroll"></div>
         </div>
-      </button></span>
+      </button>
+      <!----></span>
       <!---->
     </div>
   </div>
@@ -403,7 +410,8 @@ exports[`Storyshots ChatConversation default 1`] = `
   </span>
         <div tabindex="-1" class="q-popover scroll"></div>
       </div>
-    </button></span>
+    </button>
+    <!----></span>
     <!---->
   </div>
 </div>
@@ -464,7 +472,8 @@ exports[`Storyshots ChatConversation fetching past 1`] = `
   </span>
               <div tabindex="-1" class="q-popover scroll"></div>
             </div>
-          </button></span>
+          </button>
+          <!----></span>
           <!---->
         </div>
       </div>
@@ -497,7 +506,8 @@ exports[`Storyshots ChatConversation fetching past 1`] = `
   </span>
             <div tabindex="-1" class="q-popover scroll"></div>
           </div>
-        </button></span>
+        </button>
+        <!----></span>
         <!---->
       </div>
     </div>
@@ -530,7 +540,8 @@ exports[`Storyshots ChatConversation fetching past 1`] = `
   </span>
           <div tabindex="-1" class="q-popover scroll"></div>
         </div>
-      </button></span>
+      </button>
+      <!----></span>
       <!---->
     </div>
   </div>
@@ -563,7 +574,8 @@ exports[`Storyshots ChatConversation fetching past 1`] = `
   </span>
         <div tabindex="-1" class="q-popover scroll"></div>
       </div>
-    </button></span>
+    </button>
+    <!----></span>
     <!---->
   </div>
 </div>
@@ -624,7 +636,8 @@ exports[`Storyshots ChatConversation not participant 1`] = `
   </span>
               <div tabindex="-1" class="q-popover scroll"></div>
             </div>
-          </button></span>
+          </button>
+          <!----></span>
           <!---->
         </div>
       </div>
@@ -657,7 +670,8 @@ exports[`Storyshots ChatConversation not participant 1`] = `
   </span>
             <div tabindex="-1" class="q-popover scroll"></div>
           </div>
-        </button></span>
+        </button>
+        <!----></span>
         <!---->
       </div>
     </div>
@@ -690,7 +704,8 @@ exports[`Storyshots ChatConversation not participant 1`] = `
   </span>
           <div tabindex="-1" class="q-popover scroll"></div>
         </div>
-      </button></span>
+      </button>
+      <!----></span>
       <!---->
     </div>
   </div>
@@ -723,7 +738,8 @@ exports[`Storyshots ChatConversation not participant 1`] = `
   </span>
         <div tabindex="-1" class="q-popover scroll"></div>
       </div>
-    </button></span>
+    </button>
+    <!----></span>
     <!---->
   </div>
 </div>
@@ -784,7 +800,8 @@ exports[`Storyshots ChatConversation thread 1`] = `
   </span>
               <div tabindex="-1" class="q-popover scroll"></div>
             </div>
-          </button></span>
+          </button>
+          <!----></span>
           <!---->
         </div>
       </div>
@@ -817,7 +834,8 @@ exports[`Storyshots ChatConversation thread 1`] = `
   </span>
             <div tabindex="-1" class="q-popover scroll"></div>
           </div>
-        </button></span>
+        </button>
+        <!----></span>
         <!---->
       </div>
     </div>
@@ -850,7 +868,8 @@ exports[`Storyshots ChatConversation thread 1`] = `
   </span>
           <div tabindex="-1" class="q-popover scroll"></div>
         </div>
-      </button></span>
+      </button>
+      <!----></span>
       <!---->
     </div>
   </div>
@@ -989,7 +1008,8 @@ exports[`Storyshots Detail application 1`] = `
   </span>
                 <div tabindex="-1" class="q-popover scroll"></div>
               </div>
-            </button></span>
+            </button>
+            <!----></span>
             <!---->
           </div>
         </div>
@@ -1022,7 +1042,8 @@ exports[`Storyshots Detail application 1`] = `
   </span>
               <div tabindex="-1" class="q-popover scroll"></div>
             </div>
-          </button></span>
+          </button>
+          <!----></span>
           <!---->
         </div>
       </div>
@@ -1055,7 +1076,8 @@ exports[`Storyshots Detail application 1`] = `
   </span>
             <div tabindex="-1" class="q-popover scroll"></div>
           </div>
-        </button></span>
+        </button>
+        <!----></span>
         <!---->
       </div>
     </div>
@@ -1088,7 +1110,8 @@ exports[`Storyshots Detail application 1`] = `
   </span>
           <div tabindex="-1" class="q-popover scroll"></div>
         </div>
-      </button></span>
+      </button>
+      <!----></span>
       <!---->
     </div>
   </div>
@@ -7788,7 +7811,8 @@ exports[`Storyshots WallConversation WallConversation 1`] = `
   </span>
               <div tabindex="-1" class="q-popover scroll"></div>
             </div>
-          </button></span>
+          </button>
+          <!----></span>
           <!---->
         </div>
       </div>
@@ -7831,7 +7855,8 @@ exports[`Storyshots WallConversation WallConversation 1`] = `
   </span>
             <div tabindex="-1" class="q-popover scroll"></div>
           </div>
-        </button></span>
+        </button>
+        <!----></span>
         <!---->
       </div>
     </div>
@@ -7874,7 +7899,8 @@ exports[`Storyshots WallConversation WallConversation 1`] = `
   </span>
           <div tabindex="-1" class="q-popover scroll"></div>
         </div>
-      </button></span>
+      </button>
+      <!----></span>
       <!---->
     </div>
   </div>
@@ -7917,7 +7943,8 @@ exports[`Storyshots WallConversation WallConversation 1`] = `
   </span>
         <div tabindex="-1" class="q-popover scroll"></div>
       </div>
-    </button></span>
+    </button>
+    <!----></span>
     <!---->
   </div>
 </div>
@@ -7960,7 +7987,8 @@ exports[`Storyshots WallConversation WallConversation 1`] = `
   </span>
       <div tabindex="-1" class="q-popover scroll"></div>
     </div>
-  </button></span>
+  </button>
+  <!----></span>
   <!---->
 </div>
 </div>
@@ -8003,7 +8031,8 @@ exports[`Storyshots WallConversation WallConversation 1`] = `
   </span>
       <div tabindex="-1" class="q-popover scroll"></div>
     </div>
-  </button></span>
+  </button>
+  <!----></span>
   <!---->
 </div>
 </div>
@@ -8046,7 +8075,8 @@ exports[`Storyshots WallConversation WallConversation 1`] = `
   </span>
       <div tabindex="-1" class="q-popover scroll"></div>
     </div>
-  </button></span>
+  </button>
+  <!----></span>
   <!---->
 </div>
 </div>
@@ -8089,7 +8119,8 @@ exports[`Storyshots WallConversation WallConversation 1`] = `
   </span>
       <div tabindex="-1" class="q-popover scroll"></div>
     </div>
-  </button></span>
+  </button>
+  <!----></span>
   <!---->
 </div>
 </div>
@@ -8132,7 +8163,8 @@ exports[`Storyshots WallConversation WallConversation 1`] = `
   </span>
       <div tabindex="-1" class="q-popover scroll"></div>
     </div>
-  </button></span>
+  </button>
+  <!----></span>
   <!---->
 </div>
 </div>

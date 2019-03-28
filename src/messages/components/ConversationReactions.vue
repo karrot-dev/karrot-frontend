@@ -3,6 +3,7 @@
     <span class="reactions">
       <EmojiButton
         v-for="reaction in reactions"
+        v-touch-hold="toggleDetail"
         :key="reaction.name"
         :name="reaction.name"
         @click="$emit('toggle', reaction.name)"
@@ -19,6 +20,36 @@
       :opacity="0.5"
       @toggle="$emit('toggle', arguments[0])"
     />
+    <QModal
+      v-if="$q.platform.has.touch"
+      v-model="showDetail"
+      content-classes="bg-grey-10 text-grey-1 q-pa-md"
+    >
+      <template v-if="showDetail">
+        <QItem
+          v-for="reaction in reactions"
+          :key="reaction.name"
+          @click.native="toggleDetail"
+          multiline
+        >
+          <QItemSide>
+            <EmojiButton
+              :name="reaction.name"
+              class="big"
+            />
+          </QItemSide>
+          <QItemMain
+            :label="reaction.users.map(u => u.displayName).join(', ')"
+            :sublabel="`:${reaction.name}:`"
+          />
+        </QItem>
+        <QBtn
+          v-t="'BUTTON.CLOSE'"
+          outline
+          @click="toggleDetail"
+        />
+      </template>
+    </QModal>
   </span>
 </template>
 
@@ -26,11 +57,29 @@
 import ConversationAddReaction from './ConversationAddReaction'
 import EmojiButton from './EmojiButton'
 
+import {
+  QModal,
+  QItem,
+  QItemMain,
+  QItemSide,
+  QBtn,
+} from 'quasar'
+
 export default {
   name: 'ConversationReactions',
   components: {
     ConversationAddReaction,
     EmojiButton,
+    QModal,
+    QItem,
+    QItemMain,
+    QItemSide,
+    QBtn,
+  },
+  data () {
+    return {
+      showDetail: false,
+    }
   },
   props: {
     reactions: {
@@ -40,6 +89,11 @@ export default {
     currentUserReactions: {
       type: Array,
       default: () => [],
+    },
+  },
+  methods: {
+    toggleDetail () {
+      this.showDetail = !this.showDetail
     },
   },
 }
@@ -63,4 +117,6 @@ export default {
   padding-left 3px
   opacity .7
   font-size .8em
+.big
+  font-size 1.6em
 </style>

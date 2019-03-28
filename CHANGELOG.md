@@ -21,6 +21,7 @@ Please document your changes in this format:
 ```
 
 ## [Unreleased]
+- Some design improvements for conflict resolution @djahnie
 
 ## [7.2.0] - 2019-03-27
 ### Added

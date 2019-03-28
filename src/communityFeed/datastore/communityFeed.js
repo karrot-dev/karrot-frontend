@@ -21,10 +21,13 @@ export default {
   },
   actions: {
     async fetchTopics ({ commit }) {
-      commit('setMeta', await communityFeedAPI.getMeta())
       commit('setTopics', await communityFeedAPI.latestTopics())
     },
-    mark ({ commit }) {
+    async fetchMeta ({ commit }) {
+      commit('setMeta', await communityFeedAPI.getMeta())
+    },
+    mark ({ rootGetters }) {
+      if (!rootGetters['auth/isLoggedIn']) return
       communityFeedAPI.markSeen()
     },
   },
@@ -35,5 +38,19 @@ export default {
     setMeta (state, meta) {
       state.meta = meta
     },
+    clearMeta (state) {
+      state.meta = initialState().meta
+    },
   },
+}
+
+export function plugin (datastore) {
+  datastore.watch((state, getters) => getters['auth/isLoggedIn'], isLoggedIn => {
+    if (isLoggedIn) {
+      datastore.dispatch('communityFeed/fetchMeta')
+    }
+    else {
+      datastore.commit('communityFeed/clearMeta')
+    }
+  })
 }

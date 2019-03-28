@@ -600,6 +600,10 @@
     "REQUIREMENTS": {
       "ACTIVE_EDITORS": "Your group has {activeEditorsCount} active users with editing permissions. You need {requiredCount} to start a conflict resolution process.",
       "NEWCOMER": "Before you can start a conflict resolution process, you need to receive more trust and gain editing permissions. In the meantime, please ask a fellow group member to start the process for you."
+    },
+    "INFO": {
+      "TITLE": "How does this process work?",
+      "MESSAGE": "This is a score voting in which group member with editing rights can participate to determine how to deal with a social conflict that affects the whole group."
     }
   },
   "ISSUE": {

@@ -142,6 +142,15 @@
             >
               {{ message }}
             </p>
+            <p>
+              <a
+                href="https://community.foodsaving.world/t/how-does-the-conflict-resolution-feature-work/254"
+                target="_blank"
+                rel="noopener"
+                v-t="'CONFLICT.FIND_OUT_MORE'"
+                style="text-decoration: underline"
+              />
+            </p>
           </div>
           <ConflictSetup
             v-else

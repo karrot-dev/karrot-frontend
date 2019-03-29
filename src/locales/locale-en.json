@@ -579,7 +579,6 @@
   },
   "CONFLICT": {
     "SETUP_HEADER": "Is there a conflict with {user}?",
-    "SETUP": "Conflict resolution setup",
     "STATEMENT": "Statement",
     "STEPPER1a": "You are about to start a group-wide conflict resolution process!",
     "STEPPER1b": "This will involve all members with editing permissions to find the best way to proceed.",

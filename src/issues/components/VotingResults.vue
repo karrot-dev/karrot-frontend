@@ -15,22 +15,26 @@
       >
         <QItemSide
           right
-          :stamp="$t('ISSUE.VOTING.RESULTS.MEAN_SCORE')"
+          :stamp="$t('ISSUE.VOTING.RESULTS.TOTAL_SCORE')"
         />
       </QItem>
       <QItem
-        v-for="{ id, icon, label, meanScore} in options"
+        v-for="{ id, icon, label, isOutcome, sumScore} in options"
         :key="id"
+        :class="{'text-secondary': isOutcome}"
       >
         <QItemSide
           :icon="icon"
-          color="primary"
+          :color="isOutcome ? 'secondary' : 'primary'"
         />
         <QItemMain>
           {{ label }}
         </QItemMain>
-        <QItemSide stamp>
-          {{ meanScore ? $n(meanScore, 'twoDigitNumber') : '' }}
+        <QItemSide
+          stamp
+          :class="{'text-secondary': isOutcome}"
+        >
+          {{ sumScore }}
         </QItemSide>
       </QItem>
     </template>
@@ -100,6 +104,7 @@ export default {
         ...o,
         icon: this.getIcon(o.meanScore),
         label: this.getLabel(o.type),
+        isOutcome: this.voting.acceptedOption === o.id,
       })).sort(function (a, b) {
         return b.sumScore - a.sumScore
       })

@@ -1,5 +1,32 @@
 <template>
   <div>
+    <div class="float-right">
+      <QBtn
+        flat
+        round
+        dense
+        icon="help_outline"
+        @click="showInfo = true"
+      >
+        <QDialog
+          v-if="showInfo"
+          v-model="showInfo"
+          :title="$t('CONFLICT.INFO.TITLE')"
+          :ok="$t('BUTTON.CLOSE')"
+        >
+          <template slot="message">
+            <p v-t="'CONFLICT.INFO.MESSAGE'" />
+            <a
+              href="https://community.foodsaving.world/t/how-does-the-conflict-resolution-feature-work/254/3"
+              target="_blank"
+              rel="noopener"
+              v-t="'CONFLICT.FIND_OUT_MORE'"
+              style="text-decoration: underline"
+            />
+          </template>
+        </QDialog>
+      </QBtn>
+    </div>
     <div class="q-title q-mb-md">
       {{ $t('CONFLICT.VOTING.HEADLINE', { userName: issue.affectedUser.displayName }) }}
     </div>
@@ -92,6 +119,7 @@ import {
   QSlider,
   QProgress,
   QBtn,
+  QDialog,
 } from 'quasar'
 
 import DateAsWords from '@/utils/components/DateAsWords'
@@ -105,6 +133,7 @@ export default {
     QSlider,
     QProgress,
     QBtn,
+    QDialog,
     DateAsWords,
   },
   mixins: [statusMixin],
@@ -117,6 +146,7 @@ export default {
   data () {
     return {
       edit: null,
+      showInfo: false,
     }
   },
   watch: {

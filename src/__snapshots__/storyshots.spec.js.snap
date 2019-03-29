@@ -3052,16 +3052,16 @@ exports[`Storyshots Issues history item 1`] = `
           </div>
           <div class="justify-end q-item q-item-division relative-position q-item-dense">
             <div class="q-item-side q-item-section q-item-side-right">
-              <div class="q-item-stamp">Mean score</div>
+              <div class="q-item-stamp">Total score</div>
             </div>
           </div>
-          <div class="q-item q-item-division relative-position">
-            <div class="q-item-side q-item-section q-item-side-left"><i aria-hidden="true" class="q-icon fas fa-smile q-item-icon text-primary"> </i></div>
+          <div class="q-item q-item-division relative-position text-secondary">
+            <div class="q-item-side q-item-section q-item-side-left"><i aria-hidden="true" class="q-icon fas fa-smile q-item-icon text-secondary"> </i></div>
             <div class="q-item-main q-item-section">
               User 59 gets removed from asdf
             </div>
-            <div class="q-item-side q-item-section q-item-side-left">
-              1.4
+            <div class="q-item-side q-item-section q-item-side-left text-secondary">
+
             </div>
           </div>
           <div class="q-item q-item-division relative-position">
@@ -3070,7 +3070,7 @@ exports[`Storyshots Issues history item 1`] = `
               Further discussion: extend time by starting another voting
             </div>
             <div class="q-item-side q-item-section q-item-side-left">
-              0.40
+
             </div>
           </div>
           <div class="q-item q-item-division relative-position">
@@ -3099,16 +3099,16 @@ exports[`Storyshots Issues results - expelled 1`] = `
   </div>
   <div class="justify-end q-item q-item-division relative-position q-item-dense">
     <div class="q-item-side q-item-section q-item-side-right">
-      <div class="q-item-stamp">Mean score</div>
+      <div class="q-item-stamp">Total score</div>
     </div>
   </div>
-  <div class="q-item q-item-division relative-position">
-    <div class="q-item-side q-item-section q-item-side-left"><i aria-hidden="true" class="q-icon fas fa-smile q-item-icon text-primary"> </i></div>
+  <div class="q-item q-item-division relative-position text-secondary">
+    <div class="q-item-side q-item-section q-item-side-left"><i aria-hidden="true" class="q-icon fas fa-smile q-item-icon text-secondary"> </i></div>
     <div class="q-item-main q-item-section">
       User 65 gets removed from asdf
     </div>
-    <div class="q-item-side q-item-section q-item-side-left">
-      1.4
+    <div class="q-item-side q-item-section q-item-side-left text-secondary">
+
     </div>
   </div>
   <div class="q-item q-item-division relative-position">
@@ -3117,7 +3117,7 @@ exports[`Storyshots Issues results - expelled 1`] = `
       Further discussion: extend time by starting another voting
     </div>
     <div class="q-item-side q-item-section q-item-side-left">
-      0.40
+
     </div>
   </div>
   <div class="q-item q-item-division relative-position">
@@ -3134,6 +3134,10 @@ exports[`Storyshots Issues results - expelled 1`] = `
 
 exports[`Storyshots Issues vote - furtherDiscussion 1`] = `
 <div>
+  <div class="float-right"><button tabindex="0" type="button" class="q-btn inline relative-position q-btn-item non-selectable q-btn-round q-btn-flat q-focusable q-hoverable q-btn-dense">
+      <div class="q-focus-helper"></div>
+      <div class="q-btn-inner row col items-center q-popup--skip justify-center"><i aria-hidden="true" class="q-icon material-icons">help_outline</i></div>
+    </button></div>
   <div class="q-title q-mb-md">
     How do you want to proceed with the ongoing conflict with User 63?
   </div>

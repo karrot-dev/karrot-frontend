@@ -64,6 +64,22 @@
           </QField>
 
           <QField
+            icon="fas fa-fw fa-address-card"
+            :label="$t('GROUP.WELCOMEMESSAGE_VERBOSE')"
+            :error="hasError('welcomeMessage')"
+            :error-label="firstError('welcomeMessage')"
+          >
+            <MarkdownInput :value="edit.welcomeMessage">
+              <QInput
+                v-model="edit.welcomeMessage"
+                type="textarea"
+                rows="4"
+                @keyup.ctrl.enter="maybeSave"
+              />
+            </MarkdownInput>
+          </QField>
+
+          <QField
             icon="fas fa-fw fa-map-marker"
             :label="$t('GROUP.ADDRESS')"
             :error="hasAddressError"

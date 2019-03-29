@@ -21,6 +21,8 @@ Please document your changes in this format:
 ```
 
 ## [Unreleased]
+
+## [7.2.1] - 2019-03-29
 ### Added
 - For mobile users: touch and hold on a reaction emoji to show who reacted @tiltec
 
@@ -29,7 +31,6 @@ Please document your changes in this format:
 
 ### Fixed
 - Pickup "join" and "leave" history entries didn't show the date of the pickup, regression from adding pickups with end times @tiltec
-
 
 ## [7.2.0] - 2019-03-27
 ### Added
@@ -408,7 +409,8 @@ After months of planning and programming, the first version of ~the foodsaving t
 [#1174]: https://github.com/yunity/karrot-frontend/issues/1174
 [#1178]: https://github.com/yunity/karrot-frontend/issues/1178
 
-[Unreleased]: https://github.com/yunity/karrot-frontend/compare/v7.2.0...HEAD
+[Unreleased]: https://github.com/yunity/karrot-frontend/compare/v7.2.1...HEAD
+[7.2.1]: https://github.com/yunity/karrot-frontend/compare/v7.2.0...v7.2.1
 [7.2.0]: https://github.com/yunity/karrot-frontend/compare/v7.1.0...v7.2.0
 [7.1.0]: https://github.com/yunity/karrot-frontend/compare/v7.0.0...v7.1.0
 [7.0.0]: https://github.com/yunity/karrot-frontend/compare/v6.5.0...v7.0.0

@@ -104,7 +104,7 @@ export default {
         ...o,
         icon: this.getIcon(o.meanScore),
         label: this.getLabel(o.type),
-        isOutcome: this.markOutcome(o.id),
+        isOutcome: this.voting.acceptedOption === o.id,
       })).sort(function (a, b) {
         return b.sumScore - a.sumScore
       })
@@ -127,15 +127,6 @@ export default {
       }
       return 'fas fa-meh'
     },
-    markOutcome (id) {
-      if (this.voting.acceptedOption === id) {
-        return true
-      }
-    },
   },
 }
 </script>
-
-<style lang="stylus">
-
-</style>

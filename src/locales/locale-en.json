@@ -603,7 +603,7 @@
     },
     "INFO": {
       "TITLE": "How does this process work?",
-      "MESSAGE": "This is a score voting in which group member with editing rights can participate to determine how to deal with a social conflict that affects the whole group."
+      "MESSAGE": "This is a score voting in which group members with editing permissions can participate to determine how to deal with a social conflict that affects the whole group."
     }
   },
   "ISSUE": {

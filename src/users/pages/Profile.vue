@@ -62,6 +62,7 @@
             color="secondary"
             icon="fas fa-comments"
             @click="detail(user)"
+            :title="$t('USERDATA.PRIVATE_MESSAGE', {userName: user.displayName})"
           />
           <QBtn
             v-if="isConflictOngoing"
@@ -70,6 +71,7 @@
             small
             round
             color="negative"
+            :title="$t('CONFLICT.WITH', {userName: user.displayName})"
           />
           <QBtn
             v-else-if="conflictResolutionPossible"
@@ -78,6 +80,7 @@
             small
             round
             :color="canStartConflictResolution ? 'grey-8' : 'grey-5'"
+            :title="$t('CONFLICT.SETUP_HEADER', {user: user.displayName})"
           />
           <TrustButton
             v-if="currentGroupMembership"

@@ -89,6 +89,7 @@ function getRouteTo (type, { group, user, place, pickup, issue } = {}) {
     case 'feedback_possible':
       return group && pickup && { name: 'giveFeedback', params: { groupId: group.id, pickupId: pickup.id } }
     case 'application_declined':
+    case 'conflict_resolution_you_were_removed':
       return group && { name: 'groupPreview', params: { groupPreviewId: group.id } }
     case 'new_place':
       return group && place && { name: 'place', params: { groupId: group.id, placeId: place.id } }

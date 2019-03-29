@@ -638,6 +638,7 @@
         "UNDECIDED_REASON_1": "the affected user left the group while the conflict resolution process was still ongoing",
         "UNDECIDED_REASON_2": "nobody voted on this issue"
       },
+      "SEE_RESULTS": "See the results",
       "SCORE_LABELS": {
         "NEUTRAL": "neutral",
         "SLIGHT_SUPPORT": "support",

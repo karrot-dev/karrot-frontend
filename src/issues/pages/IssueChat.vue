@@ -20,6 +20,19 @@
           class="q-mt-xs"
         />
       </div>
+      <div
+        v-if="!issue.isOngoing"
+        class="q-mx-sm q-mb-sm q-pl-sm text-warning"
+      >
+        <i class="fas fa-info-circle q-mr-xs" />
+        {{ $t('ISSUE.VOTING.RESULTS.TIME_UP') }}
+        <QBtn
+          :to="{ name: 'issueChat', params: { groupId: issue.group.id, issueId: issue.id } }"
+          flat
+        >
+          {{ $t('ISSUE.VOTING.SEE_RESULTS') }}
+        </QBtn>
+      </div>
       <div class="q-mx-sm q-mb-sm q-pa-sm bg-white">
         <span class="text-bold text-secondary uppercase">
           <RouterLink
@@ -94,6 +107,7 @@ import { mapGetters, mapActions } from 'vuex'
 
 import {
   QCollapsible,
+  QBtn,
 } from 'quasar'
 
 export default {
@@ -104,6 +118,7 @@ export default {
     ProfilePicture,
     NotificationToggle,
     QCollapsible,
+    QBtn,
   },
   computed: {
     ...mapGetters({

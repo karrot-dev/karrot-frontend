@@ -21,6 +21,8 @@ Please document your changes in this format:
 ```
 
 ## [Unreleased]
+### Added
+- Groups can specify a welcome message that applicants receive after they've been accepted #1038 @cstefanj
 
 ## [7.2.1] - 2019-03-29
 ### Added

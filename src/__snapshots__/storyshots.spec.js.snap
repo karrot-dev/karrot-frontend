@@ -1335,6 +1335,55 @@ It would make sense if it was markdown
             </div>
           </div>
         </div>
+        <div class="q-field row no-wrap items-start q-field-responsive q-field-no-input"><i aria-hidden="true" class="q-icon q-field-icon q-field-margin fas fa-fw fa-address-card"> </i>
+          <div class="row col">
+            <div class="q-field-label q-field-margin col-xs-12 col-sm-5">
+              <div class="q-field-label-inner row items-center">Welcome message sent to new members</div>
+            </div>
+            <div class="q-field-content col-xs-12 col-sm">
+              <div>
+                <div class="q-tabs flex no-wrap overflow-hidden markdown-input q-tabs-position-top q-tabs-inverted">
+                  <div class="q-tabs-head row q-tabs-align-right text-primary">
+                    <div class="q-tabs-scroller row no-wrap">
+                      <div data-tab-name="edit" class="q-tab column flex-center relative-position markdown-input-tab active disabled q-tab-only-label hide-none text-primary">
+                        <div class="q-tab-label-parent relative-position">
+                          <div class="q-tab-label">Edit</div>
+                        </div>
+                        <div class="q-tabs-bar"></div>
+                        <div tabindex="-1" class="q-tab-focus-helper absolute-full"></div>
+                      </div>
+                      <div data-tab-name="preview" class="q-tab column flex-center relative-position markdown-input-tab disabled q-tab-only-label hide-none text-primary">
+                        <div class="q-tab-label-parent relative-position">
+                          <div class="q-tab-label">Preview</div>
+                        </div>
+                        <div class="q-tabs-bar" style="display:none;"></div>
+                        <div tabindex="-1" class="q-tab-focus-helper absolute-full"></div>
+                      </div>
+                      <div class="relative-position self-stretch q-tabs-global-bar-container text-primary highlight">
+                        <div class="q-tabs-bar q-tabs-global-bar"></div>
+                      </div>
+                    </div>
+                    <div class="row flex-center q-tabs-left-scroll"><i aria-hidden="true" class="q-icon material-icons">chevron_left</i></div>
+                    <div class="row flex-center q-tabs-right-scroll"><i aria-hidden="true" class="q-icon material-icons">chevron_right</i></div>
+                  </div>
+                  <div class="q-tabs-panes">
+                    <div class="q-tab-pane">
+                      <div tabindex="-1" rows="4" class="q-if row no-wrap relative-position q-input q-if-standard text-primary">
+                        <div class="q-if-baseline">|</div>
+                        <div class="q-if-inner col column q-popup--skip">
+                          <div class="row no-wrap relative-position">
+                            <div class="col row relative-position"><object tabindex="-1" type="text/html" data="about:blank" aria-hidden="true" style="display:block;position:absolute;top:0;left:0;right:0;bottom:0;height:100%;width:100%;overflow:hidden;pointer-events:none;z-index:-1;"></object><textarea rows="4" class="col q-input-target q-input-shadow absolute-top">undefined</textarea><textarea rows="4" class="col q-input-target q-input-area">undefined</textarea></div>
+                          </div>
+                        </div>
+                      </div> <small class="row justify-end text-weight-light markdown-helper"><b>**bold**</b> <i>_italic_</i> <span>~~strike~~</span> <span>&gt;quote</span> <a href="https://guides.github.com/features/mastering-markdown/" target="_blank" rel="nofollow noopener noreferrer" title="What is Markdown?"><i aria-hidden="true" class="q-icon fas fa-question-circle"> </i></a></small>
+                    </div>
+                    <!---->
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
         <div class="q-field row no-wrap items-start q-field-responsive q-field-no-input"><i aria-hidden="true" class="q-icon q-field-icon q-field-margin fas fa-fw fa-map-marker"> </i>
           <div class="row col">
             <div class="q-field-label q-field-margin col-xs-12 col-sm-5">

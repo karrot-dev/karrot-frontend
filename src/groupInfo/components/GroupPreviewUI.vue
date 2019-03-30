@@ -94,7 +94,6 @@
               >
                 {{ $t('BUTTON.APPLY') }}
               </QBtn>
-
             </template>
             <QBtn
               v-else

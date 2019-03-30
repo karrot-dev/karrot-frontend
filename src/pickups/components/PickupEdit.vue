@@ -3,7 +3,6 @@
     class="edit-box"
     :class="{ changed: hasChanged }"
   >
-
     <b
       v-if="edit.isDisabled"
       class="text-negative"
@@ -12,9 +11,7 @@
     </b>
 
     <form @submit.prevent="maybeSave">
-
       <template v-if="canEditDate">
-
         <QField
           icon="access time"
           :label="$t('CREATEPICKUP.TIME')"

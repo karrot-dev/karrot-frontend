@@ -82,7 +82,6 @@
         </QItemMain>
       </QItem>
     </QList>
-
   </SidenavBox>
 </template>
 

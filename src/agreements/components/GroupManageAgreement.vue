@@ -25,7 +25,6 @@
         </QBtn>
       </QCardActions>
     </QCard>
-
   </div>
 </template>
 

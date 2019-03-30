@@ -4620,7 +4620,8 @@ exports[`Storyshots PickupItem Full 1`] = `
         <span><strong>Open Chat <i aria-hidden="true" class="q-icon material-icons">chat</i></strong></span></div>
       <!---->
       <!---->
-      <div class="q-my-xs multiline">this pickup is already full!
+      <div class="q-my-xs multiline">
+        this pickup is already full!
       </div>
       <div class="q-my-xs full-width">
         <div class="row justify-start"><object tabindex="-1" type="text/html" data="about:blank" aria-hidden="true" style="display:block;position:absolute;top:0;left:0;right:0;bottom:0;height:100%;width:100%;overflow:hidden;pointer-events:none;z-index:-1;"></object>
@@ -4669,7 +4670,8 @@ exports[`Storyshots PickupItem Join 1`] = `
         <span><strong>Open Chat <i aria-hidden="true" class="q-icon material-icons">chat</i></strong></span></div>
       <!---->
       <!---->
-      <div class="q-my-xs multiline">you can join this pickup
+      <div class="q-my-xs multiline">
+        you can join this pickup
       </div>
       <div class="q-my-xs full-width">
         <div class="row justify-start"><object tabindex="-1" type="text/html" data="about:blank" aria-hidden="true" style="display:block;position:absolute;top:0;left:0;right:0;bottom:0;height:100%;width:100%;overflow:hidden;pointer-events:none;z-index:-1;"></object>
@@ -4719,7 +4721,8 @@ exports[`Storyshots PickupItem Leave 1`] = `
         <span><strong>Open Chat <i aria-hidden="true" class="q-icon material-icons">chat</i></strong></span></div>
       <!---->
       <!---->
-      <div class="q-my-xs multiline">you are collector and can leave this pickup
+      <div class="q-my-xs multiline">
+        you are collector and can leave this pickup
       </div>
       <div class="q-my-xs full-width">
         <div class="row justify-start"><object tabindex="-1" type="text/html" data="about:blank" aria-hidden="true" style="display:block;position:absolute;top:0;left:0;right:0;bottom:0;height:100%;width:100%;overflow:hidden;pointer-events:none;z-index:-1;"></object>
@@ -4765,7 +4768,8 @@ exports[`Storyshots PickupItem pending 1`] = `
         <span><strong>Open Chat <i aria-hidden="true" class="q-icon material-icons">chat</i></strong></span></div>
       <!---->
       <!---->
-      <div class="q-my-xs multiline">you can join this pickup
+      <div class="q-my-xs multiline">
+        you can join this pickup
       </div>
       <div class="q-my-xs full-width">
         <div class="row justify-start"><object tabindex="-1" type="text/html" data="about:blank" aria-hidden="true" style="display:block;position:absolute;top:0;left:0;right:0;bottom:0;height:100%;width:100%;overflow:hidden;pointer-events:none;z-index:-1;"></object>
@@ -4826,7 +4830,8 @@ exports[`Storyshots PickupList Default 1`] = `
           <span><strong>Open Chat <i aria-hidden="true" class="q-icon material-icons">chat</i></strong></span></div>
         <!---->
         <!---->
-        <div class="q-my-xs multiline">you can join this pickup
+        <div class="q-my-xs multiline">
+          you can join this pickup
         </div>
         <div class="q-my-xs full-width">
           <div class="row justify-start"><object tabindex="-1" type="text/html" data="about:blank" aria-hidden="true" style="display:block;position:absolute;top:0;left:0;right:0;bottom:0;height:100%;width:100%;overflow:hidden;pointer-events:none;z-index:-1;"></object>
@@ -4873,7 +4878,8 @@ exports[`Storyshots PickupList Default 1`] = `
           <span><strong>Open Chat <i aria-hidden="true" class="q-icon material-icons">chat</i></strong></span></div>
         <!---->
         <!---->
-        <div class="q-my-xs multiline">you are collector and can leave this pickup
+        <div class="q-my-xs multiline">
+          you are collector and can leave this pickup
         </div>
         <div class="q-my-xs full-width">
           <div class="row justify-start"><object tabindex="-1" type="text/html" data="about:blank" aria-hidden="true" style="display:block;position:absolute;top:0;left:0;right:0;bottom:0;height:100%;width:100%;overflow:hidden;pointer-events:none;z-index:-1;"></object>
@@ -4916,7 +4922,8 @@ exports[`Storyshots PickupList Default 1`] = `
           <span><strong>Open Chat <i aria-hidden="true" class="q-icon material-icons">chat</i></strong></span></div>
         <!---->
         <!---->
-        <div class="q-my-xs multiline">this pickup is already full!
+        <div class="q-my-xs multiline">
+          this pickup is already full!
         </div>
         <div class="q-my-xs full-width">
           <div class="row justify-start"><object tabindex="-1" type="text/html" data="about:blank" aria-hidden="true" style="display:block;position:absolute;top:0;left:0;right:0;bottom:0;height:100%;width:100%;overflow:hidden;pointer-events:none;z-index:-1;"></object>
@@ -4962,7 +4969,8 @@ exports[`Storyshots PickupList Default 1`] = `
           <span><strong>Open Chat <i aria-hidden="true" class="q-icon material-icons">chat</i></strong></span></div>
         <!---->
         <!---->
-        <div class="q-my-xs multiline">this pickup is fresh and empty
+        <div class="q-my-xs multiline">
+          this pickup is fresh and empty
         </div>
         <div class="q-my-xs full-width">
           <div class="row justify-start"><object tabindex="-1" type="text/html" data="about:blank" aria-hidden="true" style="display:block;position:absolute;top:0;left:0;right:0;bottom:0;height:100%;width:100%;overflow:hidden;pointer-events:none;z-index:-1;"></object>

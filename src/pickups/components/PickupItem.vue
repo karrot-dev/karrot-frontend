@@ -42,7 +42,8 @@
         <div
           class="q-my-xs multiline"
           v-if="pickup.description"
-        >{{ pickup.description }}
+        >
+          {{ pickup.description }}
         </div>
         <div class="q-my-xs full-width">
           <PickupUsers

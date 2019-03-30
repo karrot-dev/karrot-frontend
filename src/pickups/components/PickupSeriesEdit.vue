@@ -36,7 +36,8 @@
             <template v-if="hasDuration">
               <div
                 class="q-pa-sm"
-                v-t="'TO'"/>
+                v-t="'TO'"
+              />
               <QDatetime
                 type="time"
                 no-parent-field

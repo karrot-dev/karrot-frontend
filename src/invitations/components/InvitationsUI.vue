@@ -4,7 +4,8 @@
   >
     <RandomArt
       :seed="groupid"
-      type="circles">
+      type="circles"
+    >
       <div class="art-overlay">
         <div class="header">
           <span>

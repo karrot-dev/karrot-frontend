@@ -4,17 +4,20 @@
   >
     <div
       class="white-box shadow-6 q-py-md q-px-sm"
-      v-if="hasInvalidToken">
+      v-if="hasInvalidToken"
+    >
       <h1><QIcon name="fas fa-sad-tear" /> {{ $t('GLOBAL.INVALID_LINK') }}</h1>
     </div>
     <div
       class="white-box shadow-6 q-py-md q-px-sm"
-      v-else-if="hasSuccess">
+      v-else-if="hasSuccess"
+    >
       <h1><QIcon name="fas fa-smile-beam" /> {{ $t('UNSUBSCRIBE.SUCCESS') }}</h1>
     </div>
     <form
       v-else
-      @submit.prevent="save">
+      @submit.prevent="save"
+    >
       <div class="white-box shadow-6 q-py-md q-px-sm">
         <QOptionGroup
           class="q-ma-sm"

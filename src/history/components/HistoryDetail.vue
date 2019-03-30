@@ -102,7 +102,8 @@
       <QItem class="text-white">
         <QBtn
           @click="toggleRaw()"
-          color="secondary">
+          color="secondary"
+        >
           Raw data
         </QBtn>
       </QItem>

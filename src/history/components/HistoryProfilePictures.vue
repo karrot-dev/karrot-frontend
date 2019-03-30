@@ -8,7 +8,8 @@
     <div
       v-else-if="users.length > 1"
       class="usersCount"
-      :style="userCountStyle">
+      :style="userCountStyle"
+    >
       {{ users.length }}
     </div>
   </div>

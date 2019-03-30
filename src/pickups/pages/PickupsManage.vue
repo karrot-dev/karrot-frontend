@@ -20,7 +20,8 @@
             round
             class="bannerButton hoverScale"
             color="secondary"
-            icon="fas fa-plus">
+            icon="fas fa-plus"
+          >
             <QTooltip v-t="'BUTTON.CREATE'" />
           </QBtn>
         </div>

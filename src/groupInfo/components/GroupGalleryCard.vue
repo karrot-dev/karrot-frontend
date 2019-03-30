@@ -24,7 +24,8 @@
       >
         <img
           v-if="group.hasPhoto"
-          :src="group.photoUrls.fullSize">
+          :src="group.photoUrls.fullSize"
+        >
         <RandomArt
           v-else
           :seed="group.id"

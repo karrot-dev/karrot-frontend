@@ -73,7 +73,8 @@
       <RandomArt
         class="randomBanner"
         :seed="select.place.id"
-        type="banner"/>
+        type="banner"
+      />
       <h4
         class="generic-padding"
         v-t="{ path: 'PICKUP_FEEDBACK.PREVIOUS', args: { store: select.place.name } }"

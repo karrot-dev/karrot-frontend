@@ -5,7 +5,8 @@
   >
     <RandomArt
       :seed="group.id"
-      type="circles">
+      type="circles"
+    >
       <div class="art-overlay"/>
     </RandomArt>
     <QList link>

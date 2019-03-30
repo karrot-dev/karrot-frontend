@@ -234,11 +234,10 @@ export default {
       return Boolean(this.issue)
     },
     applicationTitle () {
-      if (this.isApplication && this.application.group) {
-        return this.application.user.isCurrentUser
-          ? this.application.group.name
-          : this.application.user.displayName
-      }
+      if (!this.isApplication || !this.application.group) return ''
+      return this.application.user.isCurrentUser
+        ? this.application.group.name
+        : this.application.user.displayName
     },
   },
 }

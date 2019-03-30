@@ -239,6 +239,7 @@ export default {
       for (let field of ['address', 'latitude', 'longitude']) {
         if (this.hasError(field)) return this.firstError(field)
       }
+      return null
     },
     applicationQuestionsOrDefault () {
       return this.edit.applicationQuestions || this.edit.applicationQuestionsDefault

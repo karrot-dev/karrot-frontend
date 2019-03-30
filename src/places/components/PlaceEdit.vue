@@ -208,6 +208,7 @@ export default {
       for (let field of ['address', 'latitude', 'longitude']) {
         if (this.hasError(field)) return this.firstError(field)
       }
+      return null
     },
     statusOptions () {
       return statusList
@@ -221,6 +222,7 @@ export default {
     },
     markerColor () {
       if (this.edit) return optionsFor(this.edit).color
+      return null
     },
   },
   methods: {

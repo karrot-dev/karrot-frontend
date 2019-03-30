@@ -169,11 +169,9 @@ export default {
           }
         }
       }
-      else {
-        return {
-          link: '',
-          name: '',
-        }
+      return {
+        link: '',
+        name: '',
       }
     },
   },

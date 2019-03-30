@@ -86,6 +86,7 @@ export default {
           draggable: true,
         }
       }
+      return null
     },
   },
 }

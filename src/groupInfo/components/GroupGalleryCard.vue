@@ -134,6 +134,7 @@ export default {
       if (reduceOpacity) {
         return { opacity: 0.5 }
       }
+      return {}
     },
     myApplication () {
       if (!this.group) return

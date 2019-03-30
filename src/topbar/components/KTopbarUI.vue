@@ -212,6 +212,7 @@ export default {
       if (this.user && this.user.photoUrls) {
         return this.user.photoUrls.thumbnail
       }
+      return null
     },
     presence () {
       if (this.away) {

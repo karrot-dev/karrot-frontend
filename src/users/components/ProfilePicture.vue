@@ -74,6 +74,7 @@ export default {
         const p = this.user.photoUrls
         return this.size > 120 ? p.fullSize : p.thumbnail
       }
+      return null
     },
   },
 }

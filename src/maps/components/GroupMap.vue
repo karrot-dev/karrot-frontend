@@ -138,6 +138,7 @@ export default {
     center () {
       const { latitude: lat, longitude: lng } = this.currentGroup || {}
       if (lat && lng) return { lat, lng }
+      return undefined
     },
     containerStyle () {
       if (this.height) {
@@ -176,6 +177,7 @@ export default {
         }
         return markers
       }
+      return undefined
     },
     markers () {
       let items = []

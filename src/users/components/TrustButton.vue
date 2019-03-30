@@ -171,6 +171,7 @@ export default {
           trustNeeded: this.trustNeeded,
         })
       }
+      return ''
     },
     trustNeeded () {
       return this.threshold - this.trustedBy.length

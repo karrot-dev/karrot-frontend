@@ -92,6 +92,7 @@ export default {
         const countString = count >= 10 ? (count + '+') : count
         return this.$tc('NOTIFICATIONS.EMAIL_NOT_DELIVERED', count, { count: countString })
       }
+      return null
     },
   },
   methods: {

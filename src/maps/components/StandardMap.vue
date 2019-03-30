@@ -214,6 +214,7 @@ export default {
       if (!this.preventZoom && this.hasMarkers && !this.hasOneMarker) {
         return L.latLngBounds(this.markersForBound.map(m => m.latLng)).pad(0.2)
       }
+      return undefined
     },
     center () {
       if (this.forceCenter && !Number.isNaN(this.forceCenter.lat)) return this.forceCenter
@@ -226,6 +227,7 @@ export default {
         }
         return ['49.8990022441358', '8.66415739059448']
       }
+      return undefined
     },
     zoom () {
       if (Number.isInteger(this.forceZoom)) {
@@ -240,6 +242,7 @@ export default {
       if (!this.bounds) {
         return this.lastZoom
       }
+      return undefined
     },
   },
   watch: {

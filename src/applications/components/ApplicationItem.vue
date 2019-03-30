@@ -164,6 +164,7 @@ export default {
         case 'withdrawn':
           return 'APPLICATION.WITHDRAWN'
       }
+      return null
     },
     personDeciding () {
       switch (this.application.status) {
@@ -172,6 +173,7 @@ export default {
         case 'declined':
           return 'GROUP.DECLINED_BY'
       }
+      return null
     },
   },
 }

@@ -1,9 +1,9 @@
 <template>
   <span>
-    <SidenavMap v-if="!$q.platform.is.mobile"/>
-    <SidenavGroup/>
-    <SidenavPlace/>
-    <SidenavPlaces/>
+    <SidenavMap v-if="!$q.platform.is.mobile" />
+    <SidenavGroup />
+    <SidenavPlace />
+    <SidenavPlaces />
   </span>
 </template>
 

@@ -26,7 +26,7 @@
       v-if="hasAnyError"
       class="bg-white text-negative"
     >
-      <i class="fas fa-exclamation-triangle"/>
+      <i class="fas fa-exclamation-triangle" />
       {{ anyFirstError }}
     </p>
   </QAlert>

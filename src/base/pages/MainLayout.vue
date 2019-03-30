@@ -57,13 +57,13 @@
         >
           <SidenavTitle @click="toggleSidenav" />
           <RouterView name="sidenav" />
-          <MobileSidenav/>
+          <MobileSidenav />
           <QItem
             link
             @click.native="toggleAbout()"
           >
             <QItemSide class="text-center">
-              <KarrotLogo class="logo"/>
+              <KarrotLogo class="logo" />
             </QItemSide>
             <QItemMain>
               {{ $t("GLOBAL.ABOUT_KARROT") }}
@@ -87,7 +87,7 @@
             @click.native="toggleAbout()"
           >
             <QItemSide class="text-center">
-              <KarrotLogo class="logo"/>
+              <KarrotLogo class="logo" />
             </QItemSide>
             <QItemMain>
               {{ $t("GLOBAL.ABOUT_KARROT") }}
@@ -144,7 +144,7 @@
     </div>
 
     <QModal v-model="showAbout">
-      <KAbout @close="toggleAbout()"/>
+      <KAbout @close="toggleAbout()" />
     </QModal>
   </div>
 </template>

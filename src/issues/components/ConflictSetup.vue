@@ -104,7 +104,7 @@
         v-if="hasAnyError"
         class="text-negative q-pl-lg"
       >
-        <i class="fas fa-exclamation-triangle"/>
+        <i class="fas fa-exclamation-triangle" />
         {{ anyFirstError }}
       </div>
     </div>

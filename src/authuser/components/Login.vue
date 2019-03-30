@@ -67,7 +67,7 @@
           {{ $t('LOGIN.SUBMIT') }}
         </QBtn>
       </div>
-      <div style="clear: both"/>
+      <div style="clear: both" />
     </form>
   </div>
 </template>

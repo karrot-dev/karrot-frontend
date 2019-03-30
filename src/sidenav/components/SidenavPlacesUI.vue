@@ -18,7 +18,7 @@
         :value="showAllPlaces"
         @input="$emit('toggleShowAllPlaces')"
       >
-        <QTooltip v-t="showAllPlaces ? 'STOREEDIT.SHOW_ACTIVE_ONLY' : 'STOREEDIT.SHOW_ALL'"/>
+        <QTooltip v-t="showAllPlaces ? 'STOREEDIT.SHOW_ACTIVE_ONLY' : 'STOREEDIT.SHOW_ALL'" />
       </QToggle>
       <QBtn
         v-if="hasPlaces && isEditor"

@@ -75,7 +75,7 @@
           v-if="hasNonFieldError"
           class="error"
         >
-          <i class="fas fa-exclamation-triangle"/>
+          <i class="fas fa-exclamation-triangle" />
           {{ firstNonFieldError }}
         </div>
 
@@ -95,7 +95,7 @@
             {{ $t('SIGNUP.OK') }}
           </QBtn>
         </div>
-        <div style="clear: both"/>
+        <div style="clear: both" />
       </div>
     </form>
   </div>

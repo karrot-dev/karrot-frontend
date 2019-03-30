@@ -5,7 +5,7 @@
         color="blue"
         class="generic-padding notice"
       >
-        <i class="fas fa-address-card on-left"/>
+        <i class="fas fa-address-card on-left" />
         {{ $tc('APPLICATION.WALL_NOTICE', applications.length, { count: applications.length }) }}
       </QCard>
     </RouterLink>

@@ -26,7 +26,7 @@
           </QBtn>
         </div>
       </QCardTitle>
-      <QItem v-if="newSeries" >
+      <QItem v-if="newSeries">
         <PickupSeriesEdit
           :value="newSeries"
           @save="saveNewSeries"
@@ -162,7 +162,7 @@
           </QBtn>
         </div>
       </QCardTitle>
-      <QItem v-if="newPickup" >
+      <QItem v-if="newPickup">
         <PickupEdit
           :value="newPickup"
           @save="saveNewPickup"

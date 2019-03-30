@@ -7,7 +7,7 @@
       :seed="group.id"
       type="circles"
     >
-      <div class="art-overlay"/>
+      <div class="art-overlay" />
     </RandomArt>
     <QList link>
       <QListHeader>{{ $t('GROUP.EMAIL_NOTIFICATIONS') }}</QListHeader>

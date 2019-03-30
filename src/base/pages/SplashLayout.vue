@@ -1,7 +1,7 @@
 <template>
   <div class="splashlayout-wrapper">
     <div class="splashlayout-header">
-      <RouterView name="header"/>
+      <RouterView name="header" />
     </div>
     <div class="splashlayout">
       <div class="splashlayout-content">
@@ -9,7 +9,7 @@
           name="fade"
           mode="out-in"
         >
-          <RouterView/>
+          <RouterView />
         </Transition>
       </div>
     </div>

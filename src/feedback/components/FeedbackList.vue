@@ -5,9 +5,9 @@
       :feedback-possible="feedbackPossible"
     />
     <KSpinner v-show="isPending || (feedbackPossibleStatus && feedbackPossibleStatus.pending)" />
-    <KNotice v-if="empty" >
+    <KNotice v-if="empty">
       <template slot="icon">
-        <i class="fas fa-balance-scale"/>
+        <i class="fas fa-balance-scale" />
       </template>
       {{ $t('FEEDBACKLIST.NONE') }}
       <template slot="desc">

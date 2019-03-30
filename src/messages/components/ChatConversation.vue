@@ -46,7 +46,7 @@
       </QList>
       <KSpinner slot="message" />
     </QInfiniteScroll>
-    <slot name="afterChatMessages"/>
+    <slot name="afterChatMessages" />
     <QScrollObservable @scroll="onScroll" />
   </div>
 </template>

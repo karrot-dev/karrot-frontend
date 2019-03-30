@@ -39,9 +39,7 @@ module.exports = {
       'exports': 'always-multiline',
       'functions': 'always-multiline'
     }],
-    // all below: temporarily disabled
-    // TODO fixup our codebase
+    // do not capitalize the "I" in "i18n" component name
     'vue/component-name-in-template-casing': ['error', 'PascalCase', {'ignores': ['i18n']}],
-    'vue/html-closing-bracket-spacing': 'off',
   },
 }

@@ -27,7 +27,7 @@
       >
         <span v-if="breadcrumb.name">{{ breadcrumb.name }}</span>
       </div>
-      <div> <i class="fas fa-fw fa-angle-right"/> </div>
+      <div> <i class="fas fa-fw fa-angle-right" /> </div>
     </div>
     <div
       v-if="secondlastElement"
@@ -38,7 +38,7 @@
         :to="secondlastElement.route"
       >
         <div style="min-width: 20px; text-align: right; padding: 4px">
-          <i class="fas fa-fw fa-angle-left"/>
+          <i class="fas fa-fw fa-angle-left" />
         </div>
       </RouterLink>
     </div>

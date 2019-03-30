@@ -29,7 +29,7 @@
         round
       >
         <QIcon name="fas fa-fw fa-ellipsis-v" />
-        <PlaceOptions/>
+        <PlaceOptions />
       </QBtn>
     </div>
 
@@ -75,7 +75,7 @@
       </QItem>
       <QItem :to="{name: 'placeHistory', params: { placeId }}">
         <QItemSide class="text-center">
-          <i class="far fa-clock"/>
+          <i class="far fa-clock" />
         </QItemSide>
         <QItemMain>
           {{ $t("GROUP.HISTORY") }}

@@ -36,7 +36,7 @@
           class="text-negative"
           style="margin-bottom: 2em"
         >
-          <i class="fas fa-exclamation-triangle"/>
+          <i class="fas fa-exclamation-triangle" />
           {{ anyFirstError }}
         </div>
       </div>

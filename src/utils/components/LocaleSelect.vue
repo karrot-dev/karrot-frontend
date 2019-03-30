@@ -32,7 +32,7 @@
           <QIcon name="fas fa-times" />
         </QBtn>
       </div>
-      <LocaleSelectInner v-if="open"/>
+      <LocaleSelectInner v-if="open" />
     </Component>
   </QBtn>
 </template>

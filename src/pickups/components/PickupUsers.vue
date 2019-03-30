@@ -72,7 +72,7 @@
       class="emptySlots"
       :style="{ width: size + 'px', height: size + 'px' }"
     >
-      <div/>
+      <div />
       <span v-if="noNotShownEmptySlots <= 99">+ {{ noNotShownEmptySlots }}</span>
       <span v-if="noNotShownEmptySlots > 99 && !hasUnlimitedPlaces">...</span>
       <span v-if="noNotShownEmptySlots > 99 && hasUnlimitedPlaces">+ ∞</span>

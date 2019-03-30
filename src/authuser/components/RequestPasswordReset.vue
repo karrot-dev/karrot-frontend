@@ -27,7 +27,7 @@
           v-if="hasAnyError"
           class="error"
         >
-          <i class="fas fa-exclamation-triangle"/>
+          <i class="fas fa-exclamation-triangle" />
           {{ anyFirstError }}
         </div>
 
@@ -47,7 +47,7 @@
             {{ $t('PASSWORDRESET.SUBMIT') }}
           </QBtn>
         </div>
-        <div style="clear: both"/>
+        <div style="clear: both" />
       </div>
     </form>
   </div>

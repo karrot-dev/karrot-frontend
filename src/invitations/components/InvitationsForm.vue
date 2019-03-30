@@ -31,7 +31,7 @@
           {{ $t('GROUP.INVITE_SEND') }}
         </QTooltip>
       </QBtn>
-      <div style="clear:both"/>
+      <div style="clear:both" />
     </form>
   </div>
 </template>

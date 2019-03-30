@@ -4,7 +4,7 @@
     :class="{ greyedOut: !showJoin, active: showJoin }"
     :style="{ width: size + 'px', height: size + 'px' }"
   >
-    <div :class="{ hoverHide: showJoin }"/>
+    <div :class="{ hoverHide: showJoin }" />
     <div
       v-if="hoverUser && showJoin"
       :class="{ hoverShow: showJoin }"

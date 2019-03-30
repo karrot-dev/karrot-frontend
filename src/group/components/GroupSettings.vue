@@ -23,8 +23,12 @@
           />
         </QItemSide>
         <QItemMain>
-          <QItemTile label>{{ $t('GROUP.NOTIFICATION_TYPES.' + type + '.NAME') }}</QItemTile>
-          <QItemTile sublabel>{{ $t('GROUP.NOTIFICATION_TYPES.' + type + '.DESCRIPTION') }}</QItemTile>
+          <QItemTile label>
+            {{ $t('GROUP.NOTIFICATION_TYPES.' + type + '.NAME') }}
+          </QItemTile>
+          <QItemTile sublabel>
+            {{ $t('GROUP.NOTIFICATION_TYPES.' + type + '.DESCRIPTION') }}
+          </QItemTile>
         </QItemMain>
       </QItem>
     </QList>

@@ -196,7 +196,9 @@
               </QItemTile>
               <QItemTile sublabel>
                 {{ $d(pickup.date, 'hourMinute') }}
-                <template v-if="pickup.hasDuration"> &mdash; {{ $d(pickup.dateEnd, 'hourMinute') }}</template>
+                <template v-if="pickup.hasDuration">
+                  &mdash; {{ $d(pickup.dateEnd, 'hourMinute') }}
+                </template>
               </QItemTile>
             </QItemMain>
           </template>

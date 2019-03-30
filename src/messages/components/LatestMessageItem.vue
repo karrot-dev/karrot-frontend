@@ -33,7 +33,9 @@
               name="fas fa-fw fa-comments"
               class="q-mr-sm"
             />
-            <div class="ellipsis">{{ thread.content }}</div>
+            <div class="ellipsis">
+              {{ thread.content }}
+            </div>
           </template>
           <template v-else-if="isApplication">
             <QIcon
@@ -51,7 +53,9 @@
               class="q-mr-sm"
               :title="$t('GROUP.WALL')"
             />
-            <div class="ellipsis">{{ group.name }}</div>
+            <div class="ellipsis">
+              {{ group.name }}
+            </div>
           </template>
           <template v-else-if="isPlace">
             <QIcon
@@ -59,7 +63,9 @@
               class="q-mr-sm"
               :title="$t('GROUP.WALL')"
             />
-            <div class="ellipsis">{{ place.name }}</div>
+            <div class="ellipsis">
+              {{ place.name }}
+            </div>
           </template>
           <template v-else-if="isIssue">
             <QIcon
@@ -67,7 +73,9 @@
               class="q-mr-sm"
               :title="$t('ISSUE.TITLE')"
             />
-            <div class="ellipsis">{{ issue.affectedUser && issue.affectedUser.displayName }}</div>
+            <div class="ellipsis">
+              {{ issue.affectedUser && issue.affectedUser.displayName }}
+            </div>
           </template>
           <QIcon
             v-if="muted"
@@ -124,7 +132,9 @@
         >
           {{ $t('YOU') }}:&nbsp;
         </div>
-        <div class="ellipsis col">{{ message.content }}</div>
+        <div class="ellipsis col">
+          {{ message.content }}
+        </div>
         <QChip
           v-if="unreadCount > 0"
           round

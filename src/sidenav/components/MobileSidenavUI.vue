@@ -80,7 +80,7 @@ export default {
   },
   props: {
     currentUserId: {
-      type: Number | null,
+      type: Number,
       default: null,
     },
   },

@@ -42,7 +42,6 @@ module.exports = {
     // all below: temporarily disabled
     // TODO fixup our codebase
     'vue/component-name-in-template-casing': ['error', 'PascalCase', {'ignores': ['i18n']}],
-    'vue/require-prop-type-constructor': 'off',
     'vue/no-use-v-if-with-v-for': 'off',
     'vue/singleline-html-element-content-newline': 'off',
     'vue/multiline-html-element-content-newline': 'off',

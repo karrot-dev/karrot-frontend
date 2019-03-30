@@ -76,7 +76,7 @@ export default {
       type: String,
     },
     value: {
-      type: String | Date | Number,
+      type: [String, Date, Number],
       required: true,
     },
   },

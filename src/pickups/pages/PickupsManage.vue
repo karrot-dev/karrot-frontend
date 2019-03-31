@@ -15,12 +15,12 @@
         >
           <QBtn
             v-if="!newSeries"
-            @click="createNewSeries"
             small
             round
             class="bannerButton hoverScale"
             color="secondary"
             icon="fas fa-plus"
+            @click="createNewSeries"
           >
             <QTooltip v-t="'BUTTON.CREATE'" />
           </QBtn>
@@ -29,10 +29,10 @@
       <QItem v-if="newSeries">
         <PickupSeriesEdit
           :value="newSeries"
+          :status="seriesCreateStatus"
           @save="saveNewSeries"
           @cancel="cancelNewSeries"
           @reset="resetNewSeries"
-          :status="seriesCreateStatus"
         />
       </QItem>
       <QList
@@ -44,20 +44,20 @@
       >
         <QCollapsible
           v-for="series in pickupSeries"
-          @show="makeVisible('series', series.id)"
           :key="series.id"
           :label="seriesLabel(series)"
           :sublabel="seriesSublabel(series)"
           icon="fas fa-calendar-alt"
           sparse
+          @show="makeVisible('series', series.id)"
         >
           <QItem v-if="visible.series[series.id]">
             <PickupSeriesEdit
               :value="series"
+              :status="series.saveStatus"
               @save="saveSeries"
               @destroy="destroySeries"
               @reset="resetPickup"
-              :status="series.saveStatus"
             />
           </QItem>
           <QList
@@ -67,8 +67,8 @@
             <QListHeader v-t="'PICKUPMANAGE.UPCOMING_PICKUPS_IN_SERIES'" />
             <QCollapsible
               v-for="pickup in series.pickups"
-              @show="makeVisible('pickup', pickup.id)"
               :key="pickup.id"
+              @show="makeVisible('pickup', pickup.id)"
             >
               <template slot="header">
                 <QItemSide
@@ -151,12 +151,12 @@
         >
           <QBtn
             v-if="!newPickup"
-            @click="createNewPickup"
             small
             round
             class="bannerButton hoverScale"
             color="secondary"
             icon="fas fa-plus"
+            @click="createNewPickup"
           >
             <QTooltip v-t="'BUTTON.CREATE'" />
           </QBtn>
@@ -165,10 +165,10 @@
       <QItem v-if="newPickup">
         <PickupEdit
           :value="newPickup"
+          :status="pickupCreateStatus"
           @save="saveNewPickup"
           @cancel="cancelNewPickup"
           @reset="resetNewPickup"
-          :status="pickupCreateStatus"
         />
       </QItem>
       <QList
@@ -178,9 +178,9 @@
       >
         <QCollapsible
           v-for="pickup in oneTimePickups"
-          @show="makeVisible('pickup', pickup.id)"
           :key="pickup.id"
           sparse
+          @show="makeVisible('pickup', pickup.id)"
         >
           <template slot="header">
             <QItemSide
@@ -206,9 +206,9 @@
           <PickupEdit
             v-if="visible.pickup[pickup.id]"
             :value="pickup"
+            :status="pickup.saveStatus"
             @save="savePickup"
             @reset="resetPickup"
-            :status="pickup.saveStatus"
           />
         </QCollapsible>
       </QList>
@@ -270,6 +270,19 @@ export default {
         pickup: {},
       },
     }
+  },
+  computed: {
+    ...mapGetters({
+      placeId: 'places/activePlaceId',
+      pickupSeries: 'pickupSeries/byActivePlace',
+      pickups: 'pickups/byActivePlace',
+      pickupCreateStatus: 'pickups/createStatus',
+      seriesCreateStatus: 'pickupSeries/createStatus',
+    }),
+    oneTimePickups () {
+      // filter out already started pickups
+      return this.pickups.filter(p => !p.series && !p.hasStarted)
+    },
   },
   methods: {
     makeVisible (type, id) {
@@ -356,19 +369,6 @@ export default {
     },
     resetPickup (pickupId) {
       this.$store.dispatch('pickups/meta/clear', ['save', pickupId])
-    },
-  },
-  computed: {
-    ...mapGetters({
-      placeId: 'places/activePlaceId',
-      pickupSeries: 'pickupSeries/byActivePlace',
-      pickups: 'pickups/byActivePlace',
-      pickupCreateStatus: 'pickups/createStatus',
-      seriesCreateStatus: 'pickupSeries/createStatus',
-    }),
-    oneTimePickups () {
-      // filter out already started pickups
-      return this.pickups.filter(p => !p.series && !p.hasStarted)
     },
   },
 }

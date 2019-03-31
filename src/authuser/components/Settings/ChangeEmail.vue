@@ -1,7 +1,7 @@
 <template>
   <div
-    class="edit-box"
     id="change-email"
+    class="edit-box"
   >
     <VerificationWarning />
 
@@ -12,8 +12,8 @@
       :error-label="firstError('newEmail')"
     >
       <QInput
-        type="email"
         v-model="newEmail"
+        type="email"
       />
     </QField>
     <QField
@@ -23,8 +23,8 @@
       :error-label="firstError('password')"
     >
       <QInput
-        type="password"
         v-model="password"
+        type="password"
       />
     </QField>
     <div
@@ -36,9 +36,9 @@
     <div class="actionButtons">
       <QBtn
         color="primary"
-        @click="save"
         :disable="!hasEmailChanged || !hasPassword"
         :loading="isPending"
+        @click="save"
       >
         {{ $t('BUTTON.CHANGE_EMAIL') }}
       </QBtn>
@@ -54,6 +54,15 @@ import VerificationWarning from '@/authuser/components/Settings/VerificationWarn
 export default {
   components: { QField, QInput, QBtn, VerificationWarning },
   mixins: [statusMixin],
+  props: {
+    user: { required: true, type: Object },
+  },
+  data () {
+    return {
+      newEmail: '',
+      password: '',
+    }
+  },
   computed: {
     hasEmailChanged () {
       if (!this.user) return
@@ -64,14 +73,13 @@ export default {
       return !!this.password
     },
   },
-  props: {
-    user: { required: true, type: Object },
+  watch: {
+    user () {
+      this.setEmail()
+    },
   },
-  data () {
-    return {
-      newEmail: '',
-      password: '',
-    }
+  mounted () {
+    this.setEmail()
   },
   methods: {
     reset () {
@@ -86,14 +94,6 @@ export default {
       if (!this.user) return
       this.newEmail = this.user.email || this.user.unverifiedEmail
     },
-  },
-  watch: {
-    user () {
-      this.setEmail()
-    },
-  },
-  mounted () {
-    this.setEmail()
   },
 }
 </script>

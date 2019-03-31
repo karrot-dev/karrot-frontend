@@ -8,13 +8,13 @@
       path="OUTDATED_BROWSER.MESSAGE"
     >
       <a
+        v-t="'OUTDATED_BROWSER.LINK'"
         place="upgradeBrowser"
         href="https://browser-update.org/update.html"
         class="outdated-link"
         rel="noopener nofollow noreferrer"
         target="_blank"
         translate="yes"
-        v-t="'OUTDATED_BROWSER.LINK'"
       />
     </i18n>
   </div>

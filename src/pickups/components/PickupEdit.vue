@@ -21,20 +21,20 @@
         >
           <div class="row">
             <QDatetime
-              type="time"
               v-model="date"
+              type="time"
               :format24h="is24h"
               :display-value="$d(date, 'hourMinute')"
             />
             <template v-if="edit.hasDuration">
               <div
-                class="q-pa-sm"
                 v-t="'TO'"
+                class="q-pa-sm"
               />
               <QDatetime
+                v-model="dateEnd"
                 type="time"
                 no-parent-field
-                v-model="dateEnd"
                 :format24h="is24h"
                 :display-value="$d(edit.dateEnd, 'hourMinute') + ' (' + formattedDuration + ')'"
                 :after="[{ icon: 'cancel', handler: toggleDuration }]"
@@ -60,8 +60,8 @@
           :error-label="firstError('date')"
         >
           <QDatetime
-            type="date"
             v-model="date"
+            type="date"
             :min="now"
             :display-value="$d(date, 'yearMonthDay')"
           />
@@ -147,18 +147,18 @@
         </QBtn>
 
         <QBtn
-          type="button"
-          @click="reset"
           v-if="!isNew"
+          type="button"
           :disable="!hasChanged"
+          @click="reset"
         >
           {{ $t('BUTTON.RESET') }}
         </QBtn>
 
         <QBtn
+          v-if="isNew"
           type="button"
           @click="$emit('cancel')"
-          v-if="isNew"
         >
           {{ $t('BUTTON.CANCEL') }}
         </QBtn>
@@ -191,19 +191,19 @@ import { objectDiff } from '@/utils/utils'
 
 export default {
   name: 'PickupEdit',
-  mixins: [editMixin, statusMixin],
-  props: {
-    series: {
-      type: Object,
-      default: null,
-    },
-  },
   components: {
     QDatetime,
     QField,
     QSlider,
     QInput,
     QBtn,
+  },
+  mixins: [editMixin, statusMixin],
+  props: {
+    series: {
+      type: Object,
+      default: null,
+    },
   },
   computed: {
     is24h,

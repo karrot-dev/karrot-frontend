@@ -4,8 +4,8 @@
     flat
     dense
     round
-    @click="maybeOpen"
     :title="$t('GROUP.MESSAGES')"
+    @click="maybeOpen"
   >
     <QIcon
       name="fas fa-comments"
@@ -50,6 +50,11 @@ export default {
     QPopover,
     LatestMessages,
   },
+  data () {
+    return {
+      showing: false,
+    }
+  },
   computed: {
     ...mapGetters({
       unseenCount: 'latestMessages/unseenCount',
@@ -64,11 +69,6 @@ export default {
       }
       this.$emit('click')
     },
-  },
-  data () {
-    return {
-      showing: false,
-    }
   },
 }
 </script>

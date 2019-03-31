@@ -1,8 +1,8 @@
 <template>
   <SidenavBox
-    @toggle="$emit('toggleBox')"
     :expanded="$q.platform.is.mobile || expanded"
     :expandable="!$q.platform.is.mobile"
+    @toggle="$emit('toggleBox')"
   >
     <template slot="icon">
       <QIcon name="fas fa-fw fa-home" />
@@ -138,11 +138,6 @@ export default {
   components: {
     SidenavBox, GroupOptions, QBtn, QList, QItem, QItemSide, QItemMain, QIcon, QTooltip, QChip,
   },
-  computed: {
-    cappedWallUnreadCount () {
-      return this.wallUnreadCount > 99 ? '99+' : this.wallUnreadCount
-    },
-  },
   props: {
     groupId: {
       default: null,
@@ -155,6 +150,11 @@ export default {
     wallUnreadCount: {
       default: 0,
       type: Number,
+    },
+  },
+  computed: {
+    cappedWallUnreadCount () {
+      return this.wallUnreadCount > 99 ? '99+' : this.wallUnreadCount
     },
   },
 }

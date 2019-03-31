@@ -17,10 +17,10 @@
           <template slot="message">
             <p v-t="'CONFLICT.INFO.MESSAGE'" />
             <a
+              v-t="'CONFLICT.FIND_OUT_MORE'"
               href="https://community.foodsaving.world/t/how-does-the-conflict-resolution-feature-work/254/3"
               target="_blank"
               rel="noopener"
-              v-t="'CONFLICT.FIND_OUT_MORE'"
               style="text-decoration: underline"
             />
           </template>
@@ -61,8 +61,8 @@
               {{ getTitle(o.type) }}
             </div>
             <QSlider
-              class="k-vote-slider"
               v-model="o.yourScore"
+              class="k-vote-slider"
               :label-value="getLabel(o.yourScore)"
               :min="-2"
               :max="2"
@@ -104,10 +104,10 @@
       <template v-if="showOverlay">
         <div class="overlay absolute-full" />
         <QBtn
+          v-t="'ISSUE.VOTING.BTN_START'"
           class="absolute-center"
           color="primary"
           @click="setToZero()"
-          v-t="'ISSUE.VOTING.BTN_START'"
         />
       </template>
     </div>
@@ -149,14 +149,6 @@ export default {
       showInfo: false,
     }
   },
-  watch: {
-    options: {
-      immediate: true,
-      handler (current, previous) {
-        this.edit = cloneDeep(current)
-      },
-    },
-  },
   computed: {
     progress () {
       const { expiresAt, createdAt } = this.ongoingVoting
@@ -182,6 +174,14 @@ export default {
     },
     hasChanged () {
       return !deepEqual(this.options, this.edit)
+    },
+  },
+  watch: {
+    options: {
+      immediate: true,
+      handler (current, previous) {
+        this.edit = cloneDeep(current)
+      },
     },
   },
   methods: {

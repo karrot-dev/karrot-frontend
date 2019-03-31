@@ -17,16 +17,16 @@
           v-if="canGoBack"
           color="secondary"
           push
-          @click="goBack"
           icon="keyboard_arrow_left"
+          @click="goBack"
         >
           {{ $t('BUTTON.BACK') }}
         </QBtn>
         <QBtn
           color="secondary"
           push
-          @click="$router.replace('/')"
           icon-right="fas fa-home"
+          @click="$router.replace('/')"
         >
           {{ $t('NOT_FOUND.HOME') }}
         </QBtn>

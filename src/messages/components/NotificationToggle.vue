@@ -12,8 +12,8 @@
     />
     <QPopover>
       <QList
-        link
         v-close-overlay
+        link
       >
         <template v-if="user && !user.mailVerified">
           <QItem
@@ -33,8 +33,8 @@
         <QItem
           v-for="o in options"
           :key="o.id"
-          @click.native="select(o)"
           :class="o.selected ? 'bg-grey-2' : ''"
+          @click.native="select(o)"
         >
           <QItemSide
             :color="o.color"

@@ -13,6 +13,7 @@ import StandardMap from '@/maps/components/StandardMap'
 import { groupMarker } from '@/maps/components/markers'
 
 export default {
+  components: { StandardMap },
   props: {
     filteredMyGroups: {
       default: () => [],
@@ -70,7 +71,6 @@ export default {
       return [0.0, 0.0]
     },
   },
-  components: { StandardMap },
 }
 </script>
 

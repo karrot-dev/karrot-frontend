@@ -9,13 +9,13 @@ export default {
       default: 1,
     },
   },
-  mounted () {
-    this.mapObject.setOpacity(this.opacity)
-  },
   watch: {
     opacity (val) {
       this.mapObject.setOpacity(val)
     },
+  },
+  mounted () {
+    this.mapObject.setOpacity(this.opacity)
   },
 }
 </script>

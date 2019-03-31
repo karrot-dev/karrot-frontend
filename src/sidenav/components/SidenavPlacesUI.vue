@@ -1,8 +1,8 @@
 <template>
   <SidenavBox
-    @toggle="$emit('toggleBox')"
     :expanded="$q.platform.is.mobile || expanded"
     :expandable="!$q.platform.is.mobile"
+    @toggle="$emit('toggleBox')"
   >
     <template slot="icon">
       <QIcon name="fas fa-fw fa-shopping-cart" />
@@ -55,15 +55,6 @@ import PlaceList from '@/places/components/PlaceList'
 import KSpinner from '@/utils/components/KSpinner'
 
 export default {
-  props: {
-    groupId: { default: null, type: Number },
-    places: { required: true, type: Array },
-    showAllPlaces: { default: false, type: Boolean },
-    archived: { default: () => [], type: Array },
-    expanded: { default: true, type: Boolean },
-    isEditor: { default: false, type: Boolean },
-    fetchStatus: { default: null, type: Object },
-  },
   components: {
     SidenavBox,
     QBtn,
@@ -73,19 +64,28 @@ export default {
     PlaceList,
     KSpinner,
   },
+  props: {
+    groupId: { default: null, type: Number },
+    places: { required: true, type: Array },
+    showAllPlaces: { default: false, type: Boolean },
+    archived: { default: () => [], type: Array },
+    expanded: { default: true, type: Boolean },
+    isEditor: { default: false, type: Boolean },
+    fetchStatus: { default: null, type: Object },
+  },
   data () {
     return {
       showArchived: false,
     }
   },
-  methods: {
-    toggleArchived () {
-      this.showArchived = !this.showArchived
-    },
-  },
   computed: {
     hasPlaces () {
       return this.places && this.places.length > 0
+    },
+  },
+  methods: {
+    toggleArchived () {
+      this.showArchived = !this.showArchived
     },
   },
 }

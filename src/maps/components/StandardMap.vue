@@ -18,8 +18,8 @@
       v-for="marker in leafletMarkers"
       :key="marker.id"
       v-bind="marker"
-      @dragend="$emit('markerMoved', $event.target._latlng, marker)"
       :opacity="opacityFor(marker)"
+      @dragend="$emit('markerMoved', $event.target._latlng, marker)"
     >
       <LPopup
         v-if="marker.popup"
@@ -114,6 +114,72 @@ export default {
       popoverLatLng: null,
     }
   },
+  computed: {
+    leafletMarkers () {
+      return this.markers.map(this.createLeafletMarker)
+    },
+    hasSelectedMarkers () {
+      return this.selectedMarkers && this.selectedMarkers.length > 0
+    },
+    hasMarkers () {
+      return this.markers && this.markers.length > 0
+    },
+    hasOneMarker () {
+      return this.markers && this.markers.length === 1
+    },
+    markersForBound () {
+      if (this.hasSelectedMarkers) {
+        return this.selectedMarkers
+      }
+      return this.markers
+    },
+    attribution () {
+      if (this.showAttribution) {
+        return '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
+      }
+      return ''
+    },
+    bounds () {
+      if (this.forceCenter && !Number.isNaN(this.forceCenter.lat)) return null
+      if (!this.preventZoom && this.hasMarkers && !this.hasOneMarker) {
+        return L.latLngBounds(this.markersForBound.map(m => m.latLng)).pad(0.2)
+      }
+      return undefined
+    },
+    center () {
+      if (this.forceCenter && !Number.isNaN(this.forceCenter.lat)) return this.forceCenter
+      if (!this.bounds) {
+        if (this.hasOneMarker) {
+          return this.markersForBound[0].latLng
+        }
+        if (this.defaultCenter) {
+          return this.defaultCenter
+        }
+        return ['49.8990022441358', '8.66415739059448']
+      }
+      return undefined
+    },
+    zoom () {
+      if (Number.isInteger(this.forceZoom)) {
+        return this.forceZoom
+      }
+      if (!this.preventZoom && !this.bounds) {
+        if (this.defaultCenter) {
+          return 10
+        }
+        return 15
+      }
+      if (!this.bounds) {
+        return this.lastZoom
+      }
+      return undefined
+    },
+  },
+  watch: {
+    zoom (val) {
+      if (Number.isInteger(val)) this.lastZoom = val
+    },
+  },
   methods: {
     mapClick ({ latlng }) {
       this.$emit('mapClick', latlng)
@@ -182,72 +248,6 @@ export default {
         ...markerOptions,
         icon: { createIcon, createShadow, options },
       }
-    },
-  },
-  computed: {
-    leafletMarkers () {
-      return this.markers.map(this.createLeafletMarker)
-    },
-    hasSelectedMarkers () {
-      return this.selectedMarkers && this.selectedMarkers.length > 0
-    },
-    hasMarkers () {
-      return this.markers && this.markers.length > 0
-    },
-    hasOneMarker () {
-      return this.markers && this.markers.length === 1
-    },
-    markersForBound () {
-      if (this.hasSelectedMarkers) {
-        return this.selectedMarkers
-      }
-      return this.markers
-    },
-    attribution () {
-      if (this.showAttribution) {
-        return '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
-      }
-      return ''
-    },
-    bounds () {
-      if (this.forceCenter && !Number.isNaN(this.forceCenter.lat)) return null
-      if (!this.preventZoom && this.hasMarkers && !this.hasOneMarker) {
-        return L.latLngBounds(this.markersForBound.map(m => m.latLng)).pad(0.2)
-      }
-      return undefined
-    },
-    center () {
-      if (this.forceCenter && !Number.isNaN(this.forceCenter.lat)) return this.forceCenter
-      if (!this.bounds) {
-        if (this.hasOneMarker) {
-          return this.markersForBound[0].latLng
-        }
-        if (this.defaultCenter) {
-          return this.defaultCenter
-        }
-        return ['49.8990022441358', '8.66415739059448']
-      }
-      return undefined
-    },
-    zoom () {
-      if (Number.isInteger(this.forceZoom)) {
-        return this.forceZoom
-      }
-      if (!this.preventZoom && !this.bounds) {
-        if (this.defaultCenter) {
-          return 10
-        }
-        return 15
-      }
-      if (!this.bounds) {
-        return this.lastZoom
-      }
-      return undefined
-    },
-  },
-  watch: {
-    zoom (val) {
-      if (Number.isInteger(val)) this.lastZoom = val
     },
   },
 }

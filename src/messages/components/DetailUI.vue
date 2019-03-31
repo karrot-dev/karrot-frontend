@@ -17,8 +17,8 @@
       @fetchFuture="$emit('fetchFuture')"
     >
       <QCollapsible
-        slot="beforeChatMessages"
         v-if="application"
+        slot="beforeChatMessages"
         opened
         class="bg-grey-2"
       >
@@ -45,8 +45,8 @@
         </div>
       </QCollapsible>
       <QList
-        slot="afterChatMessages"
         v-if="pickup && pickup.isDisabled"
+        slot="afterChatMessages"
         class="bg-grey-2"
       >
         <QItem>

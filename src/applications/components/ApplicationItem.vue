@@ -42,8 +42,8 @@
           >
             <RouterLink
               place="userName"
-              @click.native.stop
               :to="{name: 'user', params: { userId: application.decidedBy.id }}"
+              @click.native.stop
             >
               {{ application.decidedBy.displayName }}
             </RouterLink>
@@ -118,35 +118,6 @@ export default {
       type: Object,
     },
   },
-  methods: {
-    openChat () {
-      this.$emit('openChat', this.application)
-    },
-    openChatIfCannotDecide () {
-      if (this.application.canDecide) return
-      this.openChat()
-    },
-    pressAccept () {
-      Dialog.create({
-        title: this.$t('APPLICATION.ACCEPT_CONFIRMATION_HEADER'),
-        message: this.$t('APPLICATION.ACCEPT_CONFIRMATION_TEXT', { userName: this.userName }),
-        ok: this.$t('BUTTON.YES'),
-        cancel: this.$t('BUTTON.CANCEL'),
-      })
-        .then(() => this.$emit('accept', this.application.id))
-        .catch(() => {})
-    },
-    decline () {
-      Dialog.create({
-        title: this.$t('APPLICATION.DECLINE_CONFIRMATION_HEADER'),
-        message: this.$t('APPLICATION.DECLINE_CONFIRMATION_TEXT', { userName: this.userName }),
-        ok: this.$t('BUTTON.YES'),
-        cancel: this.$t('BUTTON.CANCEL'),
-      })
-        .then(() => this.$emit('decline', this.application.id))
-        .catch(() => {})
-    },
-  },
   computed: {
     userName () {
       return this.application.user.displayName
@@ -174,6 +145,35 @@ export default {
           return 'GROUP.DECLINED_BY'
       }
       return null
+    },
+  },
+  methods: {
+    openChat () {
+      this.$emit('openChat', this.application)
+    },
+    openChatIfCannotDecide () {
+      if (this.application.canDecide) return
+      this.openChat()
+    },
+    pressAccept () {
+      Dialog.create({
+        title: this.$t('APPLICATION.ACCEPT_CONFIRMATION_HEADER'),
+        message: this.$t('APPLICATION.ACCEPT_CONFIRMATION_TEXT', { userName: this.userName }),
+        ok: this.$t('BUTTON.YES'),
+        cancel: this.$t('BUTTON.CANCEL'),
+      })
+        .then(() => this.$emit('accept', this.application.id))
+        .catch(() => {})
+    },
+    decline () {
+      Dialog.create({
+        title: this.$t('APPLICATION.DECLINE_CONFIRMATION_HEADER'),
+        message: this.$t('APPLICATION.DECLINE_CONFIRMATION_TEXT', { userName: this.userName }),
+        ok: this.$t('BUTTON.YES'),
+        cancel: this.$t('BUTTON.CANCEL'),
+      })
+        .then(() => this.$emit('decline', this.application.id))
+        .catch(() => {})
     },
   },
 }

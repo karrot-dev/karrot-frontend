@@ -1,7 +1,7 @@
 <template>
   <QCard
-    class="no-mobile-margin no-shadow grey-border"
     v-if="group"
+    class="no-mobile-margin no-shadow grey-border"
   >
     <RandomArt
       :seed="group.id"
@@ -13,9 +13,9 @@
       <QListHeader>{{ $t('GROUP.EMAIL_NOTIFICATIONS') }}</QListHeader>
       <VerificationWarning class="generic-margin" />
       <QItem
-        tag="label"
         v-for="type in availableNotificationTypes"
         :key="type"
+        tag="label"
       >
         <QItemSide>
           <QCheckbox

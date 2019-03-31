@@ -11,10 +11,10 @@
       :title="$t('PICKUPLIST.ITEM.JOIN')"
     >
       <ProfilePicture
-        @click.native.stop="$emit('join')"
         :user="hoverUser"
         :size="size"
         :is-link="false"
+        @click.native.stop="$emit('join')"
       />
     </div>
   </div>
@@ -24,6 +24,9 @@
 import ProfilePicture from '@/users/components/ProfilePicture'
 
 export default {
+  components: {
+    ProfilePicture,
+  },
   props: {
     size: {
       type: Number,
@@ -37,9 +40,6 @@ export default {
       default: false,
       type: Boolean,
     },
-  },
-  components: {
-    ProfilePicture,
   },
 
 }

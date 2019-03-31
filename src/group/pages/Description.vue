@@ -9,8 +9,8 @@
     >
       <div class="art-overlay q-px-md q-py-lg">
         <div
-          class="header"
           v-t="showPublicDescription ? 'GROUPINFO.TITLE' : 'GROUP.DESCRIPTION_VERBOSE'"
+          class="header"
         />
       </div>
     </RandomArt>
@@ -42,11 +42,11 @@
     </div>
     <div class="q-pa-md">
       <Markdown
-        v-if="this.showPublicDescription && group.publicDescription"
+        v-if="showPublicDescription && group.publicDescription"
         :source="group.publicDescription"
       />
       <Markdown
-        v-if="!this.showPublicDescription && group.description"
+        v-if="!showPublicDescription && group.description"
         :source="group.description"
       />
     </div>

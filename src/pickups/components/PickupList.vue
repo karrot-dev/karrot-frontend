@@ -67,20 +67,6 @@ export default {
       default: false,
     },
   },
-  watch: {
-    slots (val, old) {
-      // keep selection valid, revert to old value or default
-      const options = this.slotsOptions.map(o => o.value)
-      if (!options.includes(val)) {
-        if (options.includes(old)) {
-          this.slots = old
-        }
-        else {
-          this.slots = options[0]
-        }
-      }
-    },
-  },
   computed: {
     slotsOptions () {
       return [
@@ -103,6 +89,20 @@ export default {
       if (this.slots === 'free') return this.pickups.filter(e => !e.isFull)
       if (this.slots === 'empty') return this.pickups.filter(e => e.isEmpty)
       return this.pickups
+    },
+  },
+  watch: {
+    slots (val, old) {
+      // keep selection valid, revert to old value or default
+      const options = this.slotsOptions.map(o => o.value)
+      if (!options.includes(val)) {
+        if (options.includes(old)) {
+          this.slots = old
+        }
+        else {
+          this.slots = options[0]
+        }
+      }
     },
   },
 }

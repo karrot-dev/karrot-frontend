@@ -21,8 +21,8 @@
           </QTooltip>
           <QPopover>
             <QList
-              link
               v-close-overlay
+              link
             >
               <QListHeader
                 v-t="'PLACEWALL.SUBSCRIPTION.HEADER'"
@@ -31,8 +31,8 @@
               <QItem
                 v-for="o in options"
                 :key="o.id"
-                @click.native="select(o)"
                 :class="o.selected ? 'bg-grey-2' : ''"
+                @click.native="select(o)"
               >
                 <QItemSide
                   :color="o.color"

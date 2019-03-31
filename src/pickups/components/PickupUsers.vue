@@ -1,7 +1,7 @@
 <template>
   <div
-    class="row justify-start"
     ref="wrapperDiv"
+    class="row justify-start"
   >
     <QResizeObservable
       style="width: 100%"
@@ -92,6 +92,14 @@ import {
 } from 'quasar'
 
 export default {
+  components: {
+    ProfilePicture,
+    UserSlot,
+    EmptySlot,
+    CurrentUser,
+    QSpinner,
+    QResizeObservable,
+  },
   props: {
     pickup: {
       type: Object,
@@ -110,24 +118,6 @@ export default {
     return {
       slotsPerRow: 6,
     }
-  },
-  components: {
-    ProfilePicture,
-    UserSlot,
-    EmptySlot,
-    CurrentUser,
-    QSpinner,
-    QResizeObservable,
-  },
-  methods: {
-    calculateSlotsPerRow () {
-      if (this.$refs.wrapperDiv) {
-        this.slotsPerRow = Math.floor(this.$refs.wrapperDiv.clientWidth / (this.size + 3.8))
-      }
-    },
-    isNewcomer (user) {
-      return user.membership && !user.membership.isEditor
-    },
   },
   computed: {
     ...mapGetters({
@@ -174,6 +164,16 @@ export default {
         return false
       }
       return true
+    },
+  },
+  methods: {
+    calculateSlotsPerRow () {
+      if (this.$refs.wrapperDiv) {
+        this.slotsPerRow = Math.floor(this.$refs.wrapperDiv.clientWidth / (this.size + 3.8))
+      }
+    },
+    isNewcomer (user) {
+      return user.membership && !user.membership.isEditor
     },
   },
 }

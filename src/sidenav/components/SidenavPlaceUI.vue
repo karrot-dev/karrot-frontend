@@ -1,9 +1,9 @@
 <template>
   <SidenavBox
     v-if="place"
-    @toggle="$emit('toggleBox')"
     :expanded="$q.platform.is.mobile || expanded"
     :expandable="!$q.platform.is.mobile"
+    @toggle="$emit('toggleBox')"
   >
     <template slot="icon">
       <QIcon name="fas fa-fw fa-shopping-cart" />
@@ -99,6 +99,17 @@ import SidenavBox from './SidenavBox'
 import PlaceOptions from './PlaceOptions'
 
 export default {
+  components: {
+    SidenavBox,
+    PlaceOptions,
+    QBtn,
+    QList,
+    QItem,
+    QItemSide,
+    QIcon,
+    QItemMain,
+    QChip,
+  },
   props: {
     place: {
       default: null,
@@ -116,17 +127,6 @@ export default {
       default: 0,
       type: Number,
     },
-  },
-  components: {
-    SidenavBox,
-    PlaceOptions,
-    QBtn,
-    QList,
-    QItem,
-    QItemSide,
-    QIcon,
-    QItemMain,
-    QChip,
   },
   computed: {
     cappedWallUnreadCount () {

@@ -1,7 +1,7 @@
 <template>
   <div
-    class="relative-position"
     v-if="issue"
+    class="relative-position"
   >
     <QCollapsible
       opened
@@ -37,8 +37,8 @@
         <span class="text-bold text-secondary uppercase">
           <RouterLink
             place="userName"
-            @click.native.stop
             :to="{name: 'user', params: { userId: issue.createdBy.id }}"
+            @click.native.stop
           >
             {{ issue.createdBy.displayName }}
           </RouterLink>
@@ -78,8 +78,8 @@
         :can-unsubscribe="false"
         :user="currentUser"
         in-toolbar
-        @set="setNotifications"
         :size="$q.platform.is.mobile ? 'sm' : 'md'"
+        @set="setNotifications"
       />
     </div>
     <ChatConversation

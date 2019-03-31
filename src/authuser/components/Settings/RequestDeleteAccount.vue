@@ -5,9 +5,9 @@
       :label="$t('BUTTON.DELETE_ACCOUNT')"
       flat
       color="negative"
-      @click="requestDeleteAccount"
       :loading="isPending"
       :value="isPending || dialogShown"
+      @click="requestDeleteAccount"
     />
     <div
       v-if="hasNonFieldError"

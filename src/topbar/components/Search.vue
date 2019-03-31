@@ -1,10 +1,10 @@
 <template>
   <div class="wrapper">
     <QSearch
+      v-model="terms"
       :autofocus="true"
       separator
       class="lightgrey"
-      v-model="terms"
       :placeholder="$t('BUTTON.SEARCH')"
       :debounce="50"
       clearable
@@ -30,6 +30,11 @@ export default {
     return {
       terms: null,
     }
+  },
+  computed: {
+    ...mapGetters({
+      results: 'search/results',
+    }),
   },
   methods: {
     ...mapMutations({
@@ -57,11 +62,6 @@ export default {
       this.setTerms(null)
       this.$emit('clear')
     },
-  },
-  computed: {
-    ...mapGetters({
-      results: 'search/results',
-    }),
   },
 }
 </script>

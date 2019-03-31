@@ -64,8 +64,8 @@
       <QCardSeparator />
       <QCardActions v-if="group.isMember">
         <QBtn
-          @click.stop="$emit('visit')"
           class="q-btn-flat"
+          @click.stop="$emit('visit')"
         >
           <QIcon name="fas fa-home" />
           <QTooltip>
@@ -73,8 +73,8 @@
           </QTooltip>
         </QBtn>
         <QBtn
-          @click.stop="$emit('preview')"
           class="q-btn-flat"
+          @click.stop="$emit('preview')"
         >
           <QIcon name="fas fa-info-circle" />
           <QTooltip>

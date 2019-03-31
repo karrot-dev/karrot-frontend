@@ -20,6 +20,10 @@ import GroupGalleryCard from './GroupGalleryCard'
 import { QResizeObservable } from 'quasar'
 
 export default {
+  components: {
+    GroupGalleryCard,
+    QResizeObservable,
+  },
   props: {
     groups: {
       default: () => [],
@@ -30,19 +34,10 @@ export default {
       type: Boolean,
     },
   },
-  components: {
-    GroupGalleryCard,
-    QResizeObservable,
-  },
   data () {
     return {
       width: 230,
     }
-  },
-  methods: {
-    onResize ({ width }) {
-      this.width = width
-    },
   },
   computed: {
     cols () {
@@ -52,6 +47,11 @@ export default {
       return {
         width: (100 / this.cols) + '%',
       }
+    },
+  },
+  methods: {
+    onResize ({ width }) {
+      this.width = width
     },
   },
 }

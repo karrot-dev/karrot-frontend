@@ -3,14 +3,14 @@
     class="edit-box bg-primary splash-md"
   >
     <div
-      class="white-box shadow-6 q-py-md q-px-sm"
       v-if="hasInvalidToken"
+      class="white-box shadow-6 q-py-md q-px-sm"
     >
       <h1><QIcon name="fas fa-sad-tear" /> {{ $t('GLOBAL.INVALID_LINK') }}</h1>
     </div>
     <div
-      class="white-box shadow-6 q-py-md q-px-sm"
       v-else-if="hasSuccess"
+      class="white-box shadow-6 q-py-md q-px-sm"
     >
       <h1><QIcon name="fas fa-smile-beam" /> {{ $t('UNSUBSCRIBE.SUCCESS') }}</h1>
     </div>
@@ -20,9 +20,9 @@
     >
       <div class="white-box shadow-6 q-py-md q-px-sm">
         <QOptionGroup
+          v-model="choice"
           class="q-ma-sm"
           type="radio"
-          v-model="choice"
           :options="options"
         />
       </div>
@@ -66,33 +66,6 @@ export default {
       choice: null,
     }
   },
-  methods: {
-    async save () {
-      this.hasError = false
-      try {
-        await api.unsubscribe(this.token, { choice: this.choice })
-        this.hasSuccess = true
-      }
-      catch (err) {
-        this.hasError = true
-      }
-    },
-    parseToken (token) {
-      try {
-        return parseToken(token)
-      }
-      catch (err) {
-        this.hasInvalidToken = true
-      }
-    },
-    ensureDefaultChoice () {
-      if (this.choice || this.options.length === 0) return
-      this.choice = this.options[0].value
-    },
-  },
-  mounted () {
-    this.ensureDefaultChoice()
-  },
   computed: {
     tokenData () {
       return this.token ? this.parseToken(this.token) : {}
@@ -129,6 +102,33 @@ export default {
         })
       }
       return options
+    },
+  },
+  mounted () {
+    this.ensureDefaultChoice()
+  },
+  methods: {
+    async save () {
+      this.hasError = false
+      try {
+        await api.unsubscribe(this.token, { choice: this.choice })
+        this.hasSuccess = true
+      }
+      catch (err) {
+        this.hasError = true
+      }
+    },
+    parseToken (token) {
+      try {
+        return parseToken(token)
+      }
+      catch (err) {
+        this.hasInvalidToken = true
+      }
+    },
+    ensureDefaultChoice () {
+      if (this.choice || this.options.length === 0) return
+      this.choice = this.options[0].value
     },
   },
 }

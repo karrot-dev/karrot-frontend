@@ -1,7 +1,7 @@
 <template>
   <div
-    :class="inline && 'absolute-full scroll'"
     ref="scroll"
+    :class="inline && 'absolute-full scroll'"
   >
     <slot name="beforeChatMessages" />
     <KSpinner v-show="fetchingPast" />
@@ -19,7 +19,7 @@
           @save="$emit('saveMessage', arguments[0])"
         />
         <ConversationCompose
-          v-if="compose && !this.conversation.canFetchFuture && !this.conversation.isClosed"
+          v-if="compose && !conversation.canFetchFuture && !conversation.isClosed"
           ref="compose"
           :status="conversation.sendStatus"
           slim
@@ -29,7 +29,7 @@
           @submit="sendMessage"
         />
         <QItem
-          v-if="this.conversation.isClosed"
+          v-if="conversation.isClosed"
           class="q-mt-md"
         >
           <QItemSide
@@ -109,11 +109,6 @@ export default {
       hideBottomSpinner: null,
     }
   },
-  mounted () {
-    this.$nextTick(() => {
-      this.scrollContainer = this.inline ? this.$refs.scroll : getScrollTarget(this.$el)
-    })
-  },
   computed: {
     hasLoaded () {
       const s = this.conversation.fetchStatus
@@ -183,6 +178,11 @@ export default {
         this.hideBottomSpinner = null
       }
     },
+  },
+  mounted () {
+    this.$nextTick(() => {
+      this.scrollContainer = this.inline ? this.$refs.scroll : getScrollTarget(this.$el)
+    })
   },
   methods: {
     markRead (messageId) {

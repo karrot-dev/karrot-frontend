@@ -117,8 +117,8 @@
     <div class="row justify-end generic-padding">
       <QBtn
         flat
-        @click="$emit('close')"
         :label="$t('BUTTON.CLOSE')"
+        @click="$emit('close')"
       />
     </div>
   </div>

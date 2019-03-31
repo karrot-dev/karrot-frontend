@@ -2,8 +2,8 @@
   <QToolbar :color="connected ? 'primary' : 'grey-8'">
     <slot />
     <RouterLink
-      :to="'/'"
       v-if="!$q.platform.is.mobile"
+      :to="'/'"
       class="logo"
     >
       <img
@@ -27,8 +27,8 @@
       </div>
     </QToolbarTitle>
     <div
-      class="k-searchbar row no-wrap"
       v-if="searchOpen"
+      class="k-searchbar row no-wrap"
     >
       <Search @clear="$emit('hideSearch')" />
     </div>
@@ -37,8 +37,8 @@
       flat
       dense
       round
-      @click="$emit('showSearch')"
       class="k-search-button"
+      @click="$emit('showSearch')"
     >
       <QIcon name="fas fa-fw fa-search" />
       <QTooltip v-t="'BUTTON.SEARCH'" />
@@ -99,9 +99,9 @@
           self="top right"
         >
           <QList
+            v-close-overlay
             item-separator
             link
-            v-close-overlay
           >
             <QItem
               :to="{name: 'groupsGallery'}"

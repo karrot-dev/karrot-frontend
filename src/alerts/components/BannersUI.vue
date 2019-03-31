@@ -26,6 +26,18 @@ export default {
       required: true,
     },
   },
+  computed: {
+    formattedBanners () {
+      return this.banners.map(banner => {
+        return {
+          ...this[banner.type](banner.context),
+          ...banner,
+        }
+      }).filter(banner => {
+        return !banner.desktopOnly || !this.$q.platform.is.mobile
+      })
+    },
+  },
   methods: {
     awaitingAgreement (agreement) {
       return {
@@ -76,18 +88,6 @@ export default {
           },
         ],
       }
-    },
-  },
-  computed: {
-    formattedBanners () {
-      return this.banners.map(banner => {
-        return {
-          ...this[banner.type](banner.context),
-          ...banner,
-        }
-      }).filter(banner => {
-        return !banner.desktopOnly || !this.$q.platform.is.mobile
-      })
     },
   },
 }

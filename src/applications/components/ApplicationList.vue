@@ -55,7 +55,6 @@ import {
 } from 'quasar'
 
 export default {
-  mixins: [paginationMixin],
   components: {
     ApplicationItem,
     QCollapsible,
@@ -64,6 +63,7 @@ export default {
     QItem,
     QBtn,
   },
+  mixins: [paginationMixin],
   props: {
     pending: {
       type: Array,

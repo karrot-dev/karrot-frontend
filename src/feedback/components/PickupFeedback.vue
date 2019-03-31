@@ -42,8 +42,8 @@
           <p>
             <ProfilePicture
               v-for="user in fellowCollectors"
-              :user="user"
               :key="user.id"
+              :user="user"
               :size="35"
               class="q-ml-xs"
             />
@@ -67,8 +67,8 @@
       </template>
     </KNotice>
     <QCard
-      class="no-shadow grey-border place-feedback"
       v-if="select && feedbackForPlace.length !== 0"
+      class="no-shadow grey-border place-feedback"
     >
       <RandomArt
         class="randomBanner"
@@ -76,8 +76,8 @@
         type="banner"
       />
       <h4
-        class="generic-padding"
         v-t="{ path: 'PICKUP_FEEDBACK.PREVIOUS', args: { store: select.place.name } }"
+        class="generic-padding"
       />
       <FeedbackList
         :feedback="feedbackForPlace"
@@ -119,13 +119,6 @@ export default {
     fetchStatus: { required: true, type: Object },
     fetchFeedbackPossibleStatus: { type: Object, default: () => ({}) },
     seedId: { default: 0, type: Number },
-  },
-  methods: {
-    getDateWithPlace (pickup) {
-      if (!pickup) return ''
-      const { name } = pickup.place || {}
-      return `${this.$d(pickup.date, 'long')} (${name || ''})`
-    },
   },
   computed: {
     feedbackDefault () {
@@ -175,6 +168,13 @@ export default {
     fellowCollectors () {
       if (!this.select) return []
       return this.select.collectors.filter(u => !u.isCurrentUser)
+    },
+  },
+  methods: {
+    getDateWithPlace (pickup) {
+      if (!pickup) return ''
+      const { name } = pickup.place || {}
+      return `${this.$d(pickup.date, 'long')} (${name || ''})`
     },
   },
 }

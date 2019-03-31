@@ -3,13 +3,13 @@
     <span class="reactions">
       <EmojiButton
         v-for="reaction in reactions"
-        v-touch-hold="toggleDetail"
         :key="reaction.name"
+        v-touch-hold="toggleDetail"
         :name="reaction.name"
-        @click="$emit('toggle', reaction.name)"
         class="reaction-box"
         :class="{ 'user-reacted': reaction.reacted }"
         :title="reaction.message"
+        @click="$emit('toggle', reaction.name)"
       >
         <span class="reactions-number">{{ reaction.users.length }}</span>
       </EmojiButton>
@@ -29,8 +29,8 @@
         <QItem
           v-for="reaction in reactions"
           :key="reaction.name"
-          @click.native="toggleDetail"
           multiline
+          @click.native="toggleDetail"
         >
           <QItemSide>
             <EmojiButton
@@ -76,11 +76,6 @@ export default {
     QItemSide,
     QBtn,
   },
-  data () {
-    return {
-      showDetail: false,
-    }
-  },
   props: {
     reactions: {
       type: Array,
@@ -90,6 +85,11 @@ export default {
       type: Array,
       default: () => [],
     },
+  },
+  data () {
+    return {
+      showDetail: false,
+    }
   },
   methods: {
     toggleDetail () {

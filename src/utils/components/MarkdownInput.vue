@@ -1,24 +1,24 @@
 <template>
   <div>
     <QTabs
+      v-model="tab"
       class="markdown-input"
       inverted
       align="right"
       position="top"
-      v-model="tab"
     >
       <QTab
+        slot="title"
         class="markdown-input-tab"
         default
         name="edit"
-        slot="title"
         :label="$t('BUTTON.EDIT')"
         :disable="!value"
       />
       <QTab
+        slot="title"
         class="markdown-input-tab"
         name="preview"
-        slot="title"
         :label="$t('BUTTON.PREVIEW')"
         :disable="!value"
       />

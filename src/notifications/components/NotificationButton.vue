@@ -4,8 +4,8 @@
     flat
     dense
     round
-    @click="maybeOpen"
     :title="$t('NOTIFICATION_BELLS_LIST.TITLE')"
+    @click="maybeOpen"
   >
     <QIcon
       name="fas fa-bell"
@@ -50,6 +50,11 @@ export default {
     QPopover,
     Notifications,
   },
+  data () {
+    return {
+      showing: false,
+    }
+  },
   computed: {
     ...mapGetters({
       unseenCount: 'notifications/unseenCount',
@@ -66,11 +71,6 @@ export default {
       }
       this.$emit('click')
     },
-  },
-  data () {
-    return {
-      showing: false,
-    }
   },
 }
 </script>

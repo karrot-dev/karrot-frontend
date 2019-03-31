@@ -1,9 +1,9 @@
 <template>
   <div>
     <QCard
-      @click.native="showPickups = !showPickups"
       color="secondary"
       class="generic-padding notice no-margin-bottom"
+      @click.native="showPickups = !showPickups"
     >
       <i class="fas fa-shopping-basket on-left" />
       {{ $tc('PICKUPLIST.JOINEDNOTICE', pickups.length, { count: pickups.length }) }}

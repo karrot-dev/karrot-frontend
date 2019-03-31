@@ -16,14 +16,6 @@ export default {
     type: { default: 'profile', type: String },
     above: { default: false, type: Boolean },
   },
-  mounted () {
-    this.$el.appendChild(this.box)
-  },
-  watch: {
-    box (box, prevBox) {
-      this.$el.replaceChild(box, prevBox)
-    },
-  },
   computed: {
     initials () {
       if (!this.text) return
@@ -64,6 +56,14 @@ export default {
 
       return wrapper
     },
+  },
+  watch: {
+    box (box, prevBox) {
+      this.$el.replaceChild(box, prevBox)
+    },
+  },
+  mounted () {
+    this.$el.appendChild(this.box)
   },
 }
 </script>

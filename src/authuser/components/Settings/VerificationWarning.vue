@@ -13,8 +13,8 @@
     >
       <a
         place="resend"
-        @click="resend"
         class="underline"
+        @click="resend"
       >
         {{ $t('NOTIFICATIONS.RESEND_VERIFICATION') }}
       </a>

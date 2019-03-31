@@ -1,8 +1,8 @@
 <template>
   <div
-    @click.stop="$emit('leave')"
     class="user-slot-wrapper relative-position"
     :style="{ width: size + 'px', height: size + 'px' }"
+    @click.stop="$emit('leave')"
   >
     <ProfilePicture
       class="profile-picture"
@@ -26,6 +26,9 @@
 import ProfilePicture from '@/users/components/ProfilePicture'
 
 export default {
+  components: {
+    ProfilePicture,
+  },
   props: {
     size: {
       type: Number,
@@ -39,9 +42,6 @@ export default {
       type: Object,
       required: true,
     },
-  },
-  components: {
-    ProfilePicture,
   },
 }
 </script>

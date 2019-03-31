@@ -40,7 +40,6 @@ import KSpinner from '@/utils/components/KSpinner'
 import FeedbackNotice from '@/group/components/FeedbackNotice'
 
 export default {
-  mixins: [statusMixin, paginationMixin],
   components: {
     QInfiniteScroll,
     FeedbackItem,
@@ -48,6 +47,7 @@ export default {
     FeedbackNotice,
     KSpinner,
   },
+  mixins: [statusMixin, paginationMixin],
   props: {
     feedback: { required: true, type: Array },
     feedbackPossible: { default: () => [], type: Array },

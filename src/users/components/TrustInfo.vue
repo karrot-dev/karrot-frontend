@@ -15,10 +15,10 @@
       <template slot="message">
         <p v-t="'USERDATA.TRUST_INFO.MESSAGE'" />
         <a
+          v-t="'USERDATA.TRUST_INFO.LINK'"
           href="https://community.foodsaving.world/t/karrot-trust-system-and-user-levels/108"
           target="_blank"
           rel="noopener"
-          v-t="'USERDATA.TRUST_INFO.LINK'"
           style="text-decoration: underline"
         />
       </template>

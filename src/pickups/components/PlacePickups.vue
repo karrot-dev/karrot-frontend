@@ -54,13 +54,6 @@ export default {
     PickupList,
     KNotice,
   },
-  methods: {
-    ...mapActions({
-      join: 'pickups/join',
-      leave: 'pickups/leave',
-      detail: 'detail/openForPickup',
-    }),
-  },
   computed: {
     ...mapGetters({
       placeId: 'places/activePlaceId',
@@ -76,6 +69,13 @@ export default {
     isInactive () {
       return this.place && this.place.status !== 'active'
     },
+  },
+  methods: {
+    ...mapActions({
+      join: 'pickups/join',
+      leave: 'pickups/leave',
+      detail: 'detail/openForPickup',
+    }),
   },
 }
 </script>

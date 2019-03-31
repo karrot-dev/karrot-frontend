@@ -94,25 +94,25 @@
               {{ $t(isNew ? 'BUTTON.CREATE' : 'BUTTON.SAVE_CHANGES') }}
             </QBtn>
             <QBtn
+              v-if="!isNew"
               type="button"
               color="red"
               @click="archive"
-              v-if="!isNew"
             >
               {{ $t('BUTTON.ARCHIVE') }}
             </QBtn>
             <QBtn
-              type="button"
-              @click="reset"
               v-if="!isNew"
+              type="button"
               :disable="!hasChanged"
+              @click="reset"
             >
               {{ $t('BUTTON.RESET') }}
             </QBtn>
             <QBtn
+              v-if="isNew"
               type="button"
               @click="$emit('cancel')"
-              v-if="isNew"
             >
               {{ $t('BUTTON.CANCEL') }}
             </QBtn>
@@ -143,6 +143,16 @@ import { statusList, optionsFor } from '@/places/placeStatus'
 
 export default {
   name: 'PlaceEdit',
+  components: {
+    QCard,
+    QField,
+    QSlider,
+    QInput,
+    QBtn,
+    QSelect,
+    MarkdownInput,
+    AddressPicker,
+  },
   mixins: [validationMixin, editMixin, statusMixin],
   props: {
     value: {
@@ -159,24 +169,6 @@ export default {
       }),
     },
     allPlaces: { required: true, type: Array },
-  },
-  components: {
-    QCard,
-    QField,
-    QSlider,
-    QInput,
-    QBtn,
-    QSelect,
-    MarkdownInput,
-    AddressPicker,
-  },
-  mounted () {
-    if (this.$route && this.$route.query) this.setLocation(this.$route.query)
-  },
-  watch: {
-    '$route.query' (val) {
-      if (val) this.setLocation(val)
-    },
   },
   computed: {
     canSave () {
@@ -224,6 +216,14 @@ export default {
       if (this.edit) return optionsFor(this.edit).color
       return null
     },
+  },
+  watch: {
+    '$route.query' (val) {
+      if (val) this.setLocation(val)
+    },
+  },
+  mounted () {
+    if (this.$route && this.$route.query) this.setLocation(this.$route.query)
   },
   methods: {
     setLocation ({ lat, lng }) {

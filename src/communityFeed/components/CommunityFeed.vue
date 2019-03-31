@@ -19,24 +19,24 @@
     </QChip>
     <Component
       :is="$q.platform.is.mobile ? 'QModal' : 'QPopover'"
-      @hide="mark"
+      v-model="showing"
       class="k-community-feed"
       :class="$q.platform.is.mobile && 'relative-position'"
-      v-model="showing"
+      @hide="mark"
     >
       <QBtn
         v-if="$q.platform.is.mobile"
         dense
         round
         color="secondary"
-        @click="showing = false"
         style="position: absolute; right: 10px; top: 2px"
+        @click="showing = false"
       >
         <QIcon name="fas fa-times" />
       </QBtn>
       <QList
-        link
         v-if="showing"
+        link
       >
         <QListHeader>
           <QIcon
@@ -142,15 +142,15 @@ export default {
       showing: false,
     }
   },
-  methods: {
-    ...mapActions({
-      mark: 'communityFeed/mark',
-    }),
-  },
   computed: {
     ...mapGetters({
       unreadCount: 'communityFeed/unreadCount',
       topics: 'communityFeed/topics',
+    }),
+  },
+  methods: {
+    ...mapActions({
+      mark: 'communityFeed/mark',
     }),
   },
 }

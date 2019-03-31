@@ -11,10 +11,10 @@
         <div class="white-box">
           <QField icon="fas fa-envelope">
             <QInput
+              v-model="email"
               :autofocus="true"
               :float-label="$t('PASSWORDRESET.EMAIL')"
               type="email"
-              v-model="email"
               autocorrect="off"
               autocapitalize="off"
               spellcheck="false"

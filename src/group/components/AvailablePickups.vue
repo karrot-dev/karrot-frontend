@@ -5,8 +5,8 @@
       class="notice q-mb-none"
     >
       <div
-        @click="showPickups = !showPickups"
         class="q-pa-md toggle-button"
+        @click="showPickups = !showPickups"
       >
         <i class="fas fa-star on-left" />
         {{ $tc('PICKUPLIST.AVAILABLE', pickups.length, { count: pickups.length }) }}

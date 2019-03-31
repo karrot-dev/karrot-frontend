@@ -3,9 +3,9 @@
     fit
   >
     <QList
+      v-close-overlay
       item-separator
       link
-      v-close-overlay
     >
       <QItem :to="{name: 'placeEdit', params: { placeId }}">
         <QIcon

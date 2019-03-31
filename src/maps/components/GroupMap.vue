@@ -115,11 +115,6 @@ export default {
     controls: { type: String, default: 'none' },
     height: { type: Number, default: null },
   },
-  methods: {
-    mapMoveEnd (target) {
-      this.$emit('mapMoveEnd', target)
-    },
-  },
   computed: {
     showUserLocationPrompt () {
       return this.selectedUser && this.selectedUser.isCurrentUser && !hasLocation(this.selectedUser)
@@ -198,6 +193,11 @@ export default {
     },
     currentGroupId () {
       return this.currentGroup && this.currentGroup.id
+    },
+  },
+  methods: {
+    mapMoveEnd (target) {
+      this.$emit('mapMoveEnd', target)
     },
   },
 }

@@ -6,11 +6,11 @@
     <EmojiButton
       v-for="name in whitelist"
       :key="name"
+      v-close-overlay
       :name="name"
-      @click.native="$emit('toggle', name)"
       class="big"
       :title="':' + name + ':'"
-      v-close-overlay
+      @click.native="$emit('toggle', name)"
     />
   </div>
 </template>

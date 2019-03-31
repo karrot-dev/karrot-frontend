@@ -21,8 +21,8 @@
     <QItem
       v-for="locale in localeOptions"
       :key="locale.value"
-      @click.native="setLocale(locale.value)"
       :class="{ active: locale.value === current }"
+      @click.native="setLocale(locale.value)"
     >
       <QItemMain>
         <QItemTile label>

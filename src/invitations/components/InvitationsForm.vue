@@ -43,8 +43,8 @@ import { required, email } from 'vuelidate/lib/validators'
 import statusMixin from '@/utils/mixins/statusMixin'
 
 export default {
-  mixins: [statusMixin, validationMixin],
   components: { QIcon, QField, QInput, QBtn, QTooltip },
+  mixins: [statusMixin, validationMixin],
   props: {
     invitations: {
       type: Array,

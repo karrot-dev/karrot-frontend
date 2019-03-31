@@ -29,19 +29,19 @@
 
     <div class="row justify-end generic-margin group">
       <QBtn
-        type="button"
-        @click="reset"
         v-if="!isNew"
+        type="button"
         :disable="!hasChanged"
+        @click="reset"
       >
         {{ $t('BUTTON.RESET') }}
       </QBtn>
       <QBtn
+        v-t="isNew ? 'BUTTON.CREATE' : 'BUTTON.SAVE_CHANGES'"
         type="submit"
         color="secondary"
         :loading="isPending"
         :disable="!canSave"
-        v-t="isNew ? 'BUTTON.CREATE' : 'BUTTON.SAVE_CHANGES'"
       />
     </div>
   </form>

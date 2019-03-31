@@ -30,8 +30,8 @@
         </i18n>
       </QAlert>
       <p
-        class="text-primary header"
         v-if="!hasJoinedGroups"
+        class="text-primary header"
       >
         {{ $t('JOINGROUP.WHICHGROUP') }}
       </p>
@@ -40,25 +40,25 @@
           <QCard>
             <QSearch
               :value="search"
-              @input="filterGroups"
               class="searchbar"
               hide-underline
+              @input="filterGroups"
             />
           </QCard>
           <QCheckbox
             :value="showInactive"
-            @input="setShowInactive"
             :label="$t('GROUP.SHOW_INACTIVE')"
             style="margin-left: 16px"
+            @input="setShowInactive"
           />
         </div>
         <div style="margin-top: 4px">
           <QBtn
-            @click="expanded = !expanded"
             flat
             round
             small
             class="float-right overlay-toggle-button"
+            @click="expanded = !expanded"
           >
             <i
               class="fa fa-2x"
@@ -93,8 +93,8 @@
         />
       </div>
       <p
-        class="text-primary header"
         v-if="hasJoinedGroups && hasOtherGroupsToShow"
+        class="text-primary header"
       >
         {{ $t('JOINGROUP.WHICHGROUP') }}
       </p>
@@ -177,20 +177,6 @@ export default {
       showInactive: false,
     }
   },
-  methods: {
-    filterGroups (term) {
-      this.search = term
-    },
-    setShowInactive (value) {
-      this.showInactive = value
-    },
-    searchInName (term, list) {
-      if (!term || term === '') return list
-      return list.filter(group => {
-        return group.name && group.name.toLowerCase().includes(term.toLowerCase())
-      })
-    },
-  },
   computed: {
     isPending () {
       return this.fetchStatus && this.fetchStatus.pending
@@ -233,6 +219,20 @@ export default {
     },
     showPlaygroundGroupAtBottom () {
       return this.showPlaygroundGroupAtTopOrBottom && !this.showPlaygroundGroupAtTop
+    },
+  },
+  methods: {
+    filterGroups (term) {
+      this.search = term
+    },
+    setShowInactive (value) {
+      this.showInactive = value
+    },
+    searchInName (term, list) {
+      if (!term || term === '') return list
+      return list.filter(group => {
+        return group.name && group.name.toLowerCase().includes(term.toLowerCase())
+      })
     },
   },
 }

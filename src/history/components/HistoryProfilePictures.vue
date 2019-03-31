@@ -19,11 +19,11 @@
 import ProfilePicture from '@/users/components/ProfilePicture'
 
 export default {
+  components: { ProfilePicture },
   props: {
     users: { required: true, type: Array },
     size: { default: 25, type: Number },
   },
-  components: { ProfilePicture },
   computed: {
     userCountStyle () {
       return { width: this.size + 'px', height: this.size + 'px', 'line-height': this.size + 'px' }

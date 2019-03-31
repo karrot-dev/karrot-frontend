@@ -46,13 +46,6 @@ import {
 
 export default {
   components: { QCard, QCardTitle, QCardMain, PickupList, KNotice, PlaceList },
-  methods: {
-    ...mapActions({
-      join: 'pickups/join',
-      leave: 'pickups/leave',
-      detail: 'detail/openForPickup',
-    }),
-  },
   computed: {
     ...mapGetters({
       groupId: 'currentGroup/id',
@@ -64,6 +57,13 @@ export default {
       if (this.pending) return false
       return this.pickups && this.pickups.length === 0
     },
+  },
+  methods: {
+    ...mapActions({
+      join: 'pickups/join',
+      leave: 'pickups/leave',
+      detail: 'detail/openForPickup',
+    }),
   },
 }
 </script>

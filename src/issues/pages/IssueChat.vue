@@ -27,7 +27,7 @@
         <i class="fas fa-info-circle q-mr-xs" />
         {{ $t('ISSUE.VOTING.RESULTS.TIME_UP') }}
         <QBtn
-          :to="{ name: 'issueChat', params: { groupId: issue.group.id, issueId: issue.id } }"
+          :to="{ name: 'issueVote', params: { groupId: issue.group.id, issueId: issue.id } }"
           flat
         >
           {{ $t('ISSUE.VOTING.SEE_RESULTS') }}

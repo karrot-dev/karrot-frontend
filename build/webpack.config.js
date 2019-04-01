@@ -116,6 +116,7 @@ module.exports = {
           join(projectRoot, 'src'),
           /quasar-framework\/src/,
           /\.mjs$/,
+          /\.es6.js$/,
         ],
       },
       {

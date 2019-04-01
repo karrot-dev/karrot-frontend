@@ -56,13 +56,6 @@ export default datastore => {
   })
 
   router.afterEach(async (to, from) => {
-    try {
-      datastore.dispatch('currentGroup/markUserActive')
-    }
-    catch (err) {
-      Sentry.captureException(err)
-    }
-
     const { redirects, routeErrors } = await maybeDispatchActions(datastore, to, from)
     // trigger first redirect or routeError, if any
     if (redirects.length > 0) {
@@ -90,6 +83,13 @@ export default datastore => {
 
     document.title = title
   })
+
+  try {
+    datastore.dispatch('currentGroup/markUserActive')
+  }
+  catch (err) {
+    Sentry.captureException(err)
+  }
 }
 
 export function findBreadcrumbs (matched) {

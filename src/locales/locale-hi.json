@@ -117,6 +117,7 @@
     "PRIVATE_DESCRIPTION_TITLE": "निजी समूह चर्चा",
     "DESCRIPTION_VERBOSE": "सदस्य के लिए समूह विवरण उपलब्ध",
     "PUBLIC_DESCRIPTION": "एक समूह में शामिल होने से पहले आपको दिखाई देने वाला पाठ",
+    "WELCOMEMESSAGE_VERBOSE": "Welcome message sent to new members",
     "LOGO": "Group logo",
     "SET_LOGO": "Click to upload your group logo!",
     "APPLICATIONS": "आवेदन",

@@ -117,6 +117,7 @@
     "PRIVATE_DESCRIPTION_TITLE": "खाजगी गट वर्णन",
     "DESCRIPTION_VERBOSE": "सदस्यांसाठी दृश्यमान, गट वर्णन",
     "PUBLIC_DESCRIPTION": "गटात सामील होण्यापूर्वी आपण पहात असलेला मजकूर",
+    "WELCOMEMESSAGE_VERBOSE": "Welcome message sent to new members",
     "LOGO": "गटाचं बोधचिन्ह",
     "SET_LOGO": "आपल्या गटाचं बोधचिन्ह अपलोड करण्यासाठी क्लिक करा!",
     "APPLICATIONS": "आवेदन ",

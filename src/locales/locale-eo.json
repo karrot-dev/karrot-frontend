@@ -117,6 +117,7 @@
     "PRIVATE_DESCRIPTION_TITLE": "Private group description",
     "DESCRIPTION_VERBOSE": "Grupa preskribo, membrovidebla",
     "PUBLIC_DESCRIPTION": "Teksto videbla antaŭ aliĝi al la grupo",
+    "WELCOMEMESSAGE_VERBOSE": "Welcome message sent to new members",
     "LOGO": "Group logo",
     "SET_LOGO": "Click to upload your group logo!",
     "APPLICATIONS": "Applications",

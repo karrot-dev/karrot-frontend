@@ -117,6 +117,7 @@
     "PRIVATE_DESCRIPTION_TITLE": "Privat gruppbeskrivning",
     "DESCRIPTION_VERBOSE": "Beskrivning av gruppen, endast för medlemmar",
     "PUBLIC_DESCRIPTION": "Publik Beskrivning av gruppen",
+    "WELCOMEMESSAGE_VERBOSE": "Welcome message sent to new members",
     "LOGO": "Gruppens logga",
     "SET_LOGO": "Klicka för att ladda upp gruppens logotyp!",
     "APPLICATIONS": "Ansökningar",

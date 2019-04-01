@@ -117,6 +117,7 @@
     "PRIVATE_DESCRIPTION_TITLE": "私密社團敘述",
     "DESCRIPTION_VERBOSE": "社團敘述（僅社團成員可見）",
     "PUBLIC_DESCRIPTION": "加入社團前顯示的文字",
+    "WELCOMEMESSAGE_VERBOSE": "Welcome message sent to new members",
     "LOGO": "Group logo",
     "SET_LOGO": "Click to upload your group logo!",
     "APPLICATIONS": "申請",

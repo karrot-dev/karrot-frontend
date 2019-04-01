@@ -117,6 +117,7 @@
     "PRIVATE_DESCRIPTION_TITLE": "ખાનગી જૂથનું વર્ણન",
     "DESCRIPTION_VERBOSE": "સભ્યો માટે દૃશ્યમાન ગ્રુપનું વર્ણન",
     "PUBLIC_DESCRIPTION": "જૂથમાં જોડાતા પહેલાં તમે જુઓ છો તે ટેક્સ્ટ",
+    "WELCOMEMESSAGE_VERBOSE": "Welcome message sent to new members",
     "LOGO": "Group logo",
     "SET_LOGO": "Click to upload your group logo!",
     "APPLICATIONS": "Applications",

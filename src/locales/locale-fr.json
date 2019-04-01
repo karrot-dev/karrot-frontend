@@ -117,6 +117,7 @@
     "PRIVATE_DESCRIPTION_TITLE": "Description privée du groupe",
     "DESCRIPTION_VERBOSE": "Description du groupe, visible par les membres",
     "PUBLIC_DESCRIPTION": "Texte visible avant de rejoindre le groupe",
+    "WELCOMEMESSAGE_VERBOSE": "Welcome message sent to new members",
     "LOGO": "Groupe logo",
     "SET_LOGO": "Cliquez pour télécharger votre groupe logo !",
     "APPLICATIONS": "Candidatures",

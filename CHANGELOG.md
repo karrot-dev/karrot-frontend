@@ -21,6 +21,9 @@ Please document your changes in this format:
 ```
 
 ## [Unreleased]
+### Fixed
+- Invitation form didn't show error messages @tiltec
+- Applications wouldn't get withdrawn when the user accepts an invitation @tiltec
 
 ## [7.2.2] - 2019-04-04
 ### Added

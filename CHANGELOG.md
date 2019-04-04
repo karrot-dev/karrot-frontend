@@ -21,8 +21,10 @@ Please document your changes in this format:
 ```
 
 ## [Unreleased]
+
+## [7.2.2] - 2019-04-04
 ### Added
-- Groups can specify a welcome message that applicants receive after they've been accepted #1038 @cstefanj
+- Groups can specify a welcome message that applicants receive after they've been accepted [#1038] @cstefanj
 
 ## [7.2.1] - 2019-03-29
 ### Added
@@ -392,6 +394,7 @@ After months of planning and programming, the first version of ~the foodsaving t
 [#891]: https://github.com/yunity/karrot-frontend/issues/891
 [#986]: https://github.com/yunity/karrot-frontend/issues/986
 [#1020]: https://github.com/yunity/karrot-frontend/issues/1020
+[#1038]: https://github.com/yunity/karrot-frontend/issues/1038
 [#1063]: https://github.com/yunity/karrot-frontend/issues/1063
 [#1065]: https://github.com/yunity/karrot-frontend/issues/1065
 [#1070]: https://github.com/yunity/karrot-frontend/issues/1070
@@ -411,7 +414,8 @@ After months of planning and programming, the first version of ~the foodsaving t
 [#1174]: https://github.com/yunity/karrot-frontend/issues/1174
 [#1178]: https://github.com/yunity/karrot-frontend/issues/1178
 
-[Unreleased]: https://github.com/yunity/karrot-frontend/compare/v7.2.1...HEAD
+[Unreleased]: https://github.com/yunity/karrot-frontend/compare/v7.2.2...HEAD
+[7.2.2]: https://github.com/yunity/karrot-frontend/compare/v7.2.1...v7.2.2
 [7.2.1]: https://github.com/yunity/karrot-frontend/compare/v7.2.0...v7.2.1
 [7.2.0]: https://github.com/yunity/karrot-frontend/compare/v7.1.0...v7.2.0
 [7.1.0]: https://github.com/yunity/karrot-frontend/compare/v7.0.0...v7.1.0

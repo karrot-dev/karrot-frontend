@@ -35,22 +35,22 @@ export default {
   },
   actions: {
     ...withMeta({
-      /**
-       * Fetch sent invitations for current group
-       */
-      async fetch ({ commit }, { groupId }) {
-        commit('update', await invitations.listByGroupId(groupId))
-      },
-
-      /**
-       * Send invitation to e-mail
-       */
       async send ({ commit, rootGetters }, email) {
         const invited = await invitations.create({
           email,
           group: rootGetters['currentGroup/id'],
         })
         commit('update', [invited])
+      },
+    }, {
+      findId: () => null,
+    }),
+    ...withMeta({
+      /**
+       * Fetch sent invitations for current group
+       */
+      async fetch ({ commit }, { groupId }) {
+        commit('update', await invitations.listByGroupId(groupId))
       },
 
       /**

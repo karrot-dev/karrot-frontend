@@ -80,6 +80,20 @@ describe('helpers', () => {
     it('passes number unchanged', () => {
       expect(defaultFindId(5)).toBe(5)
     })
+
+    it('passes strings unchanged, does not warn if it is a real string', () => {
+      jest.spyOn(console, 'warn').mockImplementation(() => {})
+      expect(defaultFindId('hello')).toBe('hello')
+      expect(console.warn).not.toHaveBeenCalled()
+      console.warn.mockRestore()
+    })
+
+    it('passes strings unchanged, warns if they are numbers', () => {
+      jest.spyOn(console, 'warn').mockImplementation(() => {})
+      expect(defaultFindId('5')).toBe('5')
+      expect(console.warn).toHaveBeenCalledWith('findId: number passed as string', '5')
+      console.warn.mockRestore()
+    })
   })
 
   describe('toggles', () => {

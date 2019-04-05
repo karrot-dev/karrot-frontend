@@ -30,7 +30,7 @@ export function placeMarker (place) {
   return {
     latLng: { lat: place.latitude, lng: place.longitude },
     id: 'place_' + place.id,
-    fontIcon: 'fas fa-shopping-cart',
+    fontIcon: 'fas fa-dot-circle',
     color: place.ui.color,
     popup: {
       render: h => h(PlaceMarker, { props: { place } }),

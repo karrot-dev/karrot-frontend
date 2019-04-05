@@ -31,7 +31,7 @@ storiesOf('Map', module)
         markers: [
           {
             latLng: latLng(placesMock[0]),
-            fontIcon: 'fas fa-shopping-cart',
+            fontIcon: 'fas fa-dot-circle',
             color: 'blue',
           },
         ],
@@ -46,13 +46,13 @@ storiesOf('Map', module)
           {
             latLng: latLng(placesMock[1]),
             id: 'marker1',
-            fontIcon: 'fas fa-shopping-cart',
+            fontIcon: 'fas fa-dot-circle',
             color: 'blue',
           },
           {
             latLng: latLng(placesMock[3]),
             id: 'marker2',
-            fontIcon: 'fas fa-shopping-cart',
+            fontIcon: 'fas fa-dot-circle',
             color: 'blue',
           },
         ],
@@ -60,7 +60,7 @@ storiesOf('Map', module)
           {
             latLng: latLng(placesMock[1]),
             id: 'marker1',
-            fontIcon: 'fas fa-shopping-cart',
+            fontIcon: 'fas fa-dot-circle',
             color: 'blue',
           },
         ],

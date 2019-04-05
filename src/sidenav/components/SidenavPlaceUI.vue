@@ -6,7 +6,7 @@
     @toggle="$emit('toggleBox')"
   >
     <template slot="icon">
-      <QIcon name="fas fa-fw fa-shopping-cart" />
+      <QIcon name="fas fa-fw fa-dot-circle" />
     </template>
     <template slot="name">
       {{ place.name }}

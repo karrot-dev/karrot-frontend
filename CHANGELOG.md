@@ -20,6 +20,8 @@ Please document your changes in this format:
   - description of change [#PR] @username
 ```
 
+## [Unreleased]
+
 ## [7.2.4] - 2019-04-11
 ### Fixed
 - Users wouldn't get marked as active, regression in 7.2.2 @tiltec
@@ -421,7 +423,8 @@ After months of planning and programming, the first version of ~the foodsaving t
 [#1174]: https://github.com/yunity/karrot-frontend/issues/1174
 [#1178]: https://github.com/yunity/karrot-frontend/issues/1178
 
-[Unreleased]: https://github.com/yunity/karrot-frontend/compare/v7.2.3...HEAD
+[Unreleased]: https://github.com/yunity/karrot-frontend/compare/v7.2.4...HEAD
+[7.2.4]: https://github.com/yunity/karrot-frontend/compare/v7.2.3...v7.2.4
 [7.2.3]: https://github.com/yunity/karrot-frontend/compare/v7.2.2...v7.2.3
 [7.2.2]: https://github.com/yunity/karrot-frontend/compare/v7.2.1...v7.2.2
 [7.2.1]: https://github.com/yunity/karrot-frontend/compare/v7.2.0...v7.2.1

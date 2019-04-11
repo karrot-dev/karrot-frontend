@@ -7,117 +7,114 @@
     <div class="generic-padding">
       <div
         v-if="place"
-        class="actionButtons row justify-between"
+        class="actionButtons"
       >
-        <div class="self-center">
-          <QChip
-            icon="fas fa-star"
-            color="secondary"
-            square
-            :title="$t('PLACEWALL.SUBSCRIBED_USERS', { count: subscribers.length })"
-          >
-            <strong>{{ subscribers.length }}</strong>
-            <QPopover>
-              <div
-                v-if="subscribers"
-                v-close-overlay
-                class="q-pa-md"
-              >
-                <div>
-                  <ProfilePicture
-                    v-for="user in subscribers"
-                    :key="user.id"
-                    :user="user"
-                    :size="20"
-                    class="q-mr-xs"
-                  />
-                </div>
-                <div class="q-mt-sm">
-                  {{ $t('PLACEWALL.SUBSCRIBED_USERS', { count: subscribers.length }) }}
-                </div>
-              </div>
-            </QPopover>
-          </QChip>
-        </div>
-        <div>
-          <QBtn
-            round
-            color="white"
-            class="hoverScale"
-            :icon="selected.icon"
-            :text-color="selected.color"
-          >
-            <QTooltip>
-              {{ $t('PLACEWALL.SUBSCRIPTION.HEADER') }}
-            </QTooltip>
-            <QPopover>
-              <QList
-                v-close-overlay
-                link
-              >
-                <QListHeader
-                  v-t="'PLACEWALL.SUBSCRIPTION.HEADER'"
-                />
+        <QBtn
+          round
+          color="white"
+          class="hoverScale"
+          :icon="selected.icon"
+          :text-color="selected.color"
+        >
+          <QTooltip>
+            {{ $t('PLACEWALL.SUBSCRIPTION.HEADER') }}
+          </QTooltip>
+          <QPopover>
+            <QList
+              v-close-overlay
+              link
+            >
+              <QListHeader
+                v-t="'PLACEWALL.SUBSCRIPTION.HEADER'"
+              />
 
-                <QItem
-                  v-for="o in options"
-                  :key="o.id"
-                  :class="o.selected ? 'bg-grey-2' : ''"
-                  @click.native="select(o)"
-                >
-                  <QItemSide
-                    :color="o.color"
-                    :icon="o.icon"
-                  />
-                  <QItemMain
-                    :label="o.label"
-                    :sublabel="o.sublabel"
-                  />
-                </QItem>
-              </QList>
-            </QPopover>
-          </QBtn>
+              <QItem
+                v-for="o in options"
+                :key="o.id"
+                :class="o.selected ? 'bg-grey-2' : ''"
+                @click.native="select(o)"
+              >
+                <QItemSide
+                  :color="o.color"
+                  :icon="o.icon"
+                />
+                <QItemMain
+                  :label="o.label"
+                  :sublabel="o.sublabel"
+                />
+              </QItem>
+            </QList>
+          </QPopover>
+        </QBtn>
+        <QBtn
+          v-if="isEditor"
+          :to="{name: 'placeEdit', params: { groupId, placeId }}"
+          round
+          color="secondary"
+          icon="fas fa-pencil-alt"
+          class="hoverScale"
+        >
+          <QTooltip v-t="'STOREDETAIL.EDIT'" />
+        </QBtn>
+        <QBtn
+          v-if="isEditor"
+          :to="{name: 'placePickupsManage', params: { groupId, placeId }}"
+          small
+          round
+          color="secondary"
+          icon="fas fa-calendar-alt"
+          class="hoverScale"
+        >
+          <QTooltip v-t="'STOREDETAIL.MANAGE'" />
+        </QBtn>
+        <a
+          v-if="directionsURL"
+          target="_blank"
+          rel="noopener nofollow noreferrer"
+          :href="directionsURL"
+        >
           <QBtn
-            v-if="isEditor"
-            :to="{name: 'placeEdit', params: { groupId, placeId }}"
-            round
-            color="secondary"
-            icon="fas fa-pencil-alt"
-            class="hoverScale"
-          >
-            <QTooltip v-t="'STOREDETAIL.EDIT'" />
-          </QBtn>
-          <QBtn
-            v-if="isEditor"
-            :to="{name: 'placePickupsManage', params: { groupId, placeId }}"
             small
             round
             color="secondary"
-            icon="fas fa-calendar-alt"
+            icon="directions"
             class="hoverScale"
           >
-            <QTooltip v-t="'STOREDETAIL.MANAGE'" />
+            <QTooltip v-t="'STOREDETAIL.DIRECTIONS'" />
           </QBtn>
-          <a
-            v-if="directionsURL"
-            target="_blank"
-            rel="noopener nofollow noreferrer"
-            :href="directionsURL"
-          >
-            <QBtn
-              small
-              round
-              color="secondary"
-              icon="directions"
-              class="hoverScale"
-            >
-              <QTooltip v-t="'STOREDETAIL.DIRECTIONS'" />
-            </QBtn>
-          </a>
-        </div>
+        </a>
       </div>
       <KSpinner v-show="!place" />
       <template v-if="place">
+        <QChip
+          icon="fas fa-star"
+          color="secondary"
+          square
+          :title="$t('PLACEWALL.SUBSCRIBED_USERS', { count: subscribers.length })"
+          class="q-mb-sm"
+        >
+          <strong>{{ subscribers.length }}</strong>
+          <QPopover>
+            <div
+              v-if="subscribers"
+              v-close-overlay
+              class="q-pa-md"
+            >
+              <div>
+                <ProfilePicture
+                  v-for="user in subscribers"
+                  :key="user.id"
+                  :user="user"
+                  :size="20"
+                  class="q-mr-xs"
+                />
+              </div>
+              <div class="q-caption q-mt-sm">
+                {{ $t('PLACEWALL.SUBSCRIBED_USERS', { count: subscribers.length }) }}
+              </div>
+            </div>
+          </QPopover>
+        </QChip>
         <div
           v-if="place.description"
           class="q-pt-xs"
@@ -268,7 +265,6 @@ body.desktop .actionButtons
 .actionButtons
   top 2px
   right 3px
-  left 3px
   position absolute
   .q-btn
     margin 3px

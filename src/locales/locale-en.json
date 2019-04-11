@@ -214,7 +214,7 @@
     "SHOW_ACTIVE_ONLY": "Only show active stores"
   },
   "PLACEWALL": {
-    "SUBSCRIBED_USERS": "{count} people have marked this store as favorite.",
+    "SUBSCRIBED_USERS": "{count} people have marked this store as favourite",
     "SUBSCRIPTION": {
       "HEADER": "Do you want to mark this store as your favourite?",
       "YES": "yes",

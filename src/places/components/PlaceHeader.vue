@@ -7,82 +7,114 @@
     <div class="generic-padding">
       <div
         v-if="place"
-        class="actionButtons"
+        class="actionButtons row justify-between"
       >
-        <QBtn
-          round
-          color="white"
-          class="hoverScale"
-          :icon="selected.icon"
-          :text-color="selected.color"
-        >
-          <QTooltip>
-            {{ $t('PLACEWALL.SUBSCRIPTION.HEADER') }}
-          </QTooltip>
-          <QPopover>
-            <QList
-              v-close-overlay
-              link
-            >
-              <QListHeader
-                v-t="'PLACEWALL.SUBSCRIPTION.HEADER'"
-              />
-
-              <QItem
-                v-for="o in options"
-                :key="o.id"
-                :class="o.selected ? 'bg-grey-2' : ''"
-                @click.native="select(o)"
+        <div class="self-center">
+          <QChip
+            icon="fas fa-star"
+            color="secondary"
+            square
+            :title="$t('PLACEWALL.SUBSCRIBED_USERS', { count: subscribers.length })"
+          >
+            <strong>{{ subscribers.length }}</strong>
+            <QPopover>
+              <div
+                v-if="subscribers"
+                v-close-overlay
+                class="q-pa-md"
               >
-                <QItemSide
-                  :color="o.color"
-                  :icon="o.icon"
-                />
-                <QItemMain
-                  :label="o.label"
-                  :sublabel="o.sublabel"
-                />
-              </QItem>
-            </QList>
-          </QPopover>
-        </QBtn>
-        <QBtn
-          v-if="isEditor"
-          :to="{name: 'placeEdit', params: { groupId, placeId }}"
-          round
-          color="secondary"
-          icon="fas fa-pencil-alt"
-          class="hoverScale"
-        >
-          <QTooltip v-t="'STOREDETAIL.EDIT'" />
-        </QBtn>
-        <QBtn
-          v-if="isEditor"
-          :to="{name: 'placePickupsManage', params: { placeId }}"
-          small
-          round
-          color="secondary"
-          icon="fas fa-calendar-alt"
-          class="hoverScale"
-        >
-          <QTooltip v-t="'STOREDETAIL.MANAGE'" />
-        </QBtn>
-        <a
-          v-if="directionsURL"
-          target="_blank"
-          rel="noopener nofollow noreferrer"
-          :href="directionsURL"
-        >
+                <div>
+                  <ProfilePicture
+                    v-for="user in subscribers"
+                    :key="user.id"
+                    :user="user"
+                    :size="20"
+                    class="q-mr-xs"
+                  />
+                </div>
+                <div class="q-mt-sm">
+                  {{ $t('PLACEWALL.SUBSCRIBED_USERS', { count: subscribers.length }) }}
+                </div>
+              </div>
+            </QPopover>
+          </QChip>
+        </div>
+        <div>
           <QBtn
+            round
+            color="white"
+            class="hoverScale"
+            :icon="selected.icon"
+            :text-color="selected.color"
+          >
+            <QTooltip>
+              {{ $t('PLACEWALL.SUBSCRIPTION.HEADER') }}
+            </QTooltip>
+            <QPopover>
+              <QList
+                v-close-overlay
+                link
+              >
+                <QListHeader
+                  v-t="'PLACEWALL.SUBSCRIPTION.HEADER'"
+                />
+
+                <QItem
+                  v-for="o in options"
+                  :key="o.id"
+                  :class="o.selected ? 'bg-grey-2' : ''"
+                  @click.native="select(o)"
+                >
+                  <QItemSide
+                    :color="o.color"
+                    :icon="o.icon"
+                  />
+                  <QItemMain
+                    :label="o.label"
+                    :sublabel="o.sublabel"
+                  />
+                </QItem>
+              </QList>
+            </QPopover>
+          </QBtn>
+          <QBtn
+            v-if="isEditor"
+            :to="{name: 'placeEdit', params: { groupId, placeId }}"
+            round
+            color="secondary"
+            icon="fas fa-pencil-alt"
+            class="hoverScale"
+          >
+            <QTooltip v-t="'STOREDETAIL.EDIT'" />
+          </QBtn>
+          <QBtn
+            v-if="isEditor"
+            :to="{name: 'placePickupsManage', params: { groupId, placeId }}"
             small
             round
             color="secondary"
-            icon="directions"
+            icon="fas fa-calendar-alt"
             class="hoverScale"
           >
-            <QTooltip v-t="'STOREDETAIL.DIRECTIONS'" />
+            <QTooltip v-t="'STOREDETAIL.MANAGE'" />
           </QBtn>
-        </a>
+          <a
+            v-if="directionsURL"
+            target="_blank"
+            rel="noopener nofollow noreferrer"
+            :href="directionsURL"
+          >
+            <QBtn
+              small
+              round
+              color="secondary"
+              icon="directions"
+              class="hoverScale"
+            >
+              <QTooltip v-t="'STOREDETAIL.DIRECTIONS'" />
+            </QBtn>
+          </a>
+        </div>
       </div>
       <KSpinner v-show="!place" />
       <template v-if="place">
@@ -94,9 +126,14 @@
             :source="place.description"
           />
         </div>
-        <i v-else>
-          {{ $t("STOREDETAIL.NO_DESCRIPTION") }}
-        </i>
+        <div
+          v-else
+          class="q-pt-sm"
+        >
+          <span class="text-italic">
+            {{ $t("STOREDETAIL.NO_DESCRIPTION") }}
+          </span>
+        </div>
         <template v-if="$q.platform.is.mobile">
           <QCardSeparator class="q-mb-sm" />
           <StandardMap
@@ -114,6 +151,7 @@ import Markdown from '@/utils/components/Markdown'
 import StandardMap from '@/maps/components/StandardMap'
 import RandomArt from '@/utils/components/RandomArt'
 import KSpinner from '@/utils/components/KSpinner'
+import ProfilePicture from '@/users/components/ProfilePicture'
 
 import { placeMarker } from '@/maps/components/markers'
 import directions from '@/maps/directions'
@@ -133,6 +171,7 @@ import {
   QItem,
   QItemMain,
   QItemSide,
+  QChip,
 } from 'quasar'
 
 export default {
@@ -141,6 +180,7 @@ export default {
     StandardMap,
     RandomArt,
     KSpinner,
+    ProfilePicture,
     QCardSeparator,
     QBtn,
     QTooltip,
@@ -150,6 +190,7 @@ export default {
     QItem,
     QItemMain,
     QItemSide,
+    QChip,
   },
   computed: {
     markers () {
@@ -158,6 +199,7 @@ export default {
     ...mapGetters({
       placeId: 'places/activePlaceId',
       place: 'places/activePlace',
+      subscribers: 'places/activePlaceSubscribers',
       currentUser: 'auth/user',
       isEditor: 'currentGroup/isEditor',
     }),
@@ -226,6 +268,7 @@ body.desktop .actionButtons
 .actionButtons
   top 2px
   right 3px
+  left 3px
   position absolute
   .q-btn
     margin 3px

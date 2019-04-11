@@ -1,5 +1,6 @@
 <template>
   <div>
+    <PlaceHeader />
     <QCard
       class="no-padding no-shadow grey-border"
     >
@@ -16,11 +17,13 @@
 <script>
 import { QCard } from 'quasar'
 import HistoryContainer from '@/history/pages/HistoryContainer'
+import PlaceHeader from '@/places/components/PlaceHeader'
 import { mapGetters } from 'vuex'
 
 export default {
   components: {
     HistoryContainer,
+    PlaceHeader,
     QCard,
   },
   computed: {

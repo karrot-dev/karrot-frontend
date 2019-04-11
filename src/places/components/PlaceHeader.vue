@@ -4,6 +4,7 @@
       :seed="placeId"
       type="banner"
     />
+    <PlaceTabs />
     <div class="generic-padding">
       <div
         v-if="place"
@@ -149,6 +150,7 @@ import StandardMap from '@/maps/components/StandardMap'
 import RandomArt from '@/utils/components/RandomArt'
 import KSpinner from '@/utils/components/KSpinner'
 import ProfilePicture from '@/users/components/ProfilePicture'
+import PlaceTabs from '@/places/components/PlaceTabs'
 
 import { placeMarker } from '@/maps/components/markers'
 import directions from '@/maps/directions'
@@ -178,6 +180,7 @@ export default {
     RandomArt,
     KSpinner,
     ProfilePicture,
+    PlaceTabs,
     QCardSeparator,
     QBtn,
     QTooltip,

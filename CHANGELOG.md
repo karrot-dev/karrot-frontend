@@ -20,7 +20,9 @@ Please document your changes in this format:
   - description of change [#PR] @username
 ```
 
-## [Unreleased]
+## [7.2.4] - 2019-04-11
+### Fixed
+- Users wouldn't get marked as active, regression in 7.2.2 @tiltec
 
 ## [7.2.3] - 2019-04-05
 ### Fixed

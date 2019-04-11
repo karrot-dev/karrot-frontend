@@ -25,10 +25,18 @@ export default {
       type: Array,
       default: () => [],
     },
+    search: {
+      type: String,
+      default: () => '',
+    },
   },
   computed: {
     whitelist () {
       // sorted alphabetically
+      console.log('search: ' + this.search)
+      if (this.search !== '') {
+        return [this.search].filter(e => !this.reacted.includes(e))
+      }
       return [
         'carrot',
         'laughing',

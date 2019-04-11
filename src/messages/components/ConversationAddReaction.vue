@@ -9,10 +9,14 @@
       @show="open = true"
       @hide="open = false"
     >
-      <QSearch v-model="search" />
+      <p>{{ search }}</p>
+      <QSearch
+        v-model="search"
+      />
       <ConversationAddReactionInner
         v-if="open"
         :reacted="reacted"
+        :search="search"
         @toggle="$emit('toggle', arguments[0])"
       />
     </QPopover>
@@ -39,6 +43,7 @@ export default {
   data () {
     return {
       open: false,
+      search: '',
     }
   },
 }

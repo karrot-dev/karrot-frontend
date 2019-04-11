@@ -17,6 +17,19 @@
 
 <script>
 import EmojiButton from './EmojiButton'
+import emojiList from 'markdown-it-emoji/lib/data/full.json'
+
+function searchEmoji (search) {
+  // clean search by removing colons and setting lowercase
+  let cleanedSearch = search.replace(/:/g, '').toLowerCase()
+  // only considers exact match searches
+  if (Object.keys(emojiList).includes(cleanedSearch)) {
+    return [cleanedSearch]
+  }
+  else {
+    return []
+  }
+}
 
 export default {
   components: { EmojiButton },
@@ -33,9 +46,8 @@ export default {
   computed: {
     whitelist () {
       // sorted alphabetically
-      console.log('search: ' + this.search)
       if (this.search !== '') {
-        return [this.search].filter(e => !this.reacted.includes(e))
+        return searchEmoji(this.search).filter(e => !this.reacted.includes(e))
       }
       return [
         'carrot',

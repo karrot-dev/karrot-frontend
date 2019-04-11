@@ -7,9 +7,8 @@
       anchor="top left"
       self="top left"
       @show="open = true"
-      @hide="open = false"
+      @hide="open = false, search = ''"
     >
-      <p>{{ search }}</p>
       <QSearch
         v-model="search"
       />

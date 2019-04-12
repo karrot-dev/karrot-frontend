@@ -55,6 +55,11 @@ export default {
         'ok_hand',
         'thumbsup',
         'thumbsdown',
+        'rage',
+        'cry',
+        'heart',
+        'muscle',
+        'raised_hands',
       ].filter(e => !this.reacted.includes(e))
     },
   },

@@ -1,32 +1,30 @@
 <template>
-  <QTabs
-    align="justify"
-    color="secondary"
-  >
+  <QTabs>
     <QRouteTab
       slot="title"
       :to="{ name: 'placePickups', params: { groupId, placeId } }"
       default
-      name="p"
-      label="pickups"
+      :label="$t('GROUP.PICKUPS')"
+      icon="fas fa-shopping-basket"
     />
     <QRouteTab
       slot="title"
       :to="{ name: 'placeWall', params: { groupId, placeId } }"
-      name="w"
-      label="wall"
+      :label="$t('GROUP.WALL')"
+      :count="cappedWallUnreadCount"
+      icon="fas fa-bullhorn"
     />
     <QRouteTab
       slot="title"
       :to="{ name: 'placeFeedback', params: { groupId, placeId } }"
-      name="fe"
-      label="feedback"
+      :label="$t('PICKUP_FEEDBACK.TITLE')"
+      icon="fas fa-balance-scale"
     />
     <QRouteTab
       slot="title"
       :to="{ name: 'placeHistory', params: { groupId, placeId } }"
-      name="h"
-      label="history"
+      :label="$t('GROUP.HISTORY')"
+      icon="far fa-clock"
     />
   </QTabs>
 </template>
@@ -48,7 +46,12 @@ export default {
     ...mapGetters({
       groupId: 'currentGroup/id',
       placeId: 'places/activePlaceId',
+      wallUnreadCount: 'places/conversationUnreadCount',
+      isEditor: 'currentGroup/isEditor',
     }),
+    cappedWallUnreadCount () {
+      return this.wallUnreadCount > 99 ? '99+' : this.wallUnreadCount
+    },
   },
 }
 </script>

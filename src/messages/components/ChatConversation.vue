@@ -24,7 +24,6 @@
           :status="conversation.sendStatus"
           slim
           :placeholder="messagePrompt"
-          :autofocus="!$q.platform.is.mobile && startAtBottom"
           :is-participant="conversation.isParticipant"
           @submit="sendMessage"
         />

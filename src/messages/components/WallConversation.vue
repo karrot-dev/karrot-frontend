@@ -19,7 +19,6 @@
             :placeholder="messagePrompt"
             :user="user"
             :slim="$q.platform.is.mobile"
-            :autofocus="!$q.platform.is.mobile"
             :is-participant="data.isParticipant"
             @submit="$emit('send', { id: data.id, content: arguments[0] })"
           />

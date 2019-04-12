@@ -22,7 +22,6 @@
               v-model="message"
               type="textarea"
               rows="1"
-              :autofocus="autofocus"
               :placeholder="placeholder"
               :after="afterInput"
               :loading="isPending"
@@ -71,10 +70,6 @@ export default {
     slim: {
       type: Boolean,
       default: false,
-    },
-    autofocus: {
-      type: Boolean,
-      default: true,
     },
     isParticipant: {
       type: Boolean,

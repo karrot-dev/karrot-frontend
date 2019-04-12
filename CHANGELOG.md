@@ -21,6 +21,8 @@ Please document your changes in this format:
 ```
 
 ## [Unreleased]
+### Added
+- Show people who marked a place as favorite @tiltec
 
 ## [7.2.4] - 2019-04-11
 ### Fixed

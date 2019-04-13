@@ -214,6 +214,7 @@
     "SHOW_ACTIVE_ONLY": "फक्त सक्रिय स्टोअर दर्शवा"
   },
   "PLACEWALL": {
+    "SUBSCRIBED_USERS": "{count} people have marked this store as favourite",
     "SUBSCRIPTION": {
       "HEADER": "आपण या स्टोअरला आपले आवडते म्हणून चिन्हांकित करू इच्छिता?",
       "YES": "होय",

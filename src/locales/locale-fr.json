@@ -214,6 +214,7 @@
     "SHOW_ACTIVE_ONLY": "Afficher les magasins actifs"
   },
   "PLACEWALL": {
+    "SUBSCRIBED_USERS": "{count} people have marked this store as favourite",
     "SUBSCRIPTION": {
       "HEADER": "Veux tu indiquer ce magasin parmi tes favoris ?",
       "YES": "oui",

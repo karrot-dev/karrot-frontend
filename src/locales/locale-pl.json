@@ -214,6 +214,7 @@
     "SHOW_ACTIVE_ONLY": "Pokaż tylko aktywne punkty odbioru"
   },
   "PLACEWALL": {
+    "SUBSCRIBED_USERS": "{count} people have marked this store as favourite",
     "SUBSCRIPTION": {
       "HEADER": "Czy chcesz oznaczyć ten punkt jako ulubiony?",
       "YES": "Tak",

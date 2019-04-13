@@ -214,6 +214,7 @@
     "SHOW_ACTIVE_ONLY": "只顯示活躍店家"
   },
   "PLACEWALL": {
+    "SUBSCRIBED_USERS": "{count} people have marked this store as favourite",
     "SUBSCRIPTION": {
       "HEADER": "Do you want to mark this store as your favourite?",
       "YES": "yes",

@@ -1,5 +1,8 @@
 <template>
-  <QTabs>
+  <QTabs
+    color="transparent"
+    text-color="primary"
+  >
     <QRouteTab
       slot="title"
       :to="{ name: 'placePickups', params: { groupId, placeId } }"

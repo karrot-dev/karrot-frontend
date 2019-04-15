@@ -117,6 +117,7 @@ module.exports = {
           /quasar-framework\/src/,
           /\.mjs$/,
           /\.es6.js$/,
+          /\.esm.js$/,
         ],
       },
       {

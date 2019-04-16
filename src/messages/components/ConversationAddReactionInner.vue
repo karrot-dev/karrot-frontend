@@ -27,12 +27,26 @@ function searchEmoji (search) {
   // clean search by removing colons and setting lowercase
   let cleanedSearch = search.replace(/:/g, '').toLowerCase()
   // only considers exact match searches
+  let match = []
   if (Object.keys(emojiList).includes(cleanedSearch)) {
-    return [cleanedSearch]
+    match.push(cleanedSearch)
   }
-  else {
-    return []
+  // Don't search if user hasn't input more than 2 characters
+  if (cleanedSearch.length > 2) {
+    for (var key in Object.keys(emojiList)) {
+      // Regexp matching characters
+      let regexp = cleanedSearch.split('').join('.*')
+      regexp = regexp + '.*'
+      if (Object.keys(emojiList)[key].match(regexp) &&
+          Object.keys(emojiList)[key] !== cleanedSearch) {
+        match.push(Object.keys(emojiList)[key])
+      }
+      if (match.length >= 20) {
+        return match
+      }
+    }
   }
+  return match
 }
 
 export default {

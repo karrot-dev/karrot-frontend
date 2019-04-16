@@ -7,15 +7,11 @@
       anchor="top left"
       self="top left"
       @show="open = true"
-      @hide="open = false, search = ''"
+      @hide="open = false"
     >
-      <QSearch
-        v-model="search"
-      />
       <ConversationAddReactionInner
         v-if="open"
         :reacted="reacted"
-        :search="search"
         @toggle="$emit('toggle', arguments[0])"
       />
     </QPopover>
@@ -23,12 +19,12 @@
 </template>
 
 <script>
-import { QBtn, QPopover, QSearch } from 'quasar'
+import { QBtn, QPopover } from 'quasar'
 
 const ConversationAddReactionInner = () => import('./ConversationAddReactionInner')
 
 export default {
-  components: { QBtn, QPopover, QSearch, ConversationAddReactionInner },
+  components: { QBtn, QPopover, ConversationAddReactionInner },
   props: {
     opacity: {
       type: Number,
@@ -42,7 +38,6 @@ export default {
   data () {
     return {
       open: false,
-      search: '',
     }
   },
 }

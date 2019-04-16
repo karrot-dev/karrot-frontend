@@ -1,8 +1,11 @@
 <template>
   <div
     class="row"
-    style="margin: 2px 4px"
+    style="margin: 2px 4px; width: 185px"
   >
+    <QSearch
+      v-model="search"
+    />
     <EmojiButton
       v-for="name in whitelist"
       :key="name"
@@ -18,6 +21,7 @@
 <script>
 import EmojiButton from './EmojiButton'
 import emojiList from 'markdown-it-emoji/lib/data/full.json'
+import { QSearch } from 'quasar'
 
 function searchEmoji (search) {
   // clean search by removing colons and setting lowercase
@@ -32,16 +36,17 @@ function searchEmoji (search) {
 }
 
 export default {
-  components: { EmojiButton },
+  components: { EmojiButton, QSearch },
   props: {
     reacted: {
       type: Array,
       default: () => [],
     },
-    search: {
-      type: String,
-      default: () => '',
-    },
+  },
+  data () {
+    return {
+      search: '',
+    }
   },
   computed: {
     whitelist () {

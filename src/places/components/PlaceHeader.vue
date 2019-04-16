@@ -10,7 +10,7 @@
         color="secondary"
         square
         :title="$t('PLACEWALL.SUBSCRIBED_USERS', { count: subscribers.length })"
-        class="q-mb-sm"
+        class="self-center q-ml-sm"
       >
         <strong>{{ subscribers.length }}</strong>
         <QPopover>
@@ -36,7 +36,7 @@
       </QChip>
       <div>
         <QBtn
-          rounded
+          round
           color="white"
           class="hoverScale"
           :icon="selected.icon"
@@ -75,7 +75,7 @@
         <QBtn
           v-if="isEditor"
           :to="{name: 'placeEdit', params: { groupId, placeId }}"
-          rounded
+          round
           color="secondary"
           icon="fas fa-pencil-alt"
           class="hoverScale"
@@ -86,7 +86,7 @@
           v-if="isEditor"
           :to="{name: 'placePickupsManage', params: { groupId, placeId }}"
           small
-          rounded
+          round
           color="secondary"
           icon="fas fa-calendar-alt"
           class="hoverScale"
@@ -101,7 +101,7 @@
         >
           <QBtn
             small
-            rounded
+            round
             :color="directionsURL ? 'secondary' : 'grey'"
             icon="directions"
             class="hoverScale"
@@ -148,10 +148,9 @@
       <RandomArt
         :seed="placeId"
         type="banner"
-      >
-        <PlaceTabs />
-      </RandomArt>
+      />
     </div>
+    <PlaceTabs />
   </div>
 </template>
 

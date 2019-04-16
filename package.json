@@ -85,7 +85,7 @@
     "@storybook/addon-actions": "4.1.12",
     "@storybook/addon-links": "4.1.12",
     "@storybook/addon-options": "^4.1.12",
-    "@storybook/vue": "4.1.12",
+    "@storybook/vue": "4.1.18",
     "@vue/test-utils": "1.0.0-beta.29",
     "autoprefixer": "^9.5.1",
     "axios-mock-adapter": "^1.16.0",

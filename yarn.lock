@@ -1218,12 +1218,12 @@
     global "^4.3.2"
     prop-types "^15.6.2"
 
-"@storybook/addon-options@^4.1.12":
-  version "4.1.16"
-  resolved "https://registry.yarnpkg.com/@storybook/addon-options/-/addon-options-4.1.16.tgz#07957ec2c43eedfe7c3524dd6275c662adcaa0d6"
-  integrity sha512-ttnK7XVvl6iApfqur/Ny/iGEcZOeb/Tj1iYLfZZMv/8XXcSswHrVexi3wHcenrAge09PW45yf570bySqOgRCgQ==
+"@storybook/addon-options@^4.1.18":
+  version "4.1.18"
+  resolved "https://registry.yarnpkg.com/@storybook/addon-options/-/addon-options-4.1.18.tgz#ad5110a40914ba41c071127ca1759bc184be9e0f"
+  integrity sha512-de8ba7q5Gg0nq+jf0sGZEnoE1fv3Af7/L28pGNc5e5di+E1dyADaEJvJmmBWr/eS+NxoRmQlps+a4XlrxxS2Qg==
   dependencies:
-    "@storybook/addons" "4.1.16"
+    "@storybook/addons" "4.1.18"
     core-js "^2.5.7"
     util-deprecate "^1.0.2"
 
@@ -1234,16 +1234,6 @@
   dependencies:
     "@storybook/channels" "4.1.12"
     "@storybook/components" "4.1.12"
-    global "^4.3.2"
-    util-deprecate "^1.0.2"
-
-"@storybook/addons@4.1.16":
-  version "4.1.16"
-  resolved "https://registry.yarnpkg.com/@storybook/addons/-/addons-4.1.16.tgz#f9b63d6086dd094536e39e24e8a6d7e06f7ed7a7"
-  integrity sha512-RSvlE/yOpEvRaleeeucRlIZkxUK0QvQxPGtcNOy+H/sE2ZIi9DB3bjhFnhWDaeqW8AYHfxA1hzujeO7kWYV0dw==
-  dependencies:
-    "@storybook/channels" "4.1.16"
-    "@storybook/components" "4.1.16"
     global "^4.3.2"
     util-deprecate "^1.0.2"
 
@@ -1271,11 +1261,6 @@
   resolved "https://registry.yarnpkg.com/@storybook/channels/-/channels-4.1.12.tgz#656161e48467c0fef0dedce1ab21972d2eb7fa27"
   integrity sha512-vep5vOmZ3K9/usIGc82tld5af6lQdIpzXGp1VlQ4lG69j09UxO+1H3gQn6dSFEm+9D4hqjp8wj0ZO10N4/xb/w==
 
-"@storybook/channels@4.1.16":
-  version "4.1.16"
-  resolved "https://registry.yarnpkg.com/@storybook/channels/-/channels-4.1.16.tgz#b935a5e5b762ba0f7ebb6d833e35a57dbfc02858"
-  integrity sha512-1lQ52C5eGXFuIFxaoaghNpszKSeW0UPF/BU1Yjd3F0k5Ud43PPPhhdQ0CpnWYj+UbfhwWFZmf2bhT/qpzpCQcQ==
-
 "@storybook/channels@4.1.18":
   version "4.1.18"
   resolved "https://registry.yarnpkg.com/@storybook/channels/-/channels-4.1.18.tgz#343db57866cc09ec61ee609e5149005010d3d4fa"
@@ -1290,22 +1275,6 @@
   version "4.1.12"
   resolved "https://registry.yarnpkg.com/@storybook/components/-/components-4.1.12.tgz#c497167562907ce2adb31b275b60109c9f3269da"
   integrity sha512-3s+zvzaUXjsAIFimKFmCUsKUEtQAAZwsNQc501IOE61A+g7LQypM7UWBhlzwaPh33L1Z34WQrEP991ThF9tXUw==
-  dependencies:
-    "@emotion/core" "^0.13.1"
-    "@emotion/provider" "^0.11.2"
-    "@emotion/styled" "^0.10.6"
-    global "^4.3.2"
-    lodash "^4.17.11"
-    prop-types "^15.6.2"
-    react-inspector "^2.3.0"
-    react-split-pane "^0.1.84"
-    react-textarea-autosize "^7.0.4"
-    render-fragment "^0.1.1"
-
-"@storybook/components@4.1.16":
-  version "4.1.16"
-  resolved "https://registry.yarnpkg.com/@storybook/components/-/components-4.1.16.tgz#fb850b8a16142c570b550a8b62035734d519b2b5"
-  integrity sha512-pAUSLRhu8Gm7HI0CA3GDkBlDgQdiPQkC+CBheX992lg+pbGNb9sAuclFDsGZCJwq2XURkbgKxJFuqcitO5F38g==
   dependencies:
     "@emotion/core" "^0.13.1"
     "@emotion/provider" "^0.11.2"

@@ -148,8 +148,11 @@ export async function maybeDispatchActions (datastore, to, from) {
       }
     }
   }
-  const results = await Promise.all(to.matched.slice(firstNewMatchIdx)
+
+  const beforeEnter = to.matched
+    .slice(firstNewMatchIdx)
     .map(m => m.meta.beforeEnter)
+  const results = await Promise.all([].concat(...beforeEnter)
     .filter(v => !!v)
     .map(runBeforeEnter))
 

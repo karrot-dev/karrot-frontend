@@ -24,29 +24,37 @@ import emojiList from 'markdown-it-emoji/lib/data/full.json'
 import { QSearch } from 'quasar'
 
 function searchEmoji (search) {
-  // clean search by removing colons and setting lowercase
+  // Remove colons and set to lowercase to normalize search
   let cleanedSearch = search.replace(/:/g, '').toLowerCase()
-  // only considers exact match searches
-  let match = []
+  let matchingEmojiNames = []
+  // The set is used to remove duplicate emoji that may have different names
+  let matchingEmojiUnicodes = new Set()
+  // First add the exact search in case there is an emoji shortcode with less
+  // than three characters
   if (Object.keys(emojiList).includes(cleanedSearch)) {
-    match.push(cleanedSearch)
+    matchingEmojiUnicodes.add(emojiList[cleanedSearch])
+    matchingEmojiNames.push(cleanedSearch)
   }
-  // Don't search if user hasn't input more than 2 characters
+
+  // Checks the length because we don't want to have too many results
   if (cleanedSearch.length > 2) {
-    for (var key in Object.keys(emojiList)) {
-      // Regexp matching characters
-      let regexp = cleanedSearch.split('').join('.*')
-      regexp = regexp + '.*'
-      if (Object.keys(emojiList)[key].match(regexp) &&
-          Object.keys(emojiList)[key] !== cleanedSearch) {
-        match.push(Object.keys(emojiList)[key])
+    for (var index in Object.keys(emojiList)) {
+      // This regular expression does a substring search of emoji names to
+      // find more interesting results
+      let regexp = '.*' + cleanedSearch + '.*'
+      let emojiShortcode = Object.keys(emojiList)[index]
+      if (emojiShortcode.match(regexp) &&
+          emojiShortcode !== cleanedSearch &&
+          !matchingEmojiUnicodes.has(emojiList[emojiShortcode])) {
+        matchingEmojiUnicodes.add(emojiList[emojiShortcode])
+        matchingEmojiNames.push(emojiShortcode)
       }
-      if (match.length >= 20) {
-        return match
+      if (matchingEmojiNames.length >= 20) {
+        return matchingEmojiNames
       }
     }
   }
-  return match
+  return matchingEmojiNames
 }
 
 export default {

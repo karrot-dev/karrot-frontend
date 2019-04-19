@@ -1124,10 +1124,10 @@
     "@sentry/utils" "5.1.0"
     tslib "^1.9.3"
 
-"@sentry/cli@^1.41.0":
-  version "1.41.0"
-  resolved "https://registry.yarnpkg.com/@sentry/cli/-/cli-1.41.0.tgz#0300019076924cb075d631cf52e3757d8f49c51f"
-  integrity sha512-+yMncHRfEDa18T9XIyNkmkUdw+Qc3eQCtP9dlJ+Voqo2jccOkOqMKjt/3HDtapkPCYiqepxQkb7xg1omYXyAhw==
+"@sentry/cli@^1.41.1":
+  version "1.41.1"
+  resolved "https://registry.yarnpkg.com/@sentry/cli/-/cli-1.41.1.tgz#4470d4079e895553bcd8689bad1aa1018455c2cb"
+  integrity sha512-bcsud8ZMNIskmm8COPdyco4qy8VI5YxknRuidqoecyjZ+76IU9dCd8NwJlrYoPNTcM/7gfbRQQFkY2mU/LLrGQ==
   dependencies:
     fs-copy-file-sync "^1.1.1"
     https-proxy-agent "^2.2.1"

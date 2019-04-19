@@ -5,4 +5,12 @@ const module = createEventModule({
   api: meetingAPI,
 })
 
-export default module
+export default {
+  ...module,
+  actions: {
+    ...module.actions,
+    async beforeEnter ({ dispatch }, { groupId }) {
+      await dispatch('fetchListByGroupId', groupId)
+    },
+  },
+}

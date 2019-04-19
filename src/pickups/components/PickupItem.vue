@@ -10,6 +10,14 @@
       <div class="column q-pa-sm full-width">
         <div>
           <span class="featured-text">
+            <i
+              v-if="pickup.type === 'meeting'"
+              class="fas fa-calendar-alt"
+            />
+            <i
+              v-else
+              class="fas fa-shopping-basket"
+            />
             {{ $d(pickup.date, 'hourMinute') }}
             <template v-if="pickup.hasDuration"> &mdash; {{ $d(pickup.dateEnd, 'hourMinute') }}</template>
           </span>

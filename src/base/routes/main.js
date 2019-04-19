@@ -2,6 +2,7 @@ import { Platform } from 'quasar'
 
 const GroupWall = () => import('@/group/pages/Wall')
 const GroupPickups = () => import('@/pickups/pages/GroupPickups')
+const GroupMeetings = () => import('@/pickups/pages/GroupMeetings')
 const GroupFeedback = () => import('@/feedback/pages/GroupFeedback')
 const Messages = () => import('@/messages/pages/Messages')
 const Notifications = () => import('@/notifications/pages/Notifications')
@@ -203,6 +204,17 @@ export default [
         component: GroupPickups,
       },
       {
+        name: 'groupMeetings',
+        path: 'meetings',
+        meta: {
+          breadcrumbs: [
+            { translation: 'GROUP.MEETINGS', route: { name: 'groupMeetings' } },
+          ],
+          beforeEnter: 'meetings/beforeEnter',
+        },
+        component: GroupMeetings,
+      },
+      {
         name: 'groupFeedback',
         path: 'feedback',
         meta: {
@@ -402,7 +414,7 @@ export default [
               breadcrumbs: [
                 { translation: 'PICKUPMANAGE.TITLE', route: { name: 'placePickupsManage' } },
               ],
-              beforeEnter: 'pickupSeries/fetchListForActivePlace',
+              beforeEnter: ['pickupSeries/fetchListForActivePlace', 'meetings/beforeEnter'],
               afterLeave: 'pickupSeries/clearList',
             },
             component: PlacePickupsManage,

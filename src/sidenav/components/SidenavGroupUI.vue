@@ -73,6 +73,14 @@
             {{ $t("GROUP.PICKUPS") }}
           </QItemMain>
         </QItem>
+        <QItem :to="{ name: 'groupMeetings', params: { groupId } }">
+          <QItemSide class="text-center">
+            <QIcon name="fas fa-calendar-alt" />
+          </QItemSide>
+          <QItemMain>
+            {{ $t('GROUP.MEETINGS') }}
+          </QItemMain>
+        </QItem>
         <QItem :to="{ name: 'groupFeedback', params: { groupId } }">
           <QItemSide class="text-center">
             <QIcon name="fas fa-balance-scale" />

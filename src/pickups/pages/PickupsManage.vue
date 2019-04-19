@@ -213,6 +213,89 @@
         </QCollapsible>
       </QList>
     </QCard>
+
+    <QCard class="no-shadow grey-border secondCard">
+      <RandomArt
+        class="randomBanner"
+        :seed="placeId"
+        type="banner"
+      />
+      <QCardTitle>
+        <h5>
+          <i
+            class="icon fas fa-calendar-alt on-left"
+            aria-hidden="true"
+          />
+          {{ $t('PICKUPMANAGE.SINGLE_MEETING') }}
+        </h5>
+        <div
+          slot="right"
+          class="row items-center"
+        >
+          <QBtn
+            v-if="!newMeeting"
+            small
+            round
+            class="bannerButton hoverScale"
+            color="secondary"
+            icon="fas fa-plus"
+            @click="createNewMeeting"
+          >
+            <QTooltip v-t="'BUTTON.CREATE'" />
+          </QBtn>
+        </div>
+      </QCardTitle>
+      <QItem v-if="newMeeting">
+        <PickupEdit
+          :value="newMeeting"
+          :status="meetingCreateStatus"
+          @save="saveNewMeeting"
+          @cancel="cancelNewMeeting"
+          @reset="resetNewMeeting"
+        />
+      </QItem>
+      <QList
+        class="pickups"
+        separator
+        no-border
+      >
+        <QCollapsible
+          v-for="meeting in oneTimeMeetings"
+          :key="meeting.id"
+          sparse
+          @show="makeVisible('meeting', meeting.id)"
+        >
+          <template slot="header">
+            <QItemSide
+              v-if="!$q.platform.is.mobile"
+              icon="fas fa-calendar-alt"
+            />
+            <QItemMain>
+              <QItemTile
+                label
+                :tag="meeting.isDisabled ? 's' : 'div'"
+                :title="meeting.isDisabled ? $t('PICKUPLIST.PICKUP_DISABLED') : null"
+              >
+                {{ $d(meeting.date, 'dateWithDayName') }}
+              </QItemTile>
+              <QItemTile sublabel>
+                {{ $d(meeting.date, 'hourMinute') }}
+                <template v-if="meeting.hasDuration">
+                  &mdash; {{ $d(meeting.dateEnd, 'hourMinute') }}
+                </template>
+              </QItemTile>
+            </QItemMain>
+          </template>
+          <PickupEdit
+            v-if="visible.meeting[meeting.id]"
+            :value="meeting"
+            :status="meeting.saveStatus"
+            @save="saveMeeting"
+            @reset="resetMeeting"
+          />
+        </QCollapsible>
+      </QList>
+    </QCard>
   </div>
 </template>
 
@@ -265,9 +348,11 @@ export default {
     return {
       newSeries: null,
       newPickup: null,
+      newMeeting: null,
       visible: {
         series: {},
         pickup: {},
+        meeting: {},
       },
     }
   },
@@ -278,10 +363,16 @@ export default {
       pickups: 'pickups/byActivePlace',
       pickupCreateStatus: 'pickups/createStatus',
       seriesCreateStatus: 'pickupSeries/createStatus',
+      meetings: 'meetings/byActivePlace',
+      meetingCreateStatus: 'meetings/createStatus',
     }),
     oneTimePickups () {
       // filter out already started pickups
       return this.pickups.filter(p => !p.series && !p.hasStarted)
+    },
+    oneTimeMeetings () {
+      // filter out already started meetings
+      return this.meetings.filter(p => !p.series && !p.hasStarted)
     },
   },
   methods: {
@@ -313,6 +404,8 @@ export default {
       destroySeries: 'pickupSeries/destroy',
       createPickup: 'pickups/create',
       savePickup: 'pickups/save',
+      createMeeting: 'meetings/create',
+      saveMeeting: 'meetings/save',
     }),
     createNewSeries () {
       this.newSeries = {
@@ -369,6 +462,33 @@ export default {
     },
     resetPickup (pickupId) {
       this.$store.dispatch('pickups/meta/clear', ['save', pickupId])
+    },
+    createNewMeeting () {
+      const date = addHours(startOfTomorrow(), 10) // default to 10am tomorrow
+      this.newMeeting = {
+        maxCollectors: 2,
+        description: '',
+        date,
+        dateEnd: addSeconds(date, defaultDuration),
+        place: this.placeId,
+        hasDuration: false,
+      }
+    },
+    async saveNewMeeting (data) {
+      await this.createMeeting(data)
+      if (!this.meetingCreateStatus.hasValidationErrors) {
+        this.newMeeting = null
+      }
+    },
+    cancelNewMeeting () {
+      this.newMeeting = null
+      this.resetNewMeeting()
+    },
+    resetNewMeeting () {
+      this.$store.dispatch('meetings/meta/clear', ['create'])
+    },
+    resetMeeting (id) {
+      this.$store.dispatch('meetings/meta/clear', ['save', id])
     },
   },
 }

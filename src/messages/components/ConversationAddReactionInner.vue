@@ -25,10 +25,10 @@ import { QSearch } from 'quasar'
 
 function searchEmoji (search) {
   // Remove colons and set to lowercase to normalize search
-  let cleanedSearch = search.replace(/:/g, '').toLowerCase()
-  let matchingEmojiNames = []
+  const cleanedSearch = search.replace(/:/g, '').toLowerCase()
+  const matchingEmojiNames = []
   // The set is used to remove duplicate emoji that may have different names
-  let matchingEmojiUnicodes = new Set()
+  const matchingEmojiUnicodes = new Set()
   // First add the exact search in case there is an emoji shortcode with less
   // than three characters
   if (Object.keys(emojiList).includes(cleanedSearch)) {
@@ -41,8 +41,8 @@ function searchEmoji (search) {
     for (var index in Object.keys(emojiList)) {
       // This regular expression does a substring search of emoji names to
       // find more interesting results
-      let regexp = '.*' + cleanedSearch + '.*'
-      let emojiShortcode = Object.keys(emojiList)[index]
+      const regexp = '.*' + cleanedSearch + '.*'
+      const emojiShortcode = Object.keys(emojiList)[index]
       if (emojiShortcode.match(regexp) &&
           emojiShortcode !== cleanedSearch &&
           !matchingEmojiUnicodes.has(emojiList[emojiShortcode])) {

@@ -36,14 +36,10 @@ function searchEmoji (search) {
     matchingEmojiNames.push(cleanedSearch)
   }
 
-  // Checks the length because we don't want to have too many results
+  // Checking input length because we don't want to have too many results
   if (cleanedSearch.length > 2) {
-    for (var index in Object.keys(emojiList)) {
-      // This regular expression does a substring search of emoji names to
-      // find more interesting results
-      const regexp = '.*' + cleanedSearch + '.*'
-      const emojiShortcode = Object.keys(emojiList)[index]
-      if (emojiShortcode.match(regexp) &&
+    for (const emojiShortcode in emojiList) {
+      if (emojiShortcode.includes(cleanedSearch) &&
           emojiShortcode !== cleanedSearch &&
           !matchingEmojiUnicodes.has(emojiList[emojiShortcode])) {
         matchingEmojiUnicodes.add(emojiList[emojiShortcode])

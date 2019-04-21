@@ -148,8 +148,7 @@
     "webpack-dev-server": "^3.3.1"
   },
   "browserslist": [
-    "defaults",
-    "iOS 9.3"
+    "defaults"
   ],
   "jest": {
     "roots": [

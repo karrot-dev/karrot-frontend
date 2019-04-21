@@ -21,7 +21,7 @@ export default new Vue({
       const promises = []
       if (!window.Intl) {
         promises.push(
-          import('intl'),
+          import('intl/dist/Intl'),
           intlLocale('en'),
         )
       }

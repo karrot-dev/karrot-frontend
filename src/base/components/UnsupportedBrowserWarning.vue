@@ -32,9 +32,6 @@ export default {
       } = this.$q.platform.is
 
       if (cordova) return false
-      if (safari && versionNumber < 10) {
-        return true
-      }
       else if (ie && versionNumber < 11) {
         return true
       }

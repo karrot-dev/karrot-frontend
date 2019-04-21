@@ -1,7 +1,6 @@
 <template>
   <div
     class="row"
-    style="margin: 2px 4px; width: 185px"
   >
     <QSearch
       v-model="search"
@@ -92,4 +91,8 @@ export default {
 <style scoped lang="stylus">
 .big
   font-size 1.6em
+  max-width 8px
+.row
+  margin 2px 4px
+  max-width 225px
 </style>

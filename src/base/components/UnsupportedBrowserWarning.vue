@@ -26,7 +26,6 @@ export default {
     unsupportedBrowser () {
       const {
         cordova,
-        safari,
         ie,
         versionNumber,
       } = this.$q.platform.is

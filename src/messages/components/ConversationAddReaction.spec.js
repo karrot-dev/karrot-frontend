@@ -24,17 +24,17 @@ describe('Conversation message reactions', () => {
   it('changing search changes emoji displayed', () => {
     wrapper.setData({ search: 'pizza' })
 
-    expect(wrapper.vm.whitelist).toContain('pizza')
-    expect(wrapper.vm.whitelist).not.toContain('laughing')
+    expect(wrapper.vm.results).toContain('pizza')
+    expect(wrapper.vm.results).not.toContain('laughing')
   })
 
   it('searches with many results get truncated', () => {
     wrapper.setData({ search: 'man' })
 
-    expect(wrapper.vm.whitelist.length).toBe(20)
+    expect(wrapper.vm.results.length).toBe(20)
   })
 
   it('emoji is not present when already reacted', () => {
-    expect(wrapper.vm.whitelist).not.toContain('thumbsup')
+    expect(wrapper.vm.results).not.toContain('thumbsup')
   })
 })

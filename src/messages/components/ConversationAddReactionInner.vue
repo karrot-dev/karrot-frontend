@@ -6,7 +6,7 @@
       v-model="search"
     />
     <EmojiButton
-      v-for="name in whitelist"
+      v-for="name in results"
       :key="name"
       v-close-overlay
       :name="name"
@@ -66,7 +66,7 @@ export default {
     }
   },
   computed: {
-    whitelist () {
+    results () {
       // sorted alphabetically
       if (this.search !== '') {
         return searchEmoji(this.search).filter(e => !this.reacted.includes(e))

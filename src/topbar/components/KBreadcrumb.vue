@@ -4,30 +4,30 @@
       ...
     </div>
     <div
-      class="prevBread gt-xs"
       v-for="breadcrumb in prevElements"
       :key="breadcrumb.name"
+      class="prevBread gt-xs"
     >
       <RouterLink
         v-if="breadcrumb.route"
         :to="breadcrumb.route"
       >
         <QBtn
+          v-if="breadcrumb.name"
           class="text-white"
           flat
           small
-          v-if="breadcrumb.name"
         >
           {{ breadcrumb.name }}
         </QBtn>
       </RouterLink>
       <div
-        class="label"
         v-if="!breadcrumb.route"
+        class="label"
       >
         <span v-if="breadcrumb.name">{{ breadcrumb.name }}</span>
       </div>
-      <div> <i class="fas fa-fw fa-angle-right"/> </div>
+      <div> <i class="fas fa-fw fa-angle-right" /> </div>
     </div>
     <div
       v-if="secondlastElement"
@@ -38,14 +38,14 @@
         :to="secondlastElement.route"
       >
         <div style="min-width: 20px; text-align: right; padding: 4px">
-          <i class="fas fa-fw fa-angle-left"/>
+          <i class="fas fa-fw fa-angle-left" />
         </div>
       </RouterLink>
     </div>
     <div v-if="lastElement">
       <div
-        class="label lastElement"
         v-if="lastElement.name"
+        class="label lastElement"
       >
         {{ lastElement.name }}
       </div>

@@ -6,8 +6,8 @@
     <KSpinner v-show="isPending" />
     <HistoryEntry
       v-for="entry in history"
-      :entry="entry"
       :key="entry.id"
+      :entry="entry"
     />
     <div v-if="empty">
       <QIcon name="fas fa-bug" />
@@ -28,16 +28,16 @@ import HistoryEntry from '@/history/components/HistoryEntry'
 import KSpinner from '@/utils/components/KSpinner'
 
 export default {
-  mixins: [statusMixin, paginationMixin],
-  props: {
-    history: { required: true, type: Array },
-    status: { default: null, type: Object },
-  },
   components: {
     QIcon,
     QInfiniteScroll,
     HistoryEntry,
     KSpinner,
+  },
+  mixins: [statusMixin, paginationMixin],
+  props: {
+    history: { required: true, type: Array },
+    status: { default: null, type: Object },
   },
   computed: {
     empty () {

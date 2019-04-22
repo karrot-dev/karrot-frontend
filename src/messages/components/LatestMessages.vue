@@ -12,9 +12,9 @@
           {{ $t('CONVERSATION.NO_CONVERSATIONS') }}
         </QItem>
         <LatestMessageItem
-          v-close-overlay
           v-for="conv in conversations"
           :key="'conv' + conv.id"
+          v-close-overlay
           :group="conv.type === 'group' ? conv.target : null"
           :user="conv.type === 'private' ? conv.target : null"
           :pickup="conv.type === 'pickup' ? conv.target : null"
@@ -135,6 +135,10 @@ export default {
       selectedConversation: 'detail/conversation',
     }),
   },
+  mounted () {
+    this.fetchInitial()
+    this.markAllSeen()
+  },
   methods: {
     ...mapActions({
       openForPickup: 'detail/openForPickup',
@@ -162,10 +166,6 @@ export default {
       if (Boolean(conv.thread) !== Boolean(this.selectedConversation.thread)) return false
       return conv.id === this.selectedConversation.id
     },
-  },
-  mounted () {
-    this.fetchInitial()
-    this.markAllSeen()
   },
 }
 </script>

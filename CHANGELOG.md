@@ -22,7 +22,27 @@ Please document your changes in this format:
 
 ## [Unreleased]
 ### Added
+- Show people who marked a place as favorite @tiltec
+
+## [7.2.4] - 2019-04-11
+### Fixed
+- Users wouldn't get marked as active, regression in 7.2.2 @tiltec
+
+## [7.2.3] - 2019-04-05
+### Fixed
+- Invitation form didn't show error messages @tiltec
+- Applications wouldn't get withdrawn when the user accepts an invitation @tiltec
+
+## [7.2.2] - 2019-04-04
+### Added
+- Groups can specify a welcome message that applicants receive after they've been accepted [#1038] @cstefanj
+
+## [7.2.1] - 2019-03-29
+### Added
 - For mobile users: touch and hold on a reaction emoji to show who reacted @tiltec
+
+### Changed
+- Some design improvements for conflict resolution @djahnie
 
 ### Fixed
 - Pickup "join" and "leave" history entries didn't show the date of the pickup, regression from adding pickups with end times @tiltec
@@ -385,6 +405,7 @@ After months of planning and programming, the first version of ~the foodsaving t
 [#891]: https://github.com/yunity/karrot-frontend/issues/891
 [#986]: https://github.com/yunity/karrot-frontend/issues/986
 [#1020]: https://github.com/yunity/karrot-frontend/issues/1020
+[#1038]: https://github.com/yunity/karrot-frontend/issues/1038
 [#1063]: https://github.com/yunity/karrot-frontend/issues/1063
 [#1065]: https://github.com/yunity/karrot-frontend/issues/1065
 [#1070]: https://github.com/yunity/karrot-frontend/issues/1070
@@ -404,7 +425,11 @@ After months of planning and programming, the first version of ~the foodsaving t
 [#1174]: https://github.com/yunity/karrot-frontend/issues/1174
 [#1178]: https://github.com/yunity/karrot-frontend/issues/1178
 
-[Unreleased]: https://github.com/yunity/karrot-frontend/compare/v7.2.0...HEAD
+[Unreleased]: https://github.com/yunity/karrot-frontend/compare/v7.2.4...HEAD
+[7.2.4]: https://github.com/yunity/karrot-frontend/compare/v7.2.3...v7.2.4
+[7.2.3]: https://github.com/yunity/karrot-frontend/compare/v7.2.2...v7.2.3
+[7.2.2]: https://github.com/yunity/karrot-frontend/compare/v7.2.1...v7.2.2
+[7.2.1]: https://github.com/yunity/karrot-frontend/compare/v7.2.0...v7.2.1
 [7.2.0]: https://github.com/yunity/karrot-frontend/compare/v7.1.0...v7.2.0
 [7.1.0]: https://github.com/yunity/karrot-frontend/compare/v7.0.0...v7.1.0
 [7.0.0]: https://github.com/yunity/karrot-frontend/compare/v6.5.0...v7.0.0

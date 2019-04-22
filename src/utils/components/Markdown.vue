@@ -84,6 +84,10 @@ export default {
     overflow-x auto
     overflow-wrap normal
     display block
+  blockquote
+    margin-bottom 0.5rem
+    p:last-child
+      margin-bottom 0rem
   img:not(.emoji)
     max-height 150px
     max-width 300px

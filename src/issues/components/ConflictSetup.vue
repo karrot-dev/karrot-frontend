@@ -1,14 +1,14 @@
 <template>
   <div>
     <h3
-      class="q-pl-lg q-mb-sm"
       v-t="{ path: 'CONFLICT.SETUP_HEADER', args: { user: user.displayName } }"
+      class="q-pl-lg q-mb-sm"
     />
     <div>
       <QStepper
-        class="no-shadow"
         ref="setup"
         v-model="setup"
+        class="no-shadow"
         contractable
       >
         <QStep
@@ -40,10 +40,10 @@
           <p>{{ $t('CONFLICT.STEPPER3c', { userName: user.displayName }) }}</p>
           <p>{{ $t('CONFLICT.STEPPER3d', { votingDuration: currentGroup && currentGroup.issueVotingDurationDays }) }}</p>
           <a
+            v-t="'CONFLICT.FIND_OUT_MORE'"
             href="https://community.foodsaving.world/t/how-does-the-conflict-resolution-feature-work/254"
             target="_blank"
             rel="noopener"
-            v-t="'CONFLICT.FIND_OUT_MORE'"
             style="text-decoration: underline"
           />
         </QStep>
@@ -104,7 +104,7 @@
         v-if="hasAnyError"
         class="text-negative q-pl-lg"
       >
-        <i class="fas fa-exclamation-triangle"/>
+        <i class="fas fa-exclamation-triangle" />
         {{ anyFirstError }}
       </div>
     </div>

@@ -7,8 +7,8 @@
       :error-label="firstError('newPassword')"
     >
       <QInput
-        type="password"
         v-model="newPassword"
+        type="password"
       />
     </QField>
     <QField
@@ -18,8 +18,8 @@
       :error-label="firstError('oldPassword')"
     >
       <QInput
-        type="password"
         v-model="oldPassword"
+        type="password"
       />
     </QField>
 
@@ -33,9 +33,9 @@
     <div class="actionButtons">
       <QBtn
         color="primary"
-        @click="save"
         :disable="!hasNewPassword || !hasOldPassword || !hasPasswordChanged"
         :loading="isPending"
+        @click="save"
       >
         {{ $t('BUTTON.CHANGE_PASSWORD') }}
       </QBtn>
@@ -50,6 +50,12 @@ import statusMixin from '@/utils/mixins/statusMixin'
 export default {
   components: { QField, QInput, QBtn },
   mixins: [statusMixin],
+  data () {
+    return {
+      oldPassword: '',
+      newPassword: '',
+    }
+  },
   computed: {
     hasNewPassword () {
       return !!this.newPassword
@@ -60,12 +66,6 @@ export default {
     hasPasswordChanged () {
       return this.oldPassword !== this.newPassword
     },
-  },
-  data () {
-    return {
-      oldPassword: '',
-      newPassword: '',
-    }
   },
   methods: {
     reset () {

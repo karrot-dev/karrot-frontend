@@ -25,7 +25,6 @@
         </QBtn>
       </QCardActions>
     </QCard>
-
   </div>
 </template>
 
@@ -41,6 +40,13 @@ import AgreementForm from '@/agreements/components/AgreementForm'
 
 export default {
   name: 'GroupManageAgreement',
+  components: {
+    QCard,
+    QCardMain,
+    QCardActions,
+    QBtn,
+    AgreementForm,
+  },
   props: {
     agreement: {
       type: Object,
@@ -54,13 +60,6 @@ export default {
     return {
       create: false,
     }
-  },
-  components: {
-    QCard,
-    QCardMain,
-    QCardActions,
-    QBtn,
-    AgreementForm,
   },
   computed: {
     showForm () {

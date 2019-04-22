@@ -19,10 +19,10 @@
           >
             <QInput
               ref="input"
+              v-model="message"
               type="textarea"
               rows="1"
               :autofocus="autofocus"
-              v-model="message"
               :placeholder="placeholder"
               :after="afterInput"
               :loading="isPending"
@@ -37,9 +37,9 @@
       </QItemTile>
       <QItemTile
         v-if="!isParticipant"
+        v-t="'CONVERSATION.NOT_PARTICIPATED'"
         sublabel
         class="q-mt-md q-caption"
-        v-t="'CONVERSATION.NOT_PARTICIPATED'"
       />
     </QItemMain>
   </QItem>
@@ -87,6 +87,15 @@ export default {
       hasFocus: false,
     }
   },
+  computed: {
+    afterInput () {
+      let actions = [{ icon: 'fas fa-arrow-right', content: true, handler: this.submit }]
+      if (this.value) {
+        actions.push({ icon: 'fas fa-times', handler: this.leaveEdit })
+      }
+      return actions
+    },
+  },
   watch: {
     value (val) {
       if (val) this.message = val.content
@@ -115,15 +124,6 @@ export default {
     },
     onBlur () {
       this.hasFocus = false
-    },
-  },
-  computed: {
-    afterInput () {
-      let actions = [{ icon: 'fas fa-arrow-right', content: true, handler: this.submit }]
-      if (this.value) {
-        actions.push({ icon: 'fas fa-times', handler: this.leaveEdit })
-      }
-      return actions
     },
   },
 }

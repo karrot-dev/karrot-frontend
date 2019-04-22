@@ -27,6 +27,7 @@ import L from 'leaflet'
 import geocoding from '@/maps/api/geocoding'
 
 export default {
+  components: { QSearch, QAutocomplete, StandardMap },
   props: {
     value: {
       type: Object,
@@ -46,7 +47,20 @@ export default {
       preventZoom: false,
     }
   },
-  components: { QSearch, QAutocomplete, StandardMap },
+  computed: {
+    marker () {
+      const { latitude, longitude } = this.value
+      if (latitude && longitude) {
+        return {
+          latLng: L.latLng(latitude, longitude),
+          fontIcon: this.fontIcon,
+          color: this.color,
+          draggable: true,
+        }
+      }
+      return null
+    },
+  },
   watch: {
     'value.address' (val) {
       if (val === '') {
@@ -73,19 +87,6 @@ export default {
     mapMarkerMoved ({ lat: latitude, lng: longitude }) {
       this.preventZoom = true
       this.$emit('input', { ...this.value, latitude, longitude })
-    },
-  },
-  computed: {
-    marker () {
-      const { latitude, longitude } = this.value
-      if (latitude && longitude) {
-        return {
-          latLng: L.latLng(latitude, longitude),
-          fontIcon: this.fontIcon,
-          color: this.color,
-          draggable: true,
-        }
-      }
     },
   },
 }

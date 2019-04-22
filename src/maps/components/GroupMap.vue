@@ -115,11 +115,6 @@ export default {
     controls: { type: String, default: 'none' },
     height: { type: Number, default: null },
   },
-  methods: {
-    mapMoveEnd (target) {
-      this.$emit('mapMoveEnd', target)
-    },
-  },
   computed: {
     showUserLocationPrompt () {
       return this.selectedUser && this.selectedUser.isCurrentUser && !hasLocation(this.selectedUser)
@@ -138,6 +133,7 @@ export default {
     center () {
       const { latitude: lat, longitude: lng } = this.currentGroup || {}
       if (lat && lng) return { lat, lng }
+      return undefined
     },
     containerStyle () {
       if (this.height) {
@@ -176,6 +172,7 @@ export default {
         }
         return markers
       }
+      return undefined
     },
     markers () {
       let items = []
@@ -196,6 +193,11 @@ export default {
     },
     currentGroupId () {
       return this.currentGroup && this.currentGroup.id
+    },
+  },
+  methods: {
+    mapMoveEnd (target) {
+      this.$emit('mapMoveEnd', target)
     },
   },
 }

@@ -6,9 +6,9 @@
     <QItemMain>
       <QItemTile label>
         <RouterLink
-          style="margin-right: .4em"
-          :key="user"
           v-for="user in value"
+          :key="user"
+          style="margin-right: .4em"
           :to="{name:'user', params: {userId: user}}"
         >
           {{ user }}
@@ -76,7 +76,7 @@ export default {
       type: String,
     },
     value: {
-      type: String | Date | Number,
+      type: [String, Date, Number],
       required: true,
     },
   },

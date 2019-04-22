@@ -11,9 +11,9 @@
         {{ $t('NOTIFICATION_BELLS_LIST.NO_ITEMS') }}
       </QItem>
       <NotificationItem
-        v-close-overlay
         v-for="notification in notifications"
         :key="notification.id"
+        v-close-overlay
         :notification="notification"
         @click="markClicked"
       />
@@ -88,6 +88,9 @@ export default {
       fetchingPast: 'notifications/fetchingPast',
     }),
   },
+  mounted () {
+    this.setPageVisible(true)
+  },
   methods: {
     ...mapActions({
       fetchPast: 'notifications/fetchPast',
@@ -96,9 +99,6 @@ export default {
     ...mapMutations({
       setPageVisible: 'notifications/setPageVisible',
     }),
-  },
-  mounted () {
-    this.setPageVisible(true)
   },
   beforeDestory () {
     this.setPageVisible(false)

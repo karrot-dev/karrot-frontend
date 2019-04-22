@@ -11,7 +11,7 @@ module.exports = {
   // https://github.com/feross/standard/blob/master/RULES.md#javascript-standard-style
   extends: [
     'standard',
-    'plugin:vue/strongly-recommended',
+    'plugin:vue/recommended',
   ],
   plugins: [
     'import',
@@ -39,15 +39,7 @@ module.exports = {
       'exports': 'always-multiline',
       'functions': 'always-multiline'
     }],
-    // all below: temporarily disabled
-    // TODO fixup our codebase
+    // do not capitalize the "I" in "i18n" component name
     'vue/component-name-in-template-casing': ['error', 'PascalCase', {'ignores': ['i18n']}],
-    'vue/return-in-computed-property': 'off',
-    'vue/require-prop-type-constructor': 'off',
-    'vue/no-use-v-if-with-v-for': 'off',
-    'vue/singleline-html-element-content-newline': 'off',
-    'vue/multiline-html-element-content-newline': 'off',
-    'vue/html-closing-bracket-newline': 'off',
-    'vue/html-closing-bracket-spacing': 'off',
   },
 }

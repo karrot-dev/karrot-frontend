@@ -1,8 +1,8 @@
 <template>
   <SidenavBox
-    @toggle="$emit('toggleBox')"
     :expanded="$q.platform.is.mobile || expanded"
     :expandable="!$q.platform.is.mobile"
+    @toggle="$emit('toggleBox')"
   >
     <template slot="icon">
       <QIcon name="fas fa-fw fa-home" />
@@ -36,7 +36,7 @@
         round
       >
         <QIcon name="fas fa-fw fa-ellipsis-v" />
-        <GroupOptions/>
+        <GroupOptions />
       </QBtn>
     </div>
 
@@ -91,7 +91,7 @@
         </QItem>
         <QItem :to="{ name: 'groupDescription', params: { groupId } }">
           <QItemSide class="text-center">
-            <i class="far fa-address-card"/>
+            <i class="far fa-address-card" />
           </QItemSide>
           <QItemMain>
             {{ $t("GROUP.DESCRIPTION") }}
@@ -107,7 +107,7 @@
         </QItem>
         <QItem :to="{ name: 'groupHistory', params: { groupId } }">
           <QItemSide class="text-center">
-            <i class="far fa-clock"/>
+            <i class="far fa-clock" />
           </QItemSide>
           <QItemMain>
             {{ $t("GROUP.HISTORY") }}
@@ -138,11 +138,6 @@ export default {
   components: {
     SidenavBox, GroupOptions, QBtn, QList, QItem, QItemSide, QItemMain, QIcon, QTooltip, QChip,
   },
-  computed: {
-    cappedWallUnreadCount () {
-      return this.wallUnreadCount > 99 ? '99+' : this.wallUnreadCount
-    },
-  },
   props: {
     groupId: {
       default: null,
@@ -155,6 +150,11 @@ export default {
     wallUnreadCount: {
       default: 0,
       type: Number,
+    },
+  },
+  computed: {
+    cappedWallUnreadCount () {
+      return this.wallUnreadCount > 99 ? '99+' : this.wallUnreadCount
     },
   },
 }

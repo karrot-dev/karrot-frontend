@@ -7,24 +7,26 @@
       <QField
         icon="fas fa-star"
         :label="$t('AGREEMENT.TITLE')"
-        :helper="$t('AGREEMENT.TITLE_HELPER')">
+        :helper="$t('AGREEMENT.TITLE_HELPER')"
+      >
         <QInput
           v-model="edit.title"
           :autofocus="true"
-          @blur="$v.edit.title.$touch"
           autocomplete="off"
+          @blur="$v.edit.title.$touch"
         />
       </QField>
 
       <QField
         icon="fas fa-file-alt"
         :label="$t('AGREEMENT.CONTENT')"
-        :helper="$t('AGREEMENT.CONTENT_HELPER')">
+        :helper="$t('AGREEMENT.CONTENT_HELPER')"
+      >
         <QInput
           v-model="edit.content"
-          @blur="$v.edit.content.$touch"
           type="textarea"
           rows="20"
+          @blur="$v.edit.content.$touch"
           @keyup.ctrl.enter="maybeSave"
         />
       </QField>
@@ -39,35 +41,35 @@
 
       <QCheckbox
         v-if="!isNew"
-        class="minor"
         v-model="minor"
+        class="minor"
         :label="$t('AGREEMENT.MINOR_EDIT')"
       >
         <QTooltip>{{ $t('AGREEMENT.MINOR_EDIT_HELPER') }}</QTooltip>
       </QCheckbox>
 
       <QBtn
-        type="button"
-        @click="reset"
         v-if="!isNew"
+        type="button"
         :disable="!hasChanged"
+        @click="reset"
       >
         {{ $t('BUTTON.RESET') }}
       </QBtn>
 
       <QBtn
+        v-if="isNew"
         type="button"
         @click="$emit('cancel')"
-        v-if="isNew"
       >
         {{ $t('BUTTON.CANCEL') }}
       </QBtn>
 
       <QBtn
+        v-if="!isNew"
         type="button"
         color="red"
         @click="maybeDestroy"
-        v-if="!isNew"
       >
         {{ $t('BUTTON.REMOVE') }}
       </QBtn>
@@ -90,7 +92,6 @@ import editMixin from '@/utils/mixins/editMixin'
 
 export default {
   name: 'AgreementForm',
-  mixins: [validationMixin, editMixin],
   components: {
     QField,
     QInput,
@@ -98,6 +99,7 @@ export default {
     QCheckbox,
     QTooltip,
   },
+  mixins: [validationMixin, editMixin],
   data () {
     return {
       minor: false,

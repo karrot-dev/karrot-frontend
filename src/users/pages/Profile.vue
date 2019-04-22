@@ -61,6 +61,7 @@
             round
             color="secondary"
             icon="fas fa-comments"
+            :title="$t('USERDATA.PRIVATE_MESSAGE', {userName: user.displayName})"
             @click="detail(user)"
           />
           <QBtn
@@ -70,14 +71,16 @@
             small
             round
             color="negative"
+            :title="$t('CONFLICT.WITH', {userName: user.displayName})"
           />
           <QBtn
             v-else-if="conflictResolutionPossible"
-            @click="toggleConflictSetup()"
             icon="fas fa-frown-open"
             small
             round
             :color="canStartConflictResolution ? 'grey-8' : 'grey-5'"
+            :title="$t('CONFLICT.SETUP_HEADER', {user: user.displayName})"
+            @click="toggleConflictSetup()"
           />
           <TrustButton
             v-if="currentGroupMembership"
@@ -138,6 +141,15 @@
               :key="idx"
             >
               {{ message }}
+            </p>
+            <p>
+              <a
+                v-t="'CONFLICT.FIND_OUT_MORE'"
+                href="https://community.foodsaving.world/t/how-does-the-conflict-resolution-feature-work/254"
+                target="_blank"
+                rel="noopener"
+                style="text-decoration: underline"
+              />
             </p>
           </div>
           <ConflictSetup
@@ -217,12 +229,6 @@ export default {
       showConflictSetup: false,
     }
   },
-  watch: {
-    showConflictSetup (val) {
-      if (val) return
-      this.clearIssueMeta(['create'])
-    },
-  },
   computed: {
     ...mapGetters({
       user: 'users/activeUser',
@@ -263,6 +269,12 @@ export default {
         return [this.$t('CONFLICT.REQUIREMENTS.NEWCOMER')]
       }
       return []
+    },
+  },
+  watch: {
+    showConflictSetup (val) {
+      if (val) return
+      this.clearIssueMeta(['create'])
     },
   },
   methods: {

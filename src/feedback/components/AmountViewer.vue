@@ -2,8 +2,8 @@
   <div class="wrapper row">
     <img
       v-for="(photoSrc, idx) in photosArray"
-      :src="photoSrc"
       :key="idx"
+      :src="photoSrc"
     >
   </div>
 </template>
@@ -18,17 +18,17 @@ import milkImg from '@/feedback/assets/milk.png'
 import cartImg from '@/feedback/assets/cart.png'
 
 export default {
-  data () {
-    return {
-      selectedValue: 3.0,
-      appleImg,
-    }
-  },
   props: {
     amount: {
       default: null,
       type: Number,
     },
+  },
+  data () {
+    return {
+      selectedValue: 3.0,
+      appleImg,
+    }
   },
   computed: {
     photosArray () {

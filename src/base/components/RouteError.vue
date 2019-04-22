@@ -4,7 +4,9 @@
       <img src="@/base/assets/rolling.png">
     </div>
     <div class="error-card shadow-4 bg-white column items-center justify-center no-wrap">
-      <h1 class="accent-font">Oooooops!</h1>
+      <h1 class="accent-font">
+        Oooooops!
+      </h1>
       <slot>
         <p class="caption text-center">
           {{ $t('NOT_FOUND.EXPLANATION') }}
@@ -15,16 +17,16 @@
           v-if="canGoBack"
           color="secondary"
           push
-          @click="goBack"
           icon="keyboard_arrow_left"
+          @click="goBack"
         >
           {{ $t('BUTTON.BACK') }}
         </QBtn>
         <QBtn
           color="secondary"
           push
-          @click="$router.replace('/')"
           icon-right="fas fa-home"
+          @click="$router.replace('/')"
         >
           {{ $t('NOT_FOUND.HOME') }}
         </QBtn>

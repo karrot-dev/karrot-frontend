@@ -31,8 +31,8 @@
           >
             <QBtn
               flat
-              @click="toggleSidenav"
               class="mobile-only"
+              @click="toggleSidenav"
             >
               <i class="fas fa-bars relative-position">
                 <div
@@ -50,20 +50,20 @@
         <!-- mobile sidenav -->
         <QLayoutDrawer
           v-if="$q.platform.is.mobile"
+          v-model="showSidenav"
           side="left"
           :breakpoint="Number.MAX_SAFE_INTEGER"
-          v-model="showSidenav"
           :overlay="true"
         >
           <SidenavTitle @click="toggleSidenav" />
           <RouterView name="sidenav" />
-          <MobileSidenav/>
+          <MobileSidenav />
           <QItem
             link
             @click.native="toggleAbout()"
           >
             <QItemSide class="text-center">
-              <KarrotLogo class="logo"/>
+              <KarrotLogo class="logo" />
             </QItemSide>
             <QItemMain>
               {{ $t("GLOBAL.ABOUT_KARROT") }}
@@ -87,7 +87,7 @@
             @click.native="toggleAbout()"
           >
             <QItemSide class="text-center">
-              <KarrotLogo class="logo"/>
+              <KarrotLogo class="logo" />
             </QItemSide>
             <QItemMain>
               {{ $t("GLOBAL.ABOUT_KARROT") }}
@@ -144,7 +144,7 @@
     </div>
 
     <QModal v-model="showAbout">
-      <KAbout @close="toggleAbout()"/>
+      <KAbout @close="toggleAbout()" />
     </QModal>
   </div>
 </template>
@@ -215,21 +215,6 @@ export default {
       windowWidth: width(window),
     }
   },
-  methods: {
-    ...mapActions({
-      clearDetail: 'detail/clear',
-      refresh: 'refresh/refresh',
-    }),
-    toggleSidenav () {
-      this.showSidenav = !this.showSidenav
-    },
-    toggleAbout () {
-      this.showAbout = !this.showAbout
-    },
-    onResize ({ width }) {
-      this.windowWidth = width
-    },
-  },
   computed: {
     ...mapGetters({
       isLoggedIn: 'auth/isLoggedIn',
@@ -286,6 +271,21 @@ export default {
       if (!this.$q.platform.is.mobile) return true
       if (this.$route.matched.some(({ meta }) => meta && meta.disablePullToRefresh)) return true
       return false
+    },
+  },
+  methods: {
+    ...mapActions({
+      clearDetail: 'detail/clear',
+      refresh: 'refresh/refresh',
+    }),
+    toggleSidenav () {
+      this.showSidenav = !this.showSidenav
+    },
+    toggleAbout () {
+      this.showAbout = !this.showAbout
+    },
+    onResize ({ width }) {
+      this.windowWidth = width
     },
   },
 }

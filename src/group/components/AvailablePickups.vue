@@ -5,16 +5,16 @@
       class="notice q-mb-none"
     >
       <div
-        @click="showPickups = !showPickups"
         class="q-pa-md toggle-button"
+        @click="showPickups = !showPickups"
       >
-        <i class="fas fa-star on-left"/>
+        <i class="fas fa-star on-left" />
         {{ $tc('PICKUPLIST.AVAILABLE', pickups.length, { count: pickups.length }) }}
         <div
           class="card-arrow"
           :class="{ upsideDown: showPickups }"
         >
-          <i class="fas fa-angle-down"/>
+          <i class="fas fa-angle-down" />
         </div>
       </div>
       <template v-if="showPickups">
@@ -22,7 +22,7 @@
         <div
           class="q-px-md q-py-sm bg-grey-2 q-caption"
         >
-          <i class="fas fa-info-circle on-left"/>
+          <i class="fas fa-info-circle on-left" />
           {{ $t('PICKUPLIST.AVAILABLE_FROM_STORES') }}
         </div>
       </template>

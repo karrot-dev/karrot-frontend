@@ -1,10 +1,11 @@
 import Vue from 'vue'
 import * as Sentry from '@sentry/browser'
+import * as Integrations from '@sentry/integrations'
 
 if (__ENV.SENTRY_CONFIG) {
   Sentry.init({
     dsn: __ENV.SENTRY_CONFIG,
-    integrations: [new Sentry.Integrations.Vue({ Vue })],
+    integrations: [new Integrations.Vue({ Vue })],
     release: __ENV.GIT_SHA1,
     beforeSend: event => {
       const { values } = event.exception

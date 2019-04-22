@@ -1,6 +1,6 @@
 <template>
   <div class="full-width text-center generic-padding">
-    <QSpinnerDots :size="40"/>
+    <QSpinnerDots :size="40" />
   </div>
 </template>
 

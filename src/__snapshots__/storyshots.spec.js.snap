@@ -2764,8 +2764,12 @@ exports[`Storyshots GroupSettings show 1`] = `
         </div>
       </div>
       <div class="q-item-main q-item-section">
-        <div class="q-item-label">Weekly summary</div>
-        <div class="q-item-sublabel">Keep up to date with what's been happening in the group.</div>
+        <div class="q-item-label">
+          Weekly summary
+        </div>
+        <div class="q-item-sublabel">
+          Keep up to date with what's been happening in the group.
+        </div>
       </div>
     </label><label class="q-item q-item-division relative-position">
       <div class="q-item-side q-item-section q-item-side-left">
@@ -2777,8 +2781,12 @@ exports[`Storyshots GroupSettings show 1`] = `
         </div>
       </div>
       <div class="q-item-main q-item-section">
-        <div class="q-item-label">Pickup notifications</div>
-        <div class="q-item-sublabel">Reminds you of your pickups, and tells you about empty or not-full pickups of your favorite stores in the next day</div>
+        <div class="q-item-label">
+          Pickup notifications
+        </div>
+        <div class="q-item-sublabel">
+          Reminds you of your pickups, and tells you about empty or not-full pickups of your favorite stores in the next day
+        </div>
       </div>
     </label><label class="q-item q-item-division relative-position">
       <div class="q-item-side q-item-section q-item-side-left">
@@ -2790,8 +2798,12 @@ exports[`Storyshots GroupSettings show 1`] = `
         </div>
       </div>
       <div class="q-item-main q-item-section">
-        <div class="q-item-label">New applications</div>
-        <div class="q-item-sublabel">Tells you when somebody wants to join your group</div>
+        <div class="q-item-label">
+          New applications
+        </div>
+        <div class="q-item-sublabel">
+          Tells you when somebody wants to join your group
+        </div>
       </div>
     </label><label class="q-item q-item-division relative-position">
       <div class="q-item-side q-item-section q-item-side-left">
@@ -2803,8 +2815,12 @@ exports[`Storyshots GroupSettings show 1`] = `
         </div>
       </div>
       <div class="q-item-main q-item-section">
-        <div class="q-item-label">New conflict resolution processes</div>
-        <div class="q-item-sublabel">Tells you when a new conflict resolution process has been started in your group</div>
+        <div class="q-item-label">
+          New conflict resolution processes
+        </div>
+        <div class="q-item-sublabel">
+          Tells you when a new conflict resolution process has been started in your group
+        </div>
       </div>
     </label>
   </div>
@@ -3101,16 +3117,16 @@ exports[`Storyshots Issues history item 1`] = `
           </div>
           <div class="justify-end q-item q-item-division relative-position q-item-dense">
             <div class="q-item-side q-item-section q-item-side-right">
-              <div class="q-item-stamp">Mean score</div>
+              <div class="q-item-stamp">Total score</div>
             </div>
           </div>
-          <div class="q-item q-item-division relative-position">
-            <div class="q-item-side q-item-section q-item-side-left"><i aria-hidden="true" class="q-icon fas fa-smile q-item-icon text-primary"> </i></div>
+          <div class="q-item q-item-division relative-position text-secondary">
+            <div class="q-item-side q-item-section q-item-side-left"><i aria-hidden="true" class="q-icon fas fa-smile q-item-icon text-secondary"> </i></div>
             <div class="q-item-main q-item-section">
               User 59 gets removed from asdf
             </div>
-            <div class="q-item-side q-item-section q-item-side-left">
-              1.4
+            <div class="q-item-side q-item-section q-item-side-left text-secondary">
+
             </div>
           </div>
           <div class="q-item q-item-division relative-position">
@@ -3119,7 +3135,7 @@ exports[`Storyshots Issues history item 1`] = `
               Further discussion: extend time by starting another voting
             </div>
             <div class="q-item-side q-item-section q-item-side-left">
-              0.40
+
             </div>
           </div>
           <div class="q-item q-item-division relative-position">
@@ -3148,16 +3164,16 @@ exports[`Storyshots Issues results - expelled 1`] = `
   </div>
   <div class="justify-end q-item q-item-division relative-position q-item-dense">
     <div class="q-item-side q-item-section q-item-side-right">
-      <div class="q-item-stamp">Mean score</div>
+      <div class="q-item-stamp">Total score</div>
     </div>
   </div>
-  <div class="q-item q-item-division relative-position">
-    <div class="q-item-side q-item-section q-item-side-left"><i aria-hidden="true" class="q-icon fas fa-smile q-item-icon text-primary"> </i></div>
+  <div class="q-item q-item-division relative-position text-secondary">
+    <div class="q-item-side q-item-section q-item-side-left"><i aria-hidden="true" class="q-icon fas fa-smile q-item-icon text-secondary"> </i></div>
     <div class="q-item-main q-item-section">
       User 65 gets removed from asdf
     </div>
-    <div class="q-item-side q-item-section q-item-side-left">
-      1.4
+    <div class="q-item-side q-item-section q-item-side-left text-secondary">
+
     </div>
   </div>
   <div class="q-item q-item-division relative-position">
@@ -3166,7 +3182,7 @@ exports[`Storyshots Issues results - expelled 1`] = `
       Further discussion: extend time by starting another voting
     </div>
     <div class="q-item-side q-item-section q-item-side-left">
-      0.40
+
     </div>
   </div>
   <div class="q-item q-item-division relative-position">
@@ -3183,6 +3199,10 @@ exports[`Storyshots Issues results - expelled 1`] = `
 
 exports[`Storyshots Issues vote - furtherDiscussion 1`] = `
 <div>
+  <div class="float-right"><button tabindex="0" type="button" class="q-btn inline relative-position q-btn-item non-selectable q-btn-round q-btn-flat q-focusable q-hoverable q-btn-dense">
+      <div class="q-focus-helper"></div>
+      <div class="q-btn-inner row col items-center q-popup--skip justify-center"><i aria-hidden="true" class="q-icon material-icons">help_outline</i></div>
+    </button></div>
   <div class="q-title q-mb-md">
     How do you want to proceed with the ongoing conflict with User 63?
   </div>
@@ -3313,7 +3333,9 @@ exports[`Storyshots Latest Messages flag: closed 1`] = `
         Mira Bellenbaum: 
       </div>
       <!---->
-      <div class="ellipsis col">first messsage</div>
+      <div class="ellipsis col">
+        first messsage
+      </div>
       <!---->
     </div>
   </div>
@@ -3343,7 +3365,9 @@ exports[`Storyshots Latest Messages flag: closed+muted 1`] = `
         Mira Bellenbaum: 
       </div>
       <!---->
-      <div class="ellipsis col">first messsage</div>
+      <div class="ellipsis col">
+        first messsage
+      </div>
       <!---->
     </div>
   </div>
@@ -3371,7 +3395,9 @@ exports[`Storyshots Latest Messages flag: muted 1`] = `
     <div class="row no-wrap items-baseline q-item-sublabel" style="max-height:18px;">
       <!---->
       <!---->
-      <div class="ellipsis col">first messsage</div>
+      <div class="ellipsis col">
+        first messsage
+      </div>
       <!---->
     </div>
   </div>
@@ -3399,7 +3425,9 @@ exports[`Storyshots Latest Messages flag: unread 1`] = `
     <div class="row no-wrap items-baseline q-item-sublabel" style="max-height:18px;">
       <!---->
       <!---->
-      <div class="ellipsis col">first messsage</div>
+      <div class="ellipsis col">
+        first messsage
+      </div>
       <div round="" class="q-chip row no-wrap inline items-center inline-chip bg-secondary text-white">
         <div class="q-chip-main ellipsis q-popup--skip">
           1
@@ -3431,7 +3459,9 @@ exports[`Storyshots Latest Messages flag: unread+muted 1`] = `
     <div class="row no-wrap items-baseline q-item-sublabel" style="max-height:18px;">
       <!---->
       <!---->
-      <div class="ellipsis col">first messsage</div>
+      <div class="ellipsis col">
+        first messsage
+      </div>
       <div round="" class="q-chip row no-wrap inline items-center inline-chip bg-grey text-white">
         <div class="q-chip-main ellipsis q-popup--skip">
           1
@@ -3467,7 +3497,9 @@ exports[`Storyshots Latest Messages type: application chat 1`] = `
         Mira Bellenbaum: 
       </div>
       <!---->
-      <div class="ellipsis col">first messsage</div>
+      <div class="ellipsis col">
+        first messsage
+      </div>
       <!---->
     </div>
   </div>
@@ -3480,7 +3512,9 @@ exports[`Storyshots Latest Messages type: group wall 1`] = `
   <div class="q-item-main q-item-section">
     <div class="row no-wrap justify-between items-baseline q-item-label">
       <div class="row no-wrap items-baseline ellipsis"><i aria-hidden="true" title="Wall" class="q-icon q-mr-sm fas fa-fw fa-bullhorn"> </i>
-        <div class="ellipsis">05_testgroup</div>
+        <div class="ellipsis">
+          05_testgroup
+        </div>
         <!---->
         <!---->
       </div> <span><small><div title="Aug 11, 2017, 3:43 PM" class="q-pl-xs" style="white-space:nowrap;">
@@ -3493,7 +3527,9 @@ exports[`Storyshots Latest Messages type: group wall 1`] = `
         Mira Bellenbaum: 
       </div>
       <!---->
-      <div class="ellipsis col">first messsage</div>
+      <div class="ellipsis col">
+        first messsage
+      </div>
       <!---->
     </div>
   </div>
@@ -3506,7 +3542,9 @@ exports[`Storyshots Latest Messages type: issue chat 1`] = `
   <div class="q-item-main q-item-section">
     <div class="row no-wrap justify-between items-baseline q-item-label">
       <div class="row no-wrap items-baseline ellipsis"><i aria-hidden="true" title="Issues" class="q-icon q-mr-sm fas fa-fw fa-vote-yea"> </i>
-        <div class="ellipsis">User 79</div>
+        <div class="ellipsis">
+          User 79
+        </div>
         <!---->
         <!---->
       </div> <span><small><div title="Aug 11, 2017, 3:43 PM" class="q-pl-xs" style="white-space:nowrap;">
@@ -3519,7 +3557,9 @@ exports[`Storyshots Latest Messages type: issue chat 1`] = `
         Mira Bellenbaum: 
       </div>
       <!---->
-      <div class="ellipsis col">first messsage</div>
+      <div class="ellipsis col">
+        first messsage
+      </div>
       <!---->
     </div>
   </div>
@@ -3551,7 +3591,9 @@ exports[`Storyshots Latest Messages type: my application chat 1`] = `
         Mira Bellenbaum: 
       </div>
       <!---->
-      <div class="ellipsis col">first messsage</div>
+      <div class="ellipsis col">
+        first messsage
+      </div>
       <!---->
     </div>
   </div>
@@ -3580,7 +3622,9 @@ exports[`Storyshots Latest Messages type: pickup chat 1`] = `
         Mira Bellenbaum: 
       </div>
       <!---->
-      <div class="ellipsis col">first messsage</div>
+      <div class="ellipsis col">
+        first messsage
+      </div>
       <!---->
     </div>
   </div>
@@ -3593,7 +3637,9 @@ exports[`Storyshots Latest Messages type: place wall 1`] = `
   <div class="q-item-main q-item-section">
     <div class="row no-wrap justify-between items-baseline q-item-label">
       <div class="row no-wrap items-baseline ellipsis"><i aria-hidden="true" title="Wall" class="q-icon q-mr-sm fas fa-fw fa-star"> </i>
-        <div class="ellipsis">Place 2</div>
+        <div class="ellipsis">
+          Place 2
+        </div>
         <!---->
         <!---->
       </div> <span><small><div title="Aug 11, 2017, 3:43 PM" class="q-pl-xs" style="white-space:nowrap;">
@@ -3606,7 +3652,9 @@ exports[`Storyshots Latest Messages type: place wall 1`] = `
         Mira Bellenbaum: 
       </div>
       <!---->
-      <div class="ellipsis col">first messsage</div>
+      <div class="ellipsis col">
+        first messsage
+      </div>
       <!---->
     </div>
   </div>
@@ -3634,7 +3682,9 @@ exports[`Storyshots Latest Messages type: private chat 1`] = `
     <div class="row no-wrap items-baseline q-item-sublabel" style="max-height:18px;">
       <!---->
       <!---->
-      <div class="ellipsis col">first messsage</div>
+      <div class="ellipsis col">
+        first messsage
+      </div>
       <!---->
     </div>
   </div>
@@ -3647,7 +3697,9 @@ exports[`Storyshots Latest Messages type: thread 1`] = `
   <div class="q-item-main q-item-section">
     <div class="row no-wrap justify-between items-baseline q-item-label">
       <div class="row no-wrap items-baseline ellipsis"><i aria-hidden="true" class="q-icon q-mr-sm fas fa-fw fa-comments"> </i>
-        <div class="ellipsis">here is the message that started the thread</div>
+        <div class="ellipsis">
+          here is the message that started the thread
+        </div>
         <!---->
         <!---->
       </div> <span><small><div title="Aug 11, 2017, 3:43 PM" class="q-pl-xs" style="white-space:nowrap;">
@@ -3660,7 +3712,9 @@ exports[`Storyshots Latest Messages type: thread 1`] = `
         Mira Bellenbaum: 
       </div>
       <!---->
-      <div class="ellipsis col">first messsage</div>
+      <div class="ellipsis col">
+        first messsage
+      </div>
       <!---->
     </div>
   </div>
@@ -4166,7 +4220,7 @@ exports[`Storyshots Notifications conflict_resolution_decided_about_you 1`] = `
 `;
 
 exports[`Storyshots Notifications conflict_resolution_you_were_removed 1`] = `
-<div class="q-item q-item-division relative-position q-item-link isUnread">
+<a class="q-link q-item q-item-division relative-position q-item-link isUnread">
   <!---->
   <div class="q-item-main q-item-section">
     <div class="q-item-label" style="overflow:hidden;display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:2;"><i aria-hidden="true" class="q-icon q-mr-xs vertical-baseline fas fa-times"> </i>
@@ -4180,7 +4234,7 @@ exports[`Storyshots Notifications conflict_resolution_you_were_removed 1`] = `
       <!---->
     </div>
   </div>
-</div>
+</a>
 `;
 
 exports[`Storyshots Notifications feedback_possible 1`] = `
@@ -4615,7 +4669,8 @@ exports[`Storyshots PickupItem Full 1`] = `
         <span><strong>Open Chat <i aria-hidden="true" class="q-icon material-icons">chat</i></strong></span></div>
       <!---->
       <!---->
-      <div class="q-my-xs multiline">this pickup is already full!
+      <div class="q-my-xs multiline">
+        this pickup is already full!
       </div>
       <div class="q-my-xs full-width">
         <div class="row justify-start"><object tabindex="-1" type="text/html" data="about:blank" aria-hidden="true" style="display:block;position:absolute;top:0;left:0;right:0;bottom:0;height:100%;width:100%;overflow:hidden;pointer-events:none;z-index:-1;"></object>
@@ -4664,7 +4719,8 @@ exports[`Storyshots PickupItem Join 1`] = `
         <span><strong>Open Chat <i aria-hidden="true" class="q-icon material-icons">chat</i></strong></span></div>
       <!---->
       <!---->
-      <div class="q-my-xs multiline">you can join this pickup
+      <div class="q-my-xs multiline">
+        you can join this pickup
       </div>
       <div class="q-my-xs full-width">
         <div class="row justify-start"><object tabindex="-1" type="text/html" data="about:blank" aria-hidden="true" style="display:block;position:absolute;top:0;left:0;right:0;bottom:0;height:100%;width:100%;overflow:hidden;pointer-events:none;z-index:-1;"></object>
@@ -4714,7 +4770,8 @@ exports[`Storyshots PickupItem Leave 1`] = `
         <span><strong>Open Chat <i aria-hidden="true" class="q-icon material-icons">chat</i></strong></span></div>
       <!---->
       <!---->
-      <div class="q-my-xs multiline">you are collector and can leave this pickup
+      <div class="q-my-xs multiline">
+        you are collector and can leave this pickup
       </div>
       <div class="q-my-xs full-width">
         <div class="row justify-start"><object tabindex="-1" type="text/html" data="about:blank" aria-hidden="true" style="display:block;position:absolute;top:0;left:0;right:0;bottom:0;height:100%;width:100%;overflow:hidden;pointer-events:none;z-index:-1;"></object>
@@ -4760,7 +4817,8 @@ exports[`Storyshots PickupItem pending 1`] = `
         <span><strong>Open Chat <i aria-hidden="true" class="q-icon material-icons">chat</i></strong></span></div>
       <!---->
       <!---->
-      <div class="q-my-xs multiline">you can join this pickup
+      <div class="q-my-xs multiline">
+        you can join this pickup
       </div>
       <div class="q-my-xs full-width">
         <div class="row justify-start"><object tabindex="-1" type="text/html" data="about:blank" aria-hidden="true" style="display:block;position:absolute;top:0;left:0;right:0;bottom:0;height:100%;width:100%;overflow:hidden;pointer-events:none;z-index:-1;"></object>
@@ -4821,7 +4879,8 @@ exports[`Storyshots PickupList Default 1`] = `
           <span><strong>Open Chat <i aria-hidden="true" class="q-icon material-icons">chat</i></strong></span></div>
         <!---->
         <!---->
-        <div class="q-my-xs multiline">you can join this pickup
+        <div class="q-my-xs multiline">
+          you can join this pickup
         </div>
         <div class="q-my-xs full-width">
           <div class="row justify-start"><object tabindex="-1" type="text/html" data="about:blank" aria-hidden="true" style="display:block;position:absolute;top:0;left:0;right:0;bottom:0;height:100%;width:100%;overflow:hidden;pointer-events:none;z-index:-1;"></object>
@@ -4868,7 +4927,8 @@ exports[`Storyshots PickupList Default 1`] = `
           <span><strong>Open Chat <i aria-hidden="true" class="q-icon material-icons">chat</i></strong></span></div>
         <!---->
         <!---->
-        <div class="q-my-xs multiline">you are collector and can leave this pickup
+        <div class="q-my-xs multiline">
+          you are collector and can leave this pickup
         </div>
         <div class="q-my-xs full-width">
           <div class="row justify-start"><object tabindex="-1" type="text/html" data="about:blank" aria-hidden="true" style="display:block;position:absolute;top:0;left:0;right:0;bottom:0;height:100%;width:100%;overflow:hidden;pointer-events:none;z-index:-1;"></object>
@@ -4911,7 +4971,8 @@ exports[`Storyshots PickupList Default 1`] = `
           <span><strong>Open Chat <i aria-hidden="true" class="q-icon material-icons">chat</i></strong></span></div>
         <!---->
         <!---->
-        <div class="q-my-xs multiline">this pickup is already full!
+        <div class="q-my-xs multiline">
+          this pickup is already full!
         </div>
         <div class="q-my-xs full-width">
           <div class="row justify-start"><object tabindex="-1" type="text/html" data="about:blank" aria-hidden="true" style="display:block;position:absolute;top:0;left:0;right:0;bottom:0;height:100%;width:100%;overflow:hidden;pointer-events:none;z-index:-1;"></object>
@@ -4957,7 +5018,8 @@ exports[`Storyshots PickupList Default 1`] = `
           <span><strong>Open Chat <i aria-hidden="true" class="q-icon material-icons">chat</i></strong></span></div>
         <!---->
         <!---->
-        <div class="q-my-xs multiline">this pickup is fresh and empty
+        <div class="q-my-xs multiline">
+          this pickup is fresh and empty
         </div>
         <div class="q-my-xs full-width">
           <div class="row justify-start"><object tabindex="-1" type="text/html" data="about:blank" aria-hidden="true" style="display:block;position:absolute;top:0;left:0;right:0;bottom:0;height:100%;width:100%;overflow:hidden;pointer-events:none;z-index:-1;"></object>

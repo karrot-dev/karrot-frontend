@@ -21,8 +21,8 @@
           </QTooltip>
           <QPopover>
             <QList
-              link
               v-close-overlay
+              link
             >
               <QListHeader
                 v-t="'PLACEWALL.SUBSCRIPTION.HEADER'"
@@ -31,8 +31,8 @@
               <QItem
                 v-for="o in options"
                 :key="o.id"
-                @click.native="select(o)"
                 :class="o.selected ? 'bg-grey-2' : ''"
+                @click.native="select(o)"
               >
                 <QItemSide
                   :color="o.color"
@@ -58,7 +58,7 @@
         </QBtn>
         <QBtn
           v-if="isEditor"
-          :to="{name: 'placePickupsManage', params: { placeId }}"
+          :to="{name: 'placePickupsManage', params: { groupId, placeId }}"
           small
           round
           color="secondary"
@@ -86,6 +86,35 @@
       </div>
       <KSpinner v-show="!place" />
       <template v-if="place">
+        <QChip
+          icon="fas fa-star"
+          color="secondary"
+          square
+          :title="$t('PLACEWALL.SUBSCRIBED_USERS', { count: subscribers.length })"
+          class="q-mb-sm"
+        >
+          <strong>{{ subscribers.length }}</strong>
+          <QPopover>
+            <div
+              v-if="subscribers"
+              v-close-overlay
+              class="q-pa-md"
+            >
+              <div>
+                <ProfilePicture
+                  v-for="user in subscribers"
+                  :key="user.id"
+                  :user="user"
+                  :size="20"
+                  class="q-mr-xs"
+                />
+              </div>
+              <div class="q-caption q-mt-sm">
+                {{ $t('PLACEWALL.SUBSCRIBED_USERS', { count: subscribers.length }) }}
+              </div>
+            </div>
+          </QPopover>
+        </QChip>
         <div
           v-if="place.description"
           class="q-pt-xs"
@@ -94,9 +123,14 @@
             :source="place.description"
           />
         </div>
-        <i v-else>
-          {{ $t("STOREDETAIL.NO_DESCRIPTION") }}
-        </i>
+        <div
+          v-else
+          class="q-pt-sm"
+        >
+          <span class="text-italic">
+            {{ $t("STOREDETAIL.NO_DESCRIPTION") }}
+          </span>
+        </div>
         <template v-if="$q.platform.is.mobile">
           <QCardSeparator class="q-mb-sm" />
           <StandardMap
@@ -114,6 +148,7 @@ import Markdown from '@/utils/components/Markdown'
 import StandardMap from '@/maps/components/StandardMap'
 import RandomArt from '@/utils/components/RandomArt'
 import KSpinner from '@/utils/components/KSpinner'
+import ProfilePicture from '@/users/components/ProfilePicture'
 
 import { placeMarker } from '@/maps/components/markers'
 import directions from '@/maps/directions'
@@ -133,6 +168,7 @@ import {
   QItem,
   QItemMain,
   QItemSide,
+  QChip,
 } from 'quasar'
 
 export default {
@@ -141,6 +177,7 @@ export default {
     StandardMap,
     RandomArt,
     KSpinner,
+    ProfilePicture,
     QCardSeparator,
     QBtn,
     QTooltip,
@@ -150,6 +187,7 @@ export default {
     QItem,
     QItemMain,
     QItemSide,
+    QChip,
   },
   computed: {
     markers () {
@@ -158,6 +196,7 @@ export default {
     ...mapGetters({
       placeId: 'places/activePlaceId',
       place: 'places/activePlace',
+      subscribers: 'places/activePlaceSubscribers',
       currentUser: 'auth/user',
       isEditor: 'currentGroup/isEditor',
     }),

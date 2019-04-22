@@ -56,13 +56,6 @@ export default datastore => {
   })
 
   router.afterEach(async (to, from) => {
-    try {
-      datastore.dispatch('currentGroup/markUserActive')
-    }
-    catch (err) {
-      Sentry.captureException(err)
-    }
-
     const { redirects, routeErrors } = await maybeDispatchActions(datastore, to, from)
     // trigger first redirect or routeError, if any
     if (redirects.length > 0) {
@@ -74,6 +67,13 @@ export default datastore => {
 
     datastore.commit('breadcrumbs/set', findBreadcrumbs(to.matched) || [])
     datastore.commit('routeMeta/setNext', null)
+
+    try {
+      datastore.dispatch('currentGroup/markUserActive')
+    }
+    catch (err) {
+      Sentry.captureException(err)
+    }
   })
 
   datastore.watch((state, getters) => [

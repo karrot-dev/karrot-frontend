@@ -77,26 +77,25 @@
         v-if="hasReactions"
         :reactions="message.reactions"
         :current-user-reactions="currentUserReactions"
-        @toggle="toggleReaction"
         style="margin-top: 8px; display: block"
+        @toggle="toggleReaction"
       />
       <QBtn
         v-if="showReplies"
         :outline="message.threadMeta.unreadReplyCount < 1"
         :color="message.threadMeta.unreadReplyCount > 0 ? 'secondary' : null"
-        @click="$emit('openThread')"
         class="reaction-box k-thread-box"
         no-caps
+        @click="$emit('openThread')"
       >
         <ProfilePicture
-          class="k-profile-picture"
           v-for="user in message.threadMeta.participants"
           :key="user.id"
+          class="k-profile-picture"
           :user="user"
           :is-link="false"
         />
         <span
-          class="k-replies-count"
           v-t="{
             path: 'CONVERSATION.REPLIES_COUNT',
             choice: message.threadMeta.replyCount,
@@ -104,6 +103,7 @@
               count: message.threadMeta.replyCount > 99 ? '99+' : message.threadMeta.replyCount,
             },
           }"
+          class="k-replies-count"
         />
       </QBtn>
     </QItemMain>
@@ -111,11 +111,11 @@
   <ConversationCompose
     v-else
     :status="message.saveStatus"
-    @submit="save"
-    @leaveEdit="toggleEdit"
     :user="message.author"
     :value="message.content"
     :slim="slim"
+    @submit="save"
+    @leaveEdit="toggleEdit"
   />
 </template>
 
@@ -169,6 +169,17 @@ export default {
       editMode: false,
     }
   },
+  computed: {
+    currentUserReactions () {
+      return this.message && this.message.reactions && this.message.reactions.filter(e => e.reacted).map(e => e.name)
+    },
+    hasReactions () {
+      return this.message && this.message.reactions && this.message.reactions.length > 0
+    },
+    showReplies () {
+      return this.message.threadMeta && !this.slim
+    },
+  },
   methods: {
     toggleReaction (name) {
       this.$emit('toggleReaction', {
@@ -187,17 +198,6 @@ export default {
         },
         done: this.toggleEdit,
       })
-    },
-  },
-  computed: {
-    currentUserReactions () {
-      return this.message && this.message.reactions && this.message.reactions.filter(e => e.reacted).map(e => e.name)
-    },
-    hasReactions () {
-      return this.message && this.message.reactions && this.message.reactions.length > 0
-    },
-    showReplies () {
-      return this.message.threadMeta && !this.slim
     },
   },
 }

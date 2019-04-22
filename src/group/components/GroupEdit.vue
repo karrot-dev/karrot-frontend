@@ -101,10 +101,10 @@
           >
             <MarkdownInput :value="edit.applicationQuestions">
               <QInput
-                @input="applicationQuestionsInput"
                 :value="applicationQuestionsOrDefault"
                 type="textarea"
                 rows="6"
+                @input="applicationQuestionsInput"
                 @keyup.ctrl.enter="maybeSave"
               />
             </MarkdownInput>
@@ -137,10 +137,10 @@
           </div>
           <div class="actionButtons">
             <QBtn
-              type="button"
-              @click="reset"
               v-if="!isNew"
+              type="button"
               :disable="!hasChanged"
+              @click="reset"
             >
               {{ $t('BUTTON.RESET') }}
             </QBtn>
@@ -179,6 +179,16 @@ import ChangePhoto from '@/authuser/components/Settings/ChangePhoto'
 
 export default {
   name: 'GroupEdit',
+  components: {
+    QCard,
+    QField,
+    QInput,
+    QBtn,
+    QAutocomplete,
+    AddressPicker,
+    MarkdownInput,
+    ChangePhoto,
+  },
   mixins: [validationMixin, editMixin, statusMixin],
   props: {
     value: {
@@ -203,16 +213,6 @@ export default {
       type: Array,
       required: true,
     },
-  },
-  components: {
-    QCard,
-    QField,
-    QInput,
-    QBtn,
-    QAutocomplete,
-    AddressPicker,
-    MarkdownInput,
-    ChangePhoto,
   },
   computed: {
     canSave () {
@@ -255,6 +255,7 @@ export default {
       for (let field of ['address', 'latitude', 'longitude']) {
         if (this.hasError(field)) return this.firstError(field)
       }
+      return null
     },
     applicationQuestionsOrDefault () {
       return this.edit.applicationQuestions || this.edit.applicationQuestionsDefault

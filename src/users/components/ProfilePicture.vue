@@ -7,8 +7,8 @@
       <RouterLink
         v-if="isLink"
         :to="{name:'user', params: {userId: user.id}}"
-        @click.native.stop=""
         :title="tooltip"
+        @click.native.stop=""
       >
         <img
           v-if="hasPhoto"
@@ -41,13 +41,13 @@
 import RandomArt from '@/utils/components/RandomArt'
 
 export default {
+  components: {
+    RandomArt,
+  },
   props: {
     user: { default: null, type: Object },
     size: { default: 20, type: Number },
     isLink: { default: true, type: Boolean },
-  },
-  components: {
-    RandomArt,
   },
   computed: {
     tooltip () {
@@ -74,6 +74,7 @@ export default {
         const p = this.user.photoUrls
         return this.size > 120 ? p.fullSize : p.thumbnail
       }
+      return null
     },
   },
 }

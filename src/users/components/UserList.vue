@@ -104,6 +104,17 @@ export default {
       filterTerm: '',
     }
   },
+  computed: {
+    inactiveSublabel () {
+      return this.inactiveUsers.length + ' ' + this.$tc('JOINGROUP.NUM_MEMBERS', this.inactiveUsers.length)
+    },
+    activeUsers () {
+      return this.sort(this.filterByTerms(this.users.filter(u => u.membership.active)))
+    },
+    inactiveUsers () {
+      return this.sort(this.filterByTerms(this.users.filter(u => !u.membership.active)))
+    },
+  },
   methods: {
     sort (list) {
       const getJoinDate = a => a.membership.createdAt
@@ -121,17 +132,6 @@ export default {
         message: this.$t('INACTIVITY.HELP', { dayCount: this.group.memberInactiveAfterDays }),
         ok: this.$t('BUTTON.BACK'),
       })
-    },
-  },
-  computed: {
-    inactiveSublabel () {
-      return this.inactiveUsers.length + ' ' + this.$tc('JOINGROUP.NUM_MEMBERS', this.inactiveUsers.length)
-    },
-    activeUsers () {
-      return this.sort(this.filterByTerms(this.users.filter(u => u.membership.active)))
-    },
-    inactiveUsers () {
-      return this.sort(this.filterByTerms(this.users.filter(u => !u.membership.active)))
     },
   },
 }

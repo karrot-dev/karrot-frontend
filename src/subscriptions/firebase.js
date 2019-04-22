@@ -1,3 +1,5 @@
+import * as Sentry from '@sentry/browser'
+
 const SERVICE_WORKER_PATH = '/service-worker.js'
 const SERVICE_WORKER_SCOPE = '/karrot-push'
 
@@ -6,12 +8,19 @@ export async function hasServiceWorker () {
 }
 
 export async function getServiceWorker () {
-  return (await getServiceWorkers())[0]
+  if (await hasServiceWorker()) return (await getServiceWorkers())[0]
 }
 
 async function getServiceWorkers () {
   if (__ENV.CORDOVA || !window.navigator.serviceWorker) return []
-  const registrations = await window.navigator.serviceWorker.getRegistrations()
+  let registrations
+  try {
+    registrations = await window.navigator.serviceWorker.getRegistrations()
+  }
+  catch (err) {
+    Sentry.captureException(err)
+    return []
+  }
   return registrations.filter(worker => worker.scope.endsWith(SERVICE_WORKER_SCOPE))
 }
 

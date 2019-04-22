@@ -4,7 +4,7 @@
 
     <KNotice v-if="isInactive">
       <template slot="icon">
-        <i class="far fa-handshake"/>
+        <i class="far fa-handshake" />
       </template>
       {{ $t('STOREDETAIL.INACTIVE') }}
       <RouterLink
@@ -15,9 +15,9 @@
         {{ $t('STOREDETAIL.CHANGE_STATUS') }}
       </RouterLink>
     </KNotice>
-    <KNotice v-else-if="hasNoPickups" >
+    <KNotice v-else-if="hasNoPickups">
       <template slot="icon">
-        <i class="fas fa-bed"/>
+        <i class="fas fa-bed" />
       </template>
       {{ $t('PICKUPLIST.NONE') }}
       <RouterLink
@@ -54,13 +54,6 @@ export default {
     PickupList,
     KNotice,
   },
-  methods: {
-    ...mapActions({
-      join: 'pickups/join',
-      leave: 'pickups/leave',
-      detail: 'detail/openForPickup',
-    }),
-  },
   computed: {
     ...mapGetters({
       placeId: 'places/activePlaceId',
@@ -76,6 +69,13 @@ export default {
     isInactive () {
       return this.place && this.place.status !== 'active'
     },
+  },
+  methods: {
+    ...mapActions({
+      join: 'pickups/join',
+      leave: 'pickups/leave',
+      detail: 'detail/openForPickup',
+    }),
   },
 }
 </script>

@@ -36,11 +36,11 @@
                 }) }}
               </small>
               <QBtn
+                v-t="'CONVERSATION.MARK_READ'"
                 no-caps
                 outline
                 size="sm"
                 @click="$emit('markAllRead', data.id)"
-                v-t="'CONVERSATION.MARK_READ'"
               />
             </div>
           </QAlert>
@@ -97,6 +97,22 @@ export default {
       default: null,
     },
   },
+  computed: {
+    hasLoaded () {
+      if (!this.data) return false
+      const s = this.data.fetchStatus
+      return !s.pending && !s.hasValidationErrors
+    },
+    messagePrompt () {
+      if (!this.data) return ''
+      if (this.data.messages.length > 0) {
+        return this.$t('WALL.WRITE_MESSAGE')
+      }
+      else {
+        return this.$t('WALL.WRITE_FIRST_MESSAGE')
+      }
+    },
+  },
   methods: {
     async maybeFetchPast (index, done) {
       if (!this.data || !this.fetchPast || !this.data.canFetchPast) {
@@ -112,22 +128,6 @@ export default {
         conversationId: this.data.id,
         value,
       })
-    },
-  },
-  computed: {
-    hasLoaded () {
-      if (!this.data) return false
-      const s = this.data.fetchStatus
-      return !s.pending && !s.hasValidationErrors
-    },
-    messagePrompt () {
-      if (!this.data) return ''
-      if (this.data.messages.length > 0) {
-        return this.$t('WALL.WRITE_MESSAGE')
-      }
-      else {
-        return this.$t('WALL.WRITE_FIRST_MESSAGE')
-      }
     },
   },
 }

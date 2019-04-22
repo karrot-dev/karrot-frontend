@@ -4,28 +4,26 @@
   >
     <RandomArt
       :seed="groupid"
-      type="circles">
-      <div class="art-overlay">
-        <div class="header">
-          <span>
-            <i class="fas fa-user-plus" />
-            {{ $t('GROUP.INVITE_TITLE') }}
-          </span>
-        </div>
-        <div class="content">
-          <div class="subtitle">
-            <InvitationsForm
-              :invitations="invitations"
-              :status="sendStatus"
-              @submit="$emit('submit', arguments[0])"
-            />
-          </div>
-        </div>
+      type="circles"
+    >
+      <div class="text-white row no-wrap q-mx-md">
+        <h4>
+          <i class="fas fa-user-plus" />
+          {{ $t('GROUP.INVITE_TITLE') }}
+        </h4>
       </div>
     </RandomArt>
+
+    <InvitationsForm
+      :invitations="invitations"
+      :status="sendStatus"
+      class="q-ma-md"
+      @submit="$emit('submit', arguments[0])"
+    />
     <InvitationsList
       :invitations="invitations"
       :status="fetchStatus"
+      class="q-my-md"
     />
   </QCard>
 </template>
@@ -68,31 +66,3 @@ export default {
   },
 }
 </script>
-
-<style scoped lang="stylus">
-@import '~variables'
-.art-overlay
-  .header
-    color white
-    span
-      font-size 1.3em
-  .content
-    .subtitle
-      color white
-      padding-top 6px
-
-body.desktop .art-overlay
-  .header
-    padding 3em 2em 0em 2em
-    background linear-gradient(to top, rgba(0,0,0,$groupNavOverlay) 0%, rgba(0,0,0,0) 90%)
-  .content
-    padding 0em 2em 2em 2em
-    background rgba(0,0,0,$groupNavOverlay)
-
-body.mobile .art-overlay
-  background rgba(0,0,0,$groupNavOverlay)
-  .header
-    padding 10px 25px 0 25px
-  .content
-    padding 0px 25px 20px 25px
-</style>

@@ -68,6 +68,17 @@ export default {
       sorting: 'joinDate',
     }
   },
+  computed: {
+    ...mapGetters({
+      users: 'users/byCurrentGroup',
+      group: 'currentGroup/value',
+      isEditor: 'currentGroup/isEditor',
+      fetchStatus: 'users/fetchStatus',
+    }),
+    groupId () {
+      return this.group && this.group.id
+    },
+  },
   methods: {
     ...mapActions({
       createTrust: 'currentGroup/trustUser',
@@ -79,17 +90,6 @@ export default {
       else {
         this.sorting = 'joinDate'
       }
-    },
-  },
-  computed: {
-    ...mapGetters({
-      users: 'users/byCurrentGroup',
-      group: 'currentGroup/value',
-      isEditor: 'currentGroup/isEditor',
-      fetchStatus: 'users/fetchStatus',
-    }),
-    groupId () {
-      return this.group && this.group.id
     },
   },
 }

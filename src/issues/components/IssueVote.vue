@@ -1,5 +1,32 @@
 <template>
   <div>
+    <div class="float-right">
+      <QBtn
+        flat
+        round
+        dense
+        icon="help_outline"
+        @click="showInfo = true"
+      >
+        <QDialog
+          v-if="showInfo"
+          v-model="showInfo"
+          :title="$t('CONFLICT.INFO.TITLE')"
+          :ok="$t('BUTTON.CLOSE')"
+        >
+          <template slot="message">
+            <p v-t="'CONFLICT.INFO.MESSAGE'" />
+            <a
+              v-t="'CONFLICT.FIND_OUT_MORE'"
+              href="https://community.foodsaving.world/t/how-does-the-conflict-resolution-feature-work/254/3"
+              target="_blank"
+              rel="noopener"
+              style="text-decoration: underline"
+            />
+          </template>
+        </QDialog>
+      </QBtn>
+    </div>
     <div class="q-title q-mb-md">
       {{ $t('CONFLICT.VOTING.HEADLINE', { userName: issue.affectedUser.displayName }) }}
     </div>
@@ -34,8 +61,8 @@
               {{ getTitle(o.type) }}
             </div>
             <QSlider
-              class="k-vote-slider"
               v-model="o.yourScore"
+              class="k-vote-slider"
               :label-value="getLabel(o.yourScore)"
               :min="-2"
               :max="2"
@@ -71,16 +98,16 @@
         v-if="hasAnyError"
         class="text-negative q-pl-lg"
       >
-        <i class="fas fa-exclamation-triangle"/>
+        <i class="fas fa-exclamation-triangle" />
         {{ anyFirstError }}
       </div>
       <template v-if="showOverlay">
         <div class="overlay absolute-full" />
         <QBtn
+          v-t="'ISSUE.VOTING.BTN_START'"
           class="absolute-center"
           color="primary"
           @click="setToZero()"
-          v-t="'ISSUE.VOTING.BTN_START'"
         />
       </template>
     </div>
@@ -92,6 +119,7 @@ import {
   QSlider,
   QProgress,
   QBtn,
+  QDialog,
 } from 'quasar'
 
 import DateAsWords from '@/utils/components/DateAsWords'
@@ -105,6 +133,7 @@ export default {
     QSlider,
     QProgress,
     QBtn,
+    QDialog,
     DateAsWords,
   },
   mixins: [statusMixin],
@@ -117,15 +146,8 @@ export default {
   data () {
     return {
       edit: null,
+      showInfo: false,
     }
-  },
-  watch: {
-    options: {
-      immediate: true,
-      handler (current, previous) {
-        this.edit = cloneDeep(current)
-      },
-    },
   },
   computed: {
     progress () {
@@ -152,6 +174,14 @@ export default {
     },
     hasChanged () {
       return !deepEqual(this.options, this.edit)
+    },
+  },
+  watch: {
+    options: {
+      immediate: true,
+      handler (current, previous) {
+        this.edit = cloneDeep(current)
+      },
     },
   },
   methods: {

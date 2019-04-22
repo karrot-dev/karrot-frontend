@@ -25,14 +25,14 @@
           v-if="hasError('code')"
           class="error"
         >
-          <i class="fas fa-exclamation-triangle"/>
+          <i class="fas fa-exclamation-triangle" />
           {{ $t('GLOBAL.INVALID_LINK') }}
         </div>
         <div
           v-if="hasNonFieldError"
           class="error"
         >
-          <i class="fas fa-exclamation-triangle"/>
+          <i class="fas fa-exclamation-triangle" />
           {{ firstNonFieldError }}
         </div>
 
@@ -45,7 +45,7 @@
             {{ $t('PASSWORD.RESET.OK') }}
           </QBtn>
         </div>
-        <div style="clear: both"/>
+        <div style="clear: both" />
       </div>
     </form>
   </div>

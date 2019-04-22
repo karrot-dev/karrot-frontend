@@ -9,8 +9,8 @@
         :label="$t('CREATEPICKUP.FREQUENCY')"
       >
         <QOptionGroup
-          type="radio"
           v-model="edit.rule.isCustom"
+          type="radio"
           :options="[
             { label: $t('CREATEPICKUP.WEEKLY'), value: false },
             { label: $t('CREATEPICKUP.CUSTOM'), value: true },
@@ -28,19 +28,20 @@
         >
           <div class="row">
             <QDatetime
-              type="time"
               v-model="edit.startDate"
+              type="time"
               :format24h="is24h"
               :display-value="$d(edit.startDate, 'hourMinute')"
             />
             <template v-if="hasDuration">
               <div
+                v-t="'TO'"
                 class="q-pa-sm"
-                v-t="'TO'"/>
+              />
               <QDatetime
+                v-model="endDate"
                 type="time"
                 no-parent-field
-                v-model="endDate"
                 :format24h="is24h"
                 :display-value="$d(endDate, 'hourMinute') + ' (' + formattedDuration + ')'"
                 :after="[{ icon: 'cancel', handler: toggleDuration }]"
@@ -65,9 +66,9 @@
           :error-label="firstError('rule')"
         >
           <QSelect
+            v-model="byDay"
             multiple
             toggle
-            v-model="byDay"
             :options="dayOptions"
           />
         </QField>
@@ -82,8 +83,8 @@
           :error-label="firstError('startDate')"
         >
           <QDatetime
-            type="datetime"
             v-model="edit.startDate"
+            type="datetime"
             :format24h="is24h"
             :display-value="$d(edit.startDate, 'long')"
           />
@@ -102,28 +103,28 @@
           <div class="q-field-bottom">
             <i18n path="CREATEPICKUP.RRULE_HELPER">
               <a
+                v-t="'CREATEPICKUP.RRULE_HELPER_URL'"
                 place="ruleHelper"
                 href="https://www.kanzaki.com/docs/ical/rrule.html"
                 target="_blank"
                 rel="noopener nofollow noreferrer"
                 style="text-decoration: underline"
-                v-t="'CREATEPICKUP.RRULE_HELPER_URL'"
               />
               <a
+                v-t="'CREATEPICKUP.RRULE_EXAMPLE'"
                 place="ruleExample"
                 href="https://jakubroztocil.github.io/rrule/#/rfc/FREQ=MONTHLY;BYDAY=MO,TU,WE,TH,FR;BYSETPOS=-1"
                 target="_blank"
                 rel="noopener nofollow noreferrer"
                 style="text-decoration: underline"
-                v-t="'CREATEPICKUP.RRULE_EXAMPLE'"
               />
               <a
+                v-t="'CREATEPICKUP.RRULE_EXAMPLE2'"
                 place="ruleExample2"
                 href="https://jakubroztocil.github.io/rrule/#/rfc/FREQ=WEEKLY;INTERVAL=2;BYDAY=MO"
                 target="_blank"
                 rel="noopener nofollow noreferrer"
                 style="text-decoration: underline"
-                v-t="'CREATEPICKUP.RRULE_EXAMPLE2'"
               />
             </i18n>
           </div>
@@ -184,24 +185,24 @@
           {{ $t(isNew ? 'BUTTON.CREATE' : 'BUTTON.SAVE_CHANGES') }}
         </QBtn>
         <QBtn
+          v-if="isNew"
           type="button"
           @click="$emit('cancel')"
-          v-if="isNew"
         >
           {{ $t('BUTTON.CANCEL') }}
         </QBtn>
         <QBtn
+          v-if="!isNew"
           type="button"
           color="red"
           @click="destroy"
-          v-if="!isNew"
         >
           {{ $t('BUTTON.DELETE') }}
         </QBtn>
         <QBtn
           type="button"
-          @click="reset"
           :disable="!hasChanged"
+          @click="reset"
         >
           {{ $t('BUTTON.RESET') }}
         </QBtn>
@@ -234,7 +235,6 @@ import addDays from 'date-fns/add_days'
 import differenceInSeconds from 'date-fns/difference_in_seconds'
 
 export default {
-  mixins: [editMixin, statusMixin],
   components: {
     QDatetime,
     QField,
@@ -244,21 +244,7 @@ export default {
     QSelect,
     QOptionGroup,
   },
-  watch: {
-    isPending (val) {
-      const hasExceptions = () => {
-        const { pickups } = this.edit
-        return pickups.some(({ seriesMeta }) => seriesMeta.isDescriptionChanged || seriesMeta.isMaxCollectorsChanged || !seriesMeta.matchesRule)
-      }
-      if (!val && !this.hasAnyError && hasExceptions()) {
-        Dialog.create({
-          title: this.$t('CREATEPICKUP.EXCEPTIONS_TITLE'),
-          message: this.$t('CREATEPICKUP.EXCEPTIONS_MESSAGE', { upcomingLabel: this.$t('PICKUPMANAGE.UPCOMING_PICKUPS_IN_SERIES') }),
-          ok: this.$t('BUTTON.YES'),
-        }).catch(() => {})
-      }
-    },
-  },
+  mixins: [editMixin, statusMixin],
   computed: {
     dayOptions,
     is24h,
@@ -312,6 +298,21 @@ export default {
     },
     formattedDuration () {
       return this.edit.duration && formatSeconds(this.edit.duration)
+    },
+  },
+  watch: {
+    isPending (val) {
+      const hasExceptions = () => {
+        const { pickups } = this.edit
+        return pickups.some(({ seriesMeta }) => seriesMeta.isDescriptionChanged || seriesMeta.isMaxCollectorsChanged || !seriesMeta.matchesRule)
+      }
+      if (!val && !this.hasAnyError && hasExceptions()) {
+        Dialog.create({
+          title: this.$t('CREATEPICKUP.EXCEPTIONS_TITLE'),
+          message: this.$t('CREATEPICKUP.EXCEPTIONS_MESSAGE', { upcomingLabel: this.$t('PICKUPMANAGE.UPCOMING_PICKUPS_IN_SERIES') }),
+          ok: this.$t('BUTTON.YES'),
+        }).catch(() => {})
+      }
     },
   },
   methods: {

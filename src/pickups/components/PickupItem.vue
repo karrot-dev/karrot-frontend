@@ -40,9 +40,10 @@
           <b class="text-orange">{{ $t('PICKUPLIST.PICKUP_STARTED') }}</b>
         </div>
         <div
-          class="q-my-xs multiline"
           v-if="pickup.description"
-        >{{ pickup.description }}
+          class="q-my-xs multiline"
+        >
+          {{ pickup.description }}
         </div>
         <div class="q-my-xs full-width">
           <PickupUsers
@@ -66,6 +67,12 @@ import {
 import PickupUsers from './PickupUsers'
 
 export default {
+  components: {
+    QCard,
+    QCardMain,
+    QIcon,
+    PickupUsers,
+  },
   props: {
     pickup: {
       type: Object,
@@ -75,12 +82,6 @@ export default {
       type: Boolean,
       default: false,
     },
-  },
-  components: {
-    QCard,
-    QCardMain,
-    QIcon,
-    PickupUsers,
   },
   methods: {
     join () {

@@ -92,8 +92,8 @@
         :can-unsubscribe="!isThread && !isPrivate"
         :user="currentUser"
         in-toolbar
-        @set="setNotifications"
         :size="$q.platform.is.mobile ? 'sm' : 'md'"
+        @set="setNotifications"
       />
       <QBtn
         v-if="!$q.platform.is.mobile"
@@ -101,8 +101,8 @@
         round
         dense
         icon="close"
-        @click="$emit('close')"
         :title="$t('BUTTON.CLOSE')"
+        @click="$emit('close')"
       />
     </QToolbar>
     <div

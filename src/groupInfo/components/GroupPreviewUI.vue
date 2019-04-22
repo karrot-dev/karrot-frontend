@@ -68,38 +68,37 @@
               </QAlert>
               <QBtn
                 v-if="group.isOpen"
-                @click="$emit('join', group.id)"
                 color="secondary"
                 class="float-right generic-margin"
                 :loading="isPending"
+                @click="$emit('join', group.id)"
               >
                 {{ $t('BUTTON.JOIN') }}
               </QBtn>
 
               <QBtn
                 v-if="!group.isOpen && user && !user.mailVerified"
-                @click="$emit('goSettings')"
                 color="secondary"
                 class="float-right generic-margin"
                 :loading="isPending"
+                @click="$emit('goSettings')"
               >
                 {{ $t('JOINGROUP.VERIFY_EMAIL_ADDRESS') }}
               </QBtn>
               <QBtn
                 v-if="!group.isOpen && user && user.mailVerified && !application"
-                @click="$emit('goApply', group.id)"
                 color="secondary"
                 class="float-right generic-margin"
                 :loading="isPending"
+                @click="$emit('goApply', group.id)"
               >
                 {{ $t('BUTTON.APPLY') }}
               </QBtn>
-
             </template>
             <QBtn
               v-else
-              @click="$emit('goVisit', group.id)"
               class="q-btn-flat"
+              @click="$emit('goVisit', group.id)"
             >
               <QIcon name="fas fa-home" />
               <QTooltip>
@@ -110,10 +109,10 @@
 
           <QBtn
             v-else
-            @click="$emit('goSignup', group)"
             color="secondary"
             class="float-right generic-margin"
             :loading="isPending"
+            @click="$emit('goSignup', group)"
           >
             {{ $t('JOINGROUP.SIGNUP_OR_LOGIN') }}
           </QBtn>
@@ -142,6 +141,20 @@ import statusMixin from '@/utils/mixins/statusMixin'
 import RandomArt from '@/utils/components/RandomArt'
 
 export default {
+  components: {
+    QCard,
+    QCardTitle,
+    QCardMain,
+    QCardSeparator,
+    QCardActions,
+    QCardMedia,
+    QBtn,
+    QIcon,
+    QTooltip,
+    QAlert,
+    Markdown,
+    RandomArt,
+  },
   props: {
     group: {
       default: null,
@@ -159,20 +172,6 @@ export default {
       default: null,
       type: Object,
     },
-  },
-  components: {
-    QCard,
-    QCardTitle,
-    QCardMain,
-    QCardSeparator,
-    QCardActions,
-    QCardMedia,
-    QBtn,
-    QIcon,
-    QTooltip,
-    QAlert,
-    Markdown,
-    RandomArt,
   },
   computed: {
     status () {

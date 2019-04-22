@@ -57,6 +57,11 @@ export default {
     },
     activePlace: (state, getters) => getters.get(state.activePlaceId),
     activePlaceId: state => state.activePlaceId,
+    activePlaceSubscribers: (state, getters, rootState, rootGetters) => {
+      const place = getters.activePlace
+      if (!place) return []
+      return place.subscribers.map(userId => rootGetters['users/get'](userId))
+    },
     ...metaStatuses(['create', 'fetch']),
     conversationUnreadCount: (state, getters) => getters.conversation && getters.conversation.unreadMessageCount,
     conversation: (state, getters, rootState, rootGetters) => {

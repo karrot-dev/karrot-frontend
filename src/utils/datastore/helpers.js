@@ -137,11 +137,14 @@ export function defaultFindId (data) {
     return data
   }
   if (typeof data === 'string') {
+    let number = null
     try {
-      parseInt(data, 10)
-      console.warn('findId: number passed as string', data)
+      number = parseInt(data, 10)
     }
     catch {}
+    if (number !== null && !Number.isNaN(number)) {
+      console.warn('findId: number passed as string', data)
+    }
     return data
   }
   else if (typeof data === 'object' && data.hasOwnProperty('id')) {

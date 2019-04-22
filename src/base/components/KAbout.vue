@@ -6,9 +6,9 @@
     <div class="layout-padding">
       <div class="k-logo-container">
         <RouterLink :to="'/'">
-          <KarrotLogo/>
+          <KarrotLogo />
         </RouterLink>
-        <h4 v-t="'GLOBAL.ABOUT_KARROT'"/>
+        <h4 v-t="'GLOBAL.ABOUT_KARROT'" />
       </div>
 
       <QList
@@ -22,7 +22,7 @@
           href="https://community.foodsaving.world"
         >
           <QItemSide>
-            <i class="fab fa-fw fa-discourse"/>
+            <i class="fab fa-fw fa-discourse" />
           </QItemSide>
           <QItemMain
             label="Community"
@@ -37,7 +37,7 @@
           href="https://github.com/yunity/karrot-frontend"
         >
           <QItemSide>
-            <i class="fab fa-fw fa-github"/>
+            <i class="fab fa-fw fa-github" />
           </QItemSide>
           <QItemMain
             :label="$t('GLOBAL.GITHUB_NOTE')"
@@ -52,7 +52,7 @@
           href="https://foodsaving.world"
         >
           <QItemSide>
-            <i class="fas fa-fw fa-globe"/>
+            <i class="fas fa-fw fa-globe" />
           </QItemSide>
           <QItemMain
             label="Info"
@@ -67,7 +67,7 @@
           href="https://blog.karrot.world"
         >
           <QItemSide>
-            <i class="far fa-newspaper"/>
+            <i class="far fa-newspaper" />
           </QItemSide>
           <QItemMain
             label="Blog"
@@ -82,7 +82,7 @@
           href="mailto:karrot@foodsaving.world"
         >
           <QItemSide>
-            <i class="fas fa-fw fa-envelope"/>
+            <i class="fas fa-fw fa-envelope" />
           </QItemSide>
           <QItemMain
             label="karrot@foodsaving.world"
@@ -117,8 +117,8 @@
     <div class="row justify-end generic-padding">
       <QBtn
         flat
-        @click="$emit('close')"
         :label="$t('BUTTON.CLOSE')"
+        @click="$emit('close')"
       />
     </div>
   </div>
@@ -169,11 +169,9 @@ export default {
           }
         }
       }
-      else {
-        return {
-          link: '',
-          name: '',
-        }
+      return {
+        link: '',
+        name: '',
       }
     },
   },

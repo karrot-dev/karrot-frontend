@@ -1,6 +1,6 @@
 <template>
   <div
-    class="row"
+    class="k-add-reaction"
   >
     <QSearch
       v-model="search"
@@ -89,10 +89,9 @@ export default {
 </script>
 
 <style scoped lang="stylus">
+.k-add-reaction
+  width 185px
+  margin 2px 4px
 .big
   font-size 1.6em
-  max-width 8px
-.row
-  margin 2px 4px
-  max-width 225px
 </style>

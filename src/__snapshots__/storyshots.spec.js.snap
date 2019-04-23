@@ -115,12 +115,16 @@ exports[`Storyshots ChatConversation closed 1`] = `
               <div class="q-focus-helper"></div>
               <div class="q-btn-inner row col items-center q-popup--skip justify-center"><span style="opacity:1;"><i class="far fa-smile"></i> +
   </span>
-                <div tabindex="-1" class="q-popover scroll"></div>
+                <div tabindex="-1" class="q-popover scroll">
+                  <div style="width:195px;">
+                    <!---->
+                  </div>
+                </div>
               </div>
             </button></div>
           <!---->
           <div class="q-item-main q-item-section">
-            <div class="no-wrap k-message-meta"><a><span class="k-message-author text-bold text-secondary uppercase">User 1</span></a> <span class="message-date"><small class="text-weight-light"><div title="Dec 24, 2017, 12:00 PM">
+            <div class="no-wrap k-message-meta"><a><span class="k-message-author text-bold text-secondary uppercase">User 1</span></a> <span class="message-date"><small class="text-weight-light"><div title="Dec 24, 2017, 7:00 AM">
   less than a minute ago
 </div></small></span>
               <!---->
@@ -135,7 +139,11 @@ exports[`Storyshots ChatConversation closed 1`] = `
             <div class="q-focus-helper"></div>
             <div class="q-btn-inner row col items-center q-popup--skip justify-center"><span style="opacity:0.5;"><i class="far fa-smile"></i> +
   </span>
-              <div tabindex="-1" class="q-popover scroll"></div>
+              <div tabindex="-1" class="q-popover scroll">
+                <div style="width:195px;">
+                  <!---->
+                </div>
+              </div>
             </div>
           </button>
           <!----></span>
@@ -149,12 +157,16 @@ exports[`Storyshots ChatConversation closed 1`] = `
             <div class="q-focus-helper"></div>
             <div class="q-btn-inner row col items-center q-popup--skip justify-center"><span style="opacity:1;"><i class="far fa-smile"></i> +
   </span>
-              <div tabindex="-1" class="q-popover scroll"></div>
+              <div tabindex="-1" class="q-popover scroll">
+                <div style="width:195px;">
+                  <!---->
+                </div>
+              </div>
             </div>
           </button></div>
         <!---->
         <div class="q-item-main q-item-section">
-          <div class="no-wrap k-message-meta"><a><span class="k-message-author text-bold text-secondary uppercase">User 3</span></a> <span class="message-date"><small class="text-weight-light"><div title="Dec 24, 2017, 12:00 PM">
+          <div class="no-wrap k-message-meta"><a><span class="k-message-author text-bold text-secondary uppercase">User 3</span></a> <span class="message-date"><small class="text-weight-light"><div title="Dec 24, 2017, 7:00 AM">
   less than a minute ago
 </div></small></span>
             <!---->
@@ -169,7 +181,11 @@ exports[`Storyshots ChatConversation closed 1`] = `
           <div class="q-focus-helper"></div>
           <div class="q-btn-inner row col items-center q-popup--skip justify-center"><span style="opacity:0.5;"><i class="far fa-smile"></i> +
   </span>
-            <div tabindex="-1" class="q-popover scroll"></div>
+            <div tabindex="-1" class="q-popover scroll">
+              <div style="width:195px;">
+                <!---->
+              </div>
+            </div>
           </div>
         </button>
         <!----></span>
@@ -183,12 +199,16 @@ exports[`Storyshots ChatConversation closed 1`] = `
           <div class="q-focus-helper"></div>
           <div class="q-btn-inner row col items-center q-popup--skip justify-center"><span style="opacity:1;"><i class="far fa-smile"></i> +
   </span>
-            <div tabindex="-1" class="q-popover scroll"></div>
+            <div tabindex="-1" class="q-popover scroll">
+              <div style="width:195px;">
+                <!---->
+              </div>
+            </div>
           </div>
         </button></div>
       <!---->
       <div class="q-item-main q-item-section">
-        <div class="no-wrap k-message-meta"><a><span class="k-message-author text-bold text-secondary uppercase">User 5</span></a> <span class="message-date"><small class="text-weight-light"><div title="Dec 24, 2017, 12:00 PM">
+        <div class="no-wrap k-message-meta"><a><span class="k-message-author text-bold text-secondary uppercase">User 5</span></a> <span class="message-date"><small class="text-weight-light"><div title="Dec 24, 2017, 7:00 AM">
   less than a minute ago
 </div></small></span>
           <!---->
@@ -203,7 +223,11 @@ exports[`Storyshots ChatConversation closed 1`] = `
         <div class="q-focus-helper"></div>
         <div class="q-btn-inner row col items-center q-popup--skip justify-center"><span style="opacity:0.5;"><i class="far fa-smile"></i> +
   </span>
-          <div tabindex="-1" class="q-popover scroll"></div>
+          <div tabindex="-1" class="q-popover scroll">
+            <div style="width:195px;">
+              <!---->
+            </div>
+          </div>
         </div>
       </button>
       <!----></span>
@@ -217,12 +241,16 @@ exports[`Storyshots ChatConversation closed 1`] = `
         <div class="q-focus-helper"></div>
         <div class="q-btn-inner row col items-center q-popup--skip justify-center"><span style="opacity:1;"><i class="far fa-smile"></i> +
   </span>
-          <div tabindex="-1" class="q-popover scroll"></div>
+          <div tabindex="-1" class="q-popover scroll">
+            <div style="width:195px;">
+              <!---->
+            </div>
+          </div>
         </div>
       </button></div>
     <!---->
     <div class="q-item-main q-item-section">
-      <div class="no-wrap k-message-meta"><a><span class="k-message-author text-bold text-secondary uppercase">User 7</span></a> <span class="message-date"><small class="text-weight-light"><div title="Dec 24, 2017, 12:00 PM">
+      <div class="no-wrap k-message-meta"><a><span class="k-message-author text-bold text-secondary uppercase">User 7</span></a> <span class="message-date"><small class="text-weight-light"><div title="Dec 24, 2017, 7:00 AM">
   less than a minute ago
 </div></small></span>
         <!---->
@@ -237,7 +265,11 @@ exports[`Storyshots ChatConversation closed 1`] = `
       <div class="q-focus-helper"></div>
       <div class="q-btn-inner row col items-center q-popup--skip justify-center"><span style="opacity:0.5;"><i class="far fa-smile"></i> +
   </span>
-        <div tabindex="-1" class="q-popover scroll"></div>
+        <div tabindex="-1" class="q-popover scroll">
+          <div style="width:195px;">
+            <!---->
+          </div>
+        </div>
       </div>
     </button>
     <!----></span>
@@ -286,12 +318,16 @@ exports[`Storyshots ChatConversation default 1`] = `
               <div class="q-focus-helper"></div>
               <div class="q-btn-inner row col items-center q-popup--skip justify-center"><span style="opacity:1;"><i class="far fa-smile"></i> +
   </span>
-                <div tabindex="-1" class="q-popover scroll"></div>
+                <div tabindex="-1" class="q-popover scroll">
+                  <div style="width:195px;">
+                    <!---->
+                  </div>
+                </div>
               </div>
             </button></div>
           <!---->
           <div class="q-item-main q-item-section">
-            <div class="no-wrap k-message-meta"><a><span class="k-message-author text-bold text-secondary uppercase">User 1</span></a> <span class="message-date"><small class="text-weight-light"><div title="Dec 24, 2017, 12:00 PM">
+            <div class="no-wrap k-message-meta"><a><span class="k-message-author text-bold text-secondary uppercase">User 1</span></a> <span class="message-date"><small class="text-weight-light"><div title="Dec 24, 2017, 7:00 AM">
   less than a minute ago
 </div></small></span>
               <!---->
@@ -306,7 +342,11 @@ exports[`Storyshots ChatConversation default 1`] = `
             <div class="q-focus-helper"></div>
             <div class="q-btn-inner row col items-center q-popup--skip justify-center"><span style="opacity:0.5;"><i class="far fa-smile"></i> +
   </span>
-              <div tabindex="-1" class="q-popover scroll"></div>
+              <div tabindex="-1" class="q-popover scroll">
+                <div style="width:195px;">
+                  <!---->
+                </div>
+              </div>
             </div>
           </button>
           <!----></span>
@@ -320,12 +360,16 @@ exports[`Storyshots ChatConversation default 1`] = `
             <div class="q-focus-helper"></div>
             <div class="q-btn-inner row col items-center q-popup--skip justify-center"><span style="opacity:1;"><i class="far fa-smile"></i> +
   </span>
-              <div tabindex="-1" class="q-popover scroll"></div>
+              <div tabindex="-1" class="q-popover scroll">
+                <div style="width:195px;">
+                  <!---->
+                </div>
+              </div>
             </div>
           </button></div>
         <!---->
         <div class="q-item-main q-item-section">
-          <div class="no-wrap k-message-meta"><a><span class="k-message-author text-bold text-secondary uppercase">User 3</span></a> <span class="message-date"><small class="text-weight-light"><div title="Dec 24, 2017, 12:00 PM">
+          <div class="no-wrap k-message-meta"><a><span class="k-message-author text-bold text-secondary uppercase">User 3</span></a> <span class="message-date"><small class="text-weight-light"><div title="Dec 24, 2017, 7:00 AM">
   less than a minute ago
 </div></small></span>
             <!---->
@@ -340,7 +384,11 @@ exports[`Storyshots ChatConversation default 1`] = `
           <div class="q-focus-helper"></div>
           <div class="q-btn-inner row col items-center q-popup--skip justify-center"><span style="opacity:0.5;"><i class="far fa-smile"></i> +
   </span>
-            <div tabindex="-1" class="q-popover scroll"></div>
+            <div tabindex="-1" class="q-popover scroll">
+              <div style="width:195px;">
+                <!---->
+              </div>
+            </div>
           </div>
         </button>
         <!----></span>
@@ -354,12 +402,16 @@ exports[`Storyshots ChatConversation default 1`] = `
           <div class="q-focus-helper"></div>
           <div class="q-btn-inner row col items-center q-popup--skip justify-center"><span style="opacity:1;"><i class="far fa-smile"></i> +
   </span>
-            <div tabindex="-1" class="q-popover scroll"></div>
+            <div tabindex="-1" class="q-popover scroll">
+              <div style="width:195px;">
+                <!---->
+              </div>
+            </div>
           </div>
         </button></div>
       <!---->
       <div class="q-item-main q-item-section">
-        <div class="no-wrap k-message-meta"><a><span class="k-message-author text-bold text-secondary uppercase">User 5</span></a> <span class="message-date"><small class="text-weight-light"><div title="Dec 24, 2017, 12:00 PM">
+        <div class="no-wrap k-message-meta"><a><span class="k-message-author text-bold text-secondary uppercase">User 5</span></a> <span class="message-date"><small class="text-weight-light"><div title="Dec 24, 2017, 7:00 AM">
   less than a minute ago
 </div></small></span>
           <!---->
@@ -374,7 +426,11 @@ exports[`Storyshots ChatConversation default 1`] = `
         <div class="q-focus-helper"></div>
         <div class="q-btn-inner row col items-center q-popup--skip justify-center"><span style="opacity:0.5;"><i class="far fa-smile"></i> +
   </span>
-          <div tabindex="-1" class="q-popover scroll"></div>
+          <div tabindex="-1" class="q-popover scroll">
+            <div style="width:195px;">
+              <!---->
+            </div>
+          </div>
         </div>
       </button>
       <!----></span>
@@ -388,12 +444,16 @@ exports[`Storyshots ChatConversation default 1`] = `
         <div class="q-focus-helper"></div>
         <div class="q-btn-inner row col items-center q-popup--skip justify-center"><span style="opacity:1;"><i class="far fa-smile"></i> +
   </span>
-          <div tabindex="-1" class="q-popover scroll"></div>
+          <div tabindex="-1" class="q-popover scroll">
+            <div style="width:195px;">
+              <!---->
+            </div>
+          </div>
         </div>
       </button></div>
     <!---->
     <div class="q-item-main q-item-section">
-      <div class="no-wrap k-message-meta"><a><span class="k-message-author text-bold text-secondary uppercase">User 7</span></a> <span class="message-date"><small class="text-weight-light"><div title="Dec 24, 2017, 12:00 PM">
+      <div class="no-wrap k-message-meta"><a><span class="k-message-author text-bold text-secondary uppercase">User 7</span></a> <span class="message-date"><small class="text-weight-light"><div title="Dec 24, 2017, 7:00 AM">
   less than a minute ago
 </div></small></span>
         <!---->
@@ -408,7 +468,11 @@ exports[`Storyshots ChatConversation default 1`] = `
       <div class="q-focus-helper"></div>
       <div class="q-btn-inner row col items-center q-popup--skip justify-center"><span style="opacity:0.5;"><i class="far fa-smile"></i> +
   </span>
-        <div tabindex="-1" class="q-popover scroll"></div>
+        <div tabindex="-1" class="q-popover scroll">
+          <div style="width:195px;">
+            <!---->
+          </div>
+        </div>
       </div>
     </button>
     <!----></span>
@@ -450,12 +514,16 @@ exports[`Storyshots ChatConversation fetching past 1`] = `
               <div class="q-focus-helper"></div>
               <div class="q-btn-inner row col items-center q-popup--skip justify-center"><span style="opacity:1;"><i class="far fa-smile"></i> +
   </span>
-                <div tabindex="-1" class="q-popover scroll"></div>
+                <div tabindex="-1" class="q-popover scroll">
+                  <div style="width:195px;">
+                    <!---->
+                  </div>
+                </div>
               </div>
             </button></div>
           <!---->
           <div class="q-item-main q-item-section">
-            <div class="no-wrap k-message-meta"><a><span class="k-message-author text-bold text-secondary uppercase">User 1</span></a> <span class="message-date"><small class="text-weight-light"><div title="Dec 24, 2017, 12:00 PM">
+            <div class="no-wrap k-message-meta"><a><span class="k-message-author text-bold text-secondary uppercase">User 1</span></a> <span class="message-date"><small class="text-weight-light"><div title="Dec 24, 2017, 7:00 AM">
   less than a minute ago
 </div></small></span>
               <!---->
@@ -470,7 +538,11 @@ exports[`Storyshots ChatConversation fetching past 1`] = `
             <div class="q-focus-helper"></div>
             <div class="q-btn-inner row col items-center q-popup--skip justify-center"><span style="opacity:0.5;"><i class="far fa-smile"></i> +
   </span>
-              <div tabindex="-1" class="q-popover scroll"></div>
+              <div tabindex="-1" class="q-popover scroll">
+                <div style="width:195px;">
+                  <!---->
+                </div>
+              </div>
             </div>
           </button>
           <!----></span>
@@ -484,12 +556,16 @@ exports[`Storyshots ChatConversation fetching past 1`] = `
             <div class="q-focus-helper"></div>
             <div class="q-btn-inner row col items-center q-popup--skip justify-center"><span style="opacity:1;"><i class="far fa-smile"></i> +
   </span>
-              <div tabindex="-1" class="q-popover scroll"></div>
+              <div tabindex="-1" class="q-popover scroll">
+                <div style="width:195px;">
+                  <!---->
+                </div>
+              </div>
             </div>
           </button></div>
         <!---->
         <div class="q-item-main q-item-section">
-          <div class="no-wrap k-message-meta"><a><span class="k-message-author text-bold text-secondary uppercase">User 3</span></a> <span class="message-date"><small class="text-weight-light"><div title="Dec 24, 2017, 12:00 PM">
+          <div class="no-wrap k-message-meta"><a><span class="k-message-author text-bold text-secondary uppercase">User 3</span></a> <span class="message-date"><small class="text-weight-light"><div title="Dec 24, 2017, 7:00 AM">
   less than a minute ago
 </div></small></span>
             <!---->
@@ -504,7 +580,11 @@ exports[`Storyshots ChatConversation fetching past 1`] = `
           <div class="q-focus-helper"></div>
           <div class="q-btn-inner row col items-center q-popup--skip justify-center"><span style="opacity:0.5;"><i class="far fa-smile"></i> +
   </span>
-            <div tabindex="-1" class="q-popover scroll"></div>
+            <div tabindex="-1" class="q-popover scroll">
+              <div style="width:195px;">
+                <!---->
+              </div>
+            </div>
           </div>
         </button>
         <!----></span>
@@ -518,12 +598,16 @@ exports[`Storyshots ChatConversation fetching past 1`] = `
           <div class="q-focus-helper"></div>
           <div class="q-btn-inner row col items-center q-popup--skip justify-center"><span style="opacity:1;"><i class="far fa-smile"></i> +
   </span>
-            <div tabindex="-1" class="q-popover scroll"></div>
+            <div tabindex="-1" class="q-popover scroll">
+              <div style="width:195px;">
+                <!---->
+              </div>
+            </div>
           </div>
         </button></div>
       <!---->
       <div class="q-item-main q-item-section">
-        <div class="no-wrap k-message-meta"><a><span class="k-message-author text-bold text-secondary uppercase">User 5</span></a> <span class="message-date"><small class="text-weight-light"><div title="Dec 24, 2017, 12:00 PM">
+        <div class="no-wrap k-message-meta"><a><span class="k-message-author text-bold text-secondary uppercase">User 5</span></a> <span class="message-date"><small class="text-weight-light"><div title="Dec 24, 2017, 7:00 AM">
   less than a minute ago
 </div></small></span>
           <!---->
@@ -538,7 +622,11 @@ exports[`Storyshots ChatConversation fetching past 1`] = `
         <div class="q-focus-helper"></div>
         <div class="q-btn-inner row col items-center q-popup--skip justify-center"><span style="opacity:0.5;"><i class="far fa-smile"></i> +
   </span>
-          <div tabindex="-1" class="q-popover scroll"></div>
+          <div tabindex="-1" class="q-popover scroll">
+            <div style="width:195px;">
+              <!---->
+            </div>
+          </div>
         </div>
       </button>
       <!----></span>
@@ -552,12 +640,16 @@ exports[`Storyshots ChatConversation fetching past 1`] = `
         <div class="q-focus-helper"></div>
         <div class="q-btn-inner row col items-center q-popup--skip justify-center"><span style="opacity:1;"><i class="far fa-smile"></i> +
   </span>
-          <div tabindex="-1" class="q-popover scroll"></div>
+          <div tabindex="-1" class="q-popover scroll">
+            <div style="width:195px;">
+              <!---->
+            </div>
+          </div>
         </div>
       </button></div>
     <!---->
     <div class="q-item-main q-item-section">
-      <div class="no-wrap k-message-meta"><a><span class="k-message-author text-bold text-secondary uppercase">User 7</span></a> <span class="message-date"><small class="text-weight-light"><div title="Dec 24, 2017, 12:00 PM">
+      <div class="no-wrap k-message-meta"><a><span class="k-message-author text-bold text-secondary uppercase">User 7</span></a> <span class="message-date"><small class="text-weight-light"><div title="Dec 24, 2017, 7:00 AM">
   less than a minute ago
 </div></small></span>
         <!---->
@@ -572,7 +664,11 @@ exports[`Storyshots ChatConversation fetching past 1`] = `
       <div class="q-focus-helper"></div>
       <div class="q-btn-inner row col items-center q-popup--skip justify-center"><span style="opacity:0.5;"><i class="far fa-smile"></i> +
   </span>
-        <div tabindex="-1" class="q-popover scroll"></div>
+        <div tabindex="-1" class="q-popover scroll">
+          <div style="width:195px;">
+            <!---->
+          </div>
+        </div>
       </div>
     </button>
     <!----></span>
@@ -614,12 +710,16 @@ exports[`Storyshots ChatConversation not participant 1`] = `
               <div class="q-focus-helper"></div>
               <div class="q-btn-inner row col items-center q-popup--skip justify-center"><span style="opacity:1;"><i class="far fa-smile"></i> +
   </span>
-                <div tabindex="-1" class="q-popover scroll"></div>
+                <div tabindex="-1" class="q-popover scroll">
+                  <div style="width:195px;">
+                    <!---->
+                  </div>
+                </div>
               </div>
             </button></div>
           <!---->
           <div class="q-item-main q-item-section">
-            <div class="no-wrap k-message-meta"><a><span class="k-message-author text-bold text-secondary uppercase">User 1</span></a> <span class="message-date"><small class="text-weight-light"><div title="Dec 24, 2017, 12:00 PM">
+            <div class="no-wrap k-message-meta"><a><span class="k-message-author text-bold text-secondary uppercase">User 1</span></a> <span class="message-date"><small class="text-weight-light"><div title="Dec 24, 2017, 7:00 AM">
   less than a minute ago
 </div></small></span>
               <!---->
@@ -634,7 +734,11 @@ exports[`Storyshots ChatConversation not participant 1`] = `
             <div class="q-focus-helper"></div>
             <div class="q-btn-inner row col items-center q-popup--skip justify-center"><span style="opacity:0.5;"><i class="far fa-smile"></i> +
   </span>
-              <div tabindex="-1" class="q-popover scroll"></div>
+              <div tabindex="-1" class="q-popover scroll">
+                <div style="width:195px;">
+                  <!---->
+                </div>
+              </div>
             </div>
           </button>
           <!----></span>
@@ -648,12 +752,16 @@ exports[`Storyshots ChatConversation not participant 1`] = `
             <div class="q-focus-helper"></div>
             <div class="q-btn-inner row col items-center q-popup--skip justify-center"><span style="opacity:1;"><i class="far fa-smile"></i> +
   </span>
-              <div tabindex="-1" class="q-popover scroll"></div>
+              <div tabindex="-1" class="q-popover scroll">
+                <div style="width:195px;">
+                  <!---->
+                </div>
+              </div>
             </div>
           </button></div>
         <!---->
         <div class="q-item-main q-item-section">
-          <div class="no-wrap k-message-meta"><a><span class="k-message-author text-bold text-secondary uppercase">User 3</span></a> <span class="message-date"><small class="text-weight-light"><div title="Dec 24, 2017, 12:00 PM">
+          <div class="no-wrap k-message-meta"><a><span class="k-message-author text-bold text-secondary uppercase">User 3</span></a> <span class="message-date"><small class="text-weight-light"><div title="Dec 24, 2017, 7:00 AM">
   less than a minute ago
 </div></small></span>
             <!---->
@@ -668,7 +776,11 @@ exports[`Storyshots ChatConversation not participant 1`] = `
           <div class="q-focus-helper"></div>
           <div class="q-btn-inner row col items-center q-popup--skip justify-center"><span style="opacity:0.5;"><i class="far fa-smile"></i> +
   </span>
-            <div tabindex="-1" class="q-popover scroll"></div>
+            <div tabindex="-1" class="q-popover scroll">
+              <div style="width:195px;">
+                <!---->
+              </div>
+            </div>
           </div>
         </button>
         <!----></span>
@@ -682,12 +794,16 @@ exports[`Storyshots ChatConversation not participant 1`] = `
           <div class="q-focus-helper"></div>
           <div class="q-btn-inner row col items-center q-popup--skip justify-center"><span style="opacity:1;"><i class="far fa-smile"></i> +
   </span>
-            <div tabindex="-1" class="q-popover scroll"></div>
+            <div tabindex="-1" class="q-popover scroll">
+              <div style="width:195px;">
+                <!---->
+              </div>
+            </div>
           </div>
         </button></div>
       <!---->
       <div class="q-item-main q-item-section">
-        <div class="no-wrap k-message-meta"><a><span class="k-message-author text-bold text-secondary uppercase">User 5</span></a> <span class="message-date"><small class="text-weight-light"><div title="Dec 24, 2017, 12:00 PM">
+        <div class="no-wrap k-message-meta"><a><span class="k-message-author text-bold text-secondary uppercase">User 5</span></a> <span class="message-date"><small class="text-weight-light"><div title="Dec 24, 2017, 7:00 AM">
   less than a minute ago
 </div></small></span>
           <!---->
@@ -702,7 +818,11 @@ exports[`Storyshots ChatConversation not participant 1`] = `
         <div class="q-focus-helper"></div>
         <div class="q-btn-inner row col items-center q-popup--skip justify-center"><span style="opacity:0.5;"><i class="far fa-smile"></i> +
   </span>
-          <div tabindex="-1" class="q-popover scroll"></div>
+          <div tabindex="-1" class="q-popover scroll">
+            <div style="width:195px;">
+              <!---->
+            </div>
+          </div>
         </div>
       </button>
       <!----></span>
@@ -716,12 +836,16 @@ exports[`Storyshots ChatConversation not participant 1`] = `
         <div class="q-focus-helper"></div>
         <div class="q-btn-inner row col items-center q-popup--skip justify-center"><span style="opacity:1;"><i class="far fa-smile"></i> +
   </span>
-          <div tabindex="-1" class="q-popover scroll"></div>
+          <div tabindex="-1" class="q-popover scroll">
+            <div style="width:195px;">
+              <!---->
+            </div>
+          </div>
         </div>
       </button></div>
     <!---->
     <div class="q-item-main q-item-section">
-      <div class="no-wrap k-message-meta"><a><span class="k-message-author text-bold text-secondary uppercase">User 7</span></a> <span class="message-date"><small class="text-weight-light"><div title="Dec 24, 2017, 12:00 PM">
+      <div class="no-wrap k-message-meta"><a><span class="k-message-author text-bold text-secondary uppercase">User 7</span></a> <span class="message-date"><small class="text-weight-light"><div title="Dec 24, 2017, 7:00 AM">
   less than a minute ago
 </div></small></span>
         <!---->
@@ -736,7 +860,11 @@ exports[`Storyshots ChatConversation not participant 1`] = `
       <div class="q-focus-helper"></div>
       <div class="q-btn-inner row col items-center q-popup--skip justify-center"><span style="opacity:0.5;"><i class="far fa-smile"></i> +
   </span>
-        <div tabindex="-1" class="q-popover scroll"></div>
+        <div tabindex="-1" class="q-popover scroll">
+          <div style="width:195px;">
+            <!---->
+          </div>
+        </div>
       </div>
     </button>
     <!----></span>
@@ -778,12 +906,16 @@ exports[`Storyshots ChatConversation thread 1`] = `
               <div class="q-focus-helper"></div>
               <div class="q-btn-inner row col items-center q-popup--skip justify-center"><span style="opacity:1;"><i class="far fa-smile"></i> +
   </span>
-                <div tabindex="-1" class="q-popover scroll"></div>
+                <div tabindex="-1" class="q-popover scroll">
+                  <div style="width:195px;">
+                    <!---->
+                  </div>
+                </div>
               </div>
             </button></div>
           <!---->
           <div class="q-item-main q-item-section">
-            <div class="no-wrap k-message-meta"><a><span class="k-message-author text-bold text-secondary uppercase">User 11</span></a> <span class="message-date"><small class="text-weight-light"><div title="Dec 24, 2017, 12:00 PM">
+            <div class="no-wrap k-message-meta"><a><span class="k-message-author text-bold text-secondary uppercase">User 11</span></a> <span class="message-date"><small class="text-weight-light"><div title="Dec 24, 2017, 7:00 AM">
   less than a minute ago
 </div></small></span>
               <!---->
@@ -798,7 +930,11 @@ exports[`Storyshots ChatConversation thread 1`] = `
             <div class="q-focus-helper"></div>
             <div class="q-btn-inner row col items-center q-popup--skip justify-center"><span style="opacity:0.5;"><i class="far fa-smile"></i> +
   </span>
-              <div tabindex="-1" class="q-popover scroll"></div>
+              <div tabindex="-1" class="q-popover scroll">
+                <div style="width:195px;">
+                  <!---->
+                </div>
+              </div>
             </div>
           </button>
           <!----></span>
@@ -812,12 +948,16 @@ exports[`Storyshots ChatConversation thread 1`] = `
             <div class="q-focus-helper"></div>
             <div class="q-btn-inner row col items-center q-popup--skip justify-center"><span style="opacity:1;"><i class="far fa-smile"></i> +
   </span>
-              <div tabindex="-1" class="q-popover scroll"></div>
+              <div tabindex="-1" class="q-popover scroll">
+                <div style="width:195px;">
+                  <!---->
+                </div>
+              </div>
             </div>
           </button></div>
         <!---->
         <div class="q-item-main q-item-section">
-          <div class="no-wrap k-message-meta"><a><span class="k-message-author text-bold text-secondary uppercase">User 13</span></a> <span class="message-date"><small class="text-weight-light"><div title="Dec 24, 2017, 12:00 PM">
+          <div class="no-wrap k-message-meta"><a><span class="k-message-author text-bold text-secondary uppercase">User 13</span></a> <span class="message-date"><small class="text-weight-light"><div title="Dec 24, 2017, 7:00 AM">
   less than a minute ago
 </div></small></span>
             <!---->
@@ -832,7 +972,11 @@ exports[`Storyshots ChatConversation thread 1`] = `
           <div class="q-focus-helper"></div>
           <div class="q-btn-inner row col items-center q-popup--skip justify-center"><span style="opacity:0.5;"><i class="far fa-smile"></i> +
   </span>
-            <div tabindex="-1" class="q-popover scroll"></div>
+            <div tabindex="-1" class="q-popover scroll">
+              <div style="width:195px;">
+                <!---->
+              </div>
+            </div>
           </div>
         </button>
         <!----></span>
@@ -846,12 +990,16 @@ exports[`Storyshots ChatConversation thread 1`] = `
           <div class="q-focus-helper"></div>
           <div class="q-btn-inner row col items-center q-popup--skip justify-center"><span style="opacity:1;"><i class="far fa-smile"></i> +
   </span>
-            <div tabindex="-1" class="q-popover scroll"></div>
+            <div tabindex="-1" class="q-popover scroll">
+              <div style="width:195px;">
+                <!---->
+              </div>
+            </div>
           </div>
         </button></div>
       <!---->
       <div class="q-item-main q-item-section">
-        <div class="no-wrap k-message-meta"><a><span class="k-message-author text-bold text-secondary uppercase">User 15</span></a> <span class="message-date"><small class="text-weight-light"><div title="Dec 24, 2017, 12:00 PM">
+        <div class="no-wrap k-message-meta"><a><span class="k-message-author text-bold text-secondary uppercase">User 15</span></a> <span class="message-date"><small class="text-weight-light"><div title="Dec 24, 2017, 7:00 AM">
   less than a minute ago
 </div></small></span>
           <!---->
@@ -866,7 +1014,11 @@ exports[`Storyshots ChatConversation thread 1`] = `
         <div class="q-focus-helper"></div>
         <div class="q-btn-inner row col items-center q-popup--skip justify-center"><span style="opacity:0.5;"><i class="far fa-smile"></i> +
   </span>
-          <div tabindex="-1" class="q-popover scroll"></div>
+          <div tabindex="-1" class="q-popover scroll">
+            <div style="width:195px;">
+              <!---->
+            </div>
+          </div>
         </div>
       </button>
       <!----></span>
@@ -944,14 +1096,14 @@ exports[`Storyshots Detail application 1`] = `
         </div>
         <div>
           <div class="q-collapsible-sub-item relative-position">
-            <div class="q-ma-sm q-pa-sm bg-white"><span class="text-bold text-secondary uppercase">Group 0</span> <span class="message-date"><small class="text-weight-light"><div title="Dec 24, 2017, 12:00 PM">
+            <div class="q-ma-sm q-pa-sm bg-white"><span class="text-bold text-secondary uppercase">Group 0</span> <span class="message-date"><small class="text-weight-light"><div title="Dec 24, 2017, 7:00 AM">
   less than a minute ago
 </div></small></span>
               <div class="markdown">
                 <p>What are your motivations for joining slköaslkfjasdfasfd?</p>
               </div>
             </div>
-            <div class="q-ma-sm q-pa-sm bg-white"><span class="text-bold text-secondary uppercase">User 29</span> <span class="message-date"><small class="text-weight-light"><div title="Dec 24, 2017, 12:00 PM">
+            <div class="q-ma-sm q-pa-sm bg-white"><span class="text-bold text-secondary uppercase">User 29</span> <span class="message-date"><small class="text-weight-light"><div title="Dec 24, 2017, 7:00 AM">
   less than a minute ago
 </div></small></span>
               <div class="markdown">
@@ -986,12 +1138,16 @@ exports[`Storyshots Detail application 1`] = `
                 <div class="q-focus-helper"></div>
                 <div class="q-btn-inner row col items-center q-popup--skip justify-center"><span style="opacity:1;"><i class="far fa-smile"></i> +
   </span>
-                  <div tabindex="-1" class="q-popover scroll"></div>
+                  <div tabindex="-1" class="q-popover scroll">
+                    <div style="width:195px;">
+                      <!---->
+                    </div>
+                  </div>
                 </div>
               </button></div>
             <!---->
             <div class="q-item-main q-item-section">
-              <div class="no-wrap k-message-meta"><a><span class="k-message-author text-bold text-secondary uppercase">User 27</span></a> <span class="message-date"><small class="text-weight-light"><div title="Dec 24, 2017, 12:00 PM">
+              <div class="no-wrap k-message-meta"><a><span class="k-message-author text-bold text-secondary uppercase">User 27</span></a> <span class="message-date"><small class="text-weight-light"><div title="Dec 24, 2017, 7:00 AM">
   less than a minute ago
 </div></small></span>
                 <!---->
@@ -1006,7 +1162,11 @@ exports[`Storyshots Detail application 1`] = `
               <div class="q-focus-helper"></div>
               <div class="q-btn-inner row col items-center q-popup--skip justify-center"><span style="opacity:0.5;"><i class="far fa-smile"></i> +
   </span>
-                <div tabindex="-1" class="q-popover scroll"></div>
+                <div tabindex="-1" class="q-popover scroll">
+                  <div style="width:195px;">
+                    <!---->
+                  </div>
+                </div>
               </div>
             </button>
             <!----></span>
@@ -1020,12 +1180,16 @@ exports[`Storyshots Detail application 1`] = `
               <div class="q-focus-helper"></div>
               <div class="q-btn-inner row col items-center q-popup--skip justify-center"><span style="opacity:1;"><i class="far fa-smile"></i> +
   </span>
-                <div tabindex="-1" class="q-popover scroll"></div>
+                <div tabindex="-1" class="q-popover scroll">
+                  <div style="width:195px;">
+                    <!---->
+                  </div>
+                </div>
               </div>
             </button></div>
           <!---->
           <div class="q-item-main q-item-section">
-            <div class="no-wrap k-message-meta"><a><span class="k-message-author text-bold text-secondary uppercase">User 25</span></a> <span class="message-date"><small class="text-weight-light"><div title="Dec 24, 2017, 12:00 PM">
+            <div class="no-wrap k-message-meta"><a><span class="k-message-author text-bold text-secondary uppercase">User 25</span></a> <span class="message-date"><small class="text-weight-light"><div title="Dec 24, 2017, 7:00 AM">
   less than a minute ago
 </div></small></span>
               <!---->
@@ -1040,7 +1204,11 @@ exports[`Storyshots Detail application 1`] = `
             <div class="q-focus-helper"></div>
             <div class="q-btn-inner row col items-center q-popup--skip justify-center"><span style="opacity:0.5;"><i class="far fa-smile"></i> +
   </span>
-              <div tabindex="-1" class="q-popover scroll"></div>
+              <div tabindex="-1" class="q-popover scroll">
+                <div style="width:195px;">
+                  <!---->
+                </div>
+              </div>
             </div>
           </button>
           <!----></span>
@@ -1054,12 +1222,16 @@ exports[`Storyshots Detail application 1`] = `
             <div class="q-focus-helper"></div>
             <div class="q-btn-inner row col items-center q-popup--skip justify-center"><span style="opacity:1;"><i class="far fa-smile"></i> +
   </span>
-              <div tabindex="-1" class="q-popover scroll"></div>
+              <div tabindex="-1" class="q-popover scroll">
+                <div style="width:195px;">
+                  <!---->
+                </div>
+              </div>
             </div>
           </button></div>
         <!---->
         <div class="q-item-main q-item-section">
-          <div class="no-wrap k-message-meta"><a><span class="k-message-author text-bold text-secondary uppercase">User 23</span></a> <span class="message-date"><small class="text-weight-light"><div title="Dec 24, 2017, 12:00 PM">
+          <div class="no-wrap k-message-meta"><a><span class="k-message-author text-bold text-secondary uppercase">User 23</span></a> <span class="message-date"><small class="text-weight-light"><div title="Dec 24, 2017, 7:00 AM">
   less than a minute ago
 </div></small></span>
             <!---->
@@ -1074,7 +1246,11 @@ exports[`Storyshots Detail application 1`] = `
           <div class="q-focus-helper"></div>
           <div class="q-btn-inner row col items-center q-popup--skip justify-center"><span style="opacity:0.5;"><i class="far fa-smile"></i> +
   </span>
-            <div tabindex="-1" class="q-popover scroll"></div>
+            <div tabindex="-1" class="q-popover scroll">
+              <div style="width:195px;">
+                <!---->
+              </div>
+            </div>
           </div>
         </button>
         <!----></span>
@@ -1088,12 +1264,16 @@ exports[`Storyshots Detail application 1`] = `
           <div class="q-focus-helper"></div>
           <div class="q-btn-inner row col items-center q-popup--skip justify-center"><span style="opacity:1;"><i class="far fa-smile"></i> +
   </span>
-            <div tabindex="-1" class="q-popover scroll"></div>
+            <div tabindex="-1" class="q-popover scroll">
+              <div style="width:195px;">
+                <!---->
+              </div>
+            </div>
           </div>
         </button></div>
       <!---->
       <div class="q-item-main q-item-section">
-        <div class="no-wrap k-message-meta"><a><span class="k-message-author text-bold text-secondary uppercase">User 21</span></a> <span class="message-date"><small class="text-weight-light"><div title="Dec 24, 2017, 12:00 PM">
+        <div class="no-wrap k-message-meta"><a><span class="k-message-author text-bold text-secondary uppercase">User 21</span></a> <span class="message-date"><small class="text-weight-light"><div title="Dec 24, 2017, 7:00 AM">
   less than a minute ago
 </div></small></span>
           <!---->
@@ -1108,7 +1288,11 @@ exports[`Storyshots Detail application 1`] = `
         <div class="q-focus-helper"></div>
         <div class="q-btn-inner row col items-center q-popup--skip justify-center"><span style="opacity:0.5;"><i class="far fa-smile"></i> +
   </span>
-          <div tabindex="-1" class="q-popover scroll"></div>
+          <div tabindex="-1" class="q-popover scroll">
+            <div style="width:195px;">
+              <!---->
+            </div>
+          </div>
         </div>
       </button>
       <!----></span>
@@ -2858,13 +3042,13 @@ exports[`Storyshots History List Default 1`] = `
           did something
         </span></div>
           <div class="mobile-only text-weight-light q-item-stamp">
-            <div title="Oct 2, 2017, 9:15 AM">
+            <div title="Oct 2, 2017, 5:15 AM">
               3 months ago
             </div>
           </div>
         </div>
         <div class="q-item-side q-item-section desktop-only q-item-side-right">
-          <div title="Oct 2, 2017, 9:15 AM">
+          <div title="Oct 2, 2017, 5:15 AM">
             3 months ago
           </div>
         </div>
@@ -2885,13 +3069,13 @@ exports[`Storyshots History List Default 1`] = `
           did something
         </span></div>
           <div class="mobile-only text-weight-light q-item-stamp">
-            <div title="Oct 2, 2017, 9:15 AM">
+            <div title="Oct 2, 2017, 5:15 AM">
               3 months ago
             </div>
           </div>
         </div>
         <div class="q-item-side q-item-section desktop-only q-item-side-right">
-          <div title="Oct 2, 2017, 9:15 AM">
+          <div title="Oct 2, 2017, 5:15 AM">
             3 months ago
           </div>
         </div>
@@ -2912,13 +3096,13 @@ exports[`Storyshots History List Default 1`] = `
           did something
         </span></div>
           <div class="mobile-only text-weight-light q-item-stamp">
-            <div title="Oct 2, 2017, 9:15 AM">
+            <div title="Oct 2, 2017, 5:15 AM">
               3 months ago
             </div>
           </div>
         </div>
         <div class="q-item-side q-item-section desktop-only q-item-side-right">
-          <div title="Oct 2, 2017, 9:15 AM">
+          <div title="Oct 2, 2017, 5:15 AM">
             3 months ago
           </div>
         </div>
@@ -2939,13 +3123,13 @@ exports[`Storyshots History List Default 1`] = `
           did something
         </span></div>
           <div class="mobile-only text-weight-light q-item-stamp">
-            <div title="Oct 2, 2017, 9:12 AM">
+            <div title="Oct 2, 2017, 5:12 AM">
               3 months ago
             </div>
           </div>
         </div>
         <div class="q-item-side q-item-section desktop-only q-item-side-right">
-          <div title="Oct 2, 2017, 9:12 AM">
+          <div title="Oct 2, 2017, 5:12 AM">
             3 months ago
           </div>
         </div>
@@ -2966,13 +3150,13 @@ exports[`Storyshots History List Default 1`] = `
           did something
         </span></div>
           <div class="mobile-only text-weight-light q-item-stamp">
-            <div title="Oct 2, 2017, 9:12 AM">
+            <div title="Oct 2, 2017, 5:12 AM">
               3 months ago
             </div>
           </div>
         </div>
         <div class="q-item-side q-item-section desktop-only q-item-side-right">
-          <div title="Oct 2, 2017, 9:12 AM">
+          <div title="Oct 2, 2017, 5:12 AM">
             3 months ago
           </div>
         </div>
@@ -2991,13 +3175,13 @@ exports[`Storyshots History List Default 1`] = `
           did something
         </span></div>
           <div class="mobile-only text-weight-light q-item-stamp">
-            <div title="Oct 2, 2017, 8:00 AM">
+            <div title="Oct 2, 2017, 4:00 AM">
               3 months ago
             </div>
           </div>
         </div>
         <div class="q-item-side q-item-section desktop-only q-item-side-right">
-          <div title="Oct 2, 2017, 8:00 AM">
+          <div title="Oct 2, 2017, 4:00 AM">
             3 months ago
           </div>
         </div>
@@ -3018,13 +3202,13 @@ exports[`Storyshots History List Default 1`] = `
           did something
         </span></div>
           <div class="mobile-only text-weight-light q-item-stamp">
-            <div title="Oct 1, 2017, 4:28 PM">
+            <div title="Oct 1, 2017, 12:28 PM">
               3 months ago
             </div>
           </div>
         </div>
         <div class="q-item-side q-item-section desktop-only q-item-side-right">
-          <div title="Oct 1, 2017, 4:28 PM">
+          <div title="Oct 1, 2017, 12:28 PM">
             3 months ago
           </div>
         </div>
@@ -3045,13 +3229,13 @@ exports[`Storyshots History List Default 1`] = `
           did something
         </span></div>
           <div class="mobile-only text-weight-light q-item-stamp">
-            <div title="Oct 1, 2017, 4:28 PM">
+            <div title="Oct 1, 2017, 12:28 PM">
               3 months ago
             </div>
           </div>
         </div>
         <div class="q-item-side q-item-section desktop-only q-item-side-right">
-          <div title="Oct 1, 2017, 4:28 PM">
+          <div title="Oct 1, 2017, 12:28 PM">
             3 months ago
           </div>
         </div>
@@ -3072,13 +3256,13 @@ exports[`Storyshots History List Default 1`] = `
           did something
         </span></div>
           <div class="mobile-only text-weight-light q-item-stamp">
-            <div title="Oct 1, 2017, 4:27 PM">
+            <div title="Oct 1, 2017, 12:27 PM">
               3 months ago
             </div>
           </div>
         </div>
         <div class="q-item-side q-item-section desktop-only q-item-side-right">
-          <div title="Oct 1, 2017, 4:27 PM">
+          <div title="Oct 1, 2017, 12:27 PM">
             3 months ago
           </div>
         </div>
@@ -3099,7 +3283,7 @@ exports[`Storyshots Issues history item 1`] = `
           Your group voted to keep discussing
         </div>
         <div class="text-weight-light q-item-stamp">
-          <div title="Dec 30, 2017, 6:00 PM">
+          <div title="Dec 30, 2017, 1:00 PM">
             less than a minute ago
           </div>
         </div>
@@ -3111,7 +3295,7 @@ exports[`Storyshots Issues history item 1`] = `
         <div class="q-list">
           <div class="q-item q-item-division relative-position">
             <div class="q-item-main q-item-section">
-              <div class="q-item-label" style="overflow:hidden;display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:NaN;">This voting round ended on Dec 30, 2017, 6:00 PM</div>
+              <div class="q-item-label" style="overflow:hidden;display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:NaN;">This voting round ended on Dec 30, 2017, 1:00 PM</div>
               <div class="q-item-sublabel" style="overflow:hidden;display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:NaN;">6 members participated in the voting.</div>
             </div>
           </div>
@@ -3158,7 +3342,7 @@ exports[`Storyshots Issues results - expelled 1`] = `
 <div class="q-list">
   <div class="q-item q-item-division relative-position">
     <div class="q-item-main q-item-section">
-      <div class="q-item-label" style="overflow:hidden;display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:NaN;">This voting round ended on Dec 30, 2017, 6:00 PM</div>
+      <div class="q-item-label" style="overflow:hidden;display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:NaN;">This voting round ended on Dec 30, 2017, 1:00 PM</div>
       <div class="q-item-sublabel" style="overflow:hidden;display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:NaN;">6 members participated in the voting.</div>
     </div>
   </div>
@@ -3209,7 +3393,7 @@ exports[`Storyshots Issues vote - furtherDiscussion 1`] = `
   <div class="q-pb-lg">
     <div class="q-caption q-caption-opacity row inline">
       <div>Time left to vote</div>:
-      <div title="Dec 30, 2017, 6:00 PM" class="q-pl-xs">
+      <div title="Dec 30, 2017, 1:00 PM" class="q-pl-xs">
         6 days
       </div>
     </div>
@@ -3323,7 +3507,7 @@ exports[`Storyshots Latest Messages flag: closed 1`] = `
           Mira Bellenbaum
         </div>
         <!----> <i aria-hidden="true" title="This conversation has been closed automatically." class="q-icon q-ml-xs fas fa-fw fa-lock text-grey" style="font-size:12px;"> </i>
-      </div> <span><small><div title="Aug 11, 2017, 3:43 PM" class="q-pl-xs" style="white-space:nowrap;">
+      </div> <span><small><div title="Aug 11, 2017, 11:43 AM" class="q-pl-xs" style="white-space:nowrap;">
   4 months ago
 </div></small></span>
     </div>
@@ -3355,7 +3539,7 @@ exports[`Storyshots Latest Messages flag: closed+muted 1`] = `
         <div class="ellipsis">
           Mira Bellenbaum
         </div> <i aria-hidden="true" title="Notifications are disabled" class="q-icon q-ml-xs fas fa-fw fa-bell-slash text-grey" style="font-size:12px;"> </i> <i aria-hidden="true" title="This conversation has been closed automatically." class="q-icon q-ml-xs fas fa-fw fa-lock text-grey" style="font-size:12px;"> </i>
-      </div> <span><small><div title="Aug 11, 2017, 3:43 PM" class="q-pl-xs" style="white-space:nowrap;">
+      </div> <span><small><div title="Aug 11, 2017, 11:43 AM" class="q-pl-xs" style="white-space:nowrap;">
   4 months ago
 </div></small></span>
     </div>
@@ -3387,7 +3571,7 @@ exports[`Storyshots Latest Messages flag: muted 1`] = `
         Mira Bellenbaum
         <i aria-hidden="true" title="Notifications are disabled" class="q-icon q-ml-xs fas fa-fw fa-bell-slash text-grey" style="font-size:12px;"> </i>
         <!---->
-      </div> <span><small><div title="Aug 11, 2017, 3:43 PM" class="q-pl-xs" style="white-space:nowrap;">
+      </div> <span><small><div title="Aug 11, 2017, 11:43 AM" class="q-pl-xs" style="white-space:nowrap;">
   4 months ago
 </div></small></span>
     </div>
@@ -3417,7 +3601,7 @@ exports[`Storyshots Latest Messages flag: unread 1`] = `
         Mira Bellenbaum
         <!---->
         <!---->
-      </div> <span><small><div title="Aug 11, 2017, 3:43 PM" class="q-pl-xs" style="white-space:nowrap;">
+      </div> <span><small><div title="Aug 11, 2017, 11:43 AM" class="q-pl-xs" style="white-space:nowrap;">
   4 months ago
 </div></small></span>
     </div>
@@ -3451,7 +3635,7 @@ exports[`Storyshots Latest Messages flag: unread+muted 1`] = `
         Mira Bellenbaum
         <i aria-hidden="true" title="Notifications are disabled" class="q-icon q-ml-xs fas fa-fw fa-bell-slash text-grey" style="font-size:12px;"> </i>
         <!---->
-      </div> <span><small><div title="Aug 11, 2017, 3:43 PM" class="q-pl-xs" style="white-space:nowrap;">
+      </div> <span><small><div title="Aug 11, 2017, 11:43 AM" class="q-pl-xs" style="white-space:nowrap;">
   4 months ago
 </div></small></span>
     </div>
@@ -3487,7 +3671,7 @@ exports[`Storyshots Latest Messages type: application chat 1`] = `
         </div>
         <!---->
         <!---->
-      </div> <span><small><div title="Aug 11, 2017, 3:43 PM" class="q-pl-xs" style="white-space:nowrap;">
+      </div> <span><small><div title="Aug 11, 2017, 11:43 AM" class="q-pl-xs" style="white-space:nowrap;">
   4 months ago
 </div></small></span>
     </div>
@@ -3517,7 +3701,7 @@ exports[`Storyshots Latest Messages type: group wall 1`] = `
         </div>
         <!---->
         <!---->
-      </div> <span><small><div title="Aug 11, 2017, 3:43 PM" class="q-pl-xs" style="white-space:nowrap;">
+      </div> <span><small><div title="Aug 11, 2017, 11:43 AM" class="q-pl-xs" style="white-space:nowrap;">
   4 months ago
 </div></small></span>
     </div>
@@ -3547,7 +3731,7 @@ exports[`Storyshots Latest Messages type: issue chat 1`] = `
         </div>
         <!---->
         <!---->
-      </div> <span><small><div title="Aug 11, 2017, 3:43 PM" class="q-pl-xs" style="white-space:nowrap;">
+      </div> <span><small><div title="Aug 11, 2017, 11:43 AM" class="q-pl-xs" style="white-space:nowrap;">
   4 months ago
 </div></small></span>
     </div>
@@ -3581,7 +3765,7 @@ exports[`Storyshots Latest Messages type: my application chat 1`] = `
         </div>
         <!---->
         <!---->
-      </div> <span><small><div title="Aug 11, 2017, 3:43 PM" class="q-pl-xs" style="white-space:nowrap;">
+      </div> <span><small><div title="Aug 11, 2017, 11:43 AM" class="q-pl-xs" style="white-space:nowrap;">
   4 months ago
 </div></small></span>
     </div>
@@ -3606,10 +3790,10 @@ exports[`Storyshots Latest Messages type: pickup chat 1`] = `
   <div class="q-item-main q-item-section">
     <div class="row no-wrap justify-between items-baseline q-item-label">
       <div class="row no-wrap items-baseline ellipsis"><i aria-hidden="true" class="q-icon q-mr-sm fas fa-fw fa-shopping-basket"> </i>
-        Saturday 8:00 AM
+        Saturday 4:00 AM
         <!---->
         <!---->
-      </div> <span><small><div title="Aug 11, 2017, 3:43 PM" class="q-pl-xs" style="white-space:nowrap;">
+      </div> <span><small><div title="Aug 11, 2017, 11:43 AM" class="q-pl-xs" style="white-space:nowrap;">
   4 months ago
 </div></small></span>
     </div>
@@ -3642,7 +3826,7 @@ exports[`Storyshots Latest Messages type: place wall 1`] = `
         </div>
         <!---->
         <!---->
-      </div> <span><small><div title="Aug 11, 2017, 3:43 PM" class="q-pl-xs" style="white-space:nowrap;">
+      </div> <span><small><div title="Aug 11, 2017, 11:43 AM" class="q-pl-xs" style="white-space:nowrap;">
   4 months ago
 </div></small></span>
     </div>
@@ -3674,7 +3858,7 @@ exports[`Storyshots Latest Messages type: private chat 1`] = `
         Mira Bellenbaum
         <!---->
         <!---->
-      </div> <span><small><div title="Aug 11, 2017, 3:43 PM" class="q-pl-xs" style="white-space:nowrap;">
+      </div> <span><small><div title="Aug 11, 2017, 11:43 AM" class="q-pl-xs" style="white-space:nowrap;">
   4 months ago
 </div></small></span>
     </div>
@@ -3702,7 +3886,7 @@ exports[`Storyshots Latest Messages type: thread 1`] = `
         </div>
         <!---->
         <!---->
-      </div> <span><small><div title="Aug 11, 2017, 3:43 PM" class="q-pl-xs" style="white-space:nowrap;">
+      </div> <span><small><div title="Aug 11, 2017, 11:43 AM" class="q-pl-xs" style="white-space:nowrap;">
   4 months ago
 </div></small></span>
     </div>
@@ -4083,7 +4267,7 @@ exports[`Storyshots Notifications application_accepted 1`] = `
       Your application was accepted!
     </div>
     <div class="q-item-sublabel">
-      <div title="Dec 24, 2017, 12:00 PM" style="display:inline;">
+      <div title="Dec 24, 2017, 7:00 AM" style="display:inline;">
         less than a minute ago
       </div>
       · Group 1
@@ -4101,7 +4285,7 @@ exports[`Storyshots Notifications application_declined 1`] = `
       Your application was declined
     </div>
     <div class="q-item-sublabel">
-      <div title="Dec 24, 2017, 12:00 PM" style="display:inline;">
+      <div title="Dec 24, 2017, 7:00 AM" style="display:inline;">
         less than a minute ago
       </div>
       · Group 1
@@ -4119,7 +4303,7 @@ exports[`Storyshots Notifications conflict_resolution_continued 1`] = `
       The conflict resolution process with continues
     </div>
     <div class="q-item-sublabel">
-      <div title="Dec 24, 2017, 12:00 PM" style="display:inline;">
+      <div title="Dec 24, 2017, 7:00 AM" style="display:inline;">
         less than a minute ago
       </div>
       · Group 1
@@ -4137,7 +4321,7 @@ exports[`Storyshots Notifications conflict_resolution_continued_about_you 1`] = 
       The conflict resolution process with you continues
     </div>
     <div class="q-item-sublabel">
-      <div title="Dec 24, 2017, 12:00 PM" style="display:inline;">
+      <div title="Dec 24, 2017, 7:00 AM" style="display:inline;">
         less than a minute ago
       </div>
       · Group 1
@@ -4155,7 +4339,7 @@ exports[`Storyshots Notifications conflict_resolution_created 1`] = `
       Join the discussion about a conflict with
     </div>
     <div class="q-item-sublabel">
-      <div title="Dec 24, 2017, 12:00 PM" style="display:inline;">
+      <div title="Dec 24, 2017, 7:00 AM" style="display:inline;">
         less than a minute ago
       </div>
       · Group 1
@@ -4173,7 +4357,7 @@ exports[`Storyshots Notifications conflict_resolution_created_about_you 1`] = `
       A conflict resolution process was started with you
     </div>
     <div class="q-item-sublabel">
-      <div title="Dec 24, 2017, 12:00 PM" style="display:inline;">
+      <div title="Dec 24, 2017, 7:00 AM" style="display:inline;">
         less than a minute ago
       </div>
       · Group 1
@@ -4191,7 +4375,7 @@ exports[`Storyshots Notifications conflict_resolution_decided 1`] = `
       The conflict resolution process with was decided
     </div>
     <div class="q-item-sublabel">
-      <div title="Dec 24, 2017, 12:00 PM" style="display:inline;">
+      <div title="Dec 24, 2017, 7:00 AM" style="display:inline;">
         less than a minute ago
       </div>
       · Group 1
@@ -4209,7 +4393,7 @@ exports[`Storyshots Notifications conflict_resolution_decided_about_you 1`] = `
       The conflict resolution process with you was decided
     </div>
     <div class="q-item-sublabel">
-      <div title="Dec 24, 2017, 12:00 PM" style="display:inline;">
+      <div title="Dec 24, 2017, 7:00 AM" style="display:inline;">
         less than a minute ago
       </div>
       · Group 1
@@ -4227,7 +4411,7 @@ exports[`Storyshots Notifications conflict_resolution_you_were_removed 1`] = `
       You were removed from the group
     </div>
     <div class="q-item-sublabel">
-      <div title="Dec 24, 2017, 12:00 PM" style="display:inline;">
+      <div title="Dec 24, 2017, 7:00 AM" style="display:inline;">
         less than a minute ago
       </div>
       · Group 1
@@ -4242,10 +4426,10 @@ exports[`Storyshots Notifications feedback_possible 1`] = `
   <!---->
   <div class="q-item-main q-item-section">
     <div class="q-item-label" style="overflow:hidden;display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:2;"><i aria-hidden="true" class="q-icon q-mr-xs vertical-baseline fas fa-balance-scale"> </i>
-      You can give feedback for the pickup you did on Sunday 12:00 PM
+      You can give feedback for the pickup you did on Sunday 7:00 AM
     </div>
     <div class="q-item-sublabel">
-      <div title="Dec 24, 2017, 12:00 PM" style="display:inline;">
+      <div title="Dec 24, 2017, 7:00 AM" style="display:inline;">
         less than a minute ago
       </div>
       · Group 1
@@ -4268,7 +4452,7 @@ exports[`Storyshots Notifications invitation_accepted 1`] = `
       User 38 accepted your invitation
     </div>
     <div class="q-item-sublabel">
-      <div title="Dec 24, 2017, 12:00 PM" style="display:inline;">
+      <div title="Dec 24, 2017, 7:00 AM" style="display:inline;">
         less than a minute ago
       </div>
       · Group 1
@@ -4290,7 +4474,7 @@ exports[`Storyshots Notifications new_applicant 1`] = `
       User 33 applied to join your group
     </div>
     <div class="q-item-sublabel">
-      <div title="Dec 24, 2017, 12:00 PM" style="display:inline;">
+      <div title="Dec 24, 2017, 7:00 AM" style="display:inline;">
         less than a minute ago
       </div>
       · Group 1
@@ -4312,7 +4496,7 @@ exports[`Storyshots Notifications new_member 1`] = `
       User 37 joined your group
     </div>
     <div class="q-item-sublabel">
-      <div title="Dec 24, 2017, 12:00 PM" style="display:inline;">
+      <div title="Dec 24, 2017, 7:00 AM" style="display:inline;">
         less than a minute ago
       </div>
       · Group 1
@@ -4330,7 +4514,7 @@ exports[`Storyshots Notifications new_place 1`] = `
       Place 0 has been created
     </div>
     <div class="q-item-sublabel">
-      <div title="Dec 24, 2017, 12:00 PM" style="display:inline;">
+      <div title="Dec 24, 2017, 7:00 AM" style="display:inline;">
         less than a minute ago
       </div>
       · Group 1
@@ -4345,10 +4529,10 @@ exports[`Storyshots Notifications pickup_disabled 1`] = `
   <!---->
   <div class="q-item-main q-item-section">
     <div class="q-item-label" style="overflow:hidden;display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:2;"><i aria-hidden="true" class="q-icon q-mr-xs vertical-baseline fas fa-times"> </i>
-      Pickup at Sunday, December 24, 12:00 PM was disabled
+      Pickup at Sunday, December 24, 7:00 AM was disabled
     </div>
     <div class="q-item-sublabel">
-      <div title="Dec 24, 2017, 12:00 PM" style="display:inline;">
+      <div title="Dec 24, 2017, 7:00 AM" style="display:inline;">
         less than a minute ago
       </div>
       · Group 1
@@ -4364,10 +4548,10 @@ exports[`Storyshots Notifications pickup_enabled 1`] = `
   <!---->
   <div class="q-item-main q-item-section">
     <div class="q-item-label" style="overflow:hidden;display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:2;"><i aria-hidden="true" class="q-icon q-mr-xs vertical-baseline fas fa-check"> </i>
-      Pickup at Sunday, December 24, 12:00 PM was enabled again
+      Pickup at Sunday, December 24, 7:00 AM was enabled again
     </div>
     <div class="q-item-sublabel">
-      <div title="Dec 24, 2017, 12:00 PM" style="display:inline;">
+      <div title="Dec 24, 2017, 7:00 AM" style="display:inline;">
         less than a minute ago
       </div>
       · Group 1
@@ -4383,10 +4567,10 @@ exports[`Storyshots Notifications pickup_moved 1`] = `
   <!---->
   <div class="q-item-main q-item-section">
     <div class="q-item-label" style="overflow:hidden;display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:2;"><i aria-hidden="true" class="q-icon q-mr-xs vertical-baseline far fa-clock"> </i>
-      Pickup was moved to Sunday, December 24, 12:00 PM
+      Pickup was moved to Sunday, December 24, 7:00 AM
     </div>
     <div class="q-item-sublabel">
-      <div title="Dec 24, 2017, 12:00 PM" style="display:inline;">
+      <div title="Dec 24, 2017, 7:00 AM" style="display:inline;">
         less than a minute ago
       </div>
       · Group 1
@@ -4402,10 +4586,10 @@ exports[`Storyshots Notifications pickup_upcoming 1`] = `
   <!---->
   <div class="q-item-main q-item-section">
     <div class="q-item-label" style="overflow:hidden;display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:2;"><i aria-hidden="true" class="q-icon q-mr-xs vertical-baseline fas fa-calendar-alt"> </i>
-      Reminder: You have a pickup at 12:00 PM
+      Reminder: You have a pickup at 7:00 AM
     </div>
     <div class="q-item-sublabel">
-      <div title="Dec 24, 2017, 2:00 PM" style="display:inline;">
+      <div title="Dec 24, 2017, 9:00 AM" style="display:inline;">
         in about 2 hours
       </div>
       · Group 1
@@ -4428,7 +4612,7 @@ exports[`Storyshots Notifications user_became_editor 1`] = `
       User 31 gained editing permissions
     </div>
     <div class="q-item-sublabel">
-      <div title="Dec 24, 2017, 12:00 PM" style="display:inline;">
+      <div title="Dec 24, 2017, 7:00 AM" style="display:inline;">
         less than a minute ago
       </div>
       · Group 1
@@ -4446,7 +4630,7 @@ exports[`Storyshots Notifications voting_ends_soon 1`] = `
       Voting ends soon, don't forget to participate!
     </div>
     <div class="q-item-sublabel">
-      <div title="Dec 24, 2017, 2:00 PM" style="display:inline;">
+      <div title="Dec 24, 2017, 9:00 AM" style="display:inline;">
         in about 2 hours
       </div>
       · Group 1
@@ -4464,7 +4648,7 @@ exports[`Storyshots Notifications you_became_editor 1`] = `
       You gained editing permissions
     </div>
     <div class="q-item-sublabel">
-      <div title="Dec 24, 2017, 12:00 PM" style="display:inline;">
+      <div title="Dec 24, 2017, 7:00 AM" style="display:inline;">
         less than a minute ago
       </div>
       · Group 1
@@ -4663,7 +4847,7 @@ exports[`Storyshots PickupItem Full 1`] = `
   <div class="q-card-main q-card-container row no-padding justify-between content">
     <div class="column q-pa-sm full-width">
       <div><span class="featured-text">
-          8:00 AM
+          4:00 AM
           <!----></span>
         Monday, August 14, 2017
         <span><strong>Open Chat <i aria-hidden="true" class="q-icon material-icons">chat</i></strong></span></div>
@@ -4713,7 +4897,7 @@ exports[`Storyshots PickupItem Join 1`] = `
   <div class="q-card-main q-card-container row no-padding justify-between content">
     <div class="column q-pa-sm full-width">
       <div><span class="featured-text">
-          8:00 AM
+          4:00 AM
           <!----></span>
         Saturday, August 12, 2017
         <span><strong>Open Chat <i aria-hidden="true" class="q-icon material-icons">chat</i></strong></span></div>
@@ -4764,7 +4948,7 @@ exports[`Storyshots PickupItem Leave 1`] = `
   <div class="q-card-main q-card-container row no-padding justify-between content isUserMember">
     <div class="column q-pa-sm full-width">
       <div><span class="featured-text">
-          8:00 AM
+          4:00 AM
           <!----></span>
         Sunday, August 13, 2017
         <span><strong>Open Chat <i aria-hidden="true" class="q-icon material-icons">chat</i></strong></span></div>
@@ -4811,7 +4995,7 @@ exports[`Storyshots PickupItem pending 1`] = `
   <div class="q-card-main q-card-container row no-padding justify-between content">
     <div class="column q-pa-sm full-width">
       <div><span class="featured-text">
-          8:00 AM
+          4:00 AM
           <!----></span>
         Saturday, August 12, 2017
         <span><strong>Open Chat <i aria-hidden="true" class="q-icon material-icons">chat</i></strong></span></div>
@@ -4873,7 +5057,7 @@ exports[`Storyshots PickupList Default 1`] = `
     <div class="q-card-main q-card-container row no-padding justify-between content">
       <div class="column q-pa-sm full-width">
         <div><span class="featured-text">
-          8:00 AM
+          4:00 AM
           <!----></span>
           Saturday, August 12, 2017
           <span><strong>Open Chat <i aria-hidden="true" class="q-icon material-icons">chat</i></strong></span></div>
@@ -4921,7 +5105,7 @@ exports[`Storyshots PickupList Default 1`] = `
     <div class="q-card-main q-card-container row no-padding justify-between content isUserMember">
       <div class="column q-pa-sm full-width">
         <div><span class="featured-text">
-          8:00 AM
+          4:00 AM
           <!----></span>
           Sunday, August 13, 2017
           <span><strong>Open Chat <i aria-hidden="true" class="q-icon material-icons">chat</i></strong></span></div>
@@ -4965,7 +5149,7 @@ exports[`Storyshots PickupList Default 1`] = `
     <div class="q-card-main q-card-container row no-padding justify-between content">
       <div class="column q-pa-sm full-width">
         <div><span class="featured-text">
-          8:00 AM
+          4:00 AM
           <!----></span>
           Monday, August 14, 2017
           <span><strong>Open Chat <i aria-hidden="true" class="q-icon material-icons">chat</i></strong></span></div>
@@ -5012,7 +5196,7 @@ exports[`Storyshots PickupList Default 1`] = `
     <div class="q-card-main q-card-container row no-padding justify-between content isEmpty">
       <div class="column q-pa-sm full-width">
         <div><span class="featured-text">
-          8:00 AM
+          4:00 AM
           <!----></span>
           Tuesday, August 15, 2017
           <span><strong>Open Chat <i aria-hidden="true" class="q-icon material-icons">chat</i></strong></span></div>
@@ -5086,7 +5270,7 @@ exports[`Storyshots PickupSeriesEdit Default 1`] = `
                 <div class="q-if-baseline">|</div>
                 <div class="q-if-inner col column q-popup--skip">
                   <div class="row no-wrap relative-position">
-                    <div class="col q-input-target ellipsis justify-start">8:00 AM</div>
+                    <div class="col q-input-target ellipsis justify-start">4:00 AM</div>
                   </div>
                 </div>
                 <div tabindex="-1" class="q-popover scroll">
@@ -5094,7 +5278,7 @@ exports[`Storyshots PickupSeriesEdit Default 1`] = `
                     <div class="q-datetime-header column no-wrap items-center">
                       <div class="col"></div>
                       <div class="q-datetime-time row scroll flex-center">
-                        <div class="q-datetime-clockstring col row justify-center items-start"><span class="col-auto" style="text-align:right;"><span tabindex="0" class="q-datetime-link active" style="text-align:right;"><span tabindex="-1">8</span></span></span><span style="opacity:0.6;">:</span><span class="col-auto row no-wrap items-center" style="text-align:left;"><span tabindex="0" class="q-datetime-link" style="text-align:left;"><span tabindex="-1">00</span></span><span tabindex="0" class="q-datetime-ampm column"><span class="q-datetime-link active"><span tabindex="-1">AM</span></span><span class="q-datetime-link"><span tabindex="-1">PM</span></span></span></span></div>
+                        <div class="q-datetime-clockstring col row justify-center items-start"><span class="col-auto" style="text-align:right;"><span tabindex="0" class="q-datetime-link active" style="text-align:right;"><span tabindex="-1">4</span></span></span><span style="opacity:0.6;">:</span><span class="col-auto row no-wrap items-center" style="text-align:left;"><span tabindex="0" class="q-datetime-link" style="text-align:left;"><span tabindex="-1">00</span></span><span tabindex="0" class="q-datetime-ampm column"><span class="q-datetime-link active"><span tabindex="-1">AM</span></span><span class="q-datetime-link"><span tabindex="-1">PM</span></span></span></span></div>
                       </div>
                       <div class="col"></div>
                     </div>
@@ -5105,15 +5289,15 @@ exports[`Storyshots PickupSeriesEdit Default 1`] = `
                           <div class="q-datetime-clock cursor-pointer">
                             <div class="q-datetime-clock-circle full-width full-height">
                               <div class="q-datetime-clock-center"></div>
-                              <div class="q-datetime-clock-pointer" style="transform:rotate(60deg);"><span></span></div>
+                              <div class="q-datetime-clock-pointer" style="transform:rotate(-60deg);"><span></span></div>
                               <div class="q-datetime-clock-position q-datetime-clock-pos-1"><span>1</span></div>
                               <div class="q-datetime-clock-position q-datetime-clock-pos-2"><span>2</span></div>
                               <div class="q-datetime-clock-position q-datetime-clock-pos-3"><span>3</span></div>
-                              <div class="q-datetime-clock-position q-datetime-clock-pos-4"><span>4</span></div>
+                              <div class="q-datetime-clock-position q-datetime-clock-pos-4 active"><span>4</span></div>
                               <div class="q-datetime-clock-position q-datetime-clock-pos-5"><span>5</span></div>
                               <div class="q-datetime-clock-position q-datetime-clock-pos-6"><span>6</span></div>
                               <div class="q-datetime-clock-position q-datetime-clock-pos-7"><span>7</span></div>
-                              <div class="q-datetime-clock-position q-datetime-clock-pos-8 active"><span>8</span></div>
+                              <div class="q-datetime-clock-position q-datetime-clock-pos-8"><span>8</span></div>
                               <div class="q-datetime-clock-position q-datetime-clock-pos-9"><span>9</span></div>
                               <div class="q-datetime-clock-position q-datetime-clock-pos-10"><span>10</span></div>
                               <div class="q-datetime-clock-position q-datetime-clock-pos-11"><span>11</span></div>
@@ -6853,14 +7037,14 @@ exports[`Storyshots Statistics FeedbackItem 1`] = `
     <div class="row no-wrap">
       <div class="content full-width">
         <div class="row no-wrap items-baseline"><strong class="q-mr-sm" style="white-space:nowrap;">
-            Aug 12, 2017, 8:00 AM
+            Aug 12, 2017, 4:00 AM
           </strong> <a class="ellipsis text-secondary">
             Griesheimer Markt
           </a>
           <!---->
         </div> <small class="text-weight-light"><a>
             Mira Bellenbaum
-          </a> <span place="date" class="message-date"><div title="Aug 11, 2017, 3:43 PM">
+          </a> <span place="date" class="message-date"><div title="Aug 11, 2017, 11:43 AM">
   4 months ago
 </div></span></small>
         <div>
@@ -6911,14 +7095,14 @@ exports[`Storyshots Statistics FeedbackList 1`] = `
           <div class="row no-wrap">
             <div class="content full-width">
               <div class="row no-wrap items-baseline"><strong class="q-mr-sm" style="white-space:nowrap;">
-            Aug 12, 2017, 8:00 AM
+            Aug 12, 2017, 4:00 AM
           </strong> <a class="ellipsis text-secondary">
                   Griesheimer Markt
                 </a>
                 <!---->
               </div> <small class="text-weight-light"><a>
                   Mira Bellenbaum
-                </a> <span place="date" class="message-date"><div title="Aug 11, 2017, 3:43 PM">
+                </a> <span place="date" class="message-date"><div title="Aug 11, 2017, 11:43 AM">
   4 months ago
 </div></span></small>
               <div>
@@ -6948,14 +7132,14 @@ exports[`Storyshots Statistics FeedbackList 1`] = `
           <div class="row no-wrap">
             <div class="content full-width">
               <div class="row no-wrap items-baseline"><strong class="q-mr-sm" style="white-space:nowrap;">
-            Aug 13, 2017, 8:00 AM
+            Aug 13, 2017, 4:00 AM
           </strong> <a class="ellipsis text-secondary">
                   Griesheimer Markt
                 </a>
                 <!---->
               </div> <small class="text-weight-light"><a>
                   Mira Bellenbaum
-                </a> <span place="date" class="message-date"><div title="Sep 11, 2017, 3:40 PM">
+                </a> <span place="date" class="message-date"><div title="Sep 11, 2017, 11:40 AM">
   3 months ago
 </div></span></small>
               <div>
@@ -6981,14 +7165,14 @@ exports[`Storyshots Statistics FeedbackList 1`] = `
           <div class="row no-wrap">
             <div class="content full-width">
               <div class="row no-wrap items-baseline"><strong class="q-mr-sm" style="white-space:nowrap;">
-            Aug 13, 2017, 8:00 AM
+            Aug 13, 2017, 4:00 AM
           </strong> <a class="ellipsis text-secondary">
                   Griesheimer Markt
                 </a>
                 <!---->
               </div> <small class="text-weight-light"><a>
                   Max Mustermann
-                </a> <span place="date" class="message-date"><div title="Sep 18, 2017, 12:12 PM">
+                </a> <span place="date" class="message-date"><div title="Sep 18, 2017, 8:12 AM">
   3 months ago
 </div></span></small>
               <div>
@@ -7034,29 +7218,29 @@ exports[`Storyshots Statistics PickupFeedback 1`] = `
                     <div class="q-if-baseline">|</div>
                     <div class="q-if-inner col column q-popup--skip">
                       <div class="row no-wrap relative-position">
-                        <div class="col q-input-target ellipsis justify-start">Aug 12, 2017, 8:00 AM (Griesheimer Markt)</div>
+                        <div class="col q-input-target ellipsis justify-start">Aug 12, 2017, 4:00 AM (Griesheimer Markt)</div>
                       </div>
                     </div>
                     <div tabindex="-1" class="q-popover scroll column no-wrap">
                       <div class="q-list no-border scroll">
                         <div class="q-item q-item-division relative-position cursor-pointer q-select-highlight cursor-pointer">
                           <div class="q-item-main q-item-section">
-                            <div class="q-item-label" style="overflow:hidden;display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:NaN;">Aug 12, 2017, 8:00 AM (Griesheimer Markt)</div>
+                            <div class="q-item-label" style="overflow:hidden;display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:NaN;">Aug 12, 2017, 4:00 AM (Griesheimer Markt)</div>
                           </div>
                         </div>
                         <div class="q-item q-item-division relative-position cursor-pointer cursor-pointer">
                           <div class="q-item-main q-item-section">
-                            <div class="q-item-label" style="overflow:hidden;display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:NaN;">Aug 13, 2017, 8:00 AM (Griesheimer Markt)</div>
+                            <div class="q-item-label" style="overflow:hidden;display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:NaN;">Aug 13, 2017, 4:00 AM (Griesheimer Markt)</div>
                           </div>
                         </div>
                         <div class="q-item q-item-division relative-position cursor-pointer cursor-pointer">
                           <div class="q-item-main q-item-section">
-                            <div class="q-item-label" style="overflow:hidden;display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:NaN;">Aug 14, 2017, 8:00 AM (Griesheimer Markt)</div>
+                            <div class="q-item-label" style="overflow:hidden;display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:NaN;">Aug 14, 2017, 4:00 AM (Griesheimer Markt)</div>
                           </div>
                         </div>
                         <div class="q-item q-item-division relative-position cursor-pointer cursor-pointer">
                           <div class="q-item-main q-item-section">
-                            <div class="q-item-label" style="overflow:hidden;display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:NaN;">Aug 15, 2017, 8:00 AM (Griesheimer Markt)</div>
+                            <div class="q-item-label" style="overflow:hidden;display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:NaN;">Aug 15, 2017, 4:00 AM (Griesheimer Markt)</div>
                           </div>
                         </div>
                       </div>
@@ -7198,14 +7382,14 @@ exports[`Storyshots Statistics PickupFeedback 1`] = `
               <div class="row no-wrap">
                 <div class="content full-width">
                   <div class="row no-wrap items-baseline"><strong class="q-mr-sm" style="white-space:nowrap;">
-            Aug 12, 2017, 8:00 AM
+            Aug 12, 2017, 4:00 AM
           </strong> <a class="ellipsis text-secondary">
                       Griesheimer Markt
                     </a>
                     <!---->
                   </div> <small class="text-weight-light"><a>
                       Mira Bellenbaum
-                    </a> <span place="date" class="message-date"><div title="Aug 11, 2017, 3:43 PM">
+                    </a> <span place="date" class="message-date"><div title="Aug 11, 2017, 11:43 AM">
   4 months ago
 </div></span></small>
                   <div>
@@ -7235,14 +7419,14 @@ exports[`Storyshots Statistics PickupFeedback 1`] = `
               <div class="row no-wrap">
                 <div class="content full-width">
                   <div class="row no-wrap items-baseline"><strong class="q-mr-sm" style="white-space:nowrap;">
-            Aug 13, 2017, 8:00 AM
+            Aug 13, 2017, 4:00 AM
           </strong> <a class="ellipsis text-secondary">
                       Griesheimer Markt
                     </a>
                     <!---->
                   </div> <small class="text-weight-light"><a>
                       Mira Bellenbaum
-                    </a> <span place="date" class="message-date"><div title="Sep 11, 2017, 3:40 PM">
+                    </a> <span place="date" class="message-date"><div title="Sep 11, 2017, 11:40 AM">
   3 months ago
 </div></span></small>
                   <div>
@@ -7268,14 +7452,14 @@ exports[`Storyshots Statistics PickupFeedback 1`] = `
               <div class="row no-wrap">
                 <div class="content full-width">
                   <div class="row no-wrap items-baseline"><strong class="q-mr-sm" style="white-space:nowrap;">
-            Aug 13, 2017, 8:00 AM
+            Aug 13, 2017, 4:00 AM
           </strong> <a class="ellipsis text-secondary">
                       Griesheimer Markt
                     </a>
                     <!---->
                   </div> <small class="text-weight-light"><a>
                       Max Mustermann
-                    </a> <span place="date" class="message-date"><div title="Sep 18, 2017, 12:12 PM">
+                    </a> <span place="date" class="message-date"><div title="Sep 18, 2017, 8:12 AM">
   3 months ago
 </div></span></small>
                   <div>
@@ -7892,7 +8076,11 @@ exports[`Storyshots WallConversation WallConversation 1`] = `
               <div class="q-focus-helper"></div>
               <div class="q-btn-inner row col items-center q-popup--skip justify-center"><span style="opacity:1;"><i class="far fa-smile"></i> +
   </span>
-                <div tabindex="-1" class="q-popover scroll"></div>
+                <div tabindex="-1" class="q-popover scroll">
+                  <div style="width:195px;">
+                    <!---->
+                  </div>
+                </div>
               </div>
             </button></div>
           <div class="q-item-side q-item-section q-item-side-left">
@@ -7901,7 +8089,7 @@ exports[`Storyshots WallConversation WallConversation 1`] = `
               </a></div>
           </div>
           <div class="q-item-main q-item-section">
-            <div class="no-wrap k-message-meta"><a><span class="k-message-author text-bold text-secondary uppercase">Mira Bellenbaum</span></a> <span class="message-date"><small class="text-weight-light"><div title="Aug 11, 2017, 3:43 PM">
+            <div class="no-wrap k-message-meta"><a><span class="k-message-author text-bold text-secondary uppercase">Mira Bellenbaum</span></a> <span class="message-date"><small class="text-weight-light"><div title="Aug 11, 2017, 11:43 AM">
   4 months ago
 </div></small></span>
               <!---->
@@ -7916,7 +8104,11 @@ exports[`Storyshots WallConversation WallConversation 1`] = `
             <div class="q-focus-helper"></div>
             <div class="q-btn-inner row col items-center q-popup--skip justify-center"><span style="opacity:0.5;"><i class="far fa-smile"></i> +
   </span>
-              <div tabindex="-1" class="q-popover scroll"></div>
+              <div tabindex="-1" class="q-popover scroll">
+                <div style="width:195px;">
+                  <!---->
+                </div>
+              </div>
             </div>
           </button>
           <!----></span>
@@ -7936,7 +8128,11 @@ exports[`Storyshots WallConversation WallConversation 1`] = `
             <div class="q-focus-helper"></div>
             <div class="q-btn-inner row col items-center q-popup--skip justify-center"><span style="opacity:1;"><i class="far fa-smile"></i> +
   </span>
-              <div tabindex="-1" class="q-popover scroll"></div>
+              <div tabindex="-1" class="q-popover scroll">
+                <div style="width:195px;">
+                  <!---->
+                </div>
+              </div>
             </div>
           </button></div>
         <div class="q-item-side q-item-section q-item-side-left">
@@ -7945,7 +8141,7 @@ exports[`Storyshots WallConversation WallConversation 1`] = `
             </a></div>
         </div>
         <div class="q-item-main q-item-section">
-          <div class="no-wrap k-message-meta"><a><span class="k-message-author text-bold text-secondary uppercase">Max Mustermann</span></a> <span class="message-date"><small class="text-weight-light"><div title="Aug 11, 2017, 3:47 PM">
+          <div class="no-wrap k-message-meta"><a><span class="k-message-author text-bold text-secondary uppercase">Max Mustermann</span></a> <span class="message-date"><small class="text-weight-light"><div title="Aug 11, 2017, 11:47 AM">
   4 months ago
 </div></small></span>
             <!---->
@@ -7960,7 +8156,11 @@ exports[`Storyshots WallConversation WallConversation 1`] = `
           <div class="q-focus-helper"></div>
           <div class="q-btn-inner row col items-center q-popup--skip justify-center"><span style="opacity:0.5;"><i class="far fa-smile"></i> +
   </span>
-            <div tabindex="-1" class="q-popover scroll"></div>
+            <div tabindex="-1" class="q-popover scroll">
+              <div style="width:195px;">
+                <!---->
+              </div>
+            </div>
           </div>
         </button>
         <!----></span>
@@ -7980,7 +8180,11 @@ exports[`Storyshots WallConversation WallConversation 1`] = `
           <div class="q-focus-helper"></div>
           <div class="q-btn-inner row col items-center q-popup--skip justify-center"><span style="opacity:1;"><i class="far fa-smile"></i> +
   </span>
-            <div tabindex="-1" class="q-popover scroll"></div>
+            <div tabindex="-1" class="q-popover scroll">
+              <div style="width:195px;">
+                <!---->
+              </div>
+            </div>
           </div>
         </button></div>
       <div class="q-item-side q-item-section q-item-side-left">
@@ -7989,7 +8193,7 @@ exports[`Storyshots WallConversation WallConversation 1`] = `
           </a></div>
       </div>
       <div class="q-item-main q-item-section">
-        <div class="no-wrap k-message-meta"><a><span class="k-message-author text-bold text-secondary uppercase">Max Mustermann</span></a> <span class="message-date"><small class="text-weight-light"><div title="Aug 11, 2017, 3:47 PM">
+        <div class="no-wrap k-message-meta"><a><span class="k-message-author text-bold text-secondary uppercase">Max Mustermann</span></a> <span class="message-date"><small class="text-weight-light"><div title="Aug 11, 2017, 11:47 AM">
   4 months ago
 </div></small></span>
           <!---->
@@ -8004,7 +8208,11 @@ exports[`Storyshots WallConversation WallConversation 1`] = `
         <div class="q-focus-helper"></div>
         <div class="q-btn-inner row col items-center q-popup--skip justify-center"><span style="opacity:0.5;"><i class="far fa-smile"></i> +
   </span>
-          <div tabindex="-1" class="q-popover scroll"></div>
+          <div tabindex="-1" class="q-popover scroll">
+            <div style="width:195px;">
+              <!---->
+            </div>
+          </div>
         </div>
       </button>
       <!----></span>
@@ -8024,7 +8232,11 @@ exports[`Storyshots WallConversation WallConversation 1`] = `
         <div class="q-focus-helper"></div>
         <div class="q-btn-inner row col items-center q-popup--skip justify-center"><span style="opacity:1;"><i class="far fa-smile"></i> +
   </span>
-          <div tabindex="-1" class="q-popover scroll"></div>
+          <div tabindex="-1" class="q-popover scroll">
+            <div style="width:195px;">
+              <!---->
+            </div>
+          </div>
         </div>
       </button></div>
     <div class="q-item-side q-item-section q-item-side-left">
@@ -8033,7 +8245,7 @@ exports[`Storyshots WallConversation WallConversation 1`] = `
         </a></div>
     </div>
     <div class="q-item-main q-item-section">
-      <div class="no-wrap k-message-meta"><a><span class="k-message-author text-bold text-secondary uppercase">Max Mustermann</span></a> <span class="message-date"><small class="text-weight-light"><div title="Aug 11, 2017, 3:49 PM">
+      <div class="no-wrap k-message-meta"><a><span class="k-message-author text-bold text-secondary uppercase">Max Mustermann</span></a> <span class="message-date"><small class="text-weight-light"><div title="Aug 11, 2017, 11:49 AM">
   4 months ago
 </div></small></span>
         <!---->
@@ -8048,7 +8260,11 @@ exports[`Storyshots WallConversation WallConversation 1`] = `
       <div class="q-focus-helper"></div>
       <div class="q-btn-inner row col items-center q-popup--skip justify-center"><span style="opacity:0.5;"><i class="far fa-smile"></i> +
   </span>
-        <div tabindex="-1" class="q-popover scroll"></div>
+        <div tabindex="-1" class="q-popover scroll">
+          <div style="width:195px;">
+            <!---->
+          </div>
+        </div>
       </div>
     </button>
     <!----></span>
@@ -8068,7 +8284,11 @@ exports[`Storyshots WallConversation WallConversation 1`] = `
       <div class="q-focus-helper"></div>
       <div class="q-btn-inner row col items-center q-popup--skip justify-center"><span style="opacity:1;"><i class="far fa-smile"></i> +
   </span>
-        <div tabindex="-1" class="q-popover scroll"></div>
+        <div tabindex="-1" class="q-popover scroll">
+          <div style="width:195px;">
+            <!---->
+          </div>
+        </div>
       </div>
     </button></div>
   <div class="q-item-side q-item-section q-item-side-left">
@@ -8077,7 +8297,7 @@ exports[`Storyshots WallConversation WallConversation 1`] = `
       </a></div>
   </div>
   <div class="q-item-main q-item-section">
-    <div class="no-wrap k-message-meta"><a><span class="k-message-author text-bold text-secondary uppercase">Karl Karlson</span></a> <span class="message-date"><small class="text-weight-light"><div title="Aug 11, 2017, 3:51 PM">
+    <div class="no-wrap k-message-meta"><a><span class="k-message-author text-bold text-secondary uppercase">Karl Karlson</span></a> <span class="message-date"><small class="text-weight-light"><div title="Aug 11, 2017, 11:51 AM">
   4 months ago
 </div></small></span>
       <!---->
@@ -8092,7 +8312,11 @@ exports[`Storyshots WallConversation WallConversation 1`] = `
     <div class="q-focus-helper"></div>
     <div class="q-btn-inner row col items-center q-popup--skip justify-center"><span style="opacity:0.5;"><i class="far fa-smile"></i> +
   </span>
-      <div tabindex="-1" class="q-popover scroll"></div>
+      <div tabindex="-1" class="q-popover scroll">
+        <div style="width:195px;">
+          <!---->
+        </div>
+      </div>
     </div>
   </button>
   <!----></span>
@@ -8112,7 +8336,11 @@ exports[`Storyshots WallConversation WallConversation 1`] = `
       <div class="q-focus-helper"></div>
       <div class="q-btn-inner row col items-center q-popup--skip justify-center"><span style="opacity:1;"><i class="far fa-smile"></i> +
   </span>
-        <div tabindex="-1" class="q-popover scroll"></div>
+        <div tabindex="-1" class="q-popover scroll">
+          <div style="width:195px;">
+            <!---->
+          </div>
+        </div>
       </div>
     </button></div>
   <div class="q-item-side q-item-section q-item-side-left">
@@ -8121,7 +8349,7 @@ exports[`Storyshots WallConversation WallConversation 1`] = `
       </a></div>
   </div>
   <div class="q-item-main q-item-section">
-    <div class="no-wrap k-message-meta"><a><span class="k-message-author text-bold text-secondary uppercase">Max Mustermann</span></a> <span class="message-date"><small class="text-weight-light"><div title="Aug 11, 2017, 3:52 PM">
+    <div class="no-wrap k-message-meta"><a><span class="k-message-author text-bold text-secondary uppercase">Max Mustermann</span></a> <span class="message-date"><small class="text-weight-light"><div title="Aug 11, 2017, 11:52 AM">
   4 months ago
 </div></small></span>
       <!---->
@@ -8136,7 +8364,11 @@ exports[`Storyshots WallConversation WallConversation 1`] = `
     <div class="q-focus-helper"></div>
     <div class="q-btn-inner row col items-center q-popup--skip justify-center"><span style="opacity:0.5;"><i class="far fa-smile"></i> +
   </span>
-      <div tabindex="-1" class="q-popover scroll"></div>
+      <div tabindex="-1" class="q-popover scroll">
+        <div style="width:195px;">
+          <!---->
+        </div>
+      </div>
     </div>
   </button>
   <!----></span>
@@ -8156,7 +8388,11 @@ exports[`Storyshots WallConversation WallConversation 1`] = `
       <div class="q-focus-helper"></div>
       <div class="q-btn-inner row col items-center q-popup--skip justify-center"><span style="opacity:1;"><i class="far fa-smile"></i> +
   </span>
-        <div tabindex="-1" class="q-popover scroll"></div>
+        <div tabindex="-1" class="q-popover scroll">
+          <div style="width:195px;">
+            <!---->
+          </div>
+        </div>
       </div>
     </button></div>
   <div class="q-item-side q-item-section q-item-side-left">
@@ -8165,7 +8401,7 @@ exports[`Storyshots WallConversation WallConversation 1`] = `
       </a></div>
   </div>
   <div class="q-item-main q-item-section">
-    <div class="no-wrap k-message-meta"><a><span class="k-message-author text-bold text-secondary uppercase">Mona Mohnblume</span></a> <span class="message-date"><small class="text-weight-light"><div title="Aug 11, 2017, 3:52 PM">
+    <div class="no-wrap k-message-meta"><a><span class="k-message-author text-bold text-secondary uppercase">Mona Mohnblume</span></a> <span class="message-date"><small class="text-weight-light"><div title="Aug 11, 2017, 11:52 AM">
   4 months ago
 </div></small></span>
       <!---->
@@ -8180,7 +8416,11 @@ exports[`Storyshots WallConversation WallConversation 1`] = `
     <div class="q-focus-helper"></div>
     <div class="q-btn-inner row col items-center q-popup--skip justify-center"><span style="opacity:0.5;"><i class="far fa-smile"></i> +
   </span>
-      <div tabindex="-1" class="q-popover scroll"></div>
+      <div tabindex="-1" class="q-popover scroll">
+        <div style="width:195px;">
+          <!---->
+        </div>
+      </div>
     </div>
   </button>
   <!----></span>
@@ -8200,7 +8440,11 @@ exports[`Storyshots WallConversation WallConversation 1`] = `
       <div class="q-focus-helper"></div>
       <div class="q-btn-inner row col items-center q-popup--skip justify-center"><span style="opacity:1;"><i class="far fa-smile"></i> +
   </span>
-        <div tabindex="-1" class="q-popover scroll"></div>
+        <div tabindex="-1" class="q-popover scroll">
+          <div style="width:195px;">
+            <!---->
+          </div>
+        </div>
       </div>
     </button></div>
   <div class="q-item-side q-item-section q-item-side-left">
@@ -8209,7 +8453,7 @@ exports[`Storyshots WallConversation WallConversation 1`] = `
       </a></div>
   </div>
   <div class="q-item-main q-item-section">
-    <div class="no-wrap k-message-meta"><a><span class="k-message-author text-bold text-secondary uppercase">Mona Mohnblume</span></a> <span class="message-date"><small class="text-weight-light"><div title="Aug 11, 2017, 3:52 PM">
+    <div class="no-wrap k-message-meta"><a><span class="k-message-author text-bold text-secondary uppercase">Mona Mohnblume</span></a> <span class="message-date"><small class="text-weight-light"><div title="Aug 11, 2017, 11:52 AM">
   4 months ago
 </div></small></span>
       <!---->
@@ -8224,7 +8468,11 @@ exports[`Storyshots WallConversation WallConversation 1`] = `
     <div class="q-focus-helper"></div>
     <div class="q-btn-inner row col items-center q-popup--skip justify-center"><span style="opacity:0.5;"><i class="far fa-smile"></i> +
   </span>
-      <div tabindex="-1" class="q-popover scroll"></div>
+      <div tabindex="-1" class="q-popover scroll">
+        <div style="width:195px;">
+          <!---->
+        </div>
+      </div>
     </div>
   </button>
   <!----></span>
@@ -8244,7 +8492,11 @@ exports[`Storyshots WallConversation WallConversation 1`] = `
       <div class="q-focus-helper"></div>
       <div class="q-btn-inner row col items-center q-popup--skip justify-center"><span style="opacity:1;"><i class="far fa-smile"></i> +
   </span>
-        <div tabindex="-1" class="q-popover scroll"></div>
+        <div tabindex="-1" class="q-popover scroll">
+          <div style="width:195px;">
+            <!---->
+          </div>
+        </div>
       </div>
     </button></div>
   <div class="q-item-side q-item-section q-item-side-left">
@@ -8253,7 +8505,7 @@ exports[`Storyshots WallConversation WallConversation 1`] = `
       </a></div>
   </div>
   <div class="q-item-main q-item-section">
-    <div class="no-wrap k-message-meta"><a><span class="k-message-author text-bold text-secondary uppercase">Max Mustermann</span></a> <span class="message-date"><small class="text-weight-light"><div title="Aug 11, 2017, 3:52 PM">
+    <div class="no-wrap k-message-meta"><a><span class="k-message-author text-bold text-secondary uppercase">Max Mustermann</span></a> <span class="message-date"><small class="text-weight-light"><div title="Aug 11, 2017, 11:52 AM">
   4 months ago
 </div></small></span>
       <!---->
@@ -8268,7 +8520,11 @@ exports[`Storyshots WallConversation WallConversation 1`] = `
     <div class="q-focus-helper"></div>
     <div class="q-btn-inner row col items-center q-popup--skip justify-center"><span style="opacity:0.5;"><i class="far fa-smile"></i> +
   </span>
-      <div tabindex="-1" class="q-popover scroll"></div>
+      <div tabindex="-1" class="q-popover scroll">
+        <div style="width:195px;">
+          <!---->
+        </div>
+      </div>
     </div>
   </button>
   <!----></span>

@@ -9,11 +9,13 @@
       @show="open = true"
       @hide="open = false"
     >
-      <ConversationAddReactionInner
-        v-if="open"
-        :reacted="reacted"
-        @toggle="$emit('toggle', arguments[0])"
-      />
+      <div style="width: 195px">
+        <ConversationAddReactionInner
+          v-if="open"
+          :reacted="reacted"
+          @toggle="$emit('toggle', arguments[0])"
+        />
+      </div>
     </QPopover>
   </QBtn>
 </template>

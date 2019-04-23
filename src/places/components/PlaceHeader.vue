@@ -16,7 +16,8 @@
         color="secondary"
         square
         :title="$t('PLACEWALL.SUBSCRIBED_USERS', { count: subscribers.length })"
-        class="self-center q-ml-sm z-top cursor-pointer"
+        class="self-center q-ml-sm cursor-pointer"
+        style="z-index: 0"
       >
         <strong>{{ subscribers.length }}</strong>
         <QPopover>

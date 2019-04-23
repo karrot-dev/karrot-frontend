@@ -22,13 +22,7 @@ function getEmojiElement (name) {
   const cached = EMOJI_CACHE[name]
   if (cached) return EMOJI_CACHE[name].cloneNode(true)
   const container = document.createElement('div')
-  if (Object.keys(emojiList).includes(name)) {
-    container.innerHTML = twemoji.parse(emojiList[name])
-  }
-  // On error, we display the 'carrot' emoji
-  else {
-    container.innerHTML = twemoji.parse(emojiList['carrot'])
-  }
+  container.innerHTML = twemoji.parse(emojiList['carrot'])
   const el = container.firstChild
   EMOJI_CACHE[name] = el
   return el

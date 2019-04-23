@@ -90,7 +90,6 @@ export default {
 
 <style scoped lang="stylus">
 .k-add-reaction
-  width 185px
   margin 2px 4px
 .big
   font-size 1.6em

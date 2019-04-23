@@ -66,7 +66,7 @@ export default {
         ...(this.isEditor ? [
           {
             to: { name: 'placePickupsManage', params },
-            label: this.$t('STOREDETAIL.EDIT_PICKUPS'),
+            label: this.$t('PICKUPMANAGE.TITLE'),
             icon: 'fas fa-calendar-alt',
           },
           {

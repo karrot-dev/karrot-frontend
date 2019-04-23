@@ -187,7 +187,6 @@
   "STOREDETAIL": {
     "DIRECTIONS": "Show directions",
     "EDIT": "Edit store",
-    "EDIT_PICKUPS": "Edit pickups",
     "ARCHIVED": "This store has been archived",
     "INACTIVE": "This store is currently not cooperating.",
     "CHANGE_STATUS": "You can change the status on the settings page.",

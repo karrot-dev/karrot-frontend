@@ -1,16 +1,22 @@
 <template>
   <div>
     <KSpinner v-show="!place" />
+    <div v-if="place">
+      <RandomArt
+        :seed="placeId"
+        type="banner"
+      />
+    </div>
     <div
       v-if="place"
-      class="toolbar row justify-between bg-white"
+      class="toolbar row justify-between bg-white q-pb-xs"
     >
       <QChip
         icon="fas fa-star"
         color="secondary"
         square
         :title="$t('PLACEWALL.SUBSCRIBED_USERS', { count: subscribers.length })"
-        class="self-center q-ml-sm"
+        class="self-center q-ml-sm z-top cursor-pointer"
       >
         <strong>{{ subscribers.length }}</strong>
         <QPopover>
@@ -72,27 +78,6 @@
             </QList>
           </QPopover>
         </QBtn>
-        <QBtn
-          v-if="isEditor"
-          :to="{name: 'placeEdit', params: { groupId, placeId }}"
-          round
-          color="secondary"
-          icon="fas fa-pencil-alt"
-          class="hoverScale"
-        >
-          <QTooltip v-t="'STOREDETAIL.EDIT'" />
-        </QBtn>
-        <QBtn
-          v-if="isEditor"
-          :to="{name: 'placePickupsManage', params: { groupId, placeId }}"
-          small
-          round
-          color="secondary"
-          icon="fas fa-calendar-alt"
-          class="hoverScale"
-        >
-          <QTooltip v-t="'STOREDETAIL.MANAGE'" />
-        </QBtn>
         <component
           :is="directionsURL ? 'a' : 'span'"
           target="_blank"
@@ -118,7 +103,7 @@
       :sublabel="place.description"
       :sublabel-lines="1"
       icon="fas fa-info-circle"
-      class="bg-white"
+      class="bg-white q-pb-xs"
     >
       <div
         v-if="place.description"
@@ -144,13 +129,6 @@
         />
       </template>
     </QCollapsible>
-    <div class="q-mt-md">
-      <RandomArt
-        :seed="placeId"
-        type="banner"
-      />
-    </div>
-    <PlaceTabs />
   </div>
 </template>
 
@@ -160,7 +138,6 @@ import StandardMap from '@/maps/components/StandardMap'
 import RandomArt from '@/utils/components/RandomArt'
 import KSpinner from '@/utils/components/KSpinner'
 import ProfilePicture from '@/users/components/ProfilePicture'
-import PlaceTabs from '@/places/components/PlaceTabs'
 
 import { placeMarker } from '@/maps/components/markers'
 import directions from '@/maps/directions'
@@ -191,7 +168,6 @@ export default {
     RandomArt,
     KSpinner,
     ProfilePicture,
-    PlaceTabs,
     QCollapsible,
     QCardSeparator,
     QBtn,
@@ -275,6 +251,8 @@ export default {
 <style scoped lang="stylus">
 .q-btn-round
   margin-bottom .5em
+.toolbar
+  margin-top -24px
 .toolbar .q-btn
   margin 3px
 .map

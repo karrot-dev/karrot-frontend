@@ -1,6 +1,5 @@
 <template>
   <div>
-    <PlaceHeader />
     <QCard class="no-shadow no-padding grey-border">
       <div class="generic-padding relative-position">
         <KSpinner v-show="!statistics" />
@@ -55,7 +54,6 @@
 <script>
 import FeedbackList from '@/feedback/components/FeedbackList'
 import KSpinner from '@/utils/components/KSpinner'
-import PlaceHeader from '@/places/components/PlaceHeader'
 
 import {
   QCard,
@@ -71,7 +69,6 @@ export default {
   components: {
     FeedbackList,
     KSpinner,
-    PlaceHeader,
     QCard,
     QChip,
   },

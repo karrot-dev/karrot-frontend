@@ -1,33 +1,17 @@
 <template>
   <QTabs
-    color="transparent"
-    text-color="primary"
+    inverted
+    class="shadow-3 k-place-tabs"
   >
     <QRouteTab
+      v-for="(tab, idx) in tabs"
+      :key="idx"
       slot="title"
-      :to="{ name: 'placePickups', params: { groupId, placeId } }"
-      default
-      :label="$t('GROUP.PICKUPS')"
-      icon="fas fa-shopping-basket"
-    />
-    <QRouteTab
-      slot="title"
-      :to="{ name: 'placeWall', params: { groupId, placeId } }"
-      :label="$t('GROUP.WALL')"
-      :count="cappedWallUnreadCount"
-      icon="fas fa-bullhorn"
-    />
-    <QRouteTab
-      slot="title"
-      :to="{ name: 'placeFeedback', params: { groupId, placeId } }"
-      :label="$t('PICKUP_FEEDBACK.TITLE')"
-      icon="fas fa-balance-scale"
-    />
-    <QRouteTab
-      slot="title"
-      :to="{ name: 'placeHistory', params: { groupId, placeId } }"
-      :label="$t('GROUP.HISTORY')"
-      icon="far fa-clock"
+      :to="tab.to"
+      :default="idx === 0"
+      :label="tab.label"
+      :count="tab.count"
+      exact
     />
   </QTabs>
 </template>
@@ -55,6 +39,51 @@ export default {
     cappedWallUnreadCount () {
       return this.wallUnreadCount > 99 ? '99+' : this.wallUnreadCount
     },
+    tabs () {
+      const params = { groupId: this.groupId, placeId: this.placeId }
+      return [
+        {
+          to: { name: 'placePickups', params },
+          label: this.$t('GROUP.PICKUPS'),
+          icon: 'fas fa-shopping-basket',
+        },
+        {
+          to: { name: 'placeWall', params },
+          label: this.$t('GROUP.WALL'),
+          icon: 'fas fa-bullhorn',
+          count: this.cappedWallUnreadCount,
+        },
+        {
+          to: { name: 'placeFeedback', params },
+          label: this.$t('PICKUP_FEEDBACK.TITLE'),
+          icon: 'fas fa-balance-scale',
+        },
+        {
+          to: { name: 'placeHistory', params },
+          label: this.$t('GROUP.HISTORY'),
+          icon: 'far fa-clock',
+        },
+        ...(this.isEditor ? [
+          {
+            to: { name: 'placePickupsManage', params },
+            label: this.$t('STOREDETAIL.EDIT_PICKUPS'),
+            icon: 'fas fa-calendar-alt',
+          },
+          {
+            to: { name: 'placeEdit', params },
+            label: this.$t('STOREDETAIL.EDIT'),
+            icon: 'fas fa-pencil-alt',
+          },
+        ] : []),
+      ]
+    },
   },
 }
 </script>
+
+<style lang="stylus" scoped>
+@import '~variables'
+
+.k-place-tabs >>> .q-tab .q-chip
+  background alpha($secondary, 0.75)
+</style>

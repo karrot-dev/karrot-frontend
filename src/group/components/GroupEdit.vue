@@ -64,6 +64,7 @@
           </QField>
 
           <QField
+            v-if="!edit.isOpen"
             icon="fas fa-fw fa-address-card"
             :label="$t('GROUP.WELCOMEMESSAGE_VERBOSE')"
             :error="hasError('welcomeMessage')"

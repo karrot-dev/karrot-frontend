@@ -1,6 +1,7 @@
 import GroupMarker from './GroupMarker'
 import UserMarker from './UserMarker'
 import PlaceMarker from './PlaceMarker'
+import PlaceInfoMarker from './PlaceInfoMarker'
 
 export function groupMarker (group) {
   return {
@@ -34,6 +35,18 @@ export function placeMarker (place) {
     color: place.ui.color,
     popup: {
       render: h => h(PlaceMarker, { props: { place } }),
+    },
+  }
+}
+
+export function placeInfoMarker (place) {
+  return {
+    latLng: { lat: place.latitude, lng: place.longitude },
+    id: 'place_' + place.id,
+    fontIcon: 'far fa-dot-circle',
+    color: 'secondary',
+    popup: {
+      render: h => h(PlaceInfoMarker, { props: { place } }),
     },
   }
 }

@@ -10,7 +10,7 @@
 
 <script>
 import StandardMap from '@/maps/components/StandardMap'
-import { groupMarker } from '@/maps/components/markers'
+import { groupMarker, placeInfoMarker } from '@/maps/components/markers'
 
 export default {
   components: { StandardMap },
@@ -20,7 +20,11 @@ export default {
       type: Array,
     },
     filteredOtherGroups: {
-      required: true,
+      default: () => [],
+      type: Array,
+    },
+    places: {
+      default: () => [],
       type: Array,
     },
     expanded: {
@@ -40,6 +44,8 @@ export default {
         return group.latitude != null && group.longitude != null
       })
       items.push(...joinedGroupsWithCoords.map(groupMarker))
+
+      items.push(...this.places.filter(place => place.latitude != null && place.longitude != null).map(placeInfoMarker))
       return items
     },
     singleGroup () {

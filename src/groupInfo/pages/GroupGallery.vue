@@ -7,6 +7,7 @@ export default connect({
   gettersToProps: {
     myGroups: 'groups/mine',
     otherGroups: 'groups/other',
+    places: 'placesInfo/all',
     playgroundGroup: 'groups/playground',
     fetchStatus: 'groups/fetchStatus',
     isLoggedIn: 'auth/isLoggedIn',

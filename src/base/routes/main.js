@@ -11,6 +11,7 @@ const GroupEdit = () => import('@/group/pages/Edit')
 const GroupManageAgreement = () => import('@/agreements/pages/ManageAgreement')
 const GroupCreate = () => import('@/group/pages/Create')
 const GroupPreview = () => import('@/groupInfo/pages/GroupPreview')
+const PlaceInfo = () => import('@/places/pages/PlaceInfo')
 const GroupGallery = () => import('@/groupInfo/pages/GroupGallery')
 const PlaceWall = () => import('@/places/pages/Wall')
 const PlaceLayout = () => import('@/places/pages/Layout')
@@ -49,7 +50,7 @@ export default [
       breadcrumbs: [
         { translation: 'JOINGROUP.ALL_GROUPS' },
       ],
-      beforeEnter: 'applications/fetchMine',
+      beforeEnter: ['applications/fetchMine', 'placesInfo/fetch'],
     },
     component: GroupGallery,
   },
@@ -61,10 +62,27 @@ export default [
         { translation: 'JOINGROUP.ALL_GROUPS', route: { name: 'groupsGallery' } },
         { type: 'activeGroupPreview' },
       ],
-      beforeEnter: 'groups/selectPreview',
+      beforeEnter: [
+        'groups/selectPreview',
+        'placesInfo/fetch', // TODO fetch for group
+      ],
       afterLeave: 'groups/clearGroupPreview',
     },
     component: GroupPreview,
+    children: [
+      {
+        name: 'placeInfo',
+        path: 'place/:placeInfoId',
+        meta: {
+          breadcrumbs: [
+            { type: 'activePlaceInfo' },
+          ],
+          beforeEnter: 'placesInfo/select',
+          afterLeave: 'placesInfo/clearSelected',
+        },
+        component: PlaceInfo,
+      },
+    ],
   },
   {
     name: 'groupCreate',

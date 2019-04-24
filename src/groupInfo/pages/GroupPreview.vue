@@ -9,6 +9,7 @@ export default connect({
     isLoggedIn: 'auth/isLoggedIn',
     user: 'auth/user',
     application: 'applications/getForActivePreview',
+    places: 'placesInfo/forActivePreview',
   },
   actionsToEvents: {
     join: 'groups/join',

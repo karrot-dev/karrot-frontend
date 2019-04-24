@@ -7,6 +7,7 @@
       class="map-fixed"
       :filtered-my-groups="filteredMyGroups"
       :filtered-other-groups="filteredOtherGroups"
+      :places="places"
       :expanded="expanded"
     />
     <div
@@ -154,6 +155,10 @@ export default {
       type: Array,
     },
     otherGroups: {
+      default: () => [],
+      type: Array,
+    },
+    places: {
       default: () => [],
       type: Array,
     },

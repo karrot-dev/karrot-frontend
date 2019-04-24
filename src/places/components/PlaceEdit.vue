@@ -48,6 +48,22 @@
           </QField>
 
           <QField
+            icon="fas fa-question"
+            :label="$t('STOREEDIT.PUBLIC_DESCRIPTION')"
+            :error="hasError('publicDescription')"
+            :error-label="firstError('publicDescription')"
+          >
+            <MarkdownInput :value="edit.publicDescription">
+              <QInput
+                v-model="edit.publicDescription"
+                type="textarea"
+                rows="3"
+                @keyup.ctrl.enter="maybeSave"
+              />
+            </MarkdownInput>
+          </QField>
+
+          <QField
             icon="fas fa-map-marker"
             :label="$t('STOREEDIT.ADDRESS')"
             :error="hasAddressError"

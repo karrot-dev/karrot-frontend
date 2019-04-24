@@ -119,6 +119,31 @@
         </div>
       </QCardActions>
     </QCard>
+    <QCard class="shadow-6">
+      <QCardTitle>
+        Places of {{ group.name }}
+      </QCardTitle>
+      <QCardMain>
+        <GroupGalleryMap
+          :places="places"
+          style="height: 300px"
+        />
+        <div class="row q-mt-md">
+          <QList class="col-4">
+            <QItem
+              v-for="place in places"
+              :key="place.id"
+              :to="{ name: 'placeInfo', params: { placeInfoId: place.id } }"
+            >
+              <QItemMain
+                :label="place.name"
+              />
+            </QItem>
+          </QList>
+          <RouterView class="col-8 q-pt-md q-pl-sm" />
+        </div>
+      </QCardMain>
+    </QCard>
   </div>
 </template>
 
@@ -135,10 +160,14 @@ import {
   QBtn,
   QIcon,
   QAlert,
+  QList,
+  QItem,
+  QItemMain,
 } from 'quasar'
 import Markdown from '@/utils/components/Markdown'
 import statusMixin from '@/utils/mixins/statusMixin'
 import RandomArt from '@/utils/components/RandomArt'
+import GroupGalleryMap from './GroupGalleryMap'
 
 export default {
   components: {
@@ -152,8 +181,12 @@ export default {
     QIcon,
     QTooltip,
     QAlert,
+    QList,
+    QItem,
+    QItemMain,
     Markdown,
     RandomArt,
+    GroupGalleryMap,
   },
   props: {
     group: {
@@ -171,6 +204,10 @@ export default {
     application: {
       default: null,
       type: Object,
+    },
+    places: {
+      default: () => [],
+      type: Array,
     },
   },
   computed: {

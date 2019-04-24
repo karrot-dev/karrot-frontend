@@ -1,6 +1,6 @@
 <template>
   <div v-if="place && place.group">
-    <RouterLink :to="{ name: 'placeInfo', params: { groupId: place.group.id, placeInfoId: place.id } }">
+    <RouterLink :to="{ name: 'placeInfo', params: { groupPreviewId: place.group.id, placeInfoId: place.id } }">
       {{ place.name }}
     </RouterLink>
   </div>

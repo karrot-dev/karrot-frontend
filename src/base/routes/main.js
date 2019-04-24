@@ -74,9 +74,6 @@ export default [
         name: 'placeInfo',
         path: 'place/:placeInfoId',
         meta: {
-          breadcrumbs: [
-            { type: 'activePlaceInfo' },
-          ],
           beforeEnter: 'placesInfo/select',
           afterLeave: 'placesInfo/clearSelected',
         },

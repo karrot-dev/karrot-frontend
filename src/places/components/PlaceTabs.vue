@@ -85,5 +85,5 @@ export default {
 @import '~variables'
 
 .k-place-tabs >>> .q-tab .q-chip
-  background alpha($secondary, 0.75)
+  background alpha($secondary, 0.85)
 </style>

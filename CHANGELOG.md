@@ -23,6 +23,7 @@ Please document your changes in this format:
 ## [Unreleased]
 ### Added
 - Show people who marked a place as favorite @tiltec
+- Extend emoji reaction picker, add search bar #1421 @andreseg9726 @MacNGz
 
 ## [7.2.4] - 2019-04-11
 ### Fixed

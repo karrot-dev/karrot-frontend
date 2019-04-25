@@ -83,7 +83,6 @@ export default {
     background-color #ededed
     overflow-x auto
     overflow-wrap normal
-    display block
   blockquote
     margin-bottom 0.5rem
     p:last-child

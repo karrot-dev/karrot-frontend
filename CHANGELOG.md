@@ -31,6 +31,7 @@ Please document your changes in this format:
 
 ### Fixed
 - New thread replies didn't show a green chip in the toolbar @tiltec
+- Inline code blocks in Markdown would insert a line break @tiltec
 
 ## [7.2.4] - 2019-04-11
 ### Fixed

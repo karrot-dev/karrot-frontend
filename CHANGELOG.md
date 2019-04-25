@@ -29,6 +29,9 @@ Please document your changes in this format:
 - Show weekday of pickup in feedback list @tiltec
 - Limit community feed to "Karrot" category @tiltec
 
+### Fixed
+- New thread replies didn't show a green chip in the toolbar @tiltec
+
 ## [7.2.4] - 2019-04-11
 ### Fixed
 - Users wouldn't get marked as active, regression in 7.2.2 @tiltec

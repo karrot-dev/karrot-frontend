@@ -29,7 +29,7 @@ export default {
     unread: (state, getters) => {
       return {
         conversations: getters.conversations.filter(c => c.unreadMessageCount > 0),
-        threads: getters.threads.filter(t => t.unreadReplyCount > 0),
+        threads: getters.threads.filter(t => t.threadMeta.unreadReplyCount > 0),
       }
     },
     unreadCount: (state, getters) => {

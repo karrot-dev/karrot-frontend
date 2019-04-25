@@ -59,7 +59,7 @@ module.exports = {
     host: process.env.HOST || 'localhost',
     port: 8080,
     overlay: {
-      warnings: true,
+      warnings: false,
       errors: true,
     },
     historyApiFallback: true,

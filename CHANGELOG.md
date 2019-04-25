@@ -27,6 +27,7 @@ Please document your changes in this format:
 
 ### Changed
 - Show weekday of pickup in feedback list @tiltec
+- Limit community feed to "Karrot" category @tiltec
 
 ## [7.2.4] - 2019-04-11
 ### Fixed

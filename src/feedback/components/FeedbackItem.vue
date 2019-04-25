@@ -8,7 +8,7 @@
               class="q-mr-sm"
               style="white-space: nowrap"
             >
-              {{ $d(pickupDate, 'long') }}
+              {{ $d(pickupDate, 'longWithDayName') }}
             </strong>
             <RouterLink
               v-if="placeName && placeId"

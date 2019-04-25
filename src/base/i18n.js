@@ -22,6 +22,14 @@ const defaultDateTimeFormat = {
     hour: 'numeric',
     minute: 'numeric',
   },
+  longWithDayName: {
+    year: 'numeric',
+    month: 'short',
+    day: 'numeric',
+    hour: 'numeric',
+    minute: 'numeric',
+    weekday: 'short',
+  },
   dayName: {
     weekday: 'long',
   },

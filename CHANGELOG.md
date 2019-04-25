@@ -25,6 +25,9 @@ Please document your changes in this format:
 - Show people who marked a place as favorite @tiltec
 - Extend emoji reaction picker, add search bar #1421 @andreseg9726 @MacNGz
 
+### Changed
+- Show weekday of pickup in feedback list @tiltec
+
 ## [7.2.4] - 2019-04-11
 ### Fixed
 - Users wouldn't get marked as active, regression in 7.2.2 @tiltec

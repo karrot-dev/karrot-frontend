@@ -16,7 +16,7 @@ export default {
     topics: state => state.topics.map(topic => ({
       ...topic,
       isUnread: state.meta.markedAt && topic.lastPostedAt > state.meta.markedAt,
-    })),
+    })).sort((a, b) => b.lastPostedAt - a.lastPostedAt),
     unreadCount: (state, getters) => getters.topics.filter(t => t.isUnread).length,
   },
   actions: {

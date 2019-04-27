@@ -6529,13 +6529,12 @@ exports[`Storyshots Settings Page Default 1`] = `
 exports[`Storyshots Settings Page verification warning 1`] = `<div>VerificationWarning has been mocked</div>`;
 
 exports[`Storyshots Sidenav Boxes Group 1`] = `
-<div class="k-sidenav-box expandable">
+<div class="k-sidenav-box">
   <div class="q-toolbar row no-wrap items-center relative-position toolbar q-toolbar-inverted text-primary"><i aria-hidden="true" class="q-icon fas fa-fw fa-home"> </i>
     <div class="q-toolbar-title">
       Home
     </div>
-    <div class="tools">
-      <!----> <a tabindex="0" type="button" href="#/group/1/settings" class="q-btn inline relative-position q-btn-item non-selectable q-btn-round q-btn-flat q-focusable q-hoverable q-btn-dense">
+    <div class="tools"><a tabindex="0" type="button" href="#/group/1/settings" class="q-btn inline relative-position q-btn-item non-selectable q-btn-round q-btn-flat q-focusable q-hoverable q-btn-dense">
         <div class="q-focus-helper"></div>
         <div class="q-btn-inner row col items-center q-popup--skip justify-center"><i aria-hidden="true" class="q-icon fas fa-cog fa-fw"> </i>
           <div class="q-tooltip animate-popup">
@@ -6558,52 +6557,47 @@ exports[`Storyshots Sidenav Boxes Group 1`] = `
             </div>
           </div>
         </div>
-      </button></div> <button tabindex="0" type="button" class="q-btn inline relative-position q-btn-item non-selectable card-arrow q-btn-round q-btn-flat q-focusable q-hoverable q-btn-dense" style="font-size:10px;">
-      <div class="q-focus-helper"></div>
-      <div class="q-btn-inner row col items-center q-popup--skip justify-center"><i aria-hidden="true" class="q-icon fas fa-angle-down arrow upsideDown"> </i></div>
-    </button>
+      </button></div>
   </div>
-  <div name="slide-toggle">
-    <div>
-      <div class="q-list no-padding no-border q-list-highlight"><a class="q-link q-item q-item-division relative-position q-item-link">
-          <div class="q-item-side q-item-section text-center q-item-side-left"><i aria-hidden="true" class="q-icon fas fa-bullhorn"> </i></div>
-          <div class="q-item-main q-item-section">
-            Wall
-          </div>
-          <!---->
-        </a> <a class="q-link q-item q-item-division relative-position q-item-link">
-          <div class="q-item-side q-item-section text-center q-item-side-left"><i aria-hidden="true" class="q-icon fas fa-shopping-basket"> </i></div>
-          <div class="q-item-main q-item-section">
-            Pickups
-          </div>
-        </a> <a class="q-link q-item q-item-division relative-position q-item-link">
-          <div class="q-item-side q-item-section text-center q-item-side-left"><i aria-hidden="true" class="q-icon fas fa-balance-scale"> </i></div>
-          <div class="q-item-main q-item-section">
-            Feedback
-          </div>
-        </a> <a class="q-link q-item q-item-division relative-position q-item-link">
-          <div class="q-item-side q-item-section text-center q-item-side-left"><i aria-hidden="true" class="q-icon fas fa-vote-yea"> </i></div>
-          <div class="q-item-main q-item-section">
-            Issues
-          </div>
-        </a> <a class="q-link q-item q-item-division relative-position q-item-link">
-          <div class="q-item-side q-item-section text-center q-item-side-left"><i class="far fa-address-card"></i></div>
-          <div class="q-item-main q-item-section">
-            Description
-          </div>
-        </a> <a class="q-link q-item q-item-division relative-position q-item-link">
-          <div class="q-item-side q-item-section text-center q-item-side-left"><i aria-hidden="true" class="q-icon fas fa-users"> </i></div>
-          <div class="q-item-main q-item-section">
-            Members
-          </div>
-        </a> <a class="q-link q-item q-item-division relative-position q-item-link">
-          <div class="q-item-side q-item-section text-center q-item-side-left"><i class="far fa-clock"></i></div>
-          <div class="q-item-main q-item-section">
-            History
-          </div>
-        </a>
+  <div>
+    <div class="q-list no-padding no-border q-list-highlight"><a class="q-link q-item q-item-division relative-position q-item-link">
+        <div class="q-item-side q-item-section text-center q-item-side-left"><i aria-hidden="true" class="q-icon fas fa-bullhorn"> </i></div>
+        <div class="q-item-main q-item-section">
+          Wall
+        </div>
         <!---->
-      </div>
+      </a> <a class="q-link q-item q-item-division relative-position q-item-link">
+        <div class="q-item-side q-item-section text-center q-item-side-left"><i aria-hidden="true" class="q-icon fas fa-shopping-basket"> </i></div>
+        <div class="q-item-main q-item-section">
+          Pickups
+        </div>
+      </a> <a class="q-link q-item q-item-division relative-position q-item-link">
+        <div class="q-item-side q-item-section text-center q-item-side-left"><i aria-hidden="true" class="q-icon fas fa-balance-scale"> </i></div>
+        <div class="q-item-main q-item-section">
+          Feedback
+        </div>
+      </a> <a class="q-link q-item q-item-division relative-position q-item-link">
+        <div class="q-item-side q-item-section text-center q-item-side-left"><i aria-hidden="true" class="q-icon fas fa-vote-yea"> </i></div>
+        <div class="q-item-main q-item-section">
+          Issues
+        </div>
+      </a> <a class="q-link q-item q-item-division relative-position q-item-link">
+        <div class="q-item-side q-item-section text-center q-item-side-left"><i class="far fa-address-card"></i></div>
+        <div class="q-item-main q-item-section">
+          Description
+        </div>
+      </a> <a class="q-link q-item q-item-division relative-position q-item-link">
+        <div class="q-item-side q-item-section text-center q-item-side-left"><i aria-hidden="true" class="q-icon fas fa-users"> </i></div>
+        <div class="q-item-main q-item-section">
+          Members
+        </div>
+      </a> <a class="q-link q-item q-item-division relative-position q-item-link">
+        <div class="q-item-side q-item-section text-center q-item-side-left"><i class="far fa-clock"></i></div>
+        <div class="q-item-main q-item-section">
+          History
+        </div>
+      </a>
+      <!---->
     </div>
   </div>
 </div>
@@ -6650,7 +6644,7 @@ exports[`Storyshots Sidenav Boxes Map 1`] = `
 `;
 
 exports[`Storyshots Sidenav Boxes Places 1`] = `
-<div class="k-sidenav-box expandable">
+<div class="k-sidenav-box">
   <div class="q-toolbar row no-wrap items-center relative-position toolbar q-toolbar-inverted text-primary"><i aria-hidden="true" class="q-icon fas fa-fw fa-shopping-cart"> </i>
     <div class="q-toolbar-title">
       Stores
@@ -6669,62 +6663,57 @@ exports[`Storyshots Sidenav Boxes Places 1`] = `
         </div>
       </div>
       <!---->
-    </div> <button tabindex="0" type="button" class="q-btn inline relative-position q-btn-item non-selectable card-arrow q-btn-round q-btn-flat q-focusable q-hoverable q-btn-dense" style="font-size:10px;">
-      <div class="q-focus-helper"></div>
-      <div class="q-btn-inner row col items-center q-popup--skip justify-center"><i aria-hidden="true" class="q-icon fas fa-angle-down arrow upsideDown"> </i></div>
-    </button>
-  </div>
-  <div name="slide-toggle">
-    <div class="q-list no-padding no-border q-list-highlight"><a class="q-link q-item q-item-division relative-position q-item-link">
-        <div class="q-item-side q-item-section text-center q-item-side-left"><i aria-hidden="true" title="Just created" class="q-icon fas fa-circle text-grey"> </i></div>
-        <div class="q-item-main q-item-section">
-          <div class="items-baseline q-item-label">
-            Teststore1
-            <!---->
-          </div>
-        </div>
-        <!---->
-      </a><a class="q-link q-item q-item-division relative-position q-item-link">
-        <div class="q-item-side q-item-section text-center q-item-side-left"><i aria-hidden="true" title="Just created" class="q-icon fas fa-circle text-grey"> </i></div>
-        <div class="q-item-main q-item-section">
-          <div class="items-baseline q-item-label">
-            New Tienda
-            <!---->
-          </div>
-        </div>
-        <!---->
-      </a><a class="q-link q-item q-item-division relative-position q-item-link">
-        <div class="q-item-side q-item-section text-center q-item-side-left"><i aria-hidden="true" title="Just created" class="q-icon fas fa-circle text-grey"> </i></div>
-        <div class="q-item-main q-item-section">
-          <div class="items-baseline q-item-label">
-            Supermarkt Arheilgen
-            <!---->
-          </div>
-        </div>
-        <!---->
-      </a><a class="q-link q-item q-item-division relative-position q-item-link">
-        <div class="q-item-side q-item-section text-center q-item-side-left"><i aria-hidden="true" title="Just created" class="q-icon fas fa-circle text-grey"> </i></div>
-        <div class="q-item-main q-item-section">
-          <div class="items-baseline q-item-label">
-            asd
-            <!---->
-          </div>
-        </div>
-        <!---->
-      </a><a class="q-link q-item q-item-division relative-position q-item-link">
-        <div class="q-item-side q-item-section text-center q-item-side-left"><i aria-hidden="true" title="Just created" class="q-icon fas fa-circle text-grey"> </i></div>
-        <div class="q-item-main q-item-section">
-          <div class="items-baseline q-item-label">
-            Griesheimer Markt
-            <!---->
-          </div>
-        </div>
-        <!---->
-      </a>
-      <!---->
-      <!---->
-      <!---->
     </div>
+  </div>
+  <div class="q-list no-padding no-border q-list-highlight"><a class="q-link q-item q-item-division relative-position q-item-link">
+      <div class="q-item-side q-item-section text-center q-item-side-left"><i aria-hidden="true" title="Just created" class="q-icon fas fa-circle text-grey"> </i></div>
+      <div class="q-item-main q-item-section">
+        <div class="items-baseline q-item-label">
+          Teststore1
+          <!---->
+        </div>
+      </div>
+      <!---->
+    </a><a class="q-link q-item q-item-division relative-position q-item-link">
+      <div class="q-item-side q-item-section text-center q-item-side-left"><i aria-hidden="true" title="Just created" class="q-icon fas fa-circle text-grey"> </i></div>
+      <div class="q-item-main q-item-section">
+        <div class="items-baseline q-item-label">
+          New Tienda
+          <!---->
+        </div>
+      </div>
+      <!---->
+    </a><a class="q-link q-item q-item-division relative-position q-item-link">
+      <div class="q-item-side q-item-section text-center q-item-side-left"><i aria-hidden="true" title="Just created" class="q-icon fas fa-circle text-grey"> </i></div>
+      <div class="q-item-main q-item-section">
+        <div class="items-baseline q-item-label">
+          Supermarkt Arheilgen
+          <!---->
+        </div>
+      </div>
+      <!---->
+    </a><a class="q-link q-item q-item-division relative-position q-item-link">
+      <div class="q-item-side q-item-section text-center q-item-side-left"><i aria-hidden="true" title="Just created" class="q-icon fas fa-circle text-grey"> </i></div>
+      <div class="q-item-main q-item-section">
+        <div class="items-baseline q-item-label">
+          asd
+          <!---->
+        </div>
+      </div>
+      <!---->
+    </a><a class="q-link q-item q-item-division relative-position q-item-link">
+      <div class="q-item-side q-item-section text-center q-item-side-left"><i aria-hidden="true" title="Just created" class="q-icon fas fa-circle text-grey"> </i></div>
+      <div class="q-item-main q-item-section">
+        <div class="items-baseline q-item-label">
+          Griesheimer Markt
+          <!---->
+        </div>
+      </div>
+      <!---->
+    </a>
+    <!---->
+    <!---->
+    <!---->
   </div>
 </div>
 `;

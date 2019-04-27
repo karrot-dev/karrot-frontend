@@ -9,6 +9,7 @@
       :key="place.id"
       link
       :to="linkParamsFor(place)"
+      :class="{'router-link-active': place.isActivePlace}"
     >
       <QItemSide class="text-center">
         <QIcon

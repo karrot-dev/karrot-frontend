@@ -1,14 +1,47 @@
 <template>
-  <div class="q-my-sm grey-border relative-position desktop-margin">
-    <RandomArt
-      :seed="placeId"
-      type="banner"
-    />
-    <div class="generic-padding">
-      <div
-        v-if="place"
-        class="actionButtons"
+  <div>
+    <KSpinner v-show="!place" />
+    <div v-if="place">
+      <RandomArt
+        :seed="placeId"
+        type="banner"
+      />
+    </div>
+    <div
+      v-if="place"
+      class="toolbar row justify-between bg-white q-pb-xs"
+    >
+      <QChip
+        icon="fas fa-star"
+        color="secondary"
+        square
+        :title="$t('PLACEWALL.SUBSCRIBED_USERS', { count: subscribers.length })"
+        class="self-center q-ml-sm cursor-pointer"
+        style="z-index: 0"
       >
+        <strong>{{ subscribers.length }}</strong>
+        <QPopover>
+          <div
+            v-if="subscribers"
+            v-close-overlay
+            class="q-pa-md"
+          >
+            <div>
+              <ProfilePicture
+                v-for="user in subscribers"
+                :key="user.id"
+                :user="user"
+                :size="20"
+                class="q-mr-xs"
+              />
+            </div>
+            <div class="q-caption q-mt-sm">
+              {{ $t('PLACEWALL.SUBSCRIBED_USERS', { count: subscribers.length }) }}
+            </div>
+          </div>
+        </QPopover>
+      </QChip>
+      <div>
         <QBtn
           round
           color="white"
@@ -46,29 +79,8 @@
             </QList>
           </QPopover>
         </QBtn>
-        <QBtn
-          v-if="isEditor"
-          :to="{name: 'placeEdit', params: { groupId, placeId }}"
-          round
-          color="secondary"
-          icon="fas fa-pencil-alt"
-          class="hoverScale"
-        >
-          <QTooltip v-t="'STOREDETAIL.EDIT'" />
-        </QBtn>
-        <QBtn
-          v-if="isEditor"
-          :to="{name: 'placePickupsManage', params: { groupId, placeId }}"
-          small
-          round
-          color="secondary"
-          icon="fas fa-calendar-alt"
-          class="hoverScale"
-        >
-          <QTooltip v-t="'STOREDETAIL.MANAGE'" />
-        </QBtn>
-        <a
-          v-if="directionsURL"
+        <component
+          :is="directionsURL ? 'a' : 'span'"
           target="_blank"
           rel="noopener nofollow noreferrer"
           :href="directionsURL"
@@ -76,70 +88,48 @@
           <QBtn
             small
             round
-            color="secondary"
+            :color="directionsURL ? 'secondary' : 'grey'"
             icon="directions"
             class="hoverScale"
+            :disable="!directionsURL"
           >
             <QTooltip v-t="'STOREDETAIL.DIRECTIONS'" />
           </QBtn>
-        </a>
+        </component>
       </div>
-      <KSpinner v-show="!place" />
-      <template v-if="place">
-        <QChip
-          icon="fas fa-star"
-          color="secondary"
-          square
-          :title="$t('PLACEWALL.SUBSCRIBED_USERS', { count: subscribers.length })"
-          class="q-mb-sm"
-        >
-          <strong>{{ subscribers.length }}</strong>
-          <QPopover>
-            <div
-              v-if="subscribers"
-              v-close-overlay
-              class="q-pa-md"
-            >
-              <div>
-                <ProfilePicture
-                  v-for="user in subscribers"
-                  :key="user.id"
-                  :user="user"
-                  :size="20"
-                  class="q-mr-xs"
-                />
-              </div>
-              <div class="q-caption q-mt-sm">
-                {{ $t('PLACEWALL.SUBSCRIBED_USERS', { count: subscribers.length }) }}
-              </div>
-            </div>
-          </QPopover>
-        </QChip>
-        <div
-          v-if="place.description"
-          class="q-pt-xs"
-        >
-          <Markdown
-            :source="place.description"
-          />
-        </div>
-        <div
-          v-else
-          class="q-pt-sm"
-        >
-          <span class="text-italic">
-            {{ $t("STOREDETAIL.NO_DESCRIPTION") }}
-          </span>
-        </div>
-        <template v-if="$q.platform.is.mobile">
-          <QCardSeparator class="q-mb-sm" />
-          <StandardMap
-            :markers="markers"
-            class="map"
-          />
-        </template>
-      </template>
     </div>
+    <QCollapsible
+      v-if="place"
+      label="Information"
+      :sublabel="place.description"
+      :sublabel-lines="1"
+      icon="fas fa-info-circle"
+      class="bg-white q-pb-xs"
+    >
+      <div
+        v-if="place.description"
+        class="q-pt-xs"
+      >
+        <Markdown
+          :source="place.description"
+        />
+      </div>
+      <div
+        v-else
+        class="q-pt-sm"
+      >
+        <span class="text-italic">
+          {{ $t("STOREDETAIL.NO_DESCRIPTION") }}
+        </span>
+      </div>
+      <template v-if="$q.platform.is.mobile">
+        <QCardSeparator class="q-mb-sm" />
+        <StandardMap
+          :markers="markers"
+          class="map"
+        />
+      </template>
+    </QCollapsible>
   </div>
 </template>
 
@@ -159,6 +149,7 @@ import {
 } from 'vuex'
 
 import {
+  QCollapsible,
   QCardSeparator,
   QBtn,
   QTooltip,
@@ -178,6 +169,7 @@ export default {
     RandomArt,
     KSpinner,
     ProfilePicture,
+    QCollapsible,
     QCardSeparator,
     QBtn,
     QTooltip,
@@ -260,14 +252,10 @@ export default {
 <style scoped lang="stylus">
 .q-btn-round
   margin-bottom .5em
-body.desktop .actionButtons
-  top 6px
-.actionButtons
-  top 2px
-  right 3px
-  position absolute
-  .q-btn
-    margin 3px
+.toolbar
+  margin-top -24px
+.toolbar .q-btn
+  margin 3px
 .map
   height 30vh
 </style>

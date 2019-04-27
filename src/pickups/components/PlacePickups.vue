@@ -1,7 +1,5 @@
 <template>
   <div>
-    <PlaceHeader />
-
     <KNotice v-if="isInactive">
       <template slot="icon">
         <i class="far fa-handshake" />
@@ -41,7 +39,6 @@
 <script>
 import PickupList from '@/pickups/components/PickupList'
 import KNotice from '@/utils/components/KNotice'
-import PlaceHeader from '@/places/components/PlaceHeader'
 
 import {
   mapGetters,
@@ -50,7 +47,6 @@ import {
 
 export default {
   components: {
-    PlaceHeader,
     PickupList,
     KNotice,
   },

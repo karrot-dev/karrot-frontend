@@ -106,7 +106,6 @@ export default {
           }
           commit('update', [place])
         }
-        dispatch('sidenavBoxes/toggle/group', false, { root: true })
       },
     }, {
       findId: ({ placeId }) => placeId,
@@ -119,7 +118,6 @@ export default {
       const { placeId } = routeTo.params
       if (placeId) return
 
-      dispatch('sidenavBoxes/toggle/group', true, { root: true })
       commit('clearSelected')
     },
 

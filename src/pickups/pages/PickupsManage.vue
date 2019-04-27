@@ -35,6 +35,7 @@
           @reset="resetNewSeries"
         />
       </QItem>
+      <KSpinner v-show="fetchPickupSeriesStatus.pending" />
       <QList
         class="pickups"
         separator
@@ -171,6 +172,7 @@
           @reset="resetNewPickup"
         />
       </QItem>
+      <KSpinner v-show="fetchPickupPending" />
       <QList
         class="pickups"
         separator
@@ -235,6 +237,7 @@ import {
 import PickupSeriesEdit from '@/pickups/components/PickupSeriesEdit'
 import PickupEdit from '@/pickups/components/PickupEdit'
 import RandomArt from '@/utils/components/RandomArt'
+import KSpinner from '@/utils/components/KSpinner'
 
 import i18n, { dayNameForKey, sortByDay } from '@/base/i18n'
 
@@ -248,6 +251,7 @@ export default {
     PickupSeriesEdit,
     PickupEdit,
     RandomArt,
+    KSpinner,
     QCard,
     QCardTitle,
     QList,
@@ -275,7 +279,9 @@ export default {
     ...mapGetters({
       placeId: 'places/activePlaceId',
       pickupSeries: 'pickupSeries/byActivePlace',
+      fetchPickupSeriesStatus: 'pickupSeries/fetchListForActivePlaceStatus',
       pickups: 'pickups/byActivePlace',
+      fetchPickupPending: 'pickups/fetchingForCurrentGroup',
       pickupCreateStatus: 'pickups/createStatus',
       seriesCreateStatus: 'pickupSeries/createStatus',
     }),

@@ -6,7 +6,6 @@
     <ConversationCompose
       :status="conversation.sendStatus"
       :placeholder="messagePrompt"
-      :autofocus="!$q.platform.is.mobile"
       :is-participant="conversation.isParticipant"
       slim
       @submit="sendMessage"

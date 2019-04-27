@@ -53,7 +53,7 @@ export default {
     byActivePlace: (state, getters) => {
       return getters.all.filter(series => series.place && series.place.isActivePlace)
     },
-    ...metaStatuses(['create']),
+    ...metaStatuses(['create', 'fetchListForActivePlace']),
   },
   actions: {
     ...withMeta({

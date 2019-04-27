@@ -2,7 +2,6 @@
   <div>
     <SidenavBox
       v-if="currentUserId"
-      :expandable="false"
     >
       <template slot="icon">
         <QIcon name="fas fa-fw fa-user-circle" />

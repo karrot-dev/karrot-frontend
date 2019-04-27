@@ -26,8 +26,7 @@ describe('StandardMap', () => {
       wrapper.setProps({ markers: markers.filter((e, idx) => idx !== i) })
       await nextTicks(1)
       expect(wrapper.findAll(ExtendedMarker).length).toBe(markers.length - 1)
-      expect(wrapper.findAll(Vue2Leaflet.LPopup).length).toBe(markers.length -1 )
+      expect(wrapper.findAll(Vue2Leaflet.LPopup).length).toBe(markers.length - 1)
     }
-
   })
 })

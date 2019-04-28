@@ -187,7 +187,6 @@
   "STOREDETAIL": {
     "DIRECTIONS": "Pokaż trasę",
     "EDIT": "Edytuj punkt odbioru",
-    "MANAGE": "Zarządzaj odbiorami",
     "ARCHIVED": "Ten punkt odbioru został przeniesiony do archiwum",
     "INACTIVE": "Ten punkt odbioru obecnie nie współpracuje.",
     "CHANGE_STATUS": "Możesz zmienić status w zakładce Ustawienia.",

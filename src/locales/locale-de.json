@@ -187,7 +187,6 @@
   "STOREDETAIL": {
     "DIRECTIONS": "Wegbeschreibung anzeigen",
     "EDIT": "Betrieb bearbeiten",
-    "MANAGE": "Abholzeiten prüfen und ändern",
     "ARCHIVED": "Dieser Betrieb wurde archiviert",
     "INACTIVE": "Dieser Betrieb kooperiert bisher nicht.",
     "CHANGE_STATUS": "Du kannst den Status in den Einstellungen ändern.",

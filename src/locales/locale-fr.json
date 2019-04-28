@@ -187,7 +187,6 @@
   "STOREDETAIL": {
     "DIRECTIONS": "Afficher la direction",
     "EDIT": "Éditer le magasin",
-    "MANAGE": "Vérifier et organiser les récoltes",
     "ARCHIVED": "Ce magasin a été archivé",
     "INACTIVE": "Nous n'avons pas de coopération avec ce magasin.",
     "CHANGE_STATUS": "Tu peux changer le statut sur la page des paramètres.",

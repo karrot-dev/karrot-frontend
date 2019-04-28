@@ -187,7 +187,6 @@
   "STOREDETAIL": {
     "DIRECTIONS": "Show directions",
     "EDIT": "Editar loja",
-    "MANAGE": "Verifique e gerencie as coletas",
     "ARCHIVED": "A loja foi arquivada",
     "INACTIVE": "A loja esta com o estado de não operando.",
     "CHANGE_STATUS": "Você pode mudar o estado na página de configuração",

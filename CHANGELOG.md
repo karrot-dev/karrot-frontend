@@ -21,9 +21,11 @@ Please document your changes in this format:
 ```
 
 ## [Unreleased]
+
+## [7.3.0] - 2019-04-29
 ### Added
 - Show people who marked a place as favorite @tiltec
-- Extend emoji reaction picker, add search bar #1421 @andreseg9726 @MacNGz
+- Extend emoji reaction picker, add search bar [#1421] @andreseg9726 @MacNGz
 
 ### Changed
 - Show weekday of pickup in feedback list @tiltec
@@ -434,8 +436,10 @@ After months of planning and programming, the first version of ~the foodsaving t
 [#1157]: https://github.com/yunity/karrot-frontend/issues/1157
 [#1174]: https://github.com/yunity/karrot-frontend/issues/1174
 [#1178]: https://github.com/yunity/karrot-frontend/issues/1178
+[#1421]: https://github.com/yunity/karrot-frontend/issues/1421
 
-[Unreleased]: https://github.com/yunity/karrot-frontend/compare/v7.2.4...HEAD
+[Unreleased]: https://github.com/yunity/karrot-frontend/compare/v7.3.0...HEAD
+[7.3.0]: https://github.com/yunity/karrot-frontend/compare/v7.2.4...v7.3.0
 [7.2.4]: https://github.com/yunity/karrot-frontend/compare/v7.2.3...v7.2.4
 [7.2.3]: https://github.com/yunity/karrot-frontend/compare/v7.2.2...v7.2.3
 [7.2.2]: https://github.com/yunity/karrot-frontend/compare/v7.2.1...v7.2.2

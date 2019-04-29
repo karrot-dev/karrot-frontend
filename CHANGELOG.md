@@ -28,6 +28,7 @@ Please document your changes in this format:
 ### Changed
 - Show weekday of pickup in feedback list @tiltec
 - Limit community feed to "Karrot" category @tiltec
+- Place navigation moved to tabs @tiltec
 
 ### Fixed
 - New thread replies didn't show a green chip in the toolbar @tiltec

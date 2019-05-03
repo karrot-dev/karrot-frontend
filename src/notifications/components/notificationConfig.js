@@ -24,9 +24,15 @@ function getMessageParams (type, context) {
       return {
         dateTime: context.pickup && i18n.d(context.pickup.date, 'dateAndTime'),
       }
-    case 'new_store':
+    case 'new_place':
       return {
-        storeName: context.store && context.store.name,
+        storeName: context.place && context.place.name,
+      }
+    case 'conflict_resolution_created':
+    case 'conflict_resolution_continued':
+    case 'conflict_resolution_decided':
+      return {
+        userName: context.user && context.user.displayName,
       }
   }
 
@@ -40,6 +46,7 @@ function getIcon (type, context) {
       return 'fas fa-check'
     case 'pickup_disabled':
     case 'application_declined':
+    case 'conflict_resolution_you_were_removed':
       return 'fas fa-times'
     case 'invitation_accepted':
     case 'new_member':
@@ -48,7 +55,7 @@ function getIcon (type, context) {
       return 'fas fa-balance-scale'
     case 'pickup_upcoming':
       return 'fas fa-calendar-alt'
-    case 'new_store':
+    case 'new_place':
       return 'fas fa-shopping-cart'
     case 'new_applicant':
       return 'fas fa-address-card'
@@ -56,11 +63,19 @@ function getIcon (type, context) {
     case 'you_became_editor':
       return 'fas fa-angle-double-up'
     case 'pickup_moved':
+    case 'voting_ends_soon':
       return 'far fa-clock'
+    case 'conflict_resolution_created':
+    case 'conflict_resolution_created_about_you':
+    case 'conflict_resolution_continued':
+    case 'conflict_resolution_continued_about_you':
+    case 'conflict_resolution_decided':
+    case 'conflict_resolution_decided_about_you':
+      return 'far fa-frown-open'
   }
 }
 
-function getRouteTo (type, { group, user, store, pickup } = {}) {
+function getRouteTo (type, { group, user, place, pickup, issue } = {}) {
   switch (type) {
     case 'user_became_editor':
     case 'invitation_accepted':
@@ -74,23 +89,36 @@ function getRouteTo (type, { group, user, store, pickup } = {}) {
     case 'feedback_possible':
       return group && pickup && { name: 'giveFeedback', params: { groupId: group.id, pickupId: pickup.id } }
     case 'application_declined':
+    case 'conflict_resolution_you_were_removed':
       return group && { name: 'groupPreview', params: { groupPreviewId: group.id } }
-    case 'new_store':
-      return group && store && { name: 'store', params: { groupId: group.id, storeId: store.id } }
+    case 'new_place':
+      return group && place && { name: 'place', params: { groupId: group.id, placeId: place.id } }
     case 'pickup_upcoming':
     case 'pickup_disabled':
     case 'pickup_enabled':
     case 'pickup_moved':
-      return group && store && pickup && { name: 'pickupDetail', params: { groupId: group.id, storeId: store.id, pickupId: pickup.id } }
+      return group && place && pickup && { name: 'pickupDetail', params: { groupId: group.id, placeId: place.id, pickupId: pickup.id } }
+    case 'conflict_resolution_created':
+    case 'conflict_resolution_created_about_you':
+    case 'conflict_resolution_continued':
+    case 'conflict_resolution_continued_about_you':
+    case 'conflict_resolution_decided':
+    case 'conflict_resolution_decided_about_you':
+    case 'voting_ends_soon':
+      return group && issue && { name: 'issueDetail', params: { groupId: group.id, issueId: issue.id } }
   }
 }
 
 export default function getConfig (type, context) {
   const config = {
-    message: i18n.t(`NOTIFICATION_BELLS.${type.toUpperCase()}`, getMessageParams(type, context)),
+    message: i18n.t(`NOTIFICATION_BELLS.${mapType(type).toUpperCase()}`, getMessageParams(type, context)),
     icon: getIcon(type, context),
     routeTo: getRouteTo(type, context),
   }
 
   return config
+}
+
+function mapType (type) {
+  return type === 'new_place' ? 'new_store' : type
 }

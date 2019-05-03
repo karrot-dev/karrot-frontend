@@ -29,7 +29,7 @@ export default {
             matchesRule: entry.datesPreview && entry.datesPreview.some(d => Math.abs(d - pickup.date) < 1000),
           },
         }))
-      const store = rootGetters['stores/get'](entry.store)
+      const place = rootGetters['places/get'](entry.place)
 
       const firstDate = pickups.length > 0 && pickups[0].date
       const isSame = lookup => pickups.every(p => p.date[lookup]() === firstDate[lookup]())
@@ -42,7 +42,7 @@ export default {
       return {
         ...entry,
         pickups,
-        store,
+        place,
         ...similarities,
         ...metaStatusesWithId(getters, ['save', 'destroy'], entry.id),
       }
@@ -50,23 +50,23 @@ export default {
     all: (state, getters) => {
       return Object.values(state.entries).map(getters.enrich)
     },
-    byActiveStore: (state, getters) => {
-      return getters.all.filter(series => series.store && series.store.isActiveStore)
+    byActivePlace: (state, getters) => {
+      return getters.all.filter(series => series.place && series.place.isActivePlace)
     },
-    ...metaStatuses(['create']),
+    ...metaStatuses(['create', 'fetchListForActivePlace']),
   },
   actions: {
     ...withMeta({
-      async fetchListForActiveStore ({ commit, rootGetters }) {
-        let storeId = rootGetters['stores/activeStoreId']
-        if (storeId) {
-          commit('set', await pickupSeries.listByStoreId(storeId))
+      async fetchListForActivePlace ({ commit, rootGetters }) {
+        let placeId = rootGetters['places/activePlaceId']
+        if (placeId) {
+          commit('set', await pickupSeries.listByPlaceId(placeId))
         }
       },
 
       async create ({ commit, dispatch }, series) {
         await pickupSeries.create(series)
-        dispatch('fetchListForActiveStore')
+        dispatch('fetchListForActivePlace')
       },
 
       async save ({ commit, dispatch }, series) {
@@ -76,7 +76,7 @@ export default {
 
       async destroy ({ commit, dispatch }, id) {
         await pickupSeries.delete(id)
-        dispatch('fetchListForActiveStore')
+        dispatch('fetchListForActivePlace')
       },
 
     }),

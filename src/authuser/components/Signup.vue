@@ -12,8 +12,8 @@
             :error-label="displayNameError"
           >
             <QInput
-              :autofocus="true"
               v-model="user.displayName"
+              :autofocus="true"
               :float-label="$t('USERDATA.USERNAME')"
               autocorrect="off"
               autocapitalize="off"
@@ -75,7 +75,7 @@
           v-if="hasNonFieldError"
           class="error"
         >
-          <i class="fas fa-exclamation-triangle"/>
+          <i class="fas fa-exclamation-triangle" />
           {{ firstNonFieldError }}
         </div>
 
@@ -95,7 +95,7 @@
             {{ $t('SIGNUP.OK') }}
           </QBtn>
         </div>
-        <div style="clear: both"/>
+        <div style="clear: both" />
       </div>
     </form>
   </div>
@@ -146,22 +146,6 @@ export default {
       joinPlayground: this.hasPlayground && !this.hasGroupToJoin,
     }
   },
-  watch: {
-    canJoinPlayground (val) {
-      this.joinPlayground = val
-    },
-  },
-  methods: {
-    submit () {
-      this.$v.user.$touch()
-      if (!this.canSave || this.isPending) return
-      this.$emit('submit', {
-        userData: this.user,
-        joinPlayground: this.joinPlayground,
-      })
-      this.$v.user.$reset()
-    },
-  },
   computed: {
     canJoinPlayground () {
       return this.hasPlayground && !this.hasGroupToJoin
@@ -183,6 +167,22 @@ export default {
         return false
       }
       return true
+    },
+  },
+  watch: {
+    canJoinPlayground (val) {
+      this.joinPlayground = val
+    },
+  },
+  methods: {
+    submit () {
+      this.$v.user.$touch()
+      if (!this.canSave || this.isPending) return
+      this.$emit('submit', {
+        userData: this.user,
+        joinPlayground: this.joinPlayground,
+      })
+      this.$v.user.$reset()
     },
   },
   validations: {

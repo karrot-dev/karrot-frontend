@@ -2,8 +2,9 @@
   <QItem
     link
     :class="{ isUnread: !notification.clicked }"
-    @click.native="$emit('click', notification)"
+    active-class="ignore-active-link"
     :to="routeTo"
+    @click.native="$emit('click', notification)"
   >
     <QItemSide v-if="user">
       <ProfilePicture
@@ -14,6 +15,7 @@
     <QItemMain>
       <QItemTile
         label
+        lines="2"
       >
         <QIcon
           v-if="icon"
@@ -28,11 +30,11 @@
         <DateAsWords
           :date="showExpiresAt ? notification.expiresAt : notification.createdAt"
           style="display: inline"
-          :allow-future="showExpiresAt"
+          :future="showExpiresAt"
         />
         · {{ groupName }}
-        <template v-if="storeName">
-          · {{ storeName }}
+        <template v-if="placeName">
+          · {{ placeName }}
         </template>
       </QItemTile>
     </QItemMain>
@@ -85,8 +87,8 @@ export default {
       // it shouldn't be needed to show your own picture
       if (this.context.user.isCurrentUser) return
 
-      // new_store is not about the user, but the store
-      if (this.type === 'new_store') return
+      // new_place is not about the user, but the place
+      if (this.type === 'new_place') return
 
       return this.context.user
     },
@@ -94,11 +96,9 @@ export default {
       if (!this.context) return
       return this.context.group && this.context.group.name
     },
-    storeName () {
-      if (!this.context) return
-      if (this.context.pickup) {
-        return this.context.pickup.store.name
-      }
+    placeName () {
+      if (!this.context || !this.context.pickup || !this.context.pickup.place) return ''
+      return this.context.pickup.place.name
     },
     message () {
       if (!this.config) return
@@ -113,7 +113,10 @@ export default {
       return this.config.routeTo
     },
     showExpiresAt () {
-      return this.type === 'pickup_upcoming'
+      const blacklist = [
+        'feedback_possible',
+      ]
+      return this.notification && Boolean(this.notification.expiresAt) && !blacklist.includes(this.type)
     },
   },
 }

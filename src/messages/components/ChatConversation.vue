@@ -1,15 +1,10 @@
 <template>
   <div
-    :class="inline && 'absolute-full scroll'"
     ref="scroll"
+    :class="inline && 'absolute-full scroll'"
   >
-    <slot name="beforeChatMessages"/>
-    <div
-      v-if="fetchingPast"
-      class="full-width text-center generic-padding"
-    >
-      <QSpinnerDots :size="40" />
-    </div>
+    <slot name="beforeChatMessages" />
+    <KSpinner v-show="fetchingPast" />
     <QInfiniteScroll :handler="maybeFetchFuture">
       <QList
         no-border
@@ -24,23 +19,33 @@
           @save="$emit('saveMessage', arguments[0])"
         />
         <ConversationCompose
-          v-if="!this.conversation.canFetchFuture"
+          v-if="compose && !conversation.canFetchFuture && !conversation.isClosed"
           ref="compose"
           :status="conversation.sendStatus"
           slim
-          @submit="sendMessage"
           :placeholder="messagePrompt"
-          :autofocus="!$q.platform.is.mobile && startAtBottom"
+          :is-participant="conversation.isParticipant"
+          @submit="sendMessage"
         />
+        <QItem
+          v-if="conversation.isClosed"
+          class="q-mt-md"
+        >
+          <QItemSide
+            icon="fas fa-lock"
+            color="light"
+            inverted
+          />
+          <QItemMain
+            class="q-body-1"
+            :label="$t('CONVERSATION.CLOSED')"
+            label-lines="3"
+          />
+        </QItem>
       </QList>
-      <div
-        slot="message"
-        class="full-width text-center generic-padding"
-      >
-        <QSpinnerDots :size="40" />
-      </div>
+      <KSpinner slot="message" />
     </QInfiniteScroll>
-    <slot name="afterChatMessages"/>
+    <slot name="afterChatMessages" />
     <QScrollObservable @scroll="onScroll" />
   </div>
 </template>
@@ -48,11 +53,14 @@
 <script>
 import ConversationMessage from '@/messages/components/ConversationMessage'
 import ConversationCompose from '@/messages/components/ConversationCompose'
+import KSpinner from '@/utils/components/KSpinner'
 import {
   scroll,
   dom,
-  QSpinnerDots,
   QList,
+  QItem,
+  QItemSide,
+  QItemMain,
   QScrollObservable,
   QInfiniteScroll,
 } from 'quasar'
@@ -68,8 +76,11 @@ export default {
   components: {
     ConversationMessage,
     ConversationCompose,
-    QSpinnerDots,
+    KSpinner,
     QList,
+    QItem,
+    QItemSide,
+    QItemMain,
     QScrollObservable,
     QInfiniteScroll,
   },
@@ -78,6 +89,10 @@ export default {
     away: { type: Boolean, required: true },
     currentUser: { type: Object, default: null },
     startAtBottom: { type: Boolean, default: false },
+    compose: {
+      type: Boolean,
+      default: false,
+    },
     inline: {
       // if true, create a new overflowed scroll container
       type: Boolean,
@@ -92,11 +107,6 @@ export default {
       scrollPositionFromBottom: 0,
       hideBottomSpinner: null,
     }
-  },
-  mounted () {
-    this.$nextTick(() => {
-      this.scrollContainer = this.inline ? this.$refs.scroll : getScrollTarget(this.$el)
-    })
   },
   computed: {
     hasLoaded () {
@@ -167,6 +177,11 @@ export default {
         this.hideBottomSpinner = null
       }
     },
+  },
+  mounted () {
+    this.$nextTick(() => {
+      this.scrollContainer = this.inline ? this.$refs.scroll : getScrollTarget(this.$el)
+    })
   },
   methods: {
     markRead (messageId) {

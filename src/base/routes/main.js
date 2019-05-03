@@ -1,3 +1,5 @@
+import { Platform } from 'quasar'
+
 const GroupWall = () => import('@/group/pages/Wall')
 const GroupPickups = () => import('@/pickups/pages/GroupPickups')
 const GroupFeedback = () => import('@/feedback/pages/GroupFeedback')
@@ -10,14 +12,15 @@ const GroupManageAgreement = () => import('@/agreements/pages/ManageAgreement')
 const GroupCreate = () => import('@/group/pages/Create')
 const GroupPreview = () => import('@/groupInfo/pages/GroupPreview')
 const GroupGallery = () => import('@/groupInfo/pages/GroupGallery')
-const StoreLayout = () => import('@/stores/pages/Layout')
-const StorePickups = () => import('@/pickups/components/StorePickups')
-const StoreFeedback = () => import('@/feedback/components/StoreFeedback')
-const StoreHistory = () => import('@/history/pages/StoreHistory')
-const StorePickupsManage = () => import('@/pickups/pages/PickupsManage')
-const StoreEdit = () => import('@/stores/pages/Edit')
-const StoreCreate = () => import('@/stores/pages/Create')
-const StoreList = () => import('@/stores/pages/Stores')
+const PlaceWall = () => import('@/places/pages/Wall')
+const PlaceLayout = () => import('@/places/pages/Layout')
+const PlacePickups = () => import('@/pickups/components/PlacePickups')
+const PlaceFeedback = () => import('@/feedback/components/PlaceFeedback')
+const PlaceHistory = () => import('@/history/pages/PlaceHistory')
+const PlacePickupsManage = () => import('@/pickups/pages/PickupsManage')
+const PlaceEdit = () => import('@/places/pages/Edit')
+const PlaceCreate = () => import('@/places/pages/Create')
+const PlaceList = () => import('@/places/pages/Places')
 const HistoryDetail = () => import('@/history/pages/HistoryDetail')
 const GroupInvitations = () => import('@/invitations/pages/Invitations')
 const Applications = () => import('@/applications/pages/Applications')
@@ -30,20 +33,25 @@ const User = () => import('@/users/pages/Profile')
 const PickupFeedback = () => import('@/feedback/pages/GiveFeedback')
 const Detail = () => import('@/messages/components/Detail')
 const DetailHeader = () => import('@/messages/components/DetailHeader')
+const IssueLayout = () => import('@/issues/pages/IssueLayout')
+const IssueTabsIfMobile = () => Platform.is.mobile ? import('@/issues/components/IssueTabs') : Promise.resolve({ render: () => null })
+const IssueList = () => import('@/issues/pages/IssueList')
+const IssueChat = () => import('@/issues/pages/IssueChat')
+const IssueCompose = () => import('@/issues/pages/IssueCompose')
+const IssueVoteAndHistory = () => import('@/issues/pages/IssueVoteAndHistory')
 
 export default [
   {
     name: 'groupsGallery',
     path: '/groupPreview',
     meta: {
+      fullpage: true,
       breadcrumbs: [
         { translation: 'JOINGROUP.ALL_GROUPS' },
       ],
       beforeEnter: 'applications/fetchMine',
     },
-    components: {
-      fullPage: GroupGallery,
-    },
+    component: GroupGallery,
   },
   {
     name: 'groupPreview',
@@ -101,6 +109,12 @@ export default [
           name: 'subheader',
         },
       }) },
+      detail: { render: h => h('router-view', {
+        props: {
+          name: 'detail',
+        },
+      }) },
+      footer: { render: h => h('router-view', { props: { name: 'footer' } }) },
       sidenav: Sidenav,
     },
     children: [
@@ -114,11 +128,64 @@ export default [
         component: GroupWall,
       },
       {
+        name: 'issueList',
+        path: 'issues',
+        meta: {
+          requiredLoggedIn: true,
+          breadcrumbs: [
+            { translation: 'ISSUE.TITLE', route: { name: 'issueList' } },
+          ],
+          beforeEnter: 'issues/fetchByGroupId',
+        },
+        components: {
+          default: IssueList,
+          detail: { render: h => h('router-view') },
+          subheader: { render: h => h('router-view', { props: { name: 'subheader' } }) },
+          footer: { render: h => h('router-view', { props: { name: 'footer' } }) },
+        },
+        children: [
+          {
+            name: 'issueDetail',
+            path: ':issueId',
+            redirect: { name: 'issueChat' },
+            components: {
+              default: IssueLayout,
+              subheader: IssueTabsIfMobile,
+              footer: { render: h => Platform.is.mobile ? h('router-view', { props: { name: 'issueFooter' } }) : null },
+            },
+            meta: {
+              requiredLoggedIn: true,
+              breadcrumbs: [
+                { type: 'activeIssue' },
+              ],
+              beforeEnter: 'issues/select',
+              isDetail: true,
+            },
+            children: [
+              {
+                name: 'issueChat',
+                path: 'chat',
+                components: {
+                  default: IssueChat,
+                  issueFooter: IssueCompose,
+                },
+              },
+              {
+                name: 'issueVote',
+                path: 'vote',
+                component: IssueVoteAndHistory,
+              },
+            ],
+          },
+        ],
+      },
+      {
         name: 'map',
         path: 'map',
         meta: {
           disableDesktopSidenav: true,
           disablePullToRefresh: true,
+          fullpage: true,
           breadcrumbs: [
             { translation: 'GROUPMAP.TITLE', route: { name: 'map' } },
           ],
@@ -196,6 +263,7 @@ export default [
           breadcrumbs: [
             { translation: 'GROUP.APPLICATIONS', route: { name: 'applications' } },
           ],
+          beforeEnter: 'applications/fetchByGroupId',
         },
         component: Applications,
       },
@@ -249,37 +317,43 @@ export default [
         },
       },
       {
-        name: 'stores',
-        path: 'store',
-        meta: {
-          breadcrumbs: [
-            { translation: 'GROUP.STORES', route: { name: 'stores' } },
-          ],
-        },
-        component: StoreList,
+        // Redirect legacy "store" urls
+        path: 'store/:rest*',
+        redirect: to => `place/${to.params.rest}`,
       },
       {
-        name: 'storeCreate',
-        path: 'store/create',
+        name: 'places',
+        path: 'place',
         meta: {
           breadcrumbs: [
-            { translation: 'CREATESTORE.TITLE', route: { name: 'storeCreate' } },
+            { translation: 'GROUP.STORES', route: { name: 'places' } },
           ],
         },
-        component: StoreCreate,
+        component: PlaceList,
       },
       {
-        redirect: '/group/:groupId/store/:storeId/wall',
-        path: 'store/:storeId',
+        name: 'placeCreate',
+        path: 'place/create',
         meta: {
           breadcrumbs: [
-            { type: 'activeStore' },
+            { translation: 'CREATESTORE.TITLE', route: { name: 'placeCreate' } },
           ],
-          beforeEnter: 'stores/selectStore',
-          afterLeave: 'stores/clearSelectedStore',
+        },
+        component: PlaceCreate,
+      },
+      {
+        name: 'place',
+        redirect: { name: 'placePickups' },
+        path: 'place/:placeId',
+        meta: {
+          breadcrumbs: [
+            { type: 'activePlace' },
+          ],
+          beforeEnter: 'places/selectPlace',
+          afterLeave: 'places/clearSelectedPlace',
         },
         components: {
-          default: StoreLayout,
+          default: PlaceLayout,
           subheader: { render: h => h('router-view', {
             props: {
               name: 'subheader',
@@ -288,14 +362,18 @@ export default [
         },
         children: [
           {
-            name: 'store',
-            path: '',
-            redirect: 'pickups',
+            name: 'placeWall',
+            path: 'wall',
+            component: PlaceWall,
+            meta: {
+              beforeEnter: 'conversations/fetchForPlace',
+              afterLeave: 'conversations/clearForPlace',
+            },
           },
           {
-            name: 'storePickups',
+            name: 'placePickups',
             path: 'pickups',
-            component: StorePickups,
+            component: PlacePickups,
           },
           {
             name: 'pickupDetail',
@@ -315,49 +393,35 @@ export default [
             },
           },
           {
-            name: 'storePickupsManage',
+            name: 'placePickupsManage',
             path: 'pickups/manage',
             meta: {
-              breadcrumbs: [
-                { translation: 'PICKUPMANAGE.TITLE', route: { name: 'storePickupsManage' } },
-              ],
-              beforeEnter: 'pickupSeries/fetchListForActiveStore',
+              beforeEnter: 'pickupSeries/fetchListForActivePlace',
               afterLeave: 'pickupSeries/clearList',
             },
-            component: StorePickupsManage,
+            component: PlacePickupsManage,
           },
           {
-            name: 'storeFeedback',
+            name: 'placeFeedback',
             path: 'feedback',
             meta: {
-              breadcrumbs: [
-                { translation: 'PICKUP_FEEDBACK.TITLE', route: { name: 'storeFeedback' } },
-              ],
-              beforeEnter: 'feedback/fetch',
+              beforeEnter: 'places/beforeEnterFeedback',
               afterLeave: 'feedback/clear',
             },
-            component: StoreFeedback,
+            component: PlaceFeedback,
           },
           {
-            name: 'storeHistory',
+            name: 'placeHistory',
             path: 'history',
             meta: {
-              breadcrumbs: [
-                { translation: 'GROUP.HISTORY', route: { name: 'storeHistory' } },
-              ],
               beforeEnter: 'history/fetch',
             },
-            component: StoreHistory,
+            component: PlaceHistory,
           },
           {
-            name: 'storeEdit',
+            name: 'placeEdit',
             path: 'edit',
-            meta: {
-              breadcrumbs: [
-                { translation: 'STOREDETAIL.EDIT', route: { name: 'storeEdit' } },
-              ],
-            },
-            component: StoreEdit,
+            component: PlaceEdit,
           },
         ],
       },
@@ -368,12 +432,14 @@ export default [
           breadcrumbs: [
             { translation: 'PICKUP_FEEDBACK.TITLE', route: { name: 'giveFeedback' } },
           ],
+          beforeEnter: 'feedback/fetch',
+          afterLeave: 'feedback/clear',
         },
         component: PickupFeedback,
       },
       {
         name: 'editFeedback',
-        path: 'feedback/:feedbackId?',
+        path: 'feedback/:feedbackId',
         meta: {
           breadcrumbs: [
             { translation: 'PICKUP_FEEDBACK.TITLE', route: { name: 'editFeedback' } },

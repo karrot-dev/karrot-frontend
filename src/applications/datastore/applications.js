@@ -1,7 +1,7 @@
 import Vue from 'vue'
 import applications from '@/applications/api/applications'
 import router from '@/base/router'
-import { withMeta, createMetaModule, metaStatuses } from '@/utils/datastore/helpers'
+import { withMeta, createMetaModule, metaStatuses, createPaginationModule } from '@/utils/datastore/helpers'
 
 function initialState () {
   return {
@@ -10,7 +10,10 @@ function initialState () {
 }
 export default {
   namespaced: true,
-  modules: { meta: createMetaModule() },
+  modules: {
+    meta: createMetaModule(),
+    pagination: createPaginationModule(),
+  },
   state: initialState(),
   getters: {
     get: (state, getters, rootState, rootGetters) => applicationId => {
@@ -42,22 +45,34 @@ export default {
       .sort(sortByCreatedAt),
     forCurrentGroupPending: (state, getters) => getters.forCurrentGroup.filter(a => a.isPending),
     forCurrentGroupNonPending: (state, getters) => getters.forCurrentGroup.filter(a => !a.isPending),
-    ...metaStatuses(['apply']),
+    canFetchPast: (state, getters) => getters['pagination/canFetchNext'],
+    ...metaStatuses(['apply', 'fetchPast', 'fetchPendingByGroupId']),
   },
   actions: {
+    async fetch ({ commit, dispatch }, filters) {
+      const applicationList = await dispatch('pagination/extractCursor', applications.list(filters))
+      commit('update', applicationList)
+
+      const users = applicationList.map(a => a.user)
+      commit('users/update', users, { root: true })
+    },
     ...withMeta({
-      async fetchMine ({ commit, rootGetters }) {
+      async fetchMine ({ dispatch, rootGetters }) {
         const userId = rootGetters['auth/userId']
         if (!userId) return
-        const applicationList = await applications.list({ user: userId, status: 'pending' })
-
-        commit('update', applicationList)
-        const users = applicationList.map(a => a.user)
-        commit('users/update', users, { root: true })
+        await dispatch('fetch', { user: userId, status: 'pending' })
       },
 
-      async fetchByGroupId ({ commit }, { groupId }) {
-        const applicationList = await applications.list({ group: groupId })
+      async fetchByGroupId ({ dispatch }, { groupId }) {
+        await dispatch('fetch', { group: groupId })
+      },
+
+      async fetchPendingByGroupId ({ dispatch }, { groupId }) {
+        await dispatch('fetch', { group: groupId, status: 'pending' })
+      },
+
+      async fetchPast ({ commit, dispatch }) {
+        const applicationList = await dispatch('pagination/fetchNext', applications.listMore)
         commit('update', applicationList)
 
         const users = applicationList.map(a => a.user)

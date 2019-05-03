@@ -30,14 +30,16 @@
           </template>
           <template v-else-if="isThread">
             <QIcon
-              name="fas fw-fw fa-comments"
+              name="fas fa-fw fa-comments"
               class="q-mr-sm"
             />
-            <div class="ellipsis">{{ thread.content }}</div>
+            <div class="ellipsis">
+              {{ thread.content }}
+            </div>
           </template>
           <template v-else-if="isApplication">
             <QIcon
-              name="fas fw-fw fa-user-plus"
+              name="fas fa-fw fa-user-plus"
               class="q-mr-sm"
               :title="$t('APPLICATION.APPLICATION')"
             />
@@ -47,11 +49,33 @@
           </template>
           <template v-else-if="isGroup">
             <QIcon
-              name="fas fw-fw fa-bullhorn"
+              name="fas fa-fw fa-bullhorn"
               class="q-mr-sm"
               :title="$t('GROUP.WALL')"
             />
-            <div class="ellipsis">{{ group.name }}</div>
+            <div class="ellipsis">
+              {{ group.name }}
+            </div>
+          </template>
+          <template v-else-if="isPlace">
+            <QIcon
+              name="fas fa-fw fa-star"
+              class="q-mr-sm"
+              :title="$t('GROUP.WALL')"
+            />
+            <div class="ellipsis">
+              {{ place.name }}
+            </div>
+          </template>
+          <template v-else-if="isIssue">
+            <QIcon
+              name="fas fa-fw fa-vote-yea"
+              class="q-mr-sm"
+              :title="$t('ISSUE.TITLE')"
+            />
+            <div class="ellipsis">
+              {{ issue.affectedUser && issue.affectedUser.displayName }}
+            </div>
           </template>
           <QIcon
             v-if="muted"
@@ -60,6 +84,14 @@
             class="q-ml-xs"
             name="fas fa-fw fa-bell-slash"
             :title="$t('CONVERSATION.MUTED')"
+          />
+          <QIcon
+            v-if="closed"
+            size="12px"
+            color="grey"
+            class="q-ml-xs"
+            name="fas fa-fw fa-lock"
+            :title="$t('CONVERSATION.CLOSED')"
           />
         </div>
         <span v-if="message">
@@ -78,7 +110,7 @@
         class="q-mb-xs"
       >
         <small>
-          {{ pickup.store && pickup.store.name }} ·
+          {{ pickup.place && pickup.place.name }} ·
           {{ $d(pickup.date, 'yearMonthDay') }}
         </small>
       </QItemTile>
@@ -100,7 +132,9 @@
         >
           {{ $t('YOU') }}:&nbsp;
         </div>
-        <div class="ellipsis col">{{ message.content }}</div>
+        <div class="ellipsis col">
+          {{ message.content }}
+        </div>
         <QChip
           v-if="unreadCount > 0"
           round
@@ -150,11 +184,19 @@ export default {
       type: Object,
       default: null,
     },
+    place: {
+      type: Object,
+      default: null,
+    },
     thread: {
       type: Object,
       default: null,
     },
     application: {
+      type: Object,
+      default: null,
+    },
+    issue: {
       type: Object,
       default: null,
     },
@@ -170,6 +212,10 @@ export default {
       type: Boolean,
       default: false,
     },
+    closed: {
+      type: Boolean,
+      default: false,
+    },
     selected: {
       type: Boolean,
       default: false,
@@ -178,6 +224,9 @@ export default {
   computed: {
     isGroup () {
       return Boolean(this.group)
+    },
+    isPlace () {
+      return Boolean(this.place)
     },
     isPrivate () {
       return Boolean(this.user)
@@ -191,12 +240,14 @@ export default {
     isApplication () {
       return Boolean(this.application)
     },
+    isIssue () {
+      return Boolean(this.issue)
+    },
     applicationTitle () {
-      if (this.isApplication && this.application.group) {
-        return this.application.user.isCurrentUser
-          ? this.application.group.name
-          : this.application.user.displayName
-      }
+      if (!this.isApplication || !this.application.group) return ''
+      return this.application.user.isCurrentUser
+        ? this.application.group.name
+        : this.application.user.displayName
     },
   },
 }

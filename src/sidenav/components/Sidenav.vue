@@ -1,31 +1,21 @@
 <template>
-  <span v-if="currentGroup">
-    <SidenavMap v-if="!$q.platform.is.mobile"/>
-    <SidenavGroup/>
-    <SidenavStore/>
-    <SidenavStores/>
+  <span>
+    <SidenavMap v-if="!$q.platform.is.mobile" />
+    <SidenavGroup />
+    <SidenavPlaces />
   </span>
 </template>
 
 <script>
 import SidenavMap from './SidenavMap'
 import SidenavGroup from './SidenavGroup'
-import SidenavStore from './SidenavStore'
-import SidenavStores from './SidenavStores'
-
-import { mapGetters } from 'vuex'
+import SidenavPlaces from './SidenavPlaces'
 
 export default {
   components: {
     SidenavMap,
     SidenavGroup,
-    SidenavStore,
-    SidenavStores,
-  },
-  computed: {
-    ...mapGetters({
-      currentGroup: 'currentGroup/value',
-    }),
+    SidenavPlaces,
   },
 }
 </script>

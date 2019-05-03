@@ -1,23 +1,23 @@
 <template>
   <div>
     <QCard
-      @click.native="showPickups = !showPickups"
       color="secondary"
       class="generic-padding notice no-margin-bottom"
+      @click.native="showPickups = !showPickups"
     >
-      <i class="fas fa-shopping-basket on-left"/>
+      <i class="fas fa-shopping-basket on-left" />
       {{ $tc('PICKUPLIST.JOINEDNOTICE', pickups.length, { count: pickups.length }) }}
       <div
         class="card-arrow"
         :class="{ upsideDown: showPickups }"
       >
-        <i class="fas fa-angle-down"/>
+        <i class="fas fa-angle-down" />
       </div>
     </QCard>
     <PickupList
       v-if="showPickups"
       :pickups="pickups"
-      store-link
+      place-link
       @join="$emit('join', arguments[0])"
       @leave="$emit('leave', arguments[0])"
       @detail="$emit('detail', arguments[0])"

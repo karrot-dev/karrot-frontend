@@ -15,25 +15,27 @@
         >
           <QBtn
             v-if="!newSeries"
-            @click="createNewSeries"
             small
             round
             class="bannerButton hoverScale"
             color="secondary"
-            icon="fas fa-plus">
+            icon="fas fa-plus"
+            @click="createNewSeries"
+          >
             <QTooltip v-t="'BUTTON.CREATE'" />
           </QBtn>
         </div>
       </QCardTitle>
-      <QItem v-if="newSeries" >
+      <QItem v-if="newSeries">
         <PickupSeriesEdit
           :value="newSeries"
+          :status="seriesCreateStatus"
           @save="saveNewSeries"
           @cancel="cancelNewSeries"
           @reset="resetNewSeries"
-          :status="seriesCreateStatus"
         />
       </QItem>
+      <KSpinner v-show="fetchPickupSeriesStatus.pending" />
       <QList
         class="pickups"
         separator
@@ -43,20 +45,20 @@
       >
         <QCollapsible
           v-for="series in pickupSeries"
-          @show="makeVisible('series', series.id)"
           :key="series.id"
           :label="seriesLabel(series)"
-          :sublabel="$d(series.startDate, 'hourMinute')"
+          :sublabel="seriesSublabel(series)"
           icon="fas fa-calendar-alt"
           sparse
+          @show="makeVisible('series', series.id)"
         >
           <QItem v-if="visible.series[series.id]">
             <PickupSeriesEdit
               :value="series"
+              :status="series.saveStatus"
               @save="saveSeries"
               @destroy="destroySeries"
               @reset="resetPickup"
-              :status="series.saveStatus"
             />
           </QItem>
           <QList
@@ -66,8 +68,8 @@
             <QListHeader v-t="'PICKUPMANAGE.UPCOMING_PICKUPS_IN_SERIES'" />
             <QCollapsible
               v-for="pickup in series.pickups"
-              @show="makeVisible('pickup', pickup.id)"
               :key="pickup.id"
+              @show="makeVisible('pickup', pickup.id)"
             >
               <template slot="header">
                 <QItemSide
@@ -133,7 +135,7 @@
     <QCard class="no-shadow grey-border secondCard">
       <RandomArt
         class="randomBanner"
-        :seed="storeId"
+        :seed="placeId"
         type="banner"
       />
       <QCardTitle>
@@ -150,26 +152,27 @@
         >
           <QBtn
             v-if="!newPickup"
-            @click="createNewPickup"
             small
             round
             class="bannerButton hoverScale"
             color="secondary"
             icon="fas fa-plus"
+            @click="createNewPickup"
           >
             <QTooltip v-t="'BUTTON.CREATE'" />
           </QBtn>
         </div>
       </QCardTitle>
-      <QItem v-if="newPickup" >
+      <QItem v-if="newPickup">
         <PickupEdit
           :value="newPickup"
+          :status="pickupCreateStatus"
           @save="saveNewPickup"
           @cancel="cancelNewPickup"
           @reset="resetNewPickup"
-          :status="pickupCreateStatus"
         />
       </QItem>
+      <KSpinner v-show="fetchPickupPending" />
       <QList
         class="pickups"
         separator
@@ -177,9 +180,9 @@
       >
         <QCollapsible
           v-for="pickup in oneTimePickups"
-          @show="makeVisible('pickup', pickup.id)"
           :key="pickup.id"
           sparse
+          @show="makeVisible('pickup', pickup.id)"
         >
           <template slot="header">
             <QItemSide
@@ -196,15 +199,18 @@
               </QItemTile>
               <QItemTile sublabel>
                 {{ $d(pickup.date, 'hourMinute') }}
+                <template v-if="pickup.hasDuration">
+                  &mdash; {{ $d(pickup.dateEnd, 'hourMinute') }}
+                </template>
               </QItemTile>
             </QItemMain>
           </template>
           <PickupEdit
             v-if="visible.pickup[pickup.id]"
             :value="pickup"
+            :status="pickup.saveStatus"
             @save="savePickup"
             @reset="resetPickup"
-            :status="pickup.saveStatus"
           />
         </QCollapsible>
       </QList>
@@ -231,14 +237,21 @@ import {
 import PickupSeriesEdit from '@/pickups/components/PickupSeriesEdit'
 import PickupEdit from '@/pickups/components/PickupEdit'
 import RandomArt from '@/utils/components/RandomArt'
+import KSpinner from '@/utils/components/KSpinner'
 
 import i18n, { dayNameForKey, sortByDay } from '@/base/i18n'
+
+import addSeconds from 'date-fns/add_seconds'
+import addHours from 'date-fns/add_hours'
+import startOfTomorrow from 'date-fns/start_of_tomorrow'
+import { defaultDuration } from '@/pickups/settings'
 
 export default {
   components: {
     PickupSeriesEdit,
     PickupEdit,
     RandomArt,
+    KSpinner,
     QCard,
     QCardTitle,
     QList,
@@ -262,6 +275,21 @@ export default {
       },
     }
   },
+  computed: {
+    ...mapGetters({
+      placeId: 'places/activePlaceId',
+      pickupSeries: 'pickupSeries/byActivePlace',
+      fetchPickupSeriesStatus: 'pickupSeries/fetchListForActivePlaceStatus',
+      pickups: 'pickups/byActivePlace',
+      fetchPickupPending: 'pickups/fetchingForCurrentGroup',
+      pickupCreateStatus: 'pickups/createStatus',
+      seriesCreateStatus: 'pickupSeries/createStatus',
+    }),
+    oneTimePickups () {
+      // filter out already started pickups
+      return this.pickups.filter(p => !p.series && !p.hasStarted)
+    },
+  },
   methods: {
     makeVisible (type, id) {
       // prevents rending QCollabsible children before they are displayed
@@ -275,6 +303,16 @@ export default {
       }
       return series.rule.byDay.slice().sort(sortByDay).map(dayNameForKey).join(', ')
     },
+    seriesSublabel (series) {
+      const formatDate = date => i18n.d(date, 'hourMinute')
+      if (series.duration) {
+        return [
+          series.startDate,
+          addSeconds(series.startDate, series.duration),
+        ].map(formatDate).join(' — ')
+      }
+      return formatDate(series.startDate)
+    },
     ...mapActions({
       createSeries: 'pickupSeries/create',
       saveSeries: 'pickupSeries/save',
@@ -286,8 +324,9 @@ export default {
       this.newSeries = {
         maxCollectors: 2,
         description: '',
-        startDate: new Date(),
-        store: this.storeId,
+        startDate: addHours(startOfTomorrow(), 10),
+        duration: null,
+        place: this.placeId,
         rule: {
           isCustom: false,
           byDay: ['MO'],
@@ -305,13 +344,14 @@ export default {
       this.newSeries = null
     },
     createNewPickup () {
-      const date = new Date()
-      date.setDate(date.getDate() + 1)
+      const date = addHours(startOfTomorrow(), 10) // default to 10am tomorrow
       this.newPickup = {
         maxCollectors: 2,
         description: '',
         date,
-        store: this.storeId,
+        dateEnd: addSeconds(date, defaultDuration),
+        place: this.placeId,
+        hasDuration: false,
       }
     },
     async saveNewPickup (pickup) {
@@ -335,19 +375,6 @@ export default {
     },
     resetPickup (pickupId) {
       this.$store.dispatch('pickups/meta/clear', ['save', pickupId])
-    },
-  },
-  computed: {
-    ...mapGetters({
-      storeId: 'stores/activeStoreId',
-      pickupSeries: 'pickupSeries/byActiveStore',
-      pickups: 'pickups/byActiveStore',
-      pickupCreateStatus: 'pickups/createStatus',
-      seriesCreateStatus: 'pickupSeries/createStatus',
-    }),
-    oneTimePickups () {
-      // filter out already started pickups
-      return this.pickups.filter(p => !p.series && !p.hasStarted)
     },
   },
 }

@@ -82,4 +82,3 @@ To make it easier to look for documentation and help on the internet, here's a l
 * State management: [Vuex](https://vuex.vuejs.org/en/)
 * Style: [Stylus](http://stylus-lang.com/)
 * Test framework: [Jest](https://facebook.github.io/jest/docs/en/getting-started.html)
-* Test framework (e2e): [TestCafe](https://devexpress.github.io/testcafe/)

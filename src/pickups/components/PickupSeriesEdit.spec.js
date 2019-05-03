@@ -50,20 +50,18 @@ describe('PickupSeriesEdit', () => {
     expect(wrapper.vm.edit).toEqual(series)
   })
 
-  it('does not let you remove all days', () => {
-    wrapper.vm.edit.rule.byDay = []
-    return Vue.nextTick(() => {
-      expect(wrapper.vm.edit.rule.byDay).toEqual(series.rule.byDay)
-    })
+  it('does not let you remove all days', async () => {
+    wrapper.vm.byDay = []
+    await Vue.nextTick()
+    expect(wrapper.vm.edit.rule.byDay).toEqual(series.rule.byDay)
   })
 
-  it('detects if you have changed something', () => {
+  it('detects if you have changed something', async () => {
     expect(wrapper.vm.hasChanged).toBe(false)
     wrapper.vm.edit.maxCollectors++
     expect(wrapper.vm.hasChanged).toBe(true)
-    return Vue.nextTick().then(() => {
-      expect(wrapper.classes()).toContain('changed')
-    })
+    await Vue.nextTick()
+    expect(wrapper.classes()).toContain('changed')
   })
 
   it('emits a save event with a diff of changes', () => {

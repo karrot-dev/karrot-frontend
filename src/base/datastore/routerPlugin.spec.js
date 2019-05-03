@@ -1,8 +1,10 @@
 import Vue from 'vue'
-import { createDatastore, throws } from '>/helpers'
+import { nextTicks, createDatastore, throws } from '>/helpers'
 import { createRouteError } from '@/utils/datastore/helpers'
 import VueRouter from 'vue-router'
 import { maybeDispatchActions } from './routerPlugin'
+
+Vue.use(VueRouter)
 
 jest.mock('@/base/router')
 
@@ -28,7 +30,7 @@ function makeRouteErrorModule () {
 describe('router plugin / beforeEnter & afterLeave meta options', () => {
   beforeEach(() => jest.resetModules())
 
-  let datastore, router, test, routeError
+  let datastore, router, test, routeError, returnValue
   beforeEach(() => {
     test = makeTestModule()
     routeError = makeRouteErrorModule()
@@ -66,9 +68,8 @@ describe('router plugin / beforeEnter & afterLeave meta options', () => {
     ]
 
     router = new VueRouter({ routes })
-    router.beforeEach(async (to, from, next) => {
-      await maybeDispatchActions(datastore, to, from)
-      next()
+    router.afterEach(async (to, from) => {
+      returnValue = await maybeDispatchActions(datastore, to, from)
     })
   })
 
@@ -89,16 +90,14 @@ describe('router plugin / beforeEnter & afterLeave meta options', () => {
     router.push({ name: 'route2' })
     await Vue.nextTick()
     expect(test.actions.afterLeave).toBeCalled()
-    expect(routeError.actions.set).not.toBeCalled()
   })
 
-  it('sets routeError if beforeEnter throws', async () => {
+  it('returns routeError if beforeEnter throws', async () => {
     test.actions.beforeEnter.mockImplementation(throws(createRouteError('message')))
     router.push({ name: 'route1', params: { testId: '42' } })
-    await Vue.nextTick()
+    await nextTicks(2)
     expect(test.actions.beforeEnter).toBeCalled()
-    expect(routeError.actions.set).toBeCalled()
-    expect(routeError.actions.set.mock.calls[0][1]).toEqual('message')
+    expect(returnValue.routeErrors).toEqual(['message'])
   })
 
   it('calls parent enter action first and leave action last', async () => {
@@ -116,13 +115,5 @@ describe('router plugin / beforeEnter & afterLeave meta options', () => {
     expect(test.actions.beforeEnterChild.mock.calls[0][1]).toHaveProperty('testId', 42)
     expect(test.actions.beforeEnterChild.mock.calls[0][1]).toHaveProperty('childId', 44)
     expect(callOrder).toEqual(['parentEnter', 'childEnter', 'childLeave', 'parentLeave'])
-  })
-
-  it('dont call child enter action if parent throws', async () => {
-    test.actions.beforeEnter.mockImplementation(throws(createRouteError()))
-    router.push({ name: 'child', params: { testId: '42', 'childId': '44' } })
-    await Vue.nextTick(); await Vue.nextTick()
-    expect(routeError.actions.set).toBeCalled()
-    expect(test.actions.beforeEnterChild).not.toBeCalled()
   })
 })

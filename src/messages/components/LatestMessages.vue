@@ -3,13 +3,8 @@
     :is="asPage ? 'QCard' : 'div'"
     class="bg-white relative-position"
   >
-    <div
-      v-if="fetchInitialPending"
-      class="full-width text-center generic-padding"
-    >
-      <QSpinnerDots :size="40" />
-    </div>
-    <template v-else>
+    <KSpinner v-show="fetchInitialPending" />
+    <template v-if="!fetchInitialPending">
       <QList no-border>
         <QItem
           v-if="conversations.length === 0"
@@ -17,16 +12,19 @@
           {{ $t('CONVERSATION.NO_CONVERSATIONS') }}
         </QItem>
         <LatestMessageItem
-          v-close-overlay
           v-for="conv in conversations"
           :key="'conv' + conv.id"
+          v-close-overlay
           :group="conv.type === 'group' ? conv.target : null"
           :user="conv.type === 'private' ? conv.target : null"
           :pickup="conv.type === 'pickup' ? conv.target : null"
+          :place="conv.type === 'place' ? conv.target : null"
           :application="conv.type === 'application' ? conv.target : null"
+          :issue="conv.type === 'issue' ? conv.target : null"
           :message="conv.latestMessage"
           :unread-count="conv.unreadMessageCount"
           :muted="conv.muted"
+          :closed="conv.isClosed"
           :selected="isSelected(conv)"
           @open="open(conv)"
         />
@@ -99,10 +97,10 @@ import {
   QItemSeparator,
   QItem,
   QBtn,
-  QSpinnerDots,
 } from 'quasar'
 import { mapGetters, mapActions } from 'vuex'
 import LatestMessageItem from './LatestMessageItem'
+import KSpinner from '@/utils/components/KSpinner'
 
 export default {
   components: {
@@ -112,8 +110,8 @@ export default {
     QItemSeparator,
     QItem,
     QBtn,
-    QSpinnerDots,
     LatestMessageItem,
+    KSpinner,
   },
   props: {
     asPage: {
@@ -137,6 +135,10 @@ export default {
       selectedConversation: 'detail/conversation',
     }),
   },
+  mounted () {
+    this.fetchInitial()
+    this.markAllSeen()
+  },
   methods: {
     ...mapActions({
       openForPickup: 'detail/openForPickup',
@@ -152,9 +154,11 @@ export default {
       const { type, target } = conv
       switch (type) {
         case 'group': return this.$router.push({ name: 'group', params: { groupId: target.id } })
+        case 'place': return this.$router.push({ name: 'placeWall', params: { groupId: target.group.id, placeId: target.id } })
         case 'pickup': return this.openForPickup(target)
         case 'private': return this.openForUser(target)
         case 'application': return this.openForApplication(target)
+        case 'issue': return this.$router.push({ name: 'issueChat', params: { groupId: target.group.id, issueId: target.id } })
       }
     },
     isSelected (conv) {
@@ -162,10 +166,6 @@ export default {
       if (Boolean(conv.thread) !== Boolean(this.selectedConversation.thread)) return false
       return conv.id === this.selectedConversation.id
     },
-  },
-  mounted () {
-    this.fetchInitial()
-    this.markAllSeen()
   },
 }
 </script>

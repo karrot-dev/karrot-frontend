@@ -6,6 +6,11 @@
  *
  * The implementations are not complete, so if you miss a property that you need, please add it!
  */
+import subHours from 'date-fns/sub_hours'
+import subDays from 'date-fns/sub_days'
+import addDays from 'date-fns/add_days'
+
+import { statusMocks } from '>/helpers'
 
 let notificationIdCnt = 0
 export const makeNotification = data => {
@@ -26,13 +31,14 @@ export const makeApplication = data => {
     id: applicationIdCnt++,
     createdAt: new Date(),
     user: makeUser(),
-    group: null,
+    group: makeGroup(),
     conversation: null,
     questions: 'What are your motivations for joining slköaslkfjasdfasfd?',
-    answers: 'asdfasdf',
+    answers: 'I can live off fire!',
     status: 'pending',
     decidedBy: null,
     decidedAt: null,
+    type: 'application',
     ...data,
   }
 }
@@ -115,12 +121,12 @@ export const makeCurrentUser = data => {
   }
 }
 
-let storeIdCnt = 0
-export const makeStore = data => {
-  const id = storeIdCnt++
+let placeIdCnt = 0
+export const makePlace = data => {
+  const id = placeIdCnt++
   return {
     id,
-    name: `Store ${id}`,
+    name: `Place ${id}`,
     description: '',
     group: null,
     address: '',
@@ -128,7 +134,7 @@ export const makeStore = data => {
     longitude: 0,
     weeksInAdvance: 4,
     status: 'active',
-    isActiveStore: false,
+    isActivePlace: false,
     ...data,
   }
 }
@@ -139,7 +145,7 @@ export const makePickup = data => {
     id: pickupIdCnt++,
     date: new Date(),
     series: null,
-    store: null,
+    place: null,
     maxCollectors: 10,
     collectors: [],
     feedbackGivenBy: [],
@@ -154,7 +160,7 @@ let pickupSeriesIdCnt = 0
 export const makePickupSeries = data => {
   return {
     id: pickupSeriesIdCnt++,
-    store: null,
+    place: null,
     maxCollectors: 10,
     byDay: ['TU'],
     freq: 'WEEKLY',
@@ -163,6 +169,163 @@ export const makePickupSeries = data => {
     startDate: new Date(),
     description: '',
     datesPreview: [],
+    ...data,
+  }
+}
+
+let optionIdCnt = 0
+export const makeOption = data => {
+  return {
+    id: optionIdCnt++,
+    sumScore: null,
+    yourScore: 0,
+    meanScore: null,
+    type: 'further_discussion',
+    ...data,
+  }
+}
+
+let votingIdCnt = 0
+export const makeVoting = data => {
+  return {
+    id: votingIdCnt++,
+    acceptedOption: 74,
+    expiresAt: addDays(new Date(), 7),
+    options: [
+      makeOption({
+        type: 'further_discussion',
+      }),
+      makeOption({
+        type: 'remove_user',
+      }),
+      makeOption({
+        type: 'no_change',
+      }),
+    ],
+    participantCount: 6,
+    ...data,
+  }
+}
+
+let issueIdCnt = 0
+export const makeIssue = data => {
+  return {
+    id: issueIdCnt++,
+    createdAt: subDays(new Date(), 7 + 6),
+    topic: 'I complain about this user',
+    type: 'conflictResolution',
+    createdBy: makeUser(),
+    affectedUser: makeUser(),
+    group: makeGroup(),
+    status: 'ongoing',
+    isCancelled: false,
+    isOngoing: true,
+    votings: [
+      makeVoting({
+        expiresAt: subDays(new Date(), 7 + 6),
+      }),
+      makeVoting({
+        expiresAt: subDays(new Date(), 6),
+      }),
+      makeVoting({
+        expiresAt: addDays(new Date(), 1),
+      }),
+    ],
+    ...data,
+  }
+}
+
+let historyIdCnt = 0
+export const makeHistory = data => {
+  return {
+    id: historyIdCnt++,
+    date: subHours(new Date(), 26),
+    typus: 'GROUP_CHANGE_PHOTO',
+    group: makeGroup(),
+    users: [ 222 ],
+    store: null,
+    message: 'Changed the group picture',
+    ...data,
+  }
+}
+
+export const makeReaction = date => {
+  return {
+    name: 'thumbsup',
+    users: [makeUser()],
+    reacted: false,
+    message: 'a reacted with :thumbsup:',
+    ...date,
+  }
+}
+
+let messageIdCnt = 0
+export const makeMessage = data => {
+  const id = messageIdCnt++
+  return {
+    id,
+    content: `hello ${id}!`,
+    author: makeUser(),
+    createdAt: new Date(),
+    updatedAt: new Date(),
+    editedAt: new Date(),
+    receivedVia: '',
+    isEditable: false,
+    reactions: [makeReaction()],
+    isUnread: false,
+    isEdited: false,
+    groupId: null,
+    thread: null,
+    threadMeta: null,
+    saveStatus: statusMocks.default(),
+    ...data,
+  }
+}
+
+export const makeThread = data => {
+  return {
+    ...makeMessage(),
+    messages: [
+      makeMessage(),
+      makeMessage(),
+      makeMessage(),
+    ],
+    sendStatus: statusMocks.default(),
+    fetchStatus: statusMocks.default(),
+    canFetchFuture: false,
+    fetchFutureStatus: statusMocks.default(),
+    ...data,
+  }
+}
+
+let conversationIdCnt = 0
+export const makeConversation = data => {
+  return {
+    id: conversationIdCnt++,
+    participants: [makeUser()],
+    updatedAt: new Date(),
+    seenUpTo: null,
+    unreadMessageCount: 0,
+    notifications: 'all',
+    muted: false,
+    isClosed: false,
+    isParticipant: true,
+    type: null,
+    targetId: null,
+    target: null,
+    sendStatus: statusMocks.default(),
+    fetchStatus: statusMocks.default(),
+    canFetchPast: false,
+    fetchPastStatus: statusMocks.default(),
+    canFetchFuture: false,
+    fetchFutureStatus: statusMocks.default(),
+    markStatus: statusMocks.default(),
+    messages: [
+      makeMessage(),
+      makeMessage(),
+      makeMessage(),
+      makeMessage(),
+    ],
     ...data,
   }
 }

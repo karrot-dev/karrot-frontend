@@ -39,8 +39,8 @@
         :error-label="firstError('mobileNumber')"
       >
         <QInput
-          type="tel"
           v-model="edit.mobileNumber"
+          type="tel"
         />
       </QField>
 
@@ -76,8 +76,8 @@
 
         <QBtn
           type="button"
-          @click="reset"
           :disable="!hasChanged"
+          @click="reset"
         >
           {{ $t('BUTTON.RESET') }}
         </QBtn>
@@ -125,6 +125,7 @@ export default {
       for (let field of ['address', 'latitude', 'longitude']) {
         if (this.hasError(field)) return this.firstError(field)
       }
+      return null
     },
     hasDisplayNameError () {
       return !!this.displayNameError

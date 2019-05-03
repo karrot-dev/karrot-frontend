@@ -4,8 +4,8 @@
     class="no-margin"
   >
     <QList
-      class="full-width"
       v-if="entry"
+      class="full-width"
     >
       <QItem
         class="bg-tertiary"
@@ -66,14 +66,14 @@
       </QItem>
 
       <QItem
-        v-if="entry.store && entry.store.name"
+        v-if="entry.place && entry.place.name"
         dense
       >
         <QItemSide icon="fas fa-fw fa-shopping-cart" />
         <QItemMain>
           <QItemTile label>
-            <RouterLink :to="{name: 'store', params: { groupId: entry.store.group.id, storeId: entry.store.id }}">
-              {{ entry.store.name }}
+            <RouterLink :to="{name: 'place', params: { groupId: entry.place.group.id, placeId: entry.place.id }}">
+              {{ entry.place.name }}
             </RouterLink>
           </QItemTile>
         </QItemMain>
@@ -101,8 +101,10 @@
     <QList>
       <QItem class="text-white">
         <QBtn
+          color="secondary"
           @click="toggleRaw()"
-          color="secondary">Raw data
+        >
+          Raw data
         </QBtn>
       </QItem>
       <QItem v-if="raw">
@@ -129,12 +131,6 @@ import DateAsWords from '@/utils/components/DateAsWords'
 import HistoryPayloadDetail from '@/history/components/HistoryPayloadDetail'
 
 export default {
-  props: {
-    entry: {
-      type: Object,
-      default: null,
-    },
-  },
   components: {
     QBtn,
     QCard,
@@ -147,15 +143,21 @@ export default {
     DateAsWords,
     HistoryPayloadDetail,
   },
-  methods: {
-    toggleRaw () {
-      this.raw = !this.raw
+  props: {
+    entry: {
+      type: Object,
+      default: null,
     },
   },
   data () {
     return {
       raw: false,
     }
+  },
+  methods: {
+    toggleRaw () {
+      this.raw = !this.raw
+    },
   },
 }
 </script>

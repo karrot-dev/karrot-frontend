@@ -34,10 +34,10 @@
     </QItem>
     <Transition name="slide-toggle">
       <div
-        @click.self="toggleDetail"
+        v-if="detailIsShown"
         class="detail-wrapper greyed"
         style="cursor: pointer"
-        v-if="detailIsShown"
+        @click.self="toggleDetail"
       >
         <HistoryDetail
           style="cursor: initial"
@@ -55,6 +55,7 @@ import HistoryDetail from '@/history/components/HistoryDetail'
 import { QItem, QItemSide, QItemMain, QItemTile } from 'quasar'
 
 export default {
+  components: { HistoryProfilePictures, HistoryDetail, DateAsWords, QItem, QItemSide, QItemMain, QItemTile },
   props: {
     entry: {
       required: true,
@@ -77,7 +78,6 @@ export default {
       this.detailIsShown = !this.detailIsShown
     },
   },
-  components: { HistoryProfilePictures, HistoryDetail, DateAsWords, QItem, QItemSide, QItemMain, QItemTile },
 }
 </script>
 <style scoped lang="stylus">

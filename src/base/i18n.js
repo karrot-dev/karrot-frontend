@@ -22,6 +22,14 @@ const defaultDateTimeFormat = {
     hour: 'numeric',
     minute: 'numeric',
   },
+  longWithDayName: {
+    year: 'numeric',
+    month: 'short',
+    day: 'numeric',
+    hour: 'numeric',
+    minute: 'numeric',
+    weekday: 'short',
+  },
   dayName: {
     weekday: 'long',
   },
@@ -50,18 +58,28 @@ const defaultDateTimeFormat = {
   },
 }
 
-let dateTimeFormats = {}
+const defaultNumberFormat = {
+  twoDigitNumber: {
+    minimumSignificantDigits: 2,
+    maximumSignificantDigits: 2,
+  },
+}
+
+const dateTimeFormats = {}
+const numberFormats = {}
 for (const locale of Object.values(locales)) {
   dateTimeFormats[locale.locale] = defaultDateTimeFormat
+  numberFormats[locale.locale] = defaultNumberFormat
 }
 
 const i18n = new VueI18n({
   // Just need to include 'en' here as it is the fallback locale
-  // All other locales are loaded on demand in store/plugins/i18n
+  // All other locales are loaded on demand in base/datastore/i18nPlugin
   messages: {
     en: require('@/locales/locale-en.json'),
   },
   dateTimeFormats,
+  numberFormats,
   fallbackLocale: 'en', // if you change this make sure to always load the locale too
 })
 export default i18n

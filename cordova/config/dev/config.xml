@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='utf-8'?>
-<widget android-versionCode="31060" id="world.karrot.dev" version="6.4.0" xmlns="http://www.w3.org/ns/widgets" xmlns:android="http://schemas.android.com/apk/res/android" xmlns:cdv="http://cordova.apache.org/ns/1.0">
+<widget id="world.karrot.dev" version="7.3.0" xmlns="http://www.w3.org/ns/widgets" xmlns:android="http://schemas.android.com/apk/res/android" xmlns:cdv="http://cordova.apache.org/ns/1.0">
     <name>Karrot Dev</name>
     <description>
         Mobile app for Karrot - Development version
@@ -7,7 +7,7 @@
     <author email="karrot@foodsaving.world" href="https://foodsaving.world">
         Foodsaving World Team
     </author>
-    <icon src="carrot_logo_144x144.png" />
+    <icon src="config/current/carrot_logo_144x144.png" />
     <content src="index.html" />
     <access origin="*" subdomains="true" />
     <allow-intent href="http://*/*" />
@@ -45,5 +45,5 @@
     <plugin name="cordova-plugin-network-information" spec="^2.0.1" />
     <plugin name="cordova-plugin-fcm-with-dependecy-updated" spec="^2.3.0" />
     <plugin name="cordova-plugin-deeplinks" spec="^1.1.0" />
-    <engine name="android" spec="^7.1.4" />
+    <engine name="android" spec="^8.0.0" />
 </widget>

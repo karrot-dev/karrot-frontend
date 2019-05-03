@@ -29,7 +29,7 @@ export default {
     unread: (state, getters) => {
       return {
         conversations: getters.conversations.filter(c => c.unreadMessageCount > 0),
-        threads: getters.threads.filter(t => t.unreadReplyCount > 0),
+        threads: getters.threads.filter(t => t.threadMeta.unreadReplyCount > 0),
       }
     },
     unreadCount: (state, getters) => {
@@ -114,7 +114,7 @@ export default {
       dispatch('updateConversationsAndRelated', conversationsAndRelated)
       dispatch('updateThreadsAndRelated', threadsAndRelated)
     },
-    updateConversationsAndRelated ({ commit, dispatch, rootState }, { conversations, messages, pickups, applications, usersInfo, meta }) {
+    updateConversationsAndRelated ({ commit, dispatch, rootState }, { conversations, messages, pickups, applications, issues, usersInfo, meta }) {
       if (conversations) {
         commit('updateConversations', conversations)
 
@@ -131,6 +131,9 @@ export default {
         commit('applications/update', applications, { root: true })
         const users = applications.map(a => a.user)
         commit('users/update', users, { root: true })
+      }
+      if (issues) {
+        commit('issues/update', issues, { root: true })
       }
       if (usersInfo) {
         // contains only limited user info, so only update if we don't have the user already

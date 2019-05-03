@@ -10,10 +10,18 @@ import dateFnsHelper from '@/utils/dateFnsHelper'
 export default {
   props: {
     date: {
-      type: Date | String, // TODO remove string, always convert to date before
+      type: [Date, String], // TODO remove string, always convert to date before
       required: true,
     },
-    allowFuture: {
+    future: {
+      type: Boolean,
+      default: false,
+    },
+    strict: {
+      type: Boolean,
+      default: false,
+    },
+    noSuffix: {
       type: Boolean,
       default: false,
     },
@@ -23,7 +31,11 @@ export default {
       return this.$d(new Date(this.date), 'long')
     },
     dateInWords () {
-      return dateFnsHelper.distanceInWordsToNow(this.date, { addSuffix: true, disallowFuture: !this.allowFuture })
+      return dateFnsHelper.distanceInWordsToNow(this.date, {
+        addSuffix: !this.noSuffix,
+        future: this.future,
+        strict: this.strict,
+      })
     },
   },
 }

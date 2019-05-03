@@ -6,8 +6,12 @@ export default connect({
   gettersToProps: {
     pending: 'applications/forCurrentGroupPending',
     otherApplications: 'applications/forCurrentGroupNonPending',
+    canFetchPast: 'applications/canFetchPast',
+    fetchPastStatus: 'applications/fetchPastStatus',
   },
-
+  actionsToProps: {
+    fetchPast: 'applications/fetchPast',
+  },
   actionsToEvents: {
     accept: 'applications/accept',
     decline: 'applications/decline',

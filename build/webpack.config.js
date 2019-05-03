@@ -59,12 +59,15 @@ module.exports = {
     host: process.env.HOST || 'localhost',
     port: 8080,
     overlay: {
-      warnings: true,
+      warnings: false,
       errors: true,
     },
     historyApiFallback: true,
     proxy: proxyTable,
     contentBase: resolve(__dirname, '../src'),
+    stats: {
+      errorDetails: true,
+    },
   },
   output: {
     path: resolve(__dirname, '../dist'),
@@ -112,6 +115,8 @@ module.exports = {
           join(projectRoot, 'src'),
           /quasar-framework\/src/,
           /\.mjs$/,
+          /\.es6.js$/,
+          /\.esm.js$/,
         ],
       },
       {

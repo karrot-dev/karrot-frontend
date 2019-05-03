@@ -41,7 +41,13 @@ export function isNetworkError (error) {
   return false
 }
 
-const defaultStatus = { pending: false, validationErrors: {}, serverError: false, networkError: false }
+const defaultStatus = {
+  pending: false,
+  validationErrors: {},
+  serverError: false,
+  networkError: false,
+  startedAt: null,
+}
 
 export function createMetaModule () {
   return {
@@ -113,10 +119,10 @@ export function createMetaModule () {
   }
 }
 
-export function withMeta (actions, { namespace = 'meta', idPrefix = '', findId = defaultFindId } = {}) {
+export function withMeta (actions, { namespace = 'meta', idPrefix = '', findId = defaultFindId, setCurrentId, getCurrentId } = {}) {
   const wrappedActions = {}
   for (const [actionName, action] of Object.entries(actions)) {
-    wrappedActions[actionName] = wrapAction({ namespace, actionName, action, idPrefix, findId })
+    wrappedActions[actionName] = wrapAction({ namespace, actionName, action, idPrefix, findId, setCurrentId, getCurrentId })
   }
   return wrappedActions
 }
@@ -131,11 +137,14 @@ export function defaultFindId (data) {
     return data
   }
   if (typeof data === 'string') {
+    let number = null
     try {
-      parseInt(data, 10)
-      console.warn('findId: number passed as string', data)
+      number = parseInt(data, 10)
     }
     catch {}
+    if (number !== null && !Number.isNaN(number)) {
+      console.warn('findId: number passed as string', data)
+    }
     return data
   }
   else if (typeof data === 'object' && data.hasOwnProperty('id')) {
@@ -143,22 +152,47 @@ export function defaultFindId (data) {
   }
 }
 
-function wrapAction ({ namespace, actionName, action, idPrefix, findId }) {
+function wrapAction ({ namespace, actionName, action, idPrefix, findId, setCurrentId, getCurrentId }) {
   return async function (ctx, data) {
-    const { commit, getters } = ctx
+    const { commit, dispatch, getters } = ctx
     let id = findId(data)
 
     if (id && idPrefix) id = idPrefix + id
 
-    if (getters[`${namespace}/status`](actionName, id).pending) {
-      throw new Error(`action already pending for ${actionName}/${id}`)
+    const status = getters[`${namespace}/status`](actionName, id)
+    if (status.pending && (new Date() - status.startedAt) < 1000) {
+      console.warn(`debounce: action recently started and still pending (${actionName} ${id})`)
+      return
+    }
+
+    const isActionAborted = () => {
+      if (!getCurrentId) return false
+      return getCurrentId(ctx) !== id
+    }
+
+    // wrap commit and dispatch to throw an error if the action should be aborted
+    arguments[0] = {
+      ...ctx,
+      commit () {
+        if (isActionAborted()) {
+          throw createActionAbortedError()
+        }
+        commit.apply(this, arguments)
+      },
+      async dispatch () {
+        if (isActionAborted()) {
+          throw createActionAbortedError()
+        }
+        return dispatch.apply(this, arguments)
+      },
     }
 
     const runAction = () => action.apply(this, arguments)
     const update = value => commit(`${namespace}/update`, { actionName, id, value })
     const clear = () => commit(`${namespace}/clear`, { actionName, id })
 
-    update({ pending: true })
+    update({ pending: true, startedAt: new Date() })
+    if (setCurrentId) setCurrentId(ctx, data)
 
     try {
       const result = await runAction()
@@ -166,7 +200,11 @@ function wrapAction ({ namespace, actionName, action, idPrefix, findId }) {
       return result
     }
     catch (error) {
-      if (isValidationError(error)) {
+      if (error.type === 'ActionAborted') {
+        console.warn('action aborted!', actionName, id)
+        clear()
+      }
+      else if (isValidationError(error)) {
         update({ validationErrors: error.response.data })
         if (error.response.status === 403) {
           commit('auth/setMaybeLoggedOut', true, { root: true })
@@ -215,6 +253,12 @@ export function createRouteRedirect (data) {
   return Object.assign(new Error(), {
     type: 'RouteRedirect',
     data,
+  })
+}
+
+export function createActionAbortedError () {
+  return Object.assign(new Error(), {
+    type: 'ActionAborted',
   })
 }
 

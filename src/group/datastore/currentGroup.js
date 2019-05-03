@@ -21,6 +21,7 @@ export default {
         ...group,
         isPlayground,
         hasPhoto: group.photoUrls && group.photoUrls.fullSize,
+        hasLocation: group.latitude && group.longitude,
         membership: getters.membership,
         memberships: getters.memberships,
         activeAgreement: getters.activeAgreement,
@@ -52,7 +53,7 @@ export default {
       return rootGetters['conversations/getForGroup'](state.current.id)
     },
     conversationUnreadCount: (state, getters) => getters.conversation && getters.conversation.unreadMessageCount,
-    id: (state) => state.current && state.current.id,
+    id: (state) => state.id,
     // for current user:
     membership: (state, getters, rootState, rootGetters) => getters.memberships[rootGetters['auth/userId']],
     roles: (state, getters) => getters.membership ? getters.value.membership.roles : [],
@@ -126,41 +127,34 @@ export default {
 
     }),
 
-    async select ({ dispatch, getters, rootGetters }, { groupId }) {
-      if (!groupId) throw createRouteRedirect({ name: 'groupsGallery' })
-      const oldGroupId = getters.id
-      if (oldGroupId === groupId) return
+    ...withMeta({
+      async select ({ dispatch, getters, rootGetters }, { groupId }) {
+        if (!groupId) throw createRouteRedirect({ name: 'groupsGallery' })
 
-      await dispatch('fetch', groupId)
+        await dispatch('fetch', groupId)
 
-      // aborting, another group has been loaded while we waited
-      if (getters.id && getters.id !== groupId && getters.id !== oldGroupId) return
+        const hasError = getters['meta/status']('fetch', groupId).hasValidationErrors
 
-      const hasError = getters['meta/status']('fetch', groupId).hasValidationErrors
-
-      if (hasError) {
-        const groupExists = Boolean(rootGetters['groups/get'](groupId))
-        if (groupExists) {
-          dispatch('toasts/show', {
-            message: 'GROUP.NONMEMBER_REDIRECT',
-            config: {
-              type: 'negative',
-            },
-          }, { root: true })
+        if (hasError) {
+          const groupExists = Boolean(rootGetters['groups/get'](groupId))
+          if (groupExists) {
+            dispatch('toasts/show', {
+              message: 'GROUP.NONMEMBER_REDIRECT',
+              config: {
+                type: 'negative',
+              },
+            }, { root: true })
+          }
+          throw createRouteRedirect({ name: 'groupPreview', params: { groupPreviewId: groupId } })
         }
-        throw createRouteRedirect({ name: 'groupPreview', params: { groupPreviewId: groupId } })
-      }
 
-      // TODO move to plugins
-      dispatch('pickups/fetchListByGroupId', groupId, { root: true })
-      dispatch('pickups/fetchFeedbackPossible', groupId, { root: true })
-
-      dispatch('applications/fetchByGroupId', { groupId }, { root: true })
-
-      dispatch('conversations/fetchGroupConversation', groupId, { root: true })
-
-      dispatch('auth/maybeBackgroundSave', { currentGroup: groupId }, { root: true })
-    },
+        dispatch('auth/maybeBackgroundSave', { currentGroup: groupId }, { root: true })
+      },
+    }, {
+      findId: ({ groupId }) => groupId,
+      setCurrentId: ({ commit }, { groupId }) => commit('setId', groupId),
+      getCurrentId: ({ state }) => state.id,
+    }),
 
     selectFromCurrentUser ({ dispatch, getters, rootGetters }) {
       const selected = getters.id
@@ -175,7 +169,6 @@ export default {
 
       // TODO move clear logic to downstream module plugins
       commit('agreements/clear', null, { root: true })
-      commit('pickups/clear', null, { root: true })
       dispatch('feedback/clear', null, { root: true })
     },
 

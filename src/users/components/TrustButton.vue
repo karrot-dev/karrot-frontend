@@ -3,10 +3,10 @@
     round
     :size="small ? 'sm' : null"
     :color="isEditor ? 'primary' : 'white'"
-    @click="showing = true"
     class="karrot-button"
     :class="!isEditor && 'small'"
     :title="tooltip"
+    @click="showing = true"
   >
     <CircleProgress
       v-if="!isEditor"
@@ -171,6 +171,7 @@ export default {
           trustNeeded: this.trustNeeded,
         })
       }
+      return ''
     },
     trustNeeded () {
       return this.threshold - this.trustedBy.length

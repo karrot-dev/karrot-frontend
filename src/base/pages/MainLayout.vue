@@ -31,8 +31,8 @@
           >
             <QBtn
               flat
-              @click="toggleSidenav"
               class="mobile-only"
+              @click="toggleSidenav"
             >
               <i class="fas fa-bars relative-position">
                 <div
@@ -50,21 +50,30 @@
         <!-- mobile sidenav -->
         <QLayoutDrawer
           v-if="$q.platform.is.mobile"
-          side="left"
-          :width="sidenavWidth"
-          :breakpoint="Number.MAX_SAFE_INTEGER"
           v-model="showSidenav"
-          :overlay="false"
-          @click.native="toggleSidenav"
+          side="left"
+          :breakpoint="Number.MAX_SAFE_INTEGER"
+          :overlay="true"
         >
           <SidenavTitle @click="toggleSidenav" />
           <RouterView name="sidenav" />
-          <MobileSidenav/>
+          <MobileSidenav />
+          <QItem
+            link
+            @click.native="toggleAbout()"
+          >
+            <QItemSide class="text-center">
+              <KarrotLogo class="logo" />
+            </QItemSide>
+            <QItemMain>
+              {{ $t("GLOBAL.ABOUT_KARROT") }}
+            </QItemMain>
+          </QItem>
         </QLayoutDrawer>
 
         <!-- desktop sidenav -->
         <QLayoutDrawer
-          v-else-if="isLoggedIn && currentGroup && hasSidenavComponent && !disableDesktopSidenav"
+          v-else-if="isLoggedIn && currentGroupId && hasSidenavComponent && !disableDesktopSidenav"
           side="left"
           :width="sidenavWidth"
           :breakpoint="0"
@@ -73,56 +82,84 @@
           @click.native="toggleSidenav"
         >
           <RouterView name="sidenav" />
+          <QItem
+            link
+            @click.native="toggleAbout()"
+          >
+            <QItemSide class="text-center">
+              <KarrotLogo class="logo" />
+            </QItemSide>
+            <QItemMain>
+              {{ $t("GLOBAL.ABOUT_KARROT") }}
+            </QItemMain>
+          </QItem>
         </QLayoutDrawer>
 
         <QPageContainer>
           <Banners />
-          <RouterView name="fullPage"/>
-          <div class="mainContent row justify-between no-wrap">
-            <div class="mainContent-page">
-              <Component
-                :is="disablePullToRefresh ? 'div' : 'QPullToRefresh'"
-                :handler="refresh"
-                style="max-height: none"
-              >
-                <RouterView />
-              </Component>
-            </div>
-          </div>
-          <KFooter v-if="$q.platform.is.mobile && !isLoggedIn" />
+          <QPage
+            class="mainContent-page"
+            :class="{fullpage}"
+          >
+            <Component
+              :is="disablePullToRefresh ? 'div' : 'QPullToRefresh'"
+              :handler="refresh"
+              style="max-height: none"
+            >
+              <RouterView
+                v-if="$q.platform.is.mobile && hasDetailComponent"
+                name="detail"
+              />
+              <RouterView v-else />
+            </Component>
+          </QPage>
         </QPageContainer>
+
         <QLayoutDrawer
           v-if="!$q.platform.is.mobile"
           side="right"
-          :width="400"
+          :width="detailWidth"
           :overlay="false"
           :breakpoint="0"
-          :value="showRightDrawer"
+          :value="isDetailActive || hasDetailComponent"
         >
-          <DetailSidebar @close="clearDetail"/>
+          <DetailSidebar
+            v-if="isDetailActive"
+            @close="clearDetail"
+          />
+          <RouterView
+            v-else
+            name="detail"
+          />
         </QLayoutDrawer>
+
         <QLayoutFooter>
+          <RouterView name="footer" />
           <UnsupportedBrowserWarning
             v-if="$q.platform.is.mobile && !$keyboard.is.open"
           />
-          <KFooter v-if="!$q.platform.is.mobile" />
         </QLayoutFooter>
         <QWindowResizeObservable @resize="onResize" />
       </QLayout>
     </div>
+
+    <QModal v-model="showAbout">
+      <KAbout @close="toggleAbout()" />
+    </QModal>
   </div>
 </template>
 
 <script>
 import KTopbar from '@/topbar/components/KTopbar'
 import KTopbarLoggedOut from '@/topbar/components/LoggedOut/KTopbar'
-import KFooter from '@/base/components/KFooter'
+import KAbout from '@/base/components/KAbout'
 import SidenavTitle from '@/sidenav/components/SidenavTitle'
 import MobileSidenav from '@/sidenav/components/MobileSidenav'
 import Banners from '@/alerts/components/Banners'
 import RouteError from '@/base/components/RouteError'
 import UnsupportedBrowserWarning from '@/base/components/UnsupportedBrowserWarning'
 import DetailSidebar from '@/messages/components/DetailSidebar'
+import KarrotLogo from '@/logo/components/KarrotLogo'
 import { mapGetters, mapActions } from 'vuex'
 import {
   dom,
@@ -130,8 +167,14 @@ import {
   QLayoutHeader,
   QLayoutDrawer,
   QLayoutFooter,
+  QModal,
   QPageContainer,
+  QPage,
   QWindowResizeObservable,
+  QItem,
+  QIcon,
+  QItemMain,
+  QItemSide,
   QBtn,
   QPullToRefresh,
 } from 'quasar'
@@ -140,10 +183,12 @@ const { width } = dom
 
 export default {
   components: {
+    KarrotLogo,
+    QModal,
     DetailSidebar,
+    KAbout,
     KTopbar,
     KTopbarLoggedOut,
-    KFooter,
     SidenavTitle,
     MobileSidenav,
     QLayout,
@@ -151,8 +196,13 @@ export default {
     QLayoutDrawer,
     QLayoutFooter,
     QPageContainer,
+    QPage,
     QWindowResizeObservable,
     QBtn,
+    QIcon,
+    QItem,
+    QItemMain,
+    QItemSide,
     QPullToRefresh,
     Banners,
     RouteError,
@@ -161,31 +211,20 @@ export default {
   data () {
     return {
       showSidenav: false,
+      showAbout: false,
       windowWidth: width(window),
     }
-  },
-  methods: {
-    ...mapActions({
-      clearDetail: 'detail/clear',
-      refresh: 'refresh/refresh',
-    }),
-    toggleSidenav () {
-      this.showSidenav = !this.showSidenav
-    },
-    onResize ({ width }) {
-      this.windowWidth = width
-    },
   },
   computed: {
     ...mapGetters({
       isLoggedIn: 'auth/isLoggedIn',
       routeError: 'routeError/status',
-      showRightDrawer: 'detail/isActive',
+      isDetailActive: 'detail/isActive',
       disableDesktopSidenav: 'route/disableDesktopSidenav',
       messagesUnseenCount: 'latestMessages/unseenCount',
       messagesAllUnreadMuted: 'latestMessages/allUnreadMuted',
       notificationsUnseenCount: 'notifications/unseenCount',
-      currentGroup: 'currentGroup/value',
+      currentGroupId: 'currentGroup/id',
     }),
     layoutView () {
       if (this.$q.platform.is.mobile) {
@@ -199,6 +238,11 @@ export default {
       }
       return this.windowWidth > 1000 ? 380 : 280
     },
+    detailWidth () {
+      const contentWidth = this.windowWidth - this.sidenavWidth
+      const columnWidth = Math.floor(contentWidth / 2)
+      return Math.min(500, Math.max(280, columnWidth))
+    },
     routerComponents () {
       const components = {}
       for (const m of this.$route.matched) {
@@ -208,8 +252,14 @@ export default {
       }
       return components
     },
+    fullpage () {
+      return this.$route.matched.some(m => m.meta.fullpage)
+    },
     hasSidenavComponent () {
       return Boolean(this.routerComponents.sidenav)
+    },
+    hasDetailComponent () {
+      return this.$route.matched.some(({ meta }) => meta && meta.isDetail === true)
     },
     hasNotification () {
       return this.messagesUnseenCount > 0 || this.notificationsUnseenCount > 0
@@ -221,6 +271,21 @@ export default {
       if (!this.$q.platform.is.mobile) return true
       if (this.$route.matched.some(({ meta }) => meta && meta.disablePullToRefresh)) return true
       return false
+    },
+  },
+  methods: {
+    ...mapActions({
+      clearDetail: 'detail/clear',
+      refresh: 'refresh/refresh',
+    }),
+    toggleSidenav () {
+      this.showSidenav = !this.showSidenav
+    },
+    toggleAbout () {
+      this.showAbout = !this.showAbout
+    },
+    onResize ({ width }) {
+      this.windowWidth = width
     },
   },
 }
@@ -236,21 +301,16 @@ export default {
   max-width 30em
   margin-left auto
   margin-right .4em
-body.desktop .mainContent
-  max-width 1500px
-  margin auto
-  .mainContent-page
-    min-width 350px
-    max-width: 57em
-    margin-bottom 4.5em
-    margin-left auto
-    margin-right auto
+body.desktop .mainContent-page:not(.fullpage)
+  min-width 350px
+  max-width: 57em
+  margin-bottom 4.5em
+  margin-left auto
+  margin-right auto
 .background
   background-image url('../assets/repeating_grey.png')
   background-size: 600px
   background-attachment:fixed
-.q-layout-footer
-  box-shadow none
 .k-highlight-dot
   position absolute
   right -4px
@@ -258,6 +318,8 @@ body.desktop .mainContent
   width .5rem
   height .5rem
   border-radius 50%
+.logo
+  height 25px
 </style>
 
 <style lang="stylus">

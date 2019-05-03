@@ -8,6 +8,7 @@ import router from '@/base/router'
 function initialState () {
   return {
     entries: {},
+    activeUserProfileId: null,
     activeUserProfile: null,
     resetPasswordSuccess: false,
     resendVerificationCodeSuccess: false,
@@ -51,7 +52,10 @@ export default {
       if (!state.activeUserProfile) return
 
       const user = state.activeUserProfile
-      const groups = user.groups && user.groups.map(rootGetters['groups/get']).sort((a, b) => a.name.localeCompare(b.name))
+      const groups = user.groups && user.groups
+        .map(rootGetters['groups/get'])
+        .filter(v => !!v)
+        .sort((a, b) => a.name.localeCompare(b.name))
 
       return {
         ...getters.enrich(user),
@@ -59,7 +63,7 @@ export default {
       }
     },
     activeUserId: state => state.activeUserProfile && state.activeUserProfile.id,
-    ...metaStatuses(['signup', 'requestResetPassword', 'resetPassword', 'resendVerificationCode', 'requestDeleteAccount']),
+    ...metaStatuses(['signup', 'requestResetPassword', 'resetPassword', 'resendVerificationCode', 'requestDeleteAccount', 'fetch']),
     resetPasswordSuccess: state => state.resetPasswordSuccess,
     resendVerificationCodeSuccess: state => state.resendVerificationCodeSuccess,
   },
@@ -99,20 +103,27 @@ export default {
       },
     }),
 
-    async selectUser ({ commit }, { userId }) {
-      try {
-        commit('setProfile', await users.getProfile(userId))
-      }
-      catch (error) {
+    ...withMeta({
+      async selectUser ({ commit }, { userId }) {
         try {
-          commit('setProfile', await users.getInfo(userId))
+          commit('setProfile', await users.getProfile(userId))
         }
         catch (error) {
-          const data = { translation: 'PROFILE.INACCESSIBLE_OR_DELETED' }
-          throw createRouteError(data)
+          try {
+            commit('setProfile', await users.getInfo(userId))
+          }
+          catch (error) {
+            const data = { translation: 'PROFILE.INACCESSIBLE_OR_DELETED' }
+            throw createRouteError(data)
+          }
         }
-      }
-    },
+      },
+    }, {
+      findId: ({ userId }) => userId,
+      setCurrentId: ({ commit }, { userId }) => commit('setProfileId', userId),
+      getCurrentId: ({ state }) => state.activeUserProfileId,
+    }),
+
     clearSelectedUser ({ commit }) {
       commit('setProfile', null)
     },
@@ -150,6 +161,9 @@ export default {
     setProfile (state, userProfile) {
       state.activeUserProfile = userProfile
     },
+    setProfileId (state, id) {
+      state.activeUserProfileId = id
+    },
     update (state, users) {
       for (const user of users) {
         Vue.set(state.entries, user.id, user)
@@ -174,6 +188,7 @@ export const plugin = datastore => {
       lastLoadedGroupId = groupId
       datastore.dispatch('currentGroup/selectFromCurrentUser')
       datastore.dispatch('history/fetch', { userId: profileUser.id, groupId })
+      datastore.dispatch('issues/fetchOngoingByGroupId', { groupId })
     }
     if (!profileUser) {
       lastLoadedGroupId = null

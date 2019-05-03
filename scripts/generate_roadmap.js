@@ -40,18 +40,13 @@ const FOOTER = `
 
 Rough ideas, have been mentioned by someone.
 
-- Public landing page for groups (improvement of groupPreview page)
-- Add "to do" events (generalized from pickup date) https://github.com/yunity/karrot-frontend/issues/359
-- Make stores groupable in custom categories, offer different colored map markers per category and history filter options
 - Sharing of things: text+image with a tag system
 - Undo functionality for changes
-- Work teams for groups (foodsaving platform)
-- Quiz
 - Make karrot into a multisharing platform
 `
 
 async function run ({ owner, repo }) {
-  const result = await octokit.issues.getMilestones({ owner, repo })
+  const result = await octokit.issues.listMilestonesForRepo({ owner, repo })
   const output = [HEADER.trim()]
   for (const milestone of result.data.sort(sortMilestones)) {
     output.push(`## ${milestone.title}`)
@@ -66,7 +61,7 @@ async function run ({ owner, repo }) {
 }
 
 async function getIssues ({ owner, repo, milestone }) {
-  const result = await octokit.issues.getForRepo({ owner, repo, milestone })
+  const result = await octokit.issues.listForRepo({ owner, repo, milestone })
   return result.data
 }
 

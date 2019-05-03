@@ -42,8 +42,8 @@
           >
             <RouterLink
               place="userName"
-              @click.native.stop=""
               :to="{name: 'user', params: { userId: application.decidedBy.id }}"
+              @click.native.stop
             >
               {{ application.decidedBy.displayName }}
             </RouterLink>
@@ -118,6 +118,35 @@ export default {
       type: Object,
     },
   },
+  computed: {
+    userName () {
+      return this.application.user.displayName
+    },
+    submittedOn () {
+      const date = this.$d(this.application.createdAt, 'long')
+      return this.$t('APPLICATION.SUBMITTED_ON', { date: date })
+    },
+    decision () {
+      switch (this.application.status) {
+        case 'accepted':
+          return 'GROUP.JOINED'
+        case 'declined':
+          return 'GROUP.DECLINED'
+        case 'withdrawn':
+          return 'APPLICATION.WITHDRAWN'
+      }
+      return null
+    },
+    personDeciding () {
+      switch (this.application.status) {
+        case 'accepted':
+          return 'GROUP.ADDED_BY'
+        case 'declined':
+          return 'GROUP.DECLINED_BY'
+      }
+      return null
+    },
+  },
   methods: {
     openChat () {
       this.$emit('openChat', this.application)
@@ -145,33 +174,6 @@ export default {
       })
         .then(() => this.$emit('decline', this.application.id))
         .catch(() => {})
-    },
-  },
-  computed: {
-    userName () {
-      return this.application.user.displayName
-    },
-    submittedOn () {
-      const date = this.$d(this.application.createdAt, 'long')
-      return this.$t('APPLICATION.SUBMITTED_ON', { date: date })
-    },
-    decision () {
-      switch (this.application.status) {
-        case 'accepted':
-          return 'GROUP.JOINED'
-        case 'declined':
-          return 'GROUP.DECLINED'
-        case 'withdrawn':
-          return 'APPLICATION.WITHDRAWN'
-      }
-    },
-    personDeciding () {
-      switch (this.application.status) {
-        case 'accepted':
-          return 'GROUP.ADDED_BY'
-        case 'declined':
-          return 'GROUP.DECLINED_BY'
-      }
     },
   },
 }

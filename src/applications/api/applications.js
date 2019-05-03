@@ -1,4 +1,4 @@
-import axios from '@/base/api/axios'
+import axios, { parseCursor } from '@/base/api/axios'
 import { convert as convertConversation } from '@/messages/api/conversations'
 
 export default {
@@ -11,7 +11,22 @@ export default {
   },
 
   async list (filter) {
-    return convert((await axios.get('/api/applications/', { params: filter })).data)
+    const response = (await axios.get('/api/applications/', { params: filter })).data
+    return {
+      ...response,
+      next: parseCursor(response.next),
+      results: convert(response.results),
+    }
+  },
+
+  async listMore (cursor) {
+    const response = (await axios.get(cursor)).data
+    return {
+      ...response,
+      next: parseCursor(response.next),
+      prev: parseCursor(response.prev),
+      results: convert(response.results),
+    }
   },
 
   async accept (applicationId) {

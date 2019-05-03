@@ -12,7 +12,7 @@ const group = factories.makeGroup({
     [currentUser.id]: factories.makeMembership(),
   },
 })
-const store = factories.makeStore({
+const place = factories.makePlace({
   group,
 })
 
@@ -70,15 +70,15 @@ const notifications = [
     context: {
       group,
       pickup: factories.makePickup({
-        store,
+        place,
       }),
     },
   },
   {
-    type: 'new_store',
+    type: 'new_place',
     context: {
       group,
-      store,
+      place,
       user: factories.makeUser(),
     },
   },
@@ -101,9 +101,9 @@ const notifications = [
     expiresAt: addHours(new Date(), 2),
     context: {
       group,
-      store,
+      place,
       pickup: factories.makePickup({
-        store,
+        place,
       }),
     },
   },
@@ -111,9 +111,9 @@ const notifications = [
     type: 'pickup_disabled',
     context: {
       group,
-      store,
+      place,
       pickup: factories.makePickup({
-        store,
+        place,
       }),
     },
   },
@@ -121,9 +121,9 @@ const notifications = [
     type: 'pickup_enabled',
     context: {
       group,
-      store,
+      place,
       pickup: factories.makePickup({
-        store,
+        place,
       }),
     },
   },
@@ -131,10 +131,69 @@ const notifications = [
     type: 'pickup_moved',
     context: {
       group,
-      store,
+      place,
       pickup: factories.makePickup({
-        store,
+        place,
       }),
+    },
+  },
+  {
+    type: 'conflict_resolution_created',
+    context: {
+      group,
+      issue: factories.makeIssue(),
+      affectedUser: factories.makeUser(),
+    },
+  },
+  {
+    type: 'conflict_resolution_created_about_you',
+    context: {
+      group,
+      issue: factories.makeIssue(),
+    },
+  },
+  {
+    type: 'conflict_resolution_continued',
+    context: {
+      group,
+      issue: factories.makeIssue(),
+      affectedUser: factories.makeUser(),
+    },
+  },
+  {
+    type: 'conflict_resolution_continued_about_you',
+    context: {
+      group,
+      issue: factories.makeIssue(),
+    },
+  },
+  {
+    type: 'conflict_resolution_decided',
+    context: {
+      group,
+      issue: factories.makeIssue(),
+      affectedUser: factories.makeUser(),
+    },
+  },
+  {
+    type: 'conflict_resolution_decided_about_you',
+    context: {
+      group,
+      issue: factories.makeIssue(),
+    },
+  },
+  {
+    type: 'conflict_resolution_you_were_removed',
+    context: {
+      group,
+    },
+  },
+  {
+    type: 'voting_ends_soon',
+    expiresAt: addHours(new Date(), 2),
+    context: {
+      group,
+      issue: factories.makeIssue(),
     },
   },
 ].map(factories.makeNotification)

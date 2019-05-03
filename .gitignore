@@ -9,7 +9,6 @@ yarn-error.log
 nbproject/
 storybook-static
 coverage/
-e2e-screenshots
 .env
 docs-dist/
 karrot-backend/
@@ -19,5 +18,6 @@ cordova/plugins
 cordova/config/current
 cordova/getpassword
 cordova/ul_web_hooks
+cordova/www
 updateLocalesHelper/env
 .nvmrc

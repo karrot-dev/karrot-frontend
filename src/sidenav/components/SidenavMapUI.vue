@@ -1,18 +1,18 @@
 <template>
   <GroupMap
-    v-if="currentGroup"
     class="map"
     controls="mini"
     :height="260"
-    :stores="stores"
+    :places="places"
     :users="users"
     :show-users="showUsers"
-    :show-stores="showStores"
-    :selected-store="selectedStore"
+    :show-places="showPlaces"
+    :selected-place="selectedPlace"
     :selected-user="selectedUser"
     :current-group="currentGroup"
+    :is-editor="isEditor"
     @toggleUsers="$emit('toggleUsers')"
-    @toggleStores="$emit('toggleStores')"
+    @togglePlaces="$emit('togglePlaces')"
   />
 </template>
 
@@ -22,7 +22,7 @@ import GroupMap from '@/maps/components/GroupMap'
 export default {
   components: { GroupMap },
   props: {
-    stores: {
+    places: {
       default: () => [],
       type: Array,
     },
@@ -30,7 +30,7 @@ export default {
       default: () => [],
       type: Array,
     },
-    selectedStore: {
+    selectedPlace: {
       default: null,
       type: Object,
     },
@@ -38,7 +38,7 @@ export default {
       default: null,
       type: Object,
     },
-    showStores: {
+    showPlaces: {
       default: true,
       type: Boolean,
     },
@@ -49,6 +49,10 @@ export default {
     currentGroup: {
       default: null,
       type: Object,
+    },
+    isEditor: {
+      default: false,
+      type: Boolean,
     },
   },
 }

@@ -3,23 +3,26 @@
     class="edit-box bg-primary splash-md"
   >
     <div
+      v-if="hasInvalidToken"
       class="white-box shadow-6 q-py-md q-px-sm"
-      v-if="hasInvalidToken">
+    >
       <h1><QIcon name="fas fa-sad-tear" /> {{ $t('GLOBAL.INVALID_LINK') }}</h1>
     </div>
     <div
+      v-else-if="hasSuccess"
       class="white-box shadow-6 q-py-md q-px-sm"
-      v-else-if="hasSuccess">
+    >
       <h1><QIcon name="fas fa-smile-beam" /> {{ $t('UNSUBSCRIBE.SUCCESS') }}</h1>
     </div>
     <form
       v-else
-      @submit.prevent="save">
+      @submit.prevent="save"
+    >
       <div class="white-box shadow-6 q-py-md q-px-sm">
         <QOptionGroup
+          v-model="choice"
           class="q-ma-sm"
           type="radio"
-          v-model="choice"
           :options="options"
         />
       </div>
@@ -43,16 +46,19 @@
   </div>
 </template>
 <script>
-import { QOptionGroup, QIcon } from 'quasar-framework'
+import {
+  QOptionGroup,
+  QIcon,
+  QBtn,
+} from 'quasar'
 import api from '@/unsubscribe/api/unsubscribe'
-import QBtn from 'quasar-framework/src/components/btn/QBtn'
 import { parseToken } from '@/unsubscribe/utils'
 
 export default {
   components: {
-    QBtn,
     QOptionGroup,
     QIcon,
+    QBtn,
   },
   data () {
     return {
@@ -62,33 +68,6 @@ export default {
       token: this.$router.currentRoute.params.token,
       choice: null,
     }
-  },
-  methods: {
-    async save () {
-      this.hasError = false
-      try {
-        await api.unsubscribe(this.token, { choice: this.choice })
-        this.hasSuccess = true
-      }
-      catch (err) {
-        this.hasError = true
-      }
-    },
-    parseToken (token) {
-      try {
-        return parseToken(token)
-      }
-      catch (err) {
-        this.hasInvalidToken = true
-      }
-    },
-    ensureDefaultChoice () {
-      if (this.choice || this.options.length === 0) return
-      this.choice = this.options[0].value
-    },
-  },
-  mounted () {
-    this.ensureDefaultChoice()
   },
   computed: {
     tokenData () {
@@ -126,6 +105,33 @@ export default {
         })
       }
       return options
+    },
+  },
+  mounted () {
+    this.ensureDefaultChoice()
+  },
+  methods: {
+    async save () {
+      this.hasError = false
+      try {
+        await api.unsubscribe(this.token, { choice: this.choice })
+        this.hasSuccess = true
+      }
+      catch (err) {
+        this.hasError = true
+      }
+    },
+    parseToken (token) {
+      try {
+        return parseToken(token)
+      }
+      catch (err) {
+        this.hasInvalidToken = true
+      }
+    },
+    ensureDefaultChoice () {
+      if (this.choice || this.options.length === 0) return
+      this.choice = this.options[0].value
     },
   },
 }

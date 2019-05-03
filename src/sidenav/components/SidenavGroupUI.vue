@@ -1,9 +1,5 @@
 <template>
-  <SidenavBox
-    @toggle="$emit('toggleBox')"
-    :expanded="$q.platform.is.mobile || expanded"
-    :expandable="!$q.platform.is.mobile"
-  >
+  <SidenavBox>
     <template slot="icon">
       <QIcon name="fas fa-fw fa-home" />
     </template>
@@ -14,13 +10,6 @@
       slot="tools"
       class="tools"
     >
-      <QChip
-        v-if="!expanded && wallUnreadCount > 0"
-        small
-        color="secondary"
-      >
-        {{ cappedWallUnreadCount }}
-      </QChip>
       <QBtn
         flat
         dense
@@ -36,7 +25,7 @@
         round
       >
         <QIcon name="fas fa-fw fa-ellipsis-v" />
-        <GroupOptions/>
+        <GroupOptions />
       </QBtn>
     </div>
 
@@ -81,9 +70,17 @@
             {{ $t("PICKUP_FEEDBACK.TITLE") }}
           </QItemMain>
         </QItem>
+        <QItem :to="{ name: 'issueList', params: { groupId } }">
+          <QItemSide class="text-center">
+            <QIcon name="fas fa-vote-yea" />
+          </QItemSide>
+          <QItemMain>
+            {{ $t("ISSUE.TITLE") }}
+          </QItemMain>
+        </QItem>
         <QItem :to="{ name: 'groupDescription', params: { groupId } }">
           <QItemSide class="text-center">
-            <i class="far fa-address-card"/>
+            <i class="far fa-address-card" />
           </QItemSide>
           <QItemMain>
             {{ $t("GROUP.DESCRIPTION") }}
@@ -99,7 +96,7 @@
         </QItem>
         <QItem :to="{ name: 'groupHistory', params: { groupId } }">
           <QItemSide class="text-center">
-            <i class="far fa-clock"/>
+            <i class="far fa-clock" />
           </QItemSide>
           <QItemMain>
             {{ $t("GROUP.HISTORY") }}
@@ -130,23 +127,19 @@ export default {
   components: {
     SidenavBox, GroupOptions, QBtn, QList, QItem, QItemSide, QItemMain, QIcon, QTooltip, QChip,
   },
-  computed: {
-    cappedWallUnreadCount () {
-      return this.wallUnreadCount > 99 ? '99+' : this.wallUnreadCount
-    },
-  },
   props: {
     groupId: {
       default: null,
       type: Number,
     },
-    expanded: {
-      default: true,
-      type: Boolean,
-    },
     wallUnreadCount: {
       default: 0,
       type: Number,
+    },
+  },
+  computed: {
+    cappedWallUnreadCount () {
+      return this.wallUnreadCount > 99 ? '99+' : this.wallUnreadCount
     },
   },
 }

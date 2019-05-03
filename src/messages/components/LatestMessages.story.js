@@ -1,6 +1,7 @@
 import { storybookDefaults as defaults } from '>/helpers'
 import { storiesOf } from '@storybook/vue'
 import { action } from '@storybook/addon-actions'
+import * as factories from '>/enrichedFactories'
 
 import LatestMessageItem from './LatestMessageItem'
 
@@ -38,6 +39,27 @@ storiesOf('Latest Messages', module)
       props: {
         user,
         message,
+        muted: true,
+      },
+      on,
+    }),
+  }))
+  .add('flag: closed', () => defaults({
+    render: h => h(LatestMessageItem, {
+      props: {
+        application,
+        message,
+        closed: true,
+      },
+      on,
+    }),
+  }))
+  .add('flag: closed+muted', () => defaults({
+    render: h => h(LatestMessageItem, {
+      props: {
+        application,
+        message,
+        closed: true,
         muted: true,
       },
       on,
@@ -82,6 +104,15 @@ storiesOf('Latest Messages', module)
       on,
     }),
   }))
+  .add('type: place wall', () => defaults({
+    render: h => h(LatestMessageItem, {
+      props: {
+        place: factories.makePlace(),
+        message,
+      },
+      on,
+    }),
+  }))
   .add('type: pickup chat', () => defaults({
     render: h => h(LatestMessageItem, {
       props: {
@@ -95,6 +126,15 @@ storiesOf('Latest Messages', module)
     render: h => h(LatestMessageItem, {
       props: {
         application,
+        message,
+      },
+      on,
+    }),
+  }))
+  .add('type: issue chat', () => defaults({
+    render: h => h(LatestMessageItem, {
+      props: {
+        issue: factories.makeIssue(),
         message,
       },
       on,

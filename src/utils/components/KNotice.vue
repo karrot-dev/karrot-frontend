@@ -9,16 +9,16 @@
       :class="$q.platform.is.mobile ? 'column' : 'row no-wrap'"
     >
       <div class="icon">
-        <slot name="icon"/>
+        <slot name="icon" />
       </div>
       <div :class="!$q.platform.is.mobile ? 'q-ml-md' : 'text-center'">
         <div
           :class="$q.platform.is.mobile && 'q-mt-sm'"
         >
-          <slot/>
+          <slot />
         </div>
         <div class="desc q-mt-md">
-          <slot name="desc"/>
+          <slot name="desc" />
         </div>
       </div>
     </QCard>

@@ -11,10 +11,10 @@
         <div class="white-box">
           <QField icon="fas fa-envelope">
             <QInput
+              v-model="email"
               :autofocus="true"
               :float-label="$t('PASSWORDRESET.EMAIL')"
               type="email"
-              v-model="email"
               autocorrect="off"
               autocapitalize="off"
               spellcheck="false"
@@ -27,7 +27,7 @@
           v-if="hasAnyError"
           class="error"
         >
-          <i class="fas fa-exclamation-triangle"/>
+          <i class="fas fa-exclamation-triangle" />
           {{ anyFirstError }}
         </div>
 
@@ -47,7 +47,7 @@
             {{ $t('PASSWORDRESET.SUBMIT') }}
           </QBtn>
         </div>
-        <div style="clear: both"/>
+        <div style="clear: both" />
       </div>
     </form>
   </div>

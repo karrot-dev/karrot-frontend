@@ -11,7 +11,7 @@ export default {
   state: initialState(),
   getters: {
     all: (state, getters, rootState, rootGetters) => {
-      return state.breadcrumbs.map((item, idx) => {
+      return state.breadcrumbs.map(item => {
         if (item.type === 'currentGroup') {
           let group = rootGetters['currentGroup/value']
           if (group) {
@@ -21,12 +21,12 @@ export default {
             }
           }
         }
-        else if (item.type === 'activeStore') {
-          let store = rootGetters['stores/activeStore']
-          if (store) {
+        else if (item.type === 'activePlace') {
+          let place = rootGetters['places/activePlace']
+          if (place) {
             return {
-              name: store.name,
-              route: { name: 'store', storeId: store.id },
+              name: place.name,
+              route: { name: 'place', placeId: place.id },
             }
           }
         }
@@ -39,12 +39,20 @@ export default {
             }
           }
         }
-        if (item.type === 'activeGroupPreview') {
+        else if (item.type === 'activeGroupPreview') {
           let group = rootGetters['groups/activePreview']
           if (group) {
             return {
               name: group.name,
               route: { name: 'groupPreview', groupPreviewId: group.id },
+            }
+          }
+        }
+        else if (item.type === 'activeIssue') {
+          const issue = rootGetters['issues/current']
+          if (issue) {
+            return {
+              name: issue.affectedUser.displayName,
             }
           }
         }

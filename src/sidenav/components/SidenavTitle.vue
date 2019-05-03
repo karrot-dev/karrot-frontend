@@ -1,6 +1,12 @@
 <template>
-  <QToolbar v-if="$q.platform.is.mobile">
-    <QToolbarTitle>{{ currentGroup && currentGroup.name }}</QToolbarTitle>
+  <QToolbar
+    v-if="$q.platform.is.mobile"
+  >
+    <QToolbarTitle
+      @click.native="$emit('click')"
+    >
+      {{ currentGroup && currentGroup.name }}
+    </QToolbarTitle>
     <CommunityFeed
       @click.native="$emit('click')"
     />

@@ -99,20 +99,25 @@ export default {
     joinPlayground ({ dispatch, getters }) {
       dispatch('join', { id: getters.playground.id })
     },
-
-    async selectPreview ({ commit, getters, dispatch }, { groupPreviewId }) {
-      if (!getters.get(groupPreviewId)) {
-        try {
-          const group = await groupsInfo.get(groupPreviewId)
+    ...withMeta({
+      async selectPreview ({ commit, getters, dispatch }, { groupPreviewId }) {
+        if (!getters.get(groupPreviewId)) {
+          let group
+          try {
+            group = await groupsInfo.get(groupPreviewId)
+          }
+          catch (error) {
+            throw createRouteError({ translation: 'NOT_FOUND.EXPLANATION' })
+          }
           commit('update', [group])
         }
-        catch (error) {
-          throw createRouteError({ translation: 'NOT_FOUND.EXPLANATION' })
-        }
-      }
-      commit('setActivePreview', groupPreviewId)
-      dispatch('applications/fetchMine', null, { root: true })
-    },
+        dispatch('applications/fetchMine', null, { root: true })
+      },
+    }, {
+      findId: ({ groupPreviewId }) => groupPreviewId,
+      setCurrentId: ({ commit }, { groupPreviewId }) => commit('setActivePreview', groupPreviewId),
+      getCurrentId: ({ state }) => state.activePreviewId,
+    }),
     clearGroupPreview ({ commit }) {
       commit('setActivePreview', null)
     },

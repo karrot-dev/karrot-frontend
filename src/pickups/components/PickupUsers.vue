@@ -1,7 +1,7 @@
 <template>
   <div
-    class="row justify-start"
     ref="wrapperDiv"
+    class="row justify-start"
   >
     <QResizeObservable
       style="width: 100%"
@@ -9,24 +9,43 @@
     />
     <div
       v-for="user in pickup.collectors"
-      v-if="!user.isCurrentUser"
       :key="'collector' + user.id"
       class="relative-position pic-wrapper"
     >
-      <div
-        v-if="isNewcomer(user)"
-        class="newcomer-box"
-        :title="$t('USERDATA.NEWCOMER_GUIDANCE', { userName: user.displayName })"
-      />
-      <ProfilePicture
-        :user="user"
-        :size="size"
-        class="hoverScale"
-      />
+      <template
+        v-if="user.isCurrentUser && !pickup.hasStarted"
+      >
+        <CurrentUser
+          v-if="!isLeaving"
+          :size="size"
+          :user="currentUser"
+          :pickup="pickup"
+          @leave="$emit('leave')"
+        />
+        <div
+          v-else
+          class="emptySlots"
+          style="border-color: black"
+          :style="{ width: size + 'px', height: size + 'px' }"
+        >
+          <QSpinner :size="size - 4" />
+        </div>
+      </template>
+      <template v-else>
+        <div
+          v-if="isNewcomer(user) && !user.isCurrentUser"
+          class="newcomer-box"
+          :title="$t('USERDATA.NEWCOMER_GUIDANCE', { userName: user.displayName })"
+        />
+        <ProfilePicture
+          :user="user"
+          :size="size"
+        />
+      </template>
     </div>
 
     <div
-      v-if="isJoiningOrLeaving(pickup)"
+      v-if="isJoining && !pickup.isUserMember"
       class="emptySlots"
       style="border-color: black"
       :style="{ width: size + 'px', height: size + 'px' }"
@@ -34,27 +53,11 @@
       <QSpinner :size="size - 4" />
     </div>
 
-    <Transition
-      appear
-      :duration="{ enter: 500, leave: 0 }"
-      name="bounce"
-    >
-      <CurrentUser
-        v-if="pickup.isUserMember && !isJoiningOrLeaving(pickup)"
-        :size="size"
-        :user="currentUser"
-        :pickup="pickup"
-        class="hoverScale"
-        @leave="$emit('leave')"
-      />
-    </Transition>
-
     <UserSlot
-      v-if="!pickup.isDisabled && !pickup.isFull && !(isJoiningOrLeaving(pickup) && !pickup.isUserMember)"
+      v-if="canJoin"
       :size="size"
       :hover-user="currentUser"
       :show-join="!pickup.isUserMember"
-      :class="{hoverScale: !pickup.isUserMember}"
       @join="$emit('join')"
     />
 
@@ -62,7 +65,6 @@
       v-for="n in emptySlots"
       :key="n"
       :size="size"
-      v-if="n > 1"
     />
 
     <div
@@ -70,7 +72,7 @@
       class="emptySlots"
       :style="{ width: size + 'px', height: size + 'px' }"
     >
-      <div/>
+      <div />
       <span v-if="noNotShownEmptySlots <= 99">+ {{ noNotShownEmptySlots }}</span>
       <span v-if="noNotShownEmptySlots > 99 && !hasUnlimitedPlaces">...</span>
       <span v-if="noNotShownEmptySlots > 99 && hasUnlimitedPlaces">+ ∞</span>
@@ -84,9 +86,20 @@ import UserSlot from './UserSlot'
 import EmptySlot from './EmptySlot'
 import CurrentUser from './CurrentUser'
 import { mapGetters } from 'vuex'
-import { QSpinner, QResizeObservable } from 'quasar'
+import {
+  QSpinner,
+  QResizeObservable,
+} from 'quasar'
 
 export default {
+  components: {
+    ProfilePicture,
+    UserSlot,
+    EmptySlot,
+    CurrentUser,
+    QSpinner,
+    QResizeObservable,
+  },
   props: {
     pickup: {
       type: Object,
@@ -106,26 +119,18 @@ export default {
       slotsPerRow: 6,
     }
   },
-  components: {
-    ProfilePicture, UserSlot, EmptySlot, CurrentUser, QSpinner, QResizeObservable,
-  },
-  methods: {
-    isJoiningOrLeaving (pickup) {
-      return pickup.joinStatus.pending || pickup.leaveStatus.pending
-    },
-    calculateSlotsPerRow () {
-      if (this.$refs.wrapperDiv) {
-        this.slotsPerRow = Math.floor(this.$refs.wrapperDiv.clientWidth / (this.size + 3.8))
-      }
-    },
-    isNewcomer (user) {
-      return user.membership && !user.membership.isEditor
-    },
-  },
   computed: {
     ...mapGetters({
       currentUser: 'auth/user',
     }),
+    isJoining () {
+      // if request is in progress and user is not member yet (watches out for websocket updates!)
+      return this.pickup.joinStatus.pending && !this.pickup.isUserMember
+    },
+    isLeaving () {
+      // if request is in progress and user has not left yet
+      return this.pickup.leaveStatus.pending && this.pickup.isUserMember
+    },
     hasUnlimitedPlaces () {
       return this.pickup.maxCollectors === null
     },
@@ -134,7 +139,8 @@ export default {
         return 9999999999
       }
       if (this.pickup.collectors) {
-        return Math.max(this.pickup.maxCollectors - this.pickup.collectors.length, 0)
+        const removeOne = (this.isJoining || this.canJoin) ? 1 : 0
+        return Math.max(this.pickup.maxCollectors - this.pickup.collectors.length - removeOne, 0)
       }
       return 0
     },
@@ -148,6 +154,26 @@ export default {
     },
     noNotShownEmptySlots () {
       return this.emptyPlaces - this.emptySlots
+    },
+    canJoin () {
+      const pickup = this.pickup
+      if (pickup.isDisabled || pickup.isFull || pickup.isUserMember) {
+        return false
+      }
+      if (this.isJoining || this.isLeaving) {
+        return false
+      }
+      return true
+    },
+  },
+  methods: {
+    calculateSlotsPerRow () {
+      if (this.$refs.wrapperDiv) {
+        this.slotsPerRow = Math.floor(this.$refs.wrapperDiv.clientWidth / (this.size + 3.8))
+      }
+    },
+    isNewcomer (user) {
+      return user.membership && !user.membership.isEditor
     },
   },
 }
@@ -176,29 +202,4 @@ export default {
     display inline-block
     height 100%
     vertical-align middle
-
-.bounce-enter-active
-  animation bounceIn .4s
-
-.bounce-leave-active
-  display none
-
-@keyframes bounceIn{
-  0% {
-    opacity: 0;
-    transform: scale(0.3) translate3d(0,0,0);
-  }
-  60%{
-    opacity: 0.9;
-    transform: scale(1.1);
-  }
-  80%{
-    opacity: 1;
-    transform: scale(0.89);
-  }
-  100%{
-    opacity: 1;
-    transform: scale(1) translate3d(0,0,0);
-  }
-}
 </style>

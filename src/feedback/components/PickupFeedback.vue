@@ -1,7 +1,7 @@
 <template>
   <div class="pickup-feedback-wrapper">
     <QCard
-      v-if="pickups.length > 0 || editFeedback"
+      v-if="pickups.length > 0 || editFeedbackId || fetchFeedbackPossibleStatus.pending"
       class="no-mobile-margin no-shadow grey-border"
     >
       <RandomArt
@@ -17,19 +17,20 @@
             >
           </div>
           <div class="image-and-text-right">
-            <h4>{{ $t(editFeedback ? 'PICKUP_FEEDBACK.EDIT' : 'PICKUP_FEEDBACK.HEADER') }}</h4>
+            <h4>{{ $t(editFeedbackId ? 'PICKUP_FEEDBACK.EDIT' : 'PICKUP_FEEDBACK.HEADER') }}</h4>
             <p>
               <QField
-                v-if="!editFeedback"
+                v-if="!editFeedbackId"
                 dark
-                class="grey-font">
+                class="grey-font"
+              >
                 <QSelect
                   v-model="select"
                   :options="feedbackOptions"
                 />
               </QField>
-              <span v-else>
-                {{ getDateWithStore(editFeedback.about) }}
+              <span v-else-if="editFeedback">
+                {{ getDateWithPlace(editFeedback.about) }}
               </span>
             </p>
           </div>
@@ -41,8 +42,8 @@
           <p>
             <ProfilePicture
               v-for="user in fellowCollectors"
-              :user="user"
               :key="user.id"
+              :user="user"
               :size="35"
               class="q-ml-xs"
             />
@@ -58,7 +59,7 @@
     </QCard>
     <KNotice v-else>
       <template slot="icon">
-        <i class="fas fa-bed"/>
+        <i class="fas fa-bed" />
       </template>
       {{ $t('FEEDBACKLIST.NO_DONE_PICKUPS') }}
       <template slot="desc">
@@ -66,19 +67,20 @@
       </template>
     </KNotice>
     <QCard
-      class="no-shadow grey-border store-feedback"
-      v-if="select && feedbackForStore.length !== 0"
+      v-if="select && feedbackForPlace.length !== 0"
+      class="no-shadow grey-border place-feedback"
     >
       <RandomArt
         class="randomBanner"
-        :seed="select.store.id"
-        type="banner"/>
+        :seed="select.place.id"
+        type="banner"
+      />
       <h4
+        v-t="{ path: 'PICKUP_FEEDBACK.PREVIOUS', args: { store: select.place.name } }"
         class="generic-padding"
-        v-t="{ path: 'PICKUP_FEEDBACK.PREVIOUS', args: { store: select.store.name } }"
       />
       <FeedbackList
-        :feedback="feedbackForStore"
+        :feedback="feedbackForPlace"
         :status="fetchStatus"
       />
     </QCard>
@@ -110,17 +112,13 @@ export default {
   },
   props: {
     pickups: { required: true, type: Array },
+    editFeedbackId: { default: null, type: Number },
     editFeedback: { default: null, type: Object },
     existingFeedback: { required: true, type: Array },
     saveStatus: { required: true, type: Object },
     fetchStatus: { required: true, type: Object },
+    fetchFeedbackPossibleStatus: { type: Object, default: () => ({}) },
     seedId: { default: 0, type: Number },
-  },
-  methods: {
-    getDateWithStore (pickup) {
-      if (!pickup) return ''
-      return `${this.$d(pickup.date, 'long')} (${pickup.store.name})`
-    },
   },
   computed: {
     feedbackDefault () {
@@ -154,22 +152,29 @@ export default {
       if (!list) return []
       return list.map((e) => {
         return {
-          label: this.getDateWithStore(e),
+          label: this.getDateWithPlace(e),
           value: e,
         }
       })
     },
-    feedbackForStore () {
+    feedbackForPlace () {
       if (!this.select) return []
-      let filtered = this.existingFeedback.filter(e => e.about && e.about.store.id === this.select.store.id)
-      if (this.editFeedback) {
-        filtered = filtered.filter(e => e.id !== this.editFeedback.id)
+      let filtered = this.existingFeedback.filter(e => e.about && e.about.place.id === this.select.place.id)
+      if (this.editFeedbackId) {
+        filtered = filtered.filter(e => e.id !== this.editFeedbackId)
       }
       return filtered
     },
     fellowCollectors () {
       if (!this.select) return []
       return this.select.collectors.filter(u => !u.isCurrentUser)
+    },
+  },
+  methods: {
+    getDateWithPlace (pickup) {
+      if (!pickup) return ''
+      const { name } = pickup.place || {}
+      return `${this.$d(pickup.date, 'long')} (${name || ''})`
     },
   },
 }
@@ -188,7 +193,7 @@ export default {
     width: 100%
     padding 0 1em
     margin 0 auto
-.store-feedback
+.place-feedback
   margin-top 2.5em !important
   .randomBanner
     display: block

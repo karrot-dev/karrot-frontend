@@ -1,31 +1,34 @@
 <template>
-  <a
-    @click.stop="$emit('leave')"
-    class="user-slot-wrapper"
+  <div
+    class="user-slot-wrapper relative-position"
     :style="{ width: size + 'px', height: size + 'px' }"
+    @click.stop="$emit('leave')"
   >
-    <div class="hoverShow">
+    <ProfilePicture
+      class="profile-picture"
+      :user="user"
+      :size="size"
+      :is-link="false"
+    />
+    <div
+      class="absolute-full leave-icon"
+      :style="{ 'font-size': size*0.8 + 'px' }"
+      :title="$t('PICKUPLIST.ITEM.LEAVE')"
+    >
       <i
-        v-if="!pickup.hasStarted"
-        :style="{fontSize: (size - 9) + 'px'}"
         class="fas fa-fw fa-times"
-        :title="$t('PICKUPLIST.ITEM.LEAVE')"
       />
     </div>
-    <div class="hoverHide">
-      <ProfilePicture
-        :user="user"
-        :size="size"
-        :is-link="false"
-      />
-    </div>
-  </a>
+  </div>
 </template>
 
 <script>
 import ProfilePicture from '@/users/components/ProfilePicture'
 
 export default {
+  components: {
+    ProfilePicture,
+  },
   props: {
     size: {
       type: Number,
@@ -40,9 +43,6 @@ export default {
       required: true,
     },
   },
-  components: {
-    ProfilePicture,
-  },
 }
 </script>
 
@@ -51,21 +51,17 @@ export default {
 
 .user-slot-wrapper
   cursor pointer
-  color $negative
-  .hoverShow
-    display none
+  .leave-icon
+    visibility hidden
+    color $negative
+    border 2px dashed
+    border-radius $borderRadius
+    text-align center
+    i
+      display inline
 .user-slot-wrapper:hover
-  display inline-block
-  border 2px dashed
-  border-radius $borderRadius
-  text-align center
-  span
-    vertical-align middle
-    font-weight 600
-  .hoverHide
-    display none
-  .hoverShow
-    display inline-block
-    height 100%
-    width 100%
+  .leave-icon
+    visibility visible
+  .profile-picture
+    visibility hidden
 </style>

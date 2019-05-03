@@ -1,11 +1,11 @@
 <template>
   <div>
-    <QSpinner v-if="isPending" />
+    <KSpinner v-show="isPending" />
     <p v-if="success">
       {{ $t('VERIFYMAIL.SUCCESS') }}
     </p>
     <p v-if="hasAnyError">
-      <i class="fas fa-exclamation-triangle"/>
+      <i class="fas fa-exclamation-triangle" />
       {{ anyFirstError }}
     </p>
     <RouterLink to="/">
@@ -20,11 +20,15 @@
 </template>
 
 <script>
-import { QSpinner, QBtn } from 'quasar'
+import { QBtn } from 'quasar'
 import statusMixin from '@/utils/mixins/statusMixin'
+import KSpinner from '@/utils/components/KSpinner'
 
 export default {
-  components: { QSpinner, QBtn },
+  components: {
+    KSpinner,
+    QBtn,
+  },
   mixins: [statusMixin],
   props: {
     success: { required: true, type: Boolean },

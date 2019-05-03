@@ -2,18 +2,19 @@
   "ENTRY": "1 entry | {count} entries",
   "GLOBAL": {
     "GITHUB_NOTE": "Development",
-    "FSWW_NOTE": "O nas",
     "COMMUNITY_NOTE": "Dołącz do nas!",
     "SERVER_ERROR": "Błąd serwera",
-    "NOT_CONNECTED": "You aren't connected to the server",
+    "NOT_CONNECTED": "Brak połączenia z serwerem",
     "INVALID_LINK": "Przepraszamy, otwarty przez Ciebie link jest nieprawidłowy.",
-    "GENERIC_ERROR": "Sorry, something went wrong",
-    "SEARCH_NOT_FOUND": "Nie znaleziono"
+    "GENERIC_ERROR": "Ups, coś poszło nie tak...",
+    "SEARCH_NOT_FOUND": "Nie znaleziono",
+    "ABOUT_KARROT": "About Karrot"
   },
   "USERDATA": {
     "EMAIL": "E-mail",
     "MOBILE_NUMBER": "Numer telefonu",
     "PROFILE_TITLE": "Konto",
+    "PRIVATE_MESSAGE": "Send a private message to {userName}",
     "PASSWORD": "Hasło",
     "CONFIRM_PASSWORD": "Potwierdź hasło",
     "USERNAME": "Imię",
@@ -40,7 +41,7 @@
     "LOGOUT_SUCCESS": "Zostałaś/-eś wylogowana/-y!",
     "YOU_TRUST_USER": "Zaufałaś/-eś {userName} w {groupName}.",
     "OTHER_PEOPLE_TRUST_USER": "{otherUser} zaufał/-a {userName} w {groupName}. | {count} osób zaufało {userName} w {groupName}.",
-    "OTHER_PEOPLE_TRUST_YOU": "{otherUser} trusts you in {groupName}. | {count} people trust you in {groupName}.",
+    "OTHER_PEOPLE_TRUST_YOU": "{otherUser}zaufał/a Tobie w {groupName}. | {count}osób zaufało Tobie w {groupName}.",
     "PEOPLE_TRUST_USER": "Ty i {otherUser} zaufaliście {userName} w {groupName}. | Ty i {count} osób zaufało {userName} w {groupName}.",
     "FIRST_TRUST": "Zostań pierwszym użytkownikiem, który zaufał {userName} w {groupName}!",
     "NEWCOMER": "Adept",
@@ -70,6 +71,7 @@
     "LEAVE": "Opuść",
     "PREVIEW": "Podgląd",
     "BACK": "Wstecz",
+    "NEXT": "Next",
     "SEARCH": "Szukaj",
     "OF_COURSE": "Tak, oczywiście!",
     "YES": "Tak",
@@ -89,9 +91,9 @@
     "DECLINE": "Odrzuć",
     "WITHDRAW": "Wycofaj się",
     "SHOW_MORE": "Pokaż więcej",
-    "ENABLE": "Enable",
-    "DISABLE": "Disable",
-    "UNSUBSCRIBE": "Unsubscribe"
+    "ENABLE": "Aktywuj",
+    "DISABLE": "Dezaktywuj",
+    "UNSUBSCRIBE": "Wypisz się"
   },
   "VALIDATION": {
     "MINLENGTH": "Musisz użyć więcej niż {min} znaków.",
@@ -115,6 +117,7 @@
     "PRIVATE_DESCRIPTION_TITLE": "Opis grupy",
     "DESCRIPTION_VERBOSE": "Opis grupy widoczny dla członków",
     "PUBLIC_DESCRIPTION": "Tekst widoczny przed dołączeniem do grupy",
+    "WELCOMEMESSAGE_VERBOSE": "Welcome message sent to new members",
     "LOGO": "Group logo",
     "SET_LOGO": "Click to upload your group logo!",
     "APPLICATIONS": "Zgłoszenia",
@@ -133,7 +136,6 @@
     "SHOW_INACTIVE": "Pokaż nieaktywne grupy",
     "STORES": "Punkty odbioru",
     "HOME": "Strona główna",
-    "CURRENT_STORE": "Obecny punkt odbioru",
     "HISTORY": "Historia",
     "DESCRIPTION": "Opis",
     "ADDRESS": "Adres",
@@ -156,11 +158,15 @@
       },
       "daily_pickup_notification": {
         "NAME": "Powiadomienia o odbiorach",
-        "DESCRIPTION": "Przypomina Ci o nadchodzących odbiorach, na które się zapisałaś/-eś oraz o odbiorach, na które jeszcze nikt się nie zapisał albo na które są jeszcze wolne miejsca."
+        "DESCRIPTION": "Przypomina Ci o nadchodzących odbiorach, na które się zapisałaś/-eś oraz o odbiorach, na które jeszcze nikt się nie zapisał albo na które są jeszcze wolne miejsca w Twoich ulubionych punktach."
       },
       "new_application": {
         "NAME": "Nowe zgłoszenia",
         "DESCRIPTION": "Wskazuje, gdy nowa osoba chce dołączyć do grupy"
+      },
+      "conflict_resolution": {
+        "NAME": "New conflict resolution processes",
+        "DESCRIPTION": "Tells you when a new conflict resolution process has been started in your group"
       }
     },
     "PLAYGROUND_INFO": "To specjalna grupa w trybie piaskownicy, gdzie nie musisz martwić się o to, że coś zepsujesz. Odkryj wszystkie funkcje, klikaj, gdzie tylko chcesz i baw się dobrze!",
@@ -181,7 +187,6 @@
   "STOREDETAIL": {
     "DIRECTIONS": "Pokaż trasę",
     "EDIT": "Edytuj punkt odbioru",
-    "MANAGE": "Zarządzaj odbiorami",
     "ARCHIVED": "Ten punkt odbioru został przeniesiony do archiwum",
     "INACTIVE": "Ten punkt odbioru obecnie nie współpracuje.",
     "CHANGE_STATUS": "Możesz zmienić status w zakładce Ustawienia.",
@@ -206,6 +211,16 @@
     "HIDE_ARCHIVED": "Ukryj zarchiwizowane punkty odbioru",
     "SHOW_ALL": "Pokaż wszystkie punkty odbioru",
     "SHOW_ACTIVE_ONLY": "Pokaż tylko aktywne punkty odbioru"
+  },
+  "PLACEWALL": {
+    "SUBSCRIBED_USERS": "{count} people have marked this store as favourite",
+    "SUBSCRIPTION": {
+      "HEADER": "Czy chcesz oznaczyć ten punkt jako ulubiony?",
+      "YES": "Tak",
+      "YES_TEXT": "Shows available pickups on the group wall and sends emails about upcoming pickups.",
+      "NO": "Nie",
+      "NO_TEXT": "None of the above. You can still sign up for pickups though."
+    }
   },
   "PICKUPMANAGE": {
     "TITLE": "Zarządzaj odbiorami",
@@ -305,19 +320,25 @@
     "COMMENT_HELPER": "Co powinni wiedzieć ratownicy, którzy zapisują się na ten odbiór?",
     "UNLIMITED": "bez ograniczeń",
     "DIFFERS_WARNING": "This value differs from the default. To undo this change, click on the arrow button and save the changes.",
-    "ENABLE_TITLE": "Enable pickup?",
-    "DISABLE_TITLE": "Disable pickup?",
+    "ENABLE_TITLE": "Aktywować odbiór?",
+    "DISABLE_TITLE": "Dezaktywować odbiór?",
     "ENABLE_DISABLE_MESSAGE": "Users who joined this pickup will get a notification. You can change this text to provide a reason:",
-    "EXCEPTIONS_TITLE": "Check your pickups",
+    "EXCEPTIONS_TITLE": "Sprawdź swoje odbiory",
     "EXCEPTIONS_MESSAGE": "Some upcoming pickups don't match the settings of this recurring pickup. Have a look below at '{upcomingLabel}' to change or disable pickups, if needed."
   },
   "CREATESTORE": {
     "TITLE": "Dodaj nowy punkt odbioru"
   },
   "PICKUPLIST": {
-    "AVAILABLE": "Czeka Cię odbiór w najbliższych dniach! | W najbliższych dniach czeka Cię {count} odbiorów!",
+    "FILTER": {
+      "ALL": "Wszystkie odbiory",
+      "EMPTY": "Odbiory, na które nikt się nie zapisał",
+      "FREE": "Odbiory z wolnymi okienkami"
+    },
+    "AVAILABLE": "Dostępny jest jeden odbiór w Twoich ulubionych punktach w najbliższych dniach! | Dostępne są {count} odbiory w Twoich ulubionych punktach w najbliższych dniach!",
     "AVAILABLE_FEEDBACK": "Możesz dodać komentarz do odbioru | Możesz dodać komentarz do {count} odbiorów",
     "JOINEDNOTICE": "Masz jeden nadchodzący odbiór | Masz {count} nadchodzące odbiory",
+    "AVAILABLE_FROM_STORES": "Lista pokazuje dostępne odbiory w Twoich ulubionych punktach w najbliższych dniach. Aby zobaczyć wszystkie odbiory, wejdź w sekcję \"Odbiory\" lub wybierz konkretny punkt z panelu bocznego.",
     "ITEM": {
       "LEAVE": "Zrezygnuj",
       "JOIN": "Zapisz się",
@@ -329,8 +350,8 @@
     "NONE": "Brak nadchodzących odbiorów",
     "NONE_HINT": "Możesz dodać nowe odbiory na stronie punktu odbioru.",
     "STORE_NONE_HINT": "Możesz dodać nowe odbiory na stronie zarządzania odbiorami.",
-    "PICKUP_DISABLED": "This pickup has been disabled.",
-    "PICKUP_STARTED": "This pickup has already started."
+    "PICKUP_DISABLED": "Odbiór został zdezaktywowany.",
+    "PICKUP_STARTED": "Odbiór już się rozpoczął."
   },
   "FEEDBACKLIST": {
     "SAVED_FOOD": "W tym punkcie uratowano już ponad 1 kg żywności. Dziękujemy! | W tym punkcie uratowano już {amount} kg żywności. Oby tak dalej!",
@@ -409,6 +430,7 @@
     "GROUP_LEAVE_INACTIVE": "was removed due to inactivity",
     "GROUP_CHANGE_PHOTO": "changed the group logo",
     "GROUP_DELETE_PHOTO": "deleted the group logo",
+    "MEMBER_REMOVED": "was removed due to group decision",
     "NOTHING_HAPPENEND": "Jeszcze nic się nie wydarzyło...",
     "DETAILS": "Więcej informacji"
   },
@@ -436,9 +458,26 @@
     "NEW_STORE": "Utworzono {storeName}",
     "NEW_MEMBER": "{userName} dołączył/-a do grupy",
     "PICKUP_UPCOMING": "Przypomnienie: masz odbiór o {time}",
-    "PICKUP_DISABLED": "Pickup at {dateTime} was disabled",
-    "PICKUP_ENABLED": "Pickup at {dateTime} was enabled again",
-    "PICKUP_MOVED": "Pickup was moved to {dateTime}"
+    "PICKUP_DISABLED": "Odbiór w dniu {dateTime} został zdezaktywowany",
+    "PICKUP_ENABLED": "Odbiór w dniu {dateTime} został ponownie zaktywowany",
+    "PICKUP_MOVED": "Odbiór został przeniesiony na {dateTime}",
+    "CONFLICT_RESOLUTION_CREATED": "Join the discussion about a conflict with {userName}",
+    "CONFLICT_RESOLUTION_CREATED_ABOUT_YOU": "A conflict resolution process was started with you",
+    "CONFLICT_RESOLUTION_CONTINUED": "The conflict resolution process with {userName} continues",
+    "CONFLICT_RESOLUTION_CONTINUED_ABOUT_YOU": "The conflict resolution process with you continues",
+    "CONFLICT_RESOLUTION_DECIDED": "The conflict resolution process with {userName} was decided",
+    "CONFLICT_RESOLUTION_DECIDED_ABOUT_YOU": "The conflict resolution process with you was decided",
+    "CONFLICT_RESOLUTION_YOU_WERE_REMOVED": "You were removed from the group",
+    "VOTING_ENDS_SOON": "Voting ends soon, don't forget to participate!"
+  },
+  "NOTIFICATION_TOGGLE": {
+    "HEADER": "W jaki sposób chcesz otrzymywać powiadomienia o nowych wiadomościach w tej konwersacji?",
+    "ALL": "all",
+    "ALL_TEXT": "Via app/website, email and push notifications.",
+    "SOME": "some",
+    "SOME_TEXT": "Via app/website.",
+    "NONE": "none",
+    "NONE_TEXT": "No notifications."
   },
   "OUTDATED_BROWSER": {
     "MESSAGE": "Twoja przeglądarka nie jest wspierana. {upgradeBrowser}, aby cieszyć się wszystkimi funkcjami.",
@@ -483,8 +522,6 @@
   "WALL": {
     "WRITE_MESSAGE": "Napisz wiadomość...",
     "WRITE_FIRST_MESSAGE": "Napisz pierwszą wiadomość...",
-    "DISABLE_NOTIFICATION_EMAILS": "Włączono powiadomienia e-mail, kliknij aby wyłączyć",
-    "ENABLE_NOTIFICATION_EMAILS": "Wyłączono powiadomienia e-mail, kliknij aby włączyć",
     "VERIFY_EMAIL_FOR_NOTIFICATIONS": "Zweryfikuj swój adres e-mail, aby móc odbierać powiadomienia",
     "RECEIVED_VIA_EMAIL": "Ta wiadomość została wysłana za pośrednictwem e-maila"
   },
@@ -503,7 +540,9 @@
     },
     "MESSAGE_NOT_FOUND": "Nie znaleziono wiadomości",
     "NO_CONVERSATIONS": "Brak konwersacji.",
-    "MUTED": "Powiadomienia są wyłączone"
+    "MUTED": "Powiadomienia są wyłączone",
+    "CLOSED": "This conversation has been closed automatically.",
+    "NOT_PARTICIPATED": "By sending a message, you will be subscribed to notifications about this conversation."
   },
   "STORESTATUS": {
     "ACTIVE": "Współpracuje",
@@ -540,6 +579,78 @@
     "WHAT": "What does it mean to be inactive?",
     "HELP": "Everyone who did not log into the group for {dayCount} days or more counts as inactive. These users will not receive notification emails anymore."
   },
+  "CONFLICT": {
+    "SETUP_HEADER": "Is there a conflict with {user}?",
+    "STATEMENT": "Statement",
+    "STEPPER1a": "You are about to start a group-wide conflict resolution process!",
+    "STEPPER1b": "This will involve all members with editing permissions to find the best way to proceed.",
+    "STEPPER2a": "Thank you for caring for your community!",
+    "STEPPER2b": "It is important to address social issues, although it can be unpleasant sometimes. Thank you for your courage!",
+    "STEPPER3a": "Here's what will happen:",
+    "STEPPER3b": "This process will start a chat and a vote.",
+    "STEPPER3c": "The chat will be visible for members with editing permissions and includes {userName}.",
+    "STEPPER3d": "The voting is anonymous. It will go on for {votingDuration} days. During this time all voters can change their minds and vote differently as many times as they want.",
+    "STEPPER4a": "Please explain why you are starting this conflict resolution process!",
+    "STEPPER4b": "Tell your group what made you think this process is justified and needed. This statement will be visible to {userName} and group members with editing permissions.",
+    "FIND_OUT_MORE": "Find out more!",
+    "INITIAL": "Information",
+    "WITH": "This process is to resolve a conflict with {userName}",
+    "VOTING": {
+      "HEADLINE": "How do you want to proceed with the ongoing conflict with {userName}?"
+    },
+    "REQUIREMENTS": {
+      "ACTIVE_EDITORS": "Your group has {activeEditorsCount} active users with editing permissions. You need {requiredCount} to start a conflict resolution process.",
+      "NEWCOMER": "Before you can start a conflict resolution process, you need to receive more trust and gain editing permissions. In the meantime, please ask a fellow group member to start the process for you."
+    },
+    "INFO": {
+      "TITLE": "How does this process work?",
+      "MESSAGE": "This is a score voting in which group members with editing permissions can participate to determine how to deal with a social conflict that affects the whole group."
+    }
+  },
+  "ISSUE": {
+    "CREATION": {
+      "TOAST": "You successfully started a conflict resolution process"
+    },
+    "TITLE": "Issues",
+    "VOTE": "Vote",
+    "CHAT": "Chat",
+    "INITIATED_BY": "Initiated by {initiatorName}",
+    "PAST": "Past issues",
+    "PREVIOUS_VOTINGS": "Previous votings in this issue",
+    "PARTICIPANTS": "{count} members have been added to this discussion.",
+    "VOTING": {
+      "TIME_LEFT": "Time left to vote",
+      "BTN_START": "Vote now",
+      "SAVE": "Save",
+      "BTN_DELETE": "Delete vote",
+      "TOAST": "Your vote was successfully submitted",
+      "TOAST_DELETE": "Your vote was deleted",
+      "NO_CHANGE": "No change: {userName} stays in {groupName}",
+      "FURTHER_DISCUSSION": "Further discussion: extend time by starting another voting",
+      "REMOVE_USER": "{userName} gets removed from {groupName}",
+      "RESULTS": {
+        "KEEP_DISCUSSING": "Your group voted to keep discussing",
+        "TIME_UP": "Time is up!",
+        "TOTAL_SCORE": "Total score",
+        "ENDED_AT": "This voting round ended on {date}",
+        "PARTICIPANTS": "{number} members participated in the voting.",
+        "UNDECIDED": "Unfortunately this conflict could not be decided.",
+        "UNDECIDED_WHY": "There are two possible reasons for that:",
+        "UNDECIDED_REASON_1": "the affected user left the group while the conflict resolution process was still ongoing",
+        "UNDECIDED_REASON_2": "nobody voted on this issue"
+      },
+      "SEE_RESULTS": "See the results",
+      "SCORE_LABELS": {
+        "NEUTRAL": "neutral",
+        "SLIGHT_SUPPORT": "support",
+        "STRONG_SUPPORT": "strong support",
+        "SLIGHT_RESISTANCE": "resistance",
+        "STRONG_RESISTANCE": "strong resistance"
+      },
+      "ANONYMOUS": "Your vote will be anonymous."
+    },
+    "NO_ONGOING": "No ongoing issues."
+  },
   "UNSUBSCRIBE": {
     "HEADER": "Unsubscribe",
     "FROM_CONVERSATION": "unsubscribe from just this conversation",
@@ -548,5 +659,9 @@
     "FROM_GROUP": "unsubscribe from everything in {groupName}",
     "SUCCESS": "You were successfully unsubscribed!"
   },
-  "YOU": "Ty"
+  "THANKS": "Thank you!",
+  "ATTENTION": "Attention!",
+  "INFO": "Info",
+  "YOU": "Ty",
+  "TO": "to"
 }

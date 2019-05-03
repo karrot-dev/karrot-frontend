@@ -13,13 +13,13 @@ export default {
   components: {
     Notifications,
   },
+  mounted () {
+    this.markSeen()
+  },
   methods: {
     ...mapActions({
       markSeen: 'notifications/markSeen',
     }),
-  },
-  mounted () {
-    this.markSeen()
   },
 }
 </script>

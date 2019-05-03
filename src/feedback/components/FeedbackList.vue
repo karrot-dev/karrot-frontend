@@ -1,54 +1,60 @@
 <template>
-  <QInfiniteScroll
-    :handler="maybeFetchPast"
-    class="k-feedback-list"
-  >
+  <div class="k-feedback-list">
     <FeedbackNotice
       v-if="feedbackPossible.length > 0"
       :feedback-possible="feedbackPossible"
     />
-    <FeedbackItem
-      v-for="feedbackitem in feedback"
-      :key="feedbackitem.id"
-      :feedback="feedbackitem"
-    >
-      {{ $d(feedbackitem.createdAt, 'dateLongWithDayName') }}
-    </FeedbackItem>
-
-    <KNotice v-if="empty" >
+    <KSpinner v-show="isPending || (feedbackPossibleStatus && feedbackPossibleStatus.pending)" />
+    <KNotice v-if="empty">
       <template slot="icon">
-        <i class="fas fa-balance-scale"/>
+        <i class="fas fa-balance-scale" />
       </template>
       {{ $t('FEEDBACKLIST.NONE') }}
       <template slot="desc">
         {{ $t('FEEDBACKLIST.NONE_HINT') }}
       </template>
     </KNotice>
-    <div
-      slot="message"
-      style="width: 100%; text-align: center"
+    <QInfiniteScroll
+      v-else
+      :handler="maybeFetchPast"
     >
-      <QSpinnerDots :size="40"/>
-    </div>
-  </QInfiniteScroll>
+      <FeedbackItem
+        v-for="feedbackitem in feedback"
+        :key="feedbackitem.id"
+        :feedback="feedbackitem"
+      >
+        {{ $d(feedbackitem.createdAt, 'dateLongWithDayName') }}
+      </FeedbackItem>
+      <KSpinner slot="message" />
+    </QInfiniteScroll>
+  </div>
 </template>
 
 <script>
 import FeedbackItem from './FeedbackItem'
 import statusMixin from '@/utils/mixins/statusMixin'
 import paginationMixin from '@/utils/mixins/paginationMixin'
-import { QSpinnerDots, QInfiniteScroll } from 'quasar'
+import { QInfiniteScroll } from 'quasar'
 import KNotice from '@/utils/components/KNotice'
+import KSpinner from '@/utils/components/KSpinner'
 import FeedbackNotice from '@/group/components/FeedbackNotice'
 
 export default {
-  mixins: [statusMixin, paginationMixin],
   components: {
-    QSpinnerDots, QInfiniteScroll, FeedbackItem, KNotice, FeedbackNotice,
+    QInfiniteScroll,
+    FeedbackItem,
+    KNotice,
+    FeedbackNotice,
+    KSpinner,
   },
+  mixins: [statusMixin, paginationMixin],
   props: {
     feedback: { required: true, type: Array },
     feedbackPossible: { default: () => [], type: Array },
+    feedbackPossibleStatus: {
+      default: null,
+      type: Object,
+    },
   },
   computed: {
     empty () {

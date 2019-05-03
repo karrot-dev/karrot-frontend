@@ -24,7 +24,8 @@
       >
         <img
           v-if="group.hasPhoto"
-          :src="group.photoUrls.fullSize">
+          :src="group.photoUrls.fullSize"
+        >
         <RandomArt
           v-else
           :seed="group.id"
@@ -63,8 +64,8 @@
       <QCardSeparator />
       <QCardActions v-if="group.isMember">
         <QBtn
-          @click.stop="$emit('visit')"
           class="q-btn-flat"
+          @click.stop="$emit('visit')"
         >
           <QIcon name="fas fa-home" />
           <QTooltip>
@@ -72,8 +73,8 @@
           </QTooltip>
         </QBtn>
         <QBtn
-          @click.stop="$emit('preview')"
           class="q-btn-flat"
+          @click.stop="$emit('preview')"
         >
           <QIcon name="fas fa-info-circle" />
           <QTooltip>
@@ -134,6 +135,7 @@ export default {
       if (reduceOpacity) {
         return { opacity: 0.5 }
       }
+      return {}
     },
     myApplication () {
       if (!this.group) return
@@ -172,13 +174,12 @@ export default {
       width auto
       margin 0 auto
 
-  .fixed-height:before {
+  .fixed-height:before
     content ''
     width 100%
     height 100%
     position absolute
     left 0
     top 0
-    background linear-gradient(transparent 220px, white);
-  }
+    background linear-gradient(transparent 220px, white)
 </style>

@@ -1,12 +1,12 @@
 <template>
   <QBtn
-    @click="$emit('click')"
     class="row no-wrap items-center"
     flat
+    @click="$emit('click')"
   >
     <div
-      class="emoji"
       ref="emoji"
+      class="emoji"
     />
     <slot />
   </QBtn>
@@ -36,18 +36,18 @@ export default {
       required: true,
     },
   },
-  mounted () {
-    this.$refs.emoji.appendChild(this.emojiElement)
+  computed: {
+    emojiElement () {
+      return getEmojiElement(this.name)
+    },
   },
   watch: {
     emojiElement (emojiElement, prevEmojiElement) {
       this.$refs.emoji.replaceChild(emojiElement, prevEmojiElement)
     },
   },
-  computed: {
-    emojiElement () {
-      return getEmojiElement(this.name)
-    },
+  mounted () {
+    this.$refs.emoji.appendChild(this.emojiElement)
   },
 }
 </script>

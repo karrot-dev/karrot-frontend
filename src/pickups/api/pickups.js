@@ -1,7 +1,5 @@
 import axios, { parseCursor } from '@/base/api/axios'
 import { convert as convertConversation } from '@/messages/api/conversations'
-import { pickupRunningTime } from '@/pickups/settings'
-import subMinutes from 'date-fns/sub_minutes'
 
 export default {
 
@@ -14,7 +12,7 @@ export default {
   },
 
   async list (filter) {
-    const params = filter || { 'date_min': subMinutes(new Date(), pickupRunningTime) }
+    const params = filter || { 'date_min': new Date() }
     const response = (await axios.get('/api/pickup-dates/', { params })).data
     return {
       ...response,
@@ -27,8 +25,8 @@ export default {
     return this.list({ group: groupId, 'date_min': new Date() })
   },
 
-  async listByStoreId (storeId) {
-    return this.list({ store: storeId, 'date_min': new Date() })
+  async listByPlaceId (placeId) {
+    return this.list({ place: placeId, 'date_min': new Date() })
   },
 
   async listBySeriesId (seriesId) {
@@ -81,9 +79,11 @@ export function convertDateToRange (pickup) {
   const result = { ...pickup }
   if (pickup.date) {
     result.date = [pickup.date]
-    if (pickup.dateEnd) {
-      result.date.push(pickup.dateEnd)
-    }
+  }
+  if (pickup.dateEnd) {
+    if (!result.date) result.date = []
+    result.date[1] = pickup.dateEnd
+    delete result.dateEnd
   }
   return result
 }

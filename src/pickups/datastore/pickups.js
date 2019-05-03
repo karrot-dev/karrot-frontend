@@ -1,13 +1,11 @@
 import Vue from 'vue'
 import pickups from '@/pickups/api/pickups'
 import { createMetaModule, withMeta, isValidationError, withPrefixedIdMeta, metaStatusesWithId, metaStatuses } from '@/utils/datastore/helpers'
-import { pickupRunningTime } from '@/pickups/settings'
-import subMinutes from 'date-fns/sub_minutes'
+import addDays from 'date-fns/add_days'
 import reactiveNow from '@/utils/reactiveNow'
 
 function initialState () {
   return {
-    now: new Date(), // reactive current time
     entries: {},
   }
 }
@@ -23,61 +21,64 @@ export default {
     enrich: (state, getters, rootState, rootGetters) => pickup => {
       if (!pickup) return
       const userId = rootGetters['auth/userId']
-      const store = rootGetters['stores/get'](pickup.store)
-      const group = store && store.group
+      const place = rootGetters['places/get'](pickup.place)
+      const group = place && place.group
       return {
         ...pickup,
         isUserMember: pickup.collectors.includes(userId),
         isEmpty: pickup.collectors.length === 0,
         isFull: pickup.maxCollectors > 0 && pickup.collectors.length >= pickup.maxCollectors,
-        store,
+        place,
         group,
         collectors: pickup.collectors.map(rootGetters['users/get']),
         feedbackGivenBy: pickup.feedbackGivenBy ? pickup.feedbackGivenBy.map(rootGetters['users/get']) : [],
-        hasStarted: pickup.date <= reactiveNow.value,
+        hasStarted: pickup.date <= reactiveNow.value && pickup.dateEnd > reactiveNow.value,
         ...metaStatusesWithId(getters, ['save', 'join', 'leave'], pickup.id),
       }
     },
     upcomingAndStarted: (state, getters) => {
       return Object.values(state.entries)
-        .filter(p => p.date >= subMinutes(reactiveNow.value, pickupRunningTime))
         .map(getters.enrich)
-        .filter(p => !p.hasStarted || (p.isUserMember && p.hasStarted))
+        .filter(p => p.dateEnd > reactiveNow.value)
+        .filter(p => !p.hasStarted || p.isUserMember)
         .sort(sortByDate)
     },
     byCurrentGroup: (state, getters) => {
       return getters.upcomingAndStarted.filter(({ group }) => group && group.isCurrentGroup)
     },
-    byActiveStore: (state, getters) => {
-      return getters.byCurrentGroup.filter(({ store }) => store && store.isActiveStore)
+    byActivePlace: (state, getters) => {
+      return getters.byCurrentGroup.filter(({ place }) => place && place.isActivePlace)
     },
     joined: (state, getters) => getters.byCurrentGroup.filter(e => e.isUserMember),
     available: (state, getters) =>
       getters.byCurrentGroup
         .filter(isWithinOneWeek)
-        .filter(e => !e.isFull && !e.isUserMember && !e.isDisabled),
+        .filter(e => !e.isFull && !e.isUserMember && !e.isDisabled)
+        .filter(e => e.place.isSubscribed),
     feedbackPossibleByCurrentGroup: (state, getters) => {
       return Object.values(state.entries)
-        .filter(p => p.date < reactiveNow.value && p.feedbackDue > reactiveNow.value)
+        .filter(p => p.dateEnd < reactiveNow.value && p.feedbackDue > reactiveNow.value)
         .map(getters.enrich)
         .filter(p => p.isUserMember)
         .filter(p => p.group && p.group.isCurrentGroup)
         .filter(p => !p.feedbackGivenBy.find(u => u.isCurrentUser))
         .sort(sortByDate)
     },
-    feedbackPossibleByActiveStore: (state, getters) =>
+    feedbackPossibleByActivePlace: (state, getters) =>
       getters.feedbackPossibleByCurrentGroup
-        .filter(({ store }) => store && store.isActiveStore),
-    ...metaStatuses(['create']),
+        .filter(({ place }) => place && place.isActivePlace),
+    ...metaStatuses(['create', 'fetchFeedbackPossible']),
+    fetchingForCurrentGroup: (state, getters, rootState, rootGetters) => {
+      const currentGroupId = rootState.currentGroup.id
+      if (!currentGroupId) return false
+      const status = getters['meta/status']('fetchListByGroupId', `group/${currentGroupId}`)
+      return status.pending
+    },
   },
   actions: {
     ...withMeta({
       async fetch ({ commit }, pickupId) {
         commit('update', [await pickups.get(pickupId)])
-      },
-      async fetchList ({ commit }) {
-        // TODO implement pagination
-        commit('update', (await pickups.list()).results)
       },
       async join ({ commit, dispatch, rootGetters }, pickupId) {
         try {
@@ -110,9 +111,13 @@ export default {
         await pickups.delete(id)
         dispatch('refresh')
       },
+    }),
+    ...withMeta({
       async fetchFeedbackPossible ({ commit }, groupId) {
         commit('update', (await pickups.listFeedbackPossible(groupId)).results)
       },
+    }, {
+      findId: () => null,
     }),
 
     ...withPrefixedIdMeta('group/', {
@@ -138,10 +143,10 @@ export default {
     clear (state) {
       Object.assign(state, initialState())
     },
-    clearUpcomingForStore (state, storeId) {
+    clearUpcomingForPlace (state, placeId) {
       const now = new Date()
       Object.values(state.entries)
-        .filter(pickup => pickup.store === storeId && pickup.date >= now)
+        .filter(pickup => pickup.place === placeId && pickup.date >= now)
         .forEach(pickup => Vue.delete(state.entries, pickup.id))
     },
     update (state, pickups) {
@@ -153,7 +158,9 @@ export default {
       if (state.entries[pickupId]) Vue.delete(state.entries, pickupId)
     },
     join (state, { pickupId, userId }) {
-      state.entries[pickupId].collectors.push(userId)
+      const { collectors } = state.entries[pickupId]
+      if (collectors.includes(userId)) return
+      collectors.push(userId)
     },
     leave (state, { pickupId, userId }) {
       let { collectors } = state.entries[pickupId]
@@ -164,7 +171,7 @@ export default {
 }
 
 export function isWithinOneWeek (pickup) {
-  return pickup.date < new Date(+new Date() + 6096e5)
+  return pickup.date < addDays(reactiveNow.value, 7)
 }
 
 export function sortByDate (a, b) {

@@ -21,15 +21,91 @@ Please document your changes in this format:
 ```
 
 ## [Unreleased]
+
+## [7.3.0] - 2019-04-29
 ### Added
+- Show people who marked a place as favorite @tiltec
+- Extend emoji reaction picker, add search bar [#1421] @andreseg9726 @MacNGz
+
+### Changed
+- Show weekday of pickup in feedback list @tiltec
+- Limit community feed to "Karrot" category @tiltec
+- Place navigation moved to tabs @tiltec
+
+### Fixed
+- New thread replies didn't show a green chip in the toolbar @tiltec
+- Inline code blocks in Markdown would insert a line break @tiltec
+
+## [7.2.4] - 2019-04-11
+### Fixed
+- Users wouldn't get marked as active, regression in 7.2.2 @tiltec
+
+## [7.2.3] - 2019-04-05
+### Fixed
+- Invitation form didn't show error messages @tiltec
+- Applications wouldn't get withdrawn when the user accepts an invitation @tiltec
+
+## [7.2.2] - 2019-04-04
+### Added
+- Groups can specify a welcome message that applicants receive after they've been accepted [#1038] @cstefanj
+
+## [7.2.1] - 2019-03-29
+### Added
+- For mobile users: touch and hold on a reaction emoji to show who reacted @tiltec
+
+### Changed
+- Some design improvements for conflict resolution @djahnie
+
+### Fixed
+- Pickup "join" and "leave" history entries didn't show the date of the pickup, regression from adding pickups with end times @tiltec
+
+## [7.2.0] - 2019-03-27
+### Added
+- Conflict resolution within groups @taistadam @djahnie @tiltec @nicksellen
+
+### Changed
+- Synchronize community feed notifications with backend @tiltec
+
+## [7.1.0] - 2019-03-17
+### Added
+- Initial Marathi translation @Rahul Shinde
+
+### Changed
+- Mobile page: reduce width of sidenav @tiltec
+- Relax connectivity check timeout from 2 to 5 seconds @tiltec
+
+### Fixed
+- Previous feedback didn't show when giving/editing feedback @tiltec
+
+## [7.0.0] - 2019-03-12
+### Added
+- Add ability to specify pickups with end times [#709] @nicksellen
+- Add store wall [#986] @tiltec
+- Add feature to mark stores as favorite [#986] @tiltec
+- Add slots filter to group pickup list @tiltec
+
+### Changed
+- Allow non-collectors to read and write in pickup chat @tiltec
+- Pickups from non-favorited stores won't show up in the "available pickup" in the group wall and don't send emails about upcoming pickups @tiltec
+- Can now unsubscribe from conversations (except private conversation and threads) @tiltec
+- Show store name instead of "Current store" in sidenav @tiltec
+
+### Fixed
+- Ended conversations weren't closed if they had no messages @tiltec
+
+## [6.5.0] - 2019-02-03
+### Added
+- Close application, pickup and issue chats after they ended [#1088] @tiltec
 
 ### Changed
 - Mark latest messages as seen when visiting the menu, without the need to mark all messages as read @tiltec
 - Dim topbar buttons and make them brighter when there's something interesting in them @tiltec
+- Application list now supports pagination @tiltec
 
 ### Fixed
 - Long group names would break the applicant chat @tiltec
 - Group photo upload was broken when creating a new group, it's now hidden from the from @tiltec
+- "User became editor" bell notification would show each time when a user joins the playground group, introduced in 6.4.0 [#1140] @tiltec
 
 ## [6.4.0] - 2019-01-18
 ### Added
@@ -337,8 +413,11 @@ After months of planning and programming, the first version of ~the foodsaving t
 - **store**: create a store which belongs to a group, set up name, description, address and position of a store
 - **pick-up dates**: create a pick-up date which belongs to a store, set time and max. amount of people who can collect food, user can join/leave a pick-up date
 
+[#709]: https://github.com/yunity/karrot-frontend/issues/709
 [#891]: https://github.com/yunity/karrot-frontend/issues/891
+[#986]: https://github.com/yunity/karrot-frontend/issues/986
 [#1020]: https://github.com/yunity/karrot-frontend/issues/1020
+[#1038]: https://github.com/yunity/karrot-frontend/issues/1038
 [#1063]: https://github.com/yunity/karrot-frontend/issues/1063
 [#1065]: https://github.com/yunity/karrot-frontend/issues/1065
 [#1070]: https://github.com/yunity/karrot-frontend/issues/1070
@@ -346,17 +425,29 @@ After months of planning and programming, the first version of ~the foodsaving t
 [#1077]: https://github.com/yunity/karrot-frontend/issues/1077
 [#1079]: https://github.com/yunity/karrot-frontend/issues/1079
 [#1082]: https://github.com/yunity/karrot-frontend/issues/1082
+[#1088]: https://github.com/yunity/karrot-frontend/issues/1088
 [#1097]: https://github.com/yunity/karrot-frontend/issues/1097
 [#1099]: https://github.com/yunity/karrot-frontend/issues/1099
 [#1112]: https://github.com/yunity/karrot-frontend/issues/1112
 [#1138]: https://github.com/yunity/karrot-frontend/issues/1138
 [#1139]: https://github.com/yunity/karrot-frontend/issues/1139
+[#1140]: https://github.com/yunity/karrot-frontend/issues/1140
 [#1147]: https://github.com/yunity/karrot-frontend/issues/1147
 [#1157]: https://github.com/yunity/karrot-frontend/issues/1157
 [#1174]: https://github.com/yunity/karrot-frontend/issues/1174
 [#1178]: https://github.com/yunity/karrot-frontend/issues/1178
+[#1421]: https://github.com/yunity/karrot-frontend/issues/1421
 
-[Unreleased]: https://github.com/yunity/karrot-frontend/compare/v6.4.0...HEAD
+[Unreleased]: https://github.com/yunity/karrot-frontend/compare/v7.3.0...HEAD
+[7.3.0]: https://github.com/yunity/karrot-frontend/compare/v7.2.4...v7.3.0
+[7.2.4]: https://github.com/yunity/karrot-frontend/compare/v7.2.3...v7.2.4
+[7.2.3]: https://github.com/yunity/karrot-frontend/compare/v7.2.2...v7.2.3
+[7.2.2]: https://github.com/yunity/karrot-frontend/compare/v7.2.1...v7.2.2
+[7.2.1]: https://github.com/yunity/karrot-frontend/compare/v7.2.0...v7.2.1
+[7.2.0]: https://github.com/yunity/karrot-frontend/compare/v7.1.0...v7.2.0
+[7.1.0]: https://github.com/yunity/karrot-frontend/compare/v7.0.0...v7.1.0
+[7.0.0]: https://github.com/yunity/karrot-frontend/compare/v6.5.0...v7.0.0
+[6.5.0]: https://github.com/yunity/karrot-frontend/compare/v6.4.0...v6.5.0
 [6.4.0]: https://github.com/yunity/karrot-frontend/compare/v6.3.0...v6.4.0
 [6.3.0]: https://github.com/yunity/karrot-frontend/compare/v6.2.9...v6.3.0
 [6.2.9]: https://github.com/yunity/karrot-frontend/compare/v6.2.8...v6.2.9

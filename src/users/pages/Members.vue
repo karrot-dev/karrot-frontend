@@ -1,37 +1,40 @@
 <template>
   <QCard class="no-mobile-margin no-shadow grey-border k-members">
-    <RandomArt
-      :seed="group.id"
-      type="circles"
-    />
-    <div class="q-mx-md actionButtons">
-      <QBtn
-        small
-        round
-        color="secondary"
-        :icon="sorting === 'joinDate' ? 'fas fa-sort-alpha-down' : 'fas fa-sort-numeric-down'"
-        class="hoverScale"
-        @click="toggleSorting"
-      >
-        <QTooltip v-t="sorting === 'joinDate' ? 'GROUP.SORT_NAME' : 'GROUP.SORT_JOINDATE'" />
-      </QBtn>
-      <RouterLink
-        v-if="isEditor"
-        :to="{name: 'groupInvitations', params: { groupId: group.id }}"
-      >
+    <div class="relative-position">
+      <RandomArt
+        :seed="groupId"
+        type="circles"
+      />
+      <div class="q-mx-md actionButtons">
         <QBtn
           small
           round
           color="secondary"
-          icon="fas fa-user-plus"
+          :icon="sorting === 'joinDate' ? 'fas fa-sort-alpha-down' : 'fas fa-sort-numeric-down'"
           class="hoverScale"
+          @click="toggleSorting"
         >
-          <QTooltip v-t="'GROUP.INVITE_TITLE'" />
+          <QTooltip v-t="sorting === 'joinDate' ? 'GROUP.SORT_NAME' : 'GROUP.SORT_JOINDATE'" />
         </QBtn>
-      </RouterLink>
+        <RouterLink
+          v-if="isEditor"
+          :to="{name: 'groupInvitations', params: { groupId }}"
+        >
+          <QBtn
+            small
+            round
+            color="secondary"
+            icon="fas fa-user-plus"
+            class="hoverScale"
+          >
+            <QTooltip v-t="'GROUP.INVITE_TITLE'" />
+          </QBtn>
+        </RouterLink>
+      </div>
     </div>
+    <KSpinner v-show="fetchStatus.pending" />
     <UserList
-      class="q-pt-sm"
+      class="q-pt-md"
       :users="users"
       :group="group"
       :sorting="sorting"
@@ -44,6 +47,7 @@
 import { QCard, QBtn, QTooltip } from 'quasar'
 import UserList from '@/users/components/UserList'
 import RandomArt from '@/utils/components/RandomArt'
+import KSpinner from '@/utils/components/KSpinner'
 
 import {
   mapGetters,
@@ -51,11 +55,29 @@ import {
 } from 'vuex'
 
 export default {
-  components: { RandomArt, UserList, QCard, QBtn, QTooltip },
+  components: {
+    RandomArt,
+    UserList,
+    KSpinner,
+    QCard,
+    QBtn,
+    QTooltip,
+  },
   data () {
     return {
       sorting: 'joinDate',
     }
+  },
+  computed: {
+    ...mapGetters({
+      users: 'users/byCurrentGroup',
+      group: 'currentGroup/value',
+      isEditor: 'currentGroup/isEditor',
+      fetchStatus: 'users/fetchStatus',
+    }),
+    groupId () {
+      return this.group && this.group.id
+    },
   },
   methods: {
     ...mapActions({
@@ -70,13 +92,6 @@ export default {
       }
     },
   },
-  computed: {
-    ...mapGetters({
-      users: 'users/byCurrentGroup',
-      group: 'currentGroup/value',
-      isEditor: 'currentGroup/isEditor',
-    }),
-  },
 }
 </script>
 
@@ -87,8 +102,9 @@ export default {
   margin-left auto
   margin-right auto
 .actionButtons
-  margin-top -21px
-  float right
+  position absolute
+  right 5px
+  bottom -20px
   .q-btn
     margin-left 3px
 </style>

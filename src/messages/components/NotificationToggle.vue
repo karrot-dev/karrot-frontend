@@ -1,54 +1,92 @@
 <template>
   <QBtn
-    v-if="user && !user.mailVerified"
     round
     :dense="inToolbar"
     :flat="inToolbar"
-    :color="inToolbar ? 'white' : 'negative'"
-    :to="{ name: 'settings', hash: '#change-email' }"
+    :color="inToolbar ? 'white' : selected.color"
     :size="size"
+    :title="$t('NOTIFICATION_TOGGLE.HEADER')"
   >
     <QIcon
-      name="fas fa-exclamation-triangle"
+      :name="selected.icon"
     />
-    <QTooltip
-      v-t="'WALL.VERIFY_EMAIL_FOR_NOTIFICATIONS'"
-      :delay="300"
-    />
-  </QBtn>
-  <QBtn
-    v-else
-    round
-    :dense="inToolbar"
-    :flat="inToolbar"
-    :color="inToolbar ? 'white' : (isEnabled ? 'secondary' : 'negative')"
-    @click="$emit('click')"
-    :size="size"
-  >
-    <QIcon
-      v-if="isEnabled"
-      name="fas fa-bell"
-    />
-    <QIcon
-      v-else
-      name="fas fa-bell-slash"
-    />
-    <QTooltip
-      v-t="isEnabled ? 'WALL.DISABLE_NOTIFICATION_EMAILS' : 'WALL.ENABLE_NOTIFICATION_EMAILS'"
-      :delay="300"
-    />
+    <QPopover>
+      <QList
+        v-close-overlay
+        link
+      >
+        <template v-if="user && !user.mailVerified">
+          <QItem
+            :to="{ name: 'settings', hash: '#change-email' }"
+          >
+            <QItemSide
+              color="negative"
+              icon="fas fa-fw fa-exclamation-triangle"
+            />
+            <QItemMain
+              :label="$t('WALL.VERIFY_EMAIL_FOR_NOTIFICATIONS')"
+            />
+          </QItem>
+          <QItemSeparator />
+        </template>
+        <QListHeader v-t="'NOTIFICATION_TOGGLE.HEADER'" />
+        <QItem
+          v-for="o in options"
+          :key="o.id"
+          :class="o.selected ? 'bg-grey-2' : ''"
+          @click.native="select(o)"
+        >
+          <QItemSide
+            :color="o.color"
+            :icon="o.icon"
+          />
+          <QItemMain
+            :label="o.label"
+            :sublabel="o.sublabel"
+          />
+        </QItem>
+      </QList>
+    </QPopover>
   </QBtn>
 </template>
 
 <script>
-import { QBtn, QIcon, QTooltip } from 'quasar'
+import {
+  QPopover,
+  QBtn,
+  QIcon,
+  QList,
+  QItem,
+  QItemMain,
+  QItemSide,
+  QListHeader,
+  QItemSeparator,
+} from 'quasar'
 
 export default {
-  components: { QBtn, QIcon, QTooltip },
+  components: {
+    QPopover,
+    QBtn,
+    QIcon,
+    QList,
+    QItem,
+    QItemMain,
+    QItemSide,
+    QListHeader,
+    QItemSeparator,
+  },
   props: {
-    value: {
+    muted: {
+      type: Boolean,
+      default: true,
+    },
+    isParticipant: {
       type: Boolean,
       default: false,
+    },
+    canUnsubscribe: {
+      type: Boolean,
+      default: true,
     },
     user: {
       type: Object,
@@ -64,12 +102,44 @@ export default {
     },
   },
   computed: {
-    isEnabled () {
-      return this.value === true
+    options () {
+      return [
+        {
+          id: 'all',
+          label: this.$t('NOTIFICATION_TOGGLE.ALL'),
+          sublabel: this.$t('NOTIFICATION_TOGGLE.ALL_TEXT'),
+          icon: 'fas fa-fw fa-bell',
+          color: 'secondary',
+          selected: this.isParticipant && !this.muted,
+        },
+        {
+          id: 'muted',
+          label: this.$t('NOTIFICATION_TOGGLE.SOME'),
+          sublabel: this.$t('NOTIFICATION_TOGGLE.SOME_TEXT'),
+          icon: 'fas fa-fw fa-bell-slash',
+          color: 'grey-8',
+          selected: this.muted,
+        },
+        {
+          id: 'none',
+          label: this.$t('NOTIFICATION_TOGGLE.NONE'),
+          sublabel: this.$t('NOTIFICATION_TOGGLE.NONE_TEXT'),
+          icon: 'fas fa-fw fa-eye-slash',
+          color: 'grey-5',
+          selected: !this.isParticipant,
+        },
+      ].filter(o => o.id === 'none' ? this.canUnsubscribe : true)
+    },
+    selected () {
+      return this.options.find(o => o.selected)
+    },
+  },
+  methods: {
+    select (option) {
+      this.$emit('set', {
+        notifications: option.id,
+      })
     },
   },
 }
 </script>
-
-<style scoped lang="stylus">
-</style>

@@ -13,8 +13,8 @@
     >
       <a
         place="resend"
-        @click="resend"
         class="underline"
+        @click="resend"
       >
         {{ $t('NOTIFICATIONS.RESEND_VERIFICATION') }}
       </a>
@@ -26,7 +26,7 @@
       v-if="hasAnyError"
       class="bg-white text-negative"
     >
-      <i class="fas fa-exclamation-triangle"/>
+      <i class="fas fa-exclamation-triangle" />
       {{ anyFirstError }}
     </p>
   </QAlert>
@@ -92,6 +92,7 @@ export default {
         const countString = count >= 10 ? (count + '+') : count
         return this.$tc('NOTIFICATIONS.EMAIL_NOT_DELIVERED', count, { count: countString })
       }
+      return null
     },
   },
   methods: {

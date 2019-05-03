@@ -30,8 +30,8 @@
         </i18n>
       </QAlert>
       <p
-        class="text-primary header"
         v-if="!hasJoinedGroups"
+        class="text-primary header"
       >
         {{ $t('JOINGROUP.WHICHGROUP') }}
       </p>
@@ -39,26 +39,24 @@
         <div class="col">
           <QCard>
             <QSearch
-              :value="search"
-              @input="filterGroups"
+              v-model="search"
               class="searchbar"
               hide-underline
             />
           </QCard>
           <QCheckbox
-            :value="showInactive"
-            @input="setShowInactive"
-            :label="$t('GROUP.SHOW_INACTIVE')"
+            v-model="showInactive"
+            :label="`${$t('GROUP.SHOW_INACTIVE')} (${filteredOtherInactiveGroups.length})`"
             style="margin-left: 16px"
           />
         </div>
         <div style="margin-top: 4px">
           <QBtn
-            @click="expanded = !expanded"
             flat
             round
             small
             class="float-right overlay-toggle-button"
+            @click="expanded = !expanded"
           >
             <i
               class="fa fa-2x"
@@ -70,12 +68,7 @@
           </QBtn>
         </div>
       </div>
-      <div
-        v-if="isPending"
-        class="full-width text-center generic-padding"
-      >
-        <QSpinnerDots :size="40" />
-      </div>
+      <KSpinner v-show="isPending" />
       <GroupGalleryCard
         v-if="showPlaygroundGroupAtTop"
         style="width: 100%"
@@ -98,8 +91,8 @@
         />
       </div>
       <p
-        class="text-primary header"
         v-if="hasJoinedGroups && hasOtherGroupsToShow"
+        class="text-primary header"
       >
         {{ $t('JOINGROUP.WHICHGROUP') }}
       </p>
@@ -129,6 +122,8 @@
 import GroupGalleryMap from './GroupGalleryMap'
 import GroupGalleryCards from './GroupGalleryCards'
 import GroupGalleryCard from './GroupGalleryCard'
+import KSpinner from '@/utils/components/KSpinner'
+
 import {
   QBtn,
   QTooltip,
@@ -136,7 +131,6 @@ import {
   QSearch,
   QCard,
   QCheckbox,
-  QSpinnerDots,
 } from 'quasar'
 
 export default {
@@ -144,13 +138,13 @@ export default {
     GroupGalleryMap,
     GroupGalleryCards,
     GroupGalleryCard,
+    KSpinner,
     QBtn,
     QTooltip,
     QAlert,
     QSearch,
     QCard,
     QCheckbox,
-    QSpinnerDots,
   },
   props: {
     myGroups: {
@@ -181,20 +175,6 @@ export default {
       showInactive: false,
     }
   },
-  methods: {
-    filterGroups (term) {
-      this.search = term
-    },
-    setShowInactive (value) {
-      this.showInactive = value
-    },
-    searchInName (term, list) {
-      if (!term || term === '') return list
-      return list.filter(group => {
-        return group.name && group.name.toLowerCase().includes(term.toLowerCase())
-      })
-    },
-  },
   computed: {
     isPending () {
       return this.fetchStatus && this.fetchStatus.pending
@@ -213,6 +193,9 @@ export default {
       const hasSearchTerm = this.search !== ''
       const hidePlaygroundByDefault = group => !hasSearchTerm ? !group.isPlayground : true
       return filteredGroups.filter(hidePlaygroundByDefault)
+    },
+    filteredOtherInactiveGroups () {
+      return this.searchInName(this.search, this.otherGroups).filter(g => g.isInactive)
     },
     hasMyGroupsToShow () {
       return this.expanded && this.filteredMyGroups.length > 0
@@ -237,6 +220,14 @@ export default {
     },
     showPlaygroundGroupAtBottom () {
       return this.showPlaygroundGroupAtTopOrBottom && !this.showPlaygroundGroupAtTop
+    },
+  },
+  methods: {
+    searchInName (term, list) {
+      if (!term || term === '') return list
+      return list.filter(group => {
+        return group.name && group.name.toLowerCase().includes(term.toLowerCase())
+      })
     },
   },
 }

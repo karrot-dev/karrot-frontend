@@ -10,11 +10,11 @@
       >
         <QField icon="fas fa-envelope">
           <QInput
+            v-model="email"
             :autofocus="true"
             :error="hasError('email')"
             :float-label="$t('USERDATA.EMAIL')"
             type="email"
-            v-model="email"
             autocorrect="off"
             autocapitalize="off"
             spellcheck="false"
@@ -27,8 +27,8 @@
       >
         <QField icon="fas fa-lock">
           <QInput
-            :error="hasError('password')"
             v-model="password"
+            :error="hasError('password')"
             type="password"
             :float-label="$t('USERDATA.PASSWORD')"
             autocorrect="off"
@@ -47,15 +47,15 @@
       <div class="actions">
         <QBtn
           type="button"
-          @click.prevent="$router.push({ name: 'requestPasswordReset' })"
           flat
+          @click.prevent="$router.push({ name: 'requestPasswordReset' })"
         >
           {{ $t('LOGIN.FORGOT_PASSWORD') }}
         </QBtn>
         <QBtn
           type="button"
-          @click.prevent="$router.push({ name: 'signup' })"
           flat
+          @click.prevent="$router.push({ name: 'signup' })"
         >
           {{ $t('LOGIN.SIGNUP') }}
         </QBtn>
@@ -67,7 +67,7 @@
           {{ $t('LOGIN.SUBMIT') }}
         </QBtn>
       </div>
-      <div style="clear: both"/>
+      <div style="clear: both" />
     </form>
   </div>
 </template>

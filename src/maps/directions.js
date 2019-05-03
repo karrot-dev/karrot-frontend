@@ -1,9 +1,9 @@
-function encode ({ latitude, longitude }) {
+function encode ({ latitude, longitude } = {}) {
   return encodeURI(`${latitude},${longitude}`)
 }
 
 const osm = (start, end) => {
-  return start.latitude
+  return start && start.latitude
     ? `https://www.openstreetmap.org/directions?engine=graphhopper_bicycle&from=${encode(start)}&to=${encode(end)}`
     : `https://www.openstreetmap.org/directions?engine=graphhopper_bicycle&to=${encode(end)}`
 }

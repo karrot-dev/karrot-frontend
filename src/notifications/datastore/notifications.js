@@ -28,6 +28,7 @@ export default {
         .filter(notification => !notification.expiresAt || notification.expiresAt > reactiveNow.value)
         .sort(sortByCreatedAt)
     },
+    fetching: (state, getters) => getters['meta/status']('fetch').pending,
     canFetchPast: (state, getters) => getters['pagination/canFetchNext'],
     fetchingPast: (state, getters) => getters['meta/status']('fetchPast').pending,
     enrich: (state, getters, rootState, rootGetters) => entry => {
@@ -42,14 +43,15 @@ export default {
     },
     enrichContext: (state, getters, rootState, rootGetters) => context => {
       if (!context) return
-      const { group, application, user, store, pickup } = context
+      const { group, application, user, place, pickup, issue } = context
       return {
         ...context,
         group: group && rootGetters['groups/get'](group),
         application: application && rootGetters['applications/get'](application),
         user: user && rootGetters['users/get'](user),
-        store: store && rootGetters['stores/get'](store),
+        place: place && rootGetters['places/get'](place),
         pickup: pickup && rootGetters['pickups/get'](pickup),
+        issue: issue && rootGetters['issues/get'](issue),
       }
     },
     unseenCount: (state, getters) => {
@@ -85,16 +87,18 @@ export default {
       },
     }),
     fetchRelated ({ state, dispatch }) {
-      for (const notification of Object.values(state.entries)) {
-        const { context } = notification
-        if (!context) continue
-        if (context.application) {
-          dispatch('applications/maybeFetchOne', context.application, { root: true })
+      Object.values(state.entries).forEach(({ context }) => {
+        const { application, pickup, issue } = context || {}
+        if (application) {
+          dispatch('applications/maybeFetchOne', application, { root: true })
         }
-        if (context.pickup) {
-          dispatch('pickups/maybeFetch', context.pickup, { root: true })
+        if (pickup) {
+          dispatch('pickups/maybeFetch', pickup, { root: true })
         }
-      }
+        if (issue) {
+          dispatch('issues/maybeFetchOne', issue, { root: true })
+        }
+      })
     },
   },
   mutations: {

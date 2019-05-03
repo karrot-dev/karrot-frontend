@@ -1,6 +1,5 @@
 <template>
   <div class="edit-box">
-
     <QField
       icon="fas fa-bell"
       :label="$t('USERDATA.PUSH_CURRENT_BROWSER')"

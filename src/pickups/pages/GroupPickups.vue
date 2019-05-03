@@ -2,37 +2,41 @@
   <div>
     <PickupList
       :pickups="pickups"
-      store-link
+      :pending="pending"
+      place-link
+      filter
       @join="join"
       @leave="leave"
       @detail="detail"
     />
-    <KNotice v-if="!hasPickups" >
-      <template slot="icon">
-        <i class="fas fa-bed"/>
-      </template>
-      {{ $t('PICKUPLIST.NONE') }}
-      <template slot="desc">
-        {{ $t('PICKUPLIST.NONE_HINT') }}
-      </template>
-    </KNotice>
-    <QCard v-if="!hasPickups">
-      <QCardTitle v-t="'GROUP.STORES'" />
-      <QCardMain>
-        <StoreList
-          :group-id="groupId"
-          :stores="stores"
-          link-to="storePickupsManage"
-        />
-      </QCardMain>
-    </QCard>
+    <template v-if="hasNoPickups">
+      <KNotice>
+        <template slot="icon">
+          <i class="fas fa-bed" />
+        </template>
+        {{ $t('PICKUPLIST.NONE') }}
+        <template slot="desc">
+          {{ $t('PICKUPLIST.NONE_HINT') }}
+        </template>
+      </KNotice>
+      <QCard>
+        <QCardTitle v-t="'GROUP.STORES'" />
+        <QCardMain>
+          <PlaceList
+            :group-id="groupId"
+            :places="places"
+            link-to="placePickupsManage"
+          />
+        </QCardMain>
+      </QCard>
+    </template>
   </div>
 </template>
 
 <script>
 import PickupList from '@/pickups/components/PickupList'
 import KNotice from '@/utils/components/KNotice'
-import StoreList from '@/stores/components/StoreList'
+import PlaceList from '@/places/components/PlaceList'
 import { QCard, QCardTitle, QCardMain } from 'quasar'
 
 import {
@@ -41,23 +45,25 @@ import {
 } from 'vuex'
 
 export default {
-  components: { QCard, QCardTitle, QCardMain, PickupList, KNotice, StoreList },
+  components: { QCard, QCardTitle, QCardMain, PickupList, KNotice, PlaceList },
+  computed: {
+    ...mapGetters({
+      groupId: 'currentGroup/id',
+      pickups: 'pickups/byCurrentGroup',
+      pending: 'pickups/fetchingForCurrentGroup',
+      places: 'places/byCurrentGroup',
+    }),
+    hasNoPickups () {
+      if (this.pending) return false
+      return this.pickups && this.pickups.length === 0
+    },
+  },
   methods: {
     ...mapActions({
       join: 'pickups/join',
       leave: 'pickups/leave',
       detail: 'detail/openForPickup',
     }),
-  },
-  computed: {
-    ...mapGetters({
-      groupId: 'currentGroup/id',
-      pickups: 'pickups/byCurrentGroup',
-      stores: 'stores/byCurrentGroup',
-    }),
-    hasPickups () {
-      return this.pickups && this.pickups.length > 0
-    },
   },
 }
 </script>

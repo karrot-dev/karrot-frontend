@@ -2,8 +2,8 @@
   <QToolbar :color="connected ? 'primary' : 'grey-8'">
     <slot />
     <RouterLink
-      :to="'/'"
       v-if="!$q.platform.is.mobile"
+      :to="'/'"
       class="logo"
     >
       <img
@@ -11,21 +11,24 @@
         :src="currentGroup.photoUrls.thumbnail"
         style="height: 95%"
       >
-      <KarrotLogo v-else />
+      <KarrotLogo
+        v-else
+        show-loading
+      />
     </RouterLink>
     <QToolbarTitle>
       <div class="row justify-between no-wrap">
-        <div/>
+        <div />
         <KBreadcrumb
           class="bread"
           :breadcrumbs="breadcrumbs"
         />
-        <div/>
+        <div />
       </div>
     </QToolbarTitle>
     <div
-      class="k-searchbar row no-wrap"
       v-if="searchOpen"
+      class="k-searchbar row no-wrap"
     >
       <Search @clear="$emit('hideSearch')" />
     </div>
@@ -34,8 +37,8 @@
       flat
       dense
       round
-      @click="$emit('showSearch')"
       class="k-search-button"
+      @click="$emit('showSearch')"
     >
       <QIcon name="fas fa-fw fa-search" />
       <QTooltip v-t="'BUTTON.SEARCH'" />
@@ -96,9 +99,9 @@
           self="top right"
         >
           <QList
+            v-close-overlay
             item-separator
             link
-            v-close-overlay
           >
             <QItem
               :to="{name: 'groupsGallery'}"
@@ -209,6 +212,7 @@ export default {
       if (this.user && this.user.photoUrls) {
         return this.user.photoUrls.thumbnail
       }
+      return null
     },
     presence () {
       if (this.away) {

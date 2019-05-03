@@ -1,8 +1,8 @@
 <template>
   <QBtn
+    v-if="groups.length > 1 || (isLoaded && !currentGroup)"
     color="primary"
     @click="showModal = true"
-    v-if="groups.length > 1 || (isLoaded && !currentGroup)"
   >
     {{ currentGroup ? currentGroup.name : $t('TOPBAR.CHANGE_GROUP') }}
     <QModal
@@ -16,9 +16,9 @@
         <QItem
           v-for="group in commonGroups"
           :key="group.id"
+          v-close-overlay
           link
           @click.native="$emit('selectGroup', { groupId: group.id })"
-          v-close-overlay
         >
           <QItemMain>
             {{ group.name }}

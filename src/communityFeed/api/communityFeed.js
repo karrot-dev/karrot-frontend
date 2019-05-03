@@ -3,8 +3,14 @@ import axios from '@/base/api/axios'
 const backend = __ENV.CORDOVA ? __ENV.BACKEND : ''
 
 export default {
+  async getMeta () {
+    return convert((await axios.get('/api/community-feed/')).data)
+  },
+  async markSeen () {
+    return (await axios.post(`/api/community-feed/mark_seen/`)).data
+  },
   async latestTopics () {
-    const data = (await axios.get('/community_proxy/latest.json?order=created')).data
+    const data = (await axios.get('/community_proxy/c/karrot.json')).data
     const users = data.users
     const topics = data.topicList.topics
     return topics.map(topic => {
@@ -19,4 +25,11 @@ export default {
       }
     })
   },
+}
+
+export function convert (val) {
+  return {
+    ...val,
+    markedAt: new Date(val.markedAt),
+  }
 }

@@ -6,9 +6,9 @@
     <QItemMain>
       <QItemTile label>
         <RouterLink
-          style="margin-right: .4em"
-          :key="user"
           v-for="user in value"
+          :key="user"
+          style="margin-right: .4em"
           :to="{name:'user', params: {userId: user}}"
         >
           {{ user }}
@@ -26,7 +26,7 @@
   >
     <QItemMain>
       <QItemTile label>
-        {{ $d(new Date(value), 'long') }}
+        {{ $d(new Date(Array.isArray(value) ? value[0] : value), 'long') }}
       </QItemTile>
       <QItemTile sublabel>
         {{ $t('CREATEPICKUP.DATE') }}
@@ -76,7 +76,7 @@ export default {
       type: String,
     },
     value: {
-      type: String | Date | Number,
+      type: [String, Date, Number],
       required: true,
     },
   },

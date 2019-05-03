@@ -162,7 +162,14 @@ export function mockActionOnce (datastore, actionName) {
 }
 
 export function defaultActionStatus () {
-  return { pending: false, validationErrors: {}, hasValidationErrors: false, serverError: false, networkError: false }
+  return {
+    pending: false,
+    validationErrors: {},
+    hasValidationErrors: false,
+    serverError: false,
+    networkError: false,
+    startedAt: null,
+  }
 }
 
 export function defaultActionStatusesFor (...actions) {

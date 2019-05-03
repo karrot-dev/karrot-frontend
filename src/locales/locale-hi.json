@@ -2,50 +2,51 @@
   "ENTRY": "1 entry | {count} entries",
   "GLOBAL": {
     "GITHUB_NOTE": "विकास",
-    "FSWW_NOTE": "Read our info page!",
-    "COMMUNITY_NOTE": "Join our community!",
+    "COMMUNITY_NOTE": "समूह में शामिल हो",
     "SERVER_ERROR": "सर्वर त्रुटि",
-    "NOT_CONNECTED": "You aren't connected to the server",
-    "INVALID_LINK": "Sorry, the link you've opened is invalid.",
-    "GENERIC_ERROR": "Sorry, something went wrong",
-    "SEARCH_NOT_FOUND": "Not Found"
+    "NOT_CONNECTED": "आप सर्वर से जुड़े हुए नहीं है ",
+    "INVALID_LINK": "क्षमा करे, आपके द्वारा खोला गया लिंक गलत है",
+    "GENERIC_ERROR": "क्षमा करे, कुछ गलत हो गया",
+    "SEARCH_NOT_FOUND": "नहीं मिला",
+    "ABOUT_KARROT": "Karrot के बारेमे"
   },
   "USERDATA": {
-    "EMAIL": "E-mail",
-    "MOBILE_NUMBER": "Phone number",
+    "EMAIL": "ई-मेल",
+    "MOBILE_NUMBER": "दूरध्वनी",
     "PROFILE_TITLE": " पार्श्व चित्र \\ वर्णन",
+    "PRIVATE_MESSAGE": "Send a private message to {userName}",
     "PASSWORD": "पारण शब्द",
-    "CONFIRM_PASSWORD": "Confirm your password",
+    "CONFIRM_PASSWORD": "अपने पासवर्ड की पुष्टि करें",
     "USERNAME": "नाम",
     "WHERE_FROM": "आप कहां से हैं (आवश्यक नहीं)",
     "PHOTO": "पार्श्व चित्र \\\\ वर्णन",
     "SET_PHOTO": "अपनी प्रोफाइल पिक्चर सेट करो",
-    "ACCOUNT": "Account",
-    "PUSH": "Push notifications",
-    "PUSH_CURRENT_BROWSER": "Current browser",
+    "ACCOUNT": "अकाउंट",
+    "PUSH": "भेजी हुवी सूचनाएं",
+    "PUSH_CURRENT_BROWSER": "वर्तमान ब्राउज़र",
     "REQUEST_DELETE_ACCOUNT": {
-      "SUCCESS": "We sent you an e-mail with a link to complete the deletion process."
+      "SUCCESS": "हमने आपको हटाने की प्रक्रिया को पूरा करने के लिए एक लिंक के साथ एक ई-मेल भेजा है"
     },
     "DIALOGS": {
       "REQUEST_DELETE_ACCOUNT": {
-        "TITLE": "Account deletion",
-        "MESSAGE": "Are you sure? Your account and your personal data will be permanently deleted. Anything you have done on this platform will be made anonymous. If you confirm, we send you an e-mail with a link to complete the deletion process.",
-        "CONFIRM": "Confirm"
+        "TITLE": "अकाउंट हटाना",
+        "MESSAGE": "क्या आपको यकीन है? आपका खाता और आपका व्यक्तिगत डेटा स्थायी रूप से हटा दिया जाएगा। इस प्लेटफॉर्म पर आपने जो कुछ भी किया है, उसे गुमनाम कर दिया जाएगा। यदि आप पुष्टि करते हैं, तो हम आपको डिलीट प्रक्रिया को पूरा करने के लिए एक लिंक के साथ एक ई-मेल भेजते हैं।",
+        "CONFIRM": "पुष्टि करें"
       },
       "GIVE_TRUST": {
-        "TITLE": "Trust user",
-        "MESSAGE": "Do you trust {userName} in {groupName}?"
+        "TITLE": "भरोसेमंद यूजर",
+        "MESSAGE": "क्या आप {groupName}से {userName} पे भरोसा करते है "
       }
     },
-    "LOGOUT_SUCCESS": "You have been logged out!",
-    "YOU_TRUST_USER": "You trust {userName} in {groupName}.",
+    "LOGOUT_SUCCESS": "आप लॉग आउट हो गए हैं। ",
+    "YOU_TRUST_USER": "आप {groupName}से {userName} पे भरोसा करते है ",
     "OTHER_PEOPLE_TRUST_USER": "{otherUser} trusts {userName} in {groupName}. | {count} people trust {userName} in {groupName}.",
     "OTHER_PEOPLE_TRUST_YOU": "{otherUser} trusts you in {groupName}. | {count} people trust you in {groupName}.",
     "PEOPLE_TRUST_USER": "You and {otherUser} trust {userName} in {groupName}. | You and {count} other people trust {userName} in {groupName}.",
     "FIRST_TRUST": "Be the first one to trust {userName} in {groupName}!",
-    "NEWCOMER": "Newcomer",
-    "NEWCOMER_GUIDANCE": "{userName} is new to your group and might need some guidance.",
-    "TRUST_PROGRESS_TEXT": "{trustNeeded} more trust needed",
+    "NEWCOMER": "नवागंतुक",
+    "NEWCOMER_GUIDANCE": "{userName}आपके समूह के लिए नया है और उन्हें कुछ मार्गदर्शन की आवश्यकता हो सकती है ",
+    "TRUST_PROGRESS_TEXT": "{trustNeeded}को अधिक विश्वास की जरूरत है ",
     "TRUST_PROGRESS_TEXT_LONG": "{trustNeeded} more people need to express their trust in {userName} to grant editing permissions.",
     "NEWCOMER_INFO": "You are currently a newcomer in {groupName} and you can become active by writing messages, meeting fellow members, doing pickups and giving feedback. As soon as {threshold} members expressed their trust in you, you will gain editing permissions to help with group administration.",
     "TRUST_INFO": {
@@ -57,19 +58,20 @@
   "SWITCHGROUP": {
     "NOT_MEMBER": "{userName} is not member of {groupName}.",
     "COMMON_GROUPS": "Groups you have in common",
-    "OTHER_GROUPS": "Other groups"
+    "OTHER_GROUPS": "अन्य समूह"
   },
   "BUTTON": {
     "CREATE": "सर्जन करना",
     "CANCEL": "रद्द करना",
-    "OPEN": "Open",
-    "CLOSE": "Close",
+    "OPEN": "खुला",
+    "CLOSE": "बंद",
     "DELETE": "हटाना",
     "EDIT": "संपादित करें",
     "JOIN": "शामिल होना",
     "LEAVE": "छोड़ना",
     "PREVIEW": "पूर्वावलोकन",
     "BACK": "वापस",
+    "NEXT": "Next",
     "SEARCH": "खोज",
     "OF_COURSE": "हाँ, बेशक!",
     "YES": "हाँ",
@@ -80,18 +82,18 @@
     "AGREE": "मैं सहमत हूँ",
     "REMOVE": "हटाना \\  निकालना ",
     "ARCHIVE": "पुरालेख",
-    "DELETE_ACCOUNT": "Delete account",
-    "SHOW": "Show",
-    "HIDE": "Hide",
+    "DELETE_ACCOUNT": "अकाउंट हटाए",
+    "SHOW": "दिखाए",
+    "HIDE": "छिपाये ",
     "SUBMIT": "Submit",
-    "APPLY": "Apply",
-    "ACCEPT": "Accept",
-    "DECLINE": "Decline",
-    "WITHDRAW": "Withdraw",
-    "SHOW_MORE": "Show more",
-    "ENABLE": "Enable",
-    "DISABLE": "Disable",
-    "UNSUBSCRIBE": "Unsubscribe"
+    "APPLY": "लागू करें",
+    "ACCEPT": "स्वीकार करे",
+    "DECLINE": "मनाई",
+    "WITHDRAW": "निकालना",
+    "SHOW_MORE": "और दिखाए",
+    "ENABLE": "सक्षम",
+    "DISABLE": "अक्षम",
+    "UNSUBSCRIBE": "सदस्यता समाप्त"
   },
   "VALIDATION": {
     "MINLENGTH": "कृपया {न्यूनतम} वर्णों से अधिक दर्ज करें।",
@@ -115,13 +117,14 @@
     "PRIVATE_DESCRIPTION_TITLE": "निजी समूह चर्चा",
     "DESCRIPTION_VERBOSE": "सदस्य के लिए समूह विवरण उपलब्ध",
     "PUBLIC_DESCRIPTION": "एक समूह में शामिल होने से पहले आपको दिखाई देने वाला पाठ",
+    "WELCOMEMESSAGE_VERBOSE": "Welcome message sent to new members",
     "LOGO": "Group logo",
     "SET_LOGO": "Click to upload your group logo!",
-    "APPLICATIONS": "Applications",
+    "APPLICATIONS": "आवेदन",
     "APPLICATION_QUESTIONS": "Questions for people who want to join this group",
     "PICKUPS": "पिकप",
-    "MESSAGES": "Messages",
-    "PICKUP": "Pickup",
+    "MESSAGES": "संदेश",
+    "PICKUP": "पिक अप",
     "MEMBERS": "सदस्य ",
     "JOINED": "joined {relativeDate}",
     "DECLINED": "declined {relativeDate}",
@@ -132,8 +135,7 @@
     "INACTIVE": "Inactive",
     "SHOW_INACTIVE": "Show inactive groups",
     "STORES": "भंडार",
-    "HOME": "Home",
-    "CURRENT_STORE": "Current store",
+    "HOME": "होम",
     "HISTORY": "इतिहास",
     "DESCRIPTION": "विवरण",
     "ADDRESS": "पता",
@@ -148,7 +150,7 @@
     "INVITATION_ACCEPT_ERROR": "ओह, निमंत्रण स्वीकार नहीं कर सका!",
     "SETTINGS": "सेटिंग्स",
     "NOTIFICATIONS": "सूचनाएं",
-    "EMAIL_NOTIFICATIONS": "Email notifications",
+    "EMAIL_NOTIFICATIONS": "ईमेल सूचनाएं",
     "NOTIFICATION_TYPES": {
       "weekly_summary": {
         "NAME": "Weekly summary",
@@ -156,11 +158,15 @@
       },
       "daily_pickup_notification": {
         "NAME": "Pickup notifications",
-        "DESCRIPTION": "Reminds you of your pickups, and tells you about empty or not-full pickups in the next day"
+        "DESCRIPTION": "Reminds you of your pickups, and tells you about empty or not-full pickups of your favorite stores in the next day"
       },
       "new_application": {
         "NAME": "New applications",
         "DESCRIPTION": "Tells you when somebody wants to join your group"
+      },
+      "conflict_resolution": {
+        "NAME": "New conflict resolution processes",
+        "DESCRIPTION": "Tells you when a new conflict resolution process has been started in your group"
       }
     },
     "PLAYGROUND_INFO": "This is a playground group, you can't break anything. Explore, click around and have fun!",
@@ -181,7 +187,6 @@
   "STOREDETAIL": {
     "DIRECTIONS": "Show directions",
     "EDIT": "स्टोर संपादित करें",
-    "MANAGE": "पिकअप को चेक करें और प्रबंधित करें",
     "ARCHIVED": "यह स्टोर संग्रहीत किया गया है",
     "INACTIVE": "This store is currently not cooperating.",
     "CHANGE_STATUS": "You can change the status on the settings page.",
@@ -206,6 +211,16 @@
     "HIDE_ARCHIVED": "Hide archived stores",
     "SHOW_ALL": "Show all stores",
     "SHOW_ACTIVE_ONLY": "Only show active stores"
+  },
+  "PLACEWALL": {
+    "SUBSCRIBED_USERS": "{count} people have marked this store as favourite",
+    "SUBSCRIPTION": {
+      "HEADER": "Do you want to mark this store as your favourite?",
+      "YES": "yes",
+      "YES_TEXT": "Shows available pickups on the group wall and sends emails about upcoming pickups.",
+      "NO": "no",
+      "NO_TEXT": "None of the above. You can still sign up for pickups though."
+    }
   },
   "PICKUPMANAGE": {
     "TITLE": "पिकअप को प्रबंधित करें",
@@ -315,9 +330,15 @@
     "TITLE": "एक नया स्टोर बनाएं"
   },
   "PICKUPLIST": {
-    "AVAILABLE": "आपके लिए प्रतीक्षा कर रहे अगले दिन में एक पिकअप है! | आपके लिए इंतजार कर रहे अगले दिन में {गिनती} पिकअप हैं!",
+    "FILTER": {
+      "ALL": "All",
+      "EMPTY": "Only empty",
+      "FREE": "With free slots"
+    },
+    "AVAILABLE": "There is one pickup in your favorite stores waiting for you! | There are {count} pickups in your favorite stores waiting for you!",
     "AVAILABLE_FEEDBACK": "आप एक पिकअप को प्रतिक्रिया दे सकते हैं | {गिनती} पिकअप आपकी राय का इंतजार कर रहे हैं",
     "JOINEDNOTICE": "आपके पास एक आगामी पिकअप है | आपके पास {गणना} आगामी पिकअप हैं",
+    "AVAILABLE_FROM_STORES": "This shows pickups from your favorite stores in the next days. You can access other stores in the sidebar.",
     "ITEM": {
       "LEAVE": "छोड़ना",
       "JOIN": "शामिल होना",
@@ -409,6 +430,7 @@
     "GROUP_LEAVE_INACTIVE": "was removed due to inactivity",
     "GROUP_CHANGE_PHOTO": "changed the group logo",
     "GROUP_DELETE_PHOTO": "deleted the group logo",
+    "MEMBER_REMOVED": "was removed due to group decision",
     "NOTHING_HAPPENEND": "अभी तक कुछ नहीं हुआ ...",
     "DETAILS": "अधिक जानकारी"
   },
@@ -438,7 +460,24 @@
     "PICKUP_UPCOMING": "Reminder: You have a pickup at {time}",
     "PICKUP_DISABLED": "Pickup at {dateTime} was disabled",
     "PICKUP_ENABLED": "Pickup at {dateTime} was enabled again",
-    "PICKUP_MOVED": "Pickup was moved to {dateTime}"
+    "PICKUP_MOVED": "Pickup was moved to {dateTime}",
+    "CONFLICT_RESOLUTION_CREATED": "Join the discussion about a conflict with {userName}",
+    "CONFLICT_RESOLUTION_CREATED_ABOUT_YOU": "A conflict resolution process was started with you",
+    "CONFLICT_RESOLUTION_CONTINUED": "The conflict resolution process with {userName} continues",
+    "CONFLICT_RESOLUTION_CONTINUED_ABOUT_YOU": "The conflict resolution process with you continues",
+    "CONFLICT_RESOLUTION_DECIDED": "The conflict resolution process with {userName} was decided",
+    "CONFLICT_RESOLUTION_DECIDED_ABOUT_YOU": "The conflict resolution process with you was decided",
+    "CONFLICT_RESOLUTION_YOU_WERE_REMOVED": "You were removed from the group",
+    "VOTING_ENDS_SOON": "Voting ends soon, don't forget to participate!"
+  },
+  "NOTIFICATION_TOGGLE": {
+    "HEADER": "How do you want to receive notifications about new messages in this conversation/thread?",
+    "ALL": "all",
+    "ALL_TEXT": "Via app/website, email and push notifications.",
+    "SOME": "some",
+    "SOME_TEXT": "Via app/website.",
+    "NONE": "none",
+    "NONE_TEXT": "No notifications."
   },
   "OUTDATED_BROWSER": {
     "MESSAGE": "You are using an unsupported browser. {upgradeBrowser} to enjoy all features.",
@@ -483,8 +522,6 @@
   "WALL": {
     "WRITE_MESSAGE": "एक सन्देश लिखिए...",
     "WRITE_FIRST_MESSAGE": "पहला संदेश लिखें ...",
-    "DISABLE_NOTIFICATION_EMAILS": "Notification e-mails enabled, click to mute",
-    "ENABLE_NOTIFICATION_EMAILS": "Notification e-mails muted, click to enable",
     "VERIFY_EMAIL_FOR_NOTIFICATIONS": "Please verify your e-mail address to receive notification e-mails",
     "RECEIVED_VIA_EMAIL": "This message was sent via e-mail"
   },
@@ -503,7 +540,9 @@
     },
     "MESSAGE_NOT_FOUND": "Message not found",
     "NO_CONVERSATIONS": "No conversations yet.",
-    "MUTED": "Notifications are disabled"
+    "MUTED": "Notifications are disabled",
+    "CLOSED": "This conversation has been closed automatically.",
+    "NOT_PARTICIPATED": "By sending a message, you will be subscribed to notifications about this conversation."
   },
   "STORESTATUS": {
     "ACTIVE": "सहयोग",
@@ -540,6 +579,78 @@
     "WHAT": "What does it mean to be inactive?",
     "HELP": "Everyone who did not log into the group for {dayCount} days or more counts as inactive. These users will not receive notification emails anymore."
   },
+  "CONFLICT": {
+    "SETUP_HEADER": "Is there a conflict with {user}?",
+    "STATEMENT": "Statement",
+    "STEPPER1a": "You are about to start a group-wide conflict resolution process!",
+    "STEPPER1b": "This will involve all members with editing permissions to find the best way to proceed.",
+    "STEPPER2a": "Thank you for caring for your community!",
+    "STEPPER2b": "It is important to address social issues, although it can be unpleasant sometimes. Thank you for your courage!",
+    "STEPPER3a": "Here's what will happen:",
+    "STEPPER3b": "This process will start a chat and a vote.",
+    "STEPPER3c": "The chat will be visible for members with editing permissions and includes {userName}.",
+    "STEPPER3d": "The voting is anonymous. It will go on for {votingDuration} days. During this time all voters can change their minds and vote differently as many times as they want.",
+    "STEPPER4a": "Please explain why you are starting this conflict resolution process!",
+    "STEPPER4b": "Tell your group what made you think this process is justified and needed. This statement will be visible to {userName} and group members with editing permissions.",
+    "FIND_OUT_MORE": "Find out more!",
+    "INITIAL": "Information",
+    "WITH": "This process is to resolve a conflict with {userName}",
+    "VOTING": {
+      "HEADLINE": "How do you want to proceed with the ongoing conflict with {userName}?"
+    },
+    "REQUIREMENTS": {
+      "ACTIVE_EDITORS": "Your group has {activeEditorsCount} active users with editing permissions. You need {requiredCount} to start a conflict resolution process.",
+      "NEWCOMER": "Before you can start a conflict resolution process, you need to receive more trust and gain editing permissions. In the meantime, please ask a fellow group member to start the process for you."
+    },
+    "INFO": {
+      "TITLE": "How does this process work?",
+      "MESSAGE": "This is a score voting in which group members with editing permissions can participate to determine how to deal with a social conflict that affects the whole group."
+    }
+  },
+  "ISSUE": {
+    "CREATION": {
+      "TOAST": "You successfully started a conflict resolution process"
+    },
+    "TITLE": "Issues",
+    "VOTE": "Vote",
+    "CHAT": "Chat",
+    "INITIATED_BY": "Initiated by {initiatorName}",
+    "PAST": "Past issues",
+    "PREVIOUS_VOTINGS": "Previous votings in this issue",
+    "PARTICIPANTS": "{count} members have been added to this discussion.",
+    "VOTING": {
+      "TIME_LEFT": "Time left to vote",
+      "BTN_START": "Vote now",
+      "SAVE": "Save",
+      "BTN_DELETE": "Delete vote",
+      "TOAST": "Your vote was successfully submitted",
+      "TOAST_DELETE": "Your vote was deleted",
+      "NO_CHANGE": "No change: {userName} stays in {groupName}",
+      "FURTHER_DISCUSSION": "Further discussion: extend time by starting another voting",
+      "REMOVE_USER": "{userName} gets removed from {groupName}",
+      "RESULTS": {
+        "KEEP_DISCUSSING": "Your group voted to keep discussing",
+        "TIME_UP": "Time is up!",
+        "TOTAL_SCORE": "Total score",
+        "ENDED_AT": "This voting round ended on {date}",
+        "PARTICIPANTS": "{number} members participated in the voting.",
+        "UNDECIDED": "Unfortunately this conflict could not be decided.",
+        "UNDECIDED_WHY": "There are two possible reasons for that:",
+        "UNDECIDED_REASON_1": "the affected user left the group while the conflict resolution process was still ongoing",
+        "UNDECIDED_REASON_2": "nobody voted on this issue"
+      },
+      "SEE_RESULTS": "See the results",
+      "SCORE_LABELS": {
+        "NEUTRAL": "neutral",
+        "SLIGHT_SUPPORT": "support",
+        "STRONG_SUPPORT": "strong support",
+        "SLIGHT_RESISTANCE": "resistance",
+        "STRONG_RESISTANCE": "strong resistance"
+      },
+      "ANONYMOUS": "Your vote will be anonymous."
+    },
+    "NO_ONGOING": "No ongoing issues."
+  },
   "UNSUBSCRIBE": {
     "HEADER": "Unsubscribe",
     "FROM_CONVERSATION": "unsubscribe from just this conversation",
@@ -548,5 +659,9 @@
     "FROM_GROUP": "unsubscribe from everything in {groupName}",
     "SUCCESS": "You were successfully unsubscribed!"
   },
-  "YOU": "You"
+  "THANKS": "Thank you!",
+  "ATTENTION": "Attention!",
+  "INFO": "Info",
+  "YOU": "You",
+  "TO": "to"
 }

@@ -8,12 +8,14 @@ import auth from '@/authuser/api/auth'
 import { camelizeKeys } from '@/utils/utils'
 import { convert as convertApplication } from '@/applications/api/applications'
 import { convert as convertMessage } from '@/messages/api/messages'
+import { convert as convertCommunityFeedMeta } from '@/communityFeed/api/communityFeed'
 import { convert as convertConversation, convertMeta as convertConversationMeta } from '@/messages/api/conversations'
 import { convert as convertPickup } from '@/pickups/api/pickups'
 import { convert as convertSeries } from '@/pickups/api/pickupSeries'
 import { convert as convertFeedback } from '@/feedback/api/feedback'
 import { convert as convertHistory } from '@/history/api/history'
 import { convert as convertInvitation } from '@/invitations/api/invitations'
+import { convert as convertIssue } from '@/issues/api/issues'
 import { convert as convertGroup } from '@/group/api/groups'
 import { convert as convertNotification, convertMeta as convertNotificationMeta } from '@/notifications/api/notifications'
 
@@ -48,7 +50,7 @@ const ping = () => {
   pingTimeout = setTimeout(() => {
     if (!AppVisibility.appVisible) return
     datastore.commit('connectivity/websocket', false)
-  }, 2000)
+  }, 5000)
 }
 
 const startPing = () => {
@@ -178,8 +180,15 @@ function receiveMessage ({ topic, payload }) {
   else if (topic === 'conversations:meta') {
     datastore.commit('latestMessages/setEntryMeta', convertConversationMeta(camelizeKeys(payload)))
   }
+  else if (topic === 'community_feed:meta') {
+    datastore.commit('communityFeed/setMeta', convertCommunityFeedMeta(camelizeKeys(payload)))
+  }
   else if (topic === 'conversations:leave') {
-    datastore.commit('conversations/clearConversation', payload.id)
+    // refresh latest messages
+    if (!datastore.getters['latestMessages/fetchInitialPending']) {
+      datastore.dispatch('latestMessages/clear')
+      datastore.dispatch('latestMessages/fetchInitial')
+    }
   }
   else if (topic === 'groups:group_detail') {
     datastore.dispatch('currentGroup/maybeUpdate', convertGroup(camelizeKeys(payload)))
@@ -194,8 +203,11 @@ function receiveMessage ({ topic, payload }) {
     // delete invitation from list until there is a better way to display it
     datastore.commit('invitations/delete', payload.id)
   }
-  else if (topic === 'stores:store') {
-    datastore.dispatch('stores/update', [camelizeKeys(payload)])
+  else if (topic === 'issues:issue') {
+    datastore.commit('issues/update', [convertIssue(camelizeKeys(payload))])
+  }
+  else if (topic === 'places:place') {
+    datastore.dispatch('places/update', [camelizeKeys(payload)])
   }
   else if (topic === 'pickups:pickupdate') {
     datastore.commit('pickups/update', [convertPickup(camelizeKeys(payload))])

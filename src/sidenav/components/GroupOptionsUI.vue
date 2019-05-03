@@ -5,9 +5,9 @@
     self="top right"
   >
     <QList
+      v-close-overlay
       item-separator
       link
-      v-close-overlay
     >
       <QItem
         v-if="isEditor"

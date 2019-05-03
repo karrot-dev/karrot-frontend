@@ -3,9 +3,9 @@
     flat
     dense
     round
-    @click="open = !open"
     :title="$t('LANGUAGECHOOSER.SWITCH')"
     class="k-locale-select"
+    @click="open = !open"
   >
     <QIcon
       name="fas fa-globe fa-fw"
@@ -26,13 +26,13 @@
           dense
           round
           color="secondary"
-          @click="open = false"
           class="q-ma-xs q-mr-sm"
+          @click="open = false"
         >
           <QIcon name="fas fa-times" />
         </QBtn>
       </div>
-      <LocaleSelectInner v-if="open"/>
+      <LocaleSelectInner v-if="open" />
     </Component>
   </QBtn>
 </template>

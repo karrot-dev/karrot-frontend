@@ -4,16 +4,16 @@
       :to="'/'"
       class="logo"
     >
-      <KarrotLogo />
+      <KarrotLogo show-loading />
     </RouterLink>
     <QToolbarTitle>
       <div class="row justify-between no-wrap">
-        <div/>
+        <div />
         <KBreadcrumb
           class="bread"
           :breadcrumbs="breadcrumbs"
         />
-        <div/>
+        <div />
       </div>
     </QToolbarTitle>
     <div class="actions">

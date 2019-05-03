@@ -1,0 +1,667 @@
+{
+  "ENTRY": "1 प्रवेश | {count} प्रवेश नोंदी",
+  "GLOBAL": {
+    "GITHUB_NOTE": "विकास",
+    "COMMUNITY_NOTE": "आमच्या समुदायात सामील व्हा",
+    "SERVER_ERROR": "सर्व्हर त्रुटी",
+    "NOT_CONNECTED": "आपण सर्व्हरशी कनेक्ट केलेले नाही",
+    "INVALID_LINK": "क्षमस्व, आपण उघडलेला दुवा अवैध आहे.",
+    "GENERIC_ERROR": "माफ करा, काहीतरी चुकलंय",
+    "SEARCH_NOT_FOUND": "सापडले नाही",
+    "ABOUT_KARROT": "Karrot बद्दल"
+  },
+  "USERDATA": {
+    "EMAIL": "ई-मेल",
+    "MOBILE_NUMBER": "दुरध्वनी क्रमांक",
+    "PROFILE_TITLE": "प्रोफाइल",
+    "PRIVATE_MESSAGE": "Send a private message to {userName}",
+    "PASSWORD": "पासवर्ड",
+    "CONFIRM_PASSWORD": "आपल्या पासवर्डची पुष्टी करा",
+    "USERNAME": "नाव",
+    "WHERE_FROM": "आपण कुठून आहात (आवश्यक नाही)",
+    "PHOTO": "प्रोफाइल फोटो",
+    "SET_PHOTO": "आपला प्रोफाइल फोटो सेट करा",
+    "ACCOUNT": "खाते",
+    "PUSH": "पाठवलेल्या सूचना",
+    "PUSH_CURRENT_BROWSER": "वर्तमान ब्राउझर",
+    "REQUEST_DELETE_ACCOUNT": {
+      "SUCCESS": "आम्ही आपल्याला हटविण्याची प्रक्रिया पूर्ण करण्यासाठी एका दुव्यासह एक ई-मेल पाठविला."
+    },
+    "DIALOGS": {
+      "REQUEST_DELETE_ACCOUNT": {
+        "TITLE": "खाते हटविणे",
+        "MESSAGE": "तुला खात्री आहे? आपले खाते आणि आपला वैयक्तिक डेटा कायमचा हटविला जाईल. आपण या प्लॅटफॉर्मवर केलेले काहीही अनामित केले जाईल. आपण पुष्टी केल्यास, आम्ही हटविण्याची प्रक्रिया पूर्ण करण्यासाठी आपल्याला एका दुव्यासह एक ई-मेल पाठवतो.",
+        "CONFIRM": "पुष्टी"
+      },
+      "GIVE_TRUST": {
+        "TITLE": "ट्रस्ट यूजर",
+        "MESSAGE": "आपण यावर {groupName} मधील  {userName}  वर  विश्वास ठेवता का?"
+      }
+    },
+    "LOGOUT_SUCCESS": "आपण लॉग आउट केले आहे!",
+    "YOU_TRUST_USER": "आपण {groupName} मधील  {userName}  वर  विश्वास ठेवता.",
+    "OTHER_PEOPLE_TRUST_USER": "{otherUser}, {groupName} मधील वर  विश्वास ठेवतात . |   {count} लोक  {groupName} मधील  {userName}{userName} वर विश्वास ठेवतात.",
+    "OTHER_PEOPLE_TRUST_YOU": "{otherUser} trusts you in {groupName}. | {count} people trust you in {groupName}.",
+    "PEOPLE_TRUST_USER": "You and {otherUser} trust {userName} in {groupName}. | You and {count} other people trust {userName} in {groupName}.",
+    "FIRST_TRUST": "Be the first one to trust {userName} in {groupName}!",
+    "NEWCOMER": "नवागत",
+    "NEWCOMER_GUIDANCE": "{userName}आपल्या गटामध्ये नवीन आहे आणि काही मार्गदर्शनाची आवश्यकता असू शकते. ",
+    "TRUST_PROGRESS_TEXT": "{trustNeeded}अधिक विश्वास आवश्यक ",
+    "TRUST_PROGRESS_TEXT_LONG": "{trustNeeded} more people need to express their trust in {userName} to grant editing permissions.",
+    "NEWCOMER_INFO": "You are currently a newcomer in {groupName} and you can become active by writing messages, meeting fellow members, doing pickups and giving feedback. As soon as {threshold} members expressed their trust in you, you will gain editing permissions to help with group administration.",
+    "TRUST_INFO": {
+      "TITLE": "हे गाजराचे चित्र असलेलं बटण काय आहे?",
+      "MESSAGE": "हे Karrot ट्रस्ट सिस्टमचा एक भाग आहे. हा गट सदस्य नवीन आहे आणि संपादन परवानगी मिळविण्यासाठी अजून किती विश्वास आवश्यक आहे हे दर्शवते.",
+      "LINK": "अधिक माहितीसाठी येथे क्लिक करा."
+    }
+  },
+  "SWITCHGROUP": {
+    "NOT_MEMBER": "{userName} ह्या {groupName}सदस्य नाही.",
+    "COMMON_GROUPS": "आपल्या समूहात असलेले गट",
+    "OTHER_GROUPS": "इतर गट"
+  },
+  "BUTTON": {
+    "CREATE": "तयार करा",
+    "CANCEL": "रद्द करा",
+    "OPEN": "उघडा",
+    "CLOSE": "बंद",
+    "DELETE": "हटवा",
+    "EDIT": "संपादित करा",
+    "JOIN": "सामील व्हा",
+    "LEAVE": "सोडा",
+    "PREVIEW": "पूर्वावलोकन",
+    "BACK": "मागे",
+    "NEXT": "Next",
+    "SEARCH": "शोध",
+    "OF_COURSE": "होय, नक्कीच !",
+    "YES": "होय",
+    "SAVE_CHANGES": "बदल जतन करा",
+    "RESET": "रीसेट",
+    "CHANGE_PASSWORD": "पासवर्ड बदला",
+    "CHANGE_EMAIL": "ई - मेल बदला",
+    "AGREE": "मी सहमत आहे",
+    "REMOVE": "काढा",
+    "ARCHIVE": "संग्रह",
+    "DELETE_ACCOUNT": "खाते हटवा",
+    "SHOW": "दाखवा",
+    "HIDE": "लपवा",
+    "SUBMIT": "सबमिट",
+    "APPLY": "लागू करा",
+    "ACCEPT": "स्वीकार",
+    "DECLINE": "नकार",
+    "WITHDRAW": "मागे घ्या",
+    "SHOW_MORE": "अजून दाखवा",
+    "ENABLE": "सक्षम",
+    "DISABLE": "अक्षम",
+    "UNSUBSCRIBE": "सदस्यता रद्द"
+  },
+  "VALIDATION": {
+    "MINLENGTH": "कृपया  {min} अक्षरांपेक्षा अधिक प्रविष्ट करा. ",
+    "MAXLENGTH": "खूप लांब, कृपया {max} अक्षरांपेक्षा कमी वापरा.",
+    "UNIQUE": "नाव आधीपासूनच विद्यमान आहे, कृपया दुसरे निवडा.",
+    "REQUIRED": "हे क्षेत्र आवश्यक आहे.",
+    "VALID_EMAIL": "एक वैध ई-मेल प्रविष्ट करा.",
+    "VALID_TIMEZONE": "एक वैध टाइमझोन प्रविष्ट करा."
+  },
+  "GROUP": {
+    "WALL": "भिंत",
+    "GROUP": "गट",
+    "LEAVE": "गट सोडा...",
+    "LEAVE_TEXT": "आपणास खात्री आहे की आपण हा गट सोडू इच्छिता?",
+    "LEAVE_CONFIRMATION": "तुम्ही  {groupName} हा गट सोडला",
+    "NONMEMBER_REDIRECT": "आपण या गटाचे सदस्य नाही.",
+    "EDIT": "गट संपादित करा",
+    "CREATE_TITLE": "नवीन गट तयार करा",
+    "MANAGE_AGREEMENT": "करार व्यवस्थापित करा",
+    "TITLE": "या गटाचे शीर्षक",
+    "PRIVATE_DESCRIPTION_TITLE": "खाजगी गट वर्णन",
+    "DESCRIPTION_VERBOSE": "सदस्यांसाठी दृश्यमान, गट वर्णन",
+    "PUBLIC_DESCRIPTION": "गटात सामील होण्यापूर्वी आपण पहात असलेला मजकूर",
+    "WELCOMEMESSAGE_VERBOSE": "Welcome message sent to new members",
+    "LOGO": "गटाचं बोधचिन्ह",
+    "SET_LOGO": "आपल्या गटाचं बोधचिन्ह अपलोड करण्यासाठी क्लिक करा!",
+    "APPLICATIONS": "आवेदन ",
+    "APPLICATION_QUESTIONS": "या गटात सामील होऊ इच्छित असलेल्या लोकांसाठी प्रश्न",
+    "PICKUPS": "पिकअप",
+    "MESSAGES": "संदेश",
+    "PICKUP": "पिकअप",
+    "MEMBERS": "सदस्य",
+    "JOINED": "{relativeDate}रोजी सामील झाले ",
+    "DECLINED": "{relativeDate}रोजी नाकारले ",
+    "ADDED_BY": "{userName}यांनी सामील करून घेतले ",
+    "DECLINED_BY": "{userName}यांनी नाकारले",
+    "SORT_JOINDATE": "सामील होण्याच्या तारखेनुसार क्रमवारी",
+    "SORT_NAME": "नावानुसार क्रमवारी",
+    "INACTIVE": "निष्क्रिय",
+    "SHOW_INACTIVE": "निष्क्रिय गट दर्शवा",
+    "STORES": "स्टोअर",
+    "HOME": "मुख्यपृष्ठ",
+    "HISTORY": "इतिहास",
+    "DESCRIPTION": "वर्णन",
+    "ADDRESS": "पत्ता",
+    "TIMEZONE": "गटाचा टाइम झोन",
+    "INVITE_EMAIL": "ई-मेल पत्ता प्रविष्ट करा",
+    "INVITE_SEND": "आमंत्रण पाठवा",
+    "INVITED_LIST": "या ई-मेल पत्त्यांवर निमंत्रण आधीच पाठविले गेले आहे:",
+    "ALREADY_INVITED": "या ई-मेल पत्त्यावर निमंत्रण आधीच पाठविले गेले आहे:",
+    "INVITATIONS": "आमंत्रण",
+    "INVITE_TITLE": "वापरकर्त्यांना आपल्या गटात आमंत्रित करा",
+    "INVITATION_ACCEPT_SUCCESS": "स्वागत आहे! आपण आमंत्रण यशस्वीरित्या स्वीकारले.",
+    "INVITATION_ACCEPT_ERROR": "अरेरे, निमंत्रण स्वीकारले गेले नाही! ",
+    "SETTINGS": "सेटिंग्ज",
+    "NOTIFICATIONS": "अधिसूचना",
+    "EMAIL_NOTIFICATIONS": "ईमेल अधिसूचना",
+    "NOTIFICATION_TYPES": {
+      "weekly_summary": {
+        "NAME": "साप्ताहिक सारांश",
+        "DESCRIPTION": "गटात काय होत आहे ते जाणून घ्या. "
+      },
+      "daily_pickup_notification": {
+        "NAME": "पिकअप अधिसूचना",
+        "DESCRIPTION": "आपल्या पिकअपबद्दल आपल्याला आठवण करून देते आणि आपल्याला दुसऱ्या दिवशीच्या आपल्या निवडलेल्या स्टोअरचे रिक्त किंवा पूर्ण पिकअपबद्दल सांगितले जाते."
+      },
+      "new_application": {
+        "NAME": "नवीन आवेदन",
+        "DESCRIPTION": "जेव्हा कोणी आपल्या गटात सामील होऊ इच्छिते तेव्हा हे आपल्याला सांगते"
+      },
+      "conflict_resolution": {
+        "NAME": "New conflict resolution processes",
+        "DESCRIPTION": "Tells you when a new conflict resolution process has been started in your group"
+      }
+    },
+    "PLAYGROUND_INFO": "हे एक खेळण्यासाठी केलेला गट आहे, आपण काहीही खंडित / बाधित करू शकत नाही. एक्सप्लोर करा, आसपास क्लिक करा, माहिती करून घ्या आणि मजा करा! ",
+    "JOIN_PLAYGROUND": "Karrot माहिती करून घेण्यासाठी ह्या तालमीच्या / खेळाच्या गटात सामील व्हा",
+    "JOIN_ANOTHER_GROUP": "दुसर्या गटात सामील व्हा"
+  },
+  "GROUPMAP": {
+    "TITLE": "नकाशा",
+    "SHOW_USERS": "वापरकर्ते दाखवा",
+    "HIDE_USERS": "वापरकर्ते लपवा",
+    "SHOW_STORES": "स्टोअर दर्शवा",
+    "HIDE_STORES": "स्टोअर लपवा",
+    "SHOW_GROUPS": "गट दाखवा",
+    "HIDE_GROUPS": "गट लपवा",
+    "SET_LOCATION": "स्थान सेट करा",
+    "FULL_SCREEN": "पूर्ण स्क्रीन दर्शवा"
+  },
+  "STOREDETAIL": {
+    "DIRECTIONS": "दिशानिर्देश दर्शवा",
+    "EDIT": "स्टोअर संपादित करा",
+    "ARCHIVED": "हे स्टोअर संग्रहित केले गेले आहे",
+    "INACTIVE": "हे स्टोअर सध्या सहकार्य करत नाही.",
+    "CHANGE_STATUS": "आपण सेटिंग्ज पृष्ठाची स्थिती बदलू शकता.",
+    "NO_DESCRIPTION": "या स्टोअरचे अद्याप वर्णन उपलब्ध नाही "
+  },
+  "STOREEDIT": {
+    "NAME": "नाव",
+    "STATUS": "स्थिती",
+    "DESCRIPTION": "वर्णन",
+    "ADDRESS": "पत्ता",
+    "WEEKS_IN_ADVANCE": "पिकअप तारखांची आठवण किती आठवडे आधी करावी?",
+    "WEEKS_IN_ADVANCE_WARNING": "विद्यमान उर्वरित पिकअप रिक्त असल्यास हटविले जातील. आवश्यक असल्यास, आपण रिक्त पिकअप स्वहस्ते अक्षम करू शकता.",
+    "DIALOGS": {
+      "ARCHIVE": {
+        "TITLE": "संग्रहित स्टोअर",
+        "MESSAGE": "खात्री आहे?",
+        "CONFIRM": "होय, स्टोअर संग्रहित करा "
+      }
+    },
+    "RESTORE": "पुनर्संचयित करा",
+    "SHOW_ARCHIVED": "संग्रहित स्टोअर दर्शवा",
+    "HIDE_ARCHIVED": "संग्रहित स्टोअर लपवा",
+    "SHOW_ALL": "सर्व स्टोअर दर्शवा",
+    "SHOW_ACTIVE_ONLY": "फक्त सक्रिय स्टोअर दर्शवा"
+  },
+  "PLACEWALL": {
+    "SUBSCRIBED_USERS": "{count} people have marked this store as favourite",
+    "SUBSCRIPTION": {
+      "HEADER": "आपण या स्टोअरला आपले आवडते म्हणून चिन्हांकित करू इच्छिता?",
+      "YES": "होय",
+      "YES_TEXT": "गट भिंतीवर उपलब्ध पिकअप दर्शविते आणि आगामी पिकअपबद्दल ईमेल पाठवते.",
+      "NO": "नाही",
+      "NO_TEXT": "उपरोक्तपैकी कोणीही नाही. तरीही आपण पिकअपसाठी साइन अप करू शकता."
+    }
+  },
+  "PICKUPMANAGE": {
+    "TITLE": "पिकअप व्यवस्थापित करा",
+    "SERIES": "आवर्ती पिकअप",
+    "SINGLE": "वन-टाइम पिकअप",
+    "UPCOMING_PICKUPS_IN_SERIES": "या मालिकेत आगामी पिकअप",
+    "PICKUP_DOES_NOT_MATCH": "ही पिकअपची तारीख पुनरावृत्ती नमुन्याशी जुळत नाही",
+    "PICKUP_DESCRIPTION_CHANGED": "'अतिरिक्त माहिती' बदलली गेली आहे",
+    "PICKUP_MAX_COLLECTORS_CHANGED": "'मॅक्स स्लॉट्स' बदलली गेली आहे"
+  },
+  "PICKUPDELETE": {
+    "DELETE_SERIES_TITLE": "आवर्ती पिकअप तारीख हटवा",
+    "DELETE_SERIES_TEXT": "आपण खरोखर ही आवर्ती पिकअप तारीख हटवू इच्छिता? हे या आवर्ती पिकअप तारखेशी संबंधित सर्व वन-टाइम पिकअप तारिख देखील हटवेल (लोक आधीपासूनच सामील झाले असतील तर मात्र हटवले जाणार नाही)."
+  },
+  "USERDETAIL": {
+    "DISPLAY_NAME": "नाव",
+    "DESCRIPTION": "आपल्या बद्दल",
+    "OLD_PASSWORD": "आपल्या जुन्या पासवर्डची पुष्टी करा",
+    "PASSWORD": "नवीन पासवर्ड"
+  },
+  "PROFILE": {
+    "INACCESSIBLE_OR_DELETED": "(वापरकर्ता प्रवेश न करण्यायोग्य किंवा हटविला)"
+  },
+  "JOINGROUP": {
+    "WHICHGROUP": "आपण कोणत्या गटात सामील होऊ इच्छिता?",
+    "NUM_MEMBERS": "सभासद | सदस्य",
+    "NO_PUBLIC_DESCRIPTION": "(या गटाचे सार्वजनिक वर्णन नाही ...)",
+    "ALL_GROUPS": "सर्व गट",
+    "SIGNUP_OR_LOGIN": "या गटात सामील होण्यासाठी लॉग इन किंवा साइन अप करा!",
+    "VERIFY_EMAIL_ADDRESS": "अर्ज करण्यासाठी आपला ईमेल पत्ता सत्यापित करा",
+    "MY_GROUPS": "माझे गट",
+    "LOGOUT_MESSAGE": {
+      "LOGGED_OUT": "आपण सध्या लॉग आउट केले आहे. {login}",
+      "LOG_IN": "आपले गट पाहण्यासाठी लॉग इन करा!"
+    },
+    "PROFILE_NOTE": "या गटात सामील होऊन, आपला प्रोफाइल डेटा इतर गट सदस्यांना दृश्यमान होईल.",
+    "APPLICATION_SUBMITTED": "आपले आवेदन यशस्वीरित्या सबमिट झाले !",
+    "APPLICATION_PENDING": "आपला अर्ज प्रलंबित आहे!",
+    "WITHDRAW_CONFIRMATION_HEADER": "अर्ज मागे घ्या",
+    "WITHDRAW_CONFIRMATION_TEXT": "आपणास खात्री आहे की आपण {groupName} सामील होण्यासाठी आपला अर्ज मागे घेऊ इच्छित आहात?",
+    "APPLICATION_WITHDRAWN": "आपले आवेदन यशस्वीरित्या मागे घेण्यात आले!"
+  },
+  "GROUPINFO": {
+    "TITLE": "सार्वजनिक गट माहिती",
+    "META": "सार्वजनिक गट माहिती दर्शवा",
+    "MEMBER_VIEW": "आपण या गटाचे सदस्य आहात. पूर्ण दृश्य पाहण्यासाठी येथे क्लिक करा."
+  },
+  "TOPBAR": {
+    "LOGOUT": "लॉगऑऊट",
+    "USERPROFILE": "आपल्या प्रोफाइलला भेट द्या",
+    "CHANGE_GROUP": "गट बदला"
+  },
+  "SIDENAV": {
+    "INFO_SUB": "आपले खाद्यपदार्थ वाचविणारे गट कसे तयार करावे ",
+    "BLOG_SUB": "Karrot सॉफ्टवेअर संबंधित सर्व बातम्या",
+    "GIT_SUB": "आमची सॉफ्टवेअर प्रणाली पहा!"
+  },
+  "LOGIN": {
+    "TITLE": "लॉगिन",
+    "SUBMIT": "लॉगिन",
+    "SIGNUP": "साइन अप करा",
+    "FORGOT_PASSWORD": "तुम्ही पासवर्ड विसरलात ?"
+  },
+  "SIGNUP": {
+    "TITLE": "साइन अप!",
+    "BACK": "लॉग इन वर परत",
+    "OK": "सामील व्हा"
+  },
+  "VERIFYMAIL": {
+    "TITLE": "ई - मेल पडताळणी",
+    "SUCCESS": "आपला ई-मेल यशस्वीरित्या सत्यापित झाला!"
+  },
+  "DELETEACCOUNT": {
+    "TITLE": "खाते हटविणे",
+    "SUCCESS": "आपले खाते यशस्वीरित्या हटविले गेले!"
+  },
+  "CREATEPICKUP": {
+    "FREQUENCY": "वारंवारता",
+    "WEEKLY": "साप्ताहिक",
+    "CUSTOM": "कस्टम",
+    "WEEKDAYS": "आठवड्याचे दिवस",
+    "WEEKDAYS_HELPER": "कोणत्या दिवशी पिकअप घ्यावे?",
+    "RRULE": "आवर्ती नियम",
+    "RRULE_HELPER": "वैध टाइप करा {ruleHelper}, उदा. {ruleExample} किंवा{ruleExample2}",
+    "RRULE_HELPER_URL": "iCalender नियम",
+    "RRULE_EXAMPLE": "दरमहा शेवटचा कामकाजाचा दिवस (सोम -शुक्र) ",
+    "RRULE_EXAMPLE2": "प्रत्येक दुसर्या सोमवारी",
+    "STARTDATE": "प्रारंभ तारीख",
+    "STARTDATE_HELPER": "मालिका कधी सुरू करावी?",
+    "TIME": "वेळ",
+    "TIME_HELPER": "पिकअप कधी घ्यावे?",
+    "DATE": "दिनांक",
+    "DATE_HELPER": "पिकअप कधी घ्यावे?",
+    "MAX_COLLECTORS": "कमाल स्लॉट्स",
+    "MAX_COLLECTORS_HELPER": "पिकअपमध्ये किती लोकांनी भाग घेतला पाहिजे?",
+    "COMMENT": "अतिरिक्त माहिती",
+    "COMMENT_HELPER": "या पिकअपवर साइन अप करताना लोकांना काय कळले पाहिजे?",
+    "UNLIMITED": "अमर्याद",
+    "DIFFERS_WARNING": "हे मूल्य डिफॉल्टपेक्षा वेगळे आहे. हा बदल पूर्ववत करण्यासाठी, बाण बटणावर क्लिक करा आणि बदल जतन करा",
+    "ENABLE_TITLE": "पिकअप सक्षम करायचे?",
+    "DISABLE_TITLE": "पिकअप अक्षम करायचे?",
+    "ENABLE_DISABLE_MESSAGE": "या पिकअपमध्ये सामील झालेले वापरकर्ते सूचना प्राप्त करतील. कारण देण्यासाठी आपण हा मजकूर बदलू शकता:",
+    "EXCEPTIONS_TITLE": "आपले पिकअप तपासा",
+    "EXCEPTIONS_MESSAGE": "काही आगामी पिकअप या आवर्ती पिकअपच्या सेटिंग्जशी जुळत नाहीत. आवश्यक असल्यास, पिकअप बदलण्यासाठी किंवा अक्षम करण्यासाठी 'येथे' {upcomingLabel} खाली एक नजर टाका."
+  },
+  "CREATESTORE": {
+    "TITLE": "एक नवीन स्टोअर तयार करा"
+  },
+  "PICKUPLIST": {
+    "FILTER": {
+      "ALL": "All",
+      "EMPTY": "Only empty",
+      "FREE": "With free slots"
+    },
+    "AVAILABLE": "आपल्या आवडत्या स्टोअरमध्ये एक पिकअप आपल्यासाठी प्रतीक्षा करीत आहे! | आपल्या आवडत्या स्टोअरमध्ये {count}पिकअप आपल्यासाठी प्रतीक्षा करीत आहेत!",
+    "AVAILABLE_FEEDBACK": "आपण एका पिकअपवर फीडबॅक देऊ शकता | {count}पिकअप आपल्या फीडबॅकची वाट पाहत आहेत",
+    "JOINEDNOTICE": "आपल्याकडे एक आगामी पिकअप आहे | आपल्याकडे आगामी {count} पिकअप आहेत",
+    "AVAILABLE_FROM_STORES": "हे पुढील दिवसात आपल्या आवडत्या स्टोअरवरून करावयाचे पिकअप दर्शविते. आपण साइडबार वापरून इतर स्टोअरमध्ये प्रवेश करू शकता.",
+    "ITEM": {
+      "LEAVE": "सोडा",
+      "JOIN": "सामील व्हा",
+      "JOIN_CONFIRMATION_HEADER": "पिकअप मध्ये सामील व्हा",
+      "JOIN_CONFIRMATION_TEXT": "आपणास खात्री आहे की आपल्याला पिकअप ची वेळ {date}आहे?",
+      "LEAVE_CONFIRMATION_HEADER": "पिकअप सोडा ",
+      "LEAVE_CONFIRMATION_TEXT": "आपणास खात्री आहे की इतर लोक आपल्याशिवाय पिकअप करू शकतात?"
+    },
+    "NONE": "कोणतीही आगामी पिकअप नाहीत",
+    "NONE_HINT": "आपण स्टोअर पृष्ठावर नवीन पिकअप तयार करू शकता.",
+    "STORE_NONE_HINT": "आपण पिकअप व्यवस्थापित पृष्ठावर नवीन पिकअप तयार करू शकता.",
+    "PICKUP_DISABLED": "हे पिकअप अक्षम केले गेले आहे.",
+    "PICKUP_STARTED": "हे पिकअप आधीपासून सुरू झाले आहे."
+  },
+  "FEEDBACKLIST": {
+    "SAVED_FOOD": "येथे किमान 1 किलो जतन केले गेले. धन्यवाद! | लोकांनी आधीच जतन केलेल्या आहाराच्या {amount} किलोसाठी फीडबॅक दिले! असे चांगले कार्य चालू ठेवा!",
+    "NUMBER_PICKUPS": "{count}पिकअप पूर्ण ",
+    "NUMBER_FEEDBACK": "{count}फीडबॅक नोंदी दिल्या ",
+    "WEIGHT_SUM": "{sum} किलो अन्न जतन केले ",
+    "GIVE_FEEDBACK": "अभिप्राय द्या",
+    "NONE": "अजून काही अभिप्राय नाही ",
+    "NONE_HINT": "अधिक फीडबॅक उपलब्ध झाल्यानंतर हे पृष्ठ भरले जाईल",
+    "NO_DONE_PICKUPS": "पूर्ण झाले!",
+    "NO_DONE_PICKUPS_HINT": "आपल्याकडे अभिप्राय देण्यासाठी सध्या कोणतेही पिकअप नाहीत. आपण दुसर्या पिकअपमध्ये सामील का होत नाही?"
+  },
+  "PICKUP_FEEDBACK": {
+    "TITLE": "अभिप्राय ",
+    "HEADER": "आपल्या पिकअपसाठी धन्यवाद!",
+    "EDIT": "अभिप्राय संपादित करा",
+    "SUBTITLE": "आपण येथे आपल्या पिकअपसाठी अभिप्राय प्रदान करू शकता",
+    "SET_AMOUNT": "रक्कम सेट करा",
+    "DELETE_AMOUNT": "रक्कम हटवा",
+    "AMOUNT": "आपणा सर्वांस अन्नधान्य वाचविता आले (किलोमध्ये)",
+    "COMMENT_PLACEHOLDER": "सर्वकाही ठीक आहे का? प्रत्येकजण आले होते का? येथे आपली टिप्पणी ...",
+    "PREVIOUS": "{store}साठी मागील अभिप्राय",
+    "TOGETHER_WITH": "आपण हे पिकअप एकत्र केले:"
+  },
+  "PASSWORDRESET": {
+    "TITLE": "पासवर्ड रीसेट",
+    "INTRO": "तुमचा ईमेल पत्ता भरा आणि आम्ही तुम्हाला नवीन पासवर्ड सेट करण्यासाठी एक लिंक पाठवू (जर तुमच्याकडे नोंदणीकृत खाते असेल तर).",
+    "EMAIL": "ई-मेल पत्ता",
+    "SUBMIT": "नवीन पासवर्ड मिळवा ",
+    "LOGIN": "लॉग इन पृष्ठावर परत",
+    "SUCCESS": "विनंती यशस्वीरित्या पाठविली गेली. आपले ईमेल पहा!"
+  },
+  "PASSWORD": {
+    "RESET": {
+      "TITLE": "पासवर्ड रीसेट करा",
+      "OK": "जतन करा",
+      "SUCCESS": "तुमचा नवीन पासवर्ड जतन केला गेला आहे."
+    },
+    "CHANGE": {
+      "SUCCESS": "तुमचा नवीन पासवर्ड जतन केला गेला आहे."
+    }
+  },
+  "LANGUAGECHOOSER": {
+    "ADD_MORE": "अनुवाद करण्यास मदत करा!",
+    "SWITCH": "भाषा बदला"
+  },
+  "MARKDOWN_INPUT": {
+    "BOLD": "ठळक ",
+    "ITALIC": "तिरके",
+    "STRIKE": "खोडलेले ",
+    "QUOTE": "उद्धरण",
+    "HELP": "मार्कडाउन म्हणजे काय?"
+  },
+  "HISTORY": {
+    "GROUP_CREATE": "हा गट तयार केला",
+    "GROUP_MODIFY": "या गटाच्या सेटिंग्ज बदलल्या ",
+    "GROUP_JOIN": "या गटात सामील झाले",
+    "GROUP_LEAVE": "हा गट सोडला",
+    "STORE_CREATE": "{name}स्टोअर निर्माण केले  ",
+    "STORE_MODIFY": "{name}स्टोअर च्या सेटिंग्ज बदलल्या  ",
+    "STORE_DELETE": "{name}स्टोअर हटवले ",
+    "PICKUP_CREATE": "नवीन वन-टाइम पिकअप तयार केले",
+    "PICKUP_MODIFY": "पिकअपची सेटिंग्ज बदलली",
+    "PICKUP_DELETE": "पिकअप हटविला",
+    "PICKUP_ENABLE": "पिकअप सक्षम केला",
+    "PICKUP_DISABLE": "पिकअप अक्षम केला",
+    "SERIES_CREATE": "नवीन आवर्ती पिकअप तयार केले",
+    "SERIES_MODIFY": "आवर्ती पिकअपची सेटिंग्ज बदलली",
+    "SERIES_DELETE": "आवर्ती पिकअप हटविला",
+    "PICKUP_DONE": "did a pick-up at {storeName}",
+    "PICKUP_MISSED": "A pickup at {storeName} was missed!",
+    "PICKUP_JOIN": "signed up to do a pick-up at {storeName}",
+    "PICKUP_LEAVE": "stepped back from doing a pick-up at {storeName}",
+    "APPLICATION_DECLINED": "declined an application from {applicantName}",
+    "MEMBER_BECAME_EDITOR": "gained editing permissions",
+    "GROUP_LEAVE_INACTIVE": "was removed due to inactivity",
+    "GROUP_CHANGE_PHOTO": "changed the group logo",
+    "GROUP_DELETE_PHOTO": "deleted the group logo",
+    "MEMBER_REMOVED": "was removed due to group decision",
+    "NOTHING_HAPPENEND": "Nothing happened so far...",
+    "DETAILS": "More information"
+  },
+  "NOTIFICATIONS": {
+    "TITLE": "Notifications",
+    "NOT_VERIFIED": "{email} is not verified",
+    "CHECK_YOUR_MAILS": "Please check your emails or {resend}",
+    "RESEND_VERIFICATION": "resend verification email",
+    "VERIFICATION_EMAIL_SENT": "We sent you another verification mail. Please check your inbox.",
+    "CHANGES_SAVED": "Your changes have been saved.",
+    "EMAIL_NOT_DELIVERED": "An email could not be delivered to you | {count} emails could not be delivered to you"
+  },
+  "NOTIFICATION_BELLS_LIST": {
+    "TITLE": "Notifications",
+    "NO_ITEMS": "We currently don't have notifications for you."
+  },
+  "NOTIFICATION_BELLS": {
+    "YOU_BECAME_EDITOR": "You gained editing permissions",
+    "USER_BECAME_EDITOR": "{userName} gained editing permissions",
+    "NEW_APPLICANT": "{userName} applied to join your group",
+    "APPLICATION_ACCEPTED": "Your application was accepted!",
+    "APPLICATION_DECLINED": "Your application was declined",
+    "INVITATION_ACCEPTED": "{userName} accepted your invitation",
+    "FEEDBACK_POSSIBLE": "You can give feedback for the pickup you did on {date}",
+    "NEW_STORE": "{storeName} has been created",
+    "NEW_MEMBER": "{userName} joined your group",
+    "PICKUP_UPCOMING": "Reminder: You have a pickup at {time}",
+    "PICKUP_DISABLED": "Pickup at {dateTime} was disabled",
+    "PICKUP_ENABLED": "Pickup at {dateTime} was enabled again",
+    "PICKUP_MOVED": "Pickup was moved to {dateTime}",
+    "CONFLICT_RESOLUTION_CREATED": "Join the discussion about a conflict with {userName}",
+    "CONFLICT_RESOLUTION_CREATED_ABOUT_YOU": "A conflict resolution process was started with you",
+    "CONFLICT_RESOLUTION_CONTINUED": "The conflict resolution process with {userName} continues",
+    "CONFLICT_RESOLUTION_CONTINUED_ABOUT_YOU": "The conflict resolution process with you continues",
+    "CONFLICT_RESOLUTION_DECIDED": "The conflict resolution process with {userName} was decided",
+    "CONFLICT_RESOLUTION_DECIDED_ABOUT_YOU": "The conflict resolution process with you was decided",
+    "CONFLICT_RESOLUTION_YOU_WERE_REMOVED": "You were removed from the group",
+    "VOTING_ENDS_SOON": "Voting ends soon, don't forget to participate!"
+  },
+  "NOTIFICATION_TOGGLE": {
+    "HEADER": "How do you want to receive notifications about new messages in this conversation/thread?",
+    "ALL": "all",
+    "ALL_TEXT": "Via app/website, email and push notifications.",
+    "SOME": "some",
+    "SOME_TEXT": "Via app/website.",
+    "NONE": "none",
+    "NONE_TEXT": "No notifications."
+  },
+  "OUTDATED_BROWSER": {
+    "MESSAGE": "You are using an unsupported browser. {upgradeBrowser} to enjoy all features.",
+    "LINK": "Please update or switch your browser"
+  },
+  "UPDATE_AVAILABLE": {
+    "TITLE": "Update available",
+    "DETAIL": "A new version of karrot is available."
+  },
+  "NOT_FOUND": {
+    "EXPLANATION": "Sorry, we couldn't find this page anywhere.",
+    "HOME": "Take me home"
+  },
+  "SETTINGS": {
+    "TITLE": "Settings"
+  },
+  "AGREEMENT": {
+    "NEW": "New agreement",
+    "AGREE": "You must agree to {title}",
+    "VIEW": "View agreement",
+    "TITLE": "Title",
+    "TITLE_HELPER": "Give your agreement a title, e.g. Community Rules",
+    "CONTENT": "Content",
+    "CONTENT_HELPER": "The text of your agreement",
+    "MINOR_EDIT": "Minor edit?",
+    "MINOR_EDIT_HELPER": "Typos, formatting, etc... people will not be asked to re-agree",
+    "BLURB1": "You don't have an agreement yet!",
+    "BLURB2": "If you add one then people will have to agree to it before they can do pickups.",
+    "DIALOGS": {
+      "REPLACE": {
+        "TITLE": "Change agreement?",
+        "MESSAGE": "Everyone will have to agree again before they can signup for pickups",
+        "CONFIRM": "Yes, change agreement"
+      },
+      "REMOVE": {
+        "TITLE": "Remove agreement?",
+        "MESSAGE": "This means anyone will be able to do a pickup",
+        "CONFIRM": "Yes, remove agreement"
+      }
+    }
+  },
+  "WALL": {
+    "WRITE_MESSAGE": "Write a message...",
+    "WRITE_FIRST_MESSAGE": "Write the first message...",
+    "VERIFY_EMAIL_FOR_NOTIFICATIONS": "Please verify your e-mail address to receive notification e-mails",
+    "RECEIVED_VIA_EMAIL": "This message was sent via e-mail"
+  },
+  "CONVERSATION": {
+    "OPEN": "Open Chat",
+    "REPLY_TO_MESSAGE": "Reply to message...",
+    "REPLIES": "Replies",
+    "REPLIES_COUNT": "1 reply | {count} replies",
+    "UNREAD_MESSAGES": "You have one unread message. | You have {count} unread messages.",
+    "EDITED": "edited",
+    "MARK_READ": "Mark all as read",
+    "REACTIONS": {
+      "YOU": "you",
+      "AND": "and",
+      "REACTED_WITH": "{users} reacted with {reaction}"
+    },
+    "MESSAGE_NOT_FOUND": "Message not found",
+    "NO_CONVERSATIONS": "No conversations yet.",
+    "MUTED": "Notifications are disabled",
+    "CLOSED": "This conversation has been closed automatically.",
+    "NOT_PARTICIPATED": "By sending a message, you will be subscribed to notifications about this conversation."
+  },
+  "STORESTATUS": {
+    "ACTIVE": "Co-operating",
+    "CREATED": "Just created",
+    "NEGOTIATING": "Negotiating",
+    "DECLINED": "Don't want to cooperate",
+    "ARCHIVED": "Archived"
+  },
+  "APPLICATION": {
+    "APPLICATION": "Application",
+    "FORM_HEADER": "Apply",
+    "FORM_TITLE": "Apply to join {groupName}",
+    "GALLERY_TOOLTIP": "You applied to join this group. Your application is still pending.",
+    "WALL_NOTICE": "There is an application pending! | There are {count} applications pending!",
+    "ACCEPT_CONFIRMATION_HEADER": "Accept Application",
+    "ACCEPT_CONFIRMATION_TEXT": "Are you sure you want to accept {userName} into this group?",
+    "DECLINE_CONFIRMATION_HEADER": "Decline Application",
+    "DECLINE_CONFIRMATION_TEXT": "Are you sure you want to decline the application of {userName}?",
+    "ACCEPTED": "You accepted {userName} into this group!",
+    "DECLINED": "You declined the application of {userName}.",
+    "PAST": "Past applications",
+    "SUBMITTED_ON": "Submitted on {date}",
+    "WITHDRAWN": "withdrawn {relativeDate}",
+    "WHAT": "What is this chat about?",
+    "HELP": "This is a chat between all existing members of {groupName} and the new applicant {userName}. It is meant to give you all a chance to get to know you before deciding whether to accept, decline or withdraw the application.",
+    "INITIAL": "Initial questions and answers"
+  },
+  "COMMUNITY_FEED": {
+    "HEADER": "Updates from the {community}",
+    "HEADER_LINK": "foodsaving worldwide community",
+    "LAST_UPDATED": "Last updated {relativeDate}"
+  },
+  "INACTIVITY": {
+    "WHAT": "What does it mean to be inactive?",
+    "HELP": "Everyone who did not log into the group for {dayCount} days or more counts as inactive. These users will not receive notification emails anymore."
+  },
+  "CONFLICT": {
+    "SETUP_HEADER": "Is there a conflict with {user}?",
+    "STATEMENT": "Statement",
+    "STEPPER1a": "You are about to start a group-wide conflict resolution process!",
+    "STEPPER1b": "This will involve all members with editing permissions to find the best way to proceed.",
+    "STEPPER2a": "Thank you for caring for your community!",
+    "STEPPER2b": "It is important to address social issues, although it can be unpleasant sometimes. Thank you for your courage!",
+    "STEPPER3a": "Here's what will happen:",
+    "STEPPER3b": "This process will start a chat and a vote.",
+    "STEPPER3c": "The chat will be visible for members with editing permissions and includes {userName}.",
+    "STEPPER3d": "The voting is anonymous. It will go on for {votingDuration} days. During this time all voters can change their minds and vote differently as many times as they want.",
+    "STEPPER4a": "Please explain why you are starting this conflict resolution process!",
+    "STEPPER4b": "Tell your group what made you think this process is justified and needed. This statement will be visible to {userName} and group members with editing permissions.",
+    "FIND_OUT_MORE": "Find out more!",
+    "INITIAL": "Information",
+    "WITH": "This process is to resolve a conflict with {userName}",
+    "VOTING": {
+      "HEADLINE": "How do you want to proceed with the ongoing conflict with {userName}?"
+    },
+    "REQUIREMENTS": {
+      "ACTIVE_EDITORS": "Your group has {activeEditorsCount} active users with editing permissions. You need {requiredCount} to start a conflict resolution process.",
+      "NEWCOMER": "Before you can start a conflict resolution process, you need to receive more trust and gain editing permissions. In the meantime, please ask a fellow group member to start the process for you."
+    },
+    "INFO": {
+      "TITLE": "How does this process work?",
+      "MESSAGE": "This is a score voting in which group members with editing permissions can participate to determine how to deal with a social conflict that affects the whole group."
+    }
+  },
+  "ISSUE": {
+    "CREATION": {
+      "TOAST": "You successfully started a conflict resolution process"
+    },
+    "TITLE": "Issues",
+    "VOTE": "Vote",
+    "CHAT": "Chat",
+    "INITIATED_BY": "Initiated by {initiatorName}",
+    "PAST": "Past issues",
+    "PREVIOUS_VOTINGS": "Previous votings in this issue",
+    "PARTICIPANTS": "{count} members have been added to this discussion.",
+    "VOTING": {
+      "TIME_LEFT": "Time left to vote",
+      "BTN_START": "Vote now",
+      "SAVE": "Save",
+      "BTN_DELETE": "Delete vote",
+      "TOAST": "Your vote was successfully submitted",
+      "TOAST_DELETE": "Your vote was deleted",
+      "NO_CHANGE": "No change: {userName} stays in {groupName}",
+      "FURTHER_DISCUSSION": "Further discussion: extend time by starting another voting",
+      "REMOVE_USER": "{userName} gets removed from {groupName}",
+      "RESULTS": {
+        "KEEP_DISCUSSING": "Your group voted to keep discussing",
+        "TIME_UP": "Time is up!",
+        "TOTAL_SCORE": "Total score",
+        "ENDED_AT": "This voting round ended on {date}",
+        "PARTICIPANTS": "{number} members participated in the voting.",
+        "UNDECIDED": "Unfortunately this conflict could not be decided.",
+        "UNDECIDED_WHY": "There are two possible reasons for that:",
+        "UNDECIDED_REASON_1": "the affected user left the group while the conflict resolution process was still ongoing",
+        "UNDECIDED_REASON_2": "nobody voted on this issue"
+      },
+      "SEE_RESULTS": "See the results",
+      "SCORE_LABELS": {
+        "NEUTRAL": "neutral",
+        "SLIGHT_SUPPORT": "support",
+        "STRONG_SUPPORT": "strong support",
+        "SLIGHT_RESISTANCE": "resistance",
+        "STRONG_RESISTANCE": "strong resistance"
+      },
+      "ANONYMOUS": "Your vote will be anonymous."
+    },
+    "NO_ONGOING": "No ongoing issues."
+  },
+  "UNSUBSCRIBE": {
+    "HEADER": "Unsubscribe",
+    "FROM_CONVERSATION": "unsubscribe from just this conversation",
+    "FROM_THREAD": "unsubscribe from just this thread",
+    "FROM_NOTIFICATION_TYPE": "unsubscribe from {notificationType}",
+    "FROM_GROUP": "unsubscribe from everything in {groupName}",
+    "SUCCESS": "You were successfully unsubscribed!"
+  },
+  "THANKS": "Thank you!",
+  "ATTENTION": "Attention!",
+  "INFO": "Info",
+  "YOU": "You",
+  "TO": "to"
+}

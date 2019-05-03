@@ -2,7 +2,7 @@ import { storiesOf } from '@storybook/vue'
 import { action } from '@storybook/addon-actions'
 
 import PickupList from './PickupList'
-import { pickupsMock, storesMock, currentUserMock } from '>/mockdata'
+import { pickupsMock, placesMock, currentUserMock } from '>/mockdata'
 import { createDatastore, storybookDefaults as defaults } from '>/helpers'
 
 const datastore = createDatastore({
@@ -18,7 +18,7 @@ storiesOf('PickupList', module)
     render: h => h(PickupList, {
       props: {
         pickups: pickupsMock,
-        datastore: storesMock[0],
+        datastore: placesMock[0],
       },
       on: {
         join: action('join'),

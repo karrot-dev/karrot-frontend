@@ -14,10 +14,10 @@
         placeholder=""
         :prevent-white-space="true"
         :show-loading="true"
-        @file-choose="saveDisabled = false"
-        @image-remove="saveDisabled = false"
         :class="{pointer: !hasPhoto}"
         :zoom-speed="10"
+        @file-choose="saveDisabled = false"
+        @image-remove="saveDisabled = false"
       >
         <img
           v-if="hasPhoto"
@@ -40,11 +40,11 @@
 
     <div class="actionButtons">
       <QBtn
+        v-t="'BUTTON.SAVE_CHANGES'"
         color="primary"
-        @click="save"
         :loading="isPending"
         :disabled="saveDisabled"
-        v-t="'BUTTON.SAVE_CHANGES'"
+        @click="save"
       />
     </div>
   </div>
@@ -77,11 +77,6 @@ export default {
       saveDisabled: true,
     }
   },
-  watch: {
-    photo () {
-      this.$refs.croppaPhoto.refresh()
-    },
-  },
   computed: {
     hasPhoto () {
       return !!this.photo
@@ -95,6 +90,11 @@ export default {
       if (__ENV.DEV) return ['http://localhost:8080', url.substring(url.indexOf('/media'))].join('')
 
       return url
+    },
+  },
+  watch: {
+    photo () {
+      this.$refs.croppaPhoto.refresh()
     },
   },
   methods: {

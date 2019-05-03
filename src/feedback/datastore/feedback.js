@@ -28,7 +28,7 @@ export default {
         ...feedback,
         givenBy: rootGetters['users/get'](feedback.givenBy),
         about: pickup,
-        store: pickup && pickup.store,
+        place: pickup && pickup.place,
         group: pickup && pickup.group,
       }
     },
@@ -36,17 +36,18 @@ export default {
     byCurrentGroup: (state, getters) => {
       return getters.all.filter(({ group }) => group && group.isCurrentGroup)
     },
-    byActiveStore: (state, getters) => {
-      return getters.all.filter(({ store }) => store && store.isActiveStore)
+    byActivePlace: (state, getters) => {
+      return getters.all.filter(({ place }) => place && place.isActivePlace)
     },
+    selectedId: (state) => state.selectedFeedbackId,
     selected: (state, getters) => getters.get(state.selectedFeedbackId),
     canFetchPast: (state, getters) => getters['pagination/canFetchNext'],
     ...metaStatuses(['save', 'fetch', 'fetchPast']),
   },
   actions: {
     ...withMeta({
-      async fetch ({ dispatch }, { groupId, storeId }) {
-        const filters = storeId ? { store: storeId } : { group: groupId }
+      async fetch ({ dispatch }, { groupId, placeId }) {
+        const filters = placeId ? { place: placeId } : { group: groupId }
         const data = await dispatch('pagination/extractCursor', feedbackAPI.list(filters))
         dispatch('updateFeedbackAndRelated', data)
       },
@@ -89,13 +90,18 @@ export default {
       }
     },
 
-    async select ({ dispatch, commit }, { groupId, feedbackId }) {
-      if (feedbackId) {
-        dispatch('fetch', { groupId }) // ideally we would have the storeId here too, but it's not in the route
-        commit('update', [await feedbackAPI.get(feedbackId)])
-        commit('select', feedbackId)
-      }
-    },
+    ...withMeta({
+      async select ({ dispatch, commit }, { groupId, feedbackId }) {
+        if (feedbackId) {
+          dispatch('fetch', { groupId }) // ideally we would have the placeId here too, but it's not in the route
+          commit('update', [await feedbackAPI.get(feedbackId)])
+        }
+      },
+    }, {
+      findId: ({ feedbackId }) => feedbackId,
+      setCurrentId: ({ commit }, { feedbackId }) => commit('select', feedbackId),
+      getCurrentId: ({ state }) => state.selectedFeedbackId,
+    }),
 
     clear ({ commit }) {
       commit('clear')

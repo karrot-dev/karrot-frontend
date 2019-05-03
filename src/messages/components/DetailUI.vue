@@ -1,11 +1,6 @@
 <template>
   <div class="Detail">
-    <div
-      v-if="isPending"
-      class="full-width text-center generic-padding"
-    >
-      <QSpinnerDots :size="40" />
-    </div>
+    <KSpinner v-show="isPending" />
     <ChatConversation
       v-if="conversation"
       :conversation="conversationWithMaybeReversedMessages"
@@ -13,6 +8,7 @@
       :current-user="currentUser"
       :start-at-bottom="Boolean(user) || Boolean(pickup)"
       :inline="inline"
+      compose
       @send="$emit('send', arguments[0])"
       @mark="$emit('mark', arguments[0])"
       @toggleReaction="$emit('toggleReaction', arguments[0])"
@@ -21,8 +17,8 @@
       @fetchFuture="$emit('fetchFuture')"
     >
       <QCollapsible
-        slot="beforeChatMessages"
         v-if="application"
+        slot="beforeChatMessages"
         opened
         class="bg-grey-2"
       >
@@ -49,8 +45,8 @@
         </div>
       </QCollapsible>
       <QList
-        slot="afterChatMessages"
         v-if="pickup && pickup.isDisabled"
+        slot="afterChatMessages"
         class="bg-grey-2"
       >
         <QItem>
@@ -69,9 +65,9 @@
 import ChatConversation from '@/messages/components/ChatConversation'
 import Markdown from '@/utils/components/Markdown'
 import DateAsWords from '@/utils/components/DateAsWords'
+import KSpinner from '@/utils/components/KSpinner'
 
 import {
-  QSpinnerDots,
   QCollapsible,
   QList,
   QItem,
@@ -84,7 +80,7 @@ export default {
     ChatConversation,
     Markdown,
     DateAsWords,
-    QSpinnerDots,
+    KSpinner,
     QCollapsible,
     QList,
     QItem,

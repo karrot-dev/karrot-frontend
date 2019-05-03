@@ -1,6 +1,6 @@
 import Quasar from 'quasar-vue-plugin'
 
-import { AppVisibility, CloseOverlay, Dialog, Notify } from 'quasar'
+import { AppVisibility, CloseOverlay, Dialog, Notify, TouchHold } from 'quasar'
 
 export const config = {
   plugins: {
@@ -10,6 +10,7 @@ export const config = {
   },
   directives: {
     CloseOverlay,
+    TouchHold,
   },
 }
 

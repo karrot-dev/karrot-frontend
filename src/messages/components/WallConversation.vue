@@ -1,5 +1,5 @@
 <template>
-  <div v-if="data">
+  <div>
     <QInfiniteScroll
       :handler="maybeFetchPast"
     >
@@ -8,21 +8,22 @@
       >
         <template v-if="hasLoaded">
           <NotificationToggle
-            :value="!data.muted"
-            :user="user"
             class="actionButton hoverScale"
-            @click="toggleNotifications"
+            :muted="data.muted"
+            :is-participant="data.isParticipant"
+            :user="user"
+            @set="setNotifications"
           />
           <ConversationCompose
             :status="data.sendStatus"
-            @submit="$emit('send', { id: data.id, content: arguments[0] })"
             :placeholder="messagePrompt"
             :user="user"
             :slim="$q.platform.is.mobile"
-            :autofocus="!$q.platform.is.mobile"
+            :is-participant="data.isParticipant"
+            @submit="$emit('send', { id: data.id, content: arguments[0] })"
           />
           <QAlert
-            v-if="data.unreadMessageCount > 0"
+            v-if="data.isParticipant && data.unreadMessageCount > 0"
             color="secondary"
             icon="star"
             class="k-unread-alert"
@@ -34,11 +35,11 @@
                 }) }}
               </small>
               <QBtn
+                v-t="'CONVERSATION.MARK_READ'"
                 no-caps
                 outline
                 size="sm"
                 @click="$emit('markAllRead', data.id)"
-                v-t="'CONVERSATION.MARK_READ'"
               />
             </div>
           </QAlert>
@@ -51,11 +52,7 @@
             @openThread="$emit('openThread', message)"
           />
         </template>
-        <div
-          v-if="data.fetchStatus.pending || data.fetchPastStatus.pending"
-          style="width: 100%; text-align: center">
-          <QSpinnerDots :size="40"/>
-        </div>
+        <KSpinner v-show="!data || data.fetchStatus.pending || data.fetchPastStatus.pending" />
       </QList>
     </QInfiniteScroll>
   </div>
@@ -65,10 +62,10 @@
 import ConversationMessage from './ConversationMessage'
 import ConversationCompose from './ConversationCompose'
 import NotificationToggle from './NotificationToggle'
+import KSpinner from '@/utils/components/KSpinner'
 import {
   QBtn,
   QInfiniteScroll,
-  QSpinnerDots,
   QList,
   QAlert,
 } from 'quasar'
@@ -79,9 +76,9 @@ export default {
     ConversationMessage,
     ConversationCompose,
     NotificationToggle,
+    KSpinner,
     QBtn,
     QInfiniteScroll,
-    QSpinnerDots,
     QList,
     QAlert,
   },
@@ -99,23 +96,6 @@ export default {
       default: null,
     },
   },
-  methods: {
-    async maybeFetchPast (index, done) {
-      if (!this.data || !this.fetchPast || !this.data.canFetchPast) {
-        await this.$nextTick()
-        done()
-        return
-      }
-      await this.fetchPast(this.data.id)
-      done()
-    },
-    toggleNotifications () {
-      this.$emit('setMuted', {
-        conversationId: this.data.id,
-        value: !this.data.muted,
-      })
-    },
-  },
   computed: {
     hasLoaded () {
       if (!this.data) return false
@@ -130,6 +110,23 @@ export default {
       else {
         return this.$t('WALL.WRITE_FIRST_MESSAGE')
       }
+    },
+  },
+  methods: {
+    async maybeFetchPast (index, done) {
+      if (!this.data || !this.fetchPast || !this.data.canFetchPast) {
+        await this.$nextTick()
+        done()
+        return
+      }
+      await this.fetchPast(this.data.id)
+      done()
+    },
+    setNotifications (value) {
+      this.$emit('saveConversation', {
+        conversationId: this.data.id,
+        value,
+      })
     },
   },
 }

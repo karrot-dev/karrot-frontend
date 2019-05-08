@@ -114,7 +114,7 @@
     "express": "^4.15.4",
     "file-loader": "^3.0.1",
     "gitbook-cli": "^2.3.2",
-    "glob": "^7.1.2",
+    "glob": "^7.1.4",
     "hard-source-webpack-plugin": "^0.13.1",
     "html-webpack-plugin": "^4.0.0-alpha",
     "http-proxy-middleware": "^0.19.0",

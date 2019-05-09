@@ -38,7 +38,9 @@
     "locales:pull": "updateLocalesHelper/env/bin/python updateLocalesHelper/updateLocaleStatus.py && updateLocalesHelper/env/bin/tx pull -a --force --no-interactive",
     "locales:push": "updateLocalesHelper/env/bin/tx push -s",
     "docs": "gitbook install docs && gitbook serve docs",
-    "build-docs": "gitbook install docs && gitbook build docs docs-dist"
+    "build-docs": "gitbook install docs && gitbook build docs docs-dist",
+    "snyk-protect": "snyk protect",
+    "prepublish": "npm run snyk-protect"
   },
   "dependencies": {
     "@sentry/browser": "^5.1.1",
@@ -71,7 +73,8 @@
     "vuex": "3.1.0",
     "vuex-connect": "^2.0.1",
     "vuex-persistedstate": "^2.0.0",
-    "vuex-router-sync": "^5.0.0"
+    "vuex-router-sync": "^5.0.0",
+    "snyk": "^1.163.0"
   },
   "devDependencies": {
     "@babel/core": "^7.4.4",
@@ -201,5 +204,6 @@
         "FCM_SENDER_ID": "test-fcm-sender-id"
       }
     }
-  }
+  },
+  "snyk": true
 }

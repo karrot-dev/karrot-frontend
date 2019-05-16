@@ -376,23 +376,6 @@ export default [
             component: PlacePickups,
           },
           {
-            name: 'pickupDetail',
-            path: 'pickups/:pickupId/detail',
-            meta: {
-              requiredLoggedIn: true,
-              breadcrumbs: [
-                { translation: 'GROUP.PICKUP' },
-              ],
-              beforeEnter: 'detail/routeEnter',
-              afterLeave: 'detail/routeLeave',
-            },
-            // On desktop will get redirected inside "detail/routeEnter" action
-            components: {
-              default: Detail,
-              subheader: DetailHeader,
-            },
-          },
-          {
             name: 'placePickupsManage',
             path: 'pickups/manage',
             meta: {
@@ -424,6 +407,23 @@ export default [
             component: PlaceEdit,
           },
         ],
+      },
+      {
+        name: 'pickupDetail',
+        path: 'place/:placeId/pickups/:pickupId/detail',
+        meta: {
+          requiredLoggedIn: true,
+          breadcrumbs: [
+            { translation: 'GROUP.PICKUP' },
+          ],
+          beforeEnter: 'detail/routeEnter',
+          afterLeave: 'detail/routeLeave',
+        },
+        // On desktop will get redirected inside "detail/routeEnter" action
+        components: {
+          default: Detail,
+          subheader: DetailHeader,
+        },
       },
       {
         name: 'giveFeedback',

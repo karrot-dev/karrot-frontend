@@ -17,7 +17,10 @@
     <ExtendedMarker
       v-for="marker in leafletMarkers"
       :key="marker.id"
-      v-bind="marker"
+      :lat-lng="marker.latLng"
+      :icon="marker.icon"
+      :color="marker.color"
+      :draggable="marker.draggable"
       :opacity="opacityFor(marker)"
       @dragend="$emit('markerMoved', $event.target._latlng, marker)"
     >
@@ -68,6 +71,54 @@ L.Icon.Default.mergeOptions({
 const SELECTED_OPACITY = 1
 const UNSELECTED_OPACITY = 0.5
 
+function createLeafletMarker (markerOptions) {
+  function markerHtml (color) {
+    return `
+      <svg viewBox="0 0 33 52" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+        <path
+          d="M 16.798304,1 C 8.0719527,1 1,8.7146969 1,16.923182 1,25.134394 16.798304,51 16.798304,51 c 0,0 15.798303,-25.865606 15.798303,-34.076818 C 32.596607,8.7146969 25.520547,1 16.798304,1 Z"
+          class="text-${color}"
+          style="fill: currentColor"
+        ></path>
+      </svg>
+    `
+  }
+
+  function createIcon (oldIcon) {
+    if (oldIcon) oldIcon.remove()
+    const div = document.createElement('div')
+    div.innerHTML = markerHtml(markerOptions.color || 'grey')
+    div.className = 'vector-marker'
+
+    if (markerOptions.fontIcon) {
+      const i = document.createElement('i')
+      i.className = markerOptions.fontIcon + ' fa-fw'
+      div.appendChild(i)
+    }
+
+    return div
+  }
+
+  function createShadow (oldIcon) {
+    if (oldIcon) oldIcon.remove()
+    const div = document.createElement('div')
+    const innerDiv = document.createElement('div')
+    innerDiv.className = 'vector-marker-shadow'
+    innerDiv.innerHTML = markerHtml('black')
+    div.appendChild(innerDiv)
+    return div
+  }
+
+  const options = {
+    popupAnchor: [2, -40],
+    tooltipAnchor: [2, -40],
+  }
+  return {
+    ...markerOptions,
+    icon: { createIcon, createShadow, options },
+  }
+}
+
 export default {
   components: {
     LMap,
@@ -116,7 +167,7 @@ export default {
   },
   computed: {
     leafletMarkers () {
-      return this.markers.map(this.createLeafletMarker)
+      return this.markers.map(createLeafletMarker)
     },
     hasSelectedMarkers () {
       return this.selectedMarkers && this.selectedMarkers.length > 0
@@ -201,53 +252,6 @@ export default {
     opacityFor (marker) {
       if (!this.hasSelectedMarkers) return SELECTED_OPACITY
       return this.selectedMarkers.find(m => m.id === marker.id) ? SELECTED_OPACITY : UNSELECTED_OPACITY
-    },
-    createLeafletMarker (markerOptions) {
-      function markerHtml (color) {
-        return `
-          <svg viewBox="0 0 33 52" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-            <path
-              d="M 16.798304,1 C 8.0719527,1 1,8.7146969 1,16.923182 1,25.134394 16.798304,51 16.798304,51 c 0,0 15.798303,-25.865606 15.798303,-34.076818 C 32.596607,8.7146969 25.520547,1 16.798304,1 Z"
-              class="text-${color}"
-              style="fill: currentColor"
-            ></path>
-          </svg>
-        `
-      }
-
-      function createIcon (oldIcon) {
-        if (oldIcon) oldIcon.remove()
-        const div = document.createElement('div')
-        div.innerHTML = markerHtml(markerOptions.color || 'grey')
-        div.className = 'vector-marker'
-
-        if (markerOptions.fontIcon) {
-          const i = document.createElement('i')
-          i.className = markerOptions.fontIcon + ' fa-fw'
-          div.appendChild(i)
-        }
-
-        return div
-      }
-
-      function createShadow (oldIcon) {
-        if (oldIcon) oldIcon.remove()
-        const div = document.createElement('div')
-        const innerDiv = document.createElement('div')
-        innerDiv.className = 'vector-marker-shadow'
-        innerDiv.innerHTML = markerHtml('black')
-        div.appendChild(innerDiv)
-        return div
-      }
-
-      const options = {
-        popupAnchor: [2, -40],
-        tooltipAnchor: [2, -40],
-      }
-      return {
-        ...markerOptions,
-        icon: { createIcon, createShadow, options },
-      }
     },
   },
 }

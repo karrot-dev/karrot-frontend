@@ -366,9 +366,6 @@ export default [
             path: 'wall',
             component: PlaceWall,
             meta: {
-              breadcrumbs: [
-                { translation: 'GROUP.WALL', route: { name: 'placeWall' } },
-              ],
               beforeEnter: 'conversations/fetchForPlace',
               afterLeave: 'conversations/clearForPlace',
             },
@@ -379,29 +376,9 @@ export default [
             component: PlacePickups,
           },
           {
-            name: 'pickupDetail',
-            path: 'pickups/:pickupId/detail',
-            meta: {
-              requiredLoggedIn: true,
-              breadcrumbs: [
-                { translation: 'GROUP.PICKUP' },
-              ],
-              beforeEnter: 'detail/routeEnter',
-              afterLeave: 'detail/routeLeave',
-            },
-            // On desktop will get redirected inside "detail/routeEnter" action
-            components: {
-              default: Detail,
-              subheader: DetailHeader,
-            },
-          },
-          {
             name: 'placePickupsManage',
             path: 'pickups/manage',
             meta: {
-              breadcrumbs: [
-                { translation: 'PICKUPMANAGE.TITLE', route: { name: 'placePickupsManage' } },
-              ],
               beforeEnter: 'pickupSeries/fetchListForActivePlace',
               afterLeave: 'pickupSeries/clearList',
             },
@@ -411,9 +388,6 @@ export default [
             name: 'placeFeedback',
             path: 'feedback',
             meta: {
-              breadcrumbs: [
-                { translation: 'PICKUP_FEEDBACK.TITLE', route: { name: 'placeFeedback' } },
-              ],
               beforeEnter: 'places/beforeEnterFeedback',
               afterLeave: 'feedback/clear',
             },
@@ -423,9 +397,6 @@ export default [
             name: 'placeHistory',
             path: 'history',
             meta: {
-              breadcrumbs: [
-                { translation: 'GROUP.HISTORY', route: { name: 'placeHistory' } },
-              ],
               beforeEnter: 'history/fetch',
             },
             component: PlaceHistory,
@@ -433,14 +404,26 @@ export default [
           {
             name: 'placeEdit',
             path: 'edit',
-            meta: {
-              breadcrumbs: [
-                { translation: 'STOREDETAIL.EDIT', route: { name: 'placeEdit' } },
-              ],
-            },
             component: PlaceEdit,
           },
         ],
+      },
+      {
+        name: 'pickupDetail',
+        path: 'place/:placeId/pickups/:pickupId/detail',
+        meta: {
+          requiredLoggedIn: true,
+          breadcrumbs: [
+            { translation: 'GROUP.PICKUP' },
+          ],
+          beforeEnter: 'detail/routeEnter',
+          afterLeave: 'detail/routeLeave',
+        },
+        // On desktop will get redirected inside "detail/routeEnter" action
+        components: {
+          default: Detail,
+          subheader: DetailHeader,
+        },
       },
       {
         name: 'giveFeedback',

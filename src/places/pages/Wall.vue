@@ -1,6 +1,5 @@
 <template>
   <div>
-    <PlaceHeader />
     <WallConversation
       class="q-pt-lg"
       :data="conversation"
@@ -18,12 +17,10 @@
 
 <script>
 import { mapGetters, mapActions } from 'vuex'
-import PlaceHeader from '@/places/components/PlaceHeader'
 import WallConversation from '@/messages/components/WallConversation'
 
 export default {
   components: {
-    PlaceHeader,
     WallConversation,
   },
   computed: {

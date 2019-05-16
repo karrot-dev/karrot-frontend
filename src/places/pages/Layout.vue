@@ -10,7 +10,11 @@
       </KBanner>
     </QCard>
   </div>
-  <RouterView v-else />
+  <div v-else>
+    <PlaceHeader />
+    <PlaceTabs v-if="place" />
+    <RouterView />
+  </div>
 </template>
 
 <script>
@@ -19,11 +23,15 @@ import { mapGetters } from 'vuex'
 
 import { QCard } from 'quasar'
 import KBanner from '@/alerts/components/KBanner'
+import PlaceTabs from '@/places/components/PlaceTabs'
+import PlaceHeader from '@/places/components/PlaceHeader'
 
 export default {
   components: {
     QCard,
     KBanner,
+    PlaceTabs,
+    PlaceHeader,
   },
   computed: {
     ...mapGetters({

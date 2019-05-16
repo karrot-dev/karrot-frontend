@@ -187,7 +187,6 @@
   "STOREDETAIL": {
     "DIRECTIONS": "दिशानिर्देश दर्शवा",
     "EDIT": "स्टोअर संपादित करा",
-    "MANAGE": "पिकअप तपासा आणि व्यवस्थापित करा",
     "ARCHIVED": "हे स्टोअर संग्रहित केले गेले आहे",
     "INACTIVE": "हे स्टोअर सध्या सहकार्य करत नाही.",
     "CHANGE_STATUS": "आपण सेटिंग्ज पृष्ठाची स्थिती बदलू शकता.",
@@ -214,6 +213,7 @@
     "SHOW_ACTIVE_ONLY": "फक्त सक्रिय स्टोअर दर्शवा"
   },
   "PLACEWALL": {
+    "SUBSCRIBED_USERS": "{count} people have marked this store as favourite",
     "SUBSCRIPTION": {
       "HEADER": "आपण या स्टोअरला आपले आवडते म्हणून चिन्हांकित करू इच्छिता?",
       "YES": "होय",

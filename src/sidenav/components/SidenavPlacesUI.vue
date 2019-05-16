@@ -1,9 +1,5 @@
 <template>
-  <SidenavBox
-    :expanded="$q.platform.is.mobile || expanded"
-    :expandable="!$q.platform.is.mobile"
-    @toggle="$emit('toggleBox')"
-  >
+  <SidenavBox>
     <template slot="icon">
       <QIcon name="fas fa-fw fa-dot-circle" />
     </template>
@@ -69,7 +65,6 @@ export default {
     places: { required: true, type: Array },
     showAllPlaces: { default: false, type: Boolean },
     archived: { default: () => [], type: Array },
-    expanded: { default: true, type: Boolean },
     isEditor: { default: false, type: Boolean },
     fetchStatus: { default: null, type: Object },
   },

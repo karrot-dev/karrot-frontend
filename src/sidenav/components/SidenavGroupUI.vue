@@ -1,9 +1,5 @@
 <template>
-  <SidenavBox
-    :expanded="$q.platform.is.mobile || expanded"
-    :expandable="!$q.platform.is.mobile"
-    @toggle="$emit('toggleBox')"
-  >
+  <SidenavBox>
     <template slot="icon">
       <QIcon name="fas fa-fw fa-home" />
     </template>
@@ -14,13 +10,6 @@
       slot="tools"
       class="tools"
     >
-      <QChip
-        v-if="!expanded && wallUnreadCount > 0"
-        small
-        color="secondary"
-      >
-        {{ cappedWallUnreadCount }}
-      </QChip>
       <QBtn
         flat
         dense
@@ -142,10 +131,6 @@ export default {
     groupId: {
       default: null,
       type: Number,
-    },
-    expanded: {
-      default: true,
-      type: Boolean,
     },
     wallUnreadCount: {
       default: 0,

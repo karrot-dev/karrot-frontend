@@ -115,7 +115,11 @@ exports[`Storyshots ChatConversation closed 1`] = `
               <div class="q-focus-helper"></div>
               <div class="q-btn-inner row col items-center q-popup--skip justify-center"><span style="opacity:1;"><i class="far fa-smile"></i> +
   </span>
-                <div tabindex="-1" class="q-popover scroll"></div>
+                <div tabindex="-1" class="q-popover scroll">
+                  <div style="width:195px;">
+                    <!---->
+                  </div>
+                </div>
               </div>
             </button></div>
           <!---->
@@ -135,7 +139,11 @@ exports[`Storyshots ChatConversation closed 1`] = `
             <div class="q-focus-helper"></div>
             <div class="q-btn-inner row col items-center q-popup--skip justify-center"><span style="opacity:0.5;"><i class="far fa-smile"></i> +
   </span>
-              <div tabindex="-1" class="q-popover scroll"></div>
+              <div tabindex="-1" class="q-popover scroll">
+                <div style="width:195px;">
+                  <!---->
+                </div>
+              </div>
             </div>
           </button>
           <!----></span>
@@ -149,7 +157,11 @@ exports[`Storyshots ChatConversation closed 1`] = `
             <div class="q-focus-helper"></div>
             <div class="q-btn-inner row col items-center q-popup--skip justify-center"><span style="opacity:1;"><i class="far fa-smile"></i> +
   </span>
-              <div tabindex="-1" class="q-popover scroll"></div>
+              <div tabindex="-1" class="q-popover scroll">
+                <div style="width:195px;">
+                  <!---->
+                </div>
+              </div>
             </div>
           </button></div>
         <!---->
@@ -169,7 +181,11 @@ exports[`Storyshots ChatConversation closed 1`] = `
           <div class="q-focus-helper"></div>
           <div class="q-btn-inner row col items-center q-popup--skip justify-center"><span style="opacity:0.5;"><i class="far fa-smile"></i> +
   </span>
-            <div tabindex="-1" class="q-popover scroll"></div>
+            <div tabindex="-1" class="q-popover scroll">
+              <div style="width:195px;">
+                <!---->
+              </div>
+            </div>
           </div>
         </button>
         <!----></span>
@@ -183,7 +199,11 @@ exports[`Storyshots ChatConversation closed 1`] = `
           <div class="q-focus-helper"></div>
           <div class="q-btn-inner row col items-center q-popup--skip justify-center"><span style="opacity:1;"><i class="far fa-smile"></i> +
   </span>
-            <div tabindex="-1" class="q-popover scroll"></div>
+            <div tabindex="-1" class="q-popover scroll">
+              <div style="width:195px;">
+                <!---->
+              </div>
+            </div>
           </div>
         </button></div>
       <!---->
@@ -203,7 +223,11 @@ exports[`Storyshots ChatConversation closed 1`] = `
         <div class="q-focus-helper"></div>
         <div class="q-btn-inner row col items-center q-popup--skip justify-center"><span style="opacity:0.5;"><i class="far fa-smile"></i> +
   </span>
-          <div tabindex="-1" class="q-popover scroll"></div>
+          <div tabindex="-1" class="q-popover scroll">
+            <div style="width:195px;">
+              <!---->
+            </div>
+          </div>
         </div>
       </button>
       <!----></span>
@@ -217,7 +241,11 @@ exports[`Storyshots ChatConversation closed 1`] = `
         <div class="q-focus-helper"></div>
         <div class="q-btn-inner row col items-center q-popup--skip justify-center"><span style="opacity:1;"><i class="far fa-smile"></i> +
   </span>
-          <div tabindex="-1" class="q-popover scroll"></div>
+          <div tabindex="-1" class="q-popover scroll">
+            <div style="width:195px;">
+              <!---->
+            </div>
+          </div>
         </div>
       </button></div>
     <!---->
@@ -237,7 +265,11 @@ exports[`Storyshots ChatConversation closed 1`] = `
       <div class="q-focus-helper"></div>
       <div class="q-btn-inner row col items-center q-popup--skip justify-center"><span style="opacity:0.5;"><i class="far fa-smile"></i> +
   </span>
-        <div tabindex="-1" class="q-popover scroll"></div>
+        <div tabindex="-1" class="q-popover scroll">
+          <div style="width:195px;">
+            <!---->
+          </div>
+        </div>
       </div>
     </button>
     <!----></span>
@@ -286,7 +318,11 @@ exports[`Storyshots ChatConversation default 1`] = `
               <div class="q-focus-helper"></div>
               <div class="q-btn-inner row col items-center q-popup--skip justify-center"><span style="opacity:1;"><i class="far fa-smile"></i> +
   </span>
-                <div tabindex="-1" class="q-popover scroll"></div>
+                <div tabindex="-1" class="q-popover scroll">
+                  <div style="width:195px;">
+                    <!---->
+                  </div>
+                </div>
               </div>
             </button></div>
           <!---->
@@ -306,7 +342,11 @@ exports[`Storyshots ChatConversation default 1`] = `
             <div class="q-focus-helper"></div>
             <div class="q-btn-inner row col items-center q-popup--skip justify-center"><span style="opacity:0.5;"><i class="far fa-smile"></i> +
   </span>
-              <div tabindex="-1" class="q-popover scroll"></div>
+              <div tabindex="-1" class="q-popover scroll">
+                <div style="width:195px;">
+                  <!---->
+                </div>
+              </div>
             </div>
           </button>
           <!----></span>
@@ -320,7 +360,11 @@ exports[`Storyshots ChatConversation default 1`] = `
             <div class="q-focus-helper"></div>
             <div class="q-btn-inner row col items-center q-popup--skip justify-center"><span style="opacity:1;"><i class="far fa-smile"></i> +
   </span>
-              <div tabindex="-1" class="q-popover scroll"></div>
+              <div tabindex="-1" class="q-popover scroll">
+                <div style="width:195px;">
+                  <!---->
+                </div>
+              </div>
             </div>
           </button></div>
         <!---->
@@ -340,7 +384,11 @@ exports[`Storyshots ChatConversation default 1`] = `
           <div class="q-focus-helper"></div>
           <div class="q-btn-inner row col items-center q-popup--skip justify-center"><span style="opacity:0.5;"><i class="far fa-smile"></i> +
   </span>
-            <div tabindex="-1" class="q-popover scroll"></div>
+            <div tabindex="-1" class="q-popover scroll">
+              <div style="width:195px;">
+                <!---->
+              </div>
+            </div>
           </div>
         </button>
         <!----></span>
@@ -354,7 +402,11 @@ exports[`Storyshots ChatConversation default 1`] = `
           <div class="q-focus-helper"></div>
           <div class="q-btn-inner row col items-center q-popup--skip justify-center"><span style="opacity:1;"><i class="far fa-smile"></i> +
   </span>
-            <div tabindex="-1" class="q-popover scroll"></div>
+            <div tabindex="-1" class="q-popover scroll">
+              <div style="width:195px;">
+                <!---->
+              </div>
+            </div>
           </div>
         </button></div>
       <!---->
@@ -374,7 +426,11 @@ exports[`Storyshots ChatConversation default 1`] = `
         <div class="q-focus-helper"></div>
         <div class="q-btn-inner row col items-center q-popup--skip justify-center"><span style="opacity:0.5;"><i class="far fa-smile"></i> +
   </span>
-          <div tabindex="-1" class="q-popover scroll"></div>
+          <div tabindex="-1" class="q-popover scroll">
+            <div style="width:195px;">
+              <!---->
+            </div>
+          </div>
         </div>
       </button>
       <!----></span>
@@ -388,7 +444,11 @@ exports[`Storyshots ChatConversation default 1`] = `
         <div class="q-focus-helper"></div>
         <div class="q-btn-inner row col items-center q-popup--skip justify-center"><span style="opacity:1;"><i class="far fa-smile"></i> +
   </span>
-          <div tabindex="-1" class="q-popover scroll"></div>
+          <div tabindex="-1" class="q-popover scroll">
+            <div style="width:195px;">
+              <!---->
+            </div>
+          </div>
         </div>
       </button></div>
     <!---->
@@ -408,7 +468,11 @@ exports[`Storyshots ChatConversation default 1`] = `
       <div class="q-focus-helper"></div>
       <div class="q-btn-inner row col items-center q-popup--skip justify-center"><span style="opacity:0.5;"><i class="far fa-smile"></i> +
   </span>
-        <div tabindex="-1" class="q-popover scroll"></div>
+        <div tabindex="-1" class="q-popover scroll">
+          <div style="width:195px;">
+            <!---->
+          </div>
+        </div>
       </div>
     </button>
     <!----></span>
@@ -450,7 +514,11 @@ exports[`Storyshots ChatConversation fetching past 1`] = `
               <div class="q-focus-helper"></div>
               <div class="q-btn-inner row col items-center q-popup--skip justify-center"><span style="opacity:1;"><i class="far fa-smile"></i> +
   </span>
-                <div tabindex="-1" class="q-popover scroll"></div>
+                <div tabindex="-1" class="q-popover scroll">
+                  <div style="width:195px;">
+                    <!---->
+                  </div>
+                </div>
               </div>
             </button></div>
           <!---->
@@ -470,7 +538,11 @@ exports[`Storyshots ChatConversation fetching past 1`] = `
             <div class="q-focus-helper"></div>
             <div class="q-btn-inner row col items-center q-popup--skip justify-center"><span style="opacity:0.5;"><i class="far fa-smile"></i> +
   </span>
-              <div tabindex="-1" class="q-popover scroll"></div>
+              <div tabindex="-1" class="q-popover scroll">
+                <div style="width:195px;">
+                  <!---->
+                </div>
+              </div>
             </div>
           </button>
           <!----></span>
@@ -484,7 +556,11 @@ exports[`Storyshots ChatConversation fetching past 1`] = `
             <div class="q-focus-helper"></div>
             <div class="q-btn-inner row col items-center q-popup--skip justify-center"><span style="opacity:1;"><i class="far fa-smile"></i> +
   </span>
-              <div tabindex="-1" class="q-popover scroll"></div>
+              <div tabindex="-1" class="q-popover scroll">
+                <div style="width:195px;">
+                  <!---->
+                </div>
+              </div>
             </div>
           </button></div>
         <!---->
@@ -504,7 +580,11 @@ exports[`Storyshots ChatConversation fetching past 1`] = `
           <div class="q-focus-helper"></div>
           <div class="q-btn-inner row col items-center q-popup--skip justify-center"><span style="opacity:0.5;"><i class="far fa-smile"></i> +
   </span>
-            <div tabindex="-1" class="q-popover scroll"></div>
+            <div tabindex="-1" class="q-popover scroll">
+              <div style="width:195px;">
+                <!---->
+              </div>
+            </div>
           </div>
         </button>
         <!----></span>
@@ -518,7 +598,11 @@ exports[`Storyshots ChatConversation fetching past 1`] = `
           <div class="q-focus-helper"></div>
           <div class="q-btn-inner row col items-center q-popup--skip justify-center"><span style="opacity:1;"><i class="far fa-smile"></i> +
   </span>
-            <div tabindex="-1" class="q-popover scroll"></div>
+            <div tabindex="-1" class="q-popover scroll">
+              <div style="width:195px;">
+                <!---->
+              </div>
+            </div>
           </div>
         </button></div>
       <!---->
@@ -538,7 +622,11 @@ exports[`Storyshots ChatConversation fetching past 1`] = `
         <div class="q-focus-helper"></div>
         <div class="q-btn-inner row col items-center q-popup--skip justify-center"><span style="opacity:0.5;"><i class="far fa-smile"></i> +
   </span>
-          <div tabindex="-1" class="q-popover scroll"></div>
+          <div tabindex="-1" class="q-popover scroll">
+            <div style="width:195px;">
+              <!---->
+            </div>
+          </div>
         </div>
       </button>
       <!----></span>
@@ -552,7 +640,11 @@ exports[`Storyshots ChatConversation fetching past 1`] = `
         <div class="q-focus-helper"></div>
         <div class="q-btn-inner row col items-center q-popup--skip justify-center"><span style="opacity:1;"><i class="far fa-smile"></i> +
   </span>
-          <div tabindex="-1" class="q-popover scroll"></div>
+          <div tabindex="-1" class="q-popover scroll">
+            <div style="width:195px;">
+              <!---->
+            </div>
+          </div>
         </div>
       </button></div>
     <!---->
@@ -572,7 +664,11 @@ exports[`Storyshots ChatConversation fetching past 1`] = `
       <div class="q-focus-helper"></div>
       <div class="q-btn-inner row col items-center q-popup--skip justify-center"><span style="opacity:0.5;"><i class="far fa-smile"></i> +
   </span>
-        <div tabindex="-1" class="q-popover scroll"></div>
+        <div tabindex="-1" class="q-popover scroll">
+          <div style="width:195px;">
+            <!---->
+          </div>
+        </div>
       </div>
     </button>
     <!----></span>
@@ -614,7 +710,11 @@ exports[`Storyshots ChatConversation not participant 1`] = `
               <div class="q-focus-helper"></div>
               <div class="q-btn-inner row col items-center q-popup--skip justify-center"><span style="opacity:1;"><i class="far fa-smile"></i> +
   </span>
-                <div tabindex="-1" class="q-popover scroll"></div>
+                <div tabindex="-1" class="q-popover scroll">
+                  <div style="width:195px;">
+                    <!---->
+                  </div>
+                </div>
               </div>
             </button></div>
           <!---->
@@ -634,7 +734,11 @@ exports[`Storyshots ChatConversation not participant 1`] = `
             <div class="q-focus-helper"></div>
             <div class="q-btn-inner row col items-center q-popup--skip justify-center"><span style="opacity:0.5;"><i class="far fa-smile"></i> +
   </span>
-              <div tabindex="-1" class="q-popover scroll"></div>
+              <div tabindex="-1" class="q-popover scroll">
+                <div style="width:195px;">
+                  <!---->
+                </div>
+              </div>
             </div>
           </button>
           <!----></span>
@@ -648,7 +752,11 @@ exports[`Storyshots ChatConversation not participant 1`] = `
             <div class="q-focus-helper"></div>
             <div class="q-btn-inner row col items-center q-popup--skip justify-center"><span style="opacity:1;"><i class="far fa-smile"></i> +
   </span>
-              <div tabindex="-1" class="q-popover scroll"></div>
+              <div tabindex="-1" class="q-popover scroll">
+                <div style="width:195px;">
+                  <!---->
+                </div>
+              </div>
             </div>
           </button></div>
         <!---->
@@ -668,7 +776,11 @@ exports[`Storyshots ChatConversation not participant 1`] = `
           <div class="q-focus-helper"></div>
           <div class="q-btn-inner row col items-center q-popup--skip justify-center"><span style="opacity:0.5;"><i class="far fa-smile"></i> +
   </span>
-            <div tabindex="-1" class="q-popover scroll"></div>
+            <div tabindex="-1" class="q-popover scroll">
+              <div style="width:195px;">
+                <!---->
+              </div>
+            </div>
           </div>
         </button>
         <!----></span>
@@ -682,7 +794,11 @@ exports[`Storyshots ChatConversation not participant 1`] = `
           <div class="q-focus-helper"></div>
           <div class="q-btn-inner row col items-center q-popup--skip justify-center"><span style="opacity:1;"><i class="far fa-smile"></i> +
   </span>
-            <div tabindex="-1" class="q-popover scroll"></div>
+            <div tabindex="-1" class="q-popover scroll">
+              <div style="width:195px;">
+                <!---->
+              </div>
+            </div>
           </div>
         </button></div>
       <!---->
@@ -702,7 +818,11 @@ exports[`Storyshots ChatConversation not participant 1`] = `
         <div class="q-focus-helper"></div>
         <div class="q-btn-inner row col items-center q-popup--skip justify-center"><span style="opacity:0.5;"><i class="far fa-smile"></i> +
   </span>
-          <div tabindex="-1" class="q-popover scroll"></div>
+          <div tabindex="-1" class="q-popover scroll">
+            <div style="width:195px;">
+              <!---->
+            </div>
+          </div>
         </div>
       </button>
       <!----></span>
@@ -716,7 +836,11 @@ exports[`Storyshots ChatConversation not participant 1`] = `
         <div class="q-focus-helper"></div>
         <div class="q-btn-inner row col items-center q-popup--skip justify-center"><span style="opacity:1;"><i class="far fa-smile"></i> +
   </span>
-          <div tabindex="-1" class="q-popover scroll"></div>
+          <div tabindex="-1" class="q-popover scroll">
+            <div style="width:195px;">
+              <!---->
+            </div>
+          </div>
         </div>
       </button></div>
     <!---->
@@ -736,7 +860,11 @@ exports[`Storyshots ChatConversation not participant 1`] = `
       <div class="q-focus-helper"></div>
       <div class="q-btn-inner row col items-center q-popup--skip justify-center"><span style="opacity:0.5;"><i class="far fa-smile"></i> +
   </span>
-        <div tabindex="-1" class="q-popover scroll"></div>
+        <div tabindex="-1" class="q-popover scroll">
+          <div style="width:195px;">
+            <!---->
+          </div>
+        </div>
       </div>
     </button>
     <!----></span>
@@ -778,7 +906,11 @@ exports[`Storyshots ChatConversation thread 1`] = `
               <div class="q-focus-helper"></div>
               <div class="q-btn-inner row col items-center q-popup--skip justify-center"><span style="opacity:1;"><i class="far fa-smile"></i> +
   </span>
-                <div tabindex="-1" class="q-popover scroll"></div>
+                <div tabindex="-1" class="q-popover scroll">
+                  <div style="width:195px;">
+                    <!---->
+                  </div>
+                </div>
               </div>
             </button></div>
           <!---->
@@ -798,7 +930,11 @@ exports[`Storyshots ChatConversation thread 1`] = `
             <div class="q-focus-helper"></div>
             <div class="q-btn-inner row col items-center q-popup--skip justify-center"><span style="opacity:0.5;"><i class="far fa-smile"></i> +
   </span>
-              <div tabindex="-1" class="q-popover scroll"></div>
+              <div tabindex="-1" class="q-popover scroll">
+                <div style="width:195px;">
+                  <!---->
+                </div>
+              </div>
             </div>
           </button>
           <!----></span>
@@ -812,7 +948,11 @@ exports[`Storyshots ChatConversation thread 1`] = `
             <div class="q-focus-helper"></div>
             <div class="q-btn-inner row col items-center q-popup--skip justify-center"><span style="opacity:1;"><i class="far fa-smile"></i> +
   </span>
-              <div tabindex="-1" class="q-popover scroll"></div>
+              <div tabindex="-1" class="q-popover scroll">
+                <div style="width:195px;">
+                  <!---->
+                </div>
+              </div>
             </div>
           </button></div>
         <!---->
@@ -832,7 +972,11 @@ exports[`Storyshots ChatConversation thread 1`] = `
           <div class="q-focus-helper"></div>
           <div class="q-btn-inner row col items-center q-popup--skip justify-center"><span style="opacity:0.5;"><i class="far fa-smile"></i> +
   </span>
-            <div tabindex="-1" class="q-popover scroll"></div>
+            <div tabindex="-1" class="q-popover scroll">
+              <div style="width:195px;">
+                <!---->
+              </div>
+            </div>
           </div>
         </button>
         <!----></span>
@@ -846,7 +990,11 @@ exports[`Storyshots ChatConversation thread 1`] = `
           <div class="q-focus-helper"></div>
           <div class="q-btn-inner row col items-center q-popup--skip justify-center"><span style="opacity:1;"><i class="far fa-smile"></i> +
   </span>
-            <div tabindex="-1" class="q-popover scroll"></div>
+            <div tabindex="-1" class="q-popover scroll">
+              <div style="width:195px;">
+                <!---->
+              </div>
+            </div>
           </div>
         </button></div>
       <!---->
@@ -866,7 +1014,11 @@ exports[`Storyshots ChatConversation thread 1`] = `
         <div class="q-focus-helper"></div>
         <div class="q-btn-inner row col items-center q-popup--skip justify-center"><span style="opacity:0.5;"><i class="far fa-smile"></i> +
   </span>
-          <div tabindex="-1" class="q-popover scroll"></div>
+          <div tabindex="-1" class="q-popover scroll">
+            <div style="width:195px;">
+              <!---->
+            </div>
+          </div>
         </div>
       </button>
       <!----></span>
@@ -986,7 +1138,11 @@ exports[`Storyshots Detail application 1`] = `
                 <div class="q-focus-helper"></div>
                 <div class="q-btn-inner row col items-center q-popup--skip justify-center"><span style="opacity:1;"><i class="far fa-smile"></i> +
   </span>
-                  <div tabindex="-1" class="q-popover scroll"></div>
+                  <div tabindex="-1" class="q-popover scroll">
+                    <div style="width:195px;">
+                      <!---->
+                    </div>
+                  </div>
                 </div>
               </button></div>
             <!---->
@@ -1006,7 +1162,11 @@ exports[`Storyshots Detail application 1`] = `
               <div class="q-focus-helper"></div>
               <div class="q-btn-inner row col items-center q-popup--skip justify-center"><span style="opacity:0.5;"><i class="far fa-smile"></i> +
   </span>
-                <div tabindex="-1" class="q-popover scroll"></div>
+                <div tabindex="-1" class="q-popover scroll">
+                  <div style="width:195px;">
+                    <!---->
+                  </div>
+                </div>
               </div>
             </button>
             <!----></span>
@@ -1020,7 +1180,11 @@ exports[`Storyshots Detail application 1`] = `
               <div class="q-focus-helper"></div>
               <div class="q-btn-inner row col items-center q-popup--skip justify-center"><span style="opacity:1;"><i class="far fa-smile"></i> +
   </span>
-                <div tabindex="-1" class="q-popover scroll"></div>
+                <div tabindex="-1" class="q-popover scroll">
+                  <div style="width:195px;">
+                    <!---->
+                  </div>
+                </div>
               </div>
             </button></div>
           <!---->
@@ -1040,7 +1204,11 @@ exports[`Storyshots Detail application 1`] = `
             <div class="q-focus-helper"></div>
             <div class="q-btn-inner row col items-center q-popup--skip justify-center"><span style="opacity:0.5;"><i class="far fa-smile"></i> +
   </span>
-              <div tabindex="-1" class="q-popover scroll"></div>
+              <div tabindex="-1" class="q-popover scroll">
+                <div style="width:195px;">
+                  <!---->
+                </div>
+              </div>
             </div>
           </button>
           <!----></span>
@@ -1054,7 +1222,11 @@ exports[`Storyshots Detail application 1`] = `
             <div class="q-focus-helper"></div>
             <div class="q-btn-inner row col items-center q-popup--skip justify-center"><span style="opacity:1;"><i class="far fa-smile"></i> +
   </span>
-              <div tabindex="-1" class="q-popover scroll"></div>
+              <div tabindex="-1" class="q-popover scroll">
+                <div style="width:195px;">
+                  <!---->
+                </div>
+              </div>
             </div>
           </button></div>
         <!---->
@@ -1074,7 +1246,11 @@ exports[`Storyshots Detail application 1`] = `
           <div class="q-focus-helper"></div>
           <div class="q-btn-inner row col items-center q-popup--skip justify-center"><span style="opacity:0.5;"><i class="far fa-smile"></i> +
   </span>
-            <div tabindex="-1" class="q-popover scroll"></div>
+            <div tabindex="-1" class="q-popover scroll">
+              <div style="width:195px;">
+                <!---->
+              </div>
+            </div>
           </div>
         </button>
         <!----></span>
@@ -1088,7 +1264,11 @@ exports[`Storyshots Detail application 1`] = `
           <div class="q-focus-helper"></div>
           <div class="q-btn-inner row col items-center q-popup--skip justify-center"><span style="opacity:1;"><i class="far fa-smile"></i> +
   </span>
-            <div tabindex="-1" class="q-popover scroll"></div>
+            <div tabindex="-1" class="q-popover scroll">
+              <div style="width:195px;">
+                <!---->
+              </div>
+            </div>
           </div>
         </button></div>
       <!---->
@@ -1108,7 +1288,11 @@ exports[`Storyshots Detail application 1`] = `
         <div class="q-focus-helper"></div>
         <div class="q-btn-inner row col items-center q-popup--skip justify-center"><span style="opacity:0.5;"><i class="far fa-smile"></i> +
   </span>
-          <div tabindex="-1" class="q-popover scroll"></div>
+          <div tabindex="-1" class="q-popover scroll">
+            <div style="width:195px;">
+              <!---->
+            </div>
+          </div>
         </div>
       </button>
       <!----></span>
@@ -1530,7 +1714,7 @@ exports[`Storyshots GroupGallery signup view 1`] = `
           <div class="q-option-inner relative-position text-faded"><input type="checkbox">
             <div class="q-focus-helper q-focus-helper-rounded"></div><i aria-hidden="true" class="q-icon q-checkbox-icon cursor-pointer material-icons" style="opacity:1;">check_box_outline_blank</i><i aria-hidden="true" class="q-icon q-checkbox-icon cursor-pointer absolute-full material-icons" style="transition:opacity 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms, transform 0ms cubic-bezier(0.23, 1, 0.32, 1) 450ms;opacity:0;transform:scale(0);">indeterminate_check_box</i><i aria-hidden="true" class="q-icon q-checkbox-icon cursor-pointer absolute-full material-icons" style="transition:opacity 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms, transform 0ms cubic-bezier(0.23, 1, 0.32, 1) 450ms;opacity:0;transform:scale(0);">check_box</i>
             <div class="q-radial-ripple"></div>
-          </div><span class="q-option-label">Show inactive groups</span>
+          </div><span class="q-option-label">Show inactive groups (0)</span>
         </div>
       </div>
       <div style="margin-top:4px;"><button tabindex="0" type="button" small="" class="q-btn inline relative-position q-btn-item non-selectable float-right overlay-toggle-button q-btn-round q-btn-flat q-focusable q-hoverable">
@@ -1779,7 +1963,7 @@ exports[`Storyshots GroupGallery switch and explore 1`] = `
           <div class="q-option-inner relative-position text-faded"><input type="checkbox">
             <div class="q-focus-helper q-focus-helper-rounded"></div><i aria-hidden="true" class="q-icon q-checkbox-icon cursor-pointer material-icons" style="opacity:1;">check_box_outline_blank</i><i aria-hidden="true" class="q-icon q-checkbox-icon cursor-pointer absolute-full material-icons" style="transition:opacity 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms, transform 0ms cubic-bezier(0.23, 1, 0.32, 1) 450ms;opacity:0;transform:scale(0);">indeterminate_check_box</i><i aria-hidden="true" class="q-icon q-checkbox-icon cursor-pointer absolute-full material-icons" style="transition:opacity 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms, transform 0ms cubic-bezier(0.23, 1, 0.32, 1) 450ms;opacity:0;transform:scale(0);">check_box</i>
             <div class="q-radial-ripple"></div>
-          </div><span class="q-option-label">Show inactive groups</span>
+          </div><span class="q-option-label">Show inactive groups (0)</span>
         </div>
       </div>
       <div style="margin-top:4px;"><button tabindex="0" type="button" small="" class="q-btn inline relative-position q-btn-item non-selectable float-right overlay-toggle-button q-btn-round q-btn-flat q-focusable q-hoverable">
@@ -6345,13 +6529,12 @@ exports[`Storyshots Settings Page Default 1`] = `
 exports[`Storyshots Settings Page verification warning 1`] = `<div>VerificationWarning has been mocked</div>`;
 
 exports[`Storyshots Sidenav Boxes Group 1`] = `
-<div class="k-sidenav-box expandable">
+<div class="k-sidenav-box">
   <div class="q-toolbar row no-wrap items-center relative-position toolbar q-toolbar-inverted text-primary"><i aria-hidden="true" class="q-icon fas fa-fw fa-home"> </i>
     <div class="q-toolbar-title">
       Home
     </div>
-    <div class="tools">
-      <!----> <a tabindex="0" type="button" href="#/group/1/settings" class="q-btn inline relative-position q-btn-item non-selectable q-btn-round q-btn-flat q-focusable q-hoverable q-btn-dense">
+    <div class="tools"><a tabindex="0" type="button" href="#/group/1/settings" class="q-btn inline relative-position q-btn-item non-selectable q-btn-round q-btn-flat q-focusable q-hoverable q-btn-dense">
         <div class="q-focus-helper"></div>
         <div class="q-btn-inner row col items-center q-popup--skip justify-center"><i aria-hidden="true" class="q-icon fas fa-cog fa-fw"> </i>
           <div class="q-tooltip animate-popup">
@@ -6374,52 +6557,47 @@ exports[`Storyshots Sidenav Boxes Group 1`] = `
             </div>
           </div>
         </div>
-      </button></div> <button tabindex="0" type="button" class="q-btn inline relative-position q-btn-item non-selectable card-arrow q-btn-round q-btn-flat q-focusable q-hoverable q-btn-dense" style="font-size:10px;">
-      <div class="q-focus-helper"></div>
-      <div class="q-btn-inner row col items-center q-popup--skip justify-center"><i aria-hidden="true" class="q-icon fas fa-angle-down arrow upsideDown"> </i></div>
-    </button>
+      </button></div>
   </div>
-  <div name="slide-toggle">
-    <div>
-      <div class="q-list no-padding no-border q-list-highlight"><a class="q-link q-item q-item-division relative-position q-item-link">
-          <div class="q-item-side q-item-section text-center q-item-side-left"><i aria-hidden="true" class="q-icon fas fa-bullhorn"> </i></div>
-          <div class="q-item-main q-item-section">
-            Wall
-          </div>
-          <!---->
-        </a> <a class="q-link q-item q-item-division relative-position q-item-link">
-          <div class="q-item-side q-item-section text-center q-item-side-left"><i aria-hidden="true" class="q-icon fas fa-shopping-basket"> </i></div>
-          <div class="q-item-main q-item-section">
-            Pickups
-          </div>
-        </a> <a class="q-link q-item q-item-division relative-position q-item-link">
-          <div class="q-item-side q-item-section text-center q-item-side-left"><i aria-hidden="true" class="q-icon fas fa-balance-scale"> </i></div>
-          <div class="q-item-main q-item-section">
-            Feedback
-          </div>
-        </a> <a class="q-link q-item q-item-division relative-position q-item-link">
-          <div class="q-item-side q-item-section text-center q-item-side-left"><i aria-hidden="true" class="q-icon fas fa-vote-yea"> </i></div>
-          <div class="q-item-main q-item-section">
-            Issues
-          </div>
-        </a> <a class="q-link q-item q-item-division relative-position q-item-link">
-          <div class="q-item-side q-item-section text-center q-item-side-left"><i class="far fa-address-card"></i></div>
-          <div class="q-item-main q-item-section">
-            Description
-          </div>
-        </a> <a class="q-link q-item q-item-division relative-position q-item-link">
-          <div class="q-item-side q-item-section text-center q-item-side-left"><i aria-hidden="true" class="q-icon fas fa-users"> </i></div>
-          <div class="q-item-main q-item-section">
-            Members
-          </div>
-        </a> <a class="q-link q-item q-item-division relative-position q-item-link">
-          <div class="q-item-side q-item-section text-center q-item-side-left"><i class="far fa-clock"></i></div>
-          <div class="q-item-main q-item-section">
-            History
-          </div>
-        </a>
+  <div>
+    <div class="q-list no-padding no-border q-list-highlight"><a class="q-link q-item q-item-division relative-position q-item-link">
+        <div class="q-item-side q-item-section text-center q-item-side-left"><i aria-hidden="true" class="q-icon fas fa-bullhorn"> </i></div>
+        <div class="q-item-main q-item-section">
+          Wall
+        </div>
         <!---->
-      </div>
+      </a> <a class="q-link q-item q-item-division relative-position q-item-link">
+        <div class="q-item-side q-item-section text-center q-item-side-left"><i aria-hidden="true" class="q-icon fas fa-shopping-basket"> </i></div>
+        <div class="q-item-main q-item-section">
+          Pickups
+        </div>
+      </a> <a class="q-link q-item q-item-division relative-position q-item-link">
+        <div class="q-item-side q-item-section text-center q-item-side-left"><i aria-hidden="true" class="q-icon fas fa-balance-scale"> </i></div>
+        <div class="q-item-main q-item-section">
+          Feedback
+        </div>
+      </a> <a class="q-link q-item q-item-division relative-position q-item-link">
+        <div class="q-item-side q-item-section text-center q-item-side-left"><i aria-hidden="true" class="q-icon fas fa-vote-yea"> </i></div>
+        <div class="q-item-main q-item-section">
+          Issues
+        </div>
+      </a> <a class="q-link q-item q-item-division relative-position q-item-link">
+        <div class="q-item-side q-item-section text-center q-item-side-left"><i class="far fa-address-card"></i></div>
+        <div class="q-item-main q-item-section">
+          Description
+        </div>
+      </a> <a class="q-link q-item q-item-division relative-position q-item-link">
+        <div class="q-item-side q-item-section text-center q-item-side-left"><i aria-hidden="true" class="q-icon fas fa-users"> </i></div>
+        <div class="q-item-main q-item-section">
+          Members
+        </div>
+      </a> <a class="q-link q-item q-item-division relative-position q-item-link">
+        <div class="q-item-side q-item-section text-center q-item-side-left"><i class="far fa-clock"></i></div>
+        <div class="q-item-main q-item-section">
+          History
+        </div>
+      </a>
+      <!---->
     </div>
   </div>
 </div>
@@ -6466,7 +6644,7 @@ exports[`Storyshots Sidenav Boxes Map 1`] = `
 `;
 
 exports[`Storyshots Sidenav Boxes Places 1`] = `
-<div class="k-sidenav-box expandable">
+<div class="k-sidenav-box">
   <div class="q-toolbar row no-wrap items-center relative-position toolbar q-toolbar-inverted text-primary"><i aria-hidden="true" class="q-icon fas fa-fw fa-dot-circle"> </i>
     <div class="q-toolbar-title">
       Places
@@ -6485,62 +6663,57 @@ exports[`Storyshots Sidenav Boxes Places 1`] = `
         </div>
       </div>
       <!---->
-    </div> <button tabindex="0" type="button" class="q-btn inline relative-position q-btn-item non-selectable card-arrow q-btn-round q-btn-flat q-focusable q-hoverable q-btn-dense" style="font-size:10px;">
-      <div class="q-focus-helper"></div>
-      <div class="q-btn-inner row col items-center q-popup--skip justify-center"><i aria-hidden="true" class="q-icon fas fa-angle-down arrow upsideDown"> </i></div>
-    </button>
-  </div>
-  <div name="slide-toggle">
-    <div class="q-list no-padding no-border q-list-highlight"><a class="q-link q-item q-item-division relative-position q-item-link">
-        <div class="q-item-side q-item-section text-center q-item-side-left"><i aria-hidden="true" title="Just created" class="q-icon fas fa-circle text-grey"> </i></div>
-        <div class="q-item-main q-item-section">
-          <div class="items-baseline q-item-label">
-            Teststore1
-            <!---->
-          </div>
-        </div>
-        <!---->
-      </a><a class="q-link q-item q-item-division relative-position q-item-link">
-        <div class="q-item-side q-item-section text-center q-item-side-left"><i aria-hidden="true" title="Just created" class="q-icon fas fa-circle text-grey"> </i></div>
-        <div class="q-item-main q-item-section">
-          <div class="items-baseline q-item-label">
-            New Tienda
-            <!---->
-          </div>
-        </div>
-        <!---->
-      </a><a class="q-link q-item q-item-division relative-position q-item-link">
-        <div class="q-item-side q-item-section text-center q-item-side-left"><i aria-hidden="true" title="Just created" class="q-icon fas fa-circle text-grey"> </i></div>
-        <div class="q-item-main q-item-section">
-          <div class="items-baseline q-item-label">
-            Supermarkt Arheilgen
-            <!---->
-          </div>
-        </div>
-        <!---->
-      </a><a class="q-link q-item q-item-division relative-position q-item-link">
-        <div class="q-item-side q-item-section text-center q-item-side-left"><i aria-hidden="true" title="Just created" class="q-icon fas fa-circle text-grey"> </i></div>
-        <div class="q-item-main q-item-section">
-          <div class="items-baseline q-item-label">
-            asd
-            <!---->
-          </div>
-        </div>
-        <!---->
-      </a><a class="q-link q-item q-item-division relative-position q-item-link">
-        <div class="q-item-side q-item-section text-center q-item-side-left"><i aria-hidden="true" title="Just created" class="q-icon fas fa-circle text-grey"> </i></div>
-        <div class="q-item-main q-item-section">
-          <div class="items-baseline q-item-label">
-            Griesheimer Markt
-            <!---->
-          </div>
-        </div>
-        <!---->
-      </a>
-      <!---->
-      <!---->
-      <!---->
     </div>
+  </div>
+  <div class="q-list no-padding no-border q-list-highlight"><a class="q-link q-item q-item-division relative-position q-item-link">
+      <div class="q-item-side q-item-section text-center q-item-side-left"><i aria-hidden="true" title="Just created" class="q-icon fas fa-circle text-grey"> </i></div>
+      <div class="q-item-main q-item-section">
+        <div class="items-baseline q-item-label">
+          Teststore1
+          <!---->
+        </div>
+      </div>
+      <!---->
+    </a><a class="q-link q-item q-item-division relative-position q-item-link">
+      <div class="q-item-side q-item-section text-center q-item-side-left"><i aria-hidden="true" title="Just created" class="q-icon fas fa-circle text-grey"> </i></div>
+      <div class="q-item-main q-item-section">
+        <div class="items-baseline q-item-label">
+          New Tienda
+          <!---->
+        </div>
+      </div>
+      <!---->
+    </a><a class="q-link q-item q-item-division relative-position q-item-link">
+      <div class="q-item-side q-item-section text-center q-item-side-left"><i aria-hidden="true" title="Just created" class="q-icon fas fa-circle text-grey"> </i></div>
+      <div class="q-item-main q-item-section">
+        <div class="items-baseline q-item-label">
+          Supermarkt Arheilgen
+          <!---->
+        </div>
+      </div>
+      <!---->
+    </a><a class="q-link q-item q-item-division relative-position q-item-link">
+      <div class="q-item-side q-item-section text-center q-item-side-left"><i aria-hidden="true" title="Just created" class="q-icon fas fa-circle text-grey"> </i></div>
+      <div class="q-item-main q-item-section">
+        <div class="items-baseline q-item-label">
+          asd
+          <!---->
+        </div>
+      </div>
+      <!---->
+    </a><a class="q-link q-item q-item-division relative-position q-item-link">
+      <div class="q-item-side q-item-section text-center q-item-side-left"><i aria-hidden="true" title="Just created" class="q-icon fas fa-circle text-grey"> </i></div>
+      <div class="q-item-main q-item-section">
+        <div class="items-baseline q-item-label">
+          Griesheimer Markt
+          <!---->
+        </div>
+      </div>
+      <!---->
+    </a>
+    <!---->
+    <!---->
+    <!---->
   </div>
 </div>
 `;
@@ -6853,7 +7026,7 @@ exports[`Storyshots Statistics FeedbackItem 1`] = `
     <div class="row no-wrap">
       <div class="content full-width">
         <div class="row no-wrap items-baseline"><strong class="q-mr-sm" style="white-space:nowrap;">
-            Aug 12, 2017, 8:00 AM
+            Sat, Aug 12, 2017, 8:00 AM
           </strong> <a class="ellipsis text-secondary">
             Griesheimer Markt
           </a>
@@ -6911,7 +7084,7 @@ exports[`Storyshots Statistics FeedbackList 1`] = `
           <div class="row no-wrap">
             <div class="content full-width">
               <div class="row no-wrap items-baseline"><strong class="q-mr-sm" style="white-space:nowrap;">
-            Aug 12, 2017, 8:00 AM
+            Sat, Aug 12, 2017, 8:00 AM
           </strong> <a class="ellipsis text-secondary">
                   Griesheimer Markt
                 </a>
@@ -6948,7 +7121,7 @@ exports[`Storyshots Statistics FeedbackList 1`] = `
           <div class="row no-wrap">
             <div class="content full-width">
               <div class="row no-wrap items-baseline"><strong class="q-mr-sm" style="white-space:nowrap;">
-            Aug 13, 2017, 8:00 AM
+            Sun, Aug 13, 2017, 8:00 AM
           </strong> <a class="ellipsis text-secondary">
                   Griesheimer Markt
                 </a>
@@ -6981,7 +7154,7 @@ exports[`Storyshots Statistics FeedbackList 1`] = `
           <div class="row no-wrap">
             <div class="content full-width">
               <div class="row no-wrap items-baseline"><strong class="q-mr-sm" style="white-space:nowrap;">
-            Aug 13, 2017, 8:00 AM
+            Sun, Aug 13, 2017, 8:00 AM
           </strong> <a class="ellipsis text-secondary">
                   Griesheimer Markt
                 </a>
@@ -7198,7 +7371,7 @@ exports[`Storyshots Statistics PickupFeedback 1`] = `
               <div class="row no-wrap">
                 <div class="content full-width">
                   <div class="row no-wrap items-baseline"><strong class="q-mr-sm" style="white-space:nowrap;">
-            Aug 12, 2017, 8:00 AM
+            Sat, Aug 12, 2017, 8:00 AM
           </strong> <a class="ellipsis text-secondary">
                       Griesheimer Markt
                     </a>
@@ -7235,7 +7408,7 @@ exports[`Storyshots Statistics PickupFeedback 1`] = `
               <div class="row no-wrap">
                 <div class="content full-width">
                   <div class="row no-wrap items-baseline"><strong class="q-mr-sm" style="white-space:nowrap;">
-            Aug 13, 2017, 8:00 AM
+            Sun, Aug 13, 2017, 8:00 AM
           </strong> <a class="ellipsis text-secondary">
                       Griesheimer Markt
                     </a>
@@ -7268,7 +7441,7 @@ exports[`Storyshots Statistics PickupFeedback 1`] = `
               <div class="row no-wrap">
                 <div class="content full-width">
                   <div class="row no-wrap items-baseline"><strong class="q-mr-sm" style="white-space:nowrap;">
-            Aug 13, 2017, 8:00 AM
+            Sun, Aug 13, 2017, 8:00 AM
           </strong> <a class="ellipsis text-secondary">
                       Griesheimer Markt
                     </a>
@@ -7892,7 +8065,11 @@ exports[`Storyshots WallConversation WallConversation 1`] = `
               <div class="q-focus-helper"></div>
               <div class="q-btn-inner row col items-center q-popup--skip justify-center"><span style="opacity:1;"><i class="far fa-smile"></i> +
   </span>
-                <div tabindex="-1" class="q-popover scroll"></div>
+                <div tabindex="-1" class="q-popover scroll">
+                  <div style="width:195px;">
+                    <!---->
+                  </div>
+                </div>
               </div>
             </button></div>
           <div class="q-item-side q-item-section q-item-side-left">
@@ -7916,7 +8093,11 @@ exports[`Storyshots WallConversation WallConversation 1`] = `
             <div class="q-focus-helper"></div>
             <div class="q-btn-inner row col items-center q-popup--skip justify-center"><span style="opacity:0.5;"><i class="far fa-smile"></i> +
   </span>
-              <div tabindex="-1" class="q-popover scroll"></div>
+              <div tabindex="-1" class="q-popover scroll">
+                <div style="width:195px;">
+                  <!---->
+                </div>
+              </div>
             </div>
           </button>
           <!----></span>
@@ -7936,7 +8117,11 @@ exports[`Storyshots WallConversation WallConversation 1`] = `
             <div class="q-focus-helper"></div>
             <div class="q-btn-inner row col items-center q-popup--skip justify-center"><span style="opacity:1;"><i class="far fa-smile"></i> +
   </span>
-              <div tabindex="-1" class="q-popover scroll"></div>
+              <div tabindex="-1" class="q-popover scroll">
+                <div style="width:195px;">
+                  <!---->
+                </div>
+              </div>
             </div>
           </button></div>
         <div class="q-item-side q-item-section q-item-side-left">
@@ -7960,7 +8145,11 @@ exports[`Storyshots WallConversation WallConversation 1`] = `
           <div class="q-focus-helper"></div>
           <div class="q-btn-inner row col items-center q-popup--skip justify-center"><span style="opacity:0.5;"><i class="far fa-smile"></i> +
   </span>
-            <div tabindex="-1" class="q-popover scroll"></div>
+            <div tabindex="-1" class="q-popover scroll">
+              <div style="width:195px;">
+                <!---->
+              </div>
+            </div>
           </div>
         </button>
         <!----></span>
@@ -7980,7 +8169,11 @@ exports[`Storyshots WallConversation WallConversation 1`] = `
           <div class="q-focus-helper"></div>
           <div class="q-btn-inner row col items-center q-popup--skip justify-center"><span style="opacity:1;"><i class="far fa-smile"></i> +
   </span>
-            <div tabindex="-1" class="q-popover scroll"></div>
+            <div tabindex="-1" class="q-popover scroll">
+              <div style="width:195px;">
+                <!---->
+              </div>
+            </div>
           </div>
         </button></div>
       <div class="q-item-side q-item-section q-item-side-left">
@@ -8004,7 +8197,11 @@ exports[`Storyshots WallConversation WallConversation 1`] = `
         <div class="q-focus-helper"></div>
         <div class="q-btn-inner row col items-center q-popup--skip justify-center"><span style="opacity:0.5;"><i class="far fa-smile"></i> +
   </span>
-          <div tabindex="-1" class="q-popover scroll"></div>
+          <div tabindex="-1" class="q-popover scroll">
+            <div style="width:195px;">
+              <!---->
+            </div>
+          </div>
         </div>
       </button>
       <!----></span>
@@ -8024,7 +8221,11 @@ exports[`Storyshots WallConversation WallConversation 1`] = `
         <div class="q-focus-helper"></div>
         <div class="q-btn-inner row col items-center q-popup--skip justify-center"><span style="opacity:1;"><i class="far fa-smile"></i> +
   </span>
-          <div tabindex="-1" class="q-popover scroll"></div>
+          <div tabindex="-1" class="q-popover scroll">
+            <div style="width:195px;">
+              <!---->
+            </div>
+          </div>
         </div>
       </button></div>
     <div class="q-item-side q-item-section q-item-side-left">
@@ -8048,7 +8249,11 @@ exports[`Storyshots WallConversation WallConversation 1`] = `
       <div class="q-focus-helper"></div>
       <div class="q-btn-inner row col items-center q-popup--skip justify-center"><span style="opacity:0.5;"><i class="far fa-smile"></i> +
   </span>
-        <div tabindex="-1" class="q-popover scroll"></div>
+        <div tabindex="-1" class="q-popover scroll">
+          <div style="width:195px;">
+            <!---->
+          </div>
+        </div>
       </div>
     </button>
     <!----></span>
@@ -8068,7 +8273,11 @@ exports[`Storyshots WallConversation WallConversation 1`] = `
       <div class="q-focus-helper"></div>
       <div class="q-btn-inner row col items-center q-popup--skip justify-center"><span style="opacity:1;"><i class="far fa-smile"></i> +
   </span>
-        <div tabindex="-1" class="q-popover scroll"></div>
+        <div tabindex="-1" class="q-popover scroll">
+          <div style="width:195px;">
+            <!---->
+          </div>
+        </div>
       </div>
     </button></div>
   <div class="q-item-side q-item-section q-item-side-left">
@@ -8092,7 +8301,11 @@ exports[`Storyshots WallConversation WallConversation 1`] = `
     <div class="q-focus-helper"></div>
     <div class="q-btn-inner row col items-center q-popup--skip justify-center"><span style="opacity:0.5;"><i class="far fa-smile"></i> +
   </span>
-      <div tabindex="-1" class="q-popover scroll"></div>
+      <div tabindex="-1" class="q-popover scroll">
+        <div style="width:195px;">
+          <!---->
+        </div>
+      </div>
     </div>
   </button>
   <!----></span>
@@ -8112,7 +8325,11 @@ exports[`Storyshots WallConversation WallConversation 1`] = `
       <div class="q-focus-helper"></div>
       <div class="q-btn-inner row col items-center q-popup--skip justify-center"><span style="opacity:1;"><i class="far fa-smile"></i> +
   </span>
-        <div tabindex="-1" class="q-popover scroll"></div>
+        <div tabindex="-1" class="q-popover scroll">
+          <div style="width:195px;">
+            <!---->
+          </div>
+        </div>
       </div>
     </button></div>
   <div class="q-item-side q-item-section q-item-side-left">
@@ -8136,7 +8353,11 @@ exports[`Storyshots WallConversation WallConversation 1`] = `
     <div class="q-focus-helper"></div>
     <div class="q-btn-inner row col items-center q-popup--skip justify-center"><span style="opacity:0.5;"><i class="far fa-smile"></i> +
   </span>
-      <div tabindex="-1" class="q-popover scroll"></div>
+      <div tabindex="-1" class="q-popover scroll">
+        <div style="width:195px;">
+          <!---->
+        </div>
+      </div>
     </div>
   </button>
   <!----></span>
@@ -8156,7 +8377,11 @@ exports[`Storyshots WallConversation WallConversation 1`] = `
       <div class="q-focus-helper"></div>
       <div class="q-btn-inner row col items-center q-popup--skip justify-center"><span style="opacity:1;"><i class="far fa-smile"></i> +
   </span>
-        <div tabindex="-1" class="q-popover scroll"></div>
+        <div tabindex="-1" class="q-popover scroll">
+          <div style="width:195px;">
+            <!---->
+          </div>
+        </div>
       </div>
     </button></div>
   <div class="q-item-side q-item-section q-item-side-left">
@@ -8180,7 +8405,11 @@ exports[`Storyshots WallConversation WallConversation 1`] = `
     <div class="q-focus-helper"></div>
     <div class="q-btn-inner row col items-center q-popup--skip justify-center"><span style="opacity:0.5;"><i class="far fa-smile"></i> +
   </span>
-      <div tabindex="-1" class="q-popover scroll"></div>
+      <div tabindex="-1" class="q-popover scroll">
+        <div style="width:195px;">
+          <!---->
+        </div>
+      </div>
     </div>
   </button>
   <!----></span>
@@ -8200,7 +8429,11 @@ exports[`Storyshots WallConversation WallConversation 1`] = `
       <div class="q-focus-helper"></div>
       <div class="q-btn-inner row col items-center q-popup--skip justify-center"><span style="opacity:1;"><i class="far fa-smile"></i> +
   </span>
-        <div tabindex="-1" class="q-popover scroll"></div>
+        <div tabindex="-1" class="q-popover scroll">
+          <div style="width:195px;">
+            <!---->
+          </div>
+        </div>
       </div>
     </button></div>
   <div class="q-item-side q-item-section q-item-side-left">
@@ -8224,7 +8457,11 @@ exports[`Storyshots WallConversation WallConversation 1`] = `
     <div class="q-focus-helper"></div>
     <div class="q-btn-inner row col items-center q-popup--skip justify-center"><span style="opacity:0.5;"><i class="far fa-smile"></i> +
   </span>
-      <div tabindex="-1" class="q-popover scroll"></div>
+      <div tabindex="-1" class="q-popover scroll">
+        <div style="width:195px;">
+          <!---->
+        </div>
+      </div>
     </div>
   </button>
   <!----></span>
@@ -8244,7 +8481,11 @@ exports[`Storyshots WallConversation WallConversation 1`] = `
       <div class="q-focus-helper"></div>
       <div class="q-btn-inner row col items-center q-popup--skip justify-center"><span style="opacity:1;"><i class="far fa-smile"></i> +
   </span>
-        <div tabindex="-1" class="q-popover scroll"></div>
+        <div tabindex="-1" class="q-popover scroll">
+          <div style="width:195px;">
+            <!---->
+          </div>
+        </div>
       </div>
     </button></div>
   <div class="q-item-side q-item-section q-item-side-left">
@@ -8268,7 +8509,11 @@ exports[`Storyshots WallConversation WallConversation 1`] = `
     <div class="q-focus-helper"></div>
     <div class="q-btn-inner row col items-center q-popup--skip justify-center"><span style="opacity:0.5;"><i class="far fa-smile"></i> +
   </span>
-      <div tabindex="-1" class="q-popover scroll"></div>
+      <div tabindex="-1" class="q-popover scroll">
+        <div style="width:195px;">
+          <!---->
+        </div>
+      </div>
     </div>
   </button>
   <!----></span>

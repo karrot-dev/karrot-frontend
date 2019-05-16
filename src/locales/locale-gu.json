@@ -187,7 +187,6 @@
   "STOREDETAIL": {
     "DIRECTIONS": "Show directions",
     "EDIT": "સ્ટોર સંપાદિત કરો",
-    "MANAGE": "દુકાનમાંથી તપાસો અને મેનેજ કરો",
     "ARCHIVED": "આ દુકાન આર્કાઇવ કરવામાં આવી છે",
     "INACTIVE": "This store is currently not cooperating.",
     "CHANGE_STATUS": "You can change the status on the settings page.",
@@ -214,6 +213,7 @@
     "SHOW_ACTIVE_ONLY": "Only show active stores"
   },
   "PLACEWALL": {
+    "SUBSCRIBED_USERS": "{count} people have marked this store as favourite",
     "SUBSCRIPTION": {
       "HEADER": "Do you want to mark this store as your favourite?",
       "YES": "yes",

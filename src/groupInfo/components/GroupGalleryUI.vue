@@ -39,17 +39,15 @@
         <div class="col">
           <QCard>
             <QSearch
-              :value="search"
+              v-model="search"
               class="searchbar"
               hide-underline
-              @input="filterGroups"
             />
           </QCard>
           <QCheckbox
-            :value="showInactive"
-            :label="$t('GROUP.SHOW_INACTIVE')"
+            v-model="showInactive"
+            :label="`${$t('GROUP.SHOW_INACTIVE')} (${filteredOtherInactiveGroups.length})`"
             style="margin-left: 16px"
-            @input="setShowInactive"
           />
         </div>
         <div style="margin-top: 4px">
@@ -196,6 +194,9 @@ export default {
       const hidePlaygroundByDefault = group => !hasSearchTerm ? !group.isPlayground : true
       return filteredGroups.filter(hidePlaygroundByDefault)
     },
+    filteredOtherInactiveGroups () {
+      return this.searchInName(this.search, this.otherGroups).filter(g => g.isInactive)
+    },
     hasMyGroupsToShow () {
       return this.expanded && this.filteredMyGroups.length > 0
     },
@@ -222,12 +223,6 @@ export default {
     },
   },
   methods: {
-    filterGroups (term) {
-      this.search = term
-    },
-    setShowInactive (value) {
-      this.showInactive = value
-    },
     searchInName (term, list) {
       if (!term || term === '') return list
       return list.filter(group => {

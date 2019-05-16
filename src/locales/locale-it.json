@@ -187,7 +187,6 @@
   "STOREDETAIL": {
     "DIRECTIONS": "Show directions",
     "EDIT": "Modifica negozi",
-    "MANAGE": "Controlla e gestisci le recupere",
     "ARCHIVED": "Questo negozio è stato archiviato",
     "INACTIVE": "Al momento questo negozio non sta collaborando.",
     "CHANGE_STATUS": "You can change the status on the settings page.",
@@ -214,6 +213,7 @@
     "SHOW_ACTIVE_ONLY": "Only show active stores"
   },
   "PLACEWALL": {
+    "SUBSCRIBED_USERS": "{count} people have marked this store as favourite",
     "SUBSCRIPTION": {
       "HEADER": "Do you want to mark this store as your favourite?",
       "YES": "yes",

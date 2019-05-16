@@ -187,7 +187,6 @@
   "STOREDETAIL": {
     "DIRECTIONS": "顯示方向",
     "EDIT": "編輯店家",
-    "MANAGE": "檢查與管理外帶品",
     "ARCHIVED": "此店家已被歸檔",
     "INACTIVE": "此商家目前並未參與合作",
     "CHANGE_STATUS": "你可以在設定頁面更改狀態",
@@ -214,6 +213,7 @@
     "SHOW_ACTIVE_ONLY": "只顯示活躍店家"
   },
   "PLACEWALL": {
+    "SUBSCRIBED_USERS": "{count} people have marked this store as favourite",
     "SUBSCRIPTION": {
       "HEADER": "Do you want to mark this store as your favourite?",
       "YES": "yes",

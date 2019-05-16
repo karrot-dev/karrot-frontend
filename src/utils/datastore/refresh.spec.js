@@ -57,7 +57,7 @@ describe('refresh', () => {
     datastore.commit('auth/setUser', { id: 1 })
 
     // wait until plugins ran (e.g. latestMessages)
-    await nextTicks(2)
+    await nextTicks(3)
     mockListMyThreads.mockClear()
     mockConversationsList.mockClear()
     mockNotificationsList.mockClear()

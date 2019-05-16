@@ -21,6 +21,26 @@ Please document your changes in this format:
 ```
 
 ## [Unreleased]
+
+## [7.3.0] - 2019-04-29
+### Added
+- Show people who marked a place as favorite @tiltec
+- Extend emoji reaction picker, add search bar [#1421] @andreseg9726 @MacNGz
+
+### Changed
+- Show weekday of pickup in feedback list @tiltec
+- Limit community feed to "Karrot" category @tiltec
+- Place navigation moved to tabs @tiltec
+
+### Fixed
+- New thread replies didn't show a green chip in the toolbar @tiltec
+- Inline code blocks in Markdown would insert a line break @tiltec
+
+## [7.2.4] - 2019-04-11
+### Fixed
+- Users wouldn't get marked as active, regression in 7.2.2 @tiltec
+
+## [7.2.3] - 2019-04-05
 ### Fixed
 - Invitation form didn't show error messages @tiltec
 - Applications wouldn't get withdrawn when the user accepts an invitation @tiltec
@@ -416,8 +436,12 @@ After months of planning and programming, the first version of ~the foodsaving t
 [#1157]: https://github.com/yunity/karrot-frontend/issues/1157
 [#1174]: https://github.com/yunity/karrot-frontend/issues/1174
 [#1178]: https://github.com/yunity/karrot-frontend/issues/1178
+[#1421]: https://github.com/yunity/karrot-frontend/issues/1421
 
-[Unreleased]: https://github.com/yunity/karrot-frontend/compare/v7.2.2...HEAD
+[Unreleased]: https://github.com/yunity/karrot-frontend/compare/v7.3.0...HEAD
+[7.3.0]: https://github.com/yunity/karrot-frontend/compare/v7.2.4...v7.3.0
+[7.2.4]: https://github.com/yunity/karrot-frontend/compare/v7.2.3...v7.2.4
+[7.2.3]: https://github.com/yunity/karrot-frontend/compare/v7.2.2...v7.2.3
 [7.2.2]: https://github.com/yunity/karrot-frontend/compare/v7.2.1...v7.2.2
 [7.2.1]: https://github.com/yunity/karrot-frontend/compare/v7.2.0...v7.2.1
 [7.2.0]: https://github.com/yunity/karrot-frontend/compare/v7.1.0...v7.2.0

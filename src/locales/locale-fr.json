@@ -187,7 +187,6 @@
   "STOREDETAIL": {
     "DIRECTIONS": "Afficher la direction",
     "EDIT": "Éditer le magasin",
-    "MANAGE": "Vérifier et organiser les récoltes",
     "ARCHIVED": "Ce magasin a été archivé",
     "INACTIVE": "Nous n'avons pas de coopération avec ce magasin.",
     "CHANGE_STATUS": "Tu peux changer le statut sur la page des paramètres.",
@@ -214,6 +213,7 @@
     "SHOW_ACTIVE_ONLY": "Afficher les magasins actifs"
   },
   "PLACEWALL": {
+    "SUBSCRIBED_USERS": "{count} people have marked this store as favourite",
     "SUBSCRIPTION": {
       "HEADER": "Veux tu indiquer ce magasin parmi tes favoris ?",
       "YES": "oui",

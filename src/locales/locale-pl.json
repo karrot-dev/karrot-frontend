@@ -187,7 +187,6 @@
   "STOREDETAIL": {
     "DIRECTIONS": "Pokaż trasę",
     "EDIT": "Edytuj punkt odbioru",
-    "MANAGE": "Zarządzaj odbiorami",
     "ARCHIVED": "Ten punkt odbioru został przeniesiony do archiwum",
     "INACTIVE": "Ten punkt odbioru obecnie nie współpracuje.",
     "CHANGE_STATUS": "Możesz zmienić status w zakładce Ustawienia.",
@@ -214,6 +213,7 @@
     "SHOW_ACTIVE_ONLY": "Pokaż tylko aktywne punkty odbioru"
   },
   "PLACEWALL": {
+    "SUBSCRIBED_USERS": "{count} people have marked this store as favourite",
     "SUBSCRIPTION": {
       "HEADER": "Czy chcesz oznaczyć ten punkt jako ulubiony?",
       "YES": "Tak",

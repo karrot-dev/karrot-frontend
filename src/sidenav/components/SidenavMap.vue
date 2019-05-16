@@ -16,7 +16,6 @@ export default connect({
   actionsToEvents: {
     togglePlaces: 'sidenavBoxes/toggle/placesOnMap',
     toggleUsers: 'sidenavBoxes/toggle/usersOnMap',
-    toggleBox: 'sidenavBoxes/toggle/map',
   },
 })('SidenavMap', SidenavMapUI)
 </script>

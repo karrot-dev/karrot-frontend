@@ -187,7 +187,6 @@
   "STOREDETAIL": {
     "DIRECTIONS": "Show directions",
     "EDIT": "स्टोर संपादित करें",
-    "MANAGE": "पिकअप को चेक करें और प्रबंधित करें",
     "ARCHIVED": "यह स्टोर संग्रहीत किया गया है",
     "INACTIVE": "This store is currently not cooperating.",
     "CHANGE_STATUS": "You can change the status on the settings page.",
@@ -214,6 +213,7 @@
     "SHOW_ACTIVE_ONLY": "Only show active stores"
   },
   "PLACEWALL": {
+    "SUBSCRIBED_USERS": "{count} people have marked this store as favourite",
     "SUBSCRIPTION": {
       "HEADER": "Do you want to mark this store as your favourite?",
       "YES": "yes",

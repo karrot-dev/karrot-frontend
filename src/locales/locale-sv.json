@@ -187,7 +187,6 @@
   "STOREDETAIL": {
     "DIRECTIONS": "Visa vägbeskrivning",
     "EDIT": "Redigera butik",
-    "MANAGE": "Hantera hämtningar",
     "ARCHIVED": "Butiken har arkiverats",
     "INACTIVE": "Denna butik samarbetar inte i dagsläget",
     "CHANGE_STATUS": "Du kan ändra statusen på inställningssidan.",
@@ -214,6 +213,7 @@
     "SHOW_ACTIVE_ONLY": "Visa bara aktiva butiker"
   },
   "PLACEWALL": {
+    "SUBSCRIBED_USERS": "{count} people have marked this store as favourite",
     "SUBSCRIPTION": {
       "HEADER": "Vill du markera denna butik som favorit?",
       "YES": "ja",

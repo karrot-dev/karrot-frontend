@@ -187,7 +187,6 @@
   "STOREDETAIL": {
     "DIRECTIONS": "Show directions",
     "EDIT": "Edit place",
-    "MANAGE": "Check and manage the pickups",
     "ARCHIVED": "This place has been archived",
     "INACTIVE": "This place is currently not cooperating.",
     "CHANGE_STATUS": "You can change the status on the settings page.",
@@ -214,6 +213,7 @@
     "SHOW_ACTIVE_ONLY": "Only show active places"
   },
   "PLACEWALL": {
+    "SUBSCRIBED_USERS": "{count} people have marked this place as favourite",
     "SUBSCRIPTION": {
       "HEADER": "Do you want to mark this place as your favourite?",
       "YES": "yes",
@@ -410,9 +410,9 @@
     "GROUP_MODIFY": "changed the settings of this group",
     "GROUP_JOIN": "joined this group",
     "GROUP_LEAVE": "left this group",
-    "PLACE_CREATE": "created place {name}",
-    "PLACE_MODIFY": "changed the settings of place {name}",
-    "STORE_DELETE": "deleted store {name}",
+    "STORE_CREATE": "created place {name}",
+    "STORE_MODIFY": "changed the settings of place {name}",
+    "STORE_DELETE": "deleted place {name}",
     "PICKUP_CREATE": "created a new one-time pick-up",
     "PICKUP_MODIFY": "changed the settings of a pick-up",
     "PICKUP_DELETE": "deleted a pick-up",

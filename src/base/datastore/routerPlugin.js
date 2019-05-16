@@ -67,6 +67,13 @@ export default datastore => {
 
     datastore.commit('breadcrumbs/set', findBreadcrumbs(to.matched) || [])
     datastore.commit('routeMeta/setNext', null)
+
+    try {
+      datastore.dispatch('currentGroup/markUserActive')
+    }
+    catch (err) {
+      Sentry.captureException(err)
+    }
   })
 
   datastore.watch((state, getters) => [
@@ -83,13 +90,6 @@ export default datastore => {
 
     document.title = title
   })
-
-  try {
-    datastore.dispatch('currentGroup/markUserActive')
-  }
-  catch (err) {
-    Sentry.captureException(err)
-  }
 }
 
 export function findBreadcrumbs (matched) {

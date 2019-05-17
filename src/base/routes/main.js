@@ -326,7 +326,7 @@ export default [
         path: 'place',
         meta: {
           breadcrumbs: [
-            { translation: 'GROUP.STORES', route: { name: 'places' } },
+            { translation: 'GROUP.PLACES', route: { name: 'places' } },
           ],
         },
         component: PlaceList,

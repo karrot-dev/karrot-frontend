@@ -21,6 +21,8 @@ Please document your changes in this format:
 ```
 
 ## [Unreleased]
+### Changed
+- Rename stores to places in UI and change shopping-cart to dot-circle #1398 @tiltec @djahnie
 
 ## [7.3.0] - 2019-04-29
 ### Added

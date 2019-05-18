@@ -134,7 +134,7 @@
     "SORT_NAME": "Trier par nom",
     "INACTIVE": "Inactif",
     "SHOW_INACTIVE": "Afficher les groupes inactifs",
-    "STORES": "Magasins",
+    "PLACES": "Places",
     "HOME": "Page d'accueil",
     "HISTORY": "Histoire",
     "DESCRIPTION": "Description",
@@ -158,7 +158,7 @@
       },
       "daily_pickup_notification": {
         "NAME": "Notifications de récolte",
-        "DESCRIPTION": "Reminds you of your pickups, and tells you about empty or not-full pickups of your favorite stores in the next day"
+        "DESCRIPTION": "Reminds you of your pickups, and tells you about empty or not-full pickups of your favorite places in the next day"
       },
       "new_application": {
         "NAME": "Nouvelles candidatures",
@@ -177,8 +177,8 @@
     "TITLE": "Carte",
     "SHOW_USERS": "Afficher les utilisateurs",
     "HIDE_USERS": "Cacher les utilisateurs",
-    "SHOW_STORES": "Afficher les magasins",
-    "HIDE_STORES": "Cacher les magasins",
+    "SHOW_PLACES": "Show places",
+    "HIDE_PLACES": "Hide places",
     "SHOW_GROUPS": "Afficher les groupes",
     "HIDE_GROUPS": "Cacher les groupes",
     "SET_LOCATION": "Ajouter la location",
@@ -186,11 +186,11 @@
   },
   "STOREDETAIL": {
     "DIRECTIONS": "Afficher la direction",
-    "EDIT": "Éditer le magasin",
-    "ARCHIVED": "Ce magasin a été archivé",
-    "INACTIVE": "Nous n'avons pas de coopération avec ce magasin.",
+    "EDIT": "Edit place",
+    "ARCHIVED": "This place has been archived",
+    "INACTIVE": "This place is currently not cooperating.",
     "CHANGE_STATUS": "Tu peux changer le statut sur la page des paramètres.",
-    "NO_DESCRIPTION": "Ce magasin n'a pas encore de description"
+    "NO_DESCRIPTION": "This place does not have a description yet"
   },
   "STOREEDIT": {
     "NAME": "Nom",
@@ -201,21 +201,21 @@
     "WEEKS_IN_ADVANCE_WARNING": "Les récoltes en cours seront supprimées si elles sont vides. Vous pouvez désactiver les récoltes non vide manuellement si besoins.",
     "DIALOGS": {
       "ARCHIVE": {
-        "TITLE": "Archiver le magasin",
+        "TITLE": "Archive place",
         "MESSAGE": "Es-tu sûr(e) ?",
-        "CONFIRM": "Oui, archiver le magasin"
+        "CONFIRM": "Yes, archive place"
       }
     },
     "RESTORE": "Restaurer",
-    "SHOW_ARCHIVED": "Afficher les magasin archivés",
-    "HIDE_ARCHIVED": "Cacher les magasins archivés",
-    "SHOW_ALL": "Afficher tous les magasins",
-    "SHOW_ACTIVE_ONLY": "Afficher les magasins actifs"
+    "SHOW_ARCHIVED": "Show archived places",
+    "HIDE_ARCHIVED": "Hide archived places",
+    "SHOW_ALL": "Show all places",
+    "SHOW_ACTIVE_ONLY": "Only show active places"
   },
   "PLACEWALL": {
-    "SUBSCRIBED_USERS": "{count} people have marked this store as favourite",
+    "SUBSCRIBED_USERS": "{count} people have marked this place as favourite",
     "SUBSCRIPTION": {
-      "HEADER": "Veux tu indiquer ce magasin parmi tes favoris ?",
+      "HEADER": "Do you want to mark this place as your favourite?",
       "YES": "oui",
       "YES_TEXT": "Montres les récoltes sur le mur du groupe et envoie des mails à propos des récoltes à venir.",
       "NO": "non",
@@ -327,7 +327,7 @@
     "EXCEPTIONS_MESSAGE": "Quelques récoltes à venir ne correspondent pas aux paramètres de cette récoltes récurrente. Jette un oeil sur '{upcomingLabel}' pour modifier ou désactiver des récoltes, si besoins."
   },
   "CREATESTORE": {
-    "TITLE": "Créer un nouveau magasin"
+    "TITLE": "Create a new place"
   },
   "PICKUPLIST": {
     "FILTER": {
@@ -335,10 +335,10 @@
       "EMPTY": "Only empty",
       "FREE": "With free slots"
     },
-    "AVAILABLE": "There is one pickup in your favorite stores waiting for you! | There are {count} pickups in your favorite stores waiting for you!",
+    "AVAILABLE": "There is one pickup in your favorite places waiting for you! | There are {count} pickups in your favorite places waiting for you!",
     "AVAILABLE_FEEDBACK": "Tu peux donner ton feedback sur la récolte | {count} récoltes attendent ton feedback ",
     "JOINEDNOTICE": "Tu as une récolte qui arrive | Tu as {count} récoltes qui arrivent",
-    "AVAILABLE_FROM_STORES": "This shows pickups from your favorite stores in the next days. You can access other stores in the sidebar.",
+    "AVAILABLE_FROM_STORES": "This shows pickups from your favorite places in the next days. You can access other places in the sidebar.",
     "ITEM": {
       "LEAVE": "Quitter",
       "JOIN": "Rejoindre",
@@ -348,7 +348,7 @@
       "LEAVE_CONFIRMATION_TEXT": "Es-tu vraiment sûr(e) que les autres peuvent faire la récolte sans toi ?"
     },
     "NONE": "Aucune récolte à venir",
-    "NONE_HINT": "Tu peux créer une nouvelle récolte sur la page du magasin.",
+    "NONE_HINT": "You can create a new pickup on the place page.",
     "STORE_NONE_HINT": "Tu peux créer une nouvelle récolte sur la page des récoltes.",
     "PICKUP_DISABLED": "Cette récolte a été désactivée.",
     "PICKUP_STARTED": "Cette récolte a déjà commencée."
@@ -410,9 +410,9 @@
     "GROUP_MODIFY": "a changé les paramètres du groupe",
     "GROUP_JOIN": "a rejoint le groupe",
     "GROUP_LEAVE": "a quitté le groupe",
-    "STORE_CREATE": "a créé le magasin {name}",
-    "STORE_MODIFY": "a changé les paramètres du magasin {name}",
-    "STORE_DELETE": "a supprimé le magasin {name}",
+    "STORE_CREATE": "created place {name}",
+    "STORE_MODIFY": "changed the settings of place {name}",
+    "STORE_DELETE": "deleted place {name}",
     "PICKUP_CREATE": "a crée une récolte individuelle",
     "PICKUP_MODIFY": "a changé les détails d'une récolte",
     "PICKUP_DELETE": "a effacé une récolte",
@@ -455,7 +455,7 @@
     "APPLICATION_DECLINED": "Votre candidature a été refusée",
     "INVITATION_ACCEPTED": "{userName}a accepté votre invitation",
     "FEEDBACK_POSSIBLE": "Tu peux donner un retour d'information sur la récolte que tu as fait le {date}",
-    "NEW_STORE": "{storeName}a été créé",
+    "NEW_PLACE": "{placeName} has been created",
     "NEW_MEMBER": "{userName} a rejoint le groupe",
     "PICKUP_UPCOMING": "Rappel : Vous avez une récolte à {time}",
     "PICKUP_DISABLED": "La récolte à {dateTime} a été annulée",

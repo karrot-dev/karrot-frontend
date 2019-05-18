@@ -134,7 +134,7 @@
     "SORT_NAME": "Sort by name",
     "INACTIVE": "Inactive",
     "SHOW_INACTIVE": "Show inactive groups",
-    "STORES": "સ્ટોર્સ",
+    "PLACES": "Places",
     "HOME": "Home",
     "HISTORY": "ઇતિહાસ",
     "DESCRIPTION": "વર્ણન",
@@ -158,7 +158,7 @@
       },
       "daily_pickup_notification": {
         "NAME": "Pickup notifications",
-        "DESCRIPTION": "Reminds you of your pickups, and tells you about empty or not-full pickups of your favorite stores in the next day"
+        "DESCRIPTION": "Reminds you of your pickups, and tells you about empty or not-full pickups of your favorite places in the next day"
       },
       "new_application": {
         "NAME": "New applications",
@@ -177,8 +177,8 @@
     "TITLE": "નકશો",
     "SHOW_USERS": "વપરાશકર્તાઓ બતાવો",
     "HIDE_USERS": "વપરાશકર્તાઓ છુપાવો",
-    "SHOW_STORES": "સ્ટોર્સ બતાવો",
-    "HIDE_STORES": "સ્ટોર્સ છુપાવો",
+    "SHOW_PLACES": "Show places",
+    "HIDE_PLACES": "Hide places",
     "SHOW_GROUPS": "Show groups",
     "HIDE_GROUPS": "Hide groups",
     "SET_LOCATION": "સ્થાન સેટ કરો",
@@ -186,11 +186,11 @@
   },
   "STOREDETAIL": {
     "DIRECTIONS": "Show directions",
-    "EDIT": "સ્ટોર સંપાદિત કરો",
-    "ARCHIVED": "આ દુકાન આર્કાઇવ કરવામાં આવી છે",
-    "INACTIVE": "This store is currently not cooperating.",
+    "EDIT": "Edit place",
+    "ARCHIVED": "This place has been archived",
+    "INACTIVE": "This place is currently not cooperating.",
     "CHANGE_STATUS": "You can change the status on the settings page.",
-    "NO_DESCRIPTION": "આ સ્ટોરમાં હજી સુધી કોઈ વર્ણન નથી"
+    "NO_DESCRIPTION": "This place does not have a description yet"
   },
   "STOREEDIT": {
     "NAME": "નામ",
@@ -201,21 +201,21 @@
     "WEEKS_IN_ADVANCE_WARNING": "Existing leftover pickups will get deleted if they are empty. You can disable non-empty pickups manually, if needed.",
     "DIALOGS": {
       "ARCHIVE": {
-        "TITLE": "આર્કાઇવ સ્ટોર",
+        "TITLE": "Archive place",
         "MESSAGE": "શું તમને ખાતરી છે?",
-        "CONFIRM": "હા, આર્કાઇવ સ્ટોર"
+        "CONFIRM": "Yes, archive place"
       }
     },
     "RESTORE": "પુનઃસ્થાપિત",
-    "SHOW_ARCHIVED": "Show archived stores",
-    "HIDE_ARCHIVED": "Hide archived stores",
-    "SHOW_ALL": "Show all stores",
-    "SHOW_ACTIVE_ONLY": "Only show active stores"
+    "SHOW_ARCHIVED": "Show archived places",
+    "HIDE_ARCHIVED": "Hide archived places",
+    "SHOW_ALL": "Show all places",
+    "SHOW_ACTIVE_ONLY": "Only show active places"
   },
   "PLACEWALL": {
-    "SUBSCRIBED_USERS": "{count} people have marked this store as favourite",
+    "SUBSCRIBED_USERS": "{count} people have marked this place as favourite",
     "SUBSCRIPTION": {
-      "HEADER": "Do you want to mark this store as your favourite?",
+      "HEADER": "Do you want to mark this place as your favourite?",
       "YES": "yes",
       "YES_TEXT": "Shows available pickups on the group wall and sends emails about upcoming pickups.",
       "NO": "no",
@@ -327,7 +327,7 @@
     "EXCEPTIONS_MESSAGE": "Some upcoming pickups don't match the settings of this recurring pickup. Have a look below at '{upcomingLabel}' to change or disable pickups, if needed."
   },
   "CREATESTORE": {
-    "TITLE": "એક નવો સ્ટોર બનાવો"
+    "TITLE": "Create a new place"
   },
   "PICKUPLIST": {
     "FILTER": {
@@ -335,10 +335,10 @@
       "EMPTY": "Only empty",
       "FREE": "With free slots"
     },
-    "AVAILABLE": "There is one pickup in your favorite stores waiting for you! | There are {count} pickups in your favorite stores waiting for you!",
+    "AVAILABLE": "There is one pickup in your favorite places waiting for you! | There are {count} pickups in your favorite places waiting for you!",
     "AVAILABLE_FEEDBACK": "તમે દુકાનમાં પ્રતિક્રિયા આપી શકો છો | {count} પિકઅપ્સ તમારી પ્રતિસાદની રાહ જોવામાં આવે છે",
     "JOINEDNOTICE": "તમારી પાસે એક આગામી દુકાન છે | તમારી પાસે {ગણતરી} આગામી પિકઅપ્સ છે",
-    "AVAILABLE_FROM_STORES": "This shows pickups from your favorite stores in the next days. You can access other stores in the sidebar.",
+    "AVAILABLE_FROM_STORES": "This shows pickups from your favorite places in the next days. You can access other places in the sidebar.",
     "ITEM": {
       "LEAVE": "છોડો",
       "JOIN": "જોડાઓ",
@@ -348,7 +348,7 @@
       "LEAVE_CONFIRMATION_TEXT": "શું તમે ખરેખર સુનિશ્ચિત છો કે અન્ય લોકો તમારા વિના દુકાન કરી શકે છે?"
     },
     "NONE": "કોઈ આગામી પિક અપ્સ નથી",
-    "NONE_HINT": "તમે સ્ટોર પૃષ્ઠ પર એક નવું પિક અપ બનાવી શકો છો",
+    "NONE_HINT": "You can create a new pickup on the place page.",
     "STORE_NONE_HINT": "તમે પૃષ્ઠને સંચાલિત કરો પર એક નવો બનાવ્યો બનાવી શકો છો",
     "PICKUP_DISABLED": "This pickup has been disabled.",
     "PICKUP_STARTED": "This pickup has already started."
@@ -410,9 +410,9 @@
     "GROUP_MODIFY": "આ સમૂહની સેટિંગ્સ બદલી",
     "GROUP_JOIN": "આ જૂથમાં જોડાયા",
     "GROUP_LEAVE": "આ જૂથ છોડી દીધું",
-    "STORE_CREATE": "બનાવેલ સ્ટોર {name}",
-    "STORE_MODIFY": "સ્ટોરની {નામ} સેટિંગ્સ બદલવી",
-    "STORE_DELETE": "કાઢી નાખેલ સ્ટોર {નામ}",
+    "STORE_CREATE": "created place {name}",
+    "STORE_MODIFY": "changed the settings of place {name}",
+    "STORE_DELETE": "deleted place {name}",
     "PICKUP_CREATE": "એક નવી એકવાર પિક-અપ બનાવ્યું",
     "PICKUP_MODIFY": "એક પિક અપ ની સેટિંગ્સ બદલી",
     "PICKUP_DELETE": "એક પિક-અપ કાઢી નાખ્યું",
@@ -455,7 +455,7 @@
     "APPLICATION_DECLINED": "Your application was declined",
     "INVITATION_ACCEPTED": "{userName} accepted your invitation",
     "FEEDBACK_POSSIBLE": "You can give feedback for the pickup you did on {date}",
-    "NEW_STORE": "{storeName} has been created",
+    "NEW_PLACE": "{placeName} has been created",
     "NEW_MEMBER": "{userName} joined your group",
     "PICKUP_UPCOMING": "Reminder: You have a pickup at {time}",
     "PICKUP_DISABLED": "Pickup at {dateTime} was disabled",

@@ -134,7 +134,7 @@
     "SORT_NAME": "नावानुसार क्रमवारी",
     "INACTIVE": "निष्क्रिय",
     "SHOW_INACTIVE": "निष्क्रिय गट दर्शवा",
-    "STORES": "स्टोअर",
+    "PLACES": "Places",
     "HOME": "मुख्यपृष्ठ",
     "HISTORY": "इतिहास",
     "DESCRIPTION": "वर्णन",
@@ -158,7 +158,7 @@
       },
       "daily_pickup_notification": {
         "NAME": "पिकअप अधिसूचना",
-        "DESCRIPTION": "आपल्या पिकअपबद्दल आपल्याला आठवण करून देते आणि आपल्याला दुसऱ्या दिवशीच्या आपल्या निवडलेल्या स्टोअरचे रिक्त किंवा पूर्ण पिकअपबद्दल सांगितले जाते."
+        "DESCRIPTION": "Reminds you of your pickups, and tells you about empty or not-full pickups of your favorite places in the next day"
       },
       "new_application": {
         "NAME": "नवीन आवेदन",
@@ -177,8 +177,8 @@
     "TITLE": "नकाशा",
     "SHOW_USERS": "वापरकर्ते दाखवा",
     "HIDE_USERS": "वापरकर्ते लपवा",
-    "SHOW_STORES": "स्टोअर दर्शवा",
-    "HIDE_STORES": "स्टोअर लपवा",
+    "SHOW_PLACES": "Show places",
+    "HIDE_PLACES": "Hide places",
     "SHOW_GROUPS": "गट दाखवा",
     "HIDE_GROUPS": "गट लपवा",
     "SET_LOCATION": "स्थान सेट करा",
@@ -186,11 +186,11 @@
   },
   "STOREDETAIL": {
     "DIRECTIONS": "दिशानिर्देश दर्शवा",
-    "EDIT": "स्टोअर संपादित करा",
-    "ARCHIVED": "हे स्टोअर संग्रहित केले गेले आहे",
-    "INACTIVE": "हे स्टोअर सध्या सहकार्य करत नाही.",
+    "EDIT": "Edit place",
+    "ARCHIVED": "This place has been archived",
+    "INACTIVE": "This place is currently not cooperating.",
     "CHANGE_STATUS": "आपण सेटिंग्ज पृष्ठाची स्थिती बदलू शकता.",
-    "NO_DESCRIPTION": "या स्टोअरचे अद्याप वर्णन उपलब्ध नाही "
+    "NO_DESCRIPTION": "This place does not have a description yet"
   },
   "STOREEDIT": {
     "NAME": "नाव",
@@ -201,21 +201,21 @@
     "WEEKS_IN_ADVANCE_WARNING": "विद्यमान उर्वरित पिकअप रिक्त असल्यास हटविले जातील. आवश्यक असल्यास, आपण रिक्त पिकअप स्वहस्ते अक्षम करू शकता.",
     "DIALOGS": {
       "ARCHIVE": {
-        "TITLE": "संग्रहित स्टोअर",
+        "TITLE": "Archive place",
         "MESSAGE": "खात्री आहे?",
-        "CONFIRM": "होय, स्टोअर संग्रहित करा "
+        "CONFIRM": "Yes, archive place"
       }
     },
     "RESTORE": "पुनर्संचयित करा",
-    "SHOW_ARCHIVED": "संग्रहित स्टोअर दर्शवा",
-    "HIDE_ARCHIVED": "संग्रहित स्टोअर लपवा",
-    "SHOW_ALL": "सर्व स्टोअर दर्शवा",
-    "SHOW_ACTIVE_ONLY": "फक्त सक्रिय स्टोअर दर्शवा"
+    "SHOW_ARCHIVED": "Show archived places",
+    "HIDE_ARCHIVED": "Hide archived places",
+    "SHOW_ALL": "Show all places",
+    "SHOW_ACTIVE_ONLY": "Only show active places"
   },
   "PLACEWALL": {
-    "SUBSCRIBED_USERS": "{count} people have marked this store as favourite",
+    "SUBSCRIBED_USERS": "{count} people have marked this place as favourite",
     "SUBSCRIPTION": {
-      "HEADER": "आपण या स्टोअरला आपले आवडते म्हणून चिन्हांकित करू इच्छिता?",
+      "HEADER": "Do you want to mark this place as your favourite?",
       "YES": "होय",
       "YES_TEXT": "गट भिंतीवर उपलब्ध पिकअप दर्शविते आणि आगामी पिकअपबद्दल ईमेल पाठवते.",
       "NO": "नाही",
@@ -327,7 +327,7 @@
     "EXCEPTIONS_MESSAGE": "काही आगामी पिकअप या आवर्ती पिकअपच्या सेटिंग्जशी जुळत नाहीत. आवश्यक असल्यास, पिकअप बदलण्यासाठी किंवा अक्षम करण्यासाठी 'येथे' {upcomingLabel} खाली एक नजर टाका."
   },
   "CREATESTORE": {
-    "TITLE": "एक नवीन स्टोअर तयार करा"
+    "TITLE": "Create a new place"
   },
   "PICKUPLIST": {
     "FILTER": {
@@ -335,10 +335,10 @@
       "EMPTY": "Only empty",
       "FREE": "With free slots"
     },
-    "AVAILABLE": "आपल्या आवडत्या स्टोअरमध्ये एक पिकअप आपल्यासाठी प्रतीक्षा करीत आहे! | आपल्या आवडत्या स्टोअरमध्ये {count}पिकअप आपल्यासाठी प्रतीक्षा करीत आहेत!",
+    "AVAILABLE": "There is one pickup in your favorite places waiting for you! | There are {count} pickups in your favorite places waiting for you!",
     "AVAILABLE_FEEDBACK": "आपण एका पिकअपवर फीडबॅक देऊ शकता | {count}पिकअप आपल्या फीडबॅकची वाट पाहत आहेत",
     "JOINEDNOTICE": "आपल्याकडे एक आगामी पिकअप आहे | आपल्याकडे आगामी {count} पिकअप आहेत",
-    "AVAILABLE_FROM_STORES": "हे पुढील दिवसात आपल्या आवडत्या स्टोअरवरून करावयाचे पिकअप दर्शविते. आपण साइडबार वापरून इतर स्टोअरमध्ये प्रवेश करू शकता.",
+    "AVAILABLE_FROM_STORES": "This shows pickups from your favorite places in the next days. You can access other places in the sidebar.",
     "ITEM": {
       "LEAVE": "सोडा",
       "JOIN": "सामील व्हा",
@@ -348,7 +348,7 @@
       "LEAVE_CONFIRMATION_TEXT": "आपणास खात्री आहे की इतर लोक आपल्याशिवाय पिकअप करू शकतात?"
     },
     "NONE": "कोणतीही आगामी पिकअप नाहीत",
-    "NONE_HINT": "आपण स्टोअर पृष्ठावर नवीन पिकअप तयार करू शकता.",
+    "NONE_HINT": "You can create a new pickup on the place page.",
     "STORE_NONE_HINT": "आपण पिकअप व्यवस्थापित पृष्ठावर नवीन पिकअप तयार करू शकता.",
     "PICKUP_DISABLED": "हे पिकअप अक्षम केले गेले आहे.",
     "PICKUP_STARTED": "हे पिकअप आधीपासून सुरू झाले आहे."
@@ -410,9 +410,9 @@
     "GROUP_MODIFY": "या गटाच्या सेटिंग्ज बदलल्या ",
     "GROUP_JOIN": "या गटात सामील झाले",
     "GROUP_LEAVE": "हा गट सोडला",
-    "STORE_CREATE": "{name}स्टोअर निर्माण केले  ",
-    "STORE_MODIFY": "{name}स्टोअर च्या सेटिंग्ज बदलल्या  ",
-    "STORE_DELETE": "{name}स्टोअर हटवले ",
+    "STORE_CREATE": "created place {name}",
+    "STORE_MODIFY": "changed the settings of place {name}",
+    "STORE_DELETE": "deleted place {name}",
     "PICKUP_CREATE": "नवीन वन-टाइम पिकअप तयार केले",
     "PICKUP_MODIFY": "पिकअपची सेटिंग्ज बदलली",
     "PICKUP_DELETE": "पिकअप हटविला",
@@ -455,7 +455,7 @@
     "APPLICATION_DECLINED": "Your application was declined",
     "INVITATION_ACCEPTED": "{userName} accepted your invitation",
     "FEEDBACK_POSSIBLE": "You can give feedback for the pickup you did on {date}",
-    "NEW_STORE": "{storeName} has been created",
+    "NEW_PLACE": "{placeName} has been created",
     "NEW_MEMBER": "{userName} joined your group",
     "PICKUP_UPCOMING": "Reminder: You have a pickup at {time}",
     "PICKUP_DISABLED": "Pickup at {dateTime} was disabled",

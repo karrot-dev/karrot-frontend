@@ -526,6 +526,7 @@
     "RECEIVED_VIA_EMAIL": "This message was sent via e-mail"
   },
   "CONVERSATION": {
+    "CONVERSATIONS": "Conversations",
     "OPEN": "Open Chat",
     "REPLY_TO_MESSAGE": "Reply to message...",
     "REPLIES": "Replies",

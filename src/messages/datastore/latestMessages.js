@@ -12,7 +12,8 @@ function initialState () {
     threadMessages: {},
     fetchInitialDone: false,
     entryMeta: {
-      markedAt: null,
+      conversationsMarkedAt: null,
+      threadsMarkedAt: null,
     },
   }
 }
@@ -42,10 +43,17 @@ export default {
       ) === 0
     },
     unseenCount: (state, getters) => {
-      const { markedAt } = state.entryMeta
+      return getters.unseenConversationsCount + getters.unseenThreadsCount
+    },
+    unseenConversationsCount: (state, getters) => {
+      const { conversationsMarkedAt } = state.entryMeta
 
-      return getters.unread.conversations.filter(c => c.latestMessage.createdAt > markedAt).length +
-        getters.unread.threads.filter(t => t.latestMessage.createdAt > markedAt).length
+      return getters.unread.conversations.filter(c => c.latestMessage.createdAt > conversationsMarkedAt).length
+    },
+    unseenThreadsCount: (state, getters) => {
+      const { threadsMarkedAt } = state.entryMeta
+
+      return getters.unread.threads.filter(t => t.latestMessage.createdAt > threadsMarkedAt).length
     },
     conversations: (state, getters, rootState, rootGetters) => {
       const enrichConversation = rootGetters['conversations/enrichConversation']
@@ -99,10 +107,15 @@ export default {
       async clear ({ commit }) {
         commit('clear')
       },
-      async markAllSeen ({ getters }) {
+      async markConversationsSeen ({ getters }) {
         // we can skip marking if there are only seen notifications
-        if (!getters.unseenCount) return
-        conversationsAPI.markAllSeen()
+        if (!getters.unseenConversationsCount) return
+        conversationsAPI.markConversationsSeen()
+      },
+      async markThreadsSeen ({ getters }) {
+        // we can skip marking if there are only seen notifications
+        if (!getters.unseenThreadsCount) return
+        conversationsAPI.markThreadsSeen()
       },
     }),
     async fetch ({ dispatch }, { excludeRead = false } = {}) {

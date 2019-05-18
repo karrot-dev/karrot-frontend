@@ -1,7 +1,7 @@
 <template>
   <LatestMessages
     class="k-messages"
-    :as-page="!$q.platform.is.mobile"
+    as-page
   />
 </template>
 

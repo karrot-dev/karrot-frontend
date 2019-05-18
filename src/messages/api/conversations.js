@@ -32,8 +32,12 @@ export default {
     return convert((await axios.patch(`/api/conversations/${id}/`, data)).data)
   },
 
-  async markAllSeen () {
-    return (await axios.post(`/api/conversations/mark_all_seen/`)).data
+  async markConversationsSeen () {
+    return (await axios.post(`/api/conversations/mark_conversations_seen/`)).data
+  },
+
+  async markThreadsSeen () {
+    return (await axios.post(`/api/conversations/mark_threads_seen/`)).data
   },
 }
 
@@ -64,6 +68,7 @@ export function convert (val) {
 export function convertMeta (val) {
   return {
     ...val,
-    markedAt: new Date(val.markedAt),
+    conversationsMarkedAt: new Date(val.conversationsMarkedAt),
+    threadsMarkedAt: new Date(val.threadsMarkedAt),
   }
 }

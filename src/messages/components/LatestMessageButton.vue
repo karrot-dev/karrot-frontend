@@ -25,7 +25,6 @@
     >
       <LatestMessages
         v-if="showing"
-        as-popover
       />
     </QPopover>
   </QBtn>

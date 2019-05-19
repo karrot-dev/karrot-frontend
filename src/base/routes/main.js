@@ -4,6 +4,8 @@ const GroupWall = () => import('@/group/pages/Wall')
 const GroupPickups = () => import('@/pickups/pages/GroupPickups')
 const GroupFeedback = () => import('@/feedback/pages/GroupFeedback')
 const Messages = () => import('@/messages/pages/Messages')
+const LatestConversations = () => import('@/messages/components/LatestConversations')
+const LatestThreads = () => import('@/messages/components/LatestThreads')
 const Notifications = () => import('@/notifications/pages/Notifications')
 const GroupMap = () => import('@/maps/pages/Map')
 const GroupSettings = () => import('@/group/pages/Settings')
@@ -131,7 +133,7 @@ export default [
         name: 'issueList',
         path: 'issues',
         meta: {
-          requiredLoggedIn: true,
+          requireLoggedIn: true,
           breadcrumbs: [
             { translation: 'ISSUE.TITLE', route: { name: 'issueList' } },
           ],
@@ -154,7 +156,7 @@ export default [
               footer: { render: h => Platform.is.mobile ? h('router-view', { props: { name: 'issueFooter' } }) : null },
             },
             meta: {
-              requiredLoggedIn: true,
+              requireLoggedIn: true,
               breadcrumbs: [
                 { type: 'activeIssue' },
               ],
@@ -303,7 +305,7 @@ export default [
         name: 'messageReplies',
         path: 'message/:messageId/replies',
         meta: {
-          requiredLoggedIn: true,
+          requireLoggedIn: true,
           breadcrumbs: [
             { type: 'currentGroup' },
           ],
@@ -412,7 +414,7 @@ export default [
         name: 'pickupDetail',
         path: 'place/:placeId/pickups/:pickupId/detail',
         meta: {
-          requiredLoggedIn: true,
+          requireLoggedIn: true,
           breadcrumbs: [
             { translation: 'GROUP.PICKUP' },
           ],
@@ -455,7 +457,7 @@ export default [
     name: 'applicationDetail',
     path: '/group/:groupId/applications/:applicationId',
     meta: {
-      requiredLoggedIn: true,
+      requireLoggedIn: true,
       breadcrumbs: [
         { translation: 'APPLICATION.APPLICATION', route: { name: 'applicationDetail' } },
       ],
@@ -503,7 +505,7 @@ export default [
     name: 'userDetail',
     path: '/user/:userId/detail',
     meta: {
-      requiredLoggedIn: true,
+      requireLoggedIn: true,
       breadcrumbs: [
         { type: 'currentGroup' },
         { type: 'activeUser' },
@@ -521,8 +523,9 @@ export default [
   {
     name: 'messages',
     path: 'messages',
+    redirect: { name: 'latestConversations' },
     meta: {
-      requiredLoggedIn: true,
+      requireLoggedIn: true,
       breadcrumbs: [
         { translation: 'GROUP.MESSAGES', route: { name: 'messages' } },
       ],
@@ -532,12 +535,24 @@ export default [
       default: Messages,
       sidenav: Sidenav,
     },
+    children: [
+      {
+        name: 'latestConversations',
+        path: 'conversations',
+        component: LatestConversations,
+      },
+      {
+        name: 'latestThreads',
+        path: 'threads',
+        component: LatestThreads,
+      },
+    ],
   },
   {
     name: 'notifications',
     path: 'notifications',
     meta: {
-      requiredLoggedIn: true,
+      requireLoggedIn: true,
       breadcrumbs: [
         { translation: 'NOTIFICATION_BELLS_LIST.TITLE', route: { name: 'notifications' } },
       ],

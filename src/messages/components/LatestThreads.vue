@@ -14,7 +14,7 @@
         </QItem>
         <LatestMessageItem
           v-for="conv in threads"
-          :key="'thread' + conv.id"
+          :key="conv.id"
           :thread="conv"
           :message="conv.latestMessage"
           :unread-count="conv.threadMeta.unreadReplyCount"

@@ -12,7 +12,7 @@
         </QItem>
         <LatestMessageItem
           v-for="conv in conversations"
-          :key="'conv' + conv.id"
+          :key="conv.id"
           v-close-overlay
           :group="conv.type === 'group' ? conv.target : null"
           :user="conv.type === 'private' ? conv.target : null"

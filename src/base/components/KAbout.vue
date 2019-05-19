@@ -19,22 +19,8 @@
           link
           tag="a"
           rel="nofollow noopener noreferrer"
-          href="https://community.foodsaving.world"
-        >
-          <QItemSide>
-            <i class="fab fa-fw fa-discourse" />
-          </QItemSide>
-          <QItemMain
-            label="Community"
-            :sublabel="$t('GLOBAL.COMMUNITY_NOTE')"
-          />
-        </QItem>
-
-        <QItem
-          link
-          tag="a"
-          rel="nofollow noopener noreferrer"
           href="https://github.com/yunity/karrot-frontend"
+          target="_blank"
         >
           <QItemSide>
             <i class="fab fa-fw fa-github" />
@@ -50,6 +36,7 @@
           tag="a"
           rel="nofollow noopener noreferrer"
           href="https://foodsaving.world"
+          target="_blank"
         >
           <QItemSide>
             <i class="fas fa-fw fa-globe" />
@@ -57,21 +44,6 @@
           <QItemMain
             label="Info"
             :sublabel="$t('SIDENAV.INFO_SUB')"
-          />
-        </QItem>
-
-        <QItem
-          link
-          tag="a"
-          rel="nofollow noopener noreferrer"
-          href="https://blog.karrot.world"
-        >
-          <QItemSide>
-            <i class="far fa-newspaper" />
-          </QItemSide>
-          <QItemMain
-            label="Blog"
-            :sublabel="$t('SIDENAV.BLOG_SUB')"
           />
         </QItem>
 
@@ -125,7 +97,6 @@
 </template>
 
 <script>
-import KarrotLogo from '@/logo/components/KarrotLogo'
 import {
   QBtn,
   QList,
@@ -133,7 +104,10 @@ import {
   QItemSide,
   QItemMain,
 } from 'quasar'
+
 import { mapGetters } from 'vuex'
+
+import KarrotLogo from '@/logo/components/KarrotLogo'
 
 export default {
   components: {

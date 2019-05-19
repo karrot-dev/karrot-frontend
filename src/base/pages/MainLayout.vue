@@ -69,6 +69,7 @@
               {{ $t("GLOBAL.ABOUT_KARROT") }}
             </QItemMain>
           </QItem>
+          <CommunityFeed />
         </QLayoutDrawer>
 
         <!-- desktop sidenav -->
@@ -93,6 +94,7 @@
               {{ $t("GLOBAL.ABOUT_KARROT") }}
             </QItemMain>
           </QItem>
+          <CommunityFeed />
         </QLayoutDrawer>
 
         <QPageContainer>
@@ -160,6 +162,8 @@ import RouteError from '@/base/components/RouteError'
 import UnsupportedBrowserWarning from '@/base/components/UnsupportedBrowserWarning'
 import DetailSidebar from '@/messages/components/DetailSidebar'
 import KarrotLogo from '@/logo/components/KarrotLogo'
+import CommunityFeed from '@/communityFeed/components/CommunityFeed'
+
 import { mapGetters, mapActions } from 'vuex'
 import {
   dom,
@@ -207,6 +211,7 @@ export default {
     Banners,
     RouteError,
     UnsupportedBrowserWarning,
+    CommunityFeed,
   },
   data () {
     return {

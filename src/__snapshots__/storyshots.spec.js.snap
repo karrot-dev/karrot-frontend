@@ -3928,12 +3928,6 @@ exports[`Storyshots Layout KTopbar 1`] = `
         <div></div>
       </div>
     </div>
-  </button> <button tabindex="0" type="button" title="Updates from the foodsaving worldwide community" class="q-btn inline relative-position q-btn-item non-selectable q-btn-round q-btn-flat q-focusable q-hoverable q-btn-dense">
-    <div class="q-focus-helper"></div>
-    <div class="q-btn-inner row col items-center q-popup--skip justify-center"><i aria-hidden="true" class="q-icon fab fa-discourse fa-fw"> </i>
-      <!---->
-      <div tabindex="-1" class="q-popover scroll k-community-feed"></div>
-    </div>
   </button> <button tabindex="0" type="button" title="Messages" class="q-btn inline relative-position q-btn-item non-selectable q-btn-round q-btn-flat q-focusable q-hoverable q-btn-dense">
     <div class="q-focus-helper"></div>
     <div class="q-btn-inner row col items-center q-popup--skip justify-center"><i aria-hidden="true" class="q-icon fas fa-comments hasUnread"> </i>

@@ -7,9 +7,6 @@
     >
       {{ currentGroup && currentGroup.name }}
     </QToolbarTitle>
-    <CommunityFeed
-      @click.native="$emit('click')"
-    />
     <LatestMessageButton
       v-if="isLoggedIn"
       @click="$emit('click')"
@@ -33,7 +30,6 @@
 </template>
 
 <script>
-import CommunityFeed from '@/communityFeed/components/CommunityFeed'
 import LatestMessageButton from '@/messages/components/LatestMessageButton'
 import NotificationButton from '@/notifications/components/NotificationButton'
 
@@ -54,7 +50,6 @@ export default {
     QBtn,
     QIcon,
     QTooltip,
-    CommunityFeed,
     LatestMessageButton,
     NotificationButton,
   },

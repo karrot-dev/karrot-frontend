@@ -44,7 +44,6 @@
       <QTooltip v-t="'BUTTON.SEARCH'" />
     </QBtn>
     <template v-if="!$q.platform.is.mobile">
-      <CommunityFeed />
       <LatestMessageButton />
       <NotificationButton />
       <RouterLink
@@ -153,7 +152,6 @@ import {
 import KarrotLogo from '@/logo/components/KarrotLogo'
 import KBreadcrumb from '@/topbar/components/KBreadcrumb'
 import Search from '@/topbar/components/Search'
-import CommunityFeed from '@/communityFeed/components/CommunityFeed'
 import LatestMessageButton from '@/messages/components/LatestMessageButton'
 import NotificationButton from '@/notifications/components/NotificationButton'
 
@@ -170,7 +168,6 @@ export default {
     KarrotLogo,
     KBreadcrumb,
     Search,
-    CommunityFeed,
     LatestMessageButton,
     NotificationButton,
   },

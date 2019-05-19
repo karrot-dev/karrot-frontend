@@ -1,31 +1,33 @@
 <template>
-  <QBtn
-    :title="$t('COMMUNITY_FEED.HEADER', { community: $t('COMMUNITY_FEED.HEADER_LINK') })"
-    flat
-    dense
-    round
-    @click="showing = !showing"
+  <QItem
+    link
+    @click.native="showing = !showing"
   >
-    <QIcon
-      name="fab fa-discourse fa-fw"
-      :class="{ hasUnread: unreadCount > 0 }"
-    />
-    <QChip
+    <QItemSide class="text-center">
+      <QIcon
+        name="fab fa-discourse fa-fw"
+      />
+    </QItemSide>
+    <QItemMain>
+      {{ $t('COMMUNITY_FEED.KARROT_DISCUSSION') }}
+    </QItemMain>
+    <QItemSide
       v-if="unreadCount > 0"
-      floating
-      color="red"
+      right
     >
-      {{ unreadCount > 9 ? '9+' : unreadCount }}
-    </QChip>
-    <Component
-      :is="$q.platform.is.mobile ? 'QModal' : 'QPopover'"
+      <QChip
+        small
+        color="secondary"
+      >
+        {{ unreadCount > 9 ? '9+' : unreadCount }}
+      </QChip>
+    </QItemSide>
+    <QModal
       v-model="showing"
-      class="k-community-feed"
-      :class="$q.platform.is.mobile && 'relative-position'"
+      class="k-community-feed relative-position"
       @hide="mark"
     >
       <QBtn
-        v-if="$q.platform.is.mobile"
         dense
         round
         color="secondary"
@@ -98,8 +100,8 @@
           </QItemMain>
         </QItem>
       </QList>
-    </Component>
-  </QBtn>
+    </QModal>
+  </QItem>
 </template>
 
 <script>
@@ -110,7 +112,6 @@ import {
 import {
   QBtn,
   QIcon,
-  QPopover,
   QModal,
   QList,
   QListHeader,
@@ -127,7 +128,6 @@ export default {
     DateAsWords,
     QBtn,
     QIcon,
-    QPopover,
     QModal,
     QList,
     QListHeader,
@@ -161,10 +161,4 @@ export default {
 
 .isUnread
   background linear-gradient(to right, $lightGreen, $lighterGreen)
-body.desktop .k-community-feed
-  max-width 700px
-.q-icon:not(.hasUnread)
-  opacity $topbar-opacity-low
-.q-btn:hover .q-icon
-  opacity 1
 </style>

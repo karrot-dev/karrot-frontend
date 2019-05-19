@@ -3954,11 +3954,6 @@ exports[`Storyshots Layout KTopbar 1`] = `
       </div>
       <div tabindex="-1" class="q-popover scroll k-notifications-popover"></div>
     </div>
-  </button> <button tabindex="0" type="button" title="Switch language" class="q-btn inline relative-position q-btn-item non-selectable k-locale-select q-btn-round q-btn-flat q-focusable q-hoverable q-btn-dense">
-    <div class="q-focus-helper"></div>
-    <div class="q-btn-inner row col items-center q-popup--skip justify-center"><i aria-hidden="true" class="q-icon fas fa-globe fa-fw"> </i>
-      <div tabindex="-1" minimized="" class="q-popover scroll"></div>
-    </div>
   </button> <a><button tabindex="0" type="button" class="q-btn inline relative-position q-btn-item non-selectable q-btn-rectangle q-btn-flat q-focusable q-hoverable q-btn-dense">
       <div class="q-focus-helper"></div>
       <div class="q-btn-inner row col items-center q-popup--skip justify-center"><i aria-hidden="true" class="q-icon presence-indicator fas fa-circle text-secondary"> </i>
@@ -6386,6 +6381,24 @@ exports[`Storyshots Settings Page Default 1`] = `
             </button></div>
         </form>
       </div>
+    </div>
+  </div>
+  <div class="q-card no-shadow grey-border">
+    <div class="q-card-primary q-card-container row no-wrap">
+      <div class="col column">
+        <div class="q-card-title">Switch language</div>
+        <div class="q-card-subtitle"></div>
+      </div>
+      <div class="col-auto self-center q-card-title-extra"></div>
+    </div>
+    <div class="q-card-main q-card-container">
+      <div class="edit-box row justify-end"><button tabindex="0" type="button" title="Switch language" class="q-btn inline relative-position q-btn-item non-selectable k-locale-select q-btn-rectangle q-focusable q-hoverable">
+          <div class="q-focus-helper"></div>
+          <div class="q-btn-inner row col items-center q-popup--skip justify-center"><i aria-hidden="true" class="q-icon fas fa-globe fa-fw"> </i>
+            English
+            <div tabindex="-1" minimized="" class="q-popover scroll"></div>
+          </div>
+        </button></div>
     </div>
   </div>
   <div class="q-card no-shadow grey-border">

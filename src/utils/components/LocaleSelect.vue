@@ -1,8 +1,8 @@
 <template>
   <QBtn
-    flat
-    dense
-    round
+    :flat="inToolbar"
+    :dense="inToolbar"
+    :round="inToolbar"
     :title="$t('LANGUAGECHOOSER.SWITCH')"
     class="k-locale-select"
     @click="open = !open"
@@ -10,6 +10,11 @@
     <QIcon
       name="fas fa-globe fa-fw"
     />
+    <template
+      v-if="!inToolbar"
+    >
+      {{ currentName }}
+    </template>
     <Component
       :is="$q.platform.is.mobile ? 'QModal' : 'QPopover'"
       v-model="open"
@@ -39,6 +44,8 @@
 
 <script>
 import { QIcon, QBtn, QPopover, QModal, QList } from 'quasar'
+import { mapGetters } from 'vuex'
+import locales from '@/locales/index'
 
 const LocaleSelectInner = () => import('./LocaleSelectInner')
 
@@ -52,10 +59,25 @@ export default {
     QList,
     LocaleSelectInner,
   },
+  props: {
+    inToolbar: {
+      type: Boolean,
+      default: false,
+    },
+  },
   data () {
     return {
       open: false,
     }
+  },
+  computed: {
+    ...mapGetters({
+      current: 'i18n/locale',
+    }),
+    currentName () {
+      if (!this.current) return ''
+      return locales[this.current].name
+    },
   },
 }
 </script>

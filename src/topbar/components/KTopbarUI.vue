@@ -47,7 +47,6 @@
       <CommunityFeed />
       <LatestMessageButton />
       <NotificationButton />
-      <LocaleSelect />
       <RouterLink
         :to="{name: 'user', params: {userId: user.id}}"
       >
@@ -154,7 +153,6 @@ import {
 import KarrotLogo from '@/logo/components/KarrotLogo'
 import KBreadcrumb from '@/topbar/components/KBreadcrumb'
 import Search from '@/topbar/components/Search'
-import LocaleSelect from '@/utils/components/LocaleSelect'
 import CommunityFeed from '@/communityFeed/components/CommunityFeed'
 import LatestMessageButton from '@/messages/components/LatestMessageButton'
 import NotificationButton from '@/notifications/components/NotificationButton'
@@ -172,7 +170,6 @@ export default {
     KarrotLogo,
     KBreadcrumb,
     Search,
-    LocaleSelect,
     CommunityFeed,
     LatestMessageButton,
     NotificationButton,

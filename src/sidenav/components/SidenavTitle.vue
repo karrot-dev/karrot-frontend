@@ -18,7 +18,6 @@
       v-if="isLoggedIn"
       @click="$emit('click')"
     />
-    <LocaleSelect />
     <QBtn
       flat
       dense
@@ -34,7 +33,6 @@
 </template>
 
 <script>
-import LocaleSelect from '@/utils/components/LocaleSelect'
 import CommunityFeed from '@/communityFeed/components/CommunityFeed'
 import LatestMessageButton from '@/messages/components/LatestMessageButton'
 import NotificationButton from '@/notifications/components/NotificationButton'
@@ -56,7 +54,6 @@ export default {
     QBtn,
     QIcon,
     QTooltip,
-    LocaleSelect,
     CommunityFeed,
     LatestMessageButton,
     NotificationButton,

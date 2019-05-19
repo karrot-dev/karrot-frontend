@@ -17,7 +17,7 @@
       </div>
     </QToolbarTitle>
     <div class="actions">
-      <LocaleSelect />
+      <LocaleSelect in-toolbar />
       <RouterLink :to="{ name: 'login' }">
         <QBtn class="text-white">
           {{ $t('LOGIN.SUBMIT') }}

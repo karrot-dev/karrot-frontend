@@ -20,6 +20,14 @@
       </QCardMain>
     </QCard>
     <QCard class="no-shadow grey-border">
+      <QCardTitle>{{ $t('LANGUAGECHOOSER.SWITCH') }}</QCardTitle>
+      <QCardMain>
+        <div class="edit-box row justify-end">
+          <LocaleSelect />
+        </div>
+      </QCardMain>
+    </QCard>
+    <QCard class="no-shadow grey-border">
       <QCardTitle>{{ $t('USERDATA.ACCOUNT') }}</QCardTitle>
       <QCardMain>
         <ChangeEmail
@@ -67,6 +75,7 @@ import ChangeEmail from '@/authuser/components/Settings/ChangeEmail'
 import ChangePhoto from '@/authuser/components/Settings/ChangePhoto'
 import RequestDeleteAccount from '@/authuser/components/Settings/RequestDeleteAccount'
 import Push from '@/authuser/components/Settings/Push'
+import LocaleSelect from '@/utils/components/LocaleSelect'
 
 export default {
   name: 'Settings',
@@ -82,6 +91,7 @@ export default {
     ChangePhoto,
     RequestDeleteAccount,
     Push,
+    LocaleSelect,
   },
   computed: {
     ...mapGetters({
@@ -108,4 +118,6 @@ export default {
 </script>
 
 <style scoped lang="stylus">
+@import '~editbox'
+
 </style>

@@ -24,6 +24,7 @@ Please document your changes in this format:
 ### Changed
 - Rename stores to places in UI and change shopping-cart to dot-circle #1398 @tiltec @djahnie
 - Separate conversations and threads in message notifications @tiltec @djahnie
+- Move language picker to user settings @tiltec @djahnie
 
 ### Fixed
 - Permission checks in main routes had a typo and were not active @djahnie @tiltec

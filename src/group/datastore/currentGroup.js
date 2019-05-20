@@ -1,5 +1,9 @@
 import groups from '@/group/api/groups'
 import { withMeta, createMetaModule, withPrefixedIdMeta, metaStatusesWithId, createRouteRedirect } from '@/utils/datastore/helpers'
+import { extend } from 'quasar'
+import i18n from '@/base/i18n'
+import { messages as loadMessages } from '@/locales/index'
+import iconService from '@/base/icons'
 
 function initialState () {
   return {
@@ -20,6 +24,7 @@ export default {
       return {
         ...group,
         isPlayground,
+        isBikeKitchen: group.theme === 'bikekitchen',
         hasPhoto: group.photoUrls && group.photoUrls.fullSize,
         hasLocation: group.latitude && group.longitude,
         membership: getters.membership,
@@ -30,7 +35,7 @@ export default {
     },
     memberships: (state, getters, rootState, rootGetters) => {
       const group = state.current
-      if (!group) return []
+      if (!group || !group.memberships) return []
       return Object.entries(group.memberships).reduce((obj, [userId, membership]) => {
         // cannot enrich trustedBy and addedBy, as it would create the cyclic dependency "user -> group -> user"
         const authUserId = rootGetters['auth/userId']
@@ -58,6 +63,7 @@ export default {
     membership: (state, getters, rootState, rootGetters) => getters.memberships[rootGetters['auth/userId']],
     roles: (state, getters) => getters.membership ? getters.value.membership.roles : [],
     isEditor: (state, getters) => getters.roles.includes('editor'),
+    isBikeKitchen: (state, getters) => Boolean(getters.value && getters.value.isBikeKitchen),
   },
   actions: {
     ...withMeta({
@@ -207,4 +213,43 @@ export function plugin (datastore) {
       datastore.dispatch('currentGroup/clear')
     }
   })
+  datastore.watch(
+    (state, getters) => [getters['currentGroup/isBikeKitchen'], getters['i18n/locale']],
+    async ([isBikeKitchen, locale] = []) => {
+      if (!locale) return
+      if (isBikeKitchen) {
+        const bikeKitchenMessages = await import('@/locales/bikekitchen.json')
+        const messages = await loadMessages(locale)
+        if (!datastore.getters['currentGroup/isBikeKitchen']) return
+
+        const mergedMessages = extend(true, {}, messages, bikeKitchenMessages)
+        i18n.setLocaleMessage(locale, mergedMessages)
+      }
+      else {
+        const messages = await loadMessages(locale)
+        if (datastore.getters['currentGroup/isBikeKitchen']) return
+
+        i18n.setLocaleMessage(locale, messages)
+      }
+    },
+    { immediate: true },
+  )
+  datastore.watch(
+    (state, getters) => getters['currentGroup/isBikeKitchen'],
+    async (isBikeKitchen) => {
+      if (isBikeKitchen) {
+        const bikeKitchenIcons = await import('@/base/icons/bikekitchen.json')
+        if (!datastore.getters['currentGroup/isBikeKitchen']) return
+
+        iconService.set({
+          ...iconService.getAll(),
+          ...bikeKitchenIcons,
+        })
+      }
+      else {
+        iconService.reset()
+      }
+    },
+    { immediate: true },
+  )
 }

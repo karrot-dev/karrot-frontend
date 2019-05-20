@@ -23,7 +23,7 @@
           </template>
           <template v-else-if="isPickup">
             <QIcon
-              name="fas fa-fw fa-shopping-basket"
+              :name="$icon('pickup_fw')"
               class="q-mr-sm"
             />
             {{ $d(pickup.date, 'weekdayHourMinute') }}

@@ -1,4 +1,5 @@
 import i18n from '@/base/i18n'
+import icons from '@/base/icons'
 
 function getMessageParams (type, context) {
   const commonParams = {
@@ -52,7 +53,7 @@ function getIcon (type, context) {
     case 'new_member':
       return 'fas fa-user-plus'
     case 'feedback_possible':
-      return 'fas fa-balance-scale'
+      return icons.get('feedback')
     case 'pickup_upcoming':
       return 'fas fa-calendar-alt'
     case 'new_place':

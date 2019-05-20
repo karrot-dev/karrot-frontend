@@ -53,6 +53,7 @@
           style="padding: 1.5em 0"
           :value="feedbackDefault"
           :status="saveStatus"
+          :is-bike-kitchen="isBikeKitchen"
           @save="$emit('save', arguments[0])"
         />
       </div>
@@ -111,14 +112,42 @@ export default {
     KNotice,
   },
   props: {
-    pickups: { required: true, type: Array },
-    editFeedbackId: { default: null, type: Number },
-    editFeedback: { default: null, type: Object },
-    existingFeedback: { required: true, type: Array },
-    saveStatus: { required: true, type: Object },
-    fetchStatus: { required: true, type: Object },
-    fetchFeedbackPossibleStatus: { type: Object, default: () => ({}) },
-    seedId: { default: 0, type: Number },
+    pickups: {
+      required: true,
+      type: Array
+    },
+    editFeedbackId: {
+      default: null,
+      type: Number
+    },
+    editFeedback: {
+      default: null,
+      type: Object
+    },
+    existingFeedback: {
+      required: true,
+      type: Array
+    },
+    saveStatus: {
+      required: true,
+      type: Object
+    },
+    fetchStatus: {
+      required: true,
+      type: Object
+    },
+    fetchFeedbackPossibleStatus: {
+      type: Object,
+      default: () => ({})
+    },
+    seedId: {
+      default: 0,
+      type: Number
+    },
+    isBikeKitchen: {
+      type: Boolean,
+      default: false,
+    },
   },
   computed: {
     feedbackDefault () {

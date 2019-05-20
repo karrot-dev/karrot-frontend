@@ -14,6 +14,7 @@
     </MarkdownInput>
 
     <AmountPicker
+      v-if="!isBikeKitchen"
       v-model="edit.weight"
       style="margin-top: 40px"
     />
@@ -65,6 +66,12 @@ export default {
     MarkdownInput,
   },
   mixins: [statusMixin, editMixin],
+  props: {
+    isBikeKitchen: {
+      type: Boolean,
+      default: false,
+    },
+  },
   computed: {
     canSave () {
       if (!this.isNew && !this.hasChanged) {

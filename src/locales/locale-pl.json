@@ -2,7 +2,6 @@
   "ENTRY": "1 entry | {count} entries",
   "GLOBAL": {
     "GITHUB_NOTE": "Development",
-    "COMMUNITY_NOTE": "Dołącz do nas!",
     "SERVER_ERROR": "Błąd serwera",
     "NOT_CONNECTED": "Brak połączenia z serwerem",
     "INVALID_LINK": "Przepraszamy, otwarty przez Ciebie link jest nieprawidłowy.",
@@ -275,7 +274,6 @@
   },
   "SIDENAV": {
     "INFO_SUB": "Jak zbudować grupę ratowników",
-    "BLOG_SUB": "Aktualności na temat systemu karrot",
     "GIT_SUB": "Zobacz nasz kod!"
   },
   "LOGIN": {
@@ -526,6 +524,7 @@
     "RECEIVED_VIA_EMAIL": "Ta wiadomość została wysłana za pośrednictwem e-maila"
   },
   "CONVERSATION": {
+    "CONVERSATIONS": "Conversations",
     "OPEN": "Otwórz czat",
     "REPLY_TO_MESSAGE": "Odpowiedz na wiadomość...",
     "REPLIES": "Odpowiedzi",
@@ -573,7 +572,8 @@
   "COMMUNITY_FEED": {
     "HEADER": "Aktualności z {community}",
     "HEADER_LINK": "społeczność foodsaving worldwide",
-    "LAST_UPDATED": "Ostatnia aktualizacja {relativeDate}"
+    "LAST_UPDATED": "Ostatnia aktualizacja {relativeDate}",
+    "KARROT_DISCUSSION": "Discussions about Karrot"
   },
   "INACTIVITY": {
     "WHAT": "What does it mean to be inactive?",

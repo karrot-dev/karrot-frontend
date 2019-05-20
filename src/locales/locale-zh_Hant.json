@@ -2,7 +2,6 @@
   "ENTRY": "1則輸入 | {count}則輸入",
   "GLOBAL": {
     "GITHUB_NOTE": "開發",
-    "COMMUNITY_NOTE": "加入我們的社群!",
     "SERVER_ERROR": "伺服器錯誤",
     "NOT_CONNECTED": "你並未連接至伺服器",
     "INVALID_LINK": "抱歉，你開啟的連結無效",
@@ -275,7 +274,6 @@
   },
   "SIDENAV": {
     "INFO_SUB": "如何建立你的惜食社團",
-    "BLOG_SUB": "所有關於karrot軟體的消息",
     "GIT_SUB": "查看我們的程式碼"
   },
   "LOGIN": {
@@ -526,6 +524,7 @@
     "RECEIVED_VIA_EMAIL": "此訊息透過電子郵件傳送"
   },
   "CONVERSATION": {
+    "CONVERSATIONS": "Conversations",
     "OPEN": "開放對話",
     "REPLY_TO_MESSAGE": "回覆訊息",
     "REPLIES": "回覆",
@@ -573,7 +572,8 @@
   "COMMUNITY_FEED": {
     "HEADER": "來自{community}的更新",
     "HEADER_LINK": "世界惜食社群",
-    "LAST_UPDATED": "最近一次更新{relativeDate}"
+    "LAST_UPDATED": "最近一次更新{relativeDate}",
+    "KARROT_DISCUSSION": "Discussions about Karrot"
   },
   "INACTIVITY": {
     "WHAT": "What does it mean to be inactive?",

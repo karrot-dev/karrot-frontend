@@ -22,6 +22,7 @@
     <div
       v-else
       class="background mainLayoutDesktop"
+      :class="isBikeKitchen ? 'bikekitchen' : ''"
     >
       <QLayout :view="layoutView">
         <QLayoutHeader reveal>
@@ -230,6 +231,7 @@ export default {
       messagesAllUnreadMuted: 'latestMessages/allUnreadMuted',
       notificationsUnseenCount: 'notifications/unseenCount',
       currentGroupId: 'currentGroup/id',
+      isBikeKitchen: 'currentGroup/isBikeKitchen',
     }),
     layoutView () {
       if (this.$q.platform.is.mobile) {
@@ -316,6 +318,8 @@ body.desktop .mainContent-page:not(.fullpage)
   background-image url('../assets/repeating_grey.png')
   background-size: 600px
   background-attachment:fixed
+  &.bikekitchen
+    background-image url('../assets/bikekitchen_background.jpg')
 .k-highlight-dot
   position absolute
   right -4px

@@ -114,35 +114,35 @@ export default {
   props: {
     pickups: {
       required: true,
-      type: Array
+      type: Array,
     },
     editFeedbackId: {
       default: null,
-      type: Number
+      type: Number,
     },
     editFeedback: {
       default: null,
-      type: Object
+      type: Object,
     },
     existingFeedback: {
       required: true,
-      type: Array
+      type: Array,
     },
     saveStatus: {
       required: true,
-      type: Object
+      type: Object,
     },
     fetchStatus: {
       required: true,
-      type: Object
+      type: Object,
     },
     fetchFeedbackPossibleStatus: {
       type: Object,
-      default: () => ({})
+      default: () => ({}),
     },
     seedId: {
       default: 0,
-      type: Number
+      type: Number,
     },
     isBikeKitchen: {
       type: Boolean,

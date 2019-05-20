@@ -2,7 +2,6 @@
   "ENTRY": "1 inlägg | {count} inlägg",
   "GLOBAL": {
     "GITHUB_NOTE": "Utveckling",
-    "COMMUNITY_NOTE": "Gå med i vårt gemenskap!",
     "SERVER_ERROR": "Server fel",
     "NOT_CONNECTED": "Du är inte ansluten till servern",
     "INVALID_LINK": "Oj, länken du försöker komma åt är ogiltig.",
@@ -275,7 +274,6 @@
   },
   "SIDENAV": {
     "INFO_SUB": "Hur man skapar en maträddningsgrupp",
-    "BLOG_SUB": "Alla nyheter om Karrot",
     "GIT_SUB": "Se vår kod!"
   },
   "LOGIN": {
@@ -526,6 +524,7 @@
     "RECEIVED_VIA_EMAIL": "Det här meddelande skickades via mejl"
   },
   "CONVERSATION": {
+    "CONVERSATIONS": "Conversations",
     "OPEN": "Öppna chatten",
     "REPLY_TO_MESSAGE": "Svara på meddelandet...",
     "REPLIES": "Svar",
@@ -573,7 +572,8 @@
   "COMMUNITY_FEED": {
     "HEADER": "Uppdateringar från {community}",
     "HEADER_LINK": "foodsaving worldwide community",
-    "LAST_UPDATED": "Sist uppdaterad {relativeDate}"
+    "LAST_UPDATED": "Sist uppdaterad {relativeDate}",
+    "KARROT_DISCUSSION": "Discussions about Karrot"
   },
   "INACTIVITY": {
     "WHAT": "Vad betyder att vara inaktiv?",

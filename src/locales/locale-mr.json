@@ -2,7 +2,6 @@
   "ENTRY": "1 प्रवेश | {count} प्रवेश नोंदी",
   "GLOBAL": {
     "GITHUB_NOTE": "विकास",
-    "COMMUNITY_NOTE": "आमच्या समुदायात सामील व्हा",
     "SERVER_ERROR": "सर्व्हर त्रुटी",
     "NOT_CONNECTED": "आपण सर्व्हरशी कनेक्ट केलेले नाही",
     "INVALID_LINK": "क्षमस्व, आपण उघडलेला दुवा अवैध आहे.",
@@ -275,7 +274,6 @@
   },
   "SIDENAV": {
     "INFO_SUB": "आपले खाद्यपदार्थ वाचविणारे गट कसे तयार करावे ",
-    "BLOG_SUB": "Karrot सॉफ्टवेअर संबंधित सर्व बातम्या",
     "GIT_SUB": "आमची सॉफ्टवेअर प्रणाली पहा!"
   },
   "LOGIN": {
@@ -526,6 +524,7 @@
     "RECEIVED_VIA_EMAIL": "This message was sent via e-mail"
   },
   "CONVERSATION": {
+    "CONVERSATIONS": "Conversations",
     "OPEN": "Open Chat",
     "REPLY_TO_MESSAGE": "Reply to message...",
     "REPLIES": "Replies",
@@ -573,7 +572,8 @@
   "COMMUNITY_FEED": {
     "HEADER": "Updates from the {community}",
     "HEADER_LINK": "foodsaving worldwide community",
-    "LAST_UPDATED": "Last updated {relativeDate}"
+    "LAST_UPDATED": "Last updated {relativeDate}",
+    "KARROT_DISCUSSION": "Discussions about Karrot"
   },
   "INACTIVITY": {
     "WHAT": "What does it mean to be inactive?",

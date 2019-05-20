@@ -2,7 +2,6 @@
   "ENTRY": "1 entrée | {count} entrées",
   "GLOBAL": {
     "GITHUB_NOTE": "Développement",
-    "COMMUNITY_NOTE": "Rejoins notre communauté !",
     "SERVER_ERROR": "Erreur de serveur",
     "NOT_CONNECTED": "Vous n'êtes pas connecté au serveur.",
     "INVALID_LINK": "Désolé, le lien que tu as ouvert n'est pas valide.",
@@ -275,7 +274,6 @@
   },
   "SIDENAV": {
     "INFO_SUB": "Comment créer ton groupe de récupération alimentaire",
-    "BLOG_SUB": "Toutes les nouvelles autour du logiciel karrot",
     "GIT_SUB": "Regarde notre code !"
   },
   "LOGIN": {
@@ -526,6 +524,7 @@
     "RECEIVED_VIA_EMAIL": "Ce message a été envoyé par email"
   },
   "CONVERSATION": {
+    "CONVERSATIONS": "Conversations",
     "OPEN": "Ouvrir le chat",
     "REPLY_TO_MESSAGE": "Répondre...",
     "REPLIES": "Réponses",
@@ -573,7 +572,8 @@
   "COMMUNITY_FEED": {
     "HEADER": "Nouvelles de la {community}",
     "HEADER_LINK": "communauté internationale de foodsaving",
-    "LAST_UPDATED": "Dernière mise à jour {relativeDate}"
+    "LAST_UPDATED": "Dernière mise à jour {relativeDate}",
+    "KARROT_DISCUSSION": "Discussions about Karrot"
   },
   "INACTIVITY": {
     "WHAT": "Que veut dire être inactif ?",

@@ -15,6 +15,19 @@
       >
         <form @submit.prevent="maybeSave">
           <QField
+            icon="fas fa-redo"
+            label="group theme"
+          >
+            <QOptionGroup
+              v-model="edit.theme"
+              type="radio"
+              :options="[
+                { label: 'foodsaving', value: 'foodsaving' },
+                { label: 'bike kitchen', value: 'bikekitchen' },
+              ]"
+            />
+          </QField>
+          <QField
             v-if="!edit.isPlayground"
             icon="fas fa-fw fa-star"
             :label="$t('GROUP.TITLE')"
@@ -169,6 +182,7 @@ import {
   QInput,
   QBtn,
   QAutocomplete,
+  QOptionGroup,
 } from 'quasar'
 import AddressPicker from '@/maps/components/AddressPicker'
 import MarkdownInput from '@/utils/components/MarkdownInput'
@@ -186,6 +200,7 @@ export default {
     QInput,
     QBtn,
     QAutocomplete,
+    QOptionGroup,
     AddressPicker,
     MarkdownInput,
     ChangePhoto,

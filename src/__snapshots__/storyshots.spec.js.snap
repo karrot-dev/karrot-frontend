@@ -1398,6 +1398,33 @@ exports[`Storyshots GroupEdit create 1`] = `
     </div>
     <div class="edit-box">
       <form>
+        <div class="q-field row no-wrap items-start q-field-responsive q-field-no-input"><i aria-hidden="true" class="q-icon q-field-icon q-field-margin fas fa-redo"> </i>
+          <div class="row col">
+            <div class="q-field-label q-field-margin col-xs-12 col-sm-5">
+              <div class="q-field-label-inner row items-center">group theme</div>
+            </div>
+            <div class="q-field-content col-xs-12 col-sm">
+              <div class="q-option-group group">
+                <div>
+                  <div tabindex="0" class="q-option cursor-pointer no-outline row inline no-wrap items-center q-radio q-focusable">
+                    <div class="q-option-inner relative-position text-faded"><input type="checkbox">
+                      <div class="q-focus-helper q-focus-helper-round"></div><i aria-hidden="true" class="q-icon q-radio-unchecked cursor-pointer absolute-full material-icons">radio_button_unchecked</i><i aria-hidden="true" class="q-icon q-radio-checked cursor-pointer absolute-full material-icons">radio_button_checked</i>
+                      <div class="q-radial-ripple"></div>
+                    </div><span class="q-option-label">foodsaving</span>
+                  </div>
+                </div>
+                <div>
+                  <div tabindex="0" class="q-option cursor-pointer no-outline row inline no-wrap items-center q-radio q-focusable">
+                    <div class="q-option-inner relative-position text-faded"><input type="checkbox">
+                      <div class="q-focus-helper q-focus-helper-round"></div><i aria-hidden="true" class="q-icon q-radio-unchecked cursor-pointer absolute-full material-icons">radio_button_unchecked</i><i aria-hidden="true" class="q-icon q-radio-checked cursor-pointer absolute-full material-icons">radio_button_checked</i>
+                      <div class="q-radial-ripple"></div>
+                    </div><span class="q-option-label">bike kitchen</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
         <div class="q-field row no-wrap items-start q-field-responsive q-field-no-input"><i aria-hidden="true" class="q-icon q-field-icon q-field-margin fas fa-fw fa-star"> </i>
           <div class="row col">
             <div class="q-field-label q-field-margin col-xs-12 col-sm-5">

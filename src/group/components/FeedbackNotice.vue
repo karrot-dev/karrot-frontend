@@ -5,7 +5,10 @@
         color="info"
         class="generic-padding notice"
       >
-        <i class="fas fa-balance-scale on-left" />
+        <i
+          class="on-left"
+          :class="$icon('feedback')"
+        />
         {{ $tc('PICKUPLIST.AVAILABLE_FEEDBACK', feedbackPossible.length, { count: feedbackPossible.length }) }}
       </QCard>
     </RouterLink>

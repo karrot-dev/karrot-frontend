@@ -18,6 +18,7 @@ import log from '@/utils/log'
 import './sentry'
 import polyfill from '@/utils/polyfill'
 import { DetectMobileKeyboardPlugin } from '@/utils/detectMobileKeyboard'
+import { IconPlugin } from './icons'
 import loadInitialData from './loadInitialData'
 
 import Root from '@/base/pages/Root'
@@ -25,6 +26,7 @@ import '@/utils/datastore/presenceReporter'
 
 export default async function initApp () {
   Vue.use(DetectMobileKeyboardPlugin)
+  Vue.use(IconPlugin)
 
   if (__ENV.DEV) {
     log.setLevel('debug')

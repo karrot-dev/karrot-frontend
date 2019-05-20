@@ -4,7 +4,7 @@
       <QCardTitle>
         <h5>
           <i
-            class="icon fas fa-redo on-left"
+            class="fas fa-redo on-left"
             aria-hidden="true"
           />
           {{ $t('PICKUPMANAGE.SERIES') }}
@@ -74,7 +74,7 @@
               <template slot="header">
                 <QItemSide
                   v-if="!$q.platform.is.mobile"
-                  icon="fas fa-shopping-basket"
+                  :icon="$icon('pickup')"
                 />
                 <QItemMain>
                   <QItemTile
@@ -141,7 +141,8 @@
       <QCardTitle>
         <h5>
           <i
-            class="icon fas fa-shopping-basket on-left"
+            class="on-left"
+            :class="$icon('pickup')"
             aria-hidden="true"
           />
           {{ $t('PICKUPMANAGE.SINGLE') }}

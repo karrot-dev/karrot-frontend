@@ -30,6 +30,7 @@ function enrich (group, users, currentUserId) {
     activeAgreement: undefined,
     awaitingAgreement: false,
     isPlayground: false,
+    isBikeKitchen: false,
   }
 }
 

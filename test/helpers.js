@@ -5,8 +5,10 @@ import { createLocalVue, mount, TransitionStub, TransitionGroupStub, RouterLinkS
 import deepmerge from 'deepmerge'
 import i18n from '@/base/i18n'
 import router from '@/base/router'
+import { IconPlugin } from '@/base/icons'
 
 Vue.use(Vuex)
+Vue.use(IconPlugin)
 
 Object.defineProperty(window.navigator, 'userAgent', (userAgent => {
   return {

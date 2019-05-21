@@ -62,16 +62,6 @@ export default {
       email: {
         required,
         email,
-        canSendOrResendInvitation (value) {
-          let invite = this.invitations.find(e => e.email === value)
-          if (invite) {
-            let dateNow = new Date()
-            let dateCreated = new Date(invite.createdAt)
-            dateCreated.setHours(dateCreated.getHours() + 1)
-            return dateNow >= dateCreated
-          }
-          else return true
-        },
       },
     },
   },
@@ -84,7 +74,6 @@ export default {
         const m = this.$v.form.email
         if (!m.required) return this.$t('VALIDATION.REQUIRED')
         if (!m.email) return this.$t('VALIDATION.VALID_EMAIL')
-        if (!m.canSendOrResendInvitation) return this.$t('GROUP.ALREADY_INVITED')
       }
       if (this.hasAnyError) return this.anyFirstError
       return undefined

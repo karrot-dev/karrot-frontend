@@ -3,61 +3,61 @@
   "GLOBAL": {
     "GITHUB_NOTE": "Desarrollo",
     "SERVER_ERROR": "Error del servidor",
-    "NOT_CONNECTED": "You aren't connected to the server",
-    "INVALID_LINK": "Sorry, the link you've opened is invalid.",
-    "GENERIC_ERROR": "Sorry, something went wrong",
-    "SEARCH_NOT_FOUND": "Not Found",
-    "ABOUT_KARROT": "About Karrot"
+    "NOT_CONNECTED": "No estás conenctado al servidor",
+    "INVALID_LINK": "Lo sentimos, el enlace que has abierto no es válido.",
+    "GENERIC_ERROR": "Lo sentimos, algo ha ido mal",
+    "SEARCH_NOT_FOUND": "No encontrado",
+    "ABOUT_KARROT": "Sobre Karrot"
   },
   "USERDATA": {
-    "EMAIL": "E-mail",
-    "MOBILE_NUMBER": "Phone number",
+    "EMAIL": "Correo electrónico",
+    "MOBILE_NUMBER": "Número de teléfono",
     "PROFILE_TITLE": "Perfil",
-    "PRIVATE_MESSAGE": "Send a private message to {userName}",
+    "PRIVATE_MESSAGE": "Manda un mensaje privado a {userName}",
     "PASSWORD": "Contraseña",
-    "CONFIRM_PASSWORD": "Confirm your password",
+    "CONFIRM_PASSWORD": "Confirma tu contraseña",
     "USERNAME": "Nombre",
-    "WHERE_FROM": "De donde vienes (no obligado)",
+    "WHERE_FROM": "De donde eres (no obligado)",
     "PHOTO": "Foto de perfil",
     "SET_PHOTO": "Configura tu foto de perfil ...",
     "ACCOUNT": "Cuenta",
     "PUSH": "Push notifications",
-    "PUSH_CURRENT_BROWSER": "Current browser",
+    "PUSH_CURRENT_BROWSER": "Explorador actual",
     "REQUEST_DELETE_ACCOUNT": {
-      "SUCCESS": "We sent you an e-mail with a link to complete the deletion process."
+      "SUCCESS": "Te hemos enviado un correo electrónico con un enlace para completar el proceso de eliminación"
     },
     "DIALOGS": {
       "REQUEST_DELETE_ACCOUNT": {
-        "TITLE": "Account deletion",
-        "MESSAGE": "Are you sure? Your account and your personal data will be permanently deleted. Anything you have done on this platform will be made anonymous. If you confirm, we send you an e-mail with a link to complete the deletion process.",
+        "TITLE": "Eliminar cuenta",
+        "MESSAGE": "¿Estás seguro? tu cuenta y tus datos personales serán eliminados permanentemente. Todo lo que haya hecho en esta plataforma se hará anónimo. Si confirma, le enviaremos un correo electrónico con un enlace para completar el proceso de eliminación.",
         "CONFIRM": "Confirmar"
       },
       "GIVE_TRUST": {
-        "TITLE": "Trust user",
-        "MESSAGE": "Do you trust {userName} in {groupName}?"
+        "TITLE": "Confiar en el usuario",
+        "MESSAGE": "¿Confias en {userName}en {groupName}?"
       }
     },
     "LOGOUT_SUCCESS": "You have been logged out!",
-    "YOU_TRUST_USER": "You trust {userName} in {groupName}.",
-    "OTHER_PEOPLE_TRUST_USER": "{otherUser} trusts {userName} in {groupName}. | {count} people trust {userName} in {groupName}.",
-    "OTHER_PEOPLE_TRUST_YOU": "{otherUser} trusts you in {groupName}. | {count} people trust you in {groupName}.",
-    "PEOPLE_TRUST_USER": "You and {otherUser} trust {userName} in {groupName}. | You and {count} other people trust {userName} in {groupName}.",
-    "FIRST_TRUST": "Be the first one to trust {userName} in {groupName}!",
-    "NEWCOMER": "Newcomer",
-    "NEWCOMER_GUIDANCE": "{userName} is new to your group and might need some guidance.",
-    "TRUST_PROGRESS_TEXT": "{trustNeeded} more trust needed",
-    "TRUST_PROGRESS_TEXT_LONG": "{trustNeeded} more people need to express their trust in {userName} to grant editing permissions.",
-    "NEWCOMER_INFO": "You are currently a newcomer in {groupName} and you can become active by writing messages, meeting fellow members, doing pickups and giving feedback. As soon as {threshold} members expressed their trust in you, you will gain editing permissions to help with group administration.",
+    "YOU_TRUST_USER": "Confias en {userName} en {groupName}",
+    "OTHER_PEOPLE_TRUST_USER": "{otherUser}confia en {userName} en {groupName}. {count}personas confian en {userName} en{groupName}.",
+    "OTHER_PEOPLE_TRUST_YOU": "{otherUser}confia en ti en {groupName}. {count}personas confian en ti en {groupName}.",
+    "PEOPLE_TRUST_USER": "{otherUser}y tú confiais en {userName} en {groupName}. Otras {count} personas y tú confiais en {userName}en {groupName}.",
+    "FIRST_TRUST": "¡Se el / la primero/a en confiar en {userName}en{groupName}!",
+    "NEWCOMER": "Recién llegado",
+    "NEWCOMER_GUIDANCE": "{userName}es nuevo/a en tu grupo y puede necesitar indicaciones.",
+    "TRUST_PROGRESS_TEXT": "{trustNeeded}",
+    "TRUST_PROGRESS_TEXT_LONG": "{trustNeeded}más personas necesitan expresar su confianza en {userName}para otorgarle permiso de edición.",
+    "NEWCOMER_INFO": "Eres un recién llegado en {groupName}y puedes participar escribiendo mensajes, reuniéndote con otros miembros, haciendo recolecciones y dando feedback. Tan pronto como {threshold} miembros expresen su confianza en ti, obtendrás permisos de edición para ayudar con la administración del grupo.",
     "TRUST_INFO": {
-      "TITLE": "What is this carrot button about?",
-      "MESSAGE": "It is part of the Karrot trust system. It shows if a group member is newcomer and how much trust is needed until they gain editing permissions.",
-      "LINK": "Click here to find out more."
+      "TITLE": "¿Qué significa esta zanahoria?",
+      "MESSAGE": "Es parte del sistema de confianza Karrot. Muestra si un miembro del grupo es un recién llegado y cuánta confianza se necesita hasta que obtenga permisos de edición.",
+      "LINK": "Haga clic aquí para obtener más información."
     }
   },
   "SWITCHGROUP": {
-    "NOT_MEMBER": "{userName} is not member of {groupName}.",
-    "COMMON_GROUPS": "Groups you have in common",
-    "OTHER_GROUPS": "Other groups"
+    "NOT_MEMBER": "{userName} no es miembro de {groupName}.",
+    "COMMON_GROUPS": "Grupos que tenéis en comun",
+    "OTHER_GROUPS": "Otros grupos"
   },
   "BUTTON": {
     "CREATE": "Crear",
@@ -70,7 +70,7 @@
     "LEAVE": "Salir",
     "PREVIEW": "Vista previa",
     "BACK": "Atrás",
-    "NEXT": "Next",
+    "NEXT": "Siguiente",
     "SEARCH": "Buscar",
     "OF_COURSE": "Si, claro!",
     "YES": "Si",
@@ -82,23 +82,23 @@
     "REMOVE": "Quitar",
     "ARCHIVE": "Archivo",
     "DELETE_ACCOUNT": "Eliminar cuenta",
-    "SHOW": "Show",
-    "HIDE": "Hide",
-    "SUBMIT": "Submit",
-    "APPLY": "Apply",
-    "ACCEPT": "Accept",
-    "DECLINE": "Decline",
-    "WITHDRAW": "Withdraw",
-    "SHOW_MORE": "Show more",
-    "ENABLE": "Enable",
-    "DISABLE": "Disable",
-    "UNSUBSCRIBE": "Unsubscribe"
+    "SHOW": "Mostrar",
+    "HIDE": "Ocultar",
+    "SUBMIT": "Enviar",
+    "APPLY": "Aplicar",
+    "ACCEPT": "Aceptar",
+    "DECLINE": "Rechazar",
+    "WITHDRAW": "Retirar",
+    "SHOW_MORE": "Mostrar más",
+    "ENABLE": "Habilitar",
+    "DISABLE": "Deshabilitar",
+    "UNSUBSCRIBE": "Darse de baja"
   },
   "VALIDATION": {
-    "MINLENGTH": "Por favor introduce más que {min} caracteres.",
-    "MAXLENGTH": "Demasiado largo, por favor, usa menos que {max} caracteres.",
+    "MINLENGTH": "Por favor, introduce más de {min} caracteres.",
+    "MAXLENGTH": "Demasiado largo, por favor, usa menos de {max} caracteres.",
     "UNIQUE": "Este nombre ya existe, por favor elige otro. ",
-    "REQUIRED": "Este campo es obligado. ",
+    "REQUIRED": "Este campo es obligatorio. ",
     "VALID_EMAIL": "Introduce un correo electrónico válido.",
     "VALID_TIMEZONE": "Introduce una zona horaria válida."
   },
@@ -106,7 +106,7 @@
     "WALL": "Muro ",
     "GROUP": "Grupo",
     "LEAVE": "Abandonar grupo...",
-    "LEAVE_TEXT": "¿De verdad quiere abandonar este grupo?",
+    "LEAVE_TEXT": "¿De verdad quieres abandonar este grupo?",
     "LEAVE_CONFIRMATION": "Has salido de {groupName}",
     "NONMEMBER_REDIRECT": "No eres un miembro de este grupo. ",
     "EDIT": "Editar grupo",
@@ -116,25 +116,25 @@
     "PRIVATE_DESCRIPTION_TITLE": "Descripción privada del grupo ",
     "DESCRIPTION_VERBOSE": "Descripción del grupo, visible para los miembros",
     "PUBLIC_DESCRIPTION": "Texto visible antes de unirse al grupo",
-    "WELCOMEMESSAGE_VERBOSE": "Welcome message sent to new members",
-    "LOGO": "Group logo",
-    "SET_LOGO": "Click to upload your group logo!",
-    "APPLICATIONS": "Applications",
-    "APPLICATION_QUESTIONS": "Questions for people who want to join this group",
+    "WELCOMEMESSAGE_VERBOSE": "Mensaje de bienvenida enviado a nuevos miembros.",
+    "LOGO": "Logo del grupo",
+    "SET_LOGO": "¡Pulsa para subir tu logo de grupo!",
+    "APPLICATIONS": "Aplicaciones",
+    "APPLICATION_QUESTIONS": "Preguntas para presonas que quieren unirse a este grupo",
     "PICKUPS": "Recogidas",
-    "MESSAGES": "Messages",
-    "PICKUP": "Pickup",
+    "MESSAGES": "Mensajes",
+    "PICKUP": "Recogida",
     "MEMBERS": "Miembros",
-    "JOINED": "joined {relativeDate}",
+    "JOINED": "Se unió {relativeDate}",
     "DECLINED": "declined {relativeDate}",
-    "ADDED_BY": "added by {userName}",
+    "ADDED_BY": "Añadido por {userName}",
     "DECLINED_BY": "declined by {userName}",
-    "SORT_JOINDATE": "Sort by join date",
-    "SORT_NAME": "Sort by name",
-    "INACTIVE": "Inactive",
-    "SHOW_INACTIVE": "Show inactive groups",
-    "PLACES": "Places",
-    "HOME": "Home",
+    "SORT_JOINDATE": "Ordenar por fecha de alta",
+    "SORT_NAME": "Ordenar por nombre",
+    "INACTIVE": "Inactiv@",
+    "SHOW_INACTIVE": "Muestra los grupos inactivos",
+    "PLACES": "Lugares",
+    "HOME": "Hogar",
     "HISTORY": "Historia",
     "DESCRIPTION": "Descripción",
     "ADDRESS": "Dirección",
@@ -146,50 +146,50 @@
     "INVITATIONS": "Invitaciones",
     "INVITE_TITLE": "Invitar usuarios a tu grupo",
     "INVITATION_ACCEPT_SUCCESS": "Bienvenid@! Has acceptado la invitación. ",
-    "INVITATION_ACCEPT_ERROR": "Ooops, no se podía aceptar la invitación!",
-    "SETTINGS": "Configuraciones",
-    "NOTIFICATIONS": "Notificatiónes",
-    "EMAIL_NOTIFICATIONS": "Email notifications",
+    "INVITATION_ACCEPT_ERROR": "Ooops, no se ha podido aceptar la invitación!",
+    "SETTINGS": "Ajustes",
+    "NOTIFICATIONS": "Notificaciones",
+    "EMAIL_NOTIFICATIONS": "Notificaciones por correo electrónico",
     "NOTIFICATION_TYPES": {
       "weekly_summary": {
-        "NAME": "Weekly summary",
-        "DESCRIPTION": "Keep up to date with what's been happening in the group."
+        "NAME": "Resumen semanal",
+        "DESCRIPTION": "Manténte al día de lo que ha pasado en el grupo."
       },
       "daily_pickup_notification": {
-        "NAME": "Pickup notifications",
-        "DESCRIPTION": "Reminds you of your pickups, and tells you about empty or not-full pickups of your favorite places in the next day"
+        "NAME": "Notificación de recogida",
+        "DESCRIPTION": "Te recuerda tus recolecciones y te informa sobre las recolecciones libres en tus lugares favoritos al siguiente día "
       },
       "new_application": {
-        "NAME": "New applications",
-        "DESCRIPTION": "Tells you when somebody wants to join your group"
+        "NAME": "Aplicaiones nuevas",
+        "DESCRIPTION": "Te avisa cuando alguien quiere unirse a tu grupo"
       },
       "conflict_resolution": {
-        "NAME": "New conflict resolution processes",
-        "DESCRIPTION": "Tells you when a new conflict resolution process has been started in your group"
+        "NAME": "Nuevos procesos de resolución de conflictos",
+        "DESCRIPTION": "Te informa cuándo un nuevo proceso de resolución de conflictos se ha iniciado en tu grupo"
       }
     },
-    "PLAYGROUND_INFO": "This is a playground group, you can't break anything. Explore, click around and have fun!",
-    "JOIN_PLAYGROUND": "Join the playground group to explore karrot",
-    "JOIN_ANOTHER_GROUP": "Join another group"
+    "PLAYGROUND_INFO": "Este es un grupo de juegos, no puedes romper nada. ¡Explora, haz clic y diviértete!",
+    "JOIN_PLAYGROUND": "Únete al grupo de juegos para explorar karrot",
+    "JOIN_ANOTHER_GROUP": "Únete a otro grupo"
   },
   "GROUPMAP": {
     "TITLE": "Mapa",
-    "SHOW_USERS": "Enseñar usuarios",
+    "SHOW_USERS": "Mostrar usuarios",
     "HIDE_USERS": "Ocultar usuarios",
-    "SHOW_PLACES": "Show places",
-    "HIDE_PLACES": "Hide places",
-    "SHOW_GROUPS": "Show groups",
-    "HIDE_GROUPS": "Hide groups",
+    "SHOW_PLACES": "Mostrar lugares",
+    "HIDE_PLACES": "Ocultar lugares",
+    "SHOW_GROUPS": "Mostrar grupos",
+    "HIDE_GROUPS": "Ocultar grupos",
     "SET_LOCATION": "Escoger localización",
-    "FULL_SCREEN": "Show full screen"
+    "FULL_SCREEN": "Mostrar pantalla completa"
   },
   "STOREDETAIL": {
-    "DIRECTIONS": "Show directions",
-    "EDIT": "Edit place",
-    "ARCHIVED": "This place has been archived",
-    "INACTIVE": "This place is currently not cooperating.",
-    "CHANGE_STATUS": "You can change the status on the settings page.",
-    "NO_DESCRIPTION": "This place does not have a description yet"
+    "DIRECTIONS": "Mostrar direcciones",
+    "EDIT": "Editar lugar",
+    "ARCHIVED": "Este lugar ha sido archivado",
+    "INACTIVE": "Este lugar no está cooperando",
+    "CHANGE_STATUS": "Puedes cambiar el estado en la página de ajustes.",
+    "NO_DESCRIPTION": "Este lugar no tiene aún descripción"
   },
   "STOREEDIT": {
     "NAME": "Nombre",
@@ -197,28 +197,28 @@
     "DESCRIPTION": "Descripción",
     "ADDRESS": "Dirección",
     "WEEKS_IN_ADVANCE": "¿Con cuántas semanas de anticipación se mostrarán las fechas recurrentes de recolección?",
-    "WEEKS_IN_ADVANCE_WARNING": "Existing leftover pickups will get deleted if they are empty. You can disable non-empty pickups manually, if needed.",
+    "WEEKS_IN_ADVANCE_WARNING": "Las recolecciones sobrantes se eliminarán si están vacías. Si es necesario, puedes deshabilitar las recolecciones no vacías manualmente.",
     "DIALOGS": {
       "ARCHIVE": {
-        "TITLE": "Archive place",
+        "TITLE": "Archivar lugar",
         "MESSAGE": "Estás segur@?",
-        "CONFIRM": "Yes, archive place"
+        "CONFIRM": "Si, archivar lugar"
       }
     },
     "RESTORE": "Restaurar",
-    "SHOW_ARCHIVED": "Show archived places",
-    "HIDE_ARCHIVED": "Hide archived places",
-    "SHOW_ALL": "Show all places",
-    "SHOW_ACTIVE_ONLY": "Only show active places"
+    "SHOW_ARCHIVED": "Mostrar lugares archivados",
+    "HIDE_ARCHIVED": "Ocultar lugares archivados",
+    "SHOW_ALL": "Mostrar todos los lugares archivados",
+    "SHOW_ACTIVE_ONLY": "Mostrar solo lugares activos"
   },
   "PLACEWALL": {
-    "SUBSCRIBED_USERS": "{count} people have marked this place as favourite",
+    "SUBSCRIBED_USERS": "{count}personas han marcado este lugar como favorito",
     "SUBSCRIPTION": {
-      "HEADER": "Do you want to mark this place as your favourite?",
-      "YES": "yes",
-      "YES_TEXT": "Shows available pickups on the group wall and sends emails about upcoming pickups.",
+      "HEADER": "¿Quieres marcar este lugar como favorito?",
+      "YES": "si",
+      "YES_TEXT": "Muestra las recolecciones disponibles en el muro del grupo y envía correos electrónicos sobre las próximas recolecciones.",
       "NO": "no",
-      "NO_TEXT": "None of the above. You can still sign up for pickups though."
+      "NO_TEXT": "Ninguna de las anteriores. Sin embargo, todavía puedes registrarte para recogidas."
     }
   },
   "PICKUPMANAGE": {
@@ -236,8 +236,8 @@
   },
   "USERDETAIL": {
     "DISPLAY_NAME": "Nombre",
-    "DESCRIPTION": "Sobre usted",
-    "OLD_PASSWORD": "Confirm your old password",
+    "DESCRIPTION": "Sobre ti",
+    "OLD_PASSWORD": "Confirma tu antigua contraseña",
     "PASSWORD": "Nueva contraseña"
   },
   "PROFILE": {
@@ -249,7 +249,7 @@
     "NO_PUBLIC_DESCRIPTION": "(Este grupo no tiene una descripción pública... todavía)",
     "ALL_GROUPS": "Todos los grupos",
     "SIGNUP_OR_LOGIN": "Inicia sesión o regístrate para unirte a este grupo!",
-    "VERIFY_EMAIL_ADDRESS": "Verify your email address to apply",
+    "VERIFY_EMAIL_ADDRESS": "Verifica tu correo electronico para apuntarte",
     "MY_GROUPS": "Mis grupos",
     "LOGOUT_MESSAGE": {
       "LOGGED_OUT": "Está desconectado. {iniciar sesión}",
@@ -274,7 +274,7 @@
   },
   "SIDENAV": {
     "INFO_SUB": "How to build your foodsaving group",
-    "GIT_SUB": "See our code!"
+    "GIT_SUB": "¡Mira nuestro código!"
   },
   "LOGIN": {
     "TITLE": "Iniciar sesión",
@@ -292,8 +292,8 @@
     "SUCCESS": "¡Su dirección de correo electrónico fue verificada con éxito!"
   },
   "DELETEACCOUNT": {
-    "TITLE": "Account deletion",
-    "SUCCESS": "Your account was successfully deleted!"
+    "TITLE": "Eliminar cuenta",
+    "SUCCESS": "Tu cuenta ha sido correctamente eliminada"
   },
   "CREATEPICKUP": {
     "FREQUENCY": "Frecuencia",
@@ -318,19 +318,19 @@
     "COMMENT_HELPER": "¿Qué debería saber la gente cuando se registra en esta recogida?",
     "UNLIMITED": "ilimitado",
     "DIFFERS_WARNING": "This value differs from the default. To undo this change, click on the arrow button and save the changes.",
-    "ENABLE_TITLE": "Enable pickup?",
-    "DISABLE_TITLE": "Disable pickup?",
-    "ENABLE_DISABLE_MESSAGE": "Users who joined this pickup will get a notification. You can change this text to provide a reason:",
-    "EXCEPTIONS_TITLE": "Check your pickups",
-    "EXCEPTIONS_MESSAGE": "Some upcoming pickups don't match the settings of this recurring pickup. Have a look below at '{upcomingLabel}' to change or disable pickups, if needed."
+    "ENABLE_TITLE": "¿Habilitar recogida?",
+    "DISABLE_TITLE": "¿Deshabilitar recogida?",
+    "ENABLE_DISABLE_MESSAGE": "Los usuarios que se unieron a esta recolección recibirán una notificación. Puedes cambiar este texto para proporcionar una razón:",
+    "EXCEPTIONS_TITLE": "Chequea tus recogidas",
+    "EXCEPTIONS_MESSAGE": "Algunas próximas recogidas no coinciden con la configuración de esta recogida recurrente. Echa un vistazo a {upcomingLabel} para cambiar o deshabilitar las recolecciones, si es necesario."
   },
   "CREATESTORE": {
-    "TITLE": "Create a new place"
+    "TITLE": "Crea un nuevo lugar"
   },
   "PICKUPLIST": {
     "FILTER": {
-      "ALL": "All",
-      "EMPTY": "Only empty",
+      "ALL": "Todo",
+      "EMPTY": "Solo vacios",
       "FREE": "With free slots"
     },
     "AVAILABLE": "There is one pickup in your favorite places waiting for you! | There are {count} pickups in your favorite places waiting for you!",
@@ -661,7 +661,7 @@
   },
   "THANKS": "Thank you!",
   "ATTENTION": "Attention!",
-  "INFO": "Info",
-  "YOU": "You",
-  "TO": "to"
+  "INFO": "Información",
+  "YOU": "Tú",
+  "TO": "para"
 }

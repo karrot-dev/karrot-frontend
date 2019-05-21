@@ -145,7 +145,6 @@
     "INVITE_SEND_SUCCESS": "Invitation sent successfully!",
     "INVITE_SEND_ERROR": "Ooops, could not send the invitation!",
     "INVITED_LIST": "Invitations have already been sent out to these e-mail addresses:",
-    "ALREADY_INVITED": "An invitation has already been sent to this e-mail address, please wait one hour before resending it",
     "INVITATIONS": "Invitations",
     "INVITE_TITLE": "Invite users to your group",
     "INVITATION_ACCEPT_SUCCESS": "Welcome! You successfully accepted the invitation.",

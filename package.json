@@ -79,7 +79,7 @@
     "@babel/plugin-transform-modules-commonjs": "^7.4.4",
     "@babel/plugin-transform-runtime": "^7.4.4",
     "@babel/preset-env": "^7.4.4",
-    "@babel/runtime": "^7.4.4",
+    "@babel/runtime": "^7.4.5",
     "@octokit/rest": "^16.26.0",
     "@sentry/cli": "^1.43.0",
     "@storybook/addon-actions": "4.1.18",

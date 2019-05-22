@@ -273,7 +273,7 @@
     "CHANGE_GROUP": "Cambiar el grupo"
   },
   "SIDENAV": {
-    "INFO_SUB": "How to build your foodsaving group",
+    "INFO_SUB": "Cómo construir tu grupo de Foodsaving",
     "GIT_SUB": "¡Mira nuestro código!"
   },
   "LOGIN": {
@@ -317,7 +317,7 @@
     "COMMENT": "Información adicional",
     "COMMENT_HELPER": "¿Qué debería saber la gente cuando se registra en esta recogida?",
     "UNLIMITED": "ilimitado",
-    "DIFFERS_WARNING": "This value differs from the default. To undo this change, click on the arrow button and save the changes.",
+    "DIFFERS_WARNING": "Este valor difiere del predeterminado. Para deshacer este cambio, haga clic en la flecha y guarde los cambios.",
     "ENABLE_TITLE": "¿Habilitar recogida?",
     "DISABLE_TITLE": "¿Deshabilitar recogida?",
     "ENABLE_DISABLE_MESSAGE": "Los usuarios que se unieron a esta recolección recibirán una notificación. Puedes cambiar este texto para proporcionar una razón:",
@@ -331,12 +331,12 @@
     "FILTER": {
       "ALL": "Todo",
       "EMPTY": "Solo vacios",
-      "FREE": "With free slots"
+      "FREE": "Con espacios libres"
     },
-    "AVAILABLE": "There is one pickup in your favorite places waiting for you! | There are {count} pickups in your favorite places waiting for you!",
+    "AVAILABLE": "¡Hay una recogida en tus lugares favoritos esperándote! ¡Hay {count}recogidas en tus lugares favoritos esperándote!",
     "AVAILABLE_FEEDBACK": "Puedes dar tu opinión sobre una recogida | {count} pickups esperan tus comentarios",
     "JOINEDNOTICE": "Tienes una recogida pendiente | Tienes {count} recogidas pendientes",
-    "AVAILABLE_FROM_STORES": "This shows pickups from your favorite places in the next days. You can access other places in the sidebar.",
+    "AVAILABLE_FROM_STORES": "Esto muestra las recogidas en tus lugares favoritos en los próximos días. Puedes acceder a otros lugares en la barra lateral.",
     "ITEM": {
       "LEAVE": "Salir",
       "JOIN": "Unirse",
@@ -346,54 +346,54 @@
       "LEAVE_CONFIRMATION_TEXT": "Estás segurx que lxs otrxs pueden hacer la recogida sin ti?"
     },
     "NONE": "Ninguna recogida inminente",
-    "NONE_HINT": "You can create a new pickup on the place page.",
+    "NONE_HINT": "Puedes crear una nueva recogida en la página del lugar.",
     "STORE_NONE_HINT": "Puede crear una nueva recolección en la página de administración de recolección.",
-    "PICKUP_DISABLED": "This pickup has been disabled.",
-    "PICKUP_STARTED": "This pickup has already started."
+    "PICKUP_DISABLED": "Esta recogida ha sido desactivada.",
+    "PICKUP_STARTED": "Esta recogida ya ha comenzado."
   },
   "FEEDBACKLIST": {
-    "SAVED_FOOD": "At least 1 kg was saved here. Thank you! | People gave feedback for {amount} kg of saved food already! Keep up the great work!",
-    "NUMBER_PICKUPS": "{count} pickups done",
-    "NUMBER_FEEDBACK": "{count} feedback entries given",
-    "WEIGHT_SUM": "{sum} kg of food saved",
+    "SAVED_FOOD": "Al menos 1 kg fue rescatado aquí. ¡Gracias! | ¡La gente ya dio feedback de {amount}kg de comida rescatada! ¡Mantengamos el buen trabajo!",
+    "NUMBER_PICKUPS": "{count}recogidas realizadas",
+    "NUMBER_FEEDBACK": "{count}feedbacks dados",
+    "WEIGHT_SUM": "{sum}kg de comida rescatados",
     "GIVE_FEEDBACK": "Dar opinion",
     "NONE": "Aún no hay comentarios",
     "NONE_HINT": "Esta página se completará una vez que haya más comentarios disponibles",
-    "NO_DONE_PICKUPS": "All done!",
-    "NO_DONE_PICKUPS_HINT": "You currently have no pickups to give feedback to. Why not join another pickup?"
+    "NO_DONE_PICKUPS": "¡Todo hecho!",
+    "NO_DONE_PICKUPS_HINT": "No tienes recogidas en las que dar feedback. ¿Por qué no te unes a otra recogida?"
   },
   "PICKUP_FEEDBACK": {
     "TITLE": "Realimentación",
     "HEADER": "Gracias por tu recogida!",
     "EDIT": "Editar comentarios",
     "SUBTITLE": "Puede proporcionar comentarios para su recogida aquí",
-    "SET_AMOUNT": "Set amount",
-    "DELETE_AMOUNT": "Delete amount",
+    "SET_AMOUNT": "Establecer cantidad",
+    "DELETE_AMOUNT": "Eliminar cantidad",
     "AMOUNT": "La cantidad de comida que todos pudieron ahorrar (en kg)",
     "COMMENT_PLACEHOLDER": "Fue todo bien? Se vino todo el mundo? Tu comentario aquí...",
     "PREVIOUS": "Comentarios anteriores para {store}",
-    "TOGETHER_WITH": "You did this pickup together with:"
+    "TOGETHER_WITH": "Realizaste esta recogida con:"
   },
   "PASSWORDRESET": {
     "TITLE": "Resetear contraseña",
-    "INTRO": "Enter your Email address and we will send you a link to set a new password (if you have an account registered).",
-    "EMAIL": "Email address",
+    "INTRO": "Escribe tu dirección de correo electrónico y te enviaremos un enlace para establecer una nueva contraseña (si ya estás registrad@).",
+    "EMAIL": "Correo electrónico",
     "SUBMIT": "Conseguir nueva contraseña",
     "LOGIN": "Volver a la página de inicio",
-    "SUCCESS": "The request was successfully sent. Have a look at your Emails!"
+    "SUCCESS": "La solicitud fue enviada exitosamente. ¡Echa un vistazo a tu correo electrónico!"
   },
   "PASSWORD": {
     "RESET": {
-      "TITLE": "Reset password",
-      "OK": "Save",
-      "SUCCESS": "Your new password has been saved."
+      "TITLE": "Restablecer la contraseña",
+      "OK": "Guardar",
+      "SUCCESS": "Tu nueva contraseña ha sido guardada."
     },
     "CHANGE": {
-      "SUCCESS": "Your new password has been saved."
+      "SUCCESS": "Tu nueva contraseña ha sido guardada."
     }
   },
   "LANGUAGECHOOSER": {
-    "ADD_MORE": "Help translating!",
+    "ADD_MORE": "Ayuda con la traducción",
     "SWITCH": "Cambiar lengua"
   },
   "MARKDOWN_INPUT": {
@@ -408,14 +408,14 @@
     "GROUP_MODIFY": "cambió los ajustes de este grupo",
     "GROUP_JOIN": "se unió a este grupo",
     "GROUP_LEAVE": "se fue de este grupo",
-    "STORE_CREATE": "created place {name}",
-    "STORE_MODIFY": "changed the settings of place {name}",
-    "STORE_DELETE": "deleted place {name}",
+    "STORE_CREATE": "creó el lugar {name}",
+    "STORE_MODIFY": "cambió los ajustes del lugar {name}",
+    "STORE_DELETE": "eliminó el lugar{name}",
     "PICKUP_CREATE": "creó una nueva recogida única ",
     "PICKUP_MODIFY": "cambió la configuración de un pick-up",
     "PICKUP_DELETE": "eliminó una recogida",
-    "PICKUP_ENABLE": "enabled a pickup",
-    "PICKUP_DISABLE": "disabled a pickup",
+    "PICKUP_ENABLE": "habilitó una recogida",
+    "PICKUP_DISABLE": "deshabilitó una recogida",
     "SERIES_CREATE": "creado una nueva recogida recurrente",
     "SERIES_MODIFY": "cambió la configuración de un pick-up recurrente",
     "SERIES_DELETE": "eliminó una recolección recurrente",
@@ -423,38 +423,38 @@
     "PICKUP_MISSED": "Faltó una recogida en {storeName}!",
     "PICKUP_JOIN": "se apuntó a una recogida en {storeName}",
     "PICKUP_LEAVE": "dio un paso atrás al hacer una recolección en {storeName}",
-    "APPLICATION_DECLINED": "declined an application from {applicantName}",
-    "MEMBER_BECAME_EDITOR": "gained editing permissions",
-    "GROUP_LEAVE_INACTIVE": "was removed due to inactivity",
-    "GROUP_CHANGE_PHOTO": "changed the group logo",
-    "GROUP_DELETE_PHOTO": "deleted the group logo",
-    "MEMBER_REMOVED": "was removed due to group decision",
+    "APPLICATION_DECLINED": "declinó la solicitud de {applicantName}",
+    "MEMBER_BECAME_EDITOR": "obtuvo permisos de edición",
+    "GROUP_LEAVE_INACTIVE": "fue eliminado debido a su inactividad",
+    "GROUP_CHANGE_PHOTO": "cambió el logo del grupo",
+    "GROUP_DELETE_PHOTO": "eliminó el logo del grupo",
+    "MEMBER_REMOVED": "fue eliminado por decisión del grupo",
     "NOTHING_HAPPENEND": "Todavía nada ha pasado...",
     "DETAILS": "Más información "
   },
   "NOTIFICATIONS": {
     "TITLE": "Notificatiónes",
-    "NOT_VERIFIED": "{email} is not verified",
+    "NOT_VERIFIED": "{email}no está verificado",
     "CHECK_YOUR_MAILS": "Por favor, chequea tu correo electrónico o {enviar de nuevo}",
     "RESEND_VERIFICATION": "Enviar verificación de correo otra vez",
     "VERIFICATION_EMAIL_SENT": "Se te envió otro correo electrónico de verificación. Por favor, chequea tu buzón. ",
     "CHANGES_SAVED": "Se han guardado los cambios.",
-    "EMAIL_NOT_DELIVERED": "An email could not be delivered to you | {count} emails could not be delivered to you"
+    "EMAIL_NOT_DELIVERED": "Un correo electrónico no pudo serte enviado | {count} correos electrónicos no pudieron serte enviados"
   },
   "NOTIFICATION_BELLS_LIST": {
     "TITLE": "Notificatiónes",
-    "NO_ITEMS": "We currently don't have notifications for you."
+    "NO_ITEMS": "No tenemos notificaciones para ti ahora."
   },
   "NOTIFICATION_BELLS": {
-    "YOU_BECAME_EDITOR": "You gained editing permissions",
-    "USER_BECAME_EDITOR": "{userName} gained editing permissions",
-    "NEW_APPLICANT": "{userName} applied to join your group",
-    "APPLICATION_ACCEPTED": "Your application was accepted!",
-    "APPLICATION_DECLINED": "Your application was declined",
-    "INVITATION_ACCEPTED": "{userName} accepted your invitation",
-    "FEEDBACK_POSSIBLE": "You can give feedback for the pickup you did on {date}",
-    "NEW_PLACE": "{placeName} has been created",
-    "NEW_MEMBER": "{userName} joined your group",
+    "YOU_BECAME_EDITOR": "Conseguiste permiso de edición",
+    "USER_BECAME_EDITOR": "{userName}obtuvo permisos de edición",
+    "NEW_APPLICANT": "{userName}ha solicitado unirse a este grupo",
+    "APPLICATION_ACCEPTED": "Tu solicitud ha sido aceptada",
+    "APPLICATION_DECLINED": "Tu solicitud ha sido rechazada",
+    "INVITATION_ACCEPTED": "{userName}ha aceptado tu solicitud",
+    "FEEDBACK_POSSIBLE": "Puedes dar feedback a la recogida que hiciste el {date}",
+    "NEW_PLACE": "{placeName}ha sido creado",
+    "NEW_MEMBER": "{userName}se ha unido al grupo",
     "PICKUP_UPCOMING": "Reminder: You have a pickup at {time}",
     "PICKUP_DISABLED": "Pickup at {dateTime} was disabled",
     "PICKUP_ENABLED": "Pickup at {dateTime} was enabled again",

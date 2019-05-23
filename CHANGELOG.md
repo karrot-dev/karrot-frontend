@@ -21,6 +21,8 @@ Please document your changes in this format:
 ```
 
 ## [Unreleased]
+### Changed
+- Invitations can be resent after 1 hour #837 @mvellasco
 
 ## [7.3.0] - 2019-04-29
 ### Added

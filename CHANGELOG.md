@@ -21,9 +21,6 @@ Please document your changes in this format:
 ```
 
 ## [Unreleased]
-### Changed
-- Invitations can be resent after 1 hour #837 @mvellasco
-
 ### Added
 - Bike kitchen theme #1509 @tiltec @djahnie
 
@@ -32,6 +29,7 @@ Please document your changes in this format:
 - Separate conversations and threads in message notifications @tiltec @djahnie
 - Move language picker to user settings @tiltec @djahnie
 - Move community feed to sidenav @tiltec @djahnie
+- Invitations can be resent after 1 hour #837 @mvellasco
 
 ### Fixed
 - Permission checks in main routes had a typo and were not active @djahnie @tiltec

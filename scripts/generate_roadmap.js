@@ -35,15 +35,6 @@ const HEADER = `
 
 Only major features and improvements will be listed here.
 `
-const FOOTER = `
-## Ideas / Brainstorming
-
-Rough ideas, have been mentioned by someone.
-
-- Sharing of things: text+image with a tag system
-- Undo functionality for changes
-- Make karrot into a multisharing platform
-`
 
 async function run ({ owner, repo }) {
   const result = await octokit.issues.listMilestonesForRepo({ owner, repo })
@@ -56,7 +47,6 @@ async function run ({ owner, repo }) {
     }).join('\n'))
     output.push(`[View issues](${milestone.html_url})`)
   }
-  output.push(FOOTER.trim())
   console.log(output.join('\n\n').trim() + '\n')
 }
 

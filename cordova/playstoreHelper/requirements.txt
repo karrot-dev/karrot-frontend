@@ -5,7 +5,7 @@
 #    pip-compile --upgrade
 #
 cachetools==3.1.0         # via google-auth
-google-api-python-client==1.7.8
+google-api-python-client==1.7.9
 google-auth-httplib2==0.0.3  # via google-api-python-client
 google-auth==1.6.3        # via google-api-python-client, google-auth-httplib2
 httplib2==0.12.1          # via google-api-python-client, google-auth-httplib2, oauth2client

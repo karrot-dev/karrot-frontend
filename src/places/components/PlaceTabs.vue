@@ -45,34 +45,28 @@ export default {
         {
           to: { name: 'placePickups', params },
           label: this.$t('GROUP.PICKUPS'),
-          icon: 'fas fa-shopping-basket',
         },
         {
           to: { name: 'placeWall', params },
           label: this.$t('GROUP.WALL'),
-          icon: 'fas fa-bullhorn',
           count: this.cappedWallUnreadCount,
         },
         {
           to: { name: 'placeFeedback', params },
           label: this.$t('PICKUP_FEEDBACK.TITLE'),
-          icon: 'fas fa-balance-scale',
         },
         {
           to: { name: 'placeHistory', params },
           label: this.$t('GROUP.HISTORY'),
-          icon: 'far fa-clock',
         },
         ...(this.isEditor ? [
           {
             to: { name: 'placePickupsManage', params },
             label: this.$t('PICKUPMANAGE.TITLE'),
-            icon: 'fas fa-calendar-alt',
           },
           {
             to: { name: 'placeEdit', params },
             label: this.$t('STOREDETAIL.EDIT'),
-            icon: 'fas fa-pencil-alt',
           },
         ] : []),
       ]

@@ -5,7 +5,10 @@
       class="generic-padding notice no-margin-bottom"
       @click.native="showPickups = !showPickups"
     >
-      <i class="fas fa-shopping-basket on-left" />
+      <i
+        class="on-left"
+        :class="$icon('pickup')"
+      />
       {{ $tc('PICKUPLIST.JOINEDNOTICE', pickups.length, { count: pickups.length }) }}
       <div
         class="card-arrow"
@@ -31,9 +34,15 @@ import PickupList from '@/pickups/components/PickupList'
 import { QCard } from 'quasar'
 
 export default {
-  components: { PickupList, QCard },
+  components: {
+    PickupList,
+    QCard,
+  },
   props: {
-    pickups: { required: true, type: Array },
+    pickups: {
+      required: true,
+      type: Array,
+    },
   },
   data () {
     return {

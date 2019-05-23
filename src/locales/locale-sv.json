@@ -2,7 +2,6 @@
   "ENTRY": "1 inlägg | {count} inlägg",
   "GLOBAL": {
     "GITHUB_NOTE": "Utveckling",
-    "COMMUNITY_NOTE": "Gå med i vårt gemenskap!",
     "SERVER_ERROR": "Server fel",
     "NOT_CONNECTED": "Du är inte ansluten till servern",
     "INVALID_LINK": "Oj, länken du försöker komma åt är ogiltig.",
@@ -134,7 +133,7 @@
     "SORT_NAME": "Sortera efter namn",
     "INACTIVE": "Inaktive",
     "SHOW_INACTIVE": "Visa inaktiva grupper",
-    "STORES": "Butiker",
+    "PLACES": "Places",
     "HOME": "Hem",
     "HISTORY": "Historik",
     "DESCRIPTION": "Beskrivning",
@@ -158,7 +157,7 @@
       },
       "daily_pickup_notification": {
         "NAME": "Notifikationer om hämtningar",
-        "DESCRIPTION": "Reminds you of your pickups, and tells you about empty or not-full pickups of your favorite stores in the next day"
+        "DESCRIPTION": "Reminds you of your pickups, and tells you about empty or not-full pickups of your favorite places in the next day"
       },
       "new_application": {
         "NAME": "Nya ansökningar",
@@ -177,8 +176,8 @@
     "TITLE": "Karta",
     "SHOW_USERS": "Visa användare",
     "HIDE_USERS": "Göm användare",
-    "SHOW_STORES": "Visa butiker",
-    "HIDE_STORES": "Göm butiker",
+    "SHOW_PLACES": "Show places",
+    "HIDE_PLACES": "Hide places",
     "SHOW_GROUPS": "Visa grupper",
     "HIDE_GROUPS": "Göm grupper",
     "SET_LOCATION": "Ange plats",
@@ -186,11 +185,11 @@
   },
   "STOREDETAIL": {
     "DIRECTIONS": "Visa vägbeskrivning",
-    "EDIT": "Redigera butik",
-    "ARCHIVED": "Butiken har arkiverats",
-    "INACTIVE": "Denna butik samarbetar inte i dagsläget",
+    "EDIT": "Edit place",
+    "ARCHIVED": "This place has been archived",
+    "INACTIVE": "This place is currently not cooperating.",
     "CHANGE_STATUS": "Du kan ändra statusen på inställningssidan.",
-    "NO_DESCRIPTION": "Denna butik har fortfarande ingen beskrivning."
+    "NO_DESCRIPTION": "This place does not have a description yet"
   },
   "STOREEDIT": {
     "NAME": "Namn",
@@ -201,21 +200,21 @@
     "WEEKS_IN_ADVANCE_WARNING": "Befinnande hämtningar som är kvar kommer att raderas om de är tomma. Du kan inaktivera upptagna hämtningar manuellt om det behövs.",
     "DIALOGS": {
       "ARCHIVE": {
-        "TITLE": "Arkivera butiken",
+        "TITLE": "Archive place",
         "MESSAGE": "Är du säker?",
-        "CONFIRM": "Ja, arkivera butiken"
+        "CONFIRM": "Yes, archive place"
       }
     },
     "RESTORE": "Återställa",
-    "SHOW_ARCHIVED": "Visa arkiverade butiker",
-    "HIDE_ARCHIVED": "Göm arkiverade butiker",
-    "SHOW_ALL": "Visa alla butiker",
-    "SHOW_ACTIVE_ONLY": "Visa bara aktiva butiker"
+    "SHOW_ARCHIVED": "Show archived places",
+    "HIDE_ARCHIVED": "Hide archived places",
+    "SHOW_ALL": "Show all places",
+    "SHOW_ACTIVE_ONLY": "Only show active places"
   },
   "PLACEWALL": {
-    "SUBSCRIBED_USERS": "{count} people have marked this store as favourite",
+    "SUBSCRIBED_USERS": "{count} people have marked this place as favourite",
     "SUBSCRIPTION": {
-      "HEADER": "Vill du markera denna butik som favorit?",
+      "HEADER": "Do you want to mark this place as your favourite?",
       "YES": "ja",
       "YES_TEXT": "Visa tillängliga hämtningar i gruppens anslagstavlan och skickar mejl om kommande hämtningar.",
       "NO": "nej",
@@ -275,7 +274,6 @@
   },
   "SIDENAV": {
     "INFO_SUB": "Hur man skapar en maträddningsgrupp",
-    "BLOG_SUB": "Alla nyheter om Karrot",
     "GIT_SUB": "Se vår kod!"
   },
   "LOGIN": {
@@ -327,7 +325,7 @@
     "EXCEPTIONS_MESSAGE": "Vissa kommande hämtningar passar inte inställningar för denna återkommande hämtning. Ta en titt där nere på '{upcomingLabel}' för att ändra eller inaktivera hämtningar om det behövs."
   },
   "CREATESTORE": {
-    "TITLE": "Skapa ny butik"
+    "TITLE": "Create a new place"
   },
   "PICKUPLIST": {
     "FILTER": {
@@ -335,10 +333,10 @@
       "EMPTY": "Only empty",
       "FREE": "With free slots"
     },
-    "AVAILABLE": "There is one pickup in your favorite stores waiting for you! | There are {count} pickups in your favorite stores waiting for you!",
+    "AVAILABLE": "There is one pickup in your favorite places waiting for you! | There are {count} pickups in your favorite places waiting for you!",
     "AVAILABLE_FEEDBACK": "Du kan ge feedback till en hämtning | {count} hämtningar väntar på din feedback",
     "JOINEDNOTICE": "Du har en kommande hämtning | Du har {count} kommande hämtningar",
-    "AVAILABLE_FROM_STORES": "This shows pickups from your favorite stores in the next days. You can access other stores in the sidebar.",
+    "AVAILABLE_FROM_STORES": "This shows pickups from your favorite places in the next days. You can access other places in the sidebar.",
     "ITEM": {
       "LEAVE": "Lämna",
       "JOIN": "Gå med",
@@ -348,7 +346,7 @@
       "LEAVE_CONFIRMATION_TEXT": "Är du säker att andra kan göra hämtningen utan dig?"
     },
     "NONE": "Inga bokade hämtningar",
-    "NONE_HINT": "Du kan boka en ny hämtning på butikens sida.",
+    "NONE_HINT": "You can create a new pickup on the place page.",
     "STORE_NONE_HINT": "Du kan skapa en ny hämtning i \"hantera hämtningar\"",
     "PICKUP_DISABLED": "Hämtningen har inaktiverats.",
     "PICKUP_STARTED": "Hämtningen har redan påbörjats."
@@ -410,9 +408,9 @@
     "GROUP_MODIFY": "ändrade inställningar för gruppen",
     "GROUP_JOIN": "gick med i gruppen",
     "GROUP_LEAVE": "Lämnade gruppen",
-    "STORE_CREATE": "skapade butik {name}",
-    "STORE_MODIFY": "ändrade inställningar för butik {name}",
-    "STORE_DELETE": "raderade butik {name}",
+    "STORE_CREATE": "created place {name}",
+    "STORE_MODIFY": "changed the settings of place {name}",
+    "STORE_DELETE": "deleted place {name}",
     "PICKUP_CREATE": "skapade en hämtning",
     "PICKUP_MODIFY": "ändrade inställningarna för en hämtning",
     "PICKUP_DELETE": "tog bort en hämtning",
@@ -455,7 +453,7 @@
     "APPLICATION_DECLINED": "Din ansökan har avböjts",
     "INVITATION_ACCEPTED": "{userName} beviljade din ansökan",
     "FEEDBACK_POSSIBLE": "Du kan ge feedback för en hämtning du gjorde den {date}",
-    "NEW_STORE": "{storeName} har skapats",
+    "NEW_PLACE": "{placeName} has been created",
     "NEW_MEMBER": "{userName} gick med i din grupp",
     "PICKUP_UPCOMING": "Påminnelse: Du har en hämtning kl {time}  ",
     "PICKUP_DISABLED": "Hämtning den {dateTime} har inaktiverats",
@@ -526,6 +524,7 @@
     "RECEIVED_VIA_EMAIL": "Det här meddelande skickades via mejl"
   },
   "CONVERSATION": {
+    "CONVERSATIONS": "Conversations",
     "OPEN": "Öppna chatten",
     "REPLY_TO_MESSAGE": "Svara på meddelandet...",
     "REPLIES": "Svar",
@@ -573,7 +572,8 @@
   "COMMUNITY_FEED": {
     "HEADER": "Uppdateringar från {community}",
     "HEADER_LINK": "foodsaving worldwide community",
-    "LAST_UPDATED": "Sist uppdaterad {relativeDate}"
+    "LAST_UPDATED": "Sist uppdaterad {relativeDate}",
+    "KARROT_DISCUSSION": "Discussions about Karrot"
   },
   "INACTIVITY": {
     "WHAT": "Vad betyder att vara inaktiv?",

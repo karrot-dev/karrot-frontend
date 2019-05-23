@@ -40,6 +40,11 @@ const datastore = createDatastore({
       resendVerification: action('resend'),
     },
   },
+  i18n: {
+    getters: {
+      locale: () => 'en',
+    },
+  },
 })
 
 storiesOf('Settings Page', module)

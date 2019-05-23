@@ -62,10 +62,6 @@ export default {
       email: {
         required,
         email,
-        isUnique (value) {
-          if (value === '' || !this.invitations) return true
-          return this.invitations.findIndex(e => e.email === value) < 0
-        },
       },
     },
   },
@@ -78,7 +74,6 @@ export default {
         const m = this.$v.form.email
         if (!m.required) return this.$t('VALIDATION.REQUIRED')
         if (!m.email) return this.$t('VALIDATION.VALID_EMAIL')
-        if (!m.isUnique) return this.$t('GROUP.ALREADY_INVITED')
       }
       if (this.hasAnyError) return this.anyFirstError
       return undefined

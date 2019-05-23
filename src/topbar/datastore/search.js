@@ -27,7 +27,7 @@ export default {
           value: { name: 'place', params: { groupId: e.group.id, placeId: e.id } },
           label: e.name,
           sublabel: e.group.name,
-          icon: 'fas fa-shopping-cart',
+          icon: 'fas fa-dot-circle',
         })),
         ...groupRes.map(e => ({
           value: { name: 'group', params: { groupId: e.id } },

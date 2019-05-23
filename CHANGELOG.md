@@ -21,6 +21,18 @@ Please document your changes in this format:
 ```
 
 ## [Unreleased]
+### Added
+- Bike kitchen theme #1509 @tiltec @djahnie
+
+### Changed
+- Rename stores to places in UI and change shopping-cart to dot-circle #1398 @tiltec @djahnie
+- Separate conversations and threads in message notifications @tiltec @djahnie
+- Move language picker to user settings @tiltec @djahnie
+- Move community feed to sidenav @tiltec @djahnie
+- Invitations can be resent after 1 hour #837 @mvellasco
+
+### Fixed
+- Permission checks in main routes had a typo and were not active @djahnie @tiltec
 
 ## [7.3.0] - 2019-04-29
 ### Added

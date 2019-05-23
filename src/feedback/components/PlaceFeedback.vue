@@ -8,7 +8,7 @@
           class="infoChips row no-wrap"
         >
           <QChip
-            icon="fas fa-shopping-basket"
+            :icon="$icon('pickup')"
             color="secondary"
             square
             :title="$t('FEEDBACKLIST.NUMBER_PICKUPS', { count: statistics.pickupsDone })"
@@ -17,7 +17,7 @@
           </QChip>
           <QChip
             v-if="statistics.feedbackCount > 0"
-            icon="fas fa-balance-scale"
+            :icon="$icon('feedback')"
             color="secondary"
             square
             :title="$t('FEEDBACKLIST.NUMBER_FEEDBACK', { count: statistics.feedbackCount })"

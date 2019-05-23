@@ -2,7 +2,6 @@
   "ENTRY": "1 entry | {count} entries",
   "GLOBAL": {
     "GITHUB_NOTE": "Desenvolvimento",
-    "COMMUNITY_NOTE": "Join our community!",
     "SERVER_ERROR": "Erro no servidor",
     "NOT_CONNECTED": "You aren't connected to the server",
     "INVALID_LINK": "Desculpe, o link que você abriu é inválido.",
@@ -134,7 +133,7 @@
     "SORT_NAME": "Sort by name",
     "INACTIVE": "Inativos",
     "SHOW_INACTIVE": "Exibir grupos inativos",
-    "STORES": "Lojas",
+    "PLACES": "Places",
     "HOME": "Home",
     "HISTORY": "Histórico",
     "DESCRIPTION": "Descrição",
@@ -142,8 +141,10 @@
     "TIMEZONE": "Fuso horário do grupo",
     "INVITE_EMAIL": "Entre com um endereço de e-mail",
     "INVITE_SEND": "Enviar convite",
+    "INVITE_SEND_SUCCESS": "Convite enviado com sucesso!",
+    "INVITE_SEND_ERROR": "Ooops, não foi possível enviar este convite!",
     "INVITED_LIST": "Convites já foram enviados para esses e-mails.",
-    "ALREADY_INVITED": "Um convite já foi enviado para este e-mail",
+    "ALREADY_INVITED": "Um convite já foi enviado para este e-mail, por favor aguarde uma hora antes de reenviar",
     "INVITATIONS": "Convites",
     "INVITE_TITLE": "Convide usuários para o seu grupo",
     "INVITATION_ACCEPT_SUCCESS": "Bem Vindo! Você aceitou um convite com sucesso!",
@@ -158,7 +159,7 @@
       },
       "daily_pickup_notification": {
         "NAME": "Notificação de coletas",
-        "DESCRIPTION": "Reminds you of your pickups, and tells you about empty or not-full pickups of your favorite stores in the next day"
+        "DESCRIPTION": "Reminds you of your pickups, and tells you about empty or not-full pickups of your favorite places in the next day"
       },
       "new_application": {
         "NAME": "New applications",
@@ -177,8 +178,8 @@
     "TITLE": "Mapa",
     "SHOW_USERS": "Exibir usuários",
     "HIDE_USERS": "Esconder usários",
-    "SHOW_STORES": "Exibir lojas",
-    "HIDE_STORES": "Esconder lojas",
+    "SHOW_PLACES": "Show places",
+    "HIDE_PLACES": "Hide places",
     "SHOW_GROUPS": "Show groups",
     "HIDE_GROUPS": "Hide groups",
     "SET_LOCATION": "Definir localização",
@@ -186,11 +187,11 @@
   },
   "STOREDETAIL": {
     "DIRECTIONS": "Show directions",
-    "EDIT": "Editar loja",
-    "ARCHIVED": "A loja foi arquivada",
-    "INACTIVE": "A loja esta com o estado de não operando.",
+    "EDIT": "Edit place",
+    "ARCHIVED": "This place has been archived",
+    "INACTIVE": "This place is currently not cooperating.",
     "CHANGE_STATUS": "Você pode mudar o estado na página de configuração",
-    "NO_DESCRIPTION": "Este loja ainda não possuí uma descrição"
+    "NO_DESCRIPTION": "This place does not have a description yet"
   },
   "STOREEDIT": {
     "NAME": "Nome",
@@ -201,21 +202,21 @@
     "WEEKS_IN_ADVANCE_WARNING": "Existing leftover pickups will get deleted if they are empty. You can disable non-empty pickups manually, if needed.",
     "DIALOGS": {
       "ARCHIVE": {
-        "TITLE": "Arquive loja",
+        "TITLE": "Archive place",
         "MESSAGE": "Você tem certeza?",
-        "CONFIRM": "Sim, arquive a loja"
+        "CONFIRM": "Yes, archive place"
       }
     },
     "RESTORE": "Recuperar",
-    "SHOW_ARCHIVED": "Exibir lojas arquivadas",
-    "HIDE_ARCHIVED": "Esconder lojas arquivadas",
-    "SHOW_ALL": "Show all stores",
-    "SHOW_ACTIVE_ONLY": "Only show active stores"
+    "SHOW_ARCHIVED": "Show archived places",
+    "HIDE_ARCHIVED": "Hide archived places",
+    "SHOW_ALL": "Show all places",
+    "SHOW_ACTIVE_ONLY": "Only show active places"
   },
   "PLACEWALL": {
-    "SUBSCRIBED_USERS": "{count} people have marked this store as favourite",
+    "SUBSCRIBED_USERS": "{count} people have marked this place as favourite",
     "SUBSCRIPTION": {
-      "HEADER": "Do you want to mark this store as your favourite?",
+      "HEADER": "Do you want to mark this place as your favourite?",
       "YES": "yes",
       "YES_TEXT": "Shows available pickups on the group wall and sends emails about upcoming pickups.",
       "NO": "no",
@@ -275,7 +276,6 @@
   },
   "SIDENAV": {
     "INFO_SUB": "Como construír seu grupo no foodsaving",
-    "BLOG_SUB": "Todas as novidades do karrot",
     "GIT_SUB": "Veja nosso código!"
   },
   "LOGIN": {
@@ -327,7 +327,7 @@
     "EXCEPTIONS_MESSAGE": "Some upcoming pickups don't match the settings of this recurring pickup. Have a look below at '{upcomingLabel}' to change or disable pickups, if needed."
   },
   "CREATESTORE": {
-    "TITLE": "Crie uma nova loja"
+    "TITLE": "Create a new place"
   },
   "PICKUPLIST": {
     "FILTER": {
@@ -335,10 +335,10 @@
       "EMPTY": "Only empty",
       "FREE": "With free slots"
     },
-    "AVAILABLE": "There is one pickup in your favorite stores waiting for you! | There are {count} pickups in your favorite stores waiting for you!",
+    "AVAILABLE": "There is one pickup in your favorite places waiting for you! | There are {count} pickups in your favorite places waiting for you!",
     "AVAILABLE_FEEDBACK": "Você pode deixar sua impressão de uma coleta | {count} coletas esperando seus comentários",
     "JOINEDNOTICE": "Você possuí uma coleta para fazer | Você possuí {count} coletas para fazer",
-    "AVAILABLE_FROM_STORES": "This shows pickups from your favorite stores in the next days. You can access other stores in the sidebar.",
+    "AVAILABLE_FROM_STORES": "This shows pickups from your favorite places in the next days. You can access other places in the sidebar.",
     "ITEM": {
       "LEAVE": "Sair",
       "JOIN": "Participar",
@@ -348,7 +348,7 @@
       "LEAVE_CONFIRMATION_TEXT": "Você tem certeza que outra pessoa pode fazer a coleta sem você?"
     },
     "NONE": "Você não possuí coletas futuras",
-    "NONE_HINT": "Você pode criar uma nova coleta na página da loja.",
+    "NONE_HINT": "You can create a new pickup on the place page.",
     "STORE_NONE_HINT": "Você pode criar uma nova coleta na página de gerenciamento de coletas.",
     "PICKUP_DISABLED": "This pickup has been disabled.",
     "PICKUP_STARTED": "This pickup has already started."
@@ -410,9 +410,9 @@
     "GROUP_MODIFY": "modificou as configurações deste grupo",
     "GROUP_JOIN": "entrou no grupo",
     "GROUP_LEAVE": "saiu do grupo",
-    "STORE_CREATE": "crirou a loja {name}",
-    "STORE_MODIFY": "modificou as configurações da loja {name}",
-    "STORE_DELETE": "deletou a loja {name}",
+    "STORE_CREATE": "created place {name}",
+    "STORE_MODIFY": "changed the settings of place {name}",
+    "STORE_DELETE": "deleted place {name}",
     "PICKUP_CREATE": "criou uma nova coleta pontual",
     "PICKUP_MODIFY": "modificou as configurações de uma coleta",
     "PICKUP_DELETE": "deletou uma coleta",
@@ -455,7 +455,7 @@
     "APPLICATION_DECLINED": "Your application was declined",
     "INVITATION_ACCEPTED": "{userName} accepted your invitation",
     "FEEDBACK_POSSIBLE": "You can give feedback for the pickup you did on {date}",
-    "NEW_STORE": "{storeName} has been created",
+    "NEW_PLACE": "{placeName} has been created",
     "NEW_MEMBER": "{userName} joined your group",
     "PICKUP_UPCOMING": "Reminder: You have a pickup at {time}",
     "PICKUP_DISABLED": "Pickup at {dateTime} was disabled",
@@ -526,6 +526,7 @@
     "RECEIVED_VIA_EMAIL": "Esta mensagem foi mandada por e-mail"
   },
   "CONVERSATION": {
+    "CONVERSATIONS": "Conversations",
     "OPEN": "Open Chat",
     "REPLY_TO_MESSAGE": "Reply to message...",
     "REPLIES": "Replies",
@@ -573,7 +574,8 @@
   "COMMUNITY_FEED": {
     "HEADER": "Updates from the {community}",
     "HEADER_LINK": "foodsaving worldwide community",
-    "LAST_UPDATED": "Last updated {relativeDate}"
+    "LAST_UPDATED": "Last updated {relativeDate}",
+    "KARROT_DISCUSSION": "Discussions about Karrot"
   },
   "INACTIVITY": {
     "WHAT": "What does it mean to be inactive?",

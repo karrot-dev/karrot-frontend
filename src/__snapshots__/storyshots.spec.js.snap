@@ -2969,7 +2969,7 @@ exports[`Storyshots GroupSettings show 1`] = `
           Pickup notifications
         </div>
         <div class="q-item-sublabel">
-          Reminds you of your pickups, and tells you about empty or not-full pickups of your favorite stores in the next day
+          Reminds you of your pickups, and tells you about empty or not-full pickups of your favorite places in the next day
         </div>
       </div>
     </label><label class="q-item q-item-division relative-position">
@@ -3928,12 +3928,6 @@ exports[`Storyshots Layout KTopbar 1`] = `
         <div></div>
       </div>
     </div>
-  </button> <button tabindex="0" type="button" title="Updates from the foodsaving worldwide community" class="q-btn inline relative-position q-btn-item non-selectable q-btn-round q-btn-flat q-focusable q-hoverable q-btn-dense">
-    <div class="q-focus-helper"></div>
-    <div class="q-btn-inner row col items-center q-popup--skip justify-center"><i aria-hidden="true" class="q-icon fab fa-discourse fa-fw"> </i>
-      <!---->
-      <div tabindex="-1" class="q-popover scroll k-community-feed"></div>
-    </div>
   </button> <button tabindex="0" type="button" title="Messages" class="q-btn inline relative-position q-btn-item non-selectable q-btn-round q-btn-flat q-focusable q-hoverable q-btn-dense">
     <div class="q-focus-helper"></div>
     <div class="q-btn-inner row col items-center q-popup--skip justify-center"><i aria-hidden="true" class="q-icon fas fa-comments hasUnread"> </i>
@@ -3953,11 +3947,6 @@ exports[`Storyshots Layout KTopbar 1`] = `
         </div>
       </div>
       <div tabindex="-1" class="q-popover scroll k-notifications-popover"></div>
-    </div>
-  </button> <button tabindex="0" type="button" title="Switch language" class="q-btn inline relative-position q-btn-item non-selectable k-locale-select q-btn-round q-btn-flat q-focusable q-hoverable q-btn-dense">
-    <div class="q-focus-helper"></div>
-    <div class="q-btn-inner row col items-center q-popup--skip justify-center"><i aria-hidden="true" class="q-icon fas fa-globe fa-fw"> </i>
-      <div tabindex="-1" minimized="" class="q-popover scroll"></div>
     </div>
   </button> <a><button tabindex="0" type="button" class="q-btn inline relative-position q-btn-item non-selectable q-btn-rectangle q-btn-flat q-focusable q-hoverable q-btn-dense">
       <div class="q-focus-helper"></div>
@@ -4510,7 +4499,7 @@ exports[`Storyshots Notifications new_place 1`] = `
 <a class="q-link q-item q-item-division relative-position q-item-link isUnread">
   <!---->
   <div class="q-item-main q-item-section">
-    <div class="q-item-label" style="overflow:hidden;display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:2;"><i aria-hidden="true" class="q-icon q-mr-xs vertical-baseline fas fa-shopping-cart"> </i>
+    <div class="q-item-label" style="overflow:hidden;display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:2;"><i aria-hidden="true" class="q-icon q-mr-xs vertical-baseline fas fa-dot-circle"> </i>
       Place 0 has been created
     </div>
     <div class="q-item-sublabel">
@@ -6391,6 +6380,24 @@ exports[`Storyshots Settings Page Default 1`] = `
   <div class="q-card no-shadow grey-border">
     <div class="q-card-primary q-card-container row no-wrap">
       <div class="col column">
+        <div class="q-card-title">Switch language</div>
+        <div class="q-card-subtitle"></div>
+      </div>
+      <div class="col-auto self-center q-card-title-extra"></div>
+    </div>
+    <div class="q-card-main q-card-container">
+      <div class="edit-box row justify-end"><button tabindex="0" type="button" title="Switch language" class="q-btn inline relative-position q-btn-item non-selectable k-locale-select q-btn-rectangle q-focusable q-hoverable">
+          <div class="q-focus-helper"></div>
+          <div class="q-btn-inner row col items-center q-popup--skip justify-center"><i aria-hidden="true" class="q-icon fas fa-globe fa-fw"> </i>
+            English
+            <div tabindex="-1" minimized="" class="q-popover scroll"></div>
+          </div>
+        </button></div>
+    </div>
+  </div>
+  <div class="q-card no-shadow grey-border">
+    <div class="q-card-primary q-card-container row no-wrap">
+      <div class="col column">
         <div class="q-card-title">Account</div>
         <div class="q-card-subtitle"></div>
       </div>
@@ -6620,10 +6627,10 @@ exports[`Storyshots Sidenav Boxes Map 1`] = `
     </a>
     <!----> <button tabindex="0" type="button" class="q-btn inline relative-position q-btn-item non-selectable q-btn-rectangle q-focusable q-hoverable bg-primary text-white" style="font-size:10px;">
       <div class="q-focus-helper"></div>
-      <div class="q-btn-inner row col items-center q-popup--skip justify-center"><span class="fa-fw fa-stack"><i class="fas fa-shopping-cart fa-stack-1x"></i> <i class="fas fa-check bottom-right fa-stack-1x"></i></span>
+      <div class="q-btn-inner row col items-center q-popup--skip justify-center"><span class="fa-fw fa-stack"><i class="fas fa-dot-circle fa-stack-1x"></i> <i class="fas fa-check bottom-right fa-stack-1x"></i></span>
         <div class="q-tooltip animate-popup">
           <div>
-            Hide stores
+            Hide places
           </div>
         </div>
       </div>
@@ -6645,9 +6652,9 @@ exports[`Storyshots Sidenav Boxes Map 1`] = `
 
 exports[`Storyshots Sidenav Boxes Places 1`] = `
 <div class="k-sidenav-box">
-  <div class="q-toolbar row no-wrap items-center relative-position toolbar q-toolbar-inverted text-primary"><i aria-hidden="true" class="q-icon fas fa-fw fa-shopping-cart"> </i>
+  <div class="q-toolbar row no-wrap items-center relative-position toolbar q-toolbar-inverted text-primary"><i aria-hidden="true" class="q-icon fas fa-fw fa-dot-circle"> </i>
     <div class="q-toolbar-title">
-      Stores
+      Places
     </div>
     <div class="tools">
       <div tabindex="0" class="q-option cursor-pointer no-outline row inline no-wrap items-center q-toggle q-focusable">

@@ -1,4 +1,5 @@
 import i18n from '@/base/i18n'
+import icons from '@/base/icons'
 
 function getMessageParams (type, context) {
   const commonParams = {
@@ -26,7 +27,7 @@ function getMessageParams (type, context) {
       }
     case 'new_place':
       return {
-        storeName: context.place && context.place.name,
+        placeName: context.place && context.place.name,
       }
     case 'conflict_resolution_created':
     case 'conflict_resolution_continued':
@@ -52,11 +53,11 @@ function getIcon (type, context) {
     case 'new_member':
       return 'fas fa-user-plus'
     case 'feedback_possible':
-      return 'fas fa-balance-scale'
+      return icons.get('feedback')
     case 'pickup_upcoming':
       return 'fas fa-calendar-alt'
     case 'new_place':
-      return 'fas fa-shopping-cart'
+      return 'fas fa-dot-circle'
     case 'new_applicant':
       return 'fas fa-address-card'
     case 'user_became_editor':
@@ -111,14 +112,10 @@ function getRouteTo (type, { group, user, place, pickup, issue } = {}) {
 
 export default function getConfig (type, context) {
   const config = {
-    message: i18n.t(`NOTIFICATION_BELLS.${mapType(type).toUpperCase()}`, getMessageParams(type, context)),
+    message: i18n.t(`NOTIFICATION_BELLS.${type.toUpperCase()}`, getMessageParams(type, context)),
     icon: getIcon(type, context),
     routeTo: getRouteTo(type, context),
   }
 
   return config
-}
-
-function mapType (type) {
-  return type === 'new_place' ? 'new_store' : type
 }

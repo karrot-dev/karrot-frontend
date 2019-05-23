@@ -5,11 +5,13 @@ import Vue from 'vue'
 import Vuex from 'vuex'
 import configureQuasar from '@/base/configureQuasar'
 import { RouterLinkStub } from '@vue/test-utils'
+import { IconPlugin } from '@/base/icons'
 
 Vue.config.productionTip = false
 Vue.config.devtools = true
 configureQuasar(Vue)
 Vue.use(Vuex) // Install Vuex
+Vue.use(IconPlugin)
 
 Vue.component('RouterLink', RouterLinkStub)
 Vue.config.errorHandler = (err, vm, info) => {

@@ -2,7 +2,6 @@
   "ENTRY": "1 entry | {count} entries",
   "GLOBAL": {
     "GITHUB_NOTE": "विकास",
-    "COMMUNITY_NOTE": "समूह में शामिल हो",
     "SERVER_ERROR": "सर्वर त्रुटि",
     "NOT_CONNECTED": "आप सर्वर से जुड़े हुए नहीं है ",
     "INVALID_LINK": "क्षमा करे, आपके द्वारा खोला गया लिंक गलत है",
@@ -134,7 +133,7 @@
     "SORT_NAME": "Sort by name",
     "INACTIVE": "Inactive",
     "SHOW_INACTIVE": "Show inactive groups",
-    "STORES": "भंडार",
+    "PLACES": "Places",
     "HOME": "होम",
     "HISTORY": "इतिहास",
     "DESCRIPTION": "विवरण",
@@ -158,7 +157,7 @@
       },
       "daily_pickup_notification": {
         "NAME": "Pickup notifications",
-        "DESCRIPTION": "Reminds you of your pickups, and tells you about empty or not-full pickups of your favorite stores in the next day"
+        "DESCRIPTION": "Reminds you of your pickups, and tells you about empty or not-full pickups of your favorite places in the next day"
       },
       "new_application": {
         "NAME": "New applications",
@@ -177,8 +176,8 @@
     "TITLE": "नक्शा",
     "SHOW_USERS": "उपयोगकर्ताओं को दिखाएं",
     "HIDE_USERS": "उपयोगकर्ताओं को छुपाएं",
-    "SHOW_STORES": "स्टोर दिखाओ ",
-    "HIDE_STORES": "स्टोर छिपाएं",
+    "SHOW_PLACES": "Show places",
+    "HIDE_PLACES": "Hide places",
     "SHOW_GROUPS": "Show groups",
     "HIDE_GROUPS": "Hide groups",
     "SET_LOCATION": "स्थान तय करें",
@@ -186,11 +185,11 @@
   },
   "STOREDETAIL": {
     "DIRECTIONS": "Show directions",
-    "EDIT": "स्टोर संपादित करें",
-    "ARCHIVED": "यह स्टोर संग्रहीत किया गया है",
-    "INACTIVE": "This store is currently not cooperating.",
+    "EDIT": "Edit place",
+    "ARCHIVED": "This place has been archived",
+    "INACTIVE": "This place is currently not cooperating.",
     "CHANGE_STATUS": "You can change the status on the settings page.",
-    "NO_DESCRIPTION": "इस स्टोर में अभी तक विवरण नहीं है"
+    "NO_DESCRIPTION": "This place does not have a description yet"
   },
   "STOREEDIT": {
     "NAME": "नाम",
@@ -201,21 +200,21 @@
     "WEEKS_IN_ADVANCE_WARNING": "Existing leftover pickups will get deleted if they are empty. You can disable non-empty pickups manually, if needed.",
     "DIALOGS": {
       "ARCHIVE": {
-        "TITLE": "पुरालेख स्टोर",
+        "TITLE": "Archive place",
         "MESSAGE": "क्या आपको यकीन है?",
-        "CONFIRM": "हां, संग्रह स्टोर"
+        "CONFIRM": "Yes, archive place"
       }
     },
     "RESTORE": "बहाल",
-    "SHOW_ARCHIVED": "Show archived stores",
-    "HIDE_ARCHIVED": "Hide archived stores",
-    "SHOW_ALL": "Show all stores",
-    "SHOW_ACTIVE_ONLY": "Only show active stores"
+    "SHOW_ARCHIVED": "Show archived places",
+    "HIDE_ARCHIVED": "Hide archived places",
+    "SHOW_ALL": "Show all places",
+    "SHOW_ACTIVE_ONLY": "Only show active places"
   },
   "PLACEWALL": {
-    "SUBSCRIBED_USERS": "{count} people have marked this store as favourite",
+    "SUBSCRIBED_USERS": "{count} people have marked this place as favourite",
     "SUBSCRIPTION": {
-      "HEADER": "Do you want to mark this store as your favourite?",
+      "HEADER": "Do you want to mark this place as your favourite?",
       "YES": "yes",
       "YES_TEXT": "Shows available pickups on the group wall and sends emails about upcoming pickups.",
       "NO": "no",
@@ -275,7 +274,6 @@
   },
   "SIDENAV": {
     "INFO_SUB": "How to build your foodsaving group",
-    "BLOG_SUB": "All news around the karrot software",
     "GIT_SUB": "See our code!"
   },
   "LOGIN": {
@@ -327,7 +325,7 @@
     "EXCEPTIONS_MESSAGE": "Some upcoming pickups don't match the settings of this recurring pickup. Have a look below at '{upcomingLabel}' to change or disable pickups, if needed."
   },
   "CREATESTORE": {
-    "TITLE": "एक नया स्टोर बनाएं"
+    "TITLE": "Create a new place"
   },
   "PICKUPLIST": {
     "FILTER": {
@@ -335,10 +333,10 @@
       "EMPTY": "Only empty",
       "FREE": "With free slots"
     },
-    "AVAILABLE": "There is one pickup in your favorite stores waiting for you! | There are {count} pickups in your favorite stores waiting for you!",
+    "AVAILABLE": "There is one pickup in your favorite places waiting for you! | There are {count} pickups in your favorite places waiting for you!",
     "AVAILABLE_FEEDBACK": "आप एक पिकअप को प्रतिक्रिया दे सकते हैं | {गिनती} पिकअप आपकी राय का इंतजार कर रहे हैं",
     "JOINEDNOTICE": "आपके पास एक आगामी पिकअप है | आपके पास {गणना} आगामी पिकअप हैं",
-    "AVAILABLE_FROM_STORES": "This shows pickups from your favorite stores in the next days. You can access other stores in the sidebar.",
+    "AVAILABLE_FROM_STORES": "This shows pickups from your favorite places in the next days. You can access other places in the sidebar.",
     "ITEM": {
       "LEAVE": "छोड़ना",
       "JOIN": "शामिल होना",
@@ -348,7 +346,7 @@
       "LEAVE_CONFIRMATION_TEXT": "क्या आप वास्तव में यह सुनिश्चित कर रहे हैं कि दूसरे आपके बिना पिकअप कर सकते हैं?"
     },
     "NONE": "कोई आगामी पिकअप नहीं",
-    "NONE_HINT": "आप स्टोर पृष्ठ पर एक नया पिकअप बना सकते हैं।",
+    "NONE_HINT": "You can create a new pickup on the place page.",
     "STORE_NONE_HINT": "आप पिकअप प्रबंधन पृष्ठ पर एक नया पिकअप बना सकते हैं।",
     "PICKUP_DISABLED": "This pickup has been disabled.",
     "PICKUP_STARTED": "This pickup has already started."
@@ -410,9 +408,9 @@
     "GROUP_MODIFY": "इस समूह की सेटिंग बदल दी",
     "GROUP_JOIN": "इस समूह में शामिल हुए",
     "GROUP_LEAVE": "इस समूह को छोड़ दिया",
-    "STORE_CREATE": "बनाया स्टोर {नाम}",
-    "STORE_MODIFY": "स्टोर {नाम} की सेटिंग बदल दी",
-    "STORE_DELETE": "हटाया गया स्टोर {नाम}",
+    "STORE_CREATE": "created place {name}",
+    "STORE_MODIFY": "changed the settings of place {name}",
+    "STORE_DELETE": "deleted place {name}",
     "PICKUP_CREATE": "नया एक बार पिक-अप बनाया",
     "PICKUP_MODIFY": "पिक-अप की सेटिंग बदल दी",
     "PICKUP_DELETE": "एक पिक-अप को हटा दिया",
@@ -455,7 +453,7 @@
     "APPLICATION_DECLINED": "Your application was declined",
     "INVITATION_ACCEPTED": "{userName} accepted your invitation",
     "FEEDBACK_POSSIBLE": "You can give feedback for the pickup you did on {date}",
-    "NEW_STORE": "{storeName} has been created",
+    "NEW_PLACE": "{placeName} has been created",
     "NEW_MEMBER": "{userName} joined your group",
     "PICKUP_UPCOMING": "Reminder: You have a pickup at {time}",
     "PICKUP_DISABLED": "Pickup at {dateTime} was disabled",
@@ -526,6 +524,7 @@
     "RECEIVED_VIA_EMAIL": "This message was sent via e-mail"
   },
   "CONVERSATION": {
+    "CONVERSATIONS": "Conversations",
     "OPEN": "Open Chat",
     "REPLY_TO_MESSAGE": "Reply to message...",
     "REPLIES": "Replies",
@@ -573,7 +572,8 @@
   "COMMUNITY_FEED": {
     "HEADER": "Updates from the {community}",
     "HEADER_LINK": "foodsaving worldwide community",
-    "LAST_UPDATED": "Last updated {relativeDate}"
+    "LAST_UPDATED": "Last updated {relativeDate}",
+    "KARROT_DISCUSSION": "Discussions about Karrot"
   },
   "INACTIVITY": {
     "WHAT": "What does it mean to be inactive?",

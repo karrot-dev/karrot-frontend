@@ -2,7 +2,6 @@
   "ENTRY": "1 entry | {count} entries",
   "GLOBAL": {
     "GITHUB_NOTE": "Development",
-    "COMMUNITY_NOTE": "Dołącz do nas!",
     "SERVER_ERROR": "Błąd serwera",
     "NOT_CONNECTED": "Brak połączenia z serwerem",
     "INVALID_LINK": "Przepraszamy, otwarty przez Ciebie link jest nieprawidłowy.",
@@ -134,7 +133,7 @@
     "SORT_NAME": "Sortuj po nazwie użytkownika",
     "INACTIVE": "Nieaktywni",
     "SHOW_INACTIVE": "Pokaż nieaktywne grupy",
-    "STORES": "Punkty odbioru",
+    "PLACES": "Places",
     "HOME": "Strona główna",
     "HISTORY": "Historia",
     "DESCRIPTION": "Opis",
@@ -158,7 +157,7 @@
       },
       "daily_pickup_notification": {
         "NAME": "Powiadomienia o odbiorach",
-        "DESCRIPTION": "Przypomina Ci o nadchodzących odbiorach, na które się zapisałaś/-eś oraz o odbiorach, na które jeszcze nikt się nie zapisał albo na które są jeszcze wolne miejsca w Twoich ulubionych punktach."
+        "DESCRIPTION": "Reminds you of your pickups, and tells you about empty or not-full pickups of your favorite places in the next day"
       },
       "new_application": {
         "NAME": "Nowe zgłoszenia",
@@ -177,8 +176,8 @@
     "TITLE": "Mapa",
     "SHOW_USERS": "Pokaż użytkowników",
     "HIDE_USERS": "Ukryj użytkowników",
-    "SHOW_STORES": "Pokaż punkty odbioru",
-    "HIDE_STORES": "Ukryj punkty odbioru",
+    "SHOW_PLACES": "Show places",
+    "HIDE_PLACES": "Hide places",
     "SHOW_GROUPS": "Pokaż grupy",
     "HIDE_GROUPS": "Ukryj grupy",
     "SET_LOCATION": "Ustaw lokalizację",
@@ -186,11 +185,11 @@
   },
   "STOREDETAIL": {
     "DIRECTIONS": "Pokaż trasę",
-    "EDIT": "Edytuj punkt odbioru",
-    "ARCHIVED": "Ten punkt odbioru został przeniesiony do archiwum",
-    "INACTIVE": "Ten punkt odbioru obecnie nie współpracuje.",
+    "EDIT": "Edit place",
+    "ARCHIVED": "This place has been archived",
+    "INACTIVE": "This place is currently not cooperating.",
     "CHANGE_STATUS": "Możesz zmienić status w zakładce Ustawienia.",
-    "NO_DESCRIPTION": "Ten punkt odbioru nie ma jeszcze opisu"
+    "NO_DESCRIPTION": "This place does not have a description yet"
   },
   "STOREEDIT": {
     "NAME": "Nazwa",
@@ -201,21 +200,21 @@
     "WEEKS_IN_ADVANCE_WARNING": "Existing leftover pickups will get deleted if they are empty. You can disable non-empty pickups manually, if needed.",
     "DIALOGS": {
       "ARCHIVE": {
-        "TITLE": "Przenieś punkt odbioru do archiwum",
+        "TITLE": "Archive place",
         "MESSAGE": "Jesteś pewna/-y?",
-        "CONFIRM": "Tak, przenieś punkt odbioru do archiwum"
+        "CONFIRM": "Yes, archive place"
       }
     },
     "RESTORE": "Przywróć",
-    "SHOW_ARCHIVED": "Pokaż zarchiwizowane punkty odbioru",
-    "HIDE_ARCHIVED": "Ukryj zarchiwizowane punkty odbioru",
-    "SHOW_ALL": "Pokaż wszystkie punkty odbioru",
-    "SHOW_ACTIVE_ONLY": "Pokaż tylko aktywne punkty odbioru"
+    "SHOW_ARCHIVED": "Show archived places",
+    "HIDE_ARCHIVED": "Hide archived places",
+    "SHOW_ALL": "Show all places",
+    "SHOW_ACTIVE_ONLY": "Only show active places"
   },
   "PLACEWALL": {
-    "SUBSCRIBED_USERS": "{count} people have marked this store as favourite",
+    "SUBSCRIBED_USERS": "{count} people have marked this place as favourite",
     "SUBSCRIPTION": {
-      "HEADER": "Czy chcesz oznaczyć ten punkt jako ulubiony?",
+      "HEADER": "Do you want to mark this place as your favourite?",
       "YES": "Tak",
       "YES_TEXT": "Shows available pickups on the group wall and sends emails about upcoming pickups.",
       "NO": "Nie",
@@ -275,7 +274,6 @@
   },
   "SIDENAV": {
     "INFO_SUB": "Jak zbudować grupę ratowników",
-    "BLOG_SUB": "Aktualności na temat systemu karrot",
     "GIT_SUB": "Zobacz nasz kod!"
   },
   "LOGIN": {
@@ -327,7 +325,7 @@
     "EXCEPTIONS_MESSAGE": "Some upcoming pickups don't match the settings of this recurring pickup. Have a look below at '{upcomingLabel}' to change or disable pickups, if needed."
   },
   "CREATESTORE": {
-    "TITLE": "Dodaj nowy punkt odbioru"
+    "TITLE": "Create a new place"
   },
   "PICKUPLIST": {
     "FILTER": {
@@ -335,10 +333,10 @@
       "EMPTY": "Odbiory, na które nikt się nie zapisał",
       "FREE": "Odbiory z wolnymi okienkami"
     },
-    "AVAILABLE": "Dostępny jest jeden odbiór w Twoich ulubionych punktach w najbliższych dniach! | Dostępne są {count} odbiory w Twoich ulubionych punktach w najbliższych dniach!",
+    "AVAILABLE": "There is one pickup in your favorite places waiting for you! | There are {count} pickups in your favorite places waiting for you!",
     "AVAILABLE_FEEDBACK": "Możesz dodać komentarz do odbioru | Możesz dodać komentarz do {count} odbiorów",
     "JOINEDNOTICE": "Masz jeden nadchodzący odbiór | Masz {count} nadchodzące odbiory",
-    "AVAILABLE_FROM_STORES": "Lista pokazuje dostępne odbiory w Twoich ulubionych punktach w najbliższych dniach. Aby zobaczyć wszystkie odbiory, wejdź w sekcję \"Odbiory\" lub wybierz konkretny punkt z panelu bocznego.",
+    "AVAILABLE_FROM_STORES": "This shows pickups from your favorite places in the next days. You can access other places in the sidebar.",
     "ITEM": {
       "LEAVE": "Zrezygnuj",
       "JOIN": "Zapisz się",
@@ -348,7 +346,7 @@
       "LEAVE_CONFIRMATION_TEXT": "Czy na pewno inni będą w stanie odebrać jedzenie, jeśli się nie pojawisz?"
     },
     "NONE": "Brak nadchodzących odbiorów",
-    "NONE_HINT": "Możesz dodać nowe odbiory na stronie punktu odbioru.",
+    "NONE_HINT": "You can create a new pickup on the place page.",
     "STORE_NONE_HINT": "Możesz dodać nowe odbiory na stronie zarządzania odbiorami.",
     "PICKUP_DISABLED": "Odbiór został zdezaktywowany.",
     "PICKUP_STARTED": "Odbiór już się rozpoczął."
@@ -410,9 +408,9 @@
     "GROUP_MODIFY": "zmienił/-a ustawienia grupy",
     "GROUP_JOIN": "dołączył/-a do grupy",
     "GROUP_LEAVE": "opuścił/-a grupę",
-    "STORE_CREATE": "utworzył/-a punkt odbioru {name}",
-    "STORE_MODIFY": "zmienił/-a ustawienia punktu odbioru {name}",
-    "STORE_DELETE": "usunięty punkt odbioru {name}",
+    "STORE_CREATE": "created place {name}",
+    "STORE_MODIFY": "changed the settings of place {name}",
+    "STORE_DELETE": "deleted place {name}",
     "PICKUP_CREATE": "dodał/-a jednorazowy odbiór",
     "PICKUP_MODIFY": "zmienił/-a ustawienia odbioru",
     "PICKUP_DELETE": "usunął/-ęła odbiór",
@@ -455,7 +453,7 @@
     "APPLICATION_DECLINED": "Twoje zgłoszenie zostało odrzucone",
     "INVITATION_ACCEPTED": "{userName} zaakceptował/-a twoje zaproszenie",
     "FEEDBACK_POSSIBLE": "Możesz dodać komentarz do odbioru z {date}",
-    "NEW_STORE": "Utworzono {storeName}",
+    "NEW_PLACE": "{placeName} has been created",
     "NEW_MEMBER": "{userName} dołączył/-a do grupy",
     "PICKUP_UPCOMING": "Przypomnienie: masz odbiór o {time}",
     "PICKUP_DISABLED": "Odbiór w dniu {dateTime} został zdezaktywowany",
@@ -526,6 +524,7 @@
     "RECEIVED_VIA_EMAIL": "Ta wiadomość została wysłana za pośrednictwem e-maila"
   },
   "CONVERSATION": {
+    "CONVERSATIONS": "Conversations",
     "OPEN": "Otwórz czat",
     "REPLY_TO_MESSAGE": "Odpowiedz na wiadomość...",
     "REPLIES": "Odpowiedzi",
@@ -573,7 +572,8 @@
   "COMMUNITY_FEED": {
     "HEADER": "Aktualności z {community}",
     "HEADER_LINK": "społeczność foodsaving worldwide",
-    "LAST_UPDATED": "Ostatnia aktualizacja {relativeDate}"
+    "LAST_UPDATED": "Ostatnia aktualizacja {relativeDate}",
+    "KARROT_DISCUSSION": "Discussions about Karrot"
   },
   "INACTIVITY": {
     "WHAT": "What does it mean to be inactive?",

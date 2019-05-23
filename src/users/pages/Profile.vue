@@ -106,7 +106,7 @@
           </QItem>
 
           <QItem v-if="user.address">
-            <QItemSide icon="fas fa-fw fa-map-marker-alt" />
+            <QItemSide icon="fas fa-fw fa-map-marker" />
             <QItemMain>
               {{ user.address }}
             </QItemMain>

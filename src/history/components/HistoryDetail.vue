@@ -69,7 +69,7 @@
         v-if="entry.place && entry.place.name"
         dense
       >
-        <QItemSide icon="fas fa-fw fa-shopping-cart" />
+        <QItemSide icon="fas fa-fw fa-dot-circle" />
         <QItemMain>
           <QItemTile label>
             <RouterLink :to="{name: 'place', params: { groupId: entry.place.group.id, placeId: entry.place.id }}">

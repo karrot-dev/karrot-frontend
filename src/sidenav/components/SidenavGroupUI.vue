@@ -56,7 +56,7 @@
         </QItem>
         <QItem :to="{ name: 'groupPickups', params: { groupId } }">
           <QItemSide class="text-center">
-            <QIcon name="fas fa-shopping-basket" />
+            <QIcon :name="$icon('pickup')" />
           </QItemSide>
           <QItemMain>
             {{ $t("GROUP.PICKUPS") }}
@@ -64,7 +64,7 @@
         </QItem>
         <QItem :to="{ name: 'groupFeedback', params: { groupId } }">
           <QItemSide class="text-center">
-            <QIcon name="fas fa-balance-scale" />
+            <QIcon :name="$icon('feedback')" />
           </QItemSide>
           <QItemMain>
             {{ $t("PICKUP_FEEDBACK.TITLE") }}

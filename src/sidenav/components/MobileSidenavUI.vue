@@ -19,7 +19,7 @@
           item
           :to="{name: 'user', params: {userId: currentUserId}}"
         >
-          <QItemSide>
+          <QItemSide class="text-center">
             <i class="fas fa-user fa-fw" />
           </QItemSide>
           <QItemMain :label="$t('TOPBAR.USERPROFILE')" />
@@ -29,7 +29,7 @@
           item
           :to="{name: 'groupsGallery'}"
         >
-          <QItemSide>
+          <QItemSide class="text-center">
             <i class="fas fa-exchange-alt" />
           </QItemSide>
           <QItemMain :label="$t('TOPBAR.CHANGE_GROUP')" />
@@ -39,7 +39,7 @@
           item
           :to="{name: 'settings'}"
         >
-          <QItemSide>
+          <QItemSide class="text-center">
             <i class="fas fa-cog fa-fw" />
           </QItemSide>
           <QItemMain :label="$t('SETTINGS.TITLE')" />
@@ -48,7 +48,7 @@
         <QItem
           @click.native="$emit('logout'), $emit('toggleSidenav')"
         >
-          <QItemSide>
+          <QItemSide class="text-center">
             <i class="fas fa-sign-out-alt fa-fw" />
           </QItemSide>
           <QItemMain :label="$t('TOPBAR.LOGOUT')" />

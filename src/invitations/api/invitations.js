@@ -9,6 +9,10 @@ export default {
     return convert((await axios.get(`/api/invitations/${invitationId}/`)).data)
   },
 
+  async resendEmail (invitationId) {
+    return (await axios.post(`/api/invitations/${invitationId}/resend/`)).data
+  },
+
   async list () {
     return convert((await axios.get('/api/invitations/')).data)
   },

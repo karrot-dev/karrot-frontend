@@ -12,6 +12,7 @@ export default connect({
     fetchStatus: 'feedback/fetchStatus',
     fetchFeedbackPossibleStatus: 'pickups/fetchFeedbackPossibleStatus',
     seedId: 'currentGroup/id',
+    isBikeKitchen: 'currentGroup/isBikeKitchen',
   },
   actionsToEvents: {
     save: 'feedback/save',

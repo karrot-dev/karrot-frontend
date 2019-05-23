@@ -30,7 +30,7 @@
       @click="$emit('togglePlaces')"
     >
       <span class="fa-fw fa-stack">
-        <i class="fas fa-shopping-cart fa-stack-1x" />
+        <i class="fas fa-dot-circle fa-stack-1x" />
         <i
           v-if="showPlaces"
           class="fas fa-check bottom-right fa-stack-1x"
@@ -41,7 +41,7 @@
         />
       </span>
       <QTooltip>
-        {{ $t( showPlaces ? 'GROUPMAP.HIDE_STORES' : 'GROUPMAP.SHOW_STORES') }}
+        {{ $t( showPlaces ? 'GROUPMAP.HIDE_PLACES' : 'GROUPMAP.SHOW_PLACES') }}
       </QTooltip>
     </QBtn>
 

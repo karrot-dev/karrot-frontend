@@ -56,7 +56,7 @@
             <AddressPicker
               v-model="edit"
               :color="markerColor"
-              font-icon="fas fa-dot-circle"
+              :font-icon="$icon('place')"
             />
           </QField>
 

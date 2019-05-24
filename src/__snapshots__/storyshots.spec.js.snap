@@ -4499,7 +4499,7 @@ exports[`Storyshots Notifications new_place 1`] = `
 <a class="q-link q-item q-item-division relative-position q-item-link isUnread">
   <!---->
   <div class="q-item-main q-item-section">
-    <div class="q-item-label" style="overflow:hidden;display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:2;"><i aria-hidden="true" class="q-icon q-mr-xs vertical-baseline fas fa-dot-circle"> </i>
+    <div class="q-item-label" style="overflow:hidden;display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:2;"><i aria-hidden="true" class="q-icon q-mr-xs vertical-baseline fas fa-circle"> </i>
       Place 0 has been created
     </div>
     <div class="q-item-sublabel">
@@ -6627,7 +6627,7 @@ exports[`Storyshots Sidenav Boxes Map 1`] = `
     </a>
     <!----> <button tabindex="0" type="button" class="q-btn inline relative-position q-btn-item non-selectable q-btn-rectangle q-focusable q-hoverable bg-primary text-white" style="font-size:10px;">
       <div class="q-focus-helper"></div>
-      <div class="q-btn-inner row col items-center q-popup--skip justify-center"><span class="fa-fw fa-stack"><i class="fas fa-dot-circle fa-stack-1x"></i> <i class="fas fa-check bottom-right fa-stack-1x"></i></span>
+      <div class="q-btn-inner row col items-center q-popup--skip justify-center"><span class="fa-fw fa-stack"><i class="fa-stack-1x fas fa-circle"></i> <i class="fas fa-check bottom-right fa-stack-1x"></i></span>
         <div class="q-tooltip animate-popup">
           <div>
             Hide places
@@ -6652,7 +6652,7 @@ exports[`Storyshots Sidenav Boxes Map 1`] = `
 
 exports[`Storyshots Sidenav Boxes Places 1`] = `
 <div class="k-sidenav-box">
-  <div class="q-toolbar row no-wrap items-center relative-position toolbar q-toolbar-inverted text-primary"><i aria-hidden="true" class="q-icon fas fa-fw fa-dot-circle"> </i>
+  <div class="q-toolbar row no-wrap items-center relative-position toolbar q-toolbar-inverted text-primary"><i aria-hidden="true" class="q-icon fas fa-fw fa-circle"> </i>
     <div class="q-toolbar-title">
       Places
     </div>

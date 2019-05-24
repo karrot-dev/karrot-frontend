@@ -57,7 +57,7 @@ function getIcon (type, context) {
     case 'pickup_upcoming':
       return 'fas fa-calendar-alt'
     case 'new_place':
-      return 'fas fa-dot-circle'
+      return icons.get('place')
     case 'new_applicant':
       return 'fas fa-address-card'
     case 'user_became_editor':

@@ -1,7 +1,7 @@
 <template>
   <SidenavBox>
     <template slot="icon">
-      <QIcon name="fas fa-fw fa-dot-circle" />
+      <QIcon :name="$icon('place_fw')" />
     </template>
     <template slot="name">
       {{ $t('GROUP.PLACES') }}

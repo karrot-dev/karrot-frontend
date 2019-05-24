@@ -25,7 +25,7 @@ Please document your changes in this format:
 - Bike kitchen theme #1509 @tiltec @djahnie
 
 ### Changed
-- Rename stores to places in UI and change shopping-cart to dot-circle #1398 @tiltec @djahnie
+- Rename stores to places in UI and change shopping-cart to circle #1398 @tiltec @djahnie
 - Separate conversations and threads in message notifications @tiltec @djahnie
 - Move language picker to user settings @tiltec @djahnie
 - Move community feed to sidenav @tiltec @djahnie

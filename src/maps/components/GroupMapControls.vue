@@ -30,7 +30,10 @@
       @click="$emit('togglePlaces')"
     >
       <span class="fa-fw fa-stack">
-        <i class="fas fa-dot-circle fa-stack-1x" />
+        <i
+          class="fa-stack-1x"
+          :class="$icon('place')"
+        />
         <i
           v-if="showPlaces"
           class="fas fa-check bottom-right fa-stack-1x"

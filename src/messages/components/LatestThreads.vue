@@ -15,6 +15,7 @@
         <LatestMessageItem
           v-for="conv in threads"
           :key="conv.id"
+          v-close-overlay
           :thread="conv"
           :message="conv.latestMessage"
           :unread-count="conv.threadMeta.unreadReplyCount"

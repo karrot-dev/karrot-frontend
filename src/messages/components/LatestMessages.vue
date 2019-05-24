@@ -74,13 +74,17 @@ export default {
     ...mapGetters({
       unseenConversationsCount: 'latestMessages/unseenConversationsCount',
       unseenThreadsCount: 'latestMessages/unseenThreadsCount',
+      unread: 'latestMessages/unread',
     }),
     hasOnlyUnseenThreads () {
       return Boolean(this.unseenThreadsCount && !this.unseenConversationsCount)
     },
+    hasOnlyUnreadThreads () {
+      return Boolean(!this.unread.conversations.length && this.unread.threads.length)
+    },
   },
   mounted () {
-    if (this.hasOnlyUnseenThreads) {
+    if (this.hasOnlyUnseenThreads || this.hasOnlyUnreadThreads) {
       this.selected = 'threads'
     }
   },

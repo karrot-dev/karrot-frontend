@@ -114,7 +114,15 @@ export async function maybeDispatchActions (datastore, to, from) {
     f.path !== (from.matched[i] || {}).path || // identify same matches by path
     changedParams.some(p => f.path.includes(`/:${p}`)) // make a new match if params in this route have been updated
 
-  const firstNewMatchIdx = Math.max(0, to.matched.findIndex(isNewMatch))
+  const firstNewMatchIdx = to.matched.findIndex(isNewMatch)
+
+  // abort early if route is identical
+  if (firstNewMatchIdx === -1) {
+    return {
+      redirects: [],
+      routeErrors: [],
+    }
+  }
 
   for (let m of from.matched.slice(firstNewMatchIdx).reverse()) {
     if (m.meta.afterLeave) {

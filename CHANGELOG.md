@@ -30,6 +30,7 @@ Please document your changes in this format:
 - Move language picker to user settings @tiltec @djahnie
 - Move community feed to sidenav @tiltec @djahnie
 - Invitations can be resent after 1 hour #837 @mvellasco
+- Move place description into modal @tiltec
 
 ### Fixed
 - Permission checks in main routes had a typo and were not active @djahnie @tiltec

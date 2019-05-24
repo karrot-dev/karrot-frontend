@@ -86,7 +86,6 @@
           :href="directionsURL"
         >
           <QBtn
-            small
             round
             :color="directionsURL ? 'secondary' : 'grey'"
             icon="directions"
@@ -98,38 +97,70 @@
         </component>
       </div>
     </div>
-    <QCollapsible
+    <div
       v-if="place"
-      label="Information"
-      :sublabel="place.description"
-      :sublabel-lines="1"
-      icon="fas fa-info-circle"
-      class="bg-white q-pb-xs"
+      class="bg-white q-py-sm q-px-md limit-height cursor-pointer"
+      @click="toggleDetail"
     >
-      <div
+      <QBtn
+        v-if="$q.platform.is.mobile"
+        round
+        flat
+        size="md"
+        icon="fas fa-map-marker"
+        class="float-right"
+      />
+      <Markdown
         v-if="place.description"
-        class="q-pt-xs"
-      >
-        <Markdown
-          :source="place.description"
-        />
-      </div>
-      <div
-        v-else
-        class="q-pt-sm"
-      >
+        :source="place.description"
+      />
+      <div v-else>
         <span class="text-italic">
           {{ $t("STOREDETAIL.NO_DESCRIPTION") }}
         </span>
       </div>
-      <template v-if="$q.platform.is.mobile">
-        <QCardSeparator class="q-mb-sm" />
-        <StandardMap
-          :markers="markers"
-          class="map"
-        />
-      </template>
-    </QCollapsible>
+    </div>
+    <QModal
+      v-model="showDetail"
+    >
+      <QModalLayout>
+        <QToolbar slot="header">
+          <QToolbarTitle v-if="place">
+            <QIcon
+              name="fas fa-info-circle"
+              class="on-left"
+            />
+            <span>{{ place.name }}</span>
+          </QToolbarTitle>
+          <QBtn
+            v-t="'BUTTON.CLOSE'"
+            outline
+            @click="toggleDetail"
+          />
+        </QToolbar>
+        <div
+          v-if="place"
+          class="q-ma-md"
+        >
+          <Markdown
+            v-if="place.description"
+            :source="place.description"
+          />
+          <div v-else>
+            <span class="text-italic">
+              {{ $t("STOREDETAIL.NO_DESCRIPTION") }}
+            </span>
+          </div>
+          <template v-if="$q.platform.is.mobile">
+            <QCardSeparator class="q-my-sm" />
+            <StandardMap
+              :markers="markers"
+              class="map"
+            />
+          </template>
+        </div>
+      </QModalLayout>
+    </QModal>
   </div>
 </template>
 
@@ -149,7 +180,6 @@ import {
 } from 'vuex'
 
 import {
-  QCollapsible,
   QCardSeparator,
   QBtn,
   QTooltip,
@@ -160,6 +190,11 @@ import {
   QItemMain,
   QItemSide,
   QChip,
+  QModal,
+  QModalLayout,
+  QToolbar,
+  QToolbarTitle,
+  QIcon,
 } from 'quasar'
 
 export default {
@@ -169,7 +204,6 @@ export default {
     RandomArt,
     KSpinner,
     ProfilePicture,
-    QCollapsible,
     QCardSeparator,
     QBtn,
     QTooltip,
@@ -180,6 +214,16 @@ export default {
     QItemMain,
     QItemSide,
     QChip,
+    QModal,
+    QModalLayout,
+    QToolbar,
+    QToolbarTitle,
+    QIcon,
+  },
+  data () {
+    return {
+      showDetail: false,
+    }
   },
   computed: {
     markers () {
@@ -245,6 +289,9 @@ export default {
         this.unsubscribe(this.placeId)
       }
     },
+    toggleDetail () {
+      this.showDetail = !this.showDetail
+    },
   },
 }
 </script>
@@ -258,4 +305,16 @@ export default {
   margin 3px
 .map
   height 30vh
+.limit-height
+  max-height 10rem
+  overflow-y hidden
+  position relative
+  &:before
+    content ''
+    width 100%
+    height 100%
+    position absolute
+    left 0
+    top 0
+    background linear-gradient(transparent 90%, white)
 </style>

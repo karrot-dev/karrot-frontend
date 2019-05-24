@@ -86,7 +86,6 @@
           :href="directionsURL"
         >
           <QBtn
-            small
             round
             :color="directionsURL ? 'secondary' : 'grey'"
             icon="directions"
@@ -100,9 +99,17 @@
     </div>
     <div
       v-if="place"
-      class="bg-white q-py-sm q-px-md fixed-height cursor-pointer"
+      class="bg-white q-py-sm q-px-md limit-height cursor-pointer"
       @click="toggleDetail"
     >
+      <QBtn
+        v-if="$q.platform.is.mobile"
+        round
+        flat
+        size="md"
+        icon="fas fa-map-marker"
+        class="float-right"
+      />
       <Markdown
         v-if="place.description"
         :source="place.description"
@@ -145,7 +152,7 @@
             </span>
           </div>
           <template v-if="$q.platform.is.mobile">
-            <QCardSeparator class="q-mb-sm" />
+            <QCardSeparator class="q-my-sm" />
             <StandardMap
               :markers="markers"
               class="map"
@@ -298,8 +305,7 @@ export default {
   margin 3px
 .map
   height 30vh
-.fixed-height
-  min-height 10rem
+.limit-height
   max-height 10rem
   overflow-y hidden
   position relative
@@ -310,5 +316,5 @@ export default {
     position absolute
     left 0
     top 0
-    background linear-gradient(transparent 8rem, white)
+    background linear-gradient(transparent 90%, white)
 </style>

@@ -3,7 +3,7 @@ import { action } from '@storybook/addon-actions'
 
 import Settings from '@/authuser/pages/Settings'
 import VerificationWarning from '@/authuser/components/Settings/VerificationWarning'
-import { currentUserMock } from '>/mockdata'
+import { currentUserMock, groupsMock } from '>/mockdata'
 
 import { createDatastore, statusMocks, storybookDefaults as defaults } from '>/helpers'
 
@@ -28,6 +28,16 @@ const datastore = createDatastore({
           pending: () => false,
         },
       },
+    },
+  },
+  currentGroup: {
+    getters: {
+      value: () => groupsMock[0],
+    },
+  },
+  groups: {
+    getters: {
+      mine: () => groupsMock,
     },
   },
   users: {

@@ -8,7 +8,6 @@ const LatestConversations = () => import('@/messages/components/LatestConversati
 const LatestThreads = () => import('@/messages/components/LatestThreads')
 const Notifications = () => import('@/notifications/pages/Notifications')
 const GroupMap = () => import('@/maps/pages/Map')
-const GroupSettings = () => import('@/group/pages/Settings')
 const GroupEdit = () => import('@/group/pages/Edit')
 const GroupManageAgreement = () => import('@/agreements/pages/ManageAgreement')
 const GroupCreate = () => import('@/group/pages/Create')
@@ -281,17 +280,6 @@ export default [
         component: GroupEdit,
       },
       {
-        name: 'groupSettings',
-        path: 'settings',
-        meta: {
-          breadcrumbs: [
-            { translation: 'GROUP.SETTINGS', route: { name: 'groupSettings' } },
-          ],
-          beforeEnter: 'auth/getFailedEmailDeliveries',
-        },
-        component: GroupSettings,
-      },
-      {
         name: 'groupManageAgreement',
         path: 'agreement',
         meta: {
@@ -479,7 +467,7 @@ export default [
       breadcrumbs: [
         { translation: 'SETTINGS.TITLE', route: { name: 'settings' } },
       ],
-      beforeEnter: 'auth/getFailedEmailDeliveries',
+      beforeEnter: ['auth/getFailedEmailDeliveries', 'currentGroup/selectFromCurrentUser'],
       afterLeave: 'auth/clearSettingsStatus',
     },
     component: Settings,

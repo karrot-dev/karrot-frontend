@@ -14,7 +14,7 @@
         flat
         dense
         round
-        :to="{ name: 'groupSettings', params: { groupId } }"
+        :to="{ name: 'settings', hash: '#notifications' }"
       >
         <QIcon name="fas fa-cog fa-fw" />
         <QTooltip v-t="'GROUP.SETTINGS'" />

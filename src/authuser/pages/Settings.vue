@@ -48,6 +48,7 @@
         </QCardActions>
       </QCardMain>
     </QCard>
+    <GroupSettings />
     <QCard
       v-if="!$q.platform.is.cordova"
       class="no-shadow grey-border"
@@ -66,7 +67,14 @@
 </template>
 
 <script>
-import { QCard, QCardTitle, QCardMain, QCardSeparator, QCardActions } from 'quasar'
+import {
+  QCard,
+  QCardTitle,
+  QCardMain,
+  QCardSeparator,
+  QCardActions,
+} from 'quasar'
+
 import { mapGetters, mapActions } from 'vuex'
 
 import ProfileEdit from '@/authuser/components/Settings/ProfileEdit'
@@ -76,6 +84,7 @@ import ChangePhoto from '@/authuser/components/Settings/ChangePhoto'
 import RequestDeleteAccount from '@/authuser/components/Settings/RequestDeleteAccount'
 import Push from '@/authuser/components/Settings/Push'
 import LocaleSelect from '@/utils/components/LocaleSelect'
+import GroupSettings from '@/group/pages/Settings'
 
 export default {
   name: 'Settings',
@@ -92,6 +101,7 @@ export default {
     RequestDeleteAccount,
     Push,
     LocaleSelect,
+    GroupSettings,
   },
   computed: {
     ...mapGetters({

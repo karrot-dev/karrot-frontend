@@ -21,15 +21,17 @@ Please document your changes in this format:
 ```
 
 ## [Unreleased]
+
+## [7.4.0] - 2019-05-25
 ### Added
-- Bike kitchen theme #1509 @tiltec @djahnie
+- Bike kitchen theme [#1509] @tiltec @djahnie
 
 ### Changed
-- Rename stores to places in UI #1398 @tiltec @djahnie
+- Rename stores to places in UI [#1398] @tiltec @djahnie
 - Separate conversations and threads in message notifications @tiltec @djahnie
 - Move language picker to user settings @tiltec @djahnie
 - Move community feed to sidenav @tiltec @djahnie
-- Invitations can be resent after 1 hour #837 @mvellasco
+- Invitations can be resent after 1 hour [#837] @mvellasco
 - Move place description into modal @tiltec
 - Move notification settings to user settings @tiltec @djahnie
 - Move applications from group wall into sidenav @tiltec
@@ -433,6 +435,7 @@ After months of planning and programming, the first version of ~the foodsaving t
 - **pick-up dates**: create a pick-up date which belongs to a store, set time and max. amount of people who can collect food, user can join/leave a pick-up date
 
 [#709]: https://github.com/yunity/karrot-frontend/issues/709
+[#837]: https://github.com/yunity/karrot-frontend/issues/837
 [#891]: https://github.com/yunity/karrot-frontend/issues/891
 [#986]: https://github.com/yunity/karrot-frontend/issues/986
 [#1020]: https://github.com/yunity/karrot-frontend/issues/1020
@@ -455,9 +458,12 @@ After months of planning and programming, the first version of ~the foodsaving t
 [#1157]: https://github.com/yunity/karrot-frontend/issues/1157
 [#1174]: https://github.com/yunity/karrot-frontend/issues/1174
 [#1178]: https://github.com/yunity/karrot-frontend/issues/1178
+[#1398]: https://github.com/yunity/karrot-frontend/issues/1398
 [#1421]: https://github.com/yunity/karrot-frontend/issues/1421
+[#1509]: https://github.com/yunity/karrot-frontend/issues/1509
 
-[Unreleased]: https://github.com/yunity/karrot-frontend/compare/v7.3.0...HEAD
+[Unreleased]: https://github.com/yunity/karrot-frontend/compare/v7.4.0...HEAD
+[7.4.0]: https://github.com/yunity/karrot-frontend/compare/v7.3.0...v7.4.0
 [7.3.0]: https://github.com/yunity/karrot-frontend/compare/v7.2.4...v7.3.0
 [7.2.4]: https://github.com/yunity/karrot-frontend/compare/v7.2.3...v7.2.4
 [7.2.3]: https://github.com/yunity/karrot-frontend/compare/v7.2.2...v7.2.3

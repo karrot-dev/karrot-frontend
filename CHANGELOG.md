@@ -25,7 +25,7 @@ Please document your changes in this format:
 - Bike kitchen theme #1509 @tiltec @djahnie
 
 ### Changed
-- Rename stores to places in UI and change shopping-cart to circle #1398 @tiltec @djahnie
+- Rename stores to places in UI #1398 @tiltec @djahnie
 - Separate conversations and threads in message notifications @tiltec @djahnie
 - Move language picker to user settings @tiltec @djahnie
 - Move community feed to sidenav @tiltec @djahnie
@@ -33,6 +33,8 @@ Please document your changes in this format:
 - Move place description into modal @tiltec
 - Move notification settings to user settings @tiltec @djahnie
 - Move applications from group wall into sidenav @tiltec
+- Require opt-in to application notification emails @tiltec
+- Do not add members to application chats anymore @tiltec
 
 ### Fixed
 - Permission checks in main routes had a typo and were not active @djahnie @tiltec

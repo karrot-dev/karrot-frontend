@@ -2932,81 +2932,129 @@ exports[`Storyshots GroupPreviewUI without public description 1`] = `
 `;
 
 exports[`Storyshots GroupSettings show 1`] = `
-<div class="q-card no-mobile-margin no-shadow grey-border">
-  <div seed="1" type="circles">
-    <div class="art-overlay"></div>
+<div id="notifications" class="q-card no-shadow grey-border">
+  <div class="q-card-primary q-card-container row no-wrap">
+    <div class="col column">
+      <div class="q-card-title">Email notifications</div>
+      <div class="q-card-subtitle"></div>
+    </div>
+    <div class="col-auto self-center q-card-title-extra"></div>
   </div>
-  <div class="q-list q-list-link">
-    <div class="q-list-header">Email notifications</div>
-    <div class="generic-margin">VerificationWarning has been mocked</div> <label class="q-item q-item-division relative-position">
-      <div class="q-item-side q-item-section q-item-side-left">
-        <div tabindex="0" class="q-option cursor-pointer no-outline row inline no-wrap items-center q-checkbox q-focusable">
-          <div class="q-option-inner relative-position text-faded"><input type="checkbox">
-            <div class="q-focus-helper q-focus-helper-rounded"></div><i aria-hidden="true" class="q-icon q-checkbox-icon cursor-pointer material-icons" style="opacity:1;">check_box_outline_blank</i><i aria-hidden="true" class="q-icon q-checkbox-icon cursor-pointer absolute-full material-icons" style="transition:opacity 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms, transform 0ms cubic-bezier(0.23, 1, 0.32, 1) 450ms;opacity:0;transform:scale(0);">indeterminate_check_box</i><i aria-hidden="true" class="q-icon q-checkbox-icon cursor-pointer absolute-full material-icons" style="transition:opacity 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms, transform 0ms cubic-bezier(0.23, 1, 0.32, 1) 450ms;opacity:0;transform:scale(0);">check_box</i>
-            <div class="q-radial-ripple"></div>
+  <div class="q-pb-sm q-pl-md q-caption q-caption-opacity">
+    Notification settings are group specific.
+  </div> <button tabindex="0" type="button" class="q-btn inline relative-position q-btn-item non-selectable q-ml-md q-btn-rectangle q-focusable q-hoverable bg-primary text-white">
+    <div class="q-focus-helper"></div>
+    <div class="q-btn-inner row col items-center q-popup--skip justify-center"><i class="fas fa-hand-pointer on-left"></i>
+      Change group
+      <div class="modal fullscreen row minimized flex-center" style="display:none;">
+        <div class="modal-backdrop absolute-full"></div>
+        <div tabindex="-1" class="modal-content">
+          <div class="q-list">
+            <div class="q-list-header">
+              My groups
+            </div>
+            <div class="q-list-header">
+              Other groups
+            </div> <a class="q-link q-item q-item-division relative-position q-item-link">
+              <div class="q-item-main q-item-section">
+                05_testgroup
+              </div>
+            </a><a class="q-link q-item q-item-division relative-position q-item-link">
+              <div class="q-item-main q-item-section">
+                06_testgroup
+              </div>
+            </a><a class="q-link q-item q-item-division relative-position q-item-link">
+              <div class="q-item-main q-item-section">
+                02_testgroup
+              </div>
+            </a><a class="q-link q-item q-item-division relative-position q-item-link">
+              <div class="q-item-main q-item-section">
+                03_testgroup
+              </div>
+            </a><a class="q-link q-item q-item-division relative-position q-item-link">
+              <div class="q-item-main q-item-section">
+                01_testgroup_with_maps_and_password
+              </div>
+            </a><a class="q-link q-item q-item-division relative-position q-item-link">
+              <div class="q-item-main q-item-section">
+                04_testgroup
+              </div>
+            </a>
           </div>
         </div>
       </div>
-      <div class="q-item-main q-item-section">
-        <div class="q-item-label">
-          Weekly summary
-        </div>
-        <div class="q-item-sublabel">
-          Keep up to date with what's been happening in the group.
-        </div>
-      </div>
-    </label><label class="q-item q-item-division relative-position">
-      <div class="q-item-side q-item-section q-item-side-left">
-        <div tabindex="0" class="q-option cursor-pointer no-outline row inline no-wrap items-center q-checkbox q-focusable">
-          <div class="q-option-inner relative-position text-faded"><input type="checkbox">
-            <div class="q-focus-helper q-focus-helper-rounded"></div><i aria-hidden="true" class="q-icon q-checkbox-icon cursor-pointer material-icons" style="opacity:1;">check_box_outline_blank</i><i aria-hidden="true" class="q-icon q-checkbox-icon cursor-pointer absolute-full material-icons" style="transition:opacity 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms, transform 0ms cubic-bezier(0.23, 1, 0.32, 1) 450ms;opacity:0;transform:scale(0);">indeterminate_check_box</i><i aria-hidden="true" class="q-icon q-checkbox-icon cursor-pointer absolute-full material-icons" style="transition:opacity 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms, transform 0ms cubic-bezier(0.23, 1, 0.32, 1) 450ms;opacity:0;transform:scale(0);">check_box</i>
-            <div class="q-radial-ripple"></div>
+    </div>
+  </button>
+  <div class="q-card-main q-card-container">
+    <div class="q-list q-list-link"><label class="q-item q-item-division relative-position">
+        <div class="q-item-side q-item-section q-item-side-left">
+          <div tabindex="0" class="q-option cursor-pointer no-outline row inline no-wrap items-center q-checkbox q-focusable">
+            <div class="q-option-inner relative-position text-faded"><input type="checkbox">
+              <div class="q-focus-helper q-focus-helper-rounded"></div><i aria-hidden="true" class="q-icon q-checkbox-icon cursor-pointer material-icons" style="opacity:1;">check_box_outline_blank</i><i aria-hidden="true" class="q-icon q-checkbox-icon cursor-pointer absolute-full material-icons" style="transition:opacity 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms, transform 0ms cubic-bezier(0.23, 1, 0.32, 1) 450ms;opacity:0;transform:scale(0);">indeterminate_check_box</i><i aria-hidden="true" class="q-icon q-checkbox-icon cursor-pointer absolute-full material-icons" style="transition:opacity 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms, transform 0ms cubic-bezier(0.23, 1, 0.32, 1) 450ms;opacity:0;transform:scale(0);">check_box</i>
+              <div class="q-radial-ripple"></div>
+            </div>
           </div>
         </div>
-      </div>
-      <div class="q-item-main q-item-section">
-        <div class="q-item-label">
-          Pickup notifications
-        </div>
-        <div class="q-item-sublabel">
-          Reminds you of your pickups, and tells you about empty or not-full pickups of your favorite places in the next day
-        </div>
-      </div>
-    </label><label class="q-item q-item-division relative-position">
-      <div class="q-item-side q-item-section q-item-side-left">
-        <div tabindex="0" class="q-option cursor-pointer no-outline row inline no-wrap items-center q-checkbox q-focusable">
-          <div class="q-option-inner relative-position text-faded"><input type="checkbox">
-            <div class="q-focus-helper q-focus-helper-rounded"></div><i aria-hidden="true" class="q-icon q-checkbox-icon cursor-pointer material-icons" style="opacity:1;">check_box_outline_blank</i><i aria-hidden="true" class="q-icon q-checkbox-icon cursor-pointer absolute-full material-icons" style="transition:opacity 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms, transform 0ms cubic-bezier(0.23, 1, 0.32, 1) 450ms;opacity:0;transform:scale(0);">indeterminate_check_box</i><i aria-hidden="true" class="q-icon q-checkbox-icon cursor-pointer absolute-full material-icons" style="transition:opacity 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms, transform 0ms cubic-bezier(0.23, 1, 0.32, 1) 450ms;opacity:0;transform:scale(0);">check_box</i>
-            <div class="q-radial-ripple"></div>
+        <div class="q-item-main q-item-section">
+          <div class="q-item-label">
+            Weekly summary
+          </div>
+          <div class="q-item-sublabel">
+            Keep up to date with what's been happening in the group.
           </div>
         </div>
-      </div>
-      <div class="q-item-main q-item-section">
-        <div class="q-item-label">
-          New applications
-        </div>
-        <div class="q-item-sublabel">
-          Tells you when somebody wants to join your group
-        </div>
-      </div>
-    </label><label class="q-item q-item-division relative-position">
-      <div class="q-item-side q-item-section q-item-side-left">
-        <div tabindex="0" class="q-option cursor-pointer no-outline row inline no-wrap items-center q-checkbox q-focusable">
-          <div class="q-option-inner relative-position text-faded"><input type="checkbox">
-            <div class="q-focus-helper q-focus-helper-rounded"></div><i aria-hidden="true" class="q-icon q-checkbox-icon cursor-pointer material-icons" style="opacity:1;">check_box_outline_blank</i><i aria-hidden="true" class="q-icon q-checkbox-icon cursor-pointer absolute-full material-icons" style="transition:opacity 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms, transform 0ms cubic-bezier(0.23, 1, 0.32, 1) 450ms;opacity:0;transform:scale(0);">indeterminate_check_box</i><i aria-hidden="true" class="q-icon q-checkbox-icon cursor-pointer absolute-full material-icons" style="transition:opacity 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms, transform 0ms cubic-bezier(0.23, 1, 0.32, 1) 450ms;opacity:0;transform:scale(0);">check_box</i>
-            <div class="q-radial-ripple"></div>
+      </label><label class="q-item q-item-division relative-position">
+        <div class="q-item-side q-item-section q-item-side-left">
+          <div tabindex="0" class="q-option cursor-pointer no-outline row inline no-wrap items-center q-checkbox q-focusable">
+            <div class="q-option-inner relative-position text-faded"><input type="checkbox">
+              <div class="q-focus-helper q-focus-helper-rounded"></div><i aria-hidden="true" class="q-icon q-checkbox-icon cursor-pointer material-icons" style="opacity:1;">check_box_outline_blank</i><i aria-hidden="true" class="q-icon q-checkbox-icon cursor-pointer absolute-full material-icons" style="transition:opacity 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms, transform 0ms cubic-bezier(0.23, 1, 0.32, 1) 450ms;opacity:0;transform:scale(0);">indeterminate_check_box</i><i aria-hidden="true" class="q-icon q-checkbox-icon cursor-pointer absolute-full material-icons" style="transition:opacity 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms, transform 0ms cubic-bezier(0.23, 1, 0.32, 1) 450ms;opacity:0;transform:scale(0);">check_box</i>
+              <div class="q-radial-ripple"></div>
+            </div>
           </div>
         </div>
-      </div>
-      <div class="q-item-main q-item-section">
-        <div class="q-item-label">
-          New conflict resolution processes
+        <div class="q-item-main q-item-section">
+          <div class="q-item-label">
+            Pickup notifications
+          </div>
+          <div class="q-item-sublabel">
+            Reminds you of your pickups, and tells you about empty or not-full pickups of your favorite places in the next day
+          </div>
         </div>
-        <div class="q-item-sublabel">
-          Tells you when a new conflict resolution process has been started in your group
+      </label><label class="q-item q-item-division relative-position">
+        <div class="q-item-side q-item-section q-item-side-left">
+          <div tabindex="0" class="q-option cursor-pointer no-outline row inline no-wrap items-center q-checkbox q-focusable">
+            <div class="q-option-inner relative-position text-faded"><input type="checkbox">
+              <div class="q-focus-helper q-focus-helper-rounded"></div><i aria-hidden="true" class="q-icon q-checkbox-icon cursor-pointer material-icons" style="opacity:1;">check_box_outline_blank</i><i aria-hidden="true" class="q-icon q-checkbox-icon cursor-pointer absolute-full material-icons" style="transition:opacity 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms, transform 0ms cubic-bezier(0.23, 1, 0.32, 1) 450ms;opacity:0;transform:scale(0);">indeterminate_check_box</i><i aria-hidden="true" class="q-icon q-checkbox-icon cursor-pointer absolute-full material-icons" style="transition:opacity 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms, transform 0ms cubic-bezier(0.23, 1, 0.32, 1) 450ms;opacity:0;transform:scale(0);">check_box</i>
+              <div class="q-radial-ripple"></div>
+            </div>
+          </div>
         </div>
-      </div>
-    </label>
+        <div class="q-item-main q-item-section">
+          <div class="q-item-label">
+            New applications
+          </div>
+          <div class="q-item-sublabel">
+            Tells you when somebody wants to join your group
+          </div>
+        </div>
+      </label><label class="q-item q-item-division relative-position">
+        <div class="q-item-side q-item-section q-item-side-left">
+          <div tabindex="0" class="q-option cursor-pointer no-outline row inline no-wrap items-center q-checkbox q-focusable">
+            <div class="q-option-inner relative-position text-faded"><input type="checkbox">
+              <div class="q-focus-helper q-focus-helper-rounded"></div><i aria-hidden="true" class="q-icon q-checkbox-icon cursor-pointer material-icons" style="opacity:1;">check_box_outline_blank</i><i aria-hidden="true" class="q-icon q-checkbox-icon cursor-pointer absolute-full material-icons" style="transition:opacity 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms, transform 0ms cubic-bezier(0.23, 1, 0.32, 1) 450ms;opacity:0;transform:scale(0);">indeterminate_check_box</i><i aria-hidden="true" class="q-icon q-checkbox-icon cursor-pointer absolute-full material-icons" style="transition:opacity 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms, transform 0ms cubic-bezier(0.23, 1, 0.32, 1) 450ms;opacity:0;transform:scale(0);">check_box</i>
+              <div class="q-radial-ripple"></div>
+            </div>
+          </div>
+        </div>
+        <div class="q-item-main q-item-section">
+          <div class="q-item-label">
+            New conflict resolution processes
+          </div>
+          <div class="q-item-sublabel">
+            Tells you when a new conflict resolution process has been started in your group
+          </div>
+        </div>
+      </label></div>
   </div>
 </div>
 `;
@@ -6499,6 +6547,131 @@ exports[`Storyshots Settings Page Default 1`] = `
       </div>
     </div>
   </div>
+  <div id="notifications" class="q-card no-shadow grey-border">
+    <div class="q-card-primary q-card-container row no-wrap">
+      <div class="col column">
+        <div class="q-card-title">Email notifications</div>
+        <div class="q-card-subtitle"></div>
+      </div>
+      <div class="col-auto self-center q-card-title-extra"></div>
+    </div>
+    <div class="q-pb-sm q-pl-md q-caption q-caption-opacity">
+      Notification settings are group specific.
+    </div> <button tabindex="0" type="button" class="q-btn inline relative-position q-btn-item non-selectable q-ml-md q-btn-rectangle q-focusable q-hoverable bg-primary text-white">
+      <div class="q-focus-helper"></div>
+      <div class="q-btn-inner row col items-center q-popup--skip justify-center"><i class="fas fa-hand-pointer on-left"></i>
+        Change group
+        <div class="modal fullscreen row minimized flex-center" style="display:none;">
+          <div class="modal-backdrop absolute-full"></div>
+          <div tabindex="-1" class="modal-content">
+            <div class="q-list">
+              <div class="q-list-header">
+                My groups
+              </div>
+              <div class="q-list-header">
+                Other groups
+              </div> <a class="q-link q-item q-item-division relative-position q-item-link">
+                <div class="q-item-main q-item-section">
+                  05_testgroup
+                </div>
+              </a><a class="q-link q-item q-item-division relative-position q-item-link">
+                <div class="q-item-main q-item-section">
+                  06_testgroup
+                </div>
+              </a><a class="q-link q-item q-item-division relative-position q-item-link">
+                <div class="q-item-main q-item-section">
+                  02_testgroup
+                </div>
+              </a><a class="q-link q-item q-item-division relative-position q-item-link">
+                <div class="q-item-main q-item-section">
+                  03_testgroup
+                </div>
+              </a><a class="q-link q-item q-item-division relative-position q-item-link">
+                <div class="q-item-main q-item-section">
+                  01_testgroup_with_maps_and_password
+                </div>
+              </a><a class="q-link q-item q-item-division relative-position q-item-link">
+                <div class="q-item-main q-item-section">
+                  04_testgroup
+                </div>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </button>
+    <div class="q-card-main q-card-container">
+      <div class="q-list q-list-link"><label class="q-item q-item-division relative-position">
+          <div class="q-item-side q-item-section q-item-side-left">
+            <div tabindex="0" class="q-option cursor-pointer no-outline row inline no-wrap items-center q-checkbox q-focusable">
+              <div class="q-option-inner relative-position text-faded"><input type="checkbox">
+                <div class="q-focus-helper q-focus-helper-rounded"></div><i aria-hidden="true" class="q-icon q-checkbox-icon cursor-pointer material-icons" style="opacity:1;">check_box_outline_blank</i><i aria-hidden="true" class="q-icon q-checkbox-icon cursor-pointer absolute-full material-icons" style="transition:opacity 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms, transform 0ms cubic-bezier(0.23, 1, 0.32, 1) 450ms;opacity:0;transform:scale(0);">indeterminate_check_box</i><i aria-hidden="true" class="q-icon q-checkbox-icon cursor-pointer absolute-full material-icons" style="transition:opacity 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms, transform 0ms cubic-bezier(0.23, 1, 0.32, 1) 450ms;opacity:0;transform:scale(0);">check_box</i>
+                <div class="q-radial-ripple"></div>
+              </div>
+            </div>
+          </div>
+          <div class="q-item-main q-item-section">
+            <div class="q-item-label">
+              Weekly summary
+            </div>
+            <div class="q-item-sublabel">
+              Keep up to date with what's been happening in the group.
+            </div>
+          </div>
+        </label><label class="q-item q-item-division relative-position">
+          <div class="q-item-side q-item-section q-item-side-left">
+            <div tabindex="0" class="q-option cursor-pointer no-outline row inline no-wrap items-center q-checkbox q-focusable">
+              <div class="q-option-inner relative-position text-faded"><input type="checkbox">
+                <div class="q-focus-helper q-focus-helper-rounded"></div><i aria-hidden="true" class="q-icon q-checkbox-icon cursor-pointer material-icons" style="opacity:1;">check_box_outline_blank</i><i aria-hidden="true" class="q-icon q-checkbox-icon cursor-pointer absolute-full material-icons" style="transition:opacity 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms, transform 0ms cubic-bezier(0.23, 1, 0.32, 1) 450ms;opacity:0;transform:scale(0);">indeterminate_check_box</i><i aria-hidden="true" class="q-icon q-checkbox-icon cursor-pointer absolute-full material-icons" style="transition:opacity 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms, transform 0ms cubic-bezier(0.23, 1, 0.32, 1) 450ms;opacity:0;transform:scale(0);">check_box</i>
+                <div class="q-radial-ripple"></div>
+              </div>
+            </div>
+          </div>
+          <div class="q-item-main q-item-section">
+            <div class="q-item-label">
+              Pickup notifications
+            </div>
+            <div class="q-item-sublabel">
+              Reminds you of your pickups, and tells you about empty or not-full pickups of your favorite places in the next day
+            </div>
+          </div>
+        </label><label class="q-item q-item-division relative-position">
+          <div class="q-item-side q-item-section q-item-side-left">
+            <div tabindex="0" class="q-option cursor-pointer no-outline row inline no-wrap items-center q-checkbox q-focusable">
+              <div class="q-option-inner relative-position text-faded"><input type="checkbox">
+                <div class="q-focus-helper q-focus-helper-rounded"></div><i aria-hidden="true" class="q-icon q-checkbox-icon cursor-pointer material-icons" style="opacity:1;">check_box_outline_blank</i><i aria-hidden="true" class="q-icon q-checkbox-icon cursor-pointer absolute-full material-icons" style="transition:opacity 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms, transform 0ms cubic-bezier(0.23, 1, 0.32, 1) 450ms;opacity:0;transform:scale(0);">indeterminate_check_box</i><i aria-hidden="true" class="q-icon q-checkbox-icon cursor-pointer absolute-full material-icons" style="transition:opacity 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms, transform 0ms cubic-bezier(0.23, 1, 0.32, 1) 450ms;opacity:0;transform:scale(0);">check_box</i>
+                <div class="q-radial-ripple"></div>
+              </div>
+            </div>
+          </div>
+          <div class="q-item-main q-item-section">
+            <div class="q-item-label">
+              New applications
+            </div>
+            <div class="q-item-sublabel">
+              Tells you when somebody wants to join your group
+            </div>
+          </div>
+        </label><label class="q-item q-item-division relative-position">
+          <div class="q-item-side q-item-section q-item-side-left">
+            <div tabindex="0" class="q-option cursor-pointer no-outline row inline no-wrap items-center q-checkbox q-focusable">
+              <div class="q-option-inner relative-position text-faded"><input type="checkbox">
+                <div class="q-focus-helper q-focus-helper-rounded"></div><i aria-hidden="true" class="q-icon q-checkbox-icon cursor-pointer material-icons" style="opacity:1;">check_box_outline_blank</i><i aria-hidden="true" class="q-icon q-checkbox-icon cursor-pointer absolute-full material-icons" style="transition:opacity 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms, transform 0ms cubic-bezier(0.23, 1, 0.32, 1) 450ms;opacity:0;transform:scale(0);">indeterminate_check_box</i><i aria-hidden="true" class="q-icon q-checkbox-icon cursor-pointer absolute-full material-icons" style="transition:opacity 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms, transform 0ms cubic-bezier(0.23, 1, 0.32, 1) 450ms;opacity:0;transform:scale(0);">check_box</i>
+                <div class="q-radial-ripple"></div>
+              </div>
+            </div>
+          </div>
+          <div class="q-item-main q-item-section">
+            <div class="q-item-label">
+              New conflict resolution processes
+            </div>
+            <div class="q-item-sublabel">
+              Tells you when a new conflict resolution process has been started in your group
+            </div>
+          </div>
+        </label></div>
+    </div>
+  </div>
   <div class="q-card no-shadow grey-border">
     <div class="q-card-primary q-card-container row no-wrap">
       <div class="col column">
@@ -6541,7 +6714,7 @@ exports[`Storyshots Sidenav Boxes Group 1`] = `
     <div class="q-toolbar-title">
       Home
     </div>
-    <div class="tools"><a tabindex="0" type="button" href="#/group/1/settings" class="q-btn inline relative-position q-btn-item non-selectable q-btn-round q-btn-flat q-focusable q-hoverable q-btn-dense">
+    <div class="tools"><a tabindex="0" type="button" href="#/settings#notifications" class="q-btn inline relative-position q-btn-item non-selectable q-btn-round q-btn-flat q-focusable q-hoverable q-btn-dense">
         <div class="q-focus-helper"></div>
         <div class="q-btn-inner row col items-center q-popup--skip justify-center"><i aria-hidden="true" class="q-icon fas fa-cog fa-fw"> </i>
           <div class="q-tooltip animate-popup">

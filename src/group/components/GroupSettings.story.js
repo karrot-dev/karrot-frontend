@@ -17,6 +17,7 @@ storiesOf('GroupSettings', module)
       render: h => h(GroupSettings, {
         props: {
           group,
+          groups: groupsMock,
         },
         on: {
           changeNotificationType ({ notificationType, enabled }) {

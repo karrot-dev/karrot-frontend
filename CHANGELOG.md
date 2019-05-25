@@ -31,6 +31,7 @@ Please document your changes in this format:
 - Move community feed to sidenav @tiltec @djahnie
 - Invitations can be resent after 1 hour #837 @mvellasco
 - Move place description into modal @tiltec
+- Move notification settings to user settings @tiltec @djahnie
 
 ### Fixed
 - Permission checks in main routes had a typo and were not active @djahnie @tiltec

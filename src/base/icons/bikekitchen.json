@@ -1,5 +1,7 @@
 {
   "pickup": "fas fa-bicycle",
   "pickup_fw": "fas fa-fw fa-bicycle",
-  "feedback": "fas fa-reply"
+  "feedback": "fas fa-reply",
+  "place": "fas fa-circle",
+  "place_fw": "fas fa-fw fa-circle"
 }

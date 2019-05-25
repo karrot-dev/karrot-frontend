@@ -2,6 +2,6 @@
   "pickup": "fas fa-shopping-basket",
   "pickup_fw": "fas fa-fw fa-shopping-basket",
   "feedback": "fas fa-balance-scale",
-  "place": "fas fa-circle",
-  "place_fw": "fas fa-fw fa-circle"
+  "place": "fas fa-shopping-cart",
+  "place_fw": "fas fa-fw fa-shopping-cart"
 }

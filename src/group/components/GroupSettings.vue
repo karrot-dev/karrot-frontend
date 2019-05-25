@@ -4,22 +4,25 @@
     id="notifications"
     class="no-shadow grey-border"
   >
-    <QCardTitle>{{ $t('GROUP.EMAIL_NOTIFICATIONS') }}</QCardTitle>
+    <QCardTitle>{{ $t('GROUP.NOTIFICATIONS_BY_GROUP') }}</QCardTitle>
     <template v-if="groups.length > 1">
+      <span
+        class="q-pb-md q-pl-md q-caption-opacity"
+      >
+        {{ $t('SWITCHGROUP.CHOOSE') }}
+      </span>
       <SwitchGroupButton
         class="q-ml-md"
         :user="{ isCurrentUser: true }"
         :groups="groups"
         @selectGroup="$emit('selectGroup', arguments[0])"
       />
-      <div
-        class="q-pt-md q-pl-md q-caption q-caption-opacity"
-      >
-        {{ $t('GROUP.NOTIFICATION_TARGET') }}
-      </div>
     </template>
     <QCardMain>
       <QList link>
+        <QListHeader>
+          {{ $t('GROUP.EMAIL_NOTIFICATIONS') }}
+        </QListHeader>
         <QItem
           v-for="type in availableNotificationTypes"
           :key="type"
@@ -52,6 +55,7 @@ import {
   QCardMain,
   QCheckbox,
   QList,
+  QListHeader,
   QItem,
   QItemSide,
   QItemMain,
@@ -67,6 +71,7 @@ export default {
     QCardMain,
     QCheckbox,
     QList,
+    QListHeader,
     QItem,
     QItemSide,
     QItemMain,

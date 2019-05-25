@@ -35,6 +35,8 @@ Please document your changes in this format:
 
 ### Fixed
 - Permission checks in main routes had a typo and were not active @djahnie @tiltec
+- One-time pickups didn't show their duration if they had one @tiltec
+- Context menu in fullscreen map did not work @tiltec
 
 ## [7.3.0] - 2019-04-29
 ### Added

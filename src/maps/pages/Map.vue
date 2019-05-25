@@ -7,6 +7,7 @@
       :places="places"
       :groups="groups"
       :current-group="currentGroup"
+      :is-editor="isEditor"
       :force-center="center"
       :force-zoom="zoom"
       :show-users="showUsers"
@@ -34,6 +35,7 @@ export default {
       users: 'users/byCurrentGroup',
       groups: 'groups/all',
       currentGroup: 'currentGroup/value',
+      isEditor: 'currentGroup/isEditor',
       showPlaces: 'sidenavBoxes/toggle/placesOnMap',
       showUsers: 'sidenavBoxes/toggle/usersOnMap',
       showGroups: 'sidenavBoxes/toggle/groupsOnMap',

@@ -5,10 +5,11 @@ import GroupSettings from '@/group/components/GroupSettings'
 export default connect({
   gettersToProps: {
     group: 'currentGroup/value',
-    user: 'auth/user',
+    groups: 'groups/mine',
   },
   actionsToEvents: {
     changeNotificationType: 'currentGroup/changeNotificationType',
+    selectGroup: 'currentGroup/select',
   },
 })('GroupSettings', GroupSettings)
 </script>

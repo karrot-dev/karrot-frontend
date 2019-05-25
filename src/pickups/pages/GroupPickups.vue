@@ -20,7 +20,7 @@
         </template>
       </KNotice>
       <QCard>
-        <QCardTitle v-t="'GROUP.STORES'" />
+        <QCardTitle v-t="'GROUP.PLACES'" />
         <QCardMain>
           <PlaceList
             :group-id="groupId"
@@ -34,18 +34,27 @@
 </template>
 
 <script>
+import {
+  QCard,
+  QCardTitle,
+  QCardMain,
+} from 'quasar'
+
+import { mapGetters, mapActions } from 'vuex'
+
 import PickupList from '@/pickups/components/PickupList'
 import KNotice from '@/utils/components/KNotice'
 import PlaceList from '@/places/components/PlaceList'
-import { QCard, QCardTitle, QCardMain } from 'quasar'
-
-import {
-  mapGetters,
-  mapActions,
-} from 'vuex'
 
 export default {
-  components: { QCard, QCardTitle, QCardMain, PickupList, KNotice, PlaceList },
+  components: {
+    QCard,
+    QCardTitle,
+    QCardMain,
+    PickupList,
+    KNotice,
+    PlaceList,
+  },
   computed: {
     ...mapGetters({
       groupId: 'currentGroup/id',

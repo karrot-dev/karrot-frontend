@@ -151,6 +151,7 @@
     "SETTINGS": "Settings",
     "NOTIFICATIONS": "Notifications",
     "EMAIL_NOTIFICATIONS": "Email notifications",
+    "NOTIFICATION_TARGET": "Notification settings are group specific.",
     "NOTIFICATION_TYPES": {
       "weekly_summary": {
         "NAME": "Weekly summary",

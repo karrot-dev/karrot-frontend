@@ -1,52 +1,84 @@
 <template>
   <QCard
     v-if="group"
-    class="no-mobile-margin no-shadow grey-border"
+    id="notifications"
+    class="no-shadow grey-border"
   >
-    <RandomArt
-      :seed="group.id"
-      type="circles"
+    <QCardTitle>{{ $t('GROUP.EMAIL_NOTIFICATIONS') }}</QCardTitle>
+    <div
+      v-if="groups.length > 1"
+      class="q-pb-sm q-pl-md q-caption q-caption-opacity"
     >
-      <div class="art-overlay" />
-    </RandomArt>
-    <QList link>
-      <QListHeader>{{ $t('GROUP.EMAIL_NOTIFICATIONS') }}</QListHeader>
-      <VerificationWarning class="generic-margin" />
-      <QItem
-        v-for="type in availableNotificationTypes"
-        :key="type"
-        tag="label"
-      >
-        <QItemSide>
-          <QCheckbox
-            :value="notificationIsEnabled(type)"
-            @input="change(type, arguments[0])"
-          />
-        </QItemSide>
-        <QItemMain>
-          <QItemTile label>
-            {{ $t('GROUP.NOTIFICATION_TYPES.' + type + '.NAME') }}
-          </QItemTile>
-          <QItemTile sublabel>
-            {{ $t('GROUP.NOTIFICATION_TYPES.' + type + '.DESCRIPTION') }}
-          </QItemTile>
-        </QItemMain>
-      </QItem>
-    </QList>
+      {{ $t('GROUP.NOTIFICATION_TARGET') }}
+    </div>
+    <SwitchGroupButton
+      class="q-ml-md"
+      :user="{ isCurrentUser: true }"
+      :groups="groups"
+      @selectGroup="$emit('selectGroup', arguments[0])"
+    />
+    <QCardMain>
+      <QList link>
+        <QItem
+          v-for="type in availableNotificationTypes"
+          :key="type"
+          tag="label"
+        >
+          <QItemSide>
+            <QCheckbox
+              :value="notificationIsEnabled(type)"
+              @input="change(type, arguments[0])"
+            />
+          </QItemSide>
+          <QItemMain>
+            <QItemTile label>
+              {{ $t('GROUP.NOTIFICATION_TYPES.' + type + '.NAME') }}
+            </QItemTile>
+            <QItemTile sublabel>
+              {{ $t('GROUP.NOTIFICATION_TYPES.' + type + '.DESCRIPTION') }}
+            </QItemTile>
+          </QItemMain>
+        </QItem>
+      </QList>
+    </QCardMain>
   </QCard>
 </template>
 
 <script>
-import { QCard, QCheckbox, QList, QListHeader, QItem, QItemSide, QItemMain, QItemTile } from 'quasar'
-import VerificationWarning from '@/authuser/components/Settings/VerificationWarning'
-import RandomArt from '@/utils/components/RandomArt'
+import {
+  QCard,
+  QCardTitle,
+  QCardMain,
+  QCheckbox,
+  QList,
+  QItem,
+  QItemSide,
+  QItemMain,
+  QItemTile,
+} from 'quasar'
+import SwitchGroupButton from '@/users/components/SwitchGroupButton'
 
 export default {
   name: 'GroupSettings',
-  components: { RandomArt, VerificationWarning, QCard, QCheckbox, QList, QListHeader, QItem, QItemSide, QItemMain, QItemTile },
+  components: {
+    QCard,
+    QCardTitle,
+    QCardMain,
+    QCheckbox,
+    QList,
+    QItem,
+    QItemSide,
+    QItemMain,
+    QItemTile,
+    SwitchGroupButton,
+  },
   props: {
     group: {
       type: Object,
+      default: null,
+    },
+    groups: {
+      type: Array,
       default: null,
     },
   },

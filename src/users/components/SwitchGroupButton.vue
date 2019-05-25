@@ -4,6 +4,9 @@
     color="primary"
     @click="showModal = true"
   >
+    <i
+      class="fas fa-hand-pointer on-left"
+    />
     {{ currentGroup ? currentGroup.name : $t('TOPBAR.CHANGE_GROUP') }}
     <QModal
       v-model="showModal"

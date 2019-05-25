@@ -2939,9 +2939,6 @@ exports[`Storyshots GroupSettings show 1`] = `
       <div class="q-card-subtitle"></div>
     </div>
     <div class="col-auto self-center q-card-title-extra"></div>
-  </div>
-  <div class="q-pb-sm q-pl-md q-caption q-caption-opacity">
-    Notification settings are group specific.
   </div> <button tabindex="0" type="button" class="q-btn inline relative-position q-btn-item non-selectable q-ml-md q-btn-rectangle q-focusable q-hoverable bg-primary text-white">
     <div class="q-focus-helper"></div>
     <div class="q-btn-inner row col items-center q-popup--skip justify-center"><i class="fas fa-hand-pointer on-left"></i>
@@ -2985,6 +2982,9 @@ exports[`Storyshots GroupSettings show 1`] = `
       </div>
     </div>
   </button>
+  <div class="q-pt-md q-pl-md q-caption q-caption-opacity">
+    Notification settings are group specific.
+  </div>
   <div class="q-card-main q-card-container">
     <div class="q-list q-list-link"><label class="q-item q-item-division relative-position">
         <div class="q-item-side q-item-section q-item-side-left">
@@ -6554,9 +6554,6 @@ exports[`Storyshots Settings Page Default 1`] = `
         <div class="q-card-subtitle"></div>
       </div>
       <div class="col-auto self-center q-card-title-extra"></div>
-    </div>
-    <div class="q-pb-sm q-pl-md q-caption q-caption-opacity">
-      Notification settings are group specific.
     </div> <button tabindex="0" type="button" class="q-btn inline relative-position q-btn-item non-selectable q-ml-md q-btn-rectangle q-focusable q-hoverable bg-primary text-white">
       <div class="q-focus-helper"></div>
       <div class="q-btn-inner row col items-center q-popup--skip justify-center"><i class="fas fa-hand-pointer on-left"></i>
@@ -6600,6 +6597,9 @@ exports[`Storyshots Settings Page Default 1`] = `
         </div>
       </div>
     </button>
+    <div class="q-pt-md q-pl-md q-caption q-caption-opacity">
+      Notification settings are group specific.
+    </div>
     <div class="q-card-main q-card-container">
       <div class="q-list q-list-link"><label class="q-item q-item-division relative-position">
           <div class="q-item-side q-item-section q-item-side-left">

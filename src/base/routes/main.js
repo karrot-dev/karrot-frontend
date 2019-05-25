@@ -467,7 +467,6 @@ export default [
       breadcrumbs: [
         { translation: 'SETTINGS.TITLE', route: { name: 'settings' } },
       ],
-      // beforeEnter: 'auth/getFailedEmailDeliveries',
       beforeEnter: ['auth/getFailedEmailDeliveries', 'currentGroup/selectFromCurrentUser'],
       afterLeave: 'auth/clearSettingsStatus',
     },

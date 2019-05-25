@@ -280,6 +280,12 @@ export default [
         component: GroupEdit,
       },
       {
+        // TODO: kept for transitionary purposes, remove in some months
+        name: 'groupSettings',
+        path: 'settings',
+        redirect: { name: 'settings', hash: '#notifications' },
+      },
+      {
         name: 'groupManageAgreement',
         path: 'agreement',
         meta: {

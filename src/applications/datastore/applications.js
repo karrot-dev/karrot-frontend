@@ -46,7 +46,7 @@ export default {
     forCurrentGroupPending: (state, getters) => getters.forCurrentGroup.filter(a => a.isPending),
     forCurrentGroupNonPending: (state, getters) => getters.forCurrentGroup.filter(a => !a.isPending),
     canFetchPast: (state, getters) => getters['pagination/canFetchNext'],
-    ...metaStatuses(['apply', 'fetchPast', 'fetchPendingByGroupId']),
+    ...metaStatuses(['apply', 'fetchPast']),
   },
   actions: {
     async fetch ({ commit, dispatch }, filters) {

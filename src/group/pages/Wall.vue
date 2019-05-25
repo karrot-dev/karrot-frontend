@@ -1,7 +1,7 @@
 <template>
   <div class="wrapper">
     <div class="notices">
-      <KSpinner v-show="fetchingPickups || feedbackPossibleStatus.pending || applicationStatus.pending" />
+      <KSpinner v-show="fetchingPickups || feedbackPossibleStatus.pending" />
       <div v-if="joinedPickups.length > 0">
         <JoinedPickups
           :pickups="joinedPickups"
@@ -22,10 +22,6 @@
         v-if="feedbackPossible.length > 0"
         :feedback-possible="feedbackPossible"
       />
-      <PendingApplications
-        v-if="applications.length > 0"
-        :applications="applications"
-      />
     </div>
     <WallConversation
       :data="conversation"
@@ -45,7 +41,6 @@
 import AvailablePickups from '@/group/components/AvailablePickups'
 import FeedbackNotice from '@/group/components/FeedbackNotice'
 import JoinedPickups from '@/group/components/JoinedPickups'
-import PendingApplications from '@/group/components/PendingApplications'
 import WallConversation from '@/messages/components/WallConversation'
 import KSpinner from '@/utils/components/KSpinner'
 
@@ -57,7 +52,6 @@ export default {
     AvailablePickups,
     WallConversation,
     FeedbackNotice,
-    PendingApplications,
     KSpinner,
   },
   computed: {
@@ -67,8 +61,6 @@ export default {
       fetchingPickups: 'pickups/fetchingForCurrentGroup',
       feedbackPossible: 'pickups/feedbackPossibleByCurrentGroup',
       feedbackPossibleStatus: 'pickups/fetchFeedbackPossibleStatus',
-      applications: 'applications/forCurrentGroupPending',
-      applicationStatus: 'applications/fetchPendingByGroupIdStatus',
       conversation: 'currentGroup/conversation',
       user: 'auth/user',
     }),

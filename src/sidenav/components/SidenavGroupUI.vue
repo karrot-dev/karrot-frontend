@@ -70,6 +70,26 @@
             {{ $t("PICKUP_FEEDBACK.TITLE") }}
           </QItemMain>
         </QItem>
+        <QItem :to="{ name: 'applications', params: { groupId } }">
+          <QItemSide class="text-center">
+            <QIcon name="fas fa-address-card" />
+          </QItemSide>
+          <QItemMain>
+            {{ $t("GROUP.APPLICATIONS") }}
+          </QItemMain>
+          <QItemSide
+            v-if="pendingApplications.length > 0"
+            right
+          >
+            <QChip
+              small
+              color="blue"
+              :title="$tc('APPLICATION.WALL_NOTICE', pendingApplications.length, { count: pendingApplications.length })"
+            >
+              {{ pendingApplications.length }}
+            </QChip>
+          </QItemSide>
+        </QItem>
         <QItem :to="{ name: 'issueList', params: { groupId } }">
           <QItemSide class="text-center">
             <QIcon name="fas fa-vote-yea" />
@@ -135,6 +155,10 @@ export default {
     wallUnreadCount: {
       default: 0,
       type: Number,
+    },
+    pendingApplications: {
+      default: () => [],
+      type: Array,
     },
   },
   computed: {

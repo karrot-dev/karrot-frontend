@@ -57,7 +57,8 @@
   "SWITCHGROUP": {
     "NOT_MEMBER": "{userName} is not member of {groupName}.",
     "COMMON_GROUPS": "Groups you have in common",
-    "OTHER_GROUPS": "Altri gruppi"
+    "OTHER_GROUPS": "Altri gruppi",
+    "CHOOSE": "Choose a group:"
   },
   "BUTTON": {
     "CREATE": "Crea",
@@ -149,7 +150,7 @@
     "INVITATION_ACCEPT_SUCCESS": "Benvenuto/a! Hai accettato l'invito con successo.",
     "INVITATION_ACCEPT_ERROR": "Ooops, non è stato possibile accettare l'invito!",
     "SETTINGS": "Impostazioni",
-    "NOTIFICATIONS": "Notifiche",
+    "NOTIFICATIONS_BY_GROUP": "Notifications by group",
     "EMAIL_NOTIFICATIONS": "Notifiche via email",
     "NOTIFICATION_TYPES": {
       "weekly_summary": {

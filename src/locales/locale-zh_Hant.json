@@ -57,7 +57,8 @@
   "SWITCHGROUP": {
     "NOT_MEMBER": "{userName}不是{groupName}的成員",
     "COMMON_GROUPS": "你們共同有的社團",
-    "OTHER_GROUPS": "其他社團"
+    "OTHER_GROUPS": "其他社團",
+    "CHOOSE": "Choose a group:"
   },
   "BUTTON": {
     "CREATE": "創建",
@@ -149,7 +150,7 @@
     "INVITATION_ACCEPT_SUCCESS": "歡迎！你已成功接受邀請。",
     "INVITATION_ACCEPT_ERROR": "糟糕，無法接受此邀請！",
     "SETTINGS": "設定",
-    "NOTIFICATIONS": "通知",
+    "NOTIFICATIONS_BY_GROUP": "Notifications by group",
     "EMAIL_NOTIFICATIONS": "郵件通知",
     "NOTIFICATION_TYPES": {
       "weekly_summary": {

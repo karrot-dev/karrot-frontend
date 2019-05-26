@@ -57,7 +57,8 @@
   "SWITCHGROUP": {
     "NOT_MEMBER": "{userName} nie jest członkiem {groupName}.",
     "COMMON_GROUPS": "Grupy, do których wspólnie należycie",
-    "OTHER_GROUPS": "Inne grupy"
+    "OTHER_GROUPS": "Inne grupy",
+    "CHOOSE": "Choose a group:"
   },
   "BUTTON": {
     "CREATE": "Utwórz",
@@ -149,7 +150,7 @@
     "INVITATION_ACCEPT_SUCCESS": "Witamy! Przyjęłaś/-łeś zaproszenie.",
     "INVITATION_ACCEPT_ERROR": "Ups, nie możesz przyjąć tego zaproszenia!",
     "SETTINGS": "Ustawienia",
-    "NOTIFICATIONS": "Powiadomienia",
+    "NOTIFICATIONS_BY_GROUP": "Notifications by group",
     "EMAIL_NOTIFICATIONS": "Powiadomienia e-mail",
     "NOTIFICATION_TYPES": {
       "weekly_summary": {

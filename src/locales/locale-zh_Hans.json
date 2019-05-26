@@ -57,7 +57,8 @@
   "SWITCHGROUP": {
     "NOT_MEMBER": "{userName} is not member of {groupName}.",
     "COMMON_GROUPS": "Groups you have in common",
-    "OTHER_GROUPS": "Other groups"
+    "OTHER_GROUPS": "Other groups",
+    "CHOOSE": "Choose a group:"
   },
   "BUTTON": {
     "CREATE": "創建",
@@ -149,7 +150,7 @@
     "INVITATION_ACCEPT_SUCCESS": "歡迎！你已成功接受邀請。",
     "INVITATION_ACCEPT_ERROR": "糟糕，無法接受此邀請！",
     "SETTINGS": "設定",
-    "NOTIFICATIONS": "通知",
+    "NOTIFICATIONS_BY_GROUP": "Notifications by group",
     "EMAIL_NOTIFICATIONS": "郵件通知",
     "NOTIFICATION_TYPES": {
       "weekly_summary": {

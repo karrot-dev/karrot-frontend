@@ -57,7 +57,8 @@
   "SWITCHGROUP": {
     "NOT_MEMBER": "{userName} ह्या {groupName}सदस्य नाही.",
     "COMMON_GROUPS": "आपल्या समूहात असलेले गट",
-    "OTHER_GROUPS": "इतर गट"
+    "OTHER_GROUPS": "इतर गट",
+    "CHOOSE": "Choose a group:"
   },
   "BUTTON": {
     "CREATE": "तयार करा",
@@ -149,7 +150,7 @@
     "INVITATION_ACCEPT_SUCCESS": "स्वागत आहे! आपण आमंत्रण यशस्वीरित्या स्वीकारले.",
     "INVITATION_ACCEPT_ERROR": "अरेरे, निमंत्रण स्वीकारले गेले नाही! ",
     "SETTINGS": "सेटिंग्ज",
-    "NOTIFICATIONS": "अधिसूचना",
+    "NOTIFICATIONS_BY_GROUP": "Notifications by group",
     "EMAIL_NOTIFICATIONS": "ईमेल अधिसूचना",
     "NOTIFICATION_TYPES": {
       "weekly_summary": {

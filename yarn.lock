@@ -1271,10 +1271,10 @@
     "@sentry/utils" "5.3.0"
     tslib "^1.9.3"
 
-"@sentry/integrations@^5.3.0":
-  version "5.3.0"
-  resolved "https://registry.yarnpkg.com/@sentry/integrations/-/integrations-5.3.0.tgz#fcf2eb1e07a8a8200728d9fbc469bb542ac2a8e9"
-  integrity sha512-K5IyneZxgAIZd/NwE2O6xeLZCdpa9vhupkCv6+BqynwPdwfRbicf9NOP0TfQtLYeYqF6ciBvsCKvu8834C30HQ==
+"@sentry/integrations@^5.3.1":
+  version "5.3.1"
+  resolved "https://registry.yarnpkg.com/@sentry/integrations/-/integrations-5.3.1.tgz#d883f6017229daca91bd937986b058b414bc3d34"
+  integrity sha512-TdjSH088nCa4C7vHprx/44wX3/PIz25233tTWzgi+5T+K+KwsSmtpEiWAJiAAejY+Kqf4FMDD5ILDJga1VjUEQ==
   dependencies:
     "@sentry/types" "5.2.0"
     "@sentry/utils" "5.3.0"

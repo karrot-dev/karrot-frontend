@@ -7732,13 +7732,13 @@ jstimezonedetect@^1.0.6:
   resolved "https://registry.yarnpkg.com/jstimezonedetect/-/jstimezonedetect-1.0.6.tgz#60d31fbacdbf57af71b064887ee040f1595adb52"
   integrity sha1-YNMfus2/V69xsGSIfuBA8Vla21I=
 
-keep-a-changelog@^0.8.0:
-  version "0.8.0"
-  resolved "https://registry.yarnpkg.com/keep-a-changelog/-/keep-a-changelog-0.8.0.tgz#8cf67a355eb7c0e4a83f1215d0bce4c773a98df6"
-  integrity sha512-0AkdbkoqTq1H1TzcaKSVV00yhwQKRzEStQ7bbnyzFygMzE6UzOKPYZWBrrIcalwwI6S9eSlUYWMtBVMYVdhNVA==
+keep-a-changelog@^0.8.1:
+  version "0.8.1"
+  resolved "https://registry.yarnpkg.com/keep-a-changelog/-/keep-a-changelog-0.8.1.tgz#12922fca3e2549e796209ed278bfaf9f17550c7b"
+  integrity sha512-o3o8cV63VzsZrrnP0h6P2u5lo50BiJ+I5i8IrDdlH/txLGpb14RHGh0bkIE+vHcS+LYGKK2XR25fiIwB9CT4Yg==
   dependencies:
     gitconfiglocal "^2.1.0"
-    semver "^5.5.1"
+    semver "^6.1.0"
     yargs-parser "^13.0.0"
 
 keycode@^2.2.0:

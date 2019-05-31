@@ -27,6 +27,15 @@ jest.mock('@/feedback/api/feedback', () => ({ list: mockFeedbackList }))
 const mockHistoryList = jest.fn()
 jest.mock('@/history/api/history', () => ({ list: mockHistoryList }))
 
+// those are mocked, but we don't care if they have been called or not
+jest.mock('@/group/api/groups', () => ({ get: jest.fn(_ => ({})) }))
+jest.mock('@/applications/api/applications', () => ({ list: jest.fn(_ => ({ results: [] })) }))
+jest.mock('@/communityFeed/api/communityFeed', () => ({
+  latestTopics: jest.fn(_ => []),
+  getMeta: jest.fn(),
+}))
+jest.mock('@/invitations/api/invitations', () => ({ listByGroupId: jest.fn(_ => []) }))
+
 import Vue from 'vue'
 import { configureQuasar, nextTicks } from '>/helpers'
 

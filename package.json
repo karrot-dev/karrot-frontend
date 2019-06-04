@@ -42,7 +42,7 @@
   },
   "dependencies": {
     "@sentry/browser": "^5.4.0",
-    "@sentry/integrations": "^5.3.1",
+    "@sentry/integrations": "^5.4.1",
     "axios": "^0.19.0",
     "clone-deep": "4.0.1",
     "date-fns": "^1.29.0",

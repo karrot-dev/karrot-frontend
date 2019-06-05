@@ -142,7 +142,7 @@
     "vue-loader": "^15.6.4",
     "vue-server-renderer": "2.5.22",
     "vue-template-compiler": "2.5.22",
-    "webpack": "^4.32.2",
+    "webpack": "^4.33.0",
     "webpack-bundle-analyzer": "^3.3.2",
     "webpack-cli": "^3.3.2",
     "webpack-dev-server": "^3.5.1"

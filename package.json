@@ -112,7 +112,7 @@
     "eslint-plugin-standard": "^4.0.0",
     "eslint-plugin-vue": "5.2.2",
     "express": "^4.17.1",
-    "file-loader": "^3.0.1",
+    "file-loader": "^4.0.0",
     "gitbook-cli": "^2.3.2",
     "glob": "^7.1.4",
     "hard-source-webpack-plugin": "^0.13.1",

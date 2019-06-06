@@ -82,7 +82,7 @@
     "@babel/runtime": "^7.4.5",
     "@octokit/rest": "^16.26.0",
     "@sentry/cli": "^1.44.3",
-    "@storybook/addon-actions": "4.1.18",
+    "@storybook/addon-actions": "5.1.1",
     "@storybook/addon-links": "4.1.18",
     "@storybook/addon-options": "^4.1.18",
     "@storybook/vue": "4.1.18",

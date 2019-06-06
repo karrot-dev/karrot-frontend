@@ -84,7 +84,7 @@
     "@sentry/cli": "^1.44.3",
     "@storybook/addon-actions": "4.1.18",
     "@storybook/addon-links": "4.1.18",
-    "@storybook/addon-options": "^4.1.18",
+    "@storybook/addon-options": "^5.1.1",
     "@storybook/vue": "4.1.18",
     "@vue/test-utils": "1.0.0-beta.29",
     "autoprefixer": "^9.6.0",

@@ -370,27 +370,14 @@ export default {
     },
 
     async toggleReaction ({ commit, rootGetters }, { message, name }) {
-      const { id: messageId, conversation: conversationId } = message
-      const userId = rootGetters['auth/userId']
+      const { id: messageId } = message
       const reactionIndex = message.reactions.findIndex(reaction => reaction.reacted && reaction.name === name)
 
       if (reactionIndex === -1) {
-        const addedReaction = await reactionsAPI.create(messageId, name)
-        if (message.thread) {
-          commit('currentThread/addReaction', { messageId, name: addedReaction.name, userId }, { root: true })
-        }
-        if (!message.thread || message.thread === message.id) {
-          commit('addReaction', { conversationId, messageId, name: addedReaction.name, userId })
-        }
+        await reactionsAPI.create(messageId, name)
       }
       else {
         await reactionsAPI.remove(messageId, name)
-        if (message.thread) {
-          commit('currentThread/removeReaction', { messageId, name, userId }, { root: true })
-        }
-        if (!message.thread || message.thread === message.id) {
-          commit('removeReaction', { conversationId, messageId, name, userId })
-        }
       }
     },
 
@@ -471,17 +458,6 @@ export default {
     },
     setConversation (state, conversation) {
       Vue.set(state.entries, conversation.id, conversation)
-    },
-    addReaction (state, { userId, name, messageId, conversationId }) {
-      if (!state.messages[conversationId]) return
-      const message = state.messages[conversationId].find(message => message.id === messageId)
-      message.reactions.push({ user: userId, name })
-    },
-    removeReaction (state, { userId, name, messageId, conversationId }) {
-      if (!state.messages[conversationId]) return
-      const message = state.messages[conversationId].find(message => message.id === messageId)
-      const reactionIndex = message.reactions.findIndex(reaction => reaction.user === userId && reaction.name === name)
-      message.reactions.splice(reactionIndex, 1)
     },
   },
 }

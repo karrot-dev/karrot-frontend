@@ -143,17 +143,6 @@ export default {
       }
       insertSorted(stateMessages, messages, true)
     },
-    addReaction (state, { userId, name, messageId }) {
-      if (!state.messages) return
-      const message = state.messages.find(message => message.id === messageId)
-      message.reactions.push({ user: userId, name })
-    },
-    removeReaction (state, { userId, name, messageId }) {
-      if (!state.messages) return
-      const message = state.messages.find(message => message.id === messageId)
-      const reactionIndex = message.reactions.findIndex(reaction => reaction.user === userId && reaction.name === name)
-      message.reactions.splice(reactionIndex, 1)
-    },
     clear (state) {
       Object.assign(state, initialState())
     },

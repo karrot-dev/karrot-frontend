@@ -7,13 +7,13 @@
     "INVALID_LINK": "Przepraszamy, otwarty przez Ciebie link jest nieprawidłowy.",
     "GENERIC_ERROR": "Ups, coś poszło nie tak...",
     "SEARCH_NOT_FOUND": "Nie znaleziono",
-    "ABOUT_KARROT": "About Karrot"
+    "ABOUT_KARROT": "Karrot - informacje"
   },
   "USERDATA": {
     "EMAIL": "E-mail",
     "MOBILE_NUMBER": "Numer telefonu",
     "PROFILE_TITLE": "Konto",
-    "PRIVATE_MESSAGE": "Send a private message to {userName}",
+    "PRIVATE_MESSAGE": "Wyślij wiadomość prywatną do {userName}",
     "PASSWORD": "Hasło",
     "CONFIRM_PASSWORD": "Potwierdź hasło",
     "USERNAME": "Imię",
@@ -58,7 +58,7 @@
     "NOT_MEMBER": "{userName} nie jest członkiem {groupName}.",
     "COMMON_GROUPS": "Grupy, do których wspólnie należycie",
     "OTHER_GROUPS": "Inne grupy",
-    "CHOOSE": "Choose a group:"
+    "CHOOSE": "Wybierz grupę:"
   },
   "BUTTON": {
     "CREATE": "Utwórz",
@@ -117,9 +117,9 @@
     "PRIVATE_DESCRIPTION_TITLE": "Opis grupy",
     "DESCRIPTION_VERBOSE": "Opis grupy widoczny dla członków",
     "PUBLIC_DESCRIPTION": "Tekst widoczny przed dołączeniem do grupy",
-    "WELCOMEMESSAGE_VERBOSE": "Welcome message sent to new members",
-    "LOGO": "Group logo",
-    "SET_LOGO": "Click to upload your group logo!",
+    "WELCOMEMESSAGE_VERBOSE": "Wiadomość powitalna do nowych użytkowników",
+    "LOGO": "Logo grupy",
+    "SET_LOGO": "Kliknij by wgrać logo grupy!",
     "APPLICATIONS": "Zgłoszenia",
     "APPLICATION_QUESTIONS": "Pytania dla osób, które chcą dołączyć",
     "PICKUPS": "Odbiory",
@@ -134,7 +134,7 @@
     "SORT_NAME": "Sortuj po nazwie użytkownika",
     "INACTIVE": "Nieaktywni",
     "SHOW_INACTIVE": "Pokaż nieaktywne grupy",
-    "PLACES": "Places",
+    "PLACES": "Punkty",
     "HOME": "Strona główna",
     "HISTORY": "Historia",
     "DESCRIPTION": "Opis",
@@ -142,7 +142,7 @@
     "TIMEZONE": "Strefa czasowa",
     "INVITE_EMAIL": "Wprowadź adres e-mail",
     "INVITE_SEND": "Wyślij zaproszenie",
-    "INVITE_SEND_SUCCESS": "Invitation sent successfully!",
+    "INVITE_SEND_SUCCESS": "Zaproszenie zostało wysłane!",
     "INVITE_SEND_ERROR": "Ooops, could not send the invitation!",
     "INVITED_LIST": "Na te adresy e-mail już wcześniej wysłano zaproszenia:",
     "INVITATIONS": "Zaproszenia",
@@ -159,7 +159,7 @@
       },
       "daily_pickup_notification": {
         "NAME": "Powiadomienia o odbiorach",
-        "DESCRIPTION": "Reminds you of your pickups, and tells you about empty or not-full pickups of your favorite places in the next day"
+        "DESCRIPTION": "Przypomina Ci o nadchodzących odbiorach, na które się zapisałaś/-eś oraz o odbiorach, na które jeszcze nikt się nie zapisał albo na które są jeszcze wolne miejsca w Twoich ulubionych punktach."
       },
       "new_application": {
         "NAME": "Nowe zgłoszenia",
@@ -178,8 +178,8 @@
     "TITLE": "Mapa",
     "SHOW_USERS": "Pokaż użytkowników",
     "HIDE_USERS": "Ukryj użytkowników",
-    "SHOW_PLACES": "Show places",
-    "HIDE_PLACES": "Hide places",
+    "SHOW_PLACES": "Pokaż punkty",
+    "HIDE_PLACES": "Ukryj punkty",
     "SHOW_GROUPS": "Pokaż grupy",
     "HIDE_GROUPS": "Ukryj grupy",
     "SET_LOCATION": "Ustaw lokalizację",
@@ -187,11 +187,11 @@
   },
   "STOREDETAIL": {
     "DIRECTIONS": "Pokaż trasę",
-    "EDIT": "Edit place",
-    "ARCHIVED": "This place has been archived",
-    "INACTIVE": "This place is currently not cooperating.",
+    "EDIT": "Edytuj punkt",
+    "ARCHIVED": "Ten punkt został przeniesiony do archiwum",
+    "INACTIVE": "Ten punkt obecnie nie współpracuje.",
     "CHANGE_STATUS": "Możesz zmienić status w zakładce Ustawienia.",
-    "NO_DESCRIPTION": "This place does not have a description yet"
+    "NO_DESCRIPTION": "Ten punkt nie ma jeszcze opisu"
   },
   "STOREEDIT": {
     "NAME": "Nazwa",
@@ -202,21 +202,21 @@
     "WEEKS_IN_ADVANCE_WARNING": "Existing leftover pickups will get deleted if they are empty. You can disable non-empty pickups manually, if needed.",
     "DIALOGS": {
       "ARCHIVE": {
-        "TITLE": "Archive place",
+        "TITLE": "Przenieś punkt do archiwum",
         "MESSAGE": "Jesteś pewna/-y?",
-        "CONFIRM": "Yes, archive place"
+        "CONFIRM": "Tak, przenieś punkt do archiwum"
       }
     },
     "RESTORE": "Przywróć",
-    "SHOW_ARCHIVED": "Show archived places",
-    "HIDE_ARCHIVED": "Hide archived places",
-    "SHOW_ALL": "Show all places",
-    "SHOW_ACTIVE_ONLY": "Only show active places"
+    "SHOW_ARCHIVED": "Pokaż zarchiwizowane punkty",
+    "HIDE_ARCHIVED": "Ukryj zarchiwizowane punkty",
+    "SHOW_ALL": "Pokaż wszystkie punkty",
+    "SHOW_ACTIVE_ONLY": "Pokaż tylko aktywne punkty"
   },
   "PLACEWALL": {
-    "SUBSCRIBED_USERS": "{count} people have marked this place as favourite",
+    "SUBSCRIBED_USERS": "{count}osoby oznaczyły ten punkt jako ulubiony",
     "SUBSCRIPTION": {
-      "HEADER": "Do you want to mark this place as your favourite?",
+      "HEADER": "Czy chcesz oznaczyć ten punkt jako ulubiony?",
       "YES": "Tak",
       "YES_TEXT": "Shows available pickups on the group wall and sends emails about upcoming pickups.",
       "NO": "Nie",
@@ -228,7 +228,7 @@
     "SERIES": "Powtarzające się odbiory",
     "SINGLE": "Odbiory jednorazowe",
     "UPCOMING_PICKUPS_IN_SERIES": "Nadchodzące odbiory",
-    "PICKUP_DOES_NOT_MATCH": "This pickups' date doesn't match the recurrence pattern",
+    "PICKUP_DOES_NOT_MATCH": "Data tego odbioru nie pasuje do wzorca powtarzających się odbiorów",
     "PICKUP_DESCRIPTION_CHANGED": "'Additional information' has been changed",
     "PICKUP_MAX_COLLECTORS_CHANGED": "'Max slots' has been changed"
   },
@@ -327,7 +327,7 @@
     "EXCEPTIONS_MESSAGE": "Some upcoming pickups don't match the settings of this recurring pickup. Have a look below at '{upcomingLabel}' to change or disable pickups, if needed."
   },
   "CREATESTORE": {
-    "TITLE": "Create a new place"
+    "TITLE": "Dodaj nowy punkt"
   },
   "PICKUPLIST": {
     "FILTER": {
@@ -335,10 +335,10 @@
       "EMPTY": "Odbiory, na które nikt się nie zapisał",
       "FREE": "Odbiory z wolnymi okienkami"
     },
-    "AVAILABLE": "There is one pickup in your favorite places waiting for you! | There are {count} pickups in your favorite places waiting for you!",
+    "AVAILABLE": "Dostępny jest jeden odbiór w Twoich ulubionych punktach w najbliższych dniach! | Dostępne są {count} odbiory w Twoich ulubionych punktach w najbliższych dniach!",
     "AVAILABLE_FEEDBACK": "Możesz dodać komentarz do odbioru | Możesz dodać komentarz do {count} odbiorów",
     "JOINEDNOTICE": "Masz jeden nadchodzący odbiór | Masz {count} nadchodzące odbiory",
-    "AVAILABLE_FROM_STORES": "This shows pickups from your favorite places in the next days. You can access other places in the sidebar.",
+    "AVAILABLE_FROM_STORES": "Lista pokazuje dostępne odbiory w Twoich ulubionych punktach w najbliższych dniach. Aby zobaczyć wszystkie odbiory, wejdź w sekcję \"Odbiory\" lub wybierz konkretny punkt z panelu bocznego.",
     "ITEM": {
       "LEAVE": "Zrezygnuj",
       "JOIN": "Zapisz się",
@@ -348,7 +348,7 @@
       "LEAVE_CONFIRMATION_TEXT": "Czy na pewno inni będą w stanie odebrać jedzenie, jeśli się nie pojawisz?"
     },
     "NONE": "Brak nadchodzących odbiorów",
-    "NONE_HINT": "You can create a new pickup on the place page.",
+    "NONE_HINT": "Możesz dodać nowe odbiory na stronie punktu.",
     "STORE_NONE_HINT": "Możesz dodać nowe odbiory na stronie zarządzania odbiorami.",
     "PICKUP_DISABLED": "Odbiór został zdezaktywowany.",
     "PICKUP_STARTED": "Odbiór już się rozpoczął."
@@ -410,9 +410,9 @@
     "GROUP_MODIFY": "zmienił/-a ustawienia grupy",
     "GROUP_JOIN": "dołączył/-a do grupy",
     "GROUP_LEAVE": "opuścił/-a grupę",
-    "STORE_CREATE": "created place {name}",
-    "STORE_MODIFY": "changed the settings of place {name}",
-    "STORE_DELETE": "deleted place {name}",
+    "STORE_CREATE": "utworzył/-a punkt {name}",
+    "STORE_MODIFY": "zmienił/-a ustawienia punktu {name}",
+    "STORE_DELETE": "Usunięto punkt {name}",
     "PICKUP_CREATE": "dodał/-a jednorazowy odbiór",
     "PICKUP_MODIFY": "zmienił/-a ustawienia odbioru",
     "PICKUP_DELETE": "usunął/-ęła odbiór",
@@ -455,7 +455,7 @@
     "APPLICATION_DECLINED": "Twoje zgłoszenie zostało odrzucone",
     "INVITATION_ACCEPTED": "{userName} zaakceptował/-a twoje zaproszenie",
     "FEEDBACK_POSSIBLE": "Możesz dodać komentarz do odbioru z {date}",
-    "NEW_PLACE": "{placeName} has been created",
+    "NEW_PLACE": "{placeName}został dodany",
     "NEW_MEMBER": "{userName} dołączył/-a do grupy",
     "PICKUP_UPCOMING": "Przypomnienie: masz odbiór o {time}",
     "PICKUP_DISABLED": "Odbiór w dniu {dateTime} został zdezaktywowany",

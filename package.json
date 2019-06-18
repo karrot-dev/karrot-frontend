@@ -145,7 +145,7 @@
     "webpack": "^4.34.0",
     "webpack-bundle-analyzer": "^3.3.2",
     "webpack-cli": "^3.3.4",
-    "webpack-dev-server": "^3.7.1"
+    "webpack-dev-server": "^3.7.2"
   },
   "browserslist": [
     "defaults"

@@ -93,7 +93,7 @@
     "babel-eslint": "^10.0.2",
     "babel-jest": "^24.8.0",
     "babel-loader": "^8.0.6",
-    "babel-plugin-dynamic-import-node": "^2.0.0",
+    "babel-plugin-dynamic-import-node": "^2.3.0",
     "babel-plugin-transform-imports": "^1.5.0",
     "babel-preset-vue": "^2.0.2",
     "compression": "^1.7.3",

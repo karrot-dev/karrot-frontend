@@ -240,10 +240,20 @@ export default {
         return this.edit.dateEnd
       },
       set (val) {
-        if (val < this.edit.date) {
+        if (val <= this.edit.date) {
           // if the value is in the past add a day (allows pickups over midnight)
-          val = addDays(val, 1)
+          this.edit.dateEnd = addDays(val, 1)
+          return
         }
+
+        const duration = differenceInSeconds(val, this.edit.date)
+        const twentyFourHours = 24 * 60 * 60
+        if (duration > twentyFourHours) {
+          const cappedDuration = duration % twentyFourHours
+          this.edit.dateEnd = addSeconds(this.edit.date, cappedDuration)
+          return
+        }
+
         this.edit.dateEnd = val
       },
     },

@@ -114,7 +114,7 @@ export default {
     async save () {
       this.hasError = false
       try {
-        await api.unsubscribe(this.token, { choice: this.choice })
+        await api.tokenUnsubscribe(this.token, { choice: this.choice })
         this.hasSuccess = true
       }
       catch (err) {

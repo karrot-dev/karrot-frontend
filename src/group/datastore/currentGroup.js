@@ -96,7 +96,6 @@ export default {
         else {
           await groups.removeNotificationType(getters.id, notificationType)
         }
-        await dispatch('fetch', getters.id)
       },
 
       async trustUser ({ getters }, userId) {

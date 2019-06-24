@@ -6,10 +6,13 @@ export default connect({
   gettersToProps: {
     group: 'currentGroup/value',
     groups: 'groups/mine',
+    status: 'unsubscribe/allEmailsPerGroupStatus',
   },
   actionsToEvents: {
     changeNotificationType: 'currentGroup/changeNotificationType',
     selectGroup: 'currentGroup/select',
+    unsubscribeAllEmails: 'unsubscribe/allEmailsPerGroup',
+    clearUnsubscribeAllStatus: 'unsubscribe/clear',
   },
 })('GroupSettings', GroupSettings)
 </script>

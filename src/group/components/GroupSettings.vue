@@ -134,7 +134,7 @@ export default {
     },
     notificationIsEnabled (type) {
       if (!this.group) return
-      return this.group.notificationTypes.indexOf(type) !== -1
+      return this.group.notificationTypes.includes(type)
     },
   },
 }

@@ -6,17 +6,19 @@
   >
     <QCardTitle>{{ $t('GROUP.NOTIFICATIONS_BY_GROUP') }}</QCardTitle>
     <template v-if="groups.length > 1">
-      <span
-        class="q-pb-md q-pl-md q-caption-opacity"
-      >
-        {{ $t('SWITCHGROUP.CHOOSE') }}
-      </span>
-      <SwitchGroupButton
-        class="q-ml-md"
-        :user="{ isCurrentUser: true }"
-        :groups="groups"
-        @selectGroup="$emit('selectGroup', arguments[0])"
-      />
+      <div class="row q-pl-md">
+        <div
+          class="q-pb-md q-caption-opacity"
+        >
+          {{ $t('SWITCHGROUP.CHOOSE') }}
+        </div>
+        <SwitchGroupButton
+          class="q-ml-md"
+          :user="{ isCurrentUser: true }"
+          :groups="groups"
+          @selectGroup="$emit('selectGroup', arguments[0])"
+        />
+      </div>
     </template>
     <QCardMain>
       <QList link>
@@ -43,6 +45,28 @@
             </QItemTile>
           </QItemMain>
         </QItem>
+        <div
+          class="q-pt-md q-pl-md"
+        >
+          <QBtn
+            color="primary"
+            :label="$t('UNSUBSCRIBE.ALL')"
+            :loading="isPending"
+            @click="$emit('unsubscribeAllEmails', group.id)"
+          />
+          <div
+            class="q-pt-sm q-caption-opacity"
+          >
+            {{ $t('UNSUBSCRIBE.FROM_GROUP', { groupName: group.name }) }}
+          </div>
+        </div>
+        <div
+          v-if="hasAnyError"
+          class="text-negative q-mt-md"
+        >
+          <i class="fas fa-exclamation-triangle" />
+          {{ anyFirstError }}
+        </div>
       </QList>
     </QCardMain>
   </QCard>
@@ -60,8 +84,10 @@ import {
   QItemSide,
   QItemMain,
   QItemTile,
+  QBtn,
 } from 'quasar'
 import SwitchGroupButton from '@/users/components/SwitchGroupButton'
+import statusMixin from '@/utils/mixins/statusMixin'
 
 export default {
   name: 'GroupSettings',
@@ -76,8 +102,10 @@ export default {
     QItemSide,
     QItemMain,
     QItemTile,
+    QBtn,
     SwitchGroupButton,
   },
+  mixins: [statusMixin],
   props: {
     group: {
       type: Object,
@@ -93,13 +121,20 @@ export default {
       availableNotificationTypes: ['weekly_summary', 'daily_pickup_notification', 'new_application', 'conflict_resolution'],
     }
   },
+  watch: {
+    group (val, oldval) {
+      if (!val || !oldval || val.id !== oldval.id) {
+        this.$emit('clearUnsubscribeAllStatus')
+      }
+    },
+  },
   methods: {
     change (notificationType, enabled) {
       this.$emit('changeNotificationType', { notificationType, enabled })
     },
     notificationIsEnabled (type) {
       if (!this.group) return
-      return this.group.notificationTypes.indexOf(type) !== -1
+      return this.group.notificationTypes.includes(type)
     },
   },
 }

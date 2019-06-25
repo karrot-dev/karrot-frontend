@@ -21,6 +21,7 @@ import sidenav from '@/sidenav/datastore'
 import places from '@/places/datastore'
 import subscriptions from '@/subscriptions/datastore'
 import topbar from '@/topbar/datastore'
+import unsubscribe from '@/unsubscribe/datastore'
 import users from '@/users/datastore'
 import utils from '@/utils/datastore'
 
@@ -45,6 +46,7 @@ const appModules = [
   places,
   subscriptions,
   topbar,
+  unsubscribe,
   users,
   utils,
 ]

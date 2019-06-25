@@ -50,6 +50,11 @@ const datastore = createDatastore({
       resendVerification: action('resend'),
     },
   },
+  unsubscribe: {
+    getters: {
+      allEmailsPerGroupStatus: () => statusMocks.default(),
+    },
+  },
   i18n: {
     getters: {
       locale: () => 'en',

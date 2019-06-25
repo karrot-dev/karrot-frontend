@@ -124,9 +124,13 @@ export async function maybeDispatchActions (datastore, to, from) {
     }
   }
 
-  for (let m of from.matched.slice(firstNewMatchIdx).reverse()) {
-    if (m.meta.afterLeave) {
-      await datastore.dispatch(m.meta.afterLeave, {
+  const flatten = list => [].concat(...list)
+
+  const afterLeaveActions = from.matched.slice(firstNewMatchIdx).reverse().map(m => m.meta.afterLeave)
+
+  for (let action of flatten(afterLeaveActions)) {
+    if (action) {
+      await datastore.dispatch(action, {
         ...parseAsIntegers(from.params),
         routeFrom: from,
         routeTo: to,
@@ -156,8 +160,6 @@ export async function maybeDispatchActions (datastore, to, from) {
       }
     }
   }
-
-  const flatten = list => [].concat(...list)
 
   const beforeEnter = to.matched.slice(firstNewMatchIdx).map(m => m.meta.beforeEnter)
   const results = await Promise.all(flatten(beforeEnter)

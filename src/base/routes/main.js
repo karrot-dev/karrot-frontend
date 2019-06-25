@@ -474,7 +474,7 @@ export default [
         { translation: 'SETTINGS.TITLE', route: { name: 'settings' } },
       ],
       beforeEnter: ['auth/getFailedEmailDeliveries', 'currentGroup/selectFromCurrentUser'],
-      afterLeave: 'auth/clearSettingsStatus',
+      afterLeave: ['auth/clearSettingsStatus', 'unsubscribe/clear'],
     },
     component: Settings,
   },

@@ -655,11 +655,13 @@
   },
   "UNSUBSCRIBE": {
     "HEADER": "Unsubscribe",
+    "ALL": "Unsubscribe all",
     "FROM_CONVERSATION": "unsubscribe from just this conversation",
     "FROM_THREAD": "unsubscribe from just this thread",
     "FROM_NOTIFICATION_TYPE": "unsubscribe from {notificationType}",
-    "FROM_GROUP": "unsubscribe from everything in {groupName}",
-    "SUCCESS": "You were successfully unsubscribed!"
+    "FROM_GROUP": "Unsubscribe from all email notifications in {groupName}",
+    "SUCCESS": "You were successfully unsubscribed!",
+    "COUNTS": "You unsubscribed from {formerConversations} conversations and {formerReplies} replies."
   },
   "THANKS": "Thank you!",
   "ATTENTION": "Attention!",

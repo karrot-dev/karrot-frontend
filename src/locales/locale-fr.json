@@ -655,11 +655,13 @@
   },
   "UNSUBSCRIBE": {
     "HEADER": "Se désabonner",
+    "ALL": "Unsubscribe all",
     "FROM_CONVERSATION": "Quitter seulement cette conversation.",
     "FROM_THREAD": "Quitter seulement ce fil de discussion",
     "FROM_NOTIFICATION_TYPE": "Quitter {notificationType}",
-    "FROM_GROUP": "Se désabonner de tout dans {groupName}",
-    "SUCCESS": "Vous avez été désabonner avec succès !"
+    "FROM_GROUP": "Unsubscribe from all email notifications in {groupName}",
+    "SUCCESS": "Vous avez été désabonner avec succès !",
+    "COUNTS": "You unsubscribed from {formerConversations} conversations and {formerReplies} replies."
   },
   "THANKS": "Thank you!",
   "ATTENTION": "Attention!",

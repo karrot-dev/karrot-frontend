@@ -655,11 +655,13 @@
   },
   "UNSUBSCRIBE": {
     "HEADER": "Avprenumerera",
+    "ALL": "Unsubscribe all",
     "FROM_CONVERSATION": "Stäng av notiser för detta samtal",
     "FROM_THREAD": "stäng av notiser för just den här tråden",
     "FROM_NOTIFICATION_TYPE": "stäng av notiser från {notificationType}",
-    "FROM_GROUP": "stäng av notiser för allt i {groupName}",
-    "SUCCESS": "Du avslutade prenumeration!"
+    "FROM_GROUP": "Unsubscribe from all email notifications in {groupName}",
+    "SUCCESS": "Du avslutade prenumeration!",
+    "COUNTS": "You unsubscribed from {formerConversations} conversations and {formerReplies} replies."
   },
   "THANKS": "Thank you!",
   "ATTENTION": "Attention!",

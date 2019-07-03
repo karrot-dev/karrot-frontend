@@ -18,7 +18,7 @@
     "cordova-plugin-deeplinks": "^1.1.0",
     "cordova-plugin-fcm-with-dependecy-updated": "^2.4.0",
     "cordova-plugin-network-information": "^2.0.1",
-    "cordova-plugin-whitelist": "^1.3.3",
+    "cordova-plugin-whitelist": "^1.3.4",
     "fcm": "^1.0.3"
   }
 }

@@ -3,12 +3,13 @@ module.exports = {
     ['@babel/preset-env', {
       modules: false,
       useBuiltIns: 'usage',
-      corejs: 2,
+      corejs: 3,
     }],
   ],
   plugins: [
-    '@babel/plugin-syntax-dynamic-import',
-    '@babel/plugin-transform-runtime',
+    ['@babel/plugin-transform-runtime', {
+      corejs: 3,
+    }],
   ],
   env: {
     test: {

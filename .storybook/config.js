@@ -24,20 +24,23 @@ import 'quasar-extras/fontawesome/fontawesome.css'
 import 'quasar-extras/animate'
 
 // Storybook config
-import { addDecorator, configure } from '@storybook/vue'
-import { withOptions } from '@storybook/addon-options'
+import { addParameters, configure } from '@storybook/vue'
+import { create } from '@storybook/theming'
 
 function loadStories() {
   const req = require.context('../src', true, /\.story\.js$/)
   req.keys().forEach(filename => req(filename))
 }
 
-addDecorator(
-  withOptions({
-    name: 'Karrot Storybook',
-    url: 'https://github.com/yunity/karrot-frontend',
-    sortStoriesByKind: true,
-  })
-)
+addParameters({
+  options: {
+    theme: create({
+      base: 'light',
+      brandTitle: 'Karrot Storybook',
+      brandUrl: 'https://github.com/yunity/karrot-frontend',
+    }),
+    storySort: (a, b) => a[1].kind.localeCompare(b[1].kind),
+  }
+})
 
 configure(loadStories, module)

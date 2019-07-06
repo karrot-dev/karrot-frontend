@@ -38,7 +38,7 @@
         v-if="!isParticipant"
         v-t="'CONVERSATION.NOT_PARTICIPATED'"
         sublabel
-        class="q-mt-md q-caption"
+        class="q-mt-md text-caption"
       />
     </QItemMain>
   </QItem>

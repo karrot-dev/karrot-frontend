@@ -12,7 +12,7 @@
     />
     <QPopover>
       <QList
-        v-close-overlay
+        v-close-popup
         link
       >
         <template v-if="user && !user.mailVerified">

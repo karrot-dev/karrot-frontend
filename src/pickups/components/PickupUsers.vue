@@ -195,7 +195,7 @@ export default {
   background-color rgba(255, 255, 255, 0.7)
   border 2px dashed lightgrey
   color grey
-  border-radius $borderRadius
+  border-radius 0
   margin-bottom 3.8px
   text-align center
   div

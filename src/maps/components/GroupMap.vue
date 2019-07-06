@@ -12,24 +12,26 @@
       :force-zoom="forceZoom"
       @mapMoveEnd="mapMoveEnd"
     >
-      <QList
+      <template
         v-if="isEditor"
-        slot="contextmenu"
-        slot-scope="{ latLng }"
-        highlight
-        dense
+        v-slot:contextmenu="{ latLng }"
       >
-        <QItem
-          :to="{name: 'placeCreate', query: latLng}"
+        <QList
+          highlight
+          dense
         >
-          <QItemSide
-            icon="add circle"
-          />
-          <QItemMain
-            :label="$t('CREATESTORE.TITLE')"
-          />
-        </QItem>
-      </QList>
+          <QItem
+            :to="{name: 'placeCreate', query: latLng}"
+          >
+            <QItemSection side>
+              <QIcon name="add circle" />
+            </QItemSection>
+            <QItemSection>
+              <QItemLabel>{{ $t('CREATESTORE.TITLE') }}</QItemLabel>
+            </QItemSection>
+          </QItem>
+        </QList>
+      </template>
     </StandardMap>
     <GroupMapControls
       v-if="controls !== 'none'"
@@ -82,8 +84,9 @@ import {
   QBtn,
   QList,
   QItem,
-  QItemMain,
-  QItemSide,
+  QItemSection,
+  QItemLabel,
+  QIcon,
 } from 'quasar'
 
 import { groupMarker, placeMarker, userMarker } from '@/maps/components/markers'
@@ -94,8 +97,9 @@ export default {
     QBtn,
     QList,
     QItem,
-    QItemMain,
-    QItemSide,
+    QItemSection,
+    QItemLabel,
+    QIcon,
     GroupMapControls,
   },
   props: {
@@ -107,7 +111,6 @@ export default {
     showUsers: { default: false, type: Boolean },
     showPlaces: { default: true, type: Boolean },
     showGroups: { default: false, type: Boolean },
-    createDatastore: { default: false, type: Boolean },
     currentGroup: { type: Object, default: null },
     isEditor: { type: Boolean, default: false },
     forceCenter: { type: Object, default: null },

@@ -39,7 +39,7 @@ export default {
     color $primary
 .splashlayout-content
   overflow hidden
-  border-radius $borderRadius
+  border-radius 0
   width 100%
   min-height 5em
   background-color $primary
@@ -47,7 +47,7 @@ export default {
   padding 1em 1em
   .white-box
     background-color white
-    border-radius $borderRadiusSmall
+    border-radius 0
     padding .1em 1em
     margin-bottom .5em
     .q-field

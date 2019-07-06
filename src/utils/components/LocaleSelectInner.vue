@@ -1,6 +1,6 @@
 <template>
   <QList
-    v-close-overlay
+    v-close-popup
     highlight
   >
     <QItem

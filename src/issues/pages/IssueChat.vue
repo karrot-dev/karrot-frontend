@@ -34,7 +34,7 @@
         </QBtn>
       </div>
       <div class="q-mx-sm q-mb-sm q-pa-sm bg-white">
-        <span class="text-bold text-secondary uppercase">
+        <span class="text-bold text-secondary text-uppercase">
           <RouterLink
             place="userName"
             :to="{name: 'user', params: { userId: issue.createdBy.id }}"
@@ -63,14 +63,14 @@
             class="q-mr-xs"
           />
         </div>
-        <div class="q-caption q-caption-opacity q-mt-xs">
+        <div class="text-caption q-caption-opacity q-mt-xs">
           {{ $t('ISSUE.PARTICIPANTS', { count: conversation.participants.length }) }}
         </div>
       </div>
     </QCollapsible>
     <div
       v-if="conversation"
-      class="bg-secondary absolute-top-right round-borders q-pa-xs"
+      class="bg-secondary absolute-top-right rounded-borders q-pa-xs"
     >
       <NotificationToggle
         :muted="conversation.muted"

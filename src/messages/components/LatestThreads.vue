@@ -15,7 +15,7 @@
         <LatestMessageItem
           v-for="conv in threads"
           :key="conv.id"
-          v-close-overlay
+          v-close-popup
           :thread="conv"
           :message="conv.latestMessage"
           :unread-count="conv.threadMeta.unreadReplyCount"
@@ -40,7 +40,7 @@
           class="row justify-end q-mt-sm q-mr-sm"
         >
           <QBtn
-            v-close-overlay
+            v-close-popup
             size="sm"
             color="secondary"
             :to="{ name: 'latestThreads' }"

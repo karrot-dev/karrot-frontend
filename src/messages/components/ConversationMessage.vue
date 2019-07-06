@@ -31,19 +31,22 @@
         @toggle="toggleReaction"
       />
     </QBtnGroup>
-    <QItemSide v-if="!slim">
+    <QItemSection
+      v-if="!slim"
+      side
+    >
       <ProfilePicture
         :user="message.author"
         :size="$q.platform.is.mobile ? 30 : 40"
         style="margin-top: 6px"
       />
-    </QItemSide>
-    <QItemMain>
-      <QItemTile
+    </QItemSection>
+    <QItemSection>
+      <QItemLabel
         class="no-wrap k-message-meta"
       >
         <RouterLink :to="{ name: 'user', params: { userId: message.author.id } }">
-          <span class="k-message-author text-bold text-secondary uppercase">{{ message.author.displayName }}</span>
+          <span class="k-message-author text-bold text-secondary text-uppercase">{{ message.author.displayName }}</span>
         </RouterLink>
         <span class="message-date">
           <small class="text-weight-light">
@@ -57,7 +60,7 @@
         >
           <QTooltip v-t="'WALL.RECEIVED_VIA_EMAIL'" />
         </QIcon>
-      </QItemTile>
+      </QItemLabel>
       <div class="content">
         <Markdown :source="message.content" />
       </div>
@@ -106,7 +109,7 @@
           class="k-replies-count"
         />
       </QBtn>
-    </QItemMain>
+    </QItemSection>
   </QItem>
   <ConversationCompose
     v-else
@@ -130,9 +133,7 @@ import {
   QBtn,
   QBtnGroup,
   QItem,
-  QItemSide,
-  QItemMain,
-  QItemTile,
+  QItemSection,
   QIcon,
   QTooltip,
 } from 'quasar'
@@ -148,9 +149,7 @@ export default {
     QBtn,
     QBtnGroup,
     QItem,
-    QItemSide,
-    QItemMain,
-    QItemTile,
+    QItemSection,
     QIcon,
     QTooltip,
   },

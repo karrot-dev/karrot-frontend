@@ -333,7 +333,7 @@ Please document your changes in this format:
 - lots of bugs
 
 ## [4.0.0] - 2017-12-27
-Complete frontend rewrite with [VueJS](http://vuejs.org/) and [Quasar](http://quasar-framework.org/)
+Complete frontend rewrite with [VueJS](http://vuejs.org/) and [Quasar](http://quasar.dev/)
 
 ### Added
 - Group conversations

@@ -5,37 +5,39 @@
       @submit.prevent="submit"
     >
       <div
-        class="white-box"
         :class="{ shake: hasAnyError }"
       >
-        <QField icon="fas fa-envelope">
-          <QInput
-            v-model="email"
-            :autofocus="true"
-            :error="hasError('email')"
-            :float-label="$t('USERDATA.EMAIL')"
-            type="email"
-            autocorrect="off"
-            autocapitalize="off"
-            spellcheck="false"
-          />
-        </QField>
+        <QInput
+          v-model="email"
+          :autofocus="true"
+          :error="hasError('email')"
+          :label="$t('USERDATA.EMAIL')"
+          type="email"
+          autocorrect="off"
+          autocapitalize="off"
+          spellcheck="false"
+        >
+          <template v-slot:before>
+            <QIcon name="fas fa-envelope" />
+          </template>
+        </QInput>
       </div>
       <div
-        class="white-box"
         :class="{ shake: hasAnyError }"
       >
-        <QField icon="fas fa-lock">
-          <QInput
-            v-model="password"
-            :error="hasError('password')"
-            type="password"
-            :float-label="$t('USERDATA.PASSWORD')"
-            autocorrect="off"
-            autocapitalize="off"
-            spellcheck="false"
-          />
-        </QField>
+        <QInput
+          v-model="password"
+          :error="hasError('password')"
+          :label="$t('USERDATA.PASSWORD')"
+          type="password"
+          autocorrect="off"
+          autocapitalize="off"
+          spellcheck="false"
+        >
+          <template v-slot:before>
+            <QIcon name="fas fa-lock" />
+          </template>
+        </QInput>
       </div>
       <div
         v-if="hasAnyError"
@@ -73,11 +75,19 @@
 </template>
 
 <script>
-import { QField, QInput, QBtn } from 'quasar'
+import {
+  QInput,
+  QIcon,
+  QBtn,
+} from 'quasar'
 import statusMixin from '@/utils/mixins/statusMixin'
 
 export default {
-  components: { QField, QInput, QBtn },
+  components: {
+    QInput,
+    QIcon,
+    QBtn,
+  },
   mixins: [statusMixin],
   data () {
     if (__ENV.DEV) {

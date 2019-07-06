@@ -13,7 +13,7 @@
       <NotificationItem
         v-for="notification in notifications"
         :key="notification.id"
-        v-close-overlay
+        v-close-popup
         :notification="notification"
         @click="markClicked"
       />
@@ -22,7 +22,7 @@
         class="row justify-end q-mt-sm q-mr-sm"
       >
         <QBtn
-          v-close-overlay
+          v-close-popup
           size="sm"
           color="secondary"
           :to="{ name: 'notifications' }"

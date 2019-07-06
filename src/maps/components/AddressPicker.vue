@@ -1,14 +1,21 @@
 <template>
   <div>
-    <QSearch
-      v-model="value.address"
-      :placeholder="$t('BUTTON.SEARCH')"
+    <QSelect
+      :value="value.address"
+      use-input
+      clearable
+      hide-selected
+      fill-input
+      label="label"
+      :options="options"
+      :hint="$t('BUTTON.SEARCH')"
+      @filter="search"
+      @input="select"
     >
-      <QAutocomplete
-        @search="autocompleteSearch"
-        @selected="autocompleteSelected"
-      />
-    </QSearch>
+      <template v-slot:prepend>
+        <QIcon name="fas fa-search" />
+      </template>
+    </QSelect>
     <StandardMap
       class="map"
       :markers="marker ? [marker] : []"
@@ -20,14 +27,21 @@
 </template>
 
 <script>
-import { QSearch, QAutocomplete } from 'quasar'
+import {
+  QSelect,
+  QIcon,
+} from 'quasar'
 import StandardMap from '@/maps/components/StandardMap'
 import L from 'leaflet'
 
 import geocoding from '@/maps/api/geocoding'
 
 export default {
-  components: { QSearch, QAutocomplete, StandardMap },
+  components: {
+    QSelect,
+    QIcon,
+    StandardMap,
+  },
   props: {
     value: {
       type: Object,
@@ -45,6 +59,7 @@ export default {
   data () {
     return {
       preventZoom: false,
+      options: null,
     }
   },
   computed: {
@@ -64,29 +79,45 @@ export default {
   watch: {
     'value.address' (val) {
       if (val === '') {
-        this.$emit('input', { ...this.value, latitude: null, longitude: null, address: null })
+        this.reset()
       }
     },
   },
   methods: {
-    async autocompleteSearch (terms, done) {
-      if (!terms) done([])
-      done((await geocoding.lookupAddress(terms)).map(result => {
-        const { address } = result
-        return {
-          result,
-          label: address,
-          value: address,
-        }
-      }))
+    async search (terms, update, abort) {
+      this.$emit('input', { ...this.value, address: terms })
+      if (!terms) {
+        update(() => {
+          this.options = []
+        })
+        return
+      }
+      update(async () => {
+        this.options = (await geocoding.lookupAddress(terms)).map(result => {
+          const { address } = result
+          return {
+            result,
+            label: address,
+            value: address,
+          }
+        })
+      })
     },
-    autocompleteSelected ({ result: { address, latitude, longitude } }) {
+    select (value) {
+      if (!value) {
+        this.reset()
+        return
+      }
+      const { result: { address, latitude, longitude } } = value
       this.preventZoom = false
       this.$emit('input', { ...this.value, latitude, longitude, address })
     },
     mapMarkerMoved ({ lat: latitude, lng: longitude }) {
       this.preventZoom = true
       this.$emit('input', { ...this.value, latitude, longitude })
+    },
+    reset () {
+      this.$emit('input', { ...this.value, latitude: null, longitude: null, address: null })
     },
   },
 }

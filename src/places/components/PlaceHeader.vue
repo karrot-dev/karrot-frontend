@@ -23,7 +23,7 @@
         <QPopover>
           <div
             v-if="subscribers"
-            v-close-overlay
+            v-close-popup
             class="q-pa-md"
           >
             <div>
@@ -35,7 +35,7 @@
                 class="q-mr-xs"
               />
             </div>
-            <div class="q-caption q-mt-sm">
+            <div class="text-caption q-mt-sm">
               {{ $t('PLACEWALL.SUBSCRIBED_USERS', { count: subscribers.length }) }}
             </div>
           </div>
@@ -54,7 +54,7 @@
           </QTooltip>
           <QPopover>
             <QList
-              v-close-overlay
+              v-close-popup
               link
             >
               <QListHeader

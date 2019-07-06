@@ -88,11 +88,11 @@ export default {
 
 .art-overlay
   color white
-  background rgba(0,0,0,$groupNavOverlay)
+  background rgba(0,0,0,0)
   .header
     font-size 1.3em
   .subtitle
     margin-top 6px
 body.desktop .art-overlay
-  background linear-gradient(to top, rgba(0,0,0,0.5) 0%, rgba(0,0,0,$groupNavOverlay) 58%, rgba(0,0,0,0) 90%)
+  background linear-gradient(to top, rgba(0,0,0,0.5) 0%, rgba(0,0,0,0) 58%, rgba(0,0,0,0) 90%)
 </style>

@@ -19,7 +19,7 @@
         <QItem
           v-for="group in commonGroups"
           :key="group.id"
-          v-close-overlay
+          v-close-popup
           link
           @click.native="$emit('selectGroup', { groupId: group.id })"
         >

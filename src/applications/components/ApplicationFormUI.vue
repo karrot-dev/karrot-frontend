@@ -11,23 +11,24 @@
       {{ $t('APPLICATION.FORM_TITLE', { groupName: group.name }) }}
     </p>
     <form @submit.prevent="apply">
-      <div class="white-box shadow-6 q-py-md q-px-sm">
+      <div class="white-box bg-white shadow-6 q-py-md q-px-sm">
         <QItem>
-          <QItemSide
-            icon="fas fa-fw fa-question"
-          />
-          <QItemMain>
+          <QItemSection side>
+            <QIcon name="fas fa-fw fa-question" />
+          </QItemSection>
+          <QItemSection>
             <Markdown
               :source="group.applicationQuestions"
             />
-          </QItemMain>
+          </QItemSection>
         </QItem>
         <MarkdownInput :value="applicationAnswers">
           <QInput
             id="group-title"
             v-model="applicationAnswers"
             type="textarea"
-            rows="6"
+            input-style="min-height: 150px"
+            autogrow
             @keyup.ctrl.enter="apply"
           />
         </MarkdownInput>
@@ -64,10 +65,10 @@
 <script>
 import {
   QItem,
-  QItemSide,
-  QItemMain,
+  QItemSection,
   QInput,
   QBtn,
+  QIcon,
 } from 'quasar'
 import MarkdownInput from '@/utils/components/MarkdownInput'
 import Markdown from '@/utils/components/Markdown'
@@ -76,10 +77,10 @@ import statusMixin from '@/utils/mixins/statusMixin'
 export default {
   components: {
     QItem,
-    QItemSide,
-    QItemMain,
+    QItemSection,
     QInput,
     QBtn,
+    QIcon,
     MarkdownInput,
     Markdown,
   },

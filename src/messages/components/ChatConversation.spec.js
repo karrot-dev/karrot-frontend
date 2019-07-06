@@ -6,7 +6,7 @@ import ChatConversation from './ChatConversation'
 import { mountWithDefaults, polyfillRequestAnimationFrame, statusMocks } from '>/helpers'
 
 import { currentUserMock, messagesMock } from '>/mockdata'
-import { QInput } from 'quasar-framework/dist/quasar.mat.esm'
+import { QInput } from 'quasar'
 
 polyfillRequestAnimationFrame()
 

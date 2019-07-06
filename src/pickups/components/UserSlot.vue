@@ -50,7 +50,7 @@ export default {
 
   .user-slot-wrapper
     border 2px dashed
-    border-radius $borderRadius
+    border-radius 0
     margin-right 3.8px
     margin-bottom 3.8px
     background-color rgba(255, 255, 255, 0.7)

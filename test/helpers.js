@@ -1,10 +1,10 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
+import VueRouter from 'vue-router'
 import raf from 'raf'
 import { createLocalVue, mount, TransitionStub, TransitionGroupStub, RouterLinkStub } from '@vue/test-utils'
 import deepmerge from 'deepmerge'
 import i18n from '@/base/i18n'
-import router from '@/base/router'
 import { IconPlugin } from '@/base/icons'
 
 Vue.use(Vuex)
@@ -104,13 +104,14 @@ export function mountWithDefaults (Component, options = {}) {
 export function mountWithDefaultsAndLocalVue (Component, localVue, options = {}) {
   configureQuasar(localVue)
   i18n.locale = 'en'
+  localVue.use(VueRouter)
   localVue.component('RouterLink', RouterLinkStub)
   localVue.component('Transition', TransitionStub)
   localVue.component('TransitionGroup', TransitionGroupStub)
   const datastore = options.datastore
   delete options.datastore
   const wrapper = mount(Component, {
-    router,
+    router: new VueRouter(),
     localVue,
     i18n,
     sync: false,
@@ -121,10 +122,12 @@ export function mountWithDefaultsAndLocalVue (Component, localVue, options = {})
   return wrapper
 }
 
+const storybookRouter = new VueRouter()
+
 export function storybookDefaults (options) {
   i18n.locale = 'en'
   return {
-    router,
+    router: storybookRouter,
     i18n,
     ...options,
   }

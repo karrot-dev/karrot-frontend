@@ -2,13 +2,20 @@
   <div
     class="k-add-reaction"
   >
-    <QSearch
+    <QInput
       v-model="search"
-    />
+      type="search"
+      :placeholder="$q.lang.label.search"
+      dense
+    >
+      <template v-slot:prepend>
+        <QIcon name="search" />
+      </template>
+    </QInput>
     <EmojiButton
       v-for="name in results"
       :key="name"
-      v-close-overlay
+      v-close-popup
       :name="name"
       class="big"
       :title="':' + name + ':'"
@@ -20,7 +27,10 @@
 <script>
 import EmojiButton from './EmojiButton'
 import emojiList from 'markdown-it-emoji/lib/data/full.json'
-import { QSearch } from 'quasar'
+import {
+  QInput,
+  QIcon,
+} from 'quasar'
 
 function searchEmoji (search) {
   // Remove colons and set to lowercase to normalize search
@@ -53,7 +63,11 @@ function searchEmoji (search) {
 }
 
 export default {
-  components: { EmojiButton, QSearch },
+  components: {
+    EmojiButton,
+    QInput,
+    QIcon,
+  },
   props: {
     reacted: {
       type: Array,
@@ -92,5 +106,5 @@ export default {
 .k-add-reaction
   margin 2px 4px
 .big
-  font-size 1.6em
+  font-size 25.6px
 </style>

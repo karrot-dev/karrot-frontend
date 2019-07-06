@@ -25,8 +25,6 @@ const appEnv = {
     SENTRY_CONFIG: JSON.stringify(process.env.SENTRY_CONFIG),
     GIT_SHA1: JSON.stringify(process.env.GIT_SHA1 || process.env.CIRCLE_SHA1),
   },
-  // Quasar requires process.env.THEME to be set
-  'process.env.THEME': JSON.stringify('mat'),
   // vuelidate wants this
   // see https://github.com/monterail/vuelidate/issues/365
   'process.env.BUILD': JSON.stringify('web'),
@@ -79,7 +77,6 @@ module.exports = {
   node: false,
   resolve: {
     extensions: [
-      '.mat.js', // for use inside quasar
       '.js',
       '.vue',
       '.json',
@@ -89,8 +86,8 @@ module.exports = {
       resolve('node_modules'),
     ],
     alias: {
-      quasar: 'quasar-framework',
-      'quasar-vue-plugin': 'quasar-framework/src/vue-plugin',
+      'quasar': 'quasar',
+      'quasar-vue-plugin': 'quasar/src/vue-plugin',
       '@': resolve(__dirname, '../src'),
       '>': resolve(__dirname, '../test'),
       variables: resolve(__dirname, '../src/base/style/quasar.variables.styl'),
@@ -113,7 +110,7 @@ module.exports = {
         loader: 'babel-loader',
         include: [
           join(projectRoot, 'src'),
-          /quasar-framework\/src/,
+          /quasar\/src/,
           /\.mjs$/,
           /\.es6.js$/,
           /\.esm.js$/,

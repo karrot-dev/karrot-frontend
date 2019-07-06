@@ -13,7 +13,7 @@
         <LatestMessageItem
           v-for="conv in conversations"
           :key="conv.id"
-          v-close-overlay
+          v-close-popup
           :group="conv.type === 'group' ? conv.target : null"
           :user="conv.type === 'private' ? conv.target : null"
           :pickup="conv.type === 'pickup' ? conv.target : null"
@@ -44,7 +44,7 @@
           class="row justify-end q-mt-sm q-mr-sm"
         >
           <QBtn
-            v-close-overlay
+            v-close-popup
             size="sm"
             color="secondary"
             :to="{ name: 'latestConversations' }"

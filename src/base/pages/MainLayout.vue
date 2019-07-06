@@ -142,7 +142,6 @@
             v-if="$q.platform.is.mobile && !$keyboard.is.open"
           />
         </QLayoutFooter>
-        <QWindowResizeObservable @resize="onResize" />
       </QLayout>
     </div>
 
@@ -167,7 +166,6 @@ import CommunityFeed from '@/communityFeed/components/CommunityFeed'
 
 import { mapGetters, mapActions } from 'vuex'
 import {
-  dom,
   QLayout,
   QLayoutHeader,
   QLayoutDrawer,
@@ -175,7 +173,6 @@ import {
   QModal,
   QPageContainer,
   QPage,
-  QWindowResizeObservable,
   QItem,
   QIcon,
   QItemMain,
@@ -183,8 +180,6 @@ import {
   QBtn,
   QPullToRefresh,
 } from 'quasar'
-
-const { width } = dom
 
 export default {
   components: {
@@ -202,7 +197,6 @@ export default {
     QLayoutFooter,
     QPageContainer,
     QPage,
-    QWindowResizeObservable,
     QBtn,
     QIcon,
     QItem,
@@ -218,7 +212,6 @@ export default {
     return {
       showSidenav: false,
       showAbout: false,
-      windowWidth: width(window),
     }
   },
   computed: {
@@ -241,12 +234,12 @@ export default {
     },
     sidenavWidth () {
       if (this.$q.platform.is.mobile) {
-        return Math.min(380, this.windowWidth)
+        return Math.min(380, this.$q.screen.width)
       }
-      return this.windowWidth > 1000 ? 380 : 280
+      return this.$q.screen.width > 1000 ? 380 : 280
     },
     detailWidth () {
-      const contentWidth = this.windowWidth - this.sidenavWidth
+      const contentWidth = this.$q.screen.width - this.sidenavWidth
       const columnWidth = Math.floor(contentWidth / 2)
       return Math.min(500, Math.max(280, columnWidth))
     },
@@ -290,9 +283,6 @@ export default {
     },
     toggleAbout () {
       this.showAbout = !this.showAbout
-    },
-    onResize ({ width }) {
-      this.windowWidth = width
     },
   },
 }

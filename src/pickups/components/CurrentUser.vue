@@ -55,7 +55,7 @@ export default {
     visibility hidden
     color $negative
     border 2px dashed
-    border-radius $borderRadius
+    border-radius 0
     text-align center
     i
       display inline

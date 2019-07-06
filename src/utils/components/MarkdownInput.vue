@@ -3,26 +3,29 @@
     <QTabs
       v-model="tab"
       class="markdown-input"
-      inverted
       align="right"
       position="top"
     >
       <QTab
-        slot="title"
         class="markdown-input-tab"
-        default
         name="edit"
         :label="$t('BUTTON.EDIT')"
         :disable="!value"
       />
       <QTab
-        slot="title"
         class="markdown-input-tab"
         name="preview"
         :label="$t('BUTTON.PREVIEW')"
         :disable="!value"
       />
-      <QTabPane name="edit">
+    </QTabs>
+    <QTabPanels
+      v-model="tab"
+    >
+      <QTabPanel
+        name="edit"
+        class="q-pa-none"
+      >
         <slot />
         <small
           v-if="!$q.platform.is.mobile && tab === 'edit'"
@@ -41,25 +44,41 @@
             <QIcon name="fas fa-question-circle" />
           </a>
         </small>
-      </QTabPane>
-      <QTabPane name="preview">
+      </QTabPanel>
+      <QTabPanel
+        name="preview"
+        class="q-pa-none"
+      >
         <div class="preview">
           <Markdown
             v-if="value"
             :source="value"
           />
         </div>
-      </QTabPane>
-    </QTabs>
+      </QTabPanel>
+    </QTabPanels>
   </div>
 </template>
 
 <script>
-import { QTabs, QTab, QTabPane, QIcon } from 'quasar'
+import {
+  QTabs,
+  QTab,
+  QTabPanels,
+  QTabPanel,
+  QIcon,
+} from 'quasar'
 import Markdown from '@/utils/components/Markdown'
 
 export default {
-  components: { QTabs, QTab, QTabPane, QIcon, Markdown },
+  components: {
+    QTabs,
+    QTab,
+    QTabPanels,
+    QTabPanel,
+    QIcon,
+    Markdown,
+  },
   props: {
     value: {
       default: '',
@@ -77,6 +96,7 @@ export default {
 <style scoped lang="stylus">
 .preview
   border 1px solid rgba(0,0,0,.1)
+  margin-top 6px
   padding 6px
   position relative
   top -6px
@@ -85,17 +105,10 @@ export default {
   padding-top 6px
   > *
     padding-right 10px
-.markdown-input >>>
-  .q-tab
-    min-height 20px
-    padding 6px 10px
-    font-size .87em
-  .q-tabs-head
-    min-height 36px
-    background none
-  .q-tabs-panes
-    border none
-    .q-tab-pane
-      border none
-      padding 6px 0px
+.markdown-input
+  min-height unset
+  .markdown-input-tab
+    min-height unset
+    >>> .q-tab__label
+      font-size 12px
 </style>

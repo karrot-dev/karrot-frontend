@@ -99,7 +99,7 @@ export default {
     vertical-align middle
     padding 0 16px
     font-weight 500
-    text-transform uppercase
+    text-transform text-uppercase
 body.desktop .lastElement
     font-size 1.5rem
 </style>

@@ -30,7 +30,7 @@ export default datastore => {
     if (datastore.state.i18n.locale !== locale) return
 
     i18n.locale = locale
-    Quasar.i18n.set(quasarMessages)
+    Quasar.lang.set(quasarMessages)
   }, 100)
   datastore.watch(state => state.i18n.locale, loadLocale, { immediate: true })
 }

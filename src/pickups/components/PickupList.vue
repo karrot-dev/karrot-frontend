@@ -10,7 +10,7 @@
         :options="slotsOptions"
         hide-underline
       />
-      <div class="q-caption q-ml-xs">
+      <div class="text-caption q-ml-xs">
         {{ filteredPickups.length }} / {{ pickups.length }}
       </div>
     </QCard>

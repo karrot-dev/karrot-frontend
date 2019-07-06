@@ -8,7 +8,7 @@
       class="full-width"
     >
       <QItem
-        class="bg-tertiary"
+        class="bg-accent"
       >
         <QItemSide
           color="white"
@@ -84,7 +84,7 @@
       striped
     >
       <QItem
-        class="bg-tertiary"
+        class="bg-accent"
       >
         <QItemSide
           color="white"

@@ -5,7 +5,7 @@
     self="top right"
   >
     <QList
-      v-close-overlay
+      v-close-popup
       item-separator
       link
     >

@@ -27,11 +27,11 @@
         </QDialog>
       </QBtn>
     </div>
-    <div class="q-title q-mb-md">
+    <div class="text-h6 q-mb-md">
       {{ $t('CONFLICT.VOTING.HEADLINE', { userName: issue.affectedUser.displayName }) }}
     </div>
     <div class="q-pb-lg">
-      <div class="q-caption q-caption-opacity row inline">
+      <div class="text-caption q-caption-opacity row inline">
         <div>{{ $t('ISSUE.VOTING.TIME_LEFT') }}</div>:
         <DateAsWords
           class="q-pl-xs"
@@ -73,7 +73,7 @@
             />
           </div>
         </div>
-        <div class="q-caption q-caption-opacity q-my-xs">
+        <div class="text-caption q-caption-opacity q-my-xs">
           {{ $t('ISSUE.VOTING.ANONYMOUS') }}
         </div>
         <div class="row justify-end group">

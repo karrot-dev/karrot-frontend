@@ -20,7 +20,7 @@
       <template v-if="showPickups">
         <QCardSeparator />
         <div
-          class="q-px-md q-py-sm bg-grey-2 q-caption"
+          class="q-px-md q-py-sm bg-grey-2 text-caption"
         >
           <i class="fas fa-info-circle on-left" />
           {{ $t('PICKUPLIST.AVAILABLE_FROM_STORES') }}

@@ -37,7 +37,7 @@
             inverted
           />
           <QItemMain
-            class="q-body-1"
+            class="text-body1"
             :label="$t('CONVERSATION.CLOSED')"
             label-lines="3"
           />
@@ -46,7 +46,7 @@
       <KSpinner slot="message" />
     </QInfiniteScroll>
     <slot name="afterChatMessages" />
-    <QScrollObservable @scroll="onScroll" />
+    <QScrollObserver @scroll="onScroll" />
   </div>
 </template>
 
@@ -61,7 +61,7 @@ import {
   QItem,
   QItemSide,
   QItemMain,
-  QScrollObservable,
+  QScrollObserver,
   QInfiniteScroll,
 } from 'quasar'
 const { getScrollHeight, getScrollPosition, setScrollPosition, getScrollTarget } = scroll
@@ -81,7 +81,7 @@ export default {
     QItem,
     QItemSide,
     QItemMain,
-    QScrollObservable,
+    QScrollObserver,
     QInfiniteScroll,
   },
   props: {

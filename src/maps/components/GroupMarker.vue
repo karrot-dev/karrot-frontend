@@ -1,5 +1,5 @@
 <template>
-  <div class="q-title">
+  <div class="text-h6">
     <RouterLink :to="target">
       {{ group.name }}
     </RouterLink>

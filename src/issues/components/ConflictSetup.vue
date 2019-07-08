@@ -65,40 +65,42 @@
             />
           </MarkdownInput>
         </QStep>
-        <QStepperNavigation>
-          <QBtn
-            flat
-            color="secondary"
-            @click="$emit('close')"
-          >
-            {{ $t('BUTTON.CANCEL') }}
-          </QBtn>
-          <QBtn
-            v-if="setup !== 'attention'"
-            flat
-            color="secondary"
-            @click="$refs.setup.previous()"
-          >
-            {{ $t('BUTTON.BACK') }}
-          </QBtn>
-          <QBtn
-            v-if="setup !== 'statement'"
-            flat
-            color="secondary"
-            @click="$refs.setup.next()"
-          >
-            {{ $t('BUTTON.NEXT') }}
-          </QBtn>
-          <QBtn
-            v-if="setup == 'statement'"
-            flat
-            color="secondary"
-            :loading="isPending"
-            @click="submit"
-          >
-            {{ $t('BUTTON.SUBMIT') }}
-          </QBtn>
-        </QStepperNavigation>
+        <template v-slot:navigation>
+          <QStepperNavigation>
+            <QBtn
+              flat
+              color="secondary"
+              @click="$emit('close')"
+            >
+              {{ $t('BUTTON.CANCEL') }}
+            </QBtn>
+            <QBtn
+              v-if="setup !== 'attention'"
+              flat
+              color="secondary"
+              @click="$refs.setup.previous()"
+            >
+              {{ $t('BUTTON.BACK') }}
+            </QBtn>
+            <QBtn
+              v-if="setup !== 'statement'"
+              flat
+              color="secondary"
+              @click="$refs.setup.next()"
+            >
+              {{ $t('BUTTON.NEXT') }}
+            </QBtn>
+            <QBtn
+              v-if="setup == 'statement'"
+              flat
+              color="secondary"
+              :loading="isPending"
+              @click="submit"
+            >
+              {{ $t('BUTTON.SUBMIT') }}
+            </QBtn>
+          </QStepperNavigation>
+        </template>
       </QStepper>
       <div
         v-if="hasAnyError"

@@ -20,10 +20,10 @@
       :opacity="0.5"
       @toggle="$emit('toggle', arguments[0])"
     />
-    <QModal
+    <QDialog
       v-if="$q.platform.has.touch"
       v-model="showDetail"
-      content-classes="bg-grey-10 text-grey-1 q-pa-md"
+      content-class="bg-grey-10 text-grey-1 q-pa-md"
     >
       <template v-if="showDetail">
         <QItem
@@ -32,16 +32,16 @@
           multiline
           @click.native="toggleDetail"
         >
-          <QItemSide>
+          <QItemSection avatar>
             <EmojiButton
               :name="reaction.name"
               class="big"
             />
-          </QItemSide>
-          <QItemMain
-            :label="reaction.users.map(u => u.displayName).join(', ')"
-            :sublabel="`:${reaction.name}:`"
-          />
+          </QItemSection>
+          <QItemSection>
+            <QItemLabel header>{{ reaction.users.map(u => u.displayName).join(', ') }}</QItemLabel>
+            <QItemLabel caption>{{ `:${reaction.name}:` }}</QItemLabel>
+          </QItemSection>
         </QItem>
         <QBtn
           v-t="'BUTTON.CLOSE'"
@@ -49,7 +49,7 @@
           @click="toggleDetail"
         />
       </template>
-    </QModal>
+    </QDialog>
   </span>
 </template>
 
@@ -58,10 +58,10 @@ import ConversationAddReaction from './ConversationAddReaction'
 import EmojiButton from './EmojiButton'
 
 import {
-  QModal,
+  QDialog,
   QItem,
-  QItemMain,
-  QItemSide,
+  QItemSection,
+  QItemLabel,
   QBtn,
 } from 'quasar'
 
@@ -70,10 +70,10 @@ export default {
   components: {
     ConversationAddReaction,
     EmojiButton,
-    QModal,
+    QDialog,
     QItem,
-    QItemMain,
-    QItemSide,
+    QItemSection,
+    QItemLabel,
     QBtn,
   },
   props: {

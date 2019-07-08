@@ -1,31 +1,44 @@
 <template>
-  <div class="wrapper">
-    <QSearch
+  <div>
+    <QInput
       v-model="terms"
-      :autofocus="true"
-      separator
-      class="lightgrey"
-      :placeholder="$t('BUTTON.SEARCH')"
-      :debounce="50"
+      type="search"
+      :placeholder="$q.lang.label.search"
+      dense
+      autofocus
+      class="bg-grey-5"
+      :debounce="300"
       clearable
       @blur="clear"
-      @clear="clear"
       @keyup.esc="clear"
     >
-      <QAutocomplete
-        @search="search"
-        @selected="selected"
-      />
-    </QSearch>
+      <template v-slot:prepend>
+        <QIcon name="search" />
+      </template>
+    </QInput>
+    <QMenu
+      ref="menu"
+      no-parent-event
+    >
+      {{ results }}
+    </QMenu>
   </div>
 </template>
 
 <script>
-import { QSearch, QAutocomplete } from 'quasar'
+import {
+  QInput,
+  QIcon,
+  QMenu,
+} from 'quasar'
 import { mapMutations, mapGetters } from 'vuex'
 
 export default {
-  components: { QSearch, QAutocomplete },
+  components: {
+    QInput,
+    QIcon,
+    QMenu,
+  },
   data () {
     return {
       terms: null,
@@ -36,28 +49,27 @@ export default {
       results: 'search/results',
     }),
   },
+  watch: {
+    terms (val) {
+      if (!val) {
+        this.setTerms(null)
+        return
+      }
+      this.setTerms(val)
+      console.log(this.results)
+      console.log(this.$t('GLOBAL.SEARCH_NOT_FOUND'))
+    },
+    results (val) {
+      if (this.terms && val) {
+        this.$refs.menu.show()
+      }
+    },
+  },
   methods: {
     ...mapMutations({
       setTerms: 'search/setTerms',
       hide: 'search/hide',
     }),
-    search (terms, done) {
-      if (!terms) done([])
-      this.setTerms(terms)
-      if (!this.results.length) {
-        done([{ label: this.$t('GLOBAL.SEARCH_NOT_FOUND') }])
-      }
-      else {
-        done(this.results)
-      }
-    },
-    selected (item) {
-      if (this.results.length !== 0) {
-        this.terms = item.label
-        this.hide()
-        this.$router.push(item.value)
-      }
-    },
     clear () {
       this.setTerms(null)
       this.$emit('clear')
@@ -65,8 +77,3 @@ export default {
   },
 }
 </script>
-
-<style scoped lang="stylus">
-.lightgrey
-  background-color lightgrey
-</style>

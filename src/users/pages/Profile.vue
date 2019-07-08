@@ -126,7 +126,7 @@
         </QCardMain>
       </QCard>
 
-      <QModal
+      <QDialog
         v-model="showConflictSetup"
       >
         <template v-if="showConflictSetup">
@@ -161,7 +161,7 @@
             @close="toggleConflictSetup"
           />
         </template>
-      </QModal>
+      </QDialog>
     </div>
     <KSpinner v-show="historyStatus.pending" />
     <QCard v-if="history.length > 0">
@@ -199,7 +199,7 @@ import {
   QItem,
   QItemMain,
   QItemSide,
-  QModal,
+  QDialog,
 } from 'quasar'
 
 export default {
@@ -222,7 +222,7 @@ export default {
     QItem,
     QItemMain,
     QItemSide,
-    QModal,
+    QDialog,
   },
   data () {
     return {

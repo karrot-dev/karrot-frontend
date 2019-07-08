@@ -8,9 +8,8 @@
       class="fas fa-hand-pointer on-left"
     />
     {{ currentGroup ? currentGroup.name : $t('TOPBAR.CHANGE_GROUP') }}
-    <QModal
+    <QDialog
       v-model="showModal"
-      minimized
     >
       <QList>
         <QListHeader>
@@ -46,7 +45,7 @@
           </QItemMain>
         </QItem>
       </QList>
-    </QModal>
+    </QDialog>
   </QBtn>
 </template>
 
@@ -58,7 +57,7 @@ import {
   QItem,
   QItemMain,
   QItemSide,
-  QModal,
+  QDialog,
 } from 'quasar'
 
 export default {
@@ -69,7 +68,7 @@ export default {
     QItem,
     QItemMain,
     QItemSide,
-    QModal,
+    QDialog,
   },
   props: {
     groups: {

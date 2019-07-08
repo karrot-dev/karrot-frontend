@@ -22,7 +22,7 @@
         {{ unreadCount > 9 ? '9+' : unreadCount }}
       </QChip>
     </QItemSide>
-    <QModal
+    <QDialog
       v-model="showing"
       class="k-community-feed relative-position"
       @hide="mark"
@@ -100,7 +100,7 @@
           </QItemMain>
         </QItem>
       </QList>
-    </QModal>
+    </QDialog>
   </QItem>
 </template>
 
@@ -112,7 +112,7 @@ import {
 import {
   QBtn,
   QIcon,
-  QModal,
+  QDialog,
   QList,
   QListHeader,
   QItem,
@@ -128,7 +128,7 @@ export default {
     DateAsWords,
     QBtn,
     QIcon,
-    QModal,
+    QDialog,
     QList,
     QListHeader,
     QItem,

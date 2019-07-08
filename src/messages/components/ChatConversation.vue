@@ -31,16 +31,18 @@
           v-if="conversation.isClosed"
           class="q-mt-md"
         >
-          <QItemSide
-            icon="fas fa-lock"
-            color="light"
-            inverted
-          />
-          <QItemMain
-            class="text-body1"
-            :label="$t('CONVERSATION.CLOSED')"
-            label-lines="3"
-          />
+          <QItemSection avatar>
+            <QAvatar
+              color="grey-5"
+              text-color="white"
+              icon="fas fa-lock"
+            />
+          </QItemSection>
+          <QItemSection>
+            <QItemLabel class="text-body2">
+              {{ $t('CONVERSATION.CLOSED') }}
+            </QItemLabel>
+          </QItemSection>
         </QItem>
       </QList>
       <KSpinner slot="message" />
@@ -59,8 +61,9 @@ import {
   dom,
   QList,
   QItem,
-  QItemSide,
-  QItemMain,
+  QItemSection,
+  QItemLabel,
+  QAvatar,
   QScrollObserver,
   QInfiniteScroll,
 } from 'quasar'
@@ -79,8 +82,9 @@ export default {
     KSpinner,
     QList,
     QItem,
-    QItemSide,
-    QItemMain,
+    QItemSection,
+    QItemLabel,
+    QAvatar,
     QScrollObserver,
     QInfiniteScroll,
   },

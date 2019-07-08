@@ -145,9 +145,9 @@
       </QLayout>
     </div>
 
-    <QModal v-model="showAbout">
+    <QDialog v-model="showAbout">
       <KAbout @close="toggleAbout()" />
-    </QModal>
+    </QDialog>
   </div>
 </template>
 
@@ -170,7 +170,7 @@ import {
   QLayoutHeader,
   QLayoutDrawer,
   QLayoutFooter,
-  QModal,
+  QDialog,
   QPageContainer,
   QPage,
   QItem,
@@ -184,7 +184,7 @@ import {
 export default {
   components: {
     KarrotLogo,
-    QModal,
+    QDialog,
     DetailSidebar,
     KAbout,
     KTopbar,

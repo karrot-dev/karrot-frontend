@@ -120,10 +120,10 @@
         </span>
       </div>
     </div>
-    <QModal
+    <QDialog
       v-model="showDetail"
     >
-      <QModalLayout>
+      <QDialogLayout>
         <QToolbar slot="header">
           <QToolbarTitle v-if="place">
             <QIcon
@@ -159,8 +159,8 @@
             />
           </template>
         </div>
-      </QModalLayout>
-    </QModal>
+      </QDialogLayout>
+    </QDialog>
   </div>
 </template>
 
@@ -190,8 +190,8 @@ import {
   QItemMain,
   QItemSide,
   QChip,
-  QModal,
-  QModalLayout,
+  QDialog,
+  QDialogLayout,
   QToolbar,
   QToolbarTitle,
   QIcon,
@@ -214,8 +214,8 @@ export default {
     QItemMain,
     QItemSide,
     QChip,
-    QModal,
-    QModalLayout,
+    QDialog,
+    QDialogLayout,
     QToolbar,
     QToolbarTitle,
     QIcon,

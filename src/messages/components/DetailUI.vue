@@ -16,34 +16,35 @@
       @fetchPast="$emit('fetchPast', arguments[0])"
       @fetchFuture="$emit('fetchFuture')"
     >
-      <QCollapsible
+      <QExpansionItem
         v-if="application"
         slot="beforeChatMessages"
-        opened
+        default-opened
         class="bg-grey-2"
+        :label="$t('APPLICATION.INITIAL')"
+        header-class="text-bold"
       >
-        <template slot="header">
-          <b>{{ $t('APPLICATION.INITIAL') }}</b>
-        </template>
-        <div class="q-ma-sm q-pa-sm bg-white">
-          <span class="text-bold text-secondary text-uppercase">{{ application.group.name }}</span>
-          <span class="message-date">
-            <small class="text-weight-light">
-              <DateAsWords :date="application.createdAt" />
-            </small>
-          </span>
-          <Markdown :source="application.questions" />
+        <div class="q-pb-sm bg-grey-2">
+          <div class="q-ma-sm q-pa-sm bg-white">
+            <span class="text-bold text-secondary text-uppercase">{{ application.group.name }}</span>
+            <span class="message-date">
+              <small class="text-weight-light">
+                <DateAsWords :date="application.createdAt" />
+              </small>
+            </span>
+            <Markdown :source="application.questions" />
+          </div>
+          <div class="q-ma-sm q-pa-sm bg-white">
+            <span class="text-bold text-secondary text-uppercase">{{ application.user.displayName }}</span>
+            <span class="message-date">
+              <small class="text-weight-light">
+                <DateAsWords :date="application.createdAt" />
+              </small>
+            </span>
+            <Markdown :source="application.answers" />
+          </div>
         </div>
-        <div class="q-ma-sm q-pa-sm bg-white">
-          <span class="text-bold text-secondary text-uppercase">{{ application.user.displayName }}</span>
-          <span class="message-date">
-            <small class="text-weight-light">
-              <DateAsWords :date="application.createdAt" />
-            </small>
-          </span>
-          <Markdown :source="application.answers" />
-        </div>
-      </QCollapsible>
+      </QExpansionItem>
       <QList
         v-if="pickup && pickup.isDisabled"
         slot="afterChatMessages"
@@ -68,7 +69,7 @@ import DateAsWords from '@/utils/components/DateAsWords'
 import KSpinner from '@/utils/components/KSpinner'
 
 import {
-  QCollapsible,
+  QExpansionItem,
   QList,
   QItem,
   QItemMain,
@@ -81,7 +82,7 @@ export default {
     Markdown,
     DateAsWords,
     KSpinner,
-    QCollapsible,
+    QExpansionItem,
     QList,
     QItem,
     QItemMain,

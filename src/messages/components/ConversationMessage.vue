@@ -80,7 +80,7 @@
         v-if="hasReactions"
         :reactions="message.reactions"
         :current-user-reactions="currentUserReactions"
-        style="margin-top: 8px; display: block"
+        style="display: block"
         @toggle="toggleReaction"
       />
       <QBtn
@@ -134,6 +134,7 @@ import {
   QBtnGroup,
   QItem,
   QItemSection,
+  QItemLabel,
   QIcon,
   QTooltip,
 } from 'quasar'
@@ -150,6 +151,7 @@ export default {
     QBtnGroup,
     QItem,
     QItemSection,
+    QItemLabel,
     QIcon,
     QTooltip,
   },

@@ -1,7 +1,7 @@
 defaults: &defaults
   working_directory: ~/repo
   docker:
-    - image: karrot/python:1.9
+    - image: karrot/python:2.0
 
 android-defaults: &android-defaults
   working_directory: ~/repo
@@ -15,8 +15,8 @@ deploy-android: &deploy-android
         at: .
     - restore_cache:
         keys:
-          - v1-dependencies-playstorehelper-{{ checksum "cordova/playstoreHelper/requirements.txt" }}
-          - v1-dependencies-playstorehelper
+          - v2-dependencies-playstorehelper-{{ checksum "cordova/playstoreHelper/requirements.txt" }}
+          - v2-dependencies-playstorehelper
     - run:
         name: decode playstore service account credentials
         command: |
@@ -42,7 +42,7 @@ deploy-android: &deploy-android
           ./node_modules/.bin/sentry-cli releases finalize "${VERSION}"
 
     - save_cache:
-        key: v1-dependencies-playstorehelper-{{ checksum "cordova/playstoreHelper/requirements.txt" }}
+        key: v2-dependencies-playstorehelper-{{ checksum "cordova/playstoreHelper/requirements.txt" }}
         paths:
           - ~/repo/cordova/playstoreHelper/env
 
@@ -284,8 +284,8 @@ jobs:
           at: ~/repo
       - restore_cache:
           keys:
-            - v1-dependencies-localeshelper-{{ checksum "updateLocalesHelper/requirements.txt" }}
-            - v1-dependencies-localeshelper
+            - v2-dependencies-localeshelper-{{ checksum "updateLocalesHelper/requirements.txt" }}
+            - v2-dependencies-localeshelper
       - run:
           name: set up environment
           environment:
@@ -300,7 +300,7 @@ jobs:
       - save_cache:
           paths:
             - env
-          key: python-cache-{{ checksum "updateLocalesHelper/requirements.txt" }}
+          key: v2-dependencies-localeshelper-{{ checksum "updateLocalesHelper/requirements.txt" }}
       - run:
           name: install hub
           command: |

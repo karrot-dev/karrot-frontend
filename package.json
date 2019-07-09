@@ -77,7 +77,7 @@
     "@babel/core": "^7.5.0",
     "@babel/plugin-transform-modules-commonjs": "^7.5.0",
     "@babel/plugin-transform-runtime": "^7.5.0",
-    "@babel/preset-env": "^7.5.0",
+    "@babel/preset-env": "^7.5.2",
     "@babel/runtime": "^7.5.0",
     "@babel/runtime-corejs3": "^7.5.0",
     "@octokit/rest": "^16.26.0",

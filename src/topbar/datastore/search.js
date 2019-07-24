@@ -40,7 +40,7 @@ export default {
         ...userRes.map(e => ({
           value: { name: 'user', params: { userId: e.id } },
           label: e.displayName,
-          icon: 'fas fa-user',
+          user: e,
         })),
       ]
     },

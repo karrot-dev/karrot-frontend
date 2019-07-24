@@ -9,35 +9,90 @@
       class="bg-grey-5"
       :debounce="300"
       clearable
-      @blur="clear"
-      @keyup.esc="clear"
+      @click="show"
+      @focus="show"
+      @blur="hide"
+      @keyup.esc="close"
     >
       <template v-slot:prepend>
         <QIcon name="search" />
       </template>
+      <QMenu
+        ref="menu"
+        no-parent-event
+        fit
+      >
+        <QList>
+          <QItem
+            v-for="(result, idx) in results"
+            :key="idx"
+            v-close-popup
+            clickable
+          >
+            <QItemSection
+              v-if="result.icon"
+              side
+            >
+              <QIcon :name="result.icon" />
+            </QItemSection>
+            <QItemSection
+              v-if="result.user"
+              side
+            >
+              <ProfilePicture
+                :user="result.user"
+                :is-link="false"
+                :size="25"
+              />
+            </QItemSection>
+            <QItemSection>
+              <QItemLabel>
+                {{ result.label }}
+              </QItemLabel>
+              <QItemLabel caption>
+                {{ result.sublabel }}
+              </QItemLabel>
+            </QItemSection>
+          </QItem>
+          <QItem
+            v-if="results.length < 1"
+          >
+            <QItemSection>
+              <QItemLabel>
+                {{ $t('GLOBAL.SEARCH_NOT_FOUND') }}
+              </QItemLabel>
+            </QItemSection>
+          </QItem>
+        </QList>
+      </QMenu>
     </QInput>
-    <QMenu
-      ref="menu"
-      no-parent-event
-    >
-      {{ results }}
-    </QMenu>
   </div>
 </template>
 
 <script>
+import ProfilePicture from '@/users/components/ProfilePicture'
+
 import {
   QInput,
   QIcon,
   QMenu,
+  QList,
+  QItem,
+  QItemSection,
+  QItemLabel,
 } from 'quasar'
 import { mapMutations, mapGetters } from 'vuex'
 
 export default {
   components: {
+    ProfilePicture,
     QInput,
     QIcon,
     QMenu,
+    QList,
+    QItem,
+    QItemSection,
+    QItemLabel,
   },
   data () {
     return {
@@ -53,16 +108,10 @@ export default {
     terms (val) {
       if (!val) {
         this.setTerms(null)
+        this.hide()
         return
       }
       this.setTerms(val)
-      console.log(this.results)
-      console.log(this.$t('GLOBAL.SEARCH_NOT_FOUND'))
-    },
-    results (val) {
-      if (this.terms && val) {
-        this.$refs.menu.show()
-      }
     },
   },
   methods: {
@@ -70,9 +119,16 @@ export default {
       setTerms: 'search/setTerms',
       hide: 'search/hide',
     }),
-    clear () {
+    close () {
+      this.hide()
       this.setTerms(null)
       this.$emit('clear')
+    },
+    show () {
+      this.$refs.menu.show()
+    },
+    hide () {
+      this.$refs.menu.hide()
     },
   },
 }

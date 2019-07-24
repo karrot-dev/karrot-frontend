@@ -87,7 +87,6 @@ export default {
 </script>
 
 <style scoped lang="stylus">
-@import '~variables'
 .wrapper
   .prevBread, .q-btn, div
     display inline-block
@@ -99,7 +98,7 @@ export default {
     vertical-align middle
     padding 0 16px
     font-weight 500
-    text-transform text-uppercase
+    text-transform uppercase
 body.desktop .lastElement
     font-size 1.5rem
 </style>

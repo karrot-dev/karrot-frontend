@@ -13,15 +13,10 @@ export default {
   state: initialState(),
   getters: {
     autocompleteData: state => {
-      // QAutocomplete static data format
       if (state.timezones) {
-        const tzlist = state.timezones.allTimezones.map(tz => ({ label: tz, value: tz }))
-        return {
-          field: 'value',
-          list: tzlist,
-        }
+        return state.timezones.allTimezones
       }
-      return {}
+      return []
     },
   },
   actions: {

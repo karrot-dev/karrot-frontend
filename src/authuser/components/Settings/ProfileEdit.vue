@@ -8,7 +8,7 @@
         icon="fas fa-star"
         :label="$t('USERDETAIL.DISPLAY_NAME')"
         :error="hasDisplayNameError"
-        :error-label="displayNameError"
+        :error-message="displayNameError"
       >
         <QInput
           v-model="edit.displayName"
@@ -20,7 +20,7 @@
         icon="info"
         :label="$t('USERDETAIL.DESCRIPTION')"
         :error="hasError('description')"
-        :error-label="firstError('description')"
+        :error-message="firstError('description')"
       >
         <MarkdownInput :value="edit.description">
           <QInput
@@ -36,7 +36,7 @@
         icon="fas fa-phone"
         :label="$t('USERDATA.MOBILE_NUMBER')"
         :error="hasError('mobileNumber')"
-        :error-label="firstError('mobileNumber')"
+        :error-message="firstError('mobileNumber')"
       >
         <QInput
           v-model="edit.mobileNumber"
@@ -48,7 +48,7 @@
         icon="fas fa-map-marker"
         :label="$t('USERDATA.WHERE_FROM')"
         :error="hasAddressError"
-        :error-label="addressError"
+        :error-message="addressError"
       >
         <AddressPicker
           v-model="edit"

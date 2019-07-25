@@ -24,7 +24,7 @@
           :label="$t('CREATEPICKUP.TIME')"
           :helper="$t('CREATEPICKUP.TIME_HELPER')"
           :error="hasError('startDate')"
-          :error-label="firstError('startDate')"
+          :error-message="firstError('startDate')"
         >
           <div class="row">
             <QDatetime
@@ -63,7 +63,7 @@
           :label="$t('CREATEPICKUP.WEEKDAYS')"
           :helper="$t('CREATEPICKUP.WEEKDAYS_HELPER')"
           :error="hasError('rule')"
-          :error-label="firstError('rule')"
+          :error-message="firstError('rule')"
         >
           <QSelect
             v-model="byDay"
@@ -80,7 +80,7 @@
           :label="$t('CREATEPICKUP.STARTDATE')"
           :helper="$t('CREATEPICKUP.STARTDATE_HELPER')"
           :error="hasError('startDate')"
-          :error-label="firstError('startDate')"
+          :error-message="firstError('startDate')"
         >
           <QDatetime
             v-model="edit.startDate"
@@ -93,7 +93,7 @@
           icon="code"
           :label="$t('CREATEPICKUP.RRULE')"
           :error="hasError('rule')"
-          :error-label="firstError('rule')"
+          :error-message="firstError('rule')"
         >
           <QInput
             v-model="edit.rule.custom"
@@ -136,7 +136,7 @@
         :label="$t('CREATEPICKUP.MAX_COLLECTORS')"
         :helper="$t('CREATEPICKUP.MAX_COLLECTORS_HELPER')"
         :error="hasError('maxCollectors')"
-        :error-label="firstError('maxCollectors')"
+        :error-message="firstError('maxCollectors')"
       >
         <QInput
           v-model="edit.maxCollectors"
@@ -158,7 +158,7 @@
         :label="$t('CREATEPICKUP.COMMENT')"
         :helper="$t('CREATEPICKUP.COMMENT_HELPER')"
         :error="hasError('description')"
-        :error-label="firstError('description')"
+        :error-message="firstError('description')"
       >
         <QInput
           v-model="edit.description"

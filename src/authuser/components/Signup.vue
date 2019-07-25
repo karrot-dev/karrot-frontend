@@ -9,7 +9,7 @@
           <QField
             icon="fas fa-user"
             :error="hasDisplayNameError"
-            :error-label="displayNameError"
+            :error-message="displayNameError"
           >
             <QInput
               v-model="user.displayName"
@@ -26,7 +26,7 @@
           <QField
             icon="fas fa-envelope"
             :error="hasError('email')"
-            :error-label="firstError('email')"
+            :error-message="firstError('email')"
           >
             <QInput
               v-model="user.email"
@@ -42,7 +42,7 @@
           <QField
             icon="fas fa-lock"
             :error="hasError('password')"
-            :error-label="firstError('password')"
+            :error-message="firstError('password')"
           >
             <QInput
               v-model="user.password"

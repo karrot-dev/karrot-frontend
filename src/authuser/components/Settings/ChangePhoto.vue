@@ -4,11 +4,12 @@
       icon="fas fa-camera"
       :label="label"
       :error="hasError('photo')"
-      :error-label="firstError('photo')"
-      :helper="helper"
+      :error-message="firstError('photo')"
+      :hint="helper"
     >
       <Croppa
         ref="croppaPhoto"
+        v-slot:control
         :width="300"
         :height="300"
         placeholder=""

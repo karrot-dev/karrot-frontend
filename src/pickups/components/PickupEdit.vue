@@ -17,7 +17,7 @@
           :label="$t('CREATEPICKUP.TIME')"
           :helper="$t('CREATEPICKUP.TIME_HELPER')"
           :error="hasError('date')"
-          :error-label="firstError('date')"
+          :error-message="firstError('date')"
         >
           <div class="row">
             <QDatetime
@@ -57,7 +57,7 @@
           :label="$t('CREATEPICKUP.DATE')"
           :helper="$t('CREATEPICKUP.DATE_HELPER')"
           :error="hasError('date')"
-          :error-label="firstError('date')"
+          :error-message="firstError('date')"
         >
           <QDatetime
             v-model="date"
@@ -73,7 +73,7 @@
         :label="$t('CREATEPICKUP.MAX_COLLECTORS')"
         :helper="$t('CREATEPICKUP.MAX_COLLECTORS_HELPER')"
         :error="hasError('maxCollectors')"
-        :error-label="firstError('maxCollectors')"
+        :error-message="firstError('maxCollectors')"
         :warning="seriesMeta.isMaxCollectorsChanged"
         :warning-label="$t('CREATEPICKUP.DIFFERS_WARNING')"
       >
@@ -99,7 +99,7 @@
         :label="$t('CREATEPICKUP.COMMENT')"
         :helper="$t('CREATEPICKUP.COMMENT_HELPER')"
         :error="hasError('description')"
-        :error-label="firstError('description')"
+        :error-message="firstError('description')"
         :warning="seriesMeta.isDescriptionChanged"
         :warning-label="$t('CREATEPICKUP.DIFFERS_WARNING')"
       >

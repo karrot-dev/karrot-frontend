@@ -1,39 +1,30 @@
 <template>
-  <div>
-    <QTabs
-      v-model="tab"
-      class="markdown-input"
-      align="right"
-      position="top"
-    >
-      <QTab
-        class="markdown-input-tab"
-        name="edit"
-        :label="$t('BUTTON.EDIT')"
-        :disable="!value"
-      />
-      <QTab
-        class="markdown-input-tab"
-        name="preview"
-        :label="$t('BUTTON.PREVIEW')"
-        :disable="!value"
-      />
-    </QTabs>
-    <QTabPanels
-      v-model="tab"
-    >
-      <QTabPanel
-        name="edit"
-        class="q-pa-none"
-      >
-        <slot />
-        <small
-          v-if="!$q.platform.is.mobile && tab === 'edit'"
-          class="row justify-end text-weight-light markdown-helper"
+  <QInput
+    :value="value"
+    :label="label"
+    :error="error"
+    :error-message="errorMessage"
+    type="textarea"
+    input-style="min-height: 100px"
+    autogrow
+    bottom-slots
+    :autocomplete="autocomplete"
+    :autofocus="autofocus"
+    @input="$emit('input', arguments[0])"
+    @keyup="$emit('keyup', arguments[0])"
+    @blur="$emit('blur')"
+  >
+    <template v-slot:before>
+      <QIcon :name="icon" />
+    </template>
+    <template v-slot:hint>
+      <div class="row justify-between">
+        <div
+          class="row markdown-helper"
         >
-          <b>**{{ $t('MARKDOWN_INPUT.BOLD') }}**</b>
-          <i>_{{ $t('MARKDOWN_INPUT.ITALIC') }}_</i>
-          <span>~~{{ $t('MARKDOWN_INPUT.STRIKE') }}~~</span>
+          <span class="text-bold">**{{ $t('MARKDOWN_INPUT.BOLD') }}**</span>
+          <span class="text-italic">_{{ $t('MARKDOWN_INPUT.ITALIC') }}_</span>
+          <span class="text-strike">~~{{ $t('MARKDOWN_INPUT.STRIKE') }}~~</span>
           <span>&gt;{{ $t('MARKDOWN_INPUT.QUOTE') }}</span>
           <a
             href="https://guides.github.com/features/mastering-markdown/"
@@ -43,40 +34,65 @@
           >
             <QIcon name="fas fa-question-circle" />
           </a>
-        </small>
-      </QTabPanel>
-      <QTabPanel
-        name="preview"
-        class="q-pa-none"
-      >
-        <div class="preview">
-          <Markdown
-            v-if="value"
-            :source="value"
-          />
         </div>
-      </QTabPanel>
-    </QTabPanels>
-  </div>
+        <QBtn
+          v-if="value"
+          :label="$t('BUTTON.PREVIEW')"
+          size="xs"
+          color="primary"
+          outline
+          @click="show = true"
+        >
+          <QDialog v-model="show">
+            <QCard class="markdown-input-preview-card">
+              <QCardSection>
+                <div class="text-h6">
+                  {{ $t('BUTTON.PREVIEW') }}
+                </div>
+              </QCardSection>
+              <QCardSection>
+                <Markdown
+                  v-if="value"
+                  :source="value"
+                />
+              </QCardSection>
+              <QCardActions align="right">
+                <QBtn
+                  v-close-popup
+                  flat
+                  :label="$t('BUTTON.CLOSE')"
+                  color="primary"
+                />
+              </QCardActions>
+            </QCard>
+          </QDialog>
+        </QBtn>
+      </div>
+    </template>
+  </QInput>
 </template>
 
 <script>
 import {
-  QTabs,
-  QTab,
-  QTabPanels,
-  QTabPanel,
+  QInput,
   QIcon,
+  QBtn,
+  QDialog,
+  QCard,
+  QCardSection,
+  QCardActions,
 } from 'quasar'
 import Markdown from '@/utils/components/Markdown'
 
 export default {
   components: {
-    QTabs,
-    QTab,
-    QTabPanels,
-    QTabPanel,
+    QInput,
     QIcon,
+    QBtn,
+    QDialog,
+    QCard,
+    QCardSection,
+    QCardActions,
     Markdown,
   },
   props: {
@@ -84,31 +100,46 @@ export default {
       default: '',
       type: String,
     },
+    label: {
+      default: null,
+      type: String,
+    },
+    error: {
+      default: false,
+      type: Boolean,
+    },
+    errorMessage: {
+      default: null,
+      type: String,
+    },
+    icon: {
+      default: null,
+      type: String,
+    },
+    autofocus: {
+      default: false,
+      type: Boolean,
+    },
+    autocomplete: {
+      default: true,
+      type: Boolean,
+    },
   },
   data () {
     return {
-      tab: 'edit',
+      show: false,
     }
   },
 }
 </script>
 
 <style scoped lang="stylus">
-.preview
-  border 1px solid rgba(0,0,0,.1)
-  margin-top 6px
-  padding 6px
-  position relative
-  top -6px
-  background-color white
 .markdown-helper
+  font-size .65rem
   padding-top 6px
   > *
     padding-right 10px
-.markdown-input
-  min-height unset
-  .markdown-input-tab
-    min-height unset
-    >>> .q-tab__label
-      font-size 12px
+.markdown-input-preview-card
+  min-width 60%
+  max-width 700px
 </style>

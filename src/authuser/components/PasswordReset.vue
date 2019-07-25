@@ -9,7 +9,7 @@
           <QField
             icon="fas fa-lock"
             :error="hasError('newPassword')"
-            :error-label="firstError('newPassword')"
+            :error-message="firstError('newPassword')"
           >
             <QInput
               v-model="newPassword"

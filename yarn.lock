@@ -1442,10 +1442,10 @@
   resolved "https://registry.yarnpkg.com/@protobufjs/utf8/-/utf8-1.1.0.tgz#a777360b5b39a1a2e5106f8e858f2fd2d060c570"
   integrity sha1-p3c2C1s5oaLlEG+OhY8v0tBgxXA=
 
-"@quasar/extras@^1.1.4":
-  version "1.1.4"
-  resolved "https://registry.yarnpkg.com/@quasar/extras/-/extras-1.1.4.tgz#a51efa11b2dced4d4d99b1f0e0410254f2593852"
-  integrity sha512-W+BrplCY+UeEN4Lwy2GcQH5CR92CrqhD2YjlcoCSbCEkSna0A35Be3kJ23qqLUMh4iuyG3jLFI1y9nUENTZqTg==
+"@quasar/extras@^1.2.0":
+  version "1.2.0"
+  resolved "https://registry.yarnpkg.com/@quasar/extras/-/extras-1.2.0.tgz#46520c283aa82cc4bb65c7a7b6a6e048fb356335"
+  integrity sha512-DUo4KRayuwnMwzRK4vYjd6q6e6sGOkt5moD2Lz/q5PiPqvEjoNeQd9vcNPTqpSjWk7AUDVW4meDR2ThHyQMzAQ==
 
 "@reach/router@^1.2.1":
   version "1.2.1"
@@ -11107,10 +11107,10 @@ qs@~6.5.2:
   resolved "https://registry.yarnpkg.com/qs/-/qs-6.5.2.tgz#cb3ae806e8740444584ef154ce8ee98d403f3e36"
   integrity sha512-N5ZAX4/LxJmF+7wN74pUD6qAh9/wnvdQcjq9TZjevvXzSUo7bfmw91saqMjzGS2xq91/odN2dW/WOl7qQHNDGA==
 
-quasar@^1.0.3:
-  version "1.0.3"
-  resolved "https://registry.yarnpkg.com/quasar/-/quasar-1.0.3.tgz#f702be35f7f60a55f5c1fc0c69e862a6bb3a78ae"
-  integrity sha512-aFBP0NIGJ55b+k8KRFZwglJmcp6IwNtmgIXwqt0xrsUqwqQ5WkLijup+yu3ikRIQkpoWYXqEmZX62SciJ+JC+g==
+quasar@^1.0.5:
+  version "1.0.5"
+  resolved "https://registry.yarnpkg.com/quasar/-/quasar-1.0.5.tgz#caddfac55fca0779c996dc1b3977a045ae1426e6"
+  integrity sha512-8CxBZk5Ge+jUC7nzlzrLwlZRedpBkcYjkmyBOA0QJLvCXE8K8Ro68R7Vxf7+Baplo11aBMhFX1FhHZWrSM7Y2A==
 
 query-string@^4.1.0:
   version "4.3.4"

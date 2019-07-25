@@ -5,7 +5,7 @@
         icon="fas fa-envelope"
         :helper="$t('GROUP.INVITE_EMAIL')"
         :error="hasErrorMessage"
-        :error-label="errorMessage"
+        :error-message="errorMessage"
       >
         <QInput
           v-model="form.email"

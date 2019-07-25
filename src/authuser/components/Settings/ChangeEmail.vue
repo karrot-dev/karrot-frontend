@@ -9,7 +9,7 @@
       icon="fas fa-envelope"
       :label="$t('USERDATA.EMAIL')"
       :error="hasError('newEmail')"
-      :error-label="firstError('newEmail')"
+      :error-message="firstError('newEmail')"
     >
       <QInput
         v-model="newEmail"
@@ -20,7 +20,7 @@
       icon="fas fa-unlock"
       :label="$t('USERDATA.CONFIRM_PASSWORD')"
       :error="hasError('password')"
-      :error-label="firstError('password')"
+      :error-message="firstError('password')"
     >
       <QInput
         v-model="password"

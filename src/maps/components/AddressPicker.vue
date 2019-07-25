@@ -1,21 +1,61 @@
 <template>
   <div>
-    <QSelect
+    <QInput
       :value="value.address"
-      use-input
       clearable
-      hide-selected
-      fill-input
-      label="label"
-      :options="options"
-      :hint="$t('BUTTON.SEARCH')"
-      @filter="search"
-      @input="select"
+      :placeholder="$t('BUTTON.SEARCH')"
+      :label="label"
+      :error="error"
+      :error-message="errorMessage"
+      @input="input"
+      @keyup.esc="$refs.menu.hide()"
+      @keyup.enter.prevent.stop="search"
     >
-      <template v-slot:prepend>
-        <QIcon name="fas fa-search" />
+      <template v-slot:append>
+        <QBtn
+          v-if="value.address"
+          icon="fas fa-search"
+          flat
+          round
+          size="sm"
+          @click="search"
+        />
       </template>
-    </QSelect>
+      <template v-slot:before>
+        <QIcon :name="icon" />
+      </template>
+      <QMenu
+        ref="menu"
+        fit
+        no-parent-event
+        square
+      >
+        <QList>
+          <QItem
+            v-for="(result, idx) in options"
+            :key="idx"
+            v-close-popup
+            clickable
+            @click="select(result)"
+          >
+            <QItemSection>
+              <QItemLabel>
+                {{ result.label }}
+              </QItemLabel>
+            </QItemSection>
+          </QItem>
+          <QItem
+            v-if="options.length < 1"
+          >
+            <QItemSection>
+              <QItemLabel>
+                {{ $t('GLOBAL.SEARCH_NOT_FOUND') }}
+              </QItemLabel>
+            </QItemSection>
+          </QItem>
+        </QList>
+      </QMenu>
+    </QInput>
     <StandardMap
       class="map"
       :markers="marker ? [marker] : []"
@@ -28,8 +68,14 @@
 
 <script>
 import {
-  QSelect,
+  QInput,
+  QBtn,
   QIcon,
+  QMenu,
+  QList,
+  QItem,
+  QItemSection,
+  QItemLabel,
 } from 'quasar'
 import StandardMap from '@/maps/components/StandardMap'
 import L from 'leaflet'
@@ -38,8 +84,14 @@ import geocoding from '@/maps/api/geocoding'
 
 export default {
   components: {
-    QSelect,
+    QInput,
+    QBtn,
     QIcon,
+    QMenu,
+    QList,
+    QItem,
+    QItemSection,
+    QItemLabel,
     StandardMap,
   },
   props: {
@@ -55,11 +107,27 @@ export default {
       default: null,
       type: String,
     },
+    label: {
+      default: null,
+      type: String,
+    },
+    error: {
+      default: false,
+      type: Boolean,
+    },
+    errorMessage: {
+      default: null,
+      type: String,
+    },
+    icon: {
+      default: null,
+      type: String,
+    },
   },
   data () {
     return {
       preventZoom: false,
-      options: null,
+      options: [],
     }
   },
   computed: {
@@ -76,34 +144,32 @@ export default {
       return null
     },
   },
-  watch: {
-    'value.address' (val) {
-      if (val === '') {
-        this.reset()
-      }
-    },
-  },
   methods: {
-    async search (terms, update, abort) {
-      this.$emit('input', { ...this.value, address: terms })
+    async search () {
+      const terms = this.value.address
+      console.log('search', terms)
       if (!terms) {
-        update(() => {
-          this.options = []
-        })
+        this.options = []
+      }
+
+      this.options = (await geocoding.lookupAddress(terms)).map(result => {
+        const { address } = result
+        return {
+          result,
+          label: address,
+        }
+      })
+      this.$refs.menu.show()
+    },
+    input (value) {
+      if (!value) {
+        this.reset()
         return
       }
-      update(async () => {
-        this.options = (await geocoding.lookupAddress(terms)).map(result => {
-          const { address } = result
-          return {
-            result,
-            label: address,
-            value: address,
-          }
-        })
-      })
+      this.$emit('input', { ...this.value, address: value })
     },
     select (value) {
+      console.log('select', value)
       if (!value) {
         this.reset()
         return
@@ -117,6 +183,8 @@ export default {
       this.$emit('input', { ...this.value, latitude, longitude })
     },
     reset () {
+      console.log('reset')
+      this.$refs.menu.hide()
       this.$emit('input', { ...this.value, latitude: null, longitude: null, address: null })
     },
   },
@@ -126,5 +194,7 @@ export default {
 <style scoped lang="stylus">
 .map
   height 260px
-  margin-top 20px
+  margin-left 42px
+  margin-top -10px
+  width calc(100% - 42px)
 </style>

@@ -4,7 +4,7 @@
       icon="fas fa-lock"
       :label="$t('USERDETAIL.PASSWORD')"
       :error="hasError('newPassword')"
-      :error-label="firstError('newPassword')"
+      :error-message="firstError('newPassword')"
     >
       <QInput
         v-model="newPassword"
@@ -15,7 +15,7 @@
       icon="fas fa-unlock"
       :label="$t('USERDETAIL.OLD_PASSWORD')"
       :error="hasError('oldPassword')"
-      :error-label="firstError('oldPassword')"
+      :error-message="firstError('oldPassword')"
     >
       <QInput
         v-model="oldPassword"

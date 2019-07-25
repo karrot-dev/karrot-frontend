@@ -10,7 +10,7 @@
             icon="fas fa-star"
             :label="$t('STOREEDIT.NAME')"
             :error="hasNameError"
-            :error-label="nameError"
+            :error-message="nameError"
           >
             <QInput
               v-model="edit.name"
@@ -23,7 +23,7 @@
             icon="fas fa-handshake"
             :label="$t('STOREEDIT.STATUS')"
             :error="hasError('status')"
-            :error-label="firstError('status')"
+            :error-message="firstError('status')"
           >
             <QSelect
               v-model="edit.status"
@@ -35,7 +35,7 @@
             icon="fas fa-question"
             :label="$t('STOREEDIT.DESCRIPTION')"
             :error="hasError('description')"
-            :error-label="firstError('description')"
+            :error-message="firstError('description')"
           >
             <MarkdownInput :value="edit.description">
               <QInput
@@ -51,7 +51,7 @@
             icon="fas fa-map-marker"
             :label="$t('STOREEDIT.ADDRESS')"
             :error="hasAddressError"
-            :error-label="addressError"
+            :error-message="addressError"
           >
             <AddressPicker
               v-model="edit"
@@ -64,7 +64,7 @@
             icon="fas fa-calendar-alt"
             :label="$t('STOREEDIT.WEEKS_IN_ADVANCE')"
             :error="hasError('weeksInAdvance')"
-            :error-label="firstError('weeksInAdvance')"
+            :error-message="firstError('weeksInAdvance')"
             :warning="value.weeksInAdvance > edit.weeksInAdvance"
             :warning-label="$t('STOREEDIT.WEEKS_IN_ADVANCE_WARNING')"
           >

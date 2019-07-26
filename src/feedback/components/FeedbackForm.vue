@@ -28,7 +28,7 @@
       {{ anyFirstError }}
     </div>
 
-    <div class="row justify-end generic-margin group">
+    <div class="row justify-end q-ma-xs group">
       <QBtn
         v-if="!isNew"
         type="button"

@@ -2530,7 +2530,7 @@ exports[`Storyshots GroupPreviewUI not logged in 1`] = `
     </div>
     <div class="q-card-separator"></div>
     <div class="q-card-actions q-card-actions-horiz row justify-start">
-      <div style="width:100%;"><button tabindex="0" type="button" class="q-btn inline relative-position q-btn-item non-selectable float-right generic-margin q-btn-rectangle q-focusable q-hoverable bg-secondary text-white">
+      <div style="width:100%;"><button tabindex="0" type="button" class="q-btn inline relative-position q-btn-item non-selectable float-right q-ma-xs q-btn-rectangle q-focusable q-hoverable bg-secondary text-white">
           <div class="q-focus-helper"></div>
           <div class="q-btn-inner row col items-center q-popup--skip justify-center">
             Log in or sign up to join this group!
@@ -2585,7 +2585,7 @@ exports[`Storyshots GroupPreviewUI not member, application needed, email not ver
           </div>
         </div>
         <!---->
-        <!----> <button tabindex="0" type="button" class="q-btn inline relative-position q-btn-item non-selectable float-right generic-margin q-btn-rectangle q-focusable q-hoverable bg-secondary text-white">
+        <!----> <button tabindex="0" type="button" class="q-btn inline relative-position q-btn-item non-selectable float-right q-ma-xs q-btn-rectangle q-focusable q-hoverable bg-secondary text-white">
           <div class="q-focus-helper"></div>
           <div class="q-btn-inner row col items-center q-popup--skip justify-center">
             Verify your email address to apply
@@ -2643,7 +2643,7 @@ exports[`Storyshots GroupPreviewUI not member, application needed, email verifie
         </div>
         <!---->
         <!---->
-        <!----> <button tabindex="0" type="button" class="q-btn inline relative-position q-btn-item non-selectable float-right generic-margin q-btn-rectangle q-focusable q-hoverable bg-secondary text-white">
+        <!----> <button tabindex="0" type="button" class="q-btn inline relative-position q-btn-item non-selectable float-right q-ma-xs q-btn-rectangle q-focusable q-hoverable bg-secondary text-white">
           <div class="q-focus-helper"></div>
           <div class="q-btn-inner row col items-center q-popup--skip justify-center">
             Apply
@@ -2698,7 +2698,7 @@ exports[`Storyshots GroupPreviewUI not member, open group 1`] = `
             </div>
           </div>
         </div>
-        <!----> <button tabindex="0" type="button" class="q-btn inline relative-position q-btn-item non-selectable float-right generic-margin q-btn-rectangle q-focusable q-hoverable bg-secondary text-white">
+        <!----> <button tabindex="0" type="button" class="q-btn inline relative-position q-btn-item non-selectable float-right q-ma-xs q-btn-rectangle q-focusable q-hoverable bg-secondary text-white">
           <div class="q-focus-helper"></div>
           <div class="q-btn-inner row col items-center q-popup--skip justify-center">
             Join
@@ -2821,7 +2821,7 @@ exports[`Storyshots GroupPreviewUI not member, playground 1`] = `
             </div>
           </div>
         </div>
-        <!----> <button tabindex="0" type="button" class="q-btn inline relative-position q-btn-item non-selectable float-right generic-margin q-btn-rectangle q-focusable q-hoverable bg-secondary text-white">
+        <!----> <button tabindex="0" type="button" class="q-btn inline relative-position q-btn-item non-selectable float-right q-ma-xs q-btn-rectangle q-focusable q-hoverable bg-secondary text-white">
           <div class="q-focus-helper"></div>
           <div class="q-btn-inner row col items-center q-popup--skip justify-center">
             Join
@@ -2875,7 +2875,7 @@ exports[`Storyshots GroupPreviewUI pending join 1`] = `
             </div>
           </div>
         </div>
-        <!----> <button tabindex="-1" type="button" class="q-btn inline relative-position q-btn-item non-selectable float-right generic-margin q-btn-rectangle disabled bg-secondary text-white">
+        <!----> <button tabindex="-1" type="button" class="q-btn inline relative-position q-btn-item non-selectable float-right q-ma-xs q-btn-rectangle disabled bg-secondary text-white">
           <div class="q-focus-helper"></div>
           <div class="q-btn-inner row col items-center q-popup--skip justify-center q-btn-inner--hidden">
             Join
@@ -3579,7 +3579,7 @@ exports[`Storyshots Latest Messages flag: closed 1`] = `
     <!---->
     <div class="row no-wrap items-baseline q-item-sublabel" style="max-height:18px;">
       <div class="text-secondary">
-        Mira Bellenbaum: 
+        Mira Bellenbaum:
       </div>
       <!---->
       <div class="ellipsis col">
@@ -3611,7 +3611,7 @@ exports[`Storyshots Latest Messages flag: closed+muted 1`] = `
     <!---->
     <div class="row no-wrap items-baseline q-item-sublabel" style="max-height:18px;">
       <div class="text-secondary">
-        Mira Bellenbaum: 
+        Mira Bellenbaum:
       </div>
       <!---->
       <div class="ellipsis col">
@@ -3743,7 +3743,7 @@ exports[`Storyshots Latest Messages type: application chat 1`] = `
     <!---->
     <div class="row no-wrap items-baseline q-item-sublabel" style="max-height:18px;">
       <div class="text-secondary">
-        Mira Bellenbaum: 
+        Mira Bellenbaum:
       </div>
       <!---->
       <div class="ellipsis col">
@@ -3773,7 +3773,7 @@ exports[`Storyshots Latest Messages type: group wall 1`] = `
     <!---->
     <div class="row no-wrap items-baseline q-item-sublabel" style="max-height:18px;">
       <div class="text-secondary">
-        Mira Bellenbaum: 
+        Mira Bellenbaum:
       </div>
       <!---->
       <div class="ellipsis col">
@@ -3803,7 +3803,7 @@ exports[`Storyshots Latest Messages type: issue chat 1`] = `
     <!---->
     <div class="row no-wrap items-baseline q-item-sublabel" style="max-height:18px;">
       <div class="text-secondary">
-        Mira Bellenbaum: 
+        Mira Bellenbaum:
       </div>
       <!---->
       <div class="ellipsis col">
@@ -3837,7 +3837,7 @@ exports[`Storyshots Latest Messages type: my application chat 1`] = `
     <!---->
     <div class="row no-wrap items-baseline q-item-sublabel" style="max-height:18px;">
       <div class="text-secondary">
-        Mira Bellenbaum: 
+        Mira Bellenbaum:
       </div>
       <!---->
       <div class="ellipsis col">
@@ -3868,7 +3868,7 @@ exports[`Storyshots Latest Messages type: pickup chat 1`] = `
       </small></div>
     <div class="row no-wrap items-baseline q-item-sublabel" style="max-height:18px;">
       <div class="text-secondary">
-        Mira Bellenbaum: 
+        Mira Bellenbaum:
       </div>
       <!---->
       <div class="ellipsis col">
@@ -3898,7 +3898,7 @@ exports[`Storyshots Latest Messages type: place wall 1`] = `
     <!---->
     <div class="row no-wrap items-baseline q-item-sublabel" style="max-height:18px;">
       <div class="text-secondary">
-        Mira Bellenbaum: 
+        Mira Bellenbaum:
       </div>
       <!---->
       <div class="ellipsis col">
@@ -3958,7 +3958,7 @@ exports[`Storyshots Latest Messages type: thread 1`] = `
     <!---->
     <div class="row no-wrap items-baseline q-item-sublabel" style="max-height:18px;">
       <div class="text-secondary">
-        Mira Bellenbaum: 
+        Mira Bellenbaum:
       </div>
       <!---->
       <div class="ellipsis col">
@@ -7557,7 +7557,7 @@ exports[`Storyshots Statistics PickupFeedback 1`] = `
           </div>
         </div>
         <!---->
-        <div class="row justify-end generic-margin group">
+        <div class="row justify-end q-ma-xs group">
           <!----> <button tabindex="0" type="submit" class="q-btn inline relative-position q-btn-item non-selectable q-btn-rectangle q-focusable q-hoverable bg-secondary text-white">
             <div class="q-focus-helper"></div>
             <div class="q-btn-inner row col items-center q-popup--skip justify-center"></div>

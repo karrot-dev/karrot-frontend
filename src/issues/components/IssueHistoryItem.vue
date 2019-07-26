@@ -24,7 +24,7 @@
 <script>
 import {
   QItemSection,
-  QItemTile,
+  QItemLabel,
   QCollapsible,
 } from 'quasar'
 
@@ -34,7 +34,7 @@ import VotingResults from './VotingResults'
 export default {
   components: {
     QItemSection,
-    QItemTile,
+    QItemLabel,
     QCollapsible,
     DateAsWords,
     VotingResults,

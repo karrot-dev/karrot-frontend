@@ -89,7 +89,7 @@ import {
   QList,
   QItem,
   QItemSection,
-  QItemTile,
+  QItemLabel,
   QItemSection
   QIcon,
   QTooltip,
@@ -104,7 +104,7 @@ export default {
     QList,
     QItem,
     QItemSection,
-    QItemTile,
+    QItemLabel,
     QItemSection
     QIcon,
     QTooltip,

@@ -39,7 +39,7 @@ import {
   QItem,
   QItemSection
   QItemSection,
-  QItemTile,
+  QItemLabel,
   QItemLabel,
 } from 'quasar'
 import statusMixin from '@/utils/mixins/statusMixin'
@@ -53,7 +53,7 @@ export default {
     QItem,
     QItemSection
     QItemSection,
-    QItemTile,
+    QItemLabel,
     QItemLabel,
     ProfilePicture,
     DateAsWords,

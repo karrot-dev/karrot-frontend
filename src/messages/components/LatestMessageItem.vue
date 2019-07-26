@@ -152,7 +152,7 @@
 import {
   QItem,
   QItemSection,
-  QItemTile,
+  QItemLabel,
   QItemSection
   QChip,
   QIcon,
@@ -164,7 +164,7 @@ export default {
   components: {
     QItem,
     QItemSection,
-    QItemTile,
+    QItemLabel,
     QItemSection
     QChip,
     QIcon,

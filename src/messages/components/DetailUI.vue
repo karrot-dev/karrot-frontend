@@ -73,7 +73,7 @@ import {
   QList,
   QItem,
   QItemSection,
-  QItemTile,
+  QItemLabel,
 } from 'quasar'
 
 export default {
@@ -86,7 +86,7 @@ export default {
     QList,
     QItem,
     QItemSection,
-    QItemTile,
+    QItemLabel,
   },
   props: {
     inline: {

@@ -6,28 +6,27 @@
       :class="{'greyed': detailIsShown}"
       @click.native="toggleDetail"
     >
-      <QItemSection side>
+      <QItemSection avatar>
         <HistoryProfilePictures
           :users="entry.users"
         />
       </QItemSection>
       <QItemSection>
-        <QItemTile>
+        <QItemLabel>
           <span class="content">
             {{ entry.message }}
           </span>
-        </QItemTile>
-        <QItemTile
+        </QItemLabel>
+        <QItemLabel
           stamp
           class="mobile-only text-weight-light"
         >
           <DateAsWords :date="entry.date" />
-        </QItemTile>
+        </QItemLabel>
       </QItemSection>
-      <QItemSection side
+      <QItemSection
         class="desktop-only"
-        stamp
-        right
+        side
       >
         <DateAsWords :date="entry.date" />
       </QItemSection>
@@ -52,10 +51,21 @@
 import HistoryProfilePictures from '@/history/components/HistoryProfilePictures'
 import DateAsWords from '@/utils/components/DateAsWords'
 import HistoryDetail from '@/history/components/HistoryDetail'
-import { QItem, QItemSection QItemSection, QItemTile } from 'quasar'
+import {
+  QItem,
+  QItemSection,
+  QItemLabel,
+} from 'quasar'
 
 export default {
-  components: { HistoryProfilePictures, HistoryDetail, DateAsWords, QItem, QItemSection QItemSection, QItemTile },
+  components: {
+    HistoryProfilePictures,
+    HistoryDetail,
+    DateAsWords,
+    QItem,
+    QItemSection,
+    QItemLabel,
+  },
   props: {
     entry: {
       required: true,

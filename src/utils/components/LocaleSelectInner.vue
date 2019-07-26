@@ -46,7 +46,7 @@ import {
   QIcon,
   QList,
   QItem,
-  QItemTile,
+  QItemLabel,
   QItemSection,
 } from 'quasar'
 import { mapGetters, mapActions } from 'vuex'
@@ -58,7 +58,7 @@ export default {
     QIcon,
     QList,
     QItem,
-    QItemTile,
+    QItemLabel,
     QItemSection,
   },
   data () {

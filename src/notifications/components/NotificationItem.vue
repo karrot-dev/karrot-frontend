@@ -46,7 +46,7 @@ import notificationConfig from './notificationConfig'
 import {
   QItem,
   QItemSection,
-  QItemTile,
+  QItemLabel,
   QItemSection
   QIcon,
 } from 'quasar'
@@ -57,7 +57,7 @@ export default {
   components: {
     QItem,
     QItemSection,
-    QItemTile,
+    QItemLabel,
     QItemSection
     QIcon,
     DateAsWords,

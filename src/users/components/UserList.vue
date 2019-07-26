@@ -63,7 +63,7 @@ import {
   QItem,
   QItemSection
   QItemSection,
-  QItemTile,
+  QItemLabel,
   QCollapsible,
   QBtn,
   QSearch,
@@ -79,7 +79,7 @@ export default {
     QItem,
     QItemSection
     QItemSection,
-    QItemTile,
+    QItemLabel,
     QCollapsible,
     QBtn,
     QSearch,

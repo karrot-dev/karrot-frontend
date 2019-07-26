@@ -1,17 +1,15 @@
 <template>
-  <div>
-    <ProfilePicture
-      v-if="users.length == 1"
-      :user="users[0]"
-      :size="25"
-    />
-    <div
-      v-else-if="users.length > 1"
-      class="usersCount"
-      :style="userCountStyle"
-    >
-      {{ users.length }}
-    </div>
+  <ProfilePicture
+    v-if="users.length == 1"
+    :user="users[0]"
+    :size="25"
+  />
+  <div
+    v-else-if="users.length > 1"
+    class="usersCount"
+    :style="userCountStyle"
+  >
+    {{ users.length }}
   </div>
 </template>
 

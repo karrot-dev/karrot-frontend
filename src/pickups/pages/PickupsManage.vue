@@ -232,7 +232,7 @@ import {
   QItem,
   QItemSection
   QItemSection,
-  QItemTile,
+  QItemLabel,
   QCollapsible,
   QBtn,
   QTooltip,
@@ -263,7 +263,7 @@ export default {
     QItem,
     QItemSection
     QItemSection,
-    QItemTile,
+    QItemLabel,
     QCollapsible,
     QBtn,
     QTooltip,

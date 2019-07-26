@@ -9,6 +9,7 @@ import { IconPlugin } from '@/base/icons'
 
 Vue.use(Vuex)
 Vue.use(IconPlugin)
+Vue.use(VueRouter)
 
 Object.defineProperty(window.navigator, 'userAgent', (userAgent => {
   return {

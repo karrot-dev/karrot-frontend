@@ -67,7 +67,7 @@ import {
   QItem,
   QItemSection
   QItemSection,
-  QItemTile,
+  QItemLabel,
 } from 'quasar'
 
 export default {
@@ -76,7 +76,7 @@ export default {
     QItem,
     QItemSection
     QItemSection,
-    QItemTile,
+    QItemLabel,
   },
   props: {
     voting: {

@@ -139,13 +139,13 @@
 </template>
 
 <script>
-import { QBtn, QList, QItem, QItemSection QItemSection, QIcon, QTooltip, QChip } from 'quasar'
+import { QBtn, QList, QItem, QItemSection, QIcon, QTooltip, QChip } from 'quasar'
 import SidenavBox from './SidenavBox'
 import GroupOptions from './GroupOptions'
 
 export default {
   components: {
-    SidenavBox, GroupOptions, QBtn, QList, QItem, QItemSection QItemSection, QIcon, QTooltip, QChip,
+    SidenavBox, GroupOptions, QBtn, QList, QItem, QItemSection, QIcon, QTooltip, QChip,
   },
   props: {
     groupId: {

@@ -33,7 +33,7 @@ import {
   QItem,
   QItemSection,
   QItemSection
-  QItemTile,
+  QItemLabel,
 } from 'quasar'
 
 import ProfilePicture from '@/users/components/ProfilePicture'
@@ -44,7 +44,7 @@ export default {
     QItem,
     QItemSection,
     QItemSection
-    QItemTile,
+    QItemLabel,
     ProfilePicture,
     DateAsWords,
   },

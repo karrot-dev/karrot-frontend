@@ -60,7 +60,7 @@ import { mapGetters } from 'vuex'
 import {
   QItem,
   QItemSection,
-  QItemTile,
+  QItemLabel,
   QItemSection
 } from 'quasar'
 
@@ -75,7 +75,7 @@ export default {
     TrustButton,
     QItem,
     QItemSection,
-    QItemTile,
+    QItemLabel,
     QItemSection
   },
   props: {

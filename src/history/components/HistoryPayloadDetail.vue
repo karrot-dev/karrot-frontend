@@ -1,7 +1,6 @@
 <template>
   <QItem
     v-if="label === 'collectors'"
-    dense
   >
     <QItemSection>
       <QItemLabel>
@@ -22,7 +21,6 @@
 
   <QItem
     v-else-if="label === 'date'"
-    dense
   >
     <QItemSection>
       <QItemLabel>
@@ -36,12 +34,10 @@
 
   <QItem
     v-else
-    dense
   >
     <QItemSection>
       <QItemLabel
         v-if="value"
-        header
       >
         {{ value }}
       </QItemLabel>
@@ -49,7 +45,6 @@
         v-else
         color="grey"
         icon="fas fa-question-circle"
-        header
       />
       <QItemLabel caption>
         {{ convertedLabel }}
@@ -62,13 +57,13 @@
 import {
   QItem,
   QItemSection,
-  QItemTile,
+  QItemLabel,
 } from 'quasar'
 export default {
   components: {
     QItem,
     QItemSection,
-    QItemTile,
+    QItemLabel,
   },
   props: {
     label: {
@@ -76,7 +71,7 @@ export default {
       type: String,
     },
     value: {
-      type: [String, Date, Number],
+      type: [Array, String, Date, Number],
       required: true,
     },
   },
@@ -88,6 +83,3 @@ export default {
   },
 }
 </script>
-
-<style scoped lang="stylus">
-</style>

@@ -89,7 +89,7 @@ import {
   QItem,
   QItemSection,
   QItemSection
-  QItemTile,
+  QItemLabel,
   QPopover,
   QList,
 } from 'quasar'
@@ -101,7 +101,7 @@ export default {
     QItem,
     QItemSection,
     QItemSection
-    QItemTile,
+    QItemLabel,
     QPopover,
     QList,
     ProfilePicture,

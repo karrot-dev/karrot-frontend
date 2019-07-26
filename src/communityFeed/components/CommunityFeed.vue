@@ -117,7 +117,7 @@ import {
   QItemLabel,
   QItem,
   QItemSection,
-  QItemTile,
+  QItemLabel,
   QItemSection
   QChip,
 } from 'quasar'
@@ -133,7 +133,7 @@ export default {
     QItemLabel,
     QItem,
     QItemSection,
-    QItemTile,
+    QItemLabel,
     QItemSection
     QChip,
   },

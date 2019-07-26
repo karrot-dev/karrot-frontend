@@ -28,7 +28,7 @@ import { addParameters, configure } from '@storybook/vue'
 import { create } from '@storybook/theming'
 
 function loadStories() {
-  const req = require.context('../src', true, /\GroupEdit.story\.js$/)
+  const req = require.context('../src', true, /\GroupGallery.story\.js$/)
   req.keys().forEach(filename => req(filename))
 }
 

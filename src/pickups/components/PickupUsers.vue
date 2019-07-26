@@ -3,7 +3,7 @@
     ref="wrapperDiv"
     class="row justify-start"
   >
-    <QResizeObservable
+    <QResizeObserver
       style="width: 100%"
       @resize="calculateSlotsPerRow"
     />
@@ -88,7 +88,7 @@ import CurrentUser from './CurrentUser'
 import { mapGetters } from 'vuex'
 import {
   QSpinner,
-  QResizeObservable,
+  QResizeObserver,
 } from 'quasar'
 
 export default {
@@ -98,7 +98,7 @@ export default {
     EmptySlot,
     CurrentUser,
     QSpinner,
-    QResizeObservable,
+    QResizeObserver,
   },
   props: {
     pickup: {

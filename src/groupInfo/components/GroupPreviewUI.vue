@@ -43,7 +43,7 @@
           {{ $t('JOINGROUP.NO_PUBLIC_DESCRIPTION') }}
         </span>
       </QCardMain>
-      <QCardSeparator />
+      <QSeparator />
       <QCardActions>
         <div style="width: 100%">
           <template v-if="isLoggedIn">
@@ -97,7 +97,7 @@
             </template>
             <QBtn
               v-else
-              class="q-btn-flat"
+              flat
               @click="$emit('goVisit', group.id)"
             >
               <QIcon name="fas fa-home" />
@@ -129,7 +129,7 @@ import {
   QCard,
   QCardTitle,
   QCardMain,
-  QCardSeparator,
+  QSeparator,
   QCardActions,
   QCardMedia,
   QBtn,
@@ -145,7 +145,7 @@ export default {
     QCard,
     QCardTitle,
     QCardMain,
-    QCardSeparator,
+    QSeparator,
     QCardActions,
     QCardMedia,
     QBtn,

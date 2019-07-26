@@ -1,6 +1,6 @@
 <template>
   <div>
-    <QResizeObservable
+    <QResizeObserver
       style="width: 100%"
       @resize="onResize"
     />
@@ -17,12 +17,12 @@
 
 <script>
 import GroupGalleryCard from './GroupGalleryCard'
-import { QResizeObservable } from 'quasar'
+import { QResizeObserver } from 'quasar'
 
 export default {
   components: {
     GroupGalleryCard,
-    QResizeObservable,
+    QResizeObserver,
   },
   props: {
     groups: {

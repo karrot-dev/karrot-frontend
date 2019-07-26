@@ -152,7 +152,7 @@
             </span>
           </div>
           <template v-if="$q.platform.is.mobile">
-            <QCardSeparator class="q-my-sm" />
+            <QSeparator class="q-my-sm" />
             <StandardMap
               :markers="markers"
               class="map"
@@ -180,7 +180,7 @@ import {
 } from 'vuex'
 
 import {
-  QCardSeparator,
+  QSeparator,
   QBtn,
   QTooltip,
   QPopover,
@@ -204,7 +204,7 @@ export default {
     RandomArt,
     KSpinner,
     ProfilePicture,
-    QCardSeparator,
+    QSeparator,
     QBtn,
     QTooltip,
     QPopover,

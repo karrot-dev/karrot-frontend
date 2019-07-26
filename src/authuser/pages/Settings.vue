@@ -11,7 +11,7 @@
           mime-type="image/jpeg"
           @save="saveUser({ photo: arguments[0] })"
         />
-        <QCardSeparator />
+        <QSeparator />
         <ProfileEdit
           :value="user"
           :status="profileEditStatus"
@@ -35,7 +35,7 @@
           :status="changeEmailStatus"
           @save="changeEmail"
         />
-        <QCardSeparator />
+        <QSeparator />
         <ChangePassword
           :status="changePasswordStatus"
           @save="changePassword"
@@ -71,7 +71,7 @@ import {
   QCard,
   QCardTitle,
   QCardMain,
-  QCardSeparator,
+  QSeparator,
   QCardActions,
 } from 'quasar'
 
@@ -92,7 +92,7 @@ export default {
     QCard,
     QCardTitle,
     QCardMain,
-    QCardSeparator,
+    QSeparator,
     QCardActions,
     ProfileEdit,
     ChangePassword,

@@ -127,6 +127,9 @@ const storybookRouter = new VueRouter()
 
 export function storybookDefaults (options) {
   i18n.locale = 'en'
+  Vue.component('RouterLink', RouterLinkStub)
+  Vue.component('Transition', TransitionStub)
+  Vue.component('TransitionGroup', TransitionGroupStub)
   return {
     router: storybookRouter,
     i18n,

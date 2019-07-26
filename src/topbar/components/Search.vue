@@ -6,9 +6,9 @@
       :placeholder="$q.lang.label.search"
       dense
       autofocus
-      class="bg-grey-5"
       :debounce="300"
-      clearable
+      standout
+      dark
       @click="show"
       @focus="show"
       @blur="hide"
@@ -17,9 +17,17 @@
       <template v-slot:prepend>
         <QIcon name="search" />
       </template>
+      <template v-slot:append>
+        <QIcon
+          name="cancel"
+          class="cursor-pointer"
+          @click="close"
+        />
+      </template>
       <QMenu
         ref="menu"
         no-parent-event
+        no-focus
         fit
       >
         <QList>

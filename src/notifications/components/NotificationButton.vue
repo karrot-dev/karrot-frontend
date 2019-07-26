@@ -11,14 +11,14 @@
       name="fas fa-bell"
       :class="{ hasUnseen: unseenCount > 0 }"
     />
-    <QChip
+    <QBadge
       v-if="unseenCount > 0"
       floating
       color="secondary"
     >
       {{ unseenCount > 9 ? '9+' : unseenCount }}
-    </QChip>
-    <QPopover
+    </QBadge>
+    <QMenu
       v-if="!$q.platform.is.mobile"
       v-model="showing"
       class="k-notifications-popover"
@@ -27,7 +27,7 @@
         v-if="showing"
         as-popover
       />
-    </QPopover>
+    </QMenu>
   </QBtn>
 </template>
 
@@ -35,8 +35,8 @@
 import {
   QBtn,
   QIcon,
-  QChip,
-  QPopover,
+  QBadge,
+  QMenu,
 } from 'quasar'
 const Notifications = () => import('@/notifications/components/Notifications')
 
@@ -46,8 +46,8 @@ export default {
   components: {
     QBtn,
     QIcon,
-    QChip,
-    QPopover,
+    QBadge,
+    QMenu,
     Notifications,
   },
   data () {

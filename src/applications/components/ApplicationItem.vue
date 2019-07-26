@@ -46,7 +46,7 @@
         </template>
       </QItemLabel>
     </QItemSection>
-    <QPopover
+    <QMenu
       v-if="application.canDecide"
       touch-position
     >
@@ -79,7 +79,7 @@
           <QItemSection :label="$t('BUTTON.DECLINE')" />
         </QItem>
       </QList>
-    </QPopover>
+    </QMenu>
   </QItem>
 </template>
 
@@ -90,7 +90,7 @@ import {
   QItemSection,
   QItemSection
   QItemLabel,
-  QPopover,
+  QMenu,
   QList,
 } from 'quasar'
 import ProfilePicture from '@/users/components/ProfilePicture'
@@ -102,7 +102,7 @@ export default {
     QItemSection,
     QItemSection
     QItemLabel,
-    QPopover,
+    QMenu,
     QList,
     ProfilePicture,
     DateAsWords,

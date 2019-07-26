@@ -15,7 +15,7 @@
         :group="group"
         @createTrust="$emit('createTrust', arguments[0])"
       />
-      <QItemSeparator />
+      <QSeparator />
       <QExpansionItem
         v-if="inactiveUsers.length > 0"
         @show="showInactive = true"
@@ -59,7 +59,7 @@
 import {
   Dialog,
   QList,
-  QItemSeparator,
+  QSeparator,
   QItem,
   QItemSection
   QItemSection,
@@ -75,7 +75,7 @@ export default {
   components: {
     UserItem,
     QList,
-    QItemSeparator,
+    QSeparator,
     QItem,
     QItemSection
     QItemSection,

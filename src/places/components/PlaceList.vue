@@ -61,7 +61,7 @@
       </QItemSection>
     </QItem>
 
-    <QItemSeparator v-if="archived.length > 0" />
+    <QSeparator v-if="archived.length > 0" />
 
     <QExpansionItem
       v-if="archived.length > 0 && isEditor"
@@ -94,7 +94,7 @@ import {
   QIcon,
   QTooltip,
   QExpansionItem,
-  QItemSeparator,
+  QSeparator,
   QChip,
 } from 'quasar'
 import { mapGetters } from 'vuex'
@@ -109,7 +109,7 @@ export default {
     QIcon,
     QTooltip,
     QExpansionItem,
-    QItemSeparator,
+    QSeparator,
     QChip,
   },
   props: {

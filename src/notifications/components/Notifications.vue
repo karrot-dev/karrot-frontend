@@ -51,7 +51,7 @@ import {
   QCard,
   QList,
   QItemLabel,
-  QItemSeparator,
+  QSeparator,
   QItem,
   QBtn,
 } from 'quasar'
@@ -64,7 +64,7 @@ export default {
     QCard,
     QList,
     QItemLabel,
-    QItemSeparator,
+    QSeparator,
     QItem,
     QBtn,
     NotificationItem,

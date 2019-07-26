@@ -1,5 +1,5 @@
 <template>
-  <QPopover
+  <QMenu
     fit
     anchor="bottom right"
     self="top right"
@@ -60,14 +60,23 @@
         {{ $t('GROUP.LEAVE') }}
       </QItem>
     </QList>
-  </QPopover>
+  </QMenu>
 </template>
 
 <script>
-import { QList, QItem, QIcon, QPopover, Dialog } from 'quasar'
+import {
+  QList,
+  QItem,
+  QIcon,
+  QMenu,
+  Dialog,
+} from 'quasar'
 export default {
   components: {
-    QList, QItem, QIcon, QPopover,
+    QList,
+    QItem,
+    QIcon,
+    QMenu,
   },
   props: {
     currentGroupId: {

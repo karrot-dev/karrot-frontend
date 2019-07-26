@@ -10,7 +10,7 @@
     <QIcon
       :name="selected.icon"
     />
-    <QPopover>
+    <QMenu>
       <QList
         v-close-popup
         link
@@ -27,7 +27,7 @@
               :label="$t('WALL.VERIFY_EMAIL_FOR_NOTIFICATIONS')"
             />
           </QItem>
-          <QItemSeparator />
+          <QSeparator />
         </template>
         <QItemLabel
           header
@@ -49,13 +49,13 @@
           />
         </QItem>
       </QList>
-    </QPopover>
+    </QMenu>
   </QBtn>
 </template>
 
 <script>
 import {
-  QPopover,
+  QMenu,
   QBtn,
   QIcon,
   QList,
@@ -63,12 +63,12 @@ import {
   QItemSection,
   QItemSection
   QItemLabel,
-  QItemSeparator,
+  QSeparator,
 } from 'quasar'
 
 export default {
   components: {
-    QPopover,
+    QMenu,
     QBtn,
     QIcon,
     QList,
@@ -76,7 +76,7 @@ export default {
     QItemSection,
     QItemSection
     QItemLabel,
-    QItemSeparator,
+    QSeparator,
   },
   props: {
     muted: {

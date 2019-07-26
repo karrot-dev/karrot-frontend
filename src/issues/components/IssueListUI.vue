@@ -15,7 +15,7 @@
       </template>
       {{ $t('ISSUE.NO_ONGOING') }}
     </KNotice>
-    <QItemSeparator />
+    <QSeparator />
     <QExpansionItem
       v-if="pastIssues.length > 0"
       icon="fas fa-archive"
@@ -44,7 +44,7 @@ import statusMixin from '@/utils/mixins/statusMixin'
 
 import {
   QExpansionItem,
-  QItemSeparator,
+  QSeparator,
   QList,
 } from 'quasar'
 
@@ -54,7 +54,7 @@ export default {
     KSpinner,
     KNotice,
     QExpansionItem,
-    QItemSeparator,
+    QSeparator,
     QList,
   },
   mixins: [statusMixin],

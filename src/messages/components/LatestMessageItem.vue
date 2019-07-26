@@ -4,17 +4,18 @@
     :class="{ isUnread: unreadCount > 0 && !muted, selected }"
     @click.native="$emit('open')"
   >
-    <QItemSection side
+    <QItemSection
       v-if="isPrivate || isApplication"
+      side
+      class="q-pr-sm"
     >
       <ProfilePicture
         :user="user || application.user"
-        :size="$q.platform.is.mobile ? 35 : 40"
+        :size="$q.platform.is.mobile ? 30 : 35"
       />
     </QItemSection>
     <QItemSection>
       <QItemLabel
-        header
         class="row no-wrap justify-between items-baseline"
       >
         <div class="row no-wrap items-baseline ellipsis">
@@ -106,7 +107,6 @@
       </QItemLabel>
       <QItemLabel
         v-if="isPickup"
-        header
         class="q-mb-xs"
       >
         <small>
@@ -135,14 +135,12 @@
         <div class="ellipsis col">
           {{ message.content }}
         </div>
-        <QChip
+        <QBadge
           v-if="unreadCount > 0"
-          round
           :color="muted ? 'grey' : 'secondary'"
-          class="inline-chip"
         >
           {{ unreadCount > 99 ? '99+' : unreadCount }}
-        </QChip>
+        </QBadge>
       </QItemLabel>
     </QItemSection>
   </QItem>
@@ -153,8 +151,7 @@ import {
   QItem,
   QItemSection,
   QItemLabel,
-  QItemSection
-  QChip,
+  QBadge,
   QIcon,
 } from 'quasar'
 import DateAsWords from '@/utils/components/DateAsWords'
@@ -165,8 +162,7 @@ export default {
     QItem,
     QItemSection,
     QItemLabel,
-    QItemSection
-    QChip,
+    QBadge,
     QIcon,
     DateAsWords,
     ProfilePicture,
@@ -264,13 +260,6 @@ export default {
 .message-content
   width 100%
   overflow hidden
-
-.q-chip.inline-chip
-  position relative
-  bottom -3px
-  min-height 22px
-  padding 0 7px
-  margin-left 2px
 
 .selected
   background $item-highlight-color

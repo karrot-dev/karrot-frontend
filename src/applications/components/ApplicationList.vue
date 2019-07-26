@@ -9,7 +9,7 @@
         @decline="$emit('decline', arguments[0])"
         @openChat="$emit('openChat', arguments[0])"
       />
-      <QItemSeparator />
+      <QSeparator />
       <QExpansionItem
         v-if="otherApplications.length > 0"
         icon="fas fa-archive"
@@ -48,7 +48,7 @@ import ApplicationItem from './ApplicationItem'
 import paginationMixin from '@/utils/mixins/paginationMixin'
 import {
   QExpansionItem,
-  QItemSeparator,
+  QSeparator,
   QList,
   QItem,
   QBtn,
@@ -58,7 +58,7 @@ export default {
   components: {
     ApplicationItem,
     QExpansionItem,
-    QItemSeparator,
+    QSeparator,
     QList,
     QItem,
     QBtn,

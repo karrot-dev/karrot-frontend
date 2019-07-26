@@ -9,7 +9,7 @@
       :style="cardStyle"
       @click.native="$emit(group.isMember ? 'visit' : 'preview')"
     >
-      <QChip
+      <QBadge
         v-if="hasMyApplication"
         floating
         class="q-pl-sm q-pt-xs q-pb-xs"
@@ -101,7 +101,7 @@ import {
   QBtn,
   QTooltip,
   QIcon,
-  QChip,
+  QBadge,
 } from 'quasar'
 import Markdown from '@/utils/components/Markdown'
 import RandomArt from '@/utils/components/RandomArt'
@@ -117,7 +117,7 @@ export default {
     QBtn,
     QTooltip,
     QIcon,
-    QChip,
+    QBadge,
   },
   props: {
     group: {

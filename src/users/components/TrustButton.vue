@@ -13,13 +13,13 @@
       class="circle-progress"
       :value="trustProgress"
     />
-    <QChip
+    <QBadge
       floating
       :style="small && 'top: 5px; right: -12px'"
       :color="trusted || user.isCurrentUser ? 'positive' : 'negative'"
     >
       {{ trustedBy.length }}
-    </QChip>
+    </QBadge>
     <QDialog
       v-model="showing"
       minimized
@@ -77,7 +77,7 @@ import TrustInfo from '@/users/components/TrustInfo'
 
 import {
   QBtn,
-  QChip,
+  QBadge,
   QDialog,
   Dialog,
 } from 'quasar'
@@ -89,7 +89,7 @@ export default {
     TrustInfo,
     QBtn,
     QDialog,
-    QChip,
+    QBadge,
   },
   props: {
     user: {

@@ -20,7 +20,7 @@
         style="z-index: 0"
       >
         <strong>{{ subscribers.length }}</strong>
-        <QPopover>
+        <QMenu>
           <div
             v-if="subscribers"
             v-close-popup
@@ -39,7 +39,7 @@
               {{ $t('PLACEWALL.SUBSCRIBED_USERS', { count: subscribers.length }) }}
             </div>
           </div>
-        </QPopover>
+        </QMenu>
       </QChip>
       <div>
         <QBtn
@@ -52,7 +52,7 @@
           <QTooltip>
             {{ $t('PLACEWALL.SUBSCRIPTION.HEADER') }}
           </QTooltip>
-          <QPopover>
+          <QMenu>
             <QList
               v-close-popup
               link
@@ -78,7 +78,7 @@
                 />
               </QItem>
             </QList>
-          </QPopover>
+          </QMenu>
         </QBtn>
         <component
           :is="directionsURL ? 'a' : 'span'"
@@ -184,7 +184,7 @@ import {
   QSeparator,
   QBtn,
   QTooltip,
-  QPopover,
+  QMenu,
   QList,
   QItemLabel,
   QItem,
@@ -208,7 +208,7 @@ export default {
     QSeparator,
     QBtn,
     QTooltip,
-    QPopover,
+    QMenu,
     QList,
     QItemLabel,
     QItem,

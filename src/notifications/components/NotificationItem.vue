@@ -6,7 +6,10 @@
     :to="routeTo"
     @click.native="$emit('click', notification)"
   >
-    <QItemSection side v-if="user">
+    <QItemSection
+      v-if="user"
+      side
+    >
       <ProfilePicture
         :user="user"
         :size="$q.platform.is.mobile ? 35 : 40"
@@ -47,7 +50,6 @@ import {
   QItem,
   QItemSection,
   QItemLabel,
-  QItemSection
   QIcon,
 } from 'quasar'
 import DateAsWords from '@/utils/components/DateAsWords'
@@ -58,7 +60,6 @@ export default {
     QItem,
     QItemSection,
     QItemLabel,
-    QItemSection
     QIcon,
     DateAsWords,
     ProfilePicture,

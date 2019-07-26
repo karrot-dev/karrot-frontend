@@ -19,8 +19,8 @@
         />
       </QItemSide>
       <QItemMain>
-        <QItemTile
-          label
+        <QItemLabel
+          header
           class="items-baseline"
         >
           {{ place.name }}
@@ -30,7 +30,7 @@
             class="vertical-baseline"
             color="secondary"
           />
-        </QItemTile>
+        </QItemLabel>
       </QItemMain>
       <QItemSide
         v-if="place.conversationUnreadCount > 0"
@@ -75,9 +75,9 @@
         :to="linkParamsFor(place)"
       >
         <QItemMain>
-          <QItemTile label>
+          <QItemLabel>
             {{ place.name }}
-          </QItemTile>
+          </QItemLabel>
         </QItemMain>
       </QItem>
     </QCollapsible>

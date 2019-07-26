@@ -3,9 +3,9 @@
     v-if="votings && votings.length > 0"
     class="full-width"
   >
-    <QListHeader>
+    <QItemLabel header>
       {{ $t('ISSUE.PREVIOUS_VOTINGS') }}
-    </QListHeader>
+    </QItemLabel>
     <IssueHistoryItem
       v-for="voting in votings"
       :key="voting.id"
@@ -21,14 +21,14 @@ import IssueHistoryItem from '@/issues/components/IssueHistoryItem'
 
 import {
   QList,
-  QListHeader,
+  QItemLabel,
 } from 'quasar'
 
 export default {
   components: {
     IssueHistoryItem,
     QList,
-    QListHeader,
+    QItemLabel,
   },
   props: {
     votings: {

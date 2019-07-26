@@ -13,8 +13,8 @@
       />
     </QItemSide>
     <QItemMain>
-      <QItemTile
-        label
+      <QItemLabel
+        header
         class="row no-wrap justify-between items-baseline"
       >
         <div class="row no-wrap items-baseline ellipsis">
@@ -103,20 +103,20 @@
             />
           </small>
         </span>
-      </QItemTile>
-      <QItemTile
+      </QItemLabel>
+      <QItemLabel
         v-if="isPickup"
-        label
+        header
         class="q-mb-xs"
       >
         <small>
           {{ pickup.place && pickup.place.name }} ·
           {{ $d(pickup.date, 'yearMonthDay') }}
         </small>
-      </QItemTile>
-      <QItemTile
+      </QItemLabel>
+      <QItemLabel
         v-if="message"
-        sublabel
+        caption
         class="row no-wrap items-baseline"
         style="max-height: 18px"
       >
@@ -143,7 +143,7 @@
         >
           {{ unreadCount > 99 ? '99+' : unreadCount }}
         </QChip>
-      </QItemTile>
+      </QItemLabel>
     </QItemMain>
   </QItem>
 </template>

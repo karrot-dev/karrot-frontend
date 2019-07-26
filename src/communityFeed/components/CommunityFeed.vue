@@ -40,7 +40,7 @@
         v-if="showing"
         link
       >
-        <QListHeader>
+        <QItemLabel header>
           <QIcon
             name="fab fa-discourse"
             size="20px"
@@ -57,7 +57,7 @@
               {{ $t('COMMUNITY_FEED.HEADER_LINK') }}
             </a>
           </i18n>
-        </QListHeader>
+        </QItemLabel>
         <QItem
           v-for="topic in topics"
           :key="topic.id"
@@ -76,14 +76,14 @@
             </QItemTile>
           </QItemSide>
           <QItemMain>
-            <QItemTile
-              label
+            <QItemLabel
+              header
               lines="1"
             >
               {{ topic.title }}
-            </QItemTile>
-            <QItemTile
-              sublabel
+            </QItemLabel>
+            <QItemLabel
+              caption
               lines="1"
             >
               <i18n
@@ -114,7 +114,7 @@ import {
   QIcon,
   QDialog,
   QList,
-  QListHeader,
+  QItemLabel,
   QItem,
   QItemMain,
   QItemTile,
@@ -130,7 +130,7 @@ export default {
     QIcon,
     QDialog,
     QList,
-    QListHeader,
+    QItemLabel,
     QItem,
     QItemMain,
     QItemTile,

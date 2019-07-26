@@ -12,18 +12,18 @@
       />
     </QItemSide>
     <QItemMain>
-      <QItemTile
-        label
+      <QItemLabel
+        header
       >
         {{ issue.affectedUser.displayName }}
-      </QItemTile>
-      <QItemTile
-        sublabel
+      </QItemLabel>
+      <QItemLabel
+        caption
       >
         <DateAsWords
           :date="issue.createdAt"
         />
-      </QItemTile>
+      </QItemLabel>
     </QItemMain>
   </QItem>
 </template>

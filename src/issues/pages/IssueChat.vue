@@ -63,7 +63,7 @@
             class="q-mr-xs"
           />
         </div>
-        <div class="text-caption q-caption-opacity q-mt-xs">
+        <div class="text-caption k-caption-opacity q-mt-xs">
           {{ $t('ISSUE.PARTICIPANTS', { count: conversation.participants.length }) }}
         </div>
       </div>

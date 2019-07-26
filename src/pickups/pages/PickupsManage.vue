@@ -65,7 +65,10 @@
             no-border
             seperator
           >
-            <QListHeader v-t="'PICKUPMANAGE.UPCOMING_PICKUPS_IN_SERIES'" />
+            <QItemLabel
+              header
+              v-t="'PICKUPMANAGE.UPCOMING_PICKUPS_IN_SERIES'"
+            />
             <QCollapsible
               v-for="pickup in series.pickups"
               :key="pickup.id"
@@ -77,9 +80,9 @@
                   :icon="$icon('pickup')"
                 />
                 <QItemMain>
-                  <QItemTile
+                  <QItemLabel
                     :tag="pickup.isDisabled ? 's' : 'div'"
-                    label
+                    header
                     :title="pickup.isDisabled ? $t('PICKUPLIST.PICKUP_DISABLED') : null"
                   >
                     {{ $d(pickup.date, 'yearMonthDay') }}
@@ -89,7 +92,7 @@
                     <template v-if="!series.isSameHour || !series.isSameMinute">
                       ({{ $d(pickup.date, 'hourMinute') }})
                     </template>
-                  </QItemTile>
+                  </QItemLabel>
                 </QItemMain>
                 <QItemSide
                   class="text-bold"
@@ -191,19 +194,19 @@
               icon="fas fa-calendar-alt"
             />
             <QItemMain>
-              <QItemTile
-                label
+              <QItemLabel
+                header
                 :tag="pickup.isDisabled ? 's' : 'div'"
                 :title="pickup.isDisabled ? $t('PICKUPLIST.PICKUP_DISABLED') : null"
               >
                 {{ $d(pickup.date, 'dateWithDayName') }}
-              </QItemTile>
-              <QItemTile sublabel>
+              </QItemLabel>
+              <QItemLabel caption>
                 {{ $d(pickup.date, 'hourMinute') }}
                 <template v-if="pickup.hasDuration">
                   &mdash; {{ $d(pickup.dateEnd, 'hourMinute') }}
                 </template>
-              </QItemTile>
+              </QItemLabel>
             </QItemMain>
           </template>
           <PickupEdit
@@ -225,7 +228,7 @@ import {
   QCard,
   QCardTitle,
   QList,
-  QListHeader,
+  QItemLabel,
   QItem,
   QItemSide,
   QItemMain,
@@ -256,7 +259,7 @@ export default {
     QCard,
     QCardTitle,
     QList,
-    QListHeader,
+    QItemLabel,
     QItem,
     QItemSide,
     QItemMain,

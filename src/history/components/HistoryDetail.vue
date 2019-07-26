@@ -19,13 +19,13 @@
       <QItem dense>
         <QItemSide icon="far fa-fw fa-clock" />
         <QItemMain>
-          <QItemTile label>
+          <QItemLabel>
             {{ $d(new Date(entry.date), 'long') }},
             <DateAsWords
               :date="entry.date"
               style="display: inline"
             />
-          </QItemTile>
+          </QItemLabel>
         </QItemMain>
       </QItem>
 
@@ -45,9 +45,9 @@
       <QItem dense>
         <QItemSide icon="far fa-fw fa-comment" />
         <QItemMain>
-          <QItemTile label>
+          <QItemLabel>
             {{ entry.message }}
-          </QItemTile>
+          </QItemLabel>
         </QItemMain>
       </QItem>
 
@@ -57,11 +57,11 @@
       >
         <QItemSide icon="fas fa-fw fa-home" />
         <QItemMain>
-          <QItemTile label>
+          <QItemLabel>
             <RouterLink :to="{name: 'group', params: { groupId: entry.group.id }}">
               {{ entry.group.name }}
             </RouterLink>
-          </QItemTile>
+          </QItemLabel>
         </QItemMain>
       </QItem>
 
@@ -71,11 +71,11 @@
       >
         <QItemSide :icon="$icon('place_fw')" />
         <QItemMain>
-          <QItemTile label>
+          <QItemLabel>
             <RouterLink :to="{name: 'place', params: { groupId: entry.place.group.id, placeId: entry.place.id }}">
               {{ entry.place.name }}
             </RouterLink>
-          </QItemTile>
+          </QItemLabel>
         </QItemMain>
       </QItem>
     </QList>

@@ -12,10 +12,10 @@
       style="min-height: 20px"
     >
       <QItemMain>
-        <QItemTile sublabel>
+        <QItemLabel caption>
           <QIcon name="fas fa-external-link-alt" />
           <small>{{ $t('LANGUAGECHOOSER.ADD_MORE') }}</small>
-        </QItemTile>
+        </QItemLabel>
       </QItemMain>
     </QItem>
     <QItem
@@ -25,16 +25,16 @@
       @click.native="setLocale(locale.value)"
     >
       <QItemMain>
-        <QItemTile label>
+        <QItemLabel>
           {{ locale.label }}
           <small>({{ locale.percentage }}%)</small>
-        </QItemTile>
-        <QItemTile sublabel>
+        </QItemLabel>
+        <QItemLabel caption>
           <QProgress
             v-if="locale.percentage < 100"
             :percentage="locale.percentage"
           />
-        </QItemTile>
+        </QItemLabel>
       </QItemMain>
     </QItem>
   </QList>

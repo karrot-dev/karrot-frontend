@@ -13,8 +13,8 @@
       />
     </QItemSide>
     <QItemMain>
-      <QItemTile
-        label
+      <QItemLabel
+        header
         lines="2"
       >
         <QIcon
@@ -23,9 +23,9 @@
           class="q-mr-xs vertical-baseline"
         />
         {{ message }}
-      </QItemTile>
-      <QItemTile
-        sublabel
+      </QItemLabel>
+      <QItemLabel
+        caption
       >
         <DateAsWords
           :date="showExpiresAt ? notification.expiresAt : notification.createdAt"
@@ -36,7 +36,7 @@
         <template v-if="placeName">
           · {{ placeName }}
         </template>
-      </QItemTile>
+      </QItemLabel>
     </QItemMain>
   </QItem>
 </template>

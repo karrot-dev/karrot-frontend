@@ -50,7 +50,7 @@
 import {
   QCard,
   QList,
-  QListHeader,
+  QItemLabel,
   QItemSeparator,
   QItem,
   QBtn,
@@ -63,7 +63,7 @@ export default {
   components: {
     QCard,
     QList,
-    QListHeader,
+    QItemLabel,
     QItemSeparator,
     QItem,
     QBtn,

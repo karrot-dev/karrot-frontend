@@ -9,12 +9,12 @@
       />
     </QItemSide>
     <QItemMain>
-      <QItemTile label>
+      <QItemLabel>
         <RouterLink :to="{name: 'user', params: { userId: user.id }}">
           {{ user.displayName }}
         </RouterLink>
-      </QItemTile>
-      <QItemTile sublabel>
+      </QItemLabel>
+      <QItemLabel caption>
         <i18n
           path="GROUP.JOINED"
         >
@@ -38,7 +38,7 @@
           </i18n>
         </template>
         <br>
-      </QItemTile>
+      </QItemLabel>
     </QItemMain>
     <QItemSide>
       <QItemTile>
@@ -50,7 +50,7 @@
           small
           @createTrust="$emit('createTrust', arguments[0])"
         />
-      </QItemTile>
+      </QItemLabel>
     </QItemSide>
   </QItem>
 </template>

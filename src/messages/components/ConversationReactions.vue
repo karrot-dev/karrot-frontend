@@ -39,7 +39,7 @@
             />
           </QItemSection>
           <QItemSection>
-            <QItemLabel header>{{ reaction.users.map(u => u.displayName).join(', ') }}</QItemLabel>
+            <QItemLabel>{{ reaction.users.map(u => u.displayName).join(', ') }}</QItemLabel>
             <QItemLabel caption>{{ `:${reaction.name}:` }}</QItemLabel>
           </QItemSection>
         </QItem>

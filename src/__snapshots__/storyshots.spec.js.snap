@@ -2941,7 +2941,7 @@ exports[`Storyshots GroupSettings show 1`] = `
     <div class="col-auto self-center q-card-title-extra"></div>
   </div>
   <div class="row q-pl-md">
-    <div class="q-pb-md q-caption-opacity">
+    <div class="q-pb-md k-caption-opacity">
       Choose a group:
     </div> <button tabindex="0" type="button" class="q-btn inline relative-position q-btn-item non-selectable q-ml-md q-btn-rectangle q-focusable q-hoverable bg-primary text-white">
       <div class="q-focus-helper"></div>
@@ -3066,7 +3066,7 @@ exports[`Storyshots GroupSettings show 1`] = `
             <div>Unsubscribe all</div>
           </div>
         </button>
-        <div class="q-pt-sm q-caption-opacity">
+        <div class="q-pt-sm k-caption-opacity">
           Unsubscribe from all email notifications in 05_testgroup
         </div>
       </div>
@@ -3456,7 +3456,7 @@ exports[`Storyshots Issues vote - furtherDiscussion 1`] = `
     How do you want to proceed with the ongoing conflict with User 63?
   </div>
   <div class="q-pb-lg">
-    <div class="q-caption q-caption-opacity row inline">
+    <div class="q-caption k-caption-opacity row inline">
       <div>Time left to vote</div>:
       <div title="Dec 30, 2017, 6:00 PM" class="q-pl-xs">
         6 days
@@ -3537,7 +3537,7 @@ exports[`Storyshots Issues vote - furtherDiscussion 1`] = `
           </div>
         </div>
       </div>
-      <div class="q-caption q-caption-opacity q-my-xs">
+      <div class="q-caption k-caption-opacity q-my-xs">
         Your vote will be anonymous.
       </div>
       <div class="row justify-end group"><button tabindex="0" type="button" class="q-btn inline relative-position q-btn-item non-selectable q-btn-rectangle q-focusable q-hoverable bg-negative text-white">
@@ -6573,7 +6573,7 @@ exports[`Storyshots Settings Page Default 1`] = `
       <div class="col-auto self-center q-card-title-extra"></div>
     </div>
     <div class="row q-pl-md">
-      <div class="q-pb-md q-caption-opacity">
+      <div class="q-pb-md k-caption-opacity">
         Choose a group:
       </div> <button tabindex="0" type="button" class="q-btn inline relative-position q-btn-item non-selectable q-ml-md q-btn-rectangle q-focusable q-hoverable bg-primary text-white">
         <div class="q-focus-helper"></div>
@@ -6699,7 +6699,7 @@ exports[`Storyshots Settings Page Default 1`] = `
             </div>
             <!---->
           </button>
-          <div class="q-pt-sm q-caption-opacity">
+          <div class="q-pt-sm k-caption-opacity">
             Unsubscribe from all email notifications in 05_testgroup
           </div>
         </div>

@@ -57,7 +57,8 @@
               v-close-popup
               link
             >
-              <QListHeader
+              <QItemLabel
+                header
                 v-t="'PLACEWALL.SUBSCRIPTION.HEADER'"
               />
 
@@ -185,7 +186,7 @@ import {
   QTooltip,
   QPopover,
   QList,
-  QListHeader,
+  QItemLabel,
   QItem,
   QItemMain,
   QItemSide,
@@ -209,7 +210,7 @@ export default {
     QTooltip,
     QPopover,
     QList,
-    QListHeader,
+    QItemLabel,
     QItem,
     QItemMain,
     QItemSide,

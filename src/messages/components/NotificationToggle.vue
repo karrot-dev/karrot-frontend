@@ -29,7 +29,10 @@
           </QItem>
           <QItemSeparator />
         </template>
-        <QListHeader v-t="'NOTIFICATION_TOGGLE.HEADER'" />
+        <QItemLabel
+          header
+          v-t="'NOTIFICATION_TOGGLE.HEADER'"
+        />
         <QItem
           v-for="o in options"
           :key="o.id"
@@ -59,7 +62,7 @@ import {
   QItem,
   QItemMain,
   QItemSide,
-  QListHeader,
+  QItemLabel,
   QItemSeparator,
 } from 'quasar'
 
@@ -72,7 +75,7 @@ export default {
     QItem,
     QItemMain,
     QItemSide,
-    QListHeader,
+    QItemLabel,
     QItemSeparator,
   },
   props: {

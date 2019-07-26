@@ -4,7 +4,7 @@
     dense
   >
     <QItemMain>
-      <QItemTile label>
+      <QItemLabel>
         <RouterLink
           v-for="user in value"
           :key="user"
@@ -13,10 +13,10 @@
         >
           {{ user }}
         </RouterLink>
-      </QItemTile>
-      <QItemTile sublabel>
+      </QItemLabel>
+      <QItemLabel caption>
         {{ label }}
-      </QItemTile>
+      </QItemLabel>
     </QItemMain>
   </QItem>
 
@@ -25,12 +25,12 @@
     dense
   >
     <QItemMain>
-      <QItemTile label>
+      <QItemLabel>
         {{ $d(new Date(Array.isArray(value) ? value[0] : value), 'long') }}
-      </QItemTile>
-      <QItemTile sublabel>
+      </QItemLabel>
+      <QItemLabel caption>
         {{ $t('CREATEPICKUP.DATE') }}
-      </QItemTile>
+      </QItemLabel>
     </QItemMain>
   </QItem>
 
@@ -39,21 +39,21 @@
     dense
   >
     <QItemMain>
-      <QItemTile
+      <QItemLabel
         v-if="value"
-        label
+        header
       >
         {{ value }}
-      </QItemTile>
-      <QItemTile
+      </QItemLabel>
+      <QItemLabel
         v-else
         color="grey"
         icon="fas fa-question-circle"
-        label
+        header
       />
-      <QItemTile sublabel>
+      <QItemLabel caption>
         {{ convertedLabel }}
-      </QItemTile>
+      </QItemLabel>
     </QItemMain>
   </QItem>
 </template>

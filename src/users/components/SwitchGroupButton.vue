@@ -12,9 +12,9 @@
       v-model="showModal"
     >
       <QList>
-        <QListHeader>
+        <QItemLabel header>
           {{ user.isCurrentUser ? $t('JOINGROUP.MY_GROUPS') : $t('SWITCHGROUP.COMMON_GROUPS') }}
-        </QListHeader>
+        </QItemLabel>
         <QItem
           v-for="group in commonGroups"
           :key="group.id"
@@ -22,27 +22,30 @@
           link
           @click.native="$emit('selectGroup', { groupId: group.id })"
         >
-          <QItemMain>
+          <QItemSection>
             {{ group.name }}
-          </QItemMain>
-          <QItemSide
+          </QItemSection>
+          <QItemSection
             v-if="group.isCurrentGroup"
             right
             icon="fas fa-star"
             color="secondary"
           />
         </QItem>
-        <QListHeader v-if="otherGroups.length > 0">
+        <QItemLabel
+          v-if="otherGroups.length > 0"
+          header
+        >
           {{ $t('SWITCHGROUP.OTHER_GROUPS') }}
-        </QListHeader>
+        </QItemLabel>
         <QItem
           v-for="group in otherGroups"
           :key="group.id"
           :to="{ name: 'groupPreview', params: { groupPreviewId: group.id } }"
         >
-          <QItemMain>
+          <QItemSection>
             {{ group.name }}
-          </QItemMain>
+          </QItemSection>
         </QItem>
       </QList>
     </QDialog>
@@ -53,10 +56,9 @@
 import {
   QBtn,
   QList,
-  QListHeader,
+  QItemLabel,
   QItem,
-  QItemMain,
-  QItemSide,
+  QItemSection,
   QDialog,
 } from 'quasar'
 
@@ -64,10 +66,9 @@ export default {
   components: {
     QBtn,
     QList,
-    QListHeader,
+    QItemLabel,
     QItem,
-    QItemMain,
-    QItemSide,
+    QItemSection,
     QDialog,
   },
   props: {

@@ -42,12 +42,10 @@
       v-else
     >
       <QItemMain>
-        <QItemTile label>
+        <QItemLabel>
           {{ $t('ISSUE.VOTING.RESULTS.UNDECIDED') }}
-        </QItemTile>
-        <QItemTile
-          sublabel
-        >
+        </QItemLabel>
+        <QItemLabel caption>
           {{ $t('ISSUE.VOTING.RESULTS.UNDECIDED_WHY') }}
           <ul>
             <li>
@@ -57,7 +55,7 @@
               {{ $t('ISSUE.VOTING.RESULTS.UNDECIDED_REASON_2') }}
             </li>
           </ul>
-        </QItemTile>
+        </QItemLabel>
       </QItemMain>
     </QItem>
   </QList>

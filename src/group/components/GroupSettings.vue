@@ -4,11 +4,15 @@
     id="notifications"
     class="no-shadow grey-border"
   >
-    <QCardTitle>{{ $t('GROUP.NOTIFICATIONS_BY_GROUP') }}</QCardTitle>
+    <QCardSection>
+      <div class="text-h6">
+        {{ $t('GROUP.NOTIFICATIONS_BY_GROUP') }}
+      </div>
+    </QCardSection>
     <template v-if="groups.length > 1">
       <div class="row q-pl-md">
         <div
-          class="q-pb-md q-caption-opacity"
+          class="q-pb-md k-caption-opacity"
         >
           {{ $t('SWITCHGROUP.CHOOSE') }}
         </div>
@@ -20,30 +24,35 @@
         />
       </div>
     </template>
-    <QCardMain>
-      <QList link>
-        <QListHeader>
-          {{ $t('GROUP.EMAIL_NOTIFICATIONS') }}
-        </QListHeader>
+    <QCardSection>
+      <QList
+        link
+        bordered
+      >
+        <QItemLabel header>
+          <div class="text-weight-medium">
+            {{ $t('GROUP.EMAIL_NOTIFICATIONS') }}
+          </div>
+        </QItemLabel>
         <QItem
           v-for="type in availableNotificationTypes"
           :key="type"
           tag="label"
         >
-          <QItemSide>
+          <QItemSection side>
             <QCheckbox
               :value="notificationIsEnabled(type)"
               @input="change(type, arguments[0])"
             />
-          </QItemSide>
-          <QItemMain>
-            <QItemTile label>
+          </QItemSection>
+          <QItemSection>
+            <QItemLabel>
               {{ $t('GROUP.NOTIFICATION_TYPES.' + type + '.NAME') }}
-            </QItemTile>
-            <QItemTile sublabel>
+            </QItemLabel>
+            <QItemLabel caption>
               {{ $t('GROUP.NOTIFICATION_TYPES.' + type + '.DESCRIPTION') }}
-            </QItemTile>
-          </QItemMain>
+            </QItemLabel>
+          </QItemSection>
         </QItem>
         <div
           class="q-pt-md q-pl-md"
@@ -55,7 +64,7 @@
             @click="$emit('unsubscribeAllEmails', group.id)"
           />
           <div
-            class="q-pt-sm q-caption-opacity"
+            class="q-pt-sm k-caption-opacity"
           >
             {{ $t('UNSUBSCRIBE.FROM_GROUP', { groupName: group.name }) }}
           </div>
@@ -68,22 +77,19 @@
           {{ anyFirstError }}
         </div>
       </QList>
-    </QCardMain>
+    </QCardSection>
   </QCard>
 </template>
 
 <script>
 import {
   QCard,
-  QCardTitle,
-  QCardMain,
+  QCardSection,
   QCheckbox,
   QList,
-  QListHeader,
   QItem,
-  QItemSide,
-  QItemMain,
-  QItemTile,
+  QItemSection,
+  QItemLabel,
   QBtn,
 } from 'quasar'
 import SwitchGroupButton from '@/users/components/SwitchGroupButton'
@@ -93,15 +99,12 @@ export default {
   name: 'GroupSettings',
   components: {
     QCard,
-    QCardTitle,
-    QCardMain,
+    QCardSection,
     QCheckbox,
     QList,
-    QListHeader,
     QItem,
-    QItemSide,
-    QItemMain,
-    QItemTile,
+    QItemSection,
+    QItemLabel,
     QBtn,
     SwitchGroupButton,
   },

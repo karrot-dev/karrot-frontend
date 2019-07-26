@@ -52,9 +52,9 @@
       >
         <QItem>
           <QItemMain>
-            <QItemTile label>
+            <QItemLabel>
               <b class="text-negative">{{ $t('PICKUPLIST.PICKUP_DISABLED') }}</b>
-            </QItemTile>
+            </QItemLabel>
           </QItemMain>
         </QItem>
       </QList>

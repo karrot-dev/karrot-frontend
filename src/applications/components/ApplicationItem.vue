@@ -12,19 +12,14 @@
       />
     </QItemSide>
     <QItemMain>
-      <QItemTile
-        label
-      >
+      <QItemLabel>
         {{ userName }}
-      </QItemTile>
-      <QItemTile
-        sublabel
-      >
+      </QItemLabel>
+      <QItemLabel caption>
         {{ submittedOn }}
-      </QItemTile>
-      <QItemTile
+      </QItemLabel>
+      <QItemLabel caption
         v-if="application.status !== 'pending'"
-        sublabel
       >
         <i18n
           :path="decision"
@@ -49,7 +44,7 @@
             </RouterLink>
           </i18n>
         </template>
-      </QItemTile>
+      </QItemLabel>
     </QItemMain>
     <QPopover
       v-if="application.canDecide"

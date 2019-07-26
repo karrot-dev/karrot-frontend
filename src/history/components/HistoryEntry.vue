@@ -6,12 +6,12 @@
       :class="{'greyed': detailIsShown}"
       @click.native="toggleDetail"
     >
-      <QItemSide>
+      <QItemSection side>
         <HistoryProfilePictures
           :users="entry.users"
         />
-      </QItemSide>
-      <QItemMain>
+      </QItemSection>
+      <QItemSection>
         <QItemTile>
           <span class="content">
             {{ entry.message }}
@@ -23,14 +23,14 @@
         >
           <DateAsWords :date="entry.date" />
         </QItemTile>
-      </QItemMain>
-      <QItemSide
+      </QItemSection>
+      <QItemSection side
         class="desktop-only"
         stamp
         right
       >
         <DateAsWords :date="entry.date" />
-      </QItemSide>
+      </QItemSection>
     </QItem>
     <Transition name="slide-toggle">
       <div
@@ -52,10 +52,10 @@
 import HistoryProfilePictures from '@/history/components/HistoryProfilePictures'
 import DateAsWords from '@/utils/components/DateAsWords'
 import HistoryDetail from '@/history/components/HistoryDetail'
-import { QItem, QItemSide, QItemMain, QItemTile } from 'quasar'
+import { QItem, QItemSection QItemSection, QItemTile } from 'quasar'
 
 export default {
-  components: { HistoryProfilePictures, HistoryDetail, DateAsWords, QItem, QItemSide, QItemMain, QItemTile },
+  components: { HistoryProfilePictures, HistoryDetail, DateAsWords, QItem, QItemSection QItemSection, QItemTile },
   props: {
     entry: {
       required: true,

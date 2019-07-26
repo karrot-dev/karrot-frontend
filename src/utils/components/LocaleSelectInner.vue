@@ -11,12 +11,12 @@
       class="q-pt-xs"
       style="min-height: 20px"
     >
-      <QItemMain>
+      <QItemSection>
         <QItemLabel caption>
           <QIcon name="fas fa-external-link-alt" />
           <small>{{ $t('LANGUAGECHOOSER.ADD_MORE') }}</small>
         </QItemLabel>
-      </QItemMain>
+      </QItemSection>
     </QItem>
     <QItem
       v-for="locale in localeOptions"
@@ -24,7 +24,7 @@
       :class="{ active: locale.value === current }"
       @click.native="setLocale(locale.value)"
     >
-      <QItemMain>
+      <QItemSection>
         <QItemLabel>
           {{ locale.label }}
           <small>({{ locale.percentage }}%)</small>
@@ -35,7 +35,7 @@
             :percentage="locale.percentage"
           />
         </QItemLabel>
-      </QItemMain>
+      </QItemSection>
     </QItem>
   </QList>
 </template>
@@ -47,7 +47,7 @@ import {
   QList,
   QItem,
   QItemTile,
-  QItemMain,
+  QItemSection,
 } from 'quasar'
 import { mapGetters, mapActions } from 'vuex'
 import { localeOptions } from '@/base/i18n'
@@ -59,7 +59,7 @@ export default {
     QList,
     QItem,
     QItemTile,
-    QItemMain,
+    QItemSection,
   },
   data () {
     return {

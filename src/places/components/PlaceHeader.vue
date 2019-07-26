@@ -68,11 +68,11 @@
                 :class="o.selected ? 'bg-grey-2' : ''"
                 @click.native="select(o)"
               >
-                <QItemSide
+                <QItemSection side
                   :color="o.color"
                   :icon="o.icon"
                 />
-                <QItemMain
+                <QItemSection
                   :label="o.label"
                   :sublabel="o.sublabel"
                 />
@@ -188,8 +188,8 @@ import {
   QList,
   QItemLabel,
   QItem,
-  QItemMain,
-  QItemSide,
+  QItemSection,
+  QItemSection
   QChip,
   QDialog,
   QDialogLayout,
@@ -212,8 +212,8 @@ export default {
     QList,
     QItemLabel,
     QItem,
-    QItemMain,
-    QItemSide,
+    QItemSection,
+    QItemSection
     QChip,
     QDialog,
     QDialogLayout,

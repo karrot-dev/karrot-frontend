@@ -10,15 +10,15 @@
       <QItem
         class="bg-accent"
       >
-        <QItemSide
+        <QItemSection side
           color="white"
           icon="fas fa-fw fa-info"
         />
       </QItem>
 
       <QItem dense>
-        <QItemSide icon="far fa-fw fa-clock" />
-        <QItemMain>
+        <QItemSection side icon="far fa-fw fa-clock" />
+        <QItemSection>
           <QItemLabel>
             {{ $d(new Date(entry.date), 'long') }},
             <DateAsWords
@@ -26,12 +26,12 @@
               style="display: inline"
             />
           </QItemLabel>
-        </QItemMain>
+        </QItemSection>
       </QItem>
 
       <QItem dense>
-        <QItemSide icon="fas fa-fw fa-user" />
-        <QItemMain>
+        <QItemSection side icon="fas fa-fw fa-user" />
+        <QItemSection>
           <QItemTile>
             <ProfilePicture
               v-for="user in entry.users"
@@ -39,44 +39,44 @@
               :user="user"
             />
           </QItemTile>
-        </QItemMain>
+        </QItemSection>
       </QItem>
 
       <QItem dense>
-        <QItemSide icon="far fa-fw fa-comment" />
-        <QItemMain>
+        <QItemSection side icon="far fa-fw fa-comment" />
+        <QItemSection>
           <QItemLabel>
             {{ entry.message }}
           </QItemLabel>
-        </QItemMain>
+        </QItemSection>
       </QItem>
 
       <QItem
         v-if="entry.group && entry.group.name"
         dense
       >
-        <QItemSide icon="fas fa-fw fa-home" />
-        <QItemMain>
+        <QItemSection side icon="fas fa-fw fa-home" />
+        <QItemSection>
           <QItemLabel>
             <RouterLink :to="{name: 'group', params: { groupId: entry.group.id }}">
               {{ entry.group.name }}
             </RouterLink>
           </QItemLabel>
-        </QItemMain>
+        </QItemSection>
       </QItem>
 
       <QItem
         v-if="entry.place && entry.place.name"
         dense
       >
-        <QItemSide :icon="$icon('place_fw')" />
-        <QItemMain>
+        <QItemSection side :icon="$icon('place_fw')" />
+        <QItemSection>
           <QItemLabel>
             <RouterLink :to="{name: 'place', params: { groupId: entry.place.group.id, placeId: entry.place.id }}">
               {{ entry.place.name }}
             </RouterLink>
           </QItemLabel>
-        </QItemMain>
+        </QItemSection>
       </QItem>
     </QList>
     <QList
@@ -86,7 +86,7 @@
       <QItem
         class="bg-accent"
       >
-        <QItemSide
+        <QItemSection side
           color="white"
           icon="far fa-fw fa-file-alt"
         />
@@ -122,9 +122,9 @@ import {
   QCard,
   QList,
   QItem,
-  QItemMain,
+  QItemSection,
   QItemTile,
-  QItemSide,
+  QItemSection
 } from 'quasar'
 import ProfilePicture from '@/users/components/ProfilePicture'
 import DateAsWords from '@/utils/components/DateAsWords'
@@ -136,9 +136,9 @@ export default {
     QCard,
     QList,
     QItem,
-    QItemMain,
+    QItemSection,
     QItemTile,
-    QItemSide,
+    QItemSection
     ProfilePicture,
     DateAsWords,
     HistoryPayloadDetail,

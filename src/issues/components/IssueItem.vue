@@ -4,14 +4,14 @@
     :to="{name: issue.isOngoing ? 'issueChat' : 'issueVote', params: { issueId: issue.id }}"
     :class="{'router-link-active': issue.isSelected}"
   >
-    <QItemSide>
+    <QItemSection side>
       <ProfilePicture
         :user="issue.affectedUser"
         :size="30"
         :is-link="false"
       />
-    </QItemSide>
-    <QItemMain>
+    </QItemSection>
+    <QItemSection>
       <QItemLabel
         header
       >
@@ -24,15 +24,15 @@
           :date="issue.createdAt"
         />
       </QItemLabel>
-    </QItemMain>
+    </QItemSection>
   </QItem>
 </template>
 
 <script>
 import {
   QItem,
-  QItemMain,
-  QItemSide,
+  QItemSection,
+  QItemSection
   QItemTile,
 } from 'quasar'
 
@@ -42,8 +42,8 @@ import DateAsWords from '@/utils/components/DateAsWords'
 export default {
   components: {
     QItem,
-    QItemMain,
-    QItemSide,
+    QItemSection,
+    QItemSection
     QItemTile,
     ProfilePicture,
     DateAsWords,

@@ -22,14 +22,14 @@
         @hide="showInactive = false"
       >
         <template slot="header">
-          <QItemSide>
+          <QItemSection side>
             <QItemTile icon="fas fa-bed" />
-          </QItemSide>
-          <QItemMain
+          </QItemSection>
+          <QItemSection
             :label="$t('GROUP.INACTIVE')"
             :sublabel="inactiveSublabel"
           />
-          <QItemSide>
+          <QItemSection side>
             <QBtn
               flat
               round
@@ -37,7 +37,7 @@
               icon="help_outline"
               @click.stop="inactivityInfo"
             />
-          </QItemSide>
+          </QItemSection>
         </template>
 
         <template v-if="showInactive">
@@ -61,8 +61,8 @@ import {
   QList,
   QItemSeparator,
   QItem,
-  QItemSide,
-  QItemMain,
+  QItemSection
+  QItemSection,
   QItemTile,
   QCollapsible,
   QBtn,
@@ -77,8 +77,8 @@ export default {
     QList,
     QItemSeparator,
     QItem,
-    QItemSide,
-    QItemMain,
+    QItemSection
+    QItemSection,
     QItemTile,
     QCollapsible,
     QBtn,

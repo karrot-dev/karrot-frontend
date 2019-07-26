@@ -92,24 +92,24 @@
         </div>
         <QList>
           <QItem>
-            <QItemSide icon="fas fa-fw fa-envelope" />
-            <QItemMain class="ellipsis">
+            <QItemSection side icon="fas fa-fw fa-envelope" />
+            <QItemSection class="ellipsis">
               <a :href="mailto(user.email)">{{ user.email }}</a>
-            </QItemMain>
+            </QItemSection>
           </QItem>
 
           <QItem v-if="user.mobileNumber">
-            <QItemSide icon="fas fa-fw fa-phone" />
-            <QItemMain>
+            <QItemSection side icon="fas fa-fw fa-phone" />
+            <QItemSection>
               {{ user.mobileNumber }}
-            </QItemMain>
+            </QItemSection>
           </QItem>
 
           <QItem v-if="user.address">
-            <QItemSide icon="fas fa-fw fa-map-marker" />
-            <QItemMain>
+            <QItemSection side icon="fas fa-fw fa-map-marker" />
+            <QItemSection>
               {{ user.address }}
-            </QItemMain>
+            </QItemSection>
           </QItem>
         </QList>
         <QCardMedia v-if="$q.platform.is.mobile && user.latitude && user.longitude">
@@ -197,8 +197,8 @@ import {
   QBtn,
   QList,
   QItem,
-  QItemMain,
-  QItemSide,
+  QItemSection,
+  QItemSection
   QDialog,
 } from 'quasar'
 
@@ -220,8 +220,8 @@ export default {
     QBtn,
     QList,
     QItem,
-    QItemMain,
-    QItemSide,
+    QItemSection,
+    QItemSection
     QDialog,
   },
   data () {

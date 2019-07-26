@@ -75,11 +75,11 @@
               @show="makeVisible('pickup', pickup.id)"
             >
               <template slot="header">
-                <QItemSide
+                <QItemSection side
                   v-if="!$q.platform.is.mobile"
                   :icon="$icon('pickup')"
                 />
-                <QItemMain>
+                <QItemSection>
                   <QItemLabel
                     :tag="pickup.isDisabled ? 's' : 'div'"
                     header
@@ -93,8 +93,8 @@
                       ({{ $d(pickup.date, 'hourMinute') }})
                     </template>
                   </QItemLabel>
-                </QItemMain>
-                <QItemSide
+                </QItemSection>
+                <QItemSection side
                   class="text-bold"
                   right
                 >
@@ -119,7 +119,7 @@
                     size="150%"
                     :title="$t('PICKUPMANAGE.PICKUP_MAX_COLLECTORS_CHANGED')"
                   />
-                </QItemSide>
+                </QItemSection>
               </template>
               <PickupEdit
                 v-if="visible.pickup[pickup.id]"
@@ -189,11 +189,11 @@
           @show="makeVisible('pickup', pickup.id)"
         >
           <template slot="header">
-            <QItemSide
+            <QItemSection side
               v-if="!$q.platform.is.mobile"
               icon="fas fa-calendar-alt"
             />
-            <QItemMain>
+            <QItemSection>
               <QItemLabel
                 header
                 :tag="pickup.isDisabled ? 's' : 'div'"
@@ -207,7 +207,7 @@
                   &mdash; {{ $d(pickup.dateEnd, 'hourMinute') }}
                 </template>
               </QItemLabel>
-            </QItemMain>
+            </QItemSection>
           </template>
           <PickupEdit
             v-if="visible.pickup[pickup.id]"
@@ -230,8 +230,8 @@ import {
   QList,
   QItemLabel,
   QItem,
-  QItemSide,
-  QItemMain,
+  QItemSection
+  QItemSection,
   QItemTile,
   QCollapsible,
   QBtn,
@@ -261,8 +261,8 @@ export default {
     QList,
     QItemLabel,
     QItem,
-    QItemSide,
-    QItemMain,
+    QItemSection
+    QItemSection,
     QItemTile,
     QCollapsible,
     QBtn,

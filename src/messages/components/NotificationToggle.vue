@@ -19,11 +19,11 @@
           <QItem
             :to="{ name: 'settings', hash: '#change-email' }"
           >
-            <QItemSide
+            <QItemSection side
               color="negative"
               icon="fas fa-fw fa-exclamation-triangle"
             />
-            <QItemMain
+            <QItemSection
               :label="$t('WALL.VERIFY_EMAIL_FOR_NOTIFICATIONS')"
             />
           </QItem>
@@ -39,11 +39,11 @@
           :class="o.selected ? 'bg-grey-2' : ''"
           @click.native="select(o)"
         >
-          <QItemSide
+          <QItemSection side
             :color="o.color"
             :icon="o.icon"
           />
-          <QItemMain
+          <QItemSection
             :label="o.label"
             :sublabel="o.sublabel"
           />
@@ -60,8 +60,8 @@ import {
   QIcon,
   QList,
   QItem,
-  QItemMain,
-  QItemSide,
+  QItemSection,
+  QItemSection
   QItemLabel,
   QItemSeparator,
 } from 'quasar'
@@ -73,8 +73,8 @@ export default {
     QIcon,
     QList,
     QItem,
-    QItemMain,
-    QItemSide,
+    QItemSection,
+    QItemSection
     QItemLabel,
     QItemSeparator,
   },

@@ -22,10 +22,10 @@
           href="https://github.com/yunity/karrot-frontend"
           target="_blank"
         >
-          <QItemSide>
+          <QItemSection side>
             <i class="fab fa-fw fa-github" />
-          </QItemSide>
-          <QItemMain
+          </QItemSection>
+          <QItemSection
             :label="$t('GLOBAL.GITHUB_NOTE')"
             :sublabel="$t('SIDENAV.GIT_SUB')"
           />
@@ -38,10 +38,10 @@
           href="https://foodsaving.world"
           target="_blank"
         >
-          <QItemSide>
+          <QItemSection side>
             <i class="fas fa-fw fa-globe" />
-          </QItemSide>
-          <QItemMain
+          </QItemSection>
+          <QItemSection
             label="Info"
             :sublabel="$t('SIDENAV.INFO_SUB')"
           />
@@ -53,10 +53,10 @@
           rel="nofollow noopener noreferrer"
           href="mailto:karrot@foodsaving.world"
         >
-          <QItemSide>
+          <QItemSection side>
             <i class="fas fa-fw fa-envelope" />
-          </QItemSide>
-          <QItemMain
+          </QItemSection>
+          <QItemSection
             label="karrot@foodsaving.world"
           />
         </QItem>
@@ -101,8 +101,8 @@ import {
   QBtn,
   QList,
   QItem,
-  QItemSide,
-  QItemMain,
+  QItemSection
+  QItemSection,
 } from 'quasar'
 
 import { mapGetters } from 'vuex'
@@ -115,8 +115,8 @@ export default {
     QBtn,
     QList,
     QItem,
-    QItemSide,
-    QItemMain,
+    QItemSection
+    QItemSection,
   },
   computed: {
     ...mapGetters({

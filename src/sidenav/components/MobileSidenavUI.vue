@@ -19,39 +19,39 @@
           item
           :to="{name: 'user', params: {userId: currentUserId}}"
         >
-          <QItemSide class="text-center">
+          <QItemSection side class="text-center">
             <i class="fas fa-user fa-fw" />
-          </QItemSide>
-          <QItemMain :label="$t('TOPBAR.USERPROFILE')" />
+          </QItemSection>
+          <QItemSection :label="$t('TOPBAR.USERPROFILE')" />
         </QItem>
 
         <QItem
           item
           :to="{name: 'groupsGallery'}"
         >
-          <QItemSide class="text-center">
+          <QItemSection side class="text-center">
             <i class="fas fa-exchange-alt" />
-          </QItemSide>
-          <QItemMain :label="$t('TOPBAR.CHANGE_GROUP')" />
+          </QItemSection>
+          <QItemSection :label="$t('TOPBAR.CHANGE_GROUP')" />
         </QItem>
 
         <QItem
           item
           :to="{name: 'settings'}"
         >
-          <QItemSide class="text-center">
+          <QItemSection side class="text-center">
             <i class="fas fa-cog fa-fw" />
-          </QItemSide>
-          <QItemMain :label="$t('SETTINGS.TITLE')" />
+          </QItemSection>
+          <QItemSection :label="$t('SETTINGS.TITLE')" />
         </QItem>
 
         <QItem
           @click.native="$emit('logout'), $emit('toggleSidenav')"
         >
-          <QItemSide class="text-center">
+          <QItemSection side class="text-center">
             <i class="fas fa-sign-out-alt fa-fw" />
-          </QItemSide>
-          <QItemMain :label="$t('TOPBAR.LOGOUT')" />
+          </QItemSection>
+          <QItemSection :label="$t('TOPBAR.LOGOUT')" />
         </QItem>
       </QList>
     </SidenavBox>
@@ -63,8 +63,8 @@ import {
   QList,
   QIcon,
   QItem,
-  QItemSide,
-  QItemMain,
+  QItemSection
+  QItemSection,
 } from 'quasar'
 import SidenavBox from '@/sidenav/components/SidenavBox'
 
@@ -73,8 +73,8 @@ export default {
     QList,
     QIcon,
     QItem,
-    QItemSide,
-    QItemMain,
+    QItemSection
+    QItemSection,
     SidenavBox,
   },
   props: {

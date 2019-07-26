@@ -3,7 +3,7 @@
     v-if="label === 'collectors'"
     dense
   >
-    <QItemMain>
+    <QItemSection>
       <QItemLabel>
         <RouterLink
           v-for="user in value"
@@ -17,28 +17,28 @@
       <QItemLabel caption>
         {{ label }}
       </QItemLabel>
-    </QItemMain>
+    </QItemSection>
   </QItem>
 
   <QItem
     v-else-if="label === 'date'"
     dense
   >
-    <QItemMain>
+    <QItemSection>
       <QItemLabel>
         {{ $d(new Date(Array.isArray(value) ? value[0] : value), 'long') }}
       </QItemLabel>
       <QItemLabel caption>
         {{ $t('CREATEPICKUP.DATE') }}
       </QItemLabel>
-    </QItemMain>
+    </QItemSection>
   </QItem>
 
   <QItem
     v-else
     dense
   >
-    <QItemMain>
+    <QItemSection>
       <QItemLabel
         v-if="value"
         header
@@ -54,20 +54,20 @@
       <QItemLabel caption>
         {{ convertedLabel }}
       </QItemLabel>
-    </QItemMain>
+    </QItemSection>
   </QItem>
 </template>
 
 <script>
 import {
   QItem,
-  QItemMain,
+  QItemSection,
   QItemTile,
 } from 'quasar'
 export default {
   components: {
     QItem,
-    QItemMain,
+    QItemSection,
     QItemTile,
   },
   props: {

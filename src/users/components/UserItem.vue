@@ -1,14 +1,14 @@
 <template>
   <QItem highlight>
-    <QItemSide>
+    <QItemSection side>
       <ProfilePicture
         :key="user.id"
         :user="user"
         :size="30"
         class="profilePic"
       />
-    </QItemSide>
-    <QItemMain>
+    </QItemSection>
+    <QItemSection>
       <QItemLabel>
         <RouterLink :to="{name: 'user', params: { userId: user.id }}">
           {{ user.displayName }}
@@ -39,8 +39,8 @@
         </template>
         <br>
       </QItemLabel>
-    </QItemMain>
-    <QItemSide>
+    </QItemSection>
+    <QItemSection side>
       <QItemTile>
         <TrustButton
           v-if="user.membership"
@@ -51,7 +51,7 @@
           @createTrust="$emit('createTrust', arguments[0])"
         />
       </QItemLabel>
-    </QItemSide>
+    </QItemSection>
   </QItem>
 </template>
 
@@ -59,9 +59,9 @@
 import { mapGetters } from 'vuex'
 import {
   QItem,
-  QItemMain,
+  QItemSection,
   QItemTile,
-  QItemSide,
+  QItemSection
 } from 'quasar'
 
 import ProfilePicture from './ProfilePicture'
@@ -74,9 +74,9 @@ export default {
     DateAsWords,
     TrustButton,
     QItem,
-    QItemMain,
+    QItemSection,
     QItemTile,
-    QItemSide,
+    QItemSection
   },
   props: {
     user: {

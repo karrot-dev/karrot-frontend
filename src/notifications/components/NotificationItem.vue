@@ -6,13 +6,13 @@
     :to="routeTo"
     @click.native="$emit('click', notification)"
   >
-    <QItemSide v-if="user">
+    <QItemSection side v-if="user">
       <ProfilePicture
         :user="user"
         :size="$q.platform.is.mobile ? 35 : 40"
       />
-    </QItemSide>
-    <QItemMain>
+    </QItemSection>
+    <QItemSection>
       <QItemLabel
         header
         lines="2"
@@ -37,7 +37,7 @@
           · {{ placeName }}
         </template>
       </QItemLabel>
-    </QItemMain>
+    </QItemSection>
   </QItem>
 </template>
 
@@ -45,9 +45,9 @@
 import notificationConfig from './notificationConfig'
 import {
   QItem,
-  QItemMain,
+  QItemSection,
   QItemTile,
-  QItemSide,
+  QItemSection
   QIcon,
 } from 'quasar'
 import DateAsWords from '@/utils/components/DateAsWords'
@@ -56,9 +56,9 @@ import ProfilePicture from '@/users/components/ProfilePicture'
 export default {
   components: {
     QItem,
-    QItemMain,
+    QItemSection,
     QItemTile,
-    QItemSide,
+    QItemSection
     QIcon,
     DateAsWords,
     ProfilePicture,

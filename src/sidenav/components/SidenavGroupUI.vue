@@ -36,13 +36,13 @@
         class="no-padding"
       >
         <QItem :to="{ name: 'group', params: { groupId } }">
-          <QItemSide class="text-center">
+          <QItemSection side class="text-center">
             <QIcon name="fas fa-bullhorn" />
-          </QItemSide>
-          <QItemMain>
+          </QItemSection>
+          <QItemSection>
             {{ $t("GROUP.WALL") }}
-          </QItemMain>
-          <QItemSide
+          </QItemSection>
+          <QItemSection side
             v-if="wallUnreadCount > 0"
             right
           >
@@ -52,32 +52,32 @@
             >
               {{ cappedWallUnreadCount }}
             </QChip>
-          </QItemSide>
+          </QItemSection>
         </QItem>
         <QItem :to="{ name: 'groupPickups', params: { groupId } }">
-          <QItemSide class="text-center">
+          <QItemSection side class="text-center">
             <QIcon :name="$icon('pickup')" />
-          </QItemSide>
-          <QItemMain>
+          </QItemSection>
+          <QItemSection>
             {{ $t("GROUP.PICKUPS") }}
-          </QItemMain>
+          </QItemSection>
         </QItem>
         <QItem :to="{ name: 'groupFeedback', params: { groupId } }">
-          <QItemSide class="text-center">
+          <QItemSection side class="text-center">
             <QIcon :name="$icon('feedback')" />
-          </QItemSide>
-          <QItemMain>
+          </QItemSection>
+          <QItemSection>
             {{ $t("PICKUP_FEEDBACK.TITLE") }}
-          </QItemMain>
+          </QItemSection>
         </QItem>
         <QItem :to="{ name: 'applications', params: { groupId } }">
-          <QItemSide class="text-center">
+          <QItemSection side class="text-center">
             <QIcon name="fas fa-address-card" />
-          </QItemSide>
-          <QItemMain>
+          </QItemSection>
+          <QItemSection>
             {{ $t("GROUP.APPLICATIONS") }}
-          </QItemMain>
-          <QItemSide
+          </QItemSection>
+          <QItemSection side
             v-if="pendingApplications.length > 0"
             right
           >
@@ -88,50 +88,50 @@
             >
               {{ pendingApplications.length }}
             </QChip>
-          </QItemSide>
+          </QItemSection>
         </QItem>
         <QItem :to="{ name: 'issueList', params: { groupId } }">
-          <QItemSide class="text-center">
+          <QItemSection side class="text-center">
             <QIcon name="fas fa-vote-yea" />
-          </QItemSide>
-          <QItemMain>
+          </QItemSection>
+          <QItemSection>
             {{ $t("ISSUE.TITLE") }}
-          </QItemMain>
+          </QItemSection>
         </QItem>
         <QItem :to="{ name: 'groupDescription', params: { groupId } }">
-          <QItemSide class="text-center">
+          <QItemSection side class="text-center">
             <i class="far fa-address-card" />
-          </QItemSide>
-          <QItemMain>
+          </QItemSection>
+          <QItemSection>
             {{ $t("GROUP.DESCRIPTION") }}
-          </QItemMain>
+          </QItemSection>
         </QItem>
         <QItem :to="{ name: 'groupMembers', params: { groupId } }">
-          <QItemSide class="text-center">
+          <QItemSection side class="text-center">
             <QIcon name="fas fa-users" />
-          </QItemSide>
-          <QItemMain>
+          </QItemSection>
+          <QItemSection>
             {{ $t("GROUP.MEMBERS") }}
-          </QItemMain>
+          </QItemSection>
         </QItem>
         <QItem :to="{ name: 'groupHistory', params: { groupId } }">
-          <QItemSide class="text-center">
+          <QItemSection side class="text-center">
             <i class="far fa-clock" />
-          </QItemSide>
-          <QItemMain>
+          </QItemSection>
+          <QItemSection>
             {{ $t("GROUP.HISTORY") }}
-          </QItemMain>
+          </QItemSection>
         </QItem>
         <QItem
           v-if="$q.platform.is.mobile"
           :to="{ name: 'map', params: { groupId } }"
         >
-          <QItemSide class="text-center">
+          <QItemSection side class="text-center">
             <QIcon name="fas fa-map" />
-          </QItemSide>
-          <QItemMain>
+          </QItemSection>
+          <QItemSection>
             {{ $t('GROUPMAP.TITLE') }}
-          </QItemMain>
+          </QItemSection>
         </QItem>
       </QList>
     </div>
@@ -139,13 +139,13 @@
 </template>
 
 <script>
-import { QBtn, QList, QItem, QItemSide, QItemMain, QIcon, QTooltip, QChip } from 'quasar'
+import { QBtn, QList, QItem, QItemSection QItemSection, QIcon, QTooltip, QChip } from 'quasar'
 import SidenavBox from './SidenavBox'
 import GroupOptions from './GroupOptions'
 
 export default {
   components: {
-    SidenavBox, GroupOptions, QBtn, QList, QItem, QItemSide, QItemMain, QIcon, QTooltip, QChip,
+    SidenavBox, GroupOptions, QBtn, QList, QItem, QItemSection QItemSection, QIcon, QTooltip, QChip,
   },
   props: {
     groupId: {

@@ -4,14 +4,14 @@
     :class="{ isNonPending: !application.isPending }"
     @click.native="openChatIfCannotDecide"
   >
-    <QItemSide>
+    <QItemSection side>
       <ProfilePicture
         :user="application.user"
         :size="30"
         :is-link="false"
       />
-    </QItemSide>
-    <QItemMain>
+    </QItemSection>
+    <QItemSection>
       <QItemLabel>
         {{ userName }}
       </QItemLabel>
@@ -45,7 +45,7 @@
           </i18n>
         </template>
       </QItemLabel>
-    </QItemMain>
+    </QItemSection>
     <QPopover
       v-if="application.canDecide"
       touch-position
@@ -57,26 +57,26 @@
         <QItem
           @click.native="openChat"
         >
-          <QItemSide
+          <QItemSection side
             icon="fas fa-fw fa-comments"
           />
-          <QItemMain :label="$t('BUTTON.OPEN')" />
+          <QItemSection :label="$t('BUTTON.OPEN')" />
         </QItem>
         <QItem
           @click.native="pressAccept"
         >
-          <QItemSide
+          <QItemSection side
             icon="fas fa-fw fa-check"
           />
-          <QItemMain :label="$t('BUTTON.ACCEPT')" />
+          <QItemSection :label="$t('BUTTON.ACCEPT')" />
         </QItem>
         <QItem
           @click.native="decline"
         >
-          <QItemSide
+          <QItemSection side
             icon="fas fa-fw fa-times"
           />
-          <QItemMain :label="$t('BUTTON.DECLINE')" />
+          <QItemSection :label="$t('BUTTON.DECLINE')" />
         </QItem>
       </QList>
     </QPopover>
@@ -87,8 +87,8 @@
 import {
   Dialog,
   QItem,
-  QItemMain,
-  QItemSide,
+  QItemSection,
+  QItemSection
   QItemTile,
   QPopover,
   QList,
@@ -99,8 +99,8 @@ import DateAsWords from '@/utils/components/DateAsWords'
 export default {
   components: {
     QItem,
-    QItemMain,
-    QItemSide,
+    QItemSection,
+    QItemSection
     QItemTile,
     QPopover,
     QList,

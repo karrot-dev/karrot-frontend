@@ -1,7 +1,7 @@
 <template>
   <QCollapsible>
     <template slot="header">
-      <QItemMain>
+      <QItemSection>
         <QItemTile>
           {{ $t('ISSUE.VOTING.RESULTS.KEEP_DISCUSSING') }}
         </QItemTile>
@@ -11,7 +11,7 @@
         >
           <DateAsWords :date="voting.expiresAt" />
         </QItemTile>
-      </QItemMain>
+      </QItemSection>
     </template>
     <VotingResults
       :voting="voting"
@@ -23,7 +23,7 @@
 
 <script>
 import {
-  QItemMain,
+  QItemSection,
   QItemTile,
   QCollapsible,
 } from 'quasar'
@@ -33,7 +33,7 @@ import VotingResults from './VotingResults'
 
 export default {
   components: {
-    QItemMain,
+    QItemSection,
     QItemTile,
     QCollapsible,
     DateAsWords,

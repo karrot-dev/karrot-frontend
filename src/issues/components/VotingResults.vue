@@ -1,7 +1,7 @@
 <template>
   <QList>
     <QItem>
-      <QItemMain
+      <QItemSection
         :label="$t('ISSUE.VOTING.RESULTS.ENDED_AT', { date: $d(voting.expiresAt, 'long') })"
         :sublabel="$t('ISSUE.VOTING.RESULTS.PARTICIPANTS', { number: voting.participantCount })"
       />
@@ -13,7 +13,7 @@
         dense
         class="justify-end"
       >
-        <QItemSide
+        <QItemSection side
           right
           :stamp="$t('ISSUE.VOTING.RESULTS.TOTAL_SCORE')"
         />
@@ -23,25 +23,25 @@
         :key="id"
         :class="{'text-secondary': isOutcome}"
       >
-        <QItemSide
+        <QItemSection side
           :icon="icon"
           :color="isOutcome ? 'secondary' : 'primary'"
         />
-        <QItemMain>
+        <QItemSection>
           {{ label }}
-        </QItemMain>
-        <QItemSide
+        </QItemSection>
+        <QItemSection side
           stamp
           :class="{'text-secondary': isOutcome}"
         >
           {{ sumScore }}
-        </QItemSide>
+        </QItemSection>
       </QItem>
     </template>
     <QItem
       v-else
     >
-      <QItemMain>
+      <QItemSection>
         <QItemLabel>
           {{ $t('ISSUE.VOTING.RESULTS.UNDECIDED') }}
         </QItemLabel>
@@ -56,7 +56,7 @@
             </li>
           </ul>
         </QItemLabel>
-      </QItemMain>
+      </QItemSection>
     </QItem>
   </QList>
 </template>
@@ -65,8 +65,8 @@
 import {
   QList,
   QItem,
-  QItemSide,
-  QItemMain,
+  QItemSection
+  QItemSection,
   QItemTile,
 } from 'quasar'
 
@@ -74,8 +74,8 @@ export default {
   components: {
     QList,
     QItem,
-    QItemSide,
-    QItemMain,
+    QItemSection
+    QItemSection,
     QItemTile,
   },
   props: {

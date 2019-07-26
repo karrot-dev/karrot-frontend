@@ -63,12 +63,12 @@
             link
             @click.native="toggleAbout()"
           >
-            <QItemSide class="text-center">
+            <QItemSection side class="text-center">
               <KarrotLogo class="logo" />
-            </QItemSide>
-            <QItemMain>
+            </QItemSection>
+            <QItemSection>
               {{ $t("GLOBAL.ABOUT_KARROT") }}
-            </QItemMain>
+            </QItemSection>
           </QItem>
           <CommunityFeed />
         </QLayoutDrawer>
@@ -88,12 +88,12 @@
             link
             @click.native="toggleAbout()"
           >
-            <QItemSide class="text-center">
+            <QItemSection side class="text-center">
               <KarrotLogo class="logo" />
-            </QItemSide>
-            <QItemMain>
+            </QItemSection>
+            <QItemSection>
               {{ $t("GLOBAL.ABOUT_KARROT") }}
-            </QItemMain>
+            </QItemSection>
           </QItem>
           <CommunityFeed />
         </QLayoutDrawer>
@@ -175,8 +175,8 @@ import {
   QPage,
   QItem,
   QIcon,
-  QItemMain,
-  QItemSide,
+  QItemSection,
+  QItemSection
   QBtn,
   QPullToRefresh,
 } from 'quasar'
@@ -200,8 +200,8 @@ export default {
     QBtn,
     QIcon,
     QItem,
-    QItemMain,
-    QItemSide,
+    QItemSection,
+    QItemSection
     QPullToRefresh,
     Banners,
     RouteError,

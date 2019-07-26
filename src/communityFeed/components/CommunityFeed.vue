@@ -3,15 +3,15 @@
     link
     @click.native="showing = !showing"
   >
-    <QItemSide class="text-center">
+    <QItemSection side class="text-center">
       <QIcon
         name="fab fa-discourse fa-fw"
       />
-    </QItemSide>
-    <QItemMain>
+    </QItemSection>
+    <QItemSection>
       {{ $t('COMMUNITY_FEED.KARROT_DISCUSSION') }}
-    </QItemMain>
-    <QItemSide
+    </QItemSection>
+    <QItemSection side
       v-if="unreadCount > 0"
       right
     >
@@ -21,7 +21,7 @@
       >
         {{ unreadCount > 9 ? '9+' : unreadCount }}
       </QChip>
-    </QItemSide>
+    </QItemSection>
     <QDialog
       v-model="showing"
       class="k-community-feed relative-position"
@@ -67,15 +67,15 @@
           rel="noopener"
           :class="{ isUnread: topic.isUnread }"
         >
-          <QItemSide>
+          <QItemSection side>
             <QItemTile avatar>
               <img
                 :src="topic.lastPosterAvatar"
                 :title="topic.lastPosterUsername"
               >
             </QItemTile>
-          </QItemSide>
-          <QItemMain>
+          </QItemSection>
+          <QItemSection>
             <QItemLabel
               header
               lines="1"
@@ -97,7 +97,7 @@
                 />
               </i18n>
             </QItemTile>
-          </QItemMain>
+          </QItemSection>
         </QItem>
       </QList>
     </QDialog>
@@ -116,9 +116,9 @@ import {
   QList,
   QItemLabel,
   QItem,
-  QItemMain,
+  QItemSection,
   QItemTile,
-  QItemSide,
+  QItemSection
   QChip,
 } from 'quasar'
 import DateAsWords from '@/utils/components/DateAsWords'
@@ -132,9 +132,9 @@ export default {
     QList,
     QItemLabel,
     QItem,
-    QItemMain,
+    QItemSection,
     QItemTile,
-    QItemSide,
+    QItemSection
     QChip,
   },
   data () {

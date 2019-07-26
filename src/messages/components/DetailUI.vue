@@ -51,11 +51,11 @@
         class="bg-grey-2"
       >
         <QItem>
-          <QItemMain>
+          <QItemSection>
             <QItemLabel>
               <b class="text-negative">{{ $t('PICKUPLIST.PICKUP_DISABLED') }}</b>
             </QItemLabel>
-          </QItemMain>
+          </QItemSection>
         </QItem>
       </QList>
     </ChatConversation>
@@ -72,7 +72,7 @@ import {
   QExpansionItem,
   QList,
   QItem,
-  QItemMain,
+  QItemSection,
   QItemTile,
 } from 'quasar'
 
@@ -85,7 +85,7 @@ export default {
     QExpansionItem,
     QList,
     QItem,
-    QItemMain,
+    QItemSection,
     QItemTile,
   },
   props: {

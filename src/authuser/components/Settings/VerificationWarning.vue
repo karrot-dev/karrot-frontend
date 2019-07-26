@@ -37,11 +37,11 @@
     <template
       slot="header"
     >
-      <QItemSide
+      <QItemSection side
         color="white"
         icon="fas fa-exclamation-triangle"
       />
-      <QItemMain
+      <QItemSection
         :label="failedEmailDeliveryMessage"
       />
     </template>
@@ -50,11 +50,11 @@
         v-for="(event, idx) in failedEmailDeliveries"
         :key="idx"
       >
-        <QItemMain
+        <QItemSection
           :label="event.subject"
           :sublabel="`${event.event}: ${event.reason}`"
         />
-        <QItemSide
+        <QItemSection side
           right
           :stamp="$d(event.createdAt, 'long')"
         />
@@ -64,13 +64,13 @@
 </template>
 
 <script>
-import { QAlert, QList, QItem, QItemMain, QItemSide, QCollapsible } from 'quasar'
+import { QAlert, QList, QItem, QItemSection, QItemSection QCollapsible } from 'quasar'
 import { mapActions, mapGetters } from 'vuex'
 import statusMixin from '@/utils/mixins/statusMixin'
 
 export default {
   components: {
-    QAlert, QList, QItem, QItemMain, QItemSide, QCollapsible,
+    QAlert, QList, QItem, QItemSection, QItemSection QCollapsible,
   },
   computed: {
     ...mapGetters({

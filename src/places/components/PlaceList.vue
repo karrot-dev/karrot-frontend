@@ -11,14 +11,14 @@
       :to="linkParamsFor(place)"
       :class="{'router-link-active': place.isActivePlace}"
     >
-      <QItemSide class="text-center">
+      <QItemSection side class="text-center">
         <QIcon
           :name="place.ui.icon"
           :color="place.ui.color"
           :title="$t(place.ui.label)"
         />
-      </QItemSide>
-      <QItemMain>
+      </QItemSection>
+      <QItemSection>
         <QItemLabel
           header
           class="items-baseline"
@@ -31,8 +31,8 @@
             color="secondary"
           />
         </QItemLabel>
-      </QItemMain>
-      <QItemSide
+      </QItemSection>
+      <QItemSection side
         v-if="place.conversationUnreadCount > 0"
         right
       >
@@ -42,7 +42,7 @@
         >
           {{ place.conversationUnreadCount > 99 ? '99+' : place.conversationUnreadCount }}
         </QChip>
-      </QItemSide>
+      </QItemSection>
     </QItem>
 
     <QItem
@@ -52,13 +52,13 @@
       class="bg-secondary"
       multiline
     >
-      <QItemMain class="text-center">
+      <QItemSection class="text-center">
         <QItemTile
           icon="add circle"
           class="text-white"
         />
         <QTooltip v-t="'BUTTON.CREATE'" />
-      </QItemMain>
+      </QItemSection>
     </QItem>
 
     <QItemSeparator v-if="archived.length > 0" />
@@ -74,11 +74,11 @@
         link
         :to="linkParamsFor(place)"
       >
-        <QItemMain>
+        <QItemSection>
           <QItemLabel>
             {{ place.name }}
           </QItemLabel>
-        </QItemMain>
+        </QItemSection>
       </QItem>
     </QCollapsible>
   </QList>
@@ -88,9 +88,9 @@
 import {
   QList,
   QItem,
-  QItemMain,
+  QItemSection,
   QItemTile,
-  QItemSide,
+  QItemSection
   QIcon,
   QTooltip,
   QCollapsible,
@@ -103,9 +103,9 @@ export default {
   components: {
     QList,
     QItem,
-    QItemMain,
+    QItemSection,
     QItemTile,
-    QItemSide,
+    QItemSection
     QIcon,
     QTooltip,
     QCollapsible,

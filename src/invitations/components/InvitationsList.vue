@@ -13,20 +13,20 @@
           v-for="invite in invitations"
           :key="invite.id"
         >
-          <QItemMain>
+          <QItemSection>
             <QItemLabel>
               {{ invite.email }}
             </QItemLabel>
             <QItemLabel caption>
               <DateAsWords :date="invite.createdAt" />
             </QItemLabel>
-          </QItemMain>
-          <QItemSide right>
+          </QItemSection>
+          <QItemSection side right>
             <ProfilePicture
               :user="invite.invitedBy"
               :size="25"
             />
-          </QItemSide>
+          </QItemSection>
         </QItem>
       </QList>
     </template>
@@ -37,8 +37,8 @@
 import {
   QList,
   QItem,
-  QItemSide,
-  QItemMain,
+  QItemSection
+  QItemSection,
   QItemTile,
   QItemLabel,
 } from 'quasar'
@@ -51,8 +51,8 @@ export default {
   components: {
     QList,
     QItem,
-    QItemSide,
-    QItemMain,
+    QItemSection
+    QItemSection,
     QItemTile,
     QItemLabel,
     ProfilePicture,

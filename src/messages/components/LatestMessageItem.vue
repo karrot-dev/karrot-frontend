@@ -4,15 +4,15 @@
     :class="{ isUnread: unreadCount > 0 && !muted, selected }"
     @click.native="$emit('open')"
   >
-    <QItemSide
+    <QItemSection side
       v-if="isPrivate || isApplication"
     >
       <ProfilePicture
         :user="user || application.user"
         :size="$q.platform.is.mobile ? 35 : 40"
       />
-    </QItemSide>
-    <QItemMain>
+    </QItemSection>
+    <QItemSection>
       <QItemLabel
         header
         class="row no-wrap justify-between items-baseline"
@@ -144,16 +144,16 @@
           {{ unreadCount > 99 ? '99+' : unreadCount }}
         </QChip>
       </QItemLabel>
-    </QItemMain>
+    </QItemSection>
   </QItem>
 </template>
 
 <script>
 import {
   QItem,
-  QItemMain,
+  QItemSection,
   QItemTile,
-  QItemSide,
+  QItemSection
   QChip,
   QIcon,
 } from 'quasar'
@@ -163,9 +163,9 @@ import ProfilePicture from '@/users/components/ProfilePicture'
 export default {
   components: {
     QItem,
-    QItemMain,
+    QItemSection,
     QItemTile,
-    QItemSide,
+    QItemSection
     QChip,
     QIcon,
     DateAsWords,

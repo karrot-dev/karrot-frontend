@@ -16,7 +16,7 @@
         @createTrust="$emit('createTrust', arguments[0])"
       />
       <QItemSeparator />
-      <QCollapsible
+      <QExpansionItem
         v-if="inactiveUsers.length > 0"
         @show="showInactive = true"
         @hide="showInactive = false"
@@ -50,7 +50,7 @@
             @createTrust="$emit('createTrust', arguments[0])"
           />
         </template>
-      </QCollapsible>
+      </QExpansionItem>
     </QList>
   </div>
 </template>
@@ -64,7 +64,7 @@ import {
   QItemSection
   QItemSection,
   QItemLabel,
-  QCollapsible,
+  QExpansionItem,
   QBtn,
   QSearch,
 } from 'quasar'
@@ -80,7 +80,7 @@ export default {
     QItemSection
     QItemSection,
     QItemLabel,
-    QCollapsible,
+    QExpansionItem,
     QBtn,
     QSearch,
   },

@@ -20,14 +20,17 @@ storiesOf('Issues', module)
               type: 'remove_user',
               id: 16,
               meanScore: 1.4,
+              sumScore: 2,
             }),
             factories.makeOption({
               type: 'further_discussion',
               meanScore: 0.4,
+              sumScore: 1,
             }),
             factories.makeOption({
               type: 'no_change',
               meanScore: 0,
+              sumScore: 0,
             }),
           ],
         }),
@@ -45,6 +48,7 @@ storiesOf('Issues', module)
           votings: [
             factories.makeVoting({
               acceptedOption: null,
+              createdAt: subHours(new Date(), 150),
               expiresAt: addHours(new Date(), 150),
             }),
             factories.makeVoting({
@@ -54,15 +58,18 @@ storiesOf('Issues', module)
                 factories.makeOption({
                   type: 'remove_user',
                   meanScore: 0,
+                  sumScore: 0,
                 }),
                 factories.makeOption({
                   type: 'further_discussion',
                   meanScore: 0.4,
+                  sumScore: 1,
                 }),
                 factories.makeOption({
                   id: 73,
                   type: 'no_change',
                   meanScore: 1.4,
+                  sumScore: 2,
                 }),
               ],
             }),
@@ -82,14 +89,17 @@ storiesOf('Issues', module)
               type: 'remove_user',
               id: 16,
               meanScore: 1.4,
+              sumScore: 2,
             }),
             factories.makeOption({
               type: 'further_discussion',
               meanScore: 0.4,
+              sumScore: 1,
             }),
             factories.makeOption({
               type: 'no_change',
               meanScore: 0,
+              sumScore: 0,
             }),
           ],
         }),

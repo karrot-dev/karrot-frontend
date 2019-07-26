@@ -10,7 +10,7 @@
         @openChat="$emit('openChat', arguments[0])"
       />
       <QItemSeparator />
-      <QCollapsible
+      <QExpansionItem
         v-if="otherApplications.length > 0"
         icon="fas fa-archive"
         :label="$t('APPLICATION.PAST')"
@@ -26,7 +26,7 @@
             @openChat="$emit('openChat', arguments[0])"
           />
         </template>
-      </QCollapsible>
+      </QExpansionItem>
       <QItem
         v-if="canFetchPast"
         class="row justify-center"
@@ -47,7 +47,7 @@
 import ApplicationItem from './ApplicationItem'
 import paginationMixin from '@/utils/mixins/paginationMixin'
 import {
-  QCollapsible,
+  QExpansionItem,
   QItemSeparator,
   QList,
   QItem,
@@ -57,7 +57,7 @@ import {
 export default {
   components: {
     ApplicationItem,
-    QCollapsible,
+    QExpansionItem,
     QItemSeparator,
     QList,
     QItem,

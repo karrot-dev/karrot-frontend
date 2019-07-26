@@ -3,7 +3,7 @@
     v-if="issue"
     class="relative-position"
   >
-    <QCollapsible
+    <QExpansionItem
       opened
       class="bg-grey-2"
     >
@@ -67,7 +67,7 @@
           {{ $t('ISSUE.PARTICIPANTS', { count: conversation.participants.length }) }}
         </div>
       </div>
-    </QCollapsible>
+    </QExpansionItem>
     <div
       v-if="conversation"
       class="bg-secondary absolute-top-right rounded-borders q-pa-xs"
@@ -106,7 +106,7 @@ import NotificationToggle from '@/messages/components/NotificationToggle'
 import { mapGetters, mapActions } from 'vuex'
 
 import {
-  QCollapsible,
+  QExpansionItem,
   QBtn,
 } from 'quasar'
 
@@ -117,7 +117,7 @@ export default {
     DateAsWords,
     ProfilePicture,
     NotificationToggle,
-    QCollapsible,
+    QExpansionItem,
     QBtn,
   },
   computed: {

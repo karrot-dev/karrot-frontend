@@ -16,7 +16,7 @@
       {{ $t('ISSUE.NO_ONGOING') }}
     </KNotice>
     <QItemSeparator />
-    <QCollapsible
+    <QExpansionItem
       v-if="pastIssues.length > 0"
       icon="fas fa-archive"
       :label="$t('ISSUE.PAST')"
@@ -31,7 +31,7 @@
           :issue="issue"
         />
       </template>
-    </QCollapsible>
+    </QExpansionItem>
   </QList>
 </template>
 
@@ -43,7 +43,7 @@ import KNotice from '@/utils/components/KNotice'
 import statusMixin from '@/utils/mixins/statusMixin'
 
 import {
-  QCollapsible,
+  QExpansionItem,
   QItemSeparator,
   QList,
 } from 'quasar'
@@ -53,7 +53,7 @@ export default {
     IssueItem,
     KSpinner,
     KNotice,
-    QCollapsible,
+    QExpansionItem,
     QItemSeparator,
     QList,
   },

@@ -1,16 +1,16 @@
 <template>
-  <QCollapsible>
+  <QExpansionItem>
     <template slot="header">
       <QItemSection>
-        <QItemTile>
+        <QItemLabel>
           {{ $t('ISSUE.VOTING.RESULTS.KEEP_DISCUSSING') }}
-        </QItemTile>
-        <QItemTile
-          stamp
+        </QItemLabel>
+        <QItemLabel
+          side
           class="text-weight-light"
         >
           <DateAsWords :date="voting.expiresAt" />
-        </QItemTile>
+        </QItemLabel>
       </QItemSection>
     </template>
     <VotingResults
@@ -18,14 +18,14 @@
       :affected-user="affectedUser"
       :group-name="groupName"
     />
-  </QCollapsible>
+  </QExpansionItem>
 </template>
 
 <script>
 import {
   QItemSection,
   QItemLabel,
-  QCollapsible,
+  QExpansionItem,
 } from 'quasar'
 
 import DateAsWords from '@/utils/components/DateAsWords'
@@ -35,7 +35,7 @@ export default {
   components: {
     QItemSection,
     QItemLabel,
-    QCollapsible,
+    QExpansionItem,
     DateAsWords,
     VotingResults,
   },

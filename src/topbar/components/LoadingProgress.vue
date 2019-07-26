@@ -1,8 +1,7 @@
 <template>
-  <QProgress
+  <QLinearProgress
     v-if="loading || closing"
     indeterminate
-    animate
     color="info"
     class="fixed-top"
     style="height: 2px; z-index: 2500"
@@ -10,11 +9,11 @@
 </template>
 
 <script>
-import { QProgress } from 'quasar'
+import { QLinearProgress } from 'quasar'
 import { mapGetters } from 'vuex'
 
 export default {
-  components: { QProgress },
+  components: { QLinearProgress },
   computed: {
     ...mapGetters({
       loading: 'loadingprogress/active',

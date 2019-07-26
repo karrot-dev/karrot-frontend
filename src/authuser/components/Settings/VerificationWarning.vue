@@ -30,7 +30,7 @@
       {{ anyFirstError }}
     </p>
   </QAlert>
-  <QCollapsible
+  <QExpansionItem
     v-else-if="hasFailedEmailDeliveries"
     header-class="bg-warning text-white"
   >
@@ -60,17 +60,17 @@
         />
       </QItem>
     </QList>
-  </QCollapsible>
+  </QExpansionItem>
 </template>
 
 <script>
-import { QAlert, QList, QItem, QItemSection, QItemSection QCollapsible } from 'quasar'
+import { QAlert, QList, QItem, QItemSection, QItemSection QExpansionItem } from 'quasar'
 import { mapActions, mapGetters } from 'vuex'
 import statusMixin from '@/utils/mixins/statusMixin'
 
 export default {
   components: {
-    QAlert, QList, QItem, QItemSection, QItemSection QCollapsible,
+    QAlert, QList, QItem, QItemSection, QItemSection QExpansionItem,
   },
   computed: {
     ...mapGetters({

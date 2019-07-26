@@ -1,10 +1,16 @@
 <template>
-  <QList>
+  <QList
+    bordered
+  >
     <QItem>
-      <QItemSection
-        :label="$t('ISSUE.VOTING.RESULTS.ENDED_AT', { date: $d(voting.expiresAt, 'long') })"
-        :sublabel="$t('ISSUE.VOTING.RESULTS.PARTICIPANTS', { number: voting.participantCount })"
-      />
+      <QItemSection>
+        <QItemLabel>
+          {{ $t('ISSUE.VOTING.RESULTS.ENDED_AT', { date: $d(voting.expiresAt, 'long') }) }}
+        </QItemLabel>
+        <QItemLabel caption>
+          {{ $t('ISSUE.VOTING.RESULTS.PARTICIPANTS', { number: voting.participantCount }) }}
+        </QItemLabel>
+      </QItemSection>
     </QItem>
     <template
       v-if="!isCancelled"
@@ -13,25 +19,26 @@
         dense
         class="justify-end"
       >
-        <QItemSection side
-          right
-          :stamp="$t('ISSUE.VOTING.RESULTS.TOTAL_SCORE')"
-        />
+        <QItemSection side>
+          {{ $t('ISSUE.VOTING.RESULTS.TOTAL_SCORE') }}
+        </QItemSection>
       </QItem>
       <QItem
         v-for="{ id, icon, label, isOutcome, sumScore} in options"
         :key="id"
         :class="{'text-secondary': isOutcome}"
       >
-        <QItemSection side
-          :icon="icon"
-          :color="isOutcome ? 'secondary' : 'primary'"
-        />
+        <QItemSection side>
+          <QIcon
+            :name="icon"
+            :color="isOutcome ? 'secondary' : 'primary'"
+          />
+        </QItemSection>
         <QItemSection>
           {{ label }}
         </QItemSection>
-        <QItemSection side
-          stamp
+        <QItemSection
+          side
           :class="{'text-secondary': isOutcome}"
         >
           {{ sumScore }}
@@ -65,18 +72,18 @@
 import {
   QList,
   QItem,
-  QItemSection
   QItemSection,
   QItemLabel,
+  QIcon,
 } from 'quasar'
 
 export default {
   components: {
     QList,
     QItem,
-    QItemSection
     QItemSection,
     QItemLabel,
+    QIcon,
   },
   props: {
     voting: {

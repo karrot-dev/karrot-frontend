@@ -30,9 +30,9 @@
           <small>({{ locale.percentage }}%)</small>
         </QItemLabel>
         <QItemLabel caption>
-          <QProgress
-            v-if="locale.percentage < 100"
-            :percentage="locale.percentage"
+          <QLinearProgress
+            v-if="locale.percentage < 1"
+            :value="locale.percentage"
           />
         </QItemLabel>
       </QItemSection>
@@ -42,7 +42,7 @@
 
 <script>
 import {
-  QProgress,
+  QLinearProgress,
   QIcon,
   QList,
   QItem,
@@ -54,7 +54,7 @@ import { localeOptions } from '@/base/i18n'
 
 export default {
   components: {
-    QProgress,
+    QLinearProgress,
     QIcon,
     QList,
     QItem,

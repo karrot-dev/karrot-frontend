@@ -36,11 +36,11 @@
           <QIcon name="fas fa-fw fa-user" />
         </QItemSection>
         <QItemSection>
-            <ProfilePicture
-              v-for="user in entry.users"
-              :key="user.id"
-              :user="user"
-            />
+          <ProfilePicture
+            v-for="user in entry.users"
+            :key="user.id"
+            :user="user"
+          />
         </QItemSection>
       </QItem>
 

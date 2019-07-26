@@ -63,7 +63,7 @@
 
     <QItemSeparator v-if="archived.length > 0" />
 
-    <QCollapsible
+    <QExpansionItem
       v-if="archived.length > 0 && isEditor"
       icon="fas fa-trash-alt"
       :label="`${$t('STORESTATUS.ARCHIVED')} (${archived.length})`"
@@ -80,7 +80,7 @@
           </QItemLabel>
         </QItemSection>
       </QItem>
-    </QCollapsible>
+    </QExpansionItem>
   </QList>
 </template>
 
@@ -93,7 +93,7 @@ import {
   QItemSection
   QIcon,
   QTooltip,
-  QCollapsible,
+  QExpansionItem,
   QItemSeparator,
   QChip,
 } from 'quasar'
@@ -108,7 +108,7 @@ export default {
     QItemSection
     QIcon,
     QTooltip,
-    QCollapsible,
+    QExpansionItem,
     QItemSeparator,
     QChip,
   },

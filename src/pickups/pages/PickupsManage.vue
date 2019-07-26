@@ -43,7 +43,7 @@
         highlight
         sparse
       >
-        <QCollapsible
+        <QExpansionItem
           v-for="series in pickupSeries"
           :key="series.id"
           :label="seriesLabel(series)"
@@ -69,7 +69,7 @@
               header
               v-t="'PICKUPMANAGE.UPCOMING_PICKUPS_IN_SERIES'"
             />
-            <QCollapsible
+            <QExpansionItem
               v-for="pickup in series.pickups"
               :key="pickup.id"
               @show="makeVisible('pickup', pickup.id)"
@@ -129,9 +129,9 @@
                 @save="savePickup"
                 @reset="resetPickup"
               />
-            </QCollapsible>
+            </QExpansionItem>
           </QList>
-        </QCollapsible>
+        </QExpansionItem>
       </QList>
     </QCard>
 
@@ -182,7 +182,7 @@
         separator
         no-border
       >
-        <QCollapsible
+        <QExpansionItem
           v-for="pickup in oneTimePickups"
           :key="pickup.id"
           sparse
@@ -216,7 +216,7 @@
             @save="savePickup"
             @reset="resetPickup"
           />
-        </QCollapsible>
+        </QExpansionItem>
       </QList>
     </QCard>
   </div>
@@ -233,7 +233,7 @@ import {
   QItemSection
   QItemSection,
   QItemLabel,
-  QCollapsible,
+  QExpansionItem,
   QBtn,
   QTooltip,
   QIcon,
@@ -264,7 +264,7 @@ export default {
     QItemSection
     QItemSection,
     QItemLabel,
-    QCollapsible,
+    QExpansionItem,
     QBtn,
     QTooltip,
     QIcon,

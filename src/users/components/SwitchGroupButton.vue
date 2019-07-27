@@ -11,8 +11,14 @@
     <QDialog
       v-model="showModal"
     >
-      <QList>
-        <QItemLabel header>
+      <QList
+        class="bg-white"
+        dense
+      >
+        <QItemLabel
+          header
+          class="text-weight-medium"
+        >
           {{ user.isCurrentUser ? $t('JOINGROUP.MY_GROUPS') : $t('SWITCHGROUP.COMMON_GROUPS') }}
         </QItemLabel>
         <QItem
@@ -27,14 +33,19 @@
           </QItemSection>
           <QItemSection
             v-if="group.isCurrentGroup"
-            right
-            icon="fas fa-star"
-            color="secondary"
-          />
+            side
+          >
+            <QIcon
+              name="fas fa-star"
+              color="secondary"
+              size="22px"
+            />
+          </QItemSection>
         </QItem>
         <QItemLabel
           v-if="otherGroups.length > 0"
           header
+          class="text-weight-medium"
         >
           {{ $t('SWITCHGROUP.OTHER_GROUPS') }}
         </QItemLabel>
@@ -60,6 +71,7 @@ import {
   QItem,
   QItemSection,
   QDialog,
+  QIcon,
 } from 'quasar'
 
 export default {
@@ -70,6 +82,7 @@ export default {
     QItem,
     QItemSection,
     QDialog,
+    QIcon,
   },
   props: {
     groups: {

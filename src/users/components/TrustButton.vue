@@ -22,49 +22,48 @@
     </QBadge>
     <QDialog
       v-model="showing"
-      minimized
     >
-      <template slot="title">
-        {{ headline }}
-        <TrustInfo class="trust-info" />
-      </template>
-      <div
-        slot="message"
-        style="max-width: 700px"
-      >
-        {{ info }}
-      </div>
-      <div slot="body">
-        <ProfilePicture
-          v-for="u in trustedBy"
-          :key="u.id"
-          :user="u"
-          :size="35"
-          class="q-mr-sm"
-        />
-      </div>
-      <template
-        slot="buttons"
-        slot-scope="props"
-      >
-        <QBtn
-          flat
-          :label="$t('BUTTON.CLOSE')"
-          @click="props.cancel"
-        />
-        <QBtn
-          v-if="!trusted && !user.isCurrentUser"
-          color="secondary"
-          :loading="membership.trustUserStatus.pending"
-          @click="showCreateTrustDialog"
+      <QCard>
+        <QCardSection class="row no-wrap justify-between">
+          <div class="text-h6">
+            {{ headline }}
+          </div>
+          <TrustInfo />
+        </QCardSection>
+        <QCardSection
+          style="max-width: 700px"
         >
-          <span class="q-mr-xs">+</span>
-          <img
-            src="./twemoji-carrot.png"
-            width="20px"
+          {{ info }}
+        </QCardSection>
+        <QCardSection>
+          <ProfilePicture
+            v-for="u in trustedBy"
+            :key="u.id"
+            :user="u"
+            :size="35"
+            class="q-mr-sm"
+          />
+        </QCardSection>
+        <QCardActions align="right">
+          <QBtn
+            v-close-popup
+            flat
+            :label="$t('BUTTON.CLOSE')"
+          />
+          <QBtn
+            v-if="!trusted && !user.isCurrentUser"
+            color="secondary"
+            :loading="membership.trustUserStatus.pending"
+            @click="showCreateTrustDialog"
           >
-        </QBtn>
-      </template>
+            <span class="q-mr-xs">+</span>
+            <img
+              src="./twemoji-carrot.png"
+              width="20px"
+            >
+          </QBtn>
+        </QCardActions>
+      </QCard>
     </QDialog>
   </QBtn>
 </template>
@@ -79,6 +78,9 @@ import {
   QBtn,
   QBadge,
   QDialog,
+  QCard,
+  QCardSection,
+  QCardActions,
   Dialog,
 } from 'quasar'
 
@@ -88,8 +90,11 @@ export default {
     CircleProgress,
     TrustInfo,
     QBtn,
-    QDialog,
     QBadge,
+    QDialog,
+    QCard,
+    QCardSection,
+    QCardActions,
   },
   props: {
     user: {
@@ -188,16 +193,14 @@ export default {
         message: this.$t('USERDATA.DIALOGS.GIVE_TRUST.MESSAGE', { userName: this.user.displayName, groupName: this.group.name }),
         cancel: this.$t('BUTTON.CANCEL'),
         ok: this.$t('BUTTON.OF_COURSE'),
-      })
-        .then(() => this.$emit('createTrust', this.user.id))
-        .catch(() => {})
+      }).onOk(() => this.$emit('createTrust', this.user.id))
     },
   },
 }
 </script>
 
 <style lang="stylus" scoped>
-.karrot-button >>> .q-btn-inner
+.karrot-button >>> .q-btn__content
   background-image url('twemoji-carrot.png')
   background-size 60%
   background-repeat no-repeat
@@ -211,9 +214,4 @@ export default {
   position absolute
   top 0
   left 0
-
-.trust-info
-  position absolute
-  top 0
-  right 0
 </style>

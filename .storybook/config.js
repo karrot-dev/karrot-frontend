@@ -3,8 +3,10 @@ import '../src/base/style/app.styl'
 
 import Vue from 'vue'
 import Vuex from 'vuex'
+import VueI18n from 'vue-i18n'
+import VueRouter from 'vue-router'
 import configureQuasar from '@/base/configureQuasar'
-import { RouterLinkStub } from '@vue/test-utils'
+import { RouterLinkStub, TransitionStub, TransitionGroupStub } from '@vue/test-utils'
 import { IconPlugin } from '@/base/icons'
 
 Vue.config.productionTip = false
@@ -12,8 +14,12 @@ Vue.config.devtools = true
 configureQuasar(Vue)
 Vue.use(Vuex) // Install Vuex
 Vue.use(IconPlugin)
+Vue.use(VueI18n)
+Vue.use(VueRouter)
 
 Vue.component('RouterLink', RouterLinkStub)
+Vue.component('Transition', TransitionStub)
+Vue.component('TransitionGroup', TransitionGroupStub)
 Vue.config.errorHandler = (err, vm, info) => {
   console.log(err, vm, info)
 }
@@ -28,7 +34,7 @@ import { addParameters, configure } from '@storybook/vue'
 import { create } from '@storybook/theming'
 
 function loadStories() {
-  const req = require.context('../src', true, /\**.story\.js$/)
+  const req = require.context('../src', true, /\Profile.story\.js$/)
   req.keys().forEach(filename => req(filename))
 }
 

@@ -71,6 +71,133 @@ exports[`Storyshots ApplicationForm create 1`] = `
 </div>
 `;
 
+exports[`Storyshots ChangePhoto empty 1`] = `
+<div class="edit-box k-change-photo">
+  <div class="q-field row no-wrap items-start q-field--standard q-field--labeled q-field--auto-height q-field--with-bottom">
+    <div class="q-field__inner relative-position col self-stretch column justify-center">
+      <div tabindex="-1" class="q-field__control relative-position row no-wrap">
+        <div class="q-field__prepend q-field__marginal row no-wrap items-center"><i aria-hidden="true" class="fas fa-camera q-icon"> </i></div>
+        <div class="q-field__control-container col relative-position row no-wrap q-anchor--skip">
+          <div class="q-field__label no-pointer-events absolute ellipsis"></div>
+          <div class="croppa-container       pointer"><input type="file" style="height:1px;width:1px;overflow:hidden;margin-left:-99999px;position:absolute;">
+            <div class="slots" style="width:0;height:0;visibility:hidden;"> </div> <canvas></canvas>
+            <!---->
+            <!---->
+          </div>
+        </div>
+      </div>
+      <div class="q-field__bottom row items-start q-field__bottom--animated">
+        <div class="q-field__messages col">
+          <div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!---->
+  <div class="actionButtons"><button tabindex="0" type="button" disabled="disabled" class="q-btn inline q-btn-item non-selectable q-btn--standard q-btn--rectangle bg-primary text-white q-focusable q-hoverable">
+      <div tabindex="-1" class="q-focus-helper"></div>
+      <div class="q-btn__content text-center col items-center q-anchor--skip justify-center row"></div>
+      <!---->
+    </button></div>
+</div>
+`;
+
+exports[`Storyshots ChangePhoto error 1`] = `
+<div class="edit-box k-change-photo">
+  <div class="q-field row no-wrap items-start q-field--standard q-field--focused q-field--float q-field--labeled q-field--auto-height q-field--with-bottom q-field--error">
+    <div class="q-field__inner relative-position col self-stretch column justify-center">
+      <div tabindex="-1" class="q-field__control relative-position row no-wrap text-negative">
+        <div class="q-field__prepend q-field__marginal row no-wrap items-center"><i aria-hidden="true" class="fas fa-camera q-icon"> </i></div>
+        <div class="q-field__control-container col relative-position row no-wrap q-anchor--skip">
+          <div class="q-field__label no-pointer-events absolute ellipsis"></div>
+          <div class="croppa-container       pointer"><input type="file" style="height:1px;width:1px;overflow:hidden;margin-left:-99999px;position:absolute;">
+            <div class="slots" style="width:0;height:0;visibility:hidden;"> </div> <canvas></canvas>
+            <!---->
+            <!---->
+          </div>
+        </div>
+        <div class="q-field__append q-field__marginal row no-wrap items-center q-anchor--skip"><i aria-hidden="true" class="material-icons q-icon text-negative">error</i></div>
+      </div>
+      <div class="q-field__bottom row items-start q-field__bottom--animated">
+        <div class="q-field__messages col">
+          <div>something is wrong</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!---->
+  <div class="actionButtons"><button tabindex="0" type="button" disabled="disabled" class="q-btn inline q-btn-item non-selectable q-btn--standard q-btn--rectangle bg-primary text-white q-focusable q-hoverable">
+      <div tabindex="-1" class="q-focus-helper"></div>
+      <div class="q-btn__content text-center col items-center q-anchor--skip justify-center row"></div>
+      <!---->
+    </button></div>
+</div>
+`;
+
+exports[`Storyshots ChangePhoto pending 1`] = `
+<div class="edit-box k-change-photo">
+  <div class="q-field row no-wrap items-start q-field--standard q-field--labeled q-field--auto-height q-field--with-bottom">
+    <div class="q-field__inner relative-position col self-stretch column justify-center">
+      <div tabindex="-1" class="q-field__control relative-position row no-wrap">
+        <div class="q-field__prepend q-field__marginal row no-wrap items-center"><i aria-hidden="true" class="fas fa-camera q-icon"> </i></div>
+        <div class="q-field__control-container col relative-position row no-wrap q-anchor--skip">
+          <div class="q-field__label no-pointer-events absolute ellipsis"></div>
+          <div class="croppa-container       pointer"><input type="file" style="height:1px;width:1px;overflow:hidden;margin-left:-99999px;position:absolute;">
+            <div class="slots" style="width:0;height:0;visibility:hidden;"> </div> <canvas></canvas>
+            <!---->
+            <!---->
+          </div>
+        </div>
+      </div>
+      <div class="q-field__bottom row items-start q-field__bottom--animated">
+        <div class="q-field__messages col">
+          <div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!---->
+  <div class="actionButtons"><button tabindex="-1" type="button" disabled="disabled" class="q-btn inline q-btn-item non-selectable q-btn--standard q-btn--rectangle bg-primary text-white disabled">
+      <div tabindex="-1" class="q-focus-helper"></div>
+      <div class="q-btn__content text-center col items-center q-anchor--skip justify-center row q-btn__content--hidden"></div>
+      <div class="absolute-full flex flex-center"><svg width="1em" height="1em" viewBox="25 25 50 50" class="q-spinner q-spinner-mat">
+          <circle cx="50" cy="50" r="20" fill="none" stroke="currentColor" stroke-width="5" stroke-miterlimit="10" class="path"></circle>
+        </svg></div>
+    </button></div>
+</div>
+`;
+
+exports[`Storyshots ChangePhoto with photo 1`] = `
+<div class="edit-box k-change-photo">
+  <div class="q-field row no-wrap items-start q-field--standard q-field--labeled q-field--auto-height q-field--with-bottom">
+    <div class="q-field__inner relative-position col self-stretch column justify-center">
+      <div tabindex="-1" class="q-field__control relative-position row no-wrap">
+        <div class="q-field__prepend q-field__marginal row no-wrap items-center"><i aria-hidden="true" class="fas fa-camera q-icon"> </i></div>
+        <div class="q-field__control-container col relative-position row no-wrap q-anchor--skip">
+          <div class="q-field__label no-pointer-events absolute ellipsis"></div>
+          <div class="croppa-container      "><input type="file" style="height:1px;width:1px;overflow:hidden;margin-left:-99999px;position:absolute;">
+            <div class="slots" style="width:0;height:0;visibility:hidden;"> </div> <canvas></canvas>
+            <!---->
+            <!---->
+          </div>
+        </div>
+      </div>
+      <div class="q-field__bottom row items-start q-field__bottom--animated">
+        <div class="q-field__messages col">
+          <div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!---->
+  <div class="actionButtons"><button tabindex="0" type="button" disabled="disabled" class="q-btn inline q-btn-item non-selectable q-btn--standard q-btn--rectangle bg-primary text-white q-focusable q-hoverable">
+      <div tabindex="-1" class="q-focus-helper"></div>
+      <div class="q-btn__content text-center col items-center q-anchor--skip justify-center row"></div>
+      <!---->
+    </button></div>
+</div>
+`;
+
 exports[`Storyshots ChatConversation closed 1`] = `
 <div>
   <div class="full-width text-center generic-padding" style="display:none;"><svg fill="currentColor" width="40" height="40" viewBox="0 0 120 30" xmlns="http://www.w3.org/2000/svg" class="q-spinner">
@@ -1162,6 +1289,7 @@ exports[`Storyshots GroupEdit create 1`] = `
       <div class="q-field row no-wrap items-start q-field--standard q-field--labeled q-field--auto-height q-field--with-bottom">
         <div class="q-field__inner relative-position col self-stretch column justify-center">
           <div tabindex="-1" class="q-field__control relative-position row no-wrap">
+            <div class="q-field__prepend q-field__marginal row no-wrap items-center"><i aria-hidden="true" class="fas fa-camera q-icon"> </i></div>
             <div class="q-field__control-container col relative-position row no-wrap q-anchor--skip">
               <div class="q-field__label no-pointer-events absolute ellipsis">Group logo</div>
               <div class="croppa-container       pointer"><input type="file" style="height:1px;width:1px;overflow:hidden;margin-left:-99999px;position:absolute;">
@@ -2984,7 +3112,7 @@ exports[`Storyshots Latest Messages flag: closed 1`] = `
     <!---->
     <div class="q-item__label row no-wrap items-baseline q-item__label--caption text-caption" style="max-height:18px;">
       <div class="text-secondary">
-        Mira Bellenbaum:
+        Mira Bellenbaum: 
       </div>
       <!---->
       <div class="ellipsis col">
@@ -3016,7 +3144,7 @@ exports[`Storyshots Latest Messages flag: closed+muted 1`] = `
     <!---->
     <div class="q-item__label row no-wrap items-baseline q-item__label--caption text-caption" style="max-height:18px;">
       <div class="text-secondary">
-        Mira Bellenbaum:
+        Mira Bellenbaum: 
       </div>
       <!---->
       <div class="ellipsis col">
@@ -3144,7 +3272,7 @@ exports[`Storyshots Latest Messages type: application chat 1`] = `
     <!---->
     <div class="q-item__label row no-wrap items-baseline q-item__label--caption text-caption" style="max-height:18px;">
       <div class="text-secondary">
-        Mira Bellenbaum:
+        Mira Bellenbaum: 
       </div>
       <!---->
       <div class="ellipsis col">
@@ -3174,7 +3302,7 @@ exports[`Storyshots Latest Messages type: group wall 1`] = `
     <!---->
     <div class="q-item__label row no-wrap items-baseline q-item__label--caption text-caption" style="max-height:18px;">
       <div class="text-secondary">
-        Mira Bellenbaum:
+        Mira Bellenbaum: 
       </div>
       <!---->
       <div class="ellipsis col">
@@ -3204,7 +3332,7 @@ exports[`Storyshots Latest Messages type: issue chat 1`] = `
     <!---->
     <div class="q-item__label row no-wrap items-baseline q-item__label--caption text-caption" style="max-height:18px;">
       <div class="text-secondary">
-        Mira Bellenbaum:
+        Mira Bellenbaum: 
       </div>
       <!---->
       <div class="ellipsis col">
@@ -3238,7 +3366,7 @@ exports[`Storyshots Latest Messages type: my application chat 1`] = `
     <!---->
     <div class="q-item__label row no-wrap items-baseline q-item__label--caption text-caption" style="max-height:18px;">
       <div class="text-secondary">
-        Mira Bellenbaum:
+        Mira Bellenbaum: 
       </div>
       <!---->
       <div class="ellipsis col">
@@ -3269,7 +3397,7 @@ exports[`Storyshots Latest Messages type: pickup chat 1`] = `
       </small></div>
     <div class="q-item__label row no-wrap items-baseline q-item__label--caption text-caption" style="max-height:18px;">
       <div class="text-secondary">
-        Mira Bellenbaum:
+        Mira Bellenbaum: 
       </div>
       <!---->
       <div class="ellipsis col">
@@ -3299,7 +3427,7 @@ exports[`Storyshots Latest Messages type: place wall 1`] = `
     <!---->
     <div class="q-item__label row no-wrap items-baseline q-item__label--caption text-caption" style="max-height:18px;">
       <div class="text-secondary">
-        Mira Bellenbaum:
+        Mira Bellenbaum: 
       </div>
       <!---->
       <div class="ellipsis col">
@@ -3359,7 +3487,7 @@ exports[`Storyshots Latest Messages type: thread 1`] = `
     <!---->
     <div class="q-item__label row no-wrap items-baseline q-item__label--caption text-caption" style="max-height:18px;">
       <div class="text-secondary">
-        Mira Bellenbaum:
+        Mira Bellenbaum: 
       </div>
       <!---->
       <div class="ellipsis col">
@@ -4652,6 +4780,7 @@ exports[`Storyshots PickupSeriesEdit Default 1`] = `
     <div class="q-field row no-wrap items-start q-field--standard q-field--labeled q-field--auto-height">
       <div class="q-field__inner relative-position col self-stretch column justify-center">
         <div tabindex="-1" class="q-field__control relative-position row no-wrap">
+          <div class="q-field__prepend q-field__marginal row no-wrap items-center"><i aria-hidden="true" class="fas fa-redo q-icon"> </i></div>
           <div class="q-field__control-container col relative-position row no-wrap q-anchor--skip">
             <div class="q-field__label no-pointer-events absolute ellipsis">Frequency</div>
             <div class="q-option-group q-gutter-x-sm">
@@ -4686,6 +4815,7 @@ exports[`Storyshots PickupSeriesEdit Default 1`] = `
       <div class="q-field row no-wrap items-start q-field--standard q-field--labeled q-field--auto-height q-field--with-bottom">
         <div class="q-field__inner relative-position col self-stretch column justify-center">
           <div tabindex="-1" class="q-field__control relative-position row no-wrap">
+            <div class="q-field__prepend q-field__marginal row no-wrap items-center"><i aria-hidden="true" class="material-icons q-icon">access time</i></div>
             <div class="q-field__control-container col relative-position row no-wrap q-anchor--skip">
               <div class="q-field__label no-pointer-events absolute ellipsis">Time</div>
               <div class="row">
@@ -4996,23 +5126,16 @@ exports[`Storyshots PickupSeriesEdit Default 1`] = `
           </div>
         </div>
       </div>
-      <div class="q-field row no-wrap items-start q-field--standard q-field--labeled q-field--auto-height q-field--with-bottom">
+      <div class="q-field row no-wrap items-start q-select q-field--auto-height q-select--without-input q-field--standard q-field--float q-field--labeled q-field--with-bottom">
         <div class="q-field__inner relative-position col self-stretch column justify-center">
           <div tabindex="-1" class="q-field__control relative-position row no-wrap">
+            <div class="q-field__prepend q-field__marginal row no-wrap items-center"><i aria-hidden="true" class="material-icons q-icon">today</i></div>
             <div class="q-field__control-container col relative-position row no-wrap q-anchor--skip">
+              <div tabindex="0" toggle="" helper="On which days should the pick-up take place?" class="q-field__native row items-center"><span>TH, SU</span></div>
               <div class="q-field__label no-pointer-events absolute ellipsis">Weekdays</div>
-              <div class="q-field row no-wrap items-start q-select q-field--auto-height q-select--without-input q-field--standard q-field--float">
-                <div class="q-field__inner relative-position col self-stretch column justify-center">
-                  <div tabindex="-1" class="q-field__control relative-position row no-wrap">
-                    <div class="q-field__control-container col relative-position row no-wrap q-anchor--skip">
-                      <div tabindex="0" toggle="" class="q-field__native row items-center"><span>TH, SU</span></div>
-                    </div>
-                    <div class="q-field__append q-field__marginal row no-wrap items-center q-anchor--skip"><i aria-hidden="true" class="material-icons q-icon q-select__dropdown-icon">arrow_drop_down</i></div>
-                    <!---->
-                  </div>
-                </div>
-              </div>
             </div>
+            <div class="q-field__append q-field__marginal row no-wrap items-center q-anchor--skip"><i aria-hidden="true" class="material-icons q-icon q-select__dropdown-icon">arrow_drop_down</i></div>
+            <!---->
           </div>
           <div class="q-field__bottom row items-start q-field__bottom--animated">
             <div class="q-field__messages col"></div>
@@ -5023,6 +5146,7 @@ exports[`Storyshots PickupSeriesEdit Default 1`] = `
     <div class="q-field row no-wrap items-start q-field--standard q-field--labeled q-field--auto-height q-field--with-bottom">
       <div class="q-field__inner relative-position col self-stretch column justify-center">
         <div tabindex="-1" class="q-field__control relative-position row no-wrap">
+          <div class="q-field__prepend q-field__marginal row no-wrap items-center"><i aria-hidden="true" class="material-icons q-icon">group</i></div>
           <div class="q-field__control-container col relative-position row no-wrap q-anchor--skip">
             <div class="q-field__label no-pointer-events absolute ellipsis">Max Slots</div>
             <div class="q-field row no-wrap items-start q-input q-field--standard q-field--float">
@@ -5055,18 +5179,12 @@ exports[`Storyshots PickupSeriesEdit Default 1`] = `
         </div>
       </div>
     </div>
-    <div class="q-field row no-wrap items-start q-field--standard q-field--labeled q-field--auto-height q-field--with-bottom">
+    <div class="q-field row no-wrap items-start q-textarea q-field--standard q-field--float q-field--labeled q-field--with-bottom">
       <div class="q-field__inner relative-position col self-stretch column justify-center">
         <div tabindex="-1" class="q-field__control relative-position row no-wrap">
-          <div class="q-field__control-container col relative-position row no-wrap q-anchor--skip">
+          <div class="q-field__prepend q-field__marginal row no-wrap items-center"><i aria-hidden="true" class="material-icons q-icon">info</i></div>
+          <div class="q-field__control-container col relative-position row no-wrap q-anchor--skip"><textarea tabindex="0" rows="6" aria-label="Additional information" max-length="500" helper="What should people know when signing up to this pick-up?" type="textarea" class="q-field__native q-placeholder">a nice description for the series</textarea>
             <div class="q-field__label no-pointer-events absolute ellipsis">Additional information</div>
-            <div class="q-field row no-wrap items-start q-textarea q-field--standard q-field--float">
-              <div class="q-field__inner relative-position col self-stretch column justify-center">
-                <div tabindex="-1" class="q-field__control relative-position row no-wrap">
-                  <div class="q-field__control-container col relative-position row no-wrap q-anchor--skip"><textarea tabindex="0" rows="6" max-length="500" type="textarea" class="q-field__native q-placeholder">a nice description for the series</textarea></div>
-                </div>
-              </div>
-            </div>
           </div>
         </div>
         <div class="q-field__bottom row items-start q-field__bottom--animated">
@@ -5353,18 +5471,12 @@ exports[`Storyshots Places PlaceEdit (with server error) 1`] = `
   <div class="q-card no-shadow grey-border">
     <div class="edit-box">
       <form>
-        <div class="q-field row no-wrap items-start q-field--standard q-field--focused q-field--float q-field--labeled q-field--auto-height q-field--with-bottom q-field--error">
+        <div class="q-field row no-wrap items-start q-input q-field--standard q-field--focused q-field--float q-field--labeled q-field--with-bottom q-field--error">
           <div class="q-field__inner relative-position col self-stretch column justify-center">
             <div tabindex="-1" class="q-field__control relative-position row no-wrap text-negative">
-              <div class="q-field__control-container col relative-position row no-wrap q-anchor--skip">
+              <div class="q-field__prepend q-field__marginal row no-wrap items-center"><i aria-hidden="true" class="fas fa-star q-icon"> </i></div>
+              <div class="q-field__control-container col relative-position row no-wrap q-anchor--skip"><input tabindex="0" autofocus="autofocus" aria-label="Name" autocomplete="off" type="text" value="Teststore1" class="q-field__native q-placeholder">
                 <div class="q-field__label no-pointer-events absolute ellipsis">Name</div>
-                <div class="q-field row no-wrap items-start q-input q-field--standard q-field--float">
-                  <div class="q-field__inner relative-position col self-stretch column justify-center">
-                    <div tabindex="-1" class="q-field__control relative-position row no-wrap">
-                      <div class="q-field__control-container col relative-position row no-wrap q-anchor--skip"><input tabindex="0" autofocus="autofocus" autocomplete="off" type="text" value="Teststore1" class="q-field__native q-placeholder"></div>
-                    </div>
-                  </div>
-                </div>
               </div>
               <div class="q-field__append q-field__marginal row no-wrap items-center q-anchor--skip"><i aria-hidden="true" class="material-icons q-icon text-negative">error</i></div>
             </div>
@@ -5375,103 +5487,73 @@ exports[`Storyshots Places PlaceEdit (with server error) 1`] = `
             </div>
           </div>
         </div>
-        <div class="q-field row no-wrap items-start q-field--standard q-field--labeled q-field--auto-height q-field--with-bottom">
+        <div class="q-field row no-wrap items-start q-select q-field--auto-height q-select--without-input q-field--standard q-field--labeled q-field--with-bottom">
           <div class="q-field__inner relative-position col self-stretch column justify-center">
             <div tabindex="-1" class="q-field__control relative-position row no-wrap">
+              <div class="q-field__prepend q-field__marginal row no-wrap items-center"><i aria-hidden="true" class="fas fa-handshake q-icon"> </i></div>
               <div class="q-field__control-container col relative-position row no-wrap q-anchor--skip">
+                <div tabindex="0" class="q-field__native row items-center"><span></span></div>
                 <div class="q-field__label no-pointer-events absolute ellipsis">Status</div>
-                <div class="q-field row no-wrap items-start q-select q-field--auto-height q-select--without-input q-field--standard">
-                  <div class="q-field__inner relative-position col self-stretch column justify-center">
-                    <div tabindex="-1" class="q-field__control relative-position row no-wrap">
-                      <div class="q-field__control-container col relative-position row no-wrap q-anchor--skip">
-                        <div tabindex="0" class="q-field__native row items-center"><span></span></div>
-                      </div>
-                      <div class="q-field__append q-field__marginal row no-wrap items-center q-anchor--skip"><i aria-hidden="true" class="material-icons q-icon q-select__dropdown-icon">arrow_drop_down</i></div>
+              </div>
+              <div class="q-field__append q-field__marginal row no-wrap items-center q-anchor--skip"><i aria-hidden="true" class="material-icons q-icon q-select__dropdown-icon">arrow_drop_down</i></div>
+              <!---->
+            </div>
+            <div class="q-field__bottom row items-start q-field__bottom--animated">
+              <div class="q-field__messages col"></div>
+            </div>
+          </div>
+        </div>
+        <div class="q-field row no-wrap items-start q-textarea q-textarea--autogrow q-field--standard q-field--float q-field--labeled q-field--with-bottom">
+          <div class="q-field__before q-field__marginal row no-wrap items-center"><i aria-hidden="true" class="fas fa-question q-icon"> </i></div>
+          <div class="q-field__inner relative-position col self-stretch column justify-center">
+            <div tabindex="-1" class="q-field__control relative-position row no-wrap">
+              <div class="q-field__control-container col relative-position row no-wrap q-anchor--skip"><textarea tabindex="0" rows="1" aria-label="Description" autocomplete="true" type="textarea" class="q-field__native q-placeholder" style="min-height:100px;">all the good stuff</textarea>
+                <div class="q-field__label no-pointer-events absolute ellipsis">Description</div>
+              </div>
+            </div>
+            <div class="q-field__bottom row items-start q-field__bottom--animated">
+              <div class="q-field__messages col">
+                <div class="row justify-between">
+                  <div class="row markdown-helper"><span class="text-bold">**bold**</span> <span class="text-italic">_italic_</span> <span class="text-strike">~~strike~~</span> <span>&gt;quote</span> <a href="https://guides.github.com/features/mastering-markdown/" target="_blank" rel="nofollow noopener noreferrer" title="What is Markdown?"><i aria-hidden="true" class="fas fa-question-circle q-icon"> </i></a></div> <button tabindex="0" type="button" class="q-btn inline q-btn-item non-selectable q-btn--outline q-btn--rectangle text-primary q-focusable q-hoverable" style="font-size:8px;">
+                    <div tabindex="-1" class="q-focus-helper"></div>
+                    <div class="q-btn__content text-center col items-center q-anchor--skip justify-center row">
+                      <div>Preview</div>
                       <!---->
                     </div>
-                  </div>
+                  </button>
                 </div>
               </div>
             </div>
-            <div class="q-field__bottom row items-start q-field__bottom--animated">
-              <div class="q-field__messages col"></div>
+          </div>
+        </div>
+        <div>
+          <div class="q-field row no-wrap items-start q-input q-field--standard q-field--float q-field--labeled q-field--with-bottom">
+            <div class="q-field__before q-field__marginal row no-wrap items-center"><i aria-hidden="true"></i></div>
+            <div class="q-field__inner relative-position col self-stretch column justify-center">
+              <div tabindex="-1" class="q-field__control relative-position row no-wrap">
+                <div class="q-field__control-container col relative-position row no-wrap q-anchor--skip"><input tabindex="0" aria-label="Address" placeholder="Search" type="text" value="Kranichstein, Darmstadt, Regierungsbezirk Darmstadt, Hesse, Germany" class="q-field__native q-placeholder">
+                  <div class="q-field__label no-pointer-events absolute ellipsis">Address</div>
+                  <!---->
+                </div>
+                <div class="q-field__append q-field__marginal row no-wrap items-center"><button tabindex="0" type="button" class="q-btn inline q-btn-item non-selectable q-btn--flat q-btn--round q-focusable q-hoverable" style="font-size:10px;">
+                    <div tabindex="-1" class="q-focus-helper"></div>
+                    <div class="q-btn__content text-center col items-center q-anchor--skip justify-center row"><i aria-hidden="true" class="fas fa-search q-icon"> </i></div>
+                  </button></div>
+                <div class="q-field__append q-field__marginal row no-wrap items-center q-anchor--skip"><i aria-hidden="true" class="material-icons q-icon cursor-pointer">cancel</i></div>
+              </div>
+              <div class="q-field__bottom row items-start q-field__bottom--animated">
+                <div class="q-field__messages col"></div>
+              </div>
             </div>
+          </div>
+          <div class="vue2leaflet-map k-map map">
+            <!---->
           </div>
         </div>
         <div class="q-field row no-wrap items-start q-field--standard q-field--labeled q-field--auto-height q-field--with-bottom">
           <div class="q-field__inner relative-position col self-stretch column justify-center">
             <div tabindex="-1" class="q-field__control relative-position row no-wrap">
-              <div class="q-field__control-container col relative-position row no-wrap q-anchor--skip">
-                <div class="q-field__label no-pointer-events absolute ellipsis">Description</div>
-                <div class="q-field row no-wrap items-start q-textarea q-textarea--autogrow q-field--standard q-field--float q-field--labeled q-field--with-bottom">
-                  <div class="q-field__before q-field__marginal row no-wrap items-center"><i aria-hidden="true"></i></div>
-                  <div class="q-field__inner relative-position col self-stretch column justify-center">
-                    <div tabindex="-1" class="q-field__control relative-position row no-wrap">
-                      <div class="q-field__control-container col relative-position row no-wrap q-anchor--skip"><textarea tabindex="0" rows="1" autocomplete="true" type="textarea" class="q-field__native q-placeholder" style="min-height:100px;">all the good stuff</textarea>
-                        <div class="q-field__label no-pointer-events absolute ellipsis"></div>
-                      </div>
-                    </div>
-                    <div class="q-field__bottom row items-start q-field__bottom--animated">
-                      <div class="q-field__messages col">
-                        <div class="row justify-between">
-                          <div class="row markdown-helper"><span class="text-bold">**bold**</span> <span class="text-italic">_italic_</span> <span class="text-strike">~~strike~~</span> <span>&gt;quote</span> <a href="https://guides.github.com/features/mastering-markdown/" target="_blank" rel="nofollow noopener noreferrer" title="What is Markdown?"><i aria-hidden="true" class="fas fa-question-circle q-icon"> </i></a></div> <button tabindex="0" type="button" class="q-btn inline q-btn-item non-selectable q-btn--outline q-btn--rectangle text-primary q-focusable q-hoverable" style="font-size:8px;">
-                            <div tabindex="-1" class="q-focus-helper"></div>
-                            <div class="q-btn__content text-center col items-center q-anchor--skip justify-center row">
-                              <div>Preview</div>
-                              <!---->
-                            </div>
-                          </button>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="q-field__bottom row items-start q-field__bottom--animated">
-              <div class="q-field__messages col"></div>
-            </div>
-          </div>
-        </div>
-        <div class="q-field row no-wrap items-start q-field--standard q-field--labeled q-field--auto-height q-field--with-bottom">
-          <div class="q-field__inner relative-position col self-stretch column justify-center">
-            <div tabindex="-1" class="q-field__control relative-position row no-wrap">
-              <div class="q-field__control-container col relative-position row no-wrap q-anchor--skip">
-                <div class="q-field__label no-pointer-events absolute ellipsis">Address</div>
-                <div>
-                  <div class="q-field row no-wrap items-start q-input q-field--standard q-field--float q-field--labeled q-field--with-bottom">
-                    <div class="q-field__before q-field__marginal row no-wrap items-center"><i aria-hidden="true"></i></div>
-                    <div class="q-field__inner relative-position col self-stretch column justify-center">
-                      <div tabindex="-1" class="q-field__control relative-position row no-wrap">
-                        <div class="q-field__control-container col relative-position row no-wrap q-anchor--skip"><input tabindex="0" placeholder="Search" type="text" value="Kranichstein, Darmstadt, Regierungsbezirk Darmstadt, Hesse, Germany" class="q-field__native q-placeholder">
-                          <div class="q-field__label no-pointer-events absolute ellipsis"></div>
-                          <!---->
-                        </div>
-                        <div class="q-field__append q-field__marginal row no-wrap items-center"><button tabindex="0" type="button" class="q-btn inline q-btn-item non-selectable q-btn--flat q-btn--round q-focusable q-hoverable" style="font-size:10px;">
-                            <div tabindex="-1" class="q-focus-helper"></div>
-                            <div class="q-btn__content text-center col items-center q-anchor--skip justify-center row"><i aria-hidden="true" class="fas fa-search q-icon"> </i></div>
-                          </button></div>
-                        <div class="q-field__append q-field__marginal row no-wrap items-center q-anchor--skip"><i aria-hidden="true" class="material-icons q-icon cursor-pointer">cancel</i></div>
-                      </div>
-                      <div class="q-field__bottom row items-start q-field__bottom--animated">
-                        <div class="q-field__messages col"></div>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="vue2leaflet-map k-map map">
-                    <!---->
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="q-field__bottom row items-start q-field__bottom--animated">
-              <div class="q-field__messages col"></div>
-            </div>
-          </div>
-        </div>
-        <div class="q-field row no-wrap items-start q-field--standard q-field--labeled q-field--auto-height q-field--with-bottom">
-          <div class="q-field__inner relative-position col self-stretch column justify-center">
-            <div tabindex="-1" class="q-field__control relative-position row no-wrap">
+              <div class="q-field__prepend q-field__marginal row no-wrap items-center"><i aria-hidden="true" class="fas fa-calendar-alt q-icon"> </i></div>
               <div class="q-field__control-container col relative-position row no-wrap q-anchor--skip">
                 <div class="q-field__label no-pointer-events absolute ellipsis">How many weeks in advance should recurring pickup dates be shown?</div>
                 <div role="slider" aria-valuemin="1" aria-valuemax="10" aria-valuenow="4" data-step="1" tabindex="0" class="q-slider q-slider--inactive q-slider--editable q-slider--label q-slider--label-always">
@@ -5528,18 +5610,12 @@ exports[`Storyshots Places PlaceEdit 1`] = `
   <div class="q-card no-shadow grey-border">
     <div class="edit-box">
       <form>
-        <div class="q-field row no-wrap items-start q-field--standard q-field--labeled q-field--auto-height q-field--with-bottom">
+        <div class="q-field row no-wrap items-start q-input q-field--standard q-field--float q-field--labeled q-field--with-bottom">
           <div class="q-field__inner relative-position col self-stretch column justify-center">
             <div tabindex="-1" class="q-field__control relative-position row no-wrap">
-              <div class="q-field__control-container col relative-position row no-wrap q-anchor--skip">
+              <div class="q-field__prepend q-field__marginal row no-wrap items-center"><i aria-hidden="true" class="fas fa-star q-icon"> </i></div>
+              <div class="q-field__control-container col relative-position row no-wrap q-anchor--skip"><input tabindex="0" autofocus="autofocus" aria-label="Name" autocomplete="off" type="text" value="Teststore1" class="q-field__native q-placeholder">
                 <div class="q-field__label no-pointer-events absolute ellipsis">Name</div>
-                <div class="q-field row no-wrap items-start q-input q-field--standard q-field--float">
-                  <div class="q-field__inner relative-position col self-stretch column justify-center">
-                    <div tabindex="-1" class="q-field__control relative-position row no-wrap">
-                      <div class="q-field__control-container col relative-position row no-wrap q-anchor--skip"><input tabindex="0" autofocus="autofocus" autocomplete="off" type="text" value="Teststore1" class="q-field__native q-placeholder"></div>
-                    </div>
-                  </div>
-                </div>
               </div>
             </div>
             <div class="q-field__bottom row items-start q-field__bottom--animated">
@@ -5547,103 +5623,73 @@ exports[`Storyshots Places PlaceEdit 1`] = `
             </div>
           </div>
         </div>
-        <div class="q-field row no-wrap items-start q-field--standard q-field--labeled q-field--auto-height q-field--with-bottom">
+        <div class="q-field row no-wrap items-start q-select q-field--auto-height q-select--without-input q-field--standard q-field--labeled q-field--with-bottom">
           <div class="q-field__inner relative-position col self-stretch column justify-center">
             <div tabindex="-1" class="q-field__control relative-position row no-wrap">
+              <div class="q-field__prepend q-field__marginal row no-wrap items-center"><i aria-hidden="true" class="fas fa-handshake q-icon"> </i></div>
               <div class="q-field__control-container col relative-position row no-wrap q-anchor--skip">
+                <div tabindex="0" class="q-field__native row items-center"><span></span></div>
                 <div class="q-field__label no-pointer-events absolute ellipsis">Status</div>
-                <div class="q-field row no-wrap items-start q-select q-field--auto-height q-select--without-input q-field--standard">
-                  <div class="q-field__inner relative-position col self-stretch column justify-center">
-                    <div tabindex="-1" class="q-field__control relative-position row no-wrap">
-                      <div class="q-field__control-container col relative-position row no-wrap q-anchor--skip">
-                        <div tabindex="0" class="q-field__native row items-center"><span></span></div>
-                      </div>
-                      <div class="q-field__append q-field__marginal row no-wrap items-center q-anchor--skip"><i aria-hidden="true" class="material-icons q-icon q-select__dropdown-icon">arrow_drop_down</i></div>
+              </div>
+              <div class="q-field__append q-field__marginal row no-wrap items-center q-anchor--skip"><i aria-hidden="true" class="material-icons q-icon q-select__dropdown-icon">arrow_drop_down</i></div>
+              <!---->
+            </div>
+            <div class="q-field__bottom row items-start q-field__bottom--animated">
+              <div class="q-field__messages col"></div>
+            </div>
+          </div>
+        </div>
+        <div class="q-field row no-wrap items-start q-textarea q-textarea--autogrow q-field--standard q-field--float q-field--labeled q-field--with-bottom">
+          <div class="q-field__before q-field__marginal row no-wrap items-center"><i aria-hidden="true" class="fas fa-question q-icon"> </i></div>
+          <div class="q-field__inner relative-position col self-stretch column justify-center">
+            <div tabindex="-1" class="q-field__control relative-position row no-wrap">
+              <div class="q-field__control-container col relative-position row no-wrap q-anchor--skip"><textarea tabindex="0" rows="1" aria-label="Description" autocomplete="true" type="textarea" class="q-field__native q-placeholder" style="min-height:100px;">all the good stuff</textarea>
+                <div class="q-field__label no-pointer-events absolute ellipsis">Description</div>
+              </div>
+            </div>
+            <div class="q-field__bottom row items-start q-field__bottom--animated">
+              <div class="q-field__messages col">
+                <div class="row justify-between">
+                  <div class="row markdown-helper"><span class="text-bold">**bold**</span> <span class="text-italic">_italic_</span> <span class="text-strike">~~strike~~</span> <span>&gt;quote</span> <a href="https://guides.github.com/features/mastering-markdown/" target="_blank" rel="nofollow noopener noreferrer" title="What is Markdown?"><i aria-hidden="true" class="fas fa-question-circle q-icon"> </i></a></div> <button tabindex="0" type="button" class="q-btn inline q-btn-item non-selectable q-btn--outline q-btn--rectangle text-primary q-focusable q-hoverable" style="font-size:8px;">
+                    <div tabindex="-1" class="q-focus-helper"></div>
+                    <div class="q-btn__content text-center col items-center q-anchor--skip justify-center row">
+                      <div>Preview</div>
                       <!---->
                     </div>
-                  </div>
+                  </button>
                 </div>
               </div>
             </div>
-            <div class="q-field__bottom row items-start q-field__bottom--animated">
-              <div class="q-field__messages col"></div>
+          </div>
+        </div>
+        <div>
+          <div class="q-field row no-wrap items-start q-input q-field--standard q-field--float q-field--labeled q-field--with-bottom">
+            <div class="q-field__before q-field__marginal row no-wrap items-center"><i aria-hidden="true"></i></div>
+            <div class="q-field__inner relative-position col self-stretch column justify-center">
+              <div tabindex="-1" class="q-field__control relative-position row no-wrap">
+                <div class="q-field__control-container col relative-position row no-wrap q-anchor--skip"><input tabindex="0" aria-label="Address" placeholder="Search" type="text" value="Kranichstein, Darmstadt, Regierungsbezirk Darmstadt, Hesse, Germany" class="q-field__native q-placeholder">
+                  <div class="q-field__label no-pointer-events absolute ellipsis">Address</div>
+                  <!---->
+                </div>
+                <div class="q-field__append q-field__marginal row no-wrap items-center"><button tabindex="0" type="button" class="q-btn inline q-btn-item non-selectable q-btn--flat q-btn--round q-focusable q-hoverable" style="font-size:10px;">
+                    <div tabindex="-1" class="q-focus-helper"></div>
+                    <div class="q-btn__content text-center col items-center q-anchor--skip justify-center row"><i aria-hidden="true" class="fas fa-search q-icon"> </i></div>
+                  </button></div>
+                <div class="q-field__append q-field__marginal row no-wrap items-center q-anchor--skip"><i aria-hidden="true" class="material-icons q-icon cursor-pointer">cancel</i></div>
+              </div>
+              <div class="q-field__bottom row items-start q-field__bottom--animated">
+                <div class="q-field__messages col"></div>
+              </div>
             </div>
+          </div>
+          <div class="vue2leaflet-map k-map map">
+            <!---->
           </div>
         </div>
         <div class="q-field row no-wrap items-start q-field--standard q-field--labeled q-field--auto-height q-field--with-bottom">
           <div class="q-field__inner relative-position col self-stretch column justify-center">
             <div tabindex="-1" class="q-field__control relative-position row no-wrap">
-              <div class="q-field__control-container col relative-position row no-wrap q-anchor--skip">
-                <div class="q-field__label no-pointer-events absolute ellipsis">Description</div>
-                <div class="q-field row no-wrap items-start q-textarea q-textarea--autogrow q-field--standard q-field--float q-field--labeled q-field--with-bottom">
-                  <div class="q-field__before q-field__marginal row no-wrap items-center"><i aria-hidden="true"></i></div>
-                  <div class="q-field__inner relative-position col self-stretch column justify-center">
-                    <div tabindex="-1" class="q-field__control relative-position row no-wrap">
-                      <div class="q-field__control-container col relative-position row no-wrap q-anchor--skip"><textarea tabindex="0" rows="1" autocomplete="true" type="textarea" class="q-field__native q-placeholder" style="min-height:100px;">all the good stuff</textarea>
-                        <div class="q-field__label no-pointer-events absolute ellipsis"></div>
-                      </div>
-                    </div>
-                    <div class="q-field__bottom row items-start q-field__bottom--animated">
-                      <div class="q-field__messages col">
-                        <div class="row justify-between">
-                          <div class="row markdown-helper"><span class="text-bold">**bold**</span> <span class="text-italic">_italic_</span> <span class="text-strike">~~strike~~</span> <span>&gt;quote</span> <a href="https://guides.github.com/features/mastering-markdown/" target="_blank" rel="nofollow noopener noreferrer" title="What is Markdown?"><i aria-hidden="true" class="fas fa-question-circle q-icon"> </i></a></div> <button tabindex="0" type="button" class="q-btn inline q-btn-item non-selectable q-btn--outline q-btn--rectangle text-primary q-focusable q-hoverable" style="font-size:8px;">
-                            <div tabindex="-1" class="q-focus-helper"></div>
-                            <div class="q-btn__content text-center col items-center q-anchor--skip justify-center row">
-                              <div>Preview</div>
-                              <!---->
-                            </div>
-                          </button>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="q-field__bottom row items-start q-field__bottom--animated">
-              <div class="q-field__messages col"></div>
-            </div>
-          </div>
-        </div>
-        <div class="q-field row no-wrap items-start q-field--standard q-field--labeled q-field--auto-height q-field--with-bottom">
-          <div class="q-field__inner relative-position col self-stretch column justify-center">
-            <div tabindex="-1" class="q-field__control relative-position row no-wrap">
-              <div class="q-field__control-container col relative-position row no-wrap q-anchor--skip">
-                <div class="q-field__label no-pointer-events absolute ellipsis">Address</div>
-                <div>
-                  <div class="q-field row no-wrap items-start q-input q-field--standard q-field--float q-field--labeled q-field--with-bottom">
-                    <div class="q-field__before q-field__marginal row no-wrap items-center"><i aria-hidden="true"></i></div>
-                    <div class="q-field__inner relative-position col self-stretch column justify-center">
-                      <div tabindex="-1" class="q-field__control relative-position row no-wrap">
-                        <div class="q-field__control-container col relative-position row no-wrap q-anchor--skip"><input tabindex="0" placeholder="Search" type="text" value="Kranichstein, Darmstadt, Regierungsbezirk Darmstadt, Hesse, Germany" class="q-field__native q-placeholder">
-                          <div class="q-field__label no-pointer-events absolute ellipsis"></div>
-                          <!---->
-                        </div>
-                        <div class="q-field__append q-field__marginal row no-wrap items-center"><button tabindex="0" type="button" class="q-btn inline q-btn-item non-selectable q-btn--flat q-btn--round q-focusable q-hoverable" style="font-size:10px;">
-                            <div tabindex="-1" class="q-focus-helper"></div>
-                            <div class="q-btn__content text-center col items-center q-anchor--skip justify-center row"><i aria-hidden="true" class="fas fa-search q-icon"> </i></div>
-                          </button></div>
-                        <div class="q-field__append q-field__marginal row no-wrap items-center q-anchor--skip"><i aria-hidden="true" class="material-icons q-icon cursor-pointer">cancel</i></div>
-                      </div>
-                      <div class="q-field__bottom row items-start q-field__bottom--animated">
-                        <div class="q-field__messages col"></div>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="vue2leaflet-map k-map map">
-                    <!---->
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="q-field__bottom row items-start q-field__bottom--animated">
-              <div class="q-field__messages col"></div>
-            </div>
-          </div>
-        </div>
-        <div class="q-field row no-wrap items-start q-field--standard q-field--labeled q-field--auto-height q-field--with-bottom">
-          <div class="q-field__inner relative-position col self-stretch column justify-center">
-            <div tabindex="-1" class="q-field__control relative-position row no-wrap">
+              <div class="q-field__prepend q-field__marginal row no-wrap items-center"><i aria-hidden="true" class="fas fa-calendar-alt q-icon"> </i></div>
               <div class="q-field__control-container col relative-position row no-wrap q-anchor--skip">
                 <div class="q-field__label no-pointer-events absolute ellipsis">How many weeks in advance should recurring pickup dates be shown?</div>
                 <div role="slider" aria-valuemin="1" aria-valuemax="10" aria-valuenow="4" data-step="1" tabindex="0" class="q-slider q-slider--inactive q-slider--editable q-slider--label q-slider--label-always">
@@ -5778,6 +5824,7 @@ exports[`Storyshots Settings Page Default 1`] = `
         <div class="q-field row no-wrap items-start q-field--standard q-field--labeled q-field--auto-height q-field--with-bottom">
           <div class="q-field__inner relative-position col self-stretch column justify-center">
             <div tabindex="-1" class="q-field__control relative-position row no-wrap">
+              <div class="q-field__prepend q-field__marginal row no-wrap items-center"><i aria-hidden="true" class="fas fa-camera q-icon"> </i></div>
               <div class="q-field__control-container col relative-position row no-wrap q-anchor--skip">
                 <div class="q-field__label no-pointer-events absolute ellipsis">Profile photo</div>
                 <div class="croppa-container       pointer"><input type="file" style="height:1px;width:1px;overflow:hidden;margin-left:-99999px;position:absolute;">
@@ -5804,18 +5851,12 @@ exports[`Storyshots Settings Page Default 1`] = `
       <hr class="q-separator q-separator--horizontal col-grow">
       <div class="edit-box">
         <form>
-          <div class="q-field row no-wrap items-start q-field--standard q-field--labeled q-field--auto-height q-field--with-bottom">
+          <div class="q-field row no-wrap items-start q-input q-field--standard q-field--float q-field--labeled q-field--with-bottom">
             <div class="q-field__inner relative-position col self-stretch column justify-center">
               <div tabindex="-1" class="q-field__control relative-position row no-wrap">
-                <div class="q-field__control-container col relative-position row no-wrap q-anchor--skip">
+                <div class="q-field__prepend q-field__marginal row no-wrap items-center"><i aria-hidden="true" class="fas fa-star q-icon"> </i></div>
+                <div class="q-field__control-container col relative-position row no-wrap q-anchor--skip"><input tabindex="0" aria-label="Name" type="text" value="Current User" class="q-field__native q-placeholder">
                   <div class="q-field__label no-pointer-events absolute ellipsis">Name</div>
-                  <div class="q-field row no-wrap items-start q-input q-field--standard q-field--float">
-                    <div class="q-field__inner relative-position col self-stretch column justify-center">
-                      <div tabindex="-1" class="q-field__control relative-position row no-wrap">
-                        <div class="q-field__control-container col relative-position row no-wrap q-anchor--skip"><input tabindex="0" type="text" value="Current User" class="q-field__native q-placeholder"></div>
-                      </div>
-                    </div>
-                  </div>
                 </div>
               </div>
               <div class="q-field__bottom row items-start q-field__bottom--animated">
@@ -5823,53 +5864,35 @@ exports[`Storyshots Settings Page Default 1`] = `
               </div>
             </div>
           </div>
-          <div class="q-field row no-wrap items-start q-field--standard q-field--labeled q-field--auto-height q-field--with-bottom">
+          <div class="q-field row no-wrap items-start q-textarea q-textarea--autogrow q-field--standard q-field--float q-field--labeled q-field--with-bottom">
+            <div class="q-field__before q-field__marginal row no-wrap items-center"><i aria-hidden="true" class="material-icons q-icon">info</i></div>
             <div class="q-field__inner relative-position col self-stretch column justify-center">
               <div tabindex="-1" class="q-field__control relative-position row no-wrap">
-                <div class="q-field__control-container col relative-position row no-wrap q-anchor--skip">
+                <div class="q-field__control-container col relative-position row no-wrap q-anchor--skip"><textarea tabindex="0" rows="1" aria-label="About you" autocomplete="true" type="textarea" class="q-field__native q-placeholder" style="min-height:100px;">I am the current User!</textarea>
                   <div class="q-field__label no-pointer-events absolute ellipsis">About you</div>
-                  <div class="q-field row no-wrap items-start q-textarea q-textarea--autogrow q-field--standard q-field--float q-field--labeled q-field--with-bottom">
-                    <div class="q-field__before q-field__marginal row no-wrap items-center"><i aria-hidden="true"></i></div>
-                    <div class="q-field__inner relative-position col self-stretch column justify-center">
-                      <div tabindex="-1" class="q-field__control relative-position row no-wrap">
-                        <div class="q-field__control-container col relative-position row no-wrap q-anchor--skip"><textarea tabindex="0" rows="1" autocomplete="true" type="textarea" class="q-field__native q-placeholder" style="min-height:100px;">I am the current User!</textarea>
-                          <div class="q-field__label no-pointer-events absolute ellipsis"></div>
-                        </div>
-                      </div>
-                      <div class="q-field__bottom row items-start q-field__bottom--animated">
-                        <div class="q-field__messages col">
-                          <div class="row justify-between">
-                            <div class="row markdown-helper"><span class="text-bold">**bold**</span> <span class="text-italic">_italic_</span> <span class="text-strike">~~strike~~</span> <span>&gt;quote</span> <a href="https://guides.github.com/features/mastering-markdown/" target="_blank" rel="nofollow noopener noreferrer" title="What is Markdown?"><i aria-hidden="true" class="fas fa-question-circle q-icon"> </i></a></div> <button tabindex="0" type="button" class="q-btn inline q-btn-item non-selectable q-btn--outline q-btn--rectangle text-primary q-focusable q-hoverable" style="font-size:8px;">
-                              <div tabindex="-1" class="q-focus-helper"></div>
-                              <div class="q-btn__content text-center col items-center q-anchor--skip justify-center row">
-                                <div>Preview</div>
-                                <!---->
-                              </div>
-                            </button>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
                 </div>
               </div>
               <div class="q-field__bottom row items-start q-field__bottom--animated">
-                <div class="q-field__messages col"></div>
+                <div class="q-field__messages col">
+                  <div class="row justify-between">
+                    <div class="row markdown-helper"><span class="text-bold">**bold**</span> <span class="text-italic">_italic_</span> <span class="text-strike">~~strike~~</span> <span>&gt;quote</span> <a href="https://guides.github.com/features/mastering-markdown/" target="_blank" rel="nofollow noopener noreferrer" title="What is Markdown?"><i aria-hidden="true" class="fas fa-question-circle q-icon"> </i></a></div> <button tabindex="0" type="button" class="q-btn inline q-btn-item non-selectable q-btn--outline q-btn--rectangle text-primary q-focusable q-hoverable" style="font-size:8px;">
+                      <div tabindex="-1" class="q-focus-helper"></div>
+                      <div class="q-btn__content text-center col items-center q-anchor--skip justify-center row">
+                        <div>Preview</div>
+                        <!---->
+                      </div>
+                    </button>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
-          <div class="q-field row no-wrap items-start q-field--standard q-field--labeled q-field--auto-height q-field--with-bottom">
+          <div class="q-field row no-wrap items-start q-input q-field--standard q-field--labeled q-field--with-bottom">
             <div class="q-field__inner relative-position col self-stretch column justify-center">
               <div tabindex="-1" class="q-field__control relative-position row no-wrap">
-                <div class="q-field__control-container col relative-position row no-wrap q-anchor--skip">
+                <div class="q-field__prepend q-field__marginal row no-wrap items-center"><i aria-hidden="true" class="fas fa-phone q-icon"> </i></div>
+                <div class="q-field__control-container col relative-position row no-wrap q-anchor--skip"><input tabindex="0" aria-label="Phone number" type="tel" class="q-field__native q-placeholder">
                   <div class="q-field__label no-pointer-events absolute ellipsis">Phone number</div>
-                  <div class="q-field row no-wrap items-start q-input q-field--standard">
-                    <div class="q-field__inner relative-position col self-stretch column justify-center">
-                      <div tabindex="-1" class="q-field__control relative-position row no-wrap">
-                        <div class="q-field__control-container col relative-position row no-wrap q-anchor--skip"><input tabindex="0" type="tel" class="q-field__native q-placeholder"></div>
-                      </div>
-                    </div>
-                  </div>
                 </div>
               </div>
               <div class="q-field__bottom row items-start q-field__bottom--animated">
@@ -5877,40 +5900,28 @@ exports[`Storyshots Settings Page Default 1`] = `
               </div>
             </div>
           </div>
-          <div class="q-field row no-wrap items-start q-field--standard q-field--labeled q-field--auto-height q-field--with-bottom">
-            <div class="q-field__inner relative-position col self-stretch column justify-center">
-              <div tabindex="-1" class="q-field__control relative-position row no-wrap">
-                <div class="q-field__control-container col relative-position row no-wrap q-anchor--skip">
-                  <div class="q-field__label no-pointer-events absolute ellipsis">Where you are from (not required)</div>
-                  <div>
-                    <div class="q-field row no-wrap items-start q-input q-field--standard q-field--float q-field--labeled q-field--with-bottom">
-                      <div class="q-field__before q-field__marginal row no-wrap items-center"><i aria-hidden="true"></i></div>
-                      <div class="q-field__inner relative-position col self-stretch column justify-center">
-                        <div tabindex="-1" class="q-field__control relative-position row no-wrap">
-                          <div class="q-field__control-container col relative-position row no-wrap q-anchor--skip"><input tabindex="0" placeholder="Search" type="text" value="Darmstadt, Regierungsbezirk Darmstadt, Hessen, Deutschland" class="q-field__native q-placeholder">
-                            <div class="q-field__label no-pointer-events absolute ellipsis"></div>
-                            <!---->
-                          </div>
-                          <div class="q-field__append q-field__marginal row no-wrap items-center"><button tabindex="0" type="button" class="q-btn inline q-btn-item non-selectable q-btn--flat q-btn--round q-focusable q-hoverable" style="font-size:10px;">
-                              <div tabindex="-1" class="q-focus-helper"></div>
-                              <div class="q-btn__content text-center col items-center q-anchor--skip justify-center row"><i aria-hidden="true" class="fas fa-search q-icon"> </i></div>
-                            </button></div>
-                          <div class="q-field__append q-field__marginal row no-wrap items-center q-anchor--skip"><i aria-hidden="true" class="material-icons q-icon cursor-pointer">cancel</i></div>
-                        </div>
-                        <div class="q-field__bottom row items-start q-field__bottom--animated">
-                          <div class="q-field__messages col"></div>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="vue2leaflet-map k-map map">
-                      <!---->
-                    </div>
+          <div>
+            <div class="q-field row no-wrap items-start q-input q-field--standard q-field--float q-field--labeled q-field--with-bottom">
+              <div class="q-field__before q-field__marginal row no-wrap items-center"><i aria-hidden="true" class="fas fa-map-marker q-icon"> </i></div>
+              <div class="q-field__inner relative-position col self-stretch column justify-center">
+                <div tabindex="-1" class="q-field__control relative-position row no-wrap">
+                  <div class="q-field__control-container col relative-position row no-wrap q-anchor--skip"><input tabindex="0" aria-label="Where you are from (not required)" placeholder="Search" type="text" value="Darmstadt, Regierungsbezirk Darmstadt, Hessen, Deutschland" class="q-field__native q-placeholder">
+                    <div class="q-field__label no-pointer-events absolute ellipsis">Where you are from (not required)</div>
+                    <!---->
                   </div>
+                  <div class="q-field__append q-field__marginal row no-wrap items-center"><button tabindex="0" type="button" class="q-btn inline q-btn-item non-selectable q-btn--flat q-btn--round q-focusable q-hoverable" style="font-size:10px;">
+                      <div tabindex="-1" class="q-focus-helper"></div>
+                      <div class="q-btn__content text-center col items-center q-anchor--skip justify-center row"><i aria-hidden="true" class="fas fa-search q-icon"> </i></div>
+                    </button></div>
+                  <div class="q-field__append q-field__marginal row no-wrap items-center q-anchor--skip"><i aria-hidden="true" class="material-icons q-icon cursor-pointer">cancel</i></div>
+                </div>
+                <div class="q-field__bottom row items-start q-field__bottom--animated">
+                  <div class="q-field__messages col"></div>
                 </div>
               </div>
-              <div class="q-field__bottom row items-start q-field__bottom--animated">
-                <div class="q-field__messages col"></div>
-              </div>
+            </div>
+            <div class="vue2leaflet-map k-map map">
+              <!---->
             </div>
           </div>
           <!---->
@@ -5955,18 +5966,12 @@ exports[`Storyshots Settings Page Default 1`] = `
     <div class="q-card__section">
       <div id="change-email" class="edit-box">
         <div>VerificationWarning has been mocked</div>
-        <div class="q-field row no-wrap items-start q-field--standard q-field--labeled q-field--auto-height q-field--with-bottom">
+        <div class="q-field row no-wrap items-start q-input q-field--standard q-field--labeled q-field--with-bottom">
           <div class="q-field__inner relative-position col self-stretch column justify-center">
             <div tabindex="-1" class="q-field__control relative-position row no-wrap">
-              <div class="q-field__control-container col relative-position row no-wrap q-anchor--skip">
+              <div class="q-field__prepend q-field__marginal row no-wrap items-center"><i aria-hidden="true" class="fas fa-envelope q-icon"> </i></div>
+              <div class="q-field__control-container col relative-position row no-wrap q-anchor--skip"><input tabindex="0" aria-label="E-mail" type="email" value="" class="q-field__native q-placeholder">
                 <div class="q-field__label no-pointer-events absolute ellipsis">E-mail</div>
-                <div class="q-field row no-wrap items-start q-input q-field--standard">
-                  <div class="q-field__inner relative-position col self-stretch column justify-center">
-                    <div tabindex="-1" class="q-field__control relative-position row no-wrap">
-                      <div class="q-field__control-container col relative-position row no-wrap q-anchor--skip"><input tabindex="0" type="email" value="" class="q-field__native q-placeholder"></div>
-                    </div>
-                  </div>
-                </div>
               </div>
             </div>
             <div class="q-field__bottom row items-start q-field__bottom--animated">
@@ -5974,18 +5979,12 @@ exports[`Storyshots Settings Page Default 1`] = `
             </div>
           </div>
         </div>
-        <div class="q-field row no-wrap items-start q-field--standard q-field--labeled q-field--auto-height q-field--with-bottom">
+        <div class="q-field row no-wrap items-start q-input q-field--standard q-field--labeled q-field--with-bottom">
           <div class="q-field__inner relative-position col self-stretch column justify-center">
             <div tabindex="-1" class="q-field__control relative-position row no-wrap">
-              <div class="q-field__control-container col relative-position row no-wrap q-anchor--skip">
+              <div class="q-field__prepend q-field__marginal row no-wrap items-center"><i aria-hidden="true" class="fas fa-unlock q-icon"> </i></div>
+              <div class="q-field__control-container col relative-position row no-wrap q-anchor--skip"><input tabindex="0" aria-label="Confirm your password" type="password" value="" class="q-field__native q-placeholder">
                 <div class="q-field__label no-pointer-events absolute ellipsis">Confirm your password</div>
-                <div class="q-field row no-wrap items-start q-input q-field--standard">
-                  <div class="q-field__inner relative-position col self-stretch column justify-center">
-                    <div tabindex="-1" class="q-field__control relative-position row no-wrap">
-                      <div class="q-field__control-container col relative-position row no-wrap q-anchor--skip"><input tabindex="0" type="password" value="" class="q-field__native q-placeholder"></div>
-                    </div>
-                  </div>
-                </div>
               </div>
             </div>
             <div class="q-field__bottom row items-start q-field__bottom--animated">
@@ -6004,18 +6003,12 @@ exports[`Storyshots Settings Page Default 1`] = `
       </div>
       <hr class="q-separator q-separator--horizontal col-grow">
       <div class="edit-box">
-        <div class="q-field row no-wrap items-start q-field--standard q-field--labeled q-field--auto-height q-field--with-bottom">
+        <div class="q-field row no-wrap items-start q-input q-field--standard q-field--labeled q-field--with-bottom">
           <div class="q-field__inner relative-position col self-stretch column justify-center">
             <div tabindex="-1" class="q-field__control relative-position row no-wrap">
-              <div class="q-field__control-container col relative-position row no-wrap q-anchor--skip">
+              <div class="q-field__prepend q-field__marginal row no-wrap items-center"><i aria-hidden="true" class="fas fa-lock q-icon"> </i></div>
+              <div class="q-field__control-container col relative-position row no-wrap q-anchor--skip"><input tabindex="0" aria-label="New password" type="password" value="" class="q-field__native q-placeholder">
                 <div class="q-field__label no-pointer-events absolute ellipsis">New password</div>
-                <div class="q-field row no-wrap items-start q-input q-field--standard">
-                  <div class="q-field__inner relative-position col self-stretch column justify-center">
-                    <div tabindex="-1" class="q-field__control relative-position row no-wrap">
-                      <div class="q-field__control-container col relative-position row no-wrap q-anchor--skip"><input tabindex="0" type="password" value="" class="q-field__native q-placeholder"></div>
-                    </div>
-                  </div>
-                </div>
               </div>
             </div>
             <div class="q-field__bottom row items-start q-field__bottom--animated">
@@ -6023,18 +6016,12 @@ exports[`Storyshots Settings Page Default 1`] = `
             </div>
           </div>
         </div>
-        <div class="q-field row no-wrap items-start q-field--standard q-field--labeled q-field--auto-height q-field--with-bottom">
+        <div class="q-field row no-wrap items-start q-input q-field--standard q-field--labeled q-field--with-bottom">
           <div class="q-field__inner relative-position col self-stretch column justify-center">
             <div tabindex="-1" class="q-field__control relative-position row no-wrap">
-              <div class="q-field__control-container col relative-position row no-wrap q-anchor--skip">
+              <div class="q-field__prepend q-field__marginal row no-wrap items-center"><i aria-hidden="true" class="fas fa-unlock q-icon"> </i></div>
+              <div class="q-field__control-container col relative-position row no-wrap q-anchor--skip"><input tabindex="0" aria-label="Confirm your old password" type="password" value="" class="q-field__native q-placeholder">
                 <div class="q-field__label no-pointer-events absolute ellipsis">Confirm your old password</div>
-                <div class="q-field row no-wrap items-start q-input q-field--standard">
-                  <div class="q-field__inner relative-position col self-stretch column justify-center">
-                    <div tabindex="-1" class="q-field__control relative-position row no-wrap">
-                      <div class="q-field__control-container col relative-position row no-wrap q-anchor--skip"><input tabindex="0" type="password" value="" class="q-field__native q-placeholder"></div>
-                    </div>
-                  </div>
-                </div>
               </div>
             </div>
             <div class="q-field__bottom row items-start q-field__bottom--animated">
@@ -6198,6 +6185,7 @@ exports[`Storyshots Settings Page Default 1`] = `
         <div class="q-field row no-wrap items-start q-field--standard q-field--labeled q-field--auto-height">
           <div class="q-field__inner relative-position col self-stretch column justify-center">
             <div tabindex="-1" class="q-field__control relative-position row no-wrap">
+              <div class="q-field__prepend q-field__marginal row no-wrap items-center"><i aria-hidden="true" class="fas fa-bell q-icon"> </i></div>
               <div class="q-field__control-container col relative-position row no-wrap q-anchor--skip">
                 <div class="q-field__label no-pointer-events absolute ellipsis">Current browser</div>
                 <div tabindex="0" class="q-toggle cursor-pointer no-outline row inline no-wrap items-center">
@@ -6409,17 +6397,12 @@ exports[`Storyshots Signup empty 1`] = `
   <form name="signup">
     <div class="content">
       <div class="white-box">
-        <div class="q-field row no-wrap items-start q-field--standard q-field--auto-height q-field--with-bottom">
+        <div class="q-field row no-wrap items-start q-input q-field--standard q-field--labeled q-field--with-bottom">
           <div class="q-field__inner relative-position col self-stretch column justify-center">
             <div tabindex="-1" class="q-field__control relative-position row no-wrap">
-              <div class="q-field__control-container col relative-position row no-wrap q-anchor--skip">
-                <div class="q-field row no-wrap items-start q-input q-field--standard">
-                  <div class="q-field__inner relative-position col self-stretch column justify-center">
-                    <div tabindex="-1" class="q-field__control relative-position row no-wrap">
-                      <div class="q-field__control-container col relative-position row no-wrap q-anchor--skip"><input tabindex="0" autofocus="autofocus" label="Name" autocorrect="off" autocapitalize="off" spellcheck="false" type="text" class="q-field__native q-placeholder"></div>
-                    </div>
-                  </div>
-                </div>
+              <div class="q-field__prepend q-field__marginal row no-wrap items-center"><i aria-hidden="true" class="fas fa-user q-icon"> </i></div>
+              <div class="q-field__control-container col relative-position row no-wrap q-anchor--skip"><input tabindex="0" autofocus="autofocus" aria-label="Name" autocorrect="off" autocapitalize="off" spellcheck="false" type="text" class="q-field__native q-placeholder">
+                <div class="q-field__label no-pointer-events absolute ellipsis">Name</div>
               </div>
             </div>
             <div class="q-field__bottom row items-start q-field__bottom--animated">
@@ -6429,17 +6412,12 @@ exports[`Storyshots Signup empty 1`] = `
         </div>
       </div>
       <div class="white-box">
-        <div class="q-field row no-wrap items-start q-field--standard q-field--auto-height q-field--with-bottom">
+        <div class="q-field row no-wrap items-start q-input q-field--standard q-field--float q-field--labeled q-field--with-bottom">
           <div class="q-field__inner relative-position col self-stretch column justify-center">
             <div tabindex="-1" class="q-field__control relative-position row no-wrap">
-              <div class="q-field__control-container col relative-position row no-wrap q-anchor--skip">
-                <div class="q-field row no-wrap items-start q-input q-field--standard q-field--float">
-                  <div class="q-field__inner relative-position col self-stretch column justify-center">
-                    <div tabindex="-1" class="q-field__control relative-position row no-wrap">
-                      <div class="q-field__control-container col relative-position row no-wrap q-anchor--skip"><input tabindex="0" label="E-mail" autocorrect="off" autocapitalize="off" spellcheck="false" type="email" value="default@example.com" class="q-field__native q-placeholder"></div>
-                    </div>
-                  </div>
-                </div>
+              <div class="q-field__prepend q-field__marginal row no-wrap items-center"><i aria-hidden="true" class="fas fa-envelope q-icon"> </i></div>
+              <div class="q-field__control-container col relative-position row no-wrap q-anchor--skip"><input tabindex="0" aria-label="E-mail" autocorrect="off" autocapitalize="off" spellcheck="false" type="email" value="default@example.com" class="q-field__native q-placeholder">
+                <div class="q-field__label no-pointer-events absolute ellipsis">E-mail</div>
               </div>
             </div>
             <div class="q-field__bottom row items-start q-field__bottom--animated">
@@ -6449,17 +6427,12 @@ exports[`Storyshots Signup empty 1`] = `
         </div>
       </div>
       <div class="white-box">
-        <div class="q-field row no-wrap items-start q-field--standard q-field--auto-height q-field--with-bottom">
+        <div class="q-field row no-wrap items-start q-input q-field--standard q-field--labeled q-field--with-bottom">
           <div class="q-field__inner relative-position col self-stretch column justify-center">
             <div tabindex="-1" class="q-field__control relative-position row no-wrap">
-              <div class="q-field__control-container col relative-position row no-wrap q-anchor--skip">
-                <div class="q-field row no-wrap items-start q-input q-field--standard">
-                  <div class="q-field__inner relative-position col self-stretch column justify-center">
-                    <div tabindex="-1" class="q-field__control relative-position row no-wrap">
-                      <div class="q-field__control-container col relative-position row no-wrap q-anchor--skip"><input tabindex="0" label="Password" autocorrect="off" autocapitalize="off" spellcheck="false" type="password" class="q-field__native q-placeholder"></div>
-                    </div>
-                  </div>
-                </div>
+              <div class="q-field__prepend q-field__marginal row no-wrap items-center"><i aria-hidden="true" class="fas fa-lock q-icon"> </i></div>
+              <div class="q-field__control-container col relative-position row no-wrap q-anchor--skip"><input tabindex="0" aria-label="Password" autocorrect="off" autocapitalize="off" spellcheck="false" type="password" class="q-field__native q-placeholder">
+                <div class="q-field__label no-pointer-events absolute ellipsis">Password</div>
               </div>
             </div>
             <div class="q-field__bottom row items-start q-field__bottom--animated">
@@ -6493,17 +6466,12 @@ exports[`Storyshots Signup error 1`] = `
   <form name="signup">
     <div class="content">
       <div class="white-box">
-        <div class="q-field row no-wrap items-start q-field--standard q-field--auto-height q-field--with-bottom">
+        <div class="q-field row no-wrap items-start q-input q-field--standard q-field--labeled q-field--with-bottom">
           <div class="q-field__inner relative-position col self-stretch column justify-center">
             <div tabindex="-1" class="q-field__control relative-position row no-wrap">
-              <div class="q-field__control-container col relative-position row no-wrap q-anchor--skip">
-                <div class="q-field row no-wrap items-start q-input q-field--standard">
-                  <div class="q-field__inner relative-position col self-stretch column justify-center">
-                    <div tabindex="-1" class="q-field__control relative-position row no-wrap">
-                      <div class="q-field__control-container col relative-position row no-wrap q-anchor--skip"><input tabindex="0" autofocus="autofocus" label="Name" autocorrect="off" autocapitalize="off" spellcheck="false" type="text" class="q-field__native q-placeholder"></div>
-                    </div>
-                  </div>
-                </div>
+              <div class="q-field__prepend q-field__marginal row no-wrap items-center"><i aria-hidden="true" class="fas fa-user q-icon"> </i></div>
+              <div class="q-field__control-container col relative-position row no-wrap q-anchor--skip"><input tabindex="0" autofocus="autofocus" aria-label="Name" autocorrect="off" autocapitalize="off" spellcheck="false" type="text" class="q-field__native q-placeholder">
+                <div class="q-field__label no-pointer-events absolute ellipsis">Name</div>
               </div>
             </div>
             <div class="q-field__bottom row items-start q-field__bottom--animated">
@@ -6513,17 +6481,12 @@ exports[`Storyshots Signup error 1`] = `
         </div>
       </div>
       <div class="white-box">
-        <div class="q-field row no-wrap items-start q-field--standard q-field--focused q-field--float q-field--auto-height q-field--with-bottom q-field--error">
+        <div class="q-field row no-wrap items-start q-input q-field--standard q-field--focused q-field--float q-field--labeled q-field--with-bottom q-field--error">
           <div class="q-field__inner relative-position col self-stretch column justify-center">
             <div tabindex="-1" class="q-field__control relative-position row no-wrap text-negative">
-              <div class="q-field__control-container col relative-position row no-wrap q-anchor--skip">
-                <div class="q-field row no-wrap items-start q-input q-field--standard q-field--float">
-                  <div class="q-field__inner relative-position col self-stretch column justify-center">
-                    <div tabindex="-1" class="q-field__control relative-position row no-wrap">
-                      <div class="q-field__control-container col relative-position row no-wrap q-anchor--skip"><input tabindex="0" label="E-mail" autocorrect="off" autocapitalize="off" spellcheck="false" type="email" value="default@example.com" class="q-field__native q-placeholder"></div>
-                    </div>
-                  </div>
-                </div>
+              <div class="q-field__prepend q-field__marginal row no-wrap items-center"><i aria-hidden="true" class="fas fa-envelope q-icon"> </i></div>
+              <div class="q-field__control-container col relative-position row no-wrap q-anchor--skip"><input tabindex="0" aria-label="E-mail" autocorrect="off" autocapitalize="off" spellcheck="false" type="email" value="default@example.com" class="q-field__native q-placeholder">
+                <div class="q-field__label no-pointer-events absolute ellipsis">E-mail</div>
               </div>
               <div class="q-field__append q-field__marginal row no-wrap items-center q-anchor--skip"><i aria-hidden="true" class="material-icons q-icon text-negative">error</i></div>
             </div>
@@ -6536,17 +6499,12 @@ exports[`Storyshots Signup error 1`] = `
         </div>
       </div>
       <div class="white-box">
-        <div class="q-field row no-wrap items-start q-field--standard q-field--auto-height q-field--with-bottom">
+        <div class="q-field row no-wrap items-start q-input q-field--standard q-field--labeled q-field--with-bottom">
           <div class="q-field__inner relative-position col self-stretch column justify-center">
             <div tabindex="-1" class="q-field__control relative-position row no-wrap">
-              <div class="q-field__control-container col relative-position row no-wrap q-anchor--skip">
-                <div class="q-field row no-wrap items-start q-input q-field--standard">
-                  <div class="q-field__inner relative-position col self-stretch column justify-center">
-                    <div tabindex="-1" class="q-field__control relative-position row no-wrap">
-                      <div class="q-field__control-container col relative-position row no-wrap q-anchor--skip"><input tabindex="0" label="Password" autocorrect="off" autocapitalize="off" spellcheck="false" type="password" class="q-field__native q-placeholder"></div>
-                    </div>
-                  </div>
-                </div>
+              <div class="q-field__prepend q-field__marginal row no-wrap items-center"><i aria-hidden="true" class="fas fa-lock q-icon"> </i></div>
+              <div class="q-field__control-container col relative-position row no-wrap q-anchor--skip"><input tabindex="0" aria-label="Password" autocorrect="off" autocapitalize="off" spellcheck="false" type="password" class="q-field__native q-placeholder">
+                <div class="q-field__label no-pointer-events absolute ellipsis">Password</div>
               </div>
             </div>
             <div class="q-field__bottom row items-start q-field__bottom--animated">
@@ -6580,17 +6538,12 @@ exports[`Storyshots Signup pending 1`] = `
   <form name="signup">
     <div class="content">
       <div class="white-box">
-        <div class="q-field row no-wrap items-start q-field--standard q-field--auto-height q-field--with-bottom">
+        <div class="q-field row no-wrap items-start q-input q-field--standard q-field--labeled q-field--with-bottom">
           <div class="q-field__inner relative-position col self-stretch column justify-center">
             <div tabindex="-1" class="q-field__control relative-position row no-wrap">
-              <div class="q-field__control-container col relative-position row no-wrap q-anchor--skip">
-                <div class="q-field row no-wrap items-start q-input q-field--standard">
-                  <div class="q-field__inner relative-position col self-stretch column justify-center">
-                    <div tabindex="-1" class="q-field__control relative-position row no-wrap">
-                      <div class="q-field__control-container col relative-position row no-wrap q-anchor--skip"><input tabindex="0" autofocus="autofocus" label="Name" autocorrect="off" autocapitalize="off" spellcheck="false" type="text" class="q-field__native q-placeholder"></div>
-                    </div>
-                  </div>
-                </div>
+              <div class="q-field__prepend q-field__marginal row no-wrap items-center"><i aria-hidden="true" class="fas fa-user q-icon"> </i></div>
+              <div class="q-field__control-container col relative-position row no-wrap q-anchor--skip"><input tabindex="0" autofocus="autofocus" aria-label="Name" autocorrect="off" autocapitalize="off" spellcheck="false" type="text" class="q-field__native q-placeholder">
+                <div class="q-field__label no-pointer-events absolute ellipsis">Name</div>
               </div>
             </div>
             <div class="q-field__bottom row items-start q-field__bottom--animated">
@@ -6600,17 +6553,12 @@ exports[`Storyshots Signup pending 1`] = `
         </div>
       </div>
       <div class="white-box">
-        <div class="q-field row no-wrap items-start q-field--standard q-field--auto-height q-field--with-bottom">
+        <div class="q-field row no-wrap items-start q-input q-field--standard q-field--float q-field--labeled q-field--with-bottom">
           <div class="q-field__inner relative-position col self-stretch column justify-center">
             <div tabindex="-1" class="q-field__control relative-position row no-wrap">
-              <div class="q-field__control-container col relative-position row no-wrap q-anchor--skip">
-                <div class="q-field row no-wrap items-start q-input q-field--standard q-field--float">
-                  <div class="q-field__inner relative-position col self-stretch column justify-center">
-                    <div tabindex="-1" class="q-field__control relative-position row no-wrap">
-                      <div class="q-field__control-container col relative-position row no-wrap q-anchor--skip"><input tabindex="0" label="E-mail" autocorrect="off" autocapitalize="off" spellcheck="false" type="email" value="default@example.com" class="q-field__native q-placeholder"></div>
-                    </div>
-                  </div>
-                </div>
+              <div class="q-field__prepend q-field__marginal row no-wrap items-center"><i aria-hidden="true" class="fas fa-envelope q-icon"> </i></div>
+              <div class="q-field__control-container col relative-position row no-wrap q-anchor--skip"><input tabindex="0" aria-label="E-mail" autocorrect="off" autocapitalize="off" spellcheck="false" type="email" value="default@example.com" class="q-field__native q-placeholder">
+                <div class="q-field__label no-pointer-events absolute ellipsis">E-mail</div>
               </div>
             </div>
             <div class="q-field__bottom row items-start q-field__bottom--animated">
@@ -6620,17 +6568,12 @@ exports[`Storyshots Signup pending 1`] = `
         </div>
       </div>
       <div class="white-box">
-        <div class="q-field row no-wrap items-start q-field--standard q-field--auto-height q-field--with-bottom">
+        <div class="q-field row no-wrap items-start q-input q-field--standard q-field--labeled q-field--with-bottom">
           <div class="q-field__inner relative-position col self-stretch column justify-center">
             <div tabindex="-1" class="q-field__control relative-position row no-wrap">
-              <div class="q-field__control-container col relative-position row no-wrap q-anchor--skip">
-                <div class="q-field row no-wrap items-start q-input q-field--standard">
-                  <div class="q-field__inner relative-position col self-stretch column justify-center">
-                    <div tabindex="-1" class="q-field__control relative-position row no-wrap">
-                      <div class="q-field__control-container col relative-position row no-wrap q-anchor--skip"><input tabindex="0" label="Password" autocorrect="off" autocapitalize="off" spellcheck="false" type="password" class="q-field__native q-placeholder"></div>
-                    </div>
-                  </div>
-                </div>
+              <div class="q-field__prepend q-field__marginal row no-wrap items-center"><i aria-hidden="true" class="fas fa-lock q-icon"> </i></div>
+              <div class="q-field__control-container col relative-position row no-wrap q-anchor--skip"><input tabindex="0" aria-label="Password" autocorrect="off" autocapitalize="off" spellcheck="false" type="password" class="q-field__native q-placeholder">
+                <div class="q-field__label no-pointer-events absolute ellipsis">Password</div>
               </div>
             </div>
             <div class="q-field__bottom row items-start q-field__bottom--animated">
@@ -6896,22 +6839,14 @@ exports[`Storyshots Statistics PickupFeedback 1`] = `
         <div class="image-and-text-right">
           <h4>Thank you for your pickup!</h4>
           <p>
-            <div class="q-field row no-wrap items-start grey-font q-field--standard q-field--dark q-field--auto-height">
+            <div class="q-field row no-wrap items-start grey-font q-select q-field--auto-height q-select--without-input q-field--standard q-field--float q-field--dark">
               <div class="q-field__inner relative-position col self-stretch column justify-center">
                 <div tabindex="-1" class="q-field__control relative-position row no-wrap">
                   <div class="q-field__control-container col relative-position row no-wrap q-anchor--skip">
-                    <div class="q-field row no-wrap items-start q-select q-field--auto-height q-select--without-input q-field--standard q-field--float">
-                      <div class="q-field__inner relative-position col self-stretch column justify-center">
-                        <div tabindex="-1" class="q-field__control relative-position row no-wrap">
-                          <div class="q-field__control-container col relative-position row no-wrap q-anchor--skip">
-                            <div tabindex="0" class="q-field__native row items-center"><span></span></div>
-                          </div>
-                          <div class="q-field__append q-field__marginal row no-wrap items-center q-anchor--skip"><i aria-hidden="true" class="material-icons q-icon q-select__dropdown-icon">arrow_drop_down</i></div>
-                          <!---->
-                        </div>
-                      </div>
-                    </div>
+                    <div tabindex="0" class="q-field__native row items-center"><span></span></div>
                   </div>
+                  <div class="q-field__append q-field__marginal row no-wrap items-center q-anchor--skip"><i aria-hidden="true" class="material-icons q-icon q-select__dropdown-icon">arrow_drop_down</i></div>
+                  <!---->
                 </div>
               </div>
             </div>
@@ -6937,7 +6872,7 @@ exports[`Storyshots Statistics PickupFeedback 1`] = `
           <div class="q-field__before q-field__marginal row no-wrap items-center"><i aria-hidden="true"></i></div>
           <div class="q-field__inner relative-position col self-stretch column justify-center">
             <div tabindex="-1" class="q-field__control relative-position row no-wrap">
-              <div class="q-field__control-container col relative-position row no-wrap q-anchor--skip"><textarea tabindex="0" rows="1" autocomplete="true" type="textarea" class="q-field__native q-placeholder" style="min-height:100px;"></textarea>
+              <div class="q-field__control-container col relative-position row no-wrap q-anchor--skip"><textarea tabindex="0" rows="1" placeholder="Was everything fine? Did everyone show up? Your comment here..." autocomplete="true" type="textarea" class="q-field__native q-placeholder" style="min-height:100px;"></textarea>
                 <div class="q-field__label no-pointer-events absolute ellipsis"></div>
               </div>
             </div>

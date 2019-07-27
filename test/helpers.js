@@ -9,7 +9,6 @@ import { IconPlugin } from '@/base/icons'
 
 Vue.use(Vuex)
 Vue.use(IconPlugin)
-Vue.use(VueRouter)
 
 Object.defineProperty(window.navigator, 'userAgent', (userAgent => {
   return {
@@ -127,9 +126,6 @@ const storybookRouter = new VueRouter()
 
 export function storybookDefaults (options) {
   i18n.locale = 'en'
-  Vue.component('RouterLink', RouterLinkStub)
-  Vue.component('Transition', TransitionStub)
-  Vue.component('TransitionGroup', TransitionGroupStub)
   return {
     router: storybookRouter,
     i18n,

@@ -3,8 +3,21 @@
     <div class="k-profile">
       <QBanner
         v-if="!currentGroupMembership && currentGroup"
-        type="warning"
+        class="bg-warning text-white shadow-2 q-mb-sm q-pa-none"
+        style="min-height: unset"
       >
+        <template v-slot:avatar>
+          <div
+            class="q-pa-sm"
+            style="background-color: rgba(0,0,0,.1)"
+          >
+            <QIcon
+              name="priority_high"
+              class="text-white"
+              style="font-size: 24px"
+            />
+          </div>
+        </template>
         {{ $t('SWITCHGROUP.NOT_MEMBER', { userName: user.displayName, groupName: currentGroup.name }) }}
       </QBanner>
       <div
@@ -206,6 +219,7 @@ import {
   QItem,
   QItemSection,
   QDialog,
+  QIcon,
 } from 'quasar'
 
 export default {
@@ -226,6 +240,7 @@ export default {
     QItem,
     QItemSection,
     QDialog,
+    QIcon,
   },
   data () {
     return {

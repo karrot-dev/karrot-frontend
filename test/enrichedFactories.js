@@ -67,6 +67,8 @@ export const makeGroup = data => {
       'new_application',
     ],
     isOpen: true,
+    isCurrentGroup: false,
+    isMember: false,
     trustThresholdForNewcomer: 1,
     ...data,
   }
@@ -80,7 +82,12 @@ export const makeMembership = data => {
       'editor',
     ],
     active: true,
+    isEditor: false,
     trustedBy: [],
+    trustThresholdForNewcomer: 3,
+    trusted: false,
+    trustProgress: 0.5,
+    trustUserStatus: statusMocks.default(),
     ...data,
   }
 }
@@ -106,6 +113,7 @@ export const makeUserProfile = data => {
     address: '',
     description: '',
     groups: [],
+    membership: null,
     ...data,
   }
 }
@@ -242,7 +250,9 @@ export const makeHistory = data => {
     date: subHours(new Date(), 26),
     typus: 'GROUP_CHANGE_PHOTO',
     group: makeGroup(),
-    users: [ 222 ],
+    users: [
+      makeUser(),
+    ],
     store: null,
     message: 'Changed the group picture',
     ...data,

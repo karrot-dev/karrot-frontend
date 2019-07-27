@@ -2,6 +2,7 @@
   <div class="edit-box k-change-photo">
     <QField
       :label="label"
+      stack-label
       :error="hasError('photo')"
       :error-message="firstError('photo')"
       :hint="helper"
@@ -15,8 +16,8 @@
         :width="300"
         :height="300"
         placeholder=""
-        :prevent-white-space="true"
-        :show-loading="true"
+        prevent-white-space
+        show-loading
         :class="{pointer: !hasPhoto}"
         :zoom-speed="10"
         @file-choose="saveDisabled = false"
@@ -29,7 +30,7 @@
         >
         <img
           slot="placeholder"
-          src="statics/add_a_photo.svg"
+          :src="placeholder"
         >
       </Croppa>
     </QField>
@@ -57,27 +58,43 @@
 import {
   QField,
   QBtn,
+  QIcon,
 } from 'quasar'
 import CroppaPlugin from 'vue-croppa'
 const Croppa = CroppaPlugin.component
 import statusMixin from '@/utils/mixins/statusMixin'
+import placeholder from '@/statics/add_a_photo.svg'
 
 export default {
   components: {
     QField,
     QBtn,
+    QIcon,
     Croppa,
   },
   mixins: [statusMixin],
   props: {
-    value: { required: true, type: Object },
-    mimeType: { type: String, default: 'image/png' },
-    label: { type: String, default: '' },
-    helper: { type: String, default: '' },
+    value: {
+      type: Object,
+      default: null,
+    },
+    mimeType: {
+      type: String,
+      default: 'image/png',
+    },
+    label: {
+      type: String,
+      default: '',
+    },
+    helper: {
+      type: String,
+      default: '',
+    },
   },
   data () {
     return {
       saveDisabled: true,
+      placeholder,
     }
   },
   computed: {
@@ -90,7 +107,7 @@ export default {
 
       // In development we want to force the images to load from our local proxy
       // so that we don't get issues with missing CORS headers
-      if (__ENV.DEV) return ['http://localhost:8080', url.substring(url.indexOf('/media'))].join('')
+      if (__ENV.DEV && url.includes('/media')) return ['http://localhost:8080', url.substring(url.indexOf('/media'))].join('')
 
       return url
     },

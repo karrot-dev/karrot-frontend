@@ -11,7 +11,10 @@
       :to="linkParamsFor(place)"
       :class="{'router-link-active': place.isActivePlace}"
     >
-      <QItemSection side class="text-center">
+      <QItemSection
+        side
+        class="text-center"
+      >
         <QIcon
           :name="place.ui.icon"
           :color="place.ui.color"
@@ -32,9 +35,9 @@
           />
         </QItemLabel>
       </QItemSection>
-      <QItemSection side
+      <QItemSection
         v-if="place.conversationUnreadCount > 0"
-        right
+        side
       >
         <QChip
           small
@@ -90,7 +93,6 @@ import {
   QItem,
   QItemSection,
   QItemLabel,
-  QItemSection
   QIcon,
   QTooltip,
   QExpansionItem,
@@ -105,7 +107,6 @@ export default {
     QItem,
     QItemSection,
     QItemLabel,
-    QItemSection
     QIcon,
     QTooltip,
     QExpansionItem,

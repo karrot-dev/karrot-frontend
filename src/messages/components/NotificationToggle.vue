@@ -19,7 +19,8 @@
           <QItem
             :to="{ name: 'settings', hash: '#change-email' }"
           >
-            <QItemSection side
+            <QItemSection
+              side
               color="negative"
               icon="fas fa-fw fa-exclamation-triangle"
             />
@@ -30,8 +31,8 @@
           <QSeparator />
         </template>
         <QItemLabel
-          header
           v-t="'NOTIFICATION_TOGGLE.HEADER'"
+          header
         />
         <QItem
           v-for="o in options"
@@ -39,7 +40,8 @@
           :class="o.selected ? 'bg-grey-2' : ''"
           @click.native="select(o)"
         >
-          <QItemSection side
+          <QItemSection
+            side
             :color="o.color"
             :icon="o.icon"
           />
@@ -61,7 +63,6 @@ import {
   QList,
   QItem,
   QItemSection,
-  QItemSection
   QItemLabel,
   QSeparator,
 } from 'quasar'
@@ -74,7 +75,6 @@ export default {
     QList,
     QItem,
     QItemSection,
-    QItemSection
     QItemLabel,
     QSeparator,
   },

@@ -21,7 +21,7 @@
             :label="$t('GROUP.TITLE')"
             :error="hasNameError"
             :error-message="nameError"
-            :autofocus="true"
+            autofocus
             autocomplete="off"
             @blur="$v.edit.name.$touch"
           >

@@ -32,7 +32,6 @@
 import {
   QItem,
   QItemSection,
-  QItemSection
   QItemLabel,
 } from 'quasar'
 
@@ -43,7 +42,6 @@ export default {
   components: {
     QItem,
     QItemSection,
-    QItemSection
     QItemLabel,
     ProfilePicture,
     DateAsWords,

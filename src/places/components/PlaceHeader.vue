@@ -58,8 +58,8 @@
               link
             >
               <QItemLabel
-                header
                 v-t="'PLACEWALL.SUBSCRIPTION.HEADER'"
+                header
               />
 
               <QItem
@@ -68,7 +68,8 @@
                 :class="o.selected ? 'bg-grey-2' : ''"
                 @click.native="select(o)"
               >
-                <QItemSection side
+                <QItemSection
+                  side
                   :color="o.color"
                   :icon="o.icon"
                 />
@@ -124,7 +125,7 @@
     <QDialog
       v-model="showDetail"
     >
-      <QDialogLayout>
+      <QLayout container>
         <QToolbar slot="header">
           <QToolbarTitle v-if="place">
             <QIcon
@@ -160,7 +161,7 @@
             />
           </template>
         </div>
-      </QDialogLayout>
+      </QLayout>
     </QDialog>
   </div>
 </template>
@@ -189,10 +190,9 @@ import {
   QItemLabel,
   QItem,
   QItemSection,
-  QItemSection
   QChip,
   QDialog,
-  QDialogLayout,
+  QLayout,
   QToolbar,
   QToolbarTitle,
   QIcon,
@@ -213,10 +213,9 @@ export default {
     QItemLabel,
     QItem,
     QItemSection,
-    QItemSection
     QChip,
     QDialog,
-    QDialogLayout,
+    QLayout,
     QToolbar,
     QToolbarTitle,
     QIcon,

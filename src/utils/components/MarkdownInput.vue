@@ -2,6 +2,7 @@
   <QInput
     :value="value"
     :label="label"
+    :placeholder="placeholder"
     :error="error"
     :error-message="errorMessage"
     type="textarea"
@@ -101,6 +102,10 @@ export default {
       type: String,
     },
     label: {
+      default: null,
+      type: String,
+    },
+    placeholder: {
       default: null,
       type: String,
     },

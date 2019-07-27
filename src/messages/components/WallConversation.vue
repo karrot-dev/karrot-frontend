@@ -22,7 +22,7 @@
             :is-participant="data.isParticipant"
             @submit="$emit('send', { id: data.id, content: arguments[0] })"
           />
-          <QAlert
+          <QBanner
             v-if="data.isParticipant && data.unreadMessageCount > 0"
             color="secondary"
             icon="star"
@@ -42,7 +42,7 @@
                 @click="$emit('markAllRead', data.id)"
               />
             </div>
-          </QAlert>
+          </QBanner>
           <ConversationMessage
             v-for="message in data.messages"
             :key="message.id"
@@ -67,7 +67,7 @@ import {
   QBtn,
   QInfiniteScroll,
   QList,
-  QAlert,
+  QBanner,
 } from 'quasar'
 
 export default {
@@ -80,7 +80,7 @@ export default {
     QBtn,
     QInfiniteScroll,
     QList,
-    QAlert,
+    QBanner,
   },
   props: {
     data: {

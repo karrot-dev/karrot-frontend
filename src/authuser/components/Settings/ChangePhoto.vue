@@ -1,12 +1,14 @@
 <template>
   <div class="edit-box k-change-photo">
     <QField
-      icon="fas fa-camera"
       :label="label"
       :error="hasError('photo')"
       :error-message="firstError('photo')"
       :hint="helper"
     >
+      <template v-slot:prepend>
+        <QIcon name="fas fa-camera" />
+      </template>
       <Croppa
         ref="croppaPhoto"
         v-slot:control

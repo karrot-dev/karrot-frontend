@@ -6,7 +6,11 @@
       <QItem
         v-if="users.length > 15"
       >
-        <QSearch v-model="filterTerm" />
+        <QInput v-model="filterTerm">
+          <template v-slot:prepend>
+            <QIcon name="search" />
+          </template>
+        </QInput>
       </QItem>
       <UserItem
         v-for="user in activeUsers"
@@ -61,12 +65,11 @@ import {
   QList,
   QSeparator,
   QItem,
-  QItemSection
   QItemSection,
-  QItemLabel,
   QExpansionItem,
   QBtn,
-  QSearch,
+  QInput,
+  QIcon,
 } from 'quasar'
 
 import UserItem from './UserItem'
@@ -77,12 +80,11 @@ export default {
     QList,
     QSeparator,
     QItem,
-    QItemSection
     QItemSection,
-    QItemLabel,
     QExpansionItem,
     QBtn,
-    QSearch,
+    QInput,
+    QIcon,
   },
   props: {
     users: {

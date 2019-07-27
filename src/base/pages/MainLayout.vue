@@ -25,7 +25,7 @@
       :class="isBikeKitchen ? 'bikekitchen' : ''"
     >
       <QLayout :view="layoutView">
-        <QLayoutHeader reveal>
+        <QHeader reveal>
           <KTopbar
             v-if="isLoggedIn"
             @toggleSidenav="toggleSidenav"
@@ -46,10 +46,10 @@
           </KTopbar>
           <KTopbarLoggedOut v-if="!isLoggedIn" />
           <RouterView name="subheader" />
-        </QLayoutHeader>
+        </QHeader>
 
         <!-- mobile sidenav -->
-        <QLayoutDrawer
+        <QDrawer
           v-if="$q.platform.is.mobile"
           v-model="showSidenav"
           side="left"
@@ -63,7 +63,10 @@
             link
             @click.native="toggleAbout()"
           >
-            <QItemSection side class="text-center">
+            <QItemSection
+              side
+              class="text-center"
+            >
               <KarrotLogo class="logo" />
             </QItemSection>
             <QItemSection>
@@ -71,10 +74,10 @@
             </QItemSection>
           </QItem>
           <CommunityFeed />
-        </QLayoutDrawer>
+        </QDrawer>
 
         <!-- desktop sidenav -->
-        <QLayoutDrawer
+        <QDrawer
           v-else-if="isLoggedIn && currentGroupId && hasSidenavComponent && !disableDesktopSidenav"
           side="left"
           :width="sidenavWidth"
@@ -88,7 +91,10 @@
             link
             @click.native="toggleAbout()"
           >
-            <QItemSection side class="text-center">
+            <QItemSection
+              side
+              class="text-center"
+            >
               <KarrotLogo class="logo" />
             </QItemSection>
             <QItemSection>
@@ -96,7 +102,7 @@
             </QItemSection>
           </QItem>
           <CommunityFeed />
-        </QLayoutDrawer>
+        </QDrawer>
 
         <QPageContainer>
           <Banners />
@@ -106,8 +112,8 @@
           >
             <Component
               :is="disablePullToRefresh ? 'div' : 'QPullToRefresh'"
-              :handler="refresh"
               style="max-height: none"
+              @refresh="refresh"
             >
               <RouterView
                 v-if="$q.platform.is.mobile && hasDetailComponent"
@@ -118,7 +124,7 @@
           </QPage>
         </QPageContainer>
 
-        <QLayoutDrawer
+        <QDrawer
           v-if="!$q.platform.is.mobile"
           side="right"
           :width="detailWidth"
@@ -134,14 +140,14 @@
             v-else
             name="detail"
           />
-        </QLayoutDrawer>
+        </QDrawer>
 
-        <QLayoutFooter>
+        <QFooter>
           <RouterView name="footer" />
           <UnsupportedBrowserWarning
             v-if="$q.platform.is.mobile && !$keyboard.is.open"
           />
-        </QLayoutFooter>
+        </QFooter>
       </QLayout>
     </div>
 
@@ -167,16 +173,15 @@ import CommunityFeed from '@/communityFeed/components/CommunityFeed'
 import { mapGetters, mapActions } from 'vuex'
 import {
   QLayout,
-  QLayoutHeader,
-  QLayoutDrawer,
-  QLayoutFooter,
+  QHeader,
+  QDrawer,
+  QFooter,
   QDialog,
   QPageContainer,
   QPage,
   QItem,
   QIcon,
   QItemSection,
-  QItemSection
   QBtn,
   QPullToRefresh,
 } from 'quasar'
@@ -192,16 +197,15 @@ export default {
     SidenavTitle,
     MobileSidenav,
     QLayout,
-    QLayoutHeader,
-    QLayoutDrawer,
-    QLayoutFooter,
+    QHeader,
+    QDrawer,
+    QFooter,
     QPageContainer,
     QPage,
     QBtn,
     QIcon,
     QItem,
     QItemSection,
-    QItemSection
     QPullToRefresh,
     Banners,
     RouteError,

@@ -55,15 +55,10 @@
         >
           <p><strong> {{ $t('CONFLICT.STEPPER4a') }} </strong></p>
           <p>{{ $t('CONFLICT.STEPPER4b', { userName: user.displayName }) }}</p>
-          <MarkdownInput :value="initialStatement">
-            <QInput
-              id="initial-statement"
-              v-model="initialStatement"
-              type="textarea"
-              rows="6"
-              @keyup.ctrl.enter="submit"
-            />
-          </MarkdownInput>
+          <MarkdownInput
+            v-model="initialStatement"
+            @keyup.ctrl.enter="submit"
+          />
         </QStep>
         <template v-slot:navigation>
           <QStepperNavigation>
@@ -119,7 +114,6 @@ import {
   QStep,
   QStepperNavigation,
   QBtn,
-  QInput,
 } from 'quasar'
 import MarkdownInput from '@/utils/components/MarkdownInput'
 import statusMixin from '@/utils/mixins/statusMixin'
@@ -130,7 +124,6 @@ export default {
     QStepper,
     QStepperNavigation,
     QBtn,
-    QInput,
     MarkdownInput,
   },
   mixins: [statusMixin],

@@ -6,20 +6,20 @@
     >
       <div class="content">
         <div class="white-box">
-          <QField
-            icon="fas fa-lock"
+          <QInput
+            v-model="newPassword"
+            type="password"
+            :label="$t('USERDATA.PASSWORD')"
+            autocorrect="off"
+            autocapitalize="off"
+            spellcheck="false"
             :error="hasError('newPassword')"
             :error-message="firstError('newPassword')"
           >
-            <QInput
-              v-model="newPassword"
-              type="password"
-              :float-label="$t('USERDATA.PASSWORD')"
-              autocorrect="off"
-              autocapitalize="off"
-              spellcheck="false"
-            />
-          </QField>
+            <template v-slot:prepend>
+              <QIcon name="fas fa-lock" />
+            </template>
+          </QInput>
         </div>
         <div
           v-if="hasError('code')"
@@ -53,17 +53,17 @@
 
 <script>
 import {
-  QField,
   QInput,
   QBtn,
+  QIcon,
 } from 'quasar'
 import statusMixin from '@/utils/mixins/statusMixin'
 
 export default {
   components: {
-    QField,
     QInput,
     QBtn,
+    QIcon,
   },
   mixins: [statusMixin],
   props: {

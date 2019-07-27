@@ -21,7 +21,7 @@
               <DateAsWords :date="invite.createdAt" />
             </QItemLabel>
           </QItemSection>
-          <QItemSection side right>
+          <QItemSection side>
             <ProfilePicture
               :user="invite.invitedBy"
               :size="25"
@@ -37,9 +37,7 @@
 import {
   QList,
   QItem,
-  QItemSection
   QItemSection,
-  QItemLabel,
   QItemLabel,
 } from 'quasar'
 import statusMixin from '@/utils/mixins/statusMixin'
@@ -51,9 +49,7 @@ export default {
   components: {
     QList,
     QItem,
-    QItemSection
     QItemSection,
-    QItemLabel,
     QItemLabel,
     ProfilePicture,
     DateAsWords,

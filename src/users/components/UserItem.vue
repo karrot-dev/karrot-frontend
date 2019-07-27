@@ -41,16 +41,14 @@
       </QItemLabel>
     </QItemSection>
     <QItemSection side>
-      <QItemTile>
-        <TrustButton
-          v-if="user.membership"
-          :user="user"
-          :group="group"
-          :membership="user.membership"
-          small
-          @createTrust="$emit('createTrust', arguments[0])"
-        />
-      </QItemLabel>
+      <TrustButton
+        v-if="user.membership"
+        :user="user"
+        :group="group"
+        :membership="user.membership"
+        small
+        @createTrust="$emit('createTrust', arguments[0])"
+      />
     </QItemSection>
   </QItem>
 </template>
@@ -61,7 +59,6 @@ import {
   QItem,
   QItemSection,
   QItemLabel,
-  QItemSection
 } from 'quasar'
 
 import ProfilePicture from './ProfilePicture'
@@ -76,7 +73,6 @@ export default {
     QItem,
     QItemSection,
     QItemLabel,
-    QItemSection
   },
   props: {
     user: {

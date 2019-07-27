@@ -45,7 +45,6 @@ import {
   QIcon,
   QBtn,
   QDialog,
-  QList,
 } from 'quasar'
 import { mapGetters } from 'vuex'
 import locales from '@/locales/index'
@@ -58,7 +57,6 @@ export default {
     QIcon,
     QBtn,
     QDialog,
-    QList,
     LocaleSelectInner,
   },
   props: {

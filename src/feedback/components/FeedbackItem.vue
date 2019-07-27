@@ -1,6 +1,6 @@
 <template>
   <QCard class="no-shadow grey-border">
-    <QCardMain class="generic-padding">
+    <QCardSection class="generic-padding">
       <div class="row no-wrap">
         <div class="content full-width">
           <div class="row no-wrap items-baseline">
@@ -69,14 +69,14 @@
           </div>
         </div>
       </div>
-    </QCardMain>
+    </QCardSection>
   </QCard>
 </template>
 
 <script>
 import {
   QCard,
-  QCardMain,
+  QCardSection,
   QIcon,
 } from 'quasar'
 import AmountBox from './AmountBox'
@@ -87,7 +87,7 @@ import Markdown from '@/utils/components/Markdown'
 export default {
   components: {
     QCard,
-    QCardMain,
+    QCardSection,
     QIcon,
     AmountBox,
     ProfilePicture,

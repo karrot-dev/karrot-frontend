@@ -5,9 +5,11 @@
   >
     <form @submit.prevent="maybeSave">
       <QField
-        icon="fas fa-redo"
         :label="$t('CREATEPICKUP.FREQUENCY')"
       >
+        <template v-slot:prepend>
+          <QIcon name="fas fa-redo" />
+        </template>
         <QOptionGroup
           v-model="edit.rule.isCustom"
           type="radio"
@@ -20,14 +22,16 @@
 
       <div v-if="!edit.rule.isCustom">
         <QField
-          icon="access time"
           :label="$t('CREATEPICKUP.TIME')"
           :helper="$t('CREATEPICKUP.TIME_HELPER')"
           :error="hasError('startDate')"
           :error-message="firstError('startDate')"
         >
+          <template v-slot:prepend>
+            <QIcon name="access time" />
+          </template>
           <div class="row">
-            <QDatetime
+            <QDate
               v-model="edit.startDate"
               type="time"
               :format24h="is24h"
@@ -38,7 +42,7 @@
                 v-t="'TO'"
                 class="q-pa-sm"
               />
-              <QDatetime
+              <QDate
                 v-model="endDate"
                 type="time"
                 no-parent-field
@@ -58,49 +62,52 @@
             />
           </div>
         </QField>
-        <QField
-          icon="today"
+        <QSelect
+          v-model="byDay"
+          multiple
+          toggle
+          :options="dayOptions"
           :label="$t('CREATEPICKUP.WEEKDAYS')"
           :helper="$t('CREATEPICKUP.WEEKDAYS_HELPER')"
           :error="hasError('rule')"
           :error-message="firstError('rule')"
         >
-          <QSelect
-            v-model="byDay"
-            multiple
-            toggle
-            :options="dayOptions"
-          />
-        </QField>
+          <template v-slot:prepend>
+            <QIcon name="today" />
+          </template>
+        </QSelect>
       </div>
 
       <div v-else>
         <QField
-          icon="access time"
           :label="$t('CREATEPICKUP.STARTDATE')"
           :helper="$t('CREATEPICKUP.STARTDATE_HELPER')"
           :error="hasError('startDate')"
           :error-message="firstError('startDate')"
         >
-          <QDatetime
+          <template v-slot:prepend>
+            <QIcon name="access time" />
+          </template>
+          <QDate
             v-model="edit.startDate"
             type="datetime"
             :format24h="is24h"
             :display-value="$d(edit.startDate, 'long')"
           />
         </QField>
-        <QField
-          icon="code"
+        <QInput
+          v-model="edit.rule.custom"
+          type="textarea"
           :label="$t('CREATEPICKUP.RRULE')"
           :error="hasError('rule')"
           :error-message="firstError('rule')"
+          bottom-slots
+          @keyup.ctrl.enter="maybeSave"
         >
-          <QInput
-            v-model="edit.rule.custom"
-            type="textarea"
-            @keyup.ctrl.enter="maybeSave"
-          />
-          <div class="q-field-bottom">
+          <template v-slot:prepend>
+            <QIcon name="code" />
+          </template>
+          <template v-slot:hint>
             <i18n path="CREATEPICKUP.RRULE_HELPER">
               <a
                 v-t="'CREATEPICKUP.RRULE_HELPER_URL'"
@@ -127,17 +134,19 @@
                 style="text-decoration: underline"
               />
             </i18n>
-          </div>
-        </QField>
+          </template>
+        </QInput>
       </div>
 
       <QField
-        icon="group"
         :label="$t('CREATEPICKUP.MAX_COLLECTORS')"
         :helper="$t('CREATEPICKUP.MAX_COLLECTORS_HELPER')"
         :error="hasError('maxCollectors')"
         :error-message="firstError('maxCollectors')"
       >
+        <template v-slot:prepend>
+          <QIcon name="group" />
+        </template>
         <QInput
           v-model="edit.maxCollectors"
           type="number"
@@ -153,20 +162,20 @@
         />
       </QField>
 
-      <QField
-        icon="info"
+      <QInput
+        v-model="edit.description"
+        type="textarea"
+        max-length="500"
         :label="$t('CREATEPICKUP.COMMENT')"
         :helper="$t('CREATEPICKUP.COMMENT_HELPER')"
         :error="hasError('description')"
         :error-message="firstError('description')"
+        @keyup.ctrl.enter="maybeSave"
       >
-        <QInput
-          v-model="edit.description"
-          type="textarea"
-          max-length="500"
-          @keyup.ctrl.enter="maybeSave"
-        />
-      </QField>
+        <template v-slot:prepend>
+          <QIcon name="info" />
+        </template>
+      </QInput>
 
       <div
         v-if="hasNonFieldError"
@@ -213,12 +222,13 @@
 
 <script>
 import {
-  QDatetime,
+  QDate,
   QField,
   QSlider,
   QInput,
   QBtn,
   QSelect,
+  QIcon,
   Dialog,
   QOptionGroup,
 } from 'quasar'
@@ -236,13 +246,14 @@ import differenceInSeconds from 'date-fns/difference_in_seconds'
 
 export default {
   components: {
-    QDatetime,
+    QDate,
     QField,
     QSlider,
     QInput,
     QBtn,
     QSelect,
     QOptionGroup,
+    QIcon,
   },
   mixins: [editMixin, statusMixin],
   computed: {

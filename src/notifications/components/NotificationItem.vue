@@ -9,6 +9,7 @@
     <QItemSection
       v-if="user"
       side
+      class="q-pr-sm"
     >
       <ProfilePicture
         :user="user"
@@ -17,7 +18,6 @@
     </QItemSection>
     <QItemSection>
       <QItemLabel
-        header
         lines="2"
       >
         <QIcon

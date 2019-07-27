@@ -3,7 +3,7 @@
     :class="{ full: pickup.isFull }"
     @click.native.stop="detail"
   >
-    <QCardMain
+    <QCardSection
       class="row no-padding justify-between content"
       :class="{ isEmpty: pickup.isEmpty, isUserMember: pickup.isUserMember, isDisabled: pickup.isDisabled }"
     >
@@ -53,7 +53,7 @@
           />
         </div>
       </div>
-    </QCardMain>
+    </QCardSection>
   </QCard>
 </template>
 
@@ -61,7 +61,7 @@
 import {
   Dialog,
   QCard,
-  QCardMain,
+  QCardSection,
   QIcon,
 } from 'quasar'
 import PickupUsers from './PickupUsers'
@@ -69,7 +69,7 @@ import PickupUsers from './PickupUsers'
 export default {
   components: {
     QCard,
-    QCardMain,
+    QCardSection,
     QIcon,
     PickupUsers,
   },

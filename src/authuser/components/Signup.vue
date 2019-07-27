@@ -6,53 +6,53 @@
     >
       <div class="content">
         <div class="white-box">
-          <QField
-            icon="fas fa-user"
+          <QInput
+            v-model="user.displayName"
+            :autofocus="true"
+            :label="$t('USERDATA.USERNAME')"
             :error="hasDisplayNameError"
             :error-message="displayNameError"
+            autocorrect="off"
+            autocapitalize="off"
+            spellcheck="false"
+            @blur="$v.user.displayName.$touch"
           >
-            <QInput
-              v-model="user.displayName"
-              :autofocus="true"
-              :float-label="$t('USERDATA.USERNAME')"
-              autocorrect="off"
-              autocapitalize="off"
-              spellcheck="false"
-              @blur="$v.user.displayName.$touch"
-            />
-          </QField>
+            <template v-slot:prepend>
+              <QIcon name="fas fa-user" />
+            </template>
+          </QInput>
         </div>
         <div class="white-box">
-          <QField
-            icon="fas fa-envelope"
+          <QInput
+            v-model="user.email"
+            type="email"
+            :label="$t('USERDATA.EMAIL')"
             :error="hasError('email')"
             :error-message="firstError('email')"
+            autocorrect="off"
+            autocapitalize="off"
+            spellcheck="false"
           >
-            <QInput
-              v-model="user.email"
-              type="email"
-              :float-label="$t('USERDATA.EMAIL')"
-              autocorrect="off"
-              autocapitalize="off"
-              spellcheck="false"
-            />
-          </QField>
+            <template v-slot:prepend>
+              <QIcon name="fas fa-envelope" />
+            </template>
+          </QInput>
         </div>
         <div class="white-box">
-          <QField
-            icon="fas fa-lock"
+          <QInput
+            v-model="user.password"
+            type="password"
+            :label="$t('USERDATA.PASSWORD')"
             :error="hasError('password')"
             :error-message="firstError('password')"
+            autocorrect="off"
+            autocapitalize="off"
+            spellcheck="false"
           >
-            <QInput
-              v-model="user.password"
-              type="password"
-              :float-label="$t('USERDATA.PASSWORD')"
-              autocorrect="off"
-              autocapitalize="off"
-              spellcheck="false"
-            />
-          </QField>
+            <template v-slot:prepend>
+              <QIcon name="fas fa-lock" />
+            </template>
+          </QInput>
         </div>
         <div v-if="canJoinPlayground">
           <QCheckbox
@@ -61,14 +61,14 @@
             :label="$t('GROUP.JOIN_PLAYGROUND')"
             class="playground-checkbox"
           />
-          <QAlert
+          <QBanner
             v-if="joinPlayground"
             color="info"
             icon="info"
             class="q-my-md"
           >
             {{ $t('JOINGROUP.PROFILE_NOTE' ) }}
-          </QAlert>
+          </QBanner>
         </div>
 
         <div
@@ -103,9 +103,9 @@
 
 <script>
 import {
-  QField,
+  QIcon,
   QInput,
-  QAlert,
+  QBanner,
   QBtn,
   QCheckbox,
 } from 'quasar'
@@ -115,9 +115,9 @@ import { validationMixin } from 'vuelidate'
 
 export default {
   components: {
-    QField,
+    QIcon,
     QInput,
-    QAlert,
+    QBanner,
     QBtn,
     QCheckbox,
   },

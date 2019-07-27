@@ -1,21 +1,21 @@
 <template>
   <div>
     <form @submit.prevent="maybeSave">
-      <QField
-        icon="fas fa-envelope"
+      <QInput
+        v-model="form.email"
         :helper="$t('GROUP.INVITE_EMAIL')"
         :error="hasErrorMessage"
         :error-message="errorMessage"
+        type="email"
+        autocorrect="off"
+        autocapitalize="off"
+        spellcheck="false"
+        @blur="$v.form.email.$touch"
       >
-        <QInput
-          v-model="form.email"
-          type="email"
-          autocorrect="off"
-          autocapitalize="off"
-          spellcheck="false"
-          @blur="$v.form.email.$touch"
-        />
-      </QField>
+        <template v-slot:prepend>
+          <QIcon name="fas fa-envelope" />
+        </template>
+      </QInput>
 
       <div class="row justify-end">
         <QBtn
@@ -36,13 +36,23 @@
 </template>
 
 <script>
-import { QIcon, QField, QInput, QBtn, QTooltip } from 'quasar'
+import {
+  QIcon,
+  QInput,
+  QBtn,
+  QTooltip,
+} from 'quasar'
 import { validationMixin } from 'vuelidate'
 import { required, email } from 'vuelidate/lib/validators'
 import statusMixin from '@/utils/mixins/statusMixin'
 
 export default {
-  components: { QIcon, QField, QInput, QBtn, QTooltip },
+  components: {
+    QIcon,
+    QInput,
+    QBtn,
+    QTooltip,
+  },
   mixins: [statusMixin, validationMixin],
   props: {
     invitations: {

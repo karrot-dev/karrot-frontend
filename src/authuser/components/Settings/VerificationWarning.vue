@@ -1,5 +1,5 @@
 <template>
-  <QAlert
+  <QBanner
     v-if="user && !hasEmailVerified"
     icon="fas fa-exclamation-triangle"
     color="warning"
@@ -29,7 +29,7 @@
       <i class="fas fa-exclamation-triangle" />
       {{ anyFirstError }}
     </p>
-  </QAlert>
+  </QBanner>
   <QExpansionItem
     v-else-if="hasFailedEmailDeliveries"
     header-class="bg-warning text-white"
@@ -37,10 +37,12 @@
     <template
       slot="header"
     >
-      <QItemSection side
-        color="white"
-        icon="fas fa-exclamation-triangle"
-      />
+      <QItemSection
+        side
+        class="text-white"
+      >
+        <QIcon name="fas fa-exclamation-triangle" />
+      </QItemSection>
       <QItemSection
         :label="failedEmailDeliveryMessage"
       />
@@ -54,23 +56,34 @@
           :label="event.subject"
           :sublabel="`${event.event}: ${event.reason}`"
         />
-        <QItemSection side
-          right
-          :stamp="$d(event.createdAt, 'long')"
-        />
+        <QItemSection
+          side
+        >
+          {{ $d(event.createdAt, 'long') }}
+        </QItemSection>
       </QItem>
     </QList>
   </QExpansionItem>
 </template>
 
 <script>
-import { QAlert, QList, QItem, QItemSection, QItemSection QExpansionItem } from 'quasar'
+import {
+  QBanner,
+  QList,
+  QItem,
+  QItemSection,
+  QExpansionItem,
+} from 'quasar'
 import { mapActions, mapGetters } from 'vuex'
 import statusMixin from '@/utils/mixins/statusMixin'
 
 export default {
   components: {
-    QAlert, QList, QItem, QItemSection, QItemSection QExpansionItem,
+    QBanner,
+    QList,
+    QItem,
+    QItemSection,
+    QExpansionItem,
   },
   computed: {
     ...mapGetters({

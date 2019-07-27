@@ -22,16 +22,10 @@
             />
           </QItemSection>
         </QItem>
-        <MarkdownInput :value="applicationAnswers">
-          <QInput
-            id="group-title"
-            v-model="applicationAnswers"
-            type="textarea"
-            input-style="min-height: 150px"
-            autogrow
-            @keyup.ctrl.enter="apply"
-          />
-        </MarkdownInput>
+        <MarkdownInput
+          v-model="applicationAnswers"
+          @keyup.ctrl.enter="apply"
+        />
         <div
           v-if="hasAnyError"
           class="text-negative"
@@ -66,7 +60,6 @@
 import {
   QItem,
   QItemSection,
-  QInput,
   QBtn,
   QIcon,
 } from 'quasar'
@@ -78,7 +71,6 @@ export default {
   components: {
     QItem,
     QItemSection,
-    QInput,
     QBtn,
     QIcon,
     MarkdownInput,

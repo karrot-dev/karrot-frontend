@@ -101,7 +101,6 @@ import {
   QBtn,
   QList,
   QItem,
-  QItemSection
   QItemSection,
 } from 'quasar'
 
@@ -115,7 +114,6 @@ export default {
     QBtn,
     QList,
     QItem,
-    QItemSection
     QItemSection,
   },
   computed: {

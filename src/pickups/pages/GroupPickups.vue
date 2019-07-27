@@ -20,14 +20,14 @@
         </template>
       </KNotice>
       <QCard>
-        <QCardTitle v-t="'GROUP.PLACES'" />
-        <QCardMain>
+        <QCardSection v-t="'GROUP.PLACES'" />
+        <QCardSection>
           <PlaceList
             :group-id="groupId"
             :places="places"
             link-to="placePickupsManage"
           />
-        </QCardMain>
+        </QCardSection>
       </QCard>
     </template>
   </div>
@@ -36,8 +36,7 @@
 <script>
 import {
   QCard,
-  QCardTitle,
-  QCardMain,
+  QCardSection,
 } from 'quasar'
 
 import { mapGetters, mapActions } from 'vuex'
@@ -49,8 +48,7 @@ import PlaceList from '@/places/components/PlaceList'
 export default {
   components: {
     QCard,
-    QCardTitle,
-    QCardMain,
+    QCardSection,
     PickupList,
     KNotice,
     PlaceList,

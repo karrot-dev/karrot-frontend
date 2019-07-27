@@ -18,8 +18,9 @@
       <QItemLabel caption>
         {{ submittedOn }}
       </QItemLabel>
-      <QItemLabel caption
+      <QItemLabel
         v-if="application.status !== 'pending'"
+        caption
       >
         <i18n
           :path="decision"
@@ -57,26 +58,32 @@
         <QItem
           @click.native="openChat"
         >
-          <QItemSection side
-            icon="fas fa-fw fa-comments"
-          />
-          <QItemSection :label="$t('BUTTON.OPEN')" />
+          <QItemSection side>
+            <QIcon name="fas fa-fw fa-comments" />
+          </QItemSection>
+          <QItemSection>
+            {{ $t('BUTTON.OPEN') }}
+          </QItemSection>
         </QItem>
         <QItem
           @click.native="pressAccept"
         >
-          <QItemSection side
-            icon="fas fa-fw fa-check"
-          />
-          <QItemSection :label="$t('BUTTON.ACCEPT')" />
+          <QItemSection side>
+            <QIcon name="fas fa-fw fa-check" />
+          </QItemSection>
+          <QItemSection>
+            {{ $t('BUTTON.ACCEPT') }}
+          </QItemSection>
         </QItem>
         <QItem
           @click.native="decline"
         >
-          <QItemSection side
-            icon="fas fa-fw fa-times"
-          />
-          <QItemSection :label="$t('BUTTON.DECLINE')" />
+          <QItemSection side>
+            <QIcon name="fas fa-fw fa-times" />
+          </QItemSection>
+          <QItemSection>
+            {{ $t('BUTTON.DECLINE') }}
+          </QItemSection>
         </QItem>
       </QList>
     </QMenu>
@@ -88,10 +95,10 @@ import {
   Dialog,
   QItem,
   QItemSection,
-  QItemSection
   QItemLabel,
   QMenu,
   QList,
+  QIcon,
 } from 'quasar'
 import ProfilePicture from '@/users/components/ProfilePicture'
 import DateAsWords from '@/utils/components/DateAsWords'
@@ -100,10 +107,10 @@ export default {
   components: {
     QItem,
     QItemSection,
-    QItemSection
     QItemLabel,
     QMenu,
     QList,
+    QIcon,
     ProfilePicture,
     DateAsWords,
   },

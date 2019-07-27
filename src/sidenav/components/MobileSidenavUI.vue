@@ -19,7 +19,10 @@
           item
           :to="{name: 'user', params: {userId: currentUserId}}"
         >
-          <QItemSection side class="text-center">
+          <QItemSection
+            side
+            class="text-center"
+          >
             <i class="fas fa-user fa-fw" />
           </QItemSection>
           <QItemSection :label="$t('TOPBAR.USERPROFILE')" />
@@ -29,7 +32,10 @@
           item
           :to="{name: 'groupsGallery'}"
         >
-          <QItemSection side class="text-center">
+          <QItemSection
+            side
+            class="text-center"
+          >
             <i class="fas fa-exchange-alt" />
           </QItemSection>
           <QItemSection :label="$t('TOPBAR.CHANGE_GROUP')" />
@@ -39,7 +45,10 @@
           item
           :to="{name: 'settings'}"
         >
-          <QItemSection side class="text-center">
+          <QItemSection
+            side
+            class="text-center"
+          >
             <i class="fas fa-cog fa-fw" />
           </QItemSection>
           <QItemSection :label="$t('SETTINGS.TITLE')" />
@@ -48,7 +57,10 @@
         <QItem
           @click.native="$emit('logout'), $emit('toggleSidenav')"
         >
-          <QItemSection side class="text-center">
+          <QItemSection
+            side
+            class="text-center"
+          >
             <i class="fas fa-sign-out-alt fa-fw" />
           </QItemSection>
           <QItemSection :label="$t('TOPBAR.LOGOUT')" />
@@ -63,7 +75,6 @@ import {
   QList,
   QIcon,
   QItem,
-  QItemSection
   QItemSection,
 } from 'quasar'
 import SidenavBox from '@/sidenav/components/SidenavBox'
@@ -73,7 +84,6 @@ export default {
     QList,
     QIcon,
     QItem,
-    QItemSection
     QItemSection,
     SidenavBox,
   },

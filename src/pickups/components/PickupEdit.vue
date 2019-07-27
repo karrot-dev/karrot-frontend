@@ -13,14 +13,16 @@
     <form @submit.prevent="maybeSave">
       <template v-if="canEditDate">
         <QField
-          icon="access time"
           :label="$t('CREATEPICKUP.TIME')"
           :helper="$t('CREATEPICKUP.TIME_HELPER')"
           :error="hasError('date')"
           :error-message="firstError('date')"
         >
+          <template v-slot:prepend>
+            <QIcon name="access time" />
+          </template>
           <div class="row">
-            <QDatetime
+            <QDate
               v-model="date"
               type="time"
               :format24h="is24h"
@@ -31,7 +33,7 @@
                 v-t="'TO'"
                 class="q-pa-sm"
               />
-              <QDatetime
+              <QDate
                 v-model="dateEnd"
                 type="time"
                 no-parent-field
@@ -53,13 +55,15 @@
         </QField>
 
         <QField
-          icon="today"
           :label="$t('CREATEPICKUP.DATE')"
           :helper="$t('CREATEPICKUP.DATE_HELPER')"
           :error="hasError('date')"
           :error-message="firstError('date')"
         >
-          <QDatetime
+          <template v-slot:prepend>
+            <QIcon name="today" />
+          </template>
+          <QDate
             v-model="date"
             type="date"
             :min="now"
@@ -81,8 +85,15 @@
           v-model="edit.maxCollectors"
           type="number"
           :placeholder="$t('CREATEPICKUP.UNLIMITED')"
-          :after="[resetToSeriesButton('maxCollectors')]"
-        />
+        >
+          <template v-slot:after>
+            <QIcon
+              v-if="series ? series.maxCollectors !== edit.maxCollectors : false"
+              name="undo"
+              @click="edit.maxCollectors = series.maxCollectors"
+            />
+          </template>
+        </QInput>
         <QSlider
           v-if="edit.maxCollectors > 0 && edit.maxCollectors <= 10"
           v-model="edit.maxCollectors"
@@ -94,23 +105,29 @@
         />
       </QField>
 
-      <QField
-        icon="info"
+      <QInput
+        v-model="edit.description"
         :label="$t('CREATEPICKUP.COMMENT')"
         :helper="$t('CREATEPICKUP.COMMENT_HELPER')"
         :error="hasError('description')"
         :error-message="firstError('description')"
         :warning="seriesMeta.isDescriptionChanged"
         :warning-label="$t('CREATEPICKUP.DIFFERS_WARNING')"
+        type="textarea"
+        max-length="500"
+        @keyup.ctrl.enter="maybeSave"
       >
-        <QInput
-          v-model="edit.description"
-          type="textarea"
-          max-length="500"
-          :after="[resetToSeriesButton('description')]"
-          @keyup.ctrl.enter="maybeSave"
-        />
-      </QField>
+        <template v-slot:prepend>
+          <QIcon name="info" />
+        </template>
+        <template v-slot:after>
+          <QIcon
+            v-if="series ? series.description !== edit.description : false"
+            name="undo"
+            @click="edit.description = series.description"
+          />
+        </template>
+      </QInput>
 
       <div
         v-if="hasNonFieldError"
@@ -169,7 +186,7 @@
 
 <script>
 import {
-  QDatetime,
+  QDate,
   QField,
   QSlider,
   QInput,
@@ -192,7 +209,7 @@ import { objectDiff } from '@/utils/utils'
 export default {
   name: 'PickupEdit',
   components: {
-    QDatetime,
+    QDate,
     QField,
     QSlider,
     QInput,
@@ -274,15 +291,6 @@ export default {
   methods: {
     toggleDuration () {
       this.hasDuration = !this.hasDuration
-    },
-    resetToSeriesButton (field) {
-      return {
-        icon: 'undo',
-        condition: this.series ? this.series[field] !== this.edit[field] : false,
-        handler: () => {
-          this.edit[field] = this.series[field]
-        },
-      }
     },
     maybeSave () {
       if (!this.canSave) return

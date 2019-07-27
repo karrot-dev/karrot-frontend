@@ -19,16 +19,13 @@
           <div class="image-and-text-right">
             <h4>{{ $t(editFeedbackId ? 'PICKUP_FEEDBACK.EDIT' : 'PICKUP_FEEDBACK.HEADER') }}</h4>
             <p>
-              <QField
+              <QSelect
                 v-if="!editFeedbackId"
+                v-model="select"
+                :options="feedbackOptions"
                 dark
                 class="grey-font"
-              >
-                <QSelect
-                  v-model="select"
-                  :options="feedbackOptions"
-                />
-              </QField>
+              />
               <span v-else-if="editFeedback">
                 {{ getDateWithPlace(editFeedback.about) }}
               </span>
@@ -91,7 +88,6 @@
 <script>
 import {
   QCard,
-  QField,
   QSelect,
 } from 'quasar'
 import FeedbackList from './FeedbackList'
@@ -105,7 +101,6 @@ export default {
     RandomArt,
     ProfilePicture,
     QCard,
-    QField,
     QSelect,
     FeedbackForm,
     FeedbackList,

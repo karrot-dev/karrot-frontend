@@ -1,14 +1,14 @@
 <!--
 
-  A version of QAlert that cannot remove itself
+  A version of QBanner that cannot remove itself
 
   We use vuex state for deciding whether a banner should be shown or not.
 
 -->
 <script>
-import { QAlert } from 'quasar'
+import { QBanner } from 'quasar'
 export default {
-  extends: QAlert,
+  extends: QBanner,
   methods: {
     dismiss (fn) {
       this.$emit('dismiss')

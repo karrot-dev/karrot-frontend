@@ -4,58 +4,48 @@
     :class="{ changed: hasChanged }"
   >
     <form @submit.prevent="maybeSave">
-      <QField
-        icon="fas fa-star"
+      <QInput
+        v-model="edit.displayName"
         :label="$t('USERDETAIL.DISPLAY_NAME')"
         :error="hasDisplayNameError"
         :error-message="displayNameError"
+        @blur="$v.edit.displayName.$touch"
       >
-        <QInput
-          v-model="edit.displayName"
-          @blur="$v.edit.displayName.$touch"
-        />
-      </QField>
+        <template v-slot:prepend>
+          <QIcon name="fas fa-star" />
+        </template>
+      </QInput>
 
-      <QField
+      <MarkdownInput
+        v-model="edit.description"
         icon="info"
         :label="$t('USERDETAIL.DESCRIPTION')"
         :error="hasError('description')"
         :error-message="firstError('description')"
-      >
-        <MarkdownInput :value="edit.description">
-          <QInput
-            v-model="edit.description"
-            type="textarea"
-            rows="1"
-            @keyup.ctrl.enter="maybeSave"
-          />
-        </MarkdownInput>
-      </QField>
+        @keyup.ctrl.enter="maybeSave"
+      />
 
-      <QField
-        icon="fas fa-phone"
+      <QInput
+        v-model="edit.mobileNumber"
+        type="tel"
         :label="$t('USERDATA.MOBILE_NUMBER')"
         :error="hasError('mobileNumber')"
         :error-message="firstError('mobileNumber')"
       >
-        <QInput
-          v-model="edit.mobileNumber"
-          type="tel"
-        />
-      </QField>
+        <template v-slot:prepend>
+          <QIcon name="fas fa-phone" />
+        </template>
+      </QInput>
 
-      <QField
-        icon="fas fa-map-marker"
+      <AddressPicker
+        v-model="edit"
+        color="positive"
+        font-icon="fas fa-user"
         :label="$t('USERDATA.WHERE_FROM')"
         :error="hasAddressError"
         :error-message="addressError"
-      >
-        <AddressPicker
-          v-model="edit"
-          color="positive"
-          font-icon="fas fa-user"
-        />
-      </QField>
+        icon="fas fa-map-marker"
+      />
 
       <div
         v-if="hasNonFieldError"
@@ -88,7 +78,7 @@
 
 <script>
 import {
-  QField,
+  QIcon,
   QInput,
   QBtn,
 } from 'quasar'
@@ -101,7 +91,7 @@ import { required, minLength, maxLength } from 'vuelidate/lib/validators'
 
 export default {
   components: {
-    QField,
+    QIcon,
     QInput,
     QBtn,
     AddressPicker,

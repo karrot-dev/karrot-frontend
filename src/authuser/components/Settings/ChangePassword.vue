@@ -1,27 +1,28 @@
 <template>
   <div class="edit-box">
-    <QField
-      icon="fas fa-lock"
+    <QInput
+      v-model="newPassword"
+      type="password"
       :label="$t('USERDETAIL.PASSWORD')"
       :error="hasError('newPassword')"
       :error-message="firstError('newPassword')"
     >
-      <QInput
-        v-model="newPassword"
-        type="password"
-      />
-    </QField>
-    <QField
-      icon="fas fa-unlock"
+      <template v-slot:prepend>
+        <QIcon name="fas fa-lock" />
+      </template>
+    </QInput>
+
+    <QInput
+      v-model="oldPassword"
+      type="password"
       :label="$t('USERDETAIL.OLD_PASSWORD')"
       :error="hasError('oldPassword')"
       :error-message="firstError('oldPassword')"
     >
-      <QInput
-        v-model="oldPassword"
-        type="password"
-      />
-    </QField>
+      <template v-slot:prepend>
+        <QIcon name="fas fa-unlock" />
+      </template>
+    </QInput>
 
     <div
       v-if="hasNonFieldError"
@@ -44,11 +45,20 @@
 </template>
 
 <script>
-import { QField, QInput, QBtn } from 'quasar'
+import {
+  QInput,
+  QBtn,
+  QIcon,
+} from 'quasar'
+
 import statusMixin from '@/utils/mixins/statusMixin'
 
 export default {
-  components: { QField, QInput, QBtn },
+  components: {
+    QInput,
+    QBtn,
+    QIcon,
+  },
   mixins: [statusMixin],
   data () {
     return {

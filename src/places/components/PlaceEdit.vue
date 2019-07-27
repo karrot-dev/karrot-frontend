@@ -6,68 +6,64 @@
         :class="{ changed: hasChanged }"
       >
         <form @submit.prevent="maybeSave">
-          <QField
-            icon="fas fa-star"
+          <QInput
+            v-model="edit.name"
             :label="$t('STOREEDIT.NAME')"
             :error="hasNameError"
             :error-message="nameError"
+            autofocus
+            autocomplete="off"
+            @blur="$v.edit.name.$touch"
           >
-            <QInput
-              v-model="edit.name"
-              :autofocus="true"
-              autocomplete="off"
-              @blur="$v.edit.name.$touch"
-            />
-          </QField>
-          <QField
-            icon="fas fa-handshake"
+            <template v-slot:prepend>
+              <QIcon name="fas fa-star" />
+            </template>
+          </QInput>
+
+          <QSelect
+            v-model="edit.status"
+            :options="statusOptions"
             :label="$t('STOREEDIT.STATUS')"
             :error="hasError('status')"
             :error-message="firstError('status')"
           >
-            <QSelect
-              v-model="edit.status"
-              :options="statusOptions"
-            />
-          </QField>
+            <template v-slot:prepend>
+              <QIcon name="fas fa-handshake" />
+            </template>
+          </QSelect>
 
-          <QField
+          <MarkdownInput
+            v-model="edit.description"
             icon="fas fa-question"
             :label="$t('STOREEDIT.DESCRIPTION')"
             :error="hasError('description')"
             :error-message="firstError('description')"
-          >
-            <MarkdownInput :value="edit.description">
-              <QInput
-                v-model="edit.description"
-                type="textarea"
-                rows="3"
-                @keyup.ctrl.enter="maybeSave"
-              />
-            </MarkdownInput>
-          </QField>
+            @keyup.ctrl.enter="maybeSave"
+          />
 
-          <QField
-            icon="fas fa-map-marker"
+          <AddressPicker
+            v-model="edit"
+            :color="markerColor"
+            :font-icon="$icon('place')"
             :label="$t('STOREEDIT.ADDRESS')"
             :error="hasAddressError"
             :error-message="addressError"
           >
-            <AddressPicker
-              v-model="edit"
-              :color="markerColor"
-              :font-icon="$icon('place')"
-            />
-          </QField>
+            <template v-slot:prepend>
+              <QIcon name="fas fa-map-marker" />
+            </template>
+          </AddressPicker>
 
           <QField
-            icon="fas fa-calendar-alt"
             :label="$t('STOREEDIT.WEEKS_IN_ADVANCE')"
             :error="hasError('weeksInAdvance')"
             :error-message="firstError('weeksInAdvance')"
             :warning="value.weeksInAdvance > edit.weeksInAdvance"
             :warning-label="$t('STOREEDIT.WEEKS_IN_ADVANCE_WARNING')"
           >
+            <template v-slot:prepend>
+              <QIcon name="fas fa-calendar-alt" />
+            </template>
             <QSlider
               v-model="edit.weeksInAdvance"
               :min="1"

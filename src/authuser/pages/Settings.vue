@@ -1,8 +1,12 @@
 <template>
   <div v-if="user">
     <QCard class="no-shadow grey-border">
-      <QCardTitle>{{ $t('USERDATA.PROFILE_TITLE') }}</QCardTitle>
-      <QCardMain>
+      <QCardSection>
+        <div class="text-h6">
+          {{ $t('USERDATA.PROFILE_TITLE') }}
+        </div>
+      </QCardSection>
+      <QCardSection>
         <ChangePhoto
           :value="user"
           :status="profileEditStatus"
@@ -17,19 +21,27 @@
           :status="profileEditStatus"
           @save="saveUser"
         />
-      </QCardMain>
+      </QCardSection>
     </QCard>
     <QCard class="no-shadow grey-border">
-      <QCardTitle>{{ $t('LANGUAGECHOOSER.SWITCH') }}</QCardTitle>
-      <QCardMain>
+      <QCardSection>
+        <div class="text-h6">
+          {{ $t('LANGUAGECHOOSER.SWITCH') }}
+        </div>
+      </QCardSection>
+      <QCardSection>
         <div class="edit-box row justify-end">
           <LocaleSelect />
         </div>
-      </QCardMain>
+      </QCardSection>
     </QCard>
     <QCard class="no-shadow grey-border">
-      <QCardTitle>{{ $t('USERDATA.ACCOUNT') }}</QCardTitle>
-      <QCardMain>
+      <QCardSection>
+        <div class="text-h6">
+          {{ $t('USERDATA.ACCOUNT') }}
+        </div>
+      </QCardSection>
+      <QCardSection>
         <ChangeEmail
           :user="user"
           :status="changeEmailStatus"
@@ -46,22 +58,26 @@
             @requestDeleteAccount="requestDeleteAccount"
           />
         </QCardActions>
-      </QCardMain>
+      </QCardSection>
     </QCard>
     <GroupSettings />
     <QCard
       v-if="!$q.platform.is.cordova"
       class="no-shadow grey-border"
     >
-      <QCardTitle>{{ $t('USERDATA.PUSH') }}</QCardTitle>
-      <QCardMain>
+      <QCardSection>
+        <div class="text-h6">
+          {{ $t('USERDATA.PUSH') }}
+        </div>
+      </QCardSection>
+      <QCardSection>
         <Push
           :value="pushEnabled"
           :pending="pushPending"
           @enable="enablePush"
           @disable="disablePush"
         />
-      </QCardMain>
+      </QCardSection>
     </QCard>
   </div>
 </template>
@@ -69,8 +85,7 @@
 <script>
 import {
   QCard,
-  QCardTitle,
-  QCardMain,
+  QCardSection,
   QSeparator,
   QCardActions,
 } from 'quasar'
@@ -90,8 +105,7 @@ export default {
   name: 'Settings',
   components: {
     QCard,
-    QCardTitle,
-    QCardMain,
+    QCardSection,
     QSeparator,
     QCardActions,
     ProfileEdit,

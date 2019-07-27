@@ -3,7 +3,10 @@
     link
     @click.native="showing = !showing"
   >
-    <QItemSection side class="text-center">
+    <QItemSection
+      side
+      class="text-center"
+    >
       <QIcon
         name="fab fa-discourse fa-fw"
       />
@@ -11,9 +14,9 @@
     <QItemSection>
       {{ $t('COMMUNITY_FEED.KARROT_DISCUSSION') }}
     </QItemSection>
-    <QItemSection side
+    <QItemSection
       v-if="unreadCount > 0"
-      right
+      side
     >
       <QChip
         small
@@ -77,7 +80,6 @@
           </QItemSection>
           <QItemSection>
             <QItemLabel
-              header
               lines="1"
             >
               {{ topic.title }}
@@ -96,7 +98,7 @@
                   :date="topic.lastPostedAt"
                 />
               </i18n>
-            </QItemTile>
+            </QItemLabel>
           </QItemSection>
         </QItem>
       </QList>
@@ -117,8 +119,6 @@ import {
   QItemLabel,
   QItem,
   QItemSection,
-  QItemLabel,
-  QItemSection
   QChip,
 } from 'quasar'
 import DateAsWords from '@/utils/components/DateAsWords'
@@ -133,8 +133,6 @@ export default {
     QItemLabel,
     QItem,
     QItemSection,
-    QItemLabel,
-    QItemSection
     QChip,
   },
   data () {

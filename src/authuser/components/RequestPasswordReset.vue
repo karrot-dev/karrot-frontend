@@ -9,18 +9,20 @@
           {{ $t('PASSWORDRESET.INTRO') }}
         </p>
         <div class="white-box">
-          <QField icon="fas fa-envelope">
-            <QInput
-              v-model="email"
-              :autofocus="true"
-              :float-label="$t('PASSWORDRESET.EMAIL')"
-              type="email"
-              autocorrect="off"
-              autocapitalize="off"
-              spellcheck="false"
-              :error="hasError('email')"
-            />
-          </QField>
+          <QInput
+            v-model="email"
+            :autofocus="true"
+            :label="$t('PASSWORDRESET.EMAIL')"
+            type="email"
+            autocorrect="off"
+            autocapitalize="off"
+            spellcheck="false"
+            :error="hasError('email')"
+          >
+            <template v-slot:before>
+              <QIcon name="fas fa-envelope" />
+            </template>
+          </QInput>
         </div>
 
         <div
@@ -54,11 +56,19 @@
 </template>
 
 <script>
-import { QField, QInput, QBtn } from 'quasar'
+import {
+  QInput,
+  QBtn,
+  QIcon,
+} from 'quasar'
 import statusMixin from '@/utils/mixins/statusMixin'
 
 export default {
-  components: { QField, QInput, QBtn },
+  components: {
+    QInput,
+    QBtn,
+    QIcon,
+  },
   mixins: [statusMixin],
   data () {
     return {
@@ -67,7 +77,3 @@ export default {
   },
 }
 </script>
-
-<style scoped lang="stylus">
-@import '~variables'
-</style>

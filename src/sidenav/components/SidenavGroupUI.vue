@@ -36,15 +36,18 @@
         class="no-padding"
       >
         <QItem :to="{ name: 'group', params: { groupId } }">
-          <QItemSection side class="text-center">
+          <QItemSection
+            side
+            class="text-center"
+          >
             <QIcon name="fas fa-bullhorn" />
           </QItemSection>
           <QItemSection>
             {{ $t("GROUP.WALL") }}
           </QItemSection>
-          <QItemSection side
+          <QItemSection
             v-if="wallUnreadCount > 0"
-            right
+            side
           >
             <QChip
               small
@@ -55,7 +58,10 @@
           </QItemSection>
         </QItem>
         <QItem :to="{ name: 'groupPickups', params: { groupId } }">
-          <QItemSection side class="text-center">
+          <QItemSection
+            side
+            class="text-center"
+          >
             <QIcon :name="$icon('pickup')" />
           </QItemSection>
           <QItemSection>
@@ -63,7 +69,10 @@
           </QItemSection>
         </QItem>
         <QItem :to="{ name: 'groupFeedback', params: { groupId } }">
-          <QItemSection side class="text-center">
+          <QItemSection
+            side
+            class="text-center"
+          >
             <QIcon :name="$icon('feedback')" />
           </QItemSection>
           <QItemSection>
@@ -71,15 +80,18 @@
           </QItemSection>
         </QItem>
         <QItem :to="{ name: 'applications', params: { groupId } }">
-          <QItemSection side class="text-center">
+          <QItemSection
+            side
+            class="text-center"
+          >
             <QIcon name="fas fa-address-card" />
           </QItemSection>
           <QItemSection>
             {{ $t("GROUP.APPLICATIONS") }}
           </QItemSection>
-          <QItemSection side
+          <QItemSection
             v-if="pendingApplications.length > 0"
-            right
+            side
           >
             <QChip
               small
@@ -91,7 +103,10 @@
           </QItemSection>
         </QItem>
         <QItem :to="{ name: 'issueList', params: { groupId } }">
-          <QItemSection side class="text-center">
+          <QItemSection
+            side
+            class="text-center"
+          >
             <QIcon name="fas fa-vote-yea" />
           </QItemSection>
           <QItemSection>
@@ -99,7 +114,10 @@
           </QItemSection>
         </QItem>
         <QItem :to="{ name: 'groupDescription', params: { groupId } }">
-          <QItemSection side class="text-center">
+          <QItemSection
+            side
+            class="text-center"
+          >
             <i class="far fa-address-card" />
           </QItemSection>
           <QItemSection>
@@ -107,7 +125,10 @@
           </QItemSection>
         </QItem>
         <QItem :to="{ name: 'groupMembers', params: { groupId } }">
-          <QItemSection side class="text-center">
+          <QItemSection
+            side
+            class="text-center"
+          >
             <QIcon name="fas fa-users" />
           </QItemSection>
           <QItemSection>
@@ -115,7 +136,10 @@
           </QItemSection>
         </QItem>
         <QItem :to="{ name: 'groupHistory', params: { groupId } }">
-          <QItemSection side class="text-center">
+          <QItemSection
+            side
+            class="text-center"
+          >
             <i class="far fa-clock" />
           </QItemSection>
           <QItemSection>
@@ -126,7 +150,10 @@
           v-if="$q.platform.is.mobile"
           :to="{ name: 'map', params: { groupId } }"
         >
-          <QItemSection side class="text-center">
+          <QItemSection
+            side
+            class="text-center"
+          >
             <QIcon name="fas fa-map" />
           </QItemSection>
           <QItemSection>
@@ -139,13 +166,29 @@
 </template>
 
 <script>
-import { QBtn, QList, QItem, QItemSection, QIcon, QTooltip, QChip } from 'quasar'
+import {
+  QBtn,
+  QList,
+  QItem,
+  QItemSection,
+  QIcon,
+  QTooltip,
+  QChip,
+} from 'quasar'
 import SidenavBox from './SidenavBox'
 import GroupOptions from './GroupOptions'
 
 export default {
   components: {
-    SidenavBox, GroupOptions, QBtn, QList, QItem, QItemSection, QIcon, QTooltip, QChip,
+    SidenavBox,
+    GroupOptions,
+    QBtn,
+    QList,
+    QItem,
+    QItemSection,
+    QIcon,
+    QTooltip,
+    QChip,
   },
   props: {
     groupId: {

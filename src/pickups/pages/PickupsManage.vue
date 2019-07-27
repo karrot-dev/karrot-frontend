@@ -1,7 +1,7 @@
 <template>
   <div>
     <QCard class="no-shadow grey-border">
-      <QCardTitle>
+      <QCardSection>
         <h5>
           <i
             class="fas fa-redo on-left"
@@ -25,7 +25,7 @@
             <QTooltip v-t="'BUTTON.CREATE'" />
           </QBtn>
         </div>
-      </QCardTitle>
+      </QCardSection>
       <QItem v-if="newSeries">
         <PickupSeriesEdit
           :value="newSeries"
@@ -66,8 +66,8 @@
             seperator
           >
             <QItemLabel
-              header
               v-t="'PICKUPMANAGE.UPCOMING_PICKUPS_IN_SERIES'"
+              header
             />
             <QExpansionItem
               v-for="pickup in series.pickups"
@@ -75,10 +75,12 @@
               @show="makeVisible('pickup', pickup.id)"
             >
               <template slot="header">
-                <QItemSection side
+                <QItemSection
                   v-if="!$q.platform.is.mobile"
-                  :icon="$icon('pickup')"
-                />
+                  side
+                >
+                  <QIcon :name="$icon('pickup')" />
+                </QItemSection>
                 <QItemSection>
                   <QItemLabel
                     :tag="pickup.isDisabled ? 's' : 'div'"
@@ -94,9 +96,9 @@
                     </template>
                   </QItemLabel>
                 </QItemSection>
-                <QItemSection side
+                <QItemSection
+                  side
                   class="text-bold"
-                  right
                 >
                   <QIcon
                     v-if="!pickup.seriesMeta.matchesRule"
@@ -141,7 +143,7 @@
         :seed="placeId"
         type="banner"
       />
-      <QCardTitle>
+      <QCardSection>
         <h5>
           <i
             class="on-left"
@@ -166,7 +168,7 @@
             <QTooltip v-t="'BUTTON.CREATE'" />
           </QBtn>
         </div>
-      </QCardTitle>
+      </QCardSection>
       <QItem v-if="newPickup">
         <PickupEdit
           :value="newPickup"
@@ -189,13 +191,14 @@
           @show="makeVisible('pickup', pickup.id)"
         >
           <template slot="header">
-            <QItemSection side
+            <QItemSection
               v-if="!$q.platform.is.mobile"
-              icon="fas fa-calendar-alt"
-            />
+              side
+            >
+              <QIcon name="fas fa-calendar-alt" />
+            </QItemSection>
             <QItemSection>
               <QItemLabel
-                header
                 :tag="pickup.isDisabled ? 's' : 'div'"
                 :title="pickup.isDisabled ? $t('PICKUPLIST.PICKUP_DISABLED') : null"
               >
@@ -226,13 +229,11 @@
 import { mapGetters, mapActions } from 'vuex'
 import {
   QCard,
-  QCardTitle,
+  QCardSection,
   QList,
   QItemLabel,
   QItem,
-  QItemSection
   QItemSection,
-  QItemLabel,
   QExpansionItem,
   QBtn,
   QTooltip,
@@ -257,13 +258,11 @@ export default {
     RandomArt,
     KSpinner,
     QCard,
-    QCardTitle,
+    QCardSection,
     QList,
     QItemLabel,
     QItem,
-    QItemSection
     QItemSection,
-    QItemLabel,
     QExpansionItem,
     QBtn,
     QTooltip,

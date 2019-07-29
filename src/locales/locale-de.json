@@ -46,11 +46,11 @@
     "NEWCOMER": "Neuling",
     "NEWCOMER_GUIDANCE": "{userName} ist neu in eurer Gruppe und könnte etwas Führung brauchen.",
     "TRUST_PROGRESS_TEXT": "{trustNeeded} mehr Vertrauen benötigt",
-    "TRUST_PROGRESS_TEXT_LONG": "{trustNeeded} more people need to express their trust in {userName} to grant editing permissions.",
-    "NEWCOMER_INFO": "You are currently a newcomer in {groupName} and you can become active by writing messages, meeting fellow members, doing pickups and giving feedback. As soon as {threshold} members expressed their trust in you, you will gain editing permissions to help with group administration.",
+    "TRUST_PROGRESS_TEXT_LONG": "{trustNeeded} mehr Menschen müssen ihr Vertrauen in {userName} ausdrücken, um dieser Person Bearbeitungsrechte zu gewähren.",
+    "NEWCOMER_INFO": "Du bist gerade ein Neuling in {groupName} und du kannst aktiv werden, indem du Nachrichten schreibst, andere Gruppenmitglieder triffst, Abholungen erledigst und Feedback gibst. Sobald {threshold} Mitglieder dir ihr Vertrauen ausgedrückt haben, erhälst du Bearbeitungsrechte, um bei der Gruppenverwaltung zu helfen.",
     "TRUST_INFO": {
       "TITLE": "Was hat es mit diesem Möhren-Button auf sich?",
-      "MESSAGE": "It is part of the Karrot trust system. It shows if a group member is newcomer and how much trust is needed until they gain editing permissions.",
+      "MESSAGE": "Es ist Teil des Karrot-Vertrauensystemes. Es zeigt an, ob ein Gruppenmitglied Neuling ist und wie viel Vertrauen benötigt wird bis diese Person Bearbeitungsrechte erhält.",
       "LINK": "Klicke hier, um mehr herauszufinden."
     }
   },
@@ -117,7 +117,7 @@
     "PRIVATE_DESCRIPTION_TITLE": "Interne Gruppenbeschreibung",
     "DESCRIPTION_VERBOSE": "Gruppenbeschreibung, nur für Mitglieder sichtbar",
     "PUBLIC_DESCRIPTION": "Text, der vorm Beitritt zur Gruppe angezeigt wird",
-    "WELCOMEMESSAGE_VERBOSE": "Welcome message sent to new members",
+    "WELCOMEMESSAGE_VERBOSE": "Willkommensnachricht an neue Mitglieder",
     "LOGO": "Gruppenlogo",
     "SET_LOGO": "Klicke, um dein Gruppenlogo hochzuladen!",
     "APPLICATIONS": "Bewerbungen",
@@ -143,7 +143,7 @@
     "INVITE_EMAIL": "Gib eine E-Mail-Adresse ein",
     "INVITE_SEND": "Send invitation",
     "INVITE_SEND_SUCCESS": "Einladung erfolgreich versandt!",
-    "INVITE_SEND_ERROR": "Ooops, could not send the invitation!",
+    "INVITE_SEND_ERROR": "Ups, diese Einladung konnte nicht verschickt werden!",
     "INVITED_LIST": "Einladungen wurden bereits an diese E-Mail-Adressen versendet:",
     "INVITATIONS": "Einladungen",
     "INVITE_TITLE": "Einladungen zur Gruppe",
@@ -159,11 +159,11 @@
       },
       "daily_pickup_notification": {
         "NAME": "Abholungs-Benachrichtigungen",
-        "DESCRIPTION": "Reminds you of your pickups, and tells you about empty or not-full pickups of your favorite places in the next day"
+        "DESCRIPTION": "Erinnert dich an deine Abholungen und lässt dich über leere oder unvollständige Abholungen deiner Lieblingsorte des nächsten Tages wissen"
       },
       "new_application": {
         "NAME": "Neue Bewerbungen",
-        "DESCRIPTION": "Tells you when somebody wants to join your group"
+        "DESCRIPTION": "Lässt dich wissen wenn jemand der Gruppe beitreten will"
       },
       "conflict_resolution": {
         "NAME": "Neue Konfliktresolutionsprozesse",
@@ -220,7 +220,7 @@
       "YES": "ja",
       "YES_TEXT": "Shows available pickups on the group wall and sends emails about upcoming pickups.",
       "NO": "nein",
-      "NO_TEXT": "None of the above. You can still sign up for pickups though."
+      "NO_TEXT": "Nichts von oben. Du kannst dich trotzdem für Abholungen einschreiben."
     }
   },
   "PICKUPMANAGE": {
@@ -323,7 +323,7 @@
     "ENABLE_TITLE": "Abholungen aktivieren?",
     "DISABLE_TITLE": "Abholungen deaktivieren?",
     "ENABLE_DISABLE_MESSAGE": "Users who joined this pickup will get a notification. You can change this text to provide a reason:",
-    "EXCEPTIONS_TITLE": "Check your pickups",
+    "EXCEPTIONS_TITLE": "Kontrolliere deine Abholungen",
     "EXCEPTIONS_MESSAGE": "Some upcoming pickups don't match the settings of this recurring pickup. Have a look below at '{upcomingLabel}' to change or disable pickups, if needed."
   },
   "CREATESTORE": {
@@ -333,7 +333,7 @@
     "FILTER": {
       "ALL": "Alle",
       "EMPTY": "Nur leere",
-      "FREE": "Mit leeren Slots"
+      "FREE": "Mit offenen Slots"
     },
     "AVAILABLE": "There is one pickup in your favorite places waiting for you! | There are {count} pickups in your favorite places waiting for you!",
     "AVAILABLE_FEEDBACK": "Du kannst Feedback zu einer Abholung geben | {count} Abholungen warten auf dein Feedback.",
@@ -426,7 +426,7 @@
     "PICKUP_JOIN": "hat sich gemeldet, um bei Betrieb {storeName} abzuholen",
     "PICKUP_LEAVE": "ist von der Abholung bei {storeName} zurückgetreten",
     "APPLICATION_DECLINED": "hat eine Bewerbung von {applicantName} abgelehnt",
-    "MEMBER_BECAME_EDITOR": "gained editing permissions",
+    "MEMBER_BECAME_EDITOR": "erhielt Bearbeitungsrechte",
     "GROUP_LEAVE_INACTIVE": "wurde wegen Inaktivität gelöscht",
     "GROUP_CHANGE_PHOTO": "hat das Gruppenlogo geändert",
     "GROUP_DELETE_PHOTO": "hat das Gruppenlogo gelöscht",
@@ -448,15 +448,15 @@
     "NO_ITEMS": "Gerade haben wir keine Benachrichtigungen für dich."
   },
   "NOTIFICATION_BELLS": {
-    "YOU_BECAME_EDITOR": "You gained editing permissions",
-    "USER_BECAME_EDITOR": "{userName} gained editing permissions",
-    "NEW_APPLICANT": "{userName} applied to join your group",
+    "YOU_BECAME_EDITOR": "Du hast Bearbeitungsrechte erhalten.",
+    "USER_BECAME_EDITOR": "{userName} erhielt Bearbeitungsrechte",
+    "NEW_APPLICANT": "{userName} bewarb sich, um deiner Gruppe beizutreten",
     "APPLICATION_ACCEPTED": "Deine Bewerbung wurde akzeptiert!",
     "APPLICATION_DECLINED": "Deine Bewerbung wurde abgelehnt",
     "INVITATION_ACCEPTED": "{userName} hat deine Einladung angenommen",
     "FEEDBACK_POSSIBLE": "You can give feedback for the pickup you did on {date}",
     "NEW_PLACE": "{placeName} wurde erstellt",
-    "NEW_MEMBER": "{userName} joined your group",
+    "NEW_MEMBER": "{userName} schloss sich deiner Gruppe an",
     "PICKUP_UPCOMING": "Erinnerung: Du hast um {time} eine Abholung",
     "PICKUP_DISABLED": "Abholung am {dateTime} wurde deaktiviert",
     "PICKUP_ENABLED": "Abholung am {dateTime} wurde wieder aktiviert",
@@ -569,7 +569,7 @@
     "WITHDRAWN": "{relativeDate} zurückgezogen ",
     "WHAT": "Um was geht es in dieser Unterhaltung?",
     "HELP": "This is a chat between all existing members of {groupName} and the new applicant {userName}. It is meant to give you all a chance to get to know you before deciding whether to accept, decline or withdraw the application.",
-    "INITIAL": "Initial questions and answers"
+    "INITIAL": "Erste Fragen und Antworten"
   },
   "COMMUNITY_FEED": {
     "HEADER": "Updates der {community}",
@@ -585,15 +585,15 @@
     "SETUP_HEADER": "Gibt es einen Konflikt mit {user}?",
     "STATEMENT": "Aussage",
     "STEPPER1a": "Du bist dabei einen gruppenweiten Konfliktlösungsprozess zu starten!",
-    "STEPPER1b": "This will involve all members with editing permissions to find the best way to proceed.",
-    "STEPPER2a": "Thank you for caring for your community!",
+    "STEPPER1b": "Dabei werden alle Mitglieder mit Bearbeitungsrechten einbezogen, um die beste Lösung zu finden.",
+    "STEPPER2a": "Danke, dass du dich um deine Community kümmerst!",
     "STEPPER2b": "It is important to address social issues, although it can be unpleasant sometimes. Thank you for your courage!",
     "STEPPER3a": "Dies wird passieren:",
     "STEPPER3b": "Dieser Prozess wird eine Unterhaltung und eine Abstimmung starten.",
-    "STEPPER3c": "The chat will be visible for members with editing permissions and includes {userName}.",
+    "STEPPER3c": "Die Unterhaltung wird nur für Mitglieder mit Bearbeitungsrechten sichtbar sein und bezieht {userName} mit ein.",
     "STEPPER3d": "The voting is anonymous. It will go on for {votingDuration} days. During this time all voters can change their minds and vote differently as many times as they want.",
     "STEPPER4a": "Bitte erkläre warum du diesen Konfliktlösungsprozess starten willst!",
-    "STEPPER4b": "Tell your group what made you think this process is justified and needed. This statement will be visible to {userName} and group members with editing permissions.",
+    "STEPPER4b": "Erzähle deiner Gruppe warum du denkst, dass dieser Prozess berechtigt und benötigt wird. Diese Aussage wird sichtbar für {userName} und alle Gruppenmitglieder mit Bearbeitungsrechten sein.",
     "FIND_OUT_MORE": "Mehr herausfinden!",
     "INITIAL": "Information",
     "WITH": "Dieser Prozess dient dazu einen Konflikt mit {userName} zu lösen",
@@ -601,8 +601,8 @@
       "HEADLINE": "Wie willst du mit dem laufenden Konflikt mit {userName} umgehen?"
     },
     "REQUIREMENTS": {
-      "ACTIVE_EDITORS": "Your group has {activeEditorsCount} active users with editing permissions. You need {requiredCount} to start a conflict resolution process.",
-      "NEWCOMER": "Before you can start a conflict resolution process, you need to receive more trust and gain editing permissions. In the meantime, please ask a fellow group member to start the process for you."
+      "ACTIVE_EDITORS": "Deine Gruppe hat {activeEditorsCount} aktive Nutzer mit Bearbeitungsrechten. Du brauchst {requiredCount}, um einen Konfliktresolutionsprozess zu starten.",
+      "NEWCOMER": "Bevor du einen Konfliktresolutionsprozess starten kannst, musst du mehr Vertrauen und Bearbeitungsrechte erhalten. Frage in der Zwischenzeit ein anderes Gruppenmitglied, um den Prozess für dich zu starten."
     },
     "INFO": {
       "TITLE": "Wie funktioniert dieser Prozess?",
@@ -616,10 +616,10 @@
     "TITLE": "Konflikte",
     "VOTE": "Abstimmen",
     "CHAT": "Unterhaltung",
-    "INITIATED_BY": "Initiated by {initiatorName}",
+    "INITIATED_BY": "Eingeleitet von {initiatorName}",
     "PAST": "Vergangene Konflikte",
     "PREVIOUS_VOTINGS": "Vergangene Abstimmungen in diesem Konflikt",
-    "PARTICIPANTS": "{count} members have been added to this discussion.",
+    "PARTICIPANTS": "{count} Mitglieder wurden dieser Diskussion hinzugefügt.",
     "VOTING": {
       "TIME_LEFT": "Restliche Zeit zum Abstimmen",
       "BTN_START": "Stimme jetzt ab",
@@ -628,14 +628,14 @@
       "TOAST": "Deine Stimme wurde erfolgreich abgegeben",
       "TOAST_DELETE": "Deine Abstimmung wurde gelöscht",
       "NO_CHANGE": "Keine Änderung: {userName} bleibt in {groupName}",
-      "FURTHER_DISCUSSION": "Further discussion: extend time by starting another voting",
+      "FURTHER_DISCUSSION": "Weitere Diskussion: Verlängere die Zeit durch erneutes Abstimmen",
       "REMOVE_USER": "{userName} wird von {groupName} ausgeschlossen",
       "RESULTS": {
-        "KEEP_DISCUSSING": "Your group voted to keep discussing",
+        "KEEP_DISCUSSING": "Deine Gruppe hat entschieden weiter zu diskutieren.",
         "TIME_UP": "Die Zeit ist abgelaufen!",
         "TOTAL_SCORE": "Gesamtergebnis",
         "ENDED_AT": "This voting round ended on {date}",
-        "PARTICIPANTS": "{number} members participated in the voting.",
+        "PARTICIPANTS": "{number} Mitglieder haben an der Abstimmung teilgenommen.",
         "UNDECIDED": "Leider konnte dieser Konflikt nicht entschieden werden.",
         "UNDECIDED_WHY": "Es gibt zwei mögliche Gründe dafür:",
         "UNDECIDED_REASON_1": "der betroffene Nutzer hat die Gruppe verlassen während der Konfliktlösungsprozess lief",
@@ -660,7 +660,7 @@
     "FROM_THREAD": "unsubscribe from just this thread",
     "FROM_NOTIFICATION_TYPE": "unsubscribe from {notificationType}",
     "FROM_GROUP": "Unsubscribe from all email notifications in {groupName}",
-    "SUCCESS": "You were successfully unsubscribed!",
+    "SUCCESS": "Du wurdest erfolgreich abgemeldet!",
     "COUNTS": "You unsubscribed from {formerConversations} conversations and {formerReplies} replies."
   },
   "THANKS": "Danke dir!",

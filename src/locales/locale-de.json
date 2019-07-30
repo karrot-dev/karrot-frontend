@@ -47,7 +47,7 @@
     "NEWCOMER_GUIDANCE": "{userName} ist neu in eurer Gruppe und könnte etwas Führung brauchen.",
     "TRUST_PROGRESS_TEXT": "{trustNeeded} mehr Vertrauen benötigt",
     "TRUST_PROGRESS_TEXT_LONG": "{trustNeeded} mehr Menschen müssen ihr Vertrauen in {userName} ausdrücken, um dieser Person Bearbeitungsrechte zu gewähren.",
-    "NEWCOMER_INFO": "Du bist gerade ein Neuling in {groupName} und du kannst aktiv werden, indem du Nachrichten schreibst, andere Gruppenmitglieder triffst, Abholungen erledigst und Feedback gibst. Sobald {threshold} Mitglieder dir ihr Vertrauen ausgedrückt haben, erhälst du Bearbeitungsrechte, um bei der Gruppenverwaltung zu helfen.",
+    "NEWCOMER_INFO": "Du bist gerade ein Neuling in {groupName} und du kannst aktiv werden, indem du Nachrichten schreibst, andere Gruppenmitglieder triffst, Abholungen erledigst und Feedback gibst. Sobald {threshold} Mitglieder dir ihr Vertrauen ausgedrückt haben, erhältst du Bearbeitungsrechte, um bei der Gruppenverwaltung zu helfen.",
     "TRUST_INFO": {
       "TITLE": "Was hat es mit diesem Möhren-Button auf sich?",
       "MESSAGE": "Es ist Teil des Karrot-Vertrauensystemes. Es zeigt an, ob ein Gruppenmitglied Neuling ist und wie viel Vertrauen benötigt wird bis diese Person Bearbeitungsrechte erhält.",

@@ -25,6 +25,7 @@ export default {
         ...group,
         isPlayground,
         isBikeKitchen: group.theme === 'bikekitchen',
+        isGeneralPurpose: group.theme === 'general',
         hasPhoto: group.photoUrls && group.photoUrls.fullSize,
         hasLocation: group.latitude && group.longitude,
         membership: getters.membership,
@@ -64,6 +65,7 @@ export default {
     roles: (state, getters) => getters.membership ? getters.value.membership.roles : [],
     isEditor: (state, getters) => getters.roles.includes('editor'),
     isBikeKitchen: (state, getters) => Boolean(getters.value && getters.value.isBikeKitchen),
+    isGeneralPurpose: (state, getters) => Boolean(getters.value && getters.value.isGeneralPurpose),
   },
   actions: {
     ...withMeta({

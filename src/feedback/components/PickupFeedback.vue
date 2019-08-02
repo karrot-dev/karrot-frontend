@@ -54,6 +54,7 @@
           :value="feedbackDefault"
           :status="saveStatus"
           :is-bike-kitchen="isBikeKitchen"
+          :is-general-purpose="isGeneralPurpose"
           @save="$emit('save', arguments[0])"
         />
       </div>
@@ -145,6 +146,10 @@ export default {
       type: Number,
     },
     isBikeKitchen: {
+      type: Boolean,
+      default: false,
+    },
+    isGeneralPurpose: {
       type: Boolean,
       default: false,
     },

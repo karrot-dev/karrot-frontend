@@ -1,26 +1,26 @@
 {
   "ENTRY": "1 entry | {count} entries",
   "GLOBAL": {
-    "GITHUB_NOTE": "Development",
-    "SERVER_ERROR": "Server error",
-    "NOT_CONNECTED": "You aren't connected to the server",
+    "GITHUB_NOTE": "Entwécklung",
+    "SERVER_ERROR": "Server-Feeler",
+    "NOT_CONNECTED": "Du bass net mam Server verbonn",
     "INVALID_LINK": "Sorry, the link you've opened is invalid.",
     "GENERIC_ERROR": "Sorry, something went wrong",
-    "SEARCH_NOT_FOUND": "Not Found",
-    "ABOUT_KARROT": "About Karrot"
+    "SEARCH_NOT_FOUND": "Net fonnt",
+    "ABOUT_KARROT": "Iwwert Karrot"
   },
   "USERDATA": {
-    "EMAIL": "E-mail",
-    "MOBILE_NUMBER": "Phone number",
-    "PROFILE_TITLE": "Profile",
+    "EMAIL": "E-Mail",
+    "MOBILE_NUMBER": "Telefonsnummer",
+    "PROFILE_TITLE": "Profil",
     "PRIVATE_MESSAGE": "Send a private message to {userName}",
-    "PASSWORD": "Password",
-    "CONFIRM_PASSWORD": "Confirm your password",
-    "USERNAME": "Name",
+    "PASSWORD": "Passwuert",
+    "CONFIRM_PASSWORD": "Bestäteg däi Passwuert",
+    "USERNAME": "Numm",
     "WHERE_FROM": "Where you are from (not required)",
     "PHOTO": "Profile photo",
     "SET_PHOTO": "Set your profile photo...",
-    "ACCOUNT": "Account",
+    "ACCOUNT": "Konto",
     "PUSH": "Push notifications",
     "PUSH_CURRENT_BROWSER": "Current browser",
     "REQUEST_DELETE_ACCOUNT": {
@@ -57,24 +57,24 @@
   "SWITCHGROUP": {
     "NOT_MEMBER": "{userName} is not member of {groupName}.",
     "COMMON_GROUPS": "Groups you have in common",
-    "OTHER_GROUPS": "Other groups",
+    "OTHER_GROUPS": "Aner Gruppen",
     "CHOOSE": "Choose a group:"
   },
   "BUTTON": {
     "CREATE": "Create",
-    "CANCEL": "Cancel",
-    "OPEN": "Open",
-    "CLOSE": "Close",
-    "DELETE": "Delete",
+    "CANCEL": "Ofbriechen",
+    "OPEN": "Opmaachen",
+    "CLOSE": "Zoumaachen",
+    "DELETE": "Läschen",
     "EDIT": "Edit",
     "JOIN": "Join",
-    "LEAVE": "Leave",
+    "LEAVE": "Verloossen",
     "PREVIEW": "Preview",
     "BACK": "Back",
     "NEXT": "Next",
-    "SEARCH": "Search",
-    "OF_COURSE": "Yes, of course!",
-    "YES": "Yes",
+    "SEARCH": "Sichen",
+    "OF_COURSE": "Jo, natierlech!",
+    "YES": "Jo",
     "SAVE_CHANGES": "Save changes",
     "RESET": "Reset",
     "CHANGE_PASSWORD": "Change password",
@@ -104,8 +104,8 @@
     "VALID_TIMEZONE": "Enter a valid timezone."
   },
   "GROUP": {
-    "WALL": "Wall",
-    "GROUP": "Group",
+    "WALL": "Mauer",
+    "GROUP": "Grupp",
     "LEAVE": "Leave group...",
     "LEAVE_TEXT": "Are you sure you want to leave this group?",
     "LEAVE_CONFIRMATION": "You left {groupName}",
@@ -122,7 +122,7 @@
     "SET_LOGO": "Click to upload your group logo!",
     "APPLICATIONS": "Applications",
     "APPLICATION_QUESTIONS": "Questions for people who want to join this group",
-    "PICKUPS": "Pickups",
+    "PICKUPS": "Ofhuelungen",
     "MESSAGES": "Messages",
     "PICKUP": "Pickup",
     "MEMBERS": "Members",
@@ -132,13 +132,13 @@
     "DECLINED_BY": "declined by {userName}",
     "SORT_JOINDATE": "Sort by join date",
     "SORT_NAME": "Sort by name",
-    "INACTIVE": "Inactive",
+    "INACTIVE": "Inaktiv",
     "SHOW_INACTIVE": "Show inactive groups",
-    "PLACES": "Places",
+    "PLACES": "Plazen",
     "HOME": "Home",
     "HISTORY": "History",
-    "DESCRIPTION": "Description",
-    "ADDRESS": "Address",
+    "DESCRIPTION": "Beschreiwung",
+    "ADDRESS": "Adress",
     "TIMEZONE": "Time zone of group",
     "INVITE_EMAIL": "Enter an e-mail address",
     "INVITE_SEND": "Send invitation",
@@ -175,7 +175,7 @@
     "JOIN_ANOTHER_GROUP": "Join another group"
   },
   "GROUPMAP": {
-    "TITLE": "Map",
+    "TITLE": "Kaart",
     "SHOW_USERS": "Show users",
     "HIDE_USERS": "Hide users",
     "SHOW_PLACES": "Show places",
@@ -194,10 +194,10 @@
     "NO_DESCRIPTION": "This place does not have a description yet"
   },
   "STOREEDIT": {
-    "NAME": "Name",
+    "NAME": "Numm",
     "STATUS": "Status",
-    "DESCRIPTION": "Description",
-    "ADDRESS": "Address",
+    "DESCRIPTION": "Beschreiwung",
+    "ADDRESS": "Adress",
     "WEEKS_IN_ADVANCE": "How many weeks in advance should recurring pickup dates be shown?",
     "WEEKS_IN_ADVANCE_WARNING": "Existing leftover pickups will get deleted if they are empty. You can disable non-empty pickups manually, if needed.",
     "DIALOGS": {
@@ -217,9 +217,9 @@
     "SUBSCRIBED_USERS": "{count} people have marked this place as favourite",
     "SUBSCRIPTION": {
       "HEADER": "Do you want to mark this place as your favourite?",
-      "YES": "yes",
+      "YES": "jo",
       "YES_TEXT": "Shows available pickups on the group wall and sends emails about upcoming pickups.",
-      "NO": "no",
+      "NO": "nee",
       "NO_TEXT": "None of the above. You can still sign up for pickups though."
     }
   },
@@ -237,8 +237,8 @@
     "DELETE_SERIES_TEXT": "Do you really want to delete this recurring pickup date? This will also delete all one-time pickup dates that belong to this recurring pickup date (except where people joined already)."
   },
   "USERDETAIL": {
-    "DISPLAY_NAME": "Name",
-    "DESCRIPTION": "About you",
+    "DISPLAY_NAME": "Numm",
+    "DESCRIPTION": "Iwwert dech",
     "OLD_PASSWORD": "Confirm your old password",
     "PASSWORD": "New password"
   },
@@ -252,7 +252,7 @@
     "ALL_GROUPS": "All groups",
     "SIGNUP_OR_LOGIN": "Log in or sign up to join this group!",
     "VERIFY_EMAIL_ADDRESS": "Verify your email address to apply",
-    "MY_GROUPS": "My groups",
+    "MY_GROUPS": "Meng Gruppen",
     "LOGOUT_MESSAGE": {
       "LOGGED_OUT": "You are currently logged out. {login}",
       "LOG_IN": "Log in to see your groups!"
@@ -299,9 +299,9 @@
   },
   "CREATEPICKUP": {
     "FREQUENCY": "Frequency",
-    "WEEKLY": "Weekly",
+    "WEEKLY": "All Woch",
     "CUSTOM": "Custom",
-    "WEEKDAYS": "Weekdays",
+    "WEEKDAYS": "All Wochendag",
     "WEEKDAYS_HELPER": "On which days should the pick-up take place?",
     "RRULE": "Recurrence rule",
     "RRULE_HELPER": "Type in a valid {ruleHelper}, e.g. {ruleExample} or {ruleExample2}",
@@ -340,7 +340,7 @@
     "JOINEDNOTICE": "You have one upcoming pickup | You have {count} upcoming pickups",
     "AVAILABLE_FROM_STORES": "This shows pickups from your favorite places in the next days. You can access other places in the sidebar.",
     "ITEM": {
-      "LEAVE": "Leave",
+      "LEAVE": "Verloossen",
       "JOIN": "Join",
       "JOIN_CONFIRMATION_HEADER": "Join Pickup",
       "JOIN_CONFIRMATION_TEXT": "Are you sure you have time to pick up on {date}?",

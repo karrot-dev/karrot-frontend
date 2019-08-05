@@ -15,6 +15,7 @@
         <QBtn
           v-if="value.address"
           icon="fas fa-search"
+          :title="$t('BUTTON.SEARCH')"
           flat
           round
           size="sm"

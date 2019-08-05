@@ -11,12 +11,10 @@
       :name="selected.icon"
     />
     <QMenu>
-      <QList
-        v-close-popup
-        link
-      >
+      <QList>
         <template v-if="user && !user.mailVerified">
           <QItem
+            v-close-popup
             :to="{ name: 'settings', hash: '#change-email' }"
           >
             <QItemSection
@@ -35,9 +33,11 @@
           header
         />
         <QItem
+          v-close-popup
           v-for="o in options"
           :key="o.id"
           :class="o.selected ? 'bg-grey-2' : ''"
+
           @click.native="select(o)"
         >
           <QItemSection

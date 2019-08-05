@@ -7,7 +7,7 @@
       <QField
         icon="fas fa-star"
         :label="$t('AGREEMENT.TITLE')"
-        :helper="$t('AGREEMENT.TITLE_HELPER')"
+        :hint="$t('AGREEMENT.TITLE_HELPER')"
       >
         <QInput
           v-model="edit.title"
@@ -20,7 +20,7 @@
       <QField
         icon="fas fa-file-alt"
         :label="$t('AGREEMENT.CONTENT')"
-        :helper="$t('AGREEMENT.CONTENT_HELPER')"
+        :hint="$t('AGREEMENT.CONTENT_HELPER')"
       >
         <QInput
           v-model="edit.content"

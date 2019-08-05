@@ -5,12 +5,11 @@
     self="top right"
   >
     <QList
-      v-close-popup
-      item-separator
-      link
+      separator
     >
       <QItem
         v-if="isEditor"
+        v-close-popup
         :to="{name: 'groupEdit', params: {groupId: currentGroupId}}"
       >
         <QIcon
@@ -22,6 +21,7 @@
 
       <QItem
         v-if="isAgreementManager"
+        v-close-popup
         :to="{name: 'groupManageAgreement', params: {groupId: currentGroupId}}"
       >
         <QIcon
@@ -32,6 +32,7 @@
       </QItem>
 
       <QItem
+        v-close-popup
         :to="{name: 'groupPreview', params: {groupPreviewId: currentGroupId}}"
       >
         <QIcon
@@ -43,6 +44,7 @@
 
       <QItem
         v-if="isEditor"
+        v-close-popup
         :to="{name: 'groupInvitations', params: {groupId: currentGroupId}}"
       >
         <QIcon
@@ -52,7 +54,10 @@
         {{ $t('GROUP.INVITE_TITLE') }}
       </QItem>
 
-      <QItem @click.native="leave">
+      <QItem
+        v-close-popup
+        @click.native="leave"
+      >
         <QIcon
           size="1em"
           name="fas fa-sign-out-alt fa-fw on-left"

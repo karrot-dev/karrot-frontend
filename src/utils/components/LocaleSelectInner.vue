@@ -1,7 +1,6 @@
 <template>
   <QList
     v-close-popup
-    highlight
   >
     <QItem
       tag="a"

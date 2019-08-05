@@ -5,7 +5,7 @@
       stack-label
       :error="hasError('photo')"
       :error-message="firstError('photo')"
-      :hint="helper"
+      :hint="hint"
     >
       <template v-slot:prepend>
         <QIcon name="fas fa-camera" />
@@ -86,7 +86,7 @@ export default {
       type: String,
       default: '',
     },
-    helper: {
+    hint: {
       type: String,
       default: '',
     },

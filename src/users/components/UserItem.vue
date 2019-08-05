@@ -1,5 +1,5 @@
 <template>
-  <QItem highlight>
+  <QItem>
     <QItemSection side>
       <ProfilePicture
         :key="user.id"

@@ -3112,7 +3112,7 @@ exports[`Storyshots Latest Messages flag: closed 1`] = `
     <!---->
     <div class="q-item__label row no-wrap items-baseline q-item__label--caption text-caption" style="max-height:18px;">
       <div class="text-secondary">
-        Mira Bellenbaum: 
+        Mira Bellenbaum:
       </div>
       <!---->
       <div class="ellipsis col">
@@ -3144,7 +3144,7 @@ exports[`Storyshots Latest Messages flag: closed+muted 1`] = `
     <!---->
     <div class="q-item__label row no-wrap items-baseline q-item__label--caption text-caption" style="max-height:18px;">
       <div class="text-secondary">
-        Mira Bellenbaum: 
+        Mira Bellenbaum:
       </div>
       <!---->
       <div class="ellipsis col">
@@ -3272,7 +3272,7 @@ exports[`Storyshots Latest Messages type: application chat 1`] = `
     <!---->
     <div class="q-item__label row no-wrap items-baseline q-item__label--caption text-caption" style="max-height:18px;">
       <div class="text-secondary">
-        Mira Bellenbaum: 
+        Mira Bellenbaum:
       </div>
       <!---->
       <div class="ellipsis col">
@@ -3302,7 +3302,7 @@ exports[`Storyshots Latest Messages type: group wall 1`] = `
     <!---->
     <div class="q-item__label row no-wrap items-baseline q-item__label--caption text-caption" style="max-height:18px;">
       <div class="text-secondary">
-        Mira Bellenbaum: 
+        Mira Bellenbaum:
       </div>
       <!---->
       <div class="ellipsis col">
@@ -3332,7 +3332,7 @@ exports[`Storyshots Latest Messages type: issue chat 1`] = `
     <!---->
     <div class="q-item__label row no-wrap items-baseline q-item__label--caption text-caption" style="max-height:18px;">
       <div class="text-secondary">
-        Mira Bellenbaum: 
+        Mira Bellenbaum:
       </div>
       <!---->
       <div class="ellipsis col">
@@ -3366,7 +3366,7 @@ exports[`Storyshots Latest Messages type: my application chat 1`] = `
     <!---->
     <div class="q-item__label row no-wrap items-baseline q-item__label--caption text-caption" style="max-height:18px;">
       <div class="text-secondary">
-        Mira Bellenbaum: 
+        Mira Bellenbaum:
       </div>
       <!---->
       <div class="ellipsis col">
@@ -3397,7 +3397,7 @@ exports[`Storyshots Latest Messages type: pickup chat 1`] = `
       </small></div>
     <div class="q-item__label row no-wrap items-baseline q-item__label--caption text-caption" style="max-height:18px;">
       <div class="text-secondary">
-        Mira Bellenbaum: 
+        Mira Bellenbaum:
       </div>
       <!---->
       <div class="ellipsis col">
@@ -3427,7 +3427,7 @@ exports[`Storyshots Latest Messages type: place wall 1`] = `
     <!---->
     <div class="q-item__label row no-wrap items-baseline q-item__label--caption text-caption" style="max-height:18px;">
       <div class="text-secondary">
-        Mira Bellenbaum: 
+        Mira Bellenbaum:
       </div>
       <!---->
       <div class="ellipsis col">
@@ -3487,7 +3487,7 @@ exports[`Storyshots Latest Messages type: thread 1`] = `
     <!---->
     <div class="q-item__label row no-wrap items-baseline q-item__label--caption text-caption" style="max-height:18px;">
       <div class="text-secondary">
-        Mira Bellenbaum: 
+        Mira Bellenbaum:
       </div>
       <!---->
       <div class="ellipsis col">
@@ -4815,7 +4815,7 @@ exports[`Storyshots PickupSeriesEdit Default 1`] = `
       <div class="q-field row no-wrap items-start q-field--standard q-field--labeled q-field--auto-height q-field--with-bottom">
         <div class="q-field__inner relative-position col self-stretch column justify-center">
           <div tabindex="-1" class="q-field__control relative-position row no-wrap">
-            <div class="q-field__prepend q-field__marginal row no-wrap items-center"><i aria-hidden="true" class="material-icons q-icon">access time</i></div>
+            <div class="q-field__prepend q-field__marginal row no-wrap items-center"><i aria-hidden="true" class="material-icons q-icon">access_time</i></div>
             <div class="q-field__control-container col relative-position row no-wrap q-anchor--skip">
               <div class="q-field__label no-pointer-events absolute ellipsis">Time</div>
               <div class="row">

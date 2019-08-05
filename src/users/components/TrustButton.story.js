@@ -70,7 +70,7 @@ const defaultOn = {
   selectGroup: action('select group'),
 }
 
-storiesOf('User Profile', module)
+storiesOf('TrustButton', module)
   .add('Trust Button - is editor', () => defaults({
     render: h => h(TrustButton, {
       props: {

@@ -87,10 +87,6 @@ export default i18n
 const TEN_PM = new Date()
 TEN_PM.setHours(22, 0)
 
-export function is24h () {
-  return i18n.d(TEN_PM, 'hourMinute') === '22:00'
-}
-
 const DAY_KEYS = ['MO', 'TU', 'WE', 'TH', 'FR', 'SA', 'SU']
 const DAY_INDEX = DAY_KEYS.reduce((acc, key, idx) => {
   acc[key] = idx

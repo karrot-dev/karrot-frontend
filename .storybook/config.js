@@ -34,7 +34,7 @@ import { addParameters, configure } from '@storybook/vue'
 import { create } from '@storybook/theming'
 
 function loadStories() {
-  const req = require.context('../src', true, /\Profile.story\.js$/)
+  const req = require.context('../src', true, /\PickupEdit.story\.js$/)
   req.keys().forEach(filename => req(filename))
 }
 

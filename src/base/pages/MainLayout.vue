@@ -60,7 +60,6 @@
           <RouterView name="sidenav" />
           <MobileSidenav />
           <QItem
-            link
             @click.native="toggleAbout()"
           >
             <QItemSection
@@ -88,7 +87,6 @@
         >
           <RouterView name="sidenav" />
           <QItem
-            link
             @click.native="toggleAbout()"
           >
             <QItemSection

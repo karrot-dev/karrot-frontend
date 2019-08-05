@@ -11,12 +11,8 @@
         <h4 v-t="'GLOBAL.ABOUT_KARROT'" />
       </div>
 
-      <QList
-        no-border
-        link
-      >
+      <QList>
         <QItem
-          link
           tag="a"
           rel="nofollow noopener noreferrer"
           href="https://github.com/yunity/karrot-frontend"
@@ -32,7 +28,6 @@
         </QItem>
 
         <QItem
-          link
           tag="a"
           rel="nofollow noopener noreferrer"
           href="https://foodsaving.world"
@@ -48,7 +43,6 @@
         </QItem>
 
         <QItem
-          link
           tag="a"
           rel="nofollow noopener noreferrer"
           href="mailto:karrot@foodsaving.world"

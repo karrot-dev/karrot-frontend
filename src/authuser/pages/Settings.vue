@@ -11,7 +11,7 @@
           :value="user"
           :status="profileEditStatus"
           :label="$t('USERDATA.PHOTO')"
-          :helper="$t('USERDATA.SET_PHOTO')"
+          :hint="$t('USERDATA.SET_PHOTO')"
           mime-type="image/jpeg"
           @save="saveUser({ photo: arguments[0] })"
         />

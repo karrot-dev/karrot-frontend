@@ -31,8 +31,6 @@
 
     <div>
       <QList
-        highlight
-        no-border
         class="no-padding"
       >
         <QItem :to="{ name: 'group', params: { groupId } }">

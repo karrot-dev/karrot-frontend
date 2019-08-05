@@ -6,7 +6,7 @@
         :value="value"
         :status="status"
         :label="$t('GROUP.LOGO')"
-        :helper="$t('GROUP.SET_LOGO')"
+        :hint="$t('GROUP.SET_LOGO')"
         @save="$emit('save', { id: value.id, photo: arguments[0] })"
       />
       <div

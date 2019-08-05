@@ -4,7 +4,7 @@
     class="bg-white"
   >
     <KSpinner v-show="fetching" />
-    <QList no-border>
+    <QList>
       <QItem
         v-if="!fetching && notifications.length === 0"
       >

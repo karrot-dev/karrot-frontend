@@ -3,7 +3,7 @@
     <form @submit.prevent="maybeSave">
       <QInput
         v-model="form.email"
-        :helper="$t('GROUP.INVITE_EMAIL')"
+        :hint="$t('GROUP.INVITE_EMAIL')"
         :error="hasErrorMessage"
         :error-message="errorMessage"
         type="email"

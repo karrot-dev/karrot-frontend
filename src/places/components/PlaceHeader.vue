@@ -14,6 +14,7 @@
       <QChip
         icon="fas fa-star"
         color="secondary"
+        text-color="white"
         square
         :title="$t('PLACEWALL.SUBSCRIBED_USERS', { count: subscribers.length })"
         class="self-center q-ml-sm cursor-pointer"
@@ -22,8 +23,8 @@
         <strong>{{ subscribers.length }}</strong>
         <QMenu>
           <div
-            v-if="subscribers"
             v-close-popup
+            v-if="subscribers"
             class="q-pa-md"
           >
             <div>
@@ -48,35 +49,37 @@
           class="hoverScale"
           :icon="selected.icon"
           :text-color="selected.color"
+          :title="$t('PLACEWALL.SUBSCRIPTION.HEADER')"
         >
-          <QTooltip>
-            {{ $t('PLACEWALL.SUBSCRIPTION.HEADER') }}
-          </QTooltip>
           <QMenu>
-            <QList
-              v-close-popup
-              link
-            >
+            <QList>
               <QItemLabel
                 v-t="'PLACEWALL.SUBSCRIPTION.HEADER'"
                 header
               />
 
               <QItem
+                v-close-popup
                 v-for="o in options"
                 :key="o.id"
                 :class="o.selected ? 'bg-grey-2' : ''"
                 @click.native="select(o)"
+                clickable
               >
-                <QItemSection
-                  side
-                  :color="o.color"
-                  :icon="o.icon"
-                />
-                <QItemSection
-                  :label="o.label"
-                  :sublabel="o.sublabel"
-                />
+                <QItemSection side>
+                  <QIcon
+                    :name="o.icon"
+                    :color="o.color"
+                  />
+                </QItemSection>
+                <QItemSection>
+                  <QItemLabel>
+                    {{ o.label }}
+                  </QItemLabel>
+                  <QItemLabel caption>
+                    {{ o.sublabel }}
+                  </QItemLabel>
+                </QItemSection>
               </QItem>
             </QList>
           </QMenu>
@@ -93,9 +96,8 @@
             icon="directions"
             class="hoverScale"
             :disable="!directionsURL"
-          >
-            <QTooltip v-t="'STOREDETAIL.DIRECTIONS'" />
-          </QBtn>
+            :title="$t('STOREDETAIL.DIRECTIONS')"
+          />
         </component>
       </div>
     </div>

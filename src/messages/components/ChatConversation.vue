@@ -7,7 +7,6 @@
     <KSpinner v-show="fetchingPast" />
     <QInfiniteScroll :handler="maybeFetchFuture">
       <QList
-        no-border
         class="bg-white"
       >
         <ConversationMessage

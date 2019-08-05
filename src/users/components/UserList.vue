@@ -1,8 +1,6 @@
 <template>
   <div class="list-wrapper">
-    <QList
-      no-border
-    >
+    <QList>
       <QItem
         v-if="users.length > 15"
       >

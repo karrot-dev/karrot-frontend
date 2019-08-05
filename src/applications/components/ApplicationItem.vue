@@ -1,6 +1,5 @@
 <template>
   <QItem
-    link
     :class="{ isNonPending: !application.isPending }"
     @click.native="openChatIfCannotDecide"
   >
@@ -51,11 +50,9 @@
       v-if="application.canDecide"
       touch-position
     >
-      <QList
-        v-close-popup
-        link
-      >
+      <QList>
         <QItem
+          v-close-popup
           @click.native="openChat"
         >
           <QItemSection side>
@@ -66,6 +63,7 @@
           </QItemSection>
         </QItem>
         <QItem
+          v-close-popup
           @click.native="pressAccept"
         >
           <QItemSection side>
@@ -76,6 +74,7 @@
           </QItemSection>
         </QItem>
         <QItem
+          v-close-popup
           @click.native="decline"
         >
           <QItemSection side>

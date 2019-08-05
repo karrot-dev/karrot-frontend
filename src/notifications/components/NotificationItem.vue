@@ -1,6 +1,5 @@
 <template>
-  <QItem
-    link
+  <QItemlink
     :class="{ isUnread: !notification.clicked }"
     active-class="ignore-active-link"
     :to="routeTo"

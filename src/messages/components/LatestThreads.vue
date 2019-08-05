@@ -4,9 +4,7 @@
   >
     <KSpinner v-show="fetchInitialPending" />
     <template v-if="!fetchInitialPending">
-      <QList
-        no-border
-      >
+      <QList>
         <QItem
           v-if="threads.length === 0"
         >

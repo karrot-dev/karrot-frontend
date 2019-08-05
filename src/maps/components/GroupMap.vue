@@ -17,7 +17,6 @@
         v-slot:contextmenu="{ latLng }"
       >
         <QList
-          highlight
           dense
         >
           <QItem

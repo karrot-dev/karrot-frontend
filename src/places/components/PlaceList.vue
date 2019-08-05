@@ -1,29 +1,24 @@
 <template>
   <QList
-    highlight
-    no-border
     class="no-padding"
   >
     <QItem
       v-for="place in sortedPlaces"
       :key="place.id"
-      link
       :to="linkParamsFor(place)"
       :class="{'router-link-active': place.isActivePlace}"
+      dense
     >
-      <QItemSection
-        side
-        class="text-center"
-      >
+      <QItemSection side>
         <QIcon
           :name="place.ui.icon"
           :color="place.ui.color"
           :title="$t(place.ui.label)"
+          size="1.1em"
         />
       </QItemSection>
       <QItemSection>
         <QItemLabel
-          header
           class="items-baseline"
         >
           {{ place.name }}
@@ -50,7 +45,6 @@
 
     <QItem
       v-if="!hasPlaces && isEditor"
-      link
       :to="{ name: 'placeCreate', params: { groupId } }"
       class="bg-secondary"
       multiline
@@ -74,7 +68,6 @@
       <QItem
         v-for="place in archived"
         :key="place.id"
-        link
         :to="linkParamsFor(place)"
       >
         <QItemSection>

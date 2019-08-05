@@ -1,6 +1,5 @@
 <template>
   <QItem
-    link
     :class="{ isUnread: unreadCount > 0 && !muted, selected }"
     @click.native="$emit('open')"
   >

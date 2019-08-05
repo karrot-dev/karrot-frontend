@@ -11,12 +11,8 @@
         {{ $t('USERDATA.ACCOUNT') }}
       </template>
 
-      <QList
-        no-border
-        link
-      >
+      <QList>
         <QItem
-          item
           :to="{name: 'user', params: {userId: currentUserId}}"
         >
           <QItemSection
@@ -29,7 +25,6 @@
         </QItem>
 
         <QItem
-          item
           :to="{name: 'groupsGallery'}"
         >
           <QItemSection
@@ -42,7 +37,6 @@
         </QItem>
 
         <QItem
-          item
           :to="{name: 'settings'}"
         >
           <QItemSection

@@ -26,7 +26,6 @@
     </template>
     <QCardSection>
       <QList
-        link
         bordered
       >
         <QItemLabel header>

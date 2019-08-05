@@ -1,8 +1,5 @@
 import { storiesOf } from '@storybook/vue'
-import { action } from '@storybook/addon-actions'
-
 import Profile from '@/users/pages/Profile'
-import TrustButton from '@/users/components/TrustButton'
 import TrustInfo from '@/users/components/TrustInfo'
 
 import { createDatastore, statusMocks, storybookDefaults as defaults } from '>/helpers'
@@ -72,21 +69,6 @@ storiesOf('Profile', module)
   }))
   .add('member', () => defaults({
     render: h => h(Profile),
-    store: datastore({
-      activeUser: member,
-    }),
-  }))
-  .add('TrustButton', () => defaults({
-    render: h => h(TrustButton, {
-      props: {
-        user: member,
-        group,
-        membership: member.membership,
-      },
-      on: {
-        createTrust: action('createTrust'),
-      },
-    }),
     store: datastore({
       activeUser: member,
     }),

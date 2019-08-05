@@ -22,10 +22,9 @@
           {{ user.isCurrentUser ? $t('JOINGROUP.MY_GROUPS') : $t('SWITCHGROUP.COMMON_GROUPS') }}
         </QItemLabel>
         <QItem
+          v-close-popup
           v-for="group in commonGroups"
           :key="group.id"
-          v-close-popup
-          link
           @click.native="$emit('selectGroup', { groupId: group.id })"
         >
           <QItemSection>

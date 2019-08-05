@@ -9,8 +9,10 @@
 import subHours from 'date-fns/sub_hours'
 import subDays from 'date-fns/sub_days'
 import addDays from 'date-fns/add_days'
+import addMinutes from 'date-fns/add_minutes'
 
 import { statusMocks } from '>/helpers'
+import { optionsFor } from '@/places/placeStatus'
 
 let notificationIdCnt = 0
 export const makeNotification = data => {
@@ -86,13 +88,13 @@ export const makeMembership = data => {
     trustedBy: [],
     trustThresholdForNewcomer: 3,
     trusted: false,
-    trustProgress: 0.5,
+    trustProgress: 0,
     trustUserStatus: statusMocks.default(),
     ...data,
   }
 }
 
-let userIdCnt = 0
+let userIdCnt = 1
 export const makeUser = data => {
   const id = userIdCnt++
   return {
@@ -101,6 +103,7 @@ export const makeUser = data => {
     photoUrls: {},
     latitude: null,
     longitude: null,
+    membership: null,
     ...data,
   }
 }
@@ -113,7 +116,6 @@ export const makeUserProfile = data => {
     address: '',
     description: '',
     groups: [],
-    membership: null,
     ...data,
   }
 }
@@ -129,10 +131,10 @@ export const makeCurrentUser = data => {
   }
 }
 
-let placeIdCnt = 0
+let placeIdCnt = 1
 export const makePlace = data => {
   const id = placeIdCnt++
-  return {
+  const place = {
     id,
     name: `Place ${id}`,
     description: '',
@@ -143,7 +145,14 @@ export const makePlace = data => {
     weeksInAdvance: 4,
     status: 'active',
     isActivePlace: false,
+    isSubscribed: false,
+    statistics: null,
+    saveStatus: statusMocks.default(),
     ...data,
+  }
+  return {
+    ...place,
+    ui: optionsFor(place),
   }
 }
 
@@ -152,6 +161,7 @@ export const makePickup = data => {
   return {
     id: pickupIdCnt++,
     date: new Date(),
+    dateEnd: addMinutes(new Date(), 30),
     series: null,
     place: null,
     maxCollectors: 10,
@@ -160,6 +170,7 @@ export const makePickup = data => {
     hasStarted: false,
     description: '',
     isDisabled: false,
+    hasDuration: false,
     ...data,
   }
 }
@@ -170,13 +181,22 @@ export const makePickupSeries = data => {
     id: pickupSeriesIdCnt++,
     place: null,
     maxCollectors: 10,
-    byDay: ['TU'],
-    freq: 'WEEKLY',
-    isCustom: false,
-    custom: 'FREQ=WEEKLY;BYDAY=TU',
     startDate: new Date(),
     description: '',
     datesPreview: [],
+    destroyStatus: statusMocks.default(),
+    saveStatus: statusMocks.default(),
+    duration: null,
+    isSameHour: true,
+    isSameMinute: true,
+    isSameWeekday: true,
+    pickups: [],
+    rule: {
+      byDay: ['TU'],
+      custom: 'FREQ=WEEKLY;BYDAY=TU',
+      freq: 'WEEKLY',
+      isCustom: false,
+    },
     ...data,
   }
 }

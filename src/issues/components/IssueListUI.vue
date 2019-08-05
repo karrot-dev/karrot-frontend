@@ -1,6 +1,5 @@
 <template>
   <QList
-    no-border
     class="bg-white"
   >
     <KSpinner v-show="isPending" />

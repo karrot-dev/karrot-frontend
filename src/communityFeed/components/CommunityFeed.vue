@@ -1,6 +1,5 @@
 <template>
   <QItem
-    link
     @click.native="showing = !showing"
   >
     <QItemSection
@@ -41,7 +40,6 @@
       </QBtn>
       <QList
         v-if="showing"
-        link
       >
         <QItemLabel header>
           <QIcon

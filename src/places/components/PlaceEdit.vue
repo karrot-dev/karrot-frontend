@@ -15,7 +15,7 @@
             autocomplete="off"
             @blur="$v.edit.name.$touch"
           >
-            <template v-slot:prepend>
+            <template v-slot:before>
               <QIcon name="fas fa-star" />
             </template>
           </QInput>
@@ -27,7 +27,7 @@
             :error="hasError('status')"
             :error-message="firstError('status')"
           >
-            <template v-slot:prepend>
+            <template v-slot:before>
               <QIcon name="fas fa-handshake" />
             </template>
           </QSelect>
@@ -43,34 +43,43 @@
 
           <AddressPicker
             v-model="edit"
+            icon="fas fa-map-marker"
             :color="markerColor"
             :font-icon="$icon('place')"
             :label="$t('STOREEDIT.ADDRESS')"
             :error="hasAddressError"
             :error-message="addressError"
-          >
-            <template v-slot:prepend>
-              <QIcon name="fas fa-map-marker" />
-            </template>
-          </AddressPicker>
+          />
 
           <QField
+            borderless
             :label="$t('STOREEDIT.WEEKS_IN_ADVANCE')"
+            stack-label
             :error="hasError('weeksInAdvance')"
             :error-message="firstError('weeksInAdvance')"
-            :warning="value.weeksInAdvance > edit.weeksInAdvance"
-            :warning-label="$t('STOREEDIT.WEEKS_IN_ADVANCE_WARNING')"
           >
-            <template v-slot:prepend>
+            <template v-slot:before>
               <QIcon name="fas fa-calendar-alt" />
             </template>
-            <QSlider
-              v-model="edit.weeksInAdvance"
-              :min="1"
-              :max="10"
-              label
-              label-always
-            />
+            <template v-slot:append>
+              <QIcon
+                v-if="value.weeksInAdvance > edit.weeksInAdvance"
+                name="warning"
+                color="warning"
+                :title="$t('STOREEDIT.WEEKS_IN_ADVANCE_WARNING')"
+              />
+            </template>
+            <template v-slot:control>
+              <QSlider
+                v-model="edit.weeksInAdvance"
+                :min="1"
+                :max="10"
+                label
+                label-always
+                markers
+                class="q-mt-lg q-mx-md"
+              />
+            </template>
           </QField>
 
           <div
@@ -127,6 +136,7 @@ import {
   QInput,
   QBtn,
   QSelect,
+  QIcon,
   Dialog,
 } from 'quasar'
 import AddressPicker from '@/maps/components/AddressPicker'
@@ -146,6 +156,7 @@ export default {
     QInput,
     QBtn,
     QSelect,
+    QIcon,
     MarkdownInput,
     AddressPicker,
   },

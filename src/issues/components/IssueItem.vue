@@ -1,6 +1,5 @@
 <template>
   <QItem
-    link
     :to="{name: issue.isOngoing ? 'issueChat' : 'issueVote', params: { issueId: issue.id }}"
     :class="{'router-link-active': issue.isSelected}"
   >

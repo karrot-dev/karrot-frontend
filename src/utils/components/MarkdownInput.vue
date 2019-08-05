@@ -25,7 +25,7 @@
         >
           <span class="text-bold">**{{ $t('MARKDOWN_INPUT.BOLD') }}**</span>
           <span class="text-italic">_{{ $t('MARKDOWN_INPUT.ITALIC') }}_</span>
-          <span class="text-strike">~~{{ $t('MARKDOWN_INPUT.STRIKE') }}~~</span>
+          <span>~~<s>{{ $t('MARKDOWN_INPUT.STRIKE') }}</s>~~</span>
           <span>&gt;{{ $t('MARKDOWN_INPUT.QUOTE') }}</span>
           <a
             href="https://guides.github.com/features/mastering-markdown/"

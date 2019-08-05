@@ -1,30 +1,22 @@
 <template>
   <div>
     <QCard class="no-shadow grey-border">
-      <QCardSection>
-        <h5>
+      <QCardSection class="row justify-between no-wrap q-mb-md">
+        <div class="text-h6">
           <i
             class="fas fa-redo on-left"
-            aria-hidden="true"
           />
           {{ $t('PICKUPMANAGE.SERIES') }}
-        </h5>
-        <div
-          slot="right"
-          class="row items-center"
-        >
-          <QBtn
-            v-if="!newSeries"
-            small
-            round
-            class="bannerButton hoverScale"
-            color="secondary"
-            icon="fas fa-plus"
-            @click="createNewSeries"
-          >
-            <QTooltip v-t="'BUTTON.CREATE'" />
-          </QBtn>
         </div>
+        <QBtn
+          v-if="!newSeries"
+          size="sm"
+          round
+          color="secondary"
+          icon="fas fa-plus"
+          :title="$t('BUTTON.CREATE')"
+          @click="createNewSeries"
+        />
       </QCardSection>
       <QItem v-if="newSeries">
         <PickupSeriesEdit
@@ -39,9 +31,6 @@
       <QList
         class="pickups"
         separator
-        no-border
-        highlight
-        sparse
       >
         <QExpansionItem
           v-for="series in pickupSeries"
@@ -62,7 +51,6 @@
             />
           </QItem>
           <QList
-            no-border
             seperator
           >
             <QItemLabel
@@ -103,7 +91,7 @@
                   <QIcon
                     v-if="!pickup.seriesMeta.matchesRule"
                     class="text-warning"
-                    name="access time"
+                    name="access_time"
                     size="150%"
                     :title="$t('PICKUPMANAGE.PICKUP_DOES_NOT_MATCH')"
                   />
@@ -143,31 +131,23 @@
         :seed="placeId"
         type="banner"
       />
-      <QCardSection>
-        <h5>
+      <QCardSection class="row justify-between no-wrap q-mb-md">
+        <div class="text-h6">
           <i
             class="on-left"
             :class="$icon('pickup')"
-            aria-hidden="true"
           />
           {{ $t('PICKUPMANAGE.SINGLE') }}
-        </h5>
-        <div
-          slot="right"
-          class="row items-center"
-        >
-          <QBtn
-            v-if="!newPickup"
-            small
-            round
-            class="bannerButton hoverScale"
-            color="secondary"
-            icon="fas fa-plus"
-            @click="createNewPickup"
-          >
-            <QTooltip v-t="'BUTTON.CREATE'" />
-          </QBtn>
         </div>
+        <QBtn
+          v-if="!newPickup"
+          size="sm"
+          round
+          color="secondary"
+          icon="fas fa-plus"
+          :title="$t('BUTTON.CREATE')"
+          @click="createNewPickup"
+        />
       </QCardSection>
       <QItem v-if="newPickup">
         <PickupEdit
@@ -182,7 +162,6 @@
       <QList
         class="pickups"
         separator
-        no-border
       >
         <QExpansionItem
           v-for="pickup in oneTimePickups"
@@ -236,7 +215,6 @@ import {
   QItemSection,
   QExpansionItem,
   QBtn,
-  QTooltip,
   QIcon,
 } from 'quasar'
 import PickupSeriesEdit from '@/pickups/components/PickupSeriesEdit'
@@ -265,7 +243,6 @@ export default {
     QItemSection,
     QExpansionItem,
     QBtn,
-    QTooltip,
     QIcon,
   },
   data () {
@@ -389,9 +366,6 @@ export default {
   background-color white
 button.selected
   background-color $grey-4
-
-.bannerButton
-  margin-top -64px
 
 .secondCard
   margin-top 24px !important

@@ -1,10 +1,8 @@
 <template>
   <QItem
     v-if="!editMode"
-    multiline
     :class="{ isUnread: message.isUnread, slim }"
     class="conversation-message relative-position"
-    highlight
   >
     <QBtnGroup
       flat

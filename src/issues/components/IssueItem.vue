@@ -11,9 +11,7 @@
       />
     </QItemSection>
     <QItemSection>
-      <QItemLabel
-        header
-      >
+      <QItemLabel>
         {{ issue.affectedUser.displayName }}
       </QItemLabel>
       <QItemLabel

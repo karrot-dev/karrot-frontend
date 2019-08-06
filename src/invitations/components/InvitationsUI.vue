@@ -15,7 +15,6 @@
     </RandomArt>
 
     <InvitationsForm
-      :invitations="invitations"
       :status="sendStatus"
       class="q-ma-md"
       @submit="$emit('submit', arguments[0])"

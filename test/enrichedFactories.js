@@ -359,3 +359,16 @@ export const makeConversation = data => {
     ...data,
   }
 }
+
+let invitationIdCnt = 0
+export const makeInvitation = data => {
+  return {
+    id: invitationIdCnt++,
+    email: `foo${invitationIdCnt}@foo.com`,
+    group: makeGroup(),
+    invitedBy: makeUser(),
+    expiresAt: new Date(),
+    createdAt: new Date(),
+    ...data,
+  }
+}

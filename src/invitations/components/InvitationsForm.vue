@@ -12,7 +12,7 @@
         spellcheck="false"
         @blur="$v.form.email.$touch"
       >
-        <template v-slot:prepend>
+        <template v-slot:before>
           <QIcon name="fas fa-envelope" />
         </template>
       </QInput>
@@ -54,12 +54,6 @@ export default {
     QTooltip,
   },
   mixins: [statusMixin, validationMixin],
-  props: {
-    invitations: {
-      type: Array,
-      required: true,
-    },
-  },
   data () {
     return {
       form: {

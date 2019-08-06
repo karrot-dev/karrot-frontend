@@ -163,8 +163,7 @@ export default {
         ok: this.$t('BUTTON.YES'),
         cancel: this.$t('BUTTON.CANCEL'),
       })
-        .then(() => this.$emit('accept', this.application.id))
-        .catch(() => {})
+        .onOk(() => this.$emit('accept', this.application.id))
     },
     decline () {
       Dialog.create({
@@ -173,8 +172,7 @@ export default {
         ok: this.$t('BUTTON.YES'),
         cancel: this.$t('BUTTON.CANCEL'),
       })
-        .then(() => this.$emit('decline', this.application.id))
-        .catch(() => {})
+        .onOk(() => this.$emit('decline', this.application.id))
     },
   },
 }

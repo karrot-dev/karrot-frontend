@@ -31,16 +31,16 @@ let applicationIdCnt = 0
 export const makeApplication = data => {
   return {
     id: applicationIdCnt++,
-    createdAt: new Date(),
+    createdAt: subDays(new Date(), 1),
     user: makeUser(),
     group: makeGroup(),
-    conversation: null,
     questions: 'What are your motivations for joining slköaslkfjasdfasfd?',
     answers: 'I can live off fire!',
     status: 'pending',
     decidedBy: null,
     decidedAt: null,
-    type: 'application',
+    isPending: true,
+    canDecide: true,
     ...data,
   }
 }
@@ -53,7 +53,7 @@ export const makeGroup = data => {
     name: `Group ${id}`,
     description: '',
     publicDescription: '',
-    applicationQuestions: '',
+    applicationQuestions: 'Why do **you** want to join our group?',
     applicationQuestionsDefault: '',
     members: [],
     memberships: {},
@@ -241,7 +241,6 @@ export const makeIssue = data => {
     id: issueIdCnt++,
     createdAt: subDays(new Date(), 7 + 6),
     topic: 'I complain about this user',
-    type: 'conflictResolution',
     createdBy: makeUser(),
     affectedUser: makeUser(),
     group: makeGroup(),

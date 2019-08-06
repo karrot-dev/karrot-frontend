@@ -23,8 +23,8 @@
         <strong>{{ subscribers.length }}</strong>
         <QMenu>
           <div
-            v-close-popup
             v-if="subscribers"
+            v-close-popup
             class="q-pa-md"
           >
             <div>
@@ -59,12 +59,12 @@
               />
 
               <QItem
-                v-close-popup
                 v-for="o in options"
                 :key="o.id"
+                v-close-popup
                 :class="o.selected ? 'bg-grey-2' : ''"
-                @click.native="select(o)"
                 clickable
+                @click.native="select(o)"
               >
                 <QItemSection side>
                   <QIcon

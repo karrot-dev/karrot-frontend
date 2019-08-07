@@ -21,6 +21,8 @@ Please document your changes in this format:
 ```
 
 ## [Unreleased]
+### Added
+- General purpose theme @djahnie
 
 ## [7.4.0] - 2019-05-25
 ### Added

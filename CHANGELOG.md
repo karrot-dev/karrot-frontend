@@ -22,7 +22,7 @@ Please document your changes in this format:
 
 ## [Unreleased]
 ### Added
-- General purpose theme @djahnie
+- General purpose theme [#1691] @djahnie
 
 ## [7.4.0] - 2019-05-25
 ### Added

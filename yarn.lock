@@ -1495,13 +1495,13 @@
     "@sentry/utils" "5.4.2"
     tslib "^1.9.3"
 
-"@sentry/integrations@^5.4.2":
-  version "5.4.2"
-  resolved "https://registry.yarnpkg.com/@sentry/integrations/-/integrations-5.4.2.tgz#75312407571392badc40ee48b031fae701fee564"
-  integrity sha512-+nPaFdj8v2EBkZsQBF/pOIwqcf32//R3Iz37aMAWuutw0YOgJXJEaPe4GNMpk78bH3ZwVltGlW8RsDD6zgcc7A==
+"@sentry/integrations@^5.6.0":
+  version "5.6.0"
+  resolved "https://registry.yarnpkg.com/@sentry/integrations/-/integrations-5.6.0.tgz#1654f5f4b1741599d2917e2da67ccce243559875"
+  integrity sha512-uZg2cNuE+ta+iZV3lvpNzgdJvmokQG84mCiFXdcymUzlfLxPiZGvwkTzqOl36BJQUoDO1ggOm6JiLjAXavW7Ww==
   dependencies:
-    "@sentry/types" "5.4.2"
-    "@sentry/utils" "5.4.2"
+    "@sentry/types" "5.6.0"
+    "@sentry/utils" "5.6.0"
     tslib "^1.9.3"
 
 "@sentry/minimal@5.4.3":
@@ -1518,12 +1518,25 @@
   resolved "https://registry.yarnpkg.com/@sentry/types/-/types-5.4.2.tgz#4ab327bced2cfd961dc7a29f0ff43398f913f6a6"
   integrity sha512-yh1fd7x5lLOIZ8W3A1I792B3jowJVCWp4HcTRikjTsjbF8lcURY62m+hiLYUFPTIX99AlFRIPiApDkWiwMGYMA==
 
+"@sentry/types@5.6.0":
+  version "5.6.0"
+  resolved "https://registry.yarnpkg.com/@sentry/types/-/types-5.6.0.tgz#e5ababaf5eb237ff33df6e8df78dddbad2b0c2f5"
+  integrity sha512-+My+TcJYrqDzxxjnwZls6tQHqIfMUs3qNxxkI+yXdRlNuBv4kN/a3KAj2rrHX46wDM0UixnzsUZgbFSmy1V4nA==
+
 "@sentry/utils@5.4.2":
   version "5.4.2"
   resolved "https://registry.yarnpkg.com/@sentry/utils/-/utils-5.4.2.tgz#c88c6c08d635e1744a443cfefe9e2ed7fa250e4e"
   integrity sha512-AW7/TGt2HiPQB8lJ8NgMgaFAIDQpKDF+wV8nENRbC1CP1zzcvb1QBF4zBL2auDT4fhkhVa817064s7vlDiJVLQ==
   dependencies:
     "@sentry/types" "5.4.2"
+    tslib "^1.9.3"
+
+"@sentry/utils@5.6.0":
+  version "5.6.0"
+  resolved "https://registry.yarnpkg.com/@sentry/utils/-/utils-5.6.0.tgz#995c38b0715f01485b1525f9b5f88d324a321302"
+  integrity sha512-nkFjBCvh69+UnKqxT4nB/AtFNF9FGgkGy3+eoFN1xNDGKLkn2dobYlNI5m3JotNSXWwJmTaEO1a9TOaueKuG8g==
+  dependencies:
+    "@sentry/types" "5.6.0"
     tslib "^1.9.3"
 
 "@storybook/addon-actions@5.2.0-alpha.35":

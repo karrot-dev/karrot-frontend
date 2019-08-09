@@ -19,12 +19,16 @@
           target="_blank"
         >
           <QItemSection side>
-            <i class="fab fa-fw fa-github" />
+            <QIcon name="fab fa-fw fa-github" />
           </QItemSection>
-          <QItemSection
-            :label="$t('GLOBAL.GITHUB_NOTE')"
-            :sublabel="$t('SIDENAV.GIT_SUB')"
-          />
+          <QItemSection>
+            <QItemLabel>
+              {{ $t('GLOBAL.GITHUB_NOTE') }}
+            </QItemLabel>
+            <QItemLabel caption>
+              {{ $t('SIDENAV.GIT_SUB') }}
+            </QItemLabel>
+          </QItemSection>
         </QItem>
 
         <QItem
@@ -34,12 +38,17 @@
           target="_blank"
         >
           <QItemSection side>
-            <i class="fas fa-fw fa-globe" />
+            <QIcon name="fas fa-fw fa-globe" />
           </QItemSection>
-          <QItemSection
-            label="Info"
-            :sublabel="$t('SIDENAV.INFO_SUB')"
-          />
+
+          <QItemSection>
+            <QItemLabel>
+              Info
+            </QItemLabel>
+            <QItemLabel caption>
+              {{ $t('SIDENAV.INFO_SUB') }}
+            </QItemLabel>
+          </QItemSection>
         </QItem>
 
         <QItem
@@ -48,11 +57,14 @@
           href="mailto:karrot@foodsaving.world"
         >
           <QItemSection side>
-            <i class="fas fa-fw fa-envelope" />
+            <QIcon name="fas fa-fw fa-envelope" />
           </QItemSection>
-          <QItemSection
-            label="karrot@foodsaving.world"
-          />
+
+          <QItemSection>
+            <QItemLabel>
+              karrot@foodsaving.world
+            </QItemLabel>
+          </QItemSection>
         </QItem>
       </QList>
 
@@ -96,6 +108,8 @@ import {
   QList,
   QItem,
   QItemSection,
+  QItemLabel,
+  QIcon,
 } from 'quasar'
 
 import { mapGetters } from 'vuex'
@@ -109,6 +123,8 @@ export default {
     QList,
     QItem,
     QItemSection,
+    QItemLabel,
+    QIcon,
   },
   computed: {
     ...mapGetters({

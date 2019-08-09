@@ -17,89 +17,94 @@
       v-if="unreadCount > 0"
       side
     >
-      <QChip
-        small
+      <QBadge
         color="secondary"
       >
         {{ unreadCount > 9 ? '9+' : unreadCount }}
-      </QChip>
+      </QBadge>
     </QItemSection>
     <QDialog
       v-model="showing"
-      class="k-community-feed relative-position"
       @hide="mark"
     >
-      <QBtn
-        dense
-        round
-        color="secondary"
-        style="position: absolute; right: 10px; top: 2px"
-        @click="showing = false"
-      >
-        <QIcon name="fas fa-times" />
-      </QBtn>
-      <QList
-        v-if="showing"
-      >
-        <QItemLabel header>
-          <QIcon
-            name="fab fa-discourse"
-            size="20px"
-            class="q-mr-xs"
-          />
-          <i18n path="COMMUNITY_FEED.HEADER">
-            <a
-              place="community"
-              href="https://community.foodsaving.world"
-              target="_blank"
-              rel="noopener"
-              style="text-decoration: underline"
-            >
-              {{ $t('COMMUNITY_FEED.HEADER_LINK') }}
-            </a>
-          </i18n>
-        </QItemLabel>
-        <QItem
-          v-for="topic in topics"
-          :key="topic.id"
-          tag="a"
-          :href="topic.link"
-          target="_blank"
-          rel="noopener"
-          :class="{ isUnread: topic.isUnread }"
+      <QCard>
+        <QList
+          v-if="showing"
         >
-          <QItemSection side>
-            <QItemTile avatar>
-              <img
-                :src="topic.lastPosterAvatar"
-                :title="topic.lastPosterUsername"
-              >
-            </QItemTile>
-          </QItemSection>
-          <QItemSection>
-            <QItemLabel
-              lines="1"
-            >
-              {{ topic.title }}
-            </QItemLabel>
-            <QItemLabel
-              caption
-              lines="1"
-            >
-              <i18n
-                path="COMMUNITY_FEED.LAST_UPDATED"
-                tag="div"
-              >
-                <DateAsWords
-                  place="relativeDate"
-                  style="display: inline"
-                  :date="topic.lastPostedAt"
-                />
+          <QItem>
+            <QItemSection side>
+              <QIcon
+                name="fab fa-discourse"
+                size="20px"
+                class="q-mr-xs"
+              />
+            </QItemSection>
+            <QItemSection>
+              <i18n path="COMMUNITY_FEED.HEADER">
+                <a
+                  place="community"
+                  href="https://community.foodsaving.world"
+                  target="_blank"
+                  rel="noopener"
+                  style="text-decoration: underline"
+                >
+                  {{ $t('COMMUNITY_FEED.HEADER_LINK') }}
+                </a>
               </i18n>
-            </QItemLabel>
-          </QItemSection>
-        </QItem>
-      </QList>
+            </QItemSection>
+            <QItemSection side>
+              <QBtn
+                dense
+                round
+                color="secondary"
+                @click="showing = false"
+              >
+                <QIcon name="fas fa-times" />
+              </QBtn>
+            </QItemSection>
+          </QItem>
+          <QItem
+            v-for="topic in topics"
+            :key="topic.id"
+            tag="a"
+            :href="topic.link"
+            target="_blank"
+            rel="noopener"
+            :class="{ isUnread: topic.isUnread }"
+          >
+            <QItemSection avatar>
+              <QAvatar>
+                <img
+                  :src="topic.lastPosterAvatar"
+                  :title="topic.lastPosterUsername"
+                >
+              </QAvatar>
+            </QItemSection>
+            <QItemSection>
+              <QItemLabel
+                lines="1"
+              >
+                {{ topic.title }}
+              </QItemLabel>
+              <QItemLabel
+                caption
+                lines="1"
+              >
+                <i18n
+                  path="COMMUNITY_FEED.LAST_UPDATED"
+                  tag="div"
+                >
+                  <DateAsWords
+                    place="relativeDate"
+                    style="display: inline"
+                    :date="topic.lastPostedAt"
+                  />
+                </i18n>
+              </QItemLabel>
+            </QItemSection>
+          </QItem>
+        </QList>
+      </QCard>
     </QDialog>
   </QItem>
 </template>
@@ -117,7 +122,9 @@ import {
   QItemLabel,
   QItem,
   QItemSection,
-  QChip,
+  QBadge,
+  QAvatar,
+  QCard,
 } from 'quasar'
 import DateAsWords from '@/utils/components/DateAsWords'
 
@@ -131,7 +138,9 @@ export default {
     QItemLabel,
     QItem,
     QItemSection,
-    QChip,
+    QBadge,
+    QAvatar,
+    QCard,
   },
   data () {
     return {

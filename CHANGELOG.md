@@ -20,7 +20,16 @@ Please document your changes in this format:
   - description of change [#PR] @username
 ```
 
-## [Unreleased]
+## [7.4.1] - 2019-08-09
+### Added
+- "Unsubscribe all" button on settings page @tiltec @djahnie
+- Luxembourgish locale
+
+### Changed
+- Updated German translation
+
+### Fixed
+- Pickups could be set to empty durations which caused further problems @tiltec
 
 ## [7.4.0] - 2019-05-25
 ### Added

@@ -20,6 +20,8 @@ Please document your changes in this format:
   - description of change [#PR] @username
 ```
 
+## [Unreleased]
+
 ## [7.4.1] - 2019-08-09
 ### Added
 - "Unsubscribe all" button on settings page @tiltec @djahnie
@@ -471,7 +473,8 @@ After months of planning and programming, the first version of ~the foodsaving t
 [#1421]: https://github.com/yunity/karrot-frontend/issues/1421
 [#1509]: https://github.com/yunity/karrot-frontend/issues/1509
 
-[Unreleased]: https://github.com/yunity/karrot-frontend/compare/v7.4.0...HEAD
+[Unreleased]: https://github.com/yunity/karrot-frontend/compare/v7.4.1...HEAD
+[7.4.1]: https://github.com/yunity/karrot-frontend/compare/v7.4.0...v7.4.1
 [7.4.0]: https://github.com/yunity/karrot-frontend/compare/v7.3.0...v7.4.0
 [7.3.0]: https://github.com/yunity/karrot-frontend/compare/v7.2.4...v7.3.0
 [7.2.4]: https://github.com/yunity/karrot-frontend/compare/v7.2.3...v7.2.4

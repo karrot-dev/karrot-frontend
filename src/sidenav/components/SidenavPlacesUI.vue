@@ -12,19 +12,18 @@
     >
       <QToggle
         :value="showAllPlaces"
+        :title="$t(showAllPlaces ? 'STOREEDIT.SHOW_ACTIVE_ONLY' : 'STOREEDIT.SHOW_ALL')"
         @input="$emit('toggleShowAllPlaces')"
-      >
-        <QTooltip v-t="showAllPlaces ? 'STOREEDIT.SHOW_ACTIVE_ONLY' : 'STOREEDIT.SHOW_ALL'" />
-      </QToggle>
+      />
       <QBtn
         v-if="hasPlaces && isEditor"
         flat
         dense
         round
         :to="{ name: 'placeCreate', params: { groupId } }"
+        :title="$t('BUTTON.CREATE')"
       >
         <QIcon name="fas fa-fw fa-plus-circle" />
-        <QTooltip v-t="'BUTTON.CREATE'" />
       </QBtn>
     </div>
 
@@ -44,7 +43,6 @@ import {
   QBtn,
   QIcon,
   QToggle,
-  QTooltip,
 } from 'quasar'
 import SidenavBox from './SidenavBox'
 import PlaceList from '@/places/components/PlaceList'
@@ -56,7 +54,6 @@ export default {
     QBtn,
     QIcon,
     QToggle,
-    QTooltip,
     PlaceList,
     KSpinner,
   },

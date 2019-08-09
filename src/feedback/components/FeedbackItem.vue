@@ -1,6 +1,6 @@
 <template>
   <QCard class="no-shadow grey-border">
-    <QCardSection class="generic-padding">
+    <QCardSection class="q-pa-md">
       <div class="row no-wrap">
         <div class="content full-width">
           <div class="row no-wrap items-baseline">

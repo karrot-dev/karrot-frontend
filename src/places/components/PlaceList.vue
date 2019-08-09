@@ -47,6 +47,7 @@
       v-if="!hasPlaces && isEditor"
       :to="{ name: 'placeCreate', params: { groupId } }"
       class="bg-secondary"
+      :title="$t('BUTTON.CREATE')"
       multiline
     >
       <QItemSection class="text-center">
@@ -54,7 +55,6 @@
           icon="add circle"
           class="text-white"
         />
-        <QTooltip v-t="'BUTTON.CREATE'" />
       </QItemSection>
     </QItem>
 
@@ -87,7 +87,6 @@ import {
   QItemSection,
   QItemLabel,
   QIcon,
-  QTooltip,
   QExpansionItem,
   QSeparator,
   QChip,
@@ -101,7 +100,6 @@ export default {
     QItemSection,
     QItemLabel,
     QIcon,
-    QTooltip,
     QExpansionItem,
     QSeparator,
     QChip,

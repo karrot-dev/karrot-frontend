@@ -15,9 +15,9 @@
         dense
         round
         :to="{ name: 'settings', hash: '#notifications' }"
+        :title="$t('GROUP.SETTINGS')"
       >
         <QIcon name="fas fa-cog fa-fw" />
-        <QTooltip v-t="'GROUP.SETTINGS'" />
       </QBtn>
       <QBtn
         flat
@@ -42,7 +42,6 @@
 import {
   QBtn,
   QIcon,
-  QTooltip,
   QMenu,
 } from 'quasar'
 import SidenavBox from './SidenavBox'
@@ -56,7 +55,6 @@ export default {
     GroupOptions,
     QBtn,
     QIcon,
-    QTooltip,
     QMenu,
   },
   props: {

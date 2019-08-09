@@ -7,7 +7,7 @@
       :error="hasError('newPassword')"
       :error-message="firstError('newPassword')"
     >
-      <template v-slot:prepend>
+      <template v-slot:before>
         <QIcon name="fas fa-lock" />
       </template>
     </QInput>
@@ -19,7 +19,7 @@
       :error="hasError('oldPassword')"
       :error-message="firstError('oldPassword')"
     >
-      <template v-slot:prepend>
+      <template v-slot:before>
         <QIcon name="fas fa-unlock" />
       </template>
     </QInput>

@@ -1,28 +1,33 @@
 <template>
   <div class="edit-box">
-    <QField
+    <QToggle
+      v-slot:control
       :label="$t('USERDATA.PUSH_CURRENT_BROWSER')"
-    >
-      <template v-slot:prepend>
-        <QIcon name="fas fa-bell" />
-      </template>
-      <QToggle
-        :disable="pending"
-        :value="value"
-        @change="onChange"
-      />
-    </QField>
+      :disable="pending"
+      :value="value"
+      @input="onChange"
+    />
   </div>
 </template>
 
 <script>
-import { QField, QToggle } from 'quasar'
+import {
+  QToggle,
+} from 'quasar'
 
 export default {
-  components: { QField, QToggle },
+  components: {
+    QToggle,
+  },
   props: {
-    value: { required: true, type: Boolean },
-    pending: { required: true, type: Boolean },
+    value: {
+      required: true,
+      type: Boolean,
+    },
+    pending: {
+      required: true,
+      type: Boolean,
+    },
   },
   methods: {
     onChange (value) {

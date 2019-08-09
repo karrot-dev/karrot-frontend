@@ -24,7 +24,6 @@
       @click.native="$emit('click')"
     >
       <QIcon name="fas fa-exchange-alt" />
-      <QTooltip v-t="'TOPBAR.CHANGE_GROUP'" />
     </QBtn>
   </QToolbar>
 </template>
@@ -38,7 +37,6 @@ import {
   QToolbarTitle,
   QBtn,
   QIcon,
-  QTooltip,
 } from 'quasar'
 
 import { mapGetters } from 'vuex'
@@ -49,7 +47,6 @@ export default {
     QToolbarTitle,
     QBtn,
     QIcon,
-    QTooltip,
     LatestMessageButton,
     NotificationButton,
   },

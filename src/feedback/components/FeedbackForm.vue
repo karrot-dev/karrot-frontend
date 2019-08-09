@@ -4,13 +4,15 @@
   >
     <MarkdownInput
       v-model="edit.comment"
-      :placeholder="$t('PICKUP_FEEDBACK.COMMENT_PLACEHOLDER')"
+      class="q-mr-sm"
+      :label="$t('PICKUP_FEEDBACK.COMMENT_PLACEHOLDER')"
       @keyup.ctrl.enter="maybeSave"
     />
 
     <AmountPicker
       v-if="!isBikeKitchen"
       v-model="edit.weight"
+      class="q-ml-sm"
       style="margin-top: 40px"
     />
 
@@ -23,7 +25,7 @@
       {{ anyFirstError }}
     </div>
 
-    <div class="row justify-end q-ma-xs group">
+    <div class="row justify-end q-ma-md q-gutter-sm">
       <QBtn
         v-if="!isNew"
         type="button"

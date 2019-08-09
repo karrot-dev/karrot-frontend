@@ -156,6 +156,15 @@ export const makePlace = data => {
   }
 }
 
+export const makePlaceStatistics = data => {
+  return {
+    feedbackCount: 4,
+    feedbackWeight: 10,
+    pickupsDone: 10,
+    ...data,
+  }
+}
+
 let pickupIdCnt = 0
 export const makePickup = data => {
   return {
@@ -197,6 +206,24 @@ export const makePickupSeries = data => {
       freq: 'WEEKLY',
       isCustom: false,
     },
+    ...data,
+  }
+}
+
+let feedbackIdCnt = 0
+export const makeFeedback = data => {
+  const group = data.group || makeGroup()
+  const place = data.place || makePlace({ group })
+  return {
+    id: feedbackIdCnt++,
+    weight: feedbackIdCnt * 10,
+    comment: `feedback ${feedbackIdCnt}`,
+    about: makePickup({ place }),
+    givenBy: makeUser(),
+    createdAt: new Date(),
+    isEditable: false,
+    place,
+    group,
     ...data,
   }
 }

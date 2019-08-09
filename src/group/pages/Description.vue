@@ -20,11 +20,10 @@
         round
         color="secondary"
         :icon="showPublicDescription ? 'fas fa-lock' : 'fas fa-info-circle'"
-        class="hoverScale "
+        class="hoverScale"
+        :title="$t(showPublicDescription ? 'GROUP.DESCRIPTION_VERBOSE' : 'GROUPINFO.META')"
         @click="showPublicDescription = !showPublicDescription"
-      >
-        <QTooltip v-t="showPublicDescription ? 'GROUP.DESCRIPTION_VERBOSE' : 'GROUPINFO.META'" />
-      </QBtn>
+      />
       <RouterLink
         v-if="isEditor"
         :to="{name: 'groupEdit'}"
@@ -35,9 +34,8 @@
           color="secondary"
           icon="fas fa-pencil-alt "
           class="hoverScale"
-        >
-          <QTooltip v-t="'GROUP.EDIT'" />
-        </QBtn>
+          :title="$t('GROUP.EDIT')"
+        />
       </RouterLink>
     </div>
     <div class="q-pa-md">
@@ -54,7 +52,10 @@
 </template>
 
 <script>
-import { QCard, QBtn, QTooltip } from 'quasar'
+import {
+  QCard,
+  QBtn,
+} from 'quasar'
 import Markdown from '@/utils/components/Markdown'
 import RandomArt from '@/utils/components/RandomArt'
 
@@ -63,7 +64,12 @@ import {
 } from 'vuex'
 
 export default {
-  components: { QCard, RandomArt, QBtn, QTooltip, Markdown },
+  components: {
+    QCard,
+    QBtn,
+    RandomArt,
+    Markdown,
+  },
   data () {
     return {
       showPublicDescription: false,

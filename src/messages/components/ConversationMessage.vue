@@ -11,18 +11,18 @@
       <QBtn
         v-if="message.isEditable"
         flat
+        :title="$t('BUTTON.EDIT')"
         @click="toggleEdit"
       >
         <i class="fas fa-pencil-alt" />
-        <QTooltip v-t="'BUTTON.EDIT'" />
       </QBtn>
       <QBtn
         v-if="!slim"
         flat
+        :title="$t('CONVERSATION.REPLIES')"
         @click="$emit('openThread')"
       >
         <i class="fas fa-comments" />
-        <QTooltip v-t="'CONVERSATION.REPLIES'" />
       </QBtn>
       <ConversationAddReaction
         :reacted="currentUserReactions"
@@ -55,9 +55,8 @@
           v-if="message.receivedVia === 'email'"
           name="far fa-envelope"
           class="email-icon"
-        >
-          <QTooltip v-t="'WALL.RECEIVED_VIA_EMAIL'" />
-        </QIcon>
+          :title="$t('WALL.RECEIVED_VIA_EMAIL')"
+        />
       </QItemLabel>
       <div class="content">
         <Markdown :source="message.content" />

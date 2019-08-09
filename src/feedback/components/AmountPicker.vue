@@ -5,12 +5,13 @@
   >
     <QBtn
       v-if="showOverlay"
-      v-t="'PICKUP_FEEDBACK.SET_AMOUNT'"
       class="absolute-center"
       style="z-index: 1"
       color="primary"
-      @click="valueToNumber = 0"
-    />
+      @click="$emit('input', 0)"
+    >
+      {{ $t('PICKUP_FEEDBACK.SET_AMOUNT') }}
+    </QBtn>
     <div class="content">
       <div class="row no-wrap">
         <AmountBox
@@ -23,7 +24,7 @@
         >
           <div
             v-t="'PICKUP_FEEDBACK.AMOUNT'"
-            style="padding-bottom: .3em"
+            class="q-pb-sm"
           />
           <AmountViewer
             v-if="!$q.platform.is.mobile"
@@ -36,10 +37,10 @@
           flat
           color="red"
           class="self-start"
-          @click="valueToNumber = null"
+          :title="$t('PICKUP_FEEDBACK.DELETE_AMOUNT')"
+          @click="$emit('input', null)"
         >
           <QIcon name="fas fa-times" />
-          <QTooltip v-t="'PICKUP_FEEDBACK.DELETE_AMOUNT'" />
         </QBtn>
       </div>
       <div class="row no-wrap">
@@ -49,17 +50,20 @@
           :max="70"
           :step="0.5"
           label
-          snap
+          class="self-center q-mx-md"
           @input="$emit('input', arguments[0])"
         />
         <!-- don't use type="number" here because browsers might enforce different decimal setting
         depending on browser locale-->
         <QInput
           v-model="valueToNumber"
-          style="width: 5em; margin: 0 5px 0 2em; text-align: right"
-          align="right"
-        />
-        <span style="padding: 3px">kg</span>
+          size="4"
+          class="q-mr-md"
+        >
+          <template v-slot:append>
+            <span class="text-caption">kg</span>
+          </template>
+        </QInput>
       </div>
     </div>
   </div>
@@ -71,7 +75,6 @@ import {
   QSlider,
   QBtn,
   QIcon,
-  QTooltip,
 } from 'quasar'
 
 import AmountViewer from './AmountViewer'
@@ -83,7 +86,6 @@ export default {
     QSlider,
     QBtn,
     QIcon,
-    QTooltip,
     AmountViewer,
     AmountBox,
   },
@@ -111,7 +113,7 @@ export default {
       },
       set (v) {
         let value = parseFloat(v, 10)
-        value = isNaN(value) ? null : Math.max(0, value)
+        value = isNaN(value) ? 0 : Math.max(0, value)
         this.$emit('input', value)
       },
     },

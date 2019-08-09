@@ -1,9 +1,16 @@
 <template>
   <QBanner
     v-if="user && !hasEmailVerified"
-    icon="fas fa-exclamation-triangle"
-    color="warning"
+    class="q-ma-sm bg-warning text-white shadow-2"
+    style="min-height: unset"
   >
+    <template v-slot:avatar>
+      <QIcon
+        name="fas fa-exclamation-triangle"
+        color="white"
+        style="font-size: 24px"
+      />
+    </template>
     <p>{{ $t('NOTIFICATIONS.NOT_VERIFIED', { email: user.unverifiedEmail }) }}</p>
     <p>{{ $t('WALL.VERIFY_EMAIL_FOR_NOTIFICATIONS') }}</p>
     <i18n
@@ -32,30 +39,34 @@
   </QBanner>
   <QExpansionItem
     v-else-if="hasFailedEmailDeliveries"
-    header-class="bg-warning text-white"
+    class="q-ma-sm shadow-2"
+    header-class="bg-warning"
+    dark
   >
-    <template
-      slot="header"
-    >
+    <template v-slot:header>
       <QItemSection
         side
         class="text-white"
       >
         <QIcon name="fas fa-exclamation-triangle" />
       </QItemSection>
-      <QItemSection
-        :label="failedEmailDeliveryMessage"
-      />
+      <QItemSection>
+        {{ failedEmailDeliveryMessage }}
+      </QItemSection>
     </template>
-    <QList>
+    <QList bordered>
       <QItem
         v-for="(event, idx) in failedEmailDeliveries"
         :key="idx"
       >
-        <QItemSection
-          :label="event.subject"
-          :sublabel="`${event.event}: ${event.reason}`"
-        />
+        <QItemSection>
+          <QItemLabel>
+            {{ event.subject }}
+          </QItemLabel>
+          <QItemLabel caption>
+            {{ `${event.event}: ${event.reason}` }}
+          </QItemLabel>
+        </QItemSection>
         <QItemSection
           side
         >
@@ -72,7 +83,9 @@ import {
   QList,
   QItem,
   QItemSection,
+  QItemLabel,
   QExpansionItem,
+  QIcon,
 } from 'quasar'
 import { mapActions, mapGetters } from 'vuex'
 import statusMixin from '@/utils/mixins/statusMixin'
@@ -83,7 +96,9 @@ export default {
     QList,
     QItem,
     QItemSection,
+    QItemLabel,
     QExpansionItem,
+    QIcon,
   },
   computed: {
     ...mapGetters({

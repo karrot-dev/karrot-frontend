@@ -24,6 +24,8 @@
                 v-model="select"
                 :options="feedbackOptions"
                 dark
+                emit-value
+                map-options
                 class="grey-font"
               />
               <span v-else-if="editFeedback">
@@ -33,10 +35,13 @@
           </div>
         </div>
       </RandomArt>
-      <div class="generic-padding">
-        <template v-if="fellowCollectors.length > 0">
-          <p v-t="'PICKUP_FEEDBACK.TOGETHER_WITH'" />
-          <p>
+      <div>
+        <div
+          v-if="fellowCollectors.length > 0"
+          class="q-mx-sm q-mt-md"
+        >
+          <div v-t="'PICKUP_FEEDBACK.TOGETHER_WITH'" />
+          <div class="q-mt-sm">
             <ProfilePicture
               v-for="user in fellowCollectors"
               :key="user.id"
@@ -44,10 +49,9 @@
               :size="35"
               class="q-ml-xs"
             />
-          </p>
-        </template>
+          </div>
+        </div>
         <FeedbackForm
-          style="padding: 1.5em 0"
           :value="feedbackDefault"
           :status="saveStatus"
           :is-bike-kitchen="isBikeKitchen"

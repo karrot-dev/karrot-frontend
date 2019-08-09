@@ -12,10 +12,9 @@
           color="secondary"
           :icon="sorting === 'joinDate' ? 'fas fa-sort-alpha-down' : 'fas fa-sort-numeric-down'"
           class="hoverScale"
+          :title="$t(sorting === 'joinDate' ? 'GROUP.SORT_NAME' : 'GROUP.SORT_JOINDATE')"
           @click="toggleSorting"
-        >
-          <QTooltip v-t="sorting === 'joinDate' ? 'GROUP.SORT_NAME' : 'GROUP.SORT_JOINDATE'" />
-        </QBtn>
+        />
         <RouterLink
           v-if="isEditor"
           :to="{name: 'groupInvitations', params: { groupId }}"
@@ -26,9 +25,8 @@
             color="secondary"
             icon="fas fa-user-plus"
             class="hoverScale"
-          >
-            <QTooltip v-t="'GROUP.INVITE_TITLE'" />
-          </QBtn>
+            :title="$t('GROUP.INVITE_TITLE')"
+          />
         </RouterLink>
       </div>
     </div>
@@ -44,7 +42,10 @@
 </template>
 
 <script>
-import { QCard, QBtn, QTooltip } from 'quasar'
+import {
+  QCard,
+  QBtn,
+} from 'quasar'
 import UserList from '@/users/components/UserList'
 import RandomArt from '@/utils/components/RandomArt'
 import KSpinner from '@/utils/components/KSpinner'
@@ -61,7 +62,6 @@ export default {
     KSpinner,
     QCard,
     QBtn,
-    QTooltip,
   },
   data () {
     return {

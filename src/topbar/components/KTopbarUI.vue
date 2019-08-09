@@ -39,10 +39,9 @@
       round
       icon="fas fa-fw fa-search"
       class="k-search-button"
+      :title="$t('BUTTON.SEARCH')"
       @click="$emit('showSearch')"
-    >
-      <QTooltip v-t="'BUTTON.SEARCH'" />
-    </QBtn>
+    />
     <template v-if="!$q.platform.is.mobile">
       <LatestMessageButton />
       <NotificationButton />
@@ -54,6 +53,7 @@
           v-if="hasPhoto"
           flat
           dense
+          :title="$t('TOPBAR.USERPROFILE')"
         >
           <div class="row items-center no-wrap">
             <QIcon
@@ -67,12 +67,12 @@
               class="profilePicture"
             >
           </div>
-          <QTooltip v-t="'TOPBAR.USERPROFILE'" />
         </QBtn>
         <QBtn
           v-else
           flat
           dense
+          :title="$t('TOPBAR.USERPROFILE')"
         >
           <QIcon
             :name="presence.icon"
@@ -81,7 +81,6 @@
           />
           {{ user.displayName }}
           <QIcon name="fas fa-fw fa-user" />
-          <QTooltip v-t="'TOPBAR.USERPROFILE'" />
         </QBtn>
       </RouterLink>
       <QBtn
@@ -156,7 +155,6 @@ import {
   QList,
   QItem,
   QItemSection,
-  QTooltip,
 } from 'quasar'
 import KarrotLogo from '@/logo/components/KarrotLogo'
 import KBreadcrumb from '@/topbar/components/KBreadcrumb'
@@ -174,7 +172,6 @@ export default {
     QList,
     QItem,
     QItemSection,
-    QTooltip,
     KarrotLogo,
     KBreadcrumb,
     Search,

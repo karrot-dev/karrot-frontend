@@ -34,7 +34,7 @@ import { addParameters, configure } from '@storybook/vue'
 import { create } from '@storybook/theming'
 
 function loadStories() {
-  const req = require.context('../src', true, /\**.story\.js$/)
+  const req = require.context('../src', true, /\Sidenav.story\.js$/)
   req.keys().forEach(filename => req(filename))
 }
 

@@ -1,87 +1,43 @@
 <template>
-  <QMenu
-    fit
-    anchor="bottom right"
-    self="top right"
-  >
-    <QList
-      separator
+  <QList dense>
+    <QItem
+      v-for="{ label, icon, to, handler } in entries"
+      :key="label"
+      v-close-popup
+      :to="to"
+      clickable
+      @click="handler && handler()"
     >
-      <QItem
-        v-if="isEditor"
-        v-close-popup
-        :to="{name: 'groupEdit', params: {groupId: currentGroupId}}"
+      <QItemSection
+        side
+        class="text-center"
       >
         <QIcon
-          size="1em"
-          name="fas fa-pencil-alt fa-fw on-left"
+          :name="icon"
+          size="1.1em"
         />
-        {{ $t('GROUP.EDIT') }}
-      </QItem>
-
-      <QItem
-        v-if="isAgreementManager"
-        v-close-popup
-        :to="{name: 'groupManageAgreement', params: {groupId: currentGroupId}}"
-      >
-        <QIcon
-          size="1em"
-          name="fas fa-file-alt fa-fw on-left"
-        />
-        {{ $t('GROUP.MANAGE_AGREEMENT') }}
-      </QItem>
-
-      <QItem
-        v-close-popup
-        :to="{name: 'groupPreview', params: {groupPreviewId: currentGroupId}}"
-      >
-        <QIcon
-          size="1em"
-          name="fas fa-info-circle fa-fw on-left"
-        />
-        {{ $t('GROUPINFO.META') }}
-      </QItem>
-
-      <QItem
-        v-if="isEditor"
-        v-close-popup
-        :to="{name: 'groupInvitations', params: {groupId: currentGroupId}}"
-      >
-        <QIcon
-          size="1em"
-          name="fas fa-user-plus fa-fw on-left"
-        />
-        {{ $t('GROUP.INVITE_TITLE') }}
-      </QItem>
-
-      <QItem
-        v-close-popup
-        @click.native="leave"
-      >
-        <QIcon
-          size="1em"
-          name="fas fa-sign-out-alt fa-fw on-left"
-        />
-        {{ $t('GROUP.LEAVE') }}
-      </QItem>
-    </QList>
-  </QMenu>
+      </QItemSection>
+      <QItemSection>
+        {{ label }}
+      </QItemSection>
+    </QItem>
+  </QList>
 </template>
 
 <script>
 import {
   QList,
   QItem,
+  QItemSection,
   QIcon,
-  QMenu,
   Dialog,
 } from 'quasar'
 export default {
   components: {
     QList,
     QItem,
+    QItemSection,
     QIcon,
-    QMenu,
   },
   props: {
     currentGroupId: {
@@ -100,6 +56,32 @@ export default {
     isEditor () {
       return this.roles && this.roles.includes('editor')
     },
+    entries () {
+      return [{
+        condition: this.isEditor,
+        label: this.$t('GROUP.EDIT'),
+        icon: 'fas fa-pencil-alt fa-fw',
+        to: { name: 'groupEdit', params: { groupId: this.currentGroupId } },
+      }, {
+        condition: this.isAgreementManager,
+        label: this.$t('GROUP.MANAGE_AGREEMENT'),
+        icon: 'fas fa-file-alt fa-fw',
+        to: { name: 'groupManageAgreement', params: { groupId: this.currentGroupId } },
+      }, {
+        label: this.$t('GROUPINFO.META'),
+        icon: 'fas fa-info-circle fa-fw',
+        to: { name: 'groupPreview', params: { groupId: this.currentGroupId } },
+      }, {
+        condition: this.isEditor,
+        label: this.$t('GROUP.INVITE_TITLE'),
+        icon: 'fas fa-user-plus fa-fw',
+        to: { name: 'groupInvitations', params: { groupId: this.currentGroupId } },
+      }, {
+        label: this.$t('GROUP.LEAVE'),
+        icon: 'fas fa-sign-out-alt fa-fw',
+        handler: this.leave,
+      }].filter(e => typeof e.condition === 'undefined' || e.condition === true)
+    },
   },
   methods: {
     leave () {
@@ -109,8 +91,7 @@ export default {
         cancel: this.$t('BUTTON.CANCEL'),
         ok: this.$t('BUTTON.YES'),
       })
-        .then(() => this.$emit('leave', this.currentGroupId))
-        .catch(() => {})
+        .onOk(() => this.$emit('leave', this.currentGroupId))
     },
   },
 }

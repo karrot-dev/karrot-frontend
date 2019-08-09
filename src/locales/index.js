@@ -90,15 +90,6 @@ const locales = {
     quasar: () => import('quasar/lang/de'), // TODO switch when translated
   },
 
-  lb: {
-    name: 'Lëtzebuergesch',
-    locale: 'lb',
-    messages: () => import('@/locales/locale-lb.json'),
-    intlLocale: () => import('intl/locale-data/jsonp/lb'),
-    dateFnsLocale: () => import('date-fns/locale/de'), // TODO switch when translated
-    quasar: () => import('quasar-framework/i18n/de'), // TODO switch when translated
-  },
-
   mr: {
     name: 'मराठी',
     locale: 'mr',

@@ -281,9 +281,9 @@ export default {
       return false
     },
     hasDifferentTheme () {
-      if (isBikeKitchen) return 'bikekitchen'
-      if (isGeneralPurpose) return 'general'
-      else return ''
+      if (this.isBikeKitchen) return 'bikekitchen'
+      if (this.isGeneralPurpose) return 'general'
+      return ''
     },
   },
   methods: {

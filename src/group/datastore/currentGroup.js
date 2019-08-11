@@ -221,14 +221,13 @@ export function plugin (datastore) {
       if (isBikeKitchen || isGeneralPurpose) {
         const generalPurposeMessages = await import('@/locales/generalPurpose.json')
         const messages = await loadMessages(locale)
-        if (!datastore.getters['currentGroup/isBikeKitchen'] || !datastore.getters['currentGroup/isGeneralPurpose']) return
-
+        if (!(datastore.getters['currentGroup/isBikeKitchen'] || datastore.getters['currentGroup/isGeneralPurpose'])) return
         const mergedMessages = extend(true, {}, messages, generalPurposeMessages)
         i18n.setLocaleMessage(locale, mergedMessages)
       }
       else {
         const messages = await loadMessages(locale)
-        if (datastore.getters['currentGroup/isBikeKitchen'] || !datastore.getters['currentGroup/isGeneralPurpose']) return
+        if (datastore.getters['currentGroup/isBikeKitchen'] || datastore.getters['currentGroup/isGeneralPurpose']) return
 
         i18n.setLocaleMessage(locale, messages)
       }
@@ -247,7 +246,7 @@ export function plugin (datastore) {
           ...bikeKitchenIcons,
         })
       }
-      if (isGeneralPurpose) {
+      else if (isGeneralPurpose) {
         const generalIcons = await import('@/base/icons/generalPurpose.json')
         if (!datastore.getters['currentGroup/isGeneralPurpose']) return
 

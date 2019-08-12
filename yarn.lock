@@ -13656,10 +13656,10 @@ vue-hot-reload-api@^2.3.0:
   resolved "https://registry.yarnpkg.com/vue-hot-reload-api/-/vue-hot-reload-api-2.3.3.tgz#2756f46cb3258054c5f4723de8ae7e87302a1ccf"
   integrity sha512-KmvZVtmM26BQOMK1rwUZsrqxEGeKiYSZGA7SNWE6uExx8UX/cj9hq2MRV/wWC3Cq6AoeDGk57rL9YMFRel/q+g==
 
-vue-i18n@^8.11.2:
-  version "8.11.2"
-  resolved "https://registry.yarnpkg.com/vue-i18n/-/vue-i18n-8.11.2.tgz#92827fc42449f4602d2a0ddb437dfc4e3370d9d7"
-  integrity sha512-STcpmxqBrG77SyWi7e0Yn/B3DjKR6mSDwYS4F/V7zoi+e/+CPbVb2TaBqFwnrkoDcPmRfjM7nTwsiRQQOGdifw==
+vue-i18n@^8.13.0:
+  version "8.13.0"
+  resolved "https://registry.yarnpkg.com/vue-i18n/-/vue-i18n-8.13.0.tgz#2d17c7bf3dd4941951c0ba96bcdb9e0fc566cead"
+  integrity sha512-nVwwh5m7gFtVusbcyR4WLowKcZs1r95yHMNtugwijSw9vGUiSZFt2QHVFJNO9AOXYQeLU8dgnUq7mXSBmzPWIA==
 
 vue-jest@^3.0.3:
   version "3.0.4"

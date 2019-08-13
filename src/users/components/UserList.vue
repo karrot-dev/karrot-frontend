@@ -25,12 +25,19 @@
       >
         <template slot="header">
           <QItemSection side>
-            <QItemTile icon="fas fa-bed" />
+            <QIcon
+              name="fas fa-bed"
+              class="q-mr-xs"
+            />
           </QItemSection>
-          <QItemSection
-            :label="$t('GROUP.INACTIVE')"
-            :sublabel="inactiveSublabel"
-          />
+          <QItemSection>
+            <QItemLabel>
+              {{ $t('GROUP.INACTIVE') }}
+            </QItemLabel>
+            <QItemLabel caption>
+              {{ inactiveSublabel }}
+            </QItemLabel>
+          </QItemSection>
           <QItemSection side>
             <QBtn
               flat
@@ -64,6 +71,7 @@ import {
   QSeparator,
   QItem,
   QItemSection,
+  QItemLabel,
   QExpansionItem,
   QBtn,
   QInput,
@@ -79,6 +87,7 @@ export default {
     QSeparator,
     QItem,
     QItemSection,
+    QItemLabel,
     QExpansionItem,
     QBtn,
     QInput,

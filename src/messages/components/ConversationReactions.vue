@@ -25,7 +25,7 @@
       v-model="showDetail"
       content-class="bg-grey-10 text-grey-1 q-pa-md"
     >
-      <template v-if="showDetail">
+      <template>
         <QItem
           v-for="reaction in reactions"
           :key="reaction.name"

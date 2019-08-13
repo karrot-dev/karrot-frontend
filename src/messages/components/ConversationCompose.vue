@@ -2,61 +2,57 @@
   <QItem>
     <QItemSection
       v-if="!slim"
-      avatar
+      side
+      top
+      class="q-mt-xs q-pr-sm"
     >
       <ProfilePicture
         :user="user"
         :size="40"
-        style="margin-top: 36px"
       />
     </QItemSection>
     <QItemSection>
       <QItemLabel>
-        <Component
-          :is="slim ? 'div' : 'MarkdownInput'"
-          :value="message"
+        <MarkdownInput
+          ref="input"
+          v-model="message"
+          dense
+          :placeholder="placeholder"
+          :loading="isPending"
+          :disable="isPending"
+          :error="hasAnyError"
+          :error-message="anyFirstError"
+          input-style="min-height: unset"
+          @keyup.ctrl.enter="submit"
+          @keyup.esc="leaveEdit"
+          @focus="onFocus"
+          @blur="onBlur"
         >
-          <QInput
-            ref="input"
-            v-model="message"
-            type="textarea"
-            autogrow
-            :placeholder="placeholder"
-            :loading="isPending"
-            :disable="isPending"
-            :error="hasAnyError"
-            :error-message="anyFirstError"
-            @keyup.ctrl.enter="submit"
-            @keyup.esc="leaveEdit"
-            @focus="onFocus"
-            @blur="onBlur"
-          >
-            <template v-slot:append>
-              <QBtn
-                v-if="message"
-                round
-                dense
-                flat
-                icon="fas fa-arrow-right"
-                @click="submit"
-              />
-              <QBtn
-                v-if="value"
-                round
-                dense
-                flat
-                icon="fas fa-times"
-                @click="leaveEdit"
-              />
-            </template>
-          </QInput>
-        </Component>
+          <template v-slot:append>
+            <QBtn
+              v-if="message"
+              round
+              dense
+              flat
+              icon="fas fa-arrow-right"
+              @click="submit"
+            />
+            <QBtn
+              v-if="value"
+              round
+              dense
+              flat
+              icon="fas fa-times"
+              @click="leaveEdit"
+            />
+          </template>
+        </MarkdownInput>
       </QItemLabel>
       <QItemLabel
         v-if="!isParticipant"
         v-t="'CONVERSATION.NOT_PARTICIPATED'"
         caption
-        class="q-mt-md text-caption"
+        class="q-pt-md q-pl-xs"
       />
     </QItemSection>
   </QItem>
@@ -67,8 +63,6 @@ import {
   QItem,
   QItemSection,
   QItemLabel,
-  QInput,
-  QField,
   QBtn,
 } from 'quasar'
 import ProfilePicture from '@/users/components/ProfilePicture'
@@ -81,8 +75,6 @@ export default {
     QItem,
     QItemSection,
     QItemLabel,
-    QInput,
-    QField,
     QBtn,
     ProfilePicture,
     MarkdownInput,

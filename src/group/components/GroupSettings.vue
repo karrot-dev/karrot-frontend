@@ -25,9 +25,7 @@
       </div>
     </template>
     <QCardSection>
-      <QList
-        bordered
-      >
+      <QList>
         <QItemLabel header>
           <div class="text-weight-medium">
             {{ $t('GROUP.EMAIL_NOTIFICATIONS') }}

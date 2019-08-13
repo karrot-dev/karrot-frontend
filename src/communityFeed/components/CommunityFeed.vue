@@ -28,9 +28,7 @@
       @hide="mark"
     >
       <QCard>
-        <QList
-          v-if="showing"
-        >
+        <QList>
           <QItem>
             <QItemSection side>
               <QIcon

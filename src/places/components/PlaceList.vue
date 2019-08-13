@@ -1,7 +1,5 @@
 <template>
-  <QList
-    class="no-padding"
-  >
+  <QList>
     <QItem
       v-for="place in sortedPlaces"
       :key="place.id"
@@ -25,7 +23,7 @@
           <QIcon
             v-if="place.isSubscribed"
             name="fas fa-fw fa-star"
-            class="vertical-baseline"
+            class="vertical-baseline q-ml-xs"
             color="secondary"
           />
         </QItemLabel>
@@ -34,12 +32,11 @@
         v-if="place.conversationUnreadCount > 0"
         side
       >
-        <QChip
-          small
+        <QBadge
           color="secondary"
         >
           {{ place.conversationUnreadCount > 99 ? '99+' : place.conversationUnreadCount }}
-        </QChip>
+        </QBadge>
       </QItemSection>
     </QItem>
 
@@ -89,7 +86,7 @@ import {
   QIcon,
   QExpansionItem,
   QSeparator,
-  QChip,
+  QBadge,
 } from 'quasar'
 import { mapGetters } from 'vuex'
 
@@ -102,13 +99,25 @@ export default {
     QIcon,
     QExpansionItem,
     QSeparator,
-    QChip,
+    QBadge,
   },
   props: {
-    groupId: { default: null, type: Number },
-    places: { required: true, type: Array },
-    archived: { default: () => [], type: Array },
-    linkTo: { default: 'place', type: String },
+    groupId: {
+      default: null,
+      type: Number,
+    },
+    places: {
+      required: true,
+      type: Array,
+    },
+    archived: {
+      default: () => [],
+      type: Array,
+    },
+    linkTo: {
+      default: 'place',
+      type: String,
+    },
   },
   computed: {
     sortedPlaces () {

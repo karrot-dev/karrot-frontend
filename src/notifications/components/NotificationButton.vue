@@ -24,7 +24,6 @@
       class="k-notifications-popover"
     >
       <Notifications
-        v-if="showing"
         as-popover
       />
     </QMenu>

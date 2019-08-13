@@ -1,19 +1,13 @@
 <template>
   <QInput
+    ref="input"
+    v-bind="$attrs"
     :value="value"
-    :label="label"
-    :placeholder="placeholder"
-    :error="error"
-    :error-message="errorMessage"
     type="textarea"
-    input-style="min-height: 100px"
-    autogrow
+    :input-style="$attrs['input-style'] || 'min-height: 100px'"
+    :autogrow="$attrs.autogrow || true"
     bottom-slots
-    :autocomplete="autocomplete"
-    :autofocus="autofocus"
-    @input="$emit('input', arguments[0])"
-    @keyup="$emit('keyup', arguments[0])"
-    @blur="$emit('blur')"
+    v-on="$listeners"
   >
     <template v-slot:before>
       <QIcon :name="icon" />
@@ -70,6 +64,15 @@
         </QBtn>
       </div>
     </template>
+    <template
+      v-for="(_, slot) of $scopedSlots"
+      v-slot:[slot]="scope"
+    >
+      <slot
+        :name="slot"
+        v-bind="scope"
+      />
+    </template>
   </QInput>
 </template>
 
@@ -96,44 +99,29 @@ export default {
     QCardActions,
     Markdown,
   },
+  inheritAttrs: false,
   props: {
     value: {
       default: '',
-      type: String,
-    },
-    label: {
-      default: null,
-      type: String,
-    },
-    placeholder: {
-      default: null,
-      type: String,
-    },
-    error: {
-      default: false,
-      type: Boolean,
-    },
-    errorMessage: {
-      default: null,
       type: String,
     },
     icon: {
       default: null,
       type: String,
     },
-    autofocus: {
-      default: false,
-      type: Boolean,
-    },
-    autocomplete: {
-      default: true,
-      type: Boolean,
-    },
   },
   data () {
     return {
       show: false,
     }
+  },
+  methods: {
+    blur () {
+      this.$refs.input.blur()
+    },
+    focus () {
+      this.$refs.input.focus()
+    },
   },
 }
 </script>

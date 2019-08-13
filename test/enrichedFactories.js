@@ -148,6 +148,7 @@ export const makePlace = data => {
     isSubscribed: false,
     statistics: null,
     saveStatus: statusMocks.default(),
+    conversationUnreadCount: 0,
     ...data,
   }
   return {
@@ -339,17 +340,32 @@ export const makeMessage = data => {
 }
 
 export const makeThread = data => {
+  const participants = [
+    makeUser(),
+    makeUser(),
+    makeUser(),
+  ]
+  const message = makeMessage({ author: participants[0] })
+  const firstReply = makeMessage({ author: participants[1] })
   return {
-    ...makeMessage(),
+    ...message,
     messages: [
-      makeMessage(),
-      makeMessage(),
-      makeMessage(),
+      firstReply,
+      makeMessage({ author: participants[2] }),
+      makeMessage({ author: participants[0] }),
     ],
     sendStatus: statusMocks.default(),
     fetchStatus: statusMocks.default(),
     canFetchFuture: false,
     fetchFutureStatus: statusMocks.default(),
+    threadMeta: {
+      isParticipant: true,
+      participants,
+      replyCount: 3,
+      seenUpTo: firstReply.id,
+      muted: false,
+      unreadReplyCount: 2,
+    },
     ...data,
   }
 }

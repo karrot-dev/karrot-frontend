@@ -1,25 +1,47 @@
 <template>
   <div>
-    <KBanner
-      v-for="banner in formattedBanners"
-      :key="banner.type"
-      :color="banner.color"
-      :icon="banner.icon"
-      :position="banner.position"
-      :actions="banner.actions || []"
+    <QBanner
+      v-for="{ type, icon, className, action, message, context } in formattedBanners"
+      :key="type"
       class="k-banner"
+      inline-actions
+      :class="className"
     >
-      {{ $t(banner.message, banner.context) }}
-    </KBanner>
+      {{ $t(message, context) }}
+      <template v-slot:avatar>
+        <QIcon
+          :name="icon"
+          size="1.4em"
+        />
+      </template>
+      <template v-slot:action>
+        <QBtn
+          v-if="action"
+          flat
+          dense
+          :icon="action.icon"
+          :label="action.label"
+          @click="action.handler()"
+        />
+      </template>
+    </QBanner>
   </div>
 </template>
 
 <script>
-import { Dialog } from 'quasar'
-import KBanner from '@/alerts/components/KBanner'
+import {
+  QBanner,
+  QIcon,
+  QBtn,
+  Dialog,
+} from 'quasar'
 
 export default {
-  components: { KBanner },
+  components: {
+    QBanner,
+    QIcon,
+    QBtn,
+  },
   props: {
     banners: {
       type: Array,
@@ -41,52 +63,45 @@ export default {
   methods: {
     awaitingAgreement (agreement) {
       return {
-        color: 'negative',
+        className: 'bg-negative',
         icon: 'pan_tool',
         message: 'AGREEMENT.AGREE',
-        actions: [
-          {
-            label: this.$t('AGREEMENT.VIEW'),
-            handler: () => {
-              Dialog.create({
-                title: agreement.title,
-                message: agreement.content,
-                cancel: this.$t('BUTTON.CANCEL'),
-                ok: this.$t('BUTTON.AGREE'),
-              })
-                .then(() => this.$emit('agree', agreement.id))
-                .catch(() => {})
-            },
+        action: {
+          label: this.$t('AGREEMENT.VIEW'),
+          handler: () => {
+            Dialog.create({
+              title: agreement.title,
+              message: agreement.content,
+              cancel: this.$t('BUTTON.CANCEL'),
+              ok: this.$t('BUTTON.AGREE'),
+            })
+              .onOk(() => this.$emit('agree', agreement.id))
           },
-        ],
+        },
       }
     },
 
     playgroundGroupInfo () {
       return {
-        color: 'secondary',
+        className: 'bg-secondary text-white',
         icon: 'fas fa-child',
         message: 'GROUP.PLAYGROUND_INFO',
-        actions: [
-          {
-            label: this.$t('GROUP.JOIN_ANOTHER_GROUP'),
-            handler: () => this.$router.push({ name: 'groupsGallery' }),
-          },
-        ],
+        action: {
+          label: this.$t('GROUP.JOIN_ANOTHER_GROUP'),
+          handler: () => this.$router.push({ name: 'groupsGallery' }),
+        },
       }
     },
 
     notConnected () {
       return {
-        color: 'warning',
+        className: 'bg-warning text-white',
         icon: 'report_problem',
         message: 'GLOBAL.NOT_CONNECTED',
-        actions: [
-          {
-            icon: 'refresh',
-            handler: () => this.$emit('reconnect'),
-          },
-        ],
+        action: {
+          icon: 'refresh',
+          handler: () => this.$emit('reconnect'),
+        },
       }
     },
   },

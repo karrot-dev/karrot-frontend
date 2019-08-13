@@ -1,17 +1,17 @@
 <template>
-  <QBtn flat>
+  <QBtn
+    outline
+    :color="color"
+  >
     <span :style="{opacity}">
       <i class="far fa-smile" /> +
     </span>
     <QMenu
       anchor="top left"
       self="top left"
-      @show="open = true"
-      @hide="open = false"
     >
       <div style="width: 195px">
         <ConversationAddReactionInner
-          v-if="open"
           :reacted="reacted"
           @toggle="$emit('toggle', arguments[0])"
         />
@@ -43,11 +43,10 @@ export default {
       type: Array,
       default: () => [],
     },
-  },
-  data () {
-    return {
-      open: false,
-    }
+    color: {
+      type: String,
+      default: 'black',
+    },
   },
 }
 </script>

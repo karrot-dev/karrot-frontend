@@ -10,8 +10,10 @@ const datastore = createDatastore({
 
 import UserList from './UserList'
 
-const users = [...Array(15).keys()].map(() => factories.makeUser({
-  membership: factories.makeMembership(),
+const users = [...Array(15).keys()].map((_, i) => factories.makeUser({
+  membership: factories.makeMembership({
+    active: i < 10,
+  }),
 }))
 const group = factories.makeGroup()
 

@@ -1,6 +1,6 @@
 <template>
   <div>
-    <QCard class="no-shadow no-padding grey-border">
+    <QCard class="no-shadow grey-border">
       <div class="generic-padding relative-position">
         <KSpinner v-show="!statistics" />
         <div

@@ -23,9 +23,7 @@
       v-model="showing"
       class="k-latest-messages-popover"
     >
-      <LatestMessages
-        v-if="showing"
-      />
+      <LatestMessages />
     </QMenu>
   </QBtn>
 </template>

@@ -105,30 +105,27 @@
         </div>
         <QList>
           <QItem>
-            <QItemSection
-              side
-              icon="fas fa-fw fa-envelope"
-            />
+            <QItemSection side>
+              <QIcon name="fas fa-fw fa-envelope" />
+            </QItemSection>
             <QItemSection class="ellipsis">
               <a :href="mailto(user.email)">{{ user.email }}</a>
             </QItemSection>
           </QItem>
 
           <QItem v-if="user.mobileNumber">
-            <QItemSection
-              side
-              icon="fas fa-fw fa-phone"
-            />
+            <QItemSection side>
+              <QIcon name="fas fa-fw fa-phone" />
+            </QItemSection>
             <QItemSection>
               {{ user.mobileNumber }}
             </QItemSection>
           </QItem>
 
           <QItem v-if="user.address">
-            <QItemSection
-              side
-              icon="fas fa-fw fa-map-marker"
-            />
+            <QItemSection side>
+              <QIcon name="fas fa-fw fa-map-marker" />
+            </QItemSection>
             <QItemSection>
               {{ user.address }}
             </QItemSection>
@@ -151,38 +148,36 @@
       <QDialog
         v-model="showConflictSetup"
       >
-        <template v-if="showConflictSetup">
-          <div
-            v-if="!canStartConflictResolution"
-            class="generic-padding"
-            style="max-width: 700px"
+        <div
+          v-if="!canStartConflictResolution"
+          class="generic-padding"
+          style="max-width: 700px"
+        >
+          <h3 v-t="{ path: 'CONFLICT.SETUP_HEADER', args: { user: user.displayName } }" />
+          <p
+            v-for="(message, idx) in solvableConflictSetupRequirements"
+            :key="idx"
           >
-            <h3 v-t="{ path: 'CONFLICT.SETUP_HEADER', args: { user: user.displayName } }" />
-            <p
-              v-for="(message, idx) in solvableConflictSetupRequirements"
-              :key="idx"
-            >
-              {{ message }}
-            </p>
-            <p>
-              <a
-                v-t="'CONFLICT.FIND_OUT_MORE'"
-                href="https://community.foodsaving.world/t/how-does-the-conflict-resolution-feature-work/254"
-                target="_blank"
-                rel="noopener"
-                style="text-decoration: underline"
-              />
-            </p>
-          </div>
-          <ConflictSetup
-            v-else
-            :current-group="currentGroup"
-            :user="user"
-            :status="issueCreateStatus"
-            @startConflictResolution="startConflictResolution"
-            @close="toggleConflictSetup"
-          />
-        </template>
+            {{ message }}
+          </p>
+          <p>
+            <a
+              v-t="'CONFLICT.FIND_OUT_MORE'"
+              href="https://community.foodsaving.world/t/how-does-the-conflict-resolution-feature-work/254"
+              target="_blank"
+              rel="noopener"
+              style="text-decoration: underline"
+            />
+          </p>
+        </div>
+        <ConflictSetup
+          v-else
+          :current-group="currentGroup"
+          :user="user"
+          :status="issueCreateStatus"
+          @startConflictResolution="startConflictResolution"
+          @close="toggleConflictSetup"
+        />
       </QDialog>
     </div>
     <KSpinner v-show="historyStatus.pending" />

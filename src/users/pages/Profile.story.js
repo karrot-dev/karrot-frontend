@@ -12,6 +12,9 @@ const group = factories.makeGroup({
 const trustee = factories.makeUser()
 const nonmember = factories.makeUserProfile()
 const member = factories.makeUserProfile({
+  mobileNumber: '123',
+  address: 'New Street 1',
+  description: 'this is a text **about me**',
   groups: [
     group,
     factories.makeGroup(),

@@ -4,7 +4,6 @@
     <template v-else>
       <QList
         v-if="invitations.length > 0"
-        class="no-border"
       >
         <QItemLabel header>
           {{ $t('GROUP.INVITED_LIST') }}

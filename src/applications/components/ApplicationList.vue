@@ -1,6 +1,6 @@
 <template>
   <div class="bg-white">
-    <QList>
+    <QList bordered>
       <ApplicationItem
         v-for="a in pending"
         :key="a.id"

@@ -17,14 +17,15 @@
             v-close-popup
             :to="{ name: 'settings', hash: '#change-email' }"
           >
-            <QItemSection
-              side
-              color="negative"
-              icon="fas fa-fw fa-exclamation-triangle"
-            />
-            <QItemSection
-              :label="$t('WALL.VERIFY_EMAIL_FOR_NOTIFICATIONS')"
-            />
+            <QItemSection side>
+              <QIcon
+                color="negative"
+                name="fas fa-fw fa-exclamation-triangle"
+              />
+            </QItemSection>
+            <QItemSection>
+              {{ $t('WALL.VERIFY_EMAIL_FOR_NOTIFICATIONS') }}
+            </QItemSection>
           </QItem>
           <QSeparator />
         </template>
@@ -37,18 +38,23 @@
           :key="o.id"
           v-close-popup
           :class="o.selected ? 'bg-grey-2' : ''"
-
-          @click.native="select(o)"
+          clickable
+          @click="select(o)"
         >
-          <QItemSection
-            side
-            :color="o.color"
-            :icon="o.icon"
-          />
-          <QItemSection
-            :label="o.label"
-            :sublabel="o.sublabel"
-          />
+          <QItemSection side>
+            <QIcon
+              :color="o.color"
+              :name="o.icon"
+            />
+          </QItemSection>
+          <QItemSection>
+            <QItemLabel>
+              {{ o.label }}
+            </QItemLabel>
+            <QItemLabel caption>
+              {{ o.sublabel }}
+            </QItemLabel>
+          </QItemSection>
         </QItem>
       </QList>
     </QMenu>

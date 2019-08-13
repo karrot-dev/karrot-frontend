@@ -10,6 +10,7 @@ const group = makeGroup()
 const place = makePlace({
   isActivePlace: true,
   isSubscribed: true,
+  conversationUnreadCount: 5,
   group,
 })
 const subscribers = [...Array(5).keys()].map(() => makeUser())
@@ -30,7 +31,9 @@ const headerDatastore = createDatastore({
 
 storiesOf('Places', module)
   .add('PlaceList', () => defaults({
-    render: h => h(PlaceList, { props: { places } }),
+    render: h => h(PlaceList, {
+      props: { places },
+    }),
   }))
   .add('PlaceEdit', () => defaults({
     render: h => h(PlaceEdit, {

@@ -1,6 +1,6 @@
 <template>
   <QCard
-    class="no-mobile-margin no-padding no-shadow grey-border"
+    class="no-mobile-margin no-shadow grey-border"
   >
     <RandomArt
       :seed="groupid"

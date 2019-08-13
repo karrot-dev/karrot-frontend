@@ -4,7 +4,6 @@
     color="secondary"
   >
     <QRouteTab
-      slot="title"
       :to="{ name: 'issueChat', params: { groupId, issueId } }"
       default
       name="chat"
@@ -12,7 +11,6 @@
       :label="$q.platform.is.mobile ? '' : $t('ISSUE.CHAT')"
     />
     <QRouteTab
-      slot="title"
       :to="{ name: 'issueVote', params: { groupId, issueId } }"
       name="vote"
       icon="fas fa-vote-yea"

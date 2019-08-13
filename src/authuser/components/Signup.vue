@@ -4,70 +4,55 @@
       name="signup"
       @submit.prevent="submit"
     >
-      <div class="content">
-        <div class="white-box">
-          <QInput
-            v-model="user.displayName"
-            :autofocus="true"
-            :label="$t('USERDATA.USERNAME')"
-            :error="hasDisplayNameError"
-            :error-message="displayNameError"
-            autocorrect="off"
-            autocapitalize="off"
-            spellcheck="false"
-            @blur="$v.user.displayName.$touch"
-          >
-            <template v-slot:prepend>
-              <QIcon name="fas fa-user" />
-            </template>
-          </QInput>
-        </div>
-        <div class="white-box">
-          <QInput
-            v-model="user.email"
-            type="email"
-            :label="$t('USERDATA.EMAIL')"
-            :error="hasError('email')"
-            :error-message="firstError('email')"
-            autocorrect="off"
-            autocapitalize="off"
-            spellcheck="false"
-          >
-            <template v-slot:prepend>
-              <QIcon name="fas fa-envelope" />
-            </template>
-          </QInput>
-        </div>
-        <div class="white-box">
-          <QInput
-            v-model="user.password"
-            type="password"
-            :label="$t('USERDATA.PASSWORD')"
-            :error="hasError('password')"
-            :error-message="firstError('password')"
-            autocorrect="off"
-            autocapitalize="off"
-            spellcheck="false"
-          >
-            <template v-slot:prepend>
-              <QIcon name="fas fa-lock" />
-            </template>
-          </QInput>
-        </div>
+      <div class="q-gutter-md">
+        <SplashInput
+          v-model="user.displayName"
+          icon="fas fa-user"
+          autofocus
+          :label="$t('USERDATA.USERNAME')"
+          :error="hasDisplayNameError"
+          :error-message="displayNameError"
+          autocorrect="off"
+          autocapitalize="off"
+          spellcheck="false"
+          @blur="$v.user.displayName.$touch"
+        />
+        <SplashInput
+          v-model="user.email"
+          icon="fas fa-envelope"
+          type="email"
+          :label="$t('USERDATA.EMAIL')"
+          :error="hasError('email')"
+          :error-message="firstError('email')"
+          autocorrect="off"
+          autocapitalize="off"
+          spellcheck="false"
+        />
+        <SplashInput
+          v-model="user.password"
+          icon="fas fa-lock"
+          type="password"
+          :label="$t('USERDATA.PASSWORD')"
+          :error="hasError('password')"
+          :error-message="firstError('password')"
+          autocorrect="off"
+          autocapitalize="off"
+          spellcheck="false"
+        />
         <div v-if="canJoinPlayground">
           <QCheckbox
             v-model="joinPlayground"
-            color="white"
             :label="$t('GROUP.JOIN_PLAYGROUND')"
-            class="playground-checkbox"
+            color="info"
           />
           <QBanner
             v-if="joinPlayground"
-            color="info"
-            icon="info"
-            class="q-my-md"
+            class="bg-info text-white q-my-sm rounded-borders"
           >
             {{ $t('JOINGROUP.PROFILE_NOTE' ) }}
+            <template v-slot:avatar>
+              <QIcon name="info" />
+            </template>
           </QBanner>
         </div>
 
@@ -95,7 +80,6 @@
             {{ $t('SIGNUP.OK') }}
           </QBtn>
         </div>
-        <div style="clear: both" />
       </div>
     </form>
   </div>
@@ -103,23 +87,23 @@
 
 <script>
 import {
-  QIcon,
-  QInput,
   QBanner,
   QBtn,
   QCheckbox,
+  QIcon,
 } from 'quasar'
+import SplashInput from '@/authuser/components/SplashInput'
 import statusMixin from '@/utils/mixins/statusMixin'
 import { required, minLength, maxLength } from 'vuelidate/lib/validators'
 import { validationMixin } from 'vuelidate'
 
 export default {
   components: {
-    QIcon,
-    QInput,
     QBanner,
     QBtn,
     QCheckbox,
+    QIcon,
+    SplashInput,
   },
   mixins: [validationMixin, statusMixin],
   props: {
@@ -196,13 +180,3 @@ export default {
   },
 }
 </script>
-
-<style scoped lang="stylus">
-  .margin-bottom
-    margin 0 0 24px 0
-  .playground-checkbox
-    margin-left 20px
-    margin-top 10px
-    >>> .q-option-label
-      margin-left 18px
-</style>

@@ -109,10 +109,6 @@ export default {
       type: Number,
       default: 36,
     },
-    maxEmptyNumToShow: {
-      type: Number,
-      default: 1,
-    },
   },
   data () {
     return {
@@ -146,7 +142,7 @@ export default {
     },
     emptySlots () {
       if (this.pickup.collectors) {
-        const minToShow = Math.min(this.maxEmptyNumToShow, this.emptyPlaces)
+        const minToShow = Math.min(1, this.emptyPlaces)
         const maxToShow = Math.max(minToShow, this.slotsPerRow - this.pickup.collectors.length - 1)
         return Math.min(this.emptyPlaces, maxToShow)
       }

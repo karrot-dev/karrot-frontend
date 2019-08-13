@@ -45,13 +45,6 @@ export default {
   background-color $primary
   color white
   padding 1em 1em
-  .white-box
-    background-color white
-    border-radius 0
-    padding .1em 1em
-    margin-bottom .5em
-    .q-field
-      margin-top .2em
   .error
     color $warning
     margin 0 1em

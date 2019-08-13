@@ -4,10 +4,10 @@
     @click.native.stop="detail"
   >
     <QCardSection
-      class="row no-padding justify-between content"
+      class="no-padding content"
       :class="{ isEmpty: pickup.isEmpty, isUserMember: pickup.isUserMember, isDisabled: pickup.isDisabled }"
     >
-      <div class="column q-pa-sm full-width">
+      <div class="q-pa-sm full-width">
         <div>
           <span class="featured-text">
             {{ $d(pickup.date, 'hourMinute') }}
@@ -39,12 +39,12 @@
         >
           <b class="text-orange">{{ $t('PICKUPLIST.PICKUP_STARTED') }}</b>
         </div>
+        <!-- eslint-disable vue/multiline-html-element-content-newline -->
         <div
           v-if="pickup.description"
           class="q-my-xs multiline"
-        >
-          {{ pickup.description }}
-        </div>
+        >{{ pickup.description }}</div>
+        <!-- eslint-enable vue/multiline-html-element-content-newline -->
         <div class="q-my-xs full-width">
           <PickupUsers
             :pickup="pickup"
@@ -91,8 +91,7 @@ export default {
         ok: this.$t('BUTTON.OF_COURSE'),
         cancel: this.$t('BUTTON.CANCEL'),
       })
-        .then(() => this.$emit('join', this.pickup.id))
-        .catch(() => {})
+        .onOk(() => this.$emit('join', this.pickup.id))
     },
     leave () {
       if (!this.pickup.hasStarted) {
@@ -102,8 +101,7 @@ export default {
           ok: this.$t('BUTTON.YES'),
           cancel: this.$t('BUTTON.CANCEL'),
         })
-          .then(() => this.$emit('leave', this.pickup.id))
-          .catch(() => {})
+          .onOk(() => this.$emit('leave', this.pickup.id))
       }
     },
     detail (event) {

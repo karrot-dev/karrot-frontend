@@ -23,12 +23,46 @@
           <QSelect
             v-model="edit.status"
             :options="statusOptions"
+            map-options
+            emit-value
             :label="$t('STOREEDIT.STATUS')"
             :error="hasError('status')"
             :error-message="firstError('status')"
           >
             <template v-slot:before>
               <QIcon name="fas fa-handshake" />
+            </template>
+            <template v-slot:option="scope">
+              <QItem
+                :key="scope.index"
+                dense
+                v-bind="scope.itemProps"
+                v-on="scope.itemEvents"
+              >
+                <QItemSection side>
+                  <QIcon
+                    :name="scope.opt.icon"
+                    :color="scope.opt.color"
+                    size="1.1em"
+                  />
+                </QItemSection>
+                <QItemSection>
+                  <QItemLabel>{{ scope.opt.label }}</QItemLabel>
+                </QItemSection>
+              </QItem>
+            </template>
+            <template v-slot:selected-item="scope">
+              <div class="row">
+                <QIcon
+                  :name="scope.opt.icon"
+                  :color="scope.opt.color"
+                  size="1.1em"
+                  class="on-left q-ml-xs"
+                />
+                <div>
+                  {{ scope.opt.label }}
+                </div>
+              </div>
             </template>
           </QSelect>
 
@@ -137,6 +171,9 @@ import {
   QBtn,
   QSelect,
   QIcon,
+  QItem,
+  QItemSection,
+  QItemLabel,
   Dialog,
 } from 'quasar'
 import AddressPicker from '@/maps/components/AddressPicker'
@@ -157,6 +194,9 @@ export default {
     QBtn,
     QSelect,
     QIcon,
+    QItem,
+    QItemSection,
+    QItemLabel,
     MarkdownInput,
     AddressPicker,
   },
@@ -215,7 +255,7 @@ export default {
         .map(s => ({
           value: s.key,
           label: this.$t(s.label),
-          leftColor: s.color,
+          color: s.color,
           icon: s.icon,
         }))
     },

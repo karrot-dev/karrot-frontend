@@ -4,26 +4,21 @@
       name="requestPasswordReset"
       @submit.prevent="$emit('submit', email)"
     >
-      <div>
+      <div class="q-gutter-md">
         <p>
           {{ $t('PASSWORDRESET.INTRO') }}
         </p>
-        <div class="white-box">
-          <QInput
-            v-model="email"
-            :autofocus="true"
-            :label="$t('PASSWORDRESET.EMAIL')"
-            type="email"
-            autocorrect="off"
-            autocapitalize="off"
-            spellcheck="false"
-            :error="hasError('email')"
-          >
-            <template v-slot:before>
-              <QIcon name="fas fa-envelope" />
-            </template>
-          </QInput>
-        </div>
+        <SplashInput
+          v-model="email"
+          icon="fas fa-envelope"
+          autofocus
+          :label="$t('PASSWORDRESET.EMAIL')"
+          type="email"
+          autocorrect="off"
+          autocapitalize="off"
+          spellcheck="false"
+          :error="hasError('email')"
+        />
 
         <div
           v-if="hasAnyError"
@@ -57,17 +52,15 @@
 
 <script>
 import {
-  QInput,
   QBtn,
-  QIcon,
 } from 'quasar'
 import statusMixin from '@/utils/mixins/statusMixin'
+import SplashInput from '@/authuser/components/SplashInput'
 
 export default {
   components: {
-    QInput,
     QBtn,
-    QIcon,
+    SplashInput,
   },
   mixins: [statusMixin],
   data () {

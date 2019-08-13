@@ -1,7 +1,8 @@
 <template>
   <QItem
     :class="{ isNonPending: !application.isPending }"
-    @click.native="openChatIfCannotDecide"
+    clickable
+    @click="openChatIfCannotDecide"
   >
     <QItemSection side>
       <ProfilePicture
@@ -53,7 +54,8 @@
       <QList>
         <QItem
           v-close-popup
-          @click.native="openChat"
+          clickable
+          @click="openChat"
         >
           <QItemSection side>
             <QIcon name="fas fa-fw fa-comments" />
@@ -64,7 +66,8 @@
         </QItem>
         <QItem
           v-close-popup
-          @click.native="pressAccept"
+          clickable
+          @click="pressAccept"
         >
           <QItemSection side>
             <QIcon name="fas fa-fw fa-check" />
@@ -75,7 +78,8 @@
         </QItem>
         <QItem
           v-close-popup
-          @click.native="decline"
+          clickable
+          @click="decline"
         >
           <QItemSection side>
             <QIcon name="fas fa-fw fa-times" />

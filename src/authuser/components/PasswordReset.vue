@@ -5,7 +5,7 @@
       @submit.prevent="submit"
     >
       <div class="content">
-        <div class="white-box">
+        <div>
           <QInput
             v-model="newPassword"
             type="password"
@@ -16,7 +16,7 @@
             :error="hasError('newPassword')"
             :error-message="firstError('newPassword')"
           >
-            <template v-slot:prepend>
+            <template v-slot:before>
               <QIcon name="fas fa-lock" />
             </template>
           </QInput>

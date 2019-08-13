@@ -1,6 +1,7 @@
 <template>
   <QItem
-    @click.native="showing = !showing"
+    clickable
+    @click="showing = !showing"
   >
     <QItemSection
       side

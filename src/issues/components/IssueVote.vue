@@ -73,7 +73,7 @@
               {{ getTitle(o.type) }}
             </div>
             <QSlider
-              v-model="o.yourScore"
+              :value="o.yourScore || 0"
               class="k-vote-slider"
               :label-value="getLabel(o.yourScore)"
               :min="-2"
@@ -82,6 +82,7 @@
               label-always
               snap
               markers
+              @input="val => o.yourScore = val"
             />
           </div>
         </div>

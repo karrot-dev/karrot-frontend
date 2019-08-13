@@ -127,6 +127,7 @@ export const makeCurrentUser = data => {
     mailVerified: true,
     currentGroup: 1,
     language: 'en',
+    isCurrentUser: true,
     ...data,
   }
 }
@@ -181,6 +182,12 @@ export const makePickup = data => {
     description: '',
     isDisabled: false,
     hasDuration: false,
+    isUserMember: false,
+    isEmpty: true,
+    isFull: false,
+    saveStatus: statusMocks.default(),
+    leaveStatus: statusMocks.default(),
+    joinStatus: statusMocks.default(),
     ...data,
   }
 }

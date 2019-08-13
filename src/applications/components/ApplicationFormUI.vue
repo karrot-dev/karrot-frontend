@@ -11,7 +11,7 @@
       {{ $t('APPLICATION.FORM_TITLE', { groupName: group.name }) }}
     </p>
     <form @submit.prevent="apply">
-      <div class="white-box bg-white shadow-6 q-py-md q-px-sm">
+      <div class="bg-white q-pt-sm q-pb-md q-px-sm rounded-borders">
         <QItem>
           <QItemSection side>
             <QIcon name="fas fa-fw fa-question" />

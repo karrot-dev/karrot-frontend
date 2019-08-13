@@ -5,88 +5,77 @@
       @submit.prevent="submit"
     >
       <div
-        :class="{ shake: hasAnyError }"
+        class="q-gutter-md"
       >
-        <QInput
+        <SplashInput
           v-model="email"
-          :autofocus="true"
+          icon="fas fa-envelope"
+          autofocus
           :error="hasError('email')"
           :label="$t('USERDATA.EMAIL')"
           type="email"
           autocorrect="off"
           autocapitalize="off"
           spellcheck="false"
-        >
-          <template v-slot:before>
-            <QIcon name="fas fa-envelope" />
-          </template>
-        </QInput>
-      </div>
-      <div
-        :class="{ shake: hasAnyError }"
-      >
-        <QInput
+          :class="{ shake: hasAnyError }"
+        />
+        <SplashInput
           v-model="password"
+          icon="fas fa-lock"
           :error="hasError('password')"
           :label="$t('USERDATA.PASSWORD')"
           type="password"
           autocorrect="off"
           autocapitalize="off"
           spellcheck="false"
+          :class="{ shake: hasAnyError }"
+        />
+        <div
+          v-if="hasAnyError"
+          class="error"
         >
-          <template v-slot:before>
-            <QIcon name="fas fa-lock" />
-          </template>
-        </QInput>
+          <i class="fas fa-exclamation-triangle" />
+          {{ anyFirstError }}
+        </div>
+        <div class="actions">
+          <QBtn
+            type="button"
+            flat
+            @click.prevent="$router.push({ name: 'requestPasswordReset' })"
+          >
+            {{ $t('LOGIN.FORGOT_PASSWORD') }}
+          </QBtn>
+          <QBtn
+            type="button"
+            flat
+            @click.prevent="$router.push({ name: 'signup' })"
+          >
+            {{ $t('LOGIN.SIGNUP') }}
+          </QBtn>
+          <QBtn
+            type="submit"
+            class="submit shadow-4"
+            :loading="isPending"
+          >
+            {{ $t('LOGIN.SUBMIT') }}
+          </QBtn>
+        </div>
       </div>
-      <div
-        v-if="hasAnyError"
-        class="error"
-      >
-        <i class="fas fa-exclamation-triangle" />
-        {{ anyFirstError }}
-      </div>
-      <div class="actions">
-        <QBtn
-          type="button"
-          flat
-          @click.prevent="$router.push({ name: 'requestPasswordReset' })"
-        >
-          {{ $t('LOGIN.FORGOT_PASSWORD') }}
-        </QBtn>
-        <QBtn
-          type="button"
-          flat
-          @click.prevent="$router.push({ name: 'signup' })"
-        >
-          {{ $t('LOGIN.SIGNUP') }}
-        </QBtn>
-        <QBtn
-          type="submit"
-          class="submit shadow-4"
-          :loading="isPending"
-        >
-          {{ $t('LOGIN.SUBMIT') }}
-        </QBtn>
-      </div>
-      <div style="clear: both" />
     </form>
   </div>
 </template>
 
 <script>
 import {
-  QInput,
-  QIcon,
   QBtn,
 } from 'quasar'
 import statusMixin from '@/utils/mixins/statusMixin'
+import SplashInput from '@/authuser/components/SplashInput'
 
 export default {
   components: {
-    QInput,
-    QIcon,
     QBtn,
+    SplashInput,
   },
   mixins: [statusMixin],
   data () {

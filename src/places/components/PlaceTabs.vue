@@ -6,7 +6,6 @@
     <QRouteTab
       v-for="(tab, idx) in tabs"
       :key="idx"
-      slot="title"
       :to="tab.to"
       :default="idx === 0"
       :label="tab.label"

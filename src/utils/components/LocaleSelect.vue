@@ -18,24 +18,7 @@
     <QDialog
       v-model="open"
     >
-      <div
-        v-if="$q.platform.is.mobile"
-        class="text-white bg-primary row no-wrap justify-between items-center"
-      >
-        <div class="ellipsis q-ml-md">
-          {{ $t('LANGUAGECHOOSER.SWITCH') }}
-        </div>
-        <QBtn
-          dense
-          round
-          color="secondary"
-          class="q-ma-xs q-mr-sm"
-          @click="open = false"
-        >
-          <QIcon name="fas fa-times" />
-        </QBtn>
-      </div>
-      <LocaleSelectInner v-if="open" />
+      <LocaleSelectInner />
     </QDialog>
   </QBtn>
 </template>

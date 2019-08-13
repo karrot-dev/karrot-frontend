@@ -1,13 +1,27 @@
 <template>
   <div v-if="place && place.status === 'archived'">
     <QCard>
-      <KBanner
-        color="info"
-        icon="fas fa-trash-alt"
-        :actions="isEditor ? [{ label: $t('STOREEDIT.RESTORE'), handler: restore }] : []"
+      <QBanner
+        inline-actions
+        class="bg-info"
       >
         {{ $t('STOREDETAIL.ARCHIVED') }}
-      </KBanner>
+        <template v-slot:avatar>
+          <QIcon
+            name="fas fa-trash-alt"
+            size="1.4em"
+          />
+        </template>
+        <template v-slot:action>
+          <QBtn
+            v-if="isEditor"
+            flat
+            dense
+            :label="$t('STOREEDIT.RESTORE')"
+            @click="restore"
+          />
+        </template>
+      </QBanner>
     </QCard>
   </div>
   <div v-else>
@@ -21,15 +35,17 @@
 
 import { mapGetters } from 'vuex'
 
-import { QCard } from 'quasar'
-import KBanner from '@/alerts/components/KBanner'
+import {
+  QCard,
+  QBanner,
+} from 'quasar'
 import PlaceTabs from '@/places/components/PlaceTabs'
 import PlaceHeader from '@/places/components/PlaceHeader'
 
 export default {
   components: {
     QCard,
-    KBanner,
+    QBanner,
     PlaceTabs,
     PlaceHeader,
   },

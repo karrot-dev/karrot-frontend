@@ -68,6 +68,32 @@ const issueFurtherDiscussion = factories.makeIssue({
   ],
 })
 
+const issueNoVote = factories.makeIssue({
+  createdAt: subHours(new Date(), 2000),
+  topic: 'Just some random thought',
+  votings: [
+    factories.makeVoting({
+      acceptedOption: null,
+      createdAt: subHours(new Date(), 150),
+      expiresAt: addHours(new Date(), 150),
+      options: [
+        factories.makeOption({
+          type: 'remove_user',
+          yourScore: null,
+        }),
+        factories.makeOption({
+          type: 'further_discussion',
+          yourScore: null,
+        }),
+        factories.makeOption({
+          type: 'no_change',
+          yourScore: null,
+        }),
+      ],
+    }),
+  ],
+})
+
 const ongoingIssues = range(3).map(() => factories.makeIssue({
   createdAt: subHours(new Date(), 2 * 24),
   votings: [
@@ -96,10 +122,17 @@ storiesOf('Issues', module)
       },
     }),
   }))
-  .add('vote - furtherDiscussion', () => defaults({
+  .add('IssueVote - vote', () => defaults({
     render: h => h(IssueVote, {
       props: {
         issue: issueFurtherDiscussion,
+      },
+    }),
+  }))
+  .add('IssueVote - not voted yet', () => defaults({
+    render: h => h(IssueVote, {
+      props: {
+        issue: issueNoVote,
       },
     }),
   }))

@@ -13,7 +13,7 @@
       <QIcon name="fas fa-bug" />
       {{ $t('HISTORY.NOTHING_HAPPENEND') }}
     </div>
-    <KSpinner slot="message" />
+    <KSpinner v-slot:message />
   </QInfiniteScroll>
 </template>
 

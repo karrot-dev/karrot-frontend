@@ -9,7 +9,7 @@
       :issue="issue"
     />
     <KNotice v-if="hasNoOngoing">
-      <template slot="icon">
+      <template v-slot:icon>
         <i class="fas fa-bed" />
       </template>
       {{ $t('ISSUE.NO_ONGOING') }}

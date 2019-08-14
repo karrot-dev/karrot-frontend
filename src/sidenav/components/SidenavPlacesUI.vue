@@ -1,31 +1,32 @@
 <template>
   <SidenavBox>
-    <template slot="icon">
+    <template v-slot:icon>
       <QIcon :name="$icon('place_fw')" />
     </template>
-    <template slot="name">
+    <template v-slot:name>
       {{ $t('GROUP.PLACES') }}
     </template>
-    <div
-      slot="tools"
-      class="tools"
-    >
-      <QToggle
-        :value="showAllPlaces"
-        :title="$t(showAllPlaces ? 'STOREEDIT.SHOW_ACTIVE_ONLY' : 'STOREEDIT.SHOW_ALL')"
-        @input="$emit('toggleShowAllPlaces')"
-      />
-      <QBtn
-        v-if="hasPlaces && isEditor"
-        flat
-        dense
-        round
-        :to="{ name: 'placeCreate', params: { groupId } }"
-        :title="$t('BUTTON.CREATE')"
+    <template v-slot:tools>
+      <div
+        class="tools"
       >
-        <QIcon name="fas fa-fw fa-plus-circle" />
-      </QBtn>
-    </div>
+        <QToggle
+          :value="showAllPlaces"
+          :title="$t(showAllPlaces ? 'STOREEDIT.SHOW_ACTIVE_ONLY' : 'STOREEDIT.SHOW_ALL')"
+          @input="$emit('toggleShowAllPlaces')"
+        />
+        <QBtn
+          v-if="hasPlaces && isEditor"
+          flat
+          dense
+          round
+          :to="{ name: 'placeCreate', params: { groupId } }"
+          :title="$t('BUTTON.CREATE')"
+        >
+          <QIcon name="fas fa-fw fa-plus-circle" />
+        </QBtn>
+      </div>
+    </template>
 
     <KSpinner v-if="!hasPlaces && fetchStatus.pending" />
     <PlaceList

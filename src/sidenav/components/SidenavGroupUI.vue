@@ -1,39 +1,40 @@
 <template>
   <SidenavBox>
-    <template slot="icon">
+    <template v-slot:icon>
       <QIcon name="fas fa-fw fa-home" />
     </template>
-    <template slot="name">
+    <template v-slot:name>
       {{ $t('GROUP.HOME') }}
     </template>
-    <div
-      slot="tools"
-      class="tools"
-    >
-      <QBtn
-        flat
-        dense
-        round
-        :to="{ name: 'settings', hash: '#notifications' }"
-        :title="$t('GROUP.SETTINGS')"
+    <template v-slot:tools>
+      <div
+        class="tools"
       >
-        <QIcon name="fas fa-cog fa-fw" />
-      </QBtn>
-      <QBtn
-        flat
-        dense
-        round
-      >
-        <QIcon name="fas fa-fw fa-ellipsis-v" />
-        <QMenu
-          fit
-          anchor="bottom right"
-          self="top right"
+        <QBtn
+          flat
+          dense
+          round
+          :to="{ name: 'settings', hash: '#notifications' }"
+          :title="$t('GROUP.SETTINGS')"
         >
-          <GroupOptions />
-        </QMenu>
-      </QBtn>
-    </div>
+          <QIcon name="fas fa-cog fa-fw" />
+        </QBtn>
+        <QBtn
+          flat
+          dense
+          round
+        >
+          <QIcon name="fas fa-fw fa-ellipsis-v" />
+          <QMenu
+            fit
+            anchor="bottom right"
+            self="top right"
+          >
+            <GroupOptions />
+          </QMenu>
+        </QBtn>
+      </div>
+    </template>
     <SidenavMenu :entries="entries" />
   </SidenavBox>
 </template>

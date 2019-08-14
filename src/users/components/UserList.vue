@@ -23,7 +23,7 @@
         @show="showInactive = true"
         @hide="showInactive = false"
       >
-        <template slot="header">
+        <template v-slot:header>
           <QItemSection side>
             <QIcon
               name="fas fa-bed"

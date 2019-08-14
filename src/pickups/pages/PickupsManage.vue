@@ -62,7 +62,7 @@
               :key="pickup.id"
               @show="makeVisible('pickup', pickup.id)"
             >
-              <template slot="header">
+              <template v-slot:header>
                 <QItemSection
                   v-if="!$q.platform.is.mobile"
                   side
@@ -169,7 +169,7 @@
           sparse
           @show="makeVisible('pickup', pickup.id)"
         >
-          <template slot="header">
+          <template v-slot:header>
             <QItemSection
               v-if="!$q.platform.is.mobile"
               side

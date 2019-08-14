@@ -6,11 +6,11 @@
     />
     <KSpinner v-show="isPending || (feedbackPossibleStatus && feedbackPossibleStatus.pending)" />
     <KNotice v-if="empty">
-      <template slot="icon">
+      <template v-slot:icon>
         <i :class="$icon('feedback')" />
       </template>
       {{ $t('FEEDBACKLIST.NONE') }}
-      <template slot="desc">
+      <template v-slot:desc>
         {{ $t('FEEDBACKLIST.NONE_HINT') }}
       </template>
     </KNotice>
@@ -25,7 +25,7 @@
       >
         {{ $d(feedbackitem.createdAt, 'dateLongWithDayName') }}
       </FeedbackItem>
-      <KSpinner slot="message" />
+      <KSpinner v-slot:message />
     </QInfiniteScroll>
   </div>
 </template>

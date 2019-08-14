@@ -10,29 +10,30 @@
       <template v-slot:prepend>
         <QIcon name="fas fa-camera" />
       </template>
-      <Croppa
-        ref="croppaPhoto"
-        v-slot:control
-        :width="300"
-        :height="300"
-        placeholder=""
-        prevent-white-space
-        show-loading
-        :class="{pointer: !hasPhoto}"
-        :zoom-speed="10"
-        @file-choose="saveDisabled = false"
-        @image-remove="saveDisabled = false"
-      >
-        <img
-          v-if="hasPhoto"
-          slot="initial"
-          :src="photo"
+      <template v-slot:control>
+        <Croppa
+          ref="croppaPhoto"
+          :width="300"
+          :height="300"
+          placeholder=""
+          prevent-white-space
+          show-loading
+          :class="{pointer: !hasPhoto}"
+          :zoom-speed="10"
+          @file-choose="saveDisabled = false"
+          @image-remove="saveDisabled = false"
         >
-        <img
-          slot="placeholder"
-          :src="placeholder"
-        >
-      </Croppa>
+          <template v-slot:initial>
+            <img
+              v-if="hasPhoto"
+              :src="photo"
+            >
+          </template>
+          <template v-slot:placeholder>
+            <img :src="placeholder">
+          </template>
+        </Croppa>
+      </template>
     </QField>
 
     <div

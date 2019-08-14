@@ -7,7 +7,7 @@
       opened
       class="bg-grey-2"
     >
-      <template slot="header">
+      <template v-slot:header>
         <b>{{ $t('CONFLICT.INITIAL') }}</b>
       </template>
       <div class="q-mx-sm q-mb-sm q-pa-sm">

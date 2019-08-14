@@ -18,7 +18,7 @@
     >
       <QExpansionItem
         v-if="application"
-        slot="beforeChatMessages"
+        v-slot:beforeChatMessages
         default-opened
         class="bg-grey-2"
         :label="$t('APPLICATION.INITIAL')"
@@ -47,7 +47,7 @@
       </QExpansionItem>
       <QList
         v-if="pickup && pickup.isDisabled"
-        slot="afterChatMessages"
+        v-slot:afterChatMessages
         class="bg-grey-2"
       >
         <QItem>

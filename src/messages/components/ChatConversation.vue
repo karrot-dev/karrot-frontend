@@ -44,7 +44,7 @@
           </QItemSection>
         </QItem>
       </QList>
-      <KSpinner slot="message" />
+      <KSpinner v-slot:message />
     </QInfiniteScroll>
     <slot name="afterChatMessages" />
     <QScrollObserver @scroll="onScroll" />

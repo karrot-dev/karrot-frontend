@@ -17,14 +17,16 @@
           {{ $d(pickup.date, 'weekdayHourMinute') }}
           <template v-if="pickup.hasDuration"> &mdash; {{ $d(pickup.dateEnd, 'hourMinute') }}</template>
         </strong>
-        <span slot="subtitle">
-          <strong v-if="pickup.place">
-            <RouterLink :to="{ name: 'place', params: { groupId: pickup.group.id, placeId: pickup.place.id }}">
-              {{ pickup.place.name }}
-            </RouterLink>
-          </strong>
-          {{ $d(pickup.date, 'yearMonthDay') }}
-        </span>
+        <template v-slot:subtitle>
+          <span>
+            <strong v-if="pickup.place">
+              <RouterLink :to="{ name: 'place', params: { groupId: pickup.group.id, placeId: pickup.place.id }}">
+                {{ pickup.place.name }}
+              </RouterLink>
+            </strong>
+            {{ $d(pickup.date, 'yearMonthDay') }}
+          </span>
+        </template>
       </QToolbarTitle>
       <template v-else-if="user">
         <ProfilePicture
@@ -51,9 +53,11 @@
           <RouterLink :to="applicationLink">
             <span v-t="'APPLICATION.APPLICATION'" />
           </RouterLink>
-          <span slot="subtitle">
-            {{ application.user.isCurrentUser ? application.group.name : application.user.displayName }}
-          </span>
+          <template v-slot:subtitle>
+            <span>
+              {{ application.user.isCurrentUser ? application.group.name : application.user.displayName }}
+            </span>
+          </template>
           <small>
             <QIcon
               v-if="application.status === 'accepted'"

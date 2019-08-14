@@ -128,7 +128,7 @@
       v-model="showDetail"
     >
       <QLayout container>
-        <QToolbar slot="header">
+        <QToolbar v-slot:header>
           <QToolbarTitle v-if="place">
             <QIcon
               name="fas fa-info-circle"

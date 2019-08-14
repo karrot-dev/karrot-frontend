@@ -22,7 +22,7 @@
     <div
       v-else
       class="background mainLayoutDesktop"
-      :class="isBikeKitchen ? 'bikekitchen' : ''"
+      :class="theme"
     >
       <QLayout :view="layoutView">
         <QHeader reveal>
@@ -227,6 +227,7 @@ export default {
       notificationsUnseenCount: 'notifications/unseenCount',
       currentGroupId: 'currentGroup/id',
       isBikeKitchen: 'currentGroup/isBikeKitchen',
+      isGeneralPurpose: 'currentGroup/isGeneralPurpose',
     }),
     layoutView () {
       if (this.$q.platform.is.mobile) {
@@ -274,6 +275,11 @@ export default {
       if (this.$route.matched.some(({ meta }) => meta && meta.disablePullToRefresh)) return true
       return false
     },
+    theme () {
+      if (this.isBikeKitchen) return 'bikekitchen'
+      if (this.isGeneralPurpose) return 'general'
+      return ''
+    },
   },
   methods: {
     ...mapActions({
@@ -312,6 +318,8 @@ body.desktop .mainContent-page:not(.fullpage)
   background-attachment:fixed
   &.bikekitchen
     background-image url('../assets/bikekitchen_background.jpg')
+  &.general
+    background-image url('../assets/general_background.jpg')
 .k-highlight-dot
   position absolute
   right -4px

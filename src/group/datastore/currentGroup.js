@@ -25,6 +25,7 @@ export default {
         ...group,
         isPlayground,
         isBikeKitchen: group.theme === 'bikekitchen',
+        isGeneralPurpose: group.theme === 'general',
         hasPhoto: group.photoUrls && group.photoUrls.fullSize,
         hasLocation: group.latitude && group.longitude,
         membership: getters.membership,
@@ -64,6 +65,7 @@ export default {
     roles: (state, getters) => getters.membership ? getters.value.membership.roles : [],
     isEditor: (state, getters) => getters.roles.includes('editor'),
     isBikeKitchen: (state, getters) => Boolean(getters.value && getters.value.isBikeKitchen),
+    isGeneralPurpose: (state, getters) => Boolean(getters.value && getters.value.isGeneralPurpose),
   },
   actions: {
     ...withMeta({
@@ -213,20 +215,19 @@ export function plugin (datastore) {
     }
   })
   datastore.watch(
-    (state, getters) => [getters['currentGroup/isBikeKitchen'], getters['i18n/locale']],
-    async ([isBikeKitchen, locale] = []) => {
+    (state, getters) => [getters['currentGroup/isBikeKitchen'], getters['currentGroup/isGeneralPurpose'], getters['i18n/locale']],
+    async ([isBikeKitchen, isGeneralPurpose, locale] = []) => {
       if (!locale) return
-      if (isBikeKitchen) {
-        const bikeKitchenMessages = await import('@/locales/bikekitchen.json')
+      if (isBikeKitchen || isGeneralPurpose) {
+        const generalPurposeMessages = await import('@/locales/generalPurpose.json')
         const messages = await loadMessages(locale)
-        if (!datastore.getters['currentGroup/isBikeKitchen']) return
-
-        const mergedMessages = extend(true, {}, messages, bikeKitchenMessages)
+        if (!(datastore.getters['currentGroup/isBikeKitchen'] || datastore.getters['currentGroup/isGeneralPurpose'])) return
+        const mergedMessages = extend(true, {}, messages, generalPurposeMessages)
         i18n.setLocaleMessage(locale, mergedMessages)
       }
       else {
         const messages = await loadMessages(locale)
-        if (datastore.getters['currentGroup/isBikeKitchen']) return
+        if (datastore.getters['currentGroup/isBikeKitchen'] || datastore.getters['currentGroup/isGeneralPurpose']) return
 
         i18n.setLocaleMessage(locale, messages)
       }
@@ -234,8 +235,8 @@ export function plugin (datastore) {
     { immediate: true },
   )
   datastore.watch(
-    (state, getters) => getters['currentGroup/isBikeKitchen'],
-    async (isBikeKitchen) => {
+    (state, getters) => [getters['currentGroup/isBikeKitchen'], getters['currentGroup/isGeneralPurpose']],
+    async ([isBikeKitchen, isGeneralPurpose] = []) => {
       if (isBikeKitchen) {
         const bikeKitchenIcons = await import('@/base/icons/bikekitchen.json')
         if (!datastore.getters['currentGroup/isBikeKitchen']) return
@@ -243,6 +244,15 @@ export function plugin (datastore) {
         iconService.set({
           ...iconService.getAll(),
           ...bikeKitchenIcons,
+        })
+      }
+      else if (isGeneralPurpose) {
+        const generalIcons = await import('@/base/icons/generalPurpose.json')
+        if (!datastore.getters['currentGroup/isGeneralPurpose']) return
+
+        iconService.set({
+          ...iconService.getAll(),
+          ...generalIcons,
         })
       }
       else {

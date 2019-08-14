@@ -1,0 +1,7 @@
+{
+  "pickup": "far fa-flag",
+  "pickup_fw": "far fa-fw fa-flag",
+  "feedback": "fas fa-reply",
+  "place": "fas fa-circle",
+  "place_fw": "fas fa-fw fa-circle"
+}

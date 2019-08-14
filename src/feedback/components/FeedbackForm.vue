@@ -14,7 +14,7 @@
     </MarkdownInput>
 
     <AmountPicker
-      v-if="!isBikeKitchen"
+      v-if="!isBikeKitchen && !isGeneralPurpose"
       v-model="edit.weight"
       style="margin-top: 40px"
     />
@@ -68,6 +68,10 @@ export default {
   mixins: [statusMixin, editMixin],
   props: {
     isBikeKitchen: {
+      type: Boolean,
+      default: false,
+    },
+    isGeneralPurpose: {
       type: Boolean,
       default: false,
     },

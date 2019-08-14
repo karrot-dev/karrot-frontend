@@ -22,7 +22,7 @@
     <div
       v-else
       class="background mainLayoutDesktop"
-      :class="hasDifferentTheme"
+      :class="theme"
     >
       <QLayout :view="layoutView">
         <QLayoutHeader reveal>
@@ -280,7 +280,7 @@ export default {
       if (this.$route.matched.some(({ meta }) => meta && meta.disablePullToRefresh)) return true
       return false
     },
-    hasDifferentTheme () {
+    theme () {
       if (this.isBikeKitchen) return 'bikekitchen'
       if (this.isGeneralPurpose) return 'general'
       return ''

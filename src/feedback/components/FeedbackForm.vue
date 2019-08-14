@@ -14,7 +14,7 @@
     </MarkdownInput>
 
     <AmountPicker
-      v-if="!isBikeKitchen || !isGeneralPurpose"
+      v-if="!isBikeKitchen && !isGeneralPurpose"
       v-model="edit.weight"
       style="margin-top: 40px"
     />

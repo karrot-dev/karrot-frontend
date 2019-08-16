@@ -1,7 +1,7 @@
 <template>
   <div>
     <QInfiniteScroll
-      :handler="maybeFetchPast"
+      @load="maybeFetchPast"
     >
       <QList
         class="bg-white desktop-margin relative-position"

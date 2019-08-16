@@ -5,7 +5,7 @@
   >
     <slot name="beforeChatMessages" />
     <KSpinner v-show="fetchingPast" />
-    <QInfiniteScroll :handler="maybeFetchFuture">
+    <QInfiniteScroll @load="maybeFetchFuture">
       <QList
         class="bg-white"
       >
@@ -44,7 +44,7 @@
           </QItemSection>
         </QItem>
       </QList>
-      <KSpinner v-slot:message />
+      <KSpinner v-slot:loading />
     </QInfiniteScroll>
     <slot name="afterChatMessages" />
     <QScrollObserver @scroll="onScroll" />

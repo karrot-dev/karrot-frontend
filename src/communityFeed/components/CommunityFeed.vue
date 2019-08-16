@@ -9,6 +9,7 @@
     >
       <QIcon
         name="fab fa-discourse fa-fw"
+        size="1.1em"
       />
     </QItemSection>
     <QItemSection>

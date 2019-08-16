@@ -60,7 +60,8 @@
           <RouterView name="sidenav" />
           <MobileSidenav />
           <QItem
-            @click.native="toggleAbout()"
+            clickable
+            @click="toggleAbout"
           >
             <QItemSection
               side
@@ -87,7 +88,8 @@
         >
           <RouterView name="sidenav" />
           <QItem
-            @click.native="toggleAbout()"
+            clickable
+            @click="toggleAbout"
           >
             <QItemSection
               side
@@ -150,7 +152,7 @@
     </div>
 
     <QDialog v-model="showAbout">
-      <KAbout @close="toggleAbout()" />
+      <KAbout @close="toggleAbout" />
     </QDialog>
   </div>
 </template>

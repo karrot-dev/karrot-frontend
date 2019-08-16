@@ -4,7 +4,7 @@
       <RouterView name="header" />
     </div>
     <div class="splashlayout">
-      <div class="splashlayout-content">
+      <div class="splashlayout-content rounded-borders">
         <Transition
           name="fade"
           mode="out-in"
@@ -39,12 +39,11 @@ export default {
     color $primary
 .splashlayout-content
   overflow hidden
-  border-radius 0
   width 100%
   min-height 5em
   background-color $primary
   color white
-  padding 1em 1em
+  padding 1.2em 1em
   .error
     color $warning
     margin 0 1em

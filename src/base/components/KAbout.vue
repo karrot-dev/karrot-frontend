@@ -1,6 +1,6 @@
 <template>
   <div
-    class="k-about"
+    class="bg-white q-pa-md"
     @click.native="$emit('close')"
   >
     <div class="layout-padding">
@@ -80,7 +80,7 @@
         </a>
         <br><br>
         made with
-        <i class="fas fa-heart love" />
+        <i class="fas fa-heart text-red" />
         by
         <a
           href="https://foodsaving.world"
@@ -92,7 +92,7 @@
       </div>
     </div>
 
-    <div class="row justify-end generic-padding">
+    <div class="row justify-end q-mt-sm">
       <QBtn
         flat
         :label="$t('BUTTON.CLOSE')"
@@ -175,6 +175,4 @@ export default {
     padding-left 15px
 .k-about-footer
   margin-top 50px
-.love
-  color red
 </style>

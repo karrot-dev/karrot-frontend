@@ -16,7 +16,7 @@
     </KNotice>
     <QInfiniteScroll
       v-else
-      :handler="maybeFetchPast"
+      @load="maybeFetchPast"
     >
       <FeedbackItem
         v-for="feedbackitem in feedback"
@@ -25,7 +25,7 @@
       >
         {{ $d(feedbackitem.createdAt, 'dateLongWithDayName') }}
       </FeedbackItem>
-      <KSpinner v-slot:message />
+      <KSpinner v-slot:loading />
     </QInfiniteScroll>
   </div>
 </template>

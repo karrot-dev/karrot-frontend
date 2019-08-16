@@ -1,7 +1,7 @@
 <template>
   <QInfiniteScroll
     ref="infiniteScroll"
-    :handler="maybeFetchPast"
+    @load="maybeFetchPast"
   >
     <KSpinner v-show="isPending" />
     <HistoryEntry
@@ -13,7 +13,7 @@
       <QIcon name="fas fa-bug" />
       {{ $t('HISTORY.NOTHING_HAPPENEND') }}
     </div>
-    <KSpinner v-slot:message />
+    <KSpinner v-slot:loading />
   </QInfiniteScroll>
 </template>
 

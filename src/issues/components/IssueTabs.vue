@@ -1,7 +1,7 @@
 <template>
   <QTabs
     align="justify"
-    color="secondary"
+    class="bg-secondary text-white"
   >
     <QRouteTab
       :to="{ name: 'issueChat', params: { groupId, issueId } }"

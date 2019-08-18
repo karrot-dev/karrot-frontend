@@ -4,7 +4,7 @@
     class="DetailHeader full-width"
   >
     <QToolbar
-      color="secondary"
+      class="bg-secondary text-white"
     >
       <QToolbarTitle
         v-if="pickup"

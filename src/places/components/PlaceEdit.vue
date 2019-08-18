@@ -298,8 +298,7 @@ export default {
         cancel: this.$t('BUTTON.CANCEL'),
         ok: this.$t('STOREEDIT.DIALOGS.ARCHIVE.CONFIRM'),
       })
-        .then(() => this.$emit('save', { id: this.value.id, status: 'archived' }, event))
-        .catch(() => {})
+        .onOk(() => this.$emit('save', { id: this.value.id, status: 'archived' }, event))
     },
   },
   validations: {

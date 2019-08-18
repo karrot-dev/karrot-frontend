@@ -25,7 +25,8 @@
           v-for="group in commonGroups"
           :key="group.id"
           v-close-popup
-          @click.native="$emit('selectGroup', { groupId: group.id })"
+          clickable
+          @click="$emit('selectGroup', { groupId: group.id })"
         >
           <QItemSection>
             {{ group.name }}
@@ -37,7 +38,7 @@
             <QIcon
               name="fas fa-star"
               color="secondary"
-              size="22px"
+              size="1.1em"
             />
           </QItemSection>
         </QItem>

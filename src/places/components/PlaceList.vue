@@ -43,14 +43,15 @@
     <QItem
       v-if="!hasPlaces && isEditor"
       :to="{ name: 'placeCreate', params: { groupId } }"
-      class="bg-secondary"
+      class="bg-secondary justify-center"
       :title="$t('BUTTON.CREATE')"
-      multiline
+      dense
     >
-      <QItemSection class="text-center">
-        <QItemTile
-          icon="add circle"
-          class="text-white"
+      <QItemSection side>
+        <QIcon
+          name="add_circle"
+          color="white"
+          size="1.5em"
         />
       </QItemSection>
     </QItem>

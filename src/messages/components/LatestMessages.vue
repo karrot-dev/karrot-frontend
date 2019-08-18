@@ -1,13 +1,11 @@
 <template>
-  <div>
+  <div class="bg-white">
     <QTabs
       v-model="selected"
-      inverted
       class="k-message-tabs"
     >
       <Component
         :is="asPage ? 'QRouteTab' : 'QTab'"
-        v-slot:title
         name="conversations"
         :to="{ name: 'latestConversations' }"
         :label="$t('CONVERSATION.CONVERSATIONS')"
@@ -15,7 +13,6 @@
       />
       <Component
         :is="asPage ? 'QRouteTab' : 'QTab'"
-        v-slot:title
         name="threads"
         :to="{ name: 'latestThreads' }"
         :label="$t('CONVERSATION.REPLIES')"

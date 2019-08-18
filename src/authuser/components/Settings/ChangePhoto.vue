@@ -6,32 +6,36 @@
       :error="hasError('photo')"
       :error-message="firstError('photo')"
       :hint="hint"
+      :loading="loading"
     >
-      <template v-slot:prepend>
+      <template v-slot:before>
         <QIcon name="fas fa-camera" />
       </template>
       <template v-slot:control>
         <Croppa
           ref="croppaPhoto"
+          class="q-mt-sm"
           :width="300"
           :height="300"
           placeholder=""
           prevent-white-space
-          show-loading
-          :class="{pointer: !hasPhoto}"
+          replace-drop
+          :class="{'cursor-pointer': canChoose}"
           :zoom-speed="10"
-          @file-choose="saveDisabled = false"
-          @image-remove="saveDisabled = false"
+          :initial-image="photo"
+          :show-remove-button="false"
+          @init="init"
+          @move="allowSave"
+          @zoom="allowSave"
+          @new-image-drawn="newImageDrawn"
+          @loading-start="loading = true"
+          @loading-end="loading = false"
+          @image-remove="canChoose = true"
         >
-          <template v-slot:initial>
-            <img
-              v-if="hasPhoto"
-              :src="photo"
-            >
-          </template>
-          <template v-slot:placeholder>
-            <img :src="placeholder">
-          </template>
+          <img
+            slot="placeholder"
+            src="statics/add_a_photo.svg"
+          >
         </Croppa>
       </template>
     </QField>
@@ -43,12 +47,27 @@
       {{ firstNonFieldError }}
     </div>
 
-    <div class="actionButtons">
+    <div class="row justify-end q-gutter-xs">
+      <QBtn
+        type="button"
+        :disable="!canSave"
+        @click="reset"
+      >
+        {{ $t('BUTTON.RESET') }}
+      </QBtn>
+      <QBtn
+        :disable="!hasPhoto"
+        type="button"
+        color="red"
+        @click="destroy"
+      >
+        {{ $t('BUTTON.DELETE') }}
+      </QBtn>
       <QBtn
         v-t="'BUTTON.SAVE_CHANGES'"
         color="primary"
         :loading="isPending"
-        :disabled="saveDisabled"
+        :disable="!canSave"
         @click="save"
       />
     </div>
@@ -64,7 +83,6 @@ import {
 import CroppaPlugin from 'vue-croppa'
 const Croppa = CroppaPlugin.component
 import statusMixin from '@/utils/mixins/statusMixin'
-import placeholder from '@/statics/add_a_photo.svg'
 
 export default {
   components: {
@@ -94,8 +112,10 @@ export default {
   },
   data () {
     return {
-      saveDisabled: true,
-      placeholder,
+      canSave: false,
+      canChoose: true,
+      refreshing: false,
+      loading: false,
     }
   },
   computed: {
@@ -114,8 +134,11 @@ export default {
     },
   },
   watch: {
-    photo () {
-      this.$refs.croppaPhoto.refresh()
+    photo (val) {
+      if (val) {
+        this.refreshing = true
+        this.$refs.croppaPhoto.refresh()
+      }
     },
   },
   methods: {
@@ -127,7 +150,30 @@ export default {
       else {
         this.$emit('save', null)
       }
-      this.saveDisabled = true
+      this.canSave = false
+    },
+    destroy () {
+      this.$refs.croppaPhoto.remove()
+      this.allowSave()
+    },
+    reset () {
+      this.$refs.croppaPhoto.refresh()
+      this.canSave = false
+    },
+    allowSave () {
+      this.canSave = true
+    },
+    newImageDrawn () {
+      this.canChoose = false
+      if (this.refreshing) {
+        this.refreshing = false
+      }
+      else {
+        this.allowSave()
+      }
+    },
+    init () {
+      if (this.photo) this.refreshing = true
     },
   },
 }
@@ -135,12 +181,5 @@ export default {
 
 <style scoped lang="stylus">
 @import '~editbox'
-.k-change-photo
-  >>> .croppa-container
-    canvas
-      width 100% !important
-      height 100% !important
-      max-width 300px
-      max-height 300px
-      cursor pointer
+
 </style>

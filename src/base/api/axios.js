@@ -17,7 +17,8 @@ const axios = Axios.create({
 const makeThrottledWarner = (message) =>
   throttle(() =>
     Notify.create({
-      type: 'warning',
+      icon: 'priority_high',
+      color: 'warning',
       position: 'bottom-left',
       timeout: 5000,
       message: i18n.t(message),

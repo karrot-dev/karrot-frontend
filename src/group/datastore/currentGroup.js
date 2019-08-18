@@ -148,7 +148,8 @@ export default {
             dispatch('toasts/show', {
               message: 'GROUP.NONMEMBER_REDIRECT',
               config: {
-                type: 'negative',
+                icon: 'warning',
+                color: 'negative',
               },
             }, { root: true })
           }

@@ -64,7 +64,7 @@
                 v-close-popup
                 :class="o.selected ? 'bg-grey-2' : ''"
                 clickable
-                @click.native="select(o)"
+                @click="select(o)"
               >
                 <QItemSection side>
                   <QIcon
@@ -127,8 +127,8 @@
     <QDialog
       v-model="showDetail"
     >
-      <QLayout container>
-        <QToolbar v-slot:header>
+      <QCard>
+        <QToolbar class="bg-primary text-white">
           <QToolbarTitle v-if="place">
             <QIcon
               name="fas fa-info-circle"
@@ -142,9 +142,8 @@
             @click="toggleDetail"
           />
         </QToolbar>
-        <div
+        <QCardSection
           v-if="place"
-          class="q-ma-md"
         >
           <Markdown
             v-if="place.description"
@@ -162,8 +161,8 @@
               class="map"
             />
           </template>
-        </div>
-      </QLayout>
+        </QCardSection>
+      </QCard>
     </QDialog>
   </div>
 </template>
@@ -194,7 +193,8 @@ import {
   QItemSection,
   QChip,
   QDialog,
-  QLayout,
+  QCard,
+  QCardSection,
   QToolbar,
   QToolbarTitle,
   QIcon,
@@ -217,7 +217,8 @@ export default {
     QItemSection,
     QChip,
     QDialog,
-    QLayout,
+    QCard,
+    QCardSection,
     QToolbar,
     QToolbarTitle,
     QIcon,

@@ -3,6 +3,7 @@
     class="text-white"
     :class="connected ? 'bg-primary' : 'bg-grey-8'"
   >
+    <slot />
     <RouterLink
       v-if="!$q.platform.is.mobile"
       :to="'/'"
@@ -126,7 +127,7 @@
             </QItem>
             <QItem
               clickable
-              @click.native="$emit('logout')"
+              @click="$emit('logout')"
             >
               <QItemSection side>
                 <QIcon

@@ -93,7 +93,8 @@ export default {
         dispatch('toasts/show', {
           message: 'CONVERSATION.MESSAGE_NOT_FOUND',
           config: {
-            type: 'negative',
+            icon: 'warning',
+            color: 'negative',
           },
         }, { root: true })
         router.push('/')

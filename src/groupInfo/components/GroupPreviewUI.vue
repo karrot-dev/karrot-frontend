@@ -196,8 +196,7 @@ export default {
         ok: this.$t('BUTTON.YES'),
         cancel: this.$t('BUTTON.CANCEL'),
       })
-        .then(() => this.$emit('withdraw', this.application.id))
-        .catch(() => {})
+        .onOk(() => this.$emit('withdraw', this.application.id))
     },
   },
 }

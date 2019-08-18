@@ -4,7 +4,7 @@
       @load="maybeFetchPast"
     >
       <QList
-        class="bg-white desktop-margin relative-position"
+        class="bg-white desktop-margin relative-position q-pb-md"
       >
         <template v-if="hasLoaded">
           <NotificationToggle
@@ -24,10 +24,16 @@
           />
           <QBanner
             v-if="data.isParticipant && data.unreadMessageCount > 0"
-            color="secondary"
-            icon="star"
-            class="k-unread-alert"
+            class="bg-secondary text-white q-mt-sm"
+            style="min-height: unset"
           >
+            <template v-slot:avatar>
+              <QIcon
+                name="star"
+                color="white"
+                size="1.5em"
+              />
+            </template>
             <div class="row justify-between items-center">
               <small>
                 {{ $tc('CONVERSATION.UNREAD_MESSAGES', data.unreadMessageCount, {
@@ -68,6 +74,7 @@ import {
   QInfiniteScroll,
   QList,
   QBanner,
+  QIcon,
 } from 'quasar'
 
 export default {
@@ -81,6 +88,7 @@ export default {
     QInfiniteScroll,
     QList,
     QBanner,
+    QIcon,
   },
   props: {
     data: {
@@ -138,8 +146,4 @@ export default {
   position absolute
   top -24px
   right 6px
-.k-unread-alert >>>
-  .q-alert-content, .q-alert-side
-    padding-top 6px
-    padding-bottom 6px
 </style>

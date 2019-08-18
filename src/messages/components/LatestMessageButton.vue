@@ -21,6 +21,7 @@
     <QMenu
       v-if="!$q.platform.is.mobile"
       v-model="showing"
+      no-parent-event
       class="k-latest-messages-popover"
     >
       <LatestMessages />

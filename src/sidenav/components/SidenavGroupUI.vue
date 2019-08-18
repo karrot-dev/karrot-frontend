@@ -7,13 +7,12 @@
       {{ $t('GROUP.HOME') }}
     </template>
     <template v-slot:tools>
-      <div
-        class="tools"
-      >
+      <div>
         <QBtn
           flat
           dense
           round
+          size="sm"
           :to="{ name: 'settings', hash: '#notifications' }"
           :title="$t('GROUP.SETTINGS')"
         >
@@ -23,6 +22,7 @@
           flat
           dense
           round
+          size="sm"
         >
           <QIcon name="fas fa-fw fa-ellipsis-v" />
           <QMenu

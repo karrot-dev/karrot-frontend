@@ -1,7 +1,8 @@
 <template>
   <QItem
     :class="{ isUnread: unreadCount > 0 && !muted, selected }"
-    @click.native="$emit('open')"
+    clickable
+    @click="$emit('open')"
   >
     <QItemSection
       v-if="isPrivate || isApplication"

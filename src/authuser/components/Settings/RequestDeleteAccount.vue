@@ -5,8 +5,7 @@
       :label="$t('BUTTON.DELETE_ACCOUNT')"
       flat
       color="negative"
-      :loading="isPending"
-      :value="isPending || dialogShown"
+      :loading="isPending || dialogShown"
       @click="requestDeleteAccount"
     />
     <div
@@ -42,11 +41,10 @@ export default {
         cancel: this.$t('BUTTON.CANCEL'),
         ok: this.$t('USERDATA.DIALOGS.REQUEST_DELETE_ACCOUNT.CONFIRM'),
       })
-        .then(() => {
+        .onOk(() => {
           this.$emit('requestDeleteAccount')
-          this.dialogShown = false
         })
-        .catch(() => {
+        .onDismiss(() => {
           this.dialogShown = false
         })
     },

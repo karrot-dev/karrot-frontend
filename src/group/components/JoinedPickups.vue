@@ -1,9 +1,8 @@
 <template>
   <div>
     <QCard
-      color="secondary"
-      class="generic-padding notice no-margin-bottom"
-      @click.native="showPickups = !showPickups"
+      class="generic-padding notice no-margin-bottom bg-secondary text-white"
+      @click="showPickups = !showPickups"
     >
       <i
         class="on-left"

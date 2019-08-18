@@ -1,6 +1,6 @@
 <template>
   <div class="error-page window-height window-width bg-primary column items-center no-wrap">
-    <div class="error-code bg-light flex items-center justify-center">
+    <div class="error-code bg-grey-2 flex items-center justify-center">
       <img src="@/base/assets/rolling.png">
     </div>
     <div class="error-card shadow-4 bg-white column items-center justify-center no-wrap">
@@ -12,24 +12,20 @@
           {{ $t('NOT_FOUND.EXPLANATION') }}
         </p>
       </slot>
-      <p class="text-center group">
+      <p class="q-gutter-md">
         <QBtn
           v-if="canGoBack"
           color="secondary"
-          push
           icon="keyboard_arrow_left"
+          :label="$t('BUTTON.BACK')"
           @click="goBack"
-        >
-          {{ $t('BUTTON.BACK') }}
-        </QBtn>
+        />
         <QBtn
           color="secondary"
-          push
           icon-right="fas fa-home"
+          :label="$t('NOT_FOUND.HOME')"
           @click="$router.replace('/')"
-        >
-          {{ $t('NOT_FOUND.HOME') }}
-        </QBtn>
+        />
       </p>
     </div>
   </div>

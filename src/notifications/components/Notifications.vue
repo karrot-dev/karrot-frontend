@@ -1,6 +1,5 @@
 <template>
-  <Component
-    :is="asPage ? 'QCard' : 'div'"
+  <div
     class="bg-white"
   >
     <KSpinner v-show="fetching" />
@@ -19,7 +18,7 @@
       />
       <div
         v-if="asPopover"
-        class="row justify-end q-mt-sm q-mr-sm"
+        class="row justify-end q-my-sm q-mr-sm"
       >
         <QBtn
           v-close-popup
@@ -43,15 +42,12 @@
         </QBtn>
       </QItem>
     </QList>
-  </Component>
+  </div>
 </template>
 
 <script>
 import {
-  QCard,
   QList,
-  QItemLabel,
-  QSeparator,
   QItem,
   QBtn,
 } from 'quasar'
@@ -61,10 +57,7 @@ import KSpinner from '@/utils/components/KSpinner'
 
 export default {
   components: {
-    QCard,
     QList,
-    QItemLabel,
-    QSeparator,
     QItem,
     QBtn,
     NotificationItem,

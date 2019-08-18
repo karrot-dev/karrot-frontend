@@ -3,7 +3,7 @@
     :class="{ isUnread: !notification.clicked }"
     active-class="ignore-active-link"
     :to="routeTo"
-    @click.native="$emit('click', notification)"
+    @click="$emit('click', notification)"
   >
     <QItemSection
       v-if="user"

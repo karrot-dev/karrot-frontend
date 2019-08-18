@@ -4,8 +4,7 @@
     style="margin: 0 auto"
   >
     <QCard
-      color="secondary"
-      class="generic-padding card items-center q-pa-none"
+      class="generic-padding card items-center q-pa-none bg-secondary text-white"
       :class="$q.platform.is.mobile ? 'column' : 'row no-wrap'"
     >
       <div class="icon">

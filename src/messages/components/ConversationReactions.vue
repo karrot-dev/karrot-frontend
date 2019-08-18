@@ -29,8 +29,7 @@
         <QItem
           v-for="reaction in reactions"
           :key="reaction.name"
-          multiline
-          @click.native="toggleDetail"
+          @click="toggleDetail"
         >
           <QItemSection avatar>
             <EmojiButton

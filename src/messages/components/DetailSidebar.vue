@@ -5,7 +5,7 @@
       @close="$emit('close')"
     />
     <Detail
-      class="col bar relative-position"
+      class="col relative-position"
       inline
     />
   </div>

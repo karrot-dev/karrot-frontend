@@ -1,10 +1,10 @@
 <template>
   <div>
     <QItem
-      multiline
       class="clickable"
+      clickable
       :class="{'greyed': detailIsShown}"
-      @click.native="toggleDetail"
+      @click="toggleDetail"
     >
       <QItemSection avatar>
         <HistoryProfilePictures
@@ -95,7 +95,6 @@ export default {
 .clickable
   transition padding .5s ease
   &:hover
-    cursor pointer
     background-color rgb(235, 235, 235)
 .clickable.greyed
   padding 1em 3em 10px 3em

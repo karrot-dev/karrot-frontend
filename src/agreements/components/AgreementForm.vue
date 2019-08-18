@@ -134,8 +134,7 @@ export default {
             cancel: this.$t('BUTTON.CANCEL'),
             ok: this.$t('AGREEMENT.DIALOGS.REPLACE.CONFIRM'),
           })
-            .then(() => this.$emit('replace', this.edit))
-            .catch(() => {})
+            .onOk(() => this.$emit('replace', this.edit))
         }
       }
     },
@@ -146,8 +145,7 @@ export default {
         cancel: this.$t('BUTTON.CANCEL'),
         ok: this.$t('AGREEMENT.DIALOGS.REMOVE.CONFIRM'),
       })
-        .then(() => this.destroy(event))
-        .catch(() => {})
+        .onOk(() => this.destroy(event))
     },
   },
   validations: {

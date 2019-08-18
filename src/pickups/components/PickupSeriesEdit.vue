@@ -140,7 +140,7 @@
                 color="grey"
                 name="cancel"
                 class="cursor-pointer"
-                @click.native.stop.prevent="toggleDuration"
+                @click="toggleDuration"
               />
               <div class="text-caption q-ml-xs">
                 ({{ formattedDuration }})
@@ -469,7 +469,7 @@ export default {
           title: this.$t('CREATEPICKUP.EXCEPTIONS_TITLE'),
           message: this.$t('CREATEPICKUP.EXCEPTIONS_MESSAGE', { upcomingLabel: this.$t('PICKUPMANAGE.UPCOMING_PICKUPS_IN_SERIES') }),
           ok: this.$t('BUTTON.YES'),
-        }).catch(() => { })
+        })
       }
     },
   },
@@ -488,8 +488,7 @@ export default {
         cancel: this.$t('BUTTON.CANCEL'),
         ok: this.$t('BUTTON.YES'),
       })
-        .then(() => this.$emit('destroy', this.value.id, event))
-        .catch(() => { })
+        .onOk(() => this.$emit('destroy', this.value.id, event))
     },
   },
 }

@@ -7,7 +7,7 @@
         highlight: group.isCurrentGroup,
       }"
       :style="cardStyle"
-      @click.native="$emit(group.isMember ? 'visit' : 'preview')"
+      @click="$emit(group.isMember ? 'visit' : 'preview')"
     >
       <QBadge
         v-if="hasMyApplication"

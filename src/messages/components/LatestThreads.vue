@@ -35,7 +35,7 @@
         </QItem>
         <div
           v-if="asPopover"
-          class="row justify-end q-mt-sm q-mr-sm"
+          class="row justify-end q-my-sm q-mr-sm"
         >
           <QBtn
             v-close-popup

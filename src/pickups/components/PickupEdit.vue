@@ -82,7 +82,7 @@
                 flat
                 icon="fas fa-plus"
                 class="q-ml-xs"
-                @click.stop.prevent="toggleDuration"
+                @click="toggleDuration"
               />
             </template>
           </QInput>
@@ -122,7 +122,7 @@
                   color="grey"
                   name="cancel"
                   class="cursor-pointer"
-                  @click.native.stop.prevent="toggleDuration"
+                  @click="toggleDuration"
                 />
                 <div class="text-caption q-ml-xs">
                   ({{ formattedDuration }})

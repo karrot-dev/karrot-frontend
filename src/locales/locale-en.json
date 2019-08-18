@@ -199,7 +199,7 @@
     "DESCRIPTION": "Description",
     "ADDRESS": "Address",
     "WEEKS_IN_ADVANCE": "How many weeks in advance should recurring pickup dates be shown?",
-    "WEEKS_IN_ADVANCE_WARNING": "Existing leftover pickups will get deleted if they are empty. You can disable non-empty pickups manually, if needed.",
+    "WEEKS_IN_ADVANCE_WARNING": "You are about to reduce the number of weeks pickups are shown. Existing leftover pickups will get deleted if nobody has joined them. You can disable all other pickups manually, if needed.",
     "DIALOGS": {
       "ARCHIVE": {
         "TITLE": "Archive place",

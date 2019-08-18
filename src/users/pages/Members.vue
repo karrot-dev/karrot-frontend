@@ -11,7 +11,6 @@
           round
           color="secondary"
           :icon="sorting === 'joinDate' ? 'fas fa-sort-alpha-down' : 'fas fa-sort-numeric-down'"
-          class="hoverScale"
           :title="$t(sorting === 'joinDate' ? 'GROUP.SORT_NAME' : 'GROUP.SORT_JOINDATE')"
           @click="toggleSorting"
         />
@@ -24,7 +23,6 @@
             round
             color="secondary"
             icon="fas fa-user-plus"
-            class="hoverScale"
             :title="$t('GROUP.INVITE_TITLE')"
           />
         </RouterLink>
@@ -96,7 +94,6 @@ export default {
 </script>
 
 <style scoped lang="stylus">
-@import '~variables'
 .k-members
   max-width 500px
   margin-left auto

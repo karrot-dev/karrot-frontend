@@ -47,7 +47,7 @@
       {{ firstNonFieldError }}
     </div>
 
-    <div class="row justify-end q-gutter-xs">
+    <div class="row justify-end q-gutter-sm q-mt-sm">
       <QBtn
         type="button"
         :disable="!canSave"

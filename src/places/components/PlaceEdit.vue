@@ -85,36 +85,41 @@
             :error-message="addressError"
           />
 
-          <QField
-            borderless
-            :label="$t('STOREEDIT.WEEKS_IN_ADVANCE')"
-            stack-label
-            :error="hasError('weeksInAdvance')"
-            :error-message="firstError('weeksInAdvance')"
-          >
-            <template v-slot:before>
-              <QIcon name="fas fa-calendar-alt" />
-            </template>
-            <template v-slot:append>
+          <div>
+            <QField
+              borderless
+              :hint="$t('STOREEDIT.WEEKS_IN_ADVANCE')"
+              stack-label
+              hide-bottom-space
+              :error="hasError('weeksInAdvance')"
+              :error-message="firstError('weeksInAdvance')"
+            >
+              <template v-slot:before>
+                <QIcon name="fas fa-calendar-alt" />
+              </template>
+              <template v-slot:control>
+                <QSlider
+                  v-model="edit.weeksInAdvance"
+                  :min="1"
+                  :max="10"
+                  label
+                  label-always
+                  markers
+                  class="q-mt-lg q-mx-md"
+                />
+              </template>
+            </QField>
+            <div
+              v-if="!isNew && value.weeksInAdvance > edit.weeksInAdvance"
+              class="q-ml-lg col-12 q-field__bottom text-warning"
+            >
               <QIcon
-                v-if="value.weeksInAdvance > edit.weeksInAdvance"
                 name="warning"
-                color="warning"
-                :title="$t('STOREEDIT.WEEKS_IN_ADVANCE_WARNING')"
+                class="vertical-center"
               />
-            </template>
-            <template v-slot:control>
-              <QSlider
-                v-model="edit.weeksInAdvance"
-                :min="1"
-                :max="10"
-                label
-                label-always
-                markers
-                class="q-mt-lg q-mx-md"
-              />
-            </template>
-          </QField>
+              {{ $t('STOREEDIT.WEEKS_IN_ADVANCE_WARNING') }}
+            </div>
+          </div>
 
           <div
             v-if="hasNonFieldError || hasError('group')"
@@ -123,22 +128,13 @@
             {{ firstNonFieldError || firstError('group') }}
           </div>
 
-          <div class="actionButtons">
+          <div class="row justify-end q-gutter-sm q-mt-md">
             <QBtn
-              type="submit"
-              color="primary"
-              :disable="!canSave"
-              :loading="isPending"
-            >
-              {{ $t(isNew ? 'BUTTON.CREATE' : 'BUTTON.SAVE_CHANGES') }}
-            </QBtn>
-            <QBtn
-              v-if="!isNew"
+              v-if="isNew"
               type="button"
-              color="red"
-              @click="archive"
+              @click="$emit('cancel')"
             >
-              {{ $t('BUTTON.ARCHIVE') }}
+              {{ $t('BUTTON.CANCEL') }}
             </QBtn>
             <QBtn
               v-if="!isNew"
@@ -149,11 +145,20 @@
               {{ $t('BUTTON.RESET') }}
             </QBtn>
             <QBtn
-              v-if="isNew"
+              v-if="!isNew"
               type="button"
-              @click="$emit('cancel')"
+              color="red"
+              @click="archive"
             >
-              {{ $t('BUTTON.CANCEL') }}
+              {{ $t('BUTTON.ARCHIVE') }}
+            </QBtn>
+            <QBtn
+              type="submit"
+              color="primary"
+              :disable="!canSave"
+              :loading="isPending"
+            >
+              {{ $t(isNew ? 'BUTTON.CREATE' : 'BUTTON.SAVE_CHANGES') }}
             </QBtn>
           </div>
         </form>

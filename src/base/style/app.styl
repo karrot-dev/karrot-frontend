@@ -54,18 +54,6 @@ body.desktop .desktop-margin
 .modal-body
   white-space pre-line
 
-@keyframes makeBigger
-  0%
-    transform scale(.8)
-  100%
-    transform scale(1)
-
-.hoverScale
-  animation: .3s ease-out 0s 1 makeBigger;
-  transition transform .1s ease
-.hoverScale:hover
-  transform scale(1.1)
-
 // similar to quasars vertical-top, vertical-middle etc
 // aligns an icon at the text baseline
 .vertical-baseline
@@ -73,3 +61,6 @@ body.desktop .desktop-margin
 
 .k-caption-opacity
   opacity 0.54
+
+.q-item.q-router-link--active, .q-item--active
+  background $grey-3

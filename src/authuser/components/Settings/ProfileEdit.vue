@@ -54,7 +54,14 @@
         {{ firstNonFieldError }}
       </div>
 
-      <div class="actionButtons">
+      <div class="row justify-end q-gutter-sm q-mt-sm">
+        <QBtn
+          type="button"
+          :disable="!hasChanged"
+          @click="reset"
+        >
+          {{ $t('BUTTON.RESET') }}
+        </QBtn>
         <QBtn
           type="submit"
           color="primary"
@@ -62,14 +69,6 @@
           :loading="isPending"
         >
           {{ $t('BUTTON.SAVE_CHANGES') }}
-        </QBtn>
-
-        <QBtn
-          type="button"
-          :disable="!hasChanged"
-          @click="reset"
-        >
-          {{ $t('BUTTON.RESET') }}
         </QBtn>
       </div>
     </form>

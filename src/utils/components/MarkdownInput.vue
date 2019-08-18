@@ -7,6 +7,7 @@
     :input-style="$attrs['input-style'] || 'min-height: 100px'"
     :autogrow="$attrs.autogrow || true"
     bottom-slots
+    hide-hint
     v-on="$listeners"
   >
     <template v-slot:before>

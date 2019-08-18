@@ -289,21 +289,20 @@
         {{ firstNonFieldError }}
       </div>
 
-      <div class="actionButtons">
-        <QBtn
-          type="submit"
-          color="primary"
-          :disable="!canSave"
-          :loading="isPending"
-        >
-          {{ $t(isNew ? 'BUTTON.CREATE' : 'BUTTON.SAVE_CHANGES') }}
-        </QBtn>
+      <div class="row justify-end q-gutter-sm q-mt-md">
         <QBtn
           v-if="isNew"
           type="button"
           @click="$emit('cancel')"
         >
           {{ $t('BUTTON.CANCEL') }}
+        </QBtn>
+        <QBtn
+          type="button"
+          :disable="!hasChanged"
+          @click="reset"
+        >
+          {{ $t('BUTTON.RESET') }}
         </QBtn>
         <QBtn
           v-if="!isNew"
@@ -314,11 +313,12 @@
           {{ $t('BUTTON.DELETE') }}
         </QBtn>
         <QBtn
-          type="button"
-          :disable="!hasChanged"
-          @click="reset"
+          type="submit"
+          color="primary"
+          :disable="!canSave"
+          :loading="isPending"
         >
-          {{ $t('BUTTON.RESET') }}
+          {{ $t(isNew ? 'BUTTON.CREATE' : 'BUTTON.SAVE_CHANGES') }}
         </QBtn>
       </div>
     </form>

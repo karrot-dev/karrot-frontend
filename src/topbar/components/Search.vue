@@ -1,7 +1,7 @@
 <template>
   <div>
     <QInput
-      v-model="terms"
+      :value="terms"
       type="search"
       :placeholder="$q.lang.label.search"
       dense
@@ -9,10 +9,11 @@
       :debounce="300"
       standout
       dark
-      @click="show"
-      @focus="show"
+      @input="setTerms"
+      @click="showResults"
+      @focus="showResults"
       @blur="hide"
-      @keyup.esc="close"
+      @keyup.esc="hide"
     >
       <template v-slot:prepend>
         <QIcon name="search" />
@@ -21,7 +22,7 @@
         <QIcon
           name="cancel"
           class="cursor-pointer"
-          @click="close"
+          @click="clear"
         />
       </template>
       <QMenu
@@ -102,40 +103,27 @@ export default {
     QItemSection,
     QItemLabel,
   },
-  data () {
-    return {
-      terms: null,
-    }
-  },
   computed: {
     ...mapGetters({
       results: 'search/results',
+      terms: 'search/terms',
     }),
-  },
-  watch: {
-    terms (val) {
-      if (!val) {
-        this.setTerms(null)
-        this.hide()
-        return
-      }
-      this.setTerms(val)
-    },
   },
   methods: {
     ...mapMutations({
       setTerms: 'search/setTerms',
       hide: 'search/hide',
     }),
-    close () {
+    clear () {
       this.hide()
+      this.hideResults()
       this.setTerms(null)
       this.$emit('clear')
     },
-    show () {
+    showResults () {
       this.$refs.menu.show()
     },
-    hide () {
+    hideResults () {
       this.$refs.menu.hide()
     },
   },

@@ -4,6 +4,7 @@
       v-for="{ type, icon, className, action, message, context } in formattedBanners"
       :key="type"
       class="k-banner"
+      style="min-height: unset"
       inline-actions
       :class="className"
     >

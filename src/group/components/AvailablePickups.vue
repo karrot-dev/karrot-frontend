@@ -1,8 +1,7 @@
 <template>
   <div>
     <QCard
-      color="info"
-      class="notice q-mb-none"
+      class="notice bg-info"
     >
       <div
         class="q-pa-md toggle-button"
@@ -18,7 +17,6 @@
         </div>
       </div>
       <template v-if="showPickups">
-        <QSeparator />
         <div
           class="q-px-md q-py-sm bg-grey-2 text-caption"
         >
@@ -43,14 +41,12 @@
 import PickupList from '@/pickups/components/PickupList'
 import {
   QCard,
-  QSeparator,
 } from 'quasar'
 
 export default {
   components: {
     PickupList,
     QCard,
-    QSeparator,
   },
   props: {
     pickups: { required: true, type: Array },
@@ -65,7 +61,7 @@ export default {
 
 <style scoped lang="stylus">
 @import '~variables'
-.q-card.notice
+.notice
   transition all .2s ease
   color $primary !important
   .toggle-button
@@ -75,7 +71,7 @@ export default {
     transition all .3s ease
   .upsideDown
     transform rotate(180deg)
-.q-card.notice:hover
+.notice:hover
   box-shadow 1px 2px 2px 1px rgba(0,0,0,0.4)
 hr
   margin 1em 2em

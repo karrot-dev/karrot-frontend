@@ -20,7 +20,6 @@
         round
         color="secondary"
         :icon="showPublicDescription ? 'fas fa-lock' : 'fas fa-info-circle'"
-        class="hoverScale"
         :title="$t(showPublicDescription ? 'GROUP.DESCRIPTION_VERBOSE' : 'GROUPINFO.META')"
         @click="showPublicDescription = !showPublicDescription"
       />
@@ -32,8 +31,7 @@
           small
           round
           color="secondary"
-          icon="fas fa-pencil-alt "
-          class="hoverScale"
+          icon="fas fa-pencil-alt"
           :title="$t('GROUP.EDIT')"
         />
       </RouterLink>

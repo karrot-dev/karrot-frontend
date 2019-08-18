@@ -8,7 +8,7 @@
       >
         <template v-if="hasLoaded">
           <NotificationToggle
-            class="actionButton hoverScale"
+            class="actionButton"
             :muted="data.muted"
             :is-participant="data.isParticipant"
             :user="user"

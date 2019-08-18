@@ -46,7 +46,6 @@
         <QBtn
           round
           color="white"
-          class="hoverScale"
           :icon="selected.icon"
           :text-color="selected.color"
           :title="$t('PLACEWALL.SUBSCRIPTION.HEADER')"
@@ -94,7 +93,6 @@
             round
             :color="directionsURL ? 'secondary' : 'grey'"
             icon="directions"
-            class="hoverScale"
             :disable="!directionsURL"
             :title="$t('STOREDETAIL.DIRECTIONS')"
           />

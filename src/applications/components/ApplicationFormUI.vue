@@ -1,8 +1,7 @@
 <template>
   <div
     v-if="group"
-    class="edit-box bg-primary splash-md"
-    style="padding: 0"
+    class="bg-primary splash-md"
   >
     <p
       v-if="$q.platform.is.mobile"
@@ -35,11 +34,10 @@
           {{ anyFirstError }}
         </div>
       </div>
-      <div class="actionButtons">
+      <div class="row justify-end q-gutter-sm q-mt-sm">
         <QBtn
           type="button"
           color="primary"
-          class="shadow-4"
           @click="$emit('cancel', group.id)"
         >
           {{ $t('BUTTON.CANCEL') }}
@@ -47,7 +45,6 @@
         <QBtn
           type="submit"
           color="secondary"
-          class="shadow-4"
         >
           {{ $t('BUTTON.SUBMIT') }}
         </QBtn>
@@ -97,8 +94,6 @@ export default {
 </script>
 
 <style scoped lang="stylus">
-@import '~editbox'
-
 // can be removed once splash layout has scoped css
 .splash-md
   color black

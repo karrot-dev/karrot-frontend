@@ -31,7 +31,7 @@
       {{ firstNonFieldError }}
     </div>
 
-    <div class="actionButtons">
+    <div class="row justify-end q-gutter-sm q-mt-sm">
       <QBtn
         color="primary"
         :disable="!hasNewPassword || !hasOldPassword || !hasPasswordChanged"

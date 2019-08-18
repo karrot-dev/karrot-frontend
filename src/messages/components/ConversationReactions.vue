@@ -110,7 +110,6 @@ export default {
   &:hover .add-button
     visibility visible
 .user-reacted
-  background alpha($secondary, .2)
   border-color $secondary !important
 .reactions-number
   padding-left 3px

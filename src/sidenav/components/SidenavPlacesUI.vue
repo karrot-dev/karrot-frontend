@@ -20,6 +20,7 @@
           flat
           dense
           round
+          size="sm"
           :to="{ name: 'placeCreate', params: { groupId } }"
           :title="$t('BUTTON.CREATE')"
         >

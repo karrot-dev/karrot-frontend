@@ -1,7 +1,7 @@
 <template>
   <QItem
     :class="{ isUnread: !notification.clicked }"
-    active-class="ignore-active-link"
+    active-class="unset-active-class"
     :to="routeTo"
     @click="$emit('click', notification)"
   >

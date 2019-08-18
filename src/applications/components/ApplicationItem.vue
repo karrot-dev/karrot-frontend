@@ -55,6 +55,7 @@
         <QItem
           v-close-popup
           clickable
+          dense
           @click="openChat"
         >
           <QItemSection side>
@@ -67,10 +68,14 @@
         <QItem
           v-close-popup
           clickable
+          dense
           @click="pressAccept"
         >
           <QItemSection side>
-            <QIcon name="fas fa-fw fa-check" />
+            <QIcon
+              name="fas fa-fw fa-check"
+              color="positive"
+            />
           </QItemSection>
           <QItemSection>
             {{ $t('BUTTON.ACCEPT') }}
@@ -79,10 +84,14 @@
         <QItem
           v-close-popup
           clickable
+          dense
           @click="decline"
         >
           <QItemSection side>
-            <QIcon name="fas fa-fw fa-times" />
+            <QIcon
+              name="fas fa-fw fa-times"
+              color="negative"
+            />
           </QItemSection>
           <QItemSection>
             {{ $t('BUTTON.DECLINE') }}

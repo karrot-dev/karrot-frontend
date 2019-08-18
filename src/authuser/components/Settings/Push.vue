@@ -1,7 +1,6 @@
 <template>
   <div class="edit-box">
     <QToggle
-      v-slot:control
       :label="$t('USERDATA.PUSH_CURRENT_BROWSER')"
       :disable="pending"
       :value="value"

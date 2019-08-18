@@ -5,13 +5,14 @@
         <i class="far fa-handshake" />
       </template>
       {{ $t('STOREDETAIL.INACTIVE') }}
-      <RouterLink
-        v-if="isEditor"
-        v-slot:desc
-        :to="{name: 'placeEdit', params: { placeId }}"
-      >
-        {{ $t('STOREDETAIL.CHANGE_STATUS') }}
-      </RouterLink>
+      <template v-slot:desc>
+        <RouterLink
+          v-if="isEditor"
+          :to="{name: 'placeEdit', params: { placeId }}"
+        >
+          {{ $t('STOREDETAIL.CHANGE_STATUS') }}
+        </RouterLink>
+      </template>
     </KNotice>
     <KNotice v-else-if="hasNoPickups">
       <template v-slot:icon>

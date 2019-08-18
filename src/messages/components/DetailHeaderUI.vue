@@ -8,25 +8,26 @@
     >
       <QToolbarTitle
         v-if="pickup"
+        class="column"
       >
-        <span
-          v-if="!$q.platform.is.mobile"
-          v-t="'GROUP.PICKUP'"
-        >&nbsp;</span>
-        <strong>
-          {{ $d(pickup.date, 'weekdayHourMinute') }}
-          <template v-if="pickup.hasDuration"> &mdash; {{ $d(pickup.dateEnd, 'hourMinute') }}</template>
-        </strong>
-        <template v-slot:subtitle>
-          <span>
-            <strong v-if="pickup.place">
-              <RouterLink :to="{ name: 'place', params: { groupId: pickup.group.id, placeId: pickup.place.id }}">
-                {{ pickup.place.name }}
-              </RouterLink>
-            </strong>
-            {{ $d(pickup.date, 'yearMonthDay') }}
-          </span>
-        </template>
+        <div>
+          <span
+            v-if="!$q.platform.is.mobile"
+            v-t="'GROUP.PICKUP'"
+          >&nbsp;</span>
+          <strong>
+            {{ $d(pickup.date, 'weekdayHourMinute') }}
+            <template v-if="pickup.hasDuration"> &mdash; {{ $d(pickup.dateEnd, 'hourMinute') }}</template>
+          </strong>
+        </div>
+        <div class="text-caption">
+          <strong v-if="pickup.place">
+            <RouterLink :to="{ name: 'place', params: { groupId: pickup.group.id, placeId: pickup.place.id }}">
+              {{ pickup.place.name }}
+            </RouterLink>
+          </strong>
+          {{ $d(pickup.date, 'yearMonthDay') }}
+        </div>
       </QToolbarTitle>
       <template v-else-if="user">
         <ProfilePicture
@@ -49,37 +50,39 @@
           :user="application.user"
           :size="$q.platform.is.mobile ? 25 : 40"
         />
-        <QToolbarTitle>
-          <RouterLink :to="applicationLink">
-            <span v-t="'APPLICATION.APPLICATION'" />
-          </RouterLink>
-          <template v-slot:subtitle>
+        <QToolbarTitle class="column">
+          <div>
+            <RouterLink :to="applicationLink">
+              <span v-t="'APPLICATION.APPLICATION'" />
+            </RouterLink>
+            <small>
+              <QIcon
+                v-if="application.status === 'accepted'"
+                name="fas fa-fw fa-check"
+                :title="$t('GROUP.ADDED_BY', { userName: application.decidedBy.displayName })"
+              />
+              <QIcon
+                v-else-if="application.status === 'pending'"
+                name="fas fa-fw fa-hourglass-half"
+                :title="application.user.isCurrentUser && $t('JOINGROUP.APPLICATION_PENDING')"
+              />
+              <QIcon
+                v-else-if="application.status === 'declined'"
+                name="fas fa-fw fa-times"
+                :title="$t('GROUP.DECLINED_BY', { userName: application.decidedBy.displayName })"
+              />
+              <QIcon
+                v-else-if="application.status === 'withdrawn'"
+                name="fas fa-fw fa-trash-alt"
+                :title="$t('APPLICATION.WITHDRAWN', { relativeDate: dateInWords(application.decidedAt) })"
+              />
+            </small>
+          </div>
+          <div class="text-caption">
             <span>
               {{ application.user.isCurrentUser ? application.group.name : application.user.displayName }}
             </span>
-          </template>
-          <small>
-            <QIcon
-              v-if="application.status === 'accepted'"
-              name="fas fa-fw fa-check"
-              :title="$t('GROUP.ADDED_BY', { userName: application.decidedBy.displayName })"
-            />
-            <QIcon
-              v-else-if="application.status === 'pending'"
-              name="fas fa-fw fa-hourglass-half"
-              :title="application.user.isCurrentUser && $t('JOINGROUP.APPLICATION_PENDING')"
-            />
-            <QIcon
-              v-else-if="application.status === 'declined'"
-              name="fas fa-fw fa-times"
-              :title="$t('GROUP.DECLINED_BY', { userName: application.decidedBy.displayName })"
-            />
-            <QIcon
-              v-else-if="application.status === 'withdrawn'"
-              name="fas fa-fw fa-trash-alt"
-              :title="$t('APPLICATION.WITHDRAWN', { relativeDate: dateInWords(application.decidedAt) })"
-            />
-          </small>
+          </div>
         </QToolbarTitle>
         <QBtn
           flat

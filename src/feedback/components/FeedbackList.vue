@@ -25,7 +25,9 @@
       >
         {{ $d(feedbackitem.createdAt, 'dateLongWithDayName') }}
       </FeedbackItem>
-      <KSpinner v-slot:loading />
+      <template v-slot:loading>
+        <KSpinner />
+      </template>
     </QInfiniteScroll>
   </div>
 </template>

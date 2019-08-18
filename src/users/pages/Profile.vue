@@ -32,7 +32,6 @@
       </div>
       <div class="photoAndName row no-wrap ellipsis">
         <Transition
-          duration="510"
           name="turn-in"
           appear
         >

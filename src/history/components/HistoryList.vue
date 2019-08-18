@@ -13,7 +13,9 @@
       <QIcon name="fas fa-bug" />
       {{ $t('HISTORY.NOTHING_HAPPENEND') }}
     </div>
-    <KSpinner v-slot:loading />
+    <template v-slot:loading>
+      <KSpinner />
+    </template>
   </QInfiniteScroll>
 </template>
 

@@ -16,48 +16,50 @@
       @fetchPast="$emit('fetchPast', arguments[0])"
       @fetchFuture="$emit('fetchFuture')"
     >
-      <QExpansionItem
-        v-if="application"
-        v-slot:beforeChatMessages
-        default-opened
-        class="bg-grey-2"
-        :label="$t('APPLICATION.INITIAL')"
-        header-class="text-bold"
-      >
-        <div class="q-pb-sm bg-grey-2">
-          <div class="q-ma-sm q-pa-sm bg-white">
-            <span class="text-bold text-secondary text-uppercase">{{ application.group.name }}</span>
-            <span class="message-date">
-              <small class="text-weight-light">
-                <DateAsWords :date="application.createdAt" />
-              </small>
-            </span>
-            <Markdown :source="application.questions" />
+      <template v-slot:before-chat-messages>
+        <QExpansionItem
+          v-if="application"
+          default-opened
+          class="bg-grey-2"
+          :label="$t('APPLICATION.INITIAL')"
+          header-class="text-bold"
+        >
+          <div class="q-pb-sm bg-grey-2">
+            <div class="q-ma-sm q-pa-sm bg-white">
+              <span class="text-bold text-secondary text-uppercase">{{ application.group.name }}</span>
+              <span class="message-date">
+                <small class="text-weight-light">
+                  <DateAsWords :date="application.createdAt" />
+                </small>
+              </span>
+              <Markdown :source="application.questions" />
+            </div>
+            <div class="q-ma-sm q-pa-sm bg-white">
+              <span class="text-bold text-secondary text-uppercase">{{ application.user.displayName }}</span>
+              <span class="message-date">
+                <small class="text-weight-light">
+                  <DateAsWords :date="application.createdAt" />
+                </small>
+              </span>
+              <Markdown :source="application.answers" />
+            </div>
           </div>
-          <div class="q-ma-sm q-pa-sm bg-white">
-            <span class="text-bold text-secondary text-uppercase">{{ application.user.displayName }}</span>
-            <span class="message-date">
-              <small class="text-weight-light">
-                <DateAsWords :date="application.createdAt" />
-              </small>
-            </span>
-            <Markdown :source="application.answers" />
-          </div>
-        </div>
-      </QExpansionItem>
-      <QList
-        v-if="pickup && pickup.isDisabled"
-        v-slot:afterChatMessages
-        class="bg-grey-2"
-      >
-        <QItem>
-          <QItemSection>
-            <QItemLabel>
-              <b class="text-negative">{{ $t('PICKUPLIST.PICKUP_DISABLED') }}</b>
-            </QItemLabel>
-          </QItemSection>
-        </QItem>
-      </QList>
+        </QExpansionItem>
+      </template>
+      <template v-slot:after-chat-messages>
+        <QList
+          v-if="pickup && pickup.isDisabled"
+          class="bg-grey-2"
+        >
+          <QItem>
+            <QItemSection>
+              <QItemLabel>
+                <b class="text-negative">{{ $t('PICKUPLIST.PICKUP_DISABLED') }}</b>
+              </QItemLabel>
+            </QItemSection>
+          </QItem>
+        </QList>
+      </template>
     </ChatConversation>
   </div>
 </template>

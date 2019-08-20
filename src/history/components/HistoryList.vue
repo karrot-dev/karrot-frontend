@@ -1,6 +1,7 @@
 <template>
   <QInfiniteScroll
     ref="infiniteScroll"
+    :disable="!canFetchPast"
     @load="maybeFetchPast"
   >
     <KSpinner v-show="isPending" />

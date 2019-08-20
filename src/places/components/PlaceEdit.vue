@@ -1,6 +1,9 @@
 <template>
   <div>
-    <QCard class="no-shadow grey-border">
+    <QCard
+      class="no-shadow grey-border"
+      style="max-width: 700px"
+    >
       <div
         class="edit-box"
         :class="{ changed: hasChanged }"

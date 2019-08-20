@@ -1,6 +1,6 @@
 <template>
   <div>
-    <QCard style="max-width: 500px">
+    <QCard style="max-width: 700px">
       <ChangePhoto
         v-if="!isNew"
         :value="value"

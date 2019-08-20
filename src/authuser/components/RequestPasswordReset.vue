@@ -55,7 +55,7 @@ import {
   QBtn,
 } from 'quasar'
 import statusMixin from '@/utils/mixins/statusMixin'
-import SplashInput from '@/authuser/components/SplashInput'
+import SplashInput from '@/utils/components/SplashInput'
 
 export default {
   components: {

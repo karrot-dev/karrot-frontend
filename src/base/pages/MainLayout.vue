@@ -54,7 +54,8 @@
           v-model="showSidenav"
           side="left"
           :breakpoint="Number.MAX_SAFE_INTEGER"
-          :overlay="true"
+          overlay
+          elevated
         >
           <SidenavTitle @click="toggleSidenav" />
           <RouterView name="sidenav" />
@@ -84,6 +85,7 @@
           :breakpoint="0"
           :value="true"
           :overlay="false"
+          elevated
           @click.native="toggleSidenav"
         >
           <RouterView name="sidenav" />
@@ -130,6 +132,7 @@
           :width="detailWidth"
           :overlay="false"
           :breakpoint="0"
+          elevated
           :value="isDetailActive || hasDetailComponent"
         >
           <DetailSidebar

@@ -16,6 +16,7 @@
     </KNotice>
     <QInfiniteScroll
       v-else
+      :disable="!canFetchPast"
       @load="maybeFetchPast"
     >
       <FeedbackItem

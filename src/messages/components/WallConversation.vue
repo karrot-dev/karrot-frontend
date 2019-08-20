@@ -1,10 +1,12 @@
 <template>
   <div>
     <QInfiniteScroll
+      :disable="!canFetchPast"
       @load="maybeFetchPast"
     >
       <QList
         class="bg-white desktop-margin relative-position q-pb-md"
+        bordered
       >
         <template v-if="hasLoaded">
           <NotificationToggle

@@ -70,7 +70,7 @@ export default {
       }, {
         label: this.$t('GROUPINFO.META'),
         icon: 'fas fa-info-circle fa-fw',
-        to: { name: 'groupPreview', params: { groupId: this.currentGroupId } },
+        to: { name: 'groupPreview', params: { groupPreviewId: this.currentGroupId } },
       }, {
         condition: this.isEditor,
         label: this.$t('GROUP.INVITE_TITLE'),

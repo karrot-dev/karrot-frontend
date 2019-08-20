@@ -5,7 +5,7 @@
   >
     <form
       class="q-gutter-y-lg"
-      style="max-width: 500px"
+      style="max-width: 700px"
       @submit.prevent="maybeSave"
     >
       <QField
@@ -261,6 +261,7 @@
           :min="1"
           :max="10"
           label
+          markers
           class="q-mx-sm self-end"
           style="min-width: 60px"
         />

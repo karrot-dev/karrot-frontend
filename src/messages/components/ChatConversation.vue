@@ -5,7 +5,10 @@
   >
     <slot name="before-chat-messages" />
     <KSpinner v-show="fetchingPast" />
-    <QInfiniteScroll @load="maybeFetchFuture">
+    <QInfiniteScroll
+      :disable="!canFetchFuture"
+      @load="maybeFetchFuture"
+    >
       <QList
         class="bg-white"
       >

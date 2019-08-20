@@ -92,7 +92,7 @@ import {
   QCheckbox,
   QIcon,
 } from 'quasar'
-import SplashInput from '@/authuser/components/SplashInput'
+import SplashInput from '@/utils/components/SplashInput'
 import statusMixin from '@/utils/mixins/statusMixin'
 import { required, minLength, maxLength } from 'vuelidate/lib/validators'
 import { validationMixin } from 'vuelidate'

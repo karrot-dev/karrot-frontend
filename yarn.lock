@@ -8423,6 +8423,15 @@ jsonfile@^4.0.0:
   optionalDependencies:
     graceful-fs "^4.1.6"
 
+jsonfile@^5.0.0:
+  version "5.0.0"
+  resolved "https://registry.yarnpkg.com/jsonfile/-/jsonfile-5.0.0.tgz#e6b718f73da420d612823996fdf14a03f6ff6922"
+  integrity sha512-NQRZ5CRo74MhMMC3/3r5g2k4fjodJ/wh8MxjFbCViWKFjxrnudWSY5vomh+23ZaXzAS7J3fBZIR2dV6WbmfM0w==
+  dependencies:
+    universalify "^0.1.2"
+  optionalDependencies:
+    graceful-fs "^4.1.6"
+
 jsonify@~0.0.0:
   version "0.0.0"
   resolved "https://registry.yarnpkg.com/jsonify/-/jsonify-0.0.0.tgz#2c74b6ee41d93ca51b7b5aaee8f503631d252a73"
@@ -13527,17 +13536,20 @@ tweetnacl@^0.14.3, tweetnacl@~0.14.0:
   resolved "https://registry.yarnpkg.com/tweetnacl/-/tweetnacl-0.14.5.tgz#5ae68177f192d4456269d108afa93ff8743f4f64"
   integrity sha1-WuaBd/GS1EViadEIr6k/+HQ/T2Q=
 
-twemoji-parser@12.0.0:
-  version "12.0.0"
-  resolved "https://registry.yarnpkg.com/twemoji-parser/-/twemoji-parser-12.0.0.tgz#870ea374b495595baa3bddb719e902b39ea7ccd1"
-  integrity sha512-JWZHBY32zKXo6GQ/JIQGLbbSQ5a3k+NHh5VkQ5AJFA++6cr+EtErj1aG8H4K7x8GwQ9/YzArNBQ06ryvKZL+WQ==
+twemoji-parser@12.1.0:
+  version "12.1.0"
+  resolved "https://registry.yarnpkg.com/twemoji-parser/-/twemoji-parser-12.1.0.tgz#018fb2a67f4747d9decfbf2bb4372995fc568997"
+  integrity sha512-jaHYltumP/E8nR+YzRrY753j9dEpL3zH8+pDXgf9h/10wHeW/9IIjs6mZ1Z/Syh8rIaOQObev1BAX/AinFmuOg==
 
-twemoji@^12.0.4:
-  version "12.0.4"
-  resolved "https://registry.yarnpkg.com/twemoji/-/twemoji-12.0.4.tgz#f247bb32141a8fa9486ce87eae7abd2c6188eaed"
-  integrity sha512-VEiLYeUErB0t6d3euviuMIXINUUGq0KTksvsqPOmt06oPc7iLO10w5tlYTbVEpiQ+IO2IpkaS9O63D5NIdHrDw==
+twemoji@^12.1.2:
+  version "12.1.2"
+  resolved "https://registry.yarnpkg.com/twemoji/-/twemoji-12.1.2.tgz#13a685c3732c196e04f762159072cf66c04d4cec"
+  integrity sha512-myi1YKL4nXBWorlmHDxHxHTCpel0e0jGtWQwwab0XyCAf3r9PnkZX0c+IAnPW+K6+TKXBJulMRPifeMhiPKYuw==
   dependencies:
-    twemoji-parser "12.0.0"
+    fs-extra "^8.0.1"
+    jsonfile "^5.0.0"
+    twemoji-parser "12.1.0"
+    universalify "^0.1.2"
 
 type-check@~0.3.2:
   version "0.3.2"
@@ -13681,7 +13693,7 @@ universal-user-agent@^2.0.0, universal-user-agent@^2.1.0:
   dependencies:
     os-name "^3.0.0"
 
-universalify@^0.1.0:
+universalify@^0.1.0, universalify@^0.1.2:
   version "0.1.2"
   resolved "https://registry.yarnpkg.com/universalify/-/universalify-0.1.2.tgz#b646f69be3942dabcecc9d6639c80dc105efaa66"
   integrity sha512-rBJeI5CXAlmy1pV+617WB9J63U6XcazHHF2f2dbJix4XzpUF0RS3Zbj0FGIOCAva5P/d/GBOYaACQ1w+0azUkg==

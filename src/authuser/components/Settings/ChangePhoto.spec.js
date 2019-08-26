@@ -1,5 +1,3 @@
-import Vue from 'vue'
-
 import ChangePhoto from './ChangePhoto'
 import { usersMock } from '>/mockdata'
 import cloneDeep from 'clone-deep'

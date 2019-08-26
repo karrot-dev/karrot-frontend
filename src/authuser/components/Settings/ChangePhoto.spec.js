@@ -4,9 +4,7 @@ import ChangePhoto from './ChangePhoto'
 import { usersMock } from '>/mockdata'
 import cloneDeep from 'clone-deep'
 
-import { mountWithDefaults, polyfillRequestAnimationFrame, statusMocks } from '>/helpers'
-
-polyfillRequestAnimationFrame()
+import { mountWithDefaults, statusMocks, nextTicks } from '>/helpers'
 
 describe('ChangePhoto', () => {
   beforeEach(() => jest.resetModules())
@@ -33,11 +31,11 @@ describe('ChangePhoto', () => {
     wrapper.setProps({
       value: {
         ...user,
-        photoUrls: { fullSize: '/foo.jpg' },
+        photoUrls: { fullSize: '/media/foo.jpg' },
       },
     })
-    await Vue.nextTick()
-    expect(wrapper.find('img').element.src).toBe('http://localhost:8080/foo.jpg')
+    await nextTicks(1)
+    expect(wrapper.vm.photo).toBe('http://localhost:8080/media/foo.jpg')
   })
 
   it('emits a save event', async () => {

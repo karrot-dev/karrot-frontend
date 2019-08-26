@@ -1,26 +1,17 @@
 import Vue from 'vue'
-import cloneDeep from 'clone-deep'
 
 import ConversationCompose from './ConversationCompose'
 import ChatConversation from './ChatConversation'
-import { mountWithDefaults, polyfillRequestAnimationFrame, statusMocks } from '>/helpers'
+import { mountWithDefaults } from '>/helpers'
+import * as factories from '>/enrichedFactories'
 
-import { currentUserMock, messagesMock } from '>/mockdata'
 import { QInput } from 'quasar'
 
-polyfillRequestAnimationFrame()
-
 const defaultProps = data => ({
-  currentUser: cloneDeep(currentUserMock),
-  conversation: {
-    id: 50,
-    messages: cloneDeep(messagesMock),
-    sendStatus: statusMocks.default(),
-    fetchStatus: statusMocks.default(),
-    fetchPastStatus: statusMocks.default(),
-    canFetchPast: false,
+  currentUser: factories.makeCurrentUser(),
+  conversation: factories.makeConversation({
     unreadMessageCount: 1,
-  },
+  }),
   away: false,
   ...data,
 })
@@ -42,7 +33,7 @@ describe('ChatConversation', () => {
 
     // Would be nicer to directly put the message into the QInput but did not find a way yet
     wrapper.find(ConversationCompose).setData({ message })
-    wrapper.find('.q-if-control').trigger('click')
+    wrapper.find(ConversationCompose).vm.submit()
 
     const { id } = propsData.conversation
     expect(wrapper.emitted().send).toEqual([[{ id, content: message }]])

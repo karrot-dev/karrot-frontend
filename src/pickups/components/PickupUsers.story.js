@@ -1,7 +1,7 @@
 import { storiesOf } from '@storybook/vue'
 import { action } from '@storybook/addon-actions'
 
-import PickupUsers from './PickupUsers'
+const PickupUsers = () => import('./PickupUsers')
 import { joinablePickup, leavablePickup, fullPickup, emptyPickup, currentUserMock } from '>/mockdata'
 import { createDatastore, storybookDefaults as defaults, statusMocks } from '>/helpers'
 

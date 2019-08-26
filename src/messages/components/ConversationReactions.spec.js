@@ -2,6 +2,7 @@ import MessageReactions from './ConversationReactions'
 import { currentUserMock, usersMockWithoutCurrent } from '>/mockdata'
 import { mountWithDefaults } from '>/helpers'
 import EmojiButton from './EmojiButton'
+import { QBtn } from 'quasar'
 
 describe('Conversation message reactions', () => {
   let wrapper
@@ -24,11 +25,11 @@ describe('Conversation message reactions', () => {
   })
 
   it('click reaction adds own reaction (when reaction not present)', () => {
-    const button = wrapper.find('.reactions').findAll(EmojiButton).wrappers[1]
-    button.trigger('click')
+    const button = wrapper.find('.reactions').find(EmojiButton).find(QBtn)
+    button.vm.click()
 
     expect(wrapper.emitted().toggle).toBeTruthy()
-    expect(wrapper.emitted().toggle).toEqual([['tada']])
+    expect(wrapper.emitted().toggle).toEqual([['heart']])
   })
 
   it('show whether user reacted (highlighting)', () => {

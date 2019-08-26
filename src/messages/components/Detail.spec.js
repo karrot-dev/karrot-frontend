@@ -1,26 +1,24 @@
 import { QBtn } from 'quasar'
 
-import DetailUI from './DetailUI'
-import DetailHeaderUI from './DetailHeaderUI'
-import { mountWithDefaults, polyfillRequestAnimationFrame, useMobileUserAgent, statusMocks } from '>/helpers'
-import { messagesMock } from '>/mockdata'
-
-polyfillRequestAnimationFrame()
+import { useMobileUserAgent } from '>/helpers'
+import * as factories from '>/enrichedFactories'
 
 const propsData = {
-  conversation: {
-    id: 1,
-    sendStatus: statusMocks.default(),
-    fetchStatus: statusMocks.default(),
-    fetchPastStatus: statusMocks.default(),
-    messages: messagesMock,
-  },
+  conversation: factories.makeConversation(),
 }
 
 describe('Detail', () => {
   beforeEach(() => jest.resetModules())
+
+  let mountWithDefaults
+  beforeEach(() => {
+    // require() improves isolation
+    // otherwise we get "$listeners is readonly" and "$attrs is readonly" warnings
+    mountWithDefaults = require('>/helpers').mountWithDefaults
+  })
+
   it('can be closed', () => {
-    const wrapper = mountWithDefaults(DetailHeaderUI, { propsData })
+    const wrapper = mountWithDefaults(require('./DetailHeaderUI').default, { propsData })
     const closeButton = [...wrapper.findAll(QBtn)].find(btn => btn.vm.$props.icon === 'close')
     closeButton.trigger('click')
     expect(wrapper.emitted().close).toEqual([[]])
@@ -28,20 +26,20 @@ describe('Detail', () => {
 
   it('cannot be closed on mobile', () => {
     useMobileUserAgent()
-    const wrapper = mountWithDefaults(DetailHeaderUI, { propsData })
+    const wrapper = mountWithDefaults(require('./DetailHeaderUI').default, { propsData })
     const closeButton = [...wrapper.findAll(QBtn)].find(btn => btn.vm.$props.icon === 'close')
     expect(closeButton).toBeUndefined()
   })
 
   it('reverses messages if conversation is not a thread', () => {
-    const wrapper = mountWithDefaults(DetailUI, { propsData })
+    const wrapper = mountWithDefaults(require('./DetailUI').default, { propsData })
     const reversedMessageIds = [...propsData.conversation.messages.map(({ id }) => id)].reverse()
     const renderedMessageIds = [...wrapper.vm.conversationWithMaybeReversedMessages.messages].map(({ id }) => id)
     expect(renderedMessageIds).toEqual(reversedMessageIds)
   })
 
   it('keeps message order if conversation is a thread', () => {
-    const wrapper = mountWithDefaults(DetailUI, { propsData: {
+    const wrapper = mountWithDefaults(require('./DetailUI').default, { propsData: {
       ...propsData,
       conversation: {
         ...propsData.conversation,

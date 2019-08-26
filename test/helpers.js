@@ -1,28 +1,16 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
-import VueRouter from 'vue-router'
-import raf from 'raf'
 import { createLocalVue, mount, TransitionStub, TransitionGroupStub, RouterLinkStub } from '@vue/test-utils'
 import deepmerge from 'deepmerge'
 import i18n from '@/base/i18n'
 import { IconPlugin } from '@/base/icons'
+import routerMocks from '>/routerMocks'
 
 Vue.use(Vuex)
 Vue.use(IconPlugin)
 
-Object.defineProperty(window.navigator, 'userAgent', (userAgent => {
-  return {
-    get () {
-      return userAgent
-    },
-    set (newVal) {
-      userAgent = newVal
-    },
-  }
-})(window.navigator.userAgent))
-
 const desktopUserAgent = 'Mozilla/5.0 (X11; Linux x86_64; rv:56.0) Gecko/20100101 Firefox/56.0'
-const mobileUserAgent = 'Mozilla/5.0 (iPhone; CPU iPhone OS 11_0 like Mac OS X) AppleWebKit/604.1.38 (KHTML, like Gecko) Version/11.0 Mobile/15A356 Safari/604.1'
+const mobileUserAgent = 'Mozilla/5.0 (Android 9; Mobile; rv:68.0) Gecko/68.0 Firefox/68.0'
 
 export function useDesktopUserAgent () {
   window.navigator.userAgent = desktopUserAgent
@@ -87,11 +75,9 @@ export function makeFindAllIterable (wrapper) {
   return wrapper
 }
 
-export function polyfillRequestAnimationFrame () {
-  raf.polyfill()
-}
-
 export function configureQuasar (Vue) {
+  // jest.resetModules() can only provide isolation when we require() a module
+  // We want a fresh Quasar for every test
   const configure = require('@/base/configureQuasar').default
   configure(Vue)
 }
@@ -102,32 +88,31 @@ export function mountWithDefaults (Component, options = {}) {
 }
 
 export function mountWithDefaultsAndLocalVue (Component, localVue, options = {}) {
-  configureQuasar(localVue)
   i18n.locale = 'en'
-  localVue.use(VueRouter)
+  configureQuasar(localVue)
+
   localVue.component('RouterLink', RouterLinkStub)
   localVue.component('Transition', TransitionStub)
   localVue.component('TransitionGroup', TransitionGroupStub)
   const datastore = options.datastore
   delete options.datastore
   const wrapper = mount(Component, {
-    router: new VueRouter(),
     localVue,
-    i18n,
     sync: false,
+    i18n,
     store: datastore,
+    mocks: {
+      ...routerMocks,
+    },
     ...options,
   })
   makeFindAllIterable(wrapper)
   return wrapper
 }
 
-const storybookRouter = new VueRouter()
-
 export function storybookDefaults (options) {
   i18n.locale = 'en'
   return {
-    router: storybookRouter,
     i18n,
     ...options,
   }
@@ -222,3 +207,5 @@ export const statusMocks = {
     })
   },
 }
+
+export const range = n => [...Array(n).keys()]

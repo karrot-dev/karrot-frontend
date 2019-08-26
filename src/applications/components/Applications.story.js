@@ -1,12 +1,10 @@
 import { storiesOf } from '@storybook/vue'
-import { storybookDefaults as defaults, statusMocks } from '>/helpers'
+import { storybookDefaults as defaults, statusMocks, range } from '>/helpers'
 import * as factories from '>/enrichedFactories'
 import subDays from 'date-fns/sub_days'
 
 import ApplicationFormUI from './ApplicationFormUI'
 import ApplicationList from './ApplicationList'
-
-const range = n => [...Array(n).keys()]
 
 const group = factories.makeGroup()
 const pending = range(3).map(() => factories.makeApplication())

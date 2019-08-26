@@ -1,16 +1,17 @@
 import { storiesOf } from '@storybook/vue'
 import { action } from '@storybook/addon-actions'
 
-import PickupSeriesEdit from './PickupSeriesEdit'
 import { statusMocks, storybookDefaults as defaults } from '>/helpers'
 import * as factories from '>/enrichedFactories'
+
+const PickupSeriesEdit = () => require('./PickupSeriesEdit').default
 
 const series = factories.makePickupSeries()
 
 storiesOf('PickupSeriesEdit', module)
   .add('weekly', () => defaults({
     render (h) {
-      return h(PickupSeriesEdit, {
+      return h(PickupSeriesEdit(), {
         props: {
           value: series,
           status: statusMocks.default(),
@@ -25,7 +26,7 @@ storiesOf('PickupSeriesEdit', module)
   }))
   .add('time error', () => defaults({
     render (h) {
-      return h(PickupSeriesEdit, {
+      return h(PickupSeriesEdit(), {
         props: {
           value: series,
           status: statusMocks.validationError('startDate', 'time is in past'),
@@ -35,7 +36,7 @@ storiesOf('PickupSeriesEdit', module)
   }))
   .add('duration', () => defaults({
     render (h) {
-      return h(PickupSeriesEdit, {
+      return h(PickupSeriesEdit(), {
         props: {
           value: {
             ...series,
@@ -48,7 +49,7 @@ storiesOf('PickupSeriesEdit', module)
   }))
   .add('custom rule', () => defaults({
     render (h) {
-      return h(PickupSeriesEdit, {
+      return h(PickupSeriesEdit(), {
         props: {
           value: {
             ...series,
@@ -64,7 +65,7 @@ storiesOf('PickupSeriesEdit', module)
   }))
   .add('custom rule with duration', () => defaults({
     render (h) {
-      return h(PickupSeriesEdit, {
+      return h(PickupSeriesEdit(), {
         props: {
           value: {
             ...series,

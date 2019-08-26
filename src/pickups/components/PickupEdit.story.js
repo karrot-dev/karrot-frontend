@@ -3,7 +3,7 @@ import { storiesOf } from '@storybook/vue'
 import { statusMocks, storybookDefaults as defaults } from '>/helpers'
 import * as factories from '>/enrichedFactories'
 
-import PickupEdit from './PickupEdit'
+const PickupEdit = () => require('./PickupEdit').default
 
 const pickup = factories.makePickup()
 const series = factories.makePickupSeries()
@@ -11,7 +11,7 @@ const series = factories.makePickupSeries()
 storiesOf('PickupEdit', module)
   .add('default', () => defaults({
     render (h) {
-      return h(PickupEdit, {
+      return h(PickupEdit(), {
         props: {
           value: pickup,
           series,
@@ -22,7 +22,7 @@ storiesOf('PickupEdit', module)
   }))
   .add('disabled', () => defaults({
     render (h) {
-      return h(PickupEdit, {
+      return h(PickupEdit(), {
         props: {
           value: {
             ...pickup,
@@ -36,7 +36,7 @@ storiesOf('PickupEdit', module)
   }))
   .add('with duration', () => defaults({
     render (h) {
-      return h(PickupEdit, {
+      return h(PickupEdit(), {
         props: {
           value: {
             ...pickup,
@@ -50,7 +50,7 @@ storiesOf('PickupEdit', module)
   }))
   .add('series changed', () => defaults({
     render (h) {
-      return h(PickupEdit, {
+      return h(PickupEdit(), {
         props: {
           value: {
             ...pickup,
@@ -71,7 +71,7 @@ storiesOf('PickupEdit', module)
   }))
   .add('pending', () => defaults({
     render (h) {
-      return h(PickupEdit, {
+      return h(PickupEdit(), {
         props: {
           value: pickup,
           series,
@@ -82,7 +82,7 @@ storiesOf('PickupEdit', module)
   }))
   .add('error', () => defaults({
     render (h) {
-      return h(PickupEdit, {
+      return h(PickupEdit(), {
         props: {
           value: pickup,
           series,

@@ -1,9 +1,7 @@
 import LocaleSelectInner from './LocaleSelectInner'
 import locales from '@/locales'
 import { localeOptions } from '@/base/i18n'
-import { mountWithDefaults, polyfillRequestAnimationFrame, createDatastore } from '>/helpers'
-
-polyfillRequestAnimationFrame()
+import { mountWithDefaults, createDatastore } from '>/helpers'
 
 describe('LocaleSelect', () => {
   beforeEach(() => jest.resetModules())
@@ -22,7 +20,7 @@ describe('LocaleSelect', () => {
 
   it('renders all the available locales', () => {
     const wrapper = mountWithDefaults(LocaleSelectInner, { datastore })
-    expect(wrapper.findAll('.q-item-label').length).toBe(Object.keys(locales).length)
+    expect(wrapper.findAll('.q-item').length - 1).toBe(Object.keys(locales).length)
     for (let locale of Object.values(locales)) {
       expect(wrapper.html()).toContain(locale.name)
     }
@@ -31,7 +29,7 @@ describe('LocaleSelect', () => {
   it('can select a locale', () => {
     const wrapper = mountWithDefaults(LocaleSelectInner, { datastore })
     const idx = Math.floor(Math.random() * localeOptions.length) // pick a random locale
-    wrapper.findAll('.q-item-label').at(idx).trigger('click')
+    wrapper.findAll('.q-item').at(idx + 1).trigger('click')
     expect(i18n.actions.setLocale).toHaveBeenCalled()
     expect(i18n.actions.setLocale.mock.calls[0][1]).toBe(localeOptions[idx].value)
   })

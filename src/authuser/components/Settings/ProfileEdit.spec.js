@@ -4,9 +4,7 @@ import ProfileEdit from './ProfileEdit'
 import { usersMock } from '>/mockdata'
 import cloneDeep from 'clone-deep'
 
-import { mountWithDefaults, polyfillRequestAnimationFrame, statusMocks } from '>/helpers'
-
-polyfillRequestAnimationFrame()
+import { mountWithDefaults, statusMocks } from '>/helpers'
 
 describe('ProfileEdit', () => {
   beforeEach(() => jest.resetModules())

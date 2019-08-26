@@ -19,7 +19,7 @@
       :name="name"
       class="big"
       :title="':' + name + ':'"
-      @click.native="$emit('toggle', name)"
+      @click="$emit('toggle', name)"
     />
   </div>
 </template>

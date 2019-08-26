@@ -1,12 +1,8 @@
 import Vue from 'vue'
 
-import PickupSeriesEdit from './PickupSeriesEdit'
-import { pickupSeriesMock } from '>/mockdata'
-import cloneDeep from 'clone-deep'
+import * as factories from '>/enrichedFactories'
 
-import { mountWithDefaults, polyfillRequestAnimationFrame } from '>/helpers'
-
-polyfillRequestAnimationFrame()
+import { QSelect } from 'quasar'
 
 describe('PickupSeriesEdit', () => {
   beforeEach(() => jest.resetModules())
@@ -14,8 +10,9 @@ describe('PickupSeriesEdit', () => {
   let series
 
   beforeEach(() => {
-    series = cloneDeep(pickupSeriesMock[0])
-    wrapper = mountWithDefaults(PickupSeriesEdit, {
+    series = factories.makePickupSeries()
+    const { mountWithDefaults } = require('>/helpers')
+    wrapper = mountWithDefaults(require('./PickupSeriesEdit').default, {
       propsData: {
         value: series,
         status: { pending: false, validationErrors: {} },
@@ -28,19 +25,13 @@ describe('PickupSeriesEdit', () => {
   })
 
   it('can toggle the days', () => {
-    const labels = [...wrapper.findAll('.q-item-label')]
+    const select = wrapper.find(QSelect)
 
-    const monday = labels.find(label => label.text() === 'Monday')
-    const friday = labels.find(label => label.text() === 'Friday')
-
-    monday.trigger('click')
+    select.vm.toggleOption('MO')
     expect(wrapper.vm.edit.rule.byDay).toContain('MO')
 
-    friday.trigger('click')
+    select.vm.toggleOption('FR')
     expect(wrapper.vm.edit.rule.byDay).toContain('FR')
-
-    monday.trigger('click')
-    expect(wrapper.vm.edit.rule.byDay).not.toContain('MO')
   })
 
   it('can reset to initial state', () => {

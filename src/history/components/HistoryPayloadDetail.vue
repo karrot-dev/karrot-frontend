@@ -1,10 +1,9 @@
 <template>
   <QItem
     v-if="label === 'collectors'"
-    dense
   >
-    <QItemMain>
-      <QItemTile label>
+    <QItemSection>
+      <QItemLabel>
         <RouterLink
           v-for="user in value"
           :key="user"
@@ -13,62 +12,58 @@
         >
           {{ user }}
         </RouterLink>
-      </QItemTile>
-      <QItemTile sublabel>
+      </QItemLabel>
+      <QItemLabel caption>
         {{ label }}
-      </QItemTile>
-    </QItemMain>
+      </QItemLabel>
+    </QItemSection>
   </QItem>
 
   <QItem
     v-else-if="label === 'date'"
-    dense
   >
-    <QItemMain>
-      <QItemTile label>
+    <QItemSection>
+      <QItemLabel>
         {{ $d(new Date(Array.isArray(value) ? value[0] : value), 'long') }}
-      </QItemTile>
-      <QItemTile sublabel>
+      </QItemLabel>
+      <QItemLabel caption>
         {{ $t('CREATEPICKUP.DATE') }}
-      </QItemTile>
-    </QItemMain>
+      </QItemLabel>
+    </QItemSection>
   </QItem>
 
   <QItem
     v-else
-    dense
   >
-    <QItemMain>
-      <QItemTile
+    <QItemSection>
+      <QItemLabel
         v-if="value"
-        label
       >
         {{ value }}
-      </QItemTile>
-      <QItemTile
+      </QItemLabel>
+      <QItemLabel
         v-else
         color="grey"
         icon="fas fa-question-circle"
-        label
       />
-      <QItemTile sublabel>
+      <QItemLabel caption>
         {{ convertedLabel }}
-      </QItemTile>
-    </QItemMain>
+      </QItemLabel>
+    </QItemSection>
   </QItem>
 </template>
 
 <script>
 import {
   QItem,
-  QItemMain,
-  QItemTile,
+  QItemSection,
+  QItemLabel,
 } from 'quasar'
 export default {
   components: {
     QItem,
-    QItemMain,
-    QItemTile,
+    QItemSection,
+    QItemLabel,
   },
   props: {
     label: {
@@ -76,7 +71,7 @@ export default {
       type: String,
     },
     value: {
-      type: [String, Date, Number],
+      type: [Array, String, Date, Number],
       required: true,
     },
   },
@@ -88,6 +83,3 @@ export default {
   },
 }
 </script>
-
-<style scoped lang="stylus">
-</style>

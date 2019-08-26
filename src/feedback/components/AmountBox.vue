@@ -74,12 +74,12 @@ export default {
         Math.floor(this.size / 10) + 'px']
     },
     pointerRotation () {
-      const rotation = Math.floor(this.amountValue * 3) - 48
+      const rotation = Math.floor(this.amountValue * 1.4) - 48
       if (rotation > 48) return 'rotate(45deg)'
       return 'rotate(' + rotation + 'deg)'
     },
     bottomOffset () {
-      return Math.floor(this.size / 8) + 'px'
+      return Math.floor(this.size / 20) + 'px'
     },
     fontSize () {
       return Math.floor(this.size / 4.2) + 'px'

@@ -4,7 +4,7 @@
   >
     <KSpinner v-show="fetchInitialPending" />
     <template v-if="!fetchInitialPending">
-      <QList no-border>
+      <QList>
         <QItem
           v-if="conversations.length === 0"
         >
@@ -13,7 +13,7 @@
         <LatestMessageItem
           v-for="conv in conversations"
           :key="conv.id"
-          v-close-overlay
+          v-close-popup
           :group="conv.type === 'group' ? conv.target : null"
           :user="conv.type === 'private' ? conv.target : null"
           :pickup="conv.type === 'pickup' ? conv.target : null"
@@ -41,10 +41,10 @@
         </QItem>
         <div
           v-if="asPopover"
-          class="row justify-end q-mt-sm q-mr-sm"
+          class="row justify-end q-my-sm q-mr-sm"
         >
           <QBtn
-            v-close-overlay
+            v-close-popup
             size="sm"
             color="secondary"
             :to="{ name: 'latestConversations' }"

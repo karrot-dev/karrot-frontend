@@ -1,36 +1,35 @@
 <template>
   <div>
     <QItem
-      multiline
       class="clickable"
+      clickable
       :class="{'greyed': detailIsShown}"
-      @click.native="toggleDetail"
+      @click="toggleDetail"
     >
-      <QItemSide>
+      <QItemSection avatar>
         <HistoryProfilePictures
           :users="entry.users"
         />
-      </QItemSide>
-      <QItemMain>
-        <QItemTile>
+      </QItemSection>
+      <QItemSection>
+        <QItemLabel>
           <span class="content">
             {{ entry.message }}
           </span>
-        </QItemTile>
-        <QItemTile
+        </QItemLabel>
+        <QItemLabel
           stamp
           class="mobile-only text-weight-light"
         >
           <DateAsWords :date="entry.date" />
-        </QItemTile>
-      </QItemMain>
-      <QItemSide
+        </QItemLabel>
+      </QItemSection>
+      <QItemSection
         class="desktop-only"
-        stamp
-        right
+        side
       >
         <DateAsWords :date="entry.date" />
-      </QItemSide>
+      </QItemSection>
     </QItem>
     <Transition name="slide-toggle">
       <div
@@ -52,10 +51,21 @@
 import HistoryProfilePictures from '@/history/components/HistoryProfilePictures'
 import DateAsWords from '@/utils/components/DateAsWords'
 import HistoryDetail from '@/history/components/HistoryDetail'
-import { QItem, QItemSide, QItemMain, QItemTile } from 'quasar'
+import {
+  QItem,
+  QItemSection,
+  QItemLabel,
+} from 'quasar'
 
 export default {
-  components: { HistoryProfilePictures, HistoryDetail, DateAsWords, QItem, QItemSide, QItemMain, QItemTile },
+  components: {
+    HistoryProfilePictures,
+    HistoryDetail,
+    DateAsWords,
+    QItem,
+    QItemSection,
+    QItemLabel,
+  },
   props: {
     entry: {
       required: true,
@@ -85,7 +95,6 @@ export default {
 .clickable
   transition padding .5s ease
   &:hover
-    cursor pointer
     background-color rgb(235, 235, 235)
 .clickable.greyed
   padding 1em 3em 10px 3em

@@ -13,12 +13,18 @@
       :class="{'expanded': expanded}"
       class="sidebar"
     >
-      <QAlert
+      <QBanner
         v-if="!isLoggedIn"
-        color="warning"
-        icon="star"
-        class="alert"
+        class="q-ma-sm bg-warning text-white shadow-2"
+        style="min-height: unset"
       >
+        <template v-slot:avatar>
+          <QIcon
+            name="star"
+            color="white"
+            style="font-size: 24px"
+          />
+        </template>
         <i18n path="JOINGROUP.LOGOUT_MESSAGE.LOGGED_OUT">
           <RouterLink
             place="login"
@@ -28,29 +34,32 @@
             {{ $t('JOINGROUP.LOGOUT_MESSAGE.LOG_IN') }}
           </RouterLink>
         </i18n>
-      </QAlert>
+      </QBanner>
       <p
         v-if="!hasJoinedGroups"
         class="text-primary header"
       >
         {{ $t('JOINGROUP.WHICHGROUP') }}
       </p>
-      <div class="row items-start no-wrap">
+      <div class="row items-start no-wrap q-mt-md">
         <div class="col">
-          <QCard>
-            <QSearch
-              v-model="search"
-              class="searchbar"
-              hide-underline
-            />
-          </QCard>
+          <QInput
+            v-model="search"
+            class="q-pl-sm"
+            filled
+            dense
+            :placeholder="$q.lang.label.search"
+          >
+            <template v-slot:prepend>
+              <QIcon name="search" />
+            </template>
+          </QInput>
           <QCheckbox
             v-model="showInactive"
             :label="`${$t('GROUP.SHOW_INACTIVE')} (${filteredOtherInactiveGroups.length})`"
-            style="margin-left: 16px"
           />
         </div>
-        <div style="margin-top: 4px">
+        <div>
           <QBtn
             flat
             round
@@ -127,10 +136,10 @@ import KSpinner from '@/utils/components/KSpinner'
 import {
   QBtn,
   QTooltip,
-  QAlert,
-  QSearch,
-  QCard,
+  QBanner,
+  QInput,
   QCheckbox,
+  QIcon,
 } from 'quasar'
 
 export default {
@@ -141,10 +150,10 @@ export default {
     KSpinner,
     QBtn,
     QTooltip,
-    QAlert,
-    QSearch,
-    QCard,
+    QBanner,
+    QInput,
     QCheckbox,
+    QIcon,
   },
   props: {
     myGroups: {
@@ -248,9 +257,6 @@ export default {
     padding 5px
     .text-primary
       margin-left .2em
-    .searchbar
-      margin-top .2em
-      padding 5px
     .underline
       text-decoration underline
     .header
@@ -268,8 +274,6 @@ body.desktop .gallery-wrapper
   .sidebar
     &.expanded
       padding-bottom 3em
-    .alert
-      margin 10px 8px 10px 8px
     @media screen and (min-width: $breakpoint-sm)
       max-width 42vw
       padding 0 1em 1em 1em

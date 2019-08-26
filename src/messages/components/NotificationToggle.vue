@@ -10,70 +10,79 @@
     <QIcon
       :name="selected.icon"
     />
-    <QPopover>
-      <QList
-        v-close-overlay
-        link
-      >
+    <QMenu>
+      <QList>
         <template v-if="user && !user.mailVerified">
           <QItem
+            v-close-popup
             :to="{ name: 'settings', hash: '#change-email' }"
           >
-            <QItemSide
-              color="negative"
-              icon="fas fa-fw fa-exclamation-triangle"
-            />
-            <QItemMain
-              :label="$t('WALL.VERIFY_EMAIL_FOR_NOTIFICATIONS')"
-            />
+            <QItemSection side>
+              <QIcon
+                color="negative"
+                name="fas fa-fw fa-exclamation-triangle"
+              />
+            </QItemSection>
+            <QItemSection>
+              {{ $t('WALL.VERIFY_EMAIL_FOR_NOTIFICATIONS') }}
+            </QItemSection>
           </QItem>
-          <QItemSeparator />
+          <QSeparator />
         </template>
-        <QListHeader v-t="'NOTIFICATION_TOGGLE.HEADER'" />
+        <QItemLabel
+          v-t="'NOTIFICATION_TOGGLE.HEADER'"
+          header
+        />
         <QItem
           v-for="o in options"
           :key="o.id"
+          v-close-popup
           :class="o.selected ? 'bg-grey-2' : ''"
-          @click.native="select(o)"
+          clickable
+          @click="select(o)"
         >
-          <QItemSide
-            :color="o.color"
-            :icon="o.icon"
-          />
-          <QItemMain
-            :label="o.label"
-            :sublabel="o.sublabel"
-          />
+          <QItemSection side>
+            <QIcon
+              :color="o.color"
+              :name="o.icon"
+            />
+          </QItemSection>
+          <QItemSection>
+            <QItemLabel>
+              {{ o.label }}
+            </QItemLabel>
+            <QItemLabel caption>
+              {{ o.sublabel }}
+            </QItemLabel>
+          </QItemSection>
         </QItem>
       </QList>
-    </QPopover>
+    </QMenu>
   </QBtn>
 </template>
 
 <script>
 import {
-  QPopover,
+  QMenu,
   QBtn,
   QIcon,
   QList,
   QItem,
-  QItemMain,
-  QItemSide,
-  QListHeader,
-  QItemSeparator,
+  QItemSection,
+  QItemLabel,
+  QSeparator,
 } from 'quasar'
 
 export default {
   components: {
-    QPopover,
+    QMenu,
     QBtn,
     QIcon,
     QList,
     QItem,
-    QItemMain,
-    QItemSide,
-    QListHeader,
-    QItemSeparator,
+    QItemSection,
+    QItemLabel,
+    QSeparator,
   },
   props: {
     muted: {

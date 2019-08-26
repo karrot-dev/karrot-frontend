@@ -1,39 +1,112 @@
 <template>
-  <div class="wrapper">
-    <QSearch
-      v-model="terms"
-      :autofocus="true"
-      separator
-      class="lightgrey"
-      :placeholder="$t('BUTTON.SEARCH')"
-      :debounce="50"
-      clearable
-      @blur="clear"
-      @clear="clear"
-      @keyup.esc="clear"
+  <div>
+    <QInput
+      :value="terms"
+      type="search"
+      :placeholder="$q.lang.label.search"
+      dense
+      autofocus
+      :debounce="300"
+      standout
+      dark
+      @input="setTerms"
+      @click="showResults"
+      @focus="showResults"
+      @blur="hide"
+      @keyup.esc="hide"
     >
-      <QAutocomplete
-        @search="search"
-        @selected="selected"
-      />
-    </QSearch>
+      <template v-slot:prepend>
+        <QIcon name="search" />
+      </template>
+      <template v-slot:append>
+        <QIcon
+          name="cancel"
+          class="cursor-pointer"
+          @click="clear"
+        />
+      </template>
+      <QMenu
+        ref="menu"
+        no-parent-event
+        no-focus
+        fit
+      >
+        <QList>
+          <QItem
+            v-for="(result, idx) in results"
+            :key="idx"
+            v-close-popup
+            clickable
+          >
+            <QItemSection
+              v-if="result.icon"
+              side
+            >
+              <QIcon :name="result.icon" />
+            </QItemSection>
+            <QItemSection
+              v-if="result.user"
+              side
+            >
+              <ProfilePicture
+                :user="result.user"
+                :is-link="false"
+                :size="25"
+              />
+            </QItemSection>
+            <QItemSection>
+              <QItemLabel>
+                {{ result.label }}
+              </QItemLabel>
+              <QItemLabel caption>
+                {{ result.sublabel }}
+              </QItemLabel>
+            </QItemSection>
+          </QItem>
+          <QItem
+            v-if="results.length < 1"
+          >
+            <QItemSection>
+              <QItemLabel>
+                {{ $t('GLOBAL.SEARCH_NOT_FOUND') }}
+              </QItemLabel>
+            </QItemSection>
+          </QItem>
+        </QList>
+      </QMenu>
+    </QInput>
   </div>
 </template>
 
 <script>
-import { QSearch, QAutocomplete } from 'quasar'
+import ProfilePicture from '@/users/components/ProfilePicture'
+
+import {
+  QInput,
+  QIcon,
+  QMenu,
+  QList,
+  QItem,
+  QItemSection,
+  QItemLabel,
+} from 'quasar'
 import { mapMutations, mapGetters } from 'vuex'
 
 export default {
-  components: { QSearch, QAutocomplete },
-  data () {
-    return {
-      terms: null,
-    }
+  components: {
+    ProfilePicture,
+    QInput,
+    QIcon,
+    QMenu,
+    QList,
+    QItem,
+    QItemSection,
+    QItemLabel,
   },
   computed: {
     ...mapGetters({
       results: 'search/results',
+      terms: 'search/terms',
     }),
   },
   methods: {
@@ -41,32 +114,18 @@ export default {
       setTerms: 'search/setTerms',
       hide: 'search/hide',
     }),
-    search (terms, done) {
-      if (!terms) done([])
-      this.setTerms(terms)
-      if (!this.results.length) {
-        done([{ label: this.$t('GLOBAL.SEARCH_NOT_FOUND') }])
-      }
-      else {
-        done(this.results)
-      }
-    },
-    selected (item) {
-      if (this.results.length !== 0) {
-        this.terms = item.label
-        this.hide()
-        this.$router.push(item.value)
-      }
-    },
     clear () {
+      this.hide()
+      this.hideResults()
       this.setTerms(null)
       this.$emit('clear')
+    },
+    showResults () {
+      this.$refs.menu.show()
+    },
+    hideResults () {
+      this.$refs.menu.hide()
     },
   },
 }
 </script>
-
-<style scoped lang="stylus">
-.lightgrey
-  background-color lightgrey
-</style>

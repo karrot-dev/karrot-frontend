@@ -14,16 +14,17 @@
       <QChip
         icon="fas fa-star"
         color="secondary"
+        text-color="white"
         square
         :title="$t('PLACEWALL.SUBSCRIBED_USERS', { count: subscribers.length })"
         class="self-center q-ml-sm cursor-pointer"
         style="z-index: 0"
       >
         <strong>{{ subscribers.length }}</strong>
-        <QPopover>
+        <QMenu>
           <div
             v-if="subscribers"
-            v-close-overlay
+            v-close-popup
             class="q-pa-md"
           >
             <div>
@@ -35,49 +36,52 @@
                 class="q-mr-xs"
               />
             </div>
-            <div class="q-caption q-mt-sm">
+            <div class="text-caption q-mt-sm">
               {{ $t('PLACEWALL.SUBSCRIBED_USERS', { count: subscribers.length }) }}
             </div>
           </div>
-        </QPopover>
+        </QMenu>
       </QChip>
       <div>
         <QBtn
           round
           color="white"
-          class="hoverScale"
           :icon="selected.icon"
           :text-color="selected.color"
+          :title="$t('PLACEWALL.SUBSCRIPTION.HEADER')"
         >
-          <QTooltip>
-            {{ $t('PLACEWALL.SUBSCRIPTION.HEADER') }}
-          </QTooltip>
-          <QPopover>
-            <QList
-              v-close-overlay
-              link
-            >
-              <QListHeader
+          <QMenu>
+            <QList>
+              <QItemLabel
                 v-t="'PLACEWALL.SUBSCRIPTION.HEADER'"
+                header
               />
 
               <QItem
                 v-for="o in options"
                 :key="o.id"
+                v-close-popup
                 :class="o.selected ? 'bg-grey-2' : ''"
-                @click.native="select(o)"
+                clickable
+                @click="select(o)"
               >
-                <QItemSide
-                  :color="o.color"
-                  :icon="o.icon"
-                />
-                <QItemMain
-                  :label="o.label"
-                  :sublabel="o.sublabel"
-                />
+                <QItemSection side>
+                  <QIcon
+                    :name="o.icon"
+                    :color="o.color"
+                  />
+                </QItemSection>
+                <QItemSection>
+                  <QItemLabel>
+                    {{ o.label }}
+                  </QItemLabel>
+                  <QItemLabel caption>
+                    {{ o.sublabel }}
+                  </QItemLabel>
+                </QItemSection>
               </QItem>
             </QList>
-          </QPopover>
+          </QMenu>
         </QBtn>
         <component
           :is="directionsURL ? 'a' : 'span'"
@@ -89,11 +93,9 @@
             round
             :color="directionsURL ? 'secondary' : 'grey'"
             icon="directions"
-            class="hoverScale"
             :disable="!directionsURL"
-          >
-            <QTooltip v-t="'STOREDETAIL.DIRECTIONS'" />
-          </QBtn>
+            :title="$t('STOREDETAIL.DIRECTIONS')"
+          />
         </component>
       </div>
     </div>
@@ -120,11 +122,11 @@
         </span>
       </div>
     </div>
-    <QModal
+    <QDialog
       v-model="showDetail"
     >
-      <QModalLayout>
-        <QToolbar slot="header">
+      <QCard>
+        <QToolbar class="bg-primary text-white">
           <QToolbarTitle v-if="place">
             <QIcon
               name="fas fa-info-circle"
@@ -138,9 +140,8 @@
             @click="toggleDetail"
           />
         </QToolbar>
-        <div
+        <QCardSection
           v-if="place"
-          class="q-ma-md"
         >
           <Markdown
             v-if="place.description"
@@ -152,15 +153,15 @@
             </span>
           </div>
           <template v-if="$q.platform.is.mobile">
-            <QCardSeparator class="q-my-sm" />
+            <QSeparator class="q-my-sm" />
             <StandardMap
               :markers="markers"
               class="map"
             />
           </template>
-        </div>
-      </QModalLayout>
-    </QModal>
+        </QCardSection>
+      </QCard>
+    </QDialog>
   </div>
 </template>
 
@@ -180,18 +181,18 @@ import {
 } from 'vuex'
 
 import {
-  QCardSeparator,
+  QSeparator,
   QBtn,
   QTooltip,
-  QPopover,
+  QMenu,
   QList,
-  QListHeader,
+  QItemLabel,
   QItem,
-  QItemMain,
-  QItemSide,
+  QItemSection,
   QChip,
-  QModal,
-  QModalLayout,
+  QDialog,
+  QCard,
+  QCardSection,
   QToolbar,
   QToolbarTitle,
   QIcon,
@@ -204,18 +205,18 @@ export default {
     RandomArt,
     KSpinner,
     ProfilePicture,
-    QCardSeparator,
+    QSeparator,
     QBtn,
     QTooltip,
-    QPopover,
+    QMenu,
     QList,
-    QListHeader,
+    QItemLabel,
     QItem,
-    QItemMain,
-    QItemSide,
+    QItemSection,
     QChip,
-    QModal,
-    QModalLayout,
+    QDialog,
+    QCard,
+    QCardSection,
     QToolbar,
     QToolbarTitle,
     QIcon,

@@ -54,8 +54,9 @@ export default {
 
 <style scoped lang="stylus">
 .q-btn
-  padding 1px 3px
+  padding 0px 3px
   min-height 23px
+  line-height 31px
 .emoji
   >>> img.emoji
     height 1em

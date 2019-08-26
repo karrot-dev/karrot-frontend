@@ -1,10 +1,9 @@
 <template>
-  <Component
-    :is="asPage ? 'QCard' : 'div'"
+  <div
     class="bg-white"
   >
     <KSpinner v-show="fetching" />
-    <QList no-border>
+    <QList>
       <QItem
         v-if="!fetching && notifications.length === 0"
       >
@@ -13,16 +12,16 @@
       <NotificationItem
         v-for="notification in notifications"
         :key="notification.id"
-        v-close-overlay
+        v-close-popup
         :notification="notification"
         @click="markClicked"
       />
       <div
         v-if="asPopover"
-        class="row justify-end q-mt-sm q-mr-sm"
+        class="row justify-end q-my-sm q-mr-sm"
       >
         <QBtn
-          v-close-overlay
+          v-close-popup
           size="sm"
           color="secondary"
           :to="{ name: 'notifications' }"
@@ -43,15 +42,12 @@
         </QBtn>
       </QItem>
     </QList>
-  </Component>
+  </div>
 </template>
 
 <script>
 import {
-  QCard,
   QList,
-  QListHeader,
-  QItemSeparator,
   QItem,
   QBtn,
 } from 'quasar'
@@ -61,10 +57,7 @@ import KSpinner from '@/utils/components/KSpinner'
 
 export default {
   components: {
-    QCard,
     QList,
-    QListHeader,
-    QItemSeparator,
     QItem,
     QBtn,
     NotificationItem,

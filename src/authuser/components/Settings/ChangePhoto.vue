@@ -1,34 +1,43 @@
 <template>
   <div class="edit-box k-change-photo">
     <QField
-      icon="fas fa-camera"
       :label="label"
+      stack-label
       :error="hasError('photo')"
-      :error-label="firstError('photo')"
-      :helper="helper"
+      :error-message="firstError('photo')"
+      :hint="hint"
+      :loading="loading"
     >
-      <Croppa
-        ref="croppaPhoto"
-        :width="300"
-        :height="300"
-        placeholder=""
-        :prevent-white-space="true"
-        :show-loading="true"
-        :class="{pointer: !hasPhoto}"
-        :zoom-speed="10"
-        @file-choose="saveDisabled = false"
-        @image-remove="saveDisabled = false"
-      >
-        <img
-          v-if="hasPhoto"
-          slot="initial"
-          :src="photo"
+      <template v-slot:before>
+        <QIcon name="fas fa-camera" />
+      </template>
+      <template v-slot:control>
+        <Croppa
+          ref="croppaPhoto"
+          class="q-mt-sm"
+          :width="300"
+          :height="300"
+          placeholder=""
+          prevent-white-space
+          replace-drop
+          :class="{'cursor-pointer': canChoose}"
+          :zoom-speed="10"
+          :initial-image="photo"
+          :show-remove-button="false"
+          @init="init"
+          @move="allowSave"
+          @zoom="allowSave"
+          @new-image-drawn="newImageDrawn"
+          @loading-start="loading = true"
+          @loading-end="loading = false"
+          @image-remove="canChoose = true"
         >
-        <img
-          slot="placeholder"
-          src="statics/add_a_photo.svg"
-        >
-      </Croppa>
+          <img
+            slot="placeholder"
+            src="statics/add_a_photo.svg"
+          >
+        </Croppa>
+      </template>
     </QField>
 
     <div
@@ -38,12 +47,27 @@
       {{ firstNonFieldError }}
     </div>
 
-    <div class="actionButtons">
+    <div class="row justify-end q-gutter-sm q-mt-sm">
+      <QBtn
+        type="button"
+        :disable="!canSave"
+        @click="reset"
+      >
+        {{ $t('BUTTON.RESET') }}
+      </QBtn>
+      <QBtn
+        :disable="!hasPhoto"
+        type="button"
+        color="red"
+        @click="destroy"
+      >
+        {{ $t('BUTTON.DELETE') }}
+      </QBtn>
       <QBtn
         v-t="'BUTTON.SAVE_CHANGES'"
         color="primary"
         :loading="isPending"
-        :disabled="saveDisabled"
+        :disable="!canSave"
         @click="save"
       />
     </div>
@@ -54,6 +78,7 @@
 import {
   QField,
   QBtn,
+  QIcon,
 } from 'quasar'
 import CroppaPlugin from 'vue-croppa'
 const Croppa = CroppaPlugin.component
@@ -63,18 +88,34 @@ export default {
   components: {
     QField,
     QBtn,
+    QIcon,
     Croppa,
   },
   mixins: [statusMixin],
   props: {
-    value: { required: true, type: Object },
-    mimeType: { type: String, default: 'image/png' },
-    label: { type: String, default: '' },
-    helper: { type: String, default: '' },
+    value: {
+      type: Object,
+      default: null,
+    },
+    mimeType: {
+      type: String,
+      default: 'image/png',
+    },
+    label: {
+      type: String,
+      default: '',
+    },
+    hint: {
+      type: String,
+      default: '',
+    },
   },
   data () {
     return {
-      saveDisabled: true,
+      canSave: false,
+      canChoose: true,
+      refreshing: false,
+      loading: false,
     }
   },
   computed: {
@@ -87,14 +128,17 @@ export default {
 
       // In development we want to force the images to load from our local proxy
       // so that we don't get issues with missing CORS headers
-      if (__ENV.DEV) return ['http://localhost:8080', url.substring(url.indexOf('/media'))].join('')
+      if (__ENV.DEV && url.includes('/media')) return ['http://localhost:8080', url.substring(url.indexOf('/media'))].join('')
 
       return url
     },
   },
   watch: {
-    photo () {
-      this.$refs.croppaPhoto.refresh()
+    photo (val) {
+      if (val) {
+        this.refreshing = true
+        this.$refs.croppaPhoto.refresh()
+      }
     },
   },
   methods: {
@@ -106,7 +150,30 @@ export default {
       else {
         this.$emit('save', null)
       }
-      this.saveDisabled = true
+      this.canSave = false
+    },
+    destroy () {
+      this.$refs.croppaPhoto.remove()
+      this.allowSave()
+    },
+    reset () {
+      this.$refs.croppaPhoto.refresh()
+      this.canSave = false
+    },
+    allowSave () {
+      this.canSave = true
+    },
+    newImageDrawn () {
+      this.canChoose = false
+      if (this.refreshing) {
+        this.refreshing = false
+      }
+      else {
+        this.allowSave()
+      }
+    },
+    init () {
+      if (this.photo) this.refreshing = true
     },
   },
 }
@@ -114,12 +181,5 @@ export default {
 
 <style scoped lang="stylus">
 @import '~editbox'
-.k-change-photo
-  >>> .croppa-container
-    canvas
-      width 100% !important
-      height 100% !important
-      max-width 300px
-      max-height 300px
-      cursor pointer
+
 </style>

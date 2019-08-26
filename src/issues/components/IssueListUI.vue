@@ -1,38 +1,40 @@
 <template>
-  <QList
-    no-border
-    class="bg-white"
-  >
+  <div class="q-mt-lg">
     <KSpinner v-show="isPending" />
-    <IssueItem
-      v-for="issue in ongoingIssues"
-      :key="issue.id"
-      :issue="issue"
-    />
     <KNotice v-if="hasNoOngoing">
-      <template slot="icon">
+      <template v-slot:icon>
         <i class="fas fa-bed" />
       </template>
       {{ $t('ISSUE.NO_ONGOING') }}
     </KNotice>
-    <QItemSeparator />
-    <QCollapsible
-      v-if="pastIssues.length > 0"
-      icon="fas fa-archive"
-      :label="$t('ISSUE.PAST')"
-      :sublabel="othersSublabel"
-      @show="showOthers = true"
-      @hide="showOthers = false"
+    <QList
+      class="bg-white q-mt-md"
+      bordered
     >
-      <template v-if="showOthers">
-        <IssueItem
-          v-for="issue in pastIssues"
-          :key="issue.id"
-          :issue="issue"
-        />
-      </template>
-    </QCollapsible>
-  </QList>
+      <IssueItem
+        v-for="issue in ongoingIssues"
+        :key="issue.id"
+        :issue="issue"
+      />
+      <QSeparator />
+      <QExpansionItem
+        v-if="pastIssues.length > 0"
+        icon="fas fa-archive"
+        :label="$t('ISSUE.PAST')"
+        :sublabel="othersSublabel"
+        @show="showOthers = true"
+        @hide="showOthers = false"
+      >
+        <template v-if="showOthers">
+          <IssueItem
+            v-for="issue in pastIssues"
+            :key="issue.id"
+            :issue="issue"
+          />
+        </template>
+      </QExpansionItem>
+    </QList>
+  </div>
 </template>
 
 <script>
@@ -43,8 +45,8 @@ import KNotice from '@/utils/components/KNotice'
 import statusMixin from '@/utils/mixins/statusMixin'
 
 import {
-  QCollapsible,
-  QItemSeparator,
+  QExpansionItem,
+  QSeparator,
   QList,
 } from 'quasar'
 
@@ -53,8 +55,8 @@ export default {
     IssueItem,
     KSpinner,
     KNotice,
-    QCollapsible,
-    QItemSeparator,
+    QExpansionItem,
+    QSeparator,
     QList,
   },
   mixins: [statusMixin],

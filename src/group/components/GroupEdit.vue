@@ -1,12 +1,12 @@
 <template>
   <div>
-    <QCard>
+    <QCard style="max-width: 700px">
       <ChangePhoto
         v-if="!isNew"
         :value="value"
         :status="status"
         :label="$t('GROUP.LOGO')"
-        :helper="$t('GROUP.SET_LOGO')"
+        :hint="$t('GROUP.SET_LOGO')"
         @save="$emit('save', { id: value.id, photo: arguments[0] })"
       />
       <div
@@ -14,121 +14,89 @@
         :class="{ changed: hasChanged }"
       >
         <form @submit.prevent="maybeSave">
-          <QField
+          <QInput
             v-if="!edit.isPlayground"
-            icon="fas fa-fw fa-star"
+            id="group-title"
+            v-model="edit.name"
             :label="$t('GROUP.TITLE')"
             :error="hasNameError"
-            :error-label="nameError"
+            :error-message="nameError"
+            autofocus
+            autocomplete="off"
+            @blur="$v.edit.name.$touch"
           >
-            <QInput
-              id="group-title"
-              v-model="edit.name"
-              :autofocus="true"
-              autocomplete="off"
-              @blur="$v.edit.name.$touch"
-            />
-          </QField>
+            <template v-slot:before>
+              <QIcon name="fas fa-fw fa-star" />
+            </template>
+          </QInput>
 
-          <QField
+          <MarkdownInput
             v-if="!edit.isPlayground"
+            v-model="edit.publicDescription"
             icon="fas fa-fw fa-question"
             :label="$t('GROUPINFO.TITLE')"
             :error="hasError('publicDescription')"
-            :error-label="firstError('publicDescription')"
-          >
-            <MarkdownInput :value="edit.publicDescription">
-              <QInput
-                v-model="edit.publicDescription"
-                type="textarea"
-                rows="4"
-                @keyup.ctrl.enter="maybeSave"
-              />
-            </MarkdownInput>
-          </QField>
+            :error-message="firstError('publicDescription')"
+            @keyup.ctrl.enter="maybeSave"
+          />
 
-          <QField
+          <MarkdownInput
+            v-model="edit.description"
             icon="fas fa-fw fa-address-card"
             :label="$t('GROUP.DESCRIPTION_VERBOSE')"
             :error="hasError('description')"
-            :error-label="firstError('description')"
-          >
-            <MarkdownInput :value="edit.description">
-              <QInput
-                v-model="edit.description"
-                type="textarea"
-                rows="4"
-                @keyup.ctrl.enter="maybeSave"
-              />
-            </MarkdownInput>
-          </QField>
+            :error-message="firstError('description')"
+            @keyup.ctrl.enter="maybeSave"
+          />
 
-          <QField
+          <MarkdownInput
             v-if="!edit.isOpen"
+            v-model="edit.welcomeMessage"
             icon="fas fa-fw fa-address-card"
             :label="$t('GROUP.WELCOMEMESSAGE_VERBOSE')"
             :error="hasError('welcomeMessage')"
-            :error-label="firstError('welcomeMessage')"
-          >
-            <MarkdownInput :value="edit.welcomeMessage">
-              <QInput
-                v-model="edit.welcomeMessage"
-                type="textarea"
-                rows="4"
-                @keyup.ctrl.enter="maybeSave"
-              />
-            </MarkdownInput>
-          </QField>
+            :error-message="firstError('welcomeMessage')"
+            @keyup.ctrl.enter="maybeSave"
+          />
 
-          <QField
+          <AddressPicker
+            v-model="edit"
+            :color="isNew ? 'blue' : 'positive'"
+            font-icon="fas fa-home"
             icon="fas fa-fw fa-map-marker"
             :label="$t('GROUP.ADDRESS')"
             :error="hasAddressError"
-            :error-label="addressError"
-          >
-            <AddressPicker
-              v-model="edit"
-              :color="isNew ? 'blue' : 'positive'"
-              font-icon="fas fa-home"
-            />
-          </QField>
+            :error-message="addressError"
+          />
 
-          <QField
+          <MarkdownInput
             v-if="!edit.isOpen"
             icon="fas fa-fw fa-question"
+            :value="applicationQuestionsOrDefault"
             :label="$t('GROUP.APPLICATION_QUESTIONS')"
             :error="hasError('applicationQuestions')"
-            :error-label="firstError('applicationQuestions')"
-          >
-            <MarkdownInput :value="edit.applicationQuestions">
-              <QInput
-                :value="applicationQuestionsOrDefault"
-                type="textarea"
-                rows="6"
-                @input="applicationQuestionsInput"
-                @keyup.ctrl.enter="maybeSave"
-              />
-            </MarkdownInput>
-          </QField>
+            :error-message="firstError('applicationQuestions')"
+            @input="applicationQuestionsInput"
+            @keyup.ctrl.enter="maybeSave"
+          />
 
-          <QField
-            icon="fas fa-fw fa-globe"
+          <QSelect
+            v-model="edit.timezone"
             :label="$t('GROUP.TIMEZONE')"
             :error="hasTimezoneError"
-            :error-label="timezoneError"
+            :error-message="timezoneError"
+            input-debounce="0"
+            :options="filteredTimezones"
+            use-input
+            fill-input
+            hide-selected
+            @filter="timezoneFilter"
+            @blur="$v.edit.timezone.$touch"
           >
-            <QInput
-              v-model="edit.timezone"
-              @blur="$v.edit.timezone.$touch"
-            >
-              <QAutocomplete
-                :static-data="timezones"
-                :max-results="10"
-                :debounce="300"
-                :filter="timezoneFilter"
-              />
-            </QInput>
-          </QField>
+            <template v-slot:before>
+              <QIcon name="fas fa-fw fa-globe" />
+            </template>
+          </QSelect>
 
           <div
             v-if="hasNonFieldError"
@@ -136,7 +104,7 @@
           >
             {{ firstNonFieldError }}
           </div>
-          <div class="actionButtons">
+          <div class="row justify-end q-gutter-sm q-mt-sm">
             <QBtn
               v-if="!isNew"
               type="button"
@@ -165,10 +133,10 @@
 import jstz from 'jstimezonedetect'
 import {
   QCard,
-  QField,
   QInput,
   QBtn,
-  QAutocomplete,
+  QSelect,
+  QIcon,
 } from 'quasar'
 import AddressPicker from '@/maps/components/AddressPicker'
 import MarkdownInput from '@/utils/components/MarkdownInput'
@@ -182,10 +150,10 @@ export default {
   name: 'GroupEdit',
   components: {
     QCard,
-    QField,
     QInput,
     QBtn,
-    QAutocomplete,
+    QSelect,
+    QIcon,
     AddressPicker,
     MarkdownInput,
     ChangePhoto,
@@ -207,13 +175,19 @@ export default {
       }),
     },
     timezones: {
-      type: Object,
+      type: Array,
       required: true,
     },
     allGroups: {
       type: Array,
       required: true,
     },
+  },
+  data () {
+    return {
+      filteredTimezones: this.timezones,
+      show: false,
+    }
   },
   computed: {
     canSave () {
@@ -262,6 +236,11 @@ export default {
       return this.edit.applicationQuestions || this.edit.applicationQuestionsDefault
     },
   },
+  watch: {
+    timezones (val) {
+      this.filteredTimezones = val
+    },
+  },
   methods: {
     maybeSave (event) {
       this.$v.edit.$touch()
@@ -269,9 +248,11 @@ export default {
       this.$v.edit.$reset()
       this.save()
     },
-    timezoneFilter (terms, { field, list }) {
-      const token = terms.toLowerCase()
-      return list.filter(item => item[field].toLowerCase().includes(token))
+    timezoneFilter (terms, update, abort) {
+      update(() => {
+        const token = terms.toLowerCase()
+        this.filteredTimezones = this.timezones.filter(item => item.toLowerCase().includes(token))
+      })
     },
     applicationQuestionsInput (value) {
       this.edit.applicationQuestions = value

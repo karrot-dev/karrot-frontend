@@ -1,9 +1,16 @@
 <template>
-  <QAlert
+  <QBanner
     v-if="user && !hasEmailVerified"
-    icon="fas fa-exclamation-triangle"
-    color="warning"
+    class="q-ma-sm bg-warning text-white shadow-2"
+    style="min-height: unset"
   >
+    <template v-slot:avatar>
+      <QIcon
+        name="fas fa-exclamation-triangle"
+        color="white"
+        style="font-size: 24px"
+      />
+    </template>
     <p>{{ $t('NOTIFICATIONS.NOT_VERIFIED', { email: user.unverifiedEmail }) }}</p>
     <p>{{ $t('WALL.VERIFY_EMAIL_FOR_NOTIFICATIONS') }}</p>
     <i18n
@@ -29,48 +36,69 @@
       <i class="fas fa-exclamation-triangle" />
       {{ anyFirstError }}
     </p>
-  </QAlert>
-  <QCollapsible
+  </QBanner>
+  <QExpansionItem
     v-else-if="hasFailedEmailDeliveries"
-    header-class="bg-warning text-white"
+    class="q-ma-sm shadow-2"
+    header-class="bg-warning"
+    dark
   >
-    <template
-      slot="header"
-    >
-      <QItemSide
-        color="white"
-        icon="fas fa-exclamation-triangle"
-      />
-      <QItemMain
-        :label="failedEmailDeliveryMessage"
-      />
+    <template v-slot:header>
+      <QItemSection
+        side
+        class="text-white"
+      >
+        <QIcon name="fas fa-exclamation-triangle" />
+      </QItemSection>
+      <QItemSection>
+        {{ failedEmailDeliveryMessage }}
+      </QItemSection>
     </template>
-    <QList>
+    <QList bordered>
       <QItem
         v-for="(event, idx) in failedEmailDeliveries"
         :key="idx"
       >
-        <QItemMain
-          :label="event.subject"
-          :sublabel="`${event.event}: ${event.reason}`"
-        />
-        <QItemSide
-          right
-          :stamp="$d(event.createdAt, 'long')"
-        />
+        <QItemSection>
+          <QItemLabel>
+            {{ event.subject }}
+          </QItemLabel>
+          <QItemLabel caption>
+            {{ `${event.event}: ${event.reason}` }}
+          </QItemLabel>
+        </QItemSection>
+        <QItemSection
+          side
+        >
+          {{ $d(event.createdAt, 'long') }}
+        </QItemSection>
       </QItem>
     </QList>
-  </QCollapsible>
+  </QExpansionItem>
 </template>
 
 <script>
-import { QAlert, QList, QItem, QItemMain, QItemSide, QCollapsible } from 'quasar'
+import {
+  QBanner,
+  QList,
+  QItem,
+  QItemSection,
+  QItemLabel,
+  QExpansionItem,
+  QIcon,
+} from 'quasar'
 import { mapActions, mapGetters } from 'vuex'
 import statusMixin from '@/utils/mixins/statusMixin'
 
 export default {
   components: {
-    QAlert, QList, QItem, QItemMain, QItemSide, QCollapsible,
+    QBanner,
+    QList,
+    QItem,
+    QItemSection,
+    QItemLabel,
+    QExpansionItem,
+    QIcon,
   },
   computed: {
     ...mapGetters({

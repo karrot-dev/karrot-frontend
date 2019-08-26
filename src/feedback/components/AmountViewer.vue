@@ -1,5 +1,5 @@
 <template>
-  <div class="wrapper row">
+  <div class="wrapper row no-wrap ellipsis">
     <img
       v-for="(photoSrc, idx) in photosArray"
       :key="idx"

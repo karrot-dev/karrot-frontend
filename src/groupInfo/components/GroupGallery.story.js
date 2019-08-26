@@ -33,6 +33,7 @@ storiesOf('GroupGallery', module)
       props: {
         myGroups: groupsMock.slice(0, 3).map(g => ({ ...g, id: g.id * 10, isMember: true })),
         otherGroups: groupsMock,
+        isLoggedIn: true,
       },
       on: defaultOn,
     }),

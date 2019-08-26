@@ -2,11 +2,22 @@ import { storiesOf } from '@storybook/vue'
 
 import SidenavMapUI from './SidenavMapUI'
 import SidenavGroupUI from './SidenavGroupUI'
+import GroupOptions from './GroupOptionsUI'
 import SidenavPlacesUI from './SidenavPlacesUI'
-import { placesMock as places, usersMock as users, groupsMock } from '>/mockdata'
+import MobileSidenavUI from './MobileSidenavUI'
 import { createDatastore, storybookDefaults as defaults } from '>/helpers'
+import * as factories from '>/enrichedFactories'
 
-storiesOf('Sidenav Boxes', module)
+const range = n => [...Array(n).keys()]
+
+const user = factories.makeUser()
+const group = factories.makeGroup()
+const users = range(5).map(() => factories.makeUser())
+const places = range(5).map(() => factories.makePlace({
+  group,
+}))
+
+storiesOf('Sidenav', module)
   .add('Map', () => defaults({
     render (h) {
       let { showPlaces, showUsers, toggleUsers, togglePlaces } = this
@@ -17,7 +28,7 @@ storiesOf('Sidenav Boxes', module)
           showPlaces,
           showUsers,
           currentGroup: {
-            ...groupsMock[0],
+            ...group,
             membership: {
               isEditor: true,
             },
@@ -46,11 +57,22 @@ storiesOf('Sidenav Boxes', module)
     render: h => h(SidenavGroupUI, {
       props: {
         groupId: 1,
+        wallUnreadCount: 4,
+        pendingApplications: Array(3),
       },
     }),
     store: createDatastore({
-      currentGroup: { getters: { id: () => 1, roles: () => [] } },
+      currentGroup: { getters: { id: () => 1, roles: () => ['editor'] } },
       places: { getters: { all: () => places } },
+    }),
+  }))
+
+  .add('GroupOptions', () => defaults({
+    render: h => h(GroupOptions, {
+      props: {
+        currentGroupId: 1,
+        roles: ['editor'],
+      },
     }),
   }))
 
@@ -59,6 +81,14 @@ storiesOf('Sidenav Boxes', module)
       props: {
         places,
         groupId: 1,
+      },
+    }),
+  }))
+
+  .add('Mobile', () => defaults({
+    render: h => h(MobileSidenavUI, {
+      props: {
+        currentUserId: user.id,
       },
     }),
   }))

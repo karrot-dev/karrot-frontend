@@ -4,29 +4,28 @@
     <template v-else>
       <QList
         v-if="invitations.length > 0"
-        class="no-border"
       >
-        <QListHeader>
+        <QItemLabel header>
           {{ $t('GROUP.INVITED_LIST') }}
-        </QListHeader>
+        </QItemLabel>
         <QItem
           v-for="invite in invitations"
           :key="invite.id"
         >
-          <QItemMain>
-            <QItemTile label>
+          <QItemSection>
+            <QItemLabel>
               {{ invite.email }}
-            </QItemTile>
-            <QItemTile sublabel>
+            </QItemLabel>
+            <QItemLabel caption>
               <DateAsWords :date="invite.createdAt" />
-            </QItemTile>
-          </QItemMain>
-          <QItemSide right>
+            </QItemLabel>
+          </QItemSection>
+          <QItemSection side>
             <ProfilePicture
               :user="invite.invitedBy"
               :size="25"
             />
-          </QItemSide>
+          </QItemSection>
         </QItem>
       </QList>
     </template>
@@ -37,10 +36,8 @@
 import {
   QList,
   QItem,
-  QItemSide,
-  QItemMain,
-  QItemTile,
-  QListHeader,
+  QItemSection,
+  QItemLabel,
 } from 'quasar'
 import statusMixin from '@/utils/mixins/statusMixin'
 import ProfilePicture from '@/users/components/ProfilePicture'
@@ -51,10 +48,8 @@ export default {
   components: {
     QList,
     QItem,
-    QItemSide,
-    QItemMain,
-    QItemTile,
-    QListHeader,
+    QItemSection,
+    QItemLabel,
     ProfilePicture,
     DateAsWords,
     KSpinner,

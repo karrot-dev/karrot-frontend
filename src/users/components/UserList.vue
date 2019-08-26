@@ -1,12 +1,14 @@
 <template>
   <div class="list-wrapper">
-    <QList
-      no-border
-    >
+    <QList>
       <QItem
         v-if="users.length > 15"
       >
-        <QSearch v-model="filterTerm" />
+        <QInput v-model="filterTerm">
+          <template v-slot:prepend>
+            <QIcon name="search" />
+          </template>
+        </QInput>
       </QItem>
       <UserItem
         v-for="user in activeUsers"
@@ -15,21 +17,28 @@
         :group="group"
         @createTrust="$emit('createTrust', arguments[0])"
       />
-      <QItemSeparator />
-      <QCollapsible
+      <QSeparator />
+      <QExpansionItem
         v-if="inactiveUsers.length > 0"
         @show="showInactive = true"
         @hide="showInactive = false"
       >
-        <template slot="header">
-          <QItemSide>
-            <QItemTile icon="fas fa-bed" />
-          </QItemSide>
-          <QItemMain
-            :label="$t('GROUP.INACTIVE')"
-            :sublabel="inactiveSublabel"
-          />
-          <QItemSide>
+        <template v-slot:header>
+          <QItemSection side>
+            <QIcon
+              name="fas fa-bed"
+              class="q-mr-xs"
+            />
+          </QItemSection>
+          <QItemSection>
+            <QItemLabel>
+              {{ $t('GROUP.INACTIVE') }}
+            </QItemLabel>
+            <QItemLabel caption>
+              {{ inactiveSublabel }}
+            </QItemLabel>
+          </QItemSection>
+          <QItemSection side>
             <QBtn
               flat
               round
@@ -37,7 +46,7 @@
               icon="help_outline"
               @click.stop="inactivityInfo"
             />
-          </QItemSide>
+          </QItemSection>
         </template>
 
         <template v-if="showInactive">
@@ -50,7 +59,7 @@
             @createTrust="$emit('createTrust', arguments[0])"
           />
         </template>
-      </QCollapsible>
+      </QExpansionItem>
     </QList>
   </div>
 </template>
@@ -59,14 +68,14 @@
 import {
   Dialog,
   QList,
-  QItemSeparator,
+  QSeparator,
   QItem,
-  QItemSide,
-  QItemMain,
-  QItemTile,
-  QCollapsible,
+  QItemSection,
+  QItemLabel,
+  QExpansionItem,
   QBtn,
-  QSearch,
+  QInput,
+  QIcon,
 } from 'quasar'
 
 import UserItem from './UserItem'
@@ -75,14 +84,14 @@ export default {
   components: {
     UserItem,
     QList,
-    QItemSeparator,
+    QSeparator,
     QItem,
-    QItemSide,
-    QItemMain,
-    QItemTile,
-    QCollapsible,
+    QItemSection,
+    QItemLabel,
+    QExpansionItem,
     QBtn,
-    QSearch,
+    QInput,
+    QIcon,
   },
   props: {
     users: {

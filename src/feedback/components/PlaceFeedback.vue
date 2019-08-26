@@ -1,6 +1,6 @@
 <template>
   <div>
-    <QCard class="no-shadow no-padding grey-border">
+    <QCard class="no-shadow grey-border">
       <div class="generic-padding relative-position">
         <KSpinner v-show="!statistics" />
         <div
@@ -10,28 +10,31 @@
           <QChip
             :icon="$icon('pickup')"
             color="secondary"
+            text-color="white"
             square
             :title="$t('FEEDBACKLIST.NUMBER_PICKUPS', { count: statistics.pickupsDone })"
           >
-            <strong>{{ statistics.pickupsDone }}</strong>
+            <strong class="q-ml-sm">{{ statistics.pickupsDone }}</strong>
           </QChip>
           <QChip
             v-if="statistics.feedbackCount > 0"
             :icon="$icon('feedback')"
             color="secondary"
+            text-color="white"
             square
             :title="$t('FEEDBACKLIST.NUMBER_FEEDBACK', { count: statistics.feedbackCount })"
           >
-            <strong>{{ statistics.feedbackCount }}</strong>
+            <strong class="q-ml-sm">{{ statistics.feedbackCount }}</strong>
           </QChip>
           <QChip
             v-if="statistics.feedbackWeight > 0"
             icon="fas fa-weight"
             color="secondary"
+            text-color="white"
             square
             :title="$t('FEEDBACKLIST.WEIGHT_SUM', { sum: statistics.feedbackWeight })"
           >
-            <strong>{{ statistics.feedbackWeight }}&nbsp;kg</strong>
+            <strong class="q-ml-sm">{{ statistics.feedbackWeight }}&nbsp;kg</strong>
           </QChip>
         </div>
         <span v-if="statistics && statistics.feedbackWeight > 0">

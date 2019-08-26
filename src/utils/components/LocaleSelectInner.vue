@@ -1,65 +1,87 @@
 <template>
   <QList
-    v-close-overlay
-    highlight
+    class="bg-white"
   >
+    <QItem
+      v-if="$q.platform.is.mobile"
+      class="text-white bg-primary"
+    >
+      <QItemSection>
+        {{ $t('LANGUAGECHOOSER.SWITCH') }}
+      </QItemSection>
+      <QItemSection side>
+        <QBtn
+          v-close-popup
+          dense
+          round
+          flat
+          color="white"
+          size="sm"
+        >
+          <QIcon name="fas fa-times" />
+        </QBtn>
+      </QItemSection>
+    </QItem>
     <QItem
       tag="a"
       href="https://www.transifex.com/yunity-1/karrot/dashboard/"
       target="_blank"
       rel="nofollow noopener noreferrer"
-      class="q-pt-xs"
       style="min-height: 20px"
     >
-      <QItemMain>
-        <QItemTile sublabel>
+      <QItemSection>
+        <QItemLabel caption>
           <QIcon name="fas fa-external-link-alt" />
           <small>{{ $t('LANGUAGECHOOSER.ADD_MORE') }}</small>
-        </QItemTile>
-      </QItemMain>
+        </QItemLabel>
+      </QItemSection>
     </QItem>
     <QItem
       v-for="locale in localeOptions"
       :key="locale.value"
-      :class="{ active: locale.value === current }"
-      @click.native="setLocale(locale.value)"
+      v-close-popup
+      :active="locale.value === current"
+      clickable
+      @click="setLocale(locale.value)"
     >
-      <QItemMain>
-        <QItemTile label>
+      <QItemSection>
+        <QItemLabel>
           {{ locale.label }}
-          <small>({{ locale.percentage }}%)</small>
-        </QItemTile>
-        <QItemTile sublabel>
-          <QProgress
-            v-if="locale.percentage < 100"
-            :percentage="locale.percentage"
+          <small>({{ locale.percentage * 100 }}%)</small>
+        </QItemLabel>
+        <QItemLabel caption>
+          <QLinearProgress
+            v-if="locale.percentage < 1"
+            :value="locale.percentage"
           />
-        </QItemTile>
-      </QItemMain>
+        </QItemLabel>
+      </QItemSection>
     </QItem>
   </QList>
 </template>
 
 <script>
 import {
-  QProgress,
+  QLinearProgress,
   QIcon,
   QList,
   QItem,
-  QItemTile,
-  QItemMain,
+  QItemLabel,
+  QItemSection,
+  QBtn,
 } from 'quasar'
 import { mapGetters, mapActions } from 'vuex'
 import { localeOptions } from '@/base/i18n'
 
 export default {
   components: {
-    QProgress,
+    QLinearProgress,
     QIcon,
     QList,
     QItem,
-    QItemTile,
-    QItemMain,
+    QItemLabel,
+    QItemSection,
+    QBtn,
   },
   data () {
     return {
@@ -78,10 +100,3 @@ export default {
   },
 }
 </script>
-
-<style scoped lang="stylus">
-.q-item
-  cursor pointer
-  &.active
-    cursor default
-</style>

@@ -1,5 +1,8 @@
 <template>
-  <QToolbar :color="connected ? 'primary' : 'grey-8'">
+  <QToolbar
+    class="text-white"
+    :class="connected ? 'bg-primary' : 'bg-grey-8'"
+  >
     <slot />
     <RouterLink
       v-if="!$q.platform.is.mobile"
@@ -17,13 +20,11 @@
       />
     </RouterLink>
     <QToolbarTitle>
-      <div class="row justify-between no-wrap">
-        <div />
+      <div class="row justify-center no-wrap">
         <KBreadcrumb
           class="bread"
           :breadcrumbs="breadcrumbs"
         />
-        <div />
       </div>
     </QToolbarTitle>
     <div
@@ -37,22 +38,23 @@
       flat
       dense
       round
+      icon="fas fa-fw fa-search"
       class="k-search-button"
+      :title="$t('BUTTON.SEARCH')"
       @click="$emit('showSearch')"
-    >
-      <QIcon name="fas fa-fw fa-search" />
-      <QTooltip v-t="'BUTTON.SEARCH'" />
-    </QBtn>
+    />
     <template v-if="!$q.platform.is.mobile">
       <LatestMessageButton />
       <NotificationButton />
       <RouterLink
         :to="{name: 'user', params: {userId: user.id}}"
+        class="q-ml-xs"
       >
         <QBtn
           v-if="hasPhoto"
           flat
           dense
+          :title="$t('TOPBAR.USERPROFILE')"
         >
           <div class="row items-center no-wrap">
             <QIcon
@@ -66,12 +68,12 @@
               class="profilePicture"
             >
           </div>
-          <QTooltip v-t="'TOPBAR.USERPROFILE'" />
         </QBtn>
         <QBtn
           v-else
           flat
           dense
+          :title="$t('TOPBAR.USERPROFILE')"
         >
           <QIcon
             :name="presence.icon"
@@ -80,7 +82,6 @@
           />
           {{ user.displayName }}
           <QIcon name="fas fa-fw fa-user" />
-          <QTooltip v-t="'TOPBAR.USERPROFILE'" />
         </QBtn>
       </RouterLink>
       <QBtn
@@ -90,49 +91,56 @@
         class="k-more-options"
       >
         <QIcon name="fas fa-ellipsis-v" />
-        <QPopover
-          :touch-position="false"
-          fit
+        <QMenu
           anchor="bottom right"
           self="top right"
         >
           <QList
-            v-close-overlay
-            item-separator
-            link
+            v-close-popup
+            dense
           >
             <QItem
               :to="{name: 'groupsGallery'}"
             >
-              <QIcon
-                size="1em"
-                class="on-left"
-                name="fas fa-home fa-fw"
-              />
-              {{ $t('TOPBAR.CHANGE_GROUP') }}
+              <QItemSection side>
+                <QIcon
+                  size="1em"
+                  name="fas fa-home fa-fw"
+                />
+              </QItemSection>
+              <QItemSection>
+                {{ $t('TOPBAR.CHANGE_GROUP') }}
+              </QItemSection>
             </QItem>
             <QItem
               :to="{name: 'settings'}"
             >
-              <QIcon
-                size="1em"
-                class="on-left"
-                name="fas fa-cog fa-fw"
-              />
-              {{ $t('SETTINGS.TITLE') }}
+              <QItemSection side>
+                <QIcon
+                  size="1em"
+                  name="fas fa-cog fa-fw"
+                />
+              </QItemSection>
+              <QItemSection>
+                {{ $t('SETTINGS.TITLE') }}
+              </QItemSection>
             </QItem>
             <QItem
-              @click.native="$emit('logout')"
+              clickable
+              @click="$emit('logout')"
             >
-              <QIcon
-                size="1em"
-                class="on-left"
-                name="fas fa-sign-out-alt fa-fw"
-              />
-              {{ $t('TOPBAR.LOGOUT') }}
+              <QItemSection side>
+                <QIcon
+                  size="1em"
+                  name="fas fa-sign-out-alt fa-fw"
+                />
+              </QItemSection>
+              <QItemSection>
+                {{ $t('TOPBAR.LOGOUT') }}
+              </QItemSection>
             </QItem>
           </QList>
-        </QPopover>
+        </QMenu>
       </QBtn>
     </template>
   </QToolbar>
@@ -144,10 +152,10 @@ import {
   QToolbarTitle,
   QBtn,
   QIcon,
-  QPopover,
+  QMenu,
   QList,
   QItem,
-  QTooltip,
+  QItemSection,
 } from 'quasar'
 import KarrotLogo from '@/logo/components/KarrotLogo'
 import KBreadcrumb from '@/topbar/components/KBreadcrumb'
@@ -161,10 +169,10 @@ export default {
     QToolbarTitle,
     QBtn,
     QIcon,
-    QPopover,
+    QMenu,
     QList,
     QItem,
-    QTooltip,
+    QItemSection,
     KarrotLogo,
     KBreadcrumb,
     Search,
@@ -233,16 +241,14 @@ export default {
   margin-left 1em
   height 36px
 
-.k-searchbar
-  background-color lightgrey
-  min-width 251px
-  max-width 251px
 .k-search-button, .k-more-options
   opacity $topbar-opacity-low
   &:hover
     opacity 1
+.q-btn >>> .q-icon
+  font-size 20px
 
 .presence-indicator
   margin-right .3em
-  font-size 100%
+  font-size 12px !important
 </style>

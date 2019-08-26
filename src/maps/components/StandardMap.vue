@@ -30,17 +30,17 @@
         <Component :is="marker.popup" />
       </LPopup>
     </ExtendedMarker>
-    <QPopover
+    <QMenu
       ref="popover"
       anchor="top left"
-      :anchor-click="false"
       :offset="popoverOffset"
+      no-parent-event
     >
       <slot
         name="contextmenu"
         :latLng="popoverLatLng"
       />
-    </QPopover>
+    </QMenu>
   </LMap>
 </template>
 
@@ -56,7 +56,7 @@ import ExtendedMarker from './ExtendedMarker'
 import L from 'leaflet'
 
 import {
-  QPopover,
+  QMenu,
 } from 'quasar'
 
 // fix default marker icon. Should hopefully get fixed in Leaflet 1.3
@@ -125,7 +125,7 @@ export default {
     LTileLayer,
     ExtendedMarker,
     LPopup,
-    QPopover,
+    QMenu,
   },
   props: {
     markers: {

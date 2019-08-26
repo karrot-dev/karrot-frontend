@@ -2,26 +2,17 @@ import WallConversation from './WallConversation'
 import ConversationMessage from './ConversationMessage'
 import ConversationCompose from './ConversationCompose'
 
-import { messagesMock, currentUserMock } from '>/mockdata'
+import * as factories from '>/enrichedFactories'
 
 import { QInput } from 'quasar'
 
-import { mountWithDefaults, polyfillRequestAnimationFrame } from '>/helpers'
+import { mountWithDefaults } from '>/helpers'
 
 const defaultProps = {
-  data: {
-    id: 12,
-    messages: messagesMock,
-    sendStatus: { pending: false },
-    fetchStatus: { pending: false, hasValidationErrors: false },
-    fetchPastStatus: { pending: false, hasValidationErrors: false },
-    canFetchPast: false,
-  },
-  user: currentUserMock,
+  data: factories.makeConversation(),
+  user: factories.makeCurrentUser(),
   fetchPast: jest.fn(),
 }
-
-polyfillRequestAnimationFrame()
 
 describe('WallConversation', () => {
   beforeEach(() => jest.resetModules())
@@ -29,7 +20,7 @@ describe('WallConversation', () => {
     let wrapper = mountWithDefaults(WallConversation, {
       propsData: defaultProps,
     })
-    expect(wrapper.findAll(ConversationMessage).length).toBe(messagesMock.length)
+    expect(wrapper.findAll(ConversationMessage).length).toBe(defaultProps.data.messages.length)
   })
 
   it('can send a message', () => {
@@ -43,7 +34,7 @@ describe('WallConversation', () => {
 
     // Would be nicer to directly put the message into the QInput but did not find a way yet
     wrapper.find(ConversationCompose).setData({ message })
-    wrapper.find('.q-if-control').trigger('click')
+    wrapper.find(ConversationCompose).vm.submit()
     expect(wrapper.emitted().send[0]).toEqual([{ id: defaultProps.data.id, content: message }])
   })
 })

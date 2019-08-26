@@ -1,69 +1,64 @@
 <template>
-  <QList
-    highlight
-    no-border
-    class="no-padding"
-  >
+  <QList>
     <QItem
       v-for="place in sortedPlaces"
       :key="place.id"
-      link
       :to="linkParamsFor(place)"
       :class="{'router-link-active': place.isActivePlace}"
+      dense
     >
-      <QItemSide class="text-center">
+      <QItemSection side>
         <QIcon
           :name="place.ui.icon"
           :color="place.ui.color"
           :title="$t(place.ui.label)"
+          size="1.1em"
         />
-      </QItemSide>
-      <QItemMain>
-        <QItemTile
-          label
+      </QItemSection>
+      <QItemSection>
+        <QItemLabel
           class="items-baseline"
         >
           {{ place.name }}
           <QIcon
             v-if="place.isSubscribed"
             name="fas fa-fw fa-star"
-            class="vertical-baseline"
+            class="vertical-baseline q-ml-xs"
             color="secondary"
           />
-        </QItemTile>
-      </QItemMain>
-      <QItemSide
+        </QItemLabel>
+      </QItemSection>
+      <QItemSection
         v-if="place.conversationUnreadCount > 0"
-        right
+        side
       >
-        <QChip
-          small
+        <QBadge
           color="secondary"
         >
           {{ place.conversationUnreadCount > 99 ? '99+' : place.conversationUnreadCount }}
-        </QChip>
-      </QItemSide>
+        </QBadge>
+      </QItemSection>
     </QItem>
 
     <QItem
       v-if="!hasPlaces && isEditor"
-      link
       :to="{ name: 'placeCreate', params: { groupId } }"
-      class="bg-secondary"
-      multiline
+      class="bg-secondary justify-center"
+      :title="$t('BUTTON.CREATE')"
+      dense
     >
-      <QItemMain class="text-center">
-        <QItemTile
-          icon="add circle"
-          class="text-white"
+      <QItemSection side>
+        <QIcon
+          name="add_circle"
+          color="white"
+          size="1.5em"
         />
-        <QTooltip v-t="'BUTTON.CREATE'" />
-      </QItemMain>
+      </QItemSection>
     </QItem>
 
-    <QItemSeparator v-if="archived.length > 0" />
+    <QSeparator v-if="archived.length > 0" />
 
-    <QCollapsible
+    <QExpansionItem
       v-if="archived.length > 0 && isEditor"
       icon="fas fa-trash-alt"
       :label="`${$t('STORESTATUS.ARCHIVED')} (${archived.length})`"
@@ -71,16 +66,15 @@
       <QItem
         v-for="place in archived"
         :key="place.id"
-        link
         :to="linkParamsFor(place)"
       >
-        <QItemMain>
-          <QItemTile label>
+        <QItemSection>
+          <QItemLabel>
             {{ place.name }}
-          </QItemTile>
-        </QItemMain>
+          </QItemLabel>
+        </QItemSection>
       </QItem>
-    </QCollapsible>
+    </QExpansionItem>
   </QList>
 </template>
 
@@ -88,14 +82,12 @@
 import {
   QList,
   QItem,
-  QItemMain,
-  QItemTile,
-  QItemSide,
+  QItemSection,
+  QItemLabel,
   QIcon,
-  QTooltip,
-  QCollapsible,
-  QItemSeparator,
-  QChip,
+  QExpansionItem,
+  QSeparator,
+  QBadge,
 } from 'quasar'
 import { mapGetters } from 'vuex'
 
@@ -103,20 +95,30 @@ export default {
   components: {
     QList,
     QItem,
-    QItemMain,
-    QItemTile,
-    QItemSide,
+    QItemSection,
+    QItemLabel,
     QIcon,
-    QTooltip,
-    QCollapsible,
-    QItemSeparator,
-    QChip,
+    QExpansionItem,
+    QSeparator,
+    QBadge,
   },
   props: {
-    groupId: { default: null, type: Number },
-    places: { required: true, type: Array },
-    archived: { default: () => [], type: Array },
-    linkTo: { default: 'place', type: String },
+    groupId: {
+      default: null,
+      type: Number,
+    },
+    places: {
+      required: true,
+      type: Array,
+    },
+    archived: {
+      default: () => [],
+      type: Array,
+    },
+    linkTo: {
+      default: 'place',
+      type: String,
+    },
   },
   computed: {
     sortedPlaces () {

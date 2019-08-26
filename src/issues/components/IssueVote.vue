@@ -11,27 +11,39 @@
         <QDialog
           v-if="showInfo"
           v-model="showInfo"
-          :title="$t('CONFLICT.INFO.TITLE')"
-          :ok="$t('BUTTON.CLOSE')"
         >
-          <template slot="message">
-            <p v-t="'CONFLICT.INFO.MESSAGE'" />
-            <a
-              v-t="'CONFLICT.FIND_OUT_MORE'"
-              href="https://community.foodsaving.world/t/how-does-the-conflict-resolution-feature-work/254/3"
-              target="_blank"
-              rel="noopener"
-              style="text-decoration: underline"
-            />
-          </template>
+          <QCard>
+            <QCardSection>
+              <div class="text-h6">
+                {{ $t('CONFLICT.INFO.TITLE') }}
+              </div>
+            </QCardSection>
+            <QCardSection>
+              <p v-t="'CONFLICT.INFO.MESSAGE'" />
+              <a
+                v-t="'CONFLICT.FIND_OUT_MORE'"
+                href="https://community.foodsaving.world/t/how-does-the-conflict-resolution-feature-work/254/3"
+                target="_blank"
+                rel="noopener"
+                style="text-decoration: underline"
+              />
+            </QCardSection>
+            <QCardActions align="right">
+              <QBtn
+                v-close-popup
+                flat
+                :label="$t('BUTTON.CLOSE')"
+              />
+            </QCardActions>
+          </QCard>
         </QDialog>
       </QBtn>
     </div>
-    <div class="q-title q-mb-md">
+    <div class="text-h6 q-mb-md">
       {{ $t('CONFLICT.VOTING.HEADLINE', { userName: issue.affectedUser.displayName }) }}
     </div>
     <div class="q-pb-lg">
-      <div class="q-caption q-caption-opacity row inline">
+      <div class="text-caption k-caption-opacity row inline">
         <div>{{ $t('ISSUE.VOTING.TIME_LEFT') }}</div>:
         <DateAsWords
           class="q-pl-xs"
@@ -41,8 +53,8 @@
           no-suffix
         />
       </div>
-      <QProgress
-        :percentage="progress"
+      <QLinearProgress
+        :value="progress"
         style="height: 8px"
         color="secondary"
       />
@@ -57,11 +69,11 @@
             v-for="o in edit"
             :key="o.id"
           >
-            <div class="q-mt-md">
+            <div class="q-my-md">
               {{ getTitle(o.type) }}
             </div>
             <QSlider
-              v-model="o.yourScore"
+              :value="o.yourScore || 0"
               class="k-vote-slider"
               :label-value="getLabel(o.yourScore)"
               :min="-2"
@@ -70,13 +82,14 @@
               label-always
               snap
               markers
+              @input="val => o.yourScore = val"
             />
           </div>
         </div>
-        <div class="q-caption q-caption-opacity q-my-xs">
+        <div class="text-caption k-caption-opacity q-my-xs">
           {{ $t('ISSUE.VOTING.ANONYMOUS') }}
         </div>
-        <div class="row justify-end group">
+        <div class="row justify-end q-gutter-sm">
           <QBtn
             color="negative"
             @click="deleteVote"
@@ -117,9 +130,12 @@
 <script>
 import {
   QSlider,
-  QProgress,
+  QLinearProgress,
   QBtn,
   QDialog,
+  QCard,
+  QCardSection,
+  QCardActions,
 } from 'quasar'
 
 import DateAsWords from '@/utils/components/DateAsWords'
@@ -131,9 +147,12 @@ import statusMixin from '@/utils/mixins/statusMixin'
 export default {
   components: {
     QSlider,
-    QProgress,
+    QLinearProgress,
     QBtn,
     QDialog,
+    QCard,
+    QCardSection,
+    QCardActions,
     DateAsWords,
   },
   mixins: [statusMixin],
@@ -154,7 +173,7 @@ export default {
       const { expiresAt, createdAt } = this.ongoingVoting
       const duration = expiresAt - createdAt
       const elapsed = reactiveNow.value - createdAt
-      return Math.min(elapsed / duration, 1) * 100
+      return Math.min(elapsed / duration, 1)
     },
     showOverlay () {
       if (!this.edit) return

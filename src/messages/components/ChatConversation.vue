@@ -3,11 +3,13 @@
     ref="scroll"
     :class="inline && 'absolute-full scroll'"
   >
-    <slot name="beforeChatMessages" />
+    <slot name="before-chat-messages" />
     <KSpinner v-show="fetchingPast" />
-    <QInfiniteScroll :handler="maybeFetchFuture">
+    <QInfiniteScroll
+      :disable="!conversation.canFetchFuture"
+      @load="maybeFetchFuture"
+    >
       <QList
-        no-border
         class="bg-white"
       >
         <ConversationMessage
@@ -31,22 +33,26 @@
           v-if="conversation.isClosed"
           class="q-mt-md"
         >
-          <QItemSide
-            icon="fas fa-lock"
-            color="light"
-            inverted
-          />
-          <QItemMain
-            class="q-body-1"
-            :label="$t('CONVERSATION.CLOSED')"
-            label-lines="3"
-          />
+          <QItemSection avatar>
+            <QAvatar
+              color="grey-5"
+              text-color="white"
+              icon="fas fa-lock"
+            />
+          </QItemSection>
+          <QItemSection>
+            <QItemLabel class="text-body2">
+              {{ $t('CONVERSATION.CLOSED') }}
+            </QItemLabel>
+          </QItemSection>
         </QItem>
       </QList>
-      <KSpinner slot="message" />
+      <template v-slot:loading>
+        <KSpinner />
+      </template>
     </QInfiniteScroll>
-    <slot name="afterChatMessages" />
-    <QScrollObservable @scroll="onScroll" />
+    <slot name="after-chat-messages" />
+    <QScrollObserver @scroll="onScroll" />
   </div>
 </template>
 
@@ -59,9 +65,10 @@ import {
   dom,
   QList,
   QItem,
-  QItemSide,
-  QItemMain,
-  QScrollObservable,
+  QItemSection,
+  QItemLabel,
+  QAvatar,
+  QScrollObserver,
   QInfiniteScroll,
 } from 'quasar'
 const { getScrollHeight, getScrollPosition, setScrollPosition, getScrollTarget } = scroll
@@ -79,9 +86,10 @@ export default {
     KSpinner,
     QList,
     QItem,
-    QItemSide,
-    QItemMain,
-    QScrollObservable,
+    QItemSection,
+    QItemLabel,
+    QAvatar,
+    QScrollObserver,
     QInfiniteScroll,
   },
   props: {

@@ -9,8 +9,10 @@
 import subHours from 'date-fns/sub_hours'
 import subDays from 'date-fns/sub_days'
 import addDays from 'date-fns/add_days'
+import addMinutes from 'date-fns/add_minutes'
 
 import { statusMocks } from '>/helpers'
+import { optionsFor } from '@/places/placeStatus'
 
 let notificationIdCnt = 0
 export const makeNotification = data => {
@@ -29,16 +31,16 @@ let applicationIdCnt = 0
 export const makeApplication = data => {
   return {
     id: applicationIdCnt++,
-    createdAt: new Date(),
+    createdAt: subDays(new Date(), 1),
     user: makeUser(),
     group: makeGroup(),
-    conversation: null,
     questions: 'What are your motivations for joining slköaslkfjasdfasfd?',
     answers: 'I can live off fire!',
     status: 'pending',
     decidedBy: null,
     decidedAt: null,
-    type: 'application',
+    isPending: true,
+    canDecide: true,
     ...data,
   }
 }
@@ -51,7 +53,7 @@ export const makeGroup = data => {
     name: `Group ${id}`,
     description: '',
     publicDescription: '',
-    applicationQuestions: '',
+    applicationQuestions: 'Why do **you** want to join our group?',
     applicationQuestionsDefault: '',
     members: [],
     memberships: {},
@@ -67,6 +69,8 @@ export const makeGroup = data => {
       'new_application',
     ],
     isOpen: true,
+    isCurrentGroup: false,
+    isMember: false,
     trustThresholdForNewcomer: 1,
     ...data,
   }
@@ -80,12 +84,17 @@ export const makeMembership = data => {
       'editor',
     ],
     active: true,
+    isEditor: false,
     trustedBy: [],
+    trustThresholdForNewcomer: 3,
+    trusted: false,
+    trustProgress: 0,
+    trustUserStatus: statusMocks.default(),
     ...data,
   }
 }
 
-let userIdCnt = 0
+let userIdCnt = 1
 export const makeUser = data => {
   const id = userIdCnt++
   return {
@@ -94,6 +103,7 @@ export const makeUser = data => {
     photoUrls: {},
     latitude: null,
     longitude: null,
+    membership: null,
     ...data,
   }
 }
@@ -117,14 +127,15 @@ export const makeCurrentUser = data => {
     mailVerified: true,
     currentGroup: 1,
     language: 'en',
+    isCurrentUser: true,
     ...data,
   }
 }
 
-let placeIdCnt = 0
+let placeIdCnt = 1
 export const makePlace = data => {
   const id = placeIdCnt++
-  return {
+  const place = {
     id,
     name: `Place ${id}`,
     description: '',
@@ -135,6 +146,23 @@ export const makePlace = data => {
     weeksInAdvance: 4,
     status: 'active',
     isActivePlace: false,
+    isSubscribed: false,
+    statistics: null,
+    saveStatus: statusMocks.default(),
+    conversationUnreadCount: 0,
+    ...data,
+  }
+  return {
+    ...place,
+    ui: optionsFor(place),
+  }
+}
+
+export const makePlaceStatistics = data => {
+  return {
+    feedbackCount: 4,
+    feedbackWeight: 10,
+    pickupsDone: 10,
     ...data,
   }
 }
@@ -144,6 +172,7 @@ export const makePickup = data => {
   return {
     id: pickupIdCnt++,
     date: new Date(),
+    dateEnd: addMinutes(new Date(), 30),
     series: null,
     place: null,
     maxCollectors: 10,
@@ -152,6 +181,13 @@ export const makePickup = data => {
     hasStarted: false,
     description: '',
     isDisabled: false,
+    hasDuration: false,
+    isUserMember: false,
+    isEmpty: true,
+    isFull: false,
+    saveStatus: statusMocks.default(),
+    leaveStatus: statusMocks.default(),
+    joinStatus: statusMocks.default(),
     ...data,
   }
 }
@@ -162,13 +198,40 @@ export const makePickupSeries = data => {
     id: pickupSeriesIdCnt++,
     place: null,
     maxCollectors: 10,
-    byDay: ['TU'],
-    freq: 'WEEKLY',
-    isCustom: false,
-    custom: 'FREQ=WEEKLY;BYDAY=TU',
     startDate: new Date(),
     description: '',
     datesPreview: [],
+    destroyStatus: statusMocks.default(),
+    saveStatus: statusMocks.default(),
+    duration: null,
+    isSameHour: true,
+    isSameMinute: true,
+    isSameWeekday: true,
+    pickups: [],
+    rule: {
+      byDay: ['TU'],
+      custom: 'FREQ=WEEKLY;BYDAY=TU',
+      freq: 'WEEKLY',
+      isCustom: false,
+    },
+    ...data,
+  }
+}
+
+let feedbackIdCnt = 0
+export const makeFeedback = data => {
+  const group = data.group || makeGroup()
+  const place = data.place || makePlace({ group })
+  return {
+    id: feedbackIdCnt++,
+    weight: feedbackIdCnt * 10,
+    comment: `feedback ${feedbackIdCnt}`,
+    about: makePickup({ place }),
+    givenBy: makeUser(),
+    createdAt: new Date(),
+    isEditable: false,
+    place,
+    group,
     ...data,
   }
 }
@@ -213,7 +276,6 @@ export const makeIssue = data => {
     id: issueIdCnt++,
     createdAt: subDays(new Date(), 7 + 6),
     topic: 'I complain about this user',
-    type: 'conflictResolution',
     createdBy: makeUser(),
     affectedUser: makeUser(),
     group: makeGroup(),
@@ -242,7 +304,9 @@ export const makeHistory = data => {
     date: subHours(new Date(), 26),
     typus: 'GROUP_CHANGE_PHOTO',
     group: makeGroup(),
-    users: [ 222 ],
+    users: [
+      makeUser(),
+    ],
     store: null,
     message: 'Changed the group picture',
     ...data,
@@ -283,17 +347,32 @@ export const makeMessage = data => {
 }
 
 export const makeThread = data => {
+  const participants = [
+    makeUser(),
+    makeUser(),
+    makeUser(),
+  ]
+  const message = makeMessage({ author: participants[0] })
+  const firstReply = makeMessage({ author: participants[1] })
   return {
-    ...makeMessage(),
+    ...message,
     messages: [
-      makeMessage(),
-      makeMessage(),
-      makeMessage(),
+      firstReply,
+      makeMessage({ author: participants[2] }),
+      makeMessage({ author: participants[0] }),
     ],
     sendStatus: statusMocks.default(),
     fetchStatus: statusMocks.default(),
     canFetchFuture: false,
     fetchFutureStatus: statusMocks.default(),
+    threadMeta: {
+      isParticipant: true,
+      participants,
+      replyCount: 3,
+      seenUpTo: firstReply.id,
+      muted: false,
+      unreadReplyCount: 2,
+    },
     ...data,
   }
 }
@@ -326,6 +405,19 @@ export const makeConversation = data => {
       makeMessage(),
       makeMessage(),
     ],
+    ...data,
+  }
+}
+
+let invitationIdCnt = 0
+export const makeInvitation = data => {
+  return {
+    id: invitationIdCnt++,
+    email: `foo${invitationIdCnt}@foo.com`,
+    group: makeGroup(),
+    invitedBy: makeUser(),
+    expiresAt: new Date(),
+    createdAt: new Date(),
     ...data,
   }
 }

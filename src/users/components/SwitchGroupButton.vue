@@ -8,45 +8,58 @@
       class="fas fa-hand-pointer on-left"
     />
     {{ currentGroup ? currentGroup.name : $t('TOPBAR.CHANGE_GROUP') }}
-    <QModal
+    <QDialog
       v-model="showModal"
-      minimized
     >
-      <QList>
-        <QListHeader>
+      <QList
+        class="bg-white"
+        dense
+      >
+        <QItemLabel
+          header
+          class="text-weight-medium"
+        >
           {{ user.isCurrentUser ? $t('JOINGROUP.MY_GROUPS') : $t('SWITCHGROUP.COMMON_GROUPS') }}
-        </QListHeader>
+        </QItemLabel>
         <QItem
           v-for="group in commonGroups"
           :key="group.id"
-          v-close-overlay
-          link
-          @click.native="$emit('selectGroup', { groupId: group.id })"
+          v-close-popup
+          clickable
+          @click="$emit('selectGroup', { groupId: group.id })"
         >
-          <QItemMain>
+          <QItemSection>
             {{ group.name }}
-          </QItemMain>
-          <QItemSide
+          </QItemSection>
+          <QItemSection
             v-if="group.isCurrentGroup"
-            right
-            icon="fas fa-star"
-            color="secondary"
-          />
+            side
+          >
+            <QIcon
+              name="fas fa-star"
+              color="secondary"
+              size="1.1em"
+            />
+          </QItemSection>
         </QItem>
-        <QListHeader v-if="otherGroups.length > 0">
+        <QItemLabel
+          v-if="otherGroups.length > 0"
+          header
+          class="text-weight-medium"
+        >
           {{ $t('SWITCHGROUP.OTHER_GROUPS') }}
-        </QListHeader>
+        </QItemLabel>
         <QItem
           v-for="group in otherGroups"
           :key="group.id"
           :to="{ name: 'groupPreview', params: { groupPreviewId: group.id } }"
         >
-          <QItemMain>
+          <QItemSection>
             {{ group.name }}
-          </QItemMain>
+          </QItemSection>
         </QItem>
       </QList>
-    </QModal>
+    </QDialog>
   </QBtn>
 </template>
 
@@ -54,22 +67,22 @@
 import {
   QBtn,
   QList,
-  QListHeader,
+  QItemLabel,
   QItem,
-  QItemMain,
-  QItemSide,
-  QModal,
+  QItemSection,
+  QDialog,
+  QIcon,
 } from 'quasar'
 
 export default {
   components: {
     QBtn,
     QList,
-    QListHeader,
+    QItemLabel,
     QItem,
-    QItemMain,
-    QItemSide,
-    QModal,
+    QItemSection,
+    QDialog,
+    QIcon,
   },
   props: {
     groups: {

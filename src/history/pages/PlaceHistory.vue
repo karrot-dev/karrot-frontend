@@ -1,7 +1,7 @@
 <template>
   <div>
     <QCard
-      class="no-padding no-shadow grey-border"
+      class="no-shadow grey-border"
     >
       <div>
         <HistoryContainer

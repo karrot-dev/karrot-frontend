@@ -1,6 +1,6 @@
 <template>
   <div
-    class="k-about"
+    class="bg-white q-pa-md"
     @click.native="$emit('close')"
   >
     <div class="layout-padding">
@@ -11,54 +11,60 @@
         <h4 v-t="'GLOBAL.ABOUT_KARROT'" />
       </div>
 
-      <QList
-        no-border
-        link
-      >
+      <QList>
         <QItem
-          link
           tag="a"
           rel="nofollow noopener noreferrer"
           href="https://github.com/yunity/karrot-frontend"
           target="_blank"
         >
-          <QItemSide>
-            <i class="fab fa-fw fa-github" />
-          </QItemSide>
-          <QItemMain
-            :label="$t('GLOBAL.GITHUB_NOTE')"
-            :sublabel="$t('SIDENAV.GIT_SUB')"
-          />
+          <QItemSection side>
+            <QIcon name="fab fa-fw fa-github" />
+          </QItemSection>
+          <QItemSection>
+            <QItemLabel>
+              {{ $t('GLOBAL.GITHUB_NOTE') }}
+            </QItemLabel>
+            <QItemLabel caption>
+              {{ $t('SIDENAV.GIT_SUB') }}
+            </QItemLabel>
+          </QItemSection>
         </QItem>
 
         <QItem
-          link
           tag="a"
           rel="nofollow noopener noreferrer"
           href="https://foodsaving.world"
           target="_blank"
         >
-          <QItemSide>
-            <i class="fas fa-fw fa-globe" />
-          </QItemSide>
-          <QItemMain
-            label="Info"
-            :sublabel="$t('SIDENAV.INFO_SUB')"
-          />
+          <QItemSection side>
+            <QIcon name="fas fa-fw fa-globe" />
+          </QItemSection>
+
+          <QItemSection>
+            <QItemLabel>
+              Info
+            </QItemLabel>
+            <QItemLabel caption>
+              {{ $t('SIDENAV.INFO_SUB') }}
+            </QItemLabel>
+          </QItemSection>
         </QItem>
 
         <QItem
-          link
           tag="a"
           rel="nofollow noopener noreferrer"
           href="mailto:karrot@foodsaving.world"
         >
-          <QItemSide>
-            <i class="fas fa-fw fa-envelope" />
-          </QItemSide>
-          <QItemMain
-            label="karrot@foodsaving.world"
-          />
+          <QItemSection side>
+            <QIcon name="fas fa-fw fa-envelope" />
+          </QItemSection>
+
+          <QItemSection>
+            <QItemLabel>
+              karrot@foodsaving.world
+            </QItemLabel>
+          </QItemSection>
         </QItem>
       </QList>
 
@@ -74,7 +80,7 @@
         </a>
         <br><br>
         made with
-        <i class="fas fa-heart love" />
+        <i class="fas fa-heart text-red" />
         by
         <a
           href="https://foodsaving.world"
@@ -86,7 +92,7 @@
       </div>
     </div>
 
-    <div class="row justify-end generic-padding">
+    <div class="row justify-end q-mt-sm">
       <QBtn
         flat
         :label="$t('BUTTON.CLOSE')"
@@ -101,8 +107,9 @@ import {
   QBtn,
   QList,
   QItem,
-  QItemSide,
-  QItemMain,
+  QItemSection,
+  QItemLabel,
+  QIcon,
 } from 'quasar'
 
 import { mapGetters } from 'vuex'
@@ -115,8 +122,9 @@ export default {
     QBtn,
     QList,
     QItem,
-    QItemSide,
-    QItemMain,
+    QItemSection,
+    QItemLabel,
+    QIcon,
   },
   computed: {
     ...mapGetters({
@@ -167,6 +175,4 @@ export default {
     padding-left 15px
 .k-about-footer
   margin-top 50px
-.love
-  color red
 </style>

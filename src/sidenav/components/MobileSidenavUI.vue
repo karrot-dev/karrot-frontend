@@ -3,84 +3,60 @@
     <SidenavBox
       v-if="currentUserId"
     >
-      <template slot="icon">
+      <template v-slot:icon>
         <QIcon name="fas fa-fw fa-user-circle" />
       </template>
 
-      <template slot="name">
+      <template v-slot:name>
         {{ $t('USERDATA.ACCOUNT') }}
       </template>
 
-      <QList
-        no-border
-        link
-      >
-        <QItem
-          item
-          :to="{name: 'user', params: {userId: currentUserId}}"
-        >
-          <QItemSide class="text-center">
-            <i class="fas fa-user fa-fw" />
-          </QItemSide>
-          <QItemMain :label="$t('TOPBAR.USERPROFILE')" />
-        </QItem>
-
-        <QItem
-          item
-          :to="{name: 'groupsGallery'}"
-        >
-          <QItemSide class="text-center">
-            <i class="fas fa-exchange-alt" />
-          </QItemSide>
-          <QItemMain :label="$t('TOPBAR.CHANGE_GROUP')" />
-        </QItem>
-
-        <QItem
-          item
-          :to="{name: 'settings'}"
-        >
-          <QItemSide class="text-center">
-            <i class="fas fa-cog fa-fw" />
-          </QItemSide>
-          <QItemMain :label="$t('SETTINGS.TITLE')" />
-        </QItem>
-
-        <QItem
-          @click.native="$emit('logout'), $emit('toggleSidenav')"
-        >
-          <QItemSide class="text-center">
-            <i class="fas fa-sign-out-alt fa-fw" />
-          </QItemSide>
-          <QItemMain :label="$t('TOPBAR.LOGOUT')" />
-        </QItem>
-      </QList>
+      <SidenavMenu :entries="entries" />
     </SidenavBox>
   </div>
 </template>
 <script>
 
 import {
-  QList,
   QIcon,
-  QItem,
-  QItemSide,
-  QItemMain,
 } from 'quasar'
 import SidenavBox from '@/sidenav/components/SidenavBox'
+import SidenavMenu from '@/sidenav/components/SidenavMenu'
 
 export default {
   components: {
-    QList,
     QIcon,
-    QItem,
-    QItemSide,
-    QItemMain,
     SidenavBox,
+    SidenavMenu,
   },
   props: {
     currentUserId: {
       type: Number,
       default: null,
+    },
+  },
+  computed: {
+    entries () {
+      return [{
+        label: this.$t('TOPBAR.USERPROFILE'),
+        icon: 'fas fa-user fa-fw',
+        to: { name: 'user', params: { userId: this.currentUserId } },
+      }, {
+        label: this.$t('TOPBAR.CHANGE_GROUP'),
+        icon: 'fas fa-exchange-alt fa-fw',
+        to: { name: 'groupsGallery' },
+      }, {
+        label: this.$t('SETTINGS.TITLE'),
+        icon: 'fas fa-cog fa-fw',
+        to: { name: 'settings' },
+      }, {
+        label: this.$t('TOPBAR.LOGOUT'),
+        icon: 'fas fa-sign-out-alt fa-fw',
+        handler: () => {
+          this.$emit('logout')
+          this.$emit('toggleSidenav')
+        },
+      }]
     },
   },
 }

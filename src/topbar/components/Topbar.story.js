@@ -12,7 +12,7 @@ const datastore = createDatastore({
   search: require('@/topbar/datastore/search').default,
 })
 
-storiesOf('General Components', module)
+storiesOf('Topbar', module)
 
   .add('KBreadcrumb', () => defaults({
     render: h => h(KBreadcrumb, {

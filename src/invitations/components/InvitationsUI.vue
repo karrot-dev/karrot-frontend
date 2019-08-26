@@ -1,6 +1,6 @@
 <template>
   <QCard
-    class="no-mobile-margin no-padding no-shadow grey-border"
+    class="no-mobile-margin no-shadow grey-border"
   >
     <RandomArt
       :seed="groupid"
@@ -15,7 +15,6 @@
     </RandomArt>
 
     <InvitationsForm
-      :invitations="invitations"
       :status="sendStatus"
       class="q-ma-md"
       @submit="$emit('submit', arguments[0])"

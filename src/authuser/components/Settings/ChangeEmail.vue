@@ -4,36 +4,35 @@
     class="edit-box"
   >
     <VerificationWarning />
-
-    <QField
-      icon="fas fa-envelope"
+    <QInput
+      v-model="newEmail"
+      type="email"
       :label="$t('USERDATA.EMAIL')"
       :error="hasError('newEmail')"
-      :error-label="firstError('newEmail')"
+      :error-message="firstError('newEmail')"
     >
-      <QInput
-        v-model="newEmail"
-        type="email"
-      />
-    </QField>
-    <QField
-      icon="fas fa-unlock"
+      <template v-slot:before>
+        <QIcon name="fas fa-envelope" />
+      </template>
+    </QInput>
+    <QInput
+      v-model="password"
+      type="password"
       :label="$t('USERDATA.CONFIRM_PASSWORD')"
       :error="hasError('password')"
-      :error-label="firstError('password')"
+      :error-message="firstError('password')"
     >
-      <QInput
-        v-model="password"
-        type="password"
-      />
-    </QField>
+      <template v-slot:before>
+        <QIcon name="fas fa-unlock" />
+      </template>
+    </QInput>
     <div
       v-if="hasNonFieldError"
       class="text-negative"
     >
       {{ firstNonFieldError }}
     </div>
-    <div class="actionButtons">
+    <div class="row justify-end q-gutter-sm q-mt-sm">
       <QBtn
         color="primary"
         :disable="!hasEmailChanged || !hasPassword"
@@ -47,12 +46,21 @@
 </template>
 
 <script>
-import { QField, QInput, QBtn } from 'quasar'
+import {
+  QInput,
+  QBtn,
+  QIcon,
+} from 'quasar'
 import statusMixin from '@/utils/mixins/statusMixin'
 import VerificationWarning from '@/authuser/components/Settings/VerificationWarning'
 
 export default {
-  components: { QField, QInput, QBtn, VerificationWarning },
+  components: {
+    QInput,
+    QBtn,
+    QIcon,
+    VerificationWarning,
+  },
   mixins: [statusMixin],
   props: {
     user: { required: true, type: Object },

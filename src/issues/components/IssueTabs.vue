@@ -1,10 +1,9 @@
 <template>
   <QTabs
     align="justify"
-    color="secondary"
+    class="bg-secondary text-white"
   >
     <QRouteTab
-      slot="title"
       :to="{ name: 'issueChat', params: { groupId, issueId } }"
       default
       name="chat"
@@ -12,7 +11,6 @@
       :label="$q.platform.is.mobile ? '' : $t('ISSUE.CHAT')"
     />
     <QRouteTab
-      slot="title"
       :to="{ name: 'issueVote', params: { groupId, issueId } }"
       name="vote"
       icon="fas fa-vote-yea"

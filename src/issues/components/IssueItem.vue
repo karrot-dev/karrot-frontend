@@ -1,39 +1,35 @@
 <template>
   <QItem
-    link
     :to="{name: issue.isOngoing ? 'issueChat' : 'issueVote', params: { issueId: issue.id }}"
     :class="{'router-link-active': issue.isSelected}"
   >
-    <QItemSide>
+    <QItemSection side>
       <ProfilePicture
         :user="issue.affectedUser"
         :size="30"
         :is-link="false"
       />
-    </QItemSide>
-    <QItemMain>
-      <QItemTile
-        label
-      >
+    </QItemSection>
+    <QItemSection>
+      <QItemLabel>
         {{ issue.affectedUser.displayName }}
-      </QItemTile>
-      <QItemTile
-        sublabel
+      </QItemLabel>
+      <QItemLabel
+        caption
       >
         <DateAsWords
           :date="issue.createdAt"
         />
-      </QItemTile>
-    </QItemMain>
+      </QItemLabel>
+    </QItemSection>
   </QItem>
 </template>
 
 <script>
 import {
   QItem,
-  QItemMain,
-  QItemSide,
-  QItemTile,
+  QItemSection,
+  QItemLabel,
 } from 'quasar'
 
 import ProfilePicture from '@/users/components/ProfilePicture'
@@ -42,9 +38,8 @@ import DateAsWords from '@/utils/components/DateAsWords'
 export default {
   components: {
     QItem,
-    QItemMain,
-    QItemSide,
-    QItemTile,
+    QItemSection,
+    QItemLabel,
     ProfilePicture,
     DateAsWords,
   },

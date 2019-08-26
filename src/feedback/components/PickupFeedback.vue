@@ -19,16 +19,15 @@
           <div class="image-and-text-right">
             <h4>{{ $t(editFeedbackId ? 'PICKUP_FEEDBACK.EDIT' : 'PICKUP_FEEDBACK.HEADER') }}</h4>
             <p>
-              <QField
+              <QSelect
                 v-if="!editFeedbackId"
+                v-model="select"
+                :options="feedbackOptions"
                 dark
+                emit-value
+                map-options
                 class="grey-font"
-              >
-                <QSelect
-                  v-model="select"
-                  :options="feedbackOptions"
-                />
-              </QField>
+              />
               <span v-else-if="editFeedback">
                 {{ getDateWithPlace(editFeedback.about) }}
               </span>
@@ -36,10 +35,13 @@
           </div>
         </div>
       </RandomArt>
-      <div class="generic-padding">
-        <template v-if="fellowCollectors.length > 0">
-          <p v-t="'PICKUP_FEEDBACK.TOGETHER_WITH'" />
-          <p>
+      <div>
+        <div
+          v-if="fellowCollectors.length > 0"
+          class="q-mx-sm q-mt-md"
+        >
+          <div v-t="'PICKUP_FEEDBACK.TOGETHER_WITH'" />
+          <div class="q-mt-sm">
             <ProfilePicture
               v-for="user in fellowCollectors"
               :key="user.id"
@@ -47,10 +49,9 @@
               :size="35"
               class="q-ml-xs"
             />
-          </p>
-        </template>
+          </div>
+        </div>
         <FeedbackForm
-          style="padding: 1.5em 0"
           :value="feedbackDefault"
           :status="saveStatus"
           :is-bike-kitchen="isBikeKitchen"
@@ -60,11 +61,11 @@
       </div>
     </QCard>
     <KNotice v-else>
-      <template slot="icon">
+      <template v-slot:icon>
         <i class="fas fa-bed" />
       </template>
       {{ $t('FEEDBACKLIST.NO_DONE_PICKUPS') }}
-      <template slot="desc">
+      <template v-slot:desc>
         {{ $t('FEEDBACKLIST.NO_DONE_PICKUPS_HINT') }}
       </template>
     </KNotice>
@@ -92,7 +93,6 @@
 <script>
 import {
   QCard,
-  QField,
   QSelect,
 } from 'quasar'
 import FeedbackList from './FeedbackList'
@@ -106,7 +106,6 @@ export default {
     RandomArt,
     ProfilePicture,
     QCard,
-    QField,
     QSelect,
     FeedbackForm,
     FeedbackList,

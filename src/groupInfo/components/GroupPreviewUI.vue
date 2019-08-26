@@ -1,8 +1,8 @@
 <template>
   <div v-if="group">
     <QCard class="shadow-6">
-      <QCardMedia
-        class="photo"
+      <div
+        class="photo text-white relative-position"
         :class="{ hasPhoto: group.hasPhoto }"
       >
         <img
@@ -15,22 +15,24 @@
           type="circles"
           class="full-height"
         />
-        <QCardTitle
-          slot="overlay"
-        >
-          <span class="row group items-start">
-            {{ group.name }}
-            <QIcon
-              v-if="group.isPlayground"
-              name="fas fa-child"
-            />
-          </span>
-          <span slot="subtitle">
-            {{ group.members.length }} {{ $tc('JOINGROUP.NUM_MEMBERS', group.members.length) }}
-          </span>
-        </QCardTitle>
-      </QCardMedia>
-      <QCardMain>
+        <div class="absolute-bottom k-media-overlay q-pa-md">
+          <div
+            class="ellipsis"
+          >
+            <span class="row group items-start text-h6">
+              {{ group.name }}
+              <QIcon
+                v-if="group.isPlayground"
+                name="fas fa-child"
+              />
+            </span>
+            <span class="text-subtitle2">
+              {{ group.members.length }} {{ $tc('JOINGROUP.NUM_MEMBERS', group.members.length) }}
+            </span>
+          </div>
+        </div>
+      </div>
+      <QCardSection>
         <div
           v-if="group.publicDescription"
         >
@@ -42,34 +44,45 @@
         >
           {{ $t('JOINGROUP.NO_PUBLIC_DESCRIPTION') }}
         </span>
-      </QCardMain>
-      <QCardSeparator />
+      </QCardSection>
+      <QSeparator />
       <QCardActions>
         <div style="width: 100%">
           <template v-if="isLoggedIn">
             <template v-if="!group.isMember">
-              <QAlert
+              <QBanner
                 v-if="!application"
-                color="info"
-                icon="info"
+                class="bg-info"
               >
                 {{ $t('JOINGROUP.PROFILE_NOTE' ) }}
-              </QAlert>
-              <QAlert
+                <template v-slot:avatar>
+                  <QIcon
+                    name="info"
+                    style="font-size: 24px"
+                  />
+                </template>
+              </QBanner>
+              <QBanner
                 v-if="application"
-                color="blue"
-                icon="info"
+                class="bg-blue text-white"
                 :actions="[
                   { label: $t('BUTTON.OPEN'), icon: 'fas fa-fw fa-comments', handler: () => $emit('openChat', application) },
                   { label: $t('BUTTON.WITHDRAW'), icon: 'fas fa-fw fa-trash-alt', handler: withdraw }
                 ]"
               >
                 {{ $t('JOINGROUP.APPLICATION_PENDING' ) }}
-              </QAlert>
+                <template v-slot:avatar>
+                  <QIcon
+                    name="info"
+                    color="white"
+                    style="font-size: 24px"
+                  />
+                </template>
+              </QBanner>
               <QBtn
                 v-if="group.isOpen"
                 color="secondary"
-                class="float-right generic-margin"
+                class="float-right q-ma-xs"
                 :loading="isPending"
                 @click="$emit('join', group.id)"
               >
@@ -79,7 +92,7 @@
               <QBtn
                 v-if="!group.isOpen && user && !user.mailVerified"
                 color="secondary"
-                class="float-right generic-margin"
+                class="float-right q-ma-xs"
                 :loading="isPending"
                 @click="$emit('goSettings')"
               >
@@ -88,7 +101,7 @@
               <QBtn
                 v-if="!group.isOpen && user && user.mailVerified && !application"
                 color="secondary"
-                class="float-right generic-margin"
+                class="float-right q-ma-xs"
                 :loading="isPending"
                 @click="$emit('goApply', group.id)"
               >
@@ -97,7 +110,7 @@
             </template>
             <QBtn
               v-else
-              class="q-btn-flat"
+              flat
               @click="$emit('goVisit', group.id)"
             >
               <QIcon name="fas fa-home" />
@@ -110,7 +123,7 @@
           <QBtn
             v-else
             color="secondary"
-            class="float-right generic-margin"
+            class="float-right q-ma-xs"
             :loading="isPending"
             @click="$emit('goSignup', group)"
           >
@@ -127,14 +140,12 @@ import {
   Dialog,
   QTooltip,
   QCard,
-  QCardTitle,
-  QCardMain,
-  QCardSeparator,
+  QCardSection,
+  QSeparator,
   QCardActions,
-  QCardMedia,
   QBtn,
   QIcon,
-  QAlert,
+  QBanner,
 } from 'quasar'
 import Markdown from '@/utils/components/Markdown'
 import statusMixin from '@/utils/mixins/statusMixin'
@@ -143,15 +154,13 @@ import RandomArt from '@/utils/components/RandomArt'
 export default {
   components: {
     QCard,
-    QCardTitle,
-    QCardMain,
-    QCardSeparator,
+    QCardSection,
+    QSeparator,
     QCardActions,
-    QCardMedia,
     QBtn,
     QIcon,
     QTooltip,
-    QAlert,
+    QBanner,
     Markdown,
     RandomArt,
   },
@@ -187,8 +196,7 @@ export default {
         ok: this.$t('BUTTON.YES'),
         cancel: this.$t('BUTTON.CANCEL'),
       })
-        .then(() => this.$emit('withdraw', this.application.id))
-        .catch(() => {})
+        .onOk(() => this.$emit('withdraw', this.application.id))
     },
   },
 }
@@ -207,4 +215,6 @@ export default {
     max-width 100%
     width auto
     margin 0 auto
+  .k-media-overlay
+    background-color rgba(0,0,0,0.47)
 </style>

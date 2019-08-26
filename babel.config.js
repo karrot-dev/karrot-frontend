@@ -28,7 +28,7 @@ module.exports = {
         // This changes things like `import { QBtn } from 'quasar'` into `import QBtn from 'quasar/blah/QBtn'`
         ['babel-plugin-transform-imports', {
           quasar: {
-            transform: 'quasar-framework/dist/babel-transforms/imports.mat.js',
+            transform: 'quasar/dist/babel-transforms/imports.js',
             preventFullImport: true,
           },
         }],

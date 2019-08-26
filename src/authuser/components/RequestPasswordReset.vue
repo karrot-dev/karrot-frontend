@@ -4,28 +4,25 @@
       name="requestPasswordReset"
       @submit.prevent="$emit('submit', email)"
     >
-      <div>
+      <div class="q-gutter-md">
         <p>
           {{ $t('PASSWORDRESET.INTRO') }}
         </p>
-        <div class="white-box">
-          <QField icon="fas fa-envelope">
-            <QInput
-              v-model="email"
-              :autofocus="true"
-              :float-label="$t('PASSWORDRESET.EMAIL')"
-              type="email"
-              autocorrect="off"
-              autocapitalize="off"
-              spellcheck="false"
-              :error="hasError('email')"
-            />
-          </QField>
-        </div>
+        <SplashInput
+          v-model="email"
+          icon="fas fa-envelope"
+          autofocus
+          :label="$t('PASSWORDRESET.EMAIL')"
+          type="email"
+          autocorrect="off"
+          autocapitalize="off"
+          spellcheck="false"
+          :error="hasError('email')"
+        />
 
         <div
           v-if="hasAnyError"
-          class="error"
+          class="text-warning"
         >
           <i class="fas fa-exclamation-triangle" />
           {{ anyFirstError }}
@@ -54,11 +51,17 @@
 </template>
 
 <script>
-import { QField, QInput, QBtn } from 'quasar'
+import {
+  QBtn,
+} from 'quasar'
 import statusMixin from '@/utils/mixins/statusMixin'
+import SplashInput from '@/utils/components/SplashInput'
 
 export default {
-  components: { QField, QInput, QBtn },
+  components: {
+    QBtn,
+    SplashInput,
+  },
   mixins: [statusMixin],
   data () {
     return {
@@ -67,7 +70,3 @@ export default {
   },
 }
 </script>
-
-<style scoped lang="stylus">
-@import '~variables'
-</style>

@@ -5,7 +5,7 @@
       "paths": {
         "@/*": ["./src/*"],
         ">/*": ["./test"],
-        "quasar": ["./node_modules/quasar-framework/dist/quasar.mat.esm.js"]
+        "quasar": ["./node_modules/quasar/dist/quasar.esm.js"]
       }
   },
   "include": [

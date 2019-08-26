@@ -1,58 +1,84 @@
 <template>
-  <QItem multiline>
-    <QItemSide v-if="!slim">
+  <QItem>
+    <QItemSection
+      v-if="!slim"
+      side
+      top
+      class="q-mt-xs q-pr-sm"
+    >
       <ProfilePicture
         :user="user"
         :size="40"
-        style="margin-top: 36px"
       />
-    </QItemSide>
-    <QItemMain>
-      <QItemTile>
-        <QField
+    </QItemSection>
+    <QItemSection>
+      <QItemLabel>
+        <MarkdownInput
+          ref="input"
+          v-model="message"
+          dense
+          :placeholder="placeholder"
+          :loading="isPending"
+          :disable="isPending"
           :error="hasAnyError"
-          :error-label="anyFirstError"
+          :error-message="anyFirstError"
+          input-style="min-height: unset"
+          @keyup.ctrl.enter="submit"
+          @keyup.esc="leaveEdit"
+          @focus="onFocus"
+          @blur="onBlur"
         >
-          <Component
-            :is="slim ? 'div' : 'MarkdownInput'"
-            :value="message"
-          >
-            <QInput
-              ref="input"
-              v-model="message"
-              type="textarea"
-              rows="1"
-              :placeholder="placeholder"
-              :after="afterInput"
-              :loading="isPending"
-              :disable="isPending"
-              @keyup.ctrl.enter="submit"
-              @keyup.esc="leaveEdit"
-              @focus="onFocus"
-              @blur="onBlur"
+          <template v-slot:append>
+            <QBtn
+              v-if="message"
+              round
+              dense
+              flat
+              icon="fas fa-arrow-right"
+              @click="submit"
             />
-          </Component>
-        </QField>
-      </QItemTile>
-      <QItemTile
+            <QBtn
+              v-if="value"
+              round
+              dense
+              flat
+              icon="fas fa-times"
+              @click="leaveEdit"
+            />
+          </template>
+        </MarkdownInput>
+      </QItemLabel>
+      <QItemLabel
         v-if="!isParticipant"
         v-t="'CONVERSATION.NOT_PARTICIPATED'"
-        sublabel
-        class="q-mt-md q-caption"
+        caption
+        class="q-pt-md q-pl-xs"
       />
-    </QItemMain>
+    </QItemSection>
   </QItem>
 </template>
 
 <script>
+import {
+  QItem,
+  QItemSection,
+  QItemLabel,
+  QBtn,
+} from 'quasar'
 import ProfilePicture from '@/users/components/ProfilePicture'
-import { QItem, QItemMain, QInput, QField, QBtn, QItemSide, QItemTile } from 'quasar'
-import statusMixin from '@/utils/mixins/statusMixin'
 import MarkdownInput from '@/utils/components/MarkdownInput'
+import statusMixin from '@/utils/mixins/statusMixin'
 
 export default {
   name: 'ConversationCompose',
-  components: { QItem, QField, QInput, QBtn, QItemMain, QItemSide, QItemTile, ProfilePicture, MarkdownInput },
+  components: {
+    QItem,
+    QItemSection,
+    QItemLabel,
+    QBtn,
+    ProfilePicture,
+    MarkdownInput,
+  },
   mixins: [statusMixin],
   props: {
     placeholder: {
@@ -81,15 +107,6 @@ export default {
       message: (this.value) || '',
       hasFocus: false,
     }
-  },
-  computed: {
-    afterInput () {
-      let actions = [{ icon: 'fas fa-arrow-right', content: true, handler: this.submit }]
-      if (this.value) {
-        actions.push({ icon: 'fas fa-times', handler: this.leaveEdit })
-      }
-      return actions
-    },
   },
   watch: {
     value (val) {

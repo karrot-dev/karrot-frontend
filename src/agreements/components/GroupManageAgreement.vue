@@ -12,10 +12,10 @@
     </QCard>
 
     <QCard v-else>
-      <QCardMain class="generic-padding">
+      <QCardSection class="generic-padding">
         <p>{{ $t('AGREEMENT.BLURB1') }}</p>
         <p>{{ $t('AGREEMENT.BLURB2') }}</p>
-      </QCardMain>
+      </QCardSection>
       <QCardActions class="generic-padding">
         <QBtn
           color="primary"
@@ -31,7 +31,7 @@
 <script>
 import {
   QCard,
-  QCardMain,
+  QCardSection,
   QCardActions,
   QBtn,
 } from 'quasar'
@@ -42,7 +42,7 @@ export default {
   name: 'GroupManageAgreement',
   components: {
     QCard,
-    QCardMain,
+    QCardSection,
     QCardActions,
     QBtn,
     AgreementForm,

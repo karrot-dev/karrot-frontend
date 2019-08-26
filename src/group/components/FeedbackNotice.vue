@@ -2,12 +2,11 @@
   <div>
     <RouterLink :to="{name: 'giveFeedback'}">
       <QCard
-        color="info"
-        class="generic-padding notice"
+        class="q-pa-md notice bg-info"
       >
-        <i
+        <QIcon
           class="on-left"
-          :class="$icon('feedback')"
+          :name="$icon('feedback')"
         />
         {{ $tc('PICKUPLIST.AVAILABLE_FEEDBACK', feedbackPossible.length, { count: feedbackPossible.length }) }}
       </QCard>
@@ -16,10 +15,16 @@
 </template>
 
 <script>
-import { QCard } from 'quasar'
+import {
+  QCard,
+  QIcon,
+} from 'quasar'
 
 export default {
-  components: { QCard },
+  components: {
+    QCard,
+    QIcon,
+  },
   props: {
     feedbackPossible: { required: true, type: Array },
   },

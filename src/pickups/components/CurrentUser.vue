@@ -11,7 +11,7 @@
       :is-link="false"
     />
     <div
-      class="absolute-full leave-icon"
+      class="absolute-full leave-icon vertical-top"
       :style="{ 'font-size': size*0.8 + 'px' }"
       :title="$t('PICKUPLIST.ITEM.LEAVE')"
     >
@@ -55,8 +55,9 @@ export default {
     visibility hidden
     color $negative
     border 2px dashed
-    border-radius $borderRadius
+    border-radius 0
     text-align center
+    padding-top 2px
     i
       display inline
 .user-slot-wrapper:hover

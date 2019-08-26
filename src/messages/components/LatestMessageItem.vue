@@ -1,20 +1,21 @@
 <template>
   <QItem
-    link
     :class="{ isUnread: unreadCount > 0 && !muted, selected }"
-    @click.native="$emit('open')"
+    clickable
+    @click="$emit('open')"
   >
-    <QItemSide
+    <QItemSection
       v-if="isPrivate || isApplication"
+      side
+      class="q-pr-sm"
     >
       <ProfilePicture
         :user="user || application.user"
-        :size="$q.platform.is.mobile ? 35 : 40"
+        :size="$q.platform.is.mobile ? 30 : 35"
       />
-    </QItemSide>
-    <QItemMain>
-      <QItemTile
-        label
+    </QItemSection>
+    <QItemSection>
+      <QItemLabel
         class="row no-wrap justify-between items-baseline"
       >
         <div class="row no-wrap items-baseline ellipsis">
@@ -103,20 +104,19 @@
             />
           </small>
         </span>
-      </QItemTile>
-      <QItemTile
+      </QItemLabel>
+      <QItemLabel
         v-if="isPickup"
-        label
         class="q-mb-xs"
       >
         <small>
           {{ pickup.place && pickup.place.name }} ·
           {{ $d(pickup.date, 'yearMonthDay') }}
         </small>
-      </QItemTile>
-      <QItemTile
+      </QItemLabel>
+      <QItemLabel
         v-if="message"
-        sublabel
+        caption
         class="row no-wrap items-baseline"
         style="max-height: 18px"
       >
@@ -135,26 +135,23 @@
         <div class="ellipsis col">
           {{ message.content }}
         </div>
-        <QChip
+        <QBadge
           v-if="unreadCount > 0"
-          round
           :color="muted ? 'grey' : 'secondary'"
-          class="inline-chip"
         >
           {{ unreadCount > 99 ? '99+' : unreadCount }}
-        </QChip>
-      </QItemTile>
-    </QItemMain>
+        </QBadge>
+      </QItemLabel>
+    </QItemSection>
   </QItem>
 </template>
 
 <script>
 import {
   QItem,
-  QItemMain,
-  QItemTile,
-  QItemSide,
-  QChip,
+  QItemSection,
+  QItemLabel,
+  QBadge,
   QIcon,
 } from 'quasar'
 import DateAsWords from '@/utils/components/DateAsWords'
@@ -163,10 +160,9 @@ import ProfilePicture from '@/users/components/ProfilePicture'
 export default {
   components: {
     QItem,
-    QItemMain,
-    QItemTile,
-    QItemSide,
-    QChip,
+    QItemSection,
+    QItemLabel,
+    QBadge,
     QIcon,
     DateAsWords,
     ProfilePicture,
@@ -264,13 +260,6 @@ export default {
 .message-content
   width 100%
   overflow hidden
-
-.q-chip.inline-chip
-  position relative
-  bottom -3px
-  min-height 22px
-  padding 0 7px
-  margin-left 2px
 
 .selected
   background $item-highlight-color

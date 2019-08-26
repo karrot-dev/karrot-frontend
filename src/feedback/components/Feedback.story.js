@@ -1,4 +1,4 @@
-import { storybookDefaults as defaults, statusMocks } from '>/helpers'
+import { storybookDefaults as defaults, statusMocks, createDatastore } from '>/helpers'
 import { storiesOf } from '@storybook/vue'
 
 import AmountPicker from './AmountPicker'
@@ -6,15 +6,44 @@ import AmountBox from './AmountBox'
 import PickupFeedback from './PickupFeedback'
 import FeedbackItem from './FeedbackItem'
 import FeedbackList from './FeedbackList'
+import PlaceFeedback from './PlaceFeedback'
+
 import { feedbackMock, placesMock, pickupsMock } from '>/mockdata'
+import * as factories from '>/enrichedFactories'
+
+const range = n => [...Array(n).keys()]
+
+const datastore = createDatastore({
+  places: { getters: { activePlace: () => factories.makePlace({ statistics: factories.makePlaceStatistics() }) } },
+  feedback: { getters: {
+    byActivePlace: () => range(5).map(factories.makeFeedback),
+    fetchStatus: () => statusMocks.default(),
+    canFetchPast: () => false,
+    fetchPastStatus: () => statusMocks.default(),
+  } },
+  pickups: { getters: {
+    feedbackPossibleByActivePlace: () => range(2).map(factories.makePickup),
+    fetchFeedbackPossibleStatus: () => statusMocks.default(),
+  } },
+})
 
 storiesOf('Statistics', module)
   .add('AmountPicker', () => defaults({
-    render: h => h(AmountPicker, {
-      props: {
+    data () {
+      return {
         value: 1,
-      },
-    }),
+      }
+    },
+    render (h) {
+      return h(AmountPicker, {
+        props: {
+          value: this.value,
+        },
+        on: {
+          input: v => { this.value = v },
+        },
+      })
+    },
   }))
   .add('AmountBox', () => defaults({
     render: h => h(AmountBox, {
@@ -31,14 +60,15 @@ storiesOf('Statistics', module)
           collectors: pickup.collectors.map(user => ({
             ...user,
             membership: {
-              isEditor: Math.random() > 0.5,
-              trusted: Math.random() > 0.5,
+              isEditor: true,
+              trusted: true,
             },
           })),
         })),
         existingFeedback: feedbackMock,
         saveStatus: statusMocks.default(),
         fetchStatus: statusMocks.default(),
+        seedId: 1,
       },
     }),
   }))
@@ -57,4 +87,8 @@ storiesOf('Statistics', module)
         status: statusMocks.default(),
       },
     }),
+  }))
+  .add('PlaceFeedback', () => defaults({
+    render: h => h(PlaceFeedback),
+    store: datastore,
   }))

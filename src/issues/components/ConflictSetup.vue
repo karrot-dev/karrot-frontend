@@ -55,50 +55,47 @@
         >
           <p><strong> {{ $t('CONFLICT.STEPPER4a') }} </strong></p>
           <p>{{ $t('CONFLICT.STEPPER4b', { userName: user.displayName }) }}</p>
-          <MarkdownInput :value="initialStatement">
-            <QInput
-              id="initial-statement"
-              v-model="initialStatement"
-              type="textarea"
-              rows="6"
-              @keyup.ctrl.enter="submit"
-            />
-          </MarkdownInput>
+          <MarkdownInput
+            v-model="initialStatement"
+            @keyup.ctrl.enter="submit"
+          />
         </QStep>
-        <QStepperNavigation>
-          <QBtn
-            flat
-            color="secondary"
-            @click="$emit('close')"
-          >
-            {{ $t('BUTTON.CANCEL') }}
-          </QBtn>
-          <QBtn
-            v-if="setup !== 'attention'"
-            flat
-            color="secondary"
-            @click="$refs.setup.previous()"
-          >
-            {{ $t('BUTTON.BACK') }}
-          </QBtn>
-          <QBtn
-            v-if="setup !== 'statement'"
-            flat
-            color="secondary"
-            @click="$refs.setup.next()"
-          >
-            {{ $t('BUTTON.NEXT') }}
-          </QBtn>
-          <QBtn
-            v-if="setup == 'statement'"
-            flat
-            color="secondary"
-            :loading="isPending"
-            @click="submit"
-          >
-            {{ $t('BUTTON.SUBMIT') }}
-          </QBtn>
-        </QStepperNavigation>
+        <template v-slot:navigation>
+          <QStepperNavigation>
+            <QBtn
+              flat
+              color="secondary"
+              @click="$emit('close')"
+            >
+              {{ $t('BUTTON.CANCEL') }}
+            </QBtn>
+            <QBtn
+              v-if="setup !== 'attention'"
+              flat
+              color="secondary"
+              @click="$refs.setup.previous()"
+            >
+              {{ $t('BUTTON.BACK') }}
+            </QBtn>
+            <QBtn
+              v-if="setup !== 'statement'"
+              flat
+              color="secondary"
+              @click="$refs.setup.next()"
+            >
+              {{ $t('BUTTON.NEXT') }}
+            </QBtn>
+            <QBtn
+              v-if="setup == 'statement'"
+              flat
+              color="secondary"
+              :loading="isPending"
+              @click="submit"
+            >
+              {{ $t('BUTTON.SUBMIT') }}
+            </QBtn>
+          </QStepperNavigation>
+        </template>
       </QStepper>
       <div
         v-if="hasAnyError"
@@ -117,7 +114,6 @@ import {
   QStep,
   QStepperNavigation,
   QBtn,
-  QInput,
 } from 'quasar'
 import MarkdownInput from '@/utils/components/MarkdownInput'
 import statusMixin from '@/utils/mixins/statusMixin'
@@ -128,7 +124,6 @@ export default {
     QStepper,
     QStepperNavigation,
     QBtn,
-    QInput,
     MarkdownInput,
   },
   mixins: [statusMixin],

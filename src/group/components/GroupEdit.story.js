@@ -4,15 +4,10 @@ import { statusMocks, storybookDefaults as defaults } from '>/helpers'
 
 import GroupEdit from './GroupEdit'
 
-import { groupsMock, timezones as tzlist } from '>/mockdata'
+import { groupsMock, timezones } from '>/mockdata'
 
 const methods = {
   save: action('save group'),
-}
-
-const timezones = {
-  field: 'value',
-  list: tzlist.map(e => ({ value: e, label: e })),
 }
 
 storiesOf('GroupEdit', module)

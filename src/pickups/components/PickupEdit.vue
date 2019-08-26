@@ -3,114 +3,222 @@
     class="edit-box"
     :class="{ changed: hasChanged }"
   >
-    <b
-      v-if="edit.isDisabled"
-      class="text-negative"
-    >
-      {{ $t('PICKUPLIST.PICKUP_DISABLED') }}
-    </b>
+    <div class="q-mb-lg">
+      <b
+        v-if="edit.isDisabled"
+        class="text-negative"
+      >
+        {{ $t('PICKUPLIST.PICKUP_DISABLED') }}
+      </b>
+    </div>
 
-    <form @submit.prevent="maybeSave">
+    <form
+      class="q-gutter-y-lg"
+      style="max-width: 700px"
+      @submit.prevent="maybeSave"
+    >
       <template v-if="canEditDate">
-        <QField
-          icon="access time"
-          :label="$t('CREATEPICKUP.TIME')"
-          :helper="$t('CREATEPICKUP.TIME_HELPER')"
-          :error="hasError('date')"
-          :error-label="firstError('date')"
-        >
-          <div class="row">
-            <QDatetime
-              v-model="date"
-              type="time"
-              :format24h="is24h"
-              :display-value="$d(date, 'hourMinute')"
-            />
-            <template v-if="edit.hasDuration">
-              <div
-                v-t="'TO'"
-                class="q-pa-sm"
+        <div class="row q-mt-xs">
+          <QInput
+            ref="qStartDate"
+            v-model="startDate"
+            mask="####-##-##"
+            :error="hasError('date')"
+            size="9"
+            hide-bottom-space
+            class="q-mr-sm"
+            @focus="$refs.qStartDateProxy.show()"
+            @blur="$refs.qStartDateProxy.hide()"
+          >
+            <template v-slot:before>
+              <QIcon name="access_time" />
+            </template>
+            <Component
+              :is="smallScreen ? 'QDialog' : 'QMenu'"
+              ref="qStartDateProxy"
+              no-focus
+              no-refocus
+              no-parent-event
+              @hide="$refs.qStartDate.blur()"
+            >
+              <QDate
+                v-model="startDate"
+                :options="futureDates"
+                mask="YYYY-MM-DD"
               />
-              <QDatetime
-                v-model="dateEnd"
-                type="time"
-                no-parent-field
-                :format24h="is24h"
-                :display-value="$d(edit.dateEnd, 'hourMinute') + ' (' + formattedDuration + ')'"
-                :after="[{ icon: 'cancel', handler: toggleDuration }]"
+            </Component>
+          </QInput>
+          <QInput
+            ref="qStartTime"
+            v-model="startTime"
+            mask="time"
+            :rules="['time']"
+            size="3"
+            :error="hasError('date')"
+            hide-bottom-space
+            @blur="$refs.qStartTimeProxy.hide()"
+            @focus="$refs.qStartTimeProxy.show()"
+          >
+            <Component
+              :is="smallScreen ? 'QDialog' : 'QMenu'"
+              ref="qStartTimeProxy"
+              no-focus
+              no-refocus
+              no-parent-event
+              @hide="$refs.qStartTime.blur()"
+            >
+              <QTime
+                v-model="startTime"
+                mask="HH:mm"
+                format24h
+                @input="() => smallScreen && $refs.qStartTimeProxy.hide()"
+              />
+            </Component>
+            <template v-slot:after>
+              <QBtn
+                v-if="!hasDuration"
+                size="xs"
+                round
+                flat
+                icon="fas fa-plus"
+                class="q-ml-xs"
+                @click="toggleDuration"
               />
             </template>
-            <QBtn
-              v-else
-              class="q-ml-sm q-mt-sm no-shadow"
-              size="xs"
-              round
-              color="grey"
-              icon="fas fa-plus"
-              @click.stop.prevent="toggleDuration"
+          </QInput>
+          <template v-if="hasDuration">
+            <div
+              v-t="'TO'"
+              class="q-px-md self-center"
             />
+            <QInput
+              ref="qEndTime"
+              v-model="endTime"
+              mask="time"
+              :rules="['time']"
+              size="3"
+              :error="hasError('date')"
+              hide-bottom-space
+              @blur="$refs.qEndTimeProxy.hide()"
+              @focus="$refs.qEndTimeProxy.show()"
+            >
+              <Component
+                :is="smallScreen ? 'QDialog' : 'QMenu'"
+                ref="qEndTimeProxy"
+                no-focus
+                no-refocus
+                no-parent-event
+                @hide="$refs.qEndTime.blur()"
+              >
+                <QTime
+                  v-model="endTime"
+                  mask="HH:mm"
+                  format24h
+                  @input="() => smallScreen && $refs.qEndTimeProxy.hide()"
+                />
+              </Component>
+              <template v-slot:after>
+                <QIcon
+                  color="grey"
+                  name="cancel"
+                  class="cursor-pointer"
+                  @click="toggleDuration"
+                />
+                <div class="text-caption q-ml-xs">
+                  ({{ formattedDuration }})
+                </div>
+              </template>
+            </QInput>
+          </template>
+          <div class="q-ml-lg col-12 q-field__bottom">
+            <div
+              v-if="hasError('date')"
+              class="text-negative"
+            >
+              {{ firstError('date') }}
+            </div>
+            <div
+              v-else
+            >
+              {{ $t('CREATEPICKUP.TIME_HELPER') }}
+            </div>
           </div>
-        </QField>
-
-        <QField
-          icon="today"
-          :label="$t('CREATEPICKUP.DATE')"
-          :helper="$t('CREATEPICKUP.DATE_HELPER')"
-          :error="hasError('date')"
-          :error-label="firstError('date')"
-        >
-          <QDatetime
-            v-model="date"
-            type="date"
-            :min="now"
-            :display-value="$d(date, 'yearMonthDay')"
-          />
-        </QField>
+        </div>
       </template>
 
-      <QField
-        icon="group"
-        :label="$t('CREATEPICKUP.MAX_COLLECTORS')"
-        :helper="$t('CREATEPICKUP.MAX_COLLECTORS_HELPER')"
-        :error="hasError('maxCollectors')"
-        :error-label="firstError('maxCollectors')"
-        :warning="seriesMeta.isMaxCollectorsChanged"
-        :warning-label="$t('CREATEPICKUP.DIFFERS_WARNING')"
-      >
+      <div>
         <QInput
-          v-model="edit.maxCollectors"
+          v-model.number="edit.maxCollectors"
           type="number"
+          stack-label
+          :label="$t('CREATEPICKUP.MAX_COLLECTORS')"
+          :hint="$t('CREATEPICKUP.MAX_COLLECTORS_HELPER')"
           :placeholder="$t('CREATEPICKUP.UNLIMITED')"
-          :after="[resetToSeriesButton('maxCollectors')]"
-        />
-        <QSlider
-          v-if="edit.maxCollectors > 0 && edit.maxCollectors <= 10"
-          v-model="edit.maxCollectors"
-          :min="1"
-          :max="10"
-          label
-          label-always
-          :color="seriesMeta.isMaxCollectorsChanged ? 'warning' : ''"
-        />
-      </QField>
+          :error="hasError('maxCollectors')"
+          :error-message="firstError('maxCollectors')"
+          input-style="max-width: 100px"
+        >
+          <template v-slot:before>
+            <QIcon name="group" />
+          </template>
+          <QSlider
+            v-if="edit.maxCollectors > 0 && edit.maxCollectors <= 10"
+            v-model="edit.maxCollectors"
+            :min="1"
+            :max="10"
+            label
+            markers
+            class="q-mx-sm self-end"
+            style="min-width: 60px"
+          />
+          <template v-slot:after>
+            <QIcon
+              v-if="series ? series.maxCollectors !== edit.maxCollectors : false"
+              name="undo"
+              @click="edit.maxCollectors = series.maxCollectors"
+            />
+          </template>
+        </QInput>
+        <div
+          v-if="seriesMeta.isMaxCollectorsChanged"
+          class="q-ml-lg col-12 q-field__bottom text-warning"
+        >
+          <QIcon name="warning" />
+          {{ $t('CREATEPICKUP.DIFFERS_WARNING') }}
+        </div>
+      </div>
 
-      <QField
-        icon="info"
-        :label="$t('CREATEPICKUP.COMMENT')"
-        :helper="$t('CREATEPICKUP.COMMENT_HELPER')"
-        :error="hasError('description')"
-        :error-label="firstError('description')"
-        :warning="seriesMeta.isDescriptionChanged"
-        :warning-label="$t('CREATEPICKUP.DIFFERS_WARNING')"
-      >
+      <div>
         <QInput
           v-model="edit.description"
+          :error="hasError('description')"
+          :error-message="firstError('description')"
+          :label="$t('CREATEPICKUP.COMMENT')"
+          :hint="$t('CREATEPICKUP.COMMENT_HELPER')"
           type="textarea"
-          max-length="500"
-          :after="[resetToSeriesButton('description')]"
+          maxlength="500"
+          autogrow
           @keyup.ctrl.enter="maybeSave"
-        />
-      </QField>
+        >
+          <template v-slot:before>
+            <QIcon name="info" />
+          </template>
+          <template v-slot:after>
+            <QIcon
+              v-if="series ? series.description !== edit.description : false"
+              name="undo"
+              @click="edit.description = series.description"
+            />
+          </template>
+        </QInput>
+        <div
+          v-if="seriesMeta.isDescriptionChanged"
+          class="q-ml-lg col-12 q-field__bottom text-warning"
+        >
+          <QIcon name="warning" />
+          {{ $t('CREATEPICKUP.DIFFERS_WARNING') }}
+        </div>
+      </div>
 
       <div
         v-if="hasNonFieldError"
@@ -118,14 +226,22 @@
       >
         {{ firstNonFieldError }}
       </div>
-      <div class="actionButtons">
+      <div class="row justify-end q-gutter-sm q-mt-md">
         <QBtn
-          type="submit"
-          color="primary"
-          :disable="!canSave"
-          :loading="isPending"
+          v-if="isNew"
+          type="button"
+          @click="$emit('cancel')"
         >
-          {{ $t(isNew ? 'BUTTON.CREATE' : 'BUTTON.SAVE_CHANGES') }}
+          {{ $t('BUTTON.CANCEL') }}
+        </QBtn>
+
+        <QBtn
+          v-if="!isNew"
+          type="button"
+          :disable="!hasChanged"
+          @click="reset"
+        >
+          {{ $t('BUTTON.RESET') }}
         </QBtn>
 
         <QBtn
@@ -147,20 +263,12 @@
         </QBtn>
 
         <QBtn
-          v-if="!isNew"
-          type="button"
-          :disable="!hasChanged"
-          @click="reset"
+          type="submit"
+          color="primary"
+          :disable="!canSave"
+          :loading="isPending"
         >
-          {{ $t('BUTTON.RESET') }}
-        </QBtn>
-
-        <QBtn
-          v-if="isNew"
-          type="button"
-          @click="$emit('cancel')"
-        >
-          {{ $t('BUTTON.CANCEL') }}
+          {{ $t(isNew ? 'BUTTON.CREATE' : 'BUTTON.SAVE_CHANGES') }}
         </QBtn>
       </div>
     </form>
@@ -169,15 +277,18 @@
 
 <script>
 import {
-  QDatetime,
-  QField,
+  QDate,
+  QTime,
   QSlider,
   QInput,
   QBtn,
+  QIcon,
+  QMenu,
+  QDialog,
   Dialog,
+  date,
 } from 'quasar'
 
-import { is24h } from '@/base/i18n'
 import editMixin from '@/utils/mixins/editMixin'
 import statusMixin from '@/utils/mixins/statusMixin'
 import reactiveNow from '@/utils/reactiveNow'
@@ -192,11 +303,14 @@ import { objectDiff } from '@/utils/utils'
 export default {
   name: 'PickupEdit',
   components: {
-    QDatetime,
-    QField,
+    QDate,
+    QTime,
     QSlider,
     QInput,
     QBtn,
+    QIcon,
+    QMenu,
+    QDialog,
   },
   mixins: [editMixin, statusMixin],
   props: {
@@ -206,7 +320,6 @@ export default {
     },
   },
   computed: {
-    is24h,
     now () {
       return reactiveNow.value
     },
@@ -235,11 +348,34 @@ export default {
         this.edit.date = val
       },
     },
-    dateEnd: {
+    startDate: {
       get () {
-        return this.edit.dateEnd
+        return date.formatDate(this.edit.date, 'YYYY-MM-DD')
       },
       set (val) {
+        val = date.extractDate(val, 'YYYY-MM-DD')
+        val = date.adjustDate(this.edit.date, { year: val.getFullYear(), month: val.getMonth() + 1, date: val.getDate() })
+        this.date = val
+      },
+    },
+    startTime: {
+      get () {
+        return date.formatDate(this.edit.date, 'HH:mm')
+      },
+      set (val) {
+        val = date.extractDate(val, 'HH:mm')
+        val = date.adjustDate(this.edit.date, { hours: val.getHours(), minutes: val.getMinutes() })
+        this.date = val
+      },
+    },
+    endTime: {
+      get () {
+        return date.formatDate(this.edit.dateEnd, 'HH:mm')
+      },
+      set (val) {
+        if (val.length < 5) return
+        val = date.extractDate(val, 'HH:mm')
+        val = date.adjustDate(this.edit.date, { hours: val.getHours(), minutes: val.getMinutes() })
         if (val <= this.edit.date) {
           // if the value is in the past add a day (allows pickups over midnight)
           this.edit.dateEnd = addDays(val, 1)
@@ -270,19 +406,16 @@ export default {
         this.edit.hasDuration = val
       },
     },
+    smallScreen () {
+      return this.$q.screen.width < 450 || this.$q.screen.height < 450
+    },
   },
   methods: {
+    futureDates (dateString) {
+      return date.extractDate(`${dateString} 23:59`, 'YYYY/MM/DD HH:mm') > this.now
+    },
     toggleDuration () {
       this.hasDuration = !this.hasDuration
-    },
-    resetToSeriesButton (field) {
-      return {
-        icon: 'undo',
-        condition: this.series ? this.series[field] !== this.edit[field] : false,
-        handler: () => {
-          this.edit[field] = this.series[field]
-        },
-      }
     },
     maybeSave () {
       if (!this.canSave) return
@@ -294,9 +427,9 @@ export default {
       if (diff.dateEnd && !diff.date) diff.date = this.edit.date
       return diff
     },
-    async disable () {
+    disable () {
       try {
-        const description = await Dialog.create({
+        Dialog.create({
           title: this.$t('CREATEPICKUP.DISABLE_TITLE'),
           message: this.$t('CREATEPICKUP.ENABLE_DISABLE_MESSAGE'),
           prompt: {
@@ -305,18 +438,19 @@ export default {
           },
           cancel: this.$t('BUTTON.CANCEL'),
           ok: this.$t('BUTTON.YES'),
-        })
-        this.$emit('save', {
-          id: this.edit.id,
-          description,
-          isDisabled: true,
+        }).onOk(description => {
+          this.$emit('save', {
+            id: this.edit.id,
+            description,
+            isDisabled: true,
+          })
         })
       }
       catch (e) {}
     },
-    async enable () {
+    enable () {
       try {
-        const description = await Dialog.create({
+        Dialog.create({
           title: this.$t('CREATEPICKUP.ENABLE_TITLE'),
           message: this.$t('CREATEPICKUP.ENABLE_DISABLE_MESSAGE'),
           prompt: {
@@ -326,11 +460,12 @@ export default {
           },
           cancel: this.$t('BUTTON.CANCEL'),
           ok: this.$t('BUTTON.YES'),
-        })
-        this.$emit('save', {
-          id: this.edit.id,
-          description,
-          isDisabled: false,
+        }).onOk(description => {
+          this.$emit('save', {
+            id: this.edit.id,
+            description,
+            isDisabled: false,
+          })
         })
       }
       catch (e) {}

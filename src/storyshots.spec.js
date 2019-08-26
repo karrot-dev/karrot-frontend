@@ -1,6 +1,3 @@
-// Load full build instead of runtime-only to have the compiler available
-// jest.mock('vue', () => require('vue/dist/vue.common.js'))
-
 /** Storybook has some unwanted side effects and we actually don't need it to test the stories
  * Therefore, we mimick the Storybook API to get the components and then run the snapshot tests
 */
@@ -24,8 +21,17 @@ jest.mock('@storybook/vue', () => ({
 import glob from 'glob'
 import lolex from 'lolex'
 import { createRenderer } from 'vue-server-renderer'
-import { polyfillRequestAnimationFrame, mountWithDefaults } from '>/helpers'
-polyfillRequestAnimationFrame()
+import Vue from 'vue'
+import configureQuasar from '@/base/configureQuasar'
+import { mount, RouterLinkStub, TransitionStub, TransitionGroupStub } from '@vue/test-utils'
+import i18n from '@/base/i18n'
+import routerMocks from '>/routerMocks'
+
+i18n.locale = 'en'
+configureQuasar(Vue)
+Vue.component('RouterLink', RouterLinkStub)
+Vue.component('Transition', TransitionStub)
+Vue.component('TransitionGroup', TransitionGroupStub)
 
 // To get properly faked dates, install fake Date object before importing stories
 const now = new Date('2017-12-24T12:00:00Z')
@@ -82,15 +88,14 @@ for (const group of mockStories) {
     describe(group.kind, () => {
       for (const story of group.stories) {
         it(story.name, async () => {
-          jest.resetModules()
-
           // get the component from storybook
           const component = story.render()
 
-          // hack: translations don't work if i18n is in component, so delete it
-          delete component.i18n
-
-          const wrapper = mountWithDefaults(component)
+          const wrapper = mount(component, {
+            mocks: {
+              ...routerMocks,
+            },
+          })
           const html = await renderer.renderToString(wrapper.vm)
           expect(html).toMatchSnapshot()
         })

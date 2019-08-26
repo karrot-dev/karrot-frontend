@@ -21,6 +21,8 @@ Please document your changes in this format:
 ```
 
 ## [Unreleased]
+### Changed
+- User Interface redesign due to [Quasar](https://quasar.dev) upgrade #1690 @tiltec
 
 ## [7.4.2] - 2019-08-14
 ### Added
@@ -348,7 +350,7 @@ Please document your changes in this format:
 - lots of bugs
 
 ## [4.0.0] - 2017-12-27
-Complete frontend rewrite with [VueJS](http://vuejs.org/) and [Quasar](http://quasar-framework.org/)
+Complete frontend rewrite with [VueJS](http://vuejs.org/) and [Quasar](http://quasar.dev/)
 
 ### Added
 - Group conversations

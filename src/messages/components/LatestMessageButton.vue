@@ -11,22 +11,21 @@
       name="fas fa-comments"
       :class="{ hasUnread: unreadCount > 0 }"
     />
-    <QChip
+    <QBadge
       v-if="unseenCount > 0"
       floating
       :color="allUnreadMuted ? 'grey' : 'secondary'"
     >
       {{ unseenCount > 9 ? '9+' : unseenCount }}
-    </QChip>
-    <QPopover
+    </QBadge>
+    <QMenu
       v-if="!$q.platform.is.mobile"
       v-model="showing"
+      no-parent-event
       class="k-latest-messages-popover"
     >
-      <LatestMessages
-        v-if="showing"
-      />
-    </QPopover>
+      <LatestMessages />
+    </QMenu>
   </QBtn>
 </template>
 
@@ -34,8 +33,8 @@
 import {
   QBtn,
   QIcon,
-  QChip,
-  QPopover,
+  QBadge,
+  QMenu,
 } from 'quasar'
 const LatestMessages = () => import('@/messages/components/LatestMessages')
 
@@ -45,8 +44,8 @@ export default {
   components: {
     QBtn,
     QIcon,
-    QChip,
-    QPopover,
+    QBadge,
+    QMenu,
     LatestMessages,
   },
   data () {

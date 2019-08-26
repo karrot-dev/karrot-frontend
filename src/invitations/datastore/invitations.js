@@ -60,7 +60,10 @@ export default {
           catch (error) {
             dispatch('toasts/show', {
               message: 'GROUP.INVITE_SEND_ERROR',
-              config: { type: 'negative' },
+              config: {
+                icon: 'warning',
+                color: 'negative',
+              },
             }, { root: true })
             throw error
           }
@@ -79,7 +82,10 @@ export default {
           catch (error) {
             dispatch('toasts/show', {
               message: 'GROUP.INVITE_SEND_ERROR',
-              config: { type: 'negative' },
+              config: {
+                icon: 'warning',
+                color: 'negative',
+              },
             }, { root: true })
             throw error
           }
@@ -112,7 +118,10 @@ export default {
         catch (error) {
           dispatch('toasts/show', {
             message: 'GROUP.INVITATION_ACCEPT_ERROR',
-            config: { type: 'negative' },
+            config: {
+              icon: 'warning',
+              color: 'negative',
+            },
           }, { root: true })
           router.push({ name: 'groupsGallery' })
           throw error

@@ -6,17 +6,18 @@
     />
     <KSpinner v-show="isPending || (feedbackPossibleStatus && feedbackPossibleStatus.pending)" />
     <KNotice v-if="empty">
-      <template slot="icon">
+      <template v-slot:icon>
         <i :class="$icon('feedback')" />
       </template>
       {{ $t('FEEDBACKLIST.NONE') }}
-      <template slot="desc">
+      <template v-slot:desc>
         {{ $t('FEEDBACKLIST.NONE_HINT') }}
       </template>
     </KNotice>
     <QInfiniteScroll
       v-else
-      :handler="maybeFetchPast"
+      :disable="!canFetchPast"
+      @load="maybeFetchPast"
     >
       <FeedbackItem
         v-for="feedbackitem in feedback"
@@ -25,7 +26,9 @@
       >
         {{ $d(feedbackitem.createdAt, 'dateLongWithDayName') }}
       </FeedbackItem>
-      <KSpinner slot="message" />
+      <template v-slot:loading>
+        <KSpinner />
+      </template>
     </QInfiniteScroll>
   </div>
 </template>

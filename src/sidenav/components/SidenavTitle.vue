@@ -1,18 +1,23 @@
 <template>
   <QToolbar
     v-if="$q.platform.is.mobile"
+    class="bg-primary text-white"
   >
     <QToolbarTitle
-      @click.native="$emit('click')"
+      @click="$emit('click')"
     >
       {{ currentGroup && currentGroup.name }}
     </QToolbarTitle>
     <LatestMessageButton
       v-if="isLoggedIn"
+      style="font-size: 10px"
+      class="q-mr-xs"
       @click="$emit('click')"
     />
     <NotificationButton
       v-if="isLoggedIn"
+      style="font-size: 10px"
+      class="q-mr-xs"
       @click="$emit('click')"
     />
     <QBtn
@@ -21,10 +26,10 @@
       round
       :to="{ name: 'groupsGallery' }"
       :title="$t('TOPBAR.CHANGE_GROUP')"
-      @click.native="$emit('click')"
+      size="sm"
+      @click="$emit('click')"
     >
       <QIcon name="fas fa-exchange-alt" />
-      <QTooltip v-t="'TOPBAR.CHANGE_GROUP'" />
     </QBtn>
   </QToolbar>
 </template>
@@ -38,7 +43,6 @@ import {
   QToolbarTitle,
   QBtn,
   QIcon,
-  QTooltip,
 } from 'quasar'
 
 import { mapGetters } from 'vuex'
@@ -49,7 +53,6 @@ export default {
     QToolbarTitle,
     QBtn,
     QIcon,
-    QTooltip,
     LatestMessageButton,
     NotificationButton,
   },

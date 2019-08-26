@@ -16,47 +16,50 @@
       @fetchPast="$emit('fetchPast', arguments[0])"
       @fetchFuture="$emit('fetchFuture')"
     >
-      <QCollapsible
-        v-if="application"
-        slot="beforeChatMessages"
-        opened
-        class="bg-grey-2"
-      >
-        <template slot="header">
-          <b>{{ $t('APPLICATION.INITIAL') }}</b>
-        </template>
-        <div class="q-ma-sm q-pa-sm bg-white">
-          <span class="text-bold text-secondary uppercase">{{ application.group.name }}</span>
-          <span class="message-date">
-            <small class="text-weight-light">
-              <DateAsWords :date="application.createdAt" />
-            </small>
-          </span>
-          <Markdown :source="application.questions" />
-        </div>
-        <div class="q-ma-sm q-pa-sm bg-white">
-          <span class="text-bold text-secondary uppercase">{{ application.user.displayName }}</span>
-          <span class="message-date">
-            <small class="text-weight-light">
-              <DateAsWords :date="application.createdAt" />
-            </small>
-          </span>
-          <Markdown :source="application.answers" />
-        </div>
-      </QCollapsible>
-      <QList
-        v-if="pickup && pickup.isDisabled"
-        slot="afterChatMessages"
-        class="bg-grey-2"
-      >
-        <QItem>
-          <QItemMain>
-            <QItemTile label>
-              <b class="text-negative">{{ $t('PICKUPLIST.PICKUP_DISABLED') }}</b>
-            </QItemTile>
-          </QItemMain>
-        </QItem>
-      </QList>
+      <template v-slot:before-chat-messages>
+        <QExpansionItem
+          v-if="application"
+          default-opened
+          class="bg-grey-2"
+          :label="$t('APPLICATION.INITIAL')"
+          header-class="text-bold"
+        >
+          <div class="q-pb-sm bg-grey-2">
+            <div class="q-ma-sm q-pa-sm bg-white">
+              <span class="text-bold text-secondary text-uppercase">{{ application.group.name }}</span>
+              <span class="message-date">
+                <small class="text-weight-light">
+                  <DateAsWords :date="application.createdAt" />
+                </small>
+              </span>
+              <Markdown :source="application.questions" />
+            </div>
+            <div class="q-ma-sm q-pa-sm bg-white">
+              <span class="text-bold text-secondary text-uppercase">{{ application.user.displayName }}</span>
+              <span class="message-date">
+                <small class="text-weight-light">
+                  <DateAsWords :date="application.createdAt" />
+                </small>
+              </span>
+              <Markdown :source="application.answers" />
+            </div>
+          </div>
+        </QExpansionItem>
+      </template>
+      <template v-slot:after-chat-messages>
+        <QList
+          v-if="pickup && pickup.isDisabled"
+          class="bg-grey-2"
+        >
+          <QItem>
+            <QItemSection>
+              <QItemLabel>
+                <b class="text-negative">{{ $t('PICKUPLIST.PICKUP_DISABLED') }}</b>
+              </QItemLabel>
+            </QItemSection>
+          </QItem>
+        </QList>
+      </template>
     </ChatConversation>
   </div>
 </template>
@@ -68,11 +71,11 @@ import DateAsWords from '@/utils/components/DateAsWords'
 import KSpinner from '@/utils/components/KSpinner'
 
 import {
-  QCollapsible,
+  QExpansionItem,
   QList,
   QItem,
-  QItemMain,
-  QItemTile,
+  QItemSection,
+  QItemLabel,
 } from 'quasar'
 
 export default {
@@ -81,11 +84,11 @@ export default {
     Markdown,
     DateAsWords,
     KSpinner,
-    QCollapsible,
+    QExpansionItem,
     QList,
     QItem,
-    QItemMain,
-    QItemTile,
+    QItemSection,
+    QItemLabel,
   },
   props: {
     inline: {

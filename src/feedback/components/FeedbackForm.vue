@@ -2,20 +2,17 @@
   <form
     @submit.prevent="maybeSave"
   >
-    <MarkdownInput :value="edit.comment">
-      <QInput
-        v-model="edit.comment"
-        type="textarea"
-        :placeholder="$t('PICKUP_FEEDBACK.COMMENT_PLACEHOLDER')"
-        autocomplete="off"
-        rows="1"
-        @keyup.ctrl.enter="maybeSave"
-      />
-    </MarkdownInput>
+    <MarkdownInput
+      v-model="edit.comment"
+      class="q-mr-sm"
+      :label="$t('PICKUP_FEEDBACK.COMMENT_PLACEHOLDER')"
+      @keyup.ctrl.enter="maybeSave"
+    />
 
     <AmountPicker
       v-if="!isBikeKitchen && !isGeneralPurpose"
       v-model="edit.weight"
+      class="q-ml-sm"
       style="margin-top: 40px"
     />
 
@@ -28,7 +25,7 @@
       {{ anyFirstError }}
     </div>
 
-    <div class="row justify-end generic-margin group">
+    <div class="row justify-end q-ma-md q-gutter-sm">
       <QBtn
         v-if="!isNew"
         type="button"
@@ -50,7 +47,6 @@
 
 <script>
 import {
-  QInput,
   QBtn,
 } from 'quasar'
 import AmountPicker from './AmountPicker'
@@ -60,7 +56,6 @@ import statusMixin from '@/utils/mixins/statusMixin'
 
 export default {
   components: {
-    QInput,
     QBtn,
     AmountPicker,
     MarkdownInput,

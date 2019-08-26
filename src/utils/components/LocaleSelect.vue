@@ -15,35 +15,20 @@
     >
       {{ currentName }}
     </template>
-    <Component
-      :is="$q.platform.is.mobile ? 'QModal' : 'QPopover'"
+    <QDialog
       v-model="open"
-      minimized
     >
-      <div
-        v-if="$q.platform.is.mobile"
-        class="text-white bg-primary row no-wrap justify-between items-center"
-      >
-        <div class="ellipsis q-ml-md">
-          {{ $t('LANGUAGECHOOSER.SWITCH') }}
-        </div>
-        <QBtn
-          dense
-          round
-          color="secondary"
-          class="q-ma-xs q-mr-sm"
-          @click="open = false"
-        >
-          <QIcon name="fas fa-times" />
-        </QBtn>
-      </div>
-      <LocaleSelectInner v-if="open" />
-    </Component>
+      <LocaleSelectInner />
+    </QDialog>
   </QBtn>
 </template>
 
 <script>
-import { QIcon, QBtn, QPopover, QModal, QList } from 'quasar'
+import {
+  QIcon,
+  QBtn,
+  QDialog,
+} from 'quasar'
 import { mapGetters } from 'vuex'
 import locales from '@/locales/index'
 
@@ -54,9 +39,7 @@ export default {
   components: {
     QIcon,
     QBtn,
-    QPopover,
-    QModal,
-    QList,
+    QDialog,
     LocaleSelectInner,
   },
   props: {

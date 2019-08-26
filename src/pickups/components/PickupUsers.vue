@@ -3,7 +3,7 @@
     ref="wrapperDiv"
     class="row justify-start"
   >
-    <QResizeObservable
+    <QResizeObserver
       style="width: 100%"
       @resize="calculateSlotsPerRow"
     />
@@ -88,7 +88,7 @@ import CurrentUser from './CurrentUser'
 import { mapGetters } from 'vuex'
 import {
   QSpinner,
-  QResizeObservable,
+  QResizeObserver,
 } from 'quasar'
 
 export default {
@@ -98,7 +98,7 @@ export default {
     EmptySlot,
     CurrentUser,
     QSpinner,
-    QResizeObservable,
+    QResizeObserver,
   },
   props: {
     pickup: {
@@ -108,10 +108,6 @@ export default {
     size: {
       type: Number,
       default: 36,
-    },
-    maxEmptyNumToShow: {
-      type: Number,
-      default: 1,
     },
   },
   data () {
@@ -146,7 +142,7 @@ export default {
     },
     emptySlots () {
       if (this.pickup.collectors) {
-        const minToShow = Math.min(this.maxEmptyNumToShow, this.emptyPlaces)
+        const minToShow = Math.min(1, this.emptyPlaces)
         const maxToShow = Math.max(minToShow, this.slotsPerRow - this.pickup.collectors.length - 1)
         return Math.min(this.emptyPlaces, maxToShow)
       }
@@ -195,7 +191,7 @@ export default {
   background-color rgba(255, 255, 255, 0.7)
   border 2px dashed lightgrey
   color grey
-  border-radius $borderRadius
+  border-radius 0
   margin-bottom 3.8px
   text-align center
   div

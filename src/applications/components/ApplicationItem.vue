@@ -1,30 +1,26 @@
 <template>
   <QItem
-    link
     :class="{ isNonPending: !application.isPending }"
-    @click.native="openChatIfCannotDecide"
+    clickable
+    @click="openChatIfCannotDecide"
   >
-    <QItemSide>
+    <QItemSection side>
       <ProfilePicture
         :user="application.user"
         :size="30"
         :is-link="false"
       />
-    </QItemSide>
-    <QItemMain>
-      <QItemTile
-        label
-      >
+    </QItemSection>
+    <QItemSection>
+      <QItemLabel>
         {{ userName }}
-      </QItemTile>
-      <QItemTile
-        sublabel
-      >
+      </QItemLabel>
+      <QItemLabel caption>
         {{ submittedOn }}
-      </QItemTile>
-      <QItemTile
+      </QItemLabel>
+      <QItemLabel
         v-if="application.status !== 'pending'"
-        sublabel
+        caption
       >
         <i18n
           :path="decision"
@@ -49,42 +45,60 @@
             </RouterLink>
           </i18n>
         </template>
-      </QItemTile>
-    </QItemMain>
-    <QPopover
+      </QItemLabel>
+    </QItemSection>
+    <QMenu
       v-if="application.canDecide"
       touch-position
     >
-      <QList
-        v-close-overlay
-        link
-      >
+      <QList>
         <QItem
-          @click.native="openChat"
+          v-close-popup
+          clickable
+          dense
+          @click="openChat"
         >
-          <QItemSide
-            icon="fas fa-fw fa-comments"
-          />
-          <QItemMain :label="$t('BUTTON.OPEN')" />
+          <QItemSection side>
+            <QIcon name="fas fa-fw fa-comments" />
+          </QItemSection>
+          <QItemSection>
+            {{ $t('BUTTON.OPEN') }}
+          </QItemSection>
         </QItem>
         <QItem
-          @click.native="pressAccept"
+          v-close-popup
+          clickable
+          dense
+          @click="pressAccept"
         >
-          <QItemSide
-            icon="fas fa-fw fa-check"
-          />
-          <QItemMain :label="$t('BUTTON.ACCEPT')" />
+          <QItemSection side>
+            <QIcon
+              name="fas fa-fw fa-check"
+              color="positive"
+            />
+          </QItemSection>
+          <QItemSection>
+            {{ $t('BUTTON.ACCEPT') }}
+          </QItemSection>
         </QItem>
         <QItem
-          @click.native="decline"
+          v-close-popup
+          clickable
+          dense
+          @click="decline"
         >
-          <QItemSide
-            icon="fas fa-fw fa-times"
-          />
-          <QItemMain :label="$t('BUTTON.DECLINE')" />
+          <QItemSection side>
+            <QIcon
+              name="fas fa-fw fa-times"
+              color="negative"
+            />
+          </QItemSection>
+          <QItemSection>
+            {{ $t('BUTTON.DECLINE') }}
+          </QItemSection>
         </QItem>
       </QList>
-    </QPopover>
+    </QMenu>
   </QItem>
 </template>
 
@@ -92,11 +106,11 @@
 import {
   Dialog,
   QItem,
-  QItemMain,
-  QItemSide,
-  QItemTile,
-  QPopover,
+  QItemSection,
+  QItemLabel,
+  QMenu,
   QList,
+  QIcon,
 } from 'quasar'
 import ProfilePicture from '@/users/components/ProfilePicture'
 import DateAsWords from '@/utils/components/DateAsWords'
@@ -104,11 +118,11 @@ import DateAsWords from '@/utils/components/DateAsWords'
 export default {
   components: {
     QItem,
-    QItemMain,
-    QItemSide,
-    QItemTile,
-    QPopover,
+    QItemSection,
+    QItemLabel,
+    QMenu,
     QList,
+    QIcon,
     ProfilePicture,
     DateAsWords,
   },
@@ -162,8 +176,7 @@ export default {
         ok: this.$t('BUTTON.YES'),
         cancel: this.$t('BUTTON.CANCEL'),
       })
-        .then(() => this.$emit('accept', this.application.id))
-        .catch(() => {})
+        .onOk(() => this.$emit('accept', this.application.id))
     },
     decline () {
       Dialog.create({
@@ -172,8 +185,7 @@ export default {
         ok: this.$t('BUTTON.YES'),
         cancel: this.$t('BUTTON.CANCEL'),
       })
-        .then(() => this.$emit('decline', this.application.id))
-        .catch(() => {})
+        .onOk(() => this.$emit('decline', this.application.id))
     },
   },
 }

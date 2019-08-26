@@ -1,8 +1,7 @@
 <template>
   <div
     v-if="group"
-    class="edit-box bg-primary splash-md"
-    style="padding: 0"
+    class="bg-primary splash-md"
   >
     <p
       v-if="$q.platform.is.mobile"
@@ -11,26 +10,21 @@
       {{ $t('APPLICATION.FORM_TITLE', { groupName: group.name }) }}
     </p>
     <form @submit.prevent="apply">
-      <div class="white-box shadow-6 q-py-md q-px-sm">
+      <div class="bg-white q-pt-sm q-pb-md q-px-sm rounded-borders">
         <QItem>
-          <QItemSide
-            icon="fas fa-fw fa-question"
-          />
-          <QItemMain>
+          <QItemSection side>
+            <QIcon name="fas fa-fw fa-question" />
+          </QItemSection>
+          <QItemSection>
             <Markdown
               :source="group.applicationQuestions"
             />
-          </QItemMain>
+          </QItemSection>
         </QItem>
-        <MarkdownInput :value="applicationAnswers">
-          <QInput
-            id="group-title"
-            v-model="applicationAnswers"
-            type="textarea"
-            rows="6"
-            @keyup.ctrl.enter="apply"
-          />
-        </MarkdownInput>
+        <MarkdownInput
+          v-model="applicationAnswers"
+          @keyup.ctrl.enter="apply"
+        />
         <div
           v-if="hasAnyError"
           class="text-negative"
@@ -40,11 +34,10 @@
           {{ anyFirstError }}
         </div>
       </div>
-      <div class="actionButtons">
+      <div class="row justify-end q-gutter-sm q-mt-sm">
         <QBtn
           type="button"
           color="primary"
-          class="shadow-4"
           @click="$emit('cancel', group.id)"
         >
           {{ $t('BUTTON.CANCEL') }}
@@ -52,7 +45,6 @@
         <QBtn
           type="submit"
           color="secondary"
-          class="shadow-4"
         >
           {{ $t('BUTTON.SUBMIT') }}
         </QBtn>
@@ -64,10 +56,9 @@
 <script>
 import {
   QItem,
-  QItemSide,
-  QItemMain,
-  QInput,
+  QItemSection,
   QBtn,
+  QIcon,
 } from 'quasar'
 import MarkdownInput from '@/utils/components/MarkdownInput'
 import Markdown from '@/utils/components/Markdown'
@@ -76,10 +67,9 @@ import statusMixin from '@/utils/mixins/statusMixin'
 export default {
   components: {
     QItem,
-    QItemSide,
-    QItemMain,
-    QInput,
+    QItemSection,
     QBtn,
+    QIcon,
     MarkdownInput,
     Markdown,
   },
@@ -104,8 +94,6 @@ export default {
 </script>
 
 <style scoped lang="stylus">
-@import '~editbox'
-
 // can be removed once splash layout has scoped css
 .splash-md
   color black

@@ -1,14 +1,16 @@
 <template>
   <div>
     <QInfiniteScroll
-      :handler="maybeFetchPast"
+      :disable="!data.canFetchPast"
+      @load="maybeFetchPast"
     >
       <QList
-        class="bg-white desktop-margin relative-position"
+        class="bg-white desktop-margin relative-position q-pb-md"
+        bordered
       >
         <template v-if="hasLoaded">
           <NotificationToggle
-            class="actionButton hoverScale"
+            class="actionButton"
             :muted="data.muted"
             :is-participant="data.isParticipant"
             :user="user"
@@ -22,12 +24,18 @@
             :is-participant="data.isParticipant"
             @submit="$emit('send', { id: data.id, content: arguments[0] })"
           />
-          <QAlert
+          <QBanner
             v-if="data.isParticipant && data.unreadMessageCount > 0"
-            color="secondary"
-            icon="star"
-            class="k-unread-alert"
+            class="bg-secondary text-white q-mt-sm"
+            style="min-height: unset"
           >
+            <template v-slot:avatar>
+              <QIcon
+                name="star"
+                color="white"
+                size="1.5em"
+              />
+            </template>
             <div class="row justify-between items-center">
               <small>
                 {{ $tc('CONVERSATION.UNREAD_MESSAGES', data.unreadMessageCount, {
@@ -42,7 +50,7 @@
                 @click="$emit('markAllRead', data.id)"
               />
             </div>
-          </QAlert>
+          </QBanner>
           <ConversationMessage
             v-for="message in data.messages"
             :key="message.id"
@@ -67,7 +75,8 @@ import {
   QBtn,
   QInfiniteScroll,
   QList,
-  QAlert,
+  QBanner,
+  QIcon,
 } from 'quasar'
 
 export default {
@@ -80,7 +89,8 @@ export default {
     QBtn,
     QInfiniteScroll,
     QList,
-    QAlert,
+    QBanner,
+    QIcon,
   },
   props: {
     data: {
@@ -138,8 +148,4 @@ export default {
   position absolute
   top -24px
   right 6px
-.k-unread-alert >>>
-  .q-alert-content, .q-alert-side
-    padding-top 6px
-    padding-bottom 6px
 </style>

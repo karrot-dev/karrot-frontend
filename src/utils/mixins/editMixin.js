@@ -19,7 +19,7 @@ export default {
   },
   computed: {
     isNew () {
-      return this.value && !this.value.id
+      return this.value && !this.value.id && this.value.id !== 0
     },
     hasChanged () {
       return !this.isNew && !deepEqual(this.value, this.edit)

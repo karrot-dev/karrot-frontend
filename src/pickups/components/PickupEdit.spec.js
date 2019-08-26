@@ -4,9 +4,7 @@ import PickupEdit from './PickupEdit'
 import { pickupsMock } from '>/mockdata'
 import cloneDeep from 'clone-deep'
 
-import { mountWithDefaults, polyfillRequestAnimationFrame, statusMocks } from '>/helpers'
-
-polyfillRequestAnimationFrame()
+import { mountWithDefaults, statusMocks } from '>/helpers'
 
 describe('PickupEdit', () => {
   beforeEach(() => jest.resetModules())

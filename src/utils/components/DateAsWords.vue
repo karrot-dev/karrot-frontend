@@ -10,7 +10,7 @@ import dateFnsHelper from '@/utils/dateFnsHelper'
 export default {
   props: {
     date: {
-      type: [Date, String], // TODO remove string, always convert to date before
+      type: Date,
       required: true,
     },
     future: {

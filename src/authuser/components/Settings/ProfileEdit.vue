@@ -4,58 +4,48 @@
     :class="{ changed: hasChanged }"
   >
     <form @submit.prevent="maybeSave">
-      <QField
-        icon="fas fa-star"
+      <QInput
+        v-model="edit.displayName"
         :label="$t('USERDETAIL.DISPLAY_NAME')"
         :error="hasDisplayNameError"
-        :error-label="displayNameError"
+        :error-message="displayNameError"
+        @blur="$v.edit.displayName.$touch"
       >
-        <QInput
-          v-model="edit.displayName"
-          @blur="$v.edit.displayName.$touch"
-        />
-      </QField>
+        <template v-slot:before>
+          <QIcon name="fas fa-star" />
+        </template>
+      </QInput>
 
-      <QField
+      <MarkdownInput
+        v-model="edit.description"
         icon="info"
         :label="$t('USERDETAIL.DESCRIPTION')"
         :error="hasError('description')"
-        :error-label="firstError('description')"
-      >
-        <MarkdownInput :value="edit.description">
-          <QInput
-            v-model="edit.description"
-            type="textarea"
-            rows="1"
-            @keyup.ctrl.enter="maybeSave"
-          />
-        </MarkdownInput>
-      </QField>
+        :error-message="firstError('description')"
+        @keyup.ctrl.enter="maybeSave"
+      />
 
-      <QField
-        icon="fas fa-phone"
+      <QInput
+        v-model="edit.mobileNumber"
+        type="tel"
         :label="$t('USERDATA.MOBILE_NUMBER')"
         :error="hasError('mobileNumber')"
-        :error-label="firstError('mobileNumber')"
+        :error-message="firstError('mobileNumber')"
       >
-        <QInput
-          v-model="edit.mobileNumber"
-          type="tel"
-        />
-      </QField>
+        <template v-slot:before>
+          <QIcon name="fas fa-phone" />
+        </template>
+      </QInput>
 
-      <QField
-        icon="fas fa-map-marker"
+      <AddressPicker
+        v-model="edit"
+        color="positive"
+        font-icon="fas fa-user"
         :label="$t('USERDATA.WHERE_FROM')"
         :error="hasAddressError"
-        :error-label="addressError"
-      >
-        <AddressPicker
-          v-model="edit"
-          color="positive"
-          font-icon="fas fa-user"
-        />
-      </QField>
+        :error-message="addressError"
+        icon="fas fa-map-marker"
+      />
 
       <div
         v-if="hasNonFieldError"
@@ -64,7 +54,14 @@
         {{ firstNonFieldError }}
       </div>
 
-      <div class="actionButtons">
+      <div class="row justify-end q-gutter-sm q-mt-sm">
+        <QBtn
+          type="button"
+          :disable="!hasChanged"
+          @click="reset"
+        >
+          {{ $t('BUTTON.RESET') }}
+        </QBtn>
         <QBtn
           type="submit"
           color="primary"
@@ -73,14 +70,6 @@
         >
           {{ $t('BUTTON.SAVE_CHANGES') }}
         </QBtn>
-
-        <QBtn
-          type="button"
-          :disable="!hasChanged"
-          @click="reset"
-        >
-          {{ $t('BUTTON.RESET') }}
-        </QBtn>
       </div>
     </form>
   </div>
@@ -88,7 +77,7 @@
 
 <script>
 import {
-  QField,
+  QIcon,
   QInput,
   QBtn,
 } from 'quasar'
@@ -101,7 +90,7 @@ import { required, minLength, maxLength } from 'vuelidate/lib/validators'
 
 export default {
   components: {
-    QField,
+    QIcon,
     QInput,
     QBtn,
     AddressPicker,

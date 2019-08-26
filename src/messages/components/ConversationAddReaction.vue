@@ -1,32 +1,39 @@
 <template>
-  <QBtn flat>
+  <QBtn
+    outline
+    :color="color"
+  >
     <span :style="{opacity}">
       <i class="far fa-smile" /> +
     </span>
-    <QPopover
+    <QMenu
       anchor="top left"
       self="top left"
-      @show="open = true"
-      @hide="open = false"
     >
       <div style="width: 195px">
         <ConversationAddReactionInner
-          v-if="open"
           :reacted="reacted"
           @toggle="$emit('toggle', arguments[0])"
         />
       </div>
-    </QPopover>
+    </QMenu>
   </QBtn>
 </template>
 
 <script>
-import { QBtn, QPopover } from 'quasar'
+import {
+  QBtn,
+  QMenu,
+} from 'quasar'
 
 const ConversationAddReactionInner = () => import('./ConversationAddReactionInner')
 
 export default {
-  components: { QBtn, QPopover, ConversationAddReactionInner },
+  components: {
+    QBtn,
+    QMenu,
+    ConversationAddReactionInner,
+  },
   props: {
     opacity: {
       type: Number,
@@ -36,11 +43,10 @@ export default {
       type: Array,
       default: () => [],
     },
-  },
-  data () {
-    return {
-      open: false,
-    }
+    color: {
+      type: String,
+      default: 'black',
+    },
   },
 }
 </script>

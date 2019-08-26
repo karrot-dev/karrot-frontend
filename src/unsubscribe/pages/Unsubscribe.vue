@@ -28,7 +28,7 @@
       </div>
       <div
         v-if="hasError"
-        class="error"
+        class="text-warning"
       >
         <i class="fas fa-exclamation-triangle" />
         {{ $t('GLOBAL.GENERIC_ERROR') }}

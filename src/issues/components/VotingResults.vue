@@ -1,10 +1,16 @@
 <template>
-  <QList>
+  <QList
+    bordered
+  >
     <QItem>
-      <QItemMain
-        :label="$t('ISSUE.VOTING.RESULTS.ENDED_AT', { date: $d(voting.expiresAt, 'long') })"
-        :sublabel="$t('ISSUE.VOTING.RESULTS.PARTICIPANTS', { number: voting.participantCount })"
-      />
+      <QItemSection>
+        <QItemLabel>
+          {{ $t('ISSUE.VOTING.RESULTS.ENDED_AT', { date: $d(voting.expiresAt, 'long') }) }}
+        </QItemLabel>
+        <QItemLabel caption>
+          {{ $t('ISSUE.VOTING.RESULTS.PARTICIPANTS', { number: voting.participantCount }) }}
+        </QItemLabel>
+      </QItemSection>
     </QItem>
     <template
       v-if="!isCancelled"
@@ -13,41 +19,40 @@
         dense
         class="justify-end"
       >
-        <QItemSide
-          right
-          :stamp="$t('ISSUE.VOTING.RESULTS.TOTAL_SCORE')"
-        />
+        <QItemSection side>
+          {{ $t('ISSUE.VOTING.RESULTS.TOTAL_SCORE') }}
+        </QItemSection>
       </QItem>
       <QItem
         v-for="{ id, icon, label, isOutcome, sumScore} in options"
         :key="id"
         :class="{'text-secondary': isOutcome}"
       >
-        <QItemSide
-          :icon="icon"
-          :color="isOutcome ? 'secondary' : 'primary'"
-        />
-        <QItemMain>
+        <QItemSection side>
+          <QIcon
+            :name="icon"
+            :color="isOutcome ? 'secondary' : 'primary'"
+          />
+        </QItemSection>
+        <QItemSection>
           {{ label }}
-        </QItemMain>
-        <QItemSide
-          stamp
+        </QItemSection>
+        <QItemSection
+          side
           :class="{'text-secondary': isOutcome}"
         >
           {{ sumScore }}
-        </QItemSide>
+        </QItemSection>
       </QItem>
     </template>
     <QItem
       v-else
     >
-      <QItemMain>
-        <QItemTile label>
+      <QItemSection>
+        <QItemLabel>
           {{ $t('ISSUE.VOTING.RESULTS.UNDECIDED') }}
-        </QItemTile>
-        <QItemTile
-          sublabel
-        >
+        </QItemLabel>
+        <QItemLabel caption>
           {{ $t('ISSUE.VOTING.RESULTS.UNDECIDED_WHY') }}
           <ul>
             <li>
@@ -57,8 +62,8 @@
               {{ $t('ISSUE.VOTING.RESULTS.UNDECIDED_REASON_2') }}
             </li>
           </ul>
-        </QItemTile>
-      </QItemMain>
+        </QItemLabel>
+      </QItemSection>
     </QItem>
   </QList>
 </template>
@@ -67,18 +72,18 @@
 import {
   QList,
   QItem,
-  QItemSide,
-  QItemMain,
-  QItemTile,
+  QItemSection,
+  QItemLabel,
+  QIcon,
 } from 'quasar'
 
 export default {
   components: {
     QList,
     QItem,
-    QItemSide,
-    QItemMain,
-    QItemTile,
+    QItemSection,
+    QItemLabel,
+    QIcon,
   },
   props: {
     voting: {

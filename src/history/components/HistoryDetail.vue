@@ -7,89 +7,94 @@
       v-if="entry"
       class="full-width"
     >
-      <QItem
-        class="bg-tertiary"
-      >
-        <QItemSide
-          color="white"
-          icon="fas fa-fw fa-info"
-        />
+      <QItem class="bg-accent">
+        <QItemSection side>
+          <QIcon
+            color="white"
+            name="fas fa-fw fa-info"
+          />
+        </QItemSection>
       </QItem>
 
-      <QItem dense>
-        <QItemSide icon="far fa-fw fa-clock" />
-        <QItemMain>
-          <QItemTile label>
+      <QItem>
+        <QItemSection side>
+          <QIcon name="far fa-fw fa-clock" />
+        </QItemSection>
+        <QItemSection>
+          <QItemLabel>
             {{ $d(new Date(entry.date), 'long') }},
             <DateAsWords
               :date="entry.date"
               style="display: inline"
             />
-          </QItemTile>
-        </QItemMain>
+          </QItemLabel>
+        </QItemSection>
       </QItem>
 
-      <QItem dense>
-        <QItemSide icon="fas fa-fw fa-user" />
-        <QItemMain>
-          <QItemTile>
-            <ProfilePicture
-              v-for="user in entry.users"
-              :key="user.id"
-              :user="user"
-            />
-          </QItemTile>
-        </QItemMain>
+      <QItem>
+        <QItemSection side>
+          <QIcon name="fas fa-fw fa-user" />
+        </QItemSection>
+        <QItemSection>
+          <ProfilePicture
+            v-for="user in entry.users"
+            :key="user.id"
+            :user="user"
+          />
+        </QItemSection>
       </QItem>
 
-      <QItem dense>
-        <QItemSide icon="far fa-fw fa-comment" />
-        <QItemMain>
-          <QItemTile label>
+      <QItem>
+        <QItemSection side>
+          <QIcon name="far fa-fw fa-comment" />
+        </QItemSection>
+        <QItemSection>
+          <QItemLabel>
             {{ entry.message }}
-          </QItemTile>
-        </QItemMain>
+          </QItemLabel>
+        </QItemSection>
       </QItem>
 
       <QItem
         v-if="entry.group && entry.group.name"
-        dense
       >
-        <QItemSide icon="fas fa-fw fa-home" />
-        <QItemMain>
-          <QItemTile label>
+        <QItemSection side>
+          <QIcon name="fas fa-fw fa-home" />
+        </QItemSection>
+        <QItemSection>
+          <QItemLabel>
             <RouterLink :to="{name: 'group', params: { groupId: entry.group.id }}">
               {{ entry.group.name }}
             </RouterLink>
-          </QItemTile>
-        </QItemMain>
+          </QItemLabel>
+        </QItemSection>
       </QItem>
 
       <QItem
         v-if="entry.place && entry.place.name"
-        dense
       >
-        <QItemSide :icon="$icon('place_fw')" />
-        <QItemMain>
-          <QItemTile label>
+        <QItemSection side>
+          <QIcon :name="$icon('place_fw')" />
+        </QItemSection>
+        <QItemSection>
+          <QItemLabel>
             <RouterLink :to="{name: 'place', params: { groupId: entry.place.group.id, placeId: entry.place.id }}">
               {{ entry.place.name }}
             </RouterLink>
-          </QItemTile>
-        </QItemMain>
+          </QItemLabel>
+        </QItemSection>
       </QItem>
     </QList>
     <QList
       v-if="entry.payload"
-      striped
     >
-      <QItem
-        class="bg-tertiary"
-      >
-        <QItemSide
-          color="white"
-          icon="far fa-fw fa-file-alt"
-        />
+      <QItem class="bg-accent">
+        <QItemSection side>
+          <QIcon
+            color="white"
+            name="far fa-fw fa-file-alt"
+          />
+        </QItemSection>
       </QItem>
       <HistoryPayloadDetail
         v-for="(value, key) in entry.payload"
@@ -122,9 +127,9 @@ import {
   QCard,
   QList,
   QItem,
-  QItemMain,
-  QItemTile,
-  QItemSide,
+  QItemSection,
+  QItemLabel,
+  QIcon,
 } from 'quasar'
 import ProfilePicture from '@/users/components/ProfilePicture'
 import DateAsWords from '@/utils/components/DateAsWords'
@@ -136,9 +141,9 @@ export default {
     QCard,
     QList,
     QItem,
-    QItemMain,
-    QItemTile,
-    QItemSide,
+    QItemSection,
+    QItemLabel,
+    QIcon,
     ProfilePicture,
     DateAsWords,
     HistoryPayloadDetail,
@@ -161,6 +166,3 @@ export default {
   },
 }
 </script>
-
-<style scoped lang="stylus">
-</style>

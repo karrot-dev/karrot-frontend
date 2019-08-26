@@ -1,81 +1,128 @@
 <template>
   <div>
-    <QCard class="no-shadow grey-border">
+    <QCard
+      class="no-shadow grey-border"
+      style="max-width: 700px"
+    >
       <div
         class="edit-box"
         :class="{ changed: hasChanged }"
       >
         <form @submit.prevent="maybeSave">
-          <QField
-            icon="fas fa-star"
+          <QInput
+            v-model="edit.name"
             :label="$t('STOREEDIT.NAME')"
             :error="hasNameError"
-            :error-label="nameError"
+            :error-message="nameError"
+            autofocus
+            autocomplete="off"
+            @blur="$v.edit.name.$touch"
           >
-            <QInput
-              v-model="edit.name"
-              :autofocus="true"
-              autocomplete="off"
-              @blur="$v.edit.name.$touch"
-            />
-          </QField>
-          <QField
-            icon="fas fa-handshake"
+            <template v-slot:before>
+              <QIcon name="fas fa-star" />
+            </template>
+          </QInput>
+
+          <QSelect
+            v-model="edit.status"
+            :options="statusOptions"
+            map-options
+            emit-value
             :label="$t('STOREEDIT.STATUS')"
             :error="hasError('status')"
-            :error-label="firstError('status')"
+            :error-message="firstError('status')"
           >
-            <QSelect
-              v-model="edit.status"
-              :options="statusOptions"
-            />
-          </QField>
+            <template v-slot:before>
+              <QIcon name="fas fa-handshake" />
+            </template>
+            <template v-slot:option="scope">
+              <QItem
+                :key="scope.index"
+                dense
+                v-bind="scope.itemProps"
+                v-on="scope.itemEvents"
+              >
+                <QItemSection side>
+                  <QIcon
+                    :name="scope.opt.icon"
+                    :color="scope.opt.color"
+                    size="1.1em"
+                  />
+                </QItemSection>
+                <QItemSection>
+                  <QItemLabel>{{ scope.opt.label }}</QItemLabel>
+                </QItemSection>
+              </QItem>
+            </template>
+            <template v-slot:selected-item="scope">
+              <div class="row">
+                <QIcon
+                  :name="scope.opt.icon"
+                  :color="scope.opt.color"
+                  size="1.1em"
+                  class="on-left q-ml-xs"
+                />
+                <div>
+                  {{ scope.opt.label }}
+                </div>
+              </div>
+            </template>
+          </QSelect>
 
-          <QField
+          <MarkdownInput
+            v-model="edit.description"
             icon="fas fa-question"
             :label="$t('STOREEDIT.DESCRIPTION')"
             :error="hasError('description')"
-            :error-label="firstError('description')"
-          >
-            <MarkdownInput :value="edit.description">
-              <QInput
-                v-model="edit.description"
-                type="textarea"
-                rows="3"
-                @keyup.ctrl.enter="maybeSave"
-              />
-            </MarkdownInput>
-          </QField>
+            :error-message="firstError('description')"
+            @keyup.ctrl.enter="maybeSave"
+          />
 
-          <QField
+          <AddressPicker
+            v-model="edit"
             icon="fas fa-map-marker"
+            :color="markerColor"
+            :font-icon="$icon('place')"
             :label="$t('STOREEDIT.ADDRESS')"
             :error="hasAddressError"
-            :error-label="addressError"
-          >
-            <AddressPicker
-              v-model="edit"
-              :color="markerColor"
-              :font-icon="$icon('place')"
-            />
-          </QField>
+            :error-message="addressError"
+          />
 
-          <QField
-            icon="fas fa-calendar-alt"
-            :label="$t('STOREEDIT.WEEKS_IN_ADVANCE')"
-            :error="hasError('weeksInAdvance')"
-            :error-label="firstError('weeksInAdvance')"
-            :warning="value.weeksInAdvance > edit.weeksInAdvance"
-            :warning-label="$t('STOREEDIT.WEEKS_IN_ADVANCE_WARNING')"
-          >
-            <QSlider
-              v-model="edit.weeksInAdvance"
-              :min="1"
-              :max="10"
-              label
-              label-always
-            />
-          </QField>
+          <div>
+            <QField
+              borderless
+              :hint="$t('STOREEDIT.WEEKS_IN_ADVANCE')"
+              stack-label
+              hide-bottom-space
+              :error="hasError('weeksInAdvance')"
+              :error-message="firstError('weeksInAdvance')"
+            >
+              <template v-slot:before>
+                <QIcon name="fas fa-calendar-alt" />
+              </template>
+              <template v-slot:control>
+                <QSlider
+                  v-model="edit.weeksInAdvance"
+                  :min="1"
+                  :max="10"
+                  label
+                  label-always
+                  markers
+                  class="q-mt-lg q-mx-md"
+                />
+              </template>
+            </QField>
+            <div
+              v-if="!isNew && value.weeksInAdvance > edit.weeksInAdvance"
+              class="q-ml-lg col-12 q-field__bottom text-warning"
+            >
+              <QIcon
+                name="warning"
+                class="vertical-center"
+              />
+              {{ $t('STOREEDIT.WEEKS_IN_ADVANCE_WARNING') }}
+            </div>
+          </div>
 
           <div
             v-if="hasNonFieldError || hasError('group')"
@@ -84,22 +131,13 @@
             {{ firstNonFieldError || firstError('group') }}
           </div>
 
-          <div class="actionButtons">
+          <div class="row justify-end q-gutter-sm q-mt-md">
             <QBtn
-              type="submit"
-              color="primary"
-              :disable="!canSave"
-              :loading="isPending"
-            >
-              {{ $t(isNew ? 'BUTTON.CREATE' : 'BUTTON.SAVE_CHANGES') }}
-            </QBtn>
-            <QBtn
-              v-if="!isNew"
+              v-if="isNew"
               type="button"
-              color="red"
-              @click="archive"
+              @click="$emit('cancel')"
             >
-              {{ $t('BUTTON.ARCHIVE') }}
+              {{ $t('BUTTON.CANCEL') }}
             </QBtn>
             <QBtn
               v-if="!isNew"
@@ -110,11 +148,20 @@
               {{ $t('BUTTON.RESET') }}
             </QBtn>
             <QBtn
-              v-if="isNew"
+              v-if="!isNew"
               type="button"
-              @click="$emit('cancel')"
+              color="red"
+              @click="archive"
             >
-              {{ $t('BUTTON.CANCEL') }}
+              {{ $t('BUTTON.ARCHIVE') }}
+            </QBtn>
+            <QBtn
+              type="submit"
+              color="primary"
+              :disable="!canSave"
+              :loading="isPending"
+            >
+              {{ $t(isNew ? 'BUTTON.CREATE' : 'BUTTON.SAVE_CHANGES') }}
             </QBtn>
           </div>
         </form>
@@ -131,6 +178,10 @@ import {
   QInput,
   QBtn,
   QSelect,
+  QIcon,
+  QItem,
+  QItemSection,
+  QItemLabel,
   Dialog,
 } from 'quasar'
 import AddressPicker from '@/maps/components/AddressPicker'
@@ -150,6 +201,10 @@ export default {
     QInput,
     QBtn,
     QSelect,
+    QIcon,
+    QItem,
+    QItemSection,
+    QItemLabel,
     MarkdownInput,
     AddressPicker,
   },
@@ -208,7 +263,7 @@ export default {
         .map(s => ({
           value: s.key,
           label: this.$t(s.label),
-          leftColor: s.color,
+          color: s.color,
           icon: s.icon,
         }))
     },
@@ -251,8 +306,7 @@ export default {
         cancel: this.$t('BUTTON.CANCEL'),
         ok: this.$t('STOREEDIT.DIALOGS.ARCHIVE.CONFIRM'),
       })
-        .then(() => this.$emit('save', { id: this.value.id, status: 'archived' }, event))
-        .catch(() => {})
+        .onOk(() => this.$emit('save', { id: this.value.id, status: 'archived' }, event))
     },
   },
   validations: {

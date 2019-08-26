@@ -22,7 +22,7 @@
       </QItem>
     </template>
     <template v-else>
-      <QItem class="q-title">
+      <QItem class="text-h6">
         {{ $t('ISSUE.VOTING.RESULTS.TIME_UP') }}
       </QItem>
       <QItem>

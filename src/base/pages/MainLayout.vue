@@ -25,7 +25,7 @@
       :class="theme"
     >
       <QLayout :view="layoutView">
-        <QLayoutHeader reveal>
+        <QHeader reveal>
           <KTopbar
             v-if="isLoggedIn"
             @toggleSidenav="toggleSidenav"
@@ -46,57 +46,65 @@
           </KTopbar>
           <KTopbarLoggedOut v-if="!isLoggedIn" />
           <RouterView name="subheader" />
-        </QLayoutHeader>
+        </QHeader>
 
         <!-- mobile sidenav -->
-        <QLayoutDrawer
+        <QDrawer
           v-if="$q.platform.is.mobile"
           v-model="showSidenav"
           side="left"
           :breakpoint="Number.MAX_SAFE_INTEGER"
-          :overlay="true"
+          overlay
+          elevated
         >
           <SidenavTitle @click="toggleSidenav" />
           <RouterView name="sidenav" />
           <MobileSidenav />
           <QItem
-            link
-            @click.native="toggleAbout()"
+            clickable
+            @click="toggleAbout"
           >
-            <QItemSide class="text-center">
+            <QItemSection
+              side
+              class="text-center"
+            >
               <KarrotLogo class="logo" />
-            </QItemSide>
-            <QItemMain>
+            </QItemSection>
+            <QItemSection>
               {{ $t("GLOBAL.ABOUT_KARROT") }}
-            </QItemMain>
+            </QItemSection>
           </QItem>
           <CommunityFeed />
-        </QLayoutDrawer>
+        </QDrawer>
 
         <!-- desktop sidenav -->
-        <QLayoutDrawer
+        <QDrawer
           v-else-if="isLoggedIn && currentGroupId && hasSidenavComponent && !disableDesktopSidenav"
           side="left"
           :width="sidenavWidth"
           :breakpoint="0"
           :value="true"
           :overlay="false"
+          elevated
           @click.native="toggleSidenav"
         >
           <RouterView name="sidenav" />
           <QItem
-            link
-            @click.native="toggleAbout()"
+            clickable
+            @click="toggleAbout"
           >
-            <QItemSide class="text-center">
+            <QItemSection
+              side
+              class="text-center"
+            >
               <KarrotLogo class="logo" />
-            </QItemSide>
-            <QItemMain>
+            </QItemSection>
+            <QItemSection>
               {{ $t("GLOBAL.ABOUT_KARROT") }}
-            </QItemMain>
+            </QItemSection>
           </QItem>
           <CommunityFeed />
-        </QLayoutDrawer>
+        </QDrawer>
 
         <QPageContainer>
           <Banners />
@@ -106,8 +114,8 @@
           >
             <Component
               :is="disablePullToRefresh ? 'div' : 'QPullToRefresh'"
-              :handler="refresh"
               style="max-height: none"
+              @refresh="refresh"
             >
               <RouterView
                 v-if="$q.platform.is.mobile && hasDetailComponent"
@@ -118,12 +126,13 @@
           </QPage>
         </QPageContainer>
 
-        <QLayoutDrawer
+        <QDrawer
           v-if="!$q.platform.is.mobile"
           side="right"
           :width="detailWidth"
           :overlay="false"
           :breakpoint="0"
+          elevated
           :value="isDetailActive || hasDetailComponent"
         >
           <DetailSidebar
@@ -134,21 +143,20 @@
             v-else
             name="detail"
           />
-        </QLayoutDrawer>
+        </QDrawer>
 
-        <QLayoutFooter>
+        <QFooter>
           <RouterView name="footer" />
           <UnsupportedBrowserWarning
             v-if="$q.platform.is.mobile && !$keyboard.is.open"
           />
-        </QLayoutFooter>
-        <QWindowResizeObservable @resize="onResize" />
+        </QFooter>
       </QLayout>
     </div>
 
-    <QModal v-model="showAbout">
-      <KAbout @close="toggleAbout()" />
-    </QModal>
+    <QDialog v-model="showAbout">
+      <KAbout @close="toggleAbout" />
+    </QDialog>
   </div>
 </template>
 
@@ -167,29 +175,24 @@ import CommunityFeed from '@/communityFeed/components/CommunityFeed'
 
 import { mapGetters, mapActions } from 'vuex'
 import {
-  dom,
   QLayout,
-  QLayoutHeader,
-  QLayoutDrawer,
-  QLayoutFooter,
-  QModal,
+  QHeader,
+  QDrawer,
+  QFooter,
+  QDialog,
   QPageContainer,
   QPage,
-  QWindowResizeObservable,
   QItem,
   QIcon,
-  QItemMain,
-  QItemSide,
+  QItemSection,
   QBtn,
   QPullToRefresh,
 } from 'quasar'
 
-const { width } = dom
-
 export default {
   components: {
     KarrotLogo,
-    QModal,
+    QDialog,
     DetailSidebar,
     KAbout,
     KTopbar,
@@ -197,17 +200,15 @@ export default {
     SidenavTitle,
     MobileSidenav,
     QLayout,
-    QLayoutHeader,
-    QLayoutDrawer,
-    QLayoutFooter,
+    QHeader,
+    QDrawer,
+    QFooter,
     QPageContainer,
     QPage,
-    QWindowResizeObservable,
     QBtn,
     QIcon,
     QItem,
-    QItemMain,
-    QItemSide,
+    QItemSection,
     QPullToRefresh,
     Banners,
     RouteError,
@@ -218,7 +219,6 @@ export default {
     return {
       showSidenav: false,
       showAbout: false,
-      windowWidth: width(window),
     }
   },
   computed: {
@@ -242,12 +242,12 @@ export default {
     },
     sidenavWidth () {
       if (this.$q.platform.is.mobile) {
-        return Math.min(380, this.windowWidth)
+        return Math.min(380, this.$q.screen.width)
       }
-      return this.windowWidth > 1000 ? 380 : 280
+      return this.$q.screen.width > 1000 ? 380 : 280
     },
     detailWidth () {
-      const contentWidth = this.windowWidth - this.sidenavWidth
+      const contentWidth = this.$q.screen.width - this.sidenavWidth
       const columnWidth = Math.floor(contentWidth / 2)
       return Math.min(500, Math.max(280, columnWidth))
     },
@@ -296,9 +296,6 @@ export default {
     },
     toggleAbout () {
       this.showAbout = !this.showAbout
-    },
-    onResize ({ width }) {
-      this.windowWidth = width
     },
   },
 }

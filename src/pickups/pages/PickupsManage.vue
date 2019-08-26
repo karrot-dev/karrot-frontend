@@ -1,31 +1,23 @@
 <template>
   <div>
     <QCard class="no-shadow grey-border">
-      <QCardTitle>
-        <h5>
+      <QCardSection class="row justify-between no-wrap q-mb-md">
+        <div class="text-h6">
           <i
             class="fas fa-redo on-left"
-            aria-hidden="true"
           />
           {{ $t('PICKUPMANAGE.SERIES') }}
-        </h5>
-        <div
-          slot="right"
-          class="row items-center"
-        >
-          <QBtn
-            v-if="!newSeries"
-            small
-            round
-            class="bannerButton hoverScale"
-            color="secondary"
-            icon="fas fa-plus"
-            @click="createNewSeries"
-          >
-            <QTooltip v-t="'BUTTON.CREATE'" />
-          </QBtn>
         </div>
-      </QCardTitle>
+        <QBtn
+          v-if="!newSeries"
+          size="sm"
+          round
+          color="secondary"
+          icon="fas fa-plus"
+          :title="$t('BUTTON.CREATE')"
+          @click="createNewSeries"
+        />
+      </QCardSection>
       <QItem v-if="newSeries">
         <PickupSeriesEdit
           :value="newSeries"
@@ -39,11 +31,8 @@
       <QList
         class="pickups"
         separator
-        no-border
-        highlight
-        sparse
       >
-        <QCollapsible
+        <QExpansionItem
           v-for="series in pickupSeries"
           :key="series.id"
           :label="seriesLabel(series)"
@@ -62,24 +51,28 @@
             />
           </QItem>
           <QList
-            no-border
             seperator
           >
-            <QListHeader v-t="'PICKUPMANAGE.UPCOMING_PICKUPS_IN_SERIES'" />
-            <QCollapsible
+            <QItemLabel
+              v-t="'PICKUPMANAGE.UPCOMING_PICKUPS_IN_SERIES'"
+              header
+            />
+            <QExpansionItem
               v-for="pickup in series.pickups"
               :key="pickup.id"
               @show="makeVisible('pickup', pickup.id)"
             >
-              <template slot="header">
-                <QItemSide
+              <template v-slot:header>
+                <QItemSection
                   v-if="!$q.platform.is.mobile"
-                  :icon="$icon('pickup')"
-                />
-                <QItemMain>
-                  <QItemTile
+                  side
+                >
+                  <QIcon :name="$icon('pickup')" />
+                </QItemSection>
+                <QItemSection>
+                  <QItemLabel
                     :tag="pickup.isDisabled ? 's' : 'div'"
-                    label
+                    header
                     :title="pickup.isDisabled ? $t('PICKUPLIST.PICKUP_DISABLED') : null"
                   >
                     {{ $d(pickup.date, 'yearMonthDay') }}
@@ -89,16 +82,16 @@
                     <template v-if="!series.isSameHour || !series.isSameMinute">
                       ({{ $d(pickup.date, 'hourMinute') }})
                     </template>
-                  </QItemTile>
-                </QItemMain>
-                <QItemSide
+                  </QItemLabel>
+                </QItemSection>
+                <QItemSection
+                  side
                   class="text-bold"
-                  right
                 >
                   <QIcon
                     v-if="!pickup.seriesMeta.matchesRule"
                     class="text-warning"
-                    name="access time"
+                    name="access_time"
                     size="150%"
                     :title="$t('PICKUPMANAGE.PICKUP_DOES_NOT_MATCH')"
                   />
@@ -116,7 +109,7 @@
                     size="150%"
                     :title="$t('PICKUPMANAGE.PICKUP_MAX_COLLECTORS_CHANGED')"
                   />
-                </QItemSide>
+                </QItemSection>
               </template>
               <PickupEdit
                 v-if="visible.pickup[pickup.id]"
@@ -126,9 +119,9 @@
                 @save="savePickup"
                 @reset="resetPickup"
               />
-            </QCollapsible>
+            </QExpansionItem>
           </QList>
-        </QCollapsible>
+        </QExpansionItem>
       </QList>
     </QCard>
 
@@ -138,32 +131,24 @@
         :seed="placeId"
         type="banner"
       />
-      <QCardTitle>
-        <h5>
+      <QCardSection class="row justify-between no-wrap q-mb-md">
+        <div class="text-h6">
           <i
             class="on-left"
             :class="$icon('pickup')"
-            aria-hidden="true"
           />
           {{ $t('PICKUPMANAGE.SINGLE') }}
-        </h5>
-        <div
-          slot="right"
-          class="row items-center"
-        >
-          <QBtn
-            v-if="!newPickup"
-            small
-            round
-            class="bannerButton hoverScale"
-            color="secondary"
-            icon="fas fa-plus"
-            @click="createNewPickup"
-          >
-            <QTooltip v-t="'BUTTON.CREATE'" />
-          </QBtn>
         </div>
-      </QCardTitle>
+        <QBtn
+          v-if="!newPickup"
+          size="sm"
+          round
+          color="secondary"
+          icon="fas fa-plus"
+          :title="$t('BUTTON.CREATE')"
+          @click="createNewPickup"
+        />
+      </QCardSection>
       <QItem v-if="newPickup">
         <PickupEdit
           :value="newPickup"
@@ -177,34 +162,34 @@
       <QList
         class="pickups"
         separator
-        no-border
       >
-        <QCollapsible
+        <QExpansionItem
           v-for="pickup in oneTimePickups"
           :key="pickup.id"
           sparse
           @show="makeVisible('pickup', pickup.id)"
         >
-          <template slot="header">
-            <QItemSide
+          <template v-slot:header>
+            <QItemSection
               v-if="!$q.platform.is.mobile"
-              icon="fas fa-calendar-alt"
-            />
-            <QItemMain>
-              <QItemTile
-                label
+              side
+            >
+              <QIcon name="fas fa-calendar-alt" />
+            </QItemSection>
+            <QItemSection>
+              <QItemLabel
                 :tag="pickup.isDisabled ? 's' : 'div'"
                 :title="pickup.isDisabled ? $t('PICKUPLIST.PICKUP_DISABLED') : null"
               >
                 {{ $d(pickup.date, 'dateWithDayName') }}
-              </QItemTile>
-              <QItemTile sublabel>
+              </QItemLabel>
+              <QItemLabel caption>
                 {{ $d(pickup.date, 'hourMinute') }}
                 <template v-if="pickup.hasDuration">
                   &mdash; {{ $d(pickup.dateEnd, 'hourMinute') }}
                 </template>
-              </QItemTile>
-            </QItemMain>
+              </QItemLabel>
+            </QItemSection>
           </template>
           <PickupEdit
             v-if="visible.pickup[pickup.id]"
@@ -213,7 +198,7 @@
             @save="savePickup"
             @reset="resetPickup"
           />
-        </QCollapsible>
+        </QExpansionItem>
       </QList>
     </QCard>
   </div>
@@ -223,16 +208,13 @@
 import { mapGetters, mapActions } from 'vuex'
 import {
   QCard,
-  QCardTitle,
+  QCardSection,
   QList,
-  QListHeader,
+  QItemLabel,
   QItem,
-  QItemSide,
-  QItemMain,
-  QItemTile,
-  QCollapsible,
+  QItemSection,
+  QExpansionItem,
   QBtn,
-  QTooltip,
   QIcon,
 } from 'quasar'
 import PickupSeriesEdit from '@/pickups/components/PickupSeriesEdit'
@@ -254,16 +236,13 @@ export default {
     RandomArt,
     KSpinner,
     QCard,
-    QCardTitle,
+    QCardSection,
     QList,
-    QListHeader,
+    QItemLabel,
     QItem,
-    QItemSide,
-    QItemMain,
-    QItemTile,
-    QCollapsible,
+    QItemSection,
+    QExpansionItem,
     QBtn,
-    QTooltip,
     QIcon,
   },
   data () {
@@ -387,9 +366,6 @@ export default {
   background-color white
 button.selected
   background-color $grey-4
-
-.bannerButton
-  margin-top -64px
 
 .secondCard
   margin-top 24px !important

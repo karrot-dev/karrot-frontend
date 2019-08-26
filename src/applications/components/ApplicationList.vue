@@ -1,6 +1,6 @@
 <template>
   <div class="bg-white">
-    <QList no-border>
+    <QList bordered>
       <ApplicationItem
         v-for="a in pending"
         :key="a.id"
@@ -9,8 +9,8 @@
         @decline="$emit('decline', arguments[0])"
         @openChat="$emit('openChat', arguments[0])"
       />
-      <QItemSeparator />
-      <QCollapsible
+      <QSeparator />
+      <QExpansionItem
         v-if="otherApplications.length > 0"
         icon="fas fa-archive"
         :label="$t('APPLICATION.PAST')"
@@ -26,7 +26,7 @@
             @openChat="$emit('openChat', arguments[0])"
           />
         </template>
-      </QCollapsible>
+      </QExpansionItem>
       <QItem
         v-if="canFetchPast"
         class="row justify-center"
@@ -47,8 +47,8 @@
 import ApplicationItem from './ApplicationItem'
 import paginationMixin from '@/utils/mixins/paginationMixin'
 import {
-  QCollapsible,
-  QItemSeparator,
+  QExpansionItem,
+  QSeparator,
   QList,
   QItem,
   QBtn,
@@ -57,8 +57,8 @@ import {
 export default {
   components: {
     ApplicationItem,
-    QCollapsible,
-    QItemSeparator,
+    QExpansionItem,
+    QSeparator,
     QList,
     QItem,
     QBtn,

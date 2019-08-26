@@ -1,20 +1,20 @@
 <template>
-  <QItem highlight>
-    <QItemSide>
+  <QItem>
+    <QItemSection side>
       <ProfilePicture
         :key="user.id"
         :user="user"
         :size="30"
         class="profilePic"
       />
-    </QItemSide>
-    <QItemMain>
-      <QItemTile label>
+    </QItemSection>
+    <QItemSection>
+      <QItemLabel>
         <RouterLink :to="{name: 'user', params: { userId: user.id }}">
           {{ user.displayName }}
         </RouterLink>
-      </QItemTile>
-      <QItemTile sublabel>
+      </QItemLabel>
+      <QItemLabel caption>
         <i18n
           path="GROUP.JOINED"
         >
@@ -38,20 +38,18 @@
           </i18n>
         </template>
         <br>
-      </QItemTile>
-    </QItemMain>
-    <QItemSide>
-      <QItemTile>
-        <TrustButton
-          v-if="user.membership"
-          :user="user"
-          :group="group"
-          :membership="user.membership"
-          small
-          @createTrust="$emit('createTrust', arguments[0])"
-        />
-      </QItemTile>
-    </QItemSide>
+      </QItemLabel>
+    </QItemSection>
+    <QItemSection side>
+      <TrustButton
+        v-if="user.membership"
+        :user="user"
+        :group="group"
+        :membership="user.membership"
+        small
+        @createTrust="$emit('createTrust', arguments[0])"
+      />
+    </QItemSection>
   </QItem>
 </template>
 
@@ -59,9 +57,8 @@
 import { mapGetters } from 'vuex'
 import {
   QItem,
-  QItemMain,
-  QItemTile,
-  QItemSide,
+  QItemSection,
+  QItemLabel,
 } from 'quasar'
 
 import ProfilePicture from './ProfilePicture'
@@ -74,9 +71,8 @@ export default {
     DateAsWords,
     TrustButton,
     QItem,
-    QItemMain,
-    QItemTile,
-    QItemSide,
+    QItemSection,
+    QItemLabel,
   },
   props: {
     user: {

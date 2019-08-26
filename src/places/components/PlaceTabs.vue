@@ -1,18 +1,23 @@
 <template>
   <QTabs
-    inverted
-    class="shadow-3 k-place-tabs"
+    class="shadow-3 bg-white k-place-tabs"
   >
     <QRouteTab
       v-for="(tab, idx) in tabs"
       :key="idx"
-      slot="title"
       :to="tab.to"
       :default="idx === 0"
       :label="tab.label"
-      :count="tab.count"
       exact
-    />
+    >
+      <QBadge
+        v-if="tab.count"
+        color="secondary"
+        floating
+      >
+        {{ tab.count }}
+      </QBadge>
+    </QRouteTab>
   </QTabs>
 </template>
 
@@ -22,12 +27,14 @@ import { mapGetters } from 'vuex'
 import {
   QTabs,
   QRouteTab,
+  QBadge,
 } from 'quasar'
 
 export default {
   components: {
     QTabs,
     QRouteTab,
+    QBadge,
   },
   computed: {
     ...mapGetters({
@@ -74,10 +81,3 @@ export default {
   },
 }
 </script>
-
-<style lang="stylus" scoped>
-@import '~variables'
-
-.k-place-tabs >>> .q-tab .q-chip
-  background alpha($secondary, 0.85)
-</style>

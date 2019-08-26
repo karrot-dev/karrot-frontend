@@ -142,7 +142,7 @@ const notifications = [
     context: {
       group,
       issue: factories.makeIssue(),
-      affectedUser: factories.makeUser(),
+      user: factories.makeUser(),
     },
   },
   {
@@ -157,7 +157,7 @@ const notifications = [
     context: {
       group,
       issue: factories.makeIssue(),
-      affectedUser: factories.makeUser(),
+      user: factories.makeUser(),
     },
   },
   {
@@ -172,7 +172,7 @@ const notifications = [
     context: {
       group,
       issue: factories.makeIssue(),
-      affectedUser: factories.makeUser(),
+      user: factories.makeUser(),
     },
   },
   {

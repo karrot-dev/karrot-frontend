@@ -73,6 +73,7 @@ storiesOf('Map', module)
         showPlaces: true,
         showUsers: true,
         currentGroup,
+        isEditor: true,
       },
       style,
     }),

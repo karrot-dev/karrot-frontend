@@ -1,151 +1,62 @@
 <template>
   <SidenavBox>
-    <template slot="icon">
+    <template v-slot:icon>
       <QIcon name="fas fa-fw fa-home" />
     </template>
-    <template slot="name">
+    <template v-slot:name>
       {{ $t('GROUP.HOME') }}
     </template>
-    <div
-      slot="tools"
-      class="tools"
-    >
-      <QBtn
-        flat
-        dense
-        round
-        :to="{ name: 'settings', hash: '#notifications' }"
-      >
-        <QIcon name="fas fa-cog fa-fw" />
-        <QTooltip v-t="'GROUP.SETTINGS'" />
-      </QBtn>
-      <QBtn
-        flat
-        dense
-        round
-      >
-        <QIcon name="fas fa-fw fa-ellipsis-v" />
-        <GroupOptions />
-      </QBtn>
-    </div>
-
-    <div>
-      <QList
-        highlight
-        no-border
-        class="no-padding"
-      >
-        <QItem :to="{ name: 'group', params: { groupId } }">
-          <QItemSide class="text-center">
-            <QIcon name="fas fa-bullhorn" />
-          </QItemSide>
-          <QItemMain>
-            {{ $t("GROUP.WALL") }}
-          </QItemMain>
-          <QItemSide
-            v-if="wallUnreadCount > 0"
-            right
-          >
-            <QChip
-              small
-              color="secondary"
-            >
-              {{ cappedWallUnreadCount }}
-            </QChip>
-          </QItemSide>
-        </QItem>
-        <QItem :to="{ name: 'groupPickups', params: { groupId } }">
-          <QItemSide class="text-center">
-            <QIcon :name="$icon('pickup')" />
-          </QItemSide>
-          <QItemMain>
-            {{ $t("GROUP.PICKUPS") }}
-          </QItemMain>
-        </QItem>
-        <QItem :to="{ name: 'groupFeedback', params: { groupId } }">
-          <QItemSide class="text-center">
-            <QIcon :name="$icon('feedback')" />
-          </QItemSide>
-          <QItemMain>
-            {{ $t("PICKUP_FEEDBACK.TITLE") }}
-          </QItemMain>
-        </QItem>
-        <QItem :to="{ name: 'applications', params: { groupId } }">
-          <QItemSide class="text-center">
-            <QIcon name="fas fa-address-card" />
-          </QItemSide>
-          <QItemMain>
-            {{ $t("GROUP.APPLICATIONS") }}
-          </QItemMain>
-          <QItemSide
-            v-if="pendingApplications.length > 0"
-            right
-          >
-            <QChip
-              small
-              color="blue"
-              :title="$tc('APPLICATION.WALL_NOTICE', pendingApplications.length, { count: pendingApplications.length })"
-            >
-              {{ pendingApplications.length }}
-            </QChip>
-          </QItemSide>
-        </QItem>
-        <QItem :to="{ name: 'issueList', params: { groupId } }">
-          <QItemSide class="text-center">
-            <QIcon name="fas fa-vote-yea" />
-          </QItemSide>
-          <QItemMain>
-            {{ $t("ISSUE.TITLE") }}
-          </QItemMain>
-        </QItem>
-        <QItem :to="{ name: 'groupDescription', params: { groupId } }">
-          <QItemSide class="text-center">
-            <i class="far fa-address-card" />
-          </QItemSide>
-          <QItemMain>
-            {{ $t("GROUP.DESCRIPTION") }}
-          </QItemMain>
-        </QItem>
-        <QItem :to="{ name: 'groupMembers', params: { groupId } }">
-          <QItemSide class="text-center">
-            <QIcon name="fas fa-users" />
-          </QItemSide>
-          <QItemMain>
-            {{ $t("GROUP.MEMBERS") }}
-          </QItemMain>
-        </QItem>
-        <QItem :to="{ name: 'groupHistory', params: { groupId } }">
-          <QItemSide class="text-center">
-            <i class="far fa-clock" />
-          </QItemSide>
-          <QItemMain>
-            {{ $t("GROUP.HISTORY") }}
-          </QItemMain>
-        </QItem>
-        <QItem
-          v-if="$q.platform.is.mobile"
-          :to="{ name: 'map', params: { groupId } }"
+    <template v-slot:tools>
+      <div>
+        <QBtn
+          flat
+          dense
+          round
+          size="sm"
+          :to="{ name: 'settings', hash: '#notifications' }"
+          :title="$t('GROUP.SETTINGS')"
         >
-          <QItemSide class="text-center">
-            <QIcon name="fas fa-map" />
-          </QItemSide>
-          <QItemMain>
-            {{ $t('GROUPMAP.TITLE') }}
-          </QItemMain>
-        </QItem>
-      </QList>
-    </div>
+          <QIcon name="fas fa-cog fa-fw" />
+        </QBtn>
+        <QBtn
+          flat
+          dense
+          round
+          size="sm"
+        >
+          <QIcon name="fas fa-fw fa-ellipsis-v" />
+          <QMenu
+            fit
+            anchor="bottom right"
+            self="top right"
+          >
+            <GroupOptions />
+          </QMenu>
+        </QBtn>
+      </div>
+    </template>
+    <SidenavMenu :entries="entries" />
   </SidenavBox>
 </template>
 
 <script>
-import { QBtn, QList, QItem, QItemSide, QItemMain, QIcon, QTooltip, QChip } from 'quasar'
+import {
+  QBtn,
+  QIcon,
+  QMenu,
+} from 'quasar'
 import SidenavBox from './SidenavBox'
+import SidenavMenu from './SidenavMenu'
 import GroupOptions from './GroupOptions'
 
 export default {
   components: {
-    SidenavBox, GroupOptions, QBtn, QList, QItem, QItemSide, QItemMain, QIcon, QTooltip, QChip,
+    SidenavBox,
+    SidenavMenu,
+    GroupOptions,
+    QBtn,
+    QIcon,
+    QMenu,
   },
   props: {
     groupId: {
@@ -164,6 +75,57 @@ export default {
   computed: {
     cappedWallUnreadCount () {
       return this.wallUnreadCount > 99 ? '99+' : this.wallUnreadCount
+    },
+    entries () {
+      return [{
+        label: this.$t('GROUP.WALL'),
+        icon: 'fas fa-bullhorn',
+        to: { name: 'group', params: { groupId: this.groupId } },
+        badge: {
+          condition: this.wallUnreadCount > 0,
+          label: this.cappedWallUnreadCount,
+          color: 'secondary',
+        },
+      }, {
+        label: this.$t('GROUP.PICKUPS'),
+        icon: this.$icon('pickup'),
+        to: { name: 'groupPickups', params: { groupId: this.groupId } },
+      }, {
+        label: this.$t('PICKUP_FEEDBACK.TITLE'),
+        icon: this.$icon('feedback'),
+        to: { name: 'groupFeedback', params: { groupId: this.groupId } },
+      }, {
+        label: this.$t('GROUP.APPLICATIONS'),
+        icon: 'fas fa-address-card',
+        to: { name: 'applications', params: { groupId: this.groupId } },
+        badge: {
+          condition: this.pendingApplications.length > 0,
+          label: this.pendingApplications.length,
+          color: 'blue',
+          title: this.$tc('APPLICATION.WALL_NOTICE', this.pendingApplications.length, { count: this.pendingApplications.length }),
+        },
+      }, {
+        label: this.$t('ISSUE.TITLE'),
+        icon: 'fas fa-vote-yea',
+        to: { name: 'issueList', params: { groupId: this.groupId } },
+      }, {
+        label: this.$t('GROUP.DESCRIPTION'),
+        icon: 'far fa-address-card',
+        to: { name: 'groupDescription', params: { groupId: this.groupId } },
+      }, {
+        label: this.$t('GROUP.MEMBERS'),
+        icon: 'fas fa-users',
+        to: { name: 'groupMembers', params: { groupId: this.groupId } },
+      }, {
+        label: this.$t('GROUP.HISTORY'),
+        icon: 'far fa-clock',
+        to: { name: 'groupHistory', params: { groupId: this.groupId } },
+      }, {
+        condition: this.$q.platform.is.mobile,
+        label: this.$t('GROUPMAP.TITLE'),
+        icon: 'fas fa-map',
+        to: { name: 'map', params: { groupId: this.groupId } },
+      }].filter(e => typeof e.condition === 'undefined' || e.condition === true)
     },
   },
 }

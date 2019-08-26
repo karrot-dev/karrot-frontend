@@ -1,36 +1,26 @@
 <template>
-  <div>
-    <QTabs
-      v-model="tab"
-      class="markdown-input"
-      inverted
-      align="right"
-      position="top"
-    >
-      <QTab
-        slot="title"
-        class="markdown-input-tab"
-        default
-        name="edit"
-        :label="$t('BUTTON.EDIT')"
-        :disable="!value"
-      />
-      <QTab
-        slot="title"
-        class="markdown-input-tab"
-        name="preview"
-        :label="$t('BUTTON.PREVIEW')"
-        :disable="!value"
-      />
-      <QTabPane name="edit">
-        <slot />
-        <small
-          v-if="!$q.platform.is.mobile && tab === 'edit'"
-          class="row justify-end text-weight-light markdown-helper"
+  <QInput
+    ref="input"
+    v-bind="$attrs"
+    :value="value"
+    type="textarea"
+    :input-style="$attrs['input-style'] || 'min-height: 100px'"
+    :autogrow="$attrs.autogrow || true"
+    bottom-slots
+    hide-hint
+    v-on="$listeners"
+  >
+    <template v-slot:before>
+      <QIcon :name="icon" />
+    </template>
+    <template v-slot:hint>
+      <div class="row justify-between">
+        <div
+          class="row markdown-helper"
         >
-          <b>**{{ $t('MARKDOWN_INPUT.BOLD') }}**</b>
-          <i>_{{ $t('MARKDOWN_INPUT.ITALIC') }}_</i>
-          <span>~~{{ $t('MARKDOWN_INPUT.STRIKE') }}~~</span>
+          <span class="text-bold">**{{ $t('MARKDOWN_INPUT.BOLD') }}**</span>
+          <span class="text-italic">_{{ $t('MARKDOWN_INPUT.ITALIC') }}_</span>
+          <span>~~<s>{{ $t('MARKDOWN_INPUT.STRIKE') }}</s>~~</span>
           <span>&gt;{{ $t('MARKDOWN_INPUT.QUOTE') }}</span>
           <a
             href="https://guides.github.com/features/mastering-markdown/"
@@ -40,62 +30,110 @@
           >
             <QIcon name="fas fa-question-circle" />
           </a>
-        </small>
-      </QTabPane>
-      <QTabPane name="preview">
-        <div class="preview">
-          <Markdown
-            v-if="value"
-            :source="value"
-          />
         </div>
-      </QTabPane>
-    </QTabs>
-  </div>
+        <QBtn
+          v-if="value"
+          :label="$t('BUTTON.PREVIEW')"
+          size="xs"
+          color="primary"
+          outline
+          @click="show = true"
+        >
+          <QDialog v-model="show">
+            <QCard class="markdown-input-preview-card">
+              <QCardSection>
+                <div class="text-h6">
+                  {{ $t('BUTTON.PREVIEW') }}
+                </div>
+              </QCardSection>
+              <QCardSection>
+                <Markdown
+                  v-if="value"
+                  :source="value"
+                />
+              </QCardSection>
+              <QCardActions align="right">
+                <QBtn
+                  v-close-popup
+                  flat
+                  :label="$t('BUTTON.CLOSE')"
+                  color="primary"
+                />
+              </QCardActions>
+            </QCard>
+          </QDialog>
+        </QBtn>
+      </div>
+    </template>
+    <template
+      v-for="(_, slot) of $scopedSlots"
+      v-slot:[slot]="scope"
+    >
+      <slot
+        :name="slot"
+        v-bind="scope"
+      />
+    </template>
+  </QInput>
 </template>
 
 <script>
-import { QTabs, QTab, QTabPane, QIcon } from 'quasar'
+import {
+  QInput,
+  QIcon,
+  QBtn,
+  QDialog,
+  QCard,
+  QCardSection,
+  QCardActions,
+} from 'quasar'
 import Markdown from '@/utils/components/Markdown'
 
 export default {
-  components: { QTabs, QTab, QTabPane, QIcon, Markdown },
+  components: {
+    QInput,
+    QIcon,
+    QBtn,
+    QDialog,
+    QCard,
+    QCardSection,
+    QCardActions,
+    Markdown,
+  },
+  inheritAttrs: false,
   props: {
     value: {
       default: '',
       type: String,
     },
+    icon: {
+      default: null,
+      type: String,
+    },
   },
   data () {
     return {
-      tab: 'edit',
+      show: false,
     }
+  },
+  methods: {
+    blur () {
+      this.$refs.input.blur()
+    },
+    focus () {
+      this.$refs.input.focus()
+    },
   },
 }
 </script>
 
 <style scoped lang="stylus">
-.preview
-  border 1px solid rgba(0,0,0,.1)
-  padding 6px
-  position relative
-  top -6px
-  background-color white
 .markdown-helper
+  font-size .65rem
   padding-top 6px
   > *
     padding-right 10px
-.markdown-input >>>
-  .q-tab
-    min-height 20px
-    padding 6px 10px
-    font-size .87em
-  .q-tabs-head
-    min-height 36px
-    background none
-  .q-tabs-panes
-    border none
-    .q-tab-pane
-      border none
-      padding 6px 0px
+.markdown-input-preview-card
+  min-width 60%
+  max-width 700px
 </style>

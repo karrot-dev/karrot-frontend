@@ -1,49 +1,54 @@
 <template>
   <QItem
     v-if="!editMode"
-    multiline
     :class="{ isUnread: message.isUnread, slim }"
     class="conversation-message relative-position"
-    highlight
   >
     <QBtnGroup
-      flat
+      outline
       class="hover-button k-message-controls"
     >
       <QBtn
         v-if="message.isEditable"
-        flat
+        outline
+        color="secondary"
+        :title="$t('BUTTON.EDIT')"
         @click="toggleEdit"
       >
         <i class="fas fa-pencil-alt" />
-        <QTooltip v-t="'BUTTON.EDIT'" />
       </QBtn>
       <QBtn
         v-if="!slim"
-        flat
+        outline
+        color="secondary"
+        :title="$t('CONVERSATION.REPLIES')"
         @click="$emit('openThread')"
       >
         <i class="fas fa-comments" />
-        <QTooltip v-t="'CONVERSATION.REPLIES'" />
       </QBtn>
       <ConversationAddReaction
         :reacted="currentUserReactions"
+        color="secondary"
         @toggle="toggleReaction"
       />
     </QBtnGroup>
-    <QItemSide v-if="!slim">
+    <QItemSection
+      v-if="!slim"
+      side
+      top
+      class="q-mt-xs q-pr-sm"
+    >
       <ProfilePicture
         :user="message.author"
         :size="$q.platform.is.mobile ? 30 : 40"
-        style="margin-top: 6px"
       />
-    </QItemSide>
-    <QItemMain>
-      <QItemTile
+    </QItemSection>
+    <QItemSection>
+      <QItemLabel
         class="no-wrap k-message-meta"
       >
         <RouterLink :to="{ name: 'user', params: { userId: message.author.id } }">
-          <span class="k-message-author text-bold text-secondary uppercase">{{ message.author.displayName }}</span>
+          <span class="k-message-author text-bold text-secondary text-uppercase">{{ message.author.displayName }}</span>
         </RouterLink>
         <span class="message-date">
           <small class="text-weight-light">
@@ -54,59 +59,59 @@
           v-if="message.receivedVia === 'email'"
           name="far fa-envelope"
           class="email-icon"
-        >
-          <QTooltip v-t="'WALL.RECEIVED_VIA_EMAIL'" />
-        </QIcon>
-      </QItemTile>
+          :title="$t('WALL.RECEIVED_VIA_EMAIL')"
+        />
+      </QItemLabel>
       <div class="content">
         <Markdown :source="message.content" />
       </div>
-      <div
+      <QItemLabel
         v-if="message.isEdited"
-        style="margin-top: -5px; opacity: .5"
+        caption
+        class="q-pb-xs text-weight-light"
       >
-        <small class="text-italic">
-          ({{ $t('CONVERSATION.EDITED') }}
-          <DateAsWords
-            :date="message.editedAt"
-            style="display: inline"
-          />)
-        </small>
-      </div>
+        ({{ $t('CONVERSATION.EDITED') }}
+        <DateAsWords
+          :date="message.editedAt"
+          style="display: inline; margin-right: -4px"
+        />
+        )
+      </QItemLabel>
       <ConversationReactions
         v-if="hasReactions"
         :reactions="message.reactions"
         :current-user-reactions="currentUserReactions"
-        style="margin-top: 8px; display: block"
+        style="display: block"
         @toggle="toggleReaction"
       />
-      <QBtn
-        v-if="showReplies"
-        :outline="message.threadMeta.unreadReplyCount < 1"
-        :color="message.threadMeta.unreadReplyCount > 0 ? 'secondary' : null"
-        class="reaction-box k-thread-box"
-        no-caps
-        @click="$emit('openThread')"
-      >
-        <ProfilePicture
-          v-for="user in message.threadMeta.participants"
-          :key="user.id"
-          class="k-profile-picture"
-          :user="user"
-          :is-link="false"
-        />
-        <span
-          v-t="{
-            path: 'CONVERSATION.REPLIES_COUNT',
-            choice: message.threadMeta.replyCount,
-            args: {
-              count: message.threadMeta.replyCount > 99 ? '99+' : message.threadMeta.replyCount,
-            },
-          }"
-          class="k-replies-count"
-        />
-      </QBtn>
-    </QItemMain>
+      <div v-if="showReplies">
+        <QBtn
+          :outline="message.threadMeta.unreadReplyCount < 1"
+          :color="message.threadMeta.unreadReplyCount > 0 ? 'secondary' : null"
+          class="reaction-box k-thread-box"
+          no-caps
+          @click="$emit('openThread')"
+        >
+          <ProfilePicture
+            v-for="user in message.threadMeta.participants"
+            :key="user.id"
+            class="k-profile-picture"
+            :user="user"
+            :is-link="false"
+          />
+          <span
+            v-t="{
+              path: 'CONVERSATION.REPLIES_COUNT',
+              choice: message.threadMeta.replyCount,
+              args: {
+                count: message.threadMeta.replyCount > 99 ? '99+' : message.threadMeta.replyCount,
+              },
+            }"
+            class="k-replies-count"
+          />
+        </QBtn>
+      </div>
+    </QItemSection>
   </QItem>
   <ConversationCompose
     v-else
@@ -130,11 +135,9 @@ import {
   QBtn,
   QBtnGroup,
   QItem,
-  QItemSide,
-  QItemMain,
-  QItemTile,
+  QItemSection,
+  QItemLabel,
   QIcon,
-  QTooltip,
 } from 'quasar'
 export default {
   name: 'ConversationMessage',
@@ -148,11 +151,9 @@ export default {
     QBtn,
     QBtnGroup,
     QItem,
-    QItemSide,
-    QItemMain,
-    QItemTile,
+    QItemSection,
+    QItemLabel,
     QIcon,
-    QTooltip,
   },
   props: {
     message: {
@@ -211,10 +212,6 @@ export default {
   background linear-gradient(to right, $lightGreen, $lighterGreen)
 
 body.mobile .conversation-message
-  &:not(.slim)
-    padding-left 0
-  >>> .q-item-side
-    min-width 0
   .k-message-meta
     font-size 80%
     padding-top 3px
@@ -249,9 +246,8 @@ body.mobile .conversation-message
       padding-right 3px
   .k-message-controls
     position absolute
-    background $secondary
-    top -12px
-    right 8px
+    top -6px
+    right 0px
     .q-btn
       color white
       transition none
@@ -265,5 +261,4 @@ body.desktop
       font-size 12px
   .k-message-meta
     padding-top 4px
-
 </style>

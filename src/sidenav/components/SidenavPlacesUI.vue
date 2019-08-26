@@ -1,32 +1,33 @@
 <template>
   <SidenavBox>
-    <template slot="icon">
+    <template v-slot:icon>
       <QIcon :name="$icon('place_fw')" />
     </template>
-    <template slot="name">
+    <template v-slot:name>
       {{ $t('GROUP.PLACES') }}
     </template>
-    <div
-      slot="tools"
-      class="tools"
-    >
-      <QToggle
-        :value="showAllPlaces"
-        @input="$emit('toggleShowAllPlaces')"
+    <template v-slot:tools>
+      <div
+        class="tools"
       >
-        <QTooltip v-t="showAllPlaces ? 'STOREEDIT.SHOW_ACTIVE_ONLY' : 'STOREEDIT.SHOW_ALL'" />
-      </QToggle>
-      <QBtn
-        v-if="hasPlaces && isEditor"
-        flat
-        dense
-        round
-        :to="{ name: 'placeCreate', params: { groupId } }"
-      >
-        <QIcon name="fas fa-fw fa-plus-circle" />
-        <QTooltip v-t="'BUTTON.CREATE'" />
-      </QBtn>
-    </div>
+        <QToggle
+          :value="showAllPlaces"
+          :title="$t(showAllPlaces ? 'STOREEDIT.SHOW_ACTIVE_ONLY' : 'STOREEDIT.SHOW_ALL')"
+          @input="$emit('toggleShowAllPlaces')"
+        />
+        <QBtn
+          v-if="hasPlaces && isEditor"
+          flat
+          dense
+          round
+          size="sm"
+          :to="{ name: 'placeCreate', params: { groupId } }"
+          :title="$t('BUTTON.CREATE')"
+        >
+          <QIcon name="fas fa-fw fa-plus-circle" />
+        </QBtn>
+      </div>
+    </template>
 
     <KSpinner v-if="!hasPlaces && fetchStatus.pending" />
     <PlaceList
@@ -44,7 +45,6 @@ import {
   QBtn,
   QIcon,
   QToggle,
-  QTooltip,
 } from 'quasar'
 import SidenavBox from './SidenavBox'
 import PlaceList from '@/places/components/PlaceList'
@@ -56,7 +56,6 @@ export default {
     QBtn,
     QIcon,
     QToggle,
-    QTooltip,
     PlaceList,
     KSpinner,
   },

@@ -87,7 +87,6 @@ export default {
 </script>
 
 <style scoped lang="stylus">
-@import '~variables'
 .wrapper
   .prevBread, .q-btn, div
     display inline-block

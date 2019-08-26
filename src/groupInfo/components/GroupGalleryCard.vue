@@ -7,9 +7,9 @@
         highlight: group.isCurrentGroup,
       }"
       :style="cardStyle"
-      @click.native="$emit(group.isMember ? 'visit' : 'preview')"
+      @click="$emit(group.isMember ? 'visit' : 'preview')"
     >
-      <QChip
+      <QBadge
         v-if="hasMyApplication"
         floating
         class="q-pl-sm q-pt-xs q-pb-xs"
@@ -19,12 +19,13 @@
       <QTooltip v-if="hasMyApplication">
         {{ $t('APPLICATION.GALLERY_TOOLTIP') }}
       </QTooltip>
-      <QCardMedia
-        class="photo"
+      <div
+        class="photo text-white relative-position"
       >
         <img
           v-if="group.hasPhoto"
           :src="group.photoUrls.fullSize"
+          basic
         >
         <RandomArt
           v-else
@@ -32,23 +33,24 @@
           type="circles"
           class="full-height"
         />
-        <QCardTitle
-          slot="overlay"
-          class="ellipsis"
-        >
-          <span class="row group items-start">
-            {{ group.name }}
-            <QIcon
-              v-if="group.isPlayground"
-              name="fas fa-child"
-            />
-          </span>
-          <span slot="subtitle">
-            {{ group.members.length }} {{ $tc('JOINGROUP.NUM_MEMBERS', group.members.length) }}
-          </span>
-        </QCardTitle>
-      </QCardMedia>
-      <QCardMain class="fixed-height smaller-text">
+        <div class="absolute-bottom k-media-overlay q-pa-md">
+          <div
+            class="ellipsis"
+          >
+            <span class="row group items-start text-h6">
+              {{ group.name }}
+              <QIcon
+                v-if="group.isPlayground"
+                name="fas fa-child"
+              />
+            </span>
+            <span class="text-subtitle2">
+              {{ group.members.length }} {{ $tc('JOINGROUP.NUM_MEMBERS', group.members.length) }}
+            </span>
+          </div>
+        </div>
+      </div>
+      <QCardSection class="fixed-height smaller-text">
         <div
           v-if="group.publicDescription"
         >
@@ -60,23 +62,26 @@
         >
           {{ $t('JOINGROUP.NO_PUBLIC_DESCRIPTION') }}
         </span>
-      </QCardMain>
-      <QCardSeparator />
+        <div class="overlay" />
+      </QCardSection>
+      <QSeparator />
       <QCardActions v-if="group.isMember">
         <QBtn
-          class="q-btn-flat"
+          flat
+          size="sm"
+          icon="fas fa-home"
           @click.stop="$emit('visit')"
         >
-          <QIcon name="fas fa-home" />
           <QTooltip>
             {{ $t('GROUPINFO.MEMBER_VIEW') }}
           </QTooltip>
         </QBtn>
         <QBtn
-          class="q-btn-flat"
+          flat
+          size="sm"
+          icon="fas fa-info-circle"
           @click.stop="$emit('preview')"
         >
-          <QIcon name="fas fa-info-circle" />
           <QTooltip>
             {{ $t('GROUPINFO.META') }}
           </QTooltip>
@@ -90,15 +95,13 @@
 import { mapGetters } from 'vuex'
 import {
   QCard,
-  QCardTitle,
-  QCardMain,
-  QCardSeparator,
+  QCardSection,
+  QSeparator,
   QCardActions,
-  QCardMedia,
   QBtn,
   QTooltip,
   QIcon,
-  QChip,
+  QBadge,
 } from 'quasar'
 import Markdown from '@/utils/components/Markdown'
 import RandomArt from '@/utils/components/RandomArt'
@@ -108,15 +111,13 @@ export default {
     Markdown,
     RandomArt,
     QCard,
-    QCardTitle,
-    QCardMain,
-    QCardSeparator,
+    QCardSection,
+    QSeparator,
     QCardActions,
-    QCardMedia,
     QBtn,
     QTooltip,
     QIcon,
-    QChip,
+    QBadge,
   },
   props: {
     group: {
@@ -164,6 +165,15 @@ export default {
   .fixed-height
     min-height 80px
     max-height 80px
+    position relative
+    &:before
+      content ''
+      width 100%
+      height 100%
+      position absolute
+      top 0
+      left 0
+      background linear-gradient(transparent 80%, white)
   .smaller-text >>> *
     font-size 1em
   .photo
@@ -173,13 +183,6 @@ export default {
       max-width 100%
       width auto
       margin 0 auto
-
-  .fixed-height:before
-    content ''
-    width 100%
-    height 100%
-    position absolute
-    left 0
-    top 0
-    background linear-gradient(transparent 220px, white)
+    .k-media-overlay
+      background-color rgba(0,0,0,0.47)
 </style>

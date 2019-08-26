@@ -1,6 +1,7 @@
 import ConversationAddReactionInner from './ConversationAddReactionInner'
-import { mountWithDefaults } from '>/helpers'
+import { mountWithDefaults, nextTicks } from '>/helpers'
 import EmojiButton from './EmojiButton'
+import { QBtn } from 'quasar'
 
 describe('Conversation message reactions', () => {
   beforeEach(() => jest.resetModules())
@@ -14,11 +15,12 @@ describe('Conversation message reactions', () => {
     })
   })
 
-  it('click emoji in menu adds own reaction (when reaction not present)', () => {
-    const button = wrapper.findAll(EmojiButton).wrappers[1]
-    button.trigger('click')
+  it('click emoji in menu adds own reaction (when reaction not present)', async () => {
+    const button = wrapper.find(EmojiButton).find(QBtn)
+    button.vm.click()
+    await nextTicks(2)
 
-    expect(wrapper.emitted().toggle).toEqual([['laughing']])
+    expect(wrapper.emitted().toggle).toEqual([['carrot']])
   })
 
   it('changing search changes emoji displayed', () => {

@@ -4,9 +4,7 @@
   >
     <KSpinner v-show="fetchInitialPending" />
     <template v-if="!fetchInitialPending">
-      <QList
-        no-border
-      >
+      <QList>
         <QItem
           v-if="threads.length === 0"
         >
@@ -15,7 +13,7 @@
         <LatestMessageItem
           v-for="conv in threads"
           :key="conv.id"
-          v-close-overlay
+          v-close-popup
           :thread="conv"
           :message="conv.latestMessage"
           :unread-count="conv.threadMeta.unreadReplyCount"
@@ -37,10 +35,10 @@
         </QItem>
         <div
           v-if="asPopover"
-          class="row justify-end q-mt-sm q-mr-sm"
+          class="row justify-end q-my-sm q-mr-sm"
         >
           <QBtn
-            v-close-overlay
+            v-close-popup
             size="sm"
             color="secondary"
             :to="{ name: 'latestThreads' }"

@@ -59,14 +59,19 @@ export default {
     margin-bottom 0.5rem
   h1
     font-size 1.6em
+    line-height 1.12
   h2
     font-size 1.3em
+    line-height 1.12
   h3
     font-size 1.2em
+    line-height 1.12
   h4
     font-size 1.1em
+    line-height 1.12
   h5, h6
     font-size 1em
+    line-height 1.12
   pre
     font-size 0.8em
     padding 3px

@@ -2,10 +2,8 @@ import PickupUsers from './PickupUsers'
 import { joinablePickup, currentUserMock } from '>/mockdata'
 import cloneDeep from 'clone-deep'
 
-import { mountWithDefaults, createDatastore, polyfillRequestAnimationFrame } from '>/helpers'
+import { mountWithDefaults, createDatastore } from '>/helpers'
 import { makeUser } from '>/enrichedFactories'
-
-polyfillRequestAnimationFrame()
 
 describe('PickupUsers', () => {
   beforeEach(() => jest.resetModules())

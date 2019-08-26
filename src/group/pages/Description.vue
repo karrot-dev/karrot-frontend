@@ -20,11 +20,9 @@
         round
         color="secondary"
         :icon="showPublicDescription ? 'fas fa-lock' : 'fas fa-info-circle'"
-        class="hoverScale "
+        :title="$t(showPublicDescription ? 'GROUP.DESCRIPTION_VERBOSE' : 'GROUPINFO.META')"
         @click="showPublicDescription = !showPublicDescription"
-      >
-        <QTooltip v-t="showPublicDescription ? 'GROUP.DESCRIPTION_VERBOSE' : 'GROUPINFO.META'" />
-      </QBtn>
+      />
       <RouterLink
         v-if="isEditor"
         :to="{name: 'groupEdit'}"
@@ -33,11 +31,9 @@
           small
           round
           color="secondary"
-          icon="fas fa-pencil-alt "
-          class="hoverScale"
-        >
-          <QTooltip v-t="'GROUP.EDIT'" />
-        </QBtn>
+          icon="fas fa-pencil-alt"
+          :title="$t('GROUP.EDIT')"
+        />
       </RouterLink>
     </div>
     <div class="q-pa-md">
@@ -54,7 +50,10 @@
 </template>
 
 <script>
-import { QCard, QBtn, QTooltip } from 'quasar'
+import {
+  QCard,
+  QBtn,
+} from 'quasar'
 import Markdown from '@/utils/components/Markdown'
 import RandomArt from '@/utils/components/RandomArt'
 
@@ -63,7 +62,12 @@ import {
 } from 'vuex'
 
 export default {
-  components: { QCard, RandomArt, QBtn, QTooltip, Markdown },
+  components: {
+    QCard,
+    QBtn,
+    RandomArt,
+    Markdown,
+  },
   data () {
     return {
       showPublicDescription: false,
@@ -88,11 +92,11 @@ export default {
 
 .art-overlay
   color white
-  background rgba(0,0,0,$groupNavOverlay)
+  background rgba(0,0,0,0)
   .header
     font-size 1.3em
   .subtitle
     margin-top 6px
 body.desktop .art-overlay
-  background linear-gradient(to top, rgba(0,0,0,0.5) 0%, rgba(0,0,0,$groupNavOverlay) 58%, rgba(0,0,0,0) 90%)
+  background linear-gradient(to top, rgba(0,0,0,0.5) 0%, rgba(0,0,0,0) 58%, rgba(0,0,0,0) 90%)
 </style>

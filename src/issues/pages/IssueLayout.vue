@@ -7,17 +7,17 @@
     container
     class="full-height full-width"
   >
-    <QLayoutHeader>
+    <QHeader>
       <IssueTabs />
-    </QLayoutHeader>
+    </QHeader>
     <QPageContainer>
       <QPage>
         <RouterView />
       </QPage>
     </QPageContainer>
-    <QLayoutFooter>
+    <QFooter>
       <RouterView name="issueFooter" />
-    </QLayoutFooter>
+    </QFooter>
   </QLayout>
 </template>
 
@@ -25,8 +25,8 @@
 import IssueTabs from '@/issues/components/IssueTabs'
 import {
   QLayout,
-  QLayoutHeader,
-  QLayoutFooter,
+  QHeader,
+  QFooter,
   QPageContainer,
   QPage,
 } from 'quasar'
@@ -35,8 +35,8 @@ export default {
   components: {
     IssueTabs,
     QLayout,
-    QLayoutHeader,
-    QLayoutFooter,
+    QHeader,
+    QFooter,
     QPageContainer,
     QPage,
   },

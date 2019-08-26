@@ -1,20 +1,22 @@
 <template>
   <QItem
-    link
     :class="{ isUnread: !notification.clicked }"
-    active-class="ignore-active-link"
+    active-class="unset-active-class"
     :to="routeTo"
-    @click.native="$emit('click', notification)"
+    @click="$emit('click', notification)"
   >
-    <QItemSide v-if="user">
+    <QItemSection
+      v-if="user"
+      side
+      class="q-pr-sm"
+    >
       <ProfilePicture
         :user="user"
         :size="$q.platform.is.mobile ? 35 : 40"
       />
-    </QItemSide>
-    <QItemMain>
-      <QItemTile
-        label
+    </QItemSection>
+    <QItemSection>
+      <QItemLabel
         lines="2"
       >
         <QIcon
@@ -23,9 +25,9 @@
           class="q-mr-xs vertical-baseline"
         />
         {{ message }}
-      </QItemTile>
-      <QItemTile
-        sublabel
+      </QItemLabel>
+      <QItemLabel
+        caption
       >
         <DateAsWords
           :date="showExpiresAt ? notification.expiresAt : notification.createdAt"
@@ -36,8 +38,8 @@
         <template v-if="placeName">
           · {{ placeName }}
         </template>
-      </QItemTile>
-    </QItemMain>
+      </QItemLabel>
+    </QItemSection>
   </QItem>
 </template>
 
@@ -45,9 +47,8 @@
 import notificationConfig from './notificationConfig'
 import {
   QItem,
-  QItemMain,
-  QItemTile,
-  QItemSide,
+  QItemSection,
+  QItemLabel,
   QIcon,
 } from 'quasar'
 import DateAsWords from '@/utils/components/DateAsWords'
@@ -56,9 +57,8 @@ import ProfilePicture from '@/users/components/ProfilePicture'
 export default {
   components: {
     QItem,
-    QItemMain,
-    QItemTile,
-    QItemSide,
+    QItemSection,
+    QItemLabel,
     QIcon,
     DateAsWords,
     ProfilePicture,

@@ -23,14 +23,14 @@
         </div>
         <div
           v-if="hasError('code')"
-          class="error"
+          class="text-warning"
         >
           <i class="fas fa-exclamation-triangle" />
           {{ $t('GLOBAL.INVALID_LINK') }}
         </div>
         <div
           v-if="hasNonFieldError"
-          class="error"
+          class="text-warning"
         >
           <i class="fas fa-exclamation-triangle" />
           {{ firstNonFieldError }}

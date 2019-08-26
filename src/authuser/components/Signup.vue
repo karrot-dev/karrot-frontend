@@ -58,7 +58,7 @@
 
         <div
           v-if="hasNonFieldError"
-          class="error"
+          class="text-warning"
         >
           <i class="fas fa-exclamation-triangle" />
           {{ firstNonFieldError }}

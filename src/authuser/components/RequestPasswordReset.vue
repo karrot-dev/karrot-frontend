@@ -22,7 +22,7 @@
 
         <div
           v-if="hasAnyError"
-          class="error"
+          class="text-warning"
         >
           <i class="fas fa-exclamation-triangle" />
           {{ anyFirstError }}

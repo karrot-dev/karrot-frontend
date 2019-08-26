@@ -44,9 +44,6 @@ export default {
   background-color $primary
   color white
   padding 1.2em 1em
-  .error
-    color $warning
-    margin 0 1em
   .actions
     float right
     color white

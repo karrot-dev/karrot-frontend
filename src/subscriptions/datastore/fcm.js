@@ -30,7 +30,7 @@ export default {
     },
     receiveTokens (state, tokens) {
       state.tokens = {}
-      for (let token of tokens) {
+      for (const token of tokens) {
         Vue.set(state.tokens, token, true)
       }
     },

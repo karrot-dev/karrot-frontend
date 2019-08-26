@@ -177,7 +177,7 @@ export default {
       return undefined
     },
     markers () {
-      let items = []
+      const items = []
       if (this.showPlaces) {
         items.push(...this.placesWithLocation.map(placeMarker))
       }

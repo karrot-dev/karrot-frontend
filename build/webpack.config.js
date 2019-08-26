@@ -86,7 +86,7 @@ module.exports = {
       resolve('node_modules'),
     ],
     alias: {
-      'quasar': 'quasar',
+      quasar: 'quasar',
       'quasar-vue-plugin': 'quasar/src/vue-plugin',
       '@': resolve(__dirname, '../src'),
       '>': resolve(__dirname, '../test'),

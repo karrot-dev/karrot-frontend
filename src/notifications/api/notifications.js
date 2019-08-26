@@ -29,7 +29,7 @@ export default {
   },
 
   async markSeen () {
-    return (await axios.post(`/api/notifications/mark_seen/`)).data
+    return (await axios.post('/api/notifications/mark_seen/')).data
   },
 }
 

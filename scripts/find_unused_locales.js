@@ -11,9 +11,9 @@ const { readFileSync } = require('fs')
 const data = readFileSync('./src/locales/locale-en.json', 'utf8')
 const messages = JSON.parse(data)
 
-let keys = []
+const keys = []
 function getKeys (src, parent) {
-  for (let key in src) {
+  for (const key in src) {
     let path = key
     if (parent) {
       path = parent + '.' + key
@@ -29,10 +29,10 @@ function getKeys (src, parent) {
 getKeys(messages)
 
 const { exec } = require('child_process')
-exec(`grep -hor "[.|$]t[c]*(.*'[a-zA-Z0-9._ ]*'.*)" src/`, (err, stdout, stderr) => {
+exec('grep -hor "[.|$]t[c]*(.*\'[a-zA-Z0-9._ ]*\'.*)" src/', (err, stdout, stderr) => {
   if (!err) {
     const usages = stdout.split('\n').map(e => e.split("'")[1])
-    for (let key of keys) {
+    for (const key of keys) {
       if (!usages.includes(key)) {
         console.log(key)
       }

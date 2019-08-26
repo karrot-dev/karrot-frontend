@@ -7,7 +7,7 @@ describe('pickupSeries module', () => {
 
   describe('with vuex', () => {
     let datastore
-    let series1 = pickupSeriesMock[0]
+    const series1 = pickupSeriesMock[0]
 
     beforeEach(() => {
       datastore = createDatastore({

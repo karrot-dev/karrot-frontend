@@ -19,7 +19,7 @@
       tag="span"
     >
       <a
-        place="resend"
+        slot="resend"
         class="underline"
         @click="resend"
       >

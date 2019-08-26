@@ -100,10 +100,12 @@ describe('helpers', () => {
     let datastore
     beforeEach(() => {
       datastore = new Vuex.Store({
-        modules: { toggle: toggles({
-          something: true,
-          notSomething: false,
-        }) },
+        modules: {
+          toggle: toggles({
+            something: true,
+            notSomething: false,
+          }),
+        },
       })
     })
     it('inits toggles', () => {

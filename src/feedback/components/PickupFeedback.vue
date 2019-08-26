@@ -181,7 +181,7 @@ export default {
       },
     },
     feedbackOptions () {
-      let list = this.pickups
+      const list = this.pickups
       if (!list) return []
       return list.map((e) => {
         return {

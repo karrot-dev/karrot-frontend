@@ -30,13 +30,13 @@ export default {
   },
   computed: {
     markers () {
-      let items = []
-      let openGroupsWithCoords = this.filteredOtherGroups.filter(group => {
+      const items = []
+      const openGroupsWithCoords = this.filteredOtherGroups.filter(group => {
         return group.latitude != null && group.longitude != null
       })
       items.push(...openGroupsWithCoords.map(groupMarker))
 
-      let joinedGroupsWithCoords = this.filteredMyGroups.filter(group => {
+      const joinedGroupsWithCoords = this.filteredMyGroups.filter(group => {
         return group.latitude != null && group.longitude != null
       })
       items.push(...joinedGroupsWithCoords.map(groupMarker))
@@ -53,7 +53,7 @@ export default {
     },
     coords () {
       if (this.singleGroup) {
-        let gp = this.singleGroup
+        const gp = this.singleGroup
         return { lat: gp.latitude + this.offset[0], lng: gp.longitude + this.offset[1] }
       }
       return { lat: 0.0, lng: -100 }

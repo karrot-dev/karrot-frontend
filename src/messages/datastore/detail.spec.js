@@ -3,8 +3,8 @@ import { createDatastore, statusMocks } from '>/helpers'
 describe('detail', () => {
   let datastore
 
-  let mockConversationsGetForPickup = jest.fn()
-  let mockPickupsGet = jest.fn()
+  const mockConversationsGetForPickup = jest.fn()
+  const mockPickupsGet = jest.fn()
 
   const conversations = {
     getters: {

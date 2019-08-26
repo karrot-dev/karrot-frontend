@@ -19,7 +19,7 @@
           path="GROUP.JOINED"
         >
           <DateAsWords
-            place="relativeDate"
+            slot="relativeDate"
             style="display: inline"
             :date="user.membership.createdAt"
           />
@@ -30,7 +30,7 @@
             path="GROUP.ADDED_BY"
           >
             <RouterLink
-              place="userName"
+              slot="userName"
               :to="{name: 'user', params: { userId: addedBy.id }}"
             >
               {{ addedBy.displayName }}

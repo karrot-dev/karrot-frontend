@@ -11,7 +11,7 @@ const markers = [...Array(20).keys()].map(e => groupMarker(makeGroup()))
 describe('StandardMap', () => {
   beforeEach(() => jest.resetModules())
   it('renders markers with popups', async () => {
-    let wrapper = mountWithDefaults(StandardMap, {
+    const wrapper = mountWithDefaults(StandardMap, {
       propsData: {
         markers,
       },

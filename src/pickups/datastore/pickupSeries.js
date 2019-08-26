@@ -58,7 +58,7 @@ export default {
   actions: {
     ...withMeta({
       async fetchListForActivePlace ({ commit, rootGetters }) {
-        let placeId = rootGetters['places/activePlaceId']
+        const placeId = rootGetters['places/activePlaceId']
         if (placeId) {
           commit('set', await pickupSeries.listByPlaceId(placeId))
         }
@@ -70,7 +70,7 @@ export default {
       },
 
       async save ({ commit, dispatch }, series) {
-        let updatedSeries = await pickupSeries.save(series)
+        const updatedSeries = await pickupSeries.save(series)
         commit('update', [updatedSeries])
       },
 

@@ -31,7 +31,7 @@ describe('groups', () => {
 
   let datastore
 
-  let userId = 5
+  const userId = 5
   let group1
   let group2
   let group3

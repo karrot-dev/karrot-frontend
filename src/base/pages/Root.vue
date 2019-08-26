@@ -26,7 +26,7 @@ export default {
     hasView () {
       const firstMatched = this.$route.matched.length > 0 && this.$route.matched[0]
       if (!firstMatched) return
-      return Boolean(firstMatched.components['default'])
+      return Boolean(firstMatched.components.default)
     },
   },
 }

@@ -56,21 +56,21 @@ export function serialize (entry) {
 
 export function convertRule (rule) {
   // defaults
-  let obj = {
+  const obj = {
     byDay: ['MO'],
     freq: 'WEEKLY',
     isCustom: false,
     custom: rule,
   }
   // takes rule string and returns object
-  let parts = rule.split(';')
+  const parts = rule.split(';')
   if (parts.length > 2 || !rule.includes('FREQ=WEEKLY;BYDAY=')) {
     return {
       ...obj,
       isCustom: true,
     }
   }
-  for (let part of parts) {
+  for (const part of parts) {
     if (part.substr(0, 5) === 'BYDAY') {
       obj.byDay = part.substr(6).split(',')
     }

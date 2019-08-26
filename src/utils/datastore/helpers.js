@@ -147,7 +147,7 @@ export function defaultFindId (data) {
     }
     return data
   }
-  else if (typeof data === 'object' && data.hasOwnProperty('id')) {
+  else if (typeof data === 'object' && Object.prototype.hasOwnProperty.call(data, 'id')) {
     return data.id
   }
 }
@@ -228,7 +228,7 @@ function wrapAction ({ namespace, actionName, action, idPrefix, findId, setCurre
 
 export function metaStatusesWithId (getters, actions, id) {
   const result = {}
-  for (let action of actions) {
+  for (const action of actions) {
     result[action + 'Status'] = getters['meta/status'](action, id)
   }
   return result
@@ -236,7 +236,7 @@ export function metaStatusesWithId (getters, actions, id) {
 
 export function metaStatuses (actions) {
   const result = {}
-  for (let action of actions) {
+  for (const action of actions) {
     result[action + 'Status'] = (state, getters) => getters['meta/status'](action)
   }
   return result
@@ -315,7 +315,7 @@ export function createPaginationModule () {
  */
 
 export function toggles (config) {
-  let result = {
+  const result = {
     namespaced: true,
     state: {},
     getters: {},
@@ -326,7 +326,7 @@ export function toggles (config) {
       },
     },
   }
-  for (let key in config) {
+  for (const key in config) {
     result.state[key] = config[key]
     result.getters[key] = state => state[key]
     result.actions[key] = ({ state, commit, getters }, forceValue) => {

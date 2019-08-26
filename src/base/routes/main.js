@@ -105,16 +105,20 @@ export default [
     },
     components: {
       default: { render: h => h('router-view') }, // passthrough
-      subheader: { render: h => h('router-view', {
-        props: {
-          name: 'subheader',
-        },
-      }) },
-      detail: { render: h => h('router-view', {
-        props: {
-          name: 'detail',
-        },
-      }) },
+      subheader: {
+        render: h => h('router-view', {
+          props: {
+            name: 'subheader',
+          },
+        }),
+      },
+      detail: {
+        render: h => h('router-view', {
+          props: {
+            name: 'detail',
+          },
+        }),
+      },
       footer: { render: h => h('router-view', { props: { name: 'footer' } }) },
       sidenav: Sidenav,
     },
@@ -350,11 +354,13 @@ export default [
         },
         components: {
           default: PlaceLayout,
-          subheader: { render: h => h('router-view', {
-            props: {
-              name: 'subheader',
-            },
-          }) },
+          subheader: {
+            render: h => h('router-view', {
+              props: {
+                name: 'subheader',
+              },
+            }),
+          },
         },
         children: [
           {

@@ -9,7 +9,7 @@
     >
       <a
         v-t="'OUTDATED_BROWSER.LINK'"
-        place="upgradeBrowser"
+        slot="upgradeBrowser"
         href="https://browser-update.org/update.html"
         class="outdated-link"
         rel="noopener nofollow noreferrer"

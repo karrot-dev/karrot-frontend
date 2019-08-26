@@ -2522,7 +2522,7 @@ exports[`Storyshots GroupGallery signup view 1`] = `
   <div class="sidebar expanded">
     <div class="q-banner row items-center q-ma-sm bg-warning text-white shadow-2" style="min-height:unset;">
       <div class="q-banner__avatar col-auto row items-center"><i aria-hidden="true" class="material-icons q-icon text-white" style="font-size:24px;">star</i></div>
-      <div class="q-banner__content col text-body2"> <span>You are currently logged out. <a place="login" class="underline">
+      <div class="q-banner__content col text-body2"> <span>You are currently logged out. <a class="underline">
           Log in to see your groups!
         </a></span></div>
     </div>
@@ -7092,7 +7092,7 @@ exports[`Storyshots PickupSeriesEdit custom rule 1`] = `
           </div>
         </div>
         <div class="q-field__bottom row items-start q-field__bottom--animated">
-          <div class="q-field__messages col"><span>Type in a valid <a place="ruleHelper" href="https://www.kanzaki.com/docs/ical/rrule.html" target="_blank" rel="noopener nofollow noreferrer" style="text-decoration:underline;"></a>, e.g. <a place="ruleExample" href="https://jakubroztocil.github.io/rrule/#/rfc/FREQ=MONTHLY;BYDAY=MO,TU,WE,TH,FR;BYSETPOS=-1" target="_blank" rel="noopener nofollow noreferrer" style="text-decoration:underline;"></a> or <a place="ruleExample2" href="https://jakubroztocil.github.io/rrule/#/rfc/FREQ=WEEKLY;INTERVAL=2;BYDAY=MO" target="_blank" rel="noopener nofollow noreferrer" style="text-decoration:underline;"></a></span></div>
+          <div class="q-field__messages col"><span>Type in a valid <a href="https://www.kanzaki.com/docs/ical/rrule.html" target="_blank" rel="noopener nofollow noreferrer" style="text-decoration:underline;"></a>, e.g. <a href="https://jakubroztocil.github.io/rrule/#/rfc/FREQ=MONTHLY;BYDAY=MO,TU,WE,TH,FR;BYSETPOS=-1" target="_blank" rel="noopener nofollow noreferrer" style="text-decoration:underline;"></a> or <a href="https://jakubroztocil.github.io/rrule/#/rfc/FREQ=WEEKLY;INTERVAL=2;BYDAY=MO" target="_blank" rel="noopener nofollow noreferrer" style="text-decoration:underline;"></a></span></div>
         </div>
       </div>
     </div>
@@ -7257,7 +7257,7 @@ exports[`Storyshots PickupSeriesEdit custom rule with duration 1`] = `
           </div>
         </div>
         <div class="q-field__bottom row items-start q-field__bottom--animated">
-          <div class="q-field__messages col"><span>Type in a valid <a place="ruleHelper" href="https://www.kanzaki.com/docs/ical/rrule.html" target="_blank" rel="noopener nofollow noreferrer" style="text-decoration:underline;"></a>, e.g. <a place="ruleExample" href="https://jakubroztocil.github.io/rrule/#/rfc/FREQ=MONTHLY;BYDAY=MO,TU,WE,TH,FR;BYSETPOS=-1" target="_blank" rel="noopener nofollow noreferrer" style="text-decoration:underline;"></a> or <a place="ruleExample2" href="https://jakubroztocil.github.io/rrule/#/rfc/FREQ=WEEKLY;INTERVAL=2;BYDAY=MO" target="_blank" rel="noopener nofollow noreferrer" style="text-decoration:underline;"></a></span></div>
+          <div class="q-field__messages col"><span>Type in a valid <a href="https://www.kanzaki.com/docs/ical/rrule.html" target="_blank" rel="noopener nofollow noreferrer" style="text-decoration:underline;"></a>, e.g. <a href="https://jakubroztocil.github.io/rrule/#/rfc/FREQ=MONTHLY;BYDAY=MO,TU,WE,TH,FR;BYSETPOS=-1" target="_blank" rel="noopener nofollow noreferrer" style="text-decoration:underline;"></a> or <a href="https://jakubroztocil.github.io/rrule/#/rfc/FREQ=WEEKLY;INTERVAL=2;BYDAY=MO" target="_blank" rel="noopener nofollow noreferrer" style="text-decoration:underline;"></a></span></div>
         </div>
       </div>
     </div>
@@ -9773,7 +9773,7 @@ exports[`Storyshots Statistics FeedbackItem 1`] = `
           <!---->
         </div> <small class="text-weight-light"><a>
             Mira Bellenbaum
-          </a> <span place="date" class="message-date"><div title="Aug 11, 2017, 3:43 PM">
+          </a> <span class="message-date"><div title="Aug 11, 2017, 3:43 PM">
   4 months ago
 </div></span></small>
         <div>
@@ -9830,7 +9830,7 @@ exports[`Storyshots Statistics FeedbackList 1`] = `
               <!---->
             </div> <small class="text-weight-light"><a>
                 Mira Bellenbaum
-              </a> <span place="date" class="message-date"><div title="Aug 11, 2017, 3:43 PM">
+              </a> <span class="message-date"><div title="Aug 11, 2017, 3:43 PM">
   4 months ago
 </div></span></small>
             <div>
@@ -9867,7 +9867,7 @@ exports[`Storyshots Statistics FeedbackList 1`] = `
               <!---->
             </div> <small class="text-weight-light"><a>
                 Mira Bellenbaum
-              </a> <span place="date" class="message-date"><div title="Sep 11, 2017, 3:40 PM">
+              </a> <span class="message-date"><div title="Sep 11, 2017, 3:40 PM">
   3 months ago
 </div></span></small>
             <div>
@@ -9900,7 +9900,7 @@ exports[`Storyshots Statistics FeedbackList 1`] = `
               <!---->
             </div> <small class="text-weight-light"><a>
                 Max Mustermann
-              </a> <span place="date" class="message-date"><div title="Sep 18, 2017, 12:12 PM">
+              </a> <span class="message-date"><div title="Sep 18, 2017, 12:12 PM">
   3 months ago
 </div></span></small>
             <div>
@@ -10071,7 +10071,7 @@ exports[`Storyshots Statistics PickupFeedback 1`] = `
                   <!---->
                 </div> <small class="text-weight-light"><a>
                     Mira Bellenbaum
-                  </a> <span place="date" class="message-date"><div title="Aug 11, 2017, 3:43 PM">
+                  </a> <span class="message-date"><div title="Aug 11, 2017, 3:43 PM">
   4 months ago
 </div></span></small>
                 <div>
@@ -10108,7 +10108,7 @@ exports[`Storyshots Statistics PickupFeedback 1`] = `
                   <!---->
                 </div> <small class="text-weight-light"><a>
                     Mira Bellenbaum
-                  </a> <span place="date" class="message-date"><div title="Sep 11, 2017, 3:40 PM">
+                  </a> <span class="message-date"><div title="Sep 11, 2017, 3:40 PM">
   3 months ago
 </div></span></small>
                 <div>
@@ -10141,7 +10141,7 @@ exports[`Storyshots Statistics PickupFeedback 1`] = `
                   <!---->
                 </div> <small class="text-weight-light"><a>
                     Max Mustermann
-                  </a> <span place="date" class="message-date"><div title="Sep 18, 2017, 12:12 PM">
+                  </a> <span class="message-date"><div title="Sep 18, 2017, 12:12 PM">
   3 months ago
 </div></span></small>
                 <div>
@@ -10238,7 +10238,7 @@ exports[`Storyshots Statistics PlaceFeedback 1`] = `
                 <!---->
               </div> <small class="text-weight-light"><a>
                   User 163
-                </a> <span place="date" class="message-date"><div title="Dec 24, 2017, 12:00 PM">
+                </a> <span class="message-date"><div title="Dec 24, 2017, 12:00 PM">
   less than a minute ago
 </div></span></small>
               <div>
@@ -10275,7 +10275,7 @@ exports[`Storyshots Statistics PlaceFeedback 1`] = `
                 <!---->
               </div> <small class="text-weight-light"><a>
                   User 164
-                </a> <span place="date" class="message-date"><div title="Dec 24, 2017, 12:00 PM">
+                </a> <span class="message-date"><div title="Dec 24, 2017, 12:00 PM">
   less than a minute ago
 </div></span></small>
               <div>
@@ -10312,7 +10312,7 @@ exports[`Storyshots Statistics PlaceFeedback 1`] = `
                 <!---->
               </div> <small class="text-weight-light"><a>
                   User 165
-                </a> <span place="date" class="message-date"><div title="Dec 24, 2017, 12:00 PM">
+                </a> <span class="message-date"><div title="Dec 24, 2017, 12:00 PM">
   less than a minute ago
 </div></span></small>
               <div>
@@ -10349,7 +10349,7 @@ exports[`Storyshots Statistics PlaceFeedback 1`] = `
                 <!---->
               </div> <small class="text-weight-light"><a>
                   User 166
-                </a> <span place="date" class="message-date"><div title="Dec 24, 2017, 12:00 PM">
+                </a> <span class="message-date"><div title="Dec 24, 2017, 12:00 PM">
   less than a minute ago
 </div></span></small>
               <div>
@@ -10386,7 +10386,7 @@ exports[`Storyshots Statistics PlaceFeedback 1`] = `
                 <!---->
               </div> <small class="text-weight-light"><a>
                   User 167
-                </a> <span place="date" class="message-date"><div title="Dec 24, 2017, 12:00 PM">
+                </a> <span class="message-date"><div title="Dec 24, 2017, 12:00 PM">
   less than a minute ago
 </div></span></small>
               <div>
@@ -10572,7 +10572,7 @@ exports[`Storyshots UserList default 1`] = `
         <div class="q-item__label"><a>
             User 145
           </a></div>
-        <div class="q-item__label q-item__label--caption text-caption"><span>joined <div title="Dec 24, 2017, 12:00 PM" place="relativeDate" style="display:inline;">
+        <div class="q-item__label q-item__label--caption text-caption"><span>joined <div title="Dec 24, 2017, 12:00 PM" style="display:inline;">
   less than a minute ago
 </div></span>
           <!----> <br></div>
@@ -10599,7 +10599,7 @@ exports[`Storyshots UserList default 1`] = `
         <div class="q-item__label"><a>
             User 146
           </a></div>
-        <div class="q-item__label q-item__label--caption text-caption"><span>joined <div title="Dec 24, 2017, 12:00 PM" place="relativeDate" style="display:inline;">
+        <div class="q-item__label q-item__label--caption text-caption"><span>joined <div title="Dec 24, 2017, 12:00 PM" style="display:inline;">
   less than a minute ago
 </div></span>
           <!----> <br></div>
@@ -10626,7 +10626,7 @@ exports[`Storyshots UserList default 1`] = `
         <div class="q-item__label"><a>
             User 147
           </a></div>
-        <div class="q-item__label q-item__label--caption text-caption"><span>joined <div title="Dec 24, 2017, 12:00 PM" place="relativeDate" style="display:inline;">
+        <div class="q-item__label q-item__label--caption text-caption"><span>joined <div title="Dec 24, 2017, 12:00 PM" style="display:inline;">
   less than a minute ago
 </div></span>
           <!----> <br></div>
@@ -10653,7 +10653,7 @@ exports[`Storyshots UserList default 1`] = `
         <div class="q-item__label"><a>
             User 148
           </a></div>
-        <div class="q-item__label q-item__label--caption text-caption"><span>joined <div title="Dec 24, 2017, 12:00 PM" place="relativeDate" style="display:inline;">
+        <div class="q-item__label q-item__label--caption text-caption"><span>joined <div title="Dec 24, 2017, 12:00 PM" style="display:inline;">
   less than a minute ago
 </div></span>
           <!----> <br></div>
@@ -10680,7 +10680,7 @@ exports[`Storyshots UserList default 1`] = `
         <div class="q-item__label"><a>
             User 149
           </a></div>
-        <div class="q-item__label q-item__label--caption text-caption"><span>joined <div title="Dec 24, 2017, 12:00 PM" place="relativeDate" style="display:inline;">
+        <div class="q-item__label q-item__label--caption text-caption"><span>joined <div title="Dec 24, 2017, 12:00 PM" style="display:inline;">
   less than a minute ago
 </div></span>
           <!----> <br></div>
@@ -10707,7 +10707,7 @@ exports[`Storyshots UserList default 1`] = `
         <div class="q-item__label"><a>
             User 150
           </a></div>
-        <div class="q-item__label q-item__label--caption text-caption"><span>joined <div title="Dec 24, 2017, 12:00 PM" place="relativeDate" style="display:inline;">
+        <div class="q-item__label q-item__label--caption text-caption"><span>joined <div title="Dec 24, 2017, 12:00 PM" style="display:inline;">
   less than a minute ago
 </div></span>
           <!----> <br></div>
@@ -10734,7 +10734,7 @@ exports[`Storyshots UserList default 1`] = `
         <div class="q-item__label"><a>
             User 151
           </a></div>
-        <div class="q-item__label q-item__label--caption text-caption"><span>joined <div title="Dec 24, 2017, 12:00 PM" place="relativeDate" style="display:inline;">
+        <div class="q-item__label q-item__label--caption text-caption"><span>joined <div title="Dec 24, 2017, 12:00 PM" style="display:inline;">
   less than a minute ago
 </div></span>
           <!----> <br></div>
@@ -10761,7 +10761,7 @@ exports[`Storyshots UserList default 1`] = `
         <div class="q-item__label"><a>
             User 152
           </a></div>
-        <div class="q-item__label q-item__label--caption text-caption"><span>joined <div title="Dec 24, 2017, 12:00 PM" place="relativeDate" style="display:inline;">
+        <div class="q-item__label q-item__label--caption text-caption"><span>joined <div title="Dec 24, 2017, 12:00 PM" style="display:inline;">
   less than a minute ago
 </div></span>
           <!----> <br></div>
@@ -10788,7 +10788,7 @@ exports[`Storyshots UserList default 1`] = `
         <div class="q-item__label"><a>
             User 153
           </a></div>
-        <div class="q-item__label q-item__label--caption text-caption"><span>joined <div title="Dec 24, 2017, 12:00 PM" place="relativeDate" style="display:inline;">
+        <div class="q-item__label q-item__label--caption text-caption"><span>joined <div title="Dec 24, 2017, 12:00 PM" style="display:inline;">
   less than a minute ago
 </div></span>
           <!----> <br></div>
@@ -10815,7 +10815,7 @@ exports[`Storyshots UserList default 1`] = `
         <div class="q-item__label"><a>
             User 154
           </a></div>
-        <div class="q-item__label q-item__label--caption text-caption"><span>joined <div title="Dec 24, 2017, 12:00 PM" place="relativeDate" style="display:inline;">
+        <div class="q-item__label q-item__label--caption text-caption"><span>joined <div title="Dec 24, 2017, 12:00 PM" style="display:inline;">
   less than a minute ago
 </div></span>
           <!----> <br></div>
@@ -11277,7 +11277,7 @@ exports[`Storyshots WallConversation WallConversation 1`] = `
     </div>
     <div class="content">
       <div class="markdown">
-        <p>oh let me try something <img class="emoji" draggable="false" alt="😃" src="https://twemoji.maxcdn.com/2/72x72/1f603.png" /></p>
+        <p>oh let me try something <img class="emoji" draggable="false" alt="😃" src="https://twemoji.maxcdn.com/v/12.1.2/72x72/1f603.png" /></p>
       </div>
     </div>
     <!----> <span class="conversation-reactions" style="display:block;"><span class="reactions"><button tabindex="0" type="button" title="Mira Bellenbaum reacted with :thumbsup:" class="q-btn inline q-btn-item non-selectable row no-wrap items-center reaction-box q-btn--flat q-btn--rectangle q-focusable q-hoverable"><div tabindex="-1" class="q-focus-helper"></div><div class="q-btn__content text-center col items-center q-anchor--skip justify-center row"><div class="emoji"></div> <span class="reactions-number">1</span>

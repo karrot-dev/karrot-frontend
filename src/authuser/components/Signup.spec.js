@@ -11,7 +11,7 @@ const userData = {
 describe('Signup', () => {
   beforeEach(() => jest.resetModules())
   it('submits', () => {
-    let wrapper = mountWithDefaults(Signup, {
+    const wrapper = mountWithDefaults(Signup, {
       propsData: {
         status: statusMocks.default(),
         prefillEmail: () => '',
@@ -33,7 +33,7 @@ describe('Signup', () => {
   })
 
   it('submits without playground', () => {
-    let wrapper = mountWithDefaults(Signup, {
+    const wrapper = mountWithDefaults(Signup, {
       propsData: {
         status: statusMocks.default(),
         prefillEmail: () => '',
@@ -54,7 +54,7 @@ describe('Signup', () => {
   })
 
   it('submits with chosen group', () => {
-    let wrapper = mountWithDefaults(Signup, {
+    const wrapper = mountWithDefaults(Signup, {
       propsData: {
         status: statusMocks.default(),
         prefillEmail: () => '',
@@ -75,7 +75,7 @@ describe('Signup', () => {
   })
 
   it('deselects playground', () => {
-    let wrapper = mountWithDefaults(Signup, {
+    const wrapper = mountWithDefaults(Signup, {
       propsData: {
         status: statusMocks.default(),
         prefillEmail: () => '',

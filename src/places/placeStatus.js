@@ -36,7 +36,7 @@ const statusOptions = {
   },
 }
 
-for (let key of Object.keys(statusOptions)) {
+for (const key of Object.keys(statusOptions)) {
   statusOptions[key].key = key
 }
 

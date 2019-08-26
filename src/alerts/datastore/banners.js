@@ -2,7 +2,7 @@ export default {
   namespaced: true,
   getters: {
     all: (state, getters, rootState, rootGetters) => {
-      let banners = []
+      const banners = []
       const currentGroup = rootGetters['currentGroup/value']
       const isGroupPage = rootGetters['route/isGroupPage']
       const isLoggedIn = rootGetters['auth/isLoggedIn']

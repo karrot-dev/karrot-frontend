@@ -1,7 +1,7 @@
 import Vue from 'vue'
 import pickups from '@/pickups/api/pickups'
 import { createMetaModule, withMeta, isValidationError, withPrefixedIdMeta, metaStatusesWithId, metaStatuses } from '@/utils/datastore/helpers'
-import addDays from 'date-fns/add_days'
+import addDays from 'date-fns/addDays'
 import reactiveNow from '@/utils/reactiveNow'
 
 function initialState () {
@@ -163,8 +163,8 @@ export default {
       collectors.push(userId)
     },
     leave (state, { pickupId, userId }) {
-      let { collectors } = state.entries[pickupId]
-      let idx = collectors.indexOf(userId)
+      const { collectors } = state.entries[pickupId]
+      const idx = collectors.indexOf(userId)
       if (idx !== -1) collectors.splice(idx, 1)
     },
   },

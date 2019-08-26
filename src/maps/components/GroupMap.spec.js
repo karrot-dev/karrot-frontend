@@ -28,7 +28,7 @@ const defaultProps = {
 describe('GroupMap', () => {
   beforeEach(() => jest.resetModules())
   it('renders users and places', async () => {
-    let wrapper = mountWithDefaults(GroupMap, {
+    const wrapper = mountWithDefaults(GroupMap, {
       propsData: defaultProps,
     })
     await Vue.nextTick()
@@ -41,7 +41,7 @@ describe('GroupMap', () => {
   })
 
   it('renders just users', async () => {
-    let wrapper = mountWithDefaults(GroupMap, {
+    const wrapper = mountWithDefaults(GroupMap, {
       propsData: {
         ...defaultProps,
         showPlaces: false,
@@ -53,7 +53,7 @@ describe('GroupMap', () => {
   })
 
   it('renders just places', async () => {
-    let wrapper = mountWithDefaults(GroupMap, {
+    const wrapper = mountWithDefaults(GroupMap, {
       propsData: {
         ...defaultProps,
         showUsers: false,

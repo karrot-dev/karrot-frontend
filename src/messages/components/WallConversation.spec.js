@@ -17,20 +17,20 @@ const defaultProps = {
 describe('WallConversation', () => {
   beforeEach(() => jest.resetModules())
   it('renders messages', () => {
-    let wrapper = mountWithDefaults(WallConversation, {
+    const wrapper = mountWithDefaults(WallConversation, {
       propsData: defaultProps,
     })
     expect(wrapper.findAll(ConversationMessage).length).toBe(defaultProps.data.messages.length)
   })
 
   it('can send a message', () => {
-    let wrapper = mountWithDefaults(WallConversation, {
+    const wrapper = mountWithDefaults(WallConversation, {
       propsData: defaultProps,
     })
     expect(wrapper.findAll(QInput).length).toBe(1)
     expect(wrapper.findAll(ConversationCompose).length).toBe(1)
 
-    let message = 'A nice new message'
+    const message = 'A nice new message'
 
     // Would be nicer to directly put the message into the QInput but did not find a way yet
     wrapper.find(ConversationCompose).setData({ message })

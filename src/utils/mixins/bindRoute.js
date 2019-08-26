@@ -3,11 +3,11 @@ export default function bindRoute (params) {
   const mixin = {
     computed: {},
   }
-  for (let key in params) {
-    let def = params[key]
+  for (const key in params) {
+    const def = params[key]
     mixin.computed[key] = {
       get () {
-        if (this.$route.query.hasOwnProperty(key)) {
+        if (Object.prototype.hasOwnProperty.call(this.$route.query, key)) {
           return this.$route.query[key]
         }
         else {

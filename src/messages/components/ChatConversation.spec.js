@@ -29,7 +29,7 @@ describe('ChatConversation', () => {
     expect(wrapper.findAll(QInput).length).toBe(1)
     expect(wrapper.findAll(ConversationCompose).length).toBe(1)
 
-    let message = 'A nice new message'
+    const message = 'A nice new message'
 
     // Would be nicer to directly put the message into the QInput but did not find a way yet
     wrapper.find(ConversationCompose).setData({ message })

@@ -24,7 +24,7 @@ export function detectLocale () {
     })
   }
   else {
-    let val =
+    const val =
       navigator.language ||
       navigator.browserLanguage ||
       navigator.systemLanguage ||

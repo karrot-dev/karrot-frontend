@@ -13,7 +13,7 @@ export default {
     all: (state, getters, rootState, rootGetters) => {
       return state.breadcrumbs.map(item => {
         if (item.type === 'currentGroup') {
-          let group = rootGetters['currentGroup/value']
+          const group = rootGetters['currentGroup/value']
           if (group) {
             return {
               name: group.name,
@@ -22,7 +22,7 @@ export default {
           }
         }
         else if (item.type === 'activePlace') {
-          let place = rootGetters['places/activePlace']
+          const place = rootGetters['places/activePlace']
           if (place) {
             return {
               name: place.name,
@@ -31,7 +31,7 @@ export default {
           }
         }
         else if (item.type === 'activeUser') {
-          let user = rootGetters['users/activeUser']
+          const user = rootGetters['users/activeUser']
           if (user) {
             return {
               name: user.displayName,
@@ -40,7 +40,7 @@ export default {
           }
         }
         else if (item.type === 'activeGroupPreview') {
-          let group = rootGetters['groups/activePreview']
+          const group = rootGetters['groups/activePreview']
           if (group) {
             return {
               name: group.name,

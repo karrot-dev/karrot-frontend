@@ -15,16 +15,20 @@ const range = n => [...Array(n).keys()]
 
 const datastore = createDatastore({
   places: { getters: { activePlace: () => factories.makePlace({ statistics: factories.makePlaceStatistics() }) } },
-  feedback: { getters: {
-    byActivePlace: () => range(5).map(factories.makeFeedback),
-    fetchStatus: () => statusMocks.default(),
-    canFetchPast: () => false,
-    fetchPastStatus: () => statusMocks.default(),
-  } },
-  pickups: { getters: {
-    feedbackPossibleByActivePlace: () => range(2).map(factories.makePickup),
-    fetchFeedbackPossibleStatus: () => statusMocks.default(),
-  } },
+  feedback: {
+    getters: {
+      byActivePlace: () => range(5).map(factories.makeFeedback),
+      fetchStatus: () => statusMocks.default(),
+      canFetchPast: () => false,
+      fetchPastStatus: () => statusMocks.default(),
+    },
+  },
+  pickups: {
+    getters: {
+      feedbackPossibleByActivePlace: () => range(2).map(factories.makePickup),
+      fetchFeedbackPossibleStatus: () => statusMocks.default(),
+    },
+  },
 })
 
 storiesOf('Statistics', module)

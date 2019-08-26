@@ -25,7 +25,7 @@ function setFoo (val) {
       return val.map(setFoo)
     }
     else {
-      let newVal = {}
+      const newVal = {}
       for (const key of Object.keys(val)) {
         newVal[key] = setFoo(val[key])
       }

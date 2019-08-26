@@ -6,10 +6,10 @@
  *
  * The implementations are not complete, so if you miss a property that you need, please add it!
  */
-import subHours from 'date-fns/sub_hours'
-import subDays from 'date-fns/sub_days'
-import addDays from 'date-fns/add_days'
-import addMinutes from 'date-fns/add_minutes'
+import subHours from 'date-fns/subHours'
+import subDays from 'date-fns/subDays'
+import addDays from 'date-fns/addDays'
+import addMinutes from 'date-fns/addMinutes'
 
 import { statusMocks } from '>/helpers'
 import { optionsFor } from '@/places/placeStatus'

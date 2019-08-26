@@ -252,7 +252,7 @@ export default {
       return !!this.addressError
     },
     addressError () {
-      for (let field of ['address', 'latitude', 'longitude']) {
+      for (const field of ['address', 'latitude', 'longitude']) {
         if (this.hasError(field)) return this.firstError(field)
       }
       return null

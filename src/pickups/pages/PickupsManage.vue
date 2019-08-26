@@ -224,9 +224,9 @@ import KSpinner from '@/utils/components/KSpinner'
 
 import i18n, { dayNameForKey, sortByDay } from '@/base/i18n'
 
-import addSeconds from 'date-fns/add_seconds'
-import addHours from 'date-fns/add_hours'
-import startOfTomorrow from 'date-fns/start_of_tomorrow'
+import addSeconds from 'date-fns/addSeconds'
+import addHours from 'date-fns/addHours'
+import startOfTomorrow from 'date-fns/startOfTomorrow'
 import { defaultDuration } from '@/pickups/settings'
 
 export default {

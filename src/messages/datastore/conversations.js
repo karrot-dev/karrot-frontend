@@ -1,5 +1,5 @@
 import Vue from 'vue'
-import differenceInSeconds from 'date-fns/difference_in_seconds'
+import differenceInSeconds from 'date-fns/differenceInSeconds'
 import messageAPI from '@/messages/api/messages'
 import conversationsAPI from '@/messages/api/conversations'
 import reactionsAPI from '@/messages/api/reactions'
@@ -50,7 +50,7 @@ export function insertSorted (target, items, oldestFirst = false) {
   // assumes that existing messages are sorted AND incoming messages are sorted
   const compare = oldestFirst ? (a, b) => a.id < b.id : (a, b) => a.id > b.id
   let i = 0
-  for (let item of items) {
+  for (const item of items) {
     while (i < target.length && compare(target[i], item)) i++
 
     // decide if we should append, update or insert an item

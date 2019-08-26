@@ -33,11 +33,11 @@ export default {
   },
 
   async markConversationsSeen () {
-    return (await axios.post(`/api/conversations/mark_conversations_seen/`)).data
+    return (await axios.post('/api/conversations/mark_conversations_seen/')).data
   },
 
   async markThreadsSeen () {
-    return (await axios.post(`/api/conversations/mark_threads_seen/`)).data
+    return (await axios.post('/api/conversations/mark_threads_seen/')).data
   },
 }
 

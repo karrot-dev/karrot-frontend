@@ -21,7 +21,7 @@ describe('LocaleSelect', () => {
   it('renders all the available locales', () => {
     const wrapper = mountWithDefaults(LocaleSelectInner, { datastore })
     expect(wrapper.findAll('.q-item').length - 1).toBe(Object.keys(locales).length)
-    for (let locale of Object.values(locales)) {
+    for (const locale of Object.values(locales)) {
       expect(wrapper.html()).toContain(locale.name)
     }
   })

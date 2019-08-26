@@ -6,13 +6,15 @@ import Banners from './BannersUI'
 storiesOf('Banners', module)
   .add('Banners', () => defaults({
     render: h => h(Banners, {
-      props: { banners: [
-        {
-          type: 'playgroundGroupInfo',
-        },
-        {
-          type: 'notConnected',
-        },
-      ] },
+      props: {
+        banners: [
+          {
+            type: 'playgroundGroupInfo',
+          },
+          {
+            type: 'notConnected',
+          },
+        ],
+      },
     }),
   }))

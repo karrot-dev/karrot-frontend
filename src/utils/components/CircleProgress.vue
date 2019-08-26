@@ -25,7 +25,7 @@ export default {
       return {
         'stroke-dasharray': '295.31px, 295.31px',
         'stroke-dashoffset': (295.31 * (1.0 - this.value)) + 'px',
-        'transition': 'stroke-dashoffset 0.6s ease 0s, stroke 0.6s ease',
+        transition: 'stroke-dashoffset 0.6s ease 0s, stroke 0.6s ease',
       }
     },
   },

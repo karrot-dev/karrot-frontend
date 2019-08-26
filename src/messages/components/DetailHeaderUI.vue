@@ -242,7 +242,7 @@ export default {
       })
     },
     dateInWords (date) {
-      return dateFnsHelper.distanceInWordsToNow(date, { addSuffix: true, future: false, strict: false })
+      return dateFnsHelper.formatDistanceToNow(date, { addSuffix: true, future: false, strict: false })
     },
   },
 }

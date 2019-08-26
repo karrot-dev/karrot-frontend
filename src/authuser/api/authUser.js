@@ -19,7 +19,7 @@ export default {
   },
 
   delete (id) {
-    return axios.delete(`/api/auth/user/`)
+    return axios.delete('/api/auth/user/')
   },
 
   async getFailedEmailDeliveries () {

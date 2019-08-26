@@ -27,7 +27,7 @@
         </template>
         <i18n path="JOINGROUP.LOGOUT_MESSAGE.LOGGED_OUT">
           <RouterLink
-            place="login"
+            slot="login"
             :to="{ name: 'login' }"
             class="underline"
           >

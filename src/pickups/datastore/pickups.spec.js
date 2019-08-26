@@ -10,8 +10,8 @@ jest.mock('@/pickups/api/pickups', () => ({
 import { createDatastore, defaultActionStatusesFor } from '>/helpers'
 import { makeGroup, makePlace, makePickup } from '>/enrichedFactories'
 import lolex from 'lolex'
-import addSeconds from 'date-fns/add_seconds'
-import subSeconds from 'date-fns/sub_seconds'
+import addSeconds from 'date-fns/addSeconds'
+import subSeconds from 'date-fns/subSeconds'
 
 describe('pickups', () => {
   beforeEach(() => jest.resetModules())
@@ -21,7 +21,7 @@ describe('pickups', () => {
     let vstore
     let clock
 
-    let userId = 10
+    const userId = 10
 
     let pickup1
     let pickup2
@@ -77,7 +77,7 @@ describe('pickups', () => {
           },
         },
       }
-      let pickups = require('./pickups').default
+      const pickups = require('./pickups').default
       vstore = createDatastore({
         pickups,
         ...datastoreMocks,
@@ -111,10 +111,10 @@ describe('pickups', () => {
     })
 
     it('can fetch a pickup', async () => {
-      let date = subSeconds(new Date(), 60)
-      let dateEnd = addSeconds(date, 1800)
-      let pickupId = 99
-      let placeId = 101
+      const date = subSeconds(new Date(), 60)
+      const dateEnd = addSeconds(date, 1800)
+      const pickupId = 99
+      const placeId = 101
       mockGet.mockImplementationOnce(id => ({ id, date, dateEnd, place: placeId, collectors: [] }))
       await vstore.dispatch('pickups/fetch', pickupId)
       const pickup = vstore.getters['pickups/get'](pickupId)

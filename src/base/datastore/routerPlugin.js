@@ -80,7 +80,7 @@ export default datastore => {
     getters['breadcrumbs/allNames'],
     getters['latestMessages/unseenCount'],
   ], ([breadcrumbNames, unseenCount]) => {
-    let names = breadcrumbNames.slice().reverse()
+    const names = breadcrumbNames.slice().reverse()
     names.push('Karrot')
     let title = names.join(' · ')
 
@@ -128,7 +128,7 @@ export async function maybeDispatchActions (datastore, to, from) {
 
   const afterLeaveActions = from.matched.slice(firstNewMatchIdx).reverse().map(m => m.meta.afterLeave)
 
-  for (let action of flatten(afterLeaveActions)) {
+  for (const action of flatten(afterLeaveActions)) {
     if (action) {
       await datastore.dispatch(action, {
         ...parseAsIntegers(from.params),

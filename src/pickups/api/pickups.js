@@ -12,7 +12,7 @@ export default {
   },
 
   async list (filter) {
-    const params = filter || { 'date_min': new Date() }
+    const params = filter || { date_min: new Date() }
     const response = (await axios.get('/api/pickup-dates/', { params })).data
     return {
       ...response,
@@ -22,15 +22,15 @@ export default {
   },
 
   async listByGroupId (groupId) {
-    return this.list({ group: groupId, 'date_min': new Date() })
+    return this.list({ group: groupId, date_min: new Date() })
   },
 
   async listByPlaceId (placeId) {
-    return this.list({ place: placeId, 'date_min': new Date() })
+    return this.list({ place: placeId, date_min: new Date() })
   },
 
   async listBySeriesId (seriesId) {
-    return this.list({ series: seriesId, 'date_min': new Date() })
+    return this.list({ series: seriesId, date_min: new Date() })
   },
 
   async listFeedbackPossible (groupId) {

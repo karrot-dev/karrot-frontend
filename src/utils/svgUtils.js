@@ -59,8 +59,8 @@ export function createBox ({ seed, type, above, text, initials }) {
     background.setAttribute('height', '100%')
     background.setAttribute('width', '100%')
     for (let i = 0; i < 20; i++) {
-      let randomMultipl = i * 6
-      let line = document.createElementNS(SVGNS, 'line')
+      const randomMultipl = i * 6
+      const line = document.createElementNS(SVGNS, 'line')
       line.setAttribute('stroke', 'rgba(' +
         getRandomRange(100, 250, 2 + randomMultipl) + ',' +
         getRandomRange(100, 250, 4 + randomMultipl) + ',' +
@@ -91,8 +91,8 @@ export function createBox ({ seed, type, above, text, initials }) {
     }
     box.appendChild(background)
     for (let i = 0; i < 80; i++) {
-      let randomMultipl = i * 6
-      let circle = document.createElementNS(SVGNS, 'circle')
+      const randomMultipl = i * 6
+      const circle = document.createElementNS(SVGNS, 'circle')
       circle.setAttribute('fill', 'rgba(' +
         getRandomRange(100, 250, 3 + randomMultipl) + ',' +
         getRandomRange(100, 250, 3 + randomMultipl) + ',' +
@@ -116,7 +116,7 @@ export function createBox ({ seed, type, above, text, initials }) {
     for (let i = 0; i < columns; i++) {
       // noprotect
       for (let j = 0; j < rows; j++) {
-        let rect = document.createElementNS(SVGNS, 'rect')
+        const rect = document.createElementNS(SVGNS, 'rect')
         rect.setAttribute('width', blockSize)
         rect.setAttribute('height', blockSizeHeight)
         rect.setAttribute('fill', 'rgba(' +
@@ -132,7 +132,7 @@ export function createBox ({ seed, type, above, text, initials }) {
     }
     box.appendChild(g)
 
-    let overlay = document.createElementNS(SVGNS, 'rect')
+    const overlay = document.createElementNS(SVGNS, 'rect')
     overlay.setAttribute('width', 2 * size)
     overlay.setAttribute('height', 2 * size)
     overlay.setAttribute('fill', 'rgba(' +
@@ -144,7 +144,7 @@ export function createBox ({ seed, type, above, text, initials }) {
     overlay.setAttribute('y', -40)
     box.appendChild(overlay)
 
-    let textOverlay = document.createElementNS(SVGNS, 'text')
+    const textOverlay = document.createElementNS(SVGNS, 'text')
     textOverlay.setAttribute('width', size)
 
     if (text && type === 'banner') {

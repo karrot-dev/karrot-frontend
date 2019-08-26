@@ -33,7 +33,7 @@ export default {
   computed: {
     photosArray () {
       let amount = this.amount || 0
-      let amountImages = []
+      const amountImages = []
       while (amount >= 0.15 && amountImages.length < 7) {
         if (amount >= 50.0) {
           amountImages.push(cartImg)

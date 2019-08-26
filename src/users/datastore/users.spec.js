@@ -93,7 +93,7 @@ describe('users', () => {
   })
 
   it('can signup', async () => {
-    let signupData = { email: 'foo@foo.com', password: 'foo' }
+    const signupData = { email: 'foo@foo.com', password: 'foo' }
     mockCreate.mockImplementation(user => user)
     await datastore.dispatch('users/signup', { userData: signupData })
     expect(mockCreate).toBeCalledWith(signupData)

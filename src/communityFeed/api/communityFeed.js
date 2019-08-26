@@ -7,7 +7,7 @@ export default {
     return convert((await axios.get('/api/community-feed/')).data)
   },
   async markSeen () {
-    return (await axios.post(`/api/community-feed/mark_seen/`)).data
+    return (await axios.post('/api/community-feed/mark_seen/')).data
   },
   async latestTopics () {
     const data = (await axios.get('/community_proxy/c/karrot.json')).data

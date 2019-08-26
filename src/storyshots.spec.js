@@ -1,7 +1,7 @@
 /** Storybook has some unwanted side effects and we actually don't need it to test the stories
  * Therefore, we mimick the Storybook API to get the components and then run the snapshot tests
 */
-let mockStories = []
+const mockStories = []
 jest.mock('@storybook/vue', () => ({
   storiesOf: (kind) => {
     const api = { kind }
@@ -66,8 +66,8 @@ jest.mock('@/locales', () => ({
 
 // Mock translation status
 jest.mock('@/locales/translationStatus.json', () => ({
-  'de': '13',
-  'en': '42',
+  de: '13',
+  en: '42',
 }))
 
 // Mock annoying components (e.g. too much vuex dependency)

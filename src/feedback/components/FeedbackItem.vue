@@ -34,7 +34,6 @@
             </RouterLink>
             <span
               class="message-date"
-              place="date"
             >
               <DateAsWords :date="createdAt" />
             </span>

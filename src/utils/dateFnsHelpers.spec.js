@@ -15,12 +15,12 @@ describe('dateFnsHelper', () => {
   })
 
   it('renders 1 day ago', () => {
-    expect(dateFnsHelper.distanceInWordsToNow(date, { addSuffix: true })).toEqual('1 day ago')
+    expect(dateFnsHelper.formatDistanceToNow(date, { addSuffix: true })).toEqual('1 day ago')
   })
 
   it('handles other locales', async () => {
     dateFnsHelper.locale = 'de'
     await sleep(50) // needs a bit of time to load it
-    expect(dateFnsHelper.distanceInWordsToNow(date, { addSuffix: true })).toEqual('vor einem Tag')
+    expect(dateFnsHelper.formatDistanceToNow(date, { addSuffix: true })).toEqual('vor einem Tag')
   })
 })

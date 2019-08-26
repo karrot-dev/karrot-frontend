@@ -1,7 +1,7 @@
 import { storybookDefaults as defaults } from '>/helpers'
 import { storiesOf } from '@storybook/vue'
 import { action } from '@storybook/addon-actions'
-import addHours from 'date-fns/add_hours'
+import addHours from 'date-fns/addHours'
 import * as factories from '>/enrichedFactories'
 
 import NotificationItem from './NotificationItem'

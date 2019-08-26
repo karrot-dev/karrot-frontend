@@ -31,7 +31,7 @@ export default {
       return this.$d(new Date(this.date), 'long')
     },
     dateInWords () {
-      return dateFnsHelper.distanceInWordsToNow(this.date, {
+      return dateFnsHelper.formatDistanceToNow(this.date, {
         addSuffix: !this.noSuffix,
         future: this.future,
         strict: this.strict,

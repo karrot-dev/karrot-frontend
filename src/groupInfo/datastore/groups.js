@@ -43,7 +43,7 @@ export default {
     // A de-duplicated list of member ids of all groups the user is part of
     myMemberIds: (state, getters) => {
       return Object.keys(getters.mine.reduce((obj, group) => {
-        for (let member of group.members) {
+        for (const member of group.members) {
           obj[member] = true
         }
         return obj
@@ -135,12 +135,12 @@ export default {
       }
     },
     join (state, { groupId, userId }) {
-      let { members } = state.entries[groupId]
+      const { members } = state.entries[groupId]
       if (!members.includes(userId)) members.push(userId)
     },
     leave (state, { groupId, userId }) {
-      let { members } = state.entries[groupId]
-      let idx = members.indexOf(userId)
+      const { members } = state.entries[groupId]
+      const idx = members.indexOf(userId)
       if (idx !== -1) members.splice(idx, 1)
     },
   },

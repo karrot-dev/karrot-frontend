@@ -51,9 +51,9 @@ cordovaConfigPaths.forEach(path => {
 })
 
 const tag = `v${latestVersion}`
-console.log(`Committing all changes`)
+console.log('Committing all changes')
 execSync(`git commit -am "${tag}"`, { stdio: 'inherit' })
-execSync(`git pull`, { stdio: 'inherit' })
+execSync('git pull', { stdio: 'inherit' })
 
 console.log(`Creating tag ${tag}`)
 execSync(`git tag ${tag}`, { stdio: 'inherit' })

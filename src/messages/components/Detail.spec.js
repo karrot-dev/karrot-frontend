@@ -39,13 +39,15 @@ describe('Detail', () => {
   })
 
   it('keeps message order if conversation is a thread', () => {
-    const wrapper = mountWithDefaults(require('./DetailUI').default, { propsData: {
-      ...propsData,
-      conversation: {
-        ...propsData.conversation,
-        thread: 1,
+    const wrapper = mountWithDefaults(require('./DetailUI').default, {
+      propsData: {
+        ...propsData,
+        conversation: {
+          ...propsData.conversation,
+          thread: 1,
+        },
       },
-    } })
+    })
     const reversedMessageIds = [...propsData.conversation.messages.map(({ id }) => id)]
     const renderedMessageIds = [...wrapper.vm.conversationWithMaybeReversedMessages.messages].map(({ id }) => id)
     expect(renderedMessageIds).toEqual(reversedMessageIds)

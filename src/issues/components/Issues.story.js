@@ -1,7 +1,7 @@
 import { storiesOf } from '@storybook/vue'
 import { storybookDefaults as defaults, statusMocks } from '>/helpers'
-import subHours from 'date-fns/sub_hours'
-import addHours from 'date-fns/add_hours'
+import subHours from 'date-fns/subHours'
+import addHours from 'date-fns/addHours'
 import * as factories from '>/enrichedFactories'
 
 import IssueVote from './IssueVote'

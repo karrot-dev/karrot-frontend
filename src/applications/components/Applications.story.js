@@ -1,7 +1,7 @@
 import { storiesOf } from '@storybook/vue'
 import { storybookDefaults as defaults, statusMocks, range } from '>/helpers'
 import * as factories from '>/enrichedFactories'
-import subDays from 'date-fns/sub_days'
+import subDays from 'date-fns/subDays'
 
 import ApplicationFormUI from './ApplicationFormUI'
 import ApplicationList from './ApplicationList'

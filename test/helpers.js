@@ -27,8 +27,8 @@ export async function nextTicks (n) {
 }
 
 export function createDatastore (mods, { debug = false, plugins = [] } = {}) {
-  let modules = {}
-  for (let key of Object.keys(mods)) {
+  const modules = {}
+  for (const key of Object.keys(mods)) {
     modules[key] = { ...mods[key], namespaced: true }
   }
 
@@ -164,7 +164,7 @@ export function defaultActionStatus () {
 
 export function defaultActionStatusesFor (...actions) {
   const result = {}
-  for (let action of actions) {
+  for (const action of actions) {
     result[action + 'Status'] = defaultActionStatus()
   }
   return result

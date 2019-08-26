@@ -1,6 +1,6 @@
 import Vue from 'vue'
-import distanceInWords from 'date-fns/distance_in_words'
-import distanceInWordsStrict from 'date-fns/distance_in_words_strict'
+import formatDistance from 'date-fns/formatDistance'
+import formatDistanceStrict from 'date-fns/formatDistanceStrict'
 import { dateFnsLocale } from '@/locales/index'
 import reactiveNow from '@/utils/reactiveNow'
 
@@ -17,10 +17,13 @@ export default new Vue({
     },
   },
   methods: {
-    distanceInWordsStrict (dateA, dateB) {
-      return distanceInWordsStrict(dateA, dateB, { locale: this.localeData })
+    formatDistanceStrict (dateA, dateB) {
+      return formatDistanceStrict(dateA, dateB, {
+        locale: this.localeData,
+        roundingMethod: 'floor',
+      })
     },
-    distanceInWordsToNow (date, options = {}) {
+    formatDistanceToNow (date, options = {}) {
       const now = reactiveNow.value
       if (options.future) {
         if (date < now) date = now
@@ -28,8 +31,8 @@ export default new Vue({
       else {
         if (date > now) date = now
       }
-      const fn = options.strict ? distanceInWordsStrict : distanceInWords
-      return fn(now, date, { locale: this.localeData, ...options })
+      const fn = options.strict ? formatDistanceStrict : formatDistance
+      return fn(date, now, { locale: this.localeData, ...options })
     },
   },
 })

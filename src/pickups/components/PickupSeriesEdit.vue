@@ -215,7 +215,7 @@
           <i18n path="CREATEPICKUP.RRULE_HELPER">
             <a
               v-t="'CREATEPICKUP.RRULE_HELPER_URL'"
-              place="ruleHelper"
+              slot="ruleHelper"
               href="https://www.kanzaki.com/docs/ical/rrule.html"
               target="_blank"
               rel="noopener nofollow noreferrer"
@@ -223,7 +223,7 @@
             />
             <a
               v-t="'CREATEPICKUP.RRULE_EXAMPLE'"
-              place="ruleExample"
+              slot="ruleExample"
               href="https://jakubroztocil.github.io/rrule/#/rfc/FREQ=MONTHLY;BYDAY=MO,TU,WE,TH,FR;BYSETPOS=-1"
               target="_blank"
               rel="noopener nofollow noreferrer"
@@ -231,7 +231,7 @@
             />
             <a
               v-t="'CREATEPICKUP.RRULE_EXAMPLE2'"
-              place="ruleExample2"
+              slot="ruleExample2"
               href="https://jakubroztocil.github.io/rrule/#/rfc/FREQ=WEEKLY;INTERVAL=2;BYDAY=MO"
               target="_blank"
               rel="noopener nofollow noreferrer"
@@ -355,9 +355,9 @@ import { dayOptions } from '@/base/i18n'
 import { defaultDuration } from '@/pickups/settings'
 import { formatSeconds } from '@/pickups/utils'
 
-import addSeconds from 'date-fns/add_seconds'
-import addDays from 'date-fns/add_days'
-import differenceInSeconds from 'date-fns/difference_in_seconds'
+import addSeconds from 'date-fns/addSeconds'
+import addDays from 'date-fns/addDays'
+import differenceInSeconds from 'date-fns/differenceInSeconds'
 
 export default {
   components: {

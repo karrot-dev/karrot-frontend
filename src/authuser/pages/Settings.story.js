@@ -66,30 +66,38 @@ const datastore = createDatastore({
 
 const user = factories.makeCurrentUser({ mailVerified: false })
 const verificationWarningDatastore = createDatastore({
-  auth: { getters: {
-    user: () => user,
-    failedEmailDeliveries: () => [],
-  } },
-  users: { getters: {
-    resendVerificationCodeStatus: () => statusMocks.default(),
-    resendVerificationCodeSuccess: () => false,
-  } },
+  auth: {
+    getters: {
+      user: () => user,
+      failedEmailDeliveries: () => [],
+    },
+  },
+  users: {
+    getters: {
+      resendVerificationCodeStatus: () => statusMocks.default(),
+      resendVerificationCodeSuccess: () => false,
+    },
+  },
 })
 
 const failedEmailDeliveriesDatastore = createDatastore({
-  auth: { getters: {
-    user: () => factories.makeCurrentUser({ mailVerified: true }),
-    failedEmailDeliveries: () => [{
-      subject: 'Your verification code',
-      event: '550',
-      reason: 'Unknown address',
-      createdAt: new Date(),
-    }],
-  } },
-  users: { getters: {
-    resendVerificationCodeStatus: () => statusMocks.default(),
-    resendVerificationCodeSuccess: () => false,
-  } },
+  auth: {
+    getters: {
+      user: () => factories.makeCurrentUser({ mailVerified: true }),
+      failedEmailDeliveries: () => [{
+        subject: 'Your verification code',
+        event: '550',
+        reason: 'Unknown address',
+        createdAt: new Date(),
+      }],
+    },
+  },
+  users: {
+    getters: {
+      resendVerificationCodeStatus: () => statusMocks.default(),
+      resendVerificationCodeSuccess: () => false,
+    },
+  },
 })
 
 storiesOf('Settings Page', module)

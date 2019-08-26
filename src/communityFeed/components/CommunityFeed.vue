@@ -42,7 +42,7 @@
             <QItemSection>
               <i18n path="COMMUNITY_FEED.HEADER">
                 <a
-                  place="community"
+                  slot="community"
                   href="https://community.foodsaving.world"
                   target="_blank"
                   rel="noopener"
@@ -95,7 +95,7 @@
                   tag="div"
                 >
                   <DateAsWords
-                    place="relativeDate"
+                    slot="relativeDate"
                     style="display: inline"
                     :date="topic.lastPostedAt"
                   />

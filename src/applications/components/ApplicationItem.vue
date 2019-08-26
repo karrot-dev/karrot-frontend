@@ -26,7 +26,7 @@
           :path="decision"
         >
           <DateAsWords
-            place="relativeDate"
+            slot="relativeDate"
             style="display: inline"
             :date="application.decidedAt"
           />
@@ -37,7 +37,7 @@
             :path="personDeciding"
           >
             <RouterLink
-              place="userName"
+              slot="userName"
               :to="{name: 'user', params: { userId: application.decidedBy.id }}"
               @click.native.stop
             >

@@ -101,12 +101,12 @@ describe('router plugin / beforeEnter & afterLeave meta options', () => {
   })
 
   it('calls parent enter action first and leave action last', async () => {
-    let callOrder = []
+    const callOrder = []
     test.actions.beforeEnter.mockImplementationOnce(() => callOrder.push('parentEnter'))
     test.actions.beforeEnterChild.mockImplementationOnce(() => callOrder.push('childEnter'))
     test.actions.afterLeave.mockImplementationOnce(() => callOrder.push('parentLeave'))
     test.actions.afterLeaveChild.mockImplementationOnce(() => callOrder.push('childLeave'))
-    router.push({ name: 'child', params: { testId: '42', 'childId': '44' } })
+    router.push({ name: 'child', params: { testId: '42', childId: '44' } })
     await Vue.nextTick(); await Vue.nextTick()
     router.push({ name: 'route2' })
     await Vue.nextTick()

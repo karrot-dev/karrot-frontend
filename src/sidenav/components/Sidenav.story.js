@@ -20,7 +20,7 @@ const places = range(5).map(() => factories.makePlace({
 storiesOf('Sidenav', module)
   .add('Map', () => defaults({
     render (h) {
-      let { showPlaces, showUsers, toggleUsers, togglePlaces } = this
+      const { showPlaces, showUsers, toggleUsers, togglePlaces } = this
       return h(SidenavMapUI, {
         props: {
           places,

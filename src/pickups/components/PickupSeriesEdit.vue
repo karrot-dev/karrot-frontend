@@ -214,24 +214,24 @@
         <template v-slot:hint>
           <i18n path="CREATEPICKUP.RRULE_HELPER">
             <a
-              v-t="'CREATEPICKUP.RRULE_HELPER_URL'"
               slot="ruleHelper"
+              v-t="'CREATEPICKUP.RRULE_HELPER_URL'"
               href="https://www.kanzaki.com/docs/ical/rrule.html"
               target="_blank"
               rel="noopener nofollow noreferrer"
               style="text-decoration: underline"
             />
             <a
-              v-t="'CREATEPICKUP.RRULE_EXAMPLE'"
               slot="ruleExample"
+              v-t="'CREATEPICKUP.RRULE_EXAMPLE'"
               href="https://jakubroztocil.github.io/rrule/#/rfc/FREQ=MONTHLY;BYDAY=MO,TU,WE,TH,FR;BYSETPOS=-1"
               target="_blank"
               rel="noopener nofollow noreferrer"
               style="text-decoration: underline"
             />
             <a
-              v-t="'CREATEPICKUP.RRULE_EXAMPLE2'"
               slot="ruleExample2"
+              v-t="'CREATEPICKUP.RRULE_EXAMPLE2'"
               href="https://jakubroztocil.github.io/rrule/#/rfc/FREQ=WEEKLY;INTERVAL=2;BYDAY=MO"
               target="_blank"
               rel="noopener nofollow noreferrer"

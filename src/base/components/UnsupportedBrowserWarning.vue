@@ -8,8 +8,8 @@
       path="OUTDATED_BROWSER.MESSAGE"
     >
       <a
-        v-t="'OUTDATED_BROWSER.LINK'"
         slot="upgradeBrowser"
+        v-t="'OUTDATED_BROWSER.LINK'"
         href="https://browser-update.org/update.html"
         class="outdated-link"
         rel="noopener nofollow noreferrer"

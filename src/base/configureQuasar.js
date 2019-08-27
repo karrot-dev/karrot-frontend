@@ -1,6 +1,4 @@
-import Quasar from 'quasar-vue-plugin'
-
-import { AppVisibility, ClosePopup, Dialog, Notify, TouchHold } from 'quasar'
+import { Quasar, AppVisibility, ClosePopup, Dialog, Notify, TouchHold } from 'quasar'
 
 export const config = {
   plugins: {

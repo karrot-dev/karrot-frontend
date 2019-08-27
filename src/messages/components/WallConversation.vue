@@ -1,7 +1,7 @@
 <template>
   <div>
     <QInfiniteScroll
-      :disable="!data.canFetchPast"
+      :disable="data && !data.canFetchPast"
       @load="maybeFetchPast"
     >
       <QList

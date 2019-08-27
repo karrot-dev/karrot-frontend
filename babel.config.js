@@ -10,6 +10,14 @@ module.exports = {
     ['@babel/plugin-transform-runtime', {
       corejs: 3,
     }],
+    // To enable tree-shaking support in quasar in production we rewrite imports
+    // This changes things like `import { QBtn } from 'quasar'` into `import QBtn from 'quasar/blah/QBtn'`
+    ['babel-plugin-transform-imports', {
+      quasar: {
+        transform: require('quasar/dist/babel-transforms/imports.js'),
+        preventFullImport: true,
+      },
+    }],
   ],
   env: {
     test: {
@@ -21,18 +29,6 @@ module.exports = {
       ],
       // Line numbers in jest tracebacks should make sense, even without sourcemaps
       retainLines: true,
-    },
-    production: {
-      plugins: [
-        // To enable tree-shaking support in quasar in production we rewrite imports
-        // This changes things like `import { QBtn } from 'quasar'` into `import QBtn from 'quasar/blah/QBtn'`
-        ['babel-plugin-transform-imports', {
-          quasar: {
-            transform: 'quasar/dist/babel-transforms/imports.js',
-            preventFullImport: true,
-          },
-        }],
-      ],
     },
   },
 }

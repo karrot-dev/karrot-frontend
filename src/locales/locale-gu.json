@@ -199,7 +199,7 @@
     "DESCRIPTION": "વર્ણન",
     "ADDRESS": "સરનામું",
     "WEEKS_IN_ADVANCE": "અગાઉથી કેટલા અઠવાડિયામાં રિકરિંગની દુકાનની તારીખો બતાવવી જોઈએ?",
-    "WEEKS_IN_ADVANCE_WARNING": "Existing leftover pickups will get deleted if they are empty. You can disable non-empty pickups manually, if needed.",
+    "WEEKS_IN_ADVANCE_WARNING": "You are about to reduce the number of weeks pickups are shown. Existing leftover pickups will get deleted if nobody has joined them. You can disable all other pickups manually, if needed.",
     "DIALOGS": {
       "ARCHIVE": {
         "TITLE": "Archive place",
@@ -308,9 +308,7 @@
     "RRULE_HELPER_URL": " કૅલેન્ડર નિયમ",
     "RRULE_EXAMPLE": "છેલ્લી કાર્યકારી દિવસ (મો-ફ્રાન્સ) દર મહિને",
     "RRULE_EXAMPLE2": "દર બીજા સોમવાર",
-    "STARTDATE": "પ્રારંભ તારીખ",
     "STARTDATE_HELPER": "આ શ્રેણી ક્યારે શરૂ થવી જોઈએ?",
-    "TIME": "સમય",
     "TIME_HELPER": "પિક-અપ ક્યારે થવો જોઈએ?",
     "DATE": "તારીખ",
     "DATE_HELPER": "પિક-અપ ક્યારે થવો જોઈએ?",

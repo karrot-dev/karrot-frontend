@@ -199,7 +199,7 @@
     "DESCRIPTION": "Descripción",
     "ADDRESS": "Dirección",
     "WEEKS_IN_ADVANCE": "¿Con cuántas semanas de anticipación se mostrarán las fechas recurrentes de recolección?",
-    "WEEKS_IN_ADVANCE_WARNING": "Las recolecciones sobrantes se eliminarán si están vacías. Si es necesario, puedes deshabilitar las recolecciones no vacías manualmente.",
+    "WEEKS_IN_ADVANCE_WARNING": "You are about to reduce the number of weeks pickups are shown. Existing leftover pickups will get deleted if nobody has joined them. You can disable all other pickups manually, if needed.",
     "DIALOGS": {
       "ARCHIVE": {
         "TITLE": "Archivar lugar",
@@ -308,9 +308,7 @@
     "RRULE_HELPER_URL": "regla iCalender",
     "RRULE_EXAMPLE": "último día hábil (Mo-Fr) cada mes",
     "RRULE_EXAMPLE2": "cada segundo lunes",
-    "STARTDATE": "Fecha de inicio",
     "STARTDATE_HELPER": "¿Cuándo debería comenzar la serie?",
-    "TIME": "Hora",
     "TIME_HELPER": "¿Cuándo debe llevarse a cabo la recogida?",
     "DATE": "Fecha",
     "DATE_HELPER": "¿Cuándo debe llevarse a cabo la recogida?",

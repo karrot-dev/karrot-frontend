@@ -199,7 +199,7 @@
     "DESCRIPTION": "वर्णन",
     "ADDRESS": "पत्ता",
     "WEEKS_IN_ADVANCE": "पिकअप तारखांची आठवण किती आठवडे आधी करावी?",
-    "WEEKS_IN_ADVANCE_WARNING": "विद्यमान उर्वरित पिकअप रिक्त असल्यास हटविले जातील. आवश्यक असल्यास, आपण रिक्त पिकअप स्वहस्ते अक्षम करू शकता.",
+    "WEEKS_IN_ADVANCE_WARNING": "You are about to reduce the number of weeks pickups are shown. Existing leftover pickups will get deleted if nobody has joined them. You can disable all other pickups manually, if needed.",
     "DIALOGS": {
       "ARCHIVE": {
         "TITLE": "Archive place",
@@ -308,9 +308,7 @@
     "RRULE_HELPER_URL": "iCalender नियम",
     "RRULE_EXAMPLE": "दरमहा शेवटचा कामकाजाचा दिवस (सोम -शुक्र) ",
     "RRULE_EXAMPLE2": "प्रत्येक दुसर्या सोमवारी",
-    "STARTDATE": "प्रारंभ तारीख",
     "STARTDATE_HELPER": "मालिका कधी सुरू करावी?",
-    "TIME": "वेळ",
     "TIME_HELPER": "पिकअप कधी घ्यावे?",
     "DATE": "दिनांक",
     "DATE_HELPER": "पिकअप कधी घ्यावे?",

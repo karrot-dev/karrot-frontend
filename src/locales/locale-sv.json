@@ -199,7 +199,7 @@
     "DESCRIPTION": "Beskrivning",
     "ADDRESS": "Adress",
     "WEEKS_IN_ADVANCE": "Hur många veckor i förväg skall återkommande hämtningar synas?",
-    "WEEKS_IN_ADVANCE_WARNING": "Befinnande hämtningar som är kvar kommer att raderas om de är tomma. Du kan inaktivera upptagna hämtningar manuellt om det behövs.",
+    "WEEKS_IN_ADVANCE_WARNING": "You are about to reduce the number of weeks pickups are shown. Existing leftover pickups will get deleted if nobody has joined them. You can disable all other pickups manually, if needed.",
     "DIALOGS": {
       "ARCHIVE": {
         "TITLE": "Archive place",
@@ -308,9 +308,7 @@
     "RRULE_HELPER_URL": "iCalenders regel",
     "RRULE_EXAMPLE": "Sista arbetsdag (Mån-Fre) varje månad",
     "RRULE_EXAMPLE2": "varannan måndag",
-    "STARTDATE": "Startdatum",
     "STARTDATE_HELPER": "När ska serien börja?",
-    "TIME": "Tid",
     "TIME_HELPER": "När ska hämtningen ske?",
     "DATE": "Datum",
     "DATE_HELPER": "När ska hämtningen ske?",

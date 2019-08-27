@@ -199,7 +199,7 @@
     "DESCRIPTION": "Opis",
     "ADDRESS": "Adres",
     "WEEKS_IN_ADVANCE": "Ile tygodni do przodu ma być widoczna tabelka odbiorów?",
-    "WEEKS_IN_ADVANCE_WARNING": "Existing leftover pickups will get deleted if they are empty. You can disable non-empty pickups manually, if needed.",
+    "WEEKS_IN_ADVANCE_WARNING": "You are about to reduce the number of weeks pickups are shown. Existing leftover pickups will get deleted if nobody has joined them. You can disable all other pickups manually, if needed.",
     "DIALOGS": {
       "ARCHIVE": {
         "TITLE": "Przenieś punkt do archiwum",
@@ -308,9 +308,7 @@
     "RRULE_HELPER_URL": "iCalendar",
     "RRULE_EXAMPLE": "ostatni dzień roboczy każdego miesiąca (pn-pt)",
     "RRULE_EXAMPLE2": "co drugi poniedziałek",
-    "STARTDATE": "Data początkowa",
     "STARTDATE_HELPER": "Kiedy zaczną się odbiory?",
-    "TIME": "Godzina odbioru",
     "TIME_HELPER": "O której godzinie odbieramy jedzenie?",
     "DATE": "Data",
     "DATE_HELPER": "Którego dnia odbieramy jedzenie?",

@@ -199,7 +199,7 @@
     "DESCRIPTION": "विवरण",
     "ADDRESS": "पता",
     "WEEKS_IN_ADVANCE": "कितने सप्ताह अग्रिम में पिकअप की तारीखों को दिखाया जाना चाहिए?",
-    "WEEKS_IN_ADVANCE_WARNING": "Existing leftover pickups will get deleted if they are empty. You can disable non-empty pickups manually, if needed.",
+    "WEEKS_IN_ADVANCE_WARNING": "You are about to reduce the number of weeks pickups are shown. Existing leftover pickups will get deleted if nobody has joined them. You can disable all other pickups manually, if needed.",
     "DIALOGS": {
       "ARCHIVE": {
         "TITLE": "Archive place",
@@ -308,9 +308,7 @@
     "RRULE_HELPER_URL": "आईकैलेंडर नियम",
     "RRULE_EXAMPLE": "पिछले कामकाजी दिन (सोम-शुक्र) हर महीने",
     "RRULE_EXAMPLE2": "प्रत्येक दूसरे सोमवार",
-    "STARTDATE": "आरंभ करने की तिथि",
     "STARTDATE_HELPER": "कब श्रृंखला शुरू होनी चाहिए?",
-    "TIME": "पहर",
     "TIME_HELPER": "पिक-अप कब होना चाहिए?",
     "DATE": "तारीख",
     "DATE_HELPER": "पिक-अप कब होना चाहिए?",

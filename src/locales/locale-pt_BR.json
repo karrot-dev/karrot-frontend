@@ -199,7 +199,7 @@
     "DESCRIPTION": "Descricão",
     "ADDRESS": "Endereço",
     "WEEKS_IN_ADVANCE": "Com quantas semanas de antecedência as coletas recorrentes devem ser mostradas??",
-    "WEEKS_IN_ADVANCE_WARNING": "Existing leftover pickups will get deleted if they are empty. You can disable non-empty pickups manually, if needed.",
+    "WEEKS_IN_ADVANCE_WARNING": "You are about to reduce the number of weeks pickups are shown. Existing leftover pickups will get deleted if nobody has joined them. You can disable all other pickups manually, if needed.",
     "DIALOGS": {
       "ARCHIVE": {
         "TITLE": "Archive place",
@@ -308,9 +308,7 @@
     "RRULE_HELPER_URL": "Regra iCalendar",
     "RRULE_EXAMPLE": "último dia de trabalho (Mo-Fr) todo mês",
     "RRULE_EXAMPLE2": "toda segunda-feira",
-    "STARTDATE": "Dia de início",
     "STARTDATE_HELPER": "Quando a série deve começar?",
-    "TIME": "Hora",
     "TIME_HELPER": "Quando a coleta deve acontecer?",
     "DATE": "Dia",
     "DATE_HELPER": "Quando a coleta deve acontecer?",

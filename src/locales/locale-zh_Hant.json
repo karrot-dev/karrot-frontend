@@ -199,7 +199,7 @@
     "DESCRIPTION": "敘述",
     "ADDRESS": "地址",
     "WEEKS_IN_ADVANCE": "多少週以前要顯示可重複開放領取的日期？",
-    "WEEKS_IN_ADVANCE_WARNING": "Existing leftover pickups will get deleted if they are empty. You can disable non-empty pickups manually, if needed.",
+    "WEEKS_IN_ADVANCE_WARNING": "You are about to reduce the number of weeks pickups are shown. Existing leftover pickups will get deleted if nobody has joined them. You can disable all other pickups manually, if needed.",
     "DIALOGS": {
       "ARCHIVE": {
         "TITLE": "Archive place",
@@ -308,9 +308,7 @@
     "RRULE_HELPER_URL": "iCalender規則",
     "RRULE_EXAMPLE": "每個月的最後一個工作天(星期一到五)",
     "RRULE_EXAMPLE2": "每個月第二個星期一",
-    "STARTDATE": "開始日期",
     "STARTDATE_HELPER": "此系列活動從甚麼時候開始?",
-    "TIME": "時間",
     "TIME_HELPER": "應該在甚麼時候領取食物？",
     "DATE": "日期",
     "DATE_HELPER": "應該在甚麼時候領取食物？",

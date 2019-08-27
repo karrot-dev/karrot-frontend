@@ -199,7 +199,7 @@
     "DESCRIPTION": "Description",
     "ADDRESS": "Adresse",
     "WEEKS_IN_ADVANCE": "Les récoltes récurrentes sont affichées combien de semaines en avance?",
-    "WEEKS_IN_ADVANCE_WARNING": "Les récoltes en cours seront supprimées si elles sont vides. Vous pouvez désactiver les récoltes non vide manuellement si besoins.",
+    "WEEKS_IN_ADVANCE_WARNING": "You are about to reduce the number of weeks pickups are shown. Existing leftover pickups will get deleted if nobody has joined them. You can disable all other pickups manually, if needed.",
     "DIALOGS": {
       "ARCHIVE": {
         "TITLE": "Archive place",
@@ -308,9 +308,7 @@
     "RRULE_HELPER_URL": "Paramètres du iCalendar",
     "RRULE_EXAMPLE": "dernier jour ouvré de chaque mois",
     "RRULE_EXAMPLE2": "chaque second mardi du mois",
-    "STARTDATE": "Date de début",
     "STARTDATE_HELPER": "Quand doivent commencer les récoltes?",
-    "TIME": "Heure",
     "TIME_HELPER": "Quand doit avoir lieu la récolte ?",
     "DATE": "Date",
     "DATE_HELPER": "Quand doit avoir lieu la récolte ?",

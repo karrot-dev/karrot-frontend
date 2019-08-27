@@ -199,7 +199,7 @@
     "DESCRIPTION": "Beschreibung",
     "ADDRESS": "Adresse",
     "WEEKS_IN_ADVANCE": "Wieviele Wochen im Voraus sollen die wiederkehrenden Abholungen angezeigt werden?",
-    "WEEKS_IN_ADVANCE_WARNING": "Existing leftover pickups will get deleted if they are empty. You can disable non-empty pickups manually, if needed.",
+    "WEEKS_IN_ADVANCE_WARNING": "You are about to reduce the number of weeks pickups are shown. Existing leftover pickups will get deleted if nobody has joined them. You can disable all other pickups manually, if needed.",
     "DIALOGS": {
       "ARCHIVE": {
         "TITLE": "Ort archivieren",
@@ -308,9 +308,7 @@
     "RRULE_HELPER_URL": "RRULE",
     "RRULE_EXAMPLE": "'letzter Werktag eines jeden Monats'",
     "RRULE_EXAMPLE2": "'jeder zweite Montag'",
-    "STARTDATE": "Anfangsdatum",
     "STARTDATE_HELPER": "Wann sollen die Abholungen beginnen?",
-    "TIME": "Uhrzeit",
     "TIME_HELPER": "Wann soll die Abholung stattfinden?",
     "DATE": "Datum",
     "DATE_HELPER": "Wann soll die Abholung stattfinden?",

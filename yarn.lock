@@ -11355,10 +11355,10 @@ recompose@^0.30.0:
     react-lifecycles-compat "^3.0.2"
     symbol-observable "^1.0.4"
 
-reconnecting-websocket@^4.0.0-rc5:
-  version "4.1.10"
-  resolved "https://registry.yarnpkg.com/reconnecting-websocket/-/reconnecting-websocket-4.1.10.tgz#15485b5c5266ab6dd99187e23e8da207d24c4270"
-  integrity sha512-x6vgqa8q9KRuJyFkOvBKH1TfyTmN5OWQUf1MIsblfOSY29VE+iI9cKqmIuPvg9TO/hUBxdmUIVutDkcdbqFwZg==
+reconnecting-websocket@^4.2.0:
+  version "4.2.0"
+  resolved "https://registry.yarnpkg.com/reconnecting-websocket/-/reconnecting-websocket-4.2.0.tgz#2395f84b5d0acee439ff5df34c3fd0853d11be7c"
+  integrity sha512-HMD8A0sv40xhkHf/T4qxktyOvHx7K3d2A9i1QG2wRIYdMecxQJMhTIBH4aQ8KfQLfQW4UOqNSfxTgv0C+MbPIA==
 
 recursive-readdir@2.2.2:
   version "2.2.2"

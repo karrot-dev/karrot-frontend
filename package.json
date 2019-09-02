@@ -102,7 +102,7 @@
     "css-loader": "^3.2.0",
     "deepmerge": "^4.0.0",
     "dotenv": "^8.1.0",
-    "eslint": "^6.2.2",
+    "eslint": "^6.3.0",
     "eslint-config-standard": "^14.0.1",
     "eslint-loader": "^3.0.0",
     "eslint-plugin-html": "^6.0.0",

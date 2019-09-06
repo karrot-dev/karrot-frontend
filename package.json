@@ -50,7 +50,7 @@
     "deep-equal": "^1.1.0",
     "element-closest": "^3.0.0",
     "escape-string-regexp": "^2.0.0",
-    "firebase": "^6.5.0",
+    "firebase": "^6.6.0",
     "intl": "^1.2.5",
     "jstimezonedetect": "^1.0.6",
     "leaflet": "^1.5.1",

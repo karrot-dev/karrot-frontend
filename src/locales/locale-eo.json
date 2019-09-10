@@ -10,14 +10,14 @@
     "ABOUT_KARROT": "About Karrot"
   },
   "USERDATA": {
-    "EMAIL": "E-mail",
+    "EMAIL": "Retadreso",
     "MOBILE_NUMBER": "Phone number",
     "PROFILE_TITLE": "Profile",
     "PRIVATE_MESSAGE": "Send a private message to {userName}",
     "PASSWORD": "Pasvorto",
     "CONFIRM_PASSWORD": "Confirm your password",
     "USERNAME": "Nomo",
-    "WHERE_FROM": "Where you are from (not required)",
+    "WHERE_FROM": "De kie vi venas? (ne nepra)",
     "PHOTO": "Profile photo",
     "SET_PHOTO": "Set your profile photo...",
     "ACCOUNT": "Account",
@@ -70,7 +70,7 @@
     "JOIN": "Ensaluti",
     "LEAVE": "Eliri",
     "PREVIEW": "Antaŭvido",
-    "BACK": "Back",
+    "BACK": "Reen",
     "NEXT": "Next",
     "SEARCH": "Search",
     "OF_COURSE": "Yes, of course!",
@@ -98,7 +98,7 @@
   "VALIDATION": {
     "MINLENGTH": "Please enter more than {min} characters.",
     "MAXLENGTH": "Too long, please use less than {max} characters.",
-    "UNIQUE": "Name already exists, please choose another.",
+    "UNIQUE": "Nomo jam ekzistas, bonvolu elekti alian.",
     "REQUIRED": "This field is required.",
     "VALID_EMAIL": "Enter a valid e-mail address.",
     "VALID_TIMEZONE": "Enter a valid timezone."
@@ -109,7 +109,7 @@
     "LEAVE": "Forlasi la grupon…",
     "LEAVE_TEXT": "Ĉu vi vere volas eliri la grupon?",
     "LEAVE_CONFIRMATION": "You left {groupName}",
-    "NONMEMBER_REDIRECT": "You are not a member of this group.",
+    "NONMEMBER_REDIRECT": "Vi ne anas en tiu ĉi grupo",
     "EDIT": "Redakti grupon",
     "CREATE_TITLE": "Krei novan grupon",
     "MANAGE_AGREEMENT": "Manage agreement",
@@ -136,17 +136,17 @@
     "SHOW_INACTIVE": "Show inactive groups",
     "PLACES": "Places",
     "HOME": "Home",
-    "HISTORY": "History",
+    "HISTORY": "Historio",
     "DESCRIPTION": "Priskribo",
     "ADDRESS": "Adreso",
     "TIMEZONE": "Horzono de la grupo",
-    "INVITE_EMAIL": "Enter an e-mail address",
-    "INVITE_SEND": "Send invitation",
+    "INVITE_EMAIL": "Metu vian retadreson",
+    "INVITE_SEND": "Sendi invitojn",
     "INVITE_SEND_SUCCESS": "Invitation sent successfully!",
     "INVITE_SEND_ERROR": "Ooops, could not send the invitation!",
-    "INVITED_LIST": "Invitations have already been sent out to these e-mail addresses:",
+    "INVITED_LIST": "Invitoj jam estis senditaj al tiuj ĉi retadresoj:",
     "INVITATIONS": "Invitations",
-    "INVITE_TITLE": "Invite users to your group",
+    "INVITE_TITLE": "Inviti uzantojn al via grupo",
     "INVITATION_ACCEPT_SUCCESS": "Welcome! You successfully accepted the invitation.",
     "INVITATION_ACCEPT_ERROR": "Ooops, could not accept the invitation!",
     "SETTINGS": "Settings",
@@ -182,7 +182,7 @@
     "HIDE_PLACES": "Hide places",
     "SHOW_GROUPS": "Show groups",
     "HIDE_GROUPS": "Hide groups",
-    "SET_LOCATION": "Set location",
+    "SET_LOCATION": "Elekti lokon",
     "FULL_SCREEN": "Show full screen"
   },
   "STOREDETAIL": {
@@ -224,17 +224,17 @@
     }
   },
   "PICKUPMANAGE": {
-    "TITLE": "Manage pickups",
-    "SERIES": "Recurring pickups",
-    "SINGLE": "One-time pickups",
+    "TITLE": "Agordi forkolektojn",
+    "SERIES": "periodaj forkolektoj",
+    "SINGLE": "Unufojaj forkolektoj",
     "UPCOMING_PICKUPS_IN_SERIES": "Upcoming pickups in this series",
     "PICKUP_DOES_NOT_MATCH": "This pickups' date doesn't match the recurrence pattern",
     "PICKUP_DESCRIPTION_CHANGED": "'Additional information' has been changed",
     "PICKUP_MAX_COLLECTORS_CHANGED": "'Max slots' has been changed"
   },
   "PICKUPDELETE": {
-    "DELETE_SERIES_TITLE": "Delete recurring pickup date",
-    "DELETE_SERIES_TEXT": "Do you really want to delete this recurring pickup date? This will also delete all one-time pickup dates that belong to this recurring pickup date (except where people joined already)."
+    "DELETE_SERIES_TITLE": "Forigi periodajn forkolektajn rendevuojn",
+    "DELETE_SERIES_TEXT": "Ĉu vi vere volas forigi tiun ĉi periodan forkolektan rendevuon? Tio ĉi forigos ankaŭ ĉiujn unufojajn forkolektajn rendevuojn kiuj apartenas al tiu ĉi periodan forkolektan rendevuon (krom kie homoj jam aliĝis)."
   },
   "USERDETAIL": {
     "DISPLAY_NAME": "Nomo",
@@ -243,18 +243,18 @@
     "PASSWORD": "Novan pasvorton"
   },
   "PROFILE": {
-    "INACCESSIBLE_OR_DELETED": "(User inaccessible or deleted)"
+    "INACCESSIBLE_OR_DELETED": "(Nealirebla aŭ forigita uzanto)"
   },
   "JOINGROUP": {
     "WHICHGROUP": "Al kiu grupo vi volas aliĝi?",
-    "NUM_MEMBERS": "Member | Members",
+    "NUM_MEMBERS": "Ano | Anoj",
     "NO_PUBLIC_DESCRIPTION": "(Ĉi tiu grupo havas neniun priskribo… ankoraŭ)",
-    "ALL_GROUPS": "All groups",
-    "SIGNUP_OR_LOGIN": "Log in or sign up to join this group!",
+    "ALL_GROUPS": "Ĉiuj grupoj",
+    "SIGNUP_OR_LOGIN": "Ensalutu aŭ kreu konton por aliĝi tiun ĉi grupon!",
     "VERIFY_EMAIL_ADDRESS": "Verify your email address to apply",
     "MY_GROUPS": "My groups",
     "LOGOUT_MESSAGE": {
-      "LOGGED_OUT": "You are currently logged out. {login}",
+      "LOGGED_OUT": "Vi elsalutintas. {login}",
       "LOG_IN": "Log in to see your groups!"
     },
     "PROFILE_NOTE": "By joining this group, your profile data will become visible to other group members.",
@@ -266,8 +266,8 @@
   },
   "GROUPINFO": {
     "TITLE": "Public group information",
-    "META": "Show public group information",
-    "MEMBER_VIEW": "You are member of this group. Click here to switch to full view."
+    "META": "Vidi informon de publika grupo",
+    "MEMBER_VIEW": "Vi anas en tiu ĉi grupo. Alklaku ĉi tie por ŝanĝi al plenvideblo"
   },
   "TOPBAR": {
     "LOGOUT": "Elsaluti",
@@ -290,8 +290,8 @@
     "OK": "Aliĝi"
   },
   "VERIFYMAIL": {
-    "TITLE": "E-Mail verification",
-    "SUCCESS": "Your e-mail address was successfully verified!"
+    "TITLE": "Retadresa konfirmo",
+    "SUCCESS": "Via retadreso sukcese konfirmiĝis!"
   },
   "DELETEACCOUNT": {
     "TITLE": "Account deletion",
@@ -313,8 +313,8 @@
     "DATE": "Date",
     "DATE_HELPER": "When should the pick-up take place?",
     "MAX_COLLECTORS": "Maks Lokoj",
-    "MAX_COLLECTORS_HELPER": "How many people should participate in the pick-up?",
-    "COMMENT": "Additional information",
+    "MAX_COLLECTORS_HELPER": "Kiom da homoj partoprenindas en la forkolekto?",
+    "COMMENT": "Aldona informo",
     "COMMENT_HELPER": "What should people know when signing up to this pick-up?",
     "UNLIMITED": "unlimited",
     "DIFFERS_WARNING": "This value differs from the default. To undo this change, click on the arrow button and save the changes.",
@@ -325,7 +325,7 @@
     "EXCEPTIONS_MESSAGE": "Some upcoming pickups don't match the settings of this recurring pickup. Have a look below at '{upcomingLabel}' to change or disable pickups, if needed."
   },
   "CREATESTORE": {
-    "TITLE": "Create a new place"
+    "TITLE": "Krei novan lokon"
   },
   "PICKUPLIST": {
     "FILTER": {
@@ -342,11 +342,11 @@
       "JOIN": "Aliĝi",
       "JOIN_CONFIRMATION_HEADER": "Join Pickup",
       "JOIN_CONFIRMATION_TEXT": "Are you sure you have time to pick up on {date}?",
-      "LEAVE_CONFIRMATION_HEADER": "Leave Pickup",
-      "LEAVE_CONFIRMATION_TEXT": "Are you really sure the others can do the pickup without you?"
+      "LEAVE_CONFIRMATION_HEADER": "Forlasu Forkolekton",
+      "LEAVE_CONFIRMATION_TEXT": "Ĉu vi vere la aliaj povas savi sen vi?"
     },
     "NONE": "Neniu venonta forkolekto",
-    "NONE_HINT": "You can create a new pickup on the place page.",
+    "NONE_HINT": "Vi povas krei novan forkolekton en la loka paĝo.",
     "STORE_NONE_HINT": "You can create a new pickup on the pickup manage page.",
     "PICKUP_DISABLED": "This pickup has been disabled.",
     "PICKUP_STARTED": "This pickup has already started."
@@ -369,18 +369,18 @@
     "SUBTITLE": "You can provide feedback for your pickup here",
     "SET_AMOUNT": "Set amount",
     "DELETE_AMOUNT": "Delete amount",
-    "AMOUNT": "Amount of food all of you were able to save (in kg)",
+    "AMOUNT": "Manĝkvanto kiun vi ĉiuj povis savi (en kg)",
     "COMMENT_PLACEHOLDER": "Was everything fine? Did everyone show up? Your comment here...",
     "PREVIOUS": "Previous feedback for {store}",
     "TOGETHER_WITH": "You did this pickup together with:"
   },
   "PASSWORDRESET": {
     "TITLE": "Pasvorta restarigo",
-    "INTRO": "Enter your Email address and we will send you a link to set a new password (if you have an account registered).",
-    "EMAIL": "Email address",
+    "INTRO": "Entajpu vian retadreson kaj ni sendos novan pasvorton al vi (se vi jam registriĝis)",
+    "EMAIL": "Retpostadreso",
     "SUBMIT": "Ricevi novan pasvorton",
     "LOGIN": "Reen al ensalutpaĝo",
-    "SUCCESS": "The request was successfully sent. Have a look at your Emails!"
+    "SUCCESS": "La peto sukcese sendiĝis. Kontrolu vian poŝtkeston!"
   },
   "PASSWORD": {
     "RESET": {
@@ -393,7 +393,7 @@
     }
   },
   "LANGUAGECHOOSER": {
-    "ADD_MORE": "Help translating!",
+    "ADD_MORE": "Helpu traduki!",
     "SWITCH": "Switch language"
   },
   "MARKDOWN_INPUT": {
@@ -404,23 +404,23 @@
     "HELP": "Kio estas Markdaŭno?"
   },
   "HISTORY": {
-    "GROUP_CREATE": "created this group",
-    "GROUP_MODIFY": "changed the settings of this group",
-    "GROUP_JOIN": "joined this group",
-    "GROUP_LEAVE": "left this group",
-    "STORE_CREATE": "created place {name}",
-    "STORE_MODIFY": "changed the settings of place {name}",
-    "STORE_DELETE": "deleted place {name}",
-    "PICKUP_CREATE": "created a new one-time pick-up",
-    "PICKUP_MODIFY": "changed the settings of a pick-up",
-    "PICKUP_DELETE": "deleted a pick-up",
+    "GROUP_CREATE": "Krei ĉi tiun grupon",
+    "GROUP_MODIFY": "ŝanĝi la agordojn de tiu ĉi grupo",
+    "GROUP_JOIN": "Aliĝi ĉi tiun grupon",
+    "GROUP_LEAVE": "Forlasi la grupon",
+    "STORE_CREATE": "loko kreita{name}",
+    "STORE_MODIFY": "ŝanĝitaj la agordoj de la loko {name}",
+    "STORE_DELETE": "forigita loko {name}",
+    "PICKUP_CREATE": "krei novan unufojan forkolekton",
+    "PICKUP_MODIFY": "ŝanĝi la agordojn de la forkolekto",
+    "PICKUP_DELETE": "Forigi forkolekton",
     "PICKUP_ENABLE": "enabled a pickup",
     "PICKUP_DISABLE": "disabled a pickup",
-    "SERIES_CREATE": "created a new recurring pick-up",
-    "SERIES_MODIFY": "changed the settings of a recurring pick-up",
-    "SERIES_DELETE": "deleted a recurring pick-up",
-    "PICKUP_DONE": "did a pick-up at {storeName}",
-    "PICKUP_MISSED": "A pickup at {storeName} was missed!",
+    "SERIES_CREATE": "Krei novan periodan forkolekton",
+    "SERIES_MODIFY": "ŝanĝi la agordojn de periodaj forkolektoj",
+    "SERIES_DELETE": "Forigi periodan forkolekton",
+    "PICKUP_DONE": "farita forkolekto en {storeName}",
+    "PICKUP_MISSED": "Forkolekto en {storeName}maltrafita!",
     "PICKUP_JOIN": "signed up to do a pick-up at {storeName}",
     "PICKUP_LEAVE": "stepped back from doing a pick-up at {storeName}",
     "APPLICATION_DECLINED": "declined an application from {applicantName}",
@@ -433,16 +433,16 @@
     "DETAILS": "More information"
   },
   "NOTIFICATIONS": {
-    "TITLE": "Notifications",
-    "NOT_VERIFIED": "{email} is not verified",
+    "TITLE": "Sciigoj",
+    "NOT_VERIFIED": "{email}ne estas konfirmita",
     "CHECK_YOUR_MAILS": "Please check your emails or {resend}",
-    "RESEND_VERIFICATION": "resend verification email",
-    "VERIFICATION_EMAIL_SENT": "We sent you another verification mail. Please check your inbox.",
+    "RESEND_VERIFICATION": "resendi konfirman retmesaĝon",
+    "VERIFICATION_EMAIL_SENT": "Ni sendis alian konfirmretmesaĝon. Bonvolu kontroli vian retpoŝtkeston.",
     "CHANGES_SAVED": "Your changes have been saved.",
     "EMAIL_NOT_DELIVERED": "An email could not be delivered to you | {count} emails could not be delivered to you"
   },
   "NOTIFICATION_BELLS_LIST": {
-    "TITLE": "Notifications",
+    "TITLE": "Sciigoj",
     "NO_ITEMS": "We currently don't have notifications for you."
   },
   "NOTIFICATION_BELLS": {
@@ -493,11 +493,11 @@
     "TITLE": "Settings"
   },
   "AGREEMENT": {
-    "NEW": "New agreement",
+    "NEW": "Nova akordo",
     "AGREE": "You must agree to {title}",
     "VIEW": "View agreement",
     "TITLE": "Title",
-    "TITLE_HELPER": "Give your agreement a title, e.g. Community Rules",
+    "TITLE_HELPER": "Nomigu vian akordon, ekzemple \"Komunaj Reguloj\"",
     "CONTENT": "Content",
     "CONTENT_HELPER": "The text of your agreement",
     "MINOR_EDIT": "Minor edit?",
@@ -508,7 +508,7 @@
       "REPLACE": {
         "TITLE": "Change agreement?",
         "MESSAGE": "Everyone will have to agree again before they can signup for pickups",
-        "CONFIRM": "Yes, change agreement"
+        "CONFIRM": "Jes, ŝanĝu la akordon"
       },
       "REMOVE": {
         "TITLE": "Remove agreement?",

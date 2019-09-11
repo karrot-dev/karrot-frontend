@@ -86,7 +86,7 @@
     "SHOW": "Mostrar",
     "HIDE": "Ocultar",
     "SUBMIT": "Enviar",
-    "APPLY": "Aplicar",
+    "APPLY": "Solicitar",
     "ACCEPT": "Aceptar",
     "DECLINE": "Rechazar",
     "WITHDRAW": "Retirar",
@@ -120,7 +120,7 @@
     "WELCOMEMESSAGE_VERBOSE": "Mensaje de bienvenida enviado a nuevos miembros.",
     "LOGO": "Logo del grupo",
     "SET_LOGO": "¡Pulsa para subir tu logo de grupo!",
-    "APPLICATIONS": "Aplicaciones",
+    "APPLICATIONS": "Solicitudes",
     "APPLICATION_QUESTIONS": "Preguntas para presonas que quieren unirse a este grupo",
     "PICKUPS": "Recogidas",
     "MESSAGES": "Mensajes",
@@ -162,7 +162,7 @@
         "DESCRIPTION": "Te recuerda tus recogidas y te informa sobre las recogidas libres en tus lugares favoritos al siguiente día "
       },
       "new_application": {
-        "NAME": "Aplicaiones nuevas",
+        "NAME": "Solicitudes nuevas",
         "DESCRIPTION": "Te avisa cuando alguien quiere unirse a tu grupo"
       },
       "conflict_resolution": {
@@ -423,7 +423,7 @@
     "PICKUP_MISSED": "Faltó una recogida en {storeName}!",
     "PICKUP_JOIN": "se apuntó a una recogida en {storeName}",
     "PICKUP_LEAVE": "dio un paso atrás al hacer una recolección en {storeName}",
-    "APPLICATION_DECLINED": "declinó la solicitud de {applicantName}",
+    "APPLICATION_DECLINED": "rechazó la solicitud de {applicantName}",
     "MEMBER_BECAME_EDITOR": "obtuvo permisos de edición",
     "GROUP_LEAVE_INACTIVE": "fue eliminado debido a su inactividad",
     "GROUP_CHANGE_PHOTO": "cambió el logo del grupo",

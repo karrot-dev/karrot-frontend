@@ -1,141 +1,141 @@
 {
-  "ENTRY": "1 entry | {count} entries",
+  "ENTRY": "1 fadenero | {count}fadeneroj",
   "GLOBAL": {
     "GITHUB_NOTE": "Ellaboro",
     "SERVER_ERROR": "Eraro servila",
-    "NOT_CONNECTED": "You aren't connected to the server",
-    "INVALID_LINK": "Sorry, the link you've opened is invalid.",
-    "GENERIC_ERROR": "Sorry, something went wrong",
-    "SEARCH_NOT_FOUND": "Not Found",
-    "ABOUT_KARROT": "About Karrot"
+    "NOT_CONNECTED": "Vi ne estas konektita al la servilo",
+    "INVALID_LINK": "Pardonon, la ligilo ne validas.",
+    "GENERIC_ERROR": "Pardonon sed io ne bone funkciis",
+    "SEARCH_NOT_FOUND": "Netrovita",
+    "ABOUT_KARROT": "Pri Karrot"
   },
   "USERDATA": {
-    "EMAIL": "Retadreso",
-    "MOBILE_NUMBER": "Phone number",
-    "PROFILE_TITLE": "Profile",
-    "PRIVATE_MESSAGE": "Send a private message to {userName}",
+    "EMAIL": "Retpoŝto",
+    "MOBILE_NUMBER": "Telefonan numeron",
+    "PROFILE_TITLE": "Profilo",
+    "PRIVATE_MESSAGE": "Sendu privantan mesaĝon al {userName}",
     "PASSWORD": "Pasvorto",
-    "CONFIRM_PASSWORD": "Confirm your password",
+    "CONFIRM_PASSWORD": "Konfirmi vian pasvorton",
     "USERNAME": "Nomo",
     "WHERE_FROM": "De kie vi venas? (ne nepra)",
-    "PHOTO": "Profile photo",
-    "SET_PHOTO": "Set your profile photo...",
-    "ACCOUNT": "Account",
-    "PUSH": "Push notifications",
-    "PUSH_CURRENT_BROWSER": "Current browser",
+    "PHOTO": "Profila bildo",
+    "SET_PHOTO": "Elekti vian profilan bildon...",
+    "ACCOUNT": "Konto",
+    "PUSH": "Sciigoj",
+    "PUSH_CURRENT_BROWSER": "Nuna retumilo",
     "REQUEST_DELETE_ACCOUNT": {
-      "SUCCESS": "We sent you an e-mail with a link to complete the deletion process."
+      "SUCCESS": "Ni sendis retmesaĝon al vi por ke vi finu la forigan proceduron."
     },
     "DIALOGS": {
       "REQUEST_DELETE_ACCOUNT": {
-        "TITLE": "Account deletion",
-        "MESSAGE": "Are you sure? Your account and your personal data will be permanently deleted. Anything you have done on this platform will be made anonymous. If you confirm, we send you an e-mail with a link to complete the deletion process.",
-        "CONFIRM": "Confirm"
+        "TITLE": "Forigi konton",
+        "MESSAGE": "Ĉu vi certas? Via konto kaj personaj datumoj estos por ĉiam forigitaj. Ĉio farita de vi en la platformo anonimiĝos. Se vi konfirmas tion, ni sendos retmesaĝon kun ligilo por ke fini la forigan proceduron.",
+        "CONFIRM": "Konfirmi"
       },
       "GIVE_TRUST": {
-        "TITLE": "Trust user",
-        "MESSAGE": "Do you trust {userName} in {groupName}?"
+        "TITLE": "Fidita uzanto",
+        "MESSAGE": "Ĉu vi fidas {userName}en {groupName}?"
       }
     },
-    "LOGOUT_SUCCESS": "You have been logged out!",
-    "YOU_TRUST_USER": "You trust {userName} in {groupName}.",
-    "OTHER_PEOPLE_TRUST_USER": "{otherUser} trusts {userName} in {groupName}. | {count} people trust {userName} in {groupName}.",
-    "OTHER_PEOPLE_TRUST_YOU": "{otherUser} trusts you in {groupName}. | {count} people trust you in {groupName}.",
-    "PEOPLE_TRUST_USER": "You and {otherUser} trust {userName} in {groupName}. | You and {count} other people trust {userName} in {groupName}.",
-    "FIRST_TRUST": "Be the first one to trust {userName} in {groupName}!",
-    "NEWCOMER": "Newcomer",
-    "NEWCOMER_GUIDANCE": "{userName} is new to your group and might need some guidance.",
-    "TRUST_PROGRESS_TEXT": "{trustNeeded} more trust needed",
-    "TRUST_PROGRESS_TEXT_LONG": "{trustNeeded} more people need to express their trust in {userName} to grant editing permissions.",
-    "NEWCOMER_INFO": "You are currently a newcomer in {groupName} and you can become active by writing messages, meeting fellow members, doing pickups and giving feedback. As soon as {threshold} members expressed their trust in you, you will gain editing permissions to help with group administration.",
+    "LOGOUT_SUCCESS": "Vi elsalutis!",
+    "YOU_TRUST_USER": "Vi fidas {userName}en {groupName}.",
+    "OTHER_PEOPLE_TRUST_USER": "{otherUser}fidas{userName}en {groupName}| {count}homoj fidas {userName} en {groupName}.",
+    "OTHER_PEOPLE_TRUST_YOU": "{otherUser} fidas vin en {groupName}. | {count} homoj fidas vin en {groupName}.",
+    "PEOPLE_TRUST_USER": "Vi kaj {otherUser} fidas {userName} en {groupName}. | VI kaj {count} homoj fidas {userName} en {groupName}.",
+    "FIRST_TRUST": "Estu la unua kiu fidas {userName}en {groupName}!",
+    "NEWCOMER": "Novulo",
+    "NEWCOMER_GUIDANCE": "{userName}estas novulo kaj eble bezonas helpon.",
+    "TRUST_PROGRESS_TEXT": "{trustNeeded}plia fido bezonata",
+    "TRUST_PROGRESS_TEXT_LONG": "Nepre{trustNeeded}pli da homoj fidu {userName}por permesi redktpermesojn.",
+    "NEWCOMER_INFO": "Vi estas novulo en {groupName} kaj vi povas iĝi aktiva skribante mesaĝojn, renkontante anojn, savante kaj komentante savadojn. Kiam {threshold} anoj fidos vin, vi ricevos redaktpermesojn por helpi la grupadministradon.",
     "TRUST_INFO": {
-      "TITLE": "What is this carrot button about?",
-      "MESSAGE": "It is part of the Karrot trust system. It shows if a group member is newcomer and how much trust is needed until they gain editing permissions.",
-      "LINK": "Click here to find out more."
+      "TITLE": "Pri kio temas Karrot?",
+      "MESSAGE": "Tiu ĉi estas la fida sistemo de Karrot. Ĝi montras se ano estas novulo kaj kiom da fido la homo bezonas antaŭ gajni redaktpermesojn.",
+      "LINK": "Alklaku ĉi tie por malkovri pli."
     }
   },
   "SWITCHGROUP": {
-    "NOT_MEMBER": "{userName} is not member of {groupName}.",
-    "COMMON_GROUPS": "Groups you have in common",
-    "OTHER_GROUPS": "Other groups",
-    "CHOOSE": "Choose a group:"
+    "NOT_MEMBER": "{userName}ne anas en {groupName}.",
+    "COMMON_GROUPS": "Komunaj grupoj",
+    "OTHER_GROUPS": "Aliaj grupoj",
+    "CHOOSE": "Elektu grupon:"
   },
   "BUTTON": {
     "CREATE": "Krei",
     "CANCEL": "Nuligi",
-    "OPEN": "Open",
-    "CLOSE": "Close",
+    "OPEN": "Malfermu.",
+    "CLOSE": "Fermi",
     "DELETE": "Forigi",
     "EDIT": "Redakti",
-    "JOIN": "Ensaluti",
+    "JOIN": "Aliĝi",
     "LEAVE": "Eliri",
     "PREVIEW": "Antaŭvido",
     "BACK": "Reen",
-    "NEXT": "Next",
-    "SEARCH": "Search",
-    "OF_COURSE": "Yes, of course!",
-    "YES": "Yes",
-    "SAVE_CHANGES": "Save changes",
-    "RESET": "Reset",
-    "CHANGE_PASSWORD": "Change password",
-    "CHANGE_EMAIL": "Change e-mail address",
-    "AGREE": "I agree",
-    "REMOVE": "Remove",
-    "ARCHIVE": "Archive",
-    "DELETE_ACCOUNT": "Delete account",
-    "SHOW": "Show",
-    "HIDE": "Hide",
-    "SUBMIT": "Submit",
-    "APPLY": "Apply",
-    "ACCEPT": "Accept",
-    "DECLINE": "Decline",
-    "WITHDRAW": "Withdraw",
-    "SHOW_MORE": "Show more",
-    "ENABLE": "Enable",
-    "DISABLE": "Disable",
-    "UNSUBSCRIBE": "Unsubscribe"
+    "NEXT": "Venonta",
+    "SEARCH": "Serĉi",
+    "OF_COURSE": "Jes ja!",
+    "YES": "Jes",
+    "SAVE_CHANGES": "Konservi ŝanĝojn",
+    "RESET": "Restarigi",
+    "CHANGE_PASSWORD": "Ŝanĝi pasvorton",
+    "CHANGE_EMAIL": "Ŝanĝi retadreson",
+    "AGREE": "Mi konsentas",
+    "REMOVE": "Forigi",
+    "ARCHIVE": "Arkivo",
+    "DELETE_ACCOUNT": "Forigi konton",
+    "SHOW": "Montri",
+    "HIDE": "Kaŝi",
+    "SUBMIT": "Sendi",
+    "APPLY": "Kandidatiĝi",
+    "ACCEPT": "Akcepti",
+    "DECLINE": "Malakcepti",
+    "WITHDRAW": "Nuligi",
+    "SHOW_MORE": "Montri pli",
+    "ENABLE": "Ebligi",
+    "DISABLE": "Malebligi",
+    "UNSUBSCRIBE": "Malaboni"
   },
   "VALIDATION": {
-    "MINLENGTH": "Please enter more than {min} characters.",
-    "MAXLENGTH": "Too long, please use less than {max} characters.",
+    "MINLENGTH": "Bonvolu enmetu pli ol {min}karaktrojn.",
+    "MAXLENGTH": "Tro longas. Bonvolu uzu malpli ol {max}karaktrojn.",
     "UNIQUE": "Nomo jam ekzistas, bonvolu elekti alian.",
-    "REQUIRED": "This field is required.",
-    "VALID_EMAIL": "Enter a valid e-mail address.",
-    "VALID_TIMEZONE": "Enter a valid timezone."
+    "REQUIRED": "Nepre plenigu la kampon",
+    "VALID_EMAIL": "Metu validan retadreson",
+    "VALID_TIMEZONE": "Entajpu validan horzonon."
   },
   "GROUP": {
-    "WALL": "Wall",
-    "GROUP": "Group",
+    "WALL": "Muro",
+    "GROUP": "Grupo",
     "LEAVE": "Forlasi la grupon…",
-    "LEAVE_TEXT": "Ĉu vi vere volas eliri la grupon?",
-    "LEAVE_CONFIRMATION": "You left {groupName}",
+    "LEAVE_TEXT": "Ĉu vi vere volas forlasi la grupon?",
+    "LEAVE_CONFIRMATION": "Vi forlasis {groupName}",
     "NONMEMBER_REDIRECT": "Vi ne anas en tiu ĉi grupo",
     "EDIT": "Redakti grupon",
     "CREATE_TITLE": "Krei novan grupon",
-    "MANAGE_AGREEMENT": "Manage agreement",
+    "MANAGE_AGREEMENT": "Agordi akordon",
     "TITLE": "Titolo de ĉi tiu grupo",
-    "PRIVATE_DESCRIPTION_TITLE": "Private group description",
-    "DESCRIPTION_VERBOSE": "Grupa preskribo, membrovidebla",
+    "PRIVATE_DESCRIPTION_TITLE": "Priskribo de privata grupo",
+    "DESCRIPTION_VERBOSE": "Grupa preskribo, videbla por anoj",
     "PUBLIC_DESCRIPTION": "Teksto videbla antaŭ aliĝi al la grupo",
-    "WELCOMEMESSAGE_VERBOSE": "Welcome message sent to new members",
-    "LOGO": "Group logo",
-    "SET_LOGO": "Click to upload your group logo!",
-    "APPLICATIONS": "Applications",
-    "APPLICATION_QUESTIONS": "Questions for people who want to join this group",
-    "PICKUPS": "Kolektoj",
-    "MESSAGES": "Messages",
-    "PICKUP": "Pickup",
+    "WELCOMEMESSAGE_VERBOSE": "Bonvena mesaĝo sendita al novuloj",
+    "LOGO": "Grupa logotipo",
+    "SET_LOGO": "Alklaku por alŝuti vian grupan logotipon!",
+    "APPLICATIONS": "Kandidatiĝoj",
+    "APPLICATION_QUESTIONS": "Demandoj por homoj kiuj volas aliĝi la grupon",
+    "PICKUPS": "Savadoj",
+    "MESSAGES": "Mesaĝoj",
+    "PICKUP": "Savado",
     "MEMBERS": "Anoj",
-    "JOINED": "joined {relativeDate}",
-    "DECLINED": "declined {relativeDate}",
-    "ADDED_BY": "added by {userName}",
-    "DECLINED_BY": "declined by {userName}",
-    "SORT_JOINDATE": "Sort by join date",
-    "SORT_NAME": "Sort by name",
-    "INACTIVE": "Inactive",
-    "SHOW_INACTIVE": "Show inactive groups",
+    "JOINED": "aliĝis {relativeDate}",
+    "DECLINED": "malakceptis{relativeDate}",
+    "ADDED_BY": "aldonita de {userName}",
+    "DECLINED_BY": "malakceptita de {userName}",
+    "SORT_JOINDATE": "Ordigi laŭ dato",
+    "SORT_NAME": "Ordigi laŭ nomo",
+    "INACTIVE": "Neaktiva",
+    "SHOW_INACTIVE": "Montri neaktivajn grupojn",
     "PLACES": "Places",
-    "HOME": "Home",
+    "HOME": "Ĉefpaĝo",
     "HISTORY": "Historio",
     "DESCRIPTION": "Priskribo",
     "ADDRESS": "Adreso",
@@ -145,102 +145,102 @@
     "INVITE_SEND_SUCCESS": "Invitation sent successfully!",
     "INVITE_SEND_ERROR": "Ooops, could not send the invitation!",
     "INVITED_LIST": "Invitoj jam estis senditaj al tiuj ĉi retadresoj:",
-    "INVITATIONS": "Invitations",
+    "INVITATIONS": "Invitoj",
     "INVITE_TITLE": "Inviti uzantojn al via grupo",
-    "INVITATION_ACCEPT_SUCCESS": "Welcome! You successfully accepted the invitation.",
-    "INVITATION_ACCEPT_ERROR": "Ooops, could not accept the invitation!",
-    "SETTINGS": "Settings",
+    "INVITATION_ACCEPT_SUCCESS": "Bonvenon! Vi sukcese akceptis la inviton.",
+    "INVITATION_ACCEPT_ERROR": "Ho ve, la invito ne estis akceptita!",
+    "SETTINGS": "Agordoj",
     "NOTIFICATIONS_BY_GROUP": "Notifications by group",
-    "EMAIL_NOTIFICATIONS": "Email notifications",
+    "EMAIL_NOTIFICATIONS": "Retmesaĝaj sciigoj",
     "NOTIFICATION_TYPES": {
       "weekly_summary": {
-        "NAME": "Weekly summary",
-        "DESCRIPTION": "Keep up to date with what's been happening in the group."
+        "NAME": "Semajna resumo",
+        "DESCRIPTION": "Ĝisdatigu vin pri kio okazis en la grupo."
       },
       "daily_pickup_notification": {
-        "NAME": "Pickup notifications",
-        "DESCRIPTION": "Reminds you of your pickups, and tells you about empty or not-full pickups of your favorite places in the next day"
+        "NAME": "Sciigoj pri savadoj",
+        "DESCRIPTION": "Memorigas vin pri viaj savadoj kaj informas vin pri neplenaj savadoj en viaj preferataj lokj en la venonta tago"
       },
       "new_application": {
-        "NAME": "New applications",
-        "DESCRIPTION": "Tells you when somebody wants to join your group"
+        "NAME": "Novaj kandidatiĝoj",
+        "DESCRIPTION": "Ĝi rakontas kiam iu volas aliĝi la grupon"
       },
       "conflict_resolution": {
         "NAME": "New conflict resolution processes",
         "DESCRIPTION": "Tells you when a new conflict resolution process has been started in your group"
       }
     },
-    "PLAYGROUND_INFO": "This is a playground group, you can't break anything. Explore, click around and have fun!",
-    "JOIN_PLAYGROUND": "Join the playground group to explore karrot",
-    "JOIN_ANOTHER_GROUP": "Join another group"
+    "PLAYGROUND_INFO": "Jen relaksujo kie nenio rompeblas. Esploru, retumu kaj sociumu kun aliaj mojosuloj!",
+    "JOIN_PLAYGROUND": "Aliĝu la relaksujon por malkovri Karrot",
+    "JOIN_ANOTHER_GROUP": "Aliĝu alian grupon"
   },
   "GROUPMAP": {
-    "TITLE": "Map",
-    "SHOW_USERS": "Show users",
-    "HIDE_USERS": "Hide users",
+    "TITLE": "Mapo",
+    "SHOW_USERS": "Montri uzantojn",
+    "HIDE_USERS": "Kaŝi uzantojn",
     "SHOW_PLACES": "Show places",
     "HIDE_PLACES": "Hide places",
-    "SHOW_GROUPS": "Show groups",
-    "HIDE_GROUPS": "Hide groups",
+    "SHOW_GROUPS": "Montri grupojn",
+    "HIDE_GROUPS": "Kaŝi grupojn",
     "SET_LOCATION": "Elekti lokon",
-    "FULL_SCREEN": "Show full screen"
+    "FULL_SCREEN": "Montri tutan ekranon"
   },
   "STOREDETAIL": {
-    "DIRECTIONS": "Show directions",
-    "EDIT": "Edit place",
-    "ARCHIVED": "This place has been archived",
-    "INACTIVE": "This place is currently not cooperating.",
-    "CHANGE_STATUS": "You can change the status on the settings page.",
-    "NO_DESCRIPTION": "This place does not have a description yet"
+    "DIRECTIONS": "Montri direktojn",
+    "EDIT": "Redakti vendejon",
+    "ARCHIVED": "La loko arkiviĝis",
+    "INACTIVE": "Tiu ĉi loko ne kunlaboras nuntempe.",
+    "CHANGE_STATUS": "Vi povas ŝanĝi vian staton en la agorda paĝo.",
+    "NO_DESCRIPTION": "Tiu ĉi loko ankoraŭ ne havas priskribon"
   },
   "STOREEDIT": {
     "NAME": "Nomo",
-    "STATUS": "Status",
+    "STATUS": "Stato",
     "DESCRIPTION": "Priskribo",
     "ADDRESS": "Adreso",
-    "WEEKS_IN_ADVANCE": "Antaŭ kiom da semajnoj devus esti montritaj periodaj forkolektaj rendevuojn?",
-    "WEEKS_IN_ADVANCE_WARNING": "You are about to reduce the number of weeks pickups are shown. Existing leftover pickups will get deleted if nobody has joined them. You can disable all other pickups manually, if needed.",
+    "WEEKS_IN_ADVANCE": "Antaŭ kiom da semajnoj oni montru periodajn savaddatojn?",
+    "WEEKS_IN_ADVANCE_WARNING": "Vi malaltigos la kvanton de montritaj semajnoj. Restantaj savadoj estos forigitaj se neniu aliĝis. Aliajn savadojn vi povas forigi mane kaze de bezono.",
     "DIALOGS": {
       "ARCHIVE": {
-        "TITLE": "Archive place",
-        "MESSAGE": "Are you sure?",
-        "CONFIRM": "Yes, archive place"
+        "TITLE": "Arkivigi lokon",
+        "MESSAGE": "Ĉu vi certas?",
+        "CONFIRM": "Jes, enarkivigi lokon"
       }
     },
-    "RESTORE": "Restore",
-    "SHOW_ARCHIVED": "Show archived places",
-    "HIDE_ARCHIVED": "Hide archived places",
-    "SHOW_ALL": "Show all places",
-    "SHOW_ACTIVE_ONLY": "Only show active places"
+    "RESTORE": "Restaŭri",
+    "SHOW_ARCHIVED": "Montri arkivigitajn lokojn",
+    "HIDE_ARCHIVED": "Kaŝu arkivigitajn lokojn",
+    "SHOW_ALL": "Montri ĉiujn lokojn",
+    "SHOW_ACTIVE_ONLY": "Nur montri aktivajn lokojn"
   },
   "PLACEWALL": {
     "SUBSCRIBED_USERS": "{count} people have marked this place as favourite",
     "SUBSCRIPTION": {
       "HEADER": "Do you want to mark this place as your favourite?",
       "YES": "yes",
-      "YES_TEXT": "Shows available pickups on the group wall and sends emails about upcoming pickups.",
+      "YES_TEXT": "Ĝi montras disponeblajn savadojn en la muro de la grupo kaj sendas retmesaĝojn pri baldaŭaj savadoj.",
       "NO": "no",
-      "NO_TEXT": "None of the above. You can still sign up for pickups though."
+      "NO_TEXT": "Neniu supra eblo. Vi ankoraŭ povas registri por savi."
     }
   },
   "PICKUPMANAGE": {
-    "TITLE": "Agordi forkolektojn",
-    "SERIES": "periodaj forkolektoj",
-    "SINGLE": "Unufojaj forkolektoj",
-    "UPCOMING_PICKUPS_IN_SERIES": "Upcoming pickups in this series",
-    "PICKUP_DOES_NOT_MATCH": "This pickups' date doesn't match the recurrence pattern",
+    "TITLE": "Agordi savadojn",
+    "SERIES": "Periodaj savadoj",
+    "SINGLE": "Unufojaj savadoj",
+    "UPCOMING_PICKUPS_IN_SERIES": "Baldaŭaj savadoj en tiu ĉi serio",
+    "PICKUP_DOES_NOT_MATCH": "La savaddato ne kongruas kun la perioda regulo",
     "PICKUP_DESCRIPTION_CHANGED": "'Additional information' has been changed",
     "PICKUP_MAX_COLLECTORS_CHANGED": "'Max slots' has been changed"
   },
   "PICKUPDELETE": {
-    "DELETE_SERIES_TITLE": "Forigi periodajn forkolektajn rendevuojn",
-    "DELETE_SERIES_TEXT": "Ĉu vi vere volas forigi tiun ĉi periodan forkolektan rendevuon? Tio ĉi forigos ankaŭ ĉiujn unufojajn forkolektajn rendevuojn kiuj apartenas al tiu ĉi periodan forkolektan rendevuon (krom kie homoj jam aliĝis)."
+    "DELETE_SERIES_TITLE": "Forigi periodajn savaddatojn",
+    "DELETE_SERIES_TEXT": "Ĉu vi vere volas forigi tiun ĉi periodan savaddaton? Tio ĉi forigos ankaŭ ĉiujn unufojajn savaddaton kiuj apartenas al tiu ĉi periodan savaddaton (krom kaze ke homoj jam aliĝis)."
   },
   "USERDETAIL": {
     "DISPLAY_NAME": "Nomo",
     "DESCRIPTION": "Pri vi",
-    "OLD_PASSWORD": "Confirm your old password",
-    "PASSWORD": "Novan pasvorton"
+    "OLD_PASSWORD": "Konfirmu vian malnovan pasvorton",
+    "PASSWORD": "Nova pasvorto"
   },
   "PROFILE": {
     "INACCESSIBLE_OR_DELETED": "(Nealirebla aŭ forigita uzanto)"
@@ -248,40 +248,40 @@
   "JOINGROUP": {
     "WHICHGROUP": "Al kiu grupo vi volas aliĝi?",
     "NUM_MEMBERS": "Ano | Anoj",
-    "NO_PUBLIC_DESCRIPTION": "(Ĉi tiu grupo havas neniun priskribo… ankoraŭ)",
+    "NO_PUBLIC_DESCRIPTION": "(Ĉi tiu grupo havas neniun priskribon… ankoraŭ)",
     "ALL_GROUPS": "Ĉiuj grupoj",
     "SIGNUP_OR_LOGIN": "Ensalutu aŭ kreu konton por aliĝi tiun ĉi grupon!",
-    "VERIFY_EMAIL_ADDRESS": "Verify your email address to apply",
-    "MY_GROUPS": "My groups",
+    "VERIFY_EMAIL_ADDRESS": "Kontrolu vian retadreson por kandidatiĝi",
+    "MY_GROUPS": "Miaj grupoj",
     "LOGOUT_MESSAGE": {
       "LOGGED_OUT": "Vi elsalutintas. {login}",
-      "LOG_IN": "Log in to see your groups!"
+      "LOG_IN": "Ensalutu por vidi la grupojn!"
     },
-    "PROFILE_NOTE": "By joining this group, your profile data will become visible to other group members.",
-    "APPLICATION_SUBMITTED": "Your application was successfully submitted!",
-    "APPLICATION_PENDING": "Your application is pending!",
-    "WITHDRAW_CONFIRMATION_HEADER": "Withdraw Application",
-    "WITHDRAW_CONFIRMATION_TEXT": "Are you sure you want to withdraw your application to join {groupName}?",
-    "APPLICATION_WITHDRAWN": "Your application was successfully withdrawn!"
+    "PROFILE_NOTE": "Per aliĝo al la grupo, viaj profilaj datumoj estos videblaj de la aliaj grupanoj.",
+    "APPLICATION_SUBMITTED": "Vi sukcese kandidatiĝis!",
+    "APPLICATION_PENDING": "Kandidatiĝo ankoraŭ respondindas",
+    "WITHDRAW_CONFIRMATION_HEADER": "Forfaligi kandidatiĝon",
+    "WITHDRAW_CONFIRMATION_TEXT": "Ĉu vi certe volas forfaligi vian kandidatiĝon al {groupName}?",
+    "APPLICATION_WITHDRAWN": "Vi sukcese forfaligis vian kandidatiĝon!"
   },
   "GROUPINFO": {
-    "TITLE": "Public group information",
-    "META": "Vidi informon de publika grupo",
+    "TITLE": "Informo de publika grupo",
+    "META": "Montri informon de publika grupo",
     "MEMBER_VIEW": "Vi anas en tiu ĉi grupo. Alklaku ĉi tie por ŝanĝi al plenvideblo"
   },
   "TOPBAR": {
     "LOGOUT": "Elsaluti",
     "USERPROFILE": "Vizitu vian profilon",
-    "CHANGE_GROUP": "Change group"
+    "CHANGE_GROUP": "Ŝanĝi grupon"
   },
   "SIDENAV": {
-    "INFO_SUB": "How to build your foodsaving group",
-    "GIT_SUB": "See our code!"
+    "INFO_SUB": "Kiel starigi vian savadan grupon",
+    "GIT_SUB": "Vidu vian kodon!"
   },
   "LOGIN": {
     "TITLE": "Ensaluti",
     "SUBMIT": "Ensaluti",
-    "SIGNUP": "Aliĝu!",
+    "SIGNUP": "Registriĝu!",
     "FORGOT_PASSWORD": "Ĉu vi forgesis vian pasvorton?"
   },
   "SIGNUP": {
@@ -290,39 +290,39 @@
     "OK": "Aliĝi"
   },
   "VERIFYMAIL": {
-    "TITLE": "Retadresa konfirmo",
-    "SUCCESS": "Via retadreso sukcese konfirmiĝis!"
+    "TITLE": "Kontrolo de retadreso",
+    "SUCCESS": "Via retadreso sukcese kontroliĝis!"
   },
   "DELETEACCOUNT": {
-    "TITLE": "Account deletion",
-    "SUCCESS": "Your account was successfully deleted!"
+    "TITLE": "Forigi konton",
+    "SUCCESS": "VIa konto estis sukcese forigita!"
   },
   "CREATEPICKUP": {
-    "FREQUENCY": "Frequency",
-    "WEEKLY": "Weekly",
-    "CUSTOM": "Custom",
+    "FREQUENCY": "Ofteco",
+    "WEEKLY": "Semajne",
+    "CUSTOM": "Personaligo",
     "WEEKDAYS": "Semajntagoj",
-    "WEEKDAYS_HELPER": "On which days should the pick-up take place?",
-    "RRULE": "Recurrence rule",
-    "RRULE_HELPER": "Type in a valid {ruleHelper}, e.g. {ruleExample} or {ruleExample2}",
-    "RRULE_HELPER_URL": "iCalender rule",
-    "RRULE_EXAMPLE": "last working day (Mo-Fr) every month",
-    "RRULE_EXAMPLE2": "every second Monday",
-    "STARTDATE_HELPER": "When should the series start?",
-    "TIME_HELPER": "When should the pick-up take place?",
-    "DATE": "Date",
-    "DATE_HELPER": "When should the pick-up take place?",
+    "WEEKDAYS_HELPER": "En kiuj tagoj okazu la savadon?",
+    "RRULE": "Rikura regulo",
+    "RRULE_HELPER": "Tajpu laŭ valida {ruleHelper}, ekzemple {ruleExample}aŭ {ruleExample2}",
+    "RRULE_HELPER_URL": "iCalender-a regulo",
+    "RRULE_EXAMPLE": "lasta labortago (Lu-Ve) ĉiumonate",
+    "RRULE_EXAMPLE2": "ĉiu dua lundo",
+    "STARTDATE_HELPER": "Kiam devas komenci la serion?",
+    "TIME_HELPER": "Kiam okazu la savadon?",
+    "DATE": "Dato",
+    "DATE_HELPER": "Kiam okazu la savadon?",
     "MAX_COLLECTORS": "Maks Lokoj",
-    "MAX_COLLECTORS_HELPER": "Kiom da homoj partoprenindas en la forkolekto?",
+    "MAX_COLLECTORS_HELPER": "Kiom da homoj partoprenindas en la savado?",
     "COMMENT": "Aldona informo",
-    "COMMENT_HELPER": "What should people know when signing up to this pick-up?",
-    "UNLIMITED": "unlimited",
+    "COMMENT_HELPER": "Kion devas la homoj scii antaŭ aliĝi por tiu ĉi savado?",
+    "UNLIMITED": "senlima",
     "DIFFERS_WARNING": "This value differs from the default. To undo this change, click on the arrow button and save the changes.",
-    "ENABLE_TITLE": "Enable pickup?",
-    "DISABLE_TITLE": "Disable pickup?",
-    "ENABLE_DISABLE_MESSAGE": "Users who joined this pickup will get a notification. You can change this text to provide a reason:",
-    "EXCEPTIONS_TITLE": "Check your pickups",
-    "EXCEPTIONS_MESSAGE": "Some upcoming pickups don't match the settings of this recurring pickup. Have a look below at '{upcomingLabel}' to change or disable pickups, if needed."
+    "ENABLE_TITLE": "Ĉu ebligi savadon?",
+    "DISABLE_TITLE": "Ĉu nuligi savadon?",
+    "ENABLE_DISABLE_MESSAGE": "Uzantoj kiuj aliĝis savadon ricevos sciigon. Vi povas ŝanĝi tiu ĉi tekston por prezenti kialon:",
+    "EXCEPTIONS_TITLE": "Kontrolu viajn savadojn",
+    "EXCEPTIONS_MESSAGE": "Kelkaj baldaŭaj savadoj ne kongruas kun la agordoj de tiu ĉi perioda savado. Kontrolu sube je {upcomingLabel}por ŝanĝi aŭ nuligi savadojn, kaze de bezono."
   },
   "CREATESTORE": {
     "TITLE": "Krei novan lokon"
@@ -333,46 +333,46 @@
       "EMPTY": "Only empty",
       "FREE": "With free slots"
     },
-    "AVAILABLE": "There is one pickup in your favorite places waiting for you! | There are {count} pickups in your favorite places waiting for you!",
-    "AVAILABLE_FEEDBACK": "You can give feedback to a pickup | {count} pickups await your feedback",
-    "JOINEDNOTICE": "You have one upcoming pickup | You have {count} upcoming pickups",
-    "AVAILABLE_FROM_STORES": "This shows pickups from your favorite places in the next days. You can access other places in the sidebar.",
+    "AVAILABLE": "Savado atendas vin en viaj preferataj lokoj! | {count}savadoj atendas vin en viaj preferataj lokoj!",
+    "AVAILABLE_FEEDBACK": "Vi povas komenti savadon | {count}savadoj atendas komentojn viajn",
+    "JOINEDNOTICE": "Vi havas baldaŭan savadon | Vi havas {count}baldaŭajn savadojn",
+    "AVAILABLE_FROM_STORES": "Tio ĉi montras savadojn en viaj preferataj lokoj en venontaj tagoj. Vi povas aliri aliajn lokojn je la flankpanelo.",
     "ITEM": {
       "LEAVE": "Forlasi",
       "JOIN": "Aliĝi",
-      "JOIN_CONFIRMATION_HEADER": "Join Pickup",
-      "JOIN_CONFIRMATION_TEXT": "Are you sure you have time to pick up on {date}?",
-      "LEAVE_CONFIRMATION_HEADER": "Forlasu Forkolekton",
-      "LEAVE_CONFIRMATION_TEXT": "Ĉu vi vere la aliaj povas savi sen vi?"
+      "JOIN_CONFIRMATION_HEADER": "Aliĝi savadon",
+      "JOIN_CONFIRMATION_TEXT": "Ĉu vi certas ke vi havas tempon por savi je {date}?",
+      "LEAVE_CONFIRMATION_HEADER": "Forlasu Savadon",
+      "LEAVE_CONFIRMATION_TEXT": "Ĉu vere la aliaj povas savi sen vi?"
     },
-    "NONE": "Neniu venonta forkolekto",
-    "NONE_HINT": "Vi povas krei novan forkolekton en la loka paĝo.",
-    "STORE_NONE_HINT": "You can create a new pickup on the pickup manage page.",
-    "PICKUP_DISABLED": "This pickup has been disabled.",
-    "PICKUP_STARTED": "This pickup has already started."
+    "NONE": "Neniu venonta savado",
+    "NONE_HINT": "Vi povas krei novan savadon en la loka paĝo.",
+    "STORE_NONE_HINT": "Vi povas krei novan savadon en la agordpaĝo de savadoj.",
+    "PICKUP_DISABLED": "La savado estis nuligita.",
+    "PICKUP_STARTED": "Tiu ĉi savadon jam komenciĝis."
   },
   "FEEDBACKLIST": {
-    "SAVED_FOOD": "At least 1 kg was saved here. Thank you! | People gave feedback for {amount} kg of saved food already! Keep up the great work!",
-    "NUMBER_PICKUPS": "{count} pickups done",
-    "NUMBER_FEEDBACK": "{count} feedback entries given",
-    "WEIGHT_SUM": "{sum} kg of food saved",
-    "GIVE_FEEDBACK": "Give feedback",
-    "NONE": "No feedback yet",
-    "NONE_HINT": "This page will be filled once more feedback is available",
-    "NO_DONE_PICKUPS": "All done!",
-    "NO_DONE_PICKUPS_HINT": "You currently have no pickups to give feedback to. Why not join another pickup?"
+    "SAVED_FOOD": "Almenaŭ 1 kg estis savita ĉi tie. Dankon! Homoj komenti por {amount} kg de savitaj manĝaĵoj! Daŭrigi la bonan laboron!",
+    "NUMBER_PICKUPS": "{count}faritaj savadoj",
+    "NUMBER_FEEDBACK": "{count}komentoj skribitaj",
+    "WEIGHT_SUM": "{sum}kg savitaj",
+    "GIVE_FEEDBACK": "Komenti",
+    "NONE": "Neniu komento ankoraŭ",
+    "NONE_HINT": "Tiu ĉi paĝo pleniĝos kiam komentoj disponeblos",
+    "NO_DONE_PICKUPS": "Ĉio farita!",
+    "NO_DONE_PICKUPS_HINT": "Nuntempe vi ne havas savadojn kiujn komenti. Kial vi ne aliĝas alian savadon?"
   },
   "PICKUP_FEEDBACK": {
-    "TITLE": "Feedback",
-    "HEADER": "Thank you for your pickup!",
-    "EDIT": "Edit feedback",
-    "SUBTITLE": "You can provide feedback for your pickup here",
-    "SET_AMOUNT": "Set amount",
-    "DELETE_AMOUNT": "Delete amount",
+    "TITLE": "Komentoj",
+    "HEADER": "Dankon por via savado",
+    "EDIT": "Redakti komenton",
+    "SUBTITLE": "Vi povas komenti pri via savado ĉi tie",
+    "SET_AMOUNT": "Agordi kvanton",
+    "DELETE_AMOUNT": "Forigi kvanton",
     "AMOUNT": "Manĝkvanto kiun vi ĉiuj povis savi (en kg)",
-    "COMMENT_PLACEHOLDER": "Was everything fine? Did everyone show up? Your comment here...",
-    "PREVIOUS": "Previous feedback for {store}",
-    "TOGETHER_WITH": "You did this pickup together with:"
+    "COMMENT_PLACEHOLDER": "Ĉu ĉio enordas? Ĉu ĉiuj iris savi? Vian komenton ĉi tie...",
+    "PREVIOUS": "Antaŭaj komentoj de {store}",
+    "TOGETHER_WITH": "Vi savis ĉifoje kun"
   },
   "PASSWORDRESET": {
     "TITLE": "Pasvorta restarigo",
@@ -384,81 +384,81 @@
   },
   "PASSWORD": {
     "RESET": {
-      "TITLE": "Reset password",
-      "OK": "Save",
-      "SUCCESS": "Your new password has been saved."
+      "TITLE": "Restarigi pasvorton",
+      "OK": "Konservi",
+      "SUCCESS": "Via nova pasvorto registriĝis."
     },
     "CHANGE": {
-      "SUCCESS": "Your new password has been saved."
+      "SUCCESS": "La nova pasvorto estas konservita"
     }
   },
   "LANGUAGECHOOSER": {
     "ADD_MORE": "Helpu traduki!",
-    "SWITCH": "Switch language"
+    "SWITCH": "Ŝanĝi lingvon"
   },
   "MARKDOWN_INPUT": {
     "BOLD": "grasa",
     "ITALIC": "kursiva",
     "STRIKE": "trastreko",
-    "QUOTE": "cito",
-    "HELP": "Kio estas Markdaŭno?"
+    "QUOTE": "citi",
+    "HELP": "Kio estas Malaltigo?"
   },
   "HISTORY": {
-    "GROUP_CREATE": "Krei ĉi tiun grupon",
-    "GROUP_MODIFY": "ŝanĝi la agordojn de tiu ĉi grupo",
-    "GROUP_JOIN": "Aliĝi ĉi tiun grupon",
-    "GROUP_LEAVE": "Forlasi la grupon",
+    "GROUP_CREATE": "kreis ĉi tiun grupon",
+    "GROUP_MODIFY": "ŝanĝis la agordojn de tiu ĉi grupo",
+    "GROUP_JOIN": "aliĝis ĉi tiun grupon",
+    "GROUP_LEAVE": "forlasis la grupon",
     "STORE_CREATE": "loko kreita{name}",
-    "STORE_MODIFY": "ŝanĝitaj la agordoj de la loko {name}",
+    "STORE_MODIFY": "ŝanĝis la agordojn de la loko {name}",
     "STORE_DELETE": "forigita loko {name}",
-    "PICKUP_CREATE": "krei novan unufojan forkolekton",
-    "PICKUP_MODIFY": "ŝanĝi la agordojn de la forkolekto",
-    "PICKUP_DELETE": "Forigi forkolekton",
-    "PICKUP_ENABLE": "enabled a pickup",
-    "PICKUP_DISABLE": "disabled a pickup",
-    "SERIES_CREATE": "Krei novan periodan forkolekton",
-    "SERIES_MODIFY": "ŝanĝi la agordojn de periodaj forkolektoj",
-    "SERIES_DELETE": "Forigi periodan forkolekton",
-    "PICKUP_DONE": "farita forkolekto en {storeName}",
-    "PICKUP_MISSED": "Forkolekto en {storeName}maltrafita!",
-    "PICKUP_JOIN": "signed up to do a pick-up at {storeName}",
-    "PICKUP_LEAVE": "stepped back from doing a pick-up at {storeName}",
-    "APPLICATION_DECLINED": "declined an application from {applicantName}",
-    "MEMBER_BECAME_EDITOR": "gained editing permissions",
+    "PICKUP_CREATE": "kreis novan unufojan savadon",
+    "PICKUP_MODIFY": "ŝanĝis la agordojn de la savado",
+    "PICKUP_DELETE": "forigis savadon",
+    "PICKUP_ENABLE": "ebligis savadon",
+    "PICKUP_DISABLE": "nuligis savadon",
+    "SERIES_CREATE": "kreis novan periodan savadon",
+    "SERIES_MODIFY": "ŝanĝis la agordojn de periodaj savado",
+    "SERIES_DELETE": "forigis periodan savadon",
+    "PICKUP_DONE": "savis en {storeName}",
+    "PICKUP_MISSED": "Savado en {storeName}maltrafita!",
+    "PICKUP_JOIN": "aliĝis por savi en {storeName}",
+    "PICKUP_LEAVE": "Malliĝis por savi en {storeName}",
+    "APPLICATION_DECLINED": "malakceptis kandidatiĝo de {applicantName}",
+    "MEMBER_BECAME_EDITOR": "ricevis redaktpermesojn",
     "GROUP_LEAVE_INACTIVE": "was removed due to inactivity",
     "GROUP_CHANGE_PHOTO": "changed the group logo",
     "GROUP_DELETE_PHOTO": "deleted the group logo",
     "MEMBER_REMOVED": "was removed due to group decision",
-    "NOTHING_HAPPENEND": "Nothing happened so far...",
-    "DETAILS": "More information"
+    "NOTHING_HAPPENEND": "Neniu okazis ĝis nun...",
+    "DETAILS": "Plia informo"
   },
   "NOTIFICATIONS": {
     "TITLE": "Sciigoj",
-    "NOT_VERIFIED": "{email}ne estas konfirmita",
-    "CHECK_YOUR_MAILS": "Please check your emails or {resend}",
-    "RESEND_VERIFICATION": "resendi konfirman retmesaĝon",
-    "VERIFICATION_EMAIL_SENT": "Ni sendis alian konfirmretmesaĝon. Bonvolu kontroli vian retpoŝtkeston.",
-    "CHANGES_SAVED": "Your changes have been saved.",
-    "EMAIL_NOT_DELIVERED": "An email could not be delivered to you | {count} emails could not be delivered to you"
+    "NOT_VERIFIED": "{email}ne estas kontrolita",
+    "CHECK_YOUR_MAILS": "Bonvolu kontroli viajn retmesaĝojn aŭ {resend}",
+    "RESEND_VERIFICATION": "resendi kontrolan retmesaĝon",
+    "VERIFICATION_EMAIL_SENT": "Ni sendis alian kontrolan retmesaĝon. Bonvolu vizitu vian retpoŝtkeston.",
+    "CHANGES_SAVED": "Viaj ŝanĝoj konserviĝis.",
+    "EMAIL_NOT_DELIVERED": "Retmesaĝo ne povis estis sendiata al vi | {count}retmesaĝoj ne povis esti senditaj al vi"
   },
   "NOTIFICATION_BELLS_LIST": {
     "TITLE": "Sciigoj",
-    "NO_ITEMS": "We currently don't have notifications for you."
+    "NO_ITEMS": "Ni ne havas sciigojn por vi nun."
   },
   "NOTIFICATION_BELLS": {
-    "YOU_BECAME_EDITOR": "You gained editing permissions",
-    "USER_BECAME_EDITOR": "{userName} gained editing permissions",
-    "NEW_APPLICANT": "{userName} applied to join your group",
-    "APPLICATION_ACCEPTED": "Your application was accepted!",
-    "APPLICATION_DECLINED": "Your application was declined",
-    "INVITATION_ACCEPTED": "{userName} accepted your invitation",
-    "FEEDBACK_POSSIBLE": "You can give feedback for the pickup you did on {date}",
+    "YOU_BECAME_EDITOR": "Vi ricevis redaktpermesojn",
+    "USER_BECAME_EDITOR": "{userName}ricevis redaktpermesojn",
+    "NEW_APPLICANT": "{userName}kandidatiĝis al la grupo",
+    "APPLICATION_ACCEPTED": "Kandidatiĝo akceptita!",
+    "APPLICATION_DECLINED": "Kandidatiĝo malakceptita",
+    "INVITATION_ACCEPTED": "{userName}akceptis vian inviton",
+    "FEEDBACK_POSSIBLE": "Vi povas komenti la savadon de {date}",
     "NEW_PLACE": "{placeName} has been created",
-    "NEW_MEMBER": "{userName} joined your group",
-    "PICKUP_UPCOMING": "Reminder: You have a pickup at {time}",
-    "PICKUP_DISABLED": "Pickup at {dateTime} was disabled",
-    "PICKUP_ENABLED": "Pickup at {dateTime} was enabled again",
-    "PICKUP_MOVED": "Pickup was moved to {dateTime}",
+    "NEW_MEMBER": "{userName}aliĝis vian grupon",
+    "PICKUP_UPCOMING": "Memorigo: Vi savos je {time}",
+    "PICKUP_DISABLED": "Savado je {dateTime}nuliĝis",
+    "PICKUP_ENABLED": "Savado je {dateTime} denove permisiĝis",
+    "PICKUP_MOVED": "Savado movita al {dateTime}",
     "CONFLICT_RESOLUTION_CREATED": "Join the discussion about a conflict with {userName}",
     "CONFLICT_RESOLUTION_CREATED_ABOUT_YOU": "A conflict resolution process was started with you",
     "CONFLICT_RESOLUTION_CONTINUED": "The conflict resolution process with {userName} continues",
@@ -478,101 +478,101 @@
     "NONE_TEXT": "No notifications."
   },
   "OUTDATED_BROWSER": {
-    "MESSAGE": "You are using an unsupported browser. {upgradeBrowser} to enjoy all features.",
-    "LINK": "Please update or switch your browser"
+    "MESSAGE": "Vi uzas nesubtenatan retumilon. {upgradeBrowser}por profiti ĉiujn eblojn.",
+    "LINK": "Bonvolu ĝisdatigi aŭ ŝanĝu retumilon"
   },
   "UPDATE_AVAILABLE": {
-    "TITLE": "Update available",
-    "DETAIL": "A new version of karrot is available."
+    "TITLE": "Ĝisdatigo disponeblas",
+    "DETAIL": "Novan version de Karrot disponeblas."
   },
   "NOT_FOUND": {
-    "EXPLANATION": "Sorry, we couldn't find this page anywhere.",
-    "HOME": "Take me home"
+    "EXPLANATION": "Pardonon. Ni ne povis trovi la paĝon.",
+    "HOME": "Iru hejmen"
   },
   "SETTINGS": {
-    "TITLE": "Settings"
+    "TITLE": "Agordoj"
   },
   "AGREEMENT": {
     "NEW": "Nova akordo",
-    "AGREE": "You must agree to {title}",
-    "VIEW": "View agreement",
-    "TITLE": "Title",
-    "TITLE_HELPER": "Nomigu vian akordon, ekzemple \"Komunaj Reguloj\"",
-    "CONTENT": "Content",
-    "CONTENT_HELPER": "The text of your agreement",
-    "MINOR_EDIT": "Minor edit?",
-    "MINOR_EDIT_HELPER": "Typos, formatting, etc... people will not be asked to re-agree",
-    "BLURB1": "You don't have an agreement yet!",
-    "BLURB2": "If you add one then people will have to agree to it before they can do pickups.",
+    "AGREE": "Vi devas konsenti kun {title}",
+    "VIEW": "Legi akordon",
+    "TITLE": "Titolo",
+    "TITLE_HELPER": "Nomigi vian akordon, ekzemple \"Komunaj Reguloj\"",
+    "CONTENT": "Enhavo",
+    "CONTENT_HELPER": "La teksto de via akordo",
+    "MINOR_EDIT": "Ĉu negrava ŝanĝo?",
+    "MINOR_EDIT_HELPER": "Vorteraroj, tekstaranĝado, ktp. Homoj ne devas konsenti denove",
+    "BLURB1": "Vi ne havas akordon ankoraŭ!",
+    "BLURB2": "Se vi aldonas homon, homoj devos konsenti antaŭ ili povos iri savi",
     "DIALOGS": {
       "REPLACE": {
-        "TITLE": "Change agreement?",
-        "MESSAGE": "Everyone will have to agree again before they can signup for pickups",
+        "TITLE": "Ĉu ŝanĝi akordon?",
+        "MESSAGE": "Ĉiuj devos konsenti denove antaŭ ili povas aliĝi al savadoj",
         "CONFIRM": "Jes, ŝanĝu la akordon"
       },
       "REMOVE": {
-        "TITLE": "Remove agreement?",
-        "MESSAGE": "This means anyone will be able to do a pickup",
-        "CONFIRM": "Yes, remove agreement"
+        "TITLE": "Ĉu forigi akordon?",
+        "MESSAGE": "Tio ĉi signifas ke ĉiuj povas aliĝi savadon",
+        "CONFIRM": "Jes, forigu akordon"
       }
     }
   },
   "WALL": {
-    "WRITE_MESSAGE": "Write a message...",
-    "WRITE_FIRST_MESSAGE": "Write the first message...",
-    "VERIFY_EMAIL_FOR_NOTIFICATIONS": "Please verify your e-mail address to receive notification e-mails",
-    "RECEIVED_VIA_EMAIL": "This message was sent via e-mail"
+    "WRITE_MESSAGE": "Skribu mesaĝon",
+    "WRITE_FIRST_MESSAGE": "Skribu la unuan mesaĝon...",
+    "VERIFY_EMAIL_FOR_NOTIFICATIONS": "Bonvolu kontrolu vian retadreson por ricevi sciigojn per retmesaĝoj",
+    "RECEIVED_VIA_EMAIL": "Via mesaĝo sendiĝis retmesaĝe"
   },
   "CONVERSATION": {
     "CONVERSATIONS": "Conversations",
-    "OPEN": "Open Chat",
-    "REPLY_TO_MESSAGE": "Reply to message...",
-    "REPLIES": "Replies",
-    "REPLIES_COUNT": "1 reply | {count} replies",
-    "UNREAD_MESSAGES": "You have one unread message. | You have {count} unread messages.",
-    "EDITED": "edited",
-    "MARK_READ": "Mark all as read",
+    "OPEN": "Malfermi babilejon",
+    "REPLY_TO_MESSAGE": "Respondi al mesaĝo...",
+    "REPLIES": "Respondoj",
+    "REPLIES_COUNT": "1 respondo | {count}respondojn",
+    "UNREAD_MESSAGES": "Vi havas unu nelegitan mesaĝon | Vi havas {count}nelegitajn mesaĝojn.",
+    "EDITED": "redaktita",
+    "MARK_READ": "Marki ĉiujn kiel legitajn",
     "REACTIONS": {
-      "YOU": "you",
-      "AND": "and",
-      "REACTED_WITH": "{users} reacted with {reaction}"
+      "YOU": "vi",
+      "AND": "kaj",
+      "REACTED_WITH": "{users}reagis al {reaction}"
     },
-    "MESSAGE_NOT_FOUND": "Message not found",
-    "NO_CONVERSATIONS": "No conversations yet.",
-    "MUTED": "Notifications are disabled",
+    "MESSAGE_NOT_FOUND": "Netrovita mesaĝo",
+    "NO_CONVERSATIONS": "Neniun konversacion ankoraŭ",
+    "MUTED": "La sciigoj estas malŝatitaj",
     "CLOSED": "This conversation has been closed automatically.",
-    "NOT_PARTICIPATED": "By sending a message, you will be subscribed to notifications about this conversation."
+    "NOT_PARTICIPATED": "Sendante mesaĝon, vi abonos sciigojn de tiu ĉi konversacio."
   },
   "STORESTATUS": {
-    "ACTIVE": "Co-operating",
-    "CREATED": "Just created",
-    "NEGOTIATING": "Negotiating",
-    "DECLINED": "Don't want to cooperate",
-    "ARCHIVED": "Archived"
+    "ACTIVE": "Kunlabori",
+    "CREATED": "Ĵus kreita",
+    "NEGOTIATING": "Akordantaj",
+    "DECLINED": "Mi ne volas kunlabori",
+    "ARCHIVED": "Arkivgita"
   },
   "APPLICATION": {
-    "APPLICATION": "Application",
-    "FORM_HEADER": "Apply",
-    "FORM_TITLE": "Apply to join {groupName}",
-    "GALLERY_TOOLTIP": "You applied to join this group. Your application is still pending.",
-    "WALL_NOTICE": "There is an application pending! | There are {count} applications pending!",
-    "ACCEPT_CONFIRMATION_HEADER": "Accept Application",
-    "ACCEPT_CONFIRMATION_TEXT": "Are you sure you want to accept {userName} into this group?",
-    "DECLINE_CONFIRMATION_HEADER": "Decline Application",
-    "DECLINE_CONFIRMATION_TEXT": "Are you sure you want to decline the application of {userName}?",
-    "ACCEPTED": "You accepted {userName} into this group!",
-    "DECLINED": "You declined the application of {userName}.",
-    "PAST": "Past applications",
-    "SUBMITTED_ON": "Submitted on {date}",
-    "WITHDRAWN": "withdrawn {relativeDate}",
-    "WHAT": "What is this chat about?",
-    "HELP": "This is a chat between all existing members of {groupName} and the new applicant {userName}. It is meant to give you all a chance to get to know you before deciding whether to accept, decline or withdraw the application.",
-    "INITIAL": "Initial questions and answers"
+    "APPLICATION": "Kandidatiĝo",
+    "FORM_HEADER": "Kandidatiĝi",
+    "FORM_TITLE": "Kandidatiĝi al {groupName}",
+    "GALLERY_TOOLTIP": "Vi kandidatiĝis al la grupo. Via kandidatiĝo daŭre respondindas",
+    "WALL_NOTICE": "1 kandidatiĝo respondindas! | {count} kandidatiĝoj respondindas!",
+    "ACCEPT_CONFIRMATION_HEADER": "Akcepti kandidatiĝon",
+    "ACCEPT_CONFIRMATION_TEXT": "Ĉu vi certe volas akcepti {userName}en la grupo?",
+    "DECLINE_CONFIRMATION_HEADER": "Malakcepti kandidatiĝon",
+    "DECLINE_CONFIRMATION_TEXT": "Ĉu vi certe volas malakcepti la kandidatiĝon de {userName}?",
+    "ACCEPTED": "Ni akceptis {userName}en la grupo!",
+    "DECLINED": "Vi malakceptis la kandidatiĝon de {userName}",
+    "PAST": "Pasintaj kandidatiĝoj",
+    "SUBMITTED_ON": "Sendita je{date}",
+    "WITHDRAWN": "nuligis{relativeDate}",
+    "WHAT": "Pri kio temas ĉi tiun babilejon?",
+    "HELP": "Jen babilejo inter ĉiuj anoj de {groupName}kaj la kandidato {userName}. La spaco celas doni la eblon koni la kandidaton antaŭ akcepti, malakcepti  aŭ nuligi la kandidatiĝon.",
+    "INITIAL": "Dekomencaj demandoj kaj respondoj"
   },
   "COMMUNITY_FEED": {
-    "HEADER": "Updates from the {community}",
-    "HEADER_LINK": "foodsaving worldwide community",
-    "LAST_UPDATED": "Last updated {relativeDate}",
+    "HEADER": "Ĝisdatigoj de {community}",
+    "HEADER_LINK": "Tutmonda manĝaĵsavema komunumo",
+    "LAST_UPDATED": "Lasta ĝisdatigo{relativeDate}",
     "KARROT_DISCUSSION": "Discussions about Karrot"
   },
   "INACTIVITY": {
@@ -652,18 +652,18 @@
     "NO_ONGOING": "No ongoing issues."
   },
   "UNSUBSCRIBE": {
-    "HEADER": "Unsubscribe",
-    "ALL": "Unsubscribe all",
-    "FROM_CONVERSATION": "unsubscribe from just this conversation",
-    "FROM_THREAD": "unsubscribe from just this thread",
-    "FROM_NOTIFICATION_TYPE": "unsubscribe from {notificationType}",
-    "FROM_GROUP": "Unsubscribe from all email notifications in {groupName}",
-    "SUCCESS": "You were successfully unsubscribed!",
-    "COUNTS": "You unsubscribed from {formerConversations} conversations and {formerReplies} replies."
+    "HEADER": "Malaboni",
+    "ALL": "Malaboni ĉion",
+    "FROM_CONVERSATION": "malaboni nur tiun ĉi konversacion",
+    "FROM_THREAD": "malaboni nur tiun ĉi diskuton",
+    "FROM_NOTIFICATION_TYPE": "malaboni {notificationType}",
+    "FROM_GROUP": "Malaboni ĉiujn retmesaĝajn sciigojn en {groupName}",
+    "SUCCESS": "Vi sukcese malaboniĝis!",
+    "COUNTS": "Vi malabonis {formerConversations} konversacion kaj {formerReplies} respondojn."
   },
   "THANKS": "Thank you!",
   "ATTENTION": "Attention!",
   "INFO": "Info",
-  "YOU": "You",
+  "YOU": "Vi",
   "TO": "to"
 }

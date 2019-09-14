@@ -62,14 +62,14 @@
   },
   "BUTTON": {
     "CREATE": "Vytvoř",
-    "CANCEL": "Cancel",
+    "CANCEL": "Zrušit",
     "OPEN": "Open",
     "CLOSE": "Close",
-    "DELETE": "Delete",
+    "DELETE": "Smazat",
     "EDIT": "Edit",
-    "JOIN": "Join",
+    "JOIN": "Připojit",
     "LEAVE": "Leave",
-    "PREVIEW": "Preview",
+    "PREVIEW": "Náhled",
     "BACK": "Zpět",
     "NEXT": "Next",
     "SEARCH": "Search",
@@ -106,14 +106,14 @@
   "GROUP": {
     "WALL": "Wall",
     "GROUP": "Group",
-    "LEAVE": "Leave group...",
+    "LEAVE": "Opustit skupinu ...",
     "LEAVE_TEXT": "Are you sure you want to leave this group?",
     "LEAVE_CONFIRMATION": "You left {groupName}",
     "NONMEMBER_REDIRECT": "You are not a member of this group.",
-    "EDIT": "Edit group",
+    "EDIT": "Upravit skupinu",
     "CREATE_TITLE": "Create new group",
     "MANAGE_AGREEMENT": "Manage agreement",
-    "TITLE": "Title of this group",
+    "TITLE": "Název této skupiny",
     "PRIVATE_DESCRIPTION_TITLE": "Private group description",
     "DESCRIPTION_VERBOSE": "Group description, visible for members",
     "PUBLIC_DESCRIPTION": "Text you see before joining the group",
@@ -122,10 +122,10 @@
     "SET_LOGO": "Click to upload your group logo!",
     "APPLICATIONS": "Applications",
     "APPLICATION_QUESTIONS": "Questions for people who want to join this group",
-    "PICKUPS": "Pickups",
+    "PICKUPS": "Vyzvedávky",
     "MESSAGES": "Messages",
     "PICKUP": "Pickup",
-    "MEMBERS": "Members",
+    "MEMBERS": "Členové",
     "JOINED": "joined {relativeDate}",
     "DECLINED": "declined {relativeDate}",
     "ADDED_BY": "added by {userName}",
@@ -137,7 +137,7 @@
     "PLACES": "Places",
     "HOME": "Home",
     "HISTORY": "History",
-    "DESCRIPTION": "Description",
+    "DESCRIPTION": "Popis",
     "ADDRESS": "Address",
     "TIMEZONE": "Time zone of group",
     "INVITE_EMAIL": "Enter an e-mail address",
@@ -187,7 +187,7 @@
   },
   "STOREDETAIL": {
     "DIRECTIONS": "Show directions",
-    "EDIT": "Edit place",
+    "EDIT": "Upravit místo",
     "ARCHIVED": "This place has been archived",
     "INACTIVE": "This place is currently not cooperating.",
     "CHANGE_STATUS": "You can change the status on the settings page.",
@@ -238,16 +238,16 @@
   },
   "USERDETAIL": {
     "DISPLAY_NAME": "Jméno",
-    "DESCRIPTION": "About you",
+    "DESCRIPTION": "O vás",
     "OLD_PASSWORD": "Confirm your old password",
-    "PASSWORD": "New password"
+    "PASSWORD": "Nové heslo"
   },
   "PROFILE": {
     "INACCESSIBLE_OR_DELETED": "(User inaccessible or deleted)"
   },
   "JOINGROUP": {
-    "WHICHGROUP": "Which group do you want to join?",
-    "NUM_MEMBERS": "Member | Members",
+    "WHICHGROUP": "Ke které skupině se chcete přuhlásit?",
+    "NUM_MEMBERS": "Člen | Členové",
     "NO_PUBLIC_DESCRIPTION": "(This group has no public description... yet)",
     "ALL_GROUPS": "All groups",
     "SIGNUP_OR_LOGIN": "Log in or sign up to join this group!",
@@ -270,7 +270,7 @@
     "MEMBER_VIEW": "You are member of this group. Click here to switch to full view."
   },
   "TOPBAR": {
-    "LOGOUT": "Logout",
+    "LOGOUT": "Odhlášení",
     "USERPROFILE": "Visit your profile",
     "CHANGE_GROUP": "Change group"
   },
@@ -279,18 +279,18 @@
     "GIT_SUB": "See our code!"
   },
   "LOGIN": {
-    "TITLE": "Login",
-    "SUBMIT": "Login",
+    "TITLE": "Přihlásit",
+    "SUBMIT": "Přihlásit",
     "SIGNUP": "Sign up!",
     "FORGOT_PASSWORD": "Forgot your password?"
   },
   "SIGNUP": {
     "TITLE": "Sign Up!",
-    "BACK": "Back to Login",
-    "OK": "Join"
+    "BACK": "Zpět k přihlášení",
+    "OK": "Připojit"
   },
   "VERIFYMAIL": {
-    "TITLE": "E-Mail verification",
+    "TITLE": "Ověření e-mailem",
     "SUCCESS": "Your e-mail address was successfully verified!"
   },
   "DELETEACCOUNT": {
@@ -325,7 +325,7 @@
     "EXCEPTIONS_MESSAGE": "Some upcoming pickups don't match the settings of this recurring pickup. Have a look below at '{upcomingLabel}' to change or disable pickups, if needed."
   },
   "CREATESTORE": {
-    "TITLE": "Create a new place"
+    "TITLE": "Vytvořit nové místo"
   },
   "PICKUPLIST": {
     "FILTER": {
@@ -338,8 +338,8 @@
     "JOINEDNOTICE": "You have one upcoming pickup | You have {count} upcoming pickups",
     "AVAILABLE_FROM_STORES": "This shows pickups from your favorite places in the next days. You can access other places in the sidebar.",
     "ITEM": {
-      "LEAVE": "Leave",
-      "JOIN": "Join",
+      "LEAVE": "Odejít",
+      "JOIN": "Připojit",
       "JOIN_CONFIRMATION_HEADER": "Join Pickup",
       "JOIN_CONFIRMATION_TEXT": "Are you sure you have time to pick up on {date}?",
       "LEAVE_CONFIRMATION_HEADER": "Leave Pickup",
@@ -393,7 +393,7 @@
     }
   },
   "LANGUAGECHOOSER": {
-    "ADD_MORE": "Help translating!",
+    "ADD_MORE": "Pomozte přeložit!",
     "SWITCH": "Switch language"
   },
   "MARKDOWN_INPUT": {

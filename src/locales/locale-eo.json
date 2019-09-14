@@ -134,7 +134,7 @@
     "SORT_NAME": "Ordigi laŭ nomo",
     "INACTIVE": "Neaktiva",
     "SHOW_INACTIVE": "Montri neaktivajn grupojn",
-    "PLACES": "Places",
+    "PLACES": "Lokoj",
     "HOME": "Ĉefpaĝo",
     "HISTORY": "Historio",
     "DESCRIPTION": "Priskribo",
@@ -142,15 +142,15 @@
     "TIMEZONE": "Horzono de la grupo",
     "INVITE_EMAIL": "Metu vian retadreson",
     "INVITE_SEND": "Sendi invitojn",
-    "INVITE_SEND_SUCCESS": "Invitation sent successfully!",
-    "INVITE_SEND_ERROR": "Ooops, could not send the invitation!",
+    "INVITE_SEND_SUCCESS": "Invito sukcese sendita!",
+    "INVITE_SEND_ERROR": "Ho ve, ni ne povis sendi la inviton!",
     "INVITED_LIST": "Invitoj jam estis senditaj al tiuj ĉi retadresoj:",
     "INVITATIONS": "Invitoj",
     "INVITE_TITLE": "Inviti uzantojn al via grupo",
     "INVITATION_ACCEPT_SUCCESS": "Bonvenon! Vi sukcese akceptis la inviton.",
     "INVITATION_ACCEPT_ERROR": "Ho ve, la invito ne estis akceptita!",
     "SETTINGS": "Agordoj",
-    "NOTIFICATIONS_BY_GROUP": "Notifications by group",
+    "NOTIFICATIONS_BY_GROUP": "Sciigoj laŭ grupo",
     "EMAIL_NOTIFICATIONS": "Retmesaĝaj sciigoj",
     "NOTIFICATION_TYPES": {
       "weekly_summary": {
@@ -166,8 +166,8 @@
         "DESCRIPTION": "Ĝi rakontas kiam iu volas aliĝi la grupon"
       },
       "conflict_resolution": {
-        "NAME": "New conflict resolution processes",
-        "DESCRIPTION": "Tells you when a new conflict resolution process has been started in your group"
+        "NAME": "Nova proceso de problemsolvado",
+        "DESCRIPTION": "Ĝi rakontas kiam nova problemsolvada proceso komenciĝas en la grupo"
       }
     },
     "PLAYGROUND_INFO": "Jen relaksujo kie nenio rompeblas. Esploru, retumu kaj sociumu kun aliaj mojosuloj!",
@@ -178,8 +178,8 @@
     "TITLE": "Mapo",
     "SHOW_USERS": "Montri uzantojn",
     "HIDE_USERS": "Kaŝi uzantojn",
-    "SHOW_PLACES": "Show places",
-    "HIDE_PLACES": "Hide places",
+    "SHOW_PLACES": "Montri lokojn",
+    "HIDE_PLACES": "Kaŝi lokojn",
     "SHOW_GROUPS": "Montri grupojn",
     "HIDE_GROUPS": "Kaŝi grupojn",
     "SET_LOCATION": "Elekti lokon",
@@ -214,13 +214,13 @@
     "SHOW_ACTIVE_ONLY": "Nur montri aktivajn lokojn"
   },
   "PLACEWALL": {
-    "SUBSCRIBED_USERS": "{count} people have marked this place as favourite",
+    "SUBSCRIBED_USERS": "{count}homoj marki ĉi tiun lokon kiel preferatan",
     "SUBSCRIPTION": {
-      "HEADER": "Do you want to mark this place as your favourite?",
-      "YES": "yes",
+      "HEADER": "Ĉu vi volas marki ĉi lokon kiel preferatan?",
+      "YES": "jes",
       "YES_TEXT": "Ĝi montras disponeblajn savadojn en la muro de la grupo kaj sendas retmesaĝojn pri baldaŭaj savadoj.",
-      "NO": "no",
-      "NO_TEXT": "Neniu supra eblo. Vi ankoraŭ povas registri por savi."
+      "NO": "ne",
+      "NO_TEXT": "Neniu supra eblo. Vi ankoraŭ povas registriĝi por savi."
     }
   },
   "PICKUPMANAGE": {
@@ -229,8 +229,8 @@
     "SINGLE": "Unufojaj savadoj",
     "UPCOMING_PICKUPS_IN_SERIES": "Baldaŭaj savadoj en tiu ĉi serio",
     "PICKUP_DOES_NOT_MATCH": "La savaddato ne kongruas kun la perioda regulo",
-    "PICKUP_DESCRIPTION_CHANGED": "'Additional information' has been changed",
-    "PICKUP_MAX_COLLECTORS_CHANGED": "'Max slots' has been changed"
+    "PICKUP_DESCRIPTION_CHANGED": "'Aldona informo' ŝanĝiĝis",
+    "PICKUP_MAX_COLLECTORS_CHANGED": "'Maks savlokoj' ŝanĝiĝis"
   },
   "PICKUPDELETE": {
     "DELETE_SERIES_TITLE": "Forigi periodajn savaddatojn",
@@ -312,12 +312,12 @@
     "TIME_HELPER": "Kiam okazu la savadon?",
     "DATE": "Dato",
     "DATE_HELPER": "Kiam okazu la savadon?",
-    "MAX_COLLECTORS": "Maks Lokoj",
+    "MAX_COLLECTORS": "Maks Savlokoj",
     "MAX_COLLECTORS_HELPER": "Kiom da homoj partoprenindas en la savado?",
     "COMMENT": "Aldona informo",
     "COMMENT_HELPER": "Kion devas la homoj scii antaŭ aliĝi por tiu ĉi savado?",
     "UNLIMITED": "senlima",
-    "DIFFERS_WARNING": "This value differs from the default. To undo this change, click on the arrow button and save the changes.",
+    "DIFFERS_WARNING": "Ĉi karaktero kaj la dekomenca nesamas. Por nuligi la ŝanĝon alklaku la sagan butonon kaj konservu la ŝanĝojn.",
     "ENABLE_TITLE": "Ĉu ebligi savadon?",
     "DISABLE_TITLE": "Ĉu nuligi savadon?",
     "ENABLE_DISABLE_MESSAGE": "Uzantoj kiuj aliĝis savadon ricevos sciigon. Vi povas ŝanĝi tiu ĉi tekston por prezenti kialon:",
@@ -329,9 +329,9 @@
   },
   "PICKUPLIST": {
     "FILTER": {
-      "ALL": "All",
-      "EMPTY": "Only empty",
-      "FREE": "With free slots"
+      "ALL": "Ĉiuj",
+      "EMPTY": "Nur malplenaj",
+      "FREE": "Kun vaka savlokoj"
     },
     "AVAILABLE": "Savado atendas vin en viaj preferataj lokoj! | {count}savadoj atendas vin en viaj preferataj lokoj!",
     "AVAILABLE_FEEDBACK": "Vi povas komenti savadon | {count}savadoj atendas komentojn viajn",
@@ -425,10 +425,10 @@
     "PICKUP_LEAVE": "Malliĝis por savi en {storeName}",
     "APPLICATION_DECLINED": "malakceptis kandidatiĝo de {applicantName}",
     "MEMBER_BECAME_EDITOR": "ricevis redaktpermesojn",
-    "GROUP_LEAVE_INACTIVE": "was removed due to inactivity",
-    "GROUP_CHANGE_PHOTO": "changed the group logo",
-    "GROUP_DELETE_PHOTO": "deleted the group logo",
-    "MEMBER_REMOVED": "was removed due to group decision",
+    "GROUP_LEAVE_INACTIVE": "estis forigita pro malaktiveco",
+    "GROUP_CHANGE_PHOTO": "ŝanĝis la grupan logotipon",
+    "GROUP_DELETE_PHOTO": "forigis la grupan logotipon",
+    "MEMBER_REMOVED": "estis forigita pro grupa decido",
     "NOTHING_HAPPENEND": "Neniu okazis ĝis nun...",
     "DETAILS": "Plia informo"
   },
@@ -453,29 +453,29 @@
     "APPLICATION_DECLINED": "Kandidatiĝo malakceptita",
     "INVITATION_ACCEPTED": "{userName}akceptis vian inviton",
     "FEEDBACK_POSSIBLE": "Vi povas komenti la savadon de {date}",
-    "NEW_PLACE": "{placeName} has been created",
+    "NEW_PLACE": "{placeName}kreiĝis",
     "NEW_MEMBER": "{userName}aliĝis vian grupon",
     "PICKUP_UPCOMING": "Memorigo: Vi savos je {time}",
     "PICKUP_DISABLED": "Savado je {dateTime}nuliĝis",
     "PICKUP_ENABLED": "Savado je {dateTime} denove permisiĝis",
     "PICKUP_MOVED": "Savado movita al {dateTime}",
-    "CONFLICT_RESOLUTION_CREATED": "Join the discussion about a conflict with {userName}",
-    "CONFLICT_RESOLUTION_CREATED_ABOUT_YOU": "A conflict resolution process was started with you",
-    "CONFLICT_RESOLUTION_CONTINUED": "The conflict resolution process with {userName} continues",
-    "CONFLICT_RESOLUTION_CONTINUED_ABOUT_YOU": "The conflict resolution process with you continues",
-    "CONFLICT_RESOLUTION_DECIDED": "The conflict resolution process with {userName} was decided",
-    "CONFLICT_RESOLUTION_DECIDED_ABOUT_YOU": "The conflict resolution process with you was decided",
-    "CONFLICT_RESOLUTION_YOU_WERE_REMOVED": "You were removed from the group",
-    "VOTING_ENDS_SOON": "Voting ends soon, don't forget to participate!"
+    "CONFLICT_RESOLUTION_CREATED": "Aliĝu la konversacion pri problemo kun {userName}",
+    "CONFLICT_RESOLUTION_CREATED_ABOUT_YOU": "Nova problemsolvada procezo pri vi komenĉiĝis",
+    "CONFLICT_RESOLUTION_CONTINUED": "La problemsolvada proceso kun {userName}daŭras",
+    "CONFLICT_RESOLUTION_CONTINUED_ABOUT_YOU": "La problemsolvada proceso pri vi daŭras",
+    "CONFLICT_RESOLUTION_DECIDED": "La problemsolvada proceso kun {userName}finiĝis.",
+    "CONFLICT_RESOLUTION_DECIDED_ABOUT_YOU": "La problemsolvada proceso kun vi finiĝis",
+    "CONFLICT_RESOLUTION_YOU_WERE_REMOVED": "Vi estis forigita de la grupo",
+    "VOTING_ENDS_SOON": "Voĉdonadon baldaŭ finiĝos. Ne forgesu partopreni!"
   },
   "NOTIFICATION_TOGGLE": {
-    "HEADER": "How do you want to receive notifications about new messages in this conversation/thread?",
-    "ALL": "all",
-    "ALL_TEXT": "Via app/website, email and push notifications.",
-    "SOME": "some",
-    "SOME_TEXT": "Via app/website.",
-    "NONE": "none",
-    "NONE_TEXT": "No notifications."
+    "HEADER": "Kiel vi volas ricevi sciigojn pri novaj mesaĝoj en tiu ĉi konversacio/debato?",
+    "ALL": "ĉiuj",
+    "ALL_TEXT": "Per appo/retejo, retmesaĝo kaj sciigoj.",
+    "SOME": "kelkaj",
+    "SOME_TEXT": "Per appo/retejo",
+    "NONE": "neniu",
+    "NONE_TEXT": "Neniu sciigo."
   },
   "OUTDATED_BROWSER": {
     "MESSAGE": "Vi uzas nesubtenatan retumilon. {upgradeBrowser}por profiti ĉiujn eblojn.",
@@ -524,7 +524,7 @@
     "RECEIVED_VIA_EMAIL": "Via mesaĝo sendiĝis retmesaĝe"
   },
   "CONVERSATION": {
-    "CONVERSATIONS": "Conversations",
+    "CONVERSATIONS": "Konversacioj",
     "OPEN": "Malfermi babilejon",
     "REPLY_TO_MESSAGE": "Respondi al mesaĝo...",
     "REPLIES": "Respondoj",
@@ -540,7 +540,7 @@
     "MESSAGE_NOT_FOUND": "Netrovita mesaĝo",
     "NO_CONVERSATIONS": "Neniun konversacion ankoraŭ",
     "MUTED": "La sciigoj estas malŝatitaj",
-    "CLOSED": "This conversation has been closed automatically.",
+    "CLOSED": "Ĉi tiu konversacio fermiĝis aŭtomate.",
     "NOT_PARTICIPATED": "Sendante mesaĝon, vi abonos sciigojn de tiu ĉi konversacio."
   },
   "STORESTATUS": {
@@ -573,83 +573,83 @@
     "HEADER": "Ĝisdatigoj de {community}",
     "HEADER_LINK": "Tutmonda manĝaĵsavema komunumo",
     "LAST_UPDATED": "Lasta ĝisdatigo{relativeDate}",
-    "KARROT_DISCUSSION": "Discussions about Karrot"
+    "KARROT_DISCUSSION": "Diskutoj pri Karrot"
   },
   "INACTIVITY": {
-    "WHAT": "What does it mean to be inactive?",
-    "HELP": "Everyone who did not log into the group for {dayCount} days or more counts as inactive. These users will not receive notification emails anymore."
+    "WHAT": "Kio signifas esti neaktiva?",
+    "HELP": "Ĉiuj kiuj ne ensalutis en la grupo dum {dayCount}aŭ pli da tagoj sinsekve malaktiviĝas. Tiuj uzantoj ne plu ricevos sciigojn retmesaĝe."
   },
   "CONFLICT": {
-    "SETUP_HEADER": "Is there a conflict with {user}?",
-    "STATEMENT": "Statement",
-    "STEPPER1a": "You are about to start a group-wide conflict resolution process!",
-    "STEPPER1b": "This will involve all members with editing permissions to find the best way to proceed.",
-    "STEPPER2a": "Thank you for caring for your community!",
-    "STEPPER2b": "It is important to address social issues, although it can be unpleasant sometimes. Thank you for your courage!",
-    "STEPPER3a": "Here's what will happen:",
-    "STEPPER3b": "This process will start a chat and a vote.",
-    "STEPPER3c": "The chat will be visible for members with editing permissions and includes {userName}.",
-    "STEPPER3d": "The voting is anonymous. It will go on for {votingDuration} days. During this time all voters can change their minds and vote differently as many times as they want.",
-    "STEPPER4a": "Please explain why you are starting this conflict resolution process!",
-    "STEPPER4b": "Tell your group what made you think this process is justified and needed. This statement will be visible to {userName} and group members with editing permissions.",
-    "FIND_OUT_MORE": "Find out more!",
-    "INITIAL": "Information",
-    "WITH": "This process is to resolve a conflict with {userName}",
+    "SETUP_HEADER": "Ĉu estas problemo kun {user}?",
+    "STATEMENT": "Deklaracio",
+    "STEPPER1a": "Vi preskaŭ komencis problemsolvadan proceson grupnivele!",
+    "STEPPER1b": "Ĉi tio inkludos ĉiujn anojn kun redaktipermesojn por trovi la plej bonan manieron por kunagi.",
+    "STEPPER2a": "Dankon ke vi zorgas pri la komunumo!",
+    "STEPPER2b": "Gravas paroli pri sociaj konfliktoj, kvankam kelkfoje malkomfortas. Dankon pro via kuraĝo!",
+    "STEPPER3a": "Jen kio okazos:",
+    "STEPPER3b": "La proceso malfermos babilejon kaj voĉdonadon.",
+    "STEPPER3c": "La babilejo estos videbla por anoj kun redaktpermesoj kaj inkludas {userName}.",
+    "STEPPER3d": "La voĉdonado estas anonima. Ĝi daŭros {votingDuration}tagojn. Dum tiu ĉi tempo ĉiuj voĉdonantoj povas ŝanĝi siajn opinion kaj voĉdonon kiom multe ili volos.",
+    "STEPPER4a": "Bonvolu klarigi kial vi komencis la problemsolvadan proceson!",
+    "STEPPER4b": "Klarigu al la grupo kial komenci la proceson. Tiu ĉi deklaracio legeblos por {userName}kaj uzantoj kun redaktpermesoj.",
+    "FIND_OUT_MORE": "Malkovru pli!",
+    "INITIAL": "Informo",
+    "WITH": "La proceso celas solvi problemon kun {userName}",
     "VOTING": {
-      "HEADLINE": "How do you want to proceed with the ongoing conflict with {userName}?"
+      "HEADLINE": "Kiel vi volas daŭrigi kun la aktuala problemo kun {userName}?"
     },
     "REQUIREMENTS": {
-      "ACTIVE_EDITORS": "Your group has {activeEditorsCount} active users with editing permissions. You need {requiredCount} to start a conflict resolution process.",
-      "NEWCOMER": "Before you can start a conflict resolution process, you need to receive more trust and gain editing permissions. In the meantime, please ask a fellow group member to start the process for you."
+      "ACTIVE_EDITORS": "Via grupo havas {activeEditorsCount}aktivajn uzantojn kun redaktpermesoj. Vi bezonas {requiredCount}por komenci problemsolvadan proceson.",
+      "NEWCOMER": "Antaŭ komenci problemsolvadan proceson, vi bezonas ricevi plian fidon kaj ricevi redaktpermesojn. Dume, bonvolu peti al ano kun redaktpermesoj komenci la proceson nome de vi."
     },
     "INFO": {
-      "TITLE": "How does this process work?",
-      "MESSAGE": "This is a score voting in which group members with editing permissions can participate to determine how to deal with a social conflict that affects the whole group."
+      "TITLE": "Kiel ĉi tiu proceso funkcias?",
+      "MESSAGE": "Tiu ĉi estas voĉdonado en kiu grupanoj kun redaktpermesoj povas partopreni por decidi kiel agi rilate al socia problemo kiu damaĝas la grupon."
     }
   },
   "ISSUE": {
     "CREATION": {
-      "TOAST": "You successfully started a conflict resolution process"
+      "TOAST": "Vi sukcese komencis problemsolvadan proceson"
     },
-    "TITLE": "Issues",
-    "VOTE": "Vote",
-    "CHAT": "Chat",
-    "INITIATED_BY": "Initiated by {initiatorName}",
-    "PAST": "Past issues",
-    "PREVIOUS_VOTINGS": "Previous votings in this issue",
-    "PARTICIPANTS": "{count} members have been added to this discussion.",
+    "TITLE": "Konfliktoj",
+    "VOTE": "Voĉdoni",
+    "CHAT": "Babilejo",
+    "INITIATED_BY": "Komencita de{initiatorName}",
+    "PAST": "Pasintaj konfliktoj",
+    "PREVIOUS_VOTINGS": "Antaŭaj voĉdonadoj pri tiu ĉi konflikto",
+    "PARTICIPANTS": "{count}anoj jam kontribuis al la diskuto",
     "VOTING": {
-      "TIME_LEFT": "Time left to vote",
-      "BTN_START": "Vote now",
-      "SAVE": "Save",
-      "BTN_DELETE": "Delete vote",
-      "TOAST": "Your vote was successfully submitted",
-      "TOAST_DELETE": "Your vote was deleted",
-      "NO_CHANGE": "No change: {userName} stays in {groupName}",
-      "FURTHER_DISCUSSION": "Further discussion: extend time by starting another voting",
-      "REMOVE_USER": "{userName} gets removed from {groupName}",
+      "TIME_LEFT": "Restanta tempo por voĉdoni",
+      "BTN_START": "Voĉdoni nun",
+      "SAVE": "Konservi",
+      "BTN_DELETE": "Forigi voĉdonon",
+      "TOAST": "Via voĉdono sukcese registriĝis",
+      "TOAST_DELETE": "Via voĉdono estis forigita",
+      "NO_CHANGE": "Neniu ŝanĝo: {userName}restas en {groupName}",
+      "FURTHER_DISCUSSION": "Plua diskutado: longigu la tempon per malfermo de nova voĉdonado",
+      "REMOVE_USER": "{userName} estos forigita de {groupName}",
       "RESULTS": {
-        "KEEP_DISCUSSING": "Your group voted to keep discussing",
-        "TIME_UP": "Time is up!",
-        "TOTAL_SCORE": "Total score",
-        "ENDED_AT": "This voting round ended on {date}",
-        "PARTICIPANTS": "{number} members participated in the voting.",
-        "UNDECIDED": "Unfortunately this conflict could not be decided.",
-        "UNDECIDED_WHY": "There are two possible reasons for that:",
-        "UNDECIDED_REASON_1": "the affected user left the group while the conflict resolution process was still ongoing",
-        "UNDECIDED_REASON_2": "nobody voted on this issue"
+        "KEEP_DISCUSSING": "Via grupo voĉdonis por daŭrigi la diskuton",
+        "TIME_UP": "Tempo pasis!",
+        "TOTAL_SCORE": "Rezulto fina",
+        "ENDED_AT": "La voĉdona rondo finis {date}",
+        "PARTICIPANTS": "{number}anoj partoprenis la voĉdonadon.",
+        "UNDECIDED": "Bedaurinde tiu ĉi problemsolvado ankoraŭ ne solviĝis.",
+        "UNDECIDED_WHY": "Estas du eblaj kialoj por tio:",
+        "UNDECIDED_REASON_1": "La uzanto pri kiu temis la problemsolvado forlasis la grupon antaŭ la proceso finiĝis",
+        "UNDECIDED_REASON_2": "neniu voĉdonis pri la temo"
       },
-      "SEE_RESULTS": "See the results",
+      "SEE_RESULTS": "Vidi rezultojn",
       "SCORE_LABELS": {
-        "NEUTRAL": "neutral",
-        "SLIGHT_SUPPORT": "support",
-        "STRONG_SUPPORT": "strong support",
-        "SLIGHT_RESISTANCE": "resistance",
-        "STRONG_RESISTANCE": "strong resistance"
+        "NEUTRAL": "neŭtrala",
+        "SLIGHT_SUPPORT": "apoga",
+        "STRONG_SUPPORT": "forta apoga",
+        "SLIGHT_RESISTANCE": "kontraŭo",
+        "STRONG_RESISTANCE": "forta kontraŭo"
       },
-      "ANONYMOUS": "Your vote will be anonymous."
+      "ANONYMOUS": "Via voĉdono estos anonima"
     },
-    "NO_ONGOING": "No ongoing issues."
+    "NO_ONGOING": "Ĉio enordas nuntempe."
   },
   "UNSUBSCRIBE": {
     "HEADER": "Malaboni",
@@ -661,9 +661,9 @@
     "SUCCESS": "Vi sukcese malaboniĝis!",
     "COUNTS": "Vi malabonis {formerConversations} konversacion kaj {formerReplies} respondojn."
   },
-  "THANKS": "Thank you!",
-  "ATTENTION": "Attention!",
-  "INFO": "Info",
+  "THANKS": "Dankon!",
+  "ATTENTION": "Atentu!",
+  "INFO": "Informo",
   "YOU": "Vi",
-  "TO": "to"
+  "TO": "al"
 }

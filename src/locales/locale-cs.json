@@ -116,7 +116,7 @@
     "TITLE": "Název této skupiny",
     "PRIVATE_DESCRIPTION_TITLE": "Private group description",
     "DESCRIPTION_VERBOSE": "Group description, visible for members",
-    "PUBLIC_DESCRIPTION": "Text you see before joining the group",
+    "PUBLIC_DESCRIPTION": "Text, který vidíte před připojením ke skupině",
     "WELCOMEMESSAGE_VERBOSE": "Welcome message sent to new members",
     "LOGO": "Group logo",
     "SET_LOGO": "Click to upload your group logo!",
@@ -248,7 +248,7 @@
   "JOINGROUP": {
     "WHICHGROUP": "Ke které skupině se chcete přuhlásit?",
     "NUM_MEMBERS": "Člen | Členové",
-    "NO_PUBLIC_DESCRIPTION": "(This group has no public description... yet)",
+    "NO_PUBLIC_DESCRIPTION": "(Tato skupina zatím nemá veřejný popis ...)",
     "ALL_GROUPS": "All groups",
     "SIGNUP_OR_LOGIN": "Log in or sign up to join this group!",
     "VERIFY_EMAIL_ADDRESS": "Verify your email address to apply",
@@ -271,7 +271,7 @@
   },
   "TOPBAR": {
     "LOGOUT": "Odhlášení",
-    "USERPROFILE": "Visit your profile",
+    "USERPROFILE": "Navštivte svůj profil",
     "CHANGE_GROUP": "Change group"
   },
   "SIDENAV": {
@@ -281,11 +281,11 @@
   "LOGIN": {
     "TITLE": "Přihlásit",
     "SUBMIT": "Přihlásit",
-    "SIGNUP": "Sign up!",
-    "FORGOT_PASSWORD": "Forgot your password?"
+    "SIGNUP": "Zaregistrovat se",
+    "FORGOT_PASSWORD": "Zapomněli jste heslo?"
   },
   "SIGNUP": {
-    "TITLE": "Sign Up!",
+    "TITLE": "Zaregistrovat se",
     "BACK": "Zpět k přihlášení",
     "OK": "Připojit"
   },
@@ -345,8 +345,8 @@
       "LEAVE_CONFIRMATION_HEADER": "Leave Pickup",
       "LEAVE_CONFIRMATION_TEXT": "Are you really sure the others can do the pickup without you?"
     },
-    "NONE": "No upcoming pickups",
-    "NONE_HINT": "You can create a new pickup on the place page.",
+    "NONE": "Žádné nadcházející vyzvednutí",
+    "NONE_HINT": "Na stránce Místa můžete vytvořit nové vyzvednutí.",
     "STORE_NONE_HINT": "You can create a new pickup on the pickup manage page.",
     "PICKUP_DISABLED": "This pickup has been disabled.",
     "PICKUP_STARTED": "This pickup has already started."

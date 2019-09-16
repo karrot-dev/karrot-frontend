@@ -16,7 +16,7 @@
   "dependencies": {
     "cordova-android": "^8.0.0",
     "cordova-plugin-deeplinks": "^1.1.1",
-    "cordova-plugin-fcm-with-dependecy-updated": "^3.0.0",
+    "cordova-plugin-fcm-with-dependecy-updated": "^3.1.0",
     "cordova-plugin-network-information": "^2.0.2",
     "cordova-plugin-whitelist": "^1.3.4",
     "fcm": "^1.0.3"

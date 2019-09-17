@@ -188,11 +188,7 @@ module.exports = {
   ],
   optimization: {
     minimizer: [
-      new TerserPlugin({
-        sourceMap: !dev,
-        cache: true,
-        parallel: true,
-      }),
+      new TerserPlugin(),
       new OptimizeCSSAssetsPlugin({}),
     ],
     splitChunks: {

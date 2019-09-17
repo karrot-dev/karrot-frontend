@@ -137,7 +137,7 @@
     "style-loader": "^1.0.0",
     "stylus": "^0.54.7",
     "stylus-loader": "^3.0.2",
-    "terser-webpack-plugin": "^1.4.1",
+    "terser-webpack-plugin": "^2.1.0",
     "url-loader": "^2.1.0",
     "vue-jest": "^3.0.3",
     "vue-loader": "^15.7.1",

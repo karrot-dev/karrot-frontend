@@ -13,7 +13,7 @@
     "EMAIL": "E-mail",
     "MOBILE_NUMBER": "Telefonní číslo",
     "PROFILE_TITLE": "Profil",
-    "PRIVATE_MESSAGE": "Send a private message to {userName}",
+    "PRIVATE_MESSAGE": "Odeslat soukromou zprávu uživateli {userName}",
     "PASSWORD": "Heslo",
     "CONFIRM_PASSWORD": "Potvrzení hesla",
     "USERNAME": "Jméno",
@@ -214,7 +214,7 @@
     "SHOW_ACTIVE_ONLY": "Zobrazit pouze aktivní místa"
   },
   "PLACEWALL": {
-    "SUBSCRIBED_USERS": "{count} people have marked this place as favourite",
+    "SUBSCRIBED_USERS": "{count} lidí označilo toto místo jako oblíbené",
     "SUBSCRIPTION": {
       "HEADER": "Chcete toto místo označit jako své oblíbené?",
       "YES": "ano",
@@ -230,7 +230,7 @@
     "UPCOMING_PICKUPS_IN_SERIES": "Připravované vyzvednutí v této sérii",
     "PICKUP_DOES_NOT_MATCH": "Datum tohoto vyzvednutí neodpovídá vzoru opakování.",
     "PICKUP_DESCRIPTION_CHANGED": "„Další informace“ byly změněny",
-    "PICKUP_MAX_COLLECTORS_CHANGED": "'Max slots' has been changed"
+    "PICKUP_MAX_COLLECTORS_CHANGED": "Maximální počet slotů byl změněn"
   },
   "PICKUPDELETE": {
     "DELETE_SERIES_TITLE": "Odstranit opakující se datum vyzvednutí",
@@ -246,7 +246,7 @@
     "INACCESSIBLE_OR_DELETED": "(Uživatel nepřístupný nebo smazaný)"
   },
   "JOINGROUP": {
-    "WHICHGROUP": "Ke které skupině se chcete přuhlásit?",
+    "WHICHGROUP": "Ke které skupině se chcete přihlásit?",
     "NUM_MEMBERS": "Člen | Členové",
     "NO_PUBLIC_DESCRIPTION": "(Tato skupina zatím nemá veřejný popis ...)",
     "ALL_GROUPS": "Všechny skupiny",
@@ -400,7 +400,7 @@
     "BOLD": "tučné",
     "ITALIC": "kurzíva",
     "STRIKE": "přeškrtnuté",
-    "QUOTE": "uvozovky",
+    "QUOTE": "citace",
     "HELP": "Co je Markdown?"
   },
   "HISTORY": {
@@ -423,7 +423,7 @@
     "PICKUP_MISSED": "Vyzvednutí na {storeName} bylo zmeškáno!",
     "PICKUP_JOIN": "přihlášeni k vyzvednutí na {storeName}",
     "PICKUP_LEAVE": "odstoupil od vyzvednutí {storeName}",
-    "APPLICATION_DECLINED": "declined an application from {applicantName}",
+    "APPLICATION_DECLINED": "odmítl žádost od {applicantName}",
     "MEMBER_BECAME_EDITOR": "získal oprávnění k úpravám",
     "GROUP_LEAVE_INACTIVE": "byl odstraněn kvůli nečinnosti",
     "GROUP_CHANGE_PHOTO": "změněno logo skupiny",
@@ -453,17 +453,17 @@
     "APPLICATION_DECLINED": "Vaše přihláška byla zamítnuta",
     "INVITATION_ACCEPTED": "{userName} přijal vaše pozvání",
     "FEEDBACK_POSSIBLE": "Můžete poskytnout zpětnou vazbu pro vyzvednutí, které jste provedli {date}",
-    "NEW_PLACE": "{placeName} has been created",
+    "NEW_PLACE": "Místo {placeName} bylo vytvořeno",
     "NEW_MEMBER": "{userName} se připojil k vaší skupině",
     "PICKUP_UPCOMING": "Připomenutí: Máte vyzvednutí v {time}",
     "PICKUP_DISABLED": "Vyzvednutí v {dateTime} bylo zakázáno",
     "PICKUP_ENABLED": "Vyzvednutí v {dateTime} bylo znovu povoleno",
     "PICKUP_MOVED": "Vyzvednutí bylo přesunuto do {dateTime}",
-    "CONFLICT_RESOLUTION_CREATED": "Join the discussion about a conflict with {userName}",
+    "CONFLICT_RESOLUTION_CREATED": "Připojte se k diskusi o konfliktu s {userName}",
     "CONFLICT_RESOLUTION_CREATED_ABOUT_YOU": "S vámi byl zahájen proces řešení konfliktů",
-    "CONFLICT_RESOLUTION_CONTINUED": "The conflict resolution process with {userName} continues",
+    "CONFLICT_RESOLUTION_CONTINUED": "Proces řešení konfliktu s {userName} pokračuje",
     "CONFLICT_RESOLUTION_CONTINUED_ABOUT_YOU": "Proces řešení konfliktů s vámi pokračuje",
-    "CONFLICT_RESOLUTION_DECIDED": "The conflict resolution process with {userName} was decided",
+    "CONFLICT_RESOLUTION_DECIDED": "Proces řešení konfliktu s {userName} byl rozhodnut",
     "CONFLICT_RESOLUTION_DECIDED_ABOUT_YOU": "Bylo rozhodnuto v procesu řešení konfliktů s vámi",
     "CONFLICT_RESOLUTION_YOU_WERE_REMOVED": "Byl jste odstraněn ze skupiny",
     "VOTING_ENDS_SOON": "Hlasování brzy skončí, nezapomeňte se zúčastnit!"
@@ -580,7 +580,7 @@
     "HELP": "Každý, kdo se do skupiny nepřihlásil {dayCount} dní nebo déle, se považuje za neaktivní. Tito uživatelé již nebudou dostávat e-maily s oznámením."
   },
   "CONFLICT": {
-    "SETUP_HEADER": "Is there a conflict with {user}?",
+    "SETUP_HEADER": "Je nějaký konflikt s uživatelem {user}?",
     "STATEMENT": "Stanovisko",
     "STEPPER1a": "Chystáte se zahájit proces řešení konfliktů v celé skupině!",
     "STEPPER1b": "To bude zahrnovat všechny členy s oprávněními k úpravě, aby našli nejlepší způsob, jak postupovat.",
@@ -588,18 +588,18 @@
     "STEPPER2b": "Je důležité řešit sociální otázky, i když to někdy může být nepříjemné. Děkujeme za odvahu!",
     "STEPPER3a": "Co se stane:",
     "STEPPER3b": "Tento proces zahájí chat a hlasování.",
-    "STEPPER3c": "The chat will be visible for members with editing permissions and includes {userName}.",
-    "STEPPER3d": "The voting is anonymous. It will go on for {votingDuration} days. During this time all voters can change their minds and vote differently as many times as they want.",
+    "STEPPER3c": "Chat bude viditelný pro členy s oprávněními k úpravám včetně uživatele {userName}",
+    "STEPPER3d": "Hlasování je anonymní. Bude trvat {votingDuration} dnů. Během této doby mohou všichni hlasující  změnit názor a hlasovat tolikrát, kolikrát chtějí.",
     "STEPPER4a": "Vysvětlete prosím, proč začínáte tento proces řešení konfliktů!",
-    "STEPPER4b": "Tell your group what made you think this process is justified and needed. This statement will be visible to {userName} and group members with editing permissions.",
+    "STEPPER4b": "Řekněte své skupině, proč si myslíte, že je tento proces oprávněný a potřebný. Toto sdělení bude viditelné uživateli {userName} a členům skupiny s oprávněními k úpravám.",
     "FIND_OUT_MORE": "Zjistit více!",
     "INITIAL": "Informace",
-    "WITH": "This process is to resolve a conflict with {userName}",
+    "WITH": "Tento proces má vyřešit konflikt s uživatelem {userName}",
     "VOTING": {
-      "HEADLINE": "How do you want to proceed with the ongoing conflict with {userName}?"
+      "HEADLINE": "Jak chcete pokračovat s probíhajícím konfliktem s {userName} ?"
     },
     "REQUIREMENTS": {
-      "ACTIVE_EDITORS": "Your group has {activeEditorsCount} active users with editing permissions. You need {requiredCount} to start a conflict resolution process.",
+      "ACTIVE_EDITORS": "Vaše skupina má {activeEditorsCount} aktivních uživatelů s oprávněními k úpravám. Potřebujete mít {requiredCount} uživatelů k zahájení procesu řešení konfliktů.",
       "NEWCOMER": "Než budete moci zahájit proces řešení konfliktů, musíte získat větší důvěru a získat oprávnění k úpravám. Mezitím požádejte člena skupiny, aby zahájil proces za vás."
     },
     "INFO": {
@@ -614,10 +614,10 @@
     "TITLE": "Záležitosti",
     "VOTE": "Hlasovat",
     "CHAT": "Chat",
-    "INITIATED_BY": "Initiated by {initiatorName}",
+    "INITIATED_BY": "Iniciován od {initiatorName}",
     "PAST": "Minulé záležitosti",
     "PREVIOUS_VOTINGS": "Předchozí hlasování v této záležitosti",
-    "PARTICIPANTS": "{count} members have been added to this discussion.",
+    "PARTICIPANTS": "Do této diskuse bylo přidáno {count} členů.",
     "VOTING": {
       "TIME_LEFT": "Zbývá času do hlasování",
       "BTN_START": "Hlasujte",
@@ -625,15 +625,15 @@
       "BTN_DELETE": "Smazat hlas",
       "TOAST": "Váš hlas byl úspěšně odeslán",
       "TOAST_DELETE": "Váš hlas byl smazán",
-      "NO_CHANGE": "No change: {userName} stays in {groupName}",
+      "NO_CHANGE": "Žádná změna: {userName} zůstává ve skupině {groupName}",
       "FURTHER_DISCUSSION": "Další diskuse: prodloužením času zahájením dalšího hlasování",
-      "REMOVE_USER": "{userName} gets removed from {groupName}",
+      "REMOVE_USER": "{userName} bude odstraněn ze skupiny {groupName} ",
       "RESULTS": {
-        "KEEP_DISCUSSING": "Your group voted to keep discussing",
+        "KEEP_DISCUSSING": "Vaše skupina hlasovala pro pokračování diskuse",
         "TIME_UP": "Čas vypršel.",
         "TOTAL_SCORE": "Celkové skóre",
-        "ENDED_AT": "This voting round ended on {date}",
-        "PARTICIPANTS": "{number} members participated in the voting.",
+        "ENDED_AT": " Toto kolo hlasování skončilo {date}",
+        "PARTICIPANTS": "{number} členů se zúčastnilo hlasování.",
         "UNDECIDED": "O tomto konfliktu bohužel nebylo možné rozhodnout.",
         "UNDECIDED_WHY": "Existují dva možné důvody:",
         "UNDECIDED_REASON_1": "postižený uživatel opustil skupinu, zatímco proces řešení konfliktů stále pokračoval",
@@ -656,10 +656,10 @@
     "ALL": "Odhlásit vše",
     "FROM_CONVERSATION": "odhlásit se z této konverzace",
     "FROM_THREAD": "odhlásit se z tohoto vlákna",
-    "FROM_NOTIFICATION_TYPE": "unsubscribe from {notificationType}",
-    "FROM_GROUP": "Unsubscribe from all email notifications in {groupName}",
+    "FROM_NOTIFICATION_TYPE": "odhlásit se z odběru {notificationType}",
+    "FROM_GROUP": "Zrušit odběr všech e-mailových oznámení v {groupName}",
     "SUCCESS": "Byli jste úspěšně odhlášeni!",
-    "COUNTS": "You unsubscribed from {formerConversations} conversations and {formerReplies} replies."
+    "COUNTS": "Odhlásili jste se z {formerConversations} konverzací a {formerReplies} odpovědí."
   },
   "THANKS": "Děkujeme",
   "ATTENTION": "Pozor!",

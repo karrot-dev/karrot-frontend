@@ -37,7 +37,7 @@
         "MESSAGE": "Důvěřujete {userName} v {groupName} ?"
       }
     },
-    "LOGOUT_SUCCESS": "Byli jste odhlášeni!",
+    "LOGOUT_SUCCESS": "Byl jste odhlášen!",
     "YOU_TRUST_USER": "Důvěřujete {userName} v {groupName}.",
     "OTHER_PEOPLE_TRUST_USER": "{otherUser} důvěřuje {userName} v {groupName}. | {count} lidé důvěřují {userName} v {groupName}.",
     "OTHER_PEOPLE_TRUST_YOU": "{otherUser} vám věří v {groupName}. | {count} lidé vám věří v {groupName}.",
@@ -125,7 +125,7 @@
     "PICKUPS": "Vyzvednutí",
     "MESSAGES": "Zprávy",
     "PICKUP": "Vyzvednutí",
-    "MEMBERS": "Členové",
+    "MEMBERS": "Členů",
     "JOINED": "připojen {relativeDate}",
     "DECLINED": "odmítl v {relativeDate}",
     "ADDED_BY": "přidal {userName}",
@@ -247,14 +247,14 @@
   },
   "JOINGROUP": {
     "WHICHGROUP": "Ke které skupině se chcete přihlásit?",
-    "NUM_MEMBERS": "Člen | Členové",
+    "NUM_MEMBERS": "Člen | Členů",
     "NO_PUBLIC_DESCRIPTION": "(Tato skupina zatím nemá veřejný popis ...)",
     "ALL_GROUPS": "Všechny skupiny",
     "SIGNUP_OR_LOGIN": "Přihlaste se nebo se zaregistrujte a připojte se k této skupině!",
     "VERIFY_EMAIL_ADDRESS": "Ověřte svou e-mailovou adresu",
     "MY_GROUPS": "Moje skupiny",
     "LOGOUT_MESSAGE": {
-      "LOGGED_OUT": "Momentálně jste odhlášeni. {login}",
+      "LOGGED_OUT": "Momentálně jste odhlášen. {login}",
       "LOG_IN": "Přihlaste se a uvidíte své skupiny!"
     },
     "PROFILE_NOTE": "Připojením k této skupině budou vaše profilová data viditelná pro ostatní členy skupiny.",
@@ -342,12 +342,12 @@
       "JOIN": "Připojit",
       "JOIN_CONFIRMATION_HEADER": "Připojit se k vyzvednutí",
       "JOIN_CONFIRMATION_TEXT": "Opravdu máte čas vyzvednout v {date}?",
-      "LEAVE_CONFIRMATION_HEADER": "Zanechte vzvednutí",
+      "LEAVE_CONFIRMATION_HEADER": "Opustit  vyzvednutí",
       "LEAVE_CONFIRMATION_TEXT": "Jste si jisti, že ostatní to mohou vyzvednout bez vás?"
     },
     "NONE": "Žádné nadcházející vyzvednutí",
     "NONE_HINT": "Na stránce Místa můžete vytvořit nové vyzvednutí.",
-    "STORE_NONE_HINT": "Na stránce pro správu vyzvednutí můžete vytvořit nový snímač.",
+    "STORE_NONE_HINT": "Na stránce pro správu vyzvednutí můžete vytvořit nové vyzvednutí.",
     "PICKUP_DISABLED": "Toto vyzvednutí bylo deaktivováno.",
     "PICKUP_STARTED": "Toto vyzvednutí již začalo."
   },
@@ -416,7 +416,7 @@
     "PICKUP_DELETE": "smazal vyzvednutí",
     "PICKUP_ENABLE": "povoleno vyzvednutí",
     "PICKUP_DISABLE": "nepovoleno vyzvednutí",
-    "SERIES_CREATE": "vytvořil nový opakující se pick-up",
+    "SERIES_CREATE": "vytvořil nové opakující se vyzvednutí",
     "SERIES_MODIFY": "změnil nastavení opakovaného vyzvednutí",
     "SERIES_DELETE": "odstranil opakující se vyzvednutí",
     "PICKUP_DONE": "vyzvedl v {storeName}",
@@ -487,7 +487,7 @@
   },
   "NOT_FOUND": {
     "EXPLANATION": "Litujeme, ale tuto stránku jsme nenašli nikde.",
-    "HOME": "Vezmi mě domů"
+    "HOME": "Zpět na Hlavní stranu"
   },
   "SETTINGS": {
     "TITLE": "Nastavení"
@@ -547,7 +547,7 @@
     "ACTIVE": "Spolupracovat",
     "CREATED": "Právě vytvořeno",
     "NEGOTIATING": "Vyjednávání",
-    "DECLINED": "Nechci spolupracovat",
+    "DECLINED": "Nechce spolupracovat",
     "ARCHIVED": "Archivováno"
   },
   "APPLICATION": {

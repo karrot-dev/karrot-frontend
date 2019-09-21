@@ -125,7 +125,7 @@
     "PICKUPS": "Vyzvednutí",
     "MESSAGES": "Zprávy",
     "PICKUP": "Vyzvednutí",
-    "MEMBERS": "Členů",
+    "MEMBERS": "Členové",
     "JOINED": "připojen {relativeDate}",
     "DECLINED": "odmítl v {relativeDate}",
     "ADDED_BY": "přidal {userName}",
@@ -544,7 +544,7 @@
     "NOT_PARTICIPATED": "Odesláním zprávy budete přihlášeni k odběru oznámení o této konverzaci."
   },
   "STORESTATUS": {
-    "ACTIVE": "Spolupracovat",
+    "ACTIVE": "Spolupracuje",
     "CREATED": "Právě vytvořeno",
     "NEGOTIATING": "Vyjednávání",
     "DECLINED": "Nechce spolupracovat",

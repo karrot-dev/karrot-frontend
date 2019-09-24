@@ -58,7 +58,7 @@
     "markdown-it": "9.1.0",
     "markdown-it-emoji": "^1.4.0",
     "markdown-it-link-attributes": "^2.0.0",
-    "quasar": "^1.1.0",
+    "quasar": "^1.1.4",
     "reconnecting-websocket": "^4.2.0",
     "twemoji": "^12.1.2",
     "typeface-cabin-sketch": "^0.0.72",

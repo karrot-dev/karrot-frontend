@@ -14127,10 +14127,10 @@ webidl-conversions@^4.0.2:
   resolved "https://registry.yarnpkg.com/webidl-conversions/-/webidl-conversions-4.0.2.tgz#a855980b1f0b6b359ba1d5d9fb39ae941faa63ad"
   integrity sha512-YQ+BmxuTgd6UXZW3+ICGfyqRyHXVlD5GtQr5+qjiNW7bF0cqrzX500HVXPBOvgXb5YnzDd+h0zqyv61KUD7+Sg==
 
-webpack-bundle-analyzer@^3.5.0:
-  version "3.5.0"
-  resolved "https://registry.yarnpkg.com/webpack-bundle-analyzer/-/webpack-bundle-analyzer-3.5.0.tgz#c82130a490a05f9267aa5956871aef574dff5074"
-  integrity sha512-NzueflueLSJxWGzDlMq5oUV+P8Qoq6yiaQlXGCbDYUpHEKlmzWdPLBJ4k/B6HTdAP/vHM8ply1Fx08mDnY+S8Q==
+webpack-bundle-analyzer@^3.5.2:
+  version "3.5.2"
+  resolved "https://registry.yarnpkg.com/webpack-bundle-analyzer/-/webpack-bundle-analyzer-3.5.2.tgz#ac02834f4b31de8e27d71e6c7a612301ebddb79f"
+  integrity sha512-g9spCNe25QYUVqHRDkwG414GTok2m7pTTP0wr6l0J50Z3YLS04+BGodTqqoVBL7QfU/U/9p/oiI5XFOyfZ7S/A==
   dependencies:
     acorn "^6.0.7"
     acorn-walk "^6.1.1"

@@ -12,7 +12,7 @@ export default new Vue({
   },
   watch: {
     async locale (locale) {
-      const localeData = await dateFnsLocale(locale)
+      const localeData = (await dateFnsLocale(locale)).default
       if (this.locale !== locale) return
       this.localeData = localeData
     },

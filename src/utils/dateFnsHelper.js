@@ -1,13 +1,14 @@
 import Vue from 'vue'
 import formatDistance from 'date-fns/formatDistance'
 import formatDistanceStrict from 'date-fns/formatDistanceStrict'
+import en from 'date-fns/locale/en-US'
 import { dateFnsLocale } from '@/locales/index'
 import reactiveNow from '@/utils/reactiveNow'
 
 export default new Vue({
   data: {
     locale: 'en',
-    localeData: null,
+    localeData: en,
   },
   watch: {
     async locale (locale) {

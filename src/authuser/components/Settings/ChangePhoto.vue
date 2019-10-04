@@ -15,8 +15,9 @@
         <Croppa
           ref="croppaPhoto"
           class="q-mt-sm"
-          :width="300"
-          :height="300"
+          :height="size"
+          :width="size"
+          :quality="quality"
           placeholder=""
           prevent-white-space
           replace-drop
@@ -37,6 +38,7 @@
             src="statics/add_a_photo.svg"
           >
         </Croppa>
+        <QResizeObserver @resize="onResize" />
       </template>
     </QField>
 
@@ -79,6 +81,7 @@ import {
   QField,
   QBtn,
   QIcon,
+  QResizeObserver,
 } from 'quasar'
 import CroppaPlugin from 'vue-croppa'
 const Croppa = CroppaPlugin.component
@@ -89,6 +92,7 @@ export default {
     QField,
     QBtn,
     QIcon,
+    QResizeObserver,
     Croppa,
   },
   mixins: [statusMixin],
@@ -116,6 +120,8 @@ export default {
       canChoose: true,
       refreshing: false,
       loading: false,
+      size: 300,
+      quality: 2,
     }
   },
   computed: {
@@ -174,6 +180,14 @@ export default {
     },
     init () {
       if (this.photo) this.refreshing = true
+    },
+    onResize ({ width: availableWidth }) {
+      const resolutionWidth = 600
+      const desiredWith = Math.min(availableWidth, 300)
+      this.quality = resolutionWidth / desiredWith
+      this.$nextTick(() => {
+        this.size = desiredWith
+      })
     },
   },
 }

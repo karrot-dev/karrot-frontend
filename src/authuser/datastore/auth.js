@@ -38,7 +38,7 @@ export default {
     currentGroupId: state => state.user && state.user.currentGroup,
     failedEmailDeliveries: state => state.failedEmailDeliveries,
     redirectTo: state => state.redirectTo,
-    hasJoinGroupAfterLogin: state => Boolean(state.joinGroupAfterLogin),
+    hasJoinGroupAfterLogin: state => Boolean(state.joinGroupAfterLogin || state.acceptInviteAfterLogin),
     ...metaStatuses(['login', 'logout', 'save', 'changePassword', 'changeEmail']),
   },
   actions: {

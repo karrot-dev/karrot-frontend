@@ -19,7 +19,6 @@ export default datastore => {
       }
       else {
         datastore.dispatch('auth/setAcceptInviteAfterLogin', inviteToken)
-        next = { name: 'signup' }
       }
     }
 

@@ -80,7 +80,7 @@
     "@babel/preset-env": "^7.6.0",
     "@babel/runtime": "^7.6.0",
     "@babel/runtime-corejs3": "^7.6.0",
-    "@octokit/rest": "^16.28.9",
+    "@octokit/rest": "^16.30.2",
     "@sentry/cli": "^1.47.1",
     "@storybook/addon-actions": "5.2.0",
     "@storybook/addon-links": "5.2.0",

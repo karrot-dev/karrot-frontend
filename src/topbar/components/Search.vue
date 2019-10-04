@@ -38,6 +38,7 @@
             v-close-popup
             :to="result.value"
             clickable
+            @click="hide"
           >
             <QItemSection
               v-if="result.icon"

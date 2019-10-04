@@ -2603,7 +2603,7 @@ exports[`Storyshots GroupGallery signup view 1`] = `
           <div class="q-card groupPreviewCard relative-position">
             <!---->
             <!---->
-            <div class="photo text-white relative-position">
+            <div class="photo text-white relative-position row justify-center">
               <div seed="1" type="circles" class="full-height"></div>
               <div class="absolute-bottom k-media-overlay q-pa-md">
                 <div class="ellipsis"><span class="row group items-start text-h6">
@@ -2632,7 +2632,7 @@ exports[`Storyshots GroupGallery signup view 1`] = `
           <div class="q-card groupPreviewCard relative-position">
             <!---->
             <!---->
-            <div class="photo text-white relative-position">
+            <div class="photo text-white relative-position row justify-center">
               <div seed="2" type="circles" class="full-height"></div>
               <div class="absolute-bottom k-media-overlay q-pa-md">
                 <div class="ellipsis"><span class="row group items-start text-h6">
@@ -2655,7 +2655,7 @@ exports[`Storyshots GroupGallery signup view 1`] = `
           <div class="q-card groupPreviewCard relative-position">
             <!---->
             <!---->
-            <div class="photo text-white relative-position">
+            <div class="photo text-white relative-position row justify-center">
               <div seed="3" type="circles" class="full-height"></div>
               <div class="absolute-bottom k-media-overlay q-pa-md">
                 <div class="ellipsis"><span class="row group items-start text-h6">
@@ -2678,7 +2678,7 @@ exports[`Storyshots GroupGallery signup view 1`] = `
           <div class="q-card groupPreviewCard relative-position">
             <!---->
             <!---->
-            <div class="photo text-white relative-position">
+            <div class="photo text-white relative-position row justify-center">
               <div seed="4" type="circles" class="full-height"></div>
               <div class="absolute-bottom k-media-overlay q-pa-md">
                 <div class="ellipsis"><span class="row group items-start text-h6">
@@ -2701,7 +2701,7 @@ exports[`Storyshots GroupGallery signup view 1`] = `
           <div class="q-card groupPreviewCard relative-position">
             <!---->
             <!---->
-            <div class="photo text-white relative-position">
+            <div class="photo text-white relative-position row justify-center">
               <div seed="6" type="circles" class="full-height"></div>
               <div class="absolute-bottom k-media-overlay q-pa-md">
                 <div class="ellipsis"><span class="row group items-start text-h6">
@@ -2727,7 +2727,7 @@ exports[`Storyshots GroupGallery signup view 1`] = `
           <div class="q-card groupPreviewCard relative-position">
             <!---->
             <!---->
-            <div class="photo text-white relative-position">
+            <div class="photo text-white relative-position row justify-center">
               <div seed="13" type="circles" class="full-height"></div>
               <div class="absolute-bottom k-media-overlay q-pa-md">
                 <div class="ellipsis"><span class="row group items-start text-h6">
@@ -2816,7 +2816,7 @@ exports[`Storyshots GroupGallery switch and explore 1`] = `
           <div class="q-card groupPreviewCard relative-position">
             <!---->
             <!---->
-            <div class="photo text-white relative-position">
+            <div class="photo text-white relative-position row justify-center">
               <div seed="10" type="circles" class="full-height"></div>
               <div class="absolute-bottom k-media-overlay q-pa-md">
                 <div class="ellipsis"><span class="row group items-start text-h6">
@@ -2855,7 +2855,7 @@ exports[`Storyshots GroupGallery switch and explore 1`] = `
           <div class="q-card groupPreviewCard relative-position">
             <!---->
             <!---->
-            <div class="photo text-white relative-position">
+            <div class="photo text-white relative-position row justify-center">
               <div seed="20" type="circles" class="full-height"></div>
               <div class="absolute-bottom k-media-overlay q-pa-md">
                 <div class="ellipsis"><span class="row group items-start text-h6">
@@ -2888,7 +2888,7 @@ exports[`Storyshots GroupGallery switch and explore 1`] = `
           <div class="q-card groupPreviewCard relative-position">
             <!---->
             <!---->
-            <div class="photo text-white relative-position">
+            <div class="photo text-white relative-position row justify-center">
               <div seed="30" type="circles" class="full-height"></div>
               <div class="absolute-bottom k-media-overlay q-pa-md">
                 <div class="ellipsis"><span class="row group items-start text-h6">
@@ -2928,7 +2928,7 @@ exports[`Storyshots GroupGallery switch and explore 1`] = `
           <div class="q-card groupPreviewCard relative-position">
             <!---->
             <!---->
-            <div class="photo text-white relative-position">
+            <div class="photo text-white relative-position row justify-center">
               <div seed="1" type="circles" class="full-height"></div>
               <div class="absolute-bottom k-media-overlay q-pa-md">
                 <div class="ellipsis"><span class="row group items-start text-h6">
@@ -2957,7 +2957,7 @@ exports[`Storyshots GroupGallery switch and explore 1`] = `
           <div class="q-card groupPreviewCard relative-position">
             <!---->
             <!---->
-            <div class="photo text-white relative-position">
+            <div class="photo text-white relative-position row justify-center">
               <div seed="2" type="circles" class="full-height"></div>
               <div class="absolute-bottom k-media-overlay q-pa-md">
                 <div class="ellipsis"><span class="row group items-start text-h6">
@@ -2980,7 +2980,7 @@ exports[`Storyshots GroupGallery switch and explore 1`] = `
           <div class="q-card groupPreviewCard relative-position">
             <!---->
             <!---->
-            <div class="photo text-white relative-position">
+            <div class="photo text-white relative-position row justify-center">
               <div seed="3" type="circles" class="full-height"></div>
               <div class="absolute-bottom k-media-overlay q-pa-md">
                 <div class="ellipsis"><span class="row group items-start text-h6">
@@ -3003,7 +3003,7 @@ exports[`Storyshots GroupGallery switch and explore 1`] = `
           <div class="q-card groupPreviewCard relative-position">
             <!---->
             <!---->
-            <div class="photo text-white relative-position">
+            <div class="photo text-white relative-position row justify-center">
               <div seed="4" type="circles" class="full-height"></div>
               <div class="absolute-bottom k-media-overlay q-pa-md">
                 <div class="ellipsis"><span class="row group items-start text-h6">
@@ -3026,7 +3026,7 @@ exports[`Storyshots GroupGallery switch and explore 1`] = `
           <div class="q-card groupPreviewCard relative-position">
             <!---->
             <!---->
-            <div class="photo text-white relative-position">
+            <div class="photo text-white relative-position row justify-center">
               <div seed="6" type="circles" class="full-height"></div>
               <div class="absolute-bottom k-media-overlay q-pa-md">
                 <div class="ellipsis"><span class="row group items-start text-h6">
@@ -3052,7 +3052,7 @@ exports[`Storyshots GroupGallery switch and explore 1`] = `
           <div class="q-card groupPreviewCard relative-position">
             <!---->
             <!---->
-            <div class="photo text-white relative-position">
+            <div class="photo text-white relative-position row justify-center">
               <div seed="13" type="circles" class="full-height"></div>
               <div class="absolute-bottom k-media-overlay q-pa-md">
                 <div class="ellipsis"><span class="row group items-start text-h6">
@@ -3087,7 +3087,7 @@ exports[`Storyshots GroupGalleryCard isMember = false 1`] = `
   <div class="q-card groupPreviewCard relative-position">
     <!---->
     <!---->
-    <div class="photo text-white relative-position">
+    <div class="photo text-white relative-position row justify-center">
       <div seed="1" type="circles" class="full-height"></div>
       <div class="absolute-bottom k-media-overlay q-pa-md">
         <div class="ellipsis"><span class="row group items-start text-h6">
@@ -3119,7 +3119,7 @@ exports[`Storyshots GroupGalleryCard isMember = true 1`] = `
   <div class="q-card groupPreviewCard relative-position">
     <!---->
     <!---->
-    <div class="photo text-white relative-position">
+    <div class="photo text-white relative-position row justify-center">
       <div seed="1" type="circles" class="full-height"></div>
       <div class="absolute-bottom k-media-overlay q-pa-md">
         <div class="ellipsis"><span class="row group items-start text-h6">
@@ -3161,7 +3161,7 @@ exports[`Storyshots GroupGalleryCard without public description 1`] = `
   <div class="q-card groupPreviewCard relative-position">
     <!---->
     <!---->
-    <div class="photo text-white relative-position">
+    <div class="photo text-white relative-position row justify-center">
       <div seed="1" type="circles" class="full-height"></div>
       <div class="absolute-bottom k-media-overlay q-pa-md">
         <div class="ellipsis"><span class="row group items-start text-h6">
@@ -3185,7 +3185,7 @@ exports[`Storyshots GroupGalleryCard without public description 1`] = `
 exports[`Storyshots GroupPreviewUI member 1`] = `
 <div>
   <div class="q-card shadow-6">
-    <div class="photo text-white relative-position">
+    <div class="photo text-white relative-position row justify-center">
       <div seed="1" type="circles" class="full-height"></div>
       <div class="absolute-bottom k-media-overlay q-pa-md">
         <div class="ellipsis"><span class="row group items-start text-h6">
@@ -3221,7 +3221,7 @@ exports[`Storyshots GroupPreviewUI member 1`] = `
 exports[`Storyshots GroupPreviewUI not logged in 1`] = `
 <div>
   <div class="q-card shadow-6">
-    <div class="photo text-white relative-position">
+    <div class="photo text-white relative-position row justify-center">
       <div seed="1" type="circles" class="full-height"></div>
       <div class="absolute-bottom k-media-overlay q-pa-md">
         <div class="ellipsis"><span class="row group items-start text-h6">
@@ -3258,7 +3258,7 @@ exports[`Storyshots GroupPreviewUI not logged in 1`] = `
 exports[`Storyshots GroupPreviewUI not member, application needed, email not verified 1`] = `
 <div>
   <div class="q-card shadow-6">
-    <div class="photo text-white relative-position">
+    <div class="photo text-white relative-position row justify-center">
       <div seed="1" type="circles" class="full-height"></div>
       <div class="absolute-bottom k-media-overlay q-pa-md">
         <div class="ellipsis"><span class="row group items-start text-h6">
@@ -3305,7 +3305,7 @@ exports[`Storyshots GroupPreviewUI not member, application needed, email not ver
 exports[`Storyshots GroupPreviewUI not member, application needed, email verified 1`] = `
 <div>
   <div class="q-card shadow-6">
-    <div class="photo text-white relative-position">
+    <div class="photo text-white relative-position row justify-center">
       <div seed="1" type="circles" class="full-height"></div>
       <div class="absolute-bottom k-media-overlay q-pa-md">
         <div class="ellipsis"><span class="row group items-start text-h6">
@@ -3352,7 +3352,7 @@ exports[`Storyshots GroupPreviewUI not member, application needed, email verifie
 exports[`Storyshots GroupPreviewUI not member, open group 1`] = `
 <div>
   <div class="q-card shadow-6">
-    <div class="photo text-white relative-position">
+    <div class="photo text-white relative-position row justify-center">
       <div seed="1" type="circles" class="full-height"></div>
       <div class="absolute-bottom k-media-overlay q-pa-md">
         <div class="ellipsis"><span class="row group items-start text-h6">
@@ -3399,7 +3399,7 @@ exports[`Storyshots GroupPreviewUI not member, open group 1`] = `
 exports[`Storyshots GroupPreviewUI not member, pending application 1`] = `
 <div>
   <div class="q-card shadow-6">
-    <div class="photo text-white relative-position">
+    <div class="photo text-white relative-position row justify-center">
       <div seed="1" type="circles" class="full-height"></div>
       <div class="absolute-bottom k-media-overlay q-pa-md">
         <div class="ellipsis"><span class="row group items-start text-h6">
@@ -3441,7 +3441,7 @@ exports[`Storyshots GroupPreviewUI not member, pending application 1`] = `
 exports[`Storyshots GroupPreviewUI not member, playground 1`] = `
 <div>
   <div class="q-card shadow-6">
-    <div class="photo text-white relative-position">
+    <div class="photo text-white relative-position row justify-center">
       <div seed="1" type="circles" class="full-height"></div>
       <div class="absolute-bottom k-media-overlay q-pa-md">
         <div class="ellipsis"><span class="row group items-start text-h6">
@@ -3488,7 +3488,7 @@ exports[`Storyshots GroupPreviewUI not member, playground 1`] = `
 exports[`Storyshots GroupPreviewUI pending join 1`] = `
 <div>
   <div class="q-card shadow-6">
-    <div class="photo text-white relative-position">
+    <div class="photo text-white relative-position row justify-center">
       <div seed="6" type="circles" class="full-height"></div>
       <div class="absolute-bottom k-media-overlay q-pa-md">
         <div class="ellipsis"><span class="row group items-start text-h6">
@@ -3534,7 +3534,7 @@ exports[`Storyshots GroupPreviewUI pending join 1`] = `
 exports[`Storyshots GroupPreviewUI without public description 1`] = `
 <div>
   <div class="q-card shadow-6">
-    <div class="photo text-white relative-position">
+    <div class="photo text-white relative-position row justify-center">
       <div seed="1" type="circles" class="full-height"></div>
       <div class="absolute-bottom k-media-overlay q-pa-md">
         <div class="ellipsis"><span class="row group items-start text-h6">

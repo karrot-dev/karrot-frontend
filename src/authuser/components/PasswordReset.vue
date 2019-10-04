@@ -4,23 +4,18 @@
       name="passwordReset"
       @submit.prevent="submit"
     >
-      <div class="content">
-        <div>
-          <QInput
-            v-model="newPassword"
-            type="password"
-            :label="$t('USERDATA.PASSWORD')"
-            autocorrect="off"
-            autocapitalize="off"
-            spellcheck="false"
-            :error="hasError('newPassword')"
-            :error-message="firstError('newPassword')"
-          >
-            <template v-slot:before>
-              <QIcon name="fas fa-lock" />
-            </template>
-          </QInput>
-        </div>
+      <div class="q-gutter-md">
+        <SplashInput
+          v-model="newPassword"
+          type="password"
+          icon="fas fa-lock"
+          :label="$t('USERDETAIL.PASSWORD')"
+          autocorrect="off"
+          autocapitalize="off"
+          spellcheck="false"
+          :error="hasError('newPassword')"
+          :error-message="firstError('newPassword')"
+        />
         <div
           v-if="hasError('code')"
           class="text-warning"
@@ -53,17 +48,15 @@
 
 <script>
 import {
-  QInput,
   QBtn,
-  QIcon,
 } from 'quasar'
+import SplashInput from '@/utils/components/SplashInput'
 import statusMixin from '@/utils/mixins/statusMixin'
 
 export default {
   components: {
-    QInput,
     QBtn,
-    QIcon,
+    SplashInput,
   },
   mixins: [statusMixin],
   props: {
@@ -86,8 +79,3 @@ export default {
   },
 }
 </script>
-
-<style scoped lang="stylus">
-  .margin-bottom
-    margin 0 0 24px 0
-</style>

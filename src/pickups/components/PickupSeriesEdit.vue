@@ -290,7 +290,7 @@
         {{ firstNonFieldError }}
       </div>
 
-      <div class="row justify-end q-gutter-sm q-mt-md">
+      <div class="row justify-end q-gutter-sm q-mt-lg">
         <QBtn
           v-if="isNew"
           type="button"

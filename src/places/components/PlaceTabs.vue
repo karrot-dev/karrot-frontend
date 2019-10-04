@@ -1,6 +1,7 @@
 <template>
   <QTabs
     class="shadow-3 bg-white k-place-tabs"
+    align="left"
   >
     <QRouteTab
       v-for="(tab, idx) in tabs"

@@ -87,7 +87,8 @@
       <div v-if="showReplies">
         <QBtn
           :outline="message.threadMeta.unreadReplyCount < 1"
-          :color="message.threadMeta.unreadReplyCount > 0 ? 'secondary' : null"
+          :color="message.threadMeta.unreadReplyCount > 0 ? 'secondary' : 'white'"
+          :text-color="message.threadMeta.unreadReplyCount > 0 ? 'white' : 'black'"
           class="reaction-box k-thread-box"
           no-caps
           @click="$emit('openThread')"

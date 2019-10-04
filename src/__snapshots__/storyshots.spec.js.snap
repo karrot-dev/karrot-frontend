@@ -1595,6 +1595,62 @@ exports[`Storyshots ConversationMessage with replies 1`] = `
     </div>
   </button>
   <!----></span>
+  <div><button tabindex="0" type="button" class="q-btn inline q-btn-item non-selectable reaction-box k-thread-box q-btn--outline q-btn--rectangle text-black q-focusable q-hoverable q-btn--no-uppercase">
+      <div tabindex="-1" class="q-focus-helper"></div>
+      <div class="q-btn__content text-center col items-center q-anchor--skip justify-center row">
+        <div class="wrapper k-profile-picture" style="width:20px;height:20px;">
+          <div text="User 69" seed="69" class="randomArt fill"></div>
+        </div>
+        <div class="wrapper k-profile-picture" style="width:20px;height:20px;">
+          <div text="User 70" seed="70" class="randomArt fill"></div>
+        </div>
+        <div class="wrapper k-profile-picture" style="width:20px;height:20px;">
+          <div text="User 71" seed="71" class="randomArt fill"></div>
+        </div> <span class="k-replies-count"></span>
+      </div>
+    </button></div>
+</div>
+</div>
+`;
+
+exports[`Storyshots ConversationMessage with unread replies 1`] = `
+<div class="q-item q-item-type row no-wrap conversation-message relative-position">
+  <div class="q-btn-group row no-wrap inline hover-button k-message-controls q-btn-group--outline">
+    <!----> <button tabindex="0" type="button" title="Replies" class="q-btn inline q-btn-item non-selectable q-btn--outline q-btn--rectangle text-secondary q-focusable q-hoverable">
+      <div tabindex="-1" class="q-focus-helper"></div>
+      <div class="q-btn__content text-center col items-center q-anchor--skip justify-center row"><i class="fas fa-comments"></i></div>
+    </button> <button tabindex="0" type="button" class="q-btn inline q-btn-item non-selectable q-btn--outline q-btn--rectangle text-secondary q-focusable q-hoverable">
+      <div tabindex="-1" class="q-focus-helper"></div>
+      <div class="q-btn__content text-center col items-center q-anchor--skip justify-center row"><span style="opacity:1;"><i class="far fa-smile"></i> +
+  </span>
+        <!---->
+      </div>
+    </button></div>
+  <div class="q-item__section column q-mt-xs q-pr-sm q-item__section--top q-item__section--side justify-start">
+    <div class="wrapper" style="width:40px;height:40px;"><a title="User 69">
+        <div text="User 69" seed="69" class="randomArt fill"></div>
+      </a></div>
+  </div>
+  <div class="q-item__section column q-item__section--main justify-center">
+    <div class="q-item__label no-wrap k-message-meta"><a><span class="k-message-author text-bold text-secondary text-uppercase">User 69</span></a> <span class="message-date"><small class="text-weight-light"><div title="Dec 24, 2017, 12:00 PM">
+  less than a minute ago
+</div></small></span>
+      <!---->
+    </div>
+    <div class="content">
+      <div class="markdown">
+        <p>hello 9!</p>
+      </div>
+    </div>
+    <!----> <span class="conversation-reactions" style="display:block;"><span class="reactions"><button tabindex="0" type="button" title="a reacted with :thumbsup:" class="q-btn inline q-btn-item non-selectable row no-wrap items-center reaction-box q-btn--flat q-btn--rectangle q-focusable q-hoverable"><div tabindex="-1" class="q-focus-helper"></div><div class="q-btn__content text-center col items-center q-anchor--skip justify-center row"><div class="emoji"></div> <span class="reactions-number">1</span>
+  </div></button></span> <button tabindex="0" type="button" class="q-btn inline q-btn-item non-selectable add-button reaction-box q-btn--outline q-btn--rectangle text-black q-focusable q-hoverable">
+    <div tabindex="-1" class="q-focus-helper"></div>
+    <div class="q-btn__content text-center col items-center q-anchor--skip justify-center row"><span style="opacity:0.5;"><i class="far fa-smile"></i> +
+  </span>
+      <!---->
+    </div>
+  </button>
+  <!----></span>
   <div><button tabindex="0" type="button" class="q-btn inline q-btn-item non-selectable reaction-box k-thread-box q-btn--standard q-btn--rectangle bg-secondary text-white q-focusable q-hoverable q-btn--no-uppercase">
       <div tabindex="-1" class="q-focus-helper"></div>
       <div class="q-btn__content text-center col items-center q-anchor--skip justify-center row">
@@ -1630,7 +1686,7 @@ exports[`Storyshots Detail application 1`] = `
         <div class="q-btn__content text-center col items-center q-anchor--skip justify-center row"><i aria-hidden="true" class="material-icons q-icon">help_outline</i></div>
       </button> <button tabindex="0" type="button" title="How do you want to receive notifications about new messages in this conversation/thread?" class="q-btn inline q-btn-item non-selectable q-btn--flat q-btn--round text-white q-focusable q-hoverable q-btn--dense" style="font-size:14px;">
         <div tabindex="-1" class="q-focus-helper"></div>
-        <div class="q-btn__content text-center col items-center q-anchor--skip justify-center row"><i aria-hidden="true" class="fas fa-fw fa-bell q-icon"> </i>
+        <div class="q-btn__content text-center col items-center q-anchor--skip justify-center row"><i aria-hidden="true" class="fas fa-fw fa-bell q-icon" style="font-size:1.4em;"> </i>
           <!---->
         </div>
       </button> <button tabindex="0" type="button" title="Close" class="q-btn inline q-btn-item non-selectable q-btn--flat q-btn--round q-focusable q-hoverable q-btn--dense">
@@ -1837,7 +1893,7 @@ exports[`Storyshots Detail application 1`] = `
       <!---->
     </div>
   </div>
-  <div class="q-item q-item-type row no-wrap">
+  <div class="q-item q-item-type row no-wrap q-pb-md">
     <!---->
     <div class="q-item__section column q-item__section--main justify-center">
       <div class="q-item__label"><label for="qf_80008000-8000-8000-8000-800080008000" class="q-field row no-wrap items-start q-textarea q-textarea--autogrow q-field--standard q-field--dense q-field--with-bottom">
@@ -1881,7 +1937,7 @@ exports[`Storyshots Detail pickup 1`] = `
         </div>
       </div> <button tabindex="0" type="button" title="How do you want to receive notifications about new messages in this conversation/thread?" class="q-btn inline q-btn-item non-selectable q-btn--flat q-btn--round text-white q-focusable q-hoverable q-btn--dense" style="font-size:14px;">
         <div tabindex="-1" class="q-focus-helper"></div>
-        <div class="q-btn__content text-center col items-center q-anchor--skip justify-center row"><i aria-hidden="true" class="fas fa-fw fa-bell q-icon"> </i>
+        <div class="q-btn__content text-center col items-center q-anchor--skip justify-center row"><i aria-hidden="true" class="fas fa-fw fa-bell q-icon" style="font-size:1.4em;"> </i>
           <!---->
         </div>
       </button> <button tabindex="0" type="button" title="Close" class="q-btn inline q-btn-item non-selectable q-btn--flat q-btn--round q-focusable q-hoverable q-btn--dense">
@@ -2061,7 +2117,7 @@ exports[`Storyshots Detail pickup 1`] = `
       <!---->
     </div>
   </div>
-  <div class="q-item q-item-type row no-wrap">
+  <div class="q-item q-item-type row no-wrap q-pb-md">
     <!---->
     <div class="q-item__section column q-item__section--main justify-center">
       <div class="q-item__label"><label for="qf_80008000-8000-8000-8000-800080008000" class="q-field row no-wrap items-start q-textarea q-textarea--autogrow q-field--standard q-field--dense q-field--with-bottom">
@@ -2109,7 +2165,7 @@ exports[`Storyshots Detail private 1`] = `
         User 93
       </div> <button tabindex="0" type="button" title="How do you want to receive notifications about new messages in this conversation/thread?" class="q-btn inline q-btn-item non-selectable q-btn--flat q-btn--round text-white q-focusable q-hoverable q-btn--dense" style="font-size:14px;">
         <div tabindex="-1" class="q-focus-helper"></div>
-        <div class="q-btn__content text-center col items-center q-anchor--skip justify-center row"><i aria-hidden="true" class="fas fa-fw fa-bell q-icon"> </i>
+        <div class="q-btn__content text-center col items-center q-anchor--skip justify-center row"><i aria-hidden="true" class="fas fa-fw fa-bell q-icon" style="font-size:1.4em;"> </i>
           <!---->
         </div>
       </button> <button tabindex="0" type="button" title="Close" class="q-btn inline q-btn-item non-selectable q-btn--flat q-btn--round q-focusable q-hoverable q-btn--dense">
@@ -2287,7 +2343,7 @@ exports[`Storyshots Detail private 1`] = `
       <!---->
     </div>
   </div>
-  <div class="q-item q-item-type row no-wrap">
+  <div class="q-item q-item-type row no-wrap q-pb-md">
     <!---->
     <div class="q-item__section column q-item__section--main justify-center">
       <div class="q-item__label"><label for="qf_80008000-8000-8000-8000-800080008000" class="q-field row no-wrap items-start q-textarea q-textarea--autogrow q-field--standard q-field--dense q-field--with-bottom">
@@ -4100,7 +4156,7 @@ exports[`Storyshots Issues IssueVote - not voted yet 1`] = `
           <div class="q-my-md">
             User 31 gets removed from Group 18
           </div>
-          <div role="slider" aria-valuemin="-2" aria-valuemax="2" aria-valuenow="0" data-step="1" tabindex="0" class="q-slider k-vote-slider q-slider--inactive q-slider--editable q-slider--label q-slider--label-always">
+          <div role="slider" aria-valuemin="-2" aria-valuemax="2" aria-valuenow="0" data-step="1" tabindex="0" class="k-vote-slider q-slider q-slider--inactive q-slider--editable q-slider--label q-slider--label-always">
             <div class="q-slider__track-container absolute overflow-hidden">
               <div class="q-slider__track absolute-full" style="width:50%;"></div>
               <div class="q-slider__track-markers absolute-full fit" style="background-size:25% 2px;"></div>
@@ -4122,7 +4178,7 @@ exports[`Storyshots Issues IssueVote - not voted yet 1`] = `
           <div class="q-my-md">
             Further discussion: extend time by starting another voting
           </div>
-          <div role="slider" aria-valuemin="-2" aria-valuemax="2" aria-valuenow="0" data-step="1" tabindex="0" class="q-slider k-vote-slider q-slider--inactive q-slider--editable q-slider--label q-slider--label-always">
+          <div role="slider" aria-valuemin="-2" aria-valuemax="2" aria-valuenow="0" data-step="1" tabindex="0" class="k-vote-slider q-slider q-slider--inactive q-slider--editable q-slider--label q-slider--label-always">
             <div class="q-slider__track-container absolute overflow-hidden">
               <div class="q-slider__track absolute-full" style="width:50%;"></div>
               <div class="q-slider__track-markers absolute-full fit" style="background-size:25% 2px;"></div>
@@ -4144,7 +4200,7 @@ exports[`Storyshots Issues IssueVote - not voted yet 1`] = `
           <div class="q-my-md">
             No change: User 31 stays in Group 18
           </div>
-          <div role="slider" aria-valuemin="-2" aria-valuemax="2" aria-valuenow="0" data-step="1" tabindex="0" class="q-slider k-vote-slider q-slider--inactive q-slider--editable q-slider--label q-slider--label-always">
+          <div role="slider" aria-valuemin="-2" aria-valuemax="2" aria-valuenow="0" data-step="1" tabindex="0" class="k-vote-slider q-slider q-slider--inactive q-slider--editable q-slider--label q-slider--label-always">
             <div class="q-slider__track-container absolute overflow-hidden">
               <div class="q-slider__track absolute-full" style="width:50%;"></div>
               <div class="q-slider__track-markers absolute-full fit" style="background-size:25% 2px;"></div>
@@ -4215,7 +4271,7 @@ exports[`Storyshots Issues IssueVote - vote 1`] = `
           <div class="q-my-md">
             Further discussion: extend time by starting another voting
           </div>
-          <div role="slider" aria-valuemin="-2" aria-valuemax="2" aria-valuenow="0" data-step="1" tabindex="0" class="q-slider k-vote-slider q-slider--inactive q-slider--editable q-slider--label q-slider--label-always">
+          <div role="slider" aria-valuemin="-2" aria-valuemax="2" aria-valuenow="0" data-step="1" tabindex="0" class="k-vote-slider q-slider q-slider--inactive q-slider--editable q-slider--label q-slider--label-always">
             <div class="q-slider__track-container absolute overflow-hidden">
               <div class="q-slider__track absolute-full" style="width:50%;"></div>
               <div class="q-slider__track-markers absolute-full fit" style="background-size:25% 2px;"></div>
@@ -4237,7 +4293,7 @@ exports[`Storyshots Issues IssueVote - vote 1`] = `
           <div class="q-my-md">
             User 29 gets removed from Group 17
           </div>
-          <div role="slider" aria-valuemin="-2" aria-valuemax="2" aria-valuenow="0" data-step="1" tabindex="0" class="q-slider k-vote-slider q-slider--inactive q-slider--editable q-slider--label q-slider--label-always">
+          <div role="slider" aria-valuemin="-2" aria-valuemax="2" aria-valuenow="0" data-step="1" tabindex="0" class="k-vote-slider q-slider q-slider--inactive q-slider--editable q-slider--label q-slider--label-always">
             <div class="q-slider__track-container absolute overflow-hidden">
               <div class="q-slider__track absolute-full" style="width:50%;"></div>
               <div class="q-slider__track-markers absolute-full fit" style="background-size:25% 2px;"></div>
@@ -4259,7 +4315,7 @@ exports[`Storyshots Issues IssueVote - vote 1`] = `
           <div class="q-my-md">
             No change: User 29 stays in Group 17
           </div>
-          <div role="slider" aria-valuemin="-2" aria-valuemax="2" aria-valuenow="0" data-step="1" tabindex="0" class="q-slider k-vote-slider q-slider--inactive q-slider--editable q-slider--label q-slider--label-always">
+          <div role="slider" aria-valuemin="-2" aria-valuemax="2" aria-valuenow="0" data-step="1" tabindex="0" class="k-vote-slider q-slider q-slider--inactive q-slider--editable q-slider--label q-slider--label-always">
             <div class="q-slider__track-container absolute overflow-hidden">
               <div class="q-slider__track absolute-full" style="width:50%;"></div>
               <div class="q-slider__track-markers absolute-full fit" style="background-size:25% 2px;"></div>
@@ -5158,7 +5214,7 @@ exports[`Storyshots Map UserMapPreview 1`] = `
 exports[`Storyshots NotificationToggle muted 1`] = `
 <button tabindex="0" type="button" title="How do you want to receive notifications about new messages in this conversation/thread?" class="q-btn inline q-btn-item non-selectable q-btn--standard q-btn--round bg-grey-8 text-white q-focusable q-hoverable">
   <div tabindex="-1" class="q-focus-helper"></div>
-  <div class="q-btn__content text-center col items-center q-anchor--skip justify-center row"><i aria-hidden="true" class="fas fa-fw fa-bell-slash q-icon"> </i>
+  <div class="q-btn__content text-center col items-center q-anchor--skip justify-center row"><i aria-hidden="true" class="fas fa-fw fa-bell-slash q-icon" style="font-size:1.4em;"> </i>
     <!---->
   </div>
 </button>
@@ -5167,7 +5223,7 @@ exports[`Storyshots NotificationToggle muted 1`] = `
 exports[`Storyshots NotificationToggle subscribed - cannot unsubscribe 1`] = `
 <button tabindex="0" type="button" title="How do you want to receive notifications about new messages in this conversation/thread?" class="q-btn inline q-btn-item non-selectable q-btn--standard q-btn--round bg-secondary text-white q-focusable q-hoverable">
   <div tabindex="-1" class="q-focus-helper"></div>
-  <div class="q-btn__content text-center col items-center q-anchor--skip justify-center row"><i aria-hidden="true" class="fas fa-fw fa-bell q-icon"> </i>
+  <div class="q-btn__content text-center col items-center q-anchor--skip justify-center row"><i aria-hidden="true" class="fas fa-fw fa-bell q-icon" style="font-size:1.4em;"> </i>
     <!---->
   </div>
 </button>
@@ -5176,7 +5232,7 @@ exports[`Storyshots NotificationToggle subscribed - cannot unsubscribe 1`] = `
 exports[`Storyshots NotificationToggle subscribed - email not verified 1`] = `
 <button tabindex="0" type="button" title="How do you want to receive notifications about new messages in this conversation/thread?" class="q-btn inline q-btn-item non-selectable q-btn--standard q-btn--round bg-secondary text-white q-focusable q-hoverable">
   <div tabindex="-1" class="q-focus-helper"></div>
-  <div class="q-btn__content text-center col items-center q-anchor--skip justify-center row"><i aria-hidden="true" class="fas fa-fw fa-bell q-icon"> </i>
+  <div class="q-btn__content text-center col items-center q-anchor--skip justify-center row"><i aria-hidden="true" class="fas fa-fw fa-bell q-icon" style="font-size:1.4em;"> </i>
     <!---->
   </div>
 </button>
@@ -5185,7 +5241,7 @@ exports[`Storyshots NotificationToggle subscribed - email not verified 1`] = `
 exports[`Storyshots NotificationToggle subscribed - toolbar mode 1`] = `
 <button tabindex="0" type="button" title="How do you want to receive notifications about new messages in this conversation/thread?" class="q-btn inline q-btn-item non-selectable q-btn--flat q-btn--round text-white q-focusable q-hoverable q-btn--dense bg-secondary">
   <div tabindex="-1" class="q-focus-helper"></div>
-  <div class="q-btn__content text-center col items-center q-anchor--skip justify-center row"><i aria-hidden="true" class="fas fa-fw fa-bell q-icon"> </i>
+  <div class="q-btn__content text-center col items-center q-anchor--skip justify-center row"><i aria-hidden="true" class="fas fa-fw fa-bell q-icon" style="font-size:1.4em;"> </i>
     <!---->
   </div>
 </button>
@@ -5194,7 +5250,7 @@ exports[`Storyshots NotificationToggle subscribed - toolbar mode 1`] = `
 exports[`Storyshots NotificationToggle subscribed 1`] = `
 <button tabindex="0" type="button" title="How do you want to receive notifications about new messages in this conversation/thread?" class="q-btn inline q-btn-item non-selectable q-btn--standard q-btn--round bg-secondary text-white q-focusable q-hoverable">
   <div tabindex="-1" class="q-focus-helper"></div>
-  <div class="q-btn__content text-center col items-center q-anchor--skip justify-center row"><i aria-hidden="true" class="fas fa-fw fa-bell q-icon"> </i>
+  <div class="q-btn__content text-center col items-center q-anchor--skip justify-center row"><i aria-hidden="true" class="fas fa-fw fa-bell q-icon" style="font-size:1.4em;"> </i>
     <!---->
   </div>
 </button>
@@ -5203,7 +5259,7 @@ exports[`Storyshots NotificationToggle subscribed 1`] = `
 exports[`Storyshots NotificationToggle unsubscribed 1`] = `
 <button tabindex="0" type="button" title="How do you want to receive notifications about new messages in this conversation/thread?" class="q-btn inline q-btn-item non-selectable q-btn--standard q-btn--round bg-grey-5 text-white q-focusable q-hoverable">
   <div tabindex="-1" class="q-focus-helper"></div>
-  <div class="q-btn__content text-center col items-center q-anchor--skip justify-center row"><i aria-hidden="true" class="fas fa-fw fa-eye-slash q-icon"> </i>
+  <div class="q-btn__content text-center col items-center q-anchor--skip justify-center row"><i aria-hidden="true" class="fas fa-fw fa-eye-slash q-icon" style="font-size:1.4em;"> </i>
     <!---->
   </div>
 </button>
@@ -5827,7 +5883,7 @@ exports[`Storyshots PickupEdit default 1`] = `
           <div tabindex="-1" class="q-field__control relative-position row no-wrap">
             <div class="q-field__control-container col relative-position row no-wrap q-anchor--skip"><input tabindex="0" aria-label="Max Slots" placeholder="unlimited" id="qf_80008000-8000-8000-8000-800080008000" type="number" value="10" class="q-field__native q-placeholder" style="max-width:100px;">
               <div class="q-field__label no-pointer-events absolute ellipsis">Max Slots</div>
-              <div role="slider" aria-valuemin="1" aria-valuemax="10" aria-valuenow="10" data-step="1" tabindex="0" class="q-slider q-mx-sm self-end q-slider--inactive q-slider--editable q-slider--label" style="min-width:60px;">
+              <div role="slider" aria-valuemin="1" aria-valuemax="10" aria-valuenow="10" data-step="1" tabindex="0" class="q-mx-sm self-end q-slider q-slider--inactive q-slider--editable q-slider--label" style="min-width:60px;">
                 <div class="q-slider__track-container absolute overflow-hidden">
                   <div class="q-slider__track absolute-full" style="width:100%;"></div>
                   <div class="q-slider__track-markers absolute-full fit" style="background-size:11.11111111111111% 2px;"></div>
@@ -5875,7 +5931,7 @@ exports[`Storyshots PickupEdit default 1`] = `
       <!---->
     </div>
     <!---->
-    <div class="row justify-end q-gutter-sm q-mt-md">
+    <div class="row justify-end q-gutter-sm q-mt-lg">
       <!----> <button tabindex="-1" type="button" disabled="disabled" class="q-btn inline q-btn-item non-selectable q-btn--standard q-btn--rectangle disabled">
         <div tabindex="-1" class="q-focus-helper"></div>
         <div class="q-btn__content text-center col items-center q-anchor--skip justify-center row">
@@ -5939,7 +5995,7 @@ exports[`Storyshots PickupEdit disabled 1`] = `
           <div tabindex="-1" class="q-field__control relative-position row no-wrap">
             <div class="q-field__control-container col relative-position row no-wrap q-anchor--skip"><input tabindex="0" aria-label="Max Slots" placeholder="unlimited" id="qf_80008000-8000-8000-8000-800080008000" type="number" value="10" class="q-field__native q-placeholder" style="max-width:100px;">
               <div class="q-field__label no-pointer-events absolute ellipsis">Max Slots</div>
-              <div role="slider" aria-valuemin="1" aria-valuemax="10" aria-valuenow="10" data-step="1" tabindex="0" class="q-slider q-mx-sm self-end q-slider--inactive q-slider--editable q-slider--label" style="min-width:60px;">
+              <div role="slider" aria-valuemin="1" aria-valuemax="10" aria-valuenow="10" data-step="1" tabindex="0" class="q-mx-sm self-end q-slider q-slider--inactive q-slider--editable q-slider--label" style="min-width:60px;">
                 <div class="q-slider__track-container absolute overflow-hidden">
                   <div class="q-slider__track absolute-full" style="width:100%;"></div>
                   <div class="q-slider__track-markers absolute-full fit" style="background-size:11.11111111111111% 2px;"></div>
@@ -5987,7 +6043,7 @@ exports[`Storyshots PickupEdit disabled 1`] = `
       <!---->
     </div>
     <!---->
-    <div class="row justify-end q-gutter-sm q-mt-md">
+    <div class="row justify-end q-gutter-sm q-mt-lg">
       <!----> <button tabindex="-1" type="button" disabled="disabled" class="q-btn inline q-btn-item non-selectable q-btn--standard q-btn--rectangle disabled">
         <div tabindex="-1" class="q-focus-helper"></div>
         <div class="q-btn__content text-center col items-center q-anchor--skip justify-center row">
@@ -6053,7 +6109,7 @@ exports[`Storyshots PickupEdit error 1`] = `
           <div tabindex="-1" class="q-field__control relative-position row no-wrap">
             <div class="q-field__control-container col relative-position row no-wrap q-anchor--skip"><input tabindex="0" aria-label="Max Slots" placeholder="unlimited" id="qf_80008000-8000-8000-8000-800080008000" type="number" value="10" class="q-field__native q-placeholder" style="max-width:100px;">
               <div class="q-field__label no-pointer-events absolute ellipsis">Max Slots</div>
-              <div role="slider" aria-valuemin="1" aria-valuemax="10" aria-valuenow="10" data-step="1" tabindex="0" class="q-slider q-mx-sm self-end q-slider--inactive q-slider--editable q-slider--label" style="min-width:60px;">
+              <div role="slider" aria-valuemin="1" aria-valuemax="10" aria-valuenow="10" data-step="1" tabindex="0" class="q-mx-sm self-end q-slider q-slider--inactive q-slider--editable q-slider--label" style="min-width:60px;">
                 <div class="q-slider__track-container absolute overflow-hidden">
                   <div class="q-slider__track absolute-full" style="width:100%;"></div>
                   <div class="q-slider__track-markers absolute-full fit" style="background-size:11.11111111111111% 2px;"></div>
@@ -6101,7 +6157,7 @@ exports[`Storyshots PickupEdit error 1`] = `
       <!---->
     </div>
     <!---->
-    <div class="row justify-end q-gutter-sm q-mt-md">
+    <div class="row justify-end q-gutter-sm q-mt-lg">
       <!----> <button tabindex="-1" type="button" disabled="disabled" class="q-btn inline q-btn-item non-selectable q-btn--standard q-btn--rectangle disabled">
         <div tabindex="-1" class="q-focus-helper"></div>
         <div class="q-btn__content text-center col items-center q-anchor--skip justify-center row">
@@ -6165,7 +6221,7 @@ exports[`Storyshots PickupEdit pending 1`] = `
           <div tabindex="-1" class="q-field__control relative-position row no-wrap">
             <div class="q-field__control-container col relative-position row no-wrap q-anchor--skip"><input tabindex="0" aria-label="Max Slots" placeholder="unlimited" id="qf_80008000-8000-8000-8000-800080008000" type="number" value="10" class="q-field__native q-placeholder" style="max-width:100px;">
               <div class="q-field__label no-pointer-events absolute ellipsis">Max Slots</div>
-              <div role="slider" aria-valuemin="1" aria-valuemax="10" aria-valuenow="10" data-step="1" tabindex="0" class="q-slider q-mx-sm self-end q-slider--inactive q-slider--editable q-slider--label" style="min-width:60px;">
+              <div role="slider" aria-valuemin="1" aria-valuemax="10" aria-valuenow="10" data-step="1" tabindex="0" class="q-mx-sm self-end q-slider q-slider--inactive q-slider--editable q-slider--label" style="min-width:60px;">
                 <div class="q-slider__track-container absolute overflow-hidden">
                   <div class="q-slider__track absolute-full" style="width:100%;"></div>
                   <div class="q-slider__track-markers absolute-full fit" style="background-size:11.11111111111111% 2px;"></div>
@@ -6213,7 +6269,7 @@ exports[`Storyshots PickupEdit pending 1`] = `
       <!---->
     </div>
     <!---->
-    <div class="row justify-end q-gutter-sm q-mt-md">
+    <div class="row justify-end q-gutter-sm q-mt-lg">
       <!----> <button tabindex="-1" type="button" disabled="disabled" class="q-btn inline q-btn-item non-selectable q-btn--standard q-btn--rectangle disabled">
         <div tabindex="-1" class="q-focus-helper"></div>
         <div class="q-btn__content text-center col items-center q-anchor--skip justify-center row">
@@ -6279,7 +6335,7 @@ exports[`Storyshots PickupEdit series changed 1`] = `
           <div tabindex="-1" class="q-field__control relative-position row no-wrap">
             <div class="q-field__control-container col relative-position row no-wrap q-anchor--skip"><input tabindex="0" aria-label="Max Slots" placeholder="unlimited" id="qf_80008000-8000-8000-8000-800080008000" type="number" value="10" class="q-field__native q-placeholder" style="max-width:100px;">
               <div class="q-field__label no-pointer-events absolute ellipsis">Max Slots</div>
-              <div role="slider" aria-valuemin="1" aria-valuemax="10" aria-valuenow="10" data-step="1" tabindex="0" class="q-slider q-mx-sm self-end q-slider--inactive q-slider--editable q-slider--label" style="min-width:60px;">
+              <div role="slider" aria-valuemin="1" aria-valuemax="10" aria-valuenow="10" data-step="1" tabindex="0" class="q-mx-sm self-end q-slider q-slider--inactive q-slider--editable q-slider--label" style="min-width:60px;">
                 <div class="q-slider__track-container absolute overflow-hidden">
                   <div class="q-slider__track absolute-full" style="width:100%;"></div>
                   <div class="q-slider__track-markers absolute-full fit" style="background-size:11.11111111111111% 2px;"></div>
@@ -6331,7 +6387,7 @@ exports[`Storyshots PickupEdit series changed 1`] = `
       </div>
     </div>
     <!---->
-    <div class="row justify-end q-gutter-sm q-mt-md">
+    <div class="row justify-end q-gutter-sm q-mt-lg">
       <!----> <button tabindex="-1" type="button" disabled="disabled" class="q-btn inline q-btn-item non-selectable q-btn--standard q-btn--rectangle disabled">
         <div tabindex="-1" class="q-focus-helper"></div>
         <div class="q-btn__content text-center col items-center q-anchor--skip justify-center row">
@@ -6405,7 +6461,7 @@ exports[`Storyshots PickupEdit with duration 1`] = `
           <div tabindex="-1" class="q-field__control relative-position row no-wrap">
             <div class="q-field__control-container col relative-position row no-wrap q-anchor--skip"><input tabindex="0" aria-label="Max Slots" placeholder="unlimited" id="qf_80008000-8000-8000-8000-800080008000" type="number" value="10" class="q-field__native q-placeholder" style="max-width:100px;">
               <div class="q-field__label no-pointer-events absolute ellipsis">Max Slots</div>
-              <div role="slider" aria-valuemin="1" aria-valuemax="10" aria-valuenow="10" data-step="1" tabindex="0" class="q-slider q-mx-sm self-end q-slider--inactive q-slider--editable q-slider--label" style="min-width:60px;">
+              <div role="slider" aria-valuemin="1" aria-valuemax="10" aria-valuenow="10" data-step="1" tabindex="0" class="q-mx-sm self-end q-slider q-slider--inactive q-slider--editable q-slider--label" style="min-width:60px;">
                 <div class="q-slider__track-container absolute overflow-hidden">
                   <div class="q-slider__track absolute-full" style="width:100%;"></div>
                   <div class="q-slider__track-markers absolute-full fit" style="background-size:11.11111111111111% 2px;"></div>
@@ -6453,7 +6509,7 @@ exports[`Storyshots PickupEdit with duration 1`] = `
       <!---->
     </div>
     <!---->
-    <div class="row justify-end q-gutter-sm q-mt-md">
+    <div class="row justify-end q-gutter-sm q-mt-lg">
       <!----> <button tabindex="-1" type="button" disabled="disabled" class="q-btn inline q-btn-item non-selectable q-btn--standard q-btn--rectangle disabled">
         <div tabindex="-1" class="q-focus-helper"></div>
         <div class="q-btn__content text-center col items-center q-anchor--skip justify-center row">
@@ -7027,7 +7083,7 @@ exports[`Storyshots PickupSeriesEdit custom rule 1`] = `
         <div tabindex="-1" class="q-field__control relative-position row no-wrap">
           <div class="q-field__control-container col relative-position row no-wrap q-anchor--skip"><input tabindex="0" aria-label="Max Slots" placeholder="unlimited" id="qf_80008000-8000-8000-8000-800080008000" type="number" value="10" class="q-field__native q-placeholder" style="max-width:100px;">
             <div class="q-field__label no-pointer-events absolute ellipsis">Max Slots</div>
-            <div role="slider" aria-valuemin="1" aria-valuemax="10" aria-valuenow="10" data-step="1" tabindex="0" class="q-slider q-mx-sm self-end q-slider--inactive q-slider--editable q-slider--label" style="min-width:60px;">
+            <div role="slider" aria-valuemin="1" aria-valuemax="10" aria-valuenow="10" data-step="1" tabindex="0" class="q-mx-sm self-end q-slider q-slider--inactive q-slider--editable q-slider--label" style="min-width:60px;">
               <div class="q-slider__track-container absolute overflow-hidden">
                 <div class="q-slider__track absolute-full" style="width:100%;"></div>
                 <div class="q-slider__track-markers absolute-full fit" style="background-size:11.11111111111111% 2px;"></div>
@@ -7068,7 +7124,7 @@ exports[`Storyshots PickupSeriesEdit custom rule 1`] = `
       </div>
     </label>
     <!---->
-    <div class="row justify-end q-gutter-sm q-mt-md">
+    <div class="row justify-end q-gutter-sm q-mt-lg">
       <!----> <button tabindex="-1" type="button" disabled="disabled" class="q-btn inline q-btn-item non-selectable q-btn--standard q-btn--rectangle disabled">
         <div tabindex="-1" class="q-focus-helper"></div>
         <div class="q-btn__content text-center col items-center q-anchor--skip justify-center row">
@@ -7185,7 +7241,7 @@ exports[`Storyshots PickupSeriesEdit custom rule with duration 1`] = `
         <div tabindex="-1" class="q-field__control relative-position row no-wrap">
           <div class="q-field__control-container col relative-position row no-wrap q-anchor--skip"><input tabindex="0" aria-label="Max Slots" placeholder="unlimited" id="qf_80008000-8000-8000-8000-800080008000" type="number" value="10" class="q-field__native q-placeholder" style="max-width:100px;">
             <div class="q-field__label no-pointer-events absolute ellipsis">Max Slots</div>
-            <div role="slider" aria-valuemin="1" aria-valuemax="10" aria-valuenow="10" data-step="1" tabindex="0" class="q-slider q-mx-sm self-end q-slider--inactive q-slider--editable q-slider--label" style="min-width:60px;">
+            <div role="slider" aria-valuemin="1" aria-valuemax="10" aria-valuenow="10" data-step="1" tabindex="0" class="q-mx-sm self-end q-slider q-slider--inactive q-slider--editable q-slider--label" style="min-width:60px;">
               <div class="q-slider__track-container absolute overflow-hidden">
                 <div class="q-slider__track absolute-full" style="width:100%;"></div>
                 <div class="q-slider__track-markers absolute-full fit" style="background-size:11.11111111111111% 2px;"></div>
@@ -7226,7 +7282,7 @@ exports[`Storyshots PickupSeriesEdit custom rule with duration 1`] = `
       </div>
     </label>
     <!---->
-    <div class="row justify-end q-gutter-sm q-mt-md">
+    <div class="row justify-end q-gutter-sm q-mt-lg">
       <!----> <button tabindex="-1" type="button" disabled="disabled" class="q-btn inline q-btn-item non-selectable q-btn--standard q-btn--rectangle disabled">
         <div tabindex="-1" class="q-focus-helper"></div>
         <div class="q-btn__content text-center col items-center q-anchor--skip justify-center row">
@@ -7341,7 +7397,7 @@ exports[`Storyshots PickupSeriesEdit duration 1`] = `
         <div tabindex="-1" class="q-field__control relative-position row no-wrap">
           <div class="q-field__control-container col relative-position row no-wrap q-anchor--skip"><input tabindex="0" aria-label="Max Slots" placeholder="unlimited" id="qf_80008000-8000-8000-8000-800080008000" type="number" value="10" class="q-field__native q-placeholder" style="max-width:100px;">
             <div class="q-field__label no-pointer-events absolute ellipsis">Max Slots</div>
-            <div role="slider" aria-valuemin="1" aria-valuemax="10" aria-valuenow="10" data-step="1" tabindex="0" class="q-slider q-mx-sm self-end q-slider--inactive q-slider--editable q-slider--label" style="min-width:60px;">
+            <div role="slider" aria-valuemin="1" aria-valuemax="10" aria-valuenow="10" data-step="1" tabindex="0" class="q-mx-sm self-end q-slider q-slider--inactive q-slider--editable q-slider--label" style="min-width:60px;">
               <div class="q-slider__track-container absolute overflow-hidden">
                 <div class="q-slider__track absolute-full" style="width:100%;"></div>
                 <div class="q-slider__track-markers absolute-full fit" style="background-size:11.11111111111111% 2px;"></div>
@@ -7382,7 +7438,7 @@ exports[`Storyshots PickupSeriesEdit duration 1`] = `
       </div>
     </label>
     <!---->
-    <div class="row justify-end q-gutter-sm q-mt-md">
+    <div class="row justify-end q-gutter-sm q-mt-lg">
       <!----> <button tabindex="-1" type="button" disabled="disabled" class="q-btn inline q-btn-item non-selectable q-btn--standard q-btn--rectangle disabled">
         <div tabindex="-1" class="q-focus-helper"></div>
         <div class="q-btn__content text-center col items-center q-anchor--skip justify-center row">
@@ -7488,7 +7544,7 @@ exports[`Storyshots PickupSeriesEdit time error 1`] = `
         <div tabindex="-1" class="q-field__control relative-position row no-wrap">
           <div class="q-field__control-container col relative-position row no-wrap q-anchor--skip"><input tabindex="0" aria-label="Max Slots" placeholder="unlimited" id="qf_80008000-8000-8000-8000-800080008000" type="number" value="10" class="q-field__native q-placeholder" style="max-width:100px;">
             <div class="q-field__label no-pointer-events absolute ellipsis">Max Slots</div>
-            <div role="slider" aria-valuemin="1" aria-valuemax="10" aria-valuenow="10" data-step="1" tabindex="0" class="q-slider q-mx-sm self-end q-slider--inactive q-slider--editable q-slider--label" style="min-width:60px;">
+            <div role="slider" aria-valuemin="1" aria-valuemax="10" aria-valuenow="10" data-step="1" tabindex="0" class="q-mx-sm self-end q-slider q-slider--inactive q-slider--editable q-slider--label" style="min-width:60px;">
               <div class="q-slider__track-container absolute overflow-hidden">
                 <div class="q-slider__track absolute-full" style="width:100%;"></div>
                 <div class="q-slider__track-markers absolute-full fit" style="background-size:11.11111111111111% 2px;"></div>
@@ -7529,7 +7585,7 @@ exports[`Storyshots PickupSeriesEdit time error 1`] = `
       </div>
     </label>
     <!---->
-    <div class="row justify-end q-gutter-sm q-mt-md">
+    <div class="row justify-end q-gutter-sm q-mt-lg">
       <!----> <button tabindex="-1" type="button" disabled="disabled" class="q-btn inline q-btn-item non-selectable q-btn--standard q-btn--rectangle disabled">
         <div tabindex="-1" class="q-focus-helper"></div>
         <div class="q-btn__content text-center col items-center q-anchor--skip justify-center row">
@@ -7634,7 +7690,7 @@ exports[`Storyshots PickupSeriesEdit weekly 1`] = `
         <div tabindex="-1" class="q-field__control relative-position row no-wrap">
           <div class="q-field__control-container col relative-position row no-wrap q-anchor--skip"><input tabindex="0" aria-label="Max Slots" placeholder="unlimited" id="qf_80008000-8000-8000-8000-800080008000" type="number" value="10" class="q-field__native q-placeholder" style="max-width:100px;">
             <div class="q-field__label no-pointer-events absolute ellipsis">Max Slots</div>
-            <div role="slider" aria-valuemin="1" aria-valuemax="10" aria-valuenow="10" data-step="1" tabindex="0" class="q-slider q-mx-sm self-end q-slider--inactive q-slider--editable q-slider--label" style="min-width:60px;">
+            <div role="slider" aria-valuemin="1" aria-valuemax="10" aria-valuenow="10" data-step="1" tabindex="0" class="q-mx-sm self-end q-slider q-slider--inactive q-slider--editable q-slider--label" style="min-width:60px;">
               <div class="q-slider__track-container absolute overflow-hidden">
                 <div class="q-slider__track absolute-full" style="width:100%;"></div>
                 <div class="q-slider__track-markers absolute-full fit" style="background-size:11.11111111111111% 2px;"></div>
@@ -7675,7 +7731,7 @@ exports[`Storyshots PickupSeriesEdit weekly 1`] = `
       </div>
     </label>
     <!---->
-    <div class="row justify-end q-gutter-sm q-mt-md">
+    <div class="row justify-end q-gutter-sm q-mt-lg">
       <!----> <button tabindex="-1" type="button" disabled="disabled" class="q-btn inline q-btn-item non-selectable q-btn--standard q-btn--rectangle disabled">
         <div tabindex="-1" class="q-focus-helper"></div>
         <div class="q-btn__content text-center col items-center q-anchor--skip justify-center row">
@@ -8199,7 +8255,7 @@ exports[`Storyshots Places PlaceEdit (with server error) 1`] = `
               <div tabindex="-1" class="q-field__control relative-position row no-wrap">
                 <div class="q-field__control-container col relative-position row no-wrap q-anchor--skip">
                   <div class="q-field__native row">
-                    <div role="slider" aria-valuemin="1" aria-valuemax="10" aria-valuenow="4" data-step="1" tabindex="0" class="q-slider q-mt-lg q-mx-md q-slider--inactive q-slider--editable q-slider--label q-slider--label-always">
+                    <div role="slider" aria-valuemin="1" aria-valuemax="10" aria-valuenow="4" data-step="1" tabindex="0" class="q-mt-lg q-mx-md q-slider q-slider--inactive q-slider--editable q-slider--label q-slider--label-always">
                       <div class="q-slider__track-container absolute overflow-hidden">
                         <div class="q-slider__track absolute-full" style="width:33.33333333333333%;"></div>
                         <div class="q-slider__track-markers absolute-full fit" style="background-size:11.11111111111111% 2px;"></div>
@@ -8328,7 +8384,7 @@ exports[`Storyshots Places PlaceEdit 1`] = `
               <div tabindex="-1" class="q-field__control relative-position row no-wrap">
                 <div class="q-field__control-container col relative-position row no-wrap q-anchor--skip">
                   <div class="q-field__native row">
-                    <div role="slider" aria-valuemin="1" aria-valuemax="10" aria-valuenow="4" data-step="1" tabindex="0" class="q-slider q-mt-lg q-mx-md q-slider--inactive q-slider--editable q-slider--label q-slider--label-always">
+                    <div role="slider" aria-valuemin="1" aria-valuemax="10" aria-valuenow="4" data-step="1" tabindex="0" class="q-mt-lg q-mx-md q-slider q-slider--inactive q-slider--editable q-slider--label q-slider--label-always">
                       <div class="q-slider__track-container absolute overflow-hidden">
                         <div class="q-slider__track absolute-full" style="width:33.33333333333333%;"></div>
                         <div class="q-slider__track-markers absolute-full fit" style="background-size:11.11111111111111% 2px;"></div>
@@ -9604,7 +9660,7 @@ exports[`Storyshots Statistics AmountPicker 1`] = `
       </button>
     </div>
     <div class="row no-wrap">
-      <div role="slider" aria-valuemin="0" aria-valuemax="70" aria-valuenow="1" data-step="0.5" tabindex="0" class="q-slider self-center q-mx-md q-slider--inactive q-slider--editable q-slider--label">
+      <div role="slider" aria-valuemin="0" aria-valuemax="70" aria-valuenow="1" data-step="0.5" tabindex="0" class="self-center q-mx-md q-slider q-slider--inactive q-slider--editable q-slider--label">
         <div class="q-slider__track-container absolute overflow-hidden">
           <div class="q-slider__track absolute-full" style="width:1.4285714285714286%;"></div>
         </div>
@@ -9871,7 +9927,7 @@ exports[`Storyshots Statistics PickupFeedback 1`] = `
               <!---->
             </div>
             <div class="row no-wrap">
-              <div role="slider" aria-valuemin="0" aria-valuemax="70" aria-valuenow="0" data-step="0.5" tabindex="0" class="q-slider self-center q-mx-md q-slider--inactive q-slider--editable q-slider--label">
+              <div role="slider" aria-valuemin="0" aria-valuemax="70" aria-valuenow="0" data-step="0.5" tabindex="0" class="self-center q-mx-md q-slider q-slider--inactive q-slider--editable q-slider--label">
                 <div class="q-slider__track-container absolute overflow-hidden">
                   <div class="q-slider__track absolute-full" style="width:0%;"></div>
                 </div>
@@ -10806,7 +10862,7 @@ exports[`Storyshots WallConversation WallConversation 1`] = `
   <div class="q-infinite-scroll">
     <div class="bg-white desktop-margin relative-position q-pb-md q-list q-list--bordered"><button tabindex="0" type="button" title="How do you want to receive notifications about new messages in this conversation/thread?" class="q-btn inline q-btn-item non-selectable actionButton q-btn--standard q-btn--round bg-grey-8 text-white q-focusable q-hoverable">
         <div tabindex="-1" class="q-focus-helper"></div>
-        <div class="q-btn__content text-center col items-center q-anchor--skip justify-center row"><i aria-hidden="true" class="fas fa-fw fa-bell-slash q-icon"> </i>
+        <div class="q-btn__content text-center col items-center q-anchor--skip justify-center row"><i aria-hidden="true" class="fas fa-fw fa-bell-slash q-icon" style="font-size:1.4em;"> </i>
           <!---->
         </div>
       </button>
@@ -11141,7 +11197,7 @@ exports[`Storyshots WallConversation WallConversation 1`] = `
     </div>
     <div class="content">
       <div class="markdown">
-        <p>oh let me try something <img class="emoji" draggable="false" alt="😃" src="https://twemoji.maxcdn.com/v/12.1.2/72x72/1f603.png" /></p>
+        <p>oh let me try something <img class="emoji" draggable="false" alt="😃" src="https://twemoji.maxcdn.com/v/12.1.3/72x72/1f603.png" /></p>
       </div>
     </div>
     <!----> <span class="conversation-reactions" style="display:block;"><span class="reactions"><button tabindex="0" type="button" title="Mira Bellenbaum reacted with :thumbsup:" class="q-btn inline q-btn-item non-selectable row no-wrap items-center reaction-box q-btn--flat q-btn--rectangle q-focusable q-hoverable"><div tabindex="-1" class="q-focus-helper"></div><div class="q-btn__content text-center col items-center q-anchor--skip justify-center row"><div class="emoji"></div> <span class="reactions-number">1</span>

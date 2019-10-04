@@ -27,6 +27,7 @@
           slim
           :placeholder="messagePrompt"
           :is-participant="conversation.isParticipant"
+          class="q-pb-md"
           @submit="sendMessage"
         />
         <QItem

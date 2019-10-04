@@ -30,7 +30,7 @@
         >
           <template v-slot:append>
             <QBtn
-              v-if="message"
+              v-if="message && !isPending"
               round
               dense
               flat
@@ -38,7 +38,7 @@
               @click="submit"
             />
             <QBtn
-              v-if="value"
+              v-if="value && !isPending"
               round
               dense
               flat

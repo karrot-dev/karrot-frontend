@@ -8,7 +8,7 @@
         <SplashInput
           v-model="user.displayName"
           icon="fas fa-user"
-          autofocus
+          :autofocus="!$q.platform.has.touch"
           :label="$t('USERDATA.USERNAME')"
           :error="hasDisplayNameError"
           :error-message="displayNameError"

@@ -9,6 +9,7 @@
   >
     <QIcon
       :name="selected.icon"
+      size="1.4em"
     />
     <QMenu>
       <QList>

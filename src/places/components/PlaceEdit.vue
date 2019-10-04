@@ -14,7 +14,7 @@
             :label="$t('STOREEDIT.NAME')"
             :error="hasNameError"
             :error-message="nameError"
-            autofocus
+            :autofocus="!$q.platform.has.touch"
             autocomplete="off"
             @blur="$v.edit.name.$touch"
           >

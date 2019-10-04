@@ -36,6 +36,7 @@
             v-for="(result, idx) in results"
             :key="idx"
             v-close-popup
+            :to="result.value"
             clickable
           >
             <QItemSection

@@ -89,6 +89,10 @@ export default {
     overflow-x auto
     overflow-wrap normal
   blockquote
+    margin-left 0
+    padding-left 8px
+    border-left 3px solid grey
+    margin-top 0.5rem
     margin-bottom 0.5rem
     p:last-child
       margin-bottom 0rem

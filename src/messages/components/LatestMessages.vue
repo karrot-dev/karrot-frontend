@@ -3,6 +3,7 @@
     <QTabs
       v-model="selected"
       class="k-message-tabs"
+      align="left"
     >
       <Component
         :is="asPage ? 'QRouteTab' : 'QTab'"

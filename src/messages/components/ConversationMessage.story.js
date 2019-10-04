@@ -40,10 +40,23 @@ storiesOf('ConversationMessage', module)
       },
     }),
   }))
-  .add('with replies', () => defaults({
+  .add('with unread replies', () => defaults({
     render: h => h(ConversationMessage, {
       props: {
         message: thread,
+      },
+    }),
+  }))
+  .add('with replies', () => defaults({
+    render: h => h(ConversationMessage, {
+      props: {
+        message: {
+          ...thread,
+          threadMeta: {
+            ...thread.threadMeta,
+            unreadReplyCount: 0,
+          },
+        },
       },
     }),
   }))

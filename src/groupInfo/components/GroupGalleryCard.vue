@@ -20,12 +20,11 @@
         {{ $t('APPLICATION.GALLERY_TOOLTIP') }}
       </QTooltip>
       <div
-        class="photo text-white relative-position"
+        class="photo text-white relative-position row justify-center"
       >
         <img
           v-if="group.hasPhoto"
           :src="group.photoUrls.fullSize"
-          basic
         >
         <RandomArt
           v-else

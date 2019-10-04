@@ -2,7 +2,7 @@
   <div v-if="group">
     <QCard class="shadow-6">
       <div
-        class="photo text-white relative-position"
+        class="photo text-white relative-position row justify-center"
         :class="{ hasPhoto: group.hasPhoto }"
       >
         <img
@@ -207,7 +207,7 @@ export default {
   overflow: hidden
 .photo
   &.hasPhoto
-    height 200px
+    height 350px
   &:not(.hasPhoto)
     height 140px
   img

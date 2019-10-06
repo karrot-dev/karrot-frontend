@@ -27,6 +27,7 @@ export default {
 <style lang="stylus" scoped>
 .k-notifications
   max-width 600px
+  width 100%
   margin-left auto
   margin-right auto
 </style>

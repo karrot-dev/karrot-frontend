@@ -22,7 +22,9 @@
       v-if="!$q.platform.is.mobile"
       v-model="showing"
       no-parent-event
-      class="k-notifications-popover"
+      content-style="width: 500px"
+      anchor="bottom middle"
+      self="top middle"
     >
       <Notifications
         as-popover
@@ -66,7 +68,7 @@ export default {
     }),
     maybeOpen () {
       if (!this.$q.platform.is.mobile) {
-        this.showing = true
+        this.showing = !this.showing
         this.markSeen()
       }
       this.$emit('click')
@@ -77,8 +79,6 @@ export default {
 
 <style lang="stylus" scoped>
 @import '~variables'
-.k-notifications-popover
-  width 400px
 .q-icon:not(.hasUnseen)
   opacity $topbar-opacity-low
 .q-btn:hover .q-icon

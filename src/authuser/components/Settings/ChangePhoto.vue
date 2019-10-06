@@ -183,7 +183,7 @@ export default {
     },
     onResize ({ width: availableWidth }) {
       const resolutionWidth = 600
-      const desiredWith = Math.min(availableWidth, 300)
+      const desiredWith = Math.max(Math.min(availableWidth, 300), 50)
       this.quality = resolutionWidth / desiredWith
       this.$nextTick(() => {
         this.size = desiredWith

@@ -22,7 +22,9 @@
       v-if="!$q.platform.is.mobile"
       v-model="showing"
       no-parent-event
-      class="k-latest-messages-popover"
+      content-style="width: 500px"
+      anchor="bottom middle"
+      self="top middle"
     >
       <LatestMessages />
     </QMenu>
@@ -63,7 +65,7 @@ export default {
   methods: {
     maybeOpen () {
       if (!this.$q.platform.is.mobile) {
-        this.showing = true
+        this.showing = !this.showing
       }
       this.$emit('click')
     },
@@ -73,8 +75,6 @@ export default {
 
 <style lang="stylus" scoped>
 @import '~variables'
-.k-latest-messages-popover
-  width 400px
 .q-icon:not(.hasUnread)
   opacity $topbar-opacity-low
 .q-btn:hover .q-icon

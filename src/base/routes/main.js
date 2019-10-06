@@ -482,7 +482,10 @@ export default [
       beforeEnter: ['auth/getFailedEmailDeliveries', 'currentGroup/selectFromCurrentUser'],
       afterLeave: ['auth/clearSettingsStatus', 'unsubscribe/clear'],
     },
-    component: Settings,
+    components: {
+      default: Settings,
+      sidenav: Sidenav,
+    },
   },
   {
     name: 'user',

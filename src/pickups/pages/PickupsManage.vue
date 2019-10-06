@@ -29,7 +29,6 @@
       </QItem>
       <KSpinner v-show="fetchPickupSeriesStatus.pending" />
       <QList
-        class="pickups"
         separator
       >
         <QExpansionItem
@@ -38,7 +37,6 @@
           :label="seriesLabel(series)"
           :sublabel="seriesSublabel(series)"
           icon="fas fa-calendar-alt"
-          sparse
           @show="makeVisible('series', series.id)"
         >
           <QItem v-if="visible.series[series.id]">
@@ -60,6 +58,7 @@
             <QExpansionItem
               v-for="pickup in series.pickups"
               :key="pickup.id"
+              dense
               @show="makeVisible('pickup', pickup.id)"
             >
               <template v-slot:header>
@@ -72,7 +71,6 @@
                 <QItemSection>
                   <QItemLabel
                     :tag="pickup.isDisabled ? 's' : 'div'"
-                    header
                     :title="pickup.isDisabled ? $t('PICKUPLIST.PICKUP_DISABLED') : null"
                   >
                     {{ $d(pickup.date, 'yearMonthDay') }}
@@ -166,7 +164,6 @@
         <QExpansionItem
           v-for="pickup in oneTimePickups"
           :key="pickup.id"
-          sparse
           @show="makeVisible('pickup', pickup.id)"
         >
           <template v-slot:header>
@@ -362,8 +359,6 @@ export default {
 
 <style scoped lang="stylus">
 @import '~variables'
-.pickups
-  background-color white
 button.selected
   background-color $grey-4
 

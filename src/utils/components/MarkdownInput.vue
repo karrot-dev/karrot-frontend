@@ -1,20 +1,23 @@
 <template>
-  <QInput
-    ref="input"
-    v-bind="$attrs"
-    :value="value"
-    type="textarea"
-    :input-style="$attrs['input-style'] || 'min-height: 100px'"
-    :autogrow="$attrs.autogrow || true"
-    bottom-slots
-    hide-hint
-    v-on="$listeners"
-  >
-    <template v-slot:before>
-      <QIcon :name="icon" />
-    </template>
-    <template v-slot:hint>
-      <div class="row justify-between">
+  <div class="relative-position q-mb-sm">
+    <QInput
+      ref="input"
+      v-bind="$attrs"
+      :value="value"
+      type="textarea"
+      :input-style="$attrs['input-style'] || 'min-height: 100px'"
+      autogrow
+      bottom-slots
+      hide-hint
+      v-on="$listeners"
+    >
+      <template
+        v-if="icon"
+        v-slot:before
+      >
+        <QIcon :name="icon" />
+      </template>
+      <template v-slot:hint>
         <div
           class="row markdown-helper"
         >
@@ -31,50 +34,52 @@
             <QIcon name="fas fa-question-circle" />
           </a>
         </div>
-        <QBtn
-          v-if="value"
-          :label="$t('BUTTON.PREVIEW')"
-          size="xs"
-          color="primary"
-          outline
-          @click="show = true"
-        >
-          <QDialog v-model="show">
-            <QCard class="markdown-input-preview-card">
-              <QCardSection>
-                <div class="text-h6">
-                  {{ $t('BUTTON.PREVIEW') }}
-                </div>
-              </QCardSection>
-              <QCardSection>
-                <Markdown
-                  v-if="value"
-                  :source="value"
-                />
-              </QCardSection>
-              <QCardActions align="right">
-                <QBtn
-                  v-close-popup
-                  flat
-                  :label="$t('BUTTON.CLOSE')"
-                  color="primary"
-                />
-              </QCardActions>
-            </QCard>
-          </QDialog>
-        </QBtn>
-      </div>
-    </template>
-    <template
-      v-for="(_, slot) of $scopedSlots"
-      v-slot:[slot]="scope"
+      </template>
+      <template
+        v-for="(_, slot) of $scopedSlots"
+        v-slot:[slot]="scope"
+      >
+        <slot
+          :name="slot"
+          v-bind="scope"
+        />
+      </template>
+    </QInput>
+    <QBtn
+      v-if="value"
+      :label="$t('BUTTON.PREVIEW')"
+      size="xs"
+      color="primary"
+      outline
+      class="absolute-bottom-right bg-white"
+      style="bottom: -10px"
+      @click="show = true"
     >
-      <slot
-        :name="slot"
-        v-bind="scope"
-      />
-    </template>
-  </QInput>
+      <QDialog v-model="show">
+        <QCard class="markdown-input-preview-card">
+          <QCardSection>
+            <div class="text-h6">
+              {{ $t('BUTTON.PREVIEW') }}
+            </div>
+          </QCardSection>
+          <QCardSection>
+            <Markdown
+              v-if="value"
+              :source="value"
+            />
+          </QCardSection>
+          <QCardActions align="right">
+            <QBtn
+              v-close-popup
+              flat
+              :label="$t('BUTTON.CLOSE')"
+              color="primary"
+            />
+          </QCardActions>
+        </QCard>
+      </QDialog>
+    </QBtn>
+  </div>
 </template>
 
 <script>

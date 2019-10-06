@@ -34,17 +34,19 @@ exports[`Storyshots Applications ApplicationForm 1`] = `
             <p>Why do <strong>you</strong> want to join our group?</p>
           </div>
         </div>
-      </div> <label for="qf_80008000-8000-8000-8000-800080008000" class="q-field row no-wrap items-start q-textarea q-textarea--autogrow q-field--standard q-field--with-bottom">
-        <div class="q-field__before q-field__marginal row no-wrap items-center"><i aria-hidden="true"></i></div>
-        <div class="q-field__inner relative-position col self-stretch column justify-center">
-          <div tabindex="-1" class="q-field__control relative-position row no-wrap">
-            <div class="q-field__control-container col relative-position row no-wrap q-anchor--skip"><textarea tabindex="0" rows="1" id="qf_80008000-8000-8000-8000-800080008000" type="textarea" class="q-field__native q-placeholder" style="min-height:100px;"></textarea></div>
+      </div>
+      <div class="relative-position q-mb-sm"><label for="qf_80008000-8000-8000-8000-800080008000" class="q-field row no-wrap items-start q-textarea q-textarea--autogrow q-field--standard q-field--with-bottom">
+          <div class="q-field__inner relative-position col self-stretch column justify-center">
+            <div tabindex="-1" class="q-field__control relative-position row no-wrap">
+              <div class="q-field__control-container col relative-position row no-wrap q-anchor--skip"><textarea tabindex="0" rows="1" id="qf_80008000-8000-8000-8000-800080008000" type="textarea" class="q-field__native q-placeholder" style="min-height:100px;"></textarea></div>
+            </div>
+            <div class="q-field__bottom row items-start q-field__bottom--animated">
+              <div class="q-field__messages col"></div>
+            </div>
           </div>
-          <div class="q-field__bottom row items-start q-field__bottom--animated">
-            <div class="q-field__messages col"></div>
-          </div>
-        </div>
-      </label>
+        </label>
+        <!---->
+      </div>
       <!---->
     </div>
     <div class="row justify-end q-gutter-sm q-mt-sm"><button tabindex="0" type="button" class="q-btn inline q-btn-item non-selectable q-btn--standard q-btn--rectangle bg-primary text-white q-focusable q-hoverable">
@@ -176,7 +178,7 @@ exports[`Storyshots ChangePhoto empty 1`] = `
               <div class="slots" style="width:0;height:0;visibility:hidden;"> <img src="statics/add_a_photo.svg"></div> <canvas></canvas>
               <!---->
               <!---->
-            </div>
+            </div> <object tabindex="-1" type="text/html" data="about:blank" aria-hidden="true" style="display:block;position:absolute;top:0;left:0;right:0;bottom:0;height:100%;width:100%;overflow:hidden;pointer-events:none;z-index:-1;"></object>
           </div>
           <div class="q-field__label no-pointer-events absolute ellipsis"></div>
         </div>
@@ -218,7 +220,7 @@ exports[`Storyshots ChangePhoto error 1`] = `
               <div class="slots" style="width:0;height:0;visibility:hidden;"> <img src="statics/add_a_photo.svg"></div> <canvas></canvas>
               <!---->
               <!---->
-            </div>
+            </div> <object tabindex="-1" type="text/html" data="about:blank" aria-hidden="true" style="display:block;position:absolute;top:0;left:0;right:0;bottom:0;height:100%;width:100%;overflow:hidden;pointer-events:none;z-index:-1;"></object>
           </div>
           <div class="q-field__label no-pointer-events absolute ellipsis"></div>
         </div>
@@ -261,7 +263,7 @@ exports[`Storyshots ChangePhoto pending 1`] = `
               <div class="slots" style="width:0;height:0;visibility:hidden;"> <img src="statics/add_a_photo.svg"></div> <canvas></canvas>
               <!---->
               <!---->
-            </div>
+            </div> <object tabindex="-1" type="text/html" data="about:blank" aria-hidden="true" style="display:block;position:absolute;top:0;left:0;right:0;bottom:0;height:100%;width:100%;overflow:hidden;pointer-events:none;z-index:-1;"></object>
           </div>
           <div class="q-field__label no-pointer-events absolute ellipsis"></div>
         </div>
@@ -305,7 +307,7 @@ exports[`Storyshots ChangePhoto with photo 1`] = `
               <div class="slots" style="width:0;height:0;visibility:hidden;"> <img src="statics/add_a_photo.svg"></div> <canvas></canvas>
               <!---->
               <!---->
-            </div>
+            </div> <object tabindex="-1" type="text/html" data="about:blank" aria-hidden="true" style="display:block;position:absolute;top:0;left:0;right:0;bottom:0;height:100%;width:100%;overflow:hidden;pointer-events:none;z-index:-1;"></object>
           </div>
           <div class="q-field__label no-pointer-events absolute ellipsis">Label</div>
         </div>
@@ -355,7 +357,7 @@ exports[`Storyshots ChatConversation closed 1`] = `
   <div class="q-infinite-scroll">
     <div class="bg-white q-list">
       <div class="q-item q-item-type row no-wrap conversation-message relative-position slim">
-        <div class="q-btn-group row no-wrap inline hover-button k-message-controls q-btn-group--outline">
+        <div class="q-btn-group row no-wrap inline hover-button k-message-controls bg-white q-btn-group--outline">
           <!---->
           <!----> <button tabindex="0" type="button" class="q-btn inline q-btn-item non-selectable q-btn--outline q-btn--rectangle text-secondary q-focusable q-hoverable">
             <div tabindex="-1" class="q-focus-helper"></div>
@@ -389,7 +391,7 @@ exports[`Storyshots ChatConversation closed 1`] = `
       </div>
     </div>
     <div class="q-item q-item-type row no-wrap conversation-message relative-position slim">
-      <div class="q-btn-group row no-wrap inline hover-button k-message-controls q-btn-group--outline">
+      <div class="q-btn-group row no-wrap inline hover-button k-message-controls bg-white q-btn-group--outline">
         <!---->
         <!----> <button tabindex="0" type="button" class="q-btn inline q-btn-item non-selectable q-btn--outline q-btn--rectangle text-secondary q-focusable q-hoverable">
           <div tabindex="-1" class="q-focus-helper"></div>
@@ -423,7 +425,7 @@ exports[`Storyshots ChatConversation closed 1`] = `
     </div>
   </div>
   <div class="q-item q-item-type row no-wrap conversation-message relative-position slim">
-    <div class="q-btn-group row no-wrap inline hover-button k-message-controls q-btn-group--outline">
+    <div class="q-btn-group row no-wrap inline hover-button k-message-controls bg-white q-btn-group--outline">
       <!---->
       <!----> <button tabindex="0" type="button" class="q-btn inline q-btn-item non-selectable q-btn--outline q-btn--rectangle text-secondary q-focusable q-hoverable">
         <div tabindex="-1" class="q-focus-helper"></div>
@@ -457,7 +459,7 @@ exports[`Storyshots ChatConversation closed 1`] = `
   </div>
 </div>
 <div class="q-item q-item-type row no-wrap conversation-message relative-position slim">
-  <div class="q-btn-group row no-wrap inline hover-button k-message-controls q-btn-group--outline">
+  <div class="q-btn-group row no-wrap inline hover-button k-message-controls bg-white q-btn-group--outline">
     <!---->
     <!----> <button tabindex="0" type="button" class="q-btn inline q-btn-item non-selectable q-btn--outline q-btn--rectangle text-secondary q-focusable q-hoverable">
       <div tabindex="-1" class="q-focus-helper"></div>
@@ -528,7 +530,7 @@ exports[`Storyshots ChatConversation default 1`] = `
   <div class="q-infinite-scroll">
     <div class="bg-white q-list">
       <div class="q-item q-item-type row no-wrap conversation-message relative-position slim">
-        <div class="q-btn-group row no-wrap inline hover-button k-message-controls q-btn-group--outline">
+        <div class="q-btn-group row no-wrap inline hover-button k-message-controls bg-white q-btn-group--outline">
           <!---->
           <!----> <button tabindex="0" type="button" class="q-btn inline q-btn-item non-selectable q-btn--outline q-btn--rectangle text-secondary q-focusable q-hoverable">
             <div tabindex="-1" class="q-focus-helper"></div>
@@ -562,7 +564,7 @@ exports[`Storyshots ChatConversation default 1`] = `
       </div>
     </div>
     <div class="q-item q-item-type row no-wrap conversation-message relative-position slim">
-      <div class="q-btn-group row no-wrap inline hover-button k-message-controls q-btn-group--outline">
+      <div class="q-btn-group row no-wrap inline hover-button k-message-controls bg-white q-btn-group--outline">
         <!---->
         <!----> <button tabindex="0" type="button" class="q-btn inline q-btn-item non-selectable q-btn--outline q-btn--rectangle text-secondary q-focusable q-hoverable">
           <div tabindex="-1" class="q-focus-helper"></div>
@@ -596,7 +598,7 @@ exports[`Storyshots ChatConversation default 1`] = `
     </div>
   </div>
   <div class="q-item q-item-type row no-wrap conversation-message relative-position slim">
-    <div class="q-btn-group row no-wrap inline hover-button k-message-controls q-btn-group--outline">
+    <div class="q-btn-group row no-wrap inline hover-button k-message-controls bg-white q-btn-group--outline">
       <!---->
       <!----> <button tabindex="0" type="button" class="q-btn inline q-btn-item non-selectable q-btn--outline q-btn--rectangle text-secondary q-focusable q-hoverable">
         <div tabindex="-1" class="q-focus-helper"></div>
@@ -630,7 +632,7 @@ exports[`Storyshots ChatConversation default 1`] = `
   </div>
 </div>
 <div class="q-item q-item-type row no-wrap conversation-message relative-position slim">
-  <div class="q-btn-group row no-wrap inline hover-button k-message-controls q-btn-group--outline">
+  <div class="q-btn-group row no-wrap inline hover-button k-message-controls bg-white q-btn-group--outline">
     <!---->
     <!----> <button tabindex="0" type="button" class="q-btn inline q-btn-item non-selectable q-btn--outline q-btn--rectangle text-secondary q-focusable q-hoverable">
       <div tabindex="-1" class="q-focus-helper"></div>
@@ -690,7 +692,7 @@ exports[`Storyshots ChatConversation fetching past 1`] = `
   <div class="q-infinite-scroll">
     <div class="bg-white q-list">
       <div class="q-item q-item-type row no-wrap conversation-message relative-position slim">
-        <div class="q-btn-group row no-wrap inline hover-button k-message-controls q-btn-group--outline">
+        <div class="q-btn-group row no-wrap inline hover-button k-message-controls bg-white q-btn-group--outline">
           <!---->
           <!----> <button tabindex="0" type="button" class="q-btn inline q-btn-item non-selectable q-btn--outline q-btn--rectangle text-secondary q-focusable q-hoverable">
             <div tabindex="-1" class="q-focus-helper"></div>
@@ -724,7 +726,7 @@ exports[`Storyshots ChatConversation fetching past 1`] = `
       </div>
     </div>
     <div class="q-item q-item-type row no-wrap conversation-message relative-position slim">
-      <div class="q-btn-group row no-wrap inline hover-button k-message-controls q-btn-group--outline">
+      <div class="q-btn-group row no-wrap inline hover-button k-message-controls bg-white q-btn-group--outline">
         <!---->
         <!----> <button tabindex="0" type="button" class="q-btn inline q-btn-item non-selectable q-btn--outline q-btn--rectangle text-secondary q-focusable q-hoverable">
           <div tabindex="-1" class="q-focus-helper"></div>
@@ -758,7 +760,7 @@ exports[`Storyshots ChatConversation fetching past 1`] = `
     </div>
   </div>
   <div class="q-item q-item-type row no-wrap conversation-message relative-position slim">
-    <div class="q-btn-group row no-wrap inline hover-button k-message-controls q-btn-group--outline">
+    <div class="q-btn-group row no-wrap inline hover-button k-message-controls bg-white q-btn-group--outline">
       <!---->
       <!----> <button tabindex="0" type="button" class="q-btn inline q-btn-item non-selectable q-btn--outline q-btn--rectangle text-secondary q-focusable q-hoverable">
         <div tabindex="-1" class="q-focus-helper"></div>
@@ -792,7 +794,7 @@ exports[`Storyshots ChatConversation fetching past 1`] = `
   </div>
 </div>
 <div class="q-item q-item-type row no-wrap conversation-message relative-position slim">
-  <div class="q-btn-group row no-wrap inline hover-button k-message-controls q-btn-group--outline">
+  <div class="q-btn-group row no-wrap inline hover-button k-message-controls bg-white q-btn-group--outline">
     <!---->
     <!----> <button tabindex="0" type="button" class="q-btn inline q-btn-item non-selectable q-btn--outline q-btn--rectangle text-secondary q-focusable q-hoverable">
       <div tabindex="-1" class="q-focus-helper"></div>
@@ -852,7 +854,7 @@ exports[`Storyshots ChatConversation not participant 1`] = `
   <div class="q-infinite-scroll">
     <div class="bg-white q-list">
       <div class="q-item q-item-type row no-wrap conversation-message relative-position slim">
-        <div class="q-btn-group row no-wrap inline hover-button k-message-controls q-btn-group--outline">
+        <div class="q-btn-group row no-wrap inline hover-button k-message-controls bg-white q-btn-group--outline">
           <!---->
           <!----> <button tabindex="0" type="button" class="q-btn inline q-btn-item non-selectable q-btn--outline q-btn--rectangle text-secondary q-focusable q-hoverable">
             <div tabindex="-1" class="q-focus-helper"></div>
@@ -886,7 +888,7 @@ exports[`Storyshots ChatConversation not participant 1`] = `
       </div>
     </div>
     <div class="q-item q-item-type row no-wrap conversation-message relative-position slim">
-      <div class="q-btn-group row no-wrap inline hover-button k-message-controls q-btn-group--outline">
+      <div class="q-btn-group row no-wrap inline hover-button k-message-controls bg-white q-btn-group--outline">
         <!---->
         <!----> <button tabindex="0" type="button" class="q-btn inline q-btn-item non-selectable q-btn--outline q-btn--rectangle text-secondary q-focusable q-hoverable">
           <div tabindex="-1" class="q-focus-helper"></div>
@@ -920,7 +922,7 @@ exports[`Storyshots ChatConversation not participant 1`] = `
     </div>
   </div>
   <div class="q-item q-item-type row no-wrap conversation-message relative-position slim">
-    <div class="q-btn-group row no-wrap inline hover-button k-message-controls q-btn-group--outline">
+    <div class="q-btn-group row no-wrap inline hover-button k-message-controls bg-white q-btn-group--outline">
       <!---->
       <!----> <button tabindex="0" type="button" class="q-btn inline q-btn-item non-selectable q-btn--outline q-btn--rectangle text-secondary q-focusable q-hoverable">
         <div tabindex="-1" class="q-focus-helper"></div>
@@ -954,7 +956,7 @@ exports[`Storyshots ChatConversation not participant 1`] = `
   </div>
 </div>
 <div class="q-item q-item-type row no-wrap conversation-message relative-position slim">
-  <div class="q-btn-group row no-wrap inline hover-button k-message-controls q-btn-group--outline">
+  <div class="q-btn-group row no-wrap inline hover-button k-message-controls bg-white q-btn-group--outline">
     <!---->
     <!----> <button tabindex="0" type="button" class="q-btn inline q-btn-item non-selectable q-btn--outline q-btn--rectangle text-secondary q-focusable q-hoverable">
       <div tabindex="-1" class="q-focus-helper"></div>
@@ -1014,7 +1016,7 @@ exports[`Storyshots ChatConversation thread 1`] = `
   <div class="q-infinite-scroll">
     <div class="bg-white q-list">
       <div class="q-item q-item-type row no-wrap conversation-message relative-position slim">
-        <div class="q-btn-group row no-wrap inline hover-button k-message-controls q-btn-group--outline">
+        <div class="q-btn-group row no-wrap inline hover-button k-message-controls bg-white q-btn-group--outline">
           <!---->
           <!----> <button tabindex="0" type="button" class="q-btn inline q-btn-item non-selectable q-btn--outline q-btn--rectangle text-secondary q-focusable q-hoverable">
             <div tabindex="-1" class="q-focus-helper"></div>
@@ -1048,7 +1050,7 @@ exports[`Storyshots ChatConversation thread 1`] = `
       </div>
     </div>
     <div class="q-item q-item-type row no-wrap conversation-message relative-position slim">
-      <div class="q-btn-group row no-wrap inline hover-button k-message-controls q-btn-group--outline">
+      <div class="q-btn-group row no-wrap inline hover-button k-message-controls bg-white q-btn-group--outline">
         <!---->
         <!----> <button tabindex="0" type="button" class="q-btn inline q-btn-item non-selectable q-btn--outline q-btn--rectangle text-secondary q-focusable q-hoverable">
           <div tabindex="-1" class="q-focus-helper"></div>
@@ -1082,7 +1084,7 @@ exports[`Storyshots ChatConversation thread 1`] = `
     </div>
   </div>
   <div class="q-item q-item-type row no-wrap conversation-message relative-position slim">
-    <div class="q-btn-group row no-wrap inline hover-button k-message-controls q-btn-group--outline">
+    <div class="q-btn-group row no-wrap inline hover-button k-message-controls bg-white q-btn-group--outline">
       <!---->
       <!----> <button tabindex="0" type="button" class="q-btn inline q-btn-item non-selectable q-btn--outline q-btn--rectangle text-secondary q-focusable q-hoverable">
         <div tabindex="-1" class="q-focus-helper"></div>
@@ -1214,21 +1216,24 @@ exports[`Storyshots ConversationCompose default 1`] = `
       </a></div>
   </div>
   <div class="q-item__section column q-item__section--main justify-center">
-    <div class="q-item__label"><label for="qf_80008000-8000-8000-8000-800080008000" class="q-field row no-wrap items-start q-textarea q-textarea--autogrow q-field--standard q-field--dense q-field--with-bottom">
-        <div class="q-field__before q-field__marginal row no-wrap items-center"><i aria-hidden="true"></i></div>
-        <div class="q-field__inner relative-position col self-stretch column justify-center">
-          <div tabindex="-1" class="q-field__control relative-position row no-wrap">
-            <div class="q-field__control-container col relative-position row no-wrap q-anchor--skip"><textarea tabindex="0" rows="1" placeholder="Type here" id="qf_80008000-8000-8000-8000-800080008000" type="textarea" class="q-field__native q-placeholder" style="min-height:unset;"></textarea></div>
-            <div class="q-field__append q-field__marginal row no-wrap items-center">
-              <!---->
-              <!---->
+    <div class="q-item__label">
+      <div class="relative-position q-mb-sm"><label for="qf_80008000-8000-8000-8000-800080008000" class="q-field row no-wrap items-start q-textarea q-textarea--autogrow q-field--standard q-field--dense q-field--with-bottom">
+          <div class="q-field__inner relative-position col self-stretch column justify-center">
+            <div tabindex="-1" class="q-field__control relative-position row no-wrap">
+              <div class="q-field__control-container col relative-position row no-wrap q-anchor--skip"><textarea tabindex="0" rows="1" placeholder="Type here" id="qf_80008000-8000-8000-8000-800080008000" type="textarea" class="q-field__native q-placeholder" style="min-height:unset;"></textarea></div>
+              <div class="q-field__append q-field__marginal row no-wrap items-center">
+                <!---->
+                <!---->
+              </div>
+            </div>
+            <div class="q-field__bottom row items-start q-field__bottom--animated">
+              <div class="q-field__messages col"></div>
             </div>
           </div>
-          <div class="q-field__bottom row items-start q-field__bottom--animated">
-            <div class="q-field__messages col"></div>
-          </div>
-        </div>
-      </label></div>
+        </label>
+        <!---->
+      </div>
+    </div>
     <!---->
   </div>
 </div>
@@ -1242,24 +1247,31 @@ exports[`Storyshots ConversationCompose edit 1`] = `
       </a></div>
   </div>
   <div class="q-item__section column q-item__section--main justify-center">
-    <div class="q-item__label"><label for="qf_80008000-8000-8000-8000-800080008000" class="q-field row no-wrap items-start q-textarea q-textarea--autogrow q-field--standard q-field--float q-field--dense q-field--with-bottom">
-        <div class="q-field__before q-field__marginal row no-wrap items-center"><i aria-hidden="true"></i></div>
-        <div class="q-field__inner relative-position col self-stretch column justify-center">
-          <div tabindex="-1" class="q-field__control relative-position row no-wrap">
-            <div class="q-field__control-container col relative-position row no-wrap q-anchor--skip"><textarea tabindex="0" rows="1" placeholder="Type here" id="qf_80008000-8000-8000-8000-800080008000" type="textarea" class="q-field__native q-placeholder" style="min-height:unset;">existing text</textarea></div>
-            <div class="q-field__append q-field__marginal row no-wrap items-center"><button tabindex="0" type="button" class="q-btn inline q-btn-item non-selectable q-btn--flat q-btn--round q-focusable q-hoverable q-btn--dense">
-                <div tabindex="-1" class="q-focus-helper"></div>
-                <div class="q-btn__content text-center col items-center q-anchor--skip justify-center row"><i aria-hidden="true" class="fas fa-arrow-right q-icon"> </i></div>
-              </button> <button tabindex="0" type="button" class="q-btn inline q-btn-item non-selectable q-btn--flat q-btn--round q-focusable q-hoverable q-btn--dense">
-                <div tabindex="-1" class="q-focus-helper"></div>
-                <div class="q-btn__content text-center col items-center q-anchor--skip justify-center row"><i aria-hidden="true" class="fas fa-times q-icon"> </i></div>
-              </button></div>
+    <div class="q-item__label">
+      <div class="relative-position q-mb-sm"><label for="qf_80008000-8000-8000-8000-800080008000" class="q-field row no-wrap items-start q-textarea q-textarea--autogrow q-field--standard q-field--float q-field--dense q-field--with-bottom">
+          <div class="q-field__inner relative-position col self-stretch column justify-center">
+            <div tabindex="-1" class="q-field__control relative-position row no-wrap">
+              <div class="q-field__control-container col relative-position row no-wrap q-anchor--skip"><textarea tabindex="0" rows="1" placeholder="Type here" id="qf_80008000-8000-8000-8000-800080008000" type="textarea" class="q-field__native q-placeholder" style="min-height:unset;">existing text</textarea></div>
+              <div class="q-field__append q-field__marginal row no-wrap items-center"><button tabindex="0" type="button" class="q-btn inline q-btn-item non-selectable q-btn--flat q-btn--round q-focusable q-hoverable q-btn--dense">
+                  <div tabindex="-1" class="q-focus-helper"></div>
+                  <div class="q-btn__content text-center col items-center q-anchor--skip justify-center row"><i aria-hidden="true" class="fas fa-arrow-right q-icon"> </i></div>
+                </button> <button tabindex="0" type="button" class="q-btn inline q-btn-item non-selectable q-btn--flat q-btn--round q-focusable q-hoverable q-btn--dense">
+                  <div tabindex="-1" class="q-focus-helper"></div>
+                  <div class="q-btn__content text-center col items-center q-anchor--skip justify-center row"><i aria-hidden="true" class="fas fa-times q-icon"> </i></div>
+                </button></div>
+            </div>
+            <div class="q-field__bottom row items-start q-field__bottom--animated">
+              <div class="q-field__messages col"></div>
+            </div>
           </div>
-          <div class="q-field__bottom row items-start q-field__bottom--animated">
-            <div class="q-field__messages col"></div>
+        </label> <button tabindex="0" type="button" class="q-btn inline q-btn-item non-selectable absolute-bottom-right bg-white q-btn--outline q-btn--rectangle text-primary q-focusable q-hoverable" style="font-size:8px;bottom:-10px;">
+          <div tabindex="-1" class="q-focus-helper"></div>
+          <div class="q-btn__content text-center col items-center q-anchor--skip justify-center row">
+            <div>Preview</div>
+            <!---->
           </div>
-        </div>
-      </label></div>
+        </button></div>
+    </div>
     <!---->
   </div>
 </div>
@@ -1273,24 +1285,27 @@ exports[`Storyshots ConversationCompose error 1`] = `
       </a></div>
   </div>
   <div class="q-item__section column q-item__section--main justify-center">
-    <div class="q-item__label"><label for="qf_80008000-8000-8000-8000-800080008000" class="q-field row no-wrap items-start q-textarea q-textarea--autogrow q-field--standard q-field--focused q-field--float q-field--dense q-field--with-bottom q-field--error">
-        <div class="q-field__before q-field__marginal row no-wrap items-center"><i aria-hidden="true"></i></div>
-        <div class="q-field__inner relative-position col self-stretch column justify-center">
-          <div tabindex="-1" class="q-field__control relative-position row no-wrap text-negative">
-            <div class="q-field__control-container col relative-position row no-wrap q-anchor--skip"><textarea tabindex="0" rows="1" placeholder="Type here" id="qf_80008000-8000-8000-8000-800080008000" type="textarea" class="q-field__native q-placeholder" style="min-height:unset;"></textarea></div>
-            <div class="q-field__append q-field__marginal row no-wrap items-center">
-              <!---->
-              <!---->
+    <div class="q-item__label">
+      <div class="relative-position q-mb-sm"><label for="qf_80008000-8000-8000-8000-800080008000" class="q-field row no-wrap items-start q-textarea q-textarea--autogrow q-field--standard q-field--focused q-field--float q-field--dense q-field--with-bottom q-field--error">
+          <div class="q-field__inner relative-position col self-stretch column justify-center">
+            <div tabindex="-1" class="q-field__control relative-position row no-wrap text-negative">
+              <div class="q-field__control-container col relative-position row no-wrap q-anchor--skip"><textarea tabindex="0" rows="1" placeholder="Type here" id="qf_80008000-8000-8000-8000-800080008000" type="textarea" class="q-field__native q-placeholder" style="min-height:unset;"></textarea></div>
+              <div class="q-field__append q-field__marginal row no-wrap items-center">
+                <!---->
+                <!---->
+              </div>
+              <div class="q-field__append q-field__marginal row no-wrap items-center q-anchor--skip"><i aria-hidden="true" class="material-icons q-icon text-negative">error</i></div>
             </div>
-            <div class="q-field__append q-field__marginal row no-wrap items-center q-anchor--skip"><i aria-hidden="true" class="material-icons q-icon text-negative">error</i></div>
-          </div>
-          <div class="q-field__bottom row items-start q-field__bottom--animated">
-            <div class="q-field__messages col">
-              <div>too late!</div>
+            <div class="q-field__bottom row items-start q-field__bottom--animated">
+              <div class="q-field__messages col">
+                <div>too late!</div>
+              </div>
             </div>
           </div>
-        </div>
-      </label></div>
+        </label>
+        <!---->
+      </div>
+    </div>
     <!---->
   </div>
 </div>
@@ -1304,21 +1319,24 @@ exports[`Storyshots ConversationCompose not participant 1`] = `
       </a></div>
   </div>
   <div class="q-item__section column q-item__section--main justify-center">
-    <div class="q-item__label"><label for="qf_80008000-8000-8000-8000-800080008000" class="q-field row no-wrap items-start q-textarea q-textarea--autogrow q-field--standard q-field--dense q-field--with-bottom">
-        <div class="q-field__before q-field__marginal row no-wrap items-center"><i aria-hidden="true"></i></div>
-        <div class="q-field__inner relative-position col self-stretch column justify-center">
-          <div tabindex="-1" class="q-field__control relative-position row no-wrap">
-            <div class="q-field__control-container col relative-position row no-wrap q-anchor--skip"><textarea tabindex="0" rows="1" placeholder="Type here" id="qf_80008000-8000-8000-8000-800080008000" type="textarea" class="q-field__native q-placeholder" style="min-height:unset;"></textarea></div>
-            <div class="q-field__append q-field__marginal row no-wrap items-center">
-              <!---->
-              <!---->
+    <div class="q-item__label">
+      <div class="relative-position q-mb-sm"><label for="qf_80008000-8000-8000-8000-800080008000" class="q-field row no-wrap items-start q-textarea q-textarea--autogrow q-field--standard q-field--dense q-field--with-bottom">
+          <div class="q-field__inner relative-position col self-stretch column justify-center">
+            <div tabindex="-1" class="q-field__control relative-position row no-wrap">
+              <div class="q-field__control-container col relative-position row no-wrap q-anchor--skip"><textarea tabindex="0" rows="1" placeholder="Type here" id="qf_80008000-8000-8000-8000-800080008000" type="textarea" class="q-field__native q-placeholder" style="min-height:unset;"></textarea></div>
+              <div class="q-field__append q-field__marginal row no-wrap items-center">
+                <!---->
+                <!---->
+              </div>
+            </div>
+            <div class="q-field__bottom row items-start q-field__bottom--animated">
+              <div class="q-field__messages col"></div>
             </div>
           </div>
-          <div class="q-field__bottom row items-start q-field__bottom--animated">
-            <div class="q-field__messages col"></div>
-          </div>
-        </div>
-      </label></div>
+        </label>
+        <!---->
+      </div>
+    </div>
     <div class="q-item__label q-pt-md q-pl-xs q-item__label--caption text-caption"></div>
   </div>
 </div>
@@ -1332,24 +1350,27 @@ exports[`Storyshots ConversationCompose pending 1`] = `
       </a></div>
   </div>
   <div class="q-item__section column q-item__section--main justify-center">
-    <div class="q-item__label"><label for="qf_80008000-8000-8000-8000-800080008000" class="q-field row no-wrap items-start q-textarea q-textarea--autogrow q-field--standard q-field--dense q-field--with-bottom q-field--disabled">
-        <div class="q-field__before q-field__marginal row no-wrap items-center"><i aria-hidden="true"></i></div>
-        <div class="q-field__inner relative-position col self-stretch column justify-center">
-          <div tabindex="-1" class="q-field__control relative-position row no-wrap">
-            <div class="q-field__control-container col relative-position row no-wrap q-anchor--skip"><textarea tabindex="0" rows="1" placeholder="Type here" id="qf_80008000-8000-8000-8000-800080008000" type="textarea" disabled="disabled" class="q-field__native q-placeholder" style="min-height:unset;"></textarea></div>
-            <div class="q-field__append q-field__marginal row no-wrap items-center">
-              <!---->
-              <!---->
+    <div class="q-item__label">
+      <div class="relative-position q-mb-sm"><label for="qf_80008000-8000-8000-8000-800080008000" class="q-field row no-wrap items-start q-textarea q-textarea--autogrow q-field--standard q-field--dense q-field--with-bottom q-field--disabled">
+          <div class="q-field__inner relative-position col self-stretch column justify-center">
+            <div tabindex="-1" class="q-field__control relative-position row no-wrap">
+              <div class="q-field__control-container col relative-position row no-wrap q-anchor--skip"><textarea tabindex="0" rows="1" placeholder="Type here" id="qf_80008000-8000-8000-8000-800080008000" type="textarea" disabled="disabled" class="q-field__native q-placeholder" style="min-height:unset;"></textarea></div>
+              <div class="q-field__append q-field__marginal row no-wrap items-center">
+                <!---->
+                <!---->
+              </div>
+              <div class="q-field__append q-field__marginal row no-wrap items-center q-anchor--skip"><svg width="1em" height="1em" viewBox="25 25 50 50" class="q-spinner q-spinner-mat">
+                  <circle cx="50" cy="50" r="20" fill="none" stroke="currentColor" stroke-width="5" stroke-miterlimit="10" class="path"></circle>
+                </svg></div>
             </div>
-            <div class="q-field__append q-field__marginal row no-wrap items-center q-anchor--skip"><svg width="1em" height="1em" viewBox="25 25 50 50" class="q-spinner q-spinner-mat">
-                <circle cx="50" cy="50" r="20" fill="none" stroke="currentColor" stroke-width="5" stroke-miterlimit="10" class="path"></circle>
-              </svg></div>
+            <div class="q-field__bottom row items-start q-field__bottom--animated">
+              <div class="q-field__messages col"></div>
+            </div>
           </div>
-          <div class="q-field__bottom row items-start q-field__bottom--animated">
-            <div class="q-field__messages col"></div>
-          </div>
-        </div>
-      </label></div>
+        </label>
+        <!---->
+      </div>
+    </div>
     <!---->
   </div>
 </div>
@@ -1359,21 +1380,24 @@ exports[`Storyshots ConversationCompose slim 1`] = `
 <div class="q-item q-item-type row no-wrap">
   <!---->
   <div class="q-item__section column q-item__section--main justify-center">
-    <div class="q-item__label"><label for="qf_80008000-8000-8000-8000-800080008000" class="q-field row no-wrap items-start q-textarea q-textarea--autogrow q-field--standard q-field--dense q-field--with-bottom">
-        <div class="q-field__before q-field__marginal row no-wrap items-center"><i aria-hidden="true"></i></div>
-        <div class="q-field__inner relative-position col self-stretch column justify-center">
-          <div tabindex="-1" class="q-field__control relative-position row no-wrap">
-            <div class="q-field__control-container col relative-position row no-wrap q-anchor--skip"><textarea tabindex="0" rows="1" placeholder="Type here" id="qf_80008000-8000-8000-8000-800080008000" type="textarea" class="q-field__native q-placeholder" style="min-height:unset;"></textarea></div>
-            <div class="q-field__append q-field__marginal row no-wrap items-center">
-              <!---->
-              <!---->
+    <div class="q-item__label">
+      <div class="relative-position q-mb-sm"><label for="qf_80008000-8000-8000-8000-800080008000" class="q-field row no-wrap items-start q-textarea q-textarea--autogrow q-field--standard q-field--dense q-field--with-bottom">
+          <div class="q-field__inner relative-position col self-stretch column justify-center">
+            <div tabindex="-1" class="q-field__control relative-position row no-wrap">
+              <div class="q-field__control-container col relative-position row no-wrap q-anchor--skip"><textarea tabindex="0" rows="1" placeholder="Type here" id="qf_80008000-8000-8000-8000-800080008000" type="textarea" class="q-field__native q-placeholder" style="min-height:unset;"></textarea></div>
+              <div class="q-field__append q-field__marginal row no-wrap items-center">
+                <!---->
+                <!---->
+              </div>
+            </div>
+            <div class="q-field__bottom row items-start q-field__bottom--animated">
+              <div class="q-field__messages col"></div>
             </div>
           </div>
-          <div class="q-field__bottom row items-start q-field__bottom--animated">
-            <div class="q-field__messages col"></div>
-          </div>
-        </div>
-      </label></div>
+        </label>
+        <!---->
+      </div>
+    </div>
     <!---->
   </div>
 </div>
@@ -1381,7 +1405,7 @@ exports[`Storyshots ConversationCompose slim 1`] = `
 
 exports[`Storyshots ConversationMessage default 1`] = `
 <div class="q-item q-item-type row no-wrap conversation-message relative-position">
-  <div class="q-btn-group row no-wrap inline hover-button k-message-controls q-btn-group--outline"><button tabindex="0" type="button" title="Edit" class="q-btn inline q-btn-item non-selectable q-btn--outline q-btn--rectangle text-secondary q-focusable q-hoverable">
+  <div class="q-btn-group row no-wrap inline hover-button k-message-controls bg-white q-btn-group--outline"><button tabindex="0" type="button" title="Edit" class="q-btn inline q-btn-item non-selectable q-btn--outline q-btn--rectangle text-secondary q-focusable q-hoverable">
       <div tabindex="-1" class="q-focus-helper"></div>
       <div class="q-btn__content text-center col items-center q-anchor--skip justify-center row"><i class="fas fa-pencil-alt"></i></div>
     </button> <button tabindex="0" type="button" title="Replies" class="q-btn inline q-btn-item non-selectable q-btn--outline q-btn--rectangle text-secondary q-focusable q-hoverable">
@@ -1426,7 +1450,7 @@ exports[`Storyshots ConversationMessage default 1`] = `
 
 exports[`Storyshots ConversationMessage edited 1`] = `
 <div class="q-item q-item-type row no-wrap conversation-message relative-position">
-  <div class="q-btn-group row no-wrap inline hover-button k-message-controls q-btn-group--outline"><button tabindex="0" type="button" title="Edit" class="q-btn inline q-btn-item non-selectable q-btn--outline q-btn--rectangle text-secondary q-focusable q-hoverable">
+  <div class="q-btn-group row no-wrap inline hover-button k-message-controls bg-white q-btn-group--outline"><button tabindex="0" type="button" title="Edit" class="q-btn inline q-btn-item non-selectable q-btn--outline q-btn--rectangle text-secondary q-focusable q-hoverable">
       <div tabindex="-1" class="q-focus-helper"></div>
       <div class="q-btn__content text-center col items-center q-anchor--skip justify-center row"><i class="fas fa-pencil-alt"></i></div>
     </button> <button tabindex="0" type="button" title="Replies" class="q-btn inline q-btn-item non-selectable q-btn--outline q-btn--rectangle text-secondary q-focusable q-hoverable">
@@ -1477,7 +1501,7 @@ exports[`Storyshots ConversationMessage edited 1`] = `
 
 exports[`Storyshots ConversationMessage slim 1`] = `
 <div class="q-item q-item-type row no-wrap conversation-message relative-position slim">
-  <div class="q-btn-group row no-wrap inline hover-button k-message-controls q-btn-group--outline"><button tabindex="0" type="button" title="Edit" class="q-btn inline q-btn-item non-selectable q-btn--outline q-btn--rectangle text-secondary q-focusable q-hoverable">
+  <div class="q-btn-group row no-wrap inline hover-button k-message-controls bg-white q-btn-group--outline"><button tabindex="0" type="button" title="Edit" class="q-btn inline q-btn-item non-selectable q-btn--outline q-btn--rectangle text-secondary q-focusable q-hoverable">
       <div tabindex="-1" class="q-focus-helper"></div>
       <div class="q-btn__content text-center col items-center q-anchor--skip justify-center row"><i class="fas fa-pencil-alt"></i></div>
     </button>
@@ -1516,7 +1540,7 @@ exports[`Storyshots ConversationMessage slim 1`] = `
 
 exports[`Storyshots ConversationMessage via email 1`] = `
 <div class="q-item q-item-type row no-wrap conversation-message relative-position">
-  <div class="q-btn-group row no-wrap inline hover-button k-message-controls q-btn-group--outline"><button tabindex="0" type="button" title="Edit" class="q-btn inline q-btn-item non-selectable q-btn--outline q-btn--rectangle text-secondary q-focusable q-hoverable">
+  <div class="q-btn-group row no-wrap inline hover-button k-message-controls bg-white q-btn-group--outline"><button tabindex="0" type="button" title="Edit" class="q-btn inline q-btn-item non-selectable q-btn--outline q-btn--rectangle text-secondary q-focusable q-hoverable">
       <div tabindex="-1" class="q-focus-helper"></div>
       <div class="q-btn__content text-center col items-center q-anchor--skip justify-center row"><i class="fas fa-pencil-alt"></i></div>
     </button> <button tabindex="0" type="button" title="Replies" class="q-btn inline q-btn-item non-selectable q-btn--outline q-btn--rectangle text-secondary q-focusable q-hoverable">
@@ -1559,7 +1583,7 @@ exports[`Storyshots ConversationMessage via email 1`] = `
 
 exports[`Storyshots ConversationMessage with replies 1`] = `
 <div class="q-item q-item-type row no-wrap conversation-message relative-position">
-  <div class="q-btn-group row no-wrap inline hover-button k-message-controls q-btn-group--outline">
+  <div class="q-btn-group row no-wrap inline hover-button k-message-controls bg-white q-btn-group--outline">
     <!----> <button tabindex="0" type="button" title="Replies" class="q-btn inline q-btn-item non-selectable q-btn--outline q-btn--rectangle text-secondary q-focusable q-hoverable">
       <div tabindex="-1" class="q-focus-helper"></div>
       <div class="q-btn__content text-center col items-center q-anchor--skip justify-center row"><i class="fas fa-comments"></i></div>
@@ -1615,7 +1639,7 @@ exports[`Storyshots ConversationMessage with replies 1`] = `
 
 exports[`Storyshots ConversationMessage with unread replies 1`] = `
 <div class="q-item q-item-type row no-wrap conversation-message relative-position">
-  <div class="q-btn-group row no-wrap inline hover-button k-message-controls q-btn-group--outline">
+  <div class="q-btn-group row no-wrap inline hover-button k-message-controls bg-white q-btn-group--outline">
     <!----> <button tabindex="0" type="button" title="Replies" class="q-btn inline q-btn-item non-selectable q-btn--outline q-btn--rectangle text-secondary q-focusable q-hoverable">
       <div tabindex="-1" class="q-focus-helper"></div>
       <div class="q-btn__content text-center col items-center q-anchor--skip justify-center row"><i class="fas fa-comments"></i></div>
@@ -1758,7 +1782,7 @@ exports[`Storyshots Detail application 1`] = `
       <div class="q-infinite-scroll">
         <div class="bg-white q-list">
           <div class="q-item q-item-type row no-wrap conversation-message relative-position slim">
-            <div class="q-btn-group row no-wrap inline hover-button k-message-controls q-btn-group--outline">
+            <div class="q-btn-group row no-wrap inline hover-button k-message-controls bg-white q-btn-group--outline">
               <!---->
               <!----> <button tabindex="0" type="button" class="q-btn inline q-btn-item non-selectable q-btn--outline q-btn--rectangle text-secondary q-focusable q-hoverable">
                 <div tabindex="-1" class="q-focus-helper"></div>
@@ -1792,7 +1816,7 @@ exports[`Storyshots Detail application 1`] = `
           </div>
         </div>
         <div class="q-item q-item-type row no-wrap conversation-message relative-position slim">
-          <div class="q-btn-group row no-wrap inline hover-button k-message-controls q-btn-group--outline">
+          <div class="q-btn-group row no-wrap inline hover-button k-message-controls bg-white q-btn-group--outline">
             <!---->
             <!----> <button tabindex="0" type="button" class="q-btn inline q-btn-item non-selectable q-btn--outline q-btn--rectangle text-secondary q-focusable q-hoverable">
               <div tabindex="-1" class="q-focus-helper"></div>
@@ -1826,7 +1850,7 @@ exports[`Storyshots Detail application 1`] = `
         </div>
       </div>
       <div class="q-item q-item-type row no-wrap conversation-message relative-position slim">
-        <div class="q-btn-group row no-wrap inline hover-button k-message-controls q-btn-group--outline">
+        <div class="q-btn-group row no-wrap inline hover-button k-message-controls bg-white q-btn-group--outline">
           <!---->
           <!----> <button tabindex="0" type="button" class="q-btn inline q-btn-item non-selectable q-btn--outline q-btn--rectangle text-secondary q-focusable q-hoverable">
             <div tabindex="-1" class="q-focus-helper"></div>
@@ -1860,7 +1884,7 @@ exports[`Storyshots Detail application 1`] = `
       </div>
     </div>
     <div class="q-item q-item-type row no-wrap conversation-message relative-position slim">
-      <div class="q-btn-group row no-wrap inline hover-button k-message-controls q-btn-group--outline">
+      <div class="q-btn-group row no-wrap inline hover-button k-message-controls bg-white q-btn-group--outline">
         <!---->
         <!----> <button tabindex="0" type="button" class="q-btn inline q-btn-item non-selectable q-btn--outline q-btn--rectangle text-secondary q-focusable q-hoverable">
           <div tabindex="-1" class="q-focus-helper"></div>
@@ -1896,21 +1920,24 @@ exports[`Storyshots Detail application 1`] = `
   <div class="q-item q-item-type row no-wrap q-pb-md">
     <!---->
     <div class="q-item__section column q-item__section--main justify-center">
-      <div class="q-item__label"><label for="qf_80008000-8000-8000-8000-800080008000" class="q-field row no-wrap items-start q-textarea q-textarea--autogrow q-field--standard q-field--dense q-field--with-bottom">
-          <div class="q-field__before q-field__marginal row no-wrap items-center"><i aria-hidden="true"></i></div>
-          <div class="q-field__inner relative-position col self-stretch column justify-center">
-            <div tabindex="-1" class="q-field__control relative-position row no-wrap">
-              <div class="q-field__control-container col relative-position row no-wrap q-anchor--skip"><textarea tabindex="0" rows="1" placeholder="Write a message..." id="qf_80008000-8000-8000-8000-800080008000" type="textarea" class="q-field__native q-placeholder" style="min-height:unset;"></textarea></div>
-              <div class="q-field__append q-field__marginal row no-wrap items-center">
-                <!---->
-                <!---->
+      <div class="q-item__label">
+        <div class="relative-position q-mb-sm"><label for="qf_80008000-8000-8000-8000-800080008000" class="q-field row no-wrap items-start q-textarea q-textarea--autogrow q-field--standard q-field--dense q-field--with-bottom">
+            <div class="q-field__inner relative-position col self-stretch column justify-center">
+              <div tabindex="-1" class="q-field__control relative-position row no-wrap">
+                <div class="q-field__control-container col relative-position row no-wrap q-anchor--skip"><textarea tabindex="0" rows="1" placeholder="Write a message..." id="qf_80008000-8000-8000-8000-800080008000" type="textarea" class="q-field__native q-placeholder" style="min-height:unset;"></textarea></div>
+                <div class="q-field__append q-field__marginal row no-wrap items-center">
+                  <!---->
+                  <!---->
+                </div>
+              </div>
+              <div class="q-field__bottom row items-start q-field__bottom--animated">
+                <div class="q-field__messages col"></div>
               </div>
             </div>
-            <div class="q-field__bottom row items-start q-field__bottom--animated">
-              <div class="q-field__messages col"></div>
-            </div>
-          </div>
-        </label></div>
+          </label>
+          <!---->
+        </div>
+      </div>
       <!---->
     </div>
   </div>
@@ -1982,7 +2009,7 @@ exports[`Storyshots Detail pickup 1`] = `
       <div class="q-infinite-scroll">
         <div class="bg-white q-list">
           <div class="q-item q-item-type row no-wrap conversation-message relative-position slim">
-            <div class="q-btn-group row no-wrap inline hover-button k-message-controls q-btn-group--outline">
+            <div class="q-btn-group row no-wrap inline hover-button k-message-controls bg-white q-btn-group--outline">
               <!---->
               <!----> <button tabindex="0" type="button" class="q-btn inline q-btn-item non-selectable q-btn--outline q-btn--rectangle text-secondary q-focusable q-hoverable">
                 <div tabindex="-1" class="q-focus-helper"></div>
@@ -2016,7 +2043,7 @@ exports[`Storyshots Detail pickup 1`] = `
           </div>
         </div>
         <div class="q-item q-item-type row no-wrap conversation-message relative-position slim">
-          <div class="q-btn-group row no-wrap inline hover-button k-message-controls q-btn-group--outline">
+          <div class="q-btn-group row no-wrap inline hover-button k-message-controls bg-white q-btn-group--outline">
             <!---->
             <!----> <button tabindex="0" type="button" class="q-btn inline q-btn-item non-selectable q-btn--outline q-btn--rectangle text-secondary q-focusable q-hoverable">
               <div tabindex="-1" class="q-focus-helper"></div>
@@ -2050,7 +2077,7 @@ exports[`Storyshots Detail pickup 1`] = `
         </div>
       </div>
       <div class="q-item q-item-type row no-wrap conversation-message relative-position slim">
-        <div class="q-btn-group row no-wrap inline hover-button k-message-controls q-btn-group--outline">
+        <div class="q-btn-group row no-wrap inline hover-button k-message-controls bg-white q-btn-group--outline">
           <!---->
           <!----> <button tabindex="0" type="button" class="q-btn inline q-btn-item non-selectable q-btn--outline q-btn--rectangle text-secondary q-focusable q-hoverable">
             <div tabindex="-1" class="q-focus-helper"></div>
@@ -2084,7 +2111,7 @@ exports[`Storyshots Detail pickup 1`] = `
       </div>
     </div>
     <div class="q-item q-item-type row no-wrap conversation-message relative-position slim">
-      <div class="q-btn-group row no-wrap inline hover-button k-message-controls q-btn-group--outline">
+      <div class="q-btn-group row no-wrap inline hover-button k-message-controls bg-white q-btn-group--outline">
         <!---->
         <!----> <button tabindex="0" type="button" class="q-btn inline q-btn-item non-selectable q-btn--outline q-btn--rectangle text-secondary q-focusable q-hoverable">
           <div tabindex="-1" class="q-focus-helper"></div>
@@ -2120,21 +2147,24 @@ exports[`Storyshots Detail pickup 1`] = `
   <div class="q-item q-item-type row no-wrap q-pb-md">
     <!---->
     <div class="q-item__section column q-item__section--main justify-center">
-      <div class="q-item__label"><label for="qf_80008000-8000-8000-8000-800080008000" class="q-field row no-wrap items-start q-textarea q-textarea--autogrow q-field--standard q-field--dense q-field--with-bottom">
-          <div class="q-field__before q-field__marginal row no-wrap items-center"><i aria-hidden="true"></i></div>
-          <div class="q-field__inner relative-position col self-stretch column justify-center">
-            <div tabindex="-1" class="q-field__control relative-position row no-wrap">
-              <div class="q-field__control-container col relative-position row no-wrap q-anchor--skip"><textarea tabindex="0" rows="1" placeholder="Write a message..." id="qf_80008000-8000-8000-8000-800080008000" type="textarea" class="q-field__native q-placeholder" style="min-height:unset;"></textarea></div>
-              <div class="q-field__append q-field__marginal row no-wrap items-center">
-                <!---->
-                <!---->
+      <div class="q-item__label">
+        <div class="relative-position q-mb-sm"><label for="qf_80008000-8000-8000-8000-800080008000" class="q-field row no-wrap items-start q-textarea q-textarea--autogrow q-field--standard q-field--dense q-field--with-bottom">
+            <div class="q-field__inner relative-position col self-stretch column justify-center">
+              <div tabindex="-1" class="q-field__control relative-position row no-wrap">
+                <div class="q-field__control-container col relative-position row no-wrap q-anchor--skip"><textarea tabindex="0" rows="1" placeholder="Write a message..." id="qf_80008000-8000-8000-8000-800080008000" type="textarea" class="q-field__native q-placeholder" style="min-height:unset;"></textarea></div>
+                <div class="q-field__append q-field__marginal row no-wrap items-center">
+                  <!---->
+                  <!---->
+                </div>
+              </div>
+              <div class="q-field__bottom row items-start q-field__bottom--animated">
+                <div class="q-field__messages col"></div>
               </div>
             </div>
-            <div class="q-field__bottom row items-start q-field__bottom--animated">
-              <div class="q-field__messages col"></div>
-            </div>
-          </div>
-        </label></div>
+          </label>
+          <!---->
+        </div>
+      </div>
       <!---->
     </div>
   </div>
@@ -2208,7 +2238,7 @@ exports[`Storyshots Detail private 1`] = `
       <div class="q-infinite-scroll">
         <div class="bg-white q-list">
           <div class="q-item q-item-type row no-wrap conversation-message relative-position slim">
-            <div class="q-btn-group row no-wrap inline hover-button k-message-controls q-btn-group--outline">
+            <div class="q-btn-group row no-wrap inline hover-button k-message-controls bg-white q-btn-group--outline">
               <!---->
               <!----> <button tabindex="0" type="button" class="q-btn inline q-btn-item non-selectable q-btn--outline q-btn--rectangle text-secondary q-focusable q-hoverable">
                 <div tabindex="-1" class="q-focus-helper"></div>
@@ -2242,7 +2272,7 @@ exports[`Storyshots Detail private 1`] = `
           </div>
         </div>
         <div class="q-item q-item-type row no-wrap conversation-message relative-position slim">
-          <div class="q-btn-group row no-wrap inline hover-button k-message-controls q-btn-group--outline">
+          <div class="q-btn-group row no-wrap inline hover-button k-message-controls bg-white q-btn-group--outline">
             <!---->
             <!----> <button tabindex="0" type="button" class="q-btn inline q-btn-item non-selectable q-btn--outline q-btn--rectangle text-secondary q-focusable q-hoverable">
               <div tabindex="-1" class="q-focus-helper"></div>
@@ -2276,7 +2306,7 @@ exports[`Storyshots Detail private 1`] = `
         </div>
       </div>
       <div class="q-item q-item-type row no-wrap conversation-message relative-position slim">
-        <div class="q-btn-group row no-wrap inline hover-button k-message-controls q-btn-group--outline">
+        <div class="q-btn-group row no-wrap inline hover-button k-message-controls bg-white q-btn-group--outline">
           <!---->
           <!----> <button tabindex="0" type="button" class="q-btn inline q-btn-item non-selectable q-btn--outline q-btn--rectangle text-secondary q-focusable q-hoverable">
             <div tabindex="-1" class="q-focus-helper"></div>
@@ -2310,7 +2340,7 @@ exports[`Storyshots Detail private 1`] = `
       </div>
     </div>
     <div class="q-item q-item-type row no-wrap conversation-message relative-position slim">
-      <div class="q-btn-group row no-wrap inline hover-button k-message-controls q-btn-group--outline">
+      <div class="q-btn-group row no-wrap inline hover-button k-message-controls bg-white q-btn-group--outline">
         <!---->
         <!----> <button tabindex="0" type="button" class="q-btn inline q-btn-item non-selectable q-btn--outline q-btn--rectangle text-secondary q-focusable q-hoverable">
           <div tabindex="-1" class="q-focus-helper"></div>
@@ -2346,21 +2376,24 @@ exports[`Storyshots Detail private 1`] = `
   <div class="q-item q-item-type row no-wrap q-pb-md">
     <!---->
     <div class="q-item__section column q-item__section--main justify-center">
-      <div class="q-item__label"><label for="qf_80008000-8000-8000-8000-800080008000" class="q-field row no-wrap items-start q-textarea q-textarea--autogrow q-field--standard q-field--dense q-field--with-bottom">
-          <div class="q-field__before q-field__marginal row no-wrap items-center"><i aria-hidden="true"></i></div>
-          <div class="q-field__inner relative-position col self-stretch column justify-center">
-            <div tabindex="-1" class="q-field__control relative-position row no-wrap">
-              <div class="q-field__control-container col relative-position row no-wrap q-anchor--skip"><textarea tabindex="0" rows="1" placeholder="Write a message..." id="qf_80008000-8000-8000-8000-800080008000" type="textarea" class="q-field__native q-placeholder" style="min-height:unset;"></textarea></div>
-              <div class="q-field__append q-field__marginal row no-wrap items-center">
-                <!---->
-                <!---->
+      <div class="q-item__label">
+        <div class="relative-position q-mb-sm"><label for="qf_80008000-8000-8000-8000-800080008000" class="q-field row no-wrap items-start q-textarea q-textarea--autogrow q-field--standard q-field--dense q-field--with-bottom">
+            <div class="q-field__inner relative-position col self-stretch column justify-center">
+              <div tabindex="-1" class="q-field__control relative-position row no-wrap">
+                <div class="q-field__control-container col relative-position row no-wrap q-anchor--skip"><textarea tabindex="0" rows="1" placeholder="Write a message..." id="qf_80008000-8000-8000-8000-800080008000" type="textarea" class="q-field__native q-placeholder" style="min-height:unset;"></textarea></div>
+                <div class="q-field__append q-field__marginal row no-wrap items-center">
+                  <!---->
+                  <!---->
+                </div>
+              </div>
+              <div class="q-field__bottom row items-start q-field__bottom--animated">
+                <div class="q-field__messages col"></div>
               </div>
             </div>
-            <div class="q-field__bottom row items-start q-field__bottom--animated">
-              <div class="q-field__messages col"></div>
-            </div>
-          </div>
-        </label></div>
+          </label>
+          <!---->
+        </div>
+      </div>
       <!---->
     </div>
   </div>
@@ -2386,7 +2419,7 @@ exports[`Storyshots GroupEdit create 1`] = `
                   <div class="slots" style="width:0;height:0;visibility:hidden;"> <img src="statics/add_a_photo.svg"></div> <canvas></canvas>
                   <!---->
                   <!---->
-                </div>
+                </div> <object tabindex="-1" type="text/html" data="about:blank" aria-hidden="true" style="display:block;position:absolute;top:0;left:0;right:0;bottom:0;height:100%;width:100%;overflow:hidden;pointer-events:none;z-index:-1;"></object>
               </div>
               <div class="q-field__label no-pointer-events absolute ellipsis">Group logo</div>
             </div>
@@ -2428,47 +2461,60 @@ exports[`Storyshots GroupEdit create 1`] = `
               <div class="q-field__messages col"></div>
             </div>
           </div>
-        </label> <label for="qf_80008000-8000-8000-8000-800080008000" class="q-field row no-wrap items-start q-textarea q-textarea--autogrow q-field--standard q-field--float q-field--labeled q-field--with-bottom">
-          <div class="q-field__before q-field__marginal row no-wrap items-center"><i aria-hidden="true" class="fas fa-fw fa-question q-icon"> </i></div>
-          <div class="q-field__inner relative-position col self-stretch column justify-center">
-            <div tabindex="-1" class="q-field__control relative-position row no-wrap">
-              <div class="q-field__control-container col relative-position row no-wrap q-anchor--skip"><textarea tabindex="0" rows="1" aria-label="Public group information" id="qf_80008000-8000-8000-8000-800080008000" type="textarea" class="q-field__native q-placeholder" style="min-height:100px;">This is the public description
+        </label>
+        <div class="relative-position q-mb-sm"><label for="qf_80008000-8000-8000-8000-800080008000" class="q-field row no-wrap items-start q-textarea q-textarea--autogrow q-field--standard q-field--float q-field--labeled q-field--with-bottom">
+            <div class="q-field__before q-field__marginal row no-wrap items-center"><i aria-hidden="true" class="fas fa-fw fa-question q-icon"> </i></div>
+            <div class="q-field__inner relative-position col self-stretch column justify-center">
+              <div tabindex="-1" class="q-field__control relative-position row no-wrap">
+                <div class="q-field__control-container col relative-position row no-wrap q-anchor--skip"><textarea tabindex="0" rows="1" aria-label="Public group information" id="qf_80008000-8000-8000-8000-800080008000" type="textarea" class="q-field__native q-placeholder" style="min-height:100px;">This is the public description
 It would make sense if it was markdown
 
 # then this would be a header
 [and this a link](www.google.de)</textarea>
-                <div class="q-field__label no-pointer-events absolute ellipsis">Public group information</div>
+                  <div class="q-field__label no-pointer-events absolute ellipsis">Public group information</div>
+                </div>
+              </div>
+              <div class="q-field__bottom row items-start q-field__bottom--animated">
+                <div class="q-field__messages col"></div>
               </div>
             </div>
-            <div class="q-field__bottom row items-start q-field__bottom--animated">
-              <div class="q-field__messages col"></div>
+          </label> <button tabindex="0" type="button" class="q-btn inline q-btn-item non-selectable absolute-bottom-right bg-white q-btn--outline q-btn--rectangle text-primary q-focusable q-hoverable" style="font-size:8px;bottom:-10px;">
+            <div tabindex="-1" class="q-focus-helper"></div>
+            <div class="q-btn__content text-center col items-center q-anchor--skip justify-center row">
+              <div>Preview</div>
+              <!---->
             </div>
-          </div>
-        </label> <label for="qf_80008000-8000-8000-8000-800080008000" class="q-field row no-wrap items-start q-textarea q-textarea--autogrow q-field--standard q-field--labeled q-field--with-bottom">
-          <div class="q-field__before q-field__marginal row no-wrap items-center"><i aria-hidden="true" class="fas fa-fw fa-address-card q-icon"> </i></div>
-          <div class="q-field__inner relative-position col self-stretch column justify-center">
-            <div tabindex="-1" class="q-field__control relative-position row no-wrap">
-              <div class="q-field__control-container col relative-position row no-wrap q-anchor--skip"><textarea tabindex="0" rows="1" aria-label="Group description, visible for members" id="qf_80008000-8000-8000-8000-800080008000" type="textarea" class="q-field__native q-placeholder" style="min-height:100px;"></textarea>
-                <div class="q-field__label no-pointer-events absolute ellipsis">Group description, visible for members</div>
+          </button></div>
+        <div class="relative-position q-mb-sm"><label for="qf_80008000-8000-8000-8000-800080008000" class="q-field row no-wrap items-start q-textarea q-textarea--autogrow q-field--standard q-field--labeled q-field--with-bottom">
+            <div class="q-field__before q-field__marginal row no-wrap items-center"><i aria-hidden="true" class="fas fa-fw fa-address-card q-icon"> </i></div>
+            <div class="q-field__inner relative-position col self-stretch column justify-center">
+              <div tabindex="-1" class="q-field__control relative-position row no-wrap">
+                <div class="q-field__control-container col relative-position row no-wrap q-anchor--skip"><textarea tabindex="0" rows="1" aria-label="Group description, visible for members" id="qf_80008000-8000-8000-8000-800080008000" type="textarea" class="q-field__native q-placeholder" style="min-height:100px;"></textarea>
+                  <div class="q-field__label no-pointer-events absolute ellipsis">Group description, visible for members</div>
+                </div>
+              </div>
+              <div class="q-field__bottom row items-start q-field__bottom--animated">
+                <div class="q-field__messages col"></div>
               </div>
             </div>
-            <div class="q-field__bottom row items-start q-field__bottom--animated">
-              <div class="q-field__messages col"></div>
-            </div>
-          </div>
-        </label> <label for="qf_80008000-8000-8000-8000-800080008000" class="q-field row no-wrap items-start q-textarea q-textarea--autogrow q-field--standard q-field--labeled q-field--with-bottom">
-          <div class="q-field__before q-field__marginal row no-wrap items-center"><i aria-hidden="true" class="fas fa-fw fa-address-card q-icon"> </i></div>
-          <div class="q-field__inner relative-position col self-stretch column justify-center">
-            <div tabindex="-1" class="q-field__control relative-position row no-wrap">
-              <div class="q-field__control-container col relative-position row no-wrap q-anchor--skip"><textarea tabindex="0" rows="1" aria-label="Welcome message sent to new members" id="qf_80008000-8000-8000-8000-800080008000" type="textarea" class="q-field__native q-placeholder" style="min-height:100px;"></textarea>
-                <div class="q-field__label no-pointer-events absolute ellipsis">Welcome message sent to new members</div>
+          </label>
+          <!---->
+        </div>
+        <div class="relative-position q-mb-sm"><label for="qf_80008000-8000-8000-8000-800080008000" class="q-field row no-wrap items-start q-textarea q-textarea--autogrow q-field--standard q-field--labeled q-field--with-bottom">
+            <div class="q-field__before q-field__marginal row no-wrap items-center"><i aria-hidden="true" class="fas fa-fw fa-address-card q-icon"> </i></div>
+            <div class="q-field__inner relative-position col self-stretch column justify-center">
+              <div tabindex="-1" class="q-field__control relative-position row no-wrap">
+                <div class="q-field__control-container col relative-position row no-wrap q-anchor--skip"><textarea tabindex="0" rows="1" aria-label="Welcome message sent to new members" id="qf_80008000-8000-8000-8000-800080008000" type="textarea" class="q-field__native q-placeholder" style="min-height:100px;"></textarea>
+                  <div class="q-field__label no-pointer-events absolute ellipsis">Welcome message sent to new members</div>
+                </div>
+              </div>
+              <div class="q-field__bottom row items-start q-field__bottom--animated">
+                <div class="q-field__messages col"></div>
               </div>
             </div>
-            <div class="q-field__bottom row items-start q-field__bottom--animated">
-              <div class="q-field__messages col"></div>
-            </div>
-          </div>
-        </label>
+          </label>
+          <!---->
+        </div>
         <div><label for="qf_80008000-8000-8000-8000-800080008000" class="q-field row no-wrap items-start q-input q-field--standard q-field--float q-field--labeled q-field--with-bottom">
             <div class="q-field__before q-field__marginal row no-wrap items-center"><i aria-hidden="true" class="fas fa-fw fa-map-marker q-icon"> </i></div>
             <div class="q-field__inner relative-position col self-stretch column justify-center">
@@ -2491,19 +2537,26 @@ It would make sense if it was markdown
           <div class="vue2leaflet-map k-map map">
             <!---->
           </div>
-        </div> <label for="qf_80008000-8000-8000-8000-800080008000" class="q-field row no-wrap items-start q-textarea q-textarea--autogrow q-field--standard q-field--float q-field--labeled q-field--with-bottom">
-          <div class="q-field__before q-field__marginal row no-wrap items-center"><i aria-hidden="true" class="fas fa-fw fa-question q-icon"> </i></div>
-          <div class="q-field__inner relative-position col self-stretch column justify-center">
-            <div tabindex="-1" class="q-field__control relative-position row no-wrap">
-              <div class="q-field__control-container col relative-position row no-wrap q-anchor--skip"><textarea tabindex="0" rows="1" aria-label="Questions for people who want to join this group" id="qf_80008000-8000-8000-8000-800080008000" type="textarea" class="q-field__native q-placeholder" style="min-height:100px;">Hello stranger! :smiley: :wave: Do you want to help us save all the good food from being wasted? Please tell us how you plan to contribute and who or what made you aware of our existence! Looking forward to working with you!</textarea>
-                <div class="q-field__label no-pointer-events absolute ellipsis">Questions for people who want to join this group</div>
+        </div>
+        <div class="relative-position q-mb-sm"><label for="qf_80008000-8000-8000-8000-800080008000" class="q-field row no-wrap items-start q-textarea q-textarea--autogrow q-field--standard q-field--float q-field--labeled q-field--with-bottom">
+            <div class="q-field__before q-field__marginal row no-wrap items-center"><i aria-hidden="true" class="fas fa-fw fa-question q-icon"> </i></div>
+            <div class="q-field__inner relative-position col self-stretch column justify-center">
+              <div tabindex="-1" class="q-field__control relative-position row no-wrap">
+                <div class="q-field__control-container col relative-position row no-wrap q-anchor--skip"><textarea tabindex="0" rows="1" aria-label="Questions for people who want to join this group" id="qf_80008000-8000-8000-8000-800080008000" type="textarea" class="q-field__native q-placeholder" style="min-height:100px;">Hello stranger! :smiley: :wave: Do you want to help us save all the good food from being wasted? Please tell us how you plan to contribute and who or what made you aware of our existence! Looking forward to working with you!</textarea>
+                  <div class="q-field__label no-pointer-events absolute ellipsis">Questions for people who want to join this group</div>
+                </div>
+              </div>
+              <div class="q-field__bottom row items-start q-field__bottom--animated">
+                <div class="q-field__messages col"></div>
               </div>
             </div>
-            <div class="q-field__bottom row items-start q-field__bottom--animated">
-              <div class="q-field__messages col"></div>
+          </label> <button tabindex="0" type="button" class="q-btn inline q-btn-item non-selectable absolute-bottom-right bg-white q-btn--outline q-btn--rectangle text-primary q-focusable q-hoverable" style="font-size:8px;bottom:-10px;">
+            <div tabindex="-1" class="q-focus-helper"></div>
+            <div class="q-btn__content text-center col items-center q-anchor--skip justify-center row">
+              <div>Preview</div>
+              <!---->
             </div>
-          </div>
-        </label> <label for="qf_80008000-8000-8000-8000-800080008000" class="q-field row no-wrap items-start q-select q-field--auto-height q-select--with-input q-field--standard q-field--labeled q-field--with-bottom">
+          </button></div> <label for="qf_80008000-8000-8000-8000-800080008000" class="q-field row no-wrap items-start q-select q-field--auto-height q-select--with-input q-field--standard q-field--labeled q-field--with-bottom">
           <div class="q-field__before q-field__marginal row no-wrap items-center"><i aria-hidden="true" class="fas fa-fw fa-globe q-icon"> </i></div>
           <div class="q-field__inner relative-position col self-stretch column justify-center">
             <div tabindex="-1" class="q-field__control relative-position row no-wrap">
@@ -4949,49 +5002,49 @@ exports[`Storyshots Latest Messages type: thread 1`] = `
 `;
 
 exports[`Storyshots Layout KTopbar 1`] = `
-<div class="q-toolbar row no-wrap items-center text-white bg-primary"> <a class="logo"><img src="test-file-stub"></a>
-  <div class="q-toolbar__title ellipsis">
-    <div class="row justify-center no-wrap">
-      <div class="wrapper bread">
-        <div>
-          ...
-        </div>
-        <!---->
-        <!---->
-        <!---->
+<div class="q-toolbar row no-wrap items-center text-white row justify-between bg-primary">
+  <div class="logo"> <a class="q-ml-sm"><img src="test-file-stub"></a></div>
+  <div class="q-toolbar__title ellipsis no-wrap text-center">
+    <div class="wrapper bread">
+      <div>
+        ...
       </div>
+      <!---->
+      <!---->
+      <!---->
     </div>
   </div>
-  <!----> <button tabindex="0" type="button" title="Search" class="q-btn inline q-btn-item non-selectable k-search-button q-btn--flat q-btn--round q-focusable q-hoverable q-btn--dense">
-    <div tabindex="-1" class="q-focus-helper"></div>
-    <div class="q-btn__content text-center col items-center q-anchor--skip justify-center row"><i aria-hidden="true" class="fas fa-fw fa-search q-icon"> </i></div>
-  </button> <button tabindex="0" type="button" title="Messages" class="q-btn inline q-btn-item non-selectable q-btn--flat q-btn--round q-focusable q-hoverable q-btn--dense">
-    <div tabindex="-1" class="q-focus-helper"></div>
-    <div class="q-btn__content text-center col items-center q-anchor--skip justify-center row"><i aria-hidden="true" class="fas fa-comments q-icon hasUnread"> </i>
-      <div class="q-badge flex inline items-center no-wrap q-badge--single-line bg-secondary q-badge--floating">
-        1
-      </div>
-      <!---->
-    </div>
-  </button> <button tabindex="0" type="button" title="Notifications" class="q-btn inline q-btn-item non-selectable q-btn--flat q-btn--round q-focusable q-hoverable q-btn--dense">
-    <div tabindex="-1" class="q-focus-helper"></div>
-    <div class="q-btn__content text-center col items-center q-anchor--skip justify-center row"><i aria-hidden="true" class="fas fa-bell q-icon hasUnseen"> </i>
-      <div class="q-badge flex inline items-center no-wrap q-badge--single-line bg-secondary q-badge--floating">
-        1
-      </div>
-      <!---->
-    </div>
-  </button> <a class="q-ml-xs"><button tabindex="0" type="button" title="Visit your profile" class="q-btn inline q-btn-item non-selectable q-btn--flat q-btn--rectangle q-focusable q-hoverable q-btn--dense">
+  <div>
+    <!----> <button tabindex="0" type="button" title="Search" class="q-btn inline q-btn-item non-selectable k-search-button q-btn--flat q-btn--round q-focusable q-hoverable q-btn--dense">
       <div tabindex="-1" class="q-focus-helper"></div>
-      <div class="q-btn__content text-center col items-center q-anchor--skip justify-center row"><i aria-hidden="true" class="fas fa-circle q-icon text-secondary presence-indicator"> </i>
-        Current User
-        <i aria-hidden="true" class="fas fa-fw fa-user q-icon"> </i></div>
-    </button></a> <button tabindex="0" type="button" class="q-btn inline q-btn-item non-selectable k-more-options q-btn--flat q-btn--round q-focusable q-hoverable q-btn--dense">
-    <div tabindex="-1" class="q-focus-helper"></div>
-    <div class="q-btn__content text-center col items-center q-anchor--skip justify-center row"><i aria-hidden="true" class="fas fa-ellipsis-v q-icon"> </i>
-      <!---->
-    </div>
-  </button>
+      <div class="q-btn__content text-center col items-center q-anchor--skip justify-center row"><i aria-hidden="true" class="fas fa-fw fa-search q-icon"> </i></div>
+    </button> <button tabindex="0" type="button" title="Messages" class="q-btn inline q-btn-item non-selectable q-btn--flat q-btn--round q-focusable q-hoverable q-btn--dense">
+      <div tabindex="-1" class="q-focus-helper"></div>
+      <div class="q-btn__content text-center col items-center q-anchor--skip justify-center row"><i aria-hidden="true" class="fas fa-comments q-icon hasUnread"> </i>
+        <div class="q-badge flex inline items-center no-wrap q-badge--single-line bg-secondary q-badge--floating">
+          1
+        </div>
+        <!---->
+      </div>
+    </button> <button tabindex="0" type="button" title="Notifications" class="q-btn inline q-btn-item non-selectable q-btn--flat q-btn--round q-focusable q-hoverable q-btn--dense">
+      <div tabindex="-1" class="q-focus-helper"></div>
+      <div class="q-btn__content text-center col items-center q-anchor--skip justify-center row"><i aria-hidden="true" class="fas fa-bell q-icon hasUnseen"> </i>
+        <div class="q-badge flex inline items-center no-wrap q-badge--single-line bg-secondary q-badge--floating">
+          1
+        </div>
+        <!---->
+      </div>
+    </button> <a class="q-ml-xs"><button tabindex="0" type="button" title="Visit your profile" class="q-btn inline q-btn-item non-selectable q-btn--flat q-btn--rectangle q-focusable q-hoverable q-btn--dense">
+        <div tabindex="-1" class="q-focus-helper"></div>
+        <div class="q-btn__content text-center col items-center q-anchor--skip justify-center row"><i aria-hidden="true" class="fas fa-circle q-icon text-secondary presence-indicator"> </i>
+          Current User
+          <i aria-hidden="true" class="fas fa-fw fa-user q-icon"> </i></div>
+      </button></a> <button tabindex="0" type="button" class="q-btn inline q-btn-item non-selectable k-more-options q-btn--flat q-btn--round q-focusable q-hoverable q-btn--dense">
+      <div tabindex="-1" class="q-focus-helper"></div>
+      <div class="q-btn__content text-center col items-center q-anchor--skip justify-center row"><i aria-hidden="true" class="fas fa-ellipsis-v q-icon"> </i>
+        <!---->
+      </div>
+    </button></div>
 </div>
 `;
 
@@ -8030,8 +8083,8 @@ exports[`Storyshots PickupsManage default 1`] = `
           <animate attributeName="fill-opacity" from="1" to="1" begin="0s" dur="0.8s" values="1;.5;1" calcMode="linear" repeatCount="indefinite"></animate>
         </circle>
       </svg></div>
-    <div class="pickups q-list q-list--separator">
-      <div sublabel="12:00 PM" sparse="" class="q-expansion-item q-item-type q-expansion-item--collapsed q-expansion-item--standard">
+    <div class="q-list q-list--separator">
+      <div sublabel="12:00 PM" class="q-expansion-item q-item-type q-expansion-item--collapsed q-expansion-item--standard">
         <div class="q-expansion-item__container relative-position">
           <div tabindex="0" class="q-item q-item-type row no-wrap q-item--clickable q-link cursor-pointer q-focusable q-hoverable">
             <div tabindex="-1" class="q-focus-helper"></div>
@@ -8077,7 +8130,7 @@ exports[`Storyshots PickupsManage default 1`] = `
         </circle>
       </svg></div>
     <div class="pickups q-list q-list--separator">
-      <div sparse="" class="q-expansion-item q-item-type q-expansion-item--collapsed q-expansion-item--standard">
+      <div class="q-expansion-item q-item-type q-expansion-item--collapsed q-expansion-item--standard">
         <div class="q-expansion-item__container relative-position">
           <div tabindex="0" class="q-item q-item-type row no-wrap q-item--clickable q-link cursor-pointer q-focusable q-hoverable">
             <div tabindex="-1" class="q-focus-helper"></div>
@@ -8096,7 +8149,7 @@ exports[`Storyshots PickupsManage default 1`] = `
           <div class="q-expansion-item__content relative-position" style="display:none;"></div>
         </div>
       </div>
-      <div sparse="" class="q-expansion-item q-item-type q-expansion-item--collapsed q-expansion-item--standard">
+      <div class="q-expansion-item q-item-type q-expansion-item--collapsed q-expansion-item--standard">
         <div class="q-expansion-item__container relative-position">
           <div tabindex="0" class="q-item q-item-type row no-wrap q-item--clickable q-link cursor-pointer q-focusable q-hoverable">
             <div tabindex="-1" class="q-focus-helper"></div>
@@ -8115,7 +8168,7 @@ exports[`Storyshots PickupsManage default 1`] = `
           <div class="q-expansion-item__content relative-position" style="display:none;"></div>
         </div>
       </div>
-      <div sparse="" class="q-expansion-item q-item-type q-expansion-item--collapsed q-expansion-item--standard">
+      <div class="q-expansion-item q-item-type q-expansion-item--collapsed q-expansion-item--standard">
         <div class="q-expansion-item__container relative-position">
           <div tabindex="0" class="q-item q-item-type row no-wrap q-item--clickable q-link cursor-pointer q-focusable q-hoverable">
             <div tabindex="-1" class="q-focus-helper"></div>
@@ -8134,7 +8187,7 @@ exports[`Storyshots PickupsManage default 1`] = `
           <div class="q-expansion-item__content relative-position" style="display:none;"></div>
         </div>
       </div>
-      <div sparse="" class="q-expansion-item q-item-type q-expansion-item--collapsed q-expansion-item--standard">
+      <div class="q-expansion-item q-item-type q-expansion-item--collapsed q-expansion-item--standard">
         <div class="q-expansion-item__container relative-position">
           <div tabindex="0" class="q-item q-item-type row no-wrap q-item--clickable q-link cursor-pointer q-focusable q-hoverable">
             <div tabindex="-1" class="q-focus-helper"></div>
@@ -8153,7 +8206,7 @@ exports[`Storyshots PickupsManage default 1`] = `
           <div class="q-expansion-item__content relative-position" style="display:none;"></div>
         </div>
       </div>
-      <div sparse="" class="q-expansion-item q-item-type q-expansion-item--collapsed q-expansion-item--standard">
+      <div class="q-expansion-item q-item-type q-expansion-item--collapsed q-expansion-item--standard">
         <div class="q-expansion-item__container relative-position">
           <div tabindex="0" class="q-item q-item-type row no-wrap q-item--clickable q-link cursor-pointer q-focusable q-hoverable">
             <div tabindex="-1" class="q-focus-helper"></div>
@@ -8217,19 +8270,22 @@ exports[`Storyshots Places PlaceEdit (with server error) 1`] = `
               <div class="q-field__messages col"></div>
             </div>
           </div>
-        </label> <label for="qf_80008000-8000-8000-8000-800080008000" class="q-field row no-wrap items-start q-textarea q-textarea--autogrow q-field--standard q-field--labeled q-field--with-bottom">
-          <div class="q-field__before q-field__marginal row no-wrap items-center"><i aria-hidden="true" class="fas fa-question q-icon"> </i></div>
-          <div class="q-field__inner relative-position col self-stretch column justify-center">
-            <div tabindex="-1" class="q-field__control relative-position row no-wrap">
-              <div class="q-field__control-container col relative-position row no-wrap q-anchor--skip"><textarea tabindex="0" rows="1" aria-label="Description" id="qf_80008000-8000-8000-8000-800080008000" type="textarea" class="q-field__native q-placeholder" style="min-height:100px;"></textarea>
-                <div class="q-field__label no-pointer-events absolute ellipsis">Description</div>
+        </label>
+        <div class="relative-position q-mb-sm"><label for="qf_80008000-8000-8000-8000-800080008000" class="q-field row no-wrap items-start q-textarea q-textarea--autogrow q-field--standard q-field--labeled q-field--with-bottom">
+            <div class="q-field__before q-field__marginal row no-wrap items-center"><i aria-hidden="true" class="fas fa-question q-icon"> </i></div>
+            <div class="q-field__inner relative-position col self-stretch column justify-center">
+              <div tabindex="-1" class="q-field__control relative-position row no-wrap">
+                <div class="q-field__control-container col relative-position row no-wrap q-anchor--skip"><textarea tabindex="0" rows="1" aria-label="Description" id="qf_80008000-8000-8000-8000-800080008000" type="textarea" class="q-field__native q-placeholder" style="min-height:100px;"></textarea>
+                  <div class="q-field__label no-pointer-events absolute ellipsis">Description</div>
+                </div>
+              </div>
+              <div class="q-field__bottom row items-start q-field__bottom--animated">
+                <div class="q-field__messages col"></div>
               </div>
             </div>
-            <div class="q-field__bottom row items-start q-field__bottom--animated">
-              <div class="q-field__messages col"></div>
-            </div>
-          </div>
-        </label>
+          </label>
+          <!---->
+        </div>
         <div><label for="qf_80008000-8000-8000-8000-800080008000" class="q-field row no-wrap items-start q-input q-field--standard q-field--labeled q-field--with-bottom">
             <div class="q-field__before q-field__marginal row no-wrap items-center"><i aria-hidden="true" class="fas fa-map-marker q-icon"> </i></div>
             <div class="q-field__inner relative-position col self-stretch column justify-center">
@@ -8346,19 +8402,22 @@ exports[`Storyshots Places PlaceEdit 1`] = `
               <div class="q-field__messages col"></div>
             </div>
           </div>
-        </label> <label for="qf_80008000-8000-8000-8000-800080008000" class="q-field row no-wrap items-start q-textarea q-textarea--autogrow q-field--standard q-field--labeled q-field--with-bottom">
-          <div class="q-field__before q-field__marginal row no-wrap items-center"><i aria-hidden="true" class="fas fa-question q-icon"> </i></div>
-          <div class="q-field__inner relative-position col self-stretch column justify-center">
-            <div tabindex="-1" class="q-field__control relative-position row no-wrap">
-              <div class="q-field__control-container col relative-position row no-wrap q-anchor--skip"><textarea tabindex="0" rows="1" aria-label="Description" id="qf_80008000-8000-8000-8000-800080008000" type="textarea" class="q-field__native q-placeholder" style="min-height:100px;"></textarea>
-                <div class="q-field__label no-pointer-events absolute ellipsis">Description</div>
+        </label>
+        <div class="relative-position q-mb-sm"><label for="qf_80008000-8000-8000-8000-800080008000" class="q-field row no-wrap items-start q-textarea q-textarea--autogrow q-field--standard q-field--labeled q-field--with-bottom">
+            <div class="q-field__before q-field__marginal row no-wrap items-center"><i aria-hidden="true" class="fas fa-question q-icon"> </i></div>
+            <div class="q-field__inner relative-position col self-stretch column justify-center">
+              <div tabindex="-1" class="q-field__control relative-position row no-wrap">
+                <div class="q-field__control-container col relative-position row no-wrap q-anchor--skip"><textarea tabindex="0" rows="1" aria-label="Description" id="qf_80008000-8000-8000-8000-800080008000" type="textarea" class="q-field__native q-placeholder" style="min-height:100px;"></textarea>
+                  <div class="q-field__label no-pointer-events absolute ellipsis">Description</div>
+                </div>
+              </div>
+              <div class="q-field__bottom row items-start q-field__bottom--animated">
+                <div class="q-field__messages col"></div>
               </div>
             </div>
-            <div class="q-field__bottom row items-start q-field__bottom--animated">
-              <div class="q-field__messages col"></div>
-            </div>
-          </div>
-        </label>
+          </label>
+          <!---->
+        </div>
         <div><label for="qf_80008000-8000-8000-8000-800080008000" class="q-field row no-wrap items-start q-input q-field--standard q-field--labeled q-field--with-bottom">
             <div class="q-field__before q-field__marginal row no-wrap items-center"><i aria-hidden="true" class="fas fa-map-marker q-icon"> </i></div>
             <div class="q-field__inner relative-position col self-stretch column justify-center">
@@ -8840,7 +8899,7 @@ exports[`Storyshots Settings Page Default 1`] = `
                     <div class="slots" style="width:0;height:0;visibility:hidden;"> <img src="statics/add_a_photo.svg"></div> <canvas></canvas>
                     <!---->
                     <!---->
-                  </div>
+                  </div> <object tabindex="-1" type="text/html" data="about:blank" aria-hidden="true" style="display:block;position:absolute;top:0;left:0;right:0;bottom:0;height:100%;width:100%;overflow:hidden;pointer-events:none;z-index:-1;"></object>
                 </div>
                 <div class="q-field__label no-pointer-events absolute ellipsis">Profile photo</div>
               </div>
@@ -8883,19 +8942,26 @@ exports[`Storyshots Settings Page Default 1`] = `
                 <div class="q-field__messages col"></div>
               </div>
             </div>
-          </label> <label for="qf_80008000-8000-8000-8000-800080008000" class="q-field row no-wrap items-start q-textarea q-textarea--autogrow q-field--standard q-field--float q-field--labeled q-field--with-bottom">
-            <div class="q-field__before q-field__marginal row no-wrap items-center"><i aria-hidden="true" class="material-icons q-icon">info</i></div>
-            <div class="q-field__inner relative-position col self-stretch column justify-center">
-              <div tabindex="-1" class="q-field__control relative-position row no-wrap">
-                <div class="q-field__control-container col relative-position row no-wrap q-anchor--skip"><textarea tabindex="0" rows="1" aria-label="About you" id="qf_80008000-8000-8000-8000-800080008000" type="textarea" class="q-field__native q-placeholder" style="min-height:100px;">I am the current User!</textarea>
-                  <div class="q-field__label no-pointer-events absolute ellipsis">About you</div>
+          </label>
+          <div class="relative-position q-mb-sm"><label for="qf_80008000-8000-8000-8000-800080008000" class="q-field row no-wrap items-start q-textarea q-textarea--autogrow q-field--standard q-field--float q-field--labeled q-field--with-bottom">
+              <div class="q-field__before q-field__marginal row no-wrap items-center"><i aria-hidden="true" class="material-icons q-icon">info</i></div>
+              <div class="q-field__inner relative-position col self-stretch column justify-center">
+                <div tabindex="-1" class="q-field__control relative-position row no-wrap">
+                  <div class="q-field__control-container col relative-position row no-wrap q-anchor--skip"><textarea tabindex="0" rows="1" aria-label="About you" id="qf_80008000-8000-8000-8000-800080008000" type="textarea" class="q-field__native q-placeholder" style="min-height:100px;">I am the current User!</textarea>
+                    <div class="q-field__label no-pointer-events absolute ellipsis">About you</div>
+                  </div>
+                </div>
+                <div class="q-field__bottom row items-start q-field__bottom--animated">
+                  <div class="q-field__messages col"></div>
                 </div>
               </div>
-              <div class="q-field__bottom row items-start q-field__bottom--animated">
-                <div class="q-field__messages col"></div>
+            </label> <button tabindex="0" type="button" class="q-btn inline q-btn-item non-selectable absolute-bottom-right bg-white q-btn--outline q-btn--rectangle text-primary q-focusable q-hoverable" style="font-size:8px;bottom:-10px;">
+              <div tabindex="-1" class="q-focus-helper"></div>
+              <div class="q-btn__content text-center col items-center q-anchor--skip justify-center row">
+                <div>Preview</div>
+                <!---->
               </div>
-            </div>
-          </label> <label for="qf_80008000-8000-8000-8000-800080008000" class="q-field row no-wrap items-start q-input q-field--standard q-field--labeled q-field--with-bottom">
+            </button></div> <label for="qf_80008000-8000-8000-8000-800080008000" class="q-field row no-wrap items-start q-input q-field--standard q-field--labeled q-field--with-bottom">
             <div class="q-field__before q-field__marginal row no-wrap items-center"><i aria-hidden="true" class="fas fa-phone q-icon"> </i></div>
             <div class="q-field__inner relative-position col self-stretch column justify-center">
               <div tabindex="-1" class="q-field__control relative-position row no-wrap">
@@ -9894,19 +9960,21 @@ exports[`Storyshots Statistics PickupFeedback 1`] = `
             </a></div>
         </div>
       </div>
-      <form><label for="qf_80008000-8000-8000-8000-800080008000" class="q-field row no-wrap items-start q-mr-sm q-textarea q-textarea--autogrow q-field--standard q-field--labeled q-field--with-bottom">
-          <div class="q-field__before q-field__marginal row no-wrap items-center"><i aria-hidden="true"></i></div>
-          <div class="q-field__inner relative-position col self-stretch column justify-center">
-            <div tabindex="-1" class="q-field__control relative-position row no-wrap">
-              <div class="q-field__control-container col relative-position row no-wrap q-anchor--skip"><textarea tabindex="0" rows="1" aria-label="Was everything fine? Did everyone show up? Your comment here..." id="qf_80008000-8000-8000-8000-800080008000" type="textarea" class="q-field__native q-placeholder" style="min-height:100px;"></textarea>
-                <div class="q-field__label no-pointer-events absolute ellipsis">Was everything fine? Did everyone show up? Your comment here...</div>
+      <form>
+        <div class="relative-position q-mb-sm q-mr-sm"><label for="qf_80008000-8000-8000-8000-800080008000" class="q-field row no-wrap items-start q-textarea q-textarea--autogrow q-field--standard q-field--labeled q-field--with-bottom">
+            <div class="q-field__inner relative-position col self-stretch column justify-center">
+              <div tabindex="-1" class="q-field__control relative-position row no-wrap">
+                <div class="q-field__control-container col relative-position row no-wrap q-anchor--skip"><textarea tabindex="0" rows="1" aria-label="Was everything fine? Did everyone show up? Your comment here..." id="qf_80008000-8000-8000-8000-800080008000" type="textarea" class="q-field__native q-placeholder" style="min-height:100px;"></textarea>
+                  <div class="q-field__label no-pointer-events absolute ellipsis">Was everything fine? Did everyone show up? Your comment here...</div>
+                </div>
+              </div>
+              <div class="q-field__bottom row items-start q-field__bottom--animated">
+                <div class="q-field__messages col"></div>
               </div>
             </div>
-            <div class="q-field__bottom row items-start q-field__bottom--animated">
-              <div class="q-field__messages col"></div>
-            </div>
-          </div>
-        </label>
+          </label>
+          <!---->
+        </div>
         <div class="wrapper q-ml-sm showOverlay" style="margin-top:40px;"><button tabindex="0" type="button" class="q-btn inline q-btn-item non-selectable absolute-center q-btn--standard q-btn--rectangle bg-primary text-white q-focusable q-hoverable" style="z-index:1;">
             <div tabindex="-1" class="q-focus-helper"></div>
             <div class="q-btn__content text-center col items-center q-anchor--skip justify-center row">
@@ -10873,27 +10941,30 @@ exports[`Storyshots WallConversation WallConversation 1`] = `
             </a></div>
         </div>
         <div class="q-item__section column q-item__section--main justify-center">
-          <div class="q-item__label"><label for="qf_80008000-8000-8000-8000-800080008000" class="q-field row no-wrap items-start q-textarea q-textarea--autogrow q-field--standard q-field--dense q-field--with-bottom">
-              <div class="q-field__before q-field__marginal row no-wrap items-center"><i aria-hidden="true"></i></div>
-              <div class="q-field__inner relative-position col self-stretch column justify-center">
-                <div tabindex="-1" class="q-field__control relative-position row no-wrap">
-                  <div class="q-field__control-container col relative-position row no-wrap q-anchor--skip"><textarea tabindex="0" rows="1" placeholder="Write a message..." id="qf_80008000-8000-8000-8000-800080008000" type="textarea" class="q-field__native q-placeholder" style="min-height:unset;"></textarea></div>
-                  <div class="q-field__append q-field__marginal row no-wrap items-center">
-                    <!---->
-                    <!---->
+          <div class="q-item__label">
+            <div class="relative-position q-mb-sm"><label for="qf_80008000-8000-8000-8000-800080008000" class="q-field row no-wrap items-start q-textarea q-textarea--autogrow q-field--standard q-field--dense q-field--with-bottom">
+                <div class="q-field__inner relative-position col self-stretch column justify-center">
+                  <div tabindex="-1" class="q-field__control relative-position row no-wrap">
+                    <div class="q-field__control-container col relative-position row no-wrap q-anchor--skip"><textarea tabindex="0" rows="1" placeholder="Write a message..." id="qf_80008000-8000-8000-8000-800080008000" type="textarea" class="q-field__native q-placeholder" style="min-height:unset;"></textarea></div>
+                    <div class="q-field__append q-field__marginal row no-wrap items-center">
+                      <!---->
+                      <!---->
+                    </div>
+                  </div>
+                  <div class="q-field__bottom row items-start q-field__bottom--animated">
+                    <div class="q-field__messages col"></div>
                   </div>
                 </div>
-                <div class="q-field__bottom row items-start q-field__bottom--animated">
-                  <div class="q-field__messages col"></div>
-                </div>
-              </div>
-            </label></div>
+              </label>
+              <!---->
+            </div>
+          </div>
           <!---->
         </div>
       </div>
       <!---->
       <div class="q-item q-item-type row no-wrap conversation-message relative-position">
-        <div class="q-btn-group row no-wrap inline hover-button k-message-controls q-btn-group--outline">
+        <div class="q-btn-group row no-wrap inline hover-button k-message-controls bg-white q-btn-group--outline">
           <!----> <button tabindex="0" type="button" title="Replies" class="q-btn inline q-btn-item non-selectable q-btn--outline q-btn--rectangle text-secondary q-focusable q-hoverable">
             <div tabindex="-1" class="q-focus-helper"></div>
             <div class="q-btn__content text-center col items-center q-anchor--skip justify-center row"><i class="fas fa-comments"></i></div>
@@ -10933,7 +11004,7 @@ exports[`Storyshots WallConversation WallConversation 1`] = `
       </div>
     </div>
     <div class="q-item q-item-type row no-wrap conversation-message relative-position">
-      <div class="q-btn-group row no-wrap inline hover-button k-message-controls q-btn-group--outline">
+      <div class="q-btn-group row no-wrap inline hover-button k-message-controls bg-white q-btn-group--outline">
         <!----> <button tabindex="0" type="button" title="Replies" class="q-btn inline q-btn-item non-selectable q-btn--outline q-btn--rectangle text-secondary q-focusable q-hoverable">
           <div tabindex="-1" class="q-focus-helper"></div>
           <div class="q-btn__content text-center col items-center q-anchor--skip justify-center row"><i class="fas fa-comments"></i></div>
@@ -10973,7 +11044,7 @@ exports[`Storyshots WallConversation WallConversation 1`] = `
     </div>
   </div>
   <div class="q-item q-item-type row no-wrap conversation-message relative-position">
-    <div class="q-btn-group row no-wrap inline hover-button k-message-controls q-btn-group--outline">
+    <div class="q-btn-group row no-wrap inline hover-button k-message-controls bg-white q-btn-group--outline">
       <!----> <button tabindex="0" type="button" title="Replies" class="q-btn inline q-btn-item non-selectable q-btn--outline q-btn--rectangle text-secondary q-focusable q-hoverable">
         <div tabindex="-1" class="q-focus-helper"></div>
         <div class="q-btn__content text-center col items-center q-anchor--skip justify-center row"><i class="fas fa-comments"></i></div>
@@ -11013,7 +11084,7 @@ exports[`Storyshots WallConversation WallConversation 1`] = `
   </div>
 </div>
 <div class="q-item q-item-type row no-wrap conversation-message relative-position">
-  <div class="q-btn-group row no-wrap inline hover-button k-message-controls q-btn-group--outline">
+  <div class="q-btn-group row no-wrap inline hover-button k-message-controls bg-white q-btn-group--outline">
     <!----> <button tabindex="0" type="button" title="Replies" class="q-btn inline q-btn-item non-selectable q-btn--outline q-btn--rectangle text-secondary q-focusable q-hoverable">
       <div tabindex="-1" class="q-focus-helper"></div>
       <div class="q-btn__content text-center col items-center q-anchor--skip justify-center row"><i class="fas fa-comments"></i></div>
@@ -11053,7 +11124,7 @@ exports[`Storyshots WallConversation WallConversation 1`] = `
 </div>
 </div>
 <div class="q-item q-item-type row no-wrap conversation-message relative-position">
-  <div class="q-btn-group row no-wrap inline hover-button k-message-controls q-btn-group--outline">
+  <div class="q-btn-group row no-wrap inline hover-button k-message-controls bg-white q-btn-group--outline">
     <!----> <button tabindex="0" type="button" title="Replies" class="q-btn inline q-btn-item non-selectable q-btn--outline q-btn--rectangle text-secondary q-focusable q-hoverable">
       <div tabindex="-1" class="q-focus-helper"></div>
       <div class="q-btn__content text-center col items-center q-anchor--skip justify-center row"><i class="fas fa-comments"></i></div>
@@ -11093,7 +11164,7 @@ exports[`Storyshots WallConversation WallConversation 1`] = `
 </div>
 </div>
 <div class="q-item q-item-type row no-wrap conversation-message relative-position">
-  <div class="q-btn-group row no-wrap inline hover-button k-message-controls q-btn-group--outline">
+  <div class="q-btn-group row no-wrap inline hover-button k-message-controls bg-white q-btn-group--outline">
     <!----> <button tabindex="0" type="button" title="Replies" class="q-btn inline q-btn-item non-selectable q-btn--outline q-btn--rectangle text-secondary q-focusable q-hoverable">
       <div tabindex="-1" class="q-focus-helper"></div>
       <div class="q-btn__content text-center col items-center q-anchor--skip justify-center row"><i class="fas fa-comments"></i></div>
@@ -11133,7 +11204,7 @@ exports[`Storyshots WallConversation WallConversation 1`] = `
 </div>
 </div>
 <div class="q-item q-item-type row no-wrap conversation-message relative-position">
-  <div class="q-btn-group row no-wrap inline hover-button k-message-controls q-btn-group--outline">
+  <div class="q-btn-group row no-wrap inline hover-button k-message-controls bg-white q-btn-group--outline">
     <!----> <button tabindex="0" type="button" title="Replies" class="q-btn inline q-btn-item non-selectable q-btn--outline q-btn--rectangle text-secondary q-focusable q-hoverable">
       <div tabindex="-1" class="q-focus-helper"></div>
       <div class="q-btn__content text-center col items-center q-anchor--skip justify-center row"><i class="fas fa-comments"></i></div>
@@ -11173,7 +11244,7 @@ exports[`Storyshots WallConversation WallConversation 1`] = `
 </div>
 </div>
 <div class="q-item q-item-type row no-wrap conversation-message relative-position">
-  <div class="q-btn-group row no-wrap inline hover-button k-message-controls q-btn-group--outline">
+  <div class="q-btn-group row no-wrap inline hover-button k-message-controls bg-white q-btn-group--outline">
     <!----> <button tabindex="0" type="button" title="Replies" class="q-btn inline q-btn-item non-selectable q-btn--outline q-btn--rectangle text-secondary q-focusable q-hoverable">
       <div tabindex="-1" class="q-focus-helper"></div>
       <div class="q-btn__content text-center col items-center q-anchor--skip justify-center row"><i class="fas fa-comments"></i></div>
@@ -11213,7 +11284,7 @@ exports[`Storyshots WallConversation WallConversation 1`] = `
 </div>
 </div>
 <div class="q-item q-item-type row no-wrap conversation-message relative-position">
-  <div class="q-btn-group row no-wrap inline hover-button k-message-controls q-btn-group--outline">
+  <div class="q-btn-group row no-wrap inline hover-button k-message-controls bg-white q-btn-group--outline">
     <!----> <button tabindex="0" type="button" title="Replies" class="q-btn inline q-btn-item non-selectable q-btn--outline q-btn--rectangle text-secondary q-focusable q-hoverable">
       <div tabindex="-1" class="q-focus-helper"></div>
       <div class="q-btn__content text-center col items-center q-anchor--skip justify-center row"><i class="fas fa-comments"></i></div>

@@ -1,19 +1,22 @@
 <template>
   <div>
-    <QCard
+    <div
       v-if="filter && pickups.length > 0"
-      flat
-      class="generic-padding row no-wrap items-center justify-between"
+      class="row no-wrap items-center justify-between bg-white q-px-sm q-py-xs"
     >
       <QSelect
         v-model="slots"
         :options="slotsOptions"
-        hide-underline
+        emit-value
+        map-options
+        outlined
+        hide-bottom-space
+        dense
       />
       <div class="text-caption q-ml-xs">
         {{ filteredPickups.length }} / {{ pickups.length }}
       </div>
-    </QCard>
+    </div>
     <KSpinner v-show="pending" />
     <PickupItem
       v-for="pickup in filteredPickups"
@@ -34,7 +37,6 @@ import bindRoute from '@/utils/mixins/bindRoute'
 
 import {
   QSelect,
-  QCard,
 } from 'quasar'
 
 export default {
@@ -42,7 +44,6 @@ export default {
     PickupItem,
     KSpinner,
     QSelect,
-    QCard,
   },
   mixins: [
     bindRoute({

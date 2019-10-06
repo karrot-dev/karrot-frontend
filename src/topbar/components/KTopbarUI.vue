@@ -1,148 +1,150 @@
 <template>
   <QToolbar
-    class="text-white"
+    class="text-white row justify-between"
     :class="connected ? 'bg-primary' : 'bg-grey-8'"
   >
-    <slot />
-    <RouterLink
-      v-if="!$q.platform.is.mobile"
-      :to="'/'"
-      class="logo"
-    >
-      <img
-        v-if="currentGroup && currentGroup.hasPhoto"
-        :src="currentGroup.photoUrls.thumbnail"
-        style="height: 95%"
-      >
-      <KarrotLogo
-        v-else
-        show-loading
-      />
-    </RouterLink>
-    <QToolbarTitle>
-      <div class="row justify-center no-wrap">
-        <KBreadcrumb
-          class="bread"
-          :breadcrumbs="breadcrumbs"
-        />
-      </div>
-    </QToolbarTitle>
-    <div
-      v-if="searchOpen"
-      class="k-searchbar row no-wrap"
-    >
-      <Search @clear="$emit('hideSearch')" />
-    </div>
-    <QBtn
-      v-show="!searchOpen"
-      flat
-      dense
-      round
-      icon="fas fa-fw fa-search"
-      class="k-search-button"
-      :title="$t('BUTTON.SEARCH')"
-      @click="$emit('showSearch')"
-    />
-    <template v-if="!$q.platform.is.mobile">
-      <LatestMessageButton />
-      <NotificationButton />
+    <div class="logo">
+      <slot />
       <RouterLink
-        :to="{name: 'user', params: {userId: user.id}}"
-        class="q-ml-xs"
+        v-if="!$q.platform.is.mobile"
+        :to="'/'"
+        class="q-ml-sm"
       >
-        <QBtn
-          v-if="hasPhoto"
-          flat
-          dense
-          :title="$t('TOPBAR.USERPROFILE')"
+        <img
+          v-if="currentGroup && currentGroup.hasPhoto"
+          :src="currentGroup.photoUrls.thumbnail"
+          style="height: 95%"
         >
-          <div class="row items-center no-wrap">
+        <KarrotLogo
+          v-else
+          show-loading
+        />
+      </RouterLink>
+    </div>
+    <QToolbarTitle class="no-wrap text-center">
+      <KBreadcrumb
+        class="bread"
+        :breadcrumbs="breadcrumbs"
+      />
+    </QToolbarTitle>
+    <div>
+      <div
+        v-if="searchOpen"
+        class="k-searchbar row no-wrap"
+      >
+        <Search @clear="$emit('hideSearch')" />
+      </div>
+      <QBtn
+        v-show="!searchOpen"
+        flat
+        dense
+        round
+        icon="fas fa-fw fa-search"
+        class="k-search-button"
+        :title="$t('BUTTON.SEARCH')"
+        @click="$emit('showSearch')"
+      />
+      <template v-if="!$q.platform.is.mobile">
+        <LatestMessageButton />
+        <NotificationButton />
+        <RouterLink
+          :to="{name: 'user', params: {userId: user.id}}"
+          class="q-ml-xs"
+        >
+          <QBtn
+            v-if="hasPhoto"
+            flat
+            dense
+            :title="$t('TOPBAR.USERPROFILE')"
+          >
+            <div class="row items-center no-wrap">
+              <QIcon
+                :name="presence.icon"
+                :color="presence.color"
+                class="presence-indicator"
+              />
+              <span>{{ user.displayName }}</span>
+              <img
+                :src="photo"
+                class="profilePicture"
+              >
+            </div>
+          </QBtn>
+          <QBtn
+            v-else
+            flat
+            dense
+            :title="$t('TOPBAR.USERPROFILE')"
+          >
             <QIcon
               :name="presence.icon"
               :color="presence.color"
               class="presence-indicator"
             />
-            <span>{{ user.displayName }}</span>
-            <img
-              :src="photo"
-              class="profilePicture"
-            >
-          </div>
-        </QBtn>
+            {{ user.displayName }}
+            <QIcon name="fas fa-fw fa-user" />
+          </QBtn>
+        </RouterLink>
         <QBtn
-          v-else
           flat
           dense
-          :title="$t('TOPBAR.USERPROFILE')"
+          round
+          class="k-more-options"
         >
-          <QIcon
-            :name="presence.icon"
-            :color="presence.color"
-            class="presence-indicator"
-          />
-          {{ user.displayName }}
-          <QIcon name="fas fa-fw fa-user" />
-        </QBtn>
-      </RouterLink>
-      <QBtn
-        flat
-        dense
-        round
-        class="k-more-options"
-      >
-        <QIcon name="fas fa-ellipsis-v" />
-        <QMenu
-          anchor="bottom right"
-          self="top right"
-        >
-          <QList
-            v-close-popup
-            dense
+          <QIcon name="fas fa-ellipsis-v" />
+          <QMenu
+            anchor="bottom right"
+            self="top right"
           >
-            <QItem
-              :to="{name: 'groupsGallery'}"
+            <QList
+              v-close-popup
+              dense
             >
-              <QItemSection side>
-                <QIcon
-                  size="1em"
-                  name="fas fa-home fa-fw"
-                />
-              </QItemSection>
-              <QItemSection>
-                {{ $t('TOPBAR.CHANGE_GROUP') }}
-              </QItemSection>
-            </QItem>
-            <QItem
-              :to="{name: 'settings'}"
-            >
-              <QItemSection side>
-                <QIcon
-                  size="1em"
-                  name="fas fa-cog fa-fw"
-                />
-              </QItemSection>
-              <QItemSection>
-                {{ $t('SETTINGS.TITLE') }}
-              </QItemSection>
-            </QItem>
-            <QItem
-              clickable
-              @click="$emit('logout')"
-            >
-              <QItemSection side>
-                <QIcon
-                  size="1em"
-                  name="fas fa-sign-out-alt fa-fw"
-                />
-              </QItemSection>
-              <QItemSection>
-                {{ $t('TOPBAR.LOGOUT') }}
-              </QItemSection>
-            </QItem>
-          </QList>
-        </QMenu>
-      </QBtn>
-    </template>
+              <QItem
+                :to="{name: 'groupsGallery'}"
+              >
+                <QItemSection side>
+                  <QIcon
+                    size="1em"
+                    name="fas fa-home fa-fw"
+                  />
+                </QItemSection>
+                <QItemSection>
+                  {{ $t('TOPBAR.CHANGE_GROUP') }}
+                </QItemSection>
+              </QItem>
+              <QItem
+                :to="{name: 'settings'}"
+              >
+                <QItemSection side>
+                  <QIcon
+                    size="1em"
+                    name="fas fa-cog fa-fw"
+                  />
+                </QItemSection>
+                <QItemSection>
+                  {{ $t('SETTINGS.TITLE') }}
+                </QItemSection>
+              </QItem>
+              <QItem
+                clickable
+                @click="$emit('logout')"
+              >
+                <QItemSection side>
+                  <QIcon
+                    size="1em"
+                    name="fas fa-sign-out-alt fa-fw"
+                  />
+                </QItemSection>
+                <QItemSection>
+                  {{ $t('TOPBAR.LOGOUT') }}
+                </QItemSection>
+              </QItem>
+            </QList>
+          </QMenu>
+        </QBtn>
+      </template>
+    </div>
   </QToolbar>
 </template>
 
@@ -235,7 +237,6 @@ export default {
 <style scoped lang="stylus">
 @import '~variables'
 .logo
-  margin-left 1em
   height 36px
 .profilePicture
   margin-left 1em

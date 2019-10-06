@@ -6,7 +6,7 @@
   >
     <QBtnGroup
       outline
-      class="hover-button k-message-controls"
+      class="hover-button k-message-controls bg-white"
     >
       <QBtn
         v-if="message.isEditable"

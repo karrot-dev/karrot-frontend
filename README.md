@@ -25,34 +25,34 @@
 <br>
 <br>
 
-This is the frontend repository, i.e. the browser-side software that powers [karrot.world](https://karrot.world). Have a look at our server-side code at [karrot-backend](https://github.com/yunity/karrot-backend), too!
+This is the frontend repository, i.e. The browser-side software that powers [karrot.world](https://karrot.world). Have a look at our server-side code at [karrot-backend](https://github.com/yunity/karrot-backend), too!
 
 ## Features
 
-- manage information about store cooperations :apple:
-- schedule one-time and recurring food pickups :calendar:
-- gather feedback about pickups :mag:
-- talk with users before they become group members :heavy_plus_sign:
-- express your trust and let newcomers take up responsibilities :bulb:
-- communicate with your team in group, store, pickup and private chats :speech_balloon:
-- handle conflicts amongst team members with score voting :star:
-- receive notifications in real-time via e-mail, Android app and web browser push :loudspeaker:
-- use karrot in your preferred language :globe_with_meridians:
-- upload your group logo and customize public information :camera:
+- Manage information about store cooperations :apple:
+- Schedule both one-time and recurring food pickups :calendar:
+- Gather feedback about pickups :mag:
+- Talk with users before they become group members :heavy_plus_sign:
+- Give newcomers responsibilities and show your trust :bulb:
+- Communicate with your team via Group, Store, Pickup, and Private chats :speech_balloon:
+- Handle team member conflicts via score voting :star:
+- Receive real-time notifications via our Android app, e-mail, and web broswer push notifications :loudspeaker:
+- Use karrot in your preferred language :globe_with_meridians:
+- Upload a group logo and customize your public information :camera:
 
-## foodsaving worldwide
+## Foodsaving worldwide
 
 The [foodsaving worldwide team](https://foodsaving.world/team) provides additional resources to build up foodsaving, e.g. an infopage on [foodsaving.world](https://foodsaving.world), where all the intel is gathered.
 
 ## Development goals
 
-Our current development goals are prioritized and written down in our [elaborate roadmap](ROADMAP.md).
+Our current development goals are prioritized and written down in our [elaborate roadmap.](ROADMAP.md)
 
-We are keeping the features down to a minimum, in order to progressively build up useful software.
+To ensure we build useful software, we are currently keeping features to a minimum.
 
 ## Releases
 
-Look into our [change log file](CHANGELOG.md) for a quick overview of past versions and recent changes.
+For a quick overview of recent changes and our version history have a look at our [change log file.](CHANGELOG.md)
 
 ## Translation
 
@@ -96,7 +96,7 @@ The [backend](https://github.com/yunity/karrot-backend) is developed to support 
 
 ## Contributors
 
-These people contributed to karrot in a significant way:
+Significant Contributors to karrot:
 
 <!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
 <!-- prettier-ignore -->

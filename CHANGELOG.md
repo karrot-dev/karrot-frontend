@@ -21,8 +21,10 @@ Please document your changes in this format:
 ```
 
 ## [Unreleased]
+
+## [8.0.0] - 2019-10-07
 ### Changed
-- User Interface redesign due to [Quasar](https://quasar.dev) upgrade #1690 @tiltec
+- User Interface redesign due to [Quasar](https://quasar.dev) upgrade [#1690] @tiltec
 
 ## [7.4.2] - 2019-08-14
 ### Added
@@ -478,9 +480,11 @@ After months of planning and programming, the first version of ~the foodsaving t
 [#1398]: https://github.com/yunity/karrot-frontend/issues/1398
 [#1421]: https://github.com/yunity/karrot-frontend/issues/1421
 [#1509]: https://github.com/yunity/karrot-frontend/issues/1509
+[#1690]: https://github.com/yunity/karrot-frontend/issues/1690
 [#1691]: https://github.com/yunity/karrot-frontend/issues/1691
 
-[Unreleased]: https://github.com/yunity/karrot-frontend/compare/v7.4.2...HEAD
+[Unreleased]: https://github.com/yunity/karrot-frontend/compare/v8.0.0...HEAD
+[8.0.0]: https://github.com/yunity/karrot-frontend/compare/v7.4.2...v8.0.0
 [7.4.2]: https://github.com/yunity/karrot-frontend/compare/v7.4.1...v7.4.2
 [7.4.1]: https://github.com/yunity/karrot-frontend/compare/v7.4.0...v7.4.1
 [7.4.0]: https://github.com/yunity/karrot-frontend/compare/v7.3.0...v7.4.0

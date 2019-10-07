@@ -27,6 +27,8 @@ import GroupMap from '@/maps/components/GroupMap'
 
 import { mapGetters, mapActions } from 'vuex'
 
+import { throttle } from 'quasar'
+
 export default {
   components: { GroupMap },
   computed: {
@@ -47,6 +49,9 @@ export default {
       return Number(this.$route.query.zoom)
     },
   },
+  created () {
+    this.mapMoveEnd = throttle(this.mapMoveEnd, 500)
+  },
   methods: {
     ...mapActions({
       togglePlaces: 'sidenavBoxes/toggle/placesOnMap',
@@ -54,7 +59,13 @@ export default {
       toggleGroups: 'sidenavBoxes/toggle/groupsOnMap',
     }),
     mapMoveEnd (target) {
-      this.$router.replace({ query: { lat: target.getCenter().lat, lng: target.getCenter().lng, zoom: target.getZoom() } })
+      this.$router.replace({
+        query: {
+          lat: target.getCenter().lat,
+          lng: target.getCenter().lng,
+          zoom: target.getZoom(),
+        },
+      })
     },
   },
 }

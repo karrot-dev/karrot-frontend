@@ -10,7 +10,10 @@ if (__ENV.SENTRY_CONFIG) {
     beforeSend: event => {
       const { values } = event.exception
       const firstValue = values && values.length > 0 && values[0].value
-      if (firstValue && firstValue.includes('ResizeObserver loop limit exceeded')) {
+      if (firstValue &&
+        (firstValue.includes('ResizeObserver loop limit exceeded')
+        || firstValue.includes('ResizeObserver loop completed with undelivered notifications'))
+      ) {
         return null
       }
       return event

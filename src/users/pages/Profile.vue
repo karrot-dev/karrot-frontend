@@ -273,6 +273,9 @@ export default {
       return this.conflictResolutionPossible && this.solvableConflictSetupRequirements.length === 0
     },
     solvableConflictSetupRequirements () {
+      if (!this.currentGroup) {
+        return []
+      }
       const { activeEditorsCount, activeEditorsRequiredForConflictResolution: requiredCount } = this.currentGroup
       if (activeEditorsCount < requiredCount) {
         return [this.$t('CONFLICT.REQUIREMENTS.ACTIVE_EDITORS', { activeEditorsCount, requiredCount })]

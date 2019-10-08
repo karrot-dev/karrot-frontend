@@ -82,7 +82,7 @@
     "@babel/runtime-corejs3": "^7.6.2",
     "@octokit/rest": "^16.32.0",
     "@sentry/cli": "^1.47.2",
-    "@storybook/addon-actions": "5.2.1",
+    "@storybook/addon-actions": "5.2.3",
     "@storybook/addon-links": "5.2.1",
     "@storybook/vue": "5.2.1",
     "@vue/test-utils": "1.0.0-beta.29",

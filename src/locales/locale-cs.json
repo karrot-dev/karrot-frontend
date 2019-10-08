@@ -34,20 +34,20 @@
       },
       "GIVE_TRUST": {
         "TITLE": "Důvěřovat uživateli",
-        "MESSAGE": "Důvěřujete {userName} v {groupName} ?"
+        "MESSAGE": "Důvěřujete {userName} ve skupině {groupName} ?"
       }
     },
     "LOGOUT_SUCCESS": "Byl jste odhlášen!",
-    "YOU_TRUST_USER": "Důvěřujete {userName} v {groupName}.",
-    "OTHER_PEOPLE_TRUST_USER": "{otherUser} důvěřuje {userName} v {groupName}. | {count} lidé důvěřují {userName} v {groupName}.",
+    "YOU_TRUST_USER": "Důvěřujete {userName} ve skupině {groupName}.",
+    "OTHER_PEOPLE_TRUST_USER": "{otherUser} důvěřuje {userName} v {groupName}. | {count} lidé důvěřují {userName} ve skupině {groupName}.",
     "OTHER_PEOPLE_TRUST_YOU": "{otherUser} vám věří v {groupName}. | {count} lidé vám věří v {groupName}.",
-    "PEOPLE_TRUST_USER": "Vy a {otherUser}důvěřujte {userName} v {groupName}. | Vy a {count} ostatní lidé důvěřujete {userName} v {groupName}.",
-    "FIRST_TRUST": "Buďte první, který důvěřujete {userName} v {groupName}!",
+    "PEOPLE_TRUST_USER": "Vy a {otherUser}důvěřujte {userName} v {groupName}. | Vy a {count} ostatní lidé důvěřujete {userName} ve skupině {groupName}.",
+    "FIRST_TRUST": "Buďte první, který důvěřujete {userName} ve skupině {groupName}!",
     "NEWCOMER": "Nový příchozí",
     "NEWCOMER_GUIDANCE": "{userName} je pro vaši skupinu nový a může vyžadovat nějakou pomoc.",
     "TRUST_PROGRESS_TEXT": "{trustNeeded} vyžaduje více důvěry",
     "TRUST_PROGRESS_TEXT_LONG": "Ještě {trustNeeded} lidí musí vyjádřit svou důvěru v {userName} k udělení oprávnění k úpravám.",
-    "NEWCOMER_INFO": "V současné době jste nováčkem v {groupName} a můžete být aktivní tím, že píšete zprávy, setkáváte se s kolegy členy, vyzvedáváte a poskytujete zpětnou vazbu. Jakmile {threshold} členové vyjádří důvěru ve vás, získáte oprávnění k úpravám, která vám pomohou se správou skupiny.",
+    "NEWCOMER_INFO": "V současné době jste nováčkem ve skupině {groupName} a můžete být aktivní tím, že píšete zprávy, setkáváte se s členy, vyzvedáváte a poskytujete zpětnou vazbu. Jakmile {threshold} členové vyjádří důvěru ve vás, získáte oprávnění k úpravám, která  pomohou se správou skupiny.",
     "TRUST_INFO": {
       "TITLE": "K čemu je toto tlačítko karrot?",
       "MESSAGE": "To je součástí  systému důvěryhodnosti Karrot. Ukazuje, zda je členem skupiny nový příchozí  a kolik důvěry je potřeba, dokud nezíská  oprávnění k úpravám.",
@@ -333,7 +333,7 @@
       "EMPTY": "Pouze prázdný",
       "FREE": "S volnými sloty"
     },
-    "AVAILABLE": "Čeká na vás jedno vyzvednutí ve vašem oblíbeném místě! | Čekají na vás{count}  vaše oblíbená místa!",
+    "AVAILABLE": "Čeká na vás jedno vyzvednutí na vašem oblíbeném místě. | Čekají na vás {count}  vyzvednutí na vašich oblíbených místech.",
     "AVAILABLE_FEEDBACK": "Můžete dát zpětnou vazbu k vyzvednutí  | {count} vyzvednutí čeká na vaši zpětnou vazbu",
     "JOINEDNOTICE": "Máte jedno nadcházející vyzvednutí | Máte {count} nadcházejících vyzvednutí",
     "AVAILABLE_FROM_STORES": "Zobrazuje vyzvednutí z vašich oblíbených míst v následujících dnech. Na postranním panelu můžete přistupovat k dalším místům.",
@@ -458,7 +458,7 @@
     "PICKUP_UPCOMING": "Připomenutí: Máte vyzvednutí v {time}",
     "PICKUP_DISABLED": "Vyzvednutí v {dateTime} bylo zakázáno",
     "PICKUP_ENABLED": "Vyzvednutí v {dateTime} bylo znovu povoleno",
-    "PICKUP_MOVED": "Vyzvednutí bylo přesunuto do {dateTime}",
+    "PICKUP_MOVED": "Vyzvednutí bylo přesunuto na {dateTime}",
     "CONFLICT_RESOLUTION_CREATED": "Připojte se k diskusi o konfliktu s {userName}",
     "CONFLICT_RESOLUTION_CREATED_ABOUT_YOU": "S vámi byl zahájen proces řešení konfliktů",
     "CONFLICT_RESOLUTION_CONTINUED": "Proces řešení konfliktu s {userName} pokračuje",
@@ -486,7 +486,7 @@
     "DETAIL": "K dispozici je nová verze karot."
   },
   "NOT_FOUND": {
-    "EXPLANATION": "Litujeme, ale tuto stránku jsme nenašli nikde.",
+    "EXPLANATION": "Litujeme, ale tuto stránku jsme nikde nenašli.",
     "HOME": "Zpět na Hlavní stranu"
   },
   "SETTINGS": {
@@ -545,7 +545,7 @@
   },
   "STORESTATUS": {
     "ACTIVE": "Spolupracuje",
-    "CREATED": "Právě vytvořeno",
+    "CREATED": "Jen vytvořeno",
     "NEGOTIATING": "Vyjednávání",
     "DECLINED": "Nechce spolupracovat",
     "ARCHIVED": "Archivováno"

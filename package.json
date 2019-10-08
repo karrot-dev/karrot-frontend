@@ -57,7 +57,7 @@
     "loglevel": "^1.6.4",
     "markdown-it": "9.1.0",
     "markdown-it-emoji": "^1.4.0",
-    "markdown-it-link-attributes": "^2.0.0",
+    "markdown-it-link-attributes": "^3.0.0",
     "quasar": "^1.1.7",
     "reconnecting-websocket": "^4.2.0",
     "twemoji": "^12.1.3",

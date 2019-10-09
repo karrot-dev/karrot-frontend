@@ -32,39 +32,41 @@
         fit
       >
         <QList>
-          <QItem
-            v-for="(result, idx) in results"
-            :key="idx"
-            v-close-popup
-            :to="result.value"
-            clickable
-            @click="hide"
-          >
-            <QItemSection
-              v-if="result.icon"
-              side
+          <QInfiniteScroll @load="onLoad">
+            <QItem
+              v-for="(result, idx) in results.slice(0, limit)"
+              :key="idx"
+              v-close-popup
+              :to="result.value"
+              clickable
+              @click="hide"
             >
-              <QIcon :name="result.icon" />
-            </QItemSection>
-            <QItemSection
-              v-if="result.user"
-              side
-            >
-              <ProfilePicture
-                :user="result.user"
-                :is-link="false"
-                :size="25"
-              />
-            </QItemSection>
-            <QItemSection>
-              <QItemLabel>
-                {{ result.label }}
-              </QItemLabel>
-              <QItemLabel caption>
-                {{ result.sublabel }}
-              </QItemLabel>
-            </QItemSection>
-          </QItem>
+              <QItemSection
+                v-if="result.icon"
+                side
+              >
+                <QIcon :name="result.icon" />
+              </QItemSection>
+              <QItemSection
+                v-if="result.user"
+                side
+              >
+                <ProfilePicture
+                  :user="result.user"
+                  :is-link="false"
+                  :size="25"
+                />
+              </QItemSection>
+              <QItemSection>
+                <QItemLabel>
+                  {{ result.label }}
+                </QItemLabel>
+                <QItemLabel caption>
+                  {{ result.sublabel }}
+                </QItemLabel>
+              </QItemSection>
+            </QItem>
+          </QInfiniteScroll>
           <QItem
             v-if="results.length < 1"
           >
@@ -91,6 +93,7 @@ import {
   QItem,
   QItemSection,
   QItemLabel,
+  QInfiniteScroll,
 } from 'quasar'
 import { mapMutations, mapGetters } from 'vuex'
 
@@ -104,12 +107,24 @@ export default {
     QItem,
     QItemSection,
     QItemLabel,
+    QInfiniteScroll,
+  },
+  data () {
+    return {
+      limit: 10,
+    }
   },
   computed: {
     ...mapGetters({
       results: 'search/results',
       terms: 'search/terms',
     }),
+  },
+  watch: {
+    results () {
+      // reset limit if results change
+      this.limit = 10
+    },
   },
   methods: {
     ...mapMutations({
@@ -127,6 +142,10 @@ export default {
     },
     hideResults () {
       this.$refs.menu.hide()
+    },
+    onLoad (index, done) {
+      this.limit += 10
+      done()
     },
   },
 }

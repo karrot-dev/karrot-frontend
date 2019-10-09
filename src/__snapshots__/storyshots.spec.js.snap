@@ -5014,7 +5014,7 @@ exports[`Storyshots Layout KTopbar 1`] = `
       <!---->
     </div>
   </div>
-  <div>
+  <div class="row no-wrap items-center">
     <!----> <button tabindex="0" type="button" title="Search" class="q-btn inline q-btn-item non-selectable k-search-button q-btn--flat q-btn--round q-focusable q-hoverable q-btn--dense">
       <div tabindex="-1" class="q-focus-helper"></div>
       <div class="q-btn__content text-center col items-center q-anchor--skip justify-center row"><i aria-hidden="true" class="fas fa-fw fa-search q-icon"> </i></div>

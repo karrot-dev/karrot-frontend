@@ -27,7 +27,7 @@
         :breadcrumbs="breadcrumbs"
       />
     </QToolbarTitle>
-    <div>
+    <div class="row no-wrap items-center">
       <div
         v-if="searchOpen"
         class="k-searchbar row no-wrap"

@@ -150,7 +150,7 @@
     "INVITATION_ACCEPT_SUCCESS": "Willkommen! Du hast die Einladung erfolgreich angenommen.",
     "INVITATION_ACCEPT_ERROR": "Ups, die Einladung konnte nicht akzeptiert werden!",
     "SETTINGS": "Einstellungen",
-    "NOTIFICATIONS_BY_GROUP": "Notifications by group",
+    "NOTIFICATIONS_BY_GROUP": "Gruppenbenachrichtigungen",
     "EMAIL_NOTIFICATIONS": "Email-Benachrichtigungen",
     "NOTIFICATION_TYPES": {
       "weekly_summary": {
@@ -199,7 +199,7 @@
     "DESCRIPTION": "Beschreibung",
     "ADDRESS": "Adresse",
     "WEEKS_IN_ADVANCE": "Wieviele Wochen im Voraus sollen die wiederkehrenden Abholungen angezeigt werden?",
-    "WEEKS_IN_ADVANCE_WARNING": "You are about to reduce the number of weeks pickups are shown. Existing leftover pickups will get deleted if nobody has joined them. You can disable all other pickups manually, if needed.",
+    "WEEKS_IN_ADVANCE_WARNING": "Du bist dabei, die Anzahl der Wochen zu reduzieren, in denen Abholungen angezeigt werden. Übrige noch existierende Abholungen werden gelöscht, falls sich dort niemand eingetragen hat. Falls nötig, kannst du alle anderen Abholungen manuell löschen.",
     "DIALOGS": {
       "ARCHIVE": {
         "TITLE": "Ort archivieren",
@@ -218,7 +218,7 @@
     "SUBSCRIPTION": {
       "HEADER": "Willst du diesen Ort als Favoriten markieren?",
       "YES": "ja",
-      "YES_TEXT": "Shows available pickups on the group wall and sends emails about upcoming pickups.",
+      "YES_TEXT": "Zeigt verfügbare Abholungen auf der Gruppen-Pinnwand und versendet E-Mails zu anstehenden Abholungen.",
       "NO": "nein",
       "NO_TEXT": "Nichts von oben. Du kannst dich trotzdem für Abholungen einschreiben."
     }
@@ -228,9 +228,9 @@
     "SERIES": "Wiederkehrende Abholungen",
     "SINGLE": "Einmalige Abholungen",
     "UPCOMING_PICKUPS_IN_SERIES": "Kommende Einzelabholungen",
-    "PICKUP_DOES_NOT_MATCH": "This pickups' date doesn't match the recurrence pattern",
-    "PICKUP_DESCRIPTION_CHANGED": "'Additional information' has been changed",
-    "PICKUP_MAX_COLLECTORS_CHANGED": "'Max slots' has been changed"
+    "PICKUP_DOES_NOT_MATCH": "Dieses Abholungsdatum stimmt nicht mit der Frequenz sonstiger Abholungen überein.",
+    "PICKUP_DESCRIPTION_CHANGED": "'Zusätzliche Information' wurde geändert",
+    "PICKUP_MAX_COLLECTORS_CHANGED": "'Max slots' wurde geändert"
   },
   "PICKUPDELETE": {
     "DELETE_SERIES_TITLE": "Regelmäßige Abholung löschen",
@@ -317,12 +317,12 @@
     "COMMENT": "Zusätzliche Informationen",
     "COMMENT_HELPER": "Was sollten die Leute wissen, wenn sie bei dieser Abholung teilnehmen?",
     "UNLIMITED": "unbegrenzt",
-    "DIFFERS_WARNING": "This value differs from the default. To undo this change, click on the arrow button and save the changes.",
+    "DIFFERS_WARNING": "Dieser Wert unterscheidet sich vom Standard. Um diese Änderung rückgängig zu machen, klicke auf die Pfeil-Schaltfläche und speichere die Änderungen.",
     "ENABLE_TITLE": "Abholungen aktivieren?",
     "DISABLE_TITLE": "Abholungen deaktivieren?",
-    "ENABLE_DISABLE_MESSAGE": "Users who joined this pickup will get a notification. You can change this text to provide a reason:",
+    "ENABLE_DISABLE_MESSAGE": "Nutzer, die sich für diese Abholung eingetragen haben, werden benachrichtigt. Du kannst diesen Text ändern, um einen Grund anzugeben:",
     "EXCEPTIONS_TITLE": "Kontrolliere deine Abholungen",
-    "EXCEPTIONS_MESSAGE": "Some upcoming pickups don't match the settings of this recurring pickup. Have a look below at '{upcomingLabel}' to change or disable pickups, if needed."
+    "EXCEPTIONS_MESSAGE": "Einige anstehende Abholungen stimmen nicht mit den Einstellungen dieser regelmäßigen Abholung überein. Schaue unter '{upcomingLabel}' nach, um Abholungen zu ändern oder zu löschen, falls nötig."
   },
   "CREATESTORE": {
     "TITLE": "Neuen Ort erstellen"
@@ -333,10 +333,10 @@
       "EMPTY": "Nur leere",
       "FREE": "Mit offenen Slots"
     },
-    "AVAILABLE": "There is one pickup in your favorite places waiting for you! | There are {count} pickups in your favorite places waiting for you!",
+    "AVAILABLE": "Es gibt eine Abholung bei deinen Lieblingsorten, die auf dich wartet! | Es gibt '{count}' Abholungen bei deinen Lieblingsorten, die auf dich warten!",
     "AVAILABLE_FEEDBACK": "Du kannst Feedback zu einer Abholung geben | {count} Abholungen warten auf dein Feedback.",
     "JOINEDNOTICE": "Du hast dich für eine Abholung gemeldet | Du hast dich für {count} Abholungen gemeldet",
-    "AVAILABLE_FROM_STORES": "This shows pickups from your favorite places in the next days. You can access other places in the sidebar.",
+    "AVAILABLE_FROM_STORES": "Hier werden Abholung der nächsten Tage deiner Lieblingsorte angezeigt. Du erhältst über die Seitenleiste Zugang zu anderen Orten.",
     "ITEM": {
       "LEAVE": "Nicht mehr abholen",
       "JOIN": "Abholen",
@@ -452,7 +452,7 @@
     "APPLICATION_ACCEPTED": "Deine Bewerbung wurde akzeptiert!",
     "APPLICATION_DECLINED": "Deine Bewerbung wurde abgelehnt",
     "INVITATION_ACCEPTED": "{userName} hat deine Einladung angenommen",
-    "FEEDBACK_POSSIBLE": "You can give feedback for the pickup you did on {date}",
+    "FEEDBACK_POSSIBLE": "Du kannst ein Feedback zu der Abholung vom '{date}' geben.",
     "NEW_PLACE": "{placeName} wurde erstellt",
     "NEW_MEMBER": "{userName} schloss sich deiner Gruppe an",
     "PICKUP_UPCOMING": "Erinnerung: Du hast um {time} eine Abholung",
@@ -470,11 +470,11 @@
   },
   "NOTIFICATION_TOGGLE": {
     "HEADER": "Wie willst du Benachrichtigungen über neue Nachrichten in dieser Unterhaltung erhalten?",
-    "ALL": "all",
+    "ALL": "alle",
     "ALL_TEXT": "Via App/Webseite, E-Mail und Push-Benachrichtigungen.",
-    "SOME": "some",
+    "SOME": "einige",
     "SOME_TEXT": "Via App/Webseite.",
-    "NONE": "none",
+    "NONE": "keine",
     "NONE_TEXT": "Keine Benachrichtigungen."
   },
   "OUTDATED_BROWSER": {
@@ -541,7 +541,7 @@
     "NO_CONVERSATIONS": "Noch keine Unterhaltungen.",
     "MUTED": "Benachrichtigungen sind deaktiviert",
     "CLOSED": "Diese Unterhaltung wurde automatisch geschlossen.",
-    "NOT_PARTICIPATED": "By sending a message, you will be subscribed to notifications about this conversation."
+    "NOT_PARTICIPATED": "Indem du eine Nachricht schickst, wirst du Benachrichtigungen über diese Unterhaltung erhalten."
   },
   "STORESTATUS": {
     "ACTIVE": "Kooperiert",
@@ -566,13 +566,13 @@
     "SUBMITTED_ON": "Abgegeben am {date}",
     "WITHDRAWN": "{relativeDate} zurückgezogen ",
     "WHAT": "Um was geht es in dieser Unterhaltung?",
-    "HELP": "This is a chat between all existing members of {groupName} and the new applicant {userName}. It is meant to give you all a chance to get to know you before deciding whether to accept, decline or withdraw the application.",
+    "HELP": "Dies ist ein Chat zwischen allen Mitgliedern der Gruppe {groupName} und dem/der neuen Bewerber/in {userName}. Er ist dazu gedacht, euch allen die Möglichkeit zu geben, euch kennen zu lernen, bevor ihr darüber entscheidet, die Bewerbung anzunehmen, abzulehnen oder zurück zu ziehen.",
     "INITIAL": "Erste Fragen und Antworten"
   },
   "COMMUNITY_FEED": {
     "HEADER": "Updates der {community}",
     "HEADER_LINK": "foodsaving worldwide community",
-    "LAST_UPDATED": "Last updated {relativeDate}",
+    "LAST_UPDATED": "Letztes Update {relativeDate}",
     "KARROT_DISCUSSION": "Diskussionen über Karrot"
   },
   "INACTIVITY": {
@@ -585,11 +585,11 @@
     "STEPPER1a": "Du bist dabei einen gruppenweiten Konfliktlösungsprozess zu starten!",
     "STEPPER1b": "Dabei werden alle Mitglieder mit Bearbeitungsrechten einbezogen, um die beste Lösung zu finden.",
     "STEPPER2a": "Danke, dass du dich um deine Community kümmerst!",
-    "STEPPER2b": "It is important to address social issues, although it can be unpleasant sometimes. Thank you for your courage!",
+    "STEPPER2b": "Es ist wichtig, soziale Themen anzusprechen, auch wenn dies manchmal unangenehm sein kann. Danke für deinen Mut!",
     "STEPPER3a": "Dies wird passieren:",
     "STEPPER3b": "Dieser Prozess wird eine Unterhaltung und eine Abstimmung starten.",
     "STEPPER3c": "Die Unterhaltung wird nur für Mitglieder mit Bearbeitungsrechten sichtbar sein und bezieht {userName} mit ein.",
-    "STEPPER3d": "The voting is anonymous. It will go on for {votingDuration} days. During this time all voters can change their minds and vote differently as many times as they want.",
+    "STEPPER3d": "Die Abstimmung ist anonym. Sie wird für {votingDuration} geöffnet sein. Während dieser Zeit können alle Wählenden ihre Meinung ändern und unterschiedlich wählen, sooft sie wollen.",
     "STEPPER4a": "Bitte erkläre warum du diesen Konfliktlösungsprozess starten willst!",
     "STEPPER4b": "Erzähle deiner Gruppe warum du denkst, dass dieser Prozess berechtigt und benötigt wird. Diese Aussage wird sichtbar für {userName} und alle Gruppenmitglieder mit Bearbeitungsrechten sein.",
     "FIND_OUT_MORE": "Mehr herausfinden!",
@@ -604,7 +604,7 @@
     },
     "INFO": {
       "TITLE": "Wie funktioniert dieser Prozess?",
-      "MESSAGE": "This is a score voting in which group members with editing permissions can participate to determine how to deal with a social conflict that affects the whole group."
+      "MESSAGE": "Dies ist eine Abstimmung, bei der Gruppenmitglieder mit Bearbeitungsberechtigung teilnehmen können, um zu entscheiden, wie mit einem sozialen Konflikt umgegangen werden soll, der die gesamte Gruppe betrifft."
     }
   },
   "ISSUE": {
@@ -632,7 +632,7 @@
         "KEEP_DISCUSSING": "Deine Gruppe hat entschieden weiter zu diskutieren.",
         "TIME_UP": "Die Zeit ist abgelaufen!",
         "TOTAL_SCORE": "Gesamtergebnis",
-        "ENDED_AT": "This voting round ended on {date}",
+        "ENDED_AT": "Diese Wahlrunde endet am {date}",
         "PARTICIPANTS": "{number} Mitglieder haben an der Abstimmung teilgenommen.",
         "UNDECIDED": "Leider konnte dieser Konflikt nicht entschieden werden.",
         "UNDECIDED_WHY": "Es gibt zwei mögliche Gründe dafür:",
@@ -654,12 +654,12 @@
   "UNSUBSCRIBE": {
     "HEADER": "Abbestellen",
     "ALL": "Bestelle alle ab",
-    "FROM_CONVERSATION": "unsubscribe from just this conversation",
-    "FROM_THREAD": "unsubscribe from just this thread",
-    "FROM_NOTIFICATION_TYPE": "unsubscribe from {notificationType}",
-    "FROM_GROUP": "Unsubscribe from all email notifications in {groupName}",
+    "FROM_CONVERSATION": "Trete aus dieser Unterhaltung aus.",
+    "FROM_THREAD": "Melde dich nur von diesem Thread ab.",
+    "FROM_NOTIFICATION_TYPE": "Trage dich aus von {notificationType}",
+    "FROM_GROUP": "Melde dich von allen E-Mail-Benachichtigungen in {groupName} ab.",
     "SUCCESS": "Du wurdest erfolgreich abgemeldet!",
-    "COUNTS": "You unsubscribed from {formerConversations} conversations and {formerReplies} replies."
+    "COUNTS": "Du hast dich von {formerConversations} Unterhaltungen und {formerReplies} Antworten abgemeldet. "
   },
   "THANKS": "Danke dir!",
   "ATTENTION": "Achtung!",

@@ -7,7 +7,7 @@
         class="q-pa-md toggle-button"
         @click="showPickups = !showPickups"
       >
-        <i class="fas fa-star on-left" />
+        <i :class="`${$icon('star')} on-left`" />
         {{ $tc('PICKUPLIST.AVAILABLE', pickups.length, { count: pickups.length }) }}
         <div
           class="card-arrow"

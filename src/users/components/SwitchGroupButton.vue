@@ -36,7 +36,7 @@
             side
           >
             <QIcon
-              name="fas fa-star"
+              :name="$icon('star')"
               color="secondary"
               size="1.1em"
             />

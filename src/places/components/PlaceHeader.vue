@@ -264,7 +264,7 @@ export default {
           id: 'unsubscribe',
           label: this.$t('PLACEWALL.SUBSCRIPTION.NO'),
           sublabel: this.$t('PLACEWALL.SUBSCRIPTION.NO_TEXT'),
-          icon: `${this.$icon('star')} fa-fw`,
+          icon: this.$icon('star_fw'),
           color: 'grey',
           selected: !this.isSubscribed,
         },

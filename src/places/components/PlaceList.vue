@@ -22,7 +22,7 @@
           {{ place.name }}
           <QIcon
             v-if="place.isSubscribed"
-            name="fas fa-fw fa-star"
+            :name="$icon('star_fw')"
             class="vertical-baseline q-ml-xs"
             color="secondary"
           />

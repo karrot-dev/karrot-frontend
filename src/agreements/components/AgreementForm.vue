@@ -5,7 +5,7 @@
   >
     <form @submit.prevent="maybeSave">
       <QField
-        icon="fas fa-star"
+        :icon="$icon('star')"
         :label="$t('AGREEMENT.TITLE')"
         :hint="$t('AGREEMENT.TITLE_HELPER')"
       >

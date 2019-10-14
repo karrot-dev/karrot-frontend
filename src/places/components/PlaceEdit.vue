@@ -19,7 +19,7 @@
             @blur="$v.edit.name.$touch"
           >
             <template v-slot:before>
-              <QIcon name="fas fa-star" />
+              <QIcon :name="$icon('star')" />
             </template>
           </QInput>
 

@@ -31,8 +31,8 @@
         </QStep>
         <QStep
           name="consequences"
-          icon="fas fa-info"
-          done-icon="fas fa-info"
+          :icon="$icon('info')"
+          :done-icon="$icon('info')"
           :title="$t('INFO')"
         >
           <p><strong> {{ $t('CONFLICT.STEPPER3a') }} </strong></p>

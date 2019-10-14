@@ -11,7 +11,7 @@
         <QItemSection side>
           <QIcon
             color="white"
-            name="fas fa-fw fa-info"
+            :name="$icon('info_fw')"
           />
         </QItemSection>
       </QItem>

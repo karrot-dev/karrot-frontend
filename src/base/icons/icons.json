@@ -1,5 +1,7 @@
 {
   "feedback": "fas fa-balance-scale",
+  "info": "fas fa-info",
+  "info_fw": "fas fa-fw fa-info",
   "pickup": "fas fa-shopping-basket",
   "pickup_fw": "fas fa-fw fa-shopping-basket",
   "place": "fas fa-shopping-cart",

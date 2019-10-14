@@ -24,7 +24,7 @@
         v-if="!issue.isOngoing"
         class="q-mx-sm q-mb-sm q-pl-sm text-warning"
       >
-        <i class="fas fa-info-circle q-mr-xs" />
+        <i :class="`${$icon('info_circle')} q-mr-xs`" />
         {{ $t('ISSUE.VOTING.RESULTS.TIME_UP') }}
         <QBtn
           :to="{ name: 'issueVote', params: { groupId: issue.group.id, issueId: issue.id } }"

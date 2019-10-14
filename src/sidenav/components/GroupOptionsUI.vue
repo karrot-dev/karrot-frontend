@@ -69,7 +69,7 @@ export default {
         to: { name: 'groupManageAgreement', params: { groupId: this.currentGroupId } },
       }, {
         label: this.$t('GROUPINFO.META'),
-        icon: 'fas fa-info-circle fa-fw',
+        icon: this.$icon('info_circle_fw'),
         to: { name: 'groupPreview', params: { groupPreviewId: this.currentGroupId } },
       }, {
         condition: this.isEditor,

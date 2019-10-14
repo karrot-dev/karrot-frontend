@@ -78,7 +78,7 @@
         <QBtn
           flat
           size="sm"
-          icon="fas fa-info-circle"
+          :icon="$icon('info_circle')"
           @click.stop="$emit('preview')"
         >
           <QTooltip>

@@ -129,7 +129,7 @@
         <QToolbar class="bg-primary text-white">
           <QToolbarTitle v-if="place">
             <QIcon
-              name="fas fa-info-circle"
+              :name="$icon('info_circle')"
               class="on-left"
             />
             <span>{{ place.name }}</span>

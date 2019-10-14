@@ -2,6 +2,8 @@ import { Platform } from 'quasar'
 
 const GroupWall = () => import('@/group/pages/Wall')
 const GroupPickups = () => import('@/pickups/pages/GroupPickups')
+const GroupSharing = () => import('@/sharing/pages/GroupSharing')
+const SharingDetail = () => import('@/sharing/pages/SharingDetail')
 const GroupFeedback = () => import('@/feedback/pages/GroupFeedback')
 const Messages = () => import('@/messages/pages/Messages')
 const LatestConversations = () => import('@/messages/components/LatestConversations')
@@ -206,6 +208,39 @@ export default [
           ],
         },
         component: GroupPickups,
+      },
+      {
+        name: 'groupSharing',
+        path: 'sharing',
+        meta: {
+          requireLoggedIn: true,
+          breadcrumbs: [
+            { translation: 'GROUP.SHARING', route: { name: 'groupSharing' } },
+          ],
+          beforeEnter: 'sharingItems/fetchList',
+          afterLeave: 'sharingItems/clear',
+        },
+        components: {
+          default: GroupSharing,
+          detail: { render: h => h('router-view') },
+        },
+        children: [
+          {
+            name: 'sharingDetail',
+            path: ':itemId',
+            components: {
+              default: SharingDetail,
+            },
+            meta: {
+              requireLoggedIn: true,
+              breadcrumbs: [
+                { translation: 'GROUP.SHARING_DETAIL', route: { name: 'sharingDetail' } },
+              ],
+              beforeEnter: 'sharingItems/select',
+              isDetail: true,
+            },
+          },
+        ],
       },
       {
         name: 'groupFeedback',

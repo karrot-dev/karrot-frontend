@@ -17,7 +17,7 @@ describe('Conversation message reactions', () => {
 
   it('click emoji in menu adds own reaction (when reaction not present)', async () => {
     const button = wrapper.find(EmojiButton).find(QBtn)
-    button.vm.click()
+    button.vm.click({})
     await nextTicks(2)
 
     expect(wrapper.emitted().toggle).toEqual([['carrot']])

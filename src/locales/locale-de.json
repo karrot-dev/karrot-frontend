@@ -2,9 +2,9 @@
   "ENTRY": "1 Eintrag | {count} Einträge",
   "GLOBAL": {
     "GITHUB_NOTE": "Entwicklung",
-    "SERVER_ERROR": "Der Server gibt einen Fehler zurück.",
+    "SERVER_ERROR": "Server-Fehler",
     "NOT_CONNECTED": "Du bist nicht mit dem Server verbunden",
-    "INVALID_LINK": "Ups, der Link ist ungültig.",
+    "INVALID_LINK": "Der Link ist ungültig.",
     "GENERIC_ERROR": "Entschuldige, ein Fehler ist aufgetreten",
     "SEARCH_NOT_FOUND": "Nicht gefunden",
     "ABOUT_KARROT": "Über Karrot"
@@ -619,7 +619,7 @@
     "PREVIOUS_VOTINGS": "Vergangene Abstimmungen in diesem Konflikt",
     "PARTICIPANTS": "{count} Mitglieder wurden dieser Diskussion hinzugefügt.",
     "VOTING": {
-      "TIME_LEFT": "Restliche Zeit zum Abstimmen",
+      "TIME_LEFT": "Verbleibende Zeit zum Abstimmen",
       "BTN_START": "Stimme jetzt ab",
       "SAVE": "Speichern",
       "BTN_DELETE": "Lösche Abstimmung",
@@ -665,5 +665,5 @@
   "ATTENTION": "Achtung!",
   "INFO": "Information",
   "YOU": "Du",
-  "TO": "an"
+  "TO": "bis"
 }

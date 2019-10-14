@@ -10,8 +10,8 @@ const iconsVM = new Vue({
     }
   },
   methods: {
-    get (name) {
-      return this.iconStore[name]
+    get: function (name, fw) {
+      return this.iconStore[name] + (fw ? ' fa-fw' : '')
     },
     getAll () {
       return this.iconStore

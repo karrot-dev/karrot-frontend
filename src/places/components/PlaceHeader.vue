@@ -12,7 +12,7 @@
       class="toolbar row justify-between bg-white q-pb-xs"
     >
       <QChip
-        icon="fas fa-star"
+        :icon="$icon('star')"
         color="secondary"
         text-color="white"
         square
@@ -256,7 +256,7 @@ export default {
           id: 'subscribe',
           label: this.$t('PLACEWALL.SUBSCRIPTION.YES'),
           sublabel: this.$t('PLACEWALL.SUBSCRIPTION.YES_TEXT'),
-          icon: 'fas fa-fw fa-star',
+          icon: this.$icon('star_fw'),
           color: 'secondary',
           selected: this.isSubscribed,
         },
@@ -264,7 +264,7 @@ export default {
           id: 'unsubscribe',
           label: this.$t('PLACEWALL.SUBSCRIPTION.NO'),
           sublabel: this.$t('PLACEWALL.SUBSCRIPTION.NO_TEXT'),
-          icon: 'fas fa-fw fa-star',
+          icon: `${this.$icon('star')} fa-fw`,
           color: 'grey',
           selected: !this.isSubscribed,
         },

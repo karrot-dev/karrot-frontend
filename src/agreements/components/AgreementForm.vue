@@ -18,7 +18,7 @@
       </QField>
 
       <QField
-        icon="fas fa-file-alt"
+        :icon="$icon('file_alt')"
         :label="$t('AGREEMENT.CONTENT')"
         :hint="$t('AGREEMENT.CONTENT_HELPER')"
       >

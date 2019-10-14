@@ -92,7 +92,7 @@
         <QItemSection side>
           <QIcon
             color="white"
-            name="far fa-fw fa-file-alt"
+            :name="$icon('file_alt_fw')"
           />
         </QItemSection>
       </QItem>

@@ -1,5 +1,7 @@
 {
   "feedback": "fas fa-balance-scale",
+  "file_alt": "fas fa-file-alt",
+  "file_alt_fw": "fas fa-fw fa-file-alt",
   "info": "fas fa-info",
   "info_fw": "fas fa-fw fa-info",
   "info_circle": "fas fa-info-circle",

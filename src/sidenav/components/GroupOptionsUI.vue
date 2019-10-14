@@ -65,7 +65,7 @@ export default {
       }, {
         condition: this.isAgreementManager,
         label: this.$t('GROUP.MANAGE_AGREEMENT'),
-        icon: 'fas fa-file-alt fa-fw',
+        icon: this.$icon('file_alt_fw'),
         to: { name: 'groupManageAgreement', params: { groupId: this.currentGroupId } },
       }, {
         label: this.$t('GROUPINFO.META'),

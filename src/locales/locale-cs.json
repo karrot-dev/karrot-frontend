@@ -370,7 +370,7 @@
     "SET_AMOUNT": "Nastavit množství",
     "DELETE_AMOUNT": "Smazat množství",
     "AMOUNT": "Množství jídla, které jste všichni mohli ušetřit (v kg)",
-    "COMMENT_PLACEHOLDER": "Bylo všechno v pořádku? Ukázali se všichni? Napište komentář zde ...",
+    "COMMENT_PLACEHOLDER": "Bylo všechno v pořádku? Žádné komplikace? Napište komentář zde ...",
     "PREVIOUS": "Předchozí zpětná vazba pro {store}",
     "TOGETHER_WITH": "Toto vyzvednutí jste provedli společně s:"
   },

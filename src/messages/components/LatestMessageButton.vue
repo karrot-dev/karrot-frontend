@@ -8,7 +8,7 @@
     @click="maybeOpen"
   >
     <QIcon
-      name="fas fa-comments"
+      :name="$icon('comments')"
       :class="{ hasUnread: unreadCount > 0 }"
     />
     <QBadge

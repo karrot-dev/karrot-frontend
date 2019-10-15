@@ -24,7 +24,7 @@
         :title="$t('CONVERSATION.REPLIES')"
         @click="$emit('openThread')"
       >
-        <i class="fas fa-comments" />
+        <i :class="$icon('comments')" />
       </QBtn>
       <ConversationAddReaction
         :reacted="currentUserReactions"

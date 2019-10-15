@@ -39,7 +39,7 @@
         </QToolbarTitle>
       </template>
       <template v-else-if="conversation.thread">
-        <QIcon name="fas fa-fw fa-comments" />
+        <QIcon :name="$icon('comments_fw')" />
         <QToolbarTitle>
           {{ $t('CONVERSATION.REPLIES') }}
         </QToolbarTitle>

@@ -7,7 +7,7 @@
       :to="{ name: 'issueChat', params: { groupId, issueId } }"
       default
       name="chat"
-      icon="fas fa-comments"
+      :icon="$icon('comments')"
       :label="$q.platform.is.mobile ? '' : $t('ISSUE.CHAT')"
     />
     <QRouteTab

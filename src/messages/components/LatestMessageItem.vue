@@ -31,7 +31,7 @@
           </template>
           <template v-else-if="isThread">
             <QIcon
-              name="fas fa-fw fa-comments"
+              :name="$icon('comments_fw')"
               class="q-mr-sm"
             />
             <div class="ellipsis">

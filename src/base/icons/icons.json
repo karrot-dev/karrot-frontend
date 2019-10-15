@@ -1,5 +1,7 @@
 {
   "child": "fas fa-child",
+  "comments": "fas fa-comments",
+  "comments_fw": "fas fa-fw fa-comments",
   "exclamation_triangle": "fas fa-exclamation-triangle",
   "exclamation_triangle_fw": "fas fa-fw fa-exclamation-triangle",
   "feedback": "fas fa-balance-scale",

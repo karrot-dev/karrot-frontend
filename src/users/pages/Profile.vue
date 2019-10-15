@@ -72,7 +72,7 @@
             small
             round
             color="secondary"
-            icon="fas fa-comments"
+            :icon="$icon('comments')"
             :title="$t('USERDATA.PRIVATE_MESSAGE', {userName: user.displayName})"
             @click="detail(user)"
           />

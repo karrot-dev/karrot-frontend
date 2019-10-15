@@ -66,7 +66,7 @@
                 v-if="application"
                 class="bg-blue text-white"
                 :actions="[
-                  { label: $t('BUTTON.OPEN'), icon: 'fas fa-fw fa-comments', handler: () => $emit('openChat', application) },
+                  { label: $t('BUTTON.OPEN'), icon: $icon('comments_fw'), handler: () => $emit('openChat', application) },
                   { label: $t('BUTTON.WITHDRAW'), icon: 'fas fa-fw fa-trash-alt', handler: withdraw }
                 ]"
               >

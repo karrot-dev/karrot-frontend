@@ -59,7 +59,7 @@
           @click="openChat"
         >
           <QItemSection side>
-            <QIcon name="fas fa-fw fa-comments" />
+            <QIcon :name="$icon('comments_fw')" />
           </QItemSection>
           <QItemSection>
             {{ $t('BUTTON.OPEN') }}

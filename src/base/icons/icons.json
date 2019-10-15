@@ -11,6 +11,8 @@
   "pickup_fw": "fas fa-fw fa-shopping-basket",
   "place": "fas fa-shopping-cart",
   "place_fw": "fas fa-fw fa-shopping-cart",
+  "question": "fas fa-question",
+  "question_fw": "fas fa-fw fa-question",
   "star": "fas fa-star",
   "star_fw": "fas fa-fw fa-star"
 }

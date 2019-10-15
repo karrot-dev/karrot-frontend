@@ -13,7 +13,7 @@
       <div class="bg-white q-pt-sm q-pb-md q-px-sm rounded-borders">
         <QItem>
           <QItemSection side>
-            <QIcon name="fas fa-fw fa-question" />
+            <QIcon :name="$icon('question_fw')" />
           </QItemSection>
           <QItemSection>
             <Markdown

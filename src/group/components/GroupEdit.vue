@@ -33,7 +33,7 @@
           <MarkdownInput
             v-if="!edit.isPlayground"
             v-model="edit.publicDescription"
-            icon="fas fa-fw fa-question"
+            :icon="$icon('question_fw')"
             :label="$t('GROUPINFO.TITLE')"
             :error="hasError('publicDescription')"
             :error-message="firstError('publicDescription')"
@@ -71,7 +71,7 @@
 
           <MarkdownInput
             v-if="!edit.isOpen"
-            icon="fas fa-fw fa-question"
+            :icon="$icon('question_fw')"
             :value="applicationQuestionsOrDefault"
             :label="$t('GROUP.APPLICATION_QUESTIONS')"
             :error="hasError('applicationQuestions')"

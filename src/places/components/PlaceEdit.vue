@@ -71,7 +71,7 @@
 
           <MarkdownInput
             v-model="edit.description"
-            icon="fas fa-question"
+            :icon="$icon('question')"
             :label="$t('STOREEDIT.DESCRIPTION')"
             :error="hasError('description')"
             :error-message="firstError('description')"

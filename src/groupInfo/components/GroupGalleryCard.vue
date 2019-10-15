@@ -40,7 +40,7 @@
               {{ group.name }}
               <QIcon
                 v-if="group.isPlayground"
-                name="fas fa-child"
+                :name="$icon('child')"
               />
             </span>
             <span class="text-subtitle2">

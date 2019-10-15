@@ -85,7 +85,7 @@ export default {
     playgroundGroupInfo () {
       return {
         className: 'bg-secondary text-white',
-        icon: 'fas fa-child',
+        icon: this.$icon('child'),
         message: 'GROUP.PLAYGROUND_INFO',
         action: {
           label: this.$t('GROUP.JOIN_ANOTHER_GROUP'),

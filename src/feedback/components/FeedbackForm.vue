@@ -21,7 +21,7 @@
       class="text-negative"
       style="margin-top: 3em"
     >
-      <i class="fas fa-exclamation-triangle" />
+      <i :class="$icon(exclamation_triangle)" />
       {{ anyFirstError }}
     </div>
 

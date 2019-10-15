@@ -30,7 +30,7 @@
         v-if="hasError"
         class="text-warning"
       >
-        <i class="fas fa-exclamation-triangle" />
+        <i :class="$icon(exclamation_triangle)" />
         {{ $t('GLOBAL.GENERIC_ERROR') }}
       </div>
       <div class="actions">

@@ -70,7 +70,7 @@
           v-if="hasAnyError"
           class="text-negative q-mt-md"
         >
-          <i class="fas fa-exclamation-triangle" />
+          <i :class="$icon(exclamation_triangle)" />
           {{ anyFirstError }}
         </div>
       </QList>

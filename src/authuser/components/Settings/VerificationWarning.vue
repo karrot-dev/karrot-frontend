@@ -6,7 +6,7 @@
   >
     <template v-slot:avatar>
       <QIcon
-        name="fas fa-exclamation-triangle"
+        :name="$icon(exclamation_triangle)"
         color="white"
         style="font-size: 24px"
       />
@@ -33,7 +33,7 @@
       v-if="hasAnyError"
       class="bg-white text-negative"
     >
-      <i class="fas fa-exclamation-triangle" />
+      <i :class="$icon(exclamation_triangle)" />
       {{ anyFirstError }}
     </p>
   </QBanner>
@@ -48,7 +48,7 @@
         side
         class="text-white"
       >
-        <QIcon name="fas fa-exclamation-triangle" />
+        <QIcon :name="$icon(exclamation_triangle)" />
       </QItemSection>
       <QItemSection>
         {{ failedEmailDeliveryMessage }}

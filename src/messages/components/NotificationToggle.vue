@@ -21,7 +21,7 @@
             <QItemSection side>
               <QIcon
                 color="negative"
-                name="fas fa-fw fa-exclamation-triangle"
+                :name="$icon(exclamation_triangle_fw)"
               />
             </QItemSection>
             <QItemSection>

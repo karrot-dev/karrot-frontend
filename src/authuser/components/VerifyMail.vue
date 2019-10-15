@@ -5,7 +5,7 @@
       {{ $t('VERIFYMAIL.SUCCESS') }}
     </p>
     <p v-if="hasAnyError">
-      <i class="fas fa-exclamation-triangle" />
+      <i :class="$icon(exclamation_triangle)" />
       {{ anyFirstError }}
     </p>
     <RouterLink to="/">

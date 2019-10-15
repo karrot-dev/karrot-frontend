@@ -101,7 +101,7 @@
         v-if="hasAnyError"
         class="text-negative q-pl-lg"
       >
-        <i class="fas fa-exclamation-triangle" />
+        <i :class="$icon(exclamation_triangle)" />
         {{ anyFirstError }}
       </div>
     </div>

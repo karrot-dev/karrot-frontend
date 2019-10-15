@@ -34,7 +34,7 @@
           v-if="hasAnyError"
           class="text-warning"
         >
-          <i class="fas fa-exclamation-triangle" />
+          <i :class="$icon(exclamation_triangle)" />
           {{ anyFirstError }}
         </div>
         <div class="actions">

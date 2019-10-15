@@ -1,55 +1,74 @@
 <template>
   <div>
-    <QCard
+    <QResizeObserver
+      style="width: 100%"
+      @resize="onResize"
+    />
+    <div
       v-for="item in items"
       :key="item.id"
-      class="item relative-position inline-block"
+      class="item inline-block"
       :style="itemStyle"
-      @click="visit(item.id)"
     >
-      <div
-        class="photo text-white relative-position row justify-center"
+      <QCard
+        @click="visit(item.id)"
       >
-        <img :src="item.photoUrls.fullSize">
-      </div>
-      <QCardSection class="fixed-height smaller-text">
-        <QAvatar>
-          <img
-            v-if="item.user.photoUrls !== undefined"
-            :src="item.user.photoUrls.thumbnail"
-          >
-        </QAvatar>
-        <router-link :to="{ name: 'sharingDetail', params: { itemId: item.id } }">
-          {{ item.name }}
-        </router-link>
-      </QCardSection>
-    </QCard>
+        <div
+          class="photo text-white relative-position row justify-center"
+        >
+          <img :src="item.photoUrls.fullSize">
+        </div>
+        <QCardSection class="fixed-height smaller-text">
+          <QAvatar>
+            <img
+              v-if="item.user.photoUrls !== undefined"
+              :src="item.user.photoUrls.thumbnail"
+            >
+          </QAvatar>
+          <router-link :to="{ name: 'sharingDetail', params: { itemId: item.id } }">
+            {{ item.name }}
+          </router-link>
+        </QCardSection>
+      </QCard>
+    </div>
   </div>
 </template>
 
 <script>
 import { mapGetters } from 'vuex'
-import { QAvatar, QCard, QCardSection } from 'quasar'
+import { QAvatar, QCard, QCardSection, QResizeObserver } from 'quasar'
 
 export default {
   components: {
     QAvatar,
     QCard,
     QCardSection,
+    QResizeObserver,
+  },
+  data () {
+    return {
+      width: 200,
+    }
   },
   computed: {
     ...mapGetters({
       items: 'sharingItems/all',
     }),
+    cols () {
+      return Math.max(1, Math.floor(this.width / 200))
+    },
     itemStyle () {
       return {
-        width: '200px',
+        width: (100 / this.cols) + '%',
       }
     },
   },
   methods: {
     visit (id) {
       this.$router.push({ name: 'sharingDetail', params: { itemId: id } })
+    },
+    onResize ({ width }) {
+      this.width = width
     },
   },
 }
@@ -58,10 +77,11 @@ export default {
 <style scoped lang="stylus">
 .item
   cursor pointer
+  .item-card
+    width 100%
 .photo
   height 160px
   overflow hidden
   img
-    height 100%
-    margin 0 auto
+    width 100%
 </style>

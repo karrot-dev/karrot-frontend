@@ -13,7 +13,11 @@ const ITEMS = [
     id: 234,
     name: 'A bike',
     user: 8,
-    description: 'a very nice bike',
+    description: `
+a **very** nice bike
+      
+I had it for about _10 years_ (omg :) ) now, all good working order.
+    `,
     photoUrls: {
       fullSize: 'https://freegle.azureedge.net/img_13104868.jpg?t=1571086599751',
     },

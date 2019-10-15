@@ -1,25 +1,73 @@
 <template>
   <div v-if="item">
+    <QToolbar
+      class="bg-secondary text-white"
+    >
+      <QToolbarTitle
+        class="column"
+      >
+        <div>{{ item.name }}</div>
+      </QToolbarTitle>
+      <QBtn
+        v-if="!$q.platform.is.mobile"
+        flat
+        round
+        dense
+        icon="close"
+        :title="$t('BUTTON.CLOSE')"
+        @click="close()"
+      />
+    </QToolbar>
     <div class="photo">
       <img
         :src="item.photoUrls.fullSize"
         class="full-width"
       >
     </div>
-    <h2>{{ item.name }}</h2>
-    <p>{{ item.description }}</p>
+    <QChip>
+      <QAvatar
+        color="red"
+        text-color="white"
+      >
+        3
+      </QAvatar>
+      Requests
+    </QChip>
+    <div class="q-ma-md">
+      <Markdown :source="item.description" />
+    </div>
   </div>
 </template>
 
 <script>
 import { mapGetters } from 'vuex'
+import { QAvatar, QBtn, QChip, QToolbar, QToolbarTitle } from 'quasar'
+import Markdown from '@/utils/components/Markdown'
 
 export default {
-  components: {},
+  components: {
+    Markdown,
+    QAvatar,
+    QBtn,
+    QChip,
+    QToolbar,
+    QToolbarTitle,
+  },
+  props: {
+    item: {
+      type: Object,
+      required: true,
+    },
+  },
   computed: {
     ...mapGetters({
       item: 'sharingItems/current',
     }),
+  },
+  methods: {
+    close () {
+      this.$router.push({ name: 'groupSharing' })
+    },
   },
 }
 </script>

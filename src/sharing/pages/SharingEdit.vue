@@ -42,6 +42,7 @@
               <Croppa
                 ref="croppaRefs"
                 placeholder="+"
+                :class="croppaClasses(idx)"
                 prevent-white-space
                 :show-remove-button="false"
                 @new-image-drawn="newImage(photo.id)"
@@ -223,6 +224,10 @@ export default {
     isLastImage (idx) {
       return idx >= this.photos.length - 2
     },
+    croppaClasses (idx) {
+      if (this.hasImage(idx)) return []
+      return ['new-image']
+    },
   },
   validations: {
     edit: {
@@ -232,7 +237,7 @@ export default {
         maxLength: maxLength(80),
       },
       description: {
-        // required,
+        required,
       },
     },
   },
@@ -241,4 +246,6 @@ export default {
 
 <style scoped lang="stylus">
 @import '~editbox'
+.new-image
+  border 1px solid #ddd
 </style>

@@ -21,6 +21,8 @@ Please document your changes in this format:
 ```
 
 ## [Unreleased]
+### Changed
+- Sum multiple feedback entries per pickup instead of averaging them @tiltec
 
 ## [8.0.0] - 2019-10-07
 ### Changed

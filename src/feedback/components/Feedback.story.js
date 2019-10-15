@@ -31,7 +31,7 @@ const datastore = createDatastore({
   },
 })
 
-storiesOf('Statistics', module)
+storiesOf('Feedback', module)
   .add('AmountPicker', () => defaults({
     data () {
       return {

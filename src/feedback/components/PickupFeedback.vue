@@ -56,6 +56,7 @@
           :status="saveStatus"
           :is-bike-kitchen="isBikeKitchen"
           :is-general-purpose="isGeneralPurpose"
+          :has-multiple-collectors="fellowCollectors.length > 0"
           @save="$emit('save', arguments[0])"
         />
       </div>
@@ -167,7 +168,7 @@ export default {
         if (this.editFeedback) return this.editFeedback.about
         if (!this.pickups) return
 
-        const { pickupId } = this.$route.params
+        const { params: { pickupId } = {} } = this.$route || {}
         if (typeof pickupId !== 'undefined') {
           const pickup = this.pickups.find(e => e.id === parseInt(pickupId))
           if (pickup) return pickup

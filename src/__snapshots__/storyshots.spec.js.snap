@@ -2406,6 +2406,718 @@ exports[`Storyshots Detail private 1`] = `
 </div>
 `;
 
+exports[`Storyshots Feedback AmountBox 1`] = `
+<div class="container" style="width:100px;height:100px;"><img width="100px" height="100px" src="test-file-stub"> <img width="12px" height="19.200000000000003px" src="test-file-stub" class="pointer" style="transform:rotate(-20deg);top:10px;">
+  <div class="text-bottom" style="bottom:5px;"><span style="font-size:23px;">
+        20.0
+      </span> <span style="font-size:14px;">kg</span></div>
+</div>
+`;
+
+exports[`Storyshots Feedback AmountPicker 1`] = `
+<div class="wrapper">
+  <!---->
+  <div class="content">
+    <div class="row no-wrap">
+      <div class="container amount" style="width:100px;height:100px;"><img width="100px" height="100px" src="test-file-stub"> <img width="12px" height="19.200000000000003px" src="test-file-stub" class="pointer" style="transform:rotate(-47deg);top:10px;">
+        <div class="text-bottom" style="bottom:5px;"><span style="font-size:23px;">
+        1.0
+      </span> <span style="font-size:14px;">kg</span></div>
+      </div>
+      <div class="col" style="margin-left:.6em;">
+        <div class="q-pb-sm"></div>
+        <div class="wrapper row no-wrap ellipsis"><img src="test-file-stub"></div>
+      </div> <button tabindex="0" type="button" title="Delete amount" class="q-btn inline q-btn-item non-selectable self-start q-btn--flat q-btn--round text-red q-focusable q-hoverable">
+        <div tabindex="-1" class="q-focus-helper"></div>
+        <div class="q-btn__content text-center col items-center q-anchor--skip justify-center row"><i aria-hidden="true" class="fas fa-times q-icon"> </i></div>
+      </button>
+    </div>
+    <div class="row no-wrap">
+      <div role="slider" aria-valuemin="0" aria-valuemax="70" aria-valuenow="1" data-step="0.5" tabindex="0" class="self-center q-mx-md q-slider q-slider--inactive q-slider--editable q-slider--label">
+        <div class="q-slider__track-container absolute overflow-hidden">
+          <div class="q-slider__track absolute-full" style="width:1.4285714285714286%;"></div>
+        </div>
+        <div class="q-slider__thumb-container absolute non-selectable" style="left:1.4285714285714286%;"><svg width="21" height="21" class="q-slider__thumb absolute">
+            <circle cx="10.5" cy="10.5" r="7.875"></circle>
+          </svg>
+          <div class="q-slider__pin absolute flex flex-center">
+            <div class="q-slider__pin-value-marker">
+              <div class="q-slider__pin-value-marker-bg"></div>
+              <div class="q-slider__pin-value-marker-text">1</div>
+            </div>
+          </div>
+          <div class="q-slider__focus-ring"></div>
+        </div>
+      </div> <label for="qf_80008000-8000-8000-8000-800080008000" class="q-field row no-wrap items-start q-mr-md q-input q-field--standard q-field--float">
+        <div class="q-field__inner relative-position col self-stretch column justify-center">
+          <div tabindex="-1" class="q-field__control relative-position row no-wrap">
+            <div class="q-field__control-container col relative-position row no-wrap q-anchor--skip"><input tabindex="0" size="4" id="qf_80008000-8000-8000-8000-800080008000" type="text" value="1" class="q-field__native q-placeholder"></div>
+            <div class="q-field__append q-field__marginal row no-wrap items-center"><span class="text-caption">kg</span></div>
+          </div>
+        </div>
+      </label>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Storyshots Feedback FeedbackItem 1`] = `
+<div class="q-card no-shadow grey-border">
+  <div class="q-card__section q-pa-md">
+    <div class="row no-wrap">
+      <div class="content full-width">
+        <div class="row no-wrap items-baseline"><strong class="q-mr-sm" style="white-space:nowrap;">
+            Sat, Aug 12, 2017, 8:00 AM
+          </strong> <a class="ellipsis text-secondary">
+            Griesheimer Markt
+          </a>
+          <!---->
+        </div> <small class="text-weight-light"><a>
+            Mira Bellenbaum
+          </a> <span class="message-date"><div title="Aug 11, 2017, 3:43 PM">
+  4 months ago
+</div></span></small>
+        <div>
+          <div class="container on-right float-right amount-box" style="width:80px;height:80px;"><img width="80px" height="80px" src="test-file-stub"> <img width="10px" height="16px" src="test-file-stub" class="pointer" style="transform:rotate(-45deg);top:8px;">
+            <div class="text-bottom" style="bottom:4px;"><span style="font-size:19px;">
+        2.5
+      </span> <span style="font-size:11px;">kg</span></div>
+          </div>
+          <div class="comment">
+            <div class="markdown">
+              <p>All worked out perfectly!</p>
+            </div>
+          </div>
+          <div class="q-mt-sm">
+            <div class="wrapper" style="width:22px;height:22px;"><a title="Mira Bellenbaum">
+                <div text="Mira Bellenbaum" seed="1" class="randomArt fill"></div>
+              </a></div>
+            <!---->
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Storyshots Feedback FeedbackList 1`] = `
+<div class="k-feedback-list">
+  <!---->
+  <div class="full-width text-center generic-padding" style="display:none;"><svg fill="currentColor" width="40" height="40" viewBox="0 0 120 30" xmlns="http://www.w3.org/2000/svg" class="q-spinner">
+      <circle cx="15" cy="15" r="15">
+        <animate attributeName="r" from="15" to="15" begin="0s" dur="0.8s" values="15;9;15" calcMode="linear" repeatCount="indefinite"></animate>
+        <animate attributeName="fill-opacity" from="1" to="1" begin="0s" dur="0.8s" values="1;.5;1" calcMode="linear" repeatCount="indefinite"></animate>
+      </circle>
+      <circle cx="60" cy="15" r="9" fill-opacity=".3">
+        <animate attributeName="r" from="9" to="9" begin="0s" dur="0.8s" values="9;15;9" calcMode="linear" repeatCount="indefinite"></animate>
+        <animate attributeName="fill-opacity" from=".5" to=".5" begin="0s" dur="0.8s" values=".5;1;.5" calcMode="linear" repeatCount="indefinite"></animate>
+      </circle>
+      <circle cx="105" cy="15" r="15">
+        <animate attributeName="r" from="15" to="15" begin="0s" dur="0.8s" values="15;9;15" calcMode="linear" repeatCount="indefinite"></animate>
+        <animate attributeName="fill-opacity" from="1" to="1" begin="0s" dur="0.8s" values="1;.5;1" calcMode="linear" repeatCount="indefinite"></animate>
+      </circle>
+    </svg></div>
+  <div class="q-infinite-scroll">
+    <div class="q-card no-shadow grey-border">
+      <div class="q-card__section q-pa-md">
+        <div class="row no-wrap">
+          <div class="content full-width">
+            <div class="row no-wrap items-baseline"><strong class="q-mr-sm" style="white-space:nowrap;">
+            Sat, Aug 12, 2017, 8:00 AM
+          </strong> <a class="ellipsis text-secondary">
+                Griesheimer Markt
+              </a>
+              <!---->
+            </div> <small class="text-weight-light"><a>
+                Mira Bellenbaum
+              </a> <span class="message-date"><div title="Aug 11, 2017, 3:43 PM">
+  4 months ago
+</div></span></small>
+            <div>
+              <div class="container on-right float-right amount-box" style="width:80px;height:80px;"><img width="80px" height="80px" src="test-file-stub"> <img width="10px" height="16px" src="test-file-stub" class="pointer" style="transform:rotate(-45deg);top:8px;">
+                <div class="text-bottom" style="bottom:4px;"><span style="font-size:19px;">
+        2.5
+      </span> <span style="font-size:11px;">kg</span></div>
+              </div>
+              <div class="comment">
+                <div class="markdown">
+                  <p>All worked out perfectly!</p>
+                </div>
+              </div>
+              <div class="q-mt-sm">
+                <div class="wrapper" style="width:22px;height:22px;"><a title="Mira Bellenbaum">
+                    <div text="Mira Bellenbaum" seed="1" class="randomArt fill"></div>
+                  </a></div>
+                <!---->
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="q-card no-shadow grey-border">
+      <div class="q-card__section q-pa-md">
+        <div class="row no-wrap">
+          <div class="content full-width">
+            <div class="row no-wrap items-baseline"><strong class="q-mr-sm" style="white-space:nowrap;">
+            Sun, Aug 13, 2017, 8:00 AM
+          </strong> <a class="ellipsis text-secondary">
+                Griesheimer Markt
+              </a>
+              <!---->
+            </div> <small class="text-weight-light"><a>
+                Mira Bellenbaum
+              </a> <span class="message-date"><div title="Sep 11, 2017, 3:40 PM">
+  3 months ago
+</div></span></small>
+            <div>
+              <div class="container on-right float-right amount-box" style="width:80px;height:80px;"><img width="80px" height="80px" src="test-file-stub"> <img width="10px" height="16px" src="test-file-stub" class="pointer" style="transform:rotate(-33deg);top:8px;">
+                <div class="text-bottom" style="bottom:4px;"><span style="font-size:19px;">
+        11.0
+      </span> <span style="font-size:11px;">kg</span></div>
+              </div>
+              <!---->
+              <div class="q-mt-sm">
+                <div class="wrapper" style="width:22px;height:22px;"><a title="Mira Bellenbaum">
+                    <div text="Mira Bellenbaum" seed="1" class="randomArt fill"></div>
+                  </a></div>
+                <!---->
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="q-card no-shadow grey-border">
+      <div class="q-card__section q-pa-md">
+        <div class="row no-wrap">
+          <div class="content full-width">
+            <div class="row no-wrap items-baseline"><strong class="q-mr-sm" style="white-space:nowrap;">
+            Sun, Aug 13, 2017, 8:00 AM
+          </strong> <a class="ellipsis text-secondary">
+                Griesheimer Markt
+              </a>
+              <!---->
+            </div> <small class="text-weight-light"><a>
+                Max Mustermann
+              </a> <span class="message-date"><div title="Sep 18, 2017, 12:12 PM">
+  3 months ago
+</div></span></small>
+            <div>
+              <div class="container on-right float-right amount-box" style="width:80px;height:80px;"><img width="80px" height="80px" src="test-file-stub"> <img width="10px" height="16px" src="test-file-stub" class="pointer" style="transform:rotate(-48deg);top:8px;">
+                <div class="text-bottom" style="bottom:4px;"><span style="font-size:19px;">
+        0
+      </span> <span style="font-size:11px;">g</span></div>
+              </div>
+              <div class="comment">
+                <div class="markdown">
+                  <p>They did not have anything today</p>
+                </div>
+              </div>
+              <div class="q-mt-sm">
+                <div class="wrapper" style="width:22px;height:22px;"><a title="Max Mustermann">
+                    <div text="Max Mustermann" seed="2" class="randomArt fill"></div>
+                  </a></div>
+                <!---->
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Storyshots Feedback PickupFeedback 1`] = `
+<div class="pickup-feedback-wrapper">
+  <div class="q-card no-mobile-margin no-shadow grey-border">
+    <div seed="1" type="circles" style="color:white;">
+      <div class="row no-wrap image-and-text">
+        <div class="image-and-text-left gt-sm"><img src="@/feedback/assets/cart.png" style="width:100%;"></div>
+        <div class="image-and-text-right">
+          <h4>Thank you for your pickup!</h4>
+          <p><label for="qf_80008000-8000-8000-8000-800080008000" class="q-field row no-wrap items-start grey-font q-select q-field--auto-height q-select--without-input q-field--standard q-field--float q-field--dark">
+              <div class="q-field__inner relative-position col self-stretch column justify-center">
+                <div tabindex="-1" class="q-field__control relative-position row no-wrap">
+                  <div class="q-field__control-container col relative-position row no-wrap q-anchor--skip">
+                    <div tabindex="0" class="q-field__native row items-center"><span>Aug 12, 2017, 8:00 AM (Griesheimer Markt)</span></div>
+                  </div>
+                  <div class="q-field__append q-field__marginal row no-wrap items-center q-anchor--skip"><i aria-hidden="true" class="material-icons q-icon q-select__dropdown-icon">arrow_drop_down</i></div>
+                  <!---->
+                </div>
+              </div>
+            </label></p>
+        </div>
+      </div>
+    </div>
+    <div>
+      <div class="q-mx-sm q-mt-md">
+        <div></div>
+        <div class="q-mt-sm">
+          <div class="wrapper q-ml-xs" style="width:35px;height:35px;"><a title="Mira Bellenbaum">
+              <div text="Mira Bellenbaum" seed="1" class="randomArt fill"></div>
+            </a></div>
+          <div class="wrapper q-ml-xs" style="width:35px;height:35px;"><a title="Max Mustermann">
+              <div text="Max Mustermann" seed="2" class="randomArt fill"></div>
+            </a></div>
+          <div class="wrapper q-ml-xs" style="width:35px;height:35px;"><a title="Karl Karlson">
+              <div text="Karl Karlson" seed="3" class="randomArt fill"></div>
+            </a></div>
+        </div>
+      </div>
+      <form>
+        <div class="relative-position q-mb-sm q-mr-sm"><label for="qf_80008000-8000-8000-8000-800080008000" class="q-field row no-wrap items-start q-textarea q-textarea--autogrow q-field--standard q-field--labeled q-field--with-bottom">
+            <div class="q-field__inner relative-position col self-stretch column justify-center">
+              <div tabindex="-1" class="q-field__control relative-position row no-wrap">
+                <div class="q-field__control-container col relative-position row no-wrap q-anchor--skip"><textarea tabindex="0" rows="1" aria-label="Was everything fine? Did everyone show up? Your comment here..." id="qf_80008000-8000-8000-8000-800080008000" type="textarea" class="q-field__native q-placeholder" style="min-height:100px;"></textarea>
+                  <div class="q-field__label no-pointer-events absolute ellipsis">Was everything fine? Did everyone show up? Your comment here...</div>
+                </div>
+              </div>
+              <div class="q-field__bottom row items-start q-field__bottom--animated">
+                <div class="q-field__messages col"></div>
+              </div>
+            </div>
+          </label>
+          <!---->
+        </div>
+        <div class="wrapper q-ml-sm showOverlay" style="margin-top:40px;"><button tabindex="0" type="button" class="q-btn inline q-btn-item non-selectable absolute-center q-btn--standard q-btn--rectangle bg-primary text-white q-focusable q-hoverable" style="z-index:1;">
+            <div tabindex="-1" class="q-focus-helper"></div>
+            <div class="q-btn__content text-center col items-center q-anchor--skip justify-center row">
+              Set amount
+            </div>
+          </button>
+          <div class="content">
+            <div class="row no-wrap">
+              <div class="container amount" style="width:100px;height:100px;"><img width="100px" height="100px" src="test-file-stub"> <img width="12px" height="19.200000000000003px" src="test-file-stub" class="pointer" style="transform:rotate(-48deg);top:10px;">
+                <div class="text-bottom" style="bottom:5px;"><span style="font-size:23px;">
+      ?
+    </span></div>
+              </div>
+              <div class="col" style="margin-left:.6em;">
+                <div class="q-pb-sm"></div>
+                <div class="wrapper row no-wrap ellipsis"></div>
+              </div>
+              <!---->
+            </div>
+            <div class="row no-wrap">
+              <div role="slider" aria-valuemin="0" aria-valuemax="70" aria-valuenow="0" data-step="0.5" tabindex="0" class="self-center q-mx-md q-slider q-slider--inactive q-slider--editable q-slider--label">
+                <div class="q-slider__track-container absolute overflow-hidden">
+                  <div class="q-slider__track absolute-full" style="width:0%;"></div>
+                </div>
+                <div class="q-slider__thumb-container absolute non-selectable" style="left:0%;"><svg width="21" height="21" class="q-slider__thumb absolute">
+                    <circle cx="10.5" cy="10.5" r="7.875"></circle>
+                  </svg>
+                  <div class="q-slider__pin absolute flex flex-center">
+                    <div class="q-slider__pin-value-marker">
+                      <div class="q-slider__pin-value-marker-bg"></div>
+                      <div class="q-slider__pin-value-marker-text">0</div>
+                    </div>
+                  </div>
+                  <div class="q-slider__focus-ring"></div>
+                </div>
+              </div> <label for="qf_80008000-8000-8000-8000-800080008000" class="q-field row no-wrap items-start q-mr-md q-input q-field--standard">
+                <div class="q-field__inner relative-position col self-stretch column justify-center">
+                  <div tabindex="-1" class="q-field__control relative-position row no-wrap">
+                    <div class="q-field__control-container col relative-position row no-wrap q-anchor--skip"><input tabindex="0" size="4" id="qf_80008000-8000-8000-8000-800080008000" type="text" class="q-field__native q-placeholder"></div>
+                    <div class="q-field__append q-field__marginal row no-wrap items-center"><span class="text-caption">kg</span></div>
+                  </div>
+                </div>
+              </label>
+            </div>
+          </div>
+        </div>
+        <div class="row no-wrap items-center q-mx-sm text-caption"><i aria-hidden="true" class="material-icons q-icon q-mr-sm text-grey" style="font-size:1.5em;">info</i>
+          <div></div>
+        </div>
+        <!---->
+        <div class="row justify-end q-ma-md q-gutter-sm">
+          <!----> <button tabindex="0" type="submit" class="q-btn inline q-btn-item non-selectable q-btn--standard q-btn--rectangle bg-secondary text-white q-focusable q-hoverable">
+            <div tabindex="-1" class="q-focus-helper"></div>
+            <div class="q-btn__content text-center col items-center q-anchor--skip justify-center row"></div>
+            <!---->
+          </button></div>
+      </form>
+    </div>
+  </div>
+  <div class="q-card no-shadow grey-border place-feedback">
+    <div seed="61" type="banner" class="randomBanner"></div>
+    <h4 class="generic-padding"></h4>
+    <div class="k-feedback-list">
+      <!---->
+      <div class="full-width text-center generic-padding" style="display:none;"><svg fill="currentColor" width="40" height="40" viewBox="0 0 120 30" xmlns="http://www.w3.org/2000/svg" class="q-spinner">
+          <circle cx="15" cy="15" r="15">
+            <animate attributeName="r" from="15" to="15" begin="0s" dur="0.8s" values="15;9;15" calcMode="linear" repeatCount="indefinite"></animate>
+            <animate attributeName="fill-opacity" from="1" to="1" begin="0s" dur="0.8s" values="1;.5;1" calcMode="linear" repeatCount="indefinite"></animate>
+          </circle>
+          <circle cx="60" cy="15" r="9" fill-opacity=".3">
+            <animate attributeName="r" from="9" to="9" begin="0s" dur="0.8s" values="9;15;9" calcMode="linear" repeatCount="indefinite"></animate>
+            <animate attributeName="fill-opacity" from=".5" to=".5" begin="0s" dur="0.8s" values=".5;1;.5" calcMode="linear" repeatCount="indefinite"></animate>
+          </circle>
+          <circle cx="105" cy="15" r="15">
+            <animate attributeName="r" from="15" to="15" begin="0s" dur="0.8s" values="15;9;15" calcMode="linear" repeatCount="indefinite"></animate>
+            <animate attributeName="fill-opacity" from="1" to="1" begin="0s" dur="0.8s" values="1;.5;1" calcMode="linear" repeatCount="indefinite"></animate>
+          </circle>
+        </svg></div>
+      <div class="q-infinite-scroll">
+        <div class="q-card no-shadow grey-border">
+          <div class="q-card__section q-pa-md">
+            <div class="row no-wrap">
+              <div class="content full-width">
+                <div class="row no-wrap items-baseline"><strong class="q-mr-sm" style="white-space:nowrap;">
+            Sat, Aug 12, 2017, 8:00 AM
+          </strong> <a class="ellipsis text-secondary">
+                    Griesheimer Markt
+                  </a>
+                  <!---->
+                </div> <small class="text-weight-light"><a>
+                    Mira Bellenbaum
+                  </a> <span class="message-date"><div title="Aug 11, 2017, 3:43 PM">
+  4 months ago
+</div></span></small>
+                <div>
+                  <div class="container on-right float-right amount-box" style="width:80px;height:80px;"><img width="80px" height="80px" src="test-file-stub"> <img width="10px" height="16px" src="test-file-stub" class="pointer" style="transform:rotate(-45deg);top:8px;">
+                    <div class="text-bottom" style="bottom:4px;"><span style="font-size:19px;">
+        2.5
+      </span> <span style="font-size:11px;">kg</span></div>
+                  </div>
+                  <div class="comment">
+                    <div class="markdown">
+                      <p>All worked out perfectly!</p>
+                    </div>
+                  </div>
+                  <div class="q-mt-sm">
+                    <div class="wrapper" style="width:22px;height:22px;"><a title="Mira Bellenbaum">
+                        <div text="Mira Bellenbaum" seed="1" class="randomArt fill"></div>
+                      </a></div>
+                    <!---->
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="q-card no-shadow grey-border">
+          <div class="q-card__section q-pa-md">
+            <div class="row no-wrap">
+              <div class="content full-width">
+                <div class="row no-wrap items-baseline"><strong class="q-mr-sm" style="white-space:nowrap;">
+            Sun, Aug 13, 2017, 8:00 AM
+          </strong> <a class="ellipsis text-secondary">
+                    Griesheimer Markt
+                  </a>
+                  <!---->
+                </div> <small class="text-weight-light"><a>
+                    Mira Bellenbaum
+                  </a> <span class="message-date"><div title="Sep 11, 2017, 3:40 PM">
+  3 months ago
+</div></span></small>
+                <div>
+                  <div class="container on-right float-right amount-box" style="width:80px;height:80px;"><img width="80px" height="80px" src="test-file-stub"> <img width="10px" height="16px" src="test-file-stub" class="pointer" style="transform:rotate(-33deg);top:8px;">
+                    <div class="text-bottom" style="bottom:4px;"><span style="font-size:19px;">
+        11.0
+      </span> <span style="font-size:11px;">kg</span></div>
+                  </div>
+                  <!---->
+                  <div class="q-mt-sm">
+                    <div class="wrapper" style="width:22px;height:22px;"><a title="Mira Bellenbaum">
+                        <div text="Mira Bellenbaum" seed="1" class="randomArt fill"></div>
+                      </a></div>
+                    <!---->
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="q-card no-shadow grey-border">
+          <div class="q-card__section q-pa-md">
+            <div class="row no-wrap">
+              <div class="content full-width">
+                <div class="row no-wrap items-baseline"><strong class="q-mr-sm" style="white-space:nowrap;">
+            Sun, Aug 13, 2017, 8:00 AM
+          </strong> <a class="ellipsis text-secondary">
+                    Griesheimer Markt
+                  </a>
+                  <!---->
+                </div> <small class="text-weight-light"><a>
+                    Max Mustermann
+                  </a> <span class="message-date"><div title="Sep 18, 2017, 12:12 PM">
+  3 months ago
+</div></span></small>
+                <div>
+                  <div class="container on-right float-right amount-box" style="width:80px;height:80px;"><img width="80px" height="80px" src="test-file-stub"> <img width="10px" height="16px" src="test-file-stub" class="pointer" style="transform:rotate(-48deg);top:8px;">
+                    <div class="text-bottom" style="bottom:4px;"><span style="font-size:19px;">
+        0
+      </span> <span style="font-size:11px;">g</span></div>
+                  </div>
+                  <div class="comment">
+                    <div class="markdown">
+                      <p>They did not have anything today</p>
+                    </div>
+                  </div>
+                  <div class="q-mt-sm">
+                    <div class="wrapper" style="width:22px;height:22px;"><a title="Max Mustermann">
+                        <div text="Max Mustermann" seed="2" class="randomArt fill"></div>
+                      </a></div>
+                    <!---->
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Storyshots Feedback PlaceFeedback 1`] = `
+<div>
+  <div class="q-card no-shadow grey-border">
+    <div class="generic-padding relative-position">
+      <div class="full-width text-center generic-padding" style="display:none;"><svg fill="currentColor" width="40" height="40" viewBox="0 0 120 30" xmlns="http://www.w3.org/2000/svg" class="q-spinner">
+          <circle cx="15" cy="15" r="15">
+            <animate attributeName="r" from="15" to="15" begin="0s" dur="0.8s" values="15;9;15" calcMode="linear" repeatCount="indefinite"></animate>
+            <animate attributeName="fill-opacity" from="1" to="1" begin="0s" dur="0.8s" values="1;.5;1" calcMode="linear" repeatCount="indefinite"></animate>
+          </circle>
+          <circle cx="60" cy="15" r="9" fill-opacity=".3">
+            <animate attributeName="r" from="9" to="9" begin="0s" dur="0.8s" values="9;15;9" calcMode="linear" repeatCount="indefinite"></animate>
+            <animate attributeName="fill-opacity" from=".5" to=".5" begin="0s" dur="0.8s" values=".5;1;.5" calcMode="linear" repeatCount="indefinite"></animate>
+          </circle>
+          <circle cx="105" cy="15" r="15">
+            <animate attributeName="r" from="15" to="15" begin="0s" dur="0.8s" values="15;9;15" calcMode="linear" repeatCount="indefinite"></animate>
+            <animate attributeName="fill-opacity" from="1" to="1" begin="0s" dur="0.8s" values="1;.5;1" calcMode="linear" repeatCount="indefinite"></animate>
+          </circle>
+        </svg></div>
+      <div class="infoChips row no-wrap">
+        <div title="10 pickups done" class="q-chip row inline no-wrap items-center bg-secondary text-white q-chip--colored q-chip--square"><i aria-hidden="true" class="fas fa-shopping-basket q-icon q-chip__icon q-chip__icon--left"> </i>
+          <div class="q-chip__content row no-wrap items-center q-anchor--skip"><strong class="q-ml-sm">10</strong></div>
+        </div>
+        <div title="4 feedback entries given" class="q-chip row inline no-wrap items-center bg-secondary text-white q-chip--colored q-chip--square"><i aria-hidden="true" class="fas fa-balance-scale q-icon q-chip__icon q-chip__icon--left"> </i>
+          <div class="q-chip__content row no-wrap items-center q-anchor--skip"><strong class="q-ml-sm">4</strong></div>
+        </div>
+        <div title="10 kg of food saved" class="q-chip row inline no-wrap items-center bg-secondary text-white q-chip--colored q-chip--square"><i aria-hidden="true" class="fas fa-weight q-icon q-chip__icon q-chip__icon--left"> </i>
+          <div class="q-chip__content row no-wrap items-center q-anchor--skip"><strong class="q-ml-sm">10 kg</strong></div>
+        </div>
+      </div> <span>
+        People gave feedback for 10 kg of saved food already! Keep up the great work!
+      </span>
+    </div>
+  </div>
+  <div class="k-feedback-list">
+    <div><a>
+        <div class="q-card q-pa-md notice bg-info"><i aria-hidden="true" class="fas fa-balance-scale q-icon on-left"> </i>
+          2 pickups await your feedback
+        </div>
+      </a></div>
+    <div class="full-width text-center generic-padding" style="display:none;"><svg fill="currentColor" width="40" height="40" viewBox="0 0 120 30" xmlns="http://www.w3.org/2000/svg" class="q-spinner">
+        <circle cx="15" cy="15" r="15">
+          <animate attributeName="r" from="15" to="15" begin="0s" dur="0.8s" values="15;9;15" calcMode="linear" repeatCount="indefinite"></animate>
+          <animate attributeName="fill-opacity" from="1" to="1" begin="0s" dur="0.8s" values="1;.5;1" calcMode="linear" repeatCount="indefinite"></animate>
+        </circle>
+        <circle cx="60" cy="15" r="9" fill-opacity=".3">
+          <animate attributeName="r" from="9" to="9" begin="0s" dur="0.8s" values="9;15;9" calcMode="linear" repeatCount="indefinite"></animate>
+          <animate attributeName="fill-opacity" from=".5" to=".5" begin="0s" dur="0.8s" values=".5;1;.5" calcMode="linear" repeatCount="indefinite"></animate>
+        </circle>
+        <circle cx="105" cy="15" r="15">
+          <animate attributeName="r" from="15" to="15" begin="0s" dur="0.8s" values="15;9;15" calcMode="linear" repeatCount="indefinite"></animate>
+          <animate attributeName="fill-opacity" from="1" to="1" begin="0s" dur="0.8s" values="1;.5;1" calcMode="linear" repeatCount="indefinite"></animate>
+        </circle>
+      </svg></div>
+    <div class="q-infinite-scroll">
+      <div class="q-card no-shadow grey-border">
+        <div class="q-card__section q-pa-md">
+          <div class="row no-wrap">
+            <div class="content full-width">
+              <div class="row no-wrap items-baseline"><strong class="q-mr-sm" style="white-space:nowrap;">
+            Sun, Dec 24, 2017, 12:00 PM
+          </strong> <a class="ellipsis text-secondary">
+                  Place 15
+                </a>
+                <!---->
+              </div> <small class="text-weight-light"><a>
+                  User 163
+                </a> <span class="message-date"><div title="Dec 24, 2017, 12:00 PM">
+  less than a minute ago
+</div></span></small>
+              <div>
+                <div class="container on-right float-right amount-box" style="width:80px;height:80px;"><img width="80px" height="80px" src="test-file-stub"> <img width="10px" height="16px" src="test-file-stub" class="pointer" style="transform:rotate(-34deg);top:8px;">
+                  <div class="text-bottom" style="bottom:4px;"><span style="font-size:19px;">
+        10.0
+      </span> <span style="font-size:11px;">kg</span></div>
+                </div>
+                <div class="comment">
+                  <div class="markdown">
+                    <p>feedback 1</p>
+                  </div>
+                </div>
+                <div class="q-mt-sm">
+                  <div class="wrapper" style="width:22px;height:22px;"><a title="User 163">
+                      <div text="User 163" seed="163" class="randomArt fill"></div>
+                    </a></div>
+                  <!---->
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="q-card no-shadow grey-border">
+        <div class="q-card__section q-pa-md">
+          <div class="row no-wrap">
+            <div class="content full-width">
+              <div class="row no-wrap items-baseline"><strong class="q-mr-sm" style="white-space:nowrap;">
+            Sun, Dec 24, 2017, 12:00 PM
+          </strong> <a class="ellipsis text-secondary">
+                  Place 16
+                </a>
+                <!---->
+              </div> <small class="text-weight-light"><a>
+                  User 164
+                </a> <span class="message-date"><div title="Dec 24, 2017, 12:00 PM">
+  less than a minute ago
+</div></span></small>
+              <div>
+                <div class="container on-right float-right amount-box" style="width:80px;height:80px;"><img width="80px" height="80px" src="test-file-stub"> <img width="10px" height="16px" src="test-file-stub" class="pointer" style="transform:rotate(-20deg);top:8px;">
+                  <div class="text-bottom" style="bottom:4px;"><span style="font-size:19px;">
+        20.0
+      </span> <span style="font-size:11px;">kg</span></div>
+                </div>
+                <div class="comment">
+                  <div class="markdown">
+                    <p>feedback 2</p>
+                  </div>
+                </div>
+                <div class="q-mt-sm">
+                  <div class="wrapper" style="width:22px;height:22px;"><a title="User 164">
+                      <div text="User 164" seed="164" class="randomArt fill"></div>
+                    </a></div>
+                  <!---->
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="q-card no-shadow grey-border">
+        <div class="q-card__section q-pa-md">
+          <div class="row no-wrap">
+            <div class="content full-width">
+              <div class="row no-wrap items-baseline"><strong class="q-mr-sm" style="white-space:nowrap;">
+            Sun, Dec 24, 2017, 12:00 PM
+          </strong> <a class="ellipsis text-secondary">
+                  Place 17
+                </a>
+                <!---->
+              </div> <small class="text-weight-light"><a>
+                  User 165
+                </a> <span class="message-date"><div title="Dec 24, 2017, 12:00 PM">
+  less than a minute ago
+</div></span></small>
+              <div>
+                <div class="container on-right float-right amount-box" style="width:80px;height:80px;"><img width="80px" height="80px" src="test-file-stub"> <img width="10px" height="16px" src="test-file-stub" class="pointer" style="transform:rotate(-6deg);top:8px;">
+                  <div class="text-bottom" style="bottom:4px;"><span style="font-size:19px;">
+        30.0
+      </span> <span style="font-size:11px;">kg</span></div>
+                </div>
+                <div class="comment">
+                  <div class="markdown">
+                    <p>feedback 3</p>
+                  </div>
+                </div>
+                <div class="q-mt-sm">
+                  <div class="wrapper" style="width:22px;height:22px;"><a title="User 165">
+                      <div text="User 165" seed="165" class="randomArt fill"></div>
+                    </a></div>
+                  <!---->
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="q-card no-shadow grey-border">
+        <div class="q-card__section q-pa-md">
+          <div class="row no-wrap">
+            <div class="content full-width">
+              <div class="row no-wrap items-baseline"><strong class="q-mr-sm" style="white-space:nowrap;">
+            Sun, Dec 24, 2017, 12:00 PM
+          </strong> <a class="ellipsis text-secondary">
+                  Place 18
+                </a>
+                <!---->
+              </div> <small class="text-weight-light"><a>
+                  User 166
+                </a> <span class="message-date"><div title="Dec 24, 2017, 12:00 PM">
+  less than a minute ago
+</div></span></small>
+              <div>
+                <div class="container on-right float-right amount-box" style="width:80px;height:80px;"><img width="80px" height="80px" src="test-file-stub"> <img width="10px" height="16px" src="test-file-stub" class="pointer" style="transform:rotate(8deg);top:8px;">
+                  <div class="text-bottom" style="bottom:4px;"><span style="font-size:19px;">
+        40.0
+      </span> <span style="font-size:11px;">kg</span></div>
+                </div>
+                <div class="comment">
+                  <div class="markdown">
+                    <p>feedback 4</p>
+                  </div>
+                </div>
+                <div class="q-mt-sm">
+                  <div class="wrapper" style="width:22px;height:22px;"><a title="User 166">
+                      <div text="User 166" seed="166" class="randomArt fill"></div>
+                    </a></div>
+                  <!---->
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="q-card no-shadow grey-border">
+        <div class="q-card__section q-pa-md">
+          <div class="row no-wrap">
+            <div class="content full-width">
+              <div class="row no-wrap items-baseline"><strong class="q-mr-sm" style="white-space:nowrap;">
+            Sun, Dec 24, 2017, 12:00 PM
+          </strong> <a class="ellipsis text-secondary">
+                  Place 19
+                </a>
+                <!---->
+              </div> <small class="text-weight-light"><a>
+                  User 167
+                </a> <span class="message-date"><div title="Dec 24, 2017, 12:00 PM">
+  less than a minute ago
+</div></span></small>
+              <div>
+                <div class="container on-right float-right amount-box" style="width:80px;height:80px;"><img width="80px" height="80px" src="test-file-stub"> <img width="10px" height="16px" src="test-file-stub" class="pointer" style="transform:rotate(22deg);top:8px;">
+                  <div class="text-bottom" style="bottom:4px;"><span style="font-size:19px;">
+        50.0
+      </span> <span style="font-size:11px;">kg</span></div>
+                </div>
+                <div class="comment">
+                  <div class="markdown">
+                    <p>feedback 5</p>
+                  </div>
+                </div>
+                <div class="q-mt-sm">
+                  <div class="wrapper" style="width:22px;height:22px;"><a title="User 167">
+                      <div text="User 167" seed="167" class="randomArt fill"></div>
+                    </a></div>
+                  <!---->
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
 exports[`Storyshots GroupEdit create 1`] = `
 <div>
   <div class="q-card" style="max-width:700px;">
@@ -9696,715 +10408,6 @@ exports[`Storyshots Signup pending 1`] = `
         </button></div>
     </div>
   </form>
-</div>
-`;
-
-exports[`Storyshots Statistics AmountBox 1`] = `
-<div class="container" style="width:100px;height:100px;"><img width="100px" height="100px" src="test-file-stub"> <img width="12px" height="19.200000000000003px" src="test-file-stub" class="pointer" style="transform:rotate(-20deg);top:10px;">
-  <div class="text-bottom" style="bottom:5px;"><span style="font-size:23px;">
-        20.0
-      </span> <span style="font-size:14px;">kg</span></div>
-</div>
-`;
-
-exports[`Storyshots Statistics AmountPicker 1`] = `
-<div class="wrapper">
-  <!---->
-  <div class="content">
-    <div class="row no-wrap">
-      <div class="container amount" style="width:100px;height:100px;"><img width="100px" height="100px" src="test-file-stub"> <img width="12px" height="19.200000000000003px" src="test-file-stub" class="pointer" style="transform:rotate(-47deg);top:10px;">
-        <div class="text-bottom" style="bottom:5px;"><span style="font-size:23px;">
-        1.0
-      </span> <span style="font-size:14px;">kg</span></div>
-      </div>
-      <div class="col" style="margin-left:.6em;">
-        <div class="q-pb-sm"></div>
-        <div class="wrapper row no-wrap ellipsis"><img src="test-file-stub"></div>
-      </div> <button tabindex="0" type="button" title="Delete amount" class="q-btn inline q-btn-item non-selectable self-start q-btn--flat q-btn--round text-red q-focusable q-hoverable">
-        <div tabindex="-1" class="q-focus-helper"></div>
-        <div class="q-btn__content text-center col items-center q-anchor--skip justify-center row"><i aria-hidden="true" class="fas fa-times q-icon"> </i></div>
-      </button>
-    </div>
-    <div class="row no-wrap">
-      <div role="slider" aria-valuemin="0" aria-valuemax="70" aria-valuenow="1" data-step="0.5" tabindex="0" class="self-center q-mx-md q-slider q-slider--inactive q-slider--editable q-slider--label">
-        <div class="q-slider__track-container absolute overflow-hidden">
-          <div class="q-slider__track absolute-full" style="width:1.4285714285714286%;"></div>
-        </div>
-        <div class="q-slider__thumb-container absolute non-selectable" style="left:1.4285714285714286%;"><svg width="21" height="21" class="q-slider__thumb absolute">
-            <circle cx="10.5" cy="10.5" r="7.875"></circle>
-          </svg>
-          <div class="q-slider__pin absolute flex flex-center">
-            <div class="q-slider__pin-value-marker">
-              <div class="q-slider__pin-value-marker-bg"></div>
-              <div class="q-slider__pin-value-marker-text">1</div>
-            </div>
-          </div>
-          <div class="q-slider__focus-ring"></div>
-        </div>
-      </div> <label for="qf_80008000-8000-8000-8000-800080008000" class="q-field row no-wrap items-start q-mr-md q-input q-field--standard q-field--float">
-        <div class="q-field__inner relative-position col self-stretch column justify-center">
-          <div tabindex="-1" class="q-field__control relative-position row no-wrap">
-            <div class="q-field__control-container col relative-position row no-wrap q-anchor--skip"><input tabindex="0" size="4" id="qf_80008000-8000-8000-8000-800080008000" type="text" value="1" class="q-field__native q-placeholder"></div>
-            <div class="q-field__append q-field__marginal row no-wrap items-center"><span class="text-caption">kg</span></div>
-          </div>
-        </div>
-      </label>
-    </div>
-  </div>
-</div>
-`;
-
-exports[`Storyshots Statistics FeedbackItem 1`] = `
-<div class="q-card no-shadow grey-border">
-  <div class="q-card__section q-pa-md">
-    <div class="row no-wrap">
-      <div class="content full-width">
-        <div class="row no-wrap items-baseline"><strong class="q-mr-sm" style="white-space:nowrap;">
-            Sat, Aug 12, 2017, 8:00 AM
-          </strong> <a class="ellipsis text-secondary">
-            Griesheimer Markt
-          </a>
-          <!---->
-        </div> <small class="text-weight-light"><a>
-            Mira Bellenbaum
-          </a> <span class="message-date"><div title="Aug 11, 2017, 3:43 PM">
-  4 months ago
-</div></span></small>
-        <div>
-          <div class="container on-right float-right amount-box" style="width:80px;height:80px;"><img width="80px" height="80px" src="test-file-stub"> <img width="10px" height="16px" src="test-file-stub" class="pointer" style="transform:rotate(-45deg);top:8px;">
-            <div class="text-bottom" style="bottom:4px;"><span style="font-size:19px;">
-        2.5
-      </span> <span style="font-size:11px;">kg</span></div>
-          </div>
-          <div class="comment">
-            <div class="markdown">
-              <p>All worked out perfectly!</p>
-            </div>
-          </div>
-          <div class="q-mt-sm">
-            <div class="wrapper" style="width:22px;height:22px;"><a title="Mira Bellenbaum">
-                <div text="Mira Bellenbaum" seed="1" class="randomArt fill"></div>
-              </a></div>
-            <!---->
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-`;
-
-exports[`Storyshots Statistics FeedbackList 1`] = `
-<div class="k-feedback-list">
-  <!---->
-  <div class="full-width text-center generic-padding" style="display:none;"><svg fill="currentColor" width="40" height="40" viewBox="0 0 120 30" xmlns="http://www.w3.org/2000/svg" class="q-spinner">
-      <circle cx="15" cy="15" r="15">
-        <animate attributeName="r" from="15" to="15" begin="0s" dur="0.8s" values="15;9;15" calcMode="linear" repeatCount="indefinite"></animate>
-        <animate attributeName="fill-opacity" from="1" to="1" begin="0s" dur="0.8s" values="1;.5;1" calcMode="linear" repeatCount="indefinite"></animate>
-      </circle>
-      <circle cx="60" cy="15" r="9" fill-opacity=".3">
-        <animate attributeName="r" from="9" to="9" begin="0s" dur="0.8s" values="9;15;9" calcMode="linear" repeatCount="indefinite"></animate>
-        <animate attributeName="fill-opacity" from=".5" to=".5" begin="0s" dur="0.8s" values=".5;1;.5" calcMode="linear" repeatCount="indefinite"></animate>
-      </circle>
-      <circle cx="105" cy="15" r="15">
-        <animate attributeName="r" from="15" to="15" begin="0s" dur="0.8s" values="15;9;15" calcMode="linear" repeatCount="indefinite"></animate>
-        <animate attributeName="fill-opacity" from="1" to="1" begin="0s" dur="0.8s" values="1;.5;1" calcMode="linear" repeatCount="indefinite"></animate>
-      </circle>
-    </svg></div>
-  <div class="q-infinite-scroll">
-    <div class="q-card no-shadow grey-border">
-      <div class="q-card__section q-pa-md">
-        <div class="row no-wrap">
-          <div class="content full-width">
-            <div class="row no-wrap items-baseline"><strong class="q-mr-sm" style="white-space:nowrap;">
-            Sat, Aug 12, 2017, 8:00 AM
-          </strong> <a class="ellipsis text-secondary">
-                Griesheimer Markt
-              </a>
-              <!---->
-            </div> <small class="text-weight-light"><a>
-                Mira Bellenbaum
-              </a> <span class="message-date"><div title="Aug 11, 2017, 3:43 PM">
-  4 months ago
-</div></span></small>
-            <div>
-              <div class="container on-right float-right amount-box" style="width:80px;height:80px;"><img width="80px" height="80px" src="test-file-stub"> <img width="10px" height="16px" src="test-file-stub" class="pointer" style="transform:rotate(-45deg);top:8px;">
-                <div class="text-bottom" style="bottom:4px;"><span style="font-size:19px;">
-        2.5
-      </span> <span style="font-size:11px;">kg</span></div>
-              </div>
-              <div class="comment">
-                <div class="markdown">
-                  <p>All worked out perfectly!</p>
-                </div>
-              </div>
-              <div class="q-mt-sm">
-                <div class="wrapper" style="width:22px;height:22px;"><a title="Mira Bellenbaum">
-                    <div text="Mira Bellenbaum" seed="1" class="randomArt fill"></div>
-                  </a></div>
-                <!---->
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="q-card no-shadow grey-border">
-      <div class="q-card__section q-pa-md">
-        <div class="row no-wrap">
-          <div class="content full-width">
-            <div class="row no-wrap items-baseline"><strong class="q-mr-sm" style="white-space:nowrap;">
-            Sun, Aug 13, 2017, 8:00 AM
-          </strong> <a class="ellipsis text-secondary">
-                Griesheimer Markt
-              </a>
-              <!---->
-            </div> <small class="text-weight-light"><a>
-                Mira Bellenbaum
-              </a> <span class="message-date"><div title="Sep 11, 2017, 3:40 PM">
-  3 months ago
-</div></span></small>
-            <div>
-              <div class="container on-right float-right amount-box" style="width:80px;height:80px;"><img width="80px" height="80px" src="test-file-stub"> <img width="10px" height="16px" src="test-file-stub" class="pointer" style="transform:rotate(-33deg);top:8px;">
-                <div class="text-bottom" style="bottom:4px;"><span style="font-size:19px;">
-        11.0
-      </span> <span style="font-size:11px;">kg</span></div>
-              </div>
-              <!---->
-              <div class="q-mt-sm">
-                <div class="wrapper" style="width:22px;height:22px;"><a title="Mira Bellenbaum">
-                    <div text="Mira Bellenbaum" seed="1" class="randomArt fill"></div>
-                  </a></div>
-                <!---->
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="q-card no-shadow grey-border">
-      <div class="q-card__section q-pa-md">
-        <div class="row no-wrap">
-          <div class="content full-width">
-            <div class="row no-wrap items-baseline"><strong class="q-mr-sm" style="white-space:nowrap;">
-            Sun, Aug 13, 2017, 8:00 AM
-          </strong> <a class="ellipsis text-secondary">
-                Griesheimer Markt
-              </a>
-              <!---->
-            </div> <small class="text-weight-light"><a>
-                Max Mustermann
-              </a> <span class="message-date"><div title="Sep 18, 2017, 12:12 PM">
-  3 months ago
-</div></span></small>
-            <div>
-              <div class="container on-right float-right amount-box" style="width:80px;height:80px;"><img width="80px" height="80px" src="test-file-stub"> <img width="10px" height="16px" src="test-file-stub" class="pointer" style="transform:rotate(-48deg);top:8px;">
-                <div class="text-bottom" style="bottom:4px;"><span style="font-size:19px;">
-        0
-      </span> <span style="font-size:11px;">g</span></div>
-              </div>
-              <div class="comment">
-                <div class="markdown">
-                  <p>They did not have anything today</p>
-                </div>
-              </div>
-              <div class="q-mt-sm">
-                <div class="wrapper" style="width:22px;height:22px;"><a title="Max Mustermann">
-                    <div text="Max Mustermann" seed="2" class="randomArt fill"></div>
-                  </a></div>
-                <!---->
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-`;
-
-exports[`Storyshots Statistics PickupFeedback 1`] = `
-<div class="pickup-feedback-wrapper">
-  <div class="q-card no-mobile-margin no-shadow grey-border">
-    <div seed="1" type="circles" style="color:white;">
-      <div class="row no-wrap image-and-text">
-        <div class="image-and-text-left gt-sm"><img src="@/feedback/assets/cart.png" style="width:100%;"></div>
-        <div class="image-and-text-right">
-          <h4>Thank you for your pickup!</h4>
-          <p><label for="qf_80008000-8000-8000-8000-800080008000" class="q-field row no-wrap items-start grey-font q-select q-field--auto-height q-select--without-input q-field--standard q-field--float q-field--dark">
-              <div class="q-field__inner relative-position col self-stretch column justify-center">
-                <div tabindex="-1" class="q-field__control relative-position row no-wrap">
-                  <div class="q-field__control-container col relative-position row no-wrap q-anchor--skip">
-                    <div tabindex="0" class="q-field__native row items-center"><span>Aug 12, 2017, 8:00 AM (Griesheimer Markt)</span></div>
-                  </div>
-                  <div class="q-field__append q-field__marginal row no-wrap items-center q-anchor--skip"><i aria-hidden="true" class="material-icons q-icon q-select__dropdown-icon">arrow_drop_down</i></div>
-                  <!---->
-                </div>
-              </div>
-            </label></p>
-        </div>
-      </div>
-    </div>
-    <div>
-      <div class="q-mx-sm q-mt-md">
-        <div></div>
-        <div class="q-mt-sm">
-          <div class="wrapper q-ml-xs" style="width:35px;height:35px;"><a title="Mira Bellenbaum">
-              <div text="Mira Bellenbaum" seed="1" class="randomArt fill"></div>
-            </a></div>
-          <div class="wrapper q-ml-xs" style="width:35px;height:35px;"><a title="Max Mustermann">
-              <div text="Max Mustermann" seed="2" class="randomArt fill"></div>
-            </a></div>
-          <div class="wrapper q-ml-xs" style="width:35px;height:35px;"><a title="Karl Karlson">
-              <div text="Karl Karlson" seed="3" class="randomArt fill"></div>
-            </a></div>
-        </div>
-      </div>
-      <form>
-        <div class="relative-position q-mb-sm q-mr-sm"><label for="qf_80008000-8000-8000-8000-800080008000" class="q-field row no-wrap items-start q-textarea q-textarea--autogrow q-field--standard q-field--labeled q-field--with-bottom">
-            <div class="q-field__inner relative-position col self-stretch column justify-center">
-              <div tabindex="-1" class="q-field__control relative-position row no-wrap">
-                <div class="q-field__control-container col relative-position row no-wrap q-anchor--skip"><textarea tabindex="0" rows="1" aria-label="Was everything fine? Did everyone show up? Your comment here..." id="qf_80008000-8000-8000-8000-800080008000" type="textarea" class="q-field__native q-placeholder" style="min-height:100px;"></textarea>
-                  <div class="q-field__label no-pointer-events absolute ellipsis">Was everything fine? Did everyone show up? Your comment here...</div>
-                </div>
-              </div>
-              <div class="q-field__bottom row items-start q-field__bottom--animated">
-                <div class="q-field__messages col"></div>
-              </div>
-            </div>
-          </label>
-          <!---->
-        </div>
-        <div class="wrapper q-ml-sm showOverlay" style="margin-top:40px;"><button tabindex="0" type="button" class="q-btn inline q-btn-item non-selectable absolute-center q-btn--standard q-btn--rectangle bg-primary text-white q-focusable q-hoverable" style="z-index:1;">
-            <div tabindex="-1" class="q-focus-helper"></div>
-            <div class="q-btn__content text-center col items-center q-anchor--skip justify-center row">
-              Set amount
-            </div>
-          </button>
-          <div class="content">
-            <div class="row no-wrap">
-              <div class="container amount" style="width:100px;height:100px;"><img width="100px" height="100px" src="test-file-stub"> <img width="12px" height="19.200000000000003px" src="test-file-stub" class="pointer" style="transform:rotate(-48deg);top:10px;">
-                <div class="text-bottom" style="bottom:5px;"><span style="font-size:23px;">
-      ?
-    </span></div>
-              </div>
-              <div class="col" style="margin-left:.6em;">
-                <div class="q-pb-sm"></div>
-                <div class="wrapper row no-wrap ellipsis"></div>
-              </div>
-              <!---->
-            </div>
-            <div class="row no-wrap">
-              <div role="slider" aria-valuemin="0" aria-valuemax="70" aria-valuenow="0" data-step="0.5" tabindex="0" class="self-center q-mx-md q-slider q-slider--inactive q-slider--editable q-slider--label">
-                <div class="q-slider__track-container absolute overflow-hidden">
-                  <div class="q-slider__track absolute-full" style="width:0%;"></div>
-                </div>
-                <div class="q-slider__thumb-container absolute non-selectable" style="left:0%;"><svg width="21" height="21" class="q-slider__thumb absolute">
-                    <circle cx="10.5" cy="10.5" r="7.875"></circle>
-                  </svg>
-                  <div class="q-slider__pin absolute flex flex-center">
-                    <div class="q-slider__pin-value-marker">
-                      <div class="q-slider__pin-value-marker-bg"></div>
-                      <div class="q-slider__pin-value-marker-text">0</div>
-                    </div>
-                  </div>
-                  <div class="q-slider__focus-ring"></div>
-                </div>
-              </div> <label for="qf_80008000-8000-8000-8000-800080008000" class="q-field row no-wrap items-start q-mr-md q-input q-field--standard">
-                <div class="q-field__inner relative-position col self-stretch column justify-center">
-                  <div tabindex="-1" class="q-field__control relative-position row no-wrap">
-                    <div class="q-field__control-container col relative-position row no-wrap q-anchor--skip"><input tabindex="0" size="4" id="qf_80008000-8000-8000-8000-800080008000" type="text" class="q-field__native q-placeholder"></div>
-                    <div class="q-field__append q-field__marginal row no-wrap items-center"><span class="text-caption">kg</span></div>
-                  </div>
-                </div>
-              </label>
-            </div>
-          </div>
-        </div>
-        <!---->
-        <div class="row justify-end q-ma-md q-gutter-sm">
-          <!----> <button tabindex="0" type="submit" class="q-btn inline q-btn-item non-selectable q-btn--standard q-btn--rectangle bg-secondary text-white q-focusable q-hoverable">
-            <div tabindex="-1" class="q-focus-helper"></div>
-            <div class="q-btn__content text-center col items-center q-anchor--skip justify-center row"></div>
-            <!---->
-          </button></div>
-      </form>
-    </div>
-  </div>
-  <div class="q-card no-shadow grey-border place-feedback">
-    <div seed="61" type="banner" class="randomBanner"></div>
-    <h4 class="generic-padding"></h4>
-    <div class="k-feedback-list">
-      <!---->
-      <div class="full-width text-center generic-padding" style="display:none;"><svg fill="currentColor" width="40" height="40" viewBox="0 0 120 30" xmlns="http://www.w3.org/2000/svg" class="q-spinner">
-          <circle cx="15" cy="15" r="15">
-            <animate attributeName="r" from="15" to="15" begin="0s" dur="0.8s" values="15;9;15" calcMode="linear" repeatCount="indefinite"></animate>
-            <animate attributeName="fill-opacity" from="1" to="1" begin="0s" dur="0.8s" values="1;.5;1" calcMode="linear" repeatCount="indefinite"></animate>
-          </circle>
-          <circle cx="60" cy="15" r="9" fill-opacity=".3">
-            <animate attributeName="r" from="9" to="9" begin="0s" dur="0.8s" values="9;15;9" calcMode="linear" repeatCount="indefinite"></animate>
-            <animate attributeName="fill-opacity" from=".5" to=".5" begin="0s" dur="0.8s" values=".5;1;.5" calcMode="linear" repeatCount="indefinite"></animate>
-          </circle>
-          <circle cx="105" cy="15" r="15">
-            <animate attributeName="r" from="15" to="15" begin="0s" dur="0.8s" values="15;9;15" calcMode="linear" repeatCount="indefinite"></animate>
-            <animate attributeName="fill-opacity" from="1" to="1" begin="0s" dur="0.8s" values="1;.5;1" calcMode="linear" repeatCount="indefinite"></animate>
-          </circle>
-        </svg></div>
-      <div class="q-infinite-scroll">
-        <div class="q-card no-shadow grey-border">
-          <div class="q-card__section q-pa-md">
-            <div class="row no-wrap">
-              <div class="content full-width">
-                <div class="row no-wrap items-baseline"><strong class="q-mr-sm" style="white-space:nowrap;">
-            Sat, Aug 12, 2017, 8:00 AM
-          </strong> <a class="ellipsis text-secondary">
-                    Griesheimer Markt
-                  </a>
-                  <!---->
-                </div> <small class="text-weight-light"><a>
-                    Mira Bellenbaum
-                  </a> <span class="message-date"><div title="Aug 11, 2017, 3:43 PM">
-  4 months ago
-</div></span></small>
-                <div>
-                  <div class="container on-right float-right amount-box" style="width:80px;height:80px;"><img width="80px" height="80px" src="test-file-stub"> <img width="10px" height="16px" src="test-file-stub" class="pointer" style="transform:rotate(-45deg);top:8px;">
-                    <div class="text-bottom" style="bottom:4px;"><span style="font-size:19px;">
-        2.5
-      </span> <span style="font-size:11px;">kg</span></div>
-                  </div>
-                  <div class="comment">
-                    <div class="markdown">
-                      <p>All worked out perfectly!</p>
-                    </div>
-                  </div>
-                  <div class="q-mt-sm">
-                    <div class="wrapper" style="width:22px;height:22px;"><a title="Mira Bellenbaum">
-                        <div text="Mira Bellenbaum" seed="1" class="randomArt fill"></div>
-                      </a></div>
-                    <!---->
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="q-card no-shadow grey-border">
-          <div class="q-card__section q-pa-md">
-            <div class="row no-wrap">
-              <div class="content full-width">
-                <div class="row no-wrap items-baseline"><strong class="q-mr-sm" style="white-space:nowrap;">
-            Sun, Aug 13, 2017, 8:00 AM
-          </strong> <a class="ellipsis text-secondary">
-                    Griesheimer Markt
-                  </a>
-                  <!---->
-                </div> <small class="text-weight-light"><a>
-                    Mira Bellenbaum
-                  </a> <span class="message-date"><div title="Sep 11, 2017, 3:40 PM">
-  3 months ago
-</div></span></small>
-                <div>
-                  <div class="container on-right float-right amount-box" style="width:80px;height:80px;"><img width="80px" height="80px" src="test-file-stub"> <img width="10px" height="16px" src="test-file-stub" class="pointer" style="transform:rotate(-33deg);top:8px;">
-                    <div class="text-bottom" style="bottom:4px;"><span style="font-size:19px;">
-        11.0
-      </span> <span style="font-size:11px;">kg</span></div>
-                  </div>
-                  <!---->
-                  <div class="q-mt-sm">
-                    <div class="wrapper" style="width:22px;height:22px;"><a title="Mira Bellenbaum">
-                        <div text="Mira Bellenbaum" seed="1" class="randomArt fill"></div>
-                      </a></div>
-                    <!---->
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="q-card no-shadow grey-border">
-          <div class="q-card__section q-pa-md">
-            <div class="row no-wrap">
-              <div class="content full-width">
-                <div class="row no-wrap items-baseline"><strong class="q-mr-sm" style="white-space:nowrap;">
-            Sun, Aug 13, 2017, 8:00 AM
-          </strong> <a class="ellipsis text-secondary">
-                    Griesheimer Markt
-                  </a>
-                  <!---->
-                </div> <small class="text-weight-light"><a>
-                    Max Mustermann
-                  </a> <span class="message-date"><div title="Sep 18, 2017, 12:12 PM">
-  3 months ago
-</div></span></small>
-                <div>
-                  <div class="container on-right float-right amount-box" style="width:80px;height:80px;"><img width="80px" height="80px" src="test-file-stub"> <img width="10px" height="16px" src="test-file-stub" class="pointer" style="transform:rotate(-48deg);top:8px;">
-                    <div class="text-bottom" style="bottom:4px;"><span style="font-size:19px;">
-        0
-      </span> <span style="font-size:11px;">g</span></div>
-                  </div>
-                  <div class="comment">
-                    <div class="markdown">
-                      <p>They did not have anything today</p>
-                    </div>
-                  </div>
-                  <div class="q-mt-sm">
-                    <div class="wrapper" style="width:22px;height:22px;"><a title="Max Mustermann">
-                        <div text="Max Mustermann" seed="2" class="randomArt fill"></div>
-                      </a></div>
-                    <!---->
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-`;
-
-exports[`Storyshots Statistics PlaceFeedback 1`] = `
-<div>
-  <div class="q-card no-shadow grey-border">
-    <div class="generic-padding relative-position">
-      <div class="full-width text-center generic-padding" style="display:none;"><svg fill="currentColor" width="40" height="40" viewBox="0 0 120 30" xmlns="http://www.w3.org/2000/svg" class="q-spinner">
-          <circle cx="15" cy="15" r="15">
-            <animate attributeName="r" from="15" to="15" begin="0s" dur="0.8s" values="15;9;15" calcMode="linear" repeatCount="indefinite"></animate>
-            <animate attributeName="fill-opacity" from="1" to="1" begin="0s" dur="0.8s" values="1;.5;1" calcMode="linear" repeatCount="indefinite"></animate>
-          </circle>
-          <circle cx="60" cy="15" r="9" fill-opacity=".3">
-            <animate attributeName="r" from="9" to="9" begin="0s" dur="0.8s" values="9;15;9" calcMode="linear" repeatCount="indefinite"></animate>
-            <animate attributeName="fill-opacity" from=".5" to=".5" begin="0s" dur="0.8s" values=".5;1;.5" calcMode="linear" repeatCount="indefinite"></animate>
-          </circle>
-          <circle cx="105" cy="15" r="15">
-            <animate attributeName="r" from="15" to="15" begin="0s" dur="0.8s" values="15;9;15" calcMode="linear" repeatCount="indefinite"></animate>
-            <animate attributeName="fill-opacity" from="1" to="1" begin="0s" dur="0.8s" values="1;.5;1" calcMode="linear" repeatCount="indefinite"></animate>
-          </circle>
-        </svg></div>
-      <div class="infoChips row no-wrap">
-        <div title="10 pickups done" class="q-chip row inline no-wrap items-center bg-secondary text-white q-chip--colored q-chip--square"><i aria-hidden="true" class="fas fa-shopping-basket q-icon q-chip__icon q-chip__icon--left"> </i>
-          <div class="q-chip__content row no-wrap items-center q-anchor--skip"><strong class="q-ml-sm">10</strong></div>
-        </div>
-        <div title="4 feedback entries given" class="q-chip row inline no-wrap items-center bg-secondary text-white q-chip--colored q-chip--square"><i aria-hidden="true" class="fas fa-balance-scale q-icon q-chip__icon q-chip__icon--left"> </i>
-          <div class="q-chip__content row no-wrap items-center q-anchor--skip"><strong class="q-ml-sm">4</strong></div>
-        </div>
-        <div title="10 kg of food saved" class="q-chip row inline no-wrap items-center bg-secondary text-white q-chip--colored q-chip--square"><i aria-hidden="true" class="fas fa-weight q-icon q-chip__icon q-chip__icon--left"> </i>
-          <div class="q-chip__content row no-wrap items-center q-anchor--skip"><strong class="q-ml-sm">10 kg</strong></div>
-        </div>
-      </div> <span>
-        People gave feedback for 10 kg of saved food already! Keep up the great work!
-      </span>
-    </div>
-  </div>
-  <div class="k-feedback-list">
-    <div><a>
-        <div class="q-card q-pa-md notice bg-info"><i aria-hidden="true" class="fas fa-balance-scale q-icon on-left"> </i>
-          2 pickups await your feedback
-        </div>
-      </a></div>
-    <div class="full-width text-center generic-padding" style="display:none;"><svg fill="currentColor" width="40" height="40" viewBox="0 0 120 30" xmlns="http://www.w3.org/2000/svg" class="q-spinner">
-        <circle cx="15" cy="15" r="15">
-          <animate attributeName="r" from="15" to="15" begin="0s" dur="0.8s" values="15;9;15" calcMode="linear" repeatCount="indefinite"></animate>
-          <animate attributeName="fill-opacity" from="1" to="1" begin="0s" dur="0.8s" values="1;.5;1" calcMode="linear" repeatCount="indefinite"></animate>
-        </circle>
-        <circle cx="60" cy="15" r="9" fill-opacity=".3">
-          <animate attributeName="r" from="9" to="9" begin="0s" dur="0.8s" values="9;15;9" calcMode="linear" repeatCount="indefinite"></animate>
-          <animate attributeName="fill-opacity" from=".5" to=".5" begin="0s" dur="0.8s" values=".5;1;.5" calcMode="linear" repeatCount="indefinite"></animate>
-        </circle>
-        <circle cx="105" cy="15" r="15">
-          <animate attributeName="r" from="15" to="15" begin="0s" dur="0.8s" values="15;9;15" calcMode="linear" repeatCount="indefinite"></animate>
-          <animate attributeName="fill-opacity" from="1" to="1" begin="0s" dur="0.8s" values="1;.5;1" calcMode="linear" repeatCount="indefinite"></animate>
-        </circle>
-      </svg></div>
-    <div class="q-infinite-scroll">
-      <div class="q-card no-shadow grey-border">
-        <div class="q-card__section q-pa-md">
-          <div class="row no-wrap">
-            <div class="content full-width">
-              <div class="row no-wrap items-baseline"><strong class="q-mr-sm" style="white-space:nowrap;">
-            Sun, Dec 24, 2017, 12:00 PM
-          </strong> <a class="ellipsis text-secondary">
-                  Place 15
-                </a>
-                <!---->
-              </div> <small class="text-weight-light"><a>
-                  User 163
-                </a> <span class="message-date"><div title="Dec 24, 2017, 12:00 PM">
-  less than a minute ago
-</div></span></small>
-              <div>
-                <div class="container on-right float-right amount-box" style="width:80px;height:80px;"><img width="80px" height="80px" src="test-file-stub"> <img width="10px" height="16px" src="test-file-stub" class="pointer" style="transform:rotate(-34deg);top:8px;">
-                  <div class="text-bottom" style="bottom:4px;"><span style="font-size:19px;">
-        10.0
-      </span> <span style="font-size:11px;">kg</span></div>
-                </div>
-                <div class="comment">
-                  <div class="markdown">
-                    <p>feedback 1</p>
-                  </div>
-                </div>
-                <div class="q-mt-sm">
-                  <div class="wrapper" style="width:22px;height:22px;"><a title="User 163">
-                      <div text="User 163" seed="163" class="randomArt fill"></div>
-                    </a></div>
-                  <!---->
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="q-card no-shadow grey-border">
-        <div class="q-card__section q-pa-md">
-          <div class="row no-wrap">
-            <div class="content full-width">
-              <div class="row no-wrap items-baseline"><strong class="q-mr-sm" style="white-space:nowrap;">
-            Sun, Dec 24, 2017, 12:00 PM
-          </strong> <a class="ellipsis text-secondary">
-                  Place 16
-                </a>
-                <!---->
-              </div> <small class="text-weight-light"><a>
-                  User 164
-                </a> <span class="message-date"><div title="Dec 24, 2017, 12:00 PM">
-  less than a minute ago
-</div></span></small>
-              <div>
-                <div class="container on-right float-right amount-box" style="width:80px;height:80px;"><img width="80px" height="80px" src="test-file-stub"> <img width="10px" height="16px" src="test-file-stub" class="pointer" style="transform:rotate(-20deg);top:8px;">
-                  <div class="text-bottom" style="bottom:4px;"><span style="font-size:19px;">
-        20.0
-      </span> <span style="font-size:11px;">kg</span></div>
-                </div>
-                <div class="comment">
-                  <div class="markdown">
-                    <p>feedback 2</p>
-                  </div>
-                </div>
-                <div class="q-mt-sm">
-                  <div class="wrapper" style="width:22px;height:22px;"><a title="User 164">
-                      <div text="User 164" seed="164" class="randomArt fill"></div>
-                    </a></div>
-                  <!---->
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="q-card no-shadow grey-border">
-        <div class="q-card__section q-pa-md">
-          <div class="row no-wrap">
-            <div class="content full-width">
-              <div class="row no-wrap items-baseline"><strong class="q-mr-sm" style="white-space:nowrap;">
-            Sun, Dec 24, 2017, 12:00 PM
-          </strong> <a class="ellipsis text-secondary">
-                  Place 17
-                </a>
-                <!---->
-              </div> <small class="text-weight-light"><a>
-                  User 165
-                </a> <span class="message-date"><div title="Dec 24, 2017, 12:00 PM">
-  less than a minute ago
-</div></span></small>
-              <div>
-                <div class="container on-right float-right amount-box" style="width:80px;height:80px;"><img width="80px" height="80px" src="test-file-stub"> <img width="10px" height="16px" src="test-file-stub" class="pointer" style="transform:rotate(-6deg);top:8px;">
-                  <div class="text-bottom" style="bottom:4px;"><span style="font-size:19px;">
-        30.0
-      </span> <span style="font-size:11px;">kg</span></div>
-                </div>
-                <div class="comment">
-                  <div class="markdown">
-                    <p>feedback 3</p>
-                  </div>
-                </div>
-                <div class="q-mt-sm">
-                  <div class="wrapper" style="width:22px;height:22px;"><a title="User 165">
-                      <div text="User 165" seed="165" class="randomArt fill"></div>
-                    </a></div>
-                  <!---->
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="q-card no-shadow grey-border">
-        <div class="q-card__section q-pa-md">
-          <div class="row no-wrap">
-            <div class="content full-width">
-              <div class="row no-wrap items-baseline"><strong class="q-mr-sm" style="white-space:nowrap;">
-            Sun, Dec 24, 2017, 12:00 PM
-          </strong> <a class="ellipsis text-secondary">
-                  Place 18
-                </a>
-                <!---->
-              </div> <small class="text-weight-light"><a>
-                  User 166
-                </a> <span class="message-date"><div title="Dec 24, 2017, 12:00 PM">
-  less than a minute ago
-</div></span></small>
-              <div>
-                <div class="container on-right float-right amount-box" style="width:80px;height:80px;"><img width="80px" height="80px" src="test-file-stub"> <img width="10px" height="16px" src="test-file-stub" class="pointer" style="transform:rotate(8deg);top:8px;">
-                  <div class="text-bottom" style="bottom:4px;"><span style="font-size:19px;">
-        40.0
-      </span> <span style="font-size:11px;">kg</span></div>
-                </div>
-                <div class="comment">
-                  <div class="markdown">
-                    <p>feedback 4</p>
-                  </div>
-                </div>
-                <div class="q-mt-sm">
-                  <div class="wrapper" style="width:22px;height:22px;"><a title="User 166">
-                      <div text="User 166" seed="166" class="randomArt fill"></div>
-                    </a></div>
-                  <!---->
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="q-card no-shadow grey-border">
-        <div class="q-card__section q-pa-md">
-          <div class="row no-wrap">
-            <div class="content full-width">
-              <div class="row no-wrap items-baseline"><strong class="q-mr-sm" style="white-space:nowrap;">
-            Sun, Dec 24, 2017, 12:00 PM
-          </strong> <a class="ellipsis text-secondary">
-                  Place 19
-                </a>
-                <!---->
-              </div> <small class="text-weight-light"><a>
-                  User 167
-                </a> <span class="message-date"><div title="Dec 24, 2017, 12:00 PM">
-  less than a minute ago
-</div></span></small>
-              <div>
-                <div class="container on-right float-right amount-box" style="width:80px;height:80px;"><img width="80px" height="80px" src="test-file-stub"> <img width="10px" height="16px" src="test-file-stub" class="pointer" style="transform:rotate(22deg);top:8px;">
-                  <div class="text-bottom" style="bottom:4px;"><span style="font-size:19px;">
-        50.0
-      </span> <span style="font-size:11px;">kg</span></div>
-                </div>
-                <div class="comment">
-                  <div class="markdown">
-                    <p>feedback 5</p>
-                  </div>
-                </div>
-                <div class="q-mt-sm">
-                  <div class="wrapper" style="width:22px;height:22px;"><a title="User 167">
-                      <div text="User 167" seed="167" class="randomArt fill"></div>
-                    </a></div>
-                  <!---->
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
 </div>
 `;
 

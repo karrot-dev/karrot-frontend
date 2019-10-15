@@ -17,6 +17,18 @@
     />
 
     <div
+      v-if="!isBikeKitchen && !isGeneralPurpose && hasMultipleCollectors"
+      class="row no-wrap items-center q-mx-sm text-caption"
+    >
+      <QIcon
+        name="info"
+        size="1.5em"
+        class="q-mr-sm text-grey"
+      />
+      <div v-t="'PICKUP_FEEDBACK.AMOUNT_INFO'" />
+    </div>
+
+    <div
       v-if="hasAnyError"
       class="text-negative"
       style="margin-top: 3em"
@@ -48,6 +60,7 @@
 <script>
 import {
   QBtn,
+  QIcon,
 } from 'quasar'
 import AmountPicker from './AmountPicker'
 import MarkdownInput from '@/utils/components/MarkdownInput'
@@ -57,6 +70,7 @@ import statusMixin from '@/utils/mixins/statusMixin'
 export default {
   components: {
     QBtn,
+    QIcon,
     AmountPicker,
     MarkdownInput,
   },
@@ -67,6 +81,10 @@ export default {
       default: false,
     },
     isGeneralPurpose: {
+      type: Boolean,
+      default: false,
+    },
+    hasMultipleCollectors: {
       type: Boolean,
       default: false,
     },

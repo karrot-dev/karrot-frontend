@@ -4,32 +4,39 @@
       style="width: 100%"
       @resize="onResize"
     />
-    <div
-      v-for="item in items"
-      :key="item.id"
-      class="item inline-block"
-      :style="itemStyle"
-    >
-      <QCard
-        @click="visit(item.id)"
+    <div>
+      <div>
+        <router-link :to="{ name: 'sharingCreate' }">
+          <h2>CLICK HERE TO SHARE A THING!!!</h2>
+        </router-link>
+      </div>
+      <div
+        v-for="item in items"
+        :key="item.id"
+        class="item inline-block"
+        :style="itemStyle"
       >
-        <div
-          class="photo text-white relative-position row justify-center"
+        <QCard
+          @click="visit(item.id)"
         >
-          <img :src="item.photoUrls.fullSize">
-        </div>
-        <QCardSection class="fixed-height smaller-text">
-          <QAvatar>
-            <img
-              v-if="item.user.photoUrls !== undefined"
-              :src="item.user.photoUrls.thumbnail"
-            >
-          </QAvatar>
-          <router-link :to="{ name: 'sharingDetail', params: { itemId: item.id } }">
-            {{ item.name }}
-          </router-link>
-        </QCardSection>
-      </QCard>
+          <div
+            class="photo text-white relative-position row justify-center"
+          >
+            <img :src="item.photoUrls.fullSize">
+          </div>
+          <QCardSection class="fixed-height smaller-text">
+            <QAvatar>
+              <img
+                v-if="item.user.photoUrls !== undefined"
+                :src="item.user.photoUrls.thumbnail"
+              >
+            </QAvatar>
+            <router-link :to="{ name: 'sharingDetail', params: { itemId: item.id } }">
+              {{ item.name }}
+            </router-link>
+          </QCardSection>
+        </QCard>
+      </div>
     </div>
   </div>
 </template>

@@ -3,6 +3,7 @@ import { Platform } from 'quasar'
 const GroupWall = () => import('@/group/pages/Wall')
 const GroupPickups = () => import('@/pickups/pages/GroupPickups')
 const GroupSharing = () => import('@/sharing/pages/GroupSharing')
+const SharingCreate = () => import('@/sharing/pages/SharingCreate')
 const SharingDetail = () => import('@/sharing/pages/SharingDetail')
 const GroupFeedback = () => import('@/feedback/pages/GroupFeedback')
 const Messages = () => import('@/messages/pages/Messages')
@@ -210,6 +211,20 @@ export default [
         component: GroupPickups,
       },
       {
+        name: 'sharingCreate',
+        path: 'sharing/create',
+        meta: {
+          requireLoggedIn: true,
+          breadcrumbs: [
+            { translation: 'GROUP.SHARING', route: { name: 'groupSharing' } },
+            { translation: 'GROUP.SHARING_CREATE', route: { name: 'sharingCreate' } },
+          ],
+        },
+        components: {
+          default: SharingCreate,
+        },
+      },
+      {
         name: 'groupSharing',
         path: 'sharing',
         meta: {
@@ -228,9 +243,6 @@ export default [
           {
             name: 'sharingDetail',
             path: ':itemId',
-            components: {
-              default: SharingDetail,
-            },
             meta: {
               requireLoggedIn: true,
               breadcrumbs: [
@@ -238,6 +250,9 @@ export default [
               ],
               beforeEnter: 'sharingItems/select',
               isDetail: true,
+            },
+            components: {
+              default: SharingDetail,
             },
           },
         ],

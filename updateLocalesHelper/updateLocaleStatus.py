@@ -1,27 +1,26 @@
 #! /bin/env python
-from configparser import ConfigParser
-from http import HTTPStatus
-from json import dump
-from os import path, environ
-from requests import get as GET
+import json
+import os
+import requests
 import sys
 
+from configparser import ConfigParser
 from txclib import utils
 from txclib import config
 
 
 STATUS_FILE_PATH = '../src/locales/translationStatus.json'
 CONFIG_FILE_PATH = '../.tx/config'
-SCRIPT_PATH = path.dirname(path.realpath(sys.argv[0]))
+SCRIPT_PATH = os.path.dirname(os.path.realpath(sys.argv[0]))
 TRANSLATION_URL = 'https://api.transifex.com/organizations/yunity-1/projects/karrot/'
 DEFAULT_TOKEN_URL = 'https://www.transifex.com'
 
-STATUS_FILE = path.join(SCRIPT_PATH, STATUS_FILE_PATH)
-CONFIG_FILE = path.join(SCRIPT_PATH, CONFIG_FILE_PATH)
+STATUS_FILE = os.path.join(SCRIPT_PATH, STATUS_FILE_PATH)
+CONFIG_FILE = os.path.join(SCRIPT_PATH, CONFIG_FILE_PATH)
 
 
 def get_token():
-    token = environ.get('TX_TOKEN')
+    token = os.environ.get('TX_TOKEN')
     if token:
         return token
 
@@ -29,11 +28,11 @@ def get_token():
     txrc = config.OrderedRawConfigParser()
     txrc.read((txrc_file,))
     return txrc.get(DEFAULT_TOKEN_URL, 'token')
-
+        
 
 def get_translation_status(token):
-    response = GET(TRANSLATION_URL, auth=('api', token))
-    if response.status_code != HTTPStatus.OK:
+    response = request.get(TRANSLATION_URL, auth=('api', token))
+    if response.status_code != requests.codes.OK:
         print('Failed to get translation status!\n')
         print(response.json())
         sys.exit(1)
@@ -76,7 +75,7 @@ def get_translated_dict(lang_map, percentage_dict):
 
 def write_dict_to_file(dictionary, filename):
     with open(STATUS_FILE, 'w') as f:
-        dump(dictionary, f, sort_keys=True, indent=2)
+        json.dump(dictionary, f, sort_keys=True, indent=2)
         print("Updated", STATUS_FILE)
 
 

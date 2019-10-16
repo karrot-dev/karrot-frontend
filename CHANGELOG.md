@@ -24,6 +24,9 @@ Please document your changes in this format:
 ### Changed
 - Sum multiple feedback entries per pickup instead of averaging them @tiltec
 
+### Fixed
+- Message links in email notifications did not open the conversation if message is a reply, in an application or in an issue @tiltec
+
 ## [8.0.0] - 2019-10-07
 ### Changed
 - User Interface redesign due to [Quasar](https://quasar.dev) upgrade [#1690] @tiltec

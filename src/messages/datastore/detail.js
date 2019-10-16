@@ -96,7 +96,9 @@ export default {
       if (!isCurrentUser) dispatch('currentGroup/select', { groupId }, { root: true })
     },
     routeLeave ({ dispatch }) {
-      dispatch('clear')
+      if (Platform.is.mobile) {
+        dispatch('clear')
+      }
     },
     openForPickup ({ dispatch }, pickup) {
       if (Platform.is.mobile) {
@@ -150,6 +152,7 @@ export default {
       await dispatch('applications/maybeFetchOne', applicationId, { root: true })
     },
     selectThread ({ commit, dispatch }, id) {
+      console.log('selectThread', id)
       dispatch('clear')
       commit('setThreadId', id)
       dispatch('currentThread/fetchOrRedirect', id, { root: true })

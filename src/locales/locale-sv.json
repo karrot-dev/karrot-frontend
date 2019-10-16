@@ -369,7 +369,8 @@
     "SUBTITLE": "Du kan ange en feedback för din hämtning här",
     "SET_AMOUNT": "Ange mängden",
     "DELETE_AMOUNT": "Radera mängden",
-    "AMOUNT": "Mängden mat som räddades av alla (i kg)",
+    "AMOUNT": "Amount of food you were able to save (in kg)",
+    "AMOUNT_INFO": "For place statistics, we will add together the amount of all feedback.",
     "COMMENT_PLACEHOLDER": "Gick allt bra? Var alla med? Din kommentar här...",
     "PREVIOUS": "Föregående feedback för {store}",
     "TOGETHER_WITH": "Du gjorde hämtningen tillsammans med:"

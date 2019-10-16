@@ -369,7 +369,8 @@
     "SUBTITLE": "आपण येथे आपल्या पिकअपसाठी अभिप्राय प्रदान करू शकता",
     "SET_AMOUNT": "रक्कम सेट करा",
     "DELETE_AMOUNT": "रक्कम हटवा",
-    "AMOUNT": "आपणा सर्वांस अन्नधान्य वाचविता आले (किलोमध्ये)",
+    "AMOUNT": "Amount of food you were able to save (in kg)",
+    "AMOUNT_INFO": "For place statistics, we will add together the amount of all feedback.",
     "COMMENT_PLACEHOLDER": "सर्वकाही ठीक आहे का? प्रत्येकजण आले होते का? येथे आपली टिप्पणी ...",
     "PREVIOUS": "{store}साठी मागील अभिप्राय",
     "TOGETHER_WITH": "आपण हे पिकअप एकत्र केले:"

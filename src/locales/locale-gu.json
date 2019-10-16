@@ -369,7 +369,8 @@
     "SUBTITLE": "તમે અહીં તમારી પસંદ માટે પ્રતિક્રિયા આપી શકો છો",
     "SET_AMOUNT": "Set amount",
     "DELETE_AMOUNT": "Delete amount",
-    "AMOUNT": "ખોરાકની રકમ તમે બચાવી શકો છો (કિગ્રામાં)",
+    "AMOUNT": "Amount of food you were able to save (in kg)",
+    "AMOUNT_INFO": "For place statistics, we will add together the amount of all feedback.",
     "COMMENT_PLACEHOLDER": "બધું સારું હતું? શું દરેકને બતાવ્યું? તમારી ટિપ્પણી અહીં ...",
     "PREVIOUS": "{દુકાન} માટે પાછલી પ્રતિસાદ",
     "TOGETHER_WITH": "You did this pickup together with:"

@@ -369,7 +369,8 @@
     "SUBTITLE": "Tutaj możesz dodać komentarz na temat odbioru",
     "SET_AMOUNT": "Wprowadź ilość",
     "DELETE_AMOUNT": "Usuń ilość",
-    "AMOUNT": "Ilość jedzenia, które uratowałaś/-eś (w kg)",
+    "AMOUNT": "Amount of food you were able to save (in kg)",
+    "AMOUNT_INFO": "For place statistics, we will add together the amount of all feedback.",
     "COMMENT_PLACEHOLDER": "Czy wszystko przebiegło w porządku? Czy jedzenie zostało odebrane zgodnie z planem? Skomentuj...",
     "PREVIOUS": "Wcześniejsze komentarze dla {store}",
     "TOGETHER_WITH": "Odebrałaś/-eś wspólnie z:"

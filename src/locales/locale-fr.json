@@ -369,7 +369,8 @@
     "SUBTITLE": "Tu peux donner ton feedback sur la récolte ici",
     "SET_AMOUNT": "Établir la quantité",
     "DELETE_AMOUNT": "Supprimer la quantité",
-    "AMOUNT": "Quantité de nourriture que tu as pu sauver (en kg)",
+    "AMOUNT": "Amount of food you were able to save (in kg)",
+    "AMOUNT_INFO": "For place statistics, we will add together the amount of all feedback.",
     "COMMENT_PLACEHOLDER": "Tout s'est bien passé ? Tout les participants sont venus ? Ton commentaire ici...",
     "PREVIOUS": "Dernier feedback à propos de {store}",
     "TOGETHER_WITH": "Tu as fait cette récolte avec :"

@@ -369,7 +369,8 @@
     "SUBTITLE": "你可以把你這次pickup的回饋寫在這",
     "SET_AMOUNT": "設定數量",
     "DELETE_AMOUNT": "刪除數量",
-    "AMOUNT": "你能領取的食物量(以公斤計算)",
+    "AMOUNT": "Amount of food you were able to save (in kg)",
+    "AMOUNT_INFO": "For place statistics, we will add together the amount of all feedback.",
     "COMMENT_PLACEHOLDER": "一切都順利嗎？大家都有到場嗎？在這裡留言...",
     "PREVIOUS": "先前對於{商店名稱}的回饋",
     "TOGETHER_WITH": "You did this pickup together with:"

@@ -369,7 +369,8 @@
     "SUBTITLE": "आप यहां अपने पिकअप के लिए प्रतिक्रिया प्रदान कर सकते हैं",
     "SET_AMOUNT": "Set amount",
     "DELETE_AMOUNT": "Delete amount",
-    "AMOUNT": "भोजन की मात्रा आप सभी बचाने में सक्षम थे (किलो में)",
+    "AMOUNT": "Amount of food you were able to save (in kg)",
+    "AMOUNT_INFO": "For place statistics, we will add together the amount of all feedback.",
     "COMMENT_PLACEHOLDER": "क्या सब कुछ ठीक था? क्या सभी लोग दिखाए? आपकी टिप्पणी यहां ...",
     "PREVIOUS": "{स्टोर } के लिए पिछला फ़ीडबैक",
     "TOGETHER_WITH": "You did this pickup together with:"

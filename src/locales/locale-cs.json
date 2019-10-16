@@ -369,7 +369,8 @@
     "SUBTITLE": "Zde můžete poskytnout zpětnou vazbu k vyzvednutí",
     "SET_AMOUNT": "Nastavit množství",
     "DELETE_AMOUNT": "Smazat množství",
-    "AMOUNT": "Množství jídla, které jste všichni mohli ušetřit (v kg)",
+    "AMOUNT": "Amount of food you were able to save (in kg)",
+    "AMOUNT_INFO": "For place statistics, we will add together the amount of all feedback.",
     "COMMENT_PLACEHOLDER": "Bylo všechno v pořádku? Žádné komplikace? Napište komentář zde ...",
     "PREVIOUS": "Předchozí zpětná vazba pro {store}",
     "TOGETHER_WITH": "Toto vyzvednutí jste provedli společně s:"

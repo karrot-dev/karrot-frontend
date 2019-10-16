@@ -369,7 +369,8 @@
     "SUBTITLE": "Você pode deixar um comentário sobre a sua coleta aqui!",
     "SET_AMOUNT": "Set amount",
     "DELETE_AMOUNT": "Delete amount",
-    "AMOUNT": "Total de comida que você conseguiu salvar (em kg)",
+    "AMOUNT": "Amount of food you were able to save (in kg)",
+    "AMOUNT_INFO": "For place statistics, we will add together the amount of all feedback.",
     "COMMENT_PLACEHOLDER": "Foi tudo tranquilo? Alguém apareceu? Deixe seu comentário aqui...",
     "PREVIOUS": "Comentários anteriores para {store}",
     "TOGETHER_WITH": "You did this pickup together with:"

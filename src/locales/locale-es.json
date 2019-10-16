@@ -369,7 +369,8 @@
     "SUBTITLE": "Puede proporcionar comentarios para su recogida aquí",
     "SET_AMOUNT": "Establecer cantidad",
     "DELETE_AMOUNT": "Eliminar cantidad",
-    "AMOUNT": "La cantidad de comida que todos pudieron ahorrar (en kg)",
+    "AMOUNT": "Amount of food you were able to save (in kg)",
+    "AMOUNT_INFO": "For place statistics, we will add together the amount of all feedback.",
     "COMMENT_PLACEHOLDER": "Fue todo bien? Se vino todo el mundo? Tu comentario aquí...",
     "PREVIOUS": "Comentarios anteriores para {store}",
     "TOGETHER_WITH": "Realizaste esta recogida con:"

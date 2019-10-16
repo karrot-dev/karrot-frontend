@@ -53,7 +53,7 @@
                 class="q-ma-xs"
                 size="sm"
                 icon="keyboard_arrow_left"
-                :disable="!hasImage(idx) || isFirstImage(idx)"
+                :disable="isFirstImage(idx)"
                 @click="moveImage(idx, -1)"
               />
               <QBtn

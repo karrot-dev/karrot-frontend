@@ -6037,7 +6037,7 @@ exports[`Storyshots Notifications application_accepted 1`] = `
   <div tabindex="-1" class="q-focus-helper"></div>
   <!---->
   <div class="q-item__section column q-item__section--main justify-center">
-    <div class="q-item__label" style="overflow:hidden;display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:2;"><i aria-hidden="true" class="fas fa-check q-icon q-mr-xs vertical-baseline"> </i>
+    <div class="q-item__label" style="overflow:hidden;display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:2;"><i aria-hidden="true" class="fas fa-check q-icon q-mx-xs vertical-baseline"> </i>
       Your application was accepted!
     </div>
     <div class="q-item__label q-item__label--caption text-caption">
@@ -6056,7 +6056,7 @@ exports[`Storyshots Notifications application_declined 1`] = `
   <div tabindex="-1" class="q-focus-helper"></div>
   <!---->
   <div class="q-item__section column q-item__section--main justify-center">
-    <div class="q-item__label" style="overflow:hidden;display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:2;"><i aria-hidden="true" class="fas fa-times q-icon q-mr-xs vertical-baseline"> </i>
+    <div class="q-item__label" style="overflow:hidden;display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:2;"><i aria-hidden="true" class="fas fa-times q-icon q-mx-xs vertical-baseline"> </i>
       Your application was declined
     </div>
     <div class="q-item__label q-item__label--caption text-caption">
@@ -6079,7 +6079,7 @@ exports[`Storyshots Notifications conflict_resolution_continued 1`] = `
       </a></div>
   </div>
   <div class="q-item__section column q-item__section--main justify-center">
-    <div class="q-item__label" style="overflow:hidden;display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:2;"><i aria-hidden="true" class="far fa-frown-open q-icon q-mr-xs vertical-baseline"> </i>
+    <div class="q-item__label" style="overflow:hidden;display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:2;"><i aria-hidden="true" class="far fa-frown-open q-icon q-mx-xs vertical-baseline"> </i>
       The conflict resolution process with User 113 continues
     </div>
     <div class="q-item__label q-item__label--caption text-caption">
@@ -6098,7 +6098,7 @@ exports[`Storyshots Notifications conflict_resolution_continued_about_you 1`] = 
   <div tabindex="-1" class="q-focus-helper"></div>
   <!---->
   <div class="q-item__section column q-item__section--main justify-center">
-    <div class="q-item__label" style="overflow:hidden;display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:2;"><i aria-hidden="true" class="far fa-frown-open q-icon q-mr-xs vertical-baseline"> </i>
+    <div class="q-item__label" style="overflow:hidden;display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:2;"><i aria-hidden="true" class="far fa-frown-open q-icon q-mx-xs vertical-baseline"> </i>
       The conflict resolution process with you continues
     </div>
     <div class="q-item__label q-item__label--caption text-caption">
@@ -6121,7 +6121,7 @@ exports[`Storyshots Notifications conflict_resolution_created 1`] = `
       </a></div>
   </div>
   <div class="q-item__section column q-item__section--main justify-center">
-    <div class="q-item__label" style="overflow:hidden;display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:2;"><i aria-hidden="true" class="far fa-frown-open q-icon q-mr-xs vertical-baseline"> </i>
+    <div class="q-item__label" style="overflow:hidden;display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:2;"><i aria-hidden="true" class="far fa-frown-open q-icon q-mx-xs vertical-baseline"> </i>
       Join the discussion about a conflict with User 108
     </div>
     <div class="q-item__label q-item__label--caption text-caption">
@@ -6140,7 +6140,7 @@ exports[`Storyshots Notifications conflict_resolution_created_about_you 1`] = `
   <div tabindex="-1" class="q-focus-helper"></div>
   <!---->
   <div class="q-item__section column q-item__section--main justify-center">
-    <div class="q-item__label" style="overflow:hidden;display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:2;"><i aria-hidden="true" class="far fa-frown-open q-icon q-mr-xs vertical-baseline"> </i>
+    <div class="q-item__label" style="overflow:hidden;display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:2;"><i aria-hidden="true" class="far fa-frown-open q-icon q-mx-xs vertical-baseline"> </i>
       A conflict resolution process was started with you
     </div>
     <div class="q-item__label q-item__label--caption text-caption">
@@ -6163,7 +6163,7 @@ exports[`Storyshots Notifications conflict_resolution_decided 1`] = `
       </a></div>
   </div>
   <div class="q-item__section column q-item__section--main justify-center">
-    <div class="q-item__label" style="overflow:hidden;display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:2;"><i aria-hidden="true" class="far fa-frown-open q-icon q-mr-xs vertical-baseline"> </i>
+    <div class="q-item__label" style="overflow:hidden;display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:2;"><i aria-hidden="true" class="far fa-frown-open q-icon q-mx-xs vertical-baseline"> </i>
       The conflict resolution process with User 118 was decided
     </div>
     <div class="q-item__label q-item__label--caption text-caption">
@@ -6182,7 +6182,7 @@ exports[`Storyshots Notifications conflict_resolution_decided_about_you 1`] = `
   <div tabindex="-1" class="q-focus-helper"></div>
   <!---->
   <div class="q-item__section column q-item__section--main justify-center">
-    <div class="q-item__label" style="overflow:hidden;display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:2;"><i aria-hidden="true" class="far fa-frown-open q-icon q-mr-xs vertical-baseline"> </i>
+    <div class="q-item__label" style="overflow:hidden;display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:2;"><i aria-hidden="true" class="far fa-frown-open q-icon q-mx-xs vertical-baseline"> </i>
       The conflict resolution process with you was decided
     </div>
     <div class="q-item__label q-item__label--caption text-caption">
@@ -6201,7 +6201,7 @@ exports[`Storyshots Notifications conflict_resolution_you_were_removed 1`] = `
   <div tabindex="-1" class="q-focus-helper"></div>
   <!---->
   <div class="q-item__section column q-item__section--main justify-center">
-    <div class="q-item__label" style="overflow:hidden;display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:2;"><i aria-hidden="true" class="fas fa-times q-icon q-mr-xs vertical-baseline"> </i>
+    <div class="q-item__label" style="overflow:hidden;display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:2;"><i aria-hidden="true" class="fas fa-times q-icon q-mx-xs vertical-baseline"> </i>
       You were removed from the group
     </div>
     <div class="q-item__label q-item__label--caption text-caption">
@@ -6220,7 +6220,7 @@ exports[`Storyshots Notifications feedback_possible 1`] = `
   <div tabindex="-1" class="q-focus-helper"></div>
   <!---->
   <div class="q-item__section column q-item__section--main justify-center">
-    <div class="q-item__label" style="overflow:hidden;display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:2;"><i aria-hidden="true" class="fas fa-balance-scale q-icon q-mr-xs vertical-baseline"> </i>
+    <div class="q-item__label" style="overflow:hidden;display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:2;"><i aria-hidden="true" class="fas fa-balance-scale q-icon q-mx-xs vertical-baseline"> </i>
       You can give feedback for the pickup you did on Sunday 12:00 PM
     </div>
     <div class="q-item__label q-item__label--caption text-caption">
@@ -6244,7 +6244,7 @@ exports[`Storyshots Notifications invitation_accepted 1`] = `
       </a></div>
   </div>
   <div class="q-item__section column q-item__section--main justify-center">
-    <div class="q-item__label" style="overflow:hidden;display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:2;"><i aria-hidden="true" class="fas fa-user-plus q-icon q-mr-xs vertical-baseline"> </i>
+    <div class="q-item__label" style="overflow:hidden;display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:2;"><i aria-hidden="true" class="fas fa-user-plus q-icon q-mx-xs vertical-baseline"> </i>
       User 105 accepted your invitation
     </div>
     <div class="q-item__label q-item__label--caption text-caption">
@@ -6267,7 +6267,7 @@ exports[`Storyshots Notifications new_applicant 1`] = `
       </a></div>
   </div>
   <div class="q-item__section column q-item__section--main justify-center">
-    <div class="q-item__label" style="overflow:hidden;display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:2;"><i aria-hidden="true" class="fas fa-address-card q-icon q-mr-xs vertical-baseline"> </i>
+    <div class="q-item__label" style="overflow:hidden;display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:2;"><i aria-hidden="true" class="fas fa-address-card q-icon q-mx-xs vertical-baseline"> </i>
       User 100 applied to join your group
     </div>
     <div class="q-item__label q-item__label--caption text-caption">
@@ -6290,7 +6290,7 @@ exports[`Storyshots Notifications new_member 1`] = `
       </a></div>
   </div>
   <div class="q-item__section column q-item__section--main justify-center">
-    <div class="q-item__label" style="overflow:hidden;display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:2;"><i aria-hidden="true" class="fas fa-user-plus q-icon q-mr-xs vertical-baseline"> </i>
+    <div class="q-item__label" style="overflow:hidden;display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:2;"><i aria-hidden="true" class="fas fa-user-plus q-icon q-mx-xs vertical-baseline"> </i>
       User 104 joined your group
     </div>
     <div class="q-item__label q-item__label--caption text-caption">
@@ -6309,7 +6309,7 @@ exports[`Storyshots Notifications new_place 1`] = `
   <div tabindex="-1" class="q-focus-helper"></div>
   <!---->
   <div class="q-item__section column q-item__section--main justify-center">
-    <div class="q-item__label" style="overflow:hidden;display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:2;"><i aria-hidden="true" class="fas fa-shopping-cart q-icon q-mr-xs vertical-baseline"> </i>
+    <div class="q-item__label" style="overflow:hidden;display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:2;"><i aria-hidden="true" class="fas fa-shopping-cart q-icon q-mx-xs vertical-baseline"> </i>
       Place 1 has been created
     </div>
     <div class="q-item__label q-item__label--caption text-caption">
@@ -6328,7 +6328,7 @@ exports[`Storyshots Notifications pickup_disabled 1`] = `
   <div tabindex="-1" class="q-focus-helper"></div>
   <!---->
   <div class="q-item__section column q-item__section--main justify-center">
-    <div class="q-item__label" style="overflow:hidden;display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:2;"><i aria-hidden="true" class="fas fa-times q-icon q-mr-xs vertical-baseline"> </i>
+    <div class="q-item__label" style="overflow:hidden;display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:2;"><i aria-hidden="true" class="fas fa-times q-icon q-mx-xs vertical-baseline"> </i>
       Pickup at Sunday, December 24, 12:00 PM was disabled
     </div>
     <div class="q-item__label q-item__label--caption text-caption">
@@ -6348,7 +6348,7 @@ exports[`Storyshots Notifications pickup_enabled 1`] = `
   <div tabindex="-1" class="q-focus-helper"></div>
   <!---->
   <div class="q-item__section column q-item__section--main justify-center">
-    <div class="q-item__label" style="overflow:hidden;display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:2;"><i aria-hidden="true" class="fas fa-check q-icon q-mr-xs vertical-baseline"> </i>
+    <div class="q-item__label" style="overflow:hidden;display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:2;"><i aria-hidden="true" class="fas fa-check q-icon q-mx-xs vertical-baseline"> </i>
       Pickup at Sunday, December 24, 12:00 PM was enabled again
     </div>
     <div class="q-item__label q-item__label--caption text-caption">
@@ -6368,7 +6368,7 @@ exports[`Storyshots Notifications pickup_moved 1`] = `
   <div tabindex="-1" class="q-focus-helper"></div>
   <!---->
   <div class="q-item__section column q-item__section--main justify-center">
-    <div class="q-item__label" style="overflow:hidden;display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:2;"><i aria-hidden="true" class="far fa-clock q-icon q-mr-xs vertical-baseline"> </i>
+    <div class="q-item__label" style="overflow:hidden;display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:2;"><i aria-hidden="true" class="far fa-clock q-icon q-mx-xs vertical-baseline"> </i>
       Pickup was moved to Sunday, December 24, 12:00 PM
     </div>
     <div class="q-item__label q-item__label--caption text-caption">
@@ -6388,7 +6388,7 @@ exports[`Storyshots Notifications pickup_upcoming 1`] = `
   <div tabindex="-1" class="q-focus-helper"></div>
   <!---->
   <div class="q-item__section column q-item__section--main justify-center">
-    <div class="q-item__label" style="overflow:hidden;display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:2;"><i aria-hidden="true" class="fas fa-calendar-alt q-icon q-mr-xs vertical-baseline"> </i>
+    <div class="q-item__label" style="overflow:hidden;display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:2;"><i aria-hidden="true" class="fas fa-calendar-alt q-icon q-mx-xs vertical-baseline"> </i>
       Reminder: You have a pickup at 12:00 PM
     </div>
     <div class="q-item__label q-item__label--caption text-caption">
@@ -6412,7 +6412,7 @@ exports[`Storyshots Notifications user_became_editor 1`] = `
       </a></div>
   </div>
   <div class="q-item__section column q-item__section--main justify-center">
-    <div class="q-item__label" style="overflow:hidden;display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:2;"><i aria-hidden="true" class="fas fa-angle-double-up q-icon q-mr-xs vertical-baseline"> </i>
+    <div class="q-item__label" style="overflow:hidden;display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:2;"><i aria-hidden="true" class="fas fa-angle-double-up q-icon q-mx-xs vertical-baseline"> </i>
       User 98 gained editing permissions
     </div>
     <div class="q-item__label q-item__label--caption text-caption">
@@ -6431,7 +6431,7 @@ exports[`Storyshots Notifications voting_ends_soon 1`] = `
   <div tabindex="-1" class="q-focus-helper"></div>
   <!---->
   <div class="q-item__section column q-item__section--main justify-center">
-    <div class="q-item__label" style="overflow:hidden;display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:2;"><i aria-hidden="true" class="far fa-clock q-icon q-mr-xs vertical-baseline"> </i>
+    <div class="q-item__label" style="overflow:hidden;display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:2;"><i aria-hidden="true" class="far fa-clock q-icon q-mx-xs vertical-baseline"> </i>
       Voting ends soon, don't forget to participate!
     </div>
     <div class="q-item__label q-item__label--caption text-caption">
@@ -6450,7 +6450,7 @@ exports[`Storyshots Notifications you_became_editor 1`] = `
   <div tabindex="-1" class="q-focus-helper"></div>
   <!---->
   <div class="q-item__section column q-item__section--main justify-center">
-    <div class="q-item__label" style="overflow:hidden;display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:2;"><i aria-hidden="true" class="fas fa-angle-double-up q-icon q-mr-xs vertical-baseline"> </i>
+    <div class="q-item__label" style="overflow:hidden;display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:2;"><i aria-hidden="true" class="fas fa-angle-double-up q-icon q-mx-xs vertical-baseline"> </i>
       You gained editing permissions
     </div>
     <div class="q-item__label q-item__label--caption text-caption">

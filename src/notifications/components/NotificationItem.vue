@@ -22,7 +22,7 @@
         <QIcon
           v-if="icon"
           :name="icon"
-          class="q-mr-xs vertical-baseline"
+          class="q-mx-xs vertical-baseline"
         />
         {{ message }}
       </QItemLabel>

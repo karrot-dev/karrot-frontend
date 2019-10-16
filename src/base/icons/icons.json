@@ -1,4 +1,6 @@
 {
+  "check": "fas fa-check",
+  "check_fw": "fas fa-fw fa-check",
   "child": "fas fa-child",
   "comments": "fas fa-comments",
   "comments_fw": "fas fa-fw fa-comments",
@@ -18,5 +20,7 @@
   "question": "fas fa-question",
   "question_fw": "fas fa-fw fa-question",
   "star": "fas fa-star",
-  "star_fw": "fas fa-fw fa-star"
+  "star_fw": "fas fa-fw fa-star",
+  "times": "fas fa-times",
+  "times_fw": "fas fa-fw fa-times"
 }

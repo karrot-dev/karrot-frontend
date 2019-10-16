@@ -36,11 +36,11 @@
         />
         <i
           v-if="showPlaces"
-          class="fas fa-check bottom-right fa-stack-1x"
+          :class="`$icon('check') bottom-right fa-stack-1x`"
         />
         <i
           v-else
-          class="fas fa-times bottom-right fa-stack-1x"
+          :class="`$icon('times') bottom-right fa-stack-1x`"
         />
       </span>
       <QTooltip>

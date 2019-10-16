@@ -42,7 +42,7 @@
               round
               dense
               flat
-              icon="fas fa-times"
+              :icon="$icon('times')"
               @click="leaveEdit"
             />
           </template>

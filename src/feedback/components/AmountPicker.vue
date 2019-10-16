@@ -40,7 +40,7 @@
           :title="$t('PICKUP_FEEDBACK.DELETE_AMOUNT')"
           @click="$emit('input', null)"
         >
-          <QIcon name="fas fa-times" />
+          <QIcon :name="$icon('times')" />
         </QBtn>
       </div>
       <div class="row no-wrap">

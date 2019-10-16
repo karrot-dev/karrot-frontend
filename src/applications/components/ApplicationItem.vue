@@ -73,7 +73,7 @@
         >
           <QItemSection side>
             <QIcon
-              name="fas fa-fw fa-check"
+              :name="$icon('check_fw')"
               color="positive"
             />
           </QItemSection>
@@ -89,7 +89,7 @@
         >
           <QItemSection side>
             <QIcon
-              name="fas fa-fw fa-times"
+              :name="$icon('times_fw')"
               color="negative"
             />
           </QItemSection>

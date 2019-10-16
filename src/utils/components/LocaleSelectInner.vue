@@ -18,7 +18,7 @@
           color="white"
           size="sm"
         >
-          <QIcon name="fas fa-times" />
+          <QIcon :name="$icon('times')" />
         </QBtn>
       </QItemSection>
     </QItem>

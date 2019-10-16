@@ -59,7 +59,7 @@
                 color="secondary"
                 @click="showing = false"
               >
-                <QIcon name="fas fa-times" />
+                <QIcon :name="$icon('times')" />
               </QBtn>
             </QItemSection>
           </QItem>

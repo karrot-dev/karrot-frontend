@@ -58,7 +58,7 @@
             <small>
               <QIcon
                 v-if="application.status === 'accepted'"
-                name="fas fa-fw fa-check"
+                :name="$icon('check_fw')"
                 :title="$t('GROUP.ADDED_BY', { userName: application.decidedBy.displayName })"
               />
               <QIcon
@@ -68,7 +68,7 @@
               />
               <QIcon
                 v-else-if="application.status === 'declined'"
-                name="fas fa-fw fa-times"
+                :name="$icon('times_fw')"
                 :title="$t('GROUP.DECLINED_BY', { userName: application.decidedBy.displayName })"
               />
               <QIcon

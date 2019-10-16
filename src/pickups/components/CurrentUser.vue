@@ -16,7 +16,7 @@
       :title="$t('PICKUPLIST.ITEM.LEAVE')"
     >
       <i
-        class="fas fa-fw fa-times"
+        :class="$icon('times_fw')"
       />
     </div>
   </div>

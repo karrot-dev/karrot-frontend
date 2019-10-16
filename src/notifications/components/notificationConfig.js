@@ -44,11 +44,11 @@ function getIcon (type, context) {
   switch (type) {
     case 'pickup_enabled':
     case 'application_accepted':
-      return 'fas fa-check'
+      return icons.get('check')
     case 'pickup_disabled':
     case 'application_declined':
     case 'conflict_resolution_you_were_removed':
-      return 'fas fa-times'
+      return icons.get('times')
     case 'invitation_accepted':
     case 'new_member':
       return 'fas fa-user-plus'

@@ -21,6 +21,11 @@ Please document your changes in this format:
 ```
 
 ## [Unreleased]
+
+## [8.1.0] - 2019-10-17
+### Added
+- History CSV export API @tiltec
+
 ### Changed
 - Sum multiple feedback entries per pickup instead of averaging them @tiltec
 
@@ -28,6 +33,9 @@ Please document your changes in this format:
 - Message links in email notifications did not open the conversation if message is a reply, in an application or in an issue @tiltec
 
 ## [8.0.0] - 2019-10-07
+### Added
+- Show group image in emails @nicksellen
+
 ### Changed
 - User Interface redesign due to [Quasar](https://quasar.dev) upgrade [#1690] @tiltec
 
@@ -488,7 +496,8 @@ After months of planning and programming, the first version of ~the foodsaving t
 [#1690]: https://github.com/yunity/karrot-frontend/issues/1690
 [#1691]: https://github.com/yunity/karrot-frontend/issues/1691
 
-[Unreleased]: https://github.com/yunity/karrot-frontend/compare/v8.0.0...HEAD
+[Unreleased]: https://github.com/yunity/karrot-frontend/compare/v8.1.0...HEAD
+[8.1.0]: https://github.com/yunity/karrot-frontend/compare/v8.0.0...v8.1.0
 [8.0.0]: https://github.com/yunity/karrot-frontend/compare/v7.4.2...v8.0.0
 [7.4.2]: https://github.com/yunity/karrot-frontend/compare/v7.4.1...v7.4.2
 [7.4.1]: https://github.com/yunity/karrot-frontend/compare/v7.4.0...v7.4.1

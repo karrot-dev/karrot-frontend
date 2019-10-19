@@ -143,7 +143,7 @@
     "INVITE_EMAIL": "Wprowadź adres e-mail",
     "INVITE_SEND": "Wyślij zaproszenie",
     "INVITE_SEND_SUCCESS": "Zaproszenie zostało wysłane!",
-    "INVITE_SEND_ERROR": "Ooops, could not send the invitation!",
+    "INVITE_SEND_ERROR": "Ups. Nie udało się wysłać zaproszenia!",
     "INVITED_LIST": "Na te adresy e-mail już wcześniej wysłano zaproszenia:",
     "INVITATIONS": "Zaproszenia",
     "INVITE_TITLE": "Zaproś użytkowników do Twojej grupy",
@@ -370,7 +370,7 @@
     "SET_AMOUNT": "Wprowadź ilość",
     "DELETE_AMOUNT": "Usuń ilość",
     "AMOUNT": "Amount of food you were able to save (in kg)",
-    "AMOUNT_INFO": "For place statistics, we will add together the amount of all feedback.",
+    "AMOUNT_INFO": "Statystyki danego punktu przedstawiają sumę ilości wprowadzonych w indywidualnych komentarzach.",
     "COMMENT_PLACEHOLDER": "Czy wszystko przebiegło w porządku? Czy jedzenie zostało odebrane zgodnie z planem? Skomentuj...",
     "PREVIOUS": "Wcześniejsze komentarze dla {store}",
     "TOGETHER_WITH": "Odebrałaś/-eś wspólnie z:"

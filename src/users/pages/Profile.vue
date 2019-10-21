@@ -149,7 +149,7 @@
       >
         <div
           v-if="!canStartConflictResolution"
-          class="generic-padding"
+          class="generic-padding bg-white"
           style="max-width: 700px"
         >
           <h3 v-t="{ path: 'CONFLICT.SETUP_HEADER', args: { user: user.displayName } }" />

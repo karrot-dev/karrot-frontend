@@ -97,7 +97,7 @@ export default {
             color: 'negative',
           },
         }, { root: true })
-        router.push('/')
+        router.push('/').catch(() => {})
       }
     },
 

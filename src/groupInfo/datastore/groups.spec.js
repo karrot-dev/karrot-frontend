@@ -12,8 +12,9 @@ jest.mock('@/groupInfo/api/groupsInfo', () => ({
   list: mockFetchGroupsPreview,
 }))
 
-const mockRouterPush = jest.fn()
-const mockRouterReplace = jest.fn()
+const routerMocks = require('>/routerMocks').default
+const mockRouterPush = jest.fn(routerMocks.$router.push)
+const mockRouterReplace = jest.fn(routerMocks.$router.replace)
 jest.mock('@/base/router', () => ({
   push: mockRouterPush,
   replace: mockRouterReplace,

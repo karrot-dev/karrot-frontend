@@ -89,7 +89,7 @@ export default {
         message: 'GROUP.PLAYGROUND_INFO',
         action: {
           label: this.$t('GROUP.JOIN_ANOTHER_GROUP'),
-          handler: () => this.$router.push({ name: 'groupsGallery' }),
+          handler: () => this.$router.push({ name: 'groupsGallery' }).catch(() => {}),
         },
       }
     },

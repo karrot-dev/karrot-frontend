@@ -19,10 +19,10 @@ export default function bindRoute (params) {
           // if value is same as the default, remove it from the query to keep the URL neat
           const query = { ...this.$route.query }
           delete query[key]
-          this.$router.replace({ query })
+          this.$router.replace({ query }).catch(() => {})
         }
         else {
-          this.$router.replace({ query: { ...this.$route.query, ...{ [key]: val } } })
+          this.$router.replace({ query: { ...this.$route.query, ...{ [key]: val } } }).catch(() => {})
         }
       },
     }

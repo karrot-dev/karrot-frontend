@@ -113,7 +113,7 @@ export default {
           dispatch('toasts/show', {
             message: 'GROUP.INVITATION_ACCEPT_SUCCESS',
           }, { root: true })
-          router.push('/')
+          router.push('/').catch(() => {})
         }
         catch (error) {
           dispatch('toasts/show', {
@@ -123,7 +123,7 @@ export default {
               color: 'negative',
             },
           }, { root: true })
-          router.push({ name: 'groupsGallery' })
+          router.push({ name: 'groupsGallery' }).catch(() => {})
           throw error
         }
       },

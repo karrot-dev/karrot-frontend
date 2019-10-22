@@ -65,7 +65,7 @@ export default {
           entry = await feedbackAPI.create(feedback)
         }
         await commit('update', [entry])
-        router.push({ name: 'groupFeedback' })
+        router.push({ name: 'groupFeedback' }).catch(() => {})
       },
 
       async updateOne ({ commit, dispatch }, feedback) {

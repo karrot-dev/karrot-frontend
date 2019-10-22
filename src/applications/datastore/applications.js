@@ -92,7 +92,7 @@ export default {
         dispatch('toasts/show', {
           message: 'JOINGROUP.APPLICATION_SUBMITTED',
         }, { root: true })
-        router.push({ name: 'groupPreview', params: { groupPreviewId: data.group } })
+        router.push({ name: 'groupPreview', params: { groupPreviewId: data.group } }).catch(() => {})
       },
 
       async withdraw ({ commit, dispatch }, id) {

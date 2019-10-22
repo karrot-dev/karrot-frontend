@@ -81,11 +81,11 @@ export default {
       },
       async requestResetPassword ({ commit }, email) {
         await auth.requestResetPassword(email)
-        router.push({ name: 'requestPasswordResetSuccess' })
+        router.push({ name: 'requestPasswordResetSuccess' }).catch(() => {})
       },
       async resetPassword ({ dispatch }, data) {
         await auth.resetPassword(data)
-        router.push({ name: 'login' })
+        router.push({ name: 'login' }).catch(() => {})
         dispatch('toasts/show', {
           message: 'PASSWORD.RESET.SUCCESS',
         }, { root: true })

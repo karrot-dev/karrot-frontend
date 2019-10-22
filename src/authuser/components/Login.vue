@@ -41,14 +41,14 @@
           <QBtn
             type="button"
             flat
-            @click.prevent="$router.push({ name: 'requestPasswordReset' })"
+            @click.prevent="$router.push({ name: 'requestPasswordReset' }).catch(() => {})"
           >
             {{ $t('LOGIN.FORGOT_PASSWORD') }}
           </QBtn>
           <QBtn
             type="button"
             flat
-            @click.prevent="$router.push({ name: 'signup' })"
+            @click.prevent="$router.push({ name: 'signup' }).catch(() => {})"
           >
             {{ $t('LOGIN.SIGNUP') }}
           </QBtn>

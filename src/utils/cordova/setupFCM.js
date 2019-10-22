@@ -27,7 +27,7 @@ function receiveNotification (data) {
   if (path) {
     const pendingRoute = datastore.state.routeMeta.next
     if (pendingRoute && pendingRoute.path === path) return
-    router.push(path)
+    router.push(path).catch(() => {})
   }
 }
 

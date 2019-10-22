@@ -1,6 +1,7 @@
+const routerMocks = require('>/routerMocks').default
 const mockStatus = jest.fn()
 const mockLogin = jest.fn()
-const mockRouterPush = jest.fn()
+const mockRouterPush = jest.fn(routerMocks.$router.push)
 jest.mock('@/base/router', () => ({ push: mockRouterPush }))
 jest.mock('@/authuser/api/auth', () => ({ login: mockLogin }))
 jest.mock('@/authuser/api/authUser', () => ({ get: mockStatus }))

@@ -24,7 +24,7 @@
           color="secondary"
           icon-right="fas fa-home"
           :label="$t('NOT_FOUND.HOME')"
-          @click="$router.replace('/')"
+          @click="$router.replace('/').catch(() => {})"
         />
       </p>
     </div>

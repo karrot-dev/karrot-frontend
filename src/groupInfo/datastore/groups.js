@@ -65,13 +65,13 @@ export default {
         const data = await groups.save(group)
         commit('update', [data])
         dispatch('currentGroup/maybeUpdate', data, { root: true })
-        router.push({ name: 'group', params: { groupId: group.id } })
+        router.push({ name: 'group', params: { groupId: group.id } }).catch(() => {})
       },
 
       async join ({ commit, rootGetters }, groupId) {
         await groups.join(groupId)
         commit('join', { groupId, userId: rootGetters['auth/userId'] })
-        router.push({ name: 'group', params: { groupId } })
+        router.push({ name: 'group', params: { groupId } }).catch(() => {})
       },
 
       async leave ({ commit, dispatch, getters, rootGetters }, groupId) {
@@ -83,13 +83,13 @@ export default {
         }, { root: true })
         dispatch('currentGroup/clear', null, { root: true })
         dispatch('auth/maybeBackgroundSave', { currentGroup: null }, { root: true })
-        router.replace({ name: 'groupsGallery' })
+        router.replace({ name: 'groupsGallery' }).catch(() => {})
       },
 
       async create ({ commit }, group) {
         const createdGroup = await groups.create(group)
         commit('update', [createdGroup])
-        router.push({ name: 'group', params: { groupId: createdGroup.id } })
+        router.push({ name: 'group', params: { groupId: createdGroup.id } }).catch(() => {})
       },
 
       async fetch ({ commit }) {

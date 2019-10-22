@@ -58,7 +58,7 @@ export default datastore => {
     const { redirects, routeErrors } = await maybeDispatchActions(datastore, to, from)
     // trigger first redirect or routeError, if any
     if (redirects.length > 0) {
-      router.replace(redirects[0])
+      router.replace(redirects[0]).catch(() => {})
     }
     else if (routeErrors.length > 0) {
       datastore.dispatch('routeError/set', routeErrors[0])

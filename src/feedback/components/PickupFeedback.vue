@@ -178,7 +178,7 @@ export default {
         return this.pickups[0]
       },
       set (pickup) {
-        this.$router.push({ params: { pickupId: pickup.id } })
+        this.$router.push({ params: { pickupId: pickup.id } }).catch(() => {})
       },
     },
     feedbackOptions () {

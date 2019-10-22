@@ -103,7 +103,7 @@ export default {
     openForPickup ({ dispatch }, pickup) {
       if (Platform.is.mobile) {
         const { id, group, place } = pickup
-        router.push({ name: 'pickupDetail', params: { groupId: group.id, placeId: place.id, pickupId: id } })
+        router.push({ name: 'pickupDetail', params: { groupId: group.id, placeId: place.id, pickupId: id } }).catch(() => {})
       }
       else {
         dispatch('selectPickup', pickup.id)
@@ -111,7 +111,7 @@ export default {
     },
     openForUser ({ dispatch }, user) {
       if (Platform.is.mobile) {
-        router.push({ name: 'userDetail', params: { userId: user.id } })
+        router.push({ name: 'userDetail', params: { userId: user.id } }).catch(() => {})
       }
       else {
         dispatch('selectUser', user.id)
@@ -120,7 +120,7 @@ export default {
     openForApplication ({ dispatch }, application) {
       if (Platform.is.mobile) {
         const { id, group } = application
-        router.push({ name: 'applicationDetail', params: { groupId: group.id, applicationId: id } })
+        router.push({ name: 'applicationDetail', params: { groupId: group.id, applicationId: id } }).catch(() => {})
       }
       else {
         dispatch('selectApplication', application.id)
@@ -129,7 +129,7 @@ export default {
     openForThread ({ dispatch }, message) {
       if (Platform.is.mobile) {
         const { id, groupId } = message
-        router.push({ name: 'messageReplies', params: { groupId, messageId: id } })
+        router.push({ name: 'messageReplies', params: { groupId, messageId: id } }).catch(() => {})
       }
       else {
         dispatch('selectThread', message.id)

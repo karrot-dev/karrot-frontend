@@ -64,7 +64,7 @@ export default {
         dispatch('toasts/show', {
           message: 'ISSUE.CREATION.TOAST',
         }, { root: true })
-        router.push({ name: 'issueDetail', params: { groupId: newIssue.group, issueId: newIssue.id } })
+        router.push({ name: 'issueDetail', params: { groupId: newIssue.group, issueId: newIssue.id } }).catch(() => {})
       },
       async fetchOngoingByGroupId ({ commit }, { groupId }) {
         const issueList = (await issuesAPI.list({ group: groupId, status: 'ongoing' })).results

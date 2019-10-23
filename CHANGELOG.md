@@ -20,7 +20,9 @@ Please document your changes in this format:
   - description of change [#PR] @username
 ```
 
-## [Unreleased]
+## [8.1.1] - 2019-10-23
+### Fixed
+- Leaving a group didn't work @tiltec
 
 ## [8.1.0] - 2019-10-17
 ### Added

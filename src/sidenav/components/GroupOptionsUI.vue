@@ -91,11 +91,14 @@ export default {
         cancel: this.$t('BUTTON.CANCEL'),
         ok: this.$t('BUTTON.YES'),
       })
-        .onOk(() => this.$emit('leave', this.currentGroupId))
+        .onOk(() => this.doLeave())
+    },
+    doLeave () {
+      // FIXME this stopped working for some reason
+      // this.$emit('leave', this.currentGroupId)
+      // we use this as workaround instead
+      this.$store.dispatch('groups/leave', this.currentGroupId)
     },
   },
 }
 </script>
-
-<style scoped lang="stylus">
-</style>

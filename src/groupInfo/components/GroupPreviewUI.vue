@@ -65,10 +65,7 @@
               <QBanner
                 v-if="application"
                 class="bg-blue text-white"
-                :actions="[
-                  { label: $t('BUTTON.OPEN'), icon: 'fas fa-fw fa-comments', handler: () => $emit('openChat', application) },
-                  { label: $t('BUTTON.WITHDRAW'), icon: 'fas fa-fw fa-trash-alt', handler: withdraw }
-                ]"
+                inline-actions
               >
                 {{ $t('JOINGROUP.APPLICATION_PENDING' ) }}
                 <template v-slot:avatar>
@@ -76,6 +73,22 @@
                     name="info"
                     color="white"
                     style="font-size: 24px"
+                  />
+                </template>
+                <template v-slot:action>
+                  <QBtn
+                    flat
+                    dense
+                    :label="$t('BUTTON.OPEN')"
+                    icon="fas fa-fw fa-comments"
+                    @click="$emit('openChat', application)"
+                  />
+                  <QBtn
+                    flat
+                    dense
+                    :label="$t('BUTTON.WITHDRAW')"
+                    icon="fas fa-fw fa-trash-alt"
+                    @click="withdraw"
                   />
                 </template>
               </QBanner>

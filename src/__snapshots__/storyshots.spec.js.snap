@@ -4190,11 +4190,22 @@ exports[`Storyshots GroupPreviewUI not member, pending application 1`] = `
     <div class="q-card__actions q-card__actions--horiz row justify-start">
       <div style="width:100%;">
         <!---->
-        <div actions="[object Object],[object Object]" class="q-banner row items-center bg-blue text-white">
+        <div class="q-banner row items-center bg-blue text-white">
           <div class="q-banner__avatar col-auto row items-center"><i aria-hidden="true" class="material-icons q-icon text-white" style="font-size:24px;">info</i></div>
           <div class="q-banner__content col text-body2">
             Your application is pending!
           </div>
+          <div class="q-banner__actions row items-center justify-end col-auto"><button tabindex="0" type="button" class="q-btn inline q-btn-item non-selectable no-outline q-btn--flat q-btn--rectangle q-focusable q-hoverable q-btn--dense">
+              <div tabindex="-1" class="q-focus-helper"></div>
+              <div class="q-btn__content text-center col items-center q-anchor--skip justify-center row"><i aria-hidden="true" class="fas fa-fw fa-comments q-icon on-left"> </i>
+                <div>Open</div>
+              </div>
+            </button> <button tabindex="0" type="button" class="q-btn inline q-btn-item non-selectable no-outline q-btn--flat q-btn--rectangle q-focusable q-hoverable q-btn--dense">
+              <div tabindex="-1" class="q-focus-helper"></div>
+              <div class="q-btn__content text-center col items-center q-anchor--skip justify-center row"><i aria-hidden="true" class="fas fa-fw fa-trash-alt q-icon on-left"> </i>
+                <div>Withdraw</div>
+              </div>
+            </button></div>
         </div>
         <!---->
         <!---->

@@ -148,7 +148,6 @@ export default {
   methods: {
     async search () {
       const terms = this.value.address
-      console.log('search', terms)
       if (!terms) {
         this.options = []
       }
@@ -170,7 +169,6 @@ export default {
       this.$emit('input', { ...this.value, address: value })
     },
     select (value) {
-      console.log('select', value)
       if (!value) {
         this.reset()
         return
@@ -184,7 +182,6 @@ export default {
       this.$emit('input', { ...this.value, latitude, longitude })
     },
     reset () {
-      console.log('reset')
       this.$refs.menu.hide()
       this.$emit('input', { ...this.value, latitude: null, longitude: null, address: null })
     },

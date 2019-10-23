@@ -2,7 +2,7 @@
   <QToolbar
     v-if="$q.platform.is.mobile"
     class="bg-primary text-white"
-    @click="$router.push('/') && $emit('click').catch(() => {})"
+    @click="$router.push('/').catch(() => {}) && $emit('click')"
   >
     <img
       v-if="currentGroup && currentGroup.hasPhoto"

@@ -21,6 +21,8 @@ Please document your changes in this format:
 ```
 
 ## [Unreleased]
+### Added
+- Group messages from same author @teemukaaria
 
 ## [8.1.2] - 2019-11-05
 ### Fixed

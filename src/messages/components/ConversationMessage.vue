@@ -1,7 +1,7 @@
 <template>
   <QItem
     v-if="!editMode"
-    :class="{ isUnread: message.isUnread, slim }"
+    :class="{ isUnread: message.isUnread, slim, continuation: !!message.continuation }"
     class="conversation-message relative-position"
   >
     <QBtnGroup
@@ -45,6 +45,7 @@
     </QItemSection>
     <QItemSection>
       <QItemLabel
+        v-if="!message.continuation"
         class="no-wrap k-message-meta"
       >
         <RouterLink :to="{ name: 'user', params: { userId: message.author.id } }">
@@ -62,7 +63,10 @@
           :title="$t('WALL.RECEIVED_VIA_EMAIL')"
         />
       </QItemLabel>
-      <div class="content">
+      <div
+        class="content"
+        :title="slim && tooltipDate"
+      >
         <Markdown :source="message.content" />
       </div>
       <QItemLabel
@@ -181,6 +185,9 @@ export default {
     showReplies () {
       return this.message.threadMeta && !this.slim
     },
+    tooltipDate () {
+      return this.$d(this.message.createdAt, 'long')
+    },
   },
   methods: {
     toggleReaction (name) {
@@ -211,6 +218,10 @@ export default {
 
 .isUnread
   background linear-gradient(to right, $lightGreen, $lighterGreen)
+
+.continuation
+  padding-top 0
+  min-height auto
 
 body.mobile .conversation-message
   .k-message-meta

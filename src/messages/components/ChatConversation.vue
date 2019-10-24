@@ -13,7 +13,7 @@
         class="bg-white"
       >
         <ConversationMessage
-          v-for="message in conversation.messages"
+          v-for="message in groupedMessages"
           :key="message.id"
           :message="message"
           slim
@@ -61,6 +61,7 @@
 import ConversationMessage from '@/messages/components/ConversationMessage'
 import ConversationCompose from '@/messages/components/ConversationCompose'
 import KSpinner from '@/utils/components/KSpinner'
+import groupedMessagesMixin from '@/utils/mixins/groupedMessagesMixin'
 import {
   scroll,
   dom,
@@ -93,6 +94,7 @@ export default {
     QScrollObserver,
     QInfiniteScroll,
   },
+  mixins: [groupedMessagesMixin(['conversation', 'messages'])],
   props: {
     conversation: { type: Object, default: null },
     away: { type: Boolean, required: true },

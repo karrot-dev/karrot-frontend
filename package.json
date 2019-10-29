@@ -55,7 +55,7 @@
     "jstimezonedetect": "^1.0.7",
     "leaflet": "^1.5.1",
     "loglevel": "^1.6.4",
-    "markdown-it": "9.1.0",
+    "markdown-it": "10.0.0",
     "markdown-it-emoji": "^1.4.0",
     "markdown-it-link-attributes": "^3.0.0",
     "quasar": "^1.2.7",

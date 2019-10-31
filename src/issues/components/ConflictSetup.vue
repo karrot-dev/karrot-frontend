@@ -87,6 +87,7 @@
             </QBtn>
             <QBtn
               v-if="setup == 'statement'"
+              :disable="initialStatement === ''"
               flat
               color="secondary"
               :loading="isPending"
@@ -99,7 +100,7 @@
       </QStepper>
       <div
         v-if="hasAnyError"
-        class="text-negative q-pl-lg"
+        class="text-negative q-pl-lg q-mb-md"
       >
         <i class="fas fa-exclamation-triangle" />
         {{ anyFirstError }}

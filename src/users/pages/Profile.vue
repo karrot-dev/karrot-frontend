@@ -174,6 +174,7 @@
           :current-group="currentGroup"
           :user="user"
           :status="issueCreateStatus"
+          class="bg-white"
           @startConflictResolution="startConflictResolution"
           @close="toggleConflictSetup"
         />

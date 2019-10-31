@@ -4,11 +4,14 @@
     class="relative-position"
   >
     <QExpansionItem
-      opened
+      default-opened
+      switch-toggle-side
       class="bg-grey-2"
     >
       <template v-slot:header>
-        <b>{{ $t('CONFLICT.INITIAL') }}</b>
+        <QItemSection>
+          <b>{{ $t('CONFLICT.INITIAL') }}</b>
+        </QItemSection>
       </template>
       <div class="q-mx-sm q-mb-sm q-pa-sm">
         <span class="text-bold text-primary">
@@ -70,7 +73,7 @@
     </QExpansionItem>
     <div
       v-if="conversation"
-      class="bg-secondary absolute-top-right rounded-borders q-pa-xs"
+      class="bg-secondary absolute-top-right q-pa-xs"
     >
       <NotificationToggle
         :muted="conversation.muted"
@@ -107,6 +110,7 @@ import { mapGetters, mapActions } from 'vuex'
 
 import {
   QExpansionItem,
+  QItemSection,
   QBtn,
 } from 'quasar'
 
@@ -118,6 +122,7 @@ export default {
     ProfilePicture,
     NotificationToggle,
     QExpansionItem,
+    QItemSection,
     QBtn,
   },
   computed: {

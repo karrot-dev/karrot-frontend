@@ -48,7 +48,7 @@
     "clone-deep": "4.0.1",
     "date-fns": "^2.6.0",
     "deep-equal": "^1.1.0",
-    "element-closest": "^3.0.0",
+    "element-closest": "^3.0.2",
     "escape-string-regexp": "^2.0.0",
     "firebase": "^6.6.1",
     "intl": "^1.2.5",

@@ -1,6 +1,6 @@
 <script>
 import { connect } from 'vuex-connect'
-import SharingEdit from '@/sharing/pages/SharingEdit'
+import OfferEdit from '@/offers/pages/OfferEdit'
 
 export default connect({
   /*
@@ -16,5 +16,5 @@ export default connect({
     reset: ({ dispatch }) => dispatch('meta/clear', ['create']),
   },
    */
-})('SharingCreate', SharingEdit)
+})('OfferCreate', OfferEdit)
 </script>

@@ -61,12 +61,12 @@ export default {
   },
   computed: {
     ...mapGetters({
-      item: 'sharingItems/current',
+      item: 'offerItems/current',
     }),
   },
   methods: {
     close () {
-      this.$router.push({ name: 'groupSharing' })
+      this.$router.push({ name: 'groupOffers' })
     },
   },
 }

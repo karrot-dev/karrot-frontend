@@ -1,14 +1,14 @@
 <template>
   <div>
     <QCard>
-      <h1>yay sharing edit</h1>
+      <h1>yay offer edit</h1>
       <div
         class="edit-box"
         :class="{ changed: hasChanged }"
       >
         <form @submit.prevent="maybeSave">
           <QInput
-            id="sharing-name"
+            id="offer-name"
             v-model="edit.name"
             :label="$t('GROUP.TITLE')"
             :error="hasNameError"
@@ -76,7 +76,9 @@
                 @click="moveImage(idx, 1)"
               />
             </div>
-            <QBtn @click="savePiccies">SAVE PICCIES</QBtn>
+            <QBtn @click="savePiccies">
+              SAVE PICCIES
+            </QBtn>
           </div>
 
           <div class="row justify-end q-gutter-sm q-mt-sm">

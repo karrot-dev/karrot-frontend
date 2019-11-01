@@ -91,9 +91,9 @@ export default {
         icon: this.$icon('pickup'),
         to: { name: 'groupPickups', params: { groupId: this.groupId } },
       }, {
-        label: this.$t('GROUP.SHARING'),
-        icon: this.$icon('sharing'),
-        to: { name: 'groupSharing', params: { groupId: this.groupId } },
+        label: this.$t('GROUP.OFFERS'),
+        icon: this.$icon('offers'),
+        to: { name: 'groupOffers', params: { groupId: this.groupId } },
       }, {
         label: this.$t('PICKUP_FEEDBACK.TITLE'),
         icon: this.$icon('feedback'),

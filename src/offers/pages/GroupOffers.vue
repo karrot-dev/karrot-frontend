@@ -6,8 +6,8 @@
     />
     <div>
       <div>
-        <router-link :to="{ name: 'sharingCreate' }">
-          <h2>CLICK HERE TO SHARE A THING!!!</h2>
+        <router-link :to="{ name: 'offerCreate' }">
+          <h2>CLICK HERE TO OFFER A THING!!!</h2>
         </router-link>
       </div>
       <div
@@ -31,7 +31,7 @@
                 :src="item.user.photoUrls.thumbnail"
               >
             </QAvatar>
-            <router-link :to="{ name: 'sharingDetail', params: { itemId: item.id } }">
+            <router-link :to="{ name: 'offerDetail', params: { itemId: item.id } }">
               {{ item.name }}
             </router-link>
           </QCardSection>
@@ -59,7 +59,7 @@ export default {
   },
   computed: {
     ...mapGetters({
-      items: 'sharingItems/all',
+      items: 'offerItems/all',
     }),
     cols () {
       return Math.max(1, Math.floor(this.width / 200))
@@ -72,7 +72,7 @@ export default {
   },
   methods: {
     visit (id) {
-      this.$router.push({ name: 'sharingDetail', params: { itemId: id } })
+      this.$router.push({ name: 'offerDetail', params: { itemId: id } })
     },
     onResize ({ width }) {
       this.width = width

@@ -2,9 +2,9 @@ import { Platform } from 'quasar'
 
 const GroupWall = () => import('@/group/pages/Wall')
 const GroupPickups = () => import('@/pickups/pages/GroupPickups')
-const GroupSharing = () => import('@/sharing/pages/GroupSharing')
-const SharingCreate = () => import('@/sharing/pages/SharingCreate')
-const SharingDetail = () => import('@/sharing/pages/SharingDetail')
+const GroupOffers = () => import('@/offers/pages/GroupOffers')
+const OfferCreate = () => import('@/offers/pages/OfferCreate')
+const OfferDetail = () => import('@/offers/pages/OfferDetail')
 const GroupFeedback = () => import('@/feedback/pages/GroupFeedback')
 const Messages = () => import('@/messages/pages/Messages')
 const LatestConversations = () => import('@/messages/components/LatestConversations')
@@ -211,48 +211,48 @@ export default [
         component: GroupPickups,
       },
       {
-        name: 'sharingCreate',
-        path: 'sharing/create',
+        name: 'offerCreate',
+        path: 'offer/create',
         meta: {
           requireLoggedIn: true,
           breadcrumbs: [
-            { translation: 'GROUP.SHARING', route: { name: 'groupSharing' } },
-            { translation: 'GROUP.SHARING_CREATE', route: { name: 'sharingCreate' } },
+            { translation: 'GROUP.OFFERS', route: { name: 'groupOffers' } },
+            { translation: 'GROUP.OFFERS_CREATE', route: { name: 'offerCreate' } },
           ],
         },
         components: {
-          default: SharingCreate,
+          default: OfferCreate,
         },
       },
       {
-        name: 'groupSharing',
-        path: 'sharing',
+        name: 'groupOffers',
+        path: 'offers',
         meta: {
           requireLoggedIn: true,
           breadcrumbs: [
-            { translation: 'GROUP.SHARING', route: { name: 'groupSharing' } },
+            { translation: 'GROUP.OFFERS', route: { name: 'groupOffers' } },
           ],
-          beforeEnter: 'sharingItems/fetchList',
-          afterLeave: 'sharingItems/clear',
+          beforeEnter: 'offerItems/fetchList',
+          afterLeave: 'offerItems/clear',
         },
         components: {
-          default: GroupSharing,
+          default: GroupOffers,
           detail: { render: h => h('router-view') },
         },
         children: [
           {
-            name: 'sharingDetail',
+            name: 'offerDetail',
             path: ':itemId',
             meta: {
               requireLoggedIn: true,
               breadcrumbs: [
-                { translation: 'GROUP.SHARING_DETAIL', route: { name: 'sharingDetail' } },
+                { translation: 'GROUP.OFFER_DETAIL', route: { name: 'offerDetail' } },
               ],
-              beforeEnter: 'sharingItems/select',
+              beforeEnter: 'offerItems/select',
               isDetail: true,
             },
             components: {
-              default: SharingDetail,
+              default: OfferDetail,
             },
           },
         ],

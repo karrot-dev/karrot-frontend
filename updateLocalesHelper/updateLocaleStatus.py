@@ -31,7 +31,7 @@ def get_token():
         
 
 def get_translation_status(token):
-    response = request.get(TRANSLATION_URL, auth=('api', token))
+    response = requests.get(TRANSLATION_URL, auth=('api', token))
     if response.status_code != requests.codes.OK:
         print('Failed to get translation status!\n')
         print(response.json())

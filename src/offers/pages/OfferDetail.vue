@@ -1,63 +1,78 @@
 <template>
-  <div v-if="item">
-    <QToolbar
-      class="bg-secondary text-white"
-    >
-      <QToolbarTitle
-        class="column"
+  <div
+    v-if="item"
+    class="absolute-full column"
+  >
+    <div class="col-auto">
+      <QToolbar
+        class="bg-secondary text-white"
       >
-        <div>{{ item.name }}</div>
-      </QToolbarTitle>
-      <QBtn
-        v-if="!$q.platform.is.mobile"
-        flat
-        round
-        dense
-        icon="close"
-        :title="$t('BUTTON.CLOSE')"
-        @click="close()"
-      />
-    </QToolbar>
-    <div class="photo">
-      <img
-        :src="item.photoUrls.fullSize"
-        class="full-width"
-      >
+        <QToolbarTitle
+          class="column"
+        >
+          <div>{{ item.name }}</div>
+        </QToolbarTitle>
+        <QBtn
+          v-if="!$q.platform.is.mobile"
+          flat
+          round
+          dense
+          icon="close"
+          :title="$t('BUTTON.CLOSE')"
+          @click="close()"
+        />
+      </QToolbar>
     </div>
-    <QChip>
-      <QAvatar
-        color="red"
-        text-color="white"
+    <div class="col relative-position">
+      <ChatConversation
+        v-bind="mockChatConversationProps"
+        compose
+        inline
       >
-        3
-      </QAvatar>
-      Requests
-    </QChip>
-    <div class="q-ma-md">
-      <Markdown :source="item.description" />
+        <template v-slot:before-chat-messages>
+          <div class="photo">
+            <img
+              :src="item.photoUrls.fullSize"
+              class="full-width"
+            >
+          </div>
+          <div class="q-ma-md">
+            <Markdown :source="item.description" />
+          </div>
+        </template>
+      </ChatConversation>
     </div>
   </div>
 </template>
 
 <script>
 import { mapGetters } from 'vuex'
-import { QAvatar, QBtn, QChip, QToolbar, QToolbarTitle } from 'quasar'
+import { QBtn, QToolbar, QToolbarTitle } from 'quasar'
+import ChatConversation from '@/messages/components/ChatConversation'
 import Markdown from '@/utils/components/Markdown'
+import * as factories from '>/enrichedFactories'
+
+const createMockChatConversationProps = data => ({
+  currentUser: factories.makeCurrentUser(),
+  conversation: factories.makeConversation({
+    unreadMessageCount: 1,
+  }),
+  away: false,
+  ...data,
+})
 
 export default {
   components: {
+    ChatConversation,
     Markdown,
-    QAvatar,
     QBtn,
-    QChip,
     QToolbar,
     QToolbarTitle,
   },
-  props: {
-    item: {
-      type: Object,
-      required: true,
-    },
+  data () {
+    return {
+      mockChatConversationProps: createMockChatConversationProps(),
+    }
   },
   computed: {
     ...mapGetters({

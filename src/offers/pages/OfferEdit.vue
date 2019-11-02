@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="OfferEdit">
     <QCard>
       <h1>yay offer edit</h1>
       <div
@@ -33,11 +33,15 @@
 
           <QField stack-label />
 
+          <QBtn @click="savePiccies">
+            SAVE PICCIES
+          </QBtn>
+
           <div>
             <div
               v-for="(photo, idx) in photos"
               :key="photo.id"
-              class="q-ma-sm inline-block"
+              class="q-ma-sm inline-block vertical-top text-center"
             >
               <Croppa
                 ref="croppaRefs"
@@ -45,40 +49,42 @@
                 :class="croppaClasses(idx)"
                 prevent-white-space
                 :show-remove-button="false"
-                @new-image-drawn="newImage(photo.id)"
+                @new-image-drawn="newImage()"
               />
-              <QBtn
-                v-if="hasImage(idx)"
-                round
-                class="q-ma-xs"
-                size="sm"
-                icon="keyboard_arrow_left"
-                :disable="isFirstImage(idx)"
-                @click="moveImage(idx, -1)"
-              />
-              <QBtn
-                v-if="hasImage(idx)"
-                round
-                class="q-ma-xs"
-                size="sm"
-                icon="delete"
-                color="red"
-                :disable="!hasImage(idx)"
-                @click="removeImage(idx)"
-              />
-              <QBtn
-                v-if="hasImage(idx)"
-                round
-                class="q-ma-xs"
-                size="sm"
-                icon="keyboard_arrow_right"
-                :disable="isLastImage(idx)"
-                @click="moveImage(idx, 1)"
-              />
+              <QBtnGroup
+                rounded
+                flat
+              >
+                <QBtn
+                  v-if="hasImage(idx)"
+                  rounded
+                  class="q-ma-xs"
+                  size="sm"
+                  icon="keyboard_arrow_left"
+                  :disable="isFirstImage(idx)"
+                  @click="moveImage(idx, -1)"
+                />
+                <QBtn
+                  v-if="hasImage(idx)"
+                  rounded
+                  class="q-ma-xs"
+                  size="sm"
+                  icon="delete"
+                  text-color="red"
+                  :disable="!hasImage(idx)"
+                  @click="removeImage(idx)"
+                />
+                <QBtn
+                  v-if="hasImage(idx)"
+                  rounded
+                  class="q-ma-xs"
+                  size="sm"
+                  icon="keyboard_arrow_right"
+                  :disable="isLastImage(idx)"
+                  @click="moveImage(idx, 1)"
+                />
+              </QBtnGroup>
             </div>
-            <QBtn @click="savePiccies">
-              SAVE PICCIES
-            </QBtn>
           </div>
 
           <div class="row justify-end q-gutter-sm q-mt-sm">
@@ -111,7 +117,7 @@ import { validationMixin } from 'vuelidate'
 import { required, minLength, maxLength } from 'vuelidate/lib/validators'
 import editMixin from '@/utils/mixins/editMixin'
 import statusMixin from '@/utils/mixins/statusMixin'
-import { QBtn, QCard, QField, QIcon, QInput } from 'quasar'
+import { QBtn, QBtnGroup, QCard, QField, QIcon, QInput } from 'quasar'
 import MarkdownInput from '@/utils/components/MarkdownInput'
 import CroppaPlugin from 'vue-croppa'
 const Croppa = CroppaPlugin.component
@@ -126,6 +132,7 @@ export default {
     Croppa,
     MarkdownInput,
     QBtn,
+    QBtnGroup,
     QCard,
     QField,
     QInput,
@@ -157,10 +164,7 @@ export default {
       if (this.$v.edit.$error) {
         return false
       }
-      if (!this.isNew && !this.hasChanged) {
-        return false
-      }
-      return true
+      return this.isNew || this.hasChanged
     },
     hasNameError () {
       return !!this.nameError
@@ -177,23 +181,15 @@ export default {
     },
   },
   methods: {
-    getPhotoCount () {
-      if (typeof this.$refs.croppaRefs === 'undefined') return 0
-      return this.$refs.croppaRefs.filter(croppa => croppa.hasImage())
-    },
-    newImage (id) {
-      console.log('new image at idx', id)
+    newImage () {
       this.photos.push({ id: getNextId() })
     },
     removeImage (idx) {
-      console.log('removed at', idx)
-      // const idx = this.photos.findIndex(photo => photo.id === id)
-      // if (idx !== -1) this.photos.splice(idx, 1)
       this.photos.splice(idx, 1)
       this.$refs.croppaRefs.splice(idx, 1)
       if (this.photos.length === 0) this.photos.push({ id: getNextId() })
     },
-    maybeSave (event) {
+    maybeSave () {
       this.$v.edit.$touch()
       if (!this.canSave) return
       this.$v.edit.$reset()
@@ -248,6 +244,8 @@ export default {
 
 <style scoped lang="stylus">
 @import '~editbox'
-.new-image
+.new-image >>> canvas
   border 1px solid #ddd
+.OfferEdit >>> .q-btn.disabled
+  visibility hidden
 </style>

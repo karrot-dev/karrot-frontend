@@ -11,28 +11,28 @@
         </router-link>
       </div>
       <div
-        v-for="item in items"
-        :key="item.id"
-        class="item inline-block"
-        :style="itemStyle"
+        v-for="offer in offers"
+        :key="offer.id"
+        class="offer inline-block"
+        :style="offerStyle"
       >
         <QCard
-          @click="visit(item.id)"
+          @click="visit(offer.id)"
         >
           <div
             class="photo text-white relative-position row justify-center"
           >
-            <img :src="item.photoUrls.fullSize">
+            <img :src="offer.photoUrls.fullSize">
           </div>
           <QCardSection class="fixed-height smaller-text">
             <QAvatar>
               <img
-                v-if="item.user.photoUrls !== undefined"
-                :src="item.user.photoUrls.thumbnail"
+                v-if="offer.user.photoUrls !== undefined"
+                :src="offer.user.photoUrls.thumbnail"
               >
             </QAvatar>
-            <router-link :to="{ name: 'offerDetail', params: { itemId: item.id } }">
-              {{ item.name }}
+            <router-link :to="{ name: 'offerDetail', params: { offerId: offer.id } }">
+              {{ offer.name }}
             </router-link>
           </QCardSection>
         </QCard>
@@ -59,12 +59,12 @@ export default {
   },
   computed: {
     ...mapGetters({
-      items: 'offerItems/all',
+      offers: 'offers/all',
     }),
     cols () {
       return Math.max(1, Math.floor(this.width / 200))
     },
-    itemStyle () {
+    offerStyle () {
       return {
         width: (100 / this.cols) + '%',
       }
@@ -72,7 +72,7 @@ export default {
   },
   methods: {
     visit (id) {
-      this.$router.push({ name: 'offerDetail', params: { itemId: id } })
+      this.$router.push({ name: 'offerDetail', params: { offerId: id } })
     },
     onResize ({ width }) {
       this.width = width
@@ -82,7 +82,7 @@ export default {
 </script>
 
 <style scoped lang="stylus">
-.item
+.offer
   cursor pointer
   .item-card
     width 100%

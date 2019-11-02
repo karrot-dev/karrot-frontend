@@ -1,7 +1,7 @@
-import offerItems from '@/offers/datastore/offerItems'
+import offers from '@/offers/datastore/offers'
 
 export default {
   modules: {
-    offerItems,
+    offers,
   },
 }

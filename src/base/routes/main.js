@@ -232,8 +232,8 @@ export default [
           breadcrumbs: [
             { translation: 'GROUP.OFFERS', route: { name: 'groupOffers' } },
           ],
-          beforeEnter: 'offerItems/fetchList',
-          afterLeave: 'offerItems/clear',
+          beforeEnter: 'offers/fetchList',
+          afterLeave: 'offers/clear',
         },
         components: {
           default: GroupOffers,
@@ -249,13 +249,13 @@ export default [
         children: [
           {
             name: 'offerDetail',
-            path: ':itemId',
+            path: ':offerId',
             meta: {
               requireLoggedIn: true,
               breadcrumbs: [
                 { type: 'activeOffer' },
               ],
-              beforeEnter: 'offerItems/select',
+              beforeEnter: 'offers/select',
               isDetail: true,
             },
             components: {

@@ -32,7 +32,7 @@ export default {
   },
   computed: {
     ...mapGetters({
-      item: 'offerItems/current',
+      item: 'offers/current',
     }),
   },
   methods: {

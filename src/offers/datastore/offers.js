@@ -8,7 +8,7 @@ function initialState () {
   }
 }
 
-const ITEMS = [
+const OFFERS = [
   {
     id: 234,
     name: 'A bike',
@@ -53,12 +53,12 @@ export default {
     current: (state, getters) => {
       return getters.enrich(state.entries[state.currentId])
     },
-    enrich: (state, getters, rootState, rootGetters) => item => {
-      if (!item) return
+    enrich: (state, getters, rootState, rootGetters) => offer => {
+      if (!offer) return
       return {
-        ...item,
-        user: rootGetters['users/get'](item.user),
-        ...metaStatusesWithId(getters, ['save'], item.id),
+        ...offer,
+        user: rootGetters['users/get'](offer.user),
+        ...metaStatusesWithId(getters, ['save'], offer.id),
       }
     },
     all: (state, getters) => {
@@ -69,7 +69,7 @@ export default {
   actions: {
     ...withMeta({
       async fetchList ({ commit }) {
-        commit('update', ITEMS)
+        commit('update', OFFERS)
       },
     }),
     refresh ({ dispatch }) {
@@ -87,24 +87,24 @@ export default {
         // would do a maybeFetchOne ...
       },
     }, {
-      setCurrentId: ({ commit }, { itemId }) => commit('setCurrentItem', itemId),
+      setCurrentId: ({ commit }, { offerId }) => commit('setCurrentOffer', offerId),
       getCurrentId: ({ state }) => state.currentId,
-      findId: ({ itemId }) => itemId,
+      findId: ({ offerId }) => offerId,
     }),
   },
   mutations: {
     clear (state) {
       Object.assign(state, initialState())
     },
-    update (state, items) {
-      for (const item of items) {
-        Vue.set(state.entries, item.id, item)
+    update (state, offers) {
+      for (const offer of offers) {
+        Vue.set(state.entries, offer.id, offer)
       }
     },
     delete (state, id) {
       if (state.entries[id]) Vue.delete(state.entries, id)
     },
-    setCurrentItem (state, id) {
+    setCurrentOffer (state, id) {
       state.currentId = id
     },
   },

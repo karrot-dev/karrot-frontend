@@ -654,6 +654,7 @@
     "NO_ONGOING": "No ongoing issues."
   },
   "OFFER": {
+    "CREATE_TITLE": "Create new offer",
     "NAME": "Name",
     "NAME_HELPER": "Short name for the item you are offering",
     "DESCRIPTION": "Description",

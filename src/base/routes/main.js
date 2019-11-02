@@ -217,7 +217,7 @@ export default [
           requireLoggedIn: true,
           breadcrumbs: [
             { translation: 'GROUP.OFFERS', route: { name: 'groupOffers' } },
-            { translation: 'GROUP.OFFERS_CREATE', route: { name: 'offerCreate' } },
+            { translation: 'OFFER.CREATE_TITLE', route: { name: 'offerCreate' } },
           ],
         },
         components: {

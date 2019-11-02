@@ -1,10 +1,10 @@
 import { Platform } from 'quasar'
-
 const GroupWall = () => import('@/group/pages/Wall')
 const GroupPickups = () => import('@/pickups/pages/GroupPickups')
 const GroupOffers = () => import('@/offers/pages/GroupOffers')
 const OfferCreate = () => import('@/offers/pages/OfferCreate')
-const OfferDetail = () => import('@/offers/pages/OfferDetail')
+const OfferDetailHeaderIfMobile = () => Platform.is.mobile ? import('@/offers/pages/OfferDetailHeader') : Promise.resolve({ render: () => null })
+const OfferDetailOrBodyIfMobile = () => Platform.is.mobile ? import('@/offers/pages/OfferDetailBody') : import('@/offers/pages/OfferDetail')
 const GroupFeedback = () => import('@/feedback/pages/GroupFeedback')
 const Messages = () => import('@/messages/pages/Messages')
 const LatestConversations = () => import('@/messages/components/LatestConversations')
@@ -238,6 +238,13 @@ export default [
         components: {
           default: GroupOffers,
           detail: { render: h => h('router-view') },
+          subheader: {
+            render: h => h('router-view', {
+              props: {
+                name: 'subheader',
+              },
+            }),
+          },
         },
         children: [
           {
@@ -252,7 +259,8 @@ export default [
               isDetail: true,
             },
             components: {
-              default: OfferDetail,
+              default: OfferDetailOrBodyIfMobile,
+              subheader: OfferDetailHeaderIfMobile,
             },
           },
         ],

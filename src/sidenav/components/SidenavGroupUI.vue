@@ -92,7 +92,7 @@ export default {
         to: { name: 'groupPickups', params: { groupId: this.groupId } },
       }, {
         label: this.$t('GROUP.OFFERS'),
-        icon: this.$icon('offers'),
+        icon: this.$icon('offer'),
         to: { name: 'groupOffers', params: { groupId: this.groupId } },
       }, {
         label: this.$t('PICKUP_FEEDBACK.TITLE'),

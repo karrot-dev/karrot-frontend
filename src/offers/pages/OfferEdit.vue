@@ -1,7 +1,6 @@
 <template>
   <div class="OfferEdit">
     <QCard>
-      <h1>yay offer edit</h1>
       <div
         class="edit-box"
         :class="{ changed: hasChanged }"
@@ -10,7 +9,8 @@
           <QInput
             id="offer-name"
             v-model="edit.name"
-            :label="$t('GROUP.TITLE')"
+            :label="$t('OFFER.NAME')"
+            :hint="$t('OFFER.NAME_HELPER')"
             :error="hasNameError"
             :error-message="nameError"
             :autofocus="!$q.platform.has.touch"
@@ -25,15 +25,17 @@
           <MarkdownInput
             v-model="edit.description"
             icon="fas fa-fw fa-address-card"
-            :label="$t('GROUP.DESCRIPTION_VERBOSE')"
+            :label="$t('OFFER.DESCRIPTION')"
+            :hint="$t('OFFER.DESCRIPTION_HELPER')"
             :error="hasError('description')"
             :error-message="firstError('description')"
             @keyup.ctrl.enter="maybeSave"
           />
 
-          <QField stack-label />
-
-          <QBtn @click="savePiccies">
+          <QBtn
+            v-if="false"
+            @click="savePiccies"
+          >
             SAVE PICCIES
           </QBtn>
 
@@ -117,7 +119,7 @@ import { validationMixin } from 'vuelidate'
 import { required, minLength, maxLength } from 'vuelidate/lib/validators'
 import editMixin from '@/utils/mixins/editMixin'
 import statusMixin from '@/utils/mixins/statusMixin'
-import { QBtn, QBtnGroup, QCard, QField, QIcon, QInput } from 'quasar'
+import { QBtn, QBtnGroup, QCard, QIcon, QInput } from 'quasar'
 import MarkdownInput from '@/utils/components/MarkdownInput'
 import CroppaPlugin from 'vue-croppa'
 const Croppa = CroppaPlugin.component
@@ -134,7 +136,6 @@ export default {
     QBtn,
     QBtnGroup,
     QCard,
-    QField,
     QInput,
     QIcon,
   },

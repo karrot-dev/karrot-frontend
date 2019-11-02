@@ -124,6 +124,7 @@
     "APPLICATION_QUESTIONS": "Questions for people who want to join this group",
     "PICKUPS": "Pickups",
     "MESSAGES": "Messages",
+    "OFFERS": "Offers",
     "PICKUP": "Pickup",
     "MEMBERS": "Members",
     "JOINED": "joined {relativeDate}",
@@ -651,6 +652,12 @@
       "ANONYMOUS": "Your vote will be anonymous."
     },
     "NO_ONGOING": "No ongoing issues."
+  },
+  "OFFER": {
+    "NAME": "Name",
+    "NAME_HELPER": "Short name for the item you are offering",
+    "DESCRIPTION": "Description",
+    "DESCRIPTION_HELPER": "Longer description of the item"
   },
   "UNSUBSCRIBE": {
     "HEADER": "Unsubscribe",

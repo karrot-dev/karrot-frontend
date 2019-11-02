@@ -3,5 +3,7 @@
   "pickup_fw": "fas fa-fw fa-shopping-basket",
   "feedback": "fas fa-balance-scale",
   "place": "fas fa-shopping-cart",
-  "place_fw": "fas fa-fw fa-shopping-cart"
+  "place_fw": "fas fa-fw fa-shopping-cart",
+  "offer": "fas fa-crow",
+  "offer_fw": "fas fa-fw fa-crow"
 }

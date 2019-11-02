@@ -253,7 +253,7 @@ export default [
             meta: {
               requireLoggedIn: true,
               breadcrumbs: [
-                { translation: 'GROUP.OFFER_DETAIL', route: { name: 'offerDetail' } },
+                { type: 'activeOffer' },
               ],
               beforeEnter: 'offerItems/select',
               isDetail: true,

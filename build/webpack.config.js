@@ -83,7 +83,7 @@ module.exports = {
     ],
     modules: [
       resolve('src'),
-      resolve('node_modules'),
+      'node_modules',
     ],
     alias: {
       '@': resolve(__dirname, '../src'),

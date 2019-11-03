@@ -356,7 +356,7 @@ export default {
       if (conversationId) commit('clearMessages', conversationId)
     },
 
-    async maybeSave ({ state, getters, dispatch }, { conversationId, threadId, value }) {
+    async maybeSave ({ getters, dispatch }, { conversationId, threadId, value }) {
       if (threadId) {
         if (!value.notifications) return
         const muted = value.notifications !== 'all'
@@ -369,17 +369,19 @@ export default {
       }
     },
 
-    async toggleReaction ({ commit, rootGetters }, { message, name }) {
-      const { id: messageId } = message
-      const reactionIndex = message.reactions.findIndex(reaction => reaction.reacted && reaction.name === name)
+    ...withMeta({
+      async toggleReaction (_, { message, name }) {
+        const { id: messageId } = message
+        const reactionIndex = message.reactions.findIndex(reaction => reaction.reacted && reaction.name === name)
 
-      if (reactionIndex === -1) {
-        await reactionsAPI.create(messageId, name)
-      }
-      else {
-        await reactionsAPI.remove(messageId, name)
-      }
-    },
+        if (reactionIndex === -1) {
+          await reactionsAPI.create(messageId, name)
+        }
+        else {
+          await reactionsAPI.remove(messageId, name)
+        }
+      },
+    }),
 
     async maybeMark ({ dispatch, getters, rootGetters }, { id, threadId, seenUpTo }) {
       if (id && !getters.get(id).markStatus.pending) {

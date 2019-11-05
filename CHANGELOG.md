@@ -22,6 +22,10 @@ Please document your changes in this format:
 
 ## [Unreleased]
 
+## [8.1.2] - 2019-11-05
+### Fixed
+- Restoring a place was broken @tiltec
+
 ## [8.1.1] - 2019-10-23
 ### Fixed
 - Leaving a group didn't work @tiltec
@@ -500,7 +504,8 @@ After months of planning and programming, the first version of ~the foodsaving t
 [#1690]: https://github.com/yunity/karrot-frontend/issues/1690
 [#1691]: https://github.com/yunity/karrot-frontend/issues/1691
 
-[Unreleased]: https://github.com/yunity/karrot-frontend/compare/v8.1.1...HEAD
+[Unreleased]: https://github.com/yunity/karrot-frontend/compare/v8.1.2...HEAD
+[8.1.2]: https://github.com/yunity/karrot-frontend/compare/v8.1.1...v8.1.2
 [8.1.1]: https://github.com/yunity/karrot-frontend/compare/v8.1.0...v8.1.1
 [8.1.0]: https://github.com/yunity/karrot-frontend/compare/v8.0.0...v8.1.0
 [8.0.0]: https://github.com/yunity/karrot-frontend/compare/v7.4.2...v8.0.0

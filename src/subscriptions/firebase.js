@@ -1,4 +1,5 @@
 import * as Sentry from '@sentry/browser'
+import firebaseConfig from './firebase.config'
 
 const SERVICE_WORKER_PATH = '/service-worker.js'
 const SERVICE_WORKER_SCOPE = '/karrot-push'
@@ -35,7 +36,7 @@ export async function initializeMessaging () {
   const { initializeApp, messaging: initializeMessaging } = await import('./firebase.lib')
   if (messaging) return messaging
 
-  initializeApp({ messagingSenderId: __ENV.FCM_SENDER_ID })
+  initializeApp(firebaseConfig)
   messaging = await initializeMessaging()
   messaging.useServiceWorker(await getOrCreateWorker())
   return messaging

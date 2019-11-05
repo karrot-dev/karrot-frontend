@@ -116,7 +116,8 @@ jobs:
       - run:
           environment:
             KARROT_THEME: dev
-          command: FCM_SENDER_ID="${DEV_FCM_SENDER_ID}" yarn build
+            FCM_CONFIG: dev
+          command: yarn build
       - persist_to_workspace:
           root: ~/repo
           paths:
@@ -127,7 +128,10 @@ jobs:
     steps:
       - attach_workspace:
           at: .
-      - run: FCM_SENDER_ID="${PROD_FCM_SENDER_ID}" yarn build
+      - run:
+          environment:
+            FCM_CONFIG: prod
+          command: yarn build
       - persist_to_workspace:
           root: ~/repo
           paths:

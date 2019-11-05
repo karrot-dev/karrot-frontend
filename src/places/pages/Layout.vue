@@ -38,6 +38,8 @@ import { mapGetters } from 'vuex'
 import {
   QCard,
   QBanner,
+  QIcon,
+  QBtn,
 } from 'quasar'
 import PlaceTabs from '@/places/components/PlaceTabs'
 import PlaceHeader from '@/places/components/PlaceHeader'
@@ -46,6 +48,8 @@ export default {
   components: {
     QCard,
     QBanner,
+    QIcon,
+    QBtn,
     PlaceTabs,
     PlaceHeader,
   },

@@ -1,20 +1,14 @@
 <script>
 import { connect } from 'vuex-connect'
-import OfferEdit from '@/offers/pages/OfferEdit'
+import OfferForm from '@/offers/components/OfferForm'
 
 export default connect({
-  /*
-  gettersToProps: {
-    timezones: 'timezones/autocompleteData',
-    allGroups: 'groups/all',
-    status: 'groups/createStatus',
-  },
   actionsToEvents: {
-    save: 'groups/create',
+    save: 'offers/create',
   },
   methodsToEvents: {
+    // TODO: do I need this one?
     reset: ({ dispatch }) => dispatch('meta/clear', ['create']),
   },
-   */
-})('OfferCreate', OfferEdit)
+})('OfferCreate', OfferForm)
 </script>

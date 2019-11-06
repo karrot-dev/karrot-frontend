@@ -20,17 +20,16 @@
           @click="visit(offer.id)"
         >
           <div
+            v-if="offer.images[0]"
             class="photo text-white relative-position row justify-center"
           >
-            <img :src="offer.photoUrls.fullSize">
+            <img :src="offer.images[0].imageUrls.fullSize">
           </div>
           <QCardSection class="fixed-height smaller-text">
-            <QAvatar>
-              <img
-                v-if="offer.user.photoUrls !== undefined"
-                :src="offer.user.photoUrls.thumbnail"
-              >
-            </QAvatar>
+            <ProfilePicture
+              :user="offer.user"
+              :size="30"
+            />
             <router-link :to="{ name: 'offerDetail', params: { offerId: offer.id } }">
               {{ offer.name }}
             </router-link>
@@ -43,11 +42,12 @@
 
 <script>
 import { mapGetters } from 'vuex'
-import { QAvatar, QCard, QCardSection, QResizeObserver } from 'quasar'
+import { QCard, QCardSection, QResizeObserver } from 'quasar'
+import ProfilePicture from '@/users/components/ProfilePicture'
 
 export default {
   components: {
-    QAvatar,
+    ProfilePicture,
     QCard,
     QCardSection,
     QResizeObserver,

@@ -1,19 +1,29 @@
 <template>
   <ChatConversation
-    v-if="item"
+    v-if="offer"
     v-bind="mockChatConversationProps"
     compose
     :inline="inline"
   >
     <template v-slot:before-chat-messages>
-      <div class="photo">
-        <img
-          :src="item.photoUrls.fullSize"
-          class="full-width"
-        >
-      </div>
+      <QCarousel
+        v-model="selectedImageIndex"
+        swipeable
+        animated
+        thumbnails
+        arrows
+        infinite
+      >
+        <QCarouselSlide
+          v-for="(image, idx) in offer.images"
+          :key="image.id"
+          :name="idx"
+          :img-src="image.imageUrls.fullSize"
+        />
+      </QCarousel>
       <div class="q-ma-md">
-        <Markdown :source="item.description" />
+        <pre>{{ offer }}</pre>
+        <Markdown :source="offer.description" />
       </div>
     </template>
   </ChatConversation>
@@ -24,6 +34,7 @@ import { mapGetters } from 'vuex'
 import ChatConversation from '@/messages/components/ChatConversation'
 import Markdown from '@/utils/components/Markdown'
 import * as factories from '>/enrichedFactories'
+import { QCarousel, QCarouselSlide } from 'quasar'
 
 const createMockChatConversationProps = data => ({
   currentUser: factories.makeCurrentUser(),
@@ -36,6 +47,8 @@ const createMockChatConversationProps = data => ({
 
 export default {
   components: {
+    QCarousel,
+    QCarouselSlide,
     ChatConversation,
     Markdown,
   },
@@ -48,17 +61,18 @@ export default {
   data () {
     return {
       mockChatConversationProps: createMockChatConversationProps(),
+      selectedImageIndex: 0,
     }
   },
   computed: {
     ...mapGetters({
-      item: 'offers/current',
+      offer: 'offers/current',
     }),
+  },
+  watch: {
+    offer () {
+      this.selectedImageIndex = 0
+    },
   },
 }
 </script>
-
-<style scoped lang="stylus">
-  .photo
-    width 100%
-</style>

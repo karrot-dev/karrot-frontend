@@ -1,5 +1,7 @@
 import Vue from 'vue'
-import { createMetaModule, withMeta, metaStatusesWithId } from '@/utils/datastore/helpers'
+import offers from '@/offers/api/offers'
+import { createMetaModule, withMeta, metaStatusesWithId, createPaginationModule } from '@/utils/datastore/helpers'
+import router from '@/base/router'
 
 function initialState () {
   return {
@@ -8,6 +10,7 @@ function initialState () {
   }
 }
 
+/*
 const OFFERS = [
   {
     id: 234,
@@ -15,7 +18,7 @@ const OFFERS = [
     user: 8,
     description: `
 a **very** nice bike
-      
+
 I had it for about _10 years_ (omg :) ) now, all good working order.
     `,
     photoUrls: {
@@ -41,10 +44,14 @@ I had it for about _10 years_ (omg :) ) now, all good working order.
     },
   },
 ]
+ */
 
 export default {
   namespaced: true,
-  modules: { meta: createMetaModule() },
+  modules: {
+    meta: createMetaModule(),
+    pagination: createPaginationModule(),
+  },
   state: initialState(),
   getters: {
     get: (state, getters) => pickupId => {
@@ -68,8 +75,12 @@ export default {
   },
   actions: {
     ...withMeta({
-      async fetchList ({ commit }) {
-        commit('update', OFFERS)
+      async fetchList ({ dispatch, commit }) {
+        // TODO: add the filters in
+        const offerList = await dispatch('pagination/extractCursor', offers.list({}))
+        commit('update', offerList)
+        const users = offerList.map(offer => offer.user)
+        commit('users/update', users, { root: true })
       },
     }),
     refresh ({ dispatch }) {
@@ -79,12 +90,23 @@ export default {
       commit('clear')
     },
     ...withMeta({
-      async select ({ dispatch }) {
-        // clear right drawer
-        // TODO can be removed once detail are bound to routes
-        dispatch('detail/clear', null, { root: true })
+      async create ({ rootGetters, dispatch, commit }, data) {
+        const newOffer = await offers.create({
+          ...data,
+          group: rootGetters['currentGroup/id'],
+        })
+        commit('update', [newOffer])
+        router.push({
+          name: 'offerDetail',
+          params: {
+            groupId: newOffer.group,
+            offerId: newOffer.id,
+          },
+        }).catch(() => {})
+      },
 
-        // would do a maybeFetchOne ...
+      async select ({ commit }, { offerId }) {
+        commit('update', [await offers.get(offerId)])
       },
     }, {
       setCurrentId: ({ commit }, { offerId }) => commit('setCurrentOffer', offerId),

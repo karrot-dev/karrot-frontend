@@ -3,8 +3,9 @@ const GroupWall = () => import('@/group/pages/Wall')
 const GroupPickups = () => import('@/pickups/pages/GroupPickups')
 const GroupOffers = () => import('@/offers/pages/GroupOffers')
 const OfferCreate = () => import('@/offers/pages/OfferCreate')
-const OfferDetailHeaderIfMobile = () => Platform.is.mobile ? import('@/offers/pages/OfferDetailHeader') : Promise.resolve({ render: () => null })
-const OfferDetailOrBodyIfMobile = () => Platform.is.mobile ? import('@/offers/pages/OfferDetailBody') : import('@/offers/pages/OfferDetail')
+const OfferEdit = () => import('@/offers/pages/OfferEdit')
+const OfferDetailHeaderIfMobile = () => Platform.is.mobile ? import('@/offers/components/OfferDetailHeader') : Promise.resolve({ render: () => null })
+const OfferDetailOrBodyIfMobile = () => Platform.is.mobile ? import('@/offers/components/OfferDetailBody') : import('@/offers/components/OfferDetail')
 const GroupFeedback = () => import('@/feedback/pages/GroupFeedback')
 const Messages = () => import('@/messages/pages/Messages')
 const LatestConversations = () => import('@/messages/components/LatestConversations')
@@ -222,6 +223,21 @@ export default [
         },
         components: {
           default: OfferCreate,
+        },
+      },
+      {
+        name: 'offerEdit',
+        path: 'offers/:offerId/edit',
+        meta: {
+          requireLoggedIn: true,
+          breadcrumbs: [
+            { translation: 'GROUP.OFFERS', route: { name: 'groupOffers' } },
+            { type: 'activeOffer' },
+          ],
+          beforeEnter: 'offers/select',
+        },
+        components: {
+          default: OfferEdit,
         },
       },
       {

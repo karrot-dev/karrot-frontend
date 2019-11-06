@@ -1,13 +1,18 @@
 <template>
   <QToolbar
-    v-if="item"
+    v-if="offer"
     class="bg-secondary text-white"
   >
     <QToolbarTitle
       class="column"
     >
-      <div>{{ item.name }}</div>
+      <div>{{ offer.name }}</div>
     </QToolbarTitle>
+    <router-link
+      :to="{ name: 'offerEdit', params: { offerId: offer.id } }"
+    >
+      edit
+    </router-link>
     <QBtn
       v-if="!$q.platform.is.mobile"
       flat
@@ -32,7 +37,7 @@ export default {
   },
   computed: {
     ...mapGetters({
-      item: 'offers/current',
+      offer: 'offers/current',
     }),
   },
   methods: {

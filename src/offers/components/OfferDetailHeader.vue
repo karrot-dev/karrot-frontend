@@ -8,11 +8,15 @@
     >
       <div>{{ offer.name }}</div>
     </QToolbarTitle>
-    <router-link
+    <QBtn
+      v-if="offer.canEdit"
       :to="{ name: 'offerEdit', params: { offerId: offer.id } }"
-    >
-      edit
-    </router-link>
+      flat
+      round
+      dense
+      icon="edit"
+      :title="$t('BUTTON.EDIT')"
+    />
     <QBtn
       v-if="!$q.platform.is.mobile"
       flat

@@ -1,71 +1,72 @@
 <template>
   <div class="MultiCroppa">
     <div
-      v-for="(photo, idx) in photos"
-      :key="photo._key"
+      v-for="(item, idx) in items"
+      :key="item.key"
       class="q-ma-sm inline-block vertical-top text-center"
     >
-      <!-- TODO: need to work out how get existing images in...
-           quite a few cases to handle:
-           - move position, but keep image the same, don't upload again!
-           - add a new image to existing ones
-           - remove an image (e.g. in the middle)
-      -->
       <Croppa
-        ref="croppaRefs"
+        v-model="item.croppa"
+        :initial-image="imageFor(item)"
+        :passive="isExisting(item)"
         placeholder="+"
-        :class="croppaClasses(idx)"
         prevent-white-space
         :show-remove-button="false"
-        @new-image-drawn="imageDrawn(idx)"
+        @new-image-drawn="imageDrawn(item)"
+        :class="croppaClasses(item)"
       />
       <QBtnGroup
         rounded
         flat
       >
         <QBtn
-          v-if="hasImage(idx)"
+          v-if="hasImage(item)"
           rounded
           class="q-ma-xs"
           size="sm"
           icon="keyboard_arrow_left"
           :disable="isFirstImage(idx)"
-          @click="moveImage(idx, -1)"
+          @click="moveImage(item, -1)"
         />
         <QBtn
-          v-if="hasImage(idx)"
+          v-if="hasImage(item)"
           rounded
           class="q-ma-xs"
           size="sm"
           icon="delete"
           text-color="red"
-          :disable="!hasImage(idx)"
-          @click="removeImage(idx)"
+          :disable="!hasImage(item)"
+          @click="removeImage(item)"
         />
         <QBtn
-          v-if="hasImage(idx)"
+          v-if="hasImage(item)"
           rounded
           class="q-ma-xs"
           size="sm"
           icon="keyboard_arrow_right"
           :disable="isLastImage(idx)"
-          @click="moveImage(idx, 1)"
+          @click="moveImage(item, 1)"
         />
       </QBtnGroup>
     </div>
-    <pre>photos: {{ photos }}</pre>
-    <pre>value: {{ value }}</pre>
   </div>
 </template>
 
 <script>
 import { QBtn, QBtnGroup } from 'quasar'
+import deepEqual from 'deep-equal'
 import CroppaPlugin from 'vue-croppa'
 const Croppa = CroppaPlugin.component
 
+function sortByPosition (a, b) {
+  return a.position - b.position
+}
+
 let nextKey = 0
 function getNextKey () {
-  return ++nextKey
+  const key = `key-${nextKey}`
+  nextKey++
+  return key
 }
 
 export default {
@@ -82,65 +83,97 @@ export default {
   },
   data () {
     return {
-      photos: [{
-        _key: getNextKey(),
-      }],
+      items: [],
     }
   },
+  watch: {
+    value: {
+      immediate: true,
+      handler (value, oldValue) {
+        if (deepEqual(value, oldValue)) return
+
+        // This initializes our "items" array from the outside "value" array
+
+        this.items = this.value.map((item, idx) => ({
+          ...item,
+          key: getNextKey(),
+          sourceIndex: idx,
+          croppa: null,
+        }))
+        this.items.sort(sortByPosition)
+        this.items.push({ key: getNextKey(), croppa: null })
+        this.recalculationPositions()
+      },
+    },
+  },
   methods: {
-    async imageDrawn (idx) {
-      const photo = this.photos[idx]
-      const croppa = this.$refs.croppaRefs[idx]
-      if (croppa.hasImage()) {
-        const blob = await croppa.promisedBlob('image/png', 0.9)
-        const valueItem = {
-          ...photo,
-          blob,
-          position: this.value.length,
-        }
-        delete valueItem._key
-        this.value.push(valueItem)
-        photo.valueItem = valueItem // keep a ref to the "external" object
-      }
-      // Add the box for adding another new image
-      this.photos.push({ _key: getNextKey() })
-    },
-    removeImage (idx) {
-      const photo = this.photos[idx]
-      const valueIdx = this.value.indexOf(photo.valueItem)
-      if (valueIdx !== -1) {
-        this.value.splice(valueIdx, 1)
-      }
-      this.photos.splice(idx, 1)
-      this.$refs.croppaRefs.splice(idx, 1)
-      if (this.photos.length === 0) this.photos.push({ _key: getNextKey() })
-      this.recalculationPositions()
-    },
-    moveImage (idx, by) {
-      const newIdx = idx + by
-      this.photos.splice(newIdx, 0, this.photos.splice(idx, 1)[0])
-      this.$refs.croppaRefs.splice(newIdx, 0, this.$refs.croppaRefs.splice(idx, 1)[0])
-      this.recalculationPositions()
-    },
-    recalculationPositions () {
-      for (const idx of Object.keys(this.photos)) {
-        const photo = this.photos[idx]
-        if (photo.valueItem) photo.valueItem.position = parseInt(idx)
-      }
-    },
-    hasImage (idx) {
-      if (!this.$refs.croppaRefs) return
-      const croppa = this.$refs.croppaRefs[idx]
-      return croppa && croppa.hasImage && croppa.hasImage()
+    hasImage (item) {
+      return this.isExisting(item) || Boolean(item.croppa && item.croppa.hasImage())
     },
     isFirstImage (idx) {
       return idx === 0
     },
     isLastImage (idx) {
-      return idx >= this.photos.length - 2
+      return idx >= this.items.length - 2
     },
-    croppaClasses (idx) {
-      if (this.hasImage(idx)) return []
+    isExisting (item) {
+      return item.id !== undefined
+    },
+    imageFor (item) {
+      const url = item && item.imageUrls && item.imageUrls.fullSize
+      if (!url) return
+
+      // In development we want to force the images to load from our local proxy
+      // so that we don't get issues with missing CORS headers
+      if (__ENV.DEV && url.includes('/media')) return ['http://localhost:8080', url.substring(url.indexOf('/media'))].join('')
+
+      return url
+    },
+    imageDrawn (item) {
+      const isNew = !item.id
+      if (isNew) {
+        this.value.push({
+          _new: true,
+          toBlob () {
+            return item.croppa.hasImage() && item.croppa.promisedBlob()
+          },
+        })
+        item.sourceIndex = this.value.length - 1
+        this.items.push({
+          key: getNextKey(),
+          croppa: null,
+        })
+        this.recalculationPositions()
+      }
+    },
+    moveImage (item, by) {
+      const idx = this.items.indexOf(item)
+      const newIdx = idx + by
+      this.items.splice(newIdx, 0, this.items.splice(idx, 1)[0])
+      this.recalculationPositions()
+    },
+    removeImage (item) {
+      const idx = this.items.indexOf(item)
+      this.items.splice(idx, 1)
+      if (this.isExisting(item)) {
+        const source = this.value[item.sourceIndex]
+        this.$set(source, '_removed', true)
+      }
+      this.recalculationPositions()
+    },
+    recalculationPositions () {
+      for (const idx of Object.keys(this.items)) {
+        const item = this.items[idx]
+        const position = parseInt(idx)
+        item.position = position
+        if (item.sourceIndex !== undefined) {
+          const source = this.value[item.sourceIndex]
+          source.position = position
+        }
+      }
+    },
+    croppaClasses (item) {
+      if (this.hasImage(item)) return []
       return ['new-image']
     },
   },

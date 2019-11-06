@@ -1,32 +1,44 @@
 import axios, { parseCursor } from '@/base/api/axios'
 import { convert as convertConversation } from '@/messages/api/conversations'
 
-function convertWierdFormDataStuff (offer) {
-  console.log('doing weird form data thing...')
+async function toFormData (sourceOffer) {
   const data = new FormData()
-  const offerWithoutPhotos = { ...offer }
-  delete offerWithoutPhotos.photos
+  const offer = { ...sourceOffer } // clone as we will modify this object
+
+  if (offer.images) {
+    const blobs = {}
+    for (const idx of Object.keys(offer.images)) {
+      const image = offer.images[idx]
+      if (image.toBlob) {
+        blobs[`images.${idx}.image`] = await image.toBlob()
+        delete image.toBlob
+      }
+      delete image.imageUrls
+    }
+    for (const key of Object.keys(blobs)) {
+      data.append(key, blobs[key], `${key}.png`)
+    }
+  }
+
   data.append(
     'document',
     new Blob(
-      [JSON.stringify(offerWithoutPhotos)],
+      [JSON.stringify(offer)],
       { type: 'application/json' },
     ),
   )
-  for (const idx of Object.keys(offer.photos)) {
-    const photo = offer.photos[idx]
-    data.append(`image_${photo.id}`, photo.blob, `${photo.id}.png`)
-  }
+
   return data
 }
 
 export default {
 
   async create (offer) {
-    return convert((await axios.post('/api/offers/', convertWierdFormDataStuff(offer), {
+    return convert((await axios.post('/api/offers/', await toFormData(offer), {
       onUploadProgress (progressEvent) {
+        // TODO: check this works and see if it's useful
         const percentCompleted = Math.round((progressEvent.loaded * 100) / progressEvent.total)
-        console.log('progress!', percentCompleted)
+        console.log('create progress!', percentCompleted)
       },
     })).data)
   },
@@ -46,7 +58,13 @@ export default {
   },
 
   async save (offer) {
-    return convert((await axios.patch(`/api/offers/${offer.id}/`, convertWierdFormDataStuff(offer))).data)
+    return convert((await axios.patch(`/api/offers/${offer.id}/`, await toFormData(offer), {
+      onUploadProgress (progressEvent) {
+        // TODO: check this works and see if it's useful
+        const percentCompleted = Math.round((progressEvent.loaded * 100) / progressEvent.total)
+        console.log('save progress!', percentCompleted)
+      },
+    })).data)
   },
 
   async conversation (offerId) {
@@ -56,14 +74,5 @@ export default {
 }
 
 export function convert (val) {
-  if (Array.isArray(val)) {
-    return val.map(convert)
-  }
-  else {
-    const result = { ...val }
-
-    // Nothing yet...
-
-    return result
-  }
+  return val // nothing to convert!
 }

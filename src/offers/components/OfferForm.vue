@@ -31,6 +31,52 @@
           @keyup.ctrl.enter="maybeSave"
         />
 
+        <QSelect
+          v-model="edit.status"
+          :options="statusOptions"
+          map-options
+          emit-value
+          :label="$t('OFFEREDIT.STATUS')"
+          :error="hasError('status')"
+          :error-message="firstError('status')"
+        >
+          <template v-slot:before>
+            <QIcon name="fas fa-handshake" />
+          </template>
+          <template v-slot:option="scope">
+            <QItem
+              :key="scope.index"
+              dense
+              v-bind="scope.itemProps"
+              v-on="scope.itemEvents"
+            >
+              <QItemSection side>
+                <QIcon
+                  :name="scope.opt.icon"
+                  :color="scope.opt.color"
+                  size="1.1em"
+                />
+              </QItemSection>
+              <QItemSection>
+                <QItemLabel>{{ scope.opt.label }}</QItemLabel>
+              </QItemSection>
+            </QItem>
+          </template>
+          <template v-slot:selected-item="scope">
+            <div class="row">
+              <QIcon
+                :name="scope.opt.icon"
+                :color="scope.opt.color"
+                size="1.1em"
+                class="on-left q-ml-xs"
+              />
+              <div>
+                {{ scope.opt.label }}
+              </div>
+            </div>
+          </template>
+        </QSelect>
+
         <MultiCroppa v-model="edit.images" />
 
         <div class="row justify-end q-gutter-sm q-mt-sm">
@@ -62,7 +108,7 @@ import { validationMixin } from 'vuelidate'
 import { required, minLength, maxLength } from 'vuelidate/lib/validators'
 import editMixin from '@/utils/mixins/editMixin'
 import statusMixin from '@/utils/mixins/statusMixin'
-import { QBtn, QCard, QIcon, QInput } from 'quasar'
+import { QBtn, QCard, QIcon, QInput, QSelect, QItem, QItemLabel, QItemSection } from 'quasar'
 import MarkdownInput from '@/utils/components/MarkdownInput'
 import MultiCroppa from '@/offers/components/MultiCroppa'
 
@@ -74,6 +120,10 @@ export default {
     QCard,
     QInput,
     QIcon,
+    QSelect,
+    QItem,
+    QItemLabel,
+    QItemSection,
   },
   mixins: [validationMixin, editMixin, statusMixin],
   props: {
@@ -83,14 +133,12 @@ export default {
       default: () => ({
         name: undefined,
         description: undefined,
+        status: 'active',
         images: [],
       }),
     },
   },
   computed: {
-    hasChanged () {
-      return false
-    },
     canSave () {
       if (this.$v.edit.$error) {
         return false
@@ -109,6 +157,43 @@ export default {
         if (!m.isUnique) return this.$t('VALIDATION.UNIQUE')
       }
       return this.firstError('name')
+    },
+    statusOptions () {
+      const statusOptions = {
+        active: {
+          label: 'OFFERSTATUS.ACTIVE',
+          color: 'positive',
+          icon: 'fas fa-circle',
+          selectable: true,
+          sort: 1,
+        },
+        accepted: {
+          label: 'OFFERSTATUS.ACCEPTED',
+          color: 'blue',
+          icon: 'fas fa-circle',
+          selectable: true,
+          sort: 2,
+        },
+        disabled: {
+          label: 'OFFERSTATUS.DISABLED',
+          color: 'grey',
+          icon: 'fas fa-circle',
+          selectable: true,
+          sort: 3,
+        },
+      }
+      for (const key of Object.keys(statusOptions)) {
+        statusOptions[key].key = key
+      }
+      const statusList = Object.values(statusOptions)
+      return statusList
+        .filter(s => s.selectable)
+        .map(s => ({
+          value: s.key,
+          label: this.$t(s.label),
+          color: s.color,
+          icon: s.icon,
+        }))
     },
   },
   methods: {

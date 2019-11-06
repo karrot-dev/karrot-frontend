@@ -64,6 +64,7 @@ export default {
       if (!offer) return
       return {
         ...offer,
+        canEdit: rootGetters['auth/userId'] === offer.user,
         user: rootGetters['users/get'](offer.user),
         ...metaStatusesWithId(getters, ['save'], offer.id),
       }
@@ -101,6 +102,18 @@ export default {
           params: {
             groupId: newOffer.group,
             offerId: newOffer.id,
+          },
+        }).catch(() => {})
+      },
+
+      async save ({ dispatch, commit }, data) {
+        const updatedOffer = await offers.save(data)
+        commit('update', [updatedOffer])
+        router.push({
+          name: 'offerDetail',
+          params: {
+            groupId: updatedOffer.group,
+            offerId: updatedOffer.id,
           },
         }).catch(() => {})
       },

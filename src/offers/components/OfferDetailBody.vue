@@ -22,7 +22,6 @@
         />
       </QCarousel>
       <div class="q-ma-md">
-        <pre>{{ offer }}</pre>
         <Markdown :source="offer.description" />
       </div>
     </template>

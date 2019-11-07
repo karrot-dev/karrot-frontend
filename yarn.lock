@@ -837,10 +837,10 @@
     js-levenshtein "^1.1.3"
     semver "^5.5.0"
 
-"@babel/runtime-corejs3@^7.6.3":
-  version "7.6.3"
-  resolved "https://registry.yarnpkg.com/@babel/runtime-corejs3/-/runtime-corejs3-7.6.3.tgz#a2b2b7ceea6ecb37ff822d293a312f1f00c29b84"
-  integrity sha512-933SXHQr7apa95F+3IqkBne8mqOnu1kDh6dnSddC07aW/R51WsOVD7MSczJ6DRpq/L8KLll7TFDxmt30pft44w==
+"@babel/runtime-corejs3@^7.7.2":
+  version "7.7.2"
+  resolved "https://registry.yarnpkg.com/@babel/runtime-corejs3/-/runtime-corejs3-7.7.2.tgz#2bf55c6cc576a7f54a40b970ea5215131abc1159"
+  integrity sha512-odQQZpujq0AHttKrvp4n2KGjK5b5cuq7LeEcsdadwZOemMkmJnlgTXMCf5fIixLLaBxUypwn0krKK51vVMA5cg==
   dependencies:
     core-js-pure "^3.0.0"
     regenerator-runtime "^0.13.2"

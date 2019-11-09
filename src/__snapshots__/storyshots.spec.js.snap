@@ -10796,6 +10796,136 @@ exports[`Storyshots TrustButton Trust Button - one other trust 1`] = `
 </button>
 `;
 
+exports[`Storyshots Unsubscribe conversation 1`] = `
+<div class="edit-box bg-primary splash-md">
+  <form>
+    <div class="bg-white shadow-6 q-py-md q-px-sm">
+      <div class="q-option-group q-gutter-x-sm q-ma-sm">
+        <div>
+          <div tabindex="0" class="q-radio cursor-pointer no-outline row inline no-wrap items-center">
+            <div class="q-radio__inner relative-position"><input type="checkbox" class="q-radio__native q-ma-none q-pa-none invisible">
+              <div class="q-radio__bg absolute">
+                <div class="q-radio__outer-circle absolute-full"></div>
+                <div class="q-radio__inner-circle absolute-full"></div>
+              </div>
+            </div>
+            <div class="q-radio__label q-anchor--skip">unsubscribe from just this conversation</div>
+          </div>
+        </div>
+        <div>
+          <div tabindex="0" class="q-radio cursor-pointer no-outline row inline no-wrap items-center">
+            <div class="q-radio__inner relative-position"><input type="checkbox" class="q-radio__native q-ma-none q-pa-none invisible">
+              <div class="q-radio__bg absolute">
+                <div class="q-radio__outer-circle absolute-full"></div>
+                <div class="q-radio__inner-circle absolute-full"></div>
+              </div>
+            </div>
+            <div class="q-radio__label q-anchor--skip">unsubscribe from Weekly summary</div>
+          </div>
+        </div>
+        <div>
+          <div tabindex="0" class="q-radio cursor-pointer no-outline row inline no-wrap items-center">
+            <div class="q-radio__inner relative-position"><input type="checkbox" class="q-radio__native q-ma-none q-pa-none invisible">
+              <div class="q-radio__bg absolute">
+                <div class="q-radio__outer-circle absolute-full"></div>
+                <div class="q-radio__inner-circle absolute-full"></div>
+              </div>
+            </div>
+            <div class="q-radio__label q-anchor--skip">Unsubscribe from all email notifications in testgroup</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!---->
+    <div class="actions bg-white"><button tabindex="0" type="submit" class="q-btn inline q-btn-item non-selectable no-outline submit shadow-4 q-btn--flat q-btn--rectangle q-focusable q-hoverable">
+        <div tabindex="-1" class="q-focus-helper"></div>
+        <div class="q-btn__content text-center col items-center q-anchor--skip justify-center row">
+          Unsubscribe
+        </div>
+      </button></div>
+  </form>
+</div>
+`;
+
+exports[`Storyshots Unsubscribe error 1`] = `
+<div class="edit-box bg-primary splash-md">
+  <form>
+    <div class="bg-white shadow-6 q-py-md q-px-sm">
+      <div class="q-option-group q-gutter-x-sm q-ma-sm"></div>
+    </div>
+    <div class="bg-white text-warning q-py-md q-px-sm"><i class="fas fa-exclamation-triangle"></i>
+      Sorry, something went wrong
+    </div>
+    <div class="actions bg-white"><button tabindex="0" type="submit" class="q-btn inline q-btn-item non-selectable no-outline submit shadow-4 q-btn--flat q-btn--rectangle q-focusable q-hoverable">
+        <div tabindex="-1" class="q-focus-helper"></div>
+        <div class="q-btn__content text-center col items-center q-anchor--skip justify-center row">
+          Unsubscribe
+        </div>
+      </button></div>
+  </form>
+</div>
+`;
+
+exports[`Storyshots Unsubscribe invalid token 1`] = `
+<div class="edit-box bg-primary splash-md">
+  <div class="bg-white shadow-6 q-py-md q-px-sm">
+    <h2><i aria-hidden="true" class="fas fa-sad-tear q-icon q-mx-sm"> </i>
+      Sorry, the link you've opened is invalid.
+    </h2>
+  </div>
+</div>
+`;
+
+exports[`Storyshots Unsubscribe success 1`] = `
+<div class="edit-box bg-primary splash-md">
+  <div class="bg-white shadow-6 q-py-md q-px-sm">
+    <h2><i aria-hidden="true" class="fas fa-smile-beam q-icon q-mx-sm"> </i>
+      You were successfully unsubscribed!
+    </h2>
+  </div>
+</div>
+`;
+
+exports[`Storyshots Unsubscribe thread 1`] = `
+<div class="edit-box bg-primary splash-md">
+  <form>
+    <div class="bg-white shadow-6 q-py-md q-px-sm">
+      <div class="q-option-group q-gutter-x-sm q-ma-sm">
+        <div>
+          <div tabindex="0" class="q-radio cursor-pointer no-outline row inline no-wrap items-center">
+            <div class="q-radio__inner relative-position"><input type="checkbox" class="q-radio__native q-ma-none q-pa-none invisible">
+              <div class="q-radio__bg absolute">
+                <div class="q-radio__outer-circle absolute-full"></div>
+                <div class="q-radio__inner-circle absolute-full"></div>
+              </div>
+            </div>
+            <div class="q-radio__label q-anchor--skip">unsubscribe from just this thread</div>
+          </div>
+        </div>
+        <div>
+          <div tabindex="0" class="q-radio cursor-pointer no-outline row inline no-wrap items-center">
+            <div class="q-radio__inner relative-position"><input type="checkbox" class="q-radio__native q-ma-none q-pa-none invisible">
+              <div class="q-radio__bg absolute">
+                <div class="q-radio__outer-circle absolute-full"></div>
+                <div class="q-radio__inner-circle absolute-full"></div>
+              </div>
+            </div>
+            <div class="q-radio__label q-anchor--skip">Unsubscribe from all email notifications in testgroup</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!---->
+    <div class="actions bg-white"><button tabindex="0" type="submit" class="q-btn inline q-btn-item non-selectable no-outline submit shadow-4 q-btn--flat q-btn--rectangle q-focusable q-hoverable">
+        <div tabindex="-1" class="q-focus-helper"></div>
+        <div class="q-btn__content text-center col items-center q-anchor--skip justify-center row">
+          Unsubscribe
+        </div>
+      </button></div>
+  </form>
+</div>
+`;
+
 exports[`Storyshots UserList default 1`] = `
 <div class="list-wrapper">
   <div class="q-list">

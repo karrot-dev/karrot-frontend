@@ -44,13 +44,6 @@ describe('groups', () => {
   })
 
   // Reusable datastore mocks
-
-  const agreements = {
-    getters: {
-      get: () => () => {},
-    },
-  }
-
   const auth = {
     getters: {
       userId: () => userId,
@@ -92,7 +85,6 @@ describe('groups', () => {
     beforeEach(() => {
       datastore = createDatastore({
         groups: require('./groups').default,
-        agreements,
       })
     })
 
@@ -114,7 +106,6 @@ describe('groups', () => {
       datastore = createDatastore({
         groups: require('./groups').default,
         auth,
-        agreements,
         banners,
         currentGroup,
         toasts,
@@ -174,7 +165,6 @@ describe('groups', () => {
     beforeEach(() => {
       datastore = createDatastore({
         groups: require('./groups').default,
-        agreements,
         auth,
         users,
       })

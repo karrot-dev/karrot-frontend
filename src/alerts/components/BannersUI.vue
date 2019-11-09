@@ -34,7 +34,6 @@ import {
   QBanner,
   QIcon,
   QBtn,
-  Dialog,
 } from 'quasar'
 
 export default {
@@ -62,26 +61,6 @@ export default {
     },
   },
   methods: {
-    awaitingAgreement (agreement) {
-      return {
-        className: 'bg-negative',
-        icon: 'pan_tool',
-        message: 'AGREEMENT.AGREE',
-        action: {
-          label: this.$t('AGREEMENT.VIEW'),
-          handler: () => {
-            Dialog.create({
-              title: agreement.title,
-              message: agreement.content,
-              cancel: this.$t('BUTTON.CANCEL'),
-              ok: this.$t('BUTTON.AGREE'),
-            })
-              .onOk(() => this.$emit('agree', agreement.id))
-          },
-        },
-      }
-    },
-
     playgroundGroupInfo () {
       return {
         className: 'bg-secondary text-white',

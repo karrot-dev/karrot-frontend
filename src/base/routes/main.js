@@ -9,7 +9,6 @@ const LatestThreads = () => import('@/messages/components/LatestThreads')
 const Notifications = () => import('@/notifications/pages/Notifications')
 const GroupMap = () => import('@/maps/pages/Map')
 const GroupEdit = () => import('@/group/pages/Edit')
-const GroupManageAgreement = () => import('@/agreements/pages/ManageAgreement')
 const GroupCreate = () => import('@/group/pages/Create')
 const GroupPreview = () => import('@/groupInfo/pages/GroupPreview')
 const GroupGallery = () => import('@/groupInfo/pages/GroupGallery')
@@ -288,16 +287,6 @@ export default [
         name: 'groupSettings',
         path: 'settings',
         redirect: { name: 'settings', hash: '#notifications' },
-      },
-      {
-        name: 'groupManageAgreement',
-        path: 'agreement',
-        meta: {
-          breadcrumbs: [
-            { translation: 'GROUP.MANAGE_AGREEMENT', route: { name: 'groupManageAgreement' } },
-          ],
-        },
-        component: GroupManageAgreement,
       },
       {
         name: 'messageReplies',

@@ -14,13 +14,6 @@ export default {
         })
       }
 
-      if (isGroupPage && currentGroup && currentGroup.awaitingAgreement) {
-        banners.push({
-          type: 'awaitingAgreement',
-          context: currentGroup.activeAgreement,
-        })
-      }
-
       if (isGroupPage && currentGroup && currentGroup.isPlayground) {
         banners.push({
           type: 'playgroundGroupInfo',

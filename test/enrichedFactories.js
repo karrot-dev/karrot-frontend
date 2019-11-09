@@ -61,7 +61,6 @@ export const makeGroup = data => {
     latitude: 0,
     longitude: 0,
     timezone: 'Europe/Berlin',
-    activeAgreement: null,
     status: 'active',
     notificationTypes: [
       'weekly_summary',

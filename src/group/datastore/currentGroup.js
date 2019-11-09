@@ -1,5 +1,5 @@
 import groups from '@/group/api/groups'
-import { withMeta, createMetaModule, withPrefixedIdMeta, metaStatusesWithId, createRouteRedirect } from '@/utils/datastore/helpers'
+import { withMeta, createMetaModule, metaStatusesWithId, createRouteRedirect } from '@/utils/datastore/helpers'
 import { extend } from 'quasar'
 import i18n from '@/base/i18n'
 import { messages as loadMessages } from '@/locales/index'
@@ -30,8 +30,6 @@ export default {
         hasLocation: group.latitude && group.longitude,
         membership: getters.membership,
         memberships: getters.memberships,
-        activeAgreement: getters.activeAgreement,
-        awaitingAgreement: !!(getters.activeAgreement && getters.activeAgreement.agreed === false),
       }
     },
     memberships: (state, getters, rootState, rootGetters) => {
@@ -53,7 +51,6 @@ export default {
         return obj
       }, {})
     },
-    agreement: (state, getters, rootState, rootGetters) => state.current && rootGetters['agreements/get'](state.current.activeAgreement),
     conversation: (state, getters, rootState, rootGetters) => {
       if (!state.current) return
       return rootGetters['conversations/getForGroup'](state.current.id)
@@ -69,16 +66,13 @@ export default {
   },
   actions: {
     ...withMeta({
-      async fetch ({ state, commit, dispatch }, groupId) {
+      async fetch ({ state, commit }, groupId) {
         commit('setId', groupId)
         const group = await groups.get(groupId)
 
         // aborting, another group has been loaded while we waited
         if (state.id !== groupId) return
 
-        if (group.activeAgreement) {
-          dispatch('agreements/fetch', group.activeAgreement, { root: true })
-        }
         commit('set', group)
       },
 
@@ -103,33 +97,6 @@ export default {
       async trustUser ({ getters }, userId) {
         if (!getters.id) return
         await groups.trustUser(getters.id, userId)
-      },
-
-    }),
-
-    ...withPrefixedIdMeta('agreements/', {
-
-      async agreementSave ({ commit, dispatch, state, getters }, agreement) {
-        const { id } = agreement
-        if (id) {
-          agreement = await dispatch('agreements/save', agreement, { root: true })
-        }
-        else {
-          agreement = await dispatch('agreements/create', { ...agreement, group: getters.id }, { root: true })
-        }
-
-        if (state.current.activeAgreement !== agreement.id) {
-          commit('set', await groups.save({ id: getters.id, activeAgreement: agreement.id }))
-        }
-      },
-
-      async agreementReplace ({ commit, dispatch, state, getters }, agreement) {
-        agreement = await dispatch('agreements/create', { ...agreement, group: getters.id }, { root: true })
-        commit('set', await groups.save({ id: getters.id, activeAgreement: agreement.id }))
-      },
-
-      async agreementRemove ({ commit, dispatch, state, getters }) {
-        commit('set', await groups.save({ id: getters.id, activeAgreement: null }))
       },
 
     }),
@@ -176,7 +143,6 @@ export default {
       commit('clear')
 
       // TODO move clear logic to downstream module plugins
-      commit('agreements/clear', null, { root: true })
       dispatch('feedback/clear', null, { root: true })
     },
 

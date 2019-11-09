@@ -50,9 +50,6 @@ export default {
     },
   },
   computed: {
-    isAgreementManager () {
-      return this.roles && this.roles.includes('agreement_manager')
-    },
     isEditor () {
       return this.roles && this.roles.includes('editor')
     },
@@ -62,11 +59,6 @@ export default {
         label: this.$t('GROUP.EDIT'),
         icon: 'fas fa-pencil-alt fa-fw',
         to: { name: 'groupEdit', params: { groupId: this.currentGroupId } },
-      }, {
-        condition: this.isAgreementManager,
-        label: this.$t('GROUP.MANAGE_AGREEMENT'),
-        icon: 'fas fa-file-alt fa-fw',
-        to: { name: 'groupManageAgreement', params: { groupId: this.currentGroupId } },
       }, {
         label: this.$t('GROUPINFO.META'),
         icon: 'fas fa-info-circle fa-fw',

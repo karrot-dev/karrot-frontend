@@ -92,17 +92,6 @@
     "PICKUP_ENABLED": "Activity at {dateTime} was enabled again",
     "PICKUP_MOVED": "Activity was moved to {dateTime}"
   },
-  "AGREEMENT": {
-    "BLURB2": "If you add one then people will have to agree to it before they can participate in activities.",
-    "DIALOGS": {
-      "REPLACE": {
-        "MESSAGE": "Everyone will have to agree again before they can signup for activities"
-      },
-      "REMOVE": {
-        "MESSAGE": "This means anyone will be able to do an activity"
-      }
-    }
-  },
   "STORESTATUS": {
     "ACTIVE": "Active",
     "CREATED": "Just created",

@@ -4,7 +4,6 @@ import BannersUI from './BannersUI'
 
 export default connect({
   actionsToEvents: {
-    agree: 'agreements/agree',
     reconnect: 'connectivity/reconnect',
   },
   gettersToProps: {

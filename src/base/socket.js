@@ -221,6 +221,12 @@ function receiveMessage ({ topic, payload }) {
   else if (topic === 'pickups:series_deleted') {
     datastore.commit('pickupSeries/delete', convertSeries(camelizeKeys(payload)).id)
   }
+  else if (topic === 'offers:offer') {
+    datastore.commit('offers/update', [camelizeKeys(payload)])
+  }
+  else if (topic === 'offers:offer_deleted') {
+    datastore.commit('offers/delete', payload.id)
+  }
   else if (topic === 'feedback:feedback') {
     datastore.dispatch('feedback/updateOne', convertFeedback(camelizeKeys(payload)))
   }

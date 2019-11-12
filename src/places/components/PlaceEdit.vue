@@ -86,6 +86,7 @@
             :label="$t('STOREEDIT.ADDRESS')"
             :error="hasAddressError"
             :error-message="addressError"
+            :default-map-centre="defaultMapCentre"
           />
 
           <div>
@@ -269,6 +270,11 @@ export default {
     },
     markerColor () {
       if (this.edit) return optionsFor(this.edit).color
+      return null
+    },
+    defaultMapCentre () {
+      const { latitude: lat, longitude: lng } = this.edit.group || {}
+      if (lat && lng) return { lat, lng }
       return null
     },
   },

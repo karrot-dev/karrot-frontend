@@ -1,21 +1,20 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Storyshots AddressPicker Default 1`] = `
-<div>
-  <div><label for="qf_80008000-8000-8000-8000-800080008000" class="q-field row no-wrap items-start q-select q-field--auto-height q-select--with-input q-field--standard q-field--labeled q-field--with-bottom">
-      <div class="q-field__before q-field__marginal row no-wrap items-center"><i aria-hidden="true"></i></div>
-      <div class="q-field__inner relative-position col self-stretch column justify-center">
-        <div tabindex="-1" class="q-field__control relative-position row no-wrap">
-          <div class="q-field__control-container col relative-position row no-wrap q-anchor--skip">
-            <div placeholder="Search" class="q-field__native row items-center"><input type="search" placeholder="Search" tabindex="0" id="qf_80008000-8000-8000-8000-800080008000" value="" class="q-select__input q-placeholder col q-select__input--padding"></div>
-            <div class="q-field__label no-pointer-events absolute ellipsis"></div>
-          </div>
-        </div>
-        <div class="q-field__bottom row items-start q-field__bottom--animated">
-          <div class="q-field__messages col"></div>
+<div><label for="qf_80008000-8000-8000-8000-800080008000" class="q-field row no-wrap items-start q-select q-field--auto-height q-select--with-input q-field--standard q-field--labeled q-field--with-bottom">
+    <div class="q-field__before q-field__marginal row no-wrap items-center"><i aria-hidden="true"></i></div>
+    <div class="q-field__inner relative-position col self-stretch column justify-center">
+      <div tabindex="-1" class="q-field__control relative-position row no-wrap">
+        <div class="q-field__control-container col relative-position row no-wrap q-anchor--skip">
+          <div placeholder="Search" class="q-field__native row items-center"><input type="search" placeholder="Search" tabindex="0" id="qf_80008000-8000-8000-8000-800080008000" value="" class="q-select__input q-placeholder col q-select__input--padding"></div>
+          <div class="q-field__label no-pointer-events absolute ellipsis"></div>
         </div>
       </div>
-    </label></div>
+      <div class="q-field__bottom row items-start q-field__bottom--animated">
+        <div class="q-field__messages col"></div>
+      </div>
+    </div>
+  </label>
   <div class="vue2leaflet-map k-map map">
     <!---->
   </div>
@@ -3229,22 +3228,21 @@ It would make sense if it was markdown
           </label>
           <!---->
         </div>
-        <div>
-          <div><label for="qf_80008000-8000-8000-8000-800080008000" class="q-field row no-wrap items-start q-select q-field--auto-height q-select--with-input q-field--standard q-field--float q-field--labeled q-field--with-bottom">
-              <div class="q-field__before q-field__marginal row no-wrap items-center"><i aria-hidden="true" class="fas fa-fw fa-map-marker q-icon"> </i></div>
-              <div class="q-field__inner relative-position col self-stretch column justify-center">
-                <div tabindex="-1" class="q-field__control relative-position row no-wrap">
-                  <div class="q-field__control-container col relative-position row no-wrap q-anchor--skip">
-                    <div placeholder="Search" class="q-field__native row items-center"><input type="search" placeholder="Search" tabindex="0" id="qf_80008000-8000-8000-8000-800080008000" value="Darmstadt, Regierungsbezirk Darmstadt, Hessen, Deutschland" class="q-select__input q-placeholder col q-select__input--padding"></div>
-                    <div class="q-field__label no-pointer-events absolute ellipsis">Address</div>
-                  </div>
-                  <div class="q-field__append q-field__marginal row no-wrap items-center q-anchor--skip"><i aria-hidden="true" class="material-icons q-icon cursor-pointer">cancel</i></div>
+        <div><label for="qf_80008000-8000-8000-8000-800080008000" class="q-field row no-wrap items-start q-select q-field--auto-height q-select--with-input q-field--standard q-field--float q-field--labeled q-field--with-bottom">
+            <div class="q-field__before q-field__marginal row no-wrap items-center"><i aria-hidden="true" class="fas fa-fw fa-map-marker q-icon"> </i></div>
+            <div class="q-field__inner relative-position col self-stretch column justify-center">
+              <div tabindex="-1" class="q-field__control relative-position row no-wrap">
+                <div class="q-field__control-container col relative-position row no-wrap q-anchor--skip">
+                  <div placeholder="Search" class="q-field__native row items-center"><input type="search" placeholder="Search" tabindex="0" id="qf_80008000-8000-8000-8000-800080008000" value="Darmstadt, Regierungsbezirk Darmstadt, Hessen, Deutschland" class="q-select__input q-placeholder col q-select__input--padding"></div>
+                  <div class="q-field__label no-pointer-events absolute ellipsis">Address</div>
                 </div>
-                <div class="q-field__bottom row items-start q-field__bottom--animated">
-                  <div class="q-field__messages col"></div>
-                </div>
+                <div class="q-field__append q-field__marginal row no-wrap items-center q-anchor--skip"><i aria-hidden="true" class="material-icons q-icon cursor-pointer">cancel</i></div>
               </div>
-            </label></div>
+              <div class="q-field__bottom row items-start q-field__bottom--animated">
+                <div class="q-field__messages col"></div>
+              </div>
+            </div>
+          </label>
           <div class="vue2leaflet-map k-map map">
             <!---->
           </div>
@@ -9031,21 +9029,20 @@ exports[`Storyshots Places PlaceEdit (with server error) 1`] = `
           </label>
           <!---->
         </div>
-        <div>
-          <div><label for="qf_80008000-8000-8000-8000-800080008000" class="q-field row no-wrap items-start q-select q-field--auto-height q-select--with-input q-field--standard q-field--labeled q-field--with-bottom">
-              <div class="q-field__before q-field__marginal row no-wrap items-center"><i aria-hidden="true" class="fas fa-map-marker q-icon"> </i></div>
-              <div class="q-field__inner relative-position col self-stretch column justify-center">
-                <div tabindex="-1" class="q-field__control relative-position row no-wrap">
-                  <div class="q-field__control-container col relative-position row no-wrap q-anchor--skip">
-                    <div placeholder="Search" class="q-field__native row items-center"><input type="search" placeholder="Search" tabindex="0" id="qf_80008000-8000-8000-8000-800080008000" value="" class="q-select__input q-placeholder col q-select__input--padding"></div>
-                    <div class="q-field__label no-pointer-events absolute ellipsis">Address</div>
-                  </div>
-                </div>
-                <div class="q-field__bottom row items-start q-field__bottom--animated">
-                  <div class="q-field__messages col"></div>
+        <div><label for="qf_80008000-8000-8000-8000-800080008000" class="q-field row no-wrap items-start q-select q-field--auto-height q-select--with-input q-field--standard q-field--labeled q-field--with-bottom">
+            <div class="q-field__before q-field__marginal row no-wrap items-center"><i aria-hidden="true" class="fas fa-map-marker q-icon"> </i></div>
+            <div class="q-field__inner relative-position col self-stretch column justify-center">
+              <div tabindex="-1" class="q-field__control relative-position row no-wrap">
+                <div class="q-field__control-container col relative-position row no-wrap q-anchor--skip">
+                  <div placeholder="Search" class="q-field__native row items-center"><input type="search" placeholder="Search" tabindex="0" id="qf_80008000-8000-8000-8000-800080008000" value="" class="q-select__input q-placeholder col q-select__input--padding"></div>
+                  <div class="q-field__label no-pointer-events absolute ellipsis">Address</div>
                 </div>
               </div>
-            </label></div>
+              <div class="q-field__bottom row items-start q-field__bottom--animated">
+                <div class="q-field__messages col"></div>
+              </div>
+            </div>
+          </label>
           <div class="vue2leaflet-map k-map map">
             <!---->
           </div>
@@ -9164,21 +9161,20 @@ exports[`Storyshots Places PlaceEdit 1`] = `
           </label>
           <!---->
         </div>
-        <div>
-          <div><label for="qf_80008000-8000-8000-8000-800080008000" class="q-field row no-wrap items-start q-select q-field--auto-height q-select--with-input q-field--standard q-field--labeled q-field--with-bottom">
-              <div class="q-field__before q-field__marginal row no-wrap items-center"><i aria-hidden="true" class="fas fa-map-marker q-icon"> </i></div>
-              <div class="q-field__inner relative-position col self-stretch column justify-center">
-                <div tabindex="-1" class="q-field__control relative-position row no-wrap">
-                  <div class="q-field__control-container col relative-position row no-wrap q-anchor--skip">
-                    <div placeholder="Search" class="q-field__native row items-center"><input type="search" placeholder="Search" tabindex="0" id="qf_80008000-8000-8000-8000-800080008000" value="" class="q-select__input q-placeholder col q-select__input--padding"></div>
-                    <div class="q-field__label no-pointer-events absolute ellipsis">Address</div>
-                  </div>
-                </div>
-                <div class="q-field__bottom row items-start q-field__bottom--animated">
-                  <div class="q-field__messages col"></div>
+        <div><label for="qf_80008000-8000-8000-8000-800080008000" class="q-field row no-wrap items-start q-select q-field--auto-height q-select--with-input q-field--standard q-field--labeled q-field--with-bottom">
+            <div class="q-field__before q-field__marginal row no-wrap items-center"><i aria-hidden="true" class="fas fa-map-marker q-icon"> </i></div>
+            <div class="q-field__inner relative-position col self-stretch column justify-center">
+              <div tabindex="-1" class="q-field__control relative-position row no-wrap">
+                <div class="q-field__control-container col relative-position row no-wrap q-anchor--skip">
+                  <div placeholder="Search" class="q-field__native row items-center"><input type="search" placeholder="Search" tabindex="0" id="qf_80008000-8000-8000-8000-800080008000" value="" class="q-select__input q-placeholder col q-select__input--padding"></div>
+                  <div class="q-field__label no-pointer-events absolute ellipsis">Address</div>
                 </div>
               </div>
-            </label></div>
+              <div class="q-field__bottom row items-start q-field__bottom--animated">
+                <div class="q-field__messages col"></div>
+              </div>
+            </div>
+          </label>
           <div class="vue2leaflet-map k-map map">
             <!---->
           </div>

@@ -1,61 +1,59 @@
 <template>
   <div>
-    <div>
-      <QSelect
-        use-input
-        fill-input
-        clearable
-        hide-dropdown-icon
-        :label="label"
-        :error="error"
-        :error-message="errorMessage"
-        :options="options"
-        :placeholder="$t('BUTTON.SEARCH')"
-        :value="value.address"
-        :input-debounce="1000"
-        @input="input"
-        @filter="search"
-      >
-        <template #before>
-          <QIcon :name="icon" />
-        </template>
-        <template #selected-item />
-        <template #option="{ index, itemProps, itemEvents, opt: { label: itemLabel, useSearchTerm } }">
-          <QItem
-            :key="index"
-            v-bind="itemProps"
-            v-on="itemEvents"
-          >
-            <QItemSection>
-              <QItemLabel v-if="useSearchTerm">
-                Set address as
-                <strong>{{ itemLabel }}</strong>
-                <span v-if="hasLocation">(keep existing location on map)</span>
-                <span v-else>(choose location manually on map)</span>
-              </QItemLabel>
-              <QItemLabel v-else>
-                {{ itemLabel }}
-              </QItemLabel>
-            </QItemSection>
-          </QItem>
-          <QSeparator v-if="useSearchTerm" />
-          <QItemLabel
-            v-if="useSearchTerm"
-            v-t="'GLOBAL.SEARCH_RESULTS'"
-            header
-          />
-          <QItem
-            v-if="useSearchTerm && options.length === 1"
-          >
-            <QItemSection>
-              <QItemLabel>
-                {{ $t('GLOBAL.SEARCH_NOT_FOUND') }}
-              </QItemLabel>
-            </QItemSection>
-          </QItem>
-        </template>
-      </QSelect>
-    </div>
+    <QSelect
+      use-input
+      fill-input
+      clearable
+      hide-dropdown-icon
+      :label="label"
+      :error="error"
+      :error-message="errorMessage"
+      :options="options"
+      :placeholder="$t('BUTTON.SEARCH')"
+      :value="value.address"
+      :input-debounce="1000"
+      @input="input"
+      @filter="search"
+    >
+      <template #before>
+        <QIcon :name="icon" />
+      </template>
+      <template #selected-item />
+      <template #option="{ index, itemProps, itemEvents, opt: { label: itemLabel, useSearchTerm } }">
+        <QItem
+          :key="index"
+          v-bind="itemProps"
+          v-on="itemEvents"
+        >
+          <QItemSection>
+            <QItemLabel v-if="useSearchTerm">
+              Set address as
+              <strong>{{ itemLabel }}</strong>
+              <span v-if="hasLocation">(keep existing location on map)</span>
+              <span v-else>(choose location manually on map)</span>
+            </QItemLabel>
+            <QItemLabel v-else>
+              {{ itemLabel }}
+            </QItemLabel>
+          </QItemSection>
+        </QItem>
+        <QSeparator v-if="useSearchTerm" />
+        <QItemLabel
+          v-if="useSearchTerm"
+          v-t="'GLOBAL.SEARCH_RESULTS'"
+          header
+        />
+        <QItem
+          v-if="useSearchTerm && options.length === 1"
+        >
+          <QItemSection>
+            <QItemLabel>
+              {{ $t('GLOBAL.SEARCH_NOT_FOUND') }}
+            </QItemLabel>
+          </QItemSection>
+        </QItem>
+      </template>
+    </QSelect>
     <StandardMap
       class="map"
       :markers="marker ? [marker] : []"

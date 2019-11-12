@@ -369,8 +369,8 @@
     "SUBTITLE": "Vi povas komenti pri via savado ĉi tie",
     "SET_AMOUNT": "Agordi kvanton",
     "DELETE_AMOUNT": "Forigi kvanton",
-    "AMOUNT": "Amount of food you were able to save (in kg)",
-    "AMOUNT_INFO": "For place statistics, we will add together the amount of all feedback.",
+    "AMOUNT": "Manĝkvanto kiun vi povis savi (en kg)",
+    "AMOUNT_INFO": "Por la statistikoj de la retpaĝo, ni aldonos la kvanton de ĉiu retrokuplo",
     "COMMENT_PLACEHOLDER": "Ĉu ĉio enordas? Ĉu ĉiuj iris savi? Vian komenton ĉi tie...",
     "PREVIOUS": "Antaŭaj komentoj de {store}",
     "TOGETHER_WITH": "Vi savis ĉifoje kun"

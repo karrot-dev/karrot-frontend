@@ -17,7 +17,7 @@
     "PASSWORD": "Contraseña",
     "CONFIRM_PASSWORD": "Confirma tu contraseña",
     "USERNAME": "Nombre",
-    "WHERE_FROM": "De donde eres (no obligado)",
+    "WHERE_FROM": "De dónde eres (opcional)",
     "PHOTO": "Foto de perfil",
     "SET_PHOTO": "Configura tu foto de perfil ...",
     "ACCOUNT": "Cuenta",
@@ -369,8 +369,8 @@
     "SUBTITLE": "Puede proporcionar comentarios para su recogida aquí",
     "SET_AMOUNT": "Establecer cantidad",
     "DELETE_AMOUNT": "Eliminar cantidad",
-    "AMOUNT": "Amount of food you were able to save (in kg)",
-    "AMOUNT_INFO": "For place statistics, we will add together the amount of all feedback.",
+    "AMOUNT": "La cantidad de comida que se salvó (en kg)",
+    "AMOUNT_INFO": "Para la estadísticas de la página, añadiremos la cantidad total de comentarios.",
     "COMMENT_PLACEHOLDER": "Fue todo bien? Se vino todo el mundo? Tu comentario aquí...",
     "PREVIOUS": "Comentarios anteriores para {store}",
     "TOGETHER_WITH": "Realizaste esta recogida con:"
@@ -443,7 +443,7 @@
     "EMAIL_NOT_DELIVERED": "Un correo electrónico no pudo serte enviado | {count} correos electrónicos no pudieron serte enviados"
   },
   "NOTIFICATION_BELLS_LIST": {
-    "TITLE": "Notificatiónes",
+    "TITLE": "Notificaciones",
     "NO_ITEMS": "No tenemos notificaciones para ti ahora."
   },
   "NOTIFICATION_BELLS": {

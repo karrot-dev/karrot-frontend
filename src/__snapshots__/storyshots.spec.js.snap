@@ -9371,7 +9371,7 @@ exports[`Storyshots Profile member 1`] = `
         </div>
       </button></div>
     <div class="photoAndName row no-wrap ellipsis">
-      <div name="turn-in" appear="" class="photo q-pa-sm q-ma-md bg-white shadow-4">
+      <div class="photo q-pa-sm q-ma-md bg-white shadow-4">
         <div class="wrapper" style="width:180px;height:180px;">
           <div text="User 162" seed="162" class="randomArt fill"></div>
         </div>
@@ -9510,7 +9510,7 @@ exports[`Storyshots Profile non-member 1`] = `
       <!---->
     </div>
     <div class="photoAndName row no-wrap ellipsis">
-      <div name="turn-in" appear="" class="photo q-pa-sm q-ma-md bg-white shadow-4">
+      <div class="photo q-pa-sm q-ma-md bg-white shadow-4">
         <div class="wrapper" style="width:180px;height:180px;">
           <div text="User 161" seed="161" class="randomArt fill"></div>
         </div>
@@ -9716,18 +9716,14 @@ exports[`Storyshots Settings Page Default 1`] = `
               </div>
             </div>
           </label>
-          <div><label for="qf_80008000-8000-8000-8000-800080008000" class="q-field row no-wrap items-start q-input q-field--standard q-field--float q-field--labeled q-field--with-bottom">
+          <div><label for="qf_80008000-8000-8000-8000-800080008000" class="q-field row no-wrap items-start q-select q-field--auto-height q-select--with-input q-field--standard q-field--float q-field--labeled q-field--with-bottom">
               <div class="q-field__before q-field__marginal row no-wrap items-center"><i aria-hidden="true" class="fas fa-map-marker q-icon"> </i></div>
               <div class="q-field__inner relative-position col self-stretch column justify-center">
                 <div tabindex="-1" class="q-field__control relative-position row no-wrap">
-                  <div class="q-field__control-container col relative-position row no-wrap q-anchor--skip"><input tabindex="0" aria-label="Where you are from (not required)" placeholder="Search" id="qf_80008000-8000-8000-8000-800080008000" type="text" value="Darmstadt, Regierungsbezirk Darmstadt, Hessen, Deutschland" class="q-field__native q-placeholder">
+                  <div class="q-field__control-container col relative-position row no-wrap q-anchor--skip">
+                    <div placeholder="Search" class="q-field__native row items-center"><input type="search" placeholder="Search" tabindex="0" id="qf_80008000-8000-8000-8000-800080008000" value="Darmstadt, Regierungsbezirk Darmstadt, Hessen, Deutschland" class="q-select__input q-placeholder col q-select__input--padding"></div>
                     <div class="q-field__label no-pointer-events absolute ellipsis">Where you are from (not required)</div>
-                    <!---->
                   </div>
-                  <div class="q-field__append q-field__marginal row no-wrap items-center"><button tabindex="0" type="button" title="Search" class="q-btn inline q-btn-item non-selectable no-outline q-btn--flat q-btn--round q-btn--actionable q-focusable q-hoverable" style="font-size:10px;">
-                      <div tabindex="-1" class="q-focus-helper"></div>
-                      <div class="q-btn__content text-center col items-center q-anchor--skip justify-center row"><i aria-hidden="true" class="fas fa-search q-icon"> </i></div>
-                    </button></div>
                   <div class="q-field__append q-field__marginal row no-wrap items-center q-anchor--skip"><i aria-hidden="true" class="material-icons q-icon cursor-pointer">cancel</i></div>
                 </div>
                 <div class="q-field__bottom row items-start q-field__bottom--animated">

@@ -10,42 +10,6 @@ function initialState () {
   }
 }
 
-/*
-const OFFERS = [
-  {
-    id: 234,
-    name: 'A bike',
-    user: 8,
-    description: `
-a **very** nice bike
-
-I had it for about _10 years_ (omg :) ) now, all good working order.
-    `,
-    photoUrls: {
-      fullSize: 'https://freegle.azureedge.net/img_13104868.jpg?t=1571086599751',
-    },
-  },
-  {
-    id: 235,
-    name: 'Lots of carrots',
-    user: 183,
-    description: 'Loads of carrots!',
-    photoUrls: {
-      fullSize: 'https://www.ilovefreegle.org/img_13160761.jpg?t=1571086622228',
-    },
-  },
-  {
-    id: 333,
-    name: 'A lovely sofa',
-    user: 183,
-    description: 'Very comfy',
-    photoUrls: {
-      fullSize: 'https://www.ilovefreegle.org/img_13159573.jpg?t=1571089461810',
-    },
-  },
-]
- */
-
 export default {
   namespaced: true,
   modules: {

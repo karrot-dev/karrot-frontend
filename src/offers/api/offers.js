@@ -67,6 +67,14 @@ export default {
     })).data)
   },
 
+  async accept (offerId) {
+    return convert((await axios.post(`/api/offers/${offerId}/accept/`)).data)
+  },
+
+  async archive (offerId) {
+    return convert((await axios.post(`/api/offers/${offerId}/archive/`)).data)
+  },
+
   async conversation (offerId) {
     return convertConversation((await axios.get(`/api/offers/${offerId}/conversation/`)).data)
   },

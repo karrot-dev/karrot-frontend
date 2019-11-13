@@ -122,6 +122,16 @@ export default {
         }).catch(() => {})
       },
 
+      async accept ({ state, commit }, { offerId }) {
+        const updatedOffer = await offers.accept(offerId)
+        commit('update', [updatedOffer])
+      },
+
+      async archive ({ state, commit }, { offerId }) {
+        const updatedOffer = await offers.archive(offerId)
+        commit('update', [updatedOffer])
+      },
+
       async select ({ dispatch, commit }, { offerId }) {
         commit('update', [await offers.get(offerId)])
         dispatch('conversations/fetchForOffer', { offerId }, { root: true })

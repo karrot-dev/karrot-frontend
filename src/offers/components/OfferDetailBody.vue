@@ -31,6 +31,24 @@
           :img-src="image.imageUrls.fullSize"
         />
       </QCarousel>
+      <div class="row">
+        <QBtn
+          v-if="offer.canEdit"
+          color="primary"
+          class="q-ma-md col"
+          @click="accept({ offerId: offer.id })"
+        >
+          Mark as accepted
+        </QBtn>
+        <QBtn
+          v-if="offer.canEdit"
+          color="red"
+          class="q-ma-md col"
+          @click="archive({ offerId: offer.id })"
+        >
+          Archive
+        </QBtn>
+      </div>
       <div class="q-ma-md">
         <Markdown :source="offer.description" />
       </div>
@@ -42,10 +60,11 @@
 import { mapActions, mapGetters } from 'vuex'
 import ChatConversation from '@/messages/components/ChatConversation'
 import Markdown from '@/utils/components/Markdown'
-import { QCarousel, QCarouselSlide } from 'quasar'
+import { QBtn, QCarousel, QCarouselSlide } from 'quasar'
 
 export default {
   components: {
+    QBtn,
     QCarousel,
     QCarouselSlide,
     ChatConversation,
@@ -90,6 +109,8 @@ export default {
       toggleReaction: 'conversations/toggleReaction',
       fetchPast: 'conversations/fetchPast',
       saveConversation: 'conversations/maybeSave',
+      accept: 'offers/accept',
+      archive: 'offers/archive',
     }),
   },
 }

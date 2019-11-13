@@ -653,6 +653,11 @@
     },
     "NO_ONGOING": "No ongoing issues."
   },
+  "ADDRESS_PICKER": {
+    "SET_AS": "Set address as",
+    "KEEP_EXISTING_LOCATION": "keep existing location on map",
+    "CHOOSE_LOCATION": "choose location on map"
+  },
   "UNSUBSCRIBE": {
     "HEADER": "Unsubscribe",
     "ALL": "Unsubscribe all",

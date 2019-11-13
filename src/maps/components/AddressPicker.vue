@@ -27,10 +27,10 @@
         >
           <QItemSection>
             <QItemLabel v-if="useSearchTerm">
-              Set address as
+              {{ $t('ADDRESS_PICKER.SET_AS') }}
               <strong>{{ itemLabel }}</strong>
-              <span v-if="hasLocation">(keep existing location on map)</span>
-              <span v-else>(choose location manually on map)</span>
+              <span v-if="hasLocation">({{ $t('ADDRESS_PICKER.KEEP_EXISTING_LOCATION') }})</span>
+              <span v-else>({{ $t('ADDRESS_PICKER.CHOOSE_LOCATION') }})</span>
             </QItemLabel>
             <QItemLabel v-else>
               {{ itemLabel }}

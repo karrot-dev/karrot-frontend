@@ -1,11 +1,21 @@
 <template>
   <ChatConversation
-    v-if="offer"
-    v-bind="mockChatConversationProps"
+    v-if="conversation"
+    :conversation="conversationWithReversedMessages"
+    :away="away"
+    :current-user="currentUser"
     compose
     :inline="inline"
+    @mark="mark"
+    @toggleReaction="toggleReaction"
+    @saveMessage="saveMessage"
+    @fetchPast="fetchPast"
+    @send="send"
   >
-    <template v-slot:before-chat-messages>
+    <template
+      v-if="offer"
+      #before-chat-messages
+    >
       <QCarousel
         v-model="selectedImageIndex"
         swipeable
@@ -29,20 +39,10 @@
 </template>
 
 <script>
-import { mapGetters } from 'vuex'
+import { mapActions, mapGetters } from 'vuex'
 import ChatConversation from '@/messages/components/ChatConversation'
 import Markdown from '@/utils/components/Markdown'
-import * as factories from '>/enrichedFactories'
 import { QCarousel, QCarouselSlide } from 'quasar'
-
-const createMockChatConversationProps = data => ({
-  currentUser: factories.makeCurrentUser(),
-  conversation: factories.makeConversation({
-    unreadMessageCount: 1,
-  }),
-  away: false,
-  ...data,
-})
 
 export default {
   components: {
@@ -59,19 +59,38 @@ export default {
   },
   data () {
     return {
-      mockChatConversationProps: createMockChatConversationProps(),
       selectedImageIndex: 0,
     }
   },
   computed: {
     ...mapGetters({
       offer: 'offers/current',
+      conversation: 'offers/currentConversation',
+      away: 'presence/toggle/away',
+      currentUser: 'auth/user',
     }),
+    conversationWithReversedMessages () {
+      return {
+        ...this.conversation,
+        messages: this.conversation.messages.slice().reverse(),
+      }
+    },
   },
   watch: {
     offer () {
       this.selectedImageIndex = 0
     },
+  },
+  methods: {
+    ...mapActions({
+      send: 'conversations/send',
+      saveMessage: 'conversations/saveMessage',
+      mark: 'conversations/maybeMark',
+      setMuted: 'conversations/maybeSetMuted',
+      toggleReaction: 'conversations/toggleReaction',
+      fetchPast: 'conversations/fetchPast',
+      saveConversation: 'conversations/maybeSave',
+    }),
   },
 }
 </script>

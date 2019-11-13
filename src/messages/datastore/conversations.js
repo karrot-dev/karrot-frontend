@@ -9,6 +9,7 @@ import groupsAPI from '@/group/api/groups'
 import issuesAPI from '@/issues/api/issues'
 import placesAPI from '@/places/api/places'
 import applicationsAPI from '@/applications/api/applications'
+import offersAPI from '@/offers/api/offers'
 import i18n from '@/base/i18n'
 import { createMetaModule, withMeta, withPrefixedIdMeta, metaStatusesWithId } from '@/utils/datastore/helpers'
 
@@ -100,6 +101,7 @@ export default {
     getForPickup: (state, getters) => pickupId => getters.getForType('pickup', pickupId),
     getForApplication: (state, getters) => applicationId => getters.getForType('application', applicationId),
     getForIssue: (state, getters) => issueId => getters.getForType('issue', issueId),
+    getForOffer: (state, getters) => offerId => getters.getForType('offer', offerId),
     getForUser: (state, getters) => userId => {
       const { id } = Object.values(state.entries).find(({ type, participants }) => type === 'private' && participants.includes(userId)) || {}
       if (!id) return
@@ -346,6 +348,15 @@ export default {
       let conversation = getters.getForIssue(issueId)
       if (!conversation) {
         conversation = await issuesAPI.conversation(issueId)
+        commit('setConversation', conversation)
+      }
+      dispatch('fetch', conversation.id)
+    },
+
+    async fetchForOffer ({ commit, getters, dispatch }, { offerId }) {
+      let conversation = getters.getForOffer(offerId)
+      if (!conversation) {
+        conversation = await offersAPI.conversation(offerId)
         commit('setConversation', conversation)
       }
       dispatch('fetch', conversation.id)

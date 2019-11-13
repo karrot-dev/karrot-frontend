@@ -60,6 +60,10 @@ export default {
     current: (state, getters) => {
       return getters.enrich(state.entries[state.currentId])
     },
+    currentConversation: (state, getters, rootState, rootGetters) => {
+      if (!state.currentId) return
+      return rootGetters['conversations/getForOffer'](state.currentId)
+    },
     enrich: (state, getters, rootState, rootGetters) => offer => {
       if (!offer) return
       return {
@@ -118,8 +122,9 @@ export default {
         }).catch(() => {})
       },
 
-      async select ({ commit }, { offerId }) {
+      async select ({ dispatch, commit }, { offerId }) {
         commit('update', [await offers.get(offerId)])
+        dispatch('conversations/fetchForOffer', { offerId }, { root: true })
       },
     }, {
       setCurrentId: ({ commit }, { offerId }) => commit('setCurrentOffer', offerId),

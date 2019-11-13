@@ -12,8 +12,8 @@
         placeholder="+"
         prevent-white-space
         :show-remove-button="false"
-        @new-image-drawn="imageDrawn(item)"
         :class="croppaClasses(item)"
+        @new-image-drawn="imageDrawn(item)"
       />
       <QBtnGroup
         rounded

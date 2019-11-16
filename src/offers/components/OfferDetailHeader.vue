@@ -42,11 +42,12 @@ export default {
   computed: {
     ...mapGetters({
       offer: 'currentOffer/value',
+      routeQuery: 'offers/routeQuery',
     }),
   },
   methods: {
     close () {
-      this.$router.push({ name: 'groupOffers' })
+      this.$router.push({ name: 'groupOffers', query: this.routeQuery })
     },
   },
 }

@@ -3,11 +3,13 @@ import offers from '@/offers/api/offers'
 import { createMetaModule, withMeta, metaStatusesWithId, createPaginationModule } from '@/utils/datastore/helpers'
 import router from '@/base/router'
 
+const DEFAULT_STATUS = 'active'
+
 function initialState () {
   return {
     entries: {},
     filter: {
-      status: 'active',
+      status: DEFAULT_STATUS,
     },
   }
 }
@@ -20,8 +22,8 @@ export default {
   },
   state: initialState(),
   getters: {
-    get: (state, getters) => pickupId => {
-      return getters.enrich(state.entries[pickupId])
+    get: (state, getters) => offerId => {
+      return getters.enrich(state.entries[offerId])
     },
     enrich: (state, getters, rootState, rootGetters) => offer => {
       if (!offer) return
@@ -36,6 +38,7 @@ export default {
       return Object.values(state.entries)
         .map(getters.enrich)
     },
+    routeQuery: ({ filter: { status } }) => status === DEFAULT_STATUS ? {} : { status },
   },
   actions: {
     ...withMeta({
@@ -54,7 +57,7 @@ export default {
       commit('clear')
     },
     ...withMeta({
-      async create ({ rootGetters, dispatch, commit }, data) {
+      async create ({ getters, rootGetters, dispatch, commit }, data) {
         const newOffer = await offers.create({
           ...data,
           group: rootGetters['currentGroup/id'],
@@ -66,10 +69,11 @@ export default {
             groupId: newOffer.group,
             offerId: newOffer.id,
           },
+          query: getters.routeQuery,
         }).catch(() => {})
       },
 
-      async save ({ dispatch, commit }, data) {
+      async save ({ getters, state, dispatch, commit }, data) {
         const updatedOffer = await offers.save(data)
         commit('update', [updatedOffer])
         router.push({
@@ -78,6 +82,7 @@ export default {
             groupId: updatedOffer.group,
             offerId: updatedOffer.id,
           },
+          query: getters.routeQuery,
         }).catch(() => {})
       },
 

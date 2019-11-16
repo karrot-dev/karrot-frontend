@@ -93,6 +93,7 @@ export default {
   computed: {
     ...mapGetters({
       offers: 'offers/all',
+      routeQuery: 'offers/routeQuery',
     }),
     cols () {
       return Math.max(1, Math.floor(this.width / 200))
@@ -122,11 +123,10 @@ export default {
       this.width = width
     },
     detailRouteFor (offerId) {
-      const query = this.status === 'active' ? {} : { status: this.status }
       return {
         name: 'offerDetail',
         params: { offerId },
-        query,
+        query: this.routeQuery,
       }
     },
   },

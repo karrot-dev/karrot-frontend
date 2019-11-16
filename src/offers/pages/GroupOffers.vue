@@ -5,10 +5,21 @@
       @resize="onResize"
     />
     <div>
-      <div>
-        <router-link :to="{ name: 'offerCreate' }">
-          <h2>CLICK HERE TO OFFER A THING!!!</h2>
-        </router-link>
+      <div
+        class="row no-wrap items-center justify-between bg-white q-px-sm q-py-xs"
+      >
+        <QSelect
+          v-model="status"
+          :options="statusOptions"
+          emit-value
+          map-options
+          outlined
+          hide-bottom-space
+          dense
+        />
+        <QBtn :to="{ name: 'offerCreate' }">
+          Create Offer
+        </QBtn>
       </div>
       <div
         v-for="offer in offers"
@@ -30,7 +41,7 @@
               :user="offer.user"
               :size="30"
             />
-            <router-link :to="{ name: 'offerDetail', params: { offerId: offer.id } }">
+            <router-link :to="detailRouteFor(offer.id)">
               {{ offer.name }}
             </router-link>
           </QCardSection>
@@ -41,20 +52,42 @@
 </template>
 
 <script>
-import { mapGetters } from 'vuex'
-import { QCard, QCardSection, QResizeObserver } from 'quasar'
+import { mapActions, mapGetters } from 'vuex'
+import { QBtn, QSelect, QCard, QCardSection, QResizeObserver } from 'quasar'
 import ProfilePicture from '@/users/components/ProfilePicture'
+import bindRoute from '@/utils/mixins/bindRoute'
 
 export default {
   components: {
     ProfilePicture,
+    QBtn,
+    QSelect,
     QCard,
     QCardSection,
     QResizeObserver,
   },
+  mixins: [
+    bindRoute({
+      status: 'active',
+    }),
+  ],
   data () {
     return {
       width: 200,
+      statusOptions: [
+        {
+          label: 'Available',
+          value: 'active',
+        },
+        {
+          label: 'My accepted offers',
+          value: 'accepted',
+        },
+        {
+          label: 'My archived offers',
+          value: 'archived',
+        },
+      ],
     }
   },
   computed: {
@@ -70,12 +103,31 @@ export default {
       }
     },
   },
+  watch: {
+    status: {
+      immediate: true,
+      handler (status) {
+        this.fetchList({ status })
+      },
+    },
+  },
   methods: {
+    ...mapActions({
+      fetchList: 'offers/fetchList',
+    }),
     visit (id) {
-      this.$router.push({ name: 'offerDetail', params: { offerId: id } })
+      this.$router.push(this.detailRouteFor(id))
     },
     onResize ({ width }) {
       this.width = width
+    },
+    detailRouteFor (offerId) {
+      const query = this.status === 'active' ? {} : { status: this.status }
+      return {
+        name: 'offerDetail',
+        params: { offerId },
+        query,
+      }
     },
   },
 }

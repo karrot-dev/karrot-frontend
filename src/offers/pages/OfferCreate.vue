@@ -4,7 +4,7 @@ import OfferForm from '@/offers/components/OfferForm'
 
 export default connect({
   actionsToEvents: {
-    save: 'offers/create',
+    save: 'currentOffer/value',
   },
   methodsToEvents: {
     // TODO: do I need this one?

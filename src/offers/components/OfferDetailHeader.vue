@@ -41,7 +41,7 @@ export default {
   },
   computed: {
     ...mapGetters({
-      offer: 'offers/current',
+      offer: 'currentOffer/value',
     }),
   },
   methods: {

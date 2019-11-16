@@ -83,8 +83,8 @@ export default {
   },
   computed: {
     ...mapGetters({
-      offer: 'offers/current',
-      conversation: 'offers/currentConversation',
+      offer: 'currentOffer/value',
+      conversation: 'currentOffer/conversation',
       away: 'presence/toggle/away',
       currentUser: 'auth/user',
     }),

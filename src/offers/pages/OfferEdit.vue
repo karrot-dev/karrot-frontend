@@ -4,7 +4,7 @@ import OfferForm from '@/offers/components/OfferForm'
 
 export default connect({
   gettersToProps: {
-    value: 'offers/current',
+    value: 'currentOffer/value',
   },
   actionsToEvents: {
     save: 'offers/save',

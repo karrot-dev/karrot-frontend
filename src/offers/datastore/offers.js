@@ -5,8 +5,10 @@ import router from '@/base/router'
 
 function initialState () {
   return {
-    currentId: null,
     entries: {},
+    filter: {
+      status: 'active',
+    },
   }
 }
 
@@ -20,13 +22,6 @@ export default {
   getters: {
     get: (state, getters) => pickupId => {
       return getters.enrich(state.entries[pickupId])
-    },
-    current: (state, getters) => {
-      return getters.enrich(state.entries[state.currentId])
-    },
-    currentConversation: (state, getters, rootState, rootGetters) => {
-      if (!state.currentId) return
-      return rootGetters['conversations/getForOffer'](state.currentId)
     },
     enrich: (state, getters, rootState, rootGetters) => offer => {
       if (!offer) return
@@ -44,9 +39,9 @@ export default {
   },
   actions: {
     ...withMeta({
-      async fetchList ({ dispatch, commit }) {
-        // TODO: add the filters in
-        const offerList = await dispatch('pagination/extractCursor', offers.list({}))
+      async fetchList ({ state, dispatch, commit }, { status = 'active' }) {
+        commit('setFilter', { status })
+        const offerList = await dispatch('pagination/extractCursor', offers.list(state.filter))
         commit('update', offerList)
         const users = offerList.map(offer => offer.user)
         commit('users/update', users, { root: true })
@@ -95,11 +90,6 @@ export default {
         const updatedOffer = await offers.archive(offerId)
         commit('update', [updatedOffer])
       },
-
-      async select ({ dispatch, commit }, { offerId }) {
-        commit('update', [await offers.get(offerId)])
-        dispatch('conversations/fetchForOffer', { offerId }, { root: true })
-      },
     }, {
       setCurrentId: ({ commit }, { offerId }) => commit('setCurrentOffer', offerId),
       getCurrentId: ({ state }) => state.currentId,
@@ -118,8 +108,9 @@ export default {
     delete (state, id) {
       if (state.entries[id]) Vue.delete(state.entries, id)
     },
-    setCurrentOffer (state, id) {
-      state.currentId = id
+    setFilter (state, data) {
+      state.entries = {}
+      state.filter = data
     },
   },
 }

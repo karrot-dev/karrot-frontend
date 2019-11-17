@@ -37,21 +37,20 @@
             </QItemLabel>
           </QItemSection>
         </QItem>
-        <QSeparator v-if="useSearchTerm" />
-        <QItemLabel
-          v-if="useSearchTerm"
-          v-t="'GLOBAL.SEARCH_RESULTS'"
-          header
-        />
-        <QItem
-          v-if="useSearchTerm && options.length === 1"
-        >
-          <QItemSection>
-            <QItemLabel>
-              {{ $t('GLOBAL.SEARCH_NOT_FOUND') }}
-            </QItemLabel>
-          </QItemSection>
-        </QItem>
+        <template v-if="useSearchTerm">
+          <QSeparator />
+          <QItemLabel
+            v-t="'GLOBAL.SEARCH_RESULTS'"
+            header
+          />
+          <QItem v-if="options.length === 1">
+            <QItemSection>
+              <QItemLabel>
+                {{ $t('GLOBAL.SEARCH_NOT_FOUND') }}
+              </QItemLabel>
+            </QItemSection>
+          </QItem>
+        </template>
       </template>
     </QSelect>
     <StandardMap

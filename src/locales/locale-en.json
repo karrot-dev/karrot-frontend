@@ -6,6 +6,7 @@
     "NOT_CONNECTED": "You aren't connected to the server",
     "INVALID_LINK": "Sorry, the link you've opened is invalid.",
     "GENERIC_ERROR": "Sorry, something went wrong",
+    "SEARCH_RESULTS": "Search results",
     "SEARCH_NOT_FOUND": "Not Found",
     "ABOUT_KARROT": "About Karrot"
   },
@@ -659,6 +660,11 @@
     "NAME_HELPER": "Short name for the item you are offering",
     "DESCRIPTION": "Description",
     "DESCRIPTION_HELPER": "Longer description of the item"
+  },
+  "ADDRESS_PICKER": {
+    "SET_AS": "Set address as",
+    "KEEP_EXISTING_LOCATION": "keep existing location on map",
+    "CHOOSE_LOCATION": "choose location on map"
   },
   "UNSUBSCRIBE": {
     "HEADER": "Unsubscribe",

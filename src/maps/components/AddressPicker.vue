@@ -58,7 +58,7 @@
       class="map"
       :markers="marker ? [marker] : []"
       :prevent-zoom="preventZoom"
-      :default-center="defaultMapCentre"
+      :default-center="defaultMapCenter"
       @markerMoved="mapMarkerMoved"
       @mapClick="mapMarkerMoved"
     />
@@ -119,7 +119,7 @@ export default {
       default: null,
       type: String,
     },
-    defaultMapCentre: {
+    defaultMapCenter: {
       default: null,
       type: Object,
     },

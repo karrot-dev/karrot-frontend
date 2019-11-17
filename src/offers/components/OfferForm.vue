@@ -31,7 +31,19 @@
           @keyup.ctrl.enter="maybeSave"
         />
 
-        <MultiCroppa v-model="edit.images" />
+        <QField
+          v-model="edit.images"
+          :rules="imageRules"
+        >
+          <template #before>
+            <QIcon name="fas fa-fw fa-star" />
+          </template>
+          <template #control>
+            <MultiCroppa v-model="edit.images" />
+          </template>
+        </QField>
+
+        <pre>{{ edit.images }}</pre>
 
         <div class="row justify-end q-gutter-sm q-mt-sm">
           <QBtn
@@ -62,7 +74,7 @@ import { validationMixin } from 'vuelidate'
 import { required, minLength, maxLength } from 'vuelidate/lib/validators'
 import editMixin from '@/utils/mixins/editMixin'
 import statusMixin from '@/utils/mixins/statusMixin'
-import { QBtn, QCard, QIcon, QInput } from 'quasar'
+import { QBtn, QField, QCard, QIcon, QInput } from 'quasar'
 import MarkdownInput from '@/utils/components/MarkdownInput'
 import MultiCroppa from '@/offers/components/MultiCroppa'
 
@@ -71,6 +83,7 @@ export default {
     MarkdownInput,
     MultiCroppa,
     QBtn,
+    QField,
     QCard,
     QInput,
     QIcon,
@@ -87,6 +100,13 @@ export default {
         images: [],
       }),
     },
+  },
+  data () {
+    return {
+      imageRules: [
+        () => this.$v.edit.images.required || this.$t('VALIDATION.IMAGE_REQUIRED'),
+      ],
+    }
   },
   computed: {
     canSave () {
@@ -107,6 +127,16 @@ export default {
         if (!m.isUnique) return this.$t('VALIDATION.UNIQUE')
       }
       return this.firstError('name')
+    },
+    hasImagesError () {
+      return !!this.imagesError
+    },
+    imagesError () {
+      if (this.$v.edit.images.$error) {
+        const m = this.$v.edit.images
+        if (!m.required) return this.$t('VALIDATION.REQUIRED')
+      }
+      return this.firstError('images')
     },
     statusOptions () {
       const statusOptions = {
@@ -146,6 +176,12 @@ export default {
         }))
     },
   },
+  // watch: {
+  //   'edit.images' () {
+  //     console.log('touch images!')
+  //     this.$v.edit.images.$touch()
+  //   },
+  // },
   methods: {
     maybeSave () {
       this.$v.edit.$touch()
@@ -163,6 +199,9 @@ export default {
       },
       description: {
         required,
+      },
+      images: {
+        required: images => images.filter(image => !image._removed).length > 0,
       },
     },
   },

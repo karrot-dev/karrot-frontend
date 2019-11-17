@@ -77,6 +77,13 @@
   dependencies:
     "@babel/types" "^7.0.0"
 
+"@babel/helper-annotate-as-pure@^7.7.0":
+  version "7.7.0"
+  resolved "https://registry.yarnpkg.com/@babel/helper-annotate-as-pure/-/helper-annotate-as-pure-7.7.0.tgz#efc54032d43891fe267679e63f6860aa7dbf4a5e"
+  integrity sha512-k50CQxMlYTYo+GGyUGFwpxKVtxVJi9yh61sXZji3zYHccK9RYliZGSTOgci85T+r+0VFN2nWbGM04PIqwfrpMg==
+  dependencies:
+    "@babel/types" "^7.7.0"
+
 "@babel/helper-builder-binary-assignment-operator-visitor@^7.1.0":
   version "7.1.0"
   resolved "https://registry.yarnpkg.com/@babel/helper-builder-binary-assignment-operator-visitor/-/helper-builder-binary-assignment-operator-visitor-7.1.0.tgz#6b69628dfe4087798e0c4ed98e3d4a6b2fbd2f5f"
@@ -121,6 +128,15 @@
   dependencies:
     "@babel/helper-function-name" "^7.1.0"
     "@babel/types" "^7.5.5"
+    lodash "^4.17.13"
+
+"@babel/helper-define-map@^7.7.0":
+  version "7.7.0"
+  resolved "https://registry.yarnpkg.com/@babel/helper-define-map/-/helper-define-map-7.7.0.tgz#60b0e9fd60def9de5054c38afde8c8ee409c7529"
+  integrity sha512-kPKWPb0dMpZi+ov1hJiwse9dWweZsz3V9rP4KdytnX1E7z3cTNmFGglwklzFPuqIcHLIY3bgKSs4vkwXXdflQA==
+  dependencies:
+    "@babel/helper-function-name" "^7.7.0"
+    "@babel/types" "^7.7.0"
     lodash "^4.17.13"
 
 "@babel/helper-explode-assignable-expression@^7.1.0":
@@ -170,12 +186,26 @@
   dependencies:
     "@babel/types" "^7.4.4"
 
+"@babel/helper-hoist-variables@^7.7.0":
+  version "7.7.0"
+  resolved "https://registry.yarnpkg.com/@babel/helper-hoist-variables/-/helper-hoist-variables-7.7.0.tgz#b4552e4cfe5577d7de7b183e193e84e4ec538c81"
+  integrity sha512-LUe/92NqsDAkJjjCEWkNe+/PcpnisvnqdlRe19FahVapa4jndeuJ+FBiTX1rcAKWKcJGE+C3Q3tuEuxkSmCEiQ==
+  dependencies:
+    "@babel/types" "^7.7.0"
+
 "@babel/helper-member-expression-to-functions@^7.5.5":
   version "7.5.5"
   resolved "https://registry.yarnpkg.com/@babel/helper-member-expression-to-functions/-/helper-member-expression-to-functions-7.5.5.tgz#1fb5b8ec4453a93c439ee9fe3aeea4a84b76b590"
   integrity sha512-5qZ3D1uMclSNqYcXqiHoA0meVdv+xUEex9em2fqMnrk/scphGlGgg66zjMrPJESPwrFJ6sbfFQYUSa0Mz7FabA==
   dependencies:
     "@babel/types" "^7.5.5"
+
+"@babel/helper-member-expression-to-functions@^7.7.0":
+  version "7.7.0"
+  resolved "https://registry.yarnpkg.com/@babel/helper-member-expression-to-functions/-/helper-member-expression-to-functions-7.7.0.tgz#472b93003a57071f95a541ea6c2b098398bcad8a"
+  integrity sha512-QaCZLO2RtBcmvO/ekOLp8p7R5X2JriKRizeDpm5ChATAFWrrYDcDxPuCIBXKyBjY+i1vYSdcUTMIb8psfxHDPA==
+  dependencies:
+    "@babel/types" "^7.7.0"
 
 "@babel/helper-module-imports@^7.0.0":
   version "7.0.0"
@@ -222,6 +252,13 @@
   dependencies:
     "@babel/types" "^7.0.0"
 
+"@babel/helper-optimise-call-expression@^7.7.0":
+  version "7.7.0"
+  resolved "https://registry.yarnpkg.com/@babel/helper-optimise-call-expression/-/helper-optimise-call-expression-7.7.0.tgz#4f66a216116a66164135dc618c5d8b7a959f9365"
+  integrity sha512-48TeqmbazjNU/65niiiJIJRc5JozB8acui1OS7bSd6PgxfuovWsvjfWSzlgx+gPFdVveNzUdpdIg5l56Pl5jqg==
+  dependencies:
+    "@babel/types" "^7.7.0"
+
 "@babel/helper-plugin-utils@^7.0.0":
   version "7.0.0"
   resolved "https://registry.yarnpkg.com/@babel/helper-plugin-utils/-/helper-plugin-utils-7.0.0.tgz#bbb3fbee98661c569034237cc03967ba99b4f250"
@@ -245,6 +282,17 @@
     "@babel/traverse" "^7.1.0"
     "@babel/types" "^7.0.0"
 
+"@babel/helper-remap-async-to-generator@^7.7.0":
+  version "7.7.0"
+  resolved "https://registry.yarnpkg.com/@babel/helper-remap-async-to-generator/-/helper-remap-async-to-generator-7.7.0.tgz#4d69ec653e8bff5bce62f5d33fc1508f223c75a7"
+  integrity sha512-pHx7RN8X0UNHPB/fnuDnRXVZ316ZigkO8y8D835JlZ2SSdFKb6yH9MIYRU4fy/KPe5sPHDFOPvf8QLdbAGGiyw==
+  dependencies:
+    "@babel/helper-annotate-as-pure" "^7.7.0"
+    "@babel/helper-wrap-function" "^7.7.0"
+    "@babel/template" "^7.7.0"
+    "@babel/traverse" "^7.7.0"
+    "@babel/types" "^7.7.0"
+
 "@babel/helper-replace-supers@^7.5.5":
   version "7.5.5"
   resolved "https://registry.yarnpkg.com/@babel/helper-replace-supers/-/helper-replace-supers-7.5.5.tgz#f84ce43df031222d2bad068d2626cb5799c34bc2"
@@ -254,6 +302,16 @@
     "@babel/helper-optimise-call-expression" "^7.0.0"
     "@babel/traverse" "^7.5.5"
     "@babel/types" "^7.5.5"
+
+"@babel/helper-replace-supers@^7.7.0":
+  version "7.7.0"
+  resolved "https://registry.yarnpkg.com/@babel/helper-replace-supers/-/helper-replace-supers-7.7.0.tgz#d5365c8667fe7cbd13b8ddddceb9bd7f2b387512"
+  integrity sha512-5ALYEul5V8xNdxEeWvRsBzLMxQksT7MaStpxjJf9KsnLxpAKBtfw5NeMKZJSYDa0lKdOcy0g+JT/f5mPSulUgg==
+  dependencies:
+    "@babel/helper-member-expression-to-functions" "^7.7.0"
+    "@babel/helper-optimise-call-expression" "^7.7.0"
+    "@babel/traverse" "^7.7.0"
+    "@babel/types" "^7.7.0"
 
 "@babel/helper-simple-access@^7.1.0":
   version "7.1.0"
@@ -294,6 +352,16 @@
     "@babel/template" "^7.1.0"
     "@babel/traverse" "^7.1.0"
     "@babel/types" "^7.2.0"
+
+"@babel/helper-wrap-function@^7.7.0":
+  version "7.7.0"
+  resolved "https://registry.yarnpkg.com/@babel/helper-wrap-function/-/helper-wrap-function-7.7.0.tgz#15af3d3e98f8417a60554acbb6c14e75e0b33b74"
+  integrity sha512-sd4QjeMgQqzshSjecZjOp8uKfUtnpmCyQhKQrVJBBgeHAB/0FPi33h3AbVlVp07qQtMD4QgYSzaMI7VwncNK/w==
+  dependencies:
+    "@babel/helper-function-name" "^7.7.0"
+    "@babel/template" "^7.7.0"
+    "@babel/traverse" "^7.7.0"
+    "@babel/types" "^7.7.0"
 
 "@babel/helpers@^7.5.5":
   version "7.5.5"
@@ -341,6 +409,15 @@
     "@babel/helper-remap-async-to-generator" "^7.1.0"
     "@babel/plugin-syntax-async-generators" "^7.2.0"
 
+"@babel/plugin-proposal-async-generator-functions@^7.7.0":
+  version "7.7.0"
+  resolved "https://registry.yarnpkg.com/@babel/plugin-proposal-async-generator-functions/-/plugin-proposal-async-generator-functions-7.7.0.tgz#83ef2d6044496b4c15d8b4904e2219e6dccc6971"
+  integrity sha512-ot/EZVvf3mXtZq0Pd0+tSOfGWMizqmOohXmNZg6LNFjHOV+wOPv7BvVYh8oPR8LhpIP3ye8nNooKL50YRWxpYA==
+  dependencies:
+    "@babel/helper-plugin-utils" "^7.0.0"
+    "@babel/helper-remap-async-to-generator" "^7.7.0"
+    "@babel/plugin-syntax-async-generators" "^7.2.0"
+
 "@babel/plugin-proposal-class-properties@^7.3.3":
   version "7.5.5"
   resolved "https://registry.yarnpkg.com/@babel/plugin-proposal-class-properties/-/plugin-proposal-class-properties-7.5.5.tgz#a974cfae1e37c3110e71f3c6a2e48b8e71958cd4"
@@ -353,6 +430,14 @@
   version "7.5.0"
   resolved "https://registry.yarnpkg.com/@babel/plugin-proposal-dynamic-import/-/plugin-proposal-dynamic-import-7.5.0.tgz#e532202db4838723691b10a67b8ce509e397c506"
   integrity sha512-x/iMjggsKTFHYC6g11PL7Qy58IK8H5zqfm9e6hu4z1iH2IRyAp9u9dL80zA6R76yFovETFLKz2VJIC2iIPBuFw==
+  dependencies:
+    "@babel/helper-plugin-utils" "^7.0.0"
+    "@babel/plugin-syntax-dynamic-import" "^7.2.0"
+
+"@babel/plugin-proposal-dynamic-import@^7.7.0":
+  version "7.7.0"
+  resolved "https://registry.yarnpkg.com/@babel/plugin-proposal-dynamic-import/-/plugin-proposal-dynamic-import-7.7.0.tgz#dc02a8bad8d653fb59daf085516fa416edd2aa7f"
+  integrity sha512-7poL3Xi+QFPC7sGAzEIbXUyYzGJwbc2+gSD0AkiC5k52kH2cqHdqxm5hNFfLW3cRSTcx9bN0Fl7/6zWcLLnKAQ==
   dependencies:
     "@babel/helper-plugin-utils" "^7.0.0"
     "@babel/plugin-syntax-dynamic-import" "^7.2.0"
@@ -398,7 +483,7 @@
     "@babel/helper-regex" "^7.4.4"
     regexpu-core "^4.5.4"
 
-"@babel/plugin-proposal-unicode-property-regex@^7.6.2":
+"@babel/plugin-proposal-unicode-property-regex@^7.7.0":
   version "7.7.0"
   resolved "https://registry.yarnpkg.com/@babel/plugin-proposal-unicode-property-regex/-/plugin-proposal-unicode-property-regex-7.7.0.tgz#549fe1717a1bd0a2a7e63163841cb37e78179d5d"
   integrity sha512-mk34H+hp7kRBWJOOAR0ZMGCydgKMD4iN9TpDRp3IIcbunltxEY89XSimc6WbtSLCDrwcdy/EEw7h5CFCzxTchw==
@@ -441,6 +526,13 @@
   dependencies:
     "@babel/helper-plugin-utils" "^7.0.0"
 
+"@babel/plugin-syntax-top-level-await@^7.7.0":
+  version "7.7.0"
+  resolved "https://registry.yarnpkg.com/@babel/plugin-syntax-top-level-await/-/plugin-syntax-top-level-await-7.7.0.tgz#f5699549f50bbe8d12b1843a4e82f0a37bb65f4d"
+  integrity sha512-hi8FUNiFIY1fnUI2n1ViB1DR0R4QeK4iHcTlW6aJkrPoTdb8Rf1EMQ6GT3f67DDkYyWgew9DFoOZ6gOoEsdzTA==
+  dependencies:
+    "@babel/helper-plugin-utils" "^7.0.0"
+
 "@babel/plugin-transform-arrow-functions@^7.2.0":
   version "7.2.0"
   resolved "https://registry.yarnpkg.com/@babel/plugin-transform-arrow-functions/-/plugin-transform-arrow-functions-7.2.0.tgz#9aeafbe4d6ffc6563bf8f8372091628f00779550"
@@ -456,6 +548,15 @@
     "@babel/helper-module-imports" "^7.0.0"
     "@babel/helper-plugin-utils" "^7.0.0"
     "@babel/helper-remap-async-to-generator" "^7.1.0"
+
+"@babel/plugin-transform-async-to-generator@^7.7.0":
+  version "7.7.0"
+  resolved "https://registry.yarnpkg.com/@babel/plugin-transform-async-to-generator/-/plugin-transform-async-to-generator-7.7.0.tgz#e2b84f11952cf5913fe3438b7d2585042772f492"
+  integrity sha512-vLI2EFLVvRBL3d8roAMqtVY0Bm9C1QzLkdS57hiKrjUBSqsQYrBsMCeOg/0KK7B0eK9V71J5mWcha9yyoI2tZw==
+  dependencies:
+    "@babel/helper-module-imports" "^7.7.0"
+    "@babel/helper-plugin-utils" "^7.0.0"
+    "@babel/helper-remap-async-to-generator" "^7.7.0"
 
 "@babel/plugin-transform-block-scoped-functions@^7.2.0":
   version "7.2.0"
@@ -494,6 +595,20 @@
     "@babel/helper-split-export-declaration" "^7.4.4"
     globals "^11.1.0"
 
+"@babel/plugin-transform-classes@^7.7.0":
+  version "7.7.0"
+  resolved "https://registry.yarnpkg.com/@babel/plugin-transform-classes/-/plugin-transform-classes-7.7.0.tgz#b411ecc1b8822d24b81e5d184f24149136eddd4a"
+  integrity sha512-/b3cKIZwGeUesZheU9jNYcwrEA7f/Bo4IdPmvp7oHgvks2majB5BoT5byAql44fiNQYOPzhk2w8DbgfuafkMoA==
+  dependencies:
+    "@babel/helper-annotate-as-pure" "^7.7.0"
+    "@babel/helper-define-map" "^7.7.0"
+    "@babel/helper-function-name" "^7.7.0"
+    "@babel/helper-optimise-call-expression" "^7.7.0"
+    "@babel/helper-plugin-utils" "^7.0.0"
+    "@babel/helper-replace-supers" "^7.7.0"
+    "@babel/helper-split-export-declaration" "^7.7.0"
+    globals "^11.1.0"
+
 "@babel/plugin-transform-computed-properties@^7.2.0":
   version "7.2.0"
   resolved "https://registry.yarnpkg.com/@babel/plugin-transform-computed-properties/-/plugin-transform-computed-properties-7.2.0.tgz#83a7df6a658865b1c8f641d510c6f3af220216da"
@@ -524,7 +639,7 @@
     "@babel/helper-regex" "^7.4.4"
     regexpu-core "^4.5.4"
 
-"@babel/plugin-transform-dotall-regex@^7.6.2":
+"@babel/plugin-transform-dotall-regex@^7.7.0":
   version "7.7.0"
   resolved "https://registry.yarnpkg.com/@babel/plugin-transform-dotall-regex/-/plugin-transform-dotall-regex-7.7.0.tgz#c5c9ecacab3a5e0c11db6981610f0c32fd698b3b"
   integrity sha512-3QQlF7hSBnSuM1hQ0pS3pmAbWLax/uGNCbPBND9y+oJ4Y776jsyujG2k0Sn2Aj2a0QwVOiOFL5QVPA7spjvzSA==
@@ -562,6 +677,14 @@
     "@babel/helper-function-name" "^7.1.0"
     "@babel/helper-plugin-utils" "^7.0.0"
 
+"@babel/plugin-transform-function-name@^7.7.0":
+  version "7.7.0"
+  resolved "https://registry.yarnpkg.com/@babel/plugin-transform-function-name/-/plugin-transform-function-name-7.7.0.tgz#0fa786f1eef52e3b7d4fc02e54b2129de8a04c2a"
+  integrity sha512-P5HKu0d9+CzZxP5jcrWdpe7ZlFDe24bmqP6a6X8BHEBl/eizAsY8K6LX8LASZL0Jxdjm5eEfzp+FIrxCm/p8bA==
+  dependencies:
+    "@babel/helper-function-name" "^7.7.0"
+    "@babel/helper-plugin-utils" "^7.0.0"
+
 "@babel/plugin-transform-literals@^7.2.0":
   version "7.2.0"
   resolved "https://registry.yarnpkg.com/@babel/plugin-transform-literals/-/plugin-transform-literals-7.2.0.tgz#690353e81f9267dad4fd8cfd77eafa86aba53ea1"
@@ -595,7 +718,7 @@
     "@babel/helper-simple-access" "^7.1.0"
     babel-plugin-dynamic-import-node "^2.3.0"
 
-"@babel/plugin-transform-modules-commonjs@^7.6.0", "@babel/plugin-transform-modules-commonjs@^7.7.0":
+"@babel/plugin-transform-modules-commonjs@^7.7.0":
   version "7.7.0"
   resolved "https://registry.yarnpkg.com/@babel/plugin-transform-modules-commonjs/-/plugin-transform-modules-commonjs-7.7.0.tgz#3e5ffb4fd8c947feede69cbe24c9554ab4113fe3"
   integrity sha512-KEMyWNNWnjOom8vR/1+d+Ocz/mILZG/eyHHO06OuBQ2aNhxT62fr4y6fGOplRx+CxCSp3IFwesL8WdINfY/3kg==
@@ -614,12 +737,29 @@
     "@babel/helper-plugin-utils" "^7.0.0"
     babel-plugin-dynamic-import-node "^2.3.0"
 
+"@babel/plugin-transform-modules-systemjs@^7.7.0":
+  version "7.7.0"
+  resolved "https://registry.yarnpkg.com/@babel/plugin-transform-modules-systemjs/-/plugin-transform-modules-systemjs-7.7.0.tgz#9baf471213af9761c1617bb12fd278e629041417"
+  integrity sha512-ZAuFgYjJzDNv77AjXRqzQGlQl4HdUM6j296ee4fwKVZfhDR9LAGxfvXjBkb06gNETPnN0sLqRm9Gxg4wZH6dXg==
+  dependencies:
+    "@babel/helper-hoist-variables" "^7.7.0"
+    "@babel/helper-plugin-utils" "^7.0.0"
+    babel-plugin-dynamic-import-node "^2.3.0"
+
 "@babel/plugin-transform-modules-umd@^7.2.0":
   version "7.2.0"
   resolved "https://registry.yarnpkg.com/@babel/plugin-transform-modules-umd/-/plugin-transform-modules-umd-7.2.0.tgz#7678ce75169f0877b8eb2235538c074268dd01ae"
   integrity sha512-BV3bw6MyUH1iIsGhXlOK6sXhmSarZjtJ/vMiD9dNmpY8QXFFQTj+6v92pcfy1iqa8DeAfJFwoxcrS/TUZda6sw==
   dependencies:
     "@babel/helper-module-transforms" "^7.1.0"
+    "@babel/helper-plugin-utils" "^7.0.0"
+
+"@babel/plugin-transform-modules-umd@^7.7.0":
+  version "7.7.0"
+  resolved "https://registry.yarnpkg.com/@babel/plugin-transform-modules-umd/-/plugin-transform-modules-umd-7.7.0.tgz#d62c7da16670908e1d8c68ca0b5d4c0097b69966"
+  integrity sha512-u7eBA03zmUswQ9LQ7Qw0/ieC1pcAkbp5OQatbWUzY1PaBccvuJXUkYzoN1g7cqp7dbTu6Dp9bXyalBvD04AANA==
+  dependencies:
+    "@babel/helper-module-transforms" "^7.7.0"
     "@babel/helper-plugin-utils" "^7.0.0"
 
 "@babel/plugin-transform-named-capturing-groups-regex@^7.4.5":
@@ -629,7 +769,7 @@
   dependencies:
     regexp-tree "^0.1.6"
 
-"@babel/plugin-transform-named-capturing-groups-regex@^7.6.3":
+"@babel/plugin-transform-named-capturing-groups-regex@^7.7.0":
   version "7.7.0"
   resolved "https://registry.yarnpkg.com/@babel/plugin-transform-named-capturing-groups-regex/-/plugin-transform-named-capturing-groups-regex-7.7.0.tgz#358e6fd869b9a4d8f5cbc79e4ed4fc340e60dcaf"
   integrity sha512-+SicSJoKouPctL+j1pqktRVCgy+xAch1hWWTMy13j0IflnyNjaoskj+DwRQFimHbLqO3sq2oN2CXMvXq3Bgapg==
@@ -679,6 +819,13 @@
   version "7.4.5"
   resolved "https://registry.yarnpkg.com/@babel/plugin-transform-regenerator/-/plugin-transform-regenerator-7.4.5.tgz#629dc82512c55cee01341fb27bdfcb210354680f"
   integrity sha512-gBKRh5qAaCWntnd09S8QC7r3auLCqq5DI6O0DlfoyDjslSBVqBibrMdsqO+Uhmx3+BlOmE/Kw1HFxmGbv0N9dA==
+  dependencies:
+    regenerator-transform "^0.14.0"
+
+"@babel/plugin-transform-regenerator@^7.7.0":
+  version "7.7.0"
+  resolved "https://registry.yarnpkg.com/@babel/plugin-transform-regenerator/-/plugin-transform-regenerator-7.7.0.tgz#f1b20b535e7716b622c99e989259d7dd942dd9cc"
+  integrity sha512-AXmvnC+0wuj/cFkkS/HFHIojxH3ffSXE+ttulrqWjZZRaUOonfJc60e1wSNT4rV8tIunvu/R3wCp71/tLAa9xg==
   dependencies:
     regenerator-transform "^0.14.0"
 
@@ -752,7 +899,7 @@
     "@babel/helper-regex" "^7.4.4"
     regexpu-core "^4.5.4"
 
-"@babel/plugin-transform-unicode-regex@^7.6.2":
+"@babel/plugin-transform-unicode-regex@^7.7.0":
   version "7.7.0"
   resolved "https://registry.yarnpkg.com/@babel/plugin-transform-unicode-regex/-/plugin-transform-unicode-regex-7.7.0.tgz#743d9bcc44080e3cc7d49259a066efa30f9187a3"
   integrity sha512-RrThb0gdrNwFAqEAAx9OWgtx6ICK69x7i9tCnMdVrxQwSDp/Abu9DXFU5Hh16VP33Rmxh04+NGW28NsIkFvFKA==
@@ -760,56 +907,57 @@
     "@babel/helper-create-regexp-features-plugin" "^7.7.0"
     "@babel/helper-plugin-utils" "^7.0.0"
 
-"@babel/preset-env@7.6.3":
-  version "7.6.3"
-  resolved "https://registry.yarnpkg.com/@babel/preset-env/-/preset-env-7.6.3.tgz#9e1bf05a2e2d687036d24c40e4639dc46cef2271"
-  integrity sha512-CWQkn7EVnwzlOdR5NOm2+pfgSNEZmvGjOhlCHBDq0J8/EStr+G+FvPEiz9B56dR6MoiUFjXhfE4hjLoAKKJtIQ==
+"@babel/preset-env@7.7.1":
+  version "7.7.1"
+  resolved "https://registry.yarnpkg.com/@babel/preset-env/-/preset-env-7.7.1.tgz#04a2ff53552c5885cf1083e291c8dd5490f744bb"
+  integrity sha512-/93SWhi3PxcVTDpSqC+Dp4YxUu3qZ4m7I76k0w73wYfn7bGVuRIO4QUz95aJksbS+AD1/mT1Ie7rbkT0wSplaA==
   dependencies:
-    "@babel/helper-module-imports" "^7.0.0"
+    "@babel/helper-module-imports" "^7.7.0"
     "@babel/helper-plugin-utils" "^7.0.0"
-    "@babel/plugin-proposal-async-generator-functions" "^7.2.0"
-    "@babel/plugin-proposal-dynamic-import" "^7.5.0"
+    "@babel/plugin-proposal-async-generator-functions" "^7.7.0"
+    "@babel/plugin-proposal-dynamic-import" "^7.7.0"
     "@babel/plugin-proposal-json-strings" "^7.2.0"
     "@babel/plugin-proposal-object-rest-spread" "^7.6.2"
     "@babel/plugin-proposal-optional-catch-binding" "^7.2.0"
-    "@babel/plugin-proposal-unicode-property-regex" "^7.6.2"
+    "@babel/plugin-proposal-unicode-property-regex" "^7.7.0"
     "@babel/plugin-syntax-async-generators" "^7.2.0"
     "@babel/plugin-syntax-dynamic-import" "^7.2.0"
     "@babel/plugin-syntax-json-strings" "^7.2.0"
     "@babel/plugin-syntax-object-rest-spread" "^7.2.0"
     "@babel/plugin-syntax-optional-catch-binding" "^7.2.0"
+    "@babel/plugin-syntax-top-level-await" "^7.7.0"
     "@babel/plugin-transform-arrow-functions" "^7.2.0"
-    "@babel/plugin-transform-async-to-generator" "^7.5.0"
+    "@babel/plugin-transform-async-to-generator" "^7.7.0"
     "@babel/plugin-transform-block-scoped-functions" "^7.2.0"
     "@babel/plugin-transform-block-scoping" "^7.6.3"
-    "@babel/plugin-transform-classes" "^7.5.5"
+    "@babel/plugin-transform-classes" "^7.7.0"
     "@babel/plugin-transform-computed-properties" "^7.2.0"
     "@babel/plugin-transform-destructuring" "^7.6.0"
-    "@babel/plugin-transform-dotall-regex" "^7.6.2"
+    "@babel/plugin-transform-dotall-regex" "^7.7.0"
     "@babel/plugin-transform-duplicate-keys" "^7.5.0"
     "@babel/plugin-transform-exponentiation-operator" "^7.2.0"
     "@babel/plugin-transform-for-of" "^7.4.4"
-    "@babel/plugin-transform-function-name" "^7.4.4"
+    "@babel/plugin-transform-function-name" "^7.7.0"
     "@babel/plugin-transform-literals" "^7.2.0"
     "@babel/plugin-transform-member-expression-literals" "^7.2.0"
     "@babel/plugin-transform-modules-amd" "^7.5.0"
-    "@babel/plugin-transform-modules-commonjs" "^7.6.0"
-    "@babel/plugin-transform-modules-systemjs" "^7.5.0"
-    "@babel/plugin-transform-modules-umd" "^7.2.0"
-    "@babel/plugin-transform-named-capturing-groups-regex" "^7.6.3"
+    "@babel/plugin-transform-modules-commonjs" "^7.7.0"
+    "@babel/plugin-transform-modules-systemjs" "^7.7.0"
+    "@babel/plugin-transform-modules-umd" "^7.7.0"
+    "@babel/plugin-transform-named-capturing-groups-regex" "^7.7.0"
     "@babel/plugin-transform-new-target" "^7.4.4"
     "@babel/plugin-transform-object-super" "^7.5.5"
     "@babel/plugin-transform-parameters" "^7.4.4"
     "@babel/plugin-transform-property-literals" "^7.2.0"
-    "@babel/plugin-transform-regenerator" "^7.4.5"
+    "@babel/plugin-transform-regenerator" "^7.7.0"
     "@babel/plugin-transform-reserved-words" "^7.2.0"
     "@babel/plugin-transform-shorthand-properties" "^7.2.0"
     "@babel/plugin-transform-spread" "^7.6.2"
     "@babel/plugin-transform-sticky-regex" "^7.2.0"
     "@babel/plugin-transform-template-literals" "^7.4.4"
     "@babel/plugin-transform-typeof-symbol" "^7.2.0"
-    "@babel/plugin-transform-unicode-regex" "^7.6.2"
-    "@babel/types" "^7.6.3"
+    "@babel/plugin-transform-unicode-regex" "^7.7.0"
+    "@babel/types" "^7.7.1"
     browserslist "^4.6.0"
     core-js-compat "^3.1.1"
     invariant "^2.2.2"
@@ -958,7 +1106,7 @@
     lodash "^4.17.13"
     to-fast-properties "^2.0.0"
 
-"@babel/types@^7.6.3", "@babel/types@^7.7.0", "@babel/types@^7.7.2":
+"@babel/types@^7.7.0", "@babel/types@^7.7.1", "@babel/types@^7.7.2":
   version "7.7.2"
   resolved "https://registry.yarnpkg.com/@babel/types/-/types-7.7.2.tgz#550b82e5571dcd174af576e23f0adba7ffc683f7"
   integrity sha512-YTf6PXoh3+eZgRCBzzP25Bugd2ngmpQVrk7kXX0i5N9BO7TFBtIgZYs7WtxtOGs8e6A4ZI7ECkbBCEHeXocvOA==
@@ -1093,14 +1241,14 @@
   resolved "https://registry.yarnpkg.com/@firebase/analytics-types/-/analytics-types-0.2.2.tgz#d442d0cda78dd5a43fe08441423d391b713987c8"
   integrity sha512-5qLwkztNdRiLMQCsxmol1FxfGddb9xpensM2y++3rv1e0L4yI+MRR9SHSC00i847tGZDrMt2u67Dyko/xmrgCA==
 
-"@firebase/analytics@0.2.5":
-  version "0.2.5"
-  resolved "https://registry.yarnpkg.com/@firebase/analytics/-/analytics-0.2.5.tgz#b2d991d55da43de6813ecbdc42a3a4e10f027997"
-  integrity sha512-m31eUpADtJmD3fBbtIvmBrsN/iqaj31eEjnmljsrnZSYhF2mr8f4soMvA5ciE4gvlgN9/z//frJJgZpCb//PLA==
+"@firebase/analytics@0.2.6":
+  version "0.2.6"
+  resolved "https://registry.yarnpkg.com/@firebase/analytics/-/analytics-0.2.6.tgz#63be28ebf5720c331e04215ede4a3d04e0da3117"
+  integrity sha512-ttuR26j0tT0Uz5Cic/xsbCdXY2VcYAo3jF1ybAvSelq0DDpHkX9J3vLm99L266eVEPCVmM3cmxRX7Iw/wPIsOQ==
   dependencies:
     "@firebase/analytics-types" "0.2.2"
-    "@firebase/installations" "0.3.4"
-    "@firebase/util" "0.2.32"
+    "@firebase/installations" "0.3.5"
+    "@firebase/util" "0.2.33"
     tslib "1.10.0"
 
 "@firebase/app-types@0.4.7":
@@ -1108,29 +1256,29 @@
   resolved "https://registry.yarnpkg.com/@firebase/app-types/-/app-types-0.4.7.tgz#792a0f117185e42ec5a247f6bedc94a921711110"
   integrity sha512-4LnhDYsUhgxMBnCfQtWvrmMy9XxeZo059HiRbpt3ufdpUcZZOBDOouQdjkODwHLhcnNrB7LeyiqYpS2jrLT8Mw==
 
-"@firebase/app@0.4.23":
-  version "0.4.23"
-  resolved "https://registry.yarnpkg.com/@firebase/app/-/app-0.4.23.tgz#102dc131aefa8bb65bb0502b8a1363e23a13bc95"
-  integrity sha512-0CSfdo0o4NGvdownwcOIpMWpnxyx8M4Ucp0vovBLnJkK3qoLo1AXTvt5Q/C3Rla1kLG3nygE0vF6jue18qDJsA==
+"@firebase/app@0.4.24":
+  version "0.4.24"
+  resolved "https://registry.yarnpkg.com/@firebase/app/-/app-0.4.24.tgz#58dc293e6af83c20700e10e7ea185cbab2b269eb"
+  integrity sha512-QkyagyuBWFaBPROLuF1h+JKsZJMFREJwykwRyxxgEaH0bvfQb64AP8OMcpBswPrh2IVHv7EZXgUAzwSWNTNHdw==
   dependencies:
     "@firebase/app-types" "0.4.7"
-    "@firebase/logger" "0.1.29"
-    "@firebase/util" "0.2.32"
+    "@firebase/logger" "0.1.30"
+    "@firebase/util" "0.2.33"
     dom-storage "2.1.0"
     tslib "1.10.0"
     xmlhttprequest "1.8.0"
 
-"@firebase/auth-types@0.8.2":
-  version "0.8.2"
-  resolved "https://registry.yarnpkg.com/@firebase/auth-types/-/auth-types-0.8.2.tgz#9722138481724a16a79f7d645e9c5598cc932269"
-  integrity sha512-qcP7wZ76CIb7IN+K544GomA42cCS36KZmQ3n9Ou1JsYplEaMo52x4UuQTZFqlRoMaUWi61oQ9jiuE5tOAMJwDA==
+"@firebase/auth-types@0.9.0":
+  version "0.9.0"
+  resolved "https://registry.yarnpkg.com/@firebase/auth-types/-/auth-types-0.9.0.tgz#74e2246f4de12a869d7dcdd2cf3f62b8796e5176"
+  integrity sha512-G1DU4wCtcyvHCPKOhcRtlXNP7soxM8X1Fi4TlmUkYvF4sRzuL2fP7EsjkBwkscP9rqHifyjdWfrV2ry31CTd3g==
 
-"@firebase/auth@0.12.4":
-  version "0.12.4"
-  resolved "https://registry.yarnpkg.com/@firebase/auth/-/auth-0.12.4.tgz#85e54957aa2b8a03b489fb9f59cf2897d0bd498a"
-  integrity sha512-nGzXJDB6NlGnd4JH16Myl2n+vQKRlJ5Wmjk10CB5ZTJu5NGs65uRf4wLBB6P2VyK0cGD/WcE+mfE34RxY/26hA==
+"@firebase/auth@0.13.0":
+  version "0.13.0"
+  resolved "https://registry.yarnpkg.com/@firebase/auth/-/auth-0.13.0.tgz#275144cc72d4318051123bd79d3fec9bbc7a746a"
+  integrity sha512-MwQA/NFUxtaqFM3wZa3iGJfs3msFzEtBL1H35oYeYlYSdq2ow023GvIioMXxs+BR5982Pia1HmzPQK6fBQu4oA==
   dependencies:
-    "@firebase/auth-types" "0.8.2"
+    "@firebase/auth-types" "0.9.0"
 
 "@firebase/database-types@0.4.7":
   version "0.4.7"
@@ -1139,14 +1287,14 @@
   dependencies:
     "@firebase/app-types" "0.4.7"
 
-"@firebase/database@0.5.11":
-  version "0.5.11"
-  resolved "https://registry.yarnpkg.com/@firebase/database/-/database-0.5.11.tgz#ce64eaccfe8b824b5e7d8a3ae120b1460e663e72"
-  integrity sha512-YEakG5uILYkZ3qEDU4F9pe1HyvPlPG2Zk1FJ5RN2Yt564lTNJTrnltRELoutWoSCAtgEUXEfiTDV+864qFSG9g==
+"@firebase/database@0.5.12":
+  version "0.5.12"
+  resolved "https://registry.yarnpkg.com/@firebase/database/-/database-0.5.12.tgz#cca539065220b662808d46d0dae86d95eff831aa"
+  integrity sha512-DIljaH+XspE6hRHErAkXAKLDiNIJkdmz0QaAWxSxqIumXgNDcxP8jEoJUXtuztWIqAhgD8z8q9/eNyYpM/p3nA==
   dependencies:
     "@firebase/database-types" "0.4.7"
-    "@firebase/logger" "0.1.29"
-    "@firebase/util" "0.2.32"
+    "@firebase/logger" "0.1.30"
+    "@firebase/util" "0.2.33"
     faye-websocket "0.11.3"
     tslib "1.10.0"
 
@@ -1155,15 +1303,15 @@
   resolved "https://registry.yarnpkg.com/@firebase/firestore-types/-/firestore-types-1.7.0.tgz#796c2d9579ed1a81ce36c216266c40232dbc3d0d"
   integrity sha512-mmWeP6XRZXYHC4LIBm69LMk6QXJDp2nVct8Xs1yH3gz517w6S7KAj0NcM7ZvvGwcUoXsm79eGukkvzQWnceTJw==
 
-"@firebase/firestore@1.7.0":
-  version "1.7.0"
-  resolved "https://registry.yarnpkg.com/@firebase/firestore/-/firestore-1.7.0.tgz#d0ebaa6c9c7fbee2ed0faa71923f6954813e1465"
-  integrity sha512-/UWkJxXGrTMPG3KVruuW7SR+knyioKWfLi0jkW5ayoQ0lPyIuQ5/SUeOLT3PsEcmJFtHAGQK/eyGoOq9mkaT9A==
+"@firebase/firestore@1.7.1":
+  version "1.7.1"
+  resolved "https://registry.yarnpkg.com/@firebase/firestore/-/firestore-1.7.1.tgz#ca9f941abbdc01bd132a63f97f009c12fbde3a04"
+  integrity sha512-6FOmUVdpIqVrYlGeO33YkxNrRfzizNoULxZW0pilDA/i76OcEInK2qG6dTMLmXLKTVqCLySdq0LvyZVa7zpR0w==
   dependencies:
     "@firebase/firestore-types" "1.7.0"
-    "@firebase/logger" "0.1.29"
-    "@firebase/util" "0.2.32"
-    "@firebase/webchannel-wrapper" "0.2.30"
+    "@firebase/logger" "0.1.30"
+    "@firebase/util" "0.2.33"
+    "@firebase/webchannel-wrapper" "0.2.31"
     "@grpc/proto-loader" "^0.5.0"
     grpc "1.24.2"
     tslib "1.10.0"
@@ -1173,10 +1321,10 @@
   resolved "https://registry.yarnpkg.com/@firebase/functions-types/-/functions-types-0.3.10.tgz#9ac1bfed56bf4e968d8c2daa12d7d935bcac9fc4"
   integrity sha512-QDh7HOxfUzLxj49szekgXxdkXz6ZwwK/63DKeDbRYMKzxo17I01+2GVisdBmUW5NkllVLgVvtOfqKbbEfndqdw==
 
-"@firebase/functions@0.4.24":
-  version "0.4.24"
-  resolved "https://registry.yarnpkg.com/@firebase/functions/-/functions-0.4.24.tgz#84cc60d741bf0f7cc14b189e71e8a079e6226c6a"
-  integrity sha512-W0kK/kOpJKPDvsIx67pQNbsyh54l2xr8uRQepcLOuMVZTgCj7bh3t7niRW8QGz8WdB/ItKf3Zz3DO6+LTGQLgQ==
+"@firebase/functions@0.4.25":
+  version "0.4.25"
+  resolved "https://registry.yarnpkg.com/@firebase/functions/-/functions-0.4.25.tgz#01e65659e7c96da25ce058f85ad5e839a89aff54"
+  integrity sha512-NPbwZpWPpMt/YacJ4QYapOITyKd+Zvpk4f7Yiy+F6bS+X5u8RI8yyhFaF1dzWD8e3y8OD4zCKbpCVWKkYDThhA==
   dependencies:
     "@firebase/functions-types" "0.3.10"
     "@firebase/messaging-types" "0.3.4"
@@ -1188,34 +1336,34 @@
   resolved "https://registry.yarnpkg.com/@firebase/installations-types/-/installations-types-0.2.1.tgz#83f79ed575f1fd3d973ab3b5180f16cb10647712"
   integrity sha512-647hwBhMKOjoLndCyi9XmT1wnrRc2T8aGIAoZBqy7rxFqu3c9jZRk3THfufLy1xvAJC3qqYavETrRYF3VigM7Q==
 
-"@firebase/installations@0.3.4":
-  version "0.3.4"
-  resolved "https://registry.yarnpkg.com/@firebase/installations/-/installations-0.3.4.tgz#222a67a357a6081acfef61dc088179d44257dabd"
-  integrity sha512-uYPoe4ALzoY/1XffEfR0hHnbHQdTLxCCKq7hGe9Y0QBYwVSsC1DivbEXuV63vCLjDLz1kTfNbOnpSVHmqmK/vQ==
+"@firebase/installations@0.3.5":
+  version "0.3.5"
+  resolved "https://registry.yarnpkg.com/@firebase/installations/-/installations-0.3.5.tgz#11999970ced4db9f9fe9ecbe010ef6598090e32e"
+  integrity sha512-i/5emquF4adUM1qfxiAIc7f6bpGmU4k+OG9aowwQkhToeQGtHR1QIaxRxFqNTaThJgxvKOMP7LzZpuhzOejloQ==
   dependencies:
     "@firebase/installations-types" "0.2.1"
-    "@firebase/util" "0.2.32"
+    "@firebase/util" "0.2.33"
     idb "3.0.2"
     tslib "1.10.0"
 
-"@firebase/logger@0.1.29":
-  version "0.1.29"
-  resolved "https://registry.yarnpkg.com/@firebase/logger/-/logger-0.1.29.tgz#74f54ee98ec3e719f5df3b4b7c934ded036138bb"
-  integrity sha512-0GDGHT0eCskNMnDwB1Bx85lHzux9zrf7OJmG/0+kdVkQYFmqJpKwEJnb0mAxLVIVdhYmcYZXPBxUGnN/cQzHNQ==
+"@firebase/logger@0.1.30":
+  version "0.1.30"
+  resolved "https://registry.yarnpkg.com/@firebase/logger/-/logger-0.1.30.tgz#44079d93113e3567a9f32f35b22097fcde08248d"
+  integrity sha512-smlUDMiOLZD7kgBzcdSbICCvDblglq0X3NUcvV450kjZxOOPY1jPK54Qd/m0qbKrRlHWwr83reJGcPQDVBXd+A==
 
 "@firebase/messaging-types@0.3.4":
   version "0.3.4"
   resolved "https://registry.yarnpkg.com/@firebase/messaging-types/-/messaging-types-0.3.4.tgz#8154d731355194f8de9a6cbcd33b84c696b5f2ba"
   integrity sha512-ytOzB08u8Z15clbq9cAjhFzUs4WRy13A7gRphjnf5rQ+gsrqb4mpcsGIp0KeOcu7MjcN9fqjO5nbVaw0t2KJpQ==
 
-"@firebase/messaging@0.5.5":
-  version "0.5.5"
-  resolved "https://registry.yarnpkg.com/@firebase/messaging/-/messaging-0.5.5.tgz#dcead035ec09c61e1b0d3a6488d1049ae1edb299"
-  integrity sha512-NhF2Mf19qec5hpXtwnwilQGLYcoCN8hvorjuilyrPfeeZEtH1EXOSHMEoSzgJCFBOfvCf+5/Gxug+RZrZV7Hjw==
+"@firebase/messaging@0.5.6":
+  version "0.5.6"
+  resolved "https://registry.yarnpkg.com/@firebase/messaging/-/messaging-0.5.6.tgz#842d39448b20932ee4abb4d7a963e6e3cd074b5c"
+  integrity sha512-82c7R559grAuAYKMWZtV2WyT/3MuSCaO8E0Ks/77Ner293cAPiMckUPoqmavn7n2qZqhwAtZxEMtsBOM0Um9bQ==
   dependencies:
-    "@firebase/installations" "0.3.4"
+    "@firebase/installations" "0.3.5"
     "@firebase/messaging-types" "0.3.4"
-    "@firebase/util" "0.2.32"
+    "@firebase/util" "0.2.33"
     tslib "1.10.0"
 
 "@firebase/performance-types@0.0.5":
@@ -1223,23 +1371,23 @@
   resolved "https://registry.yarnpkg.com/@firebase/performance-types/-/performance-types-0.0.5.tgz#8576af338ef1890bce57fbd7cd1c99ef65cedf4b"
   integrity sha512-7BOQ2sZZzaIvxscgan/uP8GcH2FZXzqGcQnXvUZBXfXignAM80hJ7UOjVRETa4UjtDehWcD/pZDDivupKtKUyg==
 
-"@firebase/performance@0.2.24":
-  version "0.2.24"
-  resolved "https://registry.yarnpkg.com/@firebase/performance/-/performance-0.2.24.tgz#2ba8709d5a638bc92a9be05f416fb5886c069e95"
-  integrity sha512-jsTwP1RogWLVZNNUjMhmOZbwhwVMKxZie3tfTaGR2+Co752EQuzo/2+RxWk8Pgs3dj8XyJvPVtkXFrWRpshGiA==
+"@firebase/performance@0.2.25":
+  version "0.2.25"
+  resolved "https://registry.yarnpkg.com/@firebase/performance/-/performance-0.2.25.tgz#f8aa5f28d62c8c3c08b86d39e9d2b9cf39595463"
+  integrity sha512-XFm+Xmdzeo/bO//a2OMI7bstopalgkEiTGVySIV598SG6LZ5fIHRTOVN4h5fDqfizWek9kLUVrg3g4i7F/h/Fg==
   dependencies:
-    "@firebase/installations" "0.3.4"
-    "@firebase/logger" "0.1.29"
+    "@firebase/installations" "0.3.5"
+    "@firebase/logger" "0.1.30"
     "@firebase/performance-types" "0.0.5"
-    "@firebase/util" "0.2.32"
+    "@firebase/util" "0.2.33"
     tslib "1.10.0"
 
-"@firebase/polyfill@0.3.27":
-  version "0.3.27"
-  resolved "https://registry.yarnpkg.com/@firebase/polyfill/-/polyfill-0.3.27.tgz#88130523c5fa739386aee4c2662cff902d0aaea6"
-  integrity sha512-dtPtPbpFqSW0T5u31/Qn1Kp4E3xNq6sxLYT7DZ86U4mdg5t0BJtmQRQLEMOd248XNW6zSkloxzJG7oT0b9VFyQ==
+"@firebase/polyfill@0.3.28":
+  version "0.3.28"
+  resolved "https://registry.yarnpkg.com/@firebase/polyfill/-/polyfill-0.3.28.tgz#3e834d00afd3470ece5b0ad3efab7492dac460db"
+  integrity sha512-sDYzcxx94oripcZb/bl3BkAVmCWkRQBc0l0hh+18yztrJR0F7BaltGgxVpy/T0Ntv5ZoQfMupHaDOTjYVnXT6g==
   dependencies:
-    core-js "3.3.6"
+    core-js "3.4.0"
     promise-polyfill "8.1.3"
     whatwg-fetch "2.0.4"
 
@@ -1248,15 +1396,15 @@
   resolved "https://registry.yarnpkg.com/@firebase/remote-config-types/-/remote-config-types-0.1.2.tgz#056f30e9ba400cc191978bf5138ee4e11ab0d123"
   integrity sha512-V1LutCn9fHC5ckkjJFGGB7z72xdg50RVaCkR80x4iJXqac0IpbEr1/k29HSPKiAlf+aIYyj6gFzl7gn4ZzsUcA==
 
-"@firebase/remote-config@0.1.5":
-  version "0.1.5"
-  resolved "https://registry.yarnpkg.com/@firebase/remote-config/-/remote-config-0.1.5.tgz#fe8ec247c298fdec59a63be9880fdb7d20311f7f"
-  integrity sha512-gK9P5B+RdZvqW7YrGcZpaZK50e+VaVFY4hrulIIg73uvK1QeBLqY6h4ARzLyqFQDc3dCM2MJzn56z+hc7lz4pA==
+"@firebase/remote-config@0.1.6":
+  version "0.1.6"
+  resolved "https://registry.yarnpkg.com/@firebase/remote-config/-/remote-config-0.1.6.tgz#017914988646fee9262c8ca5be41d5c5db38454b"
+  integrity sha512-SD9kT24PWiyV9quNb81PJsHPHw/txhnlGO3Uv5ihAINcYLSOAukjSuWUrtNMa0ISOtS5fP2e+4wUU+zc7VXZrg==
   dependencies:
-    "@firebase/installations" "0.3.4"
-    "@firebase/logger" "0.1.29"
+    "@firebase/installations" "0.3.5"
+    "@firebase/logger" "0.1.30"
     "@firebase/remote-config-types" "0.1.2"
-    "@firebase/util" "0.2.32"
+    "@firebase/util" "0.2.33"
     tslib "1.10.0"
 
 "@firebase/storage-types@0.3.5":
@@ -1264,26 +1412,26 @@
   resolved "https://registry.yarnpkg.com/@firebase/storage-types/-/storage-types-0.3.5.tgz#c8bce8b09fa5937cb55a77b5549237ebc66fd996"
   integrity sha512-rbG6ge3xmte0nUt0asMToPqmNRU4tCJuu73Uy0UJV4uMBQA7e27EXbPza3nBpeOrgASBV9eWPD5AzecjBvTyzQ==
 
-"@firebase/storage@0.3.18":
-  version "0.3.18"
-  resolved "https://registry.yarnpkg.com/@firebase/storage/-/storage-0.3.18.tgz#63ce56a0c0082f342a544f93cc3e378691c5e394"
-  integrity sha512-+xG7j7w7JkScZK7m7KYUd/l3Z8CrvbpXZbD3WAv5BzFncbMYcDjDtdWmK8tC9xly/GU56fxg8HPDYoeI52bvXw==
+"@firebase/storage@0.3.19":
+  version "0.3.19"
+  resolved "https://registry.yarnpkg.com/@firebase/storage/-/storage-0.3.19.tgz#cc3e24cf5e137b1f8ab1c906440eb5be84da4b38"
+  integrity sha512-mPq1UL82rzpZjXWWJPeEYxPhStvNUChx2wYEehpGEyD9cNwrFIJFUzgFH7cobENWt3+lnJjHbF0BgxdGY2iS8Q==
   dependencies:
     "@firebase/storage-types" "0.3.5"
-    "@firebase/util" "0.2.32"
+    "@firebase/util" "0.2.33"
     tslib "1.10.0"
 
-"@firebase/util@0.2.32":
-  version "0.2.32"
-  resolved "https://registry.yarnpkg.com/@firebase/util/-/util-0.2.32.tgz#7a7a9c4518551de1175ee5a84ab78d0473af67b5"
-  integrity sha512-n5l1RDxzhQeLOFWRPdatyGt3ig1NLEmtO1wnG4x3Z5rOZAb09aBp+kYBu5HExJ4o6e+36lJ6l3nwdRnsJWaUlQ==
+"@firebase/util@0.2.33":
+  version "0.2.33"
+  resolved "https://registry.yarnpkg.com/@firebase/util/-/util-0.2.33.tgz#14861561931cdf73a2dd1b611e1af56edcccf583"
+  integrity sha512-Z4gUew2wtPhLU9SKrHL8c3H66+MjY2JKtrlGLNdIVJGgR4i7AoNPnPdi13mpTXPKVuHe9ANDq/O04GfY89WXug==
   dependencies:
     tslib "1.10.0"
 
-"@firebase/webchannel-wrapper@0.2.30":
-  version "0.2.30"
-  resolved "https://registry.yarnpkg.com/@firebase/webchannel-wrapper/-/webchannel-wrapper-0.2.30.tgz#dd6878dffb09b6aedcbbfb226ce6461375b7c354"
-  integrity sha512-tja+VVbHFN2q6k+n1Mgu/hFuips9UVCYTLzwbRL6Uu398OKPo57RoT4+UFrZx1iqb84ATw7ZEn7TtDH7IjtjJQ==
+"@firebase/webchannel-wrapper@0.2.31":
+  version "0.2.31"
+  resolved "https://registry.yarnpkg.com/@firebase/webchannel-wrapper/-/webchannel-wrapper-0.2.31.tgz#7f764fe54c332aa05aa6650bc540f5eebd9b782a"
+  integrity sha512-o3eXD0g9hFVcJIncFcW4/tYFEgQb+KF7tPU46wQBBh5pR7dHNOOkp3SQC1xoduqghcT5nr3N5LUIT/7Bde3D/A==
 
 "@grpc/proto-loader@^0.5.0":
   version "0.5.2"
@@ -1579,10 +1727,10 @@
     react-lifecycles-compat "^3.0.4"
     warning "^3.0.0"
 
-"@sentry/browser@^5.8.0":
-  version "5.8.0"
-  resolved "https://registry.yarnpkg.com/@sentry/browser/-/browser-5.8.0.tgz#cd8adb96154ed1777fb14278d802bf90df06d15f"
-  integrity sha512-o8OWLZ2+IT8FbSa4MWBtXbENG5hmDR511VFE5l/q/BjE6W/mWyiA+9UxFkxNvRFvhT/r436mXzNcmmRli/AQ2A==
+"@sentry/browser@^5.9.0":
+  version "5.9.0"
+  resolved "https://registry.yarnpkg.com/@sentry/browser/-/browser-5.9.0.tgz#09f6f544fce51d52f2e086ef776509b15ef04761"
+  integrity sha512-KTpmAau98QyJZtoV7LVYEFd1cdKQGk5yHlRyP3pCkhDcRbgicBNR3umdRDpsI5Ozgix3zNlyQprz0iQPmrPNRQ==
   dependencies:
     "@sentry/core" "5.8.0"
     "@sentry/types" "5.7.1"
@@ -4486,10 +4634,10 @@ core-js-pure@^3.0.0, core-js-pure@^3.0.1:
   resolved "https://registry.yarnpkg.com/core-js-pure/-/core-js-pure-3.2.1.tgz#879a23699cff46175bfd2d09158b5c50645a3c45"
   integrity sha512-+qpvnYrsi/JDeQTArB7NnNc2VoMYLE1YSkziCDHgjexC2KH7OFiGhLUd3urxfyWmNjSwSW7NYXPWHMhuIJx9Ow==
 
-core-js@3.3.6:
-  version "3.3.6"
-  resolved "https://registry.yarnpkg.com/core-js/-/core-js-3.3.6.tgz#6ad1650323c441f45379e176ed175c0d021eac92"
-  integrity sha512-u4oM8SHwmDuh5mWZdDg9UwNVq5s1uqq6ZDLLIs07VY+VJU91i3h4f3K/pgFvtUQPGdeStrZ+odKyfyt4EnKHfA==
+core-js@3.4.0:
+  version "3.4.0"
+  resolved "https://registry.yarnpkg.com/core-js/-/core-js-3.4.0.tgz#29ea478601789c72f2978e9bb98f43546f89d3aa"
+  integrity sha512-lQxb4HScV71YugF/X28LtePZj9AB7WqOpcB+YztYxusvhrgZiQXPmCYfPC5LHsw/+ScEtDbXU3xbqH3CjBRmYA==
 
 core-js@3.4.1:
   version "3.4.1"
@@ -6199,25 +6347,25 @@ findup-sync@3.0.0:
     micromatch "^3.0.4"
     resolve-dir "^1.0.1"
 
-firebase@7.3.0:
-  version "7.3.0"
-  resolved "https://registry.yarnpkg.com/firebase/-/firebase-7.3.0.tgz#b81540de8f5115349868ff1ad9208d9371747996"
-  integrity sha512-AlCwtFuqLE2b1RkCXV9YKw7kSbIJW6r8n/pBDajORKDnCeQsiSmT+nDmcDtXgXOyLgLtJ0p/q5Mt3VHZ4kmxEg==
+firebase@7.4.0:
+  version "7.4.0"
+  resolved "https://registry.yarnpkg.com/firebase/-/firebase-7.4.0.tgz#d14e4ecb40121ebf9499cb90dbf75c4172f581d8"
+  integrity sha512-wGUMmtzKSmmHP1P0wCQYutg6b19RuoqW7CLYoQu5YtaCOGR0OACA8VbHuPm88iQh/v/Qj3r/tHgmFEygnMkc/w==
   dependencies:
-    "@firebase/analytics" "0.2.5"
-    "@firebase/app" "0.4.23"
+    "@firebase/analytics" "0.2.6"
+    "@firebase/app" "0.4.24"
     "@firebase/app-types" "0.4.7"
-    "@firebase/auth" "0.12.4"
-    "@firebase/database" "0.5.11"
-    "@firebase/firestore" "1.7.0"
-    "@firebase/functions" "0.4.24"
-    "@firebase/installations" "0.3.4"
-    "@firebase/messaging" "0.5.5"
-    "@firebase/performance" "0.2.24"
-    "@firebase/polyfill" "0.3.27"
-    "@firebase/remote-config" "0.1.5"
-    "@firebase/storage" "0.3.18"
-    "@firebase/util" "0.2.32"
+    "@firebase/auth" "0.13.0"
+    "@firebase/database" "0.5.12"
+    "@firebase/firestore" "1.7.1"
+    "@firebase/functions" "0.4.25"
+    "@firebase/installations" "0.3.5"
+    "@firebase/messaging" "0.5.6"
+    "@firebase/performance" "0.2.25"
+    "@firebase/polyfill" "0.3.28"
+    "@firebase/remote-config" "0.1.6"
+    "@firebase/storage" "0.3.19"
+    "@firebase/util" "0.2.33"
 
 flat-cache@^2.0.1:
   version "2.0.1"
@@ -13920,19 +14068,19 @@ tweetnacl@^0.14.3, tweetnacl@~0.14.0:
   resolved "https://registry.yarnpkg.com/tweetnacl/-/tweetnacl-0.14.5.tgz#5ae68177f192d4456269d108afa93ff8743f4f64"
   integrity sha1-WuaBd/GS1EViadEIr6k/+HQ/T2Q=
 
-twemoji-parser@12.1.0:
-  version "12.1.0"
-  resolved "https://registry.yarnpkg.com/twemoji-parser/-/twemoji-parser-12.1.0.tgz#018fb2a67f4747d9decfbf2bb4372995fc568997"
-  integrity sha512-jaHYltumP/E8nR+YzRrY753j9dEpL3zH8+pDXgf9h/10wHeW/9IIjs6mZ1Z/Syh8rIaOQObev1BAX/AinFmuOg==
+twemoji-parser@12.1.1:
+  version "12.1.1"
+  resolved "https://registry.yarnpkg.com/twemoji-parser/-/twemoji-parser-12.1.1.tgz#9532a869e3348dbb129d93ed1850f6e871bec2be"
+  integrity sha512-XFUB4ReEvPbNPtiuyo/+crM4RldYbRRAhyE7Hw6EnfBdXECGydw7a49EGADayRvaeierP/m4DSv/OZQObh0LGA==
 
-twemoji@^12.1.3:
-  version "12.1.3"
-  resolved "https://registry.yarnpkg.com/twemoji/-/twemoji-12.1.3.tgz#4bebee358c7c44c4278d2badf320bc9e1d057f1d"
-  integrity sha512-Y5mC7vVovHZvCzdXDepJaU6FHPd7PaW6ZTBMWy9sGYafLBn1x0h2T6aGA3cpnz3WgWWg2QI+3D+9Rn4Z/ViitQ==
+twemoji@^12.1.4:
+  version "12.1.4"
+  resolved "https://registry.yarnpkg.com/twemoji/-/twemoji-12.1.4.tgz#bf61470cc70f9c18fa5c212de1fe2637cd159589"
+  integrity sha512-e37lUlVijmABF7wPCc09s1kKj3hcpzU8KL5zw2bBDIXOtOr4luLF+ODJaEqca8dZPmLR5ezrJYI93nhPovKBiQ==
   dependencies:
     fs-extra "^8.0.1"
     jsonfile "^5.0.0"
-    twemoji-parser "12.1.0"
+    twemoji-parser "12.1.1"
     universalify "^0.1.2"
 
 type-check@~0.3.2:

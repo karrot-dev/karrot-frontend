@@ -23,15 +23,13 @@ import lolex from 'lolex'
 import { createRenderer } from 'vue-server-renderer'
 import Vue from 'vue'
 import configureQuasar from '@/base/configureQuasar'
-import { mount, RouterLinkStub, TransitionStub, TransitionGroupStub } from '@vue/test-utils'
+import { mount, RouterLinkStub } from '@vue/test-utils'
 import i18n from '@/base/i18n'
 import routerMocks from '>/routerMocks'
 
 i18n.locale = 'en'
 configureQuasar(Vue)
 Vue.component('RouterLink', RouterLinkStub)
-Vue.component('Transition', TransitionStub)
-Vue.component('TransitionGroup', TransitionGroupStub)
 
 // To get properly faked dates, install fake Date object before importing stories
 const now = new Date('2017-12-24T12:00:00Z')
@@ -92,6 +90,7 @@ for (const group of mockStories) {
           const component = story.render()
 
           const wrapper = mount(component, {
+            sync: false,
             mocks: {
               ...routerMocks,
             },

@@ -161,8 +161,8 @@ export default {
       const source = {
         _new: true,
         position,
-        toBlob () {
-          return croppa && croppa.hasImage() && croppa.promisedBlob()
+        toBlob (mimeType) {
+          return croppa && croppa.hasImage() && croppa.promisedBlob(mimeType, 0.9)
         },
       }
 

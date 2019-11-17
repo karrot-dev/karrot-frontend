@@ -1,6 +1,12 @@
 import Vue from 'vue'
 import offers from '@/offers/api/offers'
-import { createMetaModule, withMeta, metaStatusesWithId, createPaginationModule } from '@/utils/datastore/helpers'
+import {
+  createMetaModule,
+  withMeta,
+  metaStatusesWithId,
+  createPaginationModule,
+  metaStatuses,
+} from '@/utils/datastore/helpers'
 import router from '@/base/router'
 
 const DEFAULT_STATUS = 'active'
@@ -22,6 +28,7 @@ export default {
   },
   state: initialState(),
   getters: {
+    ...metaStatuses(['create']),
     get: (state, getters) => offerId => {
       return getters.enrich(state.entries[offerId])
     },
@@ -85,7 +92,9 @@ export default {
           query: getters.routeQuery,
         }).catch(() => {})
       },
+    }),
 
+    ...withMeta({
       async accept ({ state, commit }, { offerId }) {
         const updatedOffer = await offers.accept(offerId)
         commit('update', [updatedOffer])
@@ -96,8 +105,6 @@ export default {
         commit('update', [updatedOffer])
       },
     }, {
-      setCurrentId: ({ commit }, { offerId }) => commit('setCurrentOffer', offerId),
-      getCurrentId: ({ state }) => state.currentId,
       findId: ({ offerId }) => offerId,
     }),
   },

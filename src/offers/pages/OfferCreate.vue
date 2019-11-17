@@ -3,8 +3,11 @@ import { connect } from 'vuex-connect'
 import OfferForm from '@/offers/components/OfferForm'
 
 export default connect({
+  gettersToProps: {
+    status: 'offers/createStatus',
+  },
   actionsToEvents: {
-    save: 'currentOffer/value',
+    save: 'offers/create',
   },
   methodsToEvents: {
     // TODO: do I need this one?

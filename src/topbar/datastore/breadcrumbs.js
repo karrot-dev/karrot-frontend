@@ -57,7 +57,7 @@ export default {
           }
         }
         else if (item.type === 'activeOffer') {
-          const offer = rootGetters['offers/current']
+          const offer = rootGetters['currentOffer/value']
           if (offer) {
             return {
               name: offer.name,

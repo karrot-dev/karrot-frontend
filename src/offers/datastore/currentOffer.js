@@ -23,6 +23,10 @@ export default {
       if (!state.current) return
       return rootGetters['conversations/getForOffer'](state.current.id)
     },
+    saveStatus: (state, getters) => {
+      const currentOffer = getters.value
+      return currentOffer && currentOffer.saveStatus
+    },
   },
   actions: {
     ...withMeta({

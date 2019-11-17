@@ -10,13 +10,12 @@
           v-model="edit.name"
           :label="$t('OFFER.NAME')"
           :hint="$t('OFFER.NAME_HELPER')"
-          :error="hasNameError"
-          :error-message="nameError"
+          v-bind="nameError"
           :autofocus="!$q.platform.has.touch"
           autocomplete="off"
           @blur="$v.edit.name.$touch"
         >
-          <template v-slot:before>
+          <template #before>
             <QIcon name="fas fa-fw fa-star" />
           </template>
         </QInput>
@@ -26,14 +25,13 @@
           icon="fas fa-fw fa-address-card"
           :label="$t('OFFER.DESCRIPTION')"
           :hint="$t('OFFER.DESCRIPTION_HELPER')"
-          :error="hasError('description')"
-          :error-message="firstError('description')"
+          v-bind="descriptionError"
           @keyup.ctrl.enter="maybeSave"
         />
 
         <QField
           v-model="edit.images"
-          :rules="imageRules"
+          v-bind="imagesError"
         >
           <template #before>
             <QIcon name="fas fa-fw fa-star" />
@@ -42,8 +40,6 @@
             <MultiCroppa v-model="edit.images" />
           </template>
         </QField>
-
-        <pre>{{ edit.images }}</pre>
 
         <div class="row justify-end q-gutter-sm q-mt-sm">
           <QBtn
@@ -78,6 +74,41 @@ import { QBtn, QField, QCard, QIcon, QInput } from 'quasar'
 import MarkdownInput from '@/utils/components/MarkdownInput'
 import MultiCroppa from '@/offers/components/MultiCroppa'
 
+const NAME_MIN_LENGTH = 5
+const NAME_MAX_LENGTH = 80
+
+const NO_ERROR = {
+  error: false,
+  errorMessage: '',
+}
+
+function mapErrors (config) {
+  const computed = {}
+  for (const property of Object.keys(config)) {
+    const rules = config[property]
+    computed[`${property}Error`] = function () {
+      const checkServerErrors = () => {
+        const firstServerError = this.firstError(property)
+        if (!firstServerError) return NO_ERROR
+        return {
+          error: true,
+          errorMessage: firstServerError,
+        }
+      }
+      const vuelidate = this.$v.edit[property]
+      if (vuelidate === undefined || !vuelidate.$error) return checkServerErrors()
+      const ruleWithError = rules.find(([ruleName]) => !vuelidate[ruleName])
+      if (!ruleWithError) return checkServerErrors()
+      const [, i18nKey, i18nParams] = ruleWithError
+      return {
+        error: true,
+        errorMessage: this.$t(i18nKey, i18nParams),
+      }
+    }
+  }
+  return computed
+}
+
 export default {
   components: {
     MarkdownInput,
@@ -101,13 +132,6 @@ export default {
       }),
     },
   },
-  data () {
-    return {
-      imageRules: [
-        () => this.$v.edit.images.required || this.$t('VALIDATION.IMAGE_REQUIRED'),
-      ],
-    }
-  },
   computed: {
     canSave () {
       if (this.$v.edit.$error) {
@@ -115,73 +139,20 @@ export default {
       }
       return this.isNew || this.hasChanged
     },
-    hasNameError () {
-      return !!this.nameError
-    },
-    nameError () {
-      if (this.$v.edit.name.$error) {
-        const m = this.$v.edit.name
-        if (!m.required) return this.$t('VALIDATION.REQUIRED')
-        if (!m.minLength) return this.$t('VALIDATION.MINLENGTH', { min: 4 })
-        if (!m.maxLength) return this.$t('VALIDATION.MAXLENGTH', { max: 81 })
-        if (!m.isUnique) return this.$t('VALIDATION.UNIQUE')
-      }
-      return this.firstError('name')
-    },
-    hasImagesError () {
-      return !!this.imagesError
-    },
-    imagesError () {
-      if (this.$v.edit.images.$error) {
-        const m = this.$v.edit.images
-        if (!m.required) return this.$t('VALIDATION.REQUIRED')
-      }
-      return this.firstError('images')
-    },
-    statusOptions () {
-      const statusOptions = {
-        active: {
-          label: 'OFFERSTATUS.ACTIVE',
-          color: 'positive',
-          icon: 'fas fa-circle',
-          selectable: true,
-          sort: 1,
-        },
-        accepted: {
-          label: 'OFFERSTATUS.ACCEPTED',
-          color: 'blue',
-          icon: 'fas fa-circle',
-          selectable: true,
-          sort: 2,
-        },
-        disabled: {
-          label: 'OFFERSTATUS.DISABLED',
-          color: 'grey',
-          icon: 'fas fa-circle',
-          selectable: true,
-          sort: 3,
-        },
-      }
-      for (const key of Object.keys(statusOptions)) {
-        statusOptions[key].key = key
-      }
-      const statusList = Object.values(statusOptions)
-      return statusList
-        .filter(s => s.selectable)
-        .map(s => ({
-          value: s.key,
-          label: this.$t(s.label),
-          color: s.color,
-          icon: s.icon,
-        }))
-    },
+    ...mapErrors({
+      name: [
+        ['required', 'VALIDATION.REQUIRED'],
+        ['minLength', 'VALIDATION.MINLENGTH', { min: NAME_MIN_LENGTH - 1 }],
+        ['maxLength', 'VALIDATION.MAXLENGTH', { max: NAME_MAX_LENGTH + 1 }],
+      ],
+      description: [
+        ['required', 'VALIDATION.REQUIRED'],
+      ],
+      images: [
+        ['required', 'VALIDATION.IMAGE_REQUIRED'],
+      ],
+    }),
   },
-  // watch: {
-  //   'edit.images' () {
-  //     console.log('touch images!')
-  //     this.$v.edit.images.$touch()
-  //   },
-  // },
   methods: {
     maybeSave () {
       this.$v.edit.$touch()
@@ -194,8 +165,8 @@ export default {
     edit: {
       name: {
         required,
-        minLength: minLength(5),
-        maxLength: maxLength(80),
+        minLength: minLength(NAME_MIN_LENGTH),
+        maxLength: maxLength(NAME_MAX_LENGTH),
       },
       description: {
         required,

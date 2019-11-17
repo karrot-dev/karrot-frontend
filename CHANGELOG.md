@@ -21,8 +21,13 @@ Please document your changes in this format:
 ```
 
 ## [Unreleased]
+
+## [8.2.0] - 2019-11-17
 ### Added
 - Group messages from same author @teemukaaria
+
+### Changed
+- Add autocomplete for addresses again @nicksellen
 
 ## [8.1.2] - 2019-11-05
 ### Fixed
@@ -506,7 +511,8 @@ After months of planning and programming, the first version of ~the foodsaving t
 [#1690]: https://github.com/yunity/karrot-frontend/issues/1690
 [#1691]: https://github.com/yunity/karrot-frontend/issues/1691
 
-[Unreleased]: https://github.com/yunity/karrot-frontend/compare/v8.1.2...HEAD
+[Unreleased]: https://github.com/yunity/karrot-frontend/compare/v8.2.0...HEAD
+[8.2.0]: https://github.com/yunity/karrot-frontend/compare/v8.1.2...v8.2.0
 [8.1.2]: https://github.com/yunity/karrot-frontend/compare/v8.1.1...v8.1.2
 [8.1.1]: https://github.com/yunity/karrot-frontend/compare/v8.1.0...v8.1.1
 [8.1.0]: https://github.com/yunity/karrot-frontend/compare/v8.0.0...v8.1.0

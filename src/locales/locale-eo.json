@@ -6,6 +6,7 @@
     "NOT_CONNECTED": "Vi ne estas konektita al la servilo",
     "INVALID_LINK": "Pardonon, la ligilo ne validas.",
     "GENERIC_ERROR": "Pardonon sed io ne bone funkciis",
+    "SEARCH_RESULTS": "Search results",
     "SEARCH_NOT_FOUND": "Netrovita",
     "ABOUT_KARROT": "Pri Karrot"
   },
@@ -651,6 +652,11 @@
       "ANONYMOUS": "Via voĉdono estos anonima"
     },
     "NO_ONGOING": "Ĉio enordas nuntempe."
+  },
+  "ADDRESS_PICKER": {
+    "SET_AS": "Set address as",
+    "KEEP_EXISTING_LOCATION": "keep existing location on map",
+    "CHOOSE_LOCATION": "choose location on map"
   },
   "UNSUBSCRIBE": {
     "HEADER": "Malaboni",

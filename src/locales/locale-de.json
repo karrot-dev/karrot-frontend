@@ -6,6 +6,7 @@
     "NOT_CONNECTED": "Du bist nicht mit dem Server verbunden",
     "INVALID_LINK": "Der Link ist ungültig.",
     "GENERIC_ERROR": "Entschuldige, ein Fehler ist aufgetreten",
+    "SEARCH_RESULTS": "Search results",
     "SEARCH_NOT_FOUND": "Nicht gefunden",
     "ABOUT_KARROT": "Über Karrot"
   },
@@ -651,6 +652,11 @@
       "ANONYMOUS": "Deine Abstimmung wird anonym sein."
     },
     "NO_ONGOING": "Keine laufenden Konflikte."
+  },
+  "ADDRESS_PICKER": {
+    "SET_AS": "Set address as",
+    "KEEP_EXISTING_LOCATION": "keep existing location on map",
+    "CHOOSE_LOCATION": "choose location on map"
   },
   "UNSUBSCRIBE": {
     "HEADER": "Abbestellen",

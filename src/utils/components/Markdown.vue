@@ -31,10 +31,10 @@ export default {
 
 .markdown >>>
   img.emoji
-    width: 1em
-    height: 1em
-    margin: 0 .05em 0 .1em
-    vertical-align: -0.1em
+    width 1em
+    height 1em
+    margin 0 .05em 0 .1em
+    vertical-align -0.1em
 
   a
     text-decoration underline

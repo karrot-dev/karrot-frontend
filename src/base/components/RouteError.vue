@@ -70,7 +70,7 @@ export default {
       bottom -20%
       left 40%
       width 30%
-      min-width: 400px
+      min-width 400px
       max-width 700px
       transform scaleX(-1) rotate(-17deg)
 

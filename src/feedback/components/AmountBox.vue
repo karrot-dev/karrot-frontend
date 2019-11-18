@@ -108,18 +108,18 @@ export default {
 
 .container
   position relative
-  display: block
+  display block
   color white
   text-align center
 
 .pointer
-  position: absolute
-  left: 46%
-  transform-origin: 50% 85%
+  position absolute
+  left 46%
+  transform-origin 50% 85%
 
 .text-bottom
-  position: absolute
-  left: 50%
+  position absolute
+  left 50%
   overflow hidden
   color black
   white-space nowrap

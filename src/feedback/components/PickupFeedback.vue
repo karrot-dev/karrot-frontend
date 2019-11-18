@@ -226,7 +226,7 @@ export default {
     margin auto
 
   .image-and-text-right
-    width: 100%
+    width 100%
     padding 0 1em
     margin 0 auto
 
@@ -234,9 +234,9 @@ export default {
   margin-top 2.5em !important
 
   .randomBanner
-    display: block
-    height: 26px
-    overflow: hidden
+    display block
+    height 26px
+    overflow hidden
 </style>
 
 <style lang="stylus">

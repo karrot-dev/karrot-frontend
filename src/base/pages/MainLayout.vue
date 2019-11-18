@@ -316,15 +316,15 @@ export default {
 
 body.desktop .mainContent-page:not(.fullpage)
   min-width 350px
-  max-width: 57em
+  max-width 57em
   margin-right auto
   margin-bottom 4.5em
   margin-left auto
 
 .background
   background-image url('../assets/repeating_grey.png')
-  background-attachment: fixed
-  background-size: 600px
+  background-attachment fixed
+  background-size 600px
 
   &.bikekitchen
     background-image url('../assets/bikekitchen_background.jpg')

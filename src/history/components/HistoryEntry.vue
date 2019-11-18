@@ -106,6 +106,6 @@ export default {
   background-color rgb(235, 235, 235)
 
 .detail-wrapper
-  padding: 0 2em
+  padding 0 2em
   padding-bottom 2em
 </style>

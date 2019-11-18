@@ -68,7 +68,7 @@ export default {
     display none
 
 .user-slot-wrapper.active:hover
-  border: 0
+  border 0
 
   .hoverHide
     display none

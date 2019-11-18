@@ -341,7 +341,7 @@ body.desktop .k-profile
   transform rotate(-15deg)
 
 .turn-in-leave-active, .turn-in-enter-active
-  transition: all .5s ease
+  transition all .5s ease
 
 .turn-in-enter-to
   transform rotate(-3deg)

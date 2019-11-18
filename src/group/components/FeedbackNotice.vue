@@ -35,17 +35,17 @@ export default {
 @import '~variables'
 
 .list-leave-active
-  transition: all .5s
+  transition all .5s
 
 .list-leave-to
-  opacity: 0
-  transform: translateX(-50px)
+  opacity 0
+  transform translateX(-50px)
 
 .q-card.notice
   color $primary !important
   cursor pointer
-  transition: all .2s ease
+  transition all .2s ease
 
 .q-card.notice:hover
-  box-shadow: 1px 2px 2px 1px rgba(0,0,0,0.4)
+  box-shadow 1px 2px 2px 1px rgba(0,0,0,0.4)
 </style>

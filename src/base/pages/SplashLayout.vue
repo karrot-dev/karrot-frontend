@@ -32,8 +32,8 @@ export default {
 
   img
     height 40px
-    margin-right: 10px
-    margin-bottom: 20px
+    margin-right 10px
+    margin-bottom 20px
     vertical-align middle
 
   img, h4
@@ -72,8 +72,8 @@ body.desktop .splashlayout-wrapper
 
 .splashlayout
   .fade-enter-active, .fade-leave-active
-    transition: all .1s
+    transition all .1s
 
   .fade-enter, .fade-leave-to
-    transform: rotateX(90deg)
+    transform rotateX(90deg)
 </style>

@@ -367,7 +367,7 @@ button.selected
   margin-top 24px !important
 
   .randomBanner
-    display: block
-    height: 26px
-    overflow: hidden
+    display block
+    height 26px
+    overflow hidden
 </style>

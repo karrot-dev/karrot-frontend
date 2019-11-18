@@ -217,7 +217,7 @@ export default {
 
 <style scoped lang="stylus">
 .q-card *
-  overflow: hidden
+  overflow hidden
 
 .photo
   &.hasPhoto

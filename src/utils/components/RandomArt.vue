@@ -72,7 +72,7 @@ export default {
 .art-wrapper
   position relative
   z-index 0
-  display: block
+  display block
   width 100%
   margin 0
   user-select none
@@ -82,7 +82,7 @@ export default {
     min-height calc(25px + 1vw)
 
 body.mobile .art-wrapper
-  overflow: hidden
+  overflow hidden
   border 0
 </style>
 

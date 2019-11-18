@@ -61,8 +61,8 @@ export default {
         commit('users/update', users, { root: true })
       },
     }),
-    refresh ({ dispatch }) {
-      dispatch('fetchList')
+    refresh ({ state, dispatch }) {
+      dispatch('fetchList', state.filter)
     },
     clear ({ commit }) {
       commit('clear')
@@ -87,6 +87,7 @@ export default {
       async save ({ getters, state, dispatch, commit }, data) {
         const updatedOffer = await offers.save(data)
         commit('update', [updatedOffer])
+        commit('currentOffer/update', updatedOffer, { root: true })
         router.push({
           name: 'offerDetail',
           params: {
@@ -99,14 +100,18 @@ export default {
     }),
 
     ...withMeta({
-      async accept ({ state, commit }, { offerId }) {
+      async accept ({ state, commit, dispatch }, { offerId }) {
         const updatedOffer = await offers.accept(offerId)
         commit('update', [updatedOffer])
+        commit('currentOffer/update', updatedOffer, { root: true })
+        dispatch('refresh')
       },
 
-      async archive ({ state, commit }, { offerId }) {
+      async archive ({ state, commit, dispatch }, { offerId }) {
         const updatedOffer = await offers.archive(offerId)
         commit('update', [updatedOffer])
+        commit('currentOffer/update', updatedOffer, { root: true })
+        dispatch('refresh')
       },
     }, {
       findId: ({ offerId }) => offerId,

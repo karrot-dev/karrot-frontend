@@ -222,10 +222,13 @@ function receiveMessage ({ topic, payload }) {
     datastore.commit('pickupSeries/delete', convertSeries(camelizeKeys(payload)).id)
   }
   else if (topic === 'offers:offer') {
-    datastore.commit('offers/update', [camelizeKeys(payload)])
+    const offer = camelizeKeys(payload)
+    datastore.commit('offers/update', [offer])
+    datastore.commit('currentOffer/update', offer)
   }
   else if (topic === 'offers:offer_deleted') {
     datastore.commit('offers/delete', payload.id)
+    datastore.commit('currentOffer/delete', payload.id)
   }
   else if (topic === 'feedback:feedback') {
     datastore.dispatch('feedback/updateOne', convertFeedback(camelizeKeys(payload)))

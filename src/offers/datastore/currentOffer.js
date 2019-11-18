@@ -73,5 +73,13 @@ export default {
     clear (state) {
       Object.assign(state, initialState())
     },
+    update (state, offer) {
+      if (state.id === offer.id) {
+        state.current = offer
+      }
+    },
+    delete (state, offerId) {
+      if (state.id === offerId) Object.assign(state, initialState())
+    },
   },
 }

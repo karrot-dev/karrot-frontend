@@ -2,11 +2,6 @@
 
 const stylelint = require('stylelint')
 
-// const hasBlock = require('../../utils/hasBlock')
-// const report = require('../../utils/report')
-// const ruleMessages = require('../../utils/ruleMessages')
-// const validateOptions = require('../../utils/validateOptions')
-
 const hasBlock = require('stylelint/lib/utils/hasBlock')
 const report = stylelint.utils.report
 const ruleMessages = stylelint.utils.ruleMessages

@@ -6,6 +6,7 @@ module.exports = {
     'comment-empty-line-before': ['always', {
       ignore: ['stylelint-commands', 'after-comment'],
     }],
+    'karrot/no-colons': true,
     'karrot/no-semicolons': true,
     'declaration-colon-space-after': 'always',
     indentation: [2, {
@@ -29,6 +30,7 @@ module.exports = {
     ],
   },
   plugins: [
+    './stylelint.no-colons.js',
     './stylelint.no-semicolons.js',
   ],
 }

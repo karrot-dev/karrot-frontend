@@ -1,5 +1,5 @@
 <template>
-  <QCard>
+  <FormContainer>
     <KSpinner v-if="fetching" />
     <div
       v-else
@@ -8,7 +8,6 @@
     >
       <form @submit.prevent="maybeSave">
         <QInput
-          id="offer-name"
           v-model="edit.name"
           :label="$t('OFFER.NAME')"
           :hint="$t('OFFER.NAME_HELPER')"
@@ -64,7 +63,7 @@
         </div>
       </form>
     </div>
-  </QCard>
+  </FormContainer>
 </template>
 
 <script>
@@ -72,10 +71,11 @@ import { validationMixin } from 'vuelidate'
 import { required, minLength, maxLength } from 'vuelidate/lib/validators'
 import editMixin from '@/utils/mixins/editMixin'
 import statusMixin from '@/utils/mixins/statusMixin'
-import { QBtn, QField, QCard, QIcon, QInput } from 'quasar'
+import { QBtn, QField, QIcon, QInput } from 'quasar'
 import MarkdownInput from '@/utils/components/MarkdownInput'
 import MultiCroppa from '@/offers/components/MultiCroppa'
 import KSpinner from '@/utils/components/KSpinner'
+import FormContainer from '@/offers/components/FormContainer'
 
 const NAME_MIN_LENGTH = 5
 const NAME_MAX_LENGTH = 80
@@ -116,9 +116,9 @@ export default {
   components: {
     MarkdownInput,
     MultiCroppa,
+    FormContainer,
     QBtn,
     QField,
-    QCard,
     QInput,
     QIcon,
     KSpinner,

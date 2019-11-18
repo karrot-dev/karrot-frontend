@@ -52,13 +52,7 @@ async function toFormData (sourceOffer) {
 export default {
 
   async create (offer) {
-    return convert((await axios.post('/api/offers/', await toFormData(offer), {
-      onUploadProgress (progressEvent) {
-        // TODO: check this works and see if it's useful
-        const percentCompleted = Math.round((progressEvent.loaded * 100) / progressEvent.total)
-        console.log('create progress!', percentCompleted)
-      },
-    })).data)
+    return convert((await axios.post('/api/offers/', await toFormData(offer))).data)
   },
 
   async get (offerId) {
@@ -76,13 +70,7 @@ export default {
   },
 
   async save (offer) {
-    return convert((await axios.patch(`/api/offers/${offer.id}/`, await toFormData(offer), {
-      onUploadProgress (progressEvent) {
-        // TODO: check this works and see if it's useful
-        const percentCompleted = Math.round((progressEvent.loaded * 100) / progressEvent.total)
-        console.log('save progress!', percentCompleted)
-      },
-    })).data)
+    return convert((await axios.patch(`/api/offers/${offer.id}/`, await toFormData(offer))).data)
   },
 
   async accept (offerId) {

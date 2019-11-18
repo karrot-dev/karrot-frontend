@@ -163,14 +163,11 @@ export default {
 
 <style scoped lang="stylus">
 @import '~variables'
-
 .edit
   width 100%
   padding 20px
-
   &.changed
     background-color $yellow-1
-
 .minor
   margin-right 10px
   margin-left 10px

@@ -67,11 +67,9 @@ export default {
 
 <style lang="stylus" scoped>
 @import '~variables'
-
 .k-locale-select
   .q-icon
     opacity $topbar-opacity-low
-
   &:hover .q-icon
     opacity 1
 </style>

@@ -4,7 +4,7 @@
     indeterminate
     color="info"
     class="fixed-top"
-    style=" z-index: 2500;height: 2px"
+    style="height: 2px; z-index: 2500"
   />
 </template>
 

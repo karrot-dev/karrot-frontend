@@ -127,7 +127,6 @@ export default {
 
 .isUnread
   background linear-gradient(to right, $lightGreen, $lighterGreen)
-
   &:hover
     background alpha($grey, 0.5)
 </style>

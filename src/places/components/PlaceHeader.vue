@@ -300,27 +300,22 @@ export default {
 <style scoped lang="stylus">
 .q-btn-round
   margin-bottom .5em
-
 .toolbar
   margin-top -24px
-
 .toolbar .q-btn
   margin 3px
-
 .map
   height 30vh
-
 .limit-height
-  position relative
   max-height 10rem
   overflow-y hidden
-
+  position relative
   &:before
-    position absolute
-    top 0
-    left 0
+    content ''
     width 100%
     height 100%
-    content ''
+    position absolute
+    left 0
+    top 0
     background linear-gradient(transparent 90%, white)
 </style>

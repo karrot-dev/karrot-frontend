@@ -264,38 +264,34 @@ export default {
 <style lang="stylus">
 .k-map
   .vector-marker
+    width 30px
     position absolute
     bottom 0
     left -15px
-    width 30px
     text-align center
-
     svg
       vertical-align bottom
-
       path
         stroke black
         stroke-opacity .1
         stroke-width 1
-
     i
+      width 30px
       position absolute
       top 9px
       left 0
-      width 30px
-      font-size 14px
       color white
+      font-size 14px
 
   .vector-marker-shadow
+    width 12px
     position absolute
     bottom 0px
     left -7px
-    width 12px
-    filter blur(2px)
     opacity .3
     transform rotate(20deg) skew(-30deg)
     transform-origin 50% bottom
-
+    filter blur(2px)
     svg
       vertical-align bottom
 </style>

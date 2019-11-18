@@ -359,15 +359,13 @@ export default {
 
 <style scoped lang="stylus">
 @import '~variables'
-
 button.selected
   background-color $grey-4
 
 .secondCard
   margin-top 24px !important
-
   .randomBanner
-    display block
-    height 26px
-    overflow hidden
+    display: block
+    height: 26px
+    overflow: hidden
 </style>

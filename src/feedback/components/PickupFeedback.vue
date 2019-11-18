@@ -12,7 +12,7 @@
         <div class="row no-wrap image-and-text">
           <div class="image-and-text-left gt-sm">
             <img
-              style="width: 100%"
+              style="width: 100%;"
               src="@/feedback/assets/cart.png"
             >
           </div>
@@ -216,35 +216,30 @@ export default {
 
 <style scoped lang="stylus">
 .image-and-text
-  padding-top 1.5em
   padding-bottom 1.5em
-
+  padding-top 1.5em
   .image-and-text-left
     width 30%
     max-width 10em
-    padding 1em
     margin auto
-
+    padding 1em
   .image-and-text-right
-    width 100%
+    width: 100%
     padding 0 1em
     margin 0 auto
-
 .place-feedback
   margin-top 2.5em !important
-
   .randomBanner
-    display block
-    height 26px
-    overflow hidden
+    display: block
+    height: 26px
+    overflow: hidden
 </style>
 
 <style lang="stylus">
 .pickup-feedback-wrapper .q-field-dark.grey-font
-  padding 4px 7px
   background-color white
+  padding 4px 7px
   border-radius 4px
-
   .q-input-target, .q-input-shadow, .q-if-control
     color rgb(40, 40, 40)
 </style>

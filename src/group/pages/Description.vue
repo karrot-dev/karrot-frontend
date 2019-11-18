@@ -84,24 +84,19 @@ export default {
 
 <style scoped lang="stylus">
 @import '~variables'
-
 .actionButtons
   float right
   margin-top -21px
-
   .q-btn
     margin-left 3px
 
 .art-overlay
   color white
   background rgba(0,0,0,0)
-
   .header
     font-size 1.3em
-
   .subtitle
     margin-top 6px
-
 body.desktop .art-overlay
   background linear-gradient(to top, rgba(0,0,0,0.5) 0%, rgba(0,0,0,0) 58%, rgba(0,0,0,0) 90%)
 </style>

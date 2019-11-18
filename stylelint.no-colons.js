@@ -46,6 +46,9 @@ const plugin = stylelint.createPlugin(ruleName, (expectation, secondary, context
       // auto-fix
       if (context.fix) {
         node.raws.stylusBetween = node.raws.between.replace(/:/g, '')
+        if (node.raws.stylusBetween === '') {
+          node.raws.stylusBetween = ' '
+        }
         return
       }
 

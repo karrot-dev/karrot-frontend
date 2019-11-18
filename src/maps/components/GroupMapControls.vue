@@ -160,20 +160,16 @@ export default {
 
 <style scoped lang="stylus">
 @import '~variables'
-
 .k-groupmapcontrols
   position absolute
   top 5px
   right 10px
   z-index 1000
-
   .bottom-right
-    top 5px
     left 5px
-
+    top 5px
   .fa-check
     color $positive
-
   .fa-times
     color $negative
 </style>

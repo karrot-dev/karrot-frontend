@@ -177,27 +177,23 @@ export default {
 
 <style scoped lang="stylus">
 @import '~variables'
-
 .pic-wrapper
   margin-right 3px
-
 .newcomer-box
+  height 8px
+  width 100%
   position absolute
   bottom -4px
   left 0
-  width 100%
-  height 8px
   background linear-gradient(to bottom, $secondary, lighten($secondary, 50))
-
 .emptySlots
   display inline-block
-  margin-bottom 3.8px
-  color grey
-  text-align center
   background-color rgba(255, 255, 255, 0.7)
   border 2px dashed lightgrey
+  color grey
   border-radius 0
-
+  margin-bottom 3.8px
+  text-align center
   div
     display inline-block
     height 100%

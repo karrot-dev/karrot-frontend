@@ -37,18 +37,15 @@ export default {
 @keyframes rotateIn
   0%
     transform rotate(0deg)
-
   100%
     transform rotate(-3deg)
 
 .notice
   max-width 90%
-  transform rotate(-3deg)
-  animation .3s ease-out 0s 1 rotateIn
-
+  animation .3s ease-out 0s 1 rotateIn;
+  transform rotate(-3deg);
   .icon
     font-size 4.5rem
-
   .desc
     font-size 80%
 </style>

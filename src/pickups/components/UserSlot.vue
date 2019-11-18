@@ -48,35 +48,28 @@ export default {
 <style scoped lang="stylus">
 @import '~variables'
 
-.user-slot-wrapper
-  margin-right 3.8px
-  margin-bottom 3.8px
-  background-color rgba(255, 255, 255, 0.7)
-  border 2px dashed
-  border-radius 0
-
-  span
-    font-weight 600
-    vertical-align middle
-
-.user-slot-wrapper.active
-  display inline-block
-  text-align center
-  cursor pointer
-
-  .hoverShow
-    display none
-
-.user-slot-wrapper.active:hover
-  border 0
-
-  .hoverHide
-    display none
-
-  .hoverShow
+  .user-slot-wrapper
+    border 2px dashed
+    border-radius 0
+    margin-right 3.8px
+    margin-bottom 3.8px
+    background-color rgba(255, 255, 255, 0.7)
+    span
+      vertical-align middle
+      font-weight 600
+  .user-slot-wrapper.active
+    cursor pointer
     display inline-block
-
-.greyedOut
-  cursor ini
-  border-color lightgrey
+    text-align center
+    .hoverShow
+      display none
+  .user-slot-wrapper.active:hover
+    border: 0
+    .hoverHide
+      display none
+    .hoverShow
+      display inline-block
+  .greyedOut
+    border-color lightgrey
+    cursor ini
 </style>

@@ -193,7 +193,6 @@ export default {
 
 <style scoped lang="stylus">
 @import '~variables'
-
 .isNonPending
   opacity 0.8
 </style>

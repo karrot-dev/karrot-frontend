@@ -37,7 +37,7 @@
         v-if="secondlastElement.route"
         :to="secondlastElement.route"
       >
-        <div style="min-width: 20px; padding: 4px; text-align: right">
+        <div style="min-width: 20px; text-align: right; padding: 4px">
           <i class="fas fa-fw fa-angle-left" />
         </div>
       </RouterLink>
@@ -90,17 +90,15 @@ export default {
 .wrapper
   .prevBread, .q-btn, div
     display inline-block
-
   .label
+    cursor auto
+    text-overflow ellipsis
     justify-content center
+    outline 0
+    vertical-align middle
     padding 0 16px
     font-weight 500
-    text-overflow ellipsis
     text-transform uppercase
-    vertical-align middle
-    cursor auto
-    outline 0
-
 body.desktop .lastElement
-  font-size 1.5rem
+    font-size 1.5rem
 </style>

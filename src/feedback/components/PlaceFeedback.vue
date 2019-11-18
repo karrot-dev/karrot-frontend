@@ -100,8 +100,7 @@ export default {
 <style scoped lang="stylus">
 .infoChips
   padding-bottom 15px
-
   .q-chip
-    padding 2px 16px
     margin-right 8px
+    padding 2px 16px
 </style>

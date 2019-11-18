@@ -140,11 +140,9 @@ export default {
 
 <style scoped lang="stylus">
 @import '~variables'
-
 .Detail
   background-color white
-
 .message-date
-  display inline-block
-  margin-left 2px
+    display inline-block
+    margin-left 2px
 </style>

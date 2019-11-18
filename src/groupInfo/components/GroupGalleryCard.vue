@@ -150,49 +150,38 @@ export default {
 
 <style scoped lang="stylus">
 @import '~variables'
-
 .groupPreviewCard
   cursor pointer
   box-shadow 0 2px 6px 0 rgba(0,0,0,0.2)
-
   &:hover
     box-shadow 0 7px 11px 0 rgba(0,0,0,0.2)
-
   *
     overflow hidden
-
   &.highlight
     border 2px solid $secondary
-
   &.application
     border 2px solid $blue
-
   .fixed-height
-    position relative
     min-height 80px
     max-height 80px
-
+    position relative
     &:before
+      content ''
+      width 100%
+      height 100%
       position absolute
       top 0
       left 0
-      width 100%
-      height 100%
-      content ''
       background linear-gradient(transparent 80%, white)
-
   .smaller-text >>> *
     font-size 1em
-
   .photo
     height 160px
-
     img
-      width auto
-      max-width 100%
       max-height 100%
+      max-width 100%
+      width auto
       margin 0 auto
-
     .k-media-overlay
       background-color rgba(0,0,0,0.47)
 </style>

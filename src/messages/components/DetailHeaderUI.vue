@@ -250,21 +250,17 @@ export default {
 
 <style scoped lang="stylus">
 @import '~variables'
-
 .DetailHeader
   .k-participant-list
+    background-color #f5f5f5
     padding 0.3em
     padding-bottom 0
-    background-color #f5f5f5
-
   .k-participant
     display inline-block
     margin-right 0.3em
     margin-bottom 0.3em
-
   .q-toolbar-title
     font-size 16px
-
 body.mobile .DetailHeader .q-toolbar
   min-height 20px
 </style>

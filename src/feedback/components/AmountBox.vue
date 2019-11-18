@@ -107,21 +107,19 @@ export default {
 @import '~variables'
 
 .container
-  position relative
-  display block
-  color white
-  text-align center
-
+    position relative
+    text-align center
+    color white
+    display: block
 .pointer
-  position absolute
-  left 46%
-  transform-origin 50% 85%
-
+    position: absolute
+    left: 46%
+    transform-origin: 50% 85%;
 .text-bottom
-  position absolute
-  left 50%
-  overflow hidden
-  color black
-  white-space nowrap
-  transform translate(-50%, -50%)
+    position: absolute
+    left: 50%
+    transform translate(-50%, -50%)
+    color black
+    overflow hidden
+    white-space nowrap
 </style>

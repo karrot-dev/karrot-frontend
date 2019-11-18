@@ -51,22 +51,18 @@ export default {
 
 .user-slot-wrapper
   cursor pointer
-
   .leave-icon
-    padding-top 2px
-    color $negative
-    text-align center
     visibility hidden
+    color $negative
     border 2px dashed
     border-radius 0
-
+    text-align center
+    padding-top 2px
     i
       display inline
-
 .user-slot-wrapper:hover
   .leave-icon
     visibility visible
-
   .profile-picture
     visibility hidden
 </style>

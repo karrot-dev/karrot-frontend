@@ -496,5 +496,5 @@ export default {
 </script>
 
 <style scoped lang="stylus">
-@import '~editbox'
+@import '~editbox';
 </style>

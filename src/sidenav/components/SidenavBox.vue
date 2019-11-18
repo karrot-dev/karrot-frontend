@@ -34,8 +34,7 @@ export default {
 
 .k-sidenav-box
   margin-bottom 20px
-
 .toolbar
-  height 40px
   min-height 40px
+  height 40px
 </style>

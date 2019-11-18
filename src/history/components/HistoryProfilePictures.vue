@@ -32,7 +32,6 @@ export default {
 
 <style lang="stylus">
 @import '~variables'
-
 .usersCount
   text-align center
   user-select none

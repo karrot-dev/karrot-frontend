@@ -159,7 +159,6 @@ export default {
 <style scoped lang="stylus">
 .q-step
   min-height 200px
-
 .q-stepper
   max-width 700px
 </style>

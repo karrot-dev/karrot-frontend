@@ -70,20 +70,19 @@ export default {
 
 <style scoped lang='stylus'>
 .art-wrapper
-  position relative
-  z-index 0
-  display block
-  width 100%
-  margin 0
   user-select none
-
+  position relative
+  display: block
+  z-index 0
+  margin 0
+  width 100%
   > div
-    z-index 1
     min-height calc(25px + 1vw)
+    z-index 1
 
 body.mobile .art-wrapper
-  overflow hidden
   border 0
+  overflow: hidden
 </style>
 
 <style lang='stylus'>

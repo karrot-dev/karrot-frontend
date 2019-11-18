@@ -115,7 +115,7 @@ export default {
 .pointer
   position: absolute
   left: 46%
-  transform-origin: 50% 85%;
+  transform-origin: 50% 85%
 
 .text-bottom
   position: absolute

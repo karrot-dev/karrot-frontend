@@ -6,6 +6,7 @@ module.exports = {
     'comment-empty-line-before': ['always', {
       ignore: ['stylelint-commands', 'after-comment'],
     }],
+    'declaration-block-trailing-semicolon': 'never',
     'declaration-colon-space-after': 'always',
     indentation: [2, {
       except: ['value'],

@@ -58,7 +58,7 @@ export default {
 
   .card-arrow
     float: right
-    transition: all .3s ease;
+    transition: all .3s ease
 
   .upsideDown
     transform rotate(180deg)
@@ -68,7 +68,7 @@ export default {
 
 hr
   margin 1em 2em
-  border solid lightgrey 1px;
+  border solid lightgrey 1px
 
 .no-margin-bottom
   margin-bottom 0

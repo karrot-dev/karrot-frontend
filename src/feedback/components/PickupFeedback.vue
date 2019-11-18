@@ -12,7 +12,7 @@
         <div class="row no-wrap image-and-text">
           <div class="image-and-text-left gt-sm">
             <img
-              style="width: 100%;"
+              style="width: 100%"
               src="@/feedback/assets/cart.png"
             >
           </div>

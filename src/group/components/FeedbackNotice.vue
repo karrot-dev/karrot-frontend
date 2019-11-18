@@ -42,7 +42,7 @@ export default {
   transform: translateX(-50px)
 
 .q-card.notice
-  color $primary !important;
+  color $primary !important
   cursor pointer
   transition: all .2s ease
 

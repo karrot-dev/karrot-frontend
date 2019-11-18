@@ -54,7 +54,7 @@ export default {
 <style scoped lang="stylus">
 .q-card.notice
   cursor pointer
-  transition: all .2s ease;
+  transition: all .2s ease
 
   .card-arrow
     float: right

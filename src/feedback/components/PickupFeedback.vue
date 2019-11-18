@@ -222,7 +222,7 @@ export default {
   .image-and-text-left
     width 30%
     max-width 10em
-    padding 1em;
+    padding 1em
     margin auto
 
   .image-and-text-right

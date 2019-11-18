@@ -19,6 +19,6 @@ export default {
 .k-messages
   width 100%
   max-width 600px
-  margin-right auto;
+  margin-right auto
   margin-left auto
 </style>

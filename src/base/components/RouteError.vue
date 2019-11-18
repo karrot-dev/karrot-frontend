@@ -68,7 +68,7 @@ export default {
     img
       position absolute
       bottom -20%
-      left 40%;
+      left 40%
       width 30%
       min-width: 400px
       max-width 700px
@@ -83,7 +83,7 @@ export default {
     border-radius 2px
 
     > h1
-      margin-bottom 0;
+      margin-bottom 0
       font-size 3.2em
 
     > i

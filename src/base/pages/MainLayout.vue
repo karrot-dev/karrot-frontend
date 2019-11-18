@@ -311,13 +311,13 @@ export default {
   width 30%
   min-width 250px
   max-width 30em
-  margin-right .4em;
+  margin-right .4em
   margin-left auto
 
 body.desktop .mainContent-page:not(.fullpage)
   min-width 350px
   max-width: 57em
-  margin-right auto;
+  margin-right auto
   margin-bottom 4.5em
   margin-left auto
 

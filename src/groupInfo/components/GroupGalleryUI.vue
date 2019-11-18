@@ -267,7 +267,7 @@ export default {
 
     .header
       padding-top 14px
-      margin-left 10px;
+      margin-left 10px
       font-size 1.4em
 
 body.desktop .gallery-wrapper
@@ -275,7 +275,7 @@ body.desktop .gallery-wrapper
     position fixed
     right 0
     left 0
-    z-index 0;
+    z-index 0
     height 100vh
 
   .sidebar
@@ -291,7 +291,7 @@ body.desktop .gallery-wrapper
 
 body.mobile .gallery-wrapper
   .map-fixed
-    z-index 0;
+    z-index 0
     width 100%
     height 60vh
 
@@ -304,7 +304,7 @@ body.mobile .gallery-wrapper
     transition all .7s
 
     &.expanded
-      min-height 60vh;
+      min-height 60vh
       margin-top -60vh
 </style>
 

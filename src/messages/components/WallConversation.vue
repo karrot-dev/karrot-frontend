@@ -146,6 +146,6 @@ export default {
 .actionButton
   position absolute
   top -24px
-  right 6px;
+  right 6px
   z-index 1
 </style>

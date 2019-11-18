@@ -28,6 +28,6 @@ export default {
 .k-notifications
   width 100%
   max-width 600px
-  margin-right auto;
+  margin-right auto
   margin-left auto
 </style>

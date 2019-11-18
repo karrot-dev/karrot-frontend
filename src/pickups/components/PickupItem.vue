@@ -123,7 +123,7 @@ export default {
 
   .featured-text
     display inline
-    margin-right .5em;
+    margin-right .5em
     font-size 1.5em
 
   &.isEmpty:not(.isDisabled)

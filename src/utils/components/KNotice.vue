@@ -43,8 +43,8 @@ export default {
 
 .notice
   max-width 90%
-  transform rotate(-3deg);
-  animation .3s ease-out 0s 1 rotateIn;
+  transform rotate(-3deg)
+  animation .3s ease-out 0s 1 rotateIn
 
   .icon
     font-size 4.5rem

@@ -49,7 +49,7 @@ export default {
 
 .browser-warning
   width 100%
-  padding 10px 4px;
+  padding 10px 4px
   text-align center
 
 .outdated-link

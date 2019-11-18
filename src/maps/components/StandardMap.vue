@@ -283,7 +283,7 @@ export default {
       top 9px
       left 0
       width 30px
-      font-size 14px;
+      font-size 14px
       color white
 
   .vector-marker-shadow

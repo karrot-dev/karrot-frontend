@@ -118,7 +118,7 @@ export default {
 
 .reactions-number
   padding-left 3px
-  font-size .8em;
+  font-size .8em
   opacity .7
 
 .big

@@ -96,7 +96,7 @@ export default {
 <style scoped lang="stylus">
 .k-members
   max-width 500px
-  margin-right auto;
+  margin-right auto
   margin-left auto
 
 .actionButtons

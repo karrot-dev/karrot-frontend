@@ -220,12 +220,12 @@ export default {
   background linear-gradient(to right, $lightGreen, $lighterGreen)
 
 .continuation
-  min-height auto;
+  min-height auto
   padding-top 0
 
 body.mobile .conversation-message
   .k-message-meta
-    padding-top 3px;
+    padding-top 3px
     font-size 80%
 
 .conversation-message
@@ -262,7 +262,7 @@ body.mobile .conversation-message
       vertical-align middle
 
     .k-replies-count
-      padding-right 3px;
+      padding-right 3px
       margin-left 4px
       font-size 13px
       font-weight 500
@@ -274,7 +274,7 @@ body.mobile .conversation-message
 
     .q-btn
       padding 2px 9px
-      font-size 13px;
+      font-size 13px
       color white
       transition none
 

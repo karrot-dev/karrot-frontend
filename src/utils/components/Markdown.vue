@@ -88,7 +88,7 @@ export default {
     line-height 1.12
 
   pre
-    display block;
+    display block
     padding 3px
     margin-top 0.5rem
     margin-bottom 0.5rem
@@ -102,7 +102,7 @@ export default {
     padding-left 3px
     overflow-x auto
     font-size 0.8em
-    overflow-wrap normal;
+    overflow-wrap normal
     background-color #ededed
 
   blockquote
@@ -116,6 +116,6 @@ export default {
       margin-bottom 0rem
 
   img:not(.emoji)
-    max-width 300px;
+    max-width 300px
     max-height 150px
 </style>

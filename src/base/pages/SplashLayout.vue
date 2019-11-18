@@ -32,7 +32,7 @@ export default {
 
   img
     height 40px
-    margin-right: 10px;
+    margin-right: 10px
     margin-bottom: 20px
     vertical-align middle
 

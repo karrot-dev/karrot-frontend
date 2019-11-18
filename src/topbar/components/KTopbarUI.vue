@@ -241,7 +241,7 @@ export default {
   height 36px
 
 .profilePicture
-  height 36px;
+  height 36px
   margin-left 1em
 
 .k-search-button, .k-more-options

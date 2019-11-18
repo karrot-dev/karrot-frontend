@@ -254,7 +254,7 @@ export default {
 .DetailHeader
   .k-participant-list
     padding 0.3em
-    padding-bottom 0;
+    padding-bottom 0
     background-color #f5f5f5
 
   .k-participant

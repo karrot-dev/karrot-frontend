@@ -27,10 +27,10 @@ export default {
   border-radius 0
 
   span
-    font-weight 600;
+    font-weight 600
     vertical-align middle
 
 .greyedOut
-  cursor ini;
+  cursor ini
   border-color lightgrey
 </style>

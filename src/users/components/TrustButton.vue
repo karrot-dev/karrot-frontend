@@ -201,7 +201,7 @@ export default {
 
 <style lang="stylus" scoped>
 .karrot-button >>> .q-btn__content
-  min-width 100%;
+  min-width 100%
   min-height 100%
   background-image url('twemoji-carrot.png')
   background-repeat no-repeat

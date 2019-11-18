@@ -78,11 +78,11 @@ export default {
   user-select none
 
   > div
-    z-index 1;
+    z-index 1
     min-height calc(25px + 1vw)
 
 body.mobile .art-wrapper
-  overflow: hidden;
+  overflow: hidden
   border 0
 </style>
 

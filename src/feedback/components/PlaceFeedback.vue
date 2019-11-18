@@ -102,6 +102,6 @@ export default {
   padding-bottom 15px
 
   .q-chip
-    padding 2px 16px;
+    padding 2px 16px
     margin-right 8px
 </style>

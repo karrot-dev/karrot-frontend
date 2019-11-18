@@ -168,7 +168,7 @@ export default {
   z-index 1000
 
   .bottom-right
-    top 5px;
+    top 5px
     left 5px
 
   .fa-check

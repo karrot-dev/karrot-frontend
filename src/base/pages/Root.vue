@@ -34,7 +34,7 @@ export default {
 
 <style lang="stylus" scoped>
 .root-splash-second
-  opacity 1;
+  opacity 1
   animation fadein 2s
 @keyframes fadein
   from

@@ -248,7 +248,7 @@ export default {
 
 <style scoped lang="stylus">
 .showOverlay.content
-  filter blur(3px);
+  filter blur(3px)
   opacity 0.3
 
 .k-vote-slider

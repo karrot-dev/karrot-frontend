@@ -108,7 +108,7 @@ export default {
 
 .container
   position relative
-  display: block;
+  display: block
   color white
   text-align center
 
@@ -122,6 +122,6 @@ export default {
   left: 50%
   overflow hidden
   color black
-  white-space nowrap;
+  white-space nowrap
   transform translate(-50%, -50%)
 </style>

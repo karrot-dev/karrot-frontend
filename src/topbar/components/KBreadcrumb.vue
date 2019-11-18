@@ -96,7 +96,7 @@ export default {
     padding 0 16px
     font-weight 500
     text-overflow ellipsis
-    text-transform uppercase;
+    text-transform uppercase
     vertical-align middle
     cursor auto
     outline 0

@@ -314,7 +314,7 @@ export default {
 <style scoped lang="stylus">
 body.desktop .k-profile
   .photoAndName
-    margin-bottom 20px;
+    margin-bottom 20px
     margin-left 26px
 
   .name
@@ -323,7 +323,7 @@ body.desktop .k-profile
 .k-profile
   .photoAndName
     margin-top 22px
-    margin-bottom 14px;
+    margin-bottom 14px
     margin-left 10px
 
   .name

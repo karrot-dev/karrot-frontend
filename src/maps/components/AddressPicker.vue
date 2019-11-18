@@ -193,7 +193,7 @@ export default {
 
 <style scoped lang="stylus">
 .map
-  width calc(100% - 42px);
+  width calc(100% - 42px)
   height 260px
   margin-top -10px
   margin-left 37px

@@ -62,7 +62,7 @@ export default {
 @import '~variables'
 
 .logo
-  height 36px;
+  height 36px
   margin-left 1em
 
 .actions .router-link-exact-active

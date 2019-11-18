@@ -6,6 +6,7 @@
     "NOT_CONNECTED": "आप सर्वर से जुड़े हुए नहीं है ",
     "INVALID_LINK": "क्षमा करे, आपके द्वारा खोला गया लिंक गलत है",
     "GENERIC_ERROR": "क्षमा करे, कुछ गलत हो गया",
+    "SEARCH_RESULTS": "Search results",
     "SEARCH_NOT_FOUND": "नहीं मिला",
     "ABOUT_KARROT": "Karrot के बारेमे"
   },
@@ -651,6 +652,11 @@
       "ANONYMOUS": "Your vote will be anonymous."
     },
     "NO_ONGOING": "No ongoing issues."
+  },
+  "ADDRESS_PICKER": {
+    "SET_AS": "Set address as",
+    "KEEP_EXISTING_LOCATION": "keep existing location on map",
+    "CHOOSE_LOCATION": "choose location on map"
   },
   "UNSUBSCRIBE": {
     "HEADER": "Unsubscribe",

@@ -6,6 +6,7 @@
     "NOT_CONNECTED": "Du är inte ansluten till servern",
     "INVALID_LINK": "Oj, länken du försöker komma åt är ogiltig.",
     "GENERIC_ERROR": "Oj, något gick fel!",
+    "SEARCH_RESULTS": "Search results",
     "SEARCH_NOT_FOUND": "Kunde inte hittas",
     "ABOUT_KARROT": "Om Karrot"
   },
@@ -651,6 +652,11 @@
       "ANONYMOUS": "Your vote will be anonymous."
     },
     "NO_ONGOING": "No ongoing issues."
+  },
+  "ADDRESS_PICKER": {
+    "SET_AS": "Set address as",
+    "KEEP_EXISTING_LOCATION": "keep existing location on map",
+    "CHOOSE_LOCATION": "choose location on map"
   },
   "UNSUBSCRIBE": {
     "HEADER": "Avprenumerera",

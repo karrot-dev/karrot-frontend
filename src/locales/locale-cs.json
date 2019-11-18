@@ -6,6 +6,7 @@
     "NOT_CONNECTED": "Nejste připojeni k serveru",
     "INVALID_LINK": "Litujeme, odkaz, který jste otevřeli, je neplatný.",
     "GENERIC_ERROR": "Promiňte, něco se pokazilo",
+    "SEARCH_RESULTS": "Search results",
     "SEARCH_NOT_FOUND": "Nenalezeno",
     "ABOUT_KARROT": "O Karrot"
   },
@@ -651,6 +652,11 @@
       "ANONYMOUS": "Váš hlas bude anonymní."
     },
     "NO_ONGOING": "Žádné pokračující problémy."
+  },
+  "ADDRESS_PICKER": {
+    "SET_AS": "Set address as",
+    "KEEP_EXISTING_LOCATION": "keep existing location on map",
+    "CHOOSE_LOCATION": "choose location on map"
   },
   "UNSUBSCRIBE": {
     "HEADER": "Odhlásit odběr",

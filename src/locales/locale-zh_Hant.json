@@ -6,6 +6,7 @@
     "NOT_CONNECTED": "你並未連接至伺服器",
     "INVALID_LINK": "抱歉，你開啟的連結無效",
     "GENERIC_ERROR": "Sorry, something went wrong",
+    "SEARCH_RESULTS": "Search results",
     "SEARCH_NOT_FOUND": "無符合的搜尋結果",
     "ABOUT_KARROT": "About Karrot"
   },
@@ -651,6 +652,11 @@
       "ANONYMOUS": "Your vote will be anonymous."
     },
     "NO_ONGOING": "No ongoing issues."
+  },
+  "ADDRESS_PICKER": {
+    "SET_AS": "Set address as",
+    "KEEP_EXISTING_LOCATION": "keep existing location on map",
+    "CHOOSE_LOCATION": "choose location on map"
   },
   "UNSUBSCRIBE": {
     "HEADER": "Unsubscribe",

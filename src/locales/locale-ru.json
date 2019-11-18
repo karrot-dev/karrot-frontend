@@ -6,6 +6,7 @@
     "NOT_CONNECTED": "Не удается подключиться к сети",
     "INVALID_LINK": "Открытая ссылка недействительна ",
     "GENERIC_ERROR": "Sorry, something went wrong",
+    "SEARCH_RESULTS": "Search results",
     "SEARCH_NOT_FOUND": "Не найдено",
     "ABOUT_KARROT": "О Karrot"
   },
@@ -651,6 +652,11 @@
       "ANONYMOUS": "Ваш голос будет анонимным."
     },
     "NO_ONGOING": "No ongoing issues."
+  },
+  "ADDRESS_PICKER": {
+    "SET_AS": "Set address as",
+    "KEEP_EXISTING_LOCATION": "keep existing location on map",
+    "CHOOSE_LOCATION": "choose location on map"
   },
   "UNSUBSCRIBE": {
     "HEADER": "Unsubscribe",

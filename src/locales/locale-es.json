@@ -6,6 +6,7 @@
     "NOT_CONNECTED": "No estás conenctado al servidor",
     "INVALID_LINK": "Lo sentimos, el enlace que has abierto no es válido.",
     "GENERIC_ERROR": "Lo sentimos, algo ha ido mal",
+    "SEARCH_RESULTS": "Search results",
     "SEARCH_NOT_FOUND": "No encontrado",
     "ABOUT_KARROT": "Sobre Karrot"
   },
@@ -651,6 +652,11 @@
       "ANONYMOUS": "Tu voto será anónimo."
     },
     "NO_ONGOING": "No hay conflictos actualmente."
+  },
+  "ADDRESS_PICKER": {
+    "SET_AS": "Set address as",
+    "KEEP_EXISTING_LOCATION": "keep existing location on map",
+    "CHOOSE_LOCATION": "choose location on map"
   },
   "UNSUBSCRIBE": {
     "HEADER": "Dejar de seguir",

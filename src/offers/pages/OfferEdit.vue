@@ -12,8 +12,7 @@ export default connect({
     save: 'offers/save',
   },
   methodsToEvents: {
-    // TODO: do I need this one?
-    reset: ({ dispatch }) => dispatch('meta/clear', ['create']),
+    reset: ({ dispatch }) => dispatch('meta/clear', ['save']),
   },
 })('OfferEdit', OfferForm)
 </script>

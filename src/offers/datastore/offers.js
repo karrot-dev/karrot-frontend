@@ -46,6 +46,10 @@ export default {
         .map(getters.enrich)
     },
     routeQuery: ({ filter: { status } }) => status === DEFAULT_STATUS ? {} : { status },
+    fetching: (state, getters) => {
+      const status = getters['meta/status']('fetchList')
+      return status.pending
+    },
   },
   actions: {
     ...withMeta({

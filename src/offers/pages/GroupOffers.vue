@@ -26,6 +26,7 @@
           :title="$t('OFFER.CREATE_TITLE')"
         />
       </div>
+      <KSpinner v-show="fetching" />
       <div
         v-for="offer in offers"
         :key="offer.id"
@@ -60,11 +61,13 @@
 import { mapActions, mapGetters } from 'vuex'
 import { QBtn, QSelect, QCard, QCardSection, QResizeObserver } from 'quasar'
 import ProfilePicture from '@/users/components/ProfilePicture'
+import KSpinner from '@/utils/components/KSpinner'
 import bindRoute from '@/utils/mixins/bindRoute'
 
 export default {
   components: {
     ProfilePicture,
+    KSpinner,
     QBtn,
     QSelect,
     QCard,
@@ -98,6 +101,7 @@ export default {
   computed: {
     ...mapGetters({
       offers: 'offers/all',
+      fetching: 'offers/fetching',
       routeQuery: 'offers/routeQuery',
     }),
     cols () {

@@ -54,34 +54,38 @@ export default {
 <style scoped lang="stylus">
 .error-page
   .error-code
-    height 45vh
-    margin-top -10vh
+    position relative
+    z-index 0
     width 200%
+    height 45vh
     padding-top 15vh
+    margin-top -10vh
+    overflow hidden
     font-size 30vmax
     color rgba(255, 255, 255, .2)
-    overflow hidden
     transform rotate(-5deg)
-    z-index 0
-    position relative
+
     img
-      width 30%
-      min-width: 400px
-      max-width 700px
-      transform scaleX(-1) rotate(-17deg)
       position absolute
       bottom -20%
       left 40%
+      width 30%
+      min-width 400px
+      max-width 700px
+      transform scaleX(-1) rotate(-17deg)
+
   .error-card
-    border-radius 2px
-    margin-top -30px
+    z-index 10
     width 80vw
     max-width 600px
     padding 25px
-    z-index 10
+    margin-top -30px
+    border-radius 2px
+
     > h1
-      font-size 3.2em
       margin-bottom 0
+      font-size 3.2em
+
     > i
       font-size 5rem
 </style>

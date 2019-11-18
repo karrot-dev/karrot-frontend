@@ -314,20 +314,24 @@ export default {
 <style scoped lang="stylus">
 body.desktop .k-profile
   .photoAndName
-    margin-left 26px
     margin-bottom 20px
+    margin-left 26px
+
   .name
     padding-left 18px
 
 .k-profile
   .photoAndName
-    margin-left 10px
     margin-top 22px
     margin-bottom 14px
+    margin-left 10px
+
   .name
     padding-left 6px
+
   .photo
     transform rotate(-3deg)
+
   .user-actions
     position absolute
     top -24px
@@ -337,7 +341,7 @@ body.desktop .k-profile
   transform rotate(-15deg)
 
 .turn-in-leave-active, .turn-in-enter-active
-  transition: all .5s ease
+  transition all .5s ease
 
 .turn-in-enter-to
   transform rotate(-3deg)

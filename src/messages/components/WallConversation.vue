@@ -144,8 +144,8 @@ export default {
 
 <style scoped lang="stylus">
 .actionButton
-  z-index 1
   position absolute
   top -24px
   right 6px
+  z-index 1
 </style>

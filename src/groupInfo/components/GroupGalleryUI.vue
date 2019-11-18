@@ -244,33 +244,40 @@ export default {
 
 <style scoped lang="stylus">
 @import '~variables'
+
 .gallery-wrapper
   .overlay-toggle-button
     i
       transition transform .5s
+
       &.slightly-rotated
         transform rotate(-180deg)
+
   .sidebar
-    width 100%
     z-index 2
-    background-color rgba(255, 255, 255, 0.8)
+    width 100%
     padding 5px
+    background-color rgba(255, 255, 255, 0.8)
+
     .text-primary
       margin-left .2em
+
     .underline
       text-decoration underline
+
     .header
-      font-size 1.4em
       padding-top 14px
       margin-left 10px
+      font-size 1.4em
 
 body.desktop .gallery-wrapper
   .map-fixed
     position fixed
-    height 100vh
     right 0
     left 0
     z-index 0
+    height 100vh
+
   .sidebar
     &.expanded
       padding-bottom 3em
@@ -278,24 +285,27 @@ body.desktop .gallery-wrapper
       max-width 42vw
       padding 0 1em 1em 1em
       box-shadow 6px 0px 5px 0px rgba(0,0,0,0.3)
+
       &.expanded
         min-height 100vh
 
 body.mobile .gallery-wrapper
   .map-fixed
-    height 60vh
-    width 100%
     z-index 0
+    width 100%
+    height 60vh
+
   .sidebar
-    margin-top 0
+    z-index 0
     min-height 10vh
     padding-bottom 3em
+    margin-top 0
     margin-bottom 40px
     transition all .7s
-    z-index 0
+
     &.expanded
-      margin-top -60vh
       min-height 60vh
+      margin-top -60vh
 </style>
 
 <style lang="stylus">

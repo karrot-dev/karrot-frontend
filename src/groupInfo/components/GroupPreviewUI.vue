@@ -217,17 +217,21 @@ export default {
 
 <style scoped lang="stylus">
 .q-card *
-  overflow: hidden
+  overflow hidden
+
 .photo
   &.hasPhoto
     height 350px
+
   &:not(.hasPhoto)
     height 140px
+
   img
-    max-height 100%
-    max-width 100%
     width auto
+    max-width 100%
+    max-height 100%
     margin 0 auto
+
   .k-media-overlay
     background-color rgba(0,0,0,0.47)
 </style>

@@ -220,57 +220,72 @@ export default {
   background linear-gradient(to right, $lightGreen, $lighterGreen)
 
 .continuation
-  padding-top 0
   min-height auto
+  padding-top 0
 
 body.mobile .conversation-message
   .k-message-meta
-    font-size 80%
     padding-top 3px
+    font-size 80%
+
 .conversation-message
   padding-bottom 0
+
   .hover-button
     visibility hidden
+
   &:hover .hover-button
     visibility visible
+
   &.q-item-highlight:hover
     background-color alpha($secondary, .07)
+
   .email-icon
     position relative
     top -1.5px
     margin-left 2px
+
   .content
     word-wrap break-word
+
   .message-date
     display inline-block
     margin-left 2px
+
   .k-thread-box
     min-height 30px
     max-height 30px
     box-shadow none
+
     .k-profile-picture
       margin-right 2px
       vertical-align middle
+
     .k-replies-count
+      padding-right 3px
       margin-left 4px
       font-size 13px
       font-weight 500
-      padding-right 3px
+
   .k-message-controls
     position absolute
     top -6px
     right 0px
+
     .q-btn
-      color white
-      transition none
       padding 2px 9px
       font-size 13px
+      color white
+      transition none
+
 body.desktop
   .conversation-message.slim .k-message-controls
     top -8px
+
     .q-btn
       min-height 24px
       font-size 12px
+
   .k-message-meta
     padding-top 4px
 </style>

@@ -116,25 +116,23 @@ export default {
 @import '~variables'
 
 .content
-  transition background-color 2s ease
   width 100%
   font-size .8em
   cursor pointer
+  transition background-color 2s ease
+
   .featured-text
-    font-size 1.5em
     display inline
     margin-right .5em
+    font-size 1.5em
+
   &.isEmpty:not(.isDisabled)
-    background repeating-linear-gradient(
-      135deg,
-      white,
-      white 15px,
-      $lightRed 15px,
-      $lightRed 30px
-    )
+    background repeating-linear-gradient(     135deg,     white,     white 15px,     $lightRed 15px,     $lightRed 30px   )
+
   &.isUserMember
     &:not(.isDisabled)
       background linear-gradient(to right, $lightGreen, $lighterGreen)
+
   &.isDisabled
     background $lightRed
 </style>

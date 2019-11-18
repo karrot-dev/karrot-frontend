@@ -46,10 +46,12 @@ export default {
 
 <style scoped lang="stylus">
 @import '~variables'
+
 .browser-warning
   width 100%
-  text-align center
   padding 10px 4px
+  text-align center
+
 .outdated-link
   text-decoration underline
 </style>

@@ -31,9 +31,11 @@
           :img-src="image.imageUrls.fullSize"
         />
       </QCarousel>
-      <div class="row">
+      <div
+        v-if="offer.canEdit && offer.status === 'active'"
+        class="row"
+      >
         <QBtn
-          v-if="offer.canEdit"
           color="primary"
           class="q-ma-md col"
           @click="accept({ offerId: offer.id })"
@@ -41,7 +43,6 @@
           Mark as accepted
         </QBtn>
         <QBtn
-          v-if="offer.canEdit"
           color="red"
           class="q-ma-md col"
           @click="archive({ offerId: offer.id })"

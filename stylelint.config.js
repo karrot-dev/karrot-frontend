@@ -6,7 +6,7 @@ module.exports = {
     'comment-empty-line-before': ['always', {
       ignore: ['stylelint-commands', 'after-comment'],
     }],
-    'declaration-block-trailing-semicolon': 'never',
+    'karrot/no-semicolons': true,
     'declaration-colon-space-after': 'always',
     indentation: [2, {
       except: ['value'],
@@ -28,4 +28,7 @@ module.exports = {
       'vmax',
     ],
   },
+  plugins: [
+    './stylelint.no-semicolons.js',
+  ],
 }

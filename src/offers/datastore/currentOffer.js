@@ -34,7 +34,7 @@ export default {
         commit('setId', offerId)
         const offer = await offers.get(offerId)
 
-        // aborting, another group has been loaded while we waited
+        // aborting, another offer has been loaded while we waited
         if (state.id !== offerId) return
         commit('set', offer)
       },

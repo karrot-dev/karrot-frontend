@@ -235,6 +235,7 @@ export default [
             { type: 'activeOffer' },
           ],
           beforeEnter: 'currentOffer/select',
+          afterLeave: 'currentOffer/clear',
         },
         components: {
           default: OfferEdit,
@@ -248,7 +249,6 @@ export default [
           breadcrumbs: [
             { translation: 'GROUP.OFFERS', route: { name: 'groupOffers' } },
           ],
-          // beforeEnter: 'offers/fetchList',
           afterLeave: 'offers/clear',
         },
         components: {
@@ -272,6 +272,7 @@ export default [
                 { type: 'activeOffer' },
               ],
               beforeEnter: 'currentOffer/select',
+              afterLeave: 'currentOffer/clear',
               isDetail: true,
             },
             components: {

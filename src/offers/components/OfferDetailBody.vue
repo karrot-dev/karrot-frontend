@@ -17,6 +17,7 @@
       #before-chat-messages
     >
       <QCarousel
+        v-if="offer.images.length > 1"
         v-model="selectedImageIndex"
         swipeable
         animated
@@ -31,6 +32,10 @@
           :img-src="image.imageUrls.fullSize"
         />
       </QCarousel>
+      <img
+        v-else-if="offer.images.length > 0"
+        :src="offer.images[0].imageUrls.fullSize"
+      >
       <div
         v-if="offer.canEdit && offer.status === 'active'"
         class="row"

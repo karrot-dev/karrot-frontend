@@ -1,6 +1,8 @@
 <template>
   <QCard>
+    <KSpinner v-if="fetching" />
     <div
+      v-else
       class="edit-box"
       :class="{ changed: hasChanged }"
     >
@@ -73,6 +75,7 @@ import statusMixin from '@/utils/mixins/statusMixin'
 import { QBtn, QField, QCard, QIcon, QInput } from 'quasar'
 import MarkdownInput from '@/utils/components/MarkdownInput'
 import MultiCroppa from '@/offers/components/MultiCroppa'
+import KSpinner from '@/utils/components/KSpinner'
 
 const NAME_MIN_LENGTH = 5
 const NAME_MAX_LENGTH = 80
@@ -118,6 +121,7 @@ export default {
     QCard,
     QInput,
     QIcon,
+    KSpinner,
   },
   mixins: [validationMixin, editMixin, statusMixin],
   props: {
@@ -130,6 +134,10 @@ export default {
         status: 'active',
         images: [],
       }),
+    },
+    fetching: {
+      type: Boolean,
+      default: false,
     },
   },
   computed: {

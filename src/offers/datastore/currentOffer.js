@@ -23,6 +23,11 @@ export default {
       if (!state.current) return
       return rootGetters['conversations/getForOffer'](state.current.id)
     },
+    fetching (state, getters) {
+      if (!state.id) return
+      const status = getters['meta/status']('fetch', state.id)
+      return status && status.pending
+    },
     saveStatus: (state, getters) => {
       const currentOffer = getters.value
       return currentOffer && currentOffer.saveStatus

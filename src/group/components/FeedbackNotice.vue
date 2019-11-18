@@ -47,5 +47,5 @@ export default {
   transition all .2s ease
 
 .q-card.notice:hover
-  box-shadow 1px 2px 2px 1px rgba(0,0,0,0.4)
+  box-shadow 1px 2px 2px 1px rgba(0, 0, 0, 0.4)
 </style>

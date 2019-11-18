@@ -77,7 +77,7 @@ export default {
     transform rotate(180deg)
 
 .notice:hover
-  box-shadow 1px 2px 2px 1px rgba(0,0,0,0.4)
+  box-shadow 1px 2px 2px 1px rgba(0, 0, 0, 0.4)
 
 hr
   margin 1em 2em

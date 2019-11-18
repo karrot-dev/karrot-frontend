@@ -127,7 +127,13 @@ export default {
     font-size 1.5em
 
   &.isEmpty:not(.isDisabled)
-    background repeating-linear-gradient(     135deg,     white,     white 15px,     $lightRed 15px,     $lightRed 30px   )
+    background repeating-linear-gradient(
+      135deg,
+      white,
+      white 15px,
+      $lightRed 15px,
+      $lightRed 30px
+    )
 
   &.isUserMember
     &:not(.isDisabled)

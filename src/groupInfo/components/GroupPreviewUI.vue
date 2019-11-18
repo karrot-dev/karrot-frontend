@@ -233,5 +233,5 @@ export default {
     margin 0 auto
 
   .k-media-overlay
-    background-color rgba(0,0,0,0.47)
+    background-color rgba(0, 0, 0, 0.47)
 </style>

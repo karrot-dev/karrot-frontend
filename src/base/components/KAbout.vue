@@ -169,7 +169,7 @@ export default {
 
   > div
     height 80px
-    filter drop-shadow(0px 1px 1px rgba(0,0,0,.7) )
+    filter drop-shadow(0px 1px 1px rgba(0, 0, 0, .7))
 
   h4
     position relative

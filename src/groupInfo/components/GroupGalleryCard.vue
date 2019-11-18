@@ -153,10 +153,10 @@ export default {
 
 .groupPreviewCard
   cursor pointer
-  box-shadow 0 2px 6px 0 rgba(0,0,0,0.2)
+  box-shadow 0 2px 6px 0 rgba(0, 0, 0, 0.2)
 
   &:hover
-    box-shadow 0 7px 11px 0 rgba(0,0,0,0.2)
+    box-shadow 0 7px 11px 0 rgba(0, 0, 0, 0.2)
 
   *
     overflow hidden
@@ -194,5 +194,5 @@ export default {
       margin 0 auto
 
     .k-media-overlay
-      background-color rgba(0,0,0,0.47)
+      background-color rgba(0, 0, 0, 0.47)
 </style>

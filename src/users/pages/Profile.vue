@@ -9,7 +9,7 @@
         <template v-slot:avatar>
           <div
             class="q-pa-sm"
-            style="background-color: rgba(0,0,0,.1)"
+            style="background-color: rgba(0, 0, 0, .1)"
           >
             <QIcon
               name="priority_high"

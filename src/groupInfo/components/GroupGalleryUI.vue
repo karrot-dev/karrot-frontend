@@ -284,7 +284,7 @@ body.desktop .gallery-wrapper
     @media screen and (min-width: $breakpoint-sm)
       max-width 42vw
       padding 0 1em 1em 1em
-      box-shadow 6px 0px 5px 0px rgba(0,0,0,0.3)
+      box-shadow 6px 0px 5px 0px rgba(0, 0, 0, 0.3)
 
       &.expanded
         min-height 100vh

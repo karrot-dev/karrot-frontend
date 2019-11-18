@@ -17,9 +17,14 @@
           hide-bottom-space
           dense
         />
-        <QBtn :to="{ name: 'offerCreate' }">
-          Create Offer
-        </QBtn>
+        <QBtn
+          small
+          round
+          color="secondary"
+          icon="fas fa-gift"
+          :to="{ name: 'offerCreate' }"
+          :title="$t('OFFER.CREATE_TITLE')"
+        />
       </div>
       <div
         v-for="offer in offers"

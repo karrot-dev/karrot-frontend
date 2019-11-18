@@ -88,6 +88,6 @@ export default {
 <style scoped lang="stylus">
 .tools
   .bottom-right
+    top 5px;
     left 5px
-    top 5px
 </style>

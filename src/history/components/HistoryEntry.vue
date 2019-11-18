@@ -92,14 +92,19 @@ export default {
 </script>
 <style scoped lang="stylus">
 @import '~slidetoggle'
+
 .clickable
   transition padding .5s ease
+
   &:hover
     background-color rgb(235, 235, 235)
+
 .clickable.greyed
   padding 1em 3em 10px 3em
+
 .greyed
   background-color rgb(235, 235, 235)
+
 .detail-wrapper
   padding: 0 2em
   padding-bottom 2em

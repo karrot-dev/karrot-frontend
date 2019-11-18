@@ -150,6 +150,7 @@ export default {
 .list-wrapper
   .profilePic
     margin-right .5em
+
 .inactive
   opacity 0.5
 </style>

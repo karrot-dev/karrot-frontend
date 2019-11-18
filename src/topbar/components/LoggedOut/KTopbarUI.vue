@@ -60,9 +60,11 @@ export default {
 
 <style scoped lang="stylus">
 @import '~variables'
+
 .logo
+  height 36px;
   margin-left 1em
-  height 36px
+
 .actions .router-link-exact-active
   display none
 </style>

@@ -201,12 +201,13 @@ export default {
 
 <style lang="stylus" scoped>
 .karrot-button >>> .q-btn__content
+  min-width 100%;
+  min-height 100%
   background-image url('twemoji-carrot.png')
-  background-size 60%
   background-repeat no-repeat
   background-position center
-  min-height 100%
-  min-width 100%
+  background-size 60%
+
 .karrot-button.small >>> .q-btn-inner
   background-size 50%
 

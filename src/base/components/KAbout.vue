@@ -162,17 +162,21 @@ export default {
 
 <style scoped lang="stylus">
 @import '~variables'
+
 .k-logo-container
   height 75px
   margin-bottom 15px
+
   > div
     height 80px
     filter: drop-shadow(0px 1px 1px rgba(0,0,0,.7) )
+
   h4
-    display inline-block
     position relative
     bottom 15px
+    display inline-block
     padding-left 15px
+
 .k-about-footer
   margin-top 50px
 </style>

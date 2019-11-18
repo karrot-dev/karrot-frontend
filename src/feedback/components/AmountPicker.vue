@@ -124,7 +124,8 @@ export default {
 <style scoped lang="stylus">
 .wrapper
   position relative
+
 .showOverlay .content
+  filter blur(3px);
   opacity 0.3
-  filter blur(3px)
 </style>

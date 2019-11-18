@@ -55,16 +55,21 @@ export default {
 .q-card.notice
   cursor pointer
   transition: all .2s ease;
+
   .card-arrow
     float: right
     transition: all .3s ease;
+
   .upsideDown
     transform rotate(180deg)
+
 .q-card.notice:hover
   box-shadow: 1px 2px 2px 1px rgba(0,0,0,0.4)
+
 hr
   margin 1em 2em
   border solid lightgrey 1px;
+
 .no-margin-bottom
   margin-bottom 0
 </style>

@@ -303,28 +303,35 @@ export default {
 
 <style scoped lang="stylus">
 @import '~variables'
+
 .mainContent-page
   width 100%
+
 .sidenav-desktop
   width 30%
   min-width 250px
   max-width 30em
+  margin-right .4em;
   margin-left auto
-  margin-right .4em
+
 body.desktop .mainContent-page:not(.fullpage)
   min-width 350px
   max-width: 57em
+  margin-right auto;
   margin-bottom 4.5em
   margin-left auto
-  margin-right auto
+
 .background
   background-image url('../assets/repeating_grey.png')
+  background-attachment: fixed
   background-size: 600px
-  background-attachment:fixed
+
   &.bikekitchen
     background-image url('../assets/bikekitchen_background.jpg')
+
   &.general
     background-image url('../assets/general_background.jpg')
+
 .k-highlight-dot
   position absolute
   right -4px
@@ -332,6 +339,7 @@ body.desktop .mainContent-page:not(.fullpage)
   width .5rem
   height .5rem
   border-radius 50%
+
 .logo
   height 25px
 </style>

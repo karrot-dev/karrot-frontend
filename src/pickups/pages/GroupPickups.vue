@@ -78,15 +78,19 @@ export default {
 <style scoped lang="stylus">
 .padding
   padding 1em
+
 .notice
   .icon
     margin .1em 0 0 0
   padding 2em 3em
   transform: translateZ(1px) rotate(-3deg);
+
   h5
     padding 0
+
 .manage
   padding 8px
+
   q-btn
     display inline-block
     padding .3em

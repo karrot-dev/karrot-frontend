@@ -54,12 +54,14 @@
       </div>
     </template>
   </ChatConversation>
+  <KSpinner v-else />
 </template>
 
 <script>
 import { mapActions, mapGetters } from 'vuex'
 import ChatConversation from '@/messages/components/ChatConversation'
 import Markdown from '@/utils/components/Markdown'
+import KSpinner from '@/utils/components/KSpinner'
 import { QBtn, QCarousel, QCarouselSlide } from 'quasar'
 
 export default {
@@ -69,6 +71,7 @@ export default {
     QCarouselSlide,
     ChatConversation,
     Markdown,
+    KSpinner,
   },
   props: {
     inline: {

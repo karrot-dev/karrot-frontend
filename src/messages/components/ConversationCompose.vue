@@ -93,6 +93,9 @@ export default {
       type: String,
       default: null,
     },
+    conversation: {
+      type: Number,
+    },
     slim: {
       type: Boolean,
       default: false,
@@ -104,13 +107,21 @@ export default {
   },
   data () {
     return {
-      message: (this.value) || '',
+      message: (this.value) || localStorage[this.conversation] || '',
       hasFocus: false,
+      key: this.conversation,
     }
   },
   watch: {
     value (val) {
-      if (val) this.message = val.content
+      if (val) {
+        this.message = val.content
+      }
+    },
+    message (val) {
+      if (val) {
+        localStorage.setItem(this.getKey(), val)
+      }
     },
     isPending (val) {
       if (!val && !this.hasAnyError) this.message = ''
@@ -125,17 +136,28 @@ export default {
     },
   },
   methods: {
+    getKey () {
+      if (this.key) {
+        return this.key
+      }
+      else return 'wallConv'
+    },
     submit () {
       this.$emit('submit', this.message)
+      localStorage.removeItem(this.getKey())
     },
     leaveEdit () {
       this.$emit('leaveEdit')
+      this.message = ''
+      localStorage.removeItem(this.getkey())
     },
     onFocus (event) {
       this.hasFocus = true
     },
     onBlur () {
       this.hasFocus = false
+      this.message = ''
+      localStorage.removeItem(this.getKey())
     },
   },
 }

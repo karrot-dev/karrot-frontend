@@ -47,7 +47,7 @@
           Archive
         </QBtn>
       </div>
-      <div class="q-ma-md">
+      <div class="q-pa-md bg-white">
         <Markdown :source="offer.description" />
       </div>
     </template>

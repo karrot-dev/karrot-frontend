@@ -2,7 +2,7 @@
   <div
     class="absolute-full column"
   >
-    <div class="col-auto">
+    <div class="col-auto full-width">
       <OfferDetailHeader />
     </div>
     <div class="col relative-position">

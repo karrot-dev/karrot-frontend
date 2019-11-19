@@ -26,6 +26,7 @@
           :status="conversation.sendStatus"
           slim
           :placeholder="messagePrompt"
+          :conversation="conversation.id"
           :is-participant="conversation.isParticipant"
           class="q-pb-md"
           @submit="sendMessage"

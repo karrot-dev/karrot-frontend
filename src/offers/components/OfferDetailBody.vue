@@ -17,13 +17,9 @@
       #before-chat-messages
     >
       <QCarousel
-        v-if="offer.images.length > 1"
+        v-if="offer.images.length > 0"
         v-model="selectedImageIndex"
-        swipeable
-        animated
-        thumbnails
-        arrows
-        infinite
+        v-bind="carouselOptions"
       >
         <QCarouselSlide
           v-for="(image, idx) in offer.images"
@@ -32,10 +28,6 @@
           :img-src="image.imageUrls.fullSize"
         />
       </QCarousel>
-      <img
-        v-else-if="offer.images.length > 0"
-        :src="offer.images[0].imageUrls.fullSize"
-      >
       <div
         v-if="offer.canEdit && offer.status === 'active'"
         class="row"
@@ -101,6 +93,16 @@ export default {
       return {
         ...this.conversation,
         messages: this.conversation.messages.slice().reverse(),
+      }
+    },
+    carouselOptions () {
+      if (this.offer.images.length <= 1) return
+      return {
+        swipeable: true,
+        animated: true,
+        thumbnails: true,
+        arrows: true,
+        infinite: true,
       }
     },
   },

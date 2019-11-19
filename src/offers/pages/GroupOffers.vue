@@ -42,14 +42,17 @@
           >
             <img :src="offer.images[0].imageUrls.fullSize">
           </div>
-          <QCardSection class="fixed-height smaller-text">
+          <QCardSection class="fixed-height row">
             <ProfilePicture
+              class="col-auto q-mr-sm"
               :user="offer.user"
               :size="30"
             />
-            <router-link :to="detailRouteFor(offer.id)">
-              {{ offer.name }}
-            </router-link>
+            <div class="text-subtitle1 ellipsis col">
+              <router-link :to="detailRouteFor(offer.id)">
+                {{ offer.name }}
+              </router-link>
+            </div>
           </QCardSection>
         </QCard>
       </div>

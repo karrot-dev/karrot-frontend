@@ -57,8 +57,6 @@ export default {
         commit('setFilter', { status })
         const offerList = await dispatch('pagination/extractCursor', offers.list(state.filter))
         commit('update', offerList)
-        const users = offerList.map(offer => offer.user)
-        commit('users/update', users, { root: true })
       },
     }),
     refresh ({ state, dispatch }) {

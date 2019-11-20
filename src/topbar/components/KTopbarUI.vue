@@ -236,16 +236,20 @@ export default {
 
 <style scoped lang="stylus">
 @import '~variables'
+
 .logo
   height 36px
+
 .profilePicture
-  margin-left 1em
   height 36px
+  margin-left 1em
 
 .k-search-button, .k-more-options
   opacity $topbar-opacity-low
+
   &:hover
     opacity 1
+
 .q-btn >>> .q-icon
   font-size 20px
 

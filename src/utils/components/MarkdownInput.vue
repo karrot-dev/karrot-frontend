@@ -134,10 +134,12 @@ export default {
 
 <style scoped lang="stylus">
 .markdown-helper
-  font-size .65rem
   padding-top 6px
+  font-size .65rem
+
   > *
     padding-right 10px
+
 .markdown-input-preview-card
   min-width 60%
   max-width 700px

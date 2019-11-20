@@ -76,9 +76,11 @@ export default {
 
 <style scoped lang="stylus">
 @import '~variables'
+
 .wrapper
   .amount
     margin-right .6em
+
   img
     height 60px
 </style>

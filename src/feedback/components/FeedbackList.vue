@@ -70,6 +70,6 @@ export default {
 <style scoped lang="stylus">
 .k-feedback-list
   max-width 600px
-  margin-left auto
   margin-right auto
+  margin-left auto
 </style>

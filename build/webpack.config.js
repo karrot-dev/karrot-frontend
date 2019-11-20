@@ -4,6 +4,7 @@ const projectRoot = resolve(__dirname, '../')
 
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const VueLoaderPlugin = require('vue-loader/lib/plugin')
+const StyleLintPlugin = require('stylelint-webpack-plugin')
 const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin
 const TerserPlugin = require('terser-webpack-plugin')
 const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin')
@@ -153,6 +154,10 @@ module.exports = {
     ],
   },
   plugins: [
+    new StyleLintPlugin({
+      files: ['src/**/*.{vue,styl}'],
+      customSyntax: join(projectRoot, 'build/stylelintCustomSyntax.js'),
+    }),
     new webpack.DefinePlugin(appEnv),
     new HtmlWebpackPlugin({
       filename: 'index.html',

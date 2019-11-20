@@ -88,5 +88,13 @@ export default {
 }
 
 export function convert (val) {
-  return val // nothing to convert!
+  if (Array.isArray(val)) {
+    return val.map(convert)
+  }
+  else {
+    return {
+      ...val,
+      createdAt: new Date(val.createdAt),
+    }
+  }
 }

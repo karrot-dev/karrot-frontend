@@ -4,6 +4,7 @@ import * as Sentry from '@sentry/browser'
 export default datastore => {
   const isLoggedIn = () => datastore.getters['auth/isLoggedIn']
   const getUserGroupId = () => isLoggedIn() && datastore.getters['auth/user'].currentGroup
+  const getGroupFeatures = () => datastore.getters['currentGroup/features']
 
   router.beforeEach(async (to, from, nextFn) => {
     datastore.commit('routeMeta/setNext', to)
@@ -44,6 +45,14 @@ export default datastore => {
     // check meta.requireLoggedOut
     else if (to.matched.some(m => m.meta.requireLoggedOut) && isLoggedIn()) {
       next = { path: '/' }
+    }
+
+    else {
+      // check meta.requireFeature
+      const features = getGroupFeatures()
+      if (to.matched.some(m => m.meta.requireFeature && !features.includes(m.meta.requireFeature))) {
+        next = { path: '/' }
+      }
     }
 
     if (next) {

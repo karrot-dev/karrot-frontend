@@ -63,6 +63,7 @@ export default {
     // for current user:
     membership: (state, getters, rootState, rootGetters) => getters.memberships[rootGetters['auth/userId']],
     roles: (state, getters) => getters.membership ? getters.value.membership.roles : [],
+    features: state => state.current && state.current.features ? state.current.features : [],
     isEditor: (state, getters) => getters.roles.includes('editor'),
     isBikeKitchen: (state, getters) => Boolean(getters.value && getters.value.isBikeKitchen),
     isGeneralPurpose: (state, getters) => Boolean(getters.value && getters.value.isGeneralPurpose),

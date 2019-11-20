@@ -10368,13 +10368,6 @@ exports[`Storyshots Sidenav Group 1`] = `
       <!---->
     </a><a tabindex="0" class="q-item q-item-type row no-wrap q-item--clickable q-link cursor-pointer q-focusable q-hoverable">
       <div tabindex="-1" class="q-focus-helper"></div>
-      <div class="q-item__section column text-center q-item__section--side justify-center"><i aria-hidden="true" class="fas fa-gift q-icon" style="font-size:1.1em;"> </i></div>
-      <div class="q-item__section column q-item__section--main justify-center">
-        Offers
-      </div>
-      <!---->
-    </a><a tabindex="0" class="q-item q-item-type row no-wrap q-item--clickable q-link cursor-pointer q-focusable q-hoverable">
-      <div tabindex="-1" class="q-focus-helper"></div>
       <div class="q-item__section column text-center q-item__section--side justify-center"><i aria-hidden="true" class="fas fa-balance-scale q-icon" style="font-size:1.1em;"> </i></div>
       <div class="q-item__section column q-item__section--main justify-center">
         Feedback

@@ -216,6 +216,7 @@ export default [
         path: 'offer/create',
         meta: {
           requireLoggedIn: true,
+          requireFeature: 'offers',
           breadcrumbs: [
             { translation: 'GROUP.OFFERS', route: { name: 'groupOffers' } },
             { translation: 'OFFER.CREATE_TITLE', route: { name: 'offerCreate' } },
@@ -230,6 +231,7 @@ export default [
         path: 'offers/:offerId/edit',
         meta: {
           requireLoggedIn: true,
+          requireFeature: 'offers',
           breadcrumbs: [
             { translation: 'GROUP.OFFERS', route: { name: 'groupOffers' } },
             { type: 'activeOffer' },
@@ -246,6 +248,7 @@ export default [
         path: 'offers',
         meta: {
           requireLoggedIn: true,
+          requireFeature: 'offers',
           breadcrumbs: [
             { translation: 'GROUP.OFFERS', route: { name: 'groupOffers' } },
           ],

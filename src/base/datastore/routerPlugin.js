@@ -4,12 +4,14 @@ import * as Sentry from '@sentry/browser'
 export default datastore => {
   const isLoggedIn = () => datastore.getters['auth/isLoggedIn']
   const getUserGroupId = () => isLoggedIn() && datastore.getters['auth/user'].currentGroup
-  const getGroupFeatures = () => datastore.getters['currentGroup/features']
+  const getFeatures = () => datastore.getters['currentGroup/features']
 
   router.beforeEach(async (to, from, nextFn) => {
     datastore.commit('routeMeta/setNext', to)
     datastore.dispatch('routeError/clear')
     let next
+
+    const groupId = getUserGroupId()
 
     // handle invite parameter
     const inviteToken = to.query.invite
@@ -25,8 +27,6 @@ export default datastore => {
 
     // redirect homescreen correctly
     else if (to.path === '/') {
-      const groupId = getUserGroupId()
-
       if (groupId) {
         next = { name: 'group', params: { groupId } }
       }
@@ -47,13 +47,17 @@ export default datastore => {
       next = { path: '/' }
     }
 
-    else {
-      // check meta.requireFeature
-      const features = getGroupFeatures()
-      if (to.matched.some(m => m.meta.requireFeature && !features.includes(m.meta.requireFeature))) {
-        next = { path: '/' }
-      }
-    }
+    // else {
+    //   // eslint-disable-next-line eqeqeq
+    //   if (to.params.groupId != groupId) {
+    //     console.log('switching to another group... ignore the require feature thing...')
+    //   }
+    //   // check meta.requireFeature
+    //   const features = getGroupFeatures()
+    //   if (to.matched.some(m => m.meta.requireFeature && !features.includes(m.meta.requireFeature))) {
+    //     next = { path: '/' }
+    //   }
+    // }
 
     if (next) {
       nextFn(next)
@@ -81,6 +85,20 @@ export default datastore => {
     }
     catch (err) {
       Sentry.captureException(err)
+    }
+
+    // Check if our route requires any features we don't have
+    // It would be nice to do this _before_ we visit the route, but we don't have the features
+    // available at that point
+    const features = getFeatures()
+    if (to.matched.some(m => m.meta.requireFeature && !features.includes(m.meta.requireFeature))) {
+      const groupId = datastore.getters['currentGroup/id']
+      if (groupId) {
+        await router.push({ name: 'group', params: { groupId } })
+      }
+      else {
+        await router.push({ path: '/' })
+      }
     }
   })
 

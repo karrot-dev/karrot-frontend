@@ -10,6 +10,7 @@ function initialState () {
     conversationMessages: {},
     threads: {},
     threadMessages: {},
+    related: {},
     fetchInitialDone: false,
     entryMeta: {
       conversationsMarkedAt: null,
@@ -88,6 +89,15 @@ export default {
     canFetchPastThreads: (state, getters) => getters['threadsPagination/canFetchNext'],
     fetchingPastThreads: (state, getters) => getters['meta/status']('fetchPastThreads').pending,
     fetchInitialPending: (state, getters) => getters['meta/status']('fetchInitial').pending,
+    getRelated: (state, getters, rootState, rootGetters) => (type, id) => {
+      const related = state.related[type] && state.related[type][id]
+      if (!related) return
+      switch (type) {
+        case 'offer': return rootGetters['offers/enrich'](related)
+        default:
+          return related
+      }
+    },
   },
   actions: {
     ...withMeta({
@@ -127,7 +137,16 @@ export default {
       dispatch('updateConversationsAndRelated', conversationsAndRelated)
       dispatch('updateThreadsAndRelated', threadsAndRelated)
     },
-    updateConversationsAndRelated ({ commit, dispatch, rootState }, { conversations, messages, pickups, applications, issues, usersInfo, meta }) {
+    updateConversationsAndRelated ({ commit, dispatch, rootState }, {
+      conversations,
+      messages,
+      pickups,
+      applications,
+      issues,
+      offers,
+      usersInfo,
+      meta,
+    }) {
       if (conversations) {
         commit('updateConversations', conversations)
 
@@ -147,6 +166,9 @@ export default {
       }
       if (issues) {
         commit('issues/update', issues, { root: true })
+      }
+      if (offers) {
+        commit('updateRelated', { type: 'offer', items: offers })
       }
       if (usersInfo) {
         // contains only limited user info, so only update if we don't have the user already
@@ -220,6 +242,12 @@ export default {
         else {
           insertSorted(stateMessages, [message])
         }
+      }
+    },
+    updateRelated (state, { type, items }) {
+      if (!state.related[type]) Vue.set(state.related, type, {})
+      for (const item of items) {
+        Vue.set(state.related[type], item.id, item)
       }
     },
     setThreadsCursor (state, cursor) {

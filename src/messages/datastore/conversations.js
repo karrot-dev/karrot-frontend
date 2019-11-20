@@ -191,6 +191,7 @@ export default {
         case 'pickup': return rootGetters['pickups/get'](targetId)
         case 'application': return rootGetters['applications/get'](targetId)
         case 'issue': return rootGetters['issues/get'](targetId)
+        case 'offer': return rootGetters['latestMessages/getRelated']('offer', targetId)
         case 'private': return participants.find(u => !u.isCurrentUser)
       }
     },

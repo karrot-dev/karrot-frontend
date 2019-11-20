@@ -3,6 +3,7 @@ import { convert as convertMessage } from './messages'
 import { convert as convertPickup } from '@/pickups/api/pickups'
 import { convert as convertApplication } from '@/applications/api/applications'
 import { convert as convertIssue } from '@/issues/api/issues'
+import { convert as convertOffer } from '@/offers/api/offers'
 
 export default {
   async get (id) {
@@ -48,6 +49,7 @@ function convertListResults (results) {
     pickups: convertPickup(results.pickups),
     applications: convertApplication(results.applications),
     issues: convertIssue(results.issues),
+    offers: convertOffer(results.offers),
     usersInfo: results.usersInfo,
     meta: convertMeta(results.meta),
   }

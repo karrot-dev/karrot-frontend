@@ -38,6 +38,7 @@ export default {
         ...offer,
         canEdit: rootGetters['auth/userId'] === offer.user,
         user: rootGetters['users/get'](offer.user),
+        group: rootGetters['groups/get'](offer.group),
         ...metaStatusesWithId(getters, ['save'], offer.id),
       }
     },
@@ -53,9 +54,10 @@ export default {
   },
   actions: {
     ...withMeta({
-      async fetchList ({ state, dispatch, commit }, { status = 'active' }) {
+      async fetchList ({ state, rootGetters, dispatch, commit }, { status = 'active' }) {
         commit('setFilter', { status })
-        const offerList = await dispatch('pagination/extractCursor', offers.list(state.filter))
+        const group = rootGetters['currentGroup/id']
+        const offerList = await dispatch('pagination/extractCursor', offers.list({ ...state.filter, group }))
         commit('update', offerList)
       },
     }),

@@ -101,20 +101,26 @@ export default {
 <style scoped lang="stylus">
 @import '~variables'
 @import './reactionBox'
+
 .add-button
   margin-left -4px
   transition none
+
 .desktop .conversation-reactions
   .add-button
     visibility hidden
+
   &:hover .add-button
     visibility visible
+
 .user-reacted
   border-color $secondary !important
+
 .reactions-number
   padding-left 3px
-  opacity .7
   font-size .8em
+  opacity .7
+
 .big
   font-size 1.6em
 </style>

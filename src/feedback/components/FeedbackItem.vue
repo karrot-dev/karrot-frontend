@@ -138,15 +138,20 @@ export default {
 
 <style scoped lang="stylus">
 @import '~variables'
+
 .comment
   padding-top 8px
   word-wrap break-word
+
   >>> p:last-child
     margin-bottom 5px
+
 .message-date
   display inline-block
+
 .edit-button
   opacity .7
+
 .q-card:hover .edit-button
   opacity 1
 </style>

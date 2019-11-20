@@ -9824,7 +9824,7 @@ exports[`Storyshots Profile non-member 1`] = `
   <div class="k-profile">
     <div class="q-banner row items-center bg-warning text-white shadow-2 q-mb-sm q-pa-none" style="min-height:unset;">
       <div class="q-banner__avatar col-auto row items-center">
-        <div class="q-pa-sm" style="background-color:rgba(0,0,0,.1);"><i aria-hidden="true" class="material-icons q-icon text-white" style="font-size:24px;">priority_high</i></div>
+        <div class="q-pa-sm" style="background-color:rgba(0, 0, 0, .1);"><i aria-hidden="true" class="material-icons q-icon text-white" style="font-size:24px;">priority_high</i></div>
       </div>
       <div class="q-banner__content col text-body2">
         User 161 is not member of Group 41.

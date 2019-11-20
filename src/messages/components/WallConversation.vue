@@ -20,6 +20,7 @@
             :status="data.sendStatus"
             :placeholder="messagePrompt"
             :user="user"
+            conversationId="wallConv"
             :slim="$q.platform.is.mobile"
             :is-participant="data.isParticipant"
             @submit="$emit('send', { id: data.id, content: arguments[0] })"

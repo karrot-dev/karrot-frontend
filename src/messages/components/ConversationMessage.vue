@@ -122,6 +122,7 @@
     v-else
     :status="message.saveStatus"
     :user="message.author"
+    :conversationId="message.id.toString()"
     :value="message.content"
     :slim="slim"
     @submit="save"

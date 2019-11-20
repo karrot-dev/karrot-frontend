@@ -6,6 +6,7 @@
     "NOT_CONNECTED": "Vous n'êtes pas connecté au serveur.",
     "INVALID_LINK": "Désolé, le lien que tu as ouvert n'est pas valide.",
     "GENERIC_ERROR": "Désolé quelque chose n'a pas fonctionné :-/ ",
+    "SEARCH_RESULTS": "Search results",
     "SEARCH_NOT_FOUND": "Pas trouvé",
     "ABOUT_KARROT": "A propos de Karrot"
   },
@@ -651,6 +652,11 @@
       "ANONYMOUS": "Your vote will be anonymous."
     },
     "NO_ONGOING": "No ongoing issues."
+  },
+  "ADDRESS_PICKER": {
+    "SET_AS": "Set address as",
+    "KEEP_EXISTING_LOCATION": "keep existing location on map",
+    "CHOOSE_LOCATION": "choose location on map"
   },
   "UNSUBSCRIBE": {
     "HEADER": "Se désabonner",

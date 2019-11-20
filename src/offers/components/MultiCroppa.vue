@@ -233,6 +233,7 @@ export default {
 <style scoped lang="stylus">
 .new-image >>> canvas
   border 1px solid #ddd
+
 .MultiCroppa >>> .q-btn.disabled
   visibility hidden
 </style>

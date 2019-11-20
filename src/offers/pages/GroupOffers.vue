@@ -148,11 +148,14 @@ export default {
 <style scoped lang="stylus">
 .offer
   cursor pointer
+
   .item-card
     width 100%
+
 .photo
   height 160px
   overflow hidden
+
   img
     width 100%
 </style>

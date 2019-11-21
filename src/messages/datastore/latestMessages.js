@@ -250,6 +250,15 @@ export default {
         Vue.set(state.related[type], item.id, item)
       }
     },
+    deleteRelated (state, { type, ids }) {
+      if (!state.related[type]) return
+      for (const id of ids) {
+        delete state.related[type][id]
+      }
+      if (Object.keys(state.related[type]).length === 0) {
+        delete state.related[type]
+      }
+    },
     setThreadsCursor (state, cursor) {
       state.threadsCursor = cursor
     },

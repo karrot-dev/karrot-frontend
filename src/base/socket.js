@@ -224,10 +224,12 @@ function receiveMessage ({ topic, payload }) {
   else if (topic === 'offers:offer') {
     const offer = camelizeKeys(payload)
     datastore.commit('offers/update', [offer])
+    datastore.commit('latestMessages/updateRelated', { type: 'offer', items: [offer] })
     datastore.commit('currentOffer/update', offer)
   }
   else if (topic === 'offers:offer_deleted') {
     datastore.commit('offers/delete', payload.id)
+    datastore.commit('latestMessages/deleteRelated', { type: 'offer', ids: [payload.id] })
     datastore.commit('currentOffer/delete', payload.id)
   }
   else if (topic === 'feedback:feedback') {

@@ -41,8 +41,8 @@
         >
           <QCard
             class="cursor-pointer"
-            @click="visit(offer.id)"
             :title="offer.name"
+            @click="visit(offer.id)"
           >
             <QImg
               basic

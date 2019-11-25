@@ -21,7 +21,7 @@
           small
           round
           color="secondary"
-          icon="fas fa-gift"
+          icon="fas fa-plus"
           :to="{ name: 'offerCreate' }"
           :title="$t('OFFER.CREATE_TITLE')"
         />

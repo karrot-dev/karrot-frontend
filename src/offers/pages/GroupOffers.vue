@@ -17,44 +17,56 @@
           hide-bottom-space
           dense
         />
-        <QBtn
-          small
-          round
-          color="secondary"
-          icon="fas fa-plus"
-          :to="{ name: 'offerCreate' }"
-          :title="$t('OFFER.CREATE_TITLE')"
-        />
       </div>
       <KSpinner v-show="fetching" />
-      <div
-        v-for="offer in offers"
-        :key="offer.id"
-        class="offer inline-block"
-        :style="offerStyle"
-      >
-        <QCard
-          @click="visit(offer.id)"
+      <div class="row">
+        <div
+          v-if="status === 'active' && !fetching"
+          class="col-md-4 col-sm-6 col-12 new-offer"
         >
-          <div
-            v-if="offer.images[0]"
-            class="photo text-white relative-position row justify-center"
+          <QCard>
+            <router-link
+              class="fit"
+              :to="{ name: 'offerCreate' }"
+              :title="$t('OFFER.CREATE_TITLE')"
+            >
+              <QIcon
+                size="5em"
+                class="fit"
+                name="fas fa-plus"
+              />
+            </router-link>
+          </QCard>
+        </div>
+        <div
+          v-for="offer in offers"
+          :key="offer.id"
+          class="col-md-4 col-sm-6 col-12"
+        >
+          <QCard
+            class="cursor-pointer"
+            @click="visit(offer.id)"
           >
-            <img :src="offer.images[0].imageUrls.fullSize">
-          </div>
-          <QCardSection class="fixed-height row">
-            <ProfilePicture
-              class="col-auto q-mr-sm"
-              :user="offer.user"
-              :size="30"
-            />
-            <div class="text-subtitle1 ellipsis col">
-              <router-link :to="detailRouteFor(offer.id)">
-                {{ offer.name }}
-              </router-link>
+            <div
+              v-if="offer.images[0]"
+              class="photo text-white relative-position row justify-center"
+            >
+              <img :src="offer.images[0].imageUrls.fullSize">
             </div>
-          </QCardSection>
-        </QCard>
+            <QCardSection class="row">
+              <ProfilePicture
+                class="col-auto q-mr-sm"
+                :user="offer.user"
+                :size="30"
+              />
+              <div class="text-subtitle1 ellipsis col">
+                <router-link :to="detailRouteFor(offer.id)">
+                  {{ offer.name }}
+                </router-link>
+              </div>
+            </QCardSection>
+          </QCard>
+        </div>
       </div>
     </div>
   </div>
@@ -62,7 +74,7 @@
 
 <script>
 import { mapActions, mapGetters } from 'vuex'
-import { QBtn, QSelect, QCard, QCardSection, QResizeObserver } from 'quasar'
+import { QIcon, QSelect, QCard, QCardSection, QResizeObserver } from 'quasar'
 import ProfilePicture from '@/users/components/ProfilePicture'
 import KSpinner from '@/utils/components/KSpinner'
 import bindRoute from '@/utils/mixins/bindRoute'
@@ -72,7 +84,7 @@ export default {
   components: {
     ProfilePicture,
     KSpinner,
-    QBtn,
+    QIcon,
     QSelect,
     QCard,
     QCardSection,
@@ -146,11 +158,8 @@ export default {
 </script>
 
 <style scoped lang="stylus">
-.offer
-  cursor pointer
-
-  .item-card
-    width 100%
+.new-offer >>> .q-card
+  height 222px
 
 .photo
   height 160px

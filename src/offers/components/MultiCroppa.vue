@@ -10,11 +10,16 @@
         :ref="croppaRefFor(item)"
         :initial-image="initialImageFor(item)"
         :passive="isExisting(item)"
-        placeholder="+"
+        placeholder=""
         prevent-white-space
         :show-remove-button="false"
         @new-image-drawn="imageDrawn(item)"
-      />
+      >
+        <img
+          slot="placeholder"
+          src="statics/add_a_photo.svg"
+        >
+      </Croppa>
       <QBtnGroup
         rounded
         flat

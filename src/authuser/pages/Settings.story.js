@@ -35,6 +35,7 @@ const datastore = createDatastore({
   currentGroup: {
     getters: {
       value: () => groupsMock[0],
+      changeNotificationTypeStatus: () => () => ({}),
     },
   },
   groups: {

@@ -20,6 +20,10 @@ function initialState () {
   }
 }
 
+function sortByCreatedAtDesc (a, b) {
+  return b.createdAt - a.createdAt
+}
+
 export default {
   namespaced: true,
   modules: {
@@ -44,7 +48,9 @@ export default {
     },
     all: (state, getters) => {
       return Object.values(state.entries)
+        .filter(offer => offer.status === state.filter.status)
         .map(getters.enrich)
+        .sort(sortByCreatedAtDesc)
     },
     fetching: (state, getters) => {
       const status = getters['meta/status']('fetchList')

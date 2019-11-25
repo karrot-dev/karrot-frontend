@@ -39,6 +39,7 @@
           <QItemSection side>
             <QCheckbox
               :value="notificationIsEnabled(type)"
+              :disable="notificationIsPending(type)"
               @input="change(type, arguments[0])"
             />
           </QItemSection>
@@ -49,6 +50,12 @@
             <QItemLabel caption>
               {{ $t('GROUP.NOTIFICATION_TYPES.' + type + '.DESCRIPTION') }}
             </QItemLabel>
+          </QItemSection>
+          <QItemSection side>
+            <QSpinner
+              :class="{ invisible: !notificationIsPending(type) }"
+              size="xs"
+            />
           </QItemSection>
         </QItem>
         <div
@@ -88,6 +95,7 @@ import {
   QItemSection,
   QItemLabel,
   QBtn,
+  QSpinner,
 } from 'quasar'
 import SwitchGroupButton from '@/users/components/SwitchGroupButton'
 import statusMixin from '@/utils/mixins/statusMixin'
@@ -103,6 +111,7 @@ export default {
     QItemSection,
     QItemLabel,
     QBtn,
+    QSpinner,
     SwitchGroupButton,
   },
   mixins: [statusMixin],
@@ -115,11 +124,22 @@ export default {
       type: Array,
       default: null,
     },
+    changeNotificationTypeStatus: {
+      type: Function,
+      default: () => () => ({}),
+    },
   },
-  data () {
-    return {
-      availableNotificationTypes: ['weekly_summary', 'daily_pickup_notification', 'new_application', 'new_offer', 'conflict_resolution'],
-    }
+  computed: {
+    availableNotificationTypes () {
+      if (!this.group) return []
+      return [
+        'weekly_summary',
+        'daily_pickup_notification',
+        'new_application',
+        ...(this.group.features.includes('offers') ? ['new_offer'] : []),
+        'conflict_resolution',
+      ]
+    },
   },
   watch: {
     group (val, oldval) {
@@ -135,6 +155,10 @@ export default {
     notificationIsEnabled (type) {
       if (!this.group) return
       return this.group.notificationTypes.includes(type)
+    },
+    notificationIsPending (type) {
+      const status = this.changeNotificationTypeStatus(type)
+      return status && status.pending
     },
   },
 }

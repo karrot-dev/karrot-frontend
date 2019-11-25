@@ -67,6 +67,7 @@ export default {
     isEditor: (state, getters) => getters.roles.includes('editor'),
     isBikeKitchen: (state, getters) => Boolean(getters.value && getters.value.isBikeKitchen),
     isGeneralPurpose: (state, getters) => Boolean(getters.value && getters.value.isGeneralPurpose),
+    changeNotificationTypeStatus: (state, getters) => notificationType => getters['meta/status']('changeNotificationType', notificationType),
   },
   actions: {
     ...withMeta({
@@ -92,6 +93,14 @@ export default {
         if (getters.id) await groups.throttledMarkUserActive(getters.id)
       },
 
+      async trustUser ({ getters }, userId) {
+        if (!getters.id) return
+        await groups.trustUser(getters.id, userId)
+      },
+
+    }),
+
+    ...withMeta({
       async changeNotificationType ({ dispatch, getters }, { notificationType, enabled }) {
         if (enabled) {
           await groups.addNotificationType(getters.id, notificationType)
@@ -100,12 +109,8 @@ export default {
           await groups.removeNotificationType(getters.id, notificationType)
         }
       },
-
-      async trustUser ({ getters }, userId) {
-        if (!getters.id) return
-        await groups.trustUser(getters.id, userId)
-      },
-
+    }, {
+      findId: ({ notificationType }) => notificationType,
     }),
 
     ...withPrefixedIdMeta('agreements/', {

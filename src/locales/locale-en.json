@@ -168,6 +168,10 @@
         "NAME": "New applications",
         "DESCRIPTION": "Tells you when somebody wants to join your group"
       },
+      "new_offer": {
+        "NAME": "New offers",
+        "DESCRIPTION": "Tells you when somebody creates a new offer"
+      },
       "conflict_resolution": {
         "NAME": "New conflict resolution processes",
         "DESCRIPTION": "Tells you when a new conflict resolution process has been started in your group"

@@ -118,7 +118,7 @@ export default {
   },
   data () {
     return {
-      availableNotificationTypes: ['weekly_summary', 'daily_pickup_notification', 'new_application', 'conflict_resolution'],
+      availableNotificationTypes: ['weekly_summary', 'daily_pickup_notification', 'new_application', 'new_offer', 'conflict_resolution'],
     }
   },
   watch: {

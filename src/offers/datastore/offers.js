@@ -9,7 +9,7 @@ import {
 } from '@/utils/datastore/helpers'
 import router from '@/base/router'
 
-const DEFAULT_STATUS = 'active'
+export const DEFAULT_STATUS = 'active'
 
 function initialState () {
   return {

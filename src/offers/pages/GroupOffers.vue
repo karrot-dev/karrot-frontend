@@ -66,6 +66,7 @@ import { QBtn, QSelect, QCard, QCardSection, QResizeObserver } from 'quasar'
 import ProfilePicture from '@/users/components/ProfilePicture'
 import KSpinner from '@/utils/components/KSpinner'
 import bindRoute from '@/utils/mixins/bindRoute'
+import { DEFAULT_STATUS } from '@/offers/datastore/offers'
 
 export default {
   components: {
@@ -79,7 +80,7 @@ export default {
   },
   mixins: [
     bindRoute({
-      status: 'active',
+      status: DEFAULT_STATUS,
     }),
   ],
   data () {

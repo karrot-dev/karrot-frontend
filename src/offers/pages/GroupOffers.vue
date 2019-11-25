@@ -21,7 +21,7 @@
           class="col-md-4 col-sm-6 col-12 new-offer"
         >
           <QCard>
-            <router-link
+            <RouterLink
               class="fit"
               :to="{ name: 'offerCreate' }"
               :title="$t('OFFER.CREATE_TITLE')"
@@ -31,7 +31,7 @@
                 class="fit"
                 name="fas fa-plus"
               />
-            </router-link>
+            </RouterLink>
           </QCard>
         </div>
         <div

@@ -1,9 +1,5 @@
 <template>
   <div>
-    <QResizeObserver
-      style="width: 100%"
-      @resize="onResize"
-    />
     <div>
       <div
         class="row no-wrap items-center justify-between bg-white q-px-sm q-py-xs"
@@ -46,25 +42,35 @@
           <QCard
             class="cursor-pointer"
             @click="visit(offer.id)"
+            :title="offer.name"
           >
-            <div
-              v-if="offer.images[0]"
-              class="photo text-white relative-position row justify-center"
-            >
-              <img :src="offer.images[0].imageUrls.fullSize">
-            </div>
-            <QCardSection class="row">
-              <ProfilePicture
-                class="col-auto q-mr-sm"
-                :user="offer.user"
-                :size="30"
-              />
-              <div class="text-subtitle1 ellipsis col">
-                <router-link :to="detailRouteFor(offer.id)">
+            <QImg
+              basic
+              :src="offer.images[0].imageUrls.fullSize"
+              :ratio="4/3"
+            />
+            <QItem clickable>
+              <QItemSection
+                v-if="offer.images[0]"
+                avatar
+              >
+                <ProfilePicture
+                  :user="offer.user"
+                  :size="36"
+                />
+              </QItemSection>
+              <QItemSection>
+                <QitemLabel class="ellipsis full-width">
                   {{ offer.name }}
-                </router-link>
-              </div>
-            </QCardSection>
+                </QitemLabel>
+                <QitemLabel class="ellipsis full-width">
+                  <DateAsWords
+                    :date="offer.createdAt"
+                    class="text-caption"
+                  />
+                </QItemLabel>
+              </QItemSection>
+            </QItem>
           </QCard>
         </div>
       </div>
@@ -74,21 +80,24 @@
 
 <script>
 import { mapActions, mapGetters } from 'vuex'
-import { QIcon, QSelect, QCard, QCardSection, QResizeObserver } from 'quasar'
+import { QIcon, QSelect, QCard, QItem, QItemSection, QImg } from 'quasar'
 import ProfilePicture from '@/users/components/ProfilePicture'
 import KSpinner from '@/utils/components/KSpinner'
 import bindRoute from '@/utils/mixins/bindRoute'
 import { DEFAULT_STATUS } from '@/offers/datastore/offers'
+import DateAsWords from '@/utils/components/DateAsWords'
 
 export default {
   components: {
+    DateAsWords,
     ProfilePicture,
     KSpinner,
     QIcon,
     QSelect,
     QCard,
-    QCardSection,
-    QResizeObserver,
+    QItem,
+    QItemSection,
+    QImg,
   },
   mixins: [
     bindRoute({
@@ -159,12 +168,5 @@ export default {
 
 <style scoped lang="stylus">
 .new-offer >>> .q-card
-  height 222px
-
-.photo
-  height 160px
-  overflow hidden
-
-  img
-    width 100%
+  height 244.483px
 </style>

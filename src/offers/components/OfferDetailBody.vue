@@ -29,6 +29,12 @@
         />
       </QCarousel>
       <div
+        v-if="offer.status !== defaultStatus"
+        class="q-pa-md text-center bg-accent text-h6"
+      >
+        {{ offer.status }}
+      </div>
+      <div
         v-if="offer.canEdit && offer.status === 'active'"
         class="row"
       >
@@ -61,6 +67,7 @@ import ChatConversation from '@/messages/components/ChatConversation'
 import Markdown from '@/utils/components/Markdown'
 import KSpinner from '@/utils/components/KSpinner'
 import { QBtn, QCarousel, QCarouselSlide } from 'quasar'
+import { DEFAULT_STATUS } from '@/offers/datastore/offers'
 
 export default {
   components: {
@@ -80,6 +87,7 @@ export default {
   data () {
     return {
       selectedImageIndex: 0,
+      defaultStatus: DEFAULT_STATUS,
     }
   },
   computed: {

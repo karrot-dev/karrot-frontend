@@ -1,5 +1,5 @@
 <template>
-  <FormContainer>
+  <KFormContainer>
     <KSpinner v-if="fetching" />
     <div
       v-else
@@ -63,7 +63,7 @@
         </div>
       </form>
     </div>
-  </FormContainer>
+  </KFormContainer>
 </template>
 
 <script>
@@ -75,7 +75,7 @@ import { QBtn, QField, QIcon, QInput } from 'quasar'
 import MarkdownInput from '@/utils/components/MarkdownInput'
 import MultiCroppa from '@/offers/components/MultiCroppa'
 import KSpinner from '@/utils/components/KSpinner'
-import FormContainer from '@/offers/components/FormContainer'
+import KFormContainer from '@/base/components/KFormContainer'
 
 const NAME_MIN_LENGTH = 5
 const NAME_MAX_LENGTH = 80
@@ -116,7 +116,7 @@ export default {
   components: {
     MarkdownInput,
     MultiCroppa,
-    FormContainer,
+    KFormContainer,
     QBtn,
     QField,
     QInput,

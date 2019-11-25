@@ -1,5 +1,5 @@
 <template>
-  <FormContainer
+  <KFormContainer
     v-if="group"
     id="notifications"
   >
@@ -81,7 +81,7 @@
         </div>
       </QList>
     </QCardSection>
-  </FormContainer>
+  </KFormContainer>
 </template>
 
 <script>
@@ -97,7 +97,7 @@ import {
 } from 'quasar'
 import SwitchGroupButton from '@/users/components/SwitchGroupButton'
 import statusMixin from '@/utils/mixins/statusMixin'
-import FormContainer from '@/offers/components/FormContainer'
+import KFormContainer from '@/base/components/KFormContainer'
 
 export default {
   name: 'GroupSettings',
@@ -110,7 +110,7 @@ export default {
     QItemLabel,
     QBtn,
     QSpinner,
-    FormContainer,
+    KFormContainer,
     SwitchGroupButton,
   },
   mixins: [statusMixin],

@@ -1,6 +1,6 @@
 <template>
   <div v-if="user">
-    <FormContainer>
+    <KFormContainer>
       <QCardSection>
         <div class="text-h6">
           {{ $t('USERDATA.PROFILE_TITLE') }}
@@ -22,8 +22,8 @@
           @save="saveUser"
         />
       </QCardSection>
-    </FormContainer>
-    <FormContainer>
+    </KFormContainer>
+    <KFormContainer>
       <QCardSection>
         <div class="text-h6">
           {{ $t('LANGUAGECHOOSER.SWITCH') }}
@@ -34,8 +34,8 @@
           <LocaleSelect />
         </div>
       </QCardSection>
-    </FormContainer>
-    <FormContainer>
+    </KFormContainer>
+    <KFormContainer>
       <QCardSection>
         <div class="text-h6">
           {{ $t('USERDATA.ACCOUNT') }}
@@ -59,9 +59,9 @@
           />
         </QCardActions>
       </QCardSection>
-    </FormContainer>
+    </KFormContainer>
     <GroupSettings />
-    <FormContainer
+    <KFormContainer
       v-if="!$q.platform.is.cordova"
     >
       <QCardSection>
@@ -77,7 +77,7 @@
           @disable="disablePush"
         />
       </QCardSection>
-    </FormContainer>
+    </KFormContainer>
   </div>
 </template>
 
@@ -98,7 +98,7 @@ import RequestDeleteAccount from '@/authuser/components/Settings/RequestDeleteAc
 import Push from '@/authuser/components/Settings/Push'
 import LocaleSelect from '@/utils/components/LocaleSelect'
 import GroupSettings from '@/group/pages/Settings'
-import FormContainer from '@/offers/components/FormContainer'
+import KFormContainer from '@/base/components/KFormContainer'
 
 export default {
   name: 'Settings',
@@ -114,7 +114,7 @@ export default {
     Push,
     LocaleSelect,
     GroupSettings,
-    FormContainer,
+    KFormContainer,
   },
   computed: {
     ...mapGetters({

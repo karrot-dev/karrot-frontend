@@ -106,7 +106,6 @@ export default {
     ...mapGetters({
       offers: 'offers/all',
       fetching: 'offers/fetching',
-      routeQuery: 'offers/routeQuery',
     }),
     cols () {
       return Math.max(1, Math.floor(this.width / 200))
@@ -139,7 +138,7 @@ export default {
       return {
         name: 'offerDetail',
         params: { offerId },
-        query: this.routeQuery,
+        query: this.$route.query,
       }
     },
   },

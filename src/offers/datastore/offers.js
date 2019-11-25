@@ -46,7 +46,6 @@ export default {
       return Object.values(state.entries)
         .map(getters.enrich)
     },
-    routeQuery: ({ filter: { status } }) => status === DEFAULT_STATUS ? {} : { status },
     fetching: (state, getters) => {
       const status = getters['meta/status']('fetchList')
       return status.pending
@@ -80,7 +79,7 @@ export default {
             groupId: newOffer.group,
             offerId: newOffer.id,
           },
-          query: getters.routeQuery,
+          query: router.currentRoute.query,
         }).catch(() => {})
       },
 
@@ -94,7 +93,7 @@ export default {
             groupId: updatedOffer.group,
             offerId: updatedOffer.id,
           },
-          query: getters.routeQuery,
+          query: router.currentRoute.query,
         }).catch(() => {})
       },
     }),

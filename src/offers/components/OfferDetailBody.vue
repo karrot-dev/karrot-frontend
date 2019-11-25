@@ -30,30 +30,61 @@
       </QCarousel>
       <div
         v-if="offer.status !== defaultStatus"
-        class="q-pa-md text-center bg-accent text-h6"
+        class="q-pa-md text-center text-h6 text-white"
+        :class="`bg-${offer.status === 'accepted' ? 'positive' : 'negative'}`"
       >
         {{ offer.status }}
       </div>
       <div
         v-if="offer.canEdit && offer.status === 'active'"
-        class="row"
+        class="row justify-end"
       >
-        <QBtn
-          color="primary"
-          class="q-ma-md col"
-          @click="accept({ offerId: offer.id })"
+        <QBtnDropdown
+          flat
+          no-caps
+          label="Mark as accepted"
         >
-          Mark as accepted
-        </QBtn>
-        <QBtn
-          color="red"
-          class="q-ma-md col"
-          @click="archive({ offerId: offer.id })"
+          <div
+            class="q-pa-lg"
+            style="max-width: 300px;"
+          >
+            <div class="text-body1 q-mb-lg">
+              Mark this offer as accepted to show to others that it is not available any more.
+            </div>
+            <div class="row justify-end">
+              <QBtn
+                color="positive"
+                @click="accept({ offerId: offer.id })"
+              >
+                Mark as accepted
+              </QBtn>
+            </div>
+          </div>
+        </QBtnDropdown>
+        <QBtnDropdown
+          flat
+          no-caps
+          label="Archive"
         >
-          Archive
-        </QBtn>
+          <div
+            class="q-pa-lg"
+            style="max-width: 300px;"
+          >
+            <div class="text-body1 q-mb-lg">
+              Mark this is offer as archived to remove it from the available listings.
+            </div>
+            <div class="row justify-end">
+              <QBtn
+                color="negative"
+                @click="archive({ offerId: offer.id })"
+              >
+                Archive
+              </QBtn>
+            </div>
+          </div>
+        </QBtnDropdown>
       </div>
-      <div class="q-pa-md bg-white">
+      <div class="q-ma-md q-pa-md bg-white grey-border">
         <Markdown :source="offer.description" />
       </div>
     </template>
@@ -66,12 +97,13 @@ import { mapActions, mapGetters } from 'vuex'
 import ChatConversation from '@/messages/components/ChatConversation'
 import Markdown from '@/utils/components/Markdown'
 import KSpinner from '@/utils/components/KSpinner'
-import { QBtn, QCarousel, QCarouselSlide } from 'quasar'
+import { QBtn, QBtnDropdown, QCarousel, QCarouselSlide } from 'quasar'
 import { DEFAULT_STATUS } from '@/offers/datastore/offers'
 
 export default {
   components: {
     QBtn,
+    QBtnDropdown,
     QCarousel,
     QCarouselSlide,
     ChatConversation,

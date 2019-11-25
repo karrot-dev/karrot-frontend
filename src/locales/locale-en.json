@@ -663,8 +663,7 @@
     "CREATE_TITLE": "Create offer",
     "NAME": "Name",
     "NAME_HELPER": "Short name for the item you are offering",
-    "DESCRIPTION": "Description",
-    "DESCRIPTION_HELPER": "Longer description of the item"
+    "DESCRIPTION": "Description"
   },
   "ADDRESS_PICKER": {
     "SET_AS": "Set address as",

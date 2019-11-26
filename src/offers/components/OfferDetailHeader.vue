@@ -3,9 +3,7 @@
     v-if="offer"
     class="bg-secondary text-white"
   >
-    <QToolbarTitle
-      class="column"
-    >
+    <QToolbarTitle class="column">
       <div>{{ offer.name }}</div>
     </QToolbarTitle>
     <QBtn

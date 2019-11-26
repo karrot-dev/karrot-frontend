@@ -42,44 +42,44 @@
         <QBtnDropdown
           flat
           no-caps
-          label="Mark as accepted"
+          :label="$t('OFFER.MARK_AS_ACCEPTED')"
         >
           <div
             class="q-pa-lg"
             style="max-width: 300px;"
           >
-            <div class="text-body1 q-mb-lg">
-              Mark this offer as accepted to show to others that it is not available any more.
-            </div>
+            <div
+              v-t="'OFFER.MARK_AS_ACCEPTED_DESCRIPTION'"
+              class="text-body1 q-mb-lg"
+            />
             <div class="row justify-end">
               <QBtn
+                v-t="'OFFER.MARK_AS_ACCEPTED'"
                 color="positive"
                 @click="accept({ offerId: offer.id })"
-              >
-                Mark as accepted
-              </QBtn>
+              />
             </div>
           </div>
         </QBtnDropdown>
         <QBtnDropdown
           flat
           no-caps
-          label="Archive"
+          :label="$t('OFFER.MARK_AS_ARCHIVED')"
         >
           <div
             class="q-pa-lg"
             style="max-width: 300px;"
           >
-            <div class="text-body1 q-mb-lg">
-              Mark this is offer as archived to remove it from the available listings.
-            </div>
+            <div
+              v-t="'OFFER.MARK_AS_ARCHIVED_DESCRIPTION'"
+              class="text-body1 q-mb-lg"
+            />
             <div class="row justify-end">
               <QBtn
+                v-t="'OFFER.MARK_AS_ARCHIVED'"
                 color="negative"
                 @click="archive({ offerId: offer.id })"
-              >
-                Archive
-              </QBtn>
+              />
             </div>
           </div>
         </QBtnDropdown>

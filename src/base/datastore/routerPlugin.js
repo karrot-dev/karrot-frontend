@@ -11,8 +11,6 @@ export default datastore => {
     datastore.dispatch('routeError/clear')
     let next
 
-    const groupId = getUserGroupId()
-
     // handle invite parameter
     const inviteToken = to.query.invite
     if (inviteToken) {
@@ -27,6 +25,7 @@ export default datastore => {
 
     // redirect homescreen correctly
     else if (to.path === '/') {
+      const groupId = getUserGroupId()
       if (groupId) {
         next = { name: 'group', params: { groupId } }
       }
@@ -46,18 +45,6 @@ export default datastore => {
     else if (to.matched.some(m => m.meta.requireLoggedOut) && isLoggedIn()) {
       next = { path: '/' }
     }
-
-    // else {
-    //   // eslint-disable-next-line eqeqeq
-    //   if (to.params.groupId != groupId) {
-    //     console.log('switching to another group... ignore the require feature thing...')
-    //   }
-    //   // check meta.requireFeature
-    //   const features = getGroupFeatures()
-    //   if (to.matched.some(m => m.meta.requireFeature && !features.includes(m.meta.requireFeature))) {
-    //     next = { path: '/' }
-    //   }
-    // }
 
     if (next) {
       nextFn(next)

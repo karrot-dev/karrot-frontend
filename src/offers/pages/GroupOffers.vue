@@ -1,80 +1,78 @@
 <template>
   <div>
-    <div>
+    <div
+      class="row no-wrap items-center justify-between bg-white q-px-sm q-py-xs"
+    >
+      <QSelect
+        v-model="status"
+        :options="statusOptions"
+        emit-value
+        map-options
+        outlined
+        hide-bottom-space
+        dense
+      />
+    </div>
+    <KSpinner v-show="fetching" />
+    <div class="row">
       <div
-        class="row no-wrap items-center justify-between bg-white q-px-sm q-py-xs"
+        v-if="status === 'active' && !fetching"
+        class="col-md-4 col-sm-6 col-12 new-offer"
       >
-        <QSelect
-          v-model="status"
-          :options="statusOptions"
-          emit-value
-          map-options
-          outlined
-          hide-bottom-space
-          dense
-        />
-      </div>
-      <KSpinner v-show="fetching" />
-      <div class="row">
-        <div
-          v-if="status === 'active' && !fetching"
-          class="col-md-4 col-sm-6 col-12 new-offer"
-        >
-          <QCard>
-            <QImg
-              basic
-              :ratio="4/3"
-            />
-            <QItem style="min-height: 57px;" />
-            <RouterLink
-              class="absolute-center fit"
-              :to="{ name: 'offerCreate' }"
-              :title="$t('OFFER.CREATE_TITLE')"
-            >
-              <QIcon
-                size="5em"
-                class="fit"
-                name="fas fa-plus"
-              />
-            </RouterLink>
-          </QCard>
-        </div>
-        <div
-          v-for="offer in offers"
-          :key="offer.id"
-          class="col-md-4 col-sm-6 col-12"
-        >
-          <QCard
-            class="cursor-pointer"
-            :title="offer.name"
-            @click="visit(offer.id)"
+        <QCard>
+          <QImg
+            basic
+            :ratio="4/3"
+          />
+          <QItem style="min-height: 57px;" />
+          <RouterLink
+            class="absolute-center fit"
+            :to="{ name: 'offerCreate' }"
+            :title="$t('OFFER.CREATE_TITLE')"
           >
-            <QImg
-              basic
-              :src="offer.images[0].imageUrls.fullSize"
-              :ratio="4/3"
+            <QIcon
+              size="5em"
+              class="fit"
+              name="fas fa-plus"
             />
-            <QItem clickable>
-              <QItemSection avatar>
-                <ProfilePicture
-                  :user="offer.user"
-                  :size="36"
+          </RouterLink>
+        </QCard>
+      </div>
+      <div
+        v-for="offer in offers"
+        :key="offer.id"
+        class="col-md-4 col-sm-6 col-12"
+      >
+        <QCard
+          class="cursor-pointer"
+          :title="offer.name"
+          @click="visit(offer.id)"
+        >
+          <QImg
+            basic
+            :src="offer.images[0].imageUrls.fullSize"
+            :ratio="4/3"
+          />
+          <QItem clickable>
+            <QItemSection avatar>
+              <ProfilePicture
+                :user="offer.user"
+                :size="36"
+              />
+            </QItemSection>
+            <QItemSection>
+              <QitemLabel class="ellipsis full-width">
+                {{ offer.name }}
+              </QitemLabel>
+              <QitemLabel class="ellipsis full-width">
+                <DateAsWords
+                  :date="offer.createdAt"
+                  class="text-caption"
                 />
-              </QItemSection>
-              <QItemSection>
-                <QitemLabel class="ellipsis full-width">
-                  {{ offer.name }}
-                </QitemLabel>
-                <QitemLabel class="ellipsis full-width">
-                  <DateAsWords
-                    :date="offer.createdAt"
-                    class="text-caption"
-                  />
-                </QItemLabel>
-              </QItemSection>
-            </QItem>
-          </QCard>
-        </div>
+              </QItemLabel>
+            </QItemSection>
+          </QItem>
+        </QCard>
       </div>
     </div>
   </div>

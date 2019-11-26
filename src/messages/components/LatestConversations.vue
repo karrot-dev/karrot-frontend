@@ -116,7 +116,11 @@ export default {
         case 'private': return this.openForUser(target)
         case 'application': return this.openForApplication(target)
         case 'issue': return this.$router.push({ name: 'issueChat', params: { groupId: target.group.id, issueId: target.id } }).catch(() => {})
-        case 'offer': return this.$router.push({ name: 'offerDetail', params: { groupId: target.group.id, offerId: target.id } }).catch(() => {})
+        case 'offer': return this.$router.push({
+          name: 'offerDetail',
+          params: { groupId: target.group.id, offerId: target.id },
+          query: this.$route.query,
+        }).catch(() => {})
       }
     },
     isSelected (conv) {

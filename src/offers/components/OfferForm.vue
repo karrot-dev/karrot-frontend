@@ -29,10 +29,7 @@
           @keyup.ctrl.enter="maybeSave"
         />
 
-        <QField
-          v-model="edit.images"
-          v-bind="imagesError"
-        >
+        <QField v-bind="imagesError">
           <template #before>
             <QIcon name="fas fa-fw fa-star" />
           </template>

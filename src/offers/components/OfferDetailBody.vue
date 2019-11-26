@@ -29,7 +29,7 @@
         />
       </QCarousel>
       <div
-        v-if="offer.status !== defaultStatus"
+        v-if="!isDefaultStatus"
         class="q-pa-md text-center text-h6 text-white"
         :class="`bg-${offer.status === 'accepted' ? 'positive' : 'negative'}`"
       >
@@ -119,7 +119,6 @@ export default {
   data () {
     return {
       selectedImageIndex: 0,
-      defaultStatus: DEFAULT_STATUS,
     }
   },
   computed: {
@@ -144,6 +143,9 @@ export default {
         arrows: true,
         infinite: true,
       }
+    },
+    isDefaultStatus () {
+      return this.offer.status === DEFAULT_STATUS
     },
   },
   watch: {

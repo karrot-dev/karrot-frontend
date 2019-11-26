@@ -25,7 +25,6 @@
           v-model="edit.description"
           icon="fas fa-fw fa-address-card"
           :label="$t('OFFER.DESCRIPTION')"
-          :hint="$t('OFFER.DESCRIPTION_HELPER')"
           v-bind="descriptionError"
           @keyup.ctrl.enter="maybeSave"
         />

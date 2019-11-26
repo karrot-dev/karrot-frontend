@@ -123,7 +123,7 @@ export default {
       type: Array,
       default: null,
     },
-    changeNotificationTypeStatus: {
+    getNotificationTypeStatus: {
       type: Function,
       default: () => () => ({}),
     },
@@ -156,7 +156,7 @@ export default {
       return this.group.notificationTypes.includes(type)
     },
     notificationIsPending (type) {
-      const status = this.changeNotificationTypeStatus(type)
+      const status = this.getNotificationTypeStatus(type)
       return status && status.pending
     },
   },

@@ -67,7 +67,7 @@ export default {
     isEditor: (state, getters) => getters.roles.includes('editor'),
     isBikeKitchen: (state, getters) => Boolean(getters.value && getters.value.isBikeKitchen),
     isGeneralPurpose: (state, getters) => Boolean(getters.value && getters.value.isGeneralPurpose),
-    changeNotificationTypeStatus: (state, getters) => notificationType => getters['meta/status']('changeNotificationType', notificationType),
+    getNotificationTypeStatus: (state, getters) => notificationType => getters['meta/status']('changeNotificationType', notificationType),
   },
   actions: {
     ...withMeta({

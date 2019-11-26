@@ -7,7 +7,7 @@ export default connect({
     group: 'currentGroup/value',
     groups: 'groups/mine',
     status: 'unsubscribe/allEmailsPerGroupStatus',
-    changeNotificationTypeStatus: 'currentGroup/changeNotificationTypeStatus',
+    getNotificationTypeStatus: 'currentGroup/getNotificationTypeStatus',
   },
   actionsToEvents: {
     changeNotificationType: 'currentGroup/changeNotificationType',

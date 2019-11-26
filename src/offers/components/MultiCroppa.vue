@@ -30,7 +30,7 @@
           class="q-ma-xs"
           size="sm"
           icon="keyboard_arrow_left"
-          :disable="isFirstImage(idx)"
+          :class="{ invisible: isFirstImage(idx) }"
           @click="moveImageLeft(item)"
         />
         <QBtn
@@ -49,7 +49,7 @@
           class="q-ma-xs"
           size="sm"
           icon="keyboard_arrow_right"
-          :disable="isLastImage(idx)"
+          :class="{ invisible: isLastImage(idx) }"
           @click="moveImageRight(item)"
         />
       </QBtnGroup>
@@ -238,7 +238,4 @@ export default {
 <style scoped lang="stylus">
 .new-image >>> canvas
   border 1px solid #ddd
-
-.MultiCroppa >>> .q-btn.disabled
-  visibility hidden
 </style>

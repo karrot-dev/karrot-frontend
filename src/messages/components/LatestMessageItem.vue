@@ -80,7 +80,7 @@
           </template>
           <template v-else-if="isOffer">
             <QIcon
-              name="fas fa-fw fa-gift"
+              :name="$icon('offer')"
               class="q-mr-sm"
               :title="$t('OFFER.NAME')"
             />

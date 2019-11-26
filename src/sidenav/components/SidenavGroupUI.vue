@@ -63,6 +63,10 @@ export default {
       default: null,
       type: Number,
     },
+    features: {
+      default: () => [],
+      type: Array,
+    },
     wallUnreadCount: {
       default: 0,
       type: Number,
@@ -90,6 +94,11 @@ export default {
         label: this.$t('GROUP.PICKUPS'),
         icon: this.$icon('pickup'),
         to: { name: 'groupPickups', params: { groupId: this.groupId } },
+      }, {
+        condition: this.hasFeature('offers'),
+        label: this.$t('GROUP.OFFERS'),
+        icon: this.$icon('offer'),
+        to: { name: 'groupOffers', params: { groupId: this.groupId } },
       }, {
         label: this.$t('PICKUP_FEEDBACK.TITLE'),
         icon: this.$icon('feedback'),
@@ -126,6 +135,11 @@ export default {
         icon: 'fas fa-map',
         to: { name: 'map', params: { groupId: this.groupId } },
       }].filter(e => typeof e.condition === 'undefined' || e.condition === true)
+    },
+  },
+  methods: {
+    hasFeature (feature) {
+      return this.features.includes(feature)
     },
   },
 }

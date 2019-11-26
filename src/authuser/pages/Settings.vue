@@ -1,6 +1,6 @@
 <template>
   <div v-if="user">
-    <QCard class="no-shadow grey-border">
+    <KFormContainer>
       <QCardSection>
         <div class="text-h6">
           {{ $t('USERDATA.PROFILE_TITLE') }}
@@ -22,8 +22,8 @@
           @save="saveUser"
         />
       </QCardSection>
-    </QCard>
-    <QCard class="no-shadow grey-border">
+    </KFormContainer>
+    <KFormContainer>
       <QCardSection>
         <div class="text-h6">
           {{ $t('LANGUAGECHOOSER.SWITCH') }}
@@ -34,8 +34,8 @@
           <LocaleSelect />
         </div>
       </QCardSection>
-    </QCard>
-    <QCard class="no-shadow grey-border">
+    </KFormContainer>
+    <KFormContainer>
       <QCardSection>
         <div class="text-h6">
           {{ $t('USERDATA.ACCOUNT') }}
@@ -59,11 +59,10 @@
           />
         </QCardActions>
       </QCardSection>
-    </QCard>
+    </KFormContainer>
     <GroupSettings />
-    <QCard
+    <KFormContainer
       v-if="!$q.platform.is.cordova"
-      class="no-shadow grey-border"
     >
       <QCardSection>
         <div class="text-h6">
@@ -78,13 +77,12 @@
           @disable="disablePush"
         />
       </QCardSection>
-    </QCard>
+    </KFormContainer>
   </div>
 </template>
 
 <script>
 import {
-  QCard,
   QCardSection,
   QSeparator,
   QCardActions,
@@ -100,11 +98,11 @@ import RequestDeleteAccount from '@/authuser/components/Settings/RequestDeleteAc
 import Push from '@/authuser/components/Settings/Push'
 import LocaleSelect from '@/utils/components/LocaleSelect'
 import GroupSettings from '@/group/pages/Settings'
+import KFormContainer from '@/base/components/KFormContainer'
 
 export default {
   name: 'Settings',
   components: {
-    QCard,
     QCardSection,
     QSeparator,
     QCardActions,
@@ -116,6 +114,7 @@ export default {
     Push,
     LocaleSelect,
     GroupSettings,
+    KFormContainer,
   },
   computed: {
     ...mapGetters({

@@ -338,7 +338,7 @@ exports[`Storyshots ChangePhoto with photo 1`] = `
 `;
 
 exports[`Storyshots ChatConversation closed 1`] = `
-<div>
+<div class="bg-white">
   <div class="full-width text-center generic-padding" style="display:none;"><svg fill="currentColor" width="40" height="40" viewBox="0 0 120 30" xmlns="http://www.w3.org/2000/svg" class="q-spinner">
       <circle cx="15" cy="15" r="15">
         <animate attributeName="r" from="15" to="15" begin="0s" dur="0.8s" values="15;9;15" calcMode="linear" repeatCount="indefinite"></animate>
@@ -511,7 +511,7 @@ exports[`Storyshots ChatConversation closed 1`] = `
 `;
 
 exports[`Storyshots ChatConversation default 1`] = `
-<div>
+<div class="bg-white">
   <div class="full-width text-center generic-padding" style="display:none;"><svg fill="currentColor" width="40" height="40" viewBox="0 0 120 30" xmlns="http://www.w3.org/2000/svg" class="q-spinner">
       <circle cx="15" cy="15" r="15">
         <animate attributeName="r" from="15" to="15" begin="0s" dur="0.8s" values="15;9;15" calcMode="linear" repeatCount="indefinite"></animate>
@@ -673,7 +673,7 @@ exports[`Storyshots ChatConversation default 1`] = `
 `;
 
 exports[`Storyshots ChatConversation fetching past 1`] = `
-<div>
+<div class="bg-white">
   <div class="full-width text-center generic-padding"><svg fill="currentColor" width="40" height="40" viewBox="0 0 120 30" xmlns="http://www.w3.org/2000/svg" class="q-spinner">
       <circle cx="15" cy="15" r="15">
         <animate attributeName="r" from="15" to="15" begin="0s" dur="0.8s" values="15;9;15" calcMode="linear" repeatCount="indefinite"></animate>
@@ -835,7 +835,7 @@ exports[`Storyshots ChatConversation fetching past 1`] = `
 `;
 
 exports[`Storyshots ChatConversation message groups 1`] = `
-<div>
+<div class="bg-white">
   <div class="full-width text-center generic-padding" style="display:none;"><svg fill="currentColor" width="40" height="40" viewBox="0 0 120 30" xmlns="http://www.w3.org/2000/svg" class="q-spinner">
       <circle cx="15" cy="15" r="15">
         <animate attributeName="r" from="15" to="15" begin="0s" dur="0.8s" values="15;9;15" calcMode="linear" repeatCount="indefinite"></animate>
@@ -1159,7 +1159,7 @@ exports[`Storyshots ChatConversation message groups 1`] = `
 `;
 
 exports[`Storyshots ChatConversation not participant 1`] = `
-<div>
+<div class="bg-white">
   <div class="full-width text-center generic-padding" style="display:none;"><svg fill="currentColor" width="40" height="40" viewBox="0 0 120 30" xmlns="http://www.w3.org/2000/svg" class="q-spinner">
       <circle cx="15" cy="15" r="15">
         <animate attributeName="r" from="15" to="15" begin="0s" dur="0.8s" values="15;9;15" calcMode="linear" repeatCount="indefinite"></animate>
@@ -1321,7 +1321,7 @@ exports[`Storyshots ChatConversation not participant 1`] = `
 `;
 
 exports[`Storyshots ChatConversation thread 1`] = `
-<div>
+<div class="bg-white">
   <div class="full-width text-center generic-padding" style="display:none;"><svg fill="currentColor" width="40" height="40" viewBox="0 0 120 30" xmlns="http://www.w3.org/2000/svg" class="q-spinner">
       <circle cx="15" cy="15" r="15">
         <animate attributeName="r" from="15" to="15" begin="0s" dur="0.8s" values="15;9;15" calcMode="linear" repeatCount="indefinite"></animate>
@@ -2058,7 +2058,7 @@ exports[`Storyshots Detail application 1`] = `
           <animate attributeName="fill-opacity" from="1" to="1" begin="0s" dur="0.8s" values="1;.5;1" calcMode="linear" repeatCount="indefinite"></animate>
         </circle>
       </svg></div>
-    <div>
+    <div class="bg-white">
       <div class="q-expansion-item q-item-type bg-grey-2 q-expansion-item--expanded q-expansion-item--standard">
         <div class="q-expansion-item__container relative-position">
           <div tabindex="0" class="q-item q-item-type row no-wrap q-item--clickable q-link cursor-pointer q-focusable q-hoverable text-bold">
@@ -2314,7 +2314,7 @@ exports[`Storyshots Detail pickup 1`] = `
           <animate attributeName="fill-opacity" from="1" to="1" begin="0s" dur="0.8s" values="1;.5;1" calcMode="linear" repeatCount="indefinite"></animate>
         </circle>
       </svg></div>
-    <div>
+    <div class="bg-white">
       <div class="full-width text-center generic-padding" style="display:none;"><svg fill="currentColor" width="40" height="40" viewBox="0 0 120 30" xmlns="http://www.w3.org/2000/svg" class="q-spinner">
           <circle cx="15" cy="15" r="15">
             <animate attributeName="r" from="15" to="15" begin="0s" dur="0.8s" values="15;9;15" calcMode="linear" repeatCount="indefinite"></animate>
@@ -2543,7 +2543,7 @@ exports[`Storyshots Detail private 1`] = `
           <animate attributeName="fill-opacity" from="1" to="1" begin="0s" dur="0.8s" values="1;.5;1" calcMode="linear" repeatCount="indefinite"></animate>
         </circle>
       </svg></div>
-    <div>
+    <div class="bg-white">
       <div class="full-width text-center generic-padding" style="display:none;"><svg fill="currentColor" width="40" height="40" viewBox="0 0 120 30" xmlns="http://www.w3.org/2000/svg" class="q-spinner">
           <circle cx="15" cy="15" r="15">
             <animate attributeName="r" from="15" to="15" begin="0s" dur="0.8s" values="15;9;15" calcMode="linear" repeatCount="indefinite"></animate>
@@ -4658,7 +4658,7 @@ exports[`Storyshots GroupPreviewUI without public description 1`] = `
 `;
 
 exports[`Storyshots GroupSettings show 1`] = `
-<div id="notifications" class="q-card no-shadow grey-border">
+<div id="notifications" class="q-card bg-white q-mb-lg no-shadow grey-border">
   <div class="q-card__section">
     <div class="text-h6">
       Notifications by group
@@ -4702,6 +4702,9 @@ exports[`Storyshots GroupSettings show 1`] = `
             Keep up to date with what's been happening in the group.
           </div>
         </div>
+        <div class="q-item__section column q-item__section--side justify-center"><svg width="18px" height="18px" viewBox="25 25 50 50" class="q-spinner q-spinner-mat invisible">
+            <circle cx="50" cy="50" r="20" fill="none" stroke="currentColor" stroke-width="5" stroke-miterlimit="10" class="path"></circle>
+          </svg></div>
       </label><label tabindex="0" class="q-item q-item-type row no-wrap q-item--clickable q-link cursor-pointer q-focusable q-hoverable">
         <div tabindex="-1" class="q-focus-helper"></div>
         <div class="q-item__section column q-item__section--side justify-center">
@@ -4723,6 +4726,9 @@ exports[`Storyshots GroupSettings show 1`] = `
             Reminds you of your pickups, and tells you about empty or not-full pickups of your favorite places in the next day
           </div>
         </div>
+        <div class="q-item__section column q-item__section--side justify-center"><svg width="18px" height="18px" viewBox="25 25 50 50" class="q-spinner q-spinner-mat invisible">
+            <circle cx="50" cy="50" r="20" fill="none" stroke="currentColor" stroke-width="5" stroke-miterlimit="10" class="path"></circle>
+          </svg></div>
       </label><label tabindex="0" class="q-item q-item-type row no-wrap q-item--clickable q-link cursor-pointer q-focusable q-hoverable">
         <div tabindex="-1" class="q-focus-helper"></div>
         <div class="q-item__section column q-item__section--side justify-center">
@@ -4744,6 +4750,9 @@ exports[`Storyshots GroupSettings show 1`] = `
             Tells you when somebody wants to join your group
           </div>
         </div>
+        <div class="q-item__section column q-item__section--side justify-center"><svg width="18px" height="18px" viewBox="25 25 50 50" class="q-spinner q-spinner-mat invisible">
+            <circle cx="50" cy="50" r="20" fill="none" stroke="currentColor" stroke-width="5" stroke-miterlimit="10" class="path"></circle>
+          </svg></div>
       </label><label tabindex="0" class="q-item q-item-type row no-wrap q-item--clickable q-link cursor-pointer q-focusable q-hoverable">
         <div tabindex="-1" class="q-focus-helper"></div>
         <div class="q-item__section column q-item__section--side justify-center">
@@ -4765,6 +4774,9 @@ exports[`Storyshots GroupSettings show 1`] = `
             Tells you when a new conflict resolution process has been started in your group
           </div>
         </div>
+        <div class="q-item__section column q-item__section--side justify-center"><svg width="18px" height="18px" viewBox="25 25 50 50" class="q-spinner q-spinner-mat invisible">
+            <circle cx="50" cy="50" r="20" fill="none" stroke="currentColor" stroke-width="5" stroke-miterlimit="10" class="path"></circle>
+          </svg></div>
       </label>
       <div class="q-pt-md q-pl-md"><button tabindex="0" type="button" class="q-btn inline q-btn-item non-selectable no-outline q-btn--standard q-btn--rectangle bg-primary text-white q-btn--actionable q-focusable q-hoverable">
           <div tabindex="-1" class="q-focus-helper"></div>
@@ -9948,7 +9960,7 @@ exports[`Storyshots ProfilePicture without user 1`] = `
 
 exports[`Storyshots Settings Page Default 1`] = `
 <div>
-  <div class="q-card no-shadow grey-border">
+  <div class="q-card bg-white q-mb-lg no-shadow grey-border">
     <div class="q-card__section">
       <div class="text-h6">
         Profile
@@ -10076,7 +10088,7 @@ exports[`Storyshots Settings Page Default 1`] = `
       </div>
     </div>
   </div>
-  <div class="q-card no-shadow grey-border">
+  <div class="q-card bg-white q-mb-lg no-shadow grey-border">
     <div class="q-card__section">
       <div class="text-h6">
         Switch language
@@ -10092,7 +10104,7 @@ exports[`Storyshots Settings Page Default 1`] = `
         </button></div>
     </div>
   </div>
-  <div class="q-card no-shadow grey-border">
+  <div class="q-card bg-white q-mb-lg no-shadow grey-border">
     <div class="q-card__section">
       <div class="text-h6">
         Account
@@ -10182,7 +10194,7 @@ exports[`Storyshots Settings Page Default 1`] = `
       </div>
     </div>
   </div>
-  <div id="notifications" class="q-card no-shadow grey-border">
+  <div id="notifications" class="q-card bg-white q-mb-lg no-shadow grey-border">
     <div class="q-card__section">
       <div class="text-h6">
         Notifications by group
@@ -10226,6 +10238,9 @@ exports[`Storyshots Settings Page Default 1`] = `
               Keep up to date with what's been happening in the group.
             </div>
           </div>
+          <div class="q-item__section column q-item__section--side justify-center"><svg width="18px" height="18px" viewBox="25 25 50 50" class="q-spinner q-spinner-mat invisible">
+              <circle cx="50" cy="50" r="20" fill="none" stroke="currentColor" stroke-width="5" stroke-miterlimit="10" class="path"></circle>
+            </svg></div>
         </label><label tabindex="0" class="q-item q-item-type row no-wrap q-item--clickable q-link cursor-pointer q-focusable q-hoverable">
           <div tabindex="-1" class="q-focus-helper"></div>
           <div class="q-item__section column q-item__section--side justify-center">
@@ -10247,6 +10262,9 @@ exports[`Storyshots Settings Page Default 1`] = `
               Reminds you of your pickups, and tells you about empty or not-full pickups of your favorite places in the next day
             </div>
           </div>
+          <div class="q-item__section column q-item__section--side justify-center"><svg width="18px" height="18px" viewBox="25 25 50 50" class="q-spinner q-spinner-mat invisible">
+              <circle cx="50" cy="50" r="20" fill="none" stroke="currentColor" stroke-width="5" stroke-miterlimit="10" class="path"></circle>
+            </svg></div>
         </label><label tabindex="0" class="q-item q-item-type row no-wrap q-item--clickable q-link cursor-pointer q-focusable q-hoverable">
           <div tabindex="-1" class="q-focus-helper"></div>
           <div class="q-item__section column q-item__section--side justify-center">
@@ -10268,6 +10286,9 @@ exports[`Storyshots Settings Page Default 1`] = `
               Tells you when somebody wants to join your group
             </div>
           </div>
+          <div class="q-item__section column q-item__section--side justify-center"><svg width="18px" height="18px" viewBox="25 25 50 50" class="q-spinner q-spinner-mat invisible">
+              <circle cx="50" cy="50" r="20" fill="none" stroke="currentColor" stroke-width="5" stroke-miterlimit="10" class="path"></circle>
+            </svg></div>
         </label><label tabindex="0" class="q-item q-item-type row no-wrap q-item--clickable q-link cursor-pointer q-focusable q-hoverable">
           <div tabindex="-1" class="q-focus-helper"></div>
           <div class="q-item__section column q-item__section--side justify-center">
@@ -10289,6 +10310,9 @@ exports[`Storyshots Settings Page Default 1`] = `
               Tells you when a new conflict resolution process has been started in your group
             </div>
           </div>
+          <div class="q-item__section column q-item__section--side justify-center"><svg width="18px" height="18px" viewBox="25 25 50 50" class="q-spinner q-spinner-mat invisible">
+              <circle cx="50" cy="50" r="20" fill="none" stroke="currentColor" stroke-width="5" stroke-miterlimit="10" class="path"></circle>
+            </svg></div>
         </label>
         <div class="q-pt-md q-pl-md"><button tabindex="0" type="button" class="q-btn inline q-btn-item non-selectable no-outline q-btn--standard q-btn--rectangle bg-primary text-white q-btn--actionable q-focusable q-hoverable">
             <div tabindex="-1" class="q-focus-helper"></div>
@@ -10305,7 +10329,7 @@ exports[`Storyshots Settings Page Default 1`] = `
       </div>
     </div>
   </div>
-  <div class="q-card no-shadow grey-border">
+  <div class="q-card bg-white q-mb-lg no-shadow grey-border">
     <div class="q-card__section">
       <div class="text-h6">
         Push notifications

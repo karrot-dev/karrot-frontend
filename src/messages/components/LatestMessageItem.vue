@@ -78,6 +78,16 @@
               {{ issue.affectedUser && issue.affectedUser.displayName }}
             </div>
           </template>
+          <template v-else-if="isOffer">
+            <QIcon
+              :name="$icon('offer')"
+              class="q-mr-sm"
+              :title="$t('OFFER.NAME')"
+            />
+            <div class="ellipsis">
+              {{ offer.name }}
+            </div>
+          </template>
           <QIcon
             v-if="muted"
             size="12px"
@@ -196,6 +206,10 @@ export default {
       type: Object,
       default: null,
     },
+    offer: {
+      type: Object,
+      default: null,
+    },
     message: {
       type: Object,
       default: null,
@@ -238,6 +252,9 @@ export default {
     },
     isIssue () {
       return Boolean(this.issue)
+    },
+    isOffer () {
+      return Boolean(this.offer)
     },
     applicationTitle () {
       if (!this.isApplication || !this.application.group) return ''

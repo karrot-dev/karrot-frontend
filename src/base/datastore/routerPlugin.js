@@ -4,6 +4,7 @@ import * as Sentry from '@sentry/browser'
 export default datastore => {
   const isLoggedIn = () => datastore.getters['auth/isLoggedIn']
   const getUserGroupId = () => isLoggedIn() && datastore.getters['auth/user'].currentGroup
+  const getFeatures = () => datastore.getters['currentGroup/features']
 
   router.beforeEach(async (to, from, nextFn) => {
     datastore.commit('routeMeta/setNext', to)
@@ -25,7 +26,6 @@ export default datastore => {
     // redirect homescreen correctly
     else if (to.path === '/') {
       const groupId = getUserGroupId()
-
       if (groupId) {
         next = { name: 'group', params: { groupId } }
       }
@@ -72,6 +72,20 @@ export default datastore => {
     }
     catch (err) {
       Sentry.captureException(err)
+    }
+
+    // Check if our route requires any features we don't have
+    // It would be nice to do this _before_ we visit the route, but we don't have the features
+    // available at that point
+    const features = getFeatures()
+    if (to.matched.some(m => m.meta.requireFeature && !features.includes(m.meta.requireFeature))) {
+      const groupId = datastore.getters['currentGroup/id']
+      if (groupId) {
+        await router.push({ name: 'group', params: { groupId } })
+      }
+      else {
+        await router.push({ path: '/' })
+      }
     }
   })
 

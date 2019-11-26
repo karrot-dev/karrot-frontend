@@ -79,3 +79,13 @@ export function objectDiff (a, b) {
 export function filterTruthy (obj) {
   return Object.entries(obj).filter(([_, v]) => v).reduce((acc, [k, v]) => ({ ...acc, [k]: v }), {})
 }
+
+export function withoutKeys (...keys) {
+  return obj => {
+    const copy = { ...obj }
+    for (const key of keys) {
+      delete copy[key]
+    }
+    return copy
+  }
+}

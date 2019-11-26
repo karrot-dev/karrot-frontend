@@ -20,6 +20,7 @@
           :place="conv.type === 'place' ? conv.target : null"
           :application="conv.type === 'application' ? conv.target : null"
           :issue="conv.type === 'issue' ? conv.target : null"
+          :offer="conv.type === 'offer' ? conv.target : null"
           :message="conv.latestMessage"
           :unread-count="conv.unreadMessageCount"
           :muted="conv.muted"
@@ -115,6 +116,11 @@ export default {
         case 'private': return this.openForUser(target)
         case 'application': return this.openForApplication(target)
         case 'issue': return this.$router.push({ name: 'issueChat', params: { groupId: target.group.id, issueId: target.id } }).catch(() => {})
+        case 'offer': return this.$router.push({
+          name: 'offerDetail',
+          params: { groupId: target.group.id, offerId: target.id },
+          query: this.$route.query,
+        }).catch(() => {})
       }
     },
     isSelected (conv) {

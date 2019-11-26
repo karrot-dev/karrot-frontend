@@ -1,6 +1,7 @@
 <template>
   <div
     ref="scroll"
+    class="bg-white"
     :class="inline && 'absolute-full scroll'"
   >
     <slot name="before-chat-messages" />

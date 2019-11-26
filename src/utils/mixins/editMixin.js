@@ -13,8 +13,8 @@ export default {
   },
   watch: {
     value (current, previous) {
-      const changes = (current && previous) ? objectDiff(previous, current) : {}
-      this.edit = cloneDeep({ ...this.edit, ...changes })
+      const changes = current && previous ? objectDiff(previous, current) : {}
+      Object.assign(this.edit, cloneDeep(changes))
     },
   },
   computed: {

@@ -1,7 +1,11 @@
 import { Platform } from 'quasar'
-
 const GroupWall = () => import('@/group/pages/Wall')
 const GroupPickups = () => import('@/pickups/pages/GroupPickups')
+const GroupOffers = () => import('@/offers/pages/GroupOffers')
+const OfferCreate = () => import('@/offers/pages/OfferCreate')
+const OfferEdit = () => import('@/offers/pages/OfferEdit')
+const OfferDetailHeaderIfMobile = () => Platform.is.mobile ? import('@/offers/components/OfferDetailHeader') : Promise.resolve({ render: () => null })
+const OfferDetailOrBodyIfMobile = () => Platform.is.mobile ? import('@/offers/components/OfferDetailBody') : import('@/offers/components/OfferDetail')
 const GroupFeedback = () => import('@/feedback/pages/GroupFeedback')
 const Messages = () => import('@/messages/pages/Messages')
 const LatestConversations = () => import('@/messages/components/LatestConversations')
@@ -206,6 +210,80 @@ export default [
           ],
         },
         component: GroupPickups,
+      },
+      {
+        name: 'offerCreate',
+        path: 'offer/create',
+        meta: {
+          requireLoggedIn: true,
+          requireFeature: 'offers',
+          breadcrumbs: [
+            { translation: 'GROUP.OFFERS', route: { name: 'groupOffers' } },
+            { translation: 'OFFER.CREATE_TITLE', route: { name: 'offerCreate' } },
+          ],
+        },
+        components: {
+          default: OfferCreate,
+        },
+      },
+      {
+        name: 'offerEdit',
+        path: 'offers/:offerId/edit',
+        meta: {
+          requireLoggedIn: true,
+          requireFeature: 'offers',
+          breadcrumbs: [
+            { translation: 'GROUP.OFFERS', route: { name: 'groupOffers' } },
+            { type: 'activeOffer' },
+          ],
+          beforeEnter: 'currentOffer/select',
+          afterLeave: 'currentOffer/clear',
+        },
+        components: {
+          default: OfferEdit,
+        },
+      },
+      {
+        name: 'groupOffers',
+        path: 'offers',
+        meta: {
+          requireLoggedIn: true,
+          requireFeature: 'offers',
+          breadcrumbs: [
+            { translation: 'GROUP.OFFERS', route: { name: 'groupOffers' } },
+          ],
+          afterLeave: 'offers/clear',
+        },
+        components: {
+          default: GroupOffers,
+          detail: { render: h => h('router-view') },
+          subheader: {
+            render: h => h('router-view', {
+              props: {
+                name: 'subheader',
+              },
+            }),
+          },
+        },
+        children: [
+          {
+            name: 'offerDetail',
+            path: ':offerId',
+            meta: {
+              requireLoggedIn: true,
+              breadcrumbs: [
+                { type: 'activeOffer' },
+              ],
+              beforeEnter: 'currentOffer/select',
+              afterLeave: 'currentOffer/clear',
+              isDetail: true,
+            },
+            components: {
+              default: OfferDetailOrBodyIfMobile,
+              subheader: OfferDetailHeaderIfMobile,
+            },
+          },
+        ],
       },
       {
         name: 'groupFeedback',

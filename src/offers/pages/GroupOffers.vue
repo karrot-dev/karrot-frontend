@@ -50,10 +50,7 @@
               :ratio="4/3"
             />
             <QItem clickable>
-              <QItemSection
-                v-if="offer.images[0]"
-                avatar
-              >
+              <QItemSection avatar>
                 <ProfilePicture
                   :user="offer.user"
                   :size="36"
@@ -106,7 +103,6 @@ export default {
   ],
   data () {
     return {
-      width: 200,
       statusOptions: [
         {
           label: 'Available',
@@ -128,14 +124,6 @@ export default {
       offers: 'offers/all',
       fetching: 'offers/fetching',
     }),
-    cols () {
-      return Math.max(1, Math.floor(this.width / 200))
-    },
-    offerStyle () {
-      return {
-        width: (100 / this.cols) + '%',
-      }
-    },
   },
   watch: {
     status: {
@@ -151,9 +139,6 @@ export default {
     }),
     visit (id) {
       this.$router.push(this.detailRouteFor(id))
-    },
-    onResize ({ width }) {
-      this.width = width
     },
     detailRouteFor (offerId) {
       return {

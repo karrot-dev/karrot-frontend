@@ -16,6 +16,7 @@ import { convert as convertFeedback } from '@/feedback/api/feedback'
 import { convert as convertHistory } from '@/history/api/history'
 import { convert as convertInvitation } from '@/invitations/api/invitations'
 import { convert as convertIssue } from '@/issues/api/issues'
+import { convert as convertOffer } from '@/offers/api/offers'
 import { convert as convertGroup } from '@/group/api/groups'
 import { convert as convertNotification, convertMeta as convertNotificationMeta } from '@/notifications/api/notifications'
 
@@ -222,7 +223,7 @@ function receiveMessage ({ topic, payload }) {
     datastore.commit('pickupSeries/delete', convertSeries(camelizeKeys(payload)).id)
   }
   else if (topic === 'offers:offer') {
-    const offer = camelizeKeys(payload)
+    const offer = convertOffer(camelizeKeys(payload))
     datastore.commit('offers/update', [offer])
     datastore.commit('latestMessages/updateRelated', { type: 'offer', items: [offer] })
     datastore.commit('currentOffer/update', offer)

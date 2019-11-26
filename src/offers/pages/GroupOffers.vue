@@ -21,8 +21,13 @@
           class="col-md-4 col-sm-6 col-12 new-offer"
         >
           <QCard>
+            <QImg
+              basic
+              :ratio="4/3"
+            />
+            <QItem style="min-height: 57px;" />
             <RouterLink
-              class="fit"
+              class="absolute-center fit"
               :to="{ name: 'offerCreate' }"
               :title="$t('OFFER.CREATE_TITLE')"
             >
@@ -150,8 +155,3 @@ export default {
   },
 }
 </script>
-
-<style scoped lang="stylus">
-.new-offer >>> .q-card
-  height 244.483px
-</style>

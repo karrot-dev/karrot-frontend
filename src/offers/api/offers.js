@@ -1,18 +1,9 @@
 import axios, { parseCursor } from '@/base/api/axios'
 import { convert as convertConversation } from '@/messages/api/conversations'
+import { withoutKeys } from '@/utils/utils'
 
 const MIME_TYPE = 'image/jpeg'
 const EXTENSION = '.jpg'
-
-function withoutKeys (...keys) {
-  return obj => {
-    const copy = { ...obj }
-    for (const key of keys) {
-      delete copy[key]
-    }
-    return copy
-  }
-}
 
 async function toFormData (sourceOffer) {
   const data = new FormData()

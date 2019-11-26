@@ -105,15 +105,15 @@ export default {
     return {
       statusOptions: [
         {
-          label: 'Available',
+          label: this.$t('OFFER.FILTER.STATUS.ACTIVE'),
           value: 'active',
         },
         {
-          label: 'My accepted offers',
+          label: this.$t('OFFER.FILTER.STATUS.ACCEPTED'),
           value: 'accepted',
         },
         {
-          label: 'My archived offers',
+          label: this.$t('OFFER.FILTER.STATUS.ARCHIVED'),
           value: 'archived',
         },
       ],

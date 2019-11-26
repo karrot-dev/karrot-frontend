@@ -80,6 +80,12 @@ export default {
     Croppa,
   },
   props: {
+    /**
+     * This will accept the array from the backend. On modification there are 3 possiblities:
+     * - if removing image on server `_removed: true` will be added to the image object
+     * - when adding a new image an entry will be added with _new: true, and `toBlob: Function<Promise>`
+     * - when changing position, the `position` field will be updated (but the position in array left the same)
+     */
     value: {
       type: Array,
       required: true,

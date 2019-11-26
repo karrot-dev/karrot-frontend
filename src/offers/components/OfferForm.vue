@@ -67,9 +67,9 @@
 
 <script>
 import { validationMixin } from 'vuelidate'
-import { required, minLength, maxLength } from 'vuelidate/lib/validators'
+import { maxLength, minLength, required } from 'vuelidate/lib/validators'
 import editMixin from '@/utils/mixins/editMixin'
-import statusMixin from '@/utils/mixins/statusMixin'
+import statusMixin, { mapErrors } from '@/utils/mixins/statusMixin'
 import { QBtn, QField, QIcon, QInput } from 'quasar'
 import MarkdownInput from '@/utils/components/MarkdownInput'
 import MultiCroppa from '@/offers/components/MultiCroppa'
@@ -78,38 +78,6 @@ import KFormContainer from '@/base/components/KFormContainer'
 
 const NAME_MIN_LENGTH = 5
 const NAME_MAX_LENGTH = 80
-
-const NO_ERROR = {
-  error: false,
-  errorMessage: '',
-}
-
-function mapErrors (config) {
-  const computed = {}
-  for (const property of Object.keys(config)) {
-    const rules = config[property]
-    computed[`${property}Error`] = function () {
-      const checkServerErrors = () => {
-        const firstServerError = this.firstError(property)
-        if (!firstServerError) return NO_ERROR
-        return {
-          error: true,
-          errorMessage: firstServerError,
-        }
-      }
-      const vuelidate = this.$v.edit[property]
-      if (vuelidate === undefined || !vuelidate.$error) return checkServerErrors()
-      const ruleWithError = rules.find(([ruleName]) => !vuelidate[ruleName])
-      if (!ruleWithError) return checkServerErrors()
-      const [, i18nKey, i18nParams] = ruleWithError
-      return {
-        error: true,
-        errorMessage: this.$t(i18nKey, i18nParams),
-      }
-    }
-  }
-  return computed
-}
 
 export default {
   components: {

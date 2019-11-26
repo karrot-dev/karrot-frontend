@@ -10,7 +10,7 @@ function initialState () {
     conversationMessages: {},
     threads: {},
     threadMessages: {},
-    related: {},
+    related: {}, // <type> -> { <id> -> <object> }, e.g. { offer: { 1: { name: 'a nice offer' } }
     fetchInitialDone: false,
     entryMeta: {
       conversationsMarkedAt: null,

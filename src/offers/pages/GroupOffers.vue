@@ -43,36 +43,37 @@
         :key="offer.id"
         class="col-md-4 col-sm-6 col-12"
       >
-        <QCard
-          class="cursor-pointer"
-          :title="offer.name"
-          @click="visit(offer.id)"
-        >
-          <QImg
-            basic
-            :src="offer.images[0].imageUrls.fullSize"
-            :ratio="4/3"
-          />
-          <QItem clickable>
-            <QItemSection avatar>
-              <ProfilePicture
-                :user="offer.user"
-                :size="36"
-              />
-            </QItemSection>
-            <QItemSection>
-              <QitemLabel class="ellipsis full-width">
-                {{ offer.name }}
-              </QitemLabel>
-              <QitemLabel class="ellipsis full-width">
-                <DateAsWords
-                  :date="offer.createdAt"
-                  class="text-caption"
+        <RouterLink :to="detailRouteFor(offer.id)">
+          <QCard
+            class="cursor-pointer"
+            :title="offer.name"
+          >
+            <QImg
+              basic
+              :src="offer.images[0].imageUrls.fullSize"
+              :ratio="4/3"
+            />
+            <QItem clickable>
+              <QItemSection avatar>
+                <ProfilePicture
+                  :user="offer.user"
+                  :size="36"
                 />
-              </QItemLabel>
-            </QItemSection>
-          </QItem>
-        </QCard>
+              </QItemSection>
+              <QItemSection>
+                <QitemLabel class="ellipsis full-width">
+                  {{ offer.name }}
+                </QitemLabel>
+                <QitemLabel class="ellipsis full-width">
+                  <DateAsWords
+                    :date="offer.createdAt"
+                    class="text-caption"
+                  />
+                </QItemLabel>
+              </QItemSection>
+            </QItem>
+          </QCard>
+        </RouterLink>
       </div>
     </div>
   </div>
@@ -140,9 +141,6 @@ export default {
     ...mapActions({
       fetchList: 'offers/fetchList',
     }),
-    visit (id) {
-      this.$router.push(this.detailRouteFor(id))
-    },
     detailRouteFor (offerId) {
       return {
         name: 'offerDetail',

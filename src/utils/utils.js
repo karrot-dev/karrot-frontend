@@ -1,4 +1,5 @@
 import deepEqual from 'deep-equal'
+import debounce from 'lodash.debounce'
 
 // Quasar's ready() is broken until https://github.com/quasarframework/quasar/pull/2199
 export function ready (fn) {
@@ -88,4 +89,10 @@ export function withoutKeys (...keys) {
     }
     return copy
   }
+}
+
+export function debounceAndFlushBeforeUnload (fn, ms) {
+  const debounced = debounce(fn, ms)
+  window.addEventListener('beforeunload', debounced.flush)
+  return debounced
 }

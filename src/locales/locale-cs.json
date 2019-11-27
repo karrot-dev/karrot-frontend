@@ -102,7 +102,8 @@
     "UNIQUE": "Jméno již existuje, vyberte jiné.",
     "REQUIRED": "Toto pole je povinné.",
     "VALID_EMAIL": "Zadejte platnou e-mailovou adresu.",
-    "VALID_TIMEZONE": "Zadejte platné časové pásmo."
+    "VALID_TIMEZONE": "Zadejte platné časové pásmo.",
+    "IMAGE_REQUIRED": "You must add an image"
   },
   "GROUP": {
     "WALL": "Zeď",
@@ -125,6 +126,7 @@
     "APPLICATION_QUESTIONS": "Otázky pro lidi, kteří se chtějí připojit k této skupině",
     "PICKUPS": "Vyzvednutí",
     "MESSAGES": "Zprávy",
+    "OFFERS": "Offers",
     "PICKUP": "Vyzvednutí",
     "MEMBERS": "Členové",
     "JOINED": "připojen {relativeDate}",
@@ -165,6 +167,10 @@
       "new_application": {
         "NAME": "Nové žádosti",
         "DESCRIPTION": "Oznámí vám, když se někdo chce připojit k vaší skupině"
+      },
+      "new_offer": {
+        "NAME": "New offers",
+        "DESCRIPTION": "Tells you when somebody creates a new offer"
       },
       "conflict_resolution": {
         "NAME": "Nové procesy řešení konfliktů",
@@ -652,6 +658,23 @@
       "ANONYMOUS": "Váš hlas bude anonymní."
     },
     "NO_ONGOING": "Žádné pokračující problémy."
+  },
+  "OFFER": {
+    "CREATE_TITLE": "Create offer",
+    "NAME": "Name",
+    "NAME_HELPER": "Short name for the item you are offering",
+    "DESCRIPTION": "Description",
+    "MARK_AS_ACCEPTED": "Mark as accepted",
+    "MARK_AS_ACCEPTED_DESCRIPTION": "Mark this offer as accepted to show to others that it is not available any more.",
+    "MARK_AS_ARCHIVED": "Archive",
+    "MARK_AS_ARCHIVED_DESCRIPTION": "Mark this is offer as archived to remove it from the available listings.",
+    "FILTER": {
+      "STATUS": {
+        "ACTIVE": "Available",
+        "ACCEPTED": "My accepted offers",
+        "ARCHIVED": "My archived offers"
+      }
+    }
   },
   "ADDRESS_PICKER": {
     "SET_AS": "Set address as",

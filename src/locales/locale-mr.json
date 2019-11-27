@@ -102,7 +102,8 @@
     "UNIQUE": "नाव आधीपासूनच विद्यमान आहे, कृपया दुसरे निवडा.",
     "REQUIRED": "हे क्षेत्र आवश्यक आहे.",
     "VALID_EMAIL": "एक वैध ई-मेल प्रविष्ट करा.",
-    "VALID_TIMEZONE": "एक वैध टाइमझोन प्रविष्ट करा."
+    "VALID_TIMEZONE": "एक वैध टाइमझोन प्रविष्ट करा.",
+    "IMAGE_REQUIRED": "You must add an image"
   },
   "GROUP": {
     "WALL": "भिंत",
@@ -125,6 +126,7 @@
     "APPLICATION_QUESTIONS": "या गटात सामील होऊ इच्छित असलेल्या लोकांसाठी प्रश्न",
     "PICKUPS": "पिकअप",
     "MESSAGES": "संदेश",
+    "OFFERS": "Offers",
     "PICKUP": "पिकअप",
     "MEMBERS": "सदस्य",
     "JOINED": "{relativeDate}रोजी सामील झाले ",
@@ -165,6 +167,10 @@
       "new_application": {
         "NAME": "नवीन आवेदन",
         "DESCRIPTION": "जेव्हा कोणी आपल्या गटात सामील होऊ इच्छिते तेव्हा हे आपल्याला सांगते"
+      },
+      "new_offer": {
+        "NAME": "New offers",
+        "DESCRIPTION": "Tells you when somebody creates a new offer"
       },
       "conflict_resolution": {
         "NAME": "New conflict resolution processes",
@@ -652,6 +658,23 @@
       "ANONYMOUS": "Your vote will be anonymous."
     },
     "NO_ONGOING": "No ongoing issues."
+  },
+  "OFFER": {
+    "CREATE_TITLE": "Create offer",
+    "NAME": "Name",
+    "NAME_HELPER": "Short name for the item you are offering",
+    "DESCRIPTION": "Description",
+    "MARK_AS_ACCEPTED": "Mark as accepted",
+    "MARK_AS_ACCEPTED_DESCRIPTION": "Mark this offer as accepted to show to others that it is not available any more.",
+    "MARK_AS_ARCHIVED": "Archive",
+    "MARK_AS_ARCHIVED_DESCRIPTION": "Mark this is offer as archived to remove it from the available listings.",
+    "FILTER": {
+      "STATUS": {
+        "ACTIVE": "Available",
+        "ACCEPTED": "My accepted offers",
+        "ARCHIVED": "My archived offers"
+      }
+    }
   },
   "ADDRESS_PICKER": {
     "SET_AS": "Set address as",

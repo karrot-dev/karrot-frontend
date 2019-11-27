@@ -102,7 +102,8 @@
     "UNIQUE": "Nome já utilizado, por favor escolha outro.",
     "REQUIRED": "Esta campo é obrigatório.",
     "VALID_EMAIL": "Entre com um e-mail válido.",
-    "VALID_TIMEZONE": "Entre com um fuso horário válido."
+    "VALID_TIMEZONE": "Entre com um fuso horário válido.",
+    "IMAGE_REQUIRED": "You must add an image"
   },
   "GROUP": {
     "WALL": "Mural",
@@ -125,6 +126,7 @@
     "APPLICATION_QUESTIONS": "Questions for people who want to join this group",
     "PICKUPS": "Coletas",
     "MESSAGES": "Messages",
+    "OFFERS": "Offers",
     "PICKUP": "Pickup",
     "MEMBERS": "Membros",
     "JOINED": "joined {relativeDate}",
@@ -165,6 +167,10 @@
       "new_application": {
         "NAME": "New applications",
         "DESCRIPTION": "Tells you when somebody wants to join your group"
+      },
+      "new_offer": {
+        "NAME": "New offers",
+        "DESCRIPTION": "Tells you when somebody creates a new offer"
       },
       "conflict_resolution": {
         "NAME": "New conflict resolution processes",
@@ -652,6 +658,23 @@
       "ANONYMOUS": "Your vote will be anonymous."
     },
     "NO_ONGOING": "No ongoing issues."
+  },
+  "OFFER": {
+    "CREATE_TITLE": "Create offer",
+    "NAME": "Name",
+    "NAME_HELPER": "Short name for the item you are offering",
+    "DESCRIPTION": "Description",
+    "MARK_AS_ACCEPTED": "Mark as accepted",
+    "MARK_AS_ACCEPTED_DESCRIPTION": "Mark this offer as accepted to show to others that it is not available any more.",
+    "MARK_AS_ARCHIVED": "Archive",
+    "MARK_AS_ARCHIVED_DESCRIPTION": "Mark this is offer as archived to remove it from the available listings.",
+    "FILTER": {
+      "STATUS": {
+        "ACTIVE": "Available",
+        "ACCEPTED": "My accepted offers",
+        "ARCHIVED": "My archived offers"
+      }
+    }
   },
   "ADDRESS_PICKER": {
     "SET_AS": "Set address as",

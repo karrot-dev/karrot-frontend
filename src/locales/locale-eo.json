@@ -102,7 +102,8 @@
     "UNIQUE": "Nomo jam ekzistas, bonvolu elekti alian.",
     "REQUIRED": "Nepre plenigu la kampon",
     "VALID_EMAIL": "Metu validan retadreson",
-    "VALID_TIMEZONE": "Entajpu validan horzonon."
+    "VALID_TIMEZONE": "Entajpu validan horzonon.",
+    "IMAGE_REQUIRED": "You must add an image"
   },
   "GROUP": {
     "WALL": "Muro",
@@ -125,6 +126,7 @@
     "APPLICATION_QUESTIONS": "Demandoj por homoj kiuj volas aliĝi la grupon",
     "PICKUPS": "Savadoj",
     "MESSAGES": "Mesaĝoj",
+    "OFFERS": "Offers",
     "PICKUP": "Savado",
     "MEMBERS": "Anoj",
     "JOINED": "aliĝis {relativeDate}",
@@ -165,6 +167,10 @@
       "new_application": {
         "NAME": "Novaj kandidatiĝoj",
         "DESCRIPTION": "Ĝi rakontas kiam iu volas aliĝi la grupon"
+      },
+      "new_offer": {
+        "NAME": "New offers",
+        "DESCRIPTION": "Tells you when somebody creates a new offer"
       },
       "conflict_resolution": {
         "NAME": "Nova proceso de problemsolvado",
@@ -652,6 +658,23 @@
       "ANONYMOUS": "Via voĉdono estos anonima"
     },
     "NO_ONGOING": "Ĉio enordas nuntempe."
+  },
+  "OFFER": {
+    "CREATE_TITLE": "Create offer",
+    "NAME": "Name",
+    "NAME_HELPER": "Short name for the item you are offering",
+    "DESCRIPTION": "Description",
+    "MARK_AS_ACCEPTED": "Mark as accepted",
+    "MARK_AS_ACCEPTED_DESCRIPTION": "Mark this offer as accepted to show to others that it is not available any more.",
+    "MARK_AS_ARCHIVED": "Archive",
+    "MARK_AS_ARCHIVED_DESCRIPTION": "Mark this is offer as archived to remove it from the available listings.",
+    "FILTER": {
+      "STATUS": {
+        "ACTIVE": "Available",
+        "ACCEPTED": "My accepted offers",
+        "ARCHIVED": "My archived offers"
+      }
+    }
   },
   "ADDRESS_PICKER": {
     "SET_AS": "Set address as",

@@ -102,7 +102,8 @@
     "UNIQUE": "Данное имя пользователя уже используется, выберите другое.",
     "REQUIRED": "Это поле обязательно для заполнения.",
     "VALID_EMAIL": "Введите действительный адрес электронной почты.",
-    "VALID_TIMEZONE": "Введите дейтсвительный часовой пояс."
+    "VALID_TIMEZONE": "Введите дейтсвительный часовой пояс.",
+    "IMAGE_REQUIRED": "You must add an image"
   },
   "GROUP": {
     "WALL": "Стена",
@@ -125,6 +126,7 @@
     "APPLICATION_QUESTIONS": "Questions for people who want to join this group",
     "PICKUPS": "Pickups",
     "MESSAGES": "Сообщения",
+    "OFFERS": "Offers",
     "PICKUP": "Pickup",
     "MEMBERS": "Участники",
     "JOINED": "присоединился {relativeDate}",
@@ -165,6 +167,10 @@
       "new_application": {
         "NAME": "Новая заявка",
         "DESCRIPTION": "Сообщает вам, когда кто-то хочет присоединиться к группе"
+      },
+      "new_offer": {
+        "NAME": "New offers",
+        "DESCRIPTION": "Tells you when somebody creates a new offer"
       },
       "conflict_resolution": {
         "NAME": "Новые процессы регулирования конфликтов",
@@ -652,6 +658,23 @@
       "ANONYMOUS": "Ваш голос будет анонимным."
     },
     "NO_ONGOING": "No ongoing issues."
+  },
+  "OFFER": {
+    "CREATE_TITLE": "Create offer",
+    "NAME": "Name",
+    "NAME_HELPER": "Short name for the item you are offering",
+    "DESCRIPTION": "Description",
+    "MARK_AS_ACCEPTED": "Mark as accepted",
+    "MARK_AS_ACCEPTED_DESCRIPTION": "Mark this offer as accepted to show to others that it is not available any more.",
+    "MARK_AS_ARCHIVED": "Archive",
+    "MARK_AS_ARCHIVED_DESCRIPTION": "Mark this is offer as archived to remove it from the available listings.",
+    "FILTER": {
+      "STATUS": {
+        "ACTIVE": "Available",
+        "ACCEPTED": "My accepted offers",
+        "ARCHIVED": "My archived offers"
+      }
+    }
   },
   "ADDRESS_PICKER": {
     "SET_AS": "Set address as",

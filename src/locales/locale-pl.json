@@ -102,7 +102,8 @@
     "UNIQUE": "Ten nick już istnieje, wybierz inny.",
     "REQUIRED": "To pole jest wymagane.",
     "VALID_EMAIL": "Wprowadź aktualny adres e-mail.",
-    "VALID_TIMEZONE": "Wprowadź aktualną strefę czasową."
+    "VALID_TIMEZONE": "Wprowadź aktualną strefę czasową.",
+    "IMAGE_REQUIRED": "You must add an image"
   },
   "GROUP": {
     "WALL": "Aktualności",
@@ -125,6 +126,7 @@
     "APPLICATION_QUESTIONS": "Pytania dla osób, które chcą dołączyć",
     "PICKUPS": "Odbiory",
     "MESSAGES": "Wiadomości",
+    "OFFERS": "Offers",
     "PICKUP": "Odbiór",
     "MEMBERS": "Członkowie",
     "JOINED": "dołączył/-a {relativeDate}",
@@ -165,6 +167,10 @@
       "new_application": {
         "NAME": "Nowe zgłoszenia",
         "DESCRIPTION": "Wskazuje, gdy nowa osoba chce dołączyć do grupy"
+      },
+      "new_offer": {
+        "NAME": "New offers",
+        "DESCRIPTION": "Tells you when somebody creates a new offer"
       },
       "conflict_resolution": {
         "NAME": "New conflict resolution processes",
@@ -652,6 +658,23 @@
       "ANONYMOUS": "Your vote will be anonymous."
     },
     "NO_ONGOING": "No ongoing issues."
+  },
+  "OFFER": {
+    "CREATE_TITLE": "Create offer",
+    "NAME": "Name",
+    "NAME_HELPER": "Short name for the item you are offering",
+    "DESCRIPTION": "Description",
+    "MARK_AS_ACCEPTED": "Mark as accepted",
+    "MARK_AS_ACCEPTED_DESCRIPTION": "Mark this offer as accepted to show to others that it is not available any more.",
+    "MARK_AS_ARCHIVED": "Archive",
+    "MARK_AS_ARCHIVED_DESCRIPTION": "Mark this is offer as archived to remove it from the available listings.",
+    "FILTER": {
+      "STATUS": {
+        "ACTIVE": "Available",
+        "ACCEPTED": "My accepted offers",
+        "ARCHIVED": "My archived offers"
+      }
+    }
   },
   "ADDRESS_PICKER": {
     "SET_AS": "Set address as",

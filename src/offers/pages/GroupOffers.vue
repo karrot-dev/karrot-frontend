@@ -61,10 +61,10 @@
                 />
               </QItemSection>
               <QItemSection>
-                <QitemLabel class="ellipsis full-width">
+                <QItemLabel class="ellipsis full-width">
                   {{ offer.name }}
-                </QitemLabel>
-                <QitemLabel class="ellipsis full-width">
+                </QItemLabel>
+                <QItemLabel class="ellipsis full-width">
                   <DateAsWords
                     :date="offer.createdAt"
                     class="text-caption"

@@ -142,7 +142,7 @@ export default {
         state.messages = messages
         return
       }
-      insertSorted(stateMessages, messages, true)
+      state.messages = insertSorted(stateMessages, messages, true)
     },
     clear (state) {
       Object.assign(state, initialState())

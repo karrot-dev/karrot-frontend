@@ -1,4 +1,3 @@
-import Vue from 'vue'
 import groups from '@/group/api/groups'
 import groupsInfo from '@/groupInfo/api/groupsInfo'
 import router from '@/base/router'
@@ -130,9 +129,7 @@ export default {
       state.entries = indexById(groups)
     },
     update (state, groups) {
-      for (const group of groups) {
-        Vue.set(state.entries, group.id, group)
-      }
+      state.entries = { ...state.entries, ...indexById(groups) }
     },
     join (state, { groupId, userId }) {
       const { members } = state.entries[groupId]

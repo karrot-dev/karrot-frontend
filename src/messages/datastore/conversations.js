@@ -46,9 +46,11 @@ export function sortByName (a, b) {
   return a.name.localeCompare(b.name)
 }
 
-export function insertSorted (target, items, oldestFirst = false) {
+export function insertSorted (source, items, oldestFirst = false) {
   // simple sorted list insertion
   // assumes that existing messages are sorted AND incoming messages are sorted
+  // don't modify in-place to minimize expensive operations on reactive arrays
+  const target = [...source]
   const compare = oldestFirst ? (a, b) => a.id < b.id : (a, b) => a.id > b.id
   let i = 0
   for (const item of items) {
@@ -59,12 +61,13 @@ export function insertSorted (target, items, oldestFirst = false) {
       target.push(item)
     }
     else if (target[i].id === item.id) {
-      Vue.set(target, i, item)
+      target[i] = item
     }
     else {
       target.splice(i, 0, item)
     }
   }
+  return target
 }
 
 function initialState () {
@@ -459,13 +462,12 @@ export default {
     },
     updateMessages (state, { conversationId, messages }) {
       if (!state.entries[conversationId]) return
-
       const stateMessages = state.messages[conversationId]
-      if (!stateMessages) {
-        Vue.set(state.messages, conversationId, messages)
-        return
-      }
-      insertSorted(stateMessages, messages)
+      Vue.set(
+        state.messages,
+        conversationId,
+        stateMessages ? insertSorted(stateMessages, messages) : messages,
+      )
     },
     setCursor (state, { conversationId, cursor }) {
       Vue.set(state.cursors, conversationId, cursor)

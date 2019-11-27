@@ -155,9 +155,7 @@ export default {
       Object.assign(state, initialState())
     },
     update (state, places) {
-      for (const place of places) {
-        Vue.set(state.entries, place.id, place)
-      }
+      state.entries = { ...state.entries, ...indexById(places) }
     },
     setStatistics (state, { id, data }) {
       Vue.set(state.statistics, id, data)

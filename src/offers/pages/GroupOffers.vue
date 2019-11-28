@@ -17,7 +17,7 @@
     <div class="row">
       <div
         v-if="status === 'active' && !fetching"
-        class="col-md-4 col-sm-6 col-12 new-offer"
+        class="col-md-4 col-6 new-offer"
       >
         <QCard>
           <QImg
@@ -41,7 +41,7 @@
       <div
         v-for="offer in offers"
         :key="offer.id"
-        class="col-md-4 col-sm-6 col-12"
+        class="col-md-4 col-6"
       >
         <RouterLink :to="detailRouteFor(offer.id)">
           <QCard

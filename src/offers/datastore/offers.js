@@ -5,7 +5,7 @@ import {
   withMeta,
   metaStatusesWithId,
   createPaginationModule,
-  metaStatuses,
+  metaStatuses, indexById,
 } from '@/utils/datastore/helpers'
 import router from '@/base/router'
 
@@ -127,9 +127,7 @@ export default {
       Object.assign(state, initialState())
     },
     update (state, offers) {
-      for (const offer of offers) {
-        Vue.set(state.entries, offer.id, offer)
-      }
+      state.entries = { ...state.entries, ...indexById(offers) }
     },
     delete (state, id) {
       if (state.entries[id]) Vue.delete(state.entries, id)

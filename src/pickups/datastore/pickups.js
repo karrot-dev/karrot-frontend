@@ -1,6 +1,6 @@
 import Vue from 'vue'
 import pickups from '@/pickups/api/pickups'
-import { createMetaModule, withMeta, isValidationError, withPrefixedIdMeta, metaStatusesWithId, metaStatuses } from '@/utils/datastore/helpers'
+import { createMetaModule, withMeta, isValidationError, withPrefixedIdMeta, metaStatusesWithId, metaStatuses, indexById } from '@/utils/datastore/helpers'
 import addDays from 'date-fns/addDays'
 import reactiveNow from '@/utils/reactiveNow'
 
@@ -150,9 +150,7 @@ export default {
         .forEach(pickup => Vue.delete(state.entries, pickup.id))
     },
     update (state, pickups) {
-      for (const pickup of pickups) {
-        Vue.set(state.entries, pickup.id, pickup)
-      }
+      state.entries = { ...state.entries, ...indexById(pickups) }
     },
     delete (state, pickupId) {
       if (state.entries[pickupId]) Vue.delete(state.entries, pickupId)

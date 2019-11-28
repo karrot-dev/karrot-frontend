@@ -2,7 +2,7 @@ import Vue from 'vue'
 import messageAPI from '@/messages/api/messages'
 import conversationsAPI from '@/messages/api/conversations'
 import { insertSorted } from './conversations'
-import { createMetaModule, withMeta, createPaginationModule } from '@/utils/datastore/helpers'
+import { createMetaModule, withMeta, createPaginationModule, indexById } from '@/utils/datastore/helpers'
 
 function initialState () {
   return {
@@ -208,55 +208,46 @@ export default {
       Object.assign(state, initialState())
     },
     updateConversations (state, conversations) {
-      for (const conversation of conversations) {
-        Vue.set(state.conversations, conversation.id, conversation)
-      }
+      state.conversations = { ...state.conversations, ...indexById(conversations) }
     },
     updateConversationMessages (state, messages) {
       for (const message of messages) {
         const conversationId = message.conversation
         const stateMessages = state.conversationMessages[conversationId]
-        if (!stateMessages) {
-          Vue.set(state.conversationMessages, conversationId, [message])
-        }
-        else {
-          insertSorted(stateMessages, [message])
-        }
+        Vue.set(
+          state.conversationMessages,
+          conversationId,
+          stateMessages ? insertSorted(stateMessages, [message]) : [message],
+        )
       }
     },
     setConversationsCursor (state, cursor) {
       state.conversationsCursor = cursor
     },
     updateThreads (state, threads) {
-      for (const thread of threads) {
-        Vue.set(state.threads, thread.id, thread)
-      }
+      state.threads = { ...state.threads, ...indexById(threads) }
     },
     updateThreadMessages (state, messages) {
       for (const message of messages) {
         const threadId = message.thread
         const stateMessages = state.threadMessages[threadId]
-        if (!stateMessages) {
-          Vue.set(state.threadMessages, threadId, [message])
-        }
-        else {
-          insertSorted(stateMessages, [message])
-        }
+        Vue.set(
+          state.threadMessages,
+          threadId,
+          stateMessages ? insertSorted(stateMessages, [message]) : [message],
+        )
       }
     },
     updateRelated (state, { type, items }) {
-      if (!state.related[type]) Vue.set(state.related, type, {})
-      for (const item of items) {
-        Vue.set(state.related[type], item.id, item)
-      }
+      Vue.set(state.related, type, { ...state.related[type], ...indexById(items) })
     },
     deleteRelated (state, { type, ids }) {
       if (!state.related[type]) return
       for (const id of ids) {
-        delete state.related[type][id]
+        Vue.delete(state.related[type], id)
       }
       if (Object.keys(state.related[type]).length === 0) {
-        delete state.related[type]
+        Vue.delete(state.related, type)
       }
     },
     setThreadsCursor (state, cursor) {

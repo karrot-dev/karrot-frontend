@@ -1,7 +1,6 @@
-import Vue from 'vue'
 import router from '@/base/router'
 import feedbackAPI from '@/feedback/api/feedback'
-import { createMetaModule, withMeta, metaStatuses, createPaginationModule } from '@/utils/datastore/helpers'
+import { createMetaModule, withMeta, metaStatuses, createPaginationModule, indexById } from '@/utils/datastore/helpers'
 
 function initialState () {
   return {
@@ -110,9 +109,7 @@ export default {
   },
   mutations: {
     update (state, entries) {
-      for (const entry of entries) {
-        Vue.set(state.entries, entry.id, entry)
-      }
+      state.entries = { ...state.entries, ...indexById(entries) }
     },
     select (state, feedbackId) {
       state.selectedFeedbackId = feedbackId

@@ -1,7 +1,6 @@
-import Vue from 'vue'
 import applications from '@/applications/api/applications'
 import router from '@/base/router'
-import { withMeta, createMetaModule, metaStatuses, createPaginationModule } from '@/utils/datastore/helpers'
+import { withMeta, createMetaModule, metaStatuses, createPaginationModule, indexById } from '@/utils/datastore/helpers'
 
 function initialState () {
   return {
@@ -135,9 +134,7 @@ export default {
   },
   mutations: {
     update (state, applications) {
-      for (const application of applications) {
-        Vue.set(state.entries, application.id, application)
-      }
+      state.entries = { ...state.entries, ...indexById(applications) }
     },
     clear (state) {
       Object.assign(state, initialState())

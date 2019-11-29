@@ -14846,11 +14846,6 @@ typedarray@^0.0.6:
   resolved "https://registry.yarnpkg.com/typedarray/-/typedarray-0.0.6.tgz#867ac74e3864187b1d3d47d996a78ec5c8830777"
   integrity sha1-hnrHTjhkGHsdPUfZlqeOxciDB3c=
 
-typeface-cabin-sketch@^0.0.72:
-  version "0.0.72"
-  resolved "https://registry.yarnpkg.com/typeface-cabin-sketch/-/typeface-cabin-sketch-0.0.72.tgz#0690982f46cd5034f0f8d7064a6ccc9631d83e7b"
-  integrity sha512-MMIISwu2g/h7v3q3P+TaEv1m+plyykJM85QQfADcle2W9u/ICAnZIZSBaAyNhX9lloQR4BHyTEtzBzQw6flfIQ==
-
 ua-parser-js@^0.7.18:
   version "0.7.20"
   resolved "https://registry.yarnpkg.com/ua-parser-js/-/ua-parser-js-0.7.20.tgz#7527178b82f6a62a0f243d1f94fd30e3e3c21098"

@@ -3,7 +3,7 @@ const { resolve, join } = require('path')
 const projectRoot = resolve(__dirname, '../')
 
 const HtmlWebpackPlugin = require('html-webpack-plugin')
-const PreloadWebpackPlugin = require('preload-webpack-plugin');
+const PreloadWebpackPlugin = require('preload-webpack-plugin')
 const VueLoaderPlugin = require('vue-loader/lib/plugin')
 const StyleLintPlugin = require('stylelint-webpack-plugin')
 const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin
@@ -169,7 +169,7 @@ module.exports = {
     new PreloadWebpackPlugin({
       fileWhitelist: [/\.woff?$/],
       include: 'allAssets',
-      rel: 'prefetch'
+      rel: 'prefetch',
     }),
     new VueLoaderPlugin(),
     ...(dev ? [

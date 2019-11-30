@@ -54,12 +54,13 @@ export default {
   },
   actions: {
     ...withMeta({
-      async fetch ({ dispatch, commit }, { groupId, placeId, userId, historyType }) {
+      async fetch ({ dispatch, commit }, { groupId, placeId, userId, historyType, before }) {
         const filters = filterTruthy({
           place: placeId,
           group: groupId,
           users: userId,
           type: historyType,
+          date_before: before,
         })
         const entries = await dispatch('pagination/extractCursor', historyAPI.list(filters))
         commit('update', entries)

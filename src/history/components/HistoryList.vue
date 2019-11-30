@@ -23,6 +23,13 @@
           hide-bottom-space
           dense
         />
+        <QInput
+          v-model.lazy="before"
+          mask="####-##-##T##:##"
+          outlined
+          hide-bottom-space
+          dense
+        />
       </div>
       <div class="text-caption q-ml-xs">
         {{ filteredHistory.length }} / {{ history.length }}
@@ -55,6 +62,8 @@ import {
   QIcon,
   QInfiniteScroll,
   QSelect,
+  QInput,
+  date,
 } from 'quasar'
 import paginationMixin from '@/utils/mixins/paginationMixin'
 import statusMixin from '@/utils/mixins/statusMixin'
@@ -67,6 +76,7 @@ export default {
     QIcon,
     QInfiniteScroll,
     QSelect,
+    QInput,
     HistoryEntry,
     KSpinner,
   },
@@ -76,6 +86,7 @@ export default {
     bindRoute({
       historyType: 'all',
       userId: 'all',
+      before: '2019-11-19T00:00',
     }),
   ],
   props: {
@@ -124,6 +135,8 @@ export default {
       let filtered = this.history
       if (this.historyType !== 'all') filtered = filtered.filter(e => this.historyType === e.typus)
       if (this.userId !== 'all') filtered = filtered.filter(e => e.users.map(u => u.id).includes(parseInt(this.userId)))
+      const beforeDate = date.extractDate(this.before, 'YYYY-MM-DDTHH:mm')
+      filtered = filtered.filter(e => e.date < beforeDate)
       return filtered
     },
   },

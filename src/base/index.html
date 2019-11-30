@@ -13,6 +13,10 @@
     <meta property="og:title" content="Karrot">
     <meta property="og:image" content="statics/carrot_logo.png">
     <meta property="og:description" content="Modern website for organization of foodsaving groups worldwide">
+    <script>
+      performance.mark('karrot-start')
+      performance.measure('karrot html top', 'karrot-start')
+    </script>
 
     <title>(karrot loading...)</title>
     <link rel="shortcut icon" href="statics/carrot_logo.ico">
@@ -28,5 +32,6 @@
       <script type="text/javascript" charset="utf-8" src="cordova.js"></script>
     <% } %>
     <noscript>You don't have JavaScript enabled. This website needs JavaScript to work, because it uses client-side rendering.</noscript>
+    <script>performance.measure('karrot html bottom', 'karrot-start')</script>
   </body>
 </html>

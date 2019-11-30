@@ -14,10 +14,12 @@ export default {
       throw new Error('Markdown component does not support style or class attributes')
     }
     return h('div', {
+      ...data,
       class: {
         markdown: true,
       },
       domProps: {
+        ...data.domProps,
         innerHTML: markdown.render(props.source),
       },
     })

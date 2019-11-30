@@ -172,6 +172,7 @@ import UnsupportedBrowserWarning from '@/base/components/UnsupportedBrowserWarni
 import DetailSidebar from '@/messages/components/DetailSidebar'
 import KarrotLogo from '@/logo/components/KarrotLogo'
 import CommunityFeed from '@/communityFeed/components/CommunityFeed'
+import { measureMixin } from '@/utils/performance'
 
 import { mapGetters, mapActions } from 'vuex'
 import {
@@ -215,6 +216,7 @@ export default {
     UnsupportedBrowserWarning,
     CommunityFeed,
   },
+  mixins: [measureMixin('MainLayout')],
   data () {
     return {
       showSidenav: false,

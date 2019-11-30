@@ -21,6 +21,7 @@
     <PickupItem
       v-for="pickup in filteredPickups"
       :key="pickup.id"
+      v-measure="'PickupItem'"
       :pickup="pickup"
       :place-link="placeLink"
       @join="$emit('join', arguments[0])"

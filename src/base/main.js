@@ -1,3 +1,7 @@
+import { measure } from '@/utils/performance'
+
+measure('main.js', 'top')
+
 import Vue from 'vue'
 import configureQuasar from 'base/configureQuasar'
 import 'base/helloDeveloper'
@@ -8,3 +12,5 @@ configureQuasar(Vue)
 
 const initApp = require('./app').default
 initApp()
+
+measure('main.js', 'bottom')

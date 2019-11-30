@@ -4,7 +4,7 @@
       <img src="@/base/assets/rolling.png">
     </div>
     <div class="error-card shadow-4 bg-white column items-center justify-center no-wrap">
-      <h1 class="accent-font">
+      <h1>
         Oooooops!
       </h1>
       <slot>

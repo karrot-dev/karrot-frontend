@@ -9713,7 +9713,7 @@ exports[`Storyshots Profile member 1`] = `
         </div>
       </div>
       <div class="self-center" style="overflow:hidden;">
-        <h1 class="name accent-font">
+        <h1>
           User 162
         </h1>
       </div>
@@ -9852,7 +9852,7 @@ exports[`Storyshots Profile non-member 1`] = `
         </div>
       </div>
       <div class="self-center" style="overflow:hidden;">
-        <h1 class="name accent-font">
+        <h1>
           User 161
         </h1>
       </div>

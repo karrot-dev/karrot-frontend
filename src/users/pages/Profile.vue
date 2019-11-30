@@ -47,7 +47,7 @@
           style="overflow: hidden"
           class="self-center"
         >
-          <h1 class="name accent-font">
+          <h1>
             {{ user.displayName }}
           </h1>
         </div>

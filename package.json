@@ -101,7 +101,7 @@
     "compression": "^1.7.3",
     "connect-history-api-fallback": "^1.6.0",
     "cordova-config": "^0.7.0",
-    "core-js": "3.4.1",
+    "core-js": "3.4.5",
     "cross-env": "^6.0.3",
     "css-loader": "^3.2.0",
     "deepmerge": "^4.2.2",

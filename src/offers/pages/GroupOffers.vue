@@ -81,7 +81,7 @@
 
 <script>
 import { mapActions, mapGetters } from 'vuex'
-import { QIcon, QSelect, QCard, QItem, QItemSection, QImg } from 'quasar'
+import { QIcon, QSelect, QCard, QItem, QItemSection, QItemLabel, QImg } from 'quasar'
 import ProfilePicture from '@/users/components/ProfilePicture'
 import KSpinner from '@/utils/components/KSpinner'
 import bindRoute from '@/utils/mixins/bindRoute'
@@ -98,6 +98,7 @@ export default {
     QCard,
     QItem,
     QItemSection,
+    QItemLabel,
     QImg,
   },
   mixins: [

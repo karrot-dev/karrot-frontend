@@ -87,7 +87,12 @@ If you want to use an eslint plugin for your editor, please keep in mind that yo
 
 ## Start contributing?
 
-Be sure to join us in the #karrot-dev [chatroom on slack](https://slackin.yunity.org/) and get in contact!
+We have a forum for Karrot developers and users at https://community.foodsaving.world/c/karrot.
+
+If you are interested in contributing, you may -
+- join us in the #karrot-dev [chatroom on slack](https://slackin.yunity.org/)
+- join our weekly call; previous minutes can be found in [this thread](https://community.foodsaving.world/t/weekly-call-about-karrot-development/289)
+
 The most important information is written down in our [contribution guidelines](CONTRIBUTE.md).
 
 The [backend](https://github.com/yunity/karrot-backend) is developed to support this frontend. If you find a bug or miss something in the API, please file an issue in the backend repository.

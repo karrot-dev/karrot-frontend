@@ -92,7 +92,7 @@
       />
       <div v-if="showReplies">
         <QBtn
-          :outline="message.threadMeta.unreadReplyCount < 1"
+          unelevated
           :color="message.threadMeta.unreadReplyCount > 0 ? 'secondary' : 'white'"
           :text-color="message.threadMeta.unreadReplyCount > 0 ? 'white' : 'black'"
           class="reaction-box k-thread-box"
@@ -114,7 +114,7 @@
                 count: message.threadMeta.replyCount > 99 ? '99+' : message.threadMeta.replyCount,
               },
             }"
-            class="k-replies-count"
+            class="k-replies-count text-caption"
           />
         </QBtn>
       </div>
@@ -259,6 +259,10 @@ body.mobile .conversation-message
     max-height 30px
     box-shadow none
 
+    >>> .q-btn__wrapper
+      min-height 0
+      padding 0
+
     .k-profile-picture
       margin-right 2px
       vertical-align middle
@@ -267,7 +271,6 @@ body.mobile .conversation-message
       padding-right 3px
       margin-left 4px
       font-size 13px
-      font-weight 500
 
   .k-message-controls
     position absolute

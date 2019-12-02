@@ -2429,7 +2429,7 @@ exports[`Storyshots ConversationMessage with replies 1`] = `
       </button>
       <!---->
     </div>
-    <div><button tabindex="0" type="button" class="q-btn q-btn-item non-selectable no-outline reaction-box k-thread-box q-btn--outline q-btn--rectangle text-black q-btn--actionable q-focusable q-hoverable q-btn--no-uppercase">
+    <div><button tabindex="0" type="button" class="q-btn q-btn-item non-selectable no-outline reaction-box k-thread-box q-btn--unelevated q-btn--rectangle bg-white text-black q-btn--actionable q-focusable q-hoverable q-btn--no-uppercase">
         <div tabindex="-1" class="q-focus-helper"></div>
         <div class="q-btn__wrapper col row no-wrap q-anchor--skip">
           <div class="q-btn__content text-center col items-center q-anchor--skip justify-center row">
@@ -2441,7 +2441,7 @@ exports[`Storyshots ConversationMessage with replies 1`] = `
             </div>
             <div class="wrapper k-profile-picture" style="width:20px;height:20px;">
               <div text="User 71" seed="71" class="randomArt fill"></div>
-            </div> <span class="k-replies-count"></span>
+            </div> <span class="k-replies-count text-caption"></span>
           </div>
         </div>
       </button></div>
@@ -2502,7 +2502,7 @@ exports[`Storyshots ConversationMessage with unread replies 1`] = `
       </button>
       <!---->
     </div>
-    <div><button tabindex="0" type="button" class="q-btn q-btn-item non-selectable no-outline reaction-box k-thread-box q-btn--standard q-btn--rectangle bg-secondary text-white q-btn--actionable q-focusable q-hoverable q-btn--no-uppercase">
+    <div><button tabindex="0" type="button" class="q-btn q-btn-item non-selectable no-outline reaction-box k-thread-box q-btn--unelevated q-btn--rectangle bg-secondary text-white q-btn--actionable q-focusable q-hoverable q-btn--no-uppercase">
         <div tabindex="-1" class="q-focus-helper"></div>
         <div class="q-btn__wrapper col row no-wrap q-anchor--skip">
           <div class="q-btn__content text-center col items-center q-anchor--skip justify-center row">
@@ -2514,7 +2514,7 @@ exports[`Storyshots ConversationMessage with unread replies 1`] = `
             </div>
             <div class="wrapper k-profile-picture" style="width:20px;height:20px;">
               <div text="User 71" seed="71" class="randomArt fill"></div>
-            </div> <span class="k-replies-count"></span>
+            </div> <span class="k-replies-count text-caption"></span>
           </div>
         </div>
       </button></div>

@@ -60,7 +60,7 @@
           size="4"
           class="q-mr-md"
         >
-          <template v-slot:append>
+          <template #append>
             <span class="text-caption">kg</span>
           </template>
         </QInput>

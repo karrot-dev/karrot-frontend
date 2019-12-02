@@ -1,12 +1,12 @@
 <template>
   <SidenavBox>
-    <template v-slot:icon>
+    <template #icon>
       <QIcon name="fas fa-fw fa-home" />
     </template>
-    <template v-slot:name>
+    <template #name>
       {{ $t('GROUP.HOME') }}
     </template>
-    <template v-slot:tools>
+    <template #tools>
       <div>
         <QBtn
           flat

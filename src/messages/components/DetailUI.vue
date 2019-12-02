@@ -16,7 +16,7 @@
       @fetchPast="$emit('fetchPast', arguments[0])"
       @fetchFuture="$emit('fetchFuture')"
     >
-      <template v-slot:before-chat-messages>
+      <template #before-chat-messages>
         <QExpansionItem
           v-if="application"
           default-opened
@@ -46,7 +46,7 @@
           </div>
         </QExpansionItem>
       </template>
-      <template v-slot:after-chat-messages>
+      <template #after-chat-messages>
         <QList
           v-if="pickup && pickup.isDisabled"
           class="bg-grey-2"

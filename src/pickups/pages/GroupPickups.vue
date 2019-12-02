@@ -11,11 +11,11 @@
     />
     <template v-if="hasNoPickups">
       <KNotice>
-        <template v-slot:icon>
+        <template #icon>
           <i class="fas fa-bed" />
         </template>
         {{ $t('PICKUPLIST.NONE') }}
-        <template v-slot:desc>
+        <template #desc>
           {{ $t('PICKUPLIST.NONE_HINT') }}
         </template>
       </KNotice>

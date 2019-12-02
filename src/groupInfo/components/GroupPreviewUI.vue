@@ -55,7 +55,7 @@
                 class="bg-info"
               >
                 {{ $t('JOINGROUP.PROFILE_NOTE' ) }}
-                <template v-slot:avatar>
+                <template #avatar>
                   <QIcon
                     name="info"
                     style="font-size: 24px"
@@ -68,14 +68,14 @@
                 inline-actions
               >
                 {{ $t('JOINGROUP.APPLICATION_PENDING' ) }}
-                <template v-slot:avatar>
+                <template #avatar>
                   <QIcon
                     name="info"
                     color="white"
                     style="font-size: 24px"
                   />
                 </template>
-                <template v-slot:action>
+                <template #action>
                   <QBtn
                     flat
                     dense

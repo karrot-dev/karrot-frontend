@@ -6,7 +6,7 @@
         class="bg-warning text-white shadow-2 q-mb-sm q-pa-none"
         style="min-height: unset"
       >
-        <template v-slot:avatar>
+        <template #avatar>
           <div
             class="q-pa-sm"
             style="background-color: rgba(0, 0, 0, .1)"

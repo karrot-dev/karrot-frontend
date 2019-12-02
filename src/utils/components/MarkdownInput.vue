@@ -13,11 +13,11 @@
     >
       <template
         v-if="icon"
-        v-slot:before
+        #before
       >
         <QIcon :name="icon" />
       </template>
-      <template v-slot:hint>
+      <template #hint>
         <div
           class="row markdown-helper"
         >
@@ -37,7 +37,7 @@
       </template>
       <template
         v-for="(_, slot) of $scopedSlots"
-        v-slot:[slot]="scope"
+        #[slot]="scope"
       >
         <slot
           :name="slot"

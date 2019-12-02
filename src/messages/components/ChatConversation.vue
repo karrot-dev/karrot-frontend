@@ -49,7 +49,7 @@
           </QItemSection>
         </QItem>
       </QList>
-      <template v-slot:loading>
+      <template #loading>
         <KSpinner />
       </template>
     </QInfiniteScroll>

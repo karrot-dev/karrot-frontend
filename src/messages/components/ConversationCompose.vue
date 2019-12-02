@@ -28,7 +28,7 @@
           @focus="onFocus"
           @blur="onBlur"
         >
-          <template v-slot:append>
+          <template #append>
             <QBtn
               v-if="message && !isPending"
               round

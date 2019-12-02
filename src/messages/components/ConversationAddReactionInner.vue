@@ -8,7 +8,7 @@
       :placeholder="$q.lang.label.search"
       dense
     >
-      <template v-slot:prepend>
+      <template #prepend>
         <QIcon name="search" />
       </template>
     </QInput>

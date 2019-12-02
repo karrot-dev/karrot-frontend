@@ -14,7 +14,7 @@
     >
       <template
         v-if="isEditor"
-        v-slot:contextmenu="{ latLng }"
+        #contextmenu="{ latLng }"
       >
         <QList
           dense

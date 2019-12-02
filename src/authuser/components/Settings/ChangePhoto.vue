@@ -8,10 +8,10 @@
       :hint="hint"
       :loading="loading"
     >
-      <template v-slot:before>
+      <template #before>
         <QIcon name="fas fa-camera" />
       </template>
-      <template v-slot:control>
+      <template #control>
         <Croppa
           ref="croppaPhoto"
           class="q-mt-sm"

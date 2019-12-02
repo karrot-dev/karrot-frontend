@@ -62,11 +62,11 @@
       </div>
     </QCard>
     <KNotice v-else>
-      <template v-slot:icon>
+      <template #icon>
         <i class="fas fa-bed" />
       </template>
       {{ $t('FEEDBACKLIST.NO_DONE_PICKUPS') }}
-      <template v-slot:desc>
+      <template #desc>
         {{ $t('FEEDBACKLIST.NO_DONE_PICKUPS_HINT') }}
       </template>
     </KNotice>

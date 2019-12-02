@@ -6,7 +6,7 @@
     bg-color="white"
     v-on="$listeners"
   >
-    <template v-slot:before>
+    <template #before>
       <QIcon
         :name="icon"
         color="grey-5"

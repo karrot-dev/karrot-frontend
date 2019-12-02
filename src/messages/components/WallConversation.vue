@@ -29,7 +29,7 @@
             class="bg-secondary text-white q-mt-sm"
             style="min-height: unset"
           >
-            <template v-slot:avatar>
+            <template #avatar>
               <QIcon
                 name="star"
                 color="white"

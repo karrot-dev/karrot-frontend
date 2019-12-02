@@ -60,7 +60,7 @@
             @keyup.ctrl.enter="submit"
           />
         </QStep>
-        <template v-slot:navigation>
+        <template #navigation>
           <QStepperNavigation>
             <QBtn
               flat

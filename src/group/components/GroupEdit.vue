@@ -25,7 +25,7 @@
             autocomplete="off"
             @blur="$v.edit.name.$touch"
           >
-            <template v-slot:before>
+            <template #before>
               <QIcon name="fas fa-fw fa-star" />
             </template>
           </QInput>
@@ -93,7 +93,7 @@
             @filter="timezoneFilter"
             @blur="$v.edit.timezone.$touch"
           >
-            <template v-slot:before>
+            <template #before>
               <QIcon name="fas fa-fw fa-globe" />
             </template>
           </QSelect>

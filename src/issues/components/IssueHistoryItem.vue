@@ -1,6 +1,6 @@
 <template>
   <QExpansionItem>
-    <template v-slot:header>
+    <template #header>
       <QItemSection>
         <QItemLabel>
           {{ $t('ISSUE.VOTING.RESULTS.KEEP_DISCUSSING') }}

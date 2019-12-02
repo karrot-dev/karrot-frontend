@@ -1,12 +1,12 @@
 <template>
   <SidenavBox>
-    <template v-slot:icon>
+    <template #icon>
       <QIcon :name="$icon('place_fw')" />
     </template>
-    <template v-slot:name>
+    <template #name>
       {{ $t('GROUP.PLACES') }}
     </template>
-    <template v-slot:tools>
+    <template #tools>
       <div
         class="tools"
       >

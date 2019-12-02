@@ -6,13 +6,13 @@
         class="bg-info"
       >
         {{ $t('STOREDETAIL.ARCHIVED') }}
-        <template v-slot:avatar>
+        <template #avatar>
           <QIcon
             name="fas fa-trash-alt"
             size="1.4em"
           />
         </template>
-        <template v-slot:action>
+        <template #action>
           <QBtn
             v-if="isEditor"
             flat

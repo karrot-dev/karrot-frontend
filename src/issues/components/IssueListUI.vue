@@ -2,7 +2,7 @@
   <div class="q-mt-lg">
     <KSpinner v-show="isPending" />
     <KNotice v-if="hasNoOngoing">
-      <template v-slot:icon>
+      <template #icon>
         <i class="fas fa-bed" />
       </template>
       {{ $t('ISSUE.NO_ONGOING') }}

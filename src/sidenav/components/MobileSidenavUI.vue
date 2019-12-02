@@ -3,11 +3,11 @@
     <SidenavBox
       v-if="currentUserId"
     >
-      <template v-slot:icon>
+      <template #icon>
         <QIcon name="fas fa-fw fa-user-circle" />
       </template>
 
-      <template v-slot:name>
+      <template #name>
         {{ $t('USERDATA.ACCOUNT') }}
       </template>
 

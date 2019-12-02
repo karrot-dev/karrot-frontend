@@ -14,10 +14,10 @@
         :label="$t('CREATEPICKUP.FREQUENCY')"
         hide-bottom-space
       >
-        <template v-slot:before>
+        <template #before>
           <QIcon name="fas fa-redo" />
         </template>
-        <template v-slot:control>
+        <template #control>
           <QOptionGroup
             v-model="edit.rule.isCustom"
             inline
@@ -43,7 +43,7 @@
           @focus="$refs.qStartDateProxy.show()"
           @blur="$refs.qStartDateProxy.hide()"
         >
-          <template v-slot:before>
+          <template #before>
             <QIcon name="access_time" />
           </template>
           <Component
@@ -88,11 +88,11 @@
           </Component>
           <template
             v-if="!edit.rule.isCustom"
-            v-slot:before
+            #before
           >
             <QIcon name="access_time" />
           </template>
-          <template v-slot:after>
+          <template #after>
             <QBtn
               v-if="!hasDuration"
               size="xs"
@@ -135,7 +135,7 @@
                 @input="() => smallScreen && $refs.qEndTimeProxy.hide()"
               />
             </Component>
-            <template v-slot:after>
+            <template #after>
               <QIcon
                 color="grey"
                 name="cancel"
@@ -175,10 +175,10 @@
         emit-value
         map-options
       >
-        <template v-slot:before>
+        <template #before>
           <QIcon name="today" />
         </template>
-        <template v-slot:option="scope">
+        <template #option="scope">
           <QItem
             :key="scope.index"
             dense
@@ -208,10 +208,10 @@
         autogrow
         @keyup.ctrl.enter="maybeSave"
       >
-        <template v-slot:before>
+        <template #before>
           <QIcon name="code" />
         </template>
-        <template v-slot:hint>
+        <template #hint>
           <i18n path="CREATEPICKUP.RRULE_HELPER">
             <a
               slot="ruleHelper"
@@ -252,7 +252,7 @@
         :error-message="firstError('maxCollectors')"
         input-style="max-width: 100px"
       >
-        <template v-slot:before>
+        <template #before>
           <QIcon name="group" />
         </template>
         <QSlider
@@ -278,7 +278,7 @@
         autogrow
         @keyup.ctrl.enter="maybeSave"
       >
-        <template v-slot:before>
+        <template #before>
           <QIcon name="info" />
         </template>
       </QInput>

@@ -18,7 +18,7 @@
         class="q-ma-sm bg-warning text-white shadow-2"
         style="min-height: unset"
       >
-        <template v-slot:avatar>
+        <template #avatar>
           <QIcon
             name="star"
             color="white"
@@ -50,7 +50,7 @@
             dense
             :placeholder="$q.lang.label.search"
           >
-            <template v-slot:prepend>
+            <template #prepend>
               <QIcon name="search" />
             </template>
           </QInput>

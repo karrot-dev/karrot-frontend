@@ -8,7 +8,7 @@
       switch-toggle-side
       class="bg-grey-2"
     >
-      <template v-slot:header>
+      <template #header>
         <QItemSection>
           <b>{{ $t('CONFLICT.INITIAL') }}</b>
         </QItemSection>

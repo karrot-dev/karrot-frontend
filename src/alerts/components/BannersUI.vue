@@ -9,13 +9,13 @@
       :class="className"
     >
       {{ $t(message, context) }}
-      <template v-slot:avatar>
+      <template #avatar>
         <QIcon
           :name="icon"
           size="1.4em"
         />
       </template>
-      <template v-slot:action>
+      <template #action>
         <QBtn
           v-if="action"
           flat

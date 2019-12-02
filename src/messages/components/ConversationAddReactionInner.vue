@@ -12,15 +12,17 @@
         <QIcon name="search" />
       </template>
     </QInput>
-    <EmojiButton
-      v-for="name in results"
-      :key="name"
-      v-close-popup
-      :name="name"
-      class="big"
-      :title="':' + name + ':'"
-      @click="$emit('toggle', name)"
-    />
+    <div class="row">
+      <EmojiButton
+        v-for="name in results"
+        :key="name"
+        v-close-popup
+        :name="name"
+        class="big"
+        :title="':' + name + ':'"
+        @click="$emit('toggle', name)"
+      />
+    </div>
   </div>
 </template>
 

@@ -1,6 +1,6 @@
 <template>
-  <span class="conversation-reactions">
-    <span class="reactions">
+  <div class="conversation-reactions row">
+    <div class="reactions row">
       <EmojiButton
         v-for="reaction in reactions"
         :key="reaction.name"
@@ -13,11 +13,12 @@
       >
         <span class="reactions-number">{{ reaction.users.length }}</span>
       </EmojiButton>
-    </span>
+    </div>
     <ConversationAddReaction
       class="add-button reaction-box"
       :reacted="currentUserReactions"
       :opacity="0.5"
+      flat
       @toggle="$emit('toggle', arguments[0])"
     />
     <QDialog
@@ -38,8 +39,12 @@
             />
           </QItemSection>
           <QItemSection>
-            <QItemLabel>{{ reaction.users.map(u => u.displayName).join(', ') }}</QItemLabel>
-            <QItemLabel caption>{{ `:${reaction.name}:` }}</QItemLabel>
+            <QItemLabel>
+              {{ reaction.users.map(u => u.displayName).join(', ') }}
+            </QItemLabel>
+            <QItemLabel caption>
+              {{ `:${reaction.name}:` }}
+            </QItemLabel>
           </QItemSection>
         </QItem>
         <QBtn
@@ -49,7 +54,7 @@
         />
       </template>
     </QDialog>
-  </span>
+  </div>
 </template>
 
 <script>
@@ -103,8 +108,11 @@ export default {
 @import './reactionBox'
 
 .add-button
-  margin-left -4px
   transition none
+
+  >>> .q-btn__wrapper
+    min-height 0
+    padding 0
 
 .desktop .conversation-reactions
   .add-button

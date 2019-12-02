@@ -11,6 +11,7 @@
       <QBtn
         v-if="message.isEditable"
         outline
+        dense
         color="secondary"
         :title="$t('BUTTON.EDIT')"
         @click="toggleEdit"
@@ -20,6 +21,7 @@
       <QBtn
         v-if="!slim"
         outline
+        dense
         color="secondary"
         :title="$t('CONVERSATION.REPLIES')"
         @click="$emit('openThread')"
@@ -29,6 +31,7 @@
       <ConversationAddReaction
         :reacted="currentUserReactions"
         color="secondary"
+        outline
         @toggle="toggleReaction"
       />
     </QBtnGroup>
@@ -85,7 +88,6 @@
         v-if="hasReactions"
         :reactions="message.reactions"
         :current-user-reactions="currentUserReactions"
-        style="display: block"
         @toggle="toggleReaction"
       />
       <div v-if="showReplies">

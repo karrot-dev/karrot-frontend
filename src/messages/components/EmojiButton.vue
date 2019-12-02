@@ -1,6 +1,7 @@
 <template>
   <QBtn
     class="row no-wrap items-center"
+    dense
     flat
     @click="$emit('click')"
   >
@@ -57,6 +58,10 @@ export default {
   min-height 23px
   padding 0px 3px
   line-height 31px
+
+  >>> .q-btn__wrapper
+    min-height 0
+    padding 0
 
 .emoji
   >>> img.emoji

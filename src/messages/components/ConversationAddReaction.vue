@@ -1,6 +1,8 @@
 <template>
   <QBtn
-    outline
+    :outline="$attrs.outline"
+    :flat="$attrs.flat"
+    dense
     :color="color"
   >
     <span :style="{opacity}">

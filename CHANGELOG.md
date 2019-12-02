@@ -22,6 +22,10 @@ Please document your changes in this format:
 
 ## [Unreleased]
 
+## [8.3.0] - 2019-12-02
+### Added
+- Offers (behind feature flag) [#1799] @nicksellen
+
 ## [8.2.0] - 2019-11-17
 ### Added
 - Group messages from same author @teemukaaria
@@ -510,8 +514,10 @@ After months of planning and programming, the first version of ~the foodsaving t
 [#1509]: https://github.com/yunity/karrot-frontend/issues/1509
 [#1690]: https://github.com/yunity/karrot-frontend/issues/1690
 [#1691]: https://github.com/yunity/karrot-frontend/issues/1691
+[#1799]: https://github.com/yunity/karrot-frontend/issues/1799
 
-[Unreleased]: https://github.com/yunity/karrot-frontend/compare/v8.2.0...HEAD
+[Unreleased]: https://github.com/yunity/karrot-frontend/compare/v8.3.0...HEAD
+[8.3.0]: https://github.com/yunity/karrot-frontend/compare/v8.2.0...v8.3.0
 [8.2.0]: https://github.com/yunity/karrot-frontend/compare/v8.1.2...v8.2.0
 [8.1.2]: https://github.com/yunity/karrot-frontend/compare/v8.1.1...v8.1.2
 [8.1.1]: https://github.com/yunity/karrot-frontend/compare/v8.1.0...v8.1.1

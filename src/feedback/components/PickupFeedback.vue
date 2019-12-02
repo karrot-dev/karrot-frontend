@@ -13,7 +13,7 @@
           <div class="image-and-text-left gt-sm">
             <img
               style="width: 100%;"
-              src="@/feedback/assets/cart.png"
+              :src="cart"
             >
           </div>
           <div class="image-and-text-right">
@@ -101,6 +101,7 @@ import RandomArt from '@/utils/components/RandomArt'
 import FeedbackForm from './FeedbackForm'
 import KNotice from '@/utils/components/KNotice'
 import ProfilePicture from '@/users/components/ProfilePicture'
+import cart from '@/feedback/assets/cart.png'
 
 export default {
   components: {
@@ -203,6 +204,9 @@ export default {
       if (!this.select) return []
       return this.select.collectors.filter(u => !u.isCurrentUser)
     },
+  },
+  created () {
+    this.cart = cart
   },
   methods: {
     getDateWithPlace (pickup) {

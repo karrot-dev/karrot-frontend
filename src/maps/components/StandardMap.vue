@@ -59,14 +59,14 @@ import {
   QMenu,
 } from 'quasar'
 
-// fix default marker icon. Should hopefully get fixed in Leaflet 1.3
+import iconRetinaUrl from 'leaflet/dist/images/marker-icon-2x.png'
+import iconUrl from 'leaflet/dist/images/marker-icon.png'
+import shadowUrl from 'leaflet/dist/images/marker-shadow.png'
+
+// fix default marker icon
 // https://github.com/Leaflet/Leaflet/issues/4968
 delete L.Icon.Default.prototype._getIconUrl
-L.Icon.Default.mergeOptions({
-  iconRetinaUrl: require('leaflet/dist/images/marker-icon-2x.png'),
-  iconUrl: require('leaflet/dist/images/marker-icon.png'),
-  shadowUrl: require('leaflet/dist/images/marker-shadow.png'),
-})
+L.Icon.Default.mergeOptions({ iconRetinaUrl, iconUrl, shadowUrl })
 
 const SELECTED_OPACITY = 1
 const UNSELECTED_OPACITY = 0.5

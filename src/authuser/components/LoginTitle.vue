@@ -1,10 +1,16 @@
 <template>
   <div>
-    <img src="@/authuser/assets/cherry.png">
+    <img :src="cherry">
     <h4>{{ $t('LOGIN.TITLE') }}</h4>
   </div>
 </template>
 
 <script>
-export default {}
+import cherry from '@/authuser/assets/cherry.png'
+
+export default {
+  created () {
+    this.cherry = cherry
+  },
+}
 </script>

@@ -1,7 +1,7 @@
 <template>
   <div class="error-page window-height window-width bg-primary column items-center no-wrap">
     <div class="error-code bg-grey-2 flex items-center justify-center">
-      <img src="@/base/assets/rolling.png">
+      <img :src="rolling">
     </div>
     <div class="error-card shadow-4 bg-white column items-center justify-center no-wrap">
       <h1>
@@ -33,6 +33,7 @@
 
 <script>
 import { QBtn } from 'quasar'
+import rolling from '@/base/assets/rolling.png'
 
 export default {
   components: {
@@ -42,6 +43,9 @@ export default {
     return {
       canGoBack: window.history.length > 1,
     }
+  },
+  created () {
+    this.rolling = rolling
   },
   methods: {
     goBack () {

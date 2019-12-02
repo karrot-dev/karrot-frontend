@@ -53,9 +53,10 @@
           <QMenu>
             <QList>
               <QItemLabel
-                v-t="'PLACEWALL.SUBSCRIPTION.HEADER'"
                 header
-              />
+              >
+                <span v-t="'PLACEWALL.SUBSCRIPTION.HEADER'" />
+              </QItemLabel>
 
               <QItem
                 v-for="o in options"
@@ -135,10 +136,11 @@
             <span>{{ place.name }}</span>
           </QToolbarTitle>
           <QBtn
-            v-t="'BUTTON.CLOSE'"
             outline
             @click="toggleDetail"
-          />
+          >
+            <span v-t="'BUTTON.CLOSE'" />
+          </QBtn>
         </QToolbar>
         <QCardSection
           v-if="place"

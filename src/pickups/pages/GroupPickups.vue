@@ -20,7 +20,9 @@
         </template>
       </KNotice>
       <QCard>
-        <QCardSection v-t="'GROUP.PLACES'" />
+        <QCardSection>
+          <span v-t="'GROUP.PLACES'" />
+        </QCardSection>
         <QCardSection>
           <PlaceList
             :group-id="groupId"

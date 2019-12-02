@@ -43,12 +43,13 @@
                 }) }}
               </small>
               <QBtn
-                v-t="'CONVERSATION.MARK_READ'"
                 no-caps
                 outline
                 size="sm"
                 @click="$emit('markAllRead', data.id)"
-              />
+              >
+                <span v-t="'CONVERSATION.MARK_READ'" />
+              </QBtn>
             </div>
           </QBanner>
           <ConversationMessage

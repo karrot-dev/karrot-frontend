@@ -48,10 +48,11 @@
           </QItemSection>
         </QItem>
         <QBtn
-          v-t="'BUTTON.CLOSE'"
           outline
           @click="toggleDetail"
-        />
+        >
+          <span v-t="'BUTTON.CLOSE'" />
+        </QBtn>
       </template>
     </QDialog>
   </div>

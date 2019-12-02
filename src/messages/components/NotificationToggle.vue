@@ -31,9 +31,10 @@
           <QSeparator />
         </template>
         <QItemLabel
-          v-t="'NOTIFICATION_TOGGLE.HEADER'"
           header
-        />
+        >
+          <span v-t="'NOTIFICATION_TOGGLE.HEADER'" />
+        </QItemLabel>
         <QItem
           v-for="o in options"
           :key="o.id"

@@ -54,10 +54,11 @@
             />
             <div class="row justify-end">
               <QBtn
-                v-t="'OFFER.MARK_AS_ACCEPTED'"
                 color="positive"
                 @click="accept({ offerId: offer.id })"
-              />
+              >
+                <span v-t="'OFFER.MARK_AS_ACCEPTED'" />
+              </QBtn>
             </div>
           </div>
         </QBtnDropdown>
@@ -76,10 +77,11 @@
             />
             <div class="row justify-end">
               <QBtn
-                v-t="'OFFER.MARK_AS_ARCHIVED'"
                 color="negative"
                 @click="archive({ offerId: offer.id })"
-              />
+              >
+                <span v-t="'OFFER.MARK_AS_ARCHIVED'" />
+              </QBtn>
             </div>
           </div>
         </QBtnDropdown>

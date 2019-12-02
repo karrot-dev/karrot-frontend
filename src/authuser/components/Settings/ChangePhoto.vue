@@ -66,12 +66,13 @@
         {{ $t('BUTTON.DELETE') }}
       </QBtn>
       <QBtn
-        v-t="'BUTTON.SAVE_CHANGES'"
         color="primary"
         :loading="isPending"
         :disable="!canSave"
         @click="save"
-      />
+      >
+        <span v-t="'BUTTON.SAVE_CHANGES'" />
+      </QBtn>
     </div>
   </div>
 </template>

@@ -50,10 +50,11 @@
       </QItemLabel>
       <QItemLabel
         v-if="!isParticipant"
-        v-t="'CONVERSATION.NOT_PARTICIPATED'"
         caption
         class="q-pt-md q-pl-xs"
-      />
+      >
+        <span v-t="'CONVERSATION.NOT_PARTICIPATED'" />
+      </QItemLabel>
     </QItemSection>
   </QItem>
 </template>

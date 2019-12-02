@@ -40,9 +40,10 @@
         <template v-if="useSearchTerm">
           <QSeparator />
           <QItemLabel
-            v-t="'GLOBAL.SEARCH_RESULTS'"
             header
-          />
+          >
+            <span v-t="'GLOBAL.SEARCH_RESULTS'" />
+          </QItemLabel>
           <QItem v-if="options.length === 1">
             <QItemSection>
               <QItemLabel>

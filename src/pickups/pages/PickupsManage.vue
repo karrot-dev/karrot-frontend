@@ -52,9 +52,10 @@
             seperator
           >
             <QItemLabel
-              v-t="'PICKUPMANAGE.UPCOMING_PICKUPS_IN_SERIES'"
               header
-            />
+            >
+              <span v-t="'PICKUPMANAGE.UPCOMING_PICKUPS_IN_SERIES'" />
+            </QItemLabel>
             <QExpansionItem
               v-for="pickup in series.pickups"
               :key="pickup.id"

@@ -17,8 +17,20 @@ const defaultProps = {
 }
 
 storiesOf('WallConversation', module)
-  .add('WallConversation', () => defaults({
+  .add('default', () => defaults({
     render: h => h(WallConversation, {
       props: defaultProps,
+    }),
+  }))
+  .add('unread', () => defaults({
+    render: h => h(WallConversation, {
+      props: {
+        ...defaultProps,
+        data: {
+          ...defaultProps.data,
+          unreadMessageCount: 1,
+          isParticipant: true,
+        },
+      },
     }),
   }))

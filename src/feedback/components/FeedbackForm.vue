@@ -47,12 +47,13 @@
         {{ $t('BUTTON.RESET') }}
       </QBtn>
       <QBtn
-        v-t="isNew ? 'BUTTON.CREATE' : 'BUTTON.SAVE_CHANGES'"
         type="submit"
         color="secondary"
         :loading="isPending"
         :disable="!canSave"
-      />
+      >
+        <span v-t="isNew ? 'BUTTON.CREATE' : 'BUTTON.SAVE_CHANGES'" />
+      </QBtn>
     </div>
   </form>
 </template>

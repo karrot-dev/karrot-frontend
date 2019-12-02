@@ -96,7 +96,7 @@ export default {
         to: { name: 'groupPickups', params: { groupId: this.groupId } },
       }, {
         condition: this.hasFeature('offers'),
-        label: this.$t('GROUP.OFFERS'),
+        label: this.$t('GROUP.OFFERS') + (new Date().getFullYear() < 2020 ? ' 🆕' : ''),
         icon: this.$icon('offer'),
         to: { name: 'groupOffers', params: { groupId: this.groupId } },
       }, {

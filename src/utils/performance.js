@@ -2,6 +2,7 @@ import Vue from 'vue'
 import { Platform } from 'quasar'
 import router from '@/base/router'
 import datastore from '@/base/datastore'
+import axios from '@/base/api/axios'
 import { debounceAndFlushBeforeUnload } from '@/utils/utils'
 
 const SAVE_INTERVAL_MS = 5000 // batch saves to the backend
@@ -33,12 +34,12 @@ let startMark
 // What we will eventually save for this measurement run
 // Keeping it up here so its possible to add things to it as we go along...
 // ... well basically the firstLoad flag
-let payload = {}
+let currentStat = {}
 
 function initialize () {
   startMark = 'karrot-start'
   done = false
-  payload = {}
+  currentStat = {}
   performance.clearMarks()
   performance.clearMeasures()
   performance.mark(startMark)
@@ -48,11 +49,11 @@ if (ENABLED) {
   router.beforeEach((to, from, next) => {
     if (firstLoad) {
       firstLoad = false
-      payload.firstLoad = true
+      currentStat.firstLoad = true
     }
     else {
       initialize()
-      payload.firstLoad = false
+      currentStat.firstLoad = false
     }
     next()
   })
@@ -72,21 +73,24 @@ else {
   Vue.directive('measure', {})
 }
 
-const pendingPayloads = []
+const pendingStats = []
 const save = debounceAndFlushBeforeUnload(() => {
-  const payloads = [...pendingPayloads]
-  pendingPayloads.length = 0
-  console.log('would save', payloads)
-}, SAVE_INTERVAL_MS)
+  const stats = [...pendingStats]
+  pendingStats.length = 0
+  axios.post('/api/stats/', { stats })
+}, SAVE_INTERVAL_MS, { maxWait: SAVE_INTERVAL_MS * 2 })
 
 function finish () {
   const firstMeaningfulMount = performance.getEntriesByName('karrot MM')[0]
-  pendingPayloads.push({
-    ...payload,
+  if (!firstMeaningfulMount) return
+  pendingStats.push({
+    ...currentStat,
     ms: firstMeaningfulMount && firstMeaningfulMount.duration,
     loggedIn: datastore.getters['auth/isLoggedIn'],
     group: datastore.getters['currentGroup/id'],
-    route: router.currentRoute.name,
+    routeName: router.currentRoute.name,
+    routePath: router.currentRoute.fullPath,
+    routeParams: router.currentRoute.params,
     mobile: Boolean(Platform.is.mobile),
   })
   save()

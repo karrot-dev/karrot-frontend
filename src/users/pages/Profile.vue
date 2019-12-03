@@ -6,10 +6,10 @@
         class="bg-warning text-white shadow-2 q-mb-sm q-pa-none"
         style="min-height: unset"
       >
-        <template v-slot:avatar>
+        <template #avatar>
           <div
             class="q-pa-sm"
-            style="background-color: rgba(0,0,0,.1)"
+            style="background-color: rgba(0, 0, 0, .1)"
           >
             <QIcon
               name="priority_high"
@@ -47,7 +47,7 @@
           style="overflow: hidden"
           class="self-center"
         >
-          <h1 class="name accent-font">
+          <h1>
             {{ user.displayName }}
           </h1>
         </div>
@@ -149,7 +149,7 @@
       >
         <div
           v-if="!canStartConflictResolution"
-          class="generic-padding"
+          class="generic-padding bg-white"
           style="max-width: 700px"
         >
           <h3 v-t="{ path: 'CONFLICT.SETUP_HEADER', args: { user: user.displayName } }" />
@@ -174,6 +174,7 @@
           :current-group="currentGroup"
           :user="user"
           :status="issueCreateStatus"
+          class="bg-white"
           @startConflictResolution="startConflictResolution"
           @close="toggleConflictSetup"
         />
@@ -313,20 +314,24 @@ export default {
 <style scoped lang="stylus">
 body.desktop .k-profile
   .photoAndName
-    margin-left 26px
     margin-bottom 20px
+    margin-left 26px
+
   .name
     padding-left 18px
 
 .k-profile
   .photoAndName
-    margin-left 10px
     margin-top 22px
     margin-bottom 14px
+    margin-left 10px
+
   .name
     padding-left 6px
+
   .photo
     transform rotate(-3deg)
+
   .user-actions
     position absolute
     top -24px
@@ -336,7 +341,7 @@ body.desktop .k-profile
   transform rotate(-15deg)
 
 .turn-in-leave-active, .turn-in-enter-active
-  transition: all .5s ease
+  transition all .5s ease
 
 .turn-in-enter-to
   transform rotate(-3deg)

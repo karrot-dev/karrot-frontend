@@ -6,6 +6,7 @@
     "NOT_CONNECTED": "आप सर्वर से जुड़े हुए नहीं है ",
     "INVALID_LINK": "क्षमा करे, आपके द्वारा खोला गया लिंक गलत है",
     "GENERIC_ERROR": "क्षमा करे, कुछ गलत हो गया",
+    "SEARCH_RESULTS": "Search results",
     "SEARCH_NOT_FOUND": "नहीं मिला",
     "ABOUT_KARROT": "Karrot के बारेमे"
   },
@@ -101,7 +102,8 @@
     "UNIQUE": "नाम पहले से मौजूद है, कृपया दूसरा चुनें",
     "REQUIRED": "यह स्थान आवश्यक है",
     "VALID_EMAIL": "एक वैध ईमेल प्रविष्ट करें",
-    "VALID_TIMEZONE": "एक मान्य टाइमज़ोन दर्ज करें"
+    "VALID_TIMEZONE": "एक मान्य टाइमज़ोन दर्ज करें",
+    "IMAGE_REQUIRED": "You must add an image"
   },
   "GROUP": {
     "WALL": "दीवार",
@@ -124,6 +126,7 @@
     "APPLICATION_QUESTIONS": "Questions for people who want to join this group",
     "PICKUPS": "पिकप",
     "MESSAGES": "संदेश",
+    "OFFERS": "Offers",
     "PICKUP": "पिक अप",
     "MEMBERS": "सदस्य ",
     "JOINED": "joined {relativeDate}",
@@ -164,6 +167,10 @@
       "new_application": {
         "NAME": "New applications",
         "DESCRIPTION": "Tells you when somebody wants to join your group"
+      },
+      "new_offer": {
+        "NAME": "New offers",
+        "DESCRIPTION": "Tells you when somebody creates a new offer"
       },
       "conflict_resolution": {
         "NAME": "New conflict resolution processes",
@@ -369,7 +376,8 @@
     "SUBTITLE": "आप यहां अपने पिकअप के लिए प्रतिक्रिया प्रदान कर सकते हैं",
     "SET_AMOUNT": "Set amount",
     "DELETE_AMOUNT": "Delete amount",
-    "AMOUNT": "भोजन की मात्रा आप सभी बचाने में सक्षम थे (किलो में)",
+    "AMOUNT": "Amount of food you were able to save (in kg)",
+    "AMOUNT_INFO": "For place statistics, we will add together the amount of all feedback.",
     "COMMENT_PLACEHOLDER": "क्या सब कुछ ठीक था? क्या सभी लोग दिखाए? आपकी टिप्पणी यहां ...",
     "PREVIOUS": "{स्टोर } के लिए पिछला फ़ीडबैक",
     "TOGETHER_WITH": "You did this pickup together with:"
@@ -650,6 +658,28 @@
       "ANONYMOUS": "Your vote will be anonymous."
     },
     "NO_ONGOING": "No ongoing issues."
+  },
+  "OFFER": {
+    "CREATE_TITLE": "Create offer",
+    "NAME": "Name",
+    "NAME_HELPER": "Short name for the item you are offering",
+    "DESCRIPTION": "Description",
+    "MARK_AS_ACCEPTED": "Mark as accepted",
+    "MARK_AS_ACCEPTED_DESCRIPTION": "Mark this offer as accepted to show to others that it is not available any more.",
+    "MARK_AS_ARCHIVED": "Archive",
+    "MARK_AS_ARCHIVED_DESCRIPTION": "Mark this is offer as archived to remove it from the available listings.",
+    "FILTER": {
+      "STATUS": {
+        "ACTIVE": "Available",
+        "ACCEPTED": "My accepted offers",
+        "ARCHIVED": "My archived offers"
+      }
+    }
+  },
+  "ADDRESS_PICKER": {
+    "SET_AS": "Set address as",
+    "KEEP_EXISTING_LOCATION": "keep existing location on map",
+    "CHOOSE_LOCATION": "choose location on map"
   },
   "UNSUBSCRIBE": {
     "HEADER": "Unsubscribe",

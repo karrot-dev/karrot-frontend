@@ -55,7 +55,7 @@
                 class="bg-info"
               >
                 {{ $t('JOINGROUP.PROFILE_NOTE' ) }}
-                <template v-slot:avatar>
+                <template #avatar>
                   <QIcon
                     name="info"
                     style="font-size: 24px"
@@ -65,17 +65,30 @@
               <QBanner
                 v-if="application"
                 class="bg-blue text-white"
-                :actions="[
-                  { label: $t('BUTTON.OPEN'), icon: $icon('comments_fw'), handler: () => $emit('openChat', application) },
-                  { label: $t('BUTTON.WITHDRAW'), icon: 'fas fa-fw fa-trash-alt', handler: withdraw }
-                ]"
+                inline-actions
               >
                 {{ $t('JOINGROUP.APPLICATION_PENDING' ) }}
-                <template v-slot:avatar>
+                <template #avatar>
                   <QIcon
                     name="info"
                     color="white"
                     style="font-size: 24px"
+                  />
+                </template>
+                <template #action>
+                  <QBtn
+                    flat
+                    dense
+                    :label="$t('BUTTON.OPEN')"
+                    icon="fas fa-fw fa-comments"
+                    @click="$emit('openChat', application)"
+                  />
+                  <QBtn
+                    flat
+                    dense
+                    :label="$t('BUTTON.WITHDRAW')"
+                    icon="fas fa-fw fa-trash-alt"
+                    @click="withdraw"
                   />
                 </template>
               </QBanner>
@@ -204,17 +217,21 @@ export default {
 
 <style scoped lang="stylus">
 .q-card *
-  overflow: hidden
+  overflow hidden
+
 .photo
   &.hasPhoto
     height 350px
+
   &:not(.hasPhoto)
     height 140px
+
   img
-    max-height 100%
-    max-width 100%
     width auto
+    max-width 100%
+    max-height 100%
     margin 0 auto
+
   .k-media-overlay
-    background-color rgba(0,0,0,0.47)
+    background-color rgba(0, 0, 0, 0.47)
 </style>

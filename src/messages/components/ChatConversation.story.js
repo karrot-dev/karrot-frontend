@@ -3,6 +3,7 @@ import { storiesOf } from '@storybook/vue'
 import ChatConversation from './ChatConversation'
 import * as factories from '>/enrichedFactories'
 import { statusMocks, storybookDefaults as defaults } from '>/helpers'
+import { messagesMock } from '>/mockdata'
 
 const conversation = factories.makeConversation()
 const thread = factories.makeThread()
@@ -58,4 +59,19 @@ storiesOf('ChatConversation', module)
         conversation: thread,
       }),
     }),
+  }))
+  .add('message groups', () => defaults({
+    render: h => {
+      const timeDiff = new Date() - messagesMock[messagesMock.length - 1].createdAt.getTime()
+      return h(ChatConversation, {
+        props: defaultProps({
+          conversation: {
+            ...conversation,
+            messages: messagesMock.map(
+              message => ({ ...message, createdAt: new Date(message.createdAt.getTime() + timeDiff) }),
+            ),
+          },
+        }),
+      })
+    },
   }))

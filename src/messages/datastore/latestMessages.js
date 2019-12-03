@@ -2,7 +2,7 @@ import Vue from 'vue'
 import messageAPI from '@/messages/api/messages'
 import conversationsAPI from '@/messages/api/conversations'
 import { insertSorted } from './conversations'
-import { createMetaModule, withMeta, createPaginationModule } from '@/utils/datastore/helpers'
+import { createMetaModule, withMeta, createPaginationModule, indexById } from '@/utils/datastore/helpers'
 
 function initialState () {
   return {
@@ -10,6 +10,7 @@ function initialState () {
     conversationMessages: {},
     threads: {},
     threadMessages: {},
+    related: {}, // <type> -> { <id> -> <object> }, e.g. { offer: { 1: { name: 'a nice offer' } }
     fetchInitialDone: false,
     entryMeta: {
       conversationsMarkedAt: null,
@@ -88,6 +89,15 @@ export default {
     canFetchPastThreads: (state, getters) => getters['threadsPagination/canFetchNext'],
     fetchingPastThreads: (state, getters) => getters['meta/status']('fetchPastThreads').pending,
     fetchInitialPending: (state, getters) => getters['meta/status']('fetchInitial').pending,
+    getRelated: (state, getters, rootState, rootGetters) => (type, id) => {
+      const related = state.related[type] && state.related[type][id]
+      if (!related) return
+      switch (type) {
+        case 'offer': return rootGetters['offers/enrich'](related)
+        default:
+          return related
+      }
+    },
   },
   actions: {
     ...withMeta({
@@ -127,7 +137,16 @@ export default {
       dispatch('updateConversationsAndRelated', conversationsAndRelated)
       dispatch('updateThreadsAndRelated', threadsAndRelated)
     },
-    updateConversationsAndRelated ({ commit, dispatch, rootState }, { conversations, messages, pickups, applications, issues, usersInfo, meta }) {
+    updateConversationsAndRelated ({ commit, dispatch, rootState }, {
+      conversations,
+      messages,
+      pickups,
+      applications,
+      issues,
+      offers,
+      usersInfo,
+      meta,
+    }) {
       if (conversations) {
         commit('updateConversations', conversations)
 
@@ -147,6 +166,9 @@ export default {
       }
       if (issues) {
         commit('issues/update', issues, { root: true })
+      }
+      if (offers) {
+        commit('updateRelated', { type: 'offer', items: offers })
       }
       if (usersInfo) {
         // contains only limited user info, so only update if we don't have the user already
@@ -186,40 +208,46 @@ export default {
       Object.assign(state, initialState())
     },
     updateConversations (state, conversations) {
-      for (const conversation of conversations) {
-        Vue.set(state.conversations, conversation.id, conversation)
-      }
+      state.conversations = { ...state.conversations, ...indexById(conversations) }
     },
     updateConversationMessages (state, messages) {
       for (const message of messages) {
         const conversationId = message.conversation
         const stateMessages = state.conversationMessages[conversationId]
-        if (!stateMessages) {
-          Vue.set(state.conversationMessages, conversationId, [message])
-        }
-        else {
-          insertSorted(stateMessages, [message])
-        }
+        Vue.set(
+          state.conversationMessages,
+          conversationId,
+          stateMessages ? insertSorted(stateMessages, [message]) : [message],
+        )
       }
     },
     setConversationsCursor (state, cursor) {
       state.conversationsCursor = cursor
     },
     updateThreads (state, threads) {
-      for (const thread of threads) {
-        Vue.set(state.threads, thread.id, thread)
-      }
+      state.threads = { ...state.threads, ...indexById(threads) }
     },
     updateThreadMessages (state, messages) {
       for (const message of messages) {
         const threadId = message.thread
         const stateMessages = state.threadMessages[threadId]
-        if (!stateMessages) {
-          Vue.set(state.threadMessages, threadId, [message])
-        }
-        else {
-          insertSorted(stateMessages, [message])
-        }
+        Vue.set(
+          state.threadMessages,
+          threadId,
+          stateMessages ? insertSorted(stateMessages, [message]) : [message],
+        )
+      }
+    },
+    updateRelated (state, { type, items }) {
+      Vue.set(state.related, type, { ...state.related[type], ...indexById(items) })
+    },
+    deleteRelated (state, { type, ids }) {
+      if (!state.related[type]) return
+      for (const id of ids) {
+        Vue.delete(state.related[type], id)
+      }
+      if (Object.keys(state.related[type]).length === 0) {
+        Vue.delete(state.related, type)
       }
     },
     setThreadsCursor (state, cursor) {

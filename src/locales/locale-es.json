@@ -6,6 +6,7 @@
     "NOT_CONNECTED": "No estás conenctado al servidor",
     "INVALID_LINK": "Lo sentimos, el enlace que has abierto no es válido.",
     "GENERIC_ERROR": "Lo sentimos, algo ha ido mal",
+    "SEARCH_RESULTS": "Search results",
     "SEARCH_NOT_FOUND": "No encontrado",
     "ABOUT_KARROT": "Sobre Karrot"
   },
@@ -17,7 +18,7 @@
     "PASSWORD": "Contraseña",
     "CONFIRM_PASSWORD": "Confirma tu contraseña",
     "USERNAME": "Nombre",
-    "WHERE_FROM": "De donde eres (no obligado)",
+    "WHERE_FROM": "De dónde eres (opcional)",
     "PHOTO": "Foto de perfil",
     "SET_PHOTO": "Configura tu foto de perfil ...",
     "ACCOUNT": "Cuenta",
@@ -101,7 +102,8 @@
     "UNIQUE": "Este nombre ya existe, por favor elige otro. ",
     "REQUIRED": "Este campo es obligatorio. ",
     "VALID_EMAIL": "Introduce un correo electrónico válido.",
-    "VALID_TIMEZONE": "Introduce una zona horaria válida."
+    "VALID_TIMEZONE": "Introduce una zona horaria válida.",
+    "IMAGE_REQUIRED": "You must add an image"
   },
   "GROUP": {
     "WALL": "Muro ",
@@ -124,6 +126,7 @@
     "APPLICATION_QUESTIONS": "Preguntas para presonas que quieren unirse a este grupo",
     "PICKUPS": "Recogidas",
     "MESSAGES": "Mensajes",
+    "OFFERS": "Offers",
     "PICKUP": "Recogida",
     "MEMBERS": "Miembros",
     "JOINED": "Se unió {relativeDate}",
@@ -164,6 +167,10 @@
       "new_application": {
         "NAME": "Solicitudes nuevas",
         "DESCRIPTION": "Te avisa cuando alguien quiere unirse a tu grupo"
+      },
+      "new_offer": {
+        "NAME": "New offers",
+        "DESCRIPTION": "Tells you when somebody creates a new offer"
       },
       "conflict_resolution": {
         "NAME": "Nuevos procesos de resolución de conflictos",
@@ -369,7 +376,8 @@
     "SUBTITLE": "Puede proporcionar comentarios para su recogida aquí",
     "SET_AMOUNT": "Establecer cantidad",
     "DELETE_AMOUNT": "Eliminar cantidad",
-    "AMOUNT": "La cantidad de comida que todos pudieron ahorrar (en kg)",
+    "AMOUNT": "La cantidad de comida que se salvó (en kg)",
+    "AMOUNT_INFO": "Para la estadísticas de la página, añadiremos la cantidad total de comentarios.",
     "COMMENT_PLACEHOLDER": "Fue todo bien? Se vino todo el mundo? Tu comentario aquí...",
     "PREVIOUS": "Comentarios anteriores para {store}",
     "TOGETHER_WITH": "Realizaste esta recogida con:"
@@ -442,7 +450,7 @@
     "EMAIL_NOT_DELIVERED": "Un correo electrónico no pudo serte enviado | {count} correos electrónicos no pudieron serte enviados"
   },
   "NOTIFICATION_BELLS_LIST": {
-    "TITLE": "Notificatiónes",
+    "TITLE": "Notificaciones",
     "NO_ITEMS": "No tenemos notificaciones para ti ahora."
   },
   "NOTIFICATION_BELLS": {
@@ -650,6 +658,28 @@
       "ANONYMOUS": "Tu voto será anónimo."
     },
     "NO_ONGOING": "No hay conflictos actualmente."
+  },
+  "OFFER": {
+    "CREATE_TITLE": "Create offer",
+    "NAME": "Name",
+    "NAME_HELPER": "Short name for the item you are offering",
+    "DESCRIPTION": "Description",
+    "MARK_AS_ACCEPTED": "Mark as accepted",
+    "MARK_AS_ACCEPTED_DESCRIPTION": "Mark this offer as accepted to show to others that it is not available any more.",
+    "MARK_AS_ARCHIVED": "Archive",
+    "MARK_AS_ARCHIVED_DESCRIPTION": "Mark this is offer as archived to remove it from the available listings.",
+    "FILTER": {
+      "STATUS": {
+        "ACTIVE": "Available",
+        "ACCEPTED": "My accepted offers",
+        "ARCHIVED": "My archived offers"
+      }
+    }
+  },
+  "ADDRESS_PICKER": {
+    "SET_AS": "Set address as",
+    "KEEP_EXISTING_LOCATION": "keep existing location on map",
+    "CHOOSE_LOCATION": "choose location on map"
   },
   "UNSUBSCRIBE": {
     "HEADER": "Dejar de seguir",

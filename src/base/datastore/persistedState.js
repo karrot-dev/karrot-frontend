@@ -1,4 +1,5 @@
 import createPersistedState from 'vuex-persistedstate'
+import { debounceAndFlushBeforeUnload } from '@/utils/utils'
 
 export default createPersistedState({
   paths: [
@@ -6,4 +7,5 @@ export default createPersistedState({
     'auth.push.intention',
     'auth.push.token',
   ],
+  subscriber: store => handler => store.subscribe(debounceAndFlushBeforeUnload(handler, 5000)),
 })

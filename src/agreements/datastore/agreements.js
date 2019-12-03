@@ -1,6 +1,5 @@
-import Vue from 'vue'
 import agreements from '@/agreements/api/agreements'
-import { createMetaModule, withMeta } from '@/utils/datastore/helpers'
+import { createMetaModule, indexById, withMeta } from '@/utils/datastore/helpers'
 
 function initialState () {
   return {
@@ -37,9 +36,7 @@ export default {
   },
   mutations: {
     update (state, agreements) {
-      for (const agreement of agreements) {
-        Vue.set(state.entries, agreement.id, agreement)
-      }
+      state.entries = { ...state.entries, ...indexById(agreements) }
     },
     clear (state) {
       Object.assign(state, initialState())

@@ -7,7 +7,7 @@
  *
  *  For development it will be built ONCE when you run `yarn dev`, after that you have to run it manually.
  *
- *  If you want to actually use it you must have FCM_SENDER_ID environment variable set to a valid value.
+ *  If you want to actually use it you must have the FCM_CONFIG environment variable set to either 'dev' or 'prod'.
  *
  *  See https://docs.karrot.world/mobile.html for a hint ... you'll need to dig around a bit more on
  *  https://console.firebase.google.com/ though to find the sender id.
@@ -16,8 +16,9 @@
 
 import 'firebase/messaging'
 import { initializeApp, messaging as initializeMessaging } from 'firebase/app'
+import firebaseConfig from './firebase.config'
 
-initializeApp({ messagingSenderId: __ENV.FCM_SENDER_ID })
+initializeApp(firebaseConfig)
 
 const messaging = initializeMessaging()
 

@@ -5,18 +5,14 @@ import * as Integrations from '@sentry/integrations'
 if (__ENV.SENTRY_CONFIG) {
   Sentry.init({
     dsn: __ENV.SENTRY_CONFIG,
-    integrations: [new Integrations.Vue({ Vue })],
+    integrations: [
+      new Integrations.Vue({ Vue, logErrors: true }),
+      new Integrations.ExtraErrorData(),
+    ],
     release: __ENV.GIT_SHA1,
-    beforeSend: event => {
-      const { values } = event.exception
-      const firstValue = values && values.length > 0 && values[0].value
-      if (firstValue &&
-        (firstValue.includes('ResizeObserver loop limit exceeded') ||
-        firstValue.includes('ResizeObserver loop completed with undelivered notifications'))
-      ) {
-        return null
-      }
-      return event
-    },
+    ignoreErrors: [
+      'ResizeObserver loop limit exceeded', // Chrome
+      'ResizeObserver loop completed with undelivered notifications', // Firefox
+    ],
   })
 }

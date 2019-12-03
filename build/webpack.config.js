@@ -3,7 +3,9 @@ const { resolve, join } = require('path')
 const projectRoot = resolve(__dirname, '../')
 
 const HtmlWebpackPlugin = require('html-webpack-plugin')
+const PreloadWebpackPlugin = require('preload-webpack-plugin')
 const VueLoaderPlugin = require('vue-loader/lib/plugin')
+const StyleLintPlugin = require('stylelint-webpack-plugin')
 const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin
 const TerserPlugin = require('terser-webpack-plugin')
 const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin')
@@ -21,7 +23,7 @@ const appEnv = {
     CORDOVA: cordova,
     BACKEND: JSON.stringify(backend),
     KARROT_THEME: JSON.stringify(process.env.KARROT_THEME),
-    FCM_SENDER_ID: JSON.stringify(process.env.FCM_SENDER_ID),
+    FCM_CONFIG: JSON.stringify(process.env.FCM_CONFIG),
     SENTRY_CONFIG: JSON.stringify(process.env.SENTRY_CONFIG),
     GIT_SHA1: JSON.stringify(process.env.GIT_SHA1 || process.env.CIRCLE_SHA1),
   },
@@ -83,7 +85,7 @@ module.exports = {
     ],
     modules: [
       resolve('src'),
-      resolve('node_modules'),
+      'node_modules',
     ],
     alias: {
       '@': resolve(__dirname, '../src'),
@@ -153,12 +155,21 @@ module.exports = {
     ],
   },
   plugins: [
+    new StyleLintPlugin({
+      files: ['src/**/*.{vue,styl}'],
+      customSyntax: join(projectRoot, 'build/stylelintCustomSyntax.js'),
+    }),
     new webpack.DefinePlugin(appEnv),
     new HtmlWebpackPlugin({
       filename: 'index.html',
       template: 'src/base/index.html',
       minify: false,
       cordova,
+    }),
+    new PreloadWebpackPlugin({
+      fileWhitelist: [/\.woff?$/],
+      include: 'allAssets',
+      rel: 'prefetch',
     }),
     new VueLoaderPlugin(),
     ...(dev ? [

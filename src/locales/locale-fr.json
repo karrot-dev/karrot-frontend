@@ -6,6 +6,7 @@
     "NOT_CONNECTED": "Vous n'êtes pas connecté au serveur.",
     "INVALID_LINK": "Désolé, le lien que tu as ouvert n'est pas valide.",
     "GENERIC_ERROR": "Désolé quelque chose n'a pas fonctionné :-/ ",
+    "SEARCH_RESULTS": "Search results",
     "SEARCH_NOT_FOUND": "Pas trouvé",
     "ABOUT_KARROT": "A propos de Karrot"
   },
@@ -101,7 +102,8 @@
     "UNIQUE": "Ce nom existe déjà, choisis-en un autre.",
     "REQUIRED": "Ce champ est requis.",
     "VALID_EMAIL": "Entre une adresse e-mail valide.",
-    "VALID_TIMEZONE": "Entre un fuseau horaire valide."
+    "VALID_TIMEZONE": "Entre un fuseau horaire valide.",
+    "IMAGE_REQUIRED": "You must add an image"
   },
   "GROUP": {
     "WALL": "Mur",
@@ -124,6 +126,7 @@
     "APPLICATION_QUESTIONS": "Questions pour celles/ceux qui veulent rejoindre ce groupe",
     "PICKUPS": "Récoltes",
     "MESSAGES": "Messages",
+    "OFFERS": "Offers",
     "PICKUP": "Récolte",
     "MEMBERS": "Membres",
     "JOINED": "membre depuis {relativeDate}",
@@ -164,6 +167,10 @@
       "new_application": {
         "NAME": "Nouvelles candidatures",
         "DESCRIPTION": "T'indique quand quelqu'un souhaite rejoindre ton groupe"
+      },
+      "new_offer": {
+        "NAME": "New offers",
+        "DESCRIPTION": "Tells you when somebody creates a new offer"
       },
       "conflict_resolution": {
         "NAME": "New conflict resolution processes",
@@ -369,7 +376,8 @@
     "SUBTITLE": "Tu peux donner ton feedback sur la récolte ici",
     "SET_AMOUNT": "Établir la quantité",
     "DELETE_AMOUNT": "Supprimer la quantité",
-    "AMOUNT": "Quantité de nourriture que tu as pu sauver (en kg)",
+    "AMOUNT": "Amount of food you were able to save (in kg)",
+    "AMOUNT_INFO": "For place statistics, we will add together the amount of all feedback.",
     "COMMENT_PLACEHOLDER": "Tout s'est bien passé ? Tout les participants sont venus ? Ton commentaire ici...",
     "PREVIOUS": "Dernier feedback à propos de {store}",
     "TOGETHER_WITH": "Tu as fait cette récolte avec :"
@@ -650,6 +658,28 @@
       "ANONYMOUS": "Your vote will be anonymous."
     },
     "NO_ONGOING": "No ongoing issues."
+  },
+  "OFFER": {
+    "CREATE_TITLE": "Create offer",
+    "NAME": "Name",
+    "NAME_HELPER": "Short name for the item you are offering",
+    "DESCRIPTION": "Description",
+    "MARK_AS_ACCEPTED": "Mark as accepted",
+    "MARK_AS_ACCEPTED_DESCRIPTION": "Mark this offer as accepted to show to others that it is not available any more.",
+    "MARK_AS_ARCHIVED": "Archive",
+    "MARK_AS_ARCHIVED_DESCRIPTION": "Mark this is offer as archived to remove it from the available listings.",
+    "FILTER": {
+      "STATUS": {
+        "ACTIVE": "Available",
+        "ACCEPTED": "My accepted offers",
+        "ARCHIVED": "My archived offers"
+      }
+    }
+  },
+  "ADDRESS_PICKER": {
+    "SET_AS": "Set address as",
+    "KEEP_EXISTING_LOCATION": "keep existing location on map",
+    "CHOOSE_LOCATION": "choose location on map"
   },
   "UNSUBSCRIBE": {
     "HEADER": "Se désabonner",

@@ -67,6 +67,8 @@
         v-for="place in archived"
         :key="place.id"
         :to="linkParamsFor(place)"
+        :class="{'router-link-active': place.isActivePlace}"
+        dense
       >
         <QItemSection>
           <QItemLabel>

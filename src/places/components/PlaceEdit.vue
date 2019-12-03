@@ -18,7 +18,7 @@
             autocomplete="off"
             @blur="$v.edit.name.$touch"
           >
-            <template v-slot:before>
+            <template #before>
               <QIcon :name="$icon('star')" />
             </template>
           </QInput>
@@ -32,10 +32,10 @@
             :error="hasError('status')"
             :error-message="firstError('status')"
           >
-            <template v-slot:before>
+            <template #before>
               <QIcon name="fas fa-handshake" />
             </template>
-            <template v-slot:option="scope">
+            <template #option="scope">
               <QItem
                 :key="scope.index"
                 dense
@@ -54,7 +54,7 @@
                 </QItemSection>
               </QItem>
             </template>
-            <template v-slot:selected-item="scope">
+            <template #selected-item="scope">
               <div class="row">
                 <QIcon
                   :name="scope.opt.icon"
@@ -86,6 +86,7 @@
             :label="$t('STOREEDIT.ADDRESS')"
             :error="hasAddressError"
             :error-message="addressError"
+            :default-map-center="defaultMapCenter"
           />
 
           <div>
@@ -97,10 +98,10 @@
               :error="hasError('weeksInAdvance')"
               :error-message="firstError('weeksInAdvance')"
             >
-              <template v-slot:before>
+              <template #before>
                 <QIcon name="fas fa-calendar-alt" />
               </template>
-              <template v-slot:control>
+              <template #control>
                 <QSlider
                   v-model="edit.weeksInAdvance"
                   :min="1"
@@ -269,6 +270,11 @@ export default {
     },
     markerColor () {
       if (this.edit) return optionsFor(this.edit).color
+      return null
+    },
+    defaultMapCenter () {
+      const { latitude: lat, longitude: lng } = this.edit.group || {}
+      if (lat && lng) return { lat, lng }
       return null
     },
   },

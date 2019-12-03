@@ -13,7 +13,7 @@
           <div class="image-and-text-left gt-sm">
             <img
               style="width: 100%;"
-              src="@/feedback/assets/cart.png"
+              :src="cart"
             >
           </div>
           <div class="image-and-text-right">
@@ -56,16 +56,17 @@
           :status="saveStatus"
           :is-bike-kitchen="isBikeKitchen"
           :is-general-purpose="isGeneralPurpose"
+          :has-multiple-collectors="fellowCollectors.length > 0"
           @save="$emit('save', arguments[0])"
         />
       </div>
     </QCard>
     <KNotice v-else>
-      <template v-slot:icon>
+      <template #icon>
         <i class="fas fa-bed" />
       </template>
       {{ $t('FEEDBACKLIST.NO_DONE_PICKUPS') }}
-      <template v-slot:desc>
+      <template #desc>
         {{ $t('FEEDBACKLIST.NO_DONE_PICKUPS_HINT') }}
       </template>
     </KNotice>
@@ -100,6 +101,7 @@ import RandomArt from '@/utils/components/RandomArt'
 import FeedbackForm from './FeedbackForm'
 import KNotice from '@/utils/components/KNotice'
 import ProfilePicture from '@/users/components/ProfilePicture'
+import cart from '@/feedback/assets/cart.png'
 
 export default {
   components: {
@@ -167,7 +169,7 @@ export default {
         if (this.editFeedback) return this.editFeedback.about
         if (!this.pickups) return
 
-        const { pickupId } = this.$route.params
+        const { params: { pickupId } = {} } = this.$route || {}
         if (typeof pickupId !== 'undefined') {
           const pickup = this.pickups.find(e => e.id === parseInt(pickupId))
           if (pickup) return pickup
@@ -177,7 +179,7 @@ export default {
         return this.pickups[0]
       },
       set (pickup) {
-        this.$router.push({ params: { pickupId: pickup.id } })
+        this.$router.push({ params: { pickupId: pickup.id } }).catch(() => {})
       },
     },
     feedbackOptions () {
@@ -203,6 +205,9 @@ export default {
       return this.select.collectors.filter(u => !u.isCurrentUser)
     },
   },
+  created () {
+    this.cart = cart
+  },
   methods: {
     getDateWithPlace (pickup) {
       if (!pickup) return ''
@@ -215,30 +220,35 @@ export default {
 
 <style scoped lang="stylus">
 .image-and-text
-  padding-bottom 1.5em
   padding-top 1.5em
+  padding-bottom 1.5em
+
   .image-and-text-left
     width 30%
     max-width 10em
-    margin auto
     padding 1em
+    margin auto
+
   .image-and-text-right
-    width: 100%
+    width 100%
     padding 0 1em
     margin 0 auto
+
 .place-feedback
   margin-top 2.5em !important
+
   .randomBanner
-    display: block
-    height: 26px
-    overflow: hidden
+    display block
+    height 26px
+    overflow hidden
 </style>
 
 <style lang="stylus">
 .pickup-feedback-wrapper .q-field-dark.grey-font
-  background-color white
   padding 4px 7px
+  background-color white
   border-radius 4px
+
   .q-input-target, .q-input-shadow, .q-if-control
     color rgb(40, 40, 40)
 </style>

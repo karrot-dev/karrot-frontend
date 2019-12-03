@@ -26,7 +26,7 @@ describe('Conversation message reactions', () => {
 
   it('click reaction adds own reaction (when reaction not present)', () => {
     const button = wrapper.find('.reactions').find(EmojiButton).find(QBtn)
-    button.vm.click()
+    button.vm.click({})
 
     expect(wrapper.emitted().toggle).toBeTruthy()
     expect(wrapper.emitted().toggle).toEqual([['heart']])

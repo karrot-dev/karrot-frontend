@@ -8,19 +8,21 @@
       :placeholder="$q.lang.label.search"
       dense
     >
-      <template v-slot:prepend>
+      <template #prepend>
         <QIcon name="search" />
       </template>
     </QInput>
-    <EmojiButton
-      v-for="name in results"
-      :key="name"
-      v-close-popup
-      :name="name"
-      class="big"
-      :title="':' + name + ':'"
-      @click="$emit('toggle', name)"
-    />
+    <div class="row">
+      <EmojiButton
+        v-for="name in results"
+        :key="name"
+        v-close-popup
+        :name="name"
+        class="big"
+        :title="':' + name + ':'"
+        @click="$emit('toggle', name)"
+      />
+    </div>
   </div>
 </template>
 
@@ -105,6 +107,7 @@ export default {
 <style scoped lang="stylus">
 .k-add-reaction
   margin 2px 4px
+
 .big
   font-size 25.6px
 </style>

@@ -13,11 +13,11 @@
     >
       <template
         v-if="icon"
-        v-slot:before
+        #before
       >
         <QIcon :name="icon" />
       </template>
-      <template v-slot:hint>
+      <template #hint>
         <div
           class="row markdown-helper"
         >
@@ -37,7 +37,7 @@
       </template>
       <template
         v-for="(_, slot) of $scopedSlots"
-        v-slot:[slot]="scope"
+        #[slot]="scope"
       >
         <slot
           :name="slot"
@@ -134,10 +134,12 @@ export default {
 
 <style scoped lang="stylus">
 .markdown-helper
-  font-size .65rem
   padding-top 6px
+  font-size .65rem
+
   > *
     padding-right 10px
+
 .markdown-input-preview-card
   min-width 60%
   max-width 700px

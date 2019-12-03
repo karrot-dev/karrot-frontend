@@ -1,7 +1,7 @@
 import router from '@/base/router'
 import Vue from 'vue'
 import issuesAPI from '@/issues/api/issues'
-import { createMetaModule, createPaginationModule, withMeta, metaStatuses } from '@/utils/datastore/helpers'
+import { createMetaModule, createPaginationModule, withMeta, metaStatuses, indexById } from '@/utils/datastore/helpers'
 
 function initialState () {
   return {
@@ -64,7 +64,7 @@ export default {
         dispatch('toasts/show', {
           message: 'ISSUE.CREATION.TOAST',
         }, { root: true })
-        router.push({ name: 'issueDetail', params: { groupId: newIssue.group, issueId: newIssue.id } })
+        router.push({ name: 'issueDetail', params: { groupId: newIssue.group, issueId: newIssue.id } }).catch(() => {})
       },
       async fetchOngoingByGroupId ({ commit }, { groupId }) {
         const issueList = (await issuesAPI.list({ group: groupId, status: 'ongoing' })).results
@@ -117,9 +117,7 @@ export default {
       state.currentId = issueId
     },
     update (state, issues) {
-      for (const issue of issues) {
-        Vue.set(state.entries, issue.id, issue)
-      }
+      state.entries = { ...state.entries, ...indexById(issues) }
     },
     clear (state) {
       Object.assign(state, initialState())

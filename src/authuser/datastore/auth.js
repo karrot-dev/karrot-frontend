@@ -70,22 +70,22 @@ export default {
           const group = () => rootGetters['groups/get'](groupId)
           if (group().isMember) {
             // go to group if already a member
-            router.push({ name: 'group', params: { groupId } })
+            router.push({ name: 'group', params: { groupId } }).catch(() => {})
           }
           else {
             await dispatch('groups/join', groupId, { root: true })
             if (group().joinStatus.hasValidationErrors) {
               // go back to goup preview if error occured
               // it should show the error status on group preview, thanks to persistent state!
-              router.push({ name: 'groupPreview', params: { groupPreviewId: groupId } })
+              router.push({ name: 'groupPreview', params: { groupPreviewId: groupId } }).catch(() => {})
             }
           }
         }
         else if (getters.redirectTo) {
-          router.push(getters.redirectTo)
+          router.push(getters.redirectTo).catch(() => {})
         }
         else {
-          router.push('/')
+          router.push('/').catch(() => {})
         }
         commit('clearAcceptInviteAfterLogin')
         commit('clearJoinGroupAfterLogin')
@@ -102,7 +102,7 @@ export default {
 
         commit('conversations/clear', null, { root: true }) // TODO move into plugin
         dispatch('currentThread/clear', null, { root: true }) // TODO move into plugin
-        router.push({ name: 'groupsGallery' })
+        router.push({ name: 'groupsGallery' }).catch(() => {})
       },
 
       async changePassword ({ dispatch }, { oldPassword, newPassword, done }) {

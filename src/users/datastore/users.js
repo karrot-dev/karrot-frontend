@@ -2,7 +2,7 @@ import Vue from 'vue'
 import users from '@/users/api/users'
 import authUser from '@/authuser/api/authUser'
 import auth from '@/authuser/api/auth'
-import { createRouteError, createMetaModule, withMeta, metaStatuses } from '@/utils/datastore/helpers'
+import { createRouteError, createMetaModule, withMeta, metaStatuses, indexById } from '@/utils/datastore/helpers'
 import router from '@/base/router'
 
 function initialState () {
@@ -81,11 +81,11 @@ export default {
       },
       async requestResetPassword ({ commit }, email) {
         await auth.requestResetPassword(email)
-        router.push({ name: 'requestPasswordResetSuccess' })
+        router.push({ name: 'requestPasswordResetSuccess' }).catch(() => {})
       },
       async resetPassword ({ dispatch }, data) {
         await auth.resetPassword(data)
-        router.push({ name: 'login' })
+        router.push({ name: 'login' }).catch(() => {})
         dispatch('toasts/show', {
           message: 'PASSWORD.RESET.SUCCESS',
         }, { root: true })
@@ -165,9 +165,7 @@ export default {
       state.activeUserProfileId = id
     },
     update (state, users) {
-      for (const user of users) {
-        Vue.set(state.entries, user.id, user)
-      }
+      state.entries = { ...state.entries, ...indexById(users) }
     },
     resendVerificationCodeSuccess (state, status) {
       Vue.set(state, 'resendVerificationCodeSuccess', status)

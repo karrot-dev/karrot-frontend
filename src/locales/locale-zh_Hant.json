@@ -6,6 +6,7 @@
     "NOT_CONNECTED": "你並未連接至伺服器",
     "INVALID_LINK": "抱歉，你開啟的連結無效",
     "GENERIC_ERROR": "Sorry, something went wrong",
+    "SEARCH_RESULTS": "Search results",
     "SEARCH_NOT_FOUND": "無符合的搜尋結果",
     "ABOUT_KARROT": "About Karrot"
   },
@@ -101,7 +102,8 @@
     "UNIQUE": "此名稱已經存在，請選擇另一個。",
     "REQUIRED": "此欄必須填寫。",
     "VALID_EMAIL": "請輸入一個有效的Email電子信箱。",
-    "VALID_TIMEZONE": "請輸入一個有效的時區。"
+    "VALID_TIMEZONE": "請輸入一個有效的時區。",
+    "IMAGE_REQUIRED": "You must add an image"
   },
   "GROUP": {
     "WALL": "留言板",
@@ -124,6 +126,7 @@
     "APPLICATION_QUESTIONS": "給要加入社團者的問題",
     "PICKUPS": "開放領取食物",
     "MESSAGES": "訊息",
+    "OFFERS": "Offers",
     "PICKUP": "領取",
     "MEMBERS": "成員",
     "JOINED": "已加入{relativeDate}",
@@ -164,6 +167,10 @@
       "new_application": {
         "NAME": "新申請",
         "DESCRIPTION": "當有人想加入你的社團時通知你"
+      },
+      "new_offer": {
+        "NAME": "New offers",
+        "DESCRIPTION": "Tells you when somebody creates a new offer"
       },
       "conflict_resolution": {
         "NAME": "New conflict resolution processes",
@@ -369,7 +376,8 @@
     "SUBTITLE": "你可以把你這次pickup的回饋寫在這",
     "SET_AMOUNT": "設定數量",
     "DELETE_AMOUNT": "刪除數量",
-    "AMOUNT": "你能領取的食物量(以公斤計算)",
+    "AMOUNT": "Amount of food you were able to save (in kg)",
+    "AMOUNT_INFO": "For place statistics, we will add together the amount of all feedback.",
     "COMMENT_PLACEHOLDER": "一切都順利嗎？大家都有到場嗎？在這裡留言...",
     "PREVIOUS": "先前對於{store}的回饋",
     "TOGETHER_WITH": "你和:        一起領這次的食物"
@@ -650,6 +658,28 @@
       "ANONYMOUS": "Your vote will be anonymous."
     },
     "NO_ONGOING": "No ongoing issues."
+  },
+  "OFFER": {
+    "CREATE_TITLE": "Create offer",
+    "NAME": "Name",
+    "NAME_HELPER": "Short name for the item you are offering",
+    "DESCRIPTION": "Description",
+    "MARK_AS_ACCEPTED": "Mark as accepted",
+    "MARK_AS_ACCEPTED_DESCRIPTION": "Mark this offer as accepted to show to others that it is not available any more.",
+    "MARK_AS_ARCHIVED": "Archive",
+    "MARK_AS_ARCHIVED_DESCRIPTION": "Mark this is offer as archived to remove it from the available listings.",
+    "FILTER": {
+      "STATUS": {
+        "ACTIVE": "Available",
+        "ACCEPTED": "My accepted offers",
+        "ARCHIVED": "My archived offers"
+      }
+    }
+  },
+  "ADDRESS_PICKER": {
+    "SET_AS": "Set address as",
+    "KEEP_EXISTING_LOCATION": "keep existing location on map",
+    "CHOOSE_LOCATION": "choose location on map"
   },
   "UNSUBSCRIBE": {
     "HEADER": "Unsubscribe",

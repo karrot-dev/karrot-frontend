@@ -75,8 +75,10 @@ export default {
 
 <style lang="stylus" scoped>
 @import '~variables'
+
 .q-icon:not(.hasUnread)
   opacity $topbar-opacity-low
+
 .q-btn:hover .q-icon
   opacity 1
 </style>

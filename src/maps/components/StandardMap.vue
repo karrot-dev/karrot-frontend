@@ -59,14 +59,14 @@ import {
   QMenu,
 } from 'quasar'
 
-// fix default marker icon. Should hopefully get fixed in Leaflet 1.3
+import iconRetinaUrl from 'leaflet/dist/images/marker-icon-2x.png'
+import iconUrl from 'leaflet/dist/images/marker-icon.png'
+import shadowUrl from 'leaflet/dist/images/marker-shadow.png'
+
+// fix default marker icon
 // https://github.com/Leaflet/Leaflet/issues/4968
 delete L.Icon.Default.prototype._getIconUrl
-L.Icon.Default.mergeOptions({
-  iconRetinaUrl: require('leaflet/dist/images/marker-icon-2x.png'),
-  iconUrl: require('leaflet/dist/images/marker-icon.png'),
-  shadowUrl: require('leaflet/dist/images/marker-shadow.png'),
-})
+L.Icon.Default.mergeOptions({ iconRetinaUrl, iconUrl, shadowUrl })
 
 const SELECTED_OPACITY = 1
 const UNSELECTED_OPACITY = 0.5
@@ -264,34 +264,38 @@ export default {
 <style lang="stylus">
 .k-map
   .vector-marker
-    width 30px
     position absolute
     bottom 0
     left -15px
+    width 30px
     text-align center
+
     svg
       vertical-align bottom
+
       path
         stroke black
         stroke-opacity .1
         stroke-width 1
+
     i
-      width 30px
       position absolute
       top 9px
       left 0
-      color white
+      width 30px
       font-size 14px
+      color white
 
   .vector-marker-shadow
-    width 12px
     position absolute
     bottom 0px
     left -7px
+    width 12px
+    filter blur(2px)
     opacity .3
     transform rotate(20deg) skew(-30deg)
     transform-origin 50% bottom
-    filter blur(2px)
+
     svg
       vertical-align bottom
 </style>

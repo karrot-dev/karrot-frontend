@@ -14,7 +14,7 @@
     >
       <template
         v-if="isEditor"
-        v-slot:contextmenu="{ latLng }"
+        #contextmenu="{ latLng }"
       >
         <QList
           dense
@@ -212,10 +212,11 @@ function hasLocation (item) {
 <style scoped lang="stylus">
 .container
   position relative
+
 .overlay
+  position absolute
   top 0
   left 0
-  position absolute
   width 100%
   height 100%
 </style>

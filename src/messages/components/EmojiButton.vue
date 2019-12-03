@@ -1,6 +1,7 @@
 <template>
   <QBtn
     class="row no-wrap items-center"
+    dense
     flat
     @click="$emit('click')"
   >
@@ -54,13 +55,18 @@ export default {
 
 <style scoped lang="stylus">
 .q-btn
-  padding 0px 3px
   min-height 23px
+  padding 0px 3px
   line-height 31px
+
+  >>> .q-btn__wrapper
+    min-height 0
+    padding 0
+
 .emoji
   >>> img.emoji
-    height 1em
     width 1em
+    height 1em
     margin .1em .1em
     vertical-align middle
 </style>

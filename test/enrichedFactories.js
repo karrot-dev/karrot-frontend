@@ -68,6 +68,7 @@ export const makeGroup = data => {
       'daily_pickup_notification',
       'new_application',
     ],
+    features: [],
     isOpen: true,
     isCurrentGroup: false,
     isMember: false,

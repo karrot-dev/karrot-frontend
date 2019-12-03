@@ -9,13 +9,13 @@
       :class="className"
     >
       {{ $t(message, context) }}
-      <template v-slot:avatar>
+      <template #avatar>
         <QIcon
           :name="icon"
           size="1.4em"
         />
       </template>
-      <template v-slot:action>
+      <template #action>
         <QBtn
           v-if="action"
           flat
@@ -89,7 +89,7 @@ export default {
         message: 'GROUP.PLAYGROUND_INFO',
         action: {
           label: this.$t('GROUP.JOIN_ANOTHER_GROUP'),
-          handler: () => this.$router.push({ name: 'groupsGallery' }),
+          handler: () => this.$router.push({ name: 'groupsGallery' }).catch(() => {}),
         },
       }
     },

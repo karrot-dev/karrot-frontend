@@ -97,7 +97,7 @@ export default {
             color: 'negative',
           },
         }, { root: true })
-        router.push('/')
+        router.push('/').catch(() => {})
       }
     },
 
@@ -142,7 +142,7 @@ export default {
         state.messages = messages
         return
       }
-      insertSorted(stateMessages, messages, true)
+      state.messages = insertSorted(stateMessages, messages, true)
     },
     clear (state) {
       Object.assign(state, initialState())

@@ -6,6 +6,7 @@
     "NOT_CONNECTED": "Vi ne estas konektita al la servilo",
     "INVALID_LINK": "Pardonon, la ligilo ne validas.",
     "GENERIC_ERROR": "Pardonon sed io ne bone funkciis",
+    "SEARCH_RESULTS": "Search results",
     "SEARCH_NOT_FOUND": "Netrovita",
     "ABOUT_KARROT": "Pri Karrot"
   },
@@ -101,7 +102,8 @@
     "UNIQUE": "Nomo jam ekzistas, bonvolu elekti alian.",
     "REQUIRED": "Nepre plenigu la kampon",
     "VALID_EMAIL": "Metu validan retadreson",
-    "VALID_TIMEZONE": "Entajpu validan horzonon."
+    "VALID_TIMEZONE": "Entajpu validan horzonon.",
+    "IMAGE_REQUIRED": "You must add an image"
   },
   "GROUP": {
     "WALL": "Muro",
@@ -124,6 +126,7 @@
     "APPLICATION_QUESTIONS": "Demandoj por homoj kiuj volas aliĝi la grupon",
     "PICKUPS": "Savadoj",
     "MESSAGES": "Mesaĝoj",
+    "OFFERS": "Offers",
     "PICKUP": "Savado",
     "MEMBERS": "Anoj",
     "JOINED": "aliĝis {relativeDate}",
@@ -164,6 +167,10 @@
       "new_application": {
         "NAME": "Novaj kandidatiĝoj",
         "DESCRIPTION": "Ĝi rakontas kiam iu volas aliĝi la grupon"
+      },
+      "new_offer": {
+        "NAME": "New offers",
+        "DESCRIPTION": "Tells you when somebody creates a new offer"
       },
       "conflict_resolution": {
         "NAME": "Nova proceso de problemsolvado",
@@ -369,7 +376,8 @@
     "SUBTITLE": "Vi povas komenti pri via savado ĉi tie",
     "SET_AMOUNT": "Agordi kvanton",
     "DELETE_AMOUNT": "Forigi kvanton",
-    "AMOUNT": "Manĝkvanto kiun vi ĉiuj povis savi (en kg)",
+    "AMOUNT": "Manĝkvanto kiun vi povis savi (en kg)",
+    "AMOUNT_INFO": "Por la statistikoj de la retpaĝo, ni aldonos la kvanton de ĉiu retrokuplo",
     "COMMENT_PLACEHOLDER": "Ĉu ĉio enordas? Ĉu ĉiuj iris savi? Vian komenton ĉi tie...",
     "PREVIOUS": "Antaŭaj komentoj de {store}",
     "TOGETHER_WITH": "Vi savis ĉifoje kun"
@@ -650,6 +658,28 @@
       "ANONYMOUS": "Via voĉdono estos anonima"
     },
     "NO_ONGOING": "Ĉio enordas nuntempe."
+  },
+  "OFFER": {
+    "CREATE_TITLE": "Create offer",
+    "NAME": "Name",
+    "NAME_HELPER": "Short name for the item you are offering",
+    "DESCRIPTION": "Description",
+    "MARK_AS_ACCEPTED": "Mark as accepted",
+    "MARK_AS_ACCEPTED_DESCRIPTION": "Mark this offer as accepted to show to others that it is not available any more.",
+    "MARK_AS_ARCHIVED": "Archive",
+    "MARK_AS_ARCHIVED_DESCRIPTION": "Mark this is offer as archived to remove it from the available listings.",
+    "FILTER": {
+      "STATUS": {
+        "ACTIVE": "Available",
+        "ACCEPTED": "My accepted offers",
+        "ARCHIVED": "My archived offers"
+      }
+    }
+  },
+  "ADDRESS_PICKER": {
+    "SET_AS": "Set address as",
+    "KEEP_EXISTING_LOCATION": "keep existing location on map",
+    "CHOOSE_LOCATION": "choose location on map"
   },
   "UNSUBSCRIBE": {
     "HEADER": "Malaboni",

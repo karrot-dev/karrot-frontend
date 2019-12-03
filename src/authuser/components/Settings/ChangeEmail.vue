@@ -11,7 +11,7 @@
       :error="hasError('newEmail')"
       :error-message="firstError('newEmail')"
     >
-      <template v-slot:before>
+      <template #before>
         <QIcon name="fas fa-envelope" />
       </template>
     </QInput>
@@ -22,7 +22,7 @@
       :error="hasError('password')"
       :error-message="firstError('password')"
     >
-      <template v-slot:before>
+      <template #before>
         <QIcon name="fas fa-unlock" />
       </template>
     </QInput>

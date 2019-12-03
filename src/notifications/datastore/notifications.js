@@ -1,5 +1,5 @@
 import Vue from 'vue'
-import { createMetaModule, createPaginationModule, withMeta } from '@/utils/datastore/helpers'
+import { createMetaModule, createPaginationModule, indexById, withMeta } from '@/utils/datastore/helpers'
 import notificationsAPI from '@/notifications/api/notifications'
 import reactiveNow from '@/utils/reactiveNow'
 
@@ -109,9 +109,7 @@ export default {
       state.entryMeta = data
     },
     update (state, entries) {
-      for (const entry of entries) {
-        Vue.set(state.entries, entry.id, entry)
-      }
+      state.entries = { ...state.entries, ...indexById(entries) }
     },
     delete (state, id) {
       Vue.delete(state.entries, id)

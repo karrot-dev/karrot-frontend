@@ -12,7 +12,7 @@
         spellcheck="false"
         @blur="$v.form.email.$touch"
       >
-        <template v-slot:before>
+        <template #before>
           <QIcon name="fas fa-envelope" />
         </template>
       </QInput>

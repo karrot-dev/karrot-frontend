@@ -6,6 +6,7 @@
     "NOT_CONNECTED": "आपण सर्व्हरशी कनेक्ट केलेले नाही",
     "INVALID_LINK": "क्षमस्व, आपण उघडलेला दुवा अवैध आहे.",
     "GENERIC_ERROR": "माफ करा, काहीतरी चुकलंय",
+    "SEARCH_RESULTS": "Search results",
     "SEARCH_NOT_FOUND": "सापडले नाही",
     "ABOUT_KARROT": "Karrot बद्दल"
   },
@@ -101,7 +102,8 @@
     "UNIQUE": "नाव आधीपासूनच विद्यमान आहे, कृपया दुसरे निवडा.",
     "REQUIRED": "हे क्षेत्र आवश्यक आहे.",
     "VALID_EMAIL": "एक वैध ई-मेल प्रविष्ट करा.",
-    "VALID_TIMEZONE": "एक वैध टाइमझोन प्रविष्ट करा."
+    "VALID_TIMEZONE": "एक वैध टाइमझोन प्रविष्ट करा.",
+    "IMAGE_REQUIRED": "You must add an image"
   },
   "GROUP": {
     "WALL": "भिंत",
@@ -124,6 +126,7 @@
     "APPLICATION_QUESTIONS": "या गटात सामील होऊ इच्छित असलेल्या लोकांसाठी प्रश्न",
     "PICKUPS": "पिकअप",
     "MESSAGES": "संदेश",
+    "OFFERS": "Offers",
     "PICKUP": "पिकअप",
     "MEMBERS": "सदस्य",
     "JOINED": "{relativeDate}रोजी सामील झाले ",
@@ -164,6 +167,10 @@
       "new_application": {
         "NAME": "नवीन आवेदन",
         "DESCRIPTION": "जेव्हा कोणी आपल्या गटात सामील होऊ इच्छिते तेव्हा हे आपल्याला सांगते"
+      },
+      "new_offer": {
+        "NAME": "New offers",
+        "DESCRIPTION": "Tells you when somebody creates a new offer"
       },
       "conflict_resolution": {
         "NAME": "New conflict resolution processes",
@@ -369,7 +376,8 @@
     "SUBTITLE": "आपण येथे आपल्या पिकअपसाठी अभिप्राय प्रदान करू शकता",
     "SET_AMOUNT": "रक्कम सेट करा",
     "DELETE_AMOUNT": "रक्कम हटवा",
-    "AMOUNT": "आपणा सर्वांस अन्नधान्य वाचविता आले (किलोमध्ये)",
+    "AMOUNT": "Amount of food you were able to save (in kg)",
+    "AMOUNT_INFO": "For place statistics, we will add together the amount of all feedback.",
     "COMMENT_PLACEHOLDER": "सर्वकाही ठीक आहे का? प्रत्येकजण आले होते का? येथे आपली टिप्पणी ...",
     "PREVIOUS": "{store}साठी मागील अभिप्राय",
     "TOGETHER_WITH": "आपण हे पिकअप एकत्र केले:"
@@ -650,6 +658,28 @@
       "ANONYMOUS": "Your vote will be anonymous."
     },
     "NO_ONGOING": "No ongoing issues."
+  },
+  "OFFER": {
+    "CREATE_TITLE": "Create offer",
+    "NAME": "Name",
+    "NAME_HELPER": "Short name for the item you are offering",
+    "DESCRIPTION": "Description",
+    "MARK_AS_ACCEPTED": "Mark as accepted",
+    "MARK_AS_ACCEPTED_DESCRIPTION": "Mark this offer as accepted to show to others that it is not available any more.",
+    "MARK_AS_ARCHIVED": "Archive",
+    "MARK_AS_ARCHIVED_DESCRIPTION": "Mark this is offer as archived to remove it from the available listings.",
+    "FILTER": {
+      "STATUS": {
+        "ACTIVE": "Available",
+        "ACCEPTED": "My accepted offers",
+        "ARCHIVED": "My archived offers"
+      }
+    }
+  },
+  "ADDRESS_PICKER": {
+    "SET_AS": "Set address as",
+    "KEEP_EXISTING_LOCATION": "keep existing location on map",
+    "CHOOSE_LOCATION": "choose location on map"
   },
   "UNSUBSCRIBE": {
     "HEADER": "Unsubscribe",

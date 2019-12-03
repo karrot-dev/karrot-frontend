@@ -1,11 +1,11 @@
 <template>
   <div>
     <KNotice v-if="isInactive">
-      <template v-slot:icon>
+      <template #icon>
         <i class="far fa-handshake" />
       </template>
       {{ $t('STOREDETAIL.INACTIVE') }}
-      <template v-slot:desc>
+      <template #desc>
         <RouterLink
           v-if="isEditor"
           :to="{name: 'placeEdit', params: { placeId }}"
@@ -15,13 +15,13 @@
       </template>
     </KNotice>
     <KNotice v-else-if="hasNoPickups">
-      <template v-slot:icon>
+      <template #icon>
         <i class="fas fa-bed" />
       </template>
       {{ $t('PICKUPLIST.NONE') }}
       <RouterLink
         v-if="isEditor"
-        v-slot:desc
+        #desc
         :to="{name: 'placePickupsManage', params: { placeId }}"
       >
         {{ $t('PICKUPLIST.STORE_NONE_HINT') }}

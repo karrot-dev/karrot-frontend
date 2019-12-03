@@ -52,16 +52,17 @@
             seperator
           >
             <QItemLabel
-              v-t="'PICKUPMANAGE.UPCOMING_PICKUPS_IN_SERIES'"
               header
-            />
+            >
+              <span v-t="'PICKUPMANAGE.UPCOMING_PICKUPS_IN_SERIES'" />
+            </QItemLabel>
             <QExpansionItem
               v-for="pickup in series.pickups"
               :key="pickup.id"
               dense
               @show="makeVisible('pickup', pickup.id)"
             >
-              <template v-slot:header>
+              <template #header>
                 <QItemSection
                   v-if="!$q.platform.is.mobile"
                   side
@@ -166,7 +167,7 @@
           :key="pickup.id"
           @show="makeVisible('pickup', pickup.id)"
         >
-          <template v-slot:header>
+          <template #header>
             <QItemSection
               v-if="!$q.platform.is.mobile"
               side
@@ -359,13 +360,15 @@ export default {
 
 <style scoped lang="stylus">
 @import '~variables'
+
 button.selected
   background-color $grey-4
 
 .secondCard
   margin-top 24px !important
+
   .randomBanner
-    display: block
-    height: 26px
-    overflow: hidden
+    display block
+    height 26px
+    overflow hidden
 </style>

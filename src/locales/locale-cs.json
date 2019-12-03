@@ -6,6 +6,7 @@
     "NOT_CONNECTED": "Nejste připojeni k serveru",
     "INVALID_LINK": "Litujeme, odkaz, který jste otevřeli, je neplatný.",
     "GENERIC_ERROR": "Promiňte, něco se pokazilo",
+    "SEARCH_RESULTS": "Search results",
     "SEARCH_NOT_FOUND": "Nenalezeno",
     "ABOUT_KARROT": "O Karrot"
   },
@@ -101,7 +102,8 @@
     "UNIQUE": "Jméno již existuje, vyberte jiné.",
     "REQUIRED": "Toto pole je povinné.",
     "VALID_EMAIL": "Zadejte platnou e-mailovou adresu.",
-    "VALID_TIMEZONE": "Zadejte platné časové pásmo."
+    "VALID_TIMEZONE": "Zadejte platné časové pásmo.",
+    "IMAGE_REQUIRED": "You must add an image"
   },
   "GROUP": {
     "WALL": "Zeď",
@@ -124,6 +126,7 @@
     "APPLICATION_QUESTIONS": "Otázky pro lidi, kteří se chtějí připojit k této skupině",
     "PICKUPS": "Vyzvednutí",
     "MESSAGES": "Zprávy",
+    "OFFERS": "Offers",
     "PICKUP": "Vyzvednutí",
     "MEMBERS": "Členové",
     "JOINED": "připojen {relativeDate}",
@@ -164,6 +167,10 @@
       "new_application": {
         "NAME": "Nové žádosti",
         "DESCRIPTION": "Oznámí vám, když se někdo chce připojit k vaší skupině"
+      },
+      "new_offer": {
+        "NAME": "New offers",
+        "DESCRIPTION": "Tells you when somebody creates a new offer"
       },
       "conflict_resolution": {
         "NAME": "Nové procesy řešení konfliktů",
@@ -369,8 +376,9 @@
     "SUBTITLE": "Zde můžete poskytnout zpětnou vazbu k vyzvednutí",
     "SET_AMOUNT": "Nastavit množství",
     "DELETE_AMOUNT": "Smazat množství",
-    "AMOUNT": "Množství jídla, které jste všichni mohli ušetřit (v kg)",
-    "COMMENT_PLACEHOLDER": "Bylo všechno v pořádku? Ukázali se všichni? Napište komentář zde ...",
+    "AMOUNT": "Množství jídla, které jste dokázali ušetřit (v kg)",
+    "AMOUNT_INFO": "Pro statistiku míst sečteme dohromady veškerou zpětnou vazbu.",
+    "COMMENT_PLACEHOLDER": "Bylo všechno v pořádku? Žádné komplikace? Napište komentář zde ...",
     "PREVIOUS": "Předchozí zpětná vazba pro {store}",
     "TOGETHER_WITH": "Toto vyzvednutí jste provedli společně s:"
   },
@@ -650,6 +658,28 @@
       "ANONYMOUS": "Váš hlas bude anonymní."
     },
     "NO_ONGOING": "Žádné pokračující problémy."
+  },
+  "OFFER": {
+    "CREATE_TITLE": "Create offer",
+    "NAME": "Name",
+    "NAME_HELPER": "Short name for the item you are offering",
+    "DESCRIPTION": "Description",
+    "MARK_AS_ACCEPTED": "Mark as accepted",
+    "MARK_AS_ACCEPTED_DESCRIPTION": "Mark this offer as accepted to show to others that it is not available any more.",
+    "MARK_AS_ARCHIVED": "Archive",
+    "MARK_AS_ARCHIVED_DESCRIPTION": "Mark this is offer as archived to remove it from the available listings.",
+    "FILTER": {
+      "STATUS": {
+        "ACTIVE": "Available",
+        "ACCEPTED": "My accepted offers",
+        "ARCHIVED": "My archived offers"
+      }
+    }
+  },
+  "ADDRESS_PICKER": {
+    "SET_AS": "Set address as",
+    "KEEP_EXISTING_LOCATION": "keep existing location on map",
+    "CHOOSE_LOCATION": "choose location on map"
   },
   "UNSUBSCRIBE": {
     "HEADER": "Odhlásit odběr",

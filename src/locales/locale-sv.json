@@ -6,6 +6,7 @@
     "NOT_CONNECTED": "Du är inte ansluten till servern",
     "INVALID_LINK": "Oj, länken du försöker komma åt är ogiltig.",
     "GENERIC_ERROR": "Oj, något gick fel!",
+    "SEARCH_RESULTS": "Search results",
     "SEARCH_NOT_FOUND": "Kunde inte hittas",
     "ABOUT_KARROT": "Om Karrot"
   },
@@ -101,7 +102,8 @@
     "UNIQUE": "Namn finns redan. Välj ett annat",
     "REQUIRED": "Fältet är obligatoriskt",
     "VALID_EMAIL": "Ange giltig mejladress.",
-    "VALID_TIMEZONE": "Ange giltig tidszon"
+    "VALID_TIMEZONE": "Ange giltig tidszon",
+    "IMAGE_REQUIRED": "You must add an image"
   },
   "GROUP": {
     "WALL": "Anslagstavla",
@@ -124,6 +126,7 @@
     "APPLICATION_QUESTIONS": "Frågor till folk som vill gå med i gruppen",
     "PICKUPS": "Hämtningar",
     "MESSAGES": "Medellanden",
+    "OFFERS": "Offers",
     "PICKUP": "Hämtning",
     "MEMBERS": "Medlemmar",
     "JOINED": "gick med {relativeDate}",
@@ -164,6 +167,10 @@
       "new_application": {
         "NAME": "Nya ansökningar",
         "DESCRIPTION": "När någon vill gå med i gruppen"
+      },
+      "new_offer": {
+        "NAME": "New offers",
+        "DESCRIPTION": "Tells you when somebody creates a new offer"
       },
       "conflict_resolution": {
         "NAME": "New conflict resolution processes",
@@ -369,7 +376,8 @@
     "SUBTITLE": "Du kan ange en feedback för din hämtning här",
     "SET_AMOUNT": "Ange mängden",
     "DELETE_AMOUNT": "Radera mängden",
-    "AMOUNT": "Mängden mat som räddades av alla (i kg)",
+    "AMOUNT": "Amount of food you were able to save (in kg)",
+    "AMOUNT_INFO": "For place statistics, we will add together the amount of all feedback.",
     "COMMENT_PLACEHOLDER": "Gick allt bra? Var alla med? Din kommentar här...",
     "PREVIOUS": "Föregående feedback för {store}",
     "TOGETHER_WITH": "Du gjorde hämtningen tillsammans med:"
@@ -650,6 +658,28 @@
       "ANONYMOUS": "Your vote will be anonymous."
     },
     "NO_ONGOING": "No ongoing issues."
+  },
+  "OFFER": {
+    "CREATE_TITLE": "Create offer",
+    "NAME": "Name",
+    "NAME_HELPER": "Short name for the item you are offering",
+    "DESCRIPTION": "Description",
+    "MARK_AS_ACCEPTED": "Mark as accepted",
+    "MARK_AS_ACCEPTED_DESCRIPTION": "Mark this offer as accepted to show to others that it is not available any more.",
+    "MARK_AS_ARCHIVED": "Archive",
+    "MARK_AS_ARCHIVED_DESCRIPTION": "Mark this is offer as archived to remove it from the available listings.",
+    "FILTER": {
+      "STATUS": {
+        "ACTIVE": "Available",
+        "ACCEPTED": "My accepted offers",
+        "ARCHIVED": "My archived offers"
+      }
+    }
+  },
+  "ADDRESS_PICKER": {
+    "SET_AS": "Set address as",
+    "KEEP_EXISTING_LOCATION": "keep existing location on map",
+    "CHOOSE_LOCATION": "choose location on map"
   },
   "UNSUBSCRIBE": {
     "HEADER": "Avprenumerera",

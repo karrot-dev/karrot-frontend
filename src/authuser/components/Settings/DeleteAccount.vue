@@ -20,11 +20,12 @@
     </div>
     <RouterLink to="/">
       <QBtn
-        v-t="'NOT_FOUND.HOME'"
         icon-right="fas fa-home"
         color="secondary"
         push
-      />
+      >
+        <span v-t="'NOT_FOUND.HOME'" />
+      </QBtn>
     </RouterLink>
   </div>
 </template>

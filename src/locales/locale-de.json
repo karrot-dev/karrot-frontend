@@ -2,10 +2,11 @@
   "ENTRY": "1 Eintrag | {count} Einträge",
   "GLOBAL": {
     "GITHUB_NOTE": "Entwicklung",
-    "SERVER_ERROR": "Der Server gibt einen Fehler zurück.",
+    "SERVER_ERROR": "Server-Fehler",
     "NOT_CONNECTED": "Du bist nicht mit dem Server verbunden",
-    "INVALID_LINK": "Ups, der Link ist ungültig.",
+    "INVALID_LINK": "Der Link ist ungültig.",
     "GENERIC_ERROR": "Entschuldige, ein Fehler ist aufgetreten",
+    "SEARCH_RESULTS": "Search results",
     "SEARCH_NOT_FOUND": "Nicht gefunden",
     "ABOUT_KARROT": "Über Karrot"
   },
@@ -101,7 +102,8 @@
     "UNIQUE": "Name wird bereits verwendet, bitte wähle einen anderen.",
     "REQUIRED": "Dieses Feld ist erforderlich.",
     "VALID_EMAIL": "Gib eine gültige E-Mail-Adresse ein.",
-    "VALID_TIMEZONE": "Gib eine gültige Zeitzone ein."
+    "VALID_TIMEZONE": "Gib eine gültige Zeitzone ein.",
+    "IMAGE_REQUIRED": "You must add an image"
   },
   "GROUP": {
     "WALL": "Wall",
@@ -124,6 +126,7 @@
     "APPLICATION_QUESTIONS": "Fragen an die Menschen, die dieser Gruppe beitreten wollen",
     "PICKUPS": "Abholungen",
     "MESSAGES": "Nachrichten",
+    "OFFERS": "Offers",
     "PICKUP": "Abholung",
     "MEMBERS": "Mitglieder",
     "JOINED": "{relativeDate} beigetreten",
@@ -164,6 +167,10 @@
       "new_application": {
         "NAME": "Neue Bewerbungen",
         "DESCRIPTION": "Lässt dich wissen wenn jemand der Gruppe beitreten will"
+      },
+      "new_offer": {
+        "NAME": "New offers",
+        "DESCRIPTION": "Tells you when somebody creates a new offer"
       },
       "conflict_resolution": {
         "NAME": "Neue Konfliktresolutionsprozesse",
@@ -369,7 +376,8 @@
     "SUBTITLE": "Du kannst hier eine Rückmeldung eingeben",
     "SET_AMOUNT": "Gewicht eingeben",
     "DELETE_AMOUNT": "Gewicht löschen",
-    "AMOUNT": "Menge des insgesamt geretteten Essens in kg",
+    "AMOUNT": "Amount of food you were able to save (in kg)",
+    "AMOUNT_INFO": "For place statistics, we will add together the amount of all feedback.",
     "COMMENT_PLACEHOLDER": "Lief alles gut? Sind alle aufgetaucht? Dein Kommentar bitte...",
     "PREVIOUS": "Bisheriges Feedback für {store}",
     "TOGETHER_WITH": "Du hast zusammen abgeholt mit:"
@@ -619,7 +627,7 @@
     "PREVIOUS_VOTINGS": "Vergangene Abstimmungen in diesem Konflikt",
     "PARTICIPANTS": "{count} Mitglieder wurden dieser Diskussion hinzugefügt.",
     "VOTING": {
-      "TIME_LEFT": "Restliche Zeit zum Abstimmen",
+      "TIME_LEFT": "Verbleibende Zeit zum Abstimmen",
       "BTN_START": "Stimme jetzt ab",
       "SAVE": "Speichern",
       "BTN_DELETE": "Lösche Abstimmung",
@@ -651,6 +659,28 @@
     },
     "NO_ONGOING": "Keine laufenden Konflikte."
   },
+  "OFFER": {
+    "CREATE_TITLE": "Create offer",
+    "NAME": "Name",
+    "NAME_HELPER": "Short name for the item you are offering",
+    "DESCRIPTION": "Description",
+    "MARK_AS_ACCEPTED": "Mark as accepted",
+    "MARK_AS_ACCEPTED_DESCRIPTION": "Mark this offer as accepted to show to others that it is not available any more.",
+    "MARK_AS_ARCHIVED": "Archive",
+    "MARK_AS_ARCHIVED_DESCRIPTION": "Mark this is offer as archived to remove it from the available listings.",
+    "FILTER": {
+      "STATUS": {
+        "ACTIVE": "Available",
+        "ACCEPTED": "My accepted offers",
+        "ARCHIVED": "My archived offers"
+      }
+    }
+  },
+  "ADDRESS_PICKER": {
+    "SET_AS": "Set address as",
+    "KEEP_EXISTING_LOCATION": "keep existing location on map",
+    "CHOOSE_LOCATION": "choose location on map"
+  },
   "UNSUBSCRIBE": {
     "HEADER": "Abbestellen",
     "ALL": "Bestelle alle ab",
@@ -665,5 +695,5 @@
   "ATTENTION": "Achtung!",
   "INFO": "Information",
   "YOU": "Du",
-  "TO": "an"
+  "TO": "bis"
 }

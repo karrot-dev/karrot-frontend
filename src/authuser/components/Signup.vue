@@ -50,7 +50,7 @@
             class="bg-info text-white q-my-sm rounded-borders"
           >
             {{ $t('JOINGROUP.PROFILE_NOTE' ) }}
-            <template v-slot:avatar>
+            <template #avatar>
               <QIcon name="info" />
             </template>
           </QBanner>

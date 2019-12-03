@@ -36,3 +36,35 @@ export default {
     },
   },
 }
+
+const NO_ERROR = {
+  error: false,
+  errorMessage: '',
+}
+
+export function mapErrors (config) {
+  const computed = {}
+  for (const property of Object.keys(config)) {
+    const rules = config[property]
+    computed[`${property}Error`] = function () {
+      const checkServerErrors = () => {
+        const firstServerError = this.firstError(property)
+        if (!firstServerError) return NO_ERROR
+        return {
+          error: true,
+          errorMessage: firstServerError,
+        }
+      }
+      const vuelidate = this.$v.edit[property]
+      if (vuelidate === undefined || !vuelidate.$error) return checkServerErrors()
+      const ruleWithError = rules.find(([ruleName]) => !vuelidate[ruleName])
+      if (!ruleWithError) return checkServerErrors()
+      const [, i18nKey, i18nParams] = ruleWithError
+      return {
+        error: true,
+        errorMessage: this.$t(i18nKey, i18nParams),
+      }
+    }
+  }
+  return computed
+}

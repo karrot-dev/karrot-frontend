@@ -96,12 +96,14 @@ export default {
       if (!isCurrentUser) dispatch('currentGroup/select', { groupId }, { root: true })
     },
     routeLeave ({ dispatch }) {
-      dispatch('clear')
+      if (Platform.is.mobile) {
+        dispatch('clear')
+      }
     },
     openForPickup ({ dispatch }, pickup) {
       if (Platform.is.mobile) {
         const { id, group, place } = pickup
-        router.push({ name: 'pickupDetail', params: { groupId: group.id, placeId: place.id, pickupId: id } })
+        router.push({ name: 'pickupDetail', params: { groupId: group.id, placeId: place.id, pickupId: id } }).catch(() => {})
       }
       else {
         dispatch('selectPickup', pickup.id)
@@ -109,7 +111,7 @@ export default {
     },
     openForUser ({ dispatch }, user) {
       if (Platform.is.mobile) {
-        router.push({ name: 'userDetail', params: { userId: user.id } })
+        router.push({ name: 'userDetail', params: { userId: user.id } }).catch(() => {})
       }
       else {
         dispatch('selectUser', user.id)
@@ -118,7 +120,7 @@ export default {
     openForApplication ({ dispatch }, application) {
       if (Platform.is.mobile) {
         const { id, group } = application
-        router.push({ name: 'applicationDetail', params: { groupId: group.id, applicationId: id } })
+        router.push({ name: 'applicationDetail', params: { groupId: group.id, applicationId: id } }).catch(() => {})
       }
       else {
         dispatch('selectApplication', application.id)
@@ -127,7 +129,7 @@ export default {
     openForThread ({ dispatch }, message) {
       if (Platform.is.mobile) {
         const { id, groupId } = message
-        router.push({ name: 'messageReplies', params: { groupId, messageId: id } })
+        router.push({ name: 'messageReplies', params: { groupId, messageId: id } }).catch(() => {})
       }
       else {
         dispatch('selectThread', message.id)
@@ -150,6 +152,7 @@ export default {
       await dispatch('applications/maybeFetchOne', applicationId, { root: true })
     },
     selectThread ({ commit, dispatch }, id) {
+      console.log('selectThread', id)
       dispatch('clear')
       commit('setThreadId', id)
       dispatch('currentThread/fetchOrRedirect', id, { root: true })

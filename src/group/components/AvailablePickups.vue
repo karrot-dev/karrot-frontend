@@ -61,18 +61,24 @@ export default {
 
 <style scoped lang="stylus">
 @import '~variables'
+
 .notice
-  transition all .2s ease
   color $primary !important
+  transition all .2s ease
+
   .toggle-button
     cursor pointer
+
   .card-arrow
     float right
     transition all .3s ease
+
   .upsideDown
     transform rotate(180deg)
+
 .notice:hover
-  box-shadow 1px 2px 2px 1px rgba(0,0,0,0.4)
+  box-shadow 1px 2px 2px 1px rgba(0, 0, 0, 0.4)
+
 hr
   margin 1em 2em
   border solid lightgrey 1px

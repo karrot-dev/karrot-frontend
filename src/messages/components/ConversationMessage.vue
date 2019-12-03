@@ -1,7 +1,7 @@
 <template>
   <QItem
     v-if="!editMode"
-    :class="{ isUnread: message.isUnread, slim }"
+    :class="{ isUnread: message.isUnread, slim, continuation: !!message.continuation }"
     class="conversation-message relative-position"
   >
     <QBtnGroup
@@ -11,6 +11,7 @@
       <QBtn
         v-if="message.isEditable"
         outline
+        dense
         color="secondary"
         :title="$t('BUTTON.EDIT')"
         @click="toggleEdit"
@@ -20,6 +21,7 @@
       <QBtn
         v-if="!slim"
         outline
+        dense
         color="secondary"
         :title="$t('CONVERSATION.REPLIES')"
         @click="$emit('openThread')"
@@ -29,6 +31,7 @@
       <ConversationAddReaction
         :reacted="currentUserReactions"
         color="secondary"
+        outline
         @toggle="toggleReaction"
       />
     </QBtnGroup>
@@ -45,6 +48,7 @@
     </QItemSection>
     <QItemSection>
       <QItemLabel
+        v-if="!message.continuation"
         class="no-wrap k-message-meta"
       >
         <RouterLink :to="{ name: 'user', params: { userId: message.author.id } }">
@@ -62,7 +66,10 @@
           :title="$t('WALL.RECEIVED_VIA_EMAIL')"
         />
       </QItemLabel>
-      <div class="content">
+      <div
+        class="content"
+        :title="slim && tooltipDate"
+      >
         <Markdown :source="message.content" />
       </div>
       <QItemLabel
@@ -81,12 +88,11 @@
         v-if="hasReactions"
         :reactions="message.reactions"
         :current-user-reactions="currentUserReactions"
-        style="display: block"
         @toggle="toggleReaction"
       />
       <div v-if="showReplies">
         <QBtn
-          :outline="message.threadMeta.unreadReplyCount < 1"
+          unelevated
           :color="message.threadMeta.unreadReplyCount > 0 ? 'secondary' : 'white'"
           :text-color="message.threadMeta.unreadReplyCount > 0 ? 'white' : 'black'"
           class="reaction-box k-thread-box"
@@ -108,7 +114,7 @@
                 count: message.threadMeta.replyCount > 99 ? '99+' : message.threadMeta.replyCount,
               },
             }"
-            class="k-replies-count"
+            class="k-replies-count text-caption"
           />
         </QBtn>
       </div>
@@ -181,6 +187,9 @@ export default {
     showReplies () {
       return this.message.threadMeta && !this.slim
     },
+    tooltipDate () {
+      return this.$d(this.message.createdAt, 'long')
+    },
   },
   methods: {
     toggleReaction (name) {
@@ -212,54 +221,76 @@ export default {
 .isUnread
   background linear-gradient(to right, $lightGreen, $lighterGreen)
 
+.continuation
+  min-height auto
+  padding-top 0
+
 body.mobile .conversation-message
   .k-message-meta
-    font-size 80%
     padding-top 3px
+    font-size 80%
+
 .conversation-message
   padding-bottom 0
+
   .hover-button
     visibility hidden
+
   &:hover .hover-button
     visibility visible
+
   &.q-item-highlight:hover
     background-color alpha($secondary, .07)
+
   .email-icon
     position relative
     top -1.5px
     margin-left 2px
+
   .content
     word-wrap break-word
+
   .message-date
     display inline-block
     margin-left 2px
+
   .k-thread-box
     min-height 30px
     max-height 30px
     box-shadow none
+
+    >>> .q-btn__wrapper
+      min-height 0
+      padding 0
+
     .k-profile-picture
       margin-right 2px
       vertical-align middle
+
     .k-replies-count
+      padding-right 3px
       margin-left 4px
       font-size 13px
-      font-weight 500
-      padding-right 3px
+
   .k-message-controls
     position absolute
     top -6px
     right 0px
+
     .q-btn
-      color white
-      transition none
       padding 2px 9px
       font-size 13px
+      color white
+      transition none
+
 body.desktop
   .conversation-message.slim .k-message-controls
     top -8px
+
     .q-btn
       min-height 24px
       font-size 12px
+
   .k-message-meta
     padding-top 4px
 </style>

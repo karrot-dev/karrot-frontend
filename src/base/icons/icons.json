@@ -13,6 +13,8 @@
   "info_fw": "fas fa-fw fa-info",
   "info_circle": "fas fa-info-circle",
   "info_circle_fw": "fas fa-fw fa-info-circle",
+  "offer": "fas fa-gift",
+  "offer_fw": "fas fa-fw fa-gift",
   "pickup": "fas fa-shopping-basket",
   "pickup_fw": "fas fa-fw fa-shopping-basket",
   "place": "fas fa-shopping-cart",

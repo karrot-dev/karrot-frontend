@@ -27,7 +27,7 @@ module.exports = {
   },
   plugins: [
     new webpack.DefinePlugin({
-      '__ENV.FCM_SENDER_ID': JSON.stringify(process.env.FCM_SENDER_ID),
+      '__ENV.FCM_CONFIG': JSON.stringify(process.env.FCM_CONFIG),
     }),
     new TerserPlugin({
       sourceMap: false,

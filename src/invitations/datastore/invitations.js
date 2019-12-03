@@ -1,7 +1,7 @@
 import Vue from 'vue'
 import invitations from '@/invitations/api/invitations'
 import router from '@/base/router'
-import { createMetaModule, withMeta, metaStatuses } from '@/utils/datastore/helpers'
+import { createMetaModule, withMeta, metaStatuses, indexById } from '@/utils/datastore/helpers'
 
 function initialState () {
   return {
@@ -113,7 +113,7 @@ export default {
           dispatch('toasts/show', {
             message: 'GROUP.INVITATION_ACCEPT_SUCCESS',
           }, { root: true })
-          router.push('/')
+          router.push('/').catch(() => {})
         }
         catch (error) {
           dispatch('toasts/show', {
@@ -123,7 +123,7 @@ export default {
               color: 'negative',
             },
           }, { root: true })
-          router.push({ name: 'groupsGallery' })
+          router.push({ name: 'groupsGallery' }).catch(() => {})
           throw error
         }
       },
@@ -139,9 +139,7 @@ export default {
   },
   mutations: {
     update (state, invitations) {
-      for (const invitation of invitations) {
-        Vue.set(state.entries, invitation.id, invitation)
-      }
+      state.entries = { ...state.entries, ...indexById(invitations) }
     },
     delete (state, id) {
       Vue.delete(state.entries, id)

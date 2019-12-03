@@ -15,10 +15,10 @@
       @blur="hide"
       @keyup.esc="hide"
     >
-      <template v-slot:prepend>
+      <template #prepend>
         <QIcon name="search" />
       </template>
-      <template v-slot:append>
+      <template #append>
         <QIcon
           name="cancel"
           class="cursor-pointer"

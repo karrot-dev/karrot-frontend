@@ -60,7 +60,7 @@
           size="4"
           class="q-mr-md"
         >
-          <template v-slot:append>
+          <template #append>
             <span class="text-caption">kg</span>
           </template>
         </QInput>
@@ -124,7 +124,8 @@ export default {
 <style scoped lang="stylus">
 .wrapper
   position relative
+
 .showOverlay .content
-  opacity 0.3
   filter blur(3px)
+  opacity 0.3
 </style>

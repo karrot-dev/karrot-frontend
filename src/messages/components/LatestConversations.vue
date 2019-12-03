@@ -20,6 +20,7 @@
           :place="conv.type === 'place' ? conv.target : null"
           :application="conv.type === 'application' ? conv.target : null"
           :issue="conv.type === 'issue' ? conv.target : null"
+          :offer="conv.type === 'offer' ? conv.target : null"
           :message="conv.latestMessage"
           :unread-count="conv.unreadMessageCount"
           :muted="conv.muted"
@@ -109,12 +110,17 @@ export default {
     open (conv) {
       const { type, target } = conv
       switch (type) {
-        case 'group': return this.$router.push({ name: 'group', params: { groupId: target.id } })
-        case 'place': return this.$router.push({ name: 'placeWall', params: { groupId: target.group.id, placeId: target.id } })
+        case 'group': return this.$router.push({ name: 'group', params: { groupId: target.id } }).catch(() => {})
+        case 'place': return this.$router.push({ name: 'placeWall', params: { groupId: target.group.id, placeId: target.id } }).catch(() => {})
         case 'pickup': return this.openForPickup(target)
         case 'private': return this.openForUser(target)
         case 'application': return this.openForApplication(target)
-        case 'issue': return this.$router.push({ name: 'issueChat', params: { groupId: target.group.id, issueId: target.id } })
+        case 'issue': return this.$router.push({ name: 'issueChat', params: { groupId: target.group.id, issueId: target.id } }).catch(() => {})
+        case 'offer': return this.$router.push({
+          name: 'offerDetail',
+          params: { groupId: target.group.id, offerId: target.id },
+          query: this.$route.query,
+        }).catch(() => {})
       }
     },
     isSelected (conv) {

@@ -29,7 +29,7 @@
             class="bg-secondary text-white q-mt-sm"
             style="min-height: unset"
           >
-            <template v-slot:avatar>
+            <template #avatar>
               <QIcon
                 name="star"
                 color="white"
@@ -43,12 +43,13 @@
                 }) }}
               </small>
               <QBtn
-                v-t="'CONVERSATION.MARK_READ'"
                 no-caps
                 outline
                 size="sm"
                 @click="$emit('markAllRead', data.id)"
-              />
+              >
+                <span v-t="'CONVERSATION.MARK_READ'" />
+              </QBtn>
             </div>
           </QBanner>
           <ConversationMessage
@@ -144,8 +145,8 @@ export default {
 
 <style scoped lang="stylus">
 .actionButton
-  z-index 1
   position absolute
   top -24px
   right 6px
+  z-index 1
 </style>

@@ -22,7 +22,39 @@ Please document your changes in this format:
 
 ## [Unreleased]
 
+## [8.3.0] - 2019-12-02
+### Added
+- Offers (behind feature flag) [#1799] @nicksellen
+
+## [8.2.0] - 2019-11-17
+### Added
+- Group messages from same author @teemukaaria
+
+### Changed
+- Add autocomplete for addresses again @nicksellen
+
+## [8.1.2] - 2019-11-05
+### Fixed
+- Restoring a place was broken @tiltec
+
+## [8.1.1] - 2019-10-23
+### Fixed
+- Leaving a group didn't work @tiltec
+
+## [8.1.0] - 2019-10-17
+### Added
+- History CSV export API @tiltec
+
+### Changed
+- Sum multiple feedback entries per pickup instead of averaging them @tiltec
+
+### Fixed
+- Message links in email notifications did not open the conversation if message is a reply, in an application or in an issue @tiltec
+
 ## [8.0.0] - 2019-10-07
+### Added
+- Show group image in emails @nicksellen
+
 ### Changed
 - User Interface redesign due to [Quasar](https://quasar.dev) upgrade [#1690] @tiltec
 
@@ -482,8 +514,14 @@ After months of planning and programming, the first version of ~the foodsaving t
 [#1509]: https://github.com/yunity/karrot-frontend/issues/1509
 [#1690]: https://github.com/yunity/karrot-frontend/issues/1690
 [#1691]: https://github.com/yunity/karrot-frontend/issues/1691
+[#1799]: https://github.com/yunity/karrot-frontend/issues/1799
 
-[Unreleased]: https://github.com/yunity/karrot-frontend/compare/v8.0.0...HEAD
+[Unreleased]: https://github.com/yunity/karrot-frontend/compare/v8.3.0...HEAD
+[8.3.0]: https://github.com/yunity/karrot-frontend/compare/v8.2.0...v8.3.0
+[8.2.0]: https://github.com/yunity/karrot-frontend/compare/v8.1.2...v8.2.0
+[8.1.2]: https://github.com/yunity/karrot-frontend/compare/v8.1.1...v8.1.2
+[8.1.1]: https://github.com/yunity/karrot-frontend/compare/v8.1.0...v8.1.1
+[8.1.0]: https://github.com/yunity/karrot-frontend/compare/v8.0.0...v8.1.0
 [8.0.0]: https://github.com/yunity/karrot-frontend/compare/v7.4.2...v8.0.0
 [7.4.2]: https://github.com/yunity/karrot-frontend/compare/v7.4.1...v7.4.2
 [7.4.1]: https://github.com/yunity/karrot-frontend/compare/v7.4.0...v7.4.1

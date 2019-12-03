@@ -4,7 +4,7 @@
     class="q-ma-sm bg-warning text-white shadow-2"
     style="min-height: unset"
   >
-    <template v-slot:avatar>
+    <template #avatar>
       <QIcon
         :name="$icon(exclamation_triangle)"
         color="white"
@@ -43,7 +43,7 @@
     header-class="bg-warning"
     dark
   >
-    <template v-slot:header>
+    <template #header>
       <QItemSection
         side
         class="text-white"

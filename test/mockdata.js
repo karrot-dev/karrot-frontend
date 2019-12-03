@@ -23,6 +23,7 @@ export const groupsMock = [
   saveStatus: statusMocks.default(),
   leaveStatus: statusMocks.default(),
   notificationTypes: [],
+  features: [],
   issueVotingDurationDays: 7,
 }))
 

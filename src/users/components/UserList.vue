@@ -5,7 +5,7 @@
         v-if="users.length > 15"
       >
         <QInput v-model="filterTerm">
-          <template v-slot:prepend>
+          <template #prepend>
             <QIcon name="search" />
           </template>
         </QInput>
@@ -23,7 +23,7 @@
         @show="showInactive = true"
         @hide="showInactive = false"
       >
-        <template v-slot:header>
+        <template #header>
           <QItemSection side>
             <QIcon
               name="fas fa-bed"
@@ -150,6 +150,7 @@ export default {
 .list-wrapper
   .profilePic
     margin-right .5em
+
 .inactive
   opacity 0.5
 </style>

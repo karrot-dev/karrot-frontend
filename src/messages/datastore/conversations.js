@@ -9,6 +9,7 @@ import groupsAPI from '@/group/api/groups'
 import issuesAPI from '@/issues/api/issues'
 import placesAPI from '@/places/api/places'
 import applicationsAPI from '@/applications/api/applications'
+import offersAPI from '@/offers/api/offers'
 import i18n from '@/base/i18n'
 import { createMetaModule, withMeta, withPrefixedIdMeta, metaStatusesWithId } from '@/utils/datastore/helpers'
 
@@ -45,9 +46,11 @@ export function sortByName (a, b) {
   return a.name.localeCompare(b.name)
 }
 
-export function insertSorted (target, items, oldestFirst = false) {
+export function insertSorted (source, items, oldestFirst = false) {
   // simple sorted list insertion
   // assumes that existing messages are sorted AND incoming messages are sorted
+  // don't modify in-place to minimize expensive operations on reactive arrays
+  const target = [...source]
   const compare = oldestFirst ? (a, b) => a.id < b.id : (a, b) => a.id > b.id
   let i = 0
   for (const item of items) {
@@ -58,12 +61,13 @@ export function insertSorted (target, items, oldestFirst = false) {
       target.push(item)
     }
     else if (target[i].id === item.id) {
-      Vue.set(target, i, item)
+      target[i] = item
     }
     else {
       target.splice(i, 0, item)
     }
   }
+  return target
 }
 
 function initialState () {
@@ -100,6 +104,7 @@ export default {
     getForPickup: (state, getters) => pickupId => getters.getForType('pickup', pickupId),
     getForApplication: (state, getters) => applicationId => getters.getForType('application', applicationId),
     getForIssue: (state, getters) => issueId => getters.getForType('issue', issueId),
+    getForOffer: (state, getters) => offerId => getters.getForType('offer', offerId),
     getForUser: (state, getters) => userId => {
       const { id } = Object.values(state.entries).find(({ type, participants }) => type === 'private' && participants.includes(userId)) || {}
       if (!id) return
@@ -189,6 +194,7 @@ export default {
         case 'pickup': return rootGetters['pickups/get'](targetId)
         case 'application': return rootGetters['applications/get'](targetId)
         case 'issue': return rootGetters['issues/get'](targetId)
+        case 'offer': return rootGetters['latestMessages/getRelated']('offer', targetId)
         case 'private': return participants.find(u => !u.isCurrentUser)
       }
     },
@@ -351,12 +357,21 @@ export default {
       dispatch('fetch', conversation.id)
     },
 
+    async fetchForOffer ({ commit, getters, dispatch }, { offerId }) {
+      let conversation = getters.getForOffer(offerId)
+      if (!conversation) {
+        conversation = await offersAPI.conversation(offerId)
+        commit('setConversation', conversation)
+      }
+      dispatch('fetch', conversation.id)
+    },
+
     clearForIssue ({ getters, commit }, { issueId }) {
       const { id: conversationId } = getters.getForIssue(issueId) || {}
       if (conversationId) commit('clearMessages', conversationId)
     },
 
-    async maybeSave ({ state, getters, dispatch }, { conversationId, threadId, value }) {
+    async maybeSave ({ getters, dispatch }, { conversationId, threadId, value }) {
       if (threadId) {
         if (!value.notifications) return
         const muted = value.notifications !== 'all'
@@ -369,17 +384,19 @@ export default {
       }
     },
 
-    async toggleReaction ({ commit, rootGetters }, { message, name }) {
-      const { id: messageId } = message
-      const reactionIndex = message.reactions.findIndex(reaction => reaction.reacted && reaction.name === name)
+    ...withMeta({
+      async toggleReaction (_, { message, name }) {
+        const { id: messageId } = message
+        const reactionIndex = message.reactions.findIndex(reaction => reaction.reacted && reaction.name === name)
 
-      if (reactionIndex === -1) {
-        await reactionsAPI.create(messageId, name)
-      }
-      else {
-        await reactionsAPI.remove(messageId, name)
-      }
-    },
+        if (reactionIndex === -1) {
+          await reactionsAPI.create(messageId, name)
+        }
+        else {
+          await reactionsAPI.remove(messageId, name)
+        }
+      },
+    }),
 
     async maybeMark ({ dispatch, getters, rootGetters }, { id, threadId, seenUpTo }) {
       if (id && !getters.get(id).markStatus.pending) {
@@ -445,13 +462,12 @@ export default {
     },
     updateMessages (state, { conversationId, messages }) {
       if (!state.entries[conversationId]) return
-
       const stateMessages = state.messages[conversationId]
-      if (!stateMessages) {
-        Vue.set(state.messages, conversationId, messages)
-        return
-      }
-      insertSorted(stateMessages, messages)
+      Vue.set(
+        state.messages,
+        conversationId,
+        stateMessages ? insertSorted(stateMessages, messages) : messages,
+      )
     },
     setCursor (state, { conversationId, cursor }) {
       Vue.set(state.cursors, conversationId, cursor)

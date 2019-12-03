@@ -11,7 +11,7 @@
         :error-message="displayNameError"
         @blur="$v.edit.displayName.$touch"
       >
-        <template v-slot:before>
+        <template #before>
           <QIcon :name="$icon('star')" />
         </template>
       </QInput>
@@ -32,7 +32,7 @@
         :error="hasError('mobileNumber')"
         :error-message="firstError('mobileNumber')"
       >
-        <template v-slot:before>
+        <template #before>
           <QIcon name="fas fa-phone" />
         </template>
       </QInput>

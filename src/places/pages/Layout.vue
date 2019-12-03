@@ -6,13 +6,13 @@
         class="bg-info"
       >
         {{ $t('STOREDETAIL.ARCHIVED') }}
-        <template v-slot:avatar>
+        <template #avatar>
           <QIcon
             name="fas fa-trash-alt"
             size="1.4em"
           />
         </template>
-        <template v-slot:action>
+        <template #action>
           <QBtn
             v-if="isEditor"
             flat
@@ -38,6 +38,8 @@ import { mapGetters } from 'vuex'
 import {
   QCard,
   QBanner,
+  QIcon,
+  QBtn,
 } from 'quasar'
 import PlaceTabs from '@/places/components/PlaceTabs'
 import PlaceHeader from '@/places/components/PlaceHeader'
@@ -46,6 +48,8 @@ export default {
   components: {
     QCard,
     QBanner,
+    QIcon,
+    QBtn,
     PlaceTabs,
     PlaceHeader,
   },

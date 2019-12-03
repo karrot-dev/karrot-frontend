@@ -6,6 +6,7 @@
     "NOT_CONNECTED": "Не удается подключиться к сети",
     "INVALID_LINK": "Открытая ссылка недействительна ",
     "GENERIC_ERROR": "Sorry, something went wrong",
+    "SEARCH_RESULTS": "Search results",
     "SEARCH_NOT_FOUND": "Не найдено",
     "ABOUT_KARROT": "О Karrot"
   },
@@ -101,7 +102,8 @@
     "UNIQUE": "Данное имя пользователя уже используется, выберите другое.",
     "REQUIRED": "Это поле обязательно для заполнения.",
     "VALID_EMAIL": "Введите действительный адрес электронной почты.",
-    "VALID_TIMEZONE": "Введите дейтсвительный часовой пояс."
+    "VALID_TIMEZONE": "Введите дейтсвительный часовой пояс.",
+    "IMAGE_REQUIRED": "You must add an image"
   },
   "GROUP": {
     "WALL": "Стена",
@@ -124,6 +126,7 @@
     "APPLICATION_QUESTIONS": "Questions for people who want to join this group",
     "PICKUPS": "Pickups",
     "MESSAGES": "Сообщения",
+    "OFFERS": "Offers",
     "PICKUP": "Pickup",
     "MEMBERS": "Участники",
     "JOINED": "присоединился {relativeDate}",
@@ -164,6 +167,10 @@
       "new_application": {
         "NAME": "Новая заявка",
         "DESCRIPTION": "Сообщает вам, когда кто-то хочет присоединиться к группе"
+      },
+      "new_offer": {
+        "NAME": "New offers",
+        "DESCRIPTION": "Tells you when somebody creates a new offer"
       },
       "conflict_resolution": {
         "NAME": "Новые процессы регулирования конфликтов",
@@ -369,7 +376,8 @@
     "SUBTITLE": "You can provide feedback for your pickup here",
     "SET_AMOUNT": "Set amount",
     "DELETE_AMOUNT": "Delete amount",
-    "AMOUNT": "Amount of food all of you were able to save (in kg)",
+    "AMOUNT": "Amount of food you were able to save (in kg)",
+    "AMOUNT_INFO": "For place statistics, we will add together the amount of all feedback.",
     "COMMENT_PLACEHOLDER": "Was everything fine? Did everyone show up? Your comment here...",
     "PREVIOUS": "Previous feedback for {store}",
     "TOGETHER_WITH": "You did this pickup together with:"
@@ -650,6 +658,28 @@
       "ANONYMOUS": "Ваш голос будет анонимным."
     },
     "NO_ONGOING": "No ongoing issues."
+  },
+  "OFFER": {
+    "CREATE_TITLE": "Create offer",
+    "NAME": "Name",
+    "NAME_HELPER": "Short name for the item you are offering",
+    "DESCRIPTION": "Description",
+    "MARK_AS_ACCEPTED": "Mark as accepted",
+    "MARK_AS_ACCEPTED_DESCRIPTION": "Mark this offer as accepted to show to others that it is not available any more.",
+    "MARK_AS_ARCHIVED": "Archive",
+    "MARK_AS_ARCHIVED_DESCRIPTION": "Mark this is offer as archived to remove it from the available listings.",
+    "FILTER": {
+      "STATUS": {
+        "ACTIVE": "Available",
+        "ACCEPTED": "My accepted offers",
+        "ARCHIVED": "My archived offers"
+      }
+    }
+  },
+  "ADDRESS_PICKER": {
+    "SET_AS": "Set address as",
+    "KEEP_EXISTING_LOCATION": "keep existing location on map",
+    "CHOOSE_LOCATION": "choose location on map"
   },
   "UNSUBSCRIBE": {
     "HEADER": "Unsubscribe",

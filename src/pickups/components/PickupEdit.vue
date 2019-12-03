@@ -30,7 +30,7 @@
             @focus="$refs.qStartDateProxy.show()"
             @blur="$refs.qStartDateProxy.hide()"
           >
-            <template v-slot:before>
+            <template #before>
               <QIcon name="access_time" />
             </template>
             <Component
@@ -74,7 +74,7 @@
                 @input="() => smallScreen && $refs.qStartTimeProxy.hide()"
               />
             </Component>
-            <template v-slot:after>
+            <template #after>
               <QBtn
                 v-if="!hasDuration"
                 size="xs"
@@ -117,7 +117,7 @@
                   @input="() => smallScreen && $refs.qEndTimeProxy.hide()"
                 />
               </Component>
-              <template v-slot:after>
+              <template #after>
                 <QIcon
                   color="grey"
                   name="cancel"
@@ -158,7 +158,7 @@
           :error-message="firstError('maxCollectors')"
           input-style="max-width: 100px"
         >
-          <template v-slot:before>
+          <template #before>
             <QIcon name="group" />
           </template>
           <QSlider
@@ -171,7 +171,7 @@
             class="q-mx-sm self-end"
             style="min-width: 60px"
           />
-          <template v-slot:after>
+          <template #after>
             <QIcon
               v-if="series ? series.maxCollectors !== edit.maxCollectors : false"
               name="undo"
@@ -200,10 +200,10 @@
           autogrow
           @keyup.ctrl.enter="maybeSave"
         >
-          <template v-slot:before>
+          <template #before>
             <QIcon name="info" />
           </template>
-          <template v-slot:after>
+          <template #after>
             <QIcon
               v-if="series ? series.description !== edit.description : false"
               name="undo"

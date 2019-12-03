@@ -93,9 +93,7 @@ export default {
       state.entries = {}
     },
     update (state, seriesList) {
-      for (const series of seriesList) {
-        Vue.set(state.entries, series.id, series)
-      }
+      state.entries = { ...state.entries, ...indexById(seriesList) }
     },
     delete (state, seriesId) {
       if (state.entries[seriesId]) Vue.delete(state.entries, seriesId)

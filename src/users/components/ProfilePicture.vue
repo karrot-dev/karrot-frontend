@@ -83,9 +83,11 @@ export default {
 <style scoped lang="stylus">
 .wrapper
   display inline-block
+
 .randomArt
   display block
   overflow hidden
+
 .fill
   width 100%
   height 100%

@@ -60,7 +60,7 @@
             @keyup.ctrl.enter="submit"
           />
         </QStep>
-        <template v-slot:navigation>
+        <template #navigation>
           <QStepperNavigation>
             <QBtn
               flat
@@ -87,6 +87,7 @@
             </QBtn>
             <QBtn
               v-if="setup == 'statement'"
+              :disable="initialStatement === ''"
               flat
               color="secondary"
               :loading="isPending"
@@ -99,7 +100,7 @@
       </QStepper>
       <div
         v-if="hasAnyError"
-        class="text-negative q-pl-lg"
+        class="text-negative q-pl-lg q-mb-md"
       >
         <i :class="$icon(exclamation_triangle)" />
         {{ anyFirstError }}
@@ -158,6 +159,7 @@ export default {
 <style scoped lang="stylus">
 .q-step
   min-height 200px
+
 .q-stepper
   max-width 700px
 </style>

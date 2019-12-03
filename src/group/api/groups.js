@@ -11,7 +11,7 @@ const markUserActiveThrottles = {}
 function getOrCreateMarkUserActiveThrottleFn (groupId) {
   if (!markUserActiveThrottles[groupId]) {
     markUserActiveThrottles[groupId] = throttle(
-      () => markUserActive(groupId),
+      async () => markUserActive(groupId),
       1000 * 60 * 10, // 10 minutes
     )
   }
@@ -20,7 +20,7 @@ function getOrCreateMarkUserActiveThrottleFn (groupId) {
 
 async function throttledMarkUserActive (groupId) {
   const fn = getOrCreateMarkUserActiveThrottleFn(groupId)
-  fn()
+  await fn()
 }
 
 export default {

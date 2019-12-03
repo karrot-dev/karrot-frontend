@@ -22,7 +22,7 @@
         <QIcon
           v-if="icon"
           :name="icon"
-          class="q-mr-xs vertical-baseline"
+          class="q-mx-xs vertical-baseline"
         />
         {{ message }}
       </QItemLabel>
@@ -127,6 +127,7 @@ export default {
 
 .isUnread
   background linear-gradient(to right, $lightGreen, $lighterGreen)
+
   &:hover
     background alpha($grey, 0.5)
 </style>

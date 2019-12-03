@@ -13,7 +13,7 @@ export default connect({
   },
   methodsToEvents: {
     cancel: (_, groupId) => {
-      router.push({ name: 'groupPreview', params: { groupId } })
+      router.push({ name: 'groupPreview', params: { groupId } }).catch(() => {})
     },
   },
 })('ApplicationForm', ApplicationFormUI)

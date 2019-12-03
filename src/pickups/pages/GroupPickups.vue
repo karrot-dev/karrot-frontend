@@ -11,16 +11,18 @@
     />
     <template v-if="hasNoPickups">
       <KNotice>
-        <template v-slot:icon>
+        <template #icon>
           <i class="fas fa-bed" />
         </template>
         {{ $t('PICKUPLIST.NONE') }}
-        <template v-slot:desc>
+        <template #desc>
           {{ $t('PICKUPLIST.NONE_HINT') }}
         </template>
       </KNotice>
       <QCard>
-        <QCardSection v-t="'GROUP.PLACES'" />
+        <QCardSection>
+          <span v-t="'GROUP.PLACES'" />
+        </QCardSection>
         <QCardSection>
           <PlaceList
             :group-id="groupId"
@@ -78,15 +80,19 @@ export default {
 <style scoped lang="stylus">
 .padding
   padding 1em
+
 .notice
   .icon
     margin .1em 0 0 0
   padding 2em 3em
-  transform: translateZ(1px) rotate(-3deg);
+  transform translateZ(1px) rotate(-3deg)
+
   h5
     padding 0
+
 .manage
   padding 8px
+
   q-btn
     display inline-block
     padding .3em

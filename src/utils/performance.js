@@ -60,7 +60,7 @@ if (ENABLED) {
   Vue.directive('measure', {
     inserted () {
       if (done) return
-      measure('MM') // MM = "Meaingful Mount" inspired by FMP (First Meaningful Paint)
+      measure('MM') // MM = "Meaningful Mount" inspired by FMP (First Meaningful Paint)
       done = true
       finish()
     },

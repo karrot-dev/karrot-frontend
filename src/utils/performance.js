@@ -85,6 +85,7 @@ function finish () {
     ...payload,
     ms: firstMeaningfulMount && firstMeaningfulMount.duration,
     loggedIn: datastore.getters['auth/isLoggedIn'],
+    group: datastore.getters['currentGroup/id'],
     route: router.currentRoute.name,
     mobile: Boolean(Platform.is.mobile),
   })

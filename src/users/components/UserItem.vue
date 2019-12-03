@@ -10,7 +10,10 @@
     </QItemSection>
     <QItemSection>
       <QItemLabel>
-        <RouterLink :to="{name: 'user', params: { userId: user.id }}">
+        <RouterLink
+          v-measure
+          :to="{name: 'user', params: { userId: user.id }}"
+        >
           {{ user.displayName }}
         </RouterLink>
       </QItemLabel>

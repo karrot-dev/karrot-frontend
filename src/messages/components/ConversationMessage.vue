@@ -71,7 +71,7 @@
         :title="slim && tooltipDate"
       >
         <Markdown
-          v-measure="'ConversationMessage/Markdown'"
+          v-measure
           :source="message.content"
         />
       </div>

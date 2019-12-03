@@ -18,23 +18,16 @@
  * Root component
  */
 import LoadingProgress from '@/topbar/components/LoadingProgress'
-import { measure, measureMixin } from '@/utils/performance'
 
 export default {
   components: {
     LoadingProgress,
   },
-  mixins: [measureMixin('Root')],
   computed: {
     hasView () {
       const firstMatched = this.$route.matched.length > 0 && this.$route.matched[0]
       if (!firstMatched) return
       return Boolean(firstMatched.components.default)
-    },
-  },
-  watch: {
-    hasView (val) {
-      if (val) measure('Root', 'hasView')
     },
   },
 }

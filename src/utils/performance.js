@@ -47,6 +47,7 @@ function initialize () {
   currentStat = {}
   performance.clearMarks()
   performance.clearMeasures()
+  performance.clearResourceTimings()
   performance.mark(startMark)
 }
 
@@ -87,6 +88,9 @@ function finish () {
   pendingStats.push({
     ...currentStat,
     ms: firstMeaningfulMount && firstMeaningfulMount.duration,
+    msResources: performance
+      .getEntriesByType('resource')
+      .reduce((total, entry) => total + entry.duration, 0),
     loggedIn: datastore.getters['auth/isLoggedIn'],
     group: datastore.getters['currentGroup/id'],
     routeName: router.currentRoute.name,

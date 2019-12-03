@@ -1,9 +1,11 @@
+import 'whatwg-fetch'
 import Vue from 'vue'
 import { Platform } from 'quasar'
 import router from '@/base/router'
 import datastore from '@/base/datastore'
 import axios from '@/base/api/axios'
-import { debounceAndFlushBeforeUnload } from '@/utils/utils'
+import debounce from 'lodash.debounce'
+import { underscorizeKeys } from '@/utils/utils'
 
 const SAVE_INTERVAL_MS = 5000 // batch saves to the backend
 
@@ -36,6 +38,9 @@ let startMark
 // ... well basically the firstLoad flag
 let currentStat = {}
 
+// Stats waiting to be saved
+const pendingStats = []
+
 function initialize () {
   startMark = 'karrot-start'
   done = false
@@ -43,6 +48,53 @@ function initialize () {
   performance.clearMarks()
   performance.clearMeasures()
   performance.mark(startMark)
+}
+
+function measure (name, qualifier) {
+  if (!ENABLED || done) return
+  const label = ['karrot', name, qualifier].join(' ').trim()
+  if (startMark) {
+    performance.measure(label, startMark)
+  }
+  else {
+    performance.measure(label)
+  }
+}
+
+function save () {
+  const stats = [...pendingStats]
+  pendingStats.length = 0
+  const data = { stats }
+  // Using fetch() API instead of axios, just for this keepalive thing ...
+  fetch('/api/stats/', {
+    method: 'POST',
+    // keepalive is to help the request still work when called in the "unload" event
+    // See https://fetch.spec.whatwg.org/#request-keepalive-flag
+    keepalive: true,
+    headers: {
+      'Content-Type': 'application/json',
+      [axios.defaults.xsrfHeaderName]: readCookie(axios.defaults.xsrfCookieName),
+    },
+    body: JSON.stringify(underscorizeKeys(data)),
+  })
+}
+
+const debouncedSave = debounce(save, SAVE_INTERVAL_MS, { maxWait: SAVE_INTERVAL_MS * 2 })
+
+function finish () {
+  const firstMeaningfulMount = performance.getEntriesByName('karrot MM')[0]
+  if (!firstMeaningfulMount) return
+  pendingStats.push({
+    ...currentStat,
+    ms: firstMeaningfulMount && firstMeaningfulMount.duration,
+    loggedIn: datastore.getters['auth/isLoggedIn'],
+    group: datastore.getters['currentGroup/id'],
+    routeName: router.currentRoute.name,
+    routePath: router.currentRoute.fullPath,
+    routeParams: router.currentRoute.params,
+    mobile: Boolean(Platform.is.mobile),
+  })
+  debouncedSave()
 }
 
 if (ENABLED) {
@@ -73,36 +125,11 @@ else {
   Vue.directive('measure', {})
 }
 
-const pendingStats = []
-const save = debounceAndFlushBeforeUnload(() => {
-  const stats = [...pendingStats]
-  pendingStats.length = 0
-  axios.post('/api/stats/', { stats })
-}, SAVE_INTERVAL_MS, { maxWait: SAVE_INTERVAL_MS * 2 })
-
-function finish () {
-  const firstMeaningfulMount = performance.getEntriesByName('karrot MM')[0]
-  if (!firstMeaningfulMount) return
-  pendingStats.push({
-    ...currentStat,
-    ms: firstMeaningfulMount && firstMeaningfulMount.duration,
-    loggedIn: datastore.getters['auth/isLoggedIn'],
-    group: datastore.getters['currentGroup/id'],
-    routeName: router.currentRoute.name,
-    routePath: router.currentRoute.fullPath,
-    routeParams: router.currentRoute.params,
-    mobile: Boolean(Platform.is.mobile),
-  })
-  save()
+function readCookie (name) {
+  // Stolen from axios implementation
+  // See https://github.com/axios/axios/blob/a17c70cb5ae4acd7aa307b7f7dc869953dea22c4/lib/helpers/cookies.js#L35-L36
+  const match = document.cookie.match(new RegExp('(^|;\\s*)(' + name + ')=([^;]*)'))
+  return (match ? decodeURIComponent(match[3]) : null)
 }
 
-function measure (name, qualifier) {
-  if (!ENABLED || done) return
-  const label = ['karrot', name, qualifier].join(' ').trim()
-  if (startMark) {
-    performance.measure(label, startMark)
-  }
-  else {
-    performance.measure(label)
-  }
-}
+window.addEventListener('unload', save, false)

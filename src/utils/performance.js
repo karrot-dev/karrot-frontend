@@ -1,4 +1,3 @@
-import 'whatwg-fetch'
 import Vue from 'vue'
 import { Platform } from 'quasar'
 import router from '@/base/router'
@@ -10,10 +9,13 @@ import { underscorizeKeys } from '@/utils/utils'
 const SAVE_INTERVAL_MS = 5000 // batch saves to the backend
 
 const performance = window.performance
+const fetch = window.fetch
 
 // Make sure we have all the required performance methods
+// and fetch to avoid needing the polyfill (we don't need all browser support)
 // and that vue's performance mode is not enabled (don't want to fight it)
-const ENABLED = performance &&
+const ENABLED = fetch &&
+  performance &&
   performance.clearMeasures &&
   performance.clearMarks &&
   performance.measure &&

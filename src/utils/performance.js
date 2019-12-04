@@ -99,6 +99,9 @@ function finish () {
     routePath: router.currentRoute.fullPath,
     routeParams: router.currentRoute.params,
     mobile: Boolean(Platform.is.mobile),
+    browser: Platform.is.name,
+    os: Platform.is.platform,
+    dev: __ENV.DEV,
   })
   debouncedSave()
 }

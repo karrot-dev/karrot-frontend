@@ -101,7 +101,8 @@ function finish () {
     mobile: Boolean(Platform.is.mobile),
     browser: Platform.is.name,
     os: Platform.is.platform,
-    dev: __ENV.DEV,
+    dev: Boolean(__ENV.DEV),
+    app: Boolean(__ENV.CORDOVA),
   })
   debouncedSave()
 }

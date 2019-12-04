@@ -94,6 +94,7 @@ export function mountWithDefaultsAndLocalVue (Component, localVue, options = {})
   localVue.component('RouterLink', RouterLinkStub)
   localVue.component('Transition', TransitionStub)
   localVue.component('TransitionGroup', TransitionGroupStub)
+  localVue.directive('measure', {})
   const datastore = options.datastore
   delete options.datastore
   const wrapper = mount(Component, {

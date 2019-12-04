@@ -20,6 +20,7 @@ Vue.use(VueRouter)
 Vue.component('RouterLink', RouterLinkStub)
 Vue.component('Transition', TransitionStub)
 Vue.component('TransitionGroup', TransitionGroupStub)
+Vue.directive('measure', {})
 Vue.config.errorHandler = (err, vm, info) => {
   console.log(err, vm, info)
 }

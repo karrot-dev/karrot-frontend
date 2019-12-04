@@ -30,6 +30,7 @@ import routerMocks from '>/routerMocks'
 i18n.locale = 'en'
 configureQuasar(Vue)
 Vue.component('RouterLink', RouterLinkStub)
+Vue.directive('measure', {})
 
 // To get properly faked dates, install fake Date object before importing stories
 const now = new Date('2017-12-24T12:00:00Z')

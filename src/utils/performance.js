@@ -3,8 +3,7 @@ import { Platform } from 'quasar'
 import router from '@/base/router'
 import datastore from '@/base/datastore'
 import axios from '@/base/api/axios'
-import debounce from 'lodash.debounce'
-import { underscorizeKeys } from '@/utils/utils'
+import { debounceAndFlushBeforeUnload, underscorizeKeys } from '@/utils/utils'
 
 const SAVE_INTERVAL_MS = 5000 // batch saves to the backend
 
@@ -82,7 +81,7 @@ function save () {
   })
 }
 
-const debouncedSave = debounce(save, SAVE_INTERVAL_MS, { maxWait: SAVE_INTERVAL_MS * 2 })
+const debouncedSave = debounceAndFlushBeforeUnload(save, SAVE_INTERVAL_MS, { maxWait: SAVE_INTERVAL_MS * 2 })
 
 function finish () {
   const firstMeaningfulMount = performance.getEntriesByName('karrot MM')[0]
@@ -141,5 +140,3 @@ function readCookie (name) {
   const match = document.cookie.match(new RegExp('(^|;\\s*)(' + name + ')=([^;]*)'))
   return (match ? decodeURIComponent(match[3]) : null)
 }
-
-window.addEventListener('unload', save, false)

@@ -3,7 +3,7 @@ import { Platform } from 'quasar'
 import router from '@/base/router'
 import datastore from '@/base/datastore'
 import axios from '@/base/api/axios'
-import { debounceAndFlushBeforeUnload, underscorizeKeys } from '@/utils/utils'
+import { debounceAndFlushOnUnload, underscorizeKeys } from '@/utils/utils'
 
 const SAVE_INTERVAL_MS = 5000 // batch saves to the backend
 
@@ -78,10 +78,10 @@ function save () {
       [axios.defaults.xsrfHeaderName]: readCookie(axios.defaults.xsrfCookieName),
     },
     body: JSON.stringify(underscorizeKeys(data)),
-  })
+  }).catch(() => {}) // ignore errors, we can't do anything about it
 }
 
-const debouncedSave = debounceAndFlushBeforeUnload(save, SAVE_INTERVAL_MS, { maxWait: SAVE_INTERVAL_MS * 2 })
+const debouncedSave = debounceAndFlushOnUnload(save, SAVE_INTERVAL_MS, { maxWait: SAVE_INTERVAL_MS * 2 })
 
 function finish () {
   const firstMeaningfulMount = performance.getEntriesByName('karrot MM')[0]

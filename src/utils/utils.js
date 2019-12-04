@@ -91,8 +91,8 @@ export function withoutKeys (...keys) {
   }
 }
 
-export function debounceAndFlushBeforeUnload (fn, ms, options = {}) {
+export function debounceAndFlushOnUnload (fn, ms, options = {}) {
   const debounced = debounce(fn, ms, options)
-  window.addEventListener('beforeunload', debounced.flush)
+  window.addEventListener('unload', debounced.flush)
   return debounced
 }

@@ -1,4 +1,4 @@
-import { underscorize, objectDiff, debounceAndFlushBeforeUnload } from './utils'
+import { underscorize, objectDiff, debounceAndFlushOnUnload } from './utils'
 
 describe('utils', () => {
   it('underscorizes', () => {
@@ -23,14 +23,14 @@ describe('debounceAndFlushBeforeUnload', () => {
   afterEach(() => jest.restoreAllMocks())
   it('calls handler if triggered', () => {
     const mock = jest.fn()
-    debounceAndFlushBeforeUnload(mock, 1000)()
-    listeners.beforeunload()
+    debounceAndFlushOnUnload(mock, 1000)()
+    listeners.unload()
     expect(mock).toBeCalled()
   })
   it('does not call handler if not triggered', () => {
     const mock = jest.fn()
-    debounceAndFlushBeforeUnload(mock, 1000)
-    listeners.beforeunload()
+    debounceAndFlushOnUnload(mock, 1000)
+    listeners.unload()
     expect(mock).not.toBeCalled()
   })
 })

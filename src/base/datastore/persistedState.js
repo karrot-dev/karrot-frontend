@@ -1,5 +1,7 @@
 import createPersistedState from 'vuex-persistedstate'
-import { debounceAndFlushBeforeUnload } from '@/utils/utils'
+import { debounceAndFlushOnUnload } from '@/utils/utils'
+
+const SAVE_INTERVAL_MS = 5000
 
 export default createPersistedState({
   paths: [
@@ -7,5 +9,5 @@ export default createPersistedState({
     'auth.push.intention',
     'auth.push.token',
   ],
-  subscriber: store => handler => store.subscribe(debounceAndFlushBeforeUnload(handler, 5000)),
+  subscriber: store => handler => store.subscribe(debounceAndFlushOnUnload(handler, SAVE_INTERVAL_MS, { maxWait: SAVE_INTERVAL_MS * 2 })),
 })

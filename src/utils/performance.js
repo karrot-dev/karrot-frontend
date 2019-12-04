@@ -96,7 +96,6 @@ function finish () {
     group: datastore.getters['currentGroup/id'],
     routeName: router.currentRoute.name,
     routePath: router.currentRoute.fullPath,
-    routeParams: router.currentRoute.params,
     mobile: Boolean(Platform.is.mobile),
     browser: Platform.is.name,
     os: Platform.is.platform,

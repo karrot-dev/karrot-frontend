@@ -5,6 +5,7 @@
         <div class="content full-width">
           <div class="row no-wrap items-baseline">
             <strong
+              v-measure
               class="q-mr-sm"
               style="white-space: nowrap"
             >

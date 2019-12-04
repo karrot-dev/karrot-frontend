@@ -1,3 +1,4 @@
+import '@/utils/performance'
 import Vue from 'vue'
 import configureQuasar from 'base/configureQuasar'
 import 'base/helloDeveloper'

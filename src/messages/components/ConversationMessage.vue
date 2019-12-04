@@ -70,7 +70,10 @@
         class="content"
         :title="slim && tooltipDate"
       >
-        <Markdown :source="message.content" />
+        <Markdown
+          v-measure
+          :source="message.content"
+        />
       </div>
       <QItemLabel
         v-if="message.isEdited"

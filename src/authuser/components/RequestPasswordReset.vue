@@ -37,6 +37,7 @@
             {{ $t('PASSWORDRESET.LOGIN') }}
           </QBtn>
           <QBtn
+            v-measure
             type="submit"
             class="submit shadow-4"
             :loading="isPending"

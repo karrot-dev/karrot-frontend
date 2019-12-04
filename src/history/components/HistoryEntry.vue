@@ -13,7 +13,10 @@
       </QItemSection>
       <QItemSection>
         <QItemLabel>
-          <span class="content">
+          <span
+            v-measure
+            class="content"
+          >
             {{ entry.message }}
           </span>
         </QItemLabel>

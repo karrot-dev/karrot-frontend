@@ -41,6 +41,7 @@
       <div
         v-for="offer in offers"
         :key="offer.id"
+        v-measure
         class="col-md-4 col-6"
       >
         <RouterLink :to="detailRouteFor(offer.id)">

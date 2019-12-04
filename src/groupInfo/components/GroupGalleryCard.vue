@@ -36,7 +36,10 @@
           <div
             class="ellipsis"
           >
-            <span class="row group items-start text-h6">
+            <span
+              v-measure
+              class="row group items-start text-h6"
+            >
               {{ group.name }}
               <QIcon
                 v-if="group.isPlayground"

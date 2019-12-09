@@ -4,7 +4,7 @@
   >
     <MarkdownInput
       v-model="edit.comment"
-      class="q-mr-sm"
+      class="q-mx-sm"
       :label="$t('PICKUP_FEEDBACK.COMMENT_PLACEHOLDER')"
       @keyup.ctrl.enter="maybeSave"
     />

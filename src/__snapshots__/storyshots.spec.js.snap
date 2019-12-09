@@ -3671,7 +3671,7 @@ exports[`Storyshots Feedback PickupFeedback 1`] = `
         </div>
       </div>
       <form>
-        <div class="relative-position q-mb-sm q-mr-sm"><label for="f_80008000-8000-8000-8000-800080008000" class="q-field row no-wrap items-start q-textarea q-textarea--autogrow q-field--standard q-field--labeled q-field--with-bottom">
+        <div class="relative-position q-mb-sm q-mx-sm"><label for="f_80008000-8000-8000-8000-800080008000" class="q-field row no-wrap items-start q-textarea q-textarea--autogrow q-field--standard q-field--labeled q-field--with-bottom">
             <div class="q-field__inner relative-position col self-stretch column justify-center">
               <div tabindex="-1" class="q-field__control relative-position row no-wrap">
                 <div class="q-field__control-container col relative-position row no-wrap q-anchor--skip"><textarea tabindex="0" rows="1" aria-label="Was everything fine? Did everyone show up? Your comment here..." id="f_80008000-8000-8000-8000-800080008000" type="textarea" class="q-field__native q-placeholder" style="min-height:100px;"></textarea>

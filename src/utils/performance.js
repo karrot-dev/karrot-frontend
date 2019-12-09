@@ -73,6 +73,9 @@ function save () {
     // keepalive is to help the request still work when called in the "unload" event
     // See https://fetch.spec.whatwg.org/#request-keepalive-flag
     keepalive: true,
+    // without this mode set, chrome will attempt a preflight (cors) request, but fails with:
+    // "Preflight request for request with keepalive specified is currently not supported"
+    mode: 'same-origin',
     headers: {
       'Content-Type': 'application/json',
       [axios.defaults.xsrfHeaderName]: readCookie(axios.defaults.xsrfCookieName),

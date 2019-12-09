@@ -80,7 +80,7 @@
     "@babel/plugin-transform-modules-commonjs": "^7.7.4",
     "@babel/plugin-transform-runtime": "^7.7.4",
     "@babel/preset-env": "7.7.4",
-    "@babel/runtime": "^7.7.4",
+    "@babel/runtime": "^7.7.6",
     "@babel/runtime-corejs3": "^7.7.4",
     "@octokit/rest": "^16.35.0",
     "@sentry/cli": "^1.49.0",

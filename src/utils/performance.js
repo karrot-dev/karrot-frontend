@@ -91,10 +91,10 @@ function finish () {
   if (!firstMeaningfulMount) return
   pendingStats.push({
     ...currentStat,
-    ms: firstMeaningfulMount && firstMeaningfulMount.duration,
-    msResources: performance
+    ms: Math.round(firstMeaningfulMount.duration),
+    msResources: Math.round(performance
       .getEntriesByType('resource')
-      .reduce((total, entry) => total + entry.duration, 0),
+      .reduce((total, entry) => total + entry.duration, 0)),
     loggedIn: datastore.getters['auth/isLoggedIn'],
     group: datastore.getters['currentGroup/id'],
     routeName: router.currentRoute.name,

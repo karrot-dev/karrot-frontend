@@ -4334,7 +4334,10 @@ exports[`Storyshots GroupGallery signup view 1`] = `
     </div>
     <p class="text-primary header">
       Which group do you want to join?
-    </p>
+      or
+      <a class="underline text-lowercase">
+        Create new group
+      </a></p>
     <div class="row items-start no-wrap q-mt-md">
       <div class="col"><label for="f_80008000-8000-8000-8000-800080008000" class="q-field row no-wrap items-start q-pl-sm q-input q-field--filled q-field--dense">
           <div class="q-field__inner relative-position col self-stretch column justify-center">
@@ -4719,7 +4722,10 @@ exports[`Storyshots GroupGallery switch and explore 1`] = `
     </div>
     <p class="text-primary header">
       Which group do you want to join?
-    </p>
+      or
+      <a class="underline text-lowercase">
+        Create new group
+      </a></p>
     <div>
       <div><object tabindex="-1" type="text/html" data="about:blank" aria-hidden="true" style="display:block;position:absolute;top:0;left:0;right:0;bottom:0;height:100%;width:100%;overflow:hidden;pointer-events:none;z-index:-1;"></object>
         <div class="inline-block" style="width:100%;">

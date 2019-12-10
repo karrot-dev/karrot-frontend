@@ -40,6 +40,13 @@
         class="text-primary header"
       >
         {{ $t('JOINGROUP.WHICHGROUP') }}
+        or
+        <router-link
+          :to="{ name: 'groupCreate' }"
+          class="underline text-lowercase"
+        >
+          {{ $t('GROUP.CREATE_TITLE') }}
+        </router-link>
       </p>
       <div class="row items-start no-wrap q-mt-md">
         <div class="col">
@@ -104,6 +111,13 @@
         class="text-primary header"
       >
         {{ $t('JOINGROUP.WHICHGROUP') }}
+        or
+        <router-link
+          :to="{ name: 'groupCreate' }"
+          class="underline text-lowercase"
+        >
+          {{ $t('GROUP.CREATE_TITLE') }}
+        </router-link>
       </p>
       <div v-if="hasOtherGroupsToShow">
         <GroupGalleryCards

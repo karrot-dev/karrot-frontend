@@ -39,7 +39,19 @@
         v-if="!hasJoinedGroups"
         class="text-primary header"
       >
-        {{ $t('JOINGROUP.WHICHGROUP') }}
+        <i18n path="JOINGROUP.OR">
+          <template #joinGroup>
+            {{ $t('JOINGROUP.WHICHGROUP') }}
+          </template>
+          <template #createGroup>
+            <router-link
+              :to="{ name: 'groupCreate' }"
+              class="underline text-lowercase"
+            >
+              {{ $t('GROUP.CREATE_TITLE') }}
+            </router-link>
+          </template>
+        </i18n>
       </p>
       <div class="row items-start no-wrap q-mt-md">
         <div class="col">
@@ -103,7 +115,19 @@
         v-if="hasJoinedGroups && hasOtherGroupsToShow"
         class="text-primary header"
       >
-        {{ $t('JOINGROUP.WHICHGROUP') }}
+        <i18n path="JOINGROUP.OR">
+          <template #joinGroup>
+            {{ $t('JOINGROUP.WHICHGROUP') }}
+          </template>
+          <template #createGroup>
+            <router-link
+              :to="{ name: 'groupCreate' }"
+              class="underline text-lowercase"
+            >
+              {{ $t('GROUP.CREATE_TITLE') }}
+            </router-link>
+          </template>
+        </i18n>
       </p>
       <div v-if="hasOtherGroupsToShow">
         <GroupGalleryCards

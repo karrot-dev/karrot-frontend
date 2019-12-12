@@ -254,6 +254,7 @@
   },
   "JOINGROUP": {
     "WHICHGROUP": "आपण कोणत्या गटात सामील होऊ इच्छिता?",
+    "OR": "{joinGroup} or {createGroup}",
     "NUM_MEMBERS": "सभासद | सदस्य",
     "NO_PUBLIC_DESCRIPTION": "(या गटाचे सार्वजनिक वर्णन नाही ...)",
     "ALL_GROUPS": "सर्व गट",

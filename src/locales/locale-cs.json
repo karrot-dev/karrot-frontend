@@ -254,6 +254,7 @@
   },
   "JOINGROUP": {
     "WHICHGROUP": "Ke které skupině se chcete přihlásit?",
+    "OR": "{joinGroup} or {createGroup}",
     "NUM_MEMBERS": "Člen | Členů",
     "NO_PUBLIC_DESCRIPTION": "(Tato skupina zatím nemá veřejný popis ...)",
     "ALL_GROUPS": "Všechny skupiny",

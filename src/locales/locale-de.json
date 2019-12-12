@@ -254,6 +254,7 @@
   },
   "JOINGROUP": {
     "WHICHGROUP": "Welcher Gruppe möchtest du beitreten?",
+    "OR": "{joinGroup} or {createGroup}",
     "NUM_MEMBERS": "Mitglied | Mitglieder",
     "NO_PUBLIC_DESCRIPTION": "(Diese Gruppe hat bisher keine Beschreibung)",
     "ALL_GROUPS": "Alle Gruppen",

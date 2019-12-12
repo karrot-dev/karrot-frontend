@@ -254,6 +254,7 @@
   },
   "JOINGROUP": {
     "WHICHGROUP": "તમે કઈ જૂથમાં જોડાવા માંગો છો?",
+    "OR": "{joinGroup} or {createGroup}",
     "NUM_MEMBERS": "સભ્ય | સભ્યો",
     "NO_PUBLIC_DESCRIPTION": "(આ જૂથમાં હજી કોઈ જાહેર વર્ણન નથી ...)",
     "ALL_GROUPS": "બધા જૂથો",

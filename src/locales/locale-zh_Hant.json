@@ -254,6 +254,7 @@
   },
   "JOINGROUP": {
     "WHICHGROUP": "你想要加入哪一個社團？",
+    "OR": "{joinGroup} or {createGroup}",
     "NUM_MEMBERS": "成員 | 成員",
     "NO_PUBLIC_DESCRIPTION": "(此社團尚未建立公開的描述)",
     "ALL_GROUPS": "所有社團",

@@ -254,6 +254,7 @@
   },
   "JOINGROUP": {
     "WHICHGROUP": "Vilken grupp vill du gå med i?",
+    "OR": "{joinGroup} or {createGroup}",
     "NUM_MEMBERS": "Medlem | Medlemmar",
     "NO_PUBLIC_DESCRIPTION": "(Denna grupp har ingen publik beskrivning än..)",
     "ALL_GROUPS": "Alla grupper",

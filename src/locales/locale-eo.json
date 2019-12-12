@@ -254,6 +254,7 @@
   },
   "JOINGROUP": {
     "WHICHGROUP": "Al kiu grupo vi volas aliĝi?",
+    "OR": "{joinGroup} or {createGroup}",
     "NUM_MEMBERS": "Ano | Anoj",
     "NO_PUBLIC_DESCRIPTION": "(Ĉi tiu grupo havas neniun priskribon… ankoraŭ)",
     "ALL_GROUPS": "Ĉiuj grupoj",

@@ -254,6 +254,7 @@
   },
   "JOINGROUP": {
     "WHICHGROUP": "आप किस समूह में शामिल होना चाहते हैं?",
+    "OR": "{joinGroup} or {createGroup}",
     "NUM_MEMBERS": "सदस्य ",
     "NO_PUBLIC_DESCRIPTION": "(इस समूह में कोई सार्वजनिक विवरण नहीं है ... फिर भी)",
     "ALL_GROUPS": "सभी समूह",

@@ -58,7 +58,7 @@
           >
             <span class="q-mr-xs">+</span>
             <img
-              src="./twemoji-carrot.png"
+              :src="trustIcon"
               width="20px"
             >
           </QBtn>
@@ -73,6 +73,7 @@ import { mapGetters } from 'vuex'
 import ProfilePicture from '@/users/components/ProfilePicture'
 import CircleProgress from '@/utils/components/CircleProgress'
 import TrustInfo from '@/users/components/TrustInfo'
+import twemojiCarrot from './twemoji-carrot.png'
 
 import {
   QBtn,
@@ -186,6 +187,9 @@ export default {
       return this.$t('USERDATA.NEWCOMER') + ' - ' + this.$t('USERDATA.TRUST_PROGRESS_TEXT', { trustNeeded: this.trustNeeded })
     },
   },
+  created () {
+    this.trustIcon = twemojiCarrot
+  },
   methods: {
     showCreateTrustDialog () {
       Dialog.create({
@@ -203,7 +207,7 @@ export default {
 .karrot-button >>> .q-btn__content
   min-width 100%
   min-height 100%
-  background-image url('twemoji-carrot.png')
+  background-image url('./twemoji-carrot.png')
   background-repeat no-repeat
   background-position center
   background-size 60%

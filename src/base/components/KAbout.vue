@@ -1,7 +1,7 @@
 <template>
   <div
     class="bg-white q-pa-md"
-    @click.native="$emit('close')"
+    @click="$emit('close')"
   >
     <div class="layout-padding">
       <div class="k-logo-container">

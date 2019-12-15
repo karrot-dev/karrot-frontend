@@ -9,6 +9,7 @@ exports[`Storyshots AddressPicker Default 1`] = `
           <div placeholder="Search" class="q-field__native row items-center"><input type="search" placeholder="Search" tabindex="0" id="f_80008000-8000-8000-8000-800080008000" value="" class="q-select__input q-placeholder col q-select__input--padding"></div>
           <div class="q-field__label no-pointer-events absolute ellipsis"></div>
         </div>
+        <div class="q-field__append q-field__marginal row no-wrap items-center"></div>
       </div>
       <div class="q-field__bottom row items-start q-field__bottom--animated">
         <div class="q-field__messages col"></div>
@@ -4250,7 +4251,7 @@ It would make sense if it was markdown
                   <div placeholder="Search" class="q-field__native row items-center"><input type="search" placeholder="Search" tabindex="0" id="f_80008000-8000-8000-8000-800080008000" value="Darmstadt, Regierungsbezirk Darmstadt, Hessen, Deutschland" class="q-select__input q-placeholder col q-select__input--padding"></div>
                   <div class="q-field__label no-pointer-events absolute ellipsis">Address</div>
                 </div>
-                <div class="q-field__append q-field__marginal row no-wrap items-center q-anchor--skip"><i aria-hidden="true" class="material-icons q-icon cursor-pointer">cancel</i></div>
+                <div class="q-field__append q-field__marginal row no-wrap items-center"><i aria-hidden="true" class="material-icons q-icon cursor-pointer">cancel</i></div>
               </div>
               <div class="q-field__bottom row items-start q-field__bottom--animated">
                 <div class="q-field__messages col"></div>
@@ -10277,6 +10278,7 @@ exports[`Storyshots Places PlaceEdit (with server error) 1`] = `
                   <div placeholder="Search" class="q-field__native row items-center"><input type="search" placeholder="Search" tabindex="0" id="f_80008000-8000-8000-8000-800080008000" value="" class="q-select__input q-placeholder col q-select__input--padding"></div>
                   <div class="q-field__label no-pointer-events absolute ellipsis">Address</div>
                 </div>
+                <div class="q-field__append q-field__marginal row no-wrap items-center"></div>
               </div>
               <div class="q-field__bottom row items-start q-field__bottom--animated">
                 <div class="q-field__messages col"></div>
@@ -10415,6 +10417,7 @@ exports[`Storyshots Places PlaceEdit 1`] = `
                   <div placeholder="Search" class="q-field__native row items-center"><input type="search" placeholder="Search" tabindex="0" id="f_80008000-8000-8000-8000-800080008000" value="" class="q-select__input q-placeholder col q-select__input--padding"></div>
                   <div class="q-field__label no-pointer-events absolute ellipsis">Address</div>
                 </div>
+                <div class="q-field__append q-field__marginal row no-wrap items-center"></div>
               </div>
               <div class="q-field__bottom row items-start q-field__bottom--animated">
                 <div class="q-field__messages col"></div>
@@ -10998,7 +11001,7 @@ exports[`Storyshots Settings Page Default 1`] = `
                     <div placeholder="Search" class="q-field__native row items-center"><input type="search" placeholder="Search" tabindex="0" id="f_80008000-8000-8000-8000-800080008000" value="Darmstadt, Regierungsbezirk Darmstadt, Hessen, Deutschland" class="q-select__input q-placeholder col q-select__input--padding"></div>
                     <div class="q-field__label no-pointer-events absolute ellipsis">Where you are from (not required)</div>
                   </div>
-                  <div class="q-field__append q-field__marginal row no-wrap items-center q-anchor--skip"><i aria-hidden="true" class="material-icons q-icon cursor-pointer">cancel</i></div>
+                  <div class="q-field__append q-field__marginal row no-wrap items-center"><i aria-hidden="true" class="material-icons q-icon cursor-pointer">cancel</i></div>
                 </div>
                 <div class="q-field__bottom row items-start q-field__bottom--animated">
                   <div class="q-field__messages col"></div>

@@ -3,7 +3,6 @@
     <QSelect
       use-input
       fill-input
-      clearable
       hide-dropdown-icon
       :label="label"
       :error="error"
@@ -19,6 +18,14 @@
         <QIcon :name="icon" />
       </template>
       <template #selected-item />
+      <template #append>
+        <QIcon
+          v-if="hasLocation || value.address"
+          name="cancel"
+          class="cursor-pointer"
+          @click="reset"
+        />
+      </template>
       <template #option="{ index, itemProps, itemEvents, opt: { label: itemLabel, useSearchTerm } }">
         <QItem
           :key="index"

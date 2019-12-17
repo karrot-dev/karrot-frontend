@@ -206,7 +206,7 @@ export default {
       state.id = value
     },
     set (state, group) {
-      state.current = group
+      state.current = Object.freeze(group)
     },
     clear (state) {
       Object.assign(state, initialState())

@@ -1,4 +1,3 @@
-import Vue from 'vue'
 import pickupSeries from '@/pickups/api/pickupSeries'
 import { createMetaModule, withMeta, metaStatusesWithId, metaStatuses, indexById } from '@/utils/datastore/helpers'
 
@@ -87,16 +86,19 @@ export default {
   },
   mutations: {
     set (state, list) {
-      state.entries = indexById(list)
+      state.entries = Object.freeze(indexById(list))
     },
     clearList (state) {
       state.entries = {}
     },
     update (state, seriesList) {
-      state.entries = { ...state.entries, ...indexById(seriesList) }
+      state.entries = Object.freeze({ ...state.entries, ...indexById(seriesList) })
     },
     delete (state, seriesId) {
-      if (state.entries[seriesId]) Vue.delete(state.entries, seriesId)
+      if (!state.entries[seriesId]) return
+      const { [seriesId]: _, ...rest } = state.entries
+      Object.freeze(rest)
+      state.entries = rest
     },
   },
 }

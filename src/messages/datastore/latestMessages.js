@@ -208,7 +208,7 @@ export default {
       Object.assign(state, initialState())
     },
     updateConversations (state, conversations) {
-      state.conversations = { ...state.conversations, ...indexById(conversations) }
+      state.conversations = Object.freeze({ ...state.conversations, ...indexById(conversations) })
     },
     updateConversationMessages (state, messages) {
       for (const message of messages) {
@@ -217,7 +217,7 @@ export default {
         Vue.set(
           state.conversationMessages,
           conversationId,
-          stateMessages ? insertSorted(stateMessages, [message]) : [message],
+          Object.freeze(stateMessages ? insertSorted(stateMessages, [message]) : [message]),
         )
       }
     },
@@ -225,7 +225,7 @@ export default {
       state.conversationsCursor = cursor
     },
     updateThreads (state, threads) {
-      state.threads = { ...state.threads, ...indexById(threads) }
+      state.threads = Object.freeze({ ...state.threads, ...indexById(threads) })
     },
     updateThreadMessages (state, messages) {
       for (const message of messages) {
@@ -234,20 +234,21 @@ export default {
         Vue.set(
           state.threadMessages,
           threadId,
-          stateMessages ? insertSorted(stateMessages, [message]) : [message],
+          Object.freeze(stateMessages ? insertSorted(stateMessages, [message]) : [message]),
         )
       }
     },
     updateRelated (state, { type, items }) {
-      Vue.set(state.related, type, { ...state.related[type], ...indexById(items) })
+      Vue.set(state.related, type, Object.freeze({ ...state.related[type], ...indexById(items) }))
     },
     deleteRelated (state, { type, ids }) {
       if (!state.related[type]) return
-      for (const id of ids) {
-        Vue.delete(state.related[type], id)
-      }
-      if (Object.keys(state.related[type]).length === 0) {
+      const rest = Object.fromEntries(Object.entries(state.related[type]).filter(([k, _]) => !ids.include(k)))
+      if (rest.length === 0) {
         Vue.delete(state.related, type)
+      }
+      else {
+        Vue.set(state.related, type, rest)
       }
     },
     setThreadsCursor (state, cursor) {

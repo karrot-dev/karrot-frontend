@@ -1,4 +1,3 @@
-import Vue from 'vue'
 import pickups from '@/pickups/api/pickups'
 import { createMetaModule, withMeta, isValidationError, withPrefixedIdMeta, metaStatusesWithId, metaStatuses, indexById } from '@/utils/datastore/helpers'
 import addDays from 'date-fns/addDays'
@@ -80,20 +79,18 @@ export default {
       async fetch ({ commit }, pickupId) {
         commit('update', [await pickups.get(pickupId)])
       },
-      async join ({ commit, dispatch, rootGetters }, pickupId) {
+      async join ({ dispatch }, pickupId) {
         try {
           await pickups.join(pickupId)
-          commit('join', { pickupId, userId: rootGetters['auth/userId'] })
         }
         catch (error) {
           if (isValidationError(error)) dispatch('fetch', pickupId)
           throw error
         }
       },
-      async leave ({ commit, dispatch, rootGetters }, pickupId) {
+      async leave ({ dispatch }, pickupId) {
         try {
           await pickups.leave(pickupId)
-          commit('leave', { pickupId, userId: rootGetters['auth/userId'] })
         }
         catch (error) {
           if (isValidationError(error)) dispatch('fetch', pickupId)
@@ -145,25 +142,20 @@ export default {
     },
     clearUpcomingForPlace (state, placeId) {
       const now = new Date()
-      Object.values(state.entries)
-        .filter(pickup => pickup.place === placeId && pickup.date >= now)
-        .forEach(pickup => Vue.delete(state.entries, pickup.id))
+      const rest = Object.fromEntries(Object.entries(state.entries)
+        .filter(pickup => !(pickup.place === placeId && pickup.date >= now)))
+      Object.freeze(rest)
+      state.entries = rest
     },
     update (state, pickups) {
-      state.entries = { ...state.entries, ...indexById(pickups) }
+      state.entries = Object.freeze({ ...state.entries, ...indexById(pickups) })
     },
     delete (state, pickupId) {
-      if (state.entries[pickupId]) Vue.delete(state.entries, pickupId)
-    },
-    join (state, { pickupId, userId }) {
-      const { collectors } = state.entries[pickupId]
-      if (collectors.includes(userId)) return
-      collectors.push(userId)
-    },
-    leave (state, { pickupId, userId }) {
-      const { collectors } = state.entries[pickupId]
-      const idx = collectors.indexOf(userId)
-      if (idx !== -1) collectors.splice(idx, 1)
+      if (state.entries[pickupId]) {
+        const { [pickupId]: _, ...rest } = state.entries
+        Object.freeze(rest)
+        state.entries = rest
+      }
     },
   },
 }

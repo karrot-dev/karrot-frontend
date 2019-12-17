@@ -1,4 +1,3 @@
-import Vue from 'vue'
 import offers from '@/offers/api/offers'
 import {
   createMetaModule,
@@ -127,10 +126,13 @@ export default {
       Object.assign(state, initialState())
     },
     update (state, offers) {
-      state.entries = { ...state.entries, ...indexById(offers) }
+      state.entries = Object.freeze({ ...state.entries, ...indexById(offers) })
     },
     delete (state, id) {
-      if (state.entries[id]) Vue.delete(state.entries, id)
+      if (!state.entries[id]) return
+      const { [id]: _, ...rest } = state.entries
+      Object.freeze(rest)
+      state.entries = rest
     },
     setFilter (state, data) {
       state.entries = {}

@@ -149,16 +149,16 @@ export default {
       state.activePlaceId = null
     },
     set (state, places) {
-      state.entries = indexById(places)
+      state.entries = Object.freeze(indexById(places))
     },
     clear (state) {
       Object.assign(state, initialState())
     },
     update (state, places) {
-      state.entries = { ...state.entries, ...indexById(places) }
+      state.entries = Object.freeze({ ...state.entries, ...indexById(places) })
     },
     setStatistics (state, { id, data }) {
-      Vue.set(state.statistics, id, data)
+      Vue.set(state.statistics, id, Object.freeze(data))
     },
   },
 }

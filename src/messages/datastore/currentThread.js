@@ -131,7 +131,7 @@ export default {
       state.id = id
     },
     setThread (state, thread) {
-      state.thread = thread
+      state.thread = Object.freeze(thread)
     },
     setMuted (state, muted) {
       state.thread.muted = muted
@@ -139,10 +139,10 @@ export default {
     update (state, messages) {
       const stateMessages = state.messages
       if (!stateMessages) {
-        state.messages = messages
+        state.messages = Object.freeze(messages)
         return
       }
-      state.messages = insertSorted(stateMessages, messages, true)
+      state.messages = Object.freeze(insertSorted(stateMessages, messages, true))
     },
     clear (state) {
       Object.assign(state, initialState())

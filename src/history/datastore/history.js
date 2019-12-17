@@ -91,10 +91,10 @@ export default {
       state.activeId = id
     },
     update (state, entries) {
-      state.entries = {
+      state.entries = Object.freeze({
         ...state.entries,
         ...indexById(entries),
-      }
+      })
     },
     clear (state) {
       Object.assign(state, initialState())

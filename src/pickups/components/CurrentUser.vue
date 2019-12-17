@@ -15,9 +15,11 @@
       :style="{ 'font-size': size*0.8 + 'px' }"
       :title="$t('PICKUPLIST.ITEM.LEAVE')"
     >
-      <i
-        class="fas fa-fw fa-times"
-      />
+      <div class="absolute-center">
+        <i
+          class="fas fa-fw fa-times"
+        />
+      </div>
     </div>
   </div>
 </template>
@@ -53,15 +55,11 @@ export default {
   cursor pointer
 
   .leave-icon
-    padding-top 2px
     color $negative
     text-align center
     visibility hidden
     border 2px dashed
     border-radius 0
-
-    i
-      display inline
 
 .user-slot-wrapper:hover
   .leave-icon

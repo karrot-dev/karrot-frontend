@@ -8698,7 +8698,9 @@ exports[`Storyshots PickupItem joined 1`] = `
               <div class="wrapper profile-picture" style="width:36px;height:36px;">
                 <div text="User 123" seed="123" class="randomArt fill"></div>
               </div>
-              <div title="Leave" class="absolute-full leave-icon vertical-top" style="font-size:28.8px;"><i class="fas fa-fw fa-times"></i></div>
+              <div title="Leave" class="absolute-full leave-icon vertical-top" style="font-size:28.8px;">
+                <div class="absolute-center"><i class="fas fa-fw fa-times"></i></div>
+              </div>
             </div>
           </div>
           <!---->
@@ -8897,7 +8899,9 @@ exports[`Storyshots PickupList Default 1`] = `
                 <div class="wrapper profile-picture" style="width:36px;height:36px;">
                   <div text="Current User" seed="5" class="randomArt fill"></div>
                 </div>
-                <div title="Leave" class="absolute-full leave-icon vertical-top" style="font-size:28.8px;"><i class="fas fa-fw fa-times"></i></div>
+                <div title="Leave" class="absolute-full leave-icon vertical-top" style="font-size:28.8px;">
+                  <div class="absolute-center"><i class="fas fa-fw fa-times"></i></div>
+                </div>
               </div>
             </div>
             <!---->
@@ -9930,7 +9934,9 @@ exports[`Storyshots PickupUsers leavable (current first) 1`] = `
       <div class="wrapper profile-picture" style="width:36px;height:36px;">
         <div text="Current User" seed="5" class="randomArt fill"></div>
       </div>
-      <div title="Leave" class="absolute-full leave-icon vertical-top" style="font-size:28.8px;"><i class="fas fa-fw fa-times"></i></div>
+      <div title="Leave" class="absolute-full leave-icon vertical-top" style="font-size:28.8px;">
+        <div class="absolute-center"><i class="fas fa-fw fa-times"></i></div>
+      </div>
     </div>
   </div>
   <div class="relative-position pic-wrapper">
@@ -9971,7 +9977,9 @@ exports[`Storyshots PickupUsers leavable (current last) 1`] = `
       <div class="wrapper profile-picture" style="width:36px;height:36px;">
         <div text="Current User" seed="5" class="randomArt fill"></div>
       </div>
-      <div title="Leave" class="absolute-full leave-icon vertical-top" style="font-size:28.8px;"><i class="fas fa-fw fa-times"></i></div>
+      <div title="Leave" class="absolute-full leave-icon vertical-top" style="font-size:28.8px;">
+        <div class="absolute-center"><i class="fas fa-fw fa-times"></i></div>
+      </div>
     </div>
   </div>
   <!---->
@@ -9994,7 +10002,9 @@ exports[`Storyshots PickupUsers leavable (current middle) 1`] = `
       <div class="wrapper profile-picture" style="width:36px;height:36px;">
         <div text="Current User" seed="5" class="randomArt fill"></div>
       </div>
-      <div title="Leave" class="absolute-full leave-icon vertical-top" style="font-size:28.8px;"><i class="fas fa-fw fa-times"></i></div>
+      <div title="Leave" class="absolute-full leave-icon vertical-top" style="font-size:28.8px;">
+        <div class="absolute-center"><i class="fas fa-fw fa-times"></i></div>
+      </div>
     </div>
   </div>
   <div class="relative-position pic-wrapper">

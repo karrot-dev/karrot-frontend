@@ -2,8 +2,10 @@ import { createLocalVue, mount } from '@vue/test-utils'
 import { nextTicks } from '>/helpers'
 import createMockModules from '>/createMockModules'
 
+const mockJoin = jest.fn()
+
 jest.mock('@/group/api/groups', () => ({
-  join: jest.fn(),
+  join: mockJoin,
 }))
 
 jest.mock('@/base/router', () => {
@@ -146,7 +148,7 @@ describe('main routes', () => {
 
       await nextTicks(2)
 
-      expect(group.members).toContain(user.id)
+      expect(mockJoin).toBeCalledWith(group.id)
 
       expect(routedPaths).toEqual([
         '/groupPreview',

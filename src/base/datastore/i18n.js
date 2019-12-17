@@ -60,7 +60,7 @@ export default {
   },
   mutations: {
     set (state, locale) {
-      state.locale = locale
+      state.locale = Object.freeze(locale)
     },
   },
 }

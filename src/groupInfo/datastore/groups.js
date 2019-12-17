@@ -69,13 +69,11 @@ export default {
 
       async join ({ commit, rootGetters }, groupId) {
         await groups.join(groupId)
-        commit('join', { groupId, userId: rootGetters['auth/userId'] })
         router.push({ name: 'group', params: { groupId } }).catch(() => {})
       },
 
       async leave ({ commit, dispatch, getters, rootGetters }, groupId) {
         await groups.leave(groupId)
-        commit('leave', { groupId, userId: rootGetters['auth/userId'] })
         dispatch('toasts/show', {
           message: 'GROUP.LEAVE_CONFIRMATION',
           messageParams: { groupName: getters.get(groupId).name },
@@ -126,19 +124,10 @@ export default {
       state.activePreviewId = previewId
     },
     set (state, groups) {
-      state.entries = indexById(groups)
+      state.entries = Object.freeze(indexById(groups))
     },
     update (state, groups) {
-      state.entries = { ...state.entries, ...indexById(groups) }
-    },
-    join (state, { groupId, userId }) {
-      const { members } = state.entries[groupId]
-      if (!members.includes(userId)) members.push(userId)
-    },
-    leave (state, { groupId, userId }) {
-      const { members } = state.entries[groupId]
-      const idx = members.indexOf(userId)
-      if (idx !== -1) members.splice(idx, 1)
+      state.entries = Object.freeze({ ...state.entries, ...indexById(groups) })
     },
   },
 }

@@ -466,14 +466,14 @@ export default {
       Vue.set(
         state.messages,
         conversationId,
-        stateMessages ? insertSorted(stateMessages, messages) : messages,
+        Object.freeze(stateMessages ? insertSorted(stateMessages, messages) : messages),
       )
     },
     setCursor (state, { conversationId, cursor }) {
       Vue.set(state.cursors, conversationId, cursor)
     },
     setConversation (state, conversation) {
-      Vue.set(state.entries, conversation.id, conversation)
+      Vue.set(state.entries, conversation.id, Object.freeze(conversation))
     },
   },
 }

@@ -1,4 +1,3 @@
-import Vue from 'vue'
 import invitations from '@/invitations/api/invitations'
 import router from '@/base/router'
 import { createMetaModule, withMeta, metaStatuses, indexById } from '@/utils/datastore/helpers'
@@ -139,10 +138,12 @@ export default {
   },
   mutations: {
     update (state, invitations) {
-      state.entries = { ...state.entries, ...indexById(invitations) }
+      state.entries = Object.freeze({ ...state.entries, ...indexById(invitations) })
     },
     delete (state, id) {
-      Vue.delete(state.entries, id)
+      const { [id]: _, ...rest } = state.entries
+      Object.freeze(rest)
+      state.entries = rest
     },
     clear (state) {
       Object.assign(state, initialState())

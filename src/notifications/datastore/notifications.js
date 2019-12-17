@@ -1,4 +1,3 @@
-import Vue from 'vue'
 import { createMetaModule, createPaginationModule, indexById, withMeta } from '@/utils/datastore/helpers'
 import notificationsAPI from '@/notifications/api/notifications'
 import reactiveNow from '@/utils/reactiveNow'
@@ -106,13 +105,15 @@ export default {
       state.pageVisible = visible
     },
     setEntryMeta (state, data) {
-      state.entryMeta = data
+      state.entryMeta = Object.freeze(data)
     },
     update (state, entries) {
-      state.entries = { ...state.entries, ...indexById(entries) }
+      state.entries = Object.freeze({ ...state.entries, ...indexById(entries) })
     },
     delete (state, id) {
-      Vue.delete(state.entries, id)
+      const { [id]: _, ...rest } = state.entries
+      Object.freeze(rest)
+      state.entries = rest
     },
     clear (state) {
       Object.assign(state, initialState())

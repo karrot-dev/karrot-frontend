@@ -202,7 +202,7 @@ export default {
   },
   mutations: {
     setUser (state, user) {
-      state.user = user
+      state.user = Object.freeze(user)
     },
 
     // Redirect
@@ -238,7 +238,7 @@ export default {
     },
 
     setFailedEmailDeliveries (state, events) {
-      state.failedEmailDeliveries = events
+      state.failedEmailDeliveries = Object.freeze(events)
     },
 
     setMaybeLoggedOut (state, value) {

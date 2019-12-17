@@ -68,14 +68,14 @@ export default {
       state.id = value
     },
     set (state, offer) {
-      state.current = offer
+      state.current = Object.freeze(offer)
     },
     clear (state) {
       Object.assign(state, initialState())
     },
     update (state, offer) {
       if (state.id === offer.id) {
-        state.current = offer
+        state.current = Object.freeze(offer)
       }
     },
     delete (state, offerId) {

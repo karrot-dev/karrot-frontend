@@ -1,5 +1,4 @@
 import router from '@/base/router'
-import Vue from 'vue'
 import issuesAPI from '@/issues/api/issues'
 import { createMetaModule, createPaginationModule, withMeta, metaStatuses, indexById } from '@/utils/datastore/helpers'
 
@@ -117,14 +116,15 @@ export default {
       state.currentId = issueId
     },
     update (state, issues) {
-      state.entries = { ...state.entries, ...indexById(issues) }
+      state.entries = Object.freeze({ ...state.entries, ...indexById(issues) })
     },
     clear (state) {
       Object.assign(state, initialState())
     },
     clearForGroup (state, groupId) {
-      const toClear = Object.entries(state.entries).filter(([_, v]) => v.group === groupId).map(([k]) => k)
-      toClear.forEach(idx => Vue.delete(state.entries, idx))
+      const rest = Object.fromEntries(Object.entries(state.entries).filter(([_, v]) => v.group !== groupId))
+      Object.freeze(rest)
+      state.entries = rest
     },
   },
 }

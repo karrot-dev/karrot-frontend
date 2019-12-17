@@ -159,13 +159,13 @@ export default {
   },
   mutations: {
     setProfile (state, userProfile) {
-      state.activeUserProfile = userProfile
+      state.activeUserProfile = Object.freeze(userProfile)
     },
     setProfileId (state, id) {
       state.activeUserProfileId = id
     },
     update (state, users) {
-      state.entries = { ...state.entries, ...indexById(users) }
+      state.entries = Object.freeze({ ...state.entries, ...indexById(users) })
     },
     resendVerificationCodeSuccess (state, status) {
       Vue.set(state, 'resendVerificationCodeSuccess', status)

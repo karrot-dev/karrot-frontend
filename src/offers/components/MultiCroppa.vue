@@ -243,5 +243,6 @@ export default {
 
 <style scoped lang="stylus">
 .new-image >>> canvas
+  cursor pointer
   border 1px solid #ddd
 </style>

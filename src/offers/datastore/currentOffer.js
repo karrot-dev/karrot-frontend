@@ -54,6 +54,10 @@ export default {
     },
     ...withMeta({
       async select ({ dispatch, commit }, { offerId }) {
+        // clear right drawer
+        // TODO can be removed once detail are bound to routes
+        dispatch('detail/clear', null, { root: true })
+
         await dispatch('fetch', offerId)
         dispatch('conversations/fetchForOffer', { offerId }, { root: true })
       },

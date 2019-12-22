@@ -6,7 +6,7 @@
     "NOT_CONNECTED": "Nejste připojeni k serveru",
     "INVALID_LINK": "Litujeme, odkaz, který jste otevřeli, je neplatný.",
     "GENERIC_ERROR": "Promiňte, něco se pokazilo",
-    "SEARCH_RESULTS": "Search results",
+    "SEARCH_RESULTS": "Výsledky vyhledávání",
     "SEARCH_NOT_FOUND": "Nenalezeno",
     "ABOUT_KARROT": "O Karrot"
   },
@@ -103,7 +103,7 @@
     "REQUIRED": "Toto pole je povinné.",
     "VALID_EMAIL": "Zadejte platnou e-mailovou adresu.",
     "VALID_TIMEZONE": "Zadejte platné časové pásmo.",
-    "IMAGE_REQUIRED": "You must add an image"
+    "IMAGE_REQUIRED": "Musíte přidat obrázek"
   },
   "GROUP": {
     "WALL": "Zeď",
@@ -126,7 +126,7 @@
     "APPLICATION_QUESTIONS": "Otázky pro lidi, kteří se chtějí připojit k této skupině",
     "PICKUPS": "Vyzvednutí",
     "MESSAGES": "Zprávy",
-    "OFFERS": "Offers",
+    "OFFERS": "Nabídky",
     "PICKUP": "Vyzvednutí",
     "MEMBERS": "Členové",
     "JOINED": "připojen {relativeDate}",
@@ -169,8 +169,8 @@
         "DESCRIPTION": "Oznámí vám, když se někdo chce připojit k vaší skupině"
       },
       "new_offer": {
-        "NAME": "New offers",
-        "DESCRIPTION": "Tells you when somebody creates a new offer"
+        "NAME": "Nové nabídky",
+        "DESCRIPTION": "Oznámí  vám, když někdo vytvoří novou nabídku"
       },
       "conflict_resolution": {
         "NAME": "Nové procesy řešení konfliktů",
@@ -254,7 +254,7 @@
   },
   "JOINGROUP": {
     "WHICHGROUP": "Ke které skupině se chcete přihlásit?",
-    "OR": "{joinGroup} or {createGroup}",
+    "OR": "{joinGroup} nebo {createGroup}",
     "NUM_MEMBERS": "Člen | Členů",
     "NO_PUBLIC_DESCRIPTION": "(Tato skupina zatím nemá veřejný popis ...)",
     "ALL_GROUPS": "Všechny skupiny",
@@ -661,26 +661,26 @@
     "NO_ONGOING": "Žádné pokračující problémy."
   },
   "OFFER": {
-    "CREATE_TITLE": "Create offer",
-    "NAME": "Name",
-    "NAME_HELPER": "Short name for the item you are offering",
-    "DESCRIPTION": "Description",
-    "MARK_AS_ACCEPTED": "Mark as accepted",
-    "MARK_AS_ACCEPTED_DESCRIPTION": "Mark this offer as accepted to show to others that it is not available any more.",
-    "MARK_AS_ARCHIVED": "Archive",
-    "MARK_AS_ARCHIVED_DESCRIPTION": "Mark this is offer as archived to remove it from the available listings.",
+    "CREATE_TITLE": "Vytvořit nabídku",
+    "NAME": "Název",
+    "NAME_HELPER": "Krátký název položky, kterou nabízíte",
+    "DESCRIPTION": "Popis",
+    "MARK_AS_ACCEPTED": "Označit jako přijaté",
+    "MARK_AS_ACCEPTED_DESCRIPTION": "Označte tuto nabídku jako přijatou, abyste ostatním ukázali, že již není k dispozici.",
+    "MARK_AS_ARCHIVED": "Archivovat",
+    "MARK_AS_ARCHIVED_DESCRIPTION": "Tuto nabídku označte jako archivovanou a odeberte ji z dostupných seznamů.",
     "FILTER": {
       "STATUS": {
-        "ACTIVE": "Available",
-        "ACCEPTED": "My accepted offers",
-        "ARCHIVED": "My archived offers"
+        "ACTIVE": "Dostupné",
+        "ACCEPTED": "Moje přijaté nabídky",
+        "ARCHIVED": "Moje archivované nabídky"
       }
     }
   },
   "ADDRESS_PICKER": {
-    "SET_AS": "Set address as",
-    "KEEP_EXISTING_LOCATION": "keep existing location on map",
-    "CHOOSE_LOCATION": "choose location on map"
+    "SET_AS": "Nastavit adresu jako",
+    "KEEP_EXISTING_LOCATION": "zachovat stávající polohu na mapě",
+    "CHOOSE_LOCATION": "zvolte umístění na mapě"
   },
   "UNSUBSCRIBE": {
     "HEADER": "Odhlásit odběr",

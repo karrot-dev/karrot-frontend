@@ -72,7 +72,7 @@ export default {
     photo () {
       if (this.user && this.user.photoUrls) {
         const p = this.user.photoUrls
-        return this.size > 120 ? p.fullSize : p.thumbnail
+        return this.size > 120 ? p['600'] : p.thumbnail
       }
       return null
     },

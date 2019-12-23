@@ -51,7 +51,7 @@
           >
             <QImg
               basic
-              :src="offer.images[0].imageUrls.fullSize"
+              :src="offer.images[0].imageUrls['600']"
               :ratio="4/3"
             />
             <QItem clickable>

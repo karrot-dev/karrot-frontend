@@ -25,7 +25,7 @@
           v-for="(image, idx) in offer.images"
           :key="image.id"
           :name="idx"
-          :img-src="image.imageUrls.fullSize"
+          :img-src="image.imageUrls['600']"
         />
       </QCarousel>
       <div

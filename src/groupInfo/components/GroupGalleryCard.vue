@@ -24,7 +24,7 @@
       >
         <img
           v-if="group.hasPhoto"
-          :src="group.photoUrls.fullSize"
+          :src="group.photoUrls['200']"
         >
         <RandomArt
           v-else
@@ -191,10 +191,9 @@ export default {
     height 160px
 
     img
+      display block
       width auto
-      max-width 100%
-      max-height 100%
-      margin 0 auto
+      height 100%
 
     .k-media-overlay
       background-color rgba(0, 0, 0, 0.47)

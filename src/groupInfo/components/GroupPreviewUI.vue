@@ -7,7 +7,7 @@
       >
         <img
           v-if="group.hasPhoto"
-          :src="group.photoUrls.fullSize"
+          :src="group.photoUrls['600']"
         >
         <RandomArt
           v-else

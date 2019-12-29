@@ -7,9 +7,6 @@ module.exports = {
     }],
   ],
   plugins: [
-    ['@babel/plugin-transform-runtime', {
-      corejs: 3,
-    }],
     // To enable tree-shaking support in quasar in production we rewrite imports
     // This changes things like `import { QBtn } from 'quasar'` into `import QBtn from 'quasar/blah/QBtn'`
     ['babel-plugin-transform-imports', {

@@ -78,10 +78,7 @@
   "devDependencies": {
     "@babel/core": "^7.7.5",
     "@babel/plugin-transform-modules-commonjs": "^7.7.5",
-    "@babel/plugin-transform-runtime": "^7.7.6",
     "@babel/preset-env": "7.7.6",
-    "@babel/runtime": "^7.7.6",
-    "@babel/runtime-corejs3": "^7.7.6",
     "@octokit/rest": "^16.35.2",
     "@sentry/cli": "^1.49.0",
     "@storybook/addon-actions": "5.2.8",

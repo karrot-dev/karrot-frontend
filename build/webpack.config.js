@@ -73,7 +73,8 @@ module.exports = {
     path: resolve(__dirname, '../dist'),
     publicPath: dev ? '/' : '',
     filename: 'assets/js/[name].[hash].js',
-    chunkFilename: 'assets/js/[id].[chunkhash].js',
+    chunkFilename: 'assets/js/[name].[contenthash].js',
+    chunkLoadTimeout: 30000, // 30 seconds
     pathinfo: false,
   },
   node: false,
@@ -182,6 +183,9 @@ module.exports = {
         },
       }),
     ] : [
+      new webpack.optimize.MinChunkSizePlugin({
+        minChunkSize: 1000,
+      }),
       new MiniCssExtractPlugin({
         filename: 'assets/css/[contenthash].css',
       }),
@@ -204,7 +208,10 @@ module.exports = {
     ],
     splitChunks: {
       chunks: 'all',
-      minChunks: 2,
+      minChunks: 1,
+      minSize: 0,
+      maxAsyncRequests: Infinity,
+      maxInitialRequests: Infinity,
       name: dev,
     },
     runtimeChunk: 'single',

@@ -1,4 +1,9 @@
-import '@/utils/performance'
+/*
+ * Entrypoint
+ *
+ * Do not import anything here that uses Quasar, as it is not configured yet. Use 'app.js' instead.
+ */
+
 import Vue from 'vue'
 import configureQuasar from 'base/configureQuasar'
 import 'base/helloDeveloper'

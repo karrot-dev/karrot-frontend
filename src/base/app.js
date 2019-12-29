@@ -1,3 +1,9 @@
+/*
+ * App startup code
+ *
+ * At this point, Quasar is configured and ready to use. (see main.js)
+ */
+
 import Vue from 'vue'
 
 import '@/base/style/app.styl'
@@ -20,6 +26,7 @@ import loadInitialData from './loadInitialData'
 
 import Root from '@/base/pages/Root'
 import '@/utils/datastore/presenceReporter'
+import '@/utils/performance'
 
 export default async function initApp () {
   Vue.use(DetectMobileKeyboardPlugin)

@@ -183,9 +183,6 @@ module.exports = {
         },
       }),
     ] : [
-      new webpack.optimize.MinChunkSizePlugin({
-        minChunkSize: 1000,
-      }),
       new MiniCssExtractPlugin({
         filename: 'assets/css/[contenthash].css',
       }),
@@ -208,10 +205,7 @@ module.exports = {
     ],
     splitChunks: {
       chunks: 'all',
-      minChunks: 1,
-      minSize: 0,
-      maxAsyncRequests: Infinity,
-      maxInitialRequests: Infinity,
+      minChunks: 2,
       name: dev,
     },
     runtimeChunk: 'single',

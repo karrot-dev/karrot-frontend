@@ -144,7 +144,7 @@
     "stylelint-webpack-plugin": "^1.1.2",
     "stylus": "^0.54.7",
     "stylus-loader": "^3.0.2",
-    "terser-webpack-plugin": "^2.3.0",
+    "terser-webpack-plugin": "^2.3.1",
     "url-loader": "^3.0.0",
     "vue-jest": "^3.0.5",
     "vue-loader": "^15.7.1",

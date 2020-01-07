@@ -6,7 +6,7 @@
     "NOT_CONNECTED": "Du är inte ansluten till servern",
     "INVALID_LINK": "Oj, länken du försöker komma åt är ogiltig.",
     "GENERIC_ERROR": "Oj, något gick fel!",
-    "SEARCH_RESULTS": "Search results",
+    "SEARCH_RESULTS": "Sökresultat",
     "SEARCH_NOT_FOUND": "Kunde inte hittas",
     "ABOUT_KARROT": "Om Karrot"
   },
@@ -14,7 +14,7 @@
     "EMAIL": "E-mail",
     "MOBILE_NUMBER": "Mobilnr.",
     "PROFILE_TITLE": "Profil",
-    "PRIVATE_MESSAGE": "Send a private message to {userName}",
+    "PRIVATE_MESSAGE": "Skicka ett privat meddelande till {userName}",
     "PASSWORD": "Lösenord",
     "CONFIRM_PASSWORD": "Bekräfta ditt lösenord",
     "USERNAME": "Namn",
@@ -59,7 +59,7 @@
     "NOT_MEMBER": "{userName} är inte en medlem i {groupName}.",
     "COMMON_GROUPS": "Gemensamma grupper",
     "OTHER_GROUPS": "Andra grupper",
-    "CHOOSE": "Choose a group:"
+    "CHOOSE": "Välj en grupp:"
   },
   "BUTTON": {
     "CREATE": "Skapa",
@@ -72,7 +72,7 @@
     "LEAVE": "Lämna",
     "PREVIEW": "Förhandsvisning",
     "BACK": "Tillbaks",
-    "NEXT": "Next",
+    "NEXT": "Nästa",
     "SEARCH": "Söka",
     "OF_COURSE": "Javisst!",
     "YES": "Ja",
@@ -103,7 +103,7 @@
     "REQUIRED": "Fältet är obligatoriskt",
     "VALID_EMAIL": "Ange giltig mejladress.",
     "VALID_TIMEZONE": "Ange giltig tidszon",
-    "IMAGE_REQUIRED": "You must add an image"
+    "IMAGE_REQUIRED": "Du måste lägga till en bild"
   },
   "GROUP": {
     "WALL": "Anslagstavla",
@@ -119,14 +119,14 @@
     "PRIVATE_DESCRIPTION_TITLE": "Privat gruppbeskrivning",
     "DESCRIPTION_VERBOSE": "Beskrivning av gruppen, endast för medlemmar",
     "PUBLIC_DESCRIPTION": "Publik Beskrivning av gruppen",
-    "WELCOMEMESSAGE_VERBOSE": "Welcome message sent to new members",
+    "WELCOMEMESSAGE_VERBOSE": "Välkomstmeddelande skickas till nya medlemmar",
     "LOGO": "Gruppens logga",
     "SET_LOGO": "Klicka för att ladda upp gruppens logotyp!",
     "APPLICATIONS": "Ansökningar",
     "APPLICATION_QUESTIONS": "Frågor till folk som vill gå med i gruppen",
     "PICKUPS": "Hämtningar",
     "MESSAGES": "Medellanden",
-    "OFFERS": "Offers",
+    "OFFERS": "Erbjudanden",
     "PICKUP": "Hämtning",
     "MEMBERS": "Medlemmar",
     "JOINED": "gick med {relativeDate}",
@@ -137,7 +137,7 @@
     "SORT_NAME": "Sortera efter namn",
     "INACTIVE": "Inaktive",
     "SHOW_INACTIVE": "Visa inaktiva grupper",
-    "PLACES": "Places",
+    "PLACES": "Platser",
     "HOME": "Hem",
     "HISTORY": "Historik",
     "DESCRIPTION": "Beskrivning",
@@ -145,15 +145,15 @@
     "TIMEZONE": "Gruppens tidszon",
     "INVITE_EMAIL": "Ange mejladress",
     "INVITE_SEND": "Skicka inbjudan",
-    "INVITE_SEND_SUCCESS": "Invitation sent successfully!",
-    "INVITE_SEND_ERROR": "Ooops, could not send the invitation!",
+    "INVITE_SEND_SUCCESS": "Inbjudan skickas framgångsrikt!",
+    "INVITE_SEND_ERROR": "Oj, jag kunde inte skicka inbjudan!",
     "INVITED_LIST": "Inbjudningar har redan skickats till följande mejladresser:",
     "INVITATIONS": "Inbjudningar",
     "INVITE_TITLE": "Bjud in folk till din grupp",
     "INVITATION_ACCEPT_SUCCESS": "Välkommen! Du har accepterat inbjudan.",
     "INVITATION_ACCEPT_ERROR": "Oj, kunde inte acceptera inbjudan!",
     "SETTINGS": "Inställningar",
-    "NOTIFICATIONS_BY_GROUP": "Notifications by group",
+    "NOTIFICATIONS_BY_GROUP": "Meddelanden per grupp",
     "EMAIL_NOTIFICATIONS": "E-mail notifikationer",
     "NOTIFICATION_TYPES": {
       "weekly_summary": {
@@ -162,19 +162,19 @@
       },
       "daily_pickup_notification": {
         "NAME": "Notifikationer om hämtningar",
-        "DESCRIPTION": "Reminds you of your pickups, and tells you about empty or not-full pickups of your favorite places in the next day"
+        "DESCRIPTION": "Påminner dig om dina pickuper och berättar om tomma eller inte fullständiga pickuper av dina favoritplatser nästa dag"
       },
       "new_application": {
         "NAME": "Nya ansökningar",
         "DESCRIPTION": "När någon vill gå med i gruppen"
       },
       "new_offer": {
-        "NAME": "New offers",
-        "DESCRIPTION": "Tells you when somebody creates a new offer"
+        "NAME": "Nya erbjudanden",
+        "DESCRIPTION": "Meddela när någon skapar ett nytt erbjudande"
       },
       "conflict_resolution": {
-        "NAME": "New conflict resolution processes",
-        "DESCRIPTION": "Tells you when a new conflict resolution process has been started in your group"
+        "NAME": "Nya processer för konfliktlösning",
+        "DESCRIPTION": "Berättar när en ny konfliktlösningsprocess har startats i din grupp"
       }
     },
     "PLAYGROUND_INFO": "I den här gruppen kan du leka och inget kan slås sönder. Utforska, klicka runt och ha det kul!",
@@ -185,8 +185,8 @@
     "TITLE": "Karta",
     "SHOW_USERS": "Visa användare",
     "HIDE_USERS": "Göm användare",
-    "SHOW_PLACES": "Show places",
-    "HIDE_PLACES": "Hide places",
+    "SHOW_PLACES": "Visa platser",
+    "HIDE_PLACES": "Dölj platser",
     "SHOW_GROUPS": "Visa grupper",
     "HIDE_GROUPS": "Göm grupper",
     "SET_LOCATION": "Ange plats",
@@ -194,11 +194,11 @@
   },
   "STOREDETAIL": {
     "DIRECTIONS": "Visa vägbeskrivning",
-    "EDIT": "Edit place",
-    "ARCHIVED": "This place has been archived",
-    "INACTIVE": "This place is currently not cooperating.",
+    "EDIT": "Redigera platser",
+    "ARCHIVED": "Denna plats har arkiverats",
+    "INACTIVE": "Denna plats samarbetar för närvarande inte.",
     "CHANGE_STATUS": "Du kan ändra statusen på inställningssidan.",
-    "NO_DESCRIPTION": "This place does not have a description yet"
+    "NO_DESCRIPTION": "Denna plats saknar beskrivning"
   },
   "STOREEDIT": {
     "NAME": "Namn",
@@ -206,24 +206,24 @@
     "DESCRIPTION": "Beskrivning",
     "ADDRESS": "Adress",
     "WEEKS_IN_ADVANCE": "Hur många veckor i förväg skall återkommande hämtningar synas?",
-    "WEEKS_IN_ADVANCE_WARNING": "You are about to reduce the number of weeks pickups are shown. Existing leftover pickups will get deleted if nobody has joined them. You can disable all other pickups manually, if needed.",
+    "WEEKS_IN_ADVANCE_WARNING": "Du håller på att minska antalet veckor som hämtningar visas. Befintliga resterande pickuper raderas om ingen har anslutit sig till dem. Du kan inaktivera alla andra pickuper manuellt om det behövs.",
     "DIALOGS": {
       "ARCHIVE": {
-        "TITLE": "Archive place",
+        "TITLE": "Arkivera plats",
         "MESSAGE": "Är du säker?",
-        "CONFIRM": "Yes, archive place"
+        "CONFIRM": "Ja, arkivera plats"
       }
     },
     "RESTORE": "Återställa",
-    "SHOW_ARCHIVED": "Show archived places",
-    "HIDE_ARCHIVED": "Hide archived places",
-    "SHOW_ALL": "Show all places",
-    "SHOW_ACTIVE_ONLY": "Only show active places"
+    "SHOW_ARCHIVED": "Visa arkiverade platser",
+    "HIDE_ARCHIVED": "Dölj arkiverade platser",
+    "SHOW_ALL": "Visa alla platser",
+    "SHOW_ACTIVE_ONLY": "Visa endast aktiva platser"
   },
   "PLACEWALL": {
-    "SUBSCRIBED_USERS": "{count} people have marked this place as favourite",
+    "SUBSCRIBED_USERS": "{count} människor har markerat den här platsen som favorit",
     "SUBSCRIPTION": {
-      "HEADER": "Do you want to mark this place as your favourite?",
+      "HEADER": "Vill du markera den här platsen som din favorit?",
       "YES": "ja",
       "YES_TEXT": "Visa tillängliga hämtningar i gruppens anslagstavlan och skickar mejl om kommande hämtningar.",
       "NO": "nej",
@@ -254,7 +254,7 @@
   },
   "JOINGROUP": {
     "WHICHGROUP": "Vilken grupp vill du gå med i?",
-    "OR": "{joinGroup} or {createGroup}",
+    "OR": "{joinGroup} eller {createGroup}",
     "NUM_MEMBERS": "Medlem | Medlemmar",
     "NO_PUBLIC_DESCRIPTION": "(Denna grupp har ingen publik beskrivning än..)",
     "ALL_GROUPS": "Alla grupper",
@@ -312,7 +312,7 @@
     "WEEKDAYS": "Helg",
     "WEEKDAYS_HELPER": "Vilka dagar ska man hämta?",
     "RRULE": "Återkomstregel",
-    "RRULE_HELPER": "Type in a valid {ruleHelper}, e.g. {ruleExample} or {ruleExample2}",
+    "RRULE_HELPER": "Skriv in en giltig {ruleHelper}, t.ex. {ruleExample} eller {ruleExample2}",
     "RRULE_HELPER_URL": "iCalenders regel",
     "RRULE_EXAMPLE": "Sista arbetsdag (Mån-Fre) varje månad",
     "RRULE_EXAMPLE2": "varannan måndag",
@@ -325,7 +325,7 @@
     "COMMENT": "Mer information",
     "COMMENT_HELPER": "Vad bör folk veta när de ska gå med hämtningen?",
     "UNLIMITED": "obegränsat",
-    "DIFFERS_WARNING": "This value differs from the default. To undo this change, click on the arrow button and save the changes.",
+    "DIFFERS_WARNING": "Detta värde skiljer sig från standard. För att ångra denna ändring, klicka på pilknappen och spara ändringarna.",
     "ENABLE_TITLE": "Aktivera hämtning?",
     "DISABLE_TITLE": "Inaktivera hämtning?",
     "ENABLE_DISABLE_MESSAGE": "Alla som skrev upp sig till denna hämtning kommer att få ett meddelande. Du kan ändra texten för att ge en anledning:",
@@ -333,18 +333,18 @@
     "EXCEPTIONS_MESSAGE": "Vissa kommande hämtningar passar inte inställningar för denna återkommande hämtning. Ta en titt där nere på '{upcomingLabel}' för att ändra eller inaktivera hämtningar om det behövs."
   },
   "CREATESTORE": {
-    "TITLE": "Create a new place"
+    "TITLE": "Skapa en ny plats"
   },
   "PICKUPLIST": {
     "FILTER": {
-      "ALL": "All",
-      "EMPTY": "Only empty",
-      "FREE": "With free slots"
+      "ALL": "Allt",
+      "EMPTY": "Endast tomma",
+      "FREE": "Med lediga öppningar"
     },
-    "AVAILABLE": "There is one pickup in your favorite places waiting for you! | There are {count} pickups in your favorite places waiting for you!",
+    "AVAILABLE": "Det finns en pickup på dina favoritplatser som väntar på dig! | Det finns {count} pickuper på dina favoritplatser som väntar på dig!",
     "AVAILABLE_FEEDBACK": "Du kan ge feedback till en hämtning | {count} hämtningar väntar på din feedback",
     "JOINEDNOTICE": "Du har en kommande hämtning | Du har {count} kommande hämtningar",
-    "AVAILABLE_FROM_STORES": "This shows pickups from your favorite places in the next days. You can access other places in the sidebar.",
+    "AVAILABLE_FROM_STORES": "Detta visar pickuper från dina favoritplatser de närmaste dagarna. Du kan komma åt andra platser i sidofältet.",
     "ITEM": {
       "LEAVE": "Lämna",
       "JOIN": "Gå med",
@@ -354,7 +354,7 @@
       "LEAVE_CONFIRMATION_TEXT": "Är du säker att andra kan göra hämtningen utan dig?"
     },
     "NONE": "Inga bokade hämtningar",
-    "NONE_HINT": "You can create a new pickup on the place page.",
+    "NONE_HINT": "Du kan skapa en ny pickup på platssidan.",
     "STORE_NONE_HINT": "Du kan skapa en ny hämtning i \"hantera hämtningar\"",
     "PICKUP_DISABLED": "Hämtningen har inaktiverats.",
     "PICKUP_STARTED": "Hämtningen har redan påbörjats."
@@ -377,8 +377,8 @@
     "SUBTITLE": "Du kan ange en feedback för din hämtning här",
     "SET_AMOUNT": "Ange mängden",
     "DELETE_AMOUNT": "Radera mängden",
-    "AMOUNT": "Amount of food you were able to save (in kg)",
-    "AMOUNT_INFO": "For place statistics, we will add together the amount of all feedback.",
+    "AMOUNT": "Mängd mat du har lyckats spara (i kg)",
+    "AMOUNT_INFO": "För platsstatistik kommer vi att lägger till all återkoppling.",
     "COMMENT_PLACEHOLDER": "Gick allt bra? Var alla med? Din kommentar här...",
     "PREVIOUS": "Föregående feedback för {store}",
     "TOGETHER_WITH": "Du gjorde hämtningen tillsammans med:"
@@ -417,9 +417,9 @@
     "GROUP_MODIFY": "ändrade inställningar för gruppen",
     "GROUP_JOIN": "gick med i gruppen",
     "GROUP_LEAVE": "Lämnade gruppen",
-    "STORE_CREATE": "created place {name}",
-    "STORE_MODIFY": "changed the settings of place {name}",
-    "STORE_DELETE": "deleted place {name}",
+    "STORE_CREATE": "skapa plats {name}",
+    "STORE_MODIFY": "ändra inställningarna för platsen {name}",
+    "STORE_DELETE": "ta bort platsen {name}",
     "PICKUP_CREATE": "skapade en hämtning",
     "PICKUP_MODIFY": "ändrade inställningarna för en hämtning",
     "PICKUP_DELETE": "tog bort en hämtning",
@@ -437,7 +437,7 @@
     "GROUP_LEAVE_INACTIVE": "hat tagits bort på grund av inaktivitet",
     "GROUP_CHANGE_PHOTO": "ändrade gruppens logotyp",
     "GROUP_DELETE_PHOTO": "raderade gruppens logotyp",
-    "MEMBER_REMOVED": "was removed due to group decision",
+    "MEMBER_REMOVED": "togs bort på grund av gruppbeslut",
     "NOTHING_HAPPENEND": "Inget händer än så länge...",
     "DETAILS": "Mer information"
   },
@@ -462,20 +462,20 @@
     "APPLICATION_DECLINED": "Din ansökan har avböjts",
     "INVITATION_ACCEPTED": "{userName} beviljade din ansökan",
     "FEEDBACK_POSSIBLE": "Du kan ge feedback för en hämtning du gjorde den {date}",
-    "NEW_PLACE": "{placeName} has been created",
+    "NEW_PLACE": "{placeName} har skapats",
     "NEW_MEMBER": "{userName} gick med i din grupp",
     "PICKUP_UPCOMING": "Påminnelse: Du har en hämtning kl {time}  ",
     "PICKUP_DISABLED": "Hämtning den {dateTime} har inaktiverats",
     "PICKUP_ENABLED": "Hämtning den {dateTime} har aktiverats igen",
     "PICKUP_MOVED": "Hämtningen har ändrats till {dateTime}",
-    "CONFLICT_RESOLUTION_CREATED": "Join the discussion about a conflict with {userName}",
-    "CONFLICT_RESOLUTION_CREATED_ABOUT_YOU": "A conflict resolution process was started with you",
-    "CONFLICT_RESOLUTION_CONTINUED": "The conflict resolution process with {userName} continues",
-    "CONFLICT_RESOLUTION_CONTINUED_ABOUT_YOU": "The conflict resolution process with you continues",
-    "CONFLICT_RESOLUTION_DECIDED": "The conflict resolution process with {userName} was decided",
-    "CONFLICT_RESOLUTION_DECIDED_ABOUT_YOU": "The conflict resolution process with you was decided",
-    "CONFLICT_RESOLUTION_YOU_WERE_REMOVED": "You were removed from the group",
-    "VOTING_ENDS_SOON": "Voting ends soon, don't forget to participate!"
+    "CONFLICT_RESOLUTION_CREATED": "Gå med i diskussionen om en konflikt med {userName}",
+    "CONFLICT_RESOLUTION_CREATED_ABOUT_YOU": "En konfliktlösningsprocess startades med dig",
+    "CONFLICT_RESOLUTION_CONTINUED": "Processen för konfliktlösning med {userName} fortsätter",
+    "CONFLICT_RESOLUTION_CONTINUED_ABOUT_YOU": "Processen för konfliktlösning med dig fortsätter",
+    "CONFLICT_RESOLUTION_DECIDED": "Processen för konfliktlösning med {userName} beslutades",
+    "CONFLICT_RESOLUTION_DECIDED_ABOUT_YOU": "Konfliktlösningsprocessen med dig beslutades",
+    "CONFLICT_RESOLUTION_YOU_WERE_REMOVED": "Du togs bort från gruppen",
+    "VOTING_ENDS_SOON": "Röstningen slutar snart, glöm inte att delta!"
   },
   "NOTIFICATION_TOGGLE": {
     "HEADER": "Vill du få notifikationer om nya meddelande i detta samtal?",
@@ -516,13 +516,13 @@
     "DIALOGS": {
       "REPLACE": {
         "TITLE": "Ändra överenskommelse?",
-        "MESSAGE": "Everyone will have to agree again before they can signup for pickups",
-        "CONFIRM": "Yes, change agreement"
+        "MESSAGE": "Alla måste komma överens igen innan de kan registrera sig för pickup",
+        "CONFIRM": "Ja, ändra avtal"
       },
       "REMOVE": {
-        "TITLE": "Remove agreement?",
+        "TITLE": "Ta bort avtalet?",
         "MESSAGE": "Det betyder att alla ska kunna göra en upphämtning",
-        "CONFIRM": "Yes, remove agreement"
+        "CONFIRM": "Ja, ta bort avtalet"
       }
     }
   },
@@ -533,7 +533,7 @@
     "RECEIVED_VIA_EMAIL": "Det här meddelande skickades via mejl"
   },
   "CONVERSATION": {
-    "CONVERSATIONS": "Conversations",
+    "CONVERSATIONS": "Diskussioner",
     "OPEN": "Öppna chatten",
     "REPLY_TO_MESSAGE": "Svara på meddelandet...",
     "REPLIES": "Svar",
@@ -549,7 +549,7 @@
     "MESSAGE_NOT_FOUND": "Meddelande hittades inte",
     "NO_CONVERSATIONS": "Fortfarande inga samtal",
     "MUTED": "Notifieringar är inaktiverad",
-    "CLOSED": "This conversation has been closed automatically.",
+    "CLOSED": "Den här diskussionen har stängts automatiskt.",
     "NOT_PARTICIPATED": "Genom att skicka ett meddelande kommer du få notifikationer om detta samtal."
   },
   "STORESTATUS": {
@@ -582,118 +582,118 @@
     "HEADER": "Uppdateringar från {community}",
     "HEADER_LINK": "foodsaving worldwide community",
     "LAST_UPDATED": "Sist uppdaterad {relativeDate}",
-    "KARROT_DISCUSSION": "Discussions about Karrot"
+    "KARROT_DISCUSSION": "Diskussion om Karrot"
   },
   "INACTIVITY": {
     "WHAT": "Vad betyder att vara inaktiv?",
     "HELP": "Alla som inte loggade in i gruppen i {dayCount} dagar eller mer räknas som inaktiv. Dessa användare kommer inte längre få e-postnotifieringar"
   },
   "CONFLICT": {
-    "SETUP_HEADER": "Is there a conflict with {user}?",
-    "STATEMENT": "Statement",
-    "STEPPER1a": "You are about to start a group-wide conflict resolution process!",
-    "STEPPER1b": "This will involve all members with editing permissions to find the best way to proceed.",
-    "STEPPER2a": "Thank you for caring for your community!",
-    "STEPPER2b": "It is important to address social issues, although it can be unpleasant sometimes. Thank you for your courage!",
-    "STEPPER3a": "Here's what will happen:",
-    "STEPPER3b": "This process will start a chat and a vote.",
-    "STEPPER3c": "The chat will be visible for members with editing permissions and includes {userName}.",
-    "STEPPER3d": "The voting is anonymous. It will go on for {votingDuration} days. During this time all voters can change their minds and vote differently as many times as they want.",
-    "STEPPER4a": "Please explain why you are starting this conflict resolution process!",
-    "STEPPER4b": "Tell your group what made you think this process is justified and needed. This statement will be visible to {userName} and group members with editing permissions.",
-    "FIND_OUT_MORE": "Find out more!",
+    "SETUP_HEADER": "Finns det en konflikt med {user}?",
+    "STATEMENT": "Redogörelse",
+    "STEPPER1a": "Du är på väg att starta en gruppövergripande konfliktlösningsprocess!",
+    "STEPPER1b": "Detta kommer att involvera alla medlemmar med redigeringsbehörigheter för att hitta det bästa sättet att fortsätta.",
+    "STEPPER2a": "Tack för att du tar hand om ditt samhälle!",
+    "STEPPER2b": "Det är viktigt att ta itu med sociala frågor, även om det ibland kan vara obehagligt. Tack för ditt mod!",
+    "STEPPER3a": "Här kommer vad som kommer att hända:",
+    "STEPPER3b": "Den här processen startar en chatt och en omröstning.",
+    "STEPPER3c": "Chatten kommer att vara synlig för medlemmar med redigeringsbehörigheter och inkluderar {userName}.",
+    "STEPPER3d": "Röstningen är anonym. Det kommer att pågå i {votingDuration} dagar. Under denna tid kan alla väljare ändra sig och rösta annorlunda så många gånger de vill.",
+    "STEPPER4a": "Förklara varför du startar denna konfliktlösningsprocess!",
+    "STEPPER4b": "Berätta för din grupp vad som fick dig att tro att denna process är motiverad och nödvändig. Detta uttalande kommer att vara synligt för {userName} och gruppmedlemmar med redigeringsbehörigheter.",
+    "FIND_OUT_MORE": "Få reda på mer!",
     "INITIAL": "Information",
-    "WITH": "This process is to resolve a conflict with {userName}",
+    "WITH": "Denna process är att lösa en konflikt med {userName}",
     "VOTING": {
-      "HEADLINE": "How do you want to proceed with the ongoing conflict with {userName}?"
+      "HEADLINE": "Hur vill du fortsätta med den pågående konflikten med {userName}?"
     },
     "REQUIREMENTS": {
-      "ACTIVE_EDITORS": "Your group has {activeEditorsCount} active users with editing permissions. You need {requiredCount} to start a conflict resolution process.",
-      "NEWCOMER": "Before you can start a conflict resolution process, you need to receive more trust and gain editing permissions. In the meantime, please ask a fellow group member to start the process for you."
+      "ACTIVE_EDITORS": "Din grupp har {activeEditorsCount} aktiva användare med redigeringsbehörigheter. Du måste {requiredCount} för att starta en konfliktlösningsprocess.",
+      "NEWCOMER": "Innan du kan starta en konfliktlösningsprocess måste du få mer förtroende och få redigeringsbehörigheter. Under tiden ber du en gruppmedlem att starta processen för dig."
     },
     "INFO": {
-      "TITLE": "How does this process work?",
-      "MESSAGE": "This is a score voting in which group members with editing permissions can participate to determine how to deal with a social conflict that affects the whole group."
+      "TITLE": "Hur fungerar denna process?",
+      "MESSAGE": "Detta är en poängröstning där gruppmedlemmar med redigeringsbehörigheter kan delta för att avgöra hur man ska hantera en social konflikt som påverkar hela gruppen."
     }
   },
   "ISSUE": {
     "CREATION": {
-      "TOAST": "You successfully started a conflict resolution process"
+      "TOAST": "Du startade en konfliktlösningsprocess"
     },
-    "TITLE": "Issues",
-    "VOTE": "Vote",
-    "CHAT": "Chat",
-    "INITIATED_BY": "Initiated by {initiatorName}",
-    "PAST": "Past issues",
-    "PREVIOUS_VOTINGS": "Previous votings in this issue",
-    "PARTICIPANTS": "{count} members have been added to this discussion.",
+    "TITLE": "Problem",
+    "VOTE": "Rösta",
+    "CHAT": "Chatta",
+    "INITIATED_BY": "Initierad av {initiatorName}",
+    "PAST": "Tidigare problem",
+    "PREVIOUS_VOTINGS": "Tidigare röstningar i denna problematik",
+    "PARTICIPANTS": "{count} medlemmar har lagts till i denna diskussion.",
     "VOTING": {
-      "TIME_LEFT": "Time left to vote",
-      "BTN_START": "Vote now",
-      "SAVE": "Save",
-      "BTN_DELETE": "Delete vote",
-      "TOAST": "Your vote was successfully submitted",
-      "TOAST_DELETE": "Your vote was deleted",
-      "NO_CHANGE": "No change: {userName} stays in {groupName}",
-      "FURTHER_DISCUSSION": "Further discussion: extend time by starting another voting",
-      "REMOVE_USER": "{userName} gets removed from {groupName}",
+      "TIME_LEFT": "Tid kvar att rösta",
+      "BTN_START": "Rösta nu",
+      "SAVE": "Spara",
+      "BTN_DELETE": "Ångra röst",
+      "TOAST": "Din röst har skickats in",
+      "TOAST_DELETE": "Din röst har tagits bort",
+      "NO_CHANGE": "Ingen ändringar: {userName} stannar i {groupName}",
+      "FURTHER_DISCUSSION": "Ytterligare diskussion: förläng tid genom att starta en ny omröstning",
+      "REMOVE_USER": "{userName} tas bort från {groupName}",
       "RESULTS": {
-        "KEEP_DISCUSSING": "Your group voted to keep discussing",
-        "TIME_UP": "Time is up!",
-        "TOTAL_SCORE": "Total score",
-        "ENDED_AT": "This voting round ended on {date}",
-        "PARTICIPANTS": "{number} members participated in the voting.",
-        "UNDECIDED": "Unfortunately this conflict could not be decided.",
-        "UNDECIDED_WHY": "There are two possible reasons for that:",
-        "UNDECIDED_REASON_1": "the affected user left the group while the conflict resolution process was still ongoing",
-        "UNDECIDED_REASON_2": "nobody voted on this issue"
+        "KEEP_DISCUSSING": "Din grupp röstade för att fortsätta diskutera",
+        "TIME_UP": "Tiden är ute!",
+        "TOTAL_SCORE": "Totalpoäng",
+        "ENDED_AT": "Denna omröstningsrunda avslutades {date}",
+        "PARTICIPANTS": "{number} medlemmarna deltog i omröstningen.",
+        "UNDECIDED": "Tyvärr kunde denna konflikt inte avgöras.",
+        "UNDECIDED_WHY": "Det finns två möjliga skäl till det:",
+        "UNDECIDED_REASON_1": "den drabbade användaren lämnade gruppen medan konfliktlösningsprocessen fortfarande pågick",
+        "UNDECIDED_REASON_2": "ingen röstade om denna fråga"
       },
-      "SEE_RESULTS": "See the results",
+      "SEE_RESULTS": "Se resultaten",
       "SCORE_LABELS": {
         "NEUTRAL": "neutral",
-        "SLIGHT_SUPPORT": "support",
-        "STRONG_SUPPORT": "strong support",
-        "SLIGHT_RESISTANCE": "resistance",
-        "STRONG_RESISTANCE": "strong resistance"
+        "SLIGHT_SUPPORT": "för",
+        "STRONG_SUPPORT": "starkt för",
+        "SLIGHT_RESISTANCE": "emot",
+        "STRONG_RESISTANCE": "starkt emot"
       },
-      "ANONYMOUS": "Your vote will be anonymous."
+      "ANONYMOUS": "Din röst är anonym."
     },
-    "NO_ONGOING": "No ongoing issues."
+    "NO_ONGOING": "Inga pågående problem."
   },
   "OFFER": {
-    "CREATE_TITLE": "Create offer",
-    "NAME": "Name",
-    "NAME_HELPER": "Short name for the item you are offering",
-    "DESCRIPTION": "Description",
-    "MARK_AS_ACCEPTED": "Mark as accepted",
-    "MARK_AS_ACCEPTED_DESCRIPTION": "Mark this offer as accepted to show to others that it is not available any more.",
-    "MARK_AS_ARCHIVED": "Archive",
-    "MARK_AS_ARCHIVED_DESCRIPTION": "Mark this is offer as archived to remove it from the available listings.",
+    "CREATE_TITLE": "Skapa erbjudande",
+    "NAME": "Namn",
+    "NAME_HELPER": "Kort namn på det objekt du erbjuder",
+    "DESCRIPTION": "Beskrivning",
+    "MARK_AS_ACCEPTED": "Markera som accepterat",
+    "MARK_AS_ACCEPTED_DESCRIPTION": "Markera detta erbjudande som accepterat för att visa för andra att det inte är tillgängligt längre.",
+    "MARK_AS_ARCHIVED": "Arkiv",
+    "MARK_AS_ARCHIVED_DESCRIPTION": "Markera detta erbjudande som arkiverat för att ta bort det från de tillgängliga listorna.",
     "FILTER": {
       "STATUS": {
-        "ACTIVE": "Available",
-        "ACCEPTED": "My accepted offers",
-        "ARCHIVED": "My archived offers"
+        "ACTIVE": "Tillgänglig",
+        "ACCEPTED": "Mina accepterade erbjudanden",
+        "ARCHIVED": "Mina arkiverade erbjudanden"
       }
     }
   },
   "ADDRESS_PICKER": {
-    "SET_AS": "Set address as",
-    "KEEP_EXISTING_LOCATION": "keep existing location on map",
-    "CHOOSE_LOCATION": "choose location on map"
+    "SET_AS": "Ange adress som",
+    "KEEP_EXISTING_LOCATION": "behålla befintlig plats på kartan",
+    "CHOOSE_LOCATION": "välj plats på kartan"
   },
   "UNSUBSCRIBE": {
     "HEADER": "Avprenumerera",
-    "ALL": "Unsubscribe all",
+    "ALL": "Avsluta alla prenumerationer",
     "FROM_CONVERSATION": "Stäng av notiser för detta samtal",
     "FROM_THREAD": "stäng av notiser för just den här tråden",
     "FROM_NOTIFICATION_TYPE": "stäng av notiser från {notificationType}",
-    "FROM_GROUP": "Unsubscribe from all email notifications in {groupName}",
+    "FROM_GROUP": "Avsluta prenumerationen på alla e-postmeddelanden i {groupName}",
     "SUCCESS": "Du avslutade prenumeration!",
-    "COUNTS": "You unsubscribed from {formerConversations} conversations and {formerReplies} replies."
+    "COUNTS": "Du avregistrerade dig för {formerConversations} konversationer och {formerReplies} svar."
   },
-  "THANKS": "Thank you!",
-  "ATTENTION": "Attention!",
+  "THANKS": "Tack!",
+  "ATTENTION": "Var uppmärksam!",
   "INFO": "Info",
   "YOU": "Du",
   "TO": "till"

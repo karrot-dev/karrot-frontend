@@ -104,13 +104,6 @@ export default {
     }),
 
     ...withMeta({
-      async accept ({ state, commit, dispatch }, { offerId }) {
-        const updatedOffer = await offers.accept(offerId)
-        commit('update', [updatedOffer])
-        commit('currentOffer/update', updatedOffer, { root: true })
-        dispatch('refresh')
-      },
-
       async archive ({ state, commit, dispatch }, { offerId }) {
         const updatedOffer = await offers.archive(offerId)
         commit('update', [updatedOffer])

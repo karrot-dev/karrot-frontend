@@ -30,8 +30,7 @@
       </QCarousel>
       <div
         v-if="!isDefaultStatus"
-        class="q-pa-md text-center text-h6 text-white"
-        :class="`bg-${offer.status === 'accepted' ? 'positive' : 'negative'}`"
+        class="q-pa-md text-center text-h6 text-white bg-negative"
       >
         {{ offer.status }}
       </div>
@@ -39,29 +38,6 @@
         v-if="offer.canEdit && offer.status === 'active'"
         class="row justify-end"
       >
-        <QBtnDropdown
-          flat
-          no-caps
-          :label="$t('OFFER.MARK_AS_ACCEPTED')"
-        >
-          <div
-            class="q-pa-lg"
-            style="max-width: 300px;"
-          >
-            <div
-              v-t="'OFFER.MARK_AS_ACCEPTED_DESCRIPTION'"
-              class="text-body1 q-mb-lg"
-            />
-            <div class="row justify-end">
-              <QBtn
-                color="positive"
-                @click="accept({ offerId: offer.id })"
-              >
-                <span v-t="'OFFER.MARK_AS_ACCEPTED'" />
-              </QBtn>
-            </div>
-          </div>
-        </QBtnDropdown>
         <QBtnDropdown
           flat
           no-caps
@@ -164,7 +140,6 @@ export default {
       toggleReaction: 'conversations/toggleReaction',
       fetchPast: 'conversations/fetchPast',
       saveConversation: 'conversations/maybeSave',
-      accept: 'offers/accept',
       archive: 'offers/archive',
     }),
   },

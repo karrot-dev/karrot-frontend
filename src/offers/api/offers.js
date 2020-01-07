@@ -64,10 +64,6 @@ export default {
     return convert((await axios.patch(`/api/offers/${offer.id}/`, await toFormData(offer))).data)
   },
 
-  async accept (offerId) {
-    return convert((await axios.post(`/api/offers/${offerId}/accept/`)).data)
-  },
-
   async archive (offerId) {
     return convert((await axios.post(`/api/offers/${offerId}/archive/`)).data)
   },

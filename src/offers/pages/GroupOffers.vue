@@ -115,10 +115,6 @@ export default {
           value: 'active',
         },
         {
-          label: this.$t('OFFER.FILTER.STATUS.ACCEPTED'),
-          value: 'accepted',
-        },
-        {
           label: this.$t('OFFER.FILTER.STATUS.ARCHIVED'),
           value: 'archived',
         },

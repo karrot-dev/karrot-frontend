@@ -14,75 +14,81 @@
       />
     </div>
     <KSpinner v-show="fetching" />
-    <div class="row">
-      <div
-        v-if="status === 'active' && !fetching"
-        class="col-md-4 col-6 new-offer"
-      >
-        <QCard>
-          <QImg
-            basic
-            :ratio="4/3"
-          />
-          <QItem style="min-height: 57px;" />
-          <RouterLink
-            class="absolute-center fit"
-            :to="{ name: 'offerCreate' }"
-            :title="$t('OFFER.CREATE_TITLE')"
-          >
-            <QIcon
-              size="5em"
-              class="fit"
-              name="fas fa-plus"
-            />
-          </RouterLink>
-        </QCard>
-      </div>
-      <div
-        v-for="offer in offers"
-        :key="offer.id"
-        v-measure
-        class="col-md-4 col-6"
-      >
-        <RouterLink :to="detailRouteFor(offer.id)">
-          <QCard
-            class="cursor-pointer"
-            :title="offer.name"
-          >
+    <QInfiniteScroll
+      ref="infiniteScroll"
+      :disable="!canFetchMore"
+      @load="maybeFetchMore"
+    >
+      <div class="row">
+        <div
+          v-if="status === 'active' && !fetching"
+          class="col-md-4 col-6 new-offer"
+        >
+          <QCard>
             <QImg
               basic
-              :src="offer.images[0].imageUrls['600']"
               :ratio="4/3"
             />
-            <QItem clickable>
-              <QItemSection avatar>
-                <ProfilePicture
-                  :user="offer.user"
-                  :size="36"
-                />
-              </QItemSection>
-              <QItemSection>
-                <QItemLabel class="ellipsis full-width">
-                  {{ offer.name }}
-                </QItemLabel>
-                <QItemLabel class="ellipsis full-width">
-                  <DateAsWords
-                    :date="offer.createdAt"
-                    class="text-caption"
-                  />
-                </QItemLabel>
-              </QItemSection>
-            </QItem>
+            <QItem style="min-height: 57px;" />
+            <RouterLink
+              class="absolute-center fit"
+              :to="{ name: 'offerCreate' }"
+              :title="$t('OFFER.CREATE_TITLE')"
+            >
+              <QIcon
+                size="5em"
+                class="fit"
+                name="fas fa-plus"
+              />
+            </RouterLink>
           </QCard>
-        </RouterLink>
+        </div>
+        <div
+          v-for="offer in offers"
+          :key="offer.id"
+          v-measure
+          class="col-md-4 col-6"
+        >
+          <RouterLink :to="detailRouteFor(offer.id)">
+            <QCard
+              class="cursor-pointer"
+              :title="offer.name"
+            >
+              <QImg
+                basic
+                :src="offer.images[0].imageUrls['600']"
+                :ratio="4/3"
+              />
+              <QItem clickable>
+                <QItemSection avatar>
+                  <ProfilePicture
+                    :user="offer.user"
+                    :size="36"
+                  />
+                </QItemSection>
+                <QItemSection>
+                  <QItemLabel class="ellipsis full-width">
+                    {{ offer.name }}
+                  </QItemLabel>
+                  <QItemLabel class="ellipsis full-width">
+                    <DateAsWords
+                      :date="offer.createdAt"
+                      class="text-caption"
+                    />
+                  </QItemLabel>
+                </QItemSection>
+              </QItem>
+            </QCard>
+          </RouterLink>
+        </div>
       </div>
-    </div>
+    </QInfiniteScroll>
   </div>
 </template>
 
 <script>
 import { mapActions, mapGetters } from 'vuex'
-import { QIcon, QSelect, QCard, QItem, QItemSection, QItemLabel, QImg } from 'quasar'
+import { QIcon, QSelect, QCard, QItem, QItemSection, QItemLabel, QImg, QInfiniteScroll } from 'quasar'
 import ProfilePicture from '@/users/components/ProfilePicture'
 import KSpinner from '@/utils/components/KSpinner'
 import bindRoute from '@/utils/mixins/bindRoute'
@@ -101,6 +107,7 @@ export default {
     QItemSection,
     QItemLabel,
     QImg,
+    QInfiniteScroll,
   },
   mixins: [
     bindRoute({
@@ -125,6 +132,8 @@ export default {
     ...mapGetters({
       offers: 'offers/all',
       fetching: 'offers/fetching',
+      fetchingMore: 'offers/fetchingMore',
+      canFetchMore: 'offers/canFetchMore',
     }),
   },
   watch: {
@@ -138,7 +147,18 @@ export default {
   methods: {
     ...mapActions({
       fetchList: 'offers/fetchList',
+      fetchMore: 'offers/fetchMore',
     }),
+    async maybeFetchMore (index, done) {
+      if (
+        !this.fetching &&
+        !this.fetchingMore &&
+        this.canFetchMore
+      ) {
+        await this.fetchMore()
+      }
+      done()
+    },
     detailRouteFor (offerId) {
       return {
         name: 'offerDetail',

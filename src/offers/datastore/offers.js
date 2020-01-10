@@ -51,18 +51,21 @@ export default {
         .map(getters.enrich)
         .sort(sortByCreatedAtDesc)
     },
-    fetching: (state, getters) => {
-      const status = getters['meta/status']('fetchList')
-      return status.pending
-    },
+    fetching: (state, getters) => getters['meta/status']('fetchList').pending,
+    fetchingMore: (state, getters) => getters['meta/status']('fetchMore').pending,
+    canFetchMore: (state, getters) => getters['pagination/canFetchNext'],
   },
   actions: {
     ...withMeta({
       async fetchList ({ state, rootGetters, dispatch, commit }, { status = 'active' }) {
         commit('setFilter', { status })
         const group = rootGetters['currentGroup/id']
-        const offerList = await dispatch('pagination/extractCursor', offers.list({ ...state.filter, group }))
-        commit('update', offerList)
+        const entries = await dispatch('pagination/extractCursor', offers.list({ ...state.filter, group }))
+        commit('update', entries)
+      },
+      async fetchMore ({ commit, dispatch }) {
+        const entries = await dispatch('pagination/fetchNext', offers.listMore)
+        commit('update', entries)
       },
     }),
     refresh ({ state, dispatch }) {

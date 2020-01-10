@@ -60,6 +60,16 @@ export default {
     }
   },
 
+  async listMore (cursor) {
+    const response = (await axios.get(cursor)).data
+    return {
+      ...response,
+      next: parseCursor(response.next),
+      prev: parseCursor(response.prev),
+      results: convert(response.results),
+    }
+  },
+
   async save (offer) {
     return convert((await axios.patch(`/api/offers/${offer.id}/`, await toFormData(offer))).data)
   },

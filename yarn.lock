@@ -6406,6 +6406,11 @@ file-loader@^5.0.2:
     loader-utils "^1.2.3"
     schema-utils "^2.5.0"
 
+file-saver@^2.0.2:
+  version "2.0.2"
+  resolved "https://registry.yarnpkg.com/file-saver/-/file-saver-2.0.2.tgz#06d6e728a9ea2df2cce2f8d9e84dfcdc338ec17a"
+  integrity sha512-Wz3c3XQ5xroCxd1G8b7yL0Ehkf0TC9oYC6buPFkNnU9EnaPlifeAFCyCh+iewXTyFRcg0a6j3J7FmJsIhlhBdw==
+
 file-system-cache@^1.0.5:
   version "1.0.5"
   resolved "https://registry.yarnpkg.com/file-system-cache/-/file-system-cache-1.0.5.tgz#84259b36a2bbb8d3d6eb1021d3132ffe64cfff4f"
@@ -9122,6 +9127,11 @@ jstimezonedetect@^1.0.7:
   version "1.0.7"
   resolved "https://registry.yarnpkg.com/jstimezonedetect/-/jstimezonedetect-1.0.7.tgz#54bc13ff9960a6510288665cc9596244e21bd29d"
   integrity sha512-ARADHortktl9IZ1tr4GHwGPIAzgz3mLNCbR/YjWtRtc/O0o634O3NeFlpLjv95EvuDA5dc8z6yfgbS8nUc4zcQ==
+
+jstoxml@^1.6.0:
+  version "1.6.0"
+  resolved "https://registry.yarnpkg.com/jstoxml/-/jstoxml-1.6.0.tgz#26417e7afc4d5eab771a13c68ee2ab89877543a9"
+  integrity sha512-vIq/Q1ats3TpMaqR6IhqFDRpMGLypCWsekHvsPGQhnkcicJZdpnPRLMFqXoefqajNsOQIv8RvW9U8WRj6M7bHQ==
 
 keep-a-changelog@^0.9.1:
   version "0.9.1"

@@ -43,6 +43,7 @@
       @toggleUsers="$emit('toggleUsers')"
       @togglePlaces="$emit('togglePlaces')"
       @toggleGroups="$emit('toggleGroups')"
+      @export="exportMarkers"
     />
     <div
       v-if="showOverlay"
@@ -200,6 +201,11 @@ export default {
   methods: {
     mapMoveEnd (target) {
       this.$emit('mapMoveEnd', target)
+    },
+    async exportMarkers () {
+      // async import so we don't load the dependencies until we need to...
+      const { exportAsGPX } = await import('@/maps/export')
+      exportAsGPX(this.markers, 'markers.gpx')
     },
   },
 }

@@ -90,6 +90,18 @@
         {{ $t( showGroups ? 'GROUPMAP.HIDE_GROUPS' : 'GROUPMAP.SHOW_GROUPS') }}
       </QTooltip>
     </QBtn>
+
+    <QBtn
+      v-if="options.showExportButton"
+      color="primary"
+      :size="options.buttonSize"
+      @click="$emit('export')"
+    >
+      <i class="fas fa-download" />
+      <QTooltip>
+        {{ $t('GROUPMAP.EXPORT') }}
+      </QTooltip>
+    </QBtn>
   </QBtnGroup>
 </template>
 
@@ -142,6 +154,7 @@ export default {
           showBack: false,
           buttonSize: 'sm',
           showGroupsButton: false,
+          showExportButton: false,
           showFullScreenButton: true,
         }
       }
@@ -150,6 +163,7 @@ export default {
           showBack: true,
           buttonSize: 'md',
           showGroupsButton: true,
+          showExportButton: true,
           showFullScreenButton: false,
         }
       }

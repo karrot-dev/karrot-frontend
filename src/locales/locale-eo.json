@@ -6,7 +6,7 @@
     "NOT_CONNECTED": "Vi ne estas konektita al la servilo",
     "INVALID_LINK": "Pardonon, la ligilo ne validas.",
     "GENERIC_ERROR": "Pardonon sed io ne bone funkciis",
-    "SEARCH_RESULTS": "Search results",
+    "SEARCH_RESULTS": "Serĉi rezultojn",
     "SEARCH_NOT_FOUND": "Netrovita",
     "ABOUT_KARROT": "Pri Karrot"
   },
@@ -103,7 +103,7 @@
     "REQUIRED": "Nepre plenigu la kampon",
     "VALID_EMAIL": "Metu validan retadreson",
     "VALID_TIMEZONE": "Entajpu validan horzonon.",
-    "IMAGE_REQUIRED": "You must add an image"
+    "IMAGE_REQUIRED": "Vi devas aldoni bildon"
   },
   "GROUP": {
     "WALL": "Muro",
@@ -126,7 +126,7 @@
     "APPLICATION_QUESTIONS": "Demandoj por homoj kiuj volas aliĝi la grupon",
     "PICKUPS": "Savadoj",
     "MESSAGES": "Mesaĝoj",
-    "OFFERS": "Offers",
+    "OFFERS": "Ofertoj",
     "PICKUP": "Savado",
     "MEMBERS": "Anoj",
     "JOINED": "aliĝis {relativeDate}",
@@ -169,8 +169,8 @@
         "DESCRIPTION": "Ĝi rakontas kiam iu volas aliĝi la grupon"
       },
       "new_offer": {
-        "NAME": "New offers",
-        "DESCRIPTION": "Tells you when somebody creates a new offer"
+        "NAME": "Novaj ofertoj",
+        "DESCRIPTION": "Montras kiam iu kreas novan oferton"
       },
       "conflict_resolution": {
         "NAME": "Nova proceso de problemsolvado",
@@ -254,7 +254,7 @@
   },
   "JOINGROUP": {
     "WHICHGROUP": "Al kiu grupo vi volas aliĝi?",
-    "OR": "{joinGroup} or {createGroup}",
+    "OR": "{joinGroup}aŭ {createGroup}",
     "NUM_MEMBERS": "Ano | Anoj",
     "NO_PUBLIC_DESCRIPTION": "(Ĉi tiu grupo havas neniun priskribon… ankoraŭ)",
     "ALL_GROUPS": "Ĉiuj grupoj",
@@ -661,26 +661,23 @@
     "NO_ONGOING": "Ĉio enordas nuntempe."
   },
   "OFFER": {
-    "CREATE_TITLE": "Create offer",
-    "NAME": "Name",
-    "NAME_HELPER": "Short name for the item you are offering",
-    "DESCRIPTION": "Description",
-    "MARK_AS_ACCEPTED": "Mark as accepted",
-    "MARK_AS_ACCEPTED_DESCRIPTION": "Mark this offer as accepted to show to others that it is not available any more.",
-    "MARK_AS_ARCHIVED": "Archive",
-    "MARK_AS_ARCHIVED_DESCRIPTION": "Mark this is offer as archived to remove it from the available listings.",
+    "CREATE_TITLE": "Krei oferton",
+    "NAME": "Nomo",
+    "NAME_HELPER": "Mallonga nomo por tio kion vi ofertas",
+    "DESCRIPTION": "Priskribo",
+    "MARK_AS_ARCHIVED": "Arkivo",
+    "MARK_AS_ARCHIVED_DESCRIPTION": "Marki ĉi tiun oferton kiel arkivitan por forigi ĝin de la listo de disponeblaj ofertoj.",
     "FILTER": {
       "STATUS": {
-        "ACTIVE": "Available",
-        "ACCEPTED": "My accepted offers",
-        "ARCHIVED": "My archived offers"
+        "ACTIVE": "Disponebla",
+        "ARCHIVED": "Miaj arkivitaj ofertoj"
       }
     }
   },
   "ADDRESS_PICKER": {
-    "SET_AS": "Set address as",
-    "KEEP_EXISTING_LOCATION": "keep existing location on map",
-    "CHOOSE_LOCATION": "choose location on map"
+    "SET_AS": "Agordi adreson kiel",
+    "KEEP_EXISTING_LOCATION": "konservu nunan lokon sur la mapo",
+    "CHOOSE_LOCATION": "Elekti lokon sur mapo"
   },
   "UNSUBSCRIBE": {
     "HEADER": "Malaboni",

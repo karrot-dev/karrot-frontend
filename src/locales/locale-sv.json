@@ -665,14 +665,11 @@
     "NAME": "Namn",
     "NAME_HELPER": "Kort namn på det objekt du erbjuder",
     "DESCRIPTION": "Beskrivning",
-    "MARK_AS_ACCEPTED": "Markera som accepterat",
-    "MARK_AS_ACCEPTED_DESCRIPTION": "Markera detta erbjudande som accepterat för att visa för andra att det inte är tillgängligt längre.",
     "MARK_AS_ARCHIVED": "Arkiv",
     "MARK_AS_ARCHIVED_DESCRIPTION": "Markera detta erbjudande som arkiverat för att ta bort det från de tillgängliga listorna.",
     "FILTER": {
       "STATUS": {
         "ACTIVE": "Tillgänglig",
-        "ACCEPTED": "Mina accepterade erbjudanden",
         "ARCHIVED": "Mina arkiverade erbjudanden"
       }
     }

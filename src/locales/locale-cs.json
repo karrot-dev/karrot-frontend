@@ -665,14 +665,11 @@
     "NAME": "Název",
     "NAME_HELPER": "Krátký název položky, kterou nabízíte",
     "DESCRIPTION": "Popis",
-    "MARK_AS_ACCEPTED": "Označit jako přijaté",
-    "MARK_AS_ACCEPTED_DESCRIPTION": "Označte tuto nabídku jako přijatou, abyste ostatním ukázali, že již není k dispozici.",
     "MARK_AS_ARCHIVED": "Archivovat",
     "MARK_AS_ARCHIVED_DESCRIPTION": "Tuto nabídku označte jako archivovanou a odeberte ji z dostupných seznamů.",
     "FILTER": {
       "STATUS": {
         "ACTIVE": "Dostupné",
-        "ACCEPTED": "Moje přijaté nabídky",
         "ARCHIVED": "Moje archivované nabídky"
       }
     }

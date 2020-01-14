@@ -6,7 +6,7 @@
     "NOT_CONNECTED": "Du bist nicht mit dem Server verbunden",
     "INVALID_LINK": "Der Link ist ungültig.",
     "GENERIC_ERROR": "Entschuldige, ein Fehler ist aufgetreten",
-    "SEARCH_RESULTS": "Search results",
+    "SEARCH_RESULTS": "Suchergebnisse",
     "SEARCH_NOT_FOUND": "Nicht gefunden",
     "ABOUT_KARROT": "Über Karrot"
   },
@@ -103,7 +103,7 @@
     "REQUIRED": "Dieses Feld ist erforderlich.",
     "VALID_EMAIL": "Gib eine gültige E-Mail-Adresse ein.",
     "VALID_TIMEZONE": "Gib eine gültige Zeitzone ein.",
-    "IMAGE_REQUIRED": "You must add an image"
+    "IMAGE_REQUIRED": "Du musst ein Bild hinzufügen"
   },
   "GROUP": {
     "WALL": "Wall",
@@ -126,7 +126,7 @@
     "APPLICATION_QUESTIONS": "Fragen an die Menschen, die dieser Gruppe beitreten wollen",
     "PICKUPS": "Abholungen",
     "MESSAGES": "Nachrichten",
-    "OFFERS": "Offers",
+    "OFFERS": "Angebote",
     "PICKUP": "Abholung",
     "MEMBERS": "Mitglieder",
     "JOINED": "{relativeDate} beigetreten",
@@ -169,8 +169,8 @@
         "DESCRIPTION": "Lässt dich wissen wenn jemand der Gruppe beitreten will"
       },
       "new_offer": {
-        "NAME": "New offers",
-        "DESCRIPTION": "Tells you when somebody creates a new offer"
+        "NAME": "Neue Angebote",
+        "DESCRIPTION": "Lässt dich wissen, wenn jemand ein neues Angebot erstellt"
       },
       "conflict_resolution": {
         "NAME": "Neue Konfliktresolutionsprozesse",
@@ -254,7 +254,7 @@
   },
   "JOINGROUP": {
     "WHICHGROUP": "Welcher Gruppe möchtest du beitreten?",
-    "OR": "{joinGroup} or {createGroup}",
+    "OR": "{joinGroup} oder {createGroup}",
     "NUM_MEMBERS": "Mitglied | Mitglieder",
     "NO_PUBLIC_DESCRIPTION": "(Diese Gruppe hat bisher keine Beschreibung)",
     "ALL_GROUPS": "Alle Gruppen",
@@ -377,8 +377,8 @@
     "SUBTITLE": "Du kannst hier eine Rückmeldung eingeben",
     "SET_AMOUNT": "Gewicht eingeben",
     "DELETE_AMOUNT": "Gewicht löschen",
-    "AMOUNT": "Amount of food you were able to save (in kg)",
-    "AMOUNT_INFO": "For place statistics, we will add together the amount of all feedback.",
+    "AMOUNT": "Menge des geretteten Essens (in kg)",
+    "AMOUNT_INFO": "Für Ortsstatistiken fassen wir die Menge allen Feedbacks zusammen.",
     "COMMENT_PLACEHOLDER": "Lief alles gut? Sind alle aufgetaucht? Dein Kommentar bitte...",
     "PREVIOUS": "Bisheriges Feedback für {store}",
     "TOGETHER_WITH": "Du hast zusammen abgeholt mit:"
@@ -661,23 +661,23 @@
     "NO_ONGOING": "Keine laufenden Konflikte."
   },
   "OFFER": {
-    "CREATE_TITLE": "Create offer",
+    "CREATE_TITLE": "Angebot erstellen",
     "NAME": "Name",
-    "NAME_HELPER": "Short name for the item you are offering",
-    "DESCRIPTION": "Description",
-    "MARK_AS_ARCHIVED": "Archive",
-    "MARK_AS_ARCHIVED_DESCRIPTION": "Mark this is offer as archived to remove it from the available listings.",
+    "NAME_HELPER": "Kurzer Name für den Gegenstand, den du anbietest",
+    "DESCRIPTION": "Beschreibung",
+    "MARK_AS_ARCHIVED": "Archiv",
+    "MARK_AS_ARCHIVED_DESCRIPTION": "Markiere dieses Angebot als archiviert, damit es nicht mehr gelistet wird.",
     "FILTER": {
       "STATUS": {
-        "ACTIVE": "Available",
-        "ARCHIVED": "My archived offers"
+        "ACTIVE": "Verfügbar",
+        "ARCHIVED": "Meine archivierten Angebote"
       }
     }
   },
   "ADDRESS_PICKER": {
-    "SET_AS": "Set address as",
-    "KEEP_EXISTING_LOCATION": "keep existing location on map",
-    "CHOOSE_LOCATION": "choose location on map"
+    "SET_AS": "Adresse verwenden als",
+    "KEEP_EXISTING_LOCATION": "behalte den bestehenden Ort auf der Karte",
+    "CHOOSE_LOCATION": "wähle den Ort auf der Karte"
   },
   "UNSUBSCRIBE": {
     "HEADER": "Abbestellen",

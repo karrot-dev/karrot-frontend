@@ -9,13 +9,6 @@
 import { mapGetters } from 'vuex'
 import logo from '@/logo/assets/carrot-logo.svg'
 
-let devLogo
-(async function () {
-  if (__ENV.KARROT_THEME === 'dev') {
-    devLogo = await import('@/logo/assets/carrot-logo.dev.svg')
-  }
-})()
-
 export default {
   props: {
     showLoading: {
@@ -27,13 +20,18 @@ export default {
     isLoading () {
       return this.showLoading && (this.loading || this.closing)
     },
-    logo () {
-      return __ENV.KARROT_THEME === 'dev' ? devLogo : logo
-    },
     ...mapGetters({
       loading: 'loadingprogress/active',
       closing: 'loadingprogress/closing',
     }),
+  },
+  async created () {
+    if (__ENV.KARROT_THEME === 'dev') {
+      this.logo = await import('@/logo/assets/carrot-logo.dev.svg')
+    }
+    else {
+      this.logo = logo
+    }
   },
 }
 </script>

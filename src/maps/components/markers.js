@@ -12,6 +12,10 @@ export function groupMarker (group) {
     popup: {
       render: h => h(GroupMarker, { props: { group } }),
     },
+    gpx: {
+      name: group.name,
+      type: 'groups',
+    },
   }
 }
 
@@ -24,6 +28,10 @@ export function userMarker (user) {
     popup: {
       render: h => h(UserMarker, { props: { user } }),
     },
+    gpx: {
+      name: user.displayName,
+      type: 'users',
+    },
   }
 }
 
@@ -35,6 +43,11 @@ export function placeMarker (place) {
     color: place.ui.color,
     popup: {
       render: h => h(PlaceMarker, { props: { place } }),
+    },
+    gpx: {
+      name: place.name,
+      desc: place.description,
+      type: 'places',
     },
   }
 }

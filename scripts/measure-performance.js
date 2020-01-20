@@ -21,8 +21,6 @@ puppeteer.launch({ headless: false }).then(async browser => {
     }
   })
 
-  console.log('cookies', cookies)
-
   const page = await browser.newPage()
 
   page.setCookie(...cookies)

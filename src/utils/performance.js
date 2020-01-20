@@ -89,7 +89,7 @@ const debouncedSave = debounceAndFlushOnUnload(save, SAVE_INTERVAL_MS, { maxWait
 function finish () {
   const firstMeaningfulMount = performance.getEntriesByName('karrot MM')[0]
   if (!firstMeaningfulMount) return
-  pendingStats.push({
+  const stat = {
     ...currentStat,
     ms: Math.round(firstMeaningfulMount.duration),
     msResources: Math.round(performance
@@ -104,8 +104,10 @@ function finish () {
     os: Platform.is.platform,
     dev: Boolean(__ENV.DEV),
     app: Boolean(__ENV.CORDOVA),
-  })
+  }
+  pendingStats.push(stat)
   debouncedSave()
+  return stat
 }
 
 if (ENABLED) {
@@ -122,11 +124,12 @@ if (ENABLED) {
   })
 
   Vue.directive('measure', {
-    inserted () {
+    inserted (el) {
       if (done) return
       measure('MM') // MM = "Meaningful Mount" inspired by FMP (First Meaningful Paint)
       done = true
-      finish()
+      const stat = finish()
+      el.dispatchEvent(new CustomEvent('measured', { bubbles: true, detail: stat }))
     },
   })
 }

@@ -190,7 +190,8 @@
     "SHOW_GROUPS": "Mostrar grupos",
     "HIDE_GROUPS": "Ocultar grupos",
     "SET_LOCATION": "Escoger localización",
-    "FULL_SCREEN": "Mostrar pantalla completa"
+    "FULL_SCREEN": "Mostrar pantalla completa",
+    "EXPORT": "Export"
   },
   "STOREDETAIL": {
     "DIRECTIONS": "Mostrar direcciones",

@@ -190,7 +190,8 @@
     "SHOW_GROUPS": "顯示社團",
     "HIDE_GROUPS": "隱藏社團",
     "SET_LOCATION": "設定地點",
-    "FULL_SCREEN": "全螢幕顯示"
+    "FULL_SCREEN": "全螢幕顯示",
+    "EXPORT": "Export"
   },
   "STOREDETAIL": {
     "DIRECTIONS": "顯示方向",

@@ -190,7 +190,8 @@
     "SHOW_GROUPS": "Visa grupper",
     "HIDE_GROUPS": "Göm grupper",
     "SET_LOCATION": "Ange plats",
-    "FULL_SCREEN": "Visa fullskärm"
+    "FULL_SCREEN": "Visa fullskärm",
+    "EXPORT": "Export"
   },
   "STOREDETAIL": {
     "DIRECTIONS": "Visa vägbeskrivning",

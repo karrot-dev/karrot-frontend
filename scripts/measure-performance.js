@@ -1,3 +1,18 @@
+#!/usr/bin/env node
+
+/**
+ * Measures initial page load time
+ * Use `yarn build && yarn serve` to serve built files on localhost.
+ * You may connect to a local backend to eliminate network delays: `BACKEND=http://localhost:8000 yarn serve`.
+ *
+ * Then run ./scripts/measure-performance.js
+ *
+ * Or directly run it in a loop and only look as `ms` numbers:
+ * for i in {1..10}; do ./scripts/measure-performance.js | grep ms:; done
+ *
+ * To do: connect via HTTP2 to support pipelining
+ */
+
 const puppeteer = require('puppeteer')
 const axios = require('axios')
 const cookie = require('cookie')

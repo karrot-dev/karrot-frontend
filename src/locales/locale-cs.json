@@ -190,7 +190,8 @@
     "SHOW_GROUPS": "Zobrazit skupiny",
     "HIDE_GROUPS": "Skrýt skupiny",
     "SET_LOCATION": "Nastavit umístění",
-    "FULL_SCREEN": "Zobrazit celou obrazovku"
+    "FULL_SCREEN": "Zobrazit celou obrazovku",
+    "EXPORT": "Export"
   },
   "STOREDETAIL": {
     "DIRECTIONS": "Zobrazit pokyny",

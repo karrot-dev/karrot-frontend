@@ -190,7 +190,8 @@
     "SHOW_GROUPS": "Mostra gruppi",
     "HIDE_GROUPS": "Nascondi gruppi",
     "SET_LOCATION": "Set location",
-    "FULL_SCREEN": "Espandi"
+    "FULL_SCREEN": "Espandi",
+    "EXPORT": "Export"
   },
   "STOREDETAIL": {
     "DIRECTIONS": "Show directions",

@@ -190,7 +190,8 @@
     "SHOW_GROUPS": "Показать группы",
     "HIDE_GROUPS": "Скрыть группы",
     "SET_LOCATION": "Выбрать локацию",
-    "FULL_SCREEN": "Открыть на весь экран"
+    "FULL_SCREEN": "Открыть на весь экран",
+    "EXPORT": "Export"
   },
   "STOREDETAIL": {
     "DIRECTIONS": "Показать маршрут",

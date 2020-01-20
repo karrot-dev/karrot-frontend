@@ -190,7 +190,8 @@
     "SHOW_GROUPS": "गट दाखवा",
     "HIDE_GROUPS": "गट लपवा",
     "SET_LOCATION": "स्थान सेट करा",
-    "FULL_SCREEN": "पूर्ण स्क्रीन दर्शवा"
+    "FULL_SCREEN": "पूर्ण स्क्रीन दर्शवा",
+    "EXPORT": "Export"
   },
   "STOREDETAIL": {
     "DIRECTIONS": "दिशानिर्देश दर्शवा",

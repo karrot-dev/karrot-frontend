@@ -190,7 +190,8 @@
     "SHOW_GROUPS": "Show groups",
     "HIDE_GROUPS": "Hide groups",
     "SET_LOCATION": "સ્થાન સેટ કરો",
-    "FULL_SCREEN": "Show full screen"
+    "FULL_SCREEN": "Show full screen",
+    "EXPORT": "Export"
   },
   "STOREDETAIL": {
     "DIRECTIONS": "Show directions",

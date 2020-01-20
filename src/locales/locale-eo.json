@@ -190,7 +190,8 @@
     "SHOW_GROUPS": "Montri grupojn",
     "HIDE_GROUPS": "Kaŝi grupojn",
     "SET_LOCATION": "Elekti lokon",
-    "FULL_SCREEN": "Montri tutan ekranon"
+    "FULL_SCREEN": "Montri tutan ekranon",
+    "EXPORT": "Export"
   },
   "STOREDETAIL": {
     "DIRECTIONS": "Montri direktojn",

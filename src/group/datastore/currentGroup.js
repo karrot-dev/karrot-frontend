@@ -58,7 +58,6 @@ export default {
       if (!state.current) return
       return rootGetters['conversations/getForGroup'](state.current.id)
     },
-    conversationUnreadCount: (state, getters) => getters.conversation && getters.conversation.unreadMessageCount,
     id: (state) => state.id,
     // for current user:
     membership: (state, getters, rootState, rootGetters) => getters.memberships[rootGetters['auth/userId']],

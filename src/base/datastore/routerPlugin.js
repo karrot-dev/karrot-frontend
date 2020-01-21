@@ -91,7 +91,7 @@ export default datastore => {
 
   datastore.watch((state, getters) => [
     getters['breadcrumbs/allNames'],
-    getters['latestMessages/unseenCount'],
+    getters['status/unseenCount'],
   ], ([breadcrumbNames, unseenCount]) => {
     const names = breadcrumbNames.slice().reverse()
     names.push('Karrot')

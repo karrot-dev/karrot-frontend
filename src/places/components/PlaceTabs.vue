@@ -41,7 +41,7 @@ export default {
     ...mapGetters({
       groupId: 'currentGroup/id',
       placeId: 'places/activePlaceId',
-      wallUnreadCount: 'places/conversationUnreadCount',
+      wallUnreadCount: 'status/activePlaceWallUnreadCount',
       isEditor: 'currentGroup/isEditor',
     }),
     cappedWallUnreadCount () {

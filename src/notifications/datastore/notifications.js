@@ -9,6 +9,7 @@ function initialState () {
     },
     entries: {},
     pageVisible: false,
+    fetchInitialDone: false,
   }
 }
 
@@ -53,12 +54,14 @@ export default {
         issue: issue && rootGetters['issues/get'](issue),
       }
     },
-    unseenCount: (state, getters) => {
-      return getters.current.filter(notification => notification.isUnseen).length
-    },
   },
   actions: {
     ...withMeta({
+      async fetchInitial ({ state, commit, dispatch }) {
+        if (state.fetchInitialDone) return
+        await dispatch('fetch')
+        commit('fetchInitialDone', true)
+      },
       async fetch ({ commit, dispatch }) {
         const { notifications, meta } = await dispatch('pagination/extractCursor', notificationsAPI.list())
         if (notifications) commit('update', notifications)
@@ -81,8 +84,9 @@ export default {
       },
       async markSeen ({ getters }) {
         // we can skip marking if there are only seen notifications
-        if (!getters.unseenCount) return
-        notificationsAPI.markSeen()
+        if (getters.current.some(notification => notification.isUnseen)) {
+          notificationsAPI.markSeen()
+        }
       },
     }),
     fetchRelated ({ state, dispatch }) {
@@ -118,20 +122,13 @@ export default {
     clear (state) {
       Object.assign(state, initialState())
     },
+    fetchInitialDone (state, value) {
+      state.fetchInitialDone = value
+    },
   },
 }
 
 export function plugin (datastore) {
-  // load notifications when logged in
-  datastore.watch((state, getters) => getters['auth/isLoggedIn'], isLoggedIn => {
-    if (isLoggedIn) {
-      datastore.dispatch('notifications/fetch')
-    }
-    else {
-      datastore.commit('notifications/clear')
-    }
-  })
-
   // make sure related data stays loaded when page is visible
   datastore.watch((state) => ({
     pageVisible: state.notifications.pageVisible,

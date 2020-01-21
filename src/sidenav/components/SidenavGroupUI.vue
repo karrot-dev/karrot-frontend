@@ -71,9 +71,9 @@ export default {
       default: 0,
       type: Number,
     },
-    pendingApplications: {
-      default: () => [],
-      type: Array,
+    pendingApplicationCount: {
+      default: 0,
+      type: Number,
     },
   },
   computed: {
@@ -108,10 +108,10 @@ export default {
         icon: 'fas fa-address-card',
         to: { name: 'applications', params: { groupId: this.groupId } },
         badge: {
-          condition: this.pendingApplications.length > 0,
-          label: this.pendingApplications.length,
+          condition: this.pendingApplicationCount > 0,
+          label: this.pendingApplicationCount,
           color: 'blue',
-          title: this.$tc('APPLICATION.WALL_NOTICE', this.pendingApplications.length, { count: this.pendingApplications.length }),
+          title: this.$tc('APPLICATION.WALL_NOTICE', this.pendingApplicationCount, { count: this.pendingApplicationCount }),
         },
       }, {
         label: this.$t('ISSUE.TITLE'),

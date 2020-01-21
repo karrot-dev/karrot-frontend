@@ -59,7 +59,6 @@ export default {
     ...mapGetters({
       unseenCount: 'status/unseenCount',
       hasUnread: 'status/hasUnreadMessagesOrThreads',
-      // allUnreadMuted: 'status/allUnreadMuted',
     }),
     hasUnseen () {
       return this.unseenCount > 0

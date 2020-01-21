@@ -80,9 +80,7 @@ export default {
   },
   mutations: {
     update (state, status) {
-      console.log('updating status state!', JSON.stringify(status, null, 2))
       Object.assign(state, deepmerge(state, status))
-      console.log('status state is now', JSON.stringify(state, null, 2))
     },
     clear (state) {
       Object.assign(state, initialState())

@@ -22,21 +22,16 @@ const datastore = createDatastore({
       topics: () => [],
     },
   },
-  latestMessages: {
-    getters: {
-      unreadCount: () => 1,
-      unseenCount: () => 1,
-      allUnreadMuted: () => false,
-    },
-  },
-  notifications: {
-    getters: {
-      unseenCount: () => 1,
-    },
-  },
   connectivity: {
     getters: {
       connected: () => true,
+    },
+  },
+  status: {
+    getters: {
+      unseenCount: () => 1,
+      hasUnread: () => true,
+      unseenNotificationCount: () => 1,
     },
   },
 })

@@ -71,6 +71,10 @@ export default {
       default: 0,
       type: Number,
     },
+    feedbackPossibleCount: {
+      default: 0,
+      type: Number,
+    },
     pendingApplicationCount: {
       default: 0,
       type: Number,
@@ -103,6 +107,12 @@ export default {
         label: this.$t('PICKUP_FEEDBACK.TITLE'),
         icon: this.$icon('feedback'),
         to: { name: 'groupFeedback', params: { groupId: this.groupId } },
+        badge: {
+          condition: this.feedbackPossibleCount > 0,
+          label: this.feedbackPossibleCount,
+          color: 'info',
+          title: this.$tc('PICKUPLIST.AVAILABLE_FEEDBACK', this.feedbackPossibleCount, { count: this.feedbackPossibleCount }),
+        },
       }, {
         label: this.$t('GROUP.APPLICATIONS'),
         icon: 'fas fa-address-card',

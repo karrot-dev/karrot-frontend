@@ -52,6 +52,10 @@ export default {
       const { unreadWallMessageCount = 0 } = state.groups[getters.groupId] || {}
       return unreadWallMessageCount
     },
+    currentGroupFeedbackPossibleCount: (state, getters) => {
+      const { feedbackPossibleCount = 0 } = state.groups[getters.groupId] || {}
+      return feedbackPossibleCount
+    },
     currentGroupPendingApplicationCount: (state, getters, rootState, rootGetters) => {
       const { pendingApplicationCount = 0 } = state.groups[getters.groupId] || {}
       return pendingApplicationCount

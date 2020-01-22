@@ -7,6 +7,7 @@ export default connect({
     groupId: 'currentGroup/id',
     features: 'currentGroup/features',
     wallUnreadCount: 'status/currentGroupWallUnreadCount',
+    feedbackPossibleCount: 'status/currentGroupFeedbackPossibleCount',
     pendingApplicationCount: 'status/currentGroupPendingApplicationCount',
   },
 })('SidenavGroup', SidenavGroupUI)

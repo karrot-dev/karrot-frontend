@@ -150,7 +150,7 @@
     "terser-webpack-plugin": "^2.3.0",
     "url-loader": "^3.0.0",
     "vue-jest": "^3.0.5",
-    "vue-loader": "^15.7.1",
+    "vue-loader": "^15.8.3",
     "vue-server-renderer": "2.6.11",
     "vue-template-compiler": "2.6.11",
     "webpack": "^4.41.2",

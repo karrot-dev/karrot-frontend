@@ -12857,10 +12857,10 @@ rechoir@^0.6.2:
   dependencies:
     resolve "^1.1.6"
 
-reconnecting-websocket@^4.2.0:
-  version "4.2.0"
-  resolved "https://registry.yarnpkg.com/reconnecting-websocket/-/reconnecting-websocket-4.2.0.tgz#2395f84b5d0acee439ff5df34c3fd0853d11be7c"
-  integrity sha512-HMD8A0sv40xhkHf/T4qxktyOvHx7K3d2A9i1QG2wRIYdMecxQJMhTIBH4aQ8KfQLfQW4UOqNSfxTgv0C+MbPIA==
+reconnecting-websocket@^4.3.0:
+  version "4.3.0"
+  resolved "https://registry.yarnpkg.com/reconnecting-websocket/-/reconnecting-websocket-4.3.0.tgz#aaefbc7629a89450aa45324b89aec2276e728cc5"
+  integrity sha512-3eaHIEVYB9Zb0GfYy1xdEHKJLA2JaawAegByZ1AZ8Npb3AiRgUN5l89cvE2H+pHTsFcoC88t32ky9qET6DJ75Q==
 
 recursive-readdir@2.2.2:
   version "2.2.2"

@@ -3,13 +3,13 @@
 ### 1st Part
 [One paragraph of text of what Karrot is about, why it exists, to whom and its vision...]
 
-Karrot exists for groups of people who want to save things from being wasted and share them instead, allowing these groups to organise efficiently, on a local and voluntary basis. Things such food, bikes, clothes or whatever is being excessively thrown away or unused in the context of a consumerist society. 
+Karrot exists for groups of people who want to save things from being wasted and share them instead, allowing these groups to organise efficiently, on a local and voluntary basis. Things such as food, bikes, clothes or whatever is being excessively thrown away or unused in the context of a consumerist society. 
 
-Our vision, as the team of passionate volunteers developing Karrot, is to make a free and open-source software that enables a movement to grow, a movement that is based on communities and networks that save and share resources and that are socially and ecologically sustainable. Karrot has started as a foodsaving tool (hence the name) and is progressively being developed to become a platform for like-minded initiatives to connect and grow.
+Our vision, as the team of passionate volunteers developing Karrot, is to make a free and open-source software that enables a movement to grow, a movement that is based on communities and networks that save and share resources and that are socially and ecologically sustainable. Karrot has started as a foodsaving tool but is widening in scope as it is progressively being developed to become a platform for all kinds of grassroots initiatives to connect and grow. Our main motivation is to support face-to-face activities with a layer of digital infrastructure so that our users can concentrate on their sustainability endeavors and scale them without getting lost in chaos or bureaucracy.
 
 Every group on karrot is completely independent and can have their own logo, processes and rules. Yet they are all displayed on the map so that people can find and connect to other groups in their location  and even globally.
 
-Have you already found a [group nearby you](https://karrot.world/)? Or maybe you want to [start one](https://karrot.world/#/group/create)? If you just want to try Karrot out, create an account and join the Playgroud group for testing.
+Have you already found a [group nearby you](https://karrot.world/)? Or maybe you want to [start one](https://karrot.world/#/group/create)? If you just want to try Karrot out, then create an account and join the Playgroud group for testing.
 
 ### Features
 
@@ -23,7 +23,7 @@ Here are some of Karrot's main features, in a nutshell.
 
 - Communication in the right context: write a message that everyone in the group will see or a private message to someone. Everything related to a single activity or place can be discussed in their respective chats.
 
-- Trust and group management: People in the group who receive enough trust-carrots from their peers will be able to edit and change settings in the group. When new people want to join your group they need to apply and answer questions your group can set.
+- Democratic and trust-based group management: There are no admin superpowers in a Karrot group. People who receive enough trust-carrots from their peers will be able to edit and change settings in the group. When new people want to join your group they need to apply and answer questions your group can set, which anyone with editing rights can decline or approve. Likewise, if there is a conflict, the group can enter a voting system to resolve it in a communal way.
 
 And more... [perhaps this part is collapsed and can be made visible by clicking on it?]
 
@@ -42,6 +42,6 @@ And more... [perhaps this part is collapsed and can be made visible by clicking 
 
 ### Democratic and participative development
 
-Karrot is a free and open-source software developed with the feedback and participation of the poeple who use it. It is mainly developed by a small core team that is constantly in contact with people in different groups, in order to make sense of their diverging and converging needs and thus guide the development. We abide by the ethics of integrity and non-commerciarlisation of data.
+Karrot is a free and open-source software developed with the feedback and participation of the people who use it. It is mainly developed by a small core team that is constantly in contact with people in different groups, in order to make sense of their diverging and converging needs and thus guide the development. We abide by the ethics of integrity and non-commerciarlisation of data.
 
 Developers and designers are obviously welcome to participate in its development. Check out the project on [GitHub](https://github.com/yunity/karrot-frontend/).

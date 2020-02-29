@@ -19,6 +19,11 @@
         :label="$t('CONVERSATION.REPLIES')"
         :count="unseenThreadsCount > 9 ? '9+' : unseenThreadsCount"
       />
+      <QRouteTab
+        :title="$t('GROUP.SETTINGS')"
+        icon="fas fa-cog"
+        :to="{ name: 'settings', hash: '#notifications' }"
+      />
     </QTabs>
     <RouterView
       v-if="asPage"

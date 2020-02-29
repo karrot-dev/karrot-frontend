@@ -13,10 +13,10 @@
           dense
           round
           size="sm"
-          :to="{ name: 'settings', hash: '#notifications' }"
-          :title="$t('GROUP.SETTINGS')"
+          :to="{ name: 'groupDescription' }"
+          :title="$t('GROUP.DESCRIPTION')"
         >
-          <QIcon name="fas fa-cog fa-fw" />
+          <QIcon name="fas fa-info-circle fa-fw" />
         </QBtn>
         <QBtn
           flat
@@ -35,7 +35,10 @@
         </QBtn>
       </div>
     </template>
-    <SidenavMenu :entries="entries" />
+    <SidenavMenu
+      :entries="entries"
+      :entriesmore="entriesmore"
+    />
   </SidenavBox>
 </template>
 
@@ -104,6 +107,17 @@ export default {
         icon: this.$icon('feedback'),
         to: { name: 'groupFeedback', params: { groupId: this.groupId } },
       }, {
+        label: this.$t('GROUP.MEMBERS'),
+        icon: 'fas fa-users',
+        to: { name: 'groupMembers', params: { groupId: this.groupId } },
+      }, {
+        label: this.$t('GROUP.HISTORY'),
+        icon: 'far fa-clock',
+        to: { name: 'groupHistory', params: { groupId: this.groupId } },
+      }].filter(e => typeof e.condition === 'undefined' || e.condition === true)
+    },
+    entriesmore () {
+      return [{
         label: this.$t('GROUP.APPLICATIONS'),
         icon: 'fas fa-address-card',
         to: { name: 'applications', params: { groupId: this.groupId } },
@@ -118,17 +132,9 @@ export default {
         icon: 'fas fa-vote-yea',
         to: { name: 'issueList', params: { groupId: this.groupId } },
       }, {
-        label: this.$t('GROUP.DESCRIPTION'),
-        icon: 'far fa-address-card',
-        to: { name: 'groupDescription', params: { groupId: this.groupId } },
-      }, {
-        label: this.$t('GROUP.MEMBERS'),
-        icon: 'fas fa-users',
-        to: { name: 'groupMembers', params: { groupId: this.groupId } },
-      }, {
-        label: this.$t('GROUP.HISTORY'),
-        icon: 'far fa-clock',
-        to: { name: 'groupHistory', params: { groupId: this.groupId } },
+        label: this.$t('GROUPINFO.META'),
+        icon: 'fas fa-eye fa-fw',
+        to: { name: 'groupPreview', params: { groupPreviewId: this.groupId } },
       }, {
         condition: this.$q.platform.is.mobile,
         label: this.$t('GROUPMAP.TITLE'),

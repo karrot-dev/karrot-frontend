@@ -119,7 +119,7 @@
     "hard-source-webpack-plugin": "^0.13.1",
     "html-webpack-plugin": "4.0.0-beta.11",
     "http-proxy-middleware": "^0.20.0",
-    "jest": "^24.9.0",
+    "jest": "^25.1.0",
     "jest-canvas-mock": "^2.2.0",
     "jest-environment-jsdom-fifteen": "^1.0.2",
     "jest-junit": "^10.0.0",

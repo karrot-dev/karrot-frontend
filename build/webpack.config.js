@@ -77,7 +77,9 @@ module.exports = {
     chunkLoadTimeout: 30000, // 30 seconds
     pathinfo: false,
   },
-  node: false,
+  node: {
+    global: true,
+  },
   resolve: {
     extensions: [
       '.js',

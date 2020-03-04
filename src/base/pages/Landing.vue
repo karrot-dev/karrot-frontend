@@ -1,5 +1,11 @@
 <template>
   <div class="landing bg-white q-pa-lg">
+    <p class="text-center">
+      <img
+        :src="logo"
+        class="logo"
+      >
+    </p>
     <h1>Save things from being wasted, share them instead!</h1>
     <p>
       <strong>
@@ -82,7 +88,7 @@
           class="screenshot"
         >
       </div>
-      <div class="col-sm-8 order-first q-px-lg self-center">
+      <div class="col-sm-8 q-px-lg self-center">
         <h2>Distribution of tasks and activities</h2>
         <p>
           <strong>Activities with a specific time and place, like food pickups in the case of foodsaving, can be entered in the software.</strong>
@@ -167,12 +173,14 @@
 </template>
 
 <script>
+import logo from '@/logo/assets/carrot-logo.svg'
 import screenshotPickups from './karrot-pickups.png'
 import screenshotGallery from './karrot-gallery.png'
 import screenshotManagePickups from './karrot-manage-pickups.png'
 import screenshotOffers from './karrot-offers.png'
 export default {
   created () {
+    this.logo = logo
     this.screenshots = {
       pickups: screenshotPickups,
       gallery: screenshotGallery,
@@ -212,9 +220,18 @@ export default {
     background var(--q-color-secondary)
     border-radius 3px
 
+.logo
+  width 120px
+
 .screenshot
   width 100%
   box-shadow 1px 4px 10px rgba(1, 1, 1, .8)
+
+// have the feature section descriptions before the image when it's one column
+@media (max-width: 599px)
+  section
+    .col-sm-8
+      order -10000
 
 .screenshot-fullwidth
   @media (min-width: 1100px)

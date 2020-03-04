@@ -1,4 +1,5 @@
 import { Platform } from 'quasar'
+const Landing = () => import('@/base/pages/Landing')
 const GroupWall = () => import('@/group/pages/Wall')
 const GroupPickups = () => import('@/pickups/pages/GroupPickups')
 const GroupOffers = () => import('@/offers/pages/GroupOffers')
@@ -46,6 +47,17 @@ const IssueCompose = () => import('@/issues/pages/IssueCompose')
 const IssueVoteAndHistory = () => import('@/issues/pages/IssueVoteAndHistory')
 
 export default [
+  {
+    name: 'home',
+    path: '/home',
+    meta: {
+      fullpage: true,
+      breadcrumbs: [
+        { translation: 'KARROT' },
+      ],
+    },
+    component: Landing,
+  },
   {
     name: 'groupsGallery',
     path: '/groupPreview',

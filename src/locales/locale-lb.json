@@ -1,5 +1,5 @@
 {
-  "ENTRY": "1 entry | {count} entries",
+  "ENTRY": "1 Antrag | {count} Anträg",
   "GLOBAL": {
     "GITHUB_NOTE": "Entwécklung",
     "SERVER_ERROR": "Server-Feeler",
@@ -22,42 +22,42 @@
     "PHOTO": "Profilfoto",
     "SET_PHOTO": "Änner deng Profilfoto",
     "ACCOUNT": "Konto",
-    "PUSH": "Push notifications",
+    "PUSH": "Push-Benoriichtegungen",
     "PUSH_CURRENT_BROWSER": "Aktuelle Browser",
     "REQUEST_DELETE_ACCOUNT": {
-      "SUCCESS": "We sent you an e-mail with a link to complete the deletion process."
+      "SUCCESS": "Mir hunn dir eng E-Mail geschéckt mat engem Link fir d'Läschen ofzeschléissen."
     },
     "DIALOGS": {
       "REQUEST_DELETE_ACCOUNT": {
-        "TITLE": "Account deletion",
-        "MESSAGE": "Are you sure? Your account and your personal data will be permanently deleted. Anything you have done on this platform will be made anonymous. If you confirm, we send you an e-mail with a link to complete the deletion process.",
+        "TITLE": "Läsche vum Konto",
+        "MESSAGE": "Bass du sécher? Däi Konto an deng perséinlech Date wäerte fir ëmmer geläscht ginn. Alles wat's du op dëser Plattform gemaach hues wäert anonymiséiert ginn. Wann's du zoustëmms, schécke mir dir eng E-Mail mat engem Link fir d'Läschen ofzeschléissen.",
         "CONFIRM": "Bestätegen"
       },
       "GIVE_TRUST": {
         "TITLE": "Benotzer vertrauen",
-        "MESSAGE": "Do you trust {userName} in {groupName}?"
+        "MESSAGE": "Vertraus du {userName} an {groupName}?"
       }
     },
     "LOGOUT_SUCCESS": "Du bass ausgeloggt ginn!",
-    "YOU_TRUST_USER": "You trust {userName} in {groupName}.",
-    "OTHER_PEOPLE_TRUST_USER": "{otherUser} trusts {userName} in {groupName}. | {count} people trust {userName} in {groupName}.",
-    "OTHER_PEOPLE_TRUST_YOU": "{otherUser} trusts you in {groupName}. | {count} people trust you in {groupName}.",
-    "PEOPLE_TRUST_USER": "You and {otherUser} trust {userName} in {groupName}. | You and {count} other people trust {userName} in {groupName}.",
-    "FIRST_TRUST": "Be the first one to trust {userName} in {groupName}!",
-    "NEWCOMER": "Newcomer",
-    "NEWCOMER_GUIDANCE": "{userName} is new to your group and might need some guidance.",
-    "TRUST_PROGRESS_TEXT": "{trustNeeded} more trust needed",
-    "TRUST_PROGRESS_TEXT_LONG": "{trustNeeded} more people need to express their trust in {userName} to grant editing permissions.",
-    "NEWCOMER_INFO": "You are currently a newcomer in {groupName} and you can become active by writing messages, meeting fellow members, doing pickups and giving feedback. As soon as {threshold} members expressed their trust in you, you will gain editing permissions to help with group administration.",
+    "YOU_TRUST_USER": "Du vertraus {userName} an {groupName}.",
+    "OTHER_PEOPLE_TRUST_USER": "{otherUser} vertraut {userName} an {groupName}. | {count} Leit vertrauen {userName} an {groupName}.",
+    "OTHER_PEOPLE_TRUST_YOU": "{otherUser} vertraut dir an {groupName}. | {count} Leit vertrauen dir an {groupName}.",
+    "PEOPLE_TRUST_USER": "Du an {otherUser} vertrauen {userName} an {groupName}. | Du an {count} aner Leit vertrauen {userName} an {groupName}.",
+    "FIRST_TRUST": "Sief déi éischt Persoun déi {userName} an {groupName} vertraut!",
+    "NEWCOMER": "Nei hei",
+    "NEWCOMER_GUIDANCE": "{userName} ass nei an denger Grupp a brauch vläicht bësse Rot.",
+    "TRUST_PROGRESS_TEXT": "{trustNeeded} méi Vertraue gebraucht",
+    "TRUST_PROGRESS_TEXT_LONG": "{trustNeeded} Leit méi mussen {userName} hiert Vertrauen ausdrécke fir beaarbechten ze duerfen",
+    "NEWCOMER_INFO": "Du bass grad nei an {groupName} an du kanns aktiv ginn andeem's du Noriichte schreifs, aner Memberen trëffs, Ofhuelunge mëss a Feedback gëss. Esoubal {threshold} Memberen dir hiert Vertrauen ausgedréckt hunn, duerfs eppes beaarbechte fir ze hëllefen d'Grupp ze administréieren.",
     "TRUST_INFO": {
-      "TITLE": "What is this carrot button about?",
-      "MESSAGE": "It is part of the Karrot trust system. It shows if a group member is newcomer and how much trust is needed until they gain editing permissions.",
-      "LINK": "Click here to find out more."
+      "TITLE": "Wat huet et mat dësem Muerte-Button op sech?",
+      "MESSAGE": "Et ass Deel vun dem Karrot-Vertrauenssystem. Et weist wann ee Gruppemember nei hei ass a wéi vill Vertraue gebraucht gëtt bis dës Persoun eppes beaarbechten duerf.",
+      "LINK": "Klick hei fir méi erauszefannen"
     }
   },
   "SWITCHGROUP": {
-    "NOT_MEMBER": "{userName} is not member of {groupName}.",
-    "COMMON_GROUPS": "Groups you have in common",
+    "NOT_MEMBER": "{userName} ass kee Member vun {groupName}.",
+    "COMMON_GROUPS": "Gemeinsam Gruppen",
     "OTHER_GROUPS": "Aner Gruppen",
     "CHOOSE": "Wiel eng Grupp:"
   },
@@ -67,12 +67,12 @@
     "OPEN": "Opmaachen",
     "CLOSE": "Zoumaachen",
     "DELETE": "Läschen",
-    "EDIT": "Edit",
-    "JOIN": "Join",
+    "EDIT": "Beaarbechten",
+    "JOIN": "Bäitrieden",
     "LEAVE": "Verloossen",
-    "PREVIEW": "Preview",
-    "BACK": "Back",
-    "NEXT": "Next",
+    "PREVIEW": "Kontrolléieren",
+    "BACK": "Zréck",
+    "NEXT": "Nächst",
     "SEARCH": "Sichen",
     "OF_COURSE": "Jo, natierlech!",
     "YES": "Jo",
@@ -94,22 +94,22 @@
     "SHOW_MORE": "Méi weisen",
     "ENABLE": "Aktivéieren",
     "DISABLE": "Desaktivéieren",
-    "UNSUBSCRIBE": "Ofbestellen"
+    "UNSUBSCRIBE": "Desabonéieren"
   },
   "VALIDATION": {
-    "MINLENGTH": "Please enter more than {min} characters.",
-    "MAXLENGTH": "Too long, please use less than {max} characters.",
+    "MINLENGTH": "Gëff w.e.g. méi wéi {min} Zeechen an.",
+    "MAXLENGTH": "Ze laang, benotz w.e.g. manner wéi {max} Zeechen.",
     "UNIQUE": "Name already exists, please choose another.",
     "REQUIRED": "Dëst Feld ass erfuerderlech.",
-    "VALID_EMAIL": "Enter a valid e-mail address.",
-    "VALID_TIMEZONE": "Enter a valid timezone.",
+    "VALID_EMAIL": "Gëff eng gülteg E-Mail-Adress an.",
+    "VALID_TIMEZONE": "Gëff eng gülteg Zäitzone an.",
     "IMAGE_REQUIRED": "Du muss ee Bild uginn."
   },
   "GROUP": {
     "WALL": "Mauer",
     "GROUP": "Grupp",
     "LEAVE": "Grupp verloossen...",
-    "LEAVE_TEXT": "Are you sure you want to leave this group?",
+    "LEAVE_TEXT": "Bass du sécher, dass du dës Grupp verloosse wëlls?",
     "LEAVE_CONFIRMATION": "Du hues {groupName} verlooss",
     "NONMEMBER_REDIRECT": "Du bass kee Member vun dëser Grupp.",
     "EDIT": "Grupp veränneren",
@@ -123,7 +123,7 @@
     "LOGO": "Logo vun der Grupp",
     "SET_LOGO": "Click to upload your group logo!",
     "APPLICATIONS": "Bewerbungen",
-    "APPLICATION_QUESTIONS": "Questions for people who want to join this group",
+    "APPLICATION_QUESTIONS": "Froe fir Leit, déi dëser Grupp bäitriede wëllen",
     "PICKUPS": "Ofhuelungen",
     "MESSAGES": "Noriichten",
     "OFFERS": "Offeren",
@@ -153,15 +153,15 @@
     "INVITATION_ACCEPT_SUCCESS": "Welcome! You successfully accepted the invitation.",
     "INVITATION_ACCEPT_ERROR": "Ooops, could not accept the invitation!",
     "SETTINGS": "Astellungen",
-    "NOTIFICATIONS_BY_GROUP": "Notifications by group",
-    "EMAIL_NOTIFICATIONS": "Email notifications",
+    "NOTIFICATIONS_BY_GROUP": "Benoriichtegungen no Grupp",
+    "EMAIL_NOTIFICATIONS": "Benoriichtegungen via E-Mail",
     "NOTIFICATION_TYPES": {
       "weekly_summary": {
         "NAME": "Weekly summary",
         "DESCRIPTION": "Keep up to date with what's been happening in the group."
       },
       "daily_pickup_notification": {
-        "NAME": "Pickup notifications",
+        "NAME": "Benoriichtegungen iwwert Ofhuelungen",
         "DESCRIPTION": "Reminds you of your pickups, and tells you about empty or not-full pickups of your favorite places in the next day"
       },
       "new_application": {
@@ -274,8 +274,8 @@
     "APPLICATION_WITHDRAWN": "Your application was successfully withdrawn!"
   },
   "GROUPINFO": {
-    "TITLE": "Public group information",
-    "META": "Show public group information",
+    "TITLE": "Ëffentlech Informatiounen zur Grupp",
+    "META": "Weis ëffentlech Informatiounen zur Grupp",
     "MEMBER_VIEW": "You are member of this group. Click here to switch to full view."
   },
   "TOPBAR": {
@@ -303,8 +303,8 @@
     "SUCCESS": "Your e-mail address was successfully verified!"
   },
   "DELETEACCOUNT": {
-    "TITLE": "Account deletion",
-    "SUCCESS": "Your account was successfully deleted!"
+    "TITLE": "Läsche vum Konto",
+    "SUCCESS": "Däi Konto gouf erfollegräich geläscht!"
   },
   "CREATEPICKUP": {
     "FREQUENCY": "Frequency",
@@ -321,15 +321,15 @@
     "TIME_HELPER": "When should the pick-up take place?",
     "DATE": "Datum",
     "DATE_HELPER": "When should the pick-up take place?",
-    "MAX_COLLECTORS": "Max Slots",
-    "MAX_COLLECTORS_HELPER": "How many people should participate in the pick-up?",
+    "MAX_COLLECTORS": "Max. Platzen",
+    "MAX_COLLECTORS_HELPER": "Wéi vill Leit solle bei der Ofhuelung matmaachen?",
     "COMMENT": "Zousätzlech Informatiounen",
-    "COMMENT_HELPER": "What should people know when signing up to this pick-up?",
+    "COMMENT_HELPER": "Wat sollen d'Leit wësse wann si sech fir dës Ofhuelung androen?",
     "UNLIMITED": "onendlech",
     "DIFFERS_WARNING": "This value differs from the default. To undo this change, click on the arrow button and save the changes.",
     "ENABLE_TITLE": "Ofhuelungen aktivéieren?",
     "DISABLE_TITLE": "Ofhuelung desaktivéieren?",
-    "ENABLE_DISABLE_MESSAGE": "Users who joined this pickup will get a notification. You can change this text to provide a reason:",
+    "ENABLE_DISABLE_MESSAGE": "Benotzer, déi dëser Ofhuelung bäitrieden, kréien eng Benoriichtegung. Du kanns dësen Text ännere fir ee Grond unzeginn:",
     "EXCEPTIONS_TITLE": "Deng Ofhuelunge kontrolléieren",
     "EXCEPTIONS_MESSAGE": "Some upcoming pickups don't match the settings of this recurring pickup. Have a look below at '{upcomingLabel}' to change or disable pickups, if needed."
   },
@@ -348,8 +348,8 @@
     "AVAILABLE_FROM_STORES": "This shows pickups from your favorite places in the next days. You can access other places in the sidebar.",
     "ITEM": {
       "LEAVE": "Verloossen",
-      "JOIN": "Join",
-      "JOIN_CONFIRMATION_HEADER": "Join Pickup",
+      "JOIN": "Matmaachen",
+      "JOIN_CONFIRMATION_HEADER": "Bei Ofhuelung matmaachen",
       "JOIN_CONFIRMATION_TEXT": "Are you sure you have time to pick up on {date}?",
       "LEAVE_CONFIRMATION_HEADER": "Leave Pickup",
       "LEAVE_CONFIRMATION_TEXT": "Are you really sure the others can do the pickup without you?"
@@ -368,7 +368,7 @@
     "GIVE_FEEDBACK": "Feedback ginn",
     "NONE": "Nach kee Feedback",
     "NONE_HINT": "This page will be filled once more feedback is available",
-    "NO_DONE_PICKUPS": "All done!",
+    "NO_DONE_PICKUPS": "Alles fäerdeg!",
     "NO_DONE_PICKUPS_HINT": "You currently have no pickups to give feedback to. Why not join another pickup?"
   },
   "PICKUP_FEEDBACK": {
@@ -387,7 +387,7 @@
   "PASSWORDRESET": {
     "TITLE": "Passwuert zrécksetzen",
     "INTRO": "Enter your Email address and we will send you a link to set a new password (if you have an account registered).",
-    "EMAIL": "Email address",
+    "EMAIL": "E-Mail-Adress",
     "SUBMIT": "Get new password",
     "LOGIN": "Back to login page",
     "SUCCESS": "The request was successfully sent. Have a look at your Emails!"
@@ -443,8 +443,8 @@
     "DETAILS": "Méi Informatiounen"
   },
   "NOTIFICATIONS": {
-    "TITLE": "Notifications",
-    "NOT_VERIFIED": "{email} is not verified",
+    "TITLE": "Benoriichtegungen",
+    "NOT_VERIFIED": "{email} ass net verifizéiert",
     "CHECK_YOUR_MAILS": "Please check your emails or {resend}",
     "RESEND_VERIFICATION": "resend verification email",
     "VERIFICATION_EMAIL_SENT": "We sent you another verification mail. Please check your inbox.",
@@ -452,8 +452,8 @@
     "EMAIL_NOT_DELIVERED": "An email could not be delivered to you | {count} emails could not be delivered to you"
   },
   "NOTIFICATION_BELLS_LIST": {
-    "TITLE": "Notifications",
-    "NO_ITEMS": "We currently don't have notifications for you."
+    "TITLE": "Benoriichtegungen",
+    "NO_ITEMS": "Mir hu grad keng Benoriichtegungen fir dech."
   },
   "NOTIFICATION_BELLS": {
     "YOU_BECAME_EDITOR": "You gained editing permissions",
@@ -479,13 +479,13 @@
     "VOTING_ENDS_SOON": "Voting ends soon, don't forget to participate!"
   },
   "NOTIFICATION_TOGGLE": {
-    "HEADER": "How do you want to receive notifications about new messages in this conversation/thread?",
+    "HEADER": "Wéi wëlls du Benoriichtegungen iwwert nei Noriichten an dëser Ënnerhalung kréien?",
     "ALL": "all",
-    "ALL_TEXT": "Via app/website, email and push notifications.",
+    "ALL_TEXT": "Via App/Websäit, E-Mail a Push-Benoriichtegungen.",
     "SOME": "e puer",
-    "SOME_TEXT": "Via app/website.",
+    "SOME_TEXT": "Via App/Websäit.",
     "NONE": "keng",
-    "NONE_TEXT": "No notifications."
+    "NONE_TEXT": "Keng Benoriichtegungen."
   },
   "OUTDATED_BROWSER": {
     "MESSAGE": "You are using an unsupported browser. {upgradeBrowser} to enjoy all features.",
@@ -530,7 +530,7 @@
   "WALL": {
     "WRITE_MESSAGE": "Eng Noriicht schreiwen...",
     "WRITE_FIRST_MESSAGE": "Déi éischt Noriicht schreiwen...",
-    "VERIFY_EMAIL_FOR_NOTIFICATIONS": "Please verify your e-mail address to receive notification e-mails",
+    "VERIFY_EMAIL_FOR_NOTIFICATIONS": "Verifizéier w.e.g. deng E-Mail-Adress fir Benoriichtegunge via E-Mail ze kréien",
     "RECEIVED_VIA_EMAIL": "Dës Noriicht gouf via E-Mail geschéckt."
   },
   "CONVERSATION": {
@@ -541,7 +541,7 @@
     "REPLIES_COUNT": "1 Äntwert | {count} Äntwerten",
     "UNREAD_MESSAGES": "Du hues eng ongeliesen Noriicht. | Du hues {count}ongeliesen Noriichten.",
     "EDITED": "edited",
-    "MARK_READ": "Mark all as read",
+    "MARK_READ": "All als geliese markéieren.",
     "REACTIONS": {
       "YOU": "du",
       "AND": "an",
@@ -549,9 +549,9 @@
     },
     "MESSAGE_NOT_FOUND": "Noriicht net fonnt",
     "NO_CONVERSATIONS": "No conversations yet.",
-    "MUTED": "Notifications are disabled",
+    "MUTED": "Benoriichtegungen sinn desaktivéiert.",
     "CLOSED": "This conversation has been closed automatically.",
-    "NOT_PARTICIPATED": "By sending a message, you will be subscribed to notifications about this conversation."
+    "NOT_PARTICIPATED": "Andeem's du eng Noriicht schécks, wäerts du Benoriichtegungen iwwert dës Ënnerhalung abonéieren. "
   },
   "STORESTATUS": {
     "ACTIVE": "Co-operating",
@@ -587,7 +587,7 @@
   },
   "INACTIVITY": {
     "WHAT": "What does it mean to be inactive?",
-    "HELP": "Everyone who did not log into the group for {dayCount} days or more counts as inactive. These users will not receive notification emails anymore."
+    "HELP": "All Persoun, déi sech wärend {dayCount} oder méi Deeg net an d'Grupp ageloggt huet, gëtt als inaktiv markéiert. Dës Notzer wäerte keng Benoriichtegunge via E-Mail méi kréien."
   },
   "CONFLICT": {
     "SETUP_HEADER": "Is there a conflict with {user}?",
@@ -622,7 +622,7 @@
       "TOAST": "You successfully started a conflict resolution process"
     },
     "TITLE": "Konflikter",
-    "VOTE": "Vote",
+    "VOTE": "Ofstëmmen",
     "CHAT": "Chat",
     "INITIATED_BY": "Initiated by {initiatorName}",
     "PAST": "Past issues",
@@ -640,7 +640,7 @@
       "REMOVE_USER": "{userName} gets removed from {groupName}",
       "RESULTS": {
         "KEEP_DISCUSSING": "Your group voted to keep discussing",
-        "TIME_UP": "Time is up!",
+        "TIME_UP": "D'Zäit ass ëm!",
         "TOTAL_SCORE": "Total score",
         "ENDED_AT": "This voting round ended on {date}",
         "PARTICIPANTS": "{number} members participated in the voting.",
@@ -681,14 +681,14 @@
     "CHOOSE_LOCATION": "choose location on map"
   },
   "UNSUBSCRIBE": {
-    "HEADER": "Unsubscribe",
-    "ALL": "Unsubscribe all",
-    "FROM_CONVERSATION": "unsubscribe from just this conversation",
-    "FROM_THREAD": "unsubscribe from just this thread",
-    "FROM_NOTIFICATION_TYPE": "unsubscribe from {notificationType}",
-    "FROM_GROUP": "Unsubscribe from all email notifications in {groupName}",
-    "SUCCESS": "You were successfully unsubscribed!",
-    "COUNTS": "You unsubscribed from {formerConversations} conversations and {formerReplies} replies."
+    "HEADER": "Desabonéieren",
+    "ALL": "Alles desabonéieren",
+    "FROM_CONVERSATION": "desabonéier dës Ënnerhalung",
+    "FROM_THREAD": "desabonéier dëse Thread",
+    "FROM_NOTIFICATION_TYPE": "desabonéier {notificationType}",
+    "FROM_GROUP": "Desabonéieren vun alle Benoriichtegungen via E-Mail an {groupName}",
+    "SUCCESS": "Du hues dech erfollegräich desabonéiert.",
+    "COUNTS": "Du hues dech vun {formerConversations} Ënnerhalungen an {formerReplies} Äntwerten desabonéiert."
   },
   "THANKS": "Merci!",
   "ATTENTION": "Pass op!",

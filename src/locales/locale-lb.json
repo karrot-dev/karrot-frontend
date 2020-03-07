@@ -81,16 +81,16 @@
     "CHANGE_PASSWORD": "Passwuert änneren",
     "CHANGE_EMAIL": "E-Mail-Adress änneren",
     "AGREE": "Ech sinn averstanen.",
-    "REMOVE": "Remove",
+    "REMOVE": "Läschen",
     "ARCHIVE": "Archivéieren",
     "DELETE_ACCOUNT": "Konto läschen",
     "SHOW": "Weisen",
     "HIDE": "Verstoppen",
-    "SUBMIT": "Submit",
-    "APPLY": "Apply",
+    "SUBMIT": "Areechen",
+    "APPLY": "Bewerben",
     "ACCEPT": "Unhuelen",
     "DECLINE": "Ofleenen",
-    "WITHDRAW": "Withdraw",
+    "WITHDRAW": "Zréckzéien",
     "SHOW_MORE": "Méi weisen",
     "ENABLE": "Aktivéieren",
     "DISABLE": "Desaktivéieren",
@@ -99,7 +99,7 @@
   "VALIDATION": {
     "MINLENGTH": "Gëff w.e.g. méi wéi {min} Zeechen an.",
     "MAXLENGTH": "Ze laang, benotz w.e.g. manner wéi {max} Zeechen.",
-    "UNIQUE": "Name already exists, please choose another.",
+    "UNIQUE": "Dësen Numm gëtt et schonn. Wiel w.e.g. een aneren.",
     "REQUIRED": "Dëst Feld ass erfuerderlech.",
     "VALID_EMAIL": "Gëff eng gülteg E-Mail-Adress an.",
     "VALID_TIMEZONE": "Gëff eng gülteg Zäitzone an.",
@@ -114,14 +114,14 @@
     "NONMEMBER_REDIRECT": "Du bass kee Member vun dëser Grupp.",
     "EDIT": "Grupp veränneren",
     "CREATE_TITLE": "Nei Grupp erstellen",
-    "MANAGE_AGREEMENT": "Manage agreement",
+    "MANAGE_AGREEMENT": "Ofkommes verwalten",
     "TITLE": "Titel vun dëser Grupp",
     "PRIVATE_DESCRIPTION_TITLE": "Privat Gruppebeschreiwung",
-    "DESCRIPTION_VERBOSE": "Group description, visible for members",
-    "PUBLIC_DESCRIPTION": "Text you see before joining the group",
-    "WELCOMEMESSAGE_VERBOSE": "Welcome message sent to new members",
+    "DESCRIPTION_VERBOSE": "Beschreiwung vun der Grupp, siichtbar fir Memberen",
+    "PUBLIC_DESCRIPTION": "Text, deen ee gesäit, ier een der Grupp bäitrëtt",
+    "WELCOMEMESSAGE_VERBOSE": "Noriicht déi als Begréissung un nei Membere geschéckt gëtt",
     "LOGO": "Logo vun der Grupp",
-    "SET_LOGO": "Click to upload your group logo!",
+    "SET_LOGO": "Klick fir de Logo vun der Grupp eropzelueden!",
     "APPLICATIONS": "Bewerbungen",
     "APPLICATION_QUESTIONS": "Froe fir Leit, déi dëser Grupp bäitriede wëllen",
     "PICKUPS": "Ofhuelungen",
@@ -129,48 +129,48 @@
     "OFFERS": "Offeren",
     "PICKUP": "Ofhuelung",
     "MEMBERS": "Memberen",
-    "JOINED": "joined {relativeDate}",
-    "DECLINED": "declined {relativeDate}",
-    "ADDED_BY": "added by {userName}",
-    "DECLINED_BY": "declined by {userName}",
-    "SORT_JOINDATE": "Sort by join date",
-    "SORT_NAME": "Sort by name",
+    "JOINED": "ass {relativeDate} bäigetrueden",
+    "DECLINED": "huet {relativeDate} ofgeleent",
+    "ADDED_BY": "derbäigemaach gi vum {userName}",
+    "DECLINED_BY": "ofgeleent gi vum {userName}",
+    "SORT_JOINDATE": "Sortéieren no Datum vum Bäitrëtt",
+    "SORT_NAME": "Sortéieren no Numm",
     "INACTIVE": "Inaktiv",
-    "SHOW_INACTIVE": "Show inactive groups",
-    "PLACES": "Plazen",
+    "SHOW_INACTIVE": "Inaktiv Gruppe weisen",
+    "PLACES": "Platzen",
     "HOME": "Doheem",
     "HISTORY": "Geschicht",
     "DESCRIPTION": "Beschreiwung",
     "ADDRESS": "Adress",
     "TIMEZONE": "Zäitzon vun der Grupp",
-    "INVITE_EMAIL": "Enter an e-mail address",
+    "INVITE_EMAIL": "Gëff eng E-Mail-Adress an",
     "INVITE_SEND": "Aluedung schécken",
-    "INVITE_SEND_SUCCESS": "Invitation sent successfully!",
-    "INVITE_SEND_ERROR": "Ooops, could not send the invitation!",
-    "INVITED_LIST": "Invitations have already been sent out to these e-mail addresses:",
+    "INVITE_SEND_SUCCESS": "Aluedung erfollegräich geschéckt!",
+    "INVITE_SEND_ERROR": "Ups, d'Aluedung konnt net geschéckt ginn!",
+    "INVITED_LIST": "Aluedungen si schonn u folgend E-Mail-Adresse verschéckt ginn:",
     "INVITATIONS": "Aluedungen",
-    "INVITE_TITLE": "Invite users to your group",
-    "INVITATION_ACCEPT_SUCCESS": "Welcome! You successfully accepted the invitation.",
-    "INVITATION_ACCEPT_ERROR": "Ooops, could not accept the invitation!",
+    "INVITE_TITLE": "Lued Leit an deng Grupp an",
+    "INVITATION_ACCEPT_SUCCESS": "Wëllkomm! Du hues d'Aluedung erfollegräich ugeholl.",
+    "INVITATION_ACCEPT_ERROR": "Ups, d'Aluedung konnt net ugeholl ginn!",
     "SETTINGS": "Astellungen",
     "NOTIFICATIONS_BY_GROUP": "Benoriichtegungen no Grupp",
     "EMAIL_NOTIFICATIONS": "Benoriichtegungen via E-Mail",
     "NOTIFICATION_TYPES": {
       "weekly_summary": {
-        "NAME": "Weekly summary",
+        "NAME": "Zesummefaassung vun der Woch",
         "DESCRIPTION": "Keep up to date with what's been happening in the group."
       },
       "daily_pickup_notification": {
         "NAME": "Benoriichtegungen iwwert Ofhuelungen",
-        "DESCRIPTION": "Reminds you of your pickups, and tells you about empty or not-full pickups of your favorite places in the next day"
+        "DESCRIPTION": "Erënnert dech un deng Ofhuelungen, a seet dir Bescheed iwwert Ofhuelungen, op déi nach keen oder net genuch Leit ginn, vun denge favoriséierte Platzen den nächsten Dag"
       },
       "new_application": {
-        "NAME": "New applications",
-        "DESCRIPTION": "Tells you when somebody wants to join your group"
+        "NAME": "Nei Bewerbungen",
+        "DESCRIPTION": "Bescheed soe wann een der Grupp bäitriede wëll"
       },
       "new_offer": {
         "NAME": "Nei Offeren",
-        "DESCRIPTION": "Tells you when somebody creates a new offer"
+        "DESCRIPTION": "Bescheed soen wann een eng nei Offer mëscht"
       },
       "conflict_resolution": {
         "NAME": "New conflict resolution processes",
@@ -196,10 +196,10 @@
   "STOREDETAIL": {
     "DIRECTIONS": "Show directions",
     "EDIT": "Platz veränneren",
-    "ARCHIVED": "This place has been archived",
-    "INACTIVE": "This place is currently not cooperating.",
+    "ARCHIVED": "Dës Platz gouf archivéiert",
+    "INACTIVE": "Dës Platz kooperéiert grad net.",
     "CHANGE_STATUS": "You can change the status on the settings page.",
-    "NO_DESCRIPTION": "This place does not have a description yet"
+    "NO_DESCRIPTION": "Dës Platz huet nach keng Beschreiwung."
   },
   "STOREEDIT": {
     "NAME": "Numm",
@@ -210,21 +210,21 @@
     "WEEKS_IN_ADVANCE_WARNING": "You are about to reduce the number of weeks pickups are shown. Existing leftover pickups will get deleted if nobody has joined them. You can disable all other pickups manually, if needed.",
     "DIALOGS": {
       "ARCHIVE": {
-        "TITLE": "Archive place",
+        "TITLE": "Platz archivéieren",
         "MESSAGE": "Bass du sécher?",
-        "CONFIRM": "Yes, archive place"
+        "CONFIRM": "Jo, Platz archivéieren"
       }
     },
     "RESTORE": "Restore",
-    "SHOW_ARCHIVED": "Show archived places",
-    "HIDE_ARCHIVED": "Hide archived places",
+    "SHOW_ARCHIVED": "Archivéiert Platzen uweisen",
+    "HIDE_ARCHIVED": "Verstoppte Platzen uweisen",
     "SHOW_ALL": "All d'Platzen uweisen",
     "SHOW_ACTIVE_ONLY": "Just déi aktiv Platzen uweisen"
   },
   "PLACEWALL": {
-    "SUBSCRIBED_USERS": "{count} people have marked this place as favourite",
+    "SUBSCRIBED_USERS": "{count} Leit hunn dës Platz als Favorit markéiert",
     "SUBSCRIPTION": {
-      "HEADER": "Do you want to mark this place as your favourite?",
+      "HEADER": "Wëlls du dës Platz als Favorit markéieren?",
       "YES": "jo",
       "YES_TEXT": "Shows available pickups on the group wall and sends emails about upcoming pickups.",
       "NO": "nee",
@@ -232,7 +232,7 @@
     }
   },
   "PICKUPMANAGE": {
-    "TITLE": "Manage pickups",
+    "TITLE": "Ofhuelunge verwalten",
     "SERIES": "Recurring pickups",
     "SINGLE": "One-time pickups",
     "UPCOMING_PICKUPS_IN_SERIES": "Upcoming pickups in this series",
@@ -257,8 +257,8 @@
     "WHICHGROUP": "Wéi enger Grupp wëlls du bäitrieden?",
     "OR": "{joinGroup} or {createGroup}",
     "NUM_MEMBERS": "Member | Memberen",
-    "NO_PUBLIC_DESCRIPTION": "(This group has no public description... yet)",
-    "ALL_GROUPS": "All groups",
+    "NO_PUBLIC_DESCRIPTION": "(Dës Grupp huet nach keng ëffentlech Beschreiwung.)",
+    "ALL_GROUPS": "All d'Gruppen",
     "SIGNUP_OR_LOGIN": "Log in or sign up to join this group!",
     "VERIFY_EMAIL_ADDRESS": "Verify your email address to apply",
     "MY_GROUPS": "Meng Gruppen",
@@ -269,9 +269,9 @@
     "PROFILE_NOTE": "By joining this group, your profile data will become visible to other group members.",
     "APPLICATION_SUBMITTED": "Your application was successfully submitted!",
     "APPLICATION_PENDING": "Your application is pending!",
-    "WITHDRAW_CONFIRMATION_HEADER": "Withdraw Application",
-    "WITHDRAW_CONFIRMATION_TEXT": "Are you sure you want to withdraw your application to join {groupName}?",
-    "APPLICATION_WITHDRAWN": "Your application was successfully withdrawn!"
+    "WITHDRAW_CONFIRMATION_HEADER": "Bewerbung zréckzéien",
+    "WITHDRAW_CONFIRMATION_TEXT": "Bass du sécher, dass du deng Bewerbung fir {groupName} bäizetrieden zréckzéie wëlls?",
+    "APPLICATION_WITHDRAWN": "Deng Bewerbung gouf erfollegräich zréckgezunn!"
   },
   "GROUPINFO": {
     "TITLE": "Ëffentlech Informatiounen zur Grupp",
@@ -285,13 +285,13 @@
   },
   "SIDENAV": {
     "INFO_SUB": "How to build your foodsaving group",
-    "GIT_SUB": "See our code!"
+    "GIT_SUB": "Eise Code kucken!"
   },
   "LOGIN": {
     "TITLE": "Login",
     "SUBMIT": "Aloggen",
     "SIGNUP": "Sign up!",
-    "FORGOT_PASSWORD": "Forgot your password?"
+    "FORGOT_PASSWORD": "Hues du däi Passwuert vergiess?"
   },
   "SIGNUP": {
     "TITLE": "Sign Up!",
@@ -300,27 +300,27 @@
   },
   "VERIFYMAIL": {
     "TITLE": "E-Mail verification",
-    "SUCCESS": "Your e-mail address was successfully verified!"
+    "SUCCESS": "Deng E-Mail-Adress gouf erfollegräich verifizéiert!"
   },
   "DELETEACCOUNT": {
     "TITLE": "Läsche vum Konto",
     "SUCCESS": "Däi Konto gouf erfollegräich geläscht!"
   },
   "CREATEPICKUP": {
-    "FREQUENCY": "Frequency",
+    "FREQUENCY": "Frequenz",
     "WEEKLY": "All Woch",
     "CUSTOM": "Custom",
     "WEEKDAYS": "All Wochendag",
-    "WEEKDAYS_HELPER": "On which days should the pick-up take place?",
+    "WEEKDAYS_HELPER": "Op wéi engen Deeg sinn d'Ofhuelungen?",
     "RRULE": "Recurrence rule",
     "RRULE_HELPER": "Type in a valid {ruleHelper}, e.g. {ruleExample} or {ruleExample2}",
     "RRULE_HELPER_URL": "iCalender rule",
     "RRULE_EXAMPLE": "last working day (Mo-Fr) every month",
-    "RRULE_EXAMPLE2": "every second Monday",
+    "RRULE_EXAMPLE2": "all zweete Méindeg",
     "STARTDATE_HELPER": "When should the series start?",
-    "TIME_HELPER": "When should the pick-up take place?",
+    "TIME_HELPER": "Wéini soll d'Ofhuelung sinn?",
     "DATE": "Datum",
-    "DATE_HELPER": "When should the pick-up take place?",
+    "DATE_HELPER": "Wéini soll d'Ofhuelung sinn?",
     "MAX_COLLECTORS": "Max. Platzen",
     "MAX_COLLECTORS_HELPER": "Wéi vill Leit solle bei der Ofhuelung matmaachen?",
     "COMMENT": "Zousätzlech Informatiounen",
@@ -342,19 +342,19 @@
       "EMPTY": "Just eideler",
       "FREE": "Mat eidele Platzen"
     },
-    "AVAILABLE": "There is one pickup in your favorite places waiting for you! | There are {count} pickups in your favorite places waiting for you!",
+    "AVAILABLE": "Et gëtt eng Ofhuelung op denge favoriséierte Platze fir dech! | Et gëtt {count} Ofhuelungen op denge favoriséierte Platze fir dech!",
     "AVAILABLE_FEEDBACK": "You can give feedback to a pickup | {count} pickups await your feedback",
     "JOINEDNOTICE": "You have one upcoming pickup | You have {count} upcoming pickups",
-    "AVAILABLE_FROM_STORES": "This shows pickups from your favorite places in the next days. You can access other places in the sidebar.",
+    "AVAILABLE_FROM_STORES": "Dëst weist d'Ofhuelunge vun denge favoriséierte Platzen an den nächsten Deeg. Du kanns un aner Platzen iwwert d'Sidebar dru kommen.",
     "ITEM": {
       "LEAVE": "Verloossen",
       "JOIN": "Matmaachen",
       "JOIN_CONFIRMATION_HEADER": "Bei Ofhuelung matmaachen",
       "JOIN_CONFIRMATION_TEXT": "Are you sure you have time to pick up on {date}?",
-      "LEAVE_CONFIRMATION_HEADER": "Leave Pickup",
+      "LEAVE_CONFIRMATION_HEADER": "Vun Ofhuelung ofmellen",
       "LEAVE_CONFIRMATION_TEXT": "Are you really sure the others can do the pickup without you?"
     },
-    "NONE": "No upcoming pickups",
+    "NONE": "Keng Ofhuelungen déi kommen",
     "NONE_HINT": "Du kanns eng nei Ofhuelung op der Säit vun der Platz erstellen.",
     "STORE_NONE_HINT": "You can create a new pickup on the pickup manage page.",
     "PICKUP_DISABLED": "Dës Ofhuelung ass desaktivéiert ginn.",
@@ -364,7 +364,7 @@
     "SAVED_FOOD": "At least 1 kg was saved here. Thank you! | People gave feedback for {amount} kg of saved food already! Keep up the great work!",
     "NUMBER_PICKUPS": "{count} Ofhuelunge gemaach",
     "NUMBER_FEEDBACK": "{count} feedback entries given",
-    "WEIGHT_SUM": "{sum} kg of food saved",
+    "WEIGHT_SUM": "{sum} kg Liewensmëttel gerett",
     "GIVE_FEEDBACK": "Feedback ginn",
     "NONE": "Nach kee Feedback",
     "NONE_HINT": "This page will be filled once more feedback is available",
@@ -376,10 +376,10 @@
     "HEADER": "Merci fir deng Ofhuelung!",
     "EDIT": "Feedback veränneren",
     "SUBTITLE": "Du kanns Feedback zu denger Ofhuelung hei ginn",
-    "SET_AMOUNT": "Set amount",
-    "DELETE_AMOUNT": "Delete amount",
-    "AMOUNT": "Amount of food you were able to save (in kg)",
-    "AMOUNT_INFO": "For place statistics, we will add together the amount of all feedback.",
+    "SET_AMOUNT": "Quantitéit aginn",
+    "DELETE_AMOUNT": "Quantitéit läschen",
+    "AMOUNT": "Quantitéit vu Liewensmëttel déi's du rette konnts (a kg)",
+    "AMOUNT_INFO": "Fir Statistiken zur Platz gëtt d'Quantitéit vun all Feedback zesummegerechent.",
     "COMMENT_PLACEHOLDER": "Was everything fine? Did everyone show up? Your comment here...",
     "PREVIOUS": "Previous feedback for {store}",
     "TOGETHER_WITH": "Du hues dës Ofhuelung zesumme gemaach mam:"
@@ -396,10 +396,10 @@
     "RESET": {
       "TITLE": "Passwuert zrécksetzen",
       "OK": "Späicheren",
-      "SUCCESS": "Your new password has been saved."
+      "SUCCESS": "Däin neit Passwuert gouf gespäichert."
     },
     "CHANGE": {
-      "SUCCESS": "Your new password has been saved."
+      "SUCCESS": "Däin neit Passwuert gouf gespäichert."
     }
   },
   "LANGUAGECHOOSER": {
@@ -407,10 +407,10 @@
     "SWITCH": "Sprooch wiesselen"
   },
   "MARKDOWN_INPUT": {
-    "BOLD": "bold",
-    "ITALIC": "italic",
-    "STRIKE": "strike",
-    "QUOTE": "quote",
+    "BOLD": "fett",
+    "ITALIC": "kursiv",
+    "STRIKE": "duerchgestrach",
+    "QUOTE": "zitéiert",
     "HELP": "Wat ass Markdown?"
   },
   "HISTORY": {
@@ -503,27 +503,27 @@
     "TITLE": "Astellungen"
   },
   "AGREEMENT": {
-    "NEW": "New agreement",
-    "AGREE": "You must agree to {title}",
-    "VIEW": "View agreement",
+    "NEW": "Neit Ofkommes",
+    "AGREE": "Du muss {title} zoustëmmen",
+    "VIEW": "Ofkommes uweisen",
     "TITLE": "Titel",
-    "TITLE_HELPER": "Give your agreement a title, e.g. Community Rules",
+    "TITLE_HELPER": "Gëff dengem Ofkommes een Titel, z.B. Gemeinschaftsreegeln",
     "CONTENT": "Inhalt",
-    "CONTENT_HELPER": "The text of your agreement",
+    "CONTENT_HELPER": "Den Text vun ärem Ofkommes",
     "MINOR_EDIT": "Minor edit?",
     "MINOR_EDIT_HELPER": "Typos, formatting, etc... people will not be asked to re-agree",
-    "BLURB1": "You don't have an agreement yet!",
+    "BLURB1": "Dir hutt nach keen Ofkommes!",
     "BLURB2": "If you add one then people will have to agree to it before they can do pickups.",
     "DIALOGS": {
       "REPLACE": {
-        "TITLE": "Change agreement?",
+        "TITLE": "Ofkommes änneren?",
         "MESSAGE": "Everyone will have to agree again before they can signup for pickups",
-        "CONFIRM": "Yes, change agreement"
+        "CONFIRM": "Jo, Ofkommes änneren"
       },
       "REMOVE": {
-        "TITLE": "Remove agreement?",
+        "TITLE": "Ofkommes läschen?",
         "MESSAGE": "This means anyone will be able to do a pickup",
-        "CONFIRM": "Yes, remove agreement"
+        "CONFIRM": "Jo, Ofkommes läschen"
       }
     }
   },
@@ -534,13 +534,13 @@
     "RECEIVED_VIA_EMAIL": "Dës Noriicht gouf via E-Mail geschéckt."
   },
   "CONVERSATION": {
-    "CONVERSATIONS": "Conversations",
+    "CONVERSATIONS": "Ënnerhalungen",
     "OPEN": "Chat opmaachen",
     "REPLY_TO_MESSAGE": "Op Noriicht äntwerten...",
     "REPLIES": "Äntwerten",
     "REPLIES_COUNT": "1 Äntwert | {count} Äntwerten",
     "UNREAD_MESSAGES": "Du hues eng ongeliesen Noriicht. | Du hues {count}ongeliesen Noriichten.",
-    "EDITED": "edited",
+    "EDITED": "beaarbecht",
     "MARK_READ": "All als geliese markéieren.",
     "REACTIONS": {
       "YOU": "du",
@@ -548,16 +548,16 @@
       "REACTED_WITH": "{users} reacted with {reaction}"
     },
     "MESSAGE_NOT_FOUND": "Noriicht net fonnt",
-    "NO_CONVERSATIONS": "No conversations yet.",
+    "NO_CONVERSATIONS": "Nach keng Ënnerhalungen.",
     "MUTED": "Benoriichtegungen sinn desaktivéiert.",
     "CLOSED": "This conversation has been closed automatically.",
     "NOT_PARTICIPATED": "Andeem's du eng Noriicht schécks, wäerts du Benoriichtegungen iwwert dës Ënnerhalung abonéieren. "
   },
   "STORESTATUS": {
-    "ACTIVE": "Co-operating",
-    "CREATED": "Just created",
-    "NEGOTIATING": "Negotiating",
-    "DECLINED": "Don't want to cooperate",
+    "ACTIVE": "Kooperéiert",
+    "CREATED": "Grad erstallt",
+    "NEGOTIATING": "A Verhandlung",
+    "DECLINED": "Wëll net kooperéieren",
     "ARCHIVED": "Archivéiert"
   },
   "APPLICATION": {
@@ -574,14 +574,14 @@
     "DECLINED": "You declined the application of {userName}.",
     "PAST": "Vergaange Bewerbungen",
     "SUBMITTED_ON": "Submitted on {date}",
-    "WITHDRAWN": "withdrawn {relativeDate}",
+    "WITHDRAWN": "{relativeDate} zréckgezunn",
     "WHAT": "Iwwert wat geet et an dësem Chat?",
     "HELP": "This is a chat between all existing members of {groupName} and the new applicant {userName}. It is meant to give you all a chance to get to know you before deciding whether to accept, decline or withdraw the application.",
     "INITIAL": "Initial questions and answers"
   },
   "COMMUNITY_FEED": {
     "HEADER": "Updates from the {community}",
-    "HEADER_LINK": "foodsaving worldwide community",
+    "HEADER_LINK": "Weltwäit Liewensmëttelretter-Gemeinschaft",
     "LAST_UPDATED": "Last updated {relativeDate}",
     "KARROT_DISCUSSION": "Diskussiounen iwwert Karrot"
   },
@@ -591,12 +591,12 @@
   },
   "CONFLICT": {
     "SETUP_HEADER": "Is there a conflict with {user}?",
-    "STATEMENT": "Statement",
+    "STATEMENT": "Ausso",
     "STEPPER1a": "You are about to start a group-wide conflict resolution process!",
     "STEPPER1b": "This will involve all members with editing permissions to find the best way to proceed.",
     "STEPPER2a": "Thank you for caring for your community!",
     "STEPPER2b": "It is important to address social issues, although it can be unpleasant sometimes. Thank you for your courage!",
-    "STEPPER3a": "Here's what will happen:",
+    "STEPPER3a": "Hei ass wat geschéie wäert:",
     "STEPPER3b": "This process will start a chat and a vote.",
     "STEPPER3c": "The chat will be visible for members with editing permissions and includes {userName}.",
     "STEPPER3d": "The voting is anonymous. It will go on for {votingDuration} days. During this time all voters can change their minds and vote differently as many times as they want.",
@@ -613,7 +613,7 @@
       "NEWCOMER": "Before you can start a conflict resolution process, you need to receive more trust and gain editing permissions. In the meantime, please ask a fellow group member to start the process for you."
     },
     "INFO": {
-      "TITLE": "How does this process work?",
+      "TITLE": "Wéi funktionéiert dëse Prozess?",
       "MESSAGE": "This is a score voting in which group members with editing permissions can participate to determine how to deal with a social conflict that affects the whole group."
     }
   },
@@ -649,7 +649,7 @@
         "UNDECIDED_REASON_1": "the affected user left the group while the conflict resolution process was still ongoing",
         "UNDECIDED_REASON_2": "nobody voted on this issue"
       },
-      "SEE_RESULTS": "See the results",
+      "SEE_RESULTS": "D'Resultater kucken",
       "SCORE_LABELS": {
         "NEUTRAL": "neutral",
         "SLIGHT_SUPPORT": "support",
@@ -662,16 +662,16 @@
     "NO_ONGOING": "No ongoing issues."
   },
   "OFFER": {
-    "CREATE_TITLE": "Create offer",
+    "CREATE_TITLE": "Offer erstellen",
     "NAME": "Numm",
-    "NAME_HELPER": "Short name for the item you are offering",
+    "NAME_HELPER": "Kuerzen Numm fir dat wat's de ubitts",
     "DESCRIPTION": "Beschreiwung",
     "MARK_AS_ARCHIVED": "Archivéieren",
     "MARK_AS_ARCHIVED_DESCRIPTION": "Mark this is offer as archived to remove it from the available listings.",
     "FILTER": {
       "STATUS": {
         "ACTIVE": "Available",
-        "ARCHIVED": "My archived offers"
+        "ARCHIVED": "Meng archivéiert Offeren"
       }
     }
   },

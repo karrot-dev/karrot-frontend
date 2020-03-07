@@ -125,8 +125,8 @@
     "APPLICATIONS": "Ansökningar",
     "APPLICATION_QUESTIONS": "Frågor till folk som vill gå med i gruppen",
     "PICKUPS": "Upphämtningar",
-    "MESSAGES": "Medellanden",
-    "OFFERS": "Erbjudanden",
+    "MESSAGES": "Meddelanden",
+    "OFFERS": "Gåvor",
     "PICKUP": "Upphämtning",
     "MEMBERS": "Medlemmar",
     "JOINED": "gick med {relativeDate}",
@@ -153,7 +153,7 @@
     "INVITATION_ACCEPT_SUCCESS": "Välkommen! Du har accepterat inbjudan.",
     "INVITATION_ACCEPT_ERROR": "Oj, kunde inte acceptera inbjudan!",
     "SETTINGS": "Inställningar",
-    "NOTIFICATIONS_BY_GROUP": "Meddelanden per grupp",
+    "NOTIFICATIONS_BY_GROUP": "Aviseringar per grupp",
     "EMAIL_NOTIFICATIONS": "E-mail notifikationer",
     "NOTIFICATION_TYPES": {
       "weekly_summary": {
@@ -162,15 +162,15 @@
       },
       "daily_pickup_notification": {
         "NAME": "Notifikationer om upphämtningar",
-        "DESCRIPTION": "Påminner dig om dina upphämtningar och berättar om tomma eller inte fullständiga upphämtningar av dina favoritplatser nästa dag"
+        "DESCRIPTION": "Påminner dig om dina upphämtningar och berättar om lediga upphämtningar på dina favoritplatser"
       },
       "new_application": {
         "NAME": "Nya ansökningar",
         "DESCRIPTION": "När någon vill gå med i gruppen"
       },
       "new_offer": {
-        "NAME": "Nya erbjudanden",
-        "DESCRIPTION": "Meddela när någon skapar ett nytt erbjudande"
+        "NAME": "Nya gåvor",
+        "DESCRIPTION": "Meddela när någon skapar ett ny gåva"
       },
       "conflict_resolution": {
         "NAME": "Nya processer för konfliktlösning",
@@ -295,7 +295,7 @@
   },
   "SIGNUP": {
     "TITLE": "Gå med!",
-    "BACK": "Tillbacka till inloggning",
+    "BACK": "Tillbaka till inloggning",
     "OK": "Gå med"
   },
   "VERIFYMAIL": {
@@ -379,7 +379,7 @@
     "SET_AMOUNT": "Ange mängden",
     "DELETE_AMOUNT": "Radera mängden",
     "AMOUNT": "Mängd mat du har lyckats spara (i kg)",
-    "AMOUNT_INFO": "För platsstatistik kommer vi att lägger till all återkoppling.",
+    "AMOUNT_INFO": "För platsstatistiken kommer vi att summera alla feedbacks.",
     "COMMENT_PLACEHOLDER": "Gick allt bra? Var alla med? Din kommentar här...",
     "PREVIOUS": "Föregående feedback för {store}",
     "TOGETHER_WITH": "Du gjorde upphämtningen tillsammans med:"
@@ -389,7 +389,7 @@
     "INTRO": "Ange din mejladress så skickar vi en länk till dig för att sätta ett nytt lösenord (om du har ett registrerade konto).",
     "EMAIL": "Mejladress",
     "SUBMIT": "Skicka",
-    "LOGIN": "Tillbacks till inloggning",
+    "LOGIN": "Tillbaka till inloggning",
     "SUCCESS": "Begäran har skickats. Kolla din mejl!"
   },
   "PASSWORD": {
@@ -662,16 +662,16 @@
     "NO_ONGOING": "Inga pågående problem."
   },
   "OFFER": {
-    "CREATE_TITLE": "Skapa erbjudande",
+    "CREATE_TITLE": "Skapa gåva",
     "NAME": "Namn",
     "NAME_HELPER": "Kort namn på det objekt du erbjuder",
     "DESCRIPTION": "Beskrivning",
     "MARK_AS_ARCHIVED": "Arkiv",
-    "MARK_AS_ARCHIVED_DESCRIPTION": "Markera detta erbjudande som arkiverat för att ta bort det från de tillgängliga listorna.",
+    "MARK_AS_ARCHIVED_DESCRIPTION": "Markera denna gåva som arkiverad för att ta bort den från listan av tillgängliga gåvor.",
     "FILTER": {
       "STATUS": {
         "ACTIVE": "Tillgänglig",
-        "ARCHIVED": "Mina arkiverade erbjudanden"
+        "ARCHIVED": "Mina arkiverade gåvor"
       }
     }
   },

@@ -158,7 +158,7 @@
     "NOTIFICATION_TYPES": {
       "weekly_summary": {
         "NAME": "Zesummefaassung vun der Woch",
-        "DESCRIPTION": "Keep up to date with what's been happening in the group."
+        "DESCRIPTION": "Bleif informéiert mat wat an der Grupp geschitt."
       },
       "daily_pickup_notification": {
         "NAME": "Benoriichtegungen iwwert Ofhuelungen",
@@ -173,12 +173,12 @@
         "DESCRIPTION": "Bescheed soen wann een eng nei Offer mëscht"
       },
       "conflict_resolution": {
-        "NAME": "New conflict resolution processes",
-        "DESCRIPTION": "Tells you when a new conflict resolution process has been started in your group"
+        "NAME": "Neie Konflikt-Léisungsprozess",
+        "DESCRIPTION": "Seet dir Bescheed wann een neie Konflikt-Léisungsprozess an denger Grupp gestart gouf"
       }
     },
-    "PLAYGROUND_INFO": "This is a playground group, you can't break anything. Explore, click around and have fun!",
-    "JOIN_PLAYGROUND": "Join the playground group to explore karrot",
+    "PLAYGROUND_INFO": "Dëst ass eng Spillplaz-Grupp, hei kanns du näischt futti maachen. Entdeck, klick iwwerall! Vill Spaass!",
+    "JOIN_PLAYGROUND": "Triet der Spillplaz-Grupp bäi fir karrot ze entdecken",
     "JOIN_ANOTHER_GROUP": "Enger anerer Grupp bäitrieden"
   },
   "GROUPMAP": {
@@ -189,16 +189,16 @@
     "HIDE_PLACES": "Platze verstoppen",
     "SHOW_GROUPS": "Gruppen uweisen",
     "HIDE_GROUPS": "Gruppe verstoppen",
-    "SET_LOCATION": "Set location",
-    "FULL_SCREEN": "Show full screen",
+    "SET_LOCATION": "Uert setzen",
+    "FULL_SCREEN": "Am Vollbildschierm weisen",
     "EXPORT": "Exportéieren"
   },
   "STOREDETAIL": {
-    "DIRECTIONS": "Show directions",
+    "DIRECTIONS": "Weebeschreiwung uweisen",
     "EDIT": "Platz veränneren",
     "ARCHIVED": "Dës Platz gouf archivéiert",
     "INACTIVE": "Dës Platz kooperéiert grad net.",
-    "CHANGE_STATUS": "You can change the status on the settings page.",
+    "CHANGE_STATUS": "Du kanns de Status op der Säit mat den Astellungen änneren.",
     "NO_DESCRIPTION": "Dës Platz huet nach keng Beschreiwung."
   },
   "STOREEDIT": {
@@ -206,7 +206,7 @@
     "STATUS": "Status",
     "DESCRIPTION": "Beschreiwung",
     "ADDRESS": "Adress",
-    "WEEKS_IN_ADVANCE": "How many weeks in advance should recurring pickup dates be shown?",
+    "WEEKS_IN_ADVANCE": "Wéi vill Wochen am Viraus sollen d'Ofhuelungen, déi ëmmer nees sinn, ugewise ginn?",
     "WEEKS_IN_ADVANCE_WARNING": "You are about to reduce the number of weeks pickups are shown. Existing leftover pickups will get deleted if nobody has joined them. You can disable all other pickups manually, if needed.",
     "DIALOGS": {
       "ARCHIVE": {
@@ -215,7 +215,7 @@
         "CONFIRM": "Jo, Platz archivéieren"
       }
     },
-    "RESTORE": "Restore",
+    "RESTORE": "Réckgäng maachen",
     "SHOW_ARCHIVED": "Archivéiert Platzen uweisen",
     "HIDE_ARCHIVED": "Verstoppte Platzen uweisen",
     "SHOW_ALL": "All d'Platzen uweisen",
@@ -226,23 +226,23 @@
     "SUBSCRIPTION": {
       "HEADER": "Wëlls du dës Platz als Favorit markéieren?",
       "YES": "jo",
-      "YES_TEXT": "Shows available pickups on the group wall and sends emails about upcoming pickups.",
+      "YES_TEXT": "Weist Ofhuelungen, déi et ginn, op der Mauer vun der Grupp a schéckt E-Mailen iwwert Ofhuelungen, déi kommen.",
       "NO": "nee",
       "NO_TEXT": "None of the above. You can still sign up for pickups though."
     }
   },
   "PICKUPMANAGE": {
     "TITLE": "Ofhuelunge verwalten",
-    "SERIES": "Recurring pickups",
-    "SINGLE": "One-time pickups",
-    "UPCOMING_PICKUPS_IN_SERIES": "Upcoming pickups in this series",
+    "SERIES": "Ofhuelungen, déi ëmmer nees sinn",
+    "SINGLE": "Eemoleg Ofhuelungen",
+    "UPCOMING_PICKUPS_IN_SERIES": "Ofhuelungen, déi kommen, an dëser Serie",
     "PICKUP_DOES_NOT_MATCH": "This pickups' date doesn't match the recurrence pattern",
     "PICKUP_DESCRIPTION_CHANGED": "'Additional information' has been changed",
     "PICKUP_MAX_COLLECTORS_CHANGED": "'Max slots' has been changed"
   },
   "PICKUPDELETE": {
-    "DELETE_SERIES_TITLE": "Delete recurring pickup date",
-    "DELETE_SERIES_TEXT": "Do you really want to delete this recurring pickup date? This will also delete all one-time pickup dates that belong to this recurring pickup date (except where people joined already)."
+    "DELETE_SERIES_TITLE": "Een Datum vun Ofhuelungen, déi ëmmer nees sinn, läschen",
+    "DELETE_SERIES_TEXT": "Wëlls du wierklech dësen Datum vun den Ofhuelungen, déi ëmmer nees sinn, läschen? Dëst wäert och all d'eemoleg Ofhuelunge läschen, déi zu dësen Ofhuelungen, déi ëmmer nees sinn, gehéieren (ausser et hunn sech scho Leit derfir ugemellt)."
   },
   "USERDETAIL": {
     "DISPLAY_NAME": "Numm",
@@ -251,20 +251,20 @@
     "PASSWORD": "Neit Passwuert"
   },
   "PROFILE": {
-    "INACCESSIBLE_OR_DELETED": "(User inaccessible or deleted)"
+    "INACCESSIBLE_OR_DELETED": "(Benotzer net accessibel oder geläscht)"
   },
   "JOINGROUP": {
     "WHICHGROUP": "Wéi enger Grupp wëlls du bäitrieden?",
-    "OR": "{joinGroup} or {createGroup}",
+    "OR": "{joinGroup} oder {createGroup}",
     "NUM_MEMBERS": "Member | Memberen",
     "NO_PUBLIC_DESCRIPTION": "(Dës Grupp huet nach keng ëffentlech Beschreiwung.)",
     "ALL_GROUPS": "All d'Gruppen",
     "SIGNUP_OR_LOGIN": "Log in or sign up to join this group!",
-    "VERIFY_EMAIL_ADDRESS": "Verify your email address to apply",
+    "VERIFY_EMAIL_ADDRESS": "Verifizéier deng E-Mail-Adress fir dech ze bewerben",
     "MY_GROUPS": "Meng Gruppen",
     "LOGOUT_MESSAGE": {
-      "LOGGED_OUT": "You are currently logged out. {login}",
-      "LOG_IN": "Log in to see your groups!"
+      "LOGGED_OUT": "Du bass grad ausgeloggt. {login}",
+      "LOG_IN": "Logg dech a fir deng Gruppen ze gesinn!"
     },
     "PROFILE_NOTE": "By joining this group, your profile data will become visible to other group members.",
     "APPLICATION_SUBMITTED": "Your application was successfully submitted!",
@@ -280,7 +280,7 @@
   },
   "TOPBAR": {
     "LOGOUT": "Ausloggen",
-    "USERPROFILE": "Visit your profile",
+    "USERPROFILE": "Kuck däi Profil",
     "CHANGE_GROUP": "Grupp veränneren"
   },
   "SIDENAV": {
@@ -290,16 +290,16 @@
   "LOGIN": {
     "TITLE": "Login",
     "SUBMIT": "Aloggen",
-    "SIGNUP": "Sign up!",
+    "SIGNUP": "Umellen!",
     "FORGOT_PASSWORD": "Hues du däi Passwuert vergiess?"
   },
   "SIGNUP": {
-    "TITLE": "Sign Up!",
-    "BACK": "Back to Login",
+    "TITLE": "Umellen!",
+    "BACK": "Zréck bäi de Login",
     "OK": "Bäitrieden"
   },
   "VERIFYMAIL": {
-    "TITLE": "E-Mail verification",
+    "TITLE": "Verifizéierung vun der E-Mail-Adress",
     "SUCCESS": "Deng E-Mail-Adress gouf erfollegräich verifizéiert!"
   },
   "DELETEACCOUNT": {
@@ -309,7 +309,7 @@
   "CREATEPICKUP": {
     "FREQUENCY": "Frequenz",
     "WEEKLY": "All Woch",
-    "CUSTOM": "Custom",
+    "CUSTOM": "Op d'Mooss gemaach",
     "WEEKDAYS": "All Wochendag",
     "WEEKDAYS_HELPER": "Op wéi engen Deeg sinn d'Ofhuelungen?",
     "RRULE": "Recurrence rule",
@@ -331,7 +331,7 @@
     "DISABLE_TITLE": "Ofhuelung desaktivéieren?",
     "ENABLE_DISABLE_MESSAGE": "Benotzer, déi dëser Ofhuelung bäitrieden, kréien eng Benoriichtegung. Du kanns dësen Text ännere fir ee Grond unzeginn:",
     "EXCEPTIONS_TITLE": "Deng Ofhuelunge kontrolléieren",
-    "EXCEPTIONS_MESSAGE": "Some upcoming pickups don't match the settings of this recurring pickup. Have a look below at '{upcomingLabel}' to change or disable pickups, if needed."
+    "EXCEPTIONS_MESSAGE": "E puer Ofhuelungen, déi kommen, stëmmen net mat den Astellunge vun dëser Ofhuelung, déi ëmmer nees ass, iwwerteneen. Kuck eng Kéier hei drënner op '{upcomingLabel}' fir Ofhuelungen ze änneren oder ze desaktivéieren, falls néideg."
   },
   "CREATESTORE": {
     "TITLE": "Eng nei Platz erstellen"
@@ -344,7 +344,7 @@
     },
     "AVAILABLE": "Et gëtt eng Ofhuelung op denge favoriséierte Platze fir dech! | Et gëtt {count} Ofhuelungen op denge favoriséierte Platze fir dech!",
     "AVAILABLE_FEEDBACK": "You can give feedback to a pickup | {count} pickups await your feedback",
-    "JOINEDNOTICE": "You have one upcoming pickup | You have {count} upcoming pickups",
+    "JOINEDNOTICE": "Du hues eng Ofhuelung, déi kënnt | Du hues {count} Ofhuelungen, déi kommen",
     "AVAILABLE_FROM_STORES": "Dëst weist d'Ofhuelunge vun denge favoriséierte Platzen an den nächsten Deeg. Du kanns un aner Platzen iwwert d'Sidebar dru kommen.",
     "ITEM": {
       "LEAVE": "Verloossen",
@@ -354,7 +354,7 @@
       "LEAVE_CONFIRMATION_HEADER": "Vun Ofhuelung ofmellen",
       "LEAVE_CONFIRMATION_TEXT": "Are you really sure the others can do the pickup without you?"
     },
-    "NONE": "Keng Ofhuelungen déi kommen",
+    "NONE": "Keng Ofhuelungen, déi kommen",
     "NONE_HINT": "Du kanns eng nei Ofhuelung op der Säit vun der Platz erstellen.",
     "STORE_NONE_HINT": "You can create a new pickup on the pickup manage page.",
     "PICKUP_DISABLED": "Dës Ofhuelung ass desaktivéiert ginn.",
@@ -470,11 +470,11 @@
     "PICKUP_ENABLED": "Ofhuelung den {dateTime} gouf nees aktivéiert",
     "PICKUP_MOVED": "Ofhuelung gouf verréckelt op den {dateTime}",
     "CONFLICT_RESOLUTION_CREATED": "Join the discussion about a conflict with {userName}",
-    "CONFLICT_RESOLUTION_CREATED_ABOUT_YOU": "A conflict resolution process was started with you",
-    "CONFLICT_RESOLUTION_CONTINUED": "The conflict resolution process with {userName} continues",
-    "CONFLICT_RESOLUTION_CONTINUED_ABOUT_YOU": "The conflict resolution process with you continues",
-    "CONFLICT_RESOLUTION_DECIDED": "The conflict resolution process with {userName} was decided",
-    "CONFLICT_RESOLUTION_DECIDED_ABOUT_YOU": "The conflict resolution process with you was decided",
+    "CONFLICT_RESOLUTION_CREATED_ABOUT_YOU": "Ee Konflikt-Léisungsprozess mat dir gouf gestart",
+    "CONFLICT_RESOLUTION_CONTINUED": "De Konflikt-Léisungsprozess mat {userName} geet weider",
+    "CONFLICT_RESOLUTION_CONTINUED_ABOUT_YOU": "De Konflikt-Léisungsprozess mat dir geet weider",
+    "CONFLICT_RESOLUTION_DECIDED": "De Konflikt-Léisungsprozess mat {userName} gouf entscheet",
+    "CONFLICT_RESOLUTION_DECIDED_ABOUT_YOU": "De Konflikt-Léisungsprozess mat dir gouf entscheet",
     "CONFLICT_RESOLUTION_YOU_WERE_REMOVED": "You were removed from the group",
     "VOTING_ENDS_SOON": "Voting ends soon, don't forget to participate!"
   },
@@ -592,7 +592,7 @@
   "CONFLICT": {
     "SETUP_HEADER": "Is there a conflict with {user}?",
     "STATEMENT": "Ausso",
-    "STEPPER1a": "You are about to start a group-wide conflict resolution process!",
+    "STEPPER1a": "Du bass derbäi ee Konflikt-Léisungsprozess an der ganzer Grupp ze starten!",
     "STEPPER1b": "This will involve all members with editing permissions to find the best way to proceed.",
     "STEPPER2a": "Thank you for caring for your community!",
     "STEPPER2b": "It is important to address social issues, although it can be unpleasant sometimes. Thank you for your courage!",
@@ -600,7 +600,7 @@
     "STEPPER3b": "This process will start a chat and a vote.",
     "STEPPER3c": "The chat will be visible for members with editing permissions and includes {userName}.",
     "STEPPER3d": "The voting is anonymous. It will go on for {votingDuration} days. During this time all voters can change their minds and vote differently as many times as they want.",
-    "STEPPER4a": "Please explain why you are starting this conflict resolution process!",
+    "STEPPER4a": "Erklär w.e.g. firwat's du dëse Konflikt-Léisungsprozess starts!",
     "STEPPER4b": "Tell your group what made you think this process is justified and needed. This statement will be visible to {userName} and group members with editing permissions.",
     "FIND_OUT_MORE": "Méi erausfannen!",
     "INITIAL": "Informatiounen",
@@ -609,8 +609,8 @@
       "HEADLINE": "How do you want to proceed with the ongoing conflict with {userName}?"
     },
     "REQUIREMENTS": {
-      "ACTIVE_EDITORS": "Your group has {activeEditorsCount} active users with editing permissions. You need {requiredCount} to start a conflict resolution process.",
-      "NEWCOMER": "Before you can start a conflict resolution process, you need to receive more trust and gain editing permissions. In the meantime, please ask a fellow group member to start the process for you."
+      "ACTIVE_EDITORS": "Deng Grupp huet {activeEditorsCount} aktiv Benotzer, déi beaarbechten duerfen. Du brauchs {requiredCount} fir ee Konflikt-Léisungsprozess ze starten.",
+      "NEWCOMER": "Iers du ee Konflikt-Léisungsprozess starten duerfs, muss du méi Vertraue kréien a beaarbechten duerfen. An der Tëschenzäit frees de am Beschten een anere Member aus der Grupp fir de Prozess fir dech ze starten."
     },
     "INFO": {
       "TITLE": "Wéi funktionéiert dëse Prozess?",
@@ -619,7 +619,7 @@
   },
   "ISSUE": {
     "CREATION": {
-      "TOAST": "You successfully started a conflict resolution process"
+      "TOAST": "Du hues erfollegräich ee Konflikt-Léisungsprozess gestart"
     },
     "TITLE": "Konflikter",
     "VOTE": "Ofstëmmen",
@@ -646,7 +646,7 @@
         "PARTICIPANTS": "{number} members participated in the voting.",
         "UNDECIDED": "Unfortunately this conflict could not be decided.",
         "UNDECIDED_WHY": "There are two possible reasons for that:",
-        "UNDECIDED_REASON_1": "the affected user left the group while the conflict resolution process was still ongoing",
+        "UNDECIDED_REASON_1": "de betraffene Benotzer huet d'Grupp verlooss wärend de Konflikt-Léisungsprozess nach am Gang war",
         "UNDECIDED_REASON_2": "nobody voted on this issue"
       },
       "SEE_RESULTS": "D'Resultater kucken",

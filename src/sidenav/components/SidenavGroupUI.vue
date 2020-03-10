@@ -35,10 +35,15 @@
         </QBtn>
       </div>
     </template>
-    <SidenavMenu
-      :entries="entries"
-      :entriesmore="entriesmore"
-    />
+    <SidenavMenu :entries="entries" />
+    <QExpansionItem
+      dense
+      switch-toggle-side
+      expand-separator
+      :label="$t('BUTTON.SHOW_MORE')"
+    >
+      <SidenavMenu :entries-more="entriesMore" />
+    </QExpansionItem>
   </SidenavBox>
 </template>
 
@@ -47,6 +52,7 @@ import {
   QBtn,
   QIcon,
   QMenu,
+  QExpansionItem,
 } from 'quasar'
 import SidenavBox from './SidenavBox'
 import SidenavMenu from './SidenavMenu'
@@ -60,6 +66,7 @@ export default {
     QBtn,
     QIcon,
     QMenu,
+    QExpansionItem,
   },
   props: {
     groupId: {
@@ -116,7 +123,7 @@ export default {
         to: { name: 'groupHistory', params: { groupId: this.groupId } },
       }].filter(e => typeof e.condition === 'undefined' || e.condition === true)
     },
-    entriesmore () {
+    entriesMore () {
       return [{
         label: this.$t('GROUP.APPLICATIONS'),
         icon: 'fas fa-address-card',

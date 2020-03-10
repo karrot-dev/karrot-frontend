@@ -20,7 +20,7 @@
         :count="unseenThreadsCount > 9 ? '9+' : unseenThreadsCount"
       />
       <QRouteTab
-        :title="$t('GROUP.SETTINGS')"
+        :title="$t('SETTINGS.TITLE')"
         icon="fas fa-cog"
         :to="{ name: 'settings', hash: '#notifications' }"
       />

@@ -40,8 +40,21 @@
       dense
       switch-toggle-side
       expand-separator
-      :label="$t('BUTTON.SHOW_MORE')"
     >
+      <template v-slot:header>
+        <QItemSection>
+          {{ $t('BUTTON.SHOW_MORE') }}
+        </QItemSection>
+        <QItemSection side>
+          <QBadge
+            v-if="pendingApplications.length > 0"
+            small
+            :label="pendingApplications.length"
+            :title="$tc('APPLICATION.WALL_NOTICE', pendingApplications.length, { count: pendingApplications.length })"
+            color="blue"
+          />
+        </QItemSection>
+      </template>
       <SidenavMenu :entries-more="entriesMore" />
     </QExpansionItem>
   </SidenavBox>
@@ -53,6 +66,8 @@ import {
   QIcon,
   QMenu,
   QExpansionItem,
+  QItemSection,
+  QBadge,
 } from 'quasar'
 import SidenavBox from './SidenavBox'
 import SidenavMenu from './SidenavMenu'
@@ -67,6 +82,8 @@ export default {
     QIcon,
     QMenu,
     QExpansionItem,
+    QItemSection,
+    QBadge,
   },
   props: {
     groupId: {

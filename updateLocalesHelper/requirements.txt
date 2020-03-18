@@ -10,6 +10,6 @@ idna==2.8                 # via requests
 python-slugify==1.2.6     # via transifex-client
 requests==2.22.0          # via transifex-client
 six==1.11.0               # via transifex-client
-transifex-client==0.13.7
+transifex-client==0.13.8  # via -r requirements.in
 unidecode==1.1.1          # via python-slugify
 urllib3==1.25.7           # via requests, transifex-client

@@ -207,7 +207,7 @@
     "DESCRIPTION": "Beschreiwung",
     "ADDRESS": "Adress",
     "WEEKS_IN_ADVANCE": "Wéi vill Wochen am Viraus sollen d'Ofhuelungen, déi ëmmer nees sinn, ugewise ginn?",
-    "WEEKS_IN_ADVANCE_WARNING": "You are about to reduce the number of weeks pickups are shown. Existing leftover pickups will get deleted if nobody has joined them. You can disable all other pickups manually, if needed.",
+    "WEEKS_IN_ADVANCE_WARNING": "Du bass derbäi fir d'Unzuel u Wochen ze reduzéiere fir déi d'Ofhuelungen ugewise ginn. Ofhhuelunge fir déi sech nach keen agedroen huet wäerte geläscht ginn. Déi aner Ofhuelunge kanns de manuell desaktivéiere wann et néideg ass.",
     "DIALOGS": {
       "ARCHIVE": {
         "TITLE": "Platz archivéieren",
@@ -228,7 +228,7 @@
       "YES": "jo",
       "YES_TEXT": "Weist Ofhuelungen, déi et ginn, op der Mauer vun der Grupp a schéckt E-Mailen iwwert Ofhuelungen, déi kommen.",
       "NO": "nee",
-      "NO_TEXT": "None of the above. You can still sign up for pickups though."
+      "NO_TEXT": "Näischt vun uewendriwwer. Du kanns dech awer fir Ofhuelungen androen."
     }
   },
   "PICKUPMANAGE": {
@@ -236,7 +236,7 @@
     "SERIES": "Ofhuelungen, déi ëmmer nees sinn",
     "SINGLE": "Eemoleg Ofhuelungen",
     "UPCOMING_PICKUPS_IN_SERIES": "Ofhuelungen, déi kommen, an dëser Serie",
-    "PICKUP_DOES_NOT_MATCH": "This pickups' date doesn't match the recurrence pattern",
+    "PICKUP_DOES_NOT_MATCH": "Den Datum vun dëser Ofhuelung ass verschidde vun deenen aneren Ofhuelungen.",
     "PICKUP_DESCRIPTION_CHANGED": "\"Zousätzlech Informatiounen\" gouf geännert",
     "PICKUP_MAX_COLLECTORS_CHANGED": "\"Max. Platzen\" gouf geännert"
   },
@@ -276,7 +276,7 @@
   "GROUPINFO": {
     "TITLE": "Ëffentlech Informatiounen zur Grupp",
     "META": "Weis ëffentlech Informatiounen zur Grupp",
-    "MEMBER_VIEW": "You are member of this group. Click here to switch to full view."
+    "MEMBER_VIEW": "Du bass Member vun dëser Grupp. Klick hei fir alles ze gesinn."
   },
   "TOPBAR": {
     "LOGOUT": "Ausloggen",
@@ -312,9 +312,9 @@
     "CUSTOM": "Op d'Mooss gemaach",
     "WEEKDAYS": "All Wochendag",
     "WEEKDAYS_HELPER": "Op wéi engen Deeg sinn d'Ofhuelungen?",
-    "RRULE": "Recurrence rule",
+    "RRULE": "Widderhuelungs-Reegel",
     "RRULE_HELPER": "Gëff e gültegen {ruleHelper} an, z.B. {ruleExample} oder {ruleExample2}",
-    "RRULE_HELPER_URL": "iCalender rule",
+    "RRULE_HELPER_URL": "Kalenner-Reegel",
     "RRULE_EXAMPLE": "läscht Wochendeeg (Mé-Fr) all Mount",
     "RRULE_EXAMPLE2": "all zweete Méindeg",
     "STARTDATE_HELPER": "Wéini soll d'Serie ufänken?",
@@ -326,7 +326,7 @@
     "COMMENT": "Zousätzlech Informatiounen",
     "COMMENT_HELPER": "Wat sollen d'Leit wësse wann si sech fir dës Ofhuelung androen?",
     "UNLIMITED": "onendlech",
-    "DIFFERS_WARNING": "This value differs from the default. To undo this change, click on the arrow button and save the changes.",
+    "DIFFERS_WARNING": "Dëse Wäert ass anescht wéi de Standard. Fir dës Ännerung réckgängeg ze maachen, klicks de op de Feil an dann op Späicheren.",
     "ENABLE_TITLE": "Ofhuelungen aktivéieren?",
     "DISABLE_TITLE": "Ofhuelung desaktivéieren?",
     "ENABLE_DISABLE_MESSAGE": "Benotzer, déi dëser Ofhuelung bäitrieden, kréien eng Benoriichtegung. Du kanns dësen Text ännere fir ee Grond unzeginn:",
@@ -434,7 +434,7 @@
     "PICKUP_JOIN": "huet sech fir eng Ofhuelung beim {storeName} agedroen",
     "PICKUP_LEAVE": "ass zréckgetruede fir eng Ofhuelung beim {storeName} ze maachen",
     "APPLICATION_DECLINED": "huet eng Bewerbung vum {applicantName} ofgeleent",
-    "MEMBER_BECAME_EDITOR": "gained editing permissions",
+    "MEMBER_BECAME_EDITOR": "duerf elo beaarbechten",
     "GROUP_LEAVE_INACTIVE": "gouf wéinst Inaktivitéit aus der Grupp geheit",
     "GROUP_CHANGE_PHOTO": "huet de Logo vun der Grupp geännert",
     "GROUP_DELETE_PHOTO": "huet de Logo vun der Grupp geläscht",
@@ -456,8 +456,8 @@
     "NO_ITEMS": "Mir hu grad keng Benoriichtegungen fir dech."
   },
   "NOTIFICATION_BELLS": {
-    "YOU_BECAME_EDITOR": "You gained editing permissions",
-    "USER_BECAME_EDITOR": "{userName} gained editing permissions",
+    "YOU_BECAME_EDITOR": "Du duerfs elo beaarbechten",
+    "USER_BECAME_EDITOR": "{userName} duerf elo beaarbechten",
     "NEW_APPLICANT": "{userName} huet seng Bewerbung agereecht fir denger Grupp bäizetrieden",
     "APPLICATION_ACCEPTED": "Deng Bewerbung gouf ugeholl!",
     "APPLICATION_DECLINED": "Deng Bewerbung gouf ofgeleent",
@@ -469,14 +469,14 @@
     "PICKUP_DISABLED": "Ofhuelung den {dateTime} gouf desaktivéiert",
     "PICKUP_ENABLED": "Ofhuelung den {dateTime} gouf nees aktivéiert",
     "PICKUP_MOVED": "Ofhuelung gouf verréckelt op den {dateTime}",
-    "CONFLICT_RESOLUTION_CREATED": "Join the discussion about a conflict with {userName}",
+    "CONFLICT_RESOLUTION_CREATED": "Triet der Diskussioun iwwert de Konflikt mat {userName} bäi",
     "CONFLICT_RESOLUTION_CREATED_ABOUT_YOU": "Ee Konflikt-Léisungsprozess mat dir gouf gestart",
     "CONFLICT_RESOLUTION_CONTINUED": "De Konflikt-Léisungsprozess mat {userName} geet weider",
     "CONFLICT_RESOLUTION_CONTINUED_ABOUT_YOU": "De Konflikt-Léisungsprozess mat dir geet weider",
     "CONFLICT_RESOLUTION_DECIDED": "De Konflikt-Léisungsprozess mat {userName} gouf entscheet",
     "CONFLICT_RESOLUTION_DECIDED_ABOUT_YOU": "De Konflikt-Léisungsprozess mat dir gouf entscheet",
     "CONFLICT_RESOLUTION_YOU_WERE_REMOVED": "Du goufs aus der Grupp geheit",
-    "VOTING_ENDS_SOON": "Voting ends soon, don't forget to participate!"
+    "VOTING_ENDS_SOON": "D'Ofstëmmung ass geschwë eriwwer, vergiess net matzemaachen!"
   },
   "NOTIFICATION_TOGGLE": {
     "HEADER": "Wéi wëlls du Benoriichtegungen iwwert nei Noriichten an dëser Ënnerhalung kréien?",
@@ -488,8 +488,8 @@
     "NONE_TEXT": "Keng Benoriichtegungen."
   },
   "OUTDATED_BROWSER": {
-    "MESSAGE": "You are using an unsupported browser. {upgradeBrowser} to enjoy all features.",
-    "LINK": "Please update or switch your browser"
+    "MESSAGE": "Du benotz ee Browser, deen net ënnerstëtzt gëtt. {upgradeBrowser} fir all d'Funktiounen ze genéissen.",
+    "LINK": "Aktualiséier oder wiessel däi Browser w.e.g."
   },
   "UPDATE_AVAILABLE": {
     "TITLE": "Et gëtt een Update",
@@ -513,11 +513,11 @@
     "MINOR_EDIT": "Kléng Ännerung?",
     "MINOR_EDIT_HELPER": "Tippfeeler, Formatéierung, asw... Leit ginn net gefrot fir nees zouzestëmmen",
     "BLURB1": "Dir hutt nach keen Ofkommes!",
-    "BLURB2": "If you add one then people will have to agree to it before they can do pickups.",
+    "BLURB2": "Wann's du een derbäi mëss, mussen d'Leit zoustëmmen ier si Ofhuelunge maachen duerfen.",
     "DIALOGS": {
       "REPLACE": {
         "TITLE": "Ofkommes änneren?",
-        "MESSAGE": "Everyone will have to agree again before they can signup for pickups",
+        "MESSAGE": "Jidderee muss nees zoustëmmen ier si sech fir Ofhuelungen androen duerfen.",
         "CONFIRM": "Jo, Ofkommes änneren"
       },
       "REMOVE": {
@@ -545,7 +545,7 @@
     "REACTIONS": {
       "YOU": "du",
       "AND": "an",
-      "REACTED_WITH": "{users} reacted with {reaction}"
+      "REACTED_WITH": "{users} hu reagéiert mat {reaction}"
     },
     "MESSAGE_NOT_FOUND": "Noriicht net fonnt",
     "NO_CONVERSATIONS": "Nach keng Ënnerhalungen.",
@@ -563,24 +563,24 @@
   "APPLICATION": {
     "APPLICATION": "Bewerbung",
     "FORM_HEADER": "Bewerben",
-    "FORM_TITLE": "Apply to join {groupName}",
-    "GALLERY_TOOLTIP": "You applied to join this group. Your application is still pending.",
-    "WALL_NOTICE": "There is an application pending! | There are {count} applications pending!",
+    "FORM_TITLE": "Bewerb dech fir {groupName} bäizetrieden",
+    "GALLERY_TOOLTIP": "Du hues dech beworbe fir dëser Grupp bäizetrieden. Deng Bewerbung leeft grad.",
+    "WALL_NOTICE": "Eng Bewerbung leeft grad! | {count} Bewerbunge lafe grad!",
     "ACCEPT_CONFIRMATION_HEADER": "Bewerbung unhuelen",
-    "ACCEPT_CONFIRMATION_TEXT": "Are you sure you want to accept {userName} into this group?",
+    "ACCEPT_CONFIRMATION_TEXT": "Bass du sécher, dass du {userName} an dëser Grupp unhuele wëlls?",
     "DECLINE_CONFIRMATION_HEADER": "Bewerbung ofleenen",
-    "DECLINE_CONFIRMATION_TEXT": "Are you sure you want to decline the application of {userName}?",
-    "ACCEPTED": "You accepted {userName} into this group!",
+    "DECLINE_CONFIRMATION_TEXT": "Bass du sécher, dass du d'Bewerbung vun {userName} ofleene wëlls?",
+    "ACCEPTED": "Du hues {userName} an dëser Grupp ugeholl!",
     "DECLINED": "Du hues d'Bewerbung vun {userName} ofgeleent.",
     "PAST": "Vergaange Bewerbungen",
     "SUBMITTED_ON": "Agreecht den {date}",
     "WITHDRAWN": "{relativeDate} zréckgezunn",
     "WHAT": "Iwwert wat geet et an dësem Chat?",
-    "HELP": "This is a chat between all existing members of {groupName} and the new applicant {userName}. It is meant to give you all a chance to get to know you before deciding whether to accept, decline or withdraw the application.",
-    "INITIAL": "Initial questions and answers"
+    "HELP": "Dëst ass ee Chat tëschent alle Membere vun {groupName} an der Persoun, déi sech bewerbt, {userName}. En ass dofir do fir jidderengem d'Chance ze gi fir sech kennenzeléieren ier dir entscheet fir d'Bewerbung ze akzeptéieren, ofzeleenen oder zréckzezéien.",
+    "INITIAL": "Initial Froen an Äntwerten"
   },
   "COMMUNITY_FEED": {
-    "HEADER": "Updates from the {community}",
+    "HEADER": "Neiegkeete vun der {community}",
     "HEADER_LINK": "Weltwäit Liewensmëttelretter-Gemeinschaft",
     "LAST_UPDATED": "Fir d'läscht aktualiséiert virun {relativeDate}",
     "KARROT_DISCUSSION": "Diskussiounen iwwert Karrot"
@@ -593,20 +593,20 @@
     "SETUP_HEADER": "Gëtt et ee Konflikt mat {user}?",
     "STATEMENT": "Ausso",
     "STEPPER1a": "Du bass derbäi ee Konflikt-Léisungsprozess an der ganzer Grupp ze starten!",
-    "STEPPER1b": "This will involve all members with editing permissions to find the best way to proceed.",
-    "STEPPER2a": "Thank you for caring for your community!",
-    "STEPPER2b": "It is important to address social issues, although it can be unpleasant sometimes. Thank you for your courage!",
+    "STEPPER1b": "Dëst wäert all d'Memberen, déi beaarbechten duerfen, involvéiere fir déi bescht Léisung fir weiderzemaachen ze fannen.",
+    "STEPPER2a": "Merci dofir dass du dech ëm d'Gemeinschaft këmmers!",
+    "STEPPER2b": "Et ass wichteg sozial Konflikter unzeschwätzen, obwuel et heiansdo onangeneem si kann. Merci fir däi Courage!",
     "STEPPER3a": "Hei ass wat geschéie wäert:",
-    "STEPPER3b": "This process will start a chat and a vote.",
-    "STEPPER3c": "The chat will be visible for members with editing permissions and includes {userName}.",
-    "STEPPER3d": "The voting is anonymous. It will go on for {votingDuration} days. During this time all voters can change their minds and vote differently as many times as they want.",
+    "STEPPER3b": "Dëse Prozess wäert een Chat an eng Ofstëmmung starten.",
+    "STEPPER3c": "Den Chat wäert fir all d'Memberen, déi beaarbechten duerfen, siichtbar sinn. Derbäi ass {userName}.",
+    "STEPPER3d": "D'Ofstëmmung ass anonym. Si wäert {votingDuration} Deeg daueren. Wärend dëser Zäit ka jiddereen seng Meenung änneren an anescht ofstëmmen esou oft wéi si wëllen.",
     "STEPPER4a": "Erklär w.e.g. firwat's du dëse Konflikt-Léisungsprozess starts!",
-    "STEPPER4b": "Tell your group what made you think this process is justified and needed. This statement will be visible to {userName} and group members with editing permissions.",
+    "STEPPER4b": "Erklär denger Grupp firwat's du mengs, dass dëse Prozess justifizéiert ass a gebraucht gëtt. Dës Ausso wäert siichtbar si fir {userName} an all d'Memberen aus der Grupp, déi beaarbechten duerfen.",
     "FIND_OUT_MORE": "Méi erausfannen!",
     "INITIAL": "Informatiounen",
-    "WITH": "This process is to resolve a conflict with {userName}",
+    "WITH": "Dëse Prozess ass dofir do fir ee Konflikt mat {userName} ze léisen",
     "VOTING": {
-      "HEADLINE": "How do you want to proceed with the ongoing conflict with {userName}?"
+      "HEADLINE": "Wéi wëlls du mam aktuelle Konflikt mat {userName} weidermaachen?"
     },
     "REQUIREMENTS": {
       "ACTIVE_EDITORS": "Deng Grupp huet {activeEditorsCount} aktiv Benotzer, déi beaarbechten duerfen. Du brauchs {requiredCount} fir ee Konflikt-Léisungsprozess ze starten.",
@@ -614,7 +614,7 @@
     },
     "INFO": {
       "TITLE": "Wéi funktionéiert dëse Prozess?",
-      "MESSAGE": "This is a score voting in which group members with editing permissions can participate to determine how to deal with a social conflict that affects the whole group."
+      "MESSAGE": "Dëst ass eng Ofstëmmung mat Punkten, un där all Member aus der Grupp, déi beaarbechten duerf, deelhuele kann fir mat ze bestëmme wéi mat engem soziale Konflikt, deen déi ganz Grupp betrëfft, ëmgaange gi soll."
     }
   },
   "ISSUE": {
@@ -624,30 +624,30 @@
     "TITLE": "Konflikter",
     "VOTE": "Ofstëmmen",
     "CHAT": "Chat",
-    "INITIATED_BY": "Initiated by {initiatorName}",
-    "PAST": "Past issues",
-    "PREVIOUS_VOTINGS": "Previous votings in this issue",
-    "PARTICIPANTS": "{count} members have been added to this discussion.",
+    "INITIATED_BY": "Gestart vun {initiatorName}",
+    "PAST": "Vergaange Konflikter",
+    "PREVIOUS_VOTINGS": "Vergaangen Ofstëmmungen an dësem Konflikt",
+    "PARTICIPANTS": "{count} Membere goufen an dës Diskussioun dobäi gemaach.",
     "VOTING": {
-      "TIME_LEFT": "Time left to vote",
+      "TIME_LEFT": "Iwwreg Zäit fir ofzestëmmen",
       "BTN_START": "Elo ofstëmmen",
       "SAVE": "Späicheren",
       "BTN_DELETE": "Ofstëmmung läschen",
       "TOAST": "Deng Ofstëmmung gouf erfollegräich eragereecht",
       "TOAST_DELETE": "Deng Ofstëmmung gouf geläscht",
       "NO_CHANGE": "Keng Ännerung: {userName} bleift an {groupName}",
-      "FURTHER_DISCUSSION": "Further discussion: extend time by starting another voting",
+      "FURTHER_DISCUSSION": "Weider Diskussiounen: Zäit verlängeren andeem's eng weider Ofstëmmung gestart gëtt",
       "REMOVE_USER": "{userName} gëtt aus {groupName} geheit",
       "RESULTS": {
         "KEEP_DISCUSSING": "Deng Grupp huet entscheet weider ze diskutéieren",
         "TIME_UP": "D'Zäit ass ëm!",
-        "TOTAL_SCORE": "Total score",
-        "ENDED_AT": "This voting round ended on {date}",
-        "PARTICIPANTS": "{number} members participated in the voting.",
+        "TOTAL_SCORE": "Endstand",
+        "ENDED_AT": "Dës Ofstëmmungsronn ass den {date} eriwwer gaangen.",
+        "PARTICIPANTS": "{number} Memberen hunn un der Ofstëmmung deelgeholl.",
         "UNDECIDED": "Leider konnt dëse Konflikt net entscheet ginn.",
         "UNDECIDED_WHY": "Et gëtt zwee méiglech Grënn fir dat:",
         "UNDECIDED_REASON_1": "de betraffene Benotzer huet d'Grupp verlooss wärend de Konflikt-Léisungsprozess nach am Gang war",
-        "UNDECIDED_REASON_2": "nobody voted on this issue"
+        "UNDECIDED_REASON_2": "keen huet iwwert dëse Konflikt ofgestëmmt"
       },
       "SEE_RESULTS": "D'Resultater kucken",
       "SCORE_LABELS": {
@@ -667,7 +667,7 @@
     "NAME_HELPER": "Kuerzen Numm fir dat wat's de ubitts",
     "DESCRIPTION": "Beschreiwung",
     "MARK_AS_ARCHIVED": "Archivéieren",
-    "MARK_AS_ARCHIVED_DESCRIPTION": "Mark this is offer as archived to remove it from the available listings.",
+    "MARK_AS_ARCHIVED_DESCRIPTION": "Markéier dës Offer als archivéiert fir se aus den aktuellen Offeren erauszehuelen.",
     "FILTER": {
       "STATUS": {
         "ACTIVE": "Nach do",

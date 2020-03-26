@@ -80,7 +80,7 @@
       <div
         v-for="image in images"
         :key="image"
-        class="col-sm-4 q-pa-sm"
+        class="col-4 q-pa-sm"
       >
         <QImg
           :src="image"
@@ -118,6 +118,8 @@
         />
       </i18n>
     </section>
+
+    <hr>
 
     <p>
       <em v-t="'LANDING.AND_MORE'" />
@@ -157,8 +159,6 @@
         </p>
       </li>
     </ul>
-
-    <hr>
 
     <p class="text-center q-py-lg">
       <RouterLink
@@ -252,8 +252,9 @@ export default {
     border-bottom 1px dashed #ddd
 
   .button
+    display inline-block
     padding 10px
-    margin 0 10px
+    margin 10px
     color white
     text-decoration none
     text-transform uppercase

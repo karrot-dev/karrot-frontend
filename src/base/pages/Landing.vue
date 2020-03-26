@@ -34,8 +34,36 @@
     </p>
 
     <p v-t="'LANDING.VISION1'" />
+
+    <div class="row inline-images">
+      <div
+        v-for="image in images.slice(0, 3)"
+        :key="image"
+        class="col-4 q-pa-sm"
+      >
+        <QImg
+          :src="image"
+          :ratio="1"
+        />
+      </div>
+    </div>
+
     <p v-t="'LANDING.VISION2'" />
     <p v-t="'LANDING.VISION3'" />
+
+    <div class="row inline-images">
+      <div
+        v-for="image in images.slice(3, 6)"
+        :key="image"
+        class="col-4 q-pa-sm"
+      >
+        <QImg
+          :src="image"
+          :ratio="1"
+        />
+      </div>
+    </div>
+
     <i18n
       path="LANDING.ACTION"
       tag="p"
@@ -76,18 +104,16 @@
       <hr>
     </div>
 
-    <div class="row q-py-lg">
-      <div
-        v-for="image in images"
-        :key="image"
-        class="col-4 q-pa-sm"
-      >
-        <QImg
-          :src="image"
-          :ratio="1"
-        />
-      </div>
-    </div>
+    <section>
+      <h2 v-t="'LANDING.EXISTING_GROUPS'"/>
+
+      <GroupGalleryCards
+        v-if="groupsToShow.length > 0"
+        :groups="groupsToShow"
+        :is-logged-in="false"
+        @preview="preview(arguments[0])"
+      />
+    </section>
 
     <p class="text-center q-py-lg">
       <RouterLink
@@ -177,7 +203,9 @@
 
 <script>
 import { QImg } from 'quasar'
+import { mapGetters } from 'vuex'
 
+import GroupGalleryCards from '@/groupInfo/components/GroupGalleryCards'
 import logo from '@/logo/assets/carrot-logo.svg'
 import screenshotPickups from './karrot-pickups.png'
 import screenshotGallery from './karrot-gallery.png'
@@ -189,9 +217,23 @@ import imageFridge from './solikyl-fridge.png'
 import imageSavers from './solikyl-savers.jpg'
 import imageFairShare from './fsmaastricht-fairshare.jpg'
 import imageSavers2 from './fsmaastricht-foodsavers.jpg'
+import router from '@/base/router'
 export default {
   components: {
     QImg,
+    GroupGalleryCards,
+  },
+  computed: {
+    ...mapGetters({
+      groups: 'groups/other',
+    }),
+    groupsToShow () {
+      if (__ENV.DEV) {
+        // otherwise we don't have enough groups to show...
+        return this.groups.filter(group => group.hasPhoto).slice(0, 9)
+      }
+      return this.groups.filter(group => !group.isInactive && group.hasPhoto && !group.isPlayground).slice(0, 9)
+    },
   },
   created () {
     this.logo = logo
@@ -224,6 +266,11 @@ export default {
       'OPENSOURCE',
       'TEAM',
     ]
+  },
+  methods: {
+    preview (groupId) {
+      router.push({ name: 'groupPreview', params: { groupPreviewId: groupId } }).catch(() => {})
+    },
   },
 }
 </script>
@@ -260,6 +307,10 @@ export default {
     text-transform uppercase
     background var(--q-color-secondary)
     border-radius 3px
+
+.inline-images
+  padding 0 100px
+  margin 30px 0
 
 .logo
   width 120px

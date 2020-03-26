@@ -705,6 +705,7 @@
     "VISION3": "Our main motivation is to support face-to-face activities with a layer of digital infrastructure so that our users can concentrate on their sustainability endeavors and scale them without getting lost in chaos or bureaucracy.",
     "ACTION": "Have you already found a group nearby you? Or maybe you want to {startAGroup}? If you just want to try Karrot out, then create an account and join the Playground group for testing.",
     "ACTION_START_A_GROUP": "start one",
+    "EXISTING_GROUPS": "A few groups already using Karrot",
     "AND_MORE": "And more...",
     "LINKS": {
       "FORUM": "community forum",

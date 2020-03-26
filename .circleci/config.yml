@@ -87,7 +87,7 @@ jobs:
           at: ~/repo
       - run:
           environment:
-            JEST_JUNIT_OUTPUT: test-reports/junit.xml
+            JEST_JUNIT_OUTPUT_DIR: test-reports/junit.xml
           command: |
             mkdir -p test-reports
             yarn test \

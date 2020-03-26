@@ -259,6 +259,7 @@
     "NUM_MEMBERS": "Member | Members",
     "NO_PUBLIC_DESCRIPTION": "(This group has no public description... yet)",
     "ALL_GROUPS": "All groups",
+    "BROWSE_GROUPS": "Browse existing groups",
     "SIGNUP_OR_LOGIN": "Log in or sign up to join this group!",
     "VERIFY_EMAIL_ADDRESS": "Verify your email address to apply",
     "MY_GROUPS": "My groups",
@@ -694,5 +695,76 @@
   "ATTENTION": "Attention!",
   "INFO": "Info",
   "YOU": "You",
-  "TO": "to"
+  "TO": "to",
+  "LANDING": {
+    "TITLE": "Save things from being wasted, share them instead!",
+    "SUBTITLE1": "Karrot exists for groups of people who want to save things from being wasted and share them instead, allowing these groups to organise efficiently, on a local and voluntary basis.",
+    "SUBTITLE2": "Things such as food, bikes, clothes or whatever is being excessively thrown away or unused in the context of a consumerist society.",
+    "VISION1": "Our vision, as the team of passionate volunteers developing Karrot, is to make a free and open-source software that enables a movement to grow, a movement that is based on communities and networks that save and share resources and that are socially and ecologically sustainable.",
+    "VISION2": "Karrot has started as a foodsaving tool but is widening in scope as it is progressively being developed to become a platform for all kinds of grassroots initiatives to connect and grow.",
+    "VISION3": "Our main motivation is to support face-to-face activities with a layer of digital infrastructure so that our users can concentrate on their sustainability endeavors and scale them without getting lost in chaos or bureaucracy.",
+    "ACTION": "Have you already found a group nearby you? Or maybe you want to {startAGroup}? If you just want to try Karrot out, then create an account and join the Playground group for testing.",
+    "ACTION_START_A_GROUP": "start one",
+    "AND_MORE": "And more...",
+    "LINKS": {
+      "FORUM": "community forum",
+      "CODE": "GitHub",
+      "CHAT": "team chat",
+      "TRANSLATIONS": "Transifex"
+    },
+    "SECTIONS": {
+      "GROUPS": {
+        "TITLE": "Independent groups",
+        "SUBTITLE": "Every group on karrot is completely independent and can have their own logo, processes and rules.",
+        "DESCRIPTION": "Yet they are all displayed on the map so that people can find and connect to other groups in their location and even globally."
+      },
+      "ACTIVITIES": {
+        "TITLE": "Distribution of tasks and activities",
+        "SUBTITLE": "Activities with a specific time and place, like food pickups in the case of foodsaving, can be entered in the software.",
+        "DESCRIPTION": "Each activity has a number of slots which members of the group can sign up for – this way everyone knows who goes where and when, and feedback can be given later."
+      },
+      "OFFERS": {
+        "TITLE": "Share things",
+        "SUBTITLE": "Create an ad-like offer of whatever you want to share or give away.",
+        "DESCRIPTION": "Offers are visible to everyone in the group and people can show their interest on the offer's chat."
+      },
+      "DEMOCRATIC": {
+        "TITLE": "Democratic and participative development",
+        "DESCRIPTION": "Karrot is a free and open-source software developed with the feedback and participation of the people who use it. It is mainly developed by a small core team that is constantly in contact with people in different groups, in order to make sense of their diverging and converging needs and thus guide the development. We abide by the ethics of integrity and non-commercialization of data.",
+        "DESCRIPTION2": "Developers and designers are obviously welcome to participate in its development. Check out the project on {code}."
+      },
+      "COMMUNICATION": {
+        "TITLE": "Communication in the right context",
+        "DESCRIPTION": "Write a message that everyone in the group will see or a private message to someone. Everything related to a single activity or place can be discussed in their respective chats."
+      },
+      "TRUST": {
+        "TITLE": "Democratic and trust-based group management",
+        "DESCRIPTION": "There are no admin superpowers in a Karrot group. People who receive enough trust-carrots from their peers will be able to edit and change settings in the group. When new people want to join your group they need to apply and answer questions your group can set, which anyone with editing rights can decline or approve. Likewise, if there is a conflict, the group can enter a voting system to resolve it in a communal way."
+      },
+      "MAPS": {
+        "TITLE": "Maps and lists",
+        "DESCRIPTION": "You have a map of where the places and the people doing the activities are located. You have a nice list of upcoming activities and can sign up for them online."
+      },
+      "TRANSPARENCY": {
+        "TITLE": "Transparency",
+        "DESCRIPTION": "The history shows who did what and when. Everything from participating in an activity to creating and editing places is logged here."
+      },
+      "NOTIFICATIONS": {
+        "TITLE": "Notifications",
+        "DESCRIPTION": "You get notified about empty activities, new messages and new people wanting to join your group. But you can also turn it all off if you wish more peace!"
+      },
+      "TRANSLATIONS": {
+        "TITLE": "Multi-language",
+        "DESCRIPTION": "Karrot is fully translatable by the community and many languages are already added. To contribute more translations just visit the project on {translations}."
+      },
+      "OPENSOURCE": {
+        "TITLE": "Open source",
+        "DESCRIPTION": "Everything is transparent and possibly changeable. We encourage groups to host their own instances of the platform, if they have the ability to do so. Still, we also provide access to a hosted version on karrot.world."
+      },
+      "TEAM": {
+        "TITLE": "Responsive team",
+        "DESCRIPTION": "You can easily talk to the people developing Karrot, either on our {forum}, on {code} or in real-time on our {chat} (join the channel #foodsaving-worldwide or #karrot-dev to reach the right people immediately)."
+      }
+    }
+  }
 }

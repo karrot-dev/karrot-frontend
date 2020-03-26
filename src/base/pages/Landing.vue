@@ -6,26 +6,22 @@
         class="logo"
       >
     </p>
-    <h1>Save things from being wasted, share them instead!</h1>
+    <h1 v-t="'LANDING.TITLE'" />
     <p>
-      <strong>
-        Karrot exists for groups of people who want to save things from being wasted and share them instead,
-        allowing these groups to organise efficiently, on a local and voluntary basis.
-      </strong>
+      <strong v-t="'LANDING.SUBTITLE1'" />
     </p>
-    <p>
-      Things such as food, bikes, clothes or whatever is being excessively thrown away or unused in the context of a consumerist society.
-    </p>
+    <p v-t="'LANDING.SUBTITLE2'" />
     <p class="text-center q-py-lg">
-      <a
+      <RouterLink
+        v-t="'SIGNUP.TITLE'"
         class="button"
-        href="/#/signup"
-      >Signup!</a>
-      or
-      <a
+        :to="{ name: 'signup' }"
+      />
+      <RouterLink
+        v-t="'JOINGROUP.BROWSE_GROUPS'"
         class="button"
-        href="/#/groupPreview"
-      >Browse existing groups</a>
+        :to="{ name: 'groupsGallery' }"
+      />
     </p>
     <p class="text-center">
       <img
@@ -35,140 +31,118 @@
       >
     </p>
 
-    <p>
-      Our vision, as the team of passionate volunteers developing Karrot,
-      is to make a free and open-source software that enables a movement to grow,
-      a movement that is based on communities and networks that save and share
-      resources and that are socially and ecologically sustainable.
-    </p>
-    <p>
-      Karrot has started as a foodsaving tool but is widening in scope as it is progressively
-      being developed to become a platform for all kinds of grassroots initiatives to connect and grow.
-    </p>
-    <p>
-      Our main motivation is to support face-to-face activities with a layer of
-      digital infrastructure so that our users can concentrate on their sustainability
-      endeavors and scale them without getting lost in chaos or bureaucracy.
-    </p>
-    <p>
-      Have you already found a group nearby you? Or maybe you want to
-      <a href="https://karrot.world/#/group/create">start one</a>?
-      If you just want to try Karrot out, then create an account
-      and join the Playgroud group for testing.
-    </p>
+    <p v-t="'LANDING.VISION1'" />
+    <p v-t="'LANDING.VISION2'" />
+    <p v-t="'LANDING.VISION3'" />
+    <i18n
+      path="LANDING.ACTION"
+      tag="p"
+    >
+      <a
+        slot="startAGroup"
+        v-t="'LANDING.ACTION_START_A_GROUP'"
+        href="/#/group/create"
+      />
+    </i18n>
 
     <hr>
 
-    <section class="row q-my-lg q-py-lg">
-      <div class="col-sm-8 q-px-lg self-center">
-        <h2>Independent groups</h2>
-        <p>
-          <strong>Every group on karrot is completely independent and can have their own logo, processes and rules.</strong>
-        </p>
-        <p>
-          Yet they are all displayed on the map so that people can find and connect to other groups in their location and even globally.
-        </p>
-      </div>
-      <div class="col q-px-lg self-center">
-        <img
-          :src="screenshots.gallery"
-          alt="karrot"
-          class="screenshot"
-        >
-      </div>
-    </section>
+    <div
+      v-for="(feature, idx) in features"
+      :key="feature"
+    >
+      <LandingFeature
+        :t="`LANDING.SECTIONS.${feature}`"
+        :image-src="screenshots[feature]"
+        :side="idx % 2 === 0 ? 'left' : 'right'"
+      />
 
-    <hr>
+      <hr>
+    </div>
 
-    <section class="row q-my-lg q-py-lg">
-      <div class="col q-px-lg self-center">
-        <img
-          :src="screenshots.managePickups"
-          alt="karrot"
-          class="screenshot"
-        >
-      </div>
-      <div class="col-sm-8 q-px-lg self-center">
-        <h2>Distribution of tasks and activities</h2>
-        <p>
-          <strong>Activities with a specific time and place, like food pickups in the case of foodsaving, can be entered in the software.</strong>
-        </p>
-        <p>
-          Each activity has a number of slots which members of the group can sign up for –
-          this way everyone knows who goes where and when, and feedback can be given later.
-        </p>
-      </div>
-    </section>
-
-    <hr>
-
-    <section class="row q-my-lg q-py-lg">
-      <div class="col-sm-8 q-px-lg self-center">
-        <h2>Share things</h2>
-        <p>
-          <strong>Create an ad-like offer of whatever you want to share or give away.</strong>
-        </p>
-        <p>
-          Offers are visible to everyone in the group and people can show their interest on the offer's chat.
-        </p>
-      </div>
-      <div class="col q-px-lg self-center">
-        <img
-          :src="screenshots.offers"
-          alt="karrot"
-          class="screenshot"
-        >
-      </div>
-    </section>
+    <p class="text-center q-py-lg">
+      <RouterLink
+        v-t="'SIGNUP.TITLE'"
+        class="button"
+        :to="{ name: 'signup' }"
+      />
+      <RouterLink
+        v-t="'JOINGROUP.BROWSE_GROUPS'"
+        class="button"
+        :to="{ name: 'groupsGallery' }"
+      />
+    </p>
 
     <hr>
 
     <section class="q-my-lg q-py-lg">
-      <h2>Democratic and participative development</h2>
-      <p>
-        Karrot is a free and open-source software developed with the feedback and participation
-        of the people who use it. It is mainly developed by a small core team that
-        is constantly in contact with people in different groups, in order to make sense
-        of their diverging and converging needs and thus guide the development.
-        We abide by the ethics of integrity and non-commercialization of data.
-      </p>
-      <p>
-        Developers and designers are obviously welcome to participate in its development.
-        Check out the project on <a href="https://github.com/yunity/karrot-frontend">GitHub</a>.
-      </p>
+      <h2 v-t="'LANDING.SECTIONS.DEMOCRATIC.TITLE'" />
+      <p v-t="'LANDING.SECTIONS.DEMOCRATIC.DESCRIPTION'" />
+      <i18n
+        path="LANDING.SECTIONS.DEMOCRATIC.DESCRIPTION2"
+        tag="p"
+      >
+        <a
+          slot="code"
+          v-t="'LANDING.LINKS.CODE'"
+          href="https://github.com/yunity/karrot-frontend"
+        />
+      </i18n>
     </section>
+
+    <p>
+      <em v-t="'LANDING.AND_MORE'" />
+    </p>
+    <ul>
+      <li
+        v-for="item in more"
+        :key="item"
+      >
+        <p>
+          <strong v-t="`LANDING.SECTIONS.${item}.TITLE`" />:
+          <i18n
+            :path="`LANDING.SECTIONS.${item}.DESCRIPTION`"
+            tag="span"
+          >
+            <a
+              slot="code"
+              v-t="'LANDING.LINKS.CODE'"
+              href="https://github.com/yunity/karrot-frontend"
+            />
+            <a
+              slot="forum"
+              v-t="'LANDING.LINKS.FORUM'"
+              href="https://community.foodsaving.world"
+            />
+            <a
+              slot="chat"
+              v-t="'LANDING.LINKS.CHAT'"
+              href="https://slackin.yunity.org"
+            />
+            <a
+              slot="translations"
+              v-t="'LANDING.LINKS.TRANSLATIONS'"
+              href="https://www.transifex.com/yunity-1/karrot/frontend/"
+            />
+          </i18n>
+        </p>
+      </li>
+    </ul>
 
     <hr>
 
-    <p>
-      <em>And more...</em>
+    <p class="text-center q-py-lg">
+      <RouterLink
+        v-t="'SIGNUP.TITLE'"
+        class="button"
+        :to="{ name: 'signup' }"
+      />
+      <RouterLink
+        v-t="'JOINGROUP.BROWSE_GROUPS'"
+        class="button"
+        :to="{ name: 'groupsGallery' }"
+      />
     </p>
-    <ul>
-      <li>
-        <p><strong>Communication in the right context</strong>: write a message that everyone in the group will see or a private message to someone. Everything related to a single activity or place can be discussed in their respective chats.</p>
-      </li>
-      <li>
-        <p><strong>Democratic and trust-based group management</strong>: There are no admin superpowers in a Karrot group. People who receive enough trust-carrots from their peers will be able to edit and change settings in the group. When new people want to join your group they need to apply and answer questions your group can set, which anyone with editing rights can decline or approve. Likewise, if there is a conflict, the group can enter a voting system to resolve it in a communal way.</p>
-      </li>
-      <li>
-        <p><strong>Maps and lists</strong>: You have a map of where the places and the people doing the activities are located. You have a nice list of upcoming activities and can sign up for them online.</p>
-      </li>
-      <li>
-        <p><strong>Transparency</strong>: The history shows who did what and when. Everything from participating in an activity to creating and editing places is logged here.</p>
-      </li>
-      <li>
-        <p><strong>Notifications</strong>: You get notified about empty activities, new messages and new people wanting to join your group. But you can also turn it all off if you wish more peace!</p>
-      </li>
-      <li>
-        <p><strong>Multi-language</strong>: Karrot is fully translatable by the community and many languages are already added. To contribute more translations just visit the project on <a href="https://www.transifex.com/yunity-1/karrot/frontend/">Transifex</a>.</p>
-      </li>
-      <li>
-        <p><strong>Open source</strong>: Everything is transparent and possibly changeable. We encourage groups to host their own instances of the platform, if they have the ability to do so. Still, we also provide access to a hosted version on karrot.world.</p>
-      </li>
-      <li>
-        <p><strong>Responsive team</strong>: You can easily talk to the people developing Karrot, either on our <a href="https://community.foodsaving.world/">community forum</a>, on <a href="https://github.com/yunity/karrot-frontend">GitHub</a> or in real-time on our <a href="https://slackin.yunity.org/">team chat</a> (join the channel #foodsaving-worldwide or #karrot-dev to reach the right people immediately).</p>
-      </li>
-    </ul>
   </div>
 </template>
 
@@ -178,15 +152,32 @@ import screenshotPickups from './karrot-pickups.png'
 import screenshotGallery from './karrot-gallery.png'
 import screenshotManagePickups from './karrot-manage-pickups.png'
 import screenshotOffers from './karrot-offers.png'
+import LandingFeature from '@/base/components/LandingFeature'
 export default {
+  components: { LandingFeature },
   created () {
     this.logo = logo
     this.screenshots = {
       pickups: screenshotPickups,
-      gallery: screenshotGallery,
-      managePickups: screenshotManagePickups,
-      offers: screenshotOffers,
+      GROUPS: screenshotGallery,
+      ACTIVITIES: screenshotManagePickups,
+      OFFERS: screenshotOffers,
     }
+    this.features = [
+      'GROUPS',
+      'ACTIVITIES',
+      'OFFERS',
+    ]
+    this.more = [
+      'COMMUNICATION',
+      'TRUST',
+      'MAPS',
+      'TRANSPARENCY',
+      'NOTIFICATIONS',
+      'TRANSLATIONS',
+      'OPENSOURCE',
+      'TEAM',
+    ]
   },
 }
 </script>
@@ -200,7 +191,7 @@ export default {
   a
     text-decoration underline
 
-  p
+  >>> p
     font-size 140%
 
   h2
@@ -222,16 +213,6 @@ export default {
 
 .logo
   width 120px
-
-.screenshot
-  width 100%
-  box-shadow 1px 4px 10px rgba(1, 1, 1, .8)
-
-// have the feature section descriptions before the image when it's one column
-@media (max-width: 599px)
-  section
-    .col-sm-8
-      order -10000
 
 .screenshot-fullwidth
   @media (min-width: 1100px)

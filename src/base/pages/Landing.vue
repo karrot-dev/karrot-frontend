@@ -104,11 +104,10 @@
       <hr>
     </div>
 
-    <section>
-      <h2 v-t="'LANDING.EXISTING_GROUPS'"/>
+    <section v-if="groupsToShow.length > 0">
+      <h2 v-t="'LANDING.EXISTING_GROUPS'" />
 
       <GroupGalleryCards
-        v-if="groupsToShow.length > 0"
         :groups="groupsToShow"
         :is-logged-in="false"
         @preview="preview(arguments[0])"
@@ -218,6 +217,16 @@ import imageSavers from './solikyl-savers.jpg'
 import imageFairShare from './fsmaastricht-fairshare.jpg'
 import imageSavers2 from './fsmaastricht-foodsavers.jpg'
 import router from '@/base/router'
+
+// Prefer active non-playground groups with a photo
+function groupSortScore (group) {
+  let score = 0
+  if (!group.isInactive) score += 1
+  if (group.hasPhoto) score += 1
+  if (!group.isPlayground) score += 1
+  return score
+}
+
 export default {
   components: {
     QImg,
@@ -228,11 +237,17 @@ export default {
       groups: 'groups/other',
     }),
     groupsToShow () {
-      if (__ENV.DEV) {
-        // otherwise we don't have enough groups to show...
-        return this.groups.filter(group => group.hasPhoto).slice(0, 9)
-      }
-      return this.groups.filter(group => !group.isInactive && group.hasPhoto && !group.isPlayground).slice(0, 9)
+      // We might not have enough groups to show, so this is a bit more complicated than it might have been...
+      // It attempts to always show _something_
+      return this.groups
+        // calculate a sort score for each group
+        .map(group => ({ ...group, _score: groupSortScore(group) }))
+        // sort by that score
+        .sort((a, b) => b._score - a._score)
+        // take the best 6 entries
+        .slice(0, 6)
+        // sort those results by how many people they have
+        .sort((a, b) => b.members.length - a.members.length)
     },
   },
   created () {

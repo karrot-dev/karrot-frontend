@@ -26,11 +26,11 @@
     </p>
 
     <p class="text-center">
-      <img
+      <QImg
         :src="screenshots.pickups"
         alt="karrot"
         class="screenshot screenshot-fullwidth q-my-lg"
-      >
+      />
     </p>
 
     <p v-t="'LANDING.VISION1'" />

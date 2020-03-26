@@ -193,11 +193,6 @@ export default {
   components: {
     QImg,
   },
-  data () {
-    return {
-      slide: 0,
-    }
-  },
   created () {
     this.logo = logo
     this.screenshots = {

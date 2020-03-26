@@ -11,6 +11,7 @@
       <strong v-t="'LANDING.SUBTITLE1'" />
     </p>
     <p v-t="'LANDING.SUBTITLE2'" />
+
     <p class="text-center q-py-lg">
       <RouterLink
         v-t="'SIGNUP.TITLE'"
@@ -23,6 +24,7 @@
         :to="{ name: 'groupsGallery' }"
       />
     </p>
+
     <p class="text-center">
       <img
         :src="screenshots.pickups"
@@ -51,13 +53,40 @@
       v-for="(feature, idx) in features"
       :key="feature"
     >
-      <LandingFeature
-        :t="`LANDING.SECTIONS.${feature}`"
-        :image-src="screenshots[feature]"
-        :side="idx % 2 === 0 ? 'left' : 'right'"
-      />
+      <section class="row q-my-lg q-py-lg">
+        <div class="col-sm-8 q-px-lg self-center">
+          <h2 v-t="`LANDING.SECTIONS.${feature}.TITLE`" />
+          <p>
+            <strong v-t="`LANDING.SECTIONS.${feature}.SUBTITLE`" />
+          </p>
+          <p v-t="`LANDING.SECTIONS.${feature}.DESCRIPTION`" />
+        </div>
+        <div
+          class="col q-px-lg self-center"
+          :class="{ swap: idx % 2 !== 0 }"
+        >
+          <img
+            :src="screenshots[feature]"
+            alt="karrot"
+            class="screenshot"
+          >
+        </div>
+      </section>
 
       <hr>
+    </div>
+
+    <div class="row q-py-lg">
+      <div
+        v-for="image in images"
+        :key="image"
+        class="col-sm-4 q-pa-sm"
+      >
+        <QImg
+          :src="image"
+          :ratio="1"
+        />
+      </div>
     </div>
 
     <p class="text-center q-py-lg">
@@ -147,14 +176,28 @@
 </template>
 
 <script>
+import { QImg } from 'quasar'
+
 import logo from '@/logo/assets/carrot-logo.svg'
 import screenshotPickups from './karrot-pickups.png'
 import screenshotGallery from './karrot-gallery.png'
 import screenshotManagePickups from './karrot-manage-pickups.png'
 import screenshotOffers from './karrot-offers.png'
-import LandingFeature from '@/base/components/LandingFeature'
+import imageSavedFood from './oestersund-saved-food.jpg'
+import imageVolunteers from './oestersund-volunteers.jpg'
+import imageFridge from './solikyl-fridge.png'
+import imageSavers from './solikyl-savers.jpg'
+import imageFairShare from './fsmaastricht-fairshare.jpg'
+import imageSavers2 from './fsmaastricht-foodsavers.jpg'
 export default {
-  components: { LandingFeature },
+  components: {
+    QImg,
+  },
+  data () {
+    return {
+      slide: 0,
+    }
+  },
   created () {
     this.logo = logo
     this.screenshots = {
@@ -163,6 +206,14 @@ export default {
       ACTIVITIES: screenshotManagePickups,
       OFFERS: screenshotOffers,
     }
+    this.images = [
+      imageSavedFood,
+      imageVolunteers,
+      imageFridge,
+      imageSavers,
+      imageFairShare,
+      imageSavers2,
+    ]
     this.features = [
       'GROUPS',
       'ACTIVITIES',
@@ -194,6 +245,9 @@ export default {
   >>> p
     font-size 140%
 
+  h1
+    line-height 4rem
+
   h2
     margin-top 0
 
@@ -214,11 +268,20 @@ export default {
 .logo
   width 120px
 
+.screenshot
+  width 100%
+  box-shadow 1px 4px 10px rgba(1, 1, 1, .8)
+
 .screenshot-fullwidth
   @media (min-width: 1100px)
     width 1100px
     // horizontally center the oversized image
     margin-left 50%
     transform translateX(-50%)
+
+// when narrow we don't want the left/right thing
+@media (min-width: 600px)
+  .swap
+    order -1000
 
 </style>

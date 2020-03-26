@@ -48,8 +48,8 @@ const IssueVoteAndHistory = () => import('@/issues/pages/IssueVoteAndHistory')
 
 export default [
   {
-    name: 'home',
-    path: '/home',
+    name: 'landing',
+    path: '/',
     meta: {
       fullpage: true,
       breadcrumbs: [

@@ -214,7 +214,7 @@ import screenshotOffers from './images/karrot-offers.236x236.jpg'
 
 import imageSavedFood from './images/oestersund-saved-food.200x200.jpg'
 import imageVolunteers from './images/oestersund-volunteers.200x200.jpg'
-import imageFridge from './images/solikyl-fridge.200x200.jpg'
+import imageBikeworkshop from './images/bikeworkshop.200x200.jpg'
 import imageSavers from './images/solikyl-savers.200x200.jpg'
 import imageFairShare from './images/fsmaastricht-fairshare.200x200.jpg'
 import imageSavers2 from './images/fsmaastricht-foodsavers.200x200.jpg'
@@ -264,7 +264,7 @@ export default {
     this.images = [
       imageSavedFood,
       imageVolunteers,
-      imageFridge,
+      imageBikeworkshop,
       imageSavers,
       imageFairShare,
       imageSavers2,

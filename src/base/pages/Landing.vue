@@ -206,16 +206,19 @@ import { mapGetters } from 'vuex'
 
 import GroupGalleryCards from '@/groupInfo/components/GroupGalleryCards'
 import logo from '@/logo/assets/carrot-logo.svg'
-import screenshotPickups from './karrot-pickups.png'
-import screenshotGallery from './karrot-gallery.png'
-import screenshotManagePickups from './karrot-manage-pickups.png'
-import screenshotOffers from './karrot-offers.png'
-import imageSavedFood from './oestersund-saved-food.jpg'
-import imageVolunteers from './oestersund-volunteers.jpg'
-import imageFridge from './solikyl-fridge.png'
-import imageSavers from './solikyl-savers.jpg'
-import imageFairShare from './fsmaastricht-fairshare.jpg'
-import imageSavers2 from './fsmaastricht-foodsavers.jpg'
+import screenshotPickups from './images/karrot-screenshot.png'
+
+import screenshotGallery from './images/karrot-gallery.236x236.jpg'
+import screenshotManagePickups from './images/karrot-manage-pickups.236x236.jpg'
+import screenshotOffers from './images/karrot-offers.236x236.jpg'
+
+import imageSavedFood from './images/oestersund-saved-food.200x200.jpg'
+import imageVolunteers from './images/oestersund-volunteers.200x200.jpg'
+import imageFridge from './images/solikyl-fridge.200x200.jpg'
+import imageSavers from './images/solikyl-savers.200x200.jpg'
+import imageFairShare from './images/fsmaastricht-fairshare.200x200.jpg'
+import imageSavers2 from './images/fsmaastricht-foodsavers.200x200.jpg'
+
 import router from '@/base/router'
 
 // Prefer active non-playground groups with a photo

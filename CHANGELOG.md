@@ -21,6 +21,8 @@ Please document your changes in this format:
 ```
 
 ## [Unreleased]
+### Added
+- Pagination for pickups [#1982] @ang-zeyu
 
 ## [8.3.0] - 2019-12-02
 ### Added

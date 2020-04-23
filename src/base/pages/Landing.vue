@@ -1,5 +1,5 @@
 <template>
-  <div class="landing bg-white q-pa-lg">
+  <div class="landing">
     <p class="text-center">
       <img
         :src="logo"
@@ -33,76 +33,50 @@
       />
     </p>
 
-    <p v-t="'LANDING.VISION1'" />
+    <section>
+      <p v-t="'LANDING.VISION1'" />
 
-    <div class="row inline-images">
-      <div
-        v-for="image in images.slice(0, 3)"
-        :key="image"
-        class="col-4 q-pa-sm"
-      >
-        <QImg
-          :src="image"
-          :ratio="1"
-        />
-      </div>
-    </div>
-
-    <p v-t="'LANDING.VISION2'" />
-    <p v-t="'LANDING.VISION3'" />
-
-    <div class="row inline-images">
-      <div
-        v-for="image in images.slice(3, 6)"
-        :key="image"
-        class="col-4 q-pa-sm"
-      >
-        <QImg
-          :src="image"
-          :ratio="1"
-        />
-      </div>
-    </div>
-
-    <i18n
-      path="LANDING.ACTION"
-      tag="p"
-    >
-      <a
-        slot="startAGroup"
-        v-t="'LANDING.ACTION_START_A_GROUP'"
-        href="/#/group/create"
-      />
-    </i18n>
-
-    <hr>
-
-    <div
-      v-for="(feature, idx) in features"
-      :key="feature"
-    >
-      <section class="row q-my-lg q-py-lg">
-        <div class="col-sm-8 q-px-lg self-center">
-          <h2 v-t="`LANDING.SECTIONS.${feature}.TITLE`" />
-          <p>
-            <strong v-t="`LANDING.SECTIONS.${feature}.SUBTITLE`" />
-          </p>
-          <p v-t="`LANDING.SECTIONS.${feature}.DESCRIPTION`" />
-        </div>
+      <div class="row inline-images">
         <div
-          class="col q-px-lg self-center"
-          :class="{ swap: idx % 2 !== 0 }"
+          v-for="image in images"
+          :key="image"
+          class="col-6 col-sm-4 q-pa-sm"
         >
-          <img
-            :src="screenshots[feature]"
-            alt="karrot"
-            class="screenshot"
-          >
+          <QImg
+            :src="image"
+            :ratio="1"
+          />
         </div>
-      </section>
+      </div>
+    </section>
 
-      <hr>
-    </div>
+    <section>
+      <div
+        v-for="(feature, idx) in features"
+        :key="feature"
+        class="q-my-md"
+      >
+        <div class="row q-my-lg q-py-lg">
+          <div class="col-sm-8 q-px-lg self-center">
+            <h2 v-t="`LANDING.SECTIONS.${feature}.TITLE`" />
+            <p>
+              <strong v-t="`LANDING.SECTIONS.${feature}.SUBTITLE`" />
+            </p>
+            <p v-t="`LANDING.SECTIONS.${feature}.DESCRIPTION`" />
+          </div>
+          <div
+            class="col q-px-lg self-center"
+            :class="{ swap: idx % 2 !== 0 }"
+          >
+            <img
+              :src="screenshots[feature]"
+              alt="karrot"
+              class="screenshot"
+            >
+          </div>
+        </div>
+      </div>
+    </section>
 
     <section v-if="groupsToShow.length > 0">
       <h2 v-t="'LANDING.EXISTING_GROUPS'" />
@@ -112,24 +86,22 @@
         :is-logged-in="false"
         @preview="preview(arguments[0])"
       />
+
+      <p class="text-center q-py-lg">
+        <RouterLink
+          v-t="'SIGNUP.TITLE'"
+          class="button"
+          :to="{ name: 'signup' }"
+        />
+        <RouterLink
+          v-t="'JOINGROUP.BROWSE_GROUPS'"
+          class="button"
+          :to="{ name: 'groupsGallery' }"
+        />
+      </p>
     </section>
 
-    <p class="text-center q-py-lg">
-      <RouterLink
-        v-t="'SIGNUP.TITLE'"
-        class="button"
-        :to="{ name: 'signup' }"
-      />
-      <RouterLink
-        v-t="'JOINGROUP.BROWSE_GROUPS'"
-        class="button"
-        :to="{ name: 'groupsGallery' }"
-      />
-    </p>
-
-    <hr>
-
-    <section class="q-my-lg q-py-lg">
+    <section>
       <h2 v-t="'LANDING.SECTIONS.DEMOCRATIC.TITLE'" />
       <p v-t="'LANDING.SECTIONS.DEMOCRATIC.DESCRIPTION'" />
       <i18n
@@ -144,59 +116,59 @@
       </i18n>
     </section>
 
-    <hr>
+    <section>
+      <p>
+        <em v-t="'LANDING.AND_MORE'" />
+      </p>
+      <ul>
+        <li
+          v-for="item in more"
+          :key="item"
+        >
+          <p>
+            <strong v-t="`LANDING.SECTIONS.${item}.TITLE`" />:
+            <i18n
+              :path="`LANDING.SECTIONS.${item}.DESCRIPTION`"
+              tag="span"
+            >
+              <a
+                slot="code"
+                v-t="'LANDING.LINKS.CODE'"
+                href="https://github.com/yunity/karrot-frontend"
+              />
+              <a
+                slot="forum"
+                v-t="'LANDING.LINKS.FORUM'"
+                href="https://community.foodsaving.world"
+              />
+              <a
+                slot="chat"
+                v-t="'LANDING.LINKS.CHAT'"
+                href="https://slackin.yunity.org"
+              />
+              <a
+                slot="translations"
+                v-t="'LANDING.LINKS.TRANSLATIONS'"
+                href="https://www.transifex.com/yunity-1/karrot/frontend/"
+              />
+            </i18n>
+          </p>
+        </li>
+      </ul>
 
-    <p>
-      <em v-t="'LANDING.AND_MORE'" />
-    </p>
-    <ul>
-      <li
-        v-for="item in more"
-        :key="item"
-      >
-        <p>
-          <strong v-t="`LANDING.SECTIONS.${item}.TITLE`" />:
-          <i18n
-            :path="`LANDING.SECTIONS.${item}.DESCRIPTION`"
-            tag="span"
-          >
-            <a
-              slot="code"
-              v-t="'LANDING.LINKS.CODE'"
-              href="https://github.com/yunity/karrot-frontend"
-            />
-            <a
-              slot="forum"
-              v-t="'LANDING.LINKS.FORUM'"
-              href="https://community.foodsaving.world"
-            />
-            <a
-              slot="chat"
-              v-t="'LANDING.LINKS.CHAT'"
-              href="https://slackin.yunity.org"
-            />
-            <a
-              slot="translations"
-              v-t="'LANDING.LINKS.TRANSLATIONS'"
-              href="https://www.transifex.com/yunity-1/karrot/frontend/"
-            />
-          </i18n>
-        </p>
-      </li>
-    </ul>
-
-    <p class="text-center q-py-lg">
-      <RouterLink
-        v-t="'SIGNUP.TITLE'"
-        class="button"
-        :to="{ name: 'signup' }"
-      />
-      <RouterLink
-        v-t="'JOINGROUP.BROWSE_GROUPS'"
-        class="button"
-        :to="{ name: 'groupsGallery' }"
-      />
-    </p>
+      <p class="text-center">
+        <RouterLink
+          v-t="'SIGNUP.TITLE'"
+          class="button"
+          :to="{ name: 'signup' }"
+        />
+        <RouterLink
+          v-t="'JOINGROUP.BROWSE_GROUPS'"
+          class="button"
+          :to="{ name: 'groupsGallery' }"
+        />
+      </p>
+    </section>
   </div>
 </template>
 
@@ -295,9 +267,32 @@ export default {
 
 <style scoped lang="stylus">
 .landing
-  width 900px
+
+  width 1050px
   max-width 100vw
+  padding 40px
   margin 0 auto
+  background white
+
+  @media (min-width: 1050px)
+    // extra padded when on a big enough screen
+    padding 60px 100px
+
+  section
+    padding 30px 0
+    margin 30px 0
+    // border-bottom 1px dashed #ddd
+    border-bottom 2px dotted #F2C037
+
+    // $primary   =
+    // $secondary =
+    // $accent  = #c2b140
+
+    &:last-child
+      border none
+
+    > h2
+      margin-bottom 40px
 
   a
     text-decoration underline
@@ -338,8 +333,8 @@ export default {
   box-shadow 1px 4px 10px rgba(1, 1, 1, .8)
 
 .screenshot-fullwidth
-  @media (min-width: 1100px)
-    width 1100px
+  @media (min-width: 1200px)
+    width 1200px
     // horizontally center the oversized image
     margin-left 50%
     transform translateX(-50%)

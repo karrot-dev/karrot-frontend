@@ -1,20 +1,20 @@
 {
-  "ENTRY": "1 entry | {count} entries",
+  "ENTRY": "1 entrada | {count} entradas",
   "GLOBAL": {
     "GITHUB_NOTE": "Desenvolvimento",
     "SERVER_ERROR": "Erro no servidor",
-    "NOT_CONNECTED": "You aren't connected to the server",
+    "NOT_CONNECTED": "Você não está conectado ao servidor",
     "INVALID_LINK": "Desculpe, o link que você abriu é inválido.",
-    "GENERIC_ERROR": "Sorry, something went wrong",
-    "SEARCH_RESULTS": "Search results",
+    "GENERIC_ERROR": "Desculpe, algo deu errado",
+    "SEARCH_RESULTS": "Resultados da pesquisa",
     "SEARCH_NOT_FOUND": "Não encontrado",
-    "ABOUT_KARROT": "About Karrot"
+    "ABOUT_KARROT": "Sobre Karrot"
   },
   "USERDATA": {
     "EMAIL": "E-mail",
     "MOBILE_NUMBER": "Telefone",
     "PROFILE_TITLE": "Perfil",
-    "PRIVATE_MESSAGE": "Send a private message to {userName}",
+    "PRIVATE_MESSAGE": "Mandar uma mensagem privada para {userName}",
     "PASSWORD": "Senha",
     "CONFIRM_PASSWORD": "Confirme a sua senha",
     "USERNAME": "Nome",
@@ -23,7 +23,7 @@
     "SET_PHOTO": "Defina sua foto do perfil...",
     "ACCOUNT": "Conta",
     "PUSH": "Push notifications",
-    "PUSH_CURRENT_BROWSER": "Current browser",
+    "PUSH_CURRENT_BROWSER": "Navegador atual",
     "REQUEST_DELETE_ACCOUNT": {
       "SUCCESS": "Nós lhe enviamos um email com um link para completar o processo de remoção de sua conta."
     },
@@ -38,7 +38,7 @@
         "MESSAGE": "Do you trust {userName} in {groupName}?"
       }
     },
-    "LOGOUT_SUCCESS": "You have been logged out!",
+    "LOGOUT_SUCCESS": "Você foi deslogado!",
     "YOU_TRUST_USER": "You trust {userName} in {groupName}.",
     "OTHER_PEOPLE_TRUST_USER": "{otherUser} trusts {userName} in {groupName}. | {count} people trust {userName} in {groupName}.",
     "OTHER_PEOPLE_TRUST_YOU": "{otherUser} trusts you in {groupName}. | {count} people trust you in {groupName}.",
@@ -52,14 +52,14 @@
     "TRUST_INFO": {
       "TITLE": "What is this carrot button about?",
       "MESSAGE": "It is part of the Karrot trust system. It shows if a group member is newcomer and how much trust is needed until they gain editing permissions.",
-      "LINK": "Click here to find out more."
+      "LINK": "Clique aqui para descobrir mais."
     }
   },
   "SWITCHGROUP": {
     "NOT_MEMBER": "{userName} is not member of {groupName}.",
-    "COMMON_GROUPS": "Groups you have in common",
-    "OTHER_GROUPS": "Other groups",
-    "CHOOSE": "Choose a group:"
+    "COMMON_GROUPS": "Grupos que vocês têm em comum",
+    "OTHER_GROUPS": "Outros grupos",
+    "CHOOSE": "Escolha um grupo:"
   },
   "BUTTON": {
     "CREATE": "Criar",
@@ -72,7 +72,7 @@
     "LEAVE": "Sair",
     "PREVIEW": "Visualizar",
     "BACK": "Voltar",
-    "NEXT": "Next",
+    "NEXT": "Próximo",
     "SEARCH": "Buscar",
     "OF_COURSE": "Sim, com certeza!",
     "YES": "Sim",
@@ -86,15 +86,15 @@
     "DELETE_ACCOUNT": "Deletar conta",
     "SHOW": "Mostrar",
     "HIDE": "Esconder",
-    "SUBMIT": "Submit",
-    "APPLY": "Apply",
-    "ACCEPT": "Accept",
-    "DECLINE": "Decline",
-    "WITHDRAW": "Withdraw",
-    "SHOW_MORE": "Show more",
-    "ENABLE": "Enable",
-    "DISABLE": "Disable",
-    "UNSUBSCRIBE": "Unsubscribe"
+    "SUBMIT": "Enviar",
+    "APPLY": "Aplicar",
+    "ACCEPT": "Aceitar",
+    "DECLINE": "Rejeitar",
+    "WITHDRAW": "Retirar",
+    "SHOW_MORE": "Mostrar mais",
+    "ENABLE": "Ativar",
+    "DISABLE": "Desativar",
+    "UNSUBSCRIBE": "Desinscrever"
   },
   "VALIDATION": {
     "MINLENGTH": "Por favor entre com mais de {min} caracteres.",
@@ -103,12 +103,12 @@
     "REQUIRED": "Esta campo é obrigatório.",
     "VALID_EMAIL": "Entre com um e-mail válido.",
     "VALID_TIMEZONE": "Entre com um fuso horário válido.",
-    "IMAGE_REQUIRED": "You must add an image"
+    "IMAGE_REQUIRED": "Você deve adicionar uma imagem"
   },
   "GROUP": {
     "WALL": "Mural",
     "GROUP": "Grupo",
-    "LEAVE": "Said do grupo...",
+    "LEAVE": "Sair do grupo...",
     "LEAVE_TEXT": "Você tem certeza que deseja sair deste grupo?",
     "LEAVE_CONFIRMATION": "Você saiu de {groupName}",
     "NONMEMBER_REDIRECT": "Você não é um membro deste grupo.",
@@ -119,33 +119,33 @@
     "PRIVATE_DESCRIPTION_TITLE": "Descrição privada do grupo",
     "DESCRIPTION_VERBOSE": "Descrição do grupo. Visível para os membros",
     "PUBLIC_DESCRIPTION": "Texto que você ve antes de entrar no grupo",
-    "WELCOMEMESSAGE_VERBOSE": "Welcome message sent to new members",
-    "LOGO": "Group logo",
-    "SET_LOGO": "Click to upload your group logo!",
-    "APPLICATIONS": "Applications",
-    "APPLICATION_QUESTIONS": "Questions for people who want to join this group",
+    "WELCOMEMESSAGE_VERBOSE": "Mensagem de boas vindas enviada a novos membros",
+    "LOGO": "Logo do grupo",
+    "SET_LOGO": "Clique para fazer upload da sua logo do grupo!",
+    "APPLICATIONS": "Aplicações",
+    "APPLICATION_QUESTIONS": "Questões para as pessoas que quiserem se juntar a esse grupo",
     "PICKUPS": "Coletas",
-    "MESSAGES": "Messages",
-    "OFFERS": "Offers",
-    "PICKUP": "Pickup",
+    "MESSAGES": "Mensagens",
+    "OFFERS": "Ofertas",
+    "PICKUP": "Coletas",
     "MEMBERS": "Membros",
-    "JOINED": "joined {relativeDate}",
-    "DECLINED": "declined {relativeDate}",
-    "ADDED_BY": "added by {userName}",
-    "DECLINED_BY": "declined by {userName}",
-    "SORT_JOINDATE": "Sort by join date",
-    "SORT_NAME": "Sort by name",
+    "JOINED": "Juntou-se {relativeDate}",
+    "DECLINED": "Recusado {relativeDate}",
+    "ADDED_BY": "Adicionado por {userName}",
+    "DECLINED_BY": "Recusado por {userName}",
+    "SORT_JOINDATE": "Organizar por data de entrada",
+    "SORT_NAME": "Organizar por nome",
     "INACTIVE": "Inativos",
     "SHOW_INACTIVE": "Exibir grupos inativos",
-    "PLACES": "Places",
-    "HOME": "Home",
+    "PLACES": "Lugares",
+    "HOME": "Casa",
     "HISTORY": "Histórico",
     "DESCRIPTION": "Descrição",
     "ADDRESS": "Endereço",
     "TIMEZONE": "Fuso horário do grupo",
     "INVITE_EMAIL": "Entre com um endereço de e-mail",
     "INVITE_SEND": "Enviar convite",
-    "INVITE_SEND_SUCCESS": "Invitation sent successfully!",
+    "INVITE_SEND_SUCCESS": "Convite enviado com sucesso!",
     "INVITE_SEND_ERROR": "Ooops, could not send the invitation!",
     "INVITED_LIST": "Convites já foram enviados para esses e-mails.",
     "INVITATIONS": "Convites",
@@ -177,7 +177,7 @@
         "DESCRIPTION": "Tells you when a new conflict resolution process has been started in your group"
       }
     },
-    "PLAYGROUND_INFO": "Este é um grupo de testes. Você não pode quebrar nada aqui. Expore, clique em tudo e divira-se",
+    "PLAYGROUND_INFO": "Este é um grupo de testes. Você não pode quebrar nada aqui. Expore, clique em tudo e divirta-se",
     "JOIN_PLAYGROUND": "Participe do grupo de testes e explore karrot",
     "JOIN_ANOTHER_GROUP": "Join another group"
   },

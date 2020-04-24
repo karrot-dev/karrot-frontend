@@ -6,7 +6,7 @@ exports[`Storyshots AddressPicker Default 1`] = `
     <div class="q-field__inner relative-position col self-stretch column justify-center">
       <div tabindex="-1" class="q-field__control relative-position row no-wrap">
         <div class="q-field__control-container col relative-position row no-wrap q-anchor--skip">
-          <div placeholder="Search" class="q-field__native row items-center"><input type="search" placeholder="Search" tabindex="0" id="f_80808080-8080-4080-8080-808080808080" value="" class="q-field__input q-placeholder col q-field__input--padding"></div>
+          <div placeholder="Search" class="q-field__native row items-center"><input type="search" placeholder="Search" id="f_80808080-8080-4080-8080-808080808080" tabindex="0" value="" class="q-field__input q-placeholder col q-field__input--padding"></div>
           <div class="q-field__label no-pointer-events absolute ellipsis"></div>
         </div>
         <div class="q-field__append q-field__marginal row no-wrap items-center"></div>
@@ -147,7 +147,7 @@ exports[`Storyshots Applications ApplicationList 1`] = `
 exports[`Storyshots Banners Banners 1`] = `
 <div>
   <div role="alert" class="q-banner row items-center k-banner bg-secondary text-white" style="min-height:unset;">
-    <div class="q-banner__avatar col-auto row items-center"><i aria-hidden="true" role="presentation" class="fas fa-child q-icon notranslate" style="font-size:1.4em;"> </i></div>
+    <div class="q-banner__avatar col-auto row items-center self-start"><i aria-hidden="true" role="presentation" class="fas fa-child q-icon notranslate" style="font-size:1.4em;"> </i></div>
     <div class="q-banner__content col text-body2">
       This is a playground group, you can't break anything. Explore, click around and have fun!
     </div>
@@ -161,7 +161,7 @@ exports[`Storyshots Banners Banners 1`] = `
       </button></div>
   </div>
   <div role="alert" class="q-banner row items-center k-banner bg-warning text-white" style="min-height:unset;">
-    <div class="q-banner__avatar col-auto row items-center"><i aria-hidden="true" role="presentation" class="material-icons q-icon notranslate" style="font-size:1.4em;">report_problem</i></div>
+    <div class="q-banner__avatar col-auto row items-center self-start"><i aria-hidden="true" role="presentation" class="material-icons q-icon notranslate" style="font-size:1.4em;">report_problem</i></div>
     <div class="q-banner__content col text-body2">
       You aren't connected to the server
     </div>
@@ -1865,7 +1865,7 @@ exports[`Storyshots ConflictSetup create 1`] = `
 <div>
   <h3 class="q-pl-lg q-mb-sm"></h3>
   <div>
-    <div contractable="" class="q-stepper no-shadow q-stepper--horizontal">
+    <div contractable="" class="no-shadow q-stepper q-stepper--horizontal">
       <div class="q-stepper__header row items-stretch justify-between q-stepper__header--standard-labels q-stepper__header--border">
         <div class="q-stepper__tab col-grow flex items-center no-wrap relative-position q-stepper__tab--active">
           <div tabindex="-1" class="q-focus-helper"></div>
@@ -3642,9 +3642,7 @@ exports[`Storyshots Feedback PickupFeedback 1`] = `
               <div class="q-field__inner relative-position col self-stretch column justify-center">
                 <div tabindex="-1" class="q-field__control relative-position row no-wrap">
                   <div class="q-field__control-container col relative-position row no-wrap q-anchor--skip">
-                    <div class="q-field__native row items-center"><span>Aug 12, 2017, 8:00 AM (Griesheimer Markt)</span><input tabindex="-1" class="q-select__autocomplete-input no-outline">
-                      <div tabindex="0" id="f_80808080-8080-4080-8080-808080808080" class="no-outline"></div>
-                    </div>
+                    <div class="q-field__native row items-center"><span>Aug 12, 2017, 8:00 AM (Griesheimer Markt)</span><input tabindex="0" id="f_80808080-8080-4080-8080-808080808080" class="q-select__autocomplete-input no-outline"></div>
                   </div>
                   <div class="q-field__append q-field__marginal row no-wrap items-center q-anchor--skip"><i aria-hidden="true" role="presentation" class="q-select__dropdown-icon material-icons q-icon notranslate">arrow_drop_down</i></div>
                   <!---->
@@ -4244,7 +4242,7 @@ It would make sense if it was markdown
             <div class="q-field__inner relative-position col self-stretch column justify-center">
               <div tabindex="-1" class="q-field__control relative-position row no-wrap">
                 <div class="q-field__control-container col relative-position row no-wrap q-anchor--skip">
-                  <div placeholder="Search" class="q-field__native row items-center"><input type="search" placeholder="Search" tabindex="0" id="f_80808080-8080-4080-8080-808080808080" value="Darmstadt, Regierungsbezirk Darmstadt, Hessen, Deutschland" class="q-field__input q-placeholder col q-field__input--padding"></div>
+                  <div placeholder="Search" class="q-field__native row items-center"><input type="search" placeholder="Search" id="f_80808080-8080-4080-8080-808080808080" tabindex="0" value="Darmstadt, Regierungsbezirk Darmstadt, Hessen, Deutschland" class="q-field__input q-placeholder col q-field__input--padding"></div>
                   <div class="q-field__label no-pointer-events absolute ellipsis">Address</div>
                 </div>
                 <div class="q-field__append q-field__marginal row no-wrap items-center"><i aria-hidden="true" role="presentation" class="cursor-pointer material-icons q-icon notranslate">cancel</i></div>
@@ -4283,7 +4281,7 @@ It would make sense if it was markdown
           <div class="q-field__inner relative-position col self-stretch column justify-center">
             <div tabindex="-1" class="q-field__control relative-position row no-wrap">
               <div class="q-field__control-container col relative-position row no-wrap q-anchor--skip">
-                <div class="q-field__native row items-center"><input type="search" tabindex="0" id="f_80808080-8080-4080-8080-808080808080" value="" class="q-field__input q-placeholder col"></div>
+                <div class="q-field__native row items-center"><input type="search" id="f_80808080-8080-4080-8080-808080808080" tabindex="0" value="" class="q-field__input q-placeholder col"></div>
                 <div class="q-field__label no-pointer-events absolute ellipsis">Time zone of group</div>
               </div>
               <div class="q-field__append q-field__marginal row no-wrap items-center q-anchor--skip"><i aria-hidden="true" role="presentation" class="q-select__dropdown-icon material-icons q-icon notranslate">arrow_drop_down</i></div>
@@ -4324,7 +4322,7 @@ exports[`Storyshots GroupGallery signup view 1`] = `
   </div>
   <div class="sidebar expanded">
     <div role="alert" class="q-banner row items-center q-ma-sm bg-warning text-white shadow-2" style="min-height:unset;">
-      <div class="q-banner__avatar col-auto row items-center"><i aria-hidden="true" role="presentation" class="material-icons q-icon notranslate text-white" style="font-size:24px;">star</i></div>
+      <div class="q-banner__avatar col-auto row items-center self-start"><i aria-hidden="true" role="presentation" class="material-icons q-icon notranslate text-white" style="font-size:24px;">star</i></div>
       <div class="q-banner__content col text-body2"> <span>You are currently logged out. <a class="underline">
           Log in to see your groups!
         </a></span></div>
@@ -5087,7 +5085,7 @@ exports[`Storyshots GroupPreviewUI not member, application needed, email not ver
     <div class="q-card__actions q-card__actions--horiz row justify-start">
       <div style="width:100%;">
         <div role="alert" class="q-banner row items-center bg-info">
-          <div class="q-banner__avatar col-auto row items-center"><i aria-hidden="true" role="presentation" class="material-icons q-icon notranslate" style="font-size:24px;">info</i></div>
+          <div class="q-banner__avatar col-auto row items-center self-start"><i aria-hidden="true" role="presentation" class="material-icons q-icon notranslate" style="font-size:24px;">info</i></div>
           <div class="q-banner__content col text-body2">
             By joining this group, your profile data will become visible to other group members.
           </div>
@@ -5136,7 +5134,7 @@ exports[`Storyshots GroupPreviewUI not member, application needed, email verifie
     <div class="q-card__actions q-card__actions--horiz row justify-start">
       <div style="width:100%;">
         <div role="alert" class="q-banner row items-center bg-info">
-          <div class="q-banner__avatar col-auto row items-center"><i aria-hidden="true" role="presentation" class="material-icons q-icon notranslate" style="font-size:24px;">info</i></div>
+          <div class="q-banner__avatar col-auto row items-center self-start"><i aria-hidden="true" role="presentation" class="material-icons q-icon notranslate" style="font-size:24px;">info</i></div>
           <div class="q-banner__content col text-body2">
             By joining this group, your profile data will become visible to other group members.
           </div>
@@ -5185,7 +5183,7 @@ exports[`Storyshots GroupPreviewUI not member, open group 1`] = `
     <div class="q-card__actions q-card__actions--horiz row justify-start">
       <div style="width:100%;">
         <div role="alert" class="q-banner row items-center bg-info">
-          <div class="q-banner__avatar col-auto row items-center"><i aria-hidden="true" role="presentation" class="material-icons q-icon notranslate" style="font-size:24px;">info</i></div>
+          <div class="q-banner__avatar col-auto row items-center self-start"><i aria-hidden="true" role="presentation" class="material-icons q-icon notranslate" style="font-size:24px;">info</i></div>
           <div class="q-banner__content col text-body2">
             By joining this group, your profile data will become visible to other group members.
           </div>
@@ -5235,7 +5233,7 @@ exports[`Storyshots GroupPreviewUI not member, pending application 1`] = `
       <div style="width:100%;">
         <!---->
         <div role="alert" class="q-banner row items-center bg-blue text-white">
-          <div class="q-banner__avatar col-auto row items-center"><i aria-hidden="true" role="presentation" class="material-icons q-icon notranslate text-white" style="font-size:24px;">info</i></div>
+          <div class="q-banner__avatar col-auto row items-center self-start"><i aria-hidden="true" role="presentation" class="material-icons q-icon notranslate text-white" style="font-size:24px;">info</i></div>
           <div class="q-banner__content col text-body2">
             Your application is pending!
           </div>
@@ -5291,7 +5289,7 @@ exports[`Storyshots GroupPreviewUI not member, playground 1`] = `
     <div class="q-card__actions q-card__actions--horiz row justify-start">
       <div style="width:100%;">
         <div role="alert" class="q-banner row items-center bg-info">
-          <div class="q-banner__avatar col-auto row items-center"><i aria-hidden="true" role="presentation" class="material-icons q-icon notranslate" style="font-size:24px;">info</i></div>
+          <div class="q-banner__avatar col-auto row items-center self-start"><i aria-hidden="true" role="presentation" class="material-icons q-icon notranslate" style="font-size:24px;">info</i></div>
           <div class="q-banner__content col text-body2">
             By joining this group, your profile data will become visible to other group members.
           </div>
@@ -5337,7 +5335,7 @@ exports[`Storyshots GroupPreviewUI pending join 1`] = `
     <div class="q-card__actions q-card__actions--horiz row justify-start">
       <div style="width:100%;">
         <div role="alert" class="q-banner row items-center bg-info">
-          <div class="q-banner__avatar col-auto row items-center"><i aria-hidden="true" role="presentation" class="material-icons q-icon notranslate" style="font-size:24px;">info</i></div>
+          <div class="q-banner__avatar col-auto row items-center self-start"><i aria-hidden="true" role="presentation" class="material-icons q-icon notranslate" style="font-size:24px;">info</i></div>
           <div class="q-banner__content col text-body2">
             By joining this group, your profile data will become visible to other group members.
           </div>
@@ -9336,9 +9334,7 @@ exports[`Storyshots PickupSeriesEdit duration 1`] = `
       <div class="q-field__inner relative-position col self-stretch column justify-center">
         <div tabindex="-1" class="q-field__control relative-position row no-wrap">
           <div class="q-field__control-container col relative-position row no-wrap q-anchor--skip">
-            <div class="q-field__native row items-center"><span>Tuesday</span><input tabindex="-1" class="q-select__autocomplete-input no-outline">
-              <div tabindex="0" id="f_80808080-8080-4080-8080-808080808080" class="no-outline"></div>
-            </div>
+            <div class="q-field__native row items-center"><span>Tuesday</span><input tabindex="0" id="f_80808080-8080-4080-8080-808080808080" class="q-select__autocomplete-input no-outline"></div>
             <div class="q-field__label no-pointer-events absolute ellipsis">Weekdays</div>
           </div>
           <div class="q-field__append q-field__marginal row no-wrap items-center q-anchor--skip"><i aria-hidden="true" role="presentation" class="q-select__dropdown-icon material-icons q-icon notranslate">arrow_drop_down</i></div>
@@ -9487,9 +9483,7 @@ exports[`Storyshots PickupSeriesEdit time error 1`] = `
       <div class="q-field__inner relative-position col self-stretch column justify-center">
         <div tabindex="-1" class="q-field__control relative-position row no-wrap">
           <div class="q-field__control-container col relative-position row no-wrap q-anchor--skip">
-            <div class="q-field__native row items-center"><span>Tuesday</span><input tabindex="-1" class="q-select__autocomplete-input no-outline">
-              <div tabindex="0" id="f_80808080-8080-4080-8080-808080808080" class="no-outline"></div>
-            </div>
+            <div class="q-field__native row items-center"><span>Tuesday</span><input tabindex="0" id="f_80808080-8080-4080-8080-808080808080" class="q-select__autocomplete-input no-outline"></div>
             <div class="q-field__label no-pointer-events absolute ellipsis">Weekdays</div>
           </div>
           <div class="q-field__append q-field__marginal row no-wrap items-center q-anchor--skip"><i aria-hidden="true" role="presentation" class="q-select__dropdown-icon material-icons q-icon notranslate">arrow_drop_down</i></div>
@@ -9637,9 +9631,7 @@ exports[`Storyshots PickupSeriesEdit weekly 1`] = `
       <div class="q-field__inner relative-position col self-stretch column justify-center">
         <div tabindex="-1" class="q-field__control relative-position row no-wrap">
           <div class="q-field__control-container col relative-position row no-wrap q-anchor--skip">
-            <div class="q-field__native row items-center"><span>Tuesday</span><input tabindex="-1" class="q-select__autocomplete-input no-outline">
-              <div tabindex="0" id="f_80808080-8080-4080-8080-808080808080" class="no-outline"></div>
-            </div>
+            <div class="q-field__native row items-center"><span>Tuesday</span><input tabindex="0" id="f_80808080-8080-4080-8080-808080808080" class="q-select__autocomplete-input no-outline"></div>
             <div class="q-field__label no-pointer-events absolute ellipsis">Weekdays</div>
           </div>
           <div class="q-field__append q-field__marginal row no-wrap items-center q-anchor--skip"><i aria-hidden="true" role="presentation" class="q-select__dropdown-icon material-icons q-icon notranslate">arrow_drop_down</i></div>
@@ -10188,8 +10180,7 @@ exports[`Storyshots Places PlaceEdit (with server error) 1`] = `
                     <div>
                       Co-operating
                     </div>
-                  </div><input tabindex="-1" class="q-select__autocomplete-input no-outline">
-                  <div tabindex="0" id="f_80808080-8080-4080-8080-808080808080" class="no-outline"></div>
+                  </div><input tabindex="0" id="f_80808080-8080-4080-8080-808080808080" class="q-select__autocomplete-input no-outline">
                 </div>
                 <div class="q-field__label no-pointer-events absolute ellipsis">Status</div>
               </div>
@@ -10221,7 +10212,7 @@ exports[`Storyshots Places PlaceEdit (with server error) 1`] = `
             <div class="q-field__inner relative-position col self-stretch column justify-center">
               <div tabindex="-1" class="q-field__control relative-position row no-wrap">
                 <div class="q-field__control-container col relative-position row no-wrap q-anchor--skip">
-                  <div placeholder="Search" class="q-field__native row items-center"><input type="search" placeholder="Search" tabindex="0" id="f_80808080-8080-4080-8080-808080808080" value="" class="q-field__input q-placeholder col q-field__input--padding"></div>
+                  <div placeholder="Search" class="q-field__native row items-center"><input type="search" placeholder="Search" id="f_80808080-8080-4080-8080-808080808080" tabindex="0" value="" class="q-field__input q-placeholder col q-field__input--padding"></div>
                   <div class="q-field__label no-pointer-events absolute ellipsis">Address</div>
                 </div>
                 <div class="q-field__append q-field__marginal row no-wrap items-center"></div>
@@ -10325,8 +10316,7 @@ exports[`Storyshots Places PlaceEdit 1`] = `
                     <div>
                       Co-operating
                     </div>
-                  </div><input tabindex="-1" class="q-select__autocomplete-input no-outline">
-                  <div tabindex="0" id="f_80808080-8080-4080-8080-808080808080" class="no-outline"></div>
+                  </div><input tabindex="0" id="f_80808080-8080-4080-8080-808080808080" class="q-select__autocomplete-input no-outline">
                 </div>
                 <div class="q-field__label no-pointer-events absolute ellipsis">Status</div>
               </div>
@@ -10358,7 +10348,7 @@ exports[`Storyshots Places PlaceEdit 1`] = `
             <div class="q-field__inner relative-position col self-stretch column justify-center">
               <div tabindex="-1" class="q-field__control relative-position row no-wrap">
                 <div class="q-field__control-container col relative-position row no-wrap q-anchor--skip">
-                  <div placeholder="Search" class="q-field__native row items-center"><input type="search" placeholder="Search" tabindex="0" id="f_80808080-8080-4080-8080-808080808080" value="" class="q-field__input q-placeholder col q-field__input--padding"></div>
+                  <div placeholder="Search" class="q-field__native row items-center"><input type="search" placeholder="Search" id="f_80808080-8080-4080-8080-808080808080" tabindex="0" value="" class="q-field__input q-placeholder col q-field__input--padding"></div>
                   <div class="q-field__label no-pointer-events absolute ellipsis">Address</div>
                 </div>
                 <div class="q-field__append q-field__marginal row no-wrap items-center"></div>
@@ -10708,7 +10698,7 @@ exports[`Storyshots Profile non-member 1`] = `
 <div>
   <div class="k-profile">
     <div role="alert" class="q-banner row items-center bg-warning text-white shadow-2 q-mb-sm q-pa-none" style="min-height:unset;">
-      <div class="q-banner__avatar col-auto row items-center">
+      <div class="q-banner__avatar col-auto row items-center self-start">
         <div class="q-pa-sm" style="background-color:rgba(0, 0, 0, .1);"><i aria-hidden="true" role="presentation" class="text-white material-icons q-icon notranslate" style="font-size:24px;">priority_high</i></div>
       </div>
       <div class="q-banner__content col text-body2">
@@ -10940,7 +10930,7 @@ exports[`Storyshots Settings Page Default 1`] = `
               <div class="q-field__inner relative-position col self-stretch column justify-center">
                 <div tabindex="-1" class="q-field__control relative-position row no-wrap">
                   <div class="q-field__control-container col relative-position row no-wrap q-anchor--skip">
-                    <div placeholder="Search" class="q-field__native row items-center"><input type="search" placeholder="Search" tabindex="0" id="f_80808080-8080-4080-8080-808080808080" value="Darmstadt, Regierungsbezirk Darmstadt, Hessen, Deutschland" class="q-field__input q-placeholder col q-field__input--padding"></div>
+                    <div placeholder="Search" class="q-field__native row items-center"><input type="search" placeholder="Search" id="f_80808080-8080-4080-8080-808080808080" tabindex="0" value="Darmstadt, Regierungsbezirk Darmstadt, Hessen, Deutschland" class="q-field__input q-placeholder col q-field__input--padding"></div>
                     <div class="q-field__label no-pointer-events absolute ellipsis">Where you are from (not required)</div>
                   </div>
                   <div class="q-field__append q-field__marginal row no-wrap items-center"><i aria-hidden="true" role="presentation" class="cursor-pointer material-icons q-icon notranslate">cancel</i></div>
@@ -12979,7 +12969,7 @@ exports[`Storyshots WallConversation unread 1`] = `
         </div>
       </div>
       <div role="alert" class="q-banner row items-center bg-secondary text-white q-mt-sm" style="min-height:unset;">
-        <div class="q-banner__avatar col-auto row items-center"><i aria-hidden="true" role="presentation" class="material-icons q-icon notranslate text-white" style="font-size:1.5em;">star</i></div>
+        <div class="q-banner__avatar col-auto row items-center self-start"><i aria-hidden="true" role="presentation" class="material-icons q-icon notranslate text-white" style="font-size:1.5em;">star</i></div>
         <div class="q-banner__content col text-body2">
           <div class="row justify-between items-center"><small>
               You have one unread message.

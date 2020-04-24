@@ -40,7 +40,7 @@
         <div
           v-for="image in images"
           :key="image"
-          class="col-6 col-sm-4 q-pa-sm"
+          class="col-4 q-pa-sm"
         >
           <QImg
             :src="image"
@@ -266,6 +266,8 @@ export default {
 </script>
 
 <style scoped lang="stylus">
+@import '~variables'
+
 .landing
 
   width 1050px
@@ -281,12 +283,7 @@ export default {
   section
     padding 30px 0
     margin 30px 0
-    // border-bottom 1px dashed #ddd
-    border-bottom 2px dotted #F2C037
-
-    // $primary   =
-    // $secondary =
-    // $accent  = #c2b140
+    border-bottom 2px dotted $info
 
     &:last-child
       border none
@@ -306,11 +303,6 @@ export default {
   h2
     margin-top 0
 
-  hr
-    margin 20px 0
-    border 0
-    border-bottom 1px dashed #ddd
-
   .button
     display inline-block
     padding 10px
@@ -322,8 +314,11 @@ export default {
     border-radius 3px
 
 .inline-images
-  padding 0 100px
+  padding 0
   margin 30px 0
+  @media (min-width: 600px)
+    // on wider screens, give them a bit more room to breathe
+    padding 0 100px
 
 .logo
   width 120px
@@ -334,12 +329,13 @@ export default {
 
 .screenshot-fullwidth
   @media (min-width: 1200px)
-    width 1200px
     // horizontally center the oversized image
+    // (also needed an "overflow-x hidden" on the main page container, in Root)
+    width 1200px
     margin-left 50%
     transform translateX(-50%)
 
-// when narrow we don't want the left/right thing
+// on wider screens alternate the left/right ordering
 @media (min-width: 600px)
   .swap
     order -1000

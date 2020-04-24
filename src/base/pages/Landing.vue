@@ -6,11 +6,11 @@
         class="logo"
       >
     </p>
-    <h1 v-t="'LANDING.TITLE'" />
+    <h1 v-t="'ABOUT_KARROT.TITLE'" />
     <p>
-      <strong v-t="'LANDING.SUBTITLE1'" />
+      <strong v-t="'ABOUT_KARROT.SUBTITLE1'" />
     </p>
-    <p v-t="'LANDING.SUBTITLE2'" />
+    <p v-t="'ABOUT_KARROT.SUBTITLE2'" />
 
     <p class="text-center q-py-lg">
       <RouterLink
@@ -34,7 +34,7 @@
     </p>
 
     <section>
-      <p v-t="'LANDING.VISION1'" />
+      <p v-t="'ABOUT_KARROT.VISION_INTRO'" />
 
       <div class="row inline-images">
         <div
@@ -58,11 +58,11 @@
       >
         <div class="row q-my-lg q-py-lg">
           <div class="col-sm-8 q-px-lg self-center">
-            <h2 v-t="`LANDING.SECTIONS.${feature}.TITLE`" />
+            <h2 v-t="`ABOUT_KARROT.SECTIONS.${feature}.TITLE`" />
             <p>
-              <strong v-t="`LANDING.SECTIONS.${feature}.SUBTITLE`" />
+              <strong v-t="`ABOUT_KARROT.SECTIONS.${feature}.SUBTITLE`" />
             </p>
-            <p v-t="`LANDING.SECTIONS.${feature}.DESCRIPTION`" />
+            <p v-t="`ABOUT_KARROT.SECTIONS.${feature}.DESCRIPTION`" />
           </div>
           <div
             class="col q-px-lg self-center"
@@ -79,7 +79,7 @@
     </section>
 
     <section v-if="groupsToShow.length > 0">
-      <h2 v-t="'LANDING.EXISTING_GROUPS'" />
+      <h2 v-t="'ABOUT_KARROT.EXISTING_GROUPS'" />
 
       <GroupGalleryCards
         :groups="groupsToShow"
@@ -102,15 +102,15 @@
     </section>
 
     <section>
-      <h2 v-t="'LANDING.SECTIONS.DEMOCRATIC.TITLE'" />
-      <p v-t="'LANDING.SECTIONS.DEMOCRATIC.DESCRIPTION'" />
+      <h2 v-t="'ABOUT_KARROT.SECTIONS.DEMOCRATIC.TITLE'" />
+      <p v-t="'ABOUT_KARROT.SECTIONS.DEMOCRATIC.DESCRIPTION'" />
       <i18n
-        path="LANDING.SECTIONS.DEMOCRATIC.DESCRIPTION2"
+        path="ABOUT_KARROT.SECTIONS.DEMOCRATIC.DESCRIPTION2"
         tag="p"
       >
         <a
           slot="code"
-          v-t="'LANDING.LINKS.CODE'"
+          v-t="'ABOUT_KARROT.LINKS.CODE'"
           href="https://github.com/yunity/karrot-frontend"
         />
       </i18n>
@@ -118,7 +118,7 @@
 
     <section>
       <p>
-        <em v-t="'LANDING.AND_MORE'" />
+        <em v-t="'ABOUT_KARROT.AND_MORE'" />
       </p>
       <ul>
         <li
@@ -126,29 +126,29 @@
           :key="item"
         >
           <p>
-            <strong v-t="`LANDING.SECTIONS.${item}.TITLE`" />:
+            <strong v-t="`ABOUT_KARROT.SECTIONS.${item}.TITLE`" />:
             <i18n
-              :path="`LANDING.SECTIONS.${item}.DESCRIPTION`"
+              :path="`ABOUT_KARROT.SECTIONS.${item}.DESCRIPTION`"
               tag="span"
             >
               <a
                 slot="code"
-                v-t="'LANDING.LINKS.CODE'"
+                v-t="'ABOUT_KARROT.LINKS.CODE'"
                 href="https://github.com/yunity/karrot-frontend"
               />
               <a
                 slot="forum"
-                v-t="'LANDING.LINKS.FORUM'"
+                v-t="'ABOUT_KARROT.LINKS.FORUM'"
                 href="https://community.foodsaving.world"
               />
               <a
                 slot="chat"
-                v-t="'LANDING.LINKS.CHAT'"
+                v-t="'ABOUT_KARROT.LINKS.CHAT'"
                 href="https://slackin.yunity.org"
               />
               <a
                 slot="translations"
-                v-t="'LANDING.LINKS.TRANSLATIONS'"
+                v-t="'ABOUT_KARROT.LINKS.TRANSLATIONS'"
                 href="https://www.transifex.com/yunity-1/karrot/frontend/"
               />
             </i18n>

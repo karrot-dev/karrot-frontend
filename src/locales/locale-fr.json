@@ -48,7 +48,7 @@
     "NEWCOMER_GUIDANCE": "{userName} est nouveau dans le groupe et a peut-être besoin d'aide.",
     "TRUST_PROGRESS_TEXT": "Besoin de {trustNeeded} points de confiance",
     "TRUST_PROGRESS_TEXT_LONG": "{trustNeeded} autres personnes doivent faire confiance à {userName} pour lui donner ses droits d'admin.",
-    "NEWCOMER_INFO": "Tu es à présent un nouveau membre de {groupName} et tu peux devenir actif en envoyant des messages, en rencontrant d'autres membres, en faisant des récoltes et en donnant des feedbacks.",
+    "NEWCOMER_INFO": "Tu es à présent un nouveau membre de {groupName} et tu peux devenir actif en envoyant des messages, en rencontrant d'autres membres, en faisant des récoltes et en rédigeant des comptes-rendu de récolte. Dès que les membres de{threshold} auront exprimé leur confiance, vous obtiendrez des autorisations d'édition pour aider à l'administration du groupe.",
     "TRUST_INFO": {
       "TITLE": "C'est quoi ce bouton avec une carotte ? ",
       "MESSAGE": "Ça fait partie du système de confiance de Karrot. Ça t'indique si un membre est nouveau et de combien de points de confiance il/elle a besoin pour obtenir des droits d'admin.",
@@ -126,7 +126,7 @@
     "APPLICATION_QUESTIONS": "Questions pour celles/ceux qui veulent rejoindre ce groupe",
     "PICKUPS": "Récoltes",
     "MESSAGES": "Messages",
-    "OFFERS": "offres",
+    "OFFERS": "dons",
     "PICKUP": "Récolte",
     "MEMBERS": "Membres",
     "JOINED": "membre depuis {relativeDate}",
@@ -137,9 +137,9 @@
     "SORT_NAME": "Trier par nom",
     "INACTIVE": "Inactif",
     "SHOW_INACTIVE": "Afficher les groupes inactifs",
-    "PLACES": "Places",
+    "PLACES": "Lieux de récup",
     "HOME": "Page d'accueil",
-    "HISTORY": "Histoire",
+    "HISTORY": "Historique",
     "DESCRIPTION": "Description",
     "ADDRESS": "Adresse",
     "TIMEZONE": "Fuseau horaire du groupe",
@@ -162,14 +162,14 @@
       },
       "daily_pickup_notification": {
         "NAME": "Notifications de récolte",
-        "DESCRIPTION": "Vous rappelle vos récoltes et vous informe des récoltes sans bénévoles ou incomplètes de vos endroits préférés le lendemain\n "
+        "DESCRIPTION": "Vous rappelle vos récoltes et vous informe des récoltes sans bénévoles ou incomplètes de vos lieux de récup préférés le lendemain\n "
       },
       "new_application": {
         "NAME": "Nouvelles candidatures",
         "DESCRIPTION": "T'indique quand quelqu'un souhaite rejoindre ton groupe"
       },
       "new_offer": {
-        "NAME": "Nouvelles offres",
+        "NAME": "Nouveaux dons",
         "DESCRIPTION": "Vous dit quand quelqu'un crée une nouvelle offre"
       },
       "conflict_resolution": {
@@ -185,8 +185,8 @@
     "TITLE": "Carte",
     "SHOW_USERS": "Afficher les utilisateurs",
     "HIDE_USERS": "Cacher les utilisateurs",
-    "SHOW_PLACES": "Montrer les places",
-    "HIDE_PLACES": "Places cachées",
+    "SHOW_PLACES": "Montrer les lieux de récup",
+    "HIDE_PLACES": "Lieux de récup cachés",
     "SHOW_GROUPS": "Afficher les groupes",
     "HIDE_GROUPS": "Cacher les groupes",
     "SET_LOCATION": "Ajouter la location",
@@ -216,10 +216,10 @@
       }
     },
     "RESTORE": "Restaurer",
-    "SHOW_ARCHIVED": "Montrer les lieux de récolte archivés",
-    "HIDE_ARCHIVED": "Cacher les lieux de récolte archivés",
-    "SHOW_ALL": "Montrer tous les lieux de récoltes",
-    "SHOW_ACTIVE_ONLY": "Montrer uniquement les lieux de récoltes actifs"
+    "SHOW_ARCHIVED": "Montrer les lieux de récup archivés",
+    "HIDE_ARCHIVED": "Cacher les lieux de récup archivés",
+    "SHOW_ALL": "Montrer tous les lieux de récup",
+    "SHOW_ACTIVE_ONLY": "Montrer uniquement les lieux de récup actifs"
   },
   "PLACEWALL": {
     "SUBSCRIBED_USERS": "{count}quelqu'un a marqué ce lieu de récolte en tant que favoris",
@@ -342,10 +342,10 @@
       "EMPTY": "Seulement les vides",
       "FREE": "Ceux avec des créneaux libres"
     },
-    "AVAILABLE": "Il y a une récolte dans vos lieux de récoltes préférés qui vous attend ! | Il y a{count} récoltes dans vos lieux de récoltes préférés qui vous attendent!",
-    "AVAILABLE_FEEDBACK": "Tu peux donner ton feedback sur la récolte | {count} récoltes attendent ton feedback ",
+    "AVAILABLE": "Il y a une récolte dans vos lieux de récup préférés qui vous attend ! | Il y a{count} récoltes dans vos lieux de récoltes préférés qui vous attendent!",
+    "AVAILABLE_FEEDBACK": "Tu peux donner ton retour en faisant un commentaire sur la récolte | {count} récoltes attendent ton compte-rendu de récolte.  ",
     "JOINEDNOTICE": "Tu as une récolte qui arrive | Tu as {count} récoltes qui arrivent",
-    "AVAILABLE_FROM_STORES": "Cela montre les récoltes de vos lieux de récoltes préférés dans les prochains jours. Vous pouvez accéder à d'autres endroits dans la barre latérale.",
+    "AVAILABLE_FROM_STORES": "Cela montre les récoltes de vos lieux de récup préférés dans les prochains jours. Vous pouvez accéder à d'autres lieux dans la barre latérale.",
     "ITEM": {
       "LEAVE": "Quitter",
       "JOIN": "Rejoindre",
@@ -361,25 +361,25 @@
     "PICKUP_STARTED": "Cette récolte a déjà commencée."
   },
   "FEEDBACKLIST": {
-    "SAVED_FOOD": "Au moins 1 kg a été sauvé. Merci ! Les autres participants ont déjà indiqué que {amount} kg de nourriture ont été sauvés ! Continue, c'est génial !",
+    "SAVED_FOOD": "Au moins 1 kg a été sauvé. Merci ! Les autres participants ont déjà indiqué via leur compte-rendu de récolte que {amount} kg de nourriture ont été sauvés ! Continue, c'est génial !",
     "NUMBER_PICKUPS": "{count} récoltes effectuées",
-    "NUMBER_FEEDBACK": "{count} feedback rendus",
+    "NUMBER_FEEDBACK": "{count}compte-rendu de récolte donné",
     "WEIGHT_SUM": "{sum} kg de nourriture sauvée",
-    "GIVE_FEEDBACK": "Donne ton feedback",
-    "NONE": "Pas de feedback",
-    "NONE_HINT": "Cette page sera remplie quand plus de feedback sera disponible",
+    "GIVE_FEEDBACK": "Donne ton compte-rendu de récolte",
+    "NONE": "Pas de compte-rendu de récolte pour le moment ",
+    "NONE_HINT": "Cette page sera remplie une fois quand plus de comptes-rendu de récoltes seront disponibles",
     "NO_DONE_PICKUPS": "Et voilà !",
     "NO_DONE_PICKUPS_HINT": "Aucune récolte ne t'attend pour le moment. Pourquoi ne pas t'inscrire?"
   },
   "PICKUP_FEEDBACK": {
-    "TITLE": "Feedback",
+    "TITLE": "compte-rendu de récolte",
     "HEADER": "Merci pour ta récolte !",
-    "EDIT": "Édite ton feedback ",
-    "SUBTITLE": "Tu peux donner ton feedback sur la récolte ici",
+    "EDIT": "Édite ton compte-rendu de récolte",
+    "SUBTITLE": "Tu peux donner ton compte-rendu sur la récolte ici",
     "SET_AMOUNT": "Établir la quantité",
     "DELETE_AMOUNT": "Supprimer la quantité",
     "AMOUNT": "Quantité de nourriture que vous avez pu sauver du gaspillage (en kg)\n ",
-    "AMOUNT_INFO": "Pour les statistiques des lieux de récoltes, nous additionnerons le montant de tous les estimatifs.",
+    "AMOUNT_INFO": "Pour les statistiques des lieux de récoltes, nous additionnerons les quantités de tous les compte-rendu de récolte.",
     "COMMENT_PLACEHOLDER": "Tout s'est bien passé ? Tout les participants sont venus ? Ton commentaire ici...",
     "PREVIOUS": "Dernier feedback à propos de {store}",
     "TOGETHER_WITH": "Tu as fait cette récolte avec :"
@@ -593,7 +593,7 @@
     "SETUP_HEADER": "Y a-t-il un conflit avec {user} ?",
     "STATEMENT": "Déclaration",
     "STEPPER1a": "Vous êtes sur le point de lancer un processus de résolution de conflits à l'échelle du groupe !",
-    "STEPPER1b": "Cela impliquera tous les membres avec des autorisations d'édition chercherons à trouver la meilleure façon de résoudre cette situation.\n ",
+    "STEPPER1b": "Cela impliquera que tous les membres avec des autorisations d'édition chercheront à trouver la meilleure façon de résoudre cette situation.\n ",
     "STEPPER2a": "Merci de prendre soin de votre communauté !",
     "STEPPER2b": "Il est important de s'attaquer aux problèmes sociaux, même si cela peut parfois être désagréable. Merci pour votre courage !",
     "STEPPER3a": "Voici ce qui va se passer :",
@@ -601,7 +601,7 @@
     "STEPPER3c": "Le chat sera visible pour les membres avec des autorisations d'édition et inclus {userName}.",
     "STEPPER3d": "Le vote est anonyme. Cela durera {votingDuration} jours. Pendant ce temps, tous les électeurs peuvent changer d'avis et voter différemment autant de fois qu'ils le souhaitent.\n \n ",
     "STEPPER4a": "Veuillez expliquer pourquoi vous lancez ce processus de résolution des conflits !",
-    "STEPPER4b": "Dites à votre groupe ce qui vous a fait penser que ce processus est justifié et nécessaire. Cette instruction sera visible par{userName} et par les membres du groupe et disposant des autorisations de modification.",
+    "STEPPER4b": "Dites à votre groupe ce qui vous a fait penser que ce processus est justifié et nécessaire. Cette déclaration sera visible par {userName} et par les membres du groupe disposant des autorisations de modification.",
     "FIND_OUT_MORE": "En savoir plus!",
     "INITIAL": "Information",
     "WITH": "Ce processus consiste à résoudre un conflit avec {userName}",

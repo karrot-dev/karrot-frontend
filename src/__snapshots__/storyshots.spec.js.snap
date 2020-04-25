@@ -6334,7 +6334,7 @@ exports[`Storyshots Issues results - expelled 1`] = `
 exports[`Storyshots KAbout KAbout 1`] = `
 <div class="bg-white q-pa-md">
   <div class="layout-padding">
-    <div class="k-logo-container"><a><img></a>
+    <div class="k-logo-container"><a><img src="test-file-stub"></a>
       <h4></h4>
     </div>
     <div class="q-list"><a tabindex="0" rel="nofollow noopener noreferrer" href="https://github.com/yunity/karrot-frontend" target="_blank" class="q-item q-item-type row no-wrap q-item--clickable q-link cursor-pointer q-focusable q-hoverable">
@@ -6814,7 +6814,7 @@ exports[`Storyshots Latest Messages type: thread 1`] = `
 
 exports[`Storyshots Layout KTopbar 1`] = `
 <div class="q-toolbar row no-wrap items-center text-white row justify-between bg-primary">
-  <div class="logo"> <a class="q-ml-sm"><img></a></div>
+  <div class="logo"> <a class="q-ml-sm"><img src="test-file-stub"></a></div>
   <div class="q-toolbar__title ellipsis no-wrap text-center">
     <div class="wrapper bread">
       <div>

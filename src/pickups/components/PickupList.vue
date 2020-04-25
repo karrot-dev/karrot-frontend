@@ -51,7 +51,7 @@ import {
   QInfiniteScroll,
 } from 'quasar'
 
-const NUM_PICKUPS_PER_LOAD = 10
+const NUM_PICKUPS_PER_LOAD = 25
 
 export default {
   components: {

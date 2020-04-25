@@ -26,11 +26,9 @@ export default {
     }),
   },
   async created () {
+    this.logo = logo
     if (__ENV.KARROT_THEME === 'dev') {
-      this.logo = await import('@/logo/assets/carrot-logo.dev.svg')
-    }
-    else {
-      this.logo = logo
+      this.logo = (await import('@/logo/assets/carrot-logo.dev.svg')).default
     }
   },
 }

@@ -9,7 +9,9 @@
     "plugins": {
       "cordova-plugin-whitelist": {},
       "cordova-plugin-network-information": {},
-      "cordova-plugin-fcm-with-dependecy-updated": {},
+      "cordova-plugin-fcm-with-dependecy-updated": {
+        "ANDROID_DEFAULT_NOTIFICATION_ICON": "@drawable/icon_push"
+      },
       "cordova-plugin-deeplinks": {}
     }
   },

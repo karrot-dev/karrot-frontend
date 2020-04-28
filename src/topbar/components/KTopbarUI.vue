@@ -3,13 +3,13 @@
     class="text-white row justify-between"
     :class="connected ? 'bg-primary' : 'bg-grey-8'"
   >
-    <div class="logo">
-      <slot />
-      <RouterLink
-        v-if="!$q.platform.is.mobile"
-        :to="'/'"
-        class="q-ml-sm"
-      >
+    <QBtn
+      v-if="!$q.platform.is.mobile"
+      flat
+      class="logo"
+      @click="onMainClick"
+    >
+      <div class="logo">
         <img
           v-if="currentGroup && currentGroup.hasPhoto"
           :src="currentGroup.photoUrls.thumbnail"
@@ -19,8 +19,26 @@
           v-else
           show-loading
         />
-      </RouterLink>
-    </div>
+      </div>
+      <QMenu>
+        <QList>
+          <QItem
+            v-for="group in myGroups"
+            :key="group.id"
+            v-close-popup
+            clickable
+            @click="onItemClick(group.id)"
+          >
+            <QItemSection>
+              {{ group.name }}
+            </QItemSection>
+            <QItemSection side>
+              {{ group.name }}
+            </QItemSection>
+          </QItem>
+        </QList>
+      </QMenu>
+    </QBtn>
     <QToolbarTitle class="no-wrap text-center">
       <KBreadcrumb
         class="bread"
@@ -152,7 +170,9 @@
 import {
   QToolbar,
   QToolbarTitle,
+  // QBtnDropdown,
   QBtn,
+  // QImg,
   QIcon,
   QMenu,
   QList,
@@ -160,6 +180,7 @@ import {
   QItemSection,
 } from 'quasar'
 import KarrotLogo from '@/logo/components/KarrotLogo'
+// import ChangeGroup from './ChangeGroup'
 import KBreadcrumb from '@/topbar/components/KBreadcrumb'
 import Search from '@/topbar/components/Search'
 import LatestMessageButton from '@/messages/components/LatestMessageButton'
@@ -169,12 +190,15 @@ export default {
   components: {
     QToolbar,
     QToolbarTitle,
+    // QBtnDropdown,
     QBtn,
+    // QImg,
     QIcon,
     QMenu,
     QList,
     QItem,
     QItemSection,
+    // ChangeGroup,
     KarrotLogo,
     KBreadcrumb,
     Search,
@@ -185,6 +209,11 @@ export default {
     currentGroup: {
       default: null,
       type: Object,
+    },
+    myGroups: {
+      type: Array,
+      required: false,
+      default: null,
     },
     breadcrumbs: {
       type: Array,
@@ -207,6 +236,23 @@ export default {
       type: Boolean,
       default: false,
     },
+  },
+  /*
+
+    SomeComponent.vue --> definition of a component
+
+    - import it
+    - components: { SomeComponent }
+    - use it a template like: <SomeComponent>
+    - if we wanted to pass it a "prop": <SomeComponent :prop-name="propValue">
+
+    props --passed into--> component
+
+  */
+  methods: {
+    onItemClick(groupId) {
+      // do something
+    }
   },
   computed: {
     hasPhoto () {

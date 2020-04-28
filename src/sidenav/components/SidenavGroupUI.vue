@@ -38,10 +38,18 @@
     <SidenavMenu :entries="entries" />
     <QExpansionItem
       dense
-      switch-toggle-side
       expand-separator
     >
       <template v-slot:header>
+        <QItemSection
+          side
+          class="text-center"
+        >
+          <QIcon
+            name="fas fa-ellipsis-h"
+            size="1.1em"
+          />
+        </QItemSection>
         <QItemSection>
           {{ $t('BUTTON.SHOW_MORE') }}
         </QItemSection>

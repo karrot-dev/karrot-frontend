@@ -63,7 +63,7 @@
           />
         </QItemSection>
       </template>
-      <SidenavMenu :entries-more="entriesMore" />
+      <SidenavMenu :entries="entriesMore" />
     </QExpansionItem>
   </SidenavBox>
 </template>

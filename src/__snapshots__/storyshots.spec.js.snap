@@ -11382,21 +11382,22 @@ exports[`Storyshots Sidenav Group 1`] = `
         History
       </div>
       <!---->
-    </a> </div>
+    </a></div>
   <div class="q-expansion-item q-item-type q-expansion-item--collapsed q-expansion-item--standard">
     <div class="q-expansion-item__container relative-position">
       <div tabindex="0" class="q-item q-item-type row no-wrap q-item--clickable q-link cursor-pointer q-focusable q-hoverable q-item--dense">
         <div tabindex="-1" class="q-focus-helper"></div>
-        <div class="q-item__section column cursor-pointer q-item__section--avatar q-item__section--side justify-center"><i aria-hidden="true" class="material-icons q-icon q-expansion-item__toggle-icon q-focusable">keyboard_arrow_down<div tabindex="-1" class="q-focus-helper q-focus-helper--round"></div></i></div>
+        <div class="q-item__section column text-center q-item__section--side justify-center"><i aria-hidden="true" class="fas fa-ellipsis-h q-icon" style="font-size:1.1em;"> </i></div>
         <div class="q-item__section column q-item__section--main justify-center">
           Show more
         </div>
         <div class="q-item__section column q-item__section--side justify-center">
           <div small="" title="There are 3 applications pending!" class="q-badge flex inline items-center no-wrap q-badge--single-line bg-blue">3</div>
         </div>
+        <div class="q-item__section column cursor-pointer q-item__section--side justify-center"><i aria-hidden="true" class="material-icons q-icon q-expansion-item__toggle-icon q-focusable">keyboard_arrow_down<div tabindex="-1" class="q-focus-helper q-focus-helper--round"></div></i></div>
       </div>
       <div class="q-expansion-item__content relative-position" style="display:none;">
-        <div class="q-list q-list--dense"> <a tabindex="0" class="q-item q-item-type row no-wrap q-item--clickable q-link cursor-pointer q-focusable q-hoverable q-item--dense">
+        <div class="q-list q-list--dense"><a tabindex="0" class="q-item q-item-type row no-wrap q-item--clickable q-link cursor-pointer q-focusable q-hoverable">
             <div tabindex="-1" class="q-focus-helper"></div>
             <div class="q-item__section column text-center q-item__section--side justify-center"><i aria-hidden="true" class="fas fa-address-card q-icon" style="font-size:1.1em;"> </i></div>
             <div class="q-item__section column q-item__section--main justify-center">
@@ -11407,21 +11408,21 @@ exports[`Storyshots Sidenav Group 1`] = `
                 3
               </div>
             </div>
-          </a><a tabindex="0" class="q-item q-item-type row no-wrap q-item--clickable q-link cursor-pointer q-focusable q-hoverable q-item--dense">
+          </a><a tabindex="0" class="q-item q-item-type row no-wrap q-item--clickable q-link cursor-pointer q-focusable q-hoverable">
             <div tabindex="-1" class="q-focus-helper"></div>
             <div class="q-item__section column text-center q-item__section--side justify-center"><i aria-hidden="true" class="fas fa-vote-yea q-icon" style="font-size:1.1em;"> </i></div>
             <div class="q-item__section column q-item__section--main justify-center">
               Issues
             </div>
             <!---->
-          </a><a tabindex="0" class="q-item q-item-type row no-wrap q-item--clickable q-link cursor-pointer q-focusable q-hoverable q-item--dense">
+          </a><a tabindex="0" class="q-item q-item-type row no-wrap q-item--clickable q-link cursor-pointer q-focusable q-hoverable">
             <div tabindex="-1" class="q-focus-helper"></div>
             <div class="q-item__section column text-center q-item__section--side justify-center"><i aria-hidden="true" class="fas fa-eye fa-fw q-icon" style="font-size:1.1em;"> </i></div>
             <div class="q-item__section column q-item__section--main justify-center">
               Show public group information
             </div>
             <!---->
-          </a><a tabindex="0" class="q-item q-item-type row no-wrap q-item--clickable q-link cursor-pointer q-focusable q-hoverable q-item--dense">
+          </a><a tabindex="0" class="q-item q-item-type row no-wrap q-item--clickable q-link cursor-pointer q-focusable q-hoverable">
             <div tabindex="-1" class="q-focus-helper"></div>
             <div class="q-item__section column text-center q-item__section--side justify-center"><i aria-hidden="true" class="fas fa-map q-icon" style="font-size:1.1em;"> </i></div>
             <div class="q-item__section column q-item__section--main justify-center">

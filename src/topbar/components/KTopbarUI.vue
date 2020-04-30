@@ -29,13 +29,25 @@
             clickable
             @click="onItemClick(group.id)"
           >
+            <QItemSection
+              avatar
+              class="groups"
+            >
+              <QIcon
+                v-if="!group.hasPhoto"
+                name="fas fa-users"
+              />
+              <img
+                :src="group.photoUrls.thumbnail"
+              >
+            </QItemSection>
             <QItemSection>
               {{ group.name }}
             </QItemSection>
-            <QItemSection side>
-              {{ group.name }}
-            </QItemSection>
           </QItem>
+          <!--pre>
+            {{ myGroups }}
+          </pre-->
         </QList>
       </QMenu>
     </QBtn>
@@ -170,7 +182,6 @@
 import {
   QToolbar,
   QToolbarTitle,
-  // QBtnDropdown,
   QBtn,
   // QImg,
   QIcon,
@@ -180,7 +191,6 @@ import {
   QItemSection,
 } from 'quasar'
 import KarrotLogo from '@/logo/components/KarrotLogo'
-// import ChangeGroup from './ChangeGroup'
 import KBreadcrumb from '@/topbar/components/KBreadcrumb'
 import Search from '@/topbar/components/Search'
 import LatestMessageButton from '@/messages/components/LatestMessageButton'
@@ -190,7 +200,6 @@ export default {
   components: {
     QToolbar,
     QToolbarTitle,
-    // QBtnDropdown,
     QBtn,
     // QImg,
     QIcon,
@@ -198,7 +207,6 @@ export default {
     QList,
     QItem,
     QItemSection,
-    // ChangeGroup,
     KarrotLogo,
     KBreadcrumb,
     Search,
@@ -249,11 +257,7 @@ export default {
     props --passed into--> component
 
   */
-  methods: {
-    onItemClick(groupId) {
-      // do something
-    }
-  },
+
   computed: {
     hasPhoto () {
       return !!this.photo
@@ -277,6 +281,11 @@ export default {
       }
     },
   },
+  methods: {
+    onItemClick (groupId) {
+      // do something
+    },
+  },
 }
 </script>
 
@@ -284,6 +293,10 @@ export default {
 @import '~variables'
 
 .logo
+  height 36px
+
+.groups
+  width 36px
   height 36px
 
 .profilePicture

@@ -1584,10 +1584,10 @@
   resolved "https://registry.yarnpkg.com/@protobufjs/utf8/-/utf8-1.1.0.tgz#a777360b5b39a1a2e5106f8e858f2fd2d060c570"
   integrity sha1-p3c2C1s5oaLlEG+OhY8v0tBgxXA=
 
-"@quasar/extras@^1.3.3":
-  version "1.6.4"
-  resolved "https://registry.yarnpkg.com/@quasar/extras/-/extras-1.6.4.tgz#eb97a5f543e17db38a12fe6e9fd5285ff28fffb8"
-  integrity sha512-OfVlzQhrIo4XImyVARvje85bf8D/OOYprUYjRNypEED5v64xt4nrT0lsh2wivleh7hwE9x22jQCB3o4GMLWkvg==
+"@quasar/extras@^1.7.0":
+  version "1.7.0"
+  resolved "https://registry.yarnpkg.com/@quasar/extras/-/extras-1.7.0.tgz#150ebdabfe532cefb2df43efe0edb14f9da74a2f"
+  integrity sha512-3G/tQZiyrSNuwkFXVBdAH9WYYTMY0mwf9nCp23jTzqH7MjUbs6RTujFN+urKlyQ7fZRLXmdWvo34z3+DgrUmqQ==
 
 "@reach/router@^1.2.1":
   version "1.3.3"

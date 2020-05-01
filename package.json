@@ -117,7 +117,7 @@
     "gitbook-cli": "^2.3.2",
     "glob": "^7.1.6",
     "hard-source-webpack-plugin": "^0.13.1",
-    "html-webpack-plugin": "4.2.0",
+    "html-webpack-plugin": "4.3.0",
     "http-proxy-middleware": "^1.0.1",
     "jest": "^25.1.0",
     "jest-canvas-mock": "^2.2.0",

@@ -79,7 +79,7 @@
     "@babel/preset-env": "7.9.5"
   },
   "devDependencies": {
-    "@babel/core": "^7.7.5",
+    "@babel/core": "^7.9.6",
     "@babel/plugin-transform-modules-commonjs": "^7.7.5",
     "@babel/preset-env": "7.9.5",
     "@octokit/rest": "^17.0.0",

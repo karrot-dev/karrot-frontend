@@ -259,6 +259,17 @@ jobs:
           paths:
             - android-prod.apk
 
+  deploy-branch:
+    <<: *defaults
+    steps:
+    - checkout
+    - attach_workspace:
+        at: ~/repo
+    - deploy:
+        name: Branch Deploy
+        command: |
+          ./deploy.sh branch "${CIRCLE_BRANCH}"
+
   deploy-dev:
     <<: *defaults
     steps:
@@ -268,7 +279,7 @@ jobs:
       - deploy:
           name: Dev Deploy
           command: |
-            ./deploy.sh "${CIRCLE_BRANCH}" "${CIRCLE_BRANCH}"
+            ./deploy.sh dev "${CIRCLE_BRANCH}"
 
   deploy-release:
     <<: *defaults
@@ -279,7 +290,7 @@ jobs:
       - deploy:
           name: Release Deploy
           command: |
-            ./deploy.sh "${CIRCLE_BRANCH}" release
+            ./deploy.sh release "${CIRCLE_BRANCH}"
 
   sync-locale-messages:
     <<: *defaults
@@ -350,8 +361,9 @@ workflows:
       - build-dev:
           filters:
             branches:
-              only:
-                - master
+              ignore:
+              - circleci-update-locales
+              - /dependabot\/.*/
           requires:
             - install-dependencies
       - build-storybook:
@@ -390,6 +402,15 @@ workflows:
           requires:
             - build-android-dev
             - test
+      - deploy-branch:
+          filters:
+            branches:
+              ignore:
+              - master
+              - circleci-update-locales
+              - /dependabot\/.*/
+          requires:
+            - build-dev
       - deploy-dev:
           filters:
             branches:

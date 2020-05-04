@@ -34,6 +34,11 @@ export default {
 </script>
 
 <style lang="stylus" scoped>
+#q-app
+  // this is to prevent the "oversize" image on the landing page
+  // from creating a horizontal scrollbar
+  overflow-x hidden
+
 .root-splash-second
   opacity 1
   animation fadein 2s

@@ -76,12 +76,12 @@
     "vuex-router-sync": "^5.0.0"
   },
   "resolutions": {
-    "@babel/preset-env": "7.9.5"
+    "@babel/preset-env": "7.9.6"
   },
   "devDependencies": {
     "@babel/core": "^7.7.5",
     "@babel/plugin-transform-modules-commonjs": "^7.7.5",
-    "@babel/preset-env": "7.9.5",
+    "@babel/preset-env": "7.9.6",
     "@octokit/rest": "^17.0.0",
     "@sentry/cli": "^1.49.0",
     "@storybook/addon-actions": "5.3.18",

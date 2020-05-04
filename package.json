@@ -75,6 +75,9 @@
     "vuex-persistedstate": "^3.0.1",
     "vuex-router-sync": "^5.0.0"
   },
+  "resolutions": {
+    "@babel/preset-env": "7.9.5"
+  },
   "devDependencies": {
     "@babel/core": "^7.7.5",
     "@babel/plugin-transform-modules-commonjs": "^7.7.5",

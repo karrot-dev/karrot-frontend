@@ -182,7 +182,7 @@ import screenshotPickups from './images/karrot-screenshot.png'
 
 import screenshotGallery from './images/karrot-gallery.236x236.jpg'
 import screenshotManagePickups from './images/karrot-manage-pickups.236x236.jpg'
-import screenshotOffers from './images/karrot-offers.236x236.jpg'
+import screenshotOffers from './images/solikyl-offers.236x236.jpg'
 
 import imageSavedFood from './images/oestersund-saved-food.200x200.jpg'
 import imageVolunteers from './images/oestersund-volunteers.200x200.jpg'

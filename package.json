@@ -80,7 +80,7 @@
   },
   "devDependencies": {
     "@babel/core": "^7.7.5",
-    "@babel/plugin-transform-modules-commonjs": "^7.7.5",
+    "@babel/plugin-transform-modules-commonjs": "^7.9.6",
     "@babel/preset-env": "7.9.5",
     "@octokit/rest": "^17.0.0",
     "@sentry/cli": "^1.49.0",

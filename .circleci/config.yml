@@ -1,7 +1,7 @@
 defaults: &defaults
   working_directory: ~/repo
   docker:
-    - image: karrot/python:2.0
+    - image: karrot/python:2.1
 
 android-defaults: &android-defaults
   working_directory: ~/repo
@@ -350,7 +350,6 @@ jobs:
   update-dependencies:
     <<: *defaults
     steps:
-      - checkout
       - attach_workspace:
           at: ~/repo
       - run:

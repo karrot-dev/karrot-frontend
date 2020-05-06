@@ -114,10 +114,6 @@ describe('main routes', () => {
     expect(mockModules.routeError.actions.set).not.toBeCalled()
   })
 
-  it('sends us to group gallery by default', async () => {
-    expect(routedPaths).toEqual(['/groupPreview'])
-  })
-
   describe('groupPreview', () => {
     let group
 
@@ -151,7 +147,7 @@ describe('main routes', () => {
       expect(mockJoin).toBeCalledWith(group.id)
 
       expect(routedPaths).toEqual([
-        '/groupPreview',
+        '/',
         `/groupPreview/${group.id}`,
         `/group/${group.id}`,
       ])
@@ -169,7 +165,7 @@ describe('main routes', () => {
       await nextTicks(2)
 
       expect(routedPaths).toEqual([
-        '/groupPreview',
+        '/',
         `/groupPreview/${group.id}`,
         `/group/${group.id}`,
       ])

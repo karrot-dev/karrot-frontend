@@ -2543,7 +2543,7 @@ exports[`Storyshots Detail application 1`] = `
       </button> <button tabindex="0" type="button" role="button" title="How do you want to receive notifications about new messages in this conversation/thread?" class="q-btn q-btn-item non-selectable no-outline q-btn--flat q-btn--round text-white q-btn--actionable q-focusable q-hoverable q-btn--wrap q-btn--dense" style="font-size:14px;">
         <div tabindex="-1" class="q-focus-helper"></div>
         <div class="q-btn__wrapper col row q-anchor--skip">
-          <div class="q-btn__content text-center col items-center q-anchor--skip justify-center row"><i aria-hidden="true" role="presentation" class="fas fa-fw fa-bell q-icon notranslate" style="font-size:1.4em;"> </i>
+          <div class="q-btn__content text-center col items-center q-anchor--skip justify-center row"><i aria-hidden="true" role="presentation" class="fas fa-fw fa-envelope q-icon notranslate" style="font-size:1.4em;"> </i>
             <!---->
           </div>
         </div>
@@ -2853,7 +2853,7 @@ exports[`Storyshots Detail pickup 1`] = `
       </div> <button tabindex="0" type="button" role="button" title="How do you want to receive notifications about new messages in this conversation/thread?" class="q-btn q-btn-item non-selectable no-outline q-btn--flat q-btn--round text-white q-btn--actionable q-focusable q-hoverable q-btn--wrap q-btn--dense" style="font-size:14px;">
         <div tabindex="-1" class="q-focus-helper"></div>
         <div class="q-btn__wrapper col row q-anchor--skip">
-          <div class="q-btn__content text-center col items-center q-anchor--skip justify-center row"><i aria-hidden="true" role="presentation" class="fas fa-fw fa-bell q-icon notranslate" style="font-size:1.4em;"> </i>
+          <div class="q-btn__content text-center col items-center q-anchor--skip justify-center row"><i aria-hidden="true" role="presentation" class="fas fa-fw fa-envelope q-icon notranslate" style="font-size:1.4em;"> </i>
             <!---->
           </div>
         </div>
@@ -3140,7 +3140,7 @@ exports[`Storyshots Detail private 1`] = `
       </div> <button tabindex="0" type="button" role="button" title="How do you want to receive notifications about new messages in this conversation/thread?" class="q-btn q-btn-item non-selectable no-outline q-btn--flat q-btn--round text-white q-btn--actionable q-focusable q-hoverable q-btn--wrap q-btn--dense" style="font-size:14px;">
         <div tabindex="-1" class="q-focus-helper"></div>
         <div class="q-btn__wrapper col row q-anchor--skip">
-          <div class="q-btn__content text-center col items-center q-anchor--skip justify-center row"><i aria-hidden="true" role="presentation" class="fas fa-fw fa-bell q-icon notranslate" style="font-size:1.4em;"> </i>
+          <div class="q-btn__content text-center col items-center q-anchor--skip justify-center row"><i aria-hidden="true" role="presentation" class="fas fa-fw fa-envelope q-icon notranslate" style="font-size:1.4em;"> </i>
             <!---->
           </div>
         </div>
@@ -6438,7 +6438,7 @@ exports[`Storyshots Latest Messages flag: closed+muted 1`] = `
       <div class="row no-wrap items-baseline ellipsis"><i aria-hidden="true" role="presentation" title="Application" class="q-mr-sm fas fa-fw fa-user-plus q-icon notranslate"> </i>
         <div class="ellipsis">
           Mira Bellenbaum
-        </div> <i aria-hidden="true" role="presentation" title="Notifications are disabled" class="q-ml-xs fas fa-fw fa-bell-slash q-icon notranslate text-grey" style="font-size:12px;"> </i> <i aria-hidden="true" role="presentation" title="This conversation has been closed automatically." class="q-ml-xs fas fa-fw fa-lock q-icon notranslate text-grey" style="font-size:12px;"> </i>
+        </div> <i aria-hidden="true" role="presentation" title="Notifications are disabled" class="q-ml-xs fas fa-fw fa-bell q-icon notranslate text-grey" style="font-size:12px;"> </i> <i aria-hidden="true" role="presentation" title="This conversation has been closed automatically." class="q-ml-xs fas fa-fw fa-lock q-icon notranslate text-grey" style="font-size:12px;"> </i>
       </div> <span><small><div title="Aug 11, 2017, 3:43 PM" class="q-pl-xs" style="white-space:nowrap;">
   4 months ago
 </div></small></span>
@@ -6470,7 +6470,7 @@ exports[`Storyshots Latest Messages flag: muted 1`] = `
     <div class="q-item__label row no-wrap justify-between items-baseline">
       <div class="row no-wrap items-baseline ellipsis">
         Mira Bellenbaum
-        <i aria-hidden="true" role="presentation" title="Notifications are disabled" class="q-ml-xs fas fa-fw fa-bell-slash q-icon notranslate text-grey" style="font-size:12px;"> </i>
+        <i aria-hidden="true" role="presentation" title="Notifications are disabled" class="q-ml-xs fas fa-fw fa-bell q-icon notranslate text-grey" style="font-size:12px;"> </i>
         <!---->
       </div> <span><small><div title="Aug 11, 2017, 3:43 PM" class="q-pl-xs" style="white-space:nowrap;">
   4 months ago
@@ -6534,7 +6534,7 @@ exports[`Storyshots Latest Messages flag: unread+muted 1`] = `
     <div class="q-item__label row no-wrap justify-between items-baseline">
       <div class="row no-wrap items-baseline ellipsis">
         Mira Bellenbaum
-        <i aria-hidden="true" role="presentation" title="Notifications are disabled" class="q-ml-xs fas fa-fw fa-bell-slash q-icon notranslate text-grey" style="font-size:12px;"> </i>
+        <i aria-hidden="true" role="presentation" title="Notifications are disabled" class="q-ml-xs fas fa-fw fa-bell q-icon notranslate text-grey" style="font-size:12px;"> </i>
         <!---->
       </div> <span><small><div title="Aug 11, 2017, 3:43 PM" class="q-pl-xs" style="white-space:nowrap;">
   4 months ago
@@ -7107,7 +7107,7 @@ exports[`Storyshots NotificationToggle muted 1`] = `
 <button tabindex="0" type="button" role="button" title="How do you want to receive notifications about new messages in this conversation/thread?" class="q-btn q-btn-item non-selectable no-outline q-btn--standard q-btn--round bg-grey-8 text-white q-btn--actionable q-focusable q-hoverable q-btn--wrap">
   <div tabindex="-1" class="q-focus-helper"></div>
   <div class="q-btn__wrapper col row q-anchor--skip">
-    <div class="q-btn__content text-center col items-center q-anchor--skip justify-center row"><i aria-hidden="true" role="presentation" class="fas fa-fw fa-bell-slash q-icon notranslate" style="font-size:1.4em;"> </i>
+    <div class="q-btn__content text-center col items-center q-anchor--skip justify-center row"><i aria-hidden="true" role="presentation" class="fas fa-fw fa-bell q-icon notranslate" style="font-size:1.4em;"> </i>
       <!---->
     </div>
   </div>
@@ -7118,7 +7118,7 @@ exports[`Storyshots NotificationToggle subscribed - cannot unsubscribe 1`] = `
 <button tabindex="0" type="button" role="button" title="How do you want to receive notifications about new messages in this conversation/thread?" class="q-btn q-btn-item non-selectable no-outline q-btn--standard q-btn--round bg-secondary text-white q-btn--actionable q-focusable q-hoverable q-btn--wrap">
   <div tabindex="-1" class="q-focus-helper"></div>
   <div class="q-btn__wrapper col row q-anchor--skip">
-    <div class="q-btn__content text-center col items-center q-anchor--skip justify-center row"><i aria-hidden="true" role="presentation" class="fas fa-fw fa-bell q-icon notranslate" style="font-size:1.4em;"> </i>
+    <div class="q-btn__content text-center col items-center q-anchor--skip justify-center row"><i aria-hidden="true" role="presentation" class="fas fa-fw fa-envelope q-icon notranslate" style="font-size:1.4em;"> </i>
       <!---->
     </div>
   </div>
@@ -7129,7 +7129,7 @@ exports[`Storyshots NotificationToggle subscribed - email not verified 1`] = `
 <button tabindex="0" type="button" role="button" title="How do you want to receive notifications about new messages in this conversation/thread?" class="q-btn q-btn-item non-selectable no-outline q-btn--standard q-btn--round bg-secondary text-white q-btn--actionable q-focusable q-hoverable q-btn--wrap">
   <div tabindex="-1" class="q-focus-helper"></div>
   <div class="q-btn__wrapper col row q-anchor--skip">
-    <div class="q-btn__content text-center col items-center q-anchor--skip justify-center row"><i aria-hidden="true" role="presentation" class="fas fa-fw fa-bell q-icon notranslate" style="font-size:1.4em;"> </i>
+    <div class="q-btn__content text-center col items-center q-anchor--skip justify-center row"><i aria-hidden="true" role="presentation" class="fas fa-fw fa-envelope q-icon notranslate" style="font-size:1.4em;"> </i>
       <!---->
     </div>
   </div>
@@ -7140,7 +7140,7 @@ exports[`Storyshots NotificationToggle subscribed - toolbar mode 1`] = `
 <button tabindex="0" type="button" role="button" title="How do you want to receive notifications about new messages in this conversation/thread?" class="q-btn q-btn-item non-selectable no-outline q-btn--flat q-btn--round text-white q-btn--actionable q-focusable q-hoverable q-btn--wrap q-btn--dense bg-secondary">
   <div tabindex="-1" class="q-focus-helper"></div>
   <div class="q-btn__wrapper col row q-anchor--skip">
-    <div class="q-btn__content text-center col items-center q-anchor--skip justify-center row"><i aria-hidden="true" role="presentation" class="fas fa-fw fa-bell q-icon notranslate" style="font-size:1.4em;"> </i>
+    <div class="q-btn__content text-center col items-center q-anchor--skip justify-center row"><i aria-hidden="true" role="presentation" class="fas fa-fw fa-envelope q-icon notranslate" style="font-size:1.4em;"> </i>
       <!---->
     </div>
   </div>
@@ -7151,7 +7151,7 @@ exports[`Storyshots NotificationToggle subscribed 1`] = `
 <button tabindex="0" type="button" role="button" title="How do you want to receive notifications about new messages in this conversation/thread?" class="q-btn q-btn-item non-selectable no-outline q-btn--standard q-btn--round bg-secondary text-white q-btn--actionable q-focusable q-hoverable q-btn--wrap">
   <div tabindex="-1" class="q-focus-helper"></div>
   <div class="q-btn__wrapper col row q-anchor--skip">
-    <div class="q-btn__content text-center col items-center q-anchor--skip justify-center row"><i aria-hidden="true" role="presentation" class="fas fa-fw fa-bell q-icon notranslate" style="font-size:1.4em;"> </i>
+    <div class="q-btn__content text-center col items-center q-anchor--skip justify-center row"><i aria-hidden="true" role="presentation" class="fas fa-fw fa-envelope q-icon notranslate" style="font-size:1.4em;"> </i>
       <!---->
     </div>
   </div>
@@ -11247,10 +11247,10 @@ exports[`Storyshots Sidenav Group 1`] = `
     <div class="q-toolbar__title ellipsis">
       Home
     </div>
-    <div><a tabindex="0" type="button" href="#/" role="link" title="Settings" class="q-btn q-btn-item non-selectable no-outline q-btn--flat q-btn--round q-btn--actionable q-focusable q-hoverable q-btn--wrap q-btn--dense" style="font-size:10px;">
+    <div><a tabindex="0" type="button" href="#/" role="link" title="Description" class="q-btn q-btn-item non-selectable no-outline q-btn--flat q-btn--round q-btn--actionable q-focusable q-hoverable q-btn--wrap q-btn--dense" style="font-size:10px;">
         <div tabindex="-1" class="q-focus-helper"></div>
         <div class="q-btn__wrapper col row q-anchor--skip">
-          <div class="q-btn__content text-center col items-center q-anchor--skip justify-center row"><i aria-hidden="true" role="presentation" class="fas fa-cog fa-fw q-icon notranslate"> </i></div>
+          <div class="q-btn__content text-center col items-center q-anchor--skip justify-center row"><i aria-hidden="true" role="presentation" class="fas fa-info-circle fa-fw q-icon notranslate"> </i></div>
         </div>
       </a> <button tabindex="0" type="button" role="button" class="q-btn q-btn-item non-selectable no-outline q-btn--flat q-btn--round q-btn--actionable q-focusable q-hoverable q-btn--wrap q-btn--dense" style="font-size:10px;">
         <div tabindex="-1" class="q-focus-helper"></div>
@@ -11288,31 +11288,6 @@ exports[`Storyshots Sidenav Group 1`] = `
       <!---->
     </a><a tabindex="0" class="q-item q-item-type row no-wrap q-item--clickable q-link cursor-pointer q-focusable q-hoverable">
       <div tabindex="-1" class="q-focus-helper"></div>
-      <div class="q-item__section column text-center q-item__section--side justify-center"><i aria-hidden="true" role="presentation" class="fas fa-address-card q-icon notranslate" style="font-size:1.1em;"> </i></div>
-      <div class="q-item__section column q-item__section--main justify-center">
-        Applications
-      </div>
-      <div class="q-item__section column q-item__section--side justify-center">
-        <div role="alert" small="" title="There are 3 applications pending!" class="q-badge flex inline items-center no-wrap q-badge--single-line bg-blue">
-          3
-        </div>
-      </div>
-    </a><a tabindex="0" class="q-item q-item-type row no-wrap q-item--clickable q-link cursor-pointer q-focusable q-hoverable">
-      <div tabindex="-1" class="q-focus-helper"></div>
-      <div class="q-item__section column text-center q-item__section--side justify-center"><i aria-hidden="true" role="presentation" class="fas fa-vote-yea q-icon notranslate" style="font-size:1.1em;"> </i></div>
-      <div class="q-item__section column q-item__section--main justify-center">
-        Issues
-      </div>
-      <!---->
-    </a><a tabindex="0" class="q-item q-item-type row no-wrap q-item--clickable q-link cursor-pointer q-focusable q-hoverable">
-      <div tabindex="-1" class="q-focus-helper"></div>
-      <div class="q-item__section column text-center q-item__section--side justify-center"><i aria-hidden="true" role="presentation" class="far fa-address-card q-icon notranslate" style="font-size:1.1em;"> </i></div>
-      <div class="q-item__section column q-item__section--main justify-center">
-        Description
-      </div>
-      <!---->
-    </a><a tabindex="0" class="q-item q-item-type row no-wrap q-item--clickable q-link cursor-pointer q-focusable q-hoverable">
-      <div tabindex="-1" class="q-focus-helper"></div>
       <div class="q-item__section column text-center q-item__section--side justify-center"><i aria-hidden="true" role="presentation" class="fas fa-users q-icon notranslate" style="font-size:1.1em;"> </i></div>
       <div class="q-item__section column q-item__section--main justify-center">
         Members
@@ -11325,14 +11300,59 @@ exports[`Storyshots Sidenav Group 1`] = `
         History
       </div>
       <!---->
-    </a><a tabindex="0" class="q-item q-item-type row no-wrap q-item--clickable q-link cursor-pointer q-focusable q-hoverable">
-      <div tabindex="-1" class="q-focus-helper"></div>
-      <div class="q-item__section column text-center q-item__section--side justify-center"><i aria-hidden="true" role="presentation" class="fas fa-map q-icon notranslate" style="font-size:1.1em;"> </i></div>
-      <div class="q-item__section column q-item__section--main justify-center">
-        Map
-      </div>
-      <!---->
     </a></div>
+  <div class="q-expansion-item q-item-type q-expansion-item--collapsed q-expansion-item--standard">
+    <div class="q-expansion-item__container relative-position">
+      <div tabindex="0" class="q-item q-item-type row no-wrap q-item--clickable q-link cursor-pointer q-focusable q-hoverable q-item--dense">
+        <div tabindex="-1" class="q-focus-helper"></div>
+        <div class="q-item__section column text-center q-item__section--side justify-center"><i aria-hidden="true" role="presentation" class="fas fa-ellipsis-h q-icon notranslate" style="font-size:1.1em;"> </i></div>
+        <div class="q-item__section column q-item__section--main justify-center">
+          Show more
+        </div>
+        <div class="q-item__section column q-item__section--side justify-center">
+          <div role="alert" aria-label="3" small="" title="There are 3 applications pending!" class="q-badge flex inline items-center no-wrap q-badge--single-line bg-blue">3</div>
+        </div>
+        <div class="q-item__section column q-focusable relative-position cursor-pointer q-item__section--side justify-center"><i aria-hidden="true" role="presentation" class="q-expansion-item__toggle-icon material-icons q-icon notranslate">keyboard_arrow_down</i></div>
+      </div>
+      <div class="q-expansion-item__content relative-position" style="display:none;">
+        <div class="q-list q-list--dense"><a tabindex="0" class="q-item q-item-type row no-wrap q-item--clickable q-link cursor-pointer q-focusable q-hoverable">
+            <div tabindex="-1" class="q-focus-helper"></div>
+            <div class="q-item__section column text-center q-item__section--side justify-center"><i aria-hidden="true" role="presentation" class="fas fa-address-card q-icon notranslate" style="font-size:1.1em;"> </i></div>
+            <div class="q-item__section column q-item__section--main justify-center">
+              Applications
+            </div>
+            <div class="q-item__section column q-item__section--side justify-center">
+              <div role="alert" small="" title="There are 3 applications pending!" class="q-badge flex inline items-center no-wrap q-badge--single-line bg-blue">
+                3
+              </div>
+            </div>
+          </a><a tabindex="0" class="q-item q-item-type row no-wrap q-item--clickable q-link cursor-pointer q-focusable q-hoverable">
+            <div tabindex="-1" class="q-focus-helper"></div>
+            <div class="q-item__section column text-center q-item__section--side justify-center"><i aria-hidden="true" role="presentation" class="fas fa-vote-yea q-icon notranslate" style="font-size:1.1em;"> </i></div>
+            <div class="q-item__section column q-item__section--main justify-center">
+              Issues
+            </div>
+            <!---->
+          </a><a tabindex="0" class="q-item q-item-type row no-wrap q-item--clickable q-link cursor-pointer q-focusable q-hoverable">
+            <div tabindex="-1" class="q-focus-helper"></div>
+            <div class="q-item__section column text-center q-item__section--side justify-center"><i aria-hidden="true" role="presentation" class="fas fa-eye fa-fw q-icon notranslate" style="font-size:1.1em;"> </i></div>
+            <div class="q-item__section column q-item__section--main justify-center">
+              Show public group information
+            </div>
+            <!---->
+          </a><a tabindex="0" class="q-item q-item-type row no-wrap q-item--clickable q-link cursor-pointer q-focusable q-hoverable">
+            <div tabindex="-1" class="q-focus-helper"></div>
+            <div class="q-item__section column text-center q-item__section--side justify-center"><i aria-hidden="true" role="presentation" class="fas fa-map q-icon notranslate" style="font-size:1.1em;"> </i></div>
+            <div class="q-item__section column q-item__section--main justify-center">
+              Map
+            </div>
+            <!---->
+          </a></div>
+      </div>
+      <hr role="separator" aria-orientation="horizontal" class="q-separator q-expansion-item__border q-expansion-item__border--top absolute-top q-separator q-separator--horizontal col-grow">
+      <hr role="separator" aria-orientation="horizontal" class="q-separator q-expansion-item__border q-expansion-item__border--bottom absolute-bottom q-separator q-separator--horizontal col-grow">
+    </div>
+  </div>
 </div>
 `;
 
@@ -11342,18 +11362,6 @@ exports[`Storyshots Sidenav GroupOptions 1`] = `
     <div class="q-item__section column text-center q-item__section--side justify-center"><i aria-hidden="true" role="presentation" class="fas fa-pencil-alt fa-fw q-icon notranslate" style="font-size:1.1em;"> </i></div>
     <div class="q-item__section column q-item__section--main justify-center">
       Edit group
-    </div>
-  </a><a tabindex="0" class="q-item q-item-type row no-wrap q-item--clickable q-link cursor-pointer q-focusable q-hoverable">
-    <div tabindex="-1" class="q-focus-helper"></div>
-    <div class="q-item__section column text-center q-item__section--side justify-center"><i aria-hidden="true" role="presentation" class="fas fa-info-circle fa-fw q-icon notranslate" style="font-size:1.1em;"> </i></div>
-    <div class="q-item__section column q-item__section--main justify-center">
-      Show public group information
-    </div>
-  </a><a tabindex="0" class="q-item q-item-type row no-wrap q-item--clickable q-link cursor-pointer q-focusable q-hoverable">
-    <div tabindex="-1" class="q-focus-helper"></div>
-    <div class="q-item__section column text-center q-item__section--side justify-center"><i aria-hidden="true" role="presentation" class="fas fa-user-plus fa-fw q-icon notranslate" style="font-size:1.1em;"> </i></div>
-    <div class="q-item__section column q-item__section--main justify-center">
-      Invite users to your group
     </div>
   </a>
   <div tabindex="0" class="q-item q-item-type row no-wrap q-item--clickable q-link cursor-pointer q-focusable q-hoverable">
@@ -12383,7 +12391,7 @@ exports[`Storyshots WallConversation default 1`] = `
     <div class="bg-white desktop-margin relative-position q-pb-md q-list q-list--bordered"><button tabindex="0" type="button" role="button" title="How do you want to receive notifications about new messages in this conversation/thread?" class="q-btn q-btn-item non-selectable no-outline actionButton q-btn--standard q-btn--round bg-grey-8 text-white q-btn--actionable q-focusable q-hoverable q-btn--wrap">
         <div tabindex="-1" class="q-focus-helper"></div>
         <div class="q-btn__wrapper col row q-anchor--skip">
-          <div class="q-btn__content text-center col items-center q-anchor--skip justify-center row"><i aria-hidden="true" role="presentation" class="fas fa-fw fa-bell-slash q-icon notranslate" style="font-size:1.4em;"> </i>
+          <div class="q-btn__content text-center col items-center q-anchor--skip justify-center row"><i aria-hidden="true" role="presentation" class="fas fa-fw fa-bell q-icon notranslate" style="font-size:1.4em;"> </i>
             <!---->
           </div>
         </div>
@@ -12937,7 +12945,7 @@ exports[`Storyshots WallConversation unread 1`] = `
     <div class="bg-white desktop-margin relative-position q-pb-md q-list q-list--bordered"><button tabindex="0" type="button" role="button" title="How do you want to receive notifications about new messages in this conversation/thread?" class="q-btn q-btn-item non-selectable no-outline actionButton q-btn--standard q-btn--round bg-grey-8 text-white q-btn--actionable q-focusable q-hoverable q-btn--wrap">
         <div tabindex="-1" class="q-focus-helper"></div>
         <div class="q-btn__wrapper col row q-anchor--skip">
-          <div class="q-btn__content text-center col items-center q-anchor--skip justify-center row"><i aria-hidden="true" role="presentation" class="fas fa-fw fa-bell-slash q-icon notranslate" style="font-size:1.4em;"> </i>
+          <div class="q-btn__content text-center col items-center q-anchor--skip justify-center row"><i aria-hidden="true" role="presentation" class="fas fa-fw fa-bell q-icon notranslate" style="font-size:1.4em;"> </i>
             <!---->
           </div>
         </div>

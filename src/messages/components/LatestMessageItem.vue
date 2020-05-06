@@ -93,7 +93,7 @@
             size="12px"
             color="grey"
             class="q-ml-xs"
-            name="fas fa-fw fa-bell-slash"
+            name="fas fa-fw fa-bell"
             :title="$t('CONVERSATION.MUTED')"
           />
           <QIcon

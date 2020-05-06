@@ -68,15 +68,6 @@ export default {
         icon: 'fas fa-file-alt fa-fw',
         to: { name: 'groupManageAgreement', params: { groupId: this.currentGroupId } },
       }, {
-        label: this.$t('GROUPINFO.META'),
-        icon: 'fas fa-info-circle fa-fw',
-        to: { name: 'groupPreview', params: { groupPreviewId: this.currentGroupId } },
-      }, {
-        condition: this.isEditor,
-        label: this.$t('GROUP.INVITE_TITLE'),
-        icon: 'fas fa-user-plus fa-fw',
-        to: { name: 'groupInvitations', params: { groupId: this.currentGroupId } },
-      }, {
         label: this.$t('GROUP.LEAVE'),
         icon: 'fas fa-sign-out-alt fa-fw',
         handler: this.leave,

@@ -12,7 +12,9 @@ exports[`Storyshots AddressPicker Default 1`] = `
         <div class="q-field__append q-field__marginal row no-wrap items-center"></div>
       </div>
       <div class="q-field__bottom row items-start q-field__bottom--animated">
-        <div class="q-field__messages col"></div>
+        <transition-stub name="q-transition--field-message">
+          <div class="q-field__messages col"></div>
+        </transition-stub>
       </div>
     </div>
   </label>
@@ -41,7 +43,9 @@ exports[`Storyshots Applications ApplicationForm 1`] = `
               <div class="q-field__control-container col relative-position row no-wrap q-anchor--skip"><textarea tabindex="0" rows="1" id="f_80808080-8080-4080-8080-808080808080" type="textarea" class="q-field__native q-placeholder" style="min-height:100px;"></textarea></div>
             </div>
             <div class="q-field__bottom row items-start q-field__bottom--animated">
-              <div class="q-field__messages col"></div>
+              <transition-stub name="q-transition--field-message">
+                <div class="q-field__messages col"></div>
+              </transition-stub>
             </div>
           </div>
         </label>
@@ -136,7 +140,9 @@ exports[`Storyshots Applications ApplicationList 1`] = `
           </div>
           <div class="q-item__section column q-focusable relative-position cursor-pointer q-item__section--side justify-center"><i aria-hidden="true" role="presentation" class="q-expansion-item__toggle-icon material-icons q-icon notranslate">keyboard_arrow_down</i></div>
         </div>
-        <div class="q-expansion-item__content relative-position" style="display:none;"></div>
+        <transition-stub>
+          <div class="q-expansion-item__content relative-position" style="display:none;"></div>
+        </transition-stub>
       </div>
     </div>
     <!---->
@@ -192,9 +198,11 @@ exports[`Storyshots ChangePhoto empty 1`] = `
         </div>
       </div>
       <div class="q-field__bottom row items-start q-field__bottom--animated">
-        <div class="q-field__messages col">
-          <div></div>
-        </div>
+        <transition-stub name="q-transition--field-message">
+          <div class="q-field__messages col">
+            <div></div>
+          </div>
+        </transition-stub>
       </div>
     </div>
   </label>
@@ -218,7 +226,7 @@ exports[`Storyshots ChangePhoto empty 1`] = `
       <div class="q-btn__wrapper col row q-anchor--skip">
         <div class="q-btn__content text-center col items-center q-anchor--skip justify-center row"><span></span></div>
       </div>
-      <!---->
+      <transition-stub name="q-transition--fade"></transition-stub>
     </button></div>
 </div>
 `;
@@ -241,9 +249,11 @@ exports[`Storyshots ChangePhoto error 1`] = `
         <div class="q-field__append q-field__marginal row no-wrap items-center q-anchor--skip"><i aria-hidden="true" role="presentation" class="material-icons q-icon notranslate text-negative">error</i></div>
       </div>
       <div class="q-field__bottom row items-start q-field__bottom--animated">
-        <div class="q-field__messages col">
-          <div>something is wrong</div>
-        </div>
+        <transition-stub name="q-transition--field-message">
+          <div class="q-field__messages col">
+            <div>something is wrong</div>
+          </div>
+        </transition-stub>
       </div>
     </div>
   </label>
@@ -267,7 +277,7 @@ exports[`Storyshots ChangePhoto error 1`] = `
       <div class="q-btn__wrapper col row q-anchor--skip">
         <div class="q-btn__content text-center col items-center q-anchor--skip justify-center row"><span></span></div>
       </div>
-      <!---->
+      <transition-stub name="q-transition--fade"></transition-stub>
     </button></div>
 </div>
 `;
@@ -289,9 +299,11 @@ exports[`Storyshots ChangePhoto pending 1`] = `
         </div>
       </div>
       <div class="q-field__bottom row items-start q-field__bottom--animated">
-        <div class="q-field__messages col">
-          <div></div>
-        </div>
+        <transition-stub name="q-transition--field-message">
+          <div class="q-field__messages col">
+            <div></div>
+          </div>
+        </transition-stub>
       </div>
     </div>
   </label>
@@ -315,9 +327,11 @@ exports[`Storyshots ChangePhoto pending 1`] = `
       <div class="q-btn__wrapper col row q-anchor--skip">
         <div class="q-btn__content text-center col items-center q-anchor--skip justify-center row q-btn__content--hidden"><span></span></div>
       </div>
-      <div class="absolute-full flex flex-center"><svg focusable="false" width="1em" height="1em" viewBox="25 25 50 50" class="q-spinner q-spinner-mat">
-          <circle cx="50" cy="50" r="20" fill="none" stroke="currentColor" stroke-width="5" stroke-miterlimit="10" class="path"></circle>
-        </svg></div>
+      <transition-stub name="q-transition--fade">
+        <div class="absolute-full flex flex-center"><svg focusable="false" width="1em" height="1em" viewBox="25 25 50 50" class="q-spinner q-spinner-mat">
+            <circle cx="50" cy="50" r="20" fill="none" stroke="currentColor" stroke-width="5" stroke-miterlimit="10" class="path"></circle>
+          </svg></div>
+      </transition-stub>
     </button></div>
 </div>
 `;
@@ -339,9 +353,11 @@ exports[`Storyshots ChangePhoto with photo 1`] = `
         </div>
       </div>
       <div class="q-field__bottom row items-start q-field__bottom--animated">
-        <div class="q-field__messages col">
-          <div></div>
-        </div>
+        <transition-stub name="q-transition--field-message">
+          <div class="q-field__messages col">
+            <div></div>
+          </div>
+        </transition-stub>
       </div>
     </div>
   </label>
@@ -365,7 +381,7 @@ exports[`Storyshots ChangePhoto with photo 1`] = `
       <div class="q-btn__wrapper col row q-anchor--skip">
         <div class="q-btn__content text-center col items-center q-anchor--skip justify-center row"><span></span></div>
       </div>
-      <!---->
+      <transition-stub name="q-transition--fade"></transition-stub>
     </button></div>
 </div>
 `;
@@ -1383,7 +1399,7 @@ exports[`Storyshots ChatConversation message groups 1`] = `
           <!---->
           <div title="Dec 24, 2017, 11:59 AM" class="content">
             <div class="markdown">
-              <p>oh let me try something <img class="emoji" draggable="false" alt="🙂" src="https://twemoji.maxcdn.com/v/12.1.5/72x72/1f642.png" /></p>
+              <p>oh let me try something <img class="emoji" draggable="false" alt="🙂" src="https://twemoji.maxcdn.com/v/12.1.6/72x72/1f642.png" /></p>
             </div>
           </div>
           <!---->
@@ -1951,7 +1967,9 @@ exports[`Storyshots ConversationCompose default 1`] = `
               </div>
             </div>
             <div class="q-field__bottom row items-start q-field__bottom--animated">
-              <div class="q-field__messages col"></div>
+              <transition-stub name="q-transition--field-message">
+                <div class="q-field__messages col"></div>
+              </transition-stub>
             </div>
           </div>
         </label>
@@ -1989,7 +2007,9 @@ exports[`Storyshots ConversationCompose edit 1`] = `
                 </button></div>
             </div>
             <div class="q-field__bottom row items-start q-field__bottom--animated">
-              <div class="q-field__messages col"></div>
+              <transition-stub name="q-transition--field-message">
+                <div class="q-field__messages col"></div>
+              </transition-stub>
             </div>
           </div>
         </label> <button tabindex="0" type="button" role="button" class="q-btn q-btn-item non-selectable no-outline absolute-bottom-right bg-white q-btn--outline q-btn--rectangle text-primary q-btn--actionable q-focusable q-hoverable q-btn--wrap" style="font-size:8px;bottom:-10px;">
@@ -2027,9 +2047,11 @@ exports[`Storyshots ConversationCompose error 1`] = `
               <div class="q-field__append q-field__marginal row no-wrap items-center q-anchor--skip"><i aria-hidden="true" role="presentation" class="material-icons q-icon notranslate text-negative">error</i></div>
             </div>
             <div class="q-field__bottom row items-start q-field__bottom--animated">
-              <div class="q-field__messages col">
-                <div>too late!</div>
-              </div>
+              <transition-stub name="q-transition--field-message">
+                <div class="q-field__messages col">
+                  <div>too late!</div>
+                </div>
+              </transition-stub>
             </div>
           </div>
         </label>
@@ -2060,7 +2082,9 @@ exports[`Storyshots ConversationCompose not participant 1`] = `
               </div>
             </div>
             <div class="q-field__bottom row items-start q-field__bottom--animated">
-              <div class="q-field__messages col"></div>
+              <transition-stub name="q-transition--field-message">
+                <div class="q-field__messages col"></div>
+              </transition-stub>
             </div>
           </div>
         </label>
@@ -2084,7 +2108,7 @@ exports[`Storyshots ConversationCompose pending 1`] = `
       <div class="relative-position q-mb-sm"><label for="f_80808080-8080-4080-8080-808080808080" aria-disabled="" class="q-field row no-wrap items-start q-textarea q-textarea--autogrow q-field--standard q-field--dense q-field--with-bottom q-field--disabled">
           <div class="q-field__inner relative-position col self-stretch column justify-center">
             <div tabindex="-1" class="q-field__control relative-position row no-wrap">
-              <div class="q-field__control-container col relative-position row no-wrap q-anchor--skip"><textarea tabindex="0" rows="1" placeholder="Type here" id="f_80808080-8080-4080-8080-808080808080" type="textarea" disabled="disabled" aria-disabled="" class="q-field__native q-placeholder" style="min-height:unset;"></textarea></div>
+              <div class="q-field__control-container col relative-position row no-wrap q-anchor--skip"><textarea tabindex="0" rows="1" placeholder="Type here" id="f_80808080-8080-4080-8080-808080808080" type="textarea" disabled="disabled" class="q-field__native q-placeholder" style="min-height:unset;"></textarea></div>
               <div class="q-field__append q-field__marginal row no-wrap items-center">
                 <!---->
                 <!---->
@@ -2094,7 +2118,9 @@ exports[`Storyshots ConversationCompose pending 1`] = `
                 </svg></div>
             </div>
             <div class="q-field__bottom row items-start q-field__bottom--animated">
-              <div class="q-field__messages col"></div>
+              <transition-stub name="q-transition--field-message">
+                <div class="q-field__messages col"></div>
+              </transition-stub>
             </div>
           </div>
         </label>
@@ -2121,7 +2147,9 @@ exports[`Storyshots ConversationCompose slim 1`] = `
               </div>
             </div>
             <div class="q-field__bottom row items-start q-field__bottom--animated">
-              <div class="q-field__messages col"></div>
+              <transition-stub name="q-transition--field-message">
+                <div class="q-field__messages col"></div>
+              </transition-stub>
             </div>
           </div>
         </label>
@@ -2530,7 +2558,7 @@ exports[`Storyshots Detail application 1`] = `
       <div class="wrapper" style="width:40px;height:40px;"><a title="User 92">
           <div text="User 92" seed="92" class="randomArt fill"></div>
         </a></div>
-      <div class="q-toolbar__title ellipsis column">
+      <div class="column q-toolbar__title ellipsis">
         <div><a><span></span></a> <small><i aria-hidden="true" role="presentation" class="fas fa-fw fa-hourglass-half q-icon notranslate"> </i></small></div>
         <div class="text-caption"><span>
             User 92
@@ -2581,24 +2609,26 @@ exports[`Storyshots Detail application 1`] = `
             </div>
             <div class="q-item__section column q-focusable relative-position cursor-pointer q-item__section--side justify-center"><i aria-hidden="true" role="presentation" class="q-expansion-item__toggle-icon material-icons q-icon notranslate q-expansion-item__toggle-icon--rotated">keyboard_arrow_down</i></div>
           </div>
-          <div class="q-expansion-item__content relative-position">
-            <div class="q-pb-sm bg-grey-2">
-              <div class="q-ma-sm q-pa-sm bg-white"><span class="text-bold text-secondary text-uppercase">Group 26</span> <span class="message-date"><small class="text-weight-light"><div title="Dec 23, 2017, 12:00 PM">
+          <transition-stub>
+            <div class="q-expansion-item__content relative-position">
+              <div class="q-pb-sm bg-grey-2">
+                <div class="q-ma-sm q-pa-sm bg-white"><span class="text-bold text-secondary text-uppercase">Group 26</span> <span class="message-date"><small class="text-weight-light"><div title="Dec 23, 2017, 12:00 PM">
   1 day ago
 </div></small></span>
-                <div class="markdown">
-                  <p>What are your motivations for joining slköaslkfjasdfasfd?</p>
+                  <div class="markdown">
+                    <p>What are your motivations for joining slköaslkfjasdfasfd?</p>
+                  </div>
                 </div>
-              </div>
-              <div class="q-ma-sm q-pa-sm bg-white"><span class="text-bold text-secondary text-uppercase">User 92</span> <span class="message-date"><small class="text-weight-light"><div title="Dec 23, 2017, 12:00 PM">
+                <div class="q-ma-sm q-pa-sm bg-white"><span class="text-bold text-secondary text-uppercase">User 92</span> <span class="message-date"><small class="text-weight-light"><div title="Dec 23, 2017, 12:00 PM">
   1 day ago
 </div></small></span>
-                <div class="markdown">
-                  <p>I can live off fire!</p>
+                  <div class="markdown">
+                    <p>I can live off fire!</p>
+                  </div>
                 </div>
               </div>
             </div>
-          </div>
+          </transition-stub>
         </div>
       </div>
       <div class="full-width text-center generic-padding" style="display:none;"><svg focusable="false" fill="currentColor" width="40" height="40" viewBox="0 0 120 30" xmlns="http://www.w3.org/2000/svg" class="q-spinner">
@@ -2819,7 +2849,9 @@ exports[`Storyshots Detail application 1`] = `
                         </div>
                       </div>
                       <div class="q-field__bottom row items-start q-field__bottom--animated">
-                        <div class="q-field__messages col"></div>
+                        <transition-stub name="q-transition--field-message">
+                          <div class="q-field__messages col"></div>
+                        </transition-stub>
                       </div>
                     </div>
                   </label>
@@ -2842,7 +2874,7 @@ exports[`Storyshots Detail pickup 1`] = `
 <div>
   <div class="DetailHeader full-width">
     <div class="q-toolbar row no-wrap items-center bg-secondary text-white">
-      <div class="q-toolbar__title ellipsis column">
+      <div class="column q-toolbar__title ellipsis">
         <div><span> </span> <strong>
           Sunday 12:00 PM
           <!----></strong></div>
@@ -3102,7 +3134,9 @@ exports[`Storyshots Detail pickup 1`] = `
                         </div>
                       </div>
                       <div class="q-field__bottom row items-start q-field__bottom--animated">
-                        <div class="q-field__messages col"></div>
+                        <transition-stub name="q-transition--field-message">
+                          <div class="q-field__messages col"></div>
+                        </transition-stub>
                       </div>
                     </div>
                   </label>
@@ -3387,7 +3421,9 @@ exports[`Storyshots Detail private 1`] = `
                         </div>
                       </div>
                       <div class="q-field__bottom row items-start q-field__bottom--animated">
-                        <div class="q-field__messages col"></div>
+                        <transition-stub name="q-transition--field-message">
+                          <div class="q-field__messages col"></div>
+                        </transition-stub>
                       </div>
                     </div>
                   </label>
@@ -3435,18 +3471,18 @@ exports[`Storyshots Feedback AmountPicker 1`] = `
       </button>
     </div>
     <div class="row no-wrap">
-      <div role="slider" aria-valuemin="0" aria-valuemax="70" aria-orientation="horizontal" data-step="0.5" aria-valuenow="1" tabindex="0" class="self-center q-mx-md q-slider q-slider--inactive q-slider--editable q-slider--label">
-        <div class="q-slider__track-container absolute">
-          <div class="q-slider__track absolute" style="left:0;width:1.4285714285714286%;"></div>
+      <div role="slider" aria-valuemin="0" aria-valuemax="70" aria-orientation="horizontal" data-step="0.5" aria-valuenow="1" tabindex="0" class="self-center q-mx-md q-slider q-slider--h q-slider--inactive q-slider--editable q-slider--label">
+        <div class="q-slider__track-container q-slider__track-container--h absolute">
+          <div class="q-slider__track q-slider__track--h absolute" style="left:0;width:1.4285714285714286%;"></div>
         </div>
-        <div class="q-slider__thumb-container absolute non-selectable" style="left:1.4285714285714286%;"><svg focusable="false" viewBox="0 0 20 20" width="20" height="20" class="q-slider__thumb absolute">
+        <div class="q-slider__thumb-container q-slider__thumb-container--h absolute non-selectable" style="left:1.4285714285714286%;"><svg focusable="false" viewBox="0 0 20 20" width="20" height="20" class="q-slider__thumb absolute">
             <path d="M 4, 10 a 6,6 0 1,0 12,0 a 6,6 0 1,0 -12,0"></path>
           </svg>
           <div class="q-slider__focus-ring"></div>
-          <div class="q-slider__pin absolute" style="transform-origin:calc(100% - 10px) 50%;">
-            <div class="q-slider__pin-text-container" style="right:-98.57142857142858%;transform:translateX(-19px);"><span class="q-slider__pin-text q-slider__pin-value-marker-text">1</span></div>
+          <div class="q-slider__pin q-slider__pin--h absolute" style="transform-origin:calc(100% - 10px) 50%;">
+            <div class="q-slider__pin-text-container q-slider__pin-text-container--h" style="right:-98.57142857142858%;transform:translateX(-19px);"><span class="q-slider__pin-text q-slider__pin-value-marker-text">1</span></div>
           </div>
-          <div class="q-slider__arrow"></div>
+          <div class="q-slider__arrow q-slider__arrow--h"></div>
         </div>
       </div> <label for="f_80808080-8080-4080-8080-808080808080" class="q-field row no-wrap items-start q-mr-md q-input q-field--standard q-field--float">
         <div class="q-field__inner relative-position col self-stretch column justify-center">
@@ -3676,7 +3712,9 @@ exports[`Storyshots Feedback PickupFeedback 1`] = `
                 </div>
               </div>
               <div class="q-field__bottom row items-start q-field__bottom--animated">
-                <div class="q-field__messages col"></div>
+                <transition-stub name="q-transition--field-message">
+                  <div class="q-field__messages col"></div>
+                </transition-stub>
               </div>
             </div>
           </label>
@@ -3704,18 +3742,18 @@ exports[`Storyshots Feedback PickupFeedback 1`] = `
               <!---->
             </div>
             <div class="row no-wrap">
-              <div role="slider" aria-valuemin="0" aria-valuemax="70" aria-orientation="horizontal" data-step="0.5" aria-valuenow="0" tabindex="0" class="self-center q-mx-md q-slider q-slider--inactive q-slider--editable q-slider--label">
-                <div class="q-slider__track-container absolute">
-                  <div class="q-slider__track absolute" style="left:0;width:0%;"></div>
+              <div role="slider" aria-valuemin="0" aria-valuemax="70" aria-orientation="horizontal" data-step="0.5" aria-valuenow="0" tabindex="0" class="self-center q-mx-md q-slider q-slider--h q-slider--inactive q-slider--editable q-slider--label">
+                <div class="q-slider__track-container q-slider__track-container--h absolute">
+                  <div class="q-slider__track q-slider__track--h absolute" style="left:0;width:0%;"></div>
                 </div>
-                <div class="q-slider__thumb-container absolute non-selectable" style="left:0%;"><svg focusable="false" viewBox="0 0 20 20" width="20" height="20" class="q-slider__thumb absolute">
+                <div class="q-slider__thumb-container q-slider__thumb-container--h absolute non-selectable" style="left:0%;"><svg focusable="false" viewBox="0 0 20 20" width="20" height="20" class="q-slider__thumb absolute">
                     <path d="M 4, 10 a 6,6 0 1,0 12,0 a 6,6 0 1,0 -12,0"></path>
                   </svg>
                   <div class="q-slider__focus-ring"></div>
-                  <div class="q-slider__pin absolute" style="transform-origin:calc(100% - 10px) 50%;">
-                    <div class="q-slider__pin-text-container" style="right:-100%;transform:translateX(-20px);"><span class="q-slider__pin-text q-slider__pin-value-marker-text">0</span></div>
+                  <div class="q-slider__pin q-slider__pin--h absolute" style="transform-origin:calc(100% - 10px) 50%;">
+                    <div class="q-slider__pin-text-container q-slider__pin-text-container--h" style="right:-100%;transform:translateX(-20px);"><span class="q-slider__pin-text q-slider__pin-value-marker-text">0</span></div>
                   </div>
-                  <div class="q-slider__arrow"></div>
+                  <div class="q-slider__arrow q-slider__arrow--h"></div>
                 </div>
               </div> <label for="f_80808080-8080-4080-8080-808080808080" class="q-field row no-wrap items-start q-mr-md q-input q-field--standard">
                 <div class="q-field__inner relative-position col self-stretch column justify-center">
@@ -3738,7 +3776,7 @@ exports[`Storyshots Feedback PickupFeedback 1`] = `
             <div class="q-btn__wrapper col row q-anchor--skip">
               <div class="q-btn__content text-center col items-center q-anchor--skip justify-center row"><span></span></div>
             </div>
-            <!---->
+            <transition-stub name="q-transition--fade"></transition-stub>
           </button></div>
       </form>
     </div>
@@ -4139,9 +4177,11 @@ exports[`Storyshots GroupEdit create 1`] = `
             </div>
           </div>
           <div class="q-field__bottom row items-start q-field__bottom--animated">
-            <div class="q-field__messages col">
-              <div>Click to upload your group logo!</div>
-            </div>
+            <transition-stub name="q-transition--field-message">
+              <div class="q-field__messages col">
+                <div>Click to upload your group logo!</div>
+              </div>
+            </transition-stub>
           </div>
         </div>
       </label>
@@ -4165,7 +4205,7 @@ exports[`Storyshots GroupEdit create 1`] = `
           <div class="q-btn__wrapper col row q-anchor--skip">
             <div class="q-btn__content text-center col items-center q-anchor--skip justify-center row"><span></span></div>
           </div>
-          <!---->
+          <transition-stub name="q-transition--fade"></transition-stub>
         </button></div>
     </div>
     <div class="edit-box">
@@ -4178,7 +4218,9 @@ exports[`Storyshots GroupEdit create 1`] = `
               </div>
             </div>
             <div class="q-field__bottom row items-start q-field__bottom--animated">
-              <div class="q-field__messages col"></div>
+              <transition-stub name="q-transition--field-message">
+                <div class="q-field__messages col"></div>
+              </transition-stub>
             </div>
           </div>
         </label>
@@ -4195,7 +4237,9 @@ It would make sense if it was markdown
                 </div>
               </div>
               <div class="q-field__bottom row items-start q-field__bottom--animated">
-                <div class="q-field__messages col"></div>
+                <transition-stub name="q-transition--field-message">
+                  <div class="q-field__messages col"></div>
+                </transition-stub>
               </div>
             </div>
           </label> <button tabindex="0" type="button" role="button" class="q-btn q-btn-item non-selectable no-outline absolute-bottom-right bg-white q-btn--outline q-btn--rectangle text-primary q-btn--actionable q-focusable q-hoverable q-btn--wrap" style="font-size:8px;bottom:-10px;">
@@ -4216,7 +4260,9 @@ It would make sense if it was markdown
                 </div>
               </div>
               <div class="q-field__bottom row items-start q-field__bottom--animated">
-                <div class="q-field__messages col"></div>
+                <transition-stub name="q-transition--field-message">
+                  <div class="q-field__messages col"></div>
+                </transition-stub>
               </div>
             </div>
           </label>
@@ -4231,7 +4277,9 @@ It would make sense if it was markdown
                 </div>
               </div>
               <div class="q-field__bottom row items-start q-field__bottom--animated">
-                <div class="q-field__messages col"></div>
+                <transition-stub name="q-transition--field-message">
+                  <div class="q-field__messages col"></div>
+                </transition-stub>
               </div>
             </div>
           </label>
@@ -4248,7 +4296,9 @@ It would make sense if it was markdown
                 <div class="q-field__append q-field__marginal row no-wrap items-center"><i aria-hidden="true" role="presentation" class="cursor-pointer material-icons q-icon notranslate">cancel</i></div>
               </div>
               <div class="q-field__bottom row items-start q-field__bottom--animated">
-                <div class="q-field__messages col"></div>
+                <transition-stub name="q-transition--field-message">
+                  <div class="q-field__messages col"></div>
+                </transition-stub>
               </div>
             </div>
           </label>
@@ -4265,7 +4315,9 @@ It would make sense if it was markdown
                 </div>
               </div>
               <div class="q-field__bottom row items-start q-field__bottom--animated">
-                <div class="q-field__messages col"></div>
+                <transition-stub name="q-transition--field-message">
+                  <div class="q-field__messages col"></div>
+                </transition-stub>
               </div>
             </div>
           </label> <button tabindex="0" type="button" role="button" class="q-btn q-btn-item non-selectable no-outline absolute-bottom-right bg-white q-btn--outline q-btn--rectangle text-primary q-btn--actionable q-focusable q-hoverable q-btn--wrap" style="font-size:8px;bottom:-10px;">
@@ -4288,7 +4340,9 @@ It would make sense if it was markdown
               <!---->
             </div>
             <div class="q-field__bottom row items-start q-field__bottom--animated">
-              <div class="q-field__messages col"></div>
+              <transition-stub name="q-transition--field-message">
+                <div class="q-field__messages col"></div>
+              </transition-stub>
             </div>
           </div>
         </label>
@@ -4307,7 +4361,7 @@ It would make sense if it was markdown
                 Save changes
               </div>
             </div>
-            <!---->
+            <transition-stub name="q-transition--fade"></transition-stub>
           </button></div>
       </form>
     </div>
@@ -5051,7 +5105,7 @@ exports[`Storyshots GroupPreviewUI not logged in 1`] = `
               Log in or sign up to join this group!
             </div>
           </div>
-          <!---->
+          <transition-stub name="q-transition--fade"></transition-stub>
         </button></div>
     </div>
   </div>
@@ -5098,7 +5152,7 @@ exports[`Storyshots GroupPreviewUI not member, application needed, email not ver
               Verify your email address to apply
             </div>
           </div>
-          <!---->
+          <transition-stub name="q-transition--fade"></transition-stub>
         </button>
         <!---->
       </div>
@@ -5148,7 +5202,7 @@ exports[`Storyshots GroupPreviewUI not member, application needed, email verifie
               Apply
             </div>
           </div>
-          <!---->
+          <transition-stub name="q-transition--fade"></transition-stub>
         </button>
       </div>
     </div>
@@ -5195,7 +5249,7 @@ exports[`Storyshots GroupPreviewUI not member, open group 1`] = `
               Join
             </div>
           </div>
-          <!---->
+          <transition-stub name="q-transition--fade"></transition-stub>
         </button>
         <!---->
         <!---->
@@ -5301,7 +5355,7 @@ exports[`Storyshots GroupPreviewUI not member, playground 1`] = `
               Join
             </div>
           </div>
-          <!---->
+          <transition-stub name="q-transition--fade"></transition-stub>
         </button>
         <!---->
         <!---->
@@ -5347,9 +5401,11 @@ exports[`Storyshots GroupPreviewUI pending join 1`] = `
               Join
             </div>
           </div>
-          <div class="absolute-full flex flex-center"><svg focusable="false" width="1em" height="1em" viewBox="25 25 50 50" class="q-spinner q-spinner-mat">
-              <circle cx="50" cy="50" r="20" fill="none" stroke="currentColor" stroke-width="5" stroke-miterlimit="10" class="path"></circle>
-            </svg></div>
+          <transition-stub name="q-transition--fade">
+            <div class="absolute-full flex flex-center"><svg focusable="false" width="1em" height="1em" viewBox="25 25 50 50" class="q-spinner q-spinner-mat">
+                <circle cx="50" cy="50" r="20" fill="none" stroke="currentColor" stroke-width="5" stroke-miterlimit="10" class="path"></circle>
+              </svg></div>
+          </transition-stub>
         </button>
         <!---->
         <!---->
@@ -5804,9 +5860,11 @@ exports[`Storyshots Invitations InvitationsForm 1`] = `
           <div class="q-field__control-container col relative-position row no-wrap q-anchor--skip"><input tabindex="0" autocorrect="off" autocapitalize="off" spellcheck="false" id="f_80808080-8080-4080-8080-808080808080" type="email" class="q-field__native q-placeholder"></div>
         </div>
         <div class="q-field__bottom row items-start q-field__bottom--animated">
-          <div class="q-field__messages col">
-            <div>Enter an e-mail address</div>
-          </div>
+          <transition-stub name="q-transition--field-message">
+            <div class="q-field__messages col">
+              <div>Enter an e-mail address</div>
+            </div>
+          </transition-stub>
         </div>
       </div>
     </label>
@@ -5817,7 +5875,7 @@ exports[`Storyshots Invitations InvitationsForm 1`] = `
             <!---->
           </div>
         </div>
-        <!---->
+        <transition-stub name="q-transition--fade"></transition-stub>
       </button></div>
   </form>
 </div>
@@ -5981,7 +6039,9 @@ exports[`Storyshots Issues IssueList 1`] = `
           </div>
           <div class="q-item__section column q-focusable relative-position cursor-pointer q-item__section--side justify-center"><i aria-hidden="true" role="presentation" class="q-expansion-item__toggle-icon material-icons q-icon notranslate">keyboard_arrow_down</i></div>
         </div>
-        <div class="q-expansion-item__content relative-position" style="display:none;"></div>
+        <transition-stub>
+          <div class="q-expansion-item__content relative-position" style="display:none;"></div>
+        </transition-stub>
       </div>
     </div>
   </div>
@@ -6006,7 +6066,7 @@ exports[`Storyshots Issues IssueVote - not voted yet 1`] = `
         6 days
       </div>
     </div>
-    <div role="progressbar" aria-valuenow="0.5" class="q-linear-progress text-secondary" style="height:8px;">
+    <div role="progressbar" aria-valuemin="0" aria-valuemax="1" aria-valuenow="0.5" class="q-linear-progress text-secondary" style="height:8px;">
       <div class="q-linear-progress__track absolute-full q-linear-progress__track--light" style="transform:scale3d(1,1,1);"></div>
       <div class="q-linear-progress__model absolute-full q-linear-progress__model--determinate" style="transform:scale3d(0.5,1,1);"></div>
     </div>
@@ -6018,19 +6078,19 @@ exports[`Storyshots Issues IssueVote - not voted yet 1`] = `
           <div class="q-my-md">
             User 31 gets removed from Group 18
           </div>
-          <div role="slider" aria-valuemin="-2" aria-valuemax="2" aria-orientation="horizontal" data-step="1" aria-valuenow="0" tabindex="0" class="k-vote-slider q-slider q-slider--inactive q-slider--editable q-slider--label q-slider--label-always">
-            <div class="q-slider__track-container absolute">
-              <div class="q-slider__track absolute" style="left:0;width:50%;"></div>
-              <div class="q-slider__track-markers absolute-full fit" style="background-size:25% 2px;"></div>
+          <div role="slider" aria-valuemin="-2" aria-valuemax="2" aria-orientation="horizontal" data-step="1" aria-valuenow="0" tabindex="0" class="k-vote-slider q-slider q-slider--h q-slider--inactive q-slider--editable q-slider--label q-slider--label-always">
+            <div class="q-slider__track-container q-slider__track-container--h absolute">
+              <div class="q-slider__track q-slider__track--h absolute" style="left:0;width:50%;"></div>
+              <div class="q-slider__track-markers q-slider__track-markers--h absolute-full fit" style="background-size:25% 2px;"></div>
             </div>
-            <div class="q-slider__thumb-container absolute non-selectable" style="left:50%;"><svg focusable="false" viewBox="0 0 20 20" width="20" height="20" class="q-slider__thumb absolute">
+            <div class="q-slider__thumb-container q-slider__thumb-container--h absolute non-selectable" style="left:50%;"><svg focusable="false" viewBox="0 0 20 20" width="20" height="20" class="q-slider__thumb absolute">
                 <path d="M 4, 10 a 6,6 0 1,0 12,0 a 6,6 0 1,0 -12,0"></path>
               </svg>
               <div class="q-slider__focus-ring"></div>
-              <div class="q-slider__pin absolute" style="transform-origin:calc(100% - 0px) 50%;">
-                <div class="q-slider__pin-text-container" style="right:-50%;transform:translateX(-10px);"><span class="q-slider__pin-text q-slider__pin-value-marker-text">neutral</span></div>
+              <div class="q-slider__pin q-slider__pin--h absolute" style="transform-origin:calc(100% - 0px) 50%;">
+                <div class="q-slider__pin-text-container q-slider__pin-text-container--h" style="right:-50%;transform:translateX(-10px);"><span class="q-slider__pin-text q-slider__pin-value-marker-text">neutral</span></div>
               </div>
-              <div class="q-slider__arrow"></div>
+              <div class="q-slider__arrow q-slider__arrow--h"></div>
             </div>
           </div>
         </div>
@@ -6038,19 +6098,19 @@ exports[`Storyshots Issues IssueVote - not voted yet 1`] = `
           <div class="q-my-md">
             Further discussion: extend time by starting another voting
           </div>
-          <div role="slider" aria-valuemin="-2" aria-valuemax="2" aria-orientation="horizontal" data-step="1" aria-valuenow="0" tabindex="0" class="k-vote-slider q-slider q-slider--inactive q-slider--editable q-slider--label q-slider--label-always">
-            <div class="q-slider__track-container absolute">
-              <div class="q-slider__track absolute" style="left:0;width:50%;"></div>
-              <div class="q-slider__track-markers absolute-full fit" style="background-size:25% 2px;"></div>
+          <div role="slider" aria-valuemin="-2" aria-valuemax="2" aria-orientation="horizontal" data-step="1" aria-valuenow="0" tabindex="0" class="k-vote-slider q-slider q-slider--h q-slider--inactive q-slider--editable q-slider--label q-slider--label-always">
+            <div class="q-slider__track-container q-slider__track-container--h absolute">
+              <div class="q-slider__track q-slider__track--h absolute" style="left:0;width:50%;"></div>
+              <div class="q-slider__track-markers q-slider__track-markers--h absolute-full fit" style="background-size:25% 2px;"></div>
             </div>
-            <div class="q-slider__thumb-container absolute non-selectable" style="left:50%;"><svg focusable="false" viewBox="0 0 20 20" width="20" height="20" class="q-slider__thumb absolute">
+            <div class="q-slider__thumb-container q-slider__thumb-container--h absolute non-selectable" style="left:50%;"><svg focusable="false" viewBox="0 0 20 20" width="20" height="20" class="q-slider__thumb absolute">
                 <path d="M 4, 10 a 6,6 0 1,0 12,0 a 6,6 0 1,0 -12,0"></path>
               </svg>
               <div class="q-slider__focus-ring"></div>
-              <div class="q-slider__pin absolute" style="transform-origin:calc(100% - 0px) 50%;">
-                <div class="q-slider__pin-text-container" style="right:-50%;transform:translateX(-10px);"><span class="q-slider__pin-text q-slider__pin-value-marker-text">neutral</span></div>
+              <div class="q-slider__pin q-slider__pin--h absolute" style="transform-origin:calc(100% - 0px) 50%;">
+                <div class="q-slider__pin-text-container q-slider__pin-text-container--h" style="right:-50%;transform:translateX(-10px);"><span class="q-slider__pin-text q-slider__pin-value-marker-text">neutral</span></div>
               </div>
-              <div class="q-slider__arrow"></div>
+              <div class="q-slider__arrow q-slider__arrow--h"></div>
             </div>
           </div>
         </div>
@@ -6058,19 +6118,19 @@ exports[`Storyshots Issues IssueVote - not voted yet 1`] = `
           <div class="q-my-md">
             No change: User 31 stays in Group 18
           </div>
-          <div role="slider" aria-valuemin="-2" aria-valuemax="2" aria-orientation="horizontal" data-step="1" aria-valuenow="0" tabindex="0" class="k-vote-slider q-slider q-slider--inactive q-slider--editable q-slider--label q-slider--label-always">
-            <div class="q-slider__track-container absolute">
-              <div class="q-slider__track absolute" style="left:0;width:50%;"></div>
-              <div class="q-slider__track-markers absolute-full fit" style="background-size:25% 2px;"></div>
+          <div role="slider" aria-valuemin="-2" aria-valuemax="2" aria-orientation="horizontal" data-step="1" aria-valuenow="0" tabindex="0" class="k-vote-slider q-slider q-slider--h q-slider--inactive q-slider--editable q-slider--label q-slider--label-always">
+            <div class="q-slider__track-container q-slider__track-container--h absolute">
+              <div class="q-slider__track q-slider__track--h absolute" style="left:0;width:50%;"></div>
+              <div class="q-slider__track-markers q-slider__track-markers--h absolute-full fit" style="background-size:25% 2px;"></div>
             </div>
-            <div class="q-slider__thumb-container absolute non-selectable" style="left:50%;"><svg focusable="false" viewBox="0 0 20 20" width="20" height="20" class="q-slider__thumb absolute">
+            <div class="q-slider__thumb-container q-slider__thumb-container--h absolute non-selectable" style="left:50%;"><svg focusable="false" viewBox="0 0 20 20" width="20" height="20" class="q-slider__thumb absolute">
                 <path d="M 4, 10 a 6,6 0 1,0 12,0 a 6,6 0 1,0 -12,0"></path>
               </svg>
               <div class="q-slider__focus-ring"></div>
-              <div class="q-slider__pin absolute" style="transform-origin:calc(100% - 0px) 50%;">
-                <div class="q-slider__pin-text-container" style="right:-50%;transform:translateX(-10px);"><span class="q-slider__pin-text q-slider__pin-value-marker-text">neutral</span></div>
+              <div class="q-slider__pin q-slider__pin--h absolute" style="transform-origin:calc(100% - 0px) 50%;">
+                <div class="q-slider__pin-text-container q-slider__pin-text-container--h" style="right:-50%;transform:translateX(-10px);"><span class="q-slider__pin-text q-slider__pin-value-marker-text">neutral</span></div>
               </div>
-              <div class="q-slider__arrow"></div>
+              <div class="q-slider__arrow q-slider__arrow--h"></div>
             </div>
           </div>
         </div>
@@ -6123,7 +6183,7 @@ exports[`Storyshots Issues IssueVote - vote 1`] = `
         6 days
       </div>
     </div>
-    <div role="progressbar" aria-valuenow="0.5" class="q-linear-progress text-secondary" style="height:8px;">
+    <div role="progressbar" aria-valuemin="0" aria-valuemax="1" aria-valuenow="0.5" class="q-linear-progress text-secondary" style="height:8px;">
       <div class="q-linear-progress__track absolute-full q-linear-progress__track--light" style="transform:scale3d(1,1,1);"></div>
       <div class="q-linear-progress__model absolute-full q-linear-progress__model--determinate" style="transform:scale3d(0.5,1,1);"></div>
     </div>
@@ -6135,19 +6195,19 @@ exports[`Storyshots Issues IssueVote - vote 1`] = `
           <div class="q-my-md">
             Further discussion: extend time by starting another voting
           </div>
-          <div role="slider" aria-valuemin="-2" aria-valuemax="2" aria-orientation="horizontal" data-step="1" aria-valuenow="0" tabindex="0" class="k-vote-slider q-slider q-slider--inactive q-slider--editable q-slider--label q-slider--label-always">
-            <div class="q-slider__track-container absolute">
-              <div class="q-slider__track absolute" style="left:0;width:50%;"></div>
-              <div class="q-slider__track-markers absolute-full fit" style="background-size:25% 2px;"></div>
+          <div role="slider" aria-valuemin="-2" aria-valuemax="2" aria-orientation="horizontal" data-step="1" aria-valuenow="0" tabindex="0" class="k-vote-slider q-slider q-slider--h q-slider--inactive q-slider--editable q-slider--label q-slider--label-always">
+            <div class="q-slider__track-container q-slider__track-container--h absolute">
+              <div class="q-slider__track q-slider__track--h absolute" style="left:0;width:50%;"></div>
+              <div class="q-slider__track-markers q-slider__track-markers--h absolute-full fit" style="background-size:25% 2px;"></div>
             </div>
-            <div class="q-slider__thumb-container absolute non-selectable" style="left:50%;"><svg focusable="false" viewBox="0 0 20 20" width="20" height="20" class="q-slider__thumb absolute">
+            <div class="q-slider__thumb-container q-slider__thumb-container--h absolute non-selectable" style="left:50%;"><svg focusable="false" viewBox="0 0 20 20" width="20" height="20" class="q-slider__thumb absolute">
                 <path d="M 4, 10 a 6,6 0 1,0 12,0 a 6,6 0 1,0 -12,0"></path>
               </svg>
               <div class="q-slider__focus-ring"></div>
-              <div class="q-slider__pin absolute" style="transform-origin:calc(100% - 0px) 50%;">
-                <div class="q-slider__pin-text-container" style="right:-50%;transform:translateX(-10px);"><span class="q-slider__pin-text q-slider__pin-value-marker-text">neutral</span></div>
+              <div class="q-slider__pin q-slider__pin--h absolute" style="transform-origin:calc(100% - 0px) 50%;">
+                <div class="q-slider__pin-text-container q-slider__pin-text-container--h" style="right:-50%;transform:translateX(-10px);"><span class="q-slider__pin-text q-slider__pin-value-marker-text">neutral</span></div>
               </div>
-              <div class="q-slider__arrow"></div>
+              <div class="q-slider__arrow q-slider__arrow--h"></div>
             </div>
           </div>
         </div>
@@ -6155,19 +6215,19 @@ exports[`Storyshots Issues IssueVote - vote 1`] = `
           <div class="q-my-md">
             User 29 gets removed from Group 17
           </div>
-          <div role="slider" aria-valuemin="-2" aria-valuemax="2" aria-orientation="horizontal" data-step="1" aria-valuenow="0" tabindex="0" class="k-vote-slider q-slider q-slider--inactive q-slider--editable q-slider--label q-slider--label-always">
-            <div class="q-slider__track-container absolute">
-              <div class="q-slider__track absolute" style="left:0;width:50%;"></div>
-              <div class="q-slider__track-markers absolute-full fit" style="background-size:25% 2px;"></div>
+          <div role="slider" aria-valuemin="-2" aria-valuemax="2" aria-orientation="horizontal" data-step="1" aria-valuenow="0" tabindex="0" class="k-vote-slider q-slider q-slider--h q-slider--inactive q-slider--editable q-slider--label q-slider--label-always">
+            <div class="q-slider__track-container q-slider__track-container--h absolute">
+              <div class="q-slider__track q-slider__track--h absolute" style="left:0;width:50%;"></div>
+              <div class="q-slider__track-markers q-slider__track-markers--h absolute-full fit" style="background-size:25% 2px;"></div>
             </div>
-            <div class="q-slider__thumb-container absolute non-selectable" style="left:50%;"><svg focusable="false" viewBox="0 0 20 20" width="20" height="20" class="q-slider__thumb absolute">
+            <div class="q-slider__thumb-container q-slider__thumb-container--h absolute non-selectable" style="left:50%;"><svg focusable="false" viewBox="0 0 20 20" width="20" height="20" class="q-slider__thumb absolute">
                 <path d="M 4, 10 a 6,6 0 1,0 12,0 a 6,6 0 1,0 -12,0"></path>
               </svg>
               <div class="q-slider__focus-ring"></div>
-              <div class="q-slider__pin absolute" style="transform-origin:calc(100% - 0px) 50%;">
-                <div class="q-slider__pin-text-container" style="right:-50%;transform:translateX(-10px);"><span class="q-slider__pin-text q-slider__pin-value-marker-text">neutral</span></div>
+              <div class="q-slider__pin q-slider__pin--h absolute" style="transform-origin:calc(100% - 0px) 50%;">
+                <div class="q-slider__pin-text-container q-slider__pin-text-container--h" style="right:-50%;transform:translateX(-10px);"><span class="q-slider__pin-text q-slider__pin-value-marker-text">neutral</span></div>
               </div>
-              <div class="q-slider__arrow"></div>
+              <div class="q-slider__arrow q-slider__arrow--h"></div>
             </div>
           </div>
         </div>
@@ -6175,19 +6235,19 @@ exports[`Storyshots Issues IssueVote - vote 1`] = `
           <div class="q-my-md">
             No change: User 29 stays in Group 17
           </div>
-          <div role="slider" aria-valuemin="-2" aria-valuemax="2" aria-orientation="horizontal" data-step="1" aria-valuenow="0" tabindex="0" class="k-vote-slider q-slider q-slider--inactive q-slider--editable q-slider--label q-slider--label-always">
-            <div class="q-slider__track-container absolute">
-              <div class="q-slider__track absolute" style="left:0;width:50%;"></div>
-              <div class="q-slider__track-markers absolute-full fit" style="background-size:25% 2px;"></div>
+          <div role="slider" aria-valuemin="-2" aria-valuemax="2" aria-orientation="horizontal" data-step="1" aria-valuenow="0" tabindex="0" class="k-vote-slider q-slider q-slider--h q-slider--inactive q-slider--editable q-slider--label q-slider--label-always">
+            <div class="q-slider__track-container q-slider__track-container--h absolute">
+              <div class="q-slider__track q-slider__track--h absolute" style="left:0;width:50%;"></div>
+              <div class="q-slider__track-markers q-slider__track-markers--h absolute-full fit" style="background-size:25% 2px;"></div>
             </div>
-            <div class="q-slider__thumb-container absolute non-selectable" style="left:50%;"><svg focusable="false" viewBox="0 0 20 20" width="20" height="20" class="q-slider__thumb absolute">
+            <div class="q-slider__thumb-container q-slider__thumb-container--h absolute non-selectable" style="left:50%;"><svg focusable="false" viewBox="0 0 20 20" width="20" height="20" class="q-slider__thumb absolute">
                 <path d="M 4, 10 a 6,6 0 1,0 12,0 a 6,6 0 1,0 -12,0"></path>
               </svg>
               <div class="q-slider__focus-ring"></div>
-              <div class="q-slider__pin absolute" style="transform-origin:calc(100% - 0px) 50%;">
-                <div class="q-slider__pin-text-container" style="right:-50%;transform:translateX(-10px);"><span class="q-slider__pin-text q-slider__pin-value-marker-text">neutral</span></div>
+              <div class="q-slider__pin q-slider__pin--h absolute" style="transform-origin:calc(100% - 0px) 50%;">
+                <div class="q-slider__pin-text-container q-slider__pin-text-container--h" style="right:-50%;transform:translateX(-10px);"><span class="q-slider__pin-text q-slider__pin-value-marker-text">neutral</span></div>
               </div>
-              <div class="q-slider__arrow"></div>
+              <div class="q-slider__arrow q-slider__arrow--h"></div>
             </div>
           </div>
         </div>
@@ -6234,52 +6294,54 @@ exports[`Storyshots Issues history item 1`] = `
       </div>
       <div class="q-item__section column q-focusable relative-position cursor-pointer q-item__section--side justify-center"><i aria-hidden="true" role="presentation" class="q-expansion-item__toggle-icon material-icons q-icon notranslate">keyboard_arrow_down</i></div>
     </div>
-    <div class="q-expansion-item__content relative-position" style="display:none;">
-      <div class="q-list q-list--bordered">
-        <div class="q-item q-item-type row no-wrap">
-          <div class="q-item__section column q-item__section--main justify-center">
-            <div class="q-item__label">
-              This voting round ended on Dec 18, 2017, 6:00 AM
+    <transition-stub>
+      <div class="q-expansion-item__content relative-position" style="display:none;">
+        <div class="q-list q-list--bordered">
+          <div class="q-item q-item-type row no-wrap">
+            <div class="q-item__section column q-item__section--main justify-center">
+              <div class="q-item__label">
+                This voting round ended on Dec 18, 2017, 6:00 AM
+              </div>
+              <div class="q-item__label q-item__label--caption text-caption">
+                6 members participated in the voting.
+              </div>
             </div>
-            <div class="q-item__label q-item__label--caption text-caption">
-              6 members participated in the voting.
+          </div>
+          <div class="q-item q-item-type row no-wrap justify-end q-item--dense">
+            <div class="q-item__section column q-item__section--side justify-center">
+              Total score
             </div>
           </div>
-        </div>
-        <div class="q-item q-item-type row no-wrap justify-end q-item--dense">
-          <div class="q-item__section column q-item__section--side justify-center">
-            Total score
+          <div class="q-item q-item-type row no-wrap text-secondary">
+            <div class="q-item__section column q-item__section--side justify-center"><i aria-hidden="true" role="presentation" class="fas fa-smile q-icon notranslate text-secondary"> </i></div>
+            <div class="q-item__section column q-item__section--main justify-center">
+              User 27 gets removed from asdf
+            </div>
+            <div class="q-item__section column q-item__section--side justify-center text-secondary">
+              2
+            </div>
           </div>
-        </div>
-        <div class="q-item q-item-type row no-wrap text-secondary">
-          <div class="q-item__section column q-item__section--side justify-center"><i aria-hidden="true" role="presentation" class="fas fa-smile q-icon notranslate text-secondary"> </i></div>
-          <div class="q-item__section column q-item__section--main justify-center">
-            User 27 gets removed from asdf
+          <div class="q-item q-item-type row no-wrap">
+            <div class="q-item__section column q-item__section--side justify-center"><i aria-hidden="true" role="presentation" class="fas fa-meh q-icon notranslate text-primary"> </i></div>
+            <div class="q-item__section column q-item__section--main justify-center">
+              Further discussion: extend time by starting another voting
+            </div>
+            <div class="q-item__section column q-item__section--side justify-center">
+              1
+            </div>
           </div>
-          <div class="q-item__section column q-item__section--side justify-center text-secondary">
-            2
-          </div>
-        </div>
-        <div class="q-item q-item-type row no-wrap">
-          <div class="q-item__section column q-item__section--side justify-center"><i aria-hidden="true" role="presentation" class="fas fa-meh q-icon notranslate text-primary"> </i></div>
-          <div class="q-item__section column q-item__section--main justify-center">
-            Further discussion: extend time by starting another voting
-          </div>
-          <div class="q-item__section column q-item__section--side justify-center">
-            1
-          </div>
-        </div>
-        <div class="q-item q-item-type row no-wrap">
-          <div class="q-item__section column q-item__section--side justify-center"><i aria-hidden="true" role="presentation" class="fas fa-meh q-icon notranslate text-primary"> </i></div>
-          <div class="q-item__section column q-item__section--main justify-center">
-            No change: User 27 stays in asdf
-          </div>
-          <div class="q-item__section column q-item__section--side justify-center">
-            0
+          <div class="q-item q-item-type row no-wrap">
+            <div class="q-item__section column q-item__section--side justify-center"><i aria-hidden="true" role="presentation" class="fas fa-meh q-icon notranslate text-primary"> </i></div>
+            <div class="q-item__section column q-item__section--main justify-center">
+              No change: User 27 stays in asdf
+            </div>
+            <div class="q-item__section column q-item__section--side justify-center">
+              0
+            </div>
           </div>
         </div>
       </div>
-    </div>
+    </transition-stub>
   </div>
 </div>
 `;
@@ -6815,7 +6877,7 @@ exports[`Storyshots Latest Messages type: thread 1`] = `
 exports[`Storyshots Layout KTopbar 1`] = `
 <div class="q-toolbar row no-wrap items-center text-white row justify-between bg-primary">
   <div class="logo"> <a class="q-ml-sm"><img src="test-file-stub"></a></div>
-  <div class="q-toolbar__title ellipsis no-wrap text-center">
+  <div class="no-wrap text-center q-toolbar__title ellipsis">
     <div class="wrapper bread">
       <div>
         ...
@@ -6913,7 +6975,7 @@ exports[`Storyshots Login empty 1`] = `
               Login
             </div>
           </div>
-          <!---->
+          <transition-stub name="q-transition--fade"></transition-stub>
         </button></div>
     </div>
   </form>
@@ -6967,7 +7029,7 @@ exports[`Storyshots Login error 1`] = `
               Login
             </div>
           </div>
-          <!---->
+          <transition-stub name="q-transition--fade"></transition-stub>
         </button></div>
     </div>
   </form>
@@ -7018,9 +7080,11 @@ exports[`Storyshots Login pending 1`] = `
               Login
             </div>
           </div>
-          <div class="absolute-full flex flex-center"><svg focusable="false" width="1em" height="1em" viewBox="25 25 50 50" class="q-spinner q-spinner-mat">
-              <circle cx="50" cy="50" r="20" fill="none" stroke="currentColor" stroke-width="5" stroke-miterlimit="10" class="path"></circle>
-            </svg></div>
+          <transition-stub name="q-transition--fade">
+            <div class="absolute-full flex flex-center"><svg focusable="false" width="1em" height="1em" viewBox="25 25 50 50" class="q-spinner q-spinner-mat">
+                <circle cx="50" cy="50" r="20" fill="none" stroke="currentColor" stroke-width="5" stroke-miterlimit="10" class="path"></circle>
+              </svg></div>
+          </transition-stub>
         </button></div>
     </div>
   </form>
@@ -7632,7 +7696,7 @@ exports[`Storyshots Password Reset empty 1`] = `
               Get new password
             </div>
           </div>
-          <!---->
+          <transition-stub name="q-transition--fade"></transition-stub>
         </button></div>
       <div style="clear:both;"></div>
     </div>
@@ -7674,7 +7738,7 @@ exports[`Storyshots Password Reset error 1`] = `
               Get new password
             </div>
           </div>
-          <!---->
+          <transition-stub name="q-transition--fade"></transition-stub>
         </button></div>
       <div style="clear:both;"></div>
     </div>
@@ -7713,9 +7777,11 @@ exports[`Storyshots Password Reset pending 1`] = `
               Get new password
             </div>
           </div>
-          <div class="absolute-full flex flex-center"><svg focusable="false" width="1em" height="1em" viewBox="25 25 50 50" class="q-spinner q-spinner-mat">
-              <circle cx="50" cy="50" r="20" fill="none" stroke="currentColor" stroke-width="5" stroke-miterlimit="10" class="path"></circle>
-            </svg></div>
+          <transition-stub name="q-transition--fade">
+            <div class="absolute-full flex flex-center"><svg focusable="false" width="1em" height="1em" viewBox="25 25 50 50" class="q-spinner q-spinner-mat">
+                <circle cx="50" cy="50" r="20" fill="none" stroke="currentColor" stroke-width="5" stroke-miterlimit="10" class="path"></circle>
+              </svg></div>
+          </transition-stub>
         </button></div>
       <div style="clear:both;"></div>
     </div>
@@ -7754,7 +7820,7 @@ exports[`Storyshots Password Reset success 1`] = `
               Get new password
             </div>
           </div>
-          <!---->
+          <transition-stub name="q-transition--fade"></transition-stub>
         </button></div>
       <div style="clear:both;"></div>
     </div>
@@ -7805,27 +7871,29 @@ exports[`Storyshots PickupEdit default 1`] = `
           <div tabindex="-1" class="q-field__control relative-position row no-wrap">
             <div class="q-field__control-container col relative-position row no-wrap q-anchor--skip"><input tabindex="0" aria-label="Max Slots" placeholder="unlimited" id="f_80808080-8080-4080-8080-808080808080" type="number" value="10" class="q-field__native q-placeholder" style="max-width:100px;">
               <div class="q-field__label no-pointer-events absolute ellipsis">Max Slots</div>
-              <div role="slider" aria-valuemin="1" aria-valuemax="10" aria-orientation="horizontal" data-step="1" aria-valuenow="10" tabindex="0" class="q-mx-sm self-end q-slider q-slider--inactive q-slider--editable q-slider--label" style="min-width:60px;">
-                <div class="q-slider__track-container absolute">
-                  <div class="q-slider__track absolute" style="left:0;width:100%;"></div>
-                  <div class="q-slider__track-markers absolute-full fit" style="background-size:11.11111111111111% 2px;"></div>
+              <div role="slider" aria-valuemin="1" aria-valuemax="10" aria-orientation="horizontal" data-step="1" aria-valuenow="10" tabindex="0" class="q-mx-sm self-end q-slider q-slider--h q-slider--inactive q-slider--editable q-slider--label" style="min-width:60px;">
+                <div class="q-slider__track-container q-slider__track-container--h absolute">
+                  <div class="q-slider__track q-slider__track--h absolute" style="left:0;width:100%;"></div>
+                  <div class="q-slider__track-markers q-slider__track-markers--h absolute-full fit" style="background-size:11.11111111111111% 2px;"></div>
                 </div>
-                <div class="q-slider__thumb-container absolute non-selectable" style="left:100%;"><svg focusable="false" viewBox="0 0 20 20" width="20" height="20" class="q-slider__thumb absolute">
+                <div class="q-slider__thumb-container q-slider__thumb-container--h absolute non-selectable" style="left:100%;"><svg focusable="false" viewBox="0 0 20 20" width="20" height="20" class="q-slider__thumb absolute">
                     <path d="M 4, 10 a 6,6 0 1,0 12,0 a 6,6 0 1,0 -12,0"></path>
                   </svg>
                   <div class="q-slider__focus-ring"></div>
-                  <div class="q-slider__pin absolute" style="transform-origin:calc(100% - 10px) 50%;">
-                    <div class="q-slider__pin-text-container" style="right:0%;transform:translateX(0px);"><span class="q-slider__pin-text q-slider__pin-value-marker-text">10</span></div>
+                  <div class="q-slider__pin q-slider__pin--h absolute" style="transform-origin:calc(100% - 10px) 50%;">
+                    <div class="q-slider__pin-text-container q-slider__pin-text-container--h" style="right:0%;transform:translateX(0px);"><span class="q-slider__pin-text q-slider__pin-value-marker-text">10</span></div>
                   </div>
-                  <div class="q-slider__arrow"></div>
+                  <div class="q-slider__arrow q-slider__arrow--h"></div>
                 </div>
               </div>
             </div>
           </div>
           <div class="q-field__bottom row items-start q-field__bottom--animated">
-            <div class="q-field__messages col">
-              <div>How many people should participate in the pick-up?</div>
-            </div>
+            <transition-stub name="q-transition--field-message">
+              <div class="q-field__messages col">
+                <div>How many people should participate in the pick-up?</div>
+              </div>
+            </transition-stub>
           </div>
         </div>
         <div class="q-field__after q-field__marginal row no-wrap items-center"></div>
@@ -7841,9 +7909,11 @@ exports[`Storyshots PickupEdit default 1`] = `
             </div>
           </div>
           <div class="q-field__bottom row items-start q-field__bottom--animated">
-            <div class="q-field__messages col">
-              <div>What should people know when signing up to this pick-up?</div>
-            </div>
+            <transition-stub name="q-transition--field-message">
+              <div class="q-field__messages col">
+                <div>What should people know when signing up to this pick-up?</div>
+              </div>
+            </transition-stub>
           </div>
         </div>
         <div class="q-field__after q-field__marginal row no-wrap items-center"></div>
@@ -7874,7 +7944,7 @@ exports[`Storyshots PickupEdit default 1`] = `
             Save changes
           </div>
         </div>
-        <!---->
+        <transition-stub name="q-transition--fade"></transition-stub>
       </button></div>
   </form>
 </div>
@@ -7923,27 +7993,29 @@ exports[`Storyshots PickupEdit disabled 1`] = `
           <div tabindex="-1" class="q-field__control relative-position row no-wrap">
             <div class="q-field__control-container col relative-position row no-wrap q-anchor--skip"><input tabindex="0" aria-label="Max Slots" placeholder="unlimited" id="f_80808080-8080-4080-8080-808080808080" type="number" value="10" class="q-field__native q-placeholder" style="max-width:100px;">
               <div class="q-field__label no-pointer-events absolute ellipsis">Max Slots</div>
-              <div role="slider" aria-valuemin="1" aria-valuemax="10" aria-orientation="horizontal" data-step="1" aria-valuenow="10" tabindex="0" class="q-mx-sm self-end q-slider q-slider--inactive q-slider--editable q-slider--label" style="min-width:60px;">
-                <div class="q-slider__track-container absolute">
-                  <div class="q-slider__track absolute" style="left:0;width:100%;"></div>
-                  <div class="q-slider__track-markers absolute-full fit" style="background-size:11.11111111111111% 2px;"></div>
+              <div role="slider" aria-valuemin="1" aria-valuemax="10" aria-orientation="horizontal" data-step="1" aria-valuenow="10" tabindex="0" class="q-mx-sm self-end q-slider q-slider--h q-slider--inactive q-slider--editable q-slider--label" style="min-width:60px;">
+                <div class="q-slider__track-container q-slider__track-container--h absolute">
+                  <div class="q-slider__track q-slider__track--h absolute" style="left:0;width:100%;"></div>
+                  <div class="q-slider__track-markers q-slider__track-markers--h absolute-full fit" style="background-size:11.11111111111111% 2px;"></div>
                 </div>
-                <div class="q-slider__thumb-container absolute non-selectable" style="left:100%;"><svg focusable="false" viewBox="0 0 20 20" width="20" height="20" class="q-slider__thumb absolute">
+                <div class="q-slider__thumb-container q-slider__thumb-container--h absolute non-selectable" style="left:100%;"><svg focusable="false" viewBox="0 0 20 20" width="20" height="20" class="q-slider__thumb absolute">
                     <path d="M 4, 10 a 6,6 0 1,0 12,0 a 6,6 0 1,0 -12,0"></path>
                   </svg>
                   <div class="q-slider__focus-ring"></div>
-                  <div class="q-slider__pin absolute" style="transform-origin:calc(100% - 10px) 50%;">
-                    <div class="q-slider__pin-text-container" style="right:0%;transform:translateX(0px);"><span class="q-slider__pin-text q-slider__pin-value-marker-text">10</span></div>
+                  <div class="q-slider__pin q-slider__pin--h absolute" style="transform-origin:calc(100% - 10px) 50%;">
+                    <div class="q-slider__pin-text-container q-slider__pin-text-container--h" style="right:0%;transform:translateX(0px);"><span class="q-slider__pin-text q-slider__pin-value-marker-text">10</span></div>
                   </div>
-                  <div class="q-slider__arrow"></div>
+                  <div class="q-slider__arrow q-slider__arrow--h"></div>
                 </div>
               </div>
             </div>
           </div>
           <div class="q-field__bottom row items-start q-field__bottom--animated">
-            <div class="q-field__messages col">
-              <div>How many people should participate in the pick-up?</div>
-            </div>
+            <transition-stub name="q-transition--field-message">
+              <div class="q-field__messages col">
+                <div>How many people should participate in the pick-up?</div>
+              </div>
+            </transition-stub>
           </div>
         </div>
         <div class="q-field__after q-field__marginal row no-wrap items-center"></div>
@@ -7959,9 +8031,11 @@ exports[`Storyshots PickupEdit disabled 1`] = `
             </div>
           </div>
           <div class="q-field__bottom row items-start q-field__bottom--animated">
-            <div class="q-field__messages col">
-              <div>What should people know when signing up to this pick-up?</div>
-            </div>
+            <transition-stub name="q-transition--field-message">
+              <div class="q-field__messages col">
+                <div>What should people know when signing up to this pick-up?</div>
+              </div>
+            </transition-stub>
           </div>
         </div>
         <div class="q-field__after q-field__marginal row no-wrap items-center"></div>
@@ -7992,7 +8066,7 @@ exports[`Storyshots PickupEdit disabled 1`] = `
             Save changes
           </div>
         </div>
-        <!---->
+        <transition-stub name="q-transition--fade"></transition-stub>
       </button></div>
   </form>
 </div>
@@ -8043,27 +8117,29 @@ exports[`Storyshots PickupEdit error 1`] = `
           <div tabindex="-1" class="q-field__control relative-position row no-wrap">
             <div class="q-field__control-container col relative-position row no-wrap q-anchor--skip"><input tabindex="0" aria-label="Max Slots" placeholder="unlimited" id="f_80808080-8080-4080-8080-808080808080" type="number" value="10" class="q-field__native q-placeholder" style="max-width:100px;">
               <div class="q-field__label no-pointer-events absolute ellipsis">Max Slots</div>
-              <div role="slider" aria-valuemin="1" aria-valuemax="10" aria-orientation="horizontal" data-step="1" aria-valuenow="10" tabindex="0" class="q-mx-sm self-end q-slider q-slider--inactive q-slider--editable q-slider--label" style="min-width:60px;">
-                <div class="q-slider__track-container absolute">
-                  <div class="q-slider__track absolute" style="left:0;width:100%;"></div>
-                  <div class="q-slider__track-markers absolute-full fit" style="background-size:11.11111111111111% 2px;"></div>
+              <div role="slider" aria-valuemin="1" aria-valuemax="10" aria-orientation="horizontal" data-step="1" aria-valuenow="10" tabindex="0" class="q-mx-sm self-end q-slider q-slider--h q-slider--inactive q-slider--editable q-slider--label" style="min-width:60px;">
+                <div class="q-slider__track-container q-slider__track-container--h absolute">
+                  <div class="q-slider__track q-slider__track--h absolute" style="left:0;width:100%;"></div>
+                  <div class="q-slider__track-markers q-slider__track-markers--h absolute-full fit" style="background-size:11.11111111111111% 2px;"></div>
                 </div>
-                <div class="q-slider__thumb-container absolute non-selectable" style="left:100%;"><svg focusable="false" viewBox="0 0 20 20" width="20" height="20" class="q-slider__thumb absolute">
+                <div class="q-slider__thumb-container q-slider__thumb-container--h absolute non-selectable" style="left:100%;"><svg focusable="false" viewBox="0 0 20 20" width="20" height="20" class="q-slider__thumb absolute">
                     <path d="M 4, 10 a 6,6 0 1,0 12,0 a 6,6 0 1,0 -12,0"></path>
                   </svg>
                   <div class="q-slider__focus-ring"></div>
-                  <div class="q-slider__pin absolute" style="transform-origin:calc(100% - 10px) 50%;">
-                    <div class="q-slider__pin-text-container" style="right:0%;transform:translateX(0px);"><span class="q-slider__pin-text q-slider__pin-value-marker-text">10</span></div>
+                  <div class="q-slider__pin q-slider__pin--h absolute" style="transform-origin:calc(100% - 10px) 50%;">
+                    <div class="q-slider__pin-text-container q-slider__pin-text-container--h" style="right:0%;transform:translateX(0px);"><span class="q-slider__pin-text q-slider__pin-value-marker-text">10</span></div>
                   </div>
-                  <div class="q-slider__arrow"></div>
+                  <div class="q-slider__arrow q-slider__arrow--h"></div>
                 </div>
               </div>
             </div>
           </div>
           <div class="q-field__bottom row items-start q-field__bottom--animated">
-            <div class="q-field__messages col">
-              <div>How many people should participate in the pick-up?</div>
-            </div>
+            <transition-stub name="q-transition--field-message">
+              <div class="q-field__messages col">
+                <div>How many people should participate in the pick-up?</div>
+              </div>
+            </transition-stub>
           </div>
         </div>
         <div class="q-field__after q-field__marginal row no-wrap items-center"></div>
@@ -8079,9 +8155,11 @@ exports[`Storyshots PickupEdit error 1`] = `
             </div>
           </div>
           <div class="q-field__bottom row items-start q-field__bottom--animated">
-            <div class="q-field__messages col">
-              <div>What should people know when signing up to this pick-up?</div>
-            </div>
+            <transition-stub name="q-transition--field-message">
+              <div class="q-field__messages col">
+                <div>What should people know when signing up to this pick-up?</div>
+              </div>
+            </transition-stub>
           </div>
         </div>
         <div class="q-field__after q-field__marginal row no-wrap items-center"></div>
@@ -8112,7 +8190,7 @@ exports[`Storyshots PickupEdit error 1`] = `
             Save changes
           </div>
         </div>
-        <!---->
+        <transition-stub name="q-transition--fade"></transition-stub>
       </button></div>
   </form>
 </div>
@@ -8161,27 +8239,29 @@ exports[`Storyshots PickupEdit pending 1`] = `
           <div tabindex="-1" class="q-field__control relative-position row no-wrap">
             <div class="q-field__control-container col relative-position row no-wrap q-anchor--skip"><input tabindex="0" aria-label="Max Slots" placeholder="unlimited" id="f_80808080-8080-4080-8080-808080808080" type="number" value="10" class="q-field__native q-placeholder" style="max-width:100px;">
               <div class="q-field__label no-pointer-events absolute ellipsis">Max Slots</div>
-              <div role="slider" aria-valuemin="1" aria-valuemax="10" aria-orientation="horizontal" data-step="1" aria-valuenow="10" tabindex="0" class="q-mx-sm self-end q-slider q-slider--inactive q-slider--editable q-slider--label" style="min-width:60px;">
-                <div class="q-slider__track-container absolute">
-                  <div class="q-slider__track absolute" style="left:0;width:100%;"></div>
-                  <div class="q-slider__track-markers absolute-full fit" style="background-size:11.11111111111111% 2px;"></div>
+              <div role="slider" aria-valuemin="1" aria-valuemax="10" aria-orientation="horizontal" data-step="1" aria-valuenow="10" tabindex="0" class="q-mx-sm self-end q-slider q-slider--h q-slider--inactive q-slider--editable q-slider--label" style="min-width:60px;">
+                <div class="q-slider__track-container q-slider__track-container--h absolute">
+                  <div class="q-slider__track q-slider__track--h absolute" style="left:0;width:100%;"></div>
+                  <div class="q-slider__track-markers q-slider__track-markers--h absolute-full fit" style="background-size:11.11111111111111% 2px;"></div>
                 </div>
-                <div class="q-slider__thumb-container absolute non-selectable" style="left:100%;"><svg focusable="false" viewBox="0 0 20 20" width="20" height="20" class="q-slider__thumb absolute">
+                <div class="q-slider__thumb-container q-slider__thumb-container--h absolute non-selectable" style="left:100%;"><svg focusable="false" viewBox="0 0 20 20" width="20" height="20" class="q-slider__thumb absolute">
                     <path d="M 4, 10 a 6,6 0 1,0 12,0 a 6,6 0 1,0 -12,0"></path>
                   </svg>
                   <div class="q-slider__focus-ring"></div>
-                  <div class="q-slider__pin absolute" style="transform-origin:calc(100% - 10px) 50%;">
-                    <div class="q-slider__pin-text-container" style="right:0%;transform:translateX(0px);"><span class="q-slider__pin-text q-slider__pin-value-marker-text">10</span></div>
+                  <div class="q-slider__pin q-slider__pin--h absolute" style="transform-origin:calc(100% - 10px) 50%;">
+                    <div class="q-slider__pin-text-container q-slider__pin-text-container--h" style="right:0%;transform:translateX(0px);"><span class="q-slider__pin-text q-slider__pin-value-marker-text">10</span></div>
                   </div>
-                  <div class="q-slider__arrow"></div>
+                  <div class="q-slider__arrow q-slider__arrow--h"></div>
                 </div>
               </div>
             </div>
           </div>
           <div class="q-field__bottom row items-start q-field__bottom--animated">
-            <div class="q-field__messages col">
-              <div>How many people should participate in the pick-up?</div>
-            </div>
+            <transition-stub name="q-transition--field-message">
+              <div class="q-field__messages col">
+                <div>How many people should participate in the pick-up?</div>
+              </div>
+            </transition-stub>
           </div>
         </div>
         <div class="q-field__after q-field__marginal row no-wrap items-center"></div>
@@ -8197,9 +8277,11 @@ exports[`Storyshots PickupEdit pending 1`] = `
             </div>
           </div>
           <div class="q-field__bottom row items-start q-field__bottom--animated">
-            <div class="q-field__messages col">
-              <div>What should people know when signing up to this pick-up?</div>
-            </div>
+            <transition-stub name="q-transition--field-message">
+              <div class="q-field__messages col">
+                <div>What should people know when signing up to this pick-up?</div>
+              </div>
+            </transition-stub>
           </div>
         </div>
         <div class="q-field__after q-field__marginal row no-wrap items-center"></div>
@@ -8230,9 +8312,11 @@ exports[`Storyshots PickupEdit pending 1`] = `
             Save changes
           </div>
         </div>
-        <div class="absolute-full flex flex-center"><svg focusable="false" width="1em" height="1em" viewBox="25 25 50 50" class="q-spinner q-spinner-mat">
-            <circle cx="50" cy="50" r="20" fill="none" stroke="currentColor" stroke-width="5" stroke-miterlimit="10" class="path"></circle>
-          </svg></div>
+        <transition-stub name="q-transition--fade">
+          <div class="absolute-full flex flex-center"><svg focusable="false" width="1em" height="1em" viewBox="25 25 50 50" class="q-spinner q-spinner-mat">
+              <circle cx="50" cy="50" r="20" fill="none" stroke="currentColor" stroke-width="5" stroke-miterlimit="10" class="path"></circle>
+            </svg></div>
+        </transition-stub>
       </button></div>
   </form>
 </div>
@@ -8281,27 +8365,29 @@ exports[`Storyshots PickupEdit series changed 1`] = `
           <div tabindex="-1" class="q-field__control relative-position row no-wrap">
             <div class="q-field__control-container col relative-position row no-wrap q-anchor--skip"><input tabindex="0" aria-label="Max Slots" placeholder="unlimited" id="f_80808080-8080-4080-8080-808080808080" type="number" value="10" class="q-field__native q-placeholder" style="max-width:100px;">
               <div class="q-field__label no-pointer-events absolute ellipsis">Max Slots</div>
-              <div role="slider" aria-valuemin="1" aria-valuemax="10" aria-orientation="horizontal" data-step="1" aria-valuenow="10" tabindex="0" class="q-mx-sm self-end q-slider q-slider--inactive q-slider--editable q-slider--label" style="min-width:60px;">
-                <div class="q-slider__track-container absolute">
-                  <div class="q-slider__track absolute" style="left:0;width:100%;"></div>
-                  <div class="q-slider__track-markers absolute-full fit" style="background-size:11.11111111111111% 2px;"></div>
+              <div role="slider" aria-valuemin="1" aria-valuemax="10" aria-orientation="horizontal" data-step="1" aria-valuenow="10" tabindex="0" class="q-mx-sm self-end q-slider q-slider--h q-slider--inactive q-slider--editable q-slider--label" style="min-width:60px;">
+                <div class="q-slider__track-container q-slider__track-container--h absolute">
+                  <div class="q-slider__track q-slider__track--h absolute" style="left:0;width:100%;"></div>
+                  <div class="q-slider__track-markers q-slider__track-markers--h absolute-full fit" style="background-size:11.11111111111111% 2px;"></div>
                 </div>
-                <div class="q-slider__thumb-container absolute non-selectable" style="left:100%;"><svg focusable="false" viewBox="0 0 20 20" width="20" height="20" class="q-slider__thumb absolute">
+                <div class="q-slider__thumb-container q-slider__thumb-container--h absolute non-selectable" style="left:100%;"><svg focusable="false" viewBox="0 0 20 20" width="20" height="20" class="q-slider__thumb absolute">
                     <path d="M 4, 10 a 6,6 0 1,0 12,0 a 6,6 0 1,0 -12,0"></path>
                   </svg>
                   <div class="q-slider__focus-ring"></div>
-                  <div class="q-slider__pin absolute" style="transform-origin:calc(100% - 10px) 50%;">
-                    <div class="q-slider__pin-text-container" style="right:0%;transform:translateX(0px);"><span class="q-slider__pin-text q-slider__pin-value-marker-text">10</span></div>
+                  <div class="q-slider__pin q-slider__pin--h absolute" style="transform-origin:calc(100% - 10px) 50%;">
+                    <div class="q-slider__pin-text-container q-slider__pin-text-container--h" style="right:0%;transform:translateX(0px);"><span class="q-slider__pin-text q-slider__pin-value-marker-text">10</span></div>
                   </div>
-                  <div class="q-slider__arrow"></div>
+                  <div class="q-slider__arrow q-slider__arrow--h"></div>
                 </div>
               </div>
             </div>
           </div>
           <div class="q-field__bottom row items-start q-field__bottom--animated">
-            <div class="q-field__messages col">
-              <div>How many people should participate in the pick-up?</div>
-            </div>
+            <transition-stub name="q-transition--field-message">
+              <div class="q-field__messages col">
+                <div>How many people should participate in the pick-up?</div>
+              </div>
+            </transition-stub>
           </div>
         </div>
         <div class="q-field__after q-field__marginal row no-wrap items-center"><i aria-hidden="true" role="presentation" class="material-icons q-icon notranslate">undo</i></div>
@@ -8319,9 +8405,11 @@ exports[`Storyshots PickupEdit series changed 1`] = `
             </div>
           </div>
           <div class="q-field__bottom row items-start q-field__bottom--animated">
-            <div class="q-field__messages col">
-              <div>What should people know when signing up to this pick-up?</div>
-            </div>
+            <transition-stub name="q-transition--field-message">
+              <div class="q-field__messages col">
+                <div>What should people know when signing up to this pick-up?</div>
+              </div>
+            </transition-stub>
           </div>
         </div>
         <div class="q-field__after q-field__marginal row no-wrap items-center"><i aria-hidden="true" role="presentation" class="material-icons q-icon notranslate">undo</i></div>
@@ -8354,7 +8442,7 @@ exports[`Storyshots PickupEdit series changed 1`] = `
             Save changes
           </div>
         </div>
-        <!---->
+        <transition-stub name="q-transition--fade"></transition-stub>
       </button></div>
   </form>
 </div>
@@ -8411,27 +8499,29 @@ exports[`Storyshots PickupEdit with duration 1`] = `
           <div tabindex="-1" class="q-field__control relative-position row no-wrap">
             <div class="q-field__control-container col relative-position row no-wrap q-anchor--skip"><input tabindex="0" aria-label="Max Slots" placeholder="unlimited" id="f_80808080-8080-4080-8080-808080808080" type="number" value="10" class="q-field__native q-placeholder" style="max-width:100px;">
               <div class="q-field__label no-pointer-events absolute ellipsis">Max Slots</div>
-              <div role="slider" aria-valuemin="1" aria-valuemax="10" aria-orientation="horizontal" data-step="1" aria-valuenow="10" tabindex="0" class="q-mx-sm self-end q-slider q-slider--inactive q-slider--editable q-slider--label" style="min-width:60px;">
-                <div class="q-slider__track-container absolute">
-                  <div class="q-slider__track absolute" style="left:0;width:100%;"></div>
-                  <div class="q-slider__track-markers absolute-full fit" style="background-size:11.11111111111111% 2px;"></div>
+              <div role="slider" aria-valuemin="1" aria-valuemax="10" aria-orientation="horizontal" data-step="1" aria-valuenow="10" tabindex="0" class="q-mx-sm self-end q-slider q-slider--h q-slider--inactive q-slider--editable q-slider--label" style="min-width:60px;">
+                <div class="q-slider__track-container q-slider__track-container--h absolute">
+                  <div class="q-slider__track q-slider__track--h absolute" style="left:0;width:100%;"></div>
+                  <div class="q-slider__track-markers q-slider__track-markers--h absolute-full fit" style="background-size:11.11111111111111% 2px;"></div>
                 </div>
-                <div class="q-slider__thumb-container absolute non-selectable" style="left:100%;"><svg focusable="false" viewBox="0 0 20 20" width="20" height="20" class="q-slider__thumb absolute">
+                <div class="q-slider__thumb-container q-slider__thumb-container--h absolute non-selectable" style="left:100%;"><svg focusable="false" viewBox="0 0 20 20" width="20" height="20" class="q-slider__thumb absolute">
                     <path d="M 4, 10 a 6,6 0 1,0 12,0 a 6,6 0 1,0 -12,0"></path>
                   </svg>
                   <div class="q-slider__focus-ring"></div>
-                  <div class="q-slider__pin absolute" style="transform-origin:calc(100% - 10px) 50%;">
-                    <div class="q-slider__pin-text-container" style="right:0%;transform:translateX(0px);"><span class="q-slider__pin-text q-slider__pin-value-marker-text">10</span></div>
+                  <div class="q-slider__pin q-slider__pin--h absolute" style="transform-origin:calc(100% - 10px) 50%;">
+                    <div class="q-slider__pin-text-container q-slider__pin-text-container--h" style="right:0%;transform:translateX(0px);"><span class="q-slider__pin-text q-slider__pin-value-marker-text">10</span></div>
                   </div>
-                  <div class="q-slider__arrow"></div>
+                  <div class="q-slider__arrow q-slider__arrow--h"></div>
                 </div>
               </div>
             </div>
           </div>
           <div class="q-field__bottom row items-start q-field__bottom--animated">
-            <div class="q-field__messages col">
-              <div>How many people should participate in the pick-up?</div>
-            </div>
+            <transition-stub name="q-transition--field-message">
+              <div class="q-field__messages col">
+                <div>How many people should participate in the pick-up?</div>
+              </div>
+            </transition-stub>
           </div>
         </div>
         <div class="q-field__after q-field__marginal row no-wrap items-center"></div>
@@ -8447,9 +8537,11 @@ exports[`Storyshots PickupEdit with duration 1`] = `
             </div>
           </div>
           <div class="q-field__bottom row items-start q-field__bottom--animated">
-            <div class="q-field__messages col">
-              <div>What should people know when signing up to this pick-up?</div>
-            </div>
+            <transition-stub name="q-transition--field-message">
+              <div class="q-field__messages col">
+                <div>What should people know when signing up to this pick-up?</div>
+              </div>
+            </transition-stub>
           </div>
         </div>
         <div class="q-field__after q-field__marginal row no-wrap items-center"></div>
@@ -8480,7 +8572,7 @@ exports[`Storyshots PickupEdit with duration 1`] = `
             Save changes
           </div>
         </div>
-        <!---->
+        <transition-stub name="q-transition--fade"></transition-stub>
       </button></div>
   </form>
 </div>
@@ -9032,7 +9124,9 @@ exports[`Storyshots PickupSeriesEdit custom rule 1`] = `
           </div>
         </div>
         <div class="q-field__bottom row items-start q-field__bottom--animated">
-          <div class="q-field__messages col"><span>Type in a valid <a href="https://www.kanzaki.com/docs/ical/rrule.html" target="_blank" rel="noopener nofollow noreferrer" style="text-decoration:underline;"></a>, e.g. <a href="https://jakubroztocil.github.io/rrule/#/rfc/FREQ=MONTHLY;BYDAY=MO,TU,WE,TH,FR;BYSETPOS=-1" target="_blank" rel="noopener nofollow noreferrer" style="text-decoration:underline;"></a> or <a href="https://jakubroztocil.github.io/rrule/#/rfc/FREQ=WEEKLY;INTERVAL=2;BYDAY=MO" target="_blank" rel="noopener nofollow noreferrer" style="text-decoration:underline;"></a></span></div>
+          <transition-stub name="q-transition--field-message">
+            <div class="q-field__messages col"><span>Type in a valid <a href="https://www.kanzaki.com/docs/ical/rrule.html" target="_blank" rel="noopener nofollow noreferrer" style="text-decoration:underline;"></a>, e.g. <a href="https://jakubroztocil.github.io/rrule/#/rfc/FREQ=MONTHLY;BYDAY=MO,TU,WE,TH,FR;BYSETPOS=-1" target="_blank" rel="noopener nofollow noreferrer" style="text-decoration:underline;"></a> or <a href="https://jakubroztocil.github.io/rrule/#/rfc/FREQ=WEEKLY;INTERVAL=2;BYDAY=MO" target="_blank" rel="noopener nofollow noreferrer" style="text-decoration:underline;"></a></span></div>
+          </transition-stub>
         </div>
       </div>
     </label> <label for="f_80808080-8080-4080-8080-808080808080" class="q-field row no-wrap items-start q-input q-field--standard q-field--float q-field--labeled q-field--with-bottom">
@@ -9041,27 +9135,29 @@ exports[`Storyshots PickupSeriesEdit custom rule 1`] = `
         <div tabindex="-1" class="q-field__control relative-position row no-wrap">
           <div class="q-field__control-container col relative-position row no-wrap q-anchor--skip"><input tabindex="0" aria-label="Max Slots" placeholder="unlimited" id="f_80808080-8080-4080-8080-808080808080" type="number" value="10" class="q-field__native q-placeholder" style="max-width:100px;">
             <div class="q-field__label no-pointer-events absolute ellipsis">Max Slots</div>
-            <div role="slider" aria-valuemin="1" aria-valuemax="10" aria-orientation="horizontal" data-step="1" aria-valuenow="10" tabindex="0" class="q-mx-sm self-end q-slider q-slider--inactive q-slider--editable q-slider--label" style="min-width:60px;">
-              <div class="q-slider__track-container absolute">
-                <div class="q-slider__track absolute" style="left:0;width:100%;"></div>
-                <div class="q-slider__track-markers absolute-full fit" style="background-size:11.11111111111111% 2px;"></div>
+            <div role="slider" aria-valuemin="1" aria-valuemax="10" aria-orientation="horizontal" data-step="1" aria-valuenow="10" tabindex="0" class="q-mx-sm self-end q-slider q-slider--h q-slider--inactive q-slider--editable q-slider--label" style="min-width:60px;">
+              <div class="q-slider__track-container q-slider__track-container--h absolute">
+                <div class="q-slider__track q-slider__track--h absolute" style="left:0;width:100%;"></div>
+                <div class="q-slider__track-markers q-slider__track-markers--h absolute-full fit" style="background-size:11.11111111111111% 2px;"></div>
               </div>
-              <div class="q-slider__thumb-container absolute non-selectable" style="left:100%;"><svg focusable="false" viewBox="0 0 20 20" width="20" height="20" class="q-slider__thumb absolute">
+              <div class="q-slider__thumb-container q-slider__thumb-container--h absolute non-selectable" style="left:100%;"><svg focusable="false" viewBox="0 0 20 20" width="20" height="20" class="q-slider__thumb absolute">
                   <path d="M 4, 10 a 6,6 0 1,0 12,0 a 6,6 0 1,0 -12,0"></path>
                 </svg>
                 <div class="q-slider__focus-ring"></div>
-                <div class="q-slider__pin absolute" style="transform-origin:calc(100% - 10px) 50%;">
-                  <div class="q-slider__pin-text-container" style="right:0%;transform:translateX(0px);"><span class="q-slider__pin-text q-slider__pin-value-marker-text">10</span></div>
+                <div class="q-slider__pin q-slider__pin--h absolute" style="transform-origin:calc(100% - 10px) 50%;">
+                  <div class="q-slider__pin-text-container q-slider__pin-text-container--h" style="right:0%;transform:translateX(0px);"><span class="q-slider__pin-text q-slider__pin-value-marker-text">10</span></div>
                 </div>
-                <div class="q-slider__arrow"></div>
+                <div class="q-slider__arrow q-slider__arrow--h"></div>
               </div>
             </div>
           </div>
         </div>
         <div class="q-field__bottom row items-start q-field__bottom--animated">
-          <div class="q-field__messages col">
-            <div>How many people should participate in the pick-up?</div>
-          </div>
+          <transition-stub name="q-transition--field-message">
+            <div class="q-field__messages col">
+              <div>How many people should participate in the pick-up?</div>
+            </div>
+          </transition-stub>
         </div>
       </div>
     </label> <label for="f_80808080-8080-4080-8080-808080808080" class="q-field row no-wrap items-start q-textarea q-textarea--autogrow q-field--standard q-field--labeled q-field--with-bottom">
@@ -9073,9 +9169,11 @@ exports[`Storyshots PickupSeriesEdit custom rule 1`] = `
           </div>
         </div>
         <div class="q-field__bottom row items-start q-field__bottom--animated">
-          <div class="q-field__messages col">
-            <div>What should people know when signing up to this pick-up?</div>
-          </div>
+          <transition-stub name="q-transition--field-message">
+            <div class="q-field__messages col">
+              <div>What should people know when signing up to this pick-up?</div>
+            </div>
+          </transition-stub>
         </div>
       </div>
     </label>
@@ -9102,7 +9200,7 @@ exports[`Storyshots PickupSeriesEdit custom rule 1`] = `
             Save changes
           </div>
         </div>
-        <!---->
+        <transition-stub name="q-transition--fade"></transition-stub>
       </button></div>
   </form>
 </div>
@@ -9190,7 +9288,9 @@ exports[`Storyshots PickupSeriesEdit custom rule with duration 1`] = `
           </div>
         </div>
         <div class="q-field__bottom row items-start q-field__bottom--animated">
-          <div class="q-field__messages col"><span>Type in a valid <a href="https://www.kanzaki.com/docs/ical/rrule.html" target="_blank" rel="noopener nofollow noreferrer" style="text-decoration:underline;"></a>, e.g. <a href="https://jakubroztocil.github.io/rrule/#/rfc/FREQ=MONTHLY;BYDAY=MO,TU,WE,TH,FR;BYSETPOS=-1" target="_blank" rel="noopener nofollow noreferrer" style="text-decoration:underline;"></a> or <a href="https://jakubroztocil.github.io/rrule/#/rfc/FREQ=WEEKLY;INTERVAL=2;BYDAY=MO" target="_blank" rel="noopener nofollow noreferrer" style="text-decoration:underline;"></a></span></div>
+          <transition-stub name="q-transition--field-message">
+            <div class="q-field__messages col"><span>Type in a valid <a href="https://www.kanzaki.com/docs/ical/rrule.html" target="_blank" rel="noopener nofollow noreferrer" style="text-decoration:underline;"></a>, e.g. <a href="https://jakubroztocil.github.io/rrule/#/rfc/FREQ=MONTHLY;BYDAY=MO,TU,WE,TH,FR;BYSETPOS=-1" target="_blank" rel="noopener nofollow noreferrer" style="text-decoration:underline;"></a> or <a href="https://jakubroztocil.github.io/rrule/#/rfc/FREQ=WEEKLY;INTERVAL=2;BYDAY=MO" target="_blank" rel="noopener nofollow noreferrer" style="text-decoration:underline;"></a></span></div>
+          </transition-stub>
         </div>
       </div>
     </label> <label for="f_80808080-8080-4080-8080-808080808080" class="q-field row no-wrap items-start q-input q-field--standard q-field--float q-field--labeled q-field--with-bottom">
@@ -9199,27 +9299,29 @@ exports[`Storyshots PickupSeriesEdit custom rule with duration 1`] = `
         <div tabindex="-1" class="q-field__control relative-position row no-wrap">
           <div class="q-field__control-container col relative-position row no-wrap q-anchor--skip"><input tabindex="0" aria-label="Max Slots" placeholder="unlimited" id="f_80808080-8080-4080-8080-808080808080" type="number" value="10" class="q-field__native q-placeholder" style="max-width:100px;">
             <div class="q-field__label no-pointer-events absolute ellipsis">Max Slots</div>
-            <div role="slider" aria-valuemin="1" aria-valuemax="10" aria-orientation="horizontal" data-step="1" aria-valuenow="10" tabindex="0" class="q-mx-sm self-end q-slider q-slider--inactive q-slider--editable q-slider--label" style="min-width:60px;">
-              <div class="q-slider__track-container absolute">
-                <div class="q-slider__track absolute" style="left:0;width:100%;"></div>
-                <div class="q-slider__track-markers absolute-full fit" style="background-size:11.11111111111111% 2px;"></div>
+            <div role="slider" aria-valuemin="1" aria-valuemax="10" aria-orientation="horizontal" data-step="1" aria-valuenow="10" tabindex="0" class="q-mx-sm self-end q-slider q-slider--h q-slider--inactive q-slider--editable q-slider--label" style="min-width:60px;">
+              <div class="q-slider__track-container q-slider__track-container--h absolute">
+                <div class="q-slider__track q-slider__track--h absolute" style="left:0;width:100%;"></div>
+                <div class="q-slider__track-markers q-slider__track-markers--h absolute-full fit" style="background-size:11.11111111111111% 2px;"></div>
               </div>
-              <div class="q-slider__thumb-container absolute non-selectable" style="left:100%;"><svg focusable="false" viewBox="0 0 20 20" width="20" height="20" class="q-slider__thumb absolute">
+              <div class="q-slider__thumb-container q-slider__thumb-container--h absolute non-selectable" style="left:100%;"><svg focusable="false" viewBox="0 0 20 20" width="20" height="20" class="q-slider__thumb absolute">
                   <path d="M 4, 10 a 6,6 0 1,0 12,0 a 6,6 0 1,0 -12,0"></path>
                 </svg>
                 <div class="q-slider__focus-ring"></div>
-                <div class="q-slider__pin absolute" style="transform-origin:calc(100% - 10px) 50%;">
-                  <div class="q-slider__pin-text-container" style="right:0%;transform:translateX(0px);"><span class="q-slider__pin-text q-slider__pin-value-marker-text">10</span></div>
+                <div class="q-slider__pin q-slider__pin--h absolute" style="transform-origin:calc(100% - 10px) 50%;">
+                  <div class="q-slider__pin-text-container q-slider__pin-text-container--h" style="right:0%;transform:translateX(0px);"><span class="q-slider__pin-text q-slider__pin-value-marker-text">10</span></div>
                 </div>
-                <div class="q-slider__arrow"></div>
+                <div class="q-slider__arrow q-slider__arrow--h"></div>
               </div>
             </div>
           </div>
         </div>
         <div class="q-field__bottom row items-start q-field__bottom--animated">
-          <div class="q-field__messages col">
-            <div>How many people should participate in the pick-up?</div>
-          </div>
+          <transition-stub name="q-transition--field-message">
+            <div class="q-field__messages col">
+              <div>How many people should participate in the pick-up?</div>
+            </div>
+          </transition-stub>
         </div>
       </div>
     </label> <label for="f_80808080-8080-4080-8080-808080808080" class="q-field row no-wrap items-start q-textarea q-textarea--autogrow q-field--standard q-field--labeled q-field--with-bottom">
@@ -9231,9 +9333,11 @@ exports[`Storyshots PickupSeriesEdit custom rule with duration 1`] = `
           </div>
         </div>
         <div class="q-field__bottom row items-start q-field__bottom--animated">
-          <div class="q-field__messages col">
-            <div>What should people know when signing up to this pick-up?</div>
-          </div>
+          <transition-stub name="q-transition--field-message">
+            <div class="q-field__messages col">
+              <div>What should people know when signing up to this pick-up?</div>
+            </div>
+          </transition-stub>
         </div>
       </div>
     </label>
@@ -9260,7 +9364,7 @@ exports[`Storyshots PickupSeriesEdit custom rule with duration 1`] = `
             Save changes
           </div>
         </div>
-        <!---->
+        <transition-stub name="q-transition--fade"></transition-stub>
       </button></div>
   </form>
 </div>
@@ -9343,9 +9447,11 @@ exports[`Storyshots PickupSeriesEdit duration 1`] = `
           <!---->
         </div>
         <div class="q-field__bottom row items-start q-field__bottom--animated">
-          <div class="q-field__messages col">
-            <div>On which days should the pick-up take place?</div>
-          </div>
+          <transition-stub name="q-transition--field-message">
+            <div class="q-field__messages col">
+              <div>On which days should the pick-up take place?</div>
+            </div>
+          </transition-stub>
         </div>
       </div>
     </label>
@@ -9355,27 +9461,29 @@ exports[`Storyshots PickupSeriesEdit duration 1`] = `
         <div tabindex="-1" class="q-field__control relative-position row no-wrap">
           <div class="q-field__control-container col relative-position row no-wrap q-anchor--skip"><input tabindex="0" aria-label="Max Slots" placeholder="unlimited" id="f_80808080-8080-4080-8080-808080808080" type="number" value="10" class="q-field__native q-placeholder" style="max-width:100px;">
             <div class="q-field__label no-pointer-events absolute ellipsis">Max Slots</div>
-            <div role="slider" aria-valuemin="1" aria-valuemax="10" aria-orientation="horizontal" data-step="1" aria-valuenow="10" tabindex="0" class="q-mx-sm self-end q-slider q-slider--inactive q-slider--editable q-slider--label" style="min-width:60px;">
-              <div class="q-slider__track-container absolute">
-                <div class="q-slider__track absolute" style="left:0;width:100%;"></div>
-                <div class="q-slider__track-markers absolute-full fit" style="background-size:11.11111111111111% 2px;"></div>
+            <div role="slider" aria-valuemin="1" aria-valuemax="10" aria-orientation="horizontal" data-step="1" aria-valuenow="10" tabindex="0" class="q-mx-sm self-end q-slider q-slider--h q-slider--inactive q-slider--editable q-slider--label" style="min-width:60px;">
+              <div class="q-slider__track-container q-slider__track-container--h absolute">
+                <div class="q-slider__track q-slider__track--h absolute" style="left:0;width:100%;"></div>
+                <div class="q-slider__track-markers q-slider__track-markers--h absolute-full fit" style="background-size:11.11111111111111% 2px;"></div>
               </div>
-              <div class="q-slider__thumb-container absolute non-selectable" style="left:100%;"><svg focusable="false" viewBox="0 0 20 20" width="20" height="20" class="q-slider__thumb absolute">
+              <div class="q-slider__thumb-container q-slider__thumb-container--h absolute non-selectable" style="left:100%;"><svg focusable="false" viewBox="0 0 20 20" width="20" height="20" class="q-slider__thumb absolute">
                   <path d="M 4, 10 a 6,6 0 1,0 12,0 a 6,6 0 1,0 -12,0"></path>
                 </svg>
                 <div class="q-slider__focus-ring"></div>
-                <div class="q-slider__pin absolute" style="transform-origin:calc(100% - 10px) 50%;">
-                  <div class="q-slider__pin-text-container" style="right:0%;transform:translateX(0px);"><span class="q-slider__pin-text q-slider__pin-value-marker-text">10</span></div>
+                <div class="q-slider__pin q-slider__pin--h absolute" style="transform-origin:calc(100% - 10px) 50%;">
+                  <div class="q-slider__pin-text-container q-slider__pin-text-container--h" style="right:0%;transform:translateX(0px);"><span class="q-slider__pin-text q-slider__pin-value-marker-text">10</span></div>
                 </div>
-                <div class="q-slider__arrow"></div>
+                <div class="q-slider__arrow q-slider__arrow--h"></div>
               </div>
             </div>
           </div>
         </div>
         <div class="q-field__bottom row items-start q-field__bottom--animated">
-          <div class="q-field__messages col">
-            <div>How many people should participate in the pick-up?</div>
-          </div>
+          <transition-stub name="q-transition--field-message">
+            <div class="q-field__messages col">
+              <div>How many people should participate in the pick-up?</div>
+            </div>
+          </transition-stub>
         </div>
       </div>
     </label> <label for="f_80808080-8080-4080-8080-808080808080" class="q-field row no-wrap items-start q-textarea q-textarea--autogrow q-field--standard q-field--labeled q-field--with-bottom">
@@ -9387,9 +9495,11 @@ exports[`Storyshots PickupSeriesEdit duration 1`] = `
           </div>
         </div>
         <div class="q-field__bottom row items-start q-field__bottom--animated">
-          <div class="q-field__messages col">
-            <div>What should people know when signing up to this pick-up?</div>
-          </div>
+          <transition-stub name="q-transition--field-message">
+            <div class="q-field__messages col">
+              <div>What should people know when signing up to this pick-up?</div>
+            </div>
+          </transition-stub>
         </div>
       </div>
     </label>
@@ -9416,7 +9526,7 @@ exports[`Storyshots PickupSeriesEdit duration 1`] = `
             Save changes
           </div>
         </div>
-        <!---->
+        <transition-stub name="q-transition--fade"></transition-stub>
       </button></div>
   </form>
 </div>
@@ -9492,9 +9602,11 @@ exports[`Storyshots PickupSeriesEdit time error 1`] = `
           <!---->
         </div>
         <div class="q-field__bottom row items-start q-field__bottom--animated">
-          <div class="q-field__messages col">
-            <div>On which days should the pick-up take place?</div>
-          </div>
+          <transition-stub name="q-transition--field-message">
+            <div class="q-field__messages col">
+              <div>On which days should the pick-up take place?</div>
+            </div>
+          </transition-stub>
         </div>
       </div>
     </label>
@@ -9504,27 +9616,29 @@ exports[`Storyshots PickupSeriesEdit time error 1`] = `
         <div tabindex="-1" class="q-field__control relative-position row no-wrap">
           <div class="q-field__control-container col relative-position row no-wrap q-anchor--skip"><input tabindex="0" aria-label="Max Slots" placeholder="unlimited" id="f_80808080-8080-4080-8080-808080808080" type="number" value="10" class="q-field__native q-placeholder" style="max-width:100px;">
             <div class="q-field__label no-pointer-events absolute ellipsis">Max Slots</div>
-            <div role="slider" aria-valuemin="1" aria-valuemax="10" aria-orientation="horizontal" data-step="1" aria-valuenow="10" tabindex="0" class="q-mx-sm self-end q-slider q-slider--inactive q-slider--editable q-slider--label" style="min-width:60px;">
-              <div class="q-slider__track-container absolute">
-                <div class="q-slider__track absolute" style="left:0;width:100%;"></div>
-                <div class="q-slider__track-markers absolute-full fit" style="background-size:11.11111111111111% 2px;"></div>
+            <div role="slider" aria-valuemin="1" aria-valuemax="10" aria-orientation="horizontal" data-step="1" aria-valuenow="10" tabindex="0" class="q-mx-sm self-end q-slider q-slider--h q-slider--inactive q-slider--editable q-slider--label" style="min-width:60px;">
+              <div class="q-slider__track-container q-slider__track-container--h absolute">
+                <div class="q-slider__track q-slider__track--h absolute" style="left:0;width:100%;"></div>
+                <div class="q-slider__track-markers q-slider__track-markers--h absolute-full fit" style="background-size:11.11111111111111% 2px;"></div>
               </div>
-              <div class="q-slider__thumb-container absolute non-selectable" style="left:100%;"><svg focusable="false" viewBox="0 0 20 20" width="20" height="20" class="q-slider__thumb absolute">
+              <div class="q-slider__thumb-container q-slider__thumb-container--h absolute non-selectable" style="left:100%;"><svg focusable="false" viewBox="0 0 20 20" width="20" height="20" class="q-slider__thumb absolute">
                   <path d="M 4, 10 a 6,6 0 1,0 12,0 a 6,6 0 1,0 -12,0"></path>
                 </svg>
                 <div class="q-slider__focus-ring"></div>
-                <div class="q-slider__pin absolute" style="transform-origin:calc(100% - 10px) 50%;">
-                  <div class="q-slider__pin-text-container" style="right:0%;transform:translateX(0px);"><span class="q-slider__pin-text q-slider__pin-value-marker-text">10</span></div>
+                <div class="q-slider__pin q-slider__pin--h absolute" style="transform-origin:calc(100% - 10px) 50%;">
+                  <div class="q-slider__pin-text-container q-slider__pin-text-container--h" style="right:0%;transform:translateX(0px);"><span class="q-slider__pin-text q-slider__pin-value-marker-text">10</span></div>
                 </div>
-                <div class="q-slider__arrow"></div>
+                <div class="q-slider__arrow q-slider__arrow--h"></div>
               </div>
             </div>
           </div>
         </div>
         <div class="q-field__bottom row items-start q-field__bottom--animated">
-          <div class="q-field__messages col">
-            <div>How many people should participate in the pick-up?</div>
-          </div>
+          <transition-stub name="q-transition--field-message">
+            <div class="q-field__messages col">
+              <div>How many people should participate in the pick-up?</div>
+            </div>
+          </transition-stub>
         </div>
       </div>
     </label> <label for="f_80808080-8080-4080-8080-808080808080" class="q-field row no-wrap items-start q-textarea q-textarea--autogrow q-field--standard q-field--labeled q-field--with-bottom">
@@ -9536,9 +9650,11 @@ exports[`Storyshots PickupSeriesEdit time error 1`] = `
           </div>
         </div>
         <div class="q-field__bottom row items-start q-field__bottom--animated">
-          <div class="q-field__messages col">
-            <div>What should people know when signing up to this pick-up?</div>
-          </div>
+          <transition-stub name="q-transition--field-message">
+            <div class="q-field__messages col">
+              <div>What should people know when signing up to this pick-up?</div>
+            </div>
+          </transition-stub>
         </div>
       </div>
     </label>
@@ -9565,7 +9681,7 @@ exports[`Storyshots PickupSeriesEdit time error 1`] = `
             Save changes
           </div>
         </div>
-        <!---->
+        <transition-stub name="q-transition--fade"></transition-stub>
       </button></div>
   </form>
 </div>
@@ -9640,9 +9756,11 @@ exports[`Storyshots PickupSeriesEdit weekly 1`] = `
           <!---->
         </div>
         <div class="q-field__bottom row items-start q-field__bottom--animated">
-          <div class="q-field__messages col">
-            <div>On which days should the pick-up take place?</div>
-          </div>
+          <transition-stub name="q-transition--field-message">
+            <div class="q-field__messages col">
+              <div>On which days should the pick-up take place?</div>
+            </div>
+          </transition-stub>
         </div>
       </div>
     </label>
@@ -9652,27 +9770,29 @@ exports[`Storyshots PickupSeriesEdit weekly 1`] = `
         <div tabindex="-1" class="q-field__control relative-position row no-wrap">
           <div class="q-field__control-container col relative-position row no-wrap q-anchor--skip"><input tabindex="0" aria-label="Max Slots" placeholder="unlimited" id="f_80808080-8080-4080-8080-808080808080" type="number" value="10" class="q-field__native q-placeholder" style="max-width:100px;">
             <div class="q-field__label no-pointer-events absolute ellipsis">Max Slots</div>
-            <div role="slider" aria-valuemin="1" aria-valuemax="10" aria-orientation="horizontal" data-step="1" aria-valuenow="10" tabindex="0" class="q-mx-sm self-end q-slider q-slider--inactive q-slider--editable q-slider--label" style="min-width:60px;">
-              <div class="q-slider__track-container absolute">
-                <div class="q-slider__track absolute" style="left:0;width:100%;"></div>
-                <div class="q-slider__track-markers absolute-full fit" style="background-size:11.11111111111111% 2px;"></div>
+            <div role="slider" aria-valuemin="1" aria-valuemax="10" aria-orientation="horizontal" data-step="1" aria-valuenow="10" tabindex="0" class="q-mx-sm self-end q-slider q-slider--h q-slider--inactive q-slider--editable q-slider--label" style="min-width:60px;">
+              <div class="q-slider__track-container q-slider__track-container--h absolute">
+                <div class="q-slider__track q-slider__track--h absolute" style="left:0;width:100%;"></div>
+                <div class="q-slider__track-markers q-slider__track-markers--h absolute-full fit" style="background-size:11.11111111111111% 2px;"></div>
               </div>
-              <div class="q-slider__thumb-container absolute non-selectable" style="left:100%;"><svg focusable="false" viewBox="0 0 20 20" width="20" height="20" class="q-slider__thumb absolute">
+              <div class="q-slider__thumb-container q-slider__thumb-container--h absolute non-selectable" style="left:100%;"><svg focusable="false" viewBox="0 0 20 20" width="20" height="20" class="q-slider__thumb absolute">
                   <path d="M 4, 10 a 6,6 0 1,0 12,0 a 6,6 0 1,0 -12,0"></path>
                 </svg>
                 <div class="q-slider__focus-ring"></div>
-                <div class="q-slider__pin absolute" style="transform-origin:calc(100% - 10px) 50%;">
-                  <div class="q-slider__pin-text-container" style="right:0%;transform:translateX(0px);"><span class="q-slider__pin-text q-slider__pin-value-marker-text">10</span></div>
+                <div class="q-slider__pin q-slider__pin--h absolute" style="transform-origin:calc(100% - 10px) 50%;">
+                  <div class="q-slider__pin-text-container q-slider__pin-text-container--h" style="right:0%;transform:translateX(0px);"><span class="q-slider__pin-text q-slider__pin-value-marker-text">10</span></div>
                 </div>
-                <div class="q-slider__arrow"></div>
+                <div class="q-slider__arrow q-slider__arrow--h"></div>
               </div>
             </div>
           </div>
         </div>
         <div class="q-field__bottom row items-start q-field__bottom--animated">
-          <div class="q-field__messages col">
-            <div>How many people should participate in the pick-up?</div>
-          </div>
+          <transition-stub name="q-transition--field-message">
+            <div class="q-field__messages col">
+              <div>How many people should participate in the pick-up?</div>
+            </div>
+          </transition-stub>
         </div>
       </div>
     </label> <label for="f_80808080-8080-4080-8080-808080808080" class="q-field row no-wrap items-start q-textarea q-textarea--autogrow q-field--standard q-field--labeled q-field--with-bottom">
@@ -9684,9 +9804,11 @@ exports[`Storyshots PickupSeriesEdit weekly 1`] = `
           </div>
         </div>
         <div class="q-field__bottom row items-start q-field__bottom--animated">
-          <div class="q-field__messages col">
-            <div>What should people know when signing up to this pick-up?</div>
-          </div>
+          <transition-stub name="q-transition--field-message">
+            <div class="q-field__messages col">
+              <div>What should people know when signing up to this pick-up?</div>
+            </div>
+          </transition-stub>
         </div>
       </div>
     </label>
@@ -9713,7 +9835,7 @@ exports[`Storyshots PickupSeriesEdit weekly 1`] = `
             Save changes
           </div>
         </div>
-        <!---->
+        <transition-stub name="q-transition--fade"></transition-stub>
       </button></div>
   </form>
 </div>
@@ -10015,12 +10137,14 @@ exports[`Storyshots PickupsManage default 1`] = `
             </div>
             <div class="q-item__section column q-focusable relative-position cursor-pointer q-item__section--side justify-center"><i aria-hidden="true" role="presentation" class="q-expansion-item__toggle-icon material-icons q-icon notranslate">keyboard_arrow_down</i></div>
           </div>
-          <div class="q-expansion-item__content relative-position" style="display:none;">
-            <!---->
-            <div seperator="" class="q-list">
-              <div class="q-item__label q-item__label--header"><span></span></div>
+          <transition-stub>
+            <div class="q-expansion-item__content relative-position" style="display:none;">
+              <!---->
+              <div seperator="" class="q-list">
+                <div class="q-item__label q-item__label--header"><span></span></div>
+              </div>
             </div>
-          </div>
+          </transition-stub>
         </div>
       </div>
     </div>
@@ -10069,7 +10193,9 @@ exports[`Storyshots PickupsManage default 1`] = `
             </div>
             <div class="q-item__section column q-focusable relative-position cursor-pointer q-item__section--side justify-center"><i aria-hidden="true" role="presentation" class="q-expansion-item__toggle-icon material-icons q-icon notranslate">keyboard_arrow_down</i></div>
           </div>
-          <div class="q-expansion-item__content relative-position" style="display:none;"></div>
+          <transition-stub>
+            <div class="q-expansion-item__content relative-position" style="display:none;"></div>
+          </transition-stub>
         </div>
       </div>
       <div class="q-expansion-item q-item-type q-expansion-item--collapsed q-expansion-item--standard">
@@ -10088,7 +10214,9 @@ exports[`Storyshots PickupsManage default 1`] = `
             </div>
             <div class="q-item__section column q-focusable relative-position cursor-pointer q-item__section--side justify-center"><i aria-hidden="true" role="presentation" class="q-expansion-item__toggle-icon material-icons q-icon notranslate">keyboard_arrow_down</i></div>
           </div>
-          <div class="q-expansion-item__content relative-position" style="display:none;"></div>
+          <transition-stub>
+            <div class="q-expansion-item__content relative-position" style="display:none;"></div>
+          </transition-stub>
         </div>
       </div>
       <div class="q-expansion-item q-item-type q-expansion-item--collapsed q-expansion-item--standard">
@@ -10107,7 +10235,9 @@ exports[`Storyshots PickupsManage default 1`] = `
             </div>
             <div class="q-item__section column q-focusable relative-position cursor-pointer q-item__section--side justify-center"><i aria-hidden="true" role="presentation" class="q-expansion-item__toggle-icon material-icons q-icon notranslate">keyboard_arrow_down</i></div>
           </div>
-          <div class="q-expansion-item__content relative-position" style="display:none;"></div>
+          <transition-stub>
+            <div class="q-expansion-item__content relative-position" style="display:none;"></div>
+          </transition-stub>
         </div>
       </div>
       <div class="q-expansion-item q-item-type q-expansion-item--collapsed q-expansion-item--standard">
@@ -10126,7 +10256,9 @@ exports[`Storyshots PickupsManage default 1`] = `
             </div>
             <div class="q-item__section column q-focusable relative-position cursor-pointer q-item__section--side justify-center"><i aria-hidden="true" role="presentation" class="q-expansion-item__toggle-icon material-icons q-icon notranslate">keyboard_arrow_down</i></div>
           </div>
-          <div class="q-expansion-item__content relative-position" style="display:none;"></div>
+          <transition-stub>
+            <div class="q-expansion-item__content relative-position" style="display:none;"></div>
+          </transition-stub>
         </div>
       </div>
       <div class="q-expansion-item q-item-type q-expansion-item--collapsed q-expansion-item--standard">
@@ -10145,7 +10277,9 @@ exports[`Storyshots PickupsManage default 1`] = `
             </div>
             <div class="q-item__section column q-focusable relative-position cursor-pointer q-item__section--side justify-center"><i aria-hidden="true" role="presentation" class="q-expansion-item__toggle-icon material-icons q-icon notranslate">keyboard_arrow_down</i></div>
           </div>
-          <div class="q-expansion-item__content relative-position" style="display:none;"></div>
+          <transition-stub>
+            <div class="q-expansion-item__content relative-position" style="display:none;"></div>
+          </transition-stub>
         </div>
       </div>
     </div>
@@ -10167,9 +10301,11 @@ exports[`Storyshots Places PlaceEdit (with server error) 1`] = `
               <div class="q-field__append q-field__marginal row no-wrap items-center q-anchor--skip"><i aria-hidden="true" role="presentation" class="material-icons q-icon notranslate text-negative">error</i></div>
             </div>
             <div class="q-field__bottom row items-start q-field__bottom--animated">
-              <div class="q-field__messages col">
-                <div>a nice server error</div>
-              </div>
+              <transition-stub name="q-transition--field-message">
+                <div class="q-field__messages col">
+                  <div>a nice server error</div>
+                </div>
+              </transition-stub>
             </div>
           </div>
         </label> <label for="f_80808080-8080-4080-8080-808080808080" class="q-field row no-wrap items-start q-select q-field--auto-height q-select--without-input q-field--standard q-field--float q-field--labeled q-field--with-bottom">
@@ -10190,7 +10326,9 @@ exports[`Storyshots Places PlaceEdit (with server error) 1`] = `
               <!---->
             </div>
             <div class="q-field__bottom row items-start q-field__bottom--animated">
-              <div class="q-field__messages col"></div>
+              <transition-stub name="q-transition--field-message">
+                <div class="q-field__messages col"></div>
+              </transition-stub>
             </div>
           </div>
         </label>
@@ -10203,7 +10341,9 @@ exports[`Storyshots Places PlaceEdit (with server error) 1`] = `
                 </div>
               </div>
               <div class="q-field__bottom row items-start q-field__bottom--animated">
-                <div class="q-field__messages col"></div>
+                <transition-stub name="q-transition--field-message">
+                  <div class="q-field__messages col"></div>
+                </transition-stub>
               </div>
             </div>
           </label>
@@ -10220,7 +10360,9 @@ exports[`Storyshots Places PlaceEdit (with server error) 1`] = `
                 <div class="q-field__append q-field__marginal row no-wrap items-center"></div>
               </div>
               <div class="q-field__bottom row items-start q-field__bottom--animated">
-                <div class="q-field__messages col"></div>
+                <transition-stub name="q-transition--field-message">
+                  <div class="q-field__messages col"></div>
+                </transition-stub>
               </div>
             </div>
           </label>
@@ -10234,19 +10376,19 @@ exports[`Storyshots Places PlaceEdit (with server error) 1`] = `
               <div tabindex="-1" class="q-field__control relative-position row no-wrap">
                 <div class="q-field__control-container col relative-position row no-wrap q-anchor--skip">
                   <div class="q-field__native row">
-                    <div role="slider" aria-valuemin="1" aria-valuemax="10" aria-orientation="horizontal" data-step="1" aria-valuenow="4" tabindex="0" class="q-mt-lg q-mx-md q-slider q-slider--inactive q-slider--editable q-slider--label q-slider--label-always">
-                      <div class="q-slider__track-container absolute">
-                        <div class="q-slider__track absolute" style="left:0;width:33.33333333333333%;"></div>
-                        <div class="q-slider__track-markers absolute-full fit" style="background-size:11.11111111111111% 2px;"></div>
+                    <div role="slider" aria-valuemin="1" aria-valuemax="10" aria-orientation="horizontal" data-step="1" aria-valuenow="4" tabindex="0" class="q-mt-lg q-mx-md q-slider q-slider--h q-slider--inactive q-slider--editable q-slider--label q-slider--label-always">
+                      <div class="q-slider__track-container q-slider__track-container--h absolute">
+                        <div class="q-slider__track q-slider__track--h absolute" style="left:0;width:33.33333333333333%;"></div>
+                        <div class="q-slider__track-markers q-slider__track-markers--h absolute-full fit" style="background-size:11.11111111111111% 2px;"></div>
                       </div>
-                      <div class="q-slider__thumb-container absolute non-selectable" style="left:33.33333333333333%;"><svg focusable="false" viewBox="0 0 20 20" width="20" height="20" class="q-slider__thumb absolute">
+                      <div class="q-slider__thumb-container q-slider__thumb-container--h absolute non-selectable" style="left:33.33333333333333%;"><svg focusable="false" viewBox="0 0 20 20" width="20" height="20" class="q-slider__thumb absolute">
                           <path d="M 4, 10 a 6,6 0 1,0 12,0 a 6,6 0 1,0 -12,0"></path>
                         </svg>
                         <div class="q-slider__focus-ring"></div>
-                        <div class="q-slider__pin absolute" style="transform-origin:calc(100% - 4px) 50%;">
-                          <div class="q-slider__pin-text-container" style="right:-66.66666666666667%;transform:translateX(-13px);"><span class="q-slider__pin-text q-slider__pin-value-marker-text">4</span></div>
+                        <div class="q-slider__pin q-slider__pin--h absolute" style="transform-origin:calc(100% - 4px) 50%;">
+                          <div class="q-slider__pin-text-container q-slider__pin-text-container--h" style="right:-66.66666666666667%;transform:translateX(-13px);"><span class="q-slider__pin-text q-slider__pin-value-marker-text">4</span></div>
                         </div>
-                        <div class="q-slider__arrow"></div>
+                        <div class="q-slider__arrow q-slider__arrow--h"></div>
                       </div>
                     </div>
                   </div>
@@ -10284,7 +10426,7 @@ exports[`Storyshots Places PlaceEdit (with server error) 1`] = `
                 Save changes
               </div>
             </div>
-            <!---->
+            <transition-stub name="q-transition--fade"></transition-stub>
           </button></div>
       </form>
     </div>
@@ -10305,7 +10447,9 @@ exports[`Storyshots Places PlaceEdit 1`] = `
               </div>
             </div>
             <div class="q-field__bottom row items-start q-field__bottom--animated">
-              <div class="q-field__messages col"></div>
+              <transition-stub name="q-transition--field-message">
+                <div class="q-field__messages col"></div>
+              </transition-stub>
             </div>
           </div>
         </label> <label for="f_80808080-8080-4080-8080-808080808080" class="q-field row no-wrap items-start q-select q-field--auto-height q-select--without-input q-field--standard q-field--float q-field--labeled q-field--with-bottom">
@@ -10326,7 +10470,9 @@ exports[`Storyshots Places PlaceEdit 1`] = `
               <!---->
             </div>
             <div class="q-field__bottom row items-start q-field__bottom--animated">
-              <div class="q-field__messages col"></div>
+              <transition-stub name="q-transition--field-message">
+                <div class="q-field__messages col"></div>
+              </transition-stub>
             </div>
           </div>
         </label>
@@ -10339,7 +10485,9 @@ exports[`Storyshots Places PlaceEdit 1`] = `
                 </div>
               </div>
               <div class="q-field__bottom row items-start q-field__bottom--animated">
-                <div class="q-field__messages col"></div>
+                <transition-stub name="q-transition--field-message">
+                  <div class="q-field__messages col"></div>
+                </transition-stub>
               </div>
             </div>
           </label>
@@ -10356,7 +10504,9 @@ exports[`Storyshots Places PlaceEdit 1`] = `
                 <div class="q-field__append q-field__marginal row no-wrap items-center"></div>
               </div>
               <div class="q-field__bottom row items-start q-field__bottom--animated">
-                <div class="q-field__messages col"></div>
+                <transition-stub name="q-transition--field-message">
+                  <div class="q-field__messages col"></div>
+                </transition-stub>
               </div>
             </div>
           </label>
@@ -10370,19 +10520,19 @@ exports[`Storyshots Places PlaceEdit 1`] = `
               <div tabindex="-1" class="q-field__control relative-position row no-wrap">
                 <div class="q-field__control-container col relative-position row no-wrap q-anchor--skip">
                   <div class="q-field__native row">
-                    <div role="slider" aria-valuemin="1" aria-valuemax="10" aria-orientation="horizontal" data-step="1" aria-valuenow="4" tabindex="0" class="q-mt-lg q-mx-md q-slider q-slider--inactive q-slider--editable q-slider--label q-slider--label-always">
-                      <div class="q-slider__track-container absolute">
-                        <div class="q-slider__track absolute" style="left:0;width:33.33333333333333%;"></div>
-                        <div class="q-slider__track-markers absolute-full fit" style="background-size:11.11111111111111% 2px;"></div>
+                    <div role="slider" aria-valuemin="1" aria-valuemax="10" aria-orientation="horizontal" data-step="1" aria-valuenow="4" tabindex="0" class="q-mt-lg q-mx-md q-slider q-slider--h q-slider--inactive q-slider--editable q-slider--label q-slider--label-always">
+                      <div class="q-slider__track-container q-slider__track-container--h absolute">
+                        <div class="q-slider__track q-slider__track--h absolute" style="left:0;width:33.33333333333333%;"></div>
+                        <div class="q-slider__track-markers q-slider__track-markers--h absolute-full fit" style="background-size:11.11111111111111% 2px;"></div>
                       </div>
-                      <div class="q-slider__thumb-container absolute non-selectable" style="left:33.33333333333333%;"><svg focusable="false" viewBox="0 0 20 20" width="20" height="20" class="q-slider__thumb absolute">
+                      <div class="q-slider__thumb-container q-slider__thumb-container--h absolute non-selectable" style="left:33.33333333333333%;"><svg focusable="false" viewBox="0 0 20 20" width="20" height="20" class="q-slider__thumb absolute">
                           <path d="M 4, 10 a 6,6 0 1,0 12,0 a 6,6 0 1,0 -12,0"></path>
                         </svg>
                         <div class="q-slider__focus-ring"></div>
-                        <div class="q-slider__pin absolute" style="transform-origin:calc(100% - 4px) 50%;">
-                          <div class="q-slider__pin-text-container" style="right:-66.66666666666667%;transform:translateX(-13px);"><span class="q-slider__pin-text q-slider__pin-value-marker-text">4</span></div>
+                        <div class="q-slider__pin q-slider__pin--h absolute" style="transform-origin:calc(100% - 4px) 50%;">
+                          <div class="q-slider__pin-text-container q-slider__pin-text-container--h" style="right:-66.66666666666667%;transform:translateX(-13px);"><span class="q-slider__pin-text q-slider__pin-value-marker-text">4</span></div>
                         </div>
-                        <div class="q-slider__arrow"></div>
+                        <div class="q-slider__arrow q-slider__arrow--h"></div>
                       </div>
                     </div>
                   </div>
@@ -10420,7 +10570,7 @@ exports[`Storyshots Places PlaceEdit 1`] = `
                 Save changes
               </div>
             </div>
-            <!---->
+            <transition-stub name="q-transition--fade"></transition-stub>
           </button></div>
       </form>
     </div>
@@ -10850,9 +11000,11 @@ exports[`Storyshots Settings Page Default 1`] = `
               </div>
             </div>
             <div class="q-field__bottom row items-start q-field__bottom--animated">
-              <div class="q-field__messages col">
-                <div>Set your profile photo...</div>
-              </div>
+              <transition-stub name="q-transition--field-message">
+                <div class="q-field__messages col">
+                  <div>Set your profile photo...</div>
+                </div>
+              </transition-stub>
             </div>
           </div>
         </label>
@@ -10876,7 +11028,7 @@ exports[`Storyshots Settings Page Default 1`] = `
             <div class="q-btn__wrapper col row q-anchor--skip">
               <div class="q-btn__content text-center col items-center q-anchor--skip justify-center row"><span></span></div>
             </div>
-            <!---->
+            <transition-stub name="q-transition--fade"></transition-stub>
           </button></div>
       </div>
       <hr role="separator" aria-orientation="horizontal" class="q-separator q-separator q-separator--horizontal col-grow">
@@ -10890,7 +11042,9 @@ exports[`Storyshots Settings Page Default 1`] = `
                 </div>
               </div>
               <div class="q-field__bottom row items-start q-field__bottom--animated">
-                <div class="q-field__messages col"></div>
+                <transition-stub name="q-transition--field-message">
+                  <div class="q-field__messages col"></div>
+                </transition-stub>
               </div>
             </div>
           </label>
@@ -10903,7 +11057,9 @@ exports[`Storyshots Settings Page Default 1`] = `
                   </div>
                 </div>
                 <div class="q-field__bottom row items-start q-field__bottom--animated">
-                  <div class="q-field__messages col"></div>
+                  <transition-stub name="q-transition--field-message">
+                    <div class="q-field__messages col"></div>
+                  </transition-stub>
                 </div>
               </div>
             </label> <button tabindex="0" type="button" role="button" class="q-btn q-btn-item non-selectable no-outline absolute-bottom-right bg-white q-btn--outline q-btn--rectangle text-primary q-btn--actionable q-focusable q-hoverable q-btn--wrap" style="font-size:8px;bottom:-10px;">
@@ -10923,7 +11079,9 @@ exports[`Storyshots Settings Page Default 1`] = `
                 </div>
               </div>
               <div class="q-field__bottom row items-start q-field__bottom--animated">
-                <div class="q-field__messages col"></div>
+                <transition-stub name="q-transition--field-message">
+                  <div class="q-field__messages col"></div>
+                </transition-stub>
               </div>
             </div>
           </label>
@@ -10938,7 +11096,9 @@ exports[`Storyshots Settings Page Default 1`] = `
                   <div class="q-field__append q-field__marginal row no-wrap items-center"><i aria-hidden="true" role="presentation" class="cursor-pointer material-icons q-icon notranslate">cancel</i></div>
                 </div>
                 <div class="q-field__bottom row items-start q-field__bottom--animated">
-                  <div class="q-field__messages col"></div>
+                  <transition-stub name="q-transition--field-message">
+                    <div class="q-field__messages col"></div>
+                  </transition-stub>
                 </div>
               </div>
             </label>
@@ -10961,7 +11121,7 @@ exports[`Storyshots Settings Page Default 1`] = `
                   Save changes
                 </div>
               </div>
-              <!---->
+              <transition-stub name="q-transition--fade"></transition-stub>
             </button></div>
         </form>
       </div>
@@ -11002,7 +11162,9 @@ exports[`Storyshots Settings Page Default 1`] = `
               </div>
             </div>
             <div class="q-field__bottom row items-start q-field__bottom--animated">
-              <div class="q-field__messages col"></div>
+              <transition-stub name="q-transition--field-message">
+                <div class="q-field__messages col"></div>
+              </transition-stub>
             </div>
           </div>
         </label> <label for="f_80808080-8080-4080-8080-808080808080" class="q-field row no-wrap items-start q-input q-field--standard q-field--labeled q-field--with-bottom">
@@ -11014,7 +11176,9 @@ exports[`Storyshots Settings Page Default 1`] = `
               </div>
             </div>
             <div class="q-field__bottom row items-start q-field__bottom--animated">
-              <div class="q-field__messages col"></div>
+              <transition-stub name="q-transition--field-message">
+                <div class="q-field__messages col"></div>
+              </transition-stub>
             </div>
           </div>
         </label>
@@ -11026,7 +11190,7 @@ exports[`Storyshots Settings Page Default 1`] = `
                 Change e-mail address
               </div>
             </div>
-            <!---->
+            <transition-stub name="q-transition--fade"></transition-stub>
           </button></div>
       </div>
       <hr role="separator" aria-orientation="horizontal" class="q-separator q-separator q-separator--horizontal col-grow">
@@ -11039,7 +11203,9 @@ exports[`Storyshots Settings Page Default 1`] = `
               </div>
             </div>
             <div class="q-field__bottom row items-start q-field__bottom--animated">
-              <div class="q-field__messages col"></div>
+              <transition-stub name="q-transition--field-message">
+                <div class="q-field__messages col"></div>
+              </transition-stub>
             </div>
           </div>
         </label> <label for="f_80808080-8080-4080-8080-808080808080" class="q-field row no-wrap items-start q-input q-field--standard q-field--labeled q-field--with-bottom">
@@ -11051,7 +11217,9 @@ exports[`Storyshots Settings Page Default 1`] = `
               </div>
             </div>
             <div class="q-field__bottom row items-start q-field__bottom--animated">
-              <div class="q-field__messages col"></div>
+              <transition-stub name="q-transition--field-message">
+                <div class="q-field__messages col"></div>
+              </transition-stub>
             </div>
           </div>
         </label>
@@ -11063,7 +11231,7 @@ exports[`Storyshots Settings Page Default 1`] = `
                 Change password
               </div>
             </div>
-            <!---->
+            <transition-stub name="q-transition--fade"></transition-stub>
           </button></div>
       </div>
       <div class="q-card__actions q-card__actions--horiz row justify-start">
@@ -11074,7 +11242,7 @@ exports[`Storyshots Settings Page Default 1`] = `
                 <div>Delete account</div>
               </div>
             </div>
-            <!---->
+            <transition-stub name="q-transition--fade"></transition-stub>
           </button>
           <!---->
         </div>
@@ -11206,7 +11374,7 @@ exports[`Storyshots Settings Page Default 1`] = `
                 <div>Unsubscribe all</div>
               </div>
             </div>
-            <!---->
+            <transition-stub name="q-transition--fade"></transition-stub>
           </button>
           <div class="q-pt-sm k-caption-opacity">
             Unsubscribe from all email notifications in 05_testgroup
@@ -11567,7 +11735,7 @@ exports[`Storyshots Signup empty 1`] = `
               Join
             </div>
           </div>
-          <!---->
+          <transition-stub name="q-transition--fade"></transition-stub>
         </button></div>
     </div>
   </form>
@@ -11627,7 +11795,7 @@ exports[`Storyshots Signup error 1`] = `
               Join
             </div>
           </div>
-          <!---->
+          <transition-stub name="q-transition--fade"></transition-stub>
         </button></div>
     </div>
   </form>
@@ -11681,9 +11849,11 @@ exports[`Storyshots Signup pending 1`] = `
               Join
             </div>
           </div>
-          <div class="absolute-full flex flex-center"><svg focusable="false" width="1em" height="1em" viewBox="25 25 50 50" class="q-spinner q-spinner-mat">
-              <circle cx="50" cy="50" r="20" fill="none" stroke="currentColor" stroke-width="5" stroke-miterlimit="10" class="path"></circle>
-            </svg></div>
+          <transition-stub name="q-transition--fade">
+            <div class="absolute-full flex flex-center"><svg focusable="false" width="1em" height="1em" viewBox="25 25 50 50" class="q-spinner q-spinner-mat">
+                <circle cx="50" cy="50" r="20" fill="none" stroke="currentColor" stroke-width="5" stroke-miterlimit="10" class="path"></circle>
+              </svg></div>
+          </transition-stub>
         </button></div>
     </div>
   </form>
@@ -12288,7 +12458,9 @@ exports[`Storyshots UserList default 1`] = `
             </button></div>
           <div class="q-item__section column q-focusable relative-position cursor-pointer q-item__section--side justify-center"><i aria-hidden="true" role="presentation" class="q-expansion-item__toggle-icon material-icons q-icon notranslate">keyboard_arrow_down</i></div>
         </div>
-        <div class="q-expansion-item__content relative-position" style="display:none;"></div>
+        <transition-stub>
+          <div class="q-expansion-item__content relative-position" style="display:none;"></div>
+        </transition-stub>
       </div>
     </div>
   </div>
@@ -12406,7 +12578,9 @@ exports[`Storyshots WallConversation default 1`] = `
                     </div>
                   </div>
                   <div class="q-field__bottom row items-start q-field__bottom--animated">
-                    <div class="q-field__messages col"></div>
+                    <transition-stub name="q-transition--field-message">
+                      <div class="q-field__messages col"></div>
+                    </transition-stub>
                   </div>
                 </div>
               </label>
@@ -12831,7 +13005,7 @@ exports[`Storyshots WallConversation default 1`] = `
           </div>
           <div class="content">
             <div class="markdown">
-              <p>oh let me try something <img class="emoji" draggable="false" alt="🙂" src="https://twemoji.maxcdn.com/v/12.1.5/72x72/1f642.png" /></p>
+              <p>oh let me try something <img class="emoji" draggable="false" alt="🙂" src="https://twemoji.maxcdn.com/v/12.1.6/72x72/1f642.png" /></p>
             </div>
           </div>
           <!---->
@@ -12960,7 +13134,9 @@ exports[`Storyshots WallConversation unread 1`] = `
                     </div>
                   </div>
                   <div class="q-field__bottom row items-start q-field__bottom--animated">
-                    <div class="q-field__messages col"></div>
+                    <transition-stub name="q-transition--field-message">
+                      <div class="q-field__messages col"></div>
+                    </transition-stub>
                   </div>
                 </div>
               </label>
@@ -13397,7 +13573,7 @@ exports[`Storyshots WallConversation unread 1`] = `
           </div>
           <div class="content">
             <div class="markdown">
-              <p>oh let me try something <img class="emoji" draggable="false" alt="🙂" src="https://twemoji.maxcdn.com/v/12.1.5/72x72/1f642.png" /></p>
+              <p>oh let me try something <img class="emoji" draggable="false" alt="🙂" src="https://twemoji.maxcdn.com/v/12.1.6/72x72/1f642.png" /></p>
             </div>
           </div>
           <!---->

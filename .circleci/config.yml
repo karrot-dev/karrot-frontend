@@ -347,7 +347,7 @@ jobs:
             git push --force origin $BRANCH
             hub pull-request -m "[CI] Update locales" || true
 
-update-dependencies:
+  update-dependencies:
     <<: *defaults
     steps:
       - checkout

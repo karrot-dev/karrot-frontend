@@ -387,7 +387,7 @@ workflows:
   all-the-things:
     jobs:
       - install-dependencies
-      - update-dependencies
+      - update-dependencies:
           requires:
             - install-dependencies
 

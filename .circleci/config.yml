@@ -370,9 +370,104 @@ workflows:
   all-the-things:
     jobs:
       - install-dependencies
-      - update-dependencies:
+      - test:
           requires:
             - install-dependencies
+      - lint:
+          requires:
+            - install-dependencies
+      - build-dev:
+          filters:
+            branches:
+              ignore:
+              - circleci-update-locales
+              - /dependabot\/.*/
+          requires:
+            - install-dependencies
+      - build-storybook:
+          filters:
+            branches:
+              only:
+                - master
+          requires:
+            - install-dependencies
+      - build-docs:
+          filters:
+            branches:
+              only:
+                - master
+          requires:
+            - install-dependencies
+      - build-cordova-dev:
+          filters:
+            branches:
+              only:
+                - master
+          requires:
+            - install-dependencies
+      - build-android-dev:
+          filters:
+            branches:
+              only:
+                - master
+          requires:
+            - build-cordova-dev
+      - deploy-android-dev:
+          filters:
+            branches:
+              only:
+                - master
+          requires:
+            - build-android-dev
+            - test
+      - deploy-branch:
+          filters:
+            branches:
+              ignore:
+              - master
+              - circleci-update-locales
+              - /dependabot\/.*/
+          requires:
+            - build-dev
+      - deploy-dev:
+          filters:
+            branches:
+              only:
+                - master
+          requires:
+            - test
+            - lint
+            - build-dev
+            - build-storybook
+            - build-docs
+      - approval:
+          type: approval
+          requires:
+            - deploy-dev
+      - build-prod:
+          requires:
+            - approval
+      - build-cordova-prod:
+          requires:
+            - approval
+      - build-android-prod:
+          requires:
+            - build-cordova-prod
+      - deploy-android-prod:
+          filters:
+            branches:
+              only:
+                - master
+          requires:
+            - build-android-prod
+            - build-prod
+      - deploy-release:
+          filters:
+            branches:
+              only:
+                - master
+          requires:
+            - build-prod
 
   sync-locales-cronjob:
     triggers:
@@ -383,3 +478,16 @@ workflows:
               only: master
     jobs:
       - sync-locale-messages
+
+  update-dependencies-cronjob:
+    triggers:
+      - schedule:
+          cron: "0 2 * * 4"
+          filters:
+            branches:
+              only: master
+    jobs:
+      - install-dependencies
+      - update-dependencies:
+          requires:
+            - install-dependencies

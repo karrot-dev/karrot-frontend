@@ -53,10 +53,10 @@ export function throws (val) {
   }
 }
 
-export function makeFindAllIterable (wrapper) {
-  const findAll = wrapper.constructor.prototype.findAll
-  wrapper.findAll = function () {
-    const wrapperArray = findAll.apply(this, arguments)
+export function makefindAllComponentsIterable (wrapper) {
+  const findAllComponents = wrapper.constructor.prototype.findAllComponents
+  wrapper.findAllComponents = function () {
+    const wrapperArray = findAllComponents.apply(this, arguments)
     wrapperArray[Symbol.iterator] = () => {
       let nextIndex = 0
       return {
@@ -107,7 +107,7 @@ export function mountWithDefaultsAndLocalVue (Component, localVue, options = {})
     },
     ...options,
   })
-  makeFindAllIterable(wrapper)
+  makefindAllComponentsIterable(wrapper)
   return wrapper
 }
 

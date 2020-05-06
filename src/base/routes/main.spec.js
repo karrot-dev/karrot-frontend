@@ -138,7 +138,7 @@ describe('main routes', () => {
 
       await nextTicks(2)
 
-      const ui = wrapper.find({ name: 'GroupPreviewUI' })
+      const ui = wrapper.findComponent({ name: 'GroupPreviewUI' })
       expect(ui).toBeDefined()
       ui.vm.join() // trigger the join
 
@@ -158,7 +158,7 @@ describe('main routes', () => {
 
       await nextTicks(2)
 
-      const ui = wrapper.find({ name: 'GroupPreviewUI' })
+      const ui = wrapper.findComponent({ name: 'GroupPreviewUI' })
       expect(ui).toBeDefined()
       ui.vm.visit()
 

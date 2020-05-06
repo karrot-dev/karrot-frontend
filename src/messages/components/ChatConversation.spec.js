@@ -26,14 +26,14 @@ describe('ChatConversation', () => {
     // let the mounted() hook run
     await Vue.nextTick()
 
-    expect(wrapper.findAll(QInput).length).toBe(1)
-    expect(wrapper.findAll(ConversationCompose).length).toBe(1)
+    expect(wrapper.findAllComponents(QInput).length).toBe(1)
+    expect(wrapper.findAllComponents(ConversationCompose).length).toBe(1)
 
     const message = 'A nice new message'
 
     // Would be nicer to directly put the message into the QInput but did not find a way yet
-    wrapper.find(ConversationCompose).setData({ message })
-    wrapper.find(ConversationCompose).vm.submit()
+    wrapper.findComponent(ConversationCompose).setData({ message })
+    wrapper.findComponent(ConversationCompose).vm.submit()
 
     const { id } = propsData.conversation
     expect(wrapper.emitted().send).toEqual([[{ id, content: message }]])

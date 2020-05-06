@@ -20,21 +20,21 @@ describe('WallConversation', () => {
     const wrapper = mountWithDefaults(WallConversation, {
       propsData: defaultProps,
     })
-    expect(wrapper.findAll(ConversationMessage).length).toBe(defaultProps.data.messages.length)
+    expect(wrapper.findAllComponents(ConversationMessage).length).toBe(defaultProps.data.messages.length)
   })
 
   it('can send a message', () => {
     const wrapper = mountWithDefaults(WallConversation, {
       propsData: defaultProps,
     })
-    expect(wrapper.findAll(QInput).length).toBe(1)
-    expect(wrapper.findAll(ConversationCompose).length).toBe(1)
+    expect(wrapper.findAllComponents(QInput).length).toBe(1)
+    expect(wrapper.findAllComponents(ConversationCompose).length).toBe(1)
 
     const message = 'A nice new message'
 
     // Would be nicer to directly put the message into the QInput but did not find a way yet
-    wrapper.find(ConversationCompose).setData({ message })
-    wrapper.find(ConversationCompose).vm.submit()
+    wrapper.findComponent(ConversationCompose).setData({ message })
+    wrapper.findComponent(ConversationCompose).vm.submit()
     expect(wrapper.emitted().send[0]).toEqual([{ id: defaultProps.data.id, content: message }])
   })
 })

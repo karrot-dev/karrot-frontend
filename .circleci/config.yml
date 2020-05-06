@@ -347,109 +347,49 @@ jobs:
             git push --force origin $BRANCH
             hub pull-request -m "[CI] Update locales" || true
 
+update-dependencies:
+    <<: *defaults
+    steps:
+      - checkout
+      - attach_workspace:
+          at: ~/repo
+      - run:
+          name: install hub
+          command: |
+            wget https://github.com/github/hub/releases/download/v2.14.2/hub-linux-amd64-2.14.2.tgz
+            tar -xf hub-linux-amd64-2.14.2.tgz
+            ./hub-linux-amd64-2.14.2/install
+            rm hub-linux-amd64-2.14.2.tgz
+            rm -r hub-linux-amd64-2.14.2
+      - run:
+          name: set git remote to include token
+          command: git remote set-url origin https://${GITHUB_TOKEN}@github.com/yunity/karrot-frontend.git
+      - run:
+          name: update dependencies and make pull request
+          # needs TX_TOKEN and GITHUB_TOKEN
+          environment:
+            BRANCH: circleci-update-dependencies
+          command: |
+            set -xe
+            git config credential.helper 'cache --timeout=120'
+            git config user.email "ci@foodsaving.world"
+            git config user.name "CircleCI"
+            git branch --delete --force $BRANCH || true
+            git checkout -b $BRANCH
+            yarn upgrade --latest
+            git add package.json yarn.lock
+            git commit -m "[CI] update dependencies" || exit 0
+            git push --force origin $BRANCH
+            hub pull-request -m "[CI] Update dependencies" || true
+
 workflows:
   version: 2
   all-the-things:
     jobs:
       - install-dependencies
-      - test:
+      - update-dependencies
           requires:
             - install-dependencies
-      - lint:
-          requires:
-            - install-dependencies
-      - build-dev:
-          filters:
-            branches:
-              ignore:
-              - circleci-update-locales
-              - /dependabot\/.*/
-          requires:
-            - install-dependencies
-      - build-storybook:
-          filters:
-            branches:
-              only:
-                - master
-          requires:
-            - install-dependencies
-      - build-docs:
-          filters:
-            branches:
-              only:
-                - master
-          requires:
-            - install-dependencies
-      - build-cordova-dev:
-          filters:
-            branches:
-              only:
-                - master
-          requires:
-            - install-dependencies
-      - build-android-dev:
-          filters:
-            branches:
-              only:
-                - master
-          requires:
-            - build-cordova-dev
-      - deploy-android-dev:
-          filters:
-            branches:
-              only:
-                - master
-          requires:
-            - build-android-dev
-            - test
-      - deploy-branch:
-          filters:
-            branches:
-              ignore:
-              - master
-              - circleci-update-locales
-              - /dependabot\/.*/
-          requires:
-            - build-dev
-      - deploy-dev:
-          filters:
-            branches:
-              only:
-                - master
-          requires:
-            - test
-            - lint
-            - build-dev
-            - build-storybook
-            - build-docs
-      - approval:
-          type: approval
-          requires:
-            - deploy-dev
-      - build-prod:
-          requires:
-            - approval
-      - build-cordova-prod:
-          requires:
-            - approval
-      - build-android-prod:
-          requires:
-            - build-cordova-prod
-      - deploy-android-prod:
-          filters:
-            branches:
-              only:
-                - master
-          requires:
-            - build-android-prod
-            - build-prod
-      - deploy-release:
-          filters:
-            branches:
-              only:
-                - master
-          requires:
-            - build-prod
 
   sync-locales-cronjob:
     triggers:
@@ -460,4 +400,3 @@ workflows:
               only: master
     jobs:
       - sync-locale-messages
-

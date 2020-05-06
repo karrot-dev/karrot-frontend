@@ -32,12 +32,12 @@ describe('GroupMap', () => {
       propsData: defaultProps,
     })
     await Vue.nextTick()
-    expect(wrapper.findAll(Vue2Leaflet.LMap).length).toBe(1)
-    expect(wrapper.findAll(ExtendedMarker).length).toBe(usersMock.length + placesMock.length)
-    for (const marker of wrapper.findAll(ExtendedMarker)) {
+    expect(wrapper.findAllComponents(Vue2Leaflet.LMap).length).toBe(1)
+    expect(wrapper.findAllComponents(ExtendedMarker).length).toBe(usersMock.length + placesMock.length)
+    for (const marker of wrapper.findAllComponents(ExtendedMarker)) {
       expect(marker.props().opacity).toEqual(1)
     }
-    expect(wrapper.findAll(Vue2Leaflet.LPopup).length).toBe(usersMock.length + placesMock.length)
+    expect(wrapper.findAllComponents(Vue2Leaflet.LPopup).length).toBe(usersMock.length + placesMock.length)
   })
 
   it('renders just users', async () => {
@@ -48,8 +48,8 @@ describe('GroupMap', () => {
       },
     })
     await Vue.nextTick()
-    expect(wrapper.findAll(ExtendedMarker).length).toBe(usersMock.length)
-    expect(wrapper.findAll(Vue2Leaflet.LPopup).length).toBe(usersMock.length)
+    expect(wrapper.findAllComponents(ExtendedMarker).length).toBe(usersMock.length)
+    expect(wrapper.findAllComponents(Vue2Leaflet.LPopup).length).toBe(usersMock.length)
   })
 
   it('renders just places', async () => {
@@ -60,7 +60,7 @@ describe('GroupMap', () => {
       },
     })
     await Vue.nextTick()
-    expect(wrapper.findAll(ExtendedMarker).length).toBe(placesMock.length)
-    expect(wrapper.findAll(Vue2Leaflet.LPopup).length).toBe(placesMock.length)
+    expect(wrapper.findAllComponents(ExtendedMarker).length).toBe(placesMock.length)
+    expect(wrapper.findAllComponents(Vue2Leaflet.LPopup).length).toBe(placesMock.length)
   })
 })

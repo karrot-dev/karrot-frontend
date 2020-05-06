@@ -1,7 +1,7 @@
 defaults: &defaults
   working_directory: ~/repo
   docker:
-    - image: karrot/python:2.0
+    - image: karrot/python:2.3
 
 android-defaults: &android-defaults
   working_directory: ~/repo
@@ -318,14 +318,6 @@ jobs:
             - env
           key: v2-dependencies-localeshelper-{{ checksum "updateLocalesHelper/requirements.txt" }}
       - run:
-          name: install hub
-          command: |
-            wget https://github.com/github/hub/releases/download/v2.5.1/hub-linux-amd64-2.5.1.tgz
-            tar -xf hub-linux-amd64-2.5.1.tgz
-            ./hub-linux-amd64-2.5.1/install
-            rm hub-linux-amd64-2.5.1.tgz
-            rm -r hub-linux-amd64-2.5.1
-      - run:
           name: set git remote to include token
           command: git remote set-url origin https://${GITHUB_TOKEN}@github.com/yunity/karrot-frontend.git
       - run:
@@ -346,6 +338,32 @@ jobs:
             git commit -m "[CI] update locales" || exit 0
             git push --force origin $BRANCH
             hub pull-request -m "[CI] Update locales" || true
+
+  update-dependencies:
+    <<: *defaults
+    steps:
+      - attach_workspace:
+          at: ~/repo
+      - run:
+          name: set git remote to include token
+          command: git remote set-url origin https://${GITHUB_TOKEN}@github.com/yunity/karrot-frontend.git
+      - run:
+          name: update dependencies and make pull request
+          # needs TX_TOKEN and GITHUB_TOKEN
+          environment:
+            BRANCH: circleci-update-dependencies
+          command: |
+            set -xe
+            git config credential.helper 'cache --timeout=120'
+            git config user.email "ci@foodsaving.world"
+            git config user.name "CircleCI"
+            git branch --delete --force $BRANCH || true
+            git checkout -b $BRANCH
+            yarn upgrade --latest --ignore-engines
+            git add package.json yarn.lock
+            git commit -m "[CI] update dependencies" || exit 0
+            git push --force origin $BRANCH
+            hub pull-request -m "[CI] Update dependencies" || true
 
 workflows:
   version: 2
@@ -460,4 +478,17 @@ workflows:
               only: master
     jobs:
       - sync-locale-messages
+
+  update-dependencies-cronjob:
+    triggers:
+      - schedule:
+          cron: "0 2 * * 4"
+          filters:
+            branches:
+              only: master
+    jobs:
+      - install-dependencies
+      - update-dependencies:
+          requires:
+            - install-dependencies
 

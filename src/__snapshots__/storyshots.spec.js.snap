@@ -11482,41 +11482,43 @@ exports[`Storyshots Sidenav Group 1`] = `
         </div>
         <div class="q-item__section column q-focusable relative-position cursor-pointer q-item__section--side justify-center"><i aria-hidden="true" role="presentation" class="q-expansion-item__toggle-icon material-icons q-icon notranslate">keyboard_arrow_down</i></div>
       </div>
-      <div class="q-expansion-item__content relative-position" style="display:none;">
-        <div class="q-list q-list--dense"><a tabindex="0" class="q-item q-item-type row no-wrap q-item--clickable q-link cursor-pointer q-focusable q-hoverable">
-            <div tabindex="-1" class="q-focus-helper"></div>
-            <div class="q-item__section column text-center q-item__section--side justify-center"><i aria-hidden="true" role="presentation" class="fas fa-address-card q-icon notranslate" style="font-size:1.1em;"> </i></div>
-            <div class="q-item__section column q-item__section--main justify-center">
-              Applications
-            </div>
-            <div class="q-item__section column q-item__section--side justify-center">
-              <div role="alert" small="" title="There are 3 applications pending!" class="q-badge flex inline items-center no-wrap q-badge--single-line bg-blue">
-                3
+      <transition-stub>
+        <div class="q-expansion-item__content relative-position" style="display:none;">
+          <div class="q-list q-list--dense"><a tabindex="0" class="q-item q-item-type row no-wrap q-item--clickable q-link cursor-pointer q-focusable q-hoverable">
+              <div tabindex="-1" class="q-focus-helper"></div>
+              <div class="q-item__section column text-center q-item__section--side justify-center"><i aria-hidden="true" role="presentation" class="fas fa-address-card q-icon notranslate" style="font-size:1.1em;"> </i></div>
+              <div class="q-item__section column q-item__section--main justify-center">
+                Applications
               </div>
-            </div>
-          </a><a tabindex="0" class="q-item q-item-type row no-wrap q-item--clickable q-link cursor-pointer q-focusable q-hoverable">
-            <div tabindex="-1" class="q-focus-helper"></div>
-            <div class="q-item__section column text-center q-item__section--side justify-center"><i aria-hidden="true" role="presentation" class="fas fa-vote-yea q-icon notranslate" style="font-size:1.1em;"> </i></div>
-            <div class="q-item__section column q-item__section--main justify-center">
-              Issues
-            </div>
-            <!---->
-          </a><a tabindex="0" class="q-item q-item-type row no-wrap q-item--clickable q-link cursor-pointer q-focusable q-hoverable">
-            <div tabindex="-1" class="q-focus-helper"></div>
-            <div class="q-item__section column text-center q-item__section--side justify-center"><i aria-hidden="true" role="presentation" class="fas fa-eye fa-fw q-icon notranslate" style="font-size:1.1em;"> </i></div>
-            <div class="q-item__section column q-item__section--main justify-center">
-              Show public group information
-            </div>
-            <!---->
-          </a><a tabindex="0" class="q-item q-item-type row no-wrap q-item--clickable q-link cursor-pointer q-focusable q-hoverable">
-            <div tabindex="-1" class="q-focus-helper"></div>
-            <div class="q-item__section column text-center q-item__section--side justify-center"><i aria-hidden="true" role="presentation" class="fas fa-map q-icon notranslate" style="font-size:1.1em;"> </i></div>
-            <div class="q-item__section column q-item__section--main justify-center">
-              Map
-            </div>
-            <!---->
-          </a></div>
-      </div>
+              <div class="q-item__section column q-item__section--side justify-center">
+                <div role="alert" small="" title="There are 3 applications pending!" class="q-badge flex inline items-center no-wrap q-badge--single-line bg-blue">
+                  3
+                </div>
+              </div>
+            </a><a tabindex="0" class="q-item q-item-type row no-wrap q-item--clickable q-link cursor-pointer q-focusable q-hoverable">
+              <div tabindex="-1" class="q-focus-helper"></div>
+              <div class="q-item__section column text-center q-item__section--side justify-center"><i aria-hidden="true" role="presentation" class="fas fa-vote-yea q-icon notranslate" style="font-size:1.1em;"> </i></div>
+              <div class="q-item__section column q-item__section--main justify-center">
+                Issues
+              </div>
+              <!---->
+            </a><a tabindex="0" class="q-item q-item-type row no-wrap q-item--clickable q-link cursor-pointer q-focusable q-hoverable">
+              <div tabindex="-1" class="q-focus-helper"></div>
+              <div class="q-item__section column text-center q-item__section--side justify-center"><i aria-hidden="true" role="presentation" class="fas fa-eye fa-fw q-icon notranslate" style="font-size:1.1em;"> </i></div>
+              <div class="q-item__section column q-item__section--main justify-center">
+                Show public group information
+              </div>
+              <!---->
+            </a><a tabindex="0" class="q-item q-item-type row no-wrap q-item--clickable q-link cursor-pointer q-focusable q-hoverable">
+              <div tabindex="-1" class="q-focus-helper"></div>
+              <div class="q-item__section column text-center q-item__section--side justify-center"><i aria-hidden="true" role="presentation" class="fas fa-map q-icon notranslate" style="font-size:1.1em;"> </i></div>
+              <div class="q-item__section column q-item__section--main justify-center">
+                Map
+              </div>
+              <!---->
+            </a></div>
+        </div>
+      </transition-stub>
       <hr role="separator" aria-orientation="horizontal" class="q-separator q-expansion-item__border q-expansion-item__border--top absolute-top q-separator q-separator--horizontal col-grow">
       <hr role="separator" aria-orientation="horizontal" class="q-separator q-expansion-item__border q-expansion-item__border--bottom absolute-bottom q-separator q-separator--horizontal col-grow">
     </div>

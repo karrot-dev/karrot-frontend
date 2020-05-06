@@ -318,14 +318,6 @@ jobs:
             - env
           key: v2-dependencies-localeshelper-{{ checksum "updateLocalesHelper/requirements.txt" }}
       - run:
-          name: install hub
-          command: |
-            wget https://github.com/github/hub/releases/download/v2.5.1/hub-linux-amd64-2.5.1.tgz
-            tar -xf hub-linux-amd64-2.5.1.tgz
-            ./hub-linux-amd64-2.5.1/install
-            rm hub-linux-amd64-2.5.1.tgz
-            rm -r hub-linux-amd64-2.5.1
-      - run:
           name: set git remote to include token
           command: git remote set-url origin https://${GITHUB_TOKEN}@github.com/yunity/karrot-frontend.git
       - run:
@@ -353,14 +345,6 @@ jobs:
       - attach_workspace:
           at: ~/repo
       - run:
-          name: install hub
-          command: |
-            wget https://github.com/github/hub/releases/download/v2.14.2/hub-linux-amd64-2.14.2.tgz
-            tar -xf hub-linux-amd64-2.14.2.tgz
-            ./hub-linux-amd64-2.14.2/install
-            rm hub-linux-amd64-2.14.2.tgz
-            rm -r hub-linux-amd64-2.14.2
-      - run:
           name: set git remote to include token
           command: git remote set-url origin https://${GITHUB_TOKEN}@github.com/yunity/karrot-frontend.git
       - run:
@@ -375,7 +359,7 @@ jobs:
             git config user.name "CircleCI"
             git branch --delete --force $BRANCH || true
             git checkout -b $BRANCH
-            yarn upgrade --latest
+            yarn upgrade --latest --ignore-engines
             git add package.json yarn.lock
             git commit -m "[CI] update dependencies" || exit 0
             git push --force origin $BRANCH

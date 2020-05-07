@@ -359,9 +359,22 @@ jobs:
             git config user.name "CircleCI"
             git branch --delete --force $BRANCH || true
             git checkout -b $BRANCH
-            yarn upgrade --latest --ignore-engines
+            yarn upgrade --ignore-engines
             git add package.json yarn.lock
-            git commit -m "[CI] update dependencies" || exit 0
+            git commit -F - <<EOL || exit 0
+            [CI] update dependencies
+
+            Good morning, I found some fresh dependencies for you!
+
+            These are available:
+            \`\`\`
+            $(yarn outdated | grep -E -v '<red|yellow|green>|Color legend|yarn outdated')
+            \`\`\`
+
+            This Pull Request contains updates done by \`yarn upgrade\`.
+            It does not contain updates outside the version range specified in \`package.json\` (hint: use a caret \`^\` for specifying versions to get all minor updates!).
+            Run \`yarn upgrade --latest\` manually from time to time to get all upgrades.
+            EOL
             git push --force origin $BRANCH
             hub pull-request -m "[CI] Update dependencies" || true
 

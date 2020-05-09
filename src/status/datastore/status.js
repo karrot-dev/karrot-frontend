@@ -8,15 +8,10 @@ function initialState () {
     unseenThreadCount: 0,
     hasUnreadConversationsOrThreads: false,
     unseenNotificationCount: 0,
-    communityFeedMeta: '2020-01-21T11:38:49.932716Z',
     /*
       {
         <id> : {
           pendingApplicationCount: 0,
-          upcomingPickupCount: {
-            joined: 0,
-            others: 0
-          },
           feedbackPossibleCount: 0,
           unreadWallMessageCount: 0
         }
@@ -43,7 +38,6 @@ export default {
     unseenThreadCount: state => state.unseenThreadCount,
     hasUnreadMessagesOrThreads: state => state.hasUnreadMessagesOrThreads,
     unseenCount: (state, getters) => getters.unseenConversationCount + getters.unseenThreadCount,
-
     unseenNotificationCount: state => state.unseenNotificationCount,
 
     // Group related

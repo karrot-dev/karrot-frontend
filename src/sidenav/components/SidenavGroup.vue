@@ -6,8 +6,9 @@ export default connect({
   gettersToProps: {
     groupId: 'currentGroup/id',
     features: 'currentGroup/features',
-    wallUnreadCount: 'currentGroup/conversationUnreadCount',
-    pendingApplications: 'applications/forCurrentGroupPending',
+    wallUnreadCount: 'status/currentGroupWallUnreadCount',
+    feedbackPossibleCount: 'status/currentGroupFeedbackPossibleCount',
+    pendingApplicationCount: 'status/currentGroupPendingApplicationCount',
   },
 })('SidenavGroup', SidenavGroupUI)
 </script>

@@ -10,6 +10,7 @@ const mockMessagesGet = jest.fn()
 const mockMessagesListThread = jest.fn()
 const mockListMyThreads = jest.fn()
 const mockConversationsList = jest.fn()
+const mockStatusFetch = jest.fn()
 jest.mock('@/users/api/users', () => ({ list: mockUsersList }))
 jest.mock('@/places/api/places', () => ({ list: mockPlacesList }))
 jest.mock('@/pickups/api/pickups', () => ({
@@ -35,6 +36,7 @@ jest.mock('@/communityFeed/api/communityFeed', () => ({
   getMeta: jest.fn(),
 }))
 jest.mock('@/invitations/api/invitations', () => ({ listByGroupId: jest.fn(_ => []) }))
+jest.mock('@/status/api/status', () => ({ fetch: mockStatusFetch }))
 
 import Vue from 'vue'
 import { configureQuasar, nextTicks } from '>/helpers'
@@ -58,6 +60,7 @@ describe('refresh', () => {
     mockNotificationsList.mockReturnValue({ results: {} })
     mockFeedbackList.mockReturnValue({ results: [] })
     mockHistoryList.mockReturnValue({ results: [] })
+    mockStatusFetch.mockReturnValue({})
 
     const datastore = require('@/base/datastore').default
     datastore.commit('currentGroup/setId', 1)

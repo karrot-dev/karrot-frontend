@@ -38,8 +38,7 @@
               <i class="fas fa-bars relative-position">
                 <div
                   v-if="hasNotification"
-                  class="k-highlight-dot"
-                  :class="hasImportantNotification ? 'bg-secondary' : 'bg-grey'"
+                  class="k-highlight-dot bg-secondary"
                 />
               </i>
             </QBtn>
@@ -227,9 +226,8 @@ export default {
       routeError: 'routeError/status',
       isDetailActive: 'detail/isActive',
       disableDesktopSidenav: 'route/disableDesktopSidenav',
-      messagesUnseenCount: 'latestMessages/unseenCount',
-      messagesAllUnreadMuted: 'latestMessages/allUnreadMuted',
-      notificationsUnseenCount: 'notifications/unseenCount',
+      messagesUnseenCount: 'status/unseenCount',
+      notificationsUnseenCount: 'status/unseenNotificationCount',
       currentGroupId: 'currentGroup/id',
       isBikeKitchen: 'currentGroup/isBikeKitchen',
       isGeneralPurpose: 'currentGroup/isGeneralPurpose',
@@ -271,9 +269,6 @@ export default {
     },
     hasNotification () {
       return this.messagesUnseenCount > 0 || this.notificationsUnseenCount > 0
-    },
-    hasImportantNotification () {
-      return !this.messagesAllUnreadMuted || this.notificationsUnseenCount > 0
     },
     disablePullToRefresh () {
       if (!this.$q.platform.is.mobile) return true

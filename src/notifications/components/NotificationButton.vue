@@ -59,14 +59,16 @@ export default {
   },
   computed: {
     ...mapGetters({
-      unseenCount: 'notifications/unseenCount',
+      unseenCount: 'status/unseenNotificationCount',
     }),
   },
   methods: {
     ...mapActions({
+      fetchInitial: 'notifications/fetchInitial',
       markSeen: 'notifications/markSeen',
     }),
-    maybeOpen () {
+    async maybeOpen () {
+      await this.fetchInitial()
       if (!this.$q.platform.is.mobile) {
         this.showing = !this.showing
         this.markSeen()

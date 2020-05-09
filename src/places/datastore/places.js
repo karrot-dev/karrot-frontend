@@ -36,10 +36,10 @@ export default {
     filtered: (state, getters, rootState, rootGetters) => getters.notArchived
       .filter(place => getters['toggle/showAll'] || place.status === 'active' || place.isSubscribed)
       .map(place => {
-        const conversation = rootGetters['conversations/getForPlace'](place.id)
+        const conversationUnreadCount = rootGetters['status/getPlaceWallUnreadCount'](place.id)
         return {
           ...place,
-          conversationUnreadCount: conversation && conversation.unreadMessageCount,
+          conversationUnreadCount,
         }
       }),
     byCurrentGroup: (state, getters, rootState, rootGetters) => getters.filtered.filter(({ group }) => group && group.isCurrentGroup),
@@ -63,7 +63,6 @@ export default {
       return place.subscribers.map(userId => rootGetters['users/get'](userId))
     },
     ...metaStatuses(['create', 'fetch']),
-    conversationUnreadCount: (state, getters) => getters.conversation && getters.conversation.unreadMessageCount,
     conversation: (state, getters, rootState, rootGetters) => {
       if (!state.activePlaceId) return
       return rootGetters['conversations/getForPlace'](state.activePlaceId)

@@ -55,10 +55,10 @@
         </QItemSection>
         <QItemSection side>
           <QBadge
-            v-if="pendingApplications.length > 0"
+            v-if="pendingApplicationCount > 0"
             small
-            :label="pendingApplications.length"
-            :title="$tc('APPLICATION.WALL_NOTICE', pendingApplications.length, { count: pendingApplications.length })"
+            :label="pendingApplicationCount"
+            :title="$tc('APPLICATION.WALL_NOTICE', pendingApplicationCount, { count: pendingApplicationCount })"
             color="blue"
           />
         </QItemSection>
@@ -106,9 +106,13 @@ export default {
       default: 0,
       type: Number,
     },
-    pendingApplications: {
-      default: () => [],
-      type: Array,
+    feedbackPossibleCount: {
+      default: 0,
+      type: Number,
+    },
+    pendingApplicationCount: {
+      default: 0,
+      type: Number,
     },
   },
   computed: {
@@ -138,6 +142,12 @@ export default {
         label: this.$t('PICKUP_FEEDBACK.TITLE'),
         icon: this.$icon('feedback'),
         to: { name: 'groupFeedback', params: { groupId: this.groupId } },
+        badge: {
+          condition: this.feedbackPossibleCount > 0,
+          label: this.feedbackPossibleCount,
+          color: 'info',
+          title: this.$tc('PICKUPLIST.AVAILABLE_FEEDBACK', this.feedbackPossibleCount, { count: this.feedbackPossibleCount }),
+        },
       }, {
         label: this.$t('GROUP.MEMBERS'),
         icon: 'fas fa-users',
@@ -154,10 +164,10 @@ export default {
         icon: 'fas fa-address-card',
         to: { name: 'applications', params: { groupId: this.groupId } },
         badge: {
-          condition: this.pendingApplications.length > 0,
-          label: this.pendingApplications.length,
+          condition: this.pendingApplicationCount > 0,
+          label: this.pendingApplicationCount,
           color: 'blue',
-          title: this.$tc('APPLICATION.WALL_NOTICE', this.pendingApplications.length, { count: this.pendingApplications.length }),
+          title: this.$tc('APPLICATION.WALL_NOTICE', this.pendingApplicationCount, { count: this.pendingApplicationCount }),
         },
       }, {
         label: this.$t('ISSUE.TITLE'),

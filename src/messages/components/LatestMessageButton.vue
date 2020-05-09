@@ -9,12 +9,12 @@
   >
     <QIcon
       name="fas fa-comments"
-      :class="{ hasUnread: unreadCount > 0 }"
+      :class="{ hasUnread }"
     />
     <QBadge
       v-if="unseenCount > 0"
       floating
-      :color="allUnreadMuted ? 'grey' : 'secondary'"
+      color="secondary"
     >
       {{ unseenCount > 9 ? '9+' : unseenCount }}
     </QBadge>
@@ -57,9 +57,8 @@ export default {
   },
   computed: {
     ...mapGetters({
-      unseenCount: 'latestMessages/unseenCount',
-      unreadCount: 'latestMessages/unreadCount',
-      allUnreadMuted: 'latestMessages/allUnreadMuted',
+      unseenCount: 'status/unseenCount',
+      hasUnread: 'status/hasUnreadConversationsOrThreads',
     }),
   },
   methods: {

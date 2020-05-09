@@ -11,14 +11,14 @@
           name="conversations"
           :to="{ name: 'latestConversations' }"
           :label="$t('CONVERSATION.CONVERSATIONS')"
-          :count="unseenConversationsCount > 9 ? '9+' : unseenConversationsCount"
+          :count="unseenConversationCount > 9 ? '9+' : unseenConversationCount"
         />
         <Component
           :is="asPage ? 'QRouteTab' : 'QTab'"
           name="threads"
           :to="{ name: 'latestThreads' }"
           :label="$t('CONVERSATION.REPLIES')"
-          :count="unseenThreadsCount > 9 ? '9+' : unseenThreadsCount"
+          :count="unseenThreadCount > 9 ? '9+' : unseenThreadCount"
         />
       </QTabs>
       <QBtn
@@ -81,19 +81,16 @@ export default {
   },
   computed: {
     ...mapGetters({
-      unseenConversationsCount: 'latestMessages/unseenConversationsCount',
-      unseenThreadsCount: 'latestMessages/unseenThreadsCount',
-      unread: 'latestMessages/unread',
+      unseenConversationCount: 'status/unseenConversationCount',
+      unseenThreadCount: 'status/unseenThreadCount',
+      hasUnread: 'status/hasUnreadConversationsOrThreads',
     }),
     hasOnlyUnseenThreads () {
-      return Boolean(this.unseenThreadsCount && !this.unseenConversationsCount)
-    },
-    hasOnlyUnreadThreads () {
-      return Boolean(!this.unread.conversations.length && this.unread.threads.length)
+      return Boolean(this.unseenThreadCount > 0 && this.unseenConversationCount === 0)
     },
   },
   mounted () {
-    if (this.hasOnlyUnseenThreads || this.hasOnlyUnreadThreads) {
+    if (this.hasOnlyUnseenThreads) {
       this.selected = 'threads'
     }
   },

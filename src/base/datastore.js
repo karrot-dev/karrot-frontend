@@ -19,6 +19,7 @@ import notifications from '@/notifications/datastore'
 import pickups from '@/pickups/datastore'
 import sidenav from '@/sidenav/datastore'
 import places from '@/places/datastore'
+import status from '@/status/datastore'
 import subscriptions from '@/subscriptions/datastore'
 import offers from '@/offers/datastore'
 import topbar from '@/topbar/datastore'
@@ -45,6 +46,7 @@ const appModules = [
   pickups,
   sidenav,
   places,
+  status,
   subscriptions,
   offers,
   topbar,

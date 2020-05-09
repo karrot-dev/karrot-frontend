@@ -19,7 +19,7 @@
         small
         round
         color="secondary"
-        :icon="showPublicDescription ? 'fas fa-lock' : 'fas fa-info-circle'"
+        :icon="showPublicDescription ? 'fas fa-lock' : 'fas fa-eye'"
         :title="$t(showPublicDescription ? 'GROUP.DESCRIPTION_VERBOSE' : 'GROUPINFO.META')"
         @click="showPublicDescription = !showPublicDescription"
       />

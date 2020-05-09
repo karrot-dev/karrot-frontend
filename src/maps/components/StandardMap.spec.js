@@ -17,16 +17,16 @@ describe('StandardMap', () => {
       },
     })
     await nextTicks(1)
-    expect(wrapper.findAll(Vue2Leaflet.LMap).length).toBe(1)
-    expect(wrapper.findAll(ExtendedMarker).length).toBe(markers.length)
-    expect(wrapper.findAll(Vue2Leaflet.LPopup).length).toBe(markers.length)
+    expect(wrapper.findAllComponents(Vue2Leaflet.LMap).length).toBe(1)
+    expect(wrapper.findAllComponents(ExtendedMarker).length).toBe(markers.length)
+    expect(wrapper.findAllComponents(Vue2Leaflet.LPopup).length).toBe(markers.length)
 
     // add and remove some markers
     for (let i = 0; i < 3; i++) {
       wrapper.setProps({ markers: markers.filter((e, idx) => idx !== i) })
       await nextTicks(1)
-      expect(wrapper.findAll(ExtendedMarker).length).toBe(markers.length - 1)
-      expect(wrapper.findAll(Vue2Leaflet.LPopup).length).toBe(markers.length - 1)
+      expect(wrapper.findAllComponents(ExtendedMarker).length).toBe(markers.length - 1)
+      expect(wrapper.findAllComponents(Vue2Leaflet.LPopup).length).toBe(markers.length - 1)
     }
   })
 })

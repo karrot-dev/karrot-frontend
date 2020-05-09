@@ -19,7 +19,7 @@ describe('Detail', () => {
 
   it('can be closed', () => {
     const wrapper = mountWithDefaults(require('./DetailHeaderUI').default, { propsData })
-    const closeButton = [...wrapper.findAll(QBtn)].find(btn => btn.vm.$props.icon === 'close')
+    const closeButton = [...wrapper.findAllComponents(QBtn)].find(btn => btn.vm.$props.icon === 'close')
     closeButton.trigger('click')
     expect(wrapper.emitted().close).toEqual([[]])
   })
@@ -27,7 +27,7 @@ describe('Detail', () => {
   it('cannot be closed on mobile', () => {
     useMobileUserAgent()
     const wrapper = mountWithDefaults(require('./DetailHeaderUI').default, { propsData })
-    const closeButton = [...wrapper.findAll(QBtn)].find(btn => btn.vm.$props.icon === 'close')
+    const closeButton = [...wrapper.findAllComponents(QBtn)].find(btn => btn.vm.$props.icon === 'close')
     expect(closeButton).toBeUndefined()
   })
 

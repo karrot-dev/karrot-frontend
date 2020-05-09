@@ -1,12 +1,12 @@
 {
-  "ENTRY": "1 entry | {count} entries",
+  "ENTRY": "1 Antrag | {count} Anträg",
   "GLOBAL": {
     "GITHUB_NOTE": "Entwécklung",
     "SERVER_ERROR": "Server-Feeler",
     "NOT_CONNECTED": "Du bass net mam Server verbonn",
-    "INVALID_LINK": "Sorry, the link you've opened is invalid.",
-    "GENERIC_ERROR": "Sorry, something went wrong",
-    "SEARCH_RESULTS": "Search results",
+    "INVALID_LINK": "Entschëlleg, de Link deen's de opmaache wëlls ass ongülteg.",
+    "GENERIC_ERROR": "Entschëlleg, iergendeppes ass falsch gaangen.",
+    "SEARCH_RESULTS": "Sichresultater",
     "SEARCH_NOT_FOUND": "Net fonnt",
     "ABOUT_KARROT": "Iwwert Karrot"
   },
@@ -14,685 +14,756 @@
     "EMAIL": "E-Mail",
     "MOBILE_NUMBER": "Telefonsnummer",
     "PROFILE_TITLE": "Profil",
-    "PRIVATE_MESSAGE": "Send a private message to {userName}",
+    "PRIVATE_MESSAGE": "Scheck eng privat Noriicht un {userName}",
     "PASSWORD": "Passwuert",
     "CONFIRM_PASSWORD": "Bestäteg däi Passwuert",
     "USERNAME": "Numm",
-    "WHERE_FROM": "Where you are from (not required)",
-    "PHOTO": "Profile photo",
-    "SET_PHOTO": "Set your profile photo...",
+    "WHERE_FROM": "Vu wou bass du (net erfuerderlech)",
+    "PHOTO": "Profilfoto",
+    "SET_PHOTO": "Änner deng Profilfoto",
     "ACCOUNT": "Konto",
-    "PUSH": "Push notifications",
-    "PUSH_CURRENT_BROWSER": "Current browser",
+    "PUSH": "Push-Benoriichtegungen",
+    "PUSH_CURRENT_BROWSER": "Aktuelle Browser",
     "REQUEST_DELETE_ACCOUNT": {
-      "SUCCESS": "We sent you an e-mail with a link to complete the deletion process."
+      "SUCCESS": "Mir hunn dir eng E-Mail geschéckt mat engem Link fir d'Läschen ofzeschléissen."
     },
     "DIALOGS": {
       "REQUEST_DELETE_ACCOUNT": {
-        "TITLE": "Account deletion",
-        "MESSAGE": "Are you sure? Your account and your personal data will be permanently deleted. Anything you have done on this platform will be made anonymous. If you confirm, we send you an e-mail with a link to complete the deletion process.",
-        "CONFIRM": "Confirm"
+        "TITLE": "Läsche vum Konto",
+        "MESSAGE": "Bass du sécher? Däi Konto an deng perséinlech Date wäerte fir ëmmer geläscht ginn. Alles wat's du op dëser Plattform gemaach hues wäert anonymiséiert ginn. Wann's du zoustëmms, schécke mir dir eng E-Mail mat engem Link fir d'Läschen ofzeschléissen.",
+        "CONFIRM": "Bestätegen"
       },
       "GIVE_TRUST": {
-        "TITLE": "Trust user",
-        "MESSAGE": "Do you trust {userName} in {groupName}?"
+        "TITLE": "Benotzer vertrauen",
+        "MESSAGE": "Vertraus du {userName} an {groupName}?"
       }
     },
-    "LOGOUT_SUCCESS": "You have been logged out!",
-    "YOU_TRUST_USER": "You trust {userName} in {groupName}.",
-    "OTHER_PEOPLE_TRUST_USER": "{otherUser} trusts {userName} in {groupName}. | {count} people trust {userName} in {groupName}.",
-    "OTHER_PEOPLE_TRUST_YOU": "{otherUser} trusts you in {groupName}. | {count} people trust you in {groupName}.",
-    "PEOPLE_TRUST_USER": "You and {otherUser} trust {userName} in {groupName}. | You and {count} other people trust {userName} in {groupName}.",
-    "FIRST_TRUST": "Be the first one to trust {userName} in {groupName}!",
-    "NEWCOMER": "Newcomer",
-    "NEWCOMER_GUIDANCE": "{userName} is new to your group and might need some guidance.",
-    "TRUST_PROGRESS_TEXT": "{trustNeeded} more trust needed",
-    "TRUST_PROGRESS_TEXT_LONG": "{trustNeeded} more people need to express their trust in {userName} to grant editing permissions.",
-    "NEWCOMER_INFO": "You are currently a newcomer in {groupName} and you can become active by writing messages, meeting fellow members, doing pickups and giving feedback. As soon as {threshold} members expressed their trust in you, you will gain editing permissions to help with group administration.",
+    "LOGOUT_SUCCESS": "Du bass ausgeloggt ginn!",
+    "YOU_TRUST_USER": "Du vertraus {userName} an {groupName}.",
+    "OTHER_PEOPLE_TRUST_USER": "{otherUser} vertraut {userName} an {groupName}. | {count} Leit vertrauen {userName} an {groupName}.",
+    "OTHER_PEOPLE_TRUST_YOU": "{otherUser} vertraut dir an {groupName}. | {count} Leit vertrauen dir an {groupName}.",
+    "PEOPLE_TRUST_USER": "Du an {otherUser} vertrauen {userName} an {groupName}. | Du an {count} aner Leit vertrauen {userName} an {groupName}.",
+    "FIRST_TRUST": "Sief déi éischt Persoun déi {userName} an {groupName} vertraut!",
+    "NEWCOMER": "Nei hei",
+    "NEWCOMER_GUIDANCE": "{userName} ass nei an denger Grupp a brauch vläicht bësse Rot.",
+    "TRUST_PROGRESS_TEXT": "{trustNeeded} méi Vertraue gebraucht",
+    "TRUST_PROGRESS_TEXT_LONG": "{trustNeeded} Leit méi mussen {userName} hiert Vertrauen ausdrécke fir beaarbechten ze duerfen",
+    "NEWCOMER_INFO": "Du bass grad nei an {groupName} an du kanns aktiv ginn andeem's du Noriichte schreifs, aner Memberen trëffs, Ofhuelunge mëss a Feedback gëss. Esoubal {threshold} Memberen dir hiert Vertrauen ausgedréckt hunn, duerfs eppes beaarbechte fir ze hëllefen d'Grupp ze administréieren.",
     "TRUST_INFO": {
-      "TITLE": "What is this carrot button about?",
-      "MESSAGE": "It is part of the Karrot trust system. It shows if a group member is newcomer and how much trust is needed until they gain editing permissions.",
-      "LINK": "Click here to find out more."
+      "TITLE": "Wat huet et mat dësem Muerte-Button op sech?",
+      "MESSAGE": "Et ass Deel vun dem Karrot-Vertrauenssystem. Et weist wann ee Gruppemember nei hei ass a wéi vill Vertraue gebraucht gëtt bis dës Persoun eppes beaarbechten duerf.",
+      "LINK": "Klick hei fir méi erauszefannen"
     }
   },
   "SWITCHGROUP": {
-    "NOT_MEMBER": "{userName} is not member of {groupName}.",
-    "COMMON_GROUPS": "Groups you have in common",
+    "NOT_MEMBER": "{userName} ass kee Member vun {groupName}.",
+    "COMMON_GROUPS": "Gemeinsam Gruppen",
     "OTHER_GROUPS": "Aner Gruppen",
-    "CHOOSE": "Choose a group:"
+    "CHOOSE": "Wiel eng Grupp:"
   },
   "BUTTON": {
-    "CREATE": "Create",
+    "CREATE": "Erstellen",
     "CANCEL": "Ofbriechen",
     "OPEN": "Opmaachen",
     "CLOSE": "Zoumaachen",
     "DELETE": "Läschen",
-    "EDIT": "Edit",
-    "JOIN": "Join",
+    "EDIT": "Beaarbechten",
+    "JOIN": "Bäitrieden",
     "LEAVE": "Verloossen",
-    "PREVIEW": "Preview",
-    "BACK": "Back",
-    "NEXT": "Next",
+    "PREVIEW": "Kontrolléieren",
+    "BACK": "Zréck",
+    "NEXT": "Nächst",
     "SEARCH": "Sichen",
     "OF_COURSE": "Jo, natierlech!",
     "YES": "Jo",
-    "SAVE_CHANGES": "Save changes",
-    "RESET": "Reset",
-    "CHANGE_PASSWORD": "Change password",
-    "CHANGE_EMAIL": "Change e-mail address",
-    "AGREE": "I agree",
-    "REMOVE": "Remove",
-    "ARCHIVE": "Archive",
-    "DELETE_ACCOUNT": "Delete account",
-    "SHOW": "Show",
-    "HIDE": "Hide",
-    "SUBMIT": "Submit",
-    "APPLY": "Apply",
-    "ACCEPT": "Accept",
-    "DECLINE": "Decline",
-    "WITHDRAW": "Withdraw",
-    "SHOW_MORE": "Show more",
-    "ENABLE": "Enable",
-    "DISABLE": "Disable",
-    "UNSUBSCRIBE": "Unsubscribe"
+    "SAVE_CHANGES": "Ännerunge späicheren",
+    "RESET": "Zrécksetzen",
+    "CHANGE_PASSWORD": "Passwuert änneren",
+    "CHANGE_EMAIL": "E-Mail-Adress änneren",
+    "AGREE": "Ech sinn averstanen.",
+    "REMOVE": "Läschen",
+    "ARCHIVE": "Archivéieren",
+    "DELETE_ACCOUNT": "Konto läschen",
+    "SHOW": "Weisen",
+    "HIDE": "Verstoppen",
+    "SUBMIT": "Areechen",
+    "APPLY": "Bewerben",
+    "ACCEPT": "Unhuelen",
+    "DECLINE": "Ofleenen",
+    "WITHDRAW": "Zréckzéien",
+    "SHOW_MORE": "Méi weisen",
+    "ENABLE": "Aktivéieren",
+    "DISABLE": "Desaktivéieren",
+    "UNSUBSCRIBE": "Desabonéieren"
   },
   "VALIDATION": {
-    "MINLENGTH": "Please enter more than {min} characters.",
-    "MAXLENGTH": "Too long, please use less than {max} characters.",
-    "UNIQUE": "Name already exists, please choose another.",
-    "REQUIRED": "This field is required.",
-    "VALID_EMAIL": "Enter a valid e-mail address.",
-    "VALID_TIMEZONE": "Enter a valid timezone.",
-    "IMAGE_REQUIRED": "You must add an image"
+    "MINLENGTH": "Gëff w.e.g. méi wéi {min} Zeechen an.",
+    "MAXLENGTH": "Ze laang, benotz w.e.g. manner wéi {max} Zeechen.",
+    "UNIQUE": "Dësen Numm gëtt et schonn. Wiel w.e.g. een aneren.",
+    "REQUIRED": "Dëst Feld ass erfuerderlech.",
+    "VALID_EMAIL": "Gëff eng gülteg E-Mail-Adress an.",
+    "VALID_TIMEZONE": "Gëff eng gülteg Zäitzone an.",
+    "IMAGE_REQUIRED": "Du muss ee Bild uginn."
   },
   "GROUP": {
     "WALL": "Mauer",
     "GROUP": "Grupp",
-    "LEAVE": "Leave group...",
-    "LEAVE_TEXT": "Are you sure you want to leave this group?",
-    "LEAVE_CONFIRMATION": "You left {groupName}",
-    "NONMEMBER_REDIRECT": "You are not a member of this group.",
-    "EDIT": "Edit group",
-    "CREATE_TITLE": "Create new group",
-    "MANAGE_AGREEMENT": "Manage agreement",
-    "TITLE": "Title of this group",
-    "PRIVATE_DESCRIPTION_TITLE": "Private group description",
-    "DESCRIPTION_VERBOSE": "Group description, visible for members",
-    "PUBLIC_DESCRIPTION": "Text you see before joining the group",
-    "WELCOMEMESSAGE_VERBOSE": "Welcome message sent to new members",
-    "LOGO": "Group logo",
-    "SET_LOGO": "Click to upload your group logo!",
-    "APPLICATIONS": "Applications",
-    "APPLICATION_QUESTIONS": "Questions for people who want to join this group",
+    "LEAVE": "Grupp verloossen...",
+    "LEAVE_TEXT": "Bass du sécher, dass du dës Grupp verloosse wëlls?",
+    "LEAVE_CONFIRMATION": "Du hues {groupName} verlooss",
+    "NONMEMBER_REDIRECT": "Du bass kee Member vun dëser Grupp.",
+    "EDIT": "Grupp veränneren",
+    "CREATE_TITLE": "Nei Grupp erstellen",
+    "MANAGE_AGREEMENT": "Ofkommes verwalten",
+    "TITLE": "Titel vun dëser Grupp",
+    "PRIVATE_DESCRIPTION_TITLE": "Privat Gruppebeschreiwung",
+    "DESCRIPTION_VERBOSE": "Beschreiwung vun der Grupp, siichtbar fir Memberen",
+    "PUBLIC_DESCRIPTION": "Text, deen ee gesäit, ier een der Grupp bäitrëtt",
+    "WELCOMEMESSAGE_VERBOSE": "Noriicht déi als Begréissung un nei Membere geschéckt gëtt",
+    "LOGO": "Logo vun der Grupp",
+    "SET_LOGO": "Klick fir de Logo vun der Grupp eropzelueden!",
+    "APPLICATIONS": "Bewerbungen",
+    "APPLICATION_QUESTIONS": "Froe fir Leit, déi dëser Grupp bäitriede wëllen",
     "PICKUPS": "Ofhuelungen",
-    "MESSAGES": "Messages",
-    "OFFERS": "Offers",
-    "PICKUP": "Pickup",
-    "MEMBERS": "Members",
-    "JOINED": "joined {relativeDate}",
-    "DECLINED": "declined {relativeDate}",
-    "ADDED_BY": "added by {userName}",
-    "DECLINED_BY": "declined by {userName}",
-    "SORT_JOINDATE": "Sort by join date",
-    "SORT_NAME": "Sort by name",
+    "MESSAGES": "Noriichten",
+    "OFFERS": "Offeren",
+    "PICKUP": "Ofhuelung",
+    "MEMBERS": "Memberen",
+    "JOINED": "ass {relativeDate} bäigetrueden",
+    "DECLINED": "huet {relativeDate} ofgeleent",
+    "ADDED_BY": "derbäigemaach gi vum {userName}",
+    "DECLINED_BY": "ofgeleent gi vum {userName}",
+    "SORT_JOINDATE": "Sortéieren no Datum vum Bäitrëtt",
+    "SORT_NAME": "Sortéieren no Numm",
     "INACTIVE": "Inaktiv",
-    "SHOW_INACTIVE": "Show inactive groups",
-    "PLACES": "Plazen",
-    "HOME": "Home",
-    "HISTORY": "History",
+    "SHOW_INACTIVE": "Inaktiv Gruppe weisen",
+    "PLACES": "Platzen",
+    "HOME": "Doheem",
+    "HISTORY": "Geschicht",
     "DESCRIPTION": "Beschreiwung",
     "ADDRESS": "Adress",
-    "TIMEZONE": "Time zone of group",
-    "INVITE_EMAIL": "Enter an e-mail address",
-    "INVITE_SEND": "Send invitation",
-    "INVITE_SEND_SUCCESS": "Invitation sent successfully!",
-    "INVITE_SEND_ERROR": "Ooops, could not send the invitation!",
-    "INVITED_LIST": "Invitations have already been sent out to these e-mail addresses:",
-    "INVITATIONS": "Invitations",
-    "INVITE_TITLE": "Invite users to your group",
-    "INVITATION_ACCEPT_SUCCESS": "Welcome! You successfully accepted the invitation.",
-    "INVITATION_ACCEPT_ERROR": "Ooops, could not accept the invitation!",
-    "SETTINGS": "Settings",
-    "NOTIFICATIONS_BY_GROUP": "Notifications by group",
-    "EMAIL_NOTIFICATIONS": "Email notifications",
+    "TIMEZONE": "Zäitzon vun der Grupp",
+    "INVITE_EMAIL": "Gëff eng E-Mail-Adress an",
+    "INVITE_SEND": "Aluedung schécken",
+    "INVITE_SEND_SUCCESS": "Aluedung erfollegräich geschéckt!",
+    "INVITE_SEND_ERROR": "Ups, d'Aluedung konnt net geschéckt ginn!",
+    "INVITED_LIST": "Aluedungen si schonn u folgend E-Mail-Adresse verschéckt ginn:",
+    "INVITATIONS": "Aluedungen",
+    "INVITE_TITLE": "Lued Leit an deng Grupp an",
+    "INVITATION_ACCEPT_SUCCESS": "Wëllkomm! Du hues d'Aluedung erfollegräich ugeholl.",
+    "INVITATION_ACCEPT_ERROR": "Ups, d'Aluedung konnt net ugeholl ginn!",
+    "SETTINGS": "Astellungen",
+    "NOTIFICATIONS_BY_GROUP": "Benoriichtegungen no Grupp",
+    "EMAIL_NOTIFICATIONS": "Benoriichtegungen via E-Mail",
     "NOTIFICATION_TYPES": {
       "weekly_summary": {
-        "NAME": "Weekly summary",
-        "DESCRIPTION": "Keep up to date with what's been happening in the group."
+        "NAME": "Zesummefaassung vun der Woch",
+        "DESCRIPTION": "Bleif informéiert mat wat an der Grupp geschitt."
       },
       "daily_pickup_notification": {
-        "NAME": "Pickup notifications",
-        "DESCRIPTION": "Reminds you of your pickups, and tells you about empty or not-full pickups of your favorite places in the next day"
+        "NAME": "Benoriichtegungen iwwert Ofhuelungen",
+        "DESCRIPTION": "Erënnert dech un deng Ofhuelungen, a seet dir Bescheed iwwert Ofhuelungen, op déi nach keen oder net genuch Leit ginn, vun denge favoriséierte Platzen den nächsten Dag"
       },
       "new_application": {
-        "NAME": "New applications",
-        "DESCRIPTION": "Tells you when somebody wants to join your group"
+        "NAME": "Nei Bewerbungen",
+        "DESCRIPTION": "Bescheed soe wann een der Grupp bäitriede wëll"
       },
       "new_offer": {
-        "NAME": "New offers",
-        "DESCRIPTION": "Tells you when somebody creates a new offer"
+        "NAME": "Nei Offeren",
+        "DESCRIPTION": "Bescheed soen wann een eng nei Offer mëscht"
       },
       "conflict_resolution": {
-        "NAME": "New conflict resolution processes",
-        "DESCRIPTION": "Tells you when a new conflict resolution process has been started in your group"
+        "NAME": "Neie Konflikt-Léisungsprozess",
+        "DESCRIPTION": "Seet dir Bescheed wann een neie Konflikt-Léisungsprozess an denger Grupp gestart gouf"
       }
     },
-    "PLAYGROUND_INFO": "This is a playground group, you can't break anything. Explore, click around and have fun!",
-    "JOIN_PLAYGROUND": "Join the playground group to explore karrot",
-    "JOIN_ANOTHER_GROUP": "Join another group"
+    "PLAYGROUND_INFO": "Dëst ass eng Spillplaz-Grupp, hei kanns du näischt futti maachen. Entdeck, klick iwwerall! Vill Spaass!",
+    "JOIN_PLAYGROUND": "Triet der Spillplaz-Grupp bäi fir karrot ze entdecken",
+    "JOIN_ANOTHER_GROUP": "Enger anerer Grupp bäitrieden"
   },
   "GROUPMAP": {
     "TITLE": "Kaart",
-    "SHOW_USERS": "Show users",
-    "HIDE_USERS": "Hide users",
-    "SHOW_PLACES": "Show places",
-    "HIDE_PLACES": "Hide places",
-    "SHOW_GROUPS": "Show groups",
-    "HIDE_GROUPS": "Hide groups",
-    "SET_LOCATION": "Set location",
-    "FULL_SCREEN": "Show full screen",
-    "EXPORT": "Export"
+    "SHOW_USERS": "Benotzer uweisen",
+    "HIDE_USERS": "Benotzer verstoppen",
+    "SHOW_PLACES": "Platzen uweisen",
+    "HIDE_PLACES": "Platze verstoppen",
+    "SHOW_GROUPS": "Gruppen uweisen",
+    "HIDE_GROUPS": "Gruppe verstoppen",
+    "SET_LOCATION": "Uert setzen",
+    "FULL_SCREEN": "Am Vollbildschierm weisen",
+    "EXPORT": "Exportéieren"
   },
   "STOREDETAIL": {
-    "DIRECTIONS": "Show directions",
-    "EDIT": "Edit place",
-    "ARCHIVED": "This place has been archived",
-    "INACTIVE": "This place is currently not cooperating.",
-    "CHANGE_STATUS": "You can change the status on the settings page.",
-    "NO_DESCRIPTION": "This place does not have a description yet"
+    "DIRECTIONS": "Weebeschreiwung uweisen",
+    "EDIT": "Platz veränneren",
+    "ARCHIVED": "Dës Platz gouf archivéiert",
+    "INACTIVE": "Dës Platz kooperéiert grad net.",
+    "CHANGE_STATUS": "Du kanns de Status op der Säit mat den Astellungen änneren.",
+    "NO_DESCRIPTION": "Dës Platz huet nach keng Beschreiwung."
   },
   "STOREEDIT": {
     "NAME": "Numm",
     "STATUS": "Status",
     "DESCRIPTION": "Beschreiwung",
     "ADDRESS": "Adress",
-    "WEEKS_IN_ADVANCE": "How many weeks in advance should recurring pickup dates be shown?",
-    "WEEKS_IN_ADVANCE_WARNING": "You are about to reduce the number of weeks pickups are shown. Existing leftover pickups will get deleted if nobody has joined them. You can disable all other pickups manually, if needed.",
+    "WEEKS_IN_ADVANCE": "Wéi vill Wochen am Viraus sollen d'Ofhuelungen, déi ëmmer nees sinn, ugewise ginn?",
+    "WEEKS_IN_ADVANCE_WARNING": "Du bass derbäi fir d'Unzuel u Wochen ze reduzéiere fir déi d'Ofhuelungen ugewise ginn. Ofhhuelunge fir déi sech nach keen agedroen huet wäerte geläscht ginn. Déi aner Ofhuelunge kanns de manuell desaktivéiere wann et néideg ass.",
     "DIALOGS": {
       "ARCHIVE": {
-        "TITLE": "Archive place",
-        "MESSAGE": "Are you sure?",
-        "CONFIRM": "Yes, archive place"
+        "TITLE": "Platz archivéieren",
+        "MESSAGE": "Bass du sécher?",
+        "CONFIRM": "Jo, Platz archivéieren"
       }
     },
-    "RESTORE": "Restore",
-    "SHOW_ARCHIVED": "Show archived places",
-    "HIDE_ARCHIVED": "Hide archived places",
-    "SHOW_ALL": "Show all places",
-    "SHOW_ACTIVE_ONLY": "Only show active places"
+    "RESTORE": "Réckgäng maachen",
+    "SHOW_ARCHIVED": "Archivéiert Platzen uweisen",
+    "HIDE_ARCHIVED": "Verstoppte Platzen uweisen",
+    "SHOW_ALL": "All d'Platzen uweisen",
+    "SHOW_ACTIVE_ONLY": "Just déi aktiv Platzen uweisen"
   },
   "PLACEWALL": {
-    "SUBSCRIBED_USERS": "{count} people have marked this place as favourite",
+    "SUBSCRIBED_USERS": "{count} Leit hunn dës Platz als Favorit markéiert",
     "SUBSCRIPTION": {
-      "HEADER": "Do you want to mark this place as your favourite?",
+      "HEADER": "Wëlls du dës Platz als Favorit markéieren?",
       "YES": "jo",
-      "YES_TEXT": "Shows available pickups on the group wall and sends emails about upcoming pickups.",
+      "YES_TEXT": "Weist Ofhuelungen, déi et ginn, op der Mauer vun der Grupp a schéckt E-Mailen iwwert Ofhuelungen, déi kommen.",
       "NO": "nee",
-      "NO_TEXT": "None of the above. You can still sign up for pickups though."
+      "NO_TEXT": "Näischt vun uewendriwwer. Du kanns dech awer fir Ofhuelungen androen."
     }
   },
   "PICKUPMANAGE": {
-    "TITLE": "Manage pickups",
-    "SERIES": "Recurring pickups",
-    "SINGLE": "One-time pickups",
-    "UPCOMING_PICKUPS_IN_SERIES": "Upcoming pickups in this series",
-    "PICKUP_DOES_NOT_MATCH": "This pickups' date doesn't match the recurrence pattern",
-    "PICKUP_DESCRIPTION_CHANGED": "'Additional information' has been changed",
-    "PICKUP_MAX_COLLECTORS_CHANGED": "'Max slots' has been changed"
+    "TITLE": "Ofhuelunge verwalten",
+    "SERIES": "Ofhuelungen, déi ëmmer nees sinn",
+    "SINGLE": "Eemoleg Ofhuelungen",
+    "UPCOMING_PICKUPS_IN_SERIES": "Ofhuelungen, déi kommen, an dëser Serie",
+    "PICKUP_DOES_NOT_MATCH": "Den Datum vun dëser Ofhuelung ass verschidde vun deenen aneren Ofhuelungen.",
+    "PICKUP_DESCRIPTION_CHANGED": "\"Zousätzlech Informatiounen\" gouf geännert",
+    "PICKUP_MAX_COLLECTORS_CHANGED": "\"Max. Platzen\" gouf geännert"
   },
   "PICKUPDELETE": {
-    "DELETE_SERIES_TITLE": "Delete recurring pickup date",
-    "DELETE_SERIES_TEXT": "Do you really want to delete this recurring pickup date? This will also delete all one-time pickup dates that belong to this recurring pickup date (except where people joined already)."
+    "DELETE_SERIES_TITLE": "Een Datum vun Ofhuelungen, déi ëmmer nees sinn, läschen",
+    "DELETE_SERIES_TEXT": "Wëlls du wierklech dësen Datum vun den Ofhuelungen, déi ëmmer nees sinn, läschen? Dëst wäert och all d'eemoleg Ofhuelunge läschen, déi zu dësen Ofhuelungen, déi ëmmer nees sinn, gehéieren (ausser et hunn sech scho Leit derfir ugemellt)."
   },
   "USERDETAIL": {
     "DISPLAY_NAME": "Numm",
     "DESCRIPTION": "Iwwert dech",
-    "OLD_PASSWORD": "Confirm your old password",
-    "PASSWORD": "New password"
+    "OLD_PASSWORD": "Bestäteg däin alt Passwuert",
+    "PASSWORD": "Neit Passwuert"
   },
   "PROFILE": {
-    "INACCESSIBLE_OR_DELETED": "(User inaccessible or deleted)"
+    "INACCESSIBLE_OR_DELETED": "(Benotzer net accessibel oder geläscht)"
   },
   "JOINGROUP": {
-    "WHICHGROUP": "Which group do you want to join?",
-    "OR": "{joinGroup} or {createGroup}",
-    "NUM_MEMBERS": "Member | Members",
-    "NO_PUBLIC_DESCRIPTION": "(This group has no public description... yet)",
-    "ALL_GROUPS": "All groups",
-    "SIGNUP_OR_LOGIN": "Log in or sign up to join this group!",
-    "VERIFY_EMAIL_ADDRESS": "Verify your email address to apply",
+    "WHICHGROUP": "Wéi enger Grupp wëlls du bäitrieden?",
+    "OR": "{joinGroup} oder {createGroup}",
+    "NUM_MEMBERS": "Member | Memberen",
+    "NO_PUBLIC_DESCRIPTION": "(Dës Grupp huet nach keng ëffentlech Beschreiwung.)",
+    "ALL_GROUPS": "All d'Gruppen",
+    "BROWSE_GROUPS": "Browse existing groups",
+    "SIGNUP_OR_LOGIN": "Logg dech an oder mellt dech un fir dëser Grupp bäizetrieden!",
+    "VERIFY_EMAIL_ADDRESS": "Verifizéier deng E-Mail-Adress fir dech ze bewerben",
     "MY_GROUPS": "Meng Gruppen",
     "LOGOUT_MESSAGE": {
-      "LOGGED_OUT": "You are currently logged out. {login}",
-      "LOG_IN": "Log in to see your groups!"
+      "LOGGED_OUT": "Du bass grad ausgeloggt. {login}",
+      "LOG_IN": "Logg dech a fir deng Gruppen ze gesinn!"
     },
-    "PROFILE_NOTE": "By joining this group, your profile data will become visible to other group members.",
-    "APPLICATION_SUBMITTED": "Your application was successfully submitted!",
-    "APPLICATION_PENDING": "Your application is pending!",
-    "WITHDRAW_CONFIRMATION_HEADER": "Withdraw Application",
-    "WITHDRAW_CONFIRMATION_TEXT": "Are you sure you want to withdraw your application to join {groupName}?",
-    "APPLICATION_WITHDRAWN": "Your application was successfully withdrawn!"
+    "PROFILE_NOTE": "Andeem's du dëser Grupp bäitrëts, kann all anere Member aus der Grupp däi Profil kucken.",
+    "APPLICATION_SUBMITTED": "Deng Bewerbung gouf erfollegräich agereecht!",
+    "APPLICATION_PENDING": "Deng Bewerbung leeft grad!",
+    "WITHDRAW_CONFIRMATION_HEADER": "Bewerbung zréckzéien",
+    "WITHDRAW_CONFIRMATION_TEXT": "Bass du sécher, dass du deng Bewerbung fir {groupName} bäizetrieden zréckzéie wëlls?",
+    "APPLICATION_WITHDRAWN": "Deng Bewerbung gouf erfollegräich zréckgezunn!"
   },
   "GROUPINFO": {
-    "TITLE": "Public group information",
-    "META": "Show public group information",
-    "MEMBER_VIEW": "You are member of this group. Click here to switch to full view."
+    "TITLE": "Ëffentlech Informatiounen zur Grupp",
+    "META": "Weis ëffentlech Informatiounen zur Grupp",
+    "MEMBER_VIEW": "Du bass Member vun dëser Grupp. Klick hei fir alles ze gesinn."
   },
   "TOPBAR": {
-    "LOGOUT": "Logout",
-    "USERPROFILE": "Visit your profile",
-    "CHANGE_GROUP": "Change group"
+    "LOGOUT": "Ausloggen",
+    "USERPROFILE": "Kuck däi Profil",
+    "CHANGE_GROUP": "Grupp veränneren"
   },
   "SIDENAV": {
-    "INFO_SUB": "How to build your foodsaving group",
-    "GIT_SUB": "See our code!"
+    "INFO_SUB": "Wéi kann ech meng eege Liewensmëttelretter-Grupp opbauen",
+    "GIT_SUB": "Eise Code kucken!"
   },
   "LOGIN": {
     "TITLE": "Login",
-    "SUBMIT": "Login",
-    "SIGNUP": "Sign up!",
-    "FORGOT_PASSWORD": "Forgot your password?"
+    "SUBMIT": "Aloggen",
+    "SIGNUP": "Umellen!",
+    "FORGOT_PASSWORD": "Hues du däi Passwuert vergiess?"
   },
   "SIGNUP": {
-    "TITLE": "Sign Up!",
-    "BACK": "Back to Login",
-    "OK": "Join"
+    "TITLE": "Umellen!",
+    "BACK": "Zréck bäi de Login",
+    "OK": "Bäitrieden"
   },
   "VERIFYMAIL": {
-    "TITLE": "E-Mail verification",
-    "SUCCESS": "Your e-mail address was successfully verified!"
+    "TITLE": "Verifizéierung vun der E-Mail-Adress",
+    "SUCCESS": "Deng E-Mail-Adress gouf erfollegräich verifizéiert!"
   },
   "DELETEACCOUNT": {
-    "TITLE": "Account deletion",
-    "SUCCESS": "Your account was successfully deleted!"
+    "TITLE": "Läsche vum Konto",
+    "SUCCESS": "Däi Konto gouf erfollegräich geläscht!"
   },
   "CREATEPICKUP": {
-    "FREQUENCY": "Frequency",
+    "FREQUENCY": "Frequenz",
     "WEEKLY": "All Woch",
-    "CUSTOM": "Custom",
+    "CUSTOM": "Op d'Mooss gemaach",
     "WEEKDAYS": "All Wochendag",
-    "WEEKDAYS_HELPER": "On which days should the pick-up take place?",
-    "RRULE": "Recurrence rule",
-    "RRULE_HELPER": "Type in a valid {ruleHelper}, e.g. {ruleExample} or {ruleExample2}",
-    "RRULE_HELPER_URL": "iCalender rule",
-    "RRULE_EXAMPLE": "last working day (Mo-Fr) every month",
-    "RRULE_EXAMPLE2": "every second Monday",
-    "STARTDATE_HELPER": "When should the series start?",
-    "TIME_HELPER": "When should the pick-up take place?",
-    "DATE": "Date",
-    "DATE_HELPER": "When should the pick-up take place?",
-    "MAX_COLLECTORS": "Max Slots",
-    "MAX_COLLECTORS_HELPER": "How many people should participate in the pick-up?",
-    "COMMENT": "Additional information",
-    "COMMENT_HELPER": "What should people know when signing up to this pick-up?",
-    "UNLIMITED": "unlimited",
-    "DIFFERS_WARNING": "This value differs from the default. To undo this change, click on the arrow button and save the changes.",
-    "ENABLE_TITLE": "Enable pickup?",
-    "DISABLE_TITLE": "Disable pickup?",
-    "ENABLE_DISABLE_MESSAGE": "Users who joined this pickup will get a notification. You can change this text to provide a reason:",
-    "EXCEPTIONS_TITLE": "Check your pickups",
-    "EXCEPTIONS_MESSAGE": "Some upcoming pickups don't match the settings of this recurring pickup. Have a look below at '{upcomingLabel}' to change or disable pickups, if needed."
+    "WEEKDAYS_HELPER": "Op wéi engen Deeg sinn d'Ofhuelungen?",
+    "RRULE": "Widderhuelungs-Reegel",
+    "RRULE_HELPER": "Gëff e gültegen {ruleHelper} an, z.B. {ruleExample} oder {ruleExample2}",
+    "RRULE_HELPER_URL": "Kalenner-Reegel",
+    "RRULE_EXAMPLE": "läscht Wochendeeg (Mé-Fr) all Mount",
+    "RRULE_EXAMPLE2": "all zweete Méindeg",
+    "STARTDATE_HELPER": "Wéini soll d'Serie ufänken?",
+    "TIME_HELPER": "Wéini soll d'Ofhuelung sinn?",
+    "DATE": "Datum",
+    "DATE_HELPER": "Wéini soll d'Ofhuelung sinn?",
+    "MAX_COLLECTORS": "Max. Platzen",
+    "MAX_COLLECTORS_HELPER": "Wéi vill Leit solle bei der Ofhuelung matmaachen?",
+    "COMMENT": "Zousätzlech Informatiounen",
+    "COMMENT_HELPER": "Wat sollen d'Leit wësse wann si sech fir dës Ofhuelung androen?",
+    "UNLIMITED": "onendlech",
+    "DIFFERS_WARNING": "Dëse Wäert ass anescht wéi de Standard. Fir dës Ännerung réckgängeg ze maachen, klicks de op de Feil an dann op Späicheren.",
+    "ENABLE_TITLE": "Ofhuelungen aktivéieren?",
+    "DISABLE_TITLE": "Ofhuelung desaktivéieren?",
+    "ENABLE_DISABLE_MESSAGE": "Benotzer, déi dëser Ofhuelung bäitrieden, kréien eng Benoriichtegung. Du kanns dësen Text ännere fir ee Grond unzeginn:",
+    "EXCEPTIONS_TITLE": "Deng Ofhuelunge kontrolléieren",
+    "EXCEPTIONS_MESSAGE": "E puer Ofhuelungen, déi kommen, stëmmen net mat den Astellunge vun dëser Ofhuelung, déi ëmmer nees ass, iwwerteneen. Kuck eng Kéier hei drënner op '{upcomingLabel}' fir Ofhuelungen ze änneren oder ze desaktivéieren, falls néideg."
   },
   "CREATESTORE": {
-    "TITLE": "Create a new place"
+    "TITLE": "Eng nei Platz erstellen"
   },
   "PICKUPLIST": {
     "FILTER": {
       "ALL": "All",
-      "EMPTY": "Only empty",
-      "FREE": "With free slots"
+      "EMPTY": "Just eideler",
+      "FREE": "Mat eidele Platzen"
     },
-    "AVAILABLE": "There is one pickup in your favorite places waiting for you! | There are {count} pickups in your favorite places waiting for you!",
-    "AVAILABLE_FEEDBACK": "You can give feedback to a pickup | {count} pickups await your feedback",
-    "JOINEDNOTICE": "You have one upcoming pickup | You have {count} upcoming pickups",
-    "AVAILABLE_FROM_STORES": "This shows pickups from your favorite places in the next days. You can access other places in the sidebar.",
+    "AVAILABLE": "Et gëtt eng Ofhuelung op denge favoriséierte Platze fir dech! | Et gëtt {count} Ofhuelungen op denge favoriséierte Platze fir dech!",
+    "AVAILABLE_FEEDBACK": "Du kanns Feedback zu enger Ofhuelung ofginn | {count} Ofhuelunge waarden op däi Feedback",
+    "JOINEDNOTICE": "Du hues eng Ofhuelung, déi kënnt | Du hues {count} Ofhuelungen, déi kommen",
+    "AVAILABLE_FROM_STORES": "Dëst weist d'Ofhuelunge vun denge favoriséierte Platzen an den nächsten Deeg. Du kanns un aner Platzen iwwert d'Sidebar dru kommen.",
     "ITEM": {
       "LEAVE": "Verloossen",
-      "JOIN": "Join",
-      "JOIN_CONFIRMATION_HEADER": "Join Pickup",
-      "JOIN_CONFIRMATION_TEXT": "Are you sure you have time to pick up on {date}?",
-      "LEAVE_CONFIRMATION_HEADER": "Leave Pickup",
-      "LEAVE_CONFIRMATION_TEXT": "Are you really sure the others can do the pickup without you?"
+      "JOIN": "Matmaachen",
+      "JOIN_CONFIRMATION_HEADER": "Bei Ofhuelung matmaachen",
+      "JOIN_CONFIRMATION_TEXT": "Bass du sécher, dass du Zäit fir den {date} ofzehuelen?",
+      "LEAVE_CONFIRMATION_HEADER": "Vun Ofhuelung ofmellen",
+      "LEAVE_CONFIRMATION_TEXT": "Bass du sécher, dass déi aner d'Ofhuelung ouni dech maache kënnen?"
     },
-    "NONE": "No upcoming pickups",
-    "NONE_HINT": "You can create a new pickup on the place page.",
-    "STORE_NONE_HINT": "You can create a new pickup on the pickup manage page.",
-    "PICKUP_DISABLED": "This pickup has been disabled.",
-    "PICKUP_STARTED": "This pickup has already started."
+    "NONE": "Keng Ofhuelungen, déi kommen",
+    "NONE_HINT": "Du kanns eng nei Ofhuelung op der Säit vun der Platz erstellen.",
+    "STORE_NONE_HINT": "Du kanns eng nei Ofhuelung op der Säit erstellen, wou's du d'Ofhuelunge verwalte kanns.",
+    "PICKUP_DISABLED": "Dës Ofhuelung ass desaktivéiert ginn.",
+    "PICKUP_STARTED": "Dës Ofhuelung huet schonn ugefaangen."
   },
   "FEEDBACKLIST": {
-    "SAVED_FOOD": "At least 1 kg was saved here. Thank you! | People gave feedback for {amount} kg of saved food already! Keep up the great work!",
-    "NUMBER_PICKUPS": "{count} pickups done",
-    "NUMBER_FEEDBACK": "{count} feedback entries given",
-    "WEIGHT_SUM": "{sum} kg of food saved",
-    "GIVE_FEEDBACK": "Give feedback",
-    "NONE": "No feedback yet",
-    "NONE_HINT": "This page will be filled once more feedback is available",
-    "NO_DONE_PICKUPS": "All done!",
-    "NO_DONE_PICKUPS_HINT": "You currently have no pickups to give feedback to. Why not join another pickup?"
+    "SAVED_FOOD": "Mindestens 1 kg gouf hei gerett! Merci! | Leit hu Feedback fir {amount} kg gerette Liewensmëttel ofginn! Maach weider esou!",
+    "NUMBER_PICKUPS": "{count} Ofhuelunge gemaach",
+    "NUMBER_FEEDBACK": "{count} Feedbacke ginn",
+    "WEIGHT_SUM": "{sum} kg Liewensmëttel gerett",
+    "GIVE_FEEDBACK": "Feedback ginn",
+    "NONE": "Nach kee Feedback",
+    "NONE_HINT": "Dës Säit wäert gefëllt sinn esoubal et méi Feedback gëtt",
+    "NO_DONE_PICKUPS": "Alles fäerdeg!",
+    "NO_DONE_PICKUPS_HINT": "Du hues grad keng Ofhuelunge fir déi's de Feedback kanns ginn. Firwat mëss net bei enger weiderer Ofhuelung mat?"
   },
   "PICKUP_FEEDBACK": {
     "TITLE": "Feedback",
-    "HEADER": "Thank you for your pickup!",
-    "EDIT": "Edit feedback",
-    "SUBTITLE": "You can provide feedback for your pickup here",
-    "SET_AMOUNT": "Set amount",
-    "DELETE_AMOUNT": "Delete amount",
-    "AMOUNT": "Amount of food you were able to save (in kg)",
-    "AMOUNT_INFO": "For place statistics, we will add together the amount of all feedback.",
-    "COMMENT_PLACEHOLDER": "Was everything fine? Did everyone show up? Your comment here...",
-    "PREVIOUS": "Previous feedback for {store}",
-    "TOGETHER_WITH": "You did this pickup together with:"
+    "HEADER": "Merci fir deng Ofhuelung!",
+    "EDIT": "Feedback veränneren",
+    "SUBTITLE": "Du kanns Feedback zu denger Ofhuelung hei ginn",
+    "SET_AMOUNT": "Quantitéit aginn",
+    "DELETE_AMOUNT": "Quantitéit läschen",
+    "AMOUNT": "Quantitéit vu Liewensmëttel déi's du rette konnts (a kg)",
+    "AMOUNT_INFO": "Fir Statistiken zur Platz gëtt d'Quantitéit vun all Feedback zesummegerechent.",
+    "COMMENT_PLACEHOLDER": "War alles gutt? War jidderee komm? Däi Kommentar hei...",
+    "PREVIOUS": "Feedback vu virdru fir {store}",
+    "TOGETHER_WITH": "Du hues dës Ofhuelung zesumme gemaach mam:"
   },
   "PASSWORDRESET": {
-    "TITLE": "Password reset",
-    "INTRO": "Enter your Email address and we will send you a link to set a new password (if you have an account registered).",
-    "EMAIL": "Email address",
-    "SUBMIT": "Get new password",
-    "LOGIN": "Back to login page",
-    "SUCCESS": "The request was successfully sent. Have a look at your Emails!"
+    "TITLE": "Passwuert zrécksetzen",
+    "INTRO": "Gëff deng E-Mail-Adress an a mir schécken dir ee Link fir een neit Passwuert erauszewielen (wann's du ee Konto hues).",
+    "EMAIL": "E-Mail-Adress",
+    "SUBMIT": "Neit Passwuert kréien",
+    "LOGIN": "Zréck op d'Säit mam Login",
+    "SUCCESS": "D'Ufro gouf erfollegräich geschéckt. Kuck an deng E-Mailen!"
   },
   "PASSWORD": {
     "RESET": {
-      "TITLE": "Reset password",
-      "OK": "Save",
-      "SUCCESS": "Your new password has been saved."
+      "TITLE": "Passwuert zrécksetzen",
+      "OK": "Späicheren",
+      "SUCCESS": "Däin neit Passwuert gouf gespäichert."
     },
     "CHANGE": {
-      "SUCCESS": "Your new password has been saved."
+      "SUCCESS": "Däin neit Passwuert gouf gespäichert."
     }
   },
   "LANGUAGECHOOSER": {
-    "ADD_MORE": "Help translating!",
-    "SWITCH": "Switch language"
+    "ADD_MORE": "Hëllef iwwersetzen!",
+    "SWITCH": "Sprooch wiesselen"
   },
   "MARKDOWN_INPUT": {
-    "BOLD": "bold",
-    "ITALIC": "italic",
-    "STRIKE": "strike",
-    "QUOTE": "quote",
-    "HELP": "What is Markdown?"
+    "BOLD": "fett",
+    "ITALIC": "kursiv",
+    "STRIKE": "duerchgestrach",
+    "QUOTE": "zitéiert",
+    "HELP": "Wat ass Markdown?"
   },
   "HISTORY": {
-    "GROUP_CREATE": "created this group",
-    "GROUP_MODIFY": "changed the settings of this group",
-    "GROUP_JOIN": "joined this group",
-    "GROUP_LEAVE": "left this group",
-    "STORE_CREATE": "created place {name}",
-    "STORE_MODIFY": "changed the settings of place {name}",
-    "STORE_DELETE": "deleted place {name}",
-    "PICKUP_CREATE": "created a new one-time pick-up",
-    "PICKUP_MODIFY": "changed the settings of a pick-up",
-    "PICKUP_DELETE": "deleted a pick-up",
-    "PICKUP_ENABLE": "enabled a pickup",
-    "PICKUP_DISABLE": "disabled a pickup",
-    "SERIES_CREATE": "created a new recurring pick-up",
-    "SERIES_MODIFY": "changed the settings of a recurring pick-up",
-    "SERIES_DELETE": "deleted a recurring pick-up",
-    "PICKUP_DONE": "did a pick-up at {storeName}",
-    "PICKUP_MISSED": "A pickup at {storeName} was missed!",
-    "PICKUP_JOIN": "signed up to do a pick-up at {storeName}",
-    "PICKUP_LEAVE": "stepped back from doing a pick-up at {storeName}",
-    "APPLICATION_DECLINED": "declined an application from {applicantName}",
-    "MEMBER_BECAME_EDITOR": "gained editing permissions",
-    "GROUP_LEAVE_INACTIVE": "was removed due to inactivity",
-    "GROUP_CHANGE_PHOTO": "changed the group logo",
-    "GROUP_DELETE_PHOTO": "deleted the group logo",
-    "MEMBER_REMOVED": "was removed due to group decision",
-    "NOTHING_HAPPENEND": "Nothing happened so far...",
-    "DETAILS": "More information"
+    "GROUP_CREATE": "huet dës Grupp erstallt",
+    "GROUP_MODIFY": "huet d'Astellunge vun dëser Grupp verännert",
+    "GROUP_JOIN": "ass dëser Grupp bäigetrueden",
+    "GROUP_LEAVE": "huet dës Grupp verlooss",
+    "STORE_CREATE": "huet d'Platz {name} erstallt",
+    "STORE_MODIFY": "huet d'Astellunge vun der Platz {name} verännert",
+    "STORE_DELETE": "huet d'Platz {name} geläscht",
+    "PICKUP_CREATE": "huet eng eemoleg Ofhuelung erstallt",
+    "PICKUP_MODIFY": "huet d'Astellungen vun enger Ofhuelung geännert",
+    "PICKUP_DELETE": "huet eng Ofhuelung geläscht",
+    "PICKUP_ENABLE": "huet eng Ofhuelung aktivéiert",
+    "PICKUP_DISABLE": "huet eng Ofhuelung desaktivéiert",
+    "SERIES_CREATE": "huet eng nei Ofhuelung, déi ëmmer nees ass, erstallt",
+    "SERIES_MODIFY": "huet d'Astellungen vun enger Ofhuelung, déi ëmmer nees ass, geännert",
+    "SERIES_DELETE": "huet eng Ofhuelung, déi ëmmer nees ass, geläscht",
+    "PICKUP_DONE": "huet bei {storeName} ofgeholl",
+    "PICKUP_MISSED": "Ofhuelung beim {storeName} gouf vergiess!",
+    "PICKUP_JOIN": "huet sech fir eng Ofhuelung beim {storeName} agedroen",
+    "PICKUP_LEAVE": "ass zréckgetruede fir eng Ofhuelung beim {storeName} ze maachen",
+    "APPLICATION_DECLINED": "huet eng Bewerbung vum {applicantName} ofgeleent",
+    "MEMBER_BECAME_EDITOR": "duerf elo beaarbechten",
+    "GROUP_LEAVE_INACTIVE": "gouf wéinst Inaktivitéit aus der Grupp geheit",
+    "GROUP_CHANGE_PHOTO": "huet de Logo vun der Grupp geännert",
+    "GROUP_DELETE_PHOTO": "huet de Logo vun der Grupp geläscht",
+    "MEMBER_REMOVED": "gouf wéinst enger Gruppenentscheedung aus der Grupp geheit",
+    "NOTHING_HAPPENEND": "Bis elo ass nach näischt geschitt...",
+    "DETAILS": "Méi Informatiounen"
   },
   "NOTIFICATIONS": {
-    "TITLE": "Notifications",
-    "NOT_VERIFIED": "{email} is not verified",
-    "CHECK_YOUR_MAILS": "Please check your emails or {resend}",
-    "RESEND_VERIFICATION": "resend verification email",
-    "VERIFICATION_EMAIL_SENT": "We sent you another verification mail. Please check your inbox.",
-    "CHANGES_SAVED": "Your changes have been saved.",
-    "EMAIL_NOT_DELIVERED": "An email could not be delivered to you | {count} emails could not be delivered to you"
+    "TITLE": "Benoriichtegungen",
+    "NOT_VERIFIED": "{email} ass net verifizéiert",
+    "CHECK_YOUR_MAILS": "Kuck w.e.g. an deng E-Mailen oder {resend}",
+    "RESEND_VERIFICATION": "schéck d'E-Mail fir ze verifizéieren nach eng Kéier",
+    "VERIFICATION_EMAIL_SENT": "Mir hunn dir eng aner E-Mail fir ze verifizéieren geschéckt. Kuck w.e.g. an deng E-Mailen.",
+    "CHANGES_SAVED": "Deng Ännerunge goufe gespäichert.",
+    "EMAIL_NOT_DELIVERED": "Eng E-Mail konnt dir net geschéckt ginn | {count} E-Maile konnten dir net geschéckt ginn"
   },
   "NOTIFICATION_BELLS_LIST": {
-    "TITLE": "Notifications",
-    "NO_ITEMS": "We currently don't have notifications for you."
+    "TITLE": "Benoriichtegungen",
+    "NO_ITEMS": "Mir hu grad keng Benoriichtegungen fir dech."
   },
   "NOTIFICATION_BELLS": {
-    "YOU_BECAME_EDITOR": "You gained editing permissions",
-    "USER_BECAME_EDITOR": "{userName} gained editing permissions",
-    "NEW_APPLICANT": "{userName} applied to join your group",
-    "APPLICATION_ACCEPTED": "Your application was accepted!",
-    "APPLICATION_DECLINED": "Your application was declined",
-    "INVITATION_ACCEPTED": "{userName} accepted your invitation",
-    "FEEDBACK_POSSIBLE": "You can give feedback for the pickup you did on {date}",
-    "NEW_PLACE": "{placeName} has been created",
-    "NEW_MEMBER": "{userName} joined your group",
-    "PICKUP_UPCOMING": "Reminder: You have a pickup at {time}",
-    "PICKUP_DISABLED": "Pickup at {dateTime} was disabled",
-    "PICKUP_ENABLED": "Pickup at {dateTime} was enabled again",
-    "PICKUP_MOVED": "Pickup was moved to {dateTime}",
-    "CONFLICT_RESOLUTION_CREATED": "Join the discussion about a conflict with {userName}",
-    "CONFLICT_RESOLUTION_CREATED_ABOUT_YOU": "A conflict resolution process was started with you",
-    "CONFLICT_RESOLUTION_CONTINUED": "The conflict resolution process with {userName} continues",
-    "CONFLICT_RESOLUTION_CONTINUED_ABOUT_YOU": "The conflict resolution process with you continues",
-    "CONFLICT_RESOLUTION_DECIDED": "The conflict resolution process with {userName} was decided",
-    "CONFLICT_RESOLUTION_DECIDED_ABOUT_YOU": "The conflict resolution process with you was decided",
-    "CONFLICT_RESOLUTION_YOU_WERE_REMOVED": "You were removed from the group",
-    "VOTING_ENDS_SOON": "Voting ends soon, don't forget to participate!"
+    "YOU_BECAME_EDITOR": "Du duerfs elo beaarbechten",
+    "USER_BECAME_EDITOR": "{userName} duerf elo beaarbechten",
+    "NEW_APPLICANT": "{userName} huet seng Bewerbung agereecht fir denger Grupp bäizetrieden",
+    "APPLICATION_ACCEPTED": "Deng Bewerbung gouf ugeholl!",
+    "APPLICATION_DECLINED": "Deng Bewerbung gouf ofgeleent",
+    "INVITATION_ACCEPTED": "{userName} huet deng Aluedung ugeholl",
+    "FEEDBACK_POSSIBLE": "Du kanns Feedback zu der Ofhuelung, déi's du den {date} gemaach hues, ginn",
+    "NEW_PLACE": "{placeName} ass erstallt ginn",
+    "NEW_MEMBER": "{userName} ass denger Grupp bäigetrueden",
+    "PICKUP_UPCOMING": "Erënnerung: Du hues eng Ofhuelung um {time}",
+    "PICKUP_DISABLED": "Ofhuelung den {dateTime} gouf desaktivéiert",
+    "PICKUP_ENABLED": "Ofhuelung den {dateTime} gouf nees aktivéiert",
+    "PICKUP_MOVED": "Ofhuelung gouf verréckelt op den {dateTime}",
+    "CONFLICT_RESOLUTION_CREATED": "Triet der Diskussioun iwwert de Konflikt mat {userName} bäi",
+    "CONFLICT_RESOLUTION_CREATED_ABOUT_YOU": "Ee Konflikt-Léisungsprozess mat dir gouf gestart",
+    "CONFLICT_RESOLUTION_CONTINUED": "De Konflikt-Léisungsprozess mat {userName} geet weider",
+    "CONFLICT_RESOLUTION_CONTINUED_ABOUT_YOU": "De Konflikt-Léisungsprozess mat dir geet weider",
+    "CONFLICT_RESOLUTION_DECIDED": "De Konflikt-Léisungsprozess mat {userName} gouf entscheet",
+    "CONFLICT_RESOLUTION_DECIDED_ABOUT_YOU": "De Konflikt-Léisungsprozess mat dir gouf entscheet",
+    "CONFLICT_RESOLUTION_YOU_WERE_REMOVED": "Du goufs aus der Grupp geheit",
+    "VOTING_ENDS_SOON": "D'Ofstëmmung ass geschwë eriwwer, vergiess net matzemaachen!"
   },
   "NOTIFICATION_TOGGLE": {
-    "HEADER": "How do you want to receive notifications about new messages in this conversation/thread?",
+    "HEADER": "Wéi wëlls du Benoriichtegungen iwwert nei Noriichten an dëser Ënnerhalung kréien?",
     "ALL": "all",
-    "ALL_TEXT": "Via app/website, email and push notifications.",
-    "SOME": "some",
-    "SOME_TEXT": "Via app/website.",
-    "NONE": "none",
-    "NONE_TEXT": "No notifications."
+    "ALL_TEXT": "Via App/Websäit, E-Mail a Push-Benoriichtegungen.",
+    "SOME": "e puer",
+    "SOME_TEXT": "Via App/Websäit.",
+    "NONE": "keng",
+    "NONE_TEXT": "Keng Benoriichtegungen."
   },
   "OUTDATED_BROWSER": {
-    "MESSAGE": "You are using an unsupported browser. {upgradeBrowser} to enjoy all features.",
-    "LINK": "Please update or switch your browser"
+    "MESSAGE": "Du benotz ee Browser, deen net ënnerstëtzt gëtt. {upgradeBrowser} fir all d'Funktiounen ze genéissen.",
+    "LINK": "Aktualiséier oder wiessel däi Browser w.e.g."
   },
   "UPDATE_AVAILABLE": {
-    "TITLE": "Update available",
-    "DETAIL": "A new version of karrot is available."
+    "TITLE": "Et gëtt een Update",
+    "DETAIL": "Et gëtt eng nei Versioun vu karrot."
   },
   "NOT_FOUND": {
-    "EXPLANATION": "Sorry, we couldn't find this page anywhere.",
-    "HOME": "Take me home"
+    "EXPLANATION": "Entschëlleg, mir konnten dës Säit néierens fannen.",
+    "HOME": "Bréng mech heem"
   },
   "SETTINGS": {
-    "TITLE": "Settings"
+    "TITLE": "Astellungen"
   },
   "AGREEMENT": {
-    "NEW": "New agreement",
-    "AGREE": "You must agree to {title}",
-    "VIEW": "View agreement",
-    "TITLE": "Title",
-    "TITLE_HELPER": "Give your agreement a title, e.g. Community Rules",
-    "CONTENT": "Content",
-    "CONTENT_HELPER": "The text of your agreement",
-    "MINOR_EDIT": "Minor edit?",
-    "MINOR_EDIT_HELPER": "Typos, formatting, etc... people will not be asked to re-agree",
-    "BLURB1": "You don't have an agreement yet!",
-    "BLURB2": "If you add one then people will have to agree to it before they can do pickups.",
+    "NEW": "Neit Ofkommes",
+    "AGREE": "Du muss {title} zoustëmmen",
+    "VIEW": "Ofkommes uweisen",
+    "TITLE": "Titel",
+    "TITLE_HELPER": "Gëff dengem Ofkommes een Titel, z.B. Gemeinschaftsreegeln",
+    "CONTENT": "Inhalt",
+    "CONTENT_HELPER": "Den Text vun ärem Ofkommes",
+    "MINOR_EDIT": "Kléng Ännerung?",
+    "MINOR_EDIT_HELPER": "Tippfeeler, Formatéierung, asw... Leit ginn net gefrot fir nees zouzestëmmen",
+    "BLURB1": "Dir hutt nach keen Ofkommes!",
+    "BLURB2": "Wann's du een derbäi mëss, mussen d'Leit zoustëmmen ier si Ofhuelunge maachen duerfen.",
     "DIALOGS": {
       "REPLACE": {
-        "TITLE": "Change agreement?",
-        "MESSAGE": "Everyone will have to agree again before they can signup for pickups",
-        "CONFIRM": "Yes, change agreement"
+        "TITLE": "Ofkommes änneren?",
+        "MESSAGE": "Jidderee muss nees zoustëmmen ier si sech fir Ofhuelungen androen duerfen.",
+        "CONFIRM": "Jo, Ofkommes änneren"
       },
       "REMOVE": {
-        "TITLE": "Remove agreement?",
-        "MESSAGE": "This means anyone will be able to do a pickup",
-        "CONFIRM": "Yes, remove agreement"
+        "TITLE": "Ofkommes läschen?",
+        "MESSAGE": "Dat heescht, dass jiddereen eng Ofhuelung maachen duerf",
+        "CONFIRM": "Jo, Ofkommes läschen"
       }
     }
   },
   "WALL": {
-    "WRITE_MESSAGE": "Write a message...",
-    "WRITE_FIRST_MESSAGE": "Write the first message...",
-    "VERIFY_EMAIL_FOR_NOTIFICATIONS": "Please verify your e-mail address to receive notification e-mails",
-    "RECEIVED_VIA_EMAIL": "This message was sent via e-mail"
+    "WRITE_MESSAGE": "Eng Noriicht schreiwen...",
+    "WRITE_FIRST_MESSAGE": "Déi éischt Noriicht schreiwen...",
+    "VERIFY_EMAIL_FOR_NOTIFICATIONS": "Verifizéier w.e.g. deng E-Mail-Adress fir Benoriichtegunge via E-Mail ze kréien",
+    "RECEIVED_VIA_EMAIL": "Dës Noriicht gouf via E-Mail geschéckt."
   },
   "CONVERSATION": {
-    "CONVERSATIONS": "Conversations",
-    "OPEN": "Open Chat",
-    "REPLY_TO_MESSAGE": "Reply to message...",
-    "REPLIES": "Replies",
-    "REPLIES_COUNT": "1 reply | {count} replies",
-    "UNREAD_MESSAGES": "You have one unread message. | You have {count} unread messages.",
-    "EDITED": "edited",
-    "MARK_READ": "Mark all as read",
+    "CONVERSATIONS": "Ënnerhalungen",
+    "OPEN": "Chat opmaachen",
+    "REPLY_TO_MESSAGE": "Op Noriicht äntwerten...",
+    "REPLIES": "Äntwerten",
+    "REPLIES_COUNT": "1 Äntwert | {count} Äntwerten",
+    "UNREAD_MESSAGES": "Du hues eng ongeliesen Noriicht. | Du hues {count}ongeliesen Noriichten.",
+    "EDITED": "beaarbecht",
+    "MARK_READ": "All als geliese markéieren.",
     "REACTIONS": {
-      "YOU": "you",
-      "AND": "and",
-      "REACTED_WITH": "{users} reacted with {reaction}"
+      "YOU": "du",
+      "AND": "an",
+      "REACTED_WITH": "{users} hu reagéiert mat {reaction}"
     },
-    "MESSAGE_NOT_FOUND": "Message not found",
-    "NO_CONVERSATIONS": "No conversations yet.",
-    "MUTED": "Notifications are disabled",
-    "CLOSED": "This conversation has been closed automatically.",
-    "NOT_PARTICIPATED": "By sending a message, you will be subscribed to notifications about this conversation."
+    "MESSAGE_NOT_FOUND": "Noriicht net fonnt",
+    "NO_CONVERSATIONS": "Nach keng Ënnerhalungen.",
+    "MUTED": "Benoriichtegungen sinn desaktivéiert.",
+    "CLOSED": "Dës Ënnerhalung gouf automatesch zougemaach.",
+    "NOT_PARTICIPATED": "Andeem's du eng Noriicht schécks, wäerts du Benoriichtegungen iwwert dës Ënnerhalung abonéieren. "
   },
   "STORESTATUS": {
-    "ACTIVE": "Co-operating",
-    "CREATED": "Just created",
-    "NEGOTIATING": "Negotiating",
-    "DECLINED": "Don't want to cooperate",
-    "ARCHIVED": "Archived"
+    "ACTIVE": "Kooperéiert",
+    "CREATED": "Grad erstallt",
+    "NEGOTIATING": "A Verhandlung",
+    "DECLINED": "Wëll net kooperéieren",
+    "ARCHIVED": "Archivéiert"
   },
   "APPLICATION": {
-    "APPLICATION": "Application",
-    "FORM_HEADER": "Apply",
-    "FORM_TITLE": "Apply to join {groupName}",
-    "GALLERY_TOOLTIP": "You applied to join this group. Your application is still pending.",
-    "WALL_NOTICE": "There is an application pending! | There are {count} applications pending!",
-    "ACCEPT_CONFIRMATION_HEADER": "Accept Application",
-    "ACCEPT_CONFIRMATION_TEXT": "Are you sure you want to accept {userName} into this group?",
-    "DECLINE_CONFIRMATION_HEADER": "Decline Application",
-    "DECLINE_CONFIRMATION_TEXT": "Are you sure you want to decline the application of {userName}?",
-    "ACCEPTED": "You accepted {userName} into this group!",
-    "DECLINED": "You declined the application of {userName}.",
-    "PAST": "Past applications",
-    "SUBMITTED_ON": "Submitted on {date}",
-    "WITHDRAWN": "withdrawn {relativeDate}",
-    "WHAT": "What is this chat about?",
-    "HELP": "This is a chat between all existing members of {groupName} and the new applicant {userName}. It is meant to give you all a chance to get to know you before deciding whether to accept, decline or withdraw the application.",
-    "INITIAL": "Initial questions and answers"
+    "APPLICATION": "Bewerbung",
+    "FORM_HEADER": "Bewerben",
+    "FORM_TITLE": "Bewerb dech fir {groupName} bäizetrieden",
+    "GALLERY_TOOLTIP": "Du hues dech beworbe fir dëser Grupp bäizetrieden. Deng Bewerbung leeft grad.",
+    "WALL_NOTICE": "Eng Bewerbung leeft grad! | {count} Bewerbunge lafe grad!",
+    "ACCEPT_CONFIRMATION_HEADER": "Bewerbung unhuelen",
+    "ACCEPT_CONFIRMATION_TEXT": "Bass du sécher, dass du {userName} an dëser Grupp unhuele wëlls?",
+    "DECLINE_CONFIRMATION_HEADER": "Bewerbung ofleenen",
+    "DECLINE_CONFIRMATION_TEXT": "Bass du sécher, dass du d'Bewerbung vun {userName} ofleene wëlls?",
+    "ACCEPTED": "Du hues {userName} an dëser Grupp ugeholl!",
+    "DECLINED": "Du hues d'Bewerbung vun {userName} ofgeleent.",
+    "PAST": "Vergaange Bewerbungen",
+    "SUBMITTED_ON": "Agreecht den {date}",
+    "WITHDRAWN": "{relativeDate} zréckgezunn",
+    "WHAT": "Iwwert wat geet et an dësem Chat?",
+    "HELP": "Dëst ass ee Chat tëschent alle Membere vun {groupName} an der Persoun, déi sech bewerbt, {userName}. En ass dofir do fir jidderengem d'Chance ze gi fir sech kennenzeléieren ier dir entscheet fir d'Bewerbung ze akzeptéieren, ofzeleenen oder zréckzezéien.",
+    "INITIAL": "Initial Froen an Äntwerten"
   },
   "COMMUNITY_FEED": {
-    "HEADER": "Updates from the {community}",
-    "HEADER_LINK": "foodsaving worldwide community",
-    "LAST_UPDATED": "Last updated {relativeDate}",
-    "KARROT_DISCUSSION": "Discussions about Karrot"
+    "HEADER": "Neiegkeete vun der {community}",
+    "HEADER_LINK": "Weltwäit Liewensmëttelretter-Gemeinschaft",
+    "LAST_UPDATED": "Fir d'läscht aktualiséiert virun {relativeDate}",
+    "KARROT_DISCUSSION": "Diskussiounen iwwert Karrot"
   },
   "INACTIVITY": {
-    "WHAT": "What does it mean to be inactive?",
-    "HELP": "Everyone who did not log into the group for {dayCount} days or more counts as inactive. These users will not receive notification emails anymore."
+    "WHAT": "Wat heescht et inaktiv ze sinn?",
+    "HELP": "All Persoun, déi sech wärend {dayCount} oder méi Deeg net an d'Grupp ageloggt huet, gëtt als inaktiv markéiert. Dës Notzer wäerte keng Benoriichtegunge via E-Mail méi kréien."
   },
   "CONFLICT": {
-    "SETUP_HEADER": "Is there a conflict with {user}?",
-    "STATEMENT": "Statement",
-    "STEPPER1a": "You are about to start a group-wide conflict resolution process!",
-    "STEPPER1b": "This will involve all members with editing permissions to find the best way to proceed.",
-    "STEPPER2a": "Thank you for caring for your community!",
-    "STEPPER2b": "It is important to address social issues, although it can be unpleasant sometimes. Thank you for your courage!",
-    "STEPPER3a": "Here's what will happen:",
-    "STEPPER3b": "This process will start a chat and a vote.",
-    "STEPPER3c": "The chat will be visible for members with editing permissions and includes {userName}.",
-    "STEPPER3d": "The voting is anonymous. It will go on for {votingDuration} days. During this time all voters can change their minds and vote differently as many times as they want.",
-    "STEPPER4a": "Please explain why you are starting this conflict resolution process!",
-    "STEPPER4b": "Tell your group what made you think this process is justified and needed. This statement will be visible to {userName} and group members with editing permissions.",
-    "FIND_OUT_MORE": "Find out more!",
-    "INITIAL": "Information",
-    "WITH": "This process is to resolve a conflict with {userName}",
+    "SETUP_HEADER": "Gëtt et ee Konflikt mat {user}?",
+    "STATEMENT": "Ausso",
+    "STEPPER1a": "Du bass derbäi ee Konflikt-Léisungsprozess an der ganzer Grupp ze starten!",
+    "STEPPER1b": "Dëst wäert all d'Memberen, déi beaarbechten duerfen, involvéiere fir déi bescht Léisung fir weiderzemaachen ze fannen.",
+    "STEPPER2a": "Merci dofir dass du dech ëm d'Gemeinschaft këmmers!",
+    "STEPPER2b": "Et ass wichteg sozial Konflikter unzeschwätzen, obwuel et heiansdo onangeneem si kann. Merci fir däi Courage!",
+    "STEPPER3a": "Hei ass wat geschéie wäert:",
+    "STEPPER3b": "Dëse Prozess wäert een Chat an eng Ofstëmmung starten.",
+    "STEPPER3c": "Den Chat wäert fir all d'Memberen, déi beaarbechten duerfen, siichtbar sinn. Derbäi ass {userName}.",
+    "STEPPER3d": "D'Ofstëmmung ass anonym. Si wäert {votingDuration} Deeg daueren. Wärend dëser Zäit ka jiddereen seng Meenung änneren an anescht ofstëmmen esou oft wéi si wëllen.",
+    "STEPPER4a": "Erklär w.e.g. firwat's du dëse Konflikt-Léisungsprozess starts!",
+    "STEPPER4b": "Erklär denger Grupp firwat's du mengs, dass dëse Prozess justifizéiert ass a gebraucht gëtt. Dës Ausso wäert siichtbar si fir {userName} an all d'Memberen aus der Grupp, déi beaarbechten duerfen.",
+    "FIND_OUT_MORE": "Méi erausfannen!",
+    "INITIAL": "Informatiounen",
+    "WITH": "Dëse Prozess ass dofir do fir ee Konflikt mat {userName} ze léisen",
     "VOTING": {
-      "HEADLINE": "How do you want to proceed with the ongoing conflict with {userName}?"
+      "HEADLINE": "Wéi wëlls du mam aktuelle Konflikt mat {userName} weidermaachen?"
     },
     "REQUIREMENTS": {
-      "ACTIVE_EDITORS": "Your group has {activeEditorsCount} active users with editing permissions. You need {requiredCount} to start a conflict resolution process.",
-      "NEWCOMER": "Before you can start a conflict resolution process, you need to receive more trust and gain editing permissions. In the meantime, please ask a fellow group member to start the process for you."
+      "ACTIVE_EDITORS": "Deng Grupp huet {activeEditorsCount} aktiv Benotzer, déi beaarbechten duerfen. Du brauchs {requiredCount} fir ee Konflikt-Léisungsprozess ze starten.",
+      "NEWCOMER": "Iers du ee Konflikt-Léisungsprozess starten duerfs, muss du méi Vertraue kréien a beaarbechten duerfen. An der Tëschenzäit frees de am Beschten een anere Member aus der Grupp fir de Prozess fir dech ze starten."
     },
     "INFO": {
-      "TITLE": "How does this process work?",
-      "MESSAGE": "This is a score voting in which group members with editing permissions can participate to determine how to deal with a social conflict that affects the whole group."
+      "TITLE": "Wéi funktionéiert dëse Prozess?",
+      "MESSAGE": "Dëst ass eng Ofstëmmung mat Punkten, un där all Member aus der Grupp, déi beaarbechten duerf, deelhuele kann fir mat ze bestëmme wéi mat engem soziale Konflikt, deen déi ganz Grupp betrëfft, ëmgaange gi soll."
     }
   },
   "ISSUE": {
     "CREATION": {
-      "TOAST": "You successfully started a conflict resolution process"
+      "TOAST": "Du hues erfollegräich ee Konflikt-Léisungsprozess gestart"
     },
-    "TITLE": "Issues",
-    "VOTE": "Vote",
+    "TITLE": "Konflikter",
+    "VOTE": "Ofstëmmen",
     "CHAT": "Chat",
-    "INITIATED_BY": "Initiated by {initiatorName}",
-    "PAST": "Past issues",
-    "PREVIOUS_VOTINGS": "Previous votings in this issue",
-    "PARTICIPANTS": "{count} members have been added to this discussion.",
+    "INITIATED_BY": "Gestart vun {initiatorName}",
+    "PAST": "Vergaange Konflikter",
+    "PREVIOUS_VOTINGS": "Vergaangen Ofstëmmungen an dësem Konflikt",
+    "PARTICIPANTS": "{count} Membere goufen an dës Diskussioun dobäi gemaach.",
     "VOTING": {
-      "TIME_LEFT": "Time left to vote",
-      "BTN_START": "Vote now",
-      "SAVE": "Save",
-      "BTN_DELETE": "Delete vote",
-      "TOAST": "Your vote was successfully submitted",
-      "TOAST_DELETE": "Your vote was deleted",
-      "NO_CHANGE": "No change: {userName} stays in {groupName}",
-      "FURTHER_DISCUSSION": "Further discussion: extend time by starting another voting",
-      "REMOVE_USER": "{userName} gets removed from {groupName}",
+      "TIME_LEFT": "Iwwreg Zäit fir ofzestëmmen",
+      "BTN_START": "Elo ofstëmmen",
+      "SAVE": "Späicheren",
+      "BTN_DELETE": "Ofstëmmung läschen",
+      "TOAST": "Deng Ofstëmmung gouf erfollegräich eragereecht",
+      "TOAST_DELETE": "Deng Ofstëmmung gouf geläscht",
+      "NO_CHANGE": "Keng Ännerung: {userName} bleift an {groupName}",
+      "FURTHER_DISCUSSION": "Weider Diskussiounen: Zäit verlängeren andeem's eng weider Ofstëmmung gestart gëtt",
+      "REMOVE_USER": "{userName} gëtt aus {groupName} geheit",
       "RESULTS": {
-        "KEEP_DISCUSSING": "Your group voted to keep discussing",
-        "TIME_UP": "Time is up!",
-        "TOTAL_SCORE": "Total score",
-        "ENDED_AT": "This voting round ended on {date}",
-        "PARTICIPANTS": "{number} members participated in the voting.",
-        "UNDECIDED": "Unfortunately this conflict could not be decided.",
-        "UNDECIDED_WHY": "There are two possible reasons for that:",
-        "UNDECIDED_REASON_1": "the affected user left the group while the conflict resolution process was still ongoing",
-        "UNDECIDED_REASON_2": "nobody voted on this issue"
+        "KEEP_DISCUSSING": "Deng Grupp huet entscheet weider ze diskutéieren",
+        "TIME_UP": "D'Zäit ass ëm!",
+        "TOTAL_SCORE": "Endstand",
+        "ENDED_AT": "Dës Ofstëmmungsronn ass den {date} eriwwer gaangen.",
+        "PARTICIPANTS": "{number} Memberen hunn un der Ofstëmmung deelgeholl.",
+        "UNDECIDED": "Leider konnt dëse Konflikt net entscheet ginn.",
+        "UNDECIDED_WHY": "Et gëtt zwee méiglech Grënn fir dat:",
+        "UNDECIDED_REASON_1": "de betraffene Benotzer huet d'Grupp verlooss wärend de Konflikt-Léisungsprozess nach am Gang war",
+        "UNDECIDED_REASON_2": "keen huet iwwert dëse Konflikt ofgestëmmt"
       },
-      "SEE_RESULTS": "See the results",
+      "SEE_RESULTS": "D'Resultater kucken",
       "SCORE_LABELS": {
         "NEUTRAL": "neutral",
-        "SLIGHT_SUPPORT": "support",
-        "STRONG_SUPPORT": "strong support",
-        "SLIGHT_RESISTANCE": "resistance",
-        "STRONG_RESISTANCE": "strong resistance"
+        "SLIGHT_SUPPORT": "derfir",
+        "STRONG_SUPPORT": "staart derfir",
+        "SLIGHT_RESISTANCE": "dergéint",
+        "STRONG_RESISTANCE": "staark dergéint"
       },
-      "ANONYMOUS": "Your vote will be anonymous."
+      "ANONYMOUS": "Deng Ofstëmmung wäert anonym sinn."
     },
-    "NO_ONGOING": "No ongoing issues."
+    "NO_ONGOING": "Grad ginn et keng Konflikter."
   },
   "OFFER": {
-    "CREATE_TITLE": "Create offer",
-    "NAME": "Name",
-    "NAME_HELPER": "Short name for the item you are offering",
-    "DESCRIPTION": "Description",
-    "MARK_AS_ARCHIVED": "Archive",
-    "MARK_AS_ARCHIVED_DESCRIPTION": "Mark this is offer as archived to remove it from the available listings.",
+    "CREATE_TITLE": "Offer erstellen",
+    "NAME": "Numm",
+    "NAME_HELPER": "Kuerzen Numm fir dat wat's de ubitts",
+    "DESCRIPTION": "Beschreiwung",
+    "MARK_AS_ARCHIVED": "Archivéieren",
+    "MARK_AS_ARCHIVED_DESCRIPTION": "Markéier dës Offer als archivéiert fir se aus den aktuellen Offeren erauszehuelen.",
     "FILTER": {
       "STATUS": {
-        "ACTIVE": "Available",
-        "ARCHIVED": "My archived offers"
+        "ACTIVE": "Nach do",
+        "ARCHIVED": "Meng archivéiert Offeren"
       }
     }
   },
   "ADDRESS_PICKER": {
-    "SET_AS": "Set address as",
-    "KEEP_EXISTING_LOCATION": "keep existing location on map",
-    "CHOOSE_LOCATION": "choose location on map"
+    "SET_AS": "Adress setzen als",
+    "KEEP_EXISTING_LOCATION": "behal den Uert op der Kaart",
+    "CHOOSE_LOCATION": "wiel den Uert op der Kaart"
   },
   "UNSUBSCRIBE": {
-    "HEADER": "Unsubscribe",
-    "ALL": "Unsubscribe all",
-    "FROM_CONVERSATION": "unsubscribe from just this conversation",
-    "FROM_THREAD": "unsubscribe from just this thread",
-    "FROM_NOTIFICATION_TYPE": "unsubscribe from {notificationType}",
-    "FROM_GROUP": "Unsubscribe from all email notifications in {groupName}",
-    "SUCCESS": "You were successfully unsubscribed!",
-    "COUNTS": "You unsubscribed from {formerConversations} conversations and {formerReplies} replies."
+    "HEADER": "Desabonéieren",
+    "ALL": "Alles desabonéieren",
+    "FROM_CONVERSATION": "desabonéier dës Ënnerhalung",
+    "FROM_THREAD": "desabonéier dëse Thread",
+    "FROM_NOTIFICATION_TYPE": "desabonéier {notificationType}",
+    "FROM_GROUP": "Desabonéieren vun alle Benoriichtegungen via E-Mail an {groupName}",
+    "SUCCESS": "Du hues dech erfollegräich desabonéiert.",
+    "COUNTS": "Du hues dech vun {formerConversations} Ënnerhalungen an {formerReplies} Äntwerten desabonéiert."
   },
-  "THANKS": "Thank you!",
-  "ATTENTION": "Attention!",
+  "THANKS": "Merci!",
+  "ATTENTION": "Pass op!",
   "INFO": "Info",
-  "YOU": "You",
-  "TO": "to"
+  "YOU": "Du",
+  "TO": "un",
+  "ABOUT_KARROT": {
+    "TITLE": "Save things from being wasted, share them instead!",
+    "SUBTITLE1": "Karrot exists for groups of people who want to save things from being wasted and share them instead, allowing these groups to organise efficiently, on a local and voluntary basis.",
+    "SUBTITLE2": "Things such as food, bikes, clothes or whatever is being excessively thrown away or unused in the context of a consumerist society.",
+    "VISION_INTRO": "Karrot is a tool for all kinds of grassroots initiatives to connect and grow, supporting the co-ordination of face-to-face activities with a layer of digital infrastructure.",
+    "ACTION": "Have you already found a group nearby you? Or maybe you want to {startAGroup}? If you just want to try Karrot out, then create an account and join the Playground group for testing.",
+    "ACTION_START_A_GROUP": "start one",
+    "EXISTING_GROUPS": "A few groups already using Karrot",
+    "AND_MORE": "And more...",
+    "LINKS": {
+      "FORUM": "community forum",
+      "CODE": "GitHub",
+      "CHAT": "team chat",
+      "TRANSLATIONS": "Transifex"
+    },
+    "SECTIONS": {
+      "GROUPS": {
+        "TITLE": "Independent groups",
+        "SUBTITLE": "Every group on karrot is completely independent and can have their own logo, processes and rules.",
+        "DESCRIPTION": "Yet they are all displayed on the map so that people can find and connect to other groups in their location and even globally."
+      },
+      "ACTIVITIES": {
+        "TITLE": "Distribution of tasks and activities",
+        "SUBTITLE": "Activities with a specific time and place, like food pickups in the case of foodsaving, can be entered in the software.",
+        "DESCRIPTION": "Each activity has a number of slots which members of the group can sign up for – this way everyone knows who goes where and when, and feedback can be given later."
+      },
+      "OFFERS": {
+        "TITLE": "Share things",
+        "SUBTITLE": "Create an ad-like offer of whatever you want to share or give away.",
+        "DESCRIPTION": "Offers are visible to everyone in the group and people can show their interest on the offer's chat."
+      },
+      "DEMOCRATIC": {
+        "TITLE": "Democratic and participative development",
+        "DESCRIPTION": "Karrot is a free and open-source software developed with the feedback and participation of the people who use it. It is mainly developed by a small core team that is constantly in contact with people in different groups, in order to make sense of their diverging and converging needs and thus guide the development. We abide by the ethics of integrity and non-commercialization of data.",
+        "DESCRIPTION2": "Developers and designers are obviously welcome to participate in its development. Check out the project on {code}."
+      },
+      "COMMUNICATION": {
+        "TITLE": "Communication in the right context",
+        "DESCRIPTION": "Write a message that everyone in the group will see or a private message to someone. Everything related to a single activity or place can be discussed in their respective chats."
+      },
+      "TRUST": {
+        "TITLE": "Democratic and trust-based group management",
+        "DESCRIPTION": "There are no admin superpowers in a Karrot group. People who receive enough trust-carrots from their peers will be able to edit and change settings in the group. When new people want to join your group they need to apply and answer questions your group can set, which anyone with editing rights can decline or approve. Likewise, if there is a conflict, the group can enter a voting system to resolve it in a communal way."
+      },
+      "MAPS": {
+        "TITLE": "Maps and lists",
+        "DESCRIPTION": "You have a map of where the places and the people doing the activities are located. You have a nice list of upcoming activities and can sign up for them online."
+      },
+      "TRANSPARENCY": {
+        "TITLE": "Transparency",
+        "DESCRIPTION": "The history shows who did what and when. Everything from participating in an activity to creating and editing places is logged here."
+      },
+      "NOTIFICATIONS": {
+        "TITLE": "Notifications",
+        "DESCRIPTION": "You get notified about empty activities, new messages and new people wanting to join your group. But you can also turn it all off if you wish more peace!"
+      },
+      "TRANSLATIONS": {
+        "TITLE": "Multi-language",
+        "DESCRIPTION": "Karrot is fully translatable by the community and many languages are already added. To contribute more translations just visit the project on {translations}."
+      },
+      "OPENSOURCE": {
+        "TITLE": "Open source",
+        "DESCRIPTION": "Everything is transparent and possibly changeable. We encourage groups to host their own instances of the platform, if they have the ability to do so. Still, we also provide access to a hosted version on karrot.world."
+      },
+      "TEAM": {
+        "TITLE": "Responsive team",
+        "DESCRIPTION": "You can easily talk to the people developing Karrot, either on our {forum}, on {code} or in real-time on our {chat} (join the channel #foodsaving-worldwide or #karrot-dev to reach the right people immediately)."
+      }
+    }
+  }
 }

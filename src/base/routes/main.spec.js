@@ -114,10 +114,6 @@ describe('main routes', () => {
     expect(mockModules.routeError.actions.set).not.toBeCalled()
   })
 
-  it('sends us to group gallery by default', async () => {
-    expect(routedPaths).toEqual(['/groupPreview'])
-  })
-
   describe('groupPreview', () => {
     let group
 
@@ -142,7 +138,7 @@ describe('main routes', () => {
 
       await nextTicks(2)
 
-      const ui = wrapper.find({ name: 'GroupPreviewUI' })
+      const ui = wrapper.findComponent({ name: 'GroupPreviewUI' })
       expect(ui).toBeDefined()
       ui.vm.join() // trigger the join
 
@@ -151,7 +147,7 @@ describe('main routes', () => {
       expect(mockJoin).toBeCalledWith(group.id)
 
       expect(routedPaths).toEqual([
-        '/groupPreview',
+        '/',
         `/groupPreview/${group.id}`,
         `/group/${group.id}`,
       ])
@@ -162,14 +158,14 @@ describe('main routes', () => {
 
       await nextTicks(2)
 
-      const ui = wrapper.find({ name: 'GroupPreviewUI' })
+      const ui = wrapper.findComponent({ name: 'GroupPreviewUI' })
       expect(ui).toBeDefined()
       ui.vm.visit()
 
       await nextTicks(2)
 
       expect(routedPaths).toEqual([
-        '/groupPreview',
+        '/',
         `/groupPreview/${group.id}`,
         `/group/${group.id}`,
       ])

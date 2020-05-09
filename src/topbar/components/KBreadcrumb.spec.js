@@ -21,7 +21,7 @@ describe('KBreadcrumb', () => {
     })
     expect(wrapper.text()).toMatch('Some Name')
     expect(wrapper.text()).toMatch('Last Name')
-    expect(wrapper.findAll(RouterLinkStub).length).toBe(2)
+    expect(wrapper.findAllComponents(RouterLinkStub).length).toBe(2)
   })
 
   it('does not render a link for the last item', () => {
@@ -31,6 +31,6 @@ describe('KBreadcrumb', () => {
       },
     })
     expect(wrapper.text()).toMatch('Some Name')
-    expect(wrapper.contains('router-link')).toBe(false)
+    expect(wrapper.findAllComponents({ name: 'router-link' }).length).toBe(0)
   })
 })

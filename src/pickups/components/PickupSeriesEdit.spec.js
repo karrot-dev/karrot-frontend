@@ -25,7 +25,7 @@ describe('PickupSeriesEdit', () => {
   })
 
   it('can toggle the days', () => {
-    const select = wrapper.find(QSelect)
+    const select = wrapper.findComponent(QSelect)
 
     select.vm.toggleOption('MO')
     expect(wrapper.vm.edit.rule.byDay).toContain('MO')

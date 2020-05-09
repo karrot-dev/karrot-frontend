@@ -21,11 +21,11 @@ describe('Conversation message reactions', () => {
   })
 
   it('renders reactions', () => {
-    expect(wrapper.find('.reactions').findAll(EmojiButton).length).toEqual(2)
+    expect(wrapper.findAllComponents(EmojiButton).length).toEqual(2)
   })
 
   it('click reaction adds own reaction (when reaction not present)', () => {
-    const button = wrapper.find('.reactions').find(EmojiButton).find(QBtn)
+    const button = wrapper.findComponent(EmojiButton).findComponent(QBtn)
     button.vm.click({})
 
     expect(wrapper.emitted().toggle).toBeTruthy()
@@ -33,7 +33,7 @@ describe('Conversation message reactions', () => {
   })
 
   it('show whether user reacted (highlighting)', () => {
-    const [reactedButton, notReactedButton] = wrapper.find('.reactions').findAll(EmojiButton).wrappers
+    const [reactedButton, notReactedButton] = wrapper.findAllComponents(EmojiButton).wrappers
     expect(reactedButton.classes()).toContain('user-reacted')
     expect(notReactedButton.classes()).not.toContain('user-reacted')
   })

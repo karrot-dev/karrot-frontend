@@ -32,6 +32,7 @@ const datastore = createDatastore({
       unseenCount: () => 1,
       hasUnread: () => true,
       unseenNotificationCount: () => 1,
+      hasUnreadConversationsOrThreads: () => true,
     },
   },
 })

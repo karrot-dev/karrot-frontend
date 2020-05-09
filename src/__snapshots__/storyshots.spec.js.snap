@@ -6896,7 +6896,7 @@ exports[`Storyshots Layout KTopbar 1`] = `
     </button> <button tabindex="0" type="button" role="button" title="Messages" class="q-btn q-btn-item non-selectable no-outline q-btn--flat q-btn--round q-btn--actionable q-focusable q-hoverable q-btn--wrap q-btn--dense">
       <div tabindex="-1" class="q-focus-helper"></div>
       <div class="q-btn__wrapper col row q-anchor--skip">
-        <div class="q-btn__content text-center col items-center q-anchor--skip justify-center row"><i aria-hidden="true" role="presentation" class="fas fa-comments q-icon notranslate hasUnseen"> </i>
+        <div class="q-btn__content text-center col items-center q-anchor--skip justify-center row"><i aria-hidden="true" role="presentation" class="fas fa-comments q-icon notranslate hasUnread"> </i>
           <div role="alert" class="q-badge flex inline items-center no-wrap q-badge--single-line bg-secondary q-badge--floating">
             1
           </div>

@@ -21,6 +21,13 @@ Please document your changes in this format:
 ```
 
 ## [Unreleased]
+### Changed
+- Subscribe everybody to conflict resolution emails by default @nicksellen
+- Speed up page load (hopefully) @tiltec @nicksellen
+- Hide buttons in group sidenav, change notification icons, added settings to latest messages menu [ #1987 @brnsolikyl @nicksellen
+
+### Fixed
+- Unsubscribe link in pickup notification email did not work @nicksellen
 
 ## [8.4.0] - 2020-04-25
 ### Added

@@ -83,7 +83,7 @@ export default {
     ...mapGetters({
       unseenConversationCount: 'status/unseenConversationCount',
       unseenThreadCount: 'status/unseenThreadCount',
-      hasUnread: 'status/hasUnreadMessagesOrThreads',
+      hasUnread: 'status/hasUnreadConversationsOrThreads',
     }),
     hasOnlyUnseenThreads () {
       return Boolean(this.unseenThreadCount > 0 && this.unseenConversationCount === 0)

@@ -9,10 +9,10 @@
   >
     <QIcon
       name="fas fa-comments"
-      :class="{ hasUnseen }"
+      :class="{ hasUnread }"
     />
     <QBadge
-      v-if="hasUnseen"
+      v-if="unseenCount > 0"
       floating
       color="secondary"
     >
@@ -58,11 +58,8 @@ export default {
   computed: {
     ...mapGetters({
       unseenCount: 'status/unseenCount',
-      hasUnread: 'status/hasUnreadMessagesOrThreads',
+      hasUnread: 'status/hasUnreadConversationsOrThreads',
     }),
-    hasUnseen () {
-      return this.unseenCount > 0
-    },
   },
   methods: {
     maybeOpen () {
@@ -78,7 +75,7 @@ export default {
 <style lang="stylus" scoped>
 @import '~variables'
 
-.q-icon:not(.hasUnseen)
+.q-icon:not(.hasUnread)
   opacity $topbar-opacity-low
 
 .q-btn:hover .q-icon

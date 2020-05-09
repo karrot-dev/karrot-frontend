@@ -36,7 +36,7 @@ export default {
     // Global
     unseenConversationCount: state => state.unseenConversationCount,
     unseenThreadCount: state => state.unseenThreadCount,
-    hasUnreadMessagesOrThreads: state => state.hasUnreadMessagesOrThreads,
+    hasUnreadConversationsOrThreads: state => state.hasUnreadConversationsOrThreads,
     unseenCount: (state, getters) => getters.unseenConversationCount + getters.unseenThreadCount,
     unseenNotificationCount: state => state.unseenNotificationCount,
 

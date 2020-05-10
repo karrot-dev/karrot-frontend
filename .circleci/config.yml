@@ -361,7 +361,9 @@ jobs:
             git checkout -b $BRANCH
             yarn upgrade --ignore-engines
             git add package.json yarn.lock
-            git commit -F - <<EOL || exit 0
+            git commit -m "[CI] Update dependencies" || exit 0
+            git push --force origin $BRANCH
+            hub pull-request -F - <<EOL || true
             [CI] update dependencies
 
             Good morning, I found some fresh dependencies for you!
@@ -375,8 +377,6 @@ jobs:
             It does not contain updates outside the version range specified in \`package.json\` (hint: use a caret \`^\` for specifying versions to get all minor updates!).
             Run \`yarn upgrade --latest\` manually from time to time to get all upgrades.
             EOL
-            git push --force origin $BRANCH
-            hub pull-request -m "[CI] Update dependencies" || true
 
 workflows:
   version: 2

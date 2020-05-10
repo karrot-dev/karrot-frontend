@@ -25,7 +25,7 @@ Purposes would/could be to document:
   - **user docs** (_coming soon_)
   - **API docs** [dev.karrot.world/docs/](https://dev.karrot.world/docs/) (create account and login to see more
 - Chat
-  - **\#karrot-dev** in [yunity slack](https://slackin.yunity.org)
+  - [**chat.foodsaving.world/channel/karrot-dev**](https://chat.foodsaving.world/channel/karrot-dev)
 - Deployments
   - **dev** [dev.karrot.world](https://dev.karrot.world) - master branch using dev backend/db
   - **production** [karrot.world](https://karrot.world) -  production backend/db

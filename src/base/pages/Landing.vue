@@ -144,7 +144,7 @@
               <a
                 slot="chat"
                 v-t="'ABOUT_KARROT.LINKS.CHAT'"
-                href="https://slackin.yunity.org"
+                href="https://chat.foodsaving.world/channel/karrot-dev"
               />
               <a
                 slot="translations"

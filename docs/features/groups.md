@@ -2,7 +2,7 @@
 
 Groups are at the heart of Karrot. Each group is independent from the rest and will usually represent an in-person community of people. They normally have their own organisational name and structure.
 
-They are not part of the karrot organisation, they just use karrot. Ideally one of more of the community members participate in our [community forum](https://community.foodsaving.world/), or via [slack](https://slackin.yunity.org/)/[GitHub](https://github.com/yunity/karrot-frontend)/etc.
+They are not part of the karrot organisation, they just use karrot. Ideally one of more of the community members participate in our [community forum](https://community.foodsaving.world/), or via [chat.foodsaving.world/channel/karrot-dev](https://chat.foodsaving.world/channel/karrot-dev)/[GitHub](https://github.com/yunity/karrot-frontend)/etc.
 
 ## Group Gallery
 

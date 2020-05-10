@@ -90,7 +90,7 @@ If you want to use an eslint plugin for your editor, please keep in mind that yo
 We have a forum for Karrot developers and users at https://community.foodsaving.world/c/karrot.
 
 If you are interested in contributing, you may -
-- join us in the #karrot-dev [chatroom on slack](https://slackin.yunity.org/)
+- join us in the [#karrot-dev chatroom on chat.foodsaving.world](https://chat.foodsaving.world/channel/karrot-dev)
 - join our weekly call; previous minutes can be found in [this thread](https://community.foodsaving.world/t/weekly-call-about-karrot-development/289)
 
 The most important information is written down in our [contribution guidelines](CONTRIBUTE.md).

@@ -65,28 +65,20 @@ rsync -avz "$APK" "deploy@$HOST:karrot-app/$DIR/app.apk"
   KEY="$CORDOVA_PLAYSTORE_SERVICEACCOUNT_KEY" PACKAGE_NAME="$PACKAGE_NAME" APK_FILE="$APK_FILE" ./publish_to_playstore
 )
 
-if [ ! -z "$SLACK_WEBHOOK_URL" ]; then
+if [ -n "$ROCKETCHAT_WEBHOOK_URL" ]; then
 
   COMMIT_MESSAGE=$(git log -1 --pretty="%s - %an")
 
   ATTACHMENT_TEXT=""
 
-  ATTACHMENT_TEXT+=":android: Download <$PLAYSTORE_URL|from Play Store> or <$APK_URL|as APK>"
+  ATTACHMENT_TEXT+="- :android: Download <$PLAYSTORE_URL|from Play Store> or <$APK_URL|as APK>"
 
   ATTACHMENT_FOOTER="Using git ref <$REF_URL|$REF>, commit <$COMMIT_URL|$COMMIT_SHA_SHORT> - $COMMIT_MESSAGE"
 
   payload=$(printf '{
-      "channel": "#karrot-git",
-      "username": "deploy",
-      "text": ":sparkles: Successful deployment of :karrot: *karrot* app to _%s_ %s",
-      "attachments": [
-        {
-          "text": "%s",
-          "footer": "%s"
-        }
-      ]
+      "text": ":sparkles: Successful deployment of :karrot: *karrot* app to _%s_ %s\n%s\n_%s_"
     }' "$DEPLOY_ENV" "$DEPLOY_EMOJI" "$ATTACHMENT_TEXT" "$ATTACHMENT_FOOTER")
 
-  curl -X POST --data-urlencode "payload=$payload" "$SLACK_WEBHOOK_URL"
+  curl -X POST --data-urlencode "payload=$payload" "$ROCKETCHAT_WEBHOOK_URL"
 
 fi

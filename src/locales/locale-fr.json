@@ -762,7 +762,7 @@
       },
       "TEAM": {
         "TITLE": "Équipe réactive",
-        "DESCRIPTION": "Il est facile de contacter l'équipe qui code Karrot, soit sur notre {forum}, sur {code} ou bien sur le {chat}(rejoins la chaîne #foodsaving-worldwide ou bien #karrot-dev pour aller droit au but). Attention, l'équipe est anglophone !"
+        "DESCRIPTION": "Il est facile de contacter l'équipe qui code Karrot, soit sur notre {forum}, sur {code} ou bien sur le {chat}. Attention, l'équipe est anglophone !"
       }
     }
   }

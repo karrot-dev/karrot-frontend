@@ -762,7 +762,7 @@
       },
       "TEAM": {
         "TITLE": "Responsive team",
-        "DESCRIPTION": "You can easily talk to the people developing Karrot, either on our {forum}, on {code} or in real-time on our {chat} (join the channel #foodsaving-worldwide or #karrot-dev to reach the right people immediately)."
+        "DESCRIPTION": "You can easily talk to the people developing Karrot, either on our {forum}, on {code} or in real-time on our {chat}."
       }
     }
   }

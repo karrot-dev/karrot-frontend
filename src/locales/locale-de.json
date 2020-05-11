@@ -720,49 +720,49 @@
       "ACTIVITIES": {
         "TITLE": "Verteilung von Aufgaben und Aktivitäten",
         "SUBTITLE": "Aktivitäten mit spezifischer Zeit und Ort, wie etwa eine Essensabholung, können eingetragen werden.",
-        "DESCRIPTION": "Jede Aktivität hat eine Anzahl an Plätzen, für welche sich Mitglieder der Gruppe eintragen können - auf diese Art weiß jedeR wer wohin geht und kann später eine Rückmeldung geben."
+        "DESCRIPTION": "Jede Aktivität hat eine Anzahl an Plätzen, für welche sich Mitglieder der Gruppe eintragen können – auf diese Art wissen alle wer wohin geht und können später eine Rückmeldung geben."
       },
       "OFFERS": {
         "TITLE": "Teile Dinge",
-        "SUBTITLE": "Erstelle eine anzeigenähnliches Angebot von was auch immer du teilen oder abgeben willst.",
+        "SUBTITLE": "Erstelle ein Angebot, wenn du etwas teilen oder abgeben willst.",
         "DESCRIPTION": "Die Angebote sind für jeden in der Gruppe sichtbar und Leute können ihr Interesse am Angebot im Chat zeigen."
       },
       "DEMOCRATIC": {
         "TITLE": "Demokratische und partizipative Entwicklung",
         "DESCRIPTION": "Karrot ist eine freie und quelloffene Software, die mit den Rückmeldungen und der Partizipation der Leute die sie benutzen, entwickelt wird. Hauptsächlich wird sie von einem kleinen Team entwickelt, welches sich konstant im Kontakt mit Leuten aus verschiedenen Gruppen befindet, um deren vereinbare und unvereinbare Bedürfnisse unter einen Hut zu bringen und die Richtung der Entwicklung zu steuern. Wir halten uns an eine Ethik der Integrität und Nicht-Kommerzialisierung von Daten.",
-        "DESCRIPTION2": "Entwickler und designer sind offensichtlich willkomen an der Entwicklung Teil zu haben. Schau dir das Projekt auf {code} an."
+        "DESCRIPTION2": "Entwickler und Designer sind willkommen bei der Weiterentwicklung mitzumachen. Schau dir das Projekt auf {code} an."
       },
       "COMMUNICATION": {
         "TITLE": "Kommunikation im richtigen Kontext",
-        "DESCRIPTION": "Schreib eine Nachricht die alle in der Gruppe sehen könne, oder melde dich per privater Nachricht bei jemandem. Alles das sich auf eine Aktivität oder einen Ort bezieht kann in einem jeweiligen Chat besprochen werden."
+        "DESCRIPTION": "Schreib eine Nachricht die alle in der Gruppe sehen könne, oder melde dich per privater Nachricht bei jemandem. Alles das sich auf eine Aktivität oder einen Ort bezieht, kann in einem jeweiligen Chat besprochen werden."
       },
       "TRUST": {
         "TITLE": "Demokratische und vertrauensbasierte Gruppenverwaltung.",
-        "DESCRIPTION": "In einer Karrot-Gruppe gibt es keine administrativen Supperecht. Leute welche genug Vertrauenskarroten von anderen erhalten haben, können die Gruppe und die Gruppeneinstellungen verändern. Wenn neue Leute der Gruppe beitreten möchten, dann müssen sie sich bewerben und Fragen beantworten, die die Gruppe erstellt hat. JedeR mit Veränderungsrechten kann die Bewerbungen ablehnen oder zulassen. Genauso kann, im Falle eines Konflikts, die Gruppe ein Abstimmungsverfahren einleiten, um den Konflikt gemeinsam zu lösen."
+        "DESCRIPTION": "In einer Karrot-Gruppe gibt es keine Menschen mit Superkräften. Leute, welche genug Vertrauenskarotten von anderen erhalten haben, können die Gruppe und die Gruppeneinstellungen verändern. Wenn neue Leute der Gruppe beitreten möchten, dann müssen sie sich bewerben und Fragen beantworten, die die Gruppe erstellt hat. Alle mit Veränderungsrechten können Bewerbungen ablehnen oder zulassen. Im Falle eines Konfliktes kann die Gruppe ein Abstimmungsverfahren einleiten, um den Konflikt gemeinsam zu lösen."
       },
       "MAPS": {
         "TITLE": "Karten und Listen",
-        "DESCRIPTION": "Du hast eine Karte auf der die Orte und Leute platziert sind, die Aktionen ausführen. Es gibt auch eine schöne Liste bevorstehender Aktivitäten, für die du dich online eintragen kannst. "
+        "DESCRIPTION": "Es gibt eine Karte, auf der die Orte und Leute markiert sind, die an Aktivitäten teilnehmen. Es gibt auch eine schöne Liste bevorstehender Aktivitäten, für die du dich online eintragen kannst."
       },
       "TRANSPARENCY": {
         "TITLE": "Transparenz",
-        "DESCRIPTION": "Die Historie zeigt, wer was wann getan hat. Alles von der Teilhabe an einer Aktion bis zu der Erstellung und Veränderung eines Ortes wird dort aufgezeichnet."
+        "DESCRIPTION": "Die Historie zeigt, wer was wann getan hat. Alles von der Teilnahme an einer Aktivität bis zu der Erstellung und Veränderung eines Ortes wird dort aufgezeichnet."
       },
       "NOTIFICATIONS": {
         "TITLE": "Benachrichtigungen",
-        "DESCRIPTION": "Du wirst über nicht-belegte Aktivitäten, neue Nachrichten, und neue potentielle Gruppenmitglieder, die deiner Gruppe beitreten wollen, benachrichtigt."
+        "DESCRIPTION": "Du wirst über freie Aktivitäten, neue Nachrichten und Menschen, die deiner Gruppe beitreten wollen, benachrichtigt."
       },
       "TRANSLATIONS": {
         "TITLE": "Mehrsprachig",
-        "DESCRIPTION": "Karrot ist durch die Gemeinschaft komplett übersetzbar  und schon in vielen Sprachen verfügbar. Um zu Übersetzungen beizutragen besuche einfach unser Projekt auf {translations}."
+        "DESCRIPTION": "Karrot ist von Nutzern komplett übersetzbar und schon in vielen Sprachen verfügbar. Um beim Übersetzen mitzuhelfen besuche einfach unser Projekt auf {translations}."
       },
       "OPENSOURCE": {
-        "TITLE": "Quelloffen",
-        "DESCRIPTION": "Alles ist Transparent und kann verändert werden. Wir ermutigen Gruppen, ihre eigenen Instanzen der Plattform zu betreiben, wenn sie die Möglichkeit  dazu haben. Dennoch werden wir Zugang zu einer gehosteten Version auf karrot.world ermöglichen."
+        "TITLE": "Open source",
+        "DESCRIPTION": "Alles ist transparent und kann verändert werden. Wir ermutigen Gruppen, ihre eigenen Instanzen von Karrot zu betreiben, wenn sie die Möglichkeit dazu haben. Jedoch bieten wir auch eine direkt benutzbare Instanz auf karrot.world an."
       },
       "TEAM": {
-        "TITLE": "Reagierendes Team",
-        "DESCRIPTION": "Du kannst einfach mit den Leuten in sprechen, die Karrot entwickeln, entweder durch unser {forum}, auf {code}oder in Echteit durch auf {chat}(tritt #foodsaving-wordwide oder #karrot-dev bei, um die richtigen Leute direkt zu erreichen)."
+        "TITLE": "Aktives Team",
+        "DESCRIPTION": "Du kannst einfach mit den Leuten, die Karrot entwickeln, sprechen - entweder in unserem {forum}, auf {code} oder in Echtzeit auf {chat}."
       }
     }
   }

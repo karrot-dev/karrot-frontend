@@ -354,12 +354,15 @@ jobs:
             BRANCH: circleci-update-dependencies
           command: |
             set -xe
+            alias yarn-list="yarn list --depth=0 | sed 's/^.\{3\}//' | head -n -1 | tail -n +2"
             git config credential.helper 'cache --timeout=120'
             git config user.email "ci@foodsaving.world"
             git config user.name "CircleCI"
             git branch --delete --force $BRANCH || true
             git checkout -b $BRANCH
-            yarn upgrade --latest --ignore-engines > upgrade.txt 2>upgrade-error.txt
+            yarn-list > list-before.txt
+            yarn upgrade --latest --ignore-engines
+            yarn-list > list-after.txt
             git add package.json yarn.lock
             git commit -m "[CI] Update dependencies" || exit 0
             git push --force origin $BRANCH
@@ -369,14 +372,8 @@ jobs:
             Good morning, I found some fresh dependencies for you!
 
             <pre>
-            $(cat upgrade.txt | grep -E -v '^\[|fsevents|^yarn|Saved lockfile')
+            $(diff -y -W 100 --suppress-common-lines list-before.txt list-after.txt)
             </pre>
-
-            <details><summary>Here is the error output as well, might contain some interesting stuff.</summary>
-            <pre>
-            $(cat upgrade-error.txt)
-            </pre>
-            </details>
             EOL
 
 workflows:

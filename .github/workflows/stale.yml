@@ -10,7 +10,29 @@ jobs:
     - uses: actions/stale@v2.0.0
       with:
         repo-token: ${{ secrets.GITHUB_TOKEN }}
-        stale-issue-message: 'This issue is marked as stale because it has not had any activity for 90 days, remove the stale label or add a comment on it, otherwise it will be automatically closed in 7 days. Thanks!'
-        stale-pr-message: 'This pull request is marked as stale because it has not had any activity for 90 days, remove the stale label or add a comment on it, otherwise it will be automatically closed in 7 days. Thanks!'
+
+        # See https://github.com/actions/stale/blob/master/action.yml for description of the options
+
+        stale-issue-message: |
+          This issue is marked as stale because it has not had any activity for 90 days.
+
+          It doesn't mean it's not important, so please remove the stale label if you like it, or add a comment saying what it means to you :)
+
+          However, if you just leave it like this, I'll close it in 7 days to help keep your issues tidy!
+
+          Thanks!
+
+        stale-pr-message: |
+          This pull request is marked as stale because it has not had any activity for 90 days.
+
+          It doesn't mean it's not important, so please remove the stale label if you like it, or add a comment saying what it means to you :)
+
+          However, if you just leave it like this, I'll close it in 7 days to help keep your pull requests tidy!
+
+          Thanks!
+
         days-before-stale: 90
         days-before-close: 7
+
+        # don't overwhelm us with loads of things to look at
+        operations-per-run: 5

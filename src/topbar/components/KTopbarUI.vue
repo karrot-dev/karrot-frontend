@@ -27,7 +27,7 @@
             :key="group.id"
             v-close-popup
             clickable
-            @click="onItemClick(group.id)"
+            @click="$emit('selectGroup', { groupId: group.id })"
           >
             <QItemSection
               avatar
@@ -183,7 +183,6 @@ import {
   QToolbar,
   QToolbarTitle,
   QBtn,
-  // QImg,
   QIcon,
   QMenu,
   QList,
@@ -201,7 +200,6 @@ export default {
     QToolbar,
     QToolbarTitle,
     QBtn,
-    // QImg,
     QIcon,
     QMenu,
     QList,
@@ -245,19 +243,6 @@ export default {
       default: false,
     },
   },
-  /*
-
-    SomeComponent.vue --> definition of a component
-
-    - import it
-    - components: { SomeComponent }
-    - use it a template like: <SomeComponent>
-    - if we wanted to pass it a "prop": <SomeComponent :prop-name="propValue">
-
-    props --passed into--> component
-
-  */
-
   computed: {
     hasPhoto () {
       return !!this.photo
@@ -279,11 +264,6 @@ export default {
         color: 'secondary',
         icon: 'fas fa-circle',
       }
-    },
-  },
-  methods: {
-    onItemClick (groupId) {
-      // do something
     },
   },
 }

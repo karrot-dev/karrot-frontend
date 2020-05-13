@@ -6,15 +6,15 @@ if (window.console && window.console.log) {
     `
       %c
       Oh, hey there developer! 🙂
-  
+
       %c
       Do you want to come and help us build our distributed, global grassroots movement against food waste?
-  
+
       %c
       Community forum → https://community.foodsaving.world
               Project → https://foodsaving.world
                  Code → https://github.com/yunity/karrot-frontend
-                Slack → https://slackin.yunity.org #karrot-dev
+                 Chat → https://chat.foodsaving.world/channel/karrot-dev
     `.trim().replace(/^ {6}/gm, '').replace(/%c\n/g, '%c'),
     style({
       ...sansSerif,

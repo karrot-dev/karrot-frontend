@@ -15,7 +15,9 @@ module.exports = {
     path: resolve('dist'),
     filename: 'service-worker.js',
   },
-  node: false,
+  node: {
+    global: true,
+  },
   module: {
     rules: [
       {

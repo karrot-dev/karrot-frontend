@@ -20,7 +20,7 @@ describe('Signup', () => {
       },
     })
     Object.assign(wrapper.vm.user, userData)
-    const checkboxes = wrapper.findAll(QCheckbox)
+    const checkboxes = wrapper.findAllComponents(QCheckbox)
     expect(checkboxes.length).toBe(1)
     expect(wrapper.vm.joinPlayground).toEqual(true)
     wrapper.vm.submit()
@@ -42,7 +42,7 @@ describe('Signup', () => {
       },
     })
     Object.assign(wrapper.vm.user, userData)
-    const checkboxes = wrapper.findAll(QCheckbox)
+    const checkboxes = wrapper.findAllComponents(QCheckbox)
     expect(checkboxes.length).toBe(0)
     wrapper.vm.submit()
 
@@ -63,7 +63,7 @@ describe('Signup', () => {
       },
     })
     Object.assign(wrapper.vm.user, userData)
-    const checkboxes = wrapper.findAll(QCheckbox)
+    const checkboxes = wrapper.findAllComponents(QCheckbox)
     expect(checkboxes.length).toBe(0)
     wrapper.vm.submit()
 
@@ -84,7 +84,7 @@ describe('Signup', () => {
       },
     })
     Object.assign(wrapper.vm.user, userData)
-    const checkboxes = wrapper.findAll(QCheckbox)
+    const checkboxes = wrapper.findAllComponents(QCheckbox)
     expect(checkboxes.length).toBe(1)
     expect(wrapper.vm.joinPlayground).toEqual(true)
     checkboxes.at(0).trigger('click')

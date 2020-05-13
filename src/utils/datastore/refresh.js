@@ -37,6 +37,7 @@ export default {
           dispatch('auth/refresh', null, { root: true }),
           dispatch('latestMessages/fetch', {}, { root: true }),
           dispatch('notifications/fetch', null, { root: true }),
+          dispatch('status/refresh', null, { root: true }),
         ])
         commit('setLastRefresh')
         if (done) done()

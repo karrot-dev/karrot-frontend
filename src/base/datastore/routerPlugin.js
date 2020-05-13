@@ -29,9 +29,6 @@ export default datastore => {
       if (groupId) {
         next = { name: 'group', params: { groupId } }
       }
-      else {
-        next = { name: 'groupsGallery' }
-      }
     }
 
     // check meta.requireLoggedIn
@@ -91,7 +88,7 @@ export default datastore => {
 
   datastore.watch((state, getters) => [
     getters['breadcrumbs/allNames'],
-    getters['latestMessages/unseenCount'],
+    getters['status/unseenCount'],
   ], ([breadcrumbNames, unseenCount]) => {
     const names = breadcrumbNames.slice().reverse()
     names.push('Karrot')

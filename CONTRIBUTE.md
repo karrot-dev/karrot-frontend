@@ -3,7 +3,7 @@ If you want to contribute code to the frontend repository, you should first read
 
 ## General
 
-Have a look through the issues. If there's something that is interesting to you, assign it to yourself. Usually you will need additional information, so feel free to comment on the issue before you start writing code. Even better: join our [group chat](https://slackin.yunity.org) and get in direct contact with us!
+Have a look through the issues. If there's something that is interesting to you, assign it to yourself. Usually you will need additional information, so feel free to comment on the issue before you start writing code. Even better: join our [group chat](https://chat.foodsaving.world/channel/karrot-dev) and get in direct contact with us!
 
 ## Feature development
 

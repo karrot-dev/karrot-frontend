@@ -1,7 +1,7 @@
 defaults: &defaults
   working_directory: ~/repo
   docker:
-    - image: karrot/python:2.0
+    - image: karrot/python:2.3
 
 android-defaults: &android-defaults
   working_directory: ~/repo
@@ -87,7 +87,7 @@ jobs:
           at: ~/repo
       - run:
           environment:
-            JEST_JUNIT_OUTPUT: test-reports/junit.xml
+            JEST_JUNIT_OUTPUT_DIR: test-reports/junit.xml
           command: |
             mkdir -p test-reports
             yarn test \
@@ -259,6 +259,17 @@ jobs:
           paths:
             - android-prod.apk
 
+  deploy-branch:
+    <<: *defaults
+    steps:
+    - checkout
+    - attach_workspace:
+        at: ~/repo
+    - deploy:
+        name: Branch Deploy
+        command: |
+          ./deploy.sh branch "${CIRCLE_BRANCH}"
+
   deploy-dev:
     <<: *defaults
     steps:
@@ -268,7 +279,7 @@ jobs:
       - deploy:
           name: Dev Deploy
           command: |
-            ./deploy.sh "${CIRCLE_BRANCH}" "${CIRCLE_BRANCH}"
+            ./deploy.sh dev "${CIRCLE_BRANCH}"
 
   deploy-release:
     <<: *defaults
@@ -279,7 +290,7 @@ jobs:
       - deploy:
           name: Release Deploy
           command: |
-            ./deploy.sh "${CIRCLE_BRANCH}" release
+            ./deploy.sh release "${CIRCLE_BRANCH}"
 
   sync-locale-messages:
     <<: *defaults
@@ -307,14 +318,6 @@ jobs:
             - env
           key: v2-dependencies-localeshelper-{{ checksum "updateLocalesHelper/requirements.txt" }}
       - run:
-          name: install hub
-          command: |
-            wget https://github.com/github/hub/releases/download/v2.5.1/hub-linux-amd64-2.5.1.tgz
-            tar -xf hub-linux-amd64-2.5.1.tgz
-            ./hub-linux-amd64-2.5.1/install
-            rm hub-linux-amd64-2.5.1.tgz
-            rm -r hub-linux-amd64-2.5.1
-      - run:
           name: set git remote to include token
           command: git remote set-url origin https://${GITHUB_TOKEN}@github.com/yunity/karrot-frontend.git
       - run:
@@ -336,6 +339,43 @@ jobs:
             git push --force origin $BRANCH
             hub pull-request -m "[CI] Update locales" || true
 
+  update-dependencies:
+    <<: *defaults
+    steps:
+      - attach_workspace:
+          at: ~/repo
+      - run:
+          name: set git remote to include token
+          command: git remote set-url origin https://${GITHUB_TOKEN}@github.com/yunity/karrot-frontend.git
+      - run:
+          name: update dependencies and make pull request
+          # needs TX_TOKEN and GITHUB_TOKEN
+          environment:
+            BRANCH: circleci-update-dependencies
+          command: |
+            set -xe
+            echo "yarn list --depth=0 | grep -E -v '^Done in|yarn list v' | sed 's/^.\{3\}//'" > yarn-list.sh
+            git config credential.helper 'cache --timeout=120'
+            git config user.email "ci@foodsaving.world"
+            git config user.name "CircleCI"
+            git branch --delete --force $BRANCH || true
+            git checkout -b $BRANCH
+            source yarn-list.sh > list-before.txt
+            yarn upgrade --latest --ignore-engines
+            source yarn-list.sh > list-after.txt
+            git add package.json yarn.lock
+            git commit -m "[CI] Update dependencies" || exit 0
+            git push --force origin $BRANCH
+            hub pull-request -F - <<EOL || true
+            [CI] update dependencies
+
+            Good morning, I found some fresh dependencies for you!
+
+            <pre>
+            $(diff -y -W 100 --suppress-common-lines list-before.txt list-after.txt)
+            </pre>
+            EOL
+
 workflows:
   version: 2
   all-the-things:
@@ -350,8 +390,9 @@ workflows:
       - build-dev:
           filters:
             branches:
-              only:
-                - master
+              ignore:
+              - circleci-update-locales
+              - /dependabot\/.*/
           requires:
             - install-dependencies
       - build-storybook:
@@ -390,6 +431,15 @@ workflows:
           requires:
             - build-android-dev
             - test
+      - deploy-branch:
+          filters:
+            branches:
+              ignore:
+              - master
+              - circleci-update-locales
+              - /dependabot\/.*/
+          requires:
+            - build-dev
       - deploy-dev:
           filters:
             branches:
@@ -439,4 +489,17 @@ workflows:
               only: master
     jobs:
       - sync-locale-messages
+
+  update-dependencies-cronjob:
+    triggers:
+      - schedule:
+          cron: "0 2 * * *"
+          filters:
+            branches:
+              only: master
+    jobs:
+      - install-dependencies
+      - update-dependencies:
+          requires:
+            - install-dependencies
 

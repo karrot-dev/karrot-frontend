@@ -63,7 +63,7 @@ Run!
 ./run android dev release <password>
 ```
 
-... where `<password>` is a common yunity password. Ask in yunity Slack if you'd like to know it.
+... where `<password>` is a common yunity password. Ask in [chat.foodsaving.world/channel/karrot-dev](https://chat.foodsaving.world/channel/karrot-dev) if you'd like to know it.
 
 If you have an android device connected in USB debugging mode it will install it on that,
 otherwise it will try and start an emulator, but you might have to run one yourself if the default does not work.
@@ -93,7 +93,7 @@ Use our wrapper script
 ./build android dev release <password>
 ```
 
-... where `<password>` is a common yunity password. Ask in yunity Slack if you'd like to know it.
+... where `<password>` is a common yunity password. Ask in [chat.foodsaving.world/channel/karrot-dev](https://chat.foodsaving.world/channel/karrot-dev) if you'd like to know it.
 
 If you connect your phone to your computer, you can use the chrome debugging tools with this.
 

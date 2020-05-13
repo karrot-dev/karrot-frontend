@@ -262,6 +262,9 @@ function receiveMessage ({ topic, payload }) {
   else if (topic === 'notifications:meta') {
     datastore.commit('notifications/setEntryMeta', convertNotificationMeta(camelizeKeys(payload)))
   }
+  else if (topic === 'status') {
+    datastore.commit('status/update', camelizeKeys(payload))
+  }
 }
 
 datastore.watch((_, getters) => getters['presence/toggle/away'], away => {

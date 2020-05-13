@@ -18,16 +18,26 @@
       </div>
     </div>
     <KSpinner v-show="pending" />
-    <PickupItem
-      v-for="pickup in filteredPickups"
-      :key="pickup.id"
-      v-measure
-      :pickup="pickup"
-      :place-link="placeLink"
-      @join="$emit('join', arguments[0])"
-      @leave="$emit('leave', arguments[0])"
-      @detail="$emit('detail', arguments[0])"
-    />
+    <QInfiniteScroll
+      v-if="!pending"
+      :disable="numDisplayed > filteredPickups.length"
+      :offset="100"
+      @load="displayMorePickups"
+    >
+      <PickupItem
+        v-for="pickup in displayedPickups"
+        :key="pickup.id"
+        v-measure
+        :pickup="pickup"
+        :place-link="placeLink"
+        @join="$emit('join', arguments[0])"
+        @leave="$emit('leave', arguments[0])"
+        @detail="$emit('detail', arguments[0])"
+      />
+      <template #loading>
+        <KSpinner />
+      </template>
+    </QInfiniteScroll>
   </div>
 </template>
 
@@ -38,10 +48,14 @@ import bindRoute from '@/utils/mixins/bindRoute'
 
 import {
   QSelect,
+  QInfiniteScroll,
 } from 'quasar'
+
+const NUM_PICKUPS_PER_LOAD = 25
 
 export default {
   components: {
+    QInfiniteScroll,
     PickupItem,
     KSpinner,
     QSelect,
@@ -69,6 +83,11 @@ export default {
       default: false,
     },
   },
+  data () {
+    return {
+      numDisplayed: NUM_PICKUPS_PER_LOAD,
+    }
+  },
   computed: {
     slotsOptions () {
       return [
@@ -92,6 +111,9 @@ export default {
       if (this.slots === 'empty') return this.pickups.filter(e => e.isEmpty)
       return this.pickups
     },
+    displayedPickups () {
+      return this.filteredPickups.slice(0, this.numDisplayed)
+    },
   },
   watch: {
     slots (val, old) {
@@ -105,6 +127,13 @@ export default {
           this.slots = options[0]
         }
       }
+    },
+  },
+  methods: {
+    async displayMorePickups (index, done) {
+      this.numDisplayed += NUM_PICKUPS_PER_LOAD
+      await this.$nextTick()
+      done()
     },
   },
 }

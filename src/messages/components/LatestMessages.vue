@@ -1,30 +1,34 @@
 <template>
   <div class="bg-white">
-    <QTabs
-      v-model="selected"
-      class="k-message-tabs"
-      align="left"
-    >
-      <Component
-        :is="asPage ? 'QRouteTab' : 'QTab'"
-        name="conversations"
-        :to="{ name: 'latestConversations' }"
-        :label="$t('CONVERSATION.CONVERSATIONS')"
-        :count="unseenConversationsCount > 9 ? '9+' : unseenConversationsCount"
-      />
-      <Component
-        :is="asPage ? 'QRouteTab' : 'QTab'"
-        name="threads"
-        :to="{ name: 'latestThreads' }"
-        :label="$t('CONVERSATION.REPLIES')"
-        :count="unseenThreadsCount > 9 ? '9+' : unseenThreadsCount"
-      />
-      <QRouteTab
-        :title="$t('SETTINGS.TITLE')"
+    <div class="flex">
+      <QTabs
+        v-model="selected"
+        class="k-message-tabs col-grow"
+        align="left"
+      >
+        <Component
+          :is="asPage ? 'QRouteTab' : 'QTab'"
+          name="conversations"
+          :to="{ name: 'latestConversations' }"
+          :label="$t('CONVERSATION.CONVERSATIONS')"
+          :count="unseenConversationCount > 9 ? '9+' : unseenConversationCount"
+        />
+        <Component
+          :is="asPage ? 'QRouteTab' : 'QTab'"
+          name="threads"
+          :to="{ name: 'latestThreads' }"
+          :label="$t('CONVERSATION.REPLIES')"
+          :count="unseenThreadCount > 9 ? '9+' : unseenThreadCount"
+        />
+      </QTabs>
+      <QBtn
+        flat
+        round
         icon="fas fa-cog"
+        :title="$t('SETTINGS.TITLE')"
         :to="{ name: 'settings', hash: '#notifications' }"
       />
-    </QTabs>
+    </div>
     <RouterView
       v-if="asPage"
     />
@@ -47,6 +51,7 @@
 import { mapGetters } from 'vuex'
 
 import {
+  QBtn,
   QTabs,
   QTab,
   QRouteTab,
@@ -56,6 +61,7 @@ import LatestThreads from './LatestThreads'
 
 export default {
   components: {
+    QBtn,
     QTabs,
     QTab,
     QRouteTab,
@@ -75,19 +81,16 @@ export default {
   },
   computed: {
     ...mapGetters({
-      unseenConversationsCount: 'latestMessages/unseenConversationsCount',
-      unseenThreadsCount: 'latestMessages/unseenThreadsCount',
-      unread: 'latestMessages/unread',
+      unseenConversationCount: 'status/unseenConversationCount',
+      unseenThreadCount: 'status/unseenThreadCount',
+      hasUnread: 'status/hasUnreadConversationsOrThreads',
     }),
     hasOnlyUnseenThreads () {
-      return Boolean(this.unseenThreadsCount && !this.unseenConversationsCount)
-    },
-    hasOnlyUnreadThreads () {
-      return Boolean(!this.unread.conversations.length && this.unread.threads.length)
+      return Boolean(this.unseenThreadCount > 0 && this.unseenConversationCount === 0)
     },
   },
   mounted () {
-    if (this.hasOnlyUnseenThreads || this.hasOnlyUnreadThreads) {
+    if (this.hasOnlyUnseenThreads) {
       this.selected = 'threads'
     }
   },

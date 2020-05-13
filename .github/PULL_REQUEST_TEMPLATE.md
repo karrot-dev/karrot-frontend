@@ -11,5 +11,5 @@ Closes ___ (e.g. #230)
 - [ ] added a test, or explain why one is not needed/possible...
 - [ ] no unrelated changes
 - [ ] asked someone for a code review
-- [ ] joined #karrot-dev channel at https://slackin.yunity.org
+- [ ] joined [chat.foodsaving.world/channel/karrot-dev](https://chat.foodsaving.world/channel/karrot-dev)
 - [ ] added an entry to CHANGELOG.md (description, pull request link, username(s))

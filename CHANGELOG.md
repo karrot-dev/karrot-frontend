@@ -21,6 +21,21 @@ Please document your changes in this format:
 ```
 
 ## [Unreleased]
+### Changed
+- Subscribe everybody to conflict resolution emails by default @nicksellen
+- Speed up page load (hopefully) @tiltec @nicksellen
+- Hide buttons in group sidenav, change notification icons, added settings to latest messages menu [ #1987 @brnsolikyl @nicksellen
+
+### Fixed
+- Unsubscribe link in pickup notification email did not work @nicksellen
+
+## [8.4.0] - 2020-04-25
+### Added
+- Pagination for pickups [#1982] @ang-zeyu
+- More translations
+
+### Fixed
+- Karrot icon on dev.karrot.world did not show @tiltec
 
 ## [8.3.0] - 2019-12-02
 ### Added
@@ -515,8 +530,10 @@ After months of planning and programming, the first version of ~the foodsaving t
 [#1690]: https://github.com/yunity/karrot-frontend/issues/1690
 [#1691]: https://github.com/yunity/karrot-frontend/issues/1691
 [#1799]: https://github.com/yunity/karrot-frontend/issues/1799
+[#1982]: https://github.com/yunity/karrot-frontend/issues/1982
 
-[Unreleased]: https://github.com/yunity/karrot-frontend/compare/v8.3.0...HEAD
+[Unreleased]: https://github.com/yunity/karrot-frontend/compare/v8.4.0...HEAD
+[8.4.0]: https://github.com/yunity/karrot-frontend/compare/v8.3.0...v8.4.0
 [8.3.0]: https://github.com/yunity/karrot-frontend/compare/v8.2.0...v8.3.0
 [8.2.0]: https://github.com/yunity/karrot-frontend/compare/v8.1.2...v8.2.0
 [8.1.2]: https://github.com/yunity/karrot-frontend/compare/v8.1.1...v8.1.2

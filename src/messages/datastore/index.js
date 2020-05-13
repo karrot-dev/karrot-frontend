@@ -2,7 +2,7 @@ import conversationsPlugin from '@/messages/datastore/conversationsPlugin'
 import conversations from '@/messages/datastore/conversations'
 import currentThread from '@/messages/datastore/currentThread'
 import detail, { plugin as detailPlugin } from '@/messages/datastore/detail'
-import latestMessages, { plugin as latestMessagesPlugin } from '@/messages/datastore/latestMessages'
+import latestMessages from '@/messages/datastore/latestMessages'
 
 export default {
   modules: {
@@ -14,6 +14,5 @@ export default {
   plugins: [
     conversationsPlugin,
     detailPlugin,
-    latestMessagesPlugin,
   ],
 }

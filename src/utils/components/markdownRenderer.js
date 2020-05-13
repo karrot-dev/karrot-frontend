@@ -1,8 +1,14 @@
 import markdownIt from 'markdown-it'
 import markdownLinkAttributes from 'markdown-it-link-attributes'
 import emoji from 'markdown-it-emoji'
+import defaultEmojiShortcuts from 'markdown-it-emoji/lib/data/shortcuts'
 import twemoji from 'twemoji'
 import escapeRegExp from 'escape-string-regexp'
+
+// Use a more basic smile for the default normal simple smile
+const emojiShortcuts = { ...defaultEmojiShortcuts }
+emojiShortcuts.slightly_smiling_face = emojiShortcuts.smiley
+delete emojiShortcuts.smiley
 
 const internalLinkParts = ['$']
 if (!window.location.href.startsWith('file:///')) {
@@ -47,7 +53,9 @@ const md = markdownIt('zero', {
       },
     },
   ])
-  .use(emoji)
+  .use(emoji, {
+    shortcuts: emojiShortcuts,
+  })
   .enable([
     'heading',
     'emphasis',

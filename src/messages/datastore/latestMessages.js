@@ -34,27 +34,15 @@ export default {
         threads: getters.threads.filter(t => t.threadMeta.unreadReplyCount > 0),
       }
     },
-    unreadCount: (state, getters) => {
-      return getters.unread.conversations.length + getters.unread.threads.length
-    },
-    allUnreadMuted: (state, getters) => {
-      return (
-        getters.unread.conversations.filter(c => !c.muted).length +
-        getters.unread.threads.filter(t => !t.muted).length
-      ) === 0
-    },
-    unseenCount: (state, getters) => {
-      return getters.unseenConversationsCount + getters.unseenThreadsCount
-    },
-    unseenConversationsCount: (state, getters) => {
+    hasUnseenConversations: (state, getters) => {
       const { conversationsMarkedAt } = state.entryMeta
 
-      return getters.unread.conversations.filter(c => c.latestMessage.createdAt > conversationsMarkedAt).length
+      return getters.unread.conversations.some(c => c.latestMessage.createdAt > conversationsMarkedAt)
     },
-    unseenThreadsCount: (state, getters) => {
+    hasUnseenThreads: (state, getters) => {
       const { threadsMarkedAt } = state.entryMeta
 
-      return getters.unread.threads.filter(t => t.latestMessage.createdAt > threadsMarkedAt).length
+      return getters.unread.threads.some(t => t.latestMessage.createdAt > threadsMarkedAt)
     },
     conversations: (state, getters, rootState, rootGetters) => {
       const enrichConversation = rootGetters['conversations/enrichConversation']
@@ -119,13 +107,15 @@ export default {
       },
       async markConversationsSeen ({ getters }) {
         // we can skip marking if there are only seen notifications
-        if (!getters.unseenConversationsCount) return
-        conversationsAPI.markConversationsSeen()
+        if (getters.hasUnseenConversations) {
+          conversationsAPI.markConversationsSeen()
+        }
       },
       async markThreadsSeen ({ getters }) {
         // we can skip marking if there are only seen notifications
-        if (!getters.unseenThreadsCount) return
-        conversationsAPI.markThreadsSeen()
+        if (getters.hasUnseenThreads) {
+          conversationsAPI.markThreadsSeen()
+        }
       },
     }),
     async fetch ({ dispatch }, { excludeRead = false } = {}) {
@@ -270,16 +260,4 @@ function sortByLatestMessage (a, b) {
 function getFirst (list) {
   if (!list || list.length === 0) return
   return list[0]
-}
-
-export function plugin (datastore) {
-  datastore.watch((state, getters) => getters['auth/isLoggedIn'], isLoggedIn => {
-    if (isLoggedIn) {
-      // load unread messages for showing notifications
-      datastore.dispatch('latestMessages/fetch', { excludeRead: true })
-    }
-    else {
-      datastore.dispatch('latestMessages/clear')
-    }
-  })
 }

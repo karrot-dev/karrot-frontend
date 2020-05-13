@@ -354,15 +354,15 @@ jobs:
             BRANCH: circleci-update-dependencies
           command: |
             set -xe
-            alias yarn-list="yarn list --depth=0 | sed 's/^.\{3\}//' | head -n -1 | tail -n +2"
+            echo "yarn list --depth=0 | grep -E -v '^Done in|yarn list v' | sed 's/^.\{3\}//'" > yarn-list.sh
             git config credential.helper 'cache --timeout=120'
             git config user.email "ci@foodsaving.world"
             git config user.name "CircleCI"
             git branch --delete --force $BRANCH || true
             git checkout -b $BRANCH
-            yarn-list > list-before.txt
+            source yarn-list.sh > list-before.txt
             yarn upgrade --latest --ignore-engines
-            yarn-list > list-after.txt
+            source yarn-list.sh > list-after.txt
             git add package.json yarn.lock
             git commit -m "[CI] Update dependencies" || exit 0
             git push --force origin $BRANCH

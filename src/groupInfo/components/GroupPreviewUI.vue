@@ -51,7 +51,15 @@
       <QSeparator />
       <QCardActions>
         <div style="width: 100%">
-          <template v-if="isLoggedIn">
+          <template v-if="!group.isOpen && group.members.length === 0">
+            <QBanner class="bg-info">
+              {{ $t('JOINGROUP.ARCHIVED_NOTE' ) }}
+              <template #avatar>
+                <QIcon name="info" />
+              </template>
+            </QBanner>
+          </template>
+          <template v-else-if="isLoggedIn">
             <template v-if="!group.isMember">
               <QBanner
                 v-if="!application"
@@ -59,10 +67,7 @@
               >
                 {{ $t('JOINGROUP.PROFILE_NOTE' ) }}
                 <template #avatar>
-                  <QIcon
-                    name="info"
-                    style="font-size: 24px"
-                  />
+                  <QIcon name="info" />
                 </template>
               </QBanner>
               <QBanner
@@ -75,7 +80,6 @@
                   <QIcon
                     name="info"
                     color="white"
-                    style="font-size: 24px"
                   />
                 </template>
                 <template #action>

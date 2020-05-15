@@ -143,14 +143,14 @@ exports[`Storyshots Applications ApplicationList 1`] = `
 exports[`Storyshots Banners Banners 1`] = `
 <div>
   <div role="alert" class="q-banner row items-center k-banner bg-secondary text-white" style="min-height:unset;">
-    <div class="q-banner__avatar col-auto row items-center self-start"><i aria-hidden="true" role="presentation" class="fas fa-child q-icon notranslate" style="font-size:1.4em;"> </i></div>
+    <div class="q-banner__avatar col-auto row items-center self-start"><i aria-hidden="true" role="presentation" class="fas fa-child q-icon notranslate"> </i></div>
     <div class="q-banner__content col text-body2">
       This is a playground group, you can't break anything. Explore, click around and have fun!
     </div>
     <div class="q-banner__actions row items-center justify-end col-auto"><button tabindex="0" type="button" role="button" class="q-btn q-btn-item non-selectable no-outline q-btn--flat q-btn--rectangle q-btn--actionable q-focusable q-hoverable q-btn--wrap q-btn--dense"><span class="q-focus-helper"></span><span class="q-btn__wrapper col row q-anchor--skip"><span class="q-btn__content text-center col items-center q-anchor--skip justify-center row"><span class="block">Join another group</span></span></span></button></div>
   </div>
   <div role="alert" class="q-banner row items-center k-banner bg-warning text-white" style="min-height:unset;">
-    <div class="q-banner__avatar col-auto row items-center self-start"><i aria-hidden="true" role="presentation" class="material-icons q-icon notranslate" style="font-size:1.4em;">report_problem</i></div>
+    <div class="q-banner__avatar col-auto row items-center self-start"><i aria-hidden="true" role="presentation" class="material-icons q-icon notranslate">report_problem</i></div>
     <div class="q-banner__content col text-body2">
       You aren't connected to the server
     </div>

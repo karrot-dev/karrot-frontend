@@ -12,7 +12,6 @@
       <template #avatar>
         <QIcon
           :name="icon"
-          size="1.4em"
         />
       </template>
       <template #action>
@@ -102,6 +101,18 @@ export default {
         action: {
           icon: 'refresh',
           handler: () => this.$emit('reconnect'),
+        },
+      }
+    },
+
+    updateAvailable () {
+      return {
+        className: 'bg-blue text-white',
+        icon: 'new_releases',
+        message: 'UPDATE_AVAILABLE.DETAIL',
+        action: {
+          label: this.$t('UPDATE_AVAILABLE.RELOAD'),
+          handler: () => window.location.reload(),
         },
       }
     },

@@ -21,10 +21,13 @@ Please document your changes in this format:
 ```
 
 ## [Unreleased]
+### Added
+- Notification when a new Karrot version is available @tiltec
+
 ### Changed
 - Subscribe everybody to conflict resolution emails by default @nicksellen
 - Speed up page load (hopefully) @tiltec @nicksellen
-- Hide buttons in group sidenav, change notification icons, added settings to latest messages menu [ #1987 @brnsolikyl @nicksellen
+- Hide buttons in group sidenav, change notification icons, added settings to latest messages menu #1987 @brnsolikyl @nicksellen
 - Show instruction on group preview page how to revive groups without members @tiltec
 
 ### Fixed

@@ -43,6 +43,11 @@ export default datastore => {
       next = { path: '/' }
     }
 
+    else if (to.query.groupId) {
+      datastore.dispatch('currentGroup/select', { groupId: to.query.groupId })
+      next = { name: to.name, params: to.params }
+    }
+
     if (next) {
       nextFn(next)
       return

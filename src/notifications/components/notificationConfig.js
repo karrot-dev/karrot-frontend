@@ -81,7 +81,7 @@ function getRouteTo (type, { group, user, place, pickup, issue } = {}) {
     case 'user_became_editor':
     case 'invitation_accepted':
     case 'new_member':
-      return user && { name: 'user', params: { userId: user.id } }
+      return user && { name: 'user', params: { userId: user.id }, query: { groupId: group.id } }
     case 'you_became_editor': // TODO show information about editing permissions
     case 'application_accepted':
       return group && { name: 'group', params: { groupId: group.id } }

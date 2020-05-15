@@ -66,3 +66,8 @@ export default {
   },
 }
 </script>
+
+<style lang="stylus" scoped>
+>>> .q-banner__avatar
+  align-self center
+</style>

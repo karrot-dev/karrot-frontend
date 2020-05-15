@@ -312,6 +312,9 @@ export default {
 </script>
 
 <style scoped lang="stylus">
+>>> .q-banner__avatar
+  align-self center
+
 body.desktop .k-profile
   .photoAndName
     margin-bottom 20px

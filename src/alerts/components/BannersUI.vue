@@ -12,6 +12,7 @@
       <template #avatar>
         <QIcon
           :name="icon"
+          size="1.4em"
         />
       </template>
       <template #action>
@@ -123,4 +124,7 @@ export default {
 <style lang="stylus" scoped>
 body.desktop .k-banner
   min-width 500px
+
+.k-banner >>> .q-banner__avatar
+  align-self center
 </style>

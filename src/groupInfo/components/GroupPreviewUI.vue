@@ -55,7 +55,10 @@
             <QBanner class="bg-info">
               {{ $t('JOINGROUP.ARCHIVED_NOTE' ) }}
               <template #avatar>
-                <QIcon name="info" />
+                <QIcon
+                  name="info"
+                  style="font-size: 24px"
+                />
               </template>
             </QBanner>
           </template>
@@ -67,7 +70,10 @@
               >
                 {{ $t('JOINGROUP.PROFILE_NOTE' ) }}
                 <template #avatar>
-                  <QIcon name="info" />
+                  <QIcon
+                    name="info"
+                    style="font-size: 24px"
+                  />
                 </template>
               </QBanner>
               <QBanner
@@ -80,6 +86,7 @@
                   <QIcon
                     name="info"
                     color="white"
+                    style="font-size: 24px"
                   />
                 </template>
                 <template #action>
@@ -223,6 +230,9 @@ export default {
 </script>
 
 <style scoped lang="stylus">
+>>> .q-banner__avatar
+  align-self center
+
 .q-card *
   overflow hidden
 

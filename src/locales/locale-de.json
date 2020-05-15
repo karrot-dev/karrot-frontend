@@ -272,7 +272,8 @@
     "APPLICATION_PENDING": "Deine Bewerbung ist noch offen!",
     "WITHDRAW_CONFIRMATION_HEADER": "Bewerbung zurückziehen",
     "WITHDRAW_CONFIRMATION_TEXT": "Bist du sicher, dass du deine Bewerbung {groupName} beizutreten zurückziehen willst?",
-    "APPLICATION_WITHDRAWN": "Deine Bewerbung wurde zurückgezogen!"
+    "APPLICATION_WITHDRAWN": "Deine Bewerbung wurde zurückgezogen!",
+    "ARCHIVED_NOTE": "This group doesn't have any members. If you would like to revive it, contact the site administrators!"
   },
   "GROUPINFO": {
     "TITLE": "Öffentliche Gruppenbeschreibung",

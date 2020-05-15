@@ -272,7 +272,8 @@
     "APPLICATION_PENDING": "Deng Bewerbung leeft grad!",
     "WITHDRAW_CONFIRMATION_HEADER": "Bewerbung zréckzéien",
     "WITHDRAW_CONFIRMATION_TEXT": "Bass du sécher, dass du deng Bewerbung fir {groupName} bäizetrieden zréckzéie wëlls?",
-    "APPLICATION_WITHDRAWN": "Deng Bewerbung gouf erfollegräich zréckgezunn!"
+    "APPLICATION_WITHDRAWN": "Deng Bewerbung gouf erfollegräich zréckgezunn!",
+    "ARCHIVED_NOTE": "This group doesn't have any members. If you would like to revive it, contact the site administrators!"
   },
   "GROUPINFO": {
     "TITLE": "Ëffentlech Informatiounen zur Grupp",

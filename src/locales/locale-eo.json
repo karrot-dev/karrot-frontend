@@ -272,7 +272,8 @@
     "APPLICATION_PENDING": "Kandidatiĝo ankoraŭ respondindas",
     "WITHDRAW_CONFIRMATION_HEADER": "Forfaligi kandidatiĝon",
     "WITHDRAW_CONFIRMATION_TEXT": "Ĉu vi certe volas forfaligi vian kandidatiĝon al {groupName}?",
-    "APPLICATION_WITHDRAWN": "Vi sukcese forfaligis vian kandidatiĝon!"
+    "APPLICATION_WITHDRAWN": "Vi sukcese forfaligis vian kandidatiĝon!",
+    "ARCHIVED_NOTE": "This group doesn't have any members. If you would like to revive it, contact the site administrators!"
   },
   "GROUPINFO": {
     "TITLE": "Informo de publika grupo",

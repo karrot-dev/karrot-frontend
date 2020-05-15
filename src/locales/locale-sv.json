@@ -272,7 +272,8 @@
     "APPLICATION_PENDING": "Din ansökan väntar på svar!",
     "WITHDRAW_CONFIRMATION_HEADER": "Ta bort ansökan",
     "WITHDRAW_CONFIRMATION_TEXT": "Är du säker på att du vill ta bort din ansökan för att gå med i {groupName}?",
-    "APPLICATION_WITHDRAWN": "Din ansökan har tagits bort!"
+    "APPLICATION_WITHDRAWN": "Din ansökan har tagits bort!",
+    "ARCHIVED_NOTE": "This group doesn't have any members. If you would like to revive it, contact the site administrators!"
   },
   "GROUPINFO": {
     "TITLE": "Offentlig information om gruppen",

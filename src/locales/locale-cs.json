@@ -272,7 +272,8 @@
     "APPLICATION_PENDING": "Vaše žádost čeká na vyřízení!",
     "WITHDRAW_CONFIRMATION_HEADER": "stáhnout žádost",
     "WITHDRAW_CONFIRMATION_TEXT": "Opravdu chcete stáhnout svou žádost k připojení se k {groupName}?",
-    "APPLICATION_WITHDRAWN": "Vaše žádost  byla úspěšně stažena!"
+    "APPLICATION_WITHDRAWN": "Vaše žádost  byla úspěšně stažena!",
+    "ARCHIVED_NOTE": "This group doesn't have any members. If you would like to revive it, contact the site administrators!"
   },
   "GROUPINFO": {
     "TITLE": "Informace o veřejných skupinách",

@@ -272,7 +272,8 @@
     "APPLICATION_PENDING": "你的申請尚未有結果",
     "WITHDRAW_CONFIRMATION_HEADER": "撤銷申請",
     "WITHDRAW_CONFIRMATION_TEXT": "你確定你要撤銷加入{ groupName} 的申請?",
-    "APPLICATION_WITHDRAWN": "你的申請已成功撤銷"
+    "APPLICATION_WITHDRAWN": "你的申請已成功撤銷",
+    "ARCHIVED_NOTE": "This group doesn't have any members. If you would like to revive it, contact the site administrators!"
   },
   "GROUPINFO": {
     "TITLE": "公開社團資訊",

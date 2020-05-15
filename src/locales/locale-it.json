@@ -272,7 +272,8 @@
     "APPLICATION_PENDING": "Your application is pending!",
     "WITHDRAW_CONFIRMATION_HEADER": "Withdraw Application",
     "WITHDRAW_CONFIRMATION_TEXT": "Are you sure you want to withdraw your application to join {groupName}?",
-    "APPLICATION_WITHDRAWN": "Your application was successfully withdrawn!"
+    "APPLICATION_WITHDRAWN": "Your application was successfully withdrawn!",
+    "ARCHIVED_NOTE": "This group doesn't have any members. If you would like to revive it, contact the site administrators!"
   },
   "GROUPINFO": {
     "TITLE": "Informazioni pubbliche del gruppo",

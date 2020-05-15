@@ -18,6 +18,6 @@ export default new Vue({
     }
 
     ['load', 'mousemove', 'keydown', 'DOMMouseScroll', 'mousewheel', 'mousedown', 'touchstart', 'touchmove', 'click']
-      .forEach(event => document.addEventListener(event, resetTimer))
+      .forEach(event => document.addEventListener(event, resetTimer, { passive: true }))
   },
 })

@@ -272,7 +272,8 @@
     "APPLICATION_PENDING": "आपला अर्ज प्रलंबित आहे!",
     "WITHDRAW_CONFIRMATION_HEADER": "अर्ज मागे घ्या",
     "WITHDRAW_CONFIRMATION_TEXT": "आपणास खात्री आहे की आपण {groupName} सामील होण्यासाठी आपला अर्ज मागे घेऊ इच्छित आहात?",
-    "APPLICATION_WITHDRAWN": "आपले आवेदन यशस्वीरित्या मागे घेण्यात आले!"
+    "APPLICATION_WITHDRAWN": "आपले आवेदन यशस्वीरित्या मागे घेण्यात आले!",
+    "ARCHIVED_NOTE": "This group doesn't have any members. If you would like to revive it, contact the site administrators!"
   },
   "GROUPINFO": {
     "TITLE": "सार्वजनिक गट माहिती",

@@ -272,7 +272,8 @@
     "APPLICATION_PENDING": "Ta candidature est en attente !",
     "WITHDRAW_CONFIRMATION_HEADER": "Retirer ma candidature",
     "WITHDRAW_CONFIRMATION_TEXT": "Es-tu sûr(e) de vouloir retirer ta candidature à {groupName} ?",
-    "APPLICATION_WITHDRAWN": "Ta candidature a bien été retirée !"
+    "APPLICATION_WITHDRAWN": "Ta candidature a bien été retirée !",
+    "ARCHIVED_NOTE": "This group doesn't have any members. If you would like to revive it, contact the site administrators!"
   },
   "GROUPINFO": {
     "TITLE": "Information publique du groupe",

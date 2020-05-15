@@ -272,7 +272,8 @@
     "APPLICATION_PENDING": "¡Tu solicitud está pendiente!",
     "WITHDRAW_CONFIRMATION_HEADER": "Retirar solicitud",
     "WITHDRAW_CONFIRMATION_TEXT": "¿Estás segura que quieres retirar tu solicitud para unirte a {groupName}?",
-    "APPLICATION_WITHDRAWN": "¡Tu solicitud fue retirada con éxito!"
+    "APPLICATION_WITHDRAWN": "¡Tu solicitud fue retirada con éxito!",
+    "ARCHIVED_NOTE": "This group doesn't have any members. If you would like to revive it, contact the site administrators!"
   },
   "GROUPINFO": {
     "TITLE": "Información pública del grupo",

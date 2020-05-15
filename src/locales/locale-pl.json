@@ -272,7 +272,8 @@
     "APPLICATION_PENDING": "Twoje zgłoszenie jest w trakcie rozpatrywania!",
     "WITHDRAW_CONFIRMATION_HEADER": "Wycofaj zgłoszenie",
     "WITHDRAW_CONFIRMATION_TEXT": "Czy na pewno chcesz wycofać swoje zgłoszenie do {groupName}?",
-    "APPLICATION_WITHDRAWN": "Twoje zgłoszenie zostało wycofane!"
+    "APPLICATION_WITHDRAWN": "Twoje zgłoszenie zostało wycofane!",
+    "ARCHIVED_NOTE": "This group doesn't have any members. If you would like to revive it, contact the site administrators!"
   },
   "GROUPINFO": {
     "TITLE": "Informacje o grupie",

@@ -9642,53 +9642,14 @@ exports[`Storyshots Sidenav Group 1`] = `
       </div>
       <!---->
     </a></div>
-  <div class="q-expansion-item q-item-type q-expansion-item--collapsed q-expansion-item--standard">
-    <div class="q-expansion-item__container relative-position">
-      <div tabindex="0" class="q-item q-item-type row no-wrap q-item--clickable q-link cursor-pointer q-focusable q-hoverable q-item--dense">
-        <div tabindex="-1" class="q-focus-helper"></div>
-        <div class="q-item__section column text-center q-item__section--side justify-center"><i aria-hidden="true" role="presentation" class="fas fa-ellipsis-h q-icon notranslate" style="font-size:1.1em;"> </i></div>
-        <div class="q-item__section column q-item__section--main justify-center">
-          Show more
-        </div>
-        <div class="q-item__section column q-item__section--side justify-center"></div>
-        <div class="q-item__section column q-focusable relative-position cursor-pointer q-item__section--side justify-center"><i aria-hidden="true" role="presentation" class="q-expansion-item__toggle-icon material-icons q-icon notranslate">keyboard_arrow_down</i></div>
-      </div>
-      <transition-stub>
-        <div class="q-expansion-item__content relative-position" style="display:none;">
-          <div class="q-list q-list--dense"><a tabindex="0" class="q-item q-item-type row no-wrap q-item--clickable q-link cursor-pointer q-focusable q-hoverable">
-              <div tabindex="-1" class="q-focus-helper"></div>
-              <div class="q-item__section column text-center q-item__section--side justify-center"><i aria-hidden="true" role="presentation" class="fas fa-address-card q-icon notranslate" style="font-size:1.1em;"> </i></div>
-              <div class="q-item__section column q-item__section--main justify-center">
-                Applications
-              </div>
-              <!---->
-            </a><a tabindex="0" class="q-item q-item-type row no-wrap q-item--clickable q-link cursor-pointer q-focusable q-hoverable">
-              <div tabindex="-1" class="q-focus-helper"></div>
-              <div class="q-item__section column text-center q-item__section--side justify-center"><i aria-hidden="true" role="presentation" class="fas fa-vote-yea q-icon notranslate" style="font-size:1.1em;"> </i></div>
-              <div class="q-item__section column q-item__section--main justify-center">
-                Issues
-              </div>
-              <!---->
-            </a><a tabindex="0" class="q-item q-item-type row no-wrap q-item--clickable q-link cursor-pointer q-focusable q-hoverable">
-              <div tabindex="-1" class="q-focus-helper"></div>
-              <div class="q-item__section column text-center q-item__section--side justify-center"><i aria-hidden="true" role="presentation" class="fas fa-eye fa-fw q-icon notranslate" style="font-size:1.1em;"> </i></div>
-              <div class="q-item__section column q-item__section--main justify-center">
-                Show public group information
-              </div>
-              <!---->
-            </a><a tabindex="0" class="q-item q-item-type row no-wrap q-item--clickable q-link cursor-pointer q-focusable q-hoverable">
-              <div tabindex="-1" class="q-focus-helper"></div>
-              <div class="q-item__section column text-center q-item__section--side justify-center"><i aria-hidden="true" role="presentation" class="fas fa-map q-icon notranslate" style="font-size:1.1em;"> </i></div>
-              <div class="q-item__section column q-item__section--main justify-center">
-                Map
-              </div>
-              <!---->
-            </a></div>
-        </div>
-      </transition-stub>
-      <hr role="separator" aria-orientation="horizontal" class="q-separator q-expansion-item__border q-expansion-item__border--top absolute-top q-separator q-separator--horizontal col-grow">
-      <hr role="separator" aria-orientation="horizontal" class="q-separator q-expansion-item__border q-expansion-item__border--bottom absolute-bottom q-separator q-separator--horizontal col-grow">
+  <!---->
+  <div tabindex="0" class="q-item q-item-type row no-wrap more-button q-item--clickable q-link cursor-pointer q-focusable q-hoverable q-item--dense">
+    <div tabindex="-1" class="q-focus-helper"></div>
+    <div class="q-item__section column text-center q-item__section--side justify-center"><i aria-hidden="true" role="presentation" class="fas fa-arrow-down q-icon notranslate" style="font-size:1.1em;"> </i></div>
+    <div class="q-item__section column q-item__section--main justify-center">
+      Show more
     </div>
+    <div class="q-item__section column q-item__section--side justify-center"></div>
   </div>
 </div>
 `;

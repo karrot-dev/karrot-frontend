@@ -36,35 +36,41 @@
       </div>
     </template>
     <SidenavMenu :entries="entries" />
-    <QExpansionItem
+    <SidenavMenu
+      v-if="showMore"
+      :entries="entriesMore"
+    />
+    <QItem
+      clickable
       dense
-      expand-separator
+      class="more-button"
+      @click="showMore = !showMore"
     >
-      <template v-slot:header>
-        <QItemSection
-          side
-          class="text-center"
-        >
-          <QIcon
-            name="fas fa-ellipsis-h"
-            size="1.1em"
-          />
-        </QItemSection>
-        <QItemSection>
-          {{ $t('BUTTON.SHOW_MORE') }}
-        </QItemSection>
-        <QItemSection side>
-          <QBadge
-            v-if="pendingApplicationCount > 0"
-            small
-            :label="pendingApplicationCount"
-            :title="$tc('APPLICATION.WALL_NOTICE', pendingApplicationCount, { count: pendingApplicationCount })"
-            color="blue"
-          />
-        </QItemSection>
-      </template>
-      <SidenavMenu :entries="entriesMore" />
-    </QExpansionItem>
+      <QItemSection
+        side
+        class="text-center"
+      >
+        <QIcon
+          :name="showMore ? 'fas fa-arrow-up' : 'fas fa-arrow-down'"
+          size="1.1em"
+        />
+      </QItemSection>
+      <QItemSection>
+        {{ showMore ? $t('BUTTON.SHOW_LESS') : $t('BUTTON.SHOW_MORE') }}
+      </QItemSection>
+      <QItemSection
+        v-if="!showMore"
+        side
+      >
+        <QBadge
+          v-if="pendingApplicationCount > 0"
+          small
+          :label="pendingApplicationCount"
+          :title="$tc('APPLICATION.WALL_NOTICE', pendingApplicationCount, { count: pendingApplicationCount })"
+          color="blue"
+        />
+      </QItemSection>
+    </QItem>
   </SidenavBox>
 </template>
 
@@ -73,7 +79,7 @@ import {
   QBtn,
   QIcon,
   QMenu,
-  QExpansionItem,
+  QItem,
   QItemSection,
   QBadge,
 } from 'quasar'
@@ -89,7 +95,7 @@ export default {
     QBtn,
     QIcon,
     QMenu,
-    QExpansionItem,
+    QItem,
     QItemSection,
     QBadge,
   },
@@ -114,6 +120,11 @@ export default {
       default: 0,
       type: Number,
     },
+  },
+  data () {
+    return {
+      showMore: false,
+    }
   },
   computed: {
     cappedWallUnreadCount () {
@@ -192,3 +203,11 @@ export default {
   },
 }
 </script>
+
+<style lang="stylus" scoped>
+.more-button:hover
+  opacity .6
+
+  >>> .q-focus-helper
+    background none !important
+</style>

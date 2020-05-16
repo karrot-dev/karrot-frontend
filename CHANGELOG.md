@@ -30,6 +30,7 @@ Please document your changes in this format:
 - Hide buttons in group sidenav, change notification icons, added settings to latest messages menu #1987 @brnsolikyl @nicksellen
 - Show instruction on group preview page how to revive groups without members @tiltec
 - Switch to group when clicking on user-related notificiations @tiltec
+- Remove "public description" toggle from group description page, as it is available from the sidenav already @tiltec
 
 ### Fixed
 - Unsubscribe link in pickup notification email did not work @nicksellen

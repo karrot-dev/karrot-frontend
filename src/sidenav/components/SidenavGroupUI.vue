@@ -186,7 +186,7 @@ export default {
         to: { name: 'issueList', params: { groupId: this.groupId } },
       }, {
         label: this.$t('GROUPINFO.META'),
-        icon: 'fas fa-eye fa-fw',
+        icon: 'fas fa-info-circle',
         to: { name: 'groupPreview', params: { groupPreviewId: this.groupId } },
       }, {
         condition: this.$q.platform.is.mobile === true,

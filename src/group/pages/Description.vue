@@ -9,20 +9,12 @@
     >
       <div class="art-overlay q-px-md q-py-lg">
         <div
-          v-t="showPublicDescription ? 'GROUPINFO.TITLE' : 'GROUP.DESCRIPTION_VERBOSE'"
+          v-t="'GROUP.DESCRIPTION'"
           class="header"
         />
       </div>
     </RandomArt>
     <div class="q-mx-md actionButtons">
-      <QBtn
-        small
-        round
-        color="secondary"
-        :icon="showPublicDescription ? 'fas fa-lock' : 'fas fa-eye'"
-        :title="$t(showPublicDescription ? 'GROUP.DESCRIPTION_VERBOSE' : 'GROUPINFO.META')"
-        @click="showPublicDescription = !showPublicDescription"
-      />
       <RouterLink
         v-if="isEditor"
         :to="{name: 'groupEdit'}"
@@ -38,11 +30,7 @@
     </div>
     <div class="q-pa-md">
       <Markdown
-        v-if="showPublicDescription && group.publicDescription"
-        :source="group.publicDescription"
-      />
-      <Markdown
-        v-if="!showPublicDescription && group.description"
+        v-if="group.description"
         :source="group.description"
       />
     </div>
@@ -67,11 +55,6 @@ export default {
     QBtn,
     RandomArt,
     Markdown,
-  },
-  data () {
-    return {
-      showPublicDescription: false,
-    }
   },
   computed: {
     ...mapGetters({

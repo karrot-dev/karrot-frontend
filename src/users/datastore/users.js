@@ -7,7 +7,8 @@ import router from '@/base/router'
 
 function initialState () {
   return {
-    entries: {},
+    entries: {}, // all known users
+    infoEntries: {},  // barebone user information, if we don't have access to full data
     activeUserProfileId: null,
     activeUserProfile: null,
     resetPasswordSuccess: false,
@@ -21,7 +22,7 @@ export default {
   state: initialState(),
   getters: {
     get: (state, getters, rootState, rootGetters) => userId => {
-      const user = state.entries[userId]
+      const user = state.entries[userId] || state.infoEntries[userId]
       if (!user) {
         return {
           id: userId,
@@ -43,7 +44,10 @@ export default {
       }
     },
     all: (state, getters, rootState, rootGetters) => {
-      return Object.values(state.entries).map(getters.enrich)
+      return [
+        ...Object.values(state.entries),
+        ...Object.values(state.infoEntries),
+      ].map(getters.enrich)
     },
     byCurrentGroup: (state, getters, rootState, rootGetters) => {
       return getters.all.filter(u => u.membership)
@@ -71,6 +75,19 @@ export default {
     ...withMeta({
       async fetch ({ commit }) {
         commit('update', await users.list())
+      },
+      async maybeFetchInfo ({ state, commit }, userIds) {
+        // deduplicate list and remove loaded users
+        const idsToFetch = [...new Set(userIds)].filter(id => !state.entries[id] && !state.infoEntries[id])
+
+        if (idsToFetch.length < 1) return
+        // ignore users we can't access
+        const loadUserInfo = id => users.getInfo(id).catch(() => false)
+        const data = await Promise.all(idsToFetch.map(loadUserInfo))
+        const validData = data.filter(u => u !== false)
+
+        if (validData.length < 1) return
+        commit('updateInfo', validData)
       },
       async signup ({ dispatch }, { userData, joinPlayground }) {
         await authUser.create(userData)
@@ -166,6 +183,9 @@ export default {
     },
     update (state, users) {
       state.entries = Object.freeze({ ...state.entries, ...indexById(users) })
+    },
+    updateInfo (state, users) {
+      state.infoEntries = Object.freeze({ ...state.infoEntries, ...indexById(users) })
     },
     resendVerificationCodeSuccess (state, status) {
       Vue.set(state, 'resendVerificationCodeSuccess', status)

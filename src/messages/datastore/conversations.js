@@ -213,29 +213,37 @@ export default {
         })
         dispatch('receiveMessage', message)
       },
-      async fetch ({ commit }, conversationId) {
+      async fetch ({ commit, dispatch }, conversationId) {
         const data = await messageAPI.list(conversationId)
+        const messages = data.results
         commit('updateMessages', {
           conversationId,
-          messages: data.results,
+          messages,
         })
         commit('setCursor', {
           conversationId,
           cursor: data.next,
         })
+
+        const authorIds = messages.map(m => m.author)
+        dispatch('users/maybeFetchInfo', authorIds, { root: true })
       },
 
-      async fetchPast ({ state, commit }, conversationId) {
+      async fetchPast ({ state, commit, dispatch }, conversationId) {
         const currentCursor = state.cursors[conversationId]
         const data = await messageAPI.listMore(currentCursor)
+        const messages = data.results
         commit('updateMessages', {
           conversationId,
-          messages: data.results,
+          messages,
         })
         commit('setCursor', {
           conversationId,
           cursor: data.next,
         })
+
+        const authorIds = messages.map(m => m.author)
+        dispatch('users/maybeFetchInfo', authorIds, { root: true })
       },
 
       async fetchConversation ({ dispatch }, id) {

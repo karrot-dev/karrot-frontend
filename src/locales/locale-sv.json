@@ -494,8 +494,8 @@
     "LINK": "Snälla uppdatera eller ändra din webbläsare"
   },
   "UPDATE_AVAILABLE": {
-    "TITLE": "Uppdatering tillgänglig",
-    "DETAIL": "En ny version av Karrot finns tillgänglig."
+    "DETAIL": "En ny version av Karrot finns tillgänglig.",
+    "RELOAD": "Reload"
   },
   "NOT_FOUND": {
     "EXPLANATION": "Jag är ledsen, men vi kunde inte hitta sidan nånstans.",

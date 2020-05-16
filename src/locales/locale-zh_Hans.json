@@ -494,8 +494,8 @@
     "LINK": "請更新或是換一個瀏覽器"
   },
   "UPDATE_AVAILABLE": {
-    "TITLE": "有可用的更新",
-    "DETAIL": "有新版的karrot可使用"
+    "DETAIL": "有新版的karrot可使用",
+    "RELOAD": "Reload"
   },
   "NOT_FOUND": {
     "EXPLANATION": "不好意思，我們找不到您所搜尋的網頁",

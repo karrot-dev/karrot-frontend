@@ -494,8 +494,8 @@
     "LINK": "Mets à jour ou bien change de navigateur"
   },
   "UPDATE_AVAILABLE": {
-    "TITLE": "Mise à jour disponible",
-    "DETAIL": "Une nouvelle version de karrot est disponible."
+    "DETAIL": "Une nouvelle version de karrot est disponible.",
+    "RELOAD": "Reload"
   },
   "NOT_FOUND": {
     "EXPLANATION": "Oups, impossible de trouver la page.",

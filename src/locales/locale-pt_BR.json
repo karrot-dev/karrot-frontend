@@ -494,8 +494,8 @@
     "LINK": "Por favor, troque ou atualize seu navegador"
   },
   "UPDATE_AVAILABLE": {
-    "TITLE": "Update available",
-    "DETAIL": "A new version of karrot is available."
+    "DETAIL": "A new version of karrot is available.",
+    "RELOAD": "Reload"
   },
   "NOT_FOUND": {
     "EXPLANATION": "Desculpa, não conseguimos encontrar essa página em lugar nenhum.",

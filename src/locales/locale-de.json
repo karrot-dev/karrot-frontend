@@ -494,8 +494,8 @@
     "LINK": "Bitte aktualisiere oder wechsle deinen Browser"
   },
   "UPDATE_AVAILABLE": {
-    "TITLE": "Update verfügbar",
-    "DETAIL": "Eine neue Version von Karrot ist verfügbar."
+    "DETAIL": "Eine neue Version von Karrot ist verfügbar.",
+    "RELOAD": "Reload"
   },
   "NOT_FOUND": {
     "EXPLANATION": "Entschuldigung, die Seite konnte nirgendwo gefunden werden.",

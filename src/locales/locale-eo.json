@@ -494,8 +494,8 @@
     "LINK": "Bonvolu ĝisdatigi aŭ ŝanĝu retumilon"
   },
   "UPDATE_AVAILABLE": {
-    "TITLE": "Ĝisdatigo disponeblas",
-    "DETAIL": "Novan version de Karrot disponeblas."
+    "DETAIL": "Novan version de Karrot disponeblas.",
+    "RELOAD": "Reload"
   },
   "NOT_FOUND": {
     "EXPLANATION": "Pardonon. Ni ne povis trovi la paĝon.",

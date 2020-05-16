@@ -494,8 +494,8 @@
     "LINK": "Aktualiséier oder wiessel däi Browser w.e.g."
   },
   "UPDATE_AVAILABLE": {
-    "TITLE": "Et gëtt een Update",
-    "DETAIL": "Et gëtt eng nei Versioun vu karrot."
+    "DETAIL": "Et gëtt eng nei Versioun vu karrot.",
+    "RELOAD": "Reload"
   },
   "NOT_FOUND": {
     "EXPLANATION": "Entschëlleg, mir konnten dës Säit néierens fannen.",

@@ -494,8 +494,8 @@
     "LINK": "Aktualizujte nebo přepněte prohlížeč"
   },
   "UPDATE_AVAILABLE": {
-    "TITLE": "Aktualizace je k dispozici",
-    "DETAIL": "K dispozici je nová verze karot."
+    "DETAIL": "K dispozici je nová verze karot.",
+    "RELOAD": "Reload"
   },
   "NOT_FOUND": {
     "EXPLANATION": "Litujeme, ale tuto stránku jsme nikde nenašli.",

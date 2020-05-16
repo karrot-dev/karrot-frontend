@@ -494,8 +494,8 @@
     "LINK": "Please update or switch your browser"
   },
   "UPDATE_AVAILABLE": {
-    "TITLE": "Update available",
-    "DETAIL": "A new version of karrot is available."
+    "DETAIL": "A new version of karrot is available.",
+    "RELOAD": "Reload"
   },
   "NOT_FOUND": {
     "EXPLANATION": "માફ કરશો, અમે આ પૃષ્ઠને ક્યાંય શોધી શક્યા નથી",

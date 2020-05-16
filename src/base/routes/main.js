@@ -583,10 +583,25 @@ export default [
     meta: {
       requireLoggedIn: true,
       breadcrumbs: [
-        { type: 'currentGroup' },
         { type: 'activeUser' },
       ],
       beforeEnter: 'users/selectUser',
+      afterLeave: 'users/clearSelectedUser',
+    },
+    components: {
+      default: User,
+      sidenav: Sidenav,
+    },
+  },
+  {
+    name: 'userInGroup',
+    path: '/group/:groupId/user/:userId',
+    meta: {
+      requireLoggedIn: true,
+      breadcrumbs: [
+        { type: 'activeUser' },
+      ],
+      beforeEnter: ['currentGroup/select', 'users/selectUser'],
       afterLeave: 'users/clearSelectedUser',
     },
     components: {

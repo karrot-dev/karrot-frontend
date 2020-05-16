@@ -189,7 +189,7 @@ export default {
         icon: 'fas fa-eye fa-fw',
         to: { name: 'groupPreview', params: { groupPreviewId: this.groupId } },
       }, {
-        condition: this.$q.platform.is.mobile,
+        condition: this.$q.platform.is.mobile === true,
         label: this.$t('GROUPMAP.TITLE'),
         icon: 'fas fa-map',
         to: { name: 'map', params: { groupId: this.groupId } },

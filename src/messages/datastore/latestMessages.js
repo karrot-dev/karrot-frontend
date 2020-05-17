@@ -161,9 +161,7 @@ export default {
         commit('updateRelated', { type: 'offer', items: offers })
       }
       if (usersInfo) {
-        // contains only limited user info, so only update if we don't have the user already
-        const users = usersInfo.filter(user => !rootState.users.entries[user.id])
-        commit('users/update', users, { root: true })
+        commit('users/updateInfo', usersInfo, { root: true })
       }
 
       if (meta) {

@@ -34,6 +34,7 @@ Please document your changes in this format:
 
 ### Fixed
 - Unsubscribe link in pickup notification email did not work @nicksellen
+- Names in application chat were normally not visible for the applicant @tiltec
 
 ## [8.4.0] - 2020-04-25
 ### Added

@@ -64,7 +64,6 @@
       >
         <QBadge
           v-if="pendingApplicationCount > 0"
-          small
           :label="pendingApplicationCount"
           :title="$tc('APPLICATION.WALL_NOTICE', pendingApplicationCount, { count: pendingApplicationCount })"
           color="blue"

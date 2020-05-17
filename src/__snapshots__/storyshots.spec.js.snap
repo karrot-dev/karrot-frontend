@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Storyshots AddressPicker Default 1`] = `
-<div><label for="f_80808080-8080-4080-8080-808080808080" class="q-field row no-wrap items-start q-select q-field--auto-height q-select--with-input q-field--standard q-field--labeled q-field--with-bottom">
+<div><label for="f_80808080-8080-4080-8080-808080808080" class="q-field row no-wrap items-start q-select q-field--auto-height q-select--with-input q-select--without-chips q-field--standard q-field--labeled q-field--with-bottom">
     <div class="q-field__before q-field__marginal row no-wrap items-center"><i aria-hidden="true" role="presentation" class="q-icon notranslate"></i></div>
     <div class="q-field__inner relative-position col self-stretch column justify-center">
       <div tabindex="-1" class="q-field__control relative-position row no-wrap">
@@ -950,7 +950,7 @@ exports[`Storyshots ChatConversation message groups 1`] = `
           <!---->
           <div title="Dec 24, 2017, 11:59 AM" class="content">
             <div class="markdown">
-              <p>oh let me try something <img class="emoji" draggable="false" alt="🙂" src="https://twemoji.maxcdn.com/v/12.1.6/72x72/1f642.png" /></p>
+              <p>oh let me try something <img class="emoji" draggable="false" alt="🙂" src="https://twemoji.maxcdn.com/v/13.0.0/72x72/1f642.png" /></p>
             </div>
           </div>
           <!---->
@@ -2570,7 +2570,7 @@ exports[`Storyshots Feedback PickupFeedback 1`] = `
         <div class="image-and-text-left gt-sm"><img src="test-file-stub" style="width:100%;"></div>
         <div class="image-and-text-right">
           <h4>Thank you for your pickup!</h4>
-          <p><label for="f_80808080-8080-4080-8080-808080808080" class="q-field row no-wrap items-start grey-font q-select q-field--auto-height q-select--without-input q-field--standard q-field--float q-field--dark">
+          <p><label for="f_80808080-8080-4080-8080-808080808080" class="q-field row no-wrap items-start grey-font q-select q-field--auto-height q-select--without-input q-select--without-chips q-field--standard q-field--float q-field--dark">
               <div class="q-field__inner relative-position col self-stretch column justify-center">
                 <div tabindex="-1" class="q-field__control relative-position row no-wrap">
                   <div class="q-field__control-container col relative-position row no-wrap q-anchor--skip">
@@ -3151,7 +3151,7 @@ It would make sense if it was markdown
           </label>
           <!---->
         </div>
-        <div><label for="f_80808080-8080-4080-8080-808080808080" class="q-field row no-wrap items-start q-select q-field--auto-height q-select--with-input q-field--standard q-field--float q-field--labeled q-field--with-bottom">
+        <div><label for="f_80808080-8080-4080-8080-808080808080" class="q-field row no-wrap items-start q-select q-field--auto-height q-select--with-input q-select--without-chips q-field--standard q-field--float q-field--labeled q-field--with-bottom">
             <div class="q-field__before q-field__marginal row no-wrap items-center"><i aria-hidden="true" role="presentation" class="fas fa-fw fa-map-marker q-icon notranslate"> </i></div>
             <div class="q-field__inner relative-position col self-stretch column justify-center">
               <div tabindex="-1" class="q-field__control relative-position row no-wrap">
@@ -3187,7 +3187,7 @@ It would make sense if it was markdown
               </div>
             </div>
           </label> <button tabindex="0" type="button" role="button" class="q-btn q-btn-item non-selectable no-outline absolute-bottom-right bg-white q-btn--outline q-btn--rectangle text-primary q-btn--actionable q-focusable q-hoverable q-btn--wrap" style="font-size:8px;bottom:-10px;"><span class="q-focus-helper"></span><span class="q-btn__wrapper col row q-anchor--skip"><span class="q-btn__content text-center col items-center q-anchor--skip justify-center row"><span class="block">Preview</span>
-            <!----></span></span></button></div> <label for="f_80808080-8080-4080-8080-808080808080" class="q-field row no-wrap items-start q-select q-field--auto-height q-select--with-input q-field--standard q-field--labeled q-field--with-bottom">
+            <!----></span></span></button></div> <label for="f_80808080-8080-4080-8080-808080808080" class="q-field row no-wrap items-start q-select q-field--auto-height q-select--with-input q-select--without-chips q-field--standard q-field--labeled q-field--with-bottom">
           <div class="q-field__before q-field__marginal row no-wrap items-center"><i aria-hidden="true" role="presentation" class="fas fa-fw fa-globe q-icon notranslate"> </i></div>
           <div class="q-field__inner relative-position col self-stretch column justify-center">
             <div tabindex="-1" class="q-field__control relative-position row no-wrap">
@@ -4805,8 +4805,8 @@ exports[`Storyshots Issues IssueVote - not voted yet 1`] = `
       </div>
     </div>
     <div role="progressbar" aria-valuemin="0" aria-valuemax="1" aria-valuenow="0.5" class="q-linear-progress text-secondary" style="height:8px;">
-      <div class="q-linear-progress__track absolute-full q-linear-progress__track--light" style="transform:scale3d(1,1,1);"></div>
-      <div class="q-linear-progress__model absolute-full q-linear-progress__model--determinate" style="transform:scale3d(0.5,1,1);"></div>
+      <div class="q-linear-progress__track absolute-full q-linear-progress__track--with-transition q-linear-progress__track--light" style="transform:scale3d(1,1,1);"></div>
+      <div class="q-linear-progress__model absolute-full q-linear-progress__model--with-transition q-linear-progress__model--determinate" style="transform:scale3d(0.5,1,1);"></div>
     </div>
   </div>
   <div class="relative-position">
@@ -4902,8 +4902,8 @@ exports[`Storyshots Issues IssueVote - vote 1`] = `
       </div>
     </div>
     <div role="progressbar" aria-valuemin="0" aria-valuemax="1" aria-valuenow="0.5" class="q-linear-progress text-secondary" style="height:8px;">
-      <div class="q-linear-progress__track absolute-full q-linear-progress__track--light" style="transform:scale3d(1,1,1);"></div>
-      <div class="q-linear-progress__model absolute-full q-linear-progress__model--determinate" style="transform:scale3d(0.5,1,1);"></div>
+      <div class="q-linear-progress__track absolute-full q-linear-progress__track--with-transition q-linear-progress__track--light" style="transform:scale3d(1,1,1);"></div>
+      <div class="q-linear-progress__model absolute-full q-linear-progress__model--with-transition q-linear-progress__model--determinate" style="transform:scale3d(0.5,1,1);"></div>
     </div>
   </div>
   <div class="relative-position">
@@ -7817,7 +7817,7 @@ exports[`Storyshots PickupSeriesEdit duration 1`] = `
           When should the pick-up take place?
         </div>
       </div>
-    </div> <label for="f_80808080-8080-4080-8080-808080808080" class="q-field row no-wrap items-start q-select q-field--auto-height q-select--without-input q-field--standard q-field--float q-field--labeled q-field--with-bottom">
+    </div> <label for="f_80808080-8080-4080-8080-808080808080" class="q-field row no-wrap items-start q-select q-field--auto-height q-select--without-input q-select--without-chips q-field--standard q-field--float q-field--labeled q-field--with-bottom">
       <div class="q-field__before q-field__marginal row no-wrap items-center"><i aria-hidden="true" role="presentation" class="material-icons q-icon notranslate">today</i></div>
       <div class="q-field__inner relative-position col self-stretch column justify-center">
         <div tabindex="-1" class="q-field__control relative-position row no-wrap">
@@ -7953,7 +7953,7 @@ exports[`Storyshots PickupSeriesEdit time error 1`] = `
           time is in past
         </div>
       </div>
-    </div> <label for="f_80808080-8080-4080-8080-808080808080" class="q-field row no-wrap items-start q-select q-field--auto-height q-select--without-input q-field--standard q-field--float q-field--labeled q-field--with-bottom">
+    </div> <label for="f_80808080-8080-4080-8080-808080808080" class="q-field row no-wrap items-start q-select q-field--auto-height q-select--without-input q-select--without-chips q-field--standard q-field--float q-field--labeled q-field--with-bottom">
       <div class="q-field__before q-field__marginal row no-wrap items-center"><i aria-hidden="true" role="presentation" class="material-icons q-icon notranslate">today</i></div>
       <div class="q-field__inner relative-position col self-stretch column justify-center">
         <div tabindex="-1" class="q-field__control relative-position row no-wrap">
@@ -8088,7 +8088,7 @@ exports[`Storyshots PickupSeriesEdit weekly 1`] = `
           When should the pick-up take place?
         </div>
       </div>
-    </div> <label for="f_80808080-8080-4080-8080-808080808080" class="q-field row no-wrap items-start q-select q-field--auto-height q-select--without-input q-field--standard q-field--float q-field--labeled q-field--with-bottom">
+    </div> <label for="f_80808080-8080-4080-8080-808080808080" class="q-field row no-wrap items-start q-select q-field--auto-height q-select--without-input q-select--without-chips q-field--standard q-field--float q-field--labeled q-field--with-bottom">
       <div class="q-field__before q-field__marginal row no-wrap items-center"><i aria-hidden="true" role="presentation" class="material-icons q-icon notranslate">today</i></div>
       <div class="q-field__inner relative-position col self-stretch column justify-center">
         <div tabindex="-1" class="q-field__control relative-position row no-wrap">
@@ -8628,7 +8628,7 @@ exports[`Storyshots Places PlaceEdit (with server error) 1`] = `
               </transition-stub>
             </div>
           </div>
-        </label> <label for="f_80808080-8080-4080-8080-808080808080" class="q-field row no-wrap items-start q-select q-field--auto-height q-select--without-input q-field--standard q-field--float q-field--labeled q-field--with-bottom">
+        </label> <label for="f_80808080-8080-4080-8080-808080808080" class="q-field row no-wrap items-start q-select q-field--auto-height q-select--without-input q-select--without-chips q-field--standard q-field--float q-field--labeled q-field--with-bottom">
           <div class="q-field__before q-field__marginal row no-wrap items-center"><i aria-hidden="true" role="presentation" class="fas fa-handshake q-icon notranslate"> </i></div>
           <div class="q-field__inner relative-position col self-stretch column justify-center">
             <div tabindex="-1" class="q-field__control relative-position row no-wrap">
@@ -8669,7 +8669,7 @@ exports[`Storyshots Places PlaceEdit (with server error) 1`] = `
           </label>
           <!---->
         </div>
-        <div><label for="f_80808080-8080-4080-8080-808080808080" class="q-field row no-wrap items-start q-select q-field--auto-height q-select--with-input q-field--standard q-field--labeled q-field--with-bottom">
+        <div><label for="f_80808080-8080-4080-8080-808080808080" class="q-field row no-wrap items-start q-select q-field--auto-height q-select--with-input q-select--without-chips q-field--standard q-field--labeled q-field--with-bottom">
             <div class="q-field__before q-field__marginal row no-wrap items-center"><i aria-hidden="true" role="presentation" class="fas fa-map-marker q-icon notranslate"> </i></div>
             <div class="q-field__inner relative-position col self-stretch column justify-center">
               <div tabindex="-1" class="q-field__control relative-position row no-wrap">
@@ -8758,7 +8758,7 @@ exports[`Storyshots Places PlaceEdit 1`] = `
               </transition-stub>
             </div>
           </div>
-        </label> <label for="f_80808080-8080-4080-8080-808080808080" class="q-field row no-wrap items-start q-select q-field--auto-height q-select--without-input q-field--standard q-field--float q-field--labeled q-field--with-bottom">
+        </label> <label for="f_80808080-8080-4080-8080-808080808080" class="q-field row no-wrap items-start q-select q-field--auto-height q-select--without-input q-select--without-chips q-field--standard q-field--float q-field--labeled q-field--with-bottom">
           <div class="q-field__before q-field__marginal row no-wrap items-center"><i aria-hidden="true" role="presentation" class="fas fa-handshake q-icon notranslate"> </i></div>
           <div class="q-field__inner relative-position col self-stretch column justify-center">
             <div tabindex="-1" class="q-field__control relative-position row no-wrap">
@@ -8799,7 +8799,7 @@ exports[`Storyshots Places PlaceEdit 1`] = `
           </label>
           <!---->
         </div>
-        <div><label for="f_80808080-8080-4080-8080-808080808080" class="q-field row no-wrap items-start q-select q-field--auto-height q-select--with-input q-field--standard q-field--labeled q-field--with-bottom">
+        <div><label for="f_80808080-8080-4080-8080-808080808080" class="q-field row no-wrap items-start q-select q-field--auto-height q-select--with-input q-select--without-chips q-field--standard q-field--labeled q-field--with-bottom">
             <div class="q-field__before q-field__marginal row no-wrap items-center"><i aria-hidden="true" role="presentation" class="fas fa-map-marker q-icon notranslate"> </i></div>
             <div class="q-field__inner relative-position col self-stretch column justify-center">
               <div tabindex="-1" class="q-field__control relative-position row no-wrap">
@@ -9311,7 +9311,7 @@ exports[`Storyshots Settings Page Default 1`] = `
               </div>
             </div>
           </label>
-          <div><label for="f_80808080-8080-4080-8080-808080808080" class="q-field row no-wrap items-start q-select q-field--auto-height q-select--with-input q-field--standard q-field--float q-field--labeled q-field--with-bottom">
+          <div><label for="f_80808080-8080-4080-8080-808080808080" class="q-field row no-wrap items-start q-select q-field--auto-height q-select--with-input q-select--without-chips q-field--standard q-field--float q-field--labeled q-field--with-bottom">
               <div class="q-field__before q-field__marginal row no-wrap items-center"><i aria-hidden="true" role="presentation" class="fas fa-map-marker q-icon notranslate"> </i></div>
               <div class="q-field__inner relative-position col self-stretch column justify-center">
                 <div tabindex="-1" class="q-field__control relative-position row no-wrap">
@@ -10698,7 +10698,7 @@ exports[`Storyshots WallConversation default 1`] = `
           </div>
           <div class="content">
             <div class="markdown">
-              <p>oh let me try something <img class="emoji" draggable="false" alt="🙂" src="https://twemoji.maxcdn.com/v/12.1.6/72x72/1f642.png" /></p>
+              <p>oh let me try something <img class="emoji" draggable="false" alt="🙂" src="https://twemoji.maxcdn.com/v/13.0.0/72x72/1f642.png" /></p>
             </div>
           </div>
           <!---->
@@ -11038,7 +11038,7 @@ exports[`Storyshots WallConversation unread 1`] = `
           </div>
           <div class="content">
             <div class="markdown">
-              <p>oh let me try something <img class="emoji" draggable="false" alt="🙂" src="https://twemoji.maxcdn.com/v/12.1.6/72x72/1f642.png" /></p>
+              <p>oh let me try something <img class="emoji" draggable="false" alt="🙂" src="https://twemoji.maxcdn.com/v/13.0.0/72x72/1f642.png" /></p>
             </div>
           </div>
           <!---->

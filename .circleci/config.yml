@@ -354,29 +354,33 @@ jobs:
             BRANCH: circleci-update-dependencies
           command: |
             set -xe
-            echo "yarn list --depth=0 | grep -E -v '^Done in|yarn list v' | cut -d' ' -f2" > yarn-list.sh
+            echo "yarn list --depth=0 | grep -E -v '^Done in|yarn list v' | cut -d' ' -f2" > list-packages.sh
             git config credential.helper 'cache --timeout=120'
             git config user.email "ci@foodsaving.world"
             git config user.name "CircleCI"
             git branch --delete --force $BRANCH || true
             git checkout -b $BRANCH
-            source yarn-list.sh > list-before.txt
+
+            sh list-packages.sh | tee packages-before.txt
             yarn upgrade --latest --ignore-engines
-            source yarn-list.sh > list-after.txt
-            git add package.json yarn.lock
-            git commit -m "[CI] Update dependencies" || exit 0
-            yarn test -u storyshots
-            git commit -a -m "[CI] Update snapshots" || true
-            git push --force origin $BRANCH
-            hub pull-request -F - <<EOL || true
+            sh list-packages.sh | tee packages-after.txt
+            diff -t -y -W 100 --suppress-common-lines packages-before.txt packages-after.txt | sed 's/|.+@(.+)/→ \1/' | tee packages-diff.txt
+            tee pr.txt <<EOL
             [CI] update dependencies
 
             Good morning, I found some fresh dependencies for you!
 
             <pre>
-            $(diff -t -y -W 100 --suppress-common-lines list-before.txt list-after.txt | sed 's/|.+@(.+)/→ \1/')
+            $(cat packages-diff.txt)
             </pre>
             EOL
+
+            git add package.json yarn.lock
+            git commit -m "[CI] Update dependencies" || exit 0
+            yarn test -u storyshots
+            git commit -a -m "[CI] Update snapshots" || true
+            git push --force origin $BRANCH
+            hub pull-request -F pr.txt || hub issue update $(hub pr list -h $BRANCH -f %I) -F pr.txt
 
 workflows:
   version: 2

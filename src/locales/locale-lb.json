@@ -92,6 +92,7 @@
     "DECLINE": "Ofleenen",
     "WITHDRAW": "Zréckzéien",
     "SHOW_MORE": "Méi weisen",
+    "SHOW_LESS": "Show less",
     "ENABLE": "Aktivéieren",
     "DISABLE": "Desaktivéieren",
     "UNSUBSCRIBE": "Desabonéieren"
@@ -259,7 +260,7 @@
     "NUM_MEMBERS": "Member | Memberen",
     "NO_PUBLIC_DESCRIPTION": "(Dës Grupp huet nach keng ëffentlech Beschreiwung.)",
     "ALL_GROUPS": "All d'Gruppen",
-    "BROWSE_GROUPS": "Browse existing groups",
+    "BROWSE_GROUPS": "Existéierend Gruppen ukucken",
     "SIGNUP_OR_LOGIN": "Logg dech an oder mellt dech un fir dëser Grupp bäizetrieden!",
     "VERIFY_EMAIL_ADDRESS": "Verifizéier deng E-Mail-Adress fir dech ze bewerben",
     "MY_GROUPS": "Meng Gruppen",
@@ -273,7 +274,7 @@
     "WITHDRAW_CONFIRMATION_HEADER": "Bewerbung zréckzéien",
     "WITHDRAW_CONFIRMATION_TEXT": "Bass du sécher, dass du deng Bewerbung fir {groupName} bäizetrieden zréckzéie wëlls?",
     "APPLICATION_WITHDRAWN": "Deng Bewerbung gouf erfollegräich zréckgezunn!",
-    "ARCHIVED_NOTE": "This group doesn't have any members. If you would like to revive it, contact the site administrators!"
+    "ARCHIVED_NOTE": "Dës Grupp huet keng Memberen. Wann's du se nees zum Liewen erwësche wëlls, kontaktéier d'Administrator*innen vun dëser Websäit!"
   },
   "GROUPINFO": {
     "TITLE": "Ëffentlech Informatiounen zur Grupp",
@@ -495,7 +496,7 @@
   },
   "UPDATE_AVAILABLE": {
     "DETAIL": "Et gëtt eng nei Versioun vu karrot.",
-    "RELOAD": "Reload"
+    "RELOAD": "Nei lueden"
   },
   "NOT_FOUND": {
     "EXPLANATION": "Entschëlleg, mir konnten dës Säit néierens fannen.",
@@ -698,24 +699,24 @@
   "YOU": "Du",
   "TO": "un",
   "ABOUT_KARROT": {
-    "TITLE": "Save things from being wasted, share them instead!",
+    "TITLE": "Rett Saachen ier se verschwent ginn, deel se am Platz!",
     "SUBTITLE1": "Karrot exists for groups of people who want to save things from being wasted and share them instead, allowing these groups to organise efficiently, on a local and voluntary basis.",
     "SUBTITLE2": "Things such as food, bikes, clothes or whatever is being excessively thrown away or unused in the context of a consumerist society.",
     "VISION_INTRO": "Karrot is a tool for all kinds of grassroots initiatives to connect and grow, supporting the co-ordination of face-to-face activities with a layer of digital infrastructure.",
     "ACTION": "Have you already found a group nearby you? Or maybe you want to {startAGroup}? If you just want to try Karrot out, then create an account and join the Playground group for testing.",
-    "ACTION_START_A_GROUP": "start one",
-    "EXISTING_GROUPS": "A few groups already using Karrot",
-    "AND_MORE": "And more...",
+    "ACTION_START_A_GROUP": "grënn eng",
+    "EXISTING_GROUPS": "E puer Gruppen, déi Karrot scho benotzen",
+    "AND_MORE": "A méi...",
     "LINKS": {
-      "FORUM": "community forum",
+      "FORUM": "Gemeinschaftsforum",
       "CODE": "GitHub",
-      "CHAT": "team chat",
+      "CHAT": "Team-Chat",
       "TRANSLATIONS": "Transifex"
     },
     "SECTIONS": {
       "GROUPS": {
-        "TITLE": "Independent groups",
-        "SUBTITLE": "Every group on karrot is completely independent and can have their own logo, processes and rules.",
+        "TITLE": "Onofhängeg Gruppen",
+        "SUBTITLE": "All Grupp op karrot ass komplett onofhängeg a kann hier eegene Logo, hier eege Prozesser an Reegelen hunn.",
         "DESCRIPTION": "Yet they are all displayed on the map so that people can find and connect to other groups in their location and even globally."
       },
       "ACTIVITIES": {
@@ -724,7 +725,7 @@
         "DESCRIPTION": "Each activity has a number of slots which members of the group can sign up for – this way everyone knows who goes where and when, and feedback can be given later."
       },
       "OFFERS": {
-        "TITLE": "Share things",
+        "TITLE": "Saachen deelen",
         "SUBTITLE": "Create an ad-like offer of whatever you want to share or give away.",
         "DESCRIPTION": "Offers are visible to everyone in the group and people can show their interest on the offer's chat."
       },
@@ -734,36 +735,36 @@
         "DESCRIPTION2": "Developers and designers are obviously welcome to participate in its development. Check out the project on {code}."
       },
       "COMMUNICATION": {
-        "TITLE": "Communication in the right context",
-        "DESCRIPTION": "Write a message that everyone in the group will see or a private message to someone. Everything related to a single activity or place can be discussed in their respective chats."
+        "TITLE": "Kommunikatioun am richtege Kontext",
+        "DESCRIPTION": "Schreif eng Noriicht déi jiddereen am Grupp gesi soll oder eng privat Noriicht un eng Persoun. Alles wat mat enger eenzeler Aktivitéit oder Platz ze dinn huet kann an hire respektive Chats diskutéiert ginn."
       },
       "TRUST": {
         "TITLE": "Democratic and trust-based group management",
         "DESCRIPTION": "There are no admin superpowers in a Karrot group. People who receive enough trust-carrots from their peers will be able to edit and change settings in the group. When new people want to join your group they need to apply and answer questions your group can set, which anyone with editing rights can decline or approve. Likewise, if there is a conflict, the group can enter a voting system to resolve it in a communal way."
       },
       "MAPS": {
-        "TITLE": "Maps and lists",
-        "DESCRIPTION": "You have a map of where the places and the people doing the activities are located. You have a nice list of upcoming activities and can sign up for them online."
+        "TITLE": "Karten a Lëschten",
+        "DESCRIPTION": "Du hues eng Kart mat de Platzen an de Leit, déi d'Aktivitéite maachen. Du hues eng schéi Lëscht mat allen Aktivitéiten, déi kommen, an du kanns dech fir dës online androen."
       },
       "TRANSPARENCY": {
-        "TITLE": "Transparency",
-        "DESCRIPTION": "The history shows who did what and when. Everything from participating in an activity to creating and editing places is logged here."
+        "TITLE": "Transparenz",
+        "DESCRIPTION": "D'Geschicht weist wien wat a wéini gemaach huet. Alles, vum Matmaache bei enger Aktivitéit bis zum Ännere vun enger Platz, ass hei geloggt."
       },
       "NOTIFICATIONS": {
-        "TITLE": "Notifications",
-        "DESCRIPTION": "You get notified about empty activities, new messages and new people wanting to join your group. But you can also turn it all off if you wish more peace!"
+        "TITLE": "Benoriichtegungen",
+        "DESCRIPTION": "Du gëss iwwert eidel Aktivitéiten, nei Noriichten an nei Leit, déi denger Grupp bäitriede wëllen, benoriichtegt. Awer du kanns och all Benoriichtegung ofbestelle wann's du méi Rou wëlls!"
       },
       "TRANSLATIONS": {
-        "TITLE": "Multi-language",
-        "DESCRIPTION": "Karrot is fully translatable by the community and many languages are already added. To contribute more translations just visit the project on {translations}."
+        "TITLE": "Méisproochegkeet",
+        "DESCRIPTION": "Karrot gëtt ganz vun der Gemeinschaft iwwersat a vill Sprooche goufe schonn derbäi gesat. Fir iwwersetzen ze hëllefe besich de Projet op {translations}."
       },
       "OPENSOURCE": {
-        "TITLE": "Open source",
-        "DESCRIPTION": "Everything is transparent and possibly changeable. We encourage groups to host their own instances of the platform, if they have the ability to do so. Still, we also provide access to a hosted version on karrot.world."
+        "TITLE": "Open-Source",
+        "DESCRIPTION": "Alles ass transparent a méiglecherweis verännerbar. Mir encouragéiere Gruppen hier eegen Instanz vun der Plattform ze hoste wann sinn déi Méiglechkeet hunn fir dat ze maachen. Mir bidden awer och Zougrëff op eng gehoste Versioun op karrot.world."
       },
       "TEAM": {
-        "TITLE": "Responsive team",
-        "DESCRIPTION": "You can easily talk to the people developing Karrot, either on our {forum}, on {code} or in real-time on our {chat}."
+        "TITLE": "Responsivt Team",
+        "DESCRIPTION": "Du kanns einfach mat de Leit schwätzen déi Karrot entwéckelen, sief et op {forum}, op {code} oder an Echtzäit op {chat}."
       }
     }
   }

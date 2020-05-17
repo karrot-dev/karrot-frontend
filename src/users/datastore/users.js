@@ -7,8 +7,8 @@ import router from '@/base/router'
 
 function initialState () {
   return {
-    entries: {}, // all known users
-    infoEntries: {},  // barebone user information, if we don't have access to full data
+    entries: {}, // fully-visible users (fellow group members)
+    infoEntries: {}, // barely-visible users (e.g. group members for applicants)
     activeUserProfileId: null,
     activeUserProfile: null,
     resetPasswordSuccess: false,

@@ -225,8 +225,7 @@ export default {
           cursor: data.next,
         })
 
-        const authorIds = messages.map(m => m.author)
-        dispatch('users/maybeFetchInfo', authorIds, { root: true })
+        dispatch('fetchRelatedUserInfo', messages)
       },
 
       async fetchPast ({ state, commit, dispatch }, conversationId) {
@@ -242,6 +241,10 @@ export default {
           cursor: data.next,
         })
 
+        dispatch('fetchRelatedUserInfo', messages)
+      },
+
+      async fetchRelatedUserInfo ({ dispatch }, messages) {
         const authorIds = messages.map(m => m.author)
         dispatch('users/maybeFetchInfo', authorIds, { root: true })
       },

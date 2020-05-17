@@ -12,10 +12,11 @@
       <QBadge
         v-if="hasMyApplication"
         floating
-        class="q-pl-sm q-pt-xs q-pb-xs"
+        class="q-pl-sm q-pt-xs q-pb-xs z-top"
         color="blue"
-        icon="fas fa-hourglass-half"
-      />
+      >
+        <QIcon name="fas fa-hourglass-half" />
+      </QBadge>
       <QTooltip v-if="hasMyApplication">
         {{ $t('APPLICATION.GALLERY_TOOLTIP') }}
       </QTooltip>

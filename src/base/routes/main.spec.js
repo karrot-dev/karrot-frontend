@@ -147,7 +147,7 @@ describe('main routes', () => {
       expect(mockJoin).toBeCalledWith(group.id)
 
       expect(routedPaths).toEqual([
-        '/',
+        '/groupPreview',
         `/groupPreview/${group.id}`,
         `/group/${group.id}`,
       ])
@@ -165,7 +165,7 @@ describe('main routes', () => {
       await nextTicks(2)
 
       expect(routedPaths).toEqual([
-        '/',
+        '/groupPreview',
         `/groupPreview/${group.id}`,
         `/group/${group.id}`,
       ])

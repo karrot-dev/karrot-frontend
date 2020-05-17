@@ -25,12 +25,14 @@ export default {
       const isCurrentGroup = group.id === rootGetters['currentGroup/id']
       const isPlayground = group.status === 'playground'
       const isInactive = group.status === 'inactive'
+      const myApplicationPending = rootGetters['applications/getMineInGroup'] && rootGetters['applications/getMineInGroup'](group.id)
       return {
         ...group,
         isMember,
         isCurrentGroup,
         isPlayground,
         isInactive,
+        myApplicationPending,
         hasPhoto: group.photoUrls && group.photoUrls.fullSize,
         ...metaStatusesWithId(getters, ['save', 'join', 'leave'], group.id),
       }
@@ -38,7 +40,7 @@ export default {
     all: (state, getters, rootState, rootGetters) => {
       return Object.values(state.entries).map(getters.enrich)
     },
-    mine: (state, getters) => getters.all.filter(e => e.isMember).sort(sortByName),
+    mine: (state, getters) => getters.all.filter(e => isMyGroup(e)).sort(applicationsFirstThenSortByName),
     // A de-duplicated list of member ids of all groups the user is part of
     myMemberIds: (state, getters) => {
       return Object.keys(getters.mine.reduce((obj, group) => {
@@ -48,7 +50,7 @@ export default {
         return obj
       }, {})).map(parseInt).sort()
     },
-    other: (state, getters) => getters.all.filter(e => !e.isMember).sort(sortByMemberCount),
+    other: (state, getters) => getters.all.filter(e => !isMyGroup(e)).sort(sortByMemberCount),
     activePreview: (state, getters) => getters.get(state.activePreviewId),
     saveStatus: (state, getters, rootState, rootGetters) => {
       const currentGroup = getters.get(rootGetters['currentGroup/id'])
@@ -132,10 +134,20 @@ export default {
   },
 }
 
-export function sortByName (a, b) {
+function applicationsFirstThenSortByName (a, b) {
+  if (a.myApplicationPending && !b.myApplicationPending) {
+    return -1
+  }
+  if (!a.myApplicationPending && b.myApplicationPending) {
+    return 1
+  }
   return a.name.localeCompare(b.name)
 }
 
-export function sortByMemberCount (a, b) {
+function sortByMemberCount (a, b) {
   return b.members.length - a.members.length
+}
+
+function isMyGroup (group) {
+  return group.isMember || group.myApplicationPending
 }

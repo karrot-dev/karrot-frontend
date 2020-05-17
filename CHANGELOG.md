@@ -31,6 +31,7 @@ Please document your changes in this format:
 - Show instruction on group preview page how to revive groups without members @tiltec
 - Switch to group when clicking on user-related notificiations @tiltec
 - Remove "public description" toggle from group description page, as it is available from the sidenav already @tiltec
+- In group gallery, move groups with your application pending to the top @tiltec
 
 ### Fixed
 - Unsubscribe link in pickup notification email did not work @nicksellen

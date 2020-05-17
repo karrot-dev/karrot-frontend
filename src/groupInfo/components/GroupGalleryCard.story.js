@@ -1,28 +1,10 @@
-import { createDatastore, storybookDefaults as defaults } from '>/helpers'
+import { storybookDefaults as defaults } from '>/helpers'
 import { storiesOf } from '@storybook/vue'
 import { action } from '@storybook/addon-actions'
 
 import GroupGalleryCard from './GroupGalleryCard'
-import * as factories from '>/enrichedFactories'
 
 import { groupsMock } from '>/mockdata'
-
-const datastore = createDatastore({
-  applications: {
-    getters: {
-      getMineInGroup: () => () => null,
-    },
-  },
-})
-
-const application = factories.makeApplication()
-const myApplicationDatastore = createDatastore({
-  applications: {
-    getters: {
-      getMineInGroup: () => () => application,
-    },
-  },
-})
 
 const methods = {
   preview: action('view group preview'),
@@ -40,7 +22,6 @@ storiesOf('GroupGalleryCard', module)
       },
       on: methods,
     }),
-    store: datastore,
   }))
   .add('isMember = false', () => defaults({
     render: h => h(GroupGalleryCard, {
@@ -52,7 +33,6 @@ storiesOf('GroupGalleryCard', module)
       },
       on: methods,
     }),
-    store: datastore,
   }))
   .add('isMember = false, application pending', () => defaults({
     render: h => h(GroupGalleryCard, {
@@ -61,10 +41,10 @@ storiesOf('GroupGalleryCard', module)
           ...groupsMock[0],
           isMember: false,
         },
+        myApplicationPending: true,
       },
       on: methods,
     }),
-    store: myApplicationDatastore,
   }))
   .add('without public description', () => defaults({
     render: h => h(GroupGalleryCard, {
@@ -77,5 +57,4 @@ storiesOf('GroupGalleryCard', module)
       },
       on: methods,
     }),
-    store: datastore,
   }))

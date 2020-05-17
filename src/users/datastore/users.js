@@ -118,6 +118,8 @@ export default {
         }, { root: true })
         dispatch('auth/logout', {}, { root: true })
       },
+    }, {
+      findId: () => undefined,
     }),
 
     ...withMeta({

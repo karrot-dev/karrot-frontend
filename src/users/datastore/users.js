@@ -89,12 +89,13 @@ export default {
         if (validData.length < 1) return
         commit('updateInfo', validData)
       },
-      async signup ({ dispatch }, { userData, joinPlayground }) {
+
+      async signup ({ dispatch, rootGetters }, { userData, joinPlayground }) {
         await authUser.create(userData)
-        await dispatch('auth/login', { email: userData.email, password: userData.password }, { root: true })
         if (joinPlayground) {
-          await dispatch('groups/joinPlayground', null, { root: true })
+          await dispatch('auth/setJoinGroupAfterLogin', rootGetters['groups/playground'].id, { root: true })
         }
+        await dispatch('auth/login', { email: userData.email, password: userData.password }, { root: true })
       },
       async requestResetPassword ({ commit }, email) {
         await auth.requestResetPassword(email)

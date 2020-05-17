@@ -95,9 +95,6 @@ export default {
         commit('set', await groupsInfo.list())
       },
     }),
-    joinPlayground ({ dispatch, getters }) {
-      dispatch('join', { id: getters.playground.id })
-    },
     ...withMeta({
       async selectPreview ({ commit, getters, dispatch }, { groupPreviewId }) {
         if (!getters.get(groupPreviewId)) {

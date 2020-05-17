@@ -29,6 +29,9 @@ export default datastore => {
       if (groupId) {
         next = { name: 'group', params: { groupId } }
       }
+      else if (isLoggedIn()) {
+        next = { name: 'groupsGallery' }
+      }
     }
 
     // check meta.requireLoggedIn

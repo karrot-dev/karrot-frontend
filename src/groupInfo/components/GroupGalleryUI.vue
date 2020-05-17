@@ -106,7 +106,6 @@
         </p>
         <GroupGalleryCards
           :groups="filteredMyGroups"
-          :is-logged-in="isLoggedIn"
           @preview="$emit('preview', arguments[0])"
           @visit="$emit('visit', arguments[0])"
         />
@@ -132,7 +131,6 @@
       <div v-if="hasOtherGroupsToShow">
         <GroupGalleryCards
           :groups="filteredOtherGroups"
-          :is-logged-in="isLoggedIn"
           @preview="$emit('preview', arguments[0])"
         />
       </div>

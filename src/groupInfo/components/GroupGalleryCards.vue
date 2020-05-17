@@ -29,10 +29,6 @@ export default {
       default: () => [],
       type: Array,
     },
-    isLoggedIn: {
-      required: true,
-      type: Boolean,
-    },
   },
   data () {
     return {

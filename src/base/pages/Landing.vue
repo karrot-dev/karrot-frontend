@@ -83,7 +83,6 @@
 
       <GroupGalleryCards
         :groups="groupsToShow"
-        :is-logged-in="false"
         @preview="preview(arguments[0])"
       />
 

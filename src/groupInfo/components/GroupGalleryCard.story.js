@@ -40,8 +40,8 @@ storiesOf('GroupGalleryCard', module)
         group: {
           ...groupsMock[0],
           isMember: false,
+          myApplicationPending: true,
         },
-        myApplicationPending: true,
       },
       on: methods,
     }),

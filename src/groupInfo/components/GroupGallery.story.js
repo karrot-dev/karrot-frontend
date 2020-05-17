@@ -5,7 +5,6 @@ import { action } from '@storybook/addon-actions'
 import GroupGallery from './GroupGalleryUI'
 import { groupsMock } from '>/mockdata'
 
-
 const defaultOn = {
   preview: action('view group preview'),
   visit: action('visit group'),

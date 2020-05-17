@@ -3757,6 +3757,38 @@ exports[`Storyshots GroupGalleryCard isMember = false 1`] = `
 </div>
 `;
 
+exports[`Storyshots GroupGalleryCard isMember = false, application pending 1`] = `
+<div class="inline-block">
+  <div class="groupPreviewCard relative-position q-card application">
+    <div role="alert" class="q-pl-sm q-pt-xs q-pb-xs z-top q-badge flex inline items-center no-wrap q-badge--single-line bg-blue q-badge--floating"><i aria-hidden="true" role="presentation" class="fas fa-hourglass-half q-icon notranslate"> </i></div>
+    <!---->
+    <div class="photo text-white relative-position row justify-center">
+      <div seed="1" type="circles" class="full-height"></div>
+      <div class="absolute-bottom k-media-overlay q-pa-md">
+        <div class="ellipsis"><span class="row group items-start text-h6">
+            05_testgroup
+            <!----></span> <span class="text-subtitle2">
+            18 Members
+          </span></div>
+      </div>
+    </div>
+    <div class="fixed-height smaller-text q-card__section q-card__section--vert">
+      <div>
+        <div class="markdown">
+          <p>This is the public description<br>
+            It would make sense if it was markdown</p>
+          <h1>then this would be a header</h1>
+          <p><a href="www.google.de" target="_blank" rel="noopener nofollow noreferrer" class="fas-after fa-after-external-link">and this a link</a></p>
+        </div>
+      </div>
+      <div class="overlay"></div>
+    </div>
+    <hr role="separator" aria-orientation="horizontal" class="q-separator q-separator q-separator--horizontal col-grow">
+    <!---->
+  </div>
+</div>
+`;
+
 exports[`Storyshots GroupGalleryCard isMember = true 1`] = `
 <div class="inline-block">
   <div class="groupPreviewCard relative-position q-card">
@@ -9609,7 +9641,7 @@ exports[`Storyshots Sidenav Group 1`] = `
         Wall
       </div>
       <div class="q-item__section column q-item__section--side justify-center">
-        <div role="alert" small="" class="q-badge flex inline items-center no-wrap q-badge--single-line bg-secondary">
+        <div role="alert" class="q-badge flex inline items-center no-wrap q-badge--single-line bg-secondary">
           4
         </div>
       </div>
@@ -10027,6 +10059,12 @@ exports[`Storyshots TrustButton Trust Button - multiple others trust 1`] = `
 exports[`Storyshots TrustButton Trust Button - one other trust 1`] = `
 <button tabindex="0" type="button" role="button" title="user 1 trusts storybook user in group 11." class="q-btn q-btn-item non-selectable no-outline karrot-button q-btn--standard q-btn--round bg-primary text-white q-btn--actionable q-focusable q-hoverable q-btn--wrap"><span class="q-focus-helper"></span><span class="q-btn__wrapper col row q-anchor--skip"><span class="q-btn__content text-center col items-center q-anchor--skip justify-center row"><!----> <div role="alert" class="q-badge flex inline items-center no-wrap q-badge--single-line bg-negative q-badge--floating">
     1
+  </div> <!----></span></span></button>
+`;
+
+exports[`Storyshots TrustButton small - My Trust Button 1`] = `
+<button tabindex="0" type="button" role="button" title="2 people trust you in group 21." class="q-btn q-btn-item non-selectable no-outline karrot-button q-btn--standard q-btn--round bg-primary text-white q-btn--actionable q-focusable q-hoverable q-btn--wrap" style="font-size:10px;"><span class="q-focus-helper"></span><span class="q-btn__wrapper col row q-anchor--skip"><span class="q-btn__content text-center col items-center q-anchor--skip justify-center row"><!----> <div role="alert" class="q-badge flex inline items-center no-wrap q-badge--single-line bg-positive q-badge--floating" style="top:5px;right:-12px;">
+    2
   </div> <!----></span></span></button>
 `;
 

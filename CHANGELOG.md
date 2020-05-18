@@ -21,13 +21,15 @@ Please document your changes in this format:
 ```
 
 ## [Unreleased]
+
+## [8.5.0] - 2020-05-18
 ### Added
 - Notification when a new Karrot version is available @tiltec
 
 ### Changed
 - Subscribe everybody to conflict resolution emails by default @nicksellen
 - Speed up page load (hopefully) @tiltec @nicksellen
-- Hide buttons in group sidenav, change notification icons, added settings to latest messages menu #1987 @brnsolikyl @nicksellen
+- Hide buttons in group sidenav, change notification icons, added settings to latest messages menu [#1987] @brnsolikyl @nicksellen
 - Show instruction on group preview page how to revive groups without members @tiltec
 - Switch to group when clicking on user-related notificiations @tiltec
 - Remove "public description" toggle from group description page, as it is available from the sidenav already @tiltec
@@ -541,8 +543,10 @@ After months of planning and programming, the first version of ~the foodsaving t
 [#1691]: https://github.com/yunity/karrot-frontend/issues/1691
 [#1799]: https://github.com/yunity/karrot-frontend/issues/1799
 [#1982]: https://github.com/yunity/karrot-frontend/issues/1982
+[#1987]: https://github.com/yunity/karrot-frontend/issues/1987
 
-[Unreleased]: https://github.com/yunity/karrot-frontend/compare/v8.4.0...HEAD
+[Unreleased]: https://github.com/yunity/karrot-frontend/compare/v8.5.0...HEAD
+[8.5.0]: https://github.com/yunity/karrot-frontend/compare/v8.4.0...v8.5.0
 [8.4.0]: https://github.com/yunity/karrot-frontend/compare/v8.3.0...v8.4.0
 [8.3.0]: https://github.com/yunity/karrot-frontend/compare/v8.2.0...v8.3.0
 [8.2.0]: https://github.com/yunity/karrot-frontend/compare/v8.1.2...v8.2.0

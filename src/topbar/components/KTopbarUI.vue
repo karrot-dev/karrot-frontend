@@ -7,7 +7,6 @@
       v-if="!$q.platform.is.mobile"
       flat
       class="logo"
-      @click="onMainClick"
     >
       <div class="logo">
         <img
@@ -26,8 +25,8 @@
             v-for="group in myGroups"
             :key="group.id"
             v-close-popup
+            :to="{ name: 'group', params: { groupId: group.id } }"
             clickable
-            @click="$emit('selectGroup', { groupId: group.id })"
           >
             <QItemSection
               avatar
@@ -219,7 +218,7 @@ export default {
     myGroups: {
       type: Array,
       required: false,
-      default: null,
+      default: () => [],
     },
     breadcrumbs: {
       type: Array,

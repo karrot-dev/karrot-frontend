@@ -46,6 +46,8 @@ deploy-android: &deploy-android
         key: v2-dependencies-playstorehelper-{{ checksum "cordova/playstoreHelper/requirements.txt" }}
         paths:
           - ~/repo/cordova/playstoreHelper/env
+    - slack/status:
+        fail_only: true
 
 build-android: &build-android
   name: build android
@@ -60,7 +62,9 @@ build-android: &build-android
     ./build android "$CORDOVA_ENV" release "${!PASSWORD_VAR}"
     mv platforms/android/app/build/outputs/apk/release/app-release.apk ~/repo/android-${CORDOVA_ENV}.apk
 
-version: 2
+version: 2.1
+orbs:
+  slack: circleci/slack@3.4.2
 jobs:
   install-dependencies:
     <<: *defaults
@@ -79,6 +83,9 @@ jobs:
           root: ~/repo
           paths:
             - .
+      - slack/status:
+          fail_only: true
+          only_for_branches: master
 
   test:
     <<: *defaults
@@ -100,6 +107,9 @@ jobs:
           path: test-reports
       - store_artifacts:
           path: test-reports
+      - slack/status:
+          fail_only: true
+          only_for_branches: master
 
   lint:
     <<: *defaults
@@ -107,6 +117,9 @@ jobs:
       - attach_workspace:
           at: ~/repo
       - run: yarn lint
+      - slack/status:
+          fail_only: true
+          only_for_branches: master
 
   build-dev:
     <<: *defaults
@@ -122,6 +135,9 @@ jobs:
           root: ~/repo
           paths:
             - dist
+      - slack/status:
+          fail_only: true
+          only_for_branches: master
 
   build-prod:
     <<: *defaults
@@ -136,6 +152,8 @@ jobs:
           root: ~/repo
           paths:
             - dist
+      - slack/status:
+          fail_only: true
 
   build-storybook:
     <<: *defaults
@@ -147,6 +165,8 @@ jobs:
           root: ~/repo
           paths:
             - storybook-static
+      - slack/status:
+          fail_only: true
 
   build-docs:
     <<: *defaults
@@ -162,6 +182,8 @@ jobs:
           root: ~/repo
           paths:
             - docs-dist
+      - slack/status:
+          fail_only: true
 
   build-cordova-dev:
     <<: *defaults
@@ -177,6 +199,8 @@ jobs:
           root: ~/repo
           paths:
             - dist-app-dev
+      - slack/status:
+          fail_only: true
 
   build-cordova-prod:
     <<: *defaults
@@ -192,6 +216,8 @@ jobs:
           root: ~/repo
           paths:
             - dist-app-prod
+      - slack/status:
+          fail_only: true
 
   build-android-dev:
     <<: *android-defaults
@@ -218,6 +244,8 @@ jobs:
           root: ~/repo
           paths:
             - android-dev.apk
+      - slack/status:
+          fail_only: true
 
   deploy-android-dev:
     <<: *deploy-android
@@ -258,6 +286,8 @@ jobs:
           root: ~/repo
           paths:
             - android-prod.apk
+      - slack/status:
+          fail_only: true
 
   deploy-branch:
     <<: *defaults
@@ -280,6 +310,8 @@ jobs:
           name: Dev Deploy
           command: |
             ./deploy.sh dev "${CIRCLE_BRANCH}"
+      - slack/status:
+          fail_only: true
 
   deploy-release:
     <<: *defaults
@@ -291,6 +323,8 @@ jobs:
           name: Release Deploy
           command: |
             ./deploy.sh release "${CIRCLE_BRANCH}"
+      - slack/status:
+          fail_only: true
 
   sync-locale-messages:
     <<: *defaults
@@ -338,6 +372,8 @@ jobs:
             git commit -m "[CI] update locales" || exit 0
             git push --force origin $BRANCH
             hub pull-request -m "[CI] Update locales" || true
+      - slack/status:
+          fail_only: true
 
   update-dependencies:
     <<: *defaults
@@ -393,9 +429,10 @@ jobs:
             git commit -a -m "[CI] Update snapshots" || true
             git push --force origin $BRANCH
             hub pull-request -F pr.txt || hub issue update $(hub pr list -h $BRANCH -f %I) -F pr.txt
+      - slack/status:
+          fail_only: true
 
 workflows:
-  version: 2
   all-the-things:
     jobs:
       - install-dependencies

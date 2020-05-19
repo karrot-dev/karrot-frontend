@@ -282,7 +282,7 @@
   "TOPBAR": {
     "LOGOUT": "Logout",
     "USERPROFILE": "Visit your profile",
-    "CHANGE_GROUP": "Change group"
+    "SHOW_ALL_GROUPS": "Show all groups"
   },
   "SIDENAV": {
     "INFO_SUB": "How to build your foodsaving group",

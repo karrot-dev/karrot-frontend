@@ -3,6 +3,7 @@
     class="text-white row justify-between"
     :class="connected ? 'bg-primary' : 'bg-grey-8'"
   >
+    <slot />
     <QBtn
       v-if="!$q.platform.is.mobile"
       flat
@@ -47,6 +48,18 @@
           <!--pre>
             {{ myGroups }}
           </pre-->
+          <QItem
+            :to="{name: 'groupsGallery'}"
+          >
+            <QItemSection side>
+            <QIcon
+              name="fas fa-globe"
+            />
+            </QItemSection>
+            <QItemSection>
+              {{ $t('TOPBAR.SHOW_ALL_GROUPS') }}
+            </QItemSection>
+          </QItem>
         </QList>
       </QMenu>
     </QBtn>
@@ -129,19 +142,6 @@
               v-close-popup
               dense
             >
-              <QItem
-                :to="{name: 'groupsGallery'}"
-              >
-                <QItemSection side>
-                  <QIcon
-                    size="1em"
-                    name="fas fa-home fa-fw"
-                  />
-                </QItemSection>
-                <QItemSection>
-                  {{ $t('TOPBAR.CHANGE_GROUP') }}
-                </QItemSection>
-              </QItem>
               <QItem
                 :to="{name: 'settings'}"
               >

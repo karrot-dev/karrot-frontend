@@ -162,11 +162,7 @@ describe('pickups', () => {
     })
 
     it('can get upcoming and started', () => {
-      expect(vstore.getters['pickups/upcomingAndStarted'].map(getId)).toEqual([startedPickup1, pickup1, pickup2, pickup3].map(getId))
-    })
-
-    it('gets started pickups if I am a collector', () => {
-      expect(vstore.getters['pickups/upcomingAndStarted'].filter(p => p.hasStarted).map(getId)).toEqual([startedPickup1].map(getId))
+      expect(vstore.getters['pickups/upcomingAndStarted'].map(getId)).toEqual([startedPickup1, startedPickup2, pickup1, pickup2, pickup3].map(getId))
     })
   })
 

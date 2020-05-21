@@ -21,6 +21,8 @@ Please document your changes in this format:
 ```
 
 ## [Unreleased]
+### Changed
+- Show ongoing pickups to all group members, not just those who signed up #1789 @tiltec
 
 ## [8.5.0] - 2020-05-18
 ### Added

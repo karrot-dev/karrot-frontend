@@ -412,7 +412,7 @@ jobs:
           name: write pull request message
           command: |
             set -xe
-            tee pr.txt <<EOL
+            tee pr.txt \<<EOL
             [CI] update dependencies
 
             Good morning, I found some fresh dependencies for you!

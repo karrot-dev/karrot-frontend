@@ -386,43 +386,21 @@ jobs:
           name: set git remote to include token
           command: git remote set-url origin https://${GITHUB_TOKEN}@github.com/yunity/karrot-frontend.git
       - run:
-          name: configure environment
+          name: upgrade packages and create PR
           # needs TX_TOKEN and GITHUB_TOKEN
           command: |
             set -xe
-            echo "yarn list --depth=0 | grep -E -v '^Done in|yarn list v' | cut -d' ' -f2" > list-packages.sh
             git config credential.helper 'cache --timeout=120'
             git config user.email "ci@foodsaving.world"
             git config user.name "CircleCI"
             git branch --delete --force $BRANCH || true
             git checkout -b $BRANCH
-      - run:
-          name: list packages and do upgrade
-          command: |
-            set -xe
-            sh list-packages.sh | tee packages-before.txt
             yarn upgrade --latest --ignore-engines
-      - run:
-          name: find upgraded packages
-          command: |
-            set -xe
-            sh list-packages.sh | tee packages-after.txt
-            diff -t -y -W 100 --suppress-common-lines packages-before.txt packages-after.txt | sed -E 's/(\S+)@(\S+)\s+\|.+@(\S+)/- [\1](https:\/\/npmjs.com\/package\/\1): \2 → \3/' | tee packages-diff.txt
-      - run:
-          name: write pull request message
-          command: |
-            set -xe
             tee pr.txt \<<EOL
             [CI] update dependencies
 
             Good morning, I found some fresh dependencies for you!
-
-            $(cat packages-diff.txt)
             EOL
-      - run:
-          name: maybe commit, update snapshots and create pull request
-          command: |
-            set -xe
             git add package.json yarn.lock
             git commit -m "[CI] Update dependencies" || exit 0
             yarn test -u storyshots

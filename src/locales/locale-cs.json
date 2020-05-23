@@ -2,7 +2,7 @@
   "ENTRY": "1 položka | {count} položek",
   "GLOBAL": {
     "GITHUB_NOTE": "Vývoj",
-    "SERVER_ERROR": "Server error",
+    "SERVER_ERROR": "Chyba serveru",
     "NOT_CONNECTED": "Nejste připojeni k serveru",
     "INVALID_LINK": "Litujeme, odkaz, který jste otevřeli, je neplatný.",
     "GENERIC_ERROR": "Promiňte, něco se pokazilo",
@@ -92,7 +92,7 @@
     "DECLINE": "Odmítnout",
     "WITHDRAW": "Zrušit",
     "SHOW_MORE": "Zobrazit více",
-    "SHOW_LESS": "Show less",
+    "SHOW_LESS": "Zobrazit méně",
     "ENABLE": "Povolit",
     "DISABLE": "Deaktivovat",
     "UNSUBSCRIBE": "Odhlásit odběr"
@@ -260,7 +260,7 @@
     "NUM_MEMBERS": "Člen | Členů",
     "NO_PUBLIC_DESCRIPTION": "(Tato skupina zatím nemá veřejný popis ...)",
     "ALL_GROUPS": "Všechny skupiny",
-    "BROWSE_GROUPS": "Browse existing groups",
+    "BROWSE_GROUPS": "Procházet existující skupiny",
     "SIGNUP_OR_LOGIN": "Přihlaste se nebo se zaregistrujte a připojte se k této skupině!",
     "VERIFY_EMAIL_ADDRESS": "Ověřte svou e-mailovou adresu",
     "MY_GROUPS": "Moje skupiny",
@@ -274,7 +274,7 @@
     "WITHDRAW_CONFIRMATION_HEADER": "stáhnout žádost",
     "WITHDRAW_CONFIRMATION_TEXT": "Opravdu chcete stáhnout svou žádost k připojení se k {groupName}?",
     "APPLICATION_WITHDRAWN": "Vaše žádost  byla úspěšně stažena!",
-    "ARCHIVED_NOTE": "This group doesn't have any members. If you would like to revive it, contact the site administrators!"
+    "ARCHIVED_NOTE": "Tato skupina nemá žádné členy. Chcete-li to oživit, obraťte se na správce webu!"
   },
   "GROUPINFO": {
     "TITLE": "Informace o veřejných skupinách",
@@ -496,7 +496,7 @@
   },
   "UPDATE_AVAILABLE": {
     "DETAIL": "K dispozici je nová verze karot.",
-    "RELOAD": "Reload"
+    "RELOAD": "Obnovit"
   },
   "NOT_FOUND": {
     "EXPLANATION": "Litujeme, ale tuto stránku jsme nikde nenašli.",
@@ -699,72 +699,72 @@
   "YOU": "Vy",
   "TO": "do",
   "ABOUT_KARROT": {
-    "TITLE": "Save things from being wasted, share them instead!",
-    "SUBTITLE1": "Karrot exists for groups of people who want to save things from being wasted and share them instead, allowing these groups to organise efficiently, on a local and voluntary basis.",
-    "SUBTITLE2": "Things such as food, bikes, clothes or whatever is being excessively thrown away or unused in the context of a consumerist society.",
-    "VISION_INTRO": "Karrot is a tool for all kinds of grassroots initiatives to connect and grow, supporting the co-ordination of face-to-face activities with a layer of digital infrastructure.",
-    "ACTION": "Have you already found a group nearby you? Or maybe you want to {startAGroup}? If you just want to try Karrot out, then create an account and join the Playground group for testing.",
-    "ACTION_START_A_GROUP": "start one",
-    "EXISTING_GROUPS": "A few groups already using Karrot",
-    "AND_MORE": "And more...",
+    "TITLE": "Zachraňte věci před vyhozením, místo toho je někomu nabídněte!",
+    "SUBTITLE1": "Karrot existuje pro skupiny lidí, kteří chtějí zachránit věci před plýtváním, a místo toho je sdílet, což umožňuje těmto skupinám účinně se organizovat na místním a dobrovolném základě.",
+    "SUBTITLE2": "Věci, jako je jídlo, jízdní kola, oblečení nebo cokoli, jsou v kontextu konzumní společnosti zbytečně vyhazovány nebo nevyužity.",
+    "VISION_INTRO": "Karrot je nástrojem pro všechny druhy místních iniciativ, které se spojují a rostou, a podporuje koordinaci osobních aktivit s vrstvou digitální infrastruktury.",
+    "ACTION": "Už jste našli skupinu ve vašem okolí? Nebo ji možná chcete {startAGroup}? Pokud si jen chcete Karrot vyzkoušet, vytvořte si účet a připojte se ke skupině Playground pro testování.",
+    "ACTION_START_A_GROUP": "začít jednou",
+    "EXISTING_GROUPS": "Několik skupin již používá Karrot",
+    "AND_MORE": "A více...",
     "LINKS": {
-      "FORUM": "community forum",
+      "FORUM": "komunitní fórum",
       "CODE": "GitHub",
-      "CHAT": "team chat",
+      "CHAT": "týmový chat",
       "TRANSLATIONS": "Transifex"
     },
     "SECTIONS": {
       "GROUPS": {
-        "TITLE": "Independent groups",
-        "SUBTITLE": "Every group on karrot is completely independent and can have their own logo, processes and rules.",
-        "DESCRIPTION": "Yet they are all displayed on the map so that people can find and connect to other groups in their location and even globally."
+        "TITLE": "Nezávislé skupiny",
+        "SUBTITLE": "Každá skupina v aplikaci Karrot je zcela nezávislá a může mít své vlastní logo, procesy a pravidla.",
+        "DESCRIPTION": "Přesto jsou všechny zobrazeny na mapě, aby je lidé mohli najít a připojit se i k jiným skupinám ve své lokalitě a dokonce i globálně."
       },
       "ACTIVITIES": {
-        "TITLE": "Distribution of tasks and activities",
-        "SUBTITLE": "Activities with a specific time and place, like food pickups in the case of foodsaving, can be entered in the software.",
-        "DESCRIPTION": "Each activity has a number of slots which members of the group can sign up for – this way everyone knows who goes where and when, and feedback can be given later."
+        "TITLE": "Rozdělení úkolů a činností",
+        "SUBTITLE": "Do softwaru lze zadávat činnosti se specifickým časem a místem, jako jsou vyzvednutí  potravin v případě záchrany nesnězených potravin.",
+        "DESCRIPTION": "Každá aktivita má několik slotů, do kterých se mohou členové skupiny přihlásit – tímto způsobem každý ví, kdo kam a kdy má jít a zpětná vazba může být poskytnuta později."
       },
       "OFFERS": {
-        "TITLE": "Share things",
-        "SUBTITLE": "Create an ad-like offer of whatever you want to share or give away.",
-        "DESCRIPTION": "Offers are visible to everyone in the group and people can show their interest on the offer's chat."
+        "TITLE": "Sdílejte věci",
+        "SUBTITLE": "Vytvořte nabídku podobnou inzerátům, co chcete sdílet nebo rozdávat.",
+        "DESCRIPTION": "Nabídky jsou viditelné pro všechny ve skupině a lidé mohou projevit zájem o nabídku svým komentářem."
       },
       "DEMOCRATIC": {
-        "TITLE": "Democratic and participative development",
-        "DESCRIPTION": "Karrot is a free and open-source software developed with the feedback and participation of the people who use it. It is mainly developed by a small core team that is constantly in contact with people in different groups, in order to make sense of their diverging and converging needs and thus guide the development. We abide by the ethics of integrity and non-commercialization of data.",
-        "DESCRIPTION2": "Developers and designers are obviously welcome to participate in its development. Check out the project on {code}."
+        "TITLE": "Demokratický a participativní vývoj",
+        "DESCRIPTION": "Karrot je bezplatný a open-source software vyvinutý se zpětnou vazbou a účastí lidí, kteří jej používají. Je vyvíjen hlavně malým jádrem týmu, který je neustále v kontaktu s lidmi v různých skupinách, aby pochopil jejich odlišné a konvergující potřeby, a tak vedl vývoj. Dodržujeme etiku integrity a neobchodního využití dat.",
+        "DESCRIPTION2": "Vývojáři a designéři jsou samozřejmě vítáni k účasti na vývoji software. Podívejte se na projekt na {code}."
       },
       "COMMUNICATION": {
-        "TITLE": "Communication in the right context",
-        "DESCRIPTION": "Write a message that everyone in the group will see or a private message to someone. Everything related to a single activity or place can be discussed in their respective chats."
+        "TITLE": "Komunikace ve správném kontextu",
+        "DESCRIPTION": "Napište zprávu, kterou uvidí všichni ve skupině, nebo soukromou zprávu někomu. Vše, co souvisí s jedinou aktivitou nebo místem, lze projednat v příslušných chatech."
       },
       "TRUST": {
-        "TITLE": "Democratic and trust-based group management",
-        "DESCRIPTION": "There are no admin superpowers in a Karrot group. People who receive enough trust-carrots from their peers will be able to edit and change settings in the group. When new people want to join your group they need to apply and answer questions your group can set, which anyone with editing rights can decline or approve. Likewise, if there is a conflict, the group can enter a voting system to resolve it in a communal way."
+        "TITLE": "Demokratické a na důvěře založené vedení skupiny",
+        "DESCRIPTION": "Ve skupině Karrot nejsou žádní administrátoři. Lidé, kteří dostanou od svých vrstevníků dostatek důvěry, budou moci ve skupině upravovat a měnit nastavení. Když se do vaší skupiny chtějí přidat noví lidé, musí se obrátit a odpovědět na otázky, které může skupina nastavit, které může odmítnout nebo schválit kdokoli s právy na úpravy. Podobně, pokud dojde ke konfliktu, skupina může vstoupit do hlasovacího systému, aby jej vyřešila komunálním způsobem."
       },
       "MAPS": {
-        "TITLE": "Maps and lists",
-        "DESCRIPTION": "You have a map of where the places and the people doing the activities are located. You have a nice list of upcoming activities and can sign up for them online."
+        "TITLE": "Mapy a seznamy",
+        "DESCRIPTION": "Máte mapu, kde se nacházejí místa a lidé, kteří dělají aktivity. Máte pěkný seznam nadcházejících aktivit a můžete se do nich přihlásit online."
       },
       "TRANSPARENCY": {
-        "TITLE": "Transparency",
-        "DESCRIPTION": "The history shows who did what and when. Everything from participating in an activity to creating and editing places is logged here."
+        "TITLE": "Transparentnost",
+        "DESCRIPTION": "Historie ukazuje, kdo dělal co a kdy. Zde je zaznamenáno vše od účasti na činnosti až po vytváření a úpravy míst."
       },
       "NOTIFICATIONS": {
-        "TITLE": "Notifications",
-        "DESCRIPTION": "You get notified about empty activities, new messages and new people wanting to join your group. But you can also turn it all off if you wish more peace!"
+        "TITLE": "Oznamování",
+        "DESCRIPTION": "Dostanete upozornění na prázdné aktivity, nové zprávy a nové lidi, kteří se chtějí připojit ke skupině. Ale můžete také vše vypnout, pokud si přejete více klidu!"
       },
       "TRANSLATIONS": {
-        "TITLE": "Multi-language",
-        "DESCRIPTION": "Karrot is fully translatable by the community and many languages are already added. To contribute more translations just visit the project on {translations}."
+        "TITLE": "Vícejazyčný",
+        "DESCRIPTION": "Komunita Karrot je plně přeložitelná a mnoho jazyků je již přidáno. Chcete-li přispět více překlady, navštivte projekt na {translations}."
       },
       "OPENSOURCE": {
         "TITLE": "Open source",
-        "DESCRIPTION": "Everything is transparent and possibly changeable. We encourage groups to host their own instances of the platform, if they have the ability to do so. Still, we also provide access to a hosted version on karrot.world."
+        "DESCRIPTION": "Všechno je transparentní  a případně měnitelné. Doporučujeme skupinám, aby tvořily své vlastní instance platformy, pokud mají schopnost tak učinit. Stále však také poskytujeme přístup k hostované verzi na karrot.world."
       },
       "TEAM": {
-        "TITLE": "Responsive team",
-        "DESCRIPTION": "You can easily talk to the people developing Karrot, either on our {forum}, on {code} or in real-time on our {chat}."
+        "TITLE": "Tým odpovědných",
+        "DESCRIPTION": "Můžete se snadno domluvit s lidmi, kteří vyvíjejí Karrot, ať už na našem fóru {forum},  nad vývojem kódu {code} nebo v reálném čase  na našem chatu {chat}."
       }
     }
   }

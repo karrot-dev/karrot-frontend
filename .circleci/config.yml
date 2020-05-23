@@ -400,6 +400,8 @@ jobs:
             [CI] update dependencies
 
             Good morning, I found some fresh dependencies for you!
+
+            You can check the site at https://circleci-update-dependencies.dev.karrot.world to make sure everything looks ok.
             EOL
             git add package.json yarn.lock
             git commit -m "[CI] Update dependencies" || exit 0

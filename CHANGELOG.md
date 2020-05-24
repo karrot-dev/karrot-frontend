@@ -21,8 +21,11 @@ Please document your changes in this format:
 ```
 
 ## [Unreleased]
+
+## [8.5.1] - 2020-05-24
 ### Changed
-- Show ongoing pickups to all group members, not just those who signed up #1789 @tiltec
+- Show ongoing pickups to all group members, not just those who signed up [#1789] @tiltec
+- Updated translations
 
 ## [8.5.0] - 2020-05-18
 ### Added
@@ -543,11 +546,13 @@ After months of planning and programming, the first version of ~the foodsaving t
 [#1509]: https://github.com/yunity/karrot-frontend/issues/1509
 [#1690]: https://github.com/yunity/karrot-frontend/issues/1690
 [#1691]: https://github.com/yunity/karrot-frontend/issues/1691
+[#1789]: https://github.com/yunity/karrot-frontend/issues/1789
 [#1799]: https://github.com/yunity/karrot-frontend/issues/1799
 [#1982]: https://github.com/yunity/karrot-frontend/issues/1982
 [#1987]: https://github.com/yunity/karrot-frontend/issues/1987
 
-[Unreleased]: https://github.com/yunity/karrot-frontend/compare/v8.5.0...HEAD
+[Unreleased]: https://github.com/yunity/karrot-frontend/compare/v8.5.1...HEAD
+[8.5.1]: https://github.com/yunity/karrot-frontend/compare/v8.5.0...v8.5.1
 [8.5.0]: https://github.com/yunity/karrot-frontend/compare/v8.4.0...v8.5.0
 [8.4.0]: https://github.com/yunity/karrot-frontend/compare/v8.3.0...v8.4.0
 [8.3.0]: https://github.com/yunity/karrot-frontend/compare/v8.2.0...v8.3.0

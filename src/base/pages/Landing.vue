@@ -109,9 +109,8 @@
       >
         <a
           slot="code"
-          v-t="'ABOUT_KARROT.LINKS.CODE'"
           href="https://github.com/yunity/karrot-frontend"
-        />
+        >GitHub</a>
       </i18n>
     </section>
 
@@ -132,9 +131,8 @@
             >
               <a
                 slot="code"
-                v-t="'ABOUT_KARROT.LINKS.CODE'"
                 href="https://github.com/yunity/karrot-frontend"
-              />
+              >GitHub</a>
               <a
                 slot="forum"
                 v-t="'ABOUT_KARROT.LINKS.FORUM'"
@@ -147,9 +145,8 @@
               />
               <a
                 slot="translations"
-                v-t="'ABOUT_KARROT.LINKS.TRANSLATIONS'"
                 href="https://www.transifex.com/yunity-1/karrot/frontend/"
-              />
+              >Transifex</a>
             </i18n>
           </p>
         </li>

@@ -69,7 +69,6 @@
     "DELETE": "刪除",
     "EDIT": "編輯",
     "JOIN": "加入",
-    "LEAVE": "離開",
     "PREVIEW": "預覽",
     "BACK": "退回",
     "NEXT": "Next",
@@ -108,7 +107,6 @@
   },
   "GROUP": {
     "WALL": "留言板",
-    "GROUP": "社團",
     "LEAVE": "離開社團...",
     "LEAVE_TEXT": "您是否確定要離開這個社團？",
     "LEAVE_CONFIRMATION": "你已經退出 {groupName}",
@@ -117,9 +115,7 @@
     "CREATE_TITLE": "創建新社團",
     "MANAGE_AGREEMENT": "管理協議",
     "TITLE": "社團名稱",
-    "PRIVATE_DESCRIPTION_TITLE": "私密社團敘述",
     "DESCRIPTION_VERBOSE": "社團敘述（僅社團成員可見）",
-    "PUBLIC_DESCRIPTION": "加入社團前顯示的文字",
     "WELCOMEMESSAGE_VERBOSE": "Welcome message sent to new members",
     "LOGO": "Group logo",
     "SET_LOGO": "Click to upload your group logo!",
@@ -153,7 +149,6 @@
     "INVITE_TITLE": "邀請用戶到你的社團",
     "INVITATION_ACCEPT_SUCCESS": "歡迎！你已成功接受邀請。",
     "INVITATION_ACCEPT_ERROR": "糟糕，無法接受此邀請！",
-    "SETTINGS": "設定",
     "NOTIFICATIONS_BY_GROUP": "Notifications by group",
     "EMAIL_NOTIFICATIONS": "郵件通知",
     "NOTIFICATION_TYPES": {
@@ -217,8 +212,6 @@
       }
     },
     "RESTORE": "恢復",
-    "SHOW_ARCHIVED": "Show archived places",
-    "HIDE_ARCHIVED": "Hide archived places",
     "SHOW_ALL": "Show all places",
     "SHOW_ACTIVE_ONLY": "Only show active places"
   },
@@ -323,7 +316,6 @@
     "STARTDATE_HELPER": "此系列活動從甚麼時候開始?",
     "TIME_HELPER": "應該在甚麼時候領取食物？",
     "DATE": "日期",
-    "DATE_HELPER": "應該在甚麼時候領取食物？",
     "MAX_COLLECTORS": "最大值",
     "MAX_COLLECTORS_HELPER": "徵求多少人領取食物？",
     "COMMENT": "更多資訊",
@@ -368,7 +360,6 @@
     "NUMBER_PICKUPS": "{count} 項領取已完成",
     "NUMBER_FEEDBACK": "有{count} 項領取回饋 ",
     "WEIGHT_SUM": "{sum} 公斤的食物已被領取",
-    "GIVE_FEEDBACK": "給予回饋",
     "NONE": "尚未有回饋",
     "NONE_HINT": "當有更多回饋時，它們就會填入這個頁面",
     "NO_DONE_PICKUPS": "都完成了",
@@ -378,7 +369,6 @@
     "TITLE": "回饋",
     "HEADER": "謝謝你領取食物！",
     "EDIT": "編輯回饋",
-    "SUBTITLE": "你可以把你這次pickup的回饋寫在這",
     "SET_AMOUNT": "設定數量",
     "DELETE_AMOUNT": "刪除數量",
     "AMOUNT": "Amount of food you were able to save (in kg)",
@@ -446,7 +436,6 @@
     "DETAILS": "更多資訊"
   },
   "NOTIFICATIONS": {
-    "TITLE": "通知",
     "NOT_VERIFIED": "{email} 尚未驗證",
     "CHECK_YOUR_MAILS": "請查看你的電子信箱或 {resend}",
     "RESEND_VERIFICATION": "重新寄送驗證信",
@@ -627,7 +616,6 @@
     "TITLE": "Issues",
     "VOTE": "Vote",
     "CHAT": "Chat",
-    "INITIATED_BY": "Initiated by {initiatorName}",
     "PAST": "Past issues",
     "PREVIOUS_VOTINGS": "Previous votings in this issue",
     "PARTICIPANTS": "{count} members have been added to this discussion.",
@@ -703,8 +691,6 @@
     "SUBTITLE1": "Karrot exists for groups of people who want to save things from being wasted and share them instead, allowing these groups to organise efficiently, on a local and voluntary basis.",
     "SUBTITLE2": "Things such as food, bikes, clothes or whatever is being excessively thrown away or unused in the context of a consumerist society.",
     "VISION_INTRO": "Karrot is a tool for all kinds of grassroots initiatives to connect and grow, supporting the co-ordination of face-to-face activities with a layer of digital infrastructure.",
-    "ACTION": "Have you already found a group nearby you? Or maybe you want to {startAGroup}? If you just want to try Karrot out, then create an account and join the Playground group for testing.",
-    "ACTION_START_A_GROUP": "start one",
     "EXISTING_GROUPS": "A few groups already using Karrot",
     "AND_MORE": "And more...",
     "LINKS": {

@@ -69,7 +69,6 @@
     "DELETE": "Läschen",
     "EDIT": "Beaarbechten",
     "JOIN": "Bäitrieden",
-    "LEAVE": "Verloossen",
     "PREVIEW": "Kontrolléieren",
     "BACK": "Zréck",
     "NEXT": "Nächst",
@@ -108,7 +107,6 @@
   },
   "GROUP": {
     "WALL": "Mauer",
-    "GROUP": "Grupp",
     "LEAVE": "Grupp verloossen...",
     "LEAVE_TEXT": "Bass du sécher, dass du dës Grupp verloosse wëlls?",
     "LEAVE_CONFIRMATION": "Du hues {groupName} verlooss",
@@ -117,9 +115,7 @@
     "CREATE_TITLE": "Nei Grupp erstellen",
     "MANAGE_AGREEMENT": "Ofkommes verwalten",
     "TITLE": "Titel vun dëser Grupp",
-    "PRIVATE_DESCRIPTION_TITLE": "Privat Gruppebeschreiwung",
     "DESCRIPTION_VERBOSE": "Beschreiwung vun der Grupp, siichtbar fir Memberen",
-    "PUBLIC_DESCRIPTION": "Text, deen ee gesäit, ier een der Grupp bäitrëtt",
     "WELCOMEMESSAGE_VERBOSE": "Noriicht déi als Begréissung un nei Membere geschéckt gëtt",
     "LOGO": "Logo vun der Grupp",
     "SET_LOGO": "Klick fir de Logo vun der Grupp eropzelueden!",
@@ -153,7 +149,6 @@
     "INVITE_TITLE": "Lued Leit an deng Grupp an",
     "INVITATION_ACCEPT_SUCCESS": "Wëllkomm! Du hues d'Aluedung erfollegräich ugeholl.",
     "INVITATION_ACCEPT_ERROR": "Ups, d'Aluedung konnt net ugeholl ginn!",
-    "SETTINGS": "Astellungen",
     "NOTIFICATIONS_BY_GROUP": "Benoriichtegungen no Grupp",
     "EMAIL_NOTIFICATIONS": "Benoriichtegungen via E-Mail",
     "NOTIFICATION_TYPES": {
@@ -217,8 +212,6 @@
       }
     },
     "RESTORE": "Réckgäng maachen",
-    "SHOW_ARCHIVED": "Archivéiert Platzen uweisen",
-    "HIDE_ARCHIVED": "Verstoppte Platzen uweisen",
     "SHOW_ALL": "All d'Platzen uweisen",
     "SHOW_ACTIVE_ONLY": "Just déi aktiv Platzen uweisen"
   },
@@ -323,7 +316,6 @@
     "STARTDATE_HELPER": "Wéini soll d'Serie ufänken?",
     "TIME_HELPER": "Wéini soll d'Ofhuelung sinn?",
     "DATE": "Datum",
-    "DATE_HELPER": "Wéini soll d'Ofhuelung sinn?",
     "MAX_COLLECTORS": "Max. Platzen",
     "MAX_COLLECTORS_HELPER": "Wéi vill Leit solle bei der Ofhuelung matmaachen?",
     "COMMENT": "Zousätzlech Informatiounen",
@@ -368,7 +360,6 @@
     "NUMBER_PICKUPS": "{count} Ofhuelunge gemaach",
     "NUMBER_FEEDBACK": "{count} Feedbacke ginn",
     "WEIGHT_SUM": "{sum} kg Liewensmëttel gerett",
-    "GIVE_FEEDBACK": "Feedback ginn",
     "NONE": "Nach kee Feedback",
     "NONE_HINT": "Dës Säit wäert gefëllt sinn esoubal et méi Feedback gëtt",
     "NO_DONE_PICKUPS": "Alles fäerdeg!",
@@ -378,7 +369,6 @@
     "TITLE": "Feedback",
     "HEADER": "Merci fir deng Ofhuelung!",
     "EDIT": "Feedback veränneren",
-    "SUBTITLE": "Du kanns Feedback zu denger Ofhuelung hei ginn",
     "SET_AMOUNT": "Quantitéit aginn",
     "DELETE_AMOUNT": "Quantitéit läschen",
     "AMOUNT": "Quantitéit vu Liewensmëttel déi's du rette konnts (a kg)",
@@ -446,7 +436,6 @@
     "DETAILS": "Méi Informatiounen"
   },
   "NOTIFICATIONS": {
-    "TITLE": "Benoriichtegungen",
     "NOT_VERIFIED": "{email} ass net verifizéiert",
     "CHECK_YOUR_MAILS": "Kuck w.e.g. an deng E-Mailen oder {resend}",
     "RESEND_VERIFICATION": "schéck d'E-Mail fir ze verifizéieren nach eng Kéier",
@@ -627,7 +616,6 @@
     "TITLE": "Konflikter",
     "VOTE": "Ofstëmmen",
     "CHAT": "Chat",
-    "INITIATED_BY": "Gestart vun {initiatorName}",
     "PAST": "Vergaange Konflikter",
     "PREVIOUS_VOTINGS": "Vergaangen Ofstëmmungen an dësem Konflikt",
     "PARTICIPANTS": "{count} Membere goufen an dës Diskussioun dobäi gemaach.",
@@ -703,8 +691,6 @@
     "SUBTITLE1": "Karrot exists for groups of people who want to save things from being wasted and share them instead, allowing these groups to organise efficiently, on a local and voluntary basis.",
     "SUBTITLE2": "Things such as food, bikes, clothes or whatever is being excessively thrown away or unused in the context of a consumerist society.",
     "VISION_INTRO": "Karrot is a tool for all kinds of grassroots initiatives to connect and grow, supporting the co-ordination of face-to-face activities with a layer of digital infrastructure.",
-    "ACTION": "Have you already found a group nearby you? Or maybe you want to {startAGroup}? If you just want to try Karrot out, then create an account and join the Playground group for testing.",
-    "ACTION_START_A_GROUP": "grënn eng",
     "EXISTING_GROUPS": "E puer Gruppen, déi Karrot scho benotzen",
     "AND_MORE": "A méi...",
     "LINKS": {

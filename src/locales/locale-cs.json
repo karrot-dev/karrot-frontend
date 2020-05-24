@@ -69,7 +69,6 @@
     "DELETE": "Smazat",
     "EDIT": "Upravit",
     "JOIN": "Připojit",
-    "LEAVE": "Odejít",
     "PREVIEW": "Náhled",
     "BACK": "Zpět",
     "NEXT": "Další",
@@ -108,7 +107,6 @@
   },
   "GROUP": {
     "WALL": "Zeď",
-    "GROUP": "Skupina",
     "LEAVE": "Opustit skupinu ...",
     "LEAVE_TEXT": "Opravdu chcete opustit tuto skupinu?",
     "LEAVE_CONFIRMATION": "Opustil jste {groupName}",
@@ -117,9 +115,7 @@
     "CREATE_TITLE": "Vytvořit novou skupinu",
     "MANAGE_AGREEMENT": "Spravovat dohodu",
     "TITLE": "Název této skupiny",
-    "PRIVATE_DESCRIPTION_TITLE": "Popis soukromé skupiny",
     "DESCRIPTION_VERBOSE": "Popis skupiny, viditelný pro členy",
-    "PUBLIC_DESCRIPTION": "Text, který vidíte před připojením ke skupině",
     "WELCOMEMESSAGE_VERBOSE": "Uvítací zpráva byla odeslána novým členům",
     "LOGO": "Logo skupiny",
     "SET_LOGO": "Kliknutím nahrajete logo své skupiny!",
@@ -153,7 +149,6 @@
     "INVITE_TITLE": "Pozvěte uživatele do své skupiny",
     "INVITATION_ACCEPT_SUCCESS": "Vítejte! Pozvánku jste úspěšně přijali.",
     "INVITATION_ACCEPT_ERROR": "Jejda, nemohl jsem přijmout pozvání!",
-    "SETTINGS": "Nastavení",
     "NOTIFICATIONS_BY_GROUP": "Oznámení podle skupiny",
     "EMAIL_NOTIFICATIONS": "E-mailová oznámení",
     "NOTIFICATION_TYPES": {
@@ -217,8 +212,6 @@
       }
     },
     "RESTORE": "Obnovit",
-    "SHOW_ARCHIVED": "Zobrazit archivovaná místa",
-    "HIDE_ARCHIVED": "Skrýt archivovaná místa",
     "SHOW_ALL": "Zobrazit všechna místa",
     "SHOW_ACTIVE_ONLY": "Zobrazit pouze aktivní místa"
   },
@@ -323,7 +316,6 @@
     "STARTDATE_HELPER": "Kdy by měla série začít?",
     "TIME_HELPER": "Kdy by mělo dojít k vyzvednutí?",
     "DATE": "Datum",
-    "DATE_HELPER": "Kdy by mělo dojít k vyzvednutí?",
     "MAX_COLLECTORS": "Maximum slotů",
     "MAX_COLLECTORS_HELPER": "Kolik lidí by se mělo na vyzvednutí zúčastnit?",
     "COMMENT": "Dodatečné informace",
@@ -368,7 +360,6 @@
     "NUMBER_PICKUPS": "{count} vyzvednutí hotovo",
     "NUMBER_FEEDBACK": "{count} zadané komentáře",
     "WEIGHT_SUM": "{sum} kg zachráněného jídla",
-    "GIVE_FEEDBACK": "Dát zpětnou vazbu",
     "NONE": "Zatím žádná zpětná vazba",
     "NONE_HINT": "Tato stránka bude vyplněna, jakmile bude k dispozici další zpětná vazba",
     "NO_DONE_PICKUPS": "Vše hotovo!",
@@ -378,7 +369,6 @@
     "TITLE": "Zpětná vazba",
     "HEADER": "Děkujeme za vyzvednutí!",
     "EDIT": "Upravit zpětnou vazbu",
-    "SUBTITLE": "Zde můžete poskytnout zpětnou vazbu k vyzvednutí",
     "SET_AMOUNT": "Nastavit množství",
     "DELETE_AMOUNT": "Smazat množství",
     "AMOUNT": "Množství jídla, které jste dokázali ušetřit (v kg)",
@@ -446,7 +436,6 @@
     "DETAILS": "Více informací"
   },
   "NOTIFICATIONS": {
-    "TITLE": "Oznámení",
     "NOT_VERIFIED": "{email} není ověřen",
     "CHECK_YOUR_MAILS": "Zkontrolujte prosím své e-maily nebo {resend}",
     "RESEND_VERIFICATION": "opětovné zaslání ověřovacího e-mailu",
@@ -627,7 +616,6 @@
     "TITLE": "Záležitosti",
     "VOTE": "Hlasovat",
     "CHAT": "Chat",
-    "INITIATED_BY": "Iniciován od {initiatorName}",
     "PAST": "Minulé záležitosti",
     "PREVIOUS_VOTINGS": "Předchozí hlasování v této záležitosti",
     "PARTICIPANTS": "Do této diskuse bylo přidáno {count} členů.",
@@ -703,8 +691,6 @@
     "SUBTITLE1": "Karrot existuje pro skupiny lidí, kteří chtějí zachránit věci před plýtváním, a místo toho je sdílet, což umožňuje těmto skupinám účinně se organizovat na místním a dobrovolném základě.",
     "SUBTITLE2": "Věci, jako je jídlo, jízdní kola, oblečení nebo cokoli, jsou v kontextu konzumní společnosti zbytečně vyhazovány nebo nevyužity.",
     "VISION_INTRO": "Karrot je nástrojem pro všechny druhy místních iniciativ, které se spojují a rostou, a podporuje koordinaci osobních aktivit s vrstvou digitální infrastruktury.",
-    "ACTION": "Už jste našli skupinu ve vašem okolí? Nebo ji možná chcete {startAGroup}? Pokud si jen chcete Karrot vyzkoušet, vytvořte si účet a připojte se ke skupině Playground pro testování.",
-    "ACTION_START_A_GROUP": "začít jednou",
     "EXISTING_GROUPS": "Několik skupin již používá Karrot",
     "AND_MORE": "A více...",
     "LINKS": {

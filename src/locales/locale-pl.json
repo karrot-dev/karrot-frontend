@@ -69,7 +69,6 @@
     "DELETE": "Usuń",
     "EDIT": "Edytuj",
     "JOIN": "Dołącz",
-    "LEAVE": "Opuść",
     "PREVIEW": "Podgląd",
     "BACK": "Wstecz",
     "NEXT": "Następny",
@@ -108,7 +107,6 @@
   },
   "GROUP": {
     "WALL": "Aktualności",
-    "GROUP": "Grupa",
     "LEAVE": "Opuść grupę...",
     "LEAVE_TEXT": "Czy na pewno chcesz opuścić tę grupę?",
     "LEAVE_CONFIRMATION": "Opuściłaś/-eś {groupName}",
@@ -117,9 +115,7 @@
     "CREATE_TITLE": "Utwórz nową grupę",
     "MANAGE_AGREEMENT": "Zarządzaj umową",
     "TITLE": "Nazwa grupy",
-    "PRIVATE_DESCRIPTION_TITLE": "Opis grupy",
     "DESCRIPTION_VERBOSE": "Opis grupy widoczny dla członków",
-    "PUBLIC_DESCRIPTION": "Tekst widoczny przed dołączeniem do grupy",
     "WELCOMEMESSAGE_VERBOSE": "Wiadomość powitalna do nowych użytkowników",
     "LOGO": "Logo grupy",
     "SET_LOGO": "Kliknij by wgrać logo grupy!",
@@ -153,7 +149,6 @@
     "INVITE_TITLE": "Zaproś użytkowników do Twojej grupy",
     "INVITATION_ACCEPT_SUCCESS": "Witamy! Przyjęłaś/-łeś zaproszenie.",
     "INVITATION_ACCEPT_ERROR": "Ups, nie możesz przyjąć tego zaproszenia!",
-    "SETTINGS": "Ustawienia",
     "NOTIFICATIONS_BY_GROUP": "Powiadomienia według grup",
     "EMAIL_NOTIFICATIONS": "Powiadomienia e-mail",
     "NOTIFICATION_TYPES": {
@@ -217,8 +212,6 @@
       }
     },
     "RESTORE": "Przywróć",
-    "SHOW_ARCHIVED": "Pokaż zarchiwizowane punkty",
-    "HIDE_ARCHIVED": "Ukryj zarchiwizowane punkty",
     "SHOW_ALL": "Pokaż wszystkie punkty",
     "SHOW_ACTIVE_ONLY": "Pokaż tylko aktywne punkty"
   },
@@ -323,7 +316,6 @@
     "STARTDATE_HELPER": "Kiedy zaczną się odbiory?",
     "TIME_HELPER": "O której godzinie odbieramy jedzenie?",
     "DATE": "Data",
-    "DATE_HELPER": "Którego dnia odbieramy jedzenie?",
     "MAX_COLLECTORS": "Maksymalna liczba okienek",
     "MAX_COLLECTORS_HELPER": "Ile osób może maksymalnie uczestniczyć w odbiorze?",
     "COMMENT": "Dodatkowe informacje",
@@ -368,7 +360,6 @@
     "NUMBER_PICKUPS": "odebrano {count} razy",
     "NUMBER_FEEDBACK": "Dodano {count} komentarzy do odbiorów",
     "WEIGHT_SUM": "uratowano {sum} kg jedzenia",
-    "GIVE_FEEDBACK": "Dodaj komentarz",
     "NONE": "Brak komentarzy",
     "NONE_HINT": "Tutaj pojawią się komentarze",
     "NO_DONE_PICKUPS": "Wszystko odebrane!",
@@ -378,7 +369,6 @@
     "TITLE": "Komentarz",
     "HEADER": "Dzięki za odbiór!",
     "EDIT": "Edytuj komentarz",
-    "SUBTITLE": "Tutaj możesz dodać komentarz na temat odbioru",
     "SET_AMOUNT": "Wprowadź ilość",
     "DELETE_AMOUNT": "Usuń ilość",
     "AMOUNT": "Ilość jedzenia, które uratowałaś/-eś (w kg)",
@@ -446,7 +436,6 @@
     "DETAILS": "Więcej informacji"
   },
   "NOTIFICATIONS": {
-    "TITLE": "Powiadomienia",
     "NOT_VERIFIED": "nie zweryfikowano adresu {email}",
     "CHECK_YOUR_MAILS": "Sprawdź pocztę lub {resend}",
     "RESEND_VERIFICATION": "wyślij ponownie e-mail weryfikacyjny",
@@ -627,7 +616,6 @@
     "TITLE": "Sprawy",
     "VOTE": "Głosuj",
     "CHAT": "Czat",
-    "INITIATED_BY": "Z inicjatywy {initiatorName}",
     "PAST": "Zakończone sprawy",
     "PREVIOUS_VOTINGS": "Wcześniejsze głosowania w tej sprawie",
     "PARTICIPANTS": "Dodano {count} użytkowników do dyskusji",
@@ -703,8 +691,6 @@
     "SUBTITLE1": "Karrot exists for groups of people who want to save things from being wasted and share them instead, allowing these groups to organise efficiently, on a local and voluntary basis.",
     "SUBTITLE2": "Things such as food, bikes, clothes or whatever is being excessively thrown away or unused in the context of a consumerist society.",
     "VISION_INTRO": "Karrot is a tool for all kinds of grassroots initiatives to connect and grow, supporting the co-ordination of face-to-face activities with a layer of digital infrastructure.",
-    "ACTION": "Have you already found a group nearby you? Or maybe you want to {startAGroup}? If you just want to try Karrot out, then create an account and join the Playground group for testing.",
-    "ACTION_START_A_GROUP": "start one",
     "EXISTING_GROUPS": "A few groups already using Karrot",
     "AND_MORE": "And more...",
     "LINKS": {

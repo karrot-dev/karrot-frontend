@@ -69,7 +69,6 @@
     "DELETE": "Deletar",
     "EDIT": "Editar",
     "JOIN": "Participar",
-    "LEAVE": "Sair",
     "PREVIEW": "Visualizar",
     "BACK": "Voltar",
     "NEXT": "Próximo",
@@ -108,7 +107,6 @@
   },
   "GROUP": {
     "WALL": "Mural",
-    "GROUP": "Grupo",
     "LEAVE": "Sair do grupo...",
     "LEAVE_TEXT": "Você tem certeza que deseja sair deste grupo?",
     "LEAVE_CONFIRMATION": "Você saiu de {groupName}",
@@ -117,9 +115,7 @@
     "CREATE_TITLE": "Criar um novo grupo",
     "MANAGE_AGREEMENT": "Gerenciar contrato",
     "TITLE": "Título deste grupo",
-    "PRIVATE_DESCRIPTION_TITLE": "Descrição privada do grupo",
     "DESCRIPTION_VERBOSE": "Descrição do grupo. Visível para os membros",
-    "PUBLIC_DESCRIPTION": "Texto que você ve antes de entrar no grupo",
     "WELCOMEMESSAGE_VERBOSE": "Mensagem de boas vindas enviada a novos membros",
     "LOGO": "Logo do grupo",
     "SET_LOGO": "Clique para fazer upload da sua logo do grupo!",
@@ -153,7 +149,6 @@
     "INVITE_TITLE": "Convide usuários para o seu grupo",
     "INVITATION_ACCEPT_SUCCESS": "Bem Vindo! Você aceitou um convite com sucesso!",
     "INVITATION_ACCEPT_ERROR": "Ooops, não foi possível aceitar este convite!",
-    "SETTINGS": "Configurações",
     "NOTIFICATIONS_BY_GROUP": "Notifications by group",
     "EMAIL_NOTIFICATIONS": "Notificações por e-mail",
     "NOTIFICATION_TYPES": {
@@ -217,8 +212,6 @@
       }
     },
     "RESTORE": "Recuperar",
-    "SHOW_ARCHIVED": "Show archived places",
-    "HIDE_ARCHIVED": "Hide archived places",
     "SHOW_ALL": "Show all places",
     "SHOW_ACTIVE_ONLY": "Only show active places"
   },
@@ -323,7 +316,6 @@
     "STARTDATE_HELPER": "Quando a série deve começar?",
     "TIME_HELPER": "Quando a coleta deve acontecer?",
     "DATE": "Dia",
-    "DATE_HELPER": "Quando a coleta deve acontecer?",
     "MAX_COLLECTORS": "Número máximo de slots",
     "MAX_COLLECTORS_HELPER": "Quantas pessoas podem participar dessa coleta?",
     "COMMENT": "Informações adicionais",
@@ -368,7 +360,6 @@
     "NUMBER_PICKUPS": "{count} pickups done",
     "NUMBER_FEEDBACK": "{count} feedback entries given",
     "WEIGHT_SUM": "{sum} kg of food saved",
-    "GIVE_FEEDBACK": "De seu parecer",
     "NONE": "Sem comentários, ainda",
     "NONE_HINT": "Esta página sera preenchida assim que mais comentários apareçam",
     "NO_DONE_PICKUPS": "Tudo pronto!",
@@ -378,7 +369,6 @@
     "TITLE": "Comentários",
     "HEADER": "Agradecemos sua coleta!",
     "EDIT": "Editar seu comentário",
-    "SUBTITLE": "Você pode deixar um comentário sobre a sua coleta aqui!",
     "SET_AMOUNT": "Set amount",
     "DELETE_AMOUNT": "Delete amount",
     "AMOUNT": "Amount of food you were able to save (in kg)",
@@ -446,7 +436,6 @@
     "DETAILS": "Mais informação"
   },
   "NOTIFICATIONS": {
-    "TITLE": "Notificações",
     "NOT_VERIFIED": "{email} is not verified",
     "CHECK_YOUR_MAILS": "Por favor verifique seu email ou {resend}",
     "RESEND_VERIFICATION": "envie a verificação mais uma vez",
@@ -627,7 +616,6 @@
     "TITLE": "Issues",
     "VOTE": "Vote",
     "CHAT": "Chat",
-    "INITIATED_BY": "Initiated by {initiatorName}",
     "PAST": "Past issues",
     "PREVIOUS_VOTINGS": "Previous votings in this issue",
     "PARTICIPANTS": "{count} members have been added to this discussion.",
@@ -703,8 +691,6 @@
     "SUBTITLE1": "Karrot exists for groups of people who want to save things from being wasted and share them instead, allowing these groups to organise efficiently, on a local and voluntary basis.",
     "SUBTITLE2": "Things such as food, bikes, clothes or whatever is being excessively thrown away or unused in the context of a consumerist society.",
     "VISION_INTRO": "Karrot is a tool for all kinds of grassroots initiatives to connect and grow, supporting the co-ordination of face-to-face activities with a layer of digital infrastructure.",
-    "ACTION": "Have you already found a group nearby you? Or maybe you want to {startAGroup}? If you just want to try Karrot out, then create an account and join the Playground group for testing.",
-    "ACTION_START_A_GROUP": "start one",
     "EXISTING_GROUPS": "A few groups already using Karrot",
     "AND_MORE": "And more...",
     "LINKS": {

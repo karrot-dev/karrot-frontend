@@ -69,7 +69,6 @@
     "DELETE": "કાઢી નાંખો",
     "EDIT": "સંપાદિત કરોસંપાદિત કરો",
     "JOIN": "જોડાઓ",
-    "LEAVE": "છોડો",
     "PREVIEW": "પૂર્વાવલોકન",
     "BACK": "પાછળ",
     "NEXT": "Next",
@@ -108,7 +107,6 @@
   },
   "GROUP": {
     "WALL": "દિવાલ",
-    "GROUP": "ગ્રુપ",
     "LEAVE": "સમૂહ છોડી દો...",
     "LEAVE_TEXT": "શું તમે ખરેખર આ જૂથ છોડવા માંગો છો?",
     "LEAVE_CONFIRMATION": "તમે {groupName} છોડી દીધું છે",
@@ -117,9 +115,7 @@
     "CREATE_TITLE": "નવું જૂથ બનાવો",
     "MANAGE_AGREEMENT": "કરારનું સંચાલન કરો",
     "TITLE": "આ જૂથનું શીર્ષક",
-    "PRIVATE_DESCRIPTION_TITLE": "ખાનગી જૂથનું વર્ણન",
     "DESCRIPTION_VERBOSE": "સભ્યો માટે દૃશ્યમાન ગ્રુપનું વર્ણન",
-    "PUBLIC_DESCRIPTION": "જૂથમાં જોડાતા પહેલાં તમે જુઓ છો તે ટેક્સ્ટ",
     "WELCOMEMESSAGE_VERBOSE": "Welcome message sent to new members",
     "LOGO": "Group logo",
     "SET_LOGO": "Click to upload your group logo!",
@@ -153,7 +149,6 @@
     "INVITE_TITLE": "તમારા જૂથમાં વપરાશકર્તાઓને આમંત્રિત કરો",
     "INVITATION_ACCEPT_SUCCESS": "સ્વાગત છે! તમે સફળતાપૂર્વક આમંત્રણ સ્વીકાર્યું છે.",
     "INVITATION_ACCEPT_ERROR": "અરે, આમંત્રણ સ્વીકારી શક્યા નથી!",
-    "SETTINGS": "સેટિંગ્સ",
     "NOTIFICATIONS_BY_GROUP": "Notifications by group",
     "EMAIL_NOTIFICATIONS": "Email notifications",
     "NOTIFICATION_TYPES": {
@@ -217,8 +212,6 @@
       }
     },
     "RESTORE": "પુનઃસ્થાપિત",
-    "SHOW_ARCHIVED": "Show archived places",
-    "HIDE_ARCHIVED": "Hide archived places",
     "SHOW_ALL": "Show all places",
     "SHOW_ACTIVE_ONLY": "Only show active places"
   },
@@ -323,7 +316,6 @@
     "STARTDATE_HELPER": "આ શ્રેણી ક્યારે શરૂ થવી જોઈએ?",
     "TIME_HELPER": "પિક-અપ ક્યારે થવો જોઈએ?",
     "DATE": "તારીખ",
-    "DATE_HELPER": "પિક-અપ ક્યારે થવો જોઈએ?",
     "MAX_COLLECTORS": "મહત્તમ સ્લોટ્સ",
     "MAX_COLLECTORS_HELPER": "પિક-અપમાં કેટલા લોકોએ ભાગ લેવો જોઈએ?",
     "COMMENT": "વધારાની માહિતી",
@@ -368,7 +360,6 @@
     "NUMBER_PICKUPS": "{count} pickups done",
     "NUMBER_FEEDBACK": "{count} feedback entries given",
     "WEIGHT_SUM": "{sum} kg of food saved",
-    "GIVE_FEEDBACK": "અભીપ્રાય આપો",
     "NONE": "હજુ સુધી કોઈ પ્રત્યુત્તર નથી",
     "NONE_HINT": "એકવાર વધુ પ્રતિસાદ ઉપલબ્ધ થાય પછી આ પૃષ્ઠ ભરવામાં આવશે",
     "NO_DONE_PICKUPS": "All done!",
@@ -378,7 +369,6 @@
     "TITLE": "પ્રતિસાદ",
     "HEADER": "તમારા પિક અપ માટે આભાર!",
     "EDIT": "પ્રતિસાદ સંપાદિત કરો",
-    "SUBTITLE": "તમે અહીં તમારી પસંદ માટે પ્રતિક્રિયા આપી શકો છો",
     "SET_AMOUNT": "Set amount",
     "DELETE_AMOUNT": "Delete amount",
     "AMOUNT": "Amount of food you were able to save (in kg)",
@@ -446,7 +436,6 @@
     "DETAILS": "વધુ મહિતી"
   },
   "NOTIFICATIONS": {
-    "TITLE": "સૂચનાઓ",
     "NOT_VERIFIED": "{email} is not verified",
     "CHECK_YOUR_MAILS": "કૃપા કરી તમારી ઇમેઇલ્સ તપાસો અથવા {ફરીથી મોકલો}",
     "RESEND_VERIFICATION": "ચકાસણી ઇમેઇલ ફરીથી મોકલો",
@@ -627,7 +616,6 @@
     "TITLE": "Issues",
     "VOTE": "Vote",
     "CHAT": "Chat",
-    "INITIATED_BY": "Initiated by {initiatorName}",
     "PAST": "Past issues",
     "PREVIOUS_VOTINGS": "Previous votings in this issue",
     "PARTICIPANTS": "{count} members have been added to this discussion.",
@@ -703,8 +691,6 @@
     "SUBTITLE1": "Karrot exists for groups of people who want to save things from being wasted and share them instead, allowing these groups to organise efficiently, on a local and voluntary basis.",
     "SUBTITLE2": "Things such as food, bikes, clothes or whatever is being excessively thrown away or unused in the context of a consumerist society.",
     "VISION_INTRO": "Karrot is a tool for all kinds of grassroots initiatives to connect and grow, supporting the co-ordination of face-to-face activities with a layer of digital infrastructure.",
-    "ACTION": "Have you already found a group nearby you? Or maybe you want to {startAGroup}? If you just want to try Karrot out, then create an account and join the Playground group for testing.",
-    "ACTION_START_A_GROUP": "start one",
     "EXISTING_GROUPS": "A few groups already using Karrot",
     "AND_MORE": "And more...",
     "LINKS": {

@@ -69,7 +69,6 @@
     "DELETE": "हटाना",
     "EDIT": "संपादित करें",
     "JOIN": "शामिल होना",
-    "LEAVE": "छोड़ना",
     "PREVIEW": "पूर्वावलोकन",
     "BACK": "वापस",
     "NEXT": "Next",
@@ -108,7 +107,6 @@
   },
   "GROUP": {
     "WALL": "दीवार",
-    "GROUP": "समूह ",
     "LEAVE": "समूह छोड़ दें",
     "LEAVE_TEXT": "क्या आप वाकई इस समूह को छोड़ना चाहते हैं?",
     "LEAVE_CONFIRMATION": "आपने {समूह का नाम} को छोड़ दिया",
@@ -117,9 +115,7 @@
     "CREATE_TITLE": "नया समूह बनाएं",
     "MANAGE_AGREEMENT": "अनुबंध प्रबंधित करें",
     "TITLE": "इस समूह का शीर्षक",
-    "PRIVATE_DESCRIPTION_TITLE": "निजी समूह चर्चा",
     "DESCRIPTION_VERBOSE": "सदस्य के लिए समूह विवरण उपलब्ध",
-    "PUBLIC_DESCRIPTION": "एक समूह में शामिल होने से पहले आपको दिखाई देने वाला पाठ",
     "WELCOMEMESSAGE_VERBOSE": "Welcome message sent to new members",
     "LOGO": "Group logo",
     "SET_LOGO": "Click to upload your group logo!",
@@ -153,7 +149,6 @@
     "INVITE_TITLE": "उपयोगकर्ताओं को अपने समूह में आमंत्रित करें",
     "INVITATION_ACCEPT_SUCCESS": "स्वागत हे!आपने आमंत्रण सफलतापूर्वक स्वीकार कर लिया है",
     "INVITATION_ACCEPT_ERROR": "ओह, निमंत्रण स्वीकार नहीं कर सका!",
-    "SETTINGS": "सेटिंग्स",
     "NOTIFICATIONS_BY_GROUP": "Notifications by group",
     "EMAIL_NOTIFICATIONS": "ईमेल सूचनाएं",
     "NOTIFICATION_TYPES": {
@@ -217,8 +212,6 @@
       }
     },
     "RESTORE": "बहाल",
-    "SHOW_ARCHIVED": "Show archived places",
-    "HIDE_ARCHIVED": "Hide archived places",
     "SHOW_ALL": "Show all places",
     "SHOW_ACTIVE_ONLY": "Only show active places"
   },
@@ -323,7 +316,6 @@
     "STARTDATE_HELPER": "कब श्रृंखला शुरू होनी चाहिए?",
     "TIME_HELPER": "पिक-अप कब होना चाहिए?",
     "DATE": "तारीख",
-    "DATE_HELPER": "पिक-अप कब होना चाहिए?",
     "MAX_COLLECTORS": "अधिकतम स्लॉट",
     "MAX_COLLECTORS_HELPER": "पिक-अप में कितने लोगों को भाग लेना चाहिए?",
     "COMMENT": "अधिक जानकारी",
@@ -368,7 +360,6 @@
     "NUMBER_PICKUPS": "{count} pickups done",
     "NUMBER_FEEDBACK": "{count} feedback entries given",
     "WEIGHT_SUM": "{sum} kg of food saved",
-    "GIVE_FEEDBACK": "प्रतिक्रिया दें",
     "NONE": "अभी तक कोई प्रतिक्रिया नहीं",
     "NONE_HINT": "एक बार और फ़ीडबैक उपलब्ध होने पर यह पृष्ठ भर जाएगा",
     "NO_DONE_PICKUPS": "All done!",
@@ -378,7 +369,6 @@
     "TITLE": "प्रतिक्रिया",
     "HEADER": "अपने पिकअप के लिए धन्यवाद!",
     "EDIT": "प्रतिक्रिया संपादित करें",
-    "SUBTITLE": "आप यहां अपने पिकअप के लिए प्रतिक्रिया प्रदान कर सकते हैं",
     "SET_AMOUNT": "Set amount",
     "DELETE_AMOUNT": "Delete amount",
     "AMOUNT": "Amount of food you were able to save (in kg)",
@@ -446,7 +436,6 @@
     "DETAILS": "अधिक जानकारी"
   },
   "NOTIFICATIONS": {
-    "TITLE": "सूचनाएं",
     "NOT_VERIFIED": "{email} is not verified",
     "CHECK_YOUR_MAILS": "कृपया अपने ईमेल की जांच करें या {पुनः भेजें}",
     "RESEND_VERIFICATION": "सत्यापन ईमेल पुनः भेजे",
@@ -627,7 +616,6 @@
     "TITLE": "Issues",
     "VOTE": "Vote",
     "CHAT": "Chat",
-    "INITIATED_BY": "Initiated by {initiatorName}",
     "PAST": "Past issues",
     "PREVIOUS_VOTINGS": "Previous votings in this issue",
     "PARTICIPANTS": "{count} members have been added to this discussion.",
@@ -703,8 +691,6 @@
     "SUBTITLE1": "Karrot exists for groups of people who want to save things from being wasted and share them instead, allowing these groups to organise efficiently, on a local and voluntary basis.",
     "SUBTITLE2": "Things such as food, bikes, clothes or whatever is being excessively thrown away or unused in the context of a consumerist society.",
     "VISION_INTRO": "Karrot is a tool for all kinds of grassroots initiatives to connect and grow, supporting the co-ordination of face-to-face activities with a layer of digital infrastructure.",
-    "ACTION": "Have you already found a group nearby you? Or maybe you want to {startAGroup}? If you just want to try Karrot out, then create an account and join the Playground group for testing.",
-    "ACTION_START_A_GROUP": "start one",
     "EXISTING_GROUPS": "A few groups already using Karrot",
     "AND_MORE": "And more...",
     "LINKS": {

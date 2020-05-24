@@ -69,7 +69,6 @@
     "DELETE": "Forigi",
     "EDIT": "Redakti",
     "JOIN": "Aliĝi",
-    "LEAVE": "Eliri",
     "PREVIEW": "Antaŭvido",
     "BACK": "Reen",
     "NEXT": "Venonta",
@@ -108,7 +107,6 @@
   },
   "GROUP": {
     "WALL": "Muro",
-    "GROUP": "Grupo",
     "LEAVE": "Forlasi la grupon…",
     "LEAVE_TEXT": "Ĉu vi vere volas forlasi la grupon?",
     "LEAVE_CONFIRMATION": "Vi forlasis {groupName}",
@@ -117,9 +115,7 @@
     "CREATE_TITLE": "Krei novan grupon",
     "MANAGE_AGREEMENT": "Agordi akordon",
     "TITLE": "Titolo de ĉi tiu grupo",
-    "PRIVATE_DESCRIPTION_TITLE": "Priskribo de privata grupo",
     "DESCRIPTION_VERBOSE": "Grupa preskribo, videbla por anoj",
-    "PUBLIC_DESCRIPTION": "Teksto videbla antaŭ aliĝi al la grupo",
     "WELCOMEMESSAGE_VERBOSE": "Bonvena mesaĝo sendita al novuloj",
     "LOGO": "Grupa logotipo",
     "SET_LOGO": "Alklaku por alŝuti vian grupan logotipon!",
@@ -153,7 +149,6 @@
     "INVITE_TITLE": "Inviti uzantojn al via grupo",
     "INVITATION_ACCEPT_SUCCESS": "Bonvenon! Vi sukcese akceptis la inviton.",
     "INVITATION_ACCEPT_ERROR": "Ho ve, la invito ne estis akceptita!",
-    "SETTINGS": "Agordoj",
     "NOTIFICATIONS_BY_GROUP": "Sciigoj laŭ grupo",
     "EMAIL_NOTIFICATIONS": "Retmesaĝaj sciigoj",
     "NOTIFICATION_TYPES": {
@@ -217,8 +212,6 @@
       }
     },
     "RESTORE": "Restaŭri",
-    "SHOW_ARCHIVED": "Montri arkivigitajn lokojn",
-    "HIDE_ARCHIVED": "Kaŝu arkivigitajn lokojn",
     "SHOW_ALL": "Montri ĉiujn lokojn",
     "SHOW_ACTIVE_ONLY": "Nur montri aktivajn lokojn"
   },
@@ -323,7 +316,6 @@
     "STARTDATE_HELPER": "Kiam devas komenci la serion?",
     "TIME_HELPER": "Kiam okazu la savadon?",
     "DATE": "Dato",
-    "DATE_HELPER": "Kiam okazu la savadon?",
     "MAX_COLLECTORS": "Maks Savlokoj",
     "MAX_COLLECTORS_HELPER": "Kiom da homoj partoprenindas en la savado?",
     "COMMENT": "Aldona informo",
@@ -368,7 +360,6 @@
     "NUMBER_PICKUPS": "{count}faritaj savadoj",
     "NUMBER_FEEDBACK": "{count}komentoj skribitaj",
     "WEIGHT_SUM": "{sum}kg savitaj",
-    "GIVE_FEEDBACK": "Komenti",
     "NONE": "Neniu komento ankoraŭ",
     "NONE_HINT": "Tiu ĉi paĝo pleniĝos kiam komentoj disponeblos",
     "NO_DONE_PICKUPS": "Ĉio farita!",
@@ -378,7 +369,6 @@
     "TITLE": "Komentoj",
     "HEADER": "Dankon por via savado",
     "EDIT": "Redakti komenton",
-    "SUBTITLE": "Vi povas komenti pri via savado ĉi tie",
     "SET_AMOUNT": "Agordi kvanton",
     "DELETE_AMOUNT": "Forigi kvanton",
     "AMOUNT": "Manĝkvanto kiun vi povis savi (en kg)",
@@ -446,7 +436,6 @@
     "DETAILS": "Plia informo"
   },
   "NOTIFICATIONS": {
-    "TITLE": "Sciigoj",
     "NOT_VERIFIED": "{email}ne estas kontrolita",
     "CHECK_YOUR_MAILS": "Bonvolu kontroli viajn retmesaĝojn aŭ {resend}",
     "RESEND_VERIFICATION": "resendi kontrolan retmesaĝon",
@@ -627,7 +616,6 @@
     "TITLE": "Konfliktoj",
     "VOTE": "Voĉdoni",
     "CHAT": "Babilejo",
-    "INITIATED_BY": "Komencita de{initiatorName}",
     "PAST": "Pasintaj konfliktoj",
     "PREVIOUS_VOTINGS": "Antaŭaj voĉdonadoj pri tiu ĉi konflikto",
     "PARTICIPANTS": "{count}anoj jam kontribuis al la diskuto",
@@ -703,8 +691,6 @@
     "SUBTITLE1": "Karrot ekzistas por grupoj de homoj kiuj volas savi aĵojn kaj disdoni ilin. Ĝi faciligas la organizadon de tiaj grupoj loke kaj volontule.",
     "SUBTITLE2": "Aĵoj kiel manĝaĵojn, biciklojn, vestaĵojn, ktp tro kutime estas ĵetitaj al rubujoj aŭ neuzitaj en la konsumema socio.",
     "VISION_INTRO": "Karrot estas ilo por ĉiaj popolaj iniciatoj, por konekti kaj helpi ilin kreskiĝi por subteni organizado de vizaĝaj aktivaĵoj per virtualaj rimedoj.",
-    "ACTION": "Ĉu vi jam trovis grupon apud vi? Eble vi volas {startAGroup}. Se vi nur volas provi Karrot, kreu konton kaj aliĝu la grupon 'relaksujo' por esplori la retpaĝon.",
-    "ACTION_START_A_GROUP": "komenci grupon",
     "EXISTING_GROUPS": "Kelkaj grupoj kiuj jam uzas Karrot",
     "AND_MORE": "Kaj pli...",
     "LINKS": {

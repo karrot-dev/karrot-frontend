@@ -69,7 +69,6 @@
     "DELETE": "Löschen",
     "EDIT": "Bearbeiten",
     "JOIN": "Beitreten",
-    "LEAVE": "Verlassen",
     "PREVIEW": "Vorschau",
     "BACK": "Zurück",
     "NEXT": "Weiter",
@@ -108,7 +107,6 @@
   },
   "GROUP": {
     "WALL": "Wall",
-    "GROUP": "Gruppe",
     "LEAVE": "Gruppe verlassen",
     "LEAVE_TEXT": "Bist du sicher, dass du diese Gruppe verlassen möchtest?",
     "LEAVE_CONFIRMATION": "Du hast {groupName} verlassen",
@@ -117,9 +115,7 @@
     "CREATE_TITLE": "Neue Gruppe erstellen",
     "MANAGE_AGREEMENT": "Vereinbarung verwalten",
     "TITLE": "Name der Gruppe",
-    "PRIVATE_DESCRIPTION_TITLE": "Interne Gruppenbeschreibung",
     "DESCRIPTION_VERBOSE": "Gruppenbeschreibung, nur für Mitglieder sichtbar",
-    "PUBLIC_DESCRIPTION": "Text, der vorm Beitritt zur Gruppe angezeigt wird",
     "WELCOMEMESSAGE_VERBOSE": "Willkommensnachricht an neue Mitglieder",
     "LOGO": "Gruppenlogo",
     "SET_LOGO": "Klicke, um dein Gruppenlogo hochzuladen!",
@@ -153,7 +149,6 @@
     "INVITE_TITLE": "Einladungen zur Gruppe",
     "INVITATION_ACCEPT_SUCCESS": "Willkommen! Du hast die Einladung erfolgreich angenommen.",
     "INVITATION_ACCEPT_ERROR": "Ups, die Einladung konnte nicht akzeptiert werden!",
-    "SETTINGS": "Einstellungen",
     "NOTIFICATIONS_BY_GROUP": "Gruppenbenachrichtigungen",
     "EMAIL_NOTIFICATIONS": "Email-Benachrichtigungen",
     "NOTIFICATION_TYPES": {
@@ -217,8 +212,6 @@
       }
     },
     "RESTORE": "Wiederherstellen",
-    "SHOW_ARCHIVED": "Archivierte Orte anzeigen",
-    "HIDE_ARCHIVED": "Archivierte Orte verstecken",
     "SHOW_ALL": "Alle Orte anzeigen",
     "SHOW_ACTIVE_ONLY": "Nur aktive Orte anzeigen"
   },
@@ -260,7 +253,7 @@
     "NUM_MEMBERS": "Mitglied | Mitglieder",
     "NO_PUBLIC_DESCRIPTION": "(Diese Gruppe hat bisher keine Beschreibung)",
     "ALL_GROUPS": "Alle Gruppen",
-    "BROWSE_GROUPS": "Bestehende Gruppen anschauen",
+    "BROWSE_GROUPS": "Gruppen ansehen",
     "SIGNUP_OR_LOGIN": "Anmelden, um dieser Gruppe beizutreten!",
     "VERIFY_EMAIL_ADDRESS": "Verifiziere deine E-Mail-Adresse, um dich zu bewerben",
     "MY_GROUPS": "Meine Gruppen",
@@ -323,7 +316,6 @@
     "STARTDATE_HELPER": "Wann sollen die Abholungen beginnen?",
     "TIME_HELPER": "Wann soll die Abholung stattfinden?",
     "DATE": "Datum",
-    "DATE_HELPER": "Wann soll die Abholung stattfinden?",
     "MAX_COLLECTORS": "Anzahl Abholer",
     "MAX_COLLECTORS_HELPER": "Wie viele Leute sollen bei der Abholung teilnehmen?",
     "COMMENT": "Zusätzliche Informationen",
@@ -368,7 +360,6 @@
     "NUMBER_PICKUPS": "{count} Abholungen",
     "NUMBER_FEEDBACK": "{count} Rückmeldungen",
     "WEIGHT_SUM": "{sum} kg Lebensmittel gerettet",
-    "GIVE_FEEDBACK": "Gib Feedback",
     "NONE": "Bisher kein Feedback",
     "NONE_HINT": "Auf dieser Seite wird etwas stehen, sobald Feedback abgegeben wurde",
     "NO_DONE_PICKUPS": "Alles erledigt!",
@@ -378,7 +369,6 @@
     "TITLE": "Feedback",
     "HEADER": "Danke für deine Abholung!",
     "EDIT": "Rückmeldung bearbeiten",
-    "SUBTITLE": "Du kannst hier eine Rückmeldung eingeben",
     "SET_AMOUNT": "Gewicht eingeben",
     "DELETE_AMOUNT": "Gewicht löschen",
     "AMOUNT": "Menge des geretteten Essens (in kg)",
@@ -446,7 +436,6 @@
     "DETAILS": "Mehr Infos"
   },
   "NOTIFICATIONS": {
-    "TITLE": "Benachrichtigungen",
     "NOT_VERIFIED": "{email} ist nicht verifiziert",
     "CHECK_YOUR_MAILS": "Bitte guck in deine E-Mails oder {resend}",
     "RESEND_VERIFICATION": "sende eine neue Verifizierungs-E-Mail",
@@ -627,7 +616,6 @@
     "TITLE": "Konflikte",
     "VOTE": "Abstimmen",
     "CHAT": "Unterhaltung",
-    "INITIATED_BY": "Eingeleitet von {initiatorName}",
     "PAST": "Vergangene Konflikte",
     "PREVIOUS_VOTINGS": "Vergangene Abstimmungen in diesem Konflikt",
     "PARTICIPANTS": "{count} Mitglieder wurden dieser Diskussion hinzugefügt.",
@@ -699,16 +687,14 @@
   "YOU": "Du",
   "TO": "bis",
   "ABOUT_KARROT": {
-    "TITLE": "Rette Dinge vor der Verschwendung und teile sie stattdessen!",
-    "SUBTITLE1": "Karrot existiert für Gruppen von Leuten, die Dinge vor dem Weggeschmissen-Werden retten und sie stattdessen teilen wollen, und ermöglicht es ihnen, sich in Gruppen effizient zu organisieren, auf einer lokalen und freiwilligen Basis.",
-    "SUBTITLE2": "Dinge wie Essen, Fahrräder, Kleidung, oder was auch immer im Kontext einer Konsumgesellschaft exzessiv weg geworfen oder nicht genutzt wird.",
-    "VISION_INTRO": "Karrot ist ein Werkzeug für alle Arten von Graswurzelbewegungen um sich zu verbinden und zu wachsen, es unterstützt die Koordination von Aktivitäten von Angesicht zu Angesicht, mit einer Schicht digitaler Infrastruktur.",
-    "ACTION": "Hast du schon eine Gruppe in deiner Nähe gefunden? Oder vielleicht magst du {startAGroup}? Wenn du Karrot ausprobieren willst, dann erstelle ein Benutzerprofil und tritt der Spielplatz-Gruppe zum Testen bei.",
-    "ACTION_START_A_GROUP": "starte eine",
+    "TITLE": "Rette Dinge vor der Verschwendung, teile sie stattdessen!",
+    "SUBTITLE1": "Karrot ist für Gruppen gemacht, die Dinge vor der Verschwendung retten und sie stattdessen teilen wollen. Karrot ermöglicht ihnen, sich effizient lokal und freiwillig zu organisieren.",
+    "SUBTITLE2": "Dinge wie Lebensmittel, Fahrräder, Kleidung, und alles andere, das von der Konsumgesellschaft nicht genutzt oder in großem Ausmaß weggeworfen wird.",
+    "VISION_INTRO": "Karrot ist ein Werkzeug, das allen Arten von Graswurzelbewegungen dabei helfen kann zu wachsen und sich zu organisieren. Es bietet digitale Infrastruktur, die bei der Koordination von Aktivitäten in der echten Welt behilflich ist.",
     "EXISTING_GROUPS": "Einige der Gruppen, die Karrot schon benutzen",
     "AND_MORE": "Und mehr …",
     "LINKS": {
-      "FORUM": "Gemeinschafts-Forum",
+      "FORUM": "Forum",
       "CODE": "GitHub",
       "CHAT": "Team-Chat",
       "TRANSLATIONS": "Transifex"
@@ -716,47 +702,47 @@
     "SECTIONS": {
       "GROUPS": {
         "TITLE": "Unabhängige Gruppen",
-        "SUBTITLE": "Jede Gruppe auf Karrot ist komplett unabhängig und kann ihr eigenes Logo, sowie eigene Prozesse und Regeln haben.",
-        "DESCRIPTION": "Dennoch sind sie alle auf der Karte abgebildet, damit Leute sie finden und Kontakt zu anderen Gruppen in ihrer Nähe, oder sogar weltweit, aufnehmen können."
+        "SUBTITLE": "Alle Gruppen auf Karrot sind komplett unabhängig und können ihr eigenen Logos, Abläufe und Regeln haben.",
+        "DESCRIPTION": "Dennoch sind sie alle auf der Karte zu finden, damit Menschen Kontakt zu anderen Gruppen in ihrer Nähe und weltweit aufnehmen können."
       },
       "ACTIVITIES": {
-        "TITLE": "Verteilung von Aufgaben und Aktivitäten",
-        "SUBTITLE": "Aktivitäten mit spezifischer Zeit und Ort, wie etwa eine Essensabholung, können eingetragen werden.",
-        "DESCRIPTION": "Jede Aktivität hat eine Anzahl an Plätzen, für welche sich Mitglieder der Gruppe eintragen können – auf diese Art wissen alle wer wohin geht und können später eine Rückmeldung geben."
+        "TITLE": "Aufgabenverteilung",
+        "SUBTITLE": "Aktivitäten, die zu einer bestimmen Zeit an einem konkreten Ort stattfinden – wie etwa Essensabholungen – können in Karrot eingetragen werden.",
+        "DESCRIPTION": "Für jede Aktivität kann sich eine gewisse Anzahl Mitglieder der Gruppe eintragen – auf diese Art wissen alle wer wohin geht. Später kann Feedback gegeben werden."
       },
       "OFFERS": {
-        "TITLE": "Teile Dinge",
+        "TITLE": "Miteinander teilen",
         "SUBTITLE": "Erstelle ein Angebot, wenn du etwas teilen oder abgeben willst.",
-        "DESCRIPTION": "Die Angebote sind für jeden in der Gruppe sichtbar und Leute können ihr Interesse am Angebot im Chat zeigen."
+        "DESCRIPTION": "Die Angebote sind für jeden in der Gruppe sichtbar und im integrierten Chat können Leute ihr Interesse bekunden."
       },
       "DEMOCRATIC": {
         "TITLE": "Demokratische und partizipative Entwicklung",
-        "DESCRIPTION": "Karrot ist eine freie und quelloffene Software, die mit den Rückmeldungen und der Partizipation der Leute die sie benutzen, entwickelt wird. Hauptsächlich wird sie von einem kleinen Team entwickelt, welches sich konstant im Kontakt mit Leuten aus verschiedenen Gruppen befindet, um deren vereinbare und unvereinbare Bedürfnisse unter einen Hut zu bringen und die Richtung der Entwicklung zu steuern. Wir halten uns an eine Ethik der Integrität und Nicht-Kommerzialisierung von Daten.",
-        "DESCRIPTION2": "Entwickler und Designer sind willkommen bei der Weiterentwicklung mitzumachen. Schau dir das Projekt auf {code} an."
+        "DESCRIPTION": "Karrot ist freie und Open Source Software, die basierend auf Feedback und mit Teilnahme der Leute die sie benutzen entwickelt wird. Hauptsächlich wird Karrot von einem kleinen Team entwickelt, das konstant mit Leuten aus verschiedenen Gruppen im Austausch steht, um deren verschiedene Bedürfnisse unter einen Hut zu bringen und so die Richtung der Entwicklung zu bestimmen. Wir fühlen uns einer Ethik der Integrität und Nicht-Kommerzialisierung von Daten verpflichtet.",
+        "DESCRIPTION2": "Entwickler und Designer sind eingeladen, bei der Weiterentwicklung mitzumachen. Schau dir das Projekt auf {code} an."
       },
       "COMMUNICATION": {
         "TITLE": "Kommunikation im richtigen Kontext",
-        "DESCRIPTION": "Schreib eine Nachricht die alle in der Gruppe sehen könne, oder melde dich per privater Nachricht bei jemandem. Alles das sich auf eine Aktivität oder einen Ort bezieht, kann in einem jeweiligen Chat besprochen werden."
+        "DESCRIPTION": "Schreib eine Nachricht an die ganze Gruppe, oder melde dich per privater Nachricht bei Einzelnen. Alles, was sich auf eine Aktivität oder einen Ort bezieht, kann im jeweils dazugehörigen Chat besprochen werden."
       },
       "TRUST": {
-        "TITLE": "Demokratische und vertrauensbasierte Gruppenverwaltung.",
-        "DESCRIPTION": "In einer Karrot-Gruppe gibt es keine Menschen mit Superkräften. Leute, welche genug Vertrauenskarotten von anderen erhalten haben, können die Gruppe und die Gruppeneinstellungen verändern. Wenn neue Leute der Gruppe beitreten möchten, dann müssen sie sich bewerben und Fragen beantworten, die die Gruppe erstellt hat. Alle mit Veränderungsrechten können Bewerbungen ablehnen oder zulassen. Im Falle eines Konfliktes kann die Gruppe ein Abstimmungsverfahren einleiten, um den Konflikt gemeinsam zu lösen."
+        "TITLE": "Demokratische und vertrauensbasierte Gruppenverwaltung",
+        "DESCRIPTION": "In Karrot-Gruppen gibt es keine Orgaleute mit Superkräften. Alle, die genug Vertrauen ausgesprochen bekommen haben, können die Gruppe und deren Einstellungen verändern. Wenn neue Leute der Gruppe beitreten möchten, durchlaufen sie einen Bewerbungsprozess, in dem sie Fragen der Gruppe beantworten können. Mitglieder können Bewerbungen ablehnen oder akzeptieren. Im Falle eines Konfliktes kann die Gruppe ein Abstimmungsverfahren einleiten, um den Konflikt gemeinsam zu lösen."
       },
       "MAPS": {
         "TITLE": "Karten und Listen",
-        "DESCRIPTION": "Es gibt eine Karte, auf der die Orte und Leute markiert sind, die an Aktivitäten teilnehmen. Es gibt auch eine schöne Liste bevorstehender Aktivitäten, für die du dich online eintragen kannst."
+        "DESCRIPTION": "Es gibt eine Karte, auf der Orte und Leute markiert sind, die an Aktivitäten teilnehmen. Es gibt auch eine Liste bevorstehender Aktivitäten, für die du dich online eintragen kannst."
       },
       "TRANSPARENCY": {
         "TITLE": "Transparenz",
-        "DESCRIPTION": "Die Historie zeigt, wer was wann getan hat. Alles von der Teilnahme an einer Aktivität bis zu der Erstellung und Veränderung eines Ortes wird dort aufgezeichnet."
+        "DESCRIPTION": "Die Historie zeigt, wer was wann getan hat. Alles von der Teilnahme an einer Aktivität bis hin zu der Erstellung und Veränderung eines Ortes wird dort aufgezeichnet."
       },
       "NOTIFICATIONS": {
         "TITLE": "Benachrichtigungen",
         "DESCRIPTION": "Du wirst über freie Aktivitäten, neue Nachrichten und Menschen, die deiner Gruppe beitreten wollen, benachrichtigt."
       },
       "TRANSLATIONS": {
-        "TITLE": "Mehrsprachig",
-        "DESCRIPTION": "Karrot ist von Nutzern komplett übersetzbar und schon in vielen Sprachen verfügbar. Um beim Übersetzen mitzuhelfen besuche einfach unser Projekt auf {translations}."
+        "TITLE": "Mehrsprachigkeit",
+        "DESCRIPTION": "Karrot ist von Nutzern komplett übersetzbar und schon in vielen Sprachen verfügbar. Um beim Übersetzen mitzuhelfen, besuche einfach unser Projekt auf {translations}."
       },
       "OPENSOURCE": {
         "TITLE": "Open source",

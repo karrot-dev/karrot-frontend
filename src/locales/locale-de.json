@@ -687,7 +687,7 @@
   "YOU": "Du",
   "TO": "bis",
   "ABOUT_KARROT": {
-    "TITLE": "Rette Dinge vor der Verschwendung, teile sie stattdessen!",
+    "TITLE": "Statt Verschwenden: retten und teilen!",
     "SUBTITLE1": "Karrot ist für Gruppen gemacht, die Dinge vor der Verschwendung retten und sie stattdessen teilen wollen. Karrot ermöglicht ihnen, sich effizient lokal und freiwillig zu organisieren.",
     "SUBTITLE2": "Dinge wie Lebensmittel, Fahrräder, Kleidung, und alles andere, das von der Konsumgesellschaft nicht genutzt oder in großem Ausmaß weggeworfen wird.",
     "VISION_INTRO": "Karrot ist ein Werkzeug, das allen Arten von Graswurzelbewegungen dabei helfen kann zu wachsen und sich zu organisieren. Es bietet digitale Infrastruktur, die bei der Koordination von Aktivitäten in der echten Welt behilflich ist.",
@@ -718,7 +718,7 @@
       "DEMOCRATIC": {
         "TITLE": "Demokratische und partizipative Entwicklung",
         "DESCRIPTION": "Karrot ist freie und Open Source Software, die basierend auf Feedback und mit Teilnahme der Leute die sie benutzen entwickelt wird. Hauptsächlich wird Karrot von einem kleinen Team entwickelt, das konstant mit Leuten aus verschiedenen Gruppen im Austausch steht, um deren verschiedene Bedürfnisse unter einen Hut zu bringen und so die Richtung der Entwicklung zu bestimmen. Wir fühlen uns einer Ethik der Integrität und Nicht-Kommerzialisierung von Daten verpflichtet.",
-        "DESCRIPTION2": "Entwickler und Designer sind eingeladen, bei der Weiterentwicklung mitzumachen. Schau dir das Projekt auf {code} an."
+        "DESCRIPTION2": "Entwickler und Designer sind eingeladen, bei der Weiterentwicklung mitzumachen. Schau dir das Projekt auf {code} an!"
       },
       "COMMUNICATION": {
         "TITLE": "Kommunikation im richtigen Kontext",
@@ -750,7 +750,7 @@
       },
       "TEAM": {
         "TITLE": "Aktives Team",
-        "DESCRIPTION": "Du kannst einfach mit den Leuten, die Karrot entwickeln, sprechen - entweder in unserem {forum}, auf {code} oder in Echtzeit auf {chat}."
+        "DESCRIPTION": "Du kannst einfach mit den Leuten, die Karrot entwickeln, sprechen - entweder in unserem {forum}, auf {code} oder in Echtzeit im {chat}."
       }
     }
   }

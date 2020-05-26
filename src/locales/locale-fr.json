@@ -695,9 +695,7 @@
     "AND_MORE": "Et puis... ",
     "LINKS": {
       "FORUM": "community forum",
-      "CODE": "GitHub",
-      "CHAT": "tchat de l'équipe karrot",
-      "TRANSLATIONS": "Transifex"
+      "CHAT": "tchat de l'équipe karrot"
     },
     "SECTIONS": {
       "GROUPS": {

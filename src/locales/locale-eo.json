@@ -695,9 +695,7 @@
     "AND_MORE": "Kaj pli...",
     "LINKS": {
       "FORUM": "Komunuma forumo",
-      "CODE": "GitHub",
-      "CHAT": "teama babilejo",
-      "TRANSLATIONS": "Transifex"
+      "CHAT": "teama babilejo"
     },
     "SECTIONS": {
       "GROUPS": {

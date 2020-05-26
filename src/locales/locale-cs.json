@@ -687,38 +687,36 @@
   "YOU": "Vy",
   "TO": "do",
   "ABOUT_KARROT": {
-    "TITLE": "Zachraňte věci před vyhozením, místo toho je někomu nabídněte!",
-    "SUBTITLE1": "Karrot existuje pro skupiny lidí, kteří chtějí zachránit věci před plýtváním, a místo toho je sdílet, což umožňuje těmto skupinám účinně se organizovat na místním a dobrovolném základě.",
-    "SUBTITLE2": "Věci, jako je jídlo, jízdní kola, oblečení nebo cokoli, jsou v kontextu konzumní společnosti zbytečně vyhazovány nebo nevyužity.",
-    "VISION_INTRO": "Karrot je nástrojem pro všechny druhy místních iniciativ, které se spojují a rostou, a podporuje koordinaci osobních aktivit s vrstvou digitální infrastruktury.",
-    "EXISTING_GROUPS": "Několik skupin již používá Karrot",
+    "TITLE": "Zachraňte věci před vyhozením. Místo toho je někomu nabídněte!",
+    "SUBTITLE1": "Karrot tu je pro skupiny lidí, kteří chtějí zachránit věci před plýtváním. Místo toho je mohou sdílet. Umožňuje těmto skupinám organizovat se na místním a dobrovolném základě.",
+    "SUBTITLE2": "Věci, jako je nesnězené jídlo, jízdní kola, oblečení nebo cokoli, jsou v kontextu konzumní společnosti zbytečně vyhazovány, nebo nevyužity.",
+    "VISION_INTRO": "Karrot je nástrojem pro všechny druhy místních iniciativ, které se spojují a rostou. Podporuje koordinaci osobních činností s vrstvou digitální infrastruktury.",
+    "EXISTING_GROUPS": "Několik skupin již Karrot používá ",
     "AND_MORE": "A více...",
     "LINKS": {
       "FORUM": "komunitní fórum",
-      "CODE": "GitHub",
-      "CHAT": "týmový chat",
-      "TRANSLATIONS": "Transifex"
+      "CHAT": "týmový chat"
     },
     "SECTIONS": {
       "GROUPS": {
         "TITLE": "Nezávislé skupiny",
         "SUBTITLE": "Každá skupina v aplikaci Karrot je zcela nezávislá a může mít své vlastní logo, procesy a pravidla.",
-        "DESCRIPTION": "Přesto jsou všechny zobrazeny na mapě, aby je lidé mohli najít a připojit se i k jiným skupinám ve své lokalitě a dokonce i globálně."
+        "DESCRIPTION": "Přesto jsou všechny zobrazeny na mapě, aby je lidé mohli najít a připojit se i k jiným skupinám ve své lokalitě. A dokonce i celosvětově."
       },
       "ACTIVITIES": {
         "TITLE": "Rozdělení úkolů a činností",
-        "SUBTITLE": "Do softwaru lze zadávat činnosti se specifickým časem a místem, jako jsou vyzvednutí  potravin v případě záchrany nesnězených potravin.",
-        "DESCRIPTION": "Každá aktivita má několik slotů, do kterých se mohou členové skupiny přihlásit – tímto způsobem každý ví, kdo kam a kdy má jít a zpětná vazba může být poskytnuta později."
+        "SUBTITLE": "Do softwaru lze zadávat činnosti s konkrétním časem a místem, jako je např.  vyzvednutí  potravin v případě záchrany nesnězených potravin.",
+        "DESCRIPTION": "Každá aktivita má několik slotů, do kterých se mohou členové skupiny přihlásit – tímto způsobem každý ví, kdo kam a kdy má jít. Později může být poskytnuta zpětná vazba."
       },
       "OFFERS": {
         "TITLE": "Sdílejte věci",
-        "SUBTITLE": "Vytvořte nabídku podobnou inzerátům, co chcete sdílet nebo rozdávat.",
+        "SUBTITLE": "Vytvořte nabídku podobnou inzerátům, co chcete sdílet, nebo nabídnout.",
         "DESCRIPTION": "Nabídky jsou viditelné pro všechny ve skupině a lidé mohou projevit zájem o nabídku svým komentářem."
       },
       "DEMOCRATIC": {
         "TITLE": "Demokratický a participativní vývoj",
-        "DESCRIPTION": "Karrot je bezplatný a open-source software vyvinutý se zpětnou vazbou a účastí lidí, kteří jej používají. Je vyvíjen hlavně malým jádrem týmu, který je neustále v kontaktu s lidmi v různých skupinách, aby pochopil jejich odlišné a konvergující potřeby, a tak vedl vývoj. Dodržujeme etiku integrity a neobchodního využití dat.",
-        "DESCRIPTION2": "Vývojáři a designéři jsou samozřejmě vítáni k účasti na vývoji software. Podívejte se na projekt na {code}."
+        "DESCRIPTION": "Karrot je bezplatný open-source software vyvinutý se zpětnou vazbou a účastí lidí, kteří jej používají. Je vyvíjen malým jádrem týmu, který je neustále v kontaktu s lidmi v různých skupinách, aby pochopil jejich odlišné i společné potřeby, a tak vedl vývoj. Dodržujeme etiku integrity a nekomerčního využití dat.",
+        "DESCRIPTION2": "Vývojáři a designéři jsou samozřejmě vítáni k účasti na vývoji software. Podívejte se na projekt na {code}u."
       },
       "COMMUNICATION": {
         "TITLE": "Komunikace ve správném kontextu",
@@ -726,31 +724,31 @@
       },
       "TRUST": {
         "TITLE": "Demokratické a na důvěře založené vedení skupiny",
-        "DESCRIPTION": "Ve skupině Karrot nejsou žádní administrátoři. Lidé, kteří dostanou od svých vrstevníků dostatek důvěry, budou moci ve skupině upravovat a měnit nastavení. Když se do vaší skupiny chtějí přidat noví lidé, musí se obrátit a odpovědět na otázky, které může skupina nastavit, které může odmítnout nebo schválit kdokoli s právy na úpravy. Podobně, pokud dojde ke konfliktu, skupina může vstoupit do hlasovacího systému, aby jej vyřešila komunálním způsobem."
+        "DESCRIPTION": "Ve skupině Karrot nejsou žádní administrátoři. Lidé, kteří dostanou od svých vrstevníků dostatek důvěry, budou moci ve skupině upravovat a měnit nastavení. Když se do vaší skupiny chtějí přidat noví lidé, musí o to požádat a odpovědět na otázky, které může skupina nastavit.  Ty pak může odmítnout nebo schválit kdokoli s právy na úpravy. Podobně, pokud dojde ke konfliktu, skupina může vstoupit do hlasovacího systému, aby jej vyřešila komunitním způsobem."
       },
       "MAPS": {
         "TITLE": "Mapy a seznamy",
-        "DESCRIPTION": "Máte mapu, kde se nacházejí místa a lidé, kteří dělají aktivity. Máte pěkný seznam nadcházejících aktivit a můžete se do nich přihlásit online."
+        "DESCRIPTION": "Je tu mapa, kde se nacházejí místa a lidé, kteří něco dělají. Je tu také seznam nadcházejících aktivit, ke kterým se můžete přes internet přihlásit."
       },
       "TRANSPARENCY": {
         "TITLE": "Transparentnost",
-        "DESCRIPTION": "Historie ukazuje, kdo dělal co a kdy. Zde je zaznamenáno vše od účasti na činnosti až po vytváření a úpravy míst."
+        "DESCRIPTION": "Historie ukazuje, kdo co a kdy dělal. Je tu zaznamenáno vše od účasti na činnosti až po vytváření a úpravy míst."
       },
       "NOTIFICATIONS": {
         "TITLE": "Oznamování",
-        "DESCRIPTION": "Dostanete upozornění na prázdné aktivity, nové zprávy a nové lidi, kteří se chtějí připojit ke skupině. Ale můžete také vše vypnout, pokud si přejete více klidu!"
+        "DESCRIPTION": "Dostanete upozornění na volné aktivity, nové zprávy a nové lidi, kteří se chtějí připojit ke skupině. Ale můžete také vše vypnout, pokud si přejete více klidu!"
       },
       "TRANSLATIONS": {
-        "TITLE": "Vícejazyčný",
-        "DESCRIPTION": "Komunita Karrot je plně přeložitelná a mnoho jazyků je již přidáno. Chcete-li přispět více překlady, navštivte projekt na {translations}."
+        "TITLE": "Vícejazyčné prostředí",
+        "DESCRIPTION": "Komunita Karrot je plně přeložitelná a mnoho jazyků je již přidáno. Chcete-li přispět více překlady, navštivte projekt na {translations}u."
       },
       "OPENSOURCE": {
-        "TITLE": "Open source",
-        "DESCRIPTION": "Všechno je transparentní  a případně měnitelné. Doporučujeme skupinám, aby tvořily své vlastní instance platformy, pokud mají schopnost tak učinit. Stále však také poskytujeme přístup k hostované verzi na karrot.world."
+        "TITLE": "Otevřený zdrojový kód",
+        "DESCRIPTION": "Všechno je transparentní  a případně měnitelné. Doporučujeme skupinám, aby tvořily své vlastní instance platformy, pokud mají schopnost tak udělat. Stále však také poskytujeme přístup k hostované verzi na webu karrot.world."
       },
       "TEAM": {
         "TITLE": "Tým odpovědných",
-        "DESCRIPTION": "Můžete se snadno domluvit s lidmi, kteří vyvíjejí Karrot, ať už na našem fóru {forum},  nad vývojem kódu {code} nebo v reálném čase  na našem chatu {chat}."
+        "DESCRIPTION": "Můžete se snadno domluvit s lidmi, kteří vyvíjejí Karrot, ať už na našem fóru {forum},  nad vývojem kódu {code} nebo v reálném čase  na našem {chat}u."
       }
     }
   }

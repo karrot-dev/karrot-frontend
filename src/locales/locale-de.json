@@ -695,9 +695,7 @@
     "AND_MORE": "Und mehr…",
     "LINKS": {
       "FORUM": "Forum",
-      "CODE": "GitHub",
-      "CHAT": "Team-Chat",
-      "TRANSLATIONS": "Transifex"
+      "CHAT": "Team-Chat"
     },
     "SECTIONS": {
       "GROUPS": {

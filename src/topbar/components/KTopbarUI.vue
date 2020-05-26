@@ -45,16 +45,13 @@
               {{ group.name }}
             </QItemSection>
           </QItem>
-          <!--pre>
-            {{ myGroups }}
-          </pre-->
           <QItem
             :to="{name: 'groupsGallery'}"
           >
             <QItemSection side>
-            <QIcon
-              name="fas fa-globe"
-            />
+              <QIcon
+                name="fas fa-globe"
+              />
             </QItemSection>
             <QItemSection>
               {{ $t('TOPBAR.SHOW_ALL_GROUPS') }}

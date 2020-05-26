@@ -15,6 +15,11 @@ if [ -z "$REF" ]; then
   exit 1
 fi
 
+# initialize some variables
+STORYBOOK_URL=
+APK_URL=
+DEPLOY_DOCS="false"
+
 if [ "$TYPE" == "release" ]; then
 
   # release
@@ -60,8 +65,6 @@ elif [ "$TYPE" == "branch" ]; then
   DEPLOY_ENV="branch/$REF"
   DEPLOY_EMOJI=":construction_worker:"
   URL="https://$REF.dev.karrot.world"
-  APK_URL=
-  STORYBOOK_URL=
   DEPLOY_DOCS="true"
 
 else

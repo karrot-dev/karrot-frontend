@@ -105,6 +105,18 @@ export default {
         },
       }
     },
+
+    updateAvailable () {
+      return {
+        className: 'bg-blue text-white',
+        icon: 'new_releases',
+        message: 'UPDATE_AVAILABLE.DETAIL',
+        action: {
+          label: this.$t('UPDATE_AVAILABLE.RELOAD'),
+          handler: () => window.location.reload(),
+        },
+      }
+    },
   },
 }
 </script>
@@ -112,4 +124,7 @@ export default {
 <style lang="stylus" scoped>
 body.desktop .k-banner
   min-width 500px
+
+.k-banner >>> .q-banner__avatar
+  align-self center
 </style>

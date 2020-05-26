@@ -1,3 +1,5 @@
+import { Platform } from 'quasar'
+
 export default {
   namespaced: true,
   getters: {
@@ -7,6 +9,13 @@ export default {
       const isGroupPage = rootGetters['route/isGroupPage']
       const isLoggedIn = rootGetters['auth/isLoggedIn']
       const connected = rootGetters['connectivity/connected']
+      const updateAvailable = rootGetters['about/updateAvailable']
+
+      if (updateAvailable && !Platform.is.cordova) {
+        banners.push({
+          type: 'updateAvailable',
+        })
+      }
 
       if (isLoggedIn && !connected) {
         banners.push({

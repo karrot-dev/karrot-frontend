@@ -7,7 +7,8 @@ import router from '@/base/router'
 
 function initialState () {
   return {
-    entries: {},
+    entries: {}, // fully-visible users (fellow group members)
+    infoEntries: {}, // barely-visible users (e.g. group members for applicants)
     activeUserProfileId: null,
     activeUserProfile: null,
     resetPasswordSuccess: false,
@@ -21,7 +22,7 @@ export default {
   state: initialState(),
   getters: {
     get: (state, getters, rootState, rootGetters) => userId => {
-      const user = state.entries[userId]
+      const user = state.entries[userId] || state.infoEntries[userId]
       if (!user) {
         return {
           id: userId,
@@ -43,7 +44,10 @@ export default {
       }
     },
     all: (state, getters, rootState, rootGetters) => {
-      return Object.values(state.entries).map(getters.enrich)
+      return [
+        ...Object.values(state.entries),
+        ...Object.values(state.infoEntries),
+      ].map(getters.enrich)
     },
     byCurrentGroup: (state, getters, rootState, rootGetters) => {
       return getters.all.filter(u => u.membership)
@@ -72,12 +76,26 @@ export default {
       async fetch ({ commit }) {
         commit('update', await users.list())
       },
-      async signup ({ dispatch }, { userData, joinPlayground }) {
+      async maybeFetchInfo ({ state, commit }, userIds) {
+        // deduplicate list and remove loaded users
+        const idsToFetch = [...new Set(userIds)].filter(id => !state.entries[id] && !state.infoEntries[id])
+
+        if (idsToFetch.length < 1) return
+        // ignore users we can't access
+        const loadUserInfo = id => users.getInfo(id).catch(() => false)
+        const data = await Promise.all(idsToFetch.map(loadUserInfo))
+        const validData = data.filter(u => u !== false)
+
+        if (validData.length < 1) return
+        commit('updateInfo', validData)
+      },
+
+      async signup ({ dispatch, rootGetters }, { userData, joinPlayground }) {
         await authUser.create(userData)
-        await dispatch('auth/login', { email: userData.email, password: userData.password }, { root: true })
         if (joinPlayground) {
-          await dispatch('groups/joinPlayground', null, { root: true })
+          await dispatch('auth/setJoinGroupAfterLogin', rootGetters['groups/playground'].id, { root: true })
         }
+        await dispatch('auth/login', { email: userData.email, password: userData.password }, { root: true })
       },
       async requestResetPassword ({ commit }, email) {
         await auth.requestResetPassword(email)
@@ -101,6 +119,8 @@ export default {
         }, { root: true })
         dispatch('auth/logout', {}, { root: true })
       },
+    }, {
+      findId: () => undefined,
     }),
 
     ...withMeta({
@@ -166,6 +186,9 @@ export default {
     },
     update (state, users) {
       state.entries = Object.freeze({ ...state.entries, ...indexById(users) })
+    },
+    updateInfo (state, users) {
+      state.infoEntries = Object.freeze({ ...state.infoEntries, ...indexById(users) })
     },
     resendVerificationCodeSuccess (state, status) {
       Vue.set(state, 'resendVerificationCodeSuccess', status)

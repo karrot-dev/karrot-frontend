@@ -3,20 +3,21 @@
     <QCard
       class="groupPreviewCard relative-position"
       :class="{
-        application: hasMyApplication,
+        application: group.myApplicationPending,
         highlight: group.isCurrentGroup,
       }"
       :style="cardStyle"
       @click="$emit(group.isMember ? 'visit' : 'preview')"
     >
       <QBadge
-        v-if="hasMyApplication"
+        v-if="group.myApplicationPending"
         floating
-        class="q-pl-sm q-pt-xs q-pb-xs"
+        class="q-pl-sm q-pt-xs q-pb-xs z-top"
         color="blue"
-        icon="fas fa-hourglass-half"
-      />
-      <QTooltip v-if="hasMyApplication">
+      >
+        <QIcon name="fas fa-hourglass-half" />
+      </QBadge>
+      <QTooltip v-if="group.myApplicationPending">
         {{ $t('APPLICATION.GALLERY_TOOLTIP') }}
       </QTooltip>
       <div
@@ -94,7 +95,6 @@
 </template>
 
 <script>
-import { mapGetters } from 'vuex'
 import {
   QCard,
   QCardSection,
@@ -130,22 +130,12 @@ export default {
     },
   },
   computed: {
-    ...mapGetters({
-      getMyApplicationInGroup: 'applications/getMineInGroup',
-    }),
     cardStyle () {
       const reduceOpacity = this.group.isInactive && !this.group.isMember
       if (reduceOpacity) {
         return { opacity: 0.5 }
       }
       return {}
-    },
-    myApplication () {
-      if (!this.group) return
-      return this.getMyApplicationInGroup(this.group.id)
-    },
-    hasMyApplication () {
-      return Boolean(this.myApplication)
     },
   },
 }

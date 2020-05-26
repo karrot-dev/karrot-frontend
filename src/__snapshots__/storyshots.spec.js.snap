@@ -4917,6 +4917,38 @@ exports[`Storyshots GroupGalleryCard isMember = false 1`] = `
 </div>
 `;
 
+exports[`Storyshots GroupGalleryCard isMember = false, application pending 1`] = `
+<div class="inline-block">
+  <div class="q-card groupPreviewCard relative-position application">
+    <div class="q-pl-sm q-pt-xs q-pb-xs z-top q-badge flex inline items-center no-wrap q-badge--single-line bg-blue q-badge--floating"><i aria-hidden="true" class="fas fa-hourglass-half q-icon"> </i></div>
+    <!---->
+    <div class="photo text-white relative-position row justify-center">
+      <div seed="1" type="circles" class="full-height"></div>
+      <div class="absolute-bottom k-media-overlay q-pa-md">
+        <div class="ellipsis"><span class="row group items-start text-h6">
+            05_testgroup
+            <!----></span> <span class="text-subtitle2">
+            18 Members
+          </span></div>
+      </div>
+    </div>
+    <div class="q-card__section fixed-height smaller-text">
+      <div>
+        <div class="markdown">
+          <p>This is the public description<br>
+            It would make sense if it was markdown</p>
+          <h1>then this would be a header</h1>
+          <p><a href="www.google.de" target="_blank" rel="noopener nofollow noreferrer" class="fas-after fa-after-external-link">and this a link</a></p>
+        </div>
+      </div>
+      <div class="overlay"></div>
+    </div>
+    <hr class="q-separator q-separator--horizontal col-grow">
+    <!---->
+  </div>
+</div>
+`;
+
 exports[`Storyshots GroupGalleryCard isMember = true 1`] = `
 <div class="inline-block">
   <div class="q-card groupPreviewCard relative-position">
@@ -4985,6 +5017,44 @@ exports[`Storyshots GroupGalleryCard without public description 1`] = `
     </div>
     <hr class="q-separator q-separator--horizontal col-grow">
     <!---->
+  </div>
+</div>
+`;
+
+exports[`Storyshots GroupPreviewUI archived 1`] = `
+<div>
+  <div class="q-card shadow-6">
+    <div class="photo text-white relative-position row justify-center">
+      <div seed="1" type="circles" class="full-height"></div>
+      <div class="absolute-bottom k-media-overlay q-pa-md">
+        <div class="ellipsis"><span class="row group items-start text-h6">
+            05_testgroup
+            <!----></span> <span class="text-subtitle2">
+            0 Members
+          </span></div>
+      </div>
+    </div>
+    <div class="q-card__section">
+      <div>
+        <div class="markdown">
+          <p>This is the public description<br>
+            It would make sense if it was markdown</p>
+          <h1>then this would be a header</h1>
+          <p><a href="www.google.de" target="_blank" rel="noopener nofollow noreferrer" class="fas-after fa-after-external-link">and this a link</a></p>
+        </div>
+      </div>
+    </div>
+    <hr class="q-separator q-separator--horizontal col-grow">
+    <div class="q-card__actions q-card__actions--horiz row justify-start">
+      <div style="width:100%;">
+        <div class="q-banner row items-center bg-info">
+          <div class="q-banner__avatar col-auto row items-center"><i aria-hidden="true" class="material-icons q-icon" style="font-size:24px;">info</i></div>
+          <div class="q-banner__content col text-body2">
+            This group doesn't have any members. If you would like to revive it, contact the site administrators!
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 </div>
 `;
@@ -5412,7 +5482,7 @@ exports[`Storyshots GroupSettings show 1`] = `
       <div tabindex="-1" class="q-focus-helper"></div>
       <div class="q-btn__wrapper col row q-anchor--skip">
         <div class="q-btn__content text-center col items-center q-anchor--skip justify-center row"><i class="fas fa-hand-pointer on-left"></i>
-          Change group
+          TOPBAR.CHANGE_GROUP
           <!---->
         </div>
       </div>
@@ -6837,7 +6907,7 @@ exports[`Storyshots Latest Messages type: thread 1`] = `
 `;
 
 exports[`Storyshots Layout KTopbar 1`] = `
-<div class="q-toolbar row no-wrap items-center text-white row justify-between bg-primary"><button tabindex="0" type="button" class="q-btn q-btn-item non-selectable no-outline logo q-btn--flat q-btn--rectangle q-btn--actionable q-focusable q-hoverable q-btn--wrap">
+<div class="q-toolbar row no-wrap items-center text-white row justify-between bg-primary"> <button tabindex="0" type="button" class="q-btn q-btn-item non-selectable no-outline logo q-btn--flat q-btn--rectangle q-btn--actionable q-focusable q-hoverable q-btn--wrap">
     <div tabindex="-1" class="q-focus-helper"></div>
     <div class="q-btn__wrapper col row q-anchor--skip">
       <div class="q-btn__content text-center col items-center q-anchor--skip justify-center row">
@@ -11179,7 +11249,7 @@ exports[`Storyshots Settings Page Default 1`] = `
         <div tabindex="-1" class="q-focus-helper"></div>
         <div class="q-btn__wrapper col row q-anchor--skip">
           <div class="q-btn__content text-center col items-center q-anchor--skip justify-center row"><i class="fas fa-hand-pointer on-left"></i>
-            Change group
+            TOPBAR.CHANGE_GROUP
             <!---->
           </div>
         </div>
@@ -11359,7 +11429,7 @@ exports[`Storyshots Sidenav Group 1`] = `
         Wall
       </div>
       <div class="q-item__section column q-item__section--side justify-center">
-        <div small="" class="q-badge flex inline items-center no-wrap q-badge--single-line bg-secondary">
+        <div class="q-badge flex inline items-center no-wrap q-badge--single-line bg-secondary">
           4
         </div>
       </div>
@@ -11392,51 +11462,14 @@ exports[`Storyshots Sidenav Group 1`] = `
       </div>
       <!---->
     </a> </div>
-  <div class="q-expansion-item q-item-type q-expansion-item--collapsed q-expansion-item--standard">
-    <div class="q-expansion-item__container relative-position">
-      <div tabindex="0" class="q-item q-item-type row no-wrap q-item--clickable q-link cursor-pointer q-focusable q-hoverable q-item--dense">
-        <div tabindex="-1" class="q-focus-helper"></div>
-        <div class="q-item__section column text-center q-item__section--side justify-center"><i aria-hidden="true" class="fas fa-ellipsis-h q-icon" style="font-size:1.1em;"> </i></div>
-        <div class="q-item__section column q-item__section--main justify-center">
-          Show more
-        </div>
-        <div class="q-item__section column q-item__section--side justify-center"></div>
-        <div class="q-item__section column cursor-pointer q-item__section--side justify-center"><i aria-hidden="true" class="material-icons q-icon q-expansion-item__toggle-icon q-focusable">keyboard_arrow_down<div tabindex="-1" class="q-focus-helper q-focus-helper--round"></div></i></div>
-      </div>
-      <div class="q-expansion-item__content relative-position" style="display:none;">
-        <div class="q-list q-list--dense"><a tabindex="0" class="q-item q-item-type row no-wrap q-item--clickable q-link cursor-pointer q-focusable q-hoverable">
-            <div tabindex="-1" class="q-focus-helper"></div>
-            <div class="q-item__section column text-center q-item__section--side justify-center"><i aria-hidden="true" class="fas fa-address-card q-icon" style="font-size:1.1em;"> </i></div>
-            <div class="q-item__section column q-item__section--main justify-center">
-              Applications
-            </div>
-            <!---->
-          </a><a tabindex="0" class="q-item q-item-type row no-wrap q-item--clickable q-link cursor-pointer q-focusable q-hoverable">
-            <div tabindex="-1" class="q-focus-helper"></div>
-            <div class="q-item__section column text-center q-item__section--side justify-center"><i aria-hidden="true" class="fas fa-vote-yea q-icon" style="font-size:1.1em;"> </i></div>
-            <div class="q-item__section column q-item__section--main justify-center">
-              Issues
-            </div>
-            <!---->
-          </a><a tabindex="0" class="q-item q-item-type row no-wrap q-item--clickable q-link cursor-pointer q-focusable q-hoverable">
-            <div tabindex="-1" class="q-focus-helper"></div>
-            <div class="q-item__section column text-center q-item__section--side justify-center"><i aria-hidden="true" class="fas fa-eye fa-fw q-icon" style="font-size:1.1em;"> </i></div>
-            <div class="q-item__section column q-item__section--main justify-center">
-              Show public group information
-            </div>
-            <!---->
-          </a><a tabindex="0" class="q-item q-item-type row no-wrap q-item--clickable q-link cursor-pointer q-focusable q-hoverable">
-            <div tabindex="-1" class="q-focus-helper"></div>
-            <div class="q-item__section column text-center q-item__section--side justify-center"><i aria-hidden="true" class="fas fa-map q-icon" style="font-size:1.1em;"> </i></div>
-            <div class="q-item__section column q-item__section--main justify-center">
-              Map
-            </div>
-            <!---->
-          </a> </div>
-      </div>
-      <hr class="q-separator q-expansion-item__border q-expansion-item__border--top absolute-top q-separator--horizontal col-grow">
-      <hr class="q-separator q-expansion-item__border q-expansion-item__border--bottom absolute-bottom q-separator--horizontal col-grow">
+  <!---->
+  <div tabindex="0" class="q-item q-item-type row no-wrap more-button q-item--clickable q-link cursor-pointer q-focusable q-hoverable q-item--dense">
+    <div tabindex="-1" class="q-focus-helper"></div>
+    <div class="q-item__section column text-center q-item__section--side justify-center"><i aria-hidden="true" class="fas fa-arrow-down q-icon" style="font-size:1.1em;"> </i></div>
+    <div class="q-item__section column q-item__section--main justify-center">
+      Show more
     </div>
+    <div class="q-item__section column q-item__section--side justify-center"></div>
   </div>
 </div>
 `;
@@ -11515,7 +11548,7 @@ exports[`Storyshots Sidenav Mobile 1`] = `
         <div tabindex="-1" class="q-focus-helper"></div>
         <div class="q-item__section column text-center q-item__section--side justify-center"><i aria-hidden="true" class="fas fa-exchange-alt fa-fw q-icon" style="font-size:1.1em;"> </i></div>
         <div class="q-item__section column q-item__section--main justify-center">
-          Change group
+          TOPBAR.CHANGE_GROUP
         </div>
         <!---->
       </a><a tabindex="0" class="q-item q-item-type row no-wrap q-item--clickable q-link cursor-pointer q-focusable q-hoverable">
@@ -11934,6 +11967,21 @@ exports[`Storyshots TrustButton Trust Button - one other trust 1`] = `
       <!---->
       <div class="q-badge flex inline items-center no-wrap q-badge--single-line bg-negative q-badge--floating">
         1
+      </div>
+      <!---->
+    </div>
+  </div>
+</button>
+`;
+
+exports[`Storyshots TrustButton small - My Trust Button 1`] = `
+<button tabindex="0" type="button" title="2 people trust you in group 21." class="q-btn q-btn-item non-selectable no-outline karrot-button q-btn--standard q-btn--round bg-primary text-white q-btn--actionable q-focusable q-hoverable q-btn--wrap" style="font-size:10px;">
+  <div tabindex="-1" class="q-focus-helper"></div>
+  <div class="q-btn__wrapper col row q-anchor--skip">
+    <div class="q-btn__content text-center col items-center q-anchor--skip justify-center row">
+      <!---->
+      <div class="q-badge flex inline items-center no-wrap q-badge--single-line bg-positive q-badge--floating" style="top:5px;right:-12px;">
+        2
       </div>
       <!---->
     </div>

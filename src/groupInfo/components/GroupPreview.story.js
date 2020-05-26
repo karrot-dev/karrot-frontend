@@ -138,3 +138,16 @@ storiesOf('GroupPreviewUI', module)
       on,
     }),
   }))
+  .add('archived', () => defaults({
+    render: h => h(GroupPreviewUI, {
+      props: {
+        group: {
+          ...groupsMock[0],
+          members: [],
+          isOpen: false,
+        },
+        isLoggedIn: false,
+      },
+      on,
+    }),
+  }))

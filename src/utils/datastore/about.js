@@ -1,4 +1,5 @@
 import about from '@/utils/api/about'
+import { Platform } from 'quasar'
 
 function initialState () {
   return {
@@ -11,6 +12,10 @@ export default {
   state: initialState(),
   getters: {
     deployed: state => state.deployed,
+    updateAvailable: state => {
+      if (!state.deployed) return
+      return state.deployed.commitSHA !== __ENV.GIT_SHA1
+    },
   },
   actions: {
     async fetch ({ commit }) {
@@ -25,4 +30,12 @@ export default {
       state.deployed = deployed
     },
   },
+}
+
+const TEN_MINUTES = 1000 * 60 * 10
+
+export const plugin = datastore => {
+  if (!Platform.is.cordova) {
+    setInterval(() => datastore.dispatch('about/fetch'), TEN_MINUTES)
+  }
 }

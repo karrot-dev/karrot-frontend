@@ -69,7 +69,6 @@
     "DELETE": "Eliminar",
     "EDIT": "Editar",
     "JOIN": "Unirse",
-    "LEAVE": "Salir",
     "PREVIEW": "Vista previa",
     "BACK": "Atrás",
     "NEXT": "Siguiente",
@@ -92,6 +91,7 @@
     "DECLINE": "Rechazar",
     "WITHDRAW": "Retirar",
     "SHOW_MORE": "Mostrar más",
+    "SHOW_LESS": "Show less",
     "ENABLE": "Habilitar",
     "DISABLE": "Deshabilitar",
     "UNSUBSCRIBE": "Darse de baja"
@@ -107,7 +107,6 @@
   },
   "GROUP": {
     "WALL": "Muro ",
-    "GROUP": "Grupo",
     "LEAVE": "Abandonar grupo...",
     "LEAVE_TEXT": "¿De verdad quieres abandonar este grupo?",
     "LEAVE_CONFIRMATION": "Has salido de {groupName}",
@@ -116,9 +115,7 @@
     "CREATE_TITLE": "Crear un grupo nuevo",
     "MANAGE_AGREEMENT": "Gestionar acuerdo",
     "TITLE": "Título de este grupo",
-    "PRIVATE_DESCRIPTION_TITLE": "Descripción privada del grupo ",
     "DESCRIPTION_VERBOSE": "Descripción del grupo, visible para los miembros",
-    "PUBLIC_DESCRIPTION": "Texto visible antes de unirse al grupo",
     "WELCOMEMESSAGE_VERBOSE": "Mensaje de bienvenida enviado a nuevos miembros.",
     "LOGO": "Logo del grupo",
     "SET_LOGO": "¡Pulsa para subir tu logo de grupo!",
@@ -152,7 +149,6 @@
     "INVITE_TITLE": "Invitar usuarios a tu grupo",
     "INVITATION_ACCEPT_SUCCESS": "Bienvenid@! Has acceptado la invitación. ",
     "INVITATION_ACCEPT_ERROR": "Ooops, no se ha podido aceptar la invitación!",
-    "SETTINGS": "Ajustes",
     "NOTIFICATIONS_BY_GROUP": "Notificaciones por grupo",
     "EMAIL_NOTIFICATIONS": "Notificaciones por correo electrónico",
     "NOTIFICATION_TYPES": {
@@ -216,8 +212,6 @@
       }
     },
     "RESTORE": "Restaurar",
-    "SHOW_ARCHIVED": "Mostrar lugares archivados",
-    "HIDE_ARCHIVED": "Ocultar lugares archivados",
     "SHOW_ALL": "Mostrar todos los lugares archivados",
     "SHOW_ACTIVE_ONLY": "Mostrar solo lugares activos"
   },
@@ -272,7 +266,8 @@
     "APPLICATION_PENDING": "¡Tu solicitud está pendiente!",
     "WITHDRAW_CONFIRMATION_HEADER": "Retirar solicitud",
     "WITHDRAW_CONFIRMATION_TEXT": "¿Estás segura que quieres retirar tu solicitud para unirte a {groupName}?",
-    "APPLICATION_WITHDRAWN": "¡Tu solicitud fue retirada con éxito!"
+    "APPLICATION_WITHDRAWN": "¡Tu solicitud fue retirada con éxito!",
+    "ARCHIVED_NOTE": "This group doesn't have any members. If you would like to revive it, contact the site administrators!"
   },
   "GROUPINFO": {
     "TITLE": "Información pública del grupo",
@@ -321,7 +316,6 @@
     "STARTDATE_HELPER": "¿Cuándo debería comenzar la serie?",
     "TIME_HELPER": "¿Cuándo debe llevarse a cabo la recogida?",
     "DATE": "Fecha",
-    "DATE_HELPER": "¿Cuándo debe llevarse a cabo la recogida?",
     "MAX_COLLECTORS": "Máx ranuras",
     "MAX_COLLECTORS_HELPER": "Cuántas personas deberían participar en la recogida?",
     "COMMENT": "Información adicional",
@@ -366,7 +360,6 @@
     "NUMBER_PICKUPS": "{count}recogidas realizadas",
     "NUMBER_FEEDBACK": "{count}comentarios dados",
     "WEIGHT_SUM": "{sum}kg de comida rescatados",
-    "GIVE_FEEDBACK": "Dejar comentario",
     "NONE": "Aún no hay comentarios",
     "NONE_HINT": "Esta página se completará una vez que haya más comentarios disponibles",
     "NO_DONE_PICKUPS": "¡Todo hecho!",
@@ -376,7 +369,6 @@
     "TITLE": "Comentario",
     "HEADER": "Gracias por tu recogida!",
     "EDIT": "Editar comentarios",
-    "SUBTITLE": "Puede proporcionar comentarios para su recogida aquí",
     "SET_AMOUNT": "Establecer cantidad",
     "DELETE_AMOUNT": "Eliminar cantidad",
     "AMOUNT": "La cantidad de comida que se salvó (en kg)",
@@ -444,7 +436,6 @@
     "DETAILS": "Más información "
   },
   "NOTIFICATIONS": {
-    "TITLE": "Notificaciones",
     "NOT_VERIFIED": "{email}no está verificado",
     "CHECK_YOUR_MAILS": "Por favor, chequea tu correo electrónico o {enviar de nuevo}",
     "RESEND_VERIFICATION": "Enviar verificación de correo otra vez",
@@ -493,8 +484,8 @@
     "LINK": "Por favor, actualiza o cambia de navegador"
   },
   "UPDATE_AVAILABLE": {
-    "TITLE": "Actualización disponible",
-    "DETAIL": "Una nueva versión de Karrot está disponible"
+    "DETAIL": "Una nueva versión de Karrot está disponible",
+    "RELOAD": "Reload"
   },
   "NOT_FOUND": {
     "EXPLANATION": "¡Perdona! No podíamos encontrar esta página. ",
@@ -625,7 +616,6 @@
     "TITLE": "Conflictos",
     "VOTE": "Votar",
     "CHAT": "Chat",
-    "INITIATED_BY": "Iniciado por {initiatorName}",
     "PAST": "Conflictos pasados",
     "PREVIOUS_VOTINGS": "Votaciones previas sobre este conflicto",
     "PARTICIPANTS": "{count}miembros han sido añadidos a esta discusión.",
@@ -701,8 +691,6 @@
     "SUBTITLE1": "Karrot exists for groups of people who want to save things from being wasted and share them instead, allowing these groups to organise efficiently, on a local and voluntary basis.",
     "SUBTITLE2": "Things such as food, bikes, clothes or whatever is being excessively thrown away or unused in the context of a consumerist society.",
     "VISION_INTRO": "Karrot is a tool for all kinds of grassroots initiatives to connect and grow, supporting the co-ordination of face-to-face activities with a layer of digital infrastructure.",
-    "ACTION": "Have you already found a group nearby you? Or maybe you want to {startAGroup}? If you just want to try Karrot out, then create an account and join the Playground group for testing.",
-    "ACTION_START_A_GROUP": "start one",
     "EXISTING_GROUPS": "A few groups already using Karrot",
     "AND_MORE": "And more...",
     "LINKS": {

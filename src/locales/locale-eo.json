@@ -47,7 +47,7 @@
     "NEWCOMER": "Novulo",
     "NEWCOMER_GUIDANCE": "{userName}estas novulo kaj eble bezonas helpon.",
     "TRUST_PROGRESS_TEXT": "{trustNeeded}plia fido bezonata",
-    "TRUST_PROGRESS_TEXT_LONG": "Nepre{trustNeeded}pli da homoj fidu {userName}por permesi redktpermesojn.",
+    "TRUST_PROGRESS_TEXT_LONG": "Nepre{trustNeeded}pli da homoj fidu {userName}por permesi redaktpermesojn.",
     "NEWCOMER_INFO": "Vi estas novulo en {groupName} kaj vi povas iĝi aktiva skribante mesaĝojn, renkontante anojn, savante kaj komentante savadojn. Kiam {threshold} anoj fidos vin, vi ricevos redaktpermesojn por helpi la grupadministradon.",
     "TRUST_INFO": {
       "TITLE": "Pri kio temas Karrot?",
@@ -69,7 +69,6 @@
     "DELETE": "Forigi",
     "EDIT": "Redakti",
     "JOIN": "Aliĝi",
-    "LEAVE": "Eliri",
     "PREVIEW": "Antaŭvido",
     "BACK": "Reen",
     "NEXT": "Venonta",
@@ -92,6 +91,7 @@
     "DECLINE": "Malakcepti",
     "WITHDRAW": "Nuligi",
     "SHOW_MORE": "Montri pli",
+    "SHOW_LESS": "Show less",
     "ENABLE": "Ebligi",
     "DISABLE": "Malebligi",
     "UNSUBSCRIBE": "Malaboni"
@@ -107,7 +107,6 @@
   },
   "GROUP": {
     "WALL": "Muro",
-    "GROUP": "Grupo",
     "LEAVE": "Forlasi la grupon…",
     "LEAVE_TEXT": "Ĉu vi vere volas forlasi la grupon?",
     "LEAVE_CONFIRMATION": "Vi forlasis {groupName}",
@@ -116,9 +115,7 @@
     "CREATE_TITLE": "Krei novan grupon",
     "MANAGE_AGREEMENT": "Agordi akordon",
     "TITLE": "Titolo de ĉi tiu grupo",
-    "PRIVATE_DESCRIPTION_TITLE": "Priskribo de privata grupo",
     "DESCRIPTION_VERBOSE": "Grupa preskribo, videbla por anoj",
-    "PUBLIC_DESCRIPTION": "Teksto videbla antaŭ aliĝi al la grupo",
     "WELCOMEMESSAGE_VERBOSE": "Bonvena mesaĝo sendita al novuloj",
     "LOGO": "Grupa logotipo",
     "SET_LOGO": "Alklaku por alŝuti vian grupan logotipon!",
@@ -152,7 +149,6 @@
     "INVITE_TITLE": "Inviti uzantojn al via grupo",
     "INVITATION_ACCEPT_SUCCESS": "Bonvenon! Vi sukcese akceptis la inviton.",
     "INVITATION_ACCEPT_ERROR": "Ho ve, la invito ne estis akceptita!",
-    "SETTINGS": "Agordoj",
     "NOTIFICATIONS_BY_GROUP": "Sciigoj laŭ grupo",
     "EMAIL_NOTIFICATIONS": "Retmesaĝaj sciigoj",
     "NOTIFICATION_TYPES": {
@@ -216,8 +212,6 @@
       }
     },
     "RESTORE": "Restaŭri",
-    "SHOW_ARCHIVED": "Montri arkivigitajn lokojn",
-    "HIDE_ARCHIVED": "Kaŝu arkivigitajn lokojn",
     "SHOW_ALL": "Montri ĉiujn lokojn",
     "SHOW_ACTIVE_ONLY": "Nur montri aktivajn lokojn"
   },
@@ -259,7 +253,7 @@
     "NUM_MEMBERS": "Ano | Anoj",
     "NO_PUBLIC_DESCRIPTION": "(Ĉi tiu grupo havas neniun priskribon… ankoraŭ)",
     "ALL_GROUPS": "Ĉiuj grupoj",
-    "BROWSE_GROUPS": "Browse existing groups",
+    "BROWSE_GROUPS": "Esplori ekzistantajn grupojn",
     "SIGNUP_OR_LOGIN": "Ensalutu aŭ kreu konton por aliĝi tiun ĉi grupon!",
     "VERIFY_EMAIL_ADDRESS": "Kontrolu vian retadreson por kandidatiĝi",
     "MY_GROUPS": "Miaj grupoj",
@@ -269,10 +263,11 @@
     },
     "PROFILE_NOTE": "Per aliĝo al la grupo, viaj profilaj datumoj estos videblaj de la aliaj grupanoj.",
     "APPLICATION_SUBMITTED": "Vi sukcese kandidatiĝis!",
-    "APPLICATION_PENDING": "Kandidatiĝo ankoraŭ respondindas",
+    "APPLICATION_PENDING": "Kandidatiĝo atendas respondon!",
     "WITHDRAW_CONFIRMATION_HEADER": "Forfaligi kandidatiĝon",
     "WITHDRAW_CONFIRMATION_TEXT": "Ĉu vi certe volas forfaligi vian kandidatiĝon al {groupName}?",
-    "APPLICATION_WITHDRAWN": "Vi sukcese forfaligis vian kandidatiĝon!"
+    "APPLICATION_WITHDRAWN": "Vi sukcese forfaligis vian kandidatiĝon!",
+    "ARCHIVED_NOTE": "Ĉi tiu grupo ne havas membroj. Se vi volas revivigi ĝin, kontaktu la administrantojn!"
   },
   "GROUPINFO": {
     "TITLE": "Informo de publika grupo",
@@ -321,7 +316,6 @@
     "STARTDATE_HELPER": "Kiam devas komenci la serion?",
     "TIME_HELPER": "Kiam okazu la savadon?",
     "DATE": "Dato",
-    "DATE_HELPER": "Kiam okazu la savadon?",
     "MAX_COLLECTORS": "Maks Savlokoj",
     "MAX_COLLECTORS_HELPER": "Kiom da homoj partoprenindas en la savado?",
     "COMMENT": "Aldona informo",
@@ -366,7 +360,6 @@
     "NUMBER_PICKUPS": "{count}faritaj savadoj",
     "NUMBER_FEEDBACK": "{count}komentoj skribitaj",
     "WEIGHT_SUM": "{sum}kg savitaj",
-    "GIVE_FEEDBACK": "Komenti",
     "NONE": "Neniu komento ankoraŭ",
     "NONE_HINT": "Tiu ĉi paĝo pleniĝos kiam komentoj disponeblos",
     "NO_DONE_PICKUPS": "Ĉio farita!",
@@ -376,7 +369,6 @@
     "TITLE": "Komentoj",
     "HEADER": "Dankon por via savado",
     "EDIT": "Redakti komenton",
-    "SUBTITLE": "Vi povas komenti pri via savado ĉi tie",
     "SET_AMOUNT": "Agordi kvanton",
     "DELETE_AMOUNT": "Forigi kvanton",
     "AMOUNT": "Manĝkvanto kiun vi povis savi (en kg)",
@@ -444,7 +436,6 @@
     "DETAILS": "Plia informo"
   },
   "NOTIFICATIONS": {
-    "TITLE": "Sciigoj",
     "NOT_VERIFIED": "{email}ne estas kontrolita",
     "CHECK_YOUR_MAILS": "Bonvolu kontroli viajn retmesaĝojn aŭ {resend}",
     "RESEND_VERIFICATION": "resendi kontrolan retmesaĝon",
@@ -493,8 +484,8 @@
     "LINK": "Bonvolu ĝisdatigi aŭ ŝanĝu retumilon"
   },
   "UPDATE_AVAILABLE": {
-    "TITLE": "Ĝisdatigo disponeblas",
-    "DETAIL": "Novan version de Karrot disponeblas."
+    "DETAIL": "Novan version de Karrot disponeblas.",
+    "RELOAD": "Reŝarĝi"
   },
   "NOT_FOUND": {
     "EXPLANATION": "Pardonon. Ni ne povis trovi la paĝon.",
@@ -625,7 +616,6 @@
     "TITLE": "Konfliktoj",
     "VOTE": "Voĉdoni",
     "CHAT": "Babilejo",
-    "INITIATED_BY": "Komencita de{initiatorName}",
     "PAST": "Pasintaj konfliktoj",
     "PREVIOUS_VOTINGS": "Antaŭaj voĉdonadoj pri tiu ĉi konflikto",
     "PARTICIPANTS": "{count}anoj jam kontribuis al la diskuto",
@@ -697,72 +687,70 @@
   "YOU": "Vi",
   "TO": "al",
   "ABOUT_KARROT": {
-    "TITLE": "Save things from being wasted, share them instead!",
-    "SUBTITLE1": "Karrot exists for groups of people who want to save things from being wasted and share them instead, allowing these groups to organise efficiently, on a local and voluntary basis.",
-    "SUBTITLE2": "Things such as food, bikes, clothes or whatever is being excessively thrown away or unused in the context of a consumerist society.",
-    "VISION_INTRO": "Karrot is a tool for all kinds of grassroots initiatives to connect and grow, supporting the co-ordination of face-to-face activities with a layer of digital infrastructure.",
-    "ACTION": "Have you already found a group nearby you? Or maybe you want to {startAGroup}? If you just want to try Karrot out, then create an account and join the Playground group for testing.",
-    "ACTION_START_A_GROUP": "start one",
-    "EXISTING_GROUPS": "A few groups already using Karrot",
-    "AND_MORE": "And more...",
+    "TITLE": "Savu aĵojn, disdoni ilin!",
+    "SUBTITLE1": "Karrot ekzistas por grupoj de homoj kiuj volas savi aĵojn kaj disdoni ilin. Ĝi faciligas la organizadon de tiaj grupoj loke kaj volontule.",
+    "SUBTITLE2": "Aĵoj kiel manĝaĵojn, biciklojn, vestaĵojn, ktp tro kutime estas ĵetitaj al rubujoj aŭ neuzitaj en la konsumema socio.",
+    "VISION_INTRO": "Karrot estas ilo por ĉiaj popolaj iniciatoj, por konekti kaj helpi ilin kreskiĝi por subteni organizado de vizaĝaj aktivaĵoj per virtualaj rimedoj.",
+    "EXISTING_GROUPS": "Kelkaj grupoj kiuj jam uzas Karrot",
+    "AND_MORE": "Kaj pli...",
     "LINKS": {
-      "FORUM": "community forum",
+      "FORUM": "Komunuma forumo",
       "CODE": "GitHub",
-      "CHAT": "team chat",
+      "CHAT": "teama babilejo",
       "TRANSLATIONS": "Transifex"
     },
     "SECTIONS": {
       "GROUPS": {
-        "TITLE": "Independent groups",
-        "SUBTITLE": "Every group on karrot is completely independent and can have their own logo, processes and rules.",
-        "DESCRIPTION": "Yet they are all displayed on the map so that people can find and connect to other groups in their location and even globally."
+        "TITLE": "Sendependaj grupoj",
+        "SUBTITLE": "Ĉiu grupo en Karrot estas tute sendependa kaj povas havi sian propran logotipon, procedurojn kaj regulojn.",
+        "DESCRIPTION": "Nun ili estas videblaj sur la mapo. Tiel la homoj povas trovi la grupojn kaj konekti kun ili surloke aŭ tutmonde."
       },
       "ACTIVITIES": {
-        "TITLE": "Distribution of tasks and activities",
-        "SUBTITLE": "Activities with a specific time and place, like food pickups in the case of foodsaving, can be entered in the software.",
-        "DESCRIPTION": "Each activity has a number of slots which members of the group can sign up for – this way everyone knows who goes where and when, and feedback can be given later."
+        "TITLE": "Distribuo de taskoj kaj aktivaĵoj",
+        "SUBTITLE": "Oni povas meti aktivaĵojn kun specifaj tempo kaj loko, kiel savadon de manĝaĵo.",
+        "DESCRIPTION": "Ĉiu aktivaĵo havas savlokojn al kiuj oni povas aliĝi. Tiel, ĉiuj scias kiu iras kien kaj kiam kaj tiamaniere facilas poste komenti."
       },
       "OFFERS": {
-        "TITLE": "Share things",
-        "SUBTITLE": "Create an ad-like offer of whatever you want to share or give away.",
-        "DESCRIPTION": "Offers are visible to everyone in the group and people can show their interest on the offer's chat."
+        "TITLE": "Disdoni aĵojn",
+        "SUBTITLE": "Krei oferton de io ajn kiun vi volas donaci aŭ disdoni.",
+        "DESCRIPTION": "Ofertoj videblas al ĉiuj en la grupo. Homoj povas montri sian intereson en la oferta babilejo."
       },
       "DEMOCRATIC": {
-        "TITLE": "Democratic and participative development",
-        "DESCRIPTION": "Karrot is a free and open-source software developed with the feedback and participation of the people who use it. It is mainly developed by a small core team that is constantly in contact with people in different groups, in order to make sense of their diverging and converging needs and thus guide the development. We abide by the ethics of integrity and non-commercialization of data.",
-        "DESCRIPTION2": "Developers and designers are obviously welcome to participate in its development. Check out the project on {code}."
+        "TITLE": "Demokrata kaj partoprenema disvolviĝo",
+        "DESCRIPTION": "Karrot estas libera kaj malferma programo kiu disvolviĝas per la komentoj kaj partopreno de la uzantoj. Malgranda ĉefteamo konstante kontaktas homojn de malsamaj grupoj por lerni pri la diversaj kaj komunaj bezonoj kaj uzi ilin kiel gvidliniojn. Ni sekvas etikon de honesteco kaj nekomercigo de datumoj.",
+        "DESCRIPTION2": "Ni bonvenas programistojn kaj dezajnistojn partopreni en la disvolvigo de Karrot. Vidu la projekton en {code}."
       },
       "COMMUNICATION": {
-        "TITLE": "Communication in the right context",
-        "DESCRIPTION": "Write a message that everyone in the group will see or a private message to someone. Everything related to a single activity or place can be discussed in their respective chats."
+        "TITLE": "Komunikado en la korekta kunteksto",
+        "DESCRIPTION": "Scrivu mesaĝon kiun ĉiuj vidos aŭ privatan al specifa homo. Ĉio kio rilatas al aktivaĵo aŭ loko povas estis traktita en siajn specifaj babilejoj."
       },
       "TRUST": {
-        "TITLE": "Democratic and trust-based group management",
-        "DESCRIPTION": "There are no admin superpowers in a Karrot group. People who receive enough trust-carrots from their peers will be able to edit and change settings in the group. When new people want to join your group they need to apply and answer questions your group can set, which anyone with editing rights can decline or approve. Likewise, if there is a conflict, the group can enter a voting system to resolve it in a communal way."
+        "TITLE": "Demokrata kaj fideca grupa-administrado",
+        "DESCRIPTION": "Ne estas administrantaj superpovoj en grupo de Karrot. Tiuj kiuj ricevas sufiĉe da fido de aliaj uzantoj povos difini agordojn en la grupo. Kiam novuloj volas aliĝi vian grupon, ili devas kandidatiĝi kaj respondi demandojn starigitajn el via grupo, kiujn ĉiuj kiuj havas redaktpermesojn povas aprobi aŭ male. Simile, se estas konflikto, la grupo povas uzi voĉdonan sistemon por solvi la situacion komune."
       },
       "MAPS": {
-        "TITLE": "Maps and lists",
-        "DESCRIPTION": "You have a map of where the places and the people doing the activities are located. You have a nice list of upcoming activities and can sign up for them online."
+        "TITLE": "Mapoj kaj listoj",
+        "DESCRIPTION": "Estas mapo kiu montras la lokojn kaj homojn aktivajn. Estas bela listo de venontaj aktivaĵoj kaj vi povas aliĝi al ili rete."
       },
       "TRANSPARENCY": {
-        "TITLE": "Transparency",
-        "DESCRIPTION": "The history shows who did what and when. Everything from participating in an activity to creating and editing places is logged here."
+        "TITLE": "Travidebleco",
+        "DESCRIPTION": "La historio montras kiu faris kion kaj kiam. Ĉio, ekde partopreno en aktivaĵo ĝis kreado de lokoj, estas registrita ĉi tie."
       },
       "NOTIFICATIONS": {
-        "TITLE": "Notifications",
-        "DESCRIPTION": "You get notified about empty activities, new messages and new people wanting to join your group. But you can also turn it all off if you wish more peace!"
+        "TITLE": "Sciigoj",
+        "DESCRIPTION": "Ni sciigos vin pri malplenaj  aktivaĵoj, novaj mesaĝoj kaj novuloj kiuj volas aliĝi vian grupon. Sed, vi povas malŝalti la sciigojn se vi tion deziras!"
       },
       "TRANSLATIONS": {
-        "TITLE": "Multi-language",
-        "DESCRIPTION": "Karrot is fully translatable by the community and many languages are already added. To contribute more translations just visit the project on {translations}."
+        "TITLE": "Multlingva",
+        "DESCRIPTION": "Karrot estas tradukita de la komunumo kaj multaj lingvoj jam estas aldonitaj. Por kontribui vizitu la projekton je {translations}."
       },
       "OPENSOURCE": {
-        "TITLE": "Open source",
-        "DESCRIPTION": "Everything is transparent and possibly changeable. We encourage groups to host their own instances of the platform, if they have the ability to do so. Still, we also provide access to a hosted version on karrot.world."
+        "TITLE": "Libera kodo",
+        "DESCRIPTION": "Ĉio estas travidebla kaj povas ŝanĝiĝi. Ni kuraĝigas la grupojn gastigi siajn proprajn ekzemplojn de la retpaĝo, se ili povas tion fari. Ankaŭ, ni donas aliron al gastigita versio je karrot.world."
       },
       "TEAM": {
-        "TITLE": "Responsive team",
-        "DESCRIPTION": "You can easily talk to the people developing Karrot, either on our {forum}, on {code} or in real-time on our {chat}."
+        "TITLE": "Kontakteamo",
+        "DESCRIPTION": "Vi facile povas kontakti la kodemuloj de Karrot, per {forum}, {code} aŭ realtempe per nia {chat}."
       }
     }
   }

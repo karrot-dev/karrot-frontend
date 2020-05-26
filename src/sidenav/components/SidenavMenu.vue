@@ -24,7 +24,6 @@
         side
       >
         <QBadge
-          small
           :color="badge.color"
           :text-color="badge.textColor"
           :title="badge.title"

@@ -1,4 +1,3 @@
-import conversationsPlugin from '@/messages/datastore/conversationsPlugin'
 import conversations from '@/messages/datastore/conversations'
 import currentThread from '@/messages/datastore/currentThread'
 import detail, { plugin as detailPlugin } from '@/messages/datastore/detail'
@@ -12,7 +11,6 @@ export default {
     latestMessages,
   },
   plugins: [
-    conversationsPlugin,
     detailPlugin,
   ],
 }

@@ -149,4 +149,7 @@ export default {
   top -24px
   right 6px
   z-index 1
+
+>>> .q-banner__avatar
+  align-self center
 </style>

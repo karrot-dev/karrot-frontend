@@ -39,7 +39,6 @@ export default {
       return Object.values(state.entries)
         .map(getters.enrich)
         .filter(p => p.dateEnd > reactiveNow.value)
-        .filter(p => !p.hasStarted || p.isUserMember)
         .sort(sortByDate)
     },
     byCurrentGroup: (state, getters) => {
@@ -52,7 +51,7 @@ export default {
     available: (state, getters) =>
       getters.byCurrentGroup
         .filter(isWithinOneWeek)
-        .filter(e => !e.isFull && !e.isUserMember && !e.isDisabled)
+        .filter(e => !e.isFull && !e.isUserMember && !e.isDisabled && !e.hasStarted)
         .filter(e => e.place.isSubscribed),
     feedbackPossibleByCurrentGroup: (state, getters) => {
       return Object.values(state.entries)

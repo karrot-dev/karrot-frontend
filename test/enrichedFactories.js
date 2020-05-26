@@ -73,6 +73,7 @@ export const makeGroup = data => {
     isCurrentGroup: false,
     isMember: false,
     trustThresholdForNewcomer: 1,
+    myApplicationPending: false,
     ...data,
   }
 }

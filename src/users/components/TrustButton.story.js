@@ -162,3 +162,18 @@ storiesOf('TrustButton', module)
     }),
     store: datastore,
   }))
+  .add('small - My Trust Button', () => defaults({
+    render: h => h(TrustButton, {
+      props: {
+        user: {
+          ...baseUser,
+          isCurrentUser: true,
+        },
+        group: groupFactory(),
+        membership: membershipFactory({ trustedByCount: 2 }),
+        small: true,
+      },
+      on: defaultOn,
+    }),
+    store: datastore,
+  }))

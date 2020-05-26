@@ -12,7 +12,6 @@ function initialState () {
     redirectTo: null,
     joinGroupAfterLogin: null,
     acceptInviteAfterLogin: null,
-    muteConversationAfterLogin: [],
     failedEmailDeliveries: [],
     maybeLoggedOut: false,
   }
@@ -44,52 +43,10 @@ export default {
   actions: {
     clearLoginStatus: ({ dispatch }) => dispatch('meta/clear', ['login']),
     ...withMeta({
-      async login ({ state, commit, getters, dispatch, rootGetters }, data) {
+      async login ({ commit, dispatch }, data) {
         const user = await auth.login(data)
         commit('setUser', user)
-        dispatch('afterLoggedIn')
-
-        state.muteConversationAfterLogin.forEach(conversationId => {
-          try {
-            dispatch('conversations/maybeSave', {
-              conversationId,
-              value: {
-                notifications: 'muted',
-              },
-            }, { root: true })
-          }
-          catch (error) {}
-          commit('clearMuteConversationAfterLogin')
-        })
-
-        if (state.acceptInviteAfterLogin) {
-          await dispatch('invitations/accept', state.acceptInviteAfterLogin, { root: true })
-        }
-        else if (state.joinGroupAfterLogin) {
-          const groupId = state.joinGroupAfterLogin
-          const group = () => rootGetters['groups/get'](groupId)
-          if (group().isMember) {
-            // go to group if already a member
-            router.push({ name: 'group', params: { groupId } }).catch(() => {})
-          }
-          else {
-            await dispatch('groups/join', groupId, { root: true })
-            if (group().joinStatus.hasValidationErrors) {
-              // go back to goup preview if error occured
-              // it should show the error status on group preview, thanks to persistent state!
-              router.push({ name: 'groupPreview', params: { groupPreviewId: groupId } }).catch(() => {})
-            }
-          }
-        }
-        else if (getters.redirectTo) {
-          router.push(getters.redirectTo).catch(() => {})
-        }
-        else {
-          router.push('/').catch(() => {})
-        }
-        commit('clearAcceptInviteAfterLogin')
-        commit('clearJoinGroupAfterLogin')
-        commit('clearRedirectTo')
+        await dispatch('afterLoggedIn')
       },
 
       async logout ({ commit, dispatch }) {
@@ -166,13 +123,38 @@ export default {
       commit('setAcceptInviteAfterLogin', { token })
     },
 
-    setMuteConversationAfterLogin ({ commit }, conversationId) {
-      commit('appendMuteConversationAfterLogin', { conversationId })
-    },
-
-    afterLoggedIn ({ state, dispatch }) {
+    async afterLoggedIn ({ state, getters, commit, dispatch, rootGetters }) {
       const { user } = state
       dispatch('i18n/setLocale', user.language || 'en', { root: true })
+
+      if (state.acceptInviteAfterLogin) {
+        await dispatch('invitations/accept', state.acceptInviteAfterLogin, { root: true })
+      }
+      else if (state.joinGroupAfterLogin) {
+        const groupId = state.joinGroupAfterLogin
+        const group = () => rootGetters['groups/get'](groupId)
+        if (group().isMember) {
+          // go to group if already a member
+          router.push({ name: 'group', params: { groupId } }).catch(() => {})
+        }
+        else {
+          await dispatch('groups/join', groupId, { root: true })
+          if (group().joinStatus.hasValidationErrors) {
+            // go back to goup preview if error occured
+            // it should show the error status on group preview, thanks to persistent state!
+            router.push({ name: 'groupPreview', params: { groupPreviewId: groupId } }).catch(() => {})
+          }
+        }
+      }
+      else if (getters.redirectTo) {
+        router.push(getters.redirectTo).catch(() => {})
+      }
+      else {
+        router.push('/').catch(() => {})
+      }
+      commit('clearAcceptInviteAfterLogin')
+      commit('clearJoinGroupAfterLogin')
+      commit('clearRedirectTo')
     },
 
     async refresh ({ commit, dispatch, getters }) {
@@ -185,10 +167,7 @@ export default {
       commit('setUser', user)
       commit('setMaybeLoggedOut', false)
 
-      if (user) {
-        dispatch('afterLoggedIn')
-      }
-      else if (wasLoggedIn && !getters.logoutStatus.pending) {
+      if (!user && wasLoggedIn && !getters.logoutStatus.pending) {
         dispatch('logout')
       }
     },
@@ -227,14 +206,6 @@ export default {
     },
     clearAcceptInviteAfterLogin (state) {
       state.acceptInviteAfterLogin = null
-    },
-
-    // Mute conversation after login
-    appendMuteConversationAfterLogin (state, { conversationId }) {
-      state.muteConversationAfterLogin.push(conversationId)
-    },
-    clearMuteConversationAfterLogin (state) {
-      state.muteConversationAfterLogin = []
     },
 
     setFailedEmailDeliveries (state, events) {

@@ -135,4 +135,7 @@ export default {
 .underline
   text-decoration underline
   cursor pointer
+
+>>> .q-banner__avatar
+  align-self center
 </style>

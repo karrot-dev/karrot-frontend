@@ -51,7 +51,18 @@
       <QSeparator />
       <QCardActions>
         <div style="width: 100%">
-          <template v-if="isLoggedIn">
+          <template v-if="!group.isOpen && group.members.length === 0">
+            <QBanner class="bg-info">
+              {{ $t('JOINGROUP.ARCHIVED_NOTE' ) }}
+              <template #avatar>
+                <QIcon
+                  name="info"
+                  style="font-size: 24px"
+                />
+              </template>
+            </QBanner>
+          </template>
+          <template v-else-if="isLoggedIn">
             <template v-if="!group.isMember">
               <QBanner
                 v-if="!application"
@@ -219,6 +230,9 @@ export default {
 </script>
 
 <style scoped lang="stylus">
+>>> .q-banner__avatar
+  align-self center
+
 .q-card *
   overflow hidden
 

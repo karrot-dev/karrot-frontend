@@ -69,7 +69,6 @@
     "DELETE": "Radera",
     "EDIT": "Ändra",
     "JOIN": "Gå med",
-    "LEAVE": "Lämna",
     "PREVIEW": "Förhandsvisning",
     "BACK": "Tillbaks",
     "NEXT": "Nästa",
@@ -92,6 +91,7 @@
     "DECLINE": "Avböja",
     "WITHDRAW": "Ta bort",
     "SHOW_MORE": "Visa mer",
+    "SHOW_LESS": "Show less",
     "ENABLE": "aktivera",
     "DISABLE": "inaktivera",
     "UNSUBSCRIBE": "Avsluta prenumeration"
@@ -107,7 +107,6 @@
   },
   "GROUP": {
     "WALL": "Anslagstavla",
-    "GROUP": "Grupp",
     "LEAVE": "Lämna gruppen...",
     "LEAVE_TEXT": "Är du säker på att du vill lämna denna gruppen?",
     "LEAVE_CONFIRMATION": "Du lämnade {groupName}",
@@ -116,9 +115,7 @@
     "CREATE_TITLE": "Skapa ny grupp",
     "MANAGE_AGREEMENT": "Redigera överenskommelse",
     "TITLE": "Gruppens namn",
-    "PRIVATE_DESCRIPTION_TITLE": "Privat gruppbeskrivning",
     "DESCRIPTION_VERBOSE": "Beskrivning av gruppen, endast för medlemmar",
-    "PUBLIC_DESCRIPTION": "Publik Beskrivning av gruppen",
     "WELCOMEMESSAGE_VERBOSE": "Välkomstmeddelande skickas till nya medlemmar",
     "LOGO": "Gruppens logga",
     "SET_LOGO": "Klicka för att ladda upp gruppens logotyp!",
@@ -152,7 +149,6 @@
     "INVITE_TITLE": "Bjud in folk till din grupp",
     "INVITATION_ACCEPT_SUCCESS": "Välkommen! Du har accepterat inbjudan.",
     "INVITATION_ACCEPT_ERROR": "Oj, kunde inte acceptera inbjudan!",
-    "SETTINGS": "Inställningar",
     "NOTIFICATIONS_BY_GROUP": "Aviseringar per grupp",
     "EMAIL_NOTIFICATIONS": "E-mail notifikationer",
     "NOTIFICATION_TYPES": {
@@ -216,8 +212,6 @@
       }
     },
     "RESTORE": "Återställa",
-    "SHOW_ARCHIVED": "Visa arkiverade platser",
-    "HIDE_ARCHIVED": "Dölj arkiverade platser",
     "SHOW_ALL": "Visa alla platser",
     "SHOW_ACTIVE_ONLY": "Visa endast aktiva platser"
   },
@@ -272,7 +266,8 @@
     "APPLICATION_PENDING": "Din ansökan väntar på svar!",
     "WITHDRAW_CONFIRMATION_HEADER": "Ta bort ansökan",
     "WITHDRAW_CONFIRMATION_TEXT": "Är du säker på att du vill ta bort din ansökan för att gå med i {groupName}?",
-    "APPLICATION_WITHDRAWN": "Din ansökan har tagits bort!"
+    "APPLICATION_WITHDRAWN": "Din ansökan har tagits bort!",
+    "ARCHIVED_NOTE": "This group doesn't have any members. If you would like to revive it, contact the site administrators!"
   },
   "GROUPINFO": {
     "TITLE": "Offentlig information om gruppen",
@@ -321,7 +316,6 @@
     "STARTDATE_HELPER": "När ska serien börja?",
     "TIME_HELPER": "När ska hämtningen ske?",
     "DATE": "Datum",
-    "DATE_HELPER": "När ska hämtningen ske?",
     "MAX_COLLECTORS": "Max Slots",
     "MAX_COLLECTORS_HELPER": "Hur många bör delta i hämtningen?",
     "COMMENT": "Mer information",
@@ -366,7 +360,6 @@
     "NUMBER_PICKUPS": "{count} upphämtningar gjort",
     "NUMBER_FEEDBACK": "{count} feedbacks",
     "WEIGHT_SUM": "{sum} kg räddade mat",
-    "GIVE_FEEDBACK": "Ge feedback",
     "NONE": "Ingen feedback ännu",
     "NONE_HINT": "Den här sidan kommer att fyllas när det finns mer feedback",
     "NO_DONE_PICKUPS": "Klar!",
@@ -376,7 +369,6 @@
     "TITLE": "Feedback",
     "HEADER": "Tack för din upphämtning!",
     "EDIT": "Redigera feedback",
-    "SUBTITLE": "Du kan ange en feedback för din upphämtning här",
     "SET_AMOUNT": "Ange mängden",
     "DELETE_AMOUNT": "Radera mängden",
     "AMOUNT": "Mängd mat du har lyckats spara (i kg)",
@@ -444,7 +436,6 @@
     "DETAILS": "Mer information"
   },
   "NOTIFICATIONS": {
-    "TITLE": "Notifikationer",
     "NOT_VERIFIED": "{email} är inte verifierad",
     "CHECK_YOUR_MAILS": "Varsågod och kolla dina mejl eller {resend}",
     "RESEND_VERIFICATION": "Skicka igen mejlverifiering",
@@ -493,8 +484,8 @@
     "LINK": "Snälla uppdatera eller ändra din webbläsare"
   },
   "UPDATE_AVAILABLE": {
-    "TITLE": "Uppdatering tillgänglig",
-    "DETAIL": "En ny version av Karrot finns tillgänglig."
+    "DETAIL": "En ny version av Karrot finns tillgänglig.",
+    "RELOAD": "Reload"
   },
   "NOT_FOUND": {
     "EXPLANATION": "Jag är ledsen, men vi kunde inte hitta sidan nånstans.",
@@ -625,7 +616,6 @@
     "TITLE": "Problem",
     "VOTE": "Rösta",
     "CHAT": "Chatta",
-    "INITIATED_BY": "Initierad av {initiatorName}",
     "PAST": "Tidigare problem",
     "PREVIOUS_VOTINGS": "Tidigare röstningar i denna problematik",
     "PARTICIPANTS": "{count} medlemmar har lagts till i denna diskussion.",
@@ -701,8 +691,6 @@
     "SUBTITLE1": "Karrot exists for groups of people who want to save things from being wasted and share them instead, allowing these groups to organise efficiently, on a local and voluntary basis.",
     "SUBTITLE2": "Things such as food, bikes, clothes or whatever is being excessively thrown away or unused in the context of a consumerist society.",
     "VISION_INTRO": "Karrot is a tool for all kinds of grassroots initiatives to connect and grow, supporting the co-ordination of face-to-face activities with a layer of digital infrastructure.",
-    "ACTION": "Have you already found a group nearby you? Or maybe you want to {startAGroup}? If you just want to try Karrot out, then create an account and join the Playground group for testing.",
-    "ACTION_START_A_GROUP": "start one",
     "EXISTING_GROUPS": "A few groups already using Karrot",
     "AND_MORE": "And more...",
     "LINKS": {

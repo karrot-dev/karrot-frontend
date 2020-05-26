@@ -3,7 +3,7 @@
  * Hacky script to compare the messages in locale-en.json with client-side usage
  * Run: scripts/find_unused_locales.js
  *
- * Only handles t('KEY') markers, so it shows a lot of false positives
+ * Obviously it does not handle dynamically composed translation keys, so expect some false positives.
  */
 
 const { readFileSync } = require('fs')
@@ -29,13 +29,9 @@ function getKeys (src, parent) {
 getKeys(messages)
 
 const { exec } = require('child_process')
-exec('grep -hor "[.|$]t[c]*(.*\'[a-zA-Z0-9._ ]*\'.*)" src/', (err, stdout, stderr) => {
-  if (!err) {
-    const usages = stdout.split('\n').map(e => e.split("'")[1])
-    for (const key of keys) {
-      if (!usages.includes(key)) {
-        console.log(key)
-      }
-    }
-  }
+keys.forEach(k => {
+  exec(`grep -Fr ${k} src/`, (error) => {
+    // error is not null -> probably not found (or some other error occurred)
+    if (error) console.log(k)
+  })
 })

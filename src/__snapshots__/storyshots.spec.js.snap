@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Storyshots AddressPicker Default 1`] = `
-<div><label for="f_80808080-8080-4080-8080-808080808080" class="q-field row no-wrap items-start q-select q-field--auto-height q-select--with-input q-select--without-chips q-field--standard q-field--labeled q-field--with-bottom">
+<div><label for="f_80808080-8080-4080-8080-808080808080" class="q-field q-validation-component row no-wrap items-start q-select q-field--auto-height q-select--with-input q-select--without-chips q-field--standard q-field--labeled q-field--with-bottom">
     <div class="q-field__before q-field__marginal row no-wrap items-center"><i aria-hidden="true" role="presentation" class="q-icon notranslate"></i></div>
     <div class="q-field__inner relative-position col self-stretch column justify-center">
       <div tabindex="-1" class="q-field__control relative-position row no-wrap">
@@ -37,7 +37,7 @@ exports[`Storyshots Applications ApplicationForm 1`] = `
           </div>
         </div>
       </div>
-      <div class="relative-position q-mb-sm"><label for="f_80808080-8080-4080-8080-808080808080" class="q-field row no-wrap items-start q-textarea q-textarea--autogrow q-field--standard q-field--with-bottom">
+      <div class="relative-position q-mb-sm"><label for="f_80808080-8080-4080-8080-808080808080" class="q-field q-validation-component row no-wrap items-start q-textarea q-textarea--autogrow q-field--standard q-field--with-bottom">
           <div class="q-field__inner relative-position col self-stretch column justify-center">
             <div tabindex="-1" class="q-field__control relative-position row no-wrap">
               <div class="q-field__control-container col relative-position row no-wrap q-anchor--skip"><textarea tabindex="0" rows="1" id="f_80808080-8080-4080-8080-808080808080" type="textarea" class="q-field__native q-placeholder" style="min-height:100px;"></textarea></div>
@@ -119,7 +119,7 @@ exports[`Storyshots Applications ApplicationList 1`] = `
       </div>
       <!---->
     </div>
-    <hr role="separator" aria-orientation="horizontal" class="q-separator q-separator q-separator--horizontal col-grow">
+    <hr role="separator" aria-orientation="horizontal" class="q-separator q-separator q-separator--horizontal">
     <div sublabel="9 entries" class="q-expansion-item q-item-type q-expansion-item--collapsed q-expansion-item--standard">
       <div class="q-expansion-item__container relative-position">
         <div tabindex="0" class="q-item q-item-type row no-wrap q-item--clickable q-link cursor-pointer q-focusable q-hoverable">
@@ -160,7 +160,7 @@ exports[`Storyshots Banners Banners 1`] = `
 `;
 
 exports[`Storyshots ChangePhoto empty 1`] = `
-<div class="edit-box k-change-photo"><label for="f_80808080-8080-4080-8080-808080808080" class="q-field row no-wrap items-start q-field--standard q-field--float q-field--labeled q-field--auto-height q-field--with-bottom">
+<div class="edit-box k-change-photo"><label for="f_80808080-8080-4080-8080-808080808080" class="q-field q-validation-component row no-wrap items-start q-field--standard q-field--float q-field--labeled q-field--auto-height q-field--with-bottom">
     <div class="q-field__before q-field__marginal row no-wrap items-center"><i aria-hidden="true" role="presentation" class="fas fa-camera q-icon notranslate"> </i></div>
     <div class="q-field__inner relative-position col self-stretch column justify-center">
       <div tabindex="-1" class="q-field__control relative-position row no-wrap">
@@ -196,7 +196,7 @@ exports[`Storyshots ChangePhoto empty 1`] = `
 `;
 
 exports[`Storyshots ChangePhoto error 1`] = `
-<div class="edit-box k-change-photo"><label for="f_80808080-8080-4080-8080-808080808080" class="q-field row no-wrap items-start q-field--standard q-field--focused q-field--float q-field--labeled q-field--auto-height q-field--with-bottom q-field--error">
+<div class="edit-box k-change-photo"><label for="f_80808080-8080-4080-8080-808080808080" class="q-field q-validation-component row no-wrap items-start q-field--standard q-field--focused q-field--float q-field--labeled q-field--auto-height q-field--with-bottom q-field--error">
     <div class="q-field__before q-field__marginal row no-wrap items-center"><i aria-hidden="true" role="presentation" class="fas fa-camera q-icon notranslate"> </i></div>
     <div class="q-field__inner relative-position col self-stretch column justify-center">
       <div tabindex="-1" class="q-field__control relative-position row no-wrap text-negative">
@@ -233,7 +233,7 @@ exports[`Storyshots ChangePhoto error 1`] = `
 `;
 
 exports[`Storyshots ChangePhoto pending 1`] = `
-<div class="edit-box k-change-photo"><label for="f_80808080-8080-4080-8080-808080808080" class="q-field row no-wrap items-start q-field--standard q-field--float q-field--labeled q-field--auto-height q-field--with-bottom">
+<div class="edit-box k-change-photo"><label for="f_80808080-8080-4080-8080-808080808080" class="q-field q-validation-component row no-wrap items-start q-field--standard q-field--float q-field--labeled q-field--auto-height q-field--with-bottom">
     <div class="q-field__before q-field__marginal row no-wrap items-center"><i aria-hidden="true" role="presentation" class="fas fa-camera q-icon notranslate"> </i></div>
     <div class="q-field__inner relative-position col self-stretch column justify-center">
       <div tabindex="-1" class="q-field__control relative-position row no-wrap">
@@ -269,7 +269,7 @@ exports[`Storyshots ChangePhoto pending 1`] = `
 `;
 
 exports[`Storyshots ChangePhoto with photo 1`] = `
-<div class="edit-box k-change-photo"><label for="f_80808080-8080-4080-8080-808080808080" class="q-field row no-wrap items-start q-field--standard q-field--float q-field--labeled q-field--auto-height q-field--with-bottom">
+<div class="edit-box k-change-photo"><label for="f_80808080-8080-4080-8080-808080808080" class="q-field q-validation-component row no-wrap items-start q-field--standard q-field--float q-field--labeled q-field--auto-height q-field--with-bottom">
     <div class="q-field__before q-field__marginal row no-wrap items-center"><i aria-hidden="true" role="presentation" class="fas fa-camera q-icon notranslate"> </i></div>
     <div class="q-field__inner relative-position col self-stretch column justify-center">
       <div tabindex="-1" class="q-field__control relative-position row no-wrap">
@@ -1333,7 +1333,7 @@ exports[`Storyshots ConversationCompose default 1`] = `
   </div>
   <div class="q-item__section column q-item__section--main justify-center">
     <div class="q-item__label">
-      <div class="relative-position q-mb-sm"><label for="f_80808080-8080-4080-8080-808080808080" class="q-field row no-wrap items-start q-textarea q-textarea--autogrow q-field--standard q-field--dense q-field--with-bottom">
+      <div class="relative-position q-mb-sm"><label for="f_80808080-8080-4080-8080-808080808080" class="q-field q-validation-component row no-wrap items-start q-textarea q-textarea--autogrow q-field--standard q-field--dense q-field--with-bottom">
           <div class="q-field__inner relative-position col self-stretch column justify-center">
             <div tabindex="-1" class="q-field__control relative-position row no-wrap">
               <div class="q-field__control-container col relative-position row no-wrap q-anchor--skip"><textarea tabindex="0" rows="1" placeholder="Type here" id="f_80808080-8080-4080-8080-808080808080" type="textarea" class="q-field__native q-placeholder" style="min-height:unset;"></textarea></div>
@@ -1366,7 +1366,7 @@ exports[`Storyshots ConversationCompose edit 1`] = `
   </div>
   <div class="q-item__section column q-item__section--main justify-center">
     <div class="q-item__label">
-      <div class="relative-position q-mb-sm"><label for="f_80808080-8080-4080-8080-808080808080" class="q-field row no-wrap items-start q-textarea q-textarea--autogrow q-field--standard q-field--float q-field--dense q-field--with-bottom">
+      <div class="relative-position q-mb-sm"><label for="f_80808080-8080-4080-8080-808080808080" class="q-field q-validation-component row no-wrap items-start q-textarea q-textarea--autogrow q-field--standard q-field--float q-field--dense q-field--with-bottom">
           <div class="q-field__inner relative-position col self-stretch column justify-center">
             <div tabindex="-1" class="q-field__control relative-position row no-wrap">
               <div class="q-field__control-container col relative-position row no-wrap q-anchor--skip"><textarea tabindex="0" rows="1" placeholder="Type here" id="f_80808080-8080-4080-8080-808080808080" type="textarea" class="q-field__native q-placeholder" style="min-height:unset;">existing text</textarea></div>
@@ -1395,7 +1395,7 @@ exports[`Storyshots ConversationCompose error 1`] = `
   </div>
   <div class="q-item__section column q-item__section--main justify-center">
     <div class="q-item__label">
-      <div class="relative-position q-mb-sm"><label for="f_80808080-8080-4080-8080-808080808080" class="q-field row no-wrap items-start q-textarea q-textarea--autogrow q-field--standard q-field--focused q-field--dense q-field--with-bottom q-field--error">
+      <div class="relative-position q-mb-sm"><label for="f_80808080-8080-4080-8080-808080808080" class="q-field q-validation-component row no-wrap items-start q-textarea q-textarea--autogrow q-field--standard q-field--focused q-field--dense q-field--with-bottom q-field--error">
           <div class="q-field__inner relative-position col self-stretch column justify-center">
             <div tabindex="-1" class="q-field__control relative-position row no-wrap text-negative">
               <div class="q-field__control-container col relative-position row no-wrap q-anchor--skip"><textarea tabindex="0" rows="1" placeholder="Type here" id="f_80808080-8080-4080-8080-808080808080" type="textarea" class="q-field__native q-placeholder" style="min-height:unset;"></textarea></div>
@@ -1431,7 +1431,7 @@ exports[`Storyshots ConversationCompose not participant 1`] = `
   </div>
   <div class="q-item__section column q-item__section--main justify-center">
     <div class="q-item__label">
-      <div class="relative-position q-mb-sm"><label for="f_80808080-8080-4080-8080-808080808080" class="q-field row no-wrap items-start q-textarea q-textarea--autogrow q-field--standard q-field--dense q-field--with-bottom">
+      <div class="relative-position q-mb-sm"><label for="f_80808080-8080-4080-8080-808080808080" class="q-field q-validation-component row no-wrap items-start q-textarea q-textarea--autogrow q-field--standard q-field--dense q-field--with-bottom">
           <div class="q-field__inner relative-position col self-stretch column justify-center">
             <div tabindex="-1" class="q-field__control relative-position row no-wrap">
               <div class="q-field__control-container col relative-position row no-wrap q-anchor--skip"><textarea tabindex="0" rows="1" placeholder="Type here" id="f_80808080-8080-4080-8080-808080808080" type="textarea" class="q-field__native q-placeholder" style="min-height:unset;"></textarea></div>
@@ -1464,7 +1464,7 @@ exports[`Storyshots ConversationCompose pending 1`] = `
   </div>
   <div class="q-item__section column q-item__section--main justify-center">
     <div class="q-item__label">
-      <div class="relative-position q-mb-sm"><label for="f_80808080-8080-4080-8080-808080808080" aria-disabled="" class="q-field row no-wrap items-start q-textarea q-textarea--autogrow q-field--standard q-field--dense q-field--with-bottom q-field--disabled">
+      <div class="relative-position q-mb-sm"><label for="f_80808080-8080-4080-8080-808080808080" aria-disabled="" class="q-field q-validation-component row no-wrap items-start q-textarea q-textarea--autogrow q-field--standard q-field--dense q-field--with-bottom q-field--disabled">
           <div class="q-field__inner relative-position col self-stretch column justify-center">
             <div tabindex="-1" class="q-field__control relative-position row no-wrap">
               <div class="q-field__control-container col relative-position row no-wrap q-anchor--skip"><textarea tabindex="0" rows="1" placeholder="Type here" id="f_80808080-8080-4080-8080-808080808080" type="textarea" disabled="disabled" class="q-field__native q-placeholder" style="min-height:unset;"></textarea></div>
@@ -1496,7 +1496,7 @@ exports[`Storyshots ConversationCompose slim 1`] = `
   <!---->
   <div class="q-item__section column q-item__section--main justify-center">
     <div class="q-item__label">
-      <div class="relative-position q-mb-sm"><label for="f_80808080-8080-4080-8080-808080808080" class="q-field row no-wrap items-start q-textarea q-textarea--autogrow q-field--standard q-field--dense q-field--with-bottom">
+      <div class="relative-position q-mb-sm"><label for="f_80808080-8080-4080-8080-808080808080" class="q-field q-validation-component row no-wrap items-start q-textarea q-textarea--autogrow q-field--standard q-field--dense q-field--with-bottom">
           <div class="q-field__inner relative-position col self-stretch column justify-center">
             <div tabindex="-1" class="q-field__control relative-position row no-wrap">
               <div class="q-field__control-container col relative-position row no-wrap q-anchor--skip"><textarea tabindex="0" rows="1" placeholder="Type here" id="f_80808080-8080-4080-8080-808080808080" type="textarea" class="q-field__native q-placeholder" style="min-height:unset;"></textarea></div>
@@ -1916,7 +1916,7 @@ exports[`Storyshots Detail application 1`] = `
             <!---->
             <div class="q-item__section column q-item__section--main justify-center">
               <div class="q-item__label">
-                <div class="relative-position q-mb-sm"><label for="f_80808080-8080-4080-8080-808080808080" class="q-field row no-wrap items-start q-textarea q-textarea--autogrow q-field--standard q-field--dense q-field--with-bottom">
+                <div class="relative-position q-mb-sm"><label for="f_80808080-8080-4080-8080-808080808080" class="q-field q-validation-component row no-wrap items-start q-textarea q-textarea--autogrow q-field--standard q-field--dense q-field--with-bottom">
                     <div class="q-field__inner relative-position col self-stretch column justify-center">
                       <div tabindex="-1" class="q-field__control relative-position row no-wrap">
                         <div class="q-field__control-container col relative-position row no-wrap q-anchor--skip"><textarea tabindex="0" rows="1" placeholder="Write a message..." id="f_80808080-8080-4080-8080-808080808080" type="textarea" class="q-field__native q-placeholder" style="min-height:unset;"></textarea></div>
@@ -2113,7 +2113,7 @@ exports[`Storyshots Detail pickup 1`] = `
             <!---->
             <div class="q-item__section column q-item__section--main justify-center">
               <div class="q-item__label">
-                <div class="relative-position q-mb-sm"><label for="f_80808080-8080-4080-8080-808080808080" class="q-field row no-wrap items-start q-textarea q-textarea--autogrow q-field--standard q-field--dense q-field--with-bottom">
+                <div class="relative-position q-mb-sm"><label for="f_80808080-8080-4080-8080-808080808080" class="q-field q-validation-component row no-wrap items-start q-textarea q-textarea--autogrow q-field--standard q-field--dense q-field--with-bottom">
                     <div class="q-field__inner relative-position col self-stretch column justify-center">
                       <div tabindex="-1" class="q-field__control relative-position row no-wrap">
                         <div class="q-field__control-container col relative-position row no-wrap q-anchor--skip"><textarea tabindex="0" rows="1" placeholder="Write a message..." id="f_80808080-8080-4080-8080-808080808080" type="textarea" class="q-field__native q-placeholder" style="min-height:unset;"></textarea></div>
@@ -2312,7 +2312,7 @@ exports[`Storyshots Detail private 1`] = `
             <!---->
             <div class="q-item__section column q-item__section--main justify-center">
               <div class="q-item__label">
-                <div class="relative-position q-mb-sm"><label for="f_80808080-8080-4080-8080-808080808080" class="q-field row no-wrap items-start q-textarea q-textarea--autogrow q-field--standard q-field--dense q-field--with-bottom">
+                <div class="relative-position q-mb-sm"><label for="f_80808080-8080-4080-8080-808080808080" class="q-field q-validation-component row no-wrap items-start q-textarea q-textarea--autogrow q-field--standard q-field--dense q-field--with-bottom">
                     <div class="q-field__inner relative-position col self-stretch column justify-center">
                       <div tabindex="-1" class="q-field__control relative-position row no-wrap">
                         <div class="q-field__control-container col relative-position row no-wrap q-anchor--skip"><textarea tabindex="0" rows="1" placeholder="Write a message..." id="f_80808080-8080-4080-8080-808080808080" type="textarea" class="q-field__native q-placeholder" style="min-height:unset;"></textarea></div>
@@ -2380,7 +2380,7 @@ exports[`Storyshots Feedback AmountPicker 1`] = `
           </div>
           <div class="q-slider__arrow q-slider__arrow--h"></div>
         </div>
-      </div> <label for="f_80808080-8080-4080-8080-808080808080" class="q-field row no-wrap items-start q-mr-md q-input q-field--standard q-field--float">
+      </div> <label for="f_80808080-8080-4080-8080-808080808080" class="q-field q-validation-component row no-wrap items-start q-mr-md q-input q-field--standard q-field--float">
         <div class="q-field__inner relative-position col self-stretch column justify-center">
           <div tabindex="-1" class="q-field__control relative-position row no-wrap">
             <div class="q-field__control-container col relative-position row no-wrap q-anchor--skip"><input tabindex="0" size="4" id="f_80808080-8080-4080-8080-808080808080" type="text" value="1" class="q-field__native q-placeholder"></div>
@@ -2570,7 +2570,7 @@ exports[`Storyshots Feedback PickupFeedback 1`] = `
         <div class="image-and-text-left gt-sm"><img src="test-file-stub" style="width:100%;"></div>
         <div class="image-and-text-right">
           <h4>Thank you for your pickup!</h4>
-          <p><label for="f_80808080-8080-4080-8080-808080808080" class="q-field row no-wrap items-start grey-font q-select q-field--auto-height q-select--without-input q-select--without-chips q-field--standard q-field--float q-field--dark">
+          <p><label for="f_80808080-8080-4080-8080-808080808080" class="q-field q-validation-component row no-wrap items-start grey-font q-select q-field--auto-height q-select--without-input q-select--without-chips q-field--standard q-field--float q-field--dark">
               <div class="q-field__inner relative-position col self-stretch column justify-center">
                 <div tabindex="-1" class="q-field__control relative-position row no-wrap">
                   <div class="q-field__control-container col relative-position row no-wrap q-anchor--skip">
@@ -2600,7 +2600,7 @@ exports[`Storyshots Feedback PickupFeedback 1`] = `
         </div>
       </div>
       <form>
-        <div class="relative-position q-mb-sm q-mx-sm"><label for="f_80808080-8080-4080-8080-808080808080" class="q-field row no-wrap items-start q-textarea q-textarea--autogrow q-field--standard q-field--labeled q-field--with-bottom">
+        <div class="relative-position q-mb-sm q-mx-sm"><label for="f_80808080-8080-4080-8080-808080808080" class="q-field q-validation-component row no-wrap items-start q-textarea q-textarea--autogrow q-field--standard q-field--labeled q-field--with-bottom">
             <div class="q-field__inner relative-position col self-stretch column justify-center">
               <div tabindex="-1" class="q-field__control relative-position row no-wrap">
                 <div class="q-field__control-container col relative-position row no-wrap q-anchor--skip"><textarea tabindex="0" rows="1" aria-label="Was everything fine? Did everyone show up? Your comment here..." id="f_80808080-8080-4080-8080-808080808080" type="textarea" class="q-field__native q-placeholder" style="min-height:100px;"></textarea>
@@ -2646,7 +2646,7 @@ exports[`Storyshots Feedback PickupFeedback 1`] = `
                   </div>
                   <div class="q-slider__arrow q-slider__arrow--h"></div>
                 </div>
-              </div> <label for="f_80808080-8080-4080-8080-808080808080" class="q-field row no-wrap items-start q-mr-md q-input q-field--standard">
+              </div> <label for="f_80808080-8080-4080-8080-808080808080" class="q-field q-validation-component row no-wrap items-start q-mr-md q-input q-field--standard">
                 <div class="q-field__inner relative-position col self-stretch column justify-center">
                   <div tabindex="-1" class="q-field__control relative-position row no-wrap">
                     <div class="q-field__control-container col relative-position row no-wrap q-anchor--skip"><input tabindex="0" size="4" id="f_80808080-8080-4080-8080-808080808080" type="text" class="q-field__native q-placeholder"></div>
@@ -3048,7 +3048,7 @@ exports[`Storyshots Feedback PlaceFeedback 1`] = `
 exports[`Storyshots GroupEdit create 1`] = `
 <div>
   <div class="q-card" style="max-width:700px;">
-    <div class="edit-box k-change-photo"><label for="f_80808080-8080-4080-8080-808080808080" class="q-field row no-wrap items-start q-field--standard q-field--float q-field--labeled q-field--auto-height q-field--with-bottom">
+    <div class="edit-box k-change-photo"><label for="f_80808080-8080-4080-8080-808080808080" class="q-field q-validation-component row no-wrap items-start q-field--standard q-field--float q-field--labeled q-field--auto-height q-field--with-bottom">
         <div class="q-field__before q-field__marginal row no-wrap items-center"><i aria-hidden="true" role="presentation" class="fas fa-camera q-icon notranslate"> </i></div>
         <div class="q-field__inner relative-position col self-stretch column justify-center">
           <div tabindex="-1" class="q-field__control relative-position row no-wrap">
@@ -3082,7 +3082,7 @@ exports[`Storyshots GroupEdit create 1`] = `
         </button></div>
     </div>
     <div class="edit-box">
-      <form><label for="f_80808080-8080-4080-8080-808080808080" class="q-field row no-wrap items-start q-input q-field--standard q-field--float q-field--labeled q-field--with-bottom">
+      <form><label for="f_80808080-8080-4080-8080-808080808080" class="q-field q-validation-component row no-wrap items-start q-input q-field--standard q-field--float q-field--labeled q-field--with-bottom">
           <div class="q-field__before q-field__marginal row no-wrap items-center"><i aria-hidden="true" role="presentation" class="fas fa-fw fa-star q-icon notranslate"> </i></div>
           <div class="q-field__inner relative-position col self-stretch column justify-center">
             <div tabindex="-1" class="q-field__control relative-position row no-wrap">
@@ -3097,7 +3097,7 @@ exports[`Storyshots GroupEdit create 1`] = `
             </div>
           </div>
         </label>
-        <div class="relative-position q-mb-sm"><label for="f_80808080-8080-4080-8080-808080808080" class="q-field row no-wrap items-start q-textarea q-textarea--autogrow q-field--standard q-field--float q-field--labeled q-field--with-bottom">
+        <div class="relative-position q-mb-sm"><label for="f_80808080-8080-4080-8080-808080808080" class="q-field q-validation-component row no-wrap items-start q-textarea q-textarea--autogrow q-field--standard q-field--float q-field--labeled q-field--with-bottom">
             <div class="q-field__before q-field__marginal row no-wrap items-center"><i aria-hidden="true" role="presentation" class="fas fa-fw fa-question q-icon notranslate"> </i></div>
             <div class="q-field__inner relative-position col self-stretch column justify-center">
               <div tabindex="-1" class="q-field__control relative-position row no-wrap">
@@ -3117,7 +3117,7 @@ It would make sense if it was markdown
             </div>
           </label> <button tabindex="0" type="button" role="button" class="q-btn q-btn-item non-selectable no-outline absolute-bottom-right bg-white q-btn--outline q-btn--rectangle text-primary q-btn--actionable q-focusable q-hoverable q-btn--wrap" style="font-size:8px;bottom:-10px;"><span class="q-focus-helper"></span><span class="q-btn__wrapper col row q-anchor--skip"><span class="q-btn__content text-center col items-center q-anchor--skip justify-center row"><span class="block">Preview</span>
             <!----></span></span></button></div>
-        <div class="relative-position q-mb-sm"><label for="f_80808080-8080-4080-8080-808080808080" class="q-field row no-wrap items-start q-textarea q-textarea--autogrow q-field--standard q-field--labeled q-field--with-bottom">
+        <div class="relative-position q-mb-sm"><label for="f_80808080-8080-4080-8080-808080808080" class="q-field q-validation-component row no-wrap items-start q-textarea q-textarea--autogrow q-field--standard q-field--labeled q-field--with-bottom">
             <div class="q-field__before q-field__marginal row no-wrap items-center"><i aria-hidden="true" role="presentation" class="fas fa-fw fa-address-card q-icon notranslate"> </i></div>
             <div class="q-field__inner relative-position col self-stretch column justify-center">
               <div tabindex="-1" class="q-field__control relative-position row no-wrap">
@@ -3134,7 +3134,7 @@ It would make sense if it was markdown
           </label>
           <!---->
         </div>
-        <div class="relative-position q-mb-sm"><label for="f_80808080-8080-4080-8080-808080808080" class="q-field row no-wrap items-start q-textarea q-textarea--autogrow q-field--standard q-field--labeled q-field--with-bottom">
+        <div class="relative-position q-mb-sm"><label for="f_80808080-8080-4080-8080-808080808080" class="q-field q-validation-component row no-wrap items-start q-textarea q-textarea--autogrow q-field--standard q-field--labeled q-field--with-bottom">
             <div class="q-field__before q-field__marginal row no-wrap items-center"><i aria-hidden="true" role="presentation" class="fas fa-fw fa-address-card q-icon notranslate"> </i></div>
             <div class="q-field__inner relative-position col self-stretch column justify-center">
               <div tabindex="-1" class="q-field__control relative-position row no-wrap">
@@ -3151,7 +3151,7 @@ It would make sense if it was markdown
           </label>
           <!---->
         </div>
-        <div><label for="f_80808080-8080-4080-8080-808080808080" class="q-field row no-wrap items-start q-select q-field--auto-height q-select--with-input q-select--without-chips q-field--standard q-field--float q-field--labeled q-field--with-bottom">
+        <div><label for="f_80808080-8080-4080-8080-808080808080" class="q-field q-validation-component row no-wrap items-start q-select q-field--auto-height q-select--with-input q-select--without-chips q-field--standard q-field--float q-field--labeled q-field--with-bottom">
             <div class="q-field__before q-field__marginal row no-wrap items-center"><i aria-hidden="true" role="presentation" class="fas fa-fw fa-map-marker q-icon notranslate"> </i></div>
             <div class="q-field__inner relative-position col self-stretch column justify-center">
               <div tabindex="-1" class="q-field__control relative-position row no-wrap">
@@ -3172,7 +3172,7 @@ It would make sense if it was markdown
             <!---->
           </div>
         </div>
-        <div class="relative-position q-mb-sm"><label for="f_80808080-8080-4080-8080-808080808080" class="q-field row no-wrap items-start q-textarea q-textarea--autogrow q-field--standard q-field--float q-field--labeled q-field--with-bottom">
+        <div class="relative-position q-mb-sm"><label for="f_80808080-8080-4080-8080-808080808080" class="q-field q-validation-component row no-wrap items-start q-textarea q-textarea--autogrow q-field--standard q-field--float q-field--labeled q-field--with-bottom">
             <div class="q-field__before q-field__marginal row no-wrap items-center"><i aria-hidden="true" role="presentation" class="fas fa-fw fa-question q-icon notranslate"> </i></div>
             <div class="q-field__inner relative-position col self-stretch column justify-center">
               <div tabindex="-1" class="q-field__control relative-position row no-wrap">
@@ -3187,7 +3187,7 @@ It would make sense if it was markdown
               </div>
             </div>
           </label> <button tabindex="0" type="button" role="button" class="q-btn q-btn-item non-selectable no-outline absolute-bottom-right bg-white q-btn--outline q-btn--rectangle text-primary q-btn--actionable q-focusable q-hoverable q-btn--wrap" style="font-size:8px;bottom:-10px;"><span class="q-focus-helper"></span><span class="q-btn__wrapper col row q-anchor--skip"><span class="q-btn__content text-center col items-center q-anchor--skip justify-center row"><span class="block">Preview</span>
-            <!----></span></span></button></div> <label for="f_80808080-8080-4080-8080-808080808080" class="q-field row no-wrap items-start q-select q-field--auto-height q-select--with-input q-select--without-chips q-field--standard q-field--labeled q-field--with-bottom">
+            <!----></span></span></button></div> <label for="f_80808080-8080-4080-8080-808080808080" class="q-field q-validation-component row no-wrap items-start q-select q-field--auto-height q-select--with-input q-select--without-chips q-field--standard q-field--labeled q-field--with-bottom">
           <div class="q-field__before q-field__marginal row no-wrap items-center"><i aria-hidden="true" role="presentation" class="fas fa-fw fa-globe q-icon notranslate"> </i></div>
           <div class="q-field__inner relative-position col self-stretch column justify-center">
             <div tabindex="-1" class="q-field__control relative-position row no-wrap">
@@ -3237,7 +3237,7 @@ exports[`Storyshots GroupGallery signup view 1`] = `
             Create new group
           </a></span></p>
     <div class="row items-start no-wrap q-mt-md">
-      <div class="col"><label for="f_80808080-8080-4080-8080-808080808080" class="q-field row no-wrap items-start q-pl-sm q-input q-field--filled q-field--dense">
+      <div class="col"><label for="f_80808080-8080-4080-8080-808080808080" class="q-field q-validation-component row no-wrap items-start q-pl-sm q-input q-field--filled q-field--dense">
           <div class="q-field__inner relative-position col self-stretch column justify-center">
             <div tabindex="-1" class="q-field__control relative-position row no-wrap">
               <div class="q-field__prepend q-field__marginal row no-wrap items-center"><i aria-hidden="true" role="presentation" class="material-icons q-icon notranslate">search</i></div>
@@ -3301,7 +3301,7 @@ exports[`Storyshots GroupGallery signup view 1`] = `
               </div>
               <div class="overlay"></div>
             </div>
-            <hr role="separator" aria-orientation="horizontal" class="q-separator q-separator q-separator--horizontal col-grow">
+            <hr role="separator" aria-orientation="horizontal" class="q-separator q-separator q-separator--horizontal">
             <!---->
           </div>
         </div>
@@ -3324,7 +3324,7 @@ exports[`Storyshots GroupGallery signup view 1`] = `
       </span>
               <div class="overlay"></div>
             </div>
-            <hr role="separator" aria-orientation="horizontal" class="q-separator q-separator q-separator--horizontal col-grow">
+            <hr role="separator" aria-orientation="horizontal" class="q-separator q-separator q-separator--horizontal">
             <!---->
           </div>
         </div>
@@ -3347,7 +3347,7 @@ exports[`Storyshots GroupGallery signup view 1`] = `
       </span>
               <div class="overlay"></div>
             </div>
-            <hr role="separator" aria-orientation="horizontal" class="q-separator q-separator q-separator--horizontal col-grow">
+            <hr role="separator" aria-orientation="horizontal" class="q-separator q-separator q-separator--horizontal">
             <!---->
           </div>
         </div>
@@ -3370,7 +3370,7 @@ exports[`Storyshots GroupGallery signup view 1`] = `
       </span>
               <div class="overlay"></div>
             </div>
-            <hr role="separator" aria-orientation="horizontal" class="q-separator q-separator q-separator--horizontal col-grow">
+            <hr role="separator" aria-orientation="horizontal" class="q-separator q-separator q-separator--horizontal">
             <!---->
           </div>
         </div>
@@ -3396,7 +3396,7 @@ exports[`Storyshots GroupGallery signup view 1`] = `
               </div>
               <div class="overlay"></div>
             </div>
-            <hr role="separator" aria-orientation="horizontal" class="q-separator q-separator q-separator--horizontal col-grow">
+            <hr role="separator" aria-orientation="horizontal" class="q-separator q-separator q-separator--horizontal">
             <!---->
           </div>
         </div>
@@ -3422,7 +3422,7 @@ exports[`Storyshots GroupGallery signup view 1`] = `
               </div>
               <div class="overlay"></div>
             </div>
-            <hr role="separator" aria-orientation="horizontal" class="q-separator q-separator q-separator--horizontal col-grow">
+            <hr role="separator" aria-orientation="horizontal" class="q-separator q-separator q-separator--horizontal">
             <!---->
           </div>
         </div>
@@ -3443,7 +3443,7 @@ exports[`Storyshots GroupGallery switch and explore 1`] = `
     <!---->
     <!---->
     <div class="row items-start no-wrap q-mt-md">
-      <div class="col"><label for="f_80808080-8080-4080-8080-808080808080" class="q-field row no-wrap items-start q-pl-sm q-input q-field--filled q-field--dense">
+      <div class="col"><label for="f_80808080-8080-4080-8080-808080808080" class="q-field q-validation-component row no-wrap items-start q-pl-sm q-input q-field--filled q-field--dense">
           <div class="q-field__inner relative-position col self-stretch column justify-center">
             <div tabindex="-1" class="q-field__control relative-position row no-wrap">
               <div class="q-field__prepend q-field__marginal row no-wrap items-center"><i aria-hidden="true" role="presentation" class="material-icons q-icon notranslate">search</i></div>
@@ -3508,7 +3508,7 @@ exports[`Storyshots GroupGallery switch and explore 1`] = `
               </div>
               <div class="overlay"></div>
             </div>
-            <hr role="separator" aria-orientation="horizontal" class="q-separator q-separator q-separator--horizontal col-grow">
+            <hr role="separator" aria-orientation="horizontal" class="q-separator q-separator q-separator--horizontal">
             <div class="q-card__actions q-card__actions--horiz row justify-start"><button tabindex="0" type="button" role="button" class="q-btn q-btn-item non-selectable no-outline q-btn--flat q-btn--rectangle q-btn--actionable q-focusable q-hoverable q-btn--wrap" style="font-size:10px;"><span class="q-focus-helper"></span><span class="q-btn__wrapper col row q-anchor--skip"><span class="q-btn__content text-center col items-center q-anchor--skip justify-center row"><i aria-hidden="true" role="img" class="fas fa-home q-icon notranslate"> </i><!----></span></span></button> <button tabindex="0" type="button" role="button" class="q-btn q-btn-item non-selectable no-outline q-btn--flat q-btn--rectangle q-btn--actionable q-focusable q-hoverable q-btn--wrap" style="font-size:10px;"><span class="q-focus-helper"></span><span class="q-btn__wrapper col row q-anchor--skip"><span class="q-btn__content text-center col items-center q-anchor--skip justify-center row"><i aria-hidden="true" role="img" class="fas fa-info-circle q-icon notranslate"> </i><!----></span></span></button></div>
           </div>
         </div>
@@ -3531,7 +3531,7 @@ exports[`Storyshots GroupGallery switch and explore 1`] = `
       </span>
               <div class="overlay"></div>
             </div>
-            <hr role="separator" aria-orientation="horizontal" class="q-separator q-separator q-separator--horizontal col-grow">
+            <hr role="separator" aria-orientation="horizontal" class="q-separator q-separator q-separator--horizontal">
             <div class="q-card__actions q-card__actions--horiz row justify-start"><button tabindex="0" type="button" role="button" class="q-btn q-btn-item non-selectable no-outline q-btn--flat q-btn--rectangle q-btn--actionable q-focusable q-hoverable q-btn--wrap" style="font-size:10px;"><span class="q-focus-helper"></span><span class="q-btn__wrapper col row q-anchor--skip"><span class="q-btn__content text-center col items-center q-anchor--skip justify-center row"><i aria-hidden="true" role="img" class="fas fa-home q-icon notranslate"> </i><!----></span></span></button> <button tabindex="0" type="button" role="button" class="q-btn q-btn-item non-selectable no-outline q-btn--flat q-btn--rectangle q-btn--actionable q-focusable q-hoverable q-btn--wrap" style="font-size:10px;"><span class="q-focus-helper"></span><span class="q-btn__wrapper col row q-anchor--skip"><span class="q-btn__content text-center col items-center q-anchor--skip justify-center row"><i aria-hidden="true" role="img" class="fas fa-info-circle q-icon notranslate"> </i><!----></span></span></button></div>
           </div>
         </div>
@@ -3554,7 +3554,7 @@ exports[`Storyshots GroupGallery switch and explore 1`] = `
       </span>
               <div class="overlay"></div>
             </div>
-            <hr role="separator" aria-orientation="horizontal" class="q-separator q-separator q-separator--horizontal col-grow">
+            <hr role="separator" aria-orientation="horizontal" class="q-separator q-separator q-separator--horizontal">
             <div class="q-card__actions q-card__actions--horiz row justify-start"><button tabindex="0" type="button" role="button" class="q-btn q-btn-item non-selectable no-outline q-btn--flat q-btn--rectangle q-btn--actionable q-focusable q-hoverable q-btn--wrap" style="font-size:10px;"><span class="q-focus-helper"></span><span class="q-btn__wrapper col row q-anchor--skip"><span class="q-btn__content text-center col items-center q-anchor--skip justify-center row"><i aria-hidden="true" role="img" class="fas fa-home q-icon notranslate"> </i><!----></span></span></button> <button tabindex="0" type="button" role="button" class="q-btn q-btn-item non-selectable no-outline q-btn--flat q-btn--rectangle q-btn--actionable q-focusable q-hoverable q-btn--wrap" style="font-size:10px;"><span class="q-focus-helper"></span><span class="q-btn__wrapper col row q-anchor--skip"><span class="q-btn__content text-center col items-center q-anchor--skip justify-center row"><i aria-hidden="true" role="img" class="fas fa-info-circle q-icon notranslate"> </i><!----></span></span></button></div>
           </div>
         </div>
@@ -3592,7 +3592,7 @@ exports[`Storyshots GroupGallery switch and explore 1`] = `
               </div>
               <div class="overlay"></div>
             </div>
-            <hr role="separator" aria-orientation="horizontal" class="q-separator q-separator q-separator--horizontal col-grow">
+            <hr role="separator" aria-orientation="horizontal" class="q-separator q-separator q-separator--horizontal">
             <!---->
           </div>
         </div>
@@ -3615,7 +3615,7 @@ exports[`Storyshots GroupGallery switch and explore 1`] = `
       </span>
               <div class="overlay"></div>
             </div>
-            <hr role="separator" aria-orientation="horizontal" class="q-separator q-separator q-separator--horizontal col-grow">
+            <hr role="separator" aria-orientation="horizontal" class="q-separator q-separator q-separator--horizontal">
             <!---->
           </div>
         </div>
@@ -3638,7 +3638,7 @@ exports[`Storyshots GroupGallery switch and explore 1`] = `
       </span>
               <div class="overlay"></div>
             </div>
-            <hr role="separator" aria-orientation="horizontal" class="q-separator q-separator q-separator--horizontal col-grow">
+            <hr role="separator" aria-orientation="horizontal" class="q-separator q-separator q-separator--horizontal">
             <!---->
           </div>
         </div>
@@ -3661,7 +3661,7 @@ exports[`Storyshots GroupGallery switch and explore 1`] = `
       </span>
               <div class="overlay"></div>
             </div>
-            <hr role="separator" aria-orientation="horizontal" class="q-separator q-separator q-separator--horizontal col-grow">
+            <hr role="separator" aria-orientation="horizontal" class="q-separator q-separator q-separator--horizontal">
             <!---->
           </div>
         </div>
@@ -3687,7 +3687,7 @@ exports[`Storyshots GroupGallery switch and explore 1`] = `
               </div>
               <div class="overlay"></div>
             </div>
-            <hr role="separator" aria-orientation="horizontal" class="q-separator q-separator q-separator--horizontal col-grow">
+            <hr role="separator" aria-orientation="horizontal" class="q-separator q-separator q-separator--horizontal">
             <!---->
           </div>
         </div>
@@ -3713,7 +3713,7 @@ exports[`Storyshots GroupGallery switch and explore 1`] = `
               </div>
               <div class="overlay"></div>
             </div>
-            <hr role="separator" aria-orientation="horizontal" class="q-separator q-separator q-separator--horizontal col-grow">
+            <hr role="separator" aria-orientation="horizontal" class="q-separator q-separator q-separator--horizontal">
             <!---->
           </div>
         </div>
@@ -3751,7 +3751,7 @@ exports[`Storyshots GroupGalleryCard isMember = false 1`] = `
       </div>
       <div class="overlay"></div>
     </div>
-    <hr role="separator" aria-orientation="horizontal" class="q-separator q-separator q-separator--horizontal col-grow">
+    <hr role="separator" aria-orientation="horizontal" class="q-separator q-separator q-separator--horizontal">
     <!---->
   </div>
 </div>
@@ -3783,7 +3783,7 @@ exports[`Storyshots GroupGalleryCard isMember = false, application pending 1`] =
       </div>
       <div class="overlay"></div>
     </div>
-    <hr role="separator" aria-orientation="horizontal" class="q-separator q-separator q-separator--horizontal col-grow">
+    <hr role="separator" aria-orientation="horizontal" class="q-separator q-separator q-separator--horizontal">
     <!---->
   </div>
 </div>
@@ -3815,7 +3815,7 @@ exports[`Storyshots GroupGalleryCard isMember = true 1`] = `
       </div>
       <div class="overlay"></div>
     </div>
-    <hr role="separator" aria-orientation="horizontal" class="q-separator q-separator q-separator--horizontal col-grow">
+    <hr role="separator" aria-orientation="horizontal" class="q-separator q-separator q-separator--horizontal">
     <div class="q-card__actions q-card__actions--horiz row justify-start"><button tabindex="0" type="button" role="button" class="q-btn q-btn-item non-selectable no-outline q-btn--flat q-btn--rectangle q-btn--actionable q-focusable q-hoverable q-btn--wrap" style="font-size:10px;"><span class="q-focus-helper"></span><span class="q-btn__wrapper col row q-anchor--skip"><span class="q-btn__content text-center col items-center q-anchor--skip justify-center row"><i aria-hidden="true" role="img" class="fas fa-home q-icon notranslate"> </i><!----></span></span></button> <button tabindex="0" type="button" role="button" class="q-btn q-btn-item non-selectable no-outline q-btn--flat q-btn--rectangle q-btn--actionable q-focusable q-hoverable q-btn--wrap" style="font-size:10px;"><span class="q-focus-helper"></span><span class="q-btn__wrapper col row q-anchor--skip"><span class="q-btn__content text-center col items-center q-anchor--skip justify-center row"><i aria-hidden="true" role="img" class="fas fa-info-circle q-icon notranslate"> </i><!----></span></span></button></div>
   </div>
 </div>
@@ -3841,7 +3841,7 @@ exports[`Storyshots GroupGalleryCard without public description 1`] = `
       </span>
       <div class="overlay"></div>
     </div>
-    <hr role="separator" aria-orientation="horizontal" class="q-separator q-separator q-separator--horizontal col-grow">
+    <hr role="separator" aria-orientation="horizontal" class="q-separator q-separator q-separator--horizontal">
     <!---->
   </div>
 </div>
@@ -3870,7 +3870,7 @@ exports[`Storyshots GroupPreviewUI archived 1`] = `
         </div>
       </div>
     </div>
-    <hr role="separator" aria-orientation="horizontal" class="q-separator q-separator q-separator--horizontal col-grow">
+    <hr role="separator" aria-orientation="horizontal" class="q-separator q-separator q-separator--horizontal">
     <div class="q-card__actions q-card__actions--horiz row justify-start">
       <div style="width:100%;">
         <div role="alert" class="q-banner row items-center bg-info">
@@ -3908,7 +3908,7 @@ exports[`Storyshots GroupPreviewUI member 1`] = `
         </div>
       </div>
     </div>
-    <hr role="separator" aria-orientation="horizontal" class="q-separator q-separator q-separator--horizontal col-grow">
+    <hr role="separator" aria-orientation="horizontal" class="q-separator q-separator q-separator--horizontal">
     <div class="q-card__actions q-card__actions--horiz row justify-start">
       <div style="width:100%;"><button tabindex="0" type="button" role="button" class="q-btn q-btn-item non-selectable no-outline q-btn--flat q-btn--rectangle q-btn--actionable q-focusable q-hoverable q-btn--wrap"><span class="q-focus-helper"></span><span class="q-btn__wrapper col row q-anchor--skip"><span class="q-btn__content text-center col items-center q-anchor--skip justify-center row"><i aria-hidden="true" role="presentation" class="fas fa-home q-icon notranslate"> </i> <!----></span></span></button></div>
     </div>
@@ -3939,7 +3939,7 @@ exports[`Storyshots GroupPreviewUI not logged in 1`] = `
         </div>
       </div>
     </div>
-    <hr role="separator" aria-orientation="horizontal" class="q-separator q-separator q-separator--horizontal col-grow">
+    <hr role="separator" aria-orientation="horizontal" class="q-separator q-separator q-separator--horizontal">
     <div class="q-card__actions q-card__actions--horiz row justify-start">
       <div style="width:100%;"><button tabindex="0" type="button" role="button" class="q-btn q-btn-item non-selectable no-outline float-right q-ma-xs q-btn--standard q-btn--rectangle bg-secondary text-white q-btn--actionable q-focusable q-hoverable q-btn--wrap"><span class="q-focus-helper"></span><span class="q-btn__wrapper col row q-anchor--skip"><span class="q-btn__content text-center col items-center q-anchor--skip justify-center row">
           Log in or sign up to join this group!
@@ -3974,7 +3974,7 @@ exports[`Storyshots GroupPreviewUI not member, application needed, email not ver
         </div>
       </div>
     </div>
-    <hr role="separator" aria-orientation="horizontal" class="q-separator q-separator q-separator--horizontal col-grow">
+    <hr role="separator" aria-orientation="horizontal" class="q-separator q-separator q-separator--horizontal">
     <div class="q-card__actions q-card__actions--horiz row justify-start">
       <div style="width:100%;">
         <div role="alert" class="q-banner row items-center bg-info">
@@ -4019,7 +4019,7 @@ exports[`Storyshots GroupPreviewUI not member, application needed, email verifie
         </div>
       </div>
     </div>
-    <hr role="separator" aria-orientation="horizontal" class="q-separator q-separator q-separator--horizontal col-grow">
+    <hr role="separator" aria-orientation="horizontal" class="q-separator q-separator q-separator--horizontal">
     <div class="q-card__actions q-card__actions--horiz row justify-start">
       <div style="width:100%;">
         <div role="alert" class="q-banner row items-center bg-info">
@@ -4064,7 +4064,7 @@ exports[`Storyshots GroupPreviewUI not member, open group 1`] = `
         </div>
       </div>
     </div>
-    <hr role="separator" aria-orientation="horizontal" class="q-separator q-separator q-separator--horizontal col-grow">
+    <hr role="separator" aria-orientation="horizontal" class="q-separator q-separator q-separator--horizontal">
     <div class="q-card__actions q-card__actions--horiz row justify-start">
       <div style="width:100%;">
         <div role="alert" class="q-banner row items-center bg-info">
@@ -4109,7 +4109,7 @@ exports[`Storyshots GroupPreviewUI not member, pending application 1`] = `
         </div>
       </div>
     </div>
-    <hr role="separator" aria-orientation="horizontal" class="q-separator q-separator q-separator--horizontal col-grow">
+    <hr role="separator" aria-orientation="horizontal" class="q-separator q-separator q-separator--horizontal">
     <div class="q-card__actions q-card__actions--horiz row justify-start">
       <div style="width:100%;">
         <!---->
@@ -4152,7 +4152,7 @@ exports[`Storyshots GroupPreviewUI not member, playground 1`] = `
         </div>
       </div>
     </div>
-    <hr role="separator" aria-orientation="horizontal" class="q-separator q-separator q-separator--horizontal col-grow">
+    <hr role="separator" aria-orientation="horizontal" class="q-separator q-separator q-separator--horizontal">
     <div class="q-card__actions q-card__actions--horiz row justify-start">
       <div style="width:100%;">
         <div role="alert" class="q-banner row items-center bg-info">
@@ -4194,7 +4194,7 @@ exports[`Storyshots GroupPreviewUI pending join 1`] = `
         </div>
       </div>
     </div>
-    <hr role="separator" aria-orientation="horizontal" class="q-separator q-separator q-separator--horizontal col-grow">
+    <hr role="separator" aria-orientation="horizontal" class="q-separator q-separator q-separator--horizontal">
     <div class="q-card__actions q-card__actions--horiz row justify-start">
       <div style="width:100%;">
         <div role="alert" class="q-banner row items-center bg-info">
@@ -4232,7 +4232,7 @@ exports[`Storyshots GroupPreviewUI without public description 1`] = `
     <div class="q-card__section q-card__section--vert"><span class="text-italic">
         (This group has no public description... yet)
       </span></div>
-    <hr role="separator" aria-orientation="horizontal" class="q-separator q-separator q-separator--horizontal col-grow">
+    <hr role="separator" aria-orientation="horizontal" class="q-separator q-separator q-separator--horizontal">
     <div class="q-card__actions q-card__actions--horiz row justify-start">
       <div style="width:100%;"><button tabindex="0" type="button" role="button" class="q-btn q-btn-item non-selectable no-outline q-btn--flat q-btn--rectangle q-btn--actionable q-focusable q-hoverable q-btn--wrap"><span class="q-focus-helper"></span><span class="q-btn__wrapper col row q-anchor--skip"><span class="q-btn__content text-center col items-center q-anchor--skip justify-center row"><i aria-hidden="true" role="presentation" class="fas fa-home q-icon notranslate"> </i> <!----></span></span></button></div>
     </div>
@@ -4634,7 +4634,7 @@ exports[`Storyshots History List Default 1`] = `
 
 exports[`Storyshots Invitations InvitationsForm 1`] = `
 <div>
-  <form><label for="f_80808080-8080-4080-8080-808080808080" class="q-field row no-wrap items-start q-input q-field--standard q-field--with-bottom">
+  <form><label for="f_80808080-8080-4080-8080-808080808080" class="q-field q-validation-component row no-wrap items-start q-input q-field--standard q-field--with-bottom">
       <div class="q-field__before q-field__marginal row no-wrap items-center"><i aria-hidden="true" role="presentation" class="fas fa-envelope q-icon notranslate"> </i></div>
       <div class="q-field__inner relative-position col self-stretch column justify-center">
         <div tabindex="-1" class="q-field__control relative-position row no-wrap">
@@ -4803,7 +4803,7 @@ exports[`Storyshots Issues IssueList 1`] = `
         </div>
       </div>
     </a>
-    <hr role="separator" aria-orientation="horizontal" class="q-separator q-separator q-separator--horizontal col-grow">
+    <hr role="separator" aria-orientation="horizontal" class="q-separator q-separator q-separator--horizontal">
     <div sublabel="4 entries" class="q-expansion-item q-item-type q-expansion-item--collapsed q-expansion-item--standard">
       <div class="q-expansion-item__container relative-position">
         <div tabindex="0" class="q-item q-item-type row no-wrap q-item--clickable q-link cursor-pointer q-focusable q-hoverable">
@@ -5634,7 +5634,7 @@ exports[`Storyshots Layout KTopbar 1`] = `
 exports[`Storyshots Login empty 1`] = `
 <div>
   <form name="login">
-    <div class="q-gutter-md"><label for="f_80808080-8080-4080-8080-808080808080" class="q-field row no-wrap items-start q-input q-field--outlined q-field--float q-field--labeled">
+    <div class="q-gutter-md"><label for="f_80808080-8080-4080-8080-808080808080" class="q-field q-validation-component row no-wrap items-start q-input q-field--outlined q-field--float q-field--labeled">
         <div class="q-field__before q-field__marginal row no-wrap items-center"><i aria-hidden="true" role="presentation" class="fas fa-envelope q-icon notranslate text-grey-5"> </i></div>
         <div class="q-field__inner relative-position col self-stretch column justify-center">
           <div tabindex="-1" class="q-field__control relative-position row no-wrap bg-white">
@@ -5643,7 +5643,7 @@ exports[`Storyshots Login empty 1`] = `
             </div>
           </div>
         </div>
-      </label> <label for="f_80808080-8080-4080-8080-808080808080" class="q-field row no-wrap items-start q-input q-field--outlined q-field--float q-field--labeled">
+      </label> <label for="f_80808080-8080-4080-8080-808080808080" class="q-field q-validation-component row no-wrap items-start q-input q-field--outlined q-field--float q-field--labeled">
         <div class="q-field__before q-field__marginal row no-wrap items-center"><i aria-hidden="true" role="presentation" class="fas fa-lock q-icon notranslate text-grey-5"> </i></div>
         <div class="q-field__inner relative-position col self-stretch column justify-center">
           <div tabindex="-1" class="q-field__control relative-position row no-wrap bg-white">
@@ -5671,7 +5671,7 @@ exports[`Storyshots Login empty 1`] = `
 exports[`Storyshots Login error 1`] = `
 <div>
   <form name="login">
-    <div class="q-gutter-md"><label for="f_80808080-8080-4080-8080-808080808080" class="q-field row no-wrap items-start q-input q-field--outlined q-field--focused q-field--float q-field--labeled q-field--error shake">
+    <div class="q-gutter-md"><label for="f_80808080-8080-4080-8080-808080808080" class="q-field q-validation-component row no-wrap items-start q-input q-field--outlined q-field--focused q-field--float q-field--labeled q-field--error shake">
         <div class="q-field__before q-field__marginal row no-wrap items-center"><i aria-hidden="true" role="presentation" class="fas fa-envelope q-icon notranslate text-grey-5"> </i></div>
         <div class="q-field__inner relative-position col self-stretch column justify-center">
           <div tabindex="-1" class="q-field__control relative-position row no-wrap text-negative bg-white">
@@ -5681,7 +5681,7 @@ exports[`Storyshots Login error 1`] = `
             <div class="q-field__append q-field__marginal row no-wrap items-center q-anchor--skip"><i aria-hidden="true" role="presentation" class="material-icons q-icon notranslate text-negative">error</i></div>
           </div>
         </div>
-      </label> <label for="f_80808080-8080-4080-8080-808080808080" class="q-field row no-wrap items-start q-input q-field--outlined q-field--float q-field--labeled shake">
+      </label> <label for="f_80808080-8080-4080-8080-808080808080" class="q-field q-validation-component row no-wrap items-start q-input q-field--outlined q-field--float q-field--labeled shake">
         <div class="q-field__before q-field__marginal row no-wrap items-center"><i aria-hidden="true" role="presentation" class="fas fa-lock q-icon notranslate text-grey-5"> </i></div>
         <div class="q-field__inner relative-position col self-stretch column justify-center">
           <div tabindex="-1" class="q-field__control relative-position row no-wrap bg-white">
@@ -5711,7 +5711,7 @@ exports[`Storyshots Login error 1`] = `
 exports[`Storyshots Login pending 1`] = `
 <div>
   <form name="login">
-    <div class="q-gutter-md"><label for="f_80808080-8080-4080-8080-808080808080" class="q-field row no-wrap items-start q-input q-field--outlined q-field--float q-field--labeled">
+    <div class="q-gutter-md"><label for="f_80808080-8080-4080-8080-808080808080" class="q-field q-validation-component row no-wrap items-start q-input q-field--outlined q-field--float q-field--labeled">
         <div class="q-field__before q-field__marginal row no-wrap items-center"><i aria-hidden="true" role="presentation" class="fas fa-envelope q-icon notranslate text-grey-5"> </i></div>
         <div class="q-field__inner relative-position col self-stretch column justify-center">
           <div tabindex="-1" class="q-field__control relative-position row no-wrap bg-white">
@@ -5720,7 +5720,7 @@ exports[`Storyshots Login pending 1`] = `
             </div>
           </div>
         </div>
-      </label> <label for="f_80808080-8080-4080-8080-808080808080" class="q-field row no-wrap items-start q-input q-field--outlined q-field--float q-field--labeled">
+      </label> <label for="f_80808080-8080-4080-8080-808080808080" class="q-field q-validation-component row no-wrap items-start q-input q-field--outlined q-field--float q-field--labeled">
         <div class="q-field__before q-field__marginal row no-wrap items-center"><i aria-hidden="true" role="presentation" class="fas fa-lock q-icon notranslate text-grey-5"> </i></div>
         <div class="q-field__inner relative-position col self-stretch column justify-center">
           <div tabindex="-1" class="q-field__control relative-position row no-wrap bg-white">
@@ -6271,7 +6271,7 @@ exports[`Storyshots Password Reset empty 1`] = `
     <div class="q-gutter-md">
       <p>
         Enter your Email address and we will send you a link to set a new password (if you have an account registered).
-      </p> <label for="f_80808080-8080-4080-8080-808080808080" class="q-field row no-wrap items-start q-input q-field--outlined q-field--labeled">
+      </p> <label for="f_80808080-8080-4080-8080-808080808080" class="q-field q-validation-component row no-wrap items-start q-input q-field--outlined q-field--labeled">
         <div class="q-field__before q-field__marginal row no-wrap items-center"><i aria-hidden="true" role="presentation" class="fas fa-envelope q-icon notranslate text-grey-5"> </i></div>
         <div class="q-field__inner relative-position col self-stretch column justify-center">
           <div tabindex="-1" class="q-field__control relative-position row no-wrap bg-white">
@@ -6301,7 +6301,7 @@ exports[`Storyshots Password Reset error 1`] = `
     <div class="q-gutter-md">
       <p>
         Enter your Email address and we will send you a link to set a new password (if you have an account registered).
-      </p> <label for="f_80808080-8080-4080-8080-808080808080" class="q-field row no-wrap items-start q-input q-field--outlined q-field--focused q-field--labeled q-field--error">
+      </p> <label for="f_80808080-8080-4080-8080-808080808080" class="q-field q-validation-component row no-wrap items-start q-input q-field--outlined q-field--focused q-field--labeled q-field--error">
         <div class="q-field__before q-field__marginal row no-wrap items-center"><i aria-hidden="true" role="presentation" class="fas fa-envelope q-icon notranslate text-grey-5"> </i></div>
         <div class="q-field__inner relative-position col self-stretch column justify-center">
           <div tabindex="-1" class="q-field__control relative-position row no-wrap text-negative bg-white">
@@ -6334,7 +6334,7 @@ exports[`Storyshots Password Reset pending 1`] = `
     <div class="q-gutter-md">
       <p>
         Enter your Email address and we will send you a link to set a new password (if you have an account registered).
-      </p> <label for="f_80808080-8080-4080-8080-808080808080" class="q-field row no-wrap items-start q-input q-field--outlined q-field--labeled">
+      </p> <label for="f_80808080-8080-4080-8080-808080808080" class="q-field q-validation-component row no-wrap items-start q-input q-field--outlined q-field--labeled">
         <div class="q-field__before q-field__marginal row no-wrap items-center"><i aria-hidden="true" role="presentation" class="fas fa-envelope q-icon notranslate text-grey-5"> </i></div>
         <div class="q-field__inner relative-position col self-stretch column justify-center">
           <div tabindex="-1" class="q-field__control relative-position row no-wrap bg-white">
@@ -6364,7 +6364,7 @@ exports[`Storyshots Password Reset success 1`] = `
     <div class="q-gutter-md">
       <p>
         Enter your Email address and we will send you a link to set a new password (if you have an account registered).
-      </p> <label for="f_80808080-8080-4080-8080-808080808080" class="q-field row no-wrap items-start q-input q-field--outlined q-field--labeled">
+      </p> <label for="f_80808080-8080-4080-8080-808080808080" class="q-field q-validation-component row no-wrap items-start q-input q-field--outlined q-field--labeled">
         <div class="q-field__before q-field__marginal row no-wrap items-center"><i aria-hidden="true" role="presentation" class="fas fa-envelope q-icon notranslate text-grey-5"> </i></div>
         <div class="q-field__inner relative-position col self-stretch column justify-center">
           <div tabindex="-1" class="q-field__control relative-position row no-wrap bg-white">
@@ -6394,7 +6394,7 @@ exports[`Storyshots PickupEdit default 1`] = `
     <!---->
   </div>
   <form class="q-gutter-y-lg" style="max-width:700px;">
-    <div class="row q-mt-xs"><label for="f_80808080-8080-4080-8080-808080808080" class="q-field row no-wrap items-start q-mr-sm q-input q-field--standard q-field--float">
+    <div class="row q-mt-xs"><label for="f_80808080-8080-4080-8080-808080808080" class="q-field q-validation-component row no-wrap items-start q-mr-sm q-input q-field--standard q-field--float">
         <div class="q-field__before q-field__marginal row no-wrap items-center"><i aria-hidden="true" role="presentation" class="material-icons q-icon notranslate">access_time</i></div>
         <div class="q-field__inner relative-position col self-stretch column justify-center">
           <div tabindex="-1" class="q-field__control relative-position row no-wrap">
@@ -6403,7 +6403,7 @@ exports[`Storyshots PickupEdit default 1`] = `
             </div>
           </div>
         </div>
-      </label> <label for="f_80808080-8080-4080-8080-808080808080" class="q-field row no-wrap items-start q-input q-field--standard q-field--float">
+      </label> <label for="f_80808080-8080-4080-8080-808080808080" class="q-field q-validation-component row no-wrap items-start q-input q-field--standard q-field--float">
         <div class="q-field__inner relative-position col self-stretch column justify-center">
           <div tabindex="-1" class="q-field__control relative-position row no-wrap">
             <div class="q-field__control-container col relative-position row no-wrap q-anchor--skip"><input tabindex="0" size="3" id="f_80808080-8080-4080-8080-808080808080" type="text" value="12:00" class="q-field__native q-placeholder">
@@ -6420,7 +6420,7 @@ exports[`Storyshots PickupEdit default 1`] = `
         </div>
       </div>
     </div>
-    <div><label for="f_80808080-8080-4080-8080-808080808080" class="q-field row no-wrap items-start q-input q-field--standard q-field--float q-field--labeled q-field--with-bottom">
+    <div><label for="f_80808080-8080-4080-8080-808080808080" class="q-field q-validation-component row no-wrap items-start q-input q-field--standard q-field--float q-field--labeled q-field--with-bottom">
         <div class="q-field__before q-field__marginal row no-wrap items-center"><i aria-hidden="true" role="presentation" class="material-icons q-icon notranslate">group</i></div>
         <div class="q-field__inner relative-position col self-stretch column justify-center">
           <div tabindex="-1" class="q-field__control relative-position row no-wrap">
@@ -6455,7 +6455,7 @@ exports[`Storyshots PickupEdit default 1`] = `
       </label>
       <!---->
     </div>
-    <div><label for="f_80808080-8080-4080-8080-808080808080" class="q-field row no-wrap items-start q-textarea q-textarea--autogrow q-field--standard q-field--labeled q-field--with-bottom">
+    <div><label for="f_80808080-8080-4080-8080-808080808080" class="q-field q-validation-component row no-wrap items-start q-textarea q-textarea--autogrow q-field--standard q-field--labeled q-field--with-bottom">
         <div class="q-field__before q-field__marginal row no-wrap items-center"><i aria-hidden="true" role="presentation" class="material-icons q-icon notranslate">info</i></div>
         <div class="q-field__inner relative-position col self-stretch column justify-center">
           <div tabindex="-1" class="q-field__control relative-position row no-wrap">
@@ -6497,7 +6497,7 @@ exports[`Storyshots PickupEdit disabled 1`] = `
       This pickup has been disabled.
     </b></div>
   <form class="q-gutter-y-lg" style="max-width:700px;">
-    <div class="row q-mt-xs"><label for="f_80808080-8080-4080-8080-808080808080" class="q-field row no-wrap items-start q-mr-sm q-input q-field--standard q-field--float">
+    <div class="row q-mt-xs"><label for="f_80808080-8080-4080-8080-808080808080" class="q-field q-validation-component row no-wrap items-start q-mr-sm q-input q-field--standard q-field--float">
         <div class="q-field__before q-field__marginal row no-wrap items-center"><i aria-hidden="true" role="presentation" class="material-icons q-icon notranslate">access_time</i></div>
         <div class="q-field__inner relative-position col self-stretch column justify-center">
           <div tabindex="-1" class="q-field__control relative-position row no-wrap">
@@ -6506,7 +6506,7 @@ exports[`Storyshots PickupEdit disabled 1`] = `
             </div>
           </div>
         </div>
-      </label> <label for="f_80808080-8080-4080-8080-808080808080" class="q-field row no-wrap items-start q-input q-field--standard q-field--float">
+      </label> <label for="f_80808080-8080-4080-8080-808080808080" class="q-field q-validation-component row no-wrap items-start q-input q-field--standard q-field--float">
         <div class="q-field__inner relative-position col self-stretch column justify-center">
           <div tabindex="-1" class="q-field__control relative-position row no-wrap">
             <div class="q-field__control-container col relative-position row no-wrap q-anchor--skip"><input tabindex="0" size="3" id="f_80808080-8080-4080-8080-808080808080" type="text" value="12:00" class="q-field__native q-placeholder">
@@ -6523,7 +6523,7 @@ exports[`Storyshots PickupEdit disabled 1`] = `
         </div>
       </div>
     </div>
-    <div><label for="f_80808080-8080-4080-8080-808080808080" class="q-field row no-wrap items-start q-input q-field--standard q-field--float q-field--labeled q-field--with-bottom">
+    <div><label for="f_80808080-8080-4080-8080-808080808080" class="q-field q-validation-component row no-wrap items-start q-input q-field--standard q-field--float q-field--labeled q-field--with-bottom">
         <div class="q-field__before q-field__marginal row no-wrap items-center"><i aria-hidden="true" role="presentation" class="material-icons q-icon notranslate">group</i></div>
         <div class="q-field__inner relative-position col self-stretch column justify-center">
           <div tabindex="-1" class="q-field__control relative-position row no-wrap">
@@ -6558,7 +6558,7 @@ exports[`Storyshots PickupEdit disabled 1`] = `
       </label>
       <!---->
     </div>
-    <div><label for="f_80808080-8080-4080-8080-808080808080" class="q-field row no-wrap items-start q-textarea q-textarea--autogrow q-field--standard q-field--labeled q-field--with-bottom">
+    <div><label for="f_80808080-8080-4080-8080-808080808080" class="q-field q-validation-component row no-wrap items-start q-textarea q-textarea--autogrow q-field--standard q-field--labeled q-field--with-bottom">
         <div class="q-field__before q-field__marginal row no-wrap items-center"><i aria-hidden="true" role="presentation" class="material-icons q-icon notranslate">info</i></div>
         <div class="q-field__inner relative-position col self-stretch column justify-center">
           <div tabindex="-1" class="q-field__control relative-position row no-wrap">
@@ -6600,7 +6600,7 @@ exports[`Storyshots PickupEdit error 1`] = `
     <!---->
   </div>
   <form class="q-gutter-y-lg" style="max-width:700px;">
-    <div class="row q-mt-xs"><label for="f_80808080-8080-4080-8080-808080808080" class="q-field row no-wrap items-start q-mr-sm q-input q-field--standard q-field--focused q-field--float q-field--error">
+    <div class="row q-mt-xs"><label for="f_80808080-8080-4080-8080-808080808080" class="q-field q-validation-component row no-wrap items-start q-mr-sm q-input q-field--standard q-field--focused q-field--float q-field--error">
         <div class="q-field__before q-field__marginal row no-wrap items-center"><i aria-hidden="true" role="presentation" class="material-icons q-icon notranslate">access_time</i></div>
         <div class="q-field__inner relative-position col self-stretch column justify-center">
           <div tabindex="-1" class="q-field__control relative-position row no-wrap text-negative">
@@ -6610,7 +6610,7 @@ exports[`Storyshots PickupEdit error 1`] = `
             <div class="q-field__append q-field__marginal row no-wrap items-center q-anchor--skip"><i aria-hidden="true" role="presentation" class="material-icons q-icon notranslate text-negative">error</i></div>
           </div>
         </div>
-      </label> <label for="f_80808080-8080-4080-8080-808080808080" class="q-field row no-wrap items-start q-input q-field--standard q-field--focused q-field--float q-field--error">
+      </label> <label for="f_80808080-8080-4080-8080-808080808080" class="q-field q-validation-component row no-wrap items-start q-input q-field--standard q-field--focused q-field--float q-field--error">
         <div class="q-field__inner relative-position col self-stretch column justify-center">
           <div tabindex="-1" class="q-field__control relative-position row no-wrap text-negative">
             <div class="q-field__control-container col relative-position row no-wrap q-anchor--skip"><input tabindex="0" size="3" id="f_80808080-8080-4080-8080-808080808080" type="text" value="12:00" class="q-field__native q-placeholder">
@@ -6628,7 +6628,7 @@ exports[`Storyshots PickupEdit error 1`] = `
         </div>
       </div>
     </div>
-    <div><label for="f_80808080-8080-4080-8080-808080808080" class="q-field row no-wrap items-start q-input q-field--standard q-field--float q-field--labeled q-field--with-bottom">
+    <div><label for="f_80808080-8080-4080-8080-808080808080" class="q-field q-validation-component row no-wrap items-start q-input q-field--standard q-field--float q-field--labeled q-field--with-bottom">
         <div class="q-field__before q-field__marginal row no-wrap items-center"><i aria-hidden="true" role="presentation" class="material-icons q-icon notranslate">group</i></div>
         <div class="q-field__inner relative-position col self-stretch column justify-center">
           <div tabindex="-1" class="q-field__control relative-position row no-wrap">
@@ -6663,7 +6663,7 @@ exports[`Storyshots PickupEdit error 1`] = `
       </label>
       <!---->
     </div>
-    <div><label for="f_80808080-8080-4080-8080-808080808080" class="q-field row no-wrap items-start q-textarea q-textarea--autogrow q-field--standard q-field--labeled q-field--with-bottom">
+    <div><label for="f_80808080-8080-4080-8080-808080808080" class="q-field q-validation-component row no-wrap items-start q-textarea q-textarea--autogrow q-field--standard q-field--labeled q-field--with-bottom">
         <div class="q-field__before q-field__marginal row no-wrap items-center"><i aria-hidden="true" role="presentation" class="material-icons q-icon notranslate">info</i></div>
         <div class="q-field__inner relative-position col self-stretch column justify-center">
           <div tabindex="-1" class="q-field__control relative-position row no-wrap">
@@ -6705,7 +6705,7 @@ exports[`Storyshots PickupEdit pending 1`] = `
     <!---->
   </div>
   <form class="q-gutter-y-lg" style="max-width:700px;">
-    <div class="row q-mt-xs"><label for="f_80808080-8080-4080-8080-808080808080" class="q-field row no-wrap items-start q-mr-sm q-input q-field--standard q-field--float">
+    <div class="row q-mt-xs"><label for="f_80808080-8080-4080-8080-808080808080" class="q-field q-validation-component row no-wrap items-start q-mr-sm q-input q-field--standard q-field--float">
         <div class="q-field__before q-field__marginal row no-wrap items-center"><i aria-hidden="true" role="presentation" class="material-icons q-icon notranslate">access_time</i></div>
         <div class="q-field__inner relative-position col self-stretch column justify-center">
           <div tabindex="-1" class="q-field__control relative-position row no-wrap">
@@ -6714,7 +6714,7 @@ exports[`Storyshots PickupEdit pending 1`] = `
             </div>
           </div>
         </div>
-      </label> <label for="f_80808080-8080-4080-8080-808080808080" class="q-field row no-wrap items-start q-input q-field--standard q-field--float">
+      </label> <label for="f_80808080-8080-4080-8080-808080808080" class="q-field q-validation-component row no-wrap items-start q-input q-field--standard q-field--float">
         <div class="q-field__inner relative-position col self-stretch column justify-center">
           <div tabindex="-1" class="q-field__control relative-position row no-wrap">
             <div class="q-field__control-container col relative-position row no-wrap q-anchor--skip"><input tabindex="0" size="3" id="f_80808080-8080-4080-8080-808080808080" type="text" value="12:00" class="q-field__native q-placeholder">
@@ -6731,7 +6731,7 @@ exports[`Storyshots PickupEdit pending 1`] = `
         </div>
       </div>
     </div>
-    <div><label for="f_80808080-8080-4080-8080-808080808080" class="q-field row no-wrap items-start q-input q-field--standard q-field--float q-field--labeled q-field--with-bottom">
+    <div><label for="f_80808080-8080-4080-8080-808080808080" class="q-field q-validation-component row no-wrap items-start q-input q-field--standard q-field--float q-field--labeled q-field--with-bottom">
         <div class="q-field__before q-field__marginal row no-wrap items-center"><i aria-hidden="true" role="presentation" class="material-icons q-icon notranslate">group</i></div>
         <div class="q-field__inner relative-position col self-stretch column justify-center">
           <div tabindex="-1" class="q-field__control relative-position row no-wrap">
@@ -6766,7 +6766,7 @@ exports[`Storyshots PickupEdit pending 1`] = `
       </label>
       <!---->
     </div>
-    <div><label for="f_80808080-8080-4080-8080-808080808080" class="q-field row no-wrap items-start q-textarea q-textarea--autogrow q-field--standard q-field--labeled q-field--with-bottom">
+    <div><label for="f_80808080-8080-4080-8080-808080808080" class="q-field q-validation-component row no-wrap items-start q-textarea q-textarea--autogrow q-field--standard q-field--labeled q-field--with-bottom">
         <div class="q-field__before q-field__marginal row no-wrap items-center"><i aria-hidden="true" role="presentation" class="material-icons q-icon notranslate">info</i></div>
         <div class="q-field__inner relative-position col self-stretch column justify-center">
           <div tabindex="-1" class="q-field__control relative-position row no-wrap">
@@ -6808,7 +6808,7 @@ exports[`Storyshots PickupEdit series changed 1`] = `
     <!---->
   </div>
   <form class="q-gutter-y-lg" style="max-width:700px;">
-    <div class="row q-mt-xs"><label for="f_80808080-8080-4080-8080-808080808080" class="q-field row no-wrap items-start q-mr-sm q-input q-field--standard q-field--float">
+    <div class="row q-mt-xs"><label for="f_80808080-8080-4080-8080-808080808080" class="q-field q-validation-component row no-wrap items-start q-mr-sm q-input q-field--standard q-field--float">
         <div class="q-field__before q-field__marginal row no-wrap items-center"><i aria-hidden="true" role="presentation" class="material-icons q-icon notranslate">access_time</i></div>
         <div class="q-field__inner relative-position col self-stretch column justify-center">
           <div tabindex="-1" class="q-field__control relative-position row no-wrap">
@@ -6817,7 +6817,7 @@ exports[`Storyshots PickupEdit series changed 1`] = `
             </div>
           </div>
         </div>
-      </label> <label for="f_80808080-8080-4080-8080-808080808080" class="q-field row no-wrap items-start q-input q-field--standard q-field--float">
+      </label> <label for="f_80808080-8080-4080-8080-808080808080" class="q-field q-validation-component row no-wrap items-start q-input q-field--standard q-field--float">
         <div class="q-field__inner relative-position col self-stretch column justify-center">
           <div tabindex="-1" class="q-field__control relative-position row no-wrap">
             <div class="q-field__control-container col relative-position row no-wrap q-anchor--skip"><input tabindex="0" size="3" id="f_80808080-8080-4080-8080-808080808080" type="text" value="12:00" class="q-field__native q-placeholder">
@@ -6834,7 +6834,7 @@ exports[`Storyshots PickupEdit series changed 1`] = `
         </div>
       </div>
     </div>
-    <div><label for="f_80808080-8080-4080-8080-808080808080" class="q-field row no-wrap items-start q-input q-field--standard q-field--float q-field--labeled q-field--with-bottom">
+    <div><label for="f_80808080-8080-4080-8080-808080808080" class="q-field q-validation-component row no-wrap items-start q-input q-field--standard q-field--float q-field--labeled q-field--with-bottom">
         <div class="q-field__before q-field__marginal row no-wrap items-center"><i aria-hidden="true" role="presentation" class="material-icons q-icon notranslate">group</i></div>
         <div class="q-field__inner relative-position col self-stretch column justify-center">
           <div tabindex="-1" class="q-field__control relative-position row no-wrap">
@@ -6871,7 +6871,7 @@ exports[`Storyshots PickupEdit series changed 1`] = `
         This value differs from the default. To undo this change, click on the arrow button and save the changes.
       </div>
     </div>
-    <div><label for="f_80808080-8080-4080-8080-808080808080" class="q-field row no-wrap items-start q-textarea q-textarea--autogrow q-field--standard q-field--labeled q-field--with-bottom">
+    <div><label for="f_80808080-8080-4080-8080-808080808080" class="q-field q-validation-component row no-wrap items-start q-textarea q-textarea--autogrow q-field--standard q-field--labeled q-field--with-bottom">
         <div class="q-field__before q-field__marginal row no-wrap items-center"><i aria-hidden="true" role="presentation" class="material-icons q-icon notranslate">info</i></div>
         <div class="q-field__inner relative-position col self-stretch column justify-center">
           <div tabindex="-1" class="q-field__control relative-position row no-wrap">
@@ -6915,7 +6915,7 @@ exports[`Storyshots PickupEdit with duration 1`] = `
     <!---->
   </div>
   <form class="q-gutter-y-lg" style="max-width:700px;">
-    <div class="row q-mt-xs"><label for="f_80808080-8080-4080-8080-808080808080" class="q-field row no-wrap items-start q-mr-sm q-input q-field--standard q-field--float">
+    <div class="row q-mt-xs"><label for="f_80808080-8080-4080-8080-808080808080" class="q-field q-validation-component row no-wrap items-start q-mr-sm q-input q-field--standard q-field--float">
         <div class="q-field__before q-field__marginal row no-wrap items-center"><i aria-hidden="true" role="presentation" class="material-icons q-icon notranslate">access_time</i></div>
         <div class="q-field__inner relative-position col self-stretch column justify-center">
           <div tabindex="-1" class="q-field__control relative-position row no-wrap">
@@ -6924,7 +6924,7 @@ exports[`Storyshots PickupEdit with duration 1`] = `
             </div>
           </div>
         </div>
-      </label> <label for="f_80808080-8080-4080-8080-808080808080" class="q-field row no-wrap items-start q-input q-field--standard q-field--float">
+      </label> <label for="f_80808080-8080-4080-8080-808080808080" class="q-field q-validation-component row no-wrap items-start q-input q-field--standard q-field--float">
         <div class="q-field__inner relative-position col self-stretch column justify-center">
           <div tabindex="-1" class="q-field__control relative-position row no-wrap">
             <div class="q-field__control-container col relative-position row no-wrap q-anchor--skip"><input tabindex="0" size="3" id="f_80808080-8080-4080-8080-808080808080" type="text" value="12:00" class="q-field__native q-placeholder">
@@ -6934,7 +6934,7 @@ exports[`Storyshots PickupEdit with duration 1`] = `
         </div>
         <div class="q-field__after q-field__marginal row no-wrap items-center"></div>
       </label>
-      <div class="q-px-md self-center"></div> <label for="f_80808080-8080-4080-8080-808080808080" class="q-field row no-wrap items-start q-input q-field--standard q-field--float">
+      <div class="q-px-md self-center"></div> <label for="f_80808080-8080-4080-8080-808080808080" class="q-field q-validation-component row no-wrap items-start q-input q-field--standard q-field--float">
         <div class="q-field__inner relative-position col self-stretch column justify-center">
           <div tabindex="-1" class="q-field__control relative-position row no-wrap">
             <div class="q-field__control-container col relative-position row no-wrap q-anchor--skip"><input tabindex="0" size="3" id="f_80808080-8080-4080-8080-808080808080" type="text" value="12:30" class="q-field__native q-placeholder">
@@ -6954,7 +6954,7 @@ exports[`Storyshots PickupEdit with duration 1`] = `
         </div>
       </div>
     </div>
-    <div><label for="f_80808080-8080-4080-8080-808080808080" class="q-field row no-wrap items-start q-input q-field--standard q-field--float q-field--labeled q-field--with-bottom">
+    <div><label for="f_80808080-8080-4080-8080-808080808080" class="q-field q-validation-component row no-wrap items-start q-input q-field--standard q-field--float q-field--labeled q-field--with-bottom">
         <div class="q-field__before q-field__marginal row no-wrap items-center"><i aria-hidden="true" role="presentation" class="material-icons q-icon notranslate">group</i></div>
         <div class="q-field__inner relative-position col self-stretch column justify-center">
           <div tabindex="-1" class="q-field__control relative-position row no-wrap">
@@ -6989,7 +6989,7 @@ exports[`Storyshots PickupEdit with duration 1`] = `
       </label>
       <!---->
     </div>
-    <div><label for="f_80808080-8080-4080-8080-808080808080" class="q-field row no-wrap items-start q-textarea q-textarea--autogrow q-field--standard q-field--labeled q-field--with-bottom">
+    <div><label for="f_80808080-8080-4080-8080-808080808080" class="q-field q-validation-component row no-wrap items-start q-textarea q-textarea--autogrow q-field--standard q-field--labeled q-field--with-bottom">
         <div class="q-field__before q-field__marginal row no-wrap items-center"><i aria-hidden="true" role="presentation" class="material-icons q-icon notranslate">info</i></div>
         <div class="q-field__inner relative-position col self-stretch column justify-center">
           <div tabindex="-1" class="q-field__control relative-position row no-wrap">
@@ -7499,7 +7499,7 @@ exports[`Storyshots PickupList Default 1`] = `
 
 exports[`Storyshots PickupSeriesEdit custom rule 1`] = `
 <div class="edit-box">
-  <form class="q-gutter-y-lg" style="max-width:700px;"><label for="f_80808080-8080-4080-8080-808080808080" class="q-field row no-wrap items-start q-field--borderless q-field--float q-field--labeled q-field--auto-height">
+  <form class="q-gutter-y-lg" style="max-width:700px;"><label for="f_80808080-8080-4080-8080-808080808080" class="q-field q-validation-component row no-wrap items-start q-field--borderless q-field--float q-field--labeled q-field--auto-height">
       <div class="q-field__before q-field__marginal row no-wrap items-center"><i aria-hidden="true" role="presentation" class="fas fa-redo q-icon notranslate"> </i></div>
       <div class="q-field__inner relative-position col self-stretch column justify-center">
         <div tabindex="-1" class="q-field__control relative-position row no-wrap">
@@ -7531,7 +7531,7 @@ exports[`Storyshots PickupSeriesEdit custom rule 1`] = `
         </div>
       </div>
     </label>
-    <div class="row q-mt-xs"><label for="f_80808080-8080-4080-8080-808080808080" class="q-field row no-wrap items-start q-mr-sm q-input q-field--standard q-field--float">
+    <div class="row q-mt-xs"><label for="f_80808080-8080-4080-8080-808080808080" class="q-field q-validation-component row no-wrap items-start q-mr-sm q-input q-field--standard q-field--float">
         <div class="q-field__before q-field__marginal row no-wrap items-center"><i aria-hidden="true" role="presentation" class="material-icons q-icon notranslate">access_time</i></div>
         <div class="q-field__inner relative-position col self-stretch column justify-center">
           <div tabindex="-1" class="q-field__control relative-position row no-wrap">
@@ -7540,7 +7540,7 @@ exports[`Storyshots PickupSeriesEdit custom rule 1`] = `
             </div>
           </div>
         </div>
-      </label> <label for="f_80808080-8080-4080-8080-808080808080" class="q-field row no-wrap items-start q-input q-field--standard q-field--float">
+      </label> <label for="f_80808080-8080-4080-8080-808080808080" class="q-field q-validation-component row no-wrap items-start q-input q-field--standard q-field--float">
         <div class="q-field__inner relative-position col self-stretch column justify-center">
           <div tabindex="-1" class="q-field__control relative-position row no-wrap">
             <div class="q-field__control-container col relative-position row no-wrap q-anchor--skip"><input tabindex="0" size="3" id="f_80808080-8080-4080-8080-808080808080" type="text" value="12:00" class="q-field__native q-placeholder">
@@ -7557,7 +7557,7 @@ exports[`Storyshots PickupSeriesEdit custom rule 1`] = `
         </div>
       </div>
     </div>
-    <!----> <label for="f_80808080-8080-4080-8080-808080808080" class="q-field row no-wrap items-start q-textarea q-textarea--autogrow q-field--standard q-field--float q-field--labeled q-field--with-bottom">
+    <!----> <label for="f_80808080-8080-4080-8080-808080808080" class="q-field q-validation-component row no-wrap items-start q-textarea q-textarea--autogrow q-field--standard q-field--float q-field--labeled q-field--with-bottom">
       <div class="q-field__before q-field__marginal row no-wrap items-center"><i aria-hidden="true" role="presentation" class="material-icons q-icon notranslate">code</i></div>
       <div class="q-field__inner relative-position col self-stretch column justify-center">
         <div tabindex="-1" class="q-field__control relative-position row no-wrap">
@@ -7571,7 +7571,7 @@ exports[`Storyshots PickupSeriesEdit custom rule 1`] = `
           </transition-stub>
         </div>
       </div>
-    </label> <label for="f_80808080-8080-4080-8080-808080808080" class="q-field row no-wrap items-start q-input q-field--standard q-field--float q-field--labeled q-field--with-bottom">
+    </label> <label for="f_80808080-8080-4080-8080-808080808080" class="q-field q-validation-component row no-wrap items-start q-input q-field--standard q-field--float q-field--labeled q-field--with-bottom">
       <div class="q-field__before q-field__marginal row no-wrap items-center"><i aria-hidden="true" role="presentation" class="material-icons q-icon notranslate">group</i></div>
       <div class="q-field__inner relative-position col self-stretch column justify-center">
         <div tabindex="-1" class="q-field__control relative-position row no-wrap">
@@ -7602,7 +7602,7 @@ exports[`Storyshots PickupSeriesEdit custom rule 1`] = `
           </transition-stub>
         </div>
       </div>
-    </label> <label for="f_80808080-8080-4080-8080-808080808080" class="q-field row no-wrap items-start q-textarea q-textarea--autogrow q-field--standard q-field--labeled q-field--with-bottom">
+    </label> <label for="f_80808080-8080-4080-8080-808080808080" class="q-field q-validation-component row no-wrap items-start q-textarea q-textarea--autogrow q-field--standard q-field--labeled q-field--with-bottom">
       <div class="q-field__before q-field__marginal row no-wrap items-center"><i aria-hidden="true" role="presentation" class="material-icons q-icon notranslate">info</i></div>
       <div class="q-field__inner relative-position col self-stretch column justify-center">
         <div tabindex="-1" class="q-field__control relative-position row no-wrap">
@@ -7636,7 +7636,7 @@ exports[`Storyshots PickupSeriesEdit custom rule 1`] = `
 
 exports[`Storyshots PickupSeriesEdit custom rule with duration 1`] = `
 <div class="edit-box">
-  <form class="q-gutter-y-lg" style="max-width:700px;"><label for="f_80808080-8080-4080-8080-808080808080" class="q-field row no-wrap items-start q-field--borderless q-field--float q-field--labeled q-field--auto-height">
+  <form class="q-gutter-y-lg" style="max-width:700px;"><label for="f_80808080-8080-4080-8080-808080808080" class="q-field q-validation-component row no-wrap items-start q-field--borderless q-field--float q-field--labeled q-field--auto-height">
       <div class="q-field__before q-field__marginal row no-wrap items-center"><i aria-hidden="true" role="presentation" class="fas fa-redo q-icon notranslate"> </i></div>
       <div class="q-field__inner relative-position col self-stretch column justify-center">
         <div tabindex="-1" class="q-field__control relative-position row no-wrap">
@@ -7668,7 +7668,7 @@ exports[`Storyshots PickupSeriesEdit custom rule with duration 1`] = `
         </div>
       </div>
     </label>
-    <div class="row q-mt-xs"><label for="f_80808080-8080-4080-8080-808080808080" class="q-field row no-wrap items-start q-mr-sm q-input q-field--standard q-field--float">
+    <div class="row q-mt-xs"><label for="f_80808080-8080-4080-8080-808080808080" class="q-field q-validation-component row no-wrap items-start q-mr-sm q-input q-field--standard q-field--float">
         <div class="q-field__before q-field__marginal row no-wrap items-center"><i aria-hidden="true" role="presentation" class="material-icons q-icon notranslate">access_time</i></div>
         <div class="q-field__inner relative-position col self-stretch column justify-center">
           <div tabindex="-1" class="q-field__control relative-position row no-wrap">
@@ -7677,7 +7677,7 @@ exports[`Storyshots PickupSeriesEdit custom rule with duration 1`] = `
             </div>
           </div>
         </div>
-      </label> <label for="f_80808080-8080-4080-8080-808080808080" class="q-field row no-wrap items-start q-input q-field--standard q-field--float">
+      </label> <label for="f_80808080-8080-4080-8080-808080808080" class="q-field q-validation-component row no-wrap items-start q-input q-field--standard q-field--float">
         <div class="q-field__inner relative-position col self-stretch column justify-center">
           <div tabindex="-1" class="q-field__control relative-position row no-wrap">
             <div class="q-field__control-container col relative-position row no-wrap q-anchor--skip"><input tabindex="0" size="3" id="f_80808080-8080-4080-8080-808080808080" type="text" value="12:00" class="q-field__native q-placeholder">
@@ -7687,7 +7687,7 @@ exports[`Storyshots PickupSeriesEdit custom rule with duration 1`] = `
         </div>
         <div class="q-field__after q-field__marginal row no-wrap items-center"></div>
       </label>
-      <div class="q-px-md self-center"></div> <label for="f_80808080-8080-4080-8080-808080808080" class="q-field row no-wrap items-start q-input q-field--standard q-field--float">
+      <div class="q-px-md self-center"></div> <label for="f_80808080-8080-4080-8080-808080808080" class="q-field q-validation-component row no-wrap items-start q-input q-field--standard q-field--float">
         <div class="q-field__inner relative-position col self-stretch column justify-center">
           <div tabindex="-1" class="q-field__control relative-position row no-wrap">
             <div class="q-field__control-container col relative-position row no-wrap q-anchor--skip"><input tabindex="0" size="3" id="f_80808080-8080-4080-8080-808080808080" type="text" value="12:45" class="q-field__native q-placeholder">
@@ -7707,7 +7707,7 @@ exports[`Storyshots PickupSeriesEdit custom rule with duration 1`] = `
         </div>
       </div>
     </div>
-    <!----> <label for="f_80808080-8080-4080-8080-808080808080" class="q-field row no-wrap items-start q-textarea q-textarea--autogrow q-field--standard q-field--float q-field--labeled q-field--with-bottom">
+    <!----> <label for="f_80808080-8080-4080-8080-808080808080" class="q-field q-validation-component row no-wrap items-start q-textarea q-textarea--autogrow q-field--standard q-field--float q-field--labeled q-field--with-bottom">
       <div class="q-field__before q-field__marginal row no-wrap items-center"><i aria-hidden="true" role="presentation" class="material-icons q-icon notranslate">code</i></div>
       <div class="q-field__inner relative-position col self-stretch column justify-center">
         <div tabindex="-1" class="q-field__control relative-position row no-wrap">
@@ -7721,7 +7721,7 @@ exports[`Storyshots PickupSeriesEdit custom rule with duration 1`] = `
           </transition-stub>
         </div>
       </div>
-    </label> <label for="f_80808080-8080-4080-8080-808080808080" class="q-field row no-wrap items-start q-input q-field--standard q-field--float q-field--labeled q-field--with-bottom">
+    </label> <label for="f_80808080-8080-4080-8080-808080808080" class="q-field q-validation-component row no-wrap items-start q-input q-field--standard q-field--float q-field--labeled q-field--with-bottom">
       <div class="q-field__before q-field__marginal row no-wrap items-center"><i aria-hidden="true" role="presentation" class="material-icons q-icon notranslate">group</i></div>
       <div class="q-field__inner relative-position col self-stretch column justify-center">
         <div tabindex="-1" class="q-field__control relative-position row no-wrap">
@@ -7752,7 +7752,7 @@ exports[`Storyshots PickupSeriesEdit custom rule with duration 1`] = `
           </transition-stub>
         </div>
       </div>
-    </label> <label for="f_80808080-8080-4080-8080-808080808080" class="q-field row no-wrap items-start q-textarea q-textarea--autogrow q-field--standard q-field--labeled q-field--with-bottom">
+    </label> <label for="f_80808080-8080-4080-8080-808080808080" class="q-field q-validation-component row no-wrap items-start q-textarea q-textarea--autogrow q-field--standard q-field--labeled q-field--with-bottom">
       <div class="q-field__before q-field__marginal row no-wrap items-center"><i aria-hidden="true" role="presentation" class="material-icons q-icon notranslate">info</i></div>
       <div class="q-field__inner relative-position col self-stretch column justify-center">
         <div tabindex="-1" class="q-field__control relative-position row no-wrap">
@@ -7786,7 +7786,7 @@ exports[`Storyshots PickupSeriesEdit custom rule with duration 1`] = `
 
 exports[`Storyshots PickupSeriesEdit duration 1`] = `
 <div class="edit-box">
-  <form class="q-gutter-y-lg" style="max-width:700px;"><label for="f_80808080-8080-4080-8080-808080808080" class="q-field row no-wrap items-start q-field--borderless q-field--float q-field--labeled q-field--auto-height">
+  <form class="q-gutter-y-lg" style="max-width:700px;"><label for="f_80808080-8080-4080-8080-808080808080" class="q-field q-validation-component row no-wrap items-start q-field--borderless q-field--float q-field--labeled q-field--auto-height">
       <div class="q-field__before q-field__marginal row no-wrap items-center"><i aria-hidden="true" role="presentation" class="fas fa-redo q-icon notranslate"> </i></div>
       <div class="q-field__inner relative-position col self-stretch column justify-center">
         <div tabindex="-1" class="q-field__control relative-position row no-wrap">
@@ -7819,7 +7819,7 @@ exports[`Storyshots PickupSeriesEdit duration 1`] = `
       </div>
     </label>
     <div class="row q-mt-xs">
-      <!----> <label for="f_80808080-8080-4080-8080-808080808080" class="q-field row no-wrap items-start q-input q-field--standard q-field--float">
+      <!----> <label for="f_80808080-8080-4080-8080-808080808080" class="q-field q-validation-component row no-wrap items-start q-input q-field--standard q-field--float">
         <div class="q-field__before q-field__marginal row no-wrap items-center"><i aria-hidden="true" role="presentation" class="material-icons q-icon notranslate">access_time</i></div>
         <div class="q-field__inner relative-position col self-stretch column justify-center">
           <div tabindex="-1" class="q-field__control relative-position row no-wrap">
@@ -7830,7 +7830,7 @@ exports[`Storyshots PickupSeriesEdit duration 1`] = `
         </div>
         <div class="q-field__after q-field__marginal row no-wrap items-center"></div>
       </label>
-      <div class="q-px-md self-center"></div> <label for="f_80808080-8080-4080-8080-808080808080" class="q-field row no-wrap items-start q-input q-field--standard q-field--float">
+      <div class="q-px-md self-center"></div> <label for="f_80808080-8080-4080-8080-808080808080" class="q-field q-validation-component row no-wrap items-start q-input q-field--standard q-field--float">
         <div class="q-field__inner relative-position col self-stretch column justify-center">
           <div tabindex="-1" class="q-field__control relative-position row no-wrap">
             <div class="q-field__control-container col relative-position row no-wrap q-anchor--skip"><input tabindex="0" size="3" id="f_80808080-8080-4080-8080-808080808080" type="text" value="12:45" class="q-field__native q-placeholder">
@@ -7849,7 +7849,7 @@ exports[`Storyshots PickupSeriesEdit duration 1`] = `
           When should the pick-up take place?
         </div>
       </div>
-    </div> <label for="f_80808080-8080-4080-8080-808080808080" class="q-field row no-wrap items-start q-select q-field--auto-height q-select--without-input q-select--without-chips q-field--standard q-field--float q-field--labeled q-field--with-bottom">
+    </div> <label for="f_80808080-8080-4080-8080-808080808080" class="q-field q-validation-component row no-wrap items-start q-select q-field--auto-height q-select--without-input q-select--without-chips q-field--standard q-field--float q-field--labeled q-field--with-bottom">
       <div class="q-field__before q-field__marginal row no-wrap items-center"><i aria-hidden="true" role="presentation" class="material-icons q-icon notranslate">today</i></div>
       <div class="q-field__inner relative-position col self-stretch column justify-center">
         <div tabindex="-1" class="q-field__control relative-position row no-wrap">
@@ -7869,7 +7869,7 @@ exports[`Storyshots PickupSeriesEdit duration 1`] = `
         </div>
       </div>
     </label>
-    <!----> <label for="f_80808080-8080-4080-8080-808080808080" class="q-field row no-wrap items-start q-input q-field--standard q-field--float q-field--labeled q-field--with-bottom">
+    <!----> <label for="f_80808080-8080-4080-8080-808080808080" class="q-field q-validation-component row no-wrap items-start q-input q-field--standard q-field--float q-field--labeled q-field--with-bottom">
       <div class="q-field__before q-field__marginal row no-wrap items-center"><i aria-hidden="true" role="presentation" class="material-icons q-icon notranslate">group</i></div>
       <div class="q-field__inner relative-position col self-stretch column justify-center">
         <div tabindex="-1" class="q-field__control relative-position row no-wrap">
@@ -7900,7 +7900,7 @@ exports[`Storyshots PickupSeriesEdit duration 1`] = `
           </transition-stub>
         </div>
       </div>
-    </label> <label for="f_80808080-8080-4080-8080-808080808080" class="q-field row no-wrap items-start q-textarea q-textarea--autogrow q-field--standard q-field--labeled q-field--with-bottom">
+    </label> <label for="f_80808080-8080-4080-8080-808080808080" class="q-field q-validation-component row no-wrap items-start q-textarea q-textarea--autogrow q-field--standard q-field--labeled q-field--with-bottom">
       <div class="q-field__before q-field__marginal row no-wrap items-center"><i aria-hidden="true" role="presentation" class="material-icons q-icon notranslate">info</i></div>
       <div class="q-field__inner relative-position col self-stretch column justify-center">
         <div tabindex="-1" class="q-field__control relative-position row no-wrap">
@@ -7934,7 +7934,7 @@ exports[`Storyshots PickupSeriesEdit duration 1`] = `
 
 exports[`Storyshots PickupSeriesEdit time error 1`] = `
 <div class="edit-box">
-  <form class="q-gutter-y-lg" style="max-width:700px;"><label for="f_80808080-8080-4080-8080-808080808080" class="q-field row no-wrap items-start q-field--borderless q-field--float q-field--labeled q-field--auto-height">
+  <form class="q-gutter-y-lg" style="max-width:700px;"><label for="f_80808080-8080-4080-8080-808080808080" class="q-field q-validation-component row no-wrap items-start q-field--borderless q-field--float q-field--labeled q-field--auto-height">
       <div class="q-field__before q-field__marginal row no-wrap items-center"><i aria-hidden="true" role="presentation" class="fas fa-redo q-icon notranslate"> </i></div>
       <div class="q-field__inner relative-position col self-stretch column justify-center">
         <div tabindex="-1" class="q-field__control relative-position row no-wrap">
@@ -7967,7 +7967,7 @@ exports[`Storyshots PickupSeriesEdit time error 1`] = `
       </div>
     </label>
     <div class="row q-mt-xs">
-      <!----> <label for="f_80808080-8080-4080-8080-808080808080" class="q-field row no-wrap items-start q-input q-field--standard q-field--focused q-field--float q-field--error">
+      <!----> <label for="f_80808080-8080-4080-8080-808080808080" class="q-field q-validation-component row no-wrap items-start q-input q-field--standard q-field--focused q-field--float q-field--error">
         <div class="q-field__before q-field__marginal row no-wrap items-center"><i aria-hidden="true" role="presentation" class="material-icons q-icon notranslate">access_time</i></div>
         <div class="q-field__inner relative-position col self-stretch column justify-center">
           <div tabindex="-1" class="q-field__control relative-position row no-wrap text-negative">
@@ -7985,7 +7985,7 @@ exports[`Storyshots PickupSeriesEdit time error 1`] = `
           time is in past
         </div>
       </div>
-    </div> <label for="f_80808080-8080-4080-8080-808080808080" class="q-field row no-wrap items-start q-select q-field--auto-height q-select--without-input q-select--without-chips q-field--standard q-field--float q-field--labeled q-field--with-bottom">
+    </div> <label for="f_80808080-8080-4080-8080-808080808080" class="q-field q-validation-component row no-wrap items-start q-select q-field--auto-height q-select--without-input q-select--without-chips q-field--standard q-field--float q-field--labeled q-field--with-bottom">
       <div class="q-field__before q-field__marginal row no-wrap items-center"><i aria-hidden="true" role="presentation" class="material-icons q-icon notranslate">today</i></div>
       <div class="q-field__inner relative-position col self-stretch column justify-center">
         <div tabindex="-1" class="q-field__control relative-position row no-wrap">
@@ -8005,7 +8005,7 @@ exports[`Storyshots PickupSeriesEdit time error 1`] = `
         </div>
       </div>
     </label>
-    <!----> <label for="f_80808080-8080-4080-8080-808080808080" class="q-field row no-wrap items-start q-input q-field--standard q-field--float q-field--labeled q-field--with-bottom">
+    <!----> <label for="f_80808080-8080-4080-8080-808080808080" class="q-field q-validation-component row no-wrap items-start q-input q-field--standard q-field--float q-field--labeled q-field--with-bottom">
       <div class="q-field__before q-field__marginal row no-wrap items-center"><i aria-hidden="true" role="presentation" class="material-icons q-icon notranslate">group</i></div>
       <div class="q-field__inner relative-position col self-stretch column justify-center">
         <div tabindex="-1" class="q-field__control relative-position row no-wrap">
@@ -8036,7 +8036,7 @@ exports[`Storyshots PickupSeriesEdit time error 1`] = `
           </transition-stub>
         </div>
       </div>
-    </label> <label for="f_80808080-8080-4080-8080-808080808080" class="q-field row no-wrap items-start q-textarea q-textarea--autogrow q-field--standard q-field--labeled q-field--with-bottom">
+    </label> <label for="f_80808080-8080-4080-8080-808080808080" class="q-field q-validation-component row no-wrap items-start q-textarea q-textarea--autogrow q-field--standard q-field--labeled q-field--with-bottom">
       <div class="q-field__before q-field__marginal row no-wrap items-center"><i aria-hidden="true" role="presentation" class="material-icons q-icon notranslate">info</i></div>
       <div class="q-field__inner relative-position col self-stretch column justify-center">
         <div tabindex="-1" class="q-field__control relative-position row no-wrap">
@@ -8070,7 +8070,7 @@ exports[`Storyshots PickupSeriesEdit time error 1`] = `
 
 exports[`Storyshots PickupSeriesEdit weekly 1`] = `
 <div class="edit-box">
-  <form class="q-gutter-y-lg" style="max-width:700px;"><label for="f_80808080-8080-4080-8080-808080808080" class="q-field row no-wrap items-start q-field--borderless q-field--float q-field--labeled q-field--auto-height">
+  <form class="q-gutter-y-lg" style="max-width:700px;"><label for="f_80808080-8080-4080-8080-808080808080" class="q-field q-validation-component row no-wrap items-start q-field--borderless q-field--float q-field--labeled q-field--auto-height">
       <div class="q-field__before q-field__marginal row no-wrap items-center"><i aria-hidden="true" role="presentation" class="fas fa-redo q-icon notranslate"> </i></div>
       <div class="q-field__inner relative-position col self-stretch column justify-center">
         <div tabindex="-1" class="q-field__control relative-position row no-wrap">
@@ -8103,7 +8103,7 @@ exports[`Storyshots PickupSeriesEdit weekly 1`] = `
       </div>
     </label>
     <div class="row q-mt-xs">
-      <!----> <label for="f_80808080-8080-4080-8080-808080808080" class="q-field row no-wrap items-start q-input q-field--standard q-field--float">
+      <!----> <label for="f_80808080-8080-4080-8080-808080808080" class="q-field q-validation-component row no-wrap items-start q-input q-field--standard q-field--float">
         <div class="q-field__before q-field__marginal row no-wrap items-center"><i aria-hidden="true" role="presentation" class="material-icons q-icon notranslate">access_time</i></div>
         <div class="q-field__inner relative-position col self-stretch column justify-center">
           <div tabindex="-1" class="q-field__control relative-position row no-wrap">
@@ -8120,7 +8120,7 @@ exports[`Storyshots PickupSeriesEdit weekly 1`] = `
           When should the pick-up take place?
         </div>
       </div>
-    </div> <label for="f_80808080-8080-4080-8080-808080808080" class="q-field row no-wrap items-start q-select q-field--auto-height q-select--without-input q-select--without-chips q-field--standard q-field--float q-field--labeled q-field--with-bottom">
+    </div> <label for="f_80808080-8080-4080-8080-808080808080" class="q-field q-validation-component row no-wrap items-start q-select q-field--auto-height q-select--without-input q-select--without-chips q-field--standard q-field--float q-field--labeled q-field--with-bottom">
       <div class="q-field__before q-field__marginal row no-wrap items-center"><i aria-hidden="true" role="presentation" class="material-icons q-icon notranslate">today</i></div>
       <div class="q-field__inner relative-position col self-stretch column justify-center">
         <div tabindex="-1" class="q-field__control relative-position row no-wrap">
@@ -8140,7 +8140,7 @@ exports[`Storyshots PickupSeriesEdit weekly 1`] = `
         </div>
       </div>
     </label>
-    <!----> <label for="f_80808080-8080-4080-8080-808080808080" class="q-field row no-wrap items-start q-input q-field--standard q-field--float q-field--labeled q-field--with-bottom">
+    <!----> <label for="f_80808080-8080-4080-8080-808080808080" class="q-field q-validation-component row no-wrap items-start q-input q-field--standard q-field--float q-field--labeled q-field--with-bottom">
       <div class="q-field__before q-field__marginal row no-wrap items-center"><i aria-hidden="true" role="presentation" class="material-icons q-icon notranslate">group</i></div>
       <div class="q-field__inner relative-position col self-stretch column justify-center">
         <div tabindex="-1" class="q-field__control relative-position row no-wrap">
@@ -8171,7 +8171,7 @@ exports[`Storyshots PickupSeriesEdit weekly 1`] = `
           </transition-stub>
         </div>
       </div>
-    </label> <label for="f_80808080-8080-4080-8080-808080808080" class="q-field row no-wrap items-start q-textarea q-textarea--autogrow q-field--standard q-field--labeled q-field--with-bottom">
+    </label> <label for="f_80808080-8080-4080-8080-808080808080" class="q-field q-validation-component row no-wrap items-start q-textarea q-textarea--autogrow q-field--standard q-field--labeled q-field--with-bottom">
       <div class="q-field__before q-field__marginal row no-wrap items-center"><i aria-hidden="true" role="presentation" class="material-icons q-icon notranslate">info</i></div>
       <div class="q-field__inner relative-position col self-stretch column justify-center">
         <div tabindex="-1" class="q-field__control relative-position row no-wrap">
@@ -8643,7 +8643,7 @@ exports[`Storyshots Places PlaceEdit (with server error) 1`] = `
 <div>
   <div class="no-shadow grey-border q-card" style="max-width:700px;">
     <div class="edit-box">
-      <form><label for="f_80808080-8080-4080-8080-808080808080" class="q-field row no-wrap items-start q-input q-field--standard q-field--focused q-field--float q-field--labeled q-field--with-bottom q-field--error">
+      <form><label for="f_80808080-8080-4080-8080-808080808080" class="q-field q-validation-component row no-wrap items-start q-input q-field--standard q-field--focused q-field--float q-field--labeled q-field--with-bottom q-field--error">
           <div class="q-field__before q-field__marginal row no-wrap items-center"><i aria-hidden="true" role="presentation" class="fas fa-star q-icon notranslate"> </i></div>
           <div class="q-field__inner relative-position col self-stretch column justify-center">
             <div tabindex="-1" class="q-field__control relative-position row no-wrap text-negative">
@@ -8660,7 +8660,7 @@ exports[`Storyshots Places PlaceEdit (with server error) 1`] = `
               </transition-stub>
             </div>
           </div>
-        </label> <label for="f_80808080-8080-4080-8080-808080808080" class="q-field row no-wrap items-start q-select q-field--auto-height q-select--without-input q-select--without-chips q-field--standard q-field--float q-field--labeled q-field--with-bottom">
+        </label> <label for="f_80808080-8080-4080-8080-808080808080" class="q-field q-validation-component row no-wrap items-start q-select q-field--auto-height q-select--without-input q-select--without-chips q-field--standard q-field--float q-field--labeled q-field--with-bottom">
           <div class="q-field__before q-field__marginal row no-wrap items-center"><i aria-hidden="true" role="presentation" class="fas fa-handshake q-icon notranslate"> </i></div>
           <div class="q-field__inner relative-position col self-stretch column justify-center">
             <div tabindex="-1" class="q-field__control relative-position row no-wrap">
@@ -8684,7 +8684,7 @@ exports[`Storyshots Places PlaceEdit (with server error) 1`] = `
             </div>
           </div>
         </label>
-        <div class="relative-position q-mb-sm"><label for="f_80808080-8080-4080-8080-808080808080" class="q-field row no-wrap items-start q-textarea q-textarea--autogrow q-field--standard q-field--labeled q-field--with-bottom">
+        <div class="relative-position q-mb-sm"><label for="f_80808080-8080-4080-8080-808080808080" class="q-field q-validation-component row no-wrap items-start q-textarea q-textarea--autogrow q-field--standard q-field--labeled q-field--with-bottom">
             <div class="q-field__before q-field__marginal row no-wrap items-center"><i aria-hidden="true" role="presentation" class="fas fa-question q-icon notranslate"> </i></div>
             <div class="q-field__inner relative-position col self-stretch column justify-center">
               <div tabindex="-1" class="q-field__control relative-position row no-wrap">
@@ -8701,7 +8701,7 @@ exports[`Storyshots Places PlaceEdit (with server error) 1`] = `
           </label>
           <!---->
         </div>
-        <div><label for="f_80808080-8080-4080-8080-808080808080" class="q-field row no-wrap items-start q-select q-field--auto-height q-select--with-input q-select--without-chips q-field--standard q-field--labeled q-field--with-bottom">
+        <div><label for="f_80808080-8080-4080-8080-808080808080" class="q-field q-validation-component row no-wrap items-start q-select q-field--auto-height q-select--with-input q-select--without-chips q-field--standard q-field--labeled q-field--with-bottom">
             <div class="q-field__before q-field__marginal row no-wrap items-center"><i aria-hidden="true" role="presentation" class="fas fa-map-marker q-icon notranslate"> </i></div>
             <div class="q-field__inner relative-position col self-stretch column justify-center">
               <div tabindex="-1" class="q-field__control relative-position row no-wrap">
@@ -8722,7 +8722,7 @@ exports[`Storyshots Places PlaceEdit (with server error) 1`] = `
             <!---->
           </div>
         </div>
-        <div><label for="f_80808080-8080-4080-8080-808080808080" class="q-field row no-wrap items-start q-field--borderless q-field--float q-field--auto-height">
+        <div><label for="f_80808080-8080-4080-8080-808080808080" class="q-field q-validation-component row no-wrap items-start q-field--borderless q-field--float q-field--auto-height">
             <div class="q-field__before q-field__marginal row no-wrap items-center"><i aria-hidden="true" role="presentation" class="fas fa-calendar-alt q-icon notranslate"> </i></div>
             <div class="q-field__inner relative-position col self-stretch column justify-center">
               <div tabindex="-1" class="q-field__control relative-position row no-wrap">
@@ -8776,7 +8776,7 @@ exports[`Storyshots Places PlaceEdit 1`] = `
 <div>
   <div class="no-shadow grey-border q-card" style="max-width:700px;">
     <div class="edit-box">
-      <form><label for="f_80808080-8080-4080-8080-808080808080" class="q-field row no-wrap items-start q-input q-field--standard q-field--float q-field--labeled q-field--with-bottom">
+      <form><label for="f_80808080-8080-4080-8080-808080808080" class="q-field q-validation-component row no-wrap items-start q-input q-field--standard q-field--float q-field--labeled q-field--with-bottom">
           <div class="q-field__before q-field__marginal row no-wrap items-center"><i aria-hidden="true" role="presentation" class="fas fa-star q-icon notranslate"> </i></div>
           <div class="q-field__inner relative-position col self-stretch column justify-center">
             <div tabindex="-1" class="q-field__control relative-position row no-wrap">
@@ -8790,7 +8790,7 @@ exports[`Storyshots Places PlaceEdit 1`] = `
               </transition-stub>
             </div>
           </div>
-        </label> <label for="f_80808080-8080-4080-8080-808080808080" class="q-field row no-wrap items-start q-select q-field--auto-height q-select--without-input q-select--without-chips q-field--standard q-field--float q-field--labeled q-field--with-bottom">
+        </label> <label for="f_80808080-8080-4080-8080-808080808080" class="q-field q-validation-component row no-wrap items-start q-select q-field--auto-height q-select--without-input q-select--without-chips q-field--standard q-field--float q-field--labeled q-field--with-bottom">
           <div class="q-field__before q-field__marginal row no-wrap items-center"><i aria-hidden="true" role="presentation" class="fas fa-handshake q-icon notranslate"> </i></div>
           <div class="q-field__inner relative-position col self-stretch column justify-center">
             <div tabindex="-1" class="q-field__control relative-position row no-wrap">
@@ -8814,7 +8814,7 @@ exports[`Storyshots Places PlaceEdit 1`] = `
             </div>
           </div>
         </label>
-        <div class="relative-position q-mb-sm"><label for="f_80808080-8080-4080-8080-808080808080" class="q-field row no-wrap items-start q-textarea q-textarea--autogrow q-field--standard q-field--labeled q-field--with-bottom">
+        <div class="relative-position q-mb-sm"><label for="f_80808080-8080-4080-8080-808080808080" class="q-field q-validation-component row no-wrap items-start q-textarea q-textarea--autogrow q-field--standard q-field--labeled q-field--with-bottom">
             <div class="q-field__before q-field__marginal row no-wrap items-center"><i aria-hidden="true" role="presentation" class="fas fa-question q-icon notranslate"> </i></div>
             <div class="q-field__inner relative-position col self-stretch column justify-center">
               <div tabindex="-1" class="q-field__control relative-position row no-wrap">
@@ -8831,7 +8831,7 @@ exports[`Storyshots Places PlaceEdit 1`] = `
           </label>
           <!---->
         </div>
-        <div><label for="f_80808080-8080-4080-8080-808080808080" class="q-field row no-wrap items-start q-select q-field--auto-height q-select--with-input q-select--without-chips q-field--standard q-field--labeled q-field--with-bottom">
+        <div><label for="f_80808080-8080-4080-8080-808080808080" class="q-field q-validation-component row no-wrap items-start q-select q-field--auto-height q-select--with-input q-select--without-chips q-field--standard q-field--labeled q-field--with-bottom">
             <div class="q-field__before q-field__marginal row no-wrap items-center"><i aria-hidden="true" role="presentation" class="fas fa-map-marker q-icon notranslate"> </i></div>
             <div class="q-field__inner relative-position col self-stretch column justify-center">
               <div tabindex="-1" class="q-field__control relative-position row no-wrap">
@@ -8852,7 +8852,7 @@ exports[`Storyshots Places PlaceEdit 1`] = `
             <!---->
           </div>
         </div>
-        <div><label for="f_80808080-8080-4080-8080-808080808080" class="q-field row no-wrap items-start q-field--borderless q-field--float q-field--auto-height">
+        <div><label for="f_80808080-8080-4080-8080-808080808080" class="q-field q-validation-component row no-wrap items-start q-field--borderless q-field--float q-field--auto-height">
             <div class="q-field__before q-field__marginal row no-wrap items-center"><i aria-hidden="true" role="presentation" class="fas fa-calendar-alt q-icon notranslate"> </i></div>
             <div class="q-field__inner relative-position col self-stretch column justify-center">
               <div tabindex="-1" class="q-field__control relative-position row no-wrap">
@@ -9263,7 +9263,7 @@ exports[`Storyshots Settings Page Default 1`] = `
       </div>
     </div>
     <div class="q-card__section q-card__section--vert">
-      <div class="edit-box k-change-photo"><label for="f_80808080-8080-4080-8080-808080808080" class="q-field row no-wrap items-start q-field--standard q-field--float q-field--labeled q-field--auto-height q-field--with-bottom">
+      <div class="edit-box k-change-photo"><label for="f_80808080-8080-4080-8080-808080808080" class="q-field q-validation-component row no-wrap items-start q-field--standard q-field--float q-field--labeled q-field--auto-height q-field--with-bottom">
           <div class="q-field__before q-field__marginal row no-wrap items-center"><i aria-hidden="true" role="presentation" class="fas fa-camera q-icon notranslate"> </i></div>
           <div class="q-field__inner relative-position col self-stretch column justify-center">
             <div tabindex="-1" class="q-field__control relative-position row no-wrap">
@@ -9296,9 +9296,9 @@ exports[`Storyshots Settings Page Default 1`] = `
             <transition-stub name="q-transition--fade"></transition-stub>
           </button></div>
       </div>
-      <hr role="separator" aria-orientation="horizontal" class="q-separator q-separator q-separator--horizontal col-grow">
+      <hr role="separator" aria-orientation="horizontal" class="q-separator q-separator q-separator--horizontal">
       <div class="edit-box">
-        <form><label for="f_80808080-8080-4080-8080-808080808080" class="q-field row no-wrap items-start q-input q-field--standard q-field--float q-field--labeled q-field--with-bottom">
+        <form><label for="f_80808080-8080-4080-8080-808080808080" class="q-field q-validation-component row no-wrap items-start q-input q-field--standard q-field--float q-field--labeled q-field--with-bottom">
             <div class="q-field__before q-field__marginal row no-wrap items-center"><i aria-hidden="true" role="presentation" class="fas fa-star q-icon notranslate"> </i></div>
             <div class="q-field__inner relative-position col self-stretch column justify-center">
               <div tabindex="-1" class="q-field__control relative-position row no-wrap">
@@ -9313,7 +9313,7 @@ exports[`Storyshots Settings Page Default 1`] = `
               </div>
             </div>
           </label>
-          <div class="relative-position q-mb-sm"><label for="f_80808080-8080-4080-8080-808080808080" class="q-field row no-wrap items-start q-textarea q-textarea--autogrow q-field--standard q-field--float q-field--labeled q-field--with-bottom">
+          <div class="relative-position q-mb-sm"><label for="f_80808080-8080-4080-8080-808080808080" class="q-field q-validation-component row no-wrap items-start q-textarea q-textarea--autogrow q-field--standard q-field--float q-field--labeled q-field--with-bottom">
               <div class="q-field__before q-field__marginal row no-wrap items-center"><i aria-hidden="true" role="presentation" class="material-icons q-icon notranslate">info</i></div>
               <div class="q-field__inner relative-position col self-stretch column justify-center">
                 <div tabindex="-1" class="q-field__control relative-position row no-wrap">
@@ -9328,7 +9328,7 @@ exports[`Storyshots Settings Page Default 1`] = `
                 </div>
               </div>
             </label> <button tabindex="0" type="button" role="button" class="q-btn q-btn-item non-selectable no-outline absolute-bottom-right bg-white q-btn--outline q-btn--rectangle text-primary q-btn--actionable q-focusable q-hoverable q-btn--wrap" style="font-size:8px;bottom:-10px;"><span class="q-focus-helper"></span><span class="q-btn__wrapper col row q-anchor--skip"><span class="q-btn__content text-center col items-center q-anchor--skip justify-center row"><span class="block">Preview</span>
-              <!----></span></span></button></div> <label for="f_80808080-8080-4080-8080-808080808080" class="q-field row no-wrap items-start q-input q-field--standard q-field--labeled q-field--with-bottom">
+              <!----></span></span></button></div> <label for="f_80808080-8080-4080-8080-808080808080" class="q-field q-validation-component row no-wrap items-start q-input q-field--standard q-field--labeled q-field--with-bottom">
             <div class="q-field__before q-field__marginal row no-wrap items-center"><i aria-hidden="true" role="presentation" class="fas fa-phone q-icon notranslate"> </i></div>
             <div class="q-field__inner relative-position col self-stretch column justify-center">
               <div tabindex="-1" class="q-field__control relative-position row no-wrap">
@@ -9343,7 +9343,7 @@ exports[`Storyshots Settings Page Default 1`] = `
               </div>
             </div>
           </label>
-          <div><label for="f_80808080-8080-4080-8080-808080808080" class="q-field row no-wrap items-start q-select q-field--auto-height q-select--with-input q-select--without-chips q-field--standard q-field--float q-field--labeled q-field--with-bottom">
+          <div><label for="f_80808080-8080-4080-8080-808080808080" class="q-field q-validation-component row no-wrap items-start q-select q-field--auto-height q-select--with-input q-select--without-chips q-field--standard q-field--float q-field--labeled q-field--with-bottom">
               <div class="q-field__before q-field__marginal row no-wrap items-center"><i aria-hidden="true" role="presentation" class="fas fa-map-marker q-icon notranslate"> </i></div>
               <div class="q-field__inner relative-position col self-stretch column justify-center">
                 <div tabindex="-1" class="q-field__control relative-position row no-wrap">
@@ -9396,7 +9396,7 @@ exports[`Storyshots Settings Page Default 1`] = `
     </div>
     <div class="q-card__section q-card__section--vert">
       <div id="change-email" class="edit-box">
-        <div>VerificationWarning has been mocked</div> <label for="f_80808080-8080-4080-8080-808080808080" class="q-field row no-wrap items-start q-input q-field--standard q-field--labeled q-field--with-bottom">
+        <div>VerificationWarning has been mocked</div> <label for="f_80808080-8080-4080-8080-808080808080" class="q-field q-validation-component row no-wrap items-start q-input q-field--standard q-field--labeled q-field--with-bottom">
           <div class="q-field__before q-field__marginal row no-wrap items-center"><i aria-hidden="true" role="presentation" class="fas fa-envelope q-icon notranslate"> </i></div>
           <div class="q-field__inner relative-position col self-stretch column justify-center">
             <div tabindex="-1" class="q-field__control relative-position row no-wrap">
@@ -9410,7 +9410,7 @@ exports[`Storyshots Settings Page Default 1`] = `
               </transition-stub>
             </div>
           </div>
-        </label> <label for="f_80808080-8080-4080-8080-808080808080" class="q-field row no-wrap items-start q-input q-field--standard q-field--labeled q-field--with-bottom">
+        </label> <label for="f_80808080-8080-4080-8080-808080808080" class="q-field q-validation-component row no-wrap items-start q-input q-field--standard q-field--labeled q-field--with-bottom">
           <div class="q-field__before q-field__marginal row no-wrap items-center"><i aria-hidden="true" role="presentation" class="fas fa-unlock q-icon notranslate"> </i></div>
           <div class="q-field__inner relative-position col self-stretch column justify-center">
             <div tabindex="-1" class="q-field__control relative-position row no-wrap">
@@ -9432,8 +9432,8 @@ exports[`Storyshots Settings Page Default 1`] = `
             <transition-stub name="q-transition--fade"></transition-stub>
           </button></div>
       </div>
-      <hr role="separator" aria-orientation="horizontal" class="q-separator q-separator q-separator--horizontal col-grow">
-      <div class="edit-box"><label for="f_80808080-8080-4080-8080-808080808080" class="q-field row no-wrap items-start q-input q-field--standard q-field--labeled q-field--with-bottom">
+      <hr role="separator" aria-orientation="horizontal" class="q-separator q-separator q-separator--horizontal">
+      <div class="edit-box"><label for="f_80808080-8080-4080-8080-808080808080" class="q-field q-validation-component row no-wrap items-start q-input q-field--standard q-field--labeled q-field--with-bottom">
           <div class="q-field__before q-field__marginal row no-wrap items-center"><i aria-hidden="true" role="presentation" class="fas fa-lock q-icon notranslate"> </i></div>
           <div class="q-field__inner relative-position col self-stretch column justify-center">
             <div tabindex="-1" class="q-field__control relative-position row no-wrap">
@@ -9447,7 +9447,7 @@ exports[`Storyshots Settings Page Default 1`] = `
               </transition-stub>
             </div>
           </div>
-        </label> <label for="f_80808080-8080-4080-8080-808080808080" class="q-field row no-wrap items-start q-input q-field--standard q-field--labeled q-field--with-bottom">
+        </label> <label for="f_80808080-8080-4080-8080-808080808080" class="q-field q-validation-component row no-wrap items-start q-input q-field--standard q-field--labeled q-field--with-bottom">
           <div class="q-field__before q-field__marginal row no-wrap items-center"><i aria-hidden="true" role="presentation" class="fas fa-unlock q-icon notranslate"> </i></div>
           <div class="q-field__inner relative-position col self-stretch column justify-center">
             <div tabindex="-1" class="q-field__control relative-position row no-wrap">
@@ -9842,7 +9842,7 @@ exports[`Storyshots Sidenav Places 1`] = `
 exports[`Storyshots Signup empty 1`] = `
 <div>
   <form name="signup">
-    <div class="q-gutter-md"><label for="f_80808080-8080-4080-8080-808080808080" class="q-field row no-wrap items-start q-input q-field--outlined q-field--labeled">
+    <div class="q-gutter-md"><label for="f_80808080-8080-4080-8080-808080808080" class="q-field q-validation-component row no-wrap items-start q-input q-field--outlined q-field--labeled">
         <div class="q-field__before q-field__marginal row no-wrap items-center"><i aria-hidden="true" role="presentation" class="fas fa-user q-icon notranslate text-grey-5"> </i></div>
         <div class="q-field__inner relative-position col self-stretch column justify-center">
           <div tabindex="-1" class="q-field__control relative-position row no-wrap bg-white">
@@ -9851,7 +9851,7 @@ exports[`Storyshots Signup empty 1`] = `
             </div>
           </div>
         </div>
-      </label> <label for="f_80808080-8080-4080-8080-808080808080" class="q-field row no-wrap items-start q-input q-field--outlined q-field--float q-field--labeled">
+      </label> <label for="f_80808080-8080-4080-8080-808080808080" class="q-field q-validation-component row no-wrap items-start q-input q-field--outlined q-field--float q-field--labeled">
         <div class="q-field__before q-field__marginal row no-wrap items-center"><i aria-hidden="true" role="presentation" class="fas fa-envelope q-icon notranslate text-grey-5"> </i></div>
         <div class="q-field__inner relative-position col self-stretch column justify-center">
           <div tabindex="-1" class="q-field__control relative-position row no-wrap bg-white">
@@ -9860,7 +9860,7 @@ exports[`Storyshots Signup empty 1`] = `
             </div>
           </div>
         </div>
-      </label> <label for="f_80808080-8080-4080-8080-808080808080" class="q-field row no-wrap items-start q-input q-field--outlined q-field--labeled">
+      </label> <label for="f_80808080-8080-4080-8080-808080808080" class="q-field q-validation-component row no-wrap items-start q-input q-field--outlined q-field--labeled">
         <div class="q-field__before q-field__marginal row no-wrap items-center"><i aria-hidden="true" role="presentation" class="fas fa-lock q-icon notranslate text-grey-5"> </i></div>
         <div class="q-field__inner relative-position col self-stretch column justify-center">
           <div tabindex="-1" class="q-field__control relative-position row no-wrap bg-white">
@@ -9887,7 +9887,7 @@ exports[`Storyshots Signup empty 1`] = `
 exports[`Storyshots Signup error 1`] = `
 <div>
   <form name="signup">
-    <div class="q-gutter-md"><label for="f_80808080-8080-4080-8080-808080808080" class="q-field row no-wrap items-start q-input q-field--outlined q-field--labeled">
+    <div class="q-gutter-md"><label for="f_80808080-8080-4080-8080-808080808080" class="q-field q-validation-component row no-wrap items-start q-input q-field--outlined q-field--labeled">
         <div class="q-field__before q-field__marginal row no-wrap items-center"><i aria-hidden="true" role="presentation" class="fas fa-user q-icon notranslate text-grey-5"> </i></div>
         <div class="q-field__inner relative-position col self-stretch column justify-center">
           <div tabindex="-1" class="q-field__control relative-position row no-wrap bg-white">
@@ -9896,7 +9896,7 @@ exports[`Storyshots Signup error 1`] = `
             </div>
           </div>
         </div>
-      </label> <label for="f_80808080-8080-4080-8080-808080808080" class="q-field row no-wrap items-start q-input q-field--outlined q-field--focused q-field--float q-field--labeled q-field--error">
+      </label> <label for="f_80808080-8080-4080-8080-808080808080" class="q-field q-validation-component row no-wrap items-start q-input q-field--outlined q-field--focused q-field--float q-field--labeled q-field--error">
         <div class="q-field__before q-field__marginal row no-wrap items-center"><i aria-hidden="true" role="presentation" class="fas fa-envelope q-icon notranslate text-grey-5"> </i></div>
         <div class="q-field__inner relative-position col self-stretch column justify-center">
           <div tabindex="-1" class="q-field__control relative-position row no-wrap text-negative bg-white">
@@ -9911,7 +9911,7 @@ exports[`Storyshots Signup error 1`] = `
             </div>
           </div>
         </div>
-      </label> <label for="f_80808080-8080-4080-8080-808080808080" class="q-field row no-wrap items-start q-input q-field--outlined q-field--labeled">
+      </label> <label for="f_80808080-8080-4080-8080-808080808080" class="q-field q-validation-component row no-wrap items-start q-input q-field--outlined q-field--labeled">
         <div class="q-field__before q-field__marginal row no-wrap items-center"><i aria-hidden="true" role="presentation" class="fas fa-lock q-icon notranslate text-grey-5"> </i></div>
         <div class="q-field__inner relative-position col self-stretch column justify-center">
           <div tabindex="-1" class="q-field__control relative-position row no-wrap bg-white">
@@ -9938,7 +9938,7 @@ exports[`Storyshots Signup error 1`] = `
 exports[`Storyshots Signup pending 1`] = `
 <div>
   <form name="signup">
-    <div class="q-gutter-md"><label for="f_80808080-8080-4080-8080-808080808080" class="q-field row no-wrap items-start q-input q-field--outlined q-field--labeled">
+    <div class="q-gutter-md"><label for="f_80808080-8080-4080-8080-808080808080" class="q-field q-validation-component row no-wrap items-start q-input q-field--outlined q-field--labeled">
         <div class="q-field__before q-field__marginal row no-wrap items-center"><i aria-hidden="true" role="presentation" class="fas fa-user q-icon notranslate text-grey-5"> </i></div>
         <div class="q-field__inner relative-position col self-stretch column justify-center">
           <div tabindex="-1" class="q-field__control relative-position row no-wrap bg-white">
@@ -9947,7 +9947,7 @@ exports[`Storyshots Signup pending 1`] = `
             </div>
           </div>
         </div>
-      </label> <label for="f_80808080-8080-4080-8080-808080808080" class="q-field row no-wrap items-start q-input q-field--outlined q-field--float q-field--labeled">
+      </label> <label for="f_80808080-8080-4080-8080-808080808080" class="q-field q-validation-component row no-wrap items-start q-input q-field--outlined q-field--float q-field--labeled">
         <div class="q-field__before q-field__marginal row no-wrap items-center"><i aria-hidden="true" role="presentation" class="fas fa-envelope q-icon notranslate text-grey-5"> </i></div>
         <div class="q-field__inner relative-position col self-stretch column justify-center">
           <div tabindex="-1" class="q-field__control relative-position row no-wrap bg-white">
@@ -9956,7 +9956,7 @@ exports[`Storyshots Signup pending 1`] = `
             </div>
           </div>
         </div>
-      </label> <label for="f_80808080-8080-4080-8080-808080808080" class="q-field row no-wrap items-start q-input q-field--outlined q-field--labeled">
+      </label> <label for="f_80808080-8080-4080-8080-808080808080" class="q-field q-validation-component row no-wrap items-start q-input q-field--outlined q-field--labeled">
         <div class="q-field__before q-field__marginal row no-wrap items-center"><i aria-hidden="true" role="presentation" class="fas fa-lock q-icon notranslate text-grey-5"> </i></div>
         <div class="q-field__inner relative-position col self-stretch column justify-center">
           <div tabindex="-1" class="q-field__control relative-position row no-wrap bg-white">
@@ -10001,7 +10001,7 @@ exports[`Storyshots Topbar KBreadcrumb 1`] = `
 `;
 
 exports[`Storyshots Topbar Search 1`] = `
-<div><label for="f_80808080-8080-4080-8080-808080808080" class="q-field row no-wrap items-start q-input q-field--standout q-field--dense q-field--dark">
+<div><label for="f_80808080-8080-4080-8080-808080808080" class="q-field q-validation-component row no-wrap items-start q-input q-field--standout q-field--dense q-field--dark">
     <div class="q-field__inner relative-position col self-stretch column justify-center">
       <div tabindex="-1" class="q-field__control relative-position row no-wrap">
         <div class="q-field__prepend q-field__marginal row no-wrap items-center"><i aria-hidden="true" role="presentation" class="material-icons q-icon notranslate">search</i></div>
@@ -10373,7 +10373,7 @@ exports[`Storyshots UserList default 1`] = `
     0
   </div> <!----></span></span></button></div>
     </div>
-    <hr role="separator" aria-orientation="horizontal" class="q-separator q-separator q-separator--horizontal col-grow">
+    <hr role="separator" aria-orientation="horizontal" class="q-separator q-separator q-separator--horizontal">
     <div class="q-expansion-item q-item-type q-expansion-item--collapsed q-expansion-item--standard">
       <div class="q-expansion-item__container relative-position">
         <div tabindex="0" class="q-item q-item-type row no-wrap q-item--clickable q-link cursor-pointer q-focusable q-hoverable">
@@ -10478,7 +10478,7 @@ exports[`Storyshots WallConversation default 1`] = `
         </div>
         <div class="q-item__section column q-item__section--main justify-center">
           <div class="q-item__label">
-            <div class="relative-position q-mb-sm"><label for="f_80808080-8080-4080-8080-808080808080" class="q-field row no-wrap items-start q-textarea q-textarea--autogrow q-field--standard q-field--dense q-field--with-bottom">
+            <div class="relative-position q-mb-sm"><label for="f_80808080-8080-4080-8080-808080808080" class="q-field q-validation-component row no-wrap items-start q-textarea q-textarea--autogrow q-field--standard q-field--dense q-field--with-bottom">
                 <div class="q-field__inner relative-position col self-stretch column justify-center">
                   <div tabindex="-1" class="q-field__control relative-position row no-wrap">
                     <div class="q-field__control-container col relative-position row no-wrap q-anchor--skip"><textarea tabindex="0" rows="1" placeholder="Write a message..." id="f_80808080-8080-4080-8080-808080808080" type="textarea" class="q-field__native q-placeholder" style="min-height:unset;"></textarea></div>
@@ -10811,7 +10811,7 @@ exports[`Storyshots WallConversation unread 1`] = `
         </div>
         <div class="q-item__section column q-item__section--main justify-center">
           <div class="q-item__label">
-            <div class="relative-position q-mb-sm"><label for="f_80808080-8080-4080-8080-808080808080" class="q-field row no-wrap items-start q-textarea q-textarea--autogrow q-field--standard q-field--dense q-field--with-bottom">
+            <div class="relative-position q-mb-sm"><label for="f_80808080-8080-4080-8080-808080808080" class="q-field q-validation-component row no-wrap items-start q-textarea q-textarea--autogrow q-field--standard q-field--dense q-field--with-bottom">
                 <div class="q-field__inner relative-position col self-stretch column justify-center">
                   <div tabindex="-1" class="q-field__control relative-position row no-wrap">
                     <div class="q-field__control-container col relative-position row no-wrap q-anchor--skip"><textarea tabindex="0" rows="1" placeholder="Write a message..." id="f_80808080-8080-4080-8080-808080808080" type="textarea" class="q-field__native q-placeholder" style="min-height:unset;"></textarea></div>

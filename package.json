@@ -62,7 +62,7 @@
     "markdown-it": "^11.0.0",
     "markdown-it-emoji": "^1.4.0",
     "markdown-it-link-attributes": "^3.0.0",
-    "quasar": "^1.11.3",
+    "quasar": "^1.12.0",
     "reconnecting-websocket": "^4.4.0",
     "twemoji": "^13.0.0",
     "vue": "^2.6.11",

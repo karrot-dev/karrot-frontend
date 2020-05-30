@@ -21,6 +21,8 @@ Please document your changes in this format:
 ```
 
 ## [Unreleased]
+### Changed
+- Show failed email deliveries also when email is not verified @tiltec
 
 ## [8.5.1] - 2020-05-24
 ### Changed

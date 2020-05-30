@@ -9636,6 +9636,8 @@ exports[`Storyshots Settings Page failed email deliveries 1`] = `<div>Verificati
 
 exports[`Storyshots Settings Page verification warning 1`] = `<div>VerificationWarning has been mocked</div>`;
 
+exports[`Storyshots Settings Page verification warning and failed email deliveries 1`] = `<div>VerificationWarning has been mocked</div>`;
+
 exports[`Storyshots Sidenav Group 1`] = `
 <div class="k-sidenav-box">
   <div inverted="" class="q-toolbar row no-wrap items-center toolbar"><i aria-hidden="true" role="presentation" class="fas fa-fw fa-home q-icon notranslate"> </i>

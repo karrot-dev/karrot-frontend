@@ -77,7 +77,6 @@ export default {
 
       async setMuted ({ state, commit }, { threadId, value }) {
         await messageAPI.setMuted(threadId || state.thread.id, value)
-        commit('setMuted', value)
       },
 
       async mark ({ dispatch }, { id, seenUpTo }) {
@@ -132,9 +131,6 @@ export default {
     },
     setThread (state, thread) {
       state.thread = Object.freeze(thread)
-    },
-    setMuted (state, muted) {
-      state.thread.muted = muted
     },
     update (state, messages) {
       const stateMessages = state.messages

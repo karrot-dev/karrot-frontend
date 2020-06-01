@@ -21,6 +21,8 @@ Please document your changes in this format:
 ```
 
 ## [Unreleased]
+
+## [8.5.2] - 2020-06-01
 ### Changed
 - Show failed email deliveries also when email is not verified @tiltec
 
@@ -553,7 +555,8 @@ After months of planning and programming, the first version of ~the foodsaving t
 [#1982]: https://github.com/yunity/karrot-frontend/issues/1982
 [#1987]: https://github.com/yunity/karrot-frontend/issues/1987
 
-[Unreleased]: https://github.com/yunity/karrot-frontend/compare/v8.5.1...HEAD
+[Unreleased]: https://github.com/yunity/karrot-frontend/compare/v8.5.2...HEAD
+[8.5.2]: https://github.com/yunity/karrot-frontend/compare/v8.5.1...v8.5.2
 [8.5.1]: https://github.com/yunity/karrot-frontend/compare/v8.5.0...v8.5.1
 [8.5.0]: https://github.com/yunity/karrot-frontend/compare/v8.4.0...v8.5.0
 [8.4.0]: https://github.com/yunity/karrot-frontend/compare/v8.3.0...v8.4.0

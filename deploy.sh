@@ -135,7 +135,7 @@ if [ ! -z "$ROCKETCHAT_WEBHOOK_URL" ]; then
   ATTACHMENT_FOOTER="Using git ref <$REF_URL|$REF>, commit <$COMMIT_URL|$COMMIT_SHA_SHORT> - $COMMIT_MESSAGE"
 
   payload=$(printf '{
-      "channel": "#git",
+      "channel": "#ci",
       "username": "deploy",
       "text": ":sparkles: Successful deployment of :karrot: *karrot* to _%s_ %s",
       "attachments": [

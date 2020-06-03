@@ -32,39 +32,6 @@
         </QBadge>
       </QItemSection>
     </QItem>
-    <QItem
-      v-for="{ condition, label, icon, to, handler, badge } in entriesMore"
-      :key="label"
-      :to="to"
-      dense
-      clickable
-      @click="handler && handler()"
-    >
-      <QItemSection
-        side
-        class="text-center"
-      >
-        <QIcon
-          :name="icon"
-          size="1.1em"
-        />
-      </QItemSection>
-      <QItemSection>
-        {{ label }}
-      </QItemSection>
-      <QItemSection
-        v-if="badge && badge.condition"
-        side
-      >
-        <QBadge
-          small
-          :color="badge.color"
-          :title="badge.title"
-        >
-          {{ badge.label }}
-        </QBadge>
-      </QItemSection>
-    </QItem>
   </QList>
 </template>
 
@@ -87,10 +54,6 @@ export default {
   },
   props: {
     entries: {
-      type: Array,
-      default: () => [],
-    },
-    entriesMore: {
       type: Array,
       default: () => [],
     },

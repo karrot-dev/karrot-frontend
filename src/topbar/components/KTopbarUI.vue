@@ -36,6 +36,7 @@
               <QIcon
                 v-if="!group.hasPhoto"
                 name="fas fa-users"
+                class="groups"
               />
               <img
                 :src="group.photoUrls.thumbnail"
@@ -48,9 +49,10 @@
           <QItem
             :to="{name: 'groupsGallery'}"
           >
-            <QItemSection side>
+            <QItemSection avatar>
               <QIcon
                 name="fas fa-globe"
+                class="groups"
               />
             </QItemSection>
             <QItemSection>

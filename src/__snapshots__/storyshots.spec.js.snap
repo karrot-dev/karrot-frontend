@@ -5482,7 +5482,7 @@ exports[`Storyshots GroupSettings show 1`] = `
       <div tabindex="-1" class="q-focus-helper"></div>
       <div class="q-btn__wrapper col row q-anchor--skip">
         <div class="q-btn__content text-center col items-center q-anchor--skip justify-center row"><i class="fas fa-hand-pointer on-left"></i>
-          TOPBAR.CHANGE_GROUP
+          Change group
           <!---->
         </div>
       </div>
@@ -11249,7 +11249,7 @@ exports[`Storyshots Settings Page Default 1`] = `
         <div tabindex="-1" class="q-focus-helper"></div>
         <div class="q-btn__wrapper col row q-anchor--skip">
           <div class="q-btn__content text-center col items-center q-anchor--skip justify-center row"><i class="fas fa-hand-pointer on-left"></i>
-            TOPBAR.CHANGE_GROUP
+            Change group
             <!---->
           </div>
         </div>
@@ -11461,7 +11461,7 @@ exports[`Storyshots Sidenav Group 1`] = `
         History
       </div>
       <!---->
-    </a> </div>
+    </a></div>
   <!---->
   <div tabindex="0" class="q-item q-item-type row no-wrap more-button q-item--clickable q-link cursor-pointer q-focusable q-hoverable q-item--dense">
     <div tabindex="-1" class="q-focus-helper"></div>
@@ -11548,7 +11548,7 @@ exports[`Storyshots Sidenav Mobile 1`] = `
         <div tabindex="-1" class="q-focus-helper"></div>
         <div class="q-item__section column text-center q-item__section--side justify-center"><i aria-hidden="true" class="fas fa-exchange-alt fa-fw q-icon" style="font-size:1.1em;"> </i></div>
         <div class="q-item__section column q-item__section--main justify-center">
-          TOPBAR.CHANGE_GROUP
+          Change group
         </div>
         <!---->
       </a><a tabindex="0" class="q-item q-item-type row no-wrap q-item--clickable q-link cursor-pointer q-focusable q-hoverable">

@@ -2575,7 +2575,7 @@ exports[`Storyshots Feedback PickupFeedback 1`] = `
                 <div tabindex="-1" class="q-field__control relative-position row no-wrap">
                   <div class="q-field__control-container col relative-position row no-wrap q-anchor--skip">
                     <div class="q-field__native row items-center"><span>Aug 12, 2017, 8:00 AM (Griesheimer Markt)</span>
-                      <div id="f_80808080-8080-4080-8080-808080808080" tabindex="0"></div>
+                      <div id="f_80808080-8080-4080-8080-808080808080" tabindex="0" class="no-outline"></div>
                     </div>
                   </div>
                   <div class="q-field__append q-field__marginal row no-wrap items-center q-anchor--skip"><i aria-hidden="true" role="presentation" class="q-select__dropdown-icon material-icons q-icon notranslate">arrow_drop_down</i></div>
@@ -7857,7 +7857,7 @@ exports[`Storyshots PickupSeriesEdit duration 1`] = `
         <div tabindex="-1" class="q-field__control relative-position row no-wrap">
           <div class="q-field__control-container col relative-position row no-wrap q-anchor--skip">
             <div class="q-field__native row items-center"><span>Tuesday</span>
-              <div id="f_80808080-8080-4080-8080-808080808080" tabindex="0"></div>
+              <div id="f_80808080-8080-4080-8080-808080808080" tabindex="0" class="no-outline"></div>
             </div>
             <div class="q-field__label no-pointer-events absolute ellipsis">Weekdays</div>
           </div>
@@ -7995,7 +7995,7 @@ exports[`Storyshots PickupSeriesEdit time error 1`] = `
         <div tabindex="-1" class="q-field__control relative-position row no-wrap">
           <div class="q-field__control-container col relative-position row no-wrap q-anchor--skip">
             <div class="q-field__native row items-center"><span>Tuesday</span>
-              <div id="f_80808080-8080-4080-8080-808080808080" tabindex="0"></div>
+              <div id="f_80808080-8080-4080-8080-808080808080" tabindex="0" class="no-outline"></div>
             </div>
             <div class="q-field__label no-pointer-events absolute ellipsis">Weekdays</div>
           </div>
@@ -8132,7 +8132,7 @@ exports[`Storyshots PickupSeriesEdit weekly 1`] = `
         <div tabindex="-1" class="q-field__control relative-position row no-wrap">
           <div class="q-field__control-container col relative-position row no-wrap q-anchor--skip">
             <div class="q-field__native row items-center"><span>Tuesday</span>
-              <div id="f_80808080-8080-4080-8080-808080808080" tabindex="0"></div>
+              <div id="f_80808080-8080-4080-8080-808080808080" tabindex="0" class="no-outline"></div>
             </div>
             <div class="q-field__label no-pointer-events absolute ellipsis">Weekdays</div>
           </div>
@@ -8679,7 +8679,7 @@ exports[`Storyshots Places PlaceEdit (with server error) 1`] = `
                       Co-operating
                     </div>
                   </div>
-                  <div id="f_80808080-8080-4080-8080-808080808080" tabindex="0"></div>
+                  <div id="f_80808080-8080-4080-8080-808080808080" tabindex="0" class="no-outline"></div>
                 </div>
                 <div class="q-field__label no-pointer-events absolute ellipsis">Status</div>
               </div>
@@ -8810,7 +8810,7 @@ exports[`Storyshots Places PlaceEdit 1`] = `
                       Co-operating
                     </div>
                   </div>
-                  <div id="f_80808080-8080-4080-8080-808080808080" tabindex="0"></div>
+                  <div id="f_80808080-8080-4080-8080-808080808080" tabindex="0" class="no-outline"></div>
                 </div>
                 <div class="q-field__label no-pointer-events absolute ellipsis">Status</div>
               </div>

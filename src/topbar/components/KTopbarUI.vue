@@ -7,7 +7,6 @@
     <QBtn
       v-if="!$q.platform.is.mobile"
       flat
-      class="logo"
     >
       <div class="logo">
         <img

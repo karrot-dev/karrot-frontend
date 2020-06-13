@@ -113,7 +113,7 @@ This project follows the [all-contributors](https://github.com/kentcdodds/all-co
 
 # Attribution
 
-_Karrot_ is built with open-source software. Here is some of them:
+_Karrot_ is built with open-source software. Here are some of them:
 
 - [Django](https://www.djangoproject.com/)
 - [Django REST framework](http://www.django-rest-framework.org/)

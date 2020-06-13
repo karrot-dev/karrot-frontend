@@ -38,6 +38,7 @@
                 class="groups"
               />
               <img
+                v-else
                 :src="group.photoUrls.thumbnail"
               >
             </QItemSection>

@@ -65,7 +65,7 @@ export const makeGroup = data => {
     status: 'active',
     notificationTypes: [
       'weekly_summary',
-      'daily_pickup_notification',
+      'daily_activity_notification',
       'new_application',
     ],
     features: [],
@@ -164,15 +164,15 @@ export const makePlaceStatistics = data => {
   return {
     feedbackCount: 4,
     feedbackWeight: 10,
-    pickupsDone: 10,
+    activitiesDone: 10,
     ...data,
   }
 }
 
-let pickupIdCnt = 0
-export const makePickup = data => {
+let activityIdCnt = 0
+export const makeActivity = data => {
   return {
-    id: pickupIdCnt++,
+    id: activityIdCnt++,
     date: new Date(),
     dateEnd: addMinutes(new Date(), 30),
     series: null,
@@ -194,10 +194,10 @@ export const makePickup = data => {
   }
 }
 
-let pickupSeriesIdCnt = 0
-export const makePickupSeries = data => {
+let activitySeriesIdCnt = 0
+export const makeActivitySeries = data => {
   return {
-    id: pickupSeriesIdCnt++,
+    id: activitySeriesIdCnt++,
     place: null,
     maxCollectors: 10,
     startDate: new Date(),
@@ -209,7 +209,7 @@ export const makePickupSeries = data => {
     isSameHour: true,
     isSameMinute: true,
     isSameWeekday: true,
-    pickups: [],
+    activities: [],
     rule: {
       byDay: ['TU'],
       custom: 'FREQ=WEEKLY;BYDAY=TU',
@@ -228,7 +228,7 @@ export const makeFeedback = data => {
     id: feedbackIdCnt++,
     weight: feedbackIdCnt * 10,
     comment: `feedback ${feedbackIdCnt}`,
-    about: makePickup({ place }),
+    about: makeActivity({ place }),
     givenBy: makeUser(),
     createdAt: new Date(),
     isEditable: false,

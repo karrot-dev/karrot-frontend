@@ -22,12 +22,12 @@
           <template v-if="isPrivate">
             {{ user.displayName }}
           </template>
-          <template v-else-if="isPickup">
+          <template v-else-if="isActivity">
             <QIcon
-              :name="$icon('pickup_fw')"
+              :name="$icon('activity_fw')"
               class="q-mr-sm"
             />
-            {{ $d(pickup.date, 'weekdayHourMinute') }}
+            {{ $d(activity.date, 'weekdayHourMinute') }}
           </template>
           <template v-else-if="isThread">
             <QIcon
@@ -116,12 +116,12 @@
         </span>
       </QItemLabel>
       <QItemLabel
-        v-if="isPickup"
+        v-if="isActivity"
         class="q-mb-xs"
       >
         <small>
-          {{ pickup.place && pickup.place.name }} ·
-          {{ $d(pickup.date, 'yearMonthDay') }}
+          {{ activity.place && activity.place.name }} ·
+          {{ $d(activity.date, 'yearMonthDay') }}
         </small>
       </QItemLabel>
       <QItemLabel
@@ -186,7 +186,7 @@ export default {
       type: Object,
       default: null,
     },
-    pickup: {
+    activity: {
       type: Object,
       default: null,
     },
@@ -241,8 +241,8 @@ export default {
     isPrivate () {
       return Boolean(this.user)
     },
-    isPickup () {
-      return Boolean(this.pickup)
+    isActivity () {
+      return Boolean(this.activity)
     },
     isThread () {
       return Boolean(this.thread)

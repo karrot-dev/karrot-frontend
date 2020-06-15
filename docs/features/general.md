@@ -39,5 +39,5 @@
 - multiple types:
     - application chat
     - private chat
-    - pickup chat
+    - activity chat
     - issue chat

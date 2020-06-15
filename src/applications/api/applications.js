@@ -41,8 +41,8 @@ export default {
     return convert((await axios.post(`/api/applications/${applicationId}/withdraw/`)).data)
   },
 
-  async conversation (pickupId) {
-    return convertConversation((await axios.get(`/api/applications/${pickupId}/conversation/`)).data)
+  async conversation (activityId) {
+    return convertConversation((await axios.get(`/api/applications/${activityId}/conversation/`)).data)
   },
 }
 

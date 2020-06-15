@@ -141,8 +141,8 @@ export default {
         },
       }, {
         label: this.$t('GROUP.PICKUPS'),
-        icon: this.$icon('pickup'),
-        to: { name: 'groupPickups', params: { groupId: this.groupId } },
+        icon: this.$icon('activity'),
+        to: { name: 'groupActivities', params: { groupId: this.groupId } },
       }, {
         condition: this.hasFeature('offers'),
         label: this.$t('GROUP.OFFERS') + (new Date().getFullYear() < 2020 ? ' 🆕' : ''),

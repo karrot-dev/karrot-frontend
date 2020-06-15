@@ -1,18 +1,18 @@
 <template>
   <div class="wrapper">
     <div class="notices">
-      <KSpinner v-show="fetchingPickups || feedbackPossibleStatus.pending" />
-      <div v-if="joinedPickups.length > 0">
-        <JoinedPickups
-          :pickups="joinedPickups"
+      <KSpinner v-show="fetchingActivities || feedbackPossibleStatus.pending" />
+      <div v-if="joinedActivities.length > 0">
+        <JoinedActivities
+          :activities="joinedActivities"
           @join="join"
           @leave="leave"
           @detail="detail"
         />
       </div>
-      <div v-if="availablePickups.length > 0">
-        <AvailablePickups
-          :pickups="availablePickups"
+      <div v-if="availableActivities.length > 0">
+        <AvailableActivities
+          :activities="availableActivities"
           @join="join"
           @leave="leave"
           @detail="detail"
@@ -38,9 +38,9 @@
 </template>
 
 <script>
-import AvailablePickups from '@/group/components/AvailablePickups'
+import AvailableActivities from '@/group/components/AvailableActivities'
 import FeedbackNotice from '@/group/components/FeedbackNotice'
-import JoinedPickups from '@/group/components/JoinedPickups'
+import JoinedActivities from '@/group/components/JoinedActivities'
 import WallConversation from '@/messages/components/WallConversation'
 import KSpinner from '@/utils/components/KSpinner'
 
@@ -48,28 +48,28 @@ import { mapGetters, mapActions } from 'vuex'
 
 export default {
   components: {
-    JoinedPickups,
-    AvailablePickups,
+    JoinedActivities,
+    AvailableActivities,
     WallConversation,
     FeedbackNotice,
     KSpinner,
   },
   computed: {
     ...mapGetters({
-      joinedPickups: 'pickups/joined',
-      availablePickups: 'pickups/available',
-      fetchingPickups: 'pickups/fetchingForCurrentGroup',
-      feedbackPossible: 'pickups/feedbackPossibleByCurrentGroup',
-      feedbackPossibleStatus: 'pickups/fetchFeedbackPossibleStatus',
+      joinedActivities: 'activities/joined',
+      availableActivities: 'activities/available',
+      fetchingActivities: 'activities/fetchingForCurrentGroup',
+      feedbackPossible: 'activities/feedbackPossibleByCurrentGroup',
+      feedbackPossibleStatus: 'activities/fetchFeedbackPossibleStatus',
       conversation: 'currentGroup/conversation',
       user: 'auth/user',
     }),
   },
   methods: {
     ...mapActions({
-      join: 'pickups/join',
-      leave: 'pickups/leave',
-      detail: 'detail/openForPickup',
+      join: 'activities/join',
+      leave: 'activities/leave',
+      detail: 'detail/openForActivity',
       openThread: 'detail/openForThread',
       send: 'conversations/send',
       saveMessage: 'conversations/saveMessage',

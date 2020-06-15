@@ -130,7 +130,7 @@ export default {
     updateConversationsAndRelated ({ commit, dispatch, rootState }, {
       conversations,
       messages,
-      pickups,
+      activities,
       applications,
       issues,
       offers,
@@ -146,8 +146,8 @@ export default {
         }
       }
       if (messages) commit('updateConversationMessages', messages)
-      if (pickups) {
-        commit('pickups/update', pickups, { root: true })
+      if (activities) {
+        commit('activities/update', activities, { root: true })
       }
       if (applications) {
         commit('applications/update', applications, { root: true })
@@ -172,8 +172,8 @@ export default {
       // needed for websocket updates
       if (!conversations) return
       for (const conversation of conversations) {
-        if (conversation.type === 'pickup') {
-          dispatch('pickups/maybeFetch', conversation.targetId, { root: true })
+        if (conversation.type === 'activity') {
+          dispatch('activities/maybeFetch', conversation.targetId, { root: true })
         }
         else if (conversation.type === 'application') {
           dispatch('applications/maybeFetchOne', conversation.targetId, { root: true })

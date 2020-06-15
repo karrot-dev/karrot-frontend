@@ -42,8 +42,8 @@ You can create a group with the follow fields:
 ## Group Wall
 
 - see chat/wall section below
-- shows pickups you have signed up to at the top
-- shows pickups with available slots from your favourite places, default collapsed
+- shows activities you have signed up to at the top
+- shows activities with available slots from your favourite places, default collapsed
 
 ## Group History
 

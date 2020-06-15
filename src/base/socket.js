@@ -10,8 +10,8 @@ import { convert as convertApplication } from '@/applications/api/applications'
 import { convert as convertMessage } from '@/messages/api/messages'
 import { convert as convertCommunityFeedMeta } from '@/communityFeed/api/communityFeed'
 import { convert as convertConversation, convertMeta as convertConversationMeta } from '@/messages/api/conversations'
-import { convert as convertPickup } from '@/pickups/api/pickups'
-import { convert as convertSeries } from '@/pickups/api/pickupSeries'
+import { convert as convertActivity } from '@/activities/api/activities'
+import { convert as convertSeries } from '@/activities/api/activitySeries'
 import { convert as convertFeedback } from '@/feedback/api/feedback'
 import { convert as convertHistory } from '@/history/api/history'
 import { convert as convertInvitation } from '@/invitations/api/invitations'
@@ -211,16 +211,16 @@ function receiveMessage ({ topic, payload }) {
     datastore.dispatch('places/update', [camelizeKeys(payload)])
   }
   else if (topic === 'pickups:pickupdate') {
-    datastore.commit('pickups/update', [convertPickup(camelizeKeys(payload))])
+    datastore.commit('activities/update', [convertActivity(camelizeKeys(payload))])
   }
   else if (topic === 'pickups:pickupdate_deleted') {
-    datastore.commit('pickups/delete', convertPickup(camelizeKeys(payload)).id)
+    datastore.commit('activities/delete', convertActivity(camelizeKeys(payload)).id)
   }
   else if (topic === 'pickups:series') {
-    datastore.commit('pickupSeries/update', [convertSeries(camelizeKeys(payload))])
+    datastore.commit('activitySeries/update', [convertSeries(camelizeKeys(payload))])
   }
   else if (topic === 'pickups:series_deleted') {
-    datastore.commit('pickupSeries/delete', convertSeries(camelizeKeys(payload)).id)
+    datastore.commit('activitySeries/delete', convertSeries(camelizeKeys(payload)).id)
   }
   else if (topic === 'offers:offer') {
     const offer = convertOffer(camelizeKeys(payload))

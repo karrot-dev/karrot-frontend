@@ -13,17 +13,17 @@ function getMessageParams (type, context) {
       }
     case 'feedback_possible':
       return {
-        date: context.pickup && i18n.d(context.pickup.date, 'weekdayHourMinute'),
+        date: context.activity && i18n.d(context.activity.date, 'weekdayHourMinute'),
       }
-    case 'pickup_upcoming':
+    case 'activity_upcoming':
       return {
-        time: context.pickup && i18n.d(context.pickup.date, 'hourMinute'),
+        time: context.activity && i18n.d(context.activity.date, 'hourMinute'),
       }
-    case 'pickup_disabled':
-    case 'pickup_enabled':
-    case 'pickup_moved':
+    case 'activity_disabled':
+    case 'activity_enabled':
+    case 'activity_moved':
       return {
-        dateTime: context.pickup && i18n.d(context.pickup.date, 'dateAndTime'),
+        dateTime: context.activity && i18n.d(context.activity.date, 'dateAndTime'),
       }
     case 'new_place':
       return {
@@ -42,10 +42,10 @@ function getMessageParams (type, context) {
 
 function getIcon (type, context) {
   switch (type) {
-    case 'pickup_enabled':
+    case 'activity_enabled':
     case 'application_accepted':
       return 'fas fa-check'
-    case 'pickup_disabled':
+    case 'activity_disabled':
     case 'application_declined':
     case 'conflict_resolution_you_were_removed':
       return 'fas fa-times'
@@ -54,7 +54,7 @@ function getIcon (type, context) {
       return 'fas fa-user-plus'
     case 'feedback_possible':
       return icons.get('feedback')
-    case 'pickup_upcoming':
+    case 'activity_upcoming':
       return 'fas fa-calendar-alt'
     case 'new_place':
       return icons.get('place')
@@ -63,7 +63,7 @@ function getIcon (type, context) {
     case 'user_became_editor':
     case 'you_became_editor':
       return 'fas fa-angle-double-up'
-    case 'pickup_moved':
+    case 'activity_moved':
     case 'voting_ends_soon':
       return 'far fa-clock'
     case 'conflict_resolution_created':
@@ -76,7 +76,7 @@ function getIcon (type, context) {
   }
 }
 
-function getRouteTo (type, { group, user, place, pickup, issue } = {}) {
+function getRouteTo (type, { group, user, place, activity, issue } = {}) {
   switch (type) {
     case 'user_became_editor':
     case 'invitation_accepted':
@@ -88,17 +88,17 @@ function getRouteTo (type, { group, user, place, pickup, issue } = {}) {
     case 'new_applicant':
       return group && { name: 'applications', params: { groupId: group.id } }
     case 'feedback_possible':
-      return group && pickup && { name: 'giveFeedback', params: { groupId: group.id, pickupId: pickup.id } }
+      return group && activity && { name: 'giveFeedback', params: { groupId: group.id, activityId: activity.id } }
     case 'application_declined':
     case 'conflict_resolution_you_were_removed':
       return group && { name: 'groupPreview', params: { groupPreviewId: group.id } }
     case 'new_place':
       return group && place && { name: 'place', params: { groupId: group.id, placeId: place.id } }
-    case 'pickup_upcoming':
-    case 'pickup_disabled':
-    case 'pickup_enabled':
-    case 'pickup_moved':
-      return group && place && pickup && { name: 'pickupDetail', params: { groupId: group.id, placeId: place.id, pickupId: pickup.id } }
+    case 'activity_upcoming':
+    case 'activity_disabled':
+    case 'activity_enabled':
+    case 'activity_moved':
+      return group && place && activity && { name: 'activityDetail', params: { groupId: group.id, placeId: place.id, activityId: activity.id } }
     case 'conflict_resolution_created':
     case 'conflict_resolution_created_about_you':
     case 'conflict_resolution_continued':

@@ -6,7 +6,7 @@
       :conversation="conversationWithMaybeReversedMessages"
       :away="away"
       :current-user="currentUser"
-      :start-at-bottom="Boolean(user) || Boolean(pickup)"
+      :start-at-bottom="Boolean(user) || Boolean(activity)"
       :inline="inline"
       compose
       @send="$emit('send', arguments[0])"
@@ -48,7 +48,7 @@
       </template>
       <template #after-chat-messages>
         <QList
-          v-if="pickup && pickup.isDisabled"
+          v-if="activity && activity.isDisabled"
           class="bg-grey-2"
         >
           <QItem>
@@ -99,7 +99,7 @@ export default {
       type: Object,
       default: null,
     },
-    pickup: {
+    activity: {
       type: Object,
       default: null,
     },

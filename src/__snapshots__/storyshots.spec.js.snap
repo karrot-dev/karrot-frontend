@@ -6556,10 +6556,10 @@ exports[`Storyshots GroupSettings show 1`] = `
         </div>
         <div class="q-item__section column q-item__section--main justify-center">
           <div class="q-item__label">
-            GROUP.NOTIFICATION_TYPES.daily_activity_notification.NAME
+            Pickup notifications
           </div>
           <div class="q-item__label q-item__label--caption text-caption">
-            GROUP.NOTIFICATION_TYPES.daily_activity_notification.DESCRIPTION
+            Reminds you of your pickups, and tells you about empty or not-full pickups of your favorite places in the next day
           </div>
         </div>
         <div class="q-item__section column q-item__section--side justify-center"><svg focusable="false" width="18px" height="18px" viewBox="25 25 50 50" class="q-spinner q-spinner-mat invisible">
@@ -8092,86 +8092,6 @@ exports[`Storyshots NotificationToggle subscribed 1`] = `<button tabindex="0" ty
 
 exports[`Storyshots NotificationToggle unsubscribed 1`] = `<button tabindex="0" type="button" role="button" title="How do you want to receive notifications about new messages in this conversation/thread?" class="q-btn q-btn-item non-selectable no-outline q-btn--standard q-btn--round bg-grey-5 text-white q-btn--actionable q-focusable q-hoverable q-btn--wrap"><span class="q-focus-helper"></span><span class="q-btn__wrapper col row q-anchor--skip"><span class="q-btn__content text-center col items-center q-anchor--skip justify-center row"><i aria-hidden="true" role="presentation" class="fas fa-fw fa-eye-slash q-icon notranslate" style="font-size:1.4em;"> </i> <!----></span></span></button>`;
 
-exports[`Storyshots Notifications activity_disabled 1`] = `
-<a tabindex="0" class="q-item q-item-type row no-wrap q-item--clickable q-link cursor-pointer q-focusable q-hoverable isUnread">
-  <div tabindex="-1" class="q-focus-helper"></div>
-  <!---->
-  <div class="q-item__section column q-item__section--main justify-center">
-    <div class="q-item__label" style="overflow:hidden;display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:2;"><i aria-hidden="true" role="presentation" class="q-mx-xs vertical-baseline fas fa-times q-icon notranslate"> </i>
-      NOTIFICATION_BELLS.ACTIVITY_DISABLED
-    </div>
-    <div class="q-item__label q-item__label--caption text-caption">
-      <div title="Dec 24, 2017, 12:00 PM" style="display:inline;">
-        less than a minute ago
-      </div>
-      · Group 27
-
-      · Place 2
-    </div>
-  </div>
-</a>
-`;
-
-exports[`Storyshots Notifications activity_enabled 1`] = `
-<a tabindex="0" class="q-item q-item-type row no-wrap q-item--clickable q-link cursor-pointer q-focusable q-hoverable isUnread">
-  <div tabindex="-1" class="q-focus-helper"></div>
-  <!---->
-  <div class="q-item__section column q-item__section--main justify-center">
-    <div class="q-item__label" style="overflow:hidden;display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:2;"><i aria-hidden="true" role="presentation" class="q-mx-xs vertical-baseline fas fa-check q-icon notranslate"> </i>
-      NOTIFICATION_BELLS.ACTIVITY_ENABLED
-    </div>
-    <div class="q-item__label q-item__label--caption text-caption">
-      <div title="Dec 24, 2017, 12:00 PM" style="display:inline;">
-        less than a minute ago
-      </div>
-      · Group 27
-
-      · Place 2
-    </div>
-  </div>
-</a>
-`;
-
-exports[`Storyshots Notifications activity_moved 1`] = `
-<a tabindex="0" class="q-item q-item-type row no-wrap q-item--clickable q-link cursor-pointer q-focusable q-hoverable isUnread">
-  <div tabindex="-1" class="q-focus-helper"></div>
-  <!---->
-  <div class="q-item__section column q-item__section--main justify-center">
-    <div class="q-item__label" style="overflow:hidden;display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:2;"><i aria-hidden="true" role="presentation" class="q-mx-xs vertical-baseline far fa-clock q-icon notranslate"> </i>
-      NOTIFICATION_BELLS.ACTIVITY_MOVED
-    </div>
-    <div class="q-item__label q-item__label--caption text-caption">
-      <div title="Dec 24, 2017, 12:00 PM" style="display:inline;">
-        less than a minute ago
-      </div>
-      · Group 27
-
-      · Place 2
-    </div>
-  </div>
-</a>
-`;
-
-exports[`Storyshots Notifications activity_upcoming 1`] = `
-<a tabindex="0" class="q-item q-item-type row no-wrap q-item--clickable q-link cursor-pointer q-focusable q-hoverable isUnread">
-  <div tabindex="-1" class="q-focus-helper"></div>
-  <!---->
-  <div class="q-item__section column q-item__section--main justify-center">
-    <div class="q-item__label" style="overflow:hidden;display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:2;"><i aria-hidden="true" role="presentation" class="q-mx-xs vertical-baseline fas fa-calendar-alt q-icon notranslate"> </i>
-      NOTIFICATION_BELLS.ACTIVITY_UPCOMING
-    </div>
-    <div class="q-item__label q-item__label--caption text-caption">
-      <div title="Dec 24, 2017, 2:00 PM" style="display:inline;">
-        in about 2 hours
-      </div>
-      · Group 27
-
-      · Place 2
-    </div>
-  </div>
-</a>
-`;
-
 exports[`Storyshots Notifications application_accepted 1`] = `
 <a tabindex="0" class="q-item q-item-type row no-wrap q-item--clickable q-link cursor-pointer q-focusable q-hoverable isUnread">
   <div tabindex="-1" class="q-focus-helper"></div>
@@ -8361,15 +8281,14 @@ exports[`Storyshots Notifications feedback_possible 1`] = `
   <!---->
   <div class="q-item__section column q-item__section--main justify-center">
     <div class="q-item__label" style="overflow:hidden;display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:2;"><i aria-hidden="true" role="presentation" class="q-mx-xs vertical-baseline fas fa-balance-scale q-icon notranslate"> </i>
-      You can give feedback for the pickup you did on Sunday 12:00 PM
+      You can give feedback for the pickup you did on
     </div>
     <div class="q-item__label q-item__label--caption text-caption">
       <div title="Dec 24, 2017, 12:00 PM" style="display:inline;">
         less than a minute ago
       </div>
       · Group 27
-
-      · Place 2
+      <!---->
     </div>
   </div>
 </a>
@@ -8455,6 +8374,82 @@ exports[`Storyshots Notifications new_place 1`] = `
     <div class="q-item__label q-item__label--caption text-caption">
       <div title="Dec 24, 2017, 12:00 PM" style="display:inline;">
         less than a minute ago
+      </div>
+      · Group 27
+      <!---->
+    </div>
+  </div>
+</a>
+`;
+
+exports[`Storyshots Notifications pickup_disabled 1`] = `
+<a tabindex="0" class="q-item q-item-type row no-wrap q-item--clickable q-link cursor-pointer q-focusable q-hoverable isUnread">
+  <div tabindex="-1" class="q-focus-helper"></div>
+  <!---->
+  <div class="q-item__section column q-item__section--main justify-center">
+    <div class="q-item__label" style="overflow:hidden;display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:2;"><i aria-hidden="true" role="presentation" class="q-mx-xs vertical-baseline fas fa-times q-icon notranslate"> </i>
+      Pickup at was disabled
+    </div>
+    <div class="q-item__label q-item__label--caption text-caption">
+      <div title="Dec 24, 2017, 12:00 PM" style="display:inline;">
+        less than a minute ago
+      </div>
+      · Group 27
+      <!---->
+    </div>
+  </div>
+</a>
+`;
+
+exports[`Storyshots Notifications pickup_enabled 1`] = `
+<a tabindex="0" class="q-item q-item-type row no-wrap q-item--clickable q-link cursor-pointer q-focusable q-hoverable isUnread">
+  <div tabindex="-1" class="q-focus-helper"></div>
+  <!---->
+  <div class="q-item__section column q-item__section--main justify-center">
+    <div class="q-item__label" style="overflow:hidden;display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:2;"><i aria-hidden="true" role="presentation" class="q-mx-xs vertical-baseline fas fa-check q-icon notranslate"> </i>
+      Pickup at was enabled again
+    </div>
+    <div class="q-item__label q-item__label--caption text-caption">
+      <div title="Dec 24, 2017, 12:00 PM" style="display:inline;">
+        less than a minute ago
+      </div>
+      · Group 27
+      <!---->
+    </div>
+  </div>
+</a>
+`;
+
+exports[`Storyshots Notifications pickup_moved 1`] = `
+<a tabindex="0" class="q-item q-item-type row no-wrap q-item--clickable q-link cursor-pointer q-focusable q-hoverable isUnread">
+  <div tabindex="-1" class="q-focus-helper"></div>
+  <!---->
+  <div class="q-item__section column q-item__section--main justify-center">
+    <div class="q-item__label" style="overflow:hidden;display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:2;"><i aria-hidden="true" role="presentation" class="q-mx-xs vertical-baseline far fa-clock q-icon notranslate"> </i>
+      Pickup was moved to
+    </div>
+    <div class="q-item__label q-item__label--caption text-caption">
+      <div title="Dec 24, 2017, 12:00 PM" style="display:inline;">
+        less than a minute ago
+      </div>
+      · Group 27
+      <!---->
+    </div>
+  </div>
+</a>
+`;
+
+exports[`Storyshots Notifications pickup_upcoming 1`] = `
+<a tabindex="0" class="q-item q-item-type row no-wrap q-item--clickable q-link cursor-pointer q-focusable q-hoverable isUnread">
+  <div tabindex="-1" class="q-focus-helper"></div>
+  <!---->
+  <div class="q-item__section column q-item__section--main justify-center">
+    <div class="q-item__label" style="overflow:hidden;display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:2;"><i aria-hidden="true" role="presentation" class="q-mx-xs vertical-baseline fas fa-calendar-alt q-icon notranslate"> </i>
+      Reminder: You have a pickup at
+    </div>
+    <div class="q-item__label q-item__label--caption text-caption">
+      <div title="Dec 24, 2017, 2:00 PM" style="display:inline;">
+        in about 2 hours
       </div>
       · Group 27
       <!---->
@@ -9544,10 +9539,10 @@ exports[`Storyshots Settings Page Default 1`] = `
           </div>
           <div class="q-item__section column q-item__section--main justify-center">
             <div class="q-item__label">
-              GROUP.NOTIFICATION_TYPES.daily_activity_notification.NAME
+              Pickup notifications
             </div>
             <div class="q-item__label q-item__label--caption text-caption">
-              GROUP.NOTIFICATION_TYPES.daily_activity_notification.DESCRIPTION
+              Reminds you of your pickups, and tells you about empty or not-full pickups of your favorite places in the next day
             </div>
           </div>
           <div class="q-item__section column q-item__section--side justify-center"><svg focusable="false" width="18px" height="18px" viewBox="25 25 50 50" class="q-spinner q-spinner-mat invisible">

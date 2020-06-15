@@ -15,13 +15,13 @@ function getMessageParams (type, context) {
       return {
         date: context.pickup && i18n.d(context.pickup.date, 'weekdayHourMinute'),
       }
-    case 'activity_upcoming':
+    case 'pickup_upcoming':
       return {
         time: context.pickup && i18n.d(context.pickup.date, 'hourMinute'),
       }
-    case 'activity_disabled':
-    case 'activity_enabled':
-    case 'activity_moved':
+    case 'pickup_disabled':
+    case 'pickup_enabled':
+    case 'pickup_moved':
       return {
         dateTime: context.pickup && i18n.d(context.pickup.date, 'dateAndTime'),
       }
@@ -42,10 +42,10 @@ function getMessageParams (type, context) {
 
 function getIcon (type, context) {
   switch (type) {
-    case 'activity_enabled':
+    case 'pickup_enabled':
     case 'application_accepted':
       return 'fas fa-check'
-    case 'activity_disabled':
+    case 'pickup_disabled':
     case 'application_declined':
     case 'conflict_resolution_you_were_removed':
       return 'fas fa-times'
@@ -54,7 +54,7 @@ function getIcon (type, context) {
       return 'fas fa-user-plus'
     case 'feedback_possible':
       return icons.get('feedback')
-    case 'activity_upcoming':
+    case 'pickup_upcoming':
       return 'fas fa-calendar-alt'
     case 'new_place':
       return icons.get('place')
@@ -63,7 +63,7 @@ function getIcon (type, context) {
     case 'user_became_editor':
     case 'you_became_editor':
       return 'fas fa-angle-double-up'
-    case 'activity_moved':
+    case 'pickup_moved':
     case 'voting_ends_soon':
       return 'far fa-clock'
     case 'conflict_resolution_created':
@@ -94,10 +94,10 @@ function getRouteTo (type, { group, user, place, activity, issue } = {}) {
       return group && { name: 'groupPreview', params: { groupPreviewId: group.id } }
     case 'new_place':
       return group && place && { name: 'place', params: { groupId: group.id, placeId: place.id } }
-    case 'activity_upcoming':
-    case 'activity_disabled':
-    case 'activity_enabled':
-    case 'activity_moved':
+    case 'pickup_upcoming':
+    case 'pickup_disabled':
+    case 'pickup_enabled':
+    case 'pickup_moved':
       return group && place && activity && { name: 'activityDetail', params: { groupId: group.id, placeId: place.id, activityId: activity.id } }
     case 'conflict_resolution_created':
     case 'conflict_resolution_created_about_you':

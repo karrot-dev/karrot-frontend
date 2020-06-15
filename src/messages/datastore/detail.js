@@ -20,7 +20,7 @@ export default {
     },
     activity: (state, getters, rootState, rootGetters) => {
       const { type, id } = state.scope
-      if (type !== 'activity') return
+      if (type !== 'pickup') return
       return rootGetters['activities/get'](id)
     },
     user: (state, getters, rootState, rootGetters) => {
@@ -176,7 +176,7 @@ export default {
   },
   mutations: {
     setActivityId (state, activityId) {
-      state.scope = { type: 'activity', id: activityId }
+      state.scope = { type: 'pickup', id: activityId }
     },
     setUserId (state, userId) {
       state.scope = { type: 'user', id: userId }

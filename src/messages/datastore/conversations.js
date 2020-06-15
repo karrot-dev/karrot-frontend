@@ -101,7 +101,7 @@ export default {
     },
     getForGroup: (state, getters) => groupId => getters.getForType('group', groupId),
     getForPlace: (state, getters) => placeId => getters.getForType('place', placeId),
-    getForActivity: (state, getters) => activityId => getters.getForType('activity', activityId),
+    getForActivity: (state, getters) => activityId => getters.getForType('pickup', activityId),
     getForApplication: (state, getters) => applicationId => getters.getForType('application', applicationId),
     getForIssue: (state, getters) => issueId => getters.getForType('issue', issueId),
     getForOffer: (state, getters) => offerId => getters.getForType('offer', offerId),

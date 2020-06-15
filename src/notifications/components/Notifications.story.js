@@ -97,7 +97,7 @@ const notifications = [
     },
   },
   {
-    type: 'activity_upcoming',
+    type: 'pickup_upcoming',
     expiresAt: addHours(new Date(), 2),
     context: {
       group,
@@ -108,7 +108,7 @@ const notifications = [
     },
   },
   {
-    type: 'activity_disabled',
+    type: 'pickup_disabled',
     context: {
       group,
       place,
@@ -118,7 +118,7 @@ const notifications = [
     },
   },
   {
-    type: 'activity_enabled',
+    type: 'pickup_enabled',
     context: {
       group,
       place,
@@ -128,7 +128,7 @@ const notifications = [
     },
   },
   {
-    type: 'activity_moved',
+    type: 'pickup_moved',
     context: {
       group,
       place,

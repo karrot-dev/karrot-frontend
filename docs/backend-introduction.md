@@ -65,19 +65,19 @@ We would suggest to use __3 tabs in the shell__:
 
 ### Relationships in Backend
 
-First of all, you have to have a `Group` Model, allowing to create objects like "Foodsavers Berlin". One Group usually has many `Stores`, like "Bakery Smith". Each store can define events where foodsavers can come by and save food. These events are called `ActivityDate` (one time event) or `ActivityDateSeries` (repetitive event).
+First of all, you have to have a `Group` Model, allowing to create objects like "Foodsavers Berlin". One Group usually has many `Stores`, like "Bakery Smith". Each store can define events where foodsavers can come by and save food. These events are called `PickupDate` (one time event) or `PickupDateSeries` (repetitive event).
 
 ![core elements of foodsaving backend](images/foodsaving-core-elements.jpg)
 
-As logged-in user, you can create and join a Group, what makes you a `member`. Afterwards, you can join or create a ActivityDate event which takes place in the future, what makes you a `collector`.
+As logged-in user, you can create and join a Group, what makes you a `member`. Afterwards, you can join or create a PickupDate event which takes place in the future, what makes you a `collector`.
 
 Further actions are for example:
 
 - for member in `Group`: create/modify/join/leave
 - for member in `Store`: create/update/delete
-- for collector in `ActivityDate`/`ActivityDateSeries`: create/join/update/delete
+- for collector in `PickupDate`/`PickupDateSeries`: create/join/update/delete
 
-Collectors have also an option after food activity to leave `feedback`.
+Collectors have also an option after food pickup to leave `feedback`.
 
 ### Foodsaving Apps
 
@@ -94,11 +94,11 @@ Important apps are for example:
 
 #### Stores
 
-In models.py in `stores`, you can find classes for Stores and Feedback, as well as ActivityDate and ActivityDateSeries. The last two refer to activity-date and activity-series in Swagger (see chapter "Server and Swagger") and contain appropriate data fields. `ActivityDateManager` with the method `process_finished_activity_dates` is an interesting class because it processes old activities and moves them into `history` (even empty ones) - as a result you find `PICKUP_MISSED` or `PICKUP_DONE` in the database.
+In models.py in `stores`, you can find classes for Stores and Feedback, as well as PickupDate and PickupDateSeries. The last two refer to pickup-date and pickup-series in Swagger (see chapter "Server and Swagger") and contain appropriate data fields. `PickupDateManager` with the method `process_finished_pickup_dates` is an interesting class because it processes old pickups and moves them into `history` (even empty ones) - as a result you find `PICKUP_MISSED` or `PICKUP_DONE` in the database.
 
 #### History
 
-In `history` you find any action regarding stores, groups or activity-dates/activity-series from the past. As a result, you find here different HistoryTypus (just “typus” in database), e.g. `PICKUP_JOIN` and additional data about that action. This helps to keep a track of all actions.
+In `history` you find any action regarding stores, groups or pickup-dates/pickup-series from the past. As a result, you find here different HistoryTypus (just “typus” in database), e.g. `PICKUP_JOIN` and additional data about that action. This helps to keep a track of all actions.
 
 
 ## 03 Stores app in detail
@@ -112,9 +112,9 @@ We want to dig a bit deeper into the app `Stores` (a) to give you an example of 
 	The type [CharField](https://docs.djangoproject.com/en/1.11/ref/models/fields/#django.db.models.CharField) says that `comment` will be stored as string in database. The maximum string length is given as `DESCRIPTION_MAX_LENGTH` in the file settings.py. The entry can be saved even if the comment field is `blank`.
 
 
-2. __serializers.py__ The models we created in models.py are python objects. But these are not very useful in order to access the API – so we convert them to JSON objects with `serializers`. Our Feedback model has a FeedbackSerialzer which inherits many functions from ModelSerializers. But there are also new functions like `validate_about`. (user is a member of group, that member joined the activity and the activity is in the future).  This validator checks if a user is allowed to give feedback about a certain activity. _(Validation within a Serializer might sound strange, but it's common in the REST framework. See [Validators in the documentation](http://www.django-rest-framework.org/api-guide/validators/))_
+2. __serializers.py__ The models we created in models.py are python objects. But these are not very useful in order to access the API – so we convert them to JSON objects with `serializers`. Our Feedback model has a FeedbackSerialzer which inherits many functions from ModelSerializers. But there are also new functions like `validate_about`. (user is a member of group, that member joined the pickup and the pickup is in the future).  This validator checks if a user is allowed to give feedback about a certain pickup. _(Validation within a Serializer might sound strange, but it's common in the REST framework. See [Validators in the documentation](http://www.django-rest-framework.org/api-guide/validators/))_
 
-3. __permissions.py__ Another possibility to check if something is allowed are _permissions_. They are used in `api.py`. Here is for example the permission `IsNotFull` that permits a member to join the activity event only if it is not full.
+3. __permissions.py__ Another possibility to check if something is allowed are _permissions_. They are used in `api.py`. Here is for example the permission `IsNotFull` that permits a member to join the pickup event only if it is not full.
 
 4. __api.py__ The api defines how the data stored in the database can be accessed via API. The used HTTP methods (like `GET`, `POST` or `PATCH`) are described in chapter _03 Server and Swagger_.
 
@@ -142,7 +142,7 @@ http://127.0.0.1:8000/docs/
 
 #### Why Swagger?
 
-[Swagger](https://swagger.io/docs/specification/about/) shows you the API endpoints that are defined in the _api.py_ files in the apps groups, stores etc. One of the API endpoint is `activity-dates`.
+[Swagger](https://swagger.io/docs/specification/about/) shows you the API endpoints that are defined in the _api.py_ files in the apps groups, stores etc. One of the API endpoint is `pickup-dates`.
 
 You can use [HTTP methods](https://developer.mozilla.org/en-US/docs/Web/HTTP/Methods) like:
 
@@ -153,9 +153,9 @@ You can use [HTTP methods](https://developer.mozilla.org/en-US/docs/Web/HTTP/Met
 
 You can also add additional functionalities to your API endpoint like:
 
-* **GET /api/..../{id}/**: displays one entry from database based on given (e.g. activity-date) id
-* **POST /api/..../{join}/**: the user/member joins the group/store/activity
-* **POST /api/..../{leave}/**: the user/member can leave the group/store/activity
+* **GET /api/..../{id}/**: displays one entry from database based on given (e.g. pickup-date) id
+* **POST /api/..../{join}/**: the user/member joins the group/store/pickup
+* **POST /api/..../{leave}/**: the user/member can leave the group/store/pickup
 * any other functionality added to **GET**, **POST**, **PATCH** or **DELETE**
 
 The Database is automatically populated with sample data if you use Docker. But there are missing connections between: being user -> being member -> being collector -> pick up the food. You can create these connections in Swagger for testing purposes.

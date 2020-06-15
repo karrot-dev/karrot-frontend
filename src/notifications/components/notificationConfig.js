@@ -13,17 +13,17 @@ function getMessageParams (type, context) {
       }
     case 'feedback_possible':
       return {
-        date: context.activity && i18n.d(context.activity.date, 'weekdayHourMinute'),
+        date: context.pickup && i18n.d(context.pickup.date, 'weekdayHourMinute'),
       }
     case 'activity_upcoming':
       return {
-        time: context.activity && i18n.d(context.activity.date, 'hourMinute'),
+        time: context.pickup && i18n.d(context.pickup.date, 'hourMinute'),
       }
     case 'activity_disabled':
     case 'activity_enabled':
     case 'activity_moved':
       return {
-        dateTime: context.activity && i18n.d(context.activity.date, 'dateAndTime'),
+        dateTime: context.pickup && i18n.d(context.pickup.date, 'dateAndTime'),
       }
     case 'new_place':
       return {

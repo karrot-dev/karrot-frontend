@@ -35,7 +35,7 @@ export default {
     },
     conversation: (state, getters, rootState, rootGetters) => {
       const { type, id } = state.scope
-      if (type === 'activity') {
+      if (type === 'pickup') {
         return rootGetters['conversations/getForActivity'](id)
       }
       if (type === 'user') {
@@ -159,7 +159,7 @@ export default {
     },
     clear ({ dispatch, state, commit }) {
       const { type, id } = state.scope
-      if (type === 'activity') {
+      if (type === 'pickup') {
         dispatch('conversations/clearForActivity', { activityId: id }, { root: true })
       }
       else if (type === 'user') {

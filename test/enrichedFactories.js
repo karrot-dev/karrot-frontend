@@ -65,7 +65,7 @@ export const makeGroup = data => {
     status: 'active',
     notificationTypes: [
       'weekly_summary',
-      'daily_activity_notification',
+      'daily_pickup_notification',
       'new_application',
     ],
     features: [],

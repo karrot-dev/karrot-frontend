@@ -191,7 +191,7 @@ export default {
       switch (type) {
         case 'group': return rootGetters['groups/get'](targetId)
         case 'place': return rootGetters['places/get'](targetId)
-        case 'activity': return rootGetters['activities/get'](targetId)
+        case 'pickup': return rootGetters['activities/get'](targetId)
         case 'application': return rootGetters['applications/get'](targetId)
         case 'issue': return rootGetters['issues/get'](targetId)
         case 'offer': return rootGetters['latestMessages/getRelated']('offer', targetId)

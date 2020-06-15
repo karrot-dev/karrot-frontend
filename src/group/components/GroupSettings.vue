@@ -133,7 +133,7 @@ export default {
       if (!this.group) return []
       return [
         'weekly_summary',
-        'daily_activity_notification',
+        'daily_pickup_notification',
         'new_application',
         ...(this.group.features.includes('offers') ? ['new_offer'] : []),
         'conflict_resolution',

@@ -6,10 +6,13 @@
 #
 certifi==2019.6.16        # via requests
 chardet==3.0.4            # via requests
+gitdb==4.0.5              # via gitpython
+gitpython==3.1.3          # via transifex-client
 idna==2.8                 # via requests
 python-slugify==1.2.6     # via transifex-client
 requests==2.22.0          # via transifex-client
 six==1.11.0               # via transifex-client
-transifex-client==0.13.9  # via -r requirements.in
+smmap==3.0.4              # via gitdb
+transifex-client==0.13.10  # via -r requirements.in
 unidecode==1.1.1          # via python-slugify
 urllib3==1.25.7           # via requests, transifex-client

@@ -2,7 +2,7 @@
 
 ## Search
 
-- groups, stores, users
+- groups, places, users
 
 ## Messages
 

@@ -40,7 +40,7 @@ fields:
 - can mark certain places as favourite
 - will show up at top of place list in sidebar with a star
 - will subscribe you to place wall
-- shows you available activities from favourite stores at top of group wall
+- shows you available activities from favourite places at top of group wall
 
 ## Show Directions
 

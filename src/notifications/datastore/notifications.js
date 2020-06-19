@@ -43,7 +43,7 @@ export default {
     },
     enrichContext: (state, getters, rootState, rootGetters) => context => {
       if (!context) return
-      const { group, application, user, place, activity, issue } = context
+      const { group, application, user, place, pickup: activity, issue } = context
       return {
         ...context,
         group: group && rootGetters['groups/get'](group),
@@ -91,7 +91,7 @@ export default {
     }),
     fetchRelated ({ state, dispatch }) {
       Object.values(state.entries).forEach(({ context }) => {
-        const { application, activity, issue } = context || {}
+        const { application, pickup: activity, issue } = context || {}
         if (application) {
           dispatch('applications/maybeFetchOne', application, { root: true })
         }

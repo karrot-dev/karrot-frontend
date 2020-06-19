@@ -8281,14 +8281,15 @@ exports[`Storyshots Notifications feedback_possible 1`] = `
   <!---->
   <div class="q-item__section column q-item__section--main justify-center">
     <div class="q-item__label" style="overflow:hidden;display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:2;"><i aria-hidden="true" role="presentation" class="q-mx-xs vertical-baseline fas fa-balance-scale q-icon notranslate"> </i>
-      You can give feedback for the pickup you did on
+      You can give feedback for the pickup you did on Sunday 12:00 PM
     </div>
     <div class="q-item__label q-item__label--caption text-caption">
       <div title="Dec 24, 2017, 12:00 PM" style="display:inline;">
         less than a minute ago
       </div>
       · Group 27
-      <!---->
+
+      · Place 2
     </div>
   </div>
 </a>
@@ -8388,14 +8389,15 @@ exports[`Storyshots Notifications pickup_disabled 1`] = `
   <!---->
   <div class="q-item__section column q-item__section--main justify-center">
     <div class="q-item__label" style="overflow:hidden;display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:2;"><i aria-hidden="true" role="presentation" class="q-mx-xs vertical-baseline fas fa-times q-icon notranslate"> </i>
-      Pickup at was disabled
+      Pickup at Sunday, December 24, 12:00 PM was disabled
     </div>
     <div class="q-item__label q-item__label--caption text-caption">
       <div title="Dec 24, 2017, 12:00 PM" style="display:inline;">
         less than a minute ago
       </div>
       · Group 27
-      <!---->
+
+      · Place 2
     </div>
   </div>
 </a>
@@ -8407,14 +8409,15 @@ exports[`Storyshots Notifications pickup_enabled 1`] = `
   <!---->
   <div class="q-item__section column q-item__section--main justify-center">
     <div class="q-item__label" style="overflow:hidden;display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:2;"><i aria-hidden="true" role="presentation" class="q-mx-xs vertical-baseline fas fa-check q-icon notranslate"> </i>
-      Pickup at was enabled again
+      Pickup at Sunday, December 24, 12:00 PM was enabled again
     </div>
     <div class="q-item__label q-item__label--caption text-caption">
       <div title="Dec 24, 2017, 12:00 PM" style="display:inline;">
         less than a minute ago
       </div>
       · Group 27
-      <!---->
+
+      · Place 2
     </div>
   </div>
 </a>
@@ -8426,14 +8429,15 @@ exports[`Storyshots Notifications pickup_moved 1`] = `
   <!---->
   <div class="q-item__section column q-item__section--main justify-center">
     <div class="q-item__label" style="overflow:hidden;display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:2;"><i aria-hidden="true" role="presentation" class="q-mx-xs vertical-baseline far fa-clock q-icon notranslate"> </i>
-      Pickup was moved to
+      Pickup was moved to Sunday, December 24, 12:00 PM
     </div>
     <div class="q-item__label q-item__label--caption text-caption">
       <div title="Dec 24, 2017, 12:00 PM" style="display:inline;">
         less than a minute ago
       </div>
       · Group 27
-      <!---->
+
+      · Place 2
     </div>
   </div>
 </a>
@@ -8445,14 +8449,15 @@ exports[`Storyshots Notifications pickup_upcoming 1`] = `
   <!---->
   <div class="q-item__section column q-item__section--main justify-center">
     <div class="q-item__label" style="overflow:hidden;display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:2;"><i aria-hidden="true" role="presentation" class="q-mx-xs vertical-baseline fas fa-calendar-alt q-icon notranslate"> </i>
-      Reminder: You have a pickup at
+      Reminder: You have a pickup at 12:00 PM
     </div>
     <div class="q-item__label q-item__label--caption text-caption">
       <div title="Dec 24, 2017, 2:00 PM" style="display:inline;">
         in about 2 hours
       </div>
       · Group 27
-      <!---->
+
+      · Place 2
     </div>
   </div>
 </a>

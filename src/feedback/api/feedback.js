@@ -50,6 +50,6 @@ export function convert (val) {
 function convertListResults (results) {
   return {
     feedback: convert(results.feedback),
-    activities: convertActivity(results.activities),
+    activities: convertActivity(results.pickups),
   }
 }

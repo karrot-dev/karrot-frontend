@@ -138,6 +138,13 @@ export function plugin (datastore) {
       datastore.dispatch('notifications/fetchRelated')
     }
   })
+
+  datastore.watch((state, getters) => getters['auth/isLoggedIn'], isLoggedIn => {
+    if (!isLoggedIn) {
+      datastore.commit('notifications/clear')
+      datastore.commit('notifications/pagination/clear')
+    }
+  })
 }
 
 export function sortByCreatedAt (a, b) {

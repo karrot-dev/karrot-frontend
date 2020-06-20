@@ -118,7 +118,7 @@ export default {
 
     clear ({ commit, dispatch }) {
       commit('clear')
-      dispatch('meta/clear', ['send'])
+      dispatch('meta/clear')
     },
 
     refresh ({ dispatch, state }) {
@@ -144,4 +144,13 @@ export default {
       Object.assign(state, initialState())
     },
   },
+}
+
+export const plugin = datastore => {
+  datastore.watch((state, getters) => getters['auth/isLoggedIn'], isLoggedIn => {
+    if (!isLoggedIn) {
+      datastore.commit('currentThread/clear')
+      datastore.commit('currentThread/pagination/clear')
+    }
+  })
 }

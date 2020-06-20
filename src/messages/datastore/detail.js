@@ -199,4 +199,10 @@ export const plugin = datastore => {
       datastore.dispatch('detail/clear')
     }
   })
+
+  datastore.watch((state, getters) => getters['auth/isLoggedIn'], isLoggedIn => {
+    if (!isLoggedIn) {
+      datastore.commit('detail/clear')
+    }
+  })
 }

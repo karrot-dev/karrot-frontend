@@ -123,3 +123,12 @@ export default {
 export function sortByCreatedAt (a, b) {
   return b.createdAt - a.createdAt
 }
+
+export const plugin = datastore => {
+  datastore.watch((state, getters) => getters['auth/isLoggedIn'], isLoggedIn => {
+    if (!isLoggedIn) {
+      datastore.commit('feedback/clear')
+      datastore.commit('feedback/pagination/clear')
+    }
+  })
+}

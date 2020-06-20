@@ -12,6 +12,7 @@ export default datastore => {
     // clear issues after logging out
     if (!isLoggedIn) {
       datastore.commit('issues/clear')
+      datastore.commit('issues/pagination/clear')
     }
   })
 }

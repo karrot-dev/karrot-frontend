@@ -57,8 +57,6 @@ export default {
         commit('setUser', null)
         showLogoutToast(dispatch)
 
-        commit('conversations/clear', null, { root: true }) // TODO move into plugin
-        dispatch('currentThread/clear', null, { root: true }) // TODO move into plugin
         router.push({ name: 'groupsGallery' }).catch(() => {})
       },
 

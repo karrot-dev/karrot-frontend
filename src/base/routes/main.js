@@ -214,6 +214,11 @@ export default [
         component: GroupMap,
       },
       {
+        // TODO: legacy redirect, can be removed in some months
+        path: 'pickups',
+        redirect: 'activities',
+      },
+      {
         name: 'groupActivities',
         path: 'activities',
         meta: {
@@ -407,11 +412,6 @@ export default [
         },
       },
       {
-        // Redirect legacy "store" urls
-        path: 'store/:rest*',
-        redirect: to => `place/${to.params.rest}`,
-      },
-      {
         name: 'places',
         path: 'place',
         meta: {
@@ -463,6 +463,11 @@ export default [
             },
           },
           {
+            // TODO: legacy redirect, can be removed in some months
+            path: 'pickups',
+            redirect: 'activities',
+          },
+          {
             name: 'placeActivities',
             path: 'activities',
             component: PlaceActivities,
@@ -499,6 +504,11 @@ export default [
             component: PlaceEdit,
           },
         ],
+      },
+      {
+        // TODO: legacy redirect, can be removed in some months
+        path: 'place/:placeId/pickups/:activityId/detail',
+        redirect: 'place/:placeId/activities/:activityId/detail',
       },
       {
         name: 'activityDetail',

@@ -69,7 +69,7 @@ const notifications = [
     type: 'feedback_possible',
     context: {
       group,
-      pickup: factories.makePickup({
+      pickup: factories.makeActivity({
         place,
       }),
     },
@@ -102,7 +102,7 @@ const notifications = [
     context: {
       group,
       place,
-      pickup: factories.makePickup({
+      pickup: factories.makeActivity({
         place,
       }),
     },
@@ -112,7 +112,7 @@ const notifications = [
     context: {
       group,
       place,
-      pickup: factories.makePickup({
+      pickup: factories.makeActivity({
         place,
       }),
     },
@@ -122,7 +122,7 @@ const notifications = [
     context: {
       group,
       place,
-      pickup: factories.makePickup({
+      pickup: factories.makeActivity({
         place,
       }),
     },
@@ -132,7 +132,7 @@ const notifications = [
     context: {
       group,
       place,
-      pickup: factories.makePickup({
+      pickup: factories.makeActivity({
         place,
       }),
     },

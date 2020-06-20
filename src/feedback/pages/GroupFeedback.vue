@@ -8,7 +8,7 @@ export default connect({
     status: 'feedback/fetchStatus',
     canFetchPast: 'feedback/canFetchPast',
     fetchPastStatus: 'feedback/fetchPastStatus',
-    feedbackPossible: 'pickups/feedbackPossibleByCurrentGroup',
+    feedbackPossible: 'activities/feedbackPossibleByCurrentGroup',
   },
   actionsToProps: {
     fetchPast: 'feedback/fetchPast',

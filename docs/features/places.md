@@ -13,7 +13,7 @@ fields:
 | description |
 | address text |
 | address lat/lon |
-| how many weeks in advance should pickups be scheduled |
+| how many weeks in advance should activities be scheduled |
 
 ## Edit Place
 
@@ -23,24 +23,24 @@ fields:
 
 - see wall/chat section
 
-## Pickup Feedback
+## Activity Feedback
 
-- shows feedback about pickups for that place
+- shows feedback about activities for that place
 
 ## Place History
 
 - like group history, but just for that place
 
-## Manage Pickups
+## Manage Activities
 
-- see pickups section
+- see activities section
 
 ## Mark as Favourite
 
 - can mark certain places as favourite
 - will show up at top of place list in sidebar with a star
 - will subscribe you to place wall
-- shows you available pickups from favourite stores at top of group wall
+- shows you available activities from favourite places at top of group wall
 
 ## Show Directions
 

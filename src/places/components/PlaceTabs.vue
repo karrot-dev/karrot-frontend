@@ -51,7 +51,7 @@ export default {
       const params = { groupId: this.groupId, placeId: this.placeId }
       return [
         {
-          to: { name: 'placePickups', params },
+          to: { name: 'placeActivities', params },
           label: this.$t('GROUP.PICKUPS'),
         },
         {
@@ -69,7 +69,7 @@ export default {
         },
         ...(this.isEditor ? [
           {
-            to: { name: 'placePickupsManage', params },
+            to: { name: 'placeActivitiesManage', params },
             label: this.$t('PICKUPMANAGE.TITLE'),
           },
           {

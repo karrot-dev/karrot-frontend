@@ -76,7 +76,7 @@ function getIcon (type, context) {
   }
 }
 
-function getRouteTo (type, { group, user, place, pickup, issue } = {}) {
+function getRouteTo (type, { group, user, place, pickup: activity, issue } = {}) {
   switch (type) {
     case 'user_became_editor':
     case 'invitation_accepted':
@@ -88,7 +88,7 @@ function getRouteTo (type, { group, user, place, pickup, issue } = {}) {
     case 'new_applicant':
       return group && { name: 'applications', params: { groupId: group.id } }
     case 'feedback_possible':
-      return group && pickup && { name: 'giveFeedback', params: { groupId: group.id, pickupId: pickup.id } }
+      return group && activity && { name: 'giveFeedback', params: { groupId: group.id, activityId: activity.id } }
     case 'application_declined':
     case 'conflict_resolution_you_were_removed':
       return group && { name: 'groupPreview', params: { groupPreviewId: group.id } }
@@ -98,7 +98,7 @@ function getRouteTo (type, { group, user, place, pickup, issue } = {}) {
     case 'pickup_disabled':
     case 'pickup_enabled':
     case 'pickup_moved':
-      return group && place && pickup && { name: 'pickupDetail', params: { groupId: group.id, placeId: place.id, pickupId: pickup.id } }
+      return group && place && activity && { name: 'activityDetail', params: { groupId: group.id, placeId: place.id, activityId: activity.id } }
     case 'conflict_resolution_created':
     case 'conflict_resolution_created_about_you':
     case 'conflict_resolution_continued':

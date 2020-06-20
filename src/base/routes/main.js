@@ -1,7 +1,7 @@
 import { Platform } from 'quasar'
 const Landing = () => import('@/base/pages/Landing')
 const GroupWall = () => import('@/group/pages/Wall')
-const GroupPickups = () => import('@/pickups/pages/GroupPickups')
+const GroupActivities = () => import('@/activities/pages/GroupActivities')
 const GroupOffers = () => import('@/offers/pages/GroupOffers')
 const OfferCreate = () => import('@/offers/pages/OfferCreate')
 const OfferEdit = () => import('@/offers/pages/OfferEdit')
@@ -20,10 +20,10 @@ const GroupPreview = () => import('@/groupInfo/pages/GroupPreview')
 const GroupGallery = () => import('@/groupInfo/pages/GroupGallery')
 const PlaceWall = () => import('@/places/pages/Wall')
 const PlaceLayout = () => import('@/places/pages/Layout')
-const PlacePickups = () => import('@/pickups/components/PlacePickups')
+const PlaceActivities = () => import('@/activities/components/PlaceActivities')
 const PlaceFeedback = () => import('@/feedback/components/PlaceFeedback')
 const PlaceHistory = () => import('@/history/pages/PlaceHistory')
-const PlacePickupsManage = () => import('@/pickups/pages/PickupsManage')
+const PlaceActivitiesManage = () => import('@/activities/pages/ActivitiesManage')
 const PlaceEdit = () => import('@/places/pages/Edit')
 const PlaceCreate = () => import('@/places/pages/Create')
 const PlaceList = () => import('@/places/pages/Places')
@@ -36,7 +36,7 @@ const GroupHistory = () => import('@/history/pages/GroupHistory')
 const Sidenav = () => import('@/sidenav/components/Sidenav')
 const Settings = () => import('@/authuser/pages/Settings')
 const User = () => import('@/users/pages/Profile')
-const PickupFeedback = () => import('@/feedback/pages/GiveFeedback')
+const ActivityFeedback = () => import('@/feedback/pages/GiveFeedback')
 const Detail = () => import('@/messages/components/Detail')
 const DetailHeader = () => import('@/messages/components/DetailHeader')
 const IssueLayout = () => import('@/issues/pages/IssueLayout')
@@ -214,14 +214,19 @@ export default [
         component: GroupMap,
       },
       {
-        name: 'groupPickups',
+        // TODO: legacy redirect, can be removed in some months
         path: 'pickups',
+        redirect: 'activities',
+      },
+      {
+        name: 'groupActivities',
+        path: 'activities',
         meta: {
           breadcrumbs: [
-            { translation: 'GROUP.PICKUPS', route: { name: 'groupPickups' } },
+            { translation: 'GROUP.PICKUPS', route: { name: 'groupActivities' } },
           ],
         },
-        component: GroupPickups,
+        component: GroupActivities,
       },
       {
         name: 'offerCreate',
@@ -407,11 +412,6 @@ export default [
         },
       },
       {
-        // Redirect legacy "store" urls
-        path: 'store/:rest*',
-        redirect: to => `place/${to.params.rest}`,
-      },
-      {
         name: 'places',
         path: 'place',
         meta: {
@@ -433,7 +433,7 @@ export default [
       },
       {
         name: 'place',
-        redirect: { name: 'placePickups' },
+        redirect: { name: 'placeActivities' },
         path: 'place/:placeId',
         meta: {
           breadcrumbs: [
@@ -463,18 +463,23 @@ export default [
             },
           },
           {
-            name: 'placePickups',
+            // TODO: legacy redirect, can be removed in some months
             path: 'pickups',
-            component: PlacePickups,
+            redirect: 'activities',
           },
           {
-            name: 'placePickupsManage',
-            path: 'pickups/manage',
+            name: 'placeActivities',
+            path: 'activities',
+            component: PlaceActivities,
+          },
+          {
+            name: 'placeActivitiesManage',
+            path: 'activities/manage',
             meta: {
-              beforeEnter: 'pickupSeries/fetchListForActivePlace',
-              afterLeave: 'pickupSeries/clearList',
+              beforeEnter: 'activitySeries/fetchListForActivePlace',
+              afterLeave: 'activitySeries/clearList',
             },
-            component: PlacePickupsManage,
+            component: PlaceActivitiesManage,
           },
           {
             name: 'placeFeedback',
@@ -501,8 +506,13 @@ export default [
         ],
       },
       {
-        name: 'pickupDetail',
-        path: 'place/:placeId/pickups/:pickupId/detail',
+        // TODO: legacy redirect, can be removed in some months
+        path: 'place/:placeId/pickups/:activityId/detail',
+        redirect: 'place/:placeId/activities/:activityId/detail',
+      },
+      {
+        name: 'activityDetail',
+        path: 'place/:placeId/activities/:activityId/detail',
         meta: {
           requireLoggedIn: true,
           breadcrumbs: [
@@ -519,7 +529,7 @@ export default [
       },
       {
         name: 'giveFeedback',
-        path: 'give-feedback/:pickupId?',
+        path: 'give-feedback/:activityId?',
         meta: {
           breadcrumbs: [
             { translation: 'PICKUP_FEEDBACK.TITLE', route: { name: 'giveFeedback' } },
@@ -527,7 +537,7 @@ export default [
           beforeEnter: 'feedback/fetch',
           afterLeave: 'feedback/clear',
         },
-        component: PickupFeedback,
+        component: ActivityFeedback,
       },
       {
         name: 'editFeedback',
@@ -539,7 +549,7 @@ export default [
           beforeEnter: 'feedback/select',
           afterLeave: 'feedback/clear',
         },
-        component: PickupFeedback,
+        component: ActivityFeedback,
       },
     ],
   },

@@ -1,6 +1,6 @@
 import axios, { parseCursor } from '@/base/api/axios'
 import { convert as convertMessage } from './messages'
-import { convert as convertPickup } from '@/pickups/api/pickups'
+import { convert as convertActivity } from '@/activities/api/activities'
 import { convert as convertApplication } from '@/applications/api/applications'
 import { convert as convertIssue } from '@/issues/api/issues'
 import { convert as convertOffer } from '@/offers/api/offers'
@@ -46,7 +46,7 @@ function convertListResults (results) {
   return {
     conversations: convert(results.conversations),
     messages: convertMessage(results.messages),
-    pickups: convertPickup(results.pickups),
+    activities: convertActivity(results.activities),
     applications: convertApplication(results.applications),
     issues: convertIssue(results.issues),
     offers: convertOffer(results.offers),

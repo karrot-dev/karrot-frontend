@@ -128,12 +128,12 @@ export default {
     update ({ commit, dispatch, getters }, places) {
       for (const place of places) {
         const old = getters.get(place.id)
-        // make sure we refresh pickups if place status changes
-        // TODO move to vuex plugin in pickups module
+        // make sure we refresh activities if place status changes
+        // TODO move to vuex plugin in activities module
         if (old && old.status !== place.status) {
           if (old.status === 'active' || place.status === 'active') {
-            commit('pickups/clearUpcomingForPlace', old.id, { root: true })
-            dispatch('pickups/fetchListByGroupId', old.group.id, { root: true })
+            commit('activities/clearUpcomingForPlace', old.id, { root: true })
+            dispatch('activities/fetchListByGroupId', old.group.id, { root: true })
           }
         }
       }

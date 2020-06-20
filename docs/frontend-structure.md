@@ -12,21 +12,21 @@ src/
     - assets/                   # mostly for images used in this module
       - apple.png
     - api/                      # XHR communication, to backend and other services
-      - pickup.js
-      - pickup.spec.js          # unit test
+      - activity.js
+      - activity.spec.js          # unit test
       - ...
     - datastore/                # vuex namespaced modules and plugins
-      - pickup.js
-      - pickup.spec.js          # unit test 
+      - activity.js
+      - activity.spec.js          # unit test 
       - ...
     - components/               # reusable components (atoms, molecules, organism)
-      - PickupUser.vue
-      - PickupUser.spec.js      # unit test
-      - Pickups.story.js        # storybook story
+      - ActivityUser.vue
+      - ActivityUser.spec.js      # unit test
+      - Activities.story.js        # storybook story
       - ...
     - pages/                    # page templates and instances
-      - PickupsManage.vue       # page connected with mapGetters and mapActions
-      - PickupsManageUI.vue     # or with vuex-connect
+      - ActivitiesManage.vue       # page connected with mapGetters and mapActions
+      - ActivitiesManageUI.vue     # or with vuex-connect
       - ...
 ```
 

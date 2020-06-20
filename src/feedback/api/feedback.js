@@ -1,5 +1,5 @@
 import axios, { parseCursor } from '@/base/api/axios'
-import { convert as convertPickup } from '@/pickups/api/pickups'
+import { convert as convertActivity } from '@/activities/api/activities'
 
 export default {
   async create (feedback) {
@@ -50,6 +50,6 @@ export function convert (val) {
 function convertListResults (results) {
   return {
     feedback: convert(results.feedback),
-    pickups: convertPickup(results.pickups),
+    activities: convertActivity(results.pickups),
   }
 }

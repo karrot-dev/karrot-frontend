@@ -5,7 +5,7 @@ import DetailUI from './DetailUI'
 export default connect({
   gettersToProps: {
     user: 'detail/user',
-    pickup: 'detail/pickup',
+    activity: 'detail/activity',
     application: 'detail/application',
     conversation: 'detail/conversation',
     away: 'presence/toggle/away',

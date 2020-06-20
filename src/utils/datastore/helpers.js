@@ -115,7 +115,6 @@ export function createMetaModule () {
           Vue.delete(state.byAction, actionName)
         }
         else {
-          console.log('meta: clear all')
           state.byAction = {}
           state.byId = {}
         }

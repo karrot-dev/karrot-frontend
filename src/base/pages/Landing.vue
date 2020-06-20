@@ -27,7 +27,7 @@
 
     <p class="text-center">
       <QImg
-        :src="screenshots.pickups"
+        :src="screenshots.activities"
         alt="karrot"
         class="screenshot screenshot-fullwidth q-my-lg"
       />
@@ -174,10 +174,10 @@ import { mapGetters } from 'vuex'
 
 import GroupGalleryCards from '@/groupInfo/components/GroupGalleryCards'
 import logo from '@/logo/assets/carrot-logo.svg'
-import screenshotPickups from './images/karrot-screenshot.png'
+import screenshotActivities from './images/karrot-screenshot.png'
 
 import screenshotGallery from './images/karrot-gallery.236x236.jpg'
-import screenshotManagePickups from './images/karrot-manage-pickups.236x236.jpg'
+import screenshotManageActivities from './images/karrot-manage-activities.236x236.jpg'
 import screenshotOffers from './images/solikyl-offers.236x236.jpg'
 
 import imageSavedFood from './images/oestersund-saved-food.200x200.jpg'
@@ -224,9 +224,9 @@ export default {
   created () {
     this.logo = logo
     this.screenshots = {
-      pickups: screenshotPickups,
+      activities: screenshotActivities,
       GROUPS: screenshotGallery,
-      ACTIVITIES: screenshotManagePickups,
+      ACTIVITIES: screenshotManageActivities,
       OFFERS: screenshotOffers,
     }
     this.images = [

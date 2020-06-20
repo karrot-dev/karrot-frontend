@@ -12,7 +12,7 @@ export default connect({
     save: 'offers/save',
   },
   methodsToEvents: {
-    reset: ({ dispatch }) => dispatch('meta/clear', ['save']),
+    reset: ({ dispatch }) => dispatch('offers/meta/clear', ['save']),
   },
 })('OfferEdit', OfferForm)
 </script>

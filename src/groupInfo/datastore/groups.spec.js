@@ -84,6 +84,8 @@ describe('groups', () => {
   const currentGroup = {
     actions: {
       maybeUpdate: jest.fn(),
+    },
+    mutations: {
       clear: jest.fn(),
     },
   }
@@ -144,7 +146,7 @@ describe('groups', () => {
       expect(mockLeave).toBeCalledWith(group2.id)
       expect(auth.actions.maybeBackgroundSave).toBeCalled()
       expect(auth.actions.maybeBackgroundSave.mock.calls[0][1]).toEqual({ currentGroup: null })
-      expect(currentGroup.actions.clear).toBeCalled()
+      expect(currentGroup.mutations.clear).toBeCalled()
       expect(toasts.actions.show).toBeCalled()
     })
 

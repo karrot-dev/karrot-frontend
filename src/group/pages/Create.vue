@@ -12,7 +12,7 @@ export default connect({
     save: 'groups/create',
   },
   methodsToEvents: {
-    reset: ({ dispatch }) => dispatch('meta/clear', ['create']),
+    reset: ({ dispatch }) => dispatch('groups/meta/clear', ['create']),
   },
 })('GroupCreate', GroupEdit)
 </script>

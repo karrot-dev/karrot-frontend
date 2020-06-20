@@ -12,6 +12,7 @@ export default datastore => {
   datastore.watch((state, getters) => getters['auth/isLoggedIn'], isLoggedIn => {
     if (!isLoggedIn) {
       datastore.commit('applications/clear')
+      datastore.commit('applications/pagination/clear')
     }
   })
 }

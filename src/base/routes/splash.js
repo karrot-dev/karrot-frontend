@@ -40,6 +40,7 @@ export default [
       breadcrumbs: [
         { translation: 'PASSWORDRESET.TITLE' },
       ],
+      afterLeave: 'users/clearRequestResetPassword',
     },
     components: {
       default: RequestPasswordReset,

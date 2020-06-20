@@ -24,7 +24,7 @@ export default {
       },
     }),
     clear ({ commit, dispatch }) {
-      dispatch('meta/clear', ['deleteAccount'])
+      dispatch('meta/clear')
       commit('setSuccess', false)
     },
   },
@@ -32,5 +32,16 @@ export default {
     setSuccess (state, status) {
       Vue.set(state, 'success', status)
     },
+    clear (state) {
+      Object.assign(state, initialState())
+    },
   },
+}
+
+export const plugin = datastore => {
+  datastore.watch((state, getters) => getters['auth/isLoggedIn'], isLoggedIn => {
+    if (!isLoggedIn) {
+      datastore.dispatch('deleteAccount/clear')
+    }
+  })
 }

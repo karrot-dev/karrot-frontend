@@ -35,7 +35,7 @@
       },
       "GIVE_TRUST": {
         "TITLE": "ट्रस्ट यूजर",
-        "MESSAGE": "आपण यावर {groupName} मधील  {userName}  वर  विश्वास ठेवता का?"
+        "MESSAGE": "आपण {groupName} मधील {userName} वर  विश्वास ठेवता का?"
       }
     },
     "LOGOUT_SUCCESS": "आपण लॉग आउट केले आहे!",
@@ -45,8 +45,8 @@
     "PEOPLE_TRUST_USER": "You and {otherUser} trust {userName} in {groupName}. | You and {count} other people trust {userName} in {groupName}.",
     "FIRST_TRUST": "Be the first one to trust {userName} in {groupName}!",
     "NEWCOMER": "नवागत",
-    "NEWCOMER_GUIDANCE": "{userName}आपल्या गटामध्ये नवीन आहे आणि काही मार्गदर्शनाची आवश्यकता असू शकते. ",
-    "TRUST_PROGRESS_TEXT": "{trustNeeded}अधिक विश्वास आवश्यक ",
+    "NEWCOMER_GUIDANCE": "{userName} आपल्या गटामध्ये नवीन आहे आणि काही मार्गदर्शनाची आवश्यकता असू शकते. ",
+    "TRUST_PROGRESS_TEXT": "{trustNeeded} अधिक विश्वास आवश्यक ",
     "TRUST_PROGRESS_TEXT_LONG": "{trustNeeded} more people need to express their trust in {userName} to grant editing permissions.",
     "NEWCOMER_INFO": "You are currently a newcomer in {groupName} and you can become active by writing messages, meeting fellow members, doing pickups and giving feedback. As soon as {threshold} members expressed their trust in you, you will gain editing permissions to help with group administration.",
     "TRUST_INFO": {
@@ -56,7 +56,7 @@
     }
   },
   "SWITCHGROUP": {
-    "NOT_MEMBER": "{userName} ह्या {groupName}सदस्य नाही.",
+    "NOT_MEMBER": "{userName} हा {groupName} चा सदस्य नाही.",
     "COMMON_GROUPS": "आपल्या समूहात असलेले गट",
     "OTHER_GROUPS": "इतर गट",
     "CHOOSE": "Choose a group:"

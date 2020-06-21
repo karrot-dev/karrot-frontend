@@ -1,12 +1,12 @@
 {
-  "ENTRY": "1 entry | {count} entries",
+  "ENTRY": "1 प्रविष्टि| {count} प्रविष्टियां",
   "GLOBAL": {
     "GITHUB_NOTE": "विकास",
     "SERVER_ERROR": "सर्वर त्रुटि",
     "NOT_CONNECTED": "आप सर्वर से जुड़े हुए नहीं है ",
     "INVALID_LINK": "क्षमा करे, आपके द्वारा खोला गया लिंक गलत है",
     "GENERIC_ERROR": "क्षमा करे, कुछ गलत हो गया",
-    "SEARCH_RESULTS": "Search results",
+    "SEARCH_RESULTS": "खोज परिणाम",
     "SEARCH_NOT_FOUND": "नहीं मिला",
     "ABOUT_KARROT": "Karrot के बारेमे"
   },
@@ -14,7 +14,7 @@
     "EMAIL": "ई-मेल",
     "MOBILE_NUMBER": "दूरध्वनी",
     "PROFILE_TITLE": " पार्श्व चित्र \\ वर्णन",
-    "PRIVATE_MESSAGE": "Send a private message to {userName}",
+    "PRIVATE_MESSAGE": " {userName} को एक निजी संदेश भेजें",
     "PASSWORD": "पारण शब्द",
     "CONFIRM_PASSWORD": "अपने पासवर्ड की पुष्टि करें",
     "USERNAME": "नाम",
@@ -40,26 +40,26 @@
     },
     "LOGOUT_SUCCESS": "आप लॉग आउट हो गए हैं। ",
     "YOU_TRUST_USER": "आप {groupName}से {userName} पे भरोसा करते है ",
-    "OTHER_PEOPLE_TRUST_USER": "{otherUser} trusts {userName} in {groupName}. | {count} people trust {userName} in {groupName}.",
-    "OTHER_PEOPLE_TRUST_YOU": "{otherUser} trusts you in {groupName}. | {count} people trust you in {groupName}.",
-    "PEOPLE_TRUST_USER": "You and {otherUser} trust {userName} in {groupName}. | You and {count} other people trust {userName} in {groupName}.",
-    "FIRST_TRUST": "Be the first one to trust {userName} in {groupName}!",
+    "OTHER_PEOPLE_TRUST_USER": "{otherUser} {groupName} में {userName} पर भरोसा करता है| {count} लोग {groupName} में {userName} पर भरोसा करते हैं|",
+    "OTHER_PEOPLE_TRUST_YOU": "{otherUser} {groupName} में आप पर भरोसा करता है| {count} लोग {groupName} में आप पर भरोसा करते हैं",
+    "PEOPLE_TRUST_USER": "आप और {otherUser} {groupName} में {userName} पर भरोसा करते हैं| आप और {count} अन्य लोग {groupName} में {userName} पर भरोसा करते हैं|",
+    "FIRST_TRUST": "{groupName} में {userName} पर भरोसा करने वाले पहले व्यक्ति बनें!",
     "NEWCOMER": "नवागंतुक",
     "NEWCOMER_GUIDANCE": "{userName}आपके समूह के लिए नया है और उन्हें कुछ मार्गदर्शन की आवश्यकता हो सकती है ",
     "TRUST_PROGRESS_TEXT": "{trustNeeded}को अधिक विश्वास की जरूरत है ",
-    "TRUST_PROGRESS_TEXT_LONG": "{trustNeeded} more people need to express their trust in {userName} to grant editing permissions.",
-    "NEWCOMER_INFO": "You are currently a newcomer in {groupName} and you can become active by writing messages, meeting fellow members, doing pickups and giving feedback. As soon as {threshold} members expressed their trust in you, you will gain editing permissions to help with group administration.",
+    "TRUST_PROGRESS_TEXT_LONG": "संपादन अनुमतियाँ देने के लिए, {trustNeeded} और लोगों को {userName} पर अपना विश्वास व्यक्त करने की आवश्यकता है।",
+    "NEWCOMER_INFO": "आप वर्तमान में {groupName} में एक नए सदस्य हैं और आप संदेश लिखने, साथी सदस्यों से मिलने, पिकअप करने और प्रतिक्रिया देने से सक्रिय सदस्य हो सकते हैं। जैसे ही {threshold} सदस्यों ने आप पर भरोसा जताया, आप समूह प्रशासन के साथ मदद करने के लिए संपादन अनुमति प्राप्त करेंगे।",
     "TRUST_INFO": {
-      "TITLE": "What is this carrot button about?",
-      "MESSAGE": "It is part of the Karrot trust system. It shows if a group member is newcomer and how much trust is needed until they gain editing permissions.",
-      "LINK": "Click here to find out more."
+      "TITLE": "इस \"गाजर\" बटन का मतलब क्या है?",
+      "MESSAGE": "यह Karrot विश्वास प्रणाली का हिस्सा है। यह दिखाता है कि समूह का सदस्य नया सदस्य है और संपादन अनुमति प्राप्त करने तक अन्य सदस्यों से कितना भरोसा चाहिए।",
+      "LINK": "अधिक जानने के लिए यहां क्लिक करें।"
     }
   },
   "SWITCHGROUP": {
-    "NOT_MEMBER": "{userName} is not member of {groupName}.",
-    "COMMON_GROUPS": "Groups you have in common",
+    "NOT_MEMBER": "{userName} {groupName} का सदस्य नहीं है",
+    "COMMON_GROUPS": "समूह जो आप में आम हैं",
     "OTHER_GROUPS": "अन्य समूह",
-    "CHOOSE": "Choose a group:"
+    "CHOOSE": "एक समूह चुनें:"
   },
   "BUTTON": {
     "CREATE": "सर्जन करना",
@@ -71,7 +71,7 @@
     "JOIN": "शामिल होना",
     "PREVIEW": "पूर्वावलोकन",
     "BACK": "वापस",
-    "NEXT": "Next",
+    "NEXT": "आगे",
     "SEARCH": "खोज",
     "OF_COURSE": "हाँ, बेशक!",
     "YES": "हाँ",
@@ -85,13 +85,13 @@
     "DELETE_ACCOUNT": "अकाउंट हटाए",
     "SHOW": "दिखाए",
     "HIDE": "छिपाये ",
-    "SUBMIT": "Submit",
+    "SUBMIT": "निवेदन करें",
     "APPLY": "लागू करें",
     "ACCEPT": "स्वीकार करे",
     "DECLINE": "मनाई",
     "WITHDRAW": "निकालना",
     "SHOW_MORE": "और दिखाए",
-    "SHOW_LESS": "Show less",
+    "SHOW_LESS": "कम दिखाएं",
     "ENABLE": "सक्षम",
     "DISABLE": "अक्षम",
     "UNSUBSCRIBE": "सदस्यता समाप्त"
@@ -103,7 +103,7 @@
     "REQUIRED": "यह स्थान आवश्यक है",
     "VALID_EMAIL": "एक वैध ईमेल प्रविष्ट करें",
     "VALID_TIMEZONE": "एक मान्य टाइमज़ोन दर्ज करें",
-    "IMAGE_REQUIRED": "You must add an image"
+    "IMAGE_REQUIRED": "आपको एक छवि जोड़नी होगी"
   },
   "GROUP": {
     "WALL": "दीवार",
@@ -116,25 +116,25 @@
     "MANAGE_AGREEMENT": "अनुबंध प्रबंधित करें",
     "TITLE": "इस समूह का शीर्षक",
     "DESCRIPTION_VERBOSE": "सदस्य के लिए समूह विवरण उपलब्ध",
-    "WELCOMEMESSAGE_VERBOSE": "Welcome message sent to new members",
-    "LOGO": "Group logo",
-    "SET_LOGO": "Click to upload your group logo!",
+    "WELCOMEMESSAGE_VERBOSE": "नए सदस्यों को स्वागत संदेश भेजा गया ",
+    "LOGO": "समूह का प्रतीक चिन्ह",
+    "SET_LOGO": "अपने समूह का प्रतीक चिन्ह अपलोड करने के लिए क्लिक करें!",
     "APPLICATIONS": "आवेदन",
-    "APPLICATION_QUESTIONS": "Questions for people who want to join this group",
+    "APPLICATION_QUESTIONS": "इस समूह में शामिल होने वाले लोगों के लिए प्रश्न",
     "PICKUPS": "पिकप",
     "MESSAGES": "संदेश",
-    "OFFERS": "Offers",
+    "OFFERS": "ऑफर",
     "PICKUP": "पिक अप",
     "MEMBERS": "सदस्य ",
-    "JOINED": "joined {relativeDate}",
-    "DECLINED": "declined {relativeDate}",
-    "ADDED_BY": "added by {userName}",
-    "DECLINED_BY": "declined by {userName}",
-    "SORT_JOINDATE": "Sort by join date",
-    "SORT_NAME": "Sort by name",
-    "INACTIVE": "Inactive",
-    "SHOW_INACTIVE": "Show inactive groups",
-    "PLACES": "Places",
+    "JOINED": "{relativeDate} को शामिल हुए",
+    "DECLINED": "{relativeDate} को मना कर दिया",
+    "ADDED_BY": "{userName} द्वारा जोड़ा गया",
+    "DECLINED_BY": "{userName} ने मना कर दिया",
+    "SORT_JOINDATE": "शामिल होने की तारीख से छाँटे",
+    "SORT_NAME": "नाम से छाँटे",
+    "INACTIVE": "निष्क्रिय",
+    "SHOW_INACTIVE": "निष्क्रिय समूह दिखाएं",
+    "PLACES": "स्थान",
     "HOME": "होम",
     "HISTORY": "इतिहास",
     "DESCRIPTION": "विवरण",
@@ -142,60 +142,60 @@
     "TIMEZONE": "समूह का समय क्षेत्र",
     "INVITE_EMAIL": "ईमेल पता डालें",
     "INVITE_SEND": "निमंत्रण भेजे",
-    "INVITE_SEND_SUCCESS": "Invitation sent successfully!",
-    "INVITE_SEND_ERROR": "Ooops, could not send the invitation!",
+    "INVITE_SEND_SUCCESS": "निमंत्रण सफलतापूर्वक भेजा गया!",
+    "INVITE_SEND_ERROR": "निमंत्रण नहीं भेज सका!",
     "INVITED_LIST": "इन ई-मेल पते पर आमंत्रण पहले ही भेज दिए गए हैं:",
     "INVITATIONS": "निमंत्रण",
     "INVITE_TITLE": "उपयोगकर्ताओं को अपने समूह में आमंत्रित करें",
     "INVITATION_ACCEPT_SUCCESS": "स्वागत हे!आपने आमंत्रण सफलतापूर्वक स्वीकार कर लिया है",
     "INVITATION_ACCEPT_ERROR": "ओह, निमंत्रण स्वीकार नहीं कर सका!",
-    "NOTIFICATIONS_BY_GROUP": "Notifications by group",
+    "NOTIFICATIONS_BY_GROUP": "समूह द्वारा सूचनाएं",
     "EMAIL_NOTIFICATIONS": "ईमेल सूचनाएं",
     "NOTIFICATION_TYPES": {
       "weekly_summary": {
-        "NAME": "Weekly summary",
-        "DESCRIPTION": "Keep up to date with what's been happening in the group."
+        "NAME": "साप्ताहिक सारांश",
+        "DESCRIPTION": "समूह में क्या हो रहा है, इस की ख़बर रखें।"
       },
       "daily_pickup_notification": {
-        "NAME": "Pickup notifications",
-        "DESCRIPTION": "Reminds you of your pickups, and tells you about empty or not-full pickups of your favorite places in the next day"
+        "NAME": "पिक अप सूचनाएं",
+        "DESCRIPTION": "आपको अपने पिकअप की याद दिलाता है, और आपको अगले दिन अपने पसंदीदा स्थानों के खाली या पूर्ण-भरे पिकअप के बारे में बताता है"
       },
       "new_application": {
-        "NAME": "New applications",
-        "DESCRIPTION": "Tells you when somebody wants to join your group"
+        "NAME": "नए आवेदन",
+        "DESCRIPTION": "आपको बताता है कि जब कोई आपके समूह में शामिल होना चाहता है"
       },
       "new_offer": {
-        "NAME": "New offers",
-        "DESCRIPTION": "Tells you when somebody creates a new offer"
+        "NAME": "नए प्रस्ताव",
+        "DESCRIPTION": "आपको बताता है जब कोई नया प्रस्ताव बनाता है"
       },
       "conflict_resolution": {
-        "NAME": "New conflict resolution processes",
-        "DESCRIPTION": "Tells you when a new conflict resolution process has been started in your group"
+        "NAME": "नए संघर्ष समाधान प्रक्रियाँए",
+        "DESCRIPTION": "आपको बताता है जब आपके समूह में एक नई संघर्ष समाधान प्रक्रिया शुरू की जाती है"
       }
     },
-    "PLAYGROUND_INFO": "This is a playground group, you can't break anything. Explore, click around and have fun!",
-    "JOIN_PLAYGROUND": "Join the playground group to explore karrot",
-    "JOIN_ANOTHER_GROUP": "Join another group"
+    "PLAYGROUND_INFO": "यह एक खेल का मैदान है, आप कुछ भी नहीं तोड़ सकते। ख़ोज करें, क्लिक करें और मज़े करें!",
+    "JOIN_PLAYGROUND": "Karrot का पता लगाने के लिए खेल-मैदान समूह में शामिल हों",
+    "JOIN_ANOTHER_GROUP": "किसी अन्य समूह में शामिल हों"
   },
   "GROUPMAP": {
     "TITLE": "नक्शा",
     "SHOW_USERS": "उपयोगकर्ताओं को दिखाएं",
     "HIDE_USERS": "उपयोगकर्ताओं को छुपाएं",
-    "SHOW_PLACES": "Show places",
-    "HIDE_PLACES": "Hide places",
-    "SHOW_GROUPS": "Show groups",
-    "HIDE_GROUPS": "Hide groups",
+    "SHOW_PLACES": "स्थानों को दिखाएँ",
+    "HIDE_PLACES": "स्थानों को छिपाएं",
+    "SHOW_GROUPS": "समूह दिखाएं",
+    "HIDE_GROUPS": "समूह छिपाएं",
     "SET_LOCATION": "स्थान तय करें",
-    "FULL_SCREEN": "Show full screen",
-    "EXPORT": "Export"
+    "FULL_SCREEN": "पूर्ण स्क्रीन दिखाएं",
+    "EXPORT": "निर्यात करें"
   },
   "STOREDETAIL": {
-    "DIRECTIONS": "Show directions",
-    "EDIT": "Edit place",
-    "ARCHIVED": "This place has been archived",
-    "INACTIVE": "This place is currently not cooperating.",
-    "CHANGE_STATUS": "You can change the status on the settings page.",
-    "NO_DESCRIPTION": "This place does not have a description yet"
+    "DIRECTIONS": "दिशा दिखाएँ",
+    "EDIT": "स्थान संपादित करें",
+    "ARCHIVED": "इस स्थान को संग्रहीत किया गया है",
+    "INACTIVE": "यह स्थान वर्तमान में सहयोग नहीं कर रहा है।",
+    "CHANGE_STATUS": "आप सेटिंग पृष्ठ पर स्थिति बदल सकते हैं।",
+    "NO_DESCRIPTION": "इस स्थान का अभी तक कोई विवरण नहीं है"
   },
   "STOREEDIT": {
     "NAME": "नाम",
@@ -203,26 +203,26 @@
     "DESCRIPTION": "विवरण",
     "ADDRESS": "पता",
     "WEEKS_IN_ADVANCE": "कितने सप्ताह अग्रिम में पिकअप की तारीखों को दिखाया जाना चाहिए?",
-    "WEEKS_IN_ADVANCE_WARNING": "You are about to reduce the number of weeks pickups are shown. Existing leftover pickups will get deleted if nobody has joined them. You can disable all other pickups manually, if needed.",
+    "WEEKS_IN_ADVANCE_WARNING": "आप पिकउप को कितने सप्ताह तक दिखाया जाए, इस सँख्या को कम करने जा रहे हैं| मौजूदा बचे हुए पिकअप को हटा दिया जाएगा यदि कोई भी उनके साथ नहीं जुड़ा है। यदि आवश्यक हो, तो आप अन्य सभी पिकअप को स्वयँ अक्षम कर सकते हैं।",
     "DIALOGS": {
       "ARCHIVE": {
-        "TITLE": "Archive place",
+        "TITLE": "स्थान संग्रहीत करे",
         "MESSAGE": "क्या आपको यकीन है?",
-        "CONFIRM": "Yes, archive place"
+        "CONFIRM": "हाँ, स्थान संग्रहीत करे"
       }
     },
     "RESTORE": "बहाल",
-    "SHOW_ALL": "Show all places",
-    "SHOW_ACTIVE_ONLY": "Only show active places"
+    "SHOW_ALL": "सभी स्थानों को दिखाएँ",
+    "SHOW_ACTIVE_ONLY": "केवल सक्रिय स्थान दिखाएं"
   },
   "PLACEWALL": {
-    "SUBSCRIBED_USERS": "{count} people have marked this place as favourite",
+    "SUBSCRIBED_USERS": "{count} लोगों ने इस स्थान को पसंदीदा के रूप में चिह्नित किया है",
     "SUBSCRIPTION": {
-      "HEADER": "Do you want to mark this place as your favourite?",
-      "YES": "yes",
-      "YES_TEXT": "Shows available pickups on the group wall and sends emails about upcoming pickups.",
-      "NO": "no",
-      "NO_TEXT": "None of the above. You can still sign up for pickups though."
+      "HEADER": "क्या आप इस स्थान को अपने पसंदीदा के रूप में चिह्नित करना चाहते हैं?",
+      "YES": "हाँ ",
+      "YES_TEXT": "समूह पर उपलब्ध पिकअप दिखाता है और आगामी पिकअप के बारे में ईमेल भेजता है।",
+      "NO": "नहीं",
+      "NO_TEXT": "इनमे से कोई भी नहीं। आप अभी भी पिकअप के लिए जुड़ सकते हैं।"
     }
   },
   "PICKUPMANAGE": {
@@ -230,9 +230,9 @@
     "SERIES": "आवर्ती पिकअप",
     "SINGLE": "एक बार पिकअप",
     "UPCOMING_PICKUPS_IN_SERIES": "इस श्रृंखला में आगामी पिकअप",
-    "PICKUP_DOES_NOT_MATCH": "This pickups' date doesn't match the recurrence pattern",
-    "PICKUP_DESCRIPTION_CHANGED": "'Additional information' has been changed",
-    "PICKUP_MAX_COLLECTORS_CHANGED": "'Max slots' has been changed"
+    "PICKUP_DOES_NOT_MATCH": "यह पिकअप की तारीख पुनरावृत्ति पैटर्न से मेल नहीं खाती है",
+    "PICKUP_DESCRIPTION_CHANGED": "'अतिरिक्त जानकारी' बदल दी गई है",
+    "PICKUP_MAX_COLLECTORS_CHANGED": "'अधिकतम स्लॉट' बदल दिए गए हैं"
   },
   "PICKUPDELETE": {
     "DELETE_SERIES_TITLE": "पुनरावर्ती पिकअप तारीख को हटाएं",
@@ -241,7 +241,7 @@
   "USERDETAIL": {
     "DISPLAY_NAME": "नाम",
     "DESCRIPTION": "आपके बारे में",
-    "OLD_PASSWORD": "Confirm your old password",
+    "OLD_PASSWORD": "अपने पुराने पासवर्ड की पुष्टि करें",
     "PASSWORD": "नया पासवर्ड"
   },
   "PROFILE": {
@@ -249,25 +249,25 @@
   },
   "JOINGROUP": {
     "WHICHGROUP": "आप किस समूह में शामिल होना चाहते हैं?",
-    "OR": "{joinGroup} or {createGroup}",
+    "OR": "{joinGroup} या {createGroup}",
     "NUM_MEMBERS": "सदस्य ",
     "NO_PUBLIC_DESCRIPTION": "(इस समूह में कोई सार्वजनिक विवरण नहीं है ... फिर भी)",
     "ALL_GROUPS": "सभी समूह",
-    "BROWSE_GROUPS": "Browse existing groups",
+    "BROWSE_GROUPS": "मौजूदा समूहों को खोजें",
     "SIGNUP_OR_LOGIN": "इस समूह में शामिल होने के लिए प्रवेश करें या साइन अप करें!",
-    "VERIFY_EMAIL_ADDRESS": "Verify your email address to apply",
+    "VERIFY_EMAIL_ADDRESS": "आवेदन करने के लिए अपना ईमेल पता सत्यापित करें",
     "MY_GROUPS": "मेरे समूह",
     "LOGOUT_MESSAGE": {
       "LOGGED_OUT": "आप फ़िलहाल लॉग आउट हो गए हैं। {लॉग इन करें}",
       "LOG_IN": "अपने समूह को देखने के लिए लॉग इन करें!"
     },
     "PROFILE_NOTE": "इस समूह में शामिल होने से, आपका प्रोफ़ाइल डेटा अन्य समूह सदस्यों के लिए दृश्यमान हो जाएगा।",
-    "APPLICATION_SUBMITTED": "Your application was successfully submitted!",
-    "APPLICATION_PENDING": "Your application is pending!",
-    "WITHDRAW_CONFIRMATION_HEADER": "Withdraw Application",
-    "WITHDRAW_CONFIRMATION_TEXT": "Are you sure you want to withdraw your application to join {groupName}?",
-    "APPLICATION_WITHDRAWN": "Your application was successfully withdrawn!",
-    "ARCHIVED_NOTE": "This group doesn't have any members. If you would like to revive it, contact the site administrators!"
+    "APPLICATION_SUBMITTED": "आपका आवेदन सफलतापूर्वक भेज दिया गया था!",
+    "APPLICATION_PENDING": "आपका आवेदन लंबित है!",
+    "WITHDRAW_CONFIRMATION_HEADER": "आवेदन को वापस ले",
+    "WITHDRAW_CONFIRMATION_TEXT": "क्या आप वाकई {groupName} में शामिल होने के लिए अपना आवेदन वापस लेना चाहते हैं?",
+    "APPLICATION_WITHDRAWN": "आपका आवेदन सफलतापूर्वक निकाल लिया गया था!",
+    "ARCHIVED_NOTE": "इस समूह में कोई सदस्य नहीं है। यदि आप इसे पुनर्जीवित करना चाहते हैं, तो साइट व्यवस्थापकों से संपर्क करें!"
   },
   "GROUPINFO": {
     "TITLE": "सार्वजनिक समूह की जानकारी",
@@ -280,8 +280,8 @@
     "CHANGE_GROUP": "समूह परिवर्तन"
   },
   "SIDENAV": {
-    "INFO_SUB": "How to build your foodsaving group",
-    "GIT_SUB": "See our code!"
+    "INFO_SUB": "अपने खाद्य-बचत समूह का निर्माण कैसे करें",
+    "GIT_SUB": "हमारा कोड देखें!"
   },
   "LOGIN": {
     "TITLE": "लॉग इन करें",
@@ -299,8 +299,8 @@
     "SUCCESS": "आपका ई-मेल पता सफलतापूर्वक सत्यापित किया गया!"
   },
   "DELETEACCOUNT": {
-    "TITLE": "Account deletion",
-    "SUCCESS": "Your account was successfully deleted!"
+    "TITLE": "अकाउंट हटाना",
+    "SUCCESS": "आपका खाता सफलतापूर्वक हटाया गया था"
   },
   "CREATEPICKUP": {
     "FREQUENCY": "आवृत्ति",
@@ -321,21 +321,21 @@
     "COMMENT": "अधिक जानकारी",
     "COMMENT_HELPER": "इस पिकअप तक साइन अप करते समय लोगों को क्या पता होना चाहिए?",
     "UNLIMITED": "असीमित",
-    "DIFFERS_WARNING": "This value differs from the default. To undo this change, click on the arrow button and save the changes.",
-    "ENABLE_TITLE": "Enable pickup?",
-    "DISABLE_TITLE": "Disable pickup?",
+    "DIFFERS_WARNING": "यह मुल्य डिफ़ॉल्ट मुल्य से भिन्न है। इस परिवर्तन को पूर्ववत करने के लिए, तीर बटन पर क्लिक करें और परिवर्तनों को सहेजें।",
+    "ENABLE_TITLE": "पिक अप सक्षम करें?",
+    "DISABLE_TITLE": "पिक अप अक्षम करें?",
     "ENABLE_DISABLE_MESSAGE": "Users who joined this pickup will get a notification. You can change this text to provide a reason:",
     "EXCEPTIONS_TITLE": "Check your pickups",
     "EXCEPTIONS_MESSAGE": "Some upcoming pickups don't match the settings of this recurring pickup. Have a look below at '{upcomingLabel}' to change or disable pickups, if needed."
   },
   "CREATESTORE": {
-    "TITLE": "Create a new place"
+    "TITLE": "नया स्थान बनाएँ"
   },
   "PICKUPLIST": {
     "FILTER": {
-      "ALL": "All",
-      "EMPTY": "Only empty",
-      "FREE": "With free slots"
+      "ALL": "सब",
+      "EMPTY": "केवल खाली",
+      "FREE": "खाली स्लॉट के साथ"
     },
     "AVAILABLE": "There is one pickup in your favorite places waiting for you! | There are {count} pickups in your favorite places waiting for you!",
     "AVAILABLE_FEEDBACK": "आप एक पिकअप को प्रतिक्रिया दे सकते हैं | {गिनती} पिकअप आपकी राय का इंतजार कर रहे हैं",

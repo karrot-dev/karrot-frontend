@@ -21,6 +21,8 @@ Please document your changes in this format:
 ```
 
 ## [Unreleased]
+### Changed
+- All group members (instead of just editors) can now access conflict resolution issues, write messages and vote. Issues can still only be created by editors. #2062 @tiltec
 
 ## [8.5.2] - 2020-06-01
 ### Changed

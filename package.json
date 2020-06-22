@@ -124,7 +124,7 @@
     "http-proxy-middleware": "^1.0.4",
     "jest": "^26.0.1",
     "jest-canvas-mock": "^2.2.0",
-    "jest-environment-jsdom-fifteen": "^1.0.2",
+    "jest-environment-jsdom": "^26.0.1",
     "jest-junit": "^11.0.0",
     "jest-serializer-vue": "^2.0.2",
     "json-loader": "^0.5.7",
@@ -194,7 +194,7 @@
     "transformIgnorePatterns": [
       "/node_modules/(?!quasar)"
     ],
-    "testEnvironment": "jest-environment-jsdom-fifteen",
+    "testEnvironment": "jsdom",
     "testEnvironmentOptions": {
       "pretendToBeVisual": true
     },

@@ -76,7 +76,7 @@ function getIcon (type, context) {
   }
 }
 
-function getRouteTo (type, { group, user, place, activity: activity, issue } = {}) {
+function getRouteTo (type, { group, user, place, activity, issue } = {}) {
   switch (type) {
     case 'user_became_editor':
     case 'invitation_accepted':

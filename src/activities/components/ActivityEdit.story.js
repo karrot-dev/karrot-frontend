@@ -55,14 +55,14 @@ storiesOf('ActivityEdit', module)
           value: {
             ...activity,
             seriesMeta: {
-              isMaxCollectorsChanged: true,
+              isMaxParticipantsChanged: true,
               isDescriptionChanged: true,
             },
           },
           series: {
             ...series,
             description: 'other',
-            maxCollectors: 1,
+            maxParticipants: 1,
           },
           status: statusMocks.default(),
         },

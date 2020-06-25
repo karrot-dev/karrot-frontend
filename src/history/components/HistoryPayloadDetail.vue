@@ -1,6 +1,6 @@
 <template>
   <QItem
-    v-if="label === 'collectors'"
+    v-if="label === 'participants'"
   >
     <QItemSection>
       <QItemLabel>

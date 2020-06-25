@@ -191,7 +191,7 @@ export default {
     },
     participants () {
       if (this.activity) {
-        return this.activity.collectors
+        return this.activity.participants
       }
       if (this.conversation.thread && this.conversation.threadMeta) {
         return this.conversation.threadMeta.participants

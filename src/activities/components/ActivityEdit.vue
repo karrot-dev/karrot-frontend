@@ -148,22 +148,22 @@
 
       <div>
         <QInput
-          v-model.number="edit.maxCollectors"
+          v-model.number="edit.maxParticipants"
           type="number"
           stack-label
-          :label="$t('CREATEPICKUP.MAX_COLLECTORS')"
-          :hint="$t('CREATEPICKUP.MAX_COLLECTORS_HELPER')"
+          :label="$t('CREATEPICKUP.MAX_PARTICIPANTS')"
+          :hint="$t('CREATEPICKUP.MAX_PARTICIPANTS_HELPER')"
           :placeholder="$t('CREATEPICKUP.UNLIMITED')"
-          :error="hasError('maxCollectors')"
-          :error-message="firstError('maxCollectors')"
+          :error="hasError('maxParticipants')"
+          :error-message="firstError('maxParticipants')"
           input-style="max-width: 100px"
         >
           <template #before>
             <QIcon name="group" />
           </template>
           <QSlider
-            v-if="edit.maxCollectors > 0 && edit.maxCollectors <= 10"
-            v-model="edit.maxCollectors"
+            v-if="edit.maxParticipants > 0 && edit.maxParticipants <= 10"
+            v-model="edit.maxParticipants"
             :min="1"
             :max="10"
             label
@@ -173,14 +173,14 @@
           />
           <template #after>
             <QIcon
-              v-if="series ? series.maxCollectors !== edit.maxCollectors : false"
+              v-if="series ? series.maxParticipants !== edit.maxParticipants : false"
               name="undo"
-              @click="edit.maxCollectors = series.maxCollectors"
+              @click="edit.maxParticipants = series.maxParticipants"
             />
           </template>
         </QInput>
         <div
-          v-if="seriesMeta.isMaxCollectorsChanged"
+          v-if="seriesMeta.isMaxParticipantsChanged"
           class="q-ml-lg col-12 q-field__bottom text-warning"
         >
           <QIcon name="warning" />

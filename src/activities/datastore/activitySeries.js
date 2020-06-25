@@ -24,7 +24,7 @@ export default {
           ...activity,
           seriesMeta: {
             isDescriptionChanged: entry.description !== activity.description,
-            isMaxCollectorsChanged: entry.maxCollectors !== activity.maxCollectors,
+            isMaxParticipantsChanged: entry.maxParticipants !== activity.maxParticipants,
             matchesRule: entry.datesPreview && entry.datesPreview.some(d => Math.abs(d - activity.date) < 1000),
           },
         }))

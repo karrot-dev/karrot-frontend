@@ -37,13 +37,13 @@
       </RandomArt>
       <div>
         <div
-          v-if="fellowCollectors.length > 0"
+          v-if="fellowParticipants.length > 0"
           class="q-mx-sm q-mt-md"
         >
           <div v-t="'PICKUP_FEEDBACK.TOGETHER_WITH'" />
           <div class="q-mt-sm">
             <ProfilePicture
-              v-for="user in fellowCollectors"
+              v-for="user in fellowParticipants"
               :key="user.id"
               :user="user"
               :size="35"
@@ -56,7 +56,7 @@
           :status="saveStatus"
           :is-bike-kitchen="isBikeKitchen"
           :is-general-purpose="isGeneralPurpose"
-          :has-multiple-collectors="fellowCollectors.length > 0"
+          :has-multiple-participants="fellowParticipants.length > 0"
           @save="$emit('save', arguments[0])"
         />
       </div>
@@ -200,9 +200,9 @@ export default {
       }
       return filtered
     },
-    fellowCollectors () {
+    fellowParticipants () {
       if (!this.select) return []
-      return this.select.collectors.filter(u => !u.isCurrentUser)
+      return this.select.participants.filter(u => !u.isCurrentUser)
     },
   },
   created () {

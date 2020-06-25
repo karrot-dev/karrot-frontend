@@ -102,11 +102,11 @@
                     :title="$t('PICKUPMANAGE.PICKUP_DESCRIPTION_CHANGED')"
                   />
                   <QIcon
-                    v-if="activity.seriesMeta.isMaxCollectorsChanged"
+                    v-if="activity.seriesMeta.isMaxParticipantsChanged"
                     class="text-warning"
                     name="group"
                     size="150%"
-                    :title="$t('PICKUPMANAGE.PICKUP_MAX_COLLECTORS_CHANGED')"
+                    :title="$t('PICKUPMANAGE.PICKUP_MAX_PARTICIPANTS_CHANGED')"
                   />
                 </QItemSection>
               </template>
@@ -300,7 +300,7 @@ export default {
     }),
     createNewSeries () {
       this.newSeries = {
-        maxCollectors: 2,
+        maxParticipants: 2,
         description: '',
         startDate: addHours(startOfTomorrow(), 10),
         duration: null,
@@ -324,7 +324,7 @@ export default {
     createNewActivity () {
       const date = addHours(startOfTomorrow(), 10) // default to 10am tomorrow
       this.newActivity = {
-        maxCollectors: 2,
+        maxParticipants: 2,
         description: '',
         date,
         dateEnd: addSeconds(date, defaultDuration),

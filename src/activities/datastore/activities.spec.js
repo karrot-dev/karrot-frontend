@@ -41,13 +41,13 @@ describe('activities', () => {
     beforeEach(() => {
       const now = new Date('2017-01-01T12:00:10Z')
       clock = lolex.install({ now, toFake: ['Date'] })
-      activity1 = { id: 1, place: 10, collectors: [], group, ...dates('2017-01-01T13:00:10Z') }
-      activity2 = { id: 2, place: 11, collectors: [userId], maxCollectors: 1, group, ...dates('2017-01-01T13:00:10Z') }
-      activity3 = { id: 3, place: 12, collectors: [userId], group, ...dates('2017-01-01T13:00:10Z') }
-      pastActivity1 = { id: 4, place: 13, collectors: [], group, ...dates('2017-01-01T09:00:10Z') }
-      pastActivity2 = { id: 4, place: 13, collectors: [], group, ...dates('2017-01-01T10:00:10Z') }
-      startedActivity1 = { id: 5, place: 13, collectors: [userId], group, ...dates('2017-01-01T09:00:10Z', 28800) }
-      startedActivity2 = { id: 6, place: 13, collectors: [], group, ...dates('2017-01-01T11:50:10Z') }
+      activity1 = { id: 1, place: 10, participants: [], group, ...dates('2017-01-01T13:00:10Z') }
+      activity2 = { id: 2, place: 11, participants: [userId], maxParticipants: 1, group, ...dates('2017-01-01T13:00:10Z') }
+      activity3 = { id: 3, place: 12, participants: [userId], group, ...dates('2017-01-01T13:00:10Z') }
+      pastActivity1 = { id: 4, place: 13, participants: [], group, ...dates('2017-01-01T09:00:10Z') }
+      pastActivity2 = { id: 4, place: 13, participants: [], group, ...dates('2017-01-01T10:00:10Z') }
+      startedActivity1 = { id: 5, place: 13, participants: [userId], group, ...dates('2017-01-01T09:00:10Z', 28800) }
+      startedActivity2 = { id: 6, place: 13, participants: [], group, ...dates('2017-01-01T11:50:10Z') }
     })
 
     afterEach(() => {
@@ -96,7 +96,7 @@ describe('activities', () => {
         isUserMember: true,
         isEmpty: false,
         isFull: true,
-        collectors: [{ id: userId, name: `Some Name${userId}` }],
+        participants: [{ id: userId, name: `Some Name${userId}` }],
         feedbackGivenBy: [],
         hasStarted: false,
       })
@@ -115,12 +115,12 @@ describe('activities', () => {
       const dateEnd = addSeconds(date, 1800)
       const activityId = 99
       const placeId = 101
-      mockGet.mockImplementationOnce(id => ({ id, date, dateEnd, place: placeId, collectors: [] }))
+      mockGet.mockImplementationOnce(id => ({ id, date, dateEnd, place: placeId, participants: [] }))
       await vstore.dispatch('activities/fetch', activityId)
       const activity = vstore.getters['activities/get'](activityId)
       expect(activity).toEqual({
         id: activityId,
-        collectors: [],
+        participants: [],
         feedbackGivenBy: [],
         date,
         dateEnd,
@@ -151,9 +151,9 @@ describe('activities', () => {
     })
 
     it('can update a activity', () => {
-      const changed = { ...activity1, maxCollectors: 987 }
+      const changed = { ...activity1, maxParticipants: 987 }
       vstore.commit('activities/update', [changed])
-      expect(vstore.getters['activities/get'](changed.id).maxCollectors).toEqual(changed.maxCollectors)
+      expect(vstore.getters['activities/get'](changed.id).maxParticipants).toEqual(changed.maxParticipants)
     })
 
     it('can delete a activity', () => {

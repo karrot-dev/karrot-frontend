@@ -17,7 +17,7 @@
     />
 
     <div
-      v-if="!isBikeKitchen && !isGeneralPurpose && hasMultipleCollectors"
+      v-if="!isBikeKitchen && !isGeneralPurpose && hasMultipleParticipants"
       class="row no-wrap items-center q-mx-sm text-caption"
     >
       <QIcon
@@ -85,7 +85,7 @@ export default {
       type: Boolean,
       default: false,
     },
-    hasMultipleCollectors: {
+    hasMultipleParticipants: {
       type: Boolean,
       default: false,
     },

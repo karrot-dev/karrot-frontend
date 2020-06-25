@@ -4639,7 +4639,7 @@ exports[`Storyshots Feedback ActivityFeedback 1`] = `
             </a></div>
         </div>
       </div>
-      <form has-multiple-participants="true">
+      <form>
         <div class="relative-position q-mb-sm q-mx-sm"><label for="f_80808080-8080-4080-8080-808080808080" class="q-field q-validation-component row no-wrap items-start q-textarea q-textarea--autogrow q-field--standard q-field--labeled q-field--with-bottom">
             <div class="q-field__inner relative-position col self-stretch column justify-center">
               <div tabindex="-1" class="q-field__control relative-position row no-wrap">
@@ -4697,7 +4697,9 @@ exports[`Storyshots Feedback ActivityFeedback 1`] = `
             </div>
           </div>
         </div>
-        <!---->
+        <div class="row no-wrap items-center q-mx-sm text-caption"><i aria-hidden="true" role="presentation" class="q-mr-sm text-grey material-icons q-icon notranslate" style="font-size:1.5em;">info</i>
+          <div></div>
+        </div>
         <!---->
         <div class="row justify-end q-ma-md q-gutter-sm">
           <!----> <button tabindex="0" type="submit" role="button" class="q-btn q-btn-item non-selectable no-outline q-btn--standard q-btn--rectangle bg-secondary text-white q-btn--actionable q-focusable q-hoverable q-btn--wrap"><span class="q-focus-helper"></span><span class="q-btn__wrapper col row q-anchor--skip"><span class="q-btn__content text-center col items-center q-anchor--skip justify-center row"><span></span></span></span>
@@ -6554,10 +6556,10 @@ exports[`Storyshots GroupSettings show 1`] = `
         </div>
         <div class="q-item__section column q-item__section--main justify-center">
           <div class="q-item__label">
-            GROUP.NOTIFICATION_TYPES.daily_activity_notification.NAME
+            Pickup notifications
           </div>
           <div class="q-item__label q-item__label--caption text-caption">
-            GROUP.NOTIFICATION_TYPES.daily_activity_notification.DESCRIPTION
+            Reminds you of your pickups, and tells you about empty or not-full pickups of your favorite places in the next day
           </div>
         </div>
         <div class="q-item__section column q-item__section--side justify-center"><svg focusable="false" width="18px" height="18px" viewBox="25 25 50 50" class="q-spinner q-spinner-mat invisible">
@@ -8096,7 +8098,7 @@ exports[`Storyshots Notifications activity_disabled 1`] = `
   <!---->
   <div class="q-item__section column q-item__section--main justify-center">
     <div class="q-item__label" style="overflow:hidden;display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:2;"><i aria-hidden="true" role="presentation" class="q-mx-xs vertical-baseline fas fa-times q-icon notranslate"> </i>
-      NOTIFICATION_BELLS.ACTIVITY_DISABLED
+      Pickup at Sunday, December 24, 12:00 PM was disabled
     </div>
     <div class="q-item__label q-item__label--caption text-caption">
       <div title="Dec 24, 2017, 12:00 PM" style="display:inline;">
@@ -8116,7 +8118,7 @@ exports[`Storyshots Notifications activity_enabled 1`] = `
   <!---->
   <div class="q-item__section column q-item__section--main justify-center">
     <div class="q-item__label" style="overflow:hidden;display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:2;"><i aria-hidden="true" role="presentation" class="q-mx-xs vertical-baseline fas fa-check q-icon notranslate"> </i>
-      NOTIFICATION_BELLS.ACTIVITY_ENABLED
+      Pickup at Sunday, December 24, 12:00 PM was enabled again
     </div>
     <div class="q-item__label q-item__label--caption text-caption">
       <div title="Dec 24, 2017, 12:00 PM" style="display:inline;">
@@ -8136,7 +8138,7 @@ exports[`Storyshots Notifications activity_moved 1`] = `
   <!---->
   <div class="q-item__section column q-item__section--main justify-center">
     <div class="q-item__label" style="overflow:hidden;display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:2;"><i aria-hidden="true" role="presentation" class="q-mx-xs vertical-baseline far fa-clock q-icon notranslate"> </i>
-      NOTIFICATION_BELLS.ACTIVITY_MOVED
+      Pickup was moved to Sunday, December 24, 12:00 PM
     </div>
     <div class="q-item__label q-item__label--caption text-caption">
       <div title="Dec 24, 2017, 12:00 PM" style="display:inline;">
@@ -8156,7 +8158,7 @@ exports[`Storyshots Notifications activity_upcoming 1`] = `
   <!---->
   <div class="q-item__section column q-item__section--main justify-center">
     <div class="q-item__label" style="overflow:hidden;display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:2;"><i aria-hidden="true" role="presentation" class="q-mx-xs vertical-baseline fas fa-calendar-alt q-icon notranslate"> </i>
-      NOTIFICATION_BELLS.ACTIVITY_UPCOMING
+      Reminder: You have a pickup at 12:00 PM
     </div>
     <div class="q-item__label q-item__label--caption text-caption">
       <div title="Dec 24, 2017, 2:00 PM" style="display:inline;">
@@ -9542,10 +9544,10 @@ exports[`Storyshots Settings Page Default 1`] = `
           </div>
           <div class="q-item__section column q-item__section--main justify-center">
             <div class="q-item__label">
-              GROUP.NOTIFICATION_TYPES.daily_activity_notification.NAME
+              Pickup notifications
             </div>
             <div class="q-item__label q-item__label--caption text-caption">
-              GROUP.NOTIFICATION_TYPES.daily_activity_notification.DESCRIPTION
+              Reminds you of your pickups, and tells you about empty or not-full pickups of your favorite places in the next day
             </div>
           </div>
           <div class="q-item__section column q-item__section--side justify-center"><svg focusable="false" width="18px" height="18px" viewBox="25 25 50 50" class="q-spinner q-spinner-mat invisible">

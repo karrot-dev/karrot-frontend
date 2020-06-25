@@ -13,7 +13,7 @@
     <div
       class="absolute-full leave-icon vertical-top"
       :style="{ 'font-size': size*0.8 + 'px' }"
-      :title="$t('PICKUPLIST.ITEM.LEAVE')"
+      :title="$t('ACTIVITYLIST.ITEM.LEAVE')"
     >
       <div class="absolute-center">
         <i

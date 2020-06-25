@@ -121,10 +121,10 @@
     "SET_LOGO": "अपने समूह का प्रतीक चिन्ह अपलोड करने के लिए क्लिक करें!",
     "APPLICATIONS": "आवेदन",
     "APPLICATION_QUESTIONS": "इस समूह में शामिल होने वाले लोगों के लिए प्रश्न",
-    "PICKUPS": "पिकप",
+    "ACTIVITYS": "पिकप",
     "MESSAGES": "संदेश",
     "OFFERS": "ऑफर",
-    "PICKUP": "पिक अप",
+    "ACTIVITY": "पिक अप",
     "MEMBERS": "सदस्य ",
     "JOINED": "{relativeDate} को शामिल हुए",
     "DECLINED": "{relativeDate} को मना कर दिया",
@@ -225,16 +225,16 @@
       "NO_TEXT": "इनमे से कोई भी नहीं। आप अभी भी पिकअप के लिए जुड़ सकते हैं।"
     }
   },
-  "PICKUPMANAGE": {
+  "ACTIVITYMANAGE": {
     "TITLE": "पिकअप को प्रबंधित करें",
     "SERIES": "आवर्ती पिकअप",
     "SINGLE": "एक बार पिकअप",
-    "UPCOMING_PICKUPS_IN_SERIES": "इस श्रृंखला में आगामी पिकअप",
-    "PICKUP_DOES_NOT_MATCH": "यह पिकअप की तारीख पुनरावृत्ति पैटर्न से मेल नहीं खाती है",
-    "PICKUP_DESCRIPTION_CHANGED": "'अतिरिक्त जानकारी' बदल दी गई है",
-    "PICKUP_MAX_COLLECTORS_CHANGED": "'अधिकतम स्लॉट' बदल दिए गए हैं"
+    "UPCOMING_ACTIVITYS_IN_SERIES": "इस श्रृंखला में आगामी पिकअप",
+    "ACTIVITY_DOES_NOT_MATCH": "यह पिकअप की तारीख पुनरावृत्ति पैटर्न से मेल नहीं खाती है",
+    "ACTIVITY_DESCRIPTION_CHANGED": "'अतिरिक्त जानकारी' बदल दी गई है",
+    "ACTIVITY_MAX_PARTICIPANTS_CHANGED": "'अधिकतम स्लॉट' बदल दिए गए हैं"
   },
-  "PICKUPDELETE": {
+  "ACTIVITYDELETE": {
     "DELETE_SERIES_TITLE": "पुनरावर्ती पिकअप तारीख को हटाएं",
     "DELETE_SERIES_TEXT": "क्या आप वास्तव में इस आवर्ती पिक अप तारीख को हटाना चाहते हैं? यह सभी बार-बार पिक अप तिथियों को भी हटा देगा जो इस आवर्ती पिक अप तारीख से संबंधित हैं (जहां लोग पहले ही शामिल हो गए थे)।"
   },
@@ -302,7 +302,7 @@
     "TITLE": "अकाउंट हटाना",
     "SUCCESS": "आपका खाता सफलतापूर्वक हटाया गया था"
   },
-  "CREATEPICKUP": {
+  "CREATEACTIVITY": {
     "FREQUENCY": "आवृत्ति",
     "WEEKLY": "साप्ताहिक",
     "CUSTOM": "स्वनिर्धारित",
@@ -316,8 +316,8 @@
     "STARTDATE_HELPER": "कब श्रृंखला शुरू होनी चाहिए?",
     "TIME_HELPER": "पिक-अप कब होना चाहिए?",
     "DATE": "तारीख",
-    "MAX_COLLECTORS": "अधिकतम स्लॉट",
-    "MAX_COLLECTORS_HELPER": "पिक-अप में कितने लोगों को भाग लेना चाहिए?",
+    "MAX_PARTICIPANTS": "अधिकतम स्लॉट",
+    "MAX_PARTICIPANTS_HELPER": "पिक-अप में कितने लोगों को भाग लेना चाहिए?",
     "COMMENT": "अधिक जानकारी",
     "COMMENT_HELPER": "इस पिकअप तक साइन अप करते समय लोगों को क्या पता होना चाहिए?",
     "UNLIMITED": "असीमित",
@@ -331,7 +331,7 @@
   "CREATESTORE": {
     "TITLE": "नया स्थान बनाएँ"
   },
-  "PICKUPLIST": {
+  "ACTIVITYLIST": {
     "FILTER": {
       "ALL": "सब",
       "EMPTY": "केवल खाली",
@@ -352,20 +352,20 @@
     "NONE": "कोई आगामी पिकअप नहीं",
     "NONE_HINT": "आप स्थान पृष्ठ पर एक नया पिक अप बना सकते हैं।",
     "STORE_NONE_HINT": "आप पिकअप प्रबंधन पृष्ठ पर एक नया पिकअप बना सकते हैं।",
-    "PICKUP_DISABLED": "इस पिक अप को निष्क्रिय कर दिया गया है।",
-    "PICKUP_STARTED": "यह पिक अप पहले ही शुरू हो चुका है।"
+    "ACTIVITY_DISABLED": "इस पिक अप को निष्क्रिय कर दिया गया है।",
+    "ACTIVITY_STARTED": "यह पिक अप पहले ही शुरू हो चुका है।"
   },
   "FEEDBACKLIST": {
     "SAVED_FOOD": "धन्यवाद!! यहां कम से कम 1 किलो बचाया गया था। लोगों ने {amount} किलो बचाए हुए भोजन को पहले ही प्रतिक्रिया दे दि है! अच्छा काम करते रहिए!",
-    "NUMBER_PICKUPS": "{count} पिकअप किए गये",
+    "NUMBER_ACTIVITYS": "{count} पिकअप किए गये",
     "NUMBER_FEEDBACK": "{count} प्रतिक्रिया दी गई",
     "WEIGHT_SUM": "{sum} किलो खाना बचाया गया",
     "NONE": "अभी तक कोई प्रतिक्रिया नहीं",
     "NONE_HINT": "और प्रतिक्रिया उपलब्ध होने पर यह पृष्ठ भर जाएगा",
-    "NO_DONE_PICKUPS": "सब कुछ कर दिया!",
-    "NO_DONE_PICKUPS_HINT": "वर्तमान में आपके पास प्रतिक्रिया देने के लिए कोई पिक अप नहीं है। क्यों ना दूसरे पिक अप में शामिल हो ?"
+    "NO_DONE_ACTIVITYS": "सब कुछ कर दिया!",
+    "NO_DONE_ACTIVITYS_HINT": "वर्तमान में आपके पास प्रतिक्रिया देने के लिए कोई पिक अप नहीं है। क्यों ना दूसरे पिक अप में शामिल हो ?"
   },
-  "PICKUP_FEEDBACK": {
+  "ACTIVITY_FEEDBACK": {
     "TITLE": "प्रतिक्रिया",
     "HEADER": "अपने पिकअप के लिए धन्यवाद!",
     "EDIT": "प्रतिक्रिया संपादित करें",
@@ -414,18 +414,18 @@
     "STORE_CREATE": "{name} स्थान बनाया गया",
     "STORE_MODIFY": "{name} स्थान की सेटिंग बदल दी",
     "STORE_DELETE": "{name} स्थान हटाई गई",
-    "PICKUP_CREATE": "नया एक बार पिक-अप बनाया",
-    "PICKUP_MODIFY": "पिक-अप की सेटिंग बदल दी",
-    "PICKUP_DELETE": "एक पिक-अप को हटा दिया",
-    "PICKUP_ENABLE": "पिक अप को सक्षम किया",
-    "PICKUP_DISABLE": "पिक अप अक्षम किया",
+    "ACTIVITY_CREATE": "नया एक बार पिक-अप बनाया",
+    "ACTIVITY_MODIFY": "पिक-अप की सेटिंग बदल दी",
+    "ACTIVITY_DELETE": "एक पिक-अप को हटा दिया",
+    "ACTIVITY_ENABLE": "पिक अप को सक्षम किया",
+    "ACTIVITY_DISABLE": "पिक अप अक्षम किया",
     "SERIES_CREATE": "एक नया पुनरावर्ती पिक-अप बनाया",
     "SERIES_MODIFY": "एक पुनरावर्ती पिक-अप की सेटिंग बदल दी",
     "SERIES_DELETE": "एक पुनरावर्ती पिक-अप को हटा दिया",
-    "PICKUP_DONE": "{storeName} पर पिक-अप किया",
-    "PICKUP_MISSED": "{storeName} पर एक पिक अप छूट गया था!",
-    "PICKUP_JOIN": "{storeName} पर पिक-अप करने के लिए साइन अप हुआ",
-    "PICKUP_LEAVE": "{storeName} पर पिक-अप करने का कदम वापस लिया",
+    "ACTIVITY_DONE": "{storeName} पर पिक-अप किया",
+    "ACTIVITY_MISSED": "{storeName} पर एक पिक अप छूट गया था!",
+    "ACTIVITY_JOIN": "{storeName} पर पिक-अप करने के लिए साइन अप हुआ",
+    "ACTIVITY_LEAVE": "{storeName} पर पिक-अप करने का कदम वापस लिया",
     "APPLICATION_DECLINED": "{applicantName} के आवेदन को अस्वीकार कर दिया गया",
     "MEMBER_BECAME_EDITOR": "संपादन अनुमति प्राप्त की गयी",
     "GROUP_LEAVE_INACTIVE": "निष्क्रियता के कारण हटा दिया गया था",
@@ -457,10 +457,10 @@
     "FEEDBACK_POSSIBLE": "आप {date} को किए गए पिक अप के लिए प्रतिक्रिया दे सकते हैं",
     "NEW_PLACE": "{placeName} बनाया गया है",
     "NEW_MEMBER": "{userName} आपके ग्रुप में शामिल हो गया",
-    "PICKUP_UPCOMING": "अनुस्मारक: आपके पास {time} बजे एक पिक अप है",
-    "PICKUP_DISABLED": "{dateTime} बजे पिक अप अक्षम था",
-    "PICKUP_ENABLED": "{dateTime} बजे पिक अप को फिर से सक्षम किया गया",
-    "PICKUP_MOVED": "पिक अप को {dateTime} बजे स्थानांतरित कर दिया गया",
+    "ACTIVITY_UPCOMING": "अनुस्मारक: आपके पास {time} बजे एक पिक अप है",
+    "ACTIVITY_DISABLED": "{dateTime} बजे पिक अप अक्षम था",
+    "ACTIVITY_ENABLED": "{dateTime} बजे पिक अप को फिर से सक्षम किया गया",
+    "ACTIVITY_MOVED": "पिक अप को {dateTime} बजे स्थानांतरित कर दिया गया",
     "CONFLICT_RESOLUTION_CREATED": "{userName} के साथ संघर्ष के बारे में चर्चा में शामिल हों",
     "CONFLICT_RESOLUTION_CREATED_ABOUT_YOU": "आपके साथ एक संघर्ष समाधान प्रक्रिया शुरू की गई थी",
     "CONFLICT_RESOLUTION_CONTINUED": "{userName} के साथ संघर्ष समाधान प्रक्रिया जारी है",

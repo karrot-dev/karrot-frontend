@@ -17,7 +17,7 @@
             >
           </div>
           <div class="image-and-text-right">
-            <h4>{{ $t(editFeedbackId ? 'PICKUP_FEEDBACK.EDIT' : 'PICKUP_FEEDBACK.HEADER') }}</h4>
+            <h4>{{ $t(editFeedbackId ? 'ACTIVITY_FEEDBACK.EDIT' : 'ACTIVITY_FEEDBACK.HEADER') }}</h4>
             <p>
               <QSelect
                 v-if="!editFeedbackId"
@@ -40,7 +40,7 @@
           v-if="fellowParticipants.length > 0"
           class="q-mx-sm q-mt-md"
         >
-          <div v-t="'PICKUP_FEEDBACK.TOGETHER_WITH'" />
+          <div v-t="'ACTIVITY_FEEDBACK.TOGETHER_WITH'" />
           <div class="q-mt-sm">
             <ProfilePicture
               v-for="user in fellowParticipants"
@@ -65,9 +65,9 @@
       <template #icon>
         <i class="fas fa-bed" />
       </template>
-      {{ $t('FEEDBACKLIST.NO_DONE_PICKUPS') }}
+      {{ $t('FEEDBACKLIST.NO_DONE_ACTIVITYS') }}
       <template #desc>
-        {{ $t('FEEDBACKLIST.NO_DONE_PICKUPS_HINT') }}
+        {{ $t('FEEDBACKLIST.NO_DONE_ACTIVITYS_HINT') }}
       </template>
     </KNotice>
     <QCard
@@ -80,7 +80,7 @@
         type="banner"
       />
       <h4
-        v-t="{ path: 'PICKUP_FEEDBACK.PREVIOUS', args: { store: select.place.name } }"
+        v-t="{ path: 'ACTIVITY_FEEDBACK.PREVIOUS', args: { store: select.place.name } }"
         class="generic-padding"
       />
       <FeedbackList

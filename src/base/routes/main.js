@@ -223,7 +223,7 @@ export default [
         path: 'activities',
         meta: {
           breadcrumbs: [
-            { translation: 'GROUP.PICKUPS', route: { name: 'groupActivities' } },
+            { translation: 'GROUP.ACTIVITYS', route: { name: 'groupActivities' } },
           ],
         },
         component: GroupActivities,
@@ -307,7 +307,7 @@ export default [
         path: 'feedback',
         meta: {
           breadcrumbs: [
-            { translation: 'PICKUP_FEEDBACK.TITLE', route: { name: 'groupFeedback' } },
+            { translation: 'ACTIVITY_FEEDBACK.TITLE', route: { name: 'groupFeedback' } },
           ],
           beforeEnter: 'feedback/fetch',
           afterLeave: 'feedback/clear',
@@ -516,7 +516,7 @@ export default [
         meta: {
           requireLoggedIn: true,
           breadcrumbs: [
-            { translation: 'GROUP.PICKUP' },
+            { translation: 'GROUP.ACTIVITY' },
           ],
           beforeEnter: 'detail/routeEnter',
           afterLeave: 'detail/routeLeave',
@@ -532,7 +532,7 @@ export default [
         path: 'give-feedback/:activityId?',
         meta: {
           breadcrumbs: [
-            { translation: 'PICKUP_FEEDBACK.TITLE', route: { name: 'giveFeedback' } },
+            { translation: 'ACTIVITY_FEEDBACK.TITLE', route: { name: 'giveFeedback' } },
           ],
           beforeEnter: 'feedback/fetch',
           afterLeave: 'feedback/clear',
@@ -544,7 +544,7 @@ export default [
         path: 'feedback/:feedbackId',
         meta: {
           breadcrumbs: [
-            { translation: 'PICKUP_FEEDBACK.TITLE', route: { name: 'editFeedback' } },
+            { translation: 'ACTIVITY_FEEDBACK.TITLE', route: { name: 'editFeedback' } },
           ],
           beforeEnter: 'feedback/select',
           afterLeave: 'feedback/clear',

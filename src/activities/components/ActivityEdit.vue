@@ -8,7 +8,7 @@
         v-if="edit.isDisabled"
         class="text-negative"
       >
-        {{ $t('PICKUPLIST.PICKUP_DISABLED') }}
+        {{ $t('ACTIVITYLIST.ACTIVITY_DISABLED') }}
       </b>
     </div>
 
@@ -140,7 +140,7 @@
             <div
               v-else
             >
-              {{ $t('CREATEPICKUP.TIME_HELPER') }}
+              {{ $t('CREATEACTIVITY.TIME_HELPER') }}
             </div>
           </div>
         </div>
@@ -151,9 +151,9 @@
           v-model.number="edit.maxParticipants"
           type="number"
           stack-label
-          :label="$t('CREATEPICKUP.MAX_PARTICIPANTS')"
-          :hint="$t('CREATEPICKUP.MAX_PARTICIPANTS_HELPER')"
-          :placeholder="$t('CREATEPICKUP.UNLIMITED')"
+          :label="$t('CREATEACTIVITY.MAX_PARTICIPANTS')"
+          :hint="$t('CREATEACTIVITY.MAX_PARTICIPANTS_HELPER')"
+          :placeholder="$t('CREATEACTIVITY.UNLIMITED')"
           :error="hasError('maxParticipants')"
           :error-message="firstError('maxParticipants')"
           input-style="max-width: 100px"
@@ -184,7 +184,7 @@
           class="q-ml-lg col-12 q-field__bottom text-warning"
         >
           <QIcon name="warning" />
-          {{ $t('CREATEPICKUP.DIFFERS_WARNING') }}
+          {{ $t('CREATEACTIVITY.DIFFERS_WARNING') }}
         </div>
       </div>
 
@@ -193,8 +193,8 @@
           v-model="edit.description"
           :error="hasError('description')"
           :error-message="firstError('description')"
-          :label="$t('CREATEPICKUP.COMMENT')"
-          :hint="$t('CREATEPICKUP.COMMENT_HELPER')"
+          :label="$t('CREATEACTIVITY.COMMENT')"
+          :hint="$t('CREATEACTIVITY.COMMENT_HELPER')"
           type="textarea"
           maxlength="500"
           autogrow
@@ -216,7 +216,7 @@
           class="q-ml-lg col-12 q-field__bottom text-warning"
         >
           <QIcon name="warning" />
-          {{ $t('CREATEPICKUP.DIFFERS_WARNING') }}
+          {{ $t('CREATEACTIVITY.DIFFERS_WARNING') }}
         </div>
       </div>
 
@@ -430,8 +430,8 @@ export default {
     disable () {
       try {
         Dialog.create({
-          title: this.$t('CREATEPICKUP.DISABLE_TITLE'),
-          message: this.$t('CREATEPICKUP.ENABLE_DISABLE_MESSAGE'),
+          title: this.$t('CREATEACTIVITY.DISABLE_TITLE'),
+          message: this.$t('CREATEACTIVITY.ENABLE_DISABLE_MESSAGE'),
           prompt: {
             model: this.edit.description,
             type: 'text',
@@ -451,8 +451,8 @@ export default {
     enable () {
       try {
         Dialog.create({
-          title: this.$t('CREATEPICKUP.ENABLE_TITLE'),
-          message: this.$t('CREATEPICKUP.ENABLE_DISABLE_MESSAGE'),
+          title: this.$t('CREATEACTIVITY.ENABLE_TITLE'),
+          message: this.$t('CREATEACTIVITY.ENABLE_DISABLE_MESSAGE'),
           prompt: {
             // reset if there's a series default
             model: this.series ? this.series.description : this.edit.description,

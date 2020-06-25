@@ -121,10 +121,10 @@
     "SET_LOGO": "Klicke, um dein Gruppenlogo hochzuladen!",
     "APPLICATIONS": "Bewerbungen",
     "APPLICATION_QUESTIONS": "Fragen an die Menschen, die dieser Gruppe beitreten wollen",
-    "PICKUPS": "Abholungen",
+    "ACTIVITYS": "Abholungen",
     "MESSAGES": "Nachrichten",
     "OFFERS": "Angebote",
-    "PICKUP": "Abholung",
+    "ACTIVITY": "Abholung",
     "MEMBERS": "Mitglieder",
     "JOINED": "{relativeDate} beigetreten",
     "DECLINED": "abgelehnt {relativeDate}",
@@ -225,16 +225,16 @@
       "NO_TEXT": "Nichts von oben. Du kannst dich trotzdem für Abholungen einschreiben."
     }
   },
-  "PICKUPMANAGE": {
+  "ACTIVITYMANAGE": {
     "TITLE": "Abholzeiten-Editor",
     "SERIES": "Wiederkehrende Abholungen",
     "SINGLE": "Einmalige Abholungen",
-    "UPCOMING_PICKUPS_IN_SERIES": "Kommende Einzelabholungen",
-    "PICKUP_DOES_NOT_MATCH": "Dieses Abholungsdatum stimmt nicht mit der Frequenz sonstiger Abholungen überein.",
-    "PICKUP_DESCRIPTION_CHANGED": "'Zusätzliche Information' wurde geändert",
-    "PICKUP_MAX_COLLECTORS_CHANGED": "'Max slots' wurde geändert"
+    "UPCOMING_ACTIVITYS_IN_SERIES": "Kommende Einzelabholungen",
+    "ACTIVITY_DOES_NOT_MATCH": "Dieses Abholungsdatum stimmt nicht mit der Frequenz sonstiger Abholungen überein.",
+    "ACTIVITY_DESCRIPTION_CHANGED": "'Zusätzliche Information' wurde geändert",
+    "ACTIVITY_MAX_PARTICIPANTS_CHANGED": "'Max slots' wurde geändert"
   },
-  "PICKUPDELETE": {
+  "ACTIVITYDELETE": {
     "DELETE_SERIES_TITLE": "Regelmäßige Abholung löschen",
     "DELETE_SERIES_TEXT": "Willst du wirklich diese regelmäßige Abholung löschen? Das löscht alle Abholungstermine, die zu der regelmäßigen Abholung gehören (außer wenn bereit Abholer eingetragen sind)."
   },
@@ -302,7 +302,7 @@
     "TITLE": "Account-Löschung",
     "SUCCESS": "Dein Account wurde erfolgreich gelöscht!"
   },
-  "CREATEPICKUP": {
+  "CREATEACTIVITY": {
     "FREQUENCY": "Häufigkeit",
     "WEEKLY": "Wöchentlich",
     "CUSTOM": "Benutzerdefiniert",
@@ -316,8 +316,8 @@
     "STARTDATE_HELPER": "Wann sollen die Abholungen beginnen?",
     "TIME_HELPER": "Wann soll die Abholung stattfinden?",
     "DATE": "Datum",
-    "MAX_COLLECTORS": "Anzahl Abholer",
-    "MAX_COLLECTORS_HELPER": "Wie viele Leute sollen bei der Abholung teilnehmen?",
+    "MAX_PARTICIPANTS": "Anzahl Abholer",
+    "MAX_PARTICIPANTS_HELPER": "Wie viele Leute sollen bei der Abholung teilnehmen?",
     "COMMENT": "Zusätzliche Informationen",
     "COMMENT_HELPER": "Was sollten die Leute wissen, wenn sie bei dieser Abholung teilnehmen?",
     "UNLIMITED": "unbegrenzt",
@@ -331,7 +331,7 @@
   "CREATESTORE": {
     "TITLE": "Neuen Ort erstellen"
   },
-  "PICKUPLIST": {
+  "ACTIVITYLIST": {
     "FILTER": {
       "ALL": "Alle",
       "EMPTY": "Nur leere",
@@ -352,20 +352,20 @@
     "NONE": "Es stehen keine Abholungen an.",
     "NONE_HINT": "Du kannst eine neue Abholung auf der Seite des Ortes erstellen.",
     "STORE_NONE_HINT": "Im Abholzeiten-Editor kannst du eine neue Abholung erstellen.",
-    "PICKUP_DISABLED": "Diese Abholung wurde deaktiviert.",
-    "PICKUP_STARTED": "Diese Abholung hat bereits begonnen."
+    "ACTIVITY_DISABLED": "Diese Abholung wurde deaktiviert.",
+    "ACTIVITY_STARTED": "Diese Abholung hat bereits begonnen."
   },
   "FEEDBACKLIST": {
     "SAVED_FOOD": "Mindestens 1 kg wurde hier gerettet. Dankeschön! | Es wurde bereits für {amount} kg gerettete Lebensmittel Feedback gegeben! Weiter so!",
-    "NUMBER_PICKUPS": "{count} Abholungen",
+    "NUMBER_ACTIVITYS": "{count} Abholungen",
     "NUMBER_FEEDBACK": "{count} Rückmeldungen",
     "WEIGHT_SUM": "{sum} kg Lebensmittel gerettet",
     "NONE": "Bisher kein Feedback",
     "NONE_HINT": "Auf dieser Seite wird etwas stehen, sobald Feedback abgegeben wurde",
-    "NO_DONE_PICKUPS": "Alles erledigt!",
-    "NO_DONE_PICKUPS_HINT": "Du hast derzeit keine erledigten Abholungen, auf die du Rückmeldung geben kannst. Warum nicht gleich zur nächsten Abholung eintragen?"
+    "NO_DONE_ACTIVITYS": "Alles erledigt!",
+    "NO_DONE_ACTIVITYS_HINT": "Du hast derzeit keine erledigten Abholungen, auf die du Rückmeldung geben kannst. Warum nicht gleich zur nächsten Abholung eintragen?"
   },
-  "PICKUP_FEEDBACK": {
+  "ACTIVITY_FEEDBACK": {
     "TITLE": "Feedback",
     "HEADER": "Danke für deine Abholung!",
     "EDIT": "Rückmeldung bearbeiten",
@@ -414,18 +414,18 @@
     "STORE_CREATE": "hat den Ort {name} erstellt",
     "STORE_MODIFY": "hat die Einstellungen vom Ort {name} verändert",
     "STORE_DELETE": "hat den Ort {name} gelöscht",
-    "PICKUP_CREATE": "hat einen neuen einmaligen Abholtermin erstellt",
-    "PICKUP_MODIFY": "hat die Eigenschaften eines Abholtermins geändert",
-    "PICKUP_DELETE": "hat einen Abholtermin gelöscht",
-    "PICKUP_ENABLE": "hat eine Abholung aktiviert",
-    "PICKUP_DISABLE": "hat eine Abholung deaktiviert",
+    "ACTIVITY_CREATE": "hat einen neuen einmaligen Abholtermin erstellt",
+    "ACTIVITY_MODIFY": "hat die Eigenschaften eines Abholtermins geändert",
+    "ACTIVITY_DELETE": "hat einen Abholtermin gelöscht",
+    "ACTIVITY_ENABLE": "hat eine Abholung aktiviert",
+    "ACTIVITY_DISABLE": "hat eine Abholung deaktiviert",
     "SERIES_CREATE": "hat einen neuen regelmäßigen Abholtermin erstellt",
     "SERIES_MODIFY": "hat die Eigenschaften eines regelmäßigen Abholtermins geändert",
     "SERIES_DELETE": "hat einen regelmäßigen Abholtermin gelöscht",
-    "PICKUP_DONE": "haben bei Betrieb {storeName} abgeholt",
-    "PICKUP_MISSED": "Eine Abholung bei {storeName} wurde verpasst!",
-    "PICKUP_JOIN": "hat sich gemeldet, um bei Betrieb {storeName} abzuholen",
-    "PICKUP_LEAVE": "ist von der Abholung bei {storeName} zurückgetreten",
+    "ACTIVITY_DONE": "haben bei Betrieb {storeName} abgeholt",
+    "ACTIVITY_MISSED": "Eine Abholung bei {storeName} wurde verpasst!",
+    "ACTIVITY_JOIN": "hat sich gemeldet, um bei Betrieb {storeName} abzuholen",
+    "ACTIVITY_LEAVE": "ist von der Abholung bei {storeName} zurückgetreten",
     "APPLICATION_DECLINED": "hat eine Bewerbung von {applicantName} abgelehnt",
     "MEMBER_BECAME_EDITOR": "erhielt Bearbeitungsrechte",
     "GROUP_LEAVE_INACTIVE": "wurde wegen Inaktivität gelöscht",
@@ -457,10 +457,10 @@
     "FEEDBACK_POSSIBLE": "Du kannst ein Feedback zu der Abholung vom '{date}' geben.",
     "NEW_PLACE": "{placeName} wurde erstellt",
     "NEW_MEMBER": "{userName} schloss sich deiner Gruppe an",
-    "PICKUP_UPCOMING": "Erinnerung: Du hast um {time} eine Abholung",
-    "PICKUP_DISABLED": "Abholung am {dateTime} wurde deaktiviert",
-    "PICKUP_ENABLED": "Abholung am {dateTime} wurde wieder aktiviert",
-    "PICKUP_MOVED": "Abholung wurde nach {dateTime} verschoben",
+    "ACTIVITY_UPCOMING": "Erinnerung: Du hast um {time} eine Abholung",
+    "ACTIVITY_DISABLED": "Abholung am {dateTime} wurde deaktiviert",
+    "ACTIVITY_ENABLED": "Abholung am {dateTime} wurde wieder aktiviert",
+    "ACTIVITY_MOVED": "Abholung wurde nach {dateTime} verschoben",
     "CONFLICT_RESOLUTION_CREATED": "Trete der Diskussion über den Konflikt mit {userName} bei",
     "CONFLICT_RESOLUTION_CREATED_ABOUT_YOU": "Ein Konfliktlösungsprozess mit dir würde gestartet",
     "CONFLICT_RESOLUTION_CONTINUED": "Der Konfliktlösungsprozess mit {userName} geht weiter",

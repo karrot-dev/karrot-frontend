@@ -5,7 +5,7 @@
     <MarkdownInput
       v-model="edit.comment"
       class="q-mx-sm"
-      :label="$t('PICKUP_FEEDBACK.COMMENT_PLACEHOLDER')"
+      :label="$t('ACTIVITY_FEEDBACK.COMMENT_PLACEHOLDER')"
       @keyup.ctrl.enter="maybeSave"
     />
 
@@ -25,7 +25,7 @@
         size="1.5em"
         class="q-mr-sm text-grey"
       />
-      <div v-t="'PICKUP_FEEDBACK.AMOUNT_INFO'" />
+      <div v-t="'ACTIVITY_FEEDBACK.AMOUNT_INFO'" />
     </div>
 
     <div

@@ -8,7 +8,7 @@
         class="on-left"
         :class="$icon('activity')"
       />
-      {{ $tc('PICKUPLIST.JOINEDNOTICE', activities.length, { count: activities.length }) }}
+      {{ $tc('ACTIVITYLIST.JOINEDNOTICE', activities.length, { count: activities.length }) }}
       <div
         class="card-arrow"
         :class="{ upsideDown: showActivities }"

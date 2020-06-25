@@ -113,15 +113,15 @@ export const feedbackMock = [
 })
 
 export const historyMock = [
-  { id: 4155, date: '2017-10-02T09:15:42.484Z', typus: 'PICKUP_JOIN', group: 1, place: 56, users: [1], payload: { description: 'This is default...', place: 56, id: 1037, series: 31, maxParticipants: 4, date: '2017-10-03T17:00:00.000Z', participants: [1] } },
-  { id: 4154, date: '2017-10-02T09:15:19.072Z', typus: 'PICKUP_LEAVE', group: 1, place: 56, users: [2], payload: { description: '', place: 56, id: 1044, series: 30, maxParticipants: 4, date: '2017-10-05T08:00:00.000Z', participants: [] } },
-  { id: 4153, date: '2017-10-02T09:15:16.568Z', typus: 'PICKUP_JOIN', group: 1, place: 56, users: [3], payload: { description: '', place: 56, id: 1044, series: 30, maxParticipants: 4, date: '2017-10-05T08:00:00.000Z', participants: [3] } },
-  { id: 4152, date: '2017-10-02T09:12:33.954Z', typus: 'PICKUP_LEAVE', group: 1, place: 56, users: [4], payload: { description: '', place: 56, id: 1044, series: 30, maxParticipants: 4, date: '2017-10-05T08:00:00.000Z', participants: [] } },
-  { id: 4151, date: '2017-10-02T09:12:30.903Z', typus: 'PICKUP_JOIN', group: 1, place: 56, users: [5], payload: { description: '', place: 56, id: 1044, series: 30, maxParticipants: 4, date: '2017-10-05T08:00:00.000Z', participants: [5] } },
-  { id: 4149, date: '2017-10-02T08:00:00.000Z', typus: 'PICKUP_MISSED', group: 1, place: 56, users: [], payload: { series: 30, activityDate: 1032, maxParticipants: 4 } },
-  { id: 4147, date: '2017-10-01T16:28:04.960Z', typus: 'PICKUP_DONE', group: 1, place: 56, users: [1, 2, 3, 4], payload: { description: '', place: 56, id: 1044, series: 30, maxParticipants: 4, date: '2017-10-05T08:00:00.000Z', participants: [1, 2, 3, 4] } },
-  { id: 4146, date: '2017-10-01T16:28:02.494Z', typus: 'PICKUP_LEAVE', group: 1, place: 56, users: [1], payload: { description: '', place: 56, id: 1032, series: 30, maxParticipants: 4, date: '2017-10-02T08:00:00.000Z', participants: [] } },
-  { id: 4145, date: '2017-10-01T16:27:57.393Z', typus: 'PICKUP_JOIN', group: 1, place: 56, users: [2], payload: { description: '', place: 56, id: 1044, series: 30, maxParticipants: 4, date: '2017-10-05T08:00:00.000Z', participants: [22] } },
+  { id: 4155, date: '2017-10-02T09:15:42.484Z', typus: 'ACTIVITY_JOIN', group: 1, place: 56, users: [1], payload: { description: 'This is default...', place: 56, id: 1037, series: 31, maxParticipants: 4, date: '2017-10-03T17:00:00.000Z', participants: [1] } },
+  { id: 4154, date: '2017-10-02T09:15:19.072Z', typus: 'ACTIVITY_LEAVE', group: 1, place: 56, users: [2], payload: { description: '', place: 56, id: 1044, series: 30, maxParticipants: 4, date: '2017-10-05T08:00:00.000Z', participants: [] } },
+  { id: 4153, date: '2017-10-02T09:15:16.568Z', typus: 'ACTIVITY_JOIN', group: 1, place: 56, users: [3], payload: { description: '', place: 56, id: 1044, series: 30, maxParticipants: 4, date: '2017-10-05T08:00:00.000Z', participants: [3] } },
+  { id: 4152, date: '2017-10-02T09:12:33.954Z', typus: 'ACTIVITY_LEAVE', group: 1, place: 56, users: [4], payload: { description: '', place: 56, id: 1044, series: 30, maxParticipants: 4, date: '2017-10-05T08:00:00.000Z', participants: [] } },
+  { id: 4151, date: '2017-10-02T09:12:30.903Z', typus: 'ACTIVITY_JOIN', group: 1, place: 56, users: [5], payload: { description: '', place: 56, id: 1044, series: 30, maxParticipants: 4, date: '2017-10-05T08:00:00.000Z', participants: [5] } },
+  { id: 4149, date: '2017-10-02T08:00:00.000Z', typus: 'ACTIVITY_MISSED', group: 1, place: 56, users: [], payload: { series: 30, activityDate: 1032, maxParticipants: 4 } },
+  { id: 4147, date: '2017-10-01T16:28:04.960Z', typus: 'ACTIVITY_DONE', group: 1, place: 56, users: [1, 2, 3, 4], payload: { description: '', place: 56, id: 1044, series: 30, maxParticipants: 4, date: '2017-10-05T08:00:00.000Z', participants: [1, 2, 3, 4] } },
+  { id: 4146, date: '2017-10-01T16:28:02.494Z', typus: 'ACTIVITY_LEAVE', group: 1, place: 56, users: [1], payload: { description: '', place: 56, id: 1032, series: 30, maxParticipants: 4, date: '2017-10-02T08:00:00.000Z', participants: [] } },
+  { id: 4145, date: '2017-10-01T16:27:57.393Z', typus: 'ACTIVITY_JOIN', group: 1, place: 56, users: [2], payload: { description: '', place: 56, id: 1044, series: 30, maxParticipants: 4, date: '2017-10-05T08:00:00.000Z', participants: [22] } },
 ].map(e => {
   e.date = new Date(e.date)
   e.users = e.users.map(i => usersMock.find(u => u.id === i))

@@ -13,7 +13,7 @@
         <div>
           <span
             v-if="!$q.platform.is.mobile"
-            v-t="'GROUP.PICKUP'"
+            v-t="'GROUP.ACTIVITY'"
           >&nbsp;</span>
           <strong>
             {{ $d(activity.date, 'weekdayHourMinute') }}

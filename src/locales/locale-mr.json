@@ -121,10 +121,10 @@
     "SET_LOGO": "आपल्या गटाचं बोधचिन्ह अपलोड करण्यासाठी क्लिक करा!",
     "APPLICATIONS": "आवेदन ",
     "APPLICATION_QUESTIONS": "या गटात सामील होऊ इच्छित असलेल्या लोकांसाठी प्रश्न",
-    "PICKUPS": "पिकअप",
+    "ACTIVITYS": "पिकअप",
     "MESSAGES": "संदेश",
     "OFFERS": "Offers",
-    "PICKUP": "पिकअप",
+    "ACTIVITY": "पिकअप",
     "MEMBERS": "सदस्य",
     "JOINED": "{relativeDate}रोजी सामील झाले ",
     "DECLINED": "{relativeDate}रोजी नाकारले ",
@@ -225,16 +225,16 @@
       "NO_TEXT": "उपरोक्तपैकी कोणीही नाही. तरीही आपण पिकअपसाठी साइन अप करू शकता."
     }
   },
-  "PICKUPMANAGE": {
+  "ACTIVITYMANAGE": {
     "TITLE": "पिकअप व्यवस्थापित करा",
     "SERIES": "आवर्ती पिकअप",
     "SINGLE": "वन-टाइम पिकअप",
-    "UPCOMING_PICKUPS_IN_SERIES": "या मालिकेत आगामी पिकअप",
-    "PICKUP_DOES_NOT_MATCH": "ही पिकअपची तारीख पुनरावृत्ती नमुन्याशी जुळत नाही",
-    "PICKUP_DESCRIPTION_CHANGED": "'अतिरिक्त माहिती' बदलली गेली आहे",
-    "PICKUP_MAX_COLLECTORS_CHANGED": "'मॅक्स स्लॉट्स' बदलली गेली आहे"
+    "UPCOMING_ACTIVITYS_IN_SERIES": "या मालिकेत आगामी पिकअप",
+    "ACTIVITY_DOES_NOT_MATCH": "ही पिकअपची तारीख पुनरावृत्ती नमुन्याशी जुळत नाही",
+    "ACTIVITY_DESCRIPTION_CHANGED": "'अतिरिक्त माहिती' बदलली गेली आहे",
+    "ACTIVITY_MAX_PARTICIPANTS_CHANGED": "'मॅक्स स्लॉट्स' बदलली गेली आहे"
   },
-  "PICKUPDELETE": {
+  "ACTIVITYDELETE": {
     "DELETE_SERIES_TITLE": "आवर्ती पिकअप तारीख हटवा",
     "DELETE_SERIES_TEXT": "आपण खरोखर ही आवर्ती पिकअप तारीख हटवू इच्छिता? हे या आवर्ती पिकअप तारखेशी संबंधित सर्व वन-टाइम पिकअप तारिख देखील हटवेल (लोक आधीपासूनच सामील झाले असतील तर मात्र हटवले जाणार नाही)."
   },
@@ -302,7 +302,7 @@
     "TITLE": "खाते हटविणे",
     "SUCCESS": "आपले खाते यशस्वीरित्या हटविले गेले!"
   },
-  "CREATEPICKUP": {
+  "CREATEACTIVITY": {
     "FREQUENCY": "वारंवारता",
     "WEEKLY": "साप्ताहिक",
     "CUSTOM": "कस्टम",
@@ -316,8 +316,8 @@
     "STARTDATE_HELPER": "मालिका कधी सुरू करावी?",
     "TIME_HELPER": "पिकअप कधी घ्यावे?",
     "DATE": "दिनांक",
-    "MAX_COLLECTORS": "कमाल स्लॉट्स",
-    "MAX_COLLECTORS_HELPER": "पिकअपमध्ये किती लोकांनी भाग घेतला पाहिजे?",
+    "MAX_PARTICIPANTS": "कमाल स्लॉट्स",
+    "MAX_PARTICIPANTS_HELPER": "पिकअपमध्ये किती लोकांनी भाग घेतला पाहिजे?",
     "COMMENT": "अतिरिक्त माहिती",
     "COMMENT_HELPER": "या पिकअपवर साइन अप करताना लोकांना काय कळले पाहिजे?",
     "UNLIMITED": "अमर्याद",
@@ -331,7 +331,7 @@
   "CREATESTORE": {
     "TITLE": "Create a new place"
   },
-  "PICKUPLIST": {
+  "ACTIVITYLIST": {
     "FILTER": {
       "ALL": "All",
       "EMPTY": "Only empty",
@@ -352,20 +352,20 @@
     "NONE": "कोणतीही आगामी पिकअप नाहीत",
     "NONE_HINT": "You can create a new pickup on the place page.",
     "STORE_NONE_HINT": "आपण पिकअप व्यवस्थापित पृष्ठावर नवीन पिकअप तयार करू शकता.",
-    "PICKUP_DISABLED": "हे पिकअप अक्षम केले गेले आहे.",
-    "PICKUP_STARTED": "हे पिकअप आधीपासून सुरू झाले आहे."
+    "ACTIVITY_DISABLED": "हे पिकअप अक्षम केले गेले आहे.",
+    "ACTIVITY_STARTED": "हे पिकअप आधीपासून सुरू झाले आहे."
   },
   "FEEDBACKLIST": {
     "SAVED_FOOD": "येथे किमान 1 किलो जतन केले गेले. धन्यवाद! | लोकांनी आधीच जतन केलेल्या आहाराच्या {amount} किलोसाठी फीडबॅक दिले! असे चांगले कार्य चालू ठेवा!",
-    "NUMBER_PICKUPS": "{count}पिकअप पूर्ण ",
+    "NUMBER_ACTIVITYS": "{count}पिकअप पूर्ण ",
     "NUMBER_FEEDBACK": "{count}फीडबॅक नोंदी दिल्या ",
     "WEIGHT_SUM": "{sum} किलो अन्न जतन केले ",
     "NONE": "अजून काही अभिप्राय नाही ",
     "NONE_HINT": "अधिक फीडबॅक उपलब्ध झाल्यानंतर हे पृष्ठ भरले जाईल",
-    "NO_DONE_PICKUPS": "पूर्ण झाले!",
-    "NO_DONE_PICKUPS_HINT": "आपल्याकडे अभिप्राय देण्यासाठी सध्या कोणतेही पिकअप नाहीत. आपण दुसर्या पिकअपमध्ये सामील का होत नाही?"
+    "NO_DONE_ACTIVITYS": "पूर्ण झाले!",
+    "NO_DONE_ACTIVITYS_HINT": "आपल्याकडे अभिप्राय देण्यासाठी सध्या कोणतेही पिकअप नाहीत. आपण दुसर्या पिकअपमध्ये सामील का होत नाही?"
   },
-  "PICKUP_FEEDBACK": {
+  "ACTIVITY_FEEDBACK": {
     "TITLE": "अभिप्राय ",
     "HEADER": "आपल्या पिकअपसाठी धन्यवाद!",
     "EDIT": "अभिप्राय संपादित करा",
@@ -414,18 +414,18 @@
     "STORE_CREATE": "created place {name}",
     "STORE_MODIFY": "changed the settings of place {name}",
     "STORE_DELETE": "deleted place {name}",
-    "PICKUP_CREATE": "नवीन वन-टाइम पिकअप तयार केले",
-    "PICKUP_MODIFY": "पिकअपची सेटिंग्ज बदलली",
-    "PICKUP_DELETE": "पिकअप हटविला",
-    "PICKUP_ENABLE": "पिकअप सक्षम केला",
-    "PICKUP_DISABLE": "पिकअप अक्षम केला",
+    "ACTIVITY_CREATE": "नवीन वन-टाइम पिकअप तयार केले",
+    "ACTIVITY_MODIFY": "पिकअपची सेटिंग्ज बदलली",
+    "ACTIVITY_DELETE": "पिकअप हटविला",
+    "ACTIVITY_ENABLE": "पिकअप सक्षम केला",
+    "ACTIVITY_DISABLE": "पिकअप अक्षम केला",
     "SERIES_CREATE": "नवीन आवर्ती पिकअप तयार केले",
     "SERIES_MODIFY": "आवर्ती पिकअपची सेटिंग्ज बदलली",
     "SERIES_DELETE": "आवर्ती पिकअप हटविला",
-    "PICKUP_DONE": "did a pick-up at {storeName}",
-    "PICKUP_MISSED": "A pickup at {storeName} was missed!",
-    "PICKUP_JOIN": "signed up to do a pick-up at {storeName}",
-    "PICKUP_LEAVE": "stepped back from doing a pick-up at {storeName}",
+    "ACTIVITY_DONE": "did a pick-up at {storeName}",
+    "ACTIVITY_MISSED": "A pickup at {storeName} was missed!",
+    "ACTIVITY_JOIN": "signed up to do a pick-up at {storeName}",
+    "ACTIVITY_LEAVE": "stepped back from doing a pick-up at {storeName}",
     "APPLICATION_DECLINED": "declined an application from {applicantName}",
     "MEMBER_BECAME_EDITOR": "gained editing permissions",
     "GROUP_LEAVE_INACTIVE": "was removed due to inactivity",
@@ -457,10 +457,10 @@
     "FEEDBACK_POSSIBLE": "You can give feedback for the pickup you did on {date}",
     "NEW_PLACE": "{placeName} has been created",
     "NEW_MEMBER": "{userName} joined your group",
-    "PICKUP_UPCOMING": "Reminder: You have a pickup at {time}",
-    "PICKUP_DISABLED": "Pickup at {dateTime} was disabled",
-    "PICKUP_ENABLED": "Pickup at {dateTime} was enabled again",
-    "PICKUP_MOVED": "Pickup was moved to {dateTime}",
+    "ACTIVITY_UPCOMING": "Reminder: You have a pickup at {time}",
+    "ACTIVITY_DISABLED": "Pickup at {dateTime} was disabled",
+    "ACTIVITY_ENABLED": "Pickup at {dateTime} was enabled again",
+    "ACTIVITY_MOVED": "Pickup was moved to {dateTime}",
     "CONFLICT_RESOLUTION_CREATED": "Join the discussion about a conflict with {userName}",
     "CONFLICT_RESOLUTION_CREATED_ABOUT_YOU": "A conflict resolution process was started with you",
     "CONFLICT_RESOLUTION_CONTINUED": "The conflict resolution process with {userName} continues",

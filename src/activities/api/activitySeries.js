@@ -3,28 +3,28 @@ import axios from '@/base/api/axios'
 export default {
 
   async create (series) {
-    return convert((await axios.post('/api/pickup-date-series/', serialize(series))).data)
+    return convert((await axios.post('/api/activity-series/', serialize(series))).data)
   },
 
   async get (seriesId) {
-    return convert((await axios.get(`/api/pickup-date-series/${seriesId}/`)).data)
+    return convert((await axios.get(`/api/activity-series/${seriesId}/`)).data)
   },
 
   async list () {
-    return convert((await axios.get('/api/pickup-date-series/')).data)
+    return convert((await axios.get('/api/activity-series/')).data)
   },
 
   async listByPlaceId (placeId) {
-    return convert((await axios.get('/api/pickup-date-series/', { params: { place: placeId } })).data)
+    return convert((await axios.get('/api/activity-series/', { params: { place: placeId } })).data)
   },
 
   async save (series) {
     const { id } = series
-    return convert((await axios.patch(`/api/pickup-date-series/${id}/`, serialize(series))).data)
+    return convert((await axios.patch(`/api/activity-series/${id}/`, serialize(series))).data)
   },
 
   delete (seriesId) {
-    return axios.delete(`/api/pickup-date-series/${seriesId}/`)
+    return axios.delete(`/api/activity-series/${seriesId}/`)
   },
 }
 

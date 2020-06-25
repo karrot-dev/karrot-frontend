@@ -172,7 +172,7 @@ export default {
       // needed for websocket updates
       if (!conversations) return
       for (const conversation of conversations) {
-        if (conversation.type === 'pickup') {
+        if (conversation.type === 'activity') {
           dispatch('activities/maybeFetch', conversation.targetId, { root: true })
         }
         else if (conversation.type === 'application') {

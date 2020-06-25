@@ -101,7 +101,7 @@ export default {
     },
     getForGroup: (state, getters) => groupId => getters.getForType('group', groupId),
     getForPlace: (state, getters) => placeId => getters.getForType('place', placeId),
-    getForActivity: (state, getters) => activityId => getters.getForType('pickup', activityId),
+    getForActivity: (state, getters) => activityId => getters.getForType('activity', activityId),
     getForApplication: (state, getters) => applicationId => getters.getForType('application', applicationId),
     getForIssue: (state, getters) => issueId => getters.getForType('issue', issueId),
     getForOffer: (state, getters) => offerId => getters.getForType('offer', offerId),
@@ -191,7 +191,7 @@ export default {
       switch (type) {
         case 'group': return rootGetters['groups/get'](targetId)
         case 'place': return rootGetters['places/get'](targetId)
-        case 'pickup': return rootGetters['activities/get'](targetId)
+        case 'activity': return rootGetters['activities/get'](targetId)
         case 'application': return rootGetters['applications/get'](targetId)
         case 'issue': return rootGetters['issues/get'](targetId)
         case 'offer': return rootGetters['latestMessages/getRelated']('offer', targetId)

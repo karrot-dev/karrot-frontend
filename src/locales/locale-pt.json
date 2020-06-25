@@ -156,7 +156,7 @@
         "NAME": "Resumo semanal",
         "DESCRIPTION": "Esteja atualizado com o que esta acontecendo neste grupo."
       },
-      "daily_pickup_notification": {
+      "daily_activity_notification": {
         "NAME": "Notificação de coletas",
         "DESCRIPTION": "Reminds you of your pickups, and tells you about empty or not-full pickups of your favorite places in the next day"
       },

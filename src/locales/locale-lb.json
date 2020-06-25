@@ -156,7 +156,7 @@
         "NAME": "Zesummefaassung vun der Woch",
         "DESCRIPTION": "Bleif informéiert mat wat an der Grupp geschitt."
       },
-      "daily_pickup_notification": {
+      "daily_activity_notification": {
         "NAME": "Benoriichtegungen iwwert Ofhuelungen",
         "DESCRIPTION": "Erënnert dech un deng Ofhuelungen, a seet dir Bescheed iwwert Ofhuelungen, op déi nach keen oder net genuch Leit ginn, vun denge favoriséierte Platzen den nächsten Dag"
       },

@@ -156,7 +156,7 @@
         "NAME": "Podsumowanie tygodnia",
         "DESCRIPTION": "Bądź na bieżąco z wydarzeniami w grupie."
       },
-      "daily_pickup_notification": {
+      "daily_activity_notification": {
         "NAME": "Powiadomienia o odbiorach",
         "DESCRIPTION": "Przypomina Ci o nadchodzących odbiorach, na które się zapisałaś/-eś oraz o odbiorach, na które jeszcze nikt się nie zapisał albo na które są jeszcze wolne miejsca w Twoich ulubionych punktach."
       },

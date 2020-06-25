@@ -156,7 +156,7 @@
         "NAME": "每週摘要",
         "DESCRIPTION": "隨時關注此社團最新消息"
       },
-      "daily_pickup_notification": {
+      "daily_activity_notification": {
         "NAME": "領取通知",
         "DESCRIPTION": "Reminds you of your pickups, and tells you about empty or not-full pickups of your favorite places in the next day"
       },

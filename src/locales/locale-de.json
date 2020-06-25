@@ -156,7 +156,7 @@
         "NAME": "Wöchentliche Zusammenfassung",
         "DESCRIPTION": "Bleib auf dem Laufenden über das, was in der Gruppe passiert."
       },
-      "daily_pickup_notification": {
+      "daily_activity_notification": {
         "NAME": "Abholungs-Benachrichtigungen",
         "DESCRIPTION": "Erinnert dich an deine Abholungen und lässt dich über leere oder unvollständige Abholungen deiner Lieblingsorte des nächsten Tages wissen"
       },

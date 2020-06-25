@@ -6,7 +6,7 @@
     "ACTIVITYS": "Activities",
     "ACTIVITY": "Activity",
     "NOTIFICATION_TYPES": {
-      "daily_pickup_notification": {
+      "daily_activity_notification": {
         "NAME": "Activity notifications",
         "DESCRIPTION": "Reminds you of your activities, and tells you about empty or not-full activities of your favorite places in the next day"
       }

@@ -156,7 +156,7 @@
         "NAME": "Semajna resumo",
         "DESCRIPTION": "Ĝisdatigu vin pri kio okazis en la grupo."
       },
-      "daily_pickup_notification": {
+      "daily_activity_notification": {
         "NAME": "Sciigoj pri savadoj",
         "DESCRIPTION": "Memorigas vin pri viaj savadoj kaj informas vin pri neplenaj savadoj en viaj preferataj lokj en la venonta tago"
       },

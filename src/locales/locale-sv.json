@@ -156,7 +156,7 @@
         "NAME": "Veckans sammanfattning",
         "DESCRIPTION": "Håll dig uppdaterat om vad som händer i gruppen."
       },
-      "daily_pickup_notification": {
+      "daily_activity_notification": {
         "NAME": "Notifikationer om upphämtningar",
         "DESCRIPTION": "Påminner dig om dina upphämtningar och berättar om lediga upphämtningar på dina favoritplatser"
       },

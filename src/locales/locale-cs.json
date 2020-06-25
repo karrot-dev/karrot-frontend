@@ -156,7 +156,7 @@
         "NAME": "Týdenní shrnutí",
         "DESCRIPTION": "Sledujte, co se ve skupině děje."
       },
-      "daily_pickup_notification": {
+      "daily_activity_notification": {
         "NAME": "Oznámení o vyzvednutí",
         "DESCRIPTION": "Připomíná vám vaše vyzvednutí a řekne vám o prázdných nebo neúplných vyzvednutích vašich oblíbených míst v příštím dnu"
       },

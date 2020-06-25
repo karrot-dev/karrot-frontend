@@ -156,7 +156,7 @@
         "NAME": "Résumé hebdomadaire",
         "DESCRIPTION": "Tiens-toi au courant de ce qu'il se passe dans le groupe."
       },
-      "daily_pickup_notification": {
+      "daily_activity_notification": {
         "NAME": "Notifications de récolte",
         "DESCRIPTION": "Vous rappelle vos récoltes et vous informe des récoltes sans bénévoles ou incomplètes de vos lieux de récup préférés le lendemain\n "
       },

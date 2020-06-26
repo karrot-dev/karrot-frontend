@@ -51,7 +51,7 @@
       <QSeparator />
       <QCardActions>
         <div style="width: 100%">
-          <template v-if="!group.isOpen && group.members.length === 0">
+          <template v-if="!group.isOpen && group.members.length === 0 && !application">
             <QBanner class="bg-info">
               {{ $t('JOINGROUP.ARCHIVED_NOTE' ) }}
               <template #avatar>

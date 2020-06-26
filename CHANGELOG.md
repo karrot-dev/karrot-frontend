@@ -21,6 +21,8 @@ Please document your changes in this format:
 ```
 
 ## [Unreleased]
+### Fixed
+- Users couldn't withdraw applications to archived groups @tiltec
 
 ## [8.5.2] - 2020-06-01
 ### Changed

@@ -38,6 +38,16 @@
           rounded
           class="q-ma-xs"
           size="sm"
+          icon="rotate_right"
+          :text-color="isExisting(item) ? 'grey' : 'green'"
+          :disable="!hasImage(item) || isExisting(item)"
+          @click="rotateImage(item)"
+        />
+        <QBtn
+          v-if="hasImage(item)"
+          rounded
+          class="q-ma-xs"
+          size="sm"
           icon="delete"
           text-color="red"
           :disable="!hasImage(item)"
@@ -218,6 +228,12 @@ export default {
       itemRight.source.position = --itemRight.position
       item.source.position = ++item.position
       this.recalculatePositions()
+    },
+    rotateImage (item) {
+      const croppa = this.croppaFor(item)
+      if (croppa) {
+        croppa.rotate(1)
+      }
     },
     removeImage (item) {
       if (this.isExisting(item)) {

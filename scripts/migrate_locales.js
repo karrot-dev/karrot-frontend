@@ -1,14 +1,44 @@
 #!/usr/bin/env node
 
-// configuration:
-const renameKeys = {
-  'HISTORY.GROUP_APPLICATION_DECLINED': 'HISTORY.APPLICATION_DECLINED',
+// configuration: a function for how you want the keys to be renamed
+function renameKey (key) {
+  if (/pickup/i.test(key)) {
+    return key
+      .replace(/PICKUPS/, 'ACTIVITIES')
+      .replace(/PICKUP/, 'ACTIVITY')
+      .replace(/pickup/, 'activity')
+  }
+  return key
 }
 
 const { readFileSync, writeFileSync } = require('fs')
 const { execSync } = require('child_process')
 const glob = require('glob')
 const _ = require('lodash')
+
+const en = JSON.parse(readFileSync('./src/locales/locale-en.json', 'utf8'))
+
+const renameKeys = {}
+for (const key of getKeys(en)) {
+  const newKey = renameKey(key)
+  if (newKey !== key) {
+    renameKeys[key] = newKey
+  }
+}
+
+function getKeys (data, path = []) {
+  const keys = []
+  for (const key of Object.keys(data)) {
+    const val = data[key]
+    if (_.isPlainObject(val)) {
+      keys.push(...getKeys(val, path.concat(key)))
+    }
+    else {
+      keys.push(path.concat(key).join('.'))
+    }
+  }
+  return keys
+}
 
 function sortObject (o) {
   const sorted = {}
@@ -93,7 +123,7 @@ but we directly provide translations for "changedKey", thereby keeping messages 
 
 // changedFiles contains the full source file and empty objects for each other locale
 const changedFiles = _.cloneDeep(files)
-for (const key of changedFiles) {
+for (const key of Object.keys(changedFiles)) {
   if (key === sourceFilename) continue
   changedFiles[key] = {}
 }

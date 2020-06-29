@@ -51,7 +51,7 @@ import {
   QInfiniteScroll,
 } from 'quasar'
 
-const NUM_ACTIVITYS_PER_LOAD = 25
+const NUM_ACTIVITIES_PER_LOAD = 25
 
 export default {
   components: {
@@ -85,7 +85,7 @@ export default {
   },
   data () {
     return {
-      numDisplayed: NUM_ACTIVITYS_PER_LOAD,
+      numDisplayed: NUM_ACTIVITIES_PER_LOAD,
     }
   },
   computed: {
@@ -131,7 +131,7 @@ export default {
   },
   methods: {
     async displayMoreActivities (index, done) {
-      this.numDisplayed += NUM_ACTIVITYS_PER_LOAD
+      this.numDisplayed += NUM_ACTIVITIES_PER_LOAD
       await this.$nextTick()
       done()
     },

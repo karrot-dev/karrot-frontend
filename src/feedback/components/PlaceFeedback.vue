@@ -12,7 +12,7 @@
             color="secondary"
             text-color="white"
             square
-            :title="$t('FEEDBACKLIST.NUMBER_ACTIVITYS', { count: statistics.activitiesDone })"
+            :title="$t('FEEDBACKLIST.NUMBER_ACTIVITIES', { count: statistics.activitiesDone })"
           >
             <strong class="q-ml-sm">{{ statistics.activitiesDone }}</strong>
           </QChip>

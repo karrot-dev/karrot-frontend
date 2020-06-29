@@ -223,7 +223,7 @@ export default [
         path: 'activities',
         meta: {
           breadcrumbs: [
-            { translation: 'GROUP.ACTIVITYS', route: { name: 'groupActivities' } },
+            { translation: 'GROUP.ACTIVITIES', route: { name: 'groupActivities' } },
           ],
         },
         component: GroupActivities,

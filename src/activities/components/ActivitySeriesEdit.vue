@@ -468,7 +468,7 @@ export default {
       if (!val && !this.hasAnyError && hasExceptions()) {
         Dialog.create({
           title: this.$t('CREATEACTIVITY.EXCEPTIONS_TITLE'),
-          message: this.$t('CREATEACTIVITY.EXCEPTIONS_MESSAGE', { upcomingLabel: this.$t('ACTIVITYMANAGE.UPCOMING_ACTIVITYS_IN_SERIES') }),
+          message: this.$t('CREATEACTIVITY.EXCEPTIONS_MESSAGE', { upcomingLabel: this.$t('ACTIVITYMANAGE.UPCOMING_ACTIVITIES_IN_SERIES') }),
           ok: this.$t('BUTTON.YES'),
         })
       }

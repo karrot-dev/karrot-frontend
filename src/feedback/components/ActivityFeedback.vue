@@ -65,9 +65,9 @@
       <template #icon>
         <i class="fas fa-bed" />
       </template>
-      {{ $t('FEEDBACKLIST.NO_DONE_ACTIVITYS') }}
+      {{ $t('FEEDBACKLIST.NO_DONE_ACTIVITIES') }}
       <template #desc>
-        {{ $t('FEEDBACKLIST.NO_DONE_ACTIVITYS_HINT') }}
+        {{ $t('FEEDBACKLIST.NO_DONE_ACTIVITIES_HINT') }}
       </template>
     </KNotice>
     <QCard

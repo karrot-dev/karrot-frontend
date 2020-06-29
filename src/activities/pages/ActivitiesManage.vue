@@ -54,7 +54,7 @@
             <QItemLabel
               header
             >
-              <span v-t="'ACTIVITYMANAGE.UPCOMING_ACTIVITYS_IN_SERIES'" />
+              <span v-t="'ACTIVITYMANAGE.UPCOMING_ACTIVITIES_IN_SERIES'" />
             </QItemLabel>
             <QExpansionItem
               v-for="activity in series.activities"

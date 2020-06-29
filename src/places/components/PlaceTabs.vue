@@ -52,7 +52,7 @@ export default {
       return [
         {
           to: { name: 'placeActivities', params },
-          label: this.$t('GROUP.ACTIVITYS'),
+          label: this.$t('GROUP.ACTIVITIES'),
         },
         {
           to: { name: 'placeWall', params },

@@ -140,7 +140,7 @@ export default {
           color: 'secondary',
         },
       }, {
-        label: this.$t('GROUP.ACTIVITYS'),
+        label: this.$t('GROUP.ACTIVITIES'),
         icon: this.$icon('activity'),
         to: { name: 'groupActivities', params: { groupId: this.groupId } },
       }, {

@@ -121,10 +121,10 @@
     "SET_LOGO": "Clique para fazer upload da sua logo do grupo!",
     "APPLICATIONS": "Aplicações",
     "APPLICATION_QUESTIONS": "Questões para as pessoas que quiserem se juntar a esse grupo",
-    "ACTIVITIES": "Coletas",
+    "PICKUPS": "Coletas",
     "MESSAGES": "Mensagens",
     "OFFERS": "Ofertas",
-    "ACTIVITY": "Coletas",
+    "PICKUP": "Coletas",
     "MEMBERS": "Membros",
     "JOINED": "Juntou-se {relativeDate}",
     "DECLINED": "Recusado {relativeDate}",
@@ -156,7 +156,7 @@
         "NAME": "Resumo semanal",
         "DESCRIPTION": "Esteja atualizado com o que esta acontecendo neste grupo."
       },
-      "daily_activity_notification": {
+      "daily_pickup_notification": {
         "NAME": "Notificação de coletas",
         "DESCRIPTION": "Reminds you of your pickups, and tells you about empty or not-full pickups of your favorite places in the next day"
       },
@@ -225,16 +225,16 @@
       "NO_TEXT": "None of the above. You can still sign up for pickups though."
     }
   },
-  "ACTIVITYMANAGE": {
+  "PICKUPMANAGE": {
     "TITLE": "Gerenciar coletas",
     "SERIES": "Coletas recorrentes",
     "SINGLE": "Coletas pontuais",
-    "UPCOMING_ACTIVITIES_IN_SERIES": "Próximas coletas nesta série",
-    "ACTIVITY_DOES_NOT_MATCH": "This pickups' date doesn't match the recurrence pattern",
-    "ACTIVITY_DESCRIPTION_CHANGED": "'Additional information' has been changed",
-    "ACTIVITY_MAX_PARTICIPANTS_CHANGED": "'Max slots' has been changed"
+    "UPCOMING_PICKUPS_IN_SERIES": "Próximas coletas nesta série",
+    "PICKUP_DOES_NOT_MATCH": "This pickups' date doesn't match the recurrence pattern",
+    "PICKUP_DESCRIPTION_CHANGED": "'Additional information' has been changed",
+    "PICKUP_MAX_COLLECTORS_CHANGED": "'Max slots' has been changed"
   },
-  "ACTIVITYDELETE": {
+  "PICKUPDELETE": {
     "DELETE_SERIES_TITLE": "Deletar coletas recorrentes",
     "DELETE_SERIES_TEXT": "Você gostaria mesmo de deletar esta coleta recorrente? Esta ação vai também deletar todas as entregar pontuais que pertencerem a esta entrega recorrente (com excessão daquelas que pessoas já estão participando)"
   },
@@ -302,7 +302,7 @@
     "TITLE": "Deletar conta",
     "SUCCESS": "Sua conta foi deletada com sucesso!"
   },
-  "CREATEACTIVITY": {
+  "CREATEPICKUP": {
     "FREQUENCY": "Frequência",
     "WEEKLY": "Semanalmente",
     "CUSTOM": "Personalizado",
@@ -316,8 +316,8 @@
     "STARTDATE_HELPER": "Quando a série deve começar?",
     "TIME_HELPER": "Quando a coleta deve acontecer?",
     "DATE": "Dia",
-    "MAX_PARTICIPANTS": "Número máximo de slots",
-    "MAX_PARTICIPANTS_HELPER": "Quantas pessoas podem participar dessa coleta?",
+    "MAX_COLLECTORS": "Número máximo de slots",
+    "MAX_COLLECTORS_HELPER": "Quantas pessoas podem participar dessa coleta?",
     "COMMENT": "Informações adicionais",
     "COMMENT_HELPER": "O que as pessoas devem saber antes de se candidatar para esta coleta?",
     "UNLIMITED": "sem limite",
@@ -331,7 +331,7 @@
   "CREATESTORE": {
     "TITLE": "Create a new place"
   },
-  "ACTIVITYLIST": {
+  "PICKUPLIST": {
     "FILTER": {
       "ALL": "All",
       "EMPTY": "Only empty",
@@ -352,20 +352,20 @@
     "NONE": "Você não possuí coletas futuras",
     "NONE_HINT": "You can create a new pickup on the place page.",
     "STORE_NONE_HINT": "Você pode criar uma nova coleta na página de gerenciamento de coletas.",
-    "ACTIVITY_DISABLED": "This pickup has been disabled.",
-    "ACTIVITY_STARTED": "This pickup has already started."
+    "PICKUP_DISABLED": "This pickup has been disabled.",
+    "PICKUP_STARTED": "This pickup has already started."
   },
   "FEEDBACKLIST": {
     "SAVED_FOOD": "At least 1 kg was saved here. Thank you! | People gave feedback for {amount} kg of saved food already! Keep up the great work!",
-    "NUMBER_ACTIVITIES": "{count} pickups done",
+    "NUMBER_PICKUPS": "{count} pickups done",
     "NUMBER_FEEDBACK": "{count} feedback entries given",
     "WEIGHT_SUM": "{sum} kg of food saved",
     "NONE": "Sem comentários, ainda",
     "NONE_HINT": "Esta página sera preenchida assim que mais comentários apareçam",
-    "NO_DONE_ACTIVITIES": "Tudo pronto!",
-    "NO_DONE_ACTIVITIES_HINT": "Você, atualmente não possuí nenhuma coleta esperando por um comentário. Por que não participar de outra coleta?"
+    "NO_DONE_PICKUPS": "Tudo pronto!",
+    "NO_DONE_PICKUPS_HINT": "Você, atualmente não possuí nenhuma coleta esperando por um comentário. Por que não participar de outra coleta?"
   },
-  "ACTIVITY_FEEDBACK": {
+  "PICKUP_FEEDBACK": {
     "TITLE": "Comentários",
     "HEADER": "Agradecemos sua coleta!",
     "EDIT": "Editar seu comentário",
@@ -414,18 +414,18 @@
     "STORE_CREATE": "created place {name}",
     "STORE_MODIFY": "changed the settings of place {name}",
     "STORE_DELETE": "deleted place {name}",
-    "ACTIVITY_CREATE": "criou uma nova coleta pontual",
-    "ACTIVITY_MODIFY": "modificou as configurações de uma coleta",
-    "ACTIVITY_DELETE": "deletou uma coleta",
-    "ACTIVITY_ENABLE": "enabled a pickup",
-    "ACTIVITY_DISABLE": "disabled a pickup",
+    "PICKUP_CREATE": "criou uma nova coleta pontual",
+    "PICKUP_MODIFY": "modificou as configurações de uma coleta",
+    "PICKUP_DELETE": "deletou uma coleta",
+    "PICKUP_ENABLE": "enabled a pickup",
+    "PICKUP_DISABLE": "disabled a pickup",
     "SERIES_CREATE": "crirou uma nova coleta recorrente",
     "SERIES_MODIFY": "modificou as configurações para uma coleta recorrente",
     "SERIES_DELETE": "deletou uma coleta recorrente",
-    "ACTIVITY_DONE": "fez uma coleta na loja {storeName}",
-    "ACTIVITY_MISSED": "A coleta na {storeName} não foi feita!",
-    "ACTIVITY_JOIN": "se candidatou para a coleta na loja {storeName}",
-    "ACTIVITY_LEAVE": "desisistiu de fazer a coleta na loja {storeName}",
+    "PICKUP_DONE": "fez uma coleta na loja {storeName}",
+    "PICKUP_MISSED": "A coleta na {storeName} não foi feita!",
+    "PICKUP_JOIN": "se candidatou para a coleta na loja {storeName}",
+    "PICKUP_LEAVE": "desisistiu de fazer a coleta na loja {storeName}",
     "APPLICATION_DECLINED": "declined an application from {applicantName}",
     "MEMBER_BECAME_EDITOR": "gained editing permissions",
     "GROUP_LEAVE_INACTIVE": "was removed due to inactivity",
@@ -457,10 +457,10 @@
     "FEEDBACK_POSSIBLE": "You can give feedback for the pickup you did on {date}",
     "NEW_PLACE": "{placeName} has been created",
     "NEW_MEMBER": "{userName} joined your group",
-    "ACTIVITY_UPCOMING": "Reminder: You have a pickup at {time}",
-    "ACTIVITY_DISABLED": "Pickup at {dateTime} was disabled",
-    "ACTIVITY_ENABLED": "Pickup at {dateTime} was enabled again",
-    "ACTIVITY_MOVED": "Pickup was moved to {dateTime}",
+    "PICKUP_UPCOMING": "Reminder: You have a pickup at {time}",
+    "PICKUP_DISABLED": "Pickup at {dateTime} was disabled",
+    "PICKUP_ENABLED": "Pickup at {dateTime} was enabled again",
+    "PICKUP_MOVED": "Pickup was moved to {dateTime}",
     "CONFLICT_RESOLUTION_CREATED": "Join the discussion about a conflict with {userName}",
     "CONFLICT_RESOLUTION_CREATED_ABOUT_YOU": "A conflict resolution process was started with you",
     "CONFLICT_RESOLUTION_CONTINUED": "The conflict resolution process with {userName} continues",

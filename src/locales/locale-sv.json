@@ -121,10 +121,10 @@
     "SET_LOGO": "Klicka för att ladda upp gruppens logotyp!",
     "APPLICATIONS": "Ansökningar",
     "APPLICATION_QUESTIONS": "Frågor till folk som vill gå med i gruppen",
-    "ACTIVITIES": "Upphämtningar",
+    "PICKUPS": "Upphämtningar",
     "MESSAGES": "Meddelanden",
     "OFFERS": "Gåvor",
-    "ACTIVITY": "Upphämtning",
+    "PICKUP": "Upphämtning",
     "MEMBERS": "Medlemmar",
     "JOINED": "gick med {relativeDate}",
     "DECLINED": "avböjd {relativeDate}",
@@ -156,7 +156,7 @@
         "NAME": "Veckans sammanfattning",
         "DESCRIPTION": "Håll dig uppdaterat om vad som händer i gruppen."
       },
-      "daily_activity_notification": {
+      "daily_pickup_notification": {
         "NAME": "Notifikationer om upphämtningar",
         "DESCRIPTION": "Påminner dig om dina upphämtningar och berättar om lediga upphämtningar på dina favoritplatser"
       },
@@ -225,16 +225,16 @@
       "NO_TEXT": "Inget av ovanstående. Du kan ändå skriva upp dig för upphämtningar."
     }
   },
-  "ACTIVITYMANAGE": {
+  "PICKUPMANAGE": {
     "TITLE": "Hantera upphämtningar",
     "SERIES": "Regelbundna upphämtningar",
     "SINGLE": "Engångsupphämtning",
-    "UPCOMING_ACTIVITIES_IN_SERIES": "Kommande upphämtningar i denna serie",
-    "ACTIVITY_DOES_NOT_MATCH": "Upphämtningsdatumet passar inte återkommande mönstret",
-    "ACTIVITY_DESCRIPTION_CHANGED": "'Mer information' har ändrats",
-    "ACTIVITY_MAX_PARTICIPANTS_CHANGED": "'Max antal platser' har ändrats"
+    "UPCOMING_PICKUPS_IN_SERIES": "Kommande upphämtningar i denna serie",
+    "PICKUP_DOES_NOT_MATCH": "Upphämtningsdatumet passar inte återkommande mönstret",
+    "PICKUP_DESCRIPTION_CHANGED": "'Mer information' har ändrats",
+    "PICKUP_MAX_COLLECTORS_CHANGED": "'Max antal platser' har ändrats"
   },
-  "ACTIVITYDELETE": {
+  "PICKUPDELETE": {
     "DELETE_SERIES_TITLE": "Radera regelbundet upphämtningsdatum",
     "DELETE_SERIES_TEXT": "Vill du verkligen radera denna regelbunden upphämtning? Det kommer också att radera engångsupphämtningar som tillhör denna serie (förutom där folk redan gått med på)."
   },
@@ -302,7 +302,7 @@
     "TITLE": "Radera konto",
     "SUCCESS": "Du lyckades radera ditt konto!"
   },
-  "CREATEACTIVITY": {
+  "CREATEPICKUP": {
     "FREQUENCY": "Hur ofta",
     "WEEKLY": "Varje vecka",
     "CUSTOM": "Skräddarsytt",
@@ -316,8 +316,8 @@
     "STARTDATE_HELPER": "När ska serien börja?",
     "TIME_HELPER": "När ska hämtningen ske?",
     "DATE": "Datum",
-    "MAX_PARTICIPANTS": "Max Slots",
-    "MAX_PARTICIPANTS_HELPER": "Hur många bör delta i hämtningen?",
+    "MAX_COLLECTORS": "Max Slots",
+    "MAX_COLLECTORS_HELPER": "Hur många bör delta i hämtningen?",
     "COMMENT": "Mer information",
     "COMMENT_HELPER": "Vad bör folk veta när de ska gå med hämtningen?",
     "UNLIMITED": "obegränsat",
@@ -331,7 +331,7 @@
   "CREATESTORE": {
     "TITLE": "Skapa en ny plats"
   },
-  "ACTIVITYLIST": {
+  "PICKUPLIST": {
     "FILTER": {
       "ALL": "Allt",
       "EMPTY": "Endast tomma",
@@ -352,20 +352,20 @@
     "NONE": "Inga bokade upphämtningar",
     "NONE_HINT": "Du kan skapa en ny upphämtning på platssidan.",
     "STORE_NONE_HINT": "Du kan skapa en ny upphämtning i \"hantera upphämtningar\"",
-    "ACTIVITY_DISABLED": "Upphämtningen har inaktiverats.",
-    "ACTIVITY_STARTED": "Upphämtningen har redan påbörjats."
+    "PICKUP_DISABLED": "Upphämtningen har inaktiverats.",
+    "PICKUP_STARTED": "Upphämtningen har redan påbörjats."
   },
   "FEEDBACKLIST": {
     "SAVED_FOOD": "Minst 1 kg räddades här. Tack ska du ha! Folk har redan gett feedback för {amount} kg räddad mat! Bra jobbat!",
-    "NUMBER_ACTIVITIES": "{count} upphämtningar gjort",
+    "NUMBER_PICKUPS": "{count} upphämtningar gjort",
     "NUMBER_FEEDBACK": "{count} feedbacks",
     "WEIGHT_SUM": "{sum} kg räddade mat",
     "NONE": "Ingen feedback ännu",
     "NONE_HINT": "Den här sidan kommer att fyllas när det finns mer feedback",
-    "NO_DONE_ACTIVITIES": "Klar!",
-    "NO_DONE_ACTIVITIES_HINT": "Du har ingen feedback att ge. Varför inte gå med en upphämtning?"
+    "NO_DONE_PICKUPS": "Klar!",
+    "NO_DONE_PICKUPS_HINT": "Du har ingen feedback att ge. Varför inte gå med en upphämtning?"
   },
-  "ACTIVITY_FEEDBACK": {
+  "PICKUP_FEEDBACK": {
     "TITLE": "Feedback",
     "HEADER": "Tack för din upphämtning!",
     "EDIT": "Redigera feedback",
@@ -414,18 +414,18 @@
     "STORE_CREATE": "skapa plats {name}",
     "STORE_MODIFY": "ändra inställningarna för platsen {name}",
     "STORE_DELETE": "ta bort platsen {name}",
-    "ACTIVITY_CREATE": "skapade en hämtning",
-    "ACTIVITY_MODIFY": "ändrade inställningarna för en hämtning",
-    "ACTIVITY_DELETE": "tog bort en hämtning",
-    "ACTIVITY_ENABLE": "aktivera en upphämtning",
-    "ACTIVITY_DISABLE": "inaktivera en upphämtning",
+    "PICKUP_CREATE": "skapade en hämtning",
+    "PICKUP_MODIFY": "ändrade inställningarna för en hämtning",
+    "PICKUP_DELETE": "tog bort en hämtning",
+    "PICKUP_ENABLE": "aktivera en upphämtning",
+    "PICKUP_DISABLE": "inaktivera en upphämtning",
     "SERIES_CREATE": "skapade en återkommande hämtning",
     "SERIES_MODIFY": "ändrade inställningarna för en återkommande hämtning",
     "SERIES_DELETE": "tog bort en återkommande hämtning",
-    "ACTIVITY_DONE": "gjorde en hämtning på {storeName}",
-    "ACTIVITY_MISSED": "Ingen upphämtning på {storeName}!",
-    "ACTIVITY_JOIN": "skrev upp sig för att hämta på {storeName}",
-    "ACTIVITY_LEAVE": "gav upp om att hämta på {storeName}",
+    "PICKUP_DONE": "gjorde en hämtning på {storeName}",
+    "PICKUP_MISSED": "Ingen upphämtning på {storeName}!",
+    "PICKUP_JOIN": "skrev upp sig för att hämta på {storeName}",
+    "PICKUP_LEAVE": "gav upp om att hämta på {storeName}",
     "APPLICATION_DECLINED": "avböjde en ansökan från {applicantName}",
     "MEMBER_BECAME_EDITOR": "fick behörighet att redigera",
     "GROUP_LEAVE_INACTIVE": "hat tagits bort på grund av inaktivitet",
@@ -457,10 +457,10 @@
     "FEEDBACK_POSSIBLE": "Du kan ge feedback för en upphämtning du gjorde den {date}",
     "NEW_PLACE": "{placeName} har skapats",
     "NEW_MEMBER": "{userName} gick med i din grupp",
-    "ACTIVITY_UPCOMING": "Påminnelse: Du har en upphämtning kl {time}  ",
-    "ACTIVITY_DISABLED": "Upphämtning den {dateTime} har inaktiverats",
-    "ACTIVITY_ENABLED": "Upphämtning den {dateTime} har aktiverats igen",
-    "ACTIVITY_MOVED": "Upphämtningen har ändrats till {dateTime}",
+    "PICKUP_UPCOMING": "Påminnelse: Du har en upphämtning kl {time}  ",
+    "PICKUP_DISABLED": "Upphämtning den {dateTime} har inaktiverats",
+    "PICKUP_ENABLED": "Upphämtning den {dateTime} har aktiverats igen",
+    "PICKUP_MOVED": "Upphämtningen har ändrats till {dateTime}",
     "CONFLICT_RESOLUTION_CREATED": "Gå med i diskussionen om en konflikt med {userName}",
     "CONFLICT_RESOLUTION_CREATED_ABOUT_YOU": "En konfliktlösningsprocess startades med dig",
     "CONFLICT_RESOLUTION_CONTINUED": "Processen för konfliktlösning med {userName} fortsätter",

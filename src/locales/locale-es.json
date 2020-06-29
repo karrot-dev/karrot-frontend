@@ -121,10 +121,10 @@
     "SET_LOGO": "¡Pulsa para subir tu logo de grupo!",
     "APPLICATIONS": "Solicitudes",
     "APPLICATION_QUESTIONS": "Preguntas para presonas que quieren unirse a este grupo",
-    "ACTIVITIES": "Recogidas",
+    "PICKUPS": "Recogidas",
     "MESSAGES": "Mensajes",
     "OFFERS": "Ofertas",
-    "ACTIVITY": "Recogida",
+    "PICKUP": "Recogida",
     "MEMBERS": "Miembros",
     "JOINED": "Se unió {relativeDate}",
     "DECLINED": "Rechazado{relativeDate}",
@@ -156,7 +156,7 @@
         "NAME": "Resumen semanal",
         "DESCRIPTION": "Manténte al día de lo que ha pasado en el grupo."
       },
-      "daily_activity_notification": {
+      "daily_pickup_notification": {
         "NAME": "Notificación de recogida",
         "DESCRIPTION": "Te recuerda tus recogidas y te informa sobre las recogidas libres en tus lugares favoritos al siguiente día "
       },
@@ -225,16 +225,16 @@
       "NO_TEXT": "Ninguna de las anteriores. Sin embargo, todavía puedes registrarte para recogidas."
     }
   },
-  "ACTIVITYMANAGE": {
+  "PICKUPMANAGE": {
     "TITLE": "Manejar recogidas",
     "SERIES": "Recogidas recurrentes",
     "SINGLE": "Recogidas únicas",
-    "UPCOMING_ACTIVITIES_IN_SERIES": "Próximas recogidas en esta serie",
-    "ACTIVITY_DOES_NOT_MATCH": "La fecha de las recogidas no coinciden con el patrón.",
-    "ACTIVITY_DESCRIPTION_CHANGED": "\"Información adicional\" ha sido cambiada",
-    "ACTIVITY_MAX_PARTICIPANTS_CHANGED": "\"Máx ranuras\" ha sido cambiado"
+    "UPCOMING_PICKUPS_IN_SERIES": "Próximas recogidas en esta serie",
+    "PICKUP_DOES_NOT_MATCH": "La fecha de las recogidas no coinciden con el patrón.",
+    "PICKUP_DESCRIPTION_CHANGED": "\"Información adicional\" ha sido cambiada",
+    "PICKUP_MAX_COLLECTORS_CHANGED": "\"Máx ranuras\" ha sido cambiado"
   },
-  "ACTIVITYDELETE": {
+  "PICKUPDELETE": {
     "DELETE_SERIES_TITLE": "Eliminar fecha de recogidas recurrentes",
     "DELETE_SERIES_TEXT": "¿Realmente deseas eliminar esta fecha recurrente de recogidas? Esto también eliminará todas las fechas de recogidas únicas que pertenecen a esta fecha recurrente de recogidas (excepto cuando las personas ya se unieron)."
   },
@@ -302,7 +302,7 @@
     "TITLE": "Eliminar cuenta",
     "SUCCESS": "Tu cuenta ha sido correctamente eliminada"
   },
-  "CREATEACTIVITY": {
+  "CREATEPICKUP": {
     "FREQUENCY": "Frecuencia",
     "WEEKLY": "Semanal",
     "CUSTOM": "Personalizado",
@@ -316,8 +316,8 @@
     "STARTDATE_HELPER": "¿Cuándo debería comenzar la serie?",
     "TIME_HELPER": "¿Cuándo debe llevarse a cabo la recogida?",
     "DATE": "Fecha",
-    "MAX_PARTICIPANTS": "Máx ranuras",
-    "MAX_PARTICIPANTS_HELPER": "Cuántas personas deberían participar en la recogida?",
+    "MAX_COLLECTORS": "Máx ranuras",
+    "MAX_COLLECTORS_HELPER": "Cuántas personas deberían participar en la recogida?",
     "COMMENT": "Información adicional",
     "COMMENT_HELPER": "¿Qué debería saber la gente cuando se registra en esta recogida?",
     "UNLIMITED": "ilimitado",
@@ -331,7 +331,7 @@
   "CREATESTORE": {
     "TITLE": "Crea un nuevo lugar"
   },
-  "ACTIVITYLIST": {
+  "PICKUPLIST": {
     "FILTER": {
       "ALL": "Todo",
       "EMPTY": "Solo vacios",
@@ -352,20 +352,20 @@
     "NONE": "Ninguna recogida inminente",
     "NONE_HINT": "Puedes crear una nueva recogida en la página del lugar.",
     "STORE_NONE_HINT": "Puede crear una nueva recogida en la página de administración de recogidas.",
-    "ACTIVITY_DISABLED": "Esta recogida ha sido desactivada.",
-    "ACTIVITY_STARTED": "Esta recogida ya ha comenzado."
+    "PICKUP_DISABLED": "Esta recogida ha sido desactivada.",
+    "PICKUP_STARTED": "Esta recogida ya ha comenzado."
   },
   "FEEDBACKLIST": {
     "SAVED_FOOD": "Al menos 1 kg fue rescatado aquí. ¡Gracias! | ¡La gente ya dejó un comentario de {amount}kg de comida rescatada! ¡Mantengamos el buen trabajo!",
-    "NUMBER_ACTIVITIES": "{count}recogidas realizadas",
+    "NUMBER_PICKUPS": "{count}recogidas realizadas",
     "NUMBER_FEEDBACK": "{count}comentarios dados",
     "WEIGHT_SUM": "{sum}kg de comida rescatados",
     "NONE": "Aún no hay comentarios",
     "NONE_HINT": "Esta página se completará una vez que haya más comentarios disponibles",
-    "NO_DONE_ACTIVITIES": "¡Todo hecho!",
-    "NO_DONE_ACTIVITIES_HINT": "No tienes recogidas en las que dejar comentarios. ¿Por qué no te unes a otra recogida?"
+    "NO_DONE_PICKUPS": "¡Todo hecho!",
+    "NO_DONE_PICKUPS_HINT": "No tienes recogidas en las que dejar comentarios. ¿Por qué no te unes a otra recogida?"
   },
-  "ACTIVITY_FEEDBACK": {
+  "PICKUP_FEEDBACK": {
     "TITLE": "Comentario",
     "HEADER": "Gracias por tu recogida!",
     "EDIT": "Editar comentarios",
@@ -414,18 +414,18 @@
     "STORE_CREATE": "creó el lugar {name}",
     "STORE_MODIFY": "cambió los ajustes del lugar {name}",
     "STORE_DELETE": "eliminó el lugar{name}",
-    "ACTIVITY_CREATE": "creó una nueva recogida única ",
-    "ACTIVITY_MODIFY": "cambió la configuración de un pick-up",
-    "ACTIVITY_DELETE": "eliminó una recogida",
-    "ACTIVITY_ENABLE": "habilitó una recogida",
-    "ACTIVITY_DISABLE": "deshabilitó una recogida",
+    "PICKUP_CREATE": "creó una nueva recogida única ",
+    "PICKUP_MODIFY": "cambió la configuración de un pick-up",
+    "PICKUP_DELETE": "eliminó una recogida",
+    "PICKUP_ENABLE": "habilitó una recogida",
+    "PICKUP_DISABLE": "deshabilitó una recogida",
     "SERIES_CREATE": "creado una nueva recogida recurrente",
     "SERIES_MODIFY": "cambió la configuración de un pick-up recurrente",
     "SERIES_DELETE": "eliminó una recolección recurrente",
-    "ACTIVITY_DONE": "hizo una recogida en {storeName}",
-    "ACTIVITY_MISSED": "Faltó una recogida en {storeName}!",
-    "ACTIVITY_JOIN": "se apuntó a una recogida en {storeName}",
-    "ACTIVITY_LEAVE": "dio un paso atrás al hacer una recolección en {storeName}",
+    "PICKUP_DONE": "hizo una recogida en {storeName}",
+    "PICKUP_MISSED": "Faltó una recogida en {storeName}!",
+    "PICKUP_JOIN": "se apuntó a una recogida en {storeName}",
+    "PICKUP_LEAVE": "dio un paso atrás al hacer una recolección en {storeName}",
     "APPLICATION_DECLINED": "rechazó la solicitud de {applicantName}",
     "MEMBER_BECAME_EDITOR": "obtuvo permisos de edición",
     "GROUP_LEAVE_INACTIVE": "fue eliminado debido a su inactividad",
@@ -457,10 +457,10 @@
     "FEEDBACK_POSSIBLE": "Puedes dejar un comentario sobre la recogida que hiciste el {date}",
     "NEW_PLACE": "{placeName}ha sido creado",
     "NEW_MEMBER": "{userName}se ha unido al grupo",
-    "ACTIVITY_UPCOMING": "Recordatorio: tienes una recogida a las {time}",
-    "ACTIVITY_DISABLED": "La recogida a las {dateTime}fue desactivada",
-    "ACTIVITY_ENABLED": "Recogida a las {dateTime}fue activada de nuevo",
-    "ACTIVITY_MOVED": "La recogida fue cambiada a las {dateTime}",
+    "PICKUP_UPCOMING": "Recordatorio: tienes una recogida a las {time}",
+    "PICKUP_DISABLED": "La recogida a las {dateTime}fue desactivada",
+    "PICKUP_ENABLED": "Recogida a las {dateTime}fue activada de nuevo",
+    "PICKUP_MOVED": "La recogida fue cambiada a las {dateTime}",
     "CONFLICT_RESOLUTION_CREATED": "Únete al debate sobre el problema con {userName}",
     "CONFLICT_RESOLUTION_CREATED_ABOUT_YOU": "Empezaste un proceso de resolver problemas ",
     "CONFLICT_RESOLUTION_CONTINUED": "El proceso de resolver problemas con {userName}continúa",

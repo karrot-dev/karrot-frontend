@@ -121,10 +121,10 @@
     "SET_LOGO": "Click to upload your group logo!",
     "APPLICATIONS": "申請",
     "APPLICATION_QUESTIONS": "給要加入社團者的問題",
-    "ACTIVITIES": "開放領取食物",
+    "PICKUPS": "開放領取食物",
     "MESSAGES": "訊息",
     "OFFERS": "Offers",
-    "ACTIVITY": "領取",
+    "PICKUP": "領取",
     "MEMBERS": "成員",
     "JOINED": "已加入{relativeDate}",
     "DECLINED": "已拒絕 {relativeDate}",
@@ -156,7 +156,7 @@
         "NAME": "每週摘要",
         "DESCRIPTION": "隨時關注此社團最新消息"
       },
-      "daily_activity_notification": {
+      "daily_pickup_notification": {
         "NAME": "領取通知",
         "DESCRIPTION": "Reminds you of your pickups, and tells you about empty or not-full pickups of your favorite places in the next day"
       },
@@ -225,16 +225,16 @@
       "NO_TEXT": "None of the above. You can still sign up for pickups though."
     }
   },
-  "ACTIVITYMANAGE": {
+  "PICKUPMANAGE": {
     "TITLE": "管理食物領取",
     "SERIES": "重復開放領取",
     "SINGLE": "一次性開放領取",
-    "UPCOMING_ACTIVITIES_IN_SERIES": "此系列接下來的開放領取日期",
-    "ACTIVITY_DOES_NOT_MATCH": "This pickups' date doesn't match the recurrence pattern",
-    "ACTIVITY_DESCRIPTION_CHANGED": "'Additional information' has been changed",
-    "ACTIVITY_MAX_PARTICIPANTS_CHANGED": "'Max slots' has been changed"
+    "UPCOMING_PICKUPS_IN_SERIES": "此系列接下來的開放領取日期",
+    "PICKUP_DOES_NOT_MATCH": "This pickups' date doesn't match the recurrence pattern",
+    "PICKUP_DESCRIPTION_CHANGED": "'Additional information' has been changed",
+    "PICKUP_MAX_COLLECTORS_CHANGED": "'Max slots' has been changed"
   },
-  "ACTIVITYDELETE": {
+  "PICKUPDELETE": {
     "DELETE_SERIES_TITLE": "刪除循環出現的開放領取日期",
     "DELETE_SERIES_TEXT": "你真的想要刪除此固定開放食物領取日期？這也將刪除所有屬於此固定食物領取日期的一次性的開放食物領取日期（已有夥伴排班的日期將會保留）。"
   },
@@ -302,7 +302,7 @@
     "TITLE": "帳戶刪除",
     "SUCCESS": "你的帳戶已成功刪除"
   },
-  "CREATEACTIVITY": {
+  "CREATEPICKUP": {
     "FREQUENCY": "頻率",
     "WEEKLY": "每周的",
     "CUSTOM": "客製的",
@@ -316,8 +316,8 @@
     "STARTDATE_HELPER": "此系列活動從甚麼時候開始?",
     "TIME_HELPER": "應該在甚麼時候領取食物？",
     "DATE": "日期",
-    "MAX_PARTICIPANTS": "最大值",
-    "MAX_PARTICIPANTS_HELPER": "徵求多少人領取食物？",
+    "MAX_COLLECTORS": "最大值",
+    "MAX_COLLECTORS_HELPER": "徵求多少人領取食物？",
     "COMMENT": "更多資訊",
     "COMMENT_HELPER": "有什麼事項是報名領取食物者應注意的？",
     "UNLIMITED": "沒有限制",
@@ -331,7 +331,7 @@
   "CREATESTORE": {
     "TITLE": "Create a new place"
   },
-  "ACTIVITYLIST": {
+  "PICKUPLIST": {
     "FILTER": {
       "ALL": "All",
       "EMPTY": "Only empty",
@@ -352,20 +352,20 @@
     "NONE": "沒有後續的開放領取",
     "NONE_HINT": "You can create a new pickup on the place page.",
     "STORE_NONE_HINT": "你可以在領取任務管理頁面創建新的領取任務",
-    "ACTIVITY_DISABLED": "This pickup has been disabled.",
-    "ACTIVITY_STARTED": "This pickup has already started."
+    "PICKUP_DISABLED": "This pickup has been disabled.",
+    "PICKUP_STARTED": "This pickup has already started."
   },
   "FEEDBACKLIST": {
     "SAVED_FOOD": "至少有 1 公斤的食物不會被浪費掉了，| 謝謝你 ! 大家已經給  {amout}公斤的食物領取回饋了。繼續加油 !    ",
-    "NUMBER_ACTIVITIES": "{count} 項領取已完成",
+    "NUMBER_PICKUPS": "{count} 項領取已完成",
     "NUMBER_FEEDBACK": "有{count} 項領取回饋 ",
     "WEIGHT_SUM": "{sum} 公斤的食物已被領取",
     "NONE": "尚未有回饋",
     "NONE_HINT": "當有更多回饋時，它們就會填入這個頁面",
-    "NO_DONE_ACTIVITIES": "都完成了",
-    "NO_DONE_ACTIVITIES_HINT": "你現在沒有食物領取要回饋了，何不再登記一個食物領取?"
+    "NO_DONE_PICKUPS": "都完成了",
+    "NO_DONE_PICKUPS_HINT": "你現在沒有食物領取要回饋了，何不再登記一個食物領取?"
   },
-  "ACTIVITY_FEEDBACK": {
+  "PICKUP_FEEDBACK": {
     "TITLE": "回饋",
     "HEADER": "謝謝你領取食物！",
     "EDIT": "編輯回饋",
@@ -414,18 +414,18 @@
     "STORE_CREATE": "created place {name}",
     "STORE_MODIFY": "changed the settings of place {name}",
     "STORE_DELETE": "deleted place {name}",
-    "ACTIVITY_CREATE": "創建新的一次性開放外帶",
-    "ACTIVITY_MODIFY": "變更開放外帶的設定",
-    "ACTIVITY_DELETE": "刪除開放外帶",
-    "ACTIVITY_ENABLE": "enabled a pickup",
-    "ACTIVITY_DISABLE": "disabled a pickup",
+    "PICKUP_CREATE": "創建新的一次性開放外帶",
+    "PICKUP_MODIFY": "變更開放外帶的設定",
+    "PICKUP_DELETE": "刪除開放外帶",
+    "PICKUP_ENABLE": "enabled a pickup",
+    "PICKUP_DISABLE": "disabled a pickup",
     "SERIES_CREATE": "創建新的循環出現開放外帶",
     "SERIES_MODIFY": "變更循環出現的開放外帶設定",
     "SERIES_DELETE": "刪除循環出現的開放外帶",
-    "ACTIVITY_DONE": "有去{store}拿取食物",
-    "ACTIVITY_MISSED": "在{store}的食物領取被放鳥了！",
-    "ACTIVITY_JOIN": "註冊以在{store}取貨",
-    "ACTIVITY_LEAVE": "取消在{storeName}開放領取食物",
+    "PICKUP_DONE": "有去{store}拿取食物",
+    "PICKUP_MISSED": "在{store}的食物領取被放鳥了！",
+    "PICKUP_JOIN": "註冊以在{store}取貨",
+    "PICKUP_LEAVE": "取消在{storeName}開放領取食物",
     "APPLICATION_DECLINED": "拒絕{applicantName}的申請",
     "MEMBER_BECAME_EDITOR": "取得編輯許可",
     "GROUP_LEAVE_INACTIVE": "was removed due to inactivity",
@@ -457,10 +457,10 @@
     "FEEDBACK_POSSIBLE": "你可以給你在{date}的食物領取回饋",
     "NEW_PLACE": "{placeName} has been created",
     "NEW_MEMBER": "{userName}加入了你的團隊",
-    "ACTIVITY_UPCOMING": "提醒: 你在{time}有領取任務",
-    "ACTIVITY_DISABLED": "Pickup at {dateTime} was disabled",
-    "ACTIVITY_ENABLED": "Pickup at {dateTime} was enabled again",
-    "ACTIVITY_MOVED": "Pickup was moved to {dateTime}",
+    "PICKUP_UPCOMING": "提醒: 你在{time}有領取任務",
+    "PICKUP_DISABLED": "Pickup at {dateTime} was disabled",
+    "PICKUP_ENABLED": "Pickup at {dateTime} was enabled again",
+    "PICKUP_MOVED": "Pickup was moved to {dateTime}",
     "CONFLICT_RESOLUTION_CREATED": "Join the discussion about a conflict with {userName}",
     "CONFLICT_RESOLUTION_CREATED_ABOUT_YOU": "A conflict resolution process was started with you",
     "CONFLICT_RESOLUTION_CONTINUED": "The conflict resolution process with {userName} continues",

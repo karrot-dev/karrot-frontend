@@ -121,10 +121,10 @@
     "SET_LOGO": "Kliknutím nahrajete logo své skupiny!",
     "APPLICATIONS": "Žádosti",
     "APPLICATION_QUESTIONS": "Otázky pro lidi, kteří se chtějí připojit k této skupině",
-    "ACTIVITIES": "Vyzvednutí",
+    "PICKUPS": "Vyzvednutí",
     "MESSAGES": "Zprávy",
     "OFFERS": "Nabídky",
-    "ACTIVITY": "Vyzvednutí",
+    "PICKUP": "Vyzvednutí",
     "MEMBERS": "Členové",
     "JOINED": "připojen {relativeDate}",
     "DECLINED": "odmítl v {relativeDate}",
@@ -156,7 +156,7 @@
         "NAME": "Týdenní shrnutí",
         "DESCRIPTION": "Sledujte, co se ve skupině děje."
       },
-      "daily_activity_notification": {
+      "daily_pickup_notification": {
         "NAME": "Oznámení o vyzvednutí",
         "DESCRIPTION": "Připomíná vám vaše vyzvednutí a řekne vám o prázdných nebo neúplných vyzvednutích vašich oblíbených míst v příštím dnu"
       },
@@ -225,16 +225,16 @@
       "NO_TEXT": "Nic z výše uvedeného. I přesto se můžete přihlásit k odběru."
     }
   },
-  "ACTIVITYMANAGE": {
+  "PICKUPMANAGE": {
     "TITLE": "Spravujte vyzvednutí",
     "SERIES": "Opakující se vyzvednutí",
     "SINGLE": "Jednorázové vyzvednutí",
-    "UPCOMING_ACTIVITIES_IN_SERIES": "Připravované vyzvednutí v této sérii",
-    "ACTIVITY_DOES_NOT_MATCH": "Datum tohoto vyzvednutí neodpovídá vzoru opakování.",
-    "ACTIVITY_DESCRIPTION_CHANGED": "„Další informace“ byly změněny",
-    "ACTIVITY_MAX_PARTICIPANTS_CHANGED": "Maximální počet slotů byl změněn"
+    "UPCOMING_PICKUPS_IN_SERIES": "Připravované vyzvednutí v této sérii",
+    "PICKUP_DOES_NOT_MATCH": "Datum tohoto vyzvednutí neodpovídá vzoru opakování.",
+    "PICKUP_DESCRIPTION_CHANGED": "„Další informace“ byly změněny",
+    "PICKUP_MAX_COLLECTORS_CHANGED": "Maximální počet slotů byl změněn"
   },
-  "ACTIVITYDELETE": {
+  "PICKUPDELETE": {
     "DELETE_SERIES_TITLE": "Odstranit opakující se datum vyzvednutí",
     "DELETE_SERIES_TEXT": "Opravdu chcete odstranit toto opakující se datum vyzvednutí? Tím se také odstraní všechna jednorázová data vyzvednutí, která patří k tomuto opakovanému datu vyzvednutí (kromě případů, kdy se lidé již připojili)."
   },
@@ -302,7 +302,7 @@
     "TITLE": "Smazání účtu",
     "SUCCESS": "Váš účet byl úspěšně smazán!"
   },
-  "CREATEACTIVITY": {
+  "CREATEPICKUP": {
     "FREQUENCY": "Frekvence",
     "WEEKLY": "Týdně",
     "CUSTOM": "Vlastní",
@@ -316,8 +316,8 @@
     "STARTDATE_HELPER": "Kdy by měla série začít?",
     "TIME_HELPER": "Kdy by mělo dojít k vyzvednutí?",
     "DATE": "Datum",
-    "MAX_PARTICIPANTS": "Maximum slotů",
-    "MAX_PARTICIPANTS_HELPER": "Kolik lidí by se mělo na vyzvednutí zúčastnit?",
+    "MAX_COLLECTORS": "Maximum slotů",
+    "MAX_COLLECTORS_HELPER": "Kolik lidí by se mělo na vyzvednutí zúčastnit?",
     "COMMENT": "Dodatečné informace",
     "COMMENT_HELPER": "Co by měli lidé vědět při přihlášení k tomuto vyzvednutí?",
     "UNLIMITED": "neomezený",
@@ -331,7 +331,7 @@
   "CREATESTORE": {
     "TITLE": "Vytvořit nové místo"
   },
-  "ACTIVITYLIST": {
+  "PICKUPLIST": {
     "FILTER": {
       "ALL": "Vše",
       "EMPTY": "Pouze prázdný",
@@ -352,20 +352,20 @@
     "NONE": "Žádné nadcházející vyzvednutí",
     "NONE_HINT": "Na stránce Místa můžete vytvořit nové vyzvednutí.",
     "STORE_NONE_HINT": "Na stránce pro správu vyzvednutí můžete vytvořit nové vyzvednutí.",
-    "ACTIVITY_DISABLED": "Toto vyzvednutí bylo deaktivováno.",
-    "ACTIVITY_STARTED": "Toto vyzvednutí již začalo."
+    "PICKUP_DISABLED": "Toto vyzvednutí bylo deaktivováno.",
+    "PICKUP_STARTED": "Toto vyzvednutí již začalo."
   },
   "FEEDBACKLIST": {
     "SAVED_FOOD": "Zde bylo ušetřeno nejméně 1 kg. Děkujeme! | Lidé již poskytli zpětnou vazbu na {amount} kg ušetřeného jídla! Pokračujte ve skvělé práci!",
-    "NUMBER_ACTIVITIES": "{count} vyzvednutí hotovo",
+    "NUMBER_PICKUPS": "{count} vyzvednutí hotovo",
     "NUMBER_FEEDBACK": "{count} zadané komentáře",
     "WEIGHT_SUM": "{sum} kg zachráněného jídla",
     "NONE": "Zatím žádná zpětná vazba",
     "NONE_HINT": "Tato stránka bude vyplněna, jakmile bude k dispozici další zpětná vazba",
-    "NO_DONE_ACTIVITIES": "Vše hotovo!",
-    "NO_DONE_ACTIVITIES_HINT": "V současné době nemáte žádné vyzvednutí, na které byste mohli poskytnout zpětnou vazbu. Proč se nepřipojit k jinému vyzvednutí?"
+    "NO_DONE_PICKUPS": "Vše hotovo!",
+    "NO_DONE_PICKUPS_HINT": "V současné době nemáte žádné vyzvednutí, na které byste mohli poskytnout zpětnou vazbu. Proč se nepřipojit k jinému vyzvednutí?"
   },
-  "ACTIVITY_FEEDBACK": {
+  "PICKUP_FEEDBACK": {
     "TITLE": "Zpětná vazba",
     "HEADER": "Děkujeme za vyzvednutí!",
     "EDIT": "Upravit zpětnou vazbu",
@@ -414,18 +414,18 @@
     "STORE_CREATE": "vytvořené místo {name}",
     "STORE_MODIFY": "změněno nastavení místa {name}",
     "STORE_DELETE": "smazané místo {name}",
-    "ACTIVITY_CREATE": "vytvořil nové jednorázové vyzvednutí",
-    "ACTIVITY_MODIFY": "změněno nastavení vyzvednutí",
-    "ACTIVITY_DELETE": "smazal vyzvednutí",
-    "ACTIVITY_ENABLE": "povoleno vyzvednutí",
-    "ACTIVITY_DISABLE": "nepovoleno vyzvednutí",
+    "PICKUP_CREATE": "vytvořil nové jednorázové vyzvednutí",
+    "PICKUP_MODIFY": "změněno nastavení vyzvednutí",
+    "PICKUP_DELETE": "smazal vyzvednutí",
+    "PICKUP_ENABLE": "povoleno vyzvednutí",
+    "PICKUP_DISABLE": "nepovoleno vyzvednutí",
     "SERIES_CREATE": "vytvořil nové opakující se vyzvednutí",
     "SERIES_MODIFY": "změnil nastavení opakovaného vyzvednutí",
     "SERIES_DELETE": "odstranil opakující se vyzvednutí",
-    "ACTIVITY_DONE": "vyzvedl v {storeName}",
-    "ACTIVITY_MISSED": "Vyzvednutí na {storeName} bylo zmeškáno!",
-    "ACTIVITY_JOIN": "přihlášeni k vyzvednutí na {storeName}",
-    "ACTIVITY_LEAVE": "odstoupil od vyzvednutí {storeName}",
+    "PICKUP_DONE": "vyzvedl v {storeName}",
+    "PICKUP_MISSED": "Vyzvednutí na {storeName} bylo zmeškáno!",
+    "PICKUP_JOIN": "přihlášeni k vyzvednutí na {storeName}",
+    "PICKUP_LEAVE": "odstoupil od vyzvednutí {storeName}",
     "APPLICATION_DECLINED": "odmítl žádost od {applicantName}",
     "MEMBER_BECAME_EDITOR": "získal oprávnění k úpravám",
     "GROUP_LEAVE_INACTIVE": "byl odstraněn kvůli nečinnosti",
@@ -457,10 +457,10 @@
     "FEEDBACK_POSSIBLE": "Můžete poskytnout zpětnou vazbu pro vyzvednutí, které jste provedli {date}",
     "NEW_PLACE": "Místo {placeName} bylo vytvořeno",
     "NEW_MEMBER": "{userName} se připojil k vaší skupině",
-    "ACTIVITY_UPCOMING": "Připomenutí: Máte vyzvednutí v {time}",
-    "ACTIVITY_DISABLED": "Vyzvednutí v {dateTime} bylo zakázáno",
-    "ACTIVITY_ENABLED": "Vyzvednutí v {dateTime} bylo znovu povoleno",
-    "ACTIVITY_MOVED": "Vyzvednutí bylo přesunuto na {dateTime}",
+    "PICKUP_UPCOMING": "Připomenutí: Máte vyzvednutí v {time}",
+    "PICKUP_DISABLED": "Vyzvednutí v {dateTime} bylo zakázáno",
+    "PICKUP_ENABLED": "Vyzvednutí v {dateTime} bylo znovu povoleno",
+    "PICKUP_MOVED": "Vyzvednutí bylo přesunuto na {dateTime}",
     "CONFLICT_RESOLUTION_CREATED": "Připojte se k diskusi o konfliktu s {userName}",
     "CONFLICT_RESOLUTION_CREATED_ABOUT_YOU": "S vámi byl zahájen proces řešení konfliktů",
     "CONFLICT_RESOLUTION_CONTINUED": "Proces řešení konfliktu s {userName} pokračuje",

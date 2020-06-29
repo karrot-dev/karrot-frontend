@@ -121,10 +121,10 @@
     "SET_LOGO": "Kliknij by wgrać logo grupy!",
     "APPLICATIONS": "Zgłoszenia",
     "APPLICATION_QUESTIONS": "Pytania dla osób, które chcą dołączyć",
-    "ACTIVITIES": "Odbiory",
+    "PICKUPS": "Odbiory",
     "MESSAGES": "Wiadomości",
     "OFFERS": "Oferty",
-    "ACTIVITY": "Odbiór",
+    "PICKUP": "Odbiór",
     "MEMBERS": "Członkowie",
     "JOINED": "dołączył/-a {relativeDate}",
     "DECLINED": "odrzucono {relativeDate}",
@@ -156,7 +156,7 @@
         "NAME": "Podsumowanie tygodnia",
         "DESCRIPTION": "Bądź na bieżąco z wydarzeniami w grupie."
       },
-      "daily_activity_notification": {
+      "daily_pickup_notification": {
         "NAME": "Powiadomienia o odbiorach",
         "DESCRIPTION": "Przypomina Ci o nadchodzących odbiorach, na które się zapisałaś/-eś oraz o odbiorach, na które jeszcze nikt się nie zapisał albo na które są jeszcze wolne miejsca w Twoich ulubionych punktach."
       },
@@ -225,16 +225,16 @@
       "NO_TEXT": "Żadne z powyższych. Możesz wciąż zapisywać się na odbiory."
     }
   },
-  "ACTIVITYMANAGE": {
+  "PICKUPMANAGE": {
     "TITLE": "Zarządzaj odbiorami",
     "SERIES": "Powtarzające się odbiory",
     "SINGLE": "Odbiory jednorazowe",
-    "UPCOMING_ACTIVITIES_IN_SERIES": "Nadchodzące odbiory",
-    "ACTIVITY_DOES_NOT_MATCH": "Data tego odbioru nie pasuje do wzorca powtarzających się odbiorów",
-    "ACTIVITY_DESCRIPTION_CHANGED": "Zmieniono \"Dodatkowe informacje\"",
-    "ACTIVITY_MAX_PARTICIPANTS_CHANGED": "Zmieniono maksymalną liczbę okienek"
+    "UPCOMING_PICKUPS_IN_SERIES": "Nadchodzące odbiory",
+    "PICKUP_DOES_NOT_MATCH": "Data tego odbioru nie pasuje do wzorca powtarzających się odbiorów",
+    "PICKUP_DESCRIPTION_CHANGED": "Zmieniono \"Dodatkowe informacje\"",
+    "PICKUP_MAX_COLLECTORS_CHANGED": "Zmieniono maksymalną liczbę okienek"
   },
-  "ACTIVITYDELETE": {
+  "PICKUPDELETE": {
     "DELETE_SERIES_TITLE": "Usuń powtarzające się odbiory",
     "DELETE_SERIES_TEXT": "Czy na pewno chcesz usunąć te powtarzające się odbiory? Ta czynność usunie również wszystkie odbiory jednorazowe, które należą do tych powtarzających się odbiorów (oprócz tych, na które już ktoś się zapisał)."
   },
@@ -302,7 +302,7 @@
     "TITLE": "Usunięcie konta",
     "SUCCESS": "Twoje konto zostało usunięte!"
   },
-  "CREATEACTIVITY": {
+  "CREATEPICKUP": {
     "FREQUENCY": "Częstotliwość",
     "WEEKLY": "Co tydzień",
     "CUSTOM": "Inne",
@@ -316,8 +316,8 @@
     "STARTDATE_HELPER": "Kiedy zaczną się odbiory?",
     "TIME_HELPER": "O której godzinie odbieramy jedzenie?",
     "DATE": "Data",
-    "MAX_PARTICIPANTS": "Maksymalna liczba okienek",
-    "MAX_PARTICIPANTS_HELPER": "Ile osób może maksymalnie uczestniczyć w odbiorze?",
+    "MAX_COLLECTORS": "Maksymalna liczba okienek",
+    "MAX_COLLECTORS_HELPER": "Ile osób może maksymalnie uczestniczyć w odbiorze?",
     "COMMENT": "Dodatkowe informacje",
     "COMMENT_HELPER": "Co powinni wiedzieć ratownicy, którzy zapisują się na ten odbiór?",
     "UNLIMITED": "bez ograniczeń",
@@ -331,7 +331,7 @@
   "CREATESTORE": {
     "TITLE": "Dodaj nowy punkt"
   },
-  "ACTIVITYLIST": {
+  "PICKUPLIST": {
     "FILTER": {
       "ALL": "Wszystkie odbiory",
       "EMPTY": "Odbiory, na które nikt się nie zapisał",
@@ -352,20 +352,20 @@
     "NONE": "Brak nadchodzących odbiorów",
     "NONE_HINT": "Możesz dodać nowe odbiory na stronie punktu.",
     "STORE_NONE_HINT": "Możesz dodać nowe odbiory na stronie zarządzania odbiorami.",
-    "ACTIVITY_DISABLED": "Odbiór został zdezaktywowany.",
-    "ACTIVITY_STARTED": "Odbiór już się rozpoczął."
+    "PICKUP_DISABLED": "Odbiór został zdezaktywowany.",
+    "PICKUP_STARTED": "Odbiór już się rozpoczął."
   },
   "FEEDBACKLIST": {
     "SAVED_FOOD": "W tym punkcie uratowano już ponad 1 kg żywności. Dziękujemy! | W tym punkcie uratowano już {amount} kg żywności. Oby tak dalej!",
-    "NUMBER_ACTIVITIES": "odebrano {count} razy",
+    "NUMBER_PICKUPS": "odebrano {count} razy",
     "NUMBER_FEEDBACK": "Dodano {count} komentarzy do odbiorów",
     "WEIGHT_SUM": "uratowano {sum} kg jedzenia",
     "NONE": "Brak komentarzy",
     "NONE_HINT": "Tutaj pojawią się komentarze",
-    "NO_DONE_ACTIVITIES": "Wszystko odebrane!",
-    "NO_DONE_ACTIVITIES_HINT": "Jeszcze nie masz odbiorów, które możesz skomentować. Może chcesz zapisać się na odbiór?"
+    "NO_DONE_PICKUPS": "Wszystko odebrane!",
+    "NO_DONE_PICKUPS_HINT": "Jeszcze nie masz odbiorów, które możesz skomentować. Może chcesz zapisać się na odbiór?"
   },
-  "ACTIVITY_FEEDBACK": {
+  "PICKUP_FEEDBACK": {
     "TITLE": "Komentarz",
     "HEADER": "Dzięki za odbiór!",
     "EDIT": "Edytuj komentarz",
@@ -414,18 +414,18 @@
     "STORE_CREATE": "utworzył/-a punkt {name}",
     "STORE_MODIFY": "zmienił/-a ustawienia punktu {name}",
     "STORE_DELETE": "Usunięto punkt {name}",
-    "ACTIVITY_CREATE": "dodał/-a jednorazowy odbiór",
-    "ACTIVITY_MODIFY": "zmienił/-a ustawienia odbioru",
-    "ACTIVITY_DELETE": "usunął/-ęła odbiór",
-    "ACTIVITY_ENABLE": "aktywował/-a odbiór",
-    "ACTIVITY_DISABLE": "zdezaktywował/-a odbiór",
+    "PICKUP_CREATE": "dodał/-a jednorazowy odbiór",
+    "PICKUP_MODIFY": "zmienił/-a ustawienia odbioru",
+    "PICKUP_DELETE": "usunął/-ęła odbiór",
+    "PICKUP_ENABLE": "aktywował/-a odbiór",
+    "PICKUP_DISABLE": "zdezaktywował/-a odbiór",
     "SERIES_CREATE": "dodał/-a powtarzający się odbiór",
     "SERIES_MODIFY": "zmienił/-a ustawienia powtarzającego się odbioru",
     "SERIES_DELETE": "usunął/-ęła powtarzający się odbiór",
-    "ACTIVITY_DONE": "odebrał/-a w {storeName}",
-    "ACTIVITY_MISSED": "Przegapiono odbiór w {storeName}!",
-    "ACTIVITY_JOIN": "zapisał/-a się na odbiór w {storeName}",
-    "ACTIVITY_LEAVE": "zrezygnował/-a z odbioru w {storeName}",
+    "PICKUP_DONE": "odebrał/-a w {storeName}",
+    "PICKUP_MISSED": "Przegapiono odbiór w {storeName}!",
+    "PICKUP_JOIN": "zapisał/-a się na odbiór w {storeName}",
+    "PICKUP_LEAVE": "zrezygnował/-a z odbioru w {storeName}",
     "APPLICATION_DECLINED": "odrzucono zgłoszenie od {applicantName}",
     "MEMBER_BECAME_EDITOR": "otrzymał/-a uprawnienia do edycji",
     "GROUP_LEAVE_INACTIVE": "został/-a usunięty/-a w związku z brakiem aktywności",
@@ -457,10 +457,10 @@
     "FEEDBACK_POSSIBLE": "Możesz dodać komentarz do odbioru z {date}",
     "NEW_PLACE": "{placeName}został dodany",
     "NEW_MEMBER": "{userName} dołączył/-a do grupy",
-    "ACTIVITY_UPCOMING": "Przypomnienie: masz odbiór o {time}",
-    "ACTIVITY_DISABLED": "Odbiór w dniu {dateTime} został zdezaktywowany",
-    "ACTIVITY_ENABLED": "Odbiór w dniu {dateTime} został ponownie zaktywowany",
-    "ACTIVITY_MOVED": "Odbiór został przeniesiony na {dateTime}",
+    "PICKUP_UPCOMING": "Przypomnienie: masz odbiór o {time}",
+    "PICKUP_DISABLED": "Odbiór w dniu {dateTime} został zdezaktywowany",
+    "PICKUP_ENABLED": "Odbiór w dniu {dateTime} został ponownie zaktywowany",
+    "PICKUP_MOVED": "Odbiór został przeniesiony na {dateTime}",
     "CONFLICT_RESOLUTION_CREATED": "Dołącz do dyskusji o konflikcie z {userName}",
     "CONFLICT_RESOLUTION_CREATED_ABOUT_YOU": "Rozpoczęto rozwiązywanie konfliktu z Tobą",
     "CONFLICT_RESOLUTION_CONTINUED": "Kontynuowano rozwiązywanie konfliktu z {userName}",

@@ -121,10 +121,10 @@
     "SET_LOGO": "Cliquez pour télécharger votre groupe logo !",
     "APPLICATIONS": "Candidatures",
     "APPLICATION_QUESTIONS": "Questions pour celles/ceux qui veulent rejoindre ce groupe",
-    "ACTIVITIES": "Récoltes",
+    "PICKUPS": "Récoltes",
     "MESSAGES": "Messages",
     "OFFERS": "dons",
-    "ACTIVITY": "Récolte",
+    "PICKUP": "Récolte",
     "MEMBERS": "Membres",
     "JOINED": "membre depuis {relativeDate}",
     "DECLINED": "refusée {relativeDate}",
@@ -156,7 +156,7 @@
         "NAME": "Résumé hebdomadaire",
         "DESCRIPTION": "Tiens-toi au courant de ce qu'il se passe dans le groupe."
       },
-      "daily_activity_notification": {
+      "daily_pickup_notification": {
         "NAME": "Notifications de récolte",
         "DESCRIPTION": "Vous rappelle vos récoltes et vous informe des récoltes sans bénévoles ou incomplètes de vos lieux de récup préférés le lendemain\n "
       },
@@ -225,16 +225,16 @@
       "NO_TEXT": "Aucun de celle-ci dessus. Tu peux toujours t'inscrire pour ces récoltes."
     }
   },
-  "ACTIVITYMANAGE": {
+  "PICKUPMANAGE": {
     "TITLE": "Gérer les récoltes",
     "SERIES": "Récolte récurrente",
     "SINGLE": "Récoltes individuelles",
-    "UPCOMING_ACTIVITIES_IN_SERIES": "Récoltes à venir dans cette série",
-    "ACTIVITY_DOES_NOT_MATCH": "Ces dates de récoltes ne correspondent pas avec le modèle de récurrence",
-    "ACTIVITY_DESCRIPTION_CHANGED": "'Une information additionnelle' a été modifiée.",
-    "ACTIVITY_MAX_PARTICIPANTS_CHANGED": "' le nombre maximum de places' a été modifié."
+    "UPCOMING_PICKUPS_IN_SERIES": "Récoltes à venir dans cette série",
+    "PICKUP_DOES_NOT_MATCH": "Ces dates de récoltes ne correspondent pas avec le modèle de récurrence",
+    "PICKUP_DESCRIPTION_CHANGED": "'Une information additionnelle' a été modifiée.",
+    "PICKUP_MAX_COLLECTORS_CHANGED": "' le nombre maximum de places' a été modifié."
   },
-  "ACTIVITYDELETE": {
+  "PICKUPDELETE": {
     "DELETE_SERIES_TITLE": "Effacer récolte récurrente",
     "DELETE_SERIES_TEXT": "Veux-tu réellement supprimer cette récolte récurrente ? Cela supprimera aussi toutes les dates de récolte individuelle qui dépendent de cette date récurrente de récolte (sauf celles que des personnes ont déjà rejoint)."
   },
@@ -302,7 +302,7 @@
     "TITLE": "Suppression de compte",
     "SUCCESS": "Ton compte a été correctement supprimé !"
   },
-  "CREATEACTIVITY": {
+  "CREATEPICKUP": {
     "FREQUENCY": "Fréquence",
     "WEEKLY": "Hebdomadaire",
     "CUSTOM": "Personnalisée",
@@ -316,8 +316,8 @@
     "STARTDATE_HELPER": "Quand doivent commencer les récoltes?",
     "TIME_HELPER": "Quand doit avoir lieu la récolte ?",
     "DATE": "Date",
-    "MAX_PARTICIPANTS": "Nombre maximum de places",
-    "MAX_PARTICIPANTS_HELPER": "Combien de personnes participent à la récolte ?",
+    "MAX_COLLECTORS": "Nombre maximum de places",
+    "MAX_COLLECTORS_HELPER": "Combien de personnes participent à la récolte ?",
     "COMMENT": "Informations supplémentaires",
     "COMMENT_HELPER": "Que devraient savoir les membres à propos de cette récolte ?",
     "UNLIMITED": "illimité",
@@ -331,7 +331,7 @@
   "CREATESTORE": {
     "TITLE": "Créer un nouveau lieu de récolte"
   },
-  "ACTIVITYLIST": {
+  "PICKUPLIST": {
     "FILTER": {
       "ALL": "Tous",
       "EMPTY": "Seulement les vides",
@@ -352,20 +352,20 @@
     "NONE": "Aucune récolte à venir",
     "NONE_HINT": "Vous pouvez créer une nouvelle récolte sur la page de lieu.",
     "STORE_NONE_HINT": "Tu peux créer une nouvelle récolte sur la page des récoltes.",
-    "ACTIVITY_DISABLED": "Cette récolte a été désactivée.",
-    "ACTIVITY_STARTED": "Cette récolte a déjà commencée."
+    "PICKUP_DISABLED": "Cette récolte a été désactivée.",
+    "PICKUP_STARTED": "Cette récolte a déjà commencée."
   },
   "FEEDBACKLIST": {
     "SAVED_FOOD": "Au moins 1 kg a été sauvé. Merci ! Les autres participants ont déjà indiqué via leur compte-rendu de récolte que {amount} kg de nourriture ont été sauvés ! Continue, c'est génial !",
-    "NUMBER_ACTIVITIES": "{count} récoltes effectuées",
+    "NUMBER_PICKUPS": "{count} récoltes effectuées",
     "NUMBER_FEEDBACK": "{count}compte-rendu de récolte donné",
     "WEIGHT_SUM": "{sum} kg de nourriture sauvée",
     "NONE": "Pas de compte-rendu de récolte pour le moment ",
     "NONE_HINT": "Cette page sera remplie une fois quand plus de comptes-rendu de récoltes seront disponibles",
-    "NO_DONE_ACTIVITIES": "Et voilà !",
-    "NO_DONE_ACTIVITIES_HINT": "Aucune récolte ne t'attend pour le moment. Pourquoi ne pas t'inscrire?"
+    "NO_DONE_PICKUPS": "Et voilà !",
+    "NO_DONE_PICKUPS_HINT": "Aucune récolte ne t'attend pour le moment. Pourquoi ne pas t'inscrire?"
   },
-  "ACTIVITY_FEEDBACK": {
+  "PICKUP_FEEDBACK": {
     "TITLE": "compte-rendu de récolte",
     "HEADER": "Merci pour ta récolte !",
     "EDIT": "Édite ton compte-rendu de récolte",
@@ -414,18 +414,18 @@
     "STORE_CREATE": "Lieu de récolte créé {name}",
     "STORE_MODIFY": "les paramètres de lieu de récolte {name} ont été changé.",
     "STORE_DELETE": "Lieu de récolte supprimé {name}",
-    "ACTIVITY_CREATE": "a crée une récolte individuelle",
-    "ACTIVITY_MODIFY": "a changé les détails d'une récolte",
-    "ACTIVITY_DELETE": "a effacé une récolte",
-    "ACTIVITY_ENABLE": "activer une récolte",
-    "ACTIVITY_DISABLE": "Annuler une récolte",
+    "PICKUP_CREATE": "a crée une récolte individuelle",
+    "PICKUP_MODIFY": "a changé les détails d'une récolte",
+    "PICKUP_DELETE": "a effacé une récolte",
+    "PICKUP_ENABLE": "activer une récolte",
+    "PICKUP_DISABLE": "Annuler une récolte",
     "SERIES_CREATE": "a crée une nouvelle récolte récurrent",
     "SERIES_MODIFY": "a changé les détails d'une récolte récurrent",
     "SERIES_DELETE": "a effacé une récolte récurrent",
-    "ACTIVITY_DONE": "a fait une récolte à {storeName}",
-    "ACTIVITY_MISSED": "Une récolte à {storeName} a été manqué!",
-    "ACTIVITY_JOIN": "s'est enregistré pour faire une récolte à {storeName}",
-    "ACTIVITY_LEAVE": "a annulé sa récolte à {storeName}",
+    "PICKUP_DONE": "a fait une récolte à {storeName}",
+    "PICKUP_MISSED": "Une récolte à {storeName} a été manqué!",
+    "PICKUP_JOIN": "s'est enregistré pour faire une récolte à {storeName}",
+    "PICKUP_LEAVE": "a annulé sa récolte à {storeName}",
     "APPLICATION_DECLINED": "a refusé la candidature de {userName} ",
     "MEMBER_BECAME_EDITOR": "a obtenu des droits d'admin",
     "GROUP_LEAVE_INACTIVE": "a été enlevé à cause d'un manque d'activité ",
@@ -457,10 +457,10 @@
     "FEEDBACK_POSSIBLE": "Tu peux donner un retour d'information sur la récolte que tu as fait le {date}",
     "NEW_PLACE": "{placeName} a été créé",
     "NEW_MEMBER": "{userName} a rejoint le groupe",
-    "ACTIVITY_UPCOMING": "Rappel : Vous avez une récolte à {time}",
-    "ACTIVITY_DISABLED": "La récolte à {dateTime} a été annulée",
-    "ACTIVITY_ENABLED": "La récolte à {dateTime} a été réactivée",
-    "ACTIVITY_MOVED": "La récolte a été déplacée à {dateTime}",
+    "PICKUP_UPCOMING": "Rappel : Vous avez une récolte à {time}",
+    "PICKUP_DISABLED": "La récolte à {dateTime} a été annulée",
+    "PICKUP_ENABLED": "La récolte à {dateTime} a été réactivée",
+    "PICKUP_MOVED": "La récolte a été déplacée à {dateTime}",
     "CONFLICT_RESOLUTION_CREATED": "Rejoignez la discussion sur un conflit avec{userName}",
     "CONFLICT_RESOLUTION_CREATED_ABOUT_YOU": "Un processus de résolution des conflits a été lancé avec vous",
     "CONFLICT_RESOLUTION_CONTINUED": "Le processus de résolution des conflits se poursuit avec {userName}",

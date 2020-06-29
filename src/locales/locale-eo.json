@@ -121,10 +121,10 @@
     "SET_LOGO": "Alklaku por alŝuti vian grupan logotipon!",
     "APPLICATIONS": "Kandidatiĝoj",
     "APPLICATION_QUESTIONS": "Demandoj por homoj kiuj volas aliĝi la grupon",
-    "ACTIVITIES": "Savadoj",
+    "PICKUPS": "Savadoj",
     "MESSAGES": "Mesaĝoj",
     "OFFERS": "Ofertoj",
-    "ACTIVITY": "Savado",
+    "PICKUP": "Savado",
     "MEMBERS": "Anoj",
     "JOINED": "aliĝis {relativeDate}",
     "DECLINED": "malakceptis{relativeDate}",
@@ -156,7 +156,7 @@
         "NAME": "Semajna resumo",
         "DESCRIPTION": "Ĝisdatigu vin pri kio okazis en la grupo."
       },
-      "daily_activity_notification": {
+      "daily_pickup_notification": {
         "NAME": "Sciigoj pri savadoj",
         "DESCRIPTION": "Memorigas vin pri viaj savadoj kaj informas vin pri neplenaj savadoj en viaj preferataj lokj en la venonta tago"
       },
@@ -225,16 +225,16 @@
       "NO_TEXT": "Neniu supra eblo. Vi ankoraŭ povas registriĝi por savi."
     }
   },
-  "ACTIVITYMANAGE": {
+  "PICKUPMANAGE": {
     "TITLE": "Agordi savadojn",
     "SERIES": "Periodaj savadoj",
     "SINGLE": "Unufojaj savadoj",
-    "UPCOMING_ACTIVITIES_IN_SERIES": "Baldaŭaj savadoj en tiu ĉi serio",
-    "ACTIVITY_DOES_NOT_MATCH": "La savaddato ne kongruas kun la perioda regulo",
-    "ACTIVITY_DESCRIPTION_CHANGED": "'Aldona informo' ŝanĝiĝis",
-    "ACTIVITY_MAX_PARTICIPANTS_CHANGED": "'Maks savlokoj' ŝanĝiĝis"
+    "UPCOMING_PICKUPS_IN_SERIES": "Baldaŭaj savadoj en tiu ĉi serio",
+    "PICKUP_DOES_NOT_MATCH": "La savaddato ne kongruas kun la perioda regulo",
+    "PICKUP_DESCRIPTION_CHANGED": "'Aldona informo' ŝanĝiĝis",
+    "PICKUP_MAX_COLLECTORS_CHANGED": "'Maks savlokoj' ŝanĝiĝis"
   },
-  "ACTIVITYDELETE": {
+  "PICKUPDELETE": {
     "DELETE_SERIES_TITLE": "Forigi periodajn savaddatojn",
     "DELETE_SERIES_TEXT": "Ĉu vi vere volas forigi tiun ĉi periodan savaddaton? Tio ĉi forigos ankaŭ ĉiujn unufojajn savaddaton kiuj apartenas al tiu ĉi periodan savaddaton (krom kaze ke homoj jam aliĝis)."
   },
@@ -302,7 +302,7 @@
     "TITLE": "Forigi konton",
     "SUCCESS": "VIa konto estis sukcese forigita!"
   },
-  "CREATEACTIVITY": {
+  "CREATEPICKUP": {
     "FREQUENCY": "Ofteco",
     "WEEKLY": "Semajne",
     "CUSTOM": "Personaligo",
@@ -316,8 +316,8 @@
     "STARTDATE_HELPER": "Kiam devas komenci la serion?",
     "TIME_HELPER": "Kiam okazu la savadon?",
     "DATE": "Dato",
-    "MAX_PARTICIPANTS": "Maks Savlokoj",
-    "MAX_PARTICIPANTS_HELPER": "Kiom da homoj partoprenindas en la savado?",
+    "MAX_COLLECTORS": "Maks Savlokoj",
+    "MAX_COLLECTORS_HELPER": "Kiom da homoj partoprenindas en la savado?",
     "COMMENT": "Aldona informo",
     "COMMENT_HELPER": "Kion devas la homoj scii antaŭ aliĝi por tiu ĉi savado?",
     "UNLIMITED": "senlima",
@@ -331,7 +331,7 @@
   "CREATESTORE": {
     "TITLE": "Krei novan lokon"
   },
-  "ACTIVITYLIST": {
+  "PICKUPLIST": {
     "FILTER": {
       "ALL": "Ĉiuj",
       "EMPTY": "Nur malplenaj",
@@ -352,20 +352,20 @@
     "NONE": "Neniu venonta savado",
     "NONE_HINT": "Vi povas krei novan savadon en la loka paĝo.",
     "STORE_NONE_HINT": "Vi povas krei novan savadon en la agordpaĝo de savadoj.",
-    "ACTIVITY_DISABLED": "La savado estis nuligita.",
-    "ACTIVITY_STARTED": "Tiu ĉi savadon jam komenciĝis."
+    "PICKUP_DISABLED": "La savado estis nuligita.",
+    "PICKUP_STARTED": "Tiu ĉi savadon jam komenciĝis."
   },
   "FEEDBACKLIST": {
     "SAVED_FOOD": "Almenaŭ 1 kg estis savita ĉi tie. Dankon! Homoj komenti por {amount} kg de savitaj manĝaĵoj! Daŭrigi la bonan laboron!",
-    "NUMBER_ACTIVITIES": "{count}faritaj savadoj",
+    "NUMBER_PICKUPS": "{count}faritaj savadoj",
     "NUMBER_FEEDBACK": "{count}komentoj skribitaj",
     "WEIGHT_SUM": "{sum}kg savitaj",
     "NONE": "Neniu komento ankoraŭ",
     "NONE_HINT": "Tiu ĉi paĝo pleniĝos kiam komentoj disponeblos",
-    "NO_DONE_ACTIVITIES": "Ĉio farita!",
-    "NO_DONE_ACTIVITIES_HINT": "Nuntempe vi ne havas savadojn kiujn komenti. Kial vi ne aliĝas alian savadon?"
+    "NO_DONE_PICKUPS": "Ĉio farita!",
+    "NO_DONE_PICKUPS_HINT": "Nuntempe vi ne havas savadojn kiujn komenti. Kial vi ne aliĝas alian savadon?"
   },
-  "ACTIVITY_FEEDBACK": {
+  "PICKUP_FEEDBACK": {
     "TITLE": "Komentoj",
     "HEADER": "Dankon por via savado",
     "EDIT": "Redakti komenton",
@@ -414,18 +414,18 @@
     "STORE_CREATE": "loko kreita{name}",
     "STORE_MODIFY": "ŝanĝis la agordojn de la loko {name}",
     "STORE_DELETE": "forigita loko {name}",
-    "ACTIVITY_CREATE": "kreis novan unufojan savadon",
-    "ACTIVITY_MODIFY": "ŝanĝis la agordojn de la savado",
-    "ACTIVITY_DELETE": "forigis savadon",
-    "ACTIVITY_ENABLE": "ebligis savadon",
-    "ACTIVITY_DISABLE": "nuligis savadon",
+    "PICKUP_CREATE": "kreis novan unufojan savadon",
+    "PICKUP_MODIFY": "ŝanĝis la agordojn de la savado",
+    "PICKUP_DELETE": "forigis savadon",
+    "PICKUP_ENABLE": "ebligis savadon",
+    "PICKUP_DISABLE": "nuligis savadon",
     "SERIES_CREATE": "kreis novan periodan savadon",
     "SERIES_MODIFY": "ŝanĝis la agordojn de periodaj savado",
     "SERIES_DELETE": "forigis periodan savadon",
-    "ACTIVITY_DONE": "savis en {storeName}",
-    "ACTIVITY_MISSED": "Savado en {storeName}maltrafita!",
-    "ACTIVITY_JOIN": "aliĝis por savi en {storeName}",
-    "ACTIVITY_LEAVE": "Malliĝis por savi en {storeName}",
+    "PICKUP_DONE": "savis en {storeName}",
+    "PICKUP_MISSED": "Savado en {storeName}maltrafita!",
+    "PICKUP_JOIN": "aliĝis por savi en {storeName}",
+    "PICKUP_LEAVE": "Malliĝis por savi en {storeName}",
     "APPLICATION_DECLINED": "malakceptis kandidatiĝo de {applicantName}",
     "MEMBER_BECAME_EDITOR": "ricevis redaktpermesojn",
     "GROUP_LEAVE_INACTIVE": "estis forigita pro malaktiveco",
@@ -457,10 +457,10 @@
     "FEEDBACK_POSSIBLE": "Vi povas komenti la savadon de {date}",
     "NEW_PLACE": "{placeName}kreiĝis",
     "NEW_MEMBER": "{userName}aliĝis vian grupon",
-    "ACTIVITY_UPCOMING": "Memorigo: Vi savos je {time}",
-    "ACTIVITY_DISABLED": "Savado je {dateTime}nuliĝis",
-    "ACTIVITY_ENABLED": "Savado je {dateTime} denove permisiĝis",
-    "ACTIVITY_MOVED": "Savado movita al {dateTime}",
+    "PICKUP_UPCOMING": "Memorigo: Vi savos je {time}",
+    "PICKUP_DISABLED": "Savado je {dateTime}nuliĝis",
+    "PICKUP_ENABLED": "Savado je {dateTime} denove permisiĝis",
+    "PICKUP_MOVED": "Savado movita al {dateTime}",
     "CONFLICT_RESOLUTION_CREATED": "Aliĝu la konversacion pri problemo kun {userName}",
     "CONFLICT_RESOLUTION_CREATED_ABOUT_YOU": "Nova problemsolvada procezo pri vi komenĉiĝis",
     "CONFLICT_RESOLUTION_CONTINUED": "La problemsolvada proceso kun {userName}daŭras",

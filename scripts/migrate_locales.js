@@ -4,9 +4,9 @@
 function renameKey (key) {
   if (/pickup/i.test(key)) {
     return key
-      .replace(/PICKUPS/, 'ACTIVITIES')
-      .replace(/PICKUP/, 'ACTIVITY')
-      .replace(/pickup/, 'activity')
+      .replace(/PICKUPS/g, 'ACTIVITIES')
+      .replace(/PICKUP/g, 'ACTIVITY')
+      .replace(/pickup/g, 'activity')
   }
   return key
 }
@@ -15,6 +15,9 @@ const { readFileSync, writeFileSync } = require('fs')
 const { execSync } = require('child_process')
 const glob = require('glob')
 const _ = require('lodash')
+
+const push = process.argv.includes('--push')
+const nopull = process.argv.includes('--nopull')
 
 const en = JSON.parse(readFileSync('./src/locales/locale-en.json', 'utf8'))
 
@@ -76,11 +79,13 @@ function removeEmptyObjects (o) {
   }, {})
 }
 
-console.log('Pulling original messages from transifex...')
-execSync('./updateLocalesHelper/env/bin/tx pull -s --force')
+if (!nopull) {
+  console.log('Pulling original messages from transifex...')
+  execSync('./updateLocalesHelper/env/bin/tx pull -s --force')
 
-console.log('Pulling translated messages...')
-execSync('./updateLocalesHelper/env/bin/tx pull --mode onlytranslated --parallel --force')
+  console.log('Pulling translated messages...')
+  execSync('./updateLocalesHelper/env/bin/tx pull --mode onlytranslated --parallel --force')
+}
 
 const files = glob.sync('./src/locales/locale-*.json', { absolute: true }).reduce((acc, filename) => {
   acc[filename] = JSON.parse(readFileSync(filename, 'utf8'))
@@ -149,7 +154,10 @@ Object.entries(renameKeys).forEach(([a, b]) => {
       }
       // copy translation message to new key in changedFiles
       const value = _.get(files[key], a)
-      _.set(changedFiles[key], b, value)
+      const originalValue = _.get(files[sourceFilename], a)
+      if (value !== originalValue) {
+        _.set(changedFiles[key], b, value)
+      }
     }
   })
 })
@@ -158,10 +166,14 @@ Object.entries(changedFiles).forEach(([filename, messages]) => {
   writeFileSync(filename, JSON.stringify(sortObject(removeEmptyObjects(messages)), null, 2))
 })
 
-console.log('Pushing changed files...')
-execSync('./updateLocalesHelper/env/bin/tx push -t -s')
+if (push) {
+  console.log('Pushing changed files...')
+  execSync('./updateLocalesHelper/env/bin/tx push -t -s')
 
-console.log('Pulling all files...')
-execSync('./updateLocalesHelper/env/bin/tx pull --parallel --force')
+  console.log('Pulling all files...')
+  execSync('./updateLocalesHelper/env/bin/tx pull --parallel --force')
+} else {
+  console.log('Did not push changes, call with --push arg for that')
+}
 
 console.log('Done!')

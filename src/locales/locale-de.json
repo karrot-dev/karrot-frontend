@@ -121,7 +121,7 @@
     "SET_LOGO": "Klicke, um dein Gruppenlogo hochzuladen!",
     "APPLICATIONS": "Bewerbungen",
     "APPLICATION_QUESTIONS": "Fragen an die Menschen, die dieser Gruppe beitreten wollen",
-    "ACTIVITYS": "Abholungen",
+    "ACTIVITIES": "Abholungen",
     "MESSAGES": "Nachrichten",
     "OFFERS": "Angebote",
     "ACTIVITY": "Abholung",
@@ -229,7 +229,7 @@
     "TITLE": "Abholzeiten-Editor",
     "SERIES": "Wiederkehrende Abholungen",
     "SINGLE": "Einmalige Abholungen",
-    "UPCOMING_ACTIVITYS_IN_SERIES": "Kommende Einzelabholungen",
+    "UPCOMING_ACTIVITIES_IN_SERIES": "Kommende Einzelabholungen",
     "ACTIVITY_DOES_NOT_MATCH": "Dieses Abholungsdatum stimmt nicht mit der Frequenz sonstiger Abholungen überein.",
     "ACTIVITY_DESCRIPTION_CHANGED": "'Zusätzliche Information' wurde geändert",
     "ACTIVITY_MAX_PARTICIPANTS_CHANGED": "'Max slots' wurde geändert"
@@ -357,13 +357,13 @@
   },
   "FEEDBACKLIST": {
     "SAVED_FOOD": "Mindestens 1 kg wurde hier gerettet. Dankeschön! | Es wurde bereits für {amount} kg gerettete Lebensmittel Feedback gegeben! Weiter so!",
-    "NUMBER_ACTIVITYS": "{count} Abholungen",
+    "NUMBER_ACTIVITIES": "{count} Abholungen",
     "NUMBER_FEEDBACK": "{count} Rückmeldungen",
     "WEIGHT_SUM": "{sum} kg Lebensmittel gerettet",
     "NONE": "Bisher kein Feedback",
     "NONE_HINT": "Auf dieser Seite wird etwas stehen, sobald Feedback abgegeben wurde",
-    "NO_DONE_ACTIVITYS": "Alles erledigt!",
-    "NO_DONE_ACTIVITYS_HINT": "Du hast derzeit keine erledigten Abholungen, auf die du Rückmeldung geben kannst. Warum nicht gleich zur nächsten Abholung eintragen?"
+    "NO_DONE_ACTIVITIES": "Alles erledigt!",
+    "NO_DONE_ACTIVITIES_HINT": "Du hast derzeit keine erledigten Abholungen, auf die du Rückmeldung geben kannst. Warum nicht gleich zur nächsten Abholung eintragen?"
   },
   "ACTIVITY_FEEDBACK": {
     "TITLE": "Feedback",

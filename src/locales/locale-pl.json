@@ -121,7 +121,7 @@
     "SET_LOGO": "Kliknij by wgrać logo grupy!",
     "APPLICATIONS": "Zgłoszenia",
     "APPLICATION_QUESTIONS": "Pytania dla osób, które chcą dołączyć",
-    "ACTIVITYS": "Odbiory",
+    "ACTIVITIES": "Odbiory",
     "MESSAGES": "Wiadomości",
     "OFFERS": "Oferty",
     "ACTIVITY": "Odbiór",
@@ -229,7 +229,7 @@
     "TITLE": "Zarządzaj odbiorami",
     "SERIES": "Powtarzające się odbiory",
     "SINGLE": "Odbiory jednorazowe",
-    "UPCOMING_ACTIVITYS_IN_SERIES": "Nadchodzące odbiory",
+    "UPCOMING_ACTIVITIES_IN_SERIES": "Nadchodzące odbiory",
     "ACTIVITY_DOES_NOT_MATCH": "Data tego odbioru nie pasuje do wzorca powtarzających się odbiorów",
     "ACTIVITY_DESCRIPTION_CHANGED": "Zmieniono \"Dodatkowe informacje\"",
     "ACTIVITY_MAX_PARTICIPANTS_CHANGED": "Zmieniono maksymalną liczbę okienek"
@@ -357,13 +357,13 @@
   },
   "FEEDBACKLIST": {
     "SAVED_FOOD": "W tym punkcie uratowano już ponad 1 kg żywności. Dziękujemy! | W tym punkcie uratowano już {amount} kg żywności. Oby tak dalej!",
-    "NUMBER_ACTIVITYS": "odebrano {count} razy",
+    "NUMBER_ACTIVITIES": "odebrano {count} razy",
     "NUMBER_FEEDBACK": "Dodano {count} komentarzy do odbiorów",
     "WEIGHT_SUM": "uratowano {sum} kg jedzenia",
     "NONE": "Brak komentarzy",
     "NONE_HINT": "Tutaj pojawią się komentarze",
-    "NO_DONE_ACTIVITYS": "Wszystko odebrane!",
-    "NO_DONE_ACTIVITYS_HINT": "Jeszcze nie masz odbiorów, które możesz skomentować. Może chcesz zapisać się na odbiór?"
+    "NO_DONE_ACTIVITIES": "Wszystko odebrane!",
+    "NO_DONE_ACTIVITIES_HINT": "Jeszcze nie masz odbiorów, które możesz skomentować. Może chcesz zapisać się na odbiór?"
   },
   "ACTIVITY_FEEDBACK": {
     "TITLE": "Komentarz",

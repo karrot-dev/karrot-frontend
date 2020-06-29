@@ -121,7 +121,7 @@
     "SET_LOGO": "आपल्या गटाचं बोधचिन्ह अपलोड करण्यासाठी क्लिक करा!",
     "APPLICATIONS": "आवेदन ",
     "APPLICATION_QUESTIONS": "या गटात सामील होऊ इच्छित असलेल्या लोकांसाठी प्रश्न",
-    "ACTIVITYS": "पिकअप",
+    "ACTIVITIES": "पिकअप",
     "MESSAGES": "संदेश",
     "OFFERS": "Offers",
     "ACTIVITY": "पिकअप",
@@ -229,7 +229,7 @@
     "TITLE": "पिकअप व्यवस्थापित करा",
     "SERIES": "आवर्ती पिकअप",
     "SINGLE": "वन-टाइम पिकअप",
-    "UPCOMING_ACTIVITYS_IN_SERIES": "या मालिकेत आगामी पिकअप",
+    "UPCOMING_ACTIVITIES_IN_SERIES": "या मालिकेत आगामी पिकअप",
     "ACTIVITY_DOES_NOT_MATCH": "ही पिकअपची तारीख पुनरावृत्ती नमुन्याशी जुळत नाही",
     "ACTIVITY_DESCRIPTION_CHANGED": "'अतिरिक्त माहिती' बदलली गेली आहे",
     "ACTIVITY_MAX_PARTICIPANTS_CHANGED": "'मॅक्स स्लॉट्स' बदलली गेली आहे"
@@ -357,13 +357,13 @@
   },
   "FEEDBACKLIST": {
     "SAVED_FOOD": "येथे किमान 1 किलो जतन केले गेले. धन्यवाद! | लोकांनी आधीच जतन केलेल्या आहाराच्या {amount} किलोसाठी फीडबॅक दिले! असे चांगले कार्य चालू ठेवा!",
-    "NUMBER_ACTIVITYS": "{count}पिकअप पूर्ण ",
+    "NUMBER_ACTIVITIES": "{count}पिकअप पूर्ण ",
     "NUMBER_FEEDBACK": "{count}फीडबॅक नोंदी दिल्या ",
     "WEIGHT_SUM": "{sum} किलो अन्न जतन केले ",
     "NONE": "अजून काही अभिप्राय नाही ",
     "NONE_HINT": "अधिक फीडबॅक उपलब्ध झाल्यानंतर हे पृष्ठ भरले जाईल",
-    "NO_DONE_ACTIVITYS": "पूर्ण झाले!",
-    "NO_DONE_ACTIVITYS_HINT": "आपल्याकडे अभिप्राय देण्यासाठी सध्या कोणतेही पिकअप नाहीत. आपण दुसर्या पिकअपमध्ये सामील का होत नाही?"
+    "NO_DONE_ACTIVITIES": "पूर्ण झाले!",
+    "NO_DONE_ACTIVITIES_HINT": "आपल्याकडे अभिप्राय देण्यासाठी सध्या कोणतेही पिकअप नाहीत. आपण दुसर्या पिकअपमध्ये सामील का होत नाही?"
   },
   "ACTIVITY_FEEDBACK": {
     "TITLE": "अभिप्राय ",

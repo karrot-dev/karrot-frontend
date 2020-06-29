@@ -121,7 +121,7 @@
     "SET_LOGO": "Alklaku por alŝuti vian grupan logotipon!",
     "APPLICATIONS": "Kandidatiĝoj",
     "APPLICATION_QUESTIONS": "Demandoj por homoj kiuj volas aliĝi la grupon",
-    "ACTIVITYS": "Savadoj",
+    "ACTIVITIES": "Savadoj",
     "MESSAGES": "Mesaĝoj",
     "OFFERS": "Ofertoj",
     "ACTIVITY": "Savado",
@@ -229,7 +229,7 @@
     "TITLE": "Agordi savadojn",
     "SERIES": "Periodaj savadoj",
     "SINGLE": "Unufojaj savadoj",
-    "UPCOMING_ACTIVITYS_IN_SERIES": "Baldaŭaj savadoj en tiu ĉi serio",
+    "UPCOMING_ACTIVITIES_IN_SERIES": "Baldaŭaj savadoj en tiu ĉi serio",
     "ACTIVITY_DOES_NOT_MATCH": "La savaddato ne kongruas kun la perioda regulo",
     "ACTIVITY_DESCRIPTION_CHANGED": "'Aldona informo' ŝanĝiĝis",
     "ACTIVITY_MAX_PARTICIPANTS_CHANGED": "'Maks savlokoj' ŝanĝiĝis"
@@ -357,13 +357,13 @@
   },
   "FEEDBACKLIST": {
     "SAVED_FOOD": "Almenaŭ 1 kg estis savita ĉi tie. Dankon! Homoj komenti por {amount} kg de savitaj manĝaĵoj! Daŭrigi la bonan laboron!",
-    "NUMBER_ACTIVITYS": "{count}faritaj savadoj",
+    "NUMBER_ACTIVITIES": "{count}faritaj savadoj",
     "NUMBER_FEEDBACK": "{count}komentoj skribitaj",
     "WEIGHT_SUM": "{sum}kg savitaj",
     "NONE": "Neniu komento ankoraŭ",
     "NONE_HINT": "Tiu ĉi paĝo pleniĝos kiam komentoj disponeblos",
-    "NO_DONE_ACTIVITYS": "Ĉio farita!",
-    "NO_DONE_ACTIVITYS_HINT": "Nuntempe vi ne havas savadojn kiujn komenti. Kial vi ne aliĝas alian savadon?"
+    "NO_DONE_ACTIVITIES": "Ĉio farita!",
+    "NO_DONE_ACTIVITIES_HINT": "Nuntempe vi ne havas savadojn kiujn komenti. Kial vi ne aliĝas alian savadon?"
   },
   "ACTIVITY_FEEDBACK": {
     "TITLE": "Komentoj",

@@ -121,7 +121,7 @@
     "SET_LOGO": "Click to upload your group logo!",
     "APPLICATIONS": "申請",
     "APPLICATION_QUESTIONS": "給要加入社團者的問題",
-    "ACTIVITYS": "開放領取食物",
+    "ACTIVITIES": "開放領取食物",
     "MESSAGES": "訊息",
     "OFFERS": "Offers",
     "ACTIVITY": "領取",
@@ -229,7 +229,7 @@
     "TITLE": "管理食物領取",
     "SERIES": "重復開放領取",
     "SINGLE": "一次性開放領取",
-    "UPCOMING_ACTIVITYS_IN_SERIES": "此系列接下來的開放領取日期",
+    "UPCOMING_ACTIVITIES_IN_SERIES": "此系列接下來的開放領取日期",
     "ACTIVITY_DOES_NOT_MATCH": "This pickups' date doesn't match the recurrence pattern",
     "ACTIVITY_DESCRIPTION_CHANGED": "'Additional information' has been changed",
     "ACTIVITY_MAX_PARTICIPANTS_CHANGED": "'Max slots' has been changed"
@@ -357,13 +357,13 @@
   },
   "FEEDBACKLIST": {
     "SAVED_FOOD": "至少有 1 公斤的食物不會被浪費掉了，| 謝謝你 ! 大家已經給  {amout}公斤的食物領取回饋了。繼續加油 !    ",
-    "NUMBER_ACTIVITYS": "{count} 項領取已完成",
+    "NUMBER_ACTIVITIES": "{count} 項領取已完成",
     "NUMBER_FEEDBACK": "有{count} 項領取回饋 ",
     "WEIGHT_SUM": "{sum} 公斤的食物已被領取",
     "NONE": "尚未有回饋",
     "NONE_HINT": "當有更多回饋時，它們就會填入這個頁面",
-    "NO_DONE_ACTIVITYS": "都完成了",
-    "NO_DONE_ACTIVITYS_HINT": "你現在沒有食物領取要回饋了，何不再登記一個食物領取?"
+    "NO_DONE_ACTIVITIES": "都完成了",
+    "NO_DONE_ACTIVITIES_HINT": "你現在沒有食物領取要回饋了，何不再登記一個食物領取?"
   },
   "ACTIVITY_FEEDBACK": {
     "TITLE": "回饋",

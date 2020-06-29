@@ -121,7 +121,7 @@
     "SET_LOGO": "Kliknutím nahrajete logo své skupiny!",
     "APPLICATIONS": "Žádosti",
     "APPLICATION_QUESTIONS": "Otázky pro lidi, kteří se chtějí připojit k této skupině",
-    "ACTIVITYS": "Vyzvednutí",
+    "ACTIVITIES": "Vyzvednutí",
     "MESSAGES": "Zprávy",
     "OFFERS": "Nabídky",
     "ACTIVITY": "Vyzvednutí",
@@ -229,7 +229,7 @@
     "TITLE": "Spravujte vyzvednutí",
     "SERIES": "Opakující se vyzvednutí",
     "SINGLE": "Jednorázové vyzvednutí",
-    "UPCOMING_ACTIVITYS_IN_SERIES": "Připravované vyzvednutí v této sérii",
+    "UPCOMING_ACTIVITIES_IN_SERIES": "Připravované vyzvednutí v této sérii",
     "ACTIVITY_DOES_NOT_MATCH": "Datum tohoto vyzvednutí neodpovídá vzoru opakování.",
     "ACTIVITY_DESCRIPTION_CHANGED": "„Další informace“ byly změněny",
     "ACTIVITY_MAX_PARTICIPANTS_CHANGED": "Maximální počet slotů byl změněn"
@@ -357,13 +357,13 @@
   },
   "FEEDBACKLIST": {
     "SAVED_FOOD": "Zde bylo ušetřeno nejméně 1 kg. Děkujeme! | Lidé již poskytli zpětnou vazbu na {amount} kg ušetřeného jídla! Pokračujte ve skvělé práci!",
-    "NUMBER_ACTIVITYS": "{count} vyzvednutí hotovo",
+    "NUMBER_ACTIVITIES": "{count} vyzvednutí hotovo",
     "NUMBER_FEEDBACK": "{count} zadané komentáře",
     "WEIGHT_SUM": "{sum} kg zachráněného jídla",
     "NONE": "Zatím žádná zpětná vazba",
     "NONE_HINT": "Tato stránka bude vyplněna, jakmile bude k dispozici další zpětná vazba",
-    "NO_DONE_ACTIVITYS": "Vše hotovo!",
-    "NO_DONE_ACTIVITYS_HINT": "V současné době nemáte žádné vyzvednutí, na které byste mohli poskytnout zpětnou vazbu. Proč se nepřipojit k jinému vyzvednutí?"
+    "NO_DONE_ACTIVITIES": "Vše hotovo!",
+    "NO_DONE_ACTIVITIES_HINT": "V současné době nemáte žádné vyzvednutí, na které byste mohli poskytnout zpětnou vazbu. Proč se nepřipojit k jinému vyzvednutí?"
   },
   "ACTIVITY_FEEDBACK": {
     "TITLE": "Zpětná vazba",

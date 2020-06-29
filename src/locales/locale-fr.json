@@ -121,7 +121,7 @@
     "SET_LOGO": "Cliquez pour télécharger votre groupe logo !",
     "APPLICATIONS": "Candidatures",
     "APPLICATION_QUESTIONS": "Questions pour celles/ceux qui veulent rejoindre ce groupe",
-    "ACTIVITYS": "Récoltes",
+    "ACTIVITIES": "Récoltes",
     "MESSAGES": "Messages",
     "OFFERS": "dons",
     "ACTIVITY": "Récolte",
@@ -229,7 +229,7 @@
     "TITLE": "Gérer les récoltes",
     "SERIES": "Récolte récurrente",
     "SINGLE": "Récoltes individuelles",
-    "UPCOMING_ACTIVITYS_IN_SERIES": "Récoltes à venir dans cette série",
+    "UPCOMING_ACTIVITIES_IN_SERIES": "Récoltes à venir dans cette série",
     "ACTIVITY_DOES_NOT_MATCH": "Ces dates de récoltes ne correspondent pas avec le modèle de récurrence",
     "ACTIVITY_DESCRIPTION_CHANGED": "'Une information additionnelle' a été modifiée.",
     "ACTIVITY_MAX_PARTICIPANTS_CHANGED": "' le nombre maximum de places' a été modifié."
@@ -357,13 +357,13 @@
   },
   "FEEDBACKLIST": {
     "SAVED_FOOD": "Au moins 1 kg a été sauvé. Merci ! Les autres participants ont déjà indiqué via leur compte-rendu de récolte que {amount} kg de nourriture ont été sauvés ! Continue, c'est génial !",
-    "NUMBER_ACTIVITYS": "{count} récoltes effectuées",
+    "NUMBER_ACTIVITIES": "{count} récoltes effectuées",
     "NUMBER_FEEDBACK": "{count}compte-rendu de récolte donné",
     "WEIGHT_SUM": "{sum} kg de nourriture sauvée",
     "NONE": "Pas de compte-rendu de récolte pour le moment ",
     "NONE_HINT": "Cette page sera remplie une fois quand plus de comptes-rendu de récoltes seront disponibles",
-    "NO_DONE_ACTIVITYS": "Et voilà !",
-    "NO_DONE_ACTIVITYS_HINT": "Aucune récolte ne t'attend pour le moment. Pourquoi ne pas t'inscrire?"
+    "NO_DONE_ACTIVITIES": "Et voilà !",
+    "NO_DONE_ACTIVITIES_HINT": "Aucune récolte ne t'attend pour le moment. Pourquoi ne pas t'inscrire?"
   },
   "ACTIVITY_FEEDBACK": {
     "TITLE": "compte-rendu de récolte",

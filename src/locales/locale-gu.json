@@ -121,7 +121,7 @@
     "SET_LOGO": "Click to upload your group logo!",
     "APPLICATIONS": "Applications",
     "APPLICATION_QUESTIONS": "Questions for people who want to join this group",
-    "ACTIVITYS": "પિકઅપ્સ",
+    "ACTIVITIES": "પિકઅપ્સ",
     "MESSAGES": "Messages",
     "OFFERS": "Offers",
     "ACTIVITY": "Pickup",
@@ -229,7 +229,7 @@
     "TITLE": "પસંદ અપ્સ મેનેજ કરો",
     "SERIES": "રિકરિંગ પિક અપ્સ",
     "SINGLE": "વન-ટાઇમ પિકઅપ્સ",
-    "UPCOMING_ACTIVITYS_IN_SERIES": "આ સીરીઝમાં આગામી પસંદ અપ્સ",
+    "UPCOMING_ACTIVITIES_IN_SERIES": "આ સીરીઝમાં આગામી પસંદ અપ્સ",
     "ACTIVITY_DOES_NOT_MATCH": "This pickups' date doesn't match the recurrence pattern",
     "ACTIVITY_DESCRIPTION_CHANGED": "'Additional information' has been changed",
     "ACTIVITY_MAX_PARTICIPANTS_CHANGED": "'Max slots' has been changed"
@@ -357,13 +357,13 @@
   },
   "FEEDBACKLIST": {
     "SAVED_FOOD": "At least 1 kg was saved here. Thank you! | People gave feedback for {amount} kg of saved food already! Keep up the great work!",
-    "NUMBER_ACTIVITYS": "{count} pickups done",
+    "NUMBER_ACTIVITIES": "{count} pickups done",
     "NUMBER_FEEDBACK": "{count} feedback entries given",
     "WEIGHT_SUM": "{sum} kg of food saved",
     "NONE": "હજુ સુધી કોઈ પ્રત્યુત્તર નથી",
     "NONE_HINT": "એકવાર વધુ પ્રતિસાદ ઉપલબ્ધ થાય પછી આ પૃષ્ઠ ભરવામાં આવશે",
-    "NO_DONE_ACTIVITYS": "All done!",
-    "NO_DONE_ACTIVITYS_HINT": "You currently have no pickups to give feedback to. Why not join another pickup?"
+    "NO_DONE_ACTIVITIES": "All done!",
+    "NO_DONE_ACTIVITIES_HINT": "You currently have no pickups to give feedback to. Why not join another pickup?"
   },
   "ACTIVITY_FEEDBACK": {
     "TITLE": "પ્રતિસાદ",

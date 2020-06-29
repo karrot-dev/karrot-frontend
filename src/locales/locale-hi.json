@@ -121,7 +121,7 @@
     "SET_LOGO": "अपने समूह का प्रतीक चिन्ह अपलोड करने के लिए क्लिक करें!",
     "APPLICATIONS": "आवेदन",
     "APPLICATION_QUESTIONS": "इस समूह में शामिल होने वाले लोगों के लिए प्रश्न",
-    "ACTIVITYS": "पिकप",
+    "ACTIVITIES": "पिकप",
     "MESSAGES": "संदेश",
     "OFFERS": "ऑफर",
     "ACTIVITY": "पिक अप",
@@ -229,7 +229,7 @@
     "TITLE": "पिकअप को प्रबंधित करें",
     "SERIES": "आवर्ती पिकअप",
     "SINGLE": "एक बार पिकअप",
-    "UPCOMING_ACTIVITYS_IN_SERIES": "इस श्रृंखला में आगामी पिकअप",
+    "UPCOMING_ACTIVITIES_IN_SERIES": "इस श्रृंखला में आगामी पिकअप",
     "ACTIVITY_DOES_NOT_MATCH": "यह पिकअप की तारीख पुनरावृत्ति पैटर्न से मेल नहीं खाती है",
     "ACTIVITY_DESCRIPTION_CHANGED": "'अतिरिक्त जानकारी' बदल दी गई है",
     "ACTIVITY_MAX_PARTICIPANTS_CHANGED": "'अधिकतम स्लॉट' बदल दिए गए हैं"
@@ -357,13 +357,13 @@
   },
   "FEEDBACKLIST": {
     "SAVED_FOOD": "धन्यवाद!! यहां कम से कम 1 किलो बचाया गया था। लोगों ने {amount} किलो बचाए हुए भोजन को पहले ही प्रतिक्रिया दे दि है! अच्छा काम करते रहिए!",
-    "NUMBER_ACTIVITYS": "{count} पिकअप किए गये",
+    "NUMBER_ACTIVITIES": "{count} पिकअप किए गये",
     "NUMBER_FEEDBACK": "{count} प्रतिक्रिया दी गई",
     "WEIGHT_SUM": "{sum} किलो खाना बचाया गया",
     "NONE": "अभी तक कोई प्रतिक्रिया नहीं",
     "NONE_HINT": "और प्रतिक्रिया उपलब्ध होने पर यह पृष्ठ भर जाएगा",
-    "NO_DONE_ACTIVITYS": "सब कुछ कर दिया!",
-    "NO_DONE_ACTIVITYS_HINT": "वर्तमान में आपके पास प्रतिक्रिया देने के लिए कोई पिक अप नहीं है। क्यों ना दूसरे पिक अप में शामिल हो ?"
+    "NO_DONE_ACTIVITIES": "सब कुछ कर दिया!",
+    "NO_DONE_ACTIVITIES_HINT": "वर्तमान में आपके पास प्रतिक्रिया देने के लिए कोई पिक अप नहीं है। क्यों ना दूसरे पिक अप में शामिल हो ?"
   },
   "ACTIVITY_FEEDBACK": {
     "TITLE": "प्रतिक्रिया",

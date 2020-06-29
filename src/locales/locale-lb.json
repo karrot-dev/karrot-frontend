@@ -121,7 +121,7 @@
     "SET_LOGO": "Klick fir de Logo vun der Grupp eropzelueden!",
     "APPLICATIONS": "Bewerbungen",
     "APPLICATION_QUESTIONS": "Froe fir Leit, déi dëser Grupp bäitriede wëllen",
-    "ACTIVITYS": "Ofhuelungen",
+    "ACTIVITIES": "Ofhuelungen",
     "MESSAGES": "Noriichten",
     "OFFERS": "Offeren",
     "ACTIVITY": "Ofhuelung",
@@ -229,7 +229,7 @@
     "TITLE": "Ofhuelunge verwalten",
     "SERIES": "Ofhuelungen, déi ëmmer nees sinn",
     "SINGLE": "Eemoleg Ofhuelungen",
-    "UPCOMING_ACTIVITYS_IN_SERIES": "Ofhuelungen, déi kommen, an dëser Serie",
+    "UPCOMING_ACTIVITIES_IN_SERIES": "Ofhuelungen, déi kommen, an dëser Serie",
     "ACTIVITY_DOES_NOT_MATCH": "Den Datum vun dëser Ofhuelung ass verschidde vun deenen aneren Ofhuelungen.",
     "ACTIVITY_DESCRIPTION_CHANGED": "\"Zousätzlech Informatiounen\" gouf geännert",
     "ACTIVITY_MAX_PARTICIPANTS_CHANGED": "\"Max. Platzen\" gouf geännert"
@@ -357,13 +357,13 @@
   },
   "FEEDBACKLIST": {
     "SAVED_FOOD": "Mindestens 1 kg gouf hei gerett! Merci! | Leit hu Feedback fir {amount} kg gerette Liewensmëttel ofginn! Maach weider esou!",
-    "NUMBER_ACTIVITYS": "{count} Ofhuelunge gemaach",
+    "NUMBER_ACTIVITIES": "{count} Ofhuelunge gemaach",
     "NUMBER_FEEDBACK": "{count} Feedbacke ginn",
     "WEIGHT_SUM": "{sum} kg Liewensmëttel gerett",
     "NONE": "Nach kee Feedback",
     "NONE_HINT": "Dës Säit wäert gefëllt sinn esoubal et méi Feedback gëtt",
-    "NO_DONE_ACTIVITYS": "Alles fäerdeg!",
-    "NO_DONE_ACTIVITYS_HINT": "Du hues grad keng Ofhuelunge fir déi's de Feedback kanns ginn. Firwat mëss net bei enger weiderer Ofhuelung mat?"
+    "NO_DONE_ACTIVITIES": "Alles fäerdeg!",
+    "NO_DONE_ACTIVITIES_HINT": "Du hues grad keng Ofhuelunge fir déi's de Feedback kanns ginn. Firwat mëss net bei enger weiderer Ofhuelung mat?"
   },
   "ACTIVITY_FEEDBACK": {
     "TITLE": "Feedback",

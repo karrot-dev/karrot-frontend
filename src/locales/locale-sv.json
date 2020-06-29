@@ -121,7 +121,7 @@
     "SET_LOGO": "Klicka för att ladda upp gruppens logotyp!",
     "APPLICATIONS": "Ansökningar",
     "APPLICATION_QUESTIONS": "Frågor till folk som vill gå med i gruppen",
-    "ACTIVITYS": "Upphämtningar",
+    "ACTIVITIES": "Upphämtningar",
     "MESSAGES": "Meddelanden",
     "OFFERS": "Gåvor",
     "ACTIVITY": "Upphämtning",
@@ -229,7 +229,7 @@
     "TITLE": "Hantera upphämtningar",
     "SERIES": "Regelbundna upphämtningar",
     "SINGLE": "Engångsupphämtning",
-    "UPCOMING_ACTIVITYS_IN_SERIES": "Kommande upphämtningar i denna serie",
+    "UPCOMING_ACTIVITIES_IN_SERIES": "Kommande upphämtningar i denna serie",
     "ACTIVITY_DOES_NOT_MATCH": "Upphämtningsdatumet passar inte återkommande mönstret",
     "ACTIVITY_DESCRIPTION_CHANGED": "'Mer information' har ändrats",
     "ACTIVITY_MAX_PARTICIPANTS_CHANGED": "'Max antal platser' har ändrats"
@@ -357,13 +357,13 @@
   },
   "FEEDBACKLIST": {
     "SAVED_FOOD": "Minst 1 kg räddades här. Tack ska du ha! Folk har redan gett feedback för {amount} kg räddad mat! Bra jobbat!",
-    "NUMBER_ACTIVITYS": "{count} upphämtningar gjort",
+    "NUMBER_ACTIVITIES": "{count} upphämtningar gjort",
     "NUMBER_FEEDBACK": "{count} feedbacks",
     "WEIGHT_SUM": "{sum} kg räddade mat",
     "NONE": "Ingen feedback ännu",
     "NONE_HINT": "Den här sidan kommer att fyllas när det finns mer feedback",
-    "NO_DONE_ACTIVITYS": "Klar!",
-    "NO_DONE_ACTIVITYS_HINT": "Du har ingen feedback att ge. Varför inte gå med en upphämtning?"
+    "NO_DONE_ACTIVITIES": "Klar!",
+    "NO_DONE_ACTIVITIES_HINT": "Du har ingen feedback att ge. Varför inte gå med en upphämtning?"
   },
   "ACTIVITY_FEEDBACK": {
     "TITLE": "Feedback",

@@ -3,7 +3,7 @@
     "NEWCOMER_INFO": "You are currently a newcomer in {groupName} and you can become active by writing messages, meeting fellow members, doing activities and giving feedback. As soon as {threshold} members expressed their trust in you, you will gain editing permissions to help with group administration."
   },
   "GROUP": {
-    "ACTIVITYS": "Activities",
+    "ACTIVITIES": "Activities",
     "ACTIVITY": "Activity",
     "NOTIFICATION_TYPES": {
       "daily_activity_notification": {
@@ -26,7 +26,7 @@
     "TITLE": "Manage activities",
     "SERIES": "Recurring activities",
     "SINGLE": "One-time activities",
-    "UPCOMING_ACTIVITYS_IN_SERIES": "Upcoming activities in this series",
+    "UPCOMING_ACTIVITIES_IN_SERIES": "Upcoming activities in this series",
     "ACTIVITY_DOES_NOT_MATCH": "This activities' date doesn't match the recurrence pattern"
   },
   "ACTIVITYDELETE": {
@@ -63,8 +63,8 @@
     "ACTIVITY_STARTED": "This activity has already started."
   },
   "FEEDBACKLIST": {
-    "NUMBER_ACTIVITYS": "{count} activities done",
-    "NO_DONE_ACTIVITYS_HINT": "You currently have no activities to give feedback to. Why not join another activity?"
+    "NUMBER_ACTIVITIES": "{count} activities done",
+    "NO_DONE_ACTIVITIES_HINT": "You currently have no activities to give feedback to. Why not join another activity?"
   },
   "ACTIVITY_FEEDBACK": {
     "HEADER": "Thank you for your participation!",

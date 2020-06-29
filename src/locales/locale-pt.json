@@ -121,7 +121,7 @@
     "SET_LOGO": "Click to upload your group logo!",
     "APPLICATIONS": "Applications",
     "APPLICATION_QUESTIONS": "Questions for people who want to join this group",
-    "ACTIVITYS": "Coletas",
+    "ACTIVITIES": "Coletas",
     "MESSAGES": "Messages",
     "OFFERS": "Offers",
     "ACTIVITY": "Pickup",
@@ -229,7 +229,7 @@
     "TITLE": "Gerenciar coletas",
     "SERIES": "Coletas recorrentes",
     "SINGLE": "Coletas pontuais",
-    "UPCOMING_ACTIVITYS_IN_SERIES": "Próximas coletas nesta série",
+    "UPCOMING_ACTIVITIES_IN_SERIES": "Próximas coletas nesta série",
     "ACTIVITY_DOES_NOT_MATCH": "This pickups' date doesn't match the recurrence pattern",
     "ACTIVITY_DESCRIPTION_CHANGED": "'Additional information' has been changed",
     "ACTIVITY_MAX_PARTICIPANTS_CHANGED": "'Max slots' has been changed"
@@ -357,13 +357,13 @@
   },
   "FEEDBACKLIST": {
     "SAVED_FOOD": "At least 1 kg was saved here. Thank you! | People gave feedback for {amount} kg of saved food already! Keep up the great work!",
-    "NUMBER_ACTIVITYS": "{count} pickups done",
+    "NUMBER_ACTIVITIES": "{count} pickups done",
     "NUMBER_FEEDBACK": "{count} feedback entries given",
     "WEIGHT_SUM": "{sum} kg of food saved",
     "NONE": "Sem comentários, ainda",
     "NONE_HINT": "Esta página sera preenchida assim que mais comentários apareçam",
-    "NO_DONE_ACTIVITYS": "Tudo pronto!",
-    "NO_DONE_ACTIVITYS_HINT": "Você, atualmente não possuí nenhuma coleta esperando por um comentário. Por que não participar de outra coleta?"
+    "NO_DONE_ACTIVITIES": "Tudo pronto!",
+    "NO_DONE_ACTIVITIES_HINT": "Você, atualmente não possuí nenhuma coleta esperando por um comentário. Por que não participar de outra coleta?"
   },
   "ACTIVITY_FEEDBACK": {
     "TITLE": "Comentários",

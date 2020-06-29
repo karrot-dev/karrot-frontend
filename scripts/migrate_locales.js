@@ -14,10 +14,8 @@ function sortObject (o) {
   const sorted = {}
   const a = []
 
-  for (const key in o) {
-    if (o.hasOwnProperty(key)) {
-      a.push(key)
-    }
+  for (const key of Object.keys(o)) {
+    a.push(key)
   }
 
   a.sort()
@@ -69,7 +67,6 @@ Pushing _translated_  messages to transifex has PATCH semantics:
 every key that's specified will get updated, others will remain
 
 Therefore, we need to push the whole locale-en.json file, but only the rewritten keys in other locale files.
-
 
 Assuming we want to change
 

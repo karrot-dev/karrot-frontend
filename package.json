@@ -84,7 +84,7 @@
     "@babel/plugin-transform-modules-commonjs": "^7.10.4",
     "@babel/preset-env": "7.10.4",
     "@octokit/rest": "^18.0.0",
-    "@sentry/cli": "^1.54.0",
+    "@sentry/cli": "^1.55.0",
     "@storybook/addon-actions": "^5.3.19",
     "@storybook/addon-links": "^5.3.19",
     "@storybook/vue": "^5.3.19",

@@ -91,7 +91,7 @@
     "DECLINE": "Ofleenen",
     "WITHDRAW": "Zréckzéien",
     "SHOW_MORE": "Méi weisen",
-    "SHOW_LESS": "Show less",
+    "SHOW_LESS": "Manner uweisen",
     "ENABLE": "Aktivéieren",
     "DISABLE": "Desaktivéieren",
     "UNSUBSCRIBE": "Desabonéieren"
@@ -688,9 +688,9 @@
   "TO": "un",
   "ABOUT_KARROT": {
     "TITLE": "Rett Saachen ier se verschwent ginn, deel se am Platz!",
-    "SUBTITLE1": "Karrot exists for groups of people who want to save things from being wasted and share them instead, allowing these groups to organise efficiently, on a local and voluntary basis.",
-    "SUBTITLE2": "Things such as food, bikes, clothes or whatever is being excessively thrown away or unused in the context of a consumerist society.",
-    "VISION_INTRO": "Karrot is a tool for all kinds of grassroots initiatives to connect and grow, supporting the co-ordination of face-to-face activities with a layer of digital infrastructure.",
+    "SUBTITLE1": "Karrot ass fir Gruppe vu Leit déi Saache virun der Verschwendung retten an se deele wëllen. Et erlaabt dëse Gruppe fir sech effektiv ze organiséieren, op enger lokaler a fräiwëlleger Basis.",
+    "SUBTITLE2": "Saachen, souwéi Iessen, Vëloen, Kleeder a méi ginn iwwerdriwwen ewechgeheit oder net genotzt am Kontext vun enger Konsumgesellschaft.",
+    "VISION_INTRO": "Karrot ass ee Geschier fir all Zort vu Wuerzel-Initiativ fir sech ze verbannen an ze wuessen an ënnerstëtzt d'Koordinatioun vun An-zu-An-Aktivitéite mat enger Schicht digitaler Infrastruktur.",
     "EXISTING_GROUPS": "E puer Gruppen, déi Karrot scho benotzen",
     "AND_MORE": "A méi...",
     "LINKS": {
@@ -701,30 +701,30 @@
       "GROUPS": {
         "TITLE": "Onofhängeg Gruppen",
         "SUBTITLE": "All Grupp op karrot ass komplett onofhängeg a kann hier eegene Logo, hier eege Prozesser an Reegelen hunn.",
-        "DESCRIPTION": "Yet they are all displayed on the map so that people can find and connect to other groups in their location and even globally."
+        "DESCRIPTION": "Dës ginn awer all op der Kaart ugewise fir dass d'Leit se kënne fannen an sech mat anere Gruppen op hirer Platz a global kënne verbannen."
       },
       "ACTIVITIES": {
-        "TITLE": "Distribution of tasks and activities",
-        "SUBTITLE": "Activities with a specific time and place, like food pickups in the case of foodsaving, can be entered in the software.",
-        "DESCRIPTION": "Each activity has a number of slots which members of the group can sign up for – this way everyone knows who goes where and when, and feedback can be given later."
+        "TITLE": "Verdeelung vun Aufgaben an Aktivitéiten",
+        "SUBTITLE": "Aktivitéite mat enger spezifescher Zäit a Platz, wéi Liewensmëttel-Ofhuelungen am Kontext vu Liewensmëttelretten, kënnen an d'Software agi ginn.",
+        "DESCRIPTION": "All Aktivitéit huet eng Unzuel u Platze fir déi sech d'Membere vun der Gruppe kënnen umellen – Esou gesäit jidderee wie wou a wéini geet. A Feedback ka méi spéit hannerlooss ginn."
       },
       "OFFERS": {
         "TITLE": "Saachen deelen",
-        "SUBTITLE": "Create an ad-like offer of whatever you want to share or give away.",
-        "DESCRIPTION": "Offers are visible to everyone in the group and people can show their interest on the offer's chat."
+        "SUBTITLE": "Erstell eng Offer, déi wéi eng Annonce funktionéiert, vu wat och ëmmer's du deelen oder ewechgi wëlls.",
+        "DESCRIPTION": "Offeren si siichtbar fir jiddereen an der Grupp a Leit kënnen hiren Interessi am Chat vun der Offer ausdrécken."
       },
       "DEMOCRATIC": {
-        "TITLE": "Democratic and participative development",
-        "DESCRIPTION": "Karrot is a free and open-source software developed with the feedback and participation of the people who use it. It is mainly developed by a small core team that is constantly in contact with people in different groups, in order to make sense of their diverging and converging needs and thus guide the development. We abide by the ethics of integrity and non-commercialization of data.",
-        "DESCRIPTION2": "Developers and designers are obviously welcome to participate in its development. Check out the project on {code}."
+        "TITLE": "Demokratesch a participativ Entwécklung",
+        "DESCRIPTION": "Karrot ass fräi a quelloppe Software, déi entwéckelt gëtt mam Feedback an der Bedeelegung vun de Leit, déi se benotzen. Si gëtt haaptsächlech vun engem klenge Kär-Team entwéckelt, wat konstant am Kontakt mat Leit aus verschiddene Gruppen ass fir hier divergent a konvergent Besoinen ze verstoen an esou d'Entwécklung ze guidéieren. Mir besti mat der Ethik vun Integritéit a Non-Kommerzialisatioun vun Daten.",
+        "DESCRIPTION2": "Entwéckler an Designer sinn natierlech wëllkomm bei senger Entwécklung matzemaachen. Kuck de Projet op {code}."
       },
       "COMMUNICATION": {
         "TITLE": "Kommunikatioun am richtege Kontext",
         "DESCRIPTION": "Schreif eng Noriicht déi jiddereen am Grupp gesi soll oder eng privat Noriicht un eng Persoun. Alles wat mat enger eenzeler Aktivitéit oder Platz ze dinn huet kann an hire respektive Chats diskutéiert ginn."
       },
       "TRUST": {
-        "TITLE": "Democratic and trust-based group management",
-        "DESCRIPTION": "There are no admin superpowers in a Karrot group. People who receive enough trust-carrots from their peers will be able to edit and change settings in the group. When new people want to join your group they need to apply and answer questions your group can set, which anyone with editing rights can decline or approve. Likewise, if there is a conflict, the group can enter a voting system to resolve it in a communal way."
+        "TITLE": "Gruppen-Management baséierend op Demokratie a Vertrauen",
+        "DESCRIPTION": "Et gi keng Admin-Superkräft an enger Karrot-Grupp. D'Leit déi genuch Vertrauensmuerte vun anere kritt hunn kënnen d'Astellungen an der Grupp änneren. Wann nei Leit der Grupp bäitriede wëllen, musse sinn sech bewerben an déi Froe beäntwerten, déi d'Grupp astelle kann, a jidderee mat Beaarbechtungsrechter ofleenen oder unhuele kann. Änlech ass et am Fall vun engem Konflikt: D'Grupp kann een Ofstëmmung-System benotze fir dësen zesummen ze léisen."
       },
       "MAPS": {
         "TITLE": "Karten a Lëschten",

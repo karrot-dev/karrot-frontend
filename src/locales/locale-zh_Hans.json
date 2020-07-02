@@ -1,587 +1,221 @@
 {
-  "ENTRY": "1則輸入 | {數目}則輸入",
-  "GLOBAL": {
-    "GITHUB_NOTE": "開發",
-    "SERVER_ERROR": "伺服器錯誤",
-    "NOT_CONNECTED": "You aren't connected to the server",
-    "INVALID_LINK": "抱歉，你開啟的連結無效",
-    "GENERIC_ERROR": "Sorry, something went wrong",
-    "SEARCH_RESULTS": "Search results",
-    "SEARCH_NOT_FOUND": "無符合的搜尋結果",
-    "ABOUT_KARROT": "About Karrot"
-  },
-  "USERDATA": {
-    "EMAIL": "電子郵件",
-    "MOBILE_NUMBER": "電話號碼",
-    "PROFILE_TITLE": "個人資料",
-    "PRIVATE_MESSAGE": "Send a private message to {userName}",
-    "PASSWORD": "密碼",
-    "CONFIRM_PASSWORD": "認證你的密碼",
-    "USERNAME": "名稱",
-    "WHERE_FROM": "請問你來自哪裡(選填)",
-    "PHOTO": "大頭貼照",
-    "SET_PHOTO": "設定你的大頭貼照",
-    "ACCOUNT": "帳戶",
-    "PUSH": "推送通知",
-    "PUSH_CURRENT_BROWSER": "目前的瀏覽器",
-    "REQUEST_DELETE_ACCOUNT": {
-      "SUCCESS": "我們寄給你了一封電子郵件，內含完成刪除程序的連結"
+  "ABOUT_KARROT": {
+    "AND_MORE": "And more...",
+    "EXISTING_GROUPS": "A few groups already using Karrot",
+    "LINKS": {
+      "CHAT": "team chat",
+      "FORUM": "community forum"
     },
-    "DIALOGS": {
-      "REQUEST_DELETE_ACCOUNT": {
-        "TITLE": "刪除帳戶",
-        "MESSAGE": "你確定嗎? 你的帳戶和個人資料將被永久清除。你在這平台上所做過的一切都會變成匿名的。如果你確定要刪除帳戶，我們會寄給你完成刪除程序的連結。",
-        "CONFIRM": "確認"
+    "SECTIONS": {
+      "ACTIVITIES": {
+        "DESCRIPTION": "Each activity has a number of slots which members of the group can sign up for – this way everyone knows who goes where and when, and feedback can be given later.",
+        "SUBTITLE": "Activities with a specific time and place, like food pickups in the case of foodsaving, can be entered in the software.",
+        "TITLE": "Distribution of tasks and activities"
       },
-      "GIVE_TRUST": {
-        "TITLE": "信任的使用者",
-        "MESSAGE": "你信任{社團名稱}裡的{使用者名稱}嗎?"
+      "COMMUNICATION": {
+        "DESCRIPTION": "Write a message that everyone in the group will see or a private message to someone. Everything related to a single activity or place can be discussed in their respective chats.",
+        "TITLE": "Communication in the right context"
+      },
+      "DEMOCRATIC": {
+        "DESCRIPTION": "Karrot is a free and open-source software developed with the feedback and participation of the people who use it. It is mainly developed by a small core team that is constantly in contact with people in different groups, in order to make sense of their diverging and converging needs and thus guide the development. We abide by the ethics of integrity and non-commercialization of data.",
+        "DESCRIPTION2": "Developers and designers are obviously welcome to participate in its development. Check out the project on {code}.",
+        "TITLE": "Democratic and participative development"
+      },
+      "GROUPS": {
+        "DESCRIPTION": "Yet they are all displayed on the map so that people can find and connect to other groups in their location and even globally.",
+        "SUBTITLE": "Every group on karrot is completely independent and can have their own logo, processes and rules.",
+        "TITLE": "Independent groups"
+      },
+      "MAPS": {
+        "DESCRIPTION": "You have a map of where the places and the people doing the activities are located. You have a nice list of upcoming activities and can sign up for them online.",
+        "TITLE": "Maps and lists"
+      },
+      "NOTIFICATIONS": {
+        "DESCRIPTION": "You get notified about empty activities, new messages and new people wanting to join your group. But you can also turn it all off if you wish more peace!",
+        "TITLE": "Notifications"
+      },
+      "OFFERS": {
+        "DESCRIPTION": "Offers are visible to everyone in the group and people can show their interest on the offer's chat.",
+        "SUBTITLE": "Create an ad-like offer of whatever you want to share or give away.",
+        "TITLE": "Share things"
+      },
+      "OPENSOURCE": {
+        "DESCRIPTION": "Everything is transparent and possibly changeable. We encourage groups to host their own instances of the platform, if they have the ability to do so. Still, we also provide access to a hosted version on karrot.world.",
+        "TITLE": "Open source"
+      },
+      "TEAM": {
+        "DESCRIPTION": "You can easily talk to the people developing Karrot, either on our {forum}, on {code} or in real-time on our {chat}.",
+        "TITLE": "Responsive team"
+      },
+      "TRANSLATIONS": {
+        "DESCRIPTION": "Karrot is fully translatable by the community and many languages are already added. To contribute more translations just visit the project on {translations}.",
+        "TITLE": "Multi-language"
+      },
+      "TRANSPARENCY": {
+        "DESCRIPTION": "The history shows who did what and when. Everything from participating in an activity to creating and editing places is logged here.",
+        "TITLE": "Transparency"
+      },
+      "TRUST": {
+        "DESCRIPTION": "There are no admin superpowers in a Karrot group. People who receive enough trust-carrots from their peers will be able to edit and change settings in the group. When new people want to join your group they need to apply and answer questions your group can set, which anyone with editing rights can decline or approve. Likewise, if there is a conflict, the group can enter a voting system to resolve it in a communal way.",
+        "TITLE": "Democratic and trust-based group management"
       }
     },
-    "LOGOUT_SUCCESS": "你已經登出",
-    "YOU_TRUST_USER": "你信任{社團名稱}裡的{使用者名稱}",
-    "OTHER_PEOPLE_TRUST_USER": "{其他使用者}信任{社團名稱}裡的{使用者名稱}。| {數目}個人信任{社團名稱}裡的{使用者名稱}。",
-    "OTHER_PEOPLE_TRUST_YOU": "{otherUser} trusts you in {groupName}. | {count} people trust you in {groupName}.",
-    "PEOPLE_TRUST_USER": "你及{其他使用者}信任{社團名稱}裡的{使用者名稱}。| 你和{數目}個人信任{社團名稱}裡的{使用者名稱}。",
-    "FIRST_TRUST": "成為{社團名稱}裡第一個信任{使用者名稱}的人!",
-    "NEWCOMER": "新加入成員",
-    "NEWCOMER_GUIDANCE": "{userName} is new to your group and might need some guidance.",
-    "TRUST_PROGRESS_TEXT": "{trustNeeded} more trust needed",
-    "TRUST_PROGRESS_TEXT_LONG": "{trustNeeded} more people need to express their trust in {userName} to grant editing permissions.",
-    "NEWCOMER_INFO": "You are currently a newcomer in {groupName} and you can become active by writing messages, meeting fellow members, doing pickups and giving feedback. As soon as {threshold} members expressed their trust in you, you will gain editing permissions to help with group administration.",
-    "TRUST_INFO": {
-      "TITLE": "What is this carrot button about?",
-      "MESSAGE": "It is part of the Karrot trust system. It shows if a group member is newcomer and how much trust is needed until they gain editing permissions.",
-      "LINK": "Click here to find out more."
-    }
+    "SUBTITLE1": "Karrot exists for groups of people who want to save things from being wasted and share them instead, allowing these groups to organise efficiently, on a local and voluntary basis.",
+    "SUBTITLE2": "Things such as food, bikes, clothes or whatever is being excessively thrown away or unused in the context of a consumerist society.",
+    "TITLE": "Save things from being wasted, share them instead!",
+    "VISION_INTRO": "Karrot is a tool for all kinds of grassroots initiatives to connect and grow, supporting the co-ordination of face-to-face activities with a layer of digital infrastructure."
   },
-  "SWITCHGROUP": {
-    "NOT_MEMBER": "{userName} is not member of {groupName}.",
-    "COMMON_GROUPS": "Groups you have in common",
-    "OTHER_GROUPS": "Other groups",
-    "CHOOSE": "Choose a group:"
+  "ACTIVITYDELETE": {
+    "DELETE_SERIES_TEXT": "你真的想要刪除此固定開放食物領取日期？這也將刪除所有屬於此固定食物領取日期的一次性的開放食物領取日期（已有夥伴排班的日期將會保留）。",
+    "DELETE_SERIES_TITLE": "刪除循環出現的開放領取日期"
   },
-  "BUTTON": {
-    "CREATE": "創建",
-    "CANCEL": "取消",
-    "OPEN": "開放",
-    "CLOSE": "關閉",
-    "DELETE": "刪除",
-    "EDIT": "編輯",
-    "JOIN": "加入",
-    "PREVIEW": "預覽",
-    "BACK": "退回",
-    "NEXT": "Next",
-    "SEARCH": "搜尋",
-    "OF_COURSE": "是的，當然！",
-    "YES": "是",
-    "SAVE_CHANGES": "儲存變更",
-    "RESET": "重新設定",
-    "CHANGE_PASSWORD": "變更密碼",
-    "CHANGE_EMAIL": "變更電子郵件地址",
-    "AGREE": "我同意",
-    "REMOVE": "移除",
-    "ARCHIVE": "歸檔",
-    "DELETE_ACCOUNT": "刪除帳戶",
-    "SHOW": "顯示",
-    "HIDE": "隱藏",
-    "SUBMIT": "提交",
-    "APPLY": "申請",
-    "ACCEPT": "接受",
-    "DECLINE": "拒絕",
-    "WITHDRAW": "退出",
-    "SHOW_MORE": "顯示更多",
-    "SHOW_LESS": "Show less",
-    "ENABLE": "Enable",
-    "DISABLE": "Disable",
-    "UNSUBSCRIBE": "Unsubscribe"
-  },
-  "VALIDATION": {
-    "MINLENGTH": "請輸入至少 {最少} 個字。",
-    "MAXLENGTH": "太長囉！請勿超過 {最多} 個字。",
-    "UNIQUE": "此名稱已經存在，請選擇另一個。",
-    "REQUIRED": "此欄必須填寫。",
-    "VALID_EMAIL": "請輸入一個有效的Email電子信箱。",
-    "VALID_TIMEZONE": "請輸入一個有效的時區。",
-    "IMAGE_REQUIRED": "You must add an image"
-  },
-  "GROUP": {
-    "WALL": "留言板",
-    "LEAVE": "離開社團...",
-    "LEAVE_TEXT": "您是否確定要離開這個社團？",
-    "LEAVE_CONFIRMATION": "你已經退出 {社團名稱}",
-    "NONMEMBER_REDIRECT": "你並非此社團的成員。",
-    "EDIT": "編輯社團",
-    "CREATE_TITLE": "創建新社團",
-    "MANAGE_AGREEMENT": "管理協議",
-    "TITLE": "社團名稱",
-    "DESCRIPTION_VERBOSE": "社團敘述（僅社團成員可見）",
-    "WELCOMEMESSAGE_VERBOSE": "Welcome message sent to new members",
-    "LOGO": "Group logo",
-    "SET_LOGO": "Click to upload your group logo!",
-    "APPLICATIONS": "申請",
-    "APPLICATION_QUESTIONS": "給要加入社團者的問題",
-    "PICKUPS": "開放領取食物",
-    "MESSAGES": "訊息",
-    "OFFERS": "Offers",
-    "PICKUP": "領取",
-    "MEMBERS": "成員",
-    "JOINED": "加入[相對日期]",
-    "DECLINED": "拒絕 {相對日期}",
-    "ADDED_BY": "由{使用者名稱}加入",
-    "DECLINED_BY": "由{ 使用者名稱} 拒絕",
-    "SORT_JOINDATE": "由加入日期分類",
-    "SORT_NAME": "由姓名分類",
-    "INACTIVE": "非活躍",
-    "SHOW_INACTIVE": "顯示不活躍的社團",
-    "PLACES": "Places",
-    "HOME": "首頁",
-    "HISTORY": "歷史",
-    "DESCRIPTION": "敘述",
-    "ADDRESS": "地址",
-    "TIMEZONE": "社團時區",
-    "INVITE_EMAIL": "輸入電子郵件位址",
-    "INVITE_SEND": "寄發邀請",
-    "INVITE_SEND_SUCCESS": "Invitation sent successfully!",
-    "INVITE_SEND_ERROR": "Ooops, could not send the invitation!",
-    "INVITED_LIST": "邀請信已寄送至下列電子郵件信箱：",
-    "INVITATIONS": "邀請信",
-    "INVITE_TITLE": "邀請用戶到你的社團",
-    "INVITATION_ACCEPT_SUCCESS": "歡迎！你已成功接受邀請。",
-    "INVITATION_ACCEPT_ERROR": "糟糕，無法接受此邀請！",
-    "NOTIFICATIONS_BY_GROUP": "Notifications by group",
-    "EMAIL_NOTIFICATIONS": "郵件通知",
-    "NOTIFICATION_TYPES": {
-      "weekly_summary": {
-        "NAME": "每週摘要",
-        "DESCRIPTION": "隨時關注此社團最新消息"
-      },
-      "daily_pickup_notification": {
-        "NAME": "領取通知",
-        "DESCRIPTION": "Reminds you of your pickups, and tells you about empty or not-full pickups of your favorite places in the next day"
-      },
-      "new_application": {
-        "NAME": "新申請",
-        "DESCRIPTION": "當有人想加入你的社團時通知你"
-      },
-      "new_offer": {
-        "NAME": "New offers",
-        "DESCRIPTION": "Tells you when somebody creates a new offer"
-      },
-      "conflict_resolution": {
-        "NAME": "New conflict resolution processes",
-        "DESCRIPTION": "Tells you when a new conflict resolution process has been started in your group"
-      }
-    },
-    "PLAYGROUND_INFO": "這裡是遊樂區社團，不用擔心會破壞掉任何東西。自由的點擊、愉快的探索吧 !",
-    "JOIN_PLAYGROUND": "加入遊樂區社團來探索karrot吧!",
-    "JOIN_ANOTHER_GROUP": "加入另一個社團"
-  },
-  "GROUPMAP": {
-    "TITLE": "地圖",
-    "SHOW_USERS": "顯示用戶",
-    "HIDE_USERS": "隱藏用戶",
-    "SHOW_PLACES": "Show places",
-    "HIDE_PLACES": "Hide places",
-    "SHOW_GROUPS": "顯示社團",
-    "HIDE_GROUPS": "隱藏社團",
-    "SET_LOCATION": "設定地點",
-    "FULL_SCREEN": "全螢幕顯示",
-    "EXPORT": "Export"
-  },
-  "STOREDETAIL": {
-    "DIRECTIONS": "顯示方向",
-    "EDIT": "Edit place",
-    "ARCHIVED": "This place has been archived",
-    "INACTIVE": "This place is currently not cooperating.",
-    "CHANGE_STATUS": "你可以在設定頁面更改狀態",
-    "NO_DESCRIPTION": "This place does not have a description yet"
-  },
-  "STOREEDIT": {
-    "NAME": "名稱",
-    "STATUS": "狀態",
-    "DESCRIPTION": "敘述",
-    "ADDRESS": "地址",
-    "WEEKS_IN_ADVANCE": "多少週以前要顯示可重複開放領取的日期？",
-    "WEEKS_IN_ADVANCE_WARNING": "You are about to reduce the number of weeks pickups are shown. Existing leftover pickups will get deleted if nobody has joined them. You can disable all other pickups manually, if needed.",
-    "DIALOGS": {
-      "ARCHIVE": {
-        "TITLE": "Archive place",
-        "MESSAGE": "你確定嗎？",
-        "CONFIRM": "Yes, archive place"
-      }
-    },
-    "RESTORE": "恢復",
-    "SHOW_ALL": "Show all places",
-    "SHOW_ACTIVE_ONLY": "Only show active places"
-  },
-  "PLACEWALL": {
-    "SUBSCRIBED_USERS": "{count} people have marked this place as favourite",
-    "SUBSCRIPTION": {
-      "HEADER": "Do you want to mark this place as your favourite?",
-      "YES": "yes",
-      "YES_TEXT": "Shows available pickups on the group wall and sends emails about upcoming pickups.",
-      "NO": "no",
-      "NO_TEXT": "None of the above. You can still sign up for pickups though."
-    }
-  },
-  "PICKUPMANAGE": {
-    "TITLE": "管理食物領取",
-    "SERIES": "重復開放領取",
-    "SINGLE": "一次性開放領取",
-    "UPCOMING_PICKUPS_IN_SERIES": "此系列接下來的開放領取日期",
-    "PICKUP_DOES_NOT_MATCH": "This pickups' date doesn't match the recurrence pattern",
-    "PICKUP_DESCRIPTION_CHANGED": "'Additional information' has been changed",
-    "PICKUP_MAX_COLLECTORS_CHANGED": "'Max slots' has been changed"
-  },
-  "PICKUPDELETE": {
-    "DELETE_SERIES_TITLE": "刪除循環出現的開放領取日期",
-    "DELETE_SERIES_TEXT": "你真的想要刪除此固定開放食物領取日期？這也將刪除所有屬於此固定食物領取日期的一次性的開放食物領取日期（已有夥伴排班的日期將會保留）。"
-  },
-  "USERDETAIL": {
-    "DISPLAY_NAME": "名稱",
-    "DESCRIPTION": "關於你",
-    "OLD_PASSWORD": "確認你的舊密碼",
-    "PASSWORD": "新密碼"
-  },
-  "PROFILE": {
-    "INACCESSIBLE_OR_DELETED": "(用戶無法登入或已被刪除)"
-  },
-  "JOINGROUP": {
-    "WHICHGROUP": "你想要加入哪一個社團？",
-    "OR": "{joinGroup} or {createGroup}",
-    "NUM_MEMBERS": "成員 | 成員",
-    "NO_PUBLIC_DESCRIPTION": "(此社團尚未建立公開的描述)",
-    "ALL_GROUPS": "所有社團",
-    "BROWSE_GROUPS": "Browse existing groups",
-    "SIGNUP_OR_LOGIN": "登入或註冊以加入社團！",
-    "VERIFY_EMAIL_ADDRESS": "驗證你的電子郵件地址以利申請",
-    "MY_GROUPS": "我的社團",
-    "LOGOUT_MESSAGE": {
-      "LOGGED_OUT": "你已經登出。 {登入}",
-      "LOG_IN": "請登入檢視你的社團！"
-    },
-    "PROFILE_NOTE": "加入此社團後，其他成員也能瀏覽你的個人檔案。",
-    "APPLICATION_SUBMITTED": "你的申請已成功提交",
-    "APPLICATION_PENDING": "你的申請尚未有結果",
-    "WITHDRAW_CONFIRMATION_HEADER": "撤銷申請",
-    "WITHDRAW_CONFIRMATION_TEXT": "你確定你要撤銷加入{ 社團名稱} 的申請?",
-    "APPLICATION_WITHDRAWN": "你的申請已成功撤銷",
-    "ARCHIVED_NOTE": "This group doesn't have any members. If you would like to revive it, contact the site administrators!"
-  },
-  "GROUPINFO": {
-    "TITLE": "公開社團資訊",
-    "META": "顯示公開的社團資訊",
-    "MEMBER_VIEW": "你是社團成員之一。點擊這裡來切換成全螢幕。"
-  },
-  "TOPBAR": {
-    "LOGOUT": "登出",
-    "USERPROFILE": "進入你的個人檔案",
-    "CHANGE_GROUP": "變更社團"
-  },
-  "SIDENAV": {
-    "INFO_SUB": "如何建立你的惜食社團",
-    "GIT_SUB": "查看我們的程式碼"
-  },
-  "LOGIN": {
-    "TITLE": "登入",
-    "SUBMIT": "登入",
-    "SIGNUP": "註冊！",
-    "FORGOT_PASSWORD": "忘記你的密碼？"
-  },
-  "SIGNUP": {
-    "TITLE": "註冊！",
-    "BACK": "回到登入",
-    "OK": "加入"
-  },
-  "VERIFYMAIL": {
-    "TITLE": "電子郵件驗證",
-    "SUCCESS": "你的電郵地址已成功驗證!"
-  },
-  "DELETEACCOUNT": {
-    "TITLE": "帳戶刪除",
-    "SUCCESS": "你的帳戶已成功刪除"
-  },
-  "CREATEPICKUP": {
-    "FREQUENCY": "頻率",
-    "WEEKLY": "每周的",
-    "CUSTOM": "客製的",
-    "WEEKDAYS": "平日",
-    "WEEKDAYS_HELPER": "應該在哪幾天領取食物？",
-    "RRULE": "循環規則",
-    "RRULE_HELPER": "輸入有效的{規則幫手}, 例如: {規則範例} 或是 {規則範例2}",
-    "RRULE_HELPER_URL": "iCalender規則",
-    "RRULE_EXAMPLE": "每個月的最後一個工作天(星期一到五)",
-    "RRULE_EXAMPLE2": "每個月第二個星期一",
-    "STARTDATE_HELPER": "此系列活動從甚麼時候開始?",
-    "TIME_HELPER": "應該在甚麼時候領取食物？",
-    "DATE": "日期",
-    "MAX_COLLECTORS": "最大值",
-    "MAX_COLLECTORS_HELPER": "徵求多少人領取食物？",
-    "COMMENT": "更多資訊",
-    "COMMENT_HELPER": "有什麼事項是報名領取食物者應注意的？",
-    "UNLIMITED": "沒有限制",
-    "DIFFERS_WARNING": "This value differs from the default. To undo this change, click on the arrow button and save the changes.",
-    "ENABLE_TITLE": "Enable pickup?",
-    "DISABLE_TITLE": "Disable pickup?",
-    "ENABLE_DISABLE_MESSAGE": "Users who joined this pickup will get a notification. You can change this text to provide a reason:",
-    "EXCEPTIONS_TITLE": "Check your pickups",
-    "EXCEPTIONS_MESSAGE": "Some upcoming pickups don't match the settings of this recurring pickup. Have a look below at '{upcomingLabel}' to change or disable pickups, if needed."
-  },
-  "CREATESTORE": {
-    "TITLE": "Create a new place"
-  },
-  "PICKUPLIST": {
+  "ACTIVITYLIST": {
+    "ACTIVITY_DISABLED": "This pickup has been disabled.",
+    "ACTIVITY_STARTED": "This pickup has already started.",
+    "AVAILABLE": "There is one pickup in your favorite places waiting for you! | There are {count} pickups in your favorite places waiting for you!",
+    "AVAILABLE_FEEDBACK": "你能給予一項領取任務回饋 | {count}項領取任務等待你的回饋",
+    "AVAILABLE_FROM_STORES": "This shows pickups from your favorite places in the next days. You can access other places in the sidebar.",
     "FILTER": {
       "ALL": "All",
       "EMPTY": "Only empty",
       "FREE": "With free slots"
     },
-    "AVAILABLE": "There is one pickup in your favorite places waiting for you! | There are {count} pickups in your favorite places waiting for you!",
-    "AVAILABLE_FEEDBACK": "你能給予一項領取任務回饋 | {count}項領取任務等待你的回饋",
-    "JOINEDNOTICE": "接下來還有一份食物領取等著你！接下來還有 {count} 份食物領取等著你！",
-    "AVAILABLE_FROM_STORES": "This shows pickups from your favorite places in the next days. You can access other places in the sidebar.",
     "ITEM": {
-      "LEAVE": "離開",
       "JOIN": "加入",
       "JOIN_CONFIRMATION_HEADER": "加入排班領取食物",
       "JOIN_CONFIRMATION_TEXT": "你確定你在 {date} 的時候有時間領取食物嗎？",
+      "LEAVE": "離開",
       "LEAVE_CONFIRMATION_HEADER": "退出食物領取",
       "LEAVE_CONFIRMATION_TEXT": "你真的確定其他人能夠在沒有你的情況下領取食物嗎？"
     },
+    "JOINEDNOTICE": "接下來還有一份食物領取等著你！接下來還有 {count} 份食物領取等著你！",
     "NONE": "沒有後續的開放領取",
     "NONE_HINT": "You can create a new pickup on the place page.",
-    "STORE_NONE_HINT": "你可以在領取任務管理頁面創建新的領取任務",
-    "PICKUP_DISABLED": "This pickup has been disabled.",
-    "PICKUP_STARTED": "This pickup has already started."
+    "STORE_NONE_HINT": "你可以在領取任務管理頁面創建新的領取任務"
   },
-  "FEEDBACKLIST": {
-    "SAVED_FOOD": "至少有 1 公斤的食物不會被浪費掉了，| 謝謝你 ! 大家已經給  {數量}公斤的食物領取回饋了。繼續加油 !    ",
-    "NUMBER_PICKUPS": "{數目} 項領取已完成",
-    "NUMBER_FEEDBACK": "有{數目} 項領取回饋 ",
-    "WEIGHT_SUM": "{總數} 公斤的食物已被領取",
-    "NONE": "尚未有回饋",
-    "NONE_HINT": "當有更多回饋時，它們就會填入這個頁面",
-    "NO_DONE_PICKUPS": "都完成了",
-    "NO_DONE_PICKUPS_HINT": "你現在沒有食物領取要回饋了，何不再登記一個食物領取?"
+  "ACTIVITYMANAGE": {
+    "ACTIVITY_DESCRIPTION_CHANGED": "'Additional information' has been changed",
+    "ACTIVITY_DOES_NOT_MATCH": "This pickups' date doesn't match the recurrence pattern",
+    "ACTIVITY_MAX_COLLECTORS_CHANGED": "'Max slots' has been changed",
+    "SERIES": "重復開放領取",
+    "SINGLE": "一次性開放領取",
+    "TITLE": "管理食物領取",
+    "UPCOMING_ACTIVITIES_IN_SERIES": "此系列接下來的開放領取日期"
   },
-  "PICKUP_FEEDBACK": {
-    "TITLE": "回饋",
-    "HEADER": "謝謝你領取食物！",
-    "EDIT": "編輯回饋",
-    "SET_AMOUNT": "設定數量",
-    "DELETE_AMOUNT": "刪除數量",
+  "ACTIVITY_FEEDBACK": {
     "AMOUNT": "Amount of food you were able to save (in kg)",
     "AMOUNT_INFO": "For place statistics, we will add together the amount of all feedback.",
     "COMMENT_PLACEHOLDER": "一切都順利嗎？大家都有到場嗎？在這裡留言...",
+    "DELETE_AMOUNT": "刪除數量",
+    "EDIT": "編輯回饋",
+    "HEADER": "謝謝你領取食物！",
     "PREVIOUS": "先前對於{商店名稱}的回饋",
+    "SET_AMOUNT": "設定數量",
+    "TITLE": "回饋",
     "TOGETHER_WITH": "You did this pickup together with:"
   },
-  "PASSWORDRESET": {
-    "TITLE": "重新設定密碼",
-    "INTRO": "輸入你的電子郵件地址，我們將會寄給你一個設定新密碼的連結(如果你已經有帳號了)",
-    "EMAIL": "電子郵件",
-    "SUBMIT": "申請新密碼",
-    "LOGIN": "回到登入頁",
-    "SUCCESS": "要求已成功送出，去看看你的信箱吧"
-  },
-  "PASSWORD": {
-    "RESET": {
-      "TITLE": "重設密碼",
-      "OK": "儲存",
-      "SUCCESS": "你的新密碼已儲存"
-    },
-    "CHANGE": {
-      "SUCCESS": "你的新密碼已儲存\n"
-    }
-  },
-  "LANGUAGECHOOSER": {
-    "ADD_MORE": "幫忙翻譯",
-    "SWITCH": "切換語言"
-  },
-  "MARKDOWN_INPUT": {
-    "BOLD": "粗體",
-    "ITALIC": "斜體",
-    "STRIKE": "刪除線",
-    "QUOTE": "引用",
-    "HELP": "什麼是Markdown語法？"
-  },
-  "HISTORY": {
-    "GROUP_CREATE": "創建此社團",
-    "GROUP_MODIFY": "變更此社團的設定",
-    "GROUP_JOIN": "加入此社團",
-    "GROUP_LEAVE": "離開此社團",
-    "STORE_CREATE": "created place {name}",
-    "STORE_MODIFY": "changed the settings of place {name}",
-    "STORE_DELETE": "deleted place {name}",
-    "PICKUP_CREATE": "創建新的一次性開放外帶",
-    "PICKUP_MODIFY": "變更開放外帶的設定",
-    "PICKUP_DELETE": "刪除開放外帶",
-    "PICKUP_ENABLE": "enabled a pickup",
-    "PICKUP_DISABLE": "disabled a pickup",
-    "SERIES_CREATE": "創建新的循環出現開放外帶",
-    "SERIES_MODIFY": "變更循環出現的開放外帶設定",
-    "SERIES_DELETE": "刪除循環出現的開放外帶",
-    "PICKUP_DONE": "有去{商店名稱}拿取食物",
-    "PICKUP_MISSED": "在{商店名稱}的取貨被放鳥了！",
-    "PICKUP_JOIN": "註冊以在{商店名稱}取貨",
-    "PICKUP_LEAVE": "取消開放領取食物",
-    "APPLICATION_DECLINED": "declined an application from {applicantName}",
-    "MEMBER_BECAME_EDITOR": "gained editing permissions",
-    "GROUP_LEAVE_INACTIVE": "was removed due to inactivity",
-    "GROUP_CHANGE_PHOTO": "changed the group logo",
-    "GROUP_DELETE_PHOTO": "deleted the group logo",
-    "MEMBER_REMOVED": "was removed due to group decision",
-    "NOTHING_HAPPENEND": "目前沒有任何事情發生",
-    "DETAILS": "更多資訊"
-  },
-  "NOTIFICATIONS": {
-    "NOT_VERIFIED": "{電子郵件} 尚未認證",
-    "CHECK_YOUR_MAILS": "請查看你的電子信箱或 {重新寄送}",
-    "RESEND_VERIFICATION": "重新寄送驗證信",
-    "VERIFICATION_EMAIL_SENT": "我們已經寄給你一封新的認證信。請檢查您的電子信箱。",
-    "CHANGES_SAVED": "你的修改已被保存.",
-    "EMAIL_NOT_DELIVERED": "無法傳送郵件給你 | 有 {數目} 封郵件無法傳送給你"
-  },
-  "NOTIFICATION_BELLS_LIST": {
-    "TITLE": "通知",
-    "NO_ITEMS": "We currently don't have notifications for you."
-  },
-  "NOTIFICATION_BELLS": {
-    "YOU_BECAME_EDITOR": "You gained editing permissions",
-    "USER_BECAME_EDITOR": "{userName} gained editing permissions",
-    "NEW_APPLICANT": "{userName} applied to join your group",
-    "APPLICATION_ACCEPTED": "Your application was accepted!",
-    "APPLICATION_DECLINED": "Your application was declined",
-    "INVITATION_ACCEPTED": "{userName} accepted your invitation",
-    "FEEDBACK_POSSIBLE": "You can give feedback for the pickup you did on {date}",
-    "NEW_PLACE": "{placeName} has been created",
-    "NEW_MEMBER": "{userName} joined your group",
-    "PICKUP_UPCOMING": "Reminder: You have a pickup at {time}",
-    "PICKUP_DISABLED": "Pickup at {dateTime} was disabled",
-    "PICKUP_ENABLED": "Pickup at {dateTime} was enabled again",
-    "PICKUP_MOVED": "Pickup was moved to {dateTime}",
-    "CONFLICT_RESOLUTION_CREATED": "Join the discussion about a conflict with {userName}",
-    "CONFLICT_RESOLUTION_CREATED_ABOUT_YOU": "A conflict resolution process was started with you",
-    "CONFLICT_RESOLUTION_CONTINUED": "The conflict resolution process with {userName} continues",
-    "CONFLICT_RESOLUTION_CONTINUED_ABOUT_YOU": "The conflict resolution process with you continues",
-    "CONFLICT_RESOLUTION_DECIDED": "The conflict resolution process with {userName} was decided",
-    "CONFLICT_RESOLUTION_DECIDED_ABOUT_YOU": "The conflict resolution process with you was decided",
-    "CONFLICT_RESOLUTION_YOU_WERE_REMOVED": "You were removed from the group",
-    "VOTING_ENDS_SOON": "Voting ends soon, don't forget to participate!"
-  },
-  "NOTIFICATION_TOGGLE": {
-    "HEADER": "How do you want to receive notifications about new messages in this conversation/thread?",
-    "ALL": "all",
-    "ALL_TEXT": "Via app/website, email and push notifications.",
-    "SOME": "some",
-    "SOME_TEXT": "Via app/website.",
-    "NONE": "none",
-    "NONE_TEXT": "No notifications."
-  },
-  "OUTDATED_BROWSER": {
-    "MESSAGE": "你目前使用的瀏覽器並不支援這些功能，{更新瀏覽器} 以便使用新功能",
-    "LINK": "請更新或是換一個瀏覽器"
-  },
-  "UPDATE_AVAILABLE": {
-    "DETAIL": "有新版的karrot可使用",
-    "RELOAD": "Reload"
-  },
-  "NOT_FOUND": {
-    "EXPLANATION": "不好意思，我們找不到您所搜尋的網頁",
-    "HOME": "帶我回家"
-  },
-  "SETTINGS": {
-    "TITLE": "設定"
+  "ADDRESS_PICKER": {
+    "CHOOSE_LOCATION": "choose location on map",
+    "KEEP_EXISTING_LOCATION": "keep existing location on map",
+    "SET_AS": "Set address as"
   },
   "AGREEMENT": {
-    "NEW": "建立新版同意書",
     "AGREE": "你必須同意 {title}",
-    "VIEW": "查看同意書",
-    "TITLE": "標題",
-    "TITLE_HELPER": "請為同意書下一個標題，例如：社群規範",
-    "CONTENT": "內文",
-    "CONTENT_HELPER": "同意書內文",
-    "MINOR_EDIT": "稍微修改？",
-    "MINOR_EDIT_HELPER": "錯字或格式等⋯⋯人們將不會被要求再次同意",
     "BLURB1": "你還沒有簽署合約！",
     "BLURB2": "如果你有新增，那人們將會需要在他們領取食物前先行同意。",
+    "CONTENT": "內文",
+    "CONTENT_HELPER": "同意書內文",
     "DIALOGS": {
-      "REPLACE": {
-        "TITLE": "變更同意書？",
-        "MESSAGE": "每個人都將必須再次確認同意，才能排班領取食物",
-        "CONFIRM": "是的，變更同意書"
-      },
       "REMOVE": {
-        "TITLE": "移除同意書？",
+        "CONFIRM": "是的，取消合作",
         "MESSAGE": "這代表任何人都可以領取食物",
-        "CONFIRM": "是的，取消合作"
+        "TITLE": "移除同意書？"
+      },
+      "REPLACE": {
+        "CONFIRM": "是的，變更同意書",
+        "MESSAGE": "每個人都將必須再次確認同意，才能排班領取食物",
+        "TITLE": "變更同意書？"
       }
-    }
-  },
-  "WALL": {
-    "WRITE_MESSAGE": "留個言吧...",
-    "WRITE_FIRST_MESSAGE": "留下第一筆訊息吧...",
-    "VERIFY_EMAIL_FOR_NOTIFICATIONS": "請驗證你的電子郵件地址以收取通知信件",
-    "RECEIVED_VIA_EMAIL": "此訊息透過電子郵件傳送"
-  },
-  "CONVERSATION": {
-    "CONVERSATIONS": "Conversations",
-    "OPEN": "開放對話",
-    "REPLY_TO_MESSAGE": "回覆訊息",
-    "REPLIES": "回覆",
-    "REPLIES_COUNT": "1則回覆 | {數量} 則回覆 ",
-    "UNREAD_MESSAGES": "你有一則未讀訊息。| 你有{數目}則未讀訊息。",
-    "EDITED": "已編輯",
-    "MARK_READ": "將全部訊息標示為已讀",
-    "REACTIONS": {
-      "YOU": "你",
-      "AND": "以及",
-      "REACTED_WITH": "{使用者}反應了{反應}"
     },
-    "MESSAGE_NOT_FOUND": "找不到訊息",
-    "NO_CONVERSATIONS": "沒有對話",
-    "MUTED": "通知已關閉",
-    "CLOSED": "This conversation has been closed automatically.",
-    "NOT_PARTICIPATED": "By sending a message, you will be subscribed to notifications about this conversation."
-  },
-  "STORESTATUS": {
-    "ACTIVE": "合作中",
-    "CREATED": "新建立",
-    "NEGOTIATING": "交涉洽談中",
-    "DECLINED": "無意願合作",
-    "ARCHIVED": "已封存"
+    "MINOR_EDIT": "稍微修改？",
+    "MINOR_EDIT_HELPER": "錯字或格式等⋯⋯人們將不會被要求再次同意",
+    "NEW": "建立新版同意書",
+    "TITLE": "標題",
+    "TITLE_HELPER": "請為同意書下一個標題，例如：社群規範",
+    "VIEW": "查看同意書"
   },
   "APPLICATION": {
+    "ACCEPTED": "你要接受{使用者名稱}加入社團嗎?",
+    "ACCEPT_CONFIRMATION_HEADER": "接受申請",
+    "ACCEPT_CONFIRMATION_TEXT": "你確定你要{使用者名稱}加入此社團?",
     "APPLICATION": "申請",
+    "DECLINED": "你拒絕了{使用者名稱}的申請",
+    "DECLINE_CONFIRMATION_HEADER": "拒絕申請",
+    "DECLINE_CONFIRMATION_TEXT": "你確定你要拒絕{使用者名稱}的申請嗎?",
     "FORM_HEADER": "申請",
     "FORM_TITLE": "申請加入{團體名稱}",
     "GALLERY_TOOLTIP": "你已申請加入社團，申請尚未有結果",
-    "WALL_NOTICE": "有一個申請尚未有結果! 有{數目} 個申請尚未有結果",
-    "ACCEPT_CONFIRMATION_HEADER": "接受申請",
-    "ACCEPT_CONFIRMATION_TEXT": "你確定你要{使用者名稱}加入此社團?",
-    "DECLINE_CONFIRMATION_HEADER": "拒絕申請",
-    "DECLINE_CONFIRMATION_TEXT": "你確定你要拒絕{使用者名稱}的申請嗎?",
-    "ACCEPTED": "你要接受{使用者名稱}加入社團嗎?",
-    "DECLINED": "你拒絕了{使用者名稱}的申請",
+    "HELP": "這是所有現有{社團名稱}成員與新申請者{使用者名稱}間的對話。這是為了要在決定申請結果前更了解你一點。",
+    "INITIAL": "初步的問答",
     "PAST": "過去的申請",
     "SUBMITTED_ON": "於{日期}提交",
-    "WITHDRAWN": "撤銷{相對日期}",
+    "WALL_NOTICE": "有一個申請尚未有結果! 有{數目} 個申請尚未有結果",
     "WHAT": "這個對話是關於甚麼?",
-    "HELP": "這是所有現有{社團名稱}成員與新申請者{使用者名稱}間的對話。這是為了要在決定申請結果前更了解你一點。",
-    "INITIAL": "初步的問答"
+    "WITHDRAWN": "撤銷{相對日期}"
+  },
+  "ATTENTION": "Attention!",
+  "BUTTON": {
+    "ACCEPT": "接受",
+    "AGREE": "我同意",
+    "APPLY": "申請",
+    "ARCHIVE": "歸檔",
+    "BACK": "退回",
+    "CANCEL": "取消",
+    "CHANGE_EMAIL": "變更電子郵件地址",
+    "CHANGE_PASSWORD": "變更密碼",
+    "CLOSE": "關閉",
+    "CREATE": "創建",
+    "DECLINE": "拒絕",
+    "DELETE": "刪除",
+    "DELETE_ACCOUNT": "刪除帳戶",
+    "DISABLE": "Disable",
+    "EDIT": "編輯",
+    "ENABLE": "Enable",
+    "HIDE": "隱藏",
+    "JOIN": "加入",
+    "NEXT": "Next",
+    "OF_COURSE": "是的，當然！",
+    "OPEN": "開放",
+    "PREVIEW": "預覽",
+    "REMOVE": "移除",
+    "RESET": "重新設定",
+    "SAVE_CHANGES": "儲存變更",
+    "SEARCH": "搜尋",
+    "SHOW": "顯示",
+    "SHOW_LESS": "Show less",
+    "SHOW_MORE": "顯示更多",
+    "SUBMIT": "提交",
+    "UNSUBSCRIBE": "Unsubscribe",
+    "WITHDRAW": "退出",
+    "YES": "是"
   },
   "COMMUNITY_FEED": {
     "HEADER": "來自{社群}的更新",
     "HEADER_LINK": "世界惜食社群",
-    "LAST_UPDATED": "最近一次更新{相對日期}",
-    "KARROT_DISCUSSION": "Discussions about Karrot"
-  },
-  "INACTIVITY": {
-    "WHAT": "What does it mean to be inactive?",
-    "HELP": "Everyone who did not log into the group for {dayCount} days or more counts as inactive. These users will not receive notification emails anymore."
+    "KARROT_DISCUSSION": "Discussions about Karrot",
+    "LAST_UPDATED": "最近一次更新{相對日期}"
   },
   "CONFLICT": {
+    "FIND_OUT_MORE": "Find out more!",
+    "INFO": {
+      "MESSAGE": "This is a score voting in which group members with editing permissions can participate to determine how to deal with a social conflict that affects the whole group.",
+      "TITLE": "How does this process work?"
+    },
+    "INITIAL": "Information",
+    "REQUIREMENTS": {
+      "ACTIVE_EDITORS": "Your group has {activeEditorsCount} active users with editing permissions. You need {requiredCount} to start a conflict resolution process.",
+      "NEWCOMER": "Before you can start a conflict resolution process, you need to receive more trust and gain editing permissions. In the meantime, please ask a fellow group member to start the process for you."
+    },
     "SETUP_HEADER": "Is there a conflict with {user}?",
     "STATEMENT": "Statement",
     "STEPPER1a": "You are about to start a group-wide conflict resolution process!",
@@ -594,162 +228,528 @@
     "STEPPER3d": "The voting is anonymous. It will go on for {votingDuration} days. During this time all voters can change their minds and vote differently as many times as they want.",
     "STEPPER4a": "Please explain why you are starting this conflict resolution process!",
     "STEPPER4b": "Tell your group what made you think this process is justified and needed. This statement will be visible to {userName} and group members with editing permissions.",
-    "FIND_OUT_MORE": "Find out more!",
-    "INITIAL": "Information",
-    "WITH": "This process is to resolve a conflict with {userName}",
     "VOTING": {
       "HEADLINE": "How do you want to proceed with the ongoing conflict with {userName}?"
     },
-    "REQUIREMENTS": {
-      "ACTIVE_EDITORS": "Your group has {activeEditorsCount} active users with editing permissions. You need {requiredCount} to start a conflict resolution process.",
-      "NEWCOMER": "Before you can start a conflict resolution process, you need to receive more trust and gain editing permissions. In the meantime, please ask a fellow group member to start the process for you."
-    },
-    "INFO": {
-      "TITLE": "How does this process work?",
-      "MESSAGE": "This is a score voting in which group members with editing permissions can participate to determine how to deal with a social conflict that affects the whole group."
-    }
+    "WITH": "This process is to resolve a conflict with {userName}"
   },
+  "CONVERSATION": {
+    "CLOSED": "This conversation has been closed automatically.",
+    "CONVERSATIONS": "Conversations",
+    "EDITED": "已編輯",
+    "MARK_READ": "將全部訊息標示為已讀",
+    "MESSAGE_NOT_FOUND": "找不到訊息",
+    "MUTED": "通知已關閉",
+    "NOT_PARTICIPATED": "By sending a message, you will be subscribed to notifications about this conversation.",
+    "NO_CONVERSATIONS": "沒有對話",
+    "OPEN": "開放對話",
+    "REACTIONS": {
+      "AND": "以及",
+      "REACTED_WITH": "{使用者}反應了{反應}",
+      "YOU": "你"
+    },
+    "REPLIES": "回覆",
+    "REPLIES_COUNT": "1則回覆 | {數量} 則回覆 ",
+    "REPLY_TO_MESSAGE": "回覆訊息",
+    "UNREAD_MESSAGES": "你有一則未讀訊息。| 你有{數目}則未讀訊息。"
+  },
+  "CREATEACTIVITY": {
+    "COMMENT": "更多資訊",
+    "COMMENT_HELPER": "有什麼事項是報名領取食物者應注意的？",
+    "CUSTOM": "客製的",
+    "DATE": "日期",
+    "DIFFERS_WARNING": "This value differs from the default. To undo this change, click on the arrow button and save the changes.",
+    "DISABLE_TITLE": "Disable pickup?",
+    "ENABLE_DISABLE_MESSAGE": "Users who joined this pickup will get a notification. You can change this text to provide a reason:",
+    "ENABLE_TITLE": "Enable pickup?",
+    "EXCEPTIONS_MESSAGE": "Some upcoming pickups don't match the settings of this recurring pickup. Have a look below at '{upcomingLabel}' to change or disable pickups, if needed.",
+    "EXCEPTIONS_TITLE": "Check your pickups",
+    "FREQUENCY": "頻率",
+    "MAX_COLLECTORS": "最大值",
+    "MAX_COLLECTORS_HELPER": "徵求多少人領取食物？",
+    "RRULE": "循環規則",
+    "RRULE_EXAMPLE": "每個月的最後一個工作天(星期一到五)",
+    "RRULE_EXAMPLE2": "每個月第二個星期一",
+    "RRULE_HELPER": "輸入有效的{規則幫手}, 例如: {規則範例} 或是 {規則範例2}",
+    "RRULE_HELPER_URL": "iCalender規則",
+    "STARTDATE_HELPER": "此系列活動從甚麼時候開始?",
+    "TIME_HELPER": "應該在甚麼時候領取食物？",
+    "UNLIMITED": "沒有限制",
+    "WEEKDAYS": "平日",
+    "WEEKDAYS_HELPER": "應該在哪幾天領取食物？",
+    "WEEKLY": "每周的"
+  },
+  "CREATESTORE": {
+    "TITLE": "Create a new place"
+  },
+  "DELETEACCOUNT": {
+    "SUCCESS": "你的帳戶已成功刪除",
+    "TITLE": "帳戶刪除"
+  },
+  "ENTRY": "1則輸入 | {數目}則輸入",
+  "FEEDBACKLIST": {
+    "NONE": "尚未有回饋",
+    "NONE_HINT": "當有更多回饋時，它們就會填入這個頁面",
+    "NO_DONE_ACTIVITIES": "都完成了",
+    "NO_DONE_ACTIVITIES_HINT": "你現在沒有食物領取要回饋了，何不再登記一個食物領取?",
+    "NUMBER_ACTIVITIES": "{數目} 項領取已完成",
+    "NUMBER_FEEDBACK": "有{數目} 項領取回饋 ",
+    "SAVED_FOOD": "至少有 1 公斤的食物不會被浪費掉了，| 謝謝你 ! 大家已經給  {數量}公斤的食物領取回饋了。繼續加油 !    ",
+    "WEIGHT_SUM": "{總數} 公斤的食物已被領取"
+  },
+  "GLOBAL": {
+    "ABOUT_KARROT": "About Karrot",
+    "GENERIC_ERROR": "Sorry, something went wrong",
+    "GITHUB_NOTE": "開發",
+    "INVALID_LINK": "抱歉，你開啟的連結無效",
+    "NOT_CONNECTED": "You aren't connected to the server",
+    "SEARCH_NOT_FOUND": "無符合的搜尋結果",
+    "SEARCH_RESULTS": "Search results",
+    "SERVER_ERROR": "伺服器錯誤"
+  },
+  "GROUP": {
+    "ACTIVITIES": "開放領取食物",
+    "ACTIVITY": "領取",
+    "ADDED_BY": "由{使用者名稱}加入",
+    "ADDRESS": "地址",
+    "APPLICATIONS": "申請",
+    "APPLICATION_QUESTIONS": "給要加入社團者的問題",
+    "CREATE_TITLE": "創建新社團",
+    "DECLINED": "拒絕 {相對日期}",
+    "DECLINED_BY": "由{ 使用者名稱} 拒絕",
+    "DESCRIPTION": "敘述",
+    "DESCRIPTION_VERBOSE": "社團敘述（僅社團成員可見）",
+    "EDIT": "編輯社團",
+    "EMAIL_NOTIFICATIONS": "郵件通知",
+    "HISTORY": "歷史",
+    "HOME": "首頁",
+    "INACTIVE": "非活躍",
+    "INVITATIONS": "邀請信",
+    "INVITATION_ACCEPT_ERROR": "糟糕，無法接受此邀請！",
+    "INVITATION_ACCEPT_SUCCESS": "歡迎！你已成功接受邀請。",
+    "INVITED_LIST": "邀請信已寄送至下列電子郵件信箱：",
+    "INVITE_EMAIL": "輸入電子郵件位址",
+    "INVITE_SEND": "寄發邀請",
+    "INVITE_SEND_ERROR": "Ooops, could not send the invitation!",
+    "INVITE_SEND_SUCCESS": "Invitation sent successfully!",
+    "INVITE_TITLE": "邀請用戶到你的社團",
+    "JOINED": "加入[相對日期]",
+    "JOIN_ANOTHER_GROUP": "加入另一個社團",
+    "JOIN_PLAYGROUND": "加入遊樂區社團來探索karrot吧!",
+    "LEAVE": "離開社團...",
+    "LEAVE_CONFIRMATION": "你已經退出 {社團名稱}",
+    "LEAVE_TEXT": "您是否確定要離開這個社團？",
+    "LOGO": "Group logo",
+    "MANAGE_AGREEMENT": "管理協議",
+    "MEMBERS": "成員",
+    "MESSAGES": "訊息",
+    "NONMEMBER_REDIRECT": "你並非此社團的成員。",
+    "NOTIFICATIONS_BY_GROUP": "Notifications by group",
+    "NOTIFICATION_TYPES": {
+      "conflict_resolution": {
+        "DESCRIPTION": "Tells you when a new conflict resolution process has been started in your group",
+        "NAME": "New conflict resolution processes"
+      },
+      "daily_activity_notification": {
+        "DESCRIPTION": "Reminds you of your pickups, and tells you about empty or not-full pickups of your favorite places in the next day",
+        "NAME": "領取通知"
+      },
+      "new_application": {
+        "DESCRIPTION": "當有人想加入你的社團時通知你",
+        "NAME": "新申請"
+      },
+      "new_offer": {
+        "DESCRIPTION": "Tells you when somebody creates a new offer",
+        "NAME": "New offers"
+      },
+      "weekly_summary": {
+        "DESCRIPTION": "隨時關注此社團最新消息",
+        "NAME": "每週摘要"
+      }
+    },
+    "OFFERS": "Offers",
+    "PLACES": "Places",
+    "PLAYGROUND_INFO": "這裡是遊樂區社團，不用擔心會破壞掉任何東西。自由的點擊、愉快的探索吧 !",
+    "SET_LOGO": "Click to upload your group logo!",
+    "SHOW_INACTIVE": "顯示不活躍的社團",
+    "SORT_JOINDATE": "由加入日期分類",
+    "SORT_NAME": "由姓名分類",
+    "TIMEZONE": "社團時區",
+    "TITLE": "社團名稱",
+    "WALL": "留言板",
+    "WELCOMEMESSAGE_VERBOSE": "Welcome message sent to new members"
+  },
+  "GROUPINFO": {
+    "MEMBER_VIEW": "你是社團成員之一。點擊這裡來切換成全螢幕。",
+    "META": "顯示公開的社團資訊",
+    "TITLE": "公開社團資訊"
+  },
+  "GROUPMAP": {
+    "EXPORT": "Export",
+    "FULL_SCREEN": "全螢幕顯示",
+    "HIDE_GROUPS": "隱藏社團",
+    "HIDE_PLACES": "Hide places",
+    "HIDE_USERS": "隱藏用戶",
+    "SET_LOCATION": "設定地點",
+    "SHOW_GROUPS": "顯示社團",
+    "SHOW_PLACES": "Show places",
+    "SHOW_USERS": "顯示用戶",
+    "TITLE": "地圖"
+  },
+  "HISTORY": {
+    "ACTIVITY_CREATE": "創建新的一次性開放外帶",
+    "ACTIVITY_DELETE": "刪除開放外帶",
+    "ACTIVITY_DISABLE": "disabled a pickup",
+    "ACTIVITY_DONE": "有去{商店名稱}拿取食物",
+    "ACTIVITY_ENABLE": "enabled a pickup",
+    "ACTIVITY_JOIN": "註冊以在{商店名稱}取貨",
+    "ACTIVITY_LEAVE": "取消開放領取食物",
+    "ACTIVITY_MISSED": "在{商店名稱}的取貨被放鳥了！",
+    "ACTIVITY_MODIFY": "變更開放外帶的設定",
+    "APPLICATION_DECLINED": "declined an application from {applicantName}",
+    "DETAILS": "更多資訊",
+    "GROUP_CHANGE_PHOTO": "changed the group logo",
+    "GROUP_CREATE": "創建此社團",
+    "GROUP_DELETE_PHOTO": "deleted the group logo",
+    "GROUP_JOIN": "加入此社團",
+    "GROUP_LEAVE": "離開此社團",
+    "GROUP_LEAVE_INACTIVE": "was removed due to inactivity",
+    "GROUP_MODIFY": "變更此社團的設定",
+    "MEMBER_BECAME_EDITOR": "gained editing permissions",
+    "MEMBER_REMOVED": "was removed due to group decision",
+    "NOTHING_HAPPENEND": "目前沒有任何事情發生",
+    "SERIES_CREATE": "創建新的循環出現開放外帶",
+    "SERIES_DELETE": "刪除循環出現的開放外帶",
+    "SERIES_MODIFY": "變更循環出現的開放外帶設定",
+    "STORE_CREATE": "created place {name}",
+    "STORE_DELETE": "deleted place {name}",
+    "STORE_MODIFY": "changed the settings of place {name}"
+  },
+  "INACTIVITY": {
+    "HELP": "Everyone who did not log into the group for {dayCount} days or more counts as inactive. These users will not receive notification emails anymore.",
+    "WHAT": "What does it mean to be inactive?"
+  },
+  "INFO": "Info",
   "ISSUE": {
+    "CHAT": "Chat",
     "CREATION": {
       "TOAST": "You successfully started a conflict resolution process"
     },
-    "TITLE": "Issues",
-    "VOTE": "Vote",
-    "CHAT": "Chat",
+    "NO_ONGOING": "No ongoing issues.",
+    "PARTICIPANTS": "{count} members have been added to this discussion.",
     "PAST": "Past issues",
     "PREVIOUS_VOTINGS": "Previous votings in this issue",
-    "PARTICIPANTS": "{count} members have been added to this discussion.",
+    "TITLE": "Issues",
+    "VOTE": "Vote",
     "VOTING": {
-      "TIME_LEFT": "Time left to vote",
-      "BTN_START": "Vote now",
-      "SAVE": "Save",
+      "ANONYMOUS": "Your vote will be anonymous.",
       "BTN_DELETE": "Delete vote",
-      "TOAST": "Your vote was successfully submitted",
-      "TOAST_DELETE": "Your vote was deleted",
-      "NO_CHANGE": "No change: {userName} stays in {groupName}",
+      "BTN_START": "Vote now",
       "FURTHER_DISCUSSION": "Further discussion: extend time by starting another voting",
+      "NO_CHANGE": "No change: {userName} stays in {groupName}",
       "REMOVE_USER": "{userName} gets removed from {groupName}",
       "RESULTS": {
+        "ENDED_AT": "This voting round ended on {date}",
         "KEEP_DISCUSSING": "Your group voted to keep discussing",
+        "PARTICIPANTS": "{number} members participated in the voting.",
         "TIME_UP": "Time is up!",
         "TOTAL_SCORE": "Total score",
-        "ENDED_AT": "This voting round ended on {date}",
-        "PARTICIPANTS": "{number} members participated in the voting.",
         "UNDECIDED": "Unfortunately this conflict could not be decided.",
-        "UNDECIDED_WHY": "There are two possible reasons for that:",
         "UNDECIDED_REASON_1": "the affected user left the group while the conflict resolution process was still ongoing",
-        "UNDECIDED_REASON_2": "nobody voted on this issue"
+        "UNDECIDED_REASON_2": "nobody voted on this issue",
+        "UNDECIDED_WHY": "There are two possible reasons for that:"
       },
-      "SEE_RESULTS": "See the results",
+      "SAVE": "Save",
       "SCORE_LABELS": {
         "NEUTRAL": "neutral",
-        "SLIGHT_SUPPORT": "support",
-        "STRONG_SUPPORT": "strong support",
         "SLIGHT_RESISTANCE": "resistance",
-        "STRONG_RESISTANCE": "strong resistance"
+        "SLIGHT_SUPPORT": "support",
+        "STRONG_RESISTANCE": "strong resistance",
+        "STRONG_SUPPORT": "strong support"
       },
-      "ANONYMOUS": "Your vote will be anonymous."
+      "SEE_RESULTS": "See the results",
+      "TIME_LEFT": "Time left to vote",
+      "TOAST": "Your vote was successfully submitted",
+      "TOAST_DELETE": "Your vote was deleted"
+    }
+  },
+  "JOINGROUP": {
+    "ALL_GROUPS": "所有社團",
+    "APPLICATION_PENDING": "你的申請尚未有結果",
+    "APPLICATION_SUBMITTED": "你的申請已成功提交",
+    "APPLICATION_WITHDRAWN": "你的申請已成功撤銷",
+    "ARCHIVED_NOTE": "This group doesn't have any members. If you would like to revive it, contact the site administrators!",
+    "BROWSE_GROUPS": "Browse existing groups",
+    "LOGOUT_MESSAGE": {
+      "LOGGED_OUT": "你已經登出。 {登入}",
+      "LOG_IN": "請登入檢視你的社團！"
     },
-    "NO_ONGOING": "No ongoing issues."
+    "MY_GROUPS": "我的社團",
+    "NO_PUBLIC_DESCRIPTION": "(此社團尚未建立公開的描述)",
+    "NUM_MEMBERS": "成員 | 成員",
+    "OR": "{joinGroup} or {createGroup}",
+    "PROFILE_NOTE": "加入此社團後，其他成員也能瀏覽你的個人檔案。",
+    "SIGNUP_OR_LOGIN": "登入或註冊以加入社團！",
+    "VERIFY_EMAIL_ADDRESS": "驗證你的電子郵件地址以利申請",
+    "WHICHGROUP": "你想要加入哪一個社團？",
+    "WITHDRAW_CONFIRMATION_HEADER": "撤銷申請",
+    "WITHDRAW_CONFIRMATION_TEXT": "你確定你要撤銷加入{ 社團名稱} 的申請?"
+  },
+  "LANGUAGECHOOSER": {
+    "ADD_MORE": "幫忙翻譯",
+    "SWITCH": "切換語言"
+  },
+  "LOGIN": {
+    "FORGOT_PASSWORD": "忘記你的密碼？",
+    "SIGNUP": "註冊！",
+    "SUBMIT": "登入",
+    "TITLE": "登入"
+  },
+  "MARKDOWN_INPUT": {
+    "BOLD": "粗體",
+    "HELP": "什麼是Markdown語法？",
+    "ITALIC": "斜體",
+    "QUOTE": "引用",
+    "STRIKE": "刪除線"
+  },
+  "NOTIFICATIONS": {
+    "CHANGES_SAVED": "你的修改已被保存.",
+    "CHECK_YOUR_MAILS": "請查看你的電子信箱或 {重新寄送}",
+    "EMAIL_NOT_DELIVERED": "無法傳送郵件給你 | 有 {數目} 封郵件無法傳送給你",
+    "NOT_VERIFIED": "{電子郵件} 尚未認證",
+    "RESEND_VERIFICATION": "重新寄送驗證信",
+    "VERIFICATION_EMAIL_SENT": "我們已經寄給你一封新的認證信。請檢查您的電子信箱。"
+  },
+  "NOTIFICATION_BELLS": {
+    "ACTIVITY_DISABLED": "Pickup at {dateTime} was disabled",
+    "ACTIVITY_ENABLED": "Pickup at {dateTime} was enabled again",
+    "ACTIVITY_MOVED": "Pickup was moved to {dateTime}",
+    "ACTIVITY_UPCOMING": "Reminder: You have a pickup at {time}",
+    "APPLICATION_ACCEPTED": "Your application was accepted!",
+    "APPLICATION_DECLINED": "Your application was declined",
+    "CONFLICT_RESOLUTION_CONTINUED": "The conflict resolution process with {userName} continues",
+    "CONFLICT_RESOLUTION_CONTINUED_ABOUT_YOU": "The conflict resolution process with you continues",
+    "CONFLICT_RESOLUTION_CREATED": "Join the discussion about a conflict with {userName}",
+    "CONFLICT_RESOLUTION_CREATED_ABOUT_YOU": "A conflict resolution process was started with you",
+    "CONFLICT_RESOLUTION_DECIDED": "The conflict resolution process with {userName} was decided",
+    "CONFLICT_RESOLUTION_DECIDED_ABOUT_YOU": "The conflict resolution process with you was decided",
+    "CONFLICT_RESOLUTION_YOU_WERE_REMOVED": "You were removed from the group",
+    "FEEDBACK_POSSIBLE": "You can give feedback for the pickup you did on {date}",
+    "INVITATION_ACCEPTED": "{userName} accepted your invitation",
+    "NEW_APPLICANT": "{userName} applied to join your group",
+    "NEW_MEMBER": "{userName} joined your group",
+    "NEW_PLACE": "{placeName} has been created",
+    "USER_BECAME_EDITOR": "{userName} gained editing permissions",
+    "VOTING_ENDS_SOON": "Voting ends soon, don't forget to participate!",
+    "YOU_BECAME_EDITOR": "You gained editing permissions"
+  },
+  "NOTIFICATION_BELLS_LIST": {
+    "NO_ITEMS": "We currently don't have notifications for you.",
+    "TITLE": "通知"
+  },
+  "NOTIFICATION_TOGGLE": {
+    "ALL": "all",
+    "ALL_TEXT": "Via app/website, email and push notifications.",
+    "HEADER": "How do you want to receive notifications about new messages in this conversation/thread?",
+    "NONE": "none",
+    "NONE_TEXT": "No notifications.",
+    "SOME": "some",
+    "SOME_TEXT": "Via app/website."
+  },
+  "NOT_FOUND": {
+    "EXPLANATION": "不好意思，我們找不到您所搜尋的網頁",
+    "HOME": "帶我回家"
   },
   "OFFER": {
     "CREATE_TITLE": "Create offer",
-    "NAME": "Name",
-    "NAME_HELPER": "Short name for the item you are offering",
     "DESCRIPTION": "Description",
-    "MARK_AS_ARCHIVED": "Archive",
-    "MARK_AS_ARCHIVED_DESCRIPTION": "Mark this is offer as archived to remove it from the available listings.",
     "FILTER": {
       "STATUS": {
         "ACTIVE": "Available",
         "ARCHIVED": "My archived offers"
       }
+    },
+    "MARK_AS_ARCHIVED": "Archive",
+    "MARK_AS_ARCHIVED_DESCRIPTION": "Mark this is offer as archived to remove it from the available listings.",
+    "NAME": "Name",
+    "NAME_HELPER": "Short name for the item you are offering"
+  },
+  "OUTDATED_BROWSER": {
+    "LINK": "請更新或是換一個瀏覽器",
+    "MESSAGE": "你目前使用的瀏覽器並不支援這些功能，{更新瀏覽器} 以便使用新功能"
+  },
+  "PASSWORD": {
+    "CHANGE": {
+      "SUCCESS": "你的新密碼已儲存\n"
+    },
+    "RESET": {
+      "OK": "儲存",
+      "SUCCESS": "你的新密碼已儲存",
+      "TITLE": "重設密碼"
     }
   },
-  "ADDRESS_PICKER": {
-    "SET_AS": "Set address as",
-    "KEEP_EXISTING_LOCATION": "keep existing location on map",
-    "CHOOSE_LOCATION": "choose location on map"
+  "PASSWORDRESET": {
+    "EMAIL": "電子郵件",
+    "INTRO": "輸入你的電子郵件地址，我們將會寄給你一個設定新密碼的連結(如果你已經有帳號了)",
+    "LOGIN": "回到登入頁",
+    "SUBMIT": "申請新密碼",
+    "SUCCESS": "要求已成功送出，去看看你的信箱吧",
+    "TITLE": "重新設定密碼"
   },
-  "UNSUBSCRIBE": {
-    "HEADER": "Unsubscribe",
-    "ALL": "Unsubscribe all",
-    "FROM_CONVERSATION": "unsubscribe from just this conversation",
-    "FROM_THREAD": "unsubscribe from just this thread",
-    "FROM_NOTIFICATION_TYPE": "unsubscribe from {notificationType}",
-    "FROM_GROUP": "Unsubscribe from all email notifications in {groupName}",
-    "SUCCESS": "You were successfully unsubscribed!",
-    "COUNTS": "You unsubscribed from {formerConversations} conversations and {formerReplies} replies."
+  "PLACEWALL": {
+    "SUBSCRIBED_USERS": "{count} people have marked this place as favourite",
+    "SUBSCRIPTION": {
+      "HEADER": "Do you want to mark this place as your favourite?",
+      "NO": "no",
+      "NO_TEXT": "None of the above. You can still sign up for pickups though.",
+      "YES": "yes",
+      "YES_TEXT": "Shows available pickups on the group wall and sends emails about upcoming pickups."
+    }
+  },
+  "PROFILE": {
+    "INACCESSIBLE_OR_DELETED": "(用戶無法登入或已被刪除)"
+  },
+  "SETTINGS": {
+    "TITLE": "設定"
+  },
+  "SIDENAV": {
+    "GIT_SUB": "查看我們的程式碼",
+    "INFO_SUB": "如何建立你的惜食社團"
+  },
+  "SIGNUP": {
+    "BACK": "回到登入",
+    "OK": "加入",
+    "TITLE": "註冊！"
+  },
+  "STOREDETAIL": {
+    "ARCHIVED": "This place has been archived",
+    "CHANGE_STATUS": "你可以在設定頁面更改狀態",
+    "DIRECTIONS": "顯示方向",
+    "EDIT": "Edit place",
+    "INACTIVE": "This place is currently not cooperating.",
+    "NO_DESCRIPTION": "This place does not have a description yet"
+  },
+  "STOREEDIT": {
+    "ADDRESS": "地址",
+    "DESCRIPTION": "敘述",
+    "DIALOGS": {
+      "ARCHIVE": {
+        "CONFIRM": "Yes, archive place",
+        "MESSAGE": "你確定嗎？",
+        "TITLE": "Archive place"
+      }
+    },
+    "NAME": "名稱",
+    "RESTORE": "恢復",
+    "SHOW_ACTIVE_ONLY": "Only show active places",
+    "SHOW_ALL": "Show all places",
+    "STATUS": "狀態",
+    "WEEKS_IN_ADVANCE": "多少週以前要顯示可重複開放領取的日期？",
+    "WEEKS_IN_ADVANCE_WARNING": "You are about to reduce the number of weeks pickups are shown. Existing leftover pickups will get deleted if nobody has joined them. You can disable all other pickups manually, if needed."
+  },
+  "STORESTATUS": {
+    "ACTIVE": "合作中",
+    "ARCHIVED": "已封存",
+    "CREATED": "新建立",
+    "DECLINED": "無意願合作",
+    "NEGOTIATING": "交涉洽談中"
+  },
+  "SWITCHGROUP": {
+    "CHOOSE": "Choose a group:",
+    "COMMON_GROUPS": "Groups you have in common",
+    "NOT_MEMBER": "{userName} is not member of {groupName}.",
+    "OTHER_GROUPS": "Other groups"
   },
   "THANKS": "Thank you!",
-  "ATTENTION": "Attention!",
-  "INFO": "Info",
-  "YOU": "你",
   "TO": "to",
-  "ABOUT_KARROT": {
-    "TITLE": "Save things from being wasted, share them instead!",
-    "SUBTITLE1": "Karrot exists for groups of people who want to save things from being wasted and share them instead, allowing these groups to organise efficiently, on a local and voluntary basis.",
-    "SUBTITLE2": "Things such as food, bikes, clothes or whatever is being excessively thrown away or unused in the context of a consumerist society.",
-    "VISION_INTRO": "Karrot is a tool for all kinds of grassroots initiatives to connect and grow, supporting the co-ordination of face-to-face activities with a layer of digital infrastructure.",
-    "EXISTING_GROUPS": "A few groups already using Karrot",
-    "AND_MORE": "And more...",
-    "LINKS": {
-      "FORUM": "community forum",
-      "CHAT": "team chat"
-    },
-    "SECTIONS": {
-      "GROUPS": {
-        "TITLE": "Independent groups",
-        "SUBTITLE": "Every group on karrot is completely independent and can have their own logo, processes and rules.",
-        "DESCRIPTION": "Yet they are all displayed on the map so that people can find and connect to other groups in their location and even globally."
+  "TOPBAR": {
+    "CHANGE_GROUP": "變更社團",
+    "LOGOUT": "登出",
+    "USERPROFILE": "進入你的個人檔案"
+  },
+  "UNSUBSCRIBE": {
+    "ALL": "Unsubscribe all",
+    "COUNTS": "You unsubscribed from {formerConversations} conversations and {formerReplies} replies.",
+    "FROM_CONVERSATION": "unsubscribe from just this conversation",
+    "FROM_GROUP": "Unsubscribe from all email notifications in {groupName}",
+    "FROM_NOTIFICATION_TYPE": "unsubscribe from {notificationType}",
+    "FROM_THREAD": "unsubscribe from just this thread",
+    "HEADER": "Unsubscribe",
+    "SUCCESS": "You were successfully unsubscribed!"
+  },
+  "UPDATE_AVAILABLE": {
+    "DETAIL": "有新版的karrot可使用",
+    "RELOAD": "Reload"
+  },
+  "USERDATA": {
+    "ACCOUNT": "帳戶",
+    "CONFIRM_PASSWORD": "認證你的密碼",
+    "DIALOGS": {
+      "GIVE_TRUST": {
+        "MESSAGE": "你信任{社團名稱}裡的{使用者名稱}嗎?",
+        "TITLE": "信任的使用者"
       },
-      "ACTIVITIES": {
-        "TITLE": "Distribution of tasks and activities",
-        "SUBTITLE": "Activities with a specific time and place, like food pickups in the case of foodsaving, can be entered in the software.",
-        "DESCRIPTION": "Each activity has a number of slots which members of the group can sign up for – this way everyone knows who goes where and when, and feedback can be given later."
-      },
-      "OFFERS": {
-        "TITLE": "Share things",
-        "SUBTITLE": "Create an ad-like offer of whatever you want to share or give away.",
-        "DESCRIPTION": "Offers are visible to everyone in the group and people can show their interest on the offer's chat."
-      },
-      "DEMOCRATIC": {
-        "TITLE": "Democratic and participative development",
-        "DESCRIPTION": "Karrot is a free and open-source software developed with the feedback and participation of the people who use it. It is mainly developed by a small core team that is constantly in contact with people in different groups, in order to make sense of their diverging and converging needs and thus guide the development. We abide by the ethics of integrity and non-commercialization of data.",
-        "DESCRIPTION2": "Developers and designers are obviously welcome to participate in its development. Check out the project on {code}."
-      },
-      "COMMUNICATION": {
-        "TITLE": "Communication in the right context",
-        "DESCRIPTION": "Write a message that everyone in the group will see or a private message to someone. Everything related to a single activity or place can be discussed in their respective chats."
-      },
-      "TRUST": {
-        "TITLE": "Democratic and trust-based group management",
-        "DESCRIPTION": "There are no admin superpowers in a Karrot group. People who receive enough trust-carrots from their peers will be able to edit and change settings in the group. When new people want to join your group they need to apply and answer questions your group can set, which anyone with editing rights can decline or approve. Likewise, if there is a conflict, the group can enter a voting system to resolve it in a communal way."
-      },
-      "MAPS": {
-        "TITLE": "Maps and lists",
-        "DESCRIPTION": "You have a map of where the places and the people doing the activities are located. You have a nice list of upcoming activities and can sign up for them online."
-      },
-      "TRANSPARENCY": {
-        "TITLE": "Transparency",
-        "DESCRIPTION": "The history shows who did what and when. Everything from participating in an activity to creating and editing places is logged here."
-      },
-      "NOTIFICATIONS": {
-        "TITLE": "Notifications",
-        "DESCRIPTION": "You get notified about empty activities, new messages and new people wanting to join your group. But you can also turn it all off if you wish more peace!"
-      },
-      "TRANSLATIONS": {
-        "TITLE": "Multi-language",
-        "DESCRIPTION": "Karrot is fully translatable by the community and many languages are already added. To contribute more translations just visit the project on {translations}."
-      },
-      "OPENSOURCE": {
-        "TITLE": "Open source",
-        "DESCRIPTION": "Everything is transparent and possibly changeable. We encourage groups to host their own instances of the platform, if they have the ability to do so. Still, we also provide access to a hosted version on karrot.world."
-      },
-      "TEAM": {
-        "TITLE": "Responsive team",
-        "DESCRIPTION": "You can easily talk to the people developing Karrot, either on our {forum}, on {code} or in real-time on our {chat}."
+      "REQUEST_DELETE_ACCOUNT": {
+        "CONFIRM": "確認",
+        "MESSAGE": "你確定嗎? 你的帳戶和個人資料將被永久清除。你在這平台上所做過的一切都會變成匿名的。如果你確定要刪除帳戶，我們會寄給你完成刪除程序的連結。",
+        "TITLE": "刪除帳戶"
       }
-    }
-  }
+    },
+    "EMAIL": "電子郵件",
+    "FIRST_TRUST": "成為{社團名稱}裡第一個信任{使用者名稱}的人!",
+    "LOGOUT_SUCCESS": "你已經登出",
+    "MOBILE_NUMBER": "電話號碼",
+    "NEWCOMER": "新加入成員",
+    "NEWCOMER_GUIDANCE": "{userName} is new to your group and might need some guidance.",
+    "NEWCOMER_INFO": "You are currently a newcomer in {groupName} and you can become active by writing messages, meeting fellow members, doing pickups and giving feedback. As soon as {threshold} members expressed their trust in you, you will gain editing permissions to help with group administration.",
+    "OTHER_PEOPLE_TRUST_USER": "{其他使用者}信任{社團名稱}裡的{使用者名稱}。| {數目}個人信任{社團名稱}裡的{使用者名稱}。",
+    "OTHER_PEOPLE_TRUST_YOU": "{otherUser} trusts you in {groupName}. | {count} people trust you in {groupName}.",
+    "PASSWORD": "密碼",
+    "PEOPLE_TRUST_USER": "你及{其他使用者}信任{社團名稱}裡的{使用者名稱}。| 你和{數目}個人信任{社團名稱}裡的{使用者名稱}。",
+    "PHOTO": "大頭貼照",
+    "PRIVATE_MESSAGE": "Send a private message to {userName}",
+    "PROFILE_TITLE": "個人資料",
+    "PUSH": "推送通知",
+    "PUSH_CURRENT_BROWSER": "目前的瀏覽器",
+    "REQUEST_DELETE_ACCOUNT": {
+      "SUCCESS": "我們寄給你了一封電子郵件，內含完成刪除程序的連結"
+    },
+    "SET_PHOTO": "設定你的大頭貼照",
+    "TRUST_INFO": {
+      "LINK": "Click here to find out more.",
+      "MESSAGE": "It is part of the Karrot trust system. It shows if a group member is newcomer and how much trust is needed until they gain editing permissions.",
+      "TITLE": "What is this carrot button about?"
+    },
+    "TRUST_PROGRESS_TEXT": "{trustNeeded} more trust needed",
+    "TRUST_PROGRESS_TEXT_LONG": "{trustNeeded} more people need to express their trust in {userName} to grant editing permissions.",
+    "USERNAME": "名稱",
+    "WHERE_FROM": "請問你來自哪裡(選填)",
+    "YOU_TRUST_USER": "你信任{社團名稱}裡的{使用者名稱}"
+  },
+  "USERDETAIL": {
+    "DESCRIPTION": "關於你",
+    "DISPLAY_NAME": "名稱",
+    "OLD_PASSWORD": "確認你的舊密碼",
+    "PASSWORD": "新密碼"
+  },
+  "VALIDATION": {
+    "IMAGE_REQUIRED": "You must add an image",
+    "MAXLENGTH": "太長囉！請勿超過 {最多} 個字。",
+    "MINLENGTH": "請輸入至少 {最少} 個字。",
+    "REQUIRED": "此欄必須填寫。",
+    "UNIQUE": "此名稱已經存在，請選擇另一個。",
+    "VALID_EMAIL": "請輸入一個有效的Email電子信箱。",
+    "VALID_TIMEZONE": "請輸入一個有效的時區。"
+  },
+  "VERIFYMAIL": {
+    "SUCCESS": "你的電郵地址已成功驗證!",
+    "TITLE": "電子郵件驗證"
+  },
+  "WALL": {
+    "RECEIVED_VIA_EMAIL": "此訊息透過電子郵件傳送",
+    "VERIFY_EMAIL_FOR_NOTIFICATIONS": "請驗證你的電子郵件地址以收取通知信件",
+    "WRITE_FIRST_MESSAGE": "留下第一筆訊息吧...",
+    "WRITE_MESSAGE": "留個言吧..."
+  },
+  "YOU": "你"
 }

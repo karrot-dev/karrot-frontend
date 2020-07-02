@@ -1,587 +1,221 @@
 {
-  "ENTRY": "1 položka | {count} položek",
-  "GLOBAL": {
-    "GITHUB_NOTE": "Vývoj",
-    "SERVER_ERROR": "Chyba serveru",
-    "NOT_CONNECTED": "Nejste připojeni k serveru",
-    "INVALID_LINK": "Litujeme, odkaz, který jste otevřeli, je neplatný.",
-    "GENERIC_ERROR": "Promiňte, něco se pokazilo",
-    "SEARCH_RESULTS": "Výsledky vyhledávání",
-    "SEARCH_NOT_FOUND": "Nenalezeno",
-    "ABOUT_KARROT": "O Karrot"
-  },
-  "USERDATA": {
-    "EMAIL": "E-mail",
-    "MOBILE_NUMBER": "Telefonní číslo",
-    "PROFILE_TITLE": "Profil",
-    "PRIVATE_MESSAGE": "Odeslat soukromou zprávu uživateli {userName}",
-    "PASSWORD": "Heslo",
-    "CONFIRM_PASSWORD": "Potvrzení hesla",
-    "USERNAME": "Jméno",
-    "WHERE_FROM": "Odkud jste (není požadováno)",
-    "PHOTO": "Profilová fotka",
-    "SET_PHOTO": "Nastavte svou profilovou fotku ...",
-    "ACCOUNT": "Účet",
-    "PUSH": "Zasílané oznámení",
-    "PUSH_CURRENT_BROWSER": "Aktuální prohlížeč",
-    "REQUEST_DELETE_ACCOUNT": {
-      "SUCCESS": "Odeslali jsme vám e-mail s odkazem k dokončení procesu mazání."
+  "ABOUT_KARROT": {
+    "AND_MORE": "A více...",
+    "EXISTING_GROUPS": "Několik skupin již Karrot používá ",
+    "LINKS": {
+      "CHAT": "týmový chat",
+      "FORUM": "komunitní fórum"
     },
-    "DIALOGS": {
-      "REQUEST_DELETE_ACCOUNT": {
-        "TITLE": "Smazání účtu",
-        "MESSAGE": "Jste si jist? Váš účet a vaše osobní údaje budou trvale smazány. Všechno, co jste na této platformě udělali, bude anonymní. Pokud potvrdíte, zašleme vám e-mail s odkazem pro dokončení procesu mazání.",
-        "CONFIRM": "Potvrdit"
+    "SECTIONS": {
+      "ACTIVITIES": {
+        "DESCRIPTION": "Každá aktivita má několik slotů, do kterých se mohou členové skupiny přihlásit – tímto způsobem každý ví, kdo kam a kdy má jít. Později může být poskytnuta zpětná vazba.",
+        "SUBTITLE": "Do softwaru lze zadávat činnosti s konkrétním časem a místem, jako je např.  vyzvednutí  potravin v případě záchrany nesnězených potravin.",
+        "TITLE": "Rozdělení úkolů a činností"
       },
-      "GIVE_TRUST": {
-        "TITLE": "Důvěřovat uživateli",
-        "MESSAGE": "Důvěřujete {userName} ve skupině {groupName} ?"
+      "COMMUNICATION": {
+        "DESCRIPTION": "Napište zprávu, kterou uvidí všichni ve skupině, nebo soukromou zprávu někomu. Vše, co souvisí s jedinou aktivitou nebo místem, lze projednat v příslušných chatech.",
+        "TITLE": "Komunikace ve správném kontextu"
+      },
+      "DEMOCRATIC": {
+        "DESCRIPTION": "Karrot je bezplatný open-source software vyvinutý se zpětnou vazbou a účastí lidí, kteří jej používají. Je vyvíjen malým jádrem týmu, který je neustále v kontaktu s lidmi v různých skupinách, aby pochopil jejich odlišné i společné potřeby, a tak vedl vývoj. Dodržujeme etiku integrity a nekomerčního využití dat.",
+        "DESCRIPTION2": "Vývojáři a designéři jsou samozřejmě vítáni k účasti na vývoji software. Podívejte se na projekt na {code}u.",
+        "TITLE": "Demokratický a participativní vývoj"
+      },
+      "GROUPS": {
+        "DESCRIPTION": "Přesto jsou všechny zobrazeny na mapě, aby je lidé mohli najít a připojit se i k jiným skupinám ve své lokalitě. A dokonce i celosvětově.",
+        "SUBTITLE": "Každá skupina v aplikaci Karrot je zcela nezávislá a může mít své vlastní logo, procesy a pravidla.",
+        "TITLE": "Nezávislé skupiny"
+      },
+      "MAPS": {
+        "DESCRIPTION": "Je tu mapa, kde se nacházejí místa a lidé, kteří něco dělají. Je tu také seznam nadcházejících aktivit, ke kterým se můžete přes internet přihlásit.",
+        "TITLE": "Mapy a seznamy"
+      },
+      "NOTIFICATIONS": {
+        "DESCRIPTION": "Dostanete upozornění na volné aktivity, nové zprávy a nové lidi, kteří se chtějí připojit ke skupině. Ale můžete také vše vypnout, pokud si přejete více klidu!",
+        "TITLE": "Oznamování"
+      },
+      "OFFERS": {
+        "DESCRIPTION": "Nabídky jsou viditelné pro všechny ve skupině a lidé mohou projevit zájem o nabídku svým komentářem.",
+        "SUBTITLE": "Vytvořte nabídku podobnou inzerátům, co chcete sdílet, nebo nabídnout.",
+        "TITLE": "Sdílejte věci"
+      },
+      "OPENSOURCE": {
+        "DESCRIPTION": "Všechno je transparentní  a případně měnitelné. Doporučujeme skupinám, aby tvořily své vlastní instance platformy, pokud mají schopnost tak udělat. Stále však také poskytujeme přístup k hostované verzi na webu karrot.world.",
+        "TITLE": "Otevřený zdrojový kód"
+      },
+      "TEAM": {
+        "DESCRIPTION": "Můžete se snadno domluvit s lidmi, kteří vyvíjejí Karrot, ať už na našem fóru {forum},  nad vývojem kódu {code} nebo v reálném čase  na našem {chat}u.",
+        "TITLE": "Tým odpovědných"
+      },
+      "TRANSLATIONS": {
+        "DESCRIPTION": "Komunita Karrot je plně přeložitelná a mnoho jazyků je již přidáno. Chcete-li přispět více překlady, navštivte projekt na {translations}u.",
+        "TITLE": "Vícejazyčné prostředí"
+      },
+      "TRANSPARENCY": {
+        "DESCRIPTION": "Historie ukazuje, kdo co a kdy dělal. Je tu zaznamenáno vše od účasti na činnosti až po vytváření a úpravy míst.",
+        "TITLE": "Transparentnost"
+      },
+      "TRUST": {
+        "DESCRIPTION": "Ve skupině Karrot nejsou žádní administrátoři. Lidé, kteří dostanou od svých vrstevníků dostatek důvěry, budou moci ve skupině upravovat a měnit nastavení. Když se do vaší skupiny chtějí přidat noví lidé, musí o to požádat a odpovědět na otázky, které může skupina nastavit.  Ty pak může odmítnout nebo schválit kdokoli s právy na úpravy. Podobně, pokud dojde ke konfliktu, skupina může vstoupit do hlasovacího systému, aby jej vyřešila komunitním způsobem.",
+        "TITLE": "Demokratické a na důvěře založené vedení skupiny"
       }
     },
-    "LOGOUT_SUCCESS": "Byl jste odhlášen!",
-    "YOU_TRUST_USER": "Důvěřujete {userName} ve skupině {groupName}.",
-    "OTHER_PEOPLE_TRUST_USER": "{otherUser} důvěřuje {userName} v {groupName}. | {count} lidé důvěřují {userName} ve skupině {groupName}.",
-    "OTHER_PEOPLE_TRUST_YOU": "{otherUser} vám věří v {groupName}. | {count} lidé vám věří v {groupName}.",
-    "PEOPLE_TRUST_USER": "Vy a {otherUser}důvěřujte {userName} v {groupName}. | Vy a {count} ostatní lidé důvěřujete {userName} ve skupině {groupName}.",
-    "FIRST_TRUST": "Buďte první, který důvěřujete {userName} ve skupině {groupName}!",
-    "NEWCOMER": "Nový příchozí",
-    "NEWCOMER_GUIDANCE": "{userName} je pro vaši skupinu nový a může vyžadovat nějakou pomoc.",
-    "TRUST_PROGRESS_TEXT": "{trustNeeded} vyžaduje více důvěry",
-    "TRUST_PROGRESS_TEXT_LONG": "Ještě {trustNeeded} lidí musí vyjádřit svou důvěru v {userName} k udělení oprávnění k úpravám.",
-    "NEWCOMER_INFO": "V současné době jste nováčkem ve skupině {groupName} a můžete být aktivní tím, že píšete zprávy, setkáváte se s členy, vyzvedáváte a poskytujete zpětnou vazbu. Jakmile {threshold} členové vyjádří důvěru ve vás, získáte oprávnění k úpravám, která  pomohou se správou skupiny.",
-    "TRUST_INFO": {
-      "TITLE": "K čemu je toto tlačítko karrot?",
-      "MESSAGE": "To je součástí  systému důvěryhodnosti Karrot. Ukazuje, zda je členem skupiny nový příchozí  a kolik důvěry je potřeba, dokud nezíská  oprávnění k úpravám.",
-      "LINK": "Pro více informací klikněte sem."
-    }
+    "SUBTITLE1": "Karrot tu je pro skupiny lidí, kteří chtějí zachránit věci před plýtváním. Místo toho je mohou sdílet. Umožňuje těmto skupinám organizovat se na místním a dobrovolném základě.",
+    "SUBTITLE2": "Věci, jako je nesnězené jídlo, jízdní kola, oblečení nebo cokoli, jsou v kontextu konzumní společnosti zbytečně vyhazovány, nebo nevyužity.",
+    "TITLE": "Zachraňte věci před vyhozením. Místo toho je někomu nabídněte!",
+    "VISION_INTRO": "Karrot je nástrojem pro všechny druhy místních iniciativ, které se spojují a rostou. Podporuje koordinaci osobních činností s vrstvou digitální infrastruktury."
   },
-  "SWITCHGROUP": {
-    "NOT_MEMBER": "{userName} není členem {groupName}.",
-    "COMMON_GROUPS": "Skupiny, které máte společné",
-    "OTHER_GROUPS": "Další skupiny",
-    "CHOOSE": "Vyberte skupinu:"
+  "ACTIVITYDELETE": {
+    "DELETE_SERIES_TEXT": "Opravdu chcete odstranit toto opakující se datum vyzvednutí? Tím se také odstraní všechna jednorázová data vyzvednutí, která patří k tomuto opakovanému datu vyzvednutí (kromě případů, kdy se lidé již připojili).",
+    "DELETE_SERIES_TITLE": "Odstranit opakující se datum vyzvednutí"
   },
-  "BUTTON": {
-    "CREATE": "Vytvořit",
-    "CANCEL": "Zrušit",
-    "OPEN": "Otevřít",
-    "CLOSE": "Zavřít",
-    "DELETE": "Smazat",
-    "EDIT": "Upravit",
-    "JOIN": "Připojit",
-    "PREVIEW": "Náhled",
-    "BACK": "Zpět",
-    "NEXT": "Další",
-    "SEARCH": "Hledat",
-    "OF_COURSE": "Ano, samozřejmě!",
-    "YES": "Ano",
-    "SAVE_CHANGES": "Uložit změny",
-    "RESET": "Reset",
-    "CHANGE_PASSWORD": "Změnit heslo",
-    "CHANGE_EMAIL": "Změnit e-mailovou adresu",
-    "AGREE": "Souhlasím",
-    "REMOVE": "Odstranit",
-    "ARCHIVE": "Archivovat",
-    "DELETE_ACCOUNT": "Smazat účet",
-    "SHOW": "Zobrazit",
-    "HIDE": "Skrýt",
-    "SUBMIT": "Odeslat",
-    "APPLY": "Žádat",
-    "ACCEPT": "Přijmout",
-    "DECLINE": "Odmítnout",
-    "WITHDRAW": "Zrušit",
-    "SHOW_MORE": "Zobrazit více",
-    "SHOW_LESS": "Zobrazit méně",
-    "ENABLE": "Povolit",
-    "DISABLE": "Deaktivovat",
-    "UNSUBSCRIBE": "Odhlásit odběr"
-  },
-  "VALIDATION": {
-    "MINLENGTH": "Zadejte více než {min} znaků.",
-    "MAXLENGTH": "Příliš dlouhé, použijte méně než {max} znaků.",
-    "UNIQUE": "Jméno již existuje, vyberte jiné.",
-    "REQUIRED": "Toto pole je povinné.",
-    "VALID_EMAIL": "Zadejte platnou e-mailovou adresu.",
-    "VALID_TIMEZONE": "Zadejte platné časové pásmo.",
-    "IMAGE_REQUIRED": "Musíte přidat obrázek"
-  },
-  "GROUP": {
-    "WALL": "Zeď",
-    "LEAVE": "Opustit skupinu ...",
-    "LEAVE_TEXT": "Opravdu chcete opustit tuto skupinu?",
-    "LEAVE_CONFIRMATION": "Opustil jste {groupName}",
-    "NONMEMBER_REDIRECT": "Nejste členem této skupiny.",
-    "EDIT": "Upravit skupinu",
-    "CREATE_TITLE": "Vytvořit novou skupinu",
-    "MANAGE_AGREEMENT": "Spravovat dohodu",
-    "TITLE": "Název této skupiny",
-    "DESCRIPTION_VERBOSE": "Popis skupiny, viditelný pro členy",
-    "WELCOMEMESSAGE_VERBOSE": "Uvítací zpráva byla odeslána novým členům",
-    "LOGO": "Logo skupiny",
-    "SET_LOGO": "Kliknutím nahrajete logo své skupiny!",
-    "APPLICATIONS": "Žádosti",
-    "APPLICATION_QUESTIONS": "Otázky pro lidi, kteří se chtějí připojit k této skupině",
-    "PICKUPS": "Vyzvednutí",
-    "MESSAGES": "Zprávy",
-    "OFFERS": "Nabídky",
-    "PICKUP": "Vyzvednutí",
-    "MEMBERS": "Členové",
-    "JOINED": "připojen {relativeDate}",
-    "DECLINED": "odmítl v {relativeDate}",
-    "ADDED_BY": "přidal {userName}",
-    "DECLINED_BY": "odmítl {userName}",
-    "SORT_JOINDATE": "Seřadit podle data připojení",
-    "SORT_NAME": "Seřadit podle jména",
-    "INACTIVE": "Neaktivní",
-    "SHOW_INACTIVE": "Zobrazit neaktivní skupiny",
-    "PLACES": "Místa",
-    "HOME": "Hlavní strana",
-    "HISTORY": "Historie",
-    "DESCRIPTION": "Popis",
-    "ADDRESS": "Adresa",
-    "TIMEZONE": "Časové pásmo skupiny",
-    "INVITE_EMAIL": "Zadejte e-mailovou adresu",
-    "INVITE_SEND": "Poslat pozvánku",
-    "INVITE_SEND_SUCCESS": "Pozvánka byla úspěšně odeslána",
-    "INVITE_SEND_ERROR": "Jejda, nemohl jsem poslat pozvání!",
-    "INVITED_LIST": "Pozvánky již byly rozeslány na tyto e-mailové adresy:",
-    "INVITATIONS": "Pozvánky",
-    "INVITE_TITLE": "Pozvěte uživatele do své skupiny",
-    "INVITATION_ACCEPT_SUCCESS": "Vítejte! Pozvánku jste úspěšně přijali.",
-    "INVITATION_ACCEPT_ERROR": "Jejda, nemohl jsem přijmout pozvání!",
-    "NOTIFICATIONS_BY_GROUP": "Oznámení podle skupiny",
-    "EMAIL_NOTIFICATIONS": "E-mailová oznámení",
-    "NOTIFICATION_TYPES": {
-      "weekly_summary": {
-        "NAME": "Týdenní shrnutí",
-        "DESCRIPTION": "Sledujte, co se ve skupině děje."
-      },
-      "daily_pickup_notification": {
-        "NAME": "Oznámení o vyzvednutí",
-        "DESCRIPTION": "Připomíná vám vaše vyzvednutí a řekne vám o prázdných nebo neúplných vyzvednutích vašich oblíbených míst v příštím dnu"
-      },
-      "new_application": {
-        "NAME": "Nové žádosti",
-        "DESCRIPTION": "Oznámí vám, když se někdo chce připojit k vaší skupině"
-      },
-      "new_offer": {
-        "NAME": "Nové nabídky",
-        "DESCRIPTION": "Oznámí  vám, když někdo vytvoří novou nabídku"
-      },
-      "conflict_resolution": {
-        "NAME": "Nové procesy řešení konfliktů",
-        "DESCRIPTION": "Řekne vám, kdy byl ve vaší skupině zahájen nový proces řešení konfliktů"
-      }
-    },
-    "PLAYGROUND_INFO": "Toto je testovací skupina Playground, kde nemůžete nic rozbít. Prozkoumejte ji, klikejte a bavte se!",
-    "JOIN_PLAYGROUND": "Připojte se k testovací skupině Playground a prozkoumejte karrot",
-    "JOIN_ANOTHER_GROUP": "Připojte se k jiné skupině"
-  },
-  "GROUPMAP": {
-    "TITLE": "Mapa",
-    "SHOW_USERS": "Zobrazit uživatele",
-    "HIDE_USERS": "Skrýt uživatele",
-    "SHOW_PLACES": "Zobrazit místa",
-    "HIDE_PLACES": "Skrýt místa",
-    "SHOW_GROUPS": "Zobrazit skupiny",
-    "HIDE_GROUPS": "Skrýt skupiny",
-    "SET_LOCATION": "Nastavit umístění",
-    "FULL_SCREEN": "Zobrazit celou obrazovku",
-    "EXPORT": "Export"
-  },
-  "STOREDETAIL": {
-    "DIRECTIONS": "Zobrazit pokyny",
-    "EDIT": "Upravit místo",
-    "ARCHIVED": "Toto místo bylo archivováno",
-    "INACTIVE": "Toto místo v současné době nespolupracuje.",
-    "CHANGE_STATUS": "Stav můžete změnit na stránce nastavení.",
-    "NO_DESCRIPTION": "Toto místo zatím nemá popis"
-  },
-  "STOREEDIT": {
-    "NAME": "Jméno",
-    "STATUS": "Stav",
-    "DESCRIPTION": "Popis",
-    "ADDRESS": "Adresa",
-    "WEEKS_IN_ADVANCE": "Kolik týdnů předem by se měla zobrazit opakovaná data vyzvednutí?",
-    "WEEKS_IN_ADVANCE_WARNING": "Chystáte se snížit počet zobrazených týdnů vyzvednutí. Existující zbývající vyzvednutí budou odstraněny, pokud se k nim nikdo nepřipojí. V případě potřeby můžete všechny ostatní vyzvednutí deaktivovat ručně.",
-    "DIALOGS": {
-      "ARCHIVE": {
-        "TITLE": "Místo archivace",
-        "MESSAGE": "Jste si jist?",
-        "CONFIRM": "Ano, archivujte místo"
-      }
-    },
-    "RESTORE": "Obnovit",
-    "SHOW_ALL": "Zobrazit všechna místa",
-    "SHOW_ACTIVE_ONLY": "Zobrazit pouze aktivní místa"
-  },
-  "PLACEWALL": {
-    "SUBSCRIBED_USERS": "{count} lidí označilo toto místo jako oblíbené",
-    "SUBSCRIPTION": {
-      "HEADER": "Chcete toto místo označit jako své oblíbené?",
-      "YES": "ano",
-      "YES_TEXT": "Zobrazuje dostupná vyzvednutí na zdi skupiny a odešle e-maily o nadcházejících vyzvednutí.",
-      "NO": "ne",
-      "NO_TEXT": "Nic z výše uvedeného. I přesto se můžete přihlásit k odběru."
-    }
-  },
-  "PICKUPMANAGE": {
-    "TITLE": "Spravujte vyzvednutí",
-    "SERIES": "Opakující se vyzvednutí",
-    "SINGLE": "Jednorázové vyzvednutí",
-    "UPCOMING_PICKUPS_IN_SERIES": "Připravované vyzvednutí v této sérii",
-    "PICKUP_DOES_NOT_MATCH": "Datum tohoto vyzvednutí neodpovídá vzoru opakování.",
-    "PICKUP_DESCRIPTION_CHANGED": "„Další informace“ byly změněny",
-    "PICKUP_MAX_COLLECTORS_CHANGED": "Maximální počet slotů byl změněn"
-  },
-  "PICKUPDELETE": {
-    "DELETE_SERIES_TITLE": "Odstranit opakující se datum vyzvednutí",
-    "DELETE_SERIES_TEXT": "Opravdu chcete odstranit toto opakující se datum vyzvednutí? Tím se také odstraní všechna jednorázová data vyzvednutí, která patří k tomuto opakovanému datu vyzvednutí (kromě případů, kdy se lidé již připojili)."
-  },
-  "USERDETAIL": {
-    "DISPLAY_NAME": "Jméno",
-    "DESCRIPTION": "O vás",
-    "OLD_PASSWORD": "Potvrďte své staré heslo",
-    "PASSWORD": "Nové heslo"
-  },
-  "PROFILE": {
-    "INACCESSIBLE_OR_DELETED": "(Uživatel nepřístupný nebo smazaný)"
-  },
-  "JOINGROUP": {
-    "WHICHGROUP": "Ke které skupině se chcete přihlásit?",
-    "OR": "{joinGroup} nebo {createGroup}",
-    "NUM_MEMBERS": "Člen | Členů",
-    "NO_PUBLIC_DESCRIPTION": "(Tato skupina zatím nemá veřejný popis ...)",
-    "ALL_GROUPS": "Všechny skupiny",
-    "BROWSE_GROUPS": "Procházet existující skupiny",
-    "SIGNUP_OR_LOGIN": "Přihlaste se nebo se zaregistrujte a připojte se k této skupině!",
-    "VERIFY_EMAIL_ADDRESS": "Ověřte svou e-mailovou adresu",
-    "MY_GROUPS": "Moje skupiny",
-    "LOGOUT_MESSAGE": {
-      "LOGGED_OUT": "Momentálně jste odhlášen. {login}",
-      "LOG_IN": "Přihlaste se a uvidíte své skupiny!"
-    },
-    "PROFILE_NOTE": "Připojením k této skupině budou vaše profilová data viditelná pro ostatní členy skupiny.",
-    "APPLICATION_SUBMITTED": "Vaše žádost byla úspěšně odeslána!",
-    "APPLICATION_PENDING": "Vaše žádost čeká na vyřízení!",
-    "WITHDRAW_CONFIRMATION_HEADER": "stáhnout žádost",
-    "WITHDRAW_CONFIRMATION_TEXT": "Opravdu chcete stáhnout svou žádost k připojení se k {groupName}?",
-    "APPLICATION_WITHDRAWN": "Vaše žádost  byla úspěšně stažena!",
-    "ARCHIVED_NOTE": "Tato skupina nemá žádné členy. Chcete-li to oživit, obraťte se na správce webu!"
-  },
-  "GROUPINFO": {
-    "TITLE": "Informace o veřejných skupinách",
-    "META": "Zobrazit informace o veřejné skupině",
-    "MEMBER_VIEW": "Jste členem této skupiny. Klepnutím sem přepnete do úplného zobrazení."
-  },
-  "TOPBAR": {
-    "LOGOUT": "Odhlášení",
-    "USERPROFILE": "Navštivte svůj profil",
-    "CHANGE_GROUP": "Změnit skupinu"
-  },
-  "SIDENAV": {
-    "INFO_SUB": "Jak sestavit vaši skupinu pro vyzvedávání   potravin",
-    "GIT_SUB": "Podívejte se na náš kód!"
-  },
-  "LOGIN": {
-    "TITLE": "Přihlásit",
-    "SUBMIT": "Přihlásit",
-    "SIGNUP": "Zaregistrovat se",
-    "FORGOT_PASSWORD": "Zapomněli jste heslo?"
-  },
-  "SIGNUP": {
-    "TITLE": "Zaregistrovat se",
-    "BACK": "Zpět k přihlášení",
-    "OK": "Připojit"
-  },
-  "VERIFYMAIL": {
-    "TITLE": "Ověření e-mailem",
-    "SUCCESS": "Vaše e-mailová adresa byla úspěšně ověřena!"
-  },
-  "DELETEACCOUNT": {
-    "TITLE": "Smazání účtu",
-    "SUCCESS": "Váš účet byl úspěšně smazán!"
-  },
-  "CREATEPICKUP": {
-    "FREQUENCY": "Frekvence",
-    "WEEKLY": "Týdně",
-    "CUSTOM": "Vlastní",
-    "WEEKDAYS": "Pracovní dny",
-    "WEEKDAYS_HELPER": "Ve kterých dnech by se mělo vyzvednout?",
-    "RRULE": "Pravidlo opakování",
-    "RRULE_HELPER": "Zadejte platný {ruleHelper}, např. {ruleExample} nebo {ruleExample2}",
-    "RRULE_HELPER_URL": "Pravidlo iCalendar",
-    "RRULE_EXAMPLE": "poslední pracovní den (Po-Pá) každý měsíc",
-    "RRULE_EXAMPLE2": "každé druhé pondělí",
-    "STARTDATE_HELPER": "Kdy by měla série začít?",
-    "TIME_HELPER": "Kdy by mělo dojít k vyzvednutí?",
-    "DATE": "Datum",
-    "MAX_COLLECTORS": "Maximum slotů",
-    "MAX_COLLECTORS_HELPER": "Kolik lidí by se mělo na vyzvednutí zúčastnit?",
-    "COMMENT": "Dodatečné informace",
-    "COMMENT_HELPER": "Co by měli lidé vědět při přihlášení k tomuto vyzvednutí?",
-    "UNLIMITED": "neomezený",
-    "DIFFERS_WARNING": "Tato hodnota se liší od výchozí hodnoty. Chcete-li tuto změnu vrátit zpět, klikněte na tlačítko se šipkou a uložte změny.",
-    "ENABLE_TITLE": "Povolit vyzvednutí?",
-    "DISABLE_TITLE": "Zakázat vyzvednutí?",
-    "ENABLE_DISABLE_MESSAGE": "Uživatelé, kteří se k tomuto vyzvednutí připojí, dostanou oznámení. Tento text můžete změnit a uvést důvod:",
-    "EXCEPTIONS_TITLE": "Zkontrolovat své vyzvednutí",
-    "EXCEPTIONS_MESSAGE": "Některé nadcházející vyzvednutí neodpovídají nastavení tohoto opakujícího se vyzvednutí. Podívejte se níže na '{upcomingLabel}' a změňte nebo deaktivujte vyzvednutí, pokud je to potřeba."
-  },
-  "CREATESTORE": {
-    "TITLE": "Vytvořit nové místo"
-  },
-  "PICKUPLIST": {
+  "ACTIVITYLIST": {
+    "ACTIVITY_DISABLED": "Toto vyzvednutí bylo deaktivováno.",
+    "ACTIVITY_STARTED": "Toto vyzvednutí již začalo.",
+    "AVAILABLE": "Čeká na vás jedno vyzvednutí na vašem oblíbeném místě. | Čekají na vás {count}  vyzvednutí na vašich oblíbených místech.",
+    "AVAILABLE_FEEDBACK": "Můžete dát zpětnou vazbu k vyzvednutí  | {count} vyzvednutí čeká na vaši zpětnou vazbu",
+    "AVAILABLE_FROM_STORES": "Zobrazuje vyzvednutí z vašich oblíbených míst v následujících dnech. Na postranním panelu můžete přistupovat k dalším místům.",
     "FILTER": {
       "ALL": "Vše",
       "EMPTY": "Pouze prázdný",
       "FREE": "S volnými sloty"
     },
-    "AVAILABLE": "Čeká na vás jedno vyzvednutí na vašem oblíbeném místě. | Čekají na vás {count}  vyzvednutí na vašich oblíbených místech.",
-    "AVAILABLE_FEEDBACK": "Můžete dát zpětnou vazbu k vyzvednutí  | {count} vyzvednutí čeká na vaši zpětnou vazbu",
-    "JOINEDNOTICE": "Máte jedno nadcházející vyzvednutí | Máte {count} nadcházejících vyzvednutí",
-    "AVAILABLE_FROM_STORES": "Zobrazuje vyzvednutí z vašich oblíbených míst v následujících dnech. Na postranním panelu můžete přistupovat k dalším místům.",
     "ITEM": {
-      "LEAVE": "Odejít",
       "JOIN": "Připojit",
       "JOIN_CONFIRMATION_HEADER": "Připojit se k vyzvednutí",
       "JOIN_CONFIRMATION_TEXT": "Opravdu máte čas vyzvednout v {date}?",
+      "LEAVE": "Odejít",
       "LEAVE_CONFIRMATION_HEADER": "Opustit  vyzvednutí",
       "LEAVE_CONFIRMATION_TEXT": "Jste si jisti, že ostatní to mohou vyzvednout bez vás?"
     },
+    "JOINEDNOTICE": "Máte jedno nadcházející vyzvednutí | Máte {count} nadcházejících vyzvednutí",
     "NONE": "Žádné nadcházející vyzvednutí",
     "NONE_HINT": "Na stránce Místa můžete vytvořit nové vyzvednutí.",
-    "STORE_NONE_HINT": "Na stránce pro správu vyzvednutí můžete vytvořit nové vyzvednutí.",
-    "PICKUP_DISABLED": "Toto vyzvednutí bylo deaktivováno.",
-    "PICKUP_STARTED": "Toto vyzvednutí již začalo."
+    "STORE_NONE_HINT": "Na stránce pro správu vyzvednutí můžete vytvořit nové vyzvednutí."
   },
-  "FEEDBACKLIST": {
-    "SAVED_FOOD": "Zde bylo ušetřeno nejméně 1 kg. Děkujeme! | Lidé již poskytli zpětnou vazbu na {amount} kg ušetřeného jídla! Pokračujte ve skvělé práci!",
-    "NUMBER_PICKUPS": "{count} vyzvednutí hotovo",
-    "NUMBER_FEEDBACK": "{count} zadané komentáře",
-    "WEIGHT_SUM": "{sum} kg zachráněného jídla",
-    "NONE": "Zatím žádná zpětná vazba",
-    "NONE_HINT": "Tato stránka bude vyplněna, jakmile bude k dispozici další zpětná vazba",
-    "NO_DONE_PICKUPS": "Vše hotovo!",
-    "NO_DONE_PICKUPS_HINT": "V současné době nemáte žádné vyzvednutí, na které byste mohli poskytnout zpětnou vazbu. Proč se nepřipojit k jinému vyzvednutí?"
+  "ACTIVITYMANAGE": {
+    "ACTIVITY_DESCRIPTION_CHANGED": "„Další informace“ byly změněny",
+    "ACTIVITY_DOES_NOT_MATCH": "Datum tohoto vyzvednutí neodpovídá vzoru opakování.",
+    "ACTIVITY_MAX_COLLECTORS_CHANGED": "Maximální počet slotů byl změněn",
+    "SERIES": "Opakující se vyzvednutí",
+    "SINGLE": "Jednorázové vyzvednutí",
+    "TITLE": "Spravujte vyzvednutí",
+    "UPCOMING_ACTIVITIES_IN_SERIES": "Připravované vyzvednutí v této sérii"
   },
-  "PICKUP_FEEDBACK": {
-    "TITLE": "Zpětná vazba",
-    "HEADER": "Děkujeme za vyzvednutí!",
-    "EDIT": "Upravit zpětnou vazbu",
-    "SET_AMOUNT": "Nastavit množství",
-    "DELETE_AMOUNT": "Smazat množství",
+  "ACTIVITY_FEEDBACK": {
     "AMOUNT": "Množství jídla, které jste dokázali ušetřit (v kg)",
     "AMOUNT_INFO": "Pro statistiku míst sečteme dohromady veškerou zpětnou vazbu.",
     "COMMENT_PLACEHOLDER": "Bylo všechno v pořádku? Žádné komplikace? Napište komentář zde ...",
+    "DELETE_AMOUNT": "Smazat množství",
+    "EDIT": "Upravit zpětnou vazbu",
+    "HEADER": "Děkujeme za vyzvednutí!",
     "PREVIOUS": "Předchozí zpětná vazba pro {store}",
+    "SET_AMOUNT": "Nastavit množství",
+    "TITLE": "Zpětná vazba",
     "TOGETHER_WITH": "Toto vyzvednutí jste provedli společně s:"
   },
-  "PASSWORDRESET": {
-    "TITLE": "Resetovat heslo",
-    "INTRO": "Zadejte svou e-mailovou adresu a my vám zašleme odkaz pro nastavení nového hesla (pokud máte zaregistrovaný účet).",
-    "EMAIL": "E-mailová adresa",
-    "SUBMIT": "Získat nové heslo",
-    "LOGIN": "Zpět na přihlašovací stránku",
-    "SUCCESS": "Žádost byla úspěšně odeslána. Podívejte se na své e-maily!"
-  },
-  "PASSWORD": {
-    "RESET": {
-      "TITLE": "Obnovit heslo",
-      "OK": "Uložit",
-      "SUCCESS": "Vaše nové heslo bylo uloženo."
-    },
-    "CHANGE": {
-      "SUCCESS": "Vaše nové heslo bylo uloženo."
-    }
-  },
-  "LANGUAGECHOOSER": {
-    "ADD_MORE": "Pomozte přeložit!",
-    "SWITCH": "Přepnout jazyk"
-  },
-  "MARKDOWN_INPUT": {
-    "BOLD": "tučné",
-    "ITALIC": "kurzíva",
-    "STRIKE": "přeškrtnuté",
-    "QUOTE": "citace",
-    "HELP": "Co je Markdown?"
-  },
-  "HISTORY": {
-    "GROUP_CREATE": "vytvořil tuto skupinu",
-    "GROUP_MODIFY": "změnil nastavení této skupiny",
-    "GROUP_JOIN": "připojil se k této skupině",
-    "GROUP_LEAVE": "opustil tuto skupinu",
-    "STORE_CREATE": "vytvořené místo {name}",
-    "STORE_MODIFY": "změněno nastavení místa {name}",
-    "STORE_DELETE": "smazané místo {name}",
-    "PICKUP_CREATE": "vytvořil nové jednorázové vyzvednutí",
-    "PICKUP_MODIFY": "změněno nastavení vyzvednutí",
-    "PICKUP_DELETE": "smazal vyzvednutí",
-    "PICKUP_ENABLE": "povoleno vyzvednutí",
-    "PICKUP_DISABLE": "nepovoleno vyzvednutí",
-    "SERIES_CREATE": "vytvořil nové opakující se vyzvednutí",
-    "SERIES_MODIFY": "změnil nastavení opakovaného vyzvednutí",
-    "SERIES_DELETE": "odstranil opakující se vyzvednutí",
-    "PICKUP_DONE": "vyzvedl v {storeName}",
-    "PICKUP_MISSED": "Vyzvednutí na {storeName} bylo zmeškáno!",
-    "PICKUP_JOIN": "přihlášeni k vyzvednutí na {storeName}",
-    "PICKUP_LEAVE": "odstoupil od vyzvednutí {storeName}",
-    "APPLICATION_DECLINED": "odmítl žádost od {applicantName}",
-    "MEMBER_BECAME_EDITOR": "získal oprávnění k úpravám",
-    "GROUP_LEAVE_INACTIVE": "byl odstraněn kvůli nečinnosti",
-    "GROUP_CHANGE_PHOTO": "změněno logo skupiny",
-    "GROUP_DELETE_PHOTO": "smazáno logo skupiny",
-    "MEMBER_REMOVED": "byl odstraněn kvůli rozhodnutí skupiny",
-    "NOTHING_HAPPENEND": "Zatím se nic nestalo ...",
-    "DETAILS": "Více informací"
-  },
-  "NOTIFICATIONS": {
-    "NOT_VERIFIED": "{email} není ověřen",
-    "CHECK_YOUR_MAILS": "Zkontrolujte prosím své e-maily nebo {resend}",
-    "RESEND_VERIFICATION": "opětovné zaslání ověřovacího e-mailu",
-    "VERIFICATION_EMAIL_SENT": "Poslali jsme vám další ověřovací e-mail. Zkontrolujte prosím doručenou poštu.",
-    "CHANGES_SAVED": "Vaše změny byly uloženy.",
-    "EMAIL_NOT_DELIVERED": "E-mail vám nemohl být doručen | {count} e-maily nemohly být doručeny"
-  },
-  "NOTIFICATION_BELLS_LIST": {
-    "TITLE": "Oznámení",
-    "NO_ITEMS": "Momentálně pro vás nemáme oznámení."
-  },
-  "NOTIFICATION_BELLS": {
-    "YOU_BECAME_EDITOR": "Získali jste oprávnění k úpravám",
-    "USER_BECAME_EDITOR": "{userName} získal oprávnění k úpravám",
-    "NEW_APPLICANT": "{userName} přihlášen do vaší skupiny",
-    "APPLICATION_ACCEPTED": "Vaše žádost  byla přijata!",
-    "APPLICATION_DECLINED": "Vaše přihláška byla zamítnuta",
-    "INVITATION_ACCEPTED": "{userName} přijal vaše pozvání",
-    "FEEDBACK_POSSIBLE": "Můžete poskytnout zpětnou vazbu pro vyzvednutí, které jste provedli {date}",
-    "NEW_PLACE": "Místo {placeName} bylo vytvořeno",
-    "NEW_MEMBER": "{userName} se připojil k vaší skupině",
-    "PICKUP_UPCOMING": "Připomenutí: Máte vyzvednutí v {time}",
-    "PICKUP_DISABLED": "Vyzvednutí v {dateTime} bylo zakázáno",
-    "PICKUP_ENABLED": "Vyzvednutí v {dateTime} bylo znovu povoleno",
-    "PICKUP_MOVED": "Vyzvednutí bylo přesunuto na {dateTime}",
-    "CONFLICT_RESOLUTION_CREATED": "Připojte se k diskusi o konfliktu s {userName}",
-    "CONFLICT_RESOLUTION_CREATED_ABOUT_YOU": "S vámi byl zahájen proces řešení konfliktů",
-    "CONFLICT_RESOLUTION_CONTINUED": "Proces řešení konfliktu s {userName} pokračuje",
-    "CONFLICT_RESOLUTION_CONTINUED_ABOUT_YOU": "Proces řešení konfliktů s vámi pokračuje",
-    "CONFLICT_RESOLUTION_DECIDED": "Proces řešení konfliktu s {userName} byl rozhodnut",
-    "CONFLICT_RESOLUTION_DECIDED_ABOUT_YOU": "Bylo rozhodnuto v procesu řešení konfliktů s vámi",
-    "CONFLICT_RESOLUTION_YOU_WERE_REMOVED": "Byl jste odstraněn ze skupiny",
-    "VOTING_ENDS_SOON": "Hlasování brzy skončí, nezapomeňte se zúčastnit!"
-  },
-  "NOTIFICATION_TOGGLE": {
-    "HEADER": "Jak chcete dostávat oznámení o nových zprávách v této konverzaci / vlákně?",
-    "ALL": "vše",
-    "ALL_TEXT": "Prostřednictvím aplikace / webu, e-mailu a zasílaných oznámení.",
-    "SOME": "trochu",
-    "SOME_TEXT": "Prostřednictvím aplikace / webu.",
-    "NONE": "žádný",
-    "NONE_TEXT": "Žádná oznámení."
-  },
-  "OUTDATED_BROWSER": {
-    "MESSAGE": "Používáte nepodporovaný prohlížeč. {upgradeBrowser} abyste si užili všechny funkce.",
-    "LINK": "Aktualizujte nebo přepněte prohlížeč"
-  },
-  "UPDATE_AVAILABLE": {
-    "DETAIL": "K dispozici je nová verze karot.",
-    "RELOAD": "Obnovit"
-  },
-  "NOT_FOUND": {
-    "EXPLANATION": "Litujeme, ale tuto stránku jsme nikde nenašli.",
-    "HOME": "Zpět na Hlavní stranu"
-  },
-  "SETTINGS": {
-    "TITLE": "Nastavení"
+  "ADDRESS_PICKER": {
+    "CHOOSE_LOCATION": "zvolte umístění na mapě",
+    "KEEP_EXISTING_LOCATION": "zachovat stávající polohu na mapě",
+    "SET_AS": "Nastavit adresu jako"
   },
   "AGREEMENT": {
-    "NEW": "Nová dohoda",
     "AGREE": "Musíte souhlasit s {title}",
-    "VIEW": "Zobrazit dohodu",
-    "TITLE": "Nadpis",
-    "TITLE_HELPER": "Dejte své dohodě název, např. Pravidla Společenství",
-    "CONTENT": "Obsah",
-    "CONTENT_HELPER": "Text vaší dohody",
-    "MINOR_EDIT": "Drobná úprava?",
-    "MINOR_EDIT_HELPER": "Překlepy, formátování atd. Lidé nebudou vyzváni k opětovnému souhlasu",
     "BLURB1": "Dosud nemáte dohodu!",
     "BLURB2": "Pokud přidáte jeden, pak s tím lidé budou muset souhlasit, než budou moci vyzvedávat.",
+    "CONTENT": "Obsah",
+    "CONTENT_HELPER": "Text vaší dohody",
     "DIALOGS": {
-      "REPLACE": {
-        "TITLE": "Změnit dohodu?",
-        "MESSAGE": "Každý bude muset znovu souhlasit s dohodou, než se bude moci přihlásit k vyzvednutí",
-        "CONFIRM": "Ano, změnit dohodu"
-      },
       "REMOVE": {
-        "TITLE": "Odebrat dohodu?",
+        "CONFIRM": "Ano, odstranit dohodu",
         "MESSAGE": "To znamená, že kdokoli bude moci provést vyzvednutí",
-        "CONFIRM": "Ano, odstranit dohodu"
+        "TITLE": "Odebrat dohodu?"
+      },
+      "REPLACE": {
+        "CONFIRM": "Ano, změnit dohodu",
+        "MESSAGE": "Každý bude muset znovu souhlasit s dohodou, než se bude moci přihlásit k vyzvednutí",
+        "TITLE": "Změnit dohodu?"
       }
-    }
-  },
-  "WALL": {
-    "WRITE_MESSAGE": "Napište zprávu...",
-    "WRITE_FIRST_MESSAGE": "Napište první zprávu ...",
-    "VERIFY_EMAIL_FOR_NOTIFICATIONS": "Chcete-li dostávat e-maily s oznámením, ověřte svou e-mailovou adresu",
-    "RECEIVED_VIA_EMAIL": "Tato zpráva byla odeslána e-mailem"
-  },
-  "CONVERSATION": {
-    "CONVERSATIONS": "Konverzace",
-    "OPEN": "Otevřít chat",
-    "REPLY_TO_MESSAGE": "Odpovědět na zprávu ...",
-    "REPLIES": "Odpovědi",
-    "REPLIES_COUNT": "1 odpověď | {count} odpovědi",
-    "UNREAD_MESSAGES": "Máte jednu nepřečtenou zprávu. | Máte {count} nepřečtené zprávy.",
-    "EDITED": "upraveno",
-    "MARK_READ": "označit vše jako přečtené",
-    "REACTIONS": {
-      "YOU": "Vy",
-      "AND": "a",
-      "REACTED_WITH": "{users} zareagoval s {reaction}"
     },
-    "MESSAGE_NOT_FOUND": "Zpráva nenalezena",
-    "NO_CONVERSATIONS": "Zatím žádné konverzace.",
-    "MUTED": "Oznámení jsou deaktivována",
-    "CLOSED": "Tato konverzace byla automaticky ukončena.",
-    "NOT_PARTICIPATED": "Odesláním zprávy budete přihlášeni k odběru oznámení o této konverzaci."
-  },
-  "STORESTATUS": {
-    "ACTIVE": "Spolupracuje",
-    "CREATED": "Jen vytvořeno",
-    "NEGOTIATING": "Vyjednávání",
-    "DECLINED": "Nechce spolupracovat",
-    "ARCHIVED": "Archivováno"
+    "MINOR_EDIT": "Drobná úprava?",
+    "MINOR_EDIT_HELPER": "Překlepy, formátování atd. Lidé nebudou vyzváni k opětovnému souhlasu",
+    "NEW": "Nová dohoda",
+    "TITLE": "Nadpis",
+    "TITLE_HELPER": "Dejte své dohodě název, např. Pravidla Společenství",
+    "VIEW": "Zobrazit dohodu"
   },
   "APPLICATION": {
+    "ACCEPTED": "Přijali jste {userName} do této skupiny!",
+    "ACCEPT_CONFIRMATION_HEADER": "Přijmout žádost",
+    "ACCEPT_CONFIRMATION_TEXT": "Opravdu chcete přijmout {userName} do této skupiny?",
     "APPLICATION": "Žádost",
+    "DECLINED": "Odmítli jste žádost od {userName}",
+    "DECLINE_CONFIRMATION_HEADER": "Odmítnout žádost",
+    "DECLINE_CONFIRMATION_TEXT": "Opravdu chcete odmítnout žádost od {userName}?",
     "FORM_HEADER": "Použít",
     "FORM_TITLE": "Přihlaste se k připojení {groupName}",
     "GALLERY_TOOLTIP": "Přihlásili jste se do této skupiny. Vaše žádost  stále čeká na vyřízení.",
-    "WALL_NOTICE": "Žádost čeká na vyřízení. | Je tu {count} čekajících žádostí. ",
-    "ACCEPT_CONFIRMATION_HEADER": "Přijmout žádost",
-    "ACCEPT_CONFIRMATION_TEXT": "Opravdu chcete přijmout {userName} do této skupiny?",
-    "DECLINE_CONFIRMATION_HEADER": "Odmítnout žádost",
-    "DECLINE_CONFIRMATION_TEXT": "Opravdu chcete odmítnout žádost od {userName}?",
-    "ACCEPTED": "Přijali jste {userName} do této skupiny!",
-    "DECLINED": "Odmítli jste žádost od {userName}",
+    "HELP": "Toto je chat mezi všemi stávajícími členy {groupName} a novým žadatelem {userName}. Účelem je poskytnout vám všem příležitost seznámit se s vámi, než se rozhodnete, zda žádost přijmete, odmítnete nebo stáhnete.",
+    "INITIAL": "Úvodní otázky a odpovědi",
     "PAST": "Proběhlé žádosti",
     "SUBMITTED_ON": "Odesláno v {date}",
-    "WITHDRAWN": "staženo {relativeDate}",
+    "WALL_NOTICE": "Žádost čeká na vyřízení. | Je tu {count} čekajících žádostí. ",
     "WHAT": "O čem je tento chat?",
-    "HELP": "Toto je chat mezi všemi stávajícími členy {groupName} a novým žadatelem {userName}. Účelem je poskytnout vám všem příležitost seznámit se s vámi, než se rozhodnete, zda žádost přijmete, odmítnete nebo stáhnete.",
-    "INITIAL": "Úvodní otázky a odpovědi"
+    "WITHDRAWN": "staženo {relativeDate}"
+  },
+  "ATTENTION": "Pozor!",
+  "BUTTON": {
+    "ACCEPT": "Přijmout",
+    "AGREE": "Souhlasím",
+    "APPLY": "Žádat",
+    "ARCHIVE": "Archivovat",
+    "BACK": "Zpět",
+    "CANCEL": "Zrušit",
+    "CHANGE_EMAIL": "Změnit e-mailovou adresu",
+    "CHANGE_PASSWORD": "Změnit heslo",
+    "CLOSE": "Zavřít",
+    "CREATE": "Vytvořit",
+    "DECLINE": "Odmítnout",
+    "DELETE": "Smazat",
+    "DELETE_ACCOUNT": "Smazat účet",
+    "DISABLE": "Deaktivovat",
+    "EDIT": "Upravit",
+    "ENABLE": "Povolit",
+    "HIDE": "Skrýt",
+    "JOIN": "Připojit",
+    "NEXT": "Další",
+    "OF_COURSE": "Ano, samozřejmě!",
+    "OPEN": "Otevřít",
+    "PREVIEW": "Náhled",
+    "REMOVE": "Odstranit",
+    "RESET": "Reset",
+    "SAVE_CHANGES": "Uložit změny",
+    "SEARCH": "Hledat",
+    "SHOW": "Zobrazit",
+    "SHOW_LESS": "Zobrazit méně",
+    "SHOW_MORE": "Zobrazit více",
+    "SUBMIT": "Odeslat",
+    "UNSUBSCRIBE": "Odhlásit odběr",
+    "WITHDRAW": "Zrušit",
+    "YES": "Ano"
   },
   "COMMUNITY_FEED": {
     "HEADER": "Aktualizace z {community}",
     "HEADER_LINK": "světová komunita pro záchranu jída",
-    "LAST_UPDATED": "Naposledy aktualizováno {relativeDate}",
-    "KARROT_DISCUSSION": "Diskuze o Karrot"
-  },
-  "INACTIVITY": {
-    "WHAT": "Co to znamená být neaktivní?",
-    "HELP": "Každý, kdo se do skupiny nepřihlásil {dayCount} dní nebo déle, se považuje za neaktivní. Tito uživatelé již nebudou dostávat e-maily s oznámením."
+    "KARROT_DISCUSSION": "Diskuze o Karrot",
+    "LAST_UPDATED": "Naposledy aktualizováno {relativeDate}"
   },
   "CONFLICT": {
+    "FIND_OUT_MORE": "Zjistit více!",
+    "INFO": {
+      "MESSAGE": "Jedná se o hlasování o skóre, kterého se mohou účastnit členové skupiny s oprávněními k úpravám, aby určili, jak řešit sociální konflikt, který ovlivňuje celou skupinu.",
+      "TITLE": "Jak tento proces funguje?"
+    },
+    "INITIAL": "Informace",
+    "REQUIREMENTS": {
+      "ACTIVE_EDITORS": "Vaše skupina má {activeEditorsCount} aktivních uživatelů s oprávněními k úpravám. Potřebujete mít {requiredCount} uživatelů k zahájení procesu řešení konfliktů.",
+      "NEWCOMER": "Než budete moci zahájit proces řešení konfliktů, musíte získat větší důvěru a získat oprávnění k úpravám. Mezitím požádejte člena skupiny, aby zahájil proces za vás."
+    },
     "SETUP_HEADER": "Je nějaký konflikt s uživatelem {user}?",
     "STATEMENT": "Stanovisko",
     "STEPPER1a": "Chystáte se zahájit proces řešení konfliktů v celé skupině!",
@@ -594,162 +228,528 @@
     "STEPPER3d": "Hlasování je anonymní. Bude trvat {votingDuration} dnů. Během této doby mohou všichni hlasující  změnit názor a hlasovat tolikrát, kolikrát chtějí.",
     "STEPPER4a": "Vysvětlete prosím, proč začínáte tento proces řešení konfliktů!",
     "STEPPER4b": "Řekněte své skupině, proč si myslíte, že je tento proces oprávněný a potřebný. Toto sdělení bude viditelné uživateli {userName} a členům skupiny s oprávněními k úpravám.",
-    "FIND_OUT_MORE": "Zjistit více!",
-    "INITIAL": "Informace",
-    "WITH": "Tento proces má vyřešit konflikt s uživatelem {userName}",
     "VOTING": {
       "HEADLINE": "Jak chcete pokračovat s probíhajícím konfliktem s {userName} ?"
     },
-    "REQUIREMENTS": {
-      "ACTIVE_EDITORS": "Vaše skupina má {activeEditorsCount} aktivních uživatelů s oprávněními k úpravám. Potřebujete mít {requiredCount} uživatelů k zahájení procesu řešení konfliktů.",
-      "NEWCOMER": "Než budete moci zahájit proces řešení konfliktů, musíte získat větší důvěru a získat oprávnění k úpravám. Mezitím požádejte člena skupiny, aby zahájil proces za vás."
-    },
-    "INFO": {
-      "TITLE": "Jak tento proces funguje?",
-      "MESSAGE": "Jedná se o hlasování o skóre, kterého se mohou účastnit členové skupiny s oprávněními k úpravám, aby určili, jak řešit sociální konflikt, který ovlivňuje celou skupinu."
-    }
+    "WITH": "Tento proces má vyřešit konflikt s uživatelem {userName}"
   },
+  "CONVERSATION": {
+    "CLOSED": "Tato konverzace byla automaticky ukončena.",
+    "CONVERSATIONS": "Konverzace",
+    "EDITED": "upraveno",
+    "MARK_READ": "označit vše jako přečtené",
+    "MESSAGE_NOT_FOUND": "Zpráva nenalezena",
+    "MUTED": "Oznámení jsou deaktivována",
+    "NOT_PARTICIPATED": "Odesláním zprávy budete přihlášeni k odběru oznámení o této konverzaci.",
+    "NO_CONVERSATIONS": "Zatím žádné konverzace.",
+    "OPEN": "Otevřít chat",
+    "REACTIONS": {
+      "AND": "a",
+      "REACTED_WITH": "{users} zareagoval s {reaction}",
+      "YOU": "Vy"
+    },
+    "REPLIES": "Odpovědi",
+    "REPLIES_COUNT": "1 odpověď | {count} odpovědi",
+    "REPLY_TO_MESSAGE": "Odpovědět na zprávu ...",
+    "UNREAD_MESSAGES": "Máte jednu nepřečtenou zprávu. | Máte {count} nepřečtené zprávy."
+  },
+  "CREATEACTIVITY": {
+    "COMMENT": "Dodatečné informace",
+    "COMMENT_HELPER": "Co by měli lidé vědět při přihlášení k tomuto vyzvednutí?",
+    "CUSTOM": "Vlastní",
+    "DATE": "Datum",
+    "DIFFERS_WARNING": "Tato hodnota se liší od výchozí hodnoty. Chcete-li tuto změnu vrátit zpět, klikněte na tlačítko se šipkou a uložte změny.",
+    "DISABLE_TITLE": "Zakázat vyzvednutí?",
+    "ENABLE_DISABLE_MESSAGE": "Uživatelé, kteří se k tomuto vyzvednutí připojí, dostanou oznámení. Tento text můžete změnit a uvést důvod:",
+    "ENABLE_TITLE": "Povolit vyzvednutí?",
+    "EXCEPTIONS_MESSAGE": "Některé nadcházející vyzvednutí neodpovídají nastavení tohoto opakujícího se vyzvednutí. Podívejte se níže na '{upcomingLabel}' a změňte nebo deaktivujte vyzvednutí, pokud je to potřeba.",
+    "EXCEPTIONS_TITLE": "Zkontrolovat své vyzvednutí",
+    "FREQUENCY": "Frekvence",
+    "MAX_COLLECTORS": "Maximum slotů",
+    "MAX_COLLECTORS_HELPER": "Kolik lidí by se mělo na vyzvednutí zúčastnit?",
+    "RRULE": "Pravidlo opakování",
+    "RRULE_EXAMPLE": "poslední pracovní den (Po-Pá) každý měsíc",
+    "RRULE_EXAMPLE2": "každé druhé pondělí",
+    "RRULE_HELPER": "Zadejte platný {ruleHelper}, např. {ruleExample} nebo {ruleExample2}",
+    "RRULE_HELPER_URL": "Pravidlo iCalendar",
+    "STARTDATE_HELPER": "Kdy by měla série začít?",
+    "TIME_HELPER": "Kdy by mělo dojít k vyzvednutí?",
+    "UNLIMITED": "neomezený",
+    "WEEKDAYS": "Pracovní dny",
+    "WEEKDAYS_HELPER": "Ve kterých dnech by se mělo vyzvednout?",
+    "WEEKLY": "Týdně"
+  },
+  "CREATESTORE": {
+    "TITLE": "Vytvořit nové místo"
+  },
+  "DELETEACCOUNT": {
+    "SUCCESS": "Váš účet byl úspěšně smazán!",
+    "TITLE": "Smazání účtu"
+  },
+  "ENTRY": "1 položka | {count} položek",
+  "FEEDBACKLIST": {
+    "NONE": "Zatím žádná zpětná vazba",
+    "NONE_HINT": "Tato stránka bude vyplněna, jakmile bude k dispozici další zpětná vazba",
+    "NO_DONE_ACTIVITIES": "Vše hotovo!",
+    "NO_DONE_ACTIVITIES_HINT": "V současné době nemáte žádné vyzvednutí, na které byste mohli poskytnout zpětnou vazbu. Proč se nepřipojit k jinému vyzvednutí?",
+    "NUMBER_ACTIVITIES": "{count} vyzvednutí hotovo",
+    "NUMBER_FEEDBACK": "{count} zadané komentáře",
+    "SAVED_FOOD": "Zde bylo ušetřeno nejméně 1 kg. Děkujeme! | Lidé již poskytli zpětnou vazbu na {amount} kg ušetřeného jídla! Pokračujte ve skvělé práci!",
+    "WEIGHT_SUM": "{sum} kg zachráněného jídla"
+  },
+  "GLOBAL": {
+    "ABOUT_KARROT": "O Karrot",
+    "GENERIC_ERROR": "Promiňte, něco se pokazilo",
+    "GITHUB_NOTE": "Vývoj",
+    "INVALID_LINK": "Litujeme, odkaz, který jste otevřeli, je neplatný.",
+    "NOT_CONNECTED": "Nejste připojeni k serveru",
+    "SEARCH_NOT_FOUND": "Nenalezeno",
+    "SEARCH_RESULTS": "Výsledky vyhledávání",
+    "SERVER_ERROR": "Chyba serveru"
+  },
+  "GROUP": {
+    "ACTIVITIES": "Vyzvednutí",
+    "ACTIVITY": "Vyzvednutí",
+    "ADDED_BY": "přidal {userName}",
+    "ADDRESS": "Adresa",
+    "APPLICATIONS": "Žádosti",
+    "APPLICATION_QUESTIONS": "Otázky pro lidi, kteří se chtějí připojit k této skupině",
+    "CREATE_TITLE": "Vytvořit novou skupinu",
+    "DECLINED": "odmítl v {relativeDate}",
+    "DECLINED_BY": "odmítl {userName}",
+    "DESCRIPTION": "Popis",
+    "DESCRIPTION_VERBOSE": "Popis skupiny, viditelný pro členy",
+    "EDIT": "Upravit skupinu",
+    "EMAIL_NOTIFICATIONS": "E-mailová oznámení",
+    "HISTORY": "Historie",
+    "HOME": "Hlavní strana",
+    "INACTIVE": "Neaktivní",
+    "INVITATIONS": "Pozvánky",
+    "INVITATION_ACCEPT_ERROR": "Jejda, nemohl jsem přijmout pozvání!",
+    "INVITATION_ACCEPT_SUCCESS": "Vítejte! Pozvánku jste úspěšně přijali.",
+    "INVITED_LIST": "Pozvánky již byly rozeslány na tyto e-mailové adresy:",
+    "INVITE_EMAIL": "Zadejte e-mailovou adresu",
+    "INVITE_SEND": "Poslat pozvánku",
+    "INVITE_SEND_ERROR": "Jejda, nemohl jsem poslat pozvání!",
+    "INVITE_SEND_SUCCESS": "Pozvánka byla úspěšně odeslána",
+    "INVITE_TITLE": "Pozvěte uživatele do své skupiny",
+    "JOINED": "připojen {relativeDate}",
+    "JOIN_ANOTHER_GROUP": "Připojte se k jiné skupině",
+    "JOIN_PLAYGROUND": "Připojte se k testovací skupině Playground a prozkoumejte karrot",
+    "LEAVE": "Opustit skupinu ...",
+    "LEAVE_CONFIRMATION": "Opustil jste {groupName}",
+    "LEAVE_TEXT": "Opravdu chcete opustit tuto skupinu?",
+    "LOGO": "Logo skupiny",
+    "MANAGE_AGREEMENT": "Spravovat dohodu",
+    "MEMBERS": "Členové",
+    "MESSAGES": "Zprávy",
+    "NONMEMBER_REDIRECT": "Nejste členem této skupiny.",
+    "NOTIFICATIONS_BY_GROUP": "Oznámení podle skupiny",
+    "NOTIFICATION_TYPES": {
+      "conflict_resolution": {
+        "DESCRIPTION": "Řekne vám, kdy byl ve vaší skupině zahájen nový proces řešení konfliktů",
+        "NAME": "Nové procesy řešení konfliktů"
+      },
+      "daily_activity_notification": {
+        "DESCRIPTION": "Připomíná vám vaše vyzvednutí a řekne vám o prázdných nebo neúplných vyzvednutích vašich oblíbených míst v příštím dnu",
+        "NAME": "Oznámení o vyzvednutí"
+      },
+      "new_application": {
+        "DESCRIPTION": "Oznámí vám, když se někdo chce připojit k vaší skupině",
+        "NAME": "Nové žádosti"
+      },
+      "new_offer": {
+        "DESCRIPTION": "Oznámí  vám, když někdo vytvoří novou nabídku",
+        "NAME": "Nové nabídky"
+      },
+      "weekly_summary": {
+        "DESCRIPTION": "Sledujte, co se ve skupině děje.",
+        "NAME": "Týdenní shrnutí"
+      }
+    },
+    "OFFERS": "Nabídky",
+    "PLACES": "Místa",
+    "PLAYGROUND_INFO": "Toto je testovací skupina Playground, kde nemůžete nic rozbít. Prozkoumejte ji, klikejte a bavte se!",
+    "SET_LOGO": "Kliknutím nahrajete logo své skupiny!",
+    "SHOW_INACTIVE": "Zobrazit neaktivní skupiny",
+    "SORT_JOINDATE": "Seřadit podle data připojení",
+    "SORT_NAME": "Seřadit podle jména",
+    "TIMEZONE": "Časové pásmo skupiny",
+    "TITLE": "Název této skupiny",
+    "WALL": "Zeď",
+    "WELCOMEMESSAGE_VERBOSE": "Uvítací zpráva byla odeslána novým členům"
+  },
+  "GROUPINFO": {
+    "MEMBER_VIEW": "Jste členem této skupiny. Klepnutím sem přepnete do úplného zobrazení.",
+    "META": "Zobrazit informace o veřejné skupině",
+    "TITLE": "Informace o veřejných skupinách"
+  },
+  "GROUPMAP": {
+    "EXPORT": "Export",
+    "FULL_SCREEN": "Zobrazit celou obrazovku",
+    "HIDE_GROUPS": "Skrýt skupiny",
+    "HIDE_PLACES": "Skrýt místa",
+    "HIDE_USERS": "Skrýt uživatele",
+    "SET_LOCATION": "Nastavit umístění",
+    "SHOW_GROUPS": "Zobrazit skupiny",
+    "SHOW_PLACES": "Zobrazit místa",
+    "SHOW_USERS": "Zobrazit uživatele",
+    "TITLE": "Mapa"
+  },
+  "HISTORY": {
+    "ACTIVITY_CREATE": "vytvořil nové jednorázové vyzvednutí",
+    "ACTIVITY_DELETE": "smazal vyzvednutí",
+    "ACTIVITY_DISABLE": "nepovoleno vyzvednutí",
+    "ACTIVITY_DONE": "vyzvedl v {storeName}",
+    "ACTIVITY_ENABLE": "povoleno vyzvednutí",
+    "ACTIVITY_JOIN": "přihlášeni k vyzvednutí na {storeName}",
+    "ACTIVITY_LEAVE": "odstoupil od vyzvednutí {storeName}",
+    "ACTIVITY_MISSED": "Vyzvednutí na {storeName} bylo zmeškáno!",
+    "ACTIVITY_MODIFY": "změněno nastavení vyzvednutí",
+    "APPLICATION_DECLINED": "odmítl žádost od {applicantName}",
+    "DETAILS": "Více informací",
+    "GROUP_CHANGE_PHOTO": "změněno logo skupiny",
+    "GROUP_CREATE": "vytvořil tuto skupinu",
+    "GROUP_DELETE_PHOTO": "smazáno logo skupiny",
+    "GROUP_JOIN": "připojil se k této skupině",
+    "GROUP_LEAVE": "opustil tuto skupinu",
+    "GROUP_LEAVE_INACTIVE": "byl odstraněn kvůli nečinnosti",
+    "GROUP_MODIFY": "změnil nastavení této skupiny",
+    "MEMBER_BECAME_EDITOR": "získal oprávnění k úpravám",
+    "MEMBER_REMOVED": "byl odstraněn kvůli rozhodnutí skupiny",
+    "NOTHING_HAPPENEND": "Zatím se nic nestalo ...",
+    "SERIES_CREATE": "vytvořil nové opakující se vyzvednutí",
+    "SERIES_DELETE": "odstranil opakující se vyzvednutí",
+    "SERIES_MODIFY": "změnil nastavení opakovaného vyzvednutí",
+    "STORE_CREATE": "vytvořené místo {name}",
+    "STORE_DELETE": "smazané místo {name}",
+    "STORE_MODIFY": "změněno nastavení místa {name}"
+  },
+  "INACTIVITY": {
+    "HELP": "Každý, kdo se do skupiny nepřihlásil {dayCount} dní nebo déle, se považuje za neaktivní. Tito uživatelé již nebudou dostávat e-maily s oznámením.",
+    "WHAT": "Co to znamená být neaktivní?"
+  },
+  "INFO": "Info",
   "ISSUE": {
+    "CHAT": "Chat",
     "CREATION": {
       "TOAST": "Úspěšně jste zahájili proces řešení konfliktů"
     },
-    "TITLE": "Záležitosti",
-    "VOTE": "Hlasovat",
-    "CHAT": "Chat",
+    "NO_ONGOING": "Žádné pokračující problémy.",
+    "PARTICIPANTS": "Do této diskuse bylo přidáno {count} členů.",
     "PAST": "Minulé záležitosti",
     "PREVIOUS_VOTINGS": "Předchozí hlasování v této záležitosti",
-    "PARTICIPANTS": "Do této diskuse bylo přidáno {count} členů.",
+    "TITLE": "Záležitosti",
+    "VOTE": "Hlasovat",
     "VOTING": {
-      "TIME_LEFT": "Zbývá času do hlasování",
-      "BTN_START": "Hlasujte",
-      "SAVE": "Uložit",
+      "ANONYMOUS": "Váš hlas bude anonymní.",
       "BTN_DELETE": "Smazat hlas",
-      "TOAST": "Váš hlas byl úspěšně odeslán",
-      "TOAST_DELETE": "Váš hlas byl smazán",
-      "NO_CHANGE": "Žádná změna: {userName} zůstává ve skupině {groupName}",
+      "BTN_START": "Hlasujte",
       "FURTHER_DISCUSSION": "Další diskuse: prodloužením času zahájením dalšího hlasování",
+      "NO_CHANGE": "Žádná změna: {userName} zůstává ve skupině {groupName}",
       "REMOVE_USER": "{userName} bude odstraněn ze skupiny {groupName} ",
       "RESULTS": {
+        "ENDED_AT": " Toto kolo hlasování skončilo {date}",
         "KEEP_DISCUSSING": "Vaše skupina hlasovala pro pokračování diskuse",
+        "PARTICIPANTS": "{number} členů se zúčastnilo hlasování.",
         "TIME_UP": "Čas vypršel.",
         "TOTAL_SCORE": "Celkové skóre",
-        "ENDED_AT": " Toto kolo hlasování skončilo {date}",
-        "PARTICIPANTS": "{number} členů se zúčastnilo hlasování.",
         "UNDECIDED": "O tomto konfliktu bohužel nebylo možné rozhodnout.",
-        "UNDECIDED_WHY": "Existují dva možné důvody:",
         "UNDECIDED_REASON_1": "postižený uživatel opustil skupinu, zatímco proces řešení konfliktů stále pokračoval",
-        "UNDECIDED_REASON_2": "nikdo o této záležitosti nehlasoval"
+        "UNDECIDED_REASON_2": "nikdo o této záležitosti nehlasoval",
+        "UNDECIDED_WHY": "Existují dva možné důvody:"
       },
-      "SEE_RESULTS": "Podívejte se na výsledky",
+      "SAVE": "Uložit",
       "SCORE_LABELS": {
         "NEUTRAL": "neutrální",
-        "SLIGHT_SUPPORT": "podpora",
-        "STRONG_SUPPORT": "silná podpora",
         "SLIGHT_RESISTANCE": "odpor",
-        "STRONG_RESISTANCE": "silný odpor"
+        "SLIGHT_SUPPORT": "podpora",
+        "STRONG_RESISTANCE": "silný odpor",
+        "STRONG_SUPPORT": "silná podpora"
       },
-      "ANONYMOUS": "Váš hlas bude anonymní."
+      "SEE_RESULTS": "Podívejte se na výsledky",
+      "TIME_LEFT": "Zbývá času do hlasování",
+      "TOAST": "Váš hlas byl úspěšně odeslán",
+      "TOAST_DELETE": "Váš hlas byl smazán"
+    }
+  },
+  "JOINGROUP": {
+    "ALL_GROUPS": "Všechny skupiny",
+    "APPLICATION_PENDING": "Vaše žádost čeká na vyřízení!",
+    "APPLICATION_SUBMITTED": "Vaše žádost byla úspěšně odeslána!",
+    "APPLICATION_WITHDRAWN": "Vaše žádost  byla úspěšně stažena!",
+    "ARCHIVED_NOTE": "Tato skupina nemá žádné členy. Chcete-li to oživit, obraťte se na správce webu!",
+    "BROWSE_GROUPS": "Procházet existující skupiny",
+    "LOGOUT_MESSAGE": {
+      "LOGGED_OUT": "Momentálně jste odhlášen. {login}",
+      "LOG_IN": "Přihlaste se a uvidíte své skupiny!"
     },
-    "NO_ONGOING": "Žádné pokračující problémy."
+    "MY_GROUPS": "Moje skupiny",
+    "NO_PUBLIC_DESCRIPTION": "(Tato skupina zatím nemá veřejný popis ...)",
+    "NUM_MEMBERS": "Člen | Členů",
+    "OR": "{joinGroup} nebo {createGroup}",
+    "PROFILE_NOTE": "Připojením k této skupině budou vaše profilová data viditelná pro ostatní členy skupiny.",
+    "SIGNUP_OR_LOGIN": "Přihlaste se nebo se zaregistrujte a připojte se k této skupině!",
+    "VERIFY_EMAIL_ADDRESS": "Ověřte svou e-mailovou adresu",
+    "WHICHGROUP": "Ke které skupině se chcete přihlásit?",
+    "WITHDRAW_CONFIRMATION_HEADER": "stáhnout žádost",
+    "WITHDRAW_CONFIRMATION_TEXT": "Opravdu chcete stáhnout svou žádost k připojení se k {groupName}?"
+  },
+  "LANGUAGECHOOSER": {
+    "ADD_MORE": "Pomozte přeložit!",
+    "SWITCH": "Přepnout jazyk"
+  },
+  "LOGIN": {
+    "FORGOT_PASSWORD": "Zapomněli jste heslo?",
+    "SIGNUP": "Zaregistrovat se",
+    "SUBMIT": "Přihlásit",
+    "TITLE": "Přihlásit"
+  },
+  "MARKDOWN_INPUT": {
+    "BOLD": "tučné",
+    "HELP": "Co je Markdown?",
+    "ITALIC": "kurzíva",
+    "QUOTE": "citace",
+    "STRIKE": "přeškrtnuté"
+  },
+  "NOTIFICATIONS": {
+    "CHANGES_SAVED": "Vaše změny byly uloženy.",
+    "CHECK_YOUR_MAILS": "Zkontrolujte prosím své e-maily nebo {resend}",
+    "EMAIL_NOT_DELIVERED": "E-mail vám nemohl být doručen | {count} e-maily nemohly být doručeny",
+    "NOT_VERIFIED": "{email} není ověřen",
+    "RESEND_VERIFICATION": "opětovné zaslání ověřovacího e-mailu",
+    "VERIFICATION_EMAIL_SENT": "Poslali jsme vám další ověřovací e-mail. Zkontrolujte prosím doručenou poštu."
+  },
+  "NOTIFICATION_BELLS": {
+    "ACTIVITY_DISABLED": "Vyzvednutí v {dateTime} bylo zakázáno",
+    "ACTIVITY_ENABLED": "Vyzvednutí v {dateTime} bylo znovu povoleno",
+    "ACTIVITY_MOVED": "Vyzvednutí bylo přesunuto na {dateTime}",
+    "ACTIVITY_UPCOMING": "Připomenutí: Máte vyzvednutí v {time}",
+    "APPLICATION_ACCEPTED": "Vaše žádost  byla přijata!",
+    "APPLICATION_DECLINED": "Vaše přihláška byla zamítnuta",
+    "CONFLICT_RESOLUTION_CONTINUED": "Proces řešení konfliktu s {userName} pokračuje",
+    "CONFLICT_RESOLUTION_CONTINUED_ABOUT_YOU": "Proces řešení konfliktů s vámi pokračuje",
+    "CONFLICT_RESOLUTION_CREATED": "Připojte se k diskusi o konfliktu s {userName}",
+    "CONFLICT_RESOLUTION_CREATED_ABOUT_YOU": "S vámi byl zahájen proces řešení konfliktů",
+    "CONFLICT_RESOLUTION_DECIDED": "Proces řešení konfliktu s {userName} byl rozhodnut",
+    "CONFLICT_RESOLUTION_DECIDED_ABOUT_YOU": "Bylo rozhodnuto v procesu řešení konfliktů s vámi",
+    "CONFLICT_RESOLUTION_YOU_WERE_REMOVED": "Byl jste odstraněn ze skupiny",
+    "FEEDBACK_POSSIBLE": "Můžete poskytnout zpětnou vazbu pro vyzvednutí, které jste provedli {date}",
+    "INVITATION_ACCEPTED": "{userName} přijal vaše pozvání",
+    "NEW_APPLICANT": "{userName} přihlášen do vaší skupiny",
+    "NEW_MEMBER": "{userName} se připojil k vaší skupině",
+    "NEW_PLACE": "Místo {placeName} bylo vytvořeno",
+    "USER_BECAME_EDITOR": "{userName} získal oprávnění k úpravám",
+    "VOTING_ENDS_SOON": "Hlasování brzy skončí, nezapomeňte se zúčastnit!",
+    "YOU_BECAME_EDITOR": "Získali jste oprávnění k úpravám"
+  },
+  "NOTIFICATION_BELLS_LIST": {
+    "NO_ITEMS": "Momentálně pro vás nemáme oznámení.",
+    "TITLE": "Oznámení"
+  },
+  "NOTIFICATION_TOGGLE": {
+    "ALL": "vše",
+    "ALL_TEXT": "Prostřednictvím aplikace / webu, e-mailu a zasílaných oznámení.",
+    "HEADER": "Jak chcete dostávat oznámení o nových zprávách v této konverzaci / vlákně?",
+    "NONE": "žádný",
+    "NONE_TEXT": "Žádná oznámení.",
+    "SOME": "trochu",
+    "SOME_TEXT": "Prostřednictvím aplikace / webu."
+  },
+  "NOT_FOUND": {
+    "EXPLANATION": "Litujeme, ale tuto stránku jsme nikde nenašli.",
+    "HOME": "Zpět na Hlavní stranu"
   },
   "OFFER": {
     "CREATE_TITLE": "Vytvořit nabídku",
-    "NAME": "Název",
-    "NAME_HELPER": "Krátký název položky, kterou nabízíte",
     "DESCRIPTION": "Popis",
-    "MARK_AS_ARCHIVED": "Archivovat",
-    "MARK_AS_ARCHIVED_DESCRIPTION": "Tuto nabídku označte jako archivovanou a odeberte ji z dostupných seznamů.",
     "FILTER": {
       "STATUS": {
         "ACTIVE": "Dostupné",
         "ARCHIVED": "Moje archivované nabídky"
       }
+    },
+    "MARK_AS_ARCHIVED": "Archivovat",
+    "MARK_AS_ARCHIVED_DESCRIPTION": "Tuto nabídku označte jako archivovanou a odeberte ji z dostupných seznamů.",
+    "NAME": "Název",
+    "NAME_HELPER": "Krátký název položky, kterou nabízíte"
+  },
+  "OUTDATED_BROWSER": {
+    "LINK": "Aktualizujte nebo přepněte prohlížeč",
+    "MESSAGE": "Používáte nepodporovaný prohlížeč. {upgradeBrowser} abyste si užili všechny funkce."
+  },
+  "PASSWORD": {
+    "CHANGE": {
+      "SUCCESS": "Vaše nové heslo bylo uloženo."
+    },
+    "RESET": {
+      "OK": "Uložit",
+      "SUCCESS": "Vaše nové heslo bylo uloženo.",
+      "TITLE": "Obnovit heslo"
     }
   },
-  "ADDRESS_PICKER": {
-    "SET_AS": "Nastavit adresu jako",
-    "KEEP_EXISTING_LOCATION": "zachovat stávající polohu na mapě",
-    "CHOOSE_LOCATION": "zvolte umístění na mapě"
+  "PASSWORDRESET": {
+    "EMAIL": "E-mailová adresa",
+    "INTRO": "Zadejte svou e-mailovou adresu a my vám zašleme odkaz pro nastavení nového hesla (pokud máte zaregistrovaný účet).",
+    "LOGIN": "Zpět na přihlašovací stránku",
+    "SUBMIT": "Získat nové heslo",
+    "SUCCESS": "Žádost byla úspěšně odeslána. Podívejte se na své e-maily!",
+    "TITLE": "Resetovat heslo"
   },
-  "UNSUBSCRIBE": {
-    "HEADER": "Odhlásit odběr",
-    "ALL": "Odhlásit vše",
-    "FROM_CONVERSATION": "odhlásit se z této konverzace",
-    "FROM_THREAD": "odhlásit se z tohoto vlákna",
-    "FROM_NOTIFICATION_TYPE": "odhlásit se z odběru {notificationType}",
-    "FROM_GROUP": "Zrušit odběr všech e-mailových oznámení v {groupName}",
-    "SUCCESS": "Byli jste úspěšně odhlášeni!",
-    "COUNTS": "Odhlásili jste se z {formerConversations} konverzací a {formerReplies} odpovědí."
+  "PLACEWALL": {
+    "SUBSCRIBED_USERS": "{count} lidí označilo toto místo jako oblíbené",
+    "SUBSCRIPTION": {
+      "HEADER": "Chcete toto místo označit jako své oblíbené?",
+      "NO": "ne",
+      "NO_TEXT": "Nic z výše uvedeného. I přesto se můžete přihlásit k odběru.",
+      "YES": "ano",
+      "YES_TEXT": "Zobrazuje dostupná vyzvednutí na zdi skupiny a odešle e-maily o nadcházejících vyzvednutí."
+    }
+  },
+  "PROFILE": {
+    "INACCESSIBLE_OR_DELETED": "(Uživatel nepřístupný nebo smazaný)"
+  },
+  "SETTINGS": {
+    "TITLE": "Nastavení"
+  },
+  "SIDENAV": {
+    "GIT_SUB": "Podívejte se na náš kód!",
+    "INFO_SUB": "Jak sestavit vaši skupinu pro vyzvedávání   potravin"
+  },
+  "SIGNUP": {
+    "BACK": "Zpět k přihlášení",
+    "OK": "Připojit",
+    "TITLE": "Zaregistrovat se"
+  },
+  "STOREDETAIL": {
+    "ARCHIVED": "Toto místo bylo archivováno",
+    "CHANGE_STATUS": "Stav můžete změnit na stránce nastavení.",
+    "DIRECTIONS": "Zobrazit pokyny",
+    "EDIT": "Upravit místo",
+    "INACTIVE": "Toto místo v současné době nespolupracuje.",
+    "NO_DESCRIPTION": "Toto místo zatím nemá popis"
+  },
+  "STOREEDIT": {
+    "ADDRESS": "Adresa",
+    "DESCRIPTION": "Popis",
+    "DIALOGS": {
+      "ARCHIVE": {
+        "CONFIRM": "Ano, archivujte místo",
+        "MESSAGE": "Jste si jist?",
+        "TITLE": "Místo archivace"
+      }
+    },
+    "NAME": "Jméno",
+    "RESTORE": "Obnovit",
+    "SHOW_ACTIVE_ONLY": "Zobrazit pouze aktivní místa",
+    "SHOW_ALL": "Zobrazit všechna místa",
+    "STATUS": "Stav",
+    "WEEKS_IN_ADVANCE": "Kolik týdnů předem by se měla zobrazit opakovaná data vyzvednutí?",
+    "WEEKS_IN_ADVANCE_WARNING": "Chystáte se snížit počet zobrazených týdnů vyzvednutí. Existující zbývající vyzvednutí budou odstraněny, pokud se k nim nikdo nepřipojí. V případě potřeby můžete všechny ostatní vyzvednutí deaktivovat ručně."
+  },
+  "STORESTATUS": {
+    "ACTIVE": "Spolupracuje",
+    "ARCHIVED": "Archivováno",
+    "CREATED": "Jen vytvořeno",
+    "DECLINED": "Nechce spolupracovat",
+    "NEGOTIATING": "Vyjednávání"
+  },
+  "SWITCHGROUP": {
+    "CHOOSE": "Vyberte skupinu:",
+    "COMMON_GROUPS": "Skupiny, které máte společné",
+    "NOT_MEMBER": "{userName} není členem {groupName}.",
+    "OTHER_GROUPS": "Další skupiny"
   },
   "THANKS": "Děkujeme",
-  "ATTENTION": "Pozor!",
-  "INFO": "Info",
-  "YOU": "Vy",
   "TO": "do",
-  "ABOUT_KARROT": {
-    "TITLE": "Zachraňte věci před vyhozením. Místo toho je někomu nabídněte!",
-    "SUBTITLE1": "Karrot tu je pro skupiny lidí, kteří chtějí zachránit věci před plýtváním. Místo toho je mohou sdílet. Umožňuje těmto skupinám organizovat se na místním a dobrovolném základě.",
-    "SUBTITLE2": "Věci, jako je nesnězené jídlo, jízdní kola, oblečení nebo cokoli, jsou v kontextu konzumní společnosti zbytečně vyhazovány, nebo nevyužity.",
-    "VISION_INTRO": "Karrot je nástrojem pro všechny druhy místních iniciativ, které se spojují a rostou. Podporuje koordinaci osobních činností s vrstvou digitální infrastruktury.",
-    "EXISTING_GROUPS": "Několik skupin již Karrot používá ",
-    "AND_MORE": "A více...",
-    "LINKS": {
-      "FORUM": "komunitní fórum",
-      "CHAT": "týmový chat"
-    },
-    "SECTIONS": {
-      "GROUPS": {
-        "TITLE": "Nezávislé skupiny",
-        "SUBTITLE": "Každá skupina v aplikaci Karrot je zcela nezávislá a může mít své vlastní logo, procesy a pravidla.",
-        "DESCRIPTION": "Přesto jsou všechny zobrazeny na mapě, aby je lidé mohli najít a připojit se i k jiným skupinám ve své lokalitě. A dokonce i celosvětově."
+  "TOPBAR": {
+    "CHANGE_GROUP": "Změnit skupinu",
+    "LOGOUT": "Odhlášení",
+    "USERPROFILE": "Navštivte svůj profil"
+  },
+  "UNSUBSCRIBE": {
+    "ALL": "Odhlásit vše",
+    "COUNTS": "Odhlásili jste se z {formerConversations} konverzací a {formerReplies} odpovědí.",
+    "FROM_CONVERSATION": "odhlásit se z této konverzace",
+    "FROM_GROUP": "Zrušit odběr všech e-mailových oznámení v {groupName}",
+    "FROM_NOTIFICATION_TYPE": "odhlásit se z odběru {notificationType}",
+    "FROM_THREAD": "odhlásit se z tohoto vlákna",
+    "HEADER": "Odhlásit odběr",
+    "SUCCESS": "Byli jste úspěšně odhlášeni!"
+  },
+  "UPDATE_AVAILABLE": {
+    "DETAIL": "K dispozici je nová verze karot.",
+    "RELOAD": "Obnovit"
+  },
+  "USERDATA": {
+    "ACCOUNT": "Účet",
+    "CONFIRM_PASSWORD": "Potvrzení hesla",
+    "DIALOGS": {
+      "GIVE_TRUST": {
+        "MESSAGE": "Důvěřujete {userName} ve skupině {groupName} ?",
+        "TITLE": "Důvěřovat uživateli"
       },
-      "ACTIVITIES": {
-        "TITLE": "Rozdělení úkolů a činností",
-        "SUBTITLE": "Do softwaru lze zadávat činnosti s konkrétním časem a místem, jako je např.  vyzvednutí  potravin v případě záchrany nesnězených potravin.",
-        "DESCRIPTION": "Každá aktivita má několik slotů, do kterých se mohou členové skupiny přihlásit – tímto způsobem každý ví, kdo kam a kdy má jít. Později může být poskytnuta zpětná vazba."
-      },
-      "OFFERS": {
-        "TITLE": "Sdílejte věci",
-        "SUBTITLE": "Vytvořte nabídku podobnou inzerátům, co chcete sdílet, nebo nabídnout.",
-        "DESCRIPTION": "Nabídky jsou viditelné pro všechny ve skupině a lidé mohou projevit zájem o nabídku svým komentářem."
-      },
-      "DEMOCRATIC": {
-        "TITLE": "Demokratický a participativní vývoj",
-        "DESCRIPTION": "Karrot je bezplatný open-source software vyvinutý se zpětnou vazbou a účastí lidí, kteří jej používají. Je vyvíjen malým jádrem týmu, který je neustále v kontaktu s lidmi v různých skupinách, aby pochopil jejich odlišné i společné potřeby, a tak vedl vývoj. Dodržujeme etiku integrity a nekomerčního využití dat.",
-        "DESCRIPTION2": "Vývojáři a designéři jsou samozřejmě vítáni k účasti na vývoji software. Podívejte se na projekt na {code}u."
-      },
-      "COMMUNICATION": {
-        "TITLE": "Komunikace ve správném kontextu",
-        "DESCRIPTION": "Napište zprávu, kterou uvidí všichni ve skupině, nebo soukromou zprávu někomu. Vše, co souvisí s jedinou aktivitou nebo místem, lze projednat v příslušných chatech."
-      },
-      "TRUST": {
-        "TITLE": "Demokratické a na důvěře založené vedení skupiny",
-        "DESCRIPTION": "Ve skupině Karrot nejsou žádní administrátoři. Lidé, kteří dostanou od svých vrstevníků dostatek důvěry, budou moci ve skupině upravovat a měnit nastavení. Když se do vaší skupiny chtějí přidat noví lidé, musí o to požádat a odpovědět na otázky, které může skupina nastavit.  Ty pak může odmítnout nebo schválit kdokoli s právy na úpravy. Podobně, pokud dojde ke konfliktu, skupina může vstoupit do hlasovacího systému, aby jej vyřešila komunitním způsobem."
-      },
-      "MAPS": {
-        "TITLE": "Mapy a seznamy",
-        "DESCRIPTION": "Je tu mapa, kde se nacházejí místa a lidé, kteří něco dělají. Je tu také seznam nadcházejících aktivit, ke kterým se můžete přes internet přihlásit."
-      },
-      "TRANSPARENCY": {
-        "TITLE": "Transparentnost",
-        "DESCRIPTION": "Historie ukazuje, kdo co a kdy dělal. Je tu zaznamenáno vše od účasti na činnosti až po vytváření a úpravy míst."
-      },
-      "NOTIFICATIONS": {
-        "TITLE": "Oznamování",
-        "DESCRIPTION": "Dostanete upozornění na volné aktivity, nové zprávy a nové lidi, kteří se chtějí připojit ke skupině. Ale můžete také vše vypnout, pokud si přejete více klidu!"
-      },
-      "TRANSLATIONS": {
-        "TITLE": "Vícejazyčné prostředí",
-        "DESCRIPTION": "Komunita Karrot je plně přeložitelná a mnoho jazyků je již přidáno. Chcete-li přispět více překlady, navštivte projekt na {translations}u."
-      },
-      "OPENSOURCE": {
-        "TITLE": "Otevřený zdrojový kód",
-        "DESCRIPTION": "Všechno je transparentní  a případně měnitelné. Doporučujeme skupinám, aby tvořily své vlastní instance platformy, pokud mají schopnost tak udělat. Stále však také poskytujeme přístup k hostované verzi na webu karrot.world."
-      },
-      "TEAM": {
-        "TITLE": "Tým odpovědných",
-        "DESCRIPTION": "Můžete se snadno domluvit s lidmi, kteří vyvíjejí Karrot, ať už na našem fóru {forum},  nad vývojem kódu {code} nebo v reálném čase  na našem {chat}u."
+      "REQUEST_DELETE_ACCOUNT": {
+        "CONFIRM": "Potvrdit",
+        "MESSAGE": "Jste si jist? Váš účet a vaše osobní údaje budou trvale smazány. Všechno, co jste na této platformě udělali, bude anonymní. Pokud potvrdíte, zašleme vám e-mail s odkazem pro dokončení procesu mazání.",
+        "TITLE": "Smazání účtu"
       }
-    }
-  }
+    },
+    "EMAIL": "E-mail",
+    "FIRST_TRUST": "Buďte první, který důvěřujete {userName} ve skupině {groupName}!",
+    "LOGOUT_SUCCESS": "Byl jste odhlášen!",
+    "MOBILE_NUMBER": "Telefonní číslo",
+    "NEWCOMER": "Nový příchozí",
+    "NEWCOMER_GUIDANCE": "{userName} je pro vaši skupinu nový a může vyžadovat nějakou pomoc.",
+    "NEWCOMER_INFO": "V současné době jste nováčkem ve skupině {groupName} a můžete být aktivní tím, že píšete zprávy, setkáváte se s členy, vyzvedáváte a poskytujete zpětnou vazbu. Jakmile {threshold} členové vyjádří důvěru ve vás, získáte oprávnění k úpravám, která  pomohou se správou skupiny.",
+    "OTHER_PEOPLE_TRUST_USER": "{otherUser} důvěřuje {userName} v {groupName}. | {count} lidé důvěřují {userName} ve skupině {groupName}.",
+    "OTHER_PEOPLE_TRUST_YOU": "{otherUser} vám věří v {groupName}. | {count} lidé vám věří v {groupName}.",
+    "PASSWORD": "Heslo",
+    "PEOPLE_TRUST_USER": "Vy a {otherUser}důvěřujte {userName} v {groupName}. | Vy a {count} ostatní lidé důvěřujete {userName} ve skupině {groupName}.",
+    "PHOTO": "Profilová fotka",
+    "PRIVATE_MESSAGE": "Odeslat soukromou zprávu uživateli {userName}",
+    "PROFILE_TITLE": "Profil",
+    "PUSH": "Zasílané oznámení",
+    "PUSH_CURRENT_BROWSER": "Aktuální prohlížeč",
+    "REQUEST_DELETE_ACCOUNT": {
+      "SUCCESS": "Odeslali jsme vám e-mail s odkazem k dokončení procesu mazání."
+    },
+    "SET_PHOTO": "Nastavte svou profilovou fotku ...",
+    "TRUST_INFO": {
+      "LINK": "Pro více informací klikněte sem.",
+      "MESSAGE": "To je součástí  systému důvěryhodnosti Karrot. Ukazuje, zda je členem skupiny nový příchozí  a kolik důvěry je potřeba, dokud nezíská  oprávnění k úpravám.",
+      "TITLE": "K čemu je toto tlačítko karrot?"
+    },
+    "TRUST_PROGRESS_TEXT": "{trustNeeded} vyžaduje více důvěry",
+    "TRUST_PROGRESS_TEXT_LONG": "Ještě {trustNeeded} lidí musí vyjádřit svou důvěru v {userName} k udělení oprávnění k úpravám.",
+    "USERNAME": "Jméno",
+    "WHERE_FROM": "Odkud jste (není požadováno)",
+    "YOU_TRUST_USER": "Důvěřujete {userName} ve skupině {groupName}."
+  },
+  "USERDETAIL": {
+    "DESCRIPTION": "O vás",
+    "DISPLAY_NAME": "Jméno",
+    "OLD_PASSWORD": "Potvrďte své staré heslo",
+    "PASSWORD": "Nové heslo"
+  },
+  "VALIDATION": {
+    "IMAGE_REQUIRED": "Musíte přidat obrázek",
+    "MAXLENGTH": "Příliš dlouhé, použijte méně než {max} znaků.",
+    "MINLENGTH": "Zadejte více než {min} znaků.",
+    "REQUIRED": "Toto pole je povinné.",
+    "UNIQUE": "Jméno již existuje, vyberte jiné.",
+    "VALID_EMAIL": "Zadejte platnou e-mailovou adresu.",
+    "VALID_TIMEZONE": "Zadejte platné časové pásmo."
+  },
+  "VERIFYMAIL": {
+    "SUCCESS": "Vaše e-mailová adresa byla úspěšně ověřena!",
+    "TITLE": "Ověření e-mailem"
+  },
+  "WALL": {
+    "RECEIVED_VIA_EMAIL": "Tato zpráva byla odeslána e-mailem",
+    "VERIFY_EMAIL_FOR_NOTIFICATIONS": "Chcete-li dostávat e-maily s oznámením, ověřte svou e-mailovou adresu",
+    "WRITE_FIRST_MESSAGE": "Napište první zprávu ...",
+    "WRITE_MESSAGE": "Napište zprávu..."
+  },
+  "YOU": "Vy"
 }

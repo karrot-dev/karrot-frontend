@@ -1,587 +1,221 @@
 {
-  "ENTRY": "1 entry | {count} entries",
-  "GLOBAL": {
-    "GITHUB_NOTE": "વિકાસ",
-    "SERVER_ERROR": "સર્વર ભૂલ",
-    "NOT_CONNECTED": "You aren't connected to the server",
-    "INVALID_LINK": "Sorry, the link you've opened is invalid.",
-    "GENERIC_ERROR": "Sorry, something went wrong",
-    "SEARCH_RESULTS": "Search results",
-    "SEARCH_NOT_FOUND": "Not Found",
-    "ABOUT_KARROT": "About Karrot"
-  },
-  "USERDATA": {
-    "EMAIL": "E-mail",
-    "MOBILE_NUMBER": "Phone number",
-    "PROFILE_TITLE": "પ્રોફાઇલ",
-    "PRIVATE_MESSAGE": "Send a private message to {userName}",
-    "PASSWORD": "પાસવર્ડ",
-    "CONFIRM_PASSWORD": "Confirm your password",
-    "USERNAME": "નામ",
-    "WHERE_FROM": "જ્યાંથી તમે છો (જરૂરી નથી)",
-    "PHOTO": "પ્રોફાઇલ ફોટો",
-    "SET_PHOTO": "તમારો પ્રોફાઇલ ફોટો સેટ કરો ...",
-    "ACCOUNT": "Account",
-    "PUSH": "Push notifications",
-    "PUSH_CURRENT_BROWSER": "Current browser",
-    "REQUEST_DELETE_ACCOUNT": {
-      "SUCCESS": "We sent you an e-mail with a link to complete the deletion process."
+  "ABOUT_KARROT": {
+    "AND_MORE": "And more...",
+    "EXISTING_GROUPS": "A few groups already using Karrot",
+    "LINKS": {
+      "CHAT": "team chat",
+      "FORUM": "community forum"
     },
-    "DIALOGS": {
-      "REQUEST_DELETE_ACCOUNT": {
-        "TITLE": "Account deletion",
-        "MESSAGE": "Are you sure? Your account and your personal data will be permanently deleted. Anything you have done on this platform will be made anonymous. If you confirm, we send you an e-mail with a link to complete the deletion process.",
-        "CONFIRM": "Confirm"
+    "SECTIONS": {
+      "ACTIVITIES": {
+        "DESCRIPTION": "Each activity has a number of slots which members of the group can sign up for – this way everyone knows who goes where and when, and feedback can be given later.",
+        "SUBTITLE": "Activities with a specific time and place, like food pickups in the case of foodsaving, can be entered in the software.",
+        "TITLE": "Distribution of tasks and activities"
       },
-      "GIVE_TRUST": {
-        "TITLE": "Trust user",
-        "MESSAGE": "Do you trust {userName} in {groupName}?"
+      "COMMUNICATION": {
+        "DESCRIPTION": "Write a message that everyone in the group will see or a private message to someone. Everything related to a single activity or place can be discussed in their respective chats.",
+        "TITLE": "Communication in the right context"
+      },
+      "DEMOCRATIC": {
+        "DESCRIPTION": "Karrot is a free and open-source software developed with the feedback and participation of the people who use it. It is mainly developed by a small core team that is constantly in contact with people in different groups, in order to make sense of their diverging and converging needs and thus guide the development. We abide by the ethics of integrity and non-commercialization of data.",
+        "DESCRIPTION2": "Developers and designers are obviously welcome to participate in its development. Check out the project on {code}.",
+        "TITLE": "Democratic and participative development"
+      },
+      "GROUPS": {
+        "DESCRIPTION": "Yet they are all displayed on the map so that people can find and connect to other groups in their location and even globally.",
+        "SUBTITLE": "Every group on karrot is completely independent and can have their own logo, processes and rules.",
+        "TITLE": "Independent groups"
+      },
+      "MAPS": {
+        "DESCRIPTION": "You have a map of where the places and the people doing the activities are located. You have a nice list of upcoming activities and can sign up for them online.",
+        "TITLE": "Maps and lists"
+      },
+      "NOTIFICATIONS": {
+        "DESCRIPTION": "You get notified about empty activities, new messages and new people wanting to join your group. But you can also turn it all off if you wish more peace!",
+        "TITLE": "Notifications"
+      },
+      "OFFERS": {
+        "DESCRIPTION": "Offers are visible to everyone in the group and people can show their interest on the offer's chat.",
+        "SUBTITLE": "Create an ad-like offer of whatever you want to share or give away.",
+        "TITLE": "Share things"
+      },
+      "OPENSOURCE": {
+        "DESCRIPTION": "Everything is transparent and possibly changeable. We encourage groups to host their own instances of the platform, if they have the ability to do so. Still, we also provide access to a hosted version on karrot.world.",
+        "TITLE": "Open source"
+      },
+      "TEAM": {
+        "DESCRIPTION": "You can easily talk to the people developing Karrot, either on our {forum}, on {code} or in real-time on our {chat}.",
+        "TITLE": "Responsive team"
+      },
+      "TRANSLATIONS": {
+        "DESCRIPTION": "Karrot is fully translatable by the community and many languages are already added. To contribute more translations just visit the project on {translations}.",
+        "TITLE": "Multi-language"
+      },
+      "TRANSPARENCY": {
+        "DESCRIPTION": "The history shows who did what and when. Everything from participating in an activity to creating and editing places is logged here.",
+        "TITLE": "Transparency"
+      },
+      "TRUST": {
+        "DESCRIPTION": "There are no admin superpowers in a Karrot group. People who receive enough trust-carrots from their peers will be able to edit and change settings in the group. When new people want to join your group they need to apply and answer questions your group can set, which anyone with editing rights can decline or approve. Likewise, if there is a conflict, the group can enter a voting system to resolve it in a communal way.",
+        "TITLE": "Democratic and trust-based group management"
       }
     },
-    "LOGOUT_SUCCESS": "You have been logged out!",
-    "YOU_TRUST_USER": "You trust {userName} in {groupName}.",
-    "OTHER_PEOPLE_TRUST_USER": "{otherUser} trusts {userName} in {groupName}. | {count} people trust {userName} in {groupName}.",
-    "OTHER_PEOPLE_TRUST_YOU": "{otherUser} trusts you in {groupName}. | {count} people trust you in {groupName}.",
-    "PEOPLE_TRUST_USER": "You and {otherUser} trust {userName} in {groupName}. | You and {count} other people trust {userName} in {groupName}.",
-    "FIRST_TRUST": "Be the first one to trust {userName} in {groupName}!",
-    "NEWCOMER": "Newcomer",
-    "NEWCOMER_GUIDANCE": "{userName} is new to your group and might need some guidance.",
-    "TRUST_PROGRESS_TEXT": "{trustNeeded} more trust needed",
-    "TRUST_PROGRESS_TEXT_LONG": "{trustNeeded} more people need to express their trust in {userName} to grant editing permissions.",
-    "NEWCOMER_INFO": "You are currently a newcomer in {groupName} and you can become active by writing messages, meeting fellow members, doing pickups and giving feedback. As soon as {threshold} members expressed their trust in you, you will gain editing permissions to help with group administration.",
-    "TRUST_INFO": {
-      "TITLE": "What is this carrot button about?",
-      "MESSAGE": "It is part of the Karrot trust system. It shows if a group member is newcomer and how much trust is needed until they gain editing permissions.",
-      "LINK": "Click here to find out more."
-    }
+    "SUBTITLE1": "Karrot exists for groups of people who want to save things from being wasted and share them instead, allowing these groups to organise efficiently, on a local and voluntary basis.",
+    "SUBTITLE2": "Things such as food, bikes, clothes or whatever is being excessively thrown away or unused in the context of a consumerist society.",
+    "TITLE": "Save things from being wasted, share them instead!",
+    "VISION_INTRO": "Karrot is a tool for all kinds of grassroots initiatives to connect and grow, supporting the co-ordination of face-to-face activities with a layer of digital infrastructure."
   },
-  "SWITCHGROUP": {
-    "NOT_MEMBER": "{userName} is not member of {groupName}.",
-    "COMMON_GROUPS": "Groups you have in common",
-    "OTHER_GROUPS": "Other groups",
-    "CHOOSE": "Choose a group:"
+  "ACTIVITYDELETE": {
+    "DELETE_SERIES_TEXT": "શું તમે ખરેખર આ રિકરિંગ પિકઅપ તારીખને કાઢી નાખવા માંગો છો? આ તમામ એક-વખતની ચૂંટેલી તારીખો પણ કાઢી નાખશે જે આ રિકરિંગ પિકયુપ તારીખથી સંબંધિત છે (સિવાય કે જ્યાં લોકો પહેલેથી જોડાયા છે).",
+    "DELETE_SERIES_TITLE": "રિકરિંગ પિકઅપ તારીખ કાઢી નાખો"
   },
-  "BUTTON": {
-    "CREATE": "બનાવો",
-    "CANCEL": "રદ કરો",
-    "OPEN": "Open",
-    "CLOSE": "Close",
-    "DELETE": "કાઢી નાંખો",
-    "EDIT": "સંપાદિત કરોસંપાદિત કરો",
-    "JOIN": "જોડાઓ",
-    "PREVIEW": "પૂર્વાવલોકન",
-    "BACK": "પાછળ",
-    "NEXT": "Next",
-    "SEARCH": "શોધો",
-    "OF_COURSE": "હા ચોક્ક્સ!",
-    "YES": "હા",
-    "SAVE_CHANGES": "ફેરફારો સંગ્રહ",
-    "RESET": "રીસેટ કરો",
-    "CHANGE_PASSWORD": "પાસવર્ડ બદલો",
-    "CHANGE_EMAIL": "ઇમેલ એડ્રેસ બદલો",
-    "AGREE": "હું સહમત છુ",
-    "REMOVE": "દૂર કરો",
-    "ARCHIVE": "આર્કાઇવ",
-    "DELETE_ACCOUNT": "Delete account",
-    "SHOW": "Show",
-    "HIDE": "Hide",
-    "SUBMIT": "Submit",
-    "APPLY": "Apply",
-    "ACCEPT": "Accept",
-    "DECLINE": "Decline",
-    "WITHDRAW": "Withdraw",
-    "SHOW_MORE": "Show more",
-    "SHOW_LESS": "Show less",
-    "ENABLE": "Enable",
-    "DISABLE": "Disable",
-    "UNSUBSCRIBE": "Unsubscribe"
-  },
-  "VALIDATION": {
-    "MINLENGTH": "કૃપા કરીને {min} અક્ષરો કરતા વધુ દાખલ કરો",
-    "MAXLENGTH": "ખૂબ લાંબો, કૃપા કરીને {max} અક્ષરોથી ઓછો ઉપયોગ કરો.",
-    "UNIQUE": "નામ પહેલેથી અસ્તિત્વમાં છે, કૃપા કરીને બીજું પસંદ કરો.",
-    "REQUIRED": "આ ક્ષેત્ર જરૂરી છે.",
-    "VALID_EMAIL": "યોગ્ય ઇ - મેલ એડ્રેસ આપો.",
-    "VALID_TIMEZONE": "માન્ય ટાઇમઝોન દાખલ કરો",
-    "IMAGE_REQUIRED": "You must add an image"
-  },
-  "GROUP": {
-    "WALL": "દિવાલ",
-    "LEAVE": "સમૂહ છોડી દો...",
-    "LEAVE_TEXT": "શું તમે ખરેખર આ જૂથ છોડવા માંગો છો?",
-    "LEAVE_CONFIRMATION": "તમે {groupName} છોડી દીધું છે",
-    "NONMEMBER_REDIRECT": "તમે આ જૂથનો સભ્ય નથી.",
-    "EDIT": "જૂથ સંપાદિત કરો",
-    "CREATE_TITLE": "નવું જૂથ બનાવો",
-    "MANAGE_AGREEMENT": "કરારનું સંચાલન કરો",
-    "TITLE": "આ જૂથનું શીર્ષક",
-    "DESCRIPTION_VERBOSE": "સભ્યો માટે દૃશ્યમાન ગ્રુપનું વર્ણન",
-    "WELCOMEMESSAGE_VERBOSE": "Welcome message sent to new members",
-    "LOGO": "Group logo",
-    "SET_LOGO": "Click to upload your group logo!",
-    "APPLICATIONS": "Applications",
-    "APPLICATION_QUESTIONS": "Questions for people who want to join this group",
-    "PICKUPS": "પિકઅપ્સ",
-    "MESSAGES": "Messages",
-    "OFFERS": "Offers",
-    "PICKUP": "Pickup",
-    "MEMBERS": "સભ્યો",
-    "JOINED": "joined {relativeDate}",
-    "DECLINED": "declined {relativeDate}",
-    "ADDED_BY": "added by {userName}",
-    "DECLINED_BY": "declined by {userName}",
-    "SORT_JOINDATE": "Sort by join date",
-    "SORT_NAME": "Sort by name",
-    "INACTIVE": "Inactive",
-    "SHOW_INACTIVE": "Show inactive groups",
-    "PLACES": "Places",
-    "HOME": "Home",
-    "HISTORY": "ઇતિહાસ",
-    "DESCRIPTION": "વર્ણન",
-    "ADDRESS": "સરનામું",
-    "TIMEZONE": "જૂથનો સમય ઝોન",
-    "INVITE_EMAIL": "ઈ-મેલ સરનામું દાખલ કરો",
-    "INVITE_SEND": "આમંત્રણ મોકલો",
-    "INVITE_SEND_SUCCESS": "Invitation sent successfully!",
-    "INVITE_SEND_ERROR": "Ooops, could not send the invitation!",
-    "INVITED_LIST": "આમંત્રણો આ ઈ-મેલ સરનામાં પર પહેલાથી મોકલવામાં આવ્યા છે:",
-    "INVITATIONS": "આમંત્રણો",
-    "INVITE_TITLE": "તમારા જૂથમાં વપરાશકર્તાઓને આમંત્રિત કરો",
-    "INVITATION_ACCEPT_SUCCESS": "સ્વાગત છે! તમે સફળતાપૂર્વક આમંત્રણ સ્વીકાર્યું છે.",
-    "INVITATION_ACCEPT_ERROR": "અરે, આમંત્રણ સ્વીકારી શક્યા નથી!",
-    "NOTIFICATIONS_BY_GROUP": "Notifications by group",
-    "EMAIL_NOTIFICATIONS": "Email notifications",
-    "NOTIFICATION_TYPES": {
-      "weekly_summary": {
-        "NAME": "Weekly summary",
-        "DESCRIPTION": "Keep up to date with what's been happening in the group."
-      },
-      "daily_pickup_notification": {
-        "NAME": "Pickup notifications",
-        "DESCRIPTION": "Reminds you of your pickups, and tells you about empty or not-full pickups of your favorite places in the next day"
-      },
-      "new_application": {
-        "NAME": "New applications",
-        "DESCRIPTION": "Tells you when somebody wants to join your group"
-      },
-      "new_offer": {
-        "NAME": "New offers",
-        "DESCRIPTION": "Tells you when somebody creates a new offer"
-      },
-      "conflict_resolution": {
-        "NAME": "New conflict resolution processes",
-        "DESCRIPTION": "Tells you when a new conflict resolution process has been started in your group"
-      }
-    },
-    "PLAYGROUND_INFO": "This is a playground group, you can't break anything. Explore, click around and have fun!",
-    "JOIN_PLAYGROUND": "Join the playground group to explore karrot",
-    "JOIN_ANOTHER_GROUP": "Join another group"
-  },
-  "GROUPMAP": {
-    "TITLE": "નકશો",
-    "SHOW_USERS": "વપરાશકર્તાઓ બતાવો",
-    "HIDE_USERS": "વપરાશકર્તાઓ છુપાવો",
-    "SHOW_PLACES": "Show places",
-    "HIDE_PLACES": "Hide places",
-    "SHOW_GROUPS": "Show groups",
-    "HIDE_GROUPS": "Hide groups",
-    "SET_LOCATION": "સ્થાન સેટ કરો",
-    "FULL_SCREEN": "Show full screen",
-    "EXPORT": "Export"
-  },
-  "STOREDETAIL": {
-    "DIRECTIONS": "Show directions",
-    "EDIT": "Edit place",
-    "ARCHIVED": "This place has been archived",
-    "INACTIVE": "This place is currently not cooperating.",
-    "CHANGE_STATUS": "You can change the status on the settings page.",
-    "NO_DESCRIPTION": "This place does not have a description yet"
-  },
-  "STOREEDIT": {
-    "NAME": "નામ",
-    "STATUS": "સ્થિતિ",
-    "DESCRIPTION": "વર્ણન",
-    "ADDRESS": "સરનામું",
-    "WEEKS_IN_ADVANCE": "અગાઉથી કેટલા અઠવાડિયામાં રિકરિંગની દુકાનની તારીખો બતાવવી જોઈએ?",
-    "WEEKS_IN_ADVANCE_WARNING": "You are about to reduce the number of weeks pickups are shown. Existing leftover pickups will get deleted if nobody has joined them. You can disable all other pickups manually, if needed.",
-    "DIALOGS": {
-      "ARCHIVE": {
-        "TITLE": "Archive place",
-        "MESSAGE": "શું તમને ખાતરી છે?",
-        "CONFIRM": "Yes, archive place"
-      }
-    },
-    "RESTORE": "પુનઃસ્થાપિત",
-    "SHOW_ALL": "Show all places",
-    "SHOW_ACTIVE_ONLY": "Only show active places"
-  },
-  "PLACEWALL": {
-    "SUBSCRIBED_USERS": "{count} people have marked this place as favourite",
-    "SUBSCRIPTION": {
-      "HEADER": "Do you want to mark this place as your favourite?",
-      "YES": "yes",
-      "YES_TEXT": "Shows available pickups on the group wall and sends emails about upcoming pickups.",
-      "NO": "no",
-      "NO_TEXT": "None of the above. You can still sign up for pickups though."
-    }
-  },
-  "PICKUPMANAGE": {
-    "TITLE": "પસંદ અપ્સ મેનેજ કરો",
-    "SERIES": "રિકરિંગ પિક અપ્સ",
-    "SINGLE": "વન-ટાઇમ પિકઅપ્સ",
-    "UPCOMING_PICKUPS_IN_SERIES": "આ સીરીઝમાં આગામી પસંદ અપ્સ",
-    "PICKUP_DOES_NOT_MATCH": "This pickups' date doesn't match the recurrence pattern",
-    "PICKUP_DESCRIPTION_CHANGED": "'Additional information' has been changed",
-    "PICKUP_MAX_COLLECTORS_CHANGED": "'Max slots' has been changed"
-  },
-  "PICKUPDELETE": {
-    "DELETE_SERIES_TITLE": "રિકરિંગ પિકઅપ તારીખ કાઢી નાખો",
-    "DELETE_SERIES_TEXT": "શું તમે ખરેખર આ રિકરિંગ પિકઅપ તારીખને કાઢી નાખવા માંગો છો? આ તમામ એક-વખતની ચૂંટેલી તારીખો પણ કાઢી નાખશે જે આ રિકરિંગ પિકયુપ તારીખથી સંબંધિત છે (સિવાય કે જ્યાં લોકો પહેલેથી જોડાયા છે)."
-  },
-  "USERDETAIL": {
-    "DISPLAY_NAME": "નામ",
-    "DESCRIPTION": "તમારા વિશે",
-    "OLD_PASSWORD": "Confirm your old password",
-    "PASSWORD": "નવો પાસવર્ડ"
-  },
-  "PROFILE": {
-    "INACCESSIBLE_OR_DELETED": "(વપરાશકર્તા અયોગ્ય અથવા કાઢી નાખેલ)"
-  },
-  "JOINGROUP": {
-    "WHICHGROUP": "તમે કઈ જૂથમાં જોડાવા માંગો છો?",
-    "OR": "{joinGroup} or {createGroup}",
-    "NUM_MEMBERS": "સભ્ય | સભ્યો",
-    "NO_PUBLIC_DESCRIPTION": "(આ જૂથમાં હજી કોઈ જાહેર વર્ણન નથી ...)",
-    "ALL_GROUPS": "બધા જૂથો",
-    "BROWSE_GROUPS": "Browse existing groups",
-    "SIGNUP_OR_LOGIN": "આ જૂથમાં જોડાવા માટે લોગ ઇન કરો અથવા સાઇન અપ કરો!",
-    "VERIFY_EMAIL_ADDRESS": "Verify your email address to apply",
-    "MY_GROUPS": "મારા જૂથો",
-    "LOGOUT_MESSAGE": {
-      "LOGGED_OUT": "તમે હાલમાં લૉગ આઉટ થયા છો {login}",
-      "LOG_IN": "તમારા જૂથો જોવા માટે પ્રવેશ કરો!"
-    },
-    "PROFILE_NOTE": "આ જૂથમાં જોડાવાથી, તમારો પ્રોફાઇલ ડેટા અન્ય જૂથના સભ્યોને દૃશ્યક્ષમ બનશે.",
-    "APPLICATION_SUBMITTED": "Your application was successfully submitted!",
-    "APPLICATION_PENDING": "Your application is pending!",
-    "WITHDRAW_CONFIRMATION_HEADER": "Withdraw Application",
-    "WITHDRAW_CONFIRMATION_TEXT": "Are you sure you want to withdraw your application to join {groupName}?",
-    "APPLICATION_WITHDRAWN": "Your application was successfully withdrawn!",
-    "ARCHIVED_NOTE": "This group doesn't have any members. If you would like to revive it, contact the site administrators!"
-  },
-  "GROUPINFO": {
-    "TITLE": "જાહેર જૂથની માહિતી",
-    "META": "જાહેર જૂથની માહિતી બતાવો",
-    "MEMBER_VIEW": "તમે આ જૂથના સભ્ય છો. સંપૂર્ણ દૃશ્ય પર સ્વિચ કરવા માટે અહીં ક્લિક કરો."
-  },
-  "TOPBAR": {
-    "LOGOUT": "લૉગ આઉટ",
-    "USERPROFILE": "તમારી પ્રોફાઇલની મુલાકાત લો",
-    "CHANGE_GROUP": "જૂથ બદલો"
-  },
-  "SIDENAV": {
-    "INFO_SUB": "How to build your foodsaving group",
-    "GIT_SUB": "See our code!"
-  },
-  "LOGIN": {
-    "TITLE": "લૉગિન",
-    "SUBMIT": "લૉગિન",
-    "SIGNUP": "સાઇન અપ કરો!",
-    "FORGOT_PASSWORD": "તમારો પાસવર્ડ ભૂલી ગયા છો?"
-  },
-  "SIGNUP": {
-    "TITLE": "સાઇન અપ કરો!",
-    "BACK": "લૉગિન પર પાછા જાઓ",
-    "OK": "જોડાઓ"
-  },
-  "VERIFYMAIL": {
-    "TITLE": "ઇ-મેઇલ ચકાસણી",
-    "SUCCESS": "તમારું ઈ-મેલ સરનામું સફળતાપૂર્વક ચકાસવામાં આવ્યું હતું!"
-  },
-  "DELETEACCOUNT": {
-    "TITLE": "Account deletion",
-    "SUCCESS": "Your account was successfully deleted!"
-  },
-  "CREATEPICKUP": {
-    "FREQUENCY": "આવર્તન",
-    "WEEKLY": "સાપ્તાહિક",
-    "CUSTOM": "કસ્ટમ",
-    "WEEKDAYS": "અઠવાડિયાના દિવસો",
-    "WEEKDAYS_HELPER": "કયા દિવસોમાં પિક-અપ થવું જોઈએ?",
-    "RRULE": "પુનરાવૃત્તિ નિયમ",
-    "RRULE_HELPER": "માન્ય {ruleHelper} માં લખો, દા.ત. {ruleExample} અથવા {ruleExample2}",
-    "RRULE_HELPER_URL": " કૅલેન્ડર નિયમ",
-    "RRULE_EXAMPLE": "છેલ્લી કાર્યકારી દિવસ (મો-ફ્રાન્સ) દર મહિને",
-    "RRULE_EXAMPLE2": "દર બીજા સોમવાર",
-    "STARTDATE_HELPER": "આ શ્રેણી ક્યારે શરૂ થવી જોઈએ?",
-    "TIME_HELPER": "પિક-અપ ક્યારે થવો જોઈએ?",
-    "DATE": "તારીખ",
-    "MAX_COLLECTORS": "મહત્તમ સ્લોટ્સ",
-    "MAX_COLLECTORS_HELPER": "પિક-અપમાં કેટલા લોકોએ ભાગ લેવો જોઈએ?",
-    "COMMENT": "વધારાની માહિતી",
-    "COMMENT_HELPER": "આ પિક-અપમાં સાઇન અપ કરતી વખતે લોકોને શું જાણવું જોઈએ?",
-    "UNLIMITED": "અમર્યાદિત",
-    "DIFFERS_WARNING": "This value differs from the default. To undo this change, click on the arrow button and save the changes.",
-    "ENABLE_TITLE": "Enable pickup?",
-    "DISABLE_TITLE": "Disable pickup?",
-    "ENABLE_DISABLE_MESSAGE": "Users who joined this pickup will get a notification. You can change this text to provide a reason:",
-    "EXCEPTIONS_TITLE": "Check your pickups",
-    "EXCEPTIONS_MESSAGE": "Some upcoming pickups don't match the settings of this recurring pickup. Have a look below at '{upcomingLabel}' to change or disable pickups, if needed."
-  },
-  "CREATESTORE": {
-    "TITLE": "Create a new place"
-  },
-  "PICKUPLIST": {
+  "ACTIVITYLIST": {
+    "ACTIVITY_DISABLED": "This pickup has been disabled.",
+    "ACTIVITY_STARTED": "This pickup has already started.",
+    "AVAILABLE": "There is one pickup in your favorite places waiting for you! | There are {count} pickups in your favorite places waiting for you!",
+    "AVAILABLE_FEEDBACK": "તમે દુકાનમાં પ્રતિક્રિયા આપી શકો છો | {count} પિકઅપ્સ તમારી પ્રતિસાદની રાહ જોવામાં આવે છે",
+    "AVAILABLE_FROM_STORES": "This shows pickups from your favorite places in the next days. You can access other places in the sidebar.",
     "FILTER": {
       "ALL": "All",
       "EMPTY": "Only empty",
       "FREE": "With free slots"
     },
-    "AVAILABLE": "There is one pickup in your favorite places waiting for you! | There are {count} pickups in your favorite places waiting for you!",
-    "AVAILABLE_FEEDBACK": "તમે દુકાનમાં પ્રતિક્રિયા આપી શકો છો | {count} પિકઅપ્સ તમારી પ્રતિસાદની રાહ જોવામાં આવે છે",
-    "JOINEDNOTICE": "તમારી પાસે એક આગામી દુકાન છે | તમારી પાસે {ગણતરી} આગામી પિકઅપ્સ છે",
-    "AVAILABLE_FROM_STORES": "This shows pickups from your favorite places in the next days. You can access other places in the sidebar.",
     "ITEM": {
-      "LEAVE": "છોડો",
       "JOIN": "જોડાઓ",
       "JOIN_CONFIRMATION_HEADER": "દુકાનમાં જોડાઓ",
       "JOIN_CONFIRMATION_TEXT": "શું તમે ખરેખર {date} પર પસંદ કરવા માટે સમય ધરાવો છો?",
+      "LEAVE": "છોડો",
       "LEAVE_CONFIRMATION_HEADER": "ચૂંટો છોડો",
       "LEAVE_CONFIRMATION_TEXT": "શું તમે ખરેખર સુનિશ્ચિત છો કે અન્ય લોકો તમારા વિના દુકાન કરી શકે છે?"
     },
+    "JOINEDNOTICE": "તમારી પાસે એક આગામી દુકાન છે | તમારી પાસે {ગણતરી} આગામી પિકઅપ્સ છે",
     "NONE": "કોઈ આગામી પિક અપ્સ નથી",
     "NONE_HINT": "You can create a new pickup on the place page.",
-    "STORE_NONE_HINT": "તમે પૃષ્ઠને સંચાલિત કરો પર એક નવો બનાવ્યો બનાવી શકો છો",
-    "PICKUP_DISABLED": "This pickup has been disabled.",
-    "PICKUP_STARTED": "This pickup has already started."
+    "STORE_NONE_HINT": "તમે પૃષ્ઠને સંચાલિત કરો પર એક નવો બનાવ્યો બનાવી શકો છો"
   },
-  "FEEDBACKLIST": {
-    "SAVED_FOOD": "At least 1 kg was saved here. Thank you! | People gave feedback for {amount} kg of saved food already! Keep up the great work!",
-    "NUMBER_PICKUPS": "{count} pickups done",
-    "NUMBER_FEEDBACK": "{count} feedback entries given",
-    "WEIGHT_SUM": "{sum} kg of food saved",
-    "NONE": "હજુ સુધી કોઈ પ્રત્યુત્તર નથી",
-    "NONE_HINT": "એકવાર વધુ પ્રતિસાદ ઉપલબ્ધ થાય પછી આ પૃષ્ઠ ભરવામાં આવશે",
-    "NO_DONE_PICKUPS": "All done!",
-    "NO_DONE_PICKUPS_HINT": "You currently have no pickups to give feedback to. Why not join another pickup?"
+  "ACTIVITYMANAGE": {
+    "ACTIVITY_DESCRIPTION_CHANGED": "'Additional information' has been changed",
+    "ACTIVITY_DOES_NOT_MATCH": "This pickups' date doesn't match the recurrence pattern",
+    "ACTIVITY_MAX_COLLECTORS_CHANGED": "'Max slots' has been changed",
+    "SERIES": "રિકરિંગ પિક અપ્સ",
+    "SINGLE": "વન-ટાઇમ પિકઅપ્સ",
+    "TITLE": "પસંદ અપ્સ મેનેજ કરો",
+    "UPCOMING_ACTIVITIES_IN_SERIES": "આ સીરીઝમાં આગામી પસંદ અપ્સ"
   },
-  "PICKUP_FEEDBACK": {
-    "TITLE": "પ્રતિસાદ",
-    "HEADER": "તમારા પિક અપ માટે આભાર!",
-    "EDIT": "પ્રતિસાદ સંપાદિત કરો",
-    "SET_AMOUNT": "Set amount",
-    "DELETE_AMOUNT": "Delete amount",
+  "ACTIVITY_FEEDBACK": {
     "AMOUNT": "Amount of food you were able to save (in kg)",
     "AMOUNT_INFO": "For place statistics, we will add together the amount of all feedback.",
     "COMMENT_PLACEHOLDER": "બધું સારું હતું? શું દરેકને બતાવ્યું? તમારી ટિપ્પણી અહીં ...",
+    "DELETE_AMOUNT": "Delete amount",
+    "EDIT": "પ્રતિસાદ સંપાદિત કરો",
+    "HEADER": "તમારા પિક અપ માટે આભાર!",
     "PREVIOUS": "{દુકાન} માટે પાછલી પ્રતિસાદ",
+    "SET_AMOUNT": "Set amount",
+    "TITLE": "પ્રતિસાદ",
     "TOGETHER_WITH": "You did this pickup together with:"
   },
-  "PASSWORDRESET": {
-    "TITLE": "પાસવૉર્ડ રીસેટ",
-    "INTRO": "Enter your Email address and we will send you a link to set a new password (if you have an account registered).",
-    "EMAIL": "Email address",
-    "SUBMIT": "નવો પાસવર્ડ મેળવો",
-    "LOGIN": "લૉગિન પૃષ્ઠ પર પાછા જાઓ",
-    "SUCCESS": "The request was successfully sent. Have a look at your Emails!"
-  },
-  "PASSWORD": {
-    "RESET": {
-      "TITLE": "Reset password",
-      "OK": "Save",
-      "SUCCESS": "Your new password has been saved."
-    },
-    "CHANGE": {
-      "SUCCESS": "Your new password has been saved."
-    }
-  },
-  "LANGUAGECHOOSER": {
-    "ADD_MORE": "Help translating!",
-    "SWITCH": "ભાષા સ્વિચ કરો"
-  },
-  "MARKDOWN_INPUT": {
-    "BOLD": "બોલ્ડ",
-    "ITALIC": "ઇટાલિક",
-    "STRIKE": "હડતાલ",
-    "QUOTE": "ક્વોટ",
-    "HELP": "માર્કડાઉન શું છે?"
-  },
-  "HISTORY": {
-    "GROUP_CREATE": "આ જૂથ બનાવ્યું",
-    "GROUP_MODIFY": "આ સમૂહની સેટિંગ્સ બદલી",
-    "GROUP_JOIN": "આ જૂથમાં જોડાયા",
-    "GROUP_LEAVE": "આ જૂથ છોડી દીધું",
-    "STORE_CREATE": "created place {name}",
-    "STORE_MODIFY": "changed the settings of place {name}",
-    "STORE_DELETE": "deleted place {name}",
-    "PICKUP_CREATE": "એક નવી એકવાર પિક-અપ બનાવ્યું",
-    "PICKUP_MODIFY": "એક પિક અપ ની સેટિંગ્સ બદલી",
-    "PICKUP_DELETE": "એક પિક-અપ કાઢી નાખ્યું",
-    "PICKUP_ENABLE": "enabled a pickup",
-    "PICKUP_DISABLE": "disabled a pickup",
-    "SERIES_CREATE": "નવી રિકરિંગ પિક-અપ બનાવ્યું",
-    "SERIES_MODIFY": "રિકરિંગ પિક-અપની સેટિંગ્સ બદલી",
-    "SERIES_DELETE": "રિકરિંગ પિક-અપ કાઢી નાખ્યું",
-    "PICKUP_DONE": "એક પિક અપ હતી{સ્ટોર નામ}",
-    "PICKUP_MISSED": "{સ્ટોર નામ} પરનો દુકાન ચૂકી ગયો હતો!",
-    "PICKUP_JOIN": "{સ્ટોર નામ} પર પિક-અપ કરવા માટે સાઇન અપ કર્યું",
-    "PICKUP_LEAVE": "{સ્ટોર નામ} પર પિક-અપ કરવાથી પાછા ઊતર્યા",
-    "APPLICATION_DECLINED": "declined an application from {applicantName}",
-    "MEMBER_BECAME_EDITOR": "gained editing permissions",
-    "GROUP_LEAVE_INACTIVE": "was removed due to inactivity",
-    "GROUP_CHANGE_PHOTO": "changed the group logo",
-    "GROUP_DELETE_PHOTO": "deleted the group logo",
-    "MEMBER_REMOVED": "was removed due to group decision",
-    "NOTHING_HAPPENEND": "અત્યાર સુધી કંઈ થયું નથી ...",
-    "DETAILS": "વધુ મહિતી"
-  },
-  "NOTIFICATIONS": {
-    "NOT_VERIFIED": "{email} is not verified",
-    "CHECK_YOUR_MAILS": "કૃપા કરી તમારી ઇમેઇલ્સ તપાસો અથવા {ફરીથી મોકલો}",
-    "RESEND_VERIFICATION": "ચકાસણી ઇમેઇલ ફરીથી મોકલો",
-    "VERIFICATION_EMAIL_SENT": "અમે તમને બીજી ચકાસણી મેઇલ મોકલ્યો છે. કૃપા કરીને તમારા ઇનબૉક્સને તપાસો.",
-    "CHANGES_SAVED": "તમારા ફેરફારો સાચવવામાં આવ્યા છે.",
-    "EMAIL_NOT_DELIVERED": "An email could not be delivered to you | {count} emails could not be delivered to you"
-  },
-  "NOTIFICATION_BELLS_LIST": {
-    "TITLE": "સૂચનાઓ",
-    "NO_ITEMS": "We currently don't have notifications for you."
-  },
-  "NOTIFICATION_BELLS": {
-    "YOU_BECAME_EDITOR": "You gained editing permissions",
-    "USER_BECAME_EDITOR": "{userName} gained editing permissions",
-    "NEW_APPLICANT": "{userName} applied to join your group",
-    "APPLICATION_ACCEPTED": "Your application was accepted!",
-    "APPLICATION_DECLINED": "Your application was declined",
-    "INVITATION_ACCEPTED": "{userName} accepted your invitation",
-    "FEEDBACK_POSSIBLE": "You can give feedback for the pickup you did on {date}",
-    "NEW_PLACE": "{placeName} has been created",
-    "NEW_MEMBER": "{userName} joined your group",
-    "PICKUP_UPCOMING": "Reminder: You have a pickup at {time}",
-    "PICKUP_DISABLED": "Pickup at {dateTime} was disabled",
-    "PICKUP_ENABLED": "Pickup at {dateTime} was enabled again",
-    "PICKUP_MOVED": "Pickup was moved to {dateTime}",
-    "CONFLICT_RESOLUTION_CREATED": "Join the discussion about a conflict with {userName}",
-    "CONFLICT_RESOLUTION_CREATED_ABOUT_YOU": "A conflict resolution process was started with you",
-    "CONFLICT_RESOLUTION_CONTINUED": "The conflict resolution process with {userName} continues",
-    "CONFLICT_RESOLUTION_CONTINUED_ABOUT_YOU": "The conflict resolution process with you continues",
-    "CONFLICT_RESOLUTION_DECIDED": "The conflict resolution process with {userName} was decided",
-    "CONFLICT_RESOLUTION_DECIDED_ABOUT_YOU": "The conflict resolution process with you was decided",
-    "CONFLICT_RESOLUTION_YOU_WERE_REMOVED": "You were removed from the group",
-    "VOTING_ENDS_SOON": "Voting ends soon, don't forget to participate!"
-  },
-  "NOTIFICATION_TOGGLE": {
-    "HEADER": "How do you want to receive notifications about new messages in this conversation/thread?",
-    "ALL": "all",
-    "ALL_TEXT": "Via app/website, email and push notifications.",
-    "SOME": "some",
-    "SOME_TEXT": "Via app/website.",
-    "NONE": "none",
-    "NONE_TEXT": "No notifications."
-  },
-  "OUTDATED_BROWSER": {
-    "MESSAGE": "You are using an unsupported browser. {upgradeBrowser} to enjoy all features.",
-    "LINK": "Please update or switch your browser"
-  },
-  "UPDATE_AVAILABLE": {
-    "DETAIL": "A new version of karrot is available.",
-    "RELOAD": "Reload"
-  },
-  "NOT_FOUND": {
-    "EXPLANATION": "માફ કરશો, અમે આ પૃષ્ઠને ક્યાંય શોધી શક્યા નથી",
-    "HOME": "મને ઘરે લઈ જાવ"
-  },
-  "SETTINGS": {
-    "TITLE": "સેટિંગ્સ"
+  "ADDRESS_PICKER": {
+    "CHOOSE_LOCATION": "choose location on map",
+    "KEEP_EXISTING_LOCATION": "keep existing location on map",
+    "SET_AS": "Set address as"
   },
   "AGREEMENT": {
-    "NEW": "નવો કરાર",
     "AGREE": "તમારે {શીર્ષક} થી સંમત થવું આવશ્યક છે",
-    "VIEW": "કરાર જુઓ",
-    "TITLE": "શીર્ષક",
-    "TITLE_HELPER": "તમારા કરારને એક શીર્ષક આપો, દા.ત. કોમ્યુનિટી નિયમો",
-    "CONTENT": "સામગ્રી",
-    "CONTENT_HELPER": "તમારા કરારનો ટેક્સ્ટ",
-    "MINOR_EDIT": "નાના સંપાદન?",
-    "MINOR_EDIT_HELPER": "ટાઈપઝ, ફોર્મેટિંગ, વગેરે ... લોકો ફરી સંમત કરવા માટે કહેવામાં આવશે નહીં",
     "BLURB1": "તમારી પાસે હજુ સુધી કોઈ કરાર નથી!",
     "BLURB2": "જો તમે એક ઍડ કરો તો લોકોએ દુકાનમાંથી બહાર આવતાં પહેલાં તેને સંમત થવું પડશે.",
+    "CONTENT": "સામગ્રી",
+    "CONTENT_HELPER": "તમારા કરારનો ટેક્સ્ટ",
     "DIALOGS": {
-      "REPLACE": {
-        "TITLE": "કરાર બદલો?",
-        "MESSAGE": "પિકઅપ્સ માટે સાઇન અપ કરી શકે તે પહેલાં દરેકને ફરીથી સંમત થવું પડશે",
-        "CONFIRM": "હા, કરાર બદલો"
-      },
       "REMOVE": {
-        "TITLE": "કરાર દૂર કરીએ?",
+        "CONFIRM": "હા, કરાર દૂર કરો",
         "MESSAGE": "આનો અર્થ એ કે કોઈ પણ દુકાન કરી શકશે નહીં",
-        "CONFIRM": "હા, કરાર દૂર કરો"
+        "TITLE": "કરાર દૂર કરીએ?"
+      },
+      "REPLACE": {
+        "CONFIRM": "હા, કરાર બદલો",
+        "MESSAGE": "પિકઅપ્સ માટે સાઇન અપ કરી શકે તે પહેલાં દરેકને ફરીથી સંમત થવું પડશે",
+        "TITLE": "કરાર બદલો?"
       }
-    }
-  },
-  "WALL": {
-    "WRITE_MESSAGE": "સંદેશ લખો ...",
-    "WRITE_FIRST_MESSAGE": "પ્રથમ સંદેશ લખો ...",
-    "VERIFY_EMAIL_FOR_NOTIFICATIONS": "Please verify your e-mail address to receive notification e-mails",
-    "RECEIVED_VIA_EMAIL": "This message was sent via e-mail"
-  },
-  "CONVERSATION": {
-    "CONVERSATIONS": "Conversations",
-    "OPEN": "Open Chat",
-    "REPLY_TO_MESSAGE": "Reply to message...",
-    "REPLIES": "Replies",
-    "REPLIES_COUNT": "1 reply | {count} replies",
-    "UNREAD_MESSAGES": "તમારી પાસે એક ન વાંચેલા સંદેશ છે | તમારી પાસે {ગણતરી} ન વાંચેલા સંદેશા છે",
-    "EDITED": "edited",
-    "MARK_READ": "બધાને વાંચ્યા પ્રમાણે ચિહ્નિત કરો",
-    "REACTIONS": {
-      "YOU": "you",
-      "AND": "and",
-      "REACTED_WITH": "{users} reacted with {reaction}"
     },
-    "MESSAGE_NOT_FOUND": "Message not found",
-    "NO_CONVERSATIONS": "No conversations yet.",
-    "MUTED": "Notifications are disabled",
-    "CLOSED": "This conversation has been closed automatically.",
-    "NOT_PARTICIPATED": "By sending a message, you will be subscribed to notifications about this conversation."
-  },
-  "STORESTATUS": {
-    "ACTIVE": "કો-ઓપરેટિંગ",
-    "CREATED": "હમણાં બનાવેલ",
-    "NEGOTIATING": "નેગોશીયેટિંગ",
-    "DECLINED": "સહકાર ન કરવા માંગો છો",
-    "ARCHIVED": "આર્કાઇવ કરેલ"
+    "MINOR_EDIT": "નાના સંપાદન?",
+    "MINOR_EDIT_HELPER": "ટાઈપઝ, ફોર્મેટિંગ, વગેરે ... લોકો ફરી સંમત કરવા માટે કહેવામાં આવશે નહીં",
+    "NEW": "નવો કરાર",
+    "TITLE": "શીર્ષક",
+    "TITLE_HELPER": "તમારા કરારને એક શીર્ષક આપો, દા.ત. કોમ્યુનિટી નિયમો",
+    "VIEW": "કરાર જુઓ"
   },
   "APPLICATION": {
+    "ACCEPTED": "You accepted {userName} into this group!",
+    "ACCEPT_CONFIRMATION_HEADER": "Accept Application",
+    "ACCEPT_CONFIRMATION_TEXT": "Are you sure you want to accept {userName} into this group?",
     "APPLICATION": "Application",
+    "DECLINED": "You declined the application of {userName}.",
+    "DECLINE_CONFIRMATION_HEADER": "Decline Application",
+    "DECLINE_CONFIRMATION_TEXT": "Are you sure you want to decline the application of {userName}?",
     "FORM_HEADER": "Apply",
     "FORM_TITLE": "Apply to join {groupName}",
     "GALLERY_TOOLTIP": "You applied to join this group. Your application is still pending.",
-    "WALL_NOTICE": "There is an application pending! | There are {count} applications pending!",
-    "ACCEPT_CONFIRMATION_HEADER": "Accept Application",
-    "ACCEPT_CONFIRMATION_TEXT": "Are you sure you want to accept {userName} into this group?",
-    "DECLINE_CONFIRMATION_HEADER": "Decline Application",
-    "DECLINE_CONFIRMATION_TEXT": "Are you sure you want to decline the application of {userName}?",
-    "ACCEPTED": "You accepted {userName} into this group!",
-    "DECLINED": "You declined the application of {userName}.",
+    "HELP": "This is a chat between all existing members of {groupName} and the new applicant {userName}. It is meant to give you all a chance to get to know you before deciding whether to accept, decline or withdraw the application.",
+    "INITIAL": "Initial questions and answers",
     "PAST": "Past applications",
     "SUBMITTED_ON": "Submitted on {date}",
-    "WITHDRAWN": "withdrawn {relativeDate}",
+    "WALL_NOTICE": "There is an application pending! | There are {count} applications pending!",
     "WHAT": "What is this chat about?",
-    "HELP": "This is a chat between all existing members of {groupName} and the new applicant {userName}. It is meant to give you all a chance to get to know you before deciding whether to accept, decline or withdraw the application.",
-    "INITIAL": "Initial questions and answers"
+    "WITHDRAWN": "withdrawn {relativeDate}"
+  },
+  "ATTENTION": "Attention!",
+  "BUTTON": {
+    "ACCEPT": "Accept",
+    "AGREE": "હું સહમત છુ",
+    "APPLY": "Apply",
+    "ARCHIVE": "આર્કાઇવ",
+    "BACK": "પાછળ",
+    "CANCEL": "રદ કરો",
+    "CHANGE_EMAIL": "ઇમેલ એડ્રેસ બદલો",
+    "CHANGE_PASSWORD": "પાસવર્ડ બદલો",
+    "CLOSE": "Close",
+    "CREATE": "બનાવો",
+    "DECLINE": "Decline",
+    "DELETE": "કાઢી નાંખો",
+    "DELETE_ACCOUNT": "Delete account",
+    "DISABLE": "Disable",
+    "EDIT": "સંપાદિત કરોસંપાદિત કરો",
+    "ENABLE": "Enable",
+    "HIDE": "Hide",
+    "JOIN": "જોડાઓ",
+    "NEXT": "Next",
+    "OF_COURSE": "હા ચોક્ક્સ!",
+    "OPEN": "Open",
+    "PREVIEW": "પૂર્વાવલોકન",
+    "REMOVE": "દૂર કરો",
+    "RESET": "રીસેટ કરો",
+    "SAVE_CHANGES": "ફેરફારો સંગ્રહ",
+    "SEARCH": "શોધો",
+    "SHOW": "Show",
+    "SHOW_LESS": "Show less",
+    "SHOW_MORE": "Show more",
+    "SUBMIT": "Submit",
+    "UNSUBSCRIBE": "Unsubscribe",
+    "WITHDRAW": "Withdraw",
+    "YES": "હા"
   },
   "COMMUNITY_FEED": {
     "HEADER": "Updates from the {community}",
     "HEADER_LINK": "foodsaving worldwide community",
-    "LAST_UPDATED": "Last updated {relativeDate}",
-    "KARROT_DISCUSSION": "Discussions about Karrot"
-  },
-  "INACTIVITY": {
-    "WHAT": "What does it mean to be inactive?",
-    "HELP": "Everyone who did not log into the group for {dayCount} days or more counts as inactive. These users will not receive notification emails anymore."
+    "KARROT_DISCUSSION": "Discussions about Karrot",
+    "LAST_UPDATED": "Last updated {relativeDate}"
   },
   "CONFLICT": {
+    "FIND_OUT_MORE": "Find out more!",
+    "INFO": {
+      "MESSAGE": "This is a score voting in which group members with editing permissions can participate to determine how to deal with a social conflict that affects the whole group.",
+      "TITLE": "How does this process work?"
+    },
+    "INITIAL": "Information",
+    "REQUIREMENTS": {
+      "ACTIVE_EDITORS": "Your group has {activeEditorsCount} active users with editing permissions. You need {requiredCount} to start a conflict resolution process.",
+      "NEWCOMER": "Before you can start a conflict resolution process, you need to receive more trust and gain editing permissions. In the meantime, please ask a fellow group member to start the process for you."
+    },
     "SETUP_HEADER": "Is there a conflict with {user}?",
     "STATEMENT": "Statement",
     "STEPPER1a": "You are about to start a group-wide conflict resolution process!",
@@ -594,162 +228,528 @@
     "STEPPER3d": "The voting is anonymous. It will go on for {votingDuration} days. During this time all voters can change their minds and vote differently as many times as they want.",
     "STEPPER4a": "Please explain why you are starting this conflict resolution process!",
     "STEPPER4b": "Tell your group what made you think this process is justified and needed. This statement will be visible to {userName} and group members with editing permissions.",
-    "FIND_OUT_MORE": "Find out more!",
-    "INITIAL": "Information",
-    "WITH": "This process is to resolve a conflict with {userName}",
     "VOTING": {
       "HEADLINE": "How do you want to proceed with the ongoing conflict with {userName}?"
     },
-    "REQUIREMENTS": {
-      "ACTIVE_EDITORS": "Your group has {activeEditorsCount} active users with editing permissions. You need {requiredCount} to start a conflict resolution process.",
-      "NEWCOMER": "Before you can start a conflict resolution process, you need to receive more trust and gain editing permissions. In the meantime, please ask a fellow group member to start the process for you."
-    },
-    "INFO": {
-      "TITLE": "How does this process work?",
-      "MESSAGE": "This is a score voting in which group members with editing permissions can participate to determine how to deal with a social conflict that affects the whole group."
-    }
+    "WITH": "This process is to resolve a conflict with {userName}"
   },
+  "CONVERSATION": {
+    "CLOSED": "This conversation has been closed automatically.",
+    "CONVERSATIONS": "Conversations",
+    "EDITED": "edited",
+    "MARK_READ": "બધાને વાંચ્યા પ્રમાણે ચિહ્નિત કરો",
+    "MESSAGE_NOT_FOUND": "Message not found",
+    "MUTED": "Notifications are disabled",
+    "NOT_PARTICIPATED": "By sending a message, you will be subscribed to notifications about this conversation.",
+    "NO_CONVERSATIONS": "No conversations yet.",
+    "OPEN": "Open Chat",
+    "REACTIONS": {
+      "AND": "and",
+      "REACTED_WITH": "{users} reacted with {reaction}",
+      "YOU": "you"
+    },
+    "REPLIES": "Replies",
+    "REPLIES_COUNT": "1 reply | {count} replies",
+    "REPLY_TO_MESSAGE": "Reply to message...",
+    "UNREAD_MESSAGES": "તમારી પાસે એક ન વાંચેલા સંદેશ છે | તમારી પાસે {ગણતરી} ન વાંચેલા સંદેશા છે"
+  },
+  "CREATEACTIVITY": {
+    "COMMENT": "વધારાની માહિતી",
+    "COMMENT_HELPER": "આ પિક-અપમાં સાઇન અપ કરતી વખતે લોકોને શું જાણવું જોઈએ?",
+    "CUSTOM": "કસ્ટમ",
+    "DATE": "તારીખ",
+    "DIFFERS_WARNING": "This value differs from the default. To undo this change, click on the arrow button and save the changes.",
+    "DISABLE_TITLE": "Disable pickup?",
+    "ENABLE_DISABLE_MESSAGE": "Users who joined this pickup will get a notification. You can change this text to provide a reason:",
+    "ENABLE_TITLE": "Enable pickup?",
+    "EXCEPTIONS_MESSAGE": "Some upcoming pickups don't match the settings of this recurring pickup. Have a look below at '{upcomingLabel}' to change or disable pickups, if needed.",
+    "EXCEPTIONS_TITLE": "Check your pickups",
+    "FREQUENCY": "આવર્તન",
+    "MAX_COLLECTORS": "મહત્તમ સ્લોટ્સ",
+    "MAX_COLLECTORS_HELPER": "પિક-અપમાં કેટલા લોકોએ ભાગ લેવો જોઈએ?",
+    "RRULE": "પુનરાવૃત્તિ નિયમ",
+    "RRULE_EXAMPLE": "છેલ્લી કાર્યકારી દિવસ (મો-ફ્રાન્સ) દર મહિને",
+    "RRULE_EXAMPLE2": "દર બીજા સોમવાર",
+    "RRULE_HELPER": "માન્ય {ruleHelper} માં લખો, દા.ત. {ruleExample} અથવા {ruleExample2}",
+    "RRULE_HELPER_URL": " કૅલેન્ડર નિયમ",
+    "STARTDATE_HELPER": "આ શ્રેણી ક્યારે શરૂ થવી જોઈએ?",
+    "TIME_HELPER": "પિક-અપ ક્યારે થવો જોઈએ?",
+    "UNLIMITED": "અમર્યાદિત",
+    "WEEKDAYS": "અઠવાડિયાના દિવસો",
+    "WEEKDAYS_HELPER": "કયા દિવસોમાં પિક-અપ થવું જોઈએ?",
+    "WEEKLY": "સાપ્તાહિક"
+  },
+  "CREATESTORE": {
+    "TITLE": "Create a new place"
+  },
+  "DELETEACCOUNT": {
+    "SUCCESS": "Your account was successfully deleted!",
+    "TITLE": "Account deletion"
+  },
+  "ENTRY": "1 entry | {count} entries",
+  "FEEDBACKLIST": {
+    "NONE": "હજુ સુધી કોઈ પ્રત્યુત્તર નથી",
+    "NONE_HINT": "એકવાર વધુ પ્રતિસાદ ઉપલબ્ધ થાય પછી આ પૃષ્ઠ ભરવામાં આવશે",
+    "NO_DONE_ACTIVITIES": "All done!",
+    "NO_DONE_ACTIVITIES_HINT": "You currently have no pickups to give feedback to. Why not join another pickup?",
+    "NUMBER_ACTIVITIES": "{count} pickups done",
+    "NUMBER_FEEDBACK": "{count} feedback entries given",
+    "SAVED_FOOD": "At least 1 kg was saved here. Thank you! | People gave feedback for {amount} kg of saved food already! Keep up the great work!",
+    "WEIGHT_SUM": "{sum} kg of food saved"
+  },
+  "GLOBAL": {
+    "ABOUT_KARROT": "About Karrot",
+    "GENERIC_ERROR": "Sorry, something went wrong",
+    "GITHUB_NOTE": "વિકાસ",
+    "INVALID_LINK": "Sorry, the link you've opened is invalid.",
+    "NOT_CONNECTED": "You aren't connected to the server",
+    "SEARCH_NOT_FOUND": "Not Found",
+    "SEARCH_RESULTS": "Search results",
+    "SERVER_ERROR": "સર્વર ભૂલ"
+  },
+  "GROUP": {
+    "ACTIVITIES": "પિકઅપ્સ",
+    "ACTIVITY": "Pickup",
+    "ADDED_BY": "added by {userName}",
+    "ADDRESS": "સરનામું",
+    "APPLICATIONS": "Applications",
+    "APPLICATION_QUESTIONS": "Questions for people who want to join this group",
+    "CREATE_TITLE": "નવું જૂથ બનાવો",
+    "DECLINED": "declined {relativeDate}",
+    "DECLINED_BY": "declined by {userName}",
+    "DESCRIPTION": "વર્ણન",
+    "DESCRIPTION_VERBOSE": "સભ્યો માટે દૃશ્યમાન ગ્રુપનું વર્ણન",
+    "EDIT": "જૂથ સંપાદિત કરો",
+    "EMAIL_NOTIFICATIONS": "Email notifications",
+    "HISTORY": "ઇતિહાસ",
+    "HOME": "Home",
+    "INACTIVE": "Inactive",
+    "INVITATIONS": "આમંત્રણો",
+    "INVITATION_ACCEPT_ERROR": "અરે, આમંત્રણ સ્વીકારી શક્યા નથી!",
+    "INVITATION_ACCEPT_SUCCESS": "સ્વાગત છે! તમે સફળતાપૂર્વક આમંત્રણ સ્વીકાર્યું છે.",
+    "INVITED_LIST": "આમંત્રણો આ ઈ-મેલ સરનામાં પર પહેલાથી મોકલવામાં આવ્યા છે:",
+    "INVITE_EMAIL": "ઈ-મેલ સરનામું દાખલ કરો",
+    "INVITE_SEND": "આમંત્રણ મોકલો",
+    "INVITE_SEND_ERROR": "Ooops, could not send the invitation!",
+    "INVITE_SEND_SUCCESS": "Invitation sent successfully!",
+    "INVITE_TITLE": "તમારા જૂથમાં વપરાશકર્તાઓને આમંત્રિત કરો",
+    "JOINED": "joined {relativeDate}",
+    "JOIN_ANOTHER_GROUP": "Join another group",
+    "JOIN_PLAYGROUND": "Join the playground group to explore karrot",
+    "LEAVE": "સમૂહ છોડી દો...",
+    "LEAVE_CONFIRMATION": "તમે {groupName} છોડી દીધું છે",
+    "LEAVE_TEXT": "શું તમે ખરેખર આ જૂથ છોડવા માંગો છો?",
+    "LOGO": "Group logo",
+    "MANAGE_AGREEMENT": "કરારનું સંચાલન કરો",
+    "MEMBERS": "સભ્યો",
+    "MESSAGES": "Messages",
+    "NONMEMBER_REDIRECT": "તમે આ જૂથનો સભ્ય નથી.",
+    "NOTIFICATIONS_BY_GROUP": "Notifications by group",
+    "NOTIFICATION_TYPES": {
+      "conflict_resolution": {
+        "DESCRIPTION": "Tells you when a new conflict resolution process has been started in your group",
+        "NAME": "New conflict resolution processes"
+      },
+      "daily_activity_notification": {
+        "DESCRIPTION": "Reminds you of your pickups, and tells you about empty or not-full pickups of your favorite places in the next day",
+        "NAME": "Pickup notifications"
+      },
+      "new_application": {
+        "DESCRIPTION": "Tells you when somebody wants to join your group",
+        "NAME": "New applications"
+      },
+      "new_offer": {
+        "DESCRIPTION": "Tells you when somebody creates a new offer",
+        "NAME": "New offers"
+      },
+      "weekly_summary": {
+        "DESCRIPTION": "Keep up to date with what's been happening in the group.",
+        "NAME": "Weekly summary"
+      }
+    },
+    "OFFERS": "Offers",
+    "PLACES": "Places",
+    "PLAYGROUND_INFO": "This is a playground group, you can't break anything. Explore, click around and have fun!",
+    "SET_LOGO": "Click to upload your group logo!",
+    "SHOW_INACTIVE": "Show inactive groups",
+    "SORT_JOINDATE": "Sort by join date",
+    "SORT_NAME": "Sort by name",
+    "TIMEZONE": "જૂથનો સમય ઝોન",
+    "TITLE": "આ જૂથનું શીર્ષક",
+    "WALL": "દિવાલ",
+    "WELCOMEMESSAGE_VERBOSE": "Welcome message sent to new members"
+  },
+  "GROUPINFO": {
+    "MEMBER_VIEW": "તમે આ જૂથના સભ્ય છો. સંપૂર્ણ દૃશ્ય પર સ્વિચ કરવા માટે અહીં ક્લિક કરો.",
+    "META": "જાહેર જૂથની માહિતી બતાવો",
+    "TITLE": "જાહેર જૂથની માહિતી"
+  },
+  "GROUPMAP": {
+    "EXPORT": "Export",
+    "FULL_SCREEN": "Show full screen",
+    "HIDE_GROUPS": "Hide groups",
+    "HIDE_PLACES": "Hide places",
+    "HIDE_USERS": "વપરાશકર્તાઓ છુપાવો",
+    "SET_LOCATION": "સ્થાન સેટ કરો",
+    "SHOW_GROUPS": "Show groups",
+    "SHOW_PLACES": "Show places",
+    "SHOW_USERS": "વપરાશકર્તાઓ બતાવો",
+    "TITLE": "નકશો"
+  },
+  "HISTORY": {
+    "ACTIVITY_CREATE": "એક નવી એકવાર પિક-અપ બનાવ્યું",
+    "ACTIVITY_DELETE": "એક પિક-અપ કાઢી નાખ્યું",
+    "ACTIVITY_DISABLE": "disabled a pickup",
+    "ACTIVITY_DONE": "એક પિક અપ હતી{સ્ટોર નામ}",
+    "ACTIVITY_ENABLE": "enabled a pickup",
+    "ACTIVITY_JOIN": "{સ્ટોર નામ} પર પિક-અપ કરવા માટે સાઇન અપ કર્યું",
+    "ACTIVITY_LEAVE": "{સ્ટોર નામ} પર પિક-અપ કરવાથી પાછા ઊતર્યા",
+    "ACTIVITY_MISSED": "{સ્ટોર નામ} પરનો દુકાન ચૂકી ગયો હતો!",
+    "ACTIVITY_MODIFY": "એક પિક અપ ની સેટિંગ્સ બદલી",
+    "APPLICATION_DECLINED": "declined an application from {applicantName}",
+    "DETAILS": "વધુ મહિતી",
+    "GROUP_CHANGE_PHOTO": "changed the group logo",
+    "GROUP_CREATE": "આ જૂથ બનાવ્યું",
+    "GROUP_DELETE_PHOTO": "deleted the group logo",
+    "GROUP_JOIN": "આ જૂથમાં જોડાયા",
+    "GROUP_LEAVE": "આ જૂથ છોડી દીધું",
+    "GROUP_LEAVE_INACTIVE": "was removed due to inactivity",
+    "GROUP_MODIFY": "આ સમૂહની સેટિંગ્સ બદલી",
+    "MEMBER_BECAME_EDITOR": "gained editing permissions",
+    "MEMBER_REMOVED": "was removed due to group decision",
+    "NOTHING_HAPPENEND": "અત્યાર સુધી કંઈ થયું નથી ...",
+    "SERIES_CREATE": "નવી રિકરિંગ પિક-અપ બનાવ્યું",
+    "SERIES_DELETE": "રિકરિંગ પિક-અપ કાઢી નાખ્યું",
+    "SERIES_MODIFY": "રિકરિંગ પિક-અપની સેટિંગ્સ બદલી",
+    "STORE_CREATE": "created place {name}",
+    "STORE_DELETE": "deleted place {name}",
+    "STORE_MODIFY": "changed the settings of place {name}"
+  },
+  "INACTIVITY": {
+    "HELP": "Everyone who did not log into the group for {dayCount} days or more counts as inactive. These users will not receive notification emails anymore.",
+    "WHAT": "What does it mean to be inactive?"
+  },
+  "INFO": "Info",
   "ISSUE": {
+    "CHAT": "Chat",
     "CREATION": {
       "TOAST": "You successfully started a conflict resolution process"
     },
-    "TITLE": "Issues",
-    "VOTE": "Vote",
-    "CHAT": "Chat",
+    "NO_ONGOING": "No ongoing issues.",
+    "PARTICIPANTS": "{count} members have been added to this discussion.",
     "PAST": "Past issues",
     "PREVIOUS_VOTINGS": "Previous votings in this issue",
-    "PARTICIPANTS": "{count} members have been added to this discussion.",
+    "TITLE": "Issues",
+    "VOTE": "Vote",
     "VOTING": {
-      "TIME_LEFT": "Time left to vote",
-      "BTN_START": "Vote now",
-      "SAVE": "Save",
+      "ANONYMOUS": "Your vote will be anonymous.",
       "BTN_DELETE": "Delete vote",
-      "TOAST": "Your vote was successfully submitted",
-      "TOAST_DELETE": "Your vote was deleted",
-      "NO_CHANGE": "No change: {userName} stays in {groupName}",
+      "BTN_START": "Vote now",
       "FURTHER_DISCUSSION": "Further discussion: extend time by starting another voting",
+      "NO_CHANGE": "No change: {userName} stays in {groupName}",
       "REMOVE_USER": "{userName} gets removed from {groupName}",
       "RESULTS": {
+        "ENDED_AT": "This voting round ended on {date}",
         "KEEP_DISCUSSING": "Your group voted to keep discussing",
+        "PARTICIPANTS": "{number} members participated in the voting.",
         "TIME_UP": "Time is up!",
         "TOTAL_SCORE": "Total score",
-        "ENDED_AT": "This voting round ended on {date}",
-        "PARTICIPANTS": "{number} members participated in the voting.",
         "UNDECIDED": "Unfortunately this conflict could not be decided.",
-        "UNDECIDED_WHY": "There are two possible reasons for that:",
         "UNDECIDED_REASON_1": "the affected user left the group while the conflict resolution process was still ongoing",
-        "UNDECIDED_REASON_2": "nobody voted on this issue"
+        "UNDECIDED_REASON_2": "nobody voted on this issue",
+        "UNDECIDED_WHY": "There are two possible reasons for that:"
       },
-      "SEE_RESULTS": "See the results",
+      "SAVE": "Save",
       "SCORE_LABELS": {
         "NEUTRAL": "neutral",
-        "SLIGHT_SUPPORT": "support",
-        "STRONG_SUPPORT": "strong support",
         "SLIGHT_RESISTANCE": "resistance",
-        "STRONG_RESISTANCE": "strong resistance"
+        "SLIGHT_SUPPORT": "support",
+        "STRONG_RESISTANCE": "strong resistance",
+        "STRONG_SUPPORT": "strong support"
       },
-      "ANONYMOUS": "Your vote will be anonymous."
+      "SEE_RESULTS": "See the results",
+      "TIME_LEFT": "Time left to vote",
+      "TOAST": "Your vote was successfully submitted",
+      "TOAST_DELETE": "Your vote was deleted"
+    }
+  },
+  "JOINGROUP": {
+    "ALL_GROUPS": "બધા જૂથો",
+    "APPLICATION_PENDING": "Your application is pending!",
+    "APPLICATION_SUBMITTED": "Your application was successfully submitted!",
+    "APPLICATION_WITHDRAWN": "Your application was successfully withdrawn!",
+    "ARCHIVED_NOTE": "This group doesn't have any members. If you would like to revive it, contact the site administrators!",
+    "BROWSE_GROUPS": "Browse existing groups",
+    "LOGOUT_MESSAGE": {
+      "LOGGED_OUT": "તમે હાલમાં લૉગ આઉટ થયા છો {login}",
+      "LOG_IN": "તમારા જૂથો જોવા માટે પ્રવેશ કરો!"
     },
-    "NO_ONGOING": "No ongoing issues."
+    "MY_GROUPS": "મારા જૂથો",
+    "NO_PUBLIC_DESCRIPTION": "(આ જૂથમાં હજી કોઈ જાહેર વર્ણન નથી ...)",
+    "NUM_MEMBERS": "સભ્ય | સભ્યો",
+    "OR": "{joinGroup} or {createGroup}",
+    "PROFILE_NOTE": "આ જૂથમાં જોડાવાથી, તમારો પ્રોફાઇલ ડેટા અન્ય જૂથના સભ્યોને દૃશ્યક્ષમ બનશે.",
+    "SIGNUP_OR_LOGIN": "આ જૂથમાં જોડાવા માટે લોગ ઇન કરો અથવા સાઇન અપ કરો!",
+    "VERIFY_EMAIL_ADDRESS": "Verify your email address to apply",
+    "WHICHGROUP": "તમે કઈ જૂથમાં જોડાવા માંગો છો?",
+    "WITHDRAW_CONFIRMATION_HEADER": "Withdraw Application",
+    "WITHDRAW_CONFIRMATION_TEXT": "Are you sure you want to withdraw your application to join {groupName}?"
+  },
+  "LANGUAGECHOOSER": {
+    "ADD_MORE": "Help translating!",
+    "SWITCH": "ભાષા સ્વિચ કરો"
+  },
+  "LOGIN": {
+    "FORGOT_PASSWORD": "તમારો પાસવર્ડ ભૂલી ગયા છો?",
+    "SIGNUP": "સાઇન અપ કરો!",
+    "SUBMIT": "લૉગિન",
+    "TITLE": "લૉગિન"
+  },
+  "MARKDOWN_INPUT": {
+    "BOLD": "બોલ્ડ",
+    "HELP": "માર્કડાઉન શું છે?",
+    "ITALIC": "ઇટાલિક",
+    "QUOTE": "ક્વોટ",
+    "STRIKE": "હડતાલ"
+  },
+  "NOTIFICATIONS": {
+    "CHANGES_SAVED": "તમારા ફેરફારો સાચવવામાં આવ્યા છે.",
+    "CHECK_YOUR_MAILS": "કૃપા કરી તમારી ઇમેઇલ્સ તપાસો અથવા {ફરીથી મોકલો}",
+    "EMAIL_NOT_DELIVERED": "An email could not be delivered to you | {count} emails could not be delivered to you",
+    "NOT_VERIFIED": "{email} is not verified",
+    "RESEND_VERIFICATION": "ચકાસણી ઇમેઇલ ફરીથી મોકલો",
+    "VERIFICATION_EMAIL_SENT": "અમે તમને બીજી ચકાસણી મેઇલ મોકલ્યો છે. કૃપા કરીને તમારા ઇનબૉક્સને તપાસો."
+  },
+  "NOTIFICATION_BELLS": {
+    "ACTIVITY_DISABLED": "Pickup at {dateTime} was disabled",
+    "ACTIVITY_ENABLED": "Pickup at {dateTime} was enabled again",
+    "ACTIVITY_MOVED": "Pickup was moved to {dateTime}",
+    "ACTIVITY_UPCOMING": "Reminder: You have a pickup at {time}",
+    "APPLICATION_ACCEPTED": "Your application was accepted!",
+    "APPLICATION_DECLINED": "Your application was declined",
+    "CONFLICT_RESOLUTION_CONTINUED": "The conflict resolution process with {userName} continues",
+    "CONFLICT_RESOLUTION_CONTINUED_ABOUT_YOU": "The conflict resolution process with you continues",
+    "CONFLICT_RESOLUTION_CREATED": "Join the discussion about a conflict with {userName}",
+    "CONFLICT_RESOLUTION_CREATED_ABOUT_YOU": "A conflict resolution process was started with you",
+    "CONFLICT_RESOLUTION_DECIDED": "The conflict resolution process with {userName} was decided",
+    "CONFLICT_RESOLUTION_DECIDED_ABOUT_YOU": "The conflict resolution process with you was decided",
+    "CONFLICT_RESOLUTION_YOU_WERE_REMOVED": "You were removed from the group",
+    "FEEDBACK_POSSIBLE": "You can give feedback for the pickup you did on {date}",
+    "INVITATION_ACCEPTED": "{userName} accepted your invitation",
+    "NEW_APPLICANT": "{userName} applied to join your group",
+    "NEW_MEMBER": "{userName} joined your group",
+    "NEW_PLACE": "{placeName} has been created",
+    "USER_BECAME_EDITOR": "{userName} gained editing permissions",
+    "VOTING_ENDS_SOON": "Voting ends soon, don't forget to participate!",
+    "YOU_BECAME_EDITOR": "You gained editing permissions"
+  },
+  "NOTIFICATION_BELLS_LIST": {
+    "NO_ITEMS": "We currently don't have notifications for you.",
+    "TITLE": "સૂચનાઓ"
+  },
+  "NOTIFICATION_TOGGLE": {
+    "ALL": "all",
+    "ALL_TEXT": "Via app/website, email and push notifications.",
+    "HEADER": "How do you want to receive notifications about new messages in this conversation/thread?",
+    "NONE": "none",
+    "NONE_TEXT": "No notifications.",
+    "SOME": "some",
+    "SOME_TEXT": "Via app/website."
+  },
+  "NOT_FOUND": {
+    "EXPLANATION": "માફ કરશો, અમે આ પૃષ્ઠને ક્યાંય શોધી શક્યા નથી",
+    "HOME": "મને ઘરે લઈ જાવ"
   },
   "OFFER": {
     "CREATE_TITLE": "Create offer",
-    "NAME": "Name",
-    "NAME_HELPER": "Short name for the item you are offering",
     "DESCRIPTION": "Description",
-    "MARK_AS_ARCHIVED": "Archive",
-    "MARK_AS_ARCHIVED_DESCRIPTION": "Mark this is offer as archived to remove it from the available listings.",
     "FILTER": {
       "STATUS": {
         "ACTIVE": "Available",
         "ARCHIVED": "My archived offers"
       }
+    },
+    "MARK_AS_ARCHIVED": "Archive",
+    "MARK_AS_ARCHIVED_DESCRIPTION": "Mark this is offer as archived to remove it from the available listings.",
+    "NAME": "Name",
+    "NAME_HELPER": "Short name for the item you are offering"
+  },
+  "OUTDATED_BROWSER": {
+    "LINK": "Please update or switch your browser",
+    "MESSAGE": "You are using an unsupported browser. {upgradeBrowser} to enjoy all features."
+  },
+  "PASSWORD": {
+    "CHANGE": {
+      "SUCCESS": "Your new password has been saved."
+    },
+    "RESET": {
+      "OK": "Save",
+      "SUCCESS": "Your new password has been saved.",
+      "TITLE": "Reset password"
     }
   },
-  "ADDRESS_PICKER": {
-    "SET_AS": "Set address as",
-    "KEEP_EXISTING_LOCATION": "keep existing location on map",
-    "CHOOSE_LOCATION": "choose location on map"
+  "PASSWORDRESET": {
+    "EMAIL": "Email address",
+    "INTRO": "Enter your Email address and we will send you a link to set a new password (if you have an account registered).",
+    "LOGIN": "લૉગિન પૃષ્ઠ પર પાછા જાઓ",
+    "SUBMIT": "નવો પાસવર્ડ મેળવો",
+    "SUCCESS": "The request was successfully sent. Have a look at your Emails!",
+    "TITLE": "પાસવૉર્ડ રીસેટ"
   },
-  "UNSUBSCRIBE": {
-    "HEADER": "Unsubscribe",
-    "ALL": "Unsubscribe all",
-    "FROM_CONVERSATION": "unsubscribe from just this conversation",
-    "FROM_THREAD": "unsubscribe from just this thread",
-    "FROM_NOTIFICATION_TYPE": "unsubscribe from {notificationType}",
-    "FROM_GROUP": "Unsubscribe from all email notifications in {groupName}",
-    "SUCCESS": "You were successfully unsubscribed!",
-    "COUNTS": "You unsubscribed from {formerConversations} conversations and {formerReplies} replies."
+  "PLACEWALL": {
+    "SUBSCRIBED_USERS": "{count} people have marked this place as favourite",
+    "SUBSCRIPTION": {
+      "HEADER": "Do you want to mark this place as your favourite?",
+      "NO": "no",
+      "NO_TEXT": "None of the above. You can still sign up for pickups though.",
+      "YES": "yes",
+      "YES_TEXT": "Shows available pickups on the group wall and sends emails about upcoming pickups."
+    }
+  },
+  "PROFILE": {
+    "INACCESSIBLE_OR_DELETED": "(વપરાશકર્તા અયોગ્ય અથવા કાઢી નાખેલ)"
+  },
+  "SETTINGS": {
+    "TITLE": "સેટિંગ્સ"
+  },
+  "SIDENAV": {
+    "GIT_SUB": "See our code!",
+    "INFO_SUB": "How to build your foodsaving group"
+  },
+  "SIGNUP": {
+    "BACK": "લૉગિન પર પાછા જાઓ",
+    "OK": "જોડાઓ",
+    "TITLE": "સાઇન અપ કરો!"
+  },
+  "STOREDETAIL": {
+    "ARCHIVED": "This place has been archived",
+    "CHANGE_STATUS": "You can change the status on the settings page.",
+    "DIRECTIONS": "Show directions",
+    "EDIT": "Edit place",
+    "INACTIVE": "This place is currently not cooperating.",
+    "NO_DESCRIPTION": "This place does not have a description yet"
+  },
+  "STOREEDIT": {
+    "ADDRESS": "સરનામું",
+    "DESCRIPTION": "વર્ણન",
+    "DIALOGS": {
+      "ARCHIVE": {
+        "CONFIRM": "Yes, archive place",
+        "MESSAGE": "શું તમને ખાતરી છે?",
+        "TITLE": "Archive place"
+      }
+    },
+    "NAME": "નામ",
+    "RESTORE": "પુનઃસ્થાપિત",
+    "SHOW_ACTIVE_ONLY": "Only show active places",
+    "SHOW_ALL": "Show all places",
+    "STATUS": "સ્થિતિ",
+    "WEEKS_IN_ADVANCE": "અગાઉથી કેટલા અઠવાડિયામાં રિકરિંગની દુકાનની તારીખો બતાવવી જોઈએ?",
+    "WEEKS_IN_ADVANCE_WARNING": "You are about to reduce the number of weeks pickups are shown. Existing leftover pickups will get deleted if nobody has joined them. You can disable all other pickups manually, if needed."
+  },
+  "STORESTATUS": {
+    "ACTIVE": "કો-ઓપરેટિંગ",
+    "ARCHIVED": "આર્કાઇવ કરેલ",
+    "CREATED": "હમણાં બનાવેલ",
+    "DECLINED": "સહકાર ન કરવા માંગો છો",
+    "NEGOTIATING": "નેગોશીયેટિંગ"
+  },
+  "SWITCHGROUP": {
+    "CHOOSE": "Choose a group:",
+    "COMMON_GROUPS": "Groups you have in common",
+    "NOT_MEMBER": "{userName} is not member of {groupName}.",
+    "OTHER_GROUPS": "Other groups"
   },
   "THANKS": "Thank you!",
-  "ATTENTION": "Attention!",
-  "INFO": "Info",
-  "YOU": "You",
   "TO": "to",
-  "ABOUT_KARROT": {
-    "TITLE": "Save things from being wasted, share them instead!",
-    "SUBTITLE1": "Karrot exists for groups of people who want to save things from being wasted and share them instead, allowing these groups to organise efficiently, on a local and voluntary basis.",
-    "SUBTITLE2": "Things such as food, bikes, clothes or whatever is being excessively thrown away or unused in the context of a consumerist society.",
-    "VISION_INTRO": "Karrot is a tool for all kinds of grassroots initiatives to connect and grow, supporting the co-ordination of face-to-face activities with a layer of digital infrastructure.",
-    "EXISTING_GROUPS": "A few groups already using Karrot",
-    "AND_MORE": "And more...",
-    "LINKS": {
-      "FORUM": "community forum",
-      "CHAT": "team chat"
-    },
-    "SECTIONS": {
-      "GROUPS": {
-        "TITLE": "Independent groups",
-        "SUBTITLE": "Every group on karrot is completely independent and can have their own logo, processes and rules.",
-        "DESCRIPTION": "Yet they are all displayed on the map so that people can find and connect to other groups in their location and even globally."
+  "TOPBAR": {
+    "CHANGE_GROUP": "જૂથ બદલો",
+    "LOGOUT": "લૉગ આઉટ",
+    "USERPROFILE": "તમારી પ્રોફાઇલની મુલાકાત લો"
+  },
+  "UNSUBSCRIBE": {
+    "ALL": "Unsubscribe all",
+    "COUNTS": "You unsubscribed from {formerConversations} conversations and {formerReplies} replies.",
+    "FROM_CONVERSATION": "unsubscribe from just this conversation",
+    "FROM_GROUP": "Unsubscribe from all email notifications in {groupName}",
+    "FROM_NOTIFICATION_TYPE": "unsubscribe from {notificationType}",
+    "FROM_THREAD": "unsubscribe from just this thread",
+    "HEADER": "Unsubscribe",
+    "SUCCESS": "You were successfully unsubscribed!"
+  },
+  "UPDATE_AVAILABLE": {
+    "DETAIL": "A new version of karrot is available.",
+    "RELOAD": "Reload"
+  },
+  "USERDATA": {
+    "ACCOUNT": "Account",
+    "CONFIRM_PASSWORD": "Confirm your password",
+    "DIALOGS": {
+      "GIVE_TRUST": {
+        "MESSAGE": "Do you trust {userName} in {groupName}?",
+        "TITLE": "Trust user"
       },
-      "ACTIVITIES": {
-        "TITLE": "Distribution of tasks and activities",
-        "SUBTITLE": "Activities with a specific time and place, like food pickups in the case of foodsaving, can be entered in the software.",
-        "DESCRIPTION": "Each activity has a number of slots which members of the group can sign up for – this way everyone knows who goes where and when, and feedback can be given later."
-      },
-      "OFFERS": {
-        "TITLE": "Share things",
-        "SUBTITLE": "Create an ad-like offer of whatever you want to share or give away.",
-        "DESCRIPTION": "Offers are visible to everyone in the group and people can show their interest on the offer's chat."
-      },
-      "DEMOCRATIC": {
-        "TITLE": "Democratic and participative development",
-        "DESCRIPTION": "Karrot is a free and open-source software developed with the feedback and participation of the people who use it. It is mainly developed by a small core team that is constantly in contact with people in different groups, in order to make sense of their diverging and converging needs and thus guide the development. We abide by the ethics of integrity and non-commercialization of data.",
-        "DESCRIPTION2": "Developers and designers are obviously welcome to participate in its development. Check out the project on {code}."
-      },
-      "COMMUNICATION": {
-        "TITLE": "Communication in the right context",
-        "DESCRIPTION": "Write a message that everyone in the group will see or a private message to someone. Everything related to a single activity or place can be discussed in their respective chats."
-      },
-      "TRUST": {
-        "TITLE": "Democratic and trust-based group management",
-        "DESCRIPTION": "There are no admin superpowers in a Karrot group. People who receive enough trust-carrots from their peers will be able to edit and change settings in the group. When new people want to join your group they need to apply and answer questions your group can set, which anyone with editing rights can decline or approve. Likewise, if there is a conflict, the group can enter a voting system to resolve it in a communal way."
-      },
-      "MAPS": {
-        "TITLE": "Maps and lists",
-        "DESCRIPTION": "You have a map of where the places and the people doing the activities are located. You have a nice list of upcoming activities and can sign up for them online."
-      },
-      "TRANSPARENCY": {
-        "TITLE": "Transparency",
-        "DESCRIPTION": "The history shows who did what and when. Everything from participating in an activity to creating and editing places is logged here."
-      },
-      "NOTIFICATIONS": {
-        "TITLE": "Notifications",
-        "DESCRIPTION": "You get notified about empty activities, new messages and new people wanting to join your group. But you can also turn it all off if you wish more peace!"
-      },
-      "TRANSLATIONS": {
-        "TITLE": "Multi-language",
-        "DESCRIPTION": "Karrot is fully translatable by the community and many languages are already added. To contribute more translations just visit the project on {translations}."
-      },
-      "OPENSOURCE": {
-        "TITLE": "Open source",
-        "DESCRIPTION": "Everything is transparent and possibly changeable. We encourage groups to host their own instances of the platform, if they have the ability to do so. Still, we also provide access to a hosted version on karrot.world."
-      },
-      "TEAM": {
-        "TITLE": "Responsive team",
-        "DESCRIPTION": "You can easily talk to the people developing Karrot, either on our {forum}, on {code} or in real-time on our {chat}."
+      "REQUEST_DELETE_ACCOUNT": {
+        "CONFIRM": "Confirm",
+        "MESSAGE": "Are you sure? Your account and your personal data will be permanently deleted. Anything you have done on this platform will be made anonymous. If you confirm, we send you an e-mail with a link to complete the deletion process.",
+        "TITLE": "Account deletion"
       }
-    }
-  }
+    },
+    "EMAIL": "E-mail",
+    "FIRST_TRUST": "Be the first one to trust {userName} in {groupName}!",
+    "LOGOUT_SUCCESS": "You have been logged out!",
+    "MOBILE_NUMBER": "Phone number",
+    "NEWCOMER": "Newcomer",
+    "NEWCOMER_GUIDANCE": "{userName} is new to your group and might need some guidance.",
+    "NEWCOMER_INFO": "You are currently a newcomer in {groupName} and you can become active by writing messages, meeting fellow members, doing pickups and giving feedback. As soon as {threshold} members expressed their trust in you, you will gain editing permissions to help with group administration.",
+    "OTHER_PEOPLE_TRUST_USER": "{otherUser} trusts {userName} in {groupName}. | {count} people trust {userName} in {groupName}.",
+    "OTHER_PEOPLE_TRUST_YOU": "{otherUser} trusts you in {groupName}. | {count} people trust you in {groupName}.",
+    "PASSWORD": "પાસવર્ડ",
+    "PEOPLE_TRUST_USER": "You and {otherUser} trust {userName} in {groupName}. | You and {count} other people trust {userName} in {groupName}.",
+    "PHOTO": "પ્રોફાઇલ ફોટો",
+    "PRIVATE_MESSAGE": "Send a private message to {userName}",
+    "PROFILE_TITLE": "પ્રોફાઇલ",
+    "PUSH": "Push notifications",
+    "PUSH_CURRENT_BROWSER": "Current browser",
+    "REQUEST_DELETE_ACCOUNT": {
+      "SUCCESS": "We sent you an e-mail with a link to complete the deletion process."
+    },
+    "SET_PHOTO": "તમારો પ્રોફાઇલ ફોટો સેટ કરો ...",
+    "TRUST_INFO": {
+      "LINK": "Click here to find out more.",
+      "MESSAGE": "It is part of the Karrot trust system. It shows if a group member is newcomer and how much trust is needed until they gain editing permissions.",
+      "TITLE": "What is this carrot button about?"
+    },
+    "TRUST_PROGRESS_TEXT": "{trustNeeded} more trust needed",
+    "TRUST_PROGRESS_TEXT_LONG": "{trustNeeded} more people need to express their trust in {userName} to grant editing permissions.",
+    "USERNAME": "નામ",
+    "WHERE_FROM": "જ્યાંથી તમે છો (જરૂરી નથી)",
+    "YOU_TRUST_USER": "You trust {userName} in {groupName}."
+  },
+  "USERDETAIL": {
+    "DESCRIPTION": "તમારા વિશે",
+    "DISPLAY_NAME": "નામ",
+    "OLD_PASSWORD": "Confirm your old password",
+    "PASSWORD": "નવો પાસવર્ડ"
+  },
+  "VALIDATION": {
+    "IMAGE_REQUIRED": "You must add an image",
+    "MAXLENGTH": "ખૂબ લાંબો, કૃપા કરીને {max} અક્ષરોથી ઓછો ઉપયોગ કરો.",
+    "MINLENGTH": "કૃપા કરીને {min} અક્ષરો કરતા વધુ દાખલ કરો",
+    "REQUIRED": "આ ક્ષેત્ર જરૂરી છે.",
+    "UNIQUE": "નામ પહેલેથી અસ્તિત્વમાં છે, કૃપા કરીને બીજું પસંદ કરો.",
+    "VALID_EMAIL": "યોગ્ય ઇ - મેલ એડ્રેસ આપો.",
+    "VALID_TIMEZONE": "માન્ય ટાઇમઝોન દાખલ કરો"
+  },
+  "VERIFYMAIL": {
+    "SUCCESS": "તમારું ઈ-મેલ સરનામું સફળતાપૂર્વક ચકાસવામાં આવ્યું હતું!",
+    "TITLE": "ઇ-મેઇલ ચકાસણી"
+  },
+  "WALL": {
+    "RECEIVED_VIA_EMAIL": "This message was sent via e-mail",
+    "VERIFY_EMAIL_FOR_NOTIFICATIONS": "Please verify your e-mail address to receive notification e-mails",
+    "WRITE_FIRST_MESSAGE": "પ્રથમ સંદેશ લખો ...",
+    "WRITE_MESSAGE": "સંદેશ લખો ..."
+  },
+  "YOU": "You"
 }

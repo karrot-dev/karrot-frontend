@@ -1,0 +1,109 @@
+{
+  "ACTIVITYDELETE": {
+    "DELETE_SERIES_TEXT": "Willst du wirklich diese regelmäßige Abholung löschen? Das löscht alle Abholungstermine, die zu der regelmäßigen Abholung gehören (außer wenn bereit Abholer eingetragen sind).",
+    "DELETE_SERIES_TITLE": "Regelmäßige Abholung löschen"
+  },
+  "ACTIVITYLIST": {
+    "AVAILABLE": "Es gibt eine Abholung bei deinen Lieblingsorten, die auf dich wartet! | Es gibt '{count}' Abholungen bei deinen Lieblingsorten, die auf dich warten!",
+    "AVAILABLE_FEEDBACK": "Du kannst Feedback zu einer Abholung geben | {count} Abholungen warten auf dein Feedback.",
+    "AVAILABLE_FROM_STORES": "Hier werden Abholung der nächsten Tage deiner Lieblingsorte angezeigt. Du erhältst über die Seitenleiste Zugang zu anderen Orten.",
+    "FILTER": {
+      "ALL": "Alle",
+      "EMPTY": "Nur leere",
+      "FREE": "Mit offenen Slots"
+    },
+    "ITEM": {
+      "JOIN": "Abholen",
+      "JOIN_CONFIRMATION_HEADER": "Abholen",
+      "JOIN_CONFIRMATION_TEXT": "Bist du sicher, dass du am {date} Zeit hast um abzuholen?",
+      "LEAVE": "Nicht mehr abholen",
+      "LEAVE_CONFIRMATION_HEADER": "Nicht abholen",
+      "LEAVE_CONFIRMATION_TEXT": "Bist du dir sicher, dass die anderen die Abholung ohne dich schaffen?"
+    },
+    "JOINEDNOTICE": "Du hast dich für eine Abholung gemeldet | Du hast dich für {count} Abholungen gemeldet",
+    "NONE": "Es stehen keine Abholungen an.",
+    "NONE_HINT": "Du kannst eine neue Abholung auf der Seite des Ortes erstellen.",
+    "PICKUP_DISABLED": "Diese Abholung wurde deaktiviert.",
+    "PICKUP_STARTED": "Diese Abholung hat bereits begonnen.",
+    "STORE_NONE_HINT": "Im Abholzeiten-Editor kannst du eine neue Abholung erstellen."
+  },
+  "ACTIVITYMANAGE": {
+    "PICKUP_DESCRIPTION_CHANGED": "'Zusätzliche Information' wurde geändert",
+    "PICKUP_DOES_NOT_MATCH": "Dieses Abholungsdatum stimmt nicht mit der Frequenz sonstiger Abholungen überein.",
+    "PICKUP_MAX_COLLECTORS_CHANGED": "'Max slots' wurde geändert",
+    "SERIES": "Wiederkehrende Abholungen",
+    "SINGLE": "Einmalige Abholungen",
+    "TITLE": "Abholzeiten-Editor",
+    "UPCOMING_ACTIVITIES_IN_SERIES": "Kommende Einzelabholungen"
+  },
+  "ACTIVITY_FEEDBACK": {
+    "AMOUNT": "Menge des geretteten Essens (in kg)",
+    "AMOUNT_INFO": "Für Ortsstatistiken fassen wir die Menge allen Feedbacks zusammen.",
+    "COMMENT_PLACEHOLDER": "Lief alles gut? Sind alle aufgetaucht? Dein Kommentar bitte...",
+    "DELETE_AMOUNT": "Gewicht löschen",
+    "EDIT": "Rückmeldung bearbeiten",
+    "HEADER": "Danke für deine Abholung!",
+    "PREVIOUS": "Bisheriges Feedback für {store}",
+    "SET_AMOUNT": "Gewicht eingeben",
+    "TITLE": "Feedback",
+    "TOGETHER_WITH": "Du hast zusammen abgeholt mit:"
+  },
+  "CREATEACTIVITY": {
+    "COMMENT": "Zusätzliche Informationen",
+    "COMMENT_HELPER": "Was sollten die Leute wissen, wenn sie bei dieser Abholung teilnehmen?",
+    "CUSTOM": "Benutzerdefiniert",
+    "DATE": "Datum",
+    "DIFFERS_WARNING": "Dieser Wert unterscheidet sich vom Standard. Um diese Änderung rückgängig zu machen, klicke auf die Pfeil-Schaltfläche und speichere die Änderungen.",
+    "DISABLE_TITLE": "Abholungen deaktivieren?",
+    "ENABLE_DISABLE_MESSAGE": "Nutzer, die sich für diese Abholung eingetragen haben, werden benachrichtigt. Du kannst diesen Text ändern, um einen Grund anzugeben:",
+    "ENABLE_TITLE": "Abholungen aktivieren?",
+    "EXCEPTIONS_MESSAGE": "Einige anstehende Abholungen stimmen nicht mit den Einstellungen dieser regelmäßigen Abholung überein. Schaue unter '{upcomingLabel}' nach, um Abholungen zu ändern oder zu löschen, falls nötig.",
+    "EXCEPTIONS_TITLE": "Kontrolliere deine Abholungen",
+    "FREQUENCY": "Häufigkeit",
+    "MAX_COLLECTORS": "Anzahl Abholer",
+    "MAX_COLLECTORS_HELPER": "Wie viele Leute sollen bei der Abholung teilnehmen?",
+    "RRULE": "Regelmäßigkeit",
+    "RRULE_EXAMPLE": "'letzter Werktag eines jeden Monats'",
+    "RRULE_EXAMPLE2": "'jeder zweite Montag'",
+    "RRULE_HELPER": "Gib eine gültige {ruleHelper} ein, z.B. {ruleExample} oder {ruleExample2}.",
+    "RRULE_HELPER_URL": "RRULE",
+    "STARTDATE_HELPER": "Wann sollen die Abholungen beginnen?",
+    "TIME_HELPER": "Wann soll die Abholung stattfinden?",
+    "UNLIMITED": "unbegrenzt",
+    "WEEKDAYS": "Wochentage",
+    "WEEKDAYS_HELPER": "An welchen Tagen soll die Abholung stattfinden?",
+    "WEEKLY": "Wöchentlich"
+  },
+  "FEEDBACKLIST": {
+    "NO_DONE_ACTIVITIES": "Alles erledigt!",
+    "NO_DONE_ACTIVITIES_HINT": "Du hast derzeit keine erledigten Abholungen, auf die du Rückmeldung geben kannst. Warum nicht gleich zur nächsten Abholung eintragen?",
+    "NUMBER_ACTIVITIES": "{count} Abholungen"
+  },
+  "GROUP": {
+    "ACTIVITIES": "Abholungen",
+    "ACTIVITY": "Abholung",
+    "NOTIFICATION_TYPES": {
+      "daily_activity_notification": {
+        "DESCRIPTION": "Erinnert dich an deine Abholungen und lässt dich über leere oder unvollständige Abholungen deiner Lieblingsorte des nächsten Tages wissen",
+        "NAME": "Abholungs-Benachrichtigungen"
+      }
+    }
+  },
+  "HISTORY": {
+    "ACTIVITY_CREATE": "hat einen neuen einmaligen Abholtermin erstellt",
+    "ACTIVITY_DELETE": "hat einen Abholtermin gelöscht",
+    "ACTIVITY_DISABLE": "hat eine Abholung deaktiviert",
+    "ACTIVITY_DONE": "haben bei Betrieb {storeName} abgeholt",
+    "ACTIVITY_ENABLE": "hat eine Abholung aktiviert",
+    "ACTIVITY_JOIN": "hat sich gemeldet, um bei Betrieb {storeName} abzuholen",
+    "ACTIVITY_LEAVE": "ist von der Abholung bei {storeName} zurückgetreten",
+    "ACTIVITY_MISSED": "Eine Abholung bei {storeName} wurde verpasst!",
+    "ACTIVITY_MODIFY": "hat die Eigenschaften eines Abholtermins geändert"
+  },
+  "NOTIFICATION_BELLS": {
+    "ACTIVITY_DISABLED": "Abholung am {dateTime} wurde deaktiviert",
+    "ACTIVITY_ENABLED": "Abholung am {dateTime} wurde wieder aktiviert",
+    "ACTIVITY_MOVED": "Abholung wurde nach {dateTime} verschoben",
+    "ACTIVITY_UPCOMING": "Erinnerung: Du hast um {time} eine Abholung"
+  }
+}

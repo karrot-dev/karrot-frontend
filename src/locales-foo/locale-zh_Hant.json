@@ -1,0 +1,109 @@
+{
+  "ACTIVITYDELETE": {
+    "DELETE_SERIES_TEXT": "你真的想要刪除此固定開放食物領取日期？這也將刪除所有屬於此固定食物領取日期的一次性的開放食物領取日期（已有夥伴排班的日期將會保留）。",
+    "DELETE_SERIES_TITLE": "刪除循環出現的開放領取日期"
+  },
+  "ACTIVITYLIST": {
+    "AVAILABLE": "",
+    "AVAILABLE_FEEDBACK": "你能給予一項領取任務回饋 | {count}項領取任務等待你的回饋",
+    "AVAILABLE_FROM_STORES": "",
+    "FILTER": {
+      "ALL": "",
+      "EMPTY": "",
+      "FREE": ""
+    },
+    "ITEM": {
+      "JOIN": "加入",
+      "JOIN_CONFIRMATION_HEADER": "加入排班領取食物",
+      "JOIN_CONFIRMATION_TEXT": "你確定你在 {date} 的時候有時間領取食物嗎？",
+      "LEAVE": "離開",
+      "LEAVE_CONFIRMATION_HEADER": "退出食物領取",
+      "LEAVE_CONFIRMATION_TEXT": "你真的確定其他人能夠在沒有你的情況下領取食物嗎？"
+    },
+    "JOINEDNOTICE": "接下來還有一份食物領取等著你！接下來還有 {count} 份食物領取等著你！",
+    "NONE": "沒有後續的開放領取",
+    "NONE_HINT": "",
+    "PICKUP_DISABLED": "",
+    "PICKUP_STARTED": "",
+    "STORE_NONE_HINT": "你可以在領取任務管理頁面創建新的領取任務"
+  },
+  "ACTIVITYMANAGE": {
+    "PICKUP_DESCRIPTION_CHANGED": "",
+    "PICKUP_DOES_NOT_MATCH": "",
+    "PICKUP_MAX_COLLECTORS_CHANGED": "",
+    "SERIES": "重復開放領取",
+    "SINGLE": "一次性開放領取",
+    "TITLE": "管理食物領取",
+    "UPCOMING_ACTIVITIES_IN_SERIES": "此系列接下來的開放領取日期"
+  },
+  "ACTIVITY_FEEDBACK": {
+    "AMOUNT": "",
+    "AMOUNT_INFO": "",
+    "COMMENT_PLACEHOLDER": "一切都順利嗎？大家都有到場嗎？在這裡留言...",
+    "DELETE_AMOUNT": "刪除數量",
+    "EDIT": "編輯回饋",
+    "HEADER": "謝謝你領取食物！",
+    "PREVIOUS": "先前對於{store}的回饋",
+    "SET_AMOUNT": "設定數量",
+    "TITLE": "回饋",
+    "TOGETHER_WITH": "你和:        一起領這次的食物"
+  },
+  "CREATEACTIVITY": {
+    "COMMENT": "更多資訊",
+    "COMMENT_HELPER": "有什麼事項是報名領取食物者應注意的？",
+    "CUSTOM": "客製的",
+    "DATE": "日期",
+    "DIFFERS_WARNING": "",
+    "DISABLE_TITLE": "",
+    "ENABLE_DISABLE_MESSAGE": "",
+    "ENABLE_TITLE": "",
+    "EXCEPTIONS_MESSAGE": "",
+    "EXCEPTIONS_TITLE": "",
+    "FREQUENCY": "頻率",
+    "MAX_COLLECTORS": "最大值",
+    "MAX_COLLECTORS_HELPER": "徵求多少人領取食物？",
+    "RRULE": "循環規則",
+    "RRULE_EXAMPLE": "每個月的最後一個工作天(星期一到五)",
+    "RRULE_EXAMPLE2": "每個月第二個星期一",
+    "RRULE_HELPER": "輸入有效的{ruleHelper}, 例如: {ruleExample} 或是{ruleExample2}",
+    "RRULE_HELPER_URL": "iCalender規則",
+    "STARTDATE_HELPER": "此系列活動從甚麼時候開始?",
+    "TIME_HELPER": "應該在甚麼時候領取食物？",
+    "UNLIMITED": "沒有限制",
+    "WEEKDAYS": "平日",
+    "WEEKDAYS_HELPER": "應該在哪幾天領取食物？",
+    "WEEKLY": "每周的"
+  },
+  "FEEDBACKLIST": {
+    "NO_DONE_ACTIVITIES": "都完成了",
+    "NO_DONE_ACTIVITIES_HINT": "你現在沒有食物領取要回饋了，何不再登記一個食物領取?",
+    "NUMBER_ACTIVITIES": "{count} 項領取已完成"
+  },
+  "GROUP": {
+    "ACTIVITIES": "開放領取食物",
+    "ACTIVITY": "領取",
+    "NOTIFICATION_TYPES": {
+      "daily_activity_notification": {
+        "DESCRIPTION": "",
+        "NAME": "領取通知"
+      }
+    }
+  },
+  "HISTORY": {
+    "ACTIVITY_CREATE": "創建新的一次性開放外帶",
+    "ACTIVITY_DELETE": "刪除開放外帶",
+    "ACTIVITY_DISABLE": "",
+    "ACTIVITY_DONE": "有去{store}拿取食物",
+    "ACTIVITY_ENABLE": "",
+    "ACTIVITY_JOIN": "註冊以在{store}取貨",
+    "ACTIVITY_LEAVE": "取消在{storeName}開放領取食物",
+    "ACTIVITY_MISSED": "在{store}的食物領取被放鳥了！",
+    "ACTIVITY_MODIFY": "變更開放外帶的設定"
+  },
+  "NOTIFICATION_BELLS": {
+    "ACTIVITY_DISABLED": "",
+    "ACTIVITY_ENABLED": "",
+    "ACTIVITY_MOVED": "",
+    "ACTIVITY_UPCOMING": "提醒: 你在{time}有領取任務"
+  }
+}

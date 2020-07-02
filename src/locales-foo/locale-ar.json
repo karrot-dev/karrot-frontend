@@ -1,0 +1,109 @@
+{
+  "ACTIVITYDELETE": {
+    "DELETE_SERIES_TEXT": "",
+    "DELETE_SERIES_TITLE": ""
+  },
+  "ACTIVITYLIST": {
+    "AVAILABLE": "",
+    "AVAILABLE_FEEDBACK": "",
+    "AVAILABLE_FROM_STORES": "",
+    "FILTER": {
+      "ALL": "",
+      "EMPTY": "",
+      "FREE": ""
+    },
+    "ITEM": {
+      "JOIN": "",
+      "JOIN_CONFIRMATION_HEADER": "",
+      "JOIN_CONFIRMATION_TEXT": "",
+      "LEAVE": "",
+      "LEAVE_CONFIRMATION_HEADER": "",
+      "LEAVE_CONFIRMATION_TEXT": ""
+    },
+    "JOINEDNOTICE": "",
+    "NONE": "",
+    "NONE_HINT": "",
+    "PICKUP_DISABLED": "",
+    "PICKUP_STARTED": "",
+    "STORE_NONE_HINT": ""
+  },
+  "ACTIVITYMANAGE": {
+    "PICKUP_DESCRIPTION_CHANGED": "",
+    "PICKUP_DOES_NOT_MATCH": "",
+    "PICKUP_MAX_COLLECTORS_CHANGED": "",
+    "SERIES": "",
+    "SINGLE": "",
+    "TITLE": "",
+    "UPCOMING_ACTIVITIES_IN_SERIES": ""
+  },
+  "ACTIVITY_FEEDBACK": {
+    "AMOUNT": "",
+    "AMOUNT_INFO": "",
+    "COMMENT_PLACEHOLDER": "",
+    "DELETE_AMOUNT": "",
+    "EDIT": "",
+    "HEADER": "",
+    "PREVIOUS": "",
+    "SET_AMOUNT": "",
+    "TITLE": "",
+    "TOGETHER_WITH": ""
+  },
+  "CREATEACTIVITY": {
+    "COMMENT": "",
+    "COMMENT_HELPER": "",
+    "CUSTOM": "",
+    "DATE": "",
+    "DIFFERS_WARNING": "",
+    "DISABLE_TITLE": "",
+    "ENABLE_DISABLE_MESSAGE": "",
+    "ENABLE_TITLE": "",
+    "EXCEPTIONS_MESSAGE": "",
+    "EXCEPTIONS_TITLE": "",
+    "FREQUENCY": "",
+    "MAX_COLLECTORS": "",
+    "MAX_COLLECTORS_HELPER": "",
+    "RRULE": "",
+    "RRULE_EXAMPLE": "",
+    "RRULE_EXAMPLE2": "",
+    "RRULE_HELPER": "",
+    "RRULE_HELPER_URL": "",
+    "STARTDATE_HELPER": "",
+    "TIME_HELPER": "",
+    "UNLIMITED": "",
+    "WEEKDAYS": "",
+    "WEEKDAYS_HELPER": "",
+    "WEEKLY": ""
+  },
+  "FEEDBACKLIST": {
+    "NO_DONE_ACTIVITIES": "",
+    "NO_DONE_ACTIVITIES_HINT": "",
+    "NUMBER_ACTIVITIES": ""
+  },
+  "GROUP": {
+    "ACTIVITIES": "",
+    "ACTIVITY": "",
+    "NOTIFICATION_TYPES": {
+      "daily_activity_notification": {
+        "DESCRIPTION": "",
+        "NAME": ""
+      }
+    }
+  },
+  "HISTORY": {
+    "ACTIVITY_CREATE": "",
+    "ACTIVITY_DELETE": "",
+    "ACTIVITY_DISABLE": "",
+    "ACTIVITY_DONE": "",
+    "ACTIVITY_ENABLE": "",
+    "ACTIVITY_JOIN": "",
+    "ACTIVITY_LEAVE": "",
+    "ACTIVITY_MISSED": "",
+    "ACTIVITY_MODIFY": ""
+  },
+  "NOTIFICATION_BELLS": {
+    "ACTIVITY_DISABLED": "",
+    "ACTIVITY_ENABLED": "",
+    "ACTIVITY_MOVED": "",
+    "ACTIVITY_UPCOMING": ""
+  }
+}

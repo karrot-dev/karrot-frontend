@@ -1,0 +1,109 @@
+{
+  "ACTIVITYDELETE": {
+    "DELETE_SERIES_TEXT": "Vill du verkligen radera denna regelbunden upphämtning? Det kommer också att radera engångsupphämtningar som tillhör denna serie (förutom där folk redan gått med på).",
+    "DELETE_SERIES_TITLE": "Radera regelbundet upphämtningsdatum"
+  },
+  "ACTIVITYLIST": {
+    "AVAILABLE": "Det finns en upphämtning på dina favoritplatser som väntar på dig! | Det finns {count} upphämtning på dina favoritplatser som väntar på dig!",
+    "AVAILABLE_FEEDBACK": "Du kan ge feedback till en upphämtning | {count} upphämtningar väntar på din feedback",
+    "AVAILABLE_FROM_STORES": "Detta visar upphämtningar från dina favoritplatser de närmaste dagarna. Du kan komma åt andra platser i sidofältet.",
+    "FILTER": {
+      "ALL": "Allt",
+      "EMPTY": "Endast tomma",
+      "FREE": "Med lediga öppningar"
+    },
+    "ITEM": {
+      "JOIN": "Gå med",
+      "JOIN_CONFIRMATION_HEADER": "Gå med i upphämtning",
+      "JOIN_CONFIRMATION_TEXT": "Är du säker du har tid att hämta den {date}?",
+      "LEAVE": "Lämna",
+      "LEAVE_CONFIRMATION_HEADER": "Lämna upphämtning",
+      "LEAVE_CONFIRMATION_TEXT": "Är du säker att andra kan göra upphämtningen utan dig?"
+    },
+    "JOINEDNOTICE": "Du har en kommande upphämtning | Du har {count} kommande upphämtningar",
+    "NONE": "Inga bokade upphämtningar",
+    "NONE_HINT": "Du kan skapa en ny upphämtning på platssidan.",
+    "PICKUP_DISABLED": "Upphämtningen har inaktiverats.",
+    "PICKUP_STARTED": "Upphämtningen har redan påbörjats.",
+    "STORE_NONE_HINT": "Du kan skapa en ny upphämtning i \"hantera upphämtningar\""
+  },
+  "ACTIVITYMANAGE": {
+    "PICKUP_DESCRIPTION_CHANGED": "'Mer information' har ändrats",
+    "PICKUP_DOES_NOT_MATCH": "Upphämtningsdatumet passar inte återkommande mönstret",
+    "PICKUP_MAX_COLLECTORS_CHANGED": "'Max antal platser' har ändrats",
+    "SERIES": "Regelbundna upphämtningar",
+    "SINGLE": "Engångsupphämtning",
+    "TITLE": "Hantera upphämtningar",
+    "UPCOMING_ACTIVITIES_IN_SERIES": "Kommande upphämtningar i denna serie"
+  },
+  "ACTIVITY_FEEDBACK": {
+    "AMOUNT": "Mängd mat du har lyckats spara (i kg)",
+    "AMOUNT_INFO": "För platsstatistiken kommer vi att summera alla feedbacks.",
+    "COMMENT_PLACEHOLDER": "Gick allt bra? Var alla med? Din kommentar här...",
+    "DELETE_AMOUNT": "Radera mängden",
+    "EDIT": "Redigera feedback",
+    "HEADER": "Tack för din upphämtning!",
+    "PREVIOUS": "Föregående feedback för {store}",
+    "SET_AMOUNT": "Ange mängden",
+    "TITLE": "Feedback",
+    "TOGETHER_WITH": "Du gjorde upphämtningen tillsammans med:"
+  },
+  "CREATEACTIVITY": {
+    "COMMENT": "Mer information",
+    "COMMENT_HELPER": "Vad bör folk veta när de ska gå med hämtningen?",
+    "CUSTOM": "Skräddarsytt",
+    "DATE": "Datum",
+    "DIFFERS_WARNING": "Detta värde skiljer sig från standard. För att ångra denna ändring, klicka på pilknappen och spara ändringarna.",
+    "DISABLE_TITLE": "Inaktivera upphämtning?",
+    "ENABLE_DISABLE_MESSAGE": "Alla som skrev upp sig till denna upphämtning kommer att få ett meddelande. Du kan ändra texten för att ge en anledning:",
+    "ENABLE_TITLE": "Aktivera upphämtning?",
+    "EXCEPTIONS_MESSAGE": "Vissa kommande hämtningar passar inte inställningar för denna återkommande upphämtning. Ta en titt där nere på '{upcomingLabel}' för att ändra eller inaktivera upphämtningar om det behövs.",
+    "EXCEPTIONS_TITLE": "Kolla dina upphämtningar",
+    "FREQUENCY": "Hur ofta",
+    "MAX_COLLECTORS": "Max Slots",
+    "MAX_COLLECTORS_HELPER": "Hur många bör delta i hämtningen?",
+    "RRULE": "Återkomstregel",
+    "RRULE_EXAMPLE": "Sista arbetsdag (Mån-Fre) varje månad",
+    "RRULE_EXAMPLE2": "varannan måndag",
+    "RRULE_HELPER": "Skriv in en giltig {ruleHelper}, t.ex. {ruleExample} eller {ruleExample2}",
+    "RRULE_HELPER_URL": "iCalenders regel",
+    "STARTDATE_HELPER": "När ska serien börja?",
+    "TIME_HELPER": "När ska hämtningen ske?",
+    "UNLIMITED": "obegränsat",
+    "WEEKDAYS": "Helg",
+    "WEEKDAYS_HELPER": "Vilka dagar ska man hämta?",
+    "WEEKLY": "Varje vecka"
+  },
+  "FEEDBACKLIST": {
+    "NO_DONE_ACTIVITIES": "Klar!",
+    "NO_DONE_ACTIVITIES_HINT": "Du har ingen feedback att ge. Varför inte gå med en upphämtning?",
+    "NUMBER_ACTIVITIES": "{count} upphämtningar gjort"
+  },
+  "GROUP": {
+    "ACTIVITIES": "Upphämtningar",
+    "ACTIVITY": "Upphämtning",
+    "NOTIFICATION_TYPES": {
+      "daily_activity_notification": {
+        "DESCRIPTION": "Påminner dig om dina upphämtningar och berättar om lediga upphämtningar på dina favoritplatser",
+        "NAME": "Notifikationer om upphämtningar"
+      }
+    }
+  },
+  "HISTORY": {
+    "ACTIVITY_CREATE": "skapade en hämtning",
+    "ACTIVITY_DELETE": "tog bort en hämtning",
+    "ACTIVITY_DISABLE": "inaktivera en upphämtning",
+    "ACTIVITY_DONE": "gjorde en hämtning på {storeName}",
+    "ACTIVITY_ENABLE": "aktivera en upphämtning",
+    "ACTIVITY_JOIN": "skrev upp sig för att hämta på {storeName}",
+    "ACTIVITY_LEAVE": "gav upp om att hämta på {storeName}",
+    "ACTIVITY_MISSED": "Ingen upphämtning på {storeName}!",
+    "ACTIVITY_MODIFY": "ändrade inställningarna för en hämtning"
+  },
+  "NOTIFICATION_BELLS": {
+    "ACTIVITY_DISABLED": "Upphämtning den {dateTime} har inaktiverats",
+    "ACTIVITY_ENABLED": "Upphämtning den {dateTime} har aktiverats igen",
+    "ACTIVITY_MOVED": "Upphämtningen har ändrats till {dateTime}",
+    "ACTIVITY_UPCOMING": "Påminnelse: Du har en upphämtning kl {time}  "
+  }
+}

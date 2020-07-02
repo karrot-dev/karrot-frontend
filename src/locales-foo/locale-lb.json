@@ -1,0 +1,109 @@
+{
+  "ACTIVITYDELETE": {
+    "DELETE_SERIES_TEXT": "Wëlls du wierklech dësen Datum vun den Ofhuelungen, déi ëmmer nees sinn, läschen? Dëst wäert och all d'eemoleg Ofhuelunge läschen, déi zu dësen Ofhuelungen, déi ëmmer nees sinn, gehéieren (ausser et hunn sech scho Leit derfir ugemellt).",
+    "DELETE_SERIES_TITLE": "Een Datum vun Ofhuelungen, déi ëmmer nees sinn, läschen"
+  },
+  "ACTIVITYLIST": {
+    "AVAILABLE": "Et gëtt eng Ofhuelung op denge favoriséierte Platze fir dech! | Et gëtt {count} Ofhuelungen op denge favoriséierte Platze fir dech!",
+    "AVAILABLE_FEEDBACK": "Du kanns Feedback zu enger Ofhuelung ofginn | {count} Ofhuelunge waarden op däi Feedback",
+    "AVAILABLE_FROM_STORES": "Dëst weist d'Ofhuelunge vun denge favoriséierte Platzen an den nächsten Deeg. Du kanns un aner Platzen iwwert d'Sidebar dru kommen.",
+    "FILTER": {
+      "ALL": "All",
+      "EMPTY": "Just eideler",
+      "FREE": "Mat eidele Platzen"
+    },
+    "ITEM": {
+      "JOIN": "Matmaachen",
+      "JOIN_CONFIRMATION_HEADER": "Bei Ofhuelung matmaachen",
+      "JOIN_CONFIRMATION_TEXT": "Bass du sécher, dass du Zäit fir den {date} ofzehuelen?",
+      "LEAVE": "Verloossen",
+      "LEAVE_CONFIRMATION_HEADER": "Vun Ofhuelung ofmellen",
+      "LEAVE_CONFIRMATION_TEXT": "Bass du sécher, dass déi aner d'Ofhuelung ouni dech maache kënnen?"
+    },
+    "JOINEDNOTICE": "Du hues eng Ofhuelung, déi kënnt | Du hues {count} Ofhuelungen, déi kommen",
+    "NONE": "Keng Ofhuelungen, déi kommen",
+    "NONE_HINT": "Du kanns eng nei Ofhuelung op der Säit vun der Platz erstellen.",
+    "PICKUP_DISABLED": "Dës Ofhuelung ass desaktivéiert ginn.",
+    "PICKUP_STARTED": "Dës Ofhuelung huet schonn ugefaangen.",
+    "STORE_NONE_HINT": "Du kanns eng nei Ofhuelung op der Säit erstellen, wou's du d'Ofhuelunge verwalte kanns."
+  },
+  "ACTIVITYMANAGE": {
+    "PICKUP_DESCRIPTION_CHANGED": "\"Zousätzlech Informatiounen\" gouf geännert",
+    "PICKUP_DOES_NOT_MATCH": "Den Datum vun dëser Ofhuelung ass verschidde vun deenen aneren Ofhuelungen.",
+    "PICKUP_MAX_COLLECTORS_CHANGED": "\"Max. Platzen\" gouf geännert",
+    "SERIES": "Ofhuelungen, déi ëmmer nees sinn",
+    "SINGLE": "Eemoleg Ofhuelungen",
+    "TITLE": "Ofhuelunge verwalten",
+    "UPCOMING_ACTIVITIES_IN_SERIES": "Ofhuelungen, déi kommen, an dëser Serie"
+  },
+  "ACTIVITY_FEEDBACK": {
+    "AMOUNT": "Quantitéit vu Liewensmëttel déi's du rette konnts (a kg)",
+    "AMOUNT_INFO": "Fir Statistiken zur Platz gëtt d'Quantitéit vun all Feedback zesummegerechent.",
+    "COMMENT_PLACEHOLDER": "War alles gutt? War jidderee komm? Däi Kommentar hei...",
+    "DELETE_AMOUNT": "Quantitéit läschen",
+    "EDIT": "Feedback veränneren",
+    "HEADER": "Merci fir deng Ofhuelung!",
+    "PREVIOUS": "Feedback vu virdru fir {store}",
+    "SET_AMOUNT": "Quantitéit aginn",
+    "TITLE": "Feedback",
+    "TOGETHER_WITH": "Du hues dës Ofhuelung zesumme gemaach mam:"
+  },
+  "CREATEACTIVITY": {
+    "COMMENT": "Zousätzlech Informatiounen",
+    "COMMENT_HELPER": "Wat sollen d'Leit wësse wann si sech fir dës Ofhuelung androen?",
+    "CUSTOM": "Op d'Mooss gemaach",
+    "DATE": "Datum",
+    "DIFFERS_WARNING": "Dëse Wäert ass anescht wéi de Standard. Fir dës Ännerung réckgängeg ze maachen, klicks de op de Feil an dann op Späicheren.",
+    "DISABLE_TITLE": "Ofhuelung desaktivéieren?",
+    "ENABLE_DISABLE_MESSAGE": "Benotzer, déi dëser Ofhuelung bäitrieden, kréien eng Benoriichtegung. Du kanns dësen Text ännere fir ee Grond unzeginn:",
+    "ENABLE_TITLE": "Ofhuelungen aktivéieren?",
+    "EXCEPTIONS_MESSAGE": "E puer Ofhuelungen, déi kommen, stëmmen net mat den Astellunge vun dëser Ofhuelung, déi ëmmer nees ass, iwwerteneen. Kuck eng Kéier hei drënner op '{upcomingLabel}' fir Ofhuelungen ze änneren oder ze desaktivéieren, falls néideg.",
+    "EXCEPTIONS_TITLE": "Deng Ofhuelunge kontrolléieren",
+    "FREQUENCY": "Frequenz",
+    "MAX_COLLECTORS": "Max. Platzen",
+    "MAX_COLLECTORS_HELPER": "Wéi vill Leit solle bei der Ofhuelung matmaachen?",
+    "RRULE": "Widderhuelungs-Reegel",
+    "RRULE_EXAMPLE": "läscht Wochendeeg (Mé-Fr) all Mount",
+    "RRULE_EXAMPLE2": "all zweete Méindeg",
+    "RRULE_HELPER": "Gëff e gültegen {ruleHelper} an, z.B. {ruleExample} oder {ruleExample2}",
+    "RRULE_HELPER_URL": "Kalenner-Reegel",
+    "STARTDATE_HELPER": "Wéini soll d'Serie ufänken?",
+    "TIME_HELPER": "Wéini soll d'Ofhuelung sinn?",
+    "UNLIMITED": "onendlech",
+    "WEEKDAYS": "All Wochendag",
+    "WEEKDAYS_HELPER": "Op wéi engen Deeg sinn d'Ofhuelungen?",
+    "WEEKLY": "All Woch"
+  },
+  "FEEDBACKLIST": {
+    "NO_DONE_ACTIVITIES": "Alles fäerdeg!",
+    "NO_DONE_ACTIVITIES_HINT": "Du hues grad keng Ofhuelunge fir déi's de Feedback kanns ginn. Firwat mëss net bei enger weiderer Ofhuelung mat?",
+    "NUMBER_ACTIVITIES": "{count} Ofhuelunge gemaach"
+  },
+  "GROUP": {
+    "ACTIVITIES": "Ofhuelungen",
+    "ACTIVITY": "Ofhuelung",
+    "NOTIFICATION_TYPES": {
+      "daily_activity_notification": {
+        "DESCRIPTION": "Erënnert dech un deng Ofhuelungen, a seet dir Bescheed iwwert Ofhuelungen, op déi nach keen oder net genuch Leit ginn, vun denge favoriséierte Platzen den nächsten Dag",
+        "NAME": "Benoriichtegungen iwwert Ofhuelungen"
+      }
+    }
+  },
+  "HISTORY": {
+    "ACTIVITY_CREATE": "huet eng eemoleg Ofhuelung erstallt",
+    "ACTIVITY_DELETE": "huet eng Ofhuelung geläscht",
+    "ACTIVITY_DISABLE": "huet eng Ofhuelung desaktivéiert",
+    "ACTIVITY_DONE": "huet bei {storeName} ofgeholl",
+    "ACTIVITY_ENABLE": "huet eng Ofhuelung aktivéiert",
+    "ACTIVITY_JOIN": "huet sech fir eng Ofhuelung beim {storeName} agedroen",
+    "ACTIVITY_LEAVE": "ass zréckgetruede fir eng Ofhuelung beim {storeName} ze maachen",
+    "ACTIVITY_MISSED": "Ofhuelung beim {storeName} gouf vergiess!",
+    "ACTIVITY_MODIFY": "huet d'Astellungen vun enger Ofhuelung geännert"
+  },
+  "NOTIFICATION_BELLS": {
+    "ACTIVITY_DISABLED": "Ofhuelung den {dateTime} gouf desaktivéiert",
+    "ACTIVITY_ENABLED": "Ofhuelung den {dateTime} gouf nees aktivéiert",
+    "ACTIVITY_MOVED": "Ofhuelung gouf verréckelt op den {dateTime}",
+    "ACTIVITY_UPCOMING": "Erënnerung: Du hues eng Ofhuelung um {time}"
+  }
+}

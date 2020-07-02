@@ -1,0 +1,109 @@
+{
+  "ACTIVITYDELETE": {
+    "DELETE_SERIES_TEXT": "શું તમે ખરેખર આ રિકરિંગ પિકઅપ તારીખને કાઢી નાખવા માંગો છો? આ તમામ એક-વખતની ચૂંટેલી તારીખો પણ કાઢી નાખશે જે આ રિકરિંગ પિકયુપ તારીખથી સંબંધિત છે (સિવાય કે જ્યાં લોકો પહેલેથી જોડાયા છે).",
+    "DELETE_SERIES_TITLE": "રિકરિંગ પિકઅપ તારીખ કાઢી નાખો"
+  },
+  "ACTIVITYLIST": {
+    "AVAILABLE": "",
+    "AVAILABLE_FEEDBACK": "તમે દુકાનમાં પ્રતિક્રિયા આપી શકો છો | {count} પિકઅપ્સ તમારી પ્રતિસાદની રાહ જોવામાં આવે છે",
+    "AVAILABLE_FROM_STORES": "",
+    "FILTER": {
+      "ALL": "",
+      "EMPTY": "",
+      "FREE": ""
+    },
+    "ITEM": {
+      "JOIN": "જોડાઓ",
+      "JOIN_CONFIRMATION_HEADER": "દુકાનમાં જોડાઓ",
+      "JOIN_CONFIRMATION_TEXT": "શું તમે ખરેખર {date} પર પસંદ કરવા માટે સમય ધરાવો છો?",
+      "LEAVE": "છોડો",
+      "LEAVE_CONFIRMATION_HEADER": "ચૂંટો છોડો",
+      "LEAVE_CONFIRMATION_TEXT": "શું તમે ખરેખર સુનિશ્ચિત છો કે અન્ય લોકો તમારા વિના દુકાન કરી શકે છે?"
+    },
+    "JOINEDNOTICE": "તમારી પાસે એક આગામી દુકાન છે | તમારી પાસે {ગણતરી} આગામી પિકઅપ્સ છે",
+    "NONE": "કોઈ આગામી પિક અપ્સ નથી",
+    "NONE_HINT": "",
+    "PICKUP_DISABLED": "",
+    "PICKUP_STARTED": "",
+    "STORE_NONE_HINT": "તમે પૃષ્ઠને સંચાલિત કરો પર એક નવો બનાવ્યો બનાવી શકો છો"
+  },
+  "ACTIVITYMANAGE": {
+    "PICKUP_DESCRIPTION_CHANGED": "",
+    "PICKUP_DOES_NOT_MATCH": "",
+    "PICKUP_MAX_COLLECTORS_CHANGED": "",
+    "SERIES": "રિકરિંગ પિક અપ્સ",
+    "SINGLE": "વન-ટાઇમ પિકઅપ્સ",
+    "TITLE": "પસંદ અપ્સ મેનેજ કરો",
+    "UPCOMING_ACTIVITIES_IN_SERIES": "આ સીરીઝમાં આગામી પસંદ અપ્સ"
+  },
+  "ACTIVITY_FEEDBACK": {
+    "AMOUNT": "",
+    "AMOUNT_INFO": "",
+    "COMMENT_PLACEHOLDER": "બધું સારું હતું? શું દરેકને બતાવ્યું? તમારી ટિપ્પણી અહીં ...",
+    "DELETE_AMOUNT": "",
+    "EDIT": "પ્રતિસાદ સંપાદિત કરો",
+    "HEADER": "તમારા પિક અપ માટે આભાર!",
+    "PREVIOUS": "{દુકાન} માટે પાછલી પ્રતિસાદ",
+    "SET_AMOUNT": "",
+    "TITLE": "પ્રતિસાદ",
+    "TOGETHER_WITH": ""
+  },
+  "CREATEACTIVITY": {
+    "COMMENT": "વધારાની માહિતી",
+    "COMMENT_HELPER": "આ પિક-અપમાં સાઇન અપ કરતી વખતે લોકોને શું જાણવું જોઈએ?",
+    "CUSTOM": "કસ્ટમ",
+    "DATE": "તારીખ",
+    "DIFFERS_WARNING": "",
+    "DISABLE_TITLE": "",
+    "ENABLE_DISABLE_MESSAGE": "",
+    "ENABLE_TITLE": "",
+    "EXCEPTIONS_MESSAGE": "",
+    "EXCEPTIONS_TITLE": "",
+    "FREQUENCY": "આવર્તન",
+    "MAX_COLLECTORS": "મહત્તમ સ્લોટ્સ",
+    "MAX_COLLECTORS_HELPER": "પિક-અપમાં કેટલા લોકોએ ભાગ લેવો જોઈએ?",
+    "RRULE": "પુનરાવૃત્તિ નિયમ",
+    "RRULE_EXAMPLE": "છેલ્લી કાર્યકારી દિવસ (મો-ફ્રાન્સ) દર મહિને",
+    "RRULE_EXAMPLE2": "દર બીજા સોમવાર",
+    "RRULE_HELPER": "માન્ય {ruleHelper} માં લખો, દા.ત. {ruleExample} અથવા {ruleExample2}",
+    "RRULE_HELPER_URL": " કૅલેન્ડર નિયમ",
+    "STARTDATE_HELPER": "આ શ્રેણી ક્યારે શરૂ થવી જોઈએ?",
+    "TIME_HELPER": "પિક-અપ ક્યારે થવો જોઈએ?",
+    "UNLIMITED": "અમર્યાદિત",
+    "WEEKDAYS": "અઠવાડિયાના દિવસો",
+    "WEEKDAYS_HELPER": "કયા દિવસોમાં પિક-અપ થવું જોઈએ?",
+    "WEEKLY": "સાપ્તાહિક"
+  },
+  "FEEDBACKLIST": {
+    "NO_DONE_ACTIVITIES": "",
+    "NO_DONE_ACTIVITIES_HINT": "",
+    "NUMBER_ACTIVITIES": ""
+  },
+  "GROUP": {
+    "ACTIVITIES": "પિકઅપ્સ",
+    "ACTIVITY": "",
+    "NOTIFICATION_TYPES": {
+      "daily_activity_notification": {
+        "DESCRIPTION": "",
+        "NAME": ""
+      }
+    }
+  },
+  "HISTORY": {
+    "ACTIVITY_CREATE": "એક નવી એકવાર પિક-અપ બનાવ્યું",
+    "ACTIVITY_DELETE": "એક પિક-અપ કાઢી નાખ્યું",
+    "ACTIVITY_DISABLE": "",
+    "ACTIVITY_DONE": "એક પિક અપ હતી{સ્ટોર નામ}",
+    "ACTIVITY_ENABLE": "",
+    "ACTIVITY_JOIN": "{સ્ટોર નામ} પર પિક-અપ કરવા માટે સાઇન અપ કર્યું",
+    "ACTIVITY_LEAVE": "{સ્ટોર નામ} પર પિક-અપ કરવાથી પાછા ઊતર્યા",
+    "ACTIVITY_MISSED": "{સ્ટોર નામ} પરનો દુકાન ચૂકી ગયો હતો!",
+    "ACTIVITY_MODIFY": "એક પિક અપ ની સેટિંગ્સ બદલી"
+  },
+  "NOTIFICATION_BELLS": {
+    "ACTIVITY_DISABLED": "",
+    "ACTIVITY_ENABLED": "",
+    "ACTIVITY_MOVED": "",
+    "ACTIVITY_UPCOMING": ""
+  }
+}

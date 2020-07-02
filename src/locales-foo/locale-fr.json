@@ -1,0 +1,109 @@
+{
+  "ACTIVITYDELETE": {
+    "DELETE_SERIES_TEXT": "Veux-tu réellement supprimer cette récolte récurrente ? Cela supprimera aussi toutes les dates de récolte individuelle qui dépendent de cette date récurrente de récolte (sauf celles que des personnes ont déjà rejoint).",
+    "DELETE_SERIES_TITLE": "Effacer récolte récurrente"
+  },
+  "ACTIVITYLIST": {
+    "AVAILABLE": "Il y a une récolte dans vos lieux de récup préférés qui vous attend ! | Il y a{count} récoltes dans vos lieux de récoltes préférés qui vous attendent!",
+    "AVAILABLE_FEEDBACK": "Tu peux donner ton retour en faisant un commentaire sur la récolte | {count} récoltes attendent ton compte-rendu de récolte.  ",
+    "AVAILABLE_FROM_STORES": "Cela montre les récoltes de vos lieux de récup préférés dans les prochains jours. Vous pouvez accéder à d'autres lieux dans la barre latérale.",
+    "FILTER": {
+      "ALL": "Tous",
+      "EMPTY": "Seulement les vides",
+      "FREE": "Ceux avec des créneaux libres"
+    },
+    "ITEM": {
+      "JOIN": "Rejoindre",
+      "JOIN_CONFIRMATION_HEADER": "Rejoindre la récolte",
+      "JOIN_CONFIRMATION_TEXT": "Es-tu sûr(e) que tu es disponible le {date} ?",
+      "LEAVE": "Quitter",
+      "LEAVE_CONFIRMATION_HEADER": "Quitter la récolte",
+      "LEAVE_CONFIRMATION_TEXT": "Es-tu vraiment sûr(e) que les autres peuvent faire la récolte sans toi ?"
+    },
+    "JOINEDNOTICE": "Tu as une récolte qui arrive | Tu as {count} récoltes qui arrivent",
+    "NONE": "Aucune récolte à venir",
+    "NONE_HINT": "Vous pouvez créer une nouvelle récolte sur la page de lieu.",
+    "PICKUP_DISABLED": "Cette récolte a été désactivée.",
+    "PICKUP_STARTED": "Cette récolte a déjà commencée.",
+    "STORE_NONE_HINT": "Tu peux créer une nouvelle récolte sur la page des récoltes."
+  },
+  "ACTIVITYMANAGE": {
+    "PICKUP_DESCRIPTION_CHANGED": "'Une information additionnelle' a été modifiée.",
+    "PICKUP_DOES_NOT_MATCH": "Ces dates de récoltes ne correspondent pas avec le modèle de récurrence",
+    "PICKUP_MAX_COLLECTORS_CHANGED": "' le nombre maximum de places' a été modifié.",
+    "SERIES": "Récolte récurrente",
+    "SINGLE": "Récoltes individuelles",
+    "TITLE": "Gérer les récoltes",
+    "UPCOMING_ACTIVITIES_IN_SERIES": "Récoltes à venir dans cette série"
+  },
+  "ACTIVITY_FEEDBACK": {
+    "AMOUNT": "Quantité de nourriture que vous avez pu sauver du gaspillage (en kg)\n ",
+    "AMOUNT_INFO": "Pour les statistiques des lieux de récoltes, nous additionnerons les quantités de tous les compte-rendu de récolte.",
+    "COMMENT_PLACEHOLDER": "Tout s'est bien passé ? Tout les participants sont venus ? Ton commentaire ici...",
+    "DELETE_AMOUNT": "Supprimer la quantité",
+    "EDIT": "Édite ton compte-rendu de récolte",
+    "HEADER": "Merci pour ta récolte !",
+    "PREVIOUS": "Dernier feedback à propos de {store}",
+    "SET_AMOUNT": "Établir la quantité",
+    "TITLE": "compte-rendu de récolte",
+    "TOGETHER_WITH": "Tu as fait cette récolte avec :"
+  },
+  "CREATEACTIVITY": {
+    "COMMENT": "Informations supplémentaires",
+    "COMMENT_HELPER": "Que devraient savoir les membres à propos de cette récolte ?",
+    "CUSTOM": "Personnalisée",
+    "DATE": "Date",
+    "DIFFERS_WARNING": "Cette valeur est différente de celle définie par défaut. Pour ne pas effectuer cette modification, clique sur le bouton en flèche et sauvegarde les changements.",
+    "DISABLE_TITLE": "Veux-tu désactiver la récolte ?",
+    "ENABLE_DISABLE_MESSAGE": "Les utilisateurs qui ont rejoint cette récolte recevront une notification. Tu peux changer ce texte pour donner une raison : ",
+    "ENABLE_TITLE": "Veux-tu activer la récolte ?",
+    "EXCEPTIONS_MESSAGE": "Quelques récoltes à venir ne correspondent pas aux paramètres de cette récoltes récurrente. Jette un oeil sur '{upcomingLabel}' pour modifier ou désactiver des récoltes, si besoins.",
+    "EXCEPTIONS_TITLE": "Consulte tes récoltes  ",
+    "FREQUENCY": "Fréquence",
+    "MAX_COLLECTORS": "Nombre maximum de places",
+    "MAX_COLLECTORS_HELPER": "Combien de personnes participent à la récolte ?",
+    "RRULE": "Paramètres de récurrence",
+    "RRULE_EXAMPLE": "dernier jour ouvré de chaque mois",
+    "RRULE_EXAMPLE2": "chaque second mardi du mois",
+    "RRULE_HELPER": "Écris une règle valide {ruleHelper}, par exemple {ruleExample} ou {ruleExample2}",
+    "RRULE_HELPER_URL": "Paramètres du iCalendar",
+    "STARTDATE_HELPER": "Quand doivent commencer les récoltes?",
+    "TIME_HELPER": "Quand doit avoir lieu la récolte ?",
+    "UNLIMITED": "illimité",
+    "WEEKDAYS": "Jour de la semaine",
+    "WEEKDAYS_HELPER": "Quels jours doit avoir lieu la récolte ?",
+    "WEEKLY": "Hebdomadaire"
+  },
+  "FEEDBACKLIST": {
+    "NO_DONE_ACTIVITIES": "Et voilà !",
+    "NO_DONE_ACTIVITIES_HINT": "Aucune récolte ne t'attend pour le moment. Pourquoi ne pas t'inscrire?",
+    "NUMBER_ACTIVITIES": "{count} récoltes effectuées"
+  },
+  "GROUP": {
+    "ACTIVITIES": "Récoltes",
+    "ACTIVITY": "Récolte",
+    "NOTIFICATION_TYPES": {
+      "daily_activity_notification": {
+        "DESCRIPTION": "Vous rappelle vos récoltes et vous informe des récoltes sans bénévoles ou incomplètes de vos lieux de récup préférés le lendemain\n ",
+        "NAME": "Notifications de récolte"
+      }
+    }
+  },
+  "HISTORY": {
+    "ACTIVITY_CREATE": "a crée une récolte individuelle",
+    "ACTIVITY_DELETE": "a effacé une récolte",
+    "ACTIVITY_DISABLE": "Annuler une récolte",
+    "ACTIVITY_DONE": "a fait une récolte à {storeName}",
+    "ACTIVITY_ENABLE": "activer une récolte",
+    "ACTIVITY_JOIN": "s'est enregistré pour faire une récolte à {storeName}",
+    "ACTIVITY_LEAVE": "a annulé sa récolte à {storeName}",
+    "ACTIVITY_MISSED": "Une récolte à {storeName} a été manqué!",
+    "ACTIVITY_MODIFY": "a changé les détails d'une récolte"
+  },
+  "NOTIFICATION_BELLS": {
+    "ACTIVITY_DISABLED": "La récolte à {dateTime} a été annulée",
+    "ACTIVITY_ENABLED": "La récolte à {dateTime} a été réactivée",
+    "ACTIVITY_MOVED": "La récolte a été déplacée à {dateTime}",
+    "ACTIVITY_UPCOMING": "Rappel : Vous avez une récolte à {time}"
+  }
+}

@@ -1,0 +1,109 @@
+{
+  "ACTIVITYDELETE": {
+    "DELETE_SERIES_TEXT": "Czy na pewno chcesz usunąć te powtarzające się odbiory? Ta czynność usunie również wszystkie odbiory jednorazowe, które należą do tych powtarzających się odbiorów (oprócz tych, na które już ktoś się zapisał).",
+    "DELETE_SERIES_TITLE": "Usuń powtarzające się odbiory"
+  },
+  "ACTIVITYLIST": {
+    "AVAILABLE": "Dostępny jest jeden odbiór w Twoich ulubionych punktach w najbliższych dniach! | Dostępne są {count} odbiory w Twoich ulubionych punktach w najbliższych dniach!",
+    "AVAILABLE_FEEDBACK": "Możesz dodać komentarz do odbioru | Możesz dodać komentarz do {count} odbiorów",
+    "AVAILABLE_FROM_STORES": "Lista pokazuje dostępne odbiory w Twoich ulubionych punktach w najbliższych dniach. Aby zobaczyć wszystkie odbiory, wejdź w sekcję \"Odbiory\" lub wybierz konkretny punkt z panelu bocznego.",
+    "FILTER": {
+      "ALL": "Wszystkie odbiory",
+      "EMPTY": "Odbiory, na które nikt się nie zapisał",
+      "FREE": "Odbiory z wolnymi okienkami"
+    },
+    "ITEM": {
+      "JOIN": "Zapisz się",
+      "JOIN_CONFIRMATION_HEADER": "Dołącz do odbioru",
+      "JOIN_CONFIRMATION_TEXT": "Czy na pewno odbierzesz jedzenie {date}?",
+      "LEAVE": "Zrezygnuj",
+      "LEAVE_CONFIRMATION_HEADER": "Zrezygnuj z odbioru",
+      "LEAVE_CONFIRMATION_TEXT": "Czy na pewno inni będą w stanie odebrać jedzenie, jeśli się nie pojawisz?"
+    },
+    "JOINEDNOTICE": "Masz jeden nadchodzący odbiór | Masz {count} nadchodzące odbiory",
+    "NONE": "Brak nadchodzących odbiorów",
+    "NONE_HINT": "Możesz dodać nowe odbiory na stronie punktu.",
+    "PICKUP_DISABLED": "Odbiór został zdezaktywowany.",
+    "PICKUP_STARTED": "Odbiór już się rozpoczął.",
+    "STORE_NONE_HINT": "Możesz dodać nowe odbiory na stronie zarządzania odbiorami."
+  },
+  "ACTIVITYMANAGE": {
+    "PICKUP_DESCRIPTION_CHANGED": "Zmieniono \"Dodatkowe informacje\"",
+    "PICKUP_DOES_NOT_MATCH": "Data tego odbioru nie pasuje do wzorca powtarzających się odbiorów",
+    "PICKUP_MAX_COLLECTORS_CHANGED": "Zmieniono maksymalną liczbę okienek",
+    "SERIES": "Powtarzające się odbiory",
+    "SINGLE": "Odbiory jednorazowe",
+    "TITLE": "Zarządzaj odbiorami",
+    "UPCOMING_ACTIVITIES_IN_SERIES": "Nadchodzące odbiory"
+  },
+  "ACTIVITY_FEEDBACK": {
+    "AMOUNT": "Ilość jedzenia, które uratowałaś/-eś (w kg)",
+    "AMOUNT_INFO": "Statystyki danego punktu przedstawiają sumę ilości wprowadzonych w indywidualnych komentarzach.",
+    "COMMENT_PLACEHOLDER": "Czy wszystko przebiegło w porządku? Czy jedzenie zostało odebrane zgodnie z planem? Skomentuj...",
+    "DELETE_AMOUNT": "Usuń ilość",
+    "EDIT": "Edytuj komentarz",
+    "HEADER": "Dzięki za odbiór!",
+    "PREVIOUS": "Wcześniejsze komentarze dla {store}",
+    "SET_AMOUNT": "Wprowadź ilość",
+    "TITLE": "Komentarz",
+    "TOGETHER_WITH": "Odebrałaś/-eś wspólnie z:"
+  },
+  "CREATEACTIVITY": {
+    "COMMENT": "Dodatkowe informacje",
+    "COMMENT_HELPER": "Co powinni wiedzieć ratownicy, którzy zapisują się na ten odbiór?",
+    "CUSTOM": "Inne",
+    "DATE": "Data",
+    "DIFFERS_WARNING": "Ta wartość różni się od domyślnej. Aby cofnąć, kliknij przycisk ze strzałką i zapisz zmiany.",
+    "DISABLE_TITLE": "Dezaktywować odbiór?",
+    "ENABLE_DISABLE_MESSAGE": "Ratownicy, którzy dołączyli do odbioru, otrzymają powiadomienie. W tym miejscu możesz wpisać przyczynę:",
+    "ENABLE_TITLE": "Aktywować odbiór?",
+    "EXCEPTIONS_MESSAGE": "Niektóre z nadchodzących odbiorów mają inne ustawienia niż powtarzające się odbiory. Sprawdź {upcomingLabel}, aby zmienić lub zdezaktywować nadchodzące odbiory. ",
+    "EXCEPTIONS_TITLE": "Sprawdź swoje odbiory",
+    "FREQUENCY": "Częstotliwość",
+    "MAX_COLLECTORS": "Maksymalna liczba okienek",
+    "MAX_COLLECTORS_HELPER": "Ile osób może maksymalnie uczestniczyć w odbiorze?",
+    "RRULE": "Reguła powtarzania",
+    "RRULE_EXAMPLE": "ostatni dzień roboczy każdego miesiąca (pn-pt)",
+    "RRULE_EXAMPLE2": "co drugi poniedziałek",
+    "RRULE_HELPER": "Wprowadź regułę w formacie {ruleHelper}, na przykład {ruleExample} albo {ruleExample2}",
+    "RRULE_HELPER_URL": "iCalendar",
+    "STARTDATE_HELPER": "Kiedy zaczną się odbiory?",
+    "TIME_HELPER": "O której godzinie odbieramy jedzenie?",
+    "UNLIMITED": "bez ograniczeń",
+    "WEEKDAYS": "Dni tygodnia",
+    "WEEKDAYS_HELPER": "W jakie dni odbieramy jedzenie?",
+    "WEEKLY": "Co tydzień"
+  },
+  "FEEDBACKLIST": {
+    "NO_DONE_ACTIVITIES": "Wszystko odebrane!",
+    "NO_DONE_ACTIVITIES_HINT": "Jeszcze nie masz odbiorów, które możesz skomentować. Może chcesz zapisać się na odbiór?",
+    "NUMBER_ACTIVITIES": "odebrano {count} razy"
+  },
+  "GROUP": {
+    "ACTIVITIES": "Odbiory",
+    "ACTIVITY": "Odbiór",
+    "NOTIFICATION_TYPES": {
+      "daily_activity_notification": {
+        "DESCRIPTION": "Przypomina Ci o nadchodzących odbiorach, na które się zapisałaś/-eś oraz o odbiorach, na które jeszcze nikt się nie zapisał albo na które są jeszcze wolne miejsca w Twoich ulubionych punktach.",
+        "NAME": "Powiadomienia o odbiorach"
+      }
+    }
+  },
+  "HISTORY": {
+    "ACTIVITY_CREATE": "dodał/-a jednorazowy odbiór",
+    "ACTIVITY_DELETE": "usunął/-ęła odbiór",
+    "ACTIVITY_DISABLE": "zdezaktywował/-a odbiór",
+    "ACTIVITY_DONE": "odebrał/-a w {storeName}",
+    "ACTIVITY_ENABLE": "aktywował/-a odbiór",
+    "ACTIVITY_JOIN": "zapisał/-a się na odbiór w {storeName}",
+    "ACTIVITY_LEAVE": "zrezygnował/-a z odbioru w {storeName}",
+    "ACTIVITY_MISSED": "Przegapiono odbiór w {storeName}!",
+    "ACTIVITY_MODIFY": "zmienił/-a ustawienia odbioru"
+  },
+  "NOTIFICATION_BELLS": {
+    "ACTIVITY_DISABLED": "Odbiór w dniu {dateTime} został zdezaktywowany",
+    "ACTIVITY_ENABLED": "Odbiór w dniu {dateTime} został ponownie zaktywowany",
+    "ACTIVITY_MOVED": "Odbiór został przeniesiony na {dateTime}",
+    "ACTIVITY_UPCOMING": "Przypomnienie: masz odbiór o {time}"
+  }
+}

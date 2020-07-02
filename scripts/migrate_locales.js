@@ -172,7 +172,8 @@ if (push) {
 
   console.log('Pulling all files...')
   execSync('./updateLocalesHelper/env/bin/tx pull --parallel --force')
-} else {
+}
+else {
   console.log('Did not push changes, call with --push arg for that')
 }
 

@@ -8,8 +8,8 @@
       @resize="calculateSlotsPerRow"
     />
     <div
-      v-for="user in activity.collectors"
-      :key="'collector' + user.id"
+      v-for="user in activity.participants"
+      :key="'participant' + user.id"
       class="relative-position pic-wrapper"
     >
       <template
@@ -128,22 +128,22 @@ export default {
       return this.activity.leaveStatus.pending && this.activity.isUserMember
     },
     hasUnlimitedPlaces () {
-      return this.activity.maxCollectors === null
+      return this.activity.maxParticipants === null
     },
     emptyPlaces () {
       if (this.hasUnlimitedPlaces) {
         return 9999999999
       }
-      if (this.activity.collectors) {
+      if (this.activity.participants) {
         const removeOne = (this.isJoining || this.canJoin) ? 1 : 0
-        return Math.max(this.activity.maxCollectors - this.activity.collectors.length - removeOne, 0)
+        return Math.max(this.activity.maxParticipants - this.activity.participants.length - removeOne, 0)
       }
       return 0
     },
     emptySlots () {
-      if (this.activity.collectors) {
+      if (this.activity.participants) {
         const minToShow = Math.min(1, this.emptyPlaces)
-        const maxToShow = Math.max(minToShow, this.slotsPerRow - this.activity.collectors.length - 1)
+        const maxToShow = Math.max(minToShow, this.slotsPerRow - this.activity.participants.length - 1)
         return Math.min(this.emptyPlaces, maxToShow)
       }
       return 0

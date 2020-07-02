@@ -54,7 +54,7 @@
           <QItem>
             <QItemSection>
               <QItemLabel>
-                <b class="text-negative">{{ $t('PICKUPLIST.PICKUP_DISABLED') }}</b>
+                <b class="text-negative">{{ $t('ACTIVITYLIST.ACTIVITY_DISABLED') }}</b>
               </QItemLabel>
             </QItemSection>
           </QItem>

@@ -11,7 +11,7 @@
       <QField
         stack-label
         borderless
-        :label="$t('CREATEPICKUP.FREQUENCY')"
+        :label="$t('CREATEACTIVITY.FREQUENCY')"
         hide-bottom-space
       >
         <template #before>
@@ -23,8 +23,8 @@
             inline
             type="radio"
             :options="[
-              { label: $t('CREATEPICKUP.WEEKLY'), value: false },
-              { label: $t('CREATEPICKUP.CUSTOM'), value: true },
+              { label: $t('CREATEACTIVITY.WEEKLY'), value: false },
+              { label: $t('CREATEACTIVITY.CUSTOM'), value: true },
             ]"
           />
         </template>
@@ -158,7 +158,7 @@
           <div
             v-else
           >
-            {{ edit.rule.isCustom ? $t('CREATEPICKUP.STARTDATE_HELPER') : $t('CREATEPICKUP.TIME_HELPER') }}
+            {{ edit.rule.isCustom ? $t('CREATEACTIVITY.STARTDATE_HELPER') : $t('CREATEACTIVITY.TIME_HELPER') }}
           </div>
         </div>
       </div>
@@ -168,8 +168,8 @@
         v-model="byDay"
         multiple
         :options="dayOptions"
-        :label="$t('CREATEPICKUP.WEEKDAYS')"
-        :hint="$t('CREATEPICKUP.WEEKDAYS_HELPER')"
+        :label="$t('CREATEACTIVITY.WEEKDAYS')"
+        :hint="$t('CREATEACTIVITY.WEEKDAYS_HELPER')"
         :error="hasError('rule')"
         :error-message="firstError('rule')"
         emit-value
@@ -202,7 +202,7 @@
         v-if="edit.rule.isCustom"
         v-model="edit.rule.custom"
         type="textarea"
-        :label="$t('CREATEPICKUP.RRULE')"
+        :label="$t('CREATEACTIVITY.RRULE')"
         :error="hasError('rule')"
         :error-message="firstError('rule')"
         autogrow
@@ -212,10 +212,10 @@
           <QIcon name="code" />
         </template>
         <template #hint>
-          <i18n path="CREATEPICKUP.RRULE_HELPER">
+          <i18n path="CREATEACTIVITY.RRULE_HELPER">
             <a
               slot="ruleHelper"
-              v-t="'CREATEPICKUP.RRULE_HELPER_URL'"
+              v-t="'CREATEACTIVITY.RRULE_HELPER_URL'"
               href="https://www.kanzaki.com/docs/ical/rrule.html"
               target="_blank"
               rel="noopener nofollow noreferrer"
@@ -223,7 +223,7 @@
             />
             <a
               slot="ruleExample"
-              v-t="'CREATEPICKUP.RRULE_EXAMPLE'"
+              v-t="'CREATEACTIVITY.RRULE_EXAMPLE'"
               href="https://jakubroztocil.github.io/rrule/#/rfc/FREQ=MONTHLY;BYDAY=MO,TU,WE,TH,FR;BYSETPOS=-1"
               target="_blank"
               rel="noopener nofollow noreferrer"
@@ -231,7 +231,7 @@
             />
             <a
               slot="ruleExample2"
-              v-t="'CREATEPICKUP.RRULE_EXAMPLE2'"
+              v-t="'CREATEACTIVITY.RRULE_EXAMPLE2'"
               href="https://jakubroztocil.github.io/rrule/#/rfc/FREQ=WEEKLY;INTERVAL=2;BYDAY=MO"
               target="_blank"
               rel="noopener nofollow noreferrer"
@@ -242,22 +242,22 @@
       </QInput>
 
       <QInput
-        v-model.number="edit.maxCollectors"
+        v-model.number="edit.maxParticipants"
         type="number"
         stack-label
-        :label="$t('CREATEPICKUP.MAX_COLLECTORS')"
-        :hint="$t('CREATEPICKUP.MAX_COLLECTORS_HELPER')"
-        :placeholder="$t('CREATEPICKUP.UNLIMITED')"
-        :error="hasError('maxCollectors')"
-        :error-message="firstError('maxCollectors')"
+        :label="$t('CREATEACTIVITY.MAX_PARTICIPANTS')"
+        :hint="$t('CREATEACTIVITY.MAX_PARTICIPANTS_HELPER')"
+        :placeholder="$t('CREATEACTIVITY.UNLIMITED')"
+        :error="hasError('maxParticipants')"
+        :error-message="firstError('maxParticipants')"
         input-style="max-width: 100px"
       >
         <template #before>
           <QIcon name="group" />
         </template>
         <QSlider
-          v-if="edit.maxCollectors > 0 && edit.maxCollectors <= 10"
-          v-model="edit.maxCollectors"
+          v-if="edit.maxParticipants > 0 && edit.maxParticipants <= 10"
+          v-model="edit.maxParticipants"
           :min="1"
           :max="10"
           label
@@ -271,8 +271,8 @@
         v-model="edit.description"
         :error="hasError('description')"
         :error-message="firstError('description')"
-        :label="$t('CREATEPICKUP.COMMENT')"
-        :hint="$t('CREATEPICKUP.COMMENT_HELPER')"
+        :label="$t('CREATEACTIVITY.COMMENT')"
+        :hint="$t('CREATEACTIVITY.COMMENT_HELPER')"
         type="textarea"
         maxlength="500"
         autogrow
@@ -463,12 +463,12 @@ export default {
     isPending (val) {
       const hasExceptions = () => {
         const { activities } = this.edit
-        return activities.some(({ seriesMeta }) => seriesMeta.isDescriptionChanged || seriesMeta.isMaxCollectorsChanged || !seriesMeta.matchesRule)
+        return activities.some(({ seriesMeta }) => seriesMeta.isDescriptionChanged || seriesMeta.isMaxParticipantsChanged || !seriesMeta.matchesRule)
       }
       if (!val && !this.hasAnyError && hasExceptions()) {
         Dialog.create({
-          title: this.$t('CREATEPICKUP.EXCEPTIONS_TITLE'),
-          message: this.$t('CREATEPICKUP.EXCEPTIONS_MESSAGE', { upcomingLabel: this.$t('PICKUPMANAGE.UPCOMING_PICKUPS_IN_SERIES') }),
+          title: this.$t('CREATEACTIVITY.EXCEPTIONS_TITLE'),
+          message: this.$t('CREATEACTIVITY.EXCEPTIONS_MESSAGE', { upcomingLabel: this.$t('ACTIVITYMANAGE.UPCOMING_ACTIVITIES_IN_SERIES') }),
           ok: this.$t('BUTTON.YES'),
         })
       }
@@ -484,8 +484,8 @@ export default {
     },
     destroy (event) {
       Dialog.create({
-        title: this.$t('PICKUPDELETE.DELETE_SERIES_TITLE'),
-        message: this.$t('PICKUPDELETE.DELETE_SERIES_TEXT'),
+        title: this.$t('ACTIVITYDELETE.DELETE_SERIES_TITLE'),
+        message: this.$t('ACTIVITYDELETE.DELETE_SERIES_TEXT'),
         cancel: this.$t('BUTTON.CANCEL'),
         ok: this.$t('BUTTON.YES'),
       })

@@ -65,7 +65,7 @@ export const makeGroup = data => {
     status: 'active',
     notificationTypes: [
       'weekly_summary',
-      'daily_pickup_notification',
+      'daily_activity_notification',
       'new_application',
     ],
     features: [],
@@ -177,8 +177,8 @@ export const makeActivity = data => {
     dateEnd: addMinutes(new Date(), 30),
     series: null,
     place: null,
-    maxCollectors: 10,
-    collectors: [],
+    maxParticipants: 10,
+    participants: [],
     feedbackGivenBy: [],
     hasStarted: false,
     description: '',
@@ -199,7 +199,7 @@ export const makeActivitySeries = data => {
   return {
     id: activitySeriesIdCnt++,
     place: null,
-    maxCollectors: 10,
+    maxParticipants: 10,
     startDate: new Date(),
     description: '',
     datesPreview: [],

@@ -17,7 +17,7 @@
             >
           </div>
           <div class="image-and-text-right">
-            <h4>{{ $t(editFeedbackId ? 'PICKUP_FEEDBACK.EDIT' : 'PICKUP_FEEDBACK.HEADER') }}</h4>
+            <h4>{{ $t(editFeedbackId ? 'ACTIVITY_FEEDBACK.EDIT' : 'ACTIVITY_FEEDBACK.HEADER') }}</h4>
             <p>
               <QSelect
                 v-if="!editFeedbackId"
@@ -37,13 +37,13 @@
       </RandomArt>
       <div>
         <div
-          v-if="fellowCollectors.length > 0"
+          v-if="fellowParticipants.length > 0"
           class="q-mx-sm q-mt-md"
         >
-          <div v-t="'PICKUP_FEEDBACK.TOGETHER_WITH'" />
+          <div v-t="'ACTIVITY_FEEDBACK.TOGETHER_WITH'" />
           <div class="q-mt-sm">
             <ProfilePicture
-              v-for="user in fellowCollectors"
+              v-for="user in fellowParticipants"
               :key="user.id"
               :user="user"
               :size="35"
@@ -56,7 +56,7 @@
           :status="saveStatus"
           :is-bike-kitchen="isBikeKitchen"
           :is-general-purpose="isGeneralPurpose"
-          :has-multiple-collectors="fellowCollectors.length > 0"
+          :has-multiple-participants="fellowParticipants.length > 0"
           @save="$emit('save', arguments[0])"
         />
       </div>
@@ -65,9 +65,9 @@
       <template #icon>
         <i class="fas fa-bed" />
       </template>
-      {{ $t('FEEDBACKLIST.NO_DONE_PICKUPS') }}
+      {{ $t('FEEDBACKLIST.NO_DONE_ACTIVITIES') }}
       <template #desc>
-        {{ $t('FEEDBACKLIST.NO_DONE_PICKUPS_HINT') }}
+        {{ $t('FEEDBACKLIST.NO_DONE_ACTIVITIES_HINT') }}
       </template>
     </KNotice>
     <QCard
@@ -80,7 +80,7 @@
         type="banner"
       />
       <h4
-        v-t="{ path: 'PICKUP_FEEDBACK.PREVIOUS', args: { store: select.place.name } }"
+        v-t="{ path: 'ACTIVITY_FEEDBACK.PREVIOUS', args: { store: select.place.name } }"
         class="generic-padding"
       />
       <FeedbackList
@@ -200,9 +200,9 @@ export default {
       }
       return filtered
     },
-    fellowCollectors () {
+    fellowParticipants () {
       if (!this.select) return []
-      return this.select.collectors.filter(u => !u.isCurrentUser)
+      return this.select.participants.filter(u => !u.isCurrentUser)
     },
   },
   created () {

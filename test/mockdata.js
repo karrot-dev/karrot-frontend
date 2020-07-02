@@ -60,7 +60,7 @@ export const placeWithoutLocation = convertPlace({ id: 62, name: 'Griesheimer Ma
 function enrichActivity (e) {
   e.date = new Date(e.date)
   e.dateEnd = addSeconds(e.date, 1800)
-  e.collectors = e.collectors.map(i => usersMock.find(u => u.id === i))
+  e.participants = e.participants.map(i => usersMock.find(u => u.id === i))
   e.place = placesMock.find(s => e.place === s.id)
   e.saveStatus = statusMocks.default()
   e.joinStatus = statusMocks.default()
@@ -69,15 +69,15 @@ function enrichActivity (e) {
   return e
 }
 
-export const joinableActivity = enrichActivity({ id: 234, date: '2017-08-12T08:00:00Z', series: 36, place: 61, maxCollectors: 4, collectors: [1, 2, 3], description: 'you can join this activity', isFull: false, isUserMember: false })
-export const leavableActivity = enrichActivity({ id: 235, date: '2017-08-13T08:00:00Z', series: 36, place: 61, maxCollectors: 4, collectors: [1, 2, 5], description: 'you are collector and can leave this activity', isFull: false, isUserMember: true })
-export const fullActivity = enrichActivity({ id: 236, date: '2017-08-14T08:00:00Z', series: 36, place: 61, maxCollectors: 4, collectors: [1, 2, 3, 4], description: 'this activity is already full!', isFull: true, isUserMember: false })
-export const emptyActivity = enrichActivity({ id: 237, date: '2017-08-15T08:00:00Z', series: 36, place: 61, maxCollectors: 4, collectors: [], description: 'this activity is fresh and empty', isFull: false, isUserMember: false, isEmpty: true })
+export const joinableActivity = enrichActivity({ id: 234, date: '2017-08-12T08:00:00Z', series: 36, place: 61, maxParticipants: 4, participants: [1, 2, 3], description: 'you can join this activity', isFull: false, isUserMember: false })
+export const leavableActivity = enrichActivity({ id: 235, date: '2017-08-13T08:00:00Z', series: 36, place: 61, maxParticipants: 4, participants: [1, 2, 5], description: 'you are participant and can leave this activity', isFull: false, isUserMember: true })
+export const fullActivity = enrichActivity({ id: 236, date: '2017-08-14T08:00:00Z', series: 36, place: 61, maxParticipants: 4, participants: [1, 2, 3, 4], description: 'this activity is already full!', isFull: true, isUserMember: false })
+export const emptyActivity = enrichActivity({ id: 237, date: '2017-08-15T08:00:00Z', series: 36, place: 61, maxParticipants: 4, participants: [], description: 'this activity is fresh and empty', isFull: false, isUserMember: false, isEmpty: true })
 
 export const activitiesMock = [joinableActivity, leavableActivity, fullActivity, emptyActivity]
 
 export const activitySeriesMock = [
-  { id: 38, maxCollectors: 2, place: 2, rule: { freq: 'WEEKLY', byDay: ['TH', 'SU'], isCustom: false, rule: 'FREQ=WEEKLY;BYDAY=TH,SU' }, startDate: new Date('2017-09-17T08:00:00.000Z'), description: 'a nice description for the series' },
+  { id: 38, maxParticipants: 2, place: 2, rule: { freq: 'WEEKLY', byDay: ['TH', 'SU'], isCustom: false, rule: 'FREQ=WEEKLY;BYDAY=TH,SU' }, startDate: new Date('2017-09-17T08:00:00.000Z'), description: 'a nice description for the series' },
 ].map(e => ({
   ...e,
   saveStatus: statusMocks.default(),
@@ -113,15 +113,15 @@ export const feedbackMock = [
 })
 
 export const historyMock = [
-  { id: 4155, date: '2017-10-02T09:15:42.484Z', typus: 'PICKUP_JOIN', group: 1, place: 56, users: [1], payload: { description: 'This is default...', place: 56, id: 1037, series: 31, maxCollectors: 4, date: '2017-10-03T17:00:00.000Z', collectors: [1] } },
-  { id: 4154, date: '2017-10-02T09:15:19.072Z', typus: 'PICKUP_LEAVE', group: 1, place: 56, users: [2], payload: { description: '', place: 56, id: 1044, series: 30, maxCollectors: 4, date: '2017-10-05T08:00:00.000Z', collectors: [] } },
-  { id: 4153, date: '2017-10-02T09:15:16.568Z', typus: 'PICKUP_JOIN', group: 1, place: 56, users: [3], payload: { description: '', place: 56, id: 1044, series: 30, maxCollectors: 4, date: '2017-10-05T08:00:00.000Z', collectors: [3] } },
-  { id: 4152, date: '2017-10-02T09:12:33.954Z', typus: 'PICKUP_LEAVE', group: 1, place: 56, users: [4], payload: { description: '', place: 56, id: 1044, series: 30, maxCollectors: 4, date: '2017-10-05T08:00:00.000Z', collectors: [] } },
-  { id: 4151, date: '2017-10-02T09:12:30.903Z', typus: 'PICKUP_JOIN', group: 1, place: 56, users: [5], payload: { description: '', place: 56, id: 1044, series: 30, maxCollectors: 4, date: '2017-10-05T08:00:00.000Z', collectors: [5] } },
-  { id: 4149, date: '2017-10-02T08:00:00.000Z', typus: 'PICKUP_MISSED', group: 1, place: 56, users: [], payload: { series: 30, activityDate: 1032, maxCollectors: 4 } },
-  { id: 4147, date: '2017-10-01T16:28:04.960Z', typus: 'PICKUP_DONE', group: 1, place: 56, users: [1, 2, 3, 4], payload: { description: '', place: 56, id: 1044, series: 30, maxCollectors: 4, date: '2017-10-05T08:00:00.000Z', collectors: [1, 2, 3, 4] } },
-  { id: 4146, date: '2017-10-01T16:28:02.494Z', typus: 'PICKUP_LEAVE', group: 1, place: 56, users: [1], payload: { description: '', place: 56, id: 1032, series: 30, maxCollectors: 4, date: '2017-10-02T08:00:00.000Z', collectors: [] } },
-  { id: 4145, date: '2017-10-01T16:27:57.393Z', typus: 'PICKUP_JOIN', group: 1, place: 56, users: [2], payload: { description: '', place: 56, id: 1044, series: 30, maxCollectors: 4, date: '2017-10-05T08:00:00.000Z', collectors: [22] } },
+  { id: 4155, date: '2017-10-02T09:15:42.484Z', typus: 'ACTIVITY_JOIN', group: 1, place: 56, users: [1], payload: { description: 'This is default...', place: 56, id: 1037, series: 31, maxParticipants: 4, date: '2017-10-03T17:00:00.000Z', participants: [1] } },
+  { id: 4154, date: '2017-10-02T09:15:19.072Z', typus: 'ACTIVITY_LEAVE', group: 1, place: 56, users: [2], payload: { description: '', place: 56, id: 1044, series: 30, maxParticipants: 4, date: '2017-10-05T08:00:00.000Z', participants: [] } },
+  { id: 4153, date: '2017-10-02T09:15:16.568Z', typus: 'ACTIVITY_JOIN', group: 1, place: 56, users: [3], payload: { description: '', place: 56, id: 1044, series: 30, maxParticipants: 4, date: '2017-10-05T08:00:00.000Z', participants: [3] } },
+  { id: 4152, date: '2017-10-02T09:12:33.954Z', typus: 'ACTIVITY_LEAVE', group: 1, place: 56, users: [4], payload: { description: '', place: 56, id: 1044, series: 30, maxParticipants: 4, date: '2017-10-05T08:00:00.000Z', participants: [] } },
+  { id: 4151, date: '2017-10-02T09:12:30.903Z', typus: 'ACTIVITY_JOIN', group: 1, place: 56, users: [5], payload: { description: '', place: 56, id: 1044, series: 30, maxParticipants: 4, date: '2017-10-05T08:00:00.000Z', participants: [5] } },
+  { id: 4149, date: '2017-10-02T08:00:00.000Z', typus: 'ACTIVITY_MISSED', group: 1, place: 56, users: [], payload: { series: 30, activityDate: 1032, maxParticipants: 4 } },
+  { id: 4147, date: '2017-10-01T16:28:04.960Z', typus: 'ACTIVITY_DONE', group: 1, place: 56, users: [1, 2, 3, 4], payload: { description: '', place: 56, id: 1044, series: 30, maxParticipants: 4, date: '2017-10-05T08:00:00.000Z', participants: [1, 2, 3, 4] } },
+  { id: 4146, date: '2017-10-01T16:28:02.494Z', typus: 'ACTIVITY_LEAVE', group: 1, place: 56, users: [1], payload: { description: '', place: 56, id: 1032, series: 30, maxParticipants: 4, date: '2017-10-02T08:00:00.000Z', participants: [] } },
+  { id: 4145, date: '2017-10-01T16:27:57.393Z', typus: 'ACTIVITY_JOIN', group: 1, place: 56, users: [2], payload: { description: '', place: 56, id: 1044, series: 30, maxParticipants: 4, date: '2017-10-05T08:00:00.000Z', participants: [22] } },
 ].map(e => {
   e.date = new Date(e.date)
   e.users = e.users.map(i => usersMock.find(u => u.id === i))

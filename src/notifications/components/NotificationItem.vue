@@ -97,8 +97,8 @@ export default {
       return this.context.group && this.context.group.name
     },
     placeName () {
-      if (!this.context || !this.context.pickup || !this.context.pickup.place) return ''
-      return this.context.pickup.place.name
+      if (!this.context || !this.context.activity || !this.context.activity.place) return ''
+      return this.context.activity.place.name
     },
     message () {
       if (!this.config) return

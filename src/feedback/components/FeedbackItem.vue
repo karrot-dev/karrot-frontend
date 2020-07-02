@@ -99,8 +99,8 @@ export default {
   },
   computed: {
     membersWithoutGiver () {
-      const { activity: { collectors = [] } = {} } = this.feedback
-      return collectors.filter((el) => {
+      const { activity: { participants = [] } = {} } = this.feedback
+      return participants.filter((el) => {
         return el.id !== this.feedback.givenBy.id
       })
     },

@@ -69,7 +69,7 @@ const notifications = [
     type: 'feedback_possible',
     context: {
       group,
-      pickup: factories.makeActivity({
+      activity: factories.makeActivity({
         place,
       }),
     },
@@ -97,42 +97,42 @@ const notifications = [
     },
   },
   {
-    type: 'pickup_upcoming',
+    type: 'activity_upcoming',
     expiresAt: addHours(new Date(), 2),
     context: {
       group,
       place,
-      pickup: factories.makeActivity({
+      activity: factories.makeActivity({
         place,
       }),
     },
   },
   {
-    type: 'pickup_disabled',
+    type: 'activity_disabled',
     context: {
       group,
       place,
-      pickup: factories.makeActivity({
+      activity: factories.makeActivity({
         place,
       }),
     },
   },
   {
-    type: 'pickup_enabled',
+    type: 'activity_enabled',
     context: {
       group,
       place,
-      pickup: factories.makeActivity({
+      activity: factories.makeActivity({
         place,
       }),
     },
   },
   {
-    type: 'pickup_moved',
+    type: 'activity_moved',
     context: {
       group,
       place,
-      pickup: factories.makeActivity({
+      activity: factories.makeActivity({
         place,
       }),
     },

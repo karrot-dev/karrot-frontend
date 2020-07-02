@@ -8,7 +8,7 @@
         v-if="edit.isDisabled"
         class="text-negative"
       >
-        {{ $t('PICKUPLIST.PICKUP_DISABLED') }}
+        {{ $t('ACTIVITYLIST.ACTIVITY_DISABLED') }}
       </b>
     </div>
 
@@ -140,7 +140,7 @@
             <div
               v-else
             >
-              {{ $t('CREATEPICKUP.TIME_HELPER') }}
+              {{ $t('CREATEACTIVITY.TIME_HELPER') }}
             </div>
           </div>
         </div>
@@ -148,22 +148,22 @@
 
       <div>
         <QInput
-          v-model.number="edit.maxCollectors"
+          v-model.number="edit.maxParticipants"
           type="number"
           stack-label
-          :label="$t('CREATEPICKUP.MAX_COLLECTORS')"
-          :hint="$t('CREATEPICKUP.MAX_COLLECTORS_HELPER')"
-          :placeholder="$t('CREATEPICKUP.UNLIMITED')"
-          :error="hasError('maxCollectors')"
-          :error-message="firstError('maxCollectors')"
+          :label="$t('CREATEACTIVITY.MAX_PARTICIPANTS')"
+          :hint="$t('CREATEACTIVITY.MAX_PARTICIPANTS_HELPER')"
+          :placeholder="$t('CREATEACTIVITY.UNLIMITED')"
+          :error="hasError('maxParticipants')"
+          :error-message="firstError('maxParticipants')"
           input-style="max-width: 100px"
         >
           <template #before>
             <QIcon name="group" />
           </template>
           <QSlider
-            v-if="edit.maxCollectors > 0 && edit.maxCollectors <= 10"
-            v-model="edit.maxCollectors"
+            v-if="edit.maxParticipants > 0 && edit.maxParticipants <= 10"
+            v-model="edit.maxParticipants"
             :min="1"
             :max="10"
             label
@@ -173,18 +173,18 @@
           />
           <template #after>
             <QIcon
-              v-if="series ? series.maxCollectors !== edit.maxCollectors : false"
+              v-if="series ? series.maxParticipants !== edit.maxParticipants : false"
               name="undo"
-              @click="edit.maxCollectors = series.maxCollectors"
+              @click="edit.maxParticipants = series.maxParticipants"
             />
           </template>
         </QInput>
         <div
-          v-if="seriesMeta.isMaxCollectorsChanged"
+          v-if="seriesMeta.isMaxParticipantsChanged"
           class="q-ml-lg col-12 q-field__bottom text-warning"
         >
           <QIcon name="warning" />
-          {{ $t('CREATEPICKUP.DIFFERS_WARNING') }}
+          {{ $t('CREATEACTIVITY.DIFFERS_WARNING') }}
         </div>
       </div>
 
@@ -193,8 +193,8 @@
           v-model="edit.description"
           :error="hasError('description')"
           :error-message="firstError('description')"
-          :label="$t('CREATEPICKUP.COMMENT')"
-          :hint="$t('CREATEPICKUP.COMMENT_HELPER')"
+          :label="$t('CREATEACTIVITY.COMMENT')"
+          :hint="$t('CREATEACTIVITY.COMMENT_HELPER')"
           type="textarea"
           maxlength="500"
           autogrow
@@ -216,7 +216,7 @@
           class="q-ml-lg col-12 q-field__bottom text-warning"
         >
           <QIcon name="warning" />
-          {{ $t('CREATEPICKUP.DIFFERS_WARNING') }}
+          {{ $t('CREATEACTIVITY.DIFFERS_WARNING') }}
         </div>
       </div>
 
@@ -430,8 +430,8 @@ export default {
     disable () {
       try {
         Dialog.create({
-          title: this.$t('CREATEPICKUP.DISABLE_TITLE'),
-          message: this.$t('CREATEPICKUP.ENABLE_DISABLE_MESSAGE'),
+          title: this.$t('CREATEACTIVITY.DISABLE_TITLE'),
+          message: this.$t('CREATEACTIVITY.ENABLE_DISABLE_MESSAGE'),
           prompt: {
             model: this.edit.description,
             type: 'text',
@@ -451,8 +451,8 @@ export default {
     enable () {
       try {
         Dialog.create({
-          title: this.$t('CREATEPICKUP.ENABLE_TITLE'),
-          message: this.$t('CREATEPICKUP.ENABLE_DISABLE_MESSAGE'),
+          title: this.$t('CREATEACTIVITY.ENABLE_TITLE'),
+          message: this.$t('CREATEACTIVITY.ENABLE_DISABLE_MESSAGE'),
           prompt: {
             // reset if there's a series default
             model: this.series ? this.series.description : this.edit.description,

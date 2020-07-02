@@ -140,7 +140,7 @@ export default {
           color: 'secondary',
         },
       }, {
-        label: this.$t('GROUP.PICKUPS'),
+        label: this.$t('GROUP.ACTIVITIES'),
         icon: this.$icon('activity'),
         to: { name: 'groupActivities', params: { groupId: this.groupId } },
       }, {
@@ -149,14 +149,14 @@ export default {
         icon: this.$icon('offer'),
         to: { name: 'groupOffers', params: { groupId: this.groupId } },
       }, {
-        label: this.$t('PICKUP_FEEDBACK.TITLE'),
+        label: this.$t('ACTIVITY_FEEDBACK.TITLE'),
         icon: this.$icon('feedback'),
         to: { name: 'groupFeedback', params: { groupId: this.groupId } },
         badge: {
           condition: this.feedbackPossibleCount > 0,
           label: this.feedbackPossibleCount,
           color: 'info',
-          title: this.$tc('PICKUPLIST.AVAILABLE_FEEDBACK', this.feedbackPossibleCount, { count: this.feedbackPossibleCount }),
+          title: this.$tc('ACTIVITYLIST.AVAILABLE_FEEDBACK', this.feedbackPossibleCount, { count: this.feedbackPossibleCount }),
         },
       }, {
         label: this.$t('GROUP.MEMBERS'),

@@ -14,9 +14,9 @@
         <template #icon>
           <i class="fas fa-bed" />
         </template>
-        {{ $t('PICKUPLIST.NONE') }}
+        {{ $t('ACTIVITYLIST.NONE') }}
         <template #desc>
-          {{ $t('PICKUPLIST.NONE_HINT') }}
+          {{ $t('ACTIVITYLIST.NONE_HINT') }}
         </template>
       </KNotice>
       <QCard>

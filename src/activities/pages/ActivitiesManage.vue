@@ -6,7 +6,7 @@
           <i
             class="fas fa-redo on-left"
           />
-          {{ $t('PICKUPMANAGE.SERIES') }}
+          {{ $t('ACTIVITYMANAGE.SERIES') }}
         </div>
         <QBtn
           v-if="!newSeries"
@@ -54,7 +54,7 @@
             <QItemLabel
               header
             >
-              <span v-t="'PICKUPMANAGE.UPCOMING_PICKUPS_IN_SERIES'" />
+              <span v-t="'ACTIVITYMANAGE.UPCOMING_ACTIVITIES_IN_SERIES'" />
             </QItemLabel>
             <QExpansionItem
               v-for="activity in series.activities"
@@ -72,7 +72,7 @@
                 <QItemSection>
                   <QItemLabel
                     :tag="activity.isDisabled ? 's' : 'div'"
-                    :title="activity.isDisabled ? $t('PICKUPLIST.PICKUP_DISABLED') : null"
+                    :title="activity.isDisabled ? $t('ACTIVITYLIST.ACTIVITY_DISABLED') : null"
                   >
                     {{ $d(activity.date, 'yearMonthDay') }}
                     <template v-if="!series.isSameWeekday">
@@ -92,21 +92,21 @@
                     class="text-warning"
                     name="access_time"
                     size="150%"
-                    :title="$t('PICKUPMANAGE.PICKUP_DOES_NOT_MATCH')"
+                    :title="$t('ACTIVITYMANAGE.ACTIVITY_DOES_NOT_MATCH')"
                   />
                   <QIcon
                     v-if="activity.seriesMeta.isDescriptionChanged"
                     class="text-warning"
                     name="info"
                     size="150%"
-                    :title="$t('PICKUPMANAGE.PICKUP_DESCRIPTION_CHANGED')"
+                    :title="$t('ACTIVITYMANAGE.ACTIVITY_DESCRIPTION_CHANGED')"
                   />
                   <QIcon
-                    v-if="activity.seriesMeta.isMaxCollectorsChanged"
+                    v-if="activity.seriesMeta.isMaxParticipantsChanged"
                     class="text-warning"
                     name="group"
                     size="150%"
-                    :title="$t('PICKUPMANAGE.PICKUP_MAX_COLLECTORS_CHANGED')"
+                    :title="$t('ACTIVITYMANAGE.ACTIVITY_MAX_PARTICIPANTS_CHANGED')"
                   />
                 </QItemSection>
               </template>
@@ -136,7 +136,7 @@
             class="on-left"
             :class="$icon('activity')"
           />
-          {{ $t('PICKUPMANAGE.SINGLE') }}
+          {{ $t('ACTIVITYMANAGE.SINGLE') }}
         </div>
         <QBtn
           v-if="!newActivity"
@@ -177,7 +177,7 @@
             <QItemSection>
               <QItemLabel
                 :tag="activity.isDisabled ? 's' : 'div'"
-                :title="activity.isDisabled ? $t('PICKUPLIST.PICKUP_DISABLED') : null"
+                :title="activity.isDisabled ? $t('ACTIVITYLIST.ACTIVITY_DISABLED') : null"
               >
                 {{ $d(activity.date, 'dateWithDayName') }}
               </QItemLabel>
@@ -276,7 +276,7 @@ export default {
     },
     seriesLabel (series) {
       if (series.rule.isCustom) {
-        const label = i18n.t('CREATEPICKUP.CUSTOM')
+        const label = i18n.t('CREATEACTIVITY.CUSTOM')
         return `${label} (${series.rule.custom})`
       }
       return series.rule.byDay.slice().sort(sortByDay).map(dayNameForKey).join(', ')
@@ -300,7 +300,7 @@ export default {
     }),
     createNewSeries () {
       this.newSeries = {
-        maxCollectors: 2,
+        maxParticipants: 2,
         description: '',
         startDate: addHours(startOfTomorrow(), 10),
         duration: null,
@@ -324,7 +324,7 @@ export default {
     createNewActivity () {
       const date = addHours(startOfTomorrow(), 10) // default to 10am tomorrow
       this.newActivity = {
-        maxCollectors: 2,
+        maxParticipants: 2,
         description: '',
         date,
         dateEnd: addSeconds(date, defaultDuration),

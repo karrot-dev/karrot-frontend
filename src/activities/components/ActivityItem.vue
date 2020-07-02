@@ -31,13 +31,13 @@
           v-if="activity.isDisabled"
           class="q-my-xs"
         >
-          <b class="text-negative">{{ $t('PICKUPLIST.PICKUP_DISABLED') }}</b>
+          <b class="text-negative">{{ $t('ACTIVITYLIST.ACTIVITY_DISABLED') }}</b>
         </div>
         <div
           v-if="activity.hasStarted"
           class="q-my-xs"
         >
-          <b class="text-orange">{{ $t('PICKUPLIST.PICKUP_STARTED') }}</b>
+          <b class="text-orange">{{ $t('ACTIVITYLIST.ACTIVITY_STARTED') }}</b>
         </div>
         <!-- eslint-disable vue/multiline-html-element-content-newline -->
         <div
@@ -86,8 +86,8 @@ export default {
   methods: {
     join () {
       Dialog.create({
-        title: this.$t('PICKUPLIST.ITEM.JOIN_CONFIRMATION_HEADER'),
-        message: this.$t('PICKUPLIST.ITEM.JOIN_CONFIRMATION_TEXT', { date: this.$d(this.activity.date, 'long') }),
+        title: this.$t('ACTIVITYLIST.ITEM.JOIN_CONFIRMATION_HEADER'),
+        message: this.$t('ACTIVITYLIST.ITEM.JOIN_CONFIRMATION_TEXT', { date: this.$d(this.activity.date, 'long') }),
         ok: this.$t('BUTTON.OF_COURSE'),
         cancel: this.$t('BUTTON.CANCEL'),
       })
@@ -96,8 +96,8 @@ export default {
     leave () {
       if (!this.activity.hasStarted) {
         Dialog.create({
-          title: this.$t('PICKUPLIST.ITEM.LEAVE_CONFIRMATION_HEADER'),
-          message: this.$t('PICKUPLIST.ITEM.LEAVE_CONFIRMATION_TEXT'),
+          title: this.$t('ACTIVITYLIST.ITEM.LEAVE_CONFIRMATION_HEADER'),
+          message: this.$t('ACTIVITYLIST.ITEM.LEAVE_CONFIRMATION_TEXT'),
           ok: this.$t('BUTTON.YES'),
           cancel: this.$t('BUTTON.CANCEL'),
         })

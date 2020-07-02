@@ -18,13 +18,13 @@
       <template #icon>
         <i class="fas fa-bed" />
       </template>
-      {{ $t('PICKUPLIST.NONE') }}
+      {{ $t('ACTIVITYLIST.NONE') }}
       <RouterLink
         v-if="isEditor"
         #desc
         :to="{name: 'placeActivitiesManage', params: { placeId }}"
       >
-        {{ $t('PICKUPLIST.STORE_NONE_HINT') }}
+        {{ $t('ACTIVITYLIST.STORE_NONE_HINT') }}
       </RouterLink>
     </KNotice>
     <ActivityList

@@ -13,7 +13,7 @@
         <div>
           <span
             v-if="!$q.platform.is.mobile"
-            v-t="'GROUP.PICKUP'"
+            v-t="'GROUP.ACTIVITY'"
           >&nbsp;</span>
           <strong>
             {{ $d(activity.date, 'weekdayHourMinute') }}
@@ -191,7 +191,7 @@ export default {
     },
     participants () {
       if (this.activity) {
-        return this.activity.collectors
+        return this.activity.participants
       }
       if (this.conversation.thread && this.conversation.threadMeta) {
         return this.conversation.threadMeta.participants

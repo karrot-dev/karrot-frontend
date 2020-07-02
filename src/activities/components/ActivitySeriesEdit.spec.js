@@ -36,7 +36,7 @@ describe('ActivitySeriesEdit', () => {
 
   it('can reset to initial state', () => {
     wrapper.vm.edit.description = 'changed'
-    wrapper.vm.edit.maxCollectors++
+    wrapper.vm.edit.maxParticipants++
     wrapper.vm.reset()
     expect(wrapper.vm.edit).toEqual(series)
   })
@@ -49,15 +49,15 @@ describe('ActivitySeriesEdit', () => {
 
   it('detects if you have changed something', async () => {
     expect(wrapper.vm.hasChanged).toBe(false)
-    wrapper.vm.edit.maxCollectors++
+    wrapper.vm.edit.maxParticipants++
     expect(wrapper.vm.hasChanged).toBe(true)
     await Vue.nextTick()
     expect(wrapper.classes()).toContain('changed')
   })
 
   it('emits a save event with a diff of changes', () => {
-    wrapper.vm.edit.maxCollectors++
+    wrapper.vm.edit.maxParticipants++
     wrapper.vm.save()
-    expect(wrapper.emitted().save[0][0]).toEqual({ id: series.id, maxCollectors: series.maxCollectors + 1 })
+    expect(wrapper.emitted().save[0][0]).toEqual({ id: series.id, maxParticipants: series.maxParticipants + 1 })
   })
 })

@@ -55,9 +55,9 @@ storiesOf('ActivityUsers', module)
       props: {
         activity: {
           ...leavableActivity,
-          collectors: [
-            leavableActivity.collectors.find(c => c.isCurrentUser),
-            ...leavableActivity.collectors.filter(c => !c.isCurrentUser),
+          participants: [
+            leavableActivity.participants.find(c => c.isCurrentUser),
+            ...leavableActivity.participants.filter(c => !c.isCurrentUser),
           ],
         },
       },
@@ -72,10 +72,10 @@ storiesOf('ActivityUsers', module)
       props: {
         activity: {
           ...leavableActivity,
-          collectors: [
-            leavableActivity.collectors[0],
-            leavableActivity.collectors.find(c => c.isCurrentUser),
-            leavableActivity.collectors[1],
+          participants: [
+            leavableActivity.participants[0],
+            leavableActivity.participants.find(c => c.isCurrentUser),
+            leavableActivity.participants[1],
           ],
         },
       },
@@ -90,10 +90,10 @@ storiesOf('ActivityUsers', module)
       props: {
         activity: {
           ...leavableActivity,
-          collectors: [
-            leavableActivity.collectors[0],
-            leavableActivity.collectors.find(c => c.isCurrentUser),
-            leavableActivity.collectors[1],
+          participants: [
+            leavableActivity.participants[0],
+            leavableActivity.participants.find(c => c.isCurrentUser),
+            leavableActivity.participants[1],
           ],
           leaveStatus: statusMocks.pending(),
         },

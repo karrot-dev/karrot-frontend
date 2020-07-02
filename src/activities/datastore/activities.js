@@ -24,12 +24,12 @@ export default {
       const group = place && place.group
       return {
         ...activity,
-        isUserMember: activity.collectors.includes(userId),
-        isEmpty: activity.collectors.length === 0,
-        isFull: activity.maxCollectors > 0 && activity.collectors.length >= activity.maxCollectors,
+        isUserMember: activity.participants.includes(userId),
+        isEmpty: activity.participants.length === 0,
+        isFull: activity.maxParticipants > 0 && activity.participants.length >= activity.maxParticipants,
         place,
         group,
-        collectors: activity.collectors.map(rootGetters['users/get']),
+        participants: activity.participants.map(rootGetters['users/get']),
         feedbackGivenBy: activity.feedbackGivenBy ? activity.feedbackGivenBy.map(rootGetters['users/get']) : [],
         hasStarted: activity.date <= reactiveNow.value && activity.dateEnd > reactiveNow.value,
         ...metaStatusesWithId(getters, ['save', 'join', 'leave'], activity.id),

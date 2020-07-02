@@ -210,16 +210,16 @@ function receiveMessage ({ topic, payload }) {
   else if (topic === 'places:place') {
     datastore.dispatch('places/update', [camelizeKeys(payload)])
   }
-  else if (topic === 'pickups:pickupdate') {
+  else if (topic === 'activities:activity') {
     datastore.commit('activities/update', [convertActivity(camelizeKeys(payload))])
   }
-  else if (topic === 'pickups:pickupdate_deleted') {
+  else if (topic === 'activities:activity_deleted') {
     datastore.commit('activities/delete', convertActivity(camelizeKeys(payload)).id)
   }
-  else if (topic === 'pickups:series') {
+  else if (topic === 'activities:series') {
     datastore.commit('activitySeries/update', [convertSeries(camelizeKeys(payload))])
   }
-  else if (topic === 'pickups:series_deleted') {
+  else if (topic === 'activities:series_deleted') {
     datastore.commit('activitySeries/delete', convertSeries(camelizeKeys(payload)).id)
   }
   else if (topic === 'offers:offer') {

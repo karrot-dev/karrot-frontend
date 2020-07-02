@@ -51,7 +51,7 @@ import {
   QInfiniteScroll,
 } from 'quasar'
 
-const NUM_PICKUPS_PER_LOAD = 25
+const NUM_ACTIVITIES_PER_LOAD = 25
 
 export default {
   components: {
@@ -85,22 +85,22 @@ export default {
   },
   data () {
     return {
-      numDisplayed: NUM_PICKUPS_PER_LOAD,
+      numDisplayed: NUM_ACTIVITIES_PER_LOAD,
     }
   },
   computed: {
     slotsOptions () {
       return [
         {
-          label: this.$t('PICKUPLIST.FILTER.ALL'),
+          label: this.$t('ACTIVITYLIST.FILTER.ALL'),
           value: 'all',
         },
         {
-          label: this.$t('PICKUPLIST.FILTER.FREE'),
+          label: this.$t('ACTIVITYLIST.FILTER.FREE'),
           value: 'free',
         },
         {
-          label: this.$t('PICKUPLIST.FILTER.EMPTY'),
+          label: this.$t('ACTIVITYLIST.FILTER.EMPTY'),
           value: 'empty',
         },
       ]
@@ -131,7 +131,7 @@ export default {
   },
   methods: {
     async displayMoreActivities (index, done) {
-      this.numDisplayed += NUM_PICKUPS_PER_LOAD
+      this.numDisplayed += NUM_ACTIVITIES_PER_LOAD
       await this.$nextTick()
       done()
     },

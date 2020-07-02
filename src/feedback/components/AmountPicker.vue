@@ -10,7 +10,7 @@
       color="primary"
       @click="$emit('input', 0)"
     >
-      {{ $t('PICKUP_FEEDBACK.SET_AMOUNT') }}
+      {{ $t('ACTIVITY_FEEDBACK.SET_AMOUNT') }}
     </QBtn>
     <div class="content">
       <div class="row no-wrap">
@@ -23,7 +23,7 @@
           class="col"
         >
           <div
-            v-t="'PICKUP_FEEDBACK.AMOUNT'"
+            v-t="'ACTIVITY_FEEDBACK.AMOUNT'"
             class="q-pb-sm"
           />
           <AmountViewer
@@ -37,7 +37,7 @@
           flat
           color="red"
           class="self-start"
-          :title="$t('PICKUP_FEEDBACK.DELETE_AMOUNT')"
+          :title="$t('ACTIVITY_FEEDBACK.DELETE_AMOUNT')"
           @click="$emit('input', null)"
         >
           <QIcon name="fas fa-times" />

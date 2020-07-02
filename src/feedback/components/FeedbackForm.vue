@@ -5,7 +5,7 @@
     <MarkdownInput
       v-model="edit.comment"
       class="q-mx-sm"
-      :label="$t('PICKUP_FEEDBACK.COMMENT_PLACEHOLDER')"
+      :label="$t('ACTIVITY_FEEDBACK.COMMENT_PLACEHOLDER')"
       @keyup.ctrl.enter="maybeSave"
     />
 
@@ -17,7 +17,7 @@
     />
 
     <div
-      v-if="!isBikeKitchen && !isGeneralPurpose && hasMultipleCollectors"
+      v-if="!isBikeKitchen && !isGeneralPurpose && hasMultipleParticipants"
       class="row no-wrap items-center q-mx-sm text-caption"
     >
       <QIcon
@@ -25,7 +25,7 @@
         size="1.5em"
         class="q-mr-sm text-grey"
       />
-      <div v-t="'PICKUP_FEEDBACK.AMOUNT_INFO'" />
+      <div v-t="'ACTIVITY_FEEDBACK.AMOUNT_INFO'" />
     </div>
 
     <div
@@ -85,7 +85,7 @@ export default {
       type: Boolean,
       default: false,
     },
-    hasMultipleCollectors: {
+    hasMultipleParticipants: {
       type: Boolean,
       default: false,
     },

@@ -8,7 +8,7 @@
         @click="showActivities = !showActivities"
       >
         <i class="fas fa-star on-left" />
-        {{ $tc('PICKUPLIST.AVAILABLE', activities.length, { count: activities.length }) }}
+        {{ $tc('ACTIVITYLIST.AVAILABLE', activities.length, { count: activities.length }) }}
         <div
           class="card-arrow"
           :class="{ upsideDown: showActivities }"
@@ -21,7 +21,7 @@
           class="q-px-md q-py-sm bg-grey-2 text-caption"
         >
           <i class="fas fa-info-circle on-left" />
-          {{ $t('PICKUPLIST.AVAILABLE_FROM_STORES') }}
+          {{ $t('ACTIVITYLIST.AVAILABLE_FROM_STORES') }}
         </div>
       </template>
     </QCard>

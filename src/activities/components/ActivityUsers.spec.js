@@ -28,15 +28,15 @@ describe('ActivityUsers', () => {
     expect(wrapper.vm.canJoin).toBe(true)
   })
 
-  it('shows more collectors than slots', () => {
-    activity.collectors = [
+  it('shows more participants than slots', () => {
+    activity.participants = [
       makeUser(),
       makeUser(),
       makeUser(),
       makeUser(),
       makeUser(),
     ]
-    activity.maxCollectors = 4
+    activity.maxParticipants = 4
     wrapper = mountWithDefaults(ActivityUsers, {
       propsData: {
         activity,

@@ -20,7 +20,7 @@ export default {
     },
     activity: (state, getters, rootState, rootGetters) => {
       const { type, id } = state.scope
-      if (type !== 'pickup') return
+      if (type !== 'activity') return
       return rootGetters['activities/get'](id)
     },
     user: (state, getters, rootState, rootGetters) => {
@@ -35,7 +35,7 @@ export default {
     },
     conversation: (state, getters, rootState, rootGetters) => {
       const { type, id } = state.scope
-      if (type === 'pickup') {
+      if (type === 'activity') {
         return rootGetters['conversations/getForActivity'](id)
       }
       if (type === 'user') {
@@ -159,7 +159,7 @@ export default {
     },
     clear ({ dispatch, state, commit }) {
       const { type, id } = state.scope
-      if (type === 'pickup') {
+      if (type === 'activity') {
         dispatch('conversations/clearForActivity', { activityId: id }, { root: true })
       }
       else if (type === 'user') {
@@ -176,7 +176,7 @@ export default {
   },
   mutations: {
     setActivityId (state, activityId) {
-      state.scope = { type: 'pickup', id: activityId }
+      state.scope = { type: 'activity', id: activityId }
     },
     setUserId (state, userId) {
       state.scope = { type: 'user', id: userId }

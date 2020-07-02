@@ -8,7 +8,7 @@
     <div
       v-if="hoverUser && showJoin"
       :class="{ hoverShow: showJoin }"
-      :title="$t('PICKUPLIST.ITEM.JOIN')"
+      :title="$t('ACTIVITYLIST.ITEM.JOIN')"
     >
       <ProfilePicture
         :user="hoverUser"

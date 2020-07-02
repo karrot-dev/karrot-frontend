@@ -61,7 +61,7 @@ storiesOf('Feedback', module)
       props: {
         activities: activitiesMock.map(activity => ({
           ...activity,
-          collectors: activity.collectors.map(user => ({
+          participants: activity.participants.map(user => ({
             ...user,
             membership: {
               isEditor: true,

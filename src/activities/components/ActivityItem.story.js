@@ -9,24 +9,24 @@ const range = n => [...Array(n).keys()]
 
 const user = factories.makeCurrentUser()
 const joinableActivity = factories.makeActivity({
-  maxCollectors: 4,
-  collectors: range(3).map(factories.makeUser),
+  maxParticipants: 4,
+  participants: range(3).map(factories.makeUser),
   isUserMember: false,
   isFull: false,
   isEmpty: false,
   description: 'You can join this activity.',
 })
 const fullActivity = factories.makeActivity({
-  maxCollectors: 4,
-  collectors: range(4).map(factories.makeUser),
+  maxParticipants: 4,
+  participants: range(4).map(factories.makeUser),
   isUserMember: false,
   isFull: true,
   isEmpty: false,
   description: 'This activity is already full.',
 })
 const leavableActivity = factories.makeActivity({
-  maxCollectors: 4,
-  collectors: [
+  maxParticipants: 4,
+  participants: [
     ...range(2).map(factories.makeUser),
     user,
   ],

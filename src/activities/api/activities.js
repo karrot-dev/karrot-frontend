@@ -4,16 +4,16 @@ import { convert as convertConversation } from '@/messages/api/conversations'
 export default {
 
   async create (activity) {
-    return convert((await axios.post('/api/pickup-dates/', convertDateToRange(activity))).data)
+    return convert((await axios.post('/api/activities/', convertDateToRange(activity))).data)
   },
 
   async get (activityId) {
-    return convert((await axios.get(`/api/pickup-dates/${activityId}/`)).data)
+    return convert((await axios.get(`/api/activities/${activityId}/`)).data)
   },
 
   async list (filter) {
     const params = filter || { date_min: new Date() }
-    const response = (await axios.get('/api/pickup-dates/', { params })).data
+    const response = (await axios.get('/api/activities/', { params })).data
     return {
       ...response,
       next: parseCursor(response.next),
@@ -38,19 +38,19 @@ export default {
   },
 
   async save (activity) {
-    return convert((await axios.patch(`/api/pickup-dates/${activity.id}/`, convertDateToRange(activity))).data)
+    return convert((await axios.patch(`/api/activities/${activity.id}/`, convertDateToRange(activity))).data)
   },
 
   async join (activityId) {
-    return convert((await axios.post(`/api/pickup-dates/${activityId}/add/`, {})).data)
+    return convert((await axios.post(`/api/activities/${activityId}/add/`, {})).data)
   },
 
   async leave (activityId) {
-    return convert((await axios.post(`/api/pickup-dates/${activityId}/remove/`, {})).data)
+    return convert((await axios.post(`/api/activities/${activityId}/remove/`, {})).data)
   },
 
   async conversation (activityId) {
-    return convertConversation((await axios.get(`/api/pickup-dates/${activityId}/conversation/`)).data)
+    return convertConversation((await axios.get(`/api/activities/${activityId}/conversation/`)).data)
   },
 
 }

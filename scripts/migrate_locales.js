@@ -2,11 +2,9 @@
 
 // configuration: a function for how you want the keys to be renamed
 function renameKey (key) {
-  if (/pickup/i.test(key)) {
+  if (/COLLECTOR/.test(key)) {
     return key
-      .replace(/PICKUPS/g, 'ACTIVITIES')
-      .replace(/PICKUP/g, 'ACTIVITY')
-      .replace(/pickup/g, 'activity')
+      .replace(/COLLECTOR/g, 'PARTICIPANT')
   }
   return key
 }

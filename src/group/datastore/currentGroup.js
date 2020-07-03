@@ -107,6 +107,13 @@ export default {
         else {
           await groups.removeNotificationType(getters.id, notificationType)
         }
+        dispatch('toasts/show', {
+          message: 'NOTIFICATIONS.CHANGES_SAVED',
+          config: {
+            timeout: 2000,
+            icon: 'thumb_up',
+          },
+        }, { root: true })
       },
     }, {
       findId: ({ notificationType }) => notificationType,

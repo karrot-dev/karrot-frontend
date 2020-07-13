@@ -22,6 +22,7 @@ Please document your changes in this format:
 
 ## [Unreleased]
 ### Fixed
+- Add max height to message input to prevent send button becoming hidden @nicksellen
 - Users couldn't withdraw applications to archived groups @tiltec
 
 ## [8.5.2] - 2020-06-01

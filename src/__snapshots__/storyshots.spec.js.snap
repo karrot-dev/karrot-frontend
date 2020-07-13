@@ -4140,11 +4140,11 @@ exports[`Storyshots Detail activity 1`] = `
               <!---->
             </div>
           </div>
-          <div class="q-item q-item-type row no-wrap q-pb-md">
+          <div filled="" square="" class="q-item q-item-type row no-wrap q-pb-md">
             <!---->
             <div class="q-item__section column q-item__section--main justify-center">
               <div class="q-item__label">
-                <div class="relative-position q-mb-sm"><label for="f_80808080-8080-4080-8080-808080808080" class="q-field q-validation-component row no-wrap items-start q-textarea q-textarea--autogrow q-field--standard q-field--dense q-field--with-bottom">
+                <div class="relative-position q-mb-sm"><label for="f_80808080-8080-4080-8080-808080808080" class="q-field q-validation-component row no-wrap items-start q-textarea q-textarea--autogrow q-field--filled q-field--square q-field--dense q-field--with-bottom">
                     <div class="q-field__inner relative-position col self-stretch column justify-center">
                       <div tabindex="-1" class="q-field__control relative-position row no-wrap">
                         <div class="q-field__control-container col relative-position row no-wrap q-anchor--skip"><textarea tabindex="0" rows="1" placeholder="Write a message..." id="f_80808080-8080-4080-8080-808080808080" type="textarea" class="q-field__native q-placeholder" style="min-height:unset;max-height:320px;"></textarea></div>
@@ -4373,11 +4373,11 @@ exports[`Storyshots Detail application 1`] = `
               <!---->
             </div>
           </div>
-          <div class="q-item q-item-type row no-wrap q-pb-md">
+          <div filled="" square="" class="q-item q-item-type row no-wrap q-pb-md">
             <!---->
             <div class="q-item__section column q-item__section--main justify-center">
               <div class="q-item__label">
-                <div class="relative-position q-mb-sm"><label for="f_80808080-8080-4080-8080-808080808080" class="q-field q-validation-component row no-wrap items-start q-textarea q-textarea--autogrow q-field--standard q-field--dense q-field--with-bottom">
+                <div class="relative-position q-mb-sm"><label for="f_80808080-8080-4080-8080-808080808080" class="q-field q-validation-component row no-wrap items-start q-textarea q-textarea--autogrow q-field--filled q-field--square q-field--dense q-field--with-bottom">
                     <div class="q-field__inner relative-position col self-stretch column justify-center">
                       <div tabindex="-1" class="q-field__control relative-position row no-wrap">
                         <div class="q-field__control-container col relative-position row no-wrap q-anchor--skip"><textarea tabindex="0" rows="1" placeholder="Write a message..." id="f_80808080-8080-4080-8080-808080808080" type="textarea" class="q-field__native q-placeholder" style="min-height:unset;max-height:320px;"></textarea></div>
@@ -4565,11 +4565,11 @@ exports[`Storyshots Detail private 1`] = `
               <!---->
             </div>
           </div>
-          <div class="q-item q-item-type row no-wrap q-pb-md">
+          <div filled="" square="" class="q-item q-item-type row no-wrap q-pb-md">
             <!---->
             <div class="q-item__section column q-item__section--main justify-center">
               <div class="q-item__label">
-                <div class="relative-position q-mb-sm"><label for="f_80808080-8080-4080-8080-808080808080" class="q-field q-validation-component row no-wrap items-start q-textarea q-textarea--autogrow q-field--standard q-field--dense q-field--with-bottom">
+                <div class="relative-position q-mb-sm"><label for="f_80808080-8080-4080-8080-808080808080" class="q-field q-validation-component row no-wrap items-start q-textarea q-textarea--autogrow q-field--filled q-field--square q-field--dense q-field--with-bottom">
                     <div class="q-field__inner relative-position col self-stretch column justify-center">
                       <div tabindex="-1" class="q-field__control relative-position row no-wrap">
                         <div class="q-field__control-container col relative-position row no-wrap q-anchor--skip"><textarea tabindex="0" rows="1" placeholder="Write a message..." id="f_80808080-8080-4080-8080-808080808080" type="textarea" class="q-field__native q-placeholder" style="min-height:unset;max-height:320px;"></textarea></div>

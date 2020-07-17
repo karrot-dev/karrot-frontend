@@ -21,12 +21,14 @@ Please document your changes in this format:
 ```
 
 ## [Unreleased]
+
+## [8.6.0] - 2020-07-17
+### Changed
+- All group members (instead of just editors) can now access conflict resolution issues, write messages and vote. Issues can still only be created by editors. [#2062] @tiltec
+
 ### Fixed
 - Add max height to message input to prevent send button becoming hidden @nicksellen
 - Users couldn't withdraw applications to archived groups @tiltec
-
-### Changed
-- All group members (instead of just editors) can now access conflict resolution issues, write messages and vote. Issues can still only be created by editors. #2062 @tiltec
 
 ## [8.5.2] - 2020-06-01
 ### Changed
@@ -560,8 +562,10 @@ After months of planning and programming, the first version of ~the foodsaving t
 [#1799]: https://github.com/yunity/karrot-frontend/issues/1799
 [#1982]: https://github.com/yunity/karrot-frontend/issues/1982
 [#1987]: https://github.com/yunity/karrot-frontend/issues/1987
+[#2062]: https://github.com/yunity/karrot-frontend/issues/2062
 
-[Unreleased]: https://github.com/yunity/karrot-frontend/compare/v8.5.2...HEAD
+[Unreleased]: https://github.com/yunity/karrot-frontend/compare/v8.6.0...HEAD
+[8.6.0]: https://github.com/yunity/karrot-frontend/compare/v8.5.2...v8.6.0
 [8.5.2]: https://github.com/yunity/karrot-frontend/compare/v8.5.1...v8.5.2
 [8.5.1]: https://github.com/yunity/karrot-frontend/compare/v8.5.0...v8.5.1
 [8.5.0]: https://github.com/yunity/karrot-frontend/compare/v8.4.0...v8.5.0

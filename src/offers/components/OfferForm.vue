@@ -143,9 +143,6 @@ export default {
       description: {
         required,
       },
-      images: {
-        required: images => images.filter(image => !image._removed).length > 0,
-      },
     },
   },
 }

@@ -208,7 +208,7 @@
   "CONFLICT": {
     "FIND_OUT_MORE": "Zjistit více!",
     "INFO": {
-      "MESSAGE": "This is a score voting in which group members can participate to determine how to deal with a social conflict that affects the whole group.",
+      "MESSAGE": "Jedná se o bodovací hlasování, na kterém se mohou členové skupiny podílet, aby určili, jak řešit sociální konflikt, který ovlivňuje celou skupinu.",
       "TITLE": "Jak tento proces funguje?"
     },
     "INITIAL": "Informace",
@@ -218,15 +218,15 @@
     "SETUP_HEADER": "Je nějaký konflikt s uživatelem {user}?",
     "STATEMENT": "Stanovisko",
     "STEPPER1a": "Chystáte se zahájit proces řešení konfliktů v celé skupině!",
-    "STEPPER1b": "This will involve all members to find the best way to proceed.",
+    "STEPPER1b": "To bude zahrnovat všechny členy, aby našli nejlepší způsob, jak postupovat.",
     "STEPPER2a": "Děkujeme za péči o vaši komunitu!",
     "STEPPER2b": "Je důležité řešit sociální otázky, i když to někdy může být nepříjemné. Děkujeme za odvahu!",
     "STEPPER3a": "Co se stane:",
     "STEPPER3b": "Tento proces zahájí chat a hlasování.",
-    "STEPPER3c": "The chat will be visible for members and includes {userName}.",
+    "STEPPER3c": "Chat bude viditelný pro členy včetně {userName}.",
     "STEPPER3d": "Hlasování je anonymní. Bude trvat {votingDuration} dnů. Během této doby mohou všichni hlasující  změnit názor a hlasovat tolikrát, kolikrát chtějí.",
     "STEPPER4a": "Vysvětlete prosím, proč začínáte tento proces řešení konfliktů!",
-    "STEPPER4b": "Tell your group what made you think this process is justified and needed. This statement will be visible to {userName} and group members.",
+    "STEPPER4b": "Řekněte své skupině, proč si myslíte, že je tento proces oprávněný a potřebný. Toto prohlášení bude viditelné {userName} a členům skupiny.",
     "VOTING": {
       "HEADLINE": "Jak chcete pokračovat s probíhajícím konfliktem s {userName} ?"
     },

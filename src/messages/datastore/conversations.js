@@ -210,6 +210,7 @@ export default {
         const message = await messageAPI.create({
           conversation: data.id,
           content: data.content,
+          images: data.images,
         })
         dispatch('receiveMessage', message)
       },

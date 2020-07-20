@@ -1,9 +1,12 @@
 <template>
-  <div class="MultiCroppa">
+  <div
+    class="MultiCroppa"
+    :class="{ small }"
+  >
     <div
       v-for="(item, idx) in items"
       :key="item.key"
-      class="q-ma-sm inline-block vertical-top text-center"
+      class="q-ma-sm inline-block vertical-top text-center croppa-item"
       :class="itemClasses(item)"
     >
       <Croppa
@@ -13,11 +16,13 @@
         placeholder=""
         prevent-white-space
         :show-remove-button="false"
+        :auto-sizing="true"
         @new-image-drawn="imageDrawn(item)"
       >
         <img
           slot="placeholder"
           src="statics/add_a_photo.svg"
+          :width="60"
         >
       </Croppa>
       <QBtnGroup
@@ -25,7 +30,7 @@
         flat
       >
         <QBtn
-          v-if="hasImage(item)"
+          v-if="hasImage(item) && !small"
           rounded
           class="q-ma-xs"
           size="sm"
@@ -36,8 +41,9 @@
         <QBtn
           v-if="hasImage(item)"
           rounded
-          class="q-ma-xs"
           size="sm"
+          :class="{ 'q-ma-xs' : !small }"
+          :padding="small ? 'xs' : 'xs md'"
           icon="rotate_right"
           :text-color="isExisting(item) ? 'grey' : 'green'"
           :disable="!hasImage(item) || isExisting(item)"
@@ -46,15 +52,16 @@
         <QBtn
           v-if="hasImage(item)"
           rounded
-          class="q-ma-xs"
           size="sm"
+          :class="{ 'q-ma-xs' : !small }"
+          :padding="small ? 'xs sm' : 'xs md'"
           icon="delete"
           text-color="red"
           :disable="!hasImage(item)"
           @click="removeImage(item)"
         />
         <QBtn
-          v-if="hasImage(item)"
+          v-if="hasImage(item) && !small"
           rounded
           class="q-ma-xs"
           size="sm"
@@ -100,6 +107,10 @@ export default {
       type: Array,
       required: true,
     },
+    small: {
+      type: Boolean,
+      default: false,
+    },
   },
   data () {
     return {
@@ -132,6 +143,9 @@ export default {
     },
   },
   methods: {
+    open () {
+      this.croppaFor(this.newItem).chooseFile()
+    },
     croppaRefFor (item) {
       return `croppa__${item.key}`
     },
@@ -258,6 +272,14 @@ export default {
 </script>
 
 <style scoped lang="stylus">
+.small
+  .croppa-item
+    width 80px
+
+  >>> .croppa-container
+    width 80px
+    height 80px
+
 .new-image >>> canvas
   cursor pointer
   border 1px solid #ddd

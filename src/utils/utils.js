@@ -96,3 +96,41 @@ export function debounceAndFlushOnUnload (fn, ms, options = {}) {
   window.addEventListener('unload', debounced.flush)
   return debounced
 }
+
+const MIME_TYPE = 'image/jpeg'
+const EXTENSION = '.jpg'
+
+export async function toFormData (sourceOffer) {
+  const data = new FormData()
+  const offer = { ...sourceOffer } // (shallow) clone
+
+  if (offer.images) {
+    const blobs = {}
+    for (const idx of Object.keys(offer.images)) {
+      const image = offer.images[idx]
+      if (image.toBlob) {
+        const blob = await image.toBlob(MIME_TYPE)
+        if (!blob) throw new Error('failed to make a blob for image')
+        blobs[`images.${idx}.image`] = blob
+      }
+      else if (image._new) {
+        throw new Error('new image did not have a toBlob method')
+      }
+    }
+    for (const key of Object.keys(blobs)) {
+      data.append(key, blobs[key], `${key}${EXTENSION}`)
+    }
+    // we need to leave our original images intact, but only send the required properties to the server
+    offer.images = offer.images.map(withoutKeys('toBlob', 'imageUrls'))
+  }
+
+  data.append(
+    'document',
+    new Blob(
+      [JSON.stringify(offer)],
+      { type: 'application/json' },
+    ),
+  )
+
+  return data
+}

@@ -1,63 +1,81 @@
 <template>
-  <QItem>
-    <QItemSection
-      v-if="!slim"
-      side
-      top
-      class="q-mt-xs q-pr-sm"
-    >
-      <ProfilePicture
-        :user="user"
-        :size="40"
-      />
-    </QItemSection>
-    <QItemSection>
-      <QItemLabel>
-        <MarkdownInput
-          ref="input"
-          v-model="message"
-          v-bind="$attrs"
-          dense
-          :placeholder="placeholder"
-          :loading="isPending"
-          :disable="isPending"
-          :error="hasAnyError"
-          :error-message="anyFirstError"
-          input-style="min-height: unset; max-height: 320px;"
-          @keyup.ctrl.enter="submit"
-          @keyup.esc="leaveEdit"
-          @focus="onFocus"
-          @blur="onBlur"
-        >
-          <template #append>
-            <QBtn
-              v-if="message && !isPending"
-              round
-              dense
-              flat
-              icon="fas fa-arrow-right"
-              @click="submit"
-            />
-            <QBtn
-              v-if="value && !isPending"
-              round
-              dense
-              flat
-              icon="fas fa-times"
-              @click="leaveEdit"
-            />
-          </template>
-        </MarkdownInput>
-      </QItemLabel>
-      <QItemLabel
-        v-if="!isParticipant"
-        caption
-        class="q-pt-md q-pl-xs"
+  <div>
+    <QItem>
+      <QItemSection
+        v-if="!slim"
+        side
+        top
+        class="q-mt-xs q-pr-sm"
       >
-        <span v-t="'CONVERSATION.NOT_PARTICIPATED'" />
-      </QItemLabel>
-    </QItemSection>
-  </QItem>
+        <ProfilePicture
+          :user="user"
+          :size="40"
+        />
+      </QItemSection>
+      <QItemSection>
+        <QItemLabel>
+          <MarkdownInput
+            ref="input"
+            v-model="message.content"
+            v-bind="$attrs"
+            dense
+            :placeholder="placeholder"
+            :loading="isPending"
+            :disable="isPending"
+            :error="hasAnyError"
+            :error-message="anyFirstError"
+            input-style="min-height: unset; max-height: 320px;"
+            @keyup.ctrl.enter="submit"
+            @keyup.esc="leaveEdit"
+            @focus="onFocus"
+            @blur="onBlur"
+          >
+            <template #append>
+              <QBtn
+                round
+                dense
+                flat
+                icon="fas fa-image"
+                @click="addImage"
+              />
+              <QBtn
+                v-if="hasContent && !isPending"
+                round
+                dense
+                flat
+                icon="fas fa-arrow-right"
+                @click="submit"
+              />
+              <QBtn
+                v-if="hasContent && !isPending"
+                round
+                dense
+                flat
+                icon="fas fa-times"
+                @click="leaveEdit"
+              />
+            </template>
+          </MarkdownInput>
+        </QItemLabel>
+        <QItemLabel
+          v-if="!isParticipant"
+          caption
+          class="q-pt-md q-pl-xs"
+        >
+          <span v-t="'CONVERSATION.NOT_PARTICIPATED'" />
+        </QItemLabel>
+      </QItemSection>
+    </QItem>
+    <QItem v-if="showImages">
+      <QItemSection>
+        <MultiCroppa
+          ref="multiCroppa"
+          v-model="message.images"
+          small
+        />
+      </QItemSection>
+    </QItem>
+  </div>
 </template>
 
 <script>
@@ -70,6 +88,7 @@ import {
 import ProfilePicture from '@/users/components/ProfilePicture'
 import MarkdownInput from '@/utils/components/MarkdownInput'
 import statusMixin from '@/utils/mixins/statusMixin'
+import MultiCroppa from '@/offers/components/MultiCroppa'
 
 export default {
   name: 'ConversationCompose',
@@ -80,6 +99,7 @@ export default {
     QBtn,
     ProfilePicture,
     MarkdownInput,
+    MultiCroppa,
   },
   mixins: [statusMixin],
   props: {
@@ -92,8 +112,11 @@ export default {
       default: null,
     },
     value: {
-      type: String,
-      default: null,
+      type: Object,
+      default: () => ({
+        content: '',
+        images: [],
+      }),
     },
     slim: {
       type: Boolean,
@@ -106,16 +129,22 @@ export default {
   },
   data () {
     return {
-      message: (this.value) || '',
+      message: this.value,
       hasFocus: false,
+      showImages: this.value.images.length > 0,
     }
+  },
+  computed: {
+    hasContent () {
+      return this.message && (this.message.content || this.message.images.length > 0)
+    },
   },
   watch: {
     value (val) {
       if (val) this.message = val.content
     },
     isPending (val) {
-      if (!val && !this.hasAnyError) this.message = ''
+      if (!val && !this.hasAnyError) this.message = { content: '', images: [] }
     },
     '$keyboard.is.open' (val) {
       // if mobile keyboard opens, try to keep q-input on screen
@@ -125,10 +154,22 @@ export default {
       input.blur()
       input.focus()
     },
+    'message.images' (val) {
+      // if the last image is removed, hide the image bar
+      if (val && val.length === 0) {
+        this.showImages = false
+      }
+    },
   },
   methods: {
     submit () {
       this.$emit('submit', this.message)
+    },
+    addImage () {
+      this.showImages = true
+      this.$nextTick(() => {
+        this.$refs.multiCroppa.open()
+      })
     },
     leaveEdit () {
       this.$emit('leaveEdit')

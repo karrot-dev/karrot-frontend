@@ -87,6 +87,16 @@
         />
         )
       </QItemLabel>
+      <div v-if="message.images && message.images.length > 0">
+        <QImg
+          v-for="image in message.images"
+          :key="image.id"
+          :src="image.imageUrls['200']"
+          style="width: 80px; height: 80px;"
+          class="q-mr-sm"
+          @click="openImageGallery(image.id)"
+        />
+      </div>
       <ConversationReactions
         v-if="hasReactions"
         :reactions="message.reactions"
@@ -138,12 +148,16 @@
 import ConversationReactions from '@/messages/components/ConversationReactions'
 import ConversationAddReaction from './ConversationAddReaction'
 import ConversationCompose from '@/messages/components/ConversationCompose'
+import ImageGalleryDialog from '@/messages/components/ImageGalleryDialog'
 import ProfilePicture from '@/users/components/ProfilePicture'
 import Markdown from '@/utils/components/Markdown'
 import DateAsWords from '@/utils/components/DateAsWords'
+
 import {
+  Dialog,
   QBtn,
   QBtnGroup,
+  QImg,
   QItem,
   QItemSection,
   QItemLabel,
@@ -160,6 +174,7 @@ export default {
     DateAsWords,
     QBtn,
     QBtnGroup,
+    QImg,
     QItem,
     QItemSection,
     QItemLabel,
@@ -203,6 +218,14 @@ export default {
     },
     toggleEdit () {
       this.editMode = !this.editMode
+    },
+    openImageGallery (imageId) {
+      Dialog.create({
+        component: ImageGalleryDialog,
+        parent: this,
+        message: this.message,
+        selectedImageId: imageId,
+      })
     },
     save (content) {
       this.$emit('save', {

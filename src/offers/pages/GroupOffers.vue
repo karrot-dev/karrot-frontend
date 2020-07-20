@@ -55,10 +55,23 @@
               :title="offer.name"
             >
               <QImg
+                v-if="offer.images[0]"
                 basic
                 :src="offer.images[0].imageUrls['600']"
                 :ratio="4/3"
               />
+              <QImg
+                v-else
+                basic
+                :ratio="4/3"
+              >
+                <QIcon
+                  color="grey"
+                  size="xl"
+                  class="fit"
+                  name="fas fa-gift"
+                />
+              </QImg>
               <QItem clickable>
                 <QItemSection avatar>
                   <ProfilePicture

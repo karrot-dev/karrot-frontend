@@ -3,10 +3,10 @@
     "NEWCOMER_INFO": "You are currently a newcomer in {groupName} and you can become active by writing messages, meeting fellow members, doing activities and giving feedback. As soon as {threshold} members expressed their trust in you, you will gain editing permissions to help with group administration."
   },
   "GROUP": {
-    "PICKUPS": "Activities",
-    "PICKUP": "Activity",
+    "ACTIVITIES": "Activities",
+    "ACTIVITY": "Activity",
     "NOTIFICATION_TYPES": {
-      "daily_pickup_notification": {
+      "daily_activity_notification": {
         "NAME": "Activity notifications",
         "DESCRIPTION": "Reminds you of your activities, and tells you about empty or not-full activities of your favorite places in the next day"
       }
@@ -22,22 +22,22 @@
       "NO_TEXT": "None of the above. You can still sign up for activities though."
     }
   },
-  "PICKUPMANAGE": {
+  "ACTIVITYMANAGE": {
     "TITLE": "Manage activities",
     "SERIES": "Recurring activities",
     "SINGLE": "One-time activities",
-    "UPCOMING_PICKUPS_IN_SERIES": "Upcoming activities in this series",
-    "PICKUP_DOES_NOT_MATCH": "This activities' date doesn't match the recurrence pattern"
+    "UPCOMING_ACTIVITIES_IN_SERIES": "Upcoming activities in this series",
+    "ACTIVITY_DOES_NOT_MATCH": "This activities' date doesn't match the recurrence pattern"
   },
-  "PICKUPDELETE": {
+  "ACTIVITYDELETE": {
     "DELETE_SERIES_TITLE": "Delete recurring activity",
     "DELETE_SERIES_TEXT": "Do you really want to delete this recurring activity? This will also delete all one-time activity dates that belong to this recurring activity (except where people joined already)."
   },
-  "CREATEPICKUP": {
+  "CREATEACTIVITY": {
     "WEEKDAYS_HELPER": "On which days should the activity take place?",
     "TIME_HELPER": "When should the activity take place?",
     "DATE_HELPER": "When should the activity take place?",
-    "MAX_COLLECTORS_HELPER": "How many people should participate in the activity?",
+    "MAX_PARTICIPANTS_HELPER": "How many people should participate in the activity?",
     "COMMENT_HELPER": "What should people know when signing up to this activity?",
     "ENABLE_TITLE": "Enable activity?",
     "DISABLE_TITLE": "Disable activity?",
@@ -45,7 +45,7 @@
     "EXCEPTIONS_TITLE": "Check your activities",
     "EXCEPTIONS_MESSAGE": "Some upcoming activities don't match the settings of this recurring activity. Have a look below at '{upcomingLabel}' to change or disable activities, if needed."
   },
-  "PICKUPLIST": {
+  "ACTIVITYLIST": {
     "AVAILABLE": "There is one activity in your favorite places waiting for you! | There are {count} activities in your favorite places waiting for you!",
     "AVAILABLE_FEEDBACK": "You can give feedback to an activity | {count} activities await your feedback",
     "JOINEDNOTICE": "You have one upcoming activity | You have {count} upcoming activities",
@@ -59,37 +59,37 @@
     "NONE": "No upcoming activities",
     "NONE_HINT": "You can create a new activity on the place page.",
     "STORE_NONE_HINT": "You can create a new activity on the activity manage page.",
-    "PICKUP_DISABLED": "This activity has been disabled.",
-    "PICKUP_STARTED": "This activity has already started."
+    "ACTIVITY_DISABLED": "This activity has been disabled.",
+    "ACTIVITY_STARTED": "This activity has already started."
   },
   "FEEDBACKLIST": {
-    "NUMBER_PICKUPS": "{count} activities done",
-    "NO_DONE_PICKUPS_HINT": "You currently have no activities to give feedback to. Why not join another activity?"
+    "NUMBER_ACTIVITIES": "{count} activities done",
+    "NO_DONE_ACTIVITIES_HINT": "You currently have no activities to give feedback to. Why not join another activity?"
   },
-  "PICKUP_FEEDBACK": {
+  "ACTIVITY_FEEDBACK": {
     "HEADER": "Thank you for your participation!",
     "TOGETHER_WITH": "You did this activity together with:"
   },
   "HISTORY": {
-    "PICKUP_CREATE": "created a new one-time activity",
-    "PICKUP_MODIFY": "changed the settings of an activity",
-    "PICKUP_DELETE": "deleted an activity",
-    "PICKUP_ENABLE": "enabled an activity",
-    "PICKUP_DISABLE": "disabled an activity",
+    "ACTIVITY_CREATE": "created a new one-time activity",
+    "ACTIVITY_MODIFY": "changed the settings of an activity",
+    "ACTIVITY_DELETE": "deleted an activity",
+    "ACTIVITY_ENABLE": "enabled an activity",
+    "ACTIVITY_DISABLE": "disabled an activity",
     "SERIES_CREATE": "created a new recurring activity",
     "SERIES_MODIFY": "changed the settings of a recurring activity",
     "SERIES_DELETE": "deleted a recurring activity",
-    "PICKUP_DONE": "participated in an activity at {storeName}",
-    "PICKUP_MISSED": "Nobody came to an activity at {storeName}!",
-    "PICKUP_JOIN": "signed up for an activity at {storeName}",
-    "PICKUP_LEAVE": "stepped back from an activity at {storeName}"
+    "ACTIVITY_DONE": "participated in an activity at {storeName}",
+    "ACTIVITY_MISSED": "Nobody came to an activity at {storeName}!",
+    "ACTIVITY_JOIN": "signed up for an activity at {storeName}",
+    "ACTIVITY_LEAVE": "stepped back from an activity at {storeName}"
   },
   "NOTIFICATION_BELLS": {
     "FEEDBACK_POSSIBLE": "You can give feedback for the activity you did on {date}",
-    "PICKUP_UPCOMING": "Reminder: You have an activity at {time}",
-    "PICKUP_DISABLED": "Activity at {dateTime} was disabled",
-    "PICKUP_ENABLED": "Activity at {dateTime} was enabled again",
-    "PICKUP_MOVED": "Activity was moved to {dateTime}"
+    "ACTIVITY_UPCOMING": "Reminder: You have an activity at {time}",
+    "ACTIVITY_DISABLED": "Activity at {dateTime} was disabled",
+    "ACTIVITY_ENABLED": "Activity at {dateTime} was enabled again",
+    "ACTIVITY_MOVED": "Activity was moved to {dateTime}"
   },
   "AGREEMENT": {
     "BLURB2": "If you add one then people will have to agree to it before they can participate in activities.",

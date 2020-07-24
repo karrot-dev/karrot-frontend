@@ -6,10 +6,13 @@ import { groupsMock, placesMock, usersMock, currentUserMock } from '>/mockdata'
 
 const datastore = createDatastore({
   about: { getters: { deployed: () => ({}) }, actions: { fetch () {} } },
-  groups: { getters: {
+  groups: {
+    getters: {
     all: () => groupsMock,
     mine: () => groupsMock,
-  } },
+    isMemberGroups: () => groupsMock,
+    },
+  },
   places: { getters: { all: () => placesMock } },
   users: { getters: { all: () => usersMock } },
   search: require('@/topbar/datastore/search').default,

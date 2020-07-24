@@ -5608,8 +5608,7 @@ exports[`Storyshots Latest Messages type: thread 1`] = `
 `;
 
 exports[`Storyshots Layout KTopbar 1`] = `
-<div class="q-toolbar row no-wrap items-center text-white row justify-between bg-primary">
-  <div class="logo"> <a class="q-ml-sm"><img src="test-file-stub"></a></div>
+<div class="q-toolbar row no-wrap items-center text-white row justify-between bg-primary"> <button tabindex="0" type="button" role="button" class="q-btn q-btn-item non-selectable no-outline q-btn--flat q-btn--rectangle q-btn--actionable q-focusable q-hoverable q-btn--wrap"><span class="q-focus-helper"></span><span class="q-btn__wrapper col row q-anchor--skip"><span class="q-btn__content text-center col items-center q-anchor--skip justify-center row"><div class="logo"><img src="test-file-stub"></div> <!----></span></span></button>
   <div class="no-wrap text-center q-toolbar__title ellipsis">
     <div class="wrapper bread">
       <div>

@@ -5,7 +5,7 @@ import KTopbarUI from './KTopbarUI'
 export default connect({
   gettersToProps: {
     currentGroup: 'currentGroup/value',
-    myGroups: 'groups/mine',
+    myGroups: 'groups/isMemberGroups',
     breadcrumbs: 'breadcrumbs/all',
     user: 'auth/user',
     searchOpen: 'search/open',

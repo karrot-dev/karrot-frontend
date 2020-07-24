@@ -41,6 +41,7 @@ export default {
       return Object.values(state.entries).map(getters.enrich)
     },
     mine: (state, getters) => getters.all.filter(e => isMyGroup(e)).sort(applicationsFirstThenSortByName),
+    isMemberGroups: (state, getters) => getters.all.filter(e => isMemberGroup(e)).sort(applicationsFirstThenSortByName),
     // A de-duplicated list of member ids of all groups the user is part of
     myMemberIds: (state, getters) => {
       return Object.keys(getters.mine.reduce((obj, group) => {
@@ -147,4 +148,8 @@ function sortByMemberCount (a, b) {
 
 function isMyGroup (group) {
   return group.isMember || group.myApplicationPending
+}
+
+function isMemberGroup (group) {
+  return group.isMember
 }

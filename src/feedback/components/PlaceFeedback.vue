@@ -8,13 +8,13 @@
           class="infoChips row no-wrap"
         >
           <QChip
-            :icon="$icon('pickup')"
+            :icon="$icon('activity')"
             color="secondary"
             text-color="white"
             square
-            :title="$t('FEEDBACKLIST.NUMBER_PICKUPS', { count: statistics.pickupsDone })"
+            :title="$t('FEEDBACKLIST.NUMBER_ACTIVITIES', { count: statistics.activitiesDone })"
           >
-            <strong class="q-ml-sm">{{ statistics.pickupsDone }}</strong>
+            <strong class="q-ml-sm">{{ statistics.activitiesDone }}</strong>
           </QChip>
           <QChip
             v-if="statistics.feedbackCount > 0"
@@ -82,8 +82,8 @@ export default {
       fetchStatus: 'feedback/fetchStatus',
       canFetchPast: 'feedback/canFetchPast',
       fetchPastStatus: 'feedback/fetchPastStatus',
-      feedbackPossible: 'pickups/feedbackPossibleByActivePlace',
-      feedbackPossibleStatus: 'pickups/fetchFeedbackPossibleStatus',
+      feedbackPossible: 'activities/feedbackPossibleByActivePlace',
+      feedbackPossibleStatus: 'activities/fetchFeedbackPossibleStatus',
     }),
     statistics () {
       return this.place && this.place.statistics

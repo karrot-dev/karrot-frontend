@@ -88,7 +88,7 @@ export function createMetaModule () {
       },
     },
     actions: {
-      clear ({ commit }, [actionName, id]) {
+      clear ({ commit }, [actionName, id] = []) {
         commit('clear', { actionName, id })
       },
     },
@@ -102,7 +102,7 @@ export function createMetaModule () {
           Vue.set(state.byAction, actionName, value)
         }
       },
-      clear (state, { actionName, id }) {
+      clear (state, { actionName, id } = {}) {
         if (id) {
           if (state.byId[id]) {
             Vue.delete(state.byId[id], actionName)
@@ -111,8 +111,12 @@ export function createMetaModule () {
             }
           }
         }
-        else {
+        else if (actionName) {
           Vue.delete(state.byAction, actionName)
+        }
+        else {
+          state.byAction = {}
+          state.byId = {}
         }
       },
     },
@@ -283,7 +287,7 @@ export function createPaginationModule () {
         // TODO only set cursor for the current directions
         // fetchNext should not overwrite prevCursor
         data = await data
-        commit('setCursor', { prevCursor: data.prev, nextCursor: data.next })
+        commit('setCursor', { prevCursor: data.prev || null, nextCursor: data.next || null })
         return data.results
       },
     },
@@ -291,6 +295,10 @@ export function createPaginationModule () {
       setCursor (state, { prevCursor, nextCursor }) {
         state.prevCursor = prevCursor
         state.nextCursor = nextCursor
+      },
+      clear (state) {
+        state.prevCursor = null
+        state.nextCursor = null
       },
     },
   }

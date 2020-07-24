@@ -77,7 +77,6 @@ export default {
 
       async setMuted ({ state, commit }, { threadId, value }) {
         await messageAPI.setMuted(threadId || state.thread.id, value)
-        commit('setMuted', value)
       },
 
       async mark ({ dispatch }, { id, seenUpTo }) {
@@ -119,7 +118,7 @@ export default {
 
     clear ({ commit, dispatch }) {
       commit('clear')
-      dispatch('meta/clear', ['send'])
+      dispatch('meta/clear')
     },
 
     refresh ({ dispatch, state }) {
@@ -133,9 +132,6 @@ export default {
     setThread (state, thread) {
       state.thread = Object.freeze(thread)
     },
-    setMuted (state, muted) {
-      state.thread.muted = muted
-    },
     update (state, messages) {
       const stateMessages = state.messages
       if (!stateMessages) {
@@ -148,4 +144,13 @@ export default {
       Object.assign(state, initialState())
     },
   },
+}
+
+export const plugin = datastore => {
+  datastore.watch((state, getters) => getters['auth/isLoggedIn'], isLoggedIn => {
+    if (!isLoggedIn) {
+      datastore.commit('currentThread/clear')
+      datastore.commit('currentThread/pagination/clear')
+    }
+  })
 }

@@ -1,757 +1,754 @@
 {
-  "ENTRY": "1 entry | {count} entries",
-  "GLOBAL": {
-    "GITHUB_NOTE": "Разработка",
-    "SERVER_ERROR": "Ошибка на сервере",
-    "NOT_CONNECTED": "Не удается подключиться к сети",
-    "INVALID_LINK": "Открытая ссылка недействительна ",
-    "GENERIC_ERROR": "Sorry, something went wrong",
-    "SEARCH_RESULTS": "Search results",
-    "SEARCH_NOT_FOUND": "Не найдено",
-    "ABOUT_KARROT": "О Karrot"
-  },
-  "USERDATA": {
-    "EMAIL": "E-mail",
-    "MOBILE_NUMBER": "Телефон",
-    "PROFILE_TITLE": "Профиль",
-    "PRIVATE_MESSAGE": "Отправить сообщение 1{userName}‮‭‎",
-    "PASSWORD": "Пароль",
-    "CONFIRM_PASSWORD": "Подтвердить пароль",
-    "USERNAME": "Имя",
-    "WHERE_FROM": "Местоположение (необязательно)",
-    "PHOTO": "Фото профиля",
-    "SET_PHOTO": "Выбор фотографии профиля...",
-    "ACCOUNT": "Аккаунт",
-    "PUSH": "Push уведомления",
-    "PUSH_CURRENT_BROWSER": "Текущий браузер",
-    "REQUEST_DELETE_ACCOUNT": {
-      "SUCCESS": "Мы отправили вам электронное письмо со ссылкой для завершения процесса удаления."
+  "ABOUT_KARROT": {
+    "AND_MORE": "And more...",
+    "EXISTING_GROUPS": "A few groups already using Karrot",
+    "LINKS": {
+      "CHAT": "team chat",
+      "FORUM": "community forum"
     },
-    "DIALOGS": {
-      "REQUEST_DELETE_ACCOUNT": {
-        "TITLE": "Удаление аккаунта",
-        "MESSAGE": "Вы уверены? Ваш аккаунт и персональные данные будут удалены навсегда. Любые произведенные действия на сайте станут анонимными. При подтверждении действия мы вышлем вам электронное письмо с сылкой для завершения процесса удаления.",
-        "CONFIRM": "Подтвердить"
+    "SECTIONS": {
+      "ACTIVITIES": {
+        "DESCRIPTION": "Each activity has a number of slots which members of the group can sign up for – this way everyone knows who goes where and when, and feedback can be given later.",
+        "SUBTITLE": "Activities with a specific time and place, like food pickups in the case of foodsaving, can be entered in the software.",
+        "TITLE": "Distribution of tasks and activities"
       },
-      "GIVE_TRUST": {
-        "TITLE": "Доверие пользователю",
-        "MESSAGE": "Вы доверяете {userName} в группе {groupName}?"
+      "COMMUNICATION": {
+        "DESCRIPTION": "Write a message that everyone in the group will see or a private message to someone. Everything related to a single activity or place can be discussed in their respective chats.",
+        "TITLE": "Communication in the right context"
+      },
+      "DEMOCRATIC": {
+        "DESCRIPTION": "Karrot is a free and open-source software developed with the feedback and participation of the people who use it. It is mainly developed by a small core team that is constantly in contact with people in different groups, in order to make sense of their diverging and converging needs and thus guide the development. We abide by the ethics of integrity and non-commercialization of data.",
+        "DESCRIPTION2": "Developers and designers are obviously welcome to participate in its development. Check out the project on {code}.",
+        "TITLE": "Democratic and participative development"
+      },
+      "GROUPS": {
+        "DESCRIPTION": "Yet they are all displayed on the map so that people can find and connect to other groups in their location and even globally.",
+        "SUBTITLE": "Every group on karrot is completely independent and can have their own logo, processes and rules.",
+        "TITLE": "Independent groups"
+      },
+      "MAPS": {
+        "DESCRIPTION": "You have a map of where the places and the people doing the activities are located. You have a nice list of upcoming activities and can sign up for them online.",
+        "TITLE": "Maps and lists"
+      },
+      "NOTIFICATIONS": {
+        "DESCRIPTION": "You get notified about empty activities, new messages and new people wanting to join your group. But you can also turn it all off if you wish more peace!",
+        "TITLE": "Notifications"
+      },
+      "OFFERS": {
+        "DESCRIPTION": "Offers are visible to everyone in the group and people can show their interest on the offer's chat.",
+        "SUBTITLE": "Create an ad-like offer of whatever you want to share or give away.",
+        "TITLE": "Share things"
+      },
+      "OPENSOURCE": {
+        "DESCRIPTION": "Everything is transparent and possibly changeable. We encourage groups to host their own instances of the platform, if they have the ability to do so. Still, we also provide access to a hosted version on karrot.world.",
+        "TITLE": "Open source"
+      },
+      "TEAM": {
+        "DESCRIPTION": "You can easily talk to the people developing Karrot, either on our {forum}, on {code} or in real-time on our {chat}.",
+        "TITLE": "Responsive team"
+      },
+      "TRANSLATIONS": {
+        "DESCRIPTION": "Karrot is fully translatable by the community and many languages are already added. To contribute more translations just visit the project on {translations}.",
+        "TITLE": "Multi-language"
+      },
+      "TRANSPARENCY": {
+        "DESCRIPTION": "The history shows who did what and when. Everything from participating in an activity to creating and editing places is logged here.",
+        "TITLE": "Transparency"
+      },
+      "TRUST": {
+        "DESCRIPTION": "There are no admin superpowers in a Karrot group. People who receive enough trust-carrots from their peers will be able to edit and change settings in the group. When new people want to join your group they need to apply and answer questions your group can set, which anyone with editing rights can decline or approve. Likewise, if there is a conflict, the group can enter a voting system to resolve it in a communal way.",
+        "TITLE": "Democratic and trust-based group management"
       }
     },
-    "LOGOUT_SUCCESS": "Вы вышли из аккаунта!",
-    "YOU_TRUST_USER": "Вы доверяете {userName} в группе {groupName}.",
-    "OTHER_PEOPLE_TRUST_USER": "{otherUser}доверяет{userName}в группе{groupName}.  {count} пользователя доверяют {userName}в группе {groupName}.",
-    "OTHER_PEOPLE_TRUST_YOU": "{otherUser}доверяет вам в группе {groupName}. {count}пользователя доверяют вам в группе {groupName}.",
-    "PEOPLE_TRUST_USER": "Вы и {otherUser} доверяете {userName}в группе {groupName}. Вы и {count}других пользователя доверяете {userName}в группе {groupName}. ",
-    "FIRST_TRUST": "Будьте первым, кто довериться {userName}в группе {groupName}!",
-    "NEWCOMER": "Новый пользователь",
-    "NEWCOMER_GUIDANCE": "{userName}новый пользователь в вашей группе и возможно нуждается в инструкциях.",
-    "TRUST_PROGRESS_TEXT": "Необходимо больше доверия{trustNeeded}",
-    "TRUST_PROGRESS_TEXT_LONG": "{trustNeeded}Необходимо большее количество доверия пользователей в {userName} , чтобы изменить права редактирования.",
-    "NEWCOMER_INFO": "You are currently a newcomer in {groupName} and you can become active by writing messages, meeting fellow members, doing pickups and giving feedback. As soon as {threshold} members expressed their trust in you, you will gain editing permissions to help with group administration.",
-    "TRUST_INFO": {
-      "TITLE": "Что означает кнопка с морковкой?",
-      "MESSAGE": "Она является частью доверительной системы Karrot. Символ показывает является ли член группы новеньким и как много доверия необходимо пользователю для права редактирования.",
-      "LINK": "Нажмите, чтобы узнать больше."
-    }
+    "SUBTITLE1": "Karrot exists for groups of people who want to save things from being wasted and share them instead, allowing these groups to organise efficiently, on a local and voluntary basis.",
+    "SUBTITLE2": "Things such as food, bikes, clothes or whatever is being excessively thrown away or unused in the context of a consumerist society.",
+    "TITLE": "Save things from being wasted, share them instead!",
+    "VISION_INTRO": "Karrot is a tool for all kinds of grassroots initiatives to connect and grow, supporting the co-ordination of face-to-face activities with a layer of digital infrastructure."
   },
-  "SWITCHGROUP": {
-    "NOT_MEMBER": "{userName}не является членом группы {groupName}.",
-    "COMMON_GROUPS": "Общие группы",
-    "OTHER_GROUPS": "Другие группы",
-    "CHOOSE": "Выберите группу:"
+  "ACTIVITYDELETE": {
+    "DELETE_SERIES_TEXT": "Do you really want to delete this recurring pickup date? This will also delete all one-time pickup dates that belong to this recurring pickup date (except where people joined already).",
+    "DELETE_SERIES_TITLE": "Delete recurring pickup date"
   },
-  "BUTTON": {
-    "CREATE": "Создать",
-    "CANCEL": "Отмена",
-    "OPEN": "Открыть",
-    "CLOSE": "Закрыть",
-    "DELETE": "Удалить",
-    "EDIT": "Редактировать",
-    "JOIN": "Вступить",
-    "PREVIEW": "Preview",
-    "BACK": "Back",
-    "NEXT": "Следующий",
-    "SEARCH": "Искать",
-    "OF_COURSE": "Да, конечно!",
-    "YES": "Да",
-    "SAVE_CHANGES": "Сохранить изменения",
-    "RESET": "Сброс",
-    "CHANGE_PASSWORD": "Изменить пароль",
-    "CHANGE_EMAIL": "Изменить электронную почту",
-    "AGREE": "Я согласен",
-    "REMOVE": "Удалить",
-    "ARCHIVE": "Архивировать",
-    "DELETE_ACCOUNT": "Удалить аккаунт",
-    "SHOW": "Показать",
-    "HIDE": "Скрыть",
-    "SUBMIT": "Отправить",
-    "APPLY": "Подать",
-    "ACCEPT": "Принять",
-    "DECLINE": "Отказать",
-    "WITHDRAW": "Withdraw",
-    "SHOW_MORE": "Показать больше",
-    "SHOW_LESS": "Show less",
-    "ENABLE": "Включить",
-    "DISABLE": "Выключить",
-    "UNSUBSCRIBE": "Отписаться"
-  },
-  "VALIDATION": {
-    "MINLENGTH": "Введите более {min} символов",
-    "MAXLENGTH": "Используйте не более {max} символов.",
-    "UNIQUE": "Данное имя пользователя уже используется, выберите другое.",
-    "REQUIRED": "Это поле обязательно для заполнения.",
-    "VALID_EMAIL": "Введите действительный адрес электронной почты.",
-    "VALID_TIMEZONE": "Введите дейтсвительный часовой пояс.",
-    "IMAGE_REQUIRED": "You must add an image"
-  },
-  "GROUP": {
-    "WALL": "Стена",
-    "LEAVE": "Выйти из группы",
-    "LEAVE_TEXT": "Уверены, что хотите выйти из группы?",
-    "LEAVE_CONFIRMATION": "Вы покинули группу {groupName}.",
-    "NONMEMBER_REDIRECT": "Вы не являетесь членом этой группы.",
-    "EDIT": "Редактировать группу",
-    "CREATE_TITLE": "Создать новую группу",
-    "MANAGE_AGREEMENT": "Регулирование соглашения",
-    "TITLE": "Заголовок для этой группы",
-    "DESCRIPTION_VERBOSE": "Описание группы, которое видят участники",
-    "WELCOMEMESSAGE_VERBOSE": "Welcome message sent to new members",
-    "LOGO": "Изображение группы",
-    "SET_LOGO": "Кликните, что загрузить изображение группы!",
-    "APPLICATIONS": "Заявки",
-    "APPLICATION_QUESTIONS": "Questions for people who want to join this group",
-    "PICKUPS": "Pickups",
-    "MESSAGES": "Сообщения",
-    "OFFERS": "Offers",
-    "PICKUP": "Pickup",
-    "MEMBERS": "Участники",
-    "JOINED": "присоединился {relativeDate}",
-    "DECLINED": "отклонил {relativeDate}",
-    "ADDED_BY": "добавлен {userName}",
-    "DECLINED_BY": "отклонен {userName}",
-    "SORT_JOINDATE": "Отсортировать по дате добавления ",
-    "SORT_NAME": "Отсортировать по имени",
-    "INACTIVE": "Неактивен ",
-    "SHOW_INACTIVE": "Показать неактивные группы",
-    "PLACES": "Места",
-    "HOME": "Главная ",
-    "HISTORY": "History",
-    "DESCRIPTION": "Описание",
-    "ADDRESS": "Address",
-    "TIMEZONE": "Time zone of group",
-    "INVITE_EMAIL": "Enter an e-mail address",
-    "INVITE_SEND": "Send invitation",
-    "INVITE_SEND_SUCCESS": "Приглашение успешно отправлено!",
-    "INVITE_SEND_ERROR": "Упс, не удалось отправить приглашение!",
-    "INVITED_LIST": "Invitations have already been sent out to these e-mail addresses:",
-    "INVITATIONS": "Приглашения",
-    "INVITE_TITLE": "Invite users to your group",
-    "INVITATION_ACCEPT_SUCCESS": "Добро пожаловать! Вы приняли приглашение.",
-    "INVITATION_ACCEPT_ERROR": "Упс, не удалось принять приглашение!",
-    "NOTIFICATIONS_BY_GROUP": "Notifications by group",
-    "EMAIL_NOTIFICATIONS": "Уведомления на электронную почту",
-    "NOTIFICATION_TYPES": {
-      "weekly_summary": {
-        "NAME": "Еженедельный отчет",
-        "DESCRIPTION": "Оставайтесь в курсе новостей группы."
-      },
-      "daily_pickup_notification": {
-        "NAME": "Уведомления о доставке",
-        "DESCRIPTION": "Напоминает о ваших доставках, пустых или неполных доставках любимых мест на следующий день"
-      },
-      "new_application": {
-        "NAME": "Новая заявка",
-        "DESCRIPTION": "Сообщает вам, когда кто-то хочет присоединиться к группе"
-      },
-      "new_offer": {
-        "NAME": "New offers",
-        "DESCRIPTION": "Tells you when somebody creates a new offer"
-      },
-      "conflict_resolution": {
-        "NAME": "Новые процессы регулирования конфликтов",
-        "DESCRIPTION": "Уведомляет о новых процессах регулирования конфликтов, начавшихся в группе"
-      }
-    },
-    "PLAYGROUND_INFO": "Это группа-площадка, где ничего не возможно сломать! Исследуйте, кликайте и веселитесь!",
-    "JOIN_PLAYGROUND": "Присоединяйтесь к группе, чтобы открыть возможности karrot",
-    "JOIN_ANOTHER_GROUP": "Присоединиться к другой группе"
-  },
-  "GROUPMAP": {
-    "TITLE": "Карта",
-    "SHOW_USERS": "Показать пользователей",
-    "HIDE_USERS": "Скрыть пользователей",
-    "SHOW_PLACES": "Показать места",
-    "HIDE_PLACES": "Скрыть места",
-    "SHOW_GROUPS": "Показать группы",
-    "HIDE_GROUPS": "Скрыть группы",
-    "SET_LOCATION": "Выбрать локацию",
-    "FULL_SCREEN": "Открыть на весь экран",
-    "EXPORT": "Export"
-  },
-  "STOREDETAIL": {
-    "DIRECTIONS": "Показать маршрут",
-    "EDIT": "Редактировать место",
-    "ARCHIVED": "Место заархивировано ",
-    "INACTIVE": "Это место не сотрудничает в данный момент.",
-    "CHANGE_STATUS": "Вы можете изменить статус на странице «Настройки».",
-    "NO_DESCRIPTION": "Это место еще не имеет описания"
-  },
-  "STOREEDIT": {
-    "NAME": "Name",
-    "STATUS": "Статус",
-    "DESCRIPTION": "Description",
-    "ADDRESS": "Address",
-    "WEEKS_IN_ADVANCE": "How many weeks in advance should recurring pickup dates be shown?",
-    "WEEKS_IN_ADVANCE_WARNING": "You are about to reduce the number of weeks pickups are shown. Existing leftover pickups will get deleted if nobody has joined them. You can disable all other pickups manually, if needed.",
-    "DIALOGS": {
-      "ARCHIVE": {
-        "TITLE": "Добавить место в архив",
-        "MESSAGE": "Вы уверены?",
-        "CONFIRM": "Да, добавить место в архив"
-      }
-    },
-    "RESTORE": "Restore",
-    "SHOW_ALL": "Показать все места",
-    "SHOW_ACTIVE_ONLY": "Показать только активные места"
-  },
-  "PLACEWALL": {
-    "SUBSCRIBED_USERS": "{count}людей отметили это место любимым",
-    "SUBSCRIPTION": {
-      "HEADER": "Хотите отметить это место любимым?",
-      "YES": "да",
-      "YES_TEXT": "Показывает доступные пункты сбора на стене группы и отправляет электронные письма о предстоящих пунктах сбора.",
-      "NO": "нет",
-      "NO_TEXT": "Ни один из вышеперечисленных. Вы по-прежнему можете подписаться на пункты сбора."
-    }
-  },
-  "PICKUPMANAGE": {
-    "TITLE": "Manage pickups",
-    "SERIES": "Повторяющиеся пункты сбора",
-    "SINGLE": "One-time pickups",
-    "UPCOMING_PICKUPS_IN_SERIES": "Предстоящие пункты сбора в этой серии",
-    "PICKUP_DOES_NOT_MATCH": "This pickups' date doesn't match the recurrence pattern",
-    "PICKUP_DESCRIPTION_CHANGED": "'Additional information' has been changed",
-    "PICKUP_MAX_COLLECTORS_CHANGED": "'Max slots' has been changed"
-  },
-  "PICKUPDELETE": {
-    "DELETE_SERIES_TITLE": "Delete recurring pickup date",
-    "DELETE_SERIES_TEXT": "Do you really want to delete this recurring pickup date? This will also delete all one-time pickup dates that belong to this recurring pickup date (except where people joined already)."
-  },
-  "USERDETAIL": {
-    "DISPLAY_NAME": "Имя",
-    "DESCRIPTION": "О себе",
-    "OLD_PASSWORD": "Confirm your old password",
-    "PASSWORD": "New password"
-  },
-  "PROFILE": {
-    "INACCESSIBLE_OR_DELETED": "(User inaccessible or deleted)"
-  },
-  "JOINGROUP": {
-    "WHICHGROUP": "В какую группу вы хотите вступить?",
-    "OR": "{joinGroup} or {createGroup}",
-    "NUM_MEMBERS": "Member | Members",
-    "NO_PUBLIC_DESCRIPTION": "(У этой группы пока нет описания)",
-    "ALL_GROUPS": "All groups",
-    "BROWSE_GROUPS": "Browse existing groups",
-    "SIGNUP_OR_LOGIN": "Log in or sign up to join this group!",
-    "VERIFY_EMAIL_ADDRESS": "Verify your email address to apply",
-    "MY_GROUPS": "My groups",
-    "LOGOUT_MESSAGE": {
-      "LOGGED_OUT": "You are currently logged out. {login}",
-      "LOG_IN": "Log in to see your groups!"
-    },
-    "PROFILE_NOTE": "By joining this group, your profile data will become visible to other group members.",
-    "APPLICATION_SUBMITTED": "Your application was successfully submitted!",
-    "APPLICATION_PENDING": "Your application is pending!",
-    "WITHDRAW_CONFIRMATION_HEADER": "Withdraw Application",
-    "WITHDRAW_CONFIRMATION_TEXT": "Are you sure you want to withdraw your application to join {groupName}?",
-    "APPLICATION_WITHDRAWN": "Your application was successfully withdrawn!",
-    "ARCHIVED_NOTE": "This group doesn't have any members. If you would like to revive it, contact the site administrators!"
-  },
-  "GROUPINFO": {
-    "TITLE": "Public group information",
-    "META": "Show public group information",
-    "MEMBER_VIEW": "You are member of this group. Click here to switch to full view."
-  },
-  "TOPBAR": {
-    "LOGOUT": "Выйти",
-    "USERPROFILE": "Мой профиль",
-    "CHANGE_GROUP": "Change group"
-  },
-  "SIDENAV": {
-    "INFO_SUB": "How to build your foodsaving group",
-    "GIT_SUB": "See our code!"
-  },
-  "LOGIN": {
-    "TITLE": "Войти",
-    "SUBMIT": "Войти",
-    "SIGNUP": "Зарегистрироваться",
-    "FORGOT_PASSWORD": "Забыли пароль?"
-  },
-  "SIGNUP": {
-    "TITLE": "Регистрация",
-    "BACK": "Назад",
-    "OK": "Зарегистрироваться"
-  },
-  "VERIFYMAIL": {
-    "TITLE": "E-Mail verification",
-    "SUCCESS": "Your e-mail address was successfully verified!"
-  },
-  "DELETEACCOUNT": {
-    "TITLE": "Account deletion",
-    "SUCCESS": "Your account was successfully deleted!"
-  },
-  "CREATEPICKUP": {
-    "FREQUENCY": "Frequency",
-    "WEEKLY": "Weekly",
-    "CUSTOM": "Custom",
-    "WEEKDAYS": "Weekdays",
-    "WEEKDAYS_HELPER": "On which days should the pick-up take place?",
-    "RRULE": "Recurrence rule",
-    "RRULE_HELPER": "Type in a valid {ruleHelper}, e.g. {ruleExample} or {ruleExample2}",
-    "RRULE_HELPER_URL": "iCalender rule",
-    "RRULE_EXAMPLE": "last working day (Mo-Fr) every month",
-    "RRULE_EXAMPLE2": "every second Monday",
-    "STARTDATE_HELPER": "When should the series start?",
-    "TIME_HELPER": "When should the pick-up take place?",
-    "DATE": "Date",
-    "MAX_COLLECTORS": "Максимальное количество слотов",
-    "MAX_COLLECTORS_HELPER": "How many people should participate in the pick-up?",
-    "COMMENT": "Additional information",
-    "COMMENT_HELPER": "What should people know when signing up to this pick-up?",
-    "UNLIMITED": "unlimited",
-    "DIFFERS_WARNING": "This value differs from the default. To undo this change, click on the arrow button and save the changes.",
-    "ENABLE_TITLE": "Enable pickup?",
-    "DISABLE_TITLE": "Disable pickup?",
-    "ENABLE_DISABLE_MESSAGE": "Users who joined this pickup will get a notification. You can change this text to provide a reason:",
-    "EXCEPTIONS_TITLE": "Check your pickups",
-    "EXCEPTIONS_MESSAGE": "Some upcoming pickups don't match the settings of this recurring pickup. Have a look below at '{upcomingLabel}' to change or disable pickups, if needed."
-  },
-  "CREATESTORE": {
-    "TITLE": "Create a new place"
-  },
-  "PICKUPLIST": {
+  "ACTIVITYLIST": {
+    "ACTIVITY_DISABLED": "This pickup has been disabled.",
+    "ACTIVITY_STARTED": "This pickup has already started.",
+    "AVAILABLE": "There is one pickup in your favorite places waiting for you! | There are {count} pickups in your favorite places waiting for you!",
+    "AVAILABLE_FEEDBACK": "You can give feedback to a pickup | {count} pickups await your feedback",
+    "AVAILABLE_FROM_STORES": "This shows pickups from your favorite places in the next days. You can access other places in the sidebar.",
     "FILTER": {
       "ALL": "All",
       "EMPTY": "Only empty",
       "FREE": "With free slots"
     },
-    "AVAILABLE": "There is one pickup in your favorite places waiting for you! | There are {count} pickups in your favorite places waiting for you!",
-    "AVAILABLE_FEEDBACK": "You can give feedback to a pickup | {count} pickups await your feedback",
-    "JOINEDNOTICE": "You have one upcoming pickup | You have {count} upcoming pickups",
-    "AVAILABLE_FROM_STORES": "This shows pickups from your favorite places in the next days. You can access other places in the sidebar.",
     "ITEM": {
-      "LEAVE": "Выйти",
       "JOIN": "Войти",
       "JOIN_CONFIRMATION_HEADER": "Join Pickup",
       "JOIN_CONFIRMATION_TEXT": "Are you sure you have time to pick up on {date}?",
+      "LEAVE": "Выйти",
       "LEAVE_CONFIRMATION_HEADER": "Leave Pickup",
       "LEAVE_CONFIRMATION_TEXT": "Are you really sure the others can do the pickup without you?"
     },
+    "JOINEDNOTICE": "You have one upcoming pickup | You have {count} upcoming pickups",
     "NONE": "No upcoming pickups",
     "NONE_HINT": "You can create a new pickup on the place page.",
-    "STORE_NONE_HINT": "You can create a new pickup on the pickup manage page.",
-    "PICKUP_DISABLED": "This pickup has been disabled.",
-    "PICKUP_STARTED": "This pickup has already started."
+    "STORE_NONE_HINT": "You can create a new pickup on the pickup manage page."
   },
-  "FEEDBACKLIST": {
-    "SAVED_FOOD": "At least 1 kg was saved here. Thank you! | People gave feedback for {amount} kg of saved food already! Keep up the great work!",
-    "NUMBER_PICKUPS": "{count} pickups done",
-    "NUMBER_FEEDBACK": "{count} feedback entries given",
-    "WEIGHT_SUM": "{sum} kg of food saved",
-    "NONE": "Нет отзывов",
-    "NONE_HINT": "This page will be filled once more feedback is available",
-    "NO_DONE_PICKUPS": "All done!",
-    "NO_DONE_PICKUPS_HINT": "You currently have no pickups to give feedback to. Why not join another pickup?"
+  "ACTIVITYMANAGE": {
+    "ACTIVITY_DESCRIPTION_CHANGED": "'Additional information' has been changed",
+    "ACTIVITY_DOES_NOT_MATCH": "This pickups' date doesn't match the recurrence pattern",
+    "ACTIVITY_MAX_PARTICIPANTS_CHANGED": "'Max slots' has been changed",
+    "SERIES": "Повторяющиеся пункты сбора",
+    "SINGLE": "One-time pickups",
+    "TITLE": "Manage pickups",
+    "UPCOMING_ACTIVITIES_IN_SERIES": "Предстоящие пункты сбора в этой серии"
   },
-  "PICKUP_FEEDBACK": {
-    "TITLE": "Отзывы",
-    "HEADER": "Thank you for your pickup!",
-    "EDIT": "Редактировать отзыв",
-    "SET_AMOUNT": "Set amount",
-    "DELETE_AMOUNT": "Delete amount",
+  "ACTIVITY_FEEDBACK": {
     "AMOUNT": "Amount of food you were able to save (in kg)",
     "AMOUNT_INFO": "For place statistics, we will add together the amount of all feedback.",
     "COMMENT_PLACEHOLDER": "Was everything fine? Did everyone show up? Your comment here...",
+    "DELETE_AMOUNT": "Delete amount",
+    "EDIT": "Редактировать отзыв",
+    "HEADER": "Thank you for your pickup!",
     "PREVIOUS": "Previous feedback for {store}",
+    "SET_AMOUNT": "Set amount",
+    "TITLE": "Отзывы",
     "TOGETHER_WITH": "You did this pickup together with:"
   },
-  "PASSWORDRESET": {
-    "TITLE": "Сброс пароля",
-    "INTRO": "Enter your Email address and we will send you a link to set a new password (if you have an account registered).",
-    "EMAIL": "Email address",
-    "SUBMIT": "Получить новый пароль",
-    "LOGIN": "Назад",
-    "SUCCESS": "The request was successfully sent. Have a look at your Emails!"
+  "ADDRESS_PICKER": {
+    "CHOOSE_LOCATION": "choose location on map",
+    "KEEP_EXISTING_LOCATION": "keep existing location on map",
+    "SET_AS": "Set address as"
   },
-  "PASSWORD": {
-    "RESET": {
-      "TITLE": "Reset password",
-      "OK": "Save",
-      "SUCCESS": "Your new password has been saved."
+  "AGREEMENT": {
+    "AGREE": "You must agree to {title}",
+    "BLURB1": "You don't have an agreement yet!",
+    "BLURB2": "If you add one then people will have to agree to it before they can do pickups.",
+    "CONTENT": "Content",
+    "CONTENT_HELPER": "The text of your agreement",
+    "DIALOGS": {
+      "REMOVE": {
+        "CONFIRM": "Yes, remove agreement",
+        "MESSAGE": "This means anyone will be able to do a pickup",
+        "TITLE": "Remove agreement?"
+      },
+      "REPLACE": {
+        "CONFIRM": "Yes, change agreement",
+        "MESSAGE": "Everyone will have to agree again before they can signup for pickups",
+        "TITLE": "Change agreement?"
+      }
     },
-    "CHANGE": {
-      "SUCCESS": "Your new password has been saved."
+    "MINOR_EDIT": "Minor edit?",
+    "MINOR_EDIT_HELPER": "Typos, formatting, etc... people will not be asked to re-agree",
+    "NEW": "New agreement",
+    "TITLE": "Title",
+    "TITLE_HELPER": "Give your agreement a title, e.g. Community Rules",
+    "VIEW": "View agreement"
+  },
+  "APPLICATION": {
+    "ACCEPTED": "You accepted {userName} into this group!",
+    "ACCEPT_CONFIRMATION_HEADER": "Accept Application",
+    "ACCEPT_CONFIRMATION_TEXT": "Are you sure you want to accept {userName} into this group?",
+    "APPLICATION": "Application",
+    "DECLINED": "You declined the application of {userName}.",
+    "DECLINE_CONFIRMATION_HEADER": "Decline Application",
+    "DECLINE_CONFIRMATION_TEXT": "Are you sure you want to decline the application of {userName}?",
+    "FORM_HEADER": "Apply",
+    "FORM_TITLE": "Apply to join {groupName}",
+    "GALLERY_TOOLTIP": "You applied to join this group. Your application is still pending.",
+    "HELP": "This is a chat between all existing members of {groupName} and the new applicant {userName}. It is meant to give you all a chance to get to know you before deciding whether to accept, decline or withdraw the application.",
+    "INITIAL": "Initial questions and answers",
+    "PAST": "Past applications",
+    "SUBMITTED_ON": "Submitted on {date}",
+    "WALL_NOTICE": "There is an application pending! | There are {count} applications pending!",
+    "WHAT": "What is this chat about?",
+    "WITHDRAWN": "withdrawn {relativeDate}"
+  },
+  "ATTENTION": "Внимание!",
+  "BUTTON": {
+    "ACCEPT": "Принять",
+    "AGREE": "Я согласен",
+    "APPLY": "Подать",
+    "ARCHIVE": "Архивировать",
+    "BACK": "Back",
+    "CANCEL": "Отмена",
+    "CHANGE_EMAIL": "Изменить электронную почту",
+    "CHANGE_PASSWORD": "Изменить пароль",
+    "CLOSE": "Закрыть",
+    "CREATE": "Создать",
+    "DECLINE": "Отказать",
+    "DELETE": "Удалить",
+    "DELETE_ACCOUNT": "Удалить аккаунт",
+    "DISABLE": "Выключить",
+    "EDIT": "Редактировать",
+    "ENABLE": "Включить",
+    "HIDE": "Скрыть",
+    "JOIN": "Вступить",
+    "NEXT": "Следующий",
+    "OF_COURSE": "Да, конечно!",
+    "OPEN": "Открыть",
+    "PREVIEW": "Preview",
+    "REMOVE": "Удалить",
+    "RESET": "Сброс",
+    "SAVE_CHANGES": "Сохранить изменения",
+    "SEARCH": "Искать",
+    "SHOW": "Показать",
+    "SHOW_LESS": "Show less",
+    "SHOW_MORE": "Показать больше",
+    "SUBMIT": "Отправить",
+    "UNSUBSCRIBE": "Отписаться",
+    "WITHDRAW": "Withdraw",
+    "YES": "Да"
+  },
+  "COMMUNITY_FEED": {
+    "HEADER": "Updates from the {community}",
+    "HEADER_LINK": "foodsaving worldwide community",
+    "KARROT_DISCUSSION": "Discussions about Karrot",
+    "LAST_UPDATED": "Last updated {relativeDate}"
+  },
+  "CONFLICT": {
+    "FIND_OUT_MORE": "Find out more!",
+    "INFO": {
+      "MESSAGE": "This is a score voting in which group members can participate to determine how to deal with a social conflict that affects the whole group.",
+      "TITLE": "How does this process work?"
+    },
+    "INITIAL": "Information",
+    "REQUIREMENTS": {
+      "NEWCOMER": "Before you can start a conflict resolution process, you need to receive more trust and gain editing permissions. In the meantime, please ask a fellow group member to start the process for you."
+    },
+    "SETUP_HEADER": "Is there a conflict with {user}?",
+    "STATEMENT": "Statement",
+    "STEPPER1a": "You are about to start a group-wide conflict resolution process!",
+    "STEPPER1b": "This will involve all members to find the best way to proceed.",
+    "STEPPER2a": "Thank you for caring for your community!",
+    "STEPPER2b": "It is important to address social issues, although it can be unpleasant sometimes. Thank you for your courage!",
+    "STEPPER3a": "Here's what will happen:",
+    "STEPPER3b": "This process will start a chat and a vote.",
+    "STEPPER3c": "The chat will be visible for members and includes {userName}.",
+    "STEPPER3d": "The voting is anonymous. It will go on for {votingDuration} days. During this time all voters can change their minds and vote differently as many times as they want.",
+    "STEPPER4a": "Please explain why you are starting this conflict resolution process!",
+    "STEPPER4b": "Tell your group what made you think this process is justified and needed. This statement will be visible to {userName} and group members.",
+    "VOTING": {
+      "HEADLINE": "How do you want to proceed with the ongoing conflict with {userName}?"
+    },
+    "WITH": "This process is to resolve a conflict with {userName}"
+  },
+  "CONVERSATION": {
+    "CLOSED": "This conversation has been closed automatically.",
+    "CONVERSATIONS": "Conversations",
+    "EDITED": "отредактировано",
+    "MARK_READ": "Отметить все как прочитанные",
+    "MESSAGE_NOT_FOUND": "Сообщение не найдено",
+    "MUTED": "Notifications are disabled",
+    "NOT_PARTICIPATED": "By sending a message, you will be subscribed to notifications about this conversation.",
+    "NO_CONVERSATIONS": "No conversations yet.",
+    "OPEN": "Открыть чат",
+    "REACTIONS": {
+      "AND": "и",
+      "REACTED_WITH": "{users}отреагировал {reaction}",
+      "YOU": "вы"
+    },
+    "REPLIES": "Ответы",
+    "REPLIES_COUNT": "1 reply | {count} replies",
+    "REPLY_TO_MESSAGE": "Ответить на сообщение...",
+    "UNREAD_MESSAGES": "У вас есть одно непрочитанное сообщение. | У вас есть {count} непрочитанных сообщений"
+  },
+  "CREATEACTIVITY": {
+    "COMMENT": "Additional information",
+    "COMMENT_HELPER": "What should people know when signing up to this pick-up?",
+    "CUSTOM": "Custom",
+    "DATE": "Date",
+    "DIFFERS_WARNING": "This value differs from the default. To undo this change, click on the arrow button and save the changes.",
+    "DISABLE_TITLE": "Disable pickup?",
+    "ENABLE_DISABLE_MESSAGE": "Users who joined this pickup will get a notification. You can change this text to provide a reason:",
+    "ENABLE_TITLE": "Enable pickup?",
+    "EXCEPTIONS_MESSAGE": "Some upcoming pickups don't match the settings of this recurring pickup. Have a look below at '{upcomingLabel}' to change or disable pickups, if needed.",
+    "EXCEPTIONS_TITLE": "Check your pickups",
+    "FREQUENCY": "Frequency",
+    "MAX_PARTICIPANTS": "Максимальное количество слотов",
+    "MAX_PARTICIPANTS_HELPER": "How many people should participate in the pick-up?",
+    "RRULE": "Recurrence rule",
+    "RRULE_EXAMPLE": "last working day (Mo-Fr) every month",
+    "RRULE_EXAMPLE2": "every second Monday",
+    "RRULE_HELPER": "Type in a valid {ruleHelper}, e.g. {ruleExample} or {ruleExample2}",
+    "RRULE_HELPER_URL": "iCalender rule",
+    "STARTDATE_HELPER": "When should the series start?",
+    "TIME_HELPER": "When should the pick-up take place?",
+    "UNLIMITED": "unlimited",
+    "WEEKDAYS": "Weekdays",
+    "WEEKDAYS_HELPER": "On which days should the pick-up take place?",
+    "WEEKLY": "Weekly"
+  },
+  "CREATESTORE": {
+    "TITLE": "Create a new place"
+  },
+  "DELETEACCOUNT": {
+    "SUCCESS": "Your account was successfully deleted!",
+    "TITLE": "Account deletion"
+  },
+  "ENTRY": "1 entry | {count} entries",
+  "FEEDBACKLIST": {
+    "NONE": "Нет отзывов",
+    "NONE_HINT": "This page will be filled once more feedback is available",
+    "NO_DONE_ACTIVITIES": "All done!",
+    "NO_DONE_ACTIVITIES_HINT": "You currently have no pickups to give feedback to. Why not join another pickup?",
+    "NUMBER_ACTIVITIES": "{count} pickups done",
+    "NUMBER_FEEDBACK": "{count} feedback entries given",
+    "SAVED_FOOD": "At least 1 kg was saved here. Thank you! | People gave feedback for {amount} kg of saved food already! Keep up the great work!",
+    "WEIGHT_SUM": "{sum} kg of food saved"
+  },
+  "GLOBAL": {
+    "ABOUT_KARROT": "О Karrot",
+    "GENERIC_ERROR": "Sorry, something went wrong",
+    "GITHUB_NOTE": "Разработка",
+    "INVALID_LINK": "Открытая ссылка недействительна ",
+    "NOT_CONNECTED": "Не удается подключиться к сети",
+    "SEARCH_NOT_FOUND": "Не найдено",
+    "SEARCH_RESULTS": "Search results",
+    "SERVER_ERROR": "Ошибка на сервере"
+  },
+  "GROUP": {
+    "ACTIVITIES": "Pickups",
+    "ACTIVITY": "Pickup",
+    "ADDED_BY": "добавлен {userName}",
+    "ADDRESS": "Address",
+    "APPLICATIONS": "Заявки",
+    "APPLICATION_QUESTIONS": "Questions for people who want to join this group",
+    "CREATE_TITLE": "Создать новую группу",
+    "DECLINED": "отклонил {relativeDate}",
+    "DECLINED_BY": "отклонен {userName}",
+    "DESCRIPTION": "Описание",
+    "DESCRIPTION_VERBOSE": "Описание группы, которое видят участники",
+    "EDIT": "Редактировать группу",
+    "EMAIL_NOTIFICATIONS": "Уведомления на электронную почту",
+    "HISTORY": "History",
+    "HOME": "Главная ",
+    "INACTIVE": "Неактивен ",
+    "INVITATIONS": "Приглашения",
+    "INVITATION_ACCEPT_ERROR": "Упс, не удалось принять приглашение!",
+    "INVITATION_ACCEPT_SUCCESS": "Добро пожаловать! Вы приняли приглашение.",
+    "INVITED_LIST": "Invitations have already been sent out to these e-mail addresses:",
+    "INVITE_EMAIL": "Enter an e-mail address",
+    "INVITE_SEND": "Send invitation",
+    "INVITE_SEND_ERROR": "Упс, не удалось отправить приглашение!",
+    "INVITE_SEND_SUCCESS": "Приглашение успешно отправлено!",
+    "INVITE_TITLE": "Invite users to your group",
+    "JOINED": "присоединился {relativeDate}",
+    "JOIN_ANOTHER_GROUP": "Присоединиться к другой группе",
+    "JOIN_PLAYGROUND": "Присоединяйтесь к группе, чтобы открыть возможности karrot",
+    "LEAVE": "Выйти из группы",
+    "LEAVE_CONFIRMATION": "Вы покинули группу {groupName}.",
+    "LEAVE_TEXT": "Уверены, что хотите выйти из группы?",
+    "LOGO": "Изображение группы",
+    "MANAGE_AGREEMENT": "Регулирование соглашения",
+    "MEMBERS": "Участники",
+    "MESSAGES": "Сообщения",
+    "NONMEMBER_REDIRECT": "Вы не являетесь членом этой группы.",
+    "NOTIFICATIONS_BY_GROUP": "Notifications by group",
+    "NOTIFICATION_TYPES": {
+      "conflict_resolution": {
+        "DESCRIPTION": "Уведомляет о новых процессах регулирования конфликтов, начавшихся в группе",
+        "NAME": "Новые процессы регулирования конфликтов"
+      },
+      "daily_activity_notification": {
+        "DESCRIPTION": "Напоминает о ваших доставках, пустых или неполных доставках любимых мест на следующий день",
+        "NAME": "Уведомления о доставке"
+      },
+      "new_application": {
+        "DESCRIPTION": "Сообщает вам, когда кто-то хочет присоединиться к группе",
+        "NAME": "Новая заявка"
+      },
+      "new_offer": {
+        "DESCRIPTION": "Tells you when somebody creates a new offer",
+        "NAME": "New offers"
+      },
+      "weekly_summary": {
+        "DESCRIPTION": "Оставайтесь в курсе новостей группы.",
+        "NAME": "Еженедельный отчет"
+      }
+    },
+    "OFFERS": "Offers",
+    "PLACES": "Места",
+    "PLAYGROUND_INFO": "Это группа-площадка, где ничего не возможно сломать! Исследуйте, кликайте и веселитесь!",
+    "SET_LOGO": "Кликните, что загрузить изображение группы!",
+    "SHOW_INACTIVE": "Показать неактивные группы",
+    "SORT_JOINDATE": "Отсортировать по дате добавления ",
+    "SORT_NAME": "Отсортировать по имени",
+    "TIMEZONE": "Time zone of group",
+    "TITLE": "Заголовок для этой группы",
+    "WALL": "Стена",
+    "WELCOMEMESSAGE_VERBOSE": "Welcome message sent to new members"
+  },
+  "GROUPINFO": {
+    "MEMBER_VIEW": "You are member of this group. Click here to switch to full view.",
+    "META": "Show public group information",
+    "TITLE": "Public group information"
+  },
+  "GROUPMAP": {
+    "EXPORT": "Export",
+    "FULL_SCREEN": "Открыть на весь экран",
+    "HIDE_GROUPS": "Скрыть группы",
+    "HIDE_PLACES": "Скрыть места",
+    "HIDE_USERS": "Скрыть пользователей",
+    "SET_LOCATION": "Выбрать локацию",
+    "SHOW_GROUPS": "Показать группы",
+    "SHOW_PLACES": "Показать места",
+    "SHOW_USERS": "Показать пользователей",
+    "TITLE": "Карта"
+  },
+  "HISTORY": {
+    "ACTIVITY_CREATE": "created a new one-time pick-up",
+    "ACTIVITY_DELETE": "deleted a pick-up",
+    "ACTIVITY_DISABLE": "disabled a pickup",
+    "ACTIVITY_DONE": "did a pick-up at {storeName}",
+    "ACTIVITY_ENABLE": "enabled a pickup",
+    "ACTIVITY_JOIN": "signed up to do a pick-up at {storeName}",
+    "ACTIVITY_LEAVE": "stepped back from doing a pick-up at {storeName}",
+    "ACTIVITY_MISSED": "A pickup at {storeName} was missed!",
+    "ACTIVITY_MODIFY": "changed the settings of a pick-up",
+    "APPLICATION_DECLINED": "declined an application from {applicantName}",
+    "DETAILS": "More information",
+    "GROUP_CHANGE_PHOTO": "changed the group logo",
+    "GROUP_CREATE": "created this group",
+    "GROUP_DELETE_PHOTO": "deleted the group logo",
+    "GROUP_JOIN": "joined this group",
+    "GROUP_LEAVE": "left this group",
+    "GROUP_LEAVE_INACTIVE": "was removed due to inactivity",
+    "GROUP_MODIFY": "changed the settings of this group",
+    "MEMBER_BECAME_EDITOR": "gained editing permissions",
+    "MEMBER_REMOVED": "was removed due to group decision",
+    "NOTHING_HAPPENEND": "Nothing happened so far...",
+    "SERIES_CREATE": "created a new recurring pick-up",
+    "SERIES_DELETE": "deleted a recurring pick-up",
+    "SERIES_MODIFY": "changed the settings of a recurring pick-up",
+    "STORE_CREATE": "created place {name}",
+    "STORE_DELETE": "deleted place {name}",
+    "STORE_MODIFY": "changed the settings of place {name}"
+  },
+  "INACTIVITY": {
+    "HELP": "Everyone who did not log into the group for {dayCount} days or more counts as inactive. These users will not receive notification emails anymore.",
+    "WHAT": "What does it mean to be inactive?"
+  },
+  "INFO": "Информация",
+  "ISSUE": {
+    "CHAT": "Chat",
+    "CREATION": {
+      "TOAST": "You successfully started a conflict resolution process"
+    },
+    "NO_ONGOING": "No ongoing issues.",
+    "PARTICIPANTS": "{count} участник был добавлен в этот чат.",
+    "PAST": "Past issues",
+    "PREVIOUS_VOTINGS": "Previous votings in this issue",
+    "TITLE": "Issues",
+    "VOTE": "Vote",
+    "VOTING": {
+      "ANONYMOUS": "Ваш голос будет анонимным.",
+      "BTN_DELETE": "Удалить голос",
+      "BTN_START": "Проголосовать сейчас",
+      "FURTHER_DISCUSSION": "Further discussion: extend time by starting another voting",
+      "NO_CHANGE": "No change: {userName} stays in {groupName}",
+      "REMOVE_USER": "Участник {userName}удален из группы {groupName}",
+      "RESULTS": {
+        "ENDED_AT": "Голосование закончилось {date}",
+        "KEEP_DISCUSSING": "Your group voted to keep discussing",
+        "PARTICIPANTS": "{number}участник группы участвовал в голосовании.",
+        "TIME_UP": "Время вышло!",
+        "TOTAL_SCORE": "Общий результат",
+        "UNDECIDED": "К сожалению, этот конфликт не разрешился.",
+        "UNDECIDED_REASON_1": "the affected user left the group while the conflict resolution process was still ongoing",
+        "UNDECIDED_REASON_2": "nobody voted on this issue",
+        "UNDECIDED_WHY": "На это существует две возможных причины:"
+      },
+      "SAVE": "Сохранить",
+      "SCORE_LABELS": {
+        "NEUTRAL": "нейтральный",
+        "SLIGHT_RESISTANCE": "resistance",
+        "SLIGHT_SUPPORT": "поддержка",
+        "STRONG_RESISTANCE": "strong resistance",
+        "STRONG_SUPPORT": "strong support"
+      },
+      "SEE_RESULTS": "Посмотреть результаты",
+      "TIME_LEFT": "Осталось до конца голосования ",
+      "TOAST": "Ваш голос был успешно отправлен",
+      "TOAST_DELETE": "Ваш голос удален"
     }
+  },
+  "JOINGROUP": {
+    "ALL_GROUPS": "All groups",
+    "APPLICATION_PENDING": "Your application is pending!",
+    "APPLICATION_SUBMITTED": "Your application was successfully submitted!",
+    "APPLICATION_WITHDRAWN": "Your application was successfully withdrawn!",
+    "ARCHIVED_NOTE": "This group doesn't have any members. If you would like to revive it, contact the site administrators!",
+    "BROWSE_GROUPS": "Browse existing groups",
+    "LOGOUT_MESSAGE": {
+      "LOGGED_OUT": "You are currently logged out. {login}",
+      "LOG_IN": "Log in to see your groups!"
+    },
+    "MY_GROUPS": "My groups",
+    "NO_PUBLIC_DESCRIPTION": "(У этой группы пока нет описания)",
+    "NUM_MEMBERS": "Member | Members",
+    "OR": "{joinGroup} or {createGroup}",
+    "PROFILE_NOTE": "By joining this group, your profile data will become visible to other group members.",
+    "SIGNUP_OR_LOGIN": "Log in or sign up to join this group!",
+    "VERIFY_EMAIL_ADDRESS": "Verify your email address to apply",
+    "WHICHGROUP": "В какую группу вы хотите вступить?",
+    "WITHDRAW_CONFIRMATION_HEADER": "Withdraw Application",
+    "WITHDRAW_CONFIRMATION_TEXT": "Are you sure you want to withdraw your application to join {groupName}?"
   },
   "LANGUAGECHOOSER": {
     "ADD_MORE": "Help translating!",
     "SWITCH": "Switch language"
   },
+  "LOGIN": {
+    "FORGOT_PASSWORD": "Забыли пароль?",
+    "SIGNUP": "Зарегистрироваться",
+    "SUBMIT": "Войти",
+    "TITLE": "Войти"
+  },
   "MARKDOWN_INPUT": {
     "BOLD": "bold",
+    "HELP": "What is Markdown?",
     "ITALIC": "italic",
-    "STRIKE": "strike",
     "QUOTE": "quote",
-    "HELP": "What is Markdown?"
-  },
-  "HISTORY": {
-    "GROUP_CREATE": "created this group",
-    "GROUP_MODIFY": "changed the settings of this group",
-    "GROUP_JOIN": "joined this group",
-    "GROUP_LEAVE": "left this group",
-    "STORE_CREATE": "created place {name}",
-    "STORE_MODIFY": "changed the settings of place {name}",
-    "STORE_DELETE": "deleted place {name}",
-    "PICKUP_CREATE": "created a new one-time pick-up",
-    "PICKUP_MODIFY": "changed the settings of a pick-up",
-    "PICKUP_DELETE": "deleted a pick-up",
-    "PICKUP_ENABLE": "enabled a pickup",
-    "PICKUP_DISABLE": "disabled a pickup",
-    "SERIES_CREATE": "created a new recurring pick-up",
-    "SERIES_MODIFY": "changed the settings of a recurring pick-up",
-    "SERIES_DELETE": "deleted a recurring pick-up",
-    "PICKUP_DONE": "did a pick-up at {storeName}",
-    "PICKUP_MISSED": "A pickup at {storeName} was missed!",
-    "PICKUP_JOIN": "signed up to do a pick-up at {storeName}",
-    "PICKUP_LEAVE": "stepped back from doing a pick-up at {storeName}",
-    "APPLICATION_DECLINED": "declined an application from {applicantName}",
-    "MEMBER_BECAME_EDITOR": "gained editing permissions",
-    "GROUP_LEAVE_INACTIVE": "was removed due to inactivity",
-    "GROUP_CHANGE_PHOTO": "changed the group logo",
-    "GROUP_DELETE_PHOTO": "deleted the group logo",
-    "MEMBER_REMOVED": "was removed due to group decision",
-    "NOTHING_HAPPENEND": "Nothing happened so far...",
-    "DETAILS": "More information"
+    "STRIKE": "strike"
   },
   "NOTIFICATIONS": {
-    "NOT_VERIFIED": "{email} is not verified",
-    "CHECK_YOUR_MAILS": "Please check your emails or {resend}",
-    "RESEND_VERIFICATION": "resend verification email",
-    "VERIFICATION_EMAIL_SENT": "We sent you another verification mail. Please check your inbox.",
     "CHANGES_SAVED": "Your changes have been saved.",
-    "EMAIL_NOT_DELIVERED": "An email could not be delivered to you | {count} emails could not be delivered to you"
-  },
-  "NOTIFICATION_BELLS_LIST": {
-    "TITLE": "Notifications",
-    "NO_ITEMS": "We currently don't have notifications for you."
+    "CHECK_YOUR_MAILS": "Please check your emails or {resend}",
+    "EMAIL_NOT_DELIVERED": "An email could not be delivered to you | {count} emails could not be delivered to you",
+    "NOT_VERIFIED": "{email} is not verified",
+    "RESEND_VERIFICATION": "resend verification email",
+    "VERIFICATION_EMAIL_SENT": "We sent you another verification mail. Please check your inbox."
   },
   "NOTIFICATION_BELLS": {
-    "YOU_BECAME_EDITOR": "You gained editing permissions",
-    "USER_BECAME_EDITOR": "{userName} gained editing permissions",
-    "NEW_APPLICANT": "{userName} applied to join your group",
+    "ACTIVITY_DISABLED": "Pickup at {dateTime} was disabled",
+    "ACTIVITY_ENABLED": "Pickup at {dateTime} was enabled again",
+    "ACTIVITY_MOVED": "Pickup was moved to {dateTime}",
+    "ACTIVITY_UPCOMING": "Reminder: You have a pickup at {time}",
     "APPLICATION_ACCEPTED": "Your application was accepted!",
     "APPLICATION_DECLINED": "Your application was declined",
-    "INVITATION_ACCEPTED": "{userName} accepted your invitation",
-    "FEEDBACK_POSSIBLE": "You can give feedback for the pickup you did on {date}",
-    "NEW_PLACE": "{placeName} has been created",
-    "NEW_MEMBER": "{userName} joined your group",
-    "PICKUP_UPCOMING": "Reminder: You have a pickup at {time}",
-    "PICKUP_DISABLED": "Pickup at {dateTime} was disabled",
-    "PICKUP_ENABLED": "Pickup at {dateTime} was enabled again",
-    "PICKUP_MOVED": "Pickup was moved to {dateTime}",
-    "CONFLICT_RESOLUTION_CREATED": "Join the discussion about a conflict with {userName}",
-    "CONFLICT_RESOLUTION_CREATED_ABOUT_YOU": "A conflict resolution process was started with you",
     "CONFLICT_RESOLUTION_CONTINUED": "The conflict resolution process with {userName} continues",
     "CONFLICT_RESOLUTION_CONTINUED_ABOUT_YOU": "The conflict resolution process with you continues",
+    "CONFLICT_RESOLUTION_CREATED": "Join the discussion about a conflict with {userName}",
+    "CONFLICT_RESOLUTION_CREATED_ABOUT_YOU": "A conflict resolution process was started with you",
     "CONFLICT_RESOLUTION_DECIDED": "The conflict resolution process with {userName} was decided",
     "CONFLICT_RESOLUTION_DECIDED_ABOUT_YOU": "The conflict resolution process with you was decided",
     "CONFLICT_RESOLUTION_YOU_WERE_REMOVED": "You were removed from the group",
-    "VOTING_ENDS_SOON": "Voting ends soon, don't forget to participate!"
+    "FEEDBACK_POSSIBLE": "You can give feedback for the pickup you did on {date}",
+    "INVITATION_ACCEPTED": "{userName} accepted your invitation",
+    "NEW_APPLICANT": "{userName} applied to join your group",
+    "NEW_MEMBER": "{userName} joined your group",
+    "NEW_PLACE": "{placeName} has been created",
+    "USER_BECAME_EDITOR": "{userName} gained editing permissions",
+    "VOTING_ENDS_SOON": "Voting ends soon, don't forget to participate!",
+    "YOU_BECAME_EDITOR": "You gained editing permissions"
+  },
+  "NOTIFICATION_BELLS_LIST": {
+    "NO_ITEMS": "We currently don't have notifications for you.",
+    "TITLE": "Notifications"
   },
   "NOTIFICATION_TOGGLE": {
-    "HEADER": "How do you want to receive notifications about new messages in this conversation/thread?",
     "ALL": "all",
     "ALL_TEXT": "Via app/website, email and push notifications.",
-    "SOME": "some",
-    "SOME_TEXT": "Via app/website.",
+    "HEADER": "How do you want to receive notifications about new messages in this conversation/thread?",
     "NONE": "none",
-    "NONE_TEXT": "No notifications."
-  },
-  "OUTDATED_BROWSER": {
-    "MESSAGE": "You are using an unsupported browser. {upgradeBrowser} to enjoy all features.",
-    "LINK": "Please update or switch your browser"
-  },
-  "UPDATE_AVAILABLE": {
-    "DETAIL": "A new version of karrot is available.",
-    "RELOAD": "Reload"
+    "NONE_TEXT": "No notifications.",
+    "SOME": "some",
+    "SOME_TEXT": "Via app/website."
   },
   "NOT_FOUND": {
     "EXPLANATION": "Sorry, we couldn't find this page anywhere.",
     "HOME": "Take me home"
   },
-  "SETTINGS": {
-    "TITLE": "Settings"
-  },
-  "AGREEMENT": {
-    "NEW": "New agreement",
-    "AGREE": "You must agree to {title}",
-    "VIEW": "View agreement",
-    "TITLE": "Title",
-    "TITLE_HELPER": "Give your agreement a title, e.g. Community Rules",
-    "CONTENT": "Content",
-    "CONTENT_HELPER": "The text of your agreement",
-    "MINOR_EDIT": "Minor edit?",
-    "MINOR_EDIT_HELPER": "Typos, formatting, etc... people will not be asked to re-agree",
-    "BLURB1": "You don't have an agreement yet!",
-    "BLURB2": "If you add one then people will have to agree to it before they can do pickups.",
-    "DIALOGS": {
-      "REPLACE": {
-        "TITLE": "Change agreement?",
-        "MESSAGE": "Everyone will have to agree again before they can signup for pickups",
-        "CONFIRM": "Yes, change agreement"
-      },
-      "REMOVE": {
-        "TITLE": "Remove agreement?",
-        "MESSAGE": "This means anyone will be able to do a pickup",
-        "CONFIRM": "Yes, remove agreement"
-      }
-    }
-  },
-  "WALL": {
-    "WRITE_MESSAGE": "Write a message...",
-    "WRITE_FIRST_MESSAGE": "Write the first message...",
-    "VERIFY_EMAIL_FOR_NOTIFICATIONS": "Please verify your e-mail address to receive notification e-mails",
-    "RECEIVED_VIA_EMAIL": "This message was sent via e-mail"
-  },
-  "CONVERSATION": {
-    "CONVERSATIONS": "Conversations",
-    "OPEN": "Открыть чат",
-    "REPLY_TO_MESSAGE": "Ответить на сообщение...",
-    "REPLIES": "Ответы",
-    "REPLIES_COUNT": "1 reply | {count} replies",
-    "UNREAD_MESSAGES": "У вас есть одно непрочитанное сообщение. | У вас есть {count} непрочитанных сообщений",
-    "EDITED": "отредактировано",
-    "MARK_READ": "Отметить все как прочитанные",
-    "REACTIONS": {
-      "YOU": "вы",
-      "AND": "и",
-      "REACTED_WITH": "{users}отреагировал {reaction}"
-    },
-    "MESSAGE_NOT_FOUND": "Сообщение не найдено",
-    "NO_CONVERSATIONS": "No conversations yet.",
-    "MUTED": "Notifications are disabled",
-    "CLOSED": "This conversation has been closed automatically.",
-    "NOT_PARTICIPATED": "By sending a message, you will be subscribed to notifications about this conversation."
-  },
-  "STORESTATUS": {
-    "ACTIVE": "Co-operating",
-    "CREATED": "Just created",
-    "NEGOTIATING": "Negotiating",
-    "DECLINED": "Don't want to cooperate",
-    "ARCHIVED": "Archived"
-  },
-  "APPLICATION": {
-    "APPLICATION": "Application",
-    "FORM_HEADER": "Apply",
-    "FORM_TITLE": "Apply to join {groupName}",
-    "GALLERY_TOOLTIP": "You applied to join this group. Your application is still pending.",
-    "WALL_NOTICE": "There is an application pending! | There are {count} applications pending!",
-    "ACCEPT_CONFIRMATION_HEADER": "Accept Application",
-    "ACCEPT_CONFIRMATION_TEXT": "Are you sure you want to accept {userName} into this group?",
-    "DECLINE_CONFIRMATION_HEADER": "Decline Application",
-    "DECLINE_CONFIRMATION_TEXT": "Are you sure you want to decline the application of {userName}?",
-    "ACCEPTED": "You accepted {userName} into this group!",
-    "DECLINED": "You declined the application of {userName}.",
-    "PAST": "Past applications",
-    "SUBMITTED_ON": "Submitted on {date}",
-    "WITHDRAWN": "withdrawn {relativeDate}",
-    "WHAT": "What is this chat about?",
-    "HELP": "This is a chat between all existing members of {groupName} and the new applicant {userName}. It is meant to give you all a chance to get to know you before deciding whether to accept, decline or withdraw the application.",
-    "INITIAL": "Initial questions and answers"
-  },
-  "COMMUNITY_FEED": {
-    "HEADER": "Updates from the {community}",
-    "HEADER_LINK": "foodsaving worldwide community",
-    "LAST_UPDATED": "Last updated {relativeDate}",
-    "KARROT_DISCUSSION": "Discussions about Karrot"
-  },
-  "INACTIVITY": {
-    "WHAT": "What does it mean to be inactive?",
-    "HELP": "Everyone who did not log into the group for {dayCount} days or more counts as inactive. These users will not receive notification emails anymore."
-  },
-  "CONFLICT": {
-    "SETUP_HEADER": "Is there a conflict with {user}?",
-    "STATEMENT": "Statement",
-    "STEPPER1a": "You are about to start a group-wide conflict resolution process!",
-    "STEPPER1b": "This will involve all members with editing permissions to find the best way to proceed.",
-    "STEPPER2a": "Thank you for caring for your community!",
-    "STEPPER2b": "It is important to address social issues, although it can be unpleasant sometimes. Thank you for your courage!",
-    "STEPPER3a": "Here's what will happen:",
-    "STEPPER3b": "This process will start a chat and a vote.",
-    "STEPPER3c": "The chat will be visible for members with editing permissions and includes {userName}.",
-    "STEPPER3d": "The voting is anonymous. It will go on for {votingDuration} days. During this time all voters can change their minds and vote differently as many times as they want.",
-    "STEPPER4a": "Please explain why you are starting this conflict resolution process!",
-    "STEPPER4b": "Tell your group what made you think this process is justified and needed. This statement will be visible to {userName} and group members with editing permissions.",
-    "FIND_OUT_MORE": "Find out more!",
-    "INITIAL": "Information",
-    "WITH": "This process is to resolve a conflict with {userName}",
-    "VOTING": {
-      "HEADLINE": "How do you want to proceed with the ongoing conflict with {userName}?"
-    },
-    "REQUIREMENTS": {
-      "ACTIVE_EDITORS": "Your group has {activeEditorsCount} active users with editing permissions. You need {requiredCount} to start a conflict resolution process.",
-      "NEWCOMER": "Before you can start a conflict resolution process, you need to receive more trust and gain editing permissions. In the meantime, please ask a fellow group member to start the process for you."
-    },
-    "INFO": {
-      "TITLE": "How does this process work?",
-      "MESSAGE": "This is a score voting in which group members with editing permissions can participate to determine how to deal with a social conflict that affects the whole group."
-    }
-  },
-  "ISSUE": {
-    "CREATION": {
-      "TOAST": "You successfully started a conflict resolution process"
-    },
-    "TITLE": "Issues",
-    "VOTE": "Vote",
-    "CHAT": "Chat",
-    "PAST": "Past issues",
-    "PREVIOUS_VOTINGS": "Previous votings in this issue",
-    "PARTICIPANTS": "{count} участник был добавлен в этот чат.",
-    "VOTING": {
-      "TIME_LEFT": "Осталось до конца голосования ",
-      "BTN_START": "Проголосовать сейчас",
-      "SAVE": "Сохранить",
-      "BTN_DELETE": "Удалить голос",
-      "TOAST": "Ваш голос был успешно отправлен",
-      "TOAST_DELETE": "Ваш голос удален",
-      "NO_CHANGE": "No change: {userName} stays in {groupName}",
-      "FURTHER_DISCUSSION": "Further discussion: extend time by starting another voting",
-      "REMOVE_USER": "Участник {userName}удален из группы {groupName}",
-      "RESULTS": {
-        "KEEP_DISCUSSING": "Your group voted to keep discussing",
-        "TIME_UP": "Время вышло!",
-        "TOTAL_SCORE": "Общий результат",
-        "ENDED_AT": "Голосование закончилось {date}",
-        "PARTICIPANTS": "{number}участник группы участвовал в голосовании.",
-        "UNDECIDED": "К сожалению, этот конфликт не разрешился.",
-        "UNDECIDED_WHY": "На это существует две возможных причины:",
-        "UNDECIDED_REASON_1": "the affected user left the group while the conflict resolution process was still ongoing",
-        "UNDECIDED_REASON_2": "nobody voted on this issue"
-      },
-      "SEE_RESULTS": "Посмотреть результаты",
-      "SCORE_LABELS": {
-        "NEUTRAL": "нейтральный",
-        "SLIGHT_SUPPORT": "поддержка",
-        "STRONG_SUPPORT": "strong support",
-        "SLIGHT_RESISTANCE": "resistance",
-        "STRONG_RESISTANCE": "strong resistance"
-      },
-      "ANONYMOUS": "Ваш голос будет анонимным."
-    },
-    "NO_ONGOING": "No ongoing issues."
-  },
   "OFFER": {
     "CREATE_TITLE": "Create offer",
-    "NAME": "Name",
-    "NAME_HELPER": "Short name for the item you are offering",
     "DESCRIPTION": "Description",
-    "MARK_AS_ARCHIVED": "Archive",
-    "MARK_AS_ARCHIVED_DESCRIPTION": "Mark this is offer as archived to remove it from the available listings.",
     "FILTER": {
       "STATUS": {
         "ACTIVE": "Available",
         "ARCHIVED": "My archived offers"
       }
+    },
+    "MARK_AS_ARCHIVED": "Archive",
+    "MARK_AS_ARCHIVED_DESCRIPTION": "Mark this is offer as archived to remove it from the available listings.",
+    "NAME": "Name",
+    "NAME_HELPER": "Short name for the item you are offering"
+  },
+  "OUTDATED_BROWSER": {
+    "LINK": "Please update or switch your browser",
+    "MESSAGE": "You are using an unsupported browser. {upgradeBrowser} to enjoy all features."
+  },
+  "PASSWORD": {
+    "CHANGE": {
+      "SUCCESS": "Your new password has been saved."
+    },
+    "RESET": {
+      "OK": "Save",
+      "SUCCESS": "Your new password has been saved.",
+      "TITLE": "Reset password"
     }
   },
-  "ADDRESS_PICKER": {
-    "SET_AS": "Set address as",
-    "KEEP_EXISTING_LOCATION": "keep existing location on map",
-    "CHOOSE_LOCATION": "choose location on map"
+  "PASSWORDRESET": {
+    "EMAIL": "Email address",
+    "INTRO": "Enter your Email address and we will send you a link to set a new password (if you have an account registered).",
+    "LOGIN": "Назад",
+    "SUBMIT": "Получить новый пароль",
+    "SUCCESS": "The request was successfully sent. Have a look at your Emails!",
+    "TITLE": "Сброс пароля"
   },
-  "UNSUBSCRIBE": {
-    "HEADER": "Unsubscribe",
-    "ALL": "Unsubscribe all",
-    "FROM_CONVERSATION": "Отписаться только от этой беседы",
-    "FROM_THREAD": "unsubscribe from just this thread",
-    "FROM_NOTIFICATION_TYPE": "Отписаться от {notificationType}",
-    "FROM_GROUP": "Отписаться от всех уведомлений {groupName} на электронный адрес ",
-    "SUCCESS": "You were successfully unsubscribed!",
-    "COUNTS": "You unsubscribed from {formerConversations} conversations and {formerReplies} replies."
+  "PLACEWALL": {
+    "SUBSCRIBED_USERS": "{count}людей отметили это место любимым",
+    "SUBSCRIPTION": {
+      "HEADER": "Хотите отметить это место любимым?",
+      "NO": "нет",
+      "NO_TEXT": "Ни один из вышеперечисленных. Вы по-прежнему можете подписаться на пункты сбора.",
+      "YES": "да",
+      "YES_TEXT": "Показывает доступные пункты сбора на стене группы и отправляет электронные письма о предстоящих пунктах сбора."
+    }
+  },
+  "PROFILE": {
+    "INACCESSIBLE_OR_DELETED": "(User inaccessible or deleted)"
+  },
+  "SETTINGS": {
+    "TITLE": "Settings"
+  },
+  "SIDENAV": {
+    "GIT_SUB": "See our code!",
+    "INFO_SUB": "How to build your foodsaving group"
+  },
+  "SIGNUP": {
+    "BACK": "Назад",
+    "OK": "Зарегистрироваться",
+    "TITLE": "Регистрация"
+  },
+  "STOREDETAIL": {
+    "ARCHIVED": "Место заархивировано ",
+    "CHANGE_STATUS": "Вы можете изменить статус на странице «Настройки».",
+    "DIRECTIONS": "Показать маршрут",
+    "EDIT": "Редактировать место",
+    "INACTIVE": "Это место не сотрудничает в данный момент.",
+    "NO_DESCRIPTION": "Это место еще не имеет описания"
+  },
+  "STOREEDIT": {
+    "ADDRESS": "Address",
+    "DESCRIPTION": "Description",
+    "DIALOGS": {
+      "ARCHIVE": {
+        "CONFIRM": "Да, добавить место в архив",
+        "MESSAGE": "Вы уверены?",
+        "TITLE": "Добавить место в архив"
+      }
+    },
+    "NAME": "Name",
+    "RESTORE": "Restore",
+    "SHOW_ACTIVE_ONLY": "Показать только активные места",
+    "SHOW_ALL": "Показать все места",
+    "STATUS": "Статус",
+    "WEEKS_IN_ADVANCE": "How many weeks in advance should recurring pickup dates be shown?",
+    "WEEKS_IN_ADVANCE_WARNING": "You are about to reduce the number of weeks pickups are shown. Existing leftover pickups will get deleted if nobody has joined them. You can disable all other pickups manually, if needed."
+  },
+  "STORESTATUS": {
+    "ACTIVE": "Co-operating",
+    "ARCHIVED": "Archived",
+    "CREATED": "Just created",
+    "DECLINED": "Don't want to cooperate",
+    "NEGOTIATING": "Negotiating"
+  },
+  "SWITCHGROUP": {
+    "CHOOSE": "Выберите группу:",
+    "COMMON_GROUPS": "Общие группы",
+    "NOT_MEMBER": "{userName}не является членом группы {groupName}.",
+    "OTHER_GROUPS": "Другие группы"
   },
   "THANKS": "Спасибо!",
-  "ATTENTION": "Внимание!",
-  "INFO": "Информация",
-  "YOU": "Вы",
   "TO": "to",
-  "ABOUT_KARROT": {
-    "TITLE": "Save things from being wasted, share them instead!",
-    "SUBTITLE1": "Karrot exists for groups of people who want to save things from being wasted and share them instead, allowing these groups to organise efficiently, on a local and voluntary basis.",
-    "SUBTITLE2": "Things such as food, bikes, clothes or whatever is being excessively thrown away or unused in the context of a consumerist society.",
-    "VISION_INTRO": "Karrot is a tool for all kinds of grassroots initiatives to connect and grow, supporting the co-ordination of face-to-face activities with a layer of digital infrastructure.",
-    "EXISTING_GROUPS": "A few groups already using Karrot",
-    "AND_MORE": "And more...",
-    "LINKS": {
-      "FORUM": "community forum",
-      "CODE": "GitHub",
-      "CHAT": "team chat",
-      "TRANSLATIONS": "Transifex"
-    },
-    "SECTIONS": {
-      "GROUPS": {
-        "TITLE": "Independent groups",
-        "SUBTITLE": "Every group on karrot is completely independent and can have their own logo, processes and rules.",
-        "DESCRIPTION": "Yet they are all displayed on the map so that people can find and connect to other groups in their location and even globally."
+  "TOPBAR": {
+    "CHANGE_GROUP": "Change group",
+    "LOGOUT": "Выйти",
+    "USERPROFILE": "Мой профиль"
+  },
+  "UNSUBSCRIBE": {
+    "ALL": "Unsubscribe all",
+    "COUNTS": "You unsubscribed from {formerConversations} conversations and {formerReplies} replies.",
+    "FROM_CONVERSATION": "Отписаться только от этой беседы",
+    "FROM_GROUP": "Отписаться от всех уведомлений {groupName} на электронный адрес ",
+    "FROM_NOTIFICATION_TYPE": "Отписаться от {notificationType}",
+    "FROM_THREAD": "unsubscribe from just this thread",
+    "HEADER": "Unsubscribe",
+    "SUCCESS": "You were successfully unsubscribed!"
+  },
+  "UPDATE_AVAILABLE": {
+    "DETAIL": "A new version of karrot is available.",
+    "RELOAD": "Reload"
+  },
+  "USERDATA": {
+    "ACCOUNT": "Аккаунт",
+    "CONFIRM_PASSWORD": "Подтвердить пароль",
+    "DIALOGS": {
+      "GIVE_TRUST": {
+        "MESSAGE": "Вы доверяете {userName} в группе {groupName}?",
+        "TITLE": "Доверие пользователю"
       },
-      "ACTIVITIES": {
-        "TITLE": "Distribution of tasks and activities",
-        "SUBTITLE": "Activities with a specific time and place, like food pickups in the case of foodsaving, can be entered in the software.",
-        "DESCRIPTION": "Each activity has a number of slots which members of the group can sign up for – this way everyone knows who goes where and when, and feedback can be given later."
-      },
-      "OFFERS": {
-        "TITLE": "Share things",
-        "SUBTITLE": "Create an ad-like offer of whatever you want to share or give away.",
-        "DESCRIPTION": "Offers are visible to everyone in the group and people can show their interest on the offer's chat."
-      },
-      "DEMOCRATIC": {
-        "TITLE": "Democratic and participative development",
-        "DESCRIPTION": "Karrot is a free and open-source software developed with the feedback and participation of the people who use it. It is mainly developed by a small core team that is constantly in contact with people in different groups, in order to make sense of their diverging and converging needs and thus guide the development. We abide by the ethics of integrity and non-commercialization of data.",
-        "DESCRIPTION2": "Developers and designers are obviously welcome to participate in its development. Check out the project on {code}."
-      },
-      "COMMUNICATION": {
-        "TITLE": "Communication in the right context",
-        "DESCRIPTION": "Write a message that everyone in the group will see or a private message to someone. Everything related to a single activity or place can be discussed in their respective chats."
-      },
-      "TRUST": {
-        "TITLE": "Democratic and trust-based group management",
-        "DESCRIPTION": "There are no admin superpowers in a Karrot group. People who receive enough trust-carrots from their peers will be able to edit and change settings in the group. When new people want to join your group they need to apply and answer questions your group can set, which anyone with editing rights can decline or approve. Likewise, if there is a conflict, the group can enter a voting system to resolve it in a communal way."
-      },
-      "MAPS": {
-        "TITLE": "Maps and lists",
-        "DESCRIPTION": "You have a map of where the places and the people doing the activities are located. You have a nice list of upcoming activities and can sign up for them online."
-      },
-      "TRANSPARENCY": {
-        "TITLE": "Transparency",
-        "DESCRIPTION": "The history shows who did what and when. Everything from participating in an activity to creating and editing places is logged here."
-      },
-      "NOTIFICATIONS": {
-        "TITLE": "Notifications",
-        "DESCRIPTION": "You get notified about empty activities, new messages and new people wanting to join your group. But you can also turn it all off if you wish more peace!"
-      },
-      "TRANSLATIONS": {
-        "TITLE": "Multi-language",
-        "DESCRIPTION": "Karrot is fully translatable by the community and many languages are already added. To contribute more translations just visit the project on {translations}."
-      },
-      "OPENSOURCE": {
-        "TITLE": "Open source",
-        "DESCRIPTION": "Everything is transparent and possibly changeable. We encourage groups to host their own instances of the platform, if they have the ability to do so. Still, we also provide access to a hosted version on karrot.world."
-      },
-      "TEAM": {
-        "TITLE": "Responsive team",
-        "DESCRIPTION": "You can easily talk to the people developing Karrot, either on our {forum}, on {code} or in real-time on our {chat}."
+      "REQUEST_DELETE_ACCOUNT": {
+        "CONFIRM": "Подтвердить",
+        "MESSAGE": "Вы уверены? Ваш аккаунт и персональные данные будут удалены навсегда. Любые произведенные действия на сайте станут анонимными. При подтверждении действия мы вышлем вам электронное письмо с сылкой для завершения процесса удаления.",
+        "TITLE": "Удаление аккаунта"
       }
-    }
-  }
+    },
+    "EMAIL": "E-mail",
+    "FIRST_TRUST": "Будьте первым, кто довериться {userName}в группе {groupName}!",
+    "LOGOUT_SUCCESS": "Вы вышли из аккаунта!",
+    "MOBILE_NUMBER": "Телефон",
+    "NEWCOMER": "Новый пользователь",
+    "NEWCOMER_GUIDANCE": "{userName}новый пользователь в вашей группе и возможно нуждается в инструкциях.",
+    "NEWCOMER_INFO": "You are currently a newcomer in {groupName} and you can become active by writing messages, meeting fellow members, doing pickups and giving feedback. As soon as {threshold} members expressed their trust in you, you will gain editing permissions to help with group administration.",
+    "OTHER_PEOPLE_TRUST_USER": "{otherUser}доверяет{userName}в группе{groupName}.  {count} пользователя доверяют {userName}в группе {groupName}.",
+    "OTHER_PEOPLE_TRUST_YOU": "{otherUser}доверяет вам в группе {groupName}. {count}пользователя доверяют вам в группе {groupName}.",
+    "PASSWORD": "Пароль",
+    "PEOPLE_TRUST_USER": "Вы и {otherUser} доверяете {userName}в группе {groupName}. Вы и {count}других пользователя доверяете {userName}в группе {groupName}. ",
+    "PHOTO": "Фото профиля",
+    "PRIVATE_MESSAGE": "Отправить сообщение 1{userName}‮‭‎",
+    "PROFILE_TITLE": "Профиль",
+    "PUSH": "Push уведомления",
+    "PUSH_CURRENT_BROWSER": "Текущий браузер",
+    "REQUEST_DELETE_ACCOUNT": {
+      "SUCCESS": "Мы отправили вам электронное письмо со ссылкой для завершения процесса удаления."
+    },
+    "SET_PHOTO": "Выбор фотографии профиля...",
+    "TRUST_INFO": {
+      "LINK": "Нажмите, чтобы узнать больше.",
+      "MESSAGE": "Она является частью доверительной системы Karrot. Символ показывает является ли член группы новеньким и как много доверия необходимо пользователю для права редактирования.",
+      "TITLE": "Что означает кнопка с морковкой?"
+    },
+    "TRUST_PROGRESS_TEXT": "Необходимо больше доверия{trustNeeded}",
+    "TRUST_PROGRESS_TEXT_LONG": "{trustNeeded}Необходимо большее количество доверия пользователей в {userName} , чтобы изменить права редактирования.",
+    "USERNAME": "Имя",
+    "WHERE_FROM": "Местоположение (необязательно)",
+    "YOU_TRUST_USER": "Вы доверяете {userName} в группе {groupName}."
+  },
+  "USERDETAIL": {
+    "DESCRIPTION": "О себе",
+    "DISPLAY_NAME": "Имя",
+    "OLD_PASSWORD": "Confirm your old password",
+    "PASSWORD": "New password"
+  },
+  "VALIDATION": {
+    "IMAGE_REQUIRED": "You must add an image",
+    "MAXLENGTH": "Используйте не более {max} символов.",
+    "MINLENGTH": "Введите более {min} символов",
+    "REQUIRED": "Это поле обязательно для заполнения.",
+    "UNIQUE": "Данное имя пользователя уже используется, выберите другое.",
+    "VALID_EMAIL": "Введите действительный адрес электронной почты.",
+    "VALID_TIMEZONE": "Введите дейтсвительный часовой пояс."
+  },
+  "VERIFYMAIL": {
+    "SUCCESS": "Your e-mail address was successfully verified!",
+    "TITLE": "E-Mail verification"
+  },
+  "WALL": {
+    "RECEIVED_VIA_EMAIL": "This message was sent via e-mail",
+    "VERIFY_EMAIL_FOR_NOTIFICATIONS": "Please verify your e-mail address to receive notification e-mails",
+    "WRITE_FIRST_MESSAGE": "Write the first message...",
+    "WRITE_MESSAGE": "Write a message..."
+  },
+  "YOU": "Вы"
 }

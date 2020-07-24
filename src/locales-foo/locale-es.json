@@ -1,0 +1,109 @@
+{
+  "ACTIVITYDELETE": {
+    "DELETE_SERIES_TEXT": "¿Realmente deseas eliminar esta fecha recurrente de recogidas? Esto también eliminará todas las fechas de recogidas únicas que pertenecen a esta fecha recurrente de recogidas (excepto cuando las personas ya se unieron).",
+    "DELETE_SERIES_TITLE": "Eliminar fecha de recogidas recurrentes"
+  },
+  "ACTIVITYLIST": {
+    "AVAILABLE": "¡Hay una recogida en tus lugares favoritos esperándote! ¡Hay {count}recogidas en tus lugares favoritos esperándote!",
+    "AVAILABLE_FEEDBACK": "Puedes dejar un comentario sobre una recogida | {count} recogidas esperan tus comentarios",
+    "AVAILABLE_FROM_STORES": "Esto muestra las recogidas en tus lugares favoritos en los próximos días. Puedes acceder a otros lugares en la barra lateral.",
+    "FILTER": {
+      "ALL": "Todo",
+      "EMPTY": "Solo vacios",
+      "FREE": "Con espacios libres"
+    },
+    "ITEM": {
+      "JOIN": "Unirse",
+      "JOIN_CONFIRMATION_HEADER": "Unirse a la recogida",
+      "JOIN_CONFIRMATION_TEXT": "Estás segurx que tienes tiempo para hacer la recogida el {date}?",
+      "LEAVE": "Salir",
+      "LEAVE_CONFIRMATION_HEADER": "Dejar la recogida",
+      "LEAVE_CONFIRMATION_TEXT": "¿De verdad las otras personas pueden hacer la recogida sin ti?"
+    },
+    "JOINEDNOTICE": "Tienes una recogida pendiente | Tienes {count} recogidas pendientes",
+    "NONE": "Ninguna recogida inminente",
+    "NONE_HINT": "Puedes crear una nueva recogida en la página del lugar.",
+    "PICKUP_DISABLED": "Esta recogida ha sido desactivada.",
+    "PICKUP_STARTED": "Esta recogida ya ha comenzado.",
+    "STORE_NONE_HINT": "Puede crear una nueva recogida en la página de administración de recogidas."
+  },
+  "ACTIVITYMANAGE": {
+    "PICKUP_DESCRIPTION_CHANGED": "\"Información adicional\" ha sido cambiada",
+    "PICKUP_DOES_NOT_MATCH": "La fecha de las recogidas no coinciden con el patrón.",
+    "PICKUP_MAX_COLLECTORS_CHANGED": "\"Máx ranuras\" ha sido cambiado",
+    "SERIES": "Recogidas recurrentes",
+    "SINGLE": "Recogidas únicas",
+    "TITLE": "Manejar recogidas",
+    "UPCOMING_ACTIVITIES_IN_SERIES": "Próximas recogidas en esta serie"
+  },
+  "ACTIVITY_FEEDBACK": {
+    "AMOUNT": "La cantidad de comida que se salvó (en kg)",
+    "AMOUNT_INFO": "Para la estadísticas de la página, añadiremos la cantidad total de comentarios.",
+    "COMMENT_PLACEHOLDER": "Fue todo bien? Se vino todo el mundo? Tu comentario aquí...",
+    "DELETE_AMOUNT": "Eliminar cantidad",
+    "EDIT": "Editar comentarios",
+    "HEADER": "Gracias por tu recogida!",
+    "PREVIOUS": "Comentarios anteriores para {store}",
+    "SET_AMOUNT": "Establecer cantidad",
+    "TITLE": "Comentario",
+    "TOGETHER_WITH": "Realizaste esta recogida con:"
+  },
+  "CREATEACTIVITY": {
+    "COMMENT": "Información adicional",
+    "COMMENT_HELPER": "¿Qué debería saber la gente cuando se registra en esta recogida?",
+    "CUSTOM": "Personalizado",
+    "DATE": "Fecha",
+    "DIFFERS_WARNING": "Este valor difiere del predeterminado. Para deshacer este cambio, haga clic en la flecha y guarde los cambios.",
+    "DISABLE_TITLE": "¿Deshabilitar recogida?",
+    "ENABLE_DISABLE_MESSAGE": "Las personas que se unieron a esta recogida recibirán una notificación. Puedes cambiar este texto para proporcionar una razón:",
+    "ENABLE_TITLE": "¿Habilitar recogida?",
+    "EXCEPTIONS_MESSAGE": "Algunas próximas recogidas no coinciden con la configuración de esta recogida recurrente. Echa un vistazo a {upcomingLabel} para cambiar o deshabilitar las recolecciones, si es necesario.",
+    "EXCEPTIONS_TITLE": "Chequea tus recogidas",
+    "FREQUENCY": "Frecuencia",
+    "MAX_COLLECTORS": "Máx ranuras",
+    "MAX_COLLECTORS_HELPER": "Cuántas personas deberían participar en la recogida?",
+    "RRULE": "Regla de recurrencia",
+    "RRULE_EXAMPLE": "último día hábil (Mo-Fr) cada mes",
+    "RRULE_EXAMPLE2": "cada segundo lunes",
+    "RRULE_HELPER": "Escriba un {ruleHelper} válido, p. {ruleExample} o {ruleExample2}",
+    "RRULE_HELPER_URL": "regla iCalender",
+    "STARTDATE_HELPER": "¿Cuándo debería comenzar la serie?",
+    "TIME_HELPER": "¿Cuándo debe llevarse a cabo la recogida?",
+    "UNLIMITED": "ilimitado",
+    "WEEKDAYS": "Día de la semana",
+    "WEEKDAYS_HELPER": "¿En qué días debería tener lugar el retiro?",
+    "WEEKLY": "Semanal"
+  },
+  "FEEDBACKLIST": {
+    "NO_DONE_ACTIVITIES": "¡Todo hecho!",
+    "NO_DONE_ACTIVITIES_HINT": "No tienes recogidas en las que dejar comentarios. ¿Por qué no te unes a otra recogida?",
+    "NUMBER_ACTIVITIES": "{count}recogidas realizadas"
+  },
+  "GROUP": {
+    "ACTIVITIES": "Recogidas",
+    "ACTIVITY": "Recogida",
+    "NOTIFICATION_TYPES": {
+      "daily_activity_notification": {
+        "DESCRIPTION": "Te recuerda tus recogidas y te informa sobre las recogidas libres en tus lugares favoritos al siguiente día ",
+        "NAME": "Notificación de recogida"
+      }
+    }
+  },
+  "HISTORY": {
+    "ACTIVITY_CREATE": "creó una nueva recogida única ",
+    "ACTIVITY_DELETE": "eliminó una recogida",
+    "ACTIVITY_DISABLE": "deshabilitó una recogida",
+    "ACTIVITY_DONE": "hizo una recogida en {storeName}",
+    "ACTIVITY_ENABLE": "habilitó una recogida",
+    "ACTIVITY_JOIN": "se apuntó a una recogida en {storeName}",
+    "ACTIVITY_LEAVE": "dio un paso atrás al hacer una recolección en {storeName}",
+    "ACTIVITY_MISSED": "Faltó una recogida en {storeName}!",
+    "ACTIVITY_MODIFY": "cambió la configuración de un pick-up"
+  },
+  "NOTIFICATION_BELLS": {
+    "ACTIVITY_DISABLED": "La recogida a las {dateTime}fue desactivada",
+    "ACTIVITY_ENABLED": "Recogida a las {dateTime}fue activada de nuevo",
+    "ACTIVITY_MOVED": "La recogida fue cambiada a las {dateTime}",
+    "ACTIVITY_UPCOMING": "Recordatorio: tienes una recogida a las {time}"
+  }
+}

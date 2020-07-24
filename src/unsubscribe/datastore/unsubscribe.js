@@ -21,7 +21,7 @@ export default {
       findId: () => undefined,
     }),
     clear ({ dispatch }) {
-      dispatch('meta/clear', ['allEmailsPerGroup'])
+      dispatch('meta/clear')
     },
   },
 }

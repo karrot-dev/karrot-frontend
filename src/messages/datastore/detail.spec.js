@@ -3,18 +3,18 @@ import { createDatastore, statusMocks } from '>/helpers'
 describe('detail', () => {
   let datastore
 
-  const mockConversationsGetForPickup = jest.fn()
-  const mockPickupsGet = jest.fn()
+  const mockConversationsGetForActivity = jest.fn()
+  const mockActivitiesGet = jest.fn()
 
   const conversations = {
     getters: {
-      getForPickup: () => mockConversationsGetForPickup,
+      getForActivity: () => mockConversationsGetForActivity,
     },
   }
 
-  const pickups = {
+  const activities = {
     getters: {
-      get: () => mockPickupsGet,
+      get: () => mockActivitiesGet,
     },
   }
 
@@ -26,7 +26,7 @@ describe('detail', () => {
     datastore = createDatastore({
       detail: require('./detail').default,
       conversations,
-      pickups,
+      activities,
     })
   })
 
@@ -35,29 +35,29 @@ describe('detail', () => {
       expect(datastore.getters['detail/isActive']).toBe(false)
     })
 
-    it('is active if it has a pickupId', () => {
-      datastore.commit('detail/setPickupId', 10)
-      mockConversationsGetForPickup.mockReturnValueOnce({ id: 55, fetchStatus: statusMocks.default() })
+    it('is active if it has a activityId', () => {
+      datastore.commit('detail/setActivityId', 10)
+      mockConversationsGetForActivity.mockReturnValueOnce({ id: 55, fetchStatus: statusMocks.default() })
       expect(datastore.getters['detail/isActive']).toBe(true)
     })
 
-    it('is has the full pickup', () => {
-      const pickup = { id: 22 }
-      mockPickupsGet.mockReturnValueOnce(pickup)
-      datastore.commit('detail/setPickupId', pickup.id)
-      expect(datastore.getters['detail/pickup']).toBe(pickup)
-      expect(mockPickupsGet).toBeCalled()
-      expect(mockPickupsGet.mock.calls[0][0]).toEqual(pickup.id)
+    it('is has the full activity', () => {
+      const activity = { id: 22 }
+      mockActivitiesGet.mockReturnValueOnce(activity)
+      datastore.commit('detail/setActivityId', activity.id)
+      expect(datastore.getters['detail/activity']).toBe(activity)
+      expect(mockActivitiesGet).toBeCalled()
+      expect(mockActivitiesGet.mock.calls[0][0]).toEqual(activity.id)
     })
 
     it('is has the full conversation', () => {
-      const pickupId = 10
+      const activityId = 10
       const conversation = { id: 55 }
-      mockConversationsGetForPickup.mockReturnValueOnce(conversation)
-      datastore.commit('detail/setPickupId', pickupId)
+      mockConversationsGetForActivity.mockReturnValueOnce(conversation)
+      datastore.commit('detail/setActivityId', activityId)
       expect(datastore.getters['detail/conversation']).toBe(conversation)
-      expect(mockConversationsGetForPickup).toBeCalled()
-      expect(mockConversationsGetForPickup.mock.calls[0][0]).toEqual(pickupId)
+      expect(mockConversationsGetForActivity).toBeCalled()
+      expect(mockConversationsGetForActivity.mock.calls[0][0]).toEqual(activityId)
     })
   })
 })

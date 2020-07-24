@@ -81,7 +81,7 @@ export default {
           message: 'GROUP.LEAVE_CONFIRMATION',
           messageParams: { groupName: getters.get(groupId).name },
         }, { root: true })
-        dispatch('currentGroup/clear', null, { root: true })
+        commit('currentGroup/clear', null, { root: true })
         dispatch('auth/maybeBackgroundSave', { currentGroup: null }, { root: true })
         router.replace({ name: 'groupsGallery' }).catch(() => {})
       },

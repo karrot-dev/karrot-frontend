@@ -20,7 +20,7 @@ const conversation = factories.makeConversation({
   ],
 })
 const application = factories.makeApplication()
-const pickup = factories.makePickup({
+const activity = factories.makeActivity({
   isDisabled: true,
 })
 const user = factories.makeUser()
@@ -33,9 +33,9 @@ storiesOf('Detail', module)
     application,
     currentUser,
   }))
-  .add('pickup', () => detailStory({
+  .add('activity', () => detailStory({
     conversation,
-    pickup,
+    activity,
     currentUser,
   }))
   .add('private', () => detailStory({

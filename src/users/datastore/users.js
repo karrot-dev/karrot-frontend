@@ -11,7 +11,6 @@ function initialState () {
     infoEntries: {}, // barely-visible users (e.g. group members for applicants)
     activeUserProfileId: null,
     activeUserProfile: null,
-    resetPasswordSuccess: false,
     resendVerificationCodeSuccess: false,
   }
 }
@@ -68,7 +67,6 @@ export default {
     },
     activeUserId: state => state.activeUserProfile && state.activeUserProfile.id,
     ...metaStatuses(['signup', 'requestResetPassword', 'resetPassword', 'resendVerificationCode', 'requestDeleteAccount', 'fetch']),
-    resetPasswordSuccess: state => state.resetPasswordSuccess,
     resendVerificationCodeSuccess: state => state.resendVerificationCodeSuccess,
   },
   actions: {
@@ -154,9 +152,11 @@ export default {
       dispatch('meta/clear', ['resendVerificationCode'])
       commit('resendVerificationCodeSuccess', false)
     },
+    clearRequestResetPassword ({ dispatch }) {
+      dispatch('meta/clear', ['requestResetPassword'])
+    },
     clearResetPassword ({ commit, dispatch }) {
       dispatch('meta/clear', ['resetPassword'])
-      commit('resetPasswordSuccess', false)
     },
     async refresh ({ state, dispatch, commit }, { userId } = {}) {
       if (userId) {
@@ -193,7 +193,9 @@ export default {
     resendVerificationCodeSuccess (state, status) {
       Vue.set(state, 'resendVerificationCodeSuccess', status)
     },
-
+    clear (state) {
+      Object.assign(state, initialState())
+    },
   },
 }
 
@@ -213,6 +215,12 @@ export const plugin = datastore => {
     }
     if (!profileUser) {
       lastLoadedGroupId = null
+    }
+  })
+
+  datastore.watch((state, getters) => getters['auth/isLoggedIn'], isLoggedIn => {
+    if (!isLoggedIn) {
+      datastore.commit('users/clear')
     }
   })
 }

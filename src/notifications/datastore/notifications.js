@@ -43,14 +43,14 @@ export default {
     },
     enrichContext: (state, getters, rootState, rootGetters) => context => {
       if (!context) return
-      const { group, application, user, place, pickup, issue } = context
+      const { group, application, user, place, activity, issue } = context
       return {
         ...context,
         group: group && rootGetters['groups/get'](group),
         application: application && rootGetters['applications/get'](application),
         user: user && rootGetters['users/get'](user),
         place: place && rootGetters['places/get'](place),
-        pickup: pickup && rootGetters['pickups/get'](pickup),
+        activity: activity && rootGetters['activities/get'](activity),
         issue: issue && rootGetters['issues/get'](issue),
       }
     },
@@ -91,12 +91,12 @@ export default {
     }),
     fetchRelated ({ state, dispatch }) {
       Object.values(state.entries).forEach(({ context }) => {
-        const { application, pickup, issue } = context || {}
+        const { application, activity, issue } = context || {}
         if (application) {
           dispatch('applications/maybeFetchOne', application, { root: true })
         }
-        if (pickup) {
-          dispatch('pickups/maybeFetch', pickup, { root: true })
+        if (activity) {
+          dispatch('activities/maybeFetch', activity, { root: true })
         }
         if (issue) {
           dispatch('issues/maybeFetchOne', issue, { root: true })
@@ -136,6 +136,13 @@ export function plugin (datastore) {
   }), ({ pageVisible }) => {
     if (pageVisible) {
       datastore.dispatch('notifications/fetchRelated')
+    }
+  })
+
+  datastore.watch((state, getters) => getters['auth/isLoggedIn'], isLoggedIn => {
+    if (!isLoggedIn) {
+      datastore.commit('notifications/clear')
+      datastore.commit('notifications/pagination/clear')
     }
   })
 }

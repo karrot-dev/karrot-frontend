@@ -3,7 +3,7 @@
   - [Groups](features/groups.md)
   - [Applications](features/applications.md)
   - [Places](features/places.md)
-  - [Pickups](features/pickups.md)
+  - [Activities](features/activities.md)
   - [Issues](features/issues.md)
   - [Offers](features/offers.md)
   - [Trust](features/trust.md)

@@ -2,7 +2,7 @@ jest.mock('@/base/datastore/i18nPlugin')
 
 const mockUsersList = jest.fn()
 const mockPlacesList = jest.fn()
-const mockPickupsList = jest.fn()
+const mockActivitiesList = jest.fn()
 const mockListFeedbackPossible = jest.fn()
 const mockGroupsInfoList = jest.fn()
 const mockAuthUserGet = jest.fn()
@@ -13,8 +13,8 @@ const mockConversationsList = jest.fn()
 const mockStatusFetch = jest.fn()
 jest.mock('@/users/api/users', () => ({ list: mockUsersList }))
 jest.mock('@/places/api/places', () => ({ list: mockPlacesList }))
-jest.mock('@/pickups/api/pickups', () => ({
-  listByGroupId: mockPickupsList,
+jest.mock('@/activities/api/activities', () => ({
+  listByGroupId: mockActivitiesList,
   listFeedbackPossible: mockListFeedbackPossible,
 }))
 jest.mock('@/groupInfo/api/groupsInfo', () => ({ list: mockGroupsInfoList }))
@@ -49,7 +49,7 @@ describe('refresh', () => {
 
     mockUsersList.mockReturnValueOnce([])
     mockPlacesList.mockReturnValueOnce([])
-    mockPickupsList.mockReturnValue({ results: [] })
+    mockActivitiesList.mockReturnValue({ results: [] })
     mockListFeedbackPossible.mockReturnValue({ results: [] })
     mockGroupsInfoList.mockReturnValueOnce([])
     mockAuthUserGet.mockReturnValue({ id: 1, language: 'en' })
@@ -78,7 +78,7 @@ describe('refresh', () => {
 
     expect(mockUsersList).toHaveBeenCalled()
     expect(mockPlacesList).toHaveBeenCalled()
-    expect(mockPickupsList).toHaveBeenCalledWith(1)
+    expect(mockActivitiesList).toHaveBeenCalledWith(1)
     expect(mockGroupsInfoList).toHaveBeenCalled()
     expect(mockAuthUserGet).toHaveBeenCalled()
     expect(mockMessagesGet).toHaveBeenCalledWith(1)

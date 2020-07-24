@@ -9,7 +9,7 @@
               class="q-mr-sm"
               style="white-space: nowrap"
             >
-              {{ $d(pickupDate, 'longWithDayName') }}
+              {{ $d(activityDate, 'longWithDayName') }}
             </strong>
             <RouterLink
               v-if="placeName && placeId"
@@ -99,8 +99,8 @@ export default {
   },
   computed: {
     membersWithoutGiver () {
-      const { pickup: { collectors = [] } = {} } = this.feedback
-      return collectors.filter((el) => {
+      const { activity: { participants = [] } = {} } = this.feedback
+      return participants.filter((el) => {
         return el.id !== this.feedback.givenBy.id
       })
     },
@@ -130,7 +130,7 @@ export default {
     userId () {
       return this.feedback && this.feedback.givenBy && this.feedback.givenBy.id
     },
-    pickupDate () {
+    activityDate () {
       return this.feedback && this.feedback.about && this.feedback.about.date
     },
   },

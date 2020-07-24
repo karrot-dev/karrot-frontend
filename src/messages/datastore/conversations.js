@@ -3,7 +3,7 @@ import differenceInSeconds from 'date-fns/differenceInSeconds'
 import messageAPI from '@/messages/api/messages'
 import conversationsAPI from '@/messages/api/conversations'
 import reactionsAPI from '@/messages/api/reactions'
-import pickupsAPI from '@/pickups/api/pickups'
+import activitiesAPI from '@/activities/api/activities'
 import usersAPI from '@/users/api/users'
 import groupsAPI from '@/group/api/groups'
 import issuesAPI from '@/issues/api/issues'
@@ -101,7 +101,7 @@ export default {
     },
     getForGroup: (state, getters) => groupId => getters.getForType('group', groupId),
     getForPlace: (state, getters) => placeId => getters.getForType('place', placeId),
-    getForPickup: (state, getters) => pickupId => getters.getForType('pickup', pickupId),
+    getForActivity: (state, getters) => activityId => getters.getForType('activity', activityId),
     getForApplication: (state, getters) => applicationId => getters.getForType('application', applicationId),
     getForIssue: (state, getters) => issueId => getters.getForType('issue', issueId),
     getForOffer: (state, getters) => offerId => getters.getForType('offer', offerId),
@@ -191,7 +191,7 @@ export default {
       switch (type) {
         case 'group': return rootGetters['groups/get'](targetId)
         case 'place': return rootGetters['places/get'](targetId)
-        case 'pickup': return rootGetters['pickups/get'](targetId)
+        case 'activity': return rootGetters['activities/get'](targetId)
         case 'application': return rootGetters['applications/get'](targetId)
         case 'issue': return rootGetters['issues/get'](targetId)
         case 'offer': return rootGetters['latestMessages/getRelated']('offer', targetId)
@@ -317,17 +317,17 @@ export default {
       if (conversationId) commit('clearMessages', conversationId)
     },
 
-    async fetchForPickup ({ getters, dispatch, commit }, { pickupId }) {
-      let conversation = getters.getForPickup(pickupId)
+    async fetchForActivity ({ getters, dispatch, commit }, { activityId }) {
+      let conversation = getters.getForActivity(activityId)
       if (!conversation) {
-        conversation = await pickupsAPI.conversation(pickupId)
+        conversation = await activitiesAPI.conversation(activityId)
         commit('setConversation', conversation)
       }
       dispatch('fetch', conversation.id)
     },
 
-    clearForPickup ({ getters, commit }, { pickupId }) {
-      const { id: conversationId } = getters.getForPickup(pickupId) || {}
+    clearForActivity ({ getters, commit }, { activityId }) {
+      const { id: conversationId } = getters.getForActivity(activityId) || {}
       if (conversationId) commit('clearMessages', conversationId)
     },
 
@@ -341,7 +341,7 @@ export default {
     },
 
     clearForUser ({ getters, commit }, { userId }) {
-      const { id: conversationId } = getters.getForPickup(userId) || {}
+      const { id: conversationId } = getters.getForActivity(userId) || {}
       if (conversationId) commit('clearMessages', conversationId)
     },
 
@@ -487,4 +487,12 @@ export default {
       Vue.set(state.entries, conversation.id, Object.freeze(conversation))
     },
   },
+}
+
+export const plugin = datastore => {
+  datastore.watch((state, getters) => getters['auth/isLoggedIn'], isLoggedIn => {
+    if (!isLoggedIn) {
+      datastore.commit('conversations/clear')
+    }
+  })
 }

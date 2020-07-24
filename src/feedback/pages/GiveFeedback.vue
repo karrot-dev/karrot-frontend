@@ -1,16 +1,16 @@
 <script>
 import { connect } from 'vuex-connect'
-import PickupFeedback from '@/feedback/components/PickupFeedback'
+import ActivityFeedback from '@/feedback/components/ActivityFeedback'
 
 export default connect({
   gettersToProps: {
-    pickups: 'pickups/feedbackPossibleByCurrentGroup',
+    activities: 'activities/feedbackPossibleByCurrentGroup',
     editFeedbackId: 'feedback/selectedId',
     editFeedback: 'feedback/selected',
     existingFeedback: 'feedback/byCurrentGroup',
     saveStatus: 'feedback/saveStatus',
     fetchStatus: 'feedback/fetchStatus',
-    fetchFeedbackPossibleStatus: 'pickups/fetchFeedbackPossibleStatus',
+    fetchFeedbackPossibleStatus: 'activities/fetchFeedbackPossibleStatus',
     seedId: 'currentGroup/id',
     isBikeKitchen: 'currentGroup/isBikeKitchen',
     isGeneralPurpose: 'currentGroup/isGeneralPurpose',
@@ -18,5 +18,5 @@ export default connect({
   actionsToEvents: {
     save: 'feedback/save',
   },
-})('GiveFeedback', PickupFeedback)
+})('GiveFeedback', ActivityFeedback)
 </script>

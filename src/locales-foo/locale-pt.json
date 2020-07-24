@@ -1,0 +1,109 @@
+{
+  "ACTIVITYDELETE": {
+    "DELETE_SERIES_TEXT": "Você gostaria mesmo de deletar esta coleta recorrente? Esta ação vai também deletar todas as entregar pontuais que pertencerem a esta entrega recorrente (com excessão daquelas que pessoas já estão participando)",
+    "DELETE_SERIES_TITLE": "Deletar coletas recorrentes"
+  },
+  "ACTIVITYLIST": {
+    "AVAILABLE": "",
+    "AVAILABLE_FEEDBACK": "Você pode deixar sua impressão de uma coleta | {count} coletas esperando seus comentários",
+    "AVAILABLE_FROM_STORES": "",
+    "FILTER": {
+      "ALL": "",
+      "EMPTY": "",
+      "FREE": ""
+    },
+    "ITEM": {
+      "JOIN": "Participar",
+      "JOIN_CONFIRMATION_HEADER": "Participar da coleta",
+      "JOIN_CONFIRMATION_TEXT": "Você tem certeza que tem tempo para fazer esta coleta no dia {date}?",
+      "LEAVE": "Sair",
+      "LEAVE_CONFIRMATION_HEADER": "Deixar a coleta",
+      "LEAVE_CONFIRMATION_TEXT": "Você tem certeza que outra pessoa pode fazer a coleta sem você?"
+    },
+    "JOINEDNOTICE": "Você possuí uma coleta para fazer | Você possuí {count} coletas para fazer",
+    "NONE": "Você não possuí coletas futuras",
+    "NONE_HINT": "",
+    "PICKUP_DISABLED": "",
+    "PICKUP_STARTED": "",
+    "STORE_NONE_HINT": "Você pode criar uma nova coleta na página de gerenciamento de coletas."
+  },
+  "ACTIVITYMANAGE": {
+    "PICKUP_DESCRIPTION_CHANGED": "",
+    "PICKUP_DOES_NOT_MATCH": "",
+    "PICKUP_MAX_COLLECTORS_CHANGED": "",
+    "SERIES": "Coletas recorrentes",
+    "SINGLE": "Coletas pontuais",
+    "TITLE": "Gerenciar coletas",
+    "UPCOMING_ACTIVITIES_IN_SERIES": "Próximas coletas nesta série"
+  },
+  "ACTIVITY_FEEDBACK": {
+    "AMOUNT": "",
+    "AMOUNT_INFO": "",
+    "COMMENT_PLACEHOLDER": "Foi tudo tranquilo? Alguém apareceu? Deixe seu comentário aqui...",
+    "DELETE_AMOUNT": "",
+    "EDIT": "Editar seu comentário",
+    "HEADER": "Agradecemos sua coleta!",
+    "PREVIOUS": "Comentários anteriores para {store}",
+    "SET_AMOUNT": "",
+    "TITLE": "Comentários",
+    "TOGETHER_WITH": ""
+  },
+  "CREATEACTIVITY": {
+    "COMMENT": "Informações adicionais",
+    "COMMENT_HELPER": "O que as pessoas devem saber antes de se candidatar para esta coleta?",
+    "CUSTOM": "Personalizado",
+    "DATE": "Dia",
+    "DIFFERS_WARNING": "",
+    "DISABLE_TITLE": "",
+    "ENABLE_DISABLE_MESSAGE": "",
+    "ENABLE_TITLE": "",
+    "EXCEPTIONS_MESSAGE": "",
+    "EXCEPTIONS_TITLE": "",
+    "FREQUENCY": "Frequência",
+    "MAX_COLLECTORS": "Número máximo de slots",
+    "MAX_COLLECTORS_HELPER": "Quantas pessoas podem participar dessa coleta?",
+    "RRULE": "Recorrência",
+    "RRULE_EXAMPLE": "último dia de trabalho (Mo-Fr) todo mês",
+    "RRULE_EXAMPLE2": "toda segunda-feira",
+    "RRULE_HELPER": "Entre com uma {ruleHelper} válida, ex. {ruleExample} ou {ruleExample2}",
+    "RRULE_HELPER_URL": "Regra iCalendar",
+    "STARTDATE_HELPER": "Quando a série deve começar?",
+    "TIME_HELPER": "Quando a coleta deve acontecer?",
+    "UNLIMITED": "sem limite",
+    "WEEKDAYS": "Dias da semana",
+    "WEEKDAYS_HELPER": "Em quais dias a coleta deve acontecer?",
+    "WEEKLY": "Semanalmente"
+  },
+  "FEEDBACKLIST": {
+    "NO_DONE_ACTIVITIES": "Tudo pronto!",
+    "NO_DONE_ACTIVITIES_HINT": "Você, atualmente não possuí nenhuma coleta esperando por um comentário. Por que não participar de outra coleta?",
+    "NUMBER_ACTIVITIES": ""
+  },
+  "GROUP": {
+    "ACTIVITIES": "Coletas",
+    "ACTIVITY": "",
+    "NOTIFICATION_TYPES": {
+      "daily_activity_notification": {
+        "DESCRIPTION": "",
+        "NAME": "Notificação de coletas"
+      }
+    }
+  },
+  "HISTORY": {
+    "ACTIVITY_CREATE": "criou uma nova coleta pontual",
+    "ACTIVITY_DELETE": "deletou uma coleta",
+    "ACTIVITY_DISABLE": "",
+    "ACTIVITY_DONE": "fez uma coleta na loja {storeName}",
+    "ACTIVITY_ENABLE": "",
+    "ACTIVITY_JOIN": "se candidatou para a coleta na loja {storeName}",
+    "ACTIVITY_LEAVE": "desisistiu de fazer a coleta na loja {storeName}",
+    "ACTIVITY_MISSED": "A coleta na {storeName} não foi feita!",
+    "ACTIVITY_MODIFY": "modificou as configurações de uma coleta"
+  },
+  "NOTIFICATION_BELLS": {
+    "ACTIVITY_DISABLED": "",
+    "ACTIVITY_ENABLED": "",
+    "ACTIVITY_MOVED": "",
+    "ACTIVITY_UPCOMING": ""
+  }
+}

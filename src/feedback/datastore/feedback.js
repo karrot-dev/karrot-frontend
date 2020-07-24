@@ -22,13 +22,13 @@ export default {
     },
     enrich: (state, getters, rootState, rootGetters) => feedback => {
       if (!feedback) return
-      const pickup = rootGetters['pickups/get'](feedback.about)
+      const activity = rootGetters['activities/get'](feedback.about)
       return {
         ...feedback,
         givenBy: rootGetters['users/get'](feedback.givenBy),
-        about: pickup,
-        place: pickup && pickup.place,
-        group: pickup && pickup.group,
+        about: activity,
+        place: activity && activity.place,
+        group: activity && activity.group,
       }
     },
     all: (state, getters) => Object.values(state.entries).map(getters.enrich).sort(sortByCreatedAt),
@@ -68,7 +68,7 @@ export default {
       },
 
       async updateOne ({ commit, dispatch }, feedback) {
-        dispatch('fetchRelatedPickups', [feedback])
+        dispatch('fetchRelatedActivities', [feedback])
         commit('update', [feedback])
       },
     }, {
@@ -76,16 +76,16 @@ export default {
       findId: () => undefined,
     }),
 
-    updateFeedbackAndRelated ({ commit }, { feedback, pickups }) {
+    updateFeedbackAndRelated ({ commit }, { feedback, activities }) {
       if (feedback) commit('update', feedback)
-      if (pickups) {
-        commit('pickups/update', pickups, { root: true })
+      if (activities) {
+        commit('activities/update', activities, { root: true })
       }
     },
 
-    async fetchRelatedPickups ({ dispatch }, feedbackList) {
+    async fetchRelatedActivities ({ dispatch }, feedbackList) {
       for (const f of feedbackList) {
-        dispatch('pickups/maybeFetch', f.about, { root: true })
+        dispatch('activities/maybeFetch', f.about, { root: true })
       }
     },
 
@@ -122,4 +122,13 @@ export default {
 
 export function sortByCreatedAt (a, b) {
   return b.createdAt - a.createdAt
+}
+
+export const plugin = datastore => {
+  datastore.watch((state, getters) => getters['auth/isLoggedIn'], isLoggedIn => {
+    if (!isLoggedIn) {
+      datastore.commit('feedback/clear')
+      datastore.commit('feedback/pagination/clear')
+    }
+  })
 }

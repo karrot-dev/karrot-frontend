@@ -5,7 +5,7 @@ import * as factories from '>/enrichedFactories'
 
 import LatestMessageItem from './LatestMessageItem'
 
-import { messagesMock, usersMock, pickupsMock, groupsMock } from '>/mockdata'
+import { messagesMock, usersMock, activitiesMock, groupsMock } from '>/mockdata'
 
 const on = {
   open: action('open'),
@@ -14,7 +14,7 @@ const on = {
 const message = messagesMock[0]
 const user = usersMock[0]
 const group = groupsMock[0]
-const pickup = pickupsMock[0]
+const activity = activitiesMock[0]
 const application = {
   user: {
     ...user,
@@ -113,10 +113,10 @@ storiesOf('Latest Messages', module)
       on,
     }),
   }))
-  .add('type: pickup chat', () => defaults({
+  .add('type: activity chat', () => defaults({
     render: h => h(LatestMessageItem, {
       props: {
-        pickup,
+        activity,
         message,
       },
       on,

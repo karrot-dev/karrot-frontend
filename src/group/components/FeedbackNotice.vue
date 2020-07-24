@@ -8,7 +8,7 @@
           class="on-left"
           :name="$icon('feedback')"
         />
-        {{ $tc('PICKUPLIST.AVAILABLE_FEEDBACK', feedbackPossible.length, { count: feedbackPossible.length }) }}
+        {{ $tc('ACTIVITYLIST.AVAILABLE_FEEDBACK', feedbackPossible.length, { count: feedbackPossible.length }) }}
       </QCard>
     </RouterLink>
   </div>

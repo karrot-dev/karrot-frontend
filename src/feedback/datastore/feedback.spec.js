@@ -1,12 +1,12 @@
 import { createDatastore } from '>/helpers'
 import { feedbackMock } from '>/mockdata'
 
-const mockPickupGet = jest.fn()
+const mockActivityGet = jest.fn()
 const mockUsersGet = jest.fn()
 
-const pickups = {
+const activities = {
   getters: {
-    get: () => mockPickupGet,
+    get: () => mockActivityGet,
   },
   actions: {
     maybeFetch: jest.fn(),
@@ -41,7 +41,7 @@ describe('feedback module', () => {
   beforeEach(() => {
     datastore = createDatastore({
       feedback: require('./feedback').default,
-      pickups,
+      activities,
       users,
     })
   })
@@ -54,7 +54,7 @@ describe('feedback module', () => {
     const changed = { ...feedback1, comment: 'new comment' }
     const groupId = feedback1.about.group.id
     const userId = 1
-    mockPickupGet.mockReturnValueOnce({ group: { id: groupId } })
+    mockActivityGet.mockReturnValueOnce({ group: { id: groupId } })
     currentGroup.getters.id.mockReturnValueOnce(groupId)
     auth.getters.userId.mockReturnValueOnce(userId)
 

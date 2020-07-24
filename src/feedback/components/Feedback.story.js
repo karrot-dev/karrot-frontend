@@ -3,12 +3,12 @@ import { storiesOf } from '@storybook/vue'
 
 import AmountPicker from './AmountPicker'
 import AmountBox from './AmountBox'
-import PickupFeedback from './PickupFeedback'
+import ActivityFeedback from './ActivityFeedback'
 import FeedbackItem from './FeedbackItem'
 import FeedbackList from './FeedbackList'
 import PlaceFeedback from './PlaceFeedback'
 
-import { feedbackMock, placesMock, pickupsMock } from '>/mockdata'
+import { feedbackMock, placesMock, activitiesMock } from '>/mockdata'
 import * as factories from '>/enrichedFactories'
 
 const range = n => [...Array(n).keys()]
@@ -23,9 +23,9 @@ const datastore = createDatastore({
       fetchPastStatus: () => statusMocks.default(),
     },
   },
-  pickups: {
+  activities: {
     getters: {
-      feedbackPossibleByActivePlace: () => range(2).map(factories.makePickup),
+      feedbackPossibleByActivePlace: () => range(2).map(factories.makeActivity),
       fetchFeedbackPossibleStatus: () => statusMocks.default(),
     },
   },
@@ -56,12 +56,12 @@ storiesOf('Feedback', module)
       },
     }),
   }))
-  .add('PickupFeedback', () => defaults({
-    render: h => h(PickupFeedback, {
+  .add('ActivityFeedback', () => defaults({
+    render: h => h(ActivityFeedback, {
       props: {
-        pickups: pickupsMock.map(pickup => ({
-          ...pickup,
-          collectors: pickup.collectors.map(user => ({
+        activities: activitiesMock.map(activity => ({
+          ...activity,
+          participants: activity.participants.map(user => ({
             ...user,
             membership: {
               isEditor: true,

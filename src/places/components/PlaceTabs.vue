@@ -51,8 +51,8 @@ export default {
       const params = { groupId: this.groupId, placeId: this.placeId }
       return [
         {
-          to: { name: 'placePickups', params },
-          label: this.$t('GROUP.PICKUPS'),
+          to: { name: 'placeActivities', params },
+          label: this.$t('GROUP.ACTIVITIES'),
         },
         {
           to: { name: 'placeWall', params },
@@ -61,7 +61,7 @@ export default {
         },
         {
           to: { name: 'placeFeedback', params },
-          label: this.$t('PICKUP_FEEDBACK.TITLE'),
+          label: this.$t('ACTIVITY_FEEDBACK.TITLE'),
         },
         {
           to: { name: 'placeHistory', params },
@@ -69,8 +69,8 @@ export default {
         },
         ...(this.isEditor ? [
           {
-            to: { name: 'placePickupsManage', params },
-            label: this.$t('PICKUPMANAGE.TITLE'),
+            to: { name: 'placeActivitiesManage', params },
+            label: this.$t('ACTIVITYMANAGE.TITLE'),
           },
           {
             to: { name: 'placeEdit', params },

@@ -1,6 +1,6 @@
 <template>
   <QItem
-    v-if="label === 'collectors'"
+    v-if="label === 'participants'"
   >
     <QItemSection>
       <QItemLabel>
@@ -27,7 +27,7 @@
         {{ $d(new Date(Array.isArray(value) ? value[0] : value), 'long') }}
       </QItemLabel>
       <QItemLabel caption>
-        {{ $t('CREATEPICKUP.DATE') }}
+        {{ $t('CREATEACTIVITY.DATE') }}
       </QItemLabel>
     </QItemSection>
   </QItem>

@@ -26,6 +26,8 @@
           ref="compose"
           :status="conversation.sendStatus"
           slim
+          filled
+          square
           :placeholder="messagePrompt"
           :is-participant="conversation.isParticipant"
           class="q-pb-md"

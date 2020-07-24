@@ -8,6 +8,8 @@
       :placeholder="messagePrompt"
       :is-participant="conversation.isParticipant"
       slim
+      filled
+      square
       @submit="sendMessage"
     />
   </div>

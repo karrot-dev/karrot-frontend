@@ -1,80 +1,82 @@
 <template>
-  <QBanner
-    v-if="user && !hasEmailVerified"
-    class="q-ma-sm bg-warning text-white shadow-2"
-    style="min-height: unset"
-  >
-    <template #avatar>
-      <QIcon
-        name="fas fa-exclamation-triangle"
-        color="white"
-        style="font-size: 24px"
-      />
-    </template>
-    <p>{{ $t('NOTIFICATIONS.NOT_VERIFIED', { email: user.unverifiedEmail }) }}</p>
-    <p>{{ $t('WALL.VERIFY_EMAIL_FOR_NOTIFICATIONS') }}</p>
-    <i18n
-      v-if="!success"
-      path="NOTIFICATIONS.CHECK_YOUR_MAILS"
-      tag="span"
+  <div>
+    <QBanner
+      v-if="user && !hasEmailVerified"
+      class="q-ma-sm bg-warning text-white shadow-2"
+      style="min-height: unset"
     >
-      <a
-        slot="resend"
-        class="underline"
-        @click="resend"
+      <template #avatar>
+        <QIcon
+          name="fas fa-exclamation-triangle"
+          color="white"
+          style="font-size: 24px"
+        />
+      </template>
+      <p>{{ $t('NOTIFICATIONS.NOT_VERIFIED', { email: user.unverifiedEmail }) }}</p>
+      <p>{{ $t('WALL.VERIFY_EMAIL_FOR_NOTIFICATIONS') }}</p>
+      <i18n
+        v-if="!success"
+        path="NOTIFICATIONS.CHECK_YOUR_MAILS"
+        tag="span"
       >
-        {{ $t('NOTIFICATIONS.RESEND_VERIFICATION') }}
-      </a>
-    </i18n>
-    <p v-else>
-      {{ $t('NOTIFICATIONS.VERIFICATION_EMAIL_SENT') }}
-    </p>
-    <p
-      v-if="hasAnyError"
-      class="bg-white text-negative"
+        <a
+          slot="resend"
+          class="underline"
+          @click="resend"
+        >
+          {{ $t('NOTIFICATIONS.RESEND_VERIFICATION') }}
+        </a>
+      </i18n>
+      <p v-else>
+        {{ $t('NOTIFICATIONS.VERIFICATION_EMAIL_SENT') }}
+      </p>
+      <p
+        v-if="hasAnyError"
+        class="bg-white text-negative"
+      >
+        <i class="fas fa-exclamation-triangle" />
+        {{ anyFirstError }}
+      </p>
+    </QBanner>
+    <QExpansionItem
+      v-if="hasFailedEmailDeliveries"
+      class="q-ma-sm shadow-2"
+      header-class="bg-warning"
+      dark
     >
-      <i class="fas fa-exclamation-triangle" />
-      {{ anyFirstError }}
-    </p>
-  </QBanner>
-  <QExpansionItem
-    v-else-if="hasFailedEmailDeliveries"
-    class="q-ma-sm shadow-2"
-    header-class="bg-warning"
-    dark
-  >
-    <template #header>
-      <QItemSection
-        side
-        class="text-white"
-      >
-        <QIcon name="fas fa-exclamation-triangle" />
-      </QItemSection>
-      <QItemSection>
-        {{ failedEmailDeliveryMessage }}
-      </QItemSection>
-    </template>
-    <QList bordered>
-      <QItem
-        v-for="(event, idx) in failedEmailDeliveries"
-        :key="idx"
-      >
-        <QItemSection>
-          <QItemLabel>
-            {{ event.subject }}
-          </QItemLabel>
-          <QItemLabel caption>
-            {{ `${event.event}: ${event.reason}` }}
-          </QItemLabel>
-        </QItemSection>
+      <template #header>
         <QItemSection
           side
+          class="text-white"
         >
-          {{ $d(event.createdAt, 'long') }}
+          <QIcon name="fas fa-exclamation-triangle" />
         </QItemSection>
-      </QItem>
-    </QList>
-  </QExpansionItem>
+        <QItemSection>
+          {{ failedEmailDeliveryMessage }}
+        </QItemSection>
+      </template>
+      <QList bordered>
+        <QItem
+          v-for="(event, idx) in failedEmailDeliveries"
+          :key="idx"
+        >
+          <QItemSection>
+            <QItemLabel>
+              {{ event.subject }}
+            </QItemLabel>
+            <QItemLabel caption>
+              {{ `${event.event}: ${event.reason}` }}
+            </QItemLabel>
+          </QItemSection>
+          <QItemSection
+            side
+          >
+            {{ $d(event.createdAt, 'long') }}
+          </QItemSection>
+        </QItem>
+      </QList>
+    </QExpansionItem>
+  </div>
 </template>
 
 <script>

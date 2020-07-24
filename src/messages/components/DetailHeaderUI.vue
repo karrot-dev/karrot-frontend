@@ -7,26 +7,26 @@
       class="bg-secondary text-white"
     >
       <QToolbarTitle
-        v-if="pickup"
+        v-if="activity"
         class="column"
       >
         <div>
           <span
             v-if="!$q.platform.is.mobile"
-            v-t="'GROUP.PICKUP'"
+            v-t="'GROUP.ACTIVITY'"
           >&nbsp;</span>
           <strong>
-            {{ $d(pickup.date, 'weekdayHourMinute') }}
-            <template v-if="pickup.hasDuration"> &mdash; {{ $d(pickup.dateEnd, 'hourMinute') }}</template>
+            {{ $d(activity.date, 'weekdayHourMinute') }}
+            <template v-if="activity.hasDuration"> &mdash; {{ $d(activity.dateEnd, 'hourMinute') }}</template>
           </strong>
         </div>
         <div class="text-caption">
-          <strong v-if="pickup.place">
-            <RouterLink :to="{ name: 'place', params: { groupId: pickup.group.id, placeId: pickup.place.id }}">
-              {{ pickup.place.name }}
+          <strong v-if="activity.place">
+            <RouterLink :to="{ name: 'place', params: { groupId: activity.group.id, placeId: activity.place.id }}">
+              {{ activity.place.name }}
             </RouterLink>
           </strong>
-          {{ $d(pickup.date, 'yearMonthDay') }}
+          {{ $d(activity.date, 'yearMonthDay') }}
         </div>
       </QToolbarTitle>
       <template v-else-if="user">
@@ -113,7 +113,7 @@
       />
     </QToolbar>
     <div
-      v-if="pickup || conversation.thread"
+      v-if="activity || conversation.thread"
       class="k-participant-list row"
     >
       <div class="col">
@@ -156,7 +156,7 @@ export default {
       type: Object,
       default: null,
     },
-    pickup: {
+    activity: {
       type: Object,
       default: null,
     },
@@ -190,8 +190,8 @@ export default {
       return null
     },
     participants () {
-      if (this.pickup) {
-        return this.pickup.collectors
+      if (this.activity) {
+        return this.activity.participants
       }
       if (this.conversation.thread && this.conversation.threadMeta) {
         return this.conversation.threadMeta.participants

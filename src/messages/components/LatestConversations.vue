@@ -16,7 +16,7 @@
           v-close-popup
           :group="conv.type === 'group' ? conv.target : null"
           :user="conv.type === 'private' ? conv.target : null"
-          :pickup="conv.type === 'pickup' ? conv.target : null"
+          :activity="conv.type === 'activity' ? conv.target : null"
           :place="conv.type === 'place' ? conv.target : null"
           :application="conv.type === 'application' ? conv.target : null"
           :issue="conv.type === 'issue' ? conv.target : null"
@@ -100,7 +100,7 @@ export default {
   },
   methods: {
     ...mapActions({
-      openForPickup: 'detail/openForPickup',
+      openForActivity: 'detail/openForActivity',
       openForUser: 'detail/openForUser',
       openForApplication: 'detail/openForApplication',
       fetchPastConversations: 'latestMessages/fetchPastConversations',
@@ -112,7 +112,7 @@ export default {
       switch (type) {
         case 'group': return this.$router.push({ name: 'group', params: { groupId: target.id } }).catch(() => {})
         case 'place': return this.$router.push({ name: 'placeWall', params: { groupId: target.group.id, placeId: target.id } }).catch(() => {})
-        case 'pickup': return this.openForPickup(target)
+        case 'activity': return this.openForActivity(target)
         case 'private': return this.openForUser(target)
         case 'application': return this.openForApplication(target)
         case 'issue': return this.$router.push({ name: 'issueChat', params: { groupId: target.group.id, issueId: target.id } }).catch(() => {})

@@ -107,6 +107,13 @@ export default {
         else {
           await groups.removeNotificationType(getters.id, notificationType)
         }
+        dispatch('toasts/show', {
+          message: 'NOTIFICATIONS.CHANGES_SAVED',
+          config: {
+            timeout: 2000,
+            icon: 'thumb_up',
+          },
+        }, { root: true })
       },
     }, {
       findId: ({ notificationType }) => notificationType,
@@ -177,14 +184,6 @@ export default {
       }
     },
 
-    clear ({ commit, dispatch }) {
-      commit('clear')
-
-      // TODO move clear logic to downstream module plugins
-      commit('agreements/clear', null, { root: true })
-      dispatch('feedback/clear', null, { root: true })
-    },
-
     maybeUpdate ({ getters, commit }, group) {
       if (!getters.id) return
 
@@ -217,7 +216,8 @@ export function plugin (datastore) {
   // clear group when logged out
   datastore.watch((state, getters) => getters['auth/isLoggedIn'], isLoggedIn => {
     if (!isLoggedIn) {
-      datastore.dispatch('currentGroup/clear')
+      datastore.commit('currentGroup/clear')
+      datastore.commit('currentGroup/meta/clear')
     }
   })
   datastore.watch(

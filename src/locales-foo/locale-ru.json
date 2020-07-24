@@ -1,0 +1,109 @@
+{
+  "ACTIVITYDELETE": {
+    "DELETE_SERIES_TEXT": "Do you really want to delete this recurring pickup date? This will also delete all one-time pickup dates that belong to this recurring pickup date (except where people joined already).",
+    "DELETE_SERIES_TITLE": "Delete recurring pickup date"
+  },
+  "ACTIVITYLIST": {
+    "AVAILABLE": "",
+    "AVAILABLE_FEEDBACK": "",
+    "AVAILABLE_FROM_STORES": "",
+    "FILTER": {
+      "ALL": "",
+      "EMPTY": "",
+      "FREE": ""
+    },
+    "ITEM": {
+      "JOIN": "Войти",
+      "JOIN_CONFIRMATION_HEADER": "",
+      "JOIN_CONFIRMATION_TEXT": "",
+      "LEAVE": "Выйти",
+      "LEAVE_CONFIRMATION_HEADER": "",
+      "LEAVE_CONFIRMATION_TEXT": ""
+    },
+    "JOINEDNOTICE": "",
+    "NONE": "No upcoming pickups",
+    "NONE_HINT": "",
+    "PICKUP_DISABLED": "",
+    "PICKUP_STARTED": "",
+    "STORE_NONE_HINT": ""
+  },
+  "ACTIVITYMANAGE": {
+    "PICKUP_DESCRIPTION_CHANGED": "",
+    "PICKUP_DOES_NOT_MATCH": "",
+    "PICKUP_MAX_COLLECTORS_CHANGED": "",
+    "SERIES": "Повторяющиеся пункты сбора",
+    "SINGLE": "One-time pickups",
+    "TITLE": "Manage pickups",
+    "UPCOMING_ACTIVITIES_IN_SERIES": "Предстоящие пункты сбора в этой серии"
+  },
+  "ACTIVITY_FEEDBACK": {
+    "AMOUNT": "",
+    "AMOUNT_INFO": "",
+    "COMMENT_PLACEHOLDER": "",
+    "DELETE_AMOUNT": "",
+    "EDIT": "Редактировать отзыв",
+    "HEADER": "",
+    "PREVIOUS": "",
+    "SET_AMOUNT": "",
+    "TITLE": "Отзывы",
+    "TOGETHER_WITH": ""
+  },
+  "CREATEACTIVITY": {
+    "COMMENT": "Additional information",
+    "COMMENT_HELPER": "",
+    "CUSTOM": "",
+    "DATE": "",
+    "DIFFERS_WARNING": "",
+    "DISABLE_TITLE": "",
+    "ENABLE_DISABLE_MESSAGE": "",
+    "ENABLE_TITLE": "",
+    "EXCEPTIONS_MESSAGE": "",
+    "EXCEPTIONS_TITLE": "",
+    "FREQUENCY": "",
+    "MAX_COLLECTORS": "Максимальное количество слотов",
+    "MAX_COLLECTORS_HELPER": "",
+    "RRULE": "",
+    "RRULE_EXAMPLE": "",
+    "RRULE_EXAMPLE2": "",
+    "RRULE_HELPER": "",
+    "RRULE_HELPER_URL": "",
+    "STARTDATE_HELPER": "",
+    "TIME_HELPER": "",
+    "UNLIMITED": "",
+    "WEEKDAYS": "Weekdays",
+    "WEEKDAYS_HELPER": "",
+    "WEEKLY": ""
+  },
+  "FEEDBACKLIST": {
+    "NO_DONE_ACTIVITIES": "",
+    "NO_DONE_ACTIVITIES_HINT": "",
+    "NUMBER_ACTIVITIES": ""
+  },
+  "GROUP": {
+    "ACTIVITIES": "Pickups",
+    "ACTIVITY": "",
+    "NOTIFICATION_TYPES": {
+      "daily_activity_notification": {
+        "DESCRIPTION": "Напоминает о ваших доставках, пустых или неполных доставках любимых мест на следующий день",
+        "NAME": "Уведомления о доставке"
+      }
+    }
+  },
+  "HISTORY": {
+    "ACTIVITY_CREATE": "created a new one-time pick-up",
+    "ACTIVITY_DELETE": "deleted a pick-up",
+    "ACTIVITY_DISABLE": "",
+    "ACTIVITY_DONE": "",
+    "ACTIVITY_ENABLE": "",
+    "ACTIVITY_JOIN": "",
+    "ACTIVITY_LEAVE": "",
+    "ACTIVITY_MISSED": "",
+    "ACTIVITY_MODIFY": "changed the settings of a pick-up"
+  },
+  "NOTIFICATION_BELLS": {
+    "ACTIVITY_DISABLED": "",
+    "ACTIVITY_ENABLED": "",
+    "ACTIVITY_MOVED": "",
+    "ACTIVITY_UPCOMING": ""
+  }
+}

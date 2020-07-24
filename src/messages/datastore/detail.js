@@ -18,10 +18,10 @@ export default {
       if (!conversation) return false
       return conversation.fetchStatus.isPending || Boolean(conversation.id)
     },
-    pickup: (state, getters, rootState, rootGetters) => {
+    activity: (state, getters, rootState, rootGetters) => {
       const { type, id } = state.scope
-      if (type !== 'pickup') return
-      return rootGetters['pickups/get'](id)
+      if (type !== 'activity') return
+      return rootGetters['activities/get'](id)
     },
     user: (state, getters, rootState, rootGetters) => {
       const { type, id } = state.scope
@@ -35,8 +35,8 @@ export default {
     },
     conversation: (state, getters, rootState, rootGetters) => {
       const { type, id } = state.scope
-      if (type === 'pickup') {
-        return rootGetters['conversations/getForPickup'](id)
+      if (type === 'activity') {
+        return rootGetters['conversations/getForActivity'](id)
       }
       if (type === 'user') {
         return rootGetters['conversations/getForUser'](id)
@@ -50,11 +50,11 @@ export default {
     },
   },
   actions: {
-    routeEnter ({ dispatch, rootGetters }, { groupId, placeId, pickupId, userId, messageId, routeTo }) {
-      if (pickupId) {
-        dispatch('selectPickup', pickupId)
+    routeEnter ({ dispatch, rootGetters }, { groupId, placeId, activityId, userId, messageId, routeTo }) {
+      if (activityId) {
+        dispatch('selectActivity', activityId)
         if (!Platform.is.mobile) {
-          // On desktop we don't have a pickup detail page, we go to the place page, and have a sidebar open
+          // On desktop we don't have a activity detail page, we go to the place page, and have a sidebar open
           throw createRouteRedirect({ name: 'place', params: { groupId, placeId }, query: routeTo.query })
         }
       }
@@ -100,13 +100,13 @@ export default {
         dispatch('clear')
       }
     },
-    openForPickup ({ dispatch }, pickup) {
+    openForActivity ({ dispatch }, activity) {
       if (Platform.is.mobile) {
-        const { id, group, place } = pickup
-        router.push({ name: 'pickupDetail', params: { groupId: group.id, placeId: place.id, pickupId: id } }).catch(() => {})
+        const { id, group, place } = activity
+        router.push({ name: 'activityDetail', params: { groupId: group.id, placeId: place.id, activityId: id } }).catch(() => {})
       }
       else {
-        dispatch('selectPickup', pickup.id)
+        dispatch('selectActivity', activity.id)
       }
     },
     openForUser ({ dispatch }, user) {
@@ -135,10 +135,10 @@ export default {
         dispatch('selectThread', message.id)
       }
     },
-    async selectPickup ({ commit, dispatch }, pickupId) {
+    async selectActivity ({ commit, dispatch }, activityId) {
       dispatch('clear')
-      commit('setPickupId', pickupId)
-      dispatch('conversations/fetchForPickup', { pickupId }, { root: true })
+      commit('setActivityId', activityId)
+      dispatch('conversations/fetchForActivity', { activityId }, { root: true })
     },
     async selectUser ({ commit, dispatch }, userId) {
       dispatch('clear')
@@ -159,8 +159,8 @@ export default {
     },
     clear ({ dispatch, state, commit }) {
       const { type, id } = state.scope
-      if (type === 'pickup') {
-        dispatch('conversations/clearForPickup', { pickupId: id }, { root: true })
+      if (type === 'activity') {
+        dispatch('conversations/clearForActivity', { activityId: id }, { root: true })
       }
       else if (type === 'user') {
         dispatch('conversations/clearForUser', { userId: id }, { root: true })
@@ -175,8 +175,8 @@ export default {
     },
   },
   mutations: {
-    setPickupId (state, pickupId) {
-      state.scope = { type: 'pickup', id: pickupId }
+    setActivityId (state, activityId) {
+      state.scope = { type: 'activity', id: activityId }
     },
     setUserId (state, userId) {
       state.scope = { type: 'user', id: userId }
@@ -197,6 +197,12 @@ export const plugin = datastore => {
   datastore.watch(state => state.route, route => {
     if (route.name === 'groupsGallery') {
       datastore.dispatch('detail/clear')
+    }
+  })
+
+  datastore.watch((state, getters) => getters['auth/isLoggedIn'], isLoggedIn => {
+    if (!isLoggedIn) {
+      datastore.commit('detail/clear')
     }
   })
 }

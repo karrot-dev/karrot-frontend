@@ -528,7 +528,7 @@ workflows:
   update-dependencies-cronjob:
     triggers:
       - schedule:
-          cron: "0 2 * * *"
+          cron: "0 2 * * 0,3,5"
           filters:
             branches:
               only: master

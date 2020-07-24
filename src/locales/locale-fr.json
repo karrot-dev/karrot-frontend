@@ -1,757 +1,754 @@
 {
-  "ENTRY": "1 entrée | {count} entrées",
-  "GLOBAL": {
-    "GITHUB_NOTE": "Développement",
-    "SERVER_ERROR": "Erreur de serveur",
-    "NOT_CONNECTED": "Vous n'êtes pas connecté au serveur.",
-    "INVALID_LINK": "Désolé, le lien que tu as ouvert n'est pas valide.",
-    "GENERIC_ERROR": "Désolé quelque chose n'a pas fonctionné :-/ ",
-    "SEARCH_RESULTS": "Recherche de résultats",
-    "SEARCH_NOT_FOUND": "Pas trouvé",
-    "ABOUT_KARROT": "A propos de Karrot"
-  },
-  "USERDATA": {
-    "EMAIL": "e-mail",
-    "MOBILE_NUMBER": "Numéro de téléphone",
-    "PROFILE_TITLE": "Profil",
-    "PRIVATE_MESSAGE": "Envoyer un message privé à {userName}",
-    "PASSWORD": "Mot de passe",
-    "CONFIRM_PASSWORD": "Confirme ton mot de passe",
-    "USERNAME": "Nom",
-    "WHERE_FROM": "D'où tu viens (optionnel)",
-    "PHOTO": "Photo de profil",
-    "SET_PHOTO": "Choisis ta photo de profil",
-    "ACCOUNT": "Compte",
-    "PUSH": "Notifications",
-    "PUSH_CURRENT_BROWSER": "Navigateur Web en cours",
-    "REQUEST_DELETE_ACCOUNT": {
-      "SUCCESS": "Nous t'avons envoyé un lien par e-mail pour confirmer la suppression. "
+  "ABOUT_KARROT": {
+    "AND_MORE": "Et puis... ",
+    "EXISTING_GROUPS": "Quelques groupes qui utilisent déjà Karrot",
+    "LINKS": {
+      "CHAT": "tchat de l'équipe karrot",
+      "FORUM": "community forum"
     },
-    "DIALOGS": {
-      "REQUEST_DELETE_ACCOUNT": {
-        "TITLE": "Suppression de compte",
-        "MESSAGE": "Es-tu sûr(e) ? Votre compte et vos données personnelles vont être supprimés définitivement. Tout ce que tu as fait sur cette plate-forme sera rendu anonyme. Si tu confirmes, nous t'enverrons un lien par e-mail pour compléter la suppression.",
-        "CONFIRM": "Confirmer"
+    "SECTIONS": {
+      "ACTIVITIES": {
+        "DESCRIPTION": "Chaque activité a un nombre déterminé de places où les membres du groupes peuvent s'inscrire – comme ça, tout le monde sait qui fait quoi et à quel moment. Après, les membres participants peuvent remplir un compte-rendu d'activité.",
+        "SUBTITLE": "Une activité avec une heure et un lieu déterminés, comme par exemple une récolte d'invendus alimentaires, peut être inscrite dans le programme.",
+        "TITLE": "Distribution d'activités"
       },
-      "GIVE_TRUST": {
-        "TITLE": "Lui faire confiance",
-        "MESSAGE": "Fais-tu confiance à {userName} de {groupName} ?"
+      "COMMUNICATION": {
+        "DESCRIPTION": "Écris un message public sur le mur du groupe, ou un message privé à un·e autre bénévole. Chaque activité ou lieu de récolte possède également sa propre conversation.",
+        "TITLE": "Différents modes de communication pour différents contextes"
+      },
+      "DEMOCRATIC": {
+        "DESCRIPTION": "Karrot est un software libre d'accès et open-source, développé avec la participation de ses utilisateurs. Derrière le code se trouve une petite équipe internationale, en contact permanant avec les groupes pour comprendre leurs différents besoins de fonctionnalités et ainsi guider le développement. Nous sommes guidés par un désir d'intégrité et ne tolérons pas la commercialisation des données.",
+        "DESCRIPTION2": "Programmeuses·eurs et designers sont évidemment les bienvenu·e·s pour contribuer au code libre. Jette un coup d'œil sur {code}.",
+        "TITLE": "Programmation démocratique et participative"
+      },
+      "GROUPS": {
+        "DESCRIPTION": "Mais tous sont réunis sur une carte, pour permettre aux enthousiastes de trouver un groupe près de chez eux.",
+        "SUBTITLE": "Chaque groupe sur karrot est entièrement indépendant et peut avoir son propre logo, ses propres règles et modes de fonctionnement.",
+        "TITLE": "Groupes indépendants"
+      },
+      "MAPS": {
+        "DESCRIPTION": "Il y a une carte globale de tous les lieux, et des personnes faisant les activités. Il y a aussi une liste déroulant chronologiquement les activités à venir, où les membres peuvent s'inscrire.",
+        "TITLE": "Cartes et listes"
+      },
+      "NOTIFICATIONS": {
+        "DESCRIPTION": "Des notifications sont envoyées pour des activités ayant encore des places disponibles, pour des nouveaux messages et canditatures. Ces notifications peuvent aussi être désactivées, pour plus de tranquillité !",
+        "TITLE": "Notifications"
+      },
+      "OFFERS": {
+        "DESCRIPTION": "Les offres sont visibles par tous les membres du groupe, qui peuvent montrer leur intérêt via la conversation de l'offre.",
+        "SUBTITLE": "Créé une offre pour l'objet que tu souhaite partager ou donner.",
+        "TITLE": "Partage directement"
+      },
+      "OPENSOURCE": {
+        "DESCRIPTION": "Tout est transparent et peut être modifié. Nous encourageons les groupes à héberger leurs propres instances de la plateforme, dans la mesure du possible. En tous les cas, nous garantissons l'accès à la version d'hébergement de karrot.world. ",
+        "TITLE": "Open source"
+      },
+      "TEAM": {
+        "DESCRIPTION": "Il est facile de contacter l'équipe qui code Karrot, soit sur notre {forum}, sur {code} ou bien sur le {chat}. Attention, l'équipe est anglophone !",
+        "TITLE": "Équipe réactive"
+      },
+      "TRANSLATIONS": {
+        "DESCRIPTION": "Karrot est entièrement traduit par la communauté, et existe déjà dans beaucoup de langues différentes. Pour participer aux traductions, visite le projet sur {translations}.",
+        "TITLE": "Multilingue"
+      },
+      "TRANSPARENCY": {
+        "DESCRIPTION": "L'historique montre qui a fait quoi, et quand. Tout est enregistré et affiché : de la participation à une activité, à la création et édition de lieux.",
+        "TITLE": "Transparence"
+      },
+      "TRUST": {
+        "DESCRIPTION": "Il n'y a pas de superpouvoirs d'administrateur sur karrot. Les membres qui reçoivent suffisamment de 'carottes de confiance' de la part d'autres membres obtiennent la possibilité d'éditer et de changer certains paramètres. Quand de nouveaux membres veulent rejoindre un groupe, elles/ils doivent postuler en répondant aux questions personnalisées de ce groupe. N'importe quel membre avec des droits d'édition peut alors accepter ou refuser. De même, si un conflit surgit, le groupe peut activer un système de vote qui permet de le résoudre avec la participation de la communauté.",
+        "TITLE": "Gestion de groupe démocratique et basée sur la confiance"
       }
     },
-    "LOGOUT_SUCCESS": "Tu as été déconnecté !",
-    "YOU_TRUST_USER": "Tu fais confiance à {userName} dans {groupName}.",
-    "OTHER_PEOPLE_TRUST_USER": "{otherUser} fait confiance à {userName} de {groupName}. | {count} personnes font confiance à {userName} de {groupName}.",
-    "OTHER_PEOPLE_TRUST_YOU": "{otherUser} vous fait confiance dans le {groupName} . Je \n{count} personnes vous font confiance in {groupName}",
-    "PEOPLE_TRUST_USER": "Toi et {otherUser} faites confiance à {userName} de {groupName}. | Toi et {count} autres personnes faites confiance à {userName} de {groupName}. ",
-    "FIRST_TRUST": "Sois le premier à faire confiance à {userName} de {groupName} !",
-    "NEWCOMER": "Nouveau membre",
-    "NEWCOMER_GUIDANCE": "{userName} est nouveau dans le groupe et a peut-être besoin d'aide.",
-    "TRUST_PROGRESS_TEXT": "Besoin de {trustNeeded} points de confiance",
-    "TRUST_PROGRESS_TEXT_LONG": "{trustNeeded} autres personnes doivent faire confiance à {userName} pour lui donner ses droits d'admin.",
-    "NEWCOMER_INFO": "Tu es à présent un nouveau membre de {groupName} et tu peux devenir actif en envoyant des messages, en rencontrant d'autres membres, en faisant des récoltes et en rédigeant des comptes-rendu de récolte. Dès que les membres de{threshold} auront exprimé leur confiance, vous obtiendrez des autorisations d'édition pour aider à l'administration du groupe.",
-    "TRUST_INFO": {
-      "TITLE": "C'est quoi ce bouton avec une carotte ? ",
-      "MESSAGE": "Ça fait partie du système de confiance de Karrot. Ça t'indique si un membre est nouveau et de combien de points de confiance il/elle a besoin pour obtenir des droits d'admin.",
-      "LINK": "Clique ici pour en savoir plus."
-    }
+    "SUBTITLE1": "Karrot existe pour les groupes et associations qui veulent partager plutôt que gaspiller, en permettant à ces groupes de s'organiser de manière efficace, locale et bénévole.",
+    "SUBTITLE2": "Sauver des choses comme de la nourriture, des vélos, des vêtements, ou quoi que ce soit qui soit gaspillé et gâché dans la société de consommation.",
+    "TITLE": "Empêche le gaspillage, encourage le partage !",
+    "VISION_INTRO": "Dans le but de soutenir la mise en relation et le développement de toutes sortes d'initiatives citoyennes, Karrot fournit un outil digital élaboré pour coordonner des activités de partage en face-à-face."
   },
-  "SWITCHGROUP": {
-    "NOT_MEMBER": "{userName} n'est pas un membre de {groupName}.",
-    "COMMON_GROUPS": "Groupes que vous avez en commun",
-    "OTHER_GROUPS": "Autres groupes",
-    "CHOOSE": "Choisi un groupe :"
+  "ACTIVITYDELETE": {
+    "DELETE_SERIES_TEXT": "Veux-tu réellement supprimer cette récolte récurrente ? Cela supprimera aussi toutes les dates de récolte individuelle qui dépendent de cette date récurrente de récolte (sauf celles que des personnes ont déjà rejoint).",
+    "DELETE_SERIES_TITLE": "Effacer récolte récurrente"
   },
-  "BUTTON": {
-    "CREATE": "Créer",
-    "CANCEL": "Annuler",
-    "OPEN": "Ouvrir",
-    "CLOSE": "Fermer",
-    "DELETE": "Effacer",
-    "EDIT": "Éditer",
-    "JOIN": "Rejoindre",
-    "PREVIEW": "Aperçu",
-    "BACK": "Retour",
-    "NEXT": "Suivant",
-    "SEARCH": "Recherche",
-    "OF_COURSE": "Oui, bien sûr !",
-    "YES": "Oui",
-    "SAVE_CHANGES": "Sauvegarder",
-    "RESET": "Réinitialiser",
-    "CHANGE_PASSWORD": "Changer le mot de passe",
-    "CHANGE_EMAIL": "Changer l'adresse e-mail",
-    "AGREE": "J'accepte",
-    "REMOVE": "Supprimer",
-    "ARCHIVE": "Archiver",
-    "DELETE_ACCOUNT": "Supprimer le compte",
-    "SHOW": "Afficher",
-    "HIDE": "Cacher",
-    "SUBMIT": "Envoyer",
-    "APPLY": "Postuler",
-    "ACCEPT": "Accepter",
-    "DECLINE": "Refuser",
-    "WITHDRAW": "Retirer",
-    "SHOW_MORE": "Afficher plus",
-    "SHOW_LESS": "Show less",
-    "ENABLE": "activer",
-    "DISABLE": "Désactiver",
-    "UNSUBSCRIBE": "Désinscrire"
-  },
-  "VALIDATION": {
-    "MINLENGTH": "S'il te plaît, entre plus de {min} caractères",
-    "MAXLENGTH": "Trop long, utilise moins de {max} caractères",
-    "UNIQUE": "Ce nom existe déjà, choisis-en un autre.",
-    "REQUIRED": "Ce champ est requis.",
-    "VALID_EMAIL": "Entre une adresse e-mail valide.",
-    "VALID_TIMEZONE": "Entre un fuseau horaire valide.",
-    "IMAGE_REQUIRED": "Tu dois ajouter une image"
-  },
-  "GROUP": {
-    "WALL": "Mur",
-    "LEAVE": "Quitter le groupe...",
-    "LEAVE_TEXT": "Es-tu sûr(e) que tu veux quitter ce groupe?",
-    "LEAVE_CONFIRMATION": "Tu as quitté {groupName}",
-    "NONMEMBER_REDIRECT": "Tu n'es pas membre de ce groupe.",
-    "EDIT": "Éditer le groupe",
-    "CREATE_TITLE": "Créer un nouveau groupe",
-    "MANAGE_AGREEMENT": "Gérer la convention",
-    "TITLE": "Nom du groupe",
-    "DESCRIPTION_VERBOSE": "Description du groupe, visible par les membres",
-    "WELCOMEMESSAGE_VERBOSE": "Message de bienvenue envoyé aux nouveaux membres",
-    "LOGO": "Groupe logo",
-    "SET_LOGO": "Cliquez pour télécharger votre groupe logo !",
-    "APPLICATIONS": "Candidatures",
-    "APPLICATION_QUESTIONS": "Questions pour celles/ceux qui veulent rejoindre ce groupe",
-    "PICKUPS": "Récoltes",
-    "MESSAGES": "Messages",
-    "OFFERS": "dons",
-    "PICKUP": "Récolte",
-    "MEMBERS": "Membres",
-    "JOINED": "membre depuis {relativeDate}",
-    "DECLINED": "refusée {relativeDate}",
-    "ADDED_BY": "acceptée par {userName}",
-    "DECLINED_BY": "refusée par {userName}",
-    "SORT_JOINDATE": "Trier par date d'adhésion",
-    "SORT_NAME": "Trier par nom",
-    "INACTIVE": "Inactif",
-    "SHOW_INACTIVE": "Afficher les groupes inactifs",
-    "PLACES": "Lieux de récup",
-    "HOME": "Page d'accueil",
-    "HISTORY": "Historique",
-    "DESCRIPTION": "Description",
-    "ADDRESS": "Adresse",
-    "TIMEZONE": "Fuseau horaire du groupe",
-    "INVITE_EMAIL": "Entre une adresse e-mail",
-    "INVITE_SEND": "Envoyer une invitation",
-    "INVITE_SEND_SUCCESS": "Invitation envoyée avec succès !",
-    "INVITE_SEND_ERROR": "Ooops, l'invitation n'a pas pu être envoyée !",
-    "INVITED_LIST": "Des invitations ont déjà été envoyées à cette adresse e-mail :",
-    "INVITATIONS": "Invitations",
-    "INVITE_TITLE": "Inviter des utilisateurs à votre groupe",
-    "INVITATION_ACCEPT_SUCCESS": "Bienvenue ! Tu as bien accepté l'invitation.",
-    "INVITATION_ACCEPT_ERROR": "Oups, l'invitation ne peut pas être acceptée !",
-    "NOTIFICATIONS_BY_GROUP": "Notifications par groupe",
-    "EMAIL_NOTIFICATIONS": "Notifications par email",
-    "NOTIFICATION_TYPES": {
-      "weekly_summary": {
-        "NAME": "Résumé hebdomadaire",
-        "DESCRIPTION": "Tiens-toi au courant de ce qu'il se passe dans le groupe."
-      },
-      "daily_pickup_notification": {
-        "NAME": "Notifications de récolte",
-        "DESCRIPTION": "Vous rappelle vos récoltes et vous informe des récoltes sans bénévoles ou incomplètes de vos lieux de récup préférés le lendemain\n "
-      },
-      "new_application": {
-        "NAME": "Nouvelles candidatures",
-        "DESCRIPTION": "T'indique quand quelqu'un souhaite rejoindre ton groupe"
-      },
-      "new_offer": {
-        "NAME": "Nouveaux dons",
-        "DESCRIPTION": "Vous dit quand quelqu'un crée une nouvelle offre"
-      },
-      "conflict_resolution": {
-        "NAME": "Nouveaux processus de résolution des conflits",
-        "DESCRIPTION": "Vous informe lorsqu'un nouveau processus de résolution de conflits a été lancé dans votre groupe"
-      }
-    },
-    "PLAYGROUND_INFO": "Ceci est un groupe bac à sable, tu ne risques pas d'abîmer quoique que ce soit. Explore, clique partout et amuse-toi !",
-    "JOIN_PLAYGROUND": "Rejoindre le groupe bac à sable pour explorer karrot",
-    "JOIN_ANOTHER_GROUP": "Rejoindre un autre groupe"
-  },
-  "GROUPMAP": {
-    "TITLE": "Carte",
-    "SHOW_USERS": "Afficher les utilisateurs",
-    "HIDE_USERS": "Cacher les utilisateurs",
-    "SHOW_PLACES": "Montrer les lieux de récup",
-    "HIDE_PLACES": "Lieux de récup cachés",
-    "SHOW_GROUPS": "Afficher les groupes",
-    "HIDE_GROUPS": "Cacher les groupes",
-    "SET_LOCATION": "Ajouter la location",
-    "FULL_SCREEN": "Afficher le mode plein écran",
-    "EXPORT": "Exporter"
-  },
-  "STOREDETAIL": {
-    "DIRECTIONS": "Afficher la direction",
-    "EDIT": "Editer le lieux de récolte",
-    "ARCHIVED": "Ce lieu de récolte a été archivé",
-    "INACTIVE": "Ce lieu de récolte n'est actuellement pas en coopération",
-    "CHANGE_STATUS": "Tu peux changer le statut sur la page des paramètres.",
-    "NO_DESCRIPTION": "Ce lieu n'a pas encore de description"
-  },
-  "STOREEDIT": {
-    "NAME": "Nom",
-    "STATUS": "Statut",
-    "DESCRIPTION": "Description",
-    "ADDRESS": "Adresse",
-    "WEEKS_IN_ADVANCE": "Les récoltes récurrentes sont affichées combien de semaines en avance?",
-    "WEEKS_IN_ADVANCE_WARNING": "Vous êtes sur le point de réduire le nombre de semaines de récoltes. Les récoltes existantes non sollicitées seront supprimés si personne ne les a rejoints. Vous pouvez désactiver tous les autres récoltes manuellement, si nécessaire.",
-    "DIALOGS": {
-      "ARCHIVE": {
-        "TITLE": "Archiver le lieu de récolte",
-        "MESSAGE": "Es-tu sûr(e) ?",
-        "CONFIRM": "Oui, archiver le lieu de récolte"
-      }
-    },
-    "RESTORE": "Restaurer",
-    "SHOW_ALL": "Montrer tous les lieux de récup",
-    "SHOW_ACTIVE_ONLY": "Montrer uniquement les lieux de récup actifs"
-  },
-  "PLACEWALL": {
-    "SUBSCRIBED_USERS": "{count}quelqu'un a marqué ce lieu de récolte en tant que favoris",
-    "SUBSCRIPTION": {
-      "HEADER": "Veux tu indiquer ce lieu de récolte en tant que favoris ?",
-      "YES": "oui",
-      "YES_TEXT": "Montres les récoltes sur le mur du groupe et envoie des mails à propos des récoltes à venir.",
-      "NO": "non",
-      "NO_TEXT": "Aucun de celle-ci dessus. Tu peux toujours t'inscrire pour ces récoltes."
-    }
-  },
-  "PICKUPMANAGE": {
-    "TITLE": "Gérer les récoltes",
-    "SERIES": "Récolte récurrente",
-    "SINGLE": "Récoltes individuelles",
-    "UPCOMING_PICKUPS_IN_SERIES": "Récoltes à venir dans cette série",
-    "PICKUP_DOES_NOT_MATCH": "Ces dates de récoltes ne correspondent pas avec le modèle de récurrence",
-    "PICKUP_DESCRIPTION_CHANGED": "'Une information additionnelle' a été modifiée.",
-    "PICKUP_MAX_COLLECTORS_CHANGED": "' le nombre maximum de places' a été modifié."
-  },
-  "PICKUPDELETE": {
-    "DELETE_SERIES_TITLE": "Effacer récolte récurrente",
-    "DELETE_SERIES_TEXT": "Veux-tu réellement supprimer cette récolte récurrente ? Cela supprimera aussi toutes les dates de récolte individuelle qui dépendent de cette date récurrente de récolte (sauf celles que des personnes ont déjà rejoint)."
-  },
-  "USERDETAIL": {
-    "DISPLAY_NAME": "Nom",
-    "DESCRIPTION": "Plus d'informations sur toi",
-    "OLD_PASSWORD": "Confirme ton ancien mot de passe",
-    "PASSWORD": "Nouveau mot de passe"
-  },
-  "PROFILE": {
-    "INACCESSIBLE_OR_DELETED": "(Utilisateur inaccessible ou supprimé)"
-  },
-  "JOINGROUP": {
-    "WHICHGROUP": "Quel groupe veux-tu rejoindre ?",
-    "OR": "{joinGroup}ou{createGroup}",
-    "NUM_MEMBERS": "Membre | Membres",
-    "NO_PUBLIC_DESCRIPTION": "(Ce groupe n'a pas encore de description publique)",
-    "ALL_GROUPS": "Tous les groupes",
-    "BROWSE_GROUPS": "Voir les groupes actuels",
-    "SIGNUP_OR_LOGIN": "Il faut s'enregistrer pour joindre ce groupe !",
-    "VERIFY_EMAIL_ADDRESS": "Vérifie ton adresse email pour postuler",
-    "MY_GROUPS": "Mes groupes",
-    "LOGOUT_MESSAGE": {
-      "LOGGED_OUT": "Tu es en ce moment déconnecté. {login}",
-      "LOG_IN": "Connecte-toi pour voir tes groupes !"
-    },
-    "PROFILE_NOTE": "Si tu rejoins ce groupe, les informations de ton profil seront visible par les autres membres.",
-    "APPLICATION_SUBMITTED": "Ta candidature a été envoyée !",
-    "APPLICATION_PENDING": "Ta candidature est en attente !",
-    "WITHDRAW_CONFIRMATION_HEADER": "Retirer ma candidature",
-    "WITHDRAW_CONFIRMATION_TEXT": "Es-tu sûr(e) de vouloir retirer ta candidature à {groupName} ?",
-    "APPLICATION_WITHDRAWN": "Ta candidature a bien été retirée !",
-    "ARCHIVED_NOTE": "This group doesn't have any members. If you would like to revive it, contact the site administrators!"
-  },
-  "GROUPINFO": {
-    "TITLE": "Information publique du groupe",
-    "META": "Afficher les informations publiques du groupe",
-    "MEMBER_VIEW": "Tu es membre de ce groupe. Clique ici pour l'afficher en plein écran."
-  },
-  "TOPBAR": {
-    "LOGOUT": "Déconnexion",
-    "USERPROFILE": "Visite ton profile",
-    "CHANGE_GROUP": "Change de groupe"
-  },
-  "SIDENAV": {
-    "INFO_SUB": "Comment créer ton groupe de récupération alimentaire",
-    "GIT_SUB": "Regarde notre code !"
-  },
-  "LOGIN": {
-    "TITLE": "Connexion",
-    "SUBMIT": "Connexion",
-    "SIGNUP": "S'enregistrer",
-    "FORGOT_PASSWORD": "Tu as oublié ton mot de passe?"
-  },
-  "SIGNUP": {
-    "TITLE": "S'enregistrer",
-    "BACK": "Retour à la connexion",
-    "OK": "Rejoindre"
-  },
-  "VERIFYMAIL": {
-    "TITLE": "Vérification d'email",
-    "SUCCESS": "Ton adresse e-mail a été correctement vérifiée !"
-  },
-  "DELETEACCOUNT": {
-    "TITLE": "Suppression de compte",
-    "SUCCESS": "Ton compte a été correctement supprimé !"
-  },
-  "CREATEPICKUP": {
-    "FREQUENCY": "Fréquence",
-    "WEEKLY": "Hebdomadaire",
-    "CUSTOM": "Personnalisée",
-    "WEEKDAYS": "Jour de la semaine",
-    "WEEKDAYS_HELPER": "Quels jours doit avoir lieu la récolte ?",
-    "RRULE": "Paramètres de récurrence",
-    "RRULE_HELPER": "Écris une règle valide {ruleHelper}, par exemple {ruleExample} ou {ruleExample2}",
-    "RRULE_HELPER_URL": "Paramètres du iCalendar",
-    "RRULE_EXAMPLE": "dernier jour ouvré de chaque mois",
-    "RRULE_EXAMPLE2": "chaque second mardi du mois",
-    "STARTDATE_HELPER": "Quand doivent commencer les récoltes?",
-    "TIME_HELPER": "Quand doit avoir lieu la récolte ?",
-    "DATE": "Date",
-    "MAX_COLLECTORS": "Nombre maximum de places",
-    "MAX_COLLECTORS_HELPER": "Combien de personnes participent à la récolte ?",
-    "COMMENT": "Informations supplémentaires",
-    "COMMENT_HELPER": "Que devraient savoir les membres à propos de cette récolte ?",
-    "UNLIMITED": "illimité",
-    "DIFFERS_WARNING": "Cette valeur est différente de celle définie par défaut. Pour ne pas effectuer cette modification, clique sur le bouton en flèche et sauvegarde les changements.",
-    "ENABLE_TITLE": "Veux-tu activer la récolte ?",
-    "DISABLE_TITLE": "Veux-tu désactiver la récolte ?",
-    "ENABLE_DISABLE_MESSAGE": "Les utilisateurs qui ont rejoint cette récolte recevront une notification. Tu peux changer ce texte pour donner une raison : ",
-    "EXCEPTIONS_TITLE": "Consulte tes récoltes  ",
-    "EXCEPTIONS_MESSAGE": "Quelques récoltes à venir ne correspondent pas aux paramètres de cette récoltes récurrente. Jette un oeil sur '{upcomingLabel}' pour modifier ou désactiver des récoltes, si besoins."
-  },
-  "CREATESTORE": {
-    "TITLE": "Créer un nouveau lieu de récolte"
-  },
-  "PICKUPLIST": {
+  "ACTIVITYLIST": {
+    "ACTIVITY_DISABLED": "Cette récolte a été désactivée.",
+    "ACTIVITY_STARTED": "Cette récolte a déjà commencée.",
+    "AVAILABLE": "Il y a une récolte dans vos lieux de récup préférés qui vous attend ! | Il y a{count} récoltes dans vos lieux de récoltes préférés qui vous attendent!",
+    "AVAILABLE_FEEDBACK": "Tu peux donner ton retour en faisant un commentaire sur la récolte | {count} récoltes attendent ton compte-rendu de récolte.  ",
+    "AVAILABLE_FROM_STORES": "Cela montre les récoltes de vos lieux de récup préférés dans les prochains jours. Vous pouvez accéder à d'autres lieux dans la barre latérale.",
     "FILTER": {
       "ALL": "Tous",
       "EMPTY": "Seulement les vides",
       "FREE": "Ceux avec des créneaux libres"
     },
-    "AVAILABLE": "Il y a une récolte dans vos lieux de récup préférés qui vous attend ! | Il y a{count} récoltes dans vos lieux de récoltes préférés qui vous attendent!",
-    "AVAILABLE_FEEDBACK": "Tu peux donner ton retour en faisant un commentaire sur la récolte | {count} récoltes attendent ton compte-rendu de récolte.  ",
-    "JOINEDNOTICE": "Tu as une récolte qui arrive | Tu as {count} récoltes qui arrivent",
-    "AVAILABLE_FROM_STORES": "Cela montre les récoltes de vos lieux de récup préférés dans les prochains jours. Vous pouvez accéder à d'autres lieux dans la barre latérale.",
     "ITEM": {
-      "LEAVE": "Quitter",
       "JOIN": "Rejoindre",
       "JOIN_CONFIRMATION_HEADER": "Rejoindre la récolte",
       "JOIN_CONFIRMATION_TEXT": "Es-tu sûr(e) que tu es disponible le {date} ?",
+      "LEAVE": "Quitter",
       "LEAVE_CONFIRMATION_HEADER": "Quitter la récolte",
       "LEAVE_CONFIRMATION_TEXT": "Es-tu vraiment sûr(e) que les autres peuvent faire la récolte sans toi ?"
     },
+    "JOINEDNOTICE": "Tu as une récolte qui arrive | Tu as {count} récoltes qui arrivent",
     "NONE": "Aucune récolte à venir",
     "NONE_HINT": "Vous pouvez créer une nouvelle récolte sur la page de lieu.",
-    "STORE_NONE_HINT": "Tu peux créer une nouvelle récolte sur la page des récoltes.",
-    "PICKUP_DISABLED": "Cette récolte a été désactivée.",
-    "PICKUP_STARTED": "Cette récolte a déjà commencée."
+    "STORE_NONE_HINT": "Tu peux créer une nouvelle récolte sur la page des récoltes."
   },
-  "FEEDBACKLIST": {
-    "SAVED_FOOD": "Au moins 1 kg a été sauvé. Merci ! Les autres participants ont déjà indiqué via leur compte-rendu de récolte que {amount} kg de nourriture ont été sauvés ! Continue, c'est génial !",
-    "NUMBER_PICKUPS": "{count} récoltes effectuées",
-    "NUMBER_FEEDBACK": "{count}compte-rendu de récolte donné",
-    "WEIGHT_SUM": "{sum} kg de nourriture sauvée",
-    "NONE": "Pas de compte-rendu de récolte pour le moment ",
-    "NONE_HINT": "Cette page sera remplie une fois quand plus de comptes-rendu de récoltes seront disponibles",
-    "NO_DONE_PICKUPS": "Et voilà !",
-    "NO_DONE_PICKUPS_HINT": "Aucune récolte ne t'attend pour le moment. Pourquoi ne pas t'inscrire?"
+  "ACTIVITYMANAGE": {
+    "ACTIVITY_DESCRIPTION_CHANGED": "'Une information additionnelle' a été modifiée.",
+    "ACTIVITY_DOES_NOT_MATCH": "Ces dates de récoltes ne correspondent pas avec le modèle de récurrence",
+    "ACTIVITY_MAX_PARTICIPANTS_CHANGED": "' le nombre maximum de places' a été modifié.",
+    "SERIES": "Récolte récurrente",
+    "SINGLE": "Récoltes individuelles",
+    "TITLE": "Gérer les récoltes",
+    "UPCOMING_ACTIVITIES_IN_SERIES": "Récoltes à venir dans cette série"
   },
-  "PICKUP_FEEDBACK": {
-    "TITLE": "compte-rendu de récolte",
-    "HEADER": "Merci pour ta récolte !",
-    "EDIT": "Édite ton compte-rendu de récolte",
-    "SET_AMOUNT": "Établir la quantité",
-    "DELETE_AMOUNT": "Supprimer la quantité",
+  "ACTIVITY_FEEDBACK": {
     "AMOUNT": "Quantité de nourriture que vous avez pu sauver du gaspillage (en kg)\n ",
     "AMOUNT_INFO": "Pour les statistiques des lieux de récoltes, nous additionnerons les quantités de tous les compte-rendu de récolte.",
     "COMMENT_PLACEHOLDER": "Tout s'est bien passé ? Tout les participants sont venus ? Ton commentaire ici...",
+    "DELETE_AMOUNT": "Supprimer la quantité",
+    "EDIT": "Édite ton compte-rendu de récolte",
+    "HEADER": "Merci pour ta récolte !",
     "PREVIOUS": "Dernier feedback à propos de {store}",
+    "SET_AMOUNT": "Établir la quantité",
+    "TITLE": "compte-rendu de récolte",
     "TOGETHER_WITH": "Tu as fait cette récolte avec :"
   },
-  "PASSWORDRESET": {
-    "TITLE": "Réinitialiser le mot de passe",
-    "INTRO": "Entre ton adresse email et nous t'enverrons un lien pour créer un nouveau mot de passe (si tu as déjà un compte).",
-    "EMAIL": "Adresse email",
-    "SUBMIT": "Demander un nouveau mot de passe",
-    "LOGIN": "Retourner à la page de connexion",
-    "SUCCESS": "Ta demande a été envoyée. Regarde tes mails !"
+  "ADDRESS_PICKER": {
+    "CHOOSE_LOCATION": "choisissez l'emplacement sur la carte",
+    "KEEP_EXISTING_LOCATION": "conserver l'emplacement actuel sur la carte",
+    "SET_AS": "Définir l'adresse comme"
   },
-  "PASSWORD": {
-    "RESET": {
-      "TITLE": "Réinitialiser le mot de passe",
-      "OK": "Enregistrer",
-      "SUCCESS": "Ton nouveau mot de passe a été enregistré."
+  "AGREEMENT": {
+    "AGREE": "Tu dois accepter les termes de {title}",
+    "BLURB1": "Vous n'avez pas encore de convention !",
+    "BLURB2": "Si tu en ajoutes une, les membres devront la signer avant de pouvoir faire des récoltes.",
+    "CONTENT": "Contenu",
+    "CONTENT_HELPER": "Texte de la convention",
+    "DIALOGS": {
+      "REMOVE": {
+        "CONFIRM": "Oui, supprimer la convention",
+        "MESSAGE": "Ça signifie que tout le monde peut faire des récoltes",
+        "TITLE": "Supprimer la convention ?"
+      },
+      "REPLACE": {
+        "CONFIRM": "Oui, changer la convention",
+        "MESSAGE": "Tout le monde devra signer de nouveau avant de pouvoir rejoindre des récoltes.",
+        "TITLE": "Changer la convention ?"
+      }
     },
-    "CHANGE": {
-      "SUCCESS": "Ton nouveau mot de passe a été enregistré."
+    "MINOR_EDIT": "Petit changement ? ",
+    "MINOR_EDIT_HELPER": "Fautes de frappe, de formattage, etc... \nLes membres ne devront pas signer de nouveau.",
+    "NEW": "Nouvelle convention",
+    "TITLE": "Nom",
+    "TITLE_HELPER": "Donne un nom à la convention, par exemple Règles de la communauté",
+    "VIEW": "Voir la convention"
+  },
+  "APPLICATION": {
+    "ACCEPTED": "Tu as accepté {userName} dans ce groupe !",
+    "ACCEPT_CONFIRMATION_HEADER": "Accepter la candidature",
+    "ACCEPT_CONFIRMATION_TEXT": "Es-tu sûr(e) de vouloir accepter {userName} dans ce groupe ?",
+    "APPLICATION": "Candidature",
+    "DECLINED": "Tu as refusé la candidature de {userName}.",
+    "DECLINE_CONFIRMATION_HEADER": "Refuser la candidature",
+    "DECLINE_CONFIRMATION_TEXT": "Es-tu sûr(e) de vouloir refuser la candidature de {userName} ?",
+    "FORM_HEADER": "Postuler",
+    "FORM_TITLE": "Postuler pour rejoindre {groupName}",
+    "GALLERY_TOOLTIP": "Tu as postulé pour rejoindre ce groupe. Ta candidature est en attente.",
+    "HELP": "Ceci est un chat entre les membres de {groupName} et le candidat {userName} pour vous permettre d'apprendre à vous connaître avant d'accepter, de refuser ou de retirer la candidature.",
+    "INITIAL": "Questions et réponses initiales",
+    "PAST": "Candidatures terminées",
+    "SUBMITTED_ON": "envoyé le {date}",
+    "WALL_NOTICE": "Il y a une candidature en attente ! | Il y a {count} candidatures en attente !",
+    "WHAT": "C'est quoi ce chat, là ?",
+    "WITHDRAWN": "retirée {relativeDate}"
+  },
+  "ATTENTION": "Attention !",
+  "BUTTON": {
+    "ACCEPT": "Accepter",
+    "AGREE": "J'accepte",
+    "APPLY": "Postuler",
+    "ARCHIVE": "Archiver",
+    "BACK": "Retour",
+    "CANCEL": "Annuler",
+    "CHANGE_EMAIL": "Changer l'adresse e-mail",
+    "CHANGE_PASSWORD": "Changer le mot de passe",
+    "CLOSE": "Fermer",
+    "CREATE": "Créer",
+    "DECLINE": "Refuser",
+    "DELETE": "Effacer",
+    "DELETE_ACCOUNT": "Supprimer le compte",
+    "DISABLE": "Désactiver",
+    "EDIT": "Éditer",
+    "ENABLE": "activer",
+    "HIDE": "Cacher",
+    "JOIN": "Rejoindre",
+    "NEXT": "Suivant",
+    "OF_COURSE": "Oui, bien sûr !",
+    "OPEN": "Ouvrir",
+    "PREVIEW": "Aperçu",
+    "REMOVE": "Supprimer",
+    "RESET": "Réinitialiser",
+    "SAVE_CHANGES": "Sauvegarder",
+    "SEARCH": "Recherche",
+    "SHOW": "Afficher",
+    "SHOW_LESS": "Show less",
+    "SHOW_MORE": "Afficher plus",
+    "SUBMIT": "Envoyer",
+    "UNSUBSCRIBE": "Désinscrire",
+    "WITHDRAW": "Retirer",
+    "YES": "Oui"
+  },
+  "COMMUNITY_FEED": {
+    "HEADER": "Nouvelles de la {community}",
+    "HEADER_LINK": "communauté internationale de foodsaving",
+    "KARROT_DISCUSSION": "Discussions à propos de Karrot",
+    "LAST_UPDATED": "Dernière mise à jour {relativeDate}"
+  },
+  "CONFLICT": {
+    "FIND_OUT_MORE": "En savoir plus!",
+    "INFO": {
+      "MESSAGE": "This is a score voting in which group members can participate to determine how to deal with a social conflict that affects the whole group.",
+      "TITLE": "Comment ce processus fonctionne-t-il ?\n "
+    },
+    "INITIAL": "Information",
+    "REQUIREMENTS": {
+      "NEWCOMER": "Avant de pouvoir démarrer un processus de résolution de conflits, vous devez recevoir plus de confiance et obtenir des autorisations de modification. En attendant, veuillez demander à un autre membre du groupe de démarrer le processus pour vous."
+    },
+    "SETUP_HEADER": "Y a-t-il un conflit avec {user} ?",
+    "STATEMENT": "Déclaration",
+    "STEPPER1a": "Vous êtes sur le point de lancer un processus de résolution de conflits à l'échelle du groupe !",
+    "STEPPER1b": "This will involve all members to find the best way to proceed.",
+    "STEPPER2a": "Merci de prendre soin de votre communauté !",
+    "STEPPER2b": "Il est important de s'attaquer aux problèmes sociaux, même si cela peut parfois être désagréable. Merci pour votre courage !",
+    "STEPPER3a": "Voici ce qui va se passer :",
+    "STEPPER3b": "Ce processus lancera un chat et un vote.",
+    "STEPPER3c": "The chat will be visible for members and includes {userName}.",
+    "STEPPER3d": "Le vote est anonyme. Cela durera {votingDuration} jours. Pendant ce temps, tous les électeurs peuvent changer d'avis et voter différemment autant de fois qu'ils le souhaitent.\n \n ",
+    "STEPPER4a": "Veuillez expliquer pourquoi vous lancez ce processus de résolution des conflits !",
+    "STEPPER4b": "Tell your group what made you think this process is justified and needed. This statement will be visible to {userName} and group members.",
+    "VOTING": {
+      "HEADLINE": "Comment voulez-vous procéder concernant le conflit en cours avec {userName} ?"
+    },
+    "WITH": "Ce processus consiste à résoudre un conflit avec {userName}"
+  },
+  "CONVERSATION": {
+    "CLOSED": "Cette conversation a été stoppée automatiquement.",
+    "CONVERSATIONS": "Conversations",
+    "EDITED": "édité",
+    "MARK_READ": "Tout marquer comme lu",
+    "MESSAGE_NOT_FOUND": "Message non trouvé",
+    "MUTED": "Les notifications sont désactivées.",
+    "NOT_PARTICIPATED": "Suite à l'envoie de ce message, vous recevrez les notifications concernant cette conversation.",
+    "NO_CONVERSATIONS": "Pas encore de conversation.",
+    "OPEN": "Ouvrir le chat",
+    "REACTIONS": {
+      "AND": "et",
+      "REACTED_WITH": "{users} ont réagi avec {reaction}",
+      "YOU": "toi"
+    },
+    "REPLIES": "Réponses",
+    "REPLIES_COUNT": "1 réponse | {count} réponses",
+    "REPLY_TO_MESSAGE": "Répondre...",
+    "UNREAD_MESSAGES": "Tu as un nouveau message. | Tu as {count} nouveaux messages."
+  },
+  "CREATEACTIVITY": {
+    "COMMENT": "Informations supplémentaires",
+    "COMMENT_HELPER": "Que devraient savoir les membres à propos de cette récolte ?",
+    "CUSTOM": "Personnalisée",
+    "DATE": "Date",
+    "DIFFERS_WARNING": "Cette valeur est différente de celle définie par défaut. Pour ne pas effectuer cette modification, clique sur le bouton en flèche et sauvegarde les changements.",
+    "DISABLE_TITLE": "Veux-tu désactiver la récolte ?",
+    "ENABLE_DISABLE_MESSAGE": "Les utilisateurs qui ont rejoint cette récolte recevront une notification. Tu peux changer ce texte pour donner une raison : ",
+    "ENABLE_TITLE": "Veux-tu activer la récolte ?",
+    "EXCEPTIONS_MESSAGE": "Quelques récoltes à venir ne correspondent pas aux paramètres de cette récoltes récurrente. Jette un oeil sur '{upcomingLabel}' pour modifier ou désactiver des récoltes, si besoins.",
+    "EXCEPTIONS_TITLE": "Consulte tes récoltes  ",
+    "FREQUENCY": "Fréquence",
+    "MAX_PARTICIPANTS": "Nombre maximum de places",
+    "MAX_PARTICIPANTS_HELPER": "Combien de personnes participent à la récolte ?",
+    "RRULE": "Paramètres de récurrence",
+    "RRULE_EXAMPLE": "dernier jour ouvré de chaque mois",
+    "RRULE_EXAMPLE2": "chaque second mardi du mois",
+    "RRULE_HELPER": "Écris une règle valide {ruleHelper}, par exemple {ruleExample} ou {ruleExample2}",
+    "RRULE_HELPER_URL": "Paramètres du iCalendar",
+    "STARTDATE_HELPER": "Quand doivent commencer les récoltes?",
+    "TIME_HELPER": "Quand doit avoir lieu la récolte ?",
+    "UNLIMITED": "illimité",
+    "WEEKDAYS": "Jour de la semaine",
+    "WEEKDAYS_HELPER": "Quels jours doit avoir lieu la récolte ?",
+    "WEEKLY": "Hebdomadaire"
+  },
+  "CREATESTORE": {
+    "TITLE": "Créer un nouveau lieu de récolte"
+  },
+  "DELETEACCOUNT": {
+    "SUCCESS": "Ton compte a été correctement supprimé !",
+    "TITLE": "Suppression de compte"
+  },
+  "ENTRY": "1 entrée | {count} entrées",
+  "FEEDBACKLIST": {
+    "NONE": "Pas de compte-rendu de récolte pour le moment ",
+    "NONE_HINT": "Cette page sera remplie une fois quand plus de comptes-rendu de récoltes seront disponibles",
+    "NO_DONE_ACTIVITIES": "Et voilà !",
+    "NO_DONE_ACTIVITIES_HINT": "Aucune récolte ne t'attend pour le moment. Pourquoi ne pas t'inscrire?",
+    "NUMBER_ACTIVITIES": "{count} récoltes effectuées",
+    "NUMBER_FEEDBACK": "{count}compte-rendu de récolte donné",
+    "SAVED_FOOD": "Au moins 1 kg a été sauvé. Merci ! Les autres participants ont déjà indiqué via leur compte-rendu de récolte que {amount} kg de nourriture ont été sauvés ! Continue, c'est génial !",
+    "WEIGHT_SUM": "{sum} kg de nourriture sauvée"
+  },
+  "GLOBAL": {
+    "ABOUT_KARROT": "A propos de Karrot",
+    "GENERIC_ERROR": "Désolé quelque chose n'a pas fonctionné :-/ ",
+    "GITHUB_NOTE": "Développement",
+    "INVALID_LINK": "Désolé, le lien que tu as ouvert n'est pas valide.",
+    "NOT_CONNECTED": "Vous n'êtes pas connecté au serveur.",
+    "SEARCH_NOT_FOUND": "Pas trouvé",
+    "SEARCH_RESULTS": "Recherche de résultats",
+    "SERVER_ERROR": "Erreur de serveur"
+  },
+  "GROUP": {
+    "ACTIVITIES": "Récoltes",
+    "ACTIVITY": "Récolte",
+    "ADDED_BY": "acceptée par {userName}",
+    "ADDRESS": "Adresse",
+    "APPLICATIONS": "Candidatures",
+    "APPLICATION_QUESTIONS": "Questions pour celles/ceux qui veulent rejoindre ce groupe",
+    "CREATE_TITLE": "Créer un nouveau groupe",
+    "DECLINED": "refusée {relativeDate}",
+    "DECLINED_BY": "refusée par {userName}",
+    "DESCRIPTION": "Description",
+    "DESCRIPTION_VERBOSE": "Description du groupe, visible par les membres",
+    "EDIT": "Éditer le groupe",
+    "EMAIL_NOTIFICATIONS": "Notifications par email",
+    "HISTORY": "Historique",
+    "HOME": "Page d'accueil",
+    "INACTIVE": "Inactif",
+    "INVITATIONS": "Invitations",
+    "INVITATION_ACCEPT_ERROR": "Oups, l'invitation ne peut pas être acceptée !",
+    "INVITATION_ACCEPT_SUCCESS": "Bienvenue ! Tu as bien accepté l'invitation.",
+    "INVITED_LIST": "Des invitations ont déjà été envoyées à cette adresse e-mail :",
+    "INVITE_EMAIL": "Entre une adresse e-mail",
+    "INVITE_SEND": "Envoyer une invitation",
+    "INVITE_SEND_ERROR": "Ooops, l'invitation n'a pas pu être envoyée !",
+    "INVITE_SEND_SUCCESS": "Invitation envoyée avec succès !",
+    "INVITE_TITLE": "Inviter des utilisateurs à votre groupe",
+    "JOINED": "membre depuis {relativeDate}",
+    "JOIN_ANOTHER_GROUP": "Rejoindre un autre groupe",
+    "JOIN_PLAYGROUND": "Rejoindre le groupe bac à sable pour explorer karrot",
+    "LEAVE": "Quitter le groupe...",
+    "LEAVE_CONFIRMATION": "Tu as quitté {groupName}",
+    "LEAVE_TEXT": "Es-tu sûr(e) que tu veux quitter ce groupe?",
+    "LOGO": "Groupe logo",
+    "MANAGE_AGREEMENT": "Gérer la convention",
+    "MEMBERS": "Membres",
+    "MESSAGES": "Messages",
+    "NONMEMBER_REDIRECT": "Tu n'es pas membre de ce groupe.",
+    "NOTIFICATIONS_BY_GROUP": "Notifications par groupe",
+    "NOTIFICATION_TYPES": {
+      "conflict_resolution": {
+        "DESCRIPTION": "Vous informe lorsqu'un nouveau processus de résolution de conflits a été lancé dans votre groupe",
+        "NAME": "Nouveaux processus de résolution des conflits"
+      },
+      "daily_activity_notification": {
+        "DESCRIPTION": "Vous rappelle vos récoltes et vous informe des récoltes sans bénévoles ou incomplètes de vos lieux de récup préférés le lendemain\n ",
+        "NAME": "Notifications de récolte"
+      },
+      "new_application": {
+        "DESCRIPTION": "T'indique quand quelqu'un souhaite rejoindre ton groupe",
+        "NAME": "Nouvelles candidatures"
+      },
+      "new_offer": {
+        "DESCRIPTION": "Vous dit quand quelqu'un crée une nouvelle offre",
+        "NAME": "Nouveaux dons"
+      },
+      "weekly_summary": {
+        "DESCRIPTION": "Tiens-toi au courant de ce qu'il se passe dans le groupe.",
+        "NAME": "Résumé hebdomadaire"
+      }
+    },
+    "OFFERS": "dons",
+    "PLACES": "Lieux de récup",
+    "PLAYGROUND_INFO": "Ceci est un groupe bac à sable, tu ne risques pas d'abîmer quoique que ce soit. Explore, clique partout et amuse-toi !",
+    "SET_LOGO": "Cliquez pour télécharger votre groupe logo !",
+    "SHOW_INACTIVE": "Afficher les groupes inactifs",
+    "SORT_JOINDATE": "Trier par date d'adhésion",
+    "SORT_NAME": "Trier par nom",
+    "TIMEZONE": "Fuseau horaire du groupe",
+    "TITLE": "Nom du groupe",
+    "WALL": "Mur",
+    "WELCOMEMESSAGE_VERBOSE": "Message de bienvenue envoyé aux nouveaux membres"
+  },
+  "GROUPINFO": {
+    "MEMBER_VIEW": "Tu es membre de ce groupe. Clique ici pour l'afficher en plein écran.",
+    "META": "Afficher les informations publiques du groupe",
+    "TITLE": "Information publique du groupe"
+  },
+  "GROUPMAP": {
+    "EXPORT": "Exporter",
+    "FULL_SCREEN": "Afficher le mode plein écran",
+    "HIDE_GROUPS": "Cacher les groupes",
+    "HIDE_PLACES": "Lieux de récup cachés",
+    "HIDE_USERS": "Cacher les utilisateurs",
+    "SET_LOCATION": "Ajouter la location",
+    "SHOW_GROUPS": "Afficher les groupes",
+    "SHOW_PLACES": "Montrer les lieux de récup",
+    "SHOW_USERS": "Afficher les utilisateurs",
+    "TITLE": "Carte"
+  },
+  "HISTORY": {
+    "ACTIVITY_CREATE": "a crée une récolte individuelle",
+    "ACTIVITY_DELETE": "a effacé une récolte",
+    "ACTIVITY_DISABLE": "Annuler une récolte",
+    "ACTIVITY_DONE": "a fait une récolte à {storeName}",
+    "ACTIVITY_ENABLE": "activer une récolte",
+    "ACTIVITY_JOIN": "s'est enregistré pour faire une récolte à {storeName}",
+    "ACTIVITY_LEAVE": "a annulé sa récolte à {storeName}",
+    "ACTIVITY_MISSED": "Une récolte à {storeName} a été manqué!",
+    "ACTIVITY_MODIFY": "a changé les détails d'une récolte",
+    "APPLICATION_DECLINED": "a refusé la candidature de {userName} ",
+    "DETAILS": "Plus d'information",
+    "GROUP_CHANGE_PHOTO": "modifier le logo",
+    "GROUP_CREATE": "a créé ce groupe",
+    "GROUP_DELETE_PHOTO": "supprimer le logo",
+    "GROUP_JOIN": "a rejoint le groupe",
+    "GROUP_LEAVE": "a quitté le groupe",
+    "GROUP_LEAVE_INACTIVE": "a été enlevé à cause d'un manque d'activité ",
+    "GROUP_MODIFY": "a changé les paramètres du groupe",
+    "MEMBER_BECAME_EDITOR": "a obtenu des droits d'admin",
+    "MEMBER_REMOVED": "a été supprimé en raison d'une décision de groupe",
+    "NOTHING_HAPPENEND": "Il ne se passe pas grand chose par ici...",
+    "SERIES_CREATE": "a crée une nouvelle récolte récurrent",
+    "SERIES_DELETE": "a effacé une récolte récurrent",
+    "SERIES_MODIFY": "a changé les détails d'une récolte récurrent",
+    "STORE_CREATE": "Lieu de récolte créé {name}",
+    "STORE_DELETE": "Lieu de récolte supprimé {name}",
+    "STORE_MODIFY": "les paramètres de lieu de récolte {name} ont été changé."
+  },
+  "INACTIVITY": {
+    "HELP": "Toutes les personnes ne se connectant pas au groupe pendant {dayCount} jours ou plus seront considérés comme inactifs. Ces utilisateurs ne recevront plus de notifications par email.",
+    "WHAT": "Que veut dire être inactif ?"
+  },
+  "INFO": "Info",
+  "ISSUE": {
+    "CHAT": "Chat",
+    "CREATION": {
+      "TOAST": "Vous avez démarré avec succès un processus de résolution de conflits"
+    },
+    "NO_ONGOING": "Aucun problème en cours.",
+    "PARTICIPANTS": "{count} des membres ont été ajoutés à cette discussion.",
+    "PAST": "Problèmes antérieurs",
+    "PREVIOUS_VOTINGS": "Votes précédents pour ce problème",
+    "TITLE": "Problèmes\n ",
+    "VOTE": "Vote",
+    "VOTING": {
+      "ANONYMOUS": "Votre vote sera anonyme.",
+      "BTN_DELETE": "Supprimer le vote",
+      "BTN_START": "Votez maintenant\n ",
+      "FURTHER_DISCUSSION": "Discussion supplémentaire : prolonger le délai en commençant un autre vote",
+      "NO_CHANGE": "Pas de changement : {userName} reste dans {groupName}",
+      "REMOVE_USER": "{userName} est retiré de {groupName}",
+      "RESULTS": {
+        "ENDED_AT": "Ce tour de scrutin s'est terminé le {date}",
+        "KEEP_DISCUSSING": "Votre groupe a voté pour continuer à discuter",
+        "PARTICIPANTS": "{number} des membres ont participé au vote.",
+        "TIME_UP": "Le temps est écoulé !",
+        "TOTAL_SCORE": "Score total",
+        "UNDECIDED": "Malheureusement, ce conflit n'a pas pu être résolu.",
+        "UNDECIDED_REASON_1": "l'utilisateur affecté a quitté le groupe alors que le processus de résolution des conflits était toujours en cours",
+        "UNDECIDED_REASON_2": "personne n'a voté sur cette question",
+        "UNDECIDED_WHY": "Il y a deux raisons possibles à cela :"
+      },
+      "SAVE": "Sauver",
+      "SCORE_LABELS": {
+        "NEUTRAL": "nul",
+        "SLIGHT_RESISTANCE": "résistance",
+        "SLIGHT_SUPPORT": "soutien",
+        "STRONG_RESISTANCE": "résistance forte",
+        "STRONG_SUPPORT": "soutien fort"
+      },
+      "SEE_RESULTS": "Voir les résultats",
+      "TIME_LEFT": "Temps restant pour voter",
+      "TOAST": "Votre vote a été soumis avec succès",
+      "TOAST_DELETE": "Votre vote a été supprimé"
     }
+  },
+  "JOINGROUP": {
+    "ALL_GROUPS": "Tous les groupes",
+    "APPLICATION_PENDING": "Ta candidature est en attente !",
+    "APPLICATION_SUBMITTED": "Ta candidature a été envoyée !",
+    "APPLICATION_WITHDRAWN": "Ta candidature a bien été retirée !",
+    "ARCHIVED_NOTE": "This group doesn't have any members. If you would like to revive it, contact the site administrators!",
+    "BROWSE_GROUPS": "Voir les groupes actuels",
+    "LOGOUT_MESSAGE": {
+      "LOGGED_OUT": "Tu es en ce moment déconnecté. {login}",
+      "LOG_IN": "Connecte-toi pour voir tes groupes !"
+    },
+    "MY_GROUPS": "Mes groupes",
+    "NO_PUBLIC_DESCRIPTION": "(Ce groupe n'a pas encore de description publique)",
+    "NUM_MEMBERS": "Membre | Membres",
+    "OR": "{joinGroup}ou{createGroup}",
+    "PROFILE_NOTE": "Si tu rejoins ce groupe, les informations de ton profil seront visible par les autres membres.",
+    "SIGNUP_OR_LOGIN": "Il faut s'enregistrer pour joindre ce groupe !",
+    "VERIFY_EMAIL_ADDRESS": "Vérifie ton adresse email pour postuler",
+    "WHICHGROUP": "Quel groupe veux-tu rejoindre ?",
+    "WITHDRAW_CONFIRMATION_HEADER": "Retirer ma candidature",
+    "WITHDRAW_CONFIRMATION_TEXT": "Es-tu sûr(e) de vouloir retirer ta candidature à {groupName} ?"
   },
   "LANGUAGECHOOSER": {
     "ADD_MORE": "Aide-nous à traduire !",
     "SWITCH": "Changer de langue"
   },
+  "LOGIN": {
+    "FORGOT_PASSWORD": "Tu as oublié ton mot de passe?",
+    "SIGNUP": "S'enregistrer",
+    "SUBMIT": "Connexion",
+    "TITLE": "Connexion"
+  },
   "MARKDOWN_INPUT": {
     "BOLD": "gras",
+    "HELP": "Markdown c'est quoi?",
     "ITALIC": "italique",
-    "STRIKE": "barré",
     "QUOTE": "citation",
-    "HELP": "Markdown c'est quoi?"
-  },
-  "HISTORY": {
-    "GROUP_CREATE": "a créé ce groupe",
-    "GROUP_MODIFY": "a changé les paramètres du groupe",
-    "GROUP_JOIN": "a rejoint le groupe",
-    "GROUP_LEAVE": "a quitté le groupe",
-    "STORE_CREATE": "Lieu de récolte créé {name}",
-    "STORE_MODIFY": "les paramètres de lieu de récolte {name} ont été changé.",
-    "STORE_DELETE": "Lieu de récolte supprimé {name}",
-    "PICKUP_CREATE": "a crée une récolte individuelle",
-    "PICKUP_MODIFY": "a changé les détails d'une récolte",
-    "PICKUP_DELETE": "a effacé une récolte",
-    "PICKUP_ENABLE": "activer une récolte",
-    "PICKUP_DISABLE": "Annuler une récolte",
-    "SERIES_CREATE": "a crée une nouvelle récolte récurrent",
-    "SERIES_MODIFY": "a changé les détails d'une récolte récurrent",
-    "SERIES_DELETE": "a effacé une récolte récurrent",
-    "PICKUP_DONE": "a fait une récolte à {storeName}",
-    "PICKUP_MISSED": "Une récolte à {storeName} a été manqué!",
-    "PICKUP_JOIN": "s'est enregistré pour faire une récolte à {storeName}",
-    "PICKUP_LEAVE": "a annulé sa récolte à {storeName}",
-    "APPLICATION_DECLINED": "a refusé la candidature de {userName} ",
-    "MEMBER_BECAME_EDITOR": "a obtenu des droits d'admin",
-    "GROUP_LEAVE_INACTIVE": "a été enlevé à cause d'un manque d'activité ",
-    "GROUP_CHANGE_PHOTO": "modifier le logo",
-    "GROUP_DELETE_PHOTO": "supprimer le logo",
-    "MEMBER_REMOVED": "a été supprimé en raison d'une décision de groupe",
-    "NOTHING_HAPPENEND": "Il ne se passe pas grand chose par ici...",
-    "DETAILS": "Plus d'information"
+    "STRIKE": "barré"
   },
   "NOTIFICATIONS": {
-    "NOT_VERIFIED": "{email} n'est pas vérifié",
-    "CHECK_YOUR_MAILS": "Vérifie tes mails ou bien {resend}",
-    "RESEND_VERIFICATION": "renvoyer l'email de vérification",
-    "VERIFICATION_EMAIL_SENT": "Nous t'envoyons un autre email de vérification.\nVa voir dans tes mails.",
     "CHANGES_SAVED": "Tes changements ont été enregistrés.",
-    "EMAIL_NOT_DELIVERED": "Nous n'avons pas pu t'envoyer d'email | Nous n'avons pas pu t'envoyer {count} emails"
-  },
-  "NOTIFICATION_BELLS_LIST": {
-    "TITLE": "Notifications",
-    "NO_ITEMS": "Nous n'avons actuellement pas de notifications à té transmettre."
+    "CHECK_YOUR_MAILS": "Vérifie tes mails ou bien {resend}",
+    "EMAIL_NOT_DELIVERED": "Nous n'avons pas pu t'envoyer d'email | Nous n'avons pas pu t'envoyer {count} emails",
+    "NOT_VERIFIED": "{email} n'est pas vérifié",
+    "RESEND_VERIFICATION": "renvoyer l'email de vérification",
+    "VERIFICATION_EMAIL_SENT": "Nous t'envoyons un autre email de vérification.\nVa voir dans tes mails."
   },
   "NOTIFICATION_BELLS": {
-    "YOU_BECAME_EDITOR": "Tu as obtenus les permissions pour éditer.",
-    "USER_BECAME_EDITOR": "{userName}a obtenu les permissions pour éditer.",
-    "NEW_APPLICANT": "{userName}a demandé à rejoindre votre groupe",
+    "ACTIVITY_DISABLED": "La récolte à {dateTime} a été annulée",
+    "ACTIVITY_ENABLED": "La récolte à {dateTime} a été réactivée",
+    "ACTIVITY_MOVED": "La récolte a été déplacée à {dateTime}",
+    "ACTIVITY_UPCOMING": "Rappel : Vous avez une récolte à {time}",
     "APPLICATION_ACCEPTED": "Votre candidature a été acceptée !",
     "APPLICATION_DECLINED": "Votre candidature a été refusée",
-    "INVITATION_ACCEPTED": "{userName}a accepté votre invitation",
-    "FEEDBACK_POSSIBLE": "Tu peux donner un retour d'information sur la récolte que tu as fait le {date}",
-    "NEW_PLACE": "{placeName} a été créé",
-    "NEW_MEMBER": "{userName} a rejoint le groupe",
-    "PICKUP_UPCOMING": "Rappel : Vous avez une récolte à {time}",
-    "PICKUP_DISABLED": "La récolte à {dateTime} a été annulée",
-    "PICKUP_ENABLED": "La récolte à {dateTime} a été réactivée",
-    "PICKUP_MOVED": "La récolte a été déplacée à {dateTime}",
-    "CONFLICT_RESOLUTION_CREATED": "Rejoignez la discussion sur un conflit avec{userName}",
-    "CONFLICT_RESOLUTION_CREATED_ABOUT_YOU": "Un processus de résolution des conflits a été lancé avec vous",
     "CONFLICT_RESOLUTION_CONTINUED": "Le processus de résolution des conflits se poursuit avec {userName}",
     "CONFLICT_RESOLUTION_CONTINUED_ABOUT_YOU": "Le processus de résolution de conflit avec vous se poursuit",
+    "CONFLICT_RESOLUTION_CREATED": "Rejoignez la discussion sur un conflit avec{userName}",
+    "CONFLICT_RESOLUTION_CREATED_ABOUT_YOU": "Un processus de résolution des conflits a été lancé avec vous",
     "CONFLICT_RESOLUTION_DECIDED": "Le processus de résolution des conflits avec {userName} a été décidé",
     "CONFLICT_RESOLUTION_DECIDED_ABOUT_YOU": "Le processus de résolution des conflits avec vous a été décidé",
     "CONFLICT_RESOLUTION_YOU_WERE_REMOVED": "Vous avez été retiré du groupe",
-    "VOTING_ENDS_SOON": "Le vote se termine bientôt, n'oubliez pas de participer !\n "
+    "FEEDBACK_POSSIBLE": "Tu peux donner un retour d'information sur la récolte que tu as fait le {date}",
+    "INVITATION_ACCEPTED": "{userName}a accepté votre invitation",
+    "NEW_APPLICANT": "{userName}a demandé à rejoindre votre groupe",
+    "NEW_MEMBER": "{userName} a rejoint le groupe",
+    "NEW_PLACE": "{placeName} a été créé",
+    "USER_BECAME_EDITOR": "{userName}a obtenu les permissions pour éditer.",
+    "VOTING_ENDS_SOON": "Le vote se termine bientôt, n'oubliez pas de participer !\n ",
+    "YOU_BECAME_EDITOR": "Tu as obtenus les permissions pour éditer."
+  },
+  "NOTIFICATION_BELLS_LIST": {
+    "NO_ITEMS": "Nous n'avons actuellement pas de notifications à té transmettre.",
+    "TITLE": "Notifications"
   },
   "NOTIFICATION_TOGGLE": {
-    "HEADER": "Comment souhaites tu recevoir les notifications à propos des nouveaux messages ? Dans cette conversation ou dans le fil de discussion ?",
     "ALL": "Tous",
     "ALL_TEXT": "Via application/Site web, email et notifications \"push\".",
-    "SOME": "certains",
-    "SOME_TEXT": "Via application/Site web",
+    "HEADER": "Comment souhaites tu recevoir les notifications à propos des nouveaux messages ? Dans cette conversation ou dans le fil de discussion ?",
     "NONE": "aucun",
-    "NONE_TEXT": "pas de notifications"
-  },
-  "OUTDATED_BROWSER": {
-    "MESSAGE": "Tu utilises un navigateur incompatible. {upgradeBrowser} pour que tout fonctionne.",
-    "LINK": "Mets à jour ou bien change de navigateur"
-  },
-  "UPDATE_AVAILABLE": {
-    "DETAIL": "Une nouvelle version de karrot est disponible.",
-    "RELOAD": "Reload"
+    "NONE_TEXT": "pas de notifications",
+    "SOME": "certains",
+    "SOME_TEXT": "Via application/Site web"
   },
   "NOT_FOUND": {
     "EXPLANATION": "Oups, impossible de trouver la page.",
     "HOME": "Ramène-moi à la page d'accueil"
   },
-  "SETTINGS": {
-    "TITLE": "Paramètres"
-  },
-  "AGREEMENT": {
-    "NEW": "Nouvelle convention",
-    "AGREE": "Tu dois accepter les termes de {title}",
-    "VIEW": "Voir la convention",
-    "TITLE": "Nom",
-    "TITLE_HELPER": "Donne un nom à la convention, par exemple Règles de la communauté",
-    "CONTENT": "Contenu",
-    "CONTENT_HELPER": "Texte de la convention",
-    "MINOR_EDIT": "Petit changement ? ",
-    "MINOR_EDIT_HELPER": "Fautes de frappe, de formattage, etc... \nLes membres ne devront pas signer de nouveau.",
-    "BLURB1": "Vous n'avez pas encore de convention !",
-    "BLURB2": "Si tu en ajoutes une, les membres devront la signer avant de pouvoir faire des récoltes.",
-    "DIALOGS": {
-      "REPLACE": {
-        "TITLE": "Changer la convention ?",
-        "MESSAGE": "Tout le monde devra signer de nouveau avant de pouvoir rejoindre des récoltes.",
-        "CONFIRM": "Oui, changer la convention"
-      },
-      "REMOVE": {
-        "TITLE": "Supprimer la convention ?",
-        "MESSAGE": "Ça signifie que tout le monde peut faire des récoltes",
-        "CONFIRM": "Oui, supprimer la convention"
-      }
-    }
-  },
-  "WALL": {
-    "WRITE_MESSAGE": "Écris un message...",
-    "WRITE_FIRST_MESSAGE": "Écris le premier message...",
-    "VERIFY_EMAIL_FOR_NOTIFICATIONS": "Vérifie ton adresse email pour recevoir les notifications par email",
-    "RECEIVED_VIA_EMAIL": "Ce message a été envoyé par email"
-  },
-  "CONVERSATION": {
-    "CONVERSATIONS": "Conversations",
-    "OPEN": "Ouvrir le chat",
-    "REPLY_TO_MESSAGE": "Répondre...",
-    "REPLIES": "Réponses",
-    "REPLIES_COUNT": "1 réponse | {count} réponses",
-    "UNREAD_MESSAGES": "Tu as un nouveau message. | Tu as {count} nouveaux messages.",
-    "EDITED": "édité",
-    "MARK_READ": "Tout marquer comme lu",
-    "REACTIONS": {
-      "YOU": "toi",
-      "AND": "et",
-      "REACTED_WITH": "{users} ont réagi avec {reaction}"
-    },
-    "MESSAGE_NOT_FOUND": "Message non trouvé",
-    "NO_CONVERSATIONS": "Pas encore de conversation.",
-    "MUTED": "Les notifications sont désactivées.",
-    "CLOSED": "Cette conversation a été stoppée automatiquement.",
-    "NOT_PARTICIPATED": "Suite à l'envoie de ce message, vous recevrez les notifications concernant cette conversation."
-  },
-  "STORESTATUS": {
-    "ACTIVE": "En coopération",
-    "CREATED": "Tout juste créé",
-    "NEGOTIATING": "En négociation",
-    "DECLINED": "Ne veut pas coopérer",
-    "ARCHIVED": "Archivé"
-  },
-  "APPLICATION": {
-    "APPLICATION": "Candidature",
-    "FORM_HEADER": "Postuler",
-    "FORM_TITLE": "Postuler pour rejoindre {groupName}",
-    "GALLERY_TOOLTIP": "Tu as postulé pour rejoindre ce groupe. Ta candidature est en attente.",
-    "WALL_NOTICE": "Il y a une candidature en attente ! | Il y a {count} candidatures en attente !",
-    "ACCEPT_CONFIRMATION_HEADER": "Accepter la candidature",
-    "ACCEPT_CONFIRMATION_TEXT": "Es-tu sûr(e) de vouloir accepter {userName} dans ce groupe ?",
-    "DECLINE_CONFIRMATION_HEADER": "Refuser la candidature",
-    "DECLINE_CONFIRMATION_TEXT": "Es-tu sûr(e) de vouloir refuser la candidature de {userName} ?",
-    "ACCEPTED": "Tu as accepté {userName} dans ce groupe !",
-    "DECLINED": "Tu as refusé la candidature de {userName}.",
-    "PAST": "Candidatures terminées",
-    "SUBMITTED_ON": "envoyé le {date}",
-    "WITHDRAWN": "retirée {relativeDate}",
-    "WHAT": "C'est quoi ce chat, là ?",
-    "HELP": "Ceci est un chat entre les membres de {groupName} et le candidat {userName} pour vous permettre d'apprendre à vous connaître avant d'accepter, de refuser ou de retirer la candidature.",
-    "INITIAL": "Questions et réponses initiales"
-  },
-  "COMMUNITY_FEED": {
-    "HEADER": "Nouvelles de la {community}",
-    "HEADER_LINK": "communauté internationale de foodsaving",
-    "LAST_UPDATED": "Dernière mise à jour {relativeDate}",
-    "KARROT_DISCUSSION": "Discussions à propos de Karrot"
-  },
-  "INACTIVITY": {
-    "WHAT": "Que veut dire être inactif ?",
-    "HELP": "Toutes les personnes ne se connectant pas au groupe pendant {dayCount} jours ou plus seront considérés comme inactifs. Ces utilisateurs ne recevront plus de notifications par email."
-  },
-  "CONFLICT": {
-    "SETUP_HEADER": "Y a-t-il un conflit avec {user} ?",
-    "STATEMENT": "Déclaration",
-    "STEPPER1a": "Vous êtes sur le point de lancer un processus de résolution de conflits à l'échelle du groupe !",
-    "STEPPER1b": "Cela impliquera que tous les membres avec des autorisations d'édition chercheront à trouver la meilleure façon de résoudre cette situation.\n ",
-    "STEPPER2a": "Merci de prendre soin de votre communauté !",
-    "STEPPER2b": "Il est important de s'attaquer aux problèmes sociaux, même si cela peut parfois être désagréable. Merci pour votre courage !",
-    "STEPPER3a": "Voici ce qui va se passer :",
-    "STEPPER3b": "Ce processus lancera un chat et un vote.",
-    "STEPPER3c": "Le chat sera visible pour les membres avec des autorisations d'édition et inclus {userName}.",
-    "STEPPER3d": "Le vote est anonyme. Cela durera {votingDuration} jours. Pendant ce temps, tous les électeurs peuvent changer d'avis et voter différemment autant de fois qu'ils le souhaitent.\n \n ",
-    "STEPPER4a": "Veuillez expliquer pourquoi vous lancez ce processus de résolution des conflits !",
-    "STEPPER4b": "Dites à votre groupe ce qui vous a fait penser que ce processus est justifié et nécessaire. Cette déclaration sera visible par {userName} et par les membres du groupe disposant des autorisations de modification.",
-    "FIND_OUT_MORE": "En savoir plus!",
-    "INITIAL": "Information",
-    "WITH": "Ce processus consiste à résoudre un conflit avec {userName}",
-    "VOTING": {
-      "HEADLINE": "Comment voulez-vous procéder concernant le conflit en cours avec {userName} ?"
-    },
-    "REQUIREMENTS": {
-      "ACTIVE_EDITORS": "Votre groupe a {activeEditorsCount} des utilisateurs actifs avec des autorisations de modification. Vous avez besoins de {requiredCount} utilisateurs actifs pour démarrer un processus de résolution des conflits.",
-      "NEWCOMER": "Avant de pouvoir démarrer un processus de résolution de conflits, vous devez recevoir plus de confiance et obtenir des autorisations de modification. En attendant, veuillez demander à un autre membre du groupe de démarrer le processus pour vous."
-    },
-    "INFO": {
-      "TITLE": "Comment ce processus fonctionne-t-il ?\n ",
-      "MESSAGE": "Il s'agit d'un vote par score auquel les membres du groupe disposant de droits d'édition peuvent participer pour déterminer comment gérer un conflit social qui affecte l'ensemble du groupe."
-    }
-  },
-  "ISSUE": {
-    "CREATION": {
-      "TOAST": "Vous avez démarré avec succès un processus de résolution de conflits"
-    },
-    "TITLE": "Problèmes\n ",
-    "VOTE": "Vote",
-    "CHAT": "Chat",
-    "PAST": "Problèmes antérieurs",
-    "PREVIOUS_VOTINGS": "Votes précédents pour ce problème",
-    "PARTICIPANTS": "{count} des membres ont été ajoutés à cette discussion.",
-    "VOTING": {
-      "TIME_LEFT": "Temps restant pour voter",
-      "BTN_START": "Votez maintenant\n ",
-      "SAVE": "Sauver",
-      "BTN_DELETE": "Supprimer le vote",
-      "TOAST": "Votre vote a été soumis avec succès",
-      "TOAST_DELETE": "Votre vote a été supprimé",
-      "NO_CHANGE": "Pas de changement : {userName} reste dans {groupName}",
-      "FURTHER_DISCUSSION": "Discussion supplémentaire : prolonger le délai en commençant un autre vote",
-      "REMOVE_USER": "{userName} est retiré de {groupName}",
-      "RESULTS": {
-        "KEEP_DISCUSSING": "Votre groupe a voté pour continuer à discuter",
-        "TIME_UP": "Le temps est écoulé !",
-        "TOTAL_SCORE": "Score total",
-        "ENDED_AT": "Ce tour de scrutin s'est terminé le {date}",
-        "PARTICIPANTS": "{number} des membres ont participé au vote.",
-        "UNDECIDED": "Malheureusement, ce conflit n'a pas pu être résolu.",
-        "UNDECIDED_WHY": "Il y a deux raisons possibles à cela :",
-        "UNDECIDED_REASON_1": "l'utilisateur affecté a quitté le groupe alors que le processus de résolution des conflits était toujours en cours",
-        "UNDECIDED_REASON_2": "personne n'a voté sur cette question"
-      },
-      "SEE_RESULTS": "Voir les résultats",
-      "SCORE_LABELS": {
-        "NEUTRAL": "nul",
-        "SLIGHT_SUPPORT": "soutien",
-        "STRONG_SUPPORT": "soutien fort",
-        "SLIGHT_RESISTANCE": "résistance",
-        "STRONG_RESISTANCE": "résistance forte"
-      },
-      "ANONYMOUS": "Votre vote sera anonyme."
-    },
-    "NO_ONGOING": "Aucun problème en cours."
-  },
   "OFFER": {
     "CREATE_TITLE": "Créer une don",
-    "NAME": "Nom",
-    "NAME_HELPER": "Nom court de l'article que vous donnez",
     "DESCRIPTION": "Description",
-    "MARK_AS_ARCHIVED": "Archiver",
-    "MARK_AS_ARCHIVED_DESCRIPTION": "Marquez cette offre comme archivée pour la supprimer des listes disponibles.",
     "FILTER": {
       "STATUS": {
         "ACTIVE": "Disponible",
         "ARCHIVED": "Mes dons archivés"
       }
+    },
+    "MARK_AS_ARCHIVED": "Archiver",
+    "MARK_AS_ARCHIVED_DESCRIPTION": "Marquez cette offre comme archivée pour la supprimer des listes disponibles.",
+    "NAME": "Nom",
+    "NAME_HELPER": "Nom court de l'article que vous donnez"
+  },
+  "OUTDATED_BROWSER": {
+    "LINK": "Mets à jour ou bien change de navigateur",
+    "MESSAGE": "Tu utilises un navigateur incompatible. {upgradeBrowser} pour que tout fonctionne."
+  },
+  "PASSWORD": {
+    "CHANGE": {
+      "SUCCESS": "Ton nouveau mot de passe a été enregistré."
+    },
+    "RESET": {
+      "OK": "Enregistrer",
+      "SUCCESS": "Ton nouveau mot de passe a été enregistré.",
+      "TITLE": "Réinitialiser le mot de passe"
     }
   },
-  "ADDRESS_PICKER": {
-    "SET_AS": "Définir l'adresse comme",
-    "KEEP_EXISTING_LOCATION": "conserver l'emplacement actuel sur la carte",
-    "CHOOSE_LOCATION": "choisissez l'emplacement sur la carte"
+  "PASSWORDRESET": {
+    "EMAIL": "Adresse email",
+    "INTRO": "Entre ton adresse email et nous t'enverrons un lien pour créer un nouveau mot de passe (si tu as déjà un compte).",
+    "LOGIN": "Retourner à la page de connexion",
+    "SUBMIT": "Demander un nouveau mot de passe",
+    "SUCCESS": "Ta demande a été envoyée. Regarde tes mails !",
+    "TITLE": "Réinitialiser le mot de passe"
   },
-  "UNSUBSCRIBE": {
-    "HEADER": "Se désabonner",
-    "ALL": "Tout désinscrire",
-    "FROM_CONVERSATION": "Quitter seulement cette conversation.",
-    "FROM_THREAD": "Quitter seulement ce fil de discussion",
-    "FROM_NOTIFICATION_TYPE": "Quitter {notificationType}",
-    "FROM_GROUP": "Se désabonner de toutes les notifications par e-mail dans {groupName}",
-    "SUCCESS": "Vous avez été désabonner avec succès !",
-    "COUNTS": "Vous vous êtes désabonné des  conversations {formerConversations}et des réponses {formerReplies}."
+  "PLACEWALL": {
+    "SUBSCRIBED_USERS": "{count}quelqu'un a marqué ce lieu de récolte en tant que favoris",
+    "SUBSCRIPTION": {
+      "HEADER": "Veux tu indiquer ce lieu de récolte en tant que favoris ?",
+      "NO": "non",
+      "NO_TEXT": "Aucun de celle-ci dessus. Tu peux toujours t'inscrire pour ces récoltes.",
+      "YES": "oui",
+      "YES_TEXT": "Montres les récoltes sur le mur du groupe et envoie des mails à propos des récoltes à venir."
+    }
+  },
+  "PROFILE": {
+    "INACCESSIBLE_OR_DELETED": "(Utilisateur inaccessible ou supprimé)"
+  },
+  "SETTINGS": {
+    "TITLE": "Paramètres"
+  },
+  "SIDENAV": {
+    "GIT_SUB": "Regarde notre code !",
+    "INFO_SUB": "Comment créer ton groupe de récupération alimentaire"
+  },
+  "SIGNUP": {
+    "BACK": "Retour à la connexion",
+    "OK": "Rejoindre",
+    "TITLE": "S'enregistrer"
+  },
+  "STOREDETAIL": {
+    "ARCHIVED": "Ce lieu de récolte a été archivé",
+    "CHANGE_STATUS": "Tu peux changer le statut sur la page des paramètres.",
+    "DIRECTIONS": "Afficher la direction",
+    "EDIT": "Editer le lieux de récolte",
+    "INACTIVE": "Ce lieu de récolte n'est actuellement pas en coopération",
+    "NO_DESCRIPTION": "Ce lieu n'a pas encore de description"
+  },
+  "STOREEDIT": {
+    "ADDRESS": "Adresse",
+    "DESCRIPTION": "Description",
+    "DIALOGS": {
+      "ARCHIVE": {
+        "CONFIRM": "Oui, archiver le lieu de récolte",
+        "MESSAGE": "Es-tu sûr(e) ?",
+        "TITLE": "Archiver le lieu de récolte"
+      }
+    },
+    "NAME": "Nom",
+    "RESTORE": "Restaurer",
+    "SHOW_ACTIVE_ONLY": "Montrer uniquement les lieux de récup actifs",
+    "SHOW_ALL": "Montrer tous les lieux de récup",
+    "STATUS": "Statut",
+    "WEEKS_IN_ADVANCE": "Les récoltes récurrentes sont affichées combien de semaines en avance?",
+    "WEEKS_IN_ADVANCE_WARNING": "Vous êtes sur le point de réduire le nombre de semaines de récoltes. Les récoltes existantes non sollicitées seront supprimés si personne ne les a rejoints. Vous pouvez désactiver tous les autres récoltes manuellement, si nécessaire."
+  },
+  "STORESTATUS": {
+    "ACTIVE": "En coopération",
+    "ARCHIVED": "Archivé",
+    "CREATED": "Tout juste créé",
+    "DECLINED": "Ne veut pas coopérer",
+    "NEGOTIATING": "En négociation"
+  },
+  "SWITCHGROUP": {
+    "CHOOSE": "Choisi un groupe :",
+    "COMMON_GROUPS": "Groupes que vous avez en commun",
+    "NOT_MEMBER": "{userName} n'est pas un membre de {groupName}.",
+    "OTHER_GROUPS": "Autres groupes"
   },
   "THANKS": "Merci !",
-  "ATTENTION": "Attention !",
-  "INFO": "Info",
-  "YOU": "Toi",
   "TO": "à",
-  "ABOUT_KARROT": {
-    "TITLE": "Empêche le gaspillage, encourage le partage !",
-    "SUBTITLE1": "Karrot existe pour les groupes et associations qui veulent partager plutôt que gaspiller, en permettant à ces groupes de s'organiser de manière efficace, locale et bénévole.",
-    "SUBTITLE2": "Sauver des choses comme de la nourriture, des vélos, des vêtements, ou quoi que ce soit qui soit gaspillé et gâché dans la société de consommation.",
-    "VISION_INTRO": "Dans le but de soutenir la mise en relation et le développement de toutes sortes d'initiatives citoyennes, Karrot fournit un outil digital élaboré pour coordonner des activités de partage en face-à-face.",
-    "EXISTING_GROUPS": "Quelques groupes qui utilisent déjà Karrot",
-    "AND_MORE": "Et puis... ",
-    "LINKS": {
-      "FORUM": "community forum",
-      "CODE": "GitHub",
-      "CHAT": "tchat de l'équipe karrot",
-      "TRANSLATIONS": "Transifex"
-    },
-    "SECTIONS": {
-      "GROUPS": {
-        "TITLE": "Groupes indépendants",
-        "SUBTITLE": "Chaque groupe sur karrot est entièrement indépendant et peut avoir son propre logo, ses propres règles et modes de fonctionnement.",
-        "DESCRIPTION": "Mais tous sont réunis sur une carte, pour permettre aux enthousiastes de trouver un groupe près de chez eux."
+  "TOPBAR": {
+    "CHANGE_GROUP": "Change de groupe",
+    "LOGOUT": "Déconnexion",
+    "USERPROFILE": "Visite ton profile"
+  },
+  "UNSUBSCRIBE": {
+    "ALL": "Tout désinscrire",
+    "COUNTS": "Vous vous êtes désabonné des  conversations {formerConversations}et des réponses {formerReplies}.",
+    "FROM_CONVERSATION": "Quitter seulement cette conversation.",
+    "FROM_GROUP": "Se désabonner de toutes les notifications par e-mail dans {groupName}",
+    "FROM_NOTIFICATION_TYPE": "Quitter {notificationType}",
+    "FROM_THREAD": "Quitter seulement ce fil de discussion",
+    "HEADER": "Se désabonner",
+    "SUCCESS": "Vous avez été désabonner avec succès !"
+  },
+  "UPDATE_AVAILABLE": {
+    "DETAIL": "Une nouvelle version de karrot est disponible.",
+    "RELOAD": "Reload"
+  },
+  "USERDATA": {
+    "ACCOUNT": "Compte",
+    "CONFIRM_PASSWORD": "Confirme ton mot de passe",
+    "DIALOGS": {
+      "GIVE_TRUST": {
+        "MESSAGE": "Fais-tu confiance à {userName} de {groupName} ?",
+        "TITLE": "Lui faire confiance"
       },
-      "ACTIVITIES": {
-        "TITLE": "Distribution d'activités",
-        "SUBTITLE": "Une activité avec une heure et un lieu déterminés, comme par exemple une récolte d'invendus alimentaires, peut être inscrite dans le programme.",
-        "DESCRIPTION": "Chaque activité a un nombre déterminé de places où les membres du groupes peuvent s'inscrire – comme ça, tout le monde sait qui fait quoi et à quel moment. Après, les membres participants peuvent remplir un compte-rendu d'activité."
-      },
-      "OFFERS": {
-        "TITLE": "Partage directement",
-        "SUBTITLE": "Créé une offre pour l'objet que tu souhaite partager ou donner.",
-        "DESCRIPTION": "Les offres sont visibles par tous les membres du groupe, qui peuvent montrer leur intérêt via la conversation de l'offre."
-      },
-      "DEMOCRATIC": {
-        "TITLE": "Programmation démocratique et participative",
-        "DESCRIPTION": "Karrot est un software libre d'accès et open-source, développé avec la participation de ses utilisateurs. Derrière le code se trouve une petite équipe internationale, en contact permanant avec les groupes pour comprendre leurs différents besoins de fonctionnalités et ainsi guider le développement. Nous sommes guidés par un désir d'intégrité et ne tolérons pas la commercialisation des données.",
-        "DESCRIPTION2": "Programmeuses·eurs et designers sont évidemment les bienvenu·e·s pour contribuer au code libre. Jette un coup d'œil sur {code}."
-      },
-      "COMMUNICATION": {
-        "TITLE": "Différents modes de communication pour différents contextes",
-        "DESCRIPTION": "Écris un message public sur le mur du groupe, ou un message privé à un·e autre bénévole. Chaque activité ou lieu de récolte possède également sa propre conversation."
-      },
-      "TRUST": {
-        "TITLE": "Gestion de groupe démocratique et basée sur la confiance",
-        "DESCRIPTION": "Il n'y a pas de superpouvoirs d'administrateur sur karrot. Les membres qui reçoivent suffisamment de 'carottes de confiance' de la part d'autres membres obtiennent la possibilité d'éditer et de changer certains paramètres. Quand de nouveaux membres veulent rejoindre un groupe, elles/ils doivent postuler en répondant aux questions personnalisées de ce groupe. N'importe quel membre avec des droits d'édition peut alors accepter ou refuser. De même, si un conflit surgit, le groupe peut activer un système de vote qui permet de le résoudre avec la participation de la communauté."
-      },
-      "MAPS": {
-        "TITLE": "Cartes et listes",
-        "DESCRIPTION": "Il y a une carte globale de tous les lieux, et des personnes faisant les activités. Il y a aussi une liste déroulant chronologiquement les activités à venir, où les membres peuvent s'inscrire."
-      },
-      "TRANSPARENCY": {
-        "TITLE": "Transparence",
-        "DESCRIPTION": "L'historique montre qui a fait quoi, et quand. Tout est enregistré et affiché : de la participation à une activité, à la création et édition de lieux."
-      },
-      "NOTIFICATIONS": {
-        "TITLE": "Notifications",
-        "DESCRIPTION": "Des notifications sont envoyées pour des activités ayant encore des places disponibles, pour des nouveaux messages et canditatures. Ces notifications peuvent aussi être désactivées, pour plus de tranquillité !"
-      },
-      "TRANSLATIONS": {
-        "TITLE": "Multilingue",
-        "DESCRIPTION": "Karrot est entièrement traduit par la communauté, et existe déjà dans beaucoup de langues différentes. Pour participer aux traductions, visite le projet sur {translations}."
-      },
-      "OPENSOURCE": {
-        "TITLE": "Open source",
-        "DESCRIPTION": "Tout est transparent et peut être modifié. Nous encourageons les groupes à héberger leurs propres instances de la plateforme, dans la mesure du possible. En tous les cas, nous garantissons l'accès à la version d'hébergement de karrot.world. "
-      },
-      "TEAM": {
-        "TITLE": "Équipe réactive",
-        "DESCRIPTION": "Il est facile de contacter l'équipe qui code Karrot, soit sur notre {forum}, sur {code} ou bien sur le {chat}. Attention, l'équipe est anglophone !"
+      "REQUEST_DELETE_ACCOUNT": {
+        "CONFIRM": "Confirmer",
+        "MESSAGE": "Es-tu sûr(e) ? Votre compte et vos données personnelles vont être supprimés définitivement. Tout ce que tu as fait sur cette plate-forme sera rendu anonyme. Si tu confirmes, nous t'enverrons un lien par e-mail pour compléter la suppression.",
+        "TITLE": "Suppression de compte"
       }
-    }
-  }
+    },
+    "EMAIL": "e-mail",
+    "FIRST_TRUST": "Sois le premier à faire confiance à {userName} de {groupName} !",
+    "LOGOUT_SUCCESS": "Tu as été déconnecté !",
+    "MOBILE_NUMBER": "Numéro de téléphone",
+    "NEWCOMER": "Nouveau membre",
+    "NEWCOMER_GUIDANCE": "{userName} est nouveau dans le groupe et a peut-être besoin d'aide.",
+    "NEWCOMER_INFO": "Tu es à présent un nouveau membre de {groupName} et tu peux devenir actif en envoyant des messages, en rencontrant d'autres membres, en faisant des récoltes et en rédigeant des comptes-rendu de récolte. Dès que les membres de{threshold} auront exprimé leur confiance, vous obtiendrez des autorisations d'édition pour aider à l'administration du groupe.",
+    "OTHER_PEOPLE_TRUST_USER": "{otherUser} fait confiance à {userName} de {groupName}. | {count} personnes font confiance à {userName} de {groupName}.",
+    "OTHER_PEOPLE_TRUST_YOU": "{otherUser} vous fait confiance dans le {groupName} . Je \n{count} personnes vous font confiance in {groupName}",
+    "PASSWORD": "Mot de passe",
+    "PEOPLE_TRUST_USER": "Toi et {otherUser} faites confiance à {userName} de {groupName}. | Toi et {count} autres personnes faites confiance à {userName} de {groupName}. ",
+    "PHOTO": "Photo de profil",
+    "PRIVATE_MESSAGE": "Envoyer un message privé à {userName}",
+    "PROFILE_TITLE": "Profil",
+    "PUSH": "Notifications",
+    "PUSH_CURRENT_BROWSER": "Navigateur Web en cours",
+    "REQUEST_DELETE_ACCOUNT": {
+      "SUCCESS": "Nous t'avons envoyé un lien par e-mail pour confirmer la suppression. "
+    },
+    "SET_PHOTO": "Choisis ta photo de profil",
+    "TRUST_INFO": {
+      "LINK": "Clique ici pour en savoir plus.",
+      "MESSAGE": "Ça fait partie du système de confiance de Karrot. Ça t'indique si un membre est nouveau et de combien de points de confiance il/elle a besoin pour obtenir des droits d'admin.",
+      "TITLE": "C'est quoi ce bouton avec une carotte ? "
+    },
+    "TRUST_PROGRESS_TEXT": "Besoin de {trustNeeded} points de confiance",
+    "TRUST_PROGRESS_TEXT_LONG": "{trustNeeded} autres personnes doivent faire confiance à {userName} pour lui donner ses droits d'admin.",
+    "USERNAME": "Nom",
+    "WHERE_FROM": "D'où tu viens (optionnel)",
+    "YOU_TRUST_USER": "Tu fais confiance à {userName} dans {groupName}."
+  },
+  "USERDETAIL": {
+    "DESCRIPTION": "Plus d'informations sur toi",
+    "DISPLAY_NAME": "Nom",
+    "OLD_PASSWORD": "Confirme ton ancien mot de passe",
+    "PASSWORD": "Nouveau mot de passe"
+  },
+  "VALIDATION": {
+    "IMAGE_REQUIRED": "Tu dois ajouter une image",
+    "MAXLENGTH": "Trop long, utilise moins de {max} caractères",
+    "MINLENGTH": "S'il te plaît, entre plus de {min} caractères",
+    "REQUIRED": "Ce champ est requis.",
+    "UNIQUE": "Ce nom existe déjà, choisis-en un autre.",
+    "VALID_EMAIL": "Entre une adresse e-mail valide.",
+    "VALID_TIMEZONE": "Entre un fuseau horaire valide."
+  },
+  "VERIFYMAIL": {
+    "SUCCESS": "Ton adresse e-mail a été correctement vérifiée !",
+    "TITLE": "Vérification d'email"
+  },
+  "WALL": {
+    "RECEIVED_VIA_EMAIL": "Ce message a été envoyé par email",
+    "VERIFY_EMAIL_FOR_NOTIFICATIONS": "Vérifie ton adresse email pour recevoir les notifications par email",
+    "WRITE_FIRST_MESSAGE": "Écris le premier message...",
+    "WRITE_MESSAGE": "Écris un message..."
+  },
+  "YOU": "Toi"
 }

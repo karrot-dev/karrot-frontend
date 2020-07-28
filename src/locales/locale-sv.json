@@ -419,10 +419,10 @@
     "NOTHING_HAPPENEND": "Inget händer än så länge...",
     "SERIES_CREATE": "skapade en återkommande hämtning",
     "SERIES_DELETE": "tog bort en återkommande hämtning",
-    "SERIES_MODIFY": "ändrade inställningarna för en återkommande hämtning",
+    "SERIES_MODIFY": "ändrade inställningar för en återkommande hämtning",
     "STORE_CREATE": "skapa plats {name}",
     "STORE_DELETE": "ta bort platsen {name}",
-    "STORE_MODIFY": "ändra inställningarna för platsen {name}"
+    "STORE_MODIFY": "ändrade inställningar för platsen {name}"
   },
   "INACTIVITY": {
     "HELP": "Alla som inte loggade in i gruppen i {dayCount} dagar eller mer räknas som inaktiv. Dessa användare kommer inte längre få e-postnotifieringar",

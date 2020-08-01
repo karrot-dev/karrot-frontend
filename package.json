@@ -106,7 +106,7 @@
     "cross-env": "^7.0.0",
     "css-loader": "^4.1.1",
     "dotenv": "^8.2.0",
-    "eslint": "^7.5.0",
+    "eslint": "^7.6.0",
     "eslint-config-standard": "^14.1.0",
     "eslint-loader": "^4.0.2",
     "eslint-plugin-import": "^2.22.0",

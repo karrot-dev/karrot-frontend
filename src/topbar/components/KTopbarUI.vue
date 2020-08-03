@@ -32,15 +32,15 @@
               avatar
               class="groups"
             >
+              <img
+                v-if="group.hasPhoto"
+                :src="group.photoUrls.thumbnail"
+              >
               <QIcon
-                v-if="!group.hasPhoto"
+                v-else
                 name="fas fa-users"
                 class="groups"
               />
-              <img
-                v-else
-                :src="group.photoUrls.thumbnail"
-              >
             </QItemSection>
             <QItemSection>
               {{ group.name }}

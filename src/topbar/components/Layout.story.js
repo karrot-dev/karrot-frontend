@@ -8,9 +8,9 @@ const datastore = createDatastore({
   about: { getters: { deployed: () => ({}) }, actions: { fetch () {} } },
   groups: {
     getters: {
-    all: () => groupsMock,
-    mine: () => groupsMock,
-    isMemberGroups: () => groupsMock,
+      all: () => groupsMock,
+      mine: () => groupsMock,
+      isMemberGroups: () => groupsMock,
     },
   },
   places: { getters: { all: () => placesMock } },

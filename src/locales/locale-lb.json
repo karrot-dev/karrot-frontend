@@ -52,7 +52,7 @@
         "TITLE": "Méisproochegkeet"
       },
       "TRANSPARENCY": {
-        "DESCRIPTION": "D'Geschicht weist wien wat a wéini gemaach huet. Alles, vum Matmaache bei enger Aktivitéit bis zum Ännere vun enger Platz, ass hei geloggt.",
+        "DESCRIPTION": "D'Vergaangenheet weist wien wat a wéini gemaach huet. Alles, vum Matmaache bei enger Aktivitéit bis zum Ännere vun enger Platz, ass hei geloggt.",
         "TITLE": "Transparenz"
       },
       "TRUST": {
@@ -320,7 +320,7 @@
     "DESCRIPTION_VERBOSE": "Beschreiwung vun der Grupp, siichtbar fir Memberen",
     "EDIT": "Grupp veränneren",
     "EMAIL_NOTIFICATIONS": "Benoriichtegungen via E-Mail",
-    "HISTORY": "Geschicht",
+    "HISTORY": "Vergaangenheet",
     "HOME": "Doheem",
     "INACTIVE": "Inaktiv",
     "INVITATIONS": "Aluedungen",
@@ -399,7 +399,7 @@
     "ACTIVITY_CREATE": "huet eng eemoleg Ofhuelung erstallt",
     "ACTIVITY_DELETE": "huet eng Ofhuelung geläscht",
     "ACTIVITY_DISABLE": "huet eng Ofhuelung desaktivéiert",
-    "ACTIVITY_DONE": "huet bei {storeName} ofgeholl",
+    "ACTIVITY_DONE": "huet beim {storeName} ofgeholl",
     "ACTIVITY_ENABLE": "huet eng Ofhuelung aktivéiert",
     "ACTIVITY_JOIN": "huet sech fir eng Ofhuelung beim {storeName} agedroen",
     "ACTIVITY_LEAVE": "ass zréckgetruede fir eng Ofhuelung beim {storeName} ze maachen",
@@ -685,7 +685,7 @@
     "CONFIRM_PASSWORD": "Bestäteg däi Passwuert",
     "DIALOGS": {
       "GIVE_TRUST": {
-        "MESSAGE": "Vertraus du {userName} an {groupName}?",
+        "MESSAGE": "Vertraus du dem {userName} bei {groupName}?",
         "TITLE": "Benotzer vertrauen"
       },
       "REQUEST_DELETE_ACCOUNT": {
@@ -695,7 +695,7 @@
       }
     },
     "EMAIL": "E-Mail",
-    "FIRST_TRUST": "Sief déi éischt Persoun déi {userName} an {groupName} vertraut!",
+    "FIRST_TRUST": "Sief déi éischt Persoun déi dem {userName} bei {groupName} vertraut!",
     "LOGOUT_SUCCESS": "Du bass ausgeloggt ginn!",
     "MOBILE_NUMBER": "Telefonsnummer",
     "NEWCOMER": "Nei hei",
@@ -720,10 +720,10 @@
       "TITLE": "Wat huet et mat dësem Muerte-Button op sech?"
     },
     "TRUST_PROGRESS_TEXT": "{trustNeeded} méi Vertraue gebraucht",
-    "TRUST_PROGRESS_TEXT_LONG": "{trustNeeded} Leit méi mussen {userName} hiert Vertrauen ausdrécke fir beaarbechten ze duerfen",
+    "TRUST_PROGRESS_TEXT_LONG": "{trustNeeded} Leit méi mussen dem {userName} hiert Vertrauen ausdrécke fir dass hat*hien beaarbechten duerf",
     "USERNAME": "Numm",
     "WHERE_FROM": "Vu wou bass du (net erfuerderlech)",
-    "YOU_TRUST_USER": "Du vertraus {userName} an {groupName}."
+    "YOU_TRUST_USER": "Du vertraus dem {userName} bei {groupName}."
   },
   "USERDETAIL": {
     "DESCRIPTION": "Iwwert dech",

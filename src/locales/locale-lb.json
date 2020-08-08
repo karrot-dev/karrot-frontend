@@ -350,7 +350,7 @@
         "NAME": "Neie Konflikt-Léisungsprozess"
       },
       "daily_activity_notification": {
-        "DESCRIPTION": "Erënnert dech un deng Ofhuelungen, a seet dir Bescheed iwwert Ofhuelungen, op déi nach keen oder net genuch Leit ginn, vun denge favoriséierte Platzen den nächsten Dag",
+        "DESCRIPTION": "Erënnert dech un deng Ofhuelungen, a seet dir Bescheed iwwert Ofhuelungen, op déi nach keng oder net genuch Leit ginn, vun denge favoriséierte Platzen den nächsten Dag",
         "NAME": "Benoriichtegungen iwwert Ofhuelungen"
       },
       "new_application": {
@@ -694,7 +694,7 @@
         "TITLE": "Läsche vum Konto"
       }
     },
-    "EMAIL": "E-Mail",
+    "EMAIL": "E-Mail-Adress",
     "FIRST_TRUST": "Sief déi éischt Persoun déi dem {userName} bei {groupName} vertraut!",
     "LOGOUT_SUCCESS": "Du bass ausgeloggt ginn!",
     "MOBILE_NUMBER": "Telefonsnummer",

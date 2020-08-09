@@ -7398,7 +7398,7 @@ exports[`Storyshots KAbout KAbout 1`] = `
     <div class="k-logo-container"><a><img src="test-file-stub"></a>
       <h4></h4>
     </div>
-    <div class="q-list"><a tabindex="0" rel="nofollow noopener noreferrer" href="https://github.com/yunity/karrot-frontend" target="_blank" class="q-item q-item-type row no-wrap q-item--clickable q-link cursor-pointer q-focusable q-hoverable">
+    <div class="q-list"><a tabindex="0" rel="noopener noreferrer" href="https://github.com/yunity/karrot-frontend" target="_blank" class="q-item q-item-type row no-wrap q-item--clickable q-link cursor-pointer q-focusable q-hoverable">
         <div tabindex="-1" class="q-focus-helper"></div>
         <div class="q-item__section column q-item__section--side justify-center"><i aria-hidden="true" role="presentation" class="fab fa-fw fa-github q-icon notranslate"> </i></div>
         <div class="q-item__section column q-item__section--main justify-center">
@@ -7409,7 +7409,15 @@ exports[`Storyshots KAbout KAbout 1`] = `
             See our code!
           </div>
         </div>
-      </a> <a tabindex="0" rel="nofollow noopener noreferrer" href="https://foodsaving.world" target="_blank" class="q-item q-item-type row no-wrap q-item--clickable q-link cursor-pointer q-focusable q-hoverable">
+      </a> <a tabindex="0" rel="noopener noreferrer" href="https://fosstodon.org/@karrot" target="_blank" class="q-item q-item-type row no-wrap q-item--clickable q-link cursor-pointer q-focusable q-hoverable">
+        <div tabindex="-1" class="q-focus-helper"></div>
+        <div class="q-item__section column q-item__section--side justify-center"><i aria-hidden="true" role="presentation" class="fab fa-fw fa-mastodon q-icon notranslate"> </i></div>
+        <div class="q-item__section column q-item__section--main justify-center">
+          <div class="q-item__label">
+            Mastodon
+          </div>
+        </div>
+      </a> <a tabindex="0" rel="noopener noreferrer" href="https://foodsaving.world" target="_blank" class="q-item q-item-type row no-wrap q-item--clickable q-link cursor-pointer q-focusable q-hoverable">
         <div tabindex="-1" class="q-focus-helper"></div>
         <div class="q-item__section column q-item__section--side justify-center"><i aria-hidden="true" role="presentation" class="fas fa-fw fa-globe q-icon notranslate"> </i></div>
         <div class="q-item__section column q-item__section--main justify-center">
@@ -7420,7 +7428,7 @@ exports[`Storyshots KAbout KAbout 1`] = `
             How to build your foodsaving group
           </div>
         </div>
-      </a> <a tabindex="0" rel="nofollow noopener noreferrer" href="mailto:karrot@foodsaving.world" class="q-item q-item-type row no-wrap q-item--clickable q-link cursor-pointer q-focusable q-hoverable">
+      </a> <a tabindex="0" rel="noopener noreferrer" href="mailto:karrot@foodsaving.world" class="q-item q-item-type row no-wrap q-item--clickable q-link cursor-pointer q-focusable q-hoverable">
         <div tabindex="-1" class="q-focus-helper"></div>
         <div class="q-item__section column q-item__section--side justify-center"><i aria-hidden="true" role="presentation" class="fas fa-fw fa-envelope q-icon notranslate"> </i></div>
         <div class="q-item__section column q-item__section--main justify-center">

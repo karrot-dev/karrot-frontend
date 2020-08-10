@@ -45,7 +45,7 @@ export default {
     all: (state, getters, rootState, rootGetters) => {
       return [
         ...Object.values(state.entries),
-        ...Object.values(state.infoEntries),
+        ...Object.values(state.infoEntries).filter(u => !state.entries[u.id]),
       ].map(getters.enrich)
     },
     byCurrentGroup: (state, getters, rootState, rootGetters) => {

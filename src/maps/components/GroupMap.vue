@@ -153,8 +153,8 @@ export default {
     usersWithLocation () {
       return this.users.filter(hasLocation)
     },
-    groupsWithLocation () {
-      return (this.groups && this.groups.filter(hasLocation)) || []
+    activeGroupsWithLocation () {
+      return (this.groups && this.groups.filter(hasLocation).filter(g => !g.isInactive)) || []
     },
     selectedMarkers () {
       if (this.selectedUser) {
@@ -171,7 +171,7 @@ export default {
           markers.push(...this.usersWithLocation.map(userMarker))
         }
         if (this.showGroups) {
-          markers.push(...this.groupsWithLocation.map(groupMarker))
+          markers.push(...this.activeGroupsWithLocation.map(groupMarker))
         }
         return markers
       }
@@ -189,7 +189,7 @@ export default {
         items.push(userMarker(this.selectedUser))
       }
       if (this.showGroups) {
-        items.push(...this.groupsWithLocation.map(groupMarker))
+        items.push(...this.activeGroupsWithLocation.map(groupMarker))
       }
 
       return items

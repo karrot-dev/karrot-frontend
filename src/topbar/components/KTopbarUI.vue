@@ -3,13 +3,12 @@
     class="text-white row justify-between"
     :class="connected ? 'bg-primary' : 'bg-grey-8'"
   >
-    <div class="logo">
-      <slot />
-      <RouterLink
-        v-if="!$q.platform.is.mobile"
-        :to="'/'"
-        class="q-ml-sm"
-      >
+    <slot />
+    <QBtn
+      v-if="!$q.platform.is.mobile"
+      flat
+    >
+      <div class="logo">
         <img
           v-if="currentGroup && currentGroup.hasPhoto"
           :src="currentGroup.photoUrls.thumbnail"
@@ -19,8 +18,50 @@
           v-else
           show-loading
         />
-      </RouterLink>
-    </div>
+      </div>
+      <QMenu>
+        <QList>
+          <QItem
+            v-for="group in myGroups"
+            :key="group.id"
+            v-close-popup
+            :to="{ name: 'group', params: { groupId: group.id } }"
+            clickable
+          >
+            <QItemSection
+              avatar
+              class="groups"
+            >
+              <img
+                v-if="group.hasPhoto"
+                :src="group.photoUrls.thumbnail"
+              >
+              <QIcon
+                v-else
+                name="fas fa-users"
+                class="groups"
+              />
+            </QItemSection>
+            <QItemSection>
+              {{ group.name }}
+            </QItemSection>
+          </QItem>
+          <QItem
+            :to="{name: 'groupsGallery'}"
+          >
+            <QItemSection avatar>
+              <QIcon
+                name="fas fa-globe"
+                class="groups"
+              />
+            </QItemSection>
+            <QItemSection>
+              {{ $t('TOPBAR.SHOW_ALL_GROUPS') }}
+            </QItemSection>
+          </QItem>
+        </QList>
+      </QMenu>
+    </QBtn>
     <QToolbarTitle class="no-wrap text-center">
       <KBreadcrumb
         class="bread"
@@ -101,19 +142,6 @@
               dense
             >
               <QItem
-                :to="{name: 'groupsGallery'}"
-              >
-                <QItemSection side>
-                  <QIcon
-                    size="1em"
-                    name="fas fa-home fa-fw"
-                  />
-                </QItemSection>
-                <QItemSection>
-                  {{ $t('TOPBAR.CHANGE_GROUP') }}
-                </QItemSection>
-              </QItem>
-              <QItem
                 :to="{name: 'settings'}"
               >
                 <QItemSection side>
@@ -186,6 +214,11 @@ export default {
       default: null,
       type: Object,
     },
+    myGroups: {
+      type: Array,
+      required: false,
+      default: () => [],
+    },
     breadcrumbs: {
       type: Array,
       required: false,
@@ -238,6 +271,10 @@ export default {
 @import '~variables'
 
 .logo
+  height 36px
+
+.groups
+  width 36px
   height 36px
 
 .profilePicture

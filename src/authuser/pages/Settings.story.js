@@ -40,7 +40,7 @@ const datastore = createDatastore({
   },
   groups: {
     getters: {
-      mine: () => groupsMock,
+      mineWithApplications: () => groupsMock,
     },
   },
   users: {

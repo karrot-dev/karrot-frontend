@@ -664,6 +664,7 @@
   "TOPBAR": {
     "CHANGE_GROUP": "Byta grupp",
     "LOGOUT": "Logga ut",
+    "SHOW_ALL_GROUPS": "Show all groups",
     "USERPROFILE": "Gå till din profil"
   },
   "UNSUBSCRIBE": {

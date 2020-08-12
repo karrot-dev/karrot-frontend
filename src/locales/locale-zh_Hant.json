@@ -664,6 +664,7 @@
   "TOPBAR": {
     "CHANGE_GROUP": "變更社團",
     "LOGOUT": "登出",
+    "SHOW_ALL_GROUPS": "Show all groups",
     "USERPROFILE": "進入你的個人檔案"
   },
   "UNSUBSCRIBE": {

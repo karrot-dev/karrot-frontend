@@ -664,6 +664,7 @@
   "TOPBAR": {
     "CHANGE_GROUP": "Cambiar el grupo",
     "LOGOUT": "Cerrar sesión",
+    "SHOW_ALL_GROUPS": "Show all groups",
     "USERPROFILE": "Visitar perfil"
   },
   "UNSUBSCRIBE": {

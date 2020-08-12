@@ -664,6 +664,7 @@
   "TOPBAR": {
     "CHANGE_GROUP": "Change group",
     "LOGOUT": "Выйти",
+    "SHOW_ALL_GROUPS": "Show all groups",
     "USERPROFILE": "Мой профиль"
   },
   "UNSUBSCRIBE": {

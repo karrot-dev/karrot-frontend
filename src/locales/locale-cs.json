@@ -664,6 +664,7 @@
   "TOPBAR": {
     "CHANGE_GROUP": "Změnit skupinu",
     "LOGOUT": "Odhlášení",
+    "SHOW_ALL_GROUPS": "Show all groups",
     "USERPROFILE": "Navštivte svůj profil"
   },
   "UNSUBSCRIBE": {

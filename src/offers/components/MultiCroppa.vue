@@ -15,7 +15,9 @@
         :passive="isExisting(item)"
         :quality="small ? 8 : 4"
         placeholder=""
-        prevent-white-space
+        canvas-color="transparent"
+        initial-size="cover"
+        :prevent-white-space="preventWhiteSpace"
         :show-remove-button="false"
         :auto-sizing="true"
         @new-image-drawn="imageDrawn(item)"
@@ -111,6 +113,10 @@ export default {
     small: {
       type: Boolean,
       default: false,
+    },
+    preventWhiteSpace: {
+      type: Boolean,
+      default: true,
     },
   },
   data () {

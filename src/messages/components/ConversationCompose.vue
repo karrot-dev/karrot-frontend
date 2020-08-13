@@ -71,6 +71,7 @@
         <MultiCroppa
           ref="multiCroppa"
           v-model="message.images"
+          :prevent-white-space="false"
           small
         />
       </QItemSection>
@@ -136,7 +137,10 @@ export default {
   },
   computed: {
     hasContent () {
-      return this.message && (this.message.content || this.message.images.length > 0)
+      return this.message && (this.message.content || this.hasImages)
+    },
+    hasImages () {
+      return this.message && this.message.images && this.message.images.length > 0
     },
   },
   watch: {
@@ -156,7 +160,7 @@ export default {
     },
     'message.images' (val) {
       // if the last image is removed, hide the image bar
-      if (val && val.length === 0) {
+      if (!val || val.length === 0) {
         this.showImages = false
       }
     },

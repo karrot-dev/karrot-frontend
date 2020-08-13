@@ -1,10 +1,17 @@
 <template>
   <div class="list-wrapper">
     <QList>
+      <QItem>
+        {{ activeUsersCount }}
+      </QItem>
       <QItem
         v-if="users.length > 15"
       >
-        <QInput v-model="filterTerm">
+        <QInput
+          v-model="filterTerm"
+          :placeholder="$t('BUTTON.SEARCH')"
+          class="full-width"
+        >
           <template #prepend>
             <QIcon name="search" />
           </template>
@@ -116,6 +123,9 @@ export default {
   computed: {
     inactiveSublabel () {
       return this.inactiveUsers.length + ' ' + this.$tc('JOINGROUP.NUM_MEMBERS', this.inactiveUsers.length)
+    },
+    activeUsersCount () {
+      return this.$t('GROUP.MEMBERLIST', { total: this.users.length })
     },
     activeUsers () {
       return this.sort(this.filterByTerms(this.users.filter(u => u.membership.active)))

@@ -93,6 +93,7 @@ import {
   QItemLabel,
   QBtn,
 } from 'quasar'
+import deepEqual from 'deep-equal'
 import ProfilePicture from '@/users/components/ProfilePicture'
 import MarkdownInput from '@/utils/components/MarkdownInput'
 import statusMixin from '@/utils/mixins/statusMixin'
@@ -153,8 +154,8 @@ export default {
     },
   },
   watch: {
-    value (val) {
-      if (val) this.message = val.content
+    value (val, previousVal) {
+      if (val && !deepEqual(val, previousVal)) this.message = { ...val }
     },
     isPending (val) {
       if (!val && !this.hasAnyError) this.message = { content: '', images: [] }

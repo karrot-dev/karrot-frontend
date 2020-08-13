@@ -1,6 +1,7 @@
 <template>
   <QDialog
     ref="dialog"
+    square
     @hide="onDialogHide"
   >
     <QCard class="q-dialog-plugin">
@@ -8,11 +9,12 @@
         v-model="current"
         transition-prev="slide-right"
         transition-next="slide-left"
-        :navigation="moreThanOneImage"
         :arrows="moreThanOneImage"
         :swipeable="moreThanOneImage"
+        :thumbnails="moreThanOneImage"
         animated
         control-color="white"
+        infinite
         padding
         class="bg-white shadow-1 rounded-borders"
       >

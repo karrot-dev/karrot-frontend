@@ -137,7 +137,7 @@
     v-else
     :status="message.saveStatus"
     :user="message.author"
-    :value="message.content"
+    :value="message"
     :slim="slim"
     @submit="save"
     @leaveEdit="toggleEdit"
@@ -227,11 +227,12 @@ export default {
         selectedImageId: imageId,
       })
     },
-    save (content) {
+    save ({ content, images }) {
       this.$emit('save', {
         message: {
           id: this.message.id,
           content,
+          images,
         },
         done: this.toggleEdit,
       })

@@ -9,7 +9,7 @@ export default {
   },
 
   async save (data) {
-    return convert((await axios.patch(`/api/messages/${data.id}/`, data)).data)
+    return convert((await axios.patch(`/api/messages/${data.id}/`, await toFormData(data))).data)
   },
 
   async markThread (messageId, seenUpTo) {

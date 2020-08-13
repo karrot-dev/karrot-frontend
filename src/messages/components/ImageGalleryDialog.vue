@@ -3,9 +3,12 @@
     ref="dialog"
     square
     @hide="onDialogHide"
+    @keyup.left="previousImage"
+    @keyup.right="nextImage"
   >
     <QCard class="q-dialog-plugin">
       <QCarousel
+        ref="carousel"
         v-model="current"
         transition-prev="slide-right"
         transition-next="slide-left"
@@ -82,6 +85,12 @@ export default {
     },
     onCancelClick () {
       this.hide()
+    },
+    nextImage () {
+      this.$refs.carousel.next()
+    },
+    previousImage () {
+      this.$refs.carousel.previous()
     },
   },
 }

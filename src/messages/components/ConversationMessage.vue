@@ -93,7 +93,7 @@
           :key="image.id"
           :src="image.imageUrls['200']"
           style="width: 80px; height: 80px; cursor: pointer;"
-          class="q-mr-sm"
+          class="q-mr-sm q-mb-sm"
           @click="openImageGallery(image.id)"
         />
       </div>

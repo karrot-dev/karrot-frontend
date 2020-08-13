@@ -92,7 +92,7 @@
           v-for="image in imagesForDisplay"
           :key="image.id"
           :src="image.imageUrls['200']"
-          style="width: 80px; height: 80px;"
+          style="width: 80px; height: 80px; cursor: pointer;"
           class="q-mr-sm"
           @click="openImageGallery(image.id)"
         />

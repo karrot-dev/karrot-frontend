@@ -1,7 +1,10 @@
 <template>
   <div class="list-wrapper">
     <QList>
-      <QItem>
+      <QItem
+        v-if="users.length > 1"
+        class="text-caption"
+      >
         {{ activeUsersCount }}
       </QItem>
       <QItem

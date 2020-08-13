@@ -87,9 +87,9 @@
         />
         )
       </QItemLabel>
-      <div v-if="message.images && message.images.length > 0">
+      <div v-if="imagesForDisplay.length > 0">
         <QImg
-          v-for="image in message.images"
+          v-for="image in imagesForDisplay"
           :key="image.id"
           :src="image.imageUrls['200']"
           style="width: 80px; height: 80px;"
@@ -207,6 +207,10 @@ export default {
     },
     tooltipDate () {
       return this.$d(this.message.createdAt, 'long')
+    },
+    imagesForDisplay () {
+      if (!this.message || !this.message.images) return []
+      return this.message.images.filter(image => image.id && !image._removed)
     },
   },
   methods: {

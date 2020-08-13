@@ -47,7 +47,7 @@
                 @click="submit"
               />
               <QBtn
-                v-if="hasContent && !isPending"
+                v-if="hasExistingContent && !isPending"
                 round
                 dense
                 flat
@@ -114,10 +114,7 @@ export default {
     },
     value: {
       type: Object,
-      default: () => ({
-        content: '',
-        images: [],
-      }),
+      default: null,
     },
     slim: {
       type: Boolean,
@@ -130,17 +127,22 @@ export default {
   },
   data () {
     return {
-      message: this.value,
+      message: this.value ? { ...this.value } : {
+        content: '',
+        images: [],
+      },
       hasFocus: false,
-      showImages: this.value.images.length > 0,
+      showImages: this.value && this.value.images.length > 0,
     }
   },
   computed: {
-    hasContent () {
-      return this.message && (this.message.content || this.hasImages)
+    hasExistingContent () {
+      if (!this.value) return false
+      return this.value.content || (this.value.images && this.value.images.filter(image => !image._removed).length > 0)
     },
-    hasImages () {
-      return this.message && this.message.images && this.message.images.length > 0
+    hasContent () {
+      if (!this.message) return false
+      return this.message.content || (this.message.images && this.message.images.filter(image => !image._removed).length > 0)
     },
   },
   watch: {

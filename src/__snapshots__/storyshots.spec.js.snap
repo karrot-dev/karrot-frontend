@@ -2598,6 +2598,7 @@ exports[`Storyshots ChatConversation closed 1`] = `
             </div>
           </div>
           <!---->
+          <!---->
           <div class="conversation-reactions row">
             <div class="reactions row"><button tabindex="0" type="button" role="button" title="a reacted with :thumbsup:" class="q-btn q-btn-item non-selectable no-outline row no-wrap items-center reaction-box q-btn--flat q-btn--rectangle q-btn--actionable q-focusable q-hoverable q-btn--wrap q-btn--dense"><span class="q-focus-helper"></span><span class="q-btn__wrapper col row q-anchor--skip"><span class="q-btn__content text-center col items-center q-anchor--skip justify-center row"><div class="emoji"></div> <span class="reactions-number">1</span></span></span></button></div> <button tabindex="0" type="button" role="button" flat="" class="q-btn q-btn-item non-selectable no-outline add-button reaction-box q-btn--flat q-btn--rectangle text-black q-btn--actionable q-focusable q-hoverable q-btn--wrap q-btn--dense"><span class="q-focus-helper"></span><span class="q-btn__wrapper col row q-anchor--skip"><span class="q-btn__content text-center col items-center q-anchor--skip justify-center row"><span style="opacity:0.5;"><i class="far fa-smile"></i> +
   </span>
@@ -2625,6 +2626,7 @@ exports[`Storyshots ChatConversation closed 1`] = `
               <p>hello 1!</p>
             </div>
           </div>
+          <!---->
           <!---->
           <div class="conversation-reactions row">
             <div class="reactions row"><button tabindex="0" type="button" role="button" title="a reacted with :thumbsup:" class="q-btn q-btn-item non-selectable no-outline row no-wrap items-center reaction-box q-btn--flat q-btn--rectangle q-btn--actionable q-focusable q-hoverable q-btn--wrap q-btn--dense"><span class="q-focus-helper"></span><span class="q-btn__wrapper col row q-anchor--skip"><span class="q-btn__content text-center col items-center q-anchor--skip justify-center row"><div class="emoji"></div> <span class="reactions-number">1</span></span></span></button></div> <button tabindex="0" type="button" role="button" flat="" class="q-btn q-btn-item non-selectable no-outline add-button reaction-box q-btn--flat q-btn--rectangle text-black q-btn--actionable q-focusable q-hoverable q-btn--wrap q-btn--dense"><span class="q-focus-helper"></span><span class="q-btn__wrapper col row q-anchor--skip"><span class="q-btn__content text-center col items-center q-anchor--skip justify-center row"><span style="opacity:0.5;"><i class="far fa-smile"></i> +
@@ -2654,6 +2656,7 @@ exports[`Storyshots ChatConversation closed 1`] = `
             </div>
           </div>
           <!---->
+          <!---->
           <div class="conversation-reactions row">
             <div class="reactions row"><button tabindex="0" type="button" role="button" title="a reacted with :thumbsup:" class="q-btn q-btn-item non-selectable no-outline row no-wrap items-center reaction-box q-btn--flat q-btn--rectangle q-btn--actionable q-focusable q-hoverable q-btn--wrap q-btn--dense"><span class="q-focus-helper"></span><span class="q-btn__wrapper col row q-anchor--skip"><span class="q-btn__content text-center col items-center q-anchor--skip justify-center row"><div class="emoji"></div> <span class="reactions-number">1</span></span></span></button></div> <button tabindex="0" type="button" role="button" flat="" class="q-btn q-btn-item non-selectable no-outline add-button reaction-box q-btn--flat q-btn--rectangle text-black q-btn--actionable q-focusable q-hoverable q-btn--wrap q-btn--dense"><span class="q-focus-helper"></span><span class="q-btn__wrapper col row q-anchor--skip"><span class="q-btn__content text-center col items-center q-anchor--skip justify-center row"><span style="opacity:0.5;"><i class="far fa-smile"></i> +
   </span>
@@ -2681,6 +2684,7 @@ exports[`Storyshots ChatConversation closed 1`] = `
               <p>hello 3!</p>
             </div>
           </div>
+          <!---->
           <!---->
           <div class="conversation-reactions row">
             <div class="reactions row"><button tabindex="0" type="button" role="button" title="a reacted with :thumbsup:" class="q-btn q-btn-item non-selectable no-outline row no-wrap items-center reaction-box q-btn--flat q-btn--rectangle q-btn--actionable q-focusable q-hoverable q-btn--wrap q-btn--dense"><span class="q-focus-helper"></span><span class="q-btn__wrapper col row q-anchor--skip"><span class="q-btn__content text-center col items-center q-anchor--skip justify-center row"><div class="emoji"></div> <span class="reactions-number">1</span></span></span></button></div> <button tabindex="0" type="button" role="button" flat="" class="q-btn q-btn-item non-selectable no-outline add-button reaction-box q-btn--flat q-btn--rectangle text-black q-btn--actionable q-focusable q-hoverable q-btn--wrap q-btn--dense"><span class="q-focus-helper"></span><span class="q-btn__wrapper col row q-anchor--skip"><span class="q-btn__content text-center col items-center q-anchor--skip justify-center row"><span style="opacity:0.5;"><i class="far fa-smile"></i> +
@@ -2747,6 +2751,7 @@ exports[`Storyshots ChatConversation default 1`] = `
             </div>
           </div>
           <!---->
+          <!---->
           <div class="conversation-reactions row">
             <div class="reactions row"><button tabindex="0" type="button" role="button" title="a reacted with :thumbsup:" class="q-btn q-btn-item non-selectable no-outline row no-wrap items-center reaction-box q-btn--flat q-btn--rectangle q-btn--actionable q-focusable q-hoverable q-btn--wrap q-btn--dense"><span class="q-focus-helper"></span><span class="q-btn__wrapper col row q-anchor--skip"><span class="q-btn__content text-center col items-center q-anchor--skip justify-center row"><div class="emoji"></div> <span class="reactions-number">1</span></span></span></button></div> <button tabindex="0" type="button" role="button" flat="" class="q-btn q-btn-item non-selectable no-outline add-button reaction-box q-btn--flat q-btn--rectangle text-black q-btn--actionable q-focusable q-hoverable q-btn--wrap q-btn--dense"><span class="q-focus-helper"></span><span class="q-btn__wrapper col row q-anchor--skip"><span class="q-btn__content text-center col items-center q-anchor--skip justify-center row"><span style="opacity:0.5;"><i class="far fa-smile"></i> +
   </span>
@@ -2774,6 +2779,7 @@ exports[`Storyshots ChatConversation default 1`] = `
               <p>hello 1!</p>
             </div>
           </div>
+          <!---->
           <!---->
           <div class="conversation-reactions row">
             <div class="reactions row"><button tabindex="0" type="button" role="button" title="a reacted with :thumbsup:" class="q-btn q-btn-item non-selectable no-outline row no-wrap items-center reaction-box q-btn--flat q-btn--rectangle q-btn--actionable q-focusable q-hoverable q-btn--wrap q-btn--dense"><span class="q-focus-helper"></span><span class="q-btn__wrapper col row q-anchor--skip"><span class="q-btn__content text-center col items-center q-anchor--skip justify-center row"><div class="emoji"></div> <span class="reactions-number">1</span></span></span></button></div> <button tabindex="0" type="button" role="button" flat="" class="q-btn q-btn-item non-selectable no-outline add-button reaction-box q-btn--flat q-btn--rectangle text-black q-btn--actionable q-focusable q-hoverable q-btn--wrap q-btn--dense"><span class="q-focus-helper"></span><span class="q-btn__wrapper col row q-anchor--skip"><span class="q-btn__content text-center col items-center q-anchor--skip justify-center row"><span style="opacity:0.5;"><i class="far fa-smile"></i> +
@@ -2803,6 +2809,7 @@ exports[`Storyshots ChatConversation default 1`] = `
             </div>
           </div>
           <!---->
+          <!---->
           <div class="conversation-reactions row">
             <div class="reactions row"><button tabindex="0" type="button" role="button" title="a reacted with :thumbsup:" class="q-btn q-btn-item non-selectable no-outline row no-wrap items-center reaction-box q-btn--flat q-btn--rectangle q-btn--actionable q-focusable q-hoverable q-btn--wrap q-btn--dense"><span class="q-focus-helper"></span><span class="q-btn__wrapper col row q-anchor--skip"><span class="q-btn__content text-center col items-center q-anchor--skip justify-center row"><div class="emoji"></div> <span class="reactions-number">1</span></span></span></button></div> <button tabindex="0" type="button" role="button" flat="" class="q-btn q-btn-item non-selectable no-outline add-button reaction-box q-btn--flat q-btn--rectangle text-black q-btn--actionable q-focusable q-hoverable q-btn--wrap q-btn--dense"><span class="q-focus-helper"></span><span class="q-btn__wrapper col row q-anchor--skip"><span class="q-btn__content text-center col items-center q-anchor--skip justify-center row"><span style="opacity:0.5;"><i class="far fa-smile"></i> +
   </span>
@@ -2830,6 +2837,7 @@ exports[`Storyshots ChatConversation default 1`] = `
               <p>hello 3!</p>
             </div>
           </div>
+          <!---->
           <!---->
           <div class="conversation-reactions row">
             <div class="reactions row"><button tabindex="0" type="button" role="button" title="a reacted with :thumbsup:" class="q-btn q-btn-item non-selectable no-outline row no-wrap items-center reaction-box q-btn--flat q-btn--rectangle q-btn--actionable q-focusable q-hoverable q-btn--wrap q-btn--dense"><span class="q-focus-helper"></span><span class="q-btn__wrapper col row q-anchor--skip"><span class="q-btn__content text-center col items-center q-anchor--skip justify-center row"><div class="emoji"></div> <span class="reactions-number">1</span></span></span></button></div> <button tabindex="0" type="button" role="button" flat="" class="q-btn q-btn-item non-selectable no-outline add-button reaction-box q-btn--flat q-btn--rectangle text-black q-btn--actionable q-focusable q-hoverable q-btn--wrap q-btn--dense"><span class="q-focus-helper"></span><span class="q-btn__wrapper col row q-anchor--skip"><span class="q-btn__content text-center col items-center q-anchor--skip justify-center row"><span style="opacity:0.5;"><i class="far fa-smile"></i> +
@@ -2885,6 +2893,7 @@ exports[`Storyshots ChatConversation fetching past 1`] = `
             </div>
           </div>
           <!---->
+          <!---->
           <div class="conversation-reactions row">
             <div class="reactions row"><button tabindex="0" type="button" role="button" title="a reacted with :thumbsup:" class="q-btn q-btn-item non-selectable no-outline row no-wrap items-center reaction-box q-btn--flat q-btn--rectangle q-btn--actionable q-focusable q-hoverable q-btn--wrap q-btn--dense"><span class="q-focus-helper"></span><span class="q-btn__wrapper col row q-anchor--skip"><span class="q-btn__content text-center col items-center q-anchor--skip justify-center row"><div class="emoji"></div> <span class="reactions-number">1</span></span></span></button></div> <button tabindex="0" type="button" role="button" flat="" class="q-btn q-btn-item non-selectable no-outline add-button reaction-box q-btn--flat q-btn--rectangle text-black q-btn--actionable q-focusable q-hoverable q-btn--wrap q-btn--dense"><span class="q-focus-helper"></span><span class="q-btn__wrapper col row q-anchor--skip"><span class="q-btn__content text-center col items-center q-anchor--skip justify-center row"><span style="opacity:0.5;"><i class="far fa-smile"></i> +
   </span>
@@ -2912,6 +2921,7 @@ exports[`Storyshots ChatConversation fetching past 1`] = `
               <p>hello 1!</p>
             </div>
           </div>
+          <!---->
           <!---->
           <div class="conversation-reactions row">
             <div class="reactions row"><button tabindex="0" type="button" role="button" title="a reacted with :thumbsup:" class="q-btn q-btn-item non-selectable no-outline row no-wrap items-center reaction-box q-btn--flat q-btn--rectangle q-btn--actionable q-focusable q-hoverable q-btn--wrap q-btn--dense"><span class="q-focus-helper"></span><span class="q-btn__wrapper col row q-anchor--skip"><span class="q-btn__content text-center col items-center q-anchor--skip justify-center row"><div class="emoji"></div> <span class="reactions-number">1</span></span></span></button></div> <button tabindex="0" type="button" role="button" flat="" class="q-btn q-btn-item non-selectable no-outline add-button reaction-box q-btn--flat q-btn--rectangle text-black q-btn--actionable q-focusable q-hoverable q-btn--wrap q-btn--dense"><span class="q-focus-helper"></span><span class="q-btn__wrapper col row q-anchor--skip"><span class="q-btn__content text-center col items-center q-anchor--skip justify-center row"><span style="opacity:0.5;"><i class="far fa-smile"></i> +
@@ -2941,6 +2951,7 @@ exports[`Storyshots ChatConversation fetching past 1`] = `
             </div>
           </div>
           <!---->
+          <!---->
           <div class="conversation-reactions row">
             <div class="reactions row"><button tabindex="0" type="button" role="button" title="a reacted with :thumbsup:" class="q-btn q-btn-item non-selectable no-outline row no-wrap items-center reaction-box q-btn--flat q-btn--rectangle q-btn--actionable q-focusable q-hoverable q-btn--wrap q-btn--dense"><span class="q-focus-helper"></span><span class="q-btn__wrapper col row q-anchor--skip"><span class="q-btn__content text-center col items-center q-anchor--skip justify-center row"><div class="emoji"></div> <span class="reactions-number">1</span></span></span></button></div> <button tabindex="0" type="button" role="button" flat="" class="q-btn q-btn-item non-selectable no-outline add-button reaction-box q-btn--flat q-btn--rectangle text-black q-btn--actionable q-focusable q-hoverable q-btn--wrap q-btn--dense"><span class="q-focus-helper"></span><span class="q-btn__wrapper col row q-anchor--skip"><span class="q-btn__content text-center col items-center q-anchor--skip justify-center row"><span style="opacity:0.5;"><i class="far fa-smile"></i> +
   </span>
@@ -2968,6 +2979,7 @@ exports[`Storyshots ChatConversation fetching past 1`] = `
               <p>hello 3!</p>
             </div>
           </div>
+          <!---->
           <!---->
           <div class="conversation-reactions row">
             <div class="reactions row"><button tabindex="0" type="button" role="button" title="a reacted with :thumbsup:" class="q-btn q-btn-item non-selectable no-outline row no-wrap items-center reaction-box q-btn--flat q-btn--rectangle q-btn--actionable q-focusable q-hoverable q-btn--wrap q-btn--dense"><span class="q-focus-helper"></span><span class="q-btn__wrapper col row q-anchor--skip"><span class="q-btn__content text-center col items-center q-anchor--skip justify-center row"><div class="emoji"></div> <span class="reactions-number">1</span></span></span></button></div> <button tabindex="0" type="button" role="button" flat="" class="q-btn q-btn-item non-selectable no-outline add-button reaction-box q-btn--flat q-btn--rectangle text-black q-btn--actionable q-focusable q-hoverable q-btn--wrap q-btn--dense"><span class="q-focus-helper"></span><span class="q-btn__wrapper col row q-anchor--skip"><span class="q-btn__content text-center col items-center q-anchor--skip justify-center row"><span style="opacity:0.5;"><i class="far fa-smile"></i> +
@@ -3023,6 +3035,7 @@ exports[`Storyshots ChatConversation message groups 1`] = `
             </div>
           </div>
           <!---->
+          <!---->
           <div class="conversation-reactions row">
             <div class="reactions row"><button tabindex="0" type="button" role="button" title="Mira Bellenbaum reacted with :thumbsup:" class="q-btn q-btn-item non-selectable no-outline row no-wrap items-center reaction-box q-btn--flat q-btn--rectangle q-btn--actionable q-focusable q-hoverable q-btn--wrap q-btn--dense"><span class="q-focus-helper"></span><span class="q-btn__wrapper col row q-anchor--skip"><span class="q-btn__content text-center col items-center q-anchor--skip justify-center row"><div class="emoji"></div> <span class="reactions-number">1</span></span></span></button></div> <button tabindex="0" type="button" role="button" flat="" class="q-btn q-btn-item non-selectable no-outline add-button reaction-box q-btn--flat q-btn--rectangle text-black q-btn--actionable q-focusable q-hoverable q-btn--wrap q-btn--dense"><span class="q-focus-helper"></span><span class="q-btn__wrapper col row q-anchor--skip"><span class="q-btn__content text-center col items-center q-anchor--skip justify-center row"><span style="opacity:0.5;"><i class="far fa-smile"></i> +
   </span>
@@ -3051,6 +3064,7 @@ exports[`Storyshots ChatConversation message groups 1`] = `
             </div>
           </div>
           <!---->
+          <!---->
           <div class="conversation-reactions row">
             <div class="reactions row"><button tabindex="0" type="button" role="button" title="Mira Bellenbaum reacted with :thumbsup:" class="q-btn q-btn-item non-selectable no-outline row no-wrap items-center reaction-box q-btn--flat q-btn--rectangle q-btn--actionable q-focusable q-hoverable q-btn--wrap q-btn--dense"><span class="q-focus-helper"></span><span class="q-btn__wrapper col row q-anchor--skip"><span class="q-btn__content text-center col items-center q-anchor--skip justify-center row"><div class="emoji"></div> <span class="reactions-number">1</span></span></span></button></div> <button tabindex="0" type="button" role="button" flat="" class="q-btn q-btn-item non-selectable no-outline add-button reaction-box q-btn--flat q-btn--rectangle text-black q-btn--actionable q-focusable q-hoverable q-btn--wrap q-btn--dense"><span class="q-focus-helper"></span><span class="q-btn__wrapper col row q-anchor--skip"><span class="q-btn__content text-center col items-center q-anchor--skip justify-center row"><span style="opacity:0.5;"><i class="far fa-smile"></i> +
   </span>
@@ -3074,6 +3088,7 @@ exports[`Storyshots ChatConversation message groups 1`] = `
               <p>first messsage</p>
             </div>
           </div>
+          <!---->
           <!---->
           <div class="conversation-reactions row">
             <div class="reactions row"><button tabindex="0" type="button" role="button" title="Mira Bellenbaum reacted with :thumbsup:" class="q-btn q-btn-item non-selectable no-outline row no-wrap items-center reaction-box q-btn--flat q-btn--rectangle q-btn--actionable q-focusable q-hoverable q-btn--wrap q-btn--dense"><span class="q-focus-helper"></span><span class="q-btn__wrapper col row q-anchor--skip"><span class="q-btn__content text-center col items-center q-anchor--skip justify-center row"><div class="emoji"></div> <span class="reactions-number">1</span></span></span></button></div> <button tabindex="0" type="button" role="button" flat="" class="q-btn q-btn-item non-selectable no-outline add-button reaction-box q-btn--flat q-btn--rectangle text-black q-btn--actionable q-focusable q-hoverable q-btn--wrap q-btn--dense"><span class="q-focus-helper"></span><span class="q-btn__wrapper col row q-anchor--skip"><span class="q-btn__content text-center col items-center q-anchor--skip justify-center row"><span style="opacity:0.5;"><i class="far fa-smile"></i> +
@@ -3103,6 +3118,7 @@ exports[`Storyshots ChatConversation message groups 1`] = `
             </div>
           </div>
           <!---->
+          <!---->
           <div class="conversation-reactions row">
             <div class="reactions row"><button tabindex="0" type="button" role="button" title="Mira Bellenbaum reacted with :thumbsup:" class="q-btn q-btn-item non-selectable no-outline row no-wrap items-center reaction-box q-btn--flat q-btn--rectangle q-btn--actionable q-focusable q-hoverable q-btn--wrap q-btn--dense"><span class="q-focus-helper"></span><span class="q-btn__wrapper col row q-anchor--skip"><span class="q-btn__content text-center col items-center q-anchor--skip justify-center row"><div class="emoji"></div> <span class="reactions-number">1</span></span></span></button></div> <button tabindex="0" type="button" role="button" flat="" class="q-btn q-btn-item non-selectable no-outline add-button reaction-box q-btn--flat q-btn--rectangle text-black q-btn--actionable q-focusable q-hoverable q-btn--wrap q-btn--dense"><span class="q-focus-helper"></span><span class="q-btn__wrapper col row q-anchor--skip"><span class="q-btn__content text-center col items-center q-anchor--skip justify-center row"><span style="opacity:0.5;"><i class="far fa-smile"></i> +
   </span>
@@ -3130,6 +3146,7 @@ exports[`Storyshots ChatConversation message groups 1`] = `
               <p>heyo!</p>
             </div>
           </div>
+          <!---->
           <!---->
           <div class="conversation-reactions row">
             <div class="reactions row"><button tabindex="0" type="button" role="button" title="Mira Bellenbaum reacted with :thumbsup:" class="q-btn q-btn-item non-selectable no-outline row no-wrap items-center reaction-box q-btn--flat q-btn--rectangle q-btn--actionable q-focusable q-hoverable q-btn--wrap q-btn--dense"><span class="q-focus-helper"></span><span class="q-btn__wrapper col row q-anchor--skip"><span class="q-btn__content text-center col items-center q-anchor--skip justify-center row"><div class="emoji"></div> <span class="reactions-number">1</span></span></span></button></div> <button tabindex="0" type="button" role="button" flat="" class="q-btn q-btn-item non-selectable no-outline add-button reaction-box q-btn--flat q-btn--rectangle text-black q-btn--actionable q-focusable q-hoverable q-btn--wrap q-btn--dense"><span class="q-focus-helper"></span><span class="q-btn__wrapper col row q-anchor--skip"><span class="q-btn__content text-center col items-center q-anchor--skip justify-center row"><span style="opacity:0.5;"><i class="far fa-smile"></i> +
@@ -3159,6 +3176,7 @@ exports[`Storyshots ChatConversation message groups 1`] = `
             </div>
           </div>
           <!---->
+          <!---->
           <div class="conversation-reactions row">
             <div class="reactions row"><button tabindex="0" type="button" role="button" title="Mira Bellenbaum reacted with :thumbsup:" class="q-btn q-btn-item non-selectable no-outline row no-wrap items-center reaction-box q-btn--flat q-btn--rectangle q-btn--actionable q-focusable q-hoverable q-btn--wrap q-btn--dense"><span class="q-focus-helper"></span><span class="q-btn__wrapper col row q-anchor--skip"><span class="q-btn__content text-center col items-center q-anchor--skip justify-center row"><div class="emoji"></div> <span class="reactions-number">1</span></span></span></button></div> <button tabindex="0" type="button" role="button" flat="" class="q-btn q-btn-item non-selectable no-outline add-button reaction-box q-btn--flat q-btn--rectangle text-black q-btn--actionable q-focusable q-hoverable q-btn--wrap q-btn--dense"><span class="q-focus-helper"></span><span class="q-btn__wrapper col row q-anchor--skip"><span class="q-btn__content text-center col items-center q-anchor--skip justify-center row"><span style="opacity:0.5;"><i class="far fa-smile"></i> +
   </span>
@@ -3187,6 +3205,7 @@ exports[`Storyshots ChatConversation message groups 1`] = `
             </div>
           </div>
           <!---->
+          <!---->
           <div class="conversation-reactions row">
             <div class="reactions row"><button tabindex="0" type="button" role="button" title="Mira Bellenbaum reacted with :thumbsup:" class="q-btn q-btn-item non-selectable no-outline row no-wrap items-center reaction-box q-btn--flat q-btn--rectangle q-btn--actionable q-focusable q-hoverable q-btn--wrap q-btn--dense"><span class="q-focus-helper"></span><span class="q-btn__wrapper col row q-anchor--skip"><span class="q-btn__content text-center col items-center q-anchor--skip justify-center row"><div class="emoji"></div> <span class="reactions-number">1</span></span></span></button></div> <button tabindex="0" type="button" role="button" flat="" class="q-btn q-btn-item non-selectable no-outline add-button reaction-box q-btn--flat q-btn--rectangle text-black q-btn--actionable q-focusable q-hoverable q-btn--wrap q-btn--dense"><span class="q-focus-helper"></span><span class="q-btn__wrapper col row q-anchor--skip"><span class="q-btn__content text-center col items-center q-anchor--skip justify-center row"><span style="opacity:0.5;"><i class="far fa-smile"></i> +
   </span>
@@ -3210,6 +3229,7 @@ exports[`Storyshots ChatConversation message groups 1`] = `
               <p>oh let me try something <img class="emoji" draggable="false" alt="🙂" src="https://twemoji.maxcdn.com/v/13.0.1/72x72/1f642.png" /></p>
             </div>
           </div>
+          <!---->
           <!---->
           <div class="conversation-reactions row">
             <div class="reactions row"><button tabindex="0" type="button" role="button" title="Mira Bellenbaum reacted with :thumbsup:" class="q-btn q-btn-item non-selectable no-outline row no-wrap items-center reaction-box q-btn--flat q-btn--rectangle q-btn--actionable q-focusable q-hoverable q-btn--wrap q-btn--dense"><span class="q-focus-helper"></span><span class="q-btn__wrapper col row q-anchor--skip"><span class="q-btn__content text-center col items-center q-anchor--skip justify-center row"><div class="emoji"></div> <span class="reactions-number">1</span></span></span></button></div> <button tabindex="0" type="button" role="button" flat="" class="q-btn q-btn-item non-selectable no-outline add-button reaction-box q-btn--flat q-btn--rectangle text-black q-btn--actionable q-focusable q-hoverable q-btn--wrap q-btn--dense"><span class="q-focus-helper"></span><span class="q-btn__wrapper col row q-anchor--skip"><span class="q-btn__content text-center col items-center q-anchor--skip justify-center row"><span style="opacity:0.5;"><i class="far fa-smile"></i> +
@@ -3238,6 +3258,7 @@ exports[`Storyshots ChatConversation message groups 1`] = `
               <p>I dont think we need to implement another UI, this is fine right?</p>
             </div>
           </div>
+          <!---->
           <!---->
           <div class="conversation-reactions row">
             <div class="reactions row"><button tabindex="0" type="button" role="button" title="Mira Bellenbaum reacted with :thumbsup:" class="q-btn q-btn-item non-selectable no-outline row no-wrap items-center reaction-box q-btn--flat q-btn--rectangle q-btn--actionable q-focusable q-hoverable q-btn--wrap q-btn--dense"><span class="q-focus-helper"></span><span class="q-btn__wrapper col row q-anchor--skip"><span class="q-btn__content text-center col items-center q-anchor--skip justify-center row"><div class="emoji"></div> <span class="reactions-number">1</span></span></span></button></div> <button tabindex="0" type="button" role="button" flat="" class="q-btn q-btn-item non-selectable no-outline add-button reaction-box q-btn--flat q-btn--rectangle text-black q-btn--actionable q-focusable q-hoverable q-btn--wrap q-btn--dense"><span class="q-focus-helper"></span><span class="q-btn__wrapper col row q-anchor--skip"><span class="q-btn__content text-center col items-center q-anchor--skip justify-center row"><span style="opacity:0.5;"><i class="far fa-smile"></i> +
@@ -3293,6 +3314,7 @@ exports[`Storyshots ChatConversation not participant 1`] = `
             </div>
           </div>
           <!---->
+          <!---->
           <div class="conversation-reactions row">
             <div class="reactions row"><button tabindex="0" type="button" role="button" title="a reacted with :thumbsup:" class="q-btn q-btn-item non-selectable no-outline row no-wrap items-center reaction-box q-btn--flat q-btn--rectangle q-btn--actionable q-focusable q-hoverable q-btn--wrap q-btn--dense"><span class="q-focus-helper"></span><span class="q-btn__wrapper col row q-anchor--skip"><span class="q-btn__content text-center col items-center q-anchor--skip justify-center row"><div class="emoji"></div> <span class="reactions-number">1</span></span></span></button></div> <button tabindex="0" type="button" role="button" flat="" class="q-btn q-btn-item non-selectable no-outline add-button reaction-box q-btn--flat q-btn--rectangle text-black q-btn--actionable q-focusable q-hoverable q-btn--wrap q-btn--dense"><span class="q-focus-helper"></span><span class="q-btn__wrapper col row q-anchor--skip"><span class="q-btn__content text-center col items-center q-anchor--skip justify-center row"><span style="opacity:0.5;"><i class="far fa-smile"></i> +
   </span>
@@ -3320,6 +3342,7 @@ exports[`Storyshots ChatConversation not participant 1`] = `
               <p>hello 1!</p>
             </div>
           </div>
+          <!---->
           <!---->
           <div class="conversation-reactions row">
             <div class="reactions row"><button tabindex="0" type="button" role="button" title="a reacted with :thumbsup:" class="q-btn q-btn-item non-selectable no-outline row no-wrap items-center reaction-box q-btn--flat q-btn--rectangle q-btn--actionable q-focusable q-hoverable q-btn--wrap q-btn--dense"><span class="q-focus-helper"></span><span class="q-btn__wrapper col row q-anchor--skip"><span class="q-btn__content text-center col items-center q-anchor--skip justify-center row"><div class="emoji"></div> <span class="reactions-number">1</span></span></span></button></div> <button tabindex="0" type="button" role="button" flat="" class="q-btn q-btn-item non-selectable no-outline add-button reaction-box q-btn--flat q-btn--rectangle text-black q-btn--actionable q-focusable q-hoverable q-btn--wrap q-btn--dense"><span class="q-focus-helper"></span><span class="q-btn__wrapper col row q-anchor--skip"><span class="q-btn__content text-center col items-center q-anchor--skip justify-center row"><span style="opacity:0.5;"><i class="far fa-smile"></i> +
@@ -3349,6 +3372,7 @@ exports[`Storyshots ChatConversation not participant 1`] = `
             </div>
           </div>
           <!---->
+          <!---->
           <div class="conversation-reactions row">
             <div class="reactions row"><button tabindex="0" type="button" role="button" title="a reacted with :thumbsup:" class="q-btn q-btn-item non-selectable no-outline row no-wrap items-center reaction-box q-btn--flat q-btn--rectangle q-btn--actionable q-focusable q-hoverable q-btn--wrap q-btn--dense"><span class="q-focus-helper"></span><span class="q-btn__wrapper col row q-anchor--skip"><span class="q-btn__content text-center col items-center q-anchor--skip justify-center row"><div class="emoji"></div> <span class="reactions-number">1</span></span></span></button></div> <button tabindex="0" type="button" role="button" flat="" class="q-btn q-btn-item non-selectable no-outline add-button reaction-box q-btn--flat q-btn--rectangle text-black q-btn--actionable q-focusable q-hoverable q-btn--wrap q-btn--dense"><span class="q-focus-helper"></span><span class="q-btn__wrapper col row q-anchor--skip"><span class="q-btn__content text-center col items-center q-anchor--skip justify-center row"><span style="opacity:0.5;"><i class="far fa-smile"></i> +
   </span>
@@ -3376,6 +3400,7 @@ exports[`Storyshots ChatConversation not participant 1`] = `
               <p>hello 3!</p>
             </div>
           </div>
+          <!---->
           <!---->
           <div class="conversation-reactions row">
             <div class="reactions row"><button tabindex="0" type="button" role="button" title="a reacted with :thumbsup:" class="q-btn q-btn-item non-selectable no-outline row no-wrap items-center reaction-box q-btn--flat q-btn--rectangle q-btn--actionable q-focusable q-hoverable q-btn--wrap q-btn--dense"><span class="q-focus-helper"></span><span class="q-btn__wrapper col row q-anchor--skip"><span class="q-btn__content text-center col items-center q-anchor--skip justify-center row"><div class="emoji"></div> <span class="reactions-number">1</span></span></span></button></div> <button tabindex="0" type="button" role="button" flat="" class="q-btn q-btn-item non-selectable no-outline add-button reaction-box q-btn--flat q-btn--rectangle text-black q-btn--actionable q-focusable q-hoverable q-btn--wrap q-btn--dense"><span class="q-focus-helper"></span><span class="q-btn__wrapper col row q-anchor--skip"><span class="q-btn__content text-center col items-center q-anchor--skip justify-center row"><span style="opacity:0.5;"><i class="far fa-smile"></i> +
@@ -3431,6 +3456,7 @@ exports[`Storyshots ChatConversation thread 1`] = `
             </div>
           </div>
           <!---->
+          <!---->
           <div class="conversation-reactions row">
             <div class="reactions row"><button tabindex="0" type="button" role="button" title="a reacted with :thumbsup:" class="q-btn q-btn-item non-selectable no-outline row no-wrap items-center reaction-box q-btn--flat q-btn--rectangle q-btn--actionable q-focusable q-hoverable q-btn--wrap q-btn--dense"><span class="q-focus-helper"></span><span class="q-btn__wrapper col row q-anchor--skip"><span class="q-btn__content text-center col items-center q-anchor--skip justify-center row"><div class="emoji"></div> <span class="reactions-number">1</span></span></span></button></div> <button tabindex="0" type="button" role="button" flat="" class="q-btn q-btn-item non-selectable no-outline add-button reaction-box q-btn--flat q-btn--rectangle text-black q-btn--actionable q-focusable q-hoverable q-btn--wrap q-btn--dense"><span class="q-focus-helper"></span><span class="q-btn__wrapper col row q-anchor--skip"><span class="q-btn__content text-center col items-center q-anchor--skip justify-center row"><span style="opacity:0.5;"><i class="far fa-smile"></i> +
   </span>
@@ -3459,6 +3485,7 @@ exports[`Storyshots ChatConversation thread 1`] = `
             </div>
           </div>
           <!---->
+          <!---->
           <div class="conversation-reactions row">
             <div class="reactions row"><button tabindex="0" type="button" role="button" title="a reacted with :thumbsup:" class="q-btn q-btn-item non-selectable no-outline row no-wrap items-center reaction-box q-btn--flat q-btn--rectangle q-btn--actionable q-focusable q-hoverable q-btn--wrap q-btn--dense"><span class="q-focus-helper"></span><span class="q-btn__wrapper col row q-anchor--skip"><span class="q-btn__content text-center col items-center q-anchor--skip justify-center row"><div class="emoji"></div> <span class="reactions-number">1</span></span></span></button></div> <button tabindex="0" type="button" role="button" flat="" class="q-btn q-btn-item non-selectable no-outline add-button reaction-box q-btn--flat q-btn--rectangle text-black q-btn--actionable q-focusable q-hoverable q-btn--wrap q-btn--dense"><span class="q-focus-helper"></span><span class="q-btn__wrapper col row q-anchor--skip"><span class="q-btn__content text-center col items-center q-anchor--skip justify-center row"><span style="opacity:0.5;"><i class="far fa-smile"></i> +
   </span>
@@ -3486,6 +3513,7 @@ exports[`Storyshots ChatConversation thread 1`] = `
               <p>hello 7!</p>
             </div>
           </div>
+          <!---->
           <!---->
           <div class="conversation-reactions row">
             <div class="reactions row"><button tabindex="0" type="button" role="button" title="a reacted with :thumbsup:" class="q-btn q-btn-item non-selectable no-outline row no-wrap items-center reaction-box q-btn--flat q-btn--rectangle q-btn--actionable q-focusable q-hoverable q-btn--wrap q-btn--dense"><span class="q-focus-helper"></span><span class="q-btn__wrapper col row q-anchor--skip"><span class="q-btn__content text-center col items-center q-anchor--skip justify-center row"><div class="emoji"></div> <span class="reactions-number">1</span></span></span></button></div> <button tabindex="0" type="button" role="button" flat="" class="q-btn q-btn-item non-selectable no-outline add-button reaction-box q-btn--flat q-btn--rectangle text-black q-btn--actionable q-focusable q-hoverable q-btn--wrap q-btn--dense"><span class="q-focus-helper"></span><span class="q-btn__wrapper col row q-anchor--skip"><span class="q-btn__content text-center col items-center q-anchor--skip justify-center row"><span style="opacity:0.5;"><i class="far fa-smile"></i> +
@@ -3582,35 +3610,38 @@ exports[`Storyshots ConflictSetup create 1`] = `
 `;
 
 exports[`Storyshots ConversationCompose default 1`] = `
-<div class="q-item q-item-type row no-wrap">
-  <div class="q-item__section column q-mt-xs q-pr-sm q-item__section--top q-item__section--side justify-start">
-    <div class="wrapper" style="width:40px;height:40px;"><a title="User 77">
-        <div text="User 77" seed="77" class="randomArt fill"></div>
-      </a></div>
-  </div>
-  <div class="q-item__section column q-item__section--main justify-center">
-    <div class="q-item__label">
-      <div class="relative-position q-mb-sm"><label for="f_80808080-8080-4080-8080-808080808080" class="q-field q-validation-component row no-wrap items-start q-textarea q-textarea--autogrow q-field--standard q-field--dense q-field--with-bottom">
-          <div class="q-field__inner relative-position col self-stretch column justify-center">
-            <div tabindex="-1" class="q-field__control relative-position row no-wrap">
-              <div class="q-field__control-container col relative-position row no-wrap q-anchor--skip"><textarea tabindex="0" rows="1" placeholder="Type here" id="f_80808080-8080-4080-8080-808080808080" type="textarea" class="q-field__native q-placeholder" style="min-height:unset;max-height:320px;"></textarea></div>
-              <div class="q-field__append q-field__marginal row no-wrap items-center">
-                <!---->
-                <!---->
+<div>
+  <div class="q-item q-item-type row no-wrap">
+    <div class="q-item__section column q-mt-xs q-pr-sm q-item__section--top q-item__section--side justify-start">
+      <div class="wrapper" style="width:40px;height:40px;"><a title="User 77">
+          <div text="User 77" seed="77" class="randomArt fill"></div>
+        </a></div>
+    </div>
+    <div class="q-item__section column q-item__section--main justify-center">
+      <div class="q-item__label">
+        <div class="relative-position q-mb-sm"><label for="f_80808080-8080-4080-8080-808080808080" class="q-field q-validation-component row no-wrap items-start q-textarea q-textarea--autogrow q-field--standard q-field--dense q-field--with-bottom">
+            <div class="q-field__inner relative-position col self-stretch column justify-center">
+              <div tabindex="-1" class="q-field__control relative-position row no-wrap">
+                <div class="q-field__control-container col relative-position row no-wrap q-anchor--skip"><textarea tabindex="0" rows="1" placeholder="Type here" id="f_80808080-8080-4080-8080-808080808080" type="textarea" class="q-field__native q-placeholder" style="min-height:unset;max-height:320px;"></textarea></div>
+                <div class="q-field__append q-field__marginal row no-wrap items-center"><button tabindex="0" type="button" role="button" class="q-btn q-btn-item non-selectable no-outline q-btn--flat q-btn--round q-btn--actionable q-focusable q-hoverable q-btn--wrap q-btn--dense"><span class="q-focus-helper"></span><span class="q-btn__wrapper col row q-anchor--skip"><span class="q-btn__content text-center col items-center q-anchor--skip justify-center row"><i aria-hidden="true" role="img" class="fas fa-image q-icon notranslate"> </i></span></span></button>
+                  <!---->
+                  <!---->
+                </div>
+              </div>
+              <div class="q-field__bottom row items-start q-field__bottom--animated">
+                <transition-stub name="q-transition--field-message">
+                  <div class="q-field__messages col"></div>
+                </transition-stub>
               </div>
             </div>
-            <div class="q-field__bottom row items-start q-field__bottom--animated">
-              <transition-stub name="q-transition--field-message">
-                <div class="q-field__messages col"></div>
-              </transition-stub>
-            </div>
-          </div>
-        </label>
-        <!---->
+          </label>
+          <!---->
+        </div>
       </div>
+      <!---->
     </div>
-    <!---->
   </div>
+  <!---->
 </div>
 `;
 
@@ -3644,136 +3675,148 @@ exports[`Storyshots ConversationCompose edit 1`] = `
 `;
 
 exports[`Storyshots ConversationCompose error 1`] = `
-<div class="q-item q-item-type row no-wrap">
-  <div class="q-item__section column q-mt-xs q-pr-sm q-item__section--top q-item__section--side justify-start">
-    <div class="wrapper" style="width:40px;height:40px;"><a title="User 77">
-        <div text="User 77" seed="77" class="randomArt fill"></div>
-      </a></div>
-  </div>
-  <div class="q-item__section column q-item__section--main justify-center">
-    <div class="q-item__label">
-      <div class="relative-position q-mb-sm"><label for="f_80808080-8080-4080-8080-808080808080" class="q-field q-validation-component row no-wrap items-start q-textarea q-textarea--autogrow q-field--standard q-field--focused q-field--dense q-field--with-bottom q-field--error">
-          <div class="q-field__inner relative-position col self-stretch column justify-center">
-            <div tabindex="-1" class="q-field__control relative-position row no-wrap text-negative">
-              <div class="q-field__control-container col relative-position row no-wrap q-anchor--skip"><textarea tabindex="0" rows="1" placeholder="Type here" id="f_80808080-8080-4080-8080-808080808080" type="textarea" class="q-field__native q-placeholder" style="min-height:unset;max-height:320px;"></textarea></div>
-              <div class="q-field__append q-field__marginal row no-wrap items-center">
-                <!---->
-                <!---->
-              </div>
-              <div class="q-field__append q-field__marginal row no-wrap items-center q-anchor--skip"><i aria-hidden="true" role="presentation" class="material-icons q-icon notranslate text-negative">error</i></div>
-            </div>
-            <div class="q-field__bottom row items-start q-field__bottom--animated">
-              <transition-stub name="q-transition--field-message">
-                <div class="q-field__messages col">
-                  <div>too late!</div>
-                </div>
-              </transition-stub>
-            </div>
-          </div>
-        </label>
-        <!---->
-      </div>
+<div>
+  <div class="q-item q-item-type row no-wrap">
+    <div class="q-item__section column q-mt-xs q-pr-sm q-item__section--top q-item__section--side justify-start">
+      <div class="wrapper" style="width:40px;height:40px;"><a title="User 77">
+          <div text="User 77" seed="77" class="randomArt fill"></div>
+        </a></div>
     </div>
-    <!---->
+    <div class="q-item__section column q-item__section--main justify-center">
+      <div class="q-item__label">
+        <div class="relative-position q-mb-sm"><label for="f_80808080-8080-4080-8080-808080808080" class="q-field q-validation-component row no-wrap items-start q-textarea q-textarea--autogrow q-field--standard q-field--focused q-field--dense q-field--with-bottom q-field--error">
+            <div class="q-field__inner relative-position col self-stretch column justify-center">
+              <div tabindex="-1" class="q-field__control relative-position row no-wrap text-negative">
+                <div class="q-field__control-container col relative-position row no-wrap q-anchor--skip"><textarea tabindex="0" rows="1" placeholder="Type here" id="f_80808080-8080-4080-8080-808080808080" type="textarea" class="q-field__native q-placeholder" style="min-height:unset;max-height:320px;"></textarea></div>
+                <div class="q-field__append q-field__marginal row no-wrap items-center"><button tabindex="0" type="button" role="button" class="q-btn q-btn-item non-selectable no-outline q-btn--flat q-btn--round q-btn--actionable q-focusable q-hoverable q-btn--wrap q-btn--dense"><span class="q-focus-helper"></span><span class="q-btn__wrapper col row q-anchor--skip"><span class="q-btn__content text-center col items-center q-anchor--skip justify-center row"><i aria-hidden="true" role="img" class="fas fa-image q-icon notranslate"> </i></span></span></button>
+                  <!---->
+                  <!---->
+                </div>
+                <div class="q-field__append q-field__marginal row no-wrap items-center q-anchor--skip"><i aria-hidden="true" role="presentation" class="material-icons q-icon notranslate text-negative">error</i></div>
+              </div>
+              <div class="q-field__bottom row items-start q-field__bottom--animated">
+                <transition-stub name="q-transition--field-message">
+                  <div class="q-field__messages col">
+                    <div>too late!</div>
+                  </div>
+                </transition-stub>
+              </div>
+            </div>
+          </label>
+          <!---->
+        </div>
+      </div>
+      <!---->
+    </div>
   </div>
+  <!---->
 </div>
 `;
 
 exports[`Storyshots ConversationCompose not participant 1`] = `
-<div class="q-item q-item-type row no-wrap">
-  <div class="q-item__section column q-mt-xs q-pr-sm q-item__section--top q-item__section--side justify-start">
-    <div class="wrapper" style="width:40px;height:40px;"><a title="User 77">
-        <div text="User 77" seed="77" class="randomArt fill"></div>
-      </a></div>
-  </div>
-  <div class="q-item__section column q-item__section--main justify-center">
-    <div class="q-item__label">
-      <div class="relative-position q-mb-sm"><label for="f_80808080-8080-4080-8080-808080808080" class="q-field q-validation-component row no-wrap items-start q-textarea q-textarea--autogrow q-field--standard q-field--dense q-field--with-bottom">
-          <div class="q-field__inner relative-position col self-stretch column justify-center">
-            <div tabindex="-1" class="q-field__control relative-position row no-wrap">
-              <div class="q-field__control-container col relative-position row no-wrap q-anchor--skip"><textarea tabindex="0" rows="1" placeholder="Type here" id="f_80808080-8080-4080-8080-808080808080" type="textarea" class="q-field__native q-placeholder" style="min-height:unset;max-height:320px;"></textarea></div>
-              <div class="q-field__append q-field__marginal row no-wrap items-center">
-                <!---->
-                <!---->
+<div>
+  <div class="q-item q-item-type row no-wrap">
+    <div class="q-item__section column q-mt-xs q-pr-sm q-item__section--top q-item__section--side justify-start">
+      <div class="wrapper" style="width:40px;height:40px;"><a title="User 77">
+          <div text="User 77" seed="77" class="randomArt fill"></div>
+        </a></div>
+    </div>
+    <div class="q-item__section column q-item__section--main justify-center">
+      <div class="q-item__label">
+        <div class="relative-position q-mb-sm"><label for="f_80808080-8080-4080-8080-808080808080" class="q-field q-validation-component row no-wrap items-start q-textarea q-textarea--autogrow q-field--standard q-field--dense q-field--with-bottom">
+            <div class="q-field__inner relative-position col self-stretch column justify-center">
+              <div tabindex="-1" class="q-field__control relative-position row no-wrap">
+                <div class="q-field__control-container col relative-position row no-wrap q-anchor--skip"><textarea tabindex="0" rows="1" placeholder="Type here" id="f_80808080-8080-4080-8080-808080808080" type="textarea" class="q-field__native q-placeholder" style="min-height:unset;max-height:320px;"></textarea></div>
+                <div class="q-field__append q-field__marginal row no-wrap items-center"><button tabindex="0" type="button" role="button" class="q-btn q-btn-item non-selectable no-outline q-btn--flat q-btn--round q-btn--actionable q-focusable q-hoverable q-btn--wrap q-btn--dense"><span class="q-focus-helper"></span><span class="q-btn__wrapper col row q-anchor--skip"><span class="q-btn__content text-center col items-center q-anchor--skip justify-center row"><i aria-hidden="true" role="img" class="fas fa-image q-icon notranslate"> </i></span></span></button>
+                  <!---->
+                  <!---->
+                </div>
+              </div>
+              <div class="q-field__bottom row items-start q-field__bottom--animated">
+                <transition-stub name="q-transition--field-message">
+                  <div class="q-field__messages col"></div>
+                </transition-stub>
               </div>
             </div>
-            <div class="q-field__bottom row items-start q-field__bottom--animated">
-              <transition-stub name="q-transition--field-message">
-                <div class="q-field__messages col"></div>
-              </transition-stub>
-            </div>
-          </div>
-        </label>
-        <!---->
+          </label>
+          <!---->
+        </div>
       </div>
+      <div class="q-item__label q-pt-md q-pl-xs q-item__label--caption text-caption"><span></span></div>
     </div>
-    <div class="q-item__label q-pt-md q-pl-xs q-item__label--caption text-caption"><span></span></div>
   </div>
+  <!---->
 </div>
 `;
 
 exports[`Storyshots ConversationCompose pending 1`] = `
-<div class="q-item q-item-type row no-wrap">
-  <div class="q-item__section column q-mt-xs q-pr-sm q-item__section--top q-item__section--side justify-start">
-    <div class="wrapper" style="width:40px;height:40px;"><a title="User 77">
-        <div text="User 77" seed="77" class="randomArt fill"></div>
-      </a></div>
-  </div>
-  <div class="q-item__section column q-item__section--main justify-center">
-    <div class="q-item__label">
-      <div class="relative-position q-mb-sm"><label for="f_80808080-8080-4080-8080-808080808080" aria-disabled="" class="q-field q-validation-component row no-wrap items-start q-textarea q-textarea--autogrow q-field--standard q-field--dense q-field--with-bottom q-field--disabled">
-          <div class="q-field__inner relative-position col self-stretch column justify-center">
-            <div tabindex="-1" class="q-field__control relative-position row no-wrap">
-              <div class="q-field__control-container col relative-position row no-wrap q-anchor--skip"><textarea tabindex="0" rows="1" placeholder="Type here" id="f_80808080-8080-4080-8080-808080808080" type="textarea" disabled="disabled" class="q-field__native q-placeholder" style="min-height:unset;max-height:320px;"></textarea></div>
-              <div class="q-field__append q-field__marginal row no-wrap items-center">
-                <!---->
-                <!---->
-              </div>
-              <div class="q-field__append q-field__marginal row no-wrap items-center q-anchor--skip"><svg focusable="false" width="1em" height="1em" viewBox="25 25 50 50" class="q-spinner q-spinner-mat">
-                  <circle cx="50" cy="50" r="20" fill="none" stroke="currentColor" stroke-width="5" stroke-miterlimit="10" class="path"></circle>
-                </svg></div>
-            </div>
-            <div class="q-field__bottom row items-start q-field__bottom--animated">
-              <transition-stub name="q-transition--field-message">
-                <div class="q-field__messages col"></div>
-              </transition-stub>
-            </div>
-          </div>
-        </label>
-        <!---->
-      </div>
+<div>
+  <div class="q-item q-item-type row no-wrap">
+    <div class="q-item__section column q-mt-xs q-pr-sm q-item__section--top q-item__section--side justify-start">
+      <div class="wrapper" style="width:40px;height:40px;"><a title="User 77">
+          <div text="User 77" seed="77" class="randomArt fill"></div>
+        </a></div>
     </div>
-    <!---->
+    <div class="q-item__section column q-item__section--main justify-center">
+      <div class="q-item__label">
+        <div class="relative-position q-mb-sm"><label for="f_80808080-8080-4080-8080-808080808080" aria-disabled="" class="q-field q-validation-component row no-wrap items-start q-textarea q-textarea--autogrow q-field--standard q-field--dense q-field--with-bottom q-field--disabled">
+            <div class="q-field__inner relative-position col self-stretch column justify-center">
+              <div tabindex="-1" class="q-field__control relative-position row no-wrap">
+                <div class="q-field__control-container col relative-position row no-wrap q-anchor--skip"><textarea tabindex="0" rows="1" placeholder="Type here" id="f_80808080-8080-4080-8080-808080808080" type="textarea" disabled="disabled" class="q-field__native q-placeholder" style="min-height:unset;max-height:320px;"></textarea></div>
+                <div class="q-field__append q-field__marginal row no-wrap items-center"><button tabindex="0" type="button" role="button" class="q-btn q-btn-item non-selectable no-outline q-btn--flat q-btn--round q-btn--actionable q-focusable q-hoverable q-btn--wrap q-btn--dense"><span class="q-focus-helper"></span><span class="q-btn__wrapper col row q-anchor--skip"><span class="q-btn__content text-center col items-center q-anchor--skip justify-center row"><i aria-hidden="true" role="img" class="fas fa-image q-icon notranslate"> </i></span></span></button>
+                  <!---->
+                  <!---->
+                </div>
+                <div class="q-field__append q-field__marginal row no-wrap items-center q-anchor--skip"><svg focusable="false" width="1em" height="1em" viewBox="25 25 50 50" class="q-spinner q-spinner-mat">
+                    <circle cx="50" cy="50" r="20" fill="none" stroke="currentColor" stroke-width="5" stroke-miterlimit="10" class="path"></circle>
+                  </svg></div>
+              </div>
+              <div class="q-field__bottom row items-start q-field__bottom--animated">
+                <transition-stub name="q-transition--field-message">
+                  <div class="q-field__messages col"></div>
+                </transition-stub>
+              </div>
+            </div>
+          </label>
+          <!---->
+        </div>
+      </div>
+      <!---->
+    </div>
   </div>
+  <!---->
 </div>
 `;
 
 exports[`Storyshots ConversationCompose slim 1`] = `
-<div class="q-item q-item-type row no-wrap">
-  <!---->
-  <div class="q-item__section column q-item__section--main justify-center">
-    <div class="q-item__label">
-      <div class="relative-position q-mb-sm"><label for="f_80808080-8080-4080-8080-808080808080" class="q-field q-validation-component row no-wrap items-start q-textarea q-textarea--autogrow q-field--standard q-field--dense q-field--with-bottom">
-          <div class="q-field__inner relative-position col self-stretch column justify-center">
-            <div tabindex="-1" class="q-field__control relative-position row no-wrap">
-              <div class="q-field__control-container col relative-position row no-wrap q-anchor--skip"><textarea tabindex="0" rows="1" placeholder="Type here" id="f_80808080-8080-4080-8080-808080808080" type="textarea" class="q-field__native q-placeholder" style="min-height:unset;max-height:320px;"></textarea></div>
-              <div class="q-field__append q-field__marginal row no-wrap items-center">
-                <!---->
-                <!---->
+<div>
+  <div class="q-item q-item-type row no-wrap">
+    <!---->
+    <div class="q-item__section column q-item__section--main justify-center">
+      <div class="q-item__label">
+        <div class="relative-position q-mb-sm"><label for="f_80808080-8080-4080-8080-808080808080" class="q-field q-validation-component row no-wrap items-start q-textarea q-textarea--autogrow q-field--standard q-field--dense q-field--with-bottom">
+            <div class="q-field__inner relative-position col self-stretch column justify-center">
+              <div tabindex="-1" class="q-field__control relative-position row no-wrap">
+                <div class="q-field__control-container col relative-position row no-wrap q-anchor--skip"><textarea tabindex="0" rows="1" placeholder="Type here" id="f_80808080-8080-4080-8080-808080808080" type="textarea" class="q-field__native q-placeholder" style="min-height:unset;max-height:320px;"></textarea></div>
+                <div class="q-field__append q-field__marginal row no-wrap items-center"><button tabindex="0" type="button" role="button" class="q-btn q-btn-item non-selectable no-outline q-btn--flat q-btn--round q-btn--actionable q-focusable q-hoverable q-btn--wrap q-btn--dense"><span class="q-focus-helper"></span><span class="q-btn__wrapper col row q-anchor--skip"><span class="q-btn__content text-center col items-center q-anchor--skip justify-center row"><i aria-hidden="true" role="img" class="fas fa-image q-icon notranslate"> </i></span></span></button>
+                  <!---->
+                  <!---->
+                </div>
+              </div>
+              <div class="q-field__bottom row items-start q-field__bottom--animated">
+                <transition-stub name="q-transition--field-message">
+                  <div class="q-field__messages col"></div>
+                </transition-stub>
               </div>
             </div>
-            <div class="q-field__bottom row items-start q-field__bottom--animated">
-              <transition-stub name="q-transition--field-message">
-                <div class="q-field__messages col"></div>
-              </transition-stub>
-            </div>
-          </div>
-        </label>
-        <!---->
+          </label>
+          <!---->
+        </div>
       </div>
+      <!---->
     </div>
-    <!---->
   </div>
+  <!---->
 </div>
 `;
 
@@ -3798,6 +3841,7 @@ exports[`Storyshots ConversationMessage default 1`] = `
         <p>This is a test. This is a test. This is a test. This is a test. This is a test. This is a test. This is a test. This is a test. This is a test. This is a test. This is a test. This is a test. This is a test. This is a test. This is a test. This is a test. This is a test. This is a test. This is a test. This is a test. This is a test. This is a test. This is a test. This is a test. This is a test. This is a test. This is a test. This is a test. This is a test. This is a test. This is a test. This is a test. This is a test. This is a test. This is a test. This is a test. This is a test. This is a test. This is a test. This is a test. This is a test. This is a test. This is a test. This is a test. This is a test. This is a test. This is a test. This is a test. This is a test. This is a test.</p>
       </div>
     </div>
+    <!---->
     <!---->
     <div class="conversation-reactions row">
       <div class="reactions row"><button tabindex="0" type="button" role="button" title="a reacted with :thumbsup:" class="q-btn q-btn-item non-selectable no-outline row no-wrap items-center reaction-box q-btn--flat q-btn--rectangle q-btn--actionable q-focusable q-hoverable q-btn--wrap q-btn--dense"><span class="q-focus-helper"></span><span class="q-btn__wrapper col row q-anchor--skip"><span class="q-btn__content text-center col items-center q-anchor--skip justify-center row"><div class="emoji"></div> <span class="reactions-number">1</span></span></span></button></div> <button tabindex="0" type="button" role="button" flat="" class="q-btn q-btn-item non-selectable no-outline add-button reaction-box q-btn--flat q-btn--rectangle text-black q-btn--actionable q-focusable q-hoverable q-btn--wrap q-btn--dense"><span class="q-focus-helper"></span><span class="q-btn__wrapper col row q-anchor--skip"><span class="q-btn__content text-center col items-center q-anchor--skip justify-center row"><span style="opacity:0.5;"><i class="far fa-smile"></i> +
@@ -3838,6 +3882,7 @@ exports[`Storyshots ConversationMessage edited 1`] = `
       </div>
       )
     </div>
+    <!---->
     <div class="conversation-reactions row">
       <div class="reactions row"><button tabindex="0" type="button" role="button" title="a reacted with :thumbsup:" class="q-btn q-btn-item non-selectable no-outline row no-wrap items-center reaction-box q-btn--flat q-btn--rectangle q-btn--actionable q-focusable q-hoverable q-btn--wrap q-btn--dense"><span class="q-focus-helper"></span><span class="q-btn__wrapper col row q-anchor--skip"><span class="q-btn__content text-center col items-center q-anchor--skip justify-center row"><div class="emoji"></div> <span class="reactions-number">1</span></span></span></button></div> <button tabindex="0" type="button" role="button" flat="" class="q-btn q-btn-item non-selectable no-outline add-button reaction-box q-btn--flat q-btn--rectangle text-black q-btn--actionable q-focusable q-hoverable q-btn--wrap q-btn--dense"><span class="q-focus-helper"></span><span class="q-btn__wrapper col row q-anchor--skip"><span class="q-btn__content text-center col items-center q-anchor--skip justify-center row"><span style="opacity:0.5;"><i class="far fa-smile"></i> +
   </span>
@@ -3867,6 +3912,7 @@ exports[`Storyshots ConversationMessage slim 1`] = `
         <p>This is a test. This is a test. This is a test. This is a test. This is a test. This is a test. This is a test. This is a test. This is a test. This is a test. This is a test. This is a test. This is a test. This is a test. This is a test. This is a test. This is a test. This is a test. This is a test. This is a test. This is a test. This is a test. This is a test. This is a test. This is a test. This is a test. This is a test. This is a test. This is a test. This is a test. This is a test. This is a test. This is a test. This is a test. This is a test. This is a test. This is a test. This is a test. This is a test. This is a test. This is a test. This is a test. This is a test. This is a test. This is a test. This is a test. This is a test. This is a test. This is a test. This is a test.</p>
       </div>
     </div>
+    <!---->
     <!---->
     <div class="conversation-reactions row">
       <div class="reactions row"><button tabindex="0" type="button" role="button" title="a reacted with :thumbsup:" class="q-btn q-btn-item non-selectable no-outline row no-wrap items-center reaction-box q-btn--flat q-btn--rectangle q-btn--actionable q-focusable q-hoverable q-btn--wrap q-btn--dense"><span class="q-focus-helper"></span><span class="q-btn__wrapper col row q-anchor--skip"><span class="q-btn__content text-center col items-center q-anchor--skip justify-center row"><div class="emoji"></div> <span class="reactions-number">1</span></span></span></button></div> <button tabindex="0" type="button" role="button" flat="" class="q-btn q-btn-item non-selectable no-outline add-button reaction-box q-btn--flat q-btn--rectangle text-black q-btn--actionable q-focusable q-hoverable q-btn--wrap q-btn--dense"><span class="q-focus-helper"></span><span class="q-btn__wrapper col row q-anchor--skip"><span class="q-btn__content text-center col items-center q-anchor--skip justify-center row"><span style="opacity:0.5;"><i class="far fa-smile"></i> +
@@ -3898,6 +3944,7 @@ exports[`Storyshots ConversationMessage via email 1`] = `
         <p>This is a test. This is a test. This is a test. This is a test. This is a test. This is a test. This is a test. This is a test. This is a test. This is a test. This is a test. This is a test. This is a test. This is a test. This is a test. This is a test. This is a test. This is a test. This is a test. This is a test. This is a test. This is a test. This is a test. This is a test. This is a test. This is a test. This is a test. This is a test. This is a test. This is a test. This is a test. This is a test. This is a test. This is a test. This is a test. This is a test. This is a test. This is a test. This is a test. This is a test. This is a test. This is a test. This is a test. This is a test. This is a test. This is a test. This is a test. This is a test. This is a test. This is a test.</p>
       </div>
     </div>
+    <!---->
     <!---->
     <div class="conversation-reactions row">
       <div class="reactions row"><button tabindex="0" type="button" role="button" title="a reacted with :thumbsup:" class="q-btn q-btn-item non-selectable no-outline row no-wrap items-center reaction-box q-btn--flat q-btn--rectangle q-btn--actionable q-focusable q-hoverable q-btn--wrap q-btn--dense"><span class="q-focus-helper"></span><span class="q-btn__wrapper col row q-anchor--skip"><span class="q-btn__content text-center col items-center q-anchor--skip justify-center row"><div class="emoji"></div> <span class="reactions-number">1</span></span></span></button></div> <button tabindex="0" type="button" role="button" flat="" class="q-btn q-btn-item non-selectable no-outline add-button reaction-box q-btn--flat q-btn--rectangle text-black q-btn--actionable q-focusable q-hoverable q-btn--wrap q-btn--dense"><span class="q-focus-helper"></span><span class="q-btn__wrapper col row q-anchor--skip"><span class="q-btn__content text-center col items-center q-anchor--skip justify-center row"><span style="opacity:0.5;"><i class="far fa-smile"></i> +
@@ -3933,6 +3980,7 @@ exports[`Storyshots ConversationMessage with replies 1`] = `
       </div>
     </div>
     <!---->
+    <!---->
     <div class="conversation-reactions row">
       <div class="reactions row"><button tabindex="0" type="button" role="button" title="a reacted with :thumbsup:" class="q-btn q-btn-item non-selectable no-outline row no-wrap items-center reaction-box q-btn--flat q-btn--rectangle q-btn--actionable q-focusable q-hoverable q-btn--wrap q-btn--dense"><span class="q-focus-helper"></span><span class="q-btn__wrapper col row q-anchor--skip"><span class="q-btn__content text-center col items-center q-anchor--skip justify-center row"><div class="emoji"></div> <span class="reactions-number">1</span></span></span></button></div> <button tabindex="0" type="button" role="button" flat="" class="q-btn q-btn-item non-selectable no-outline add-button reaction-box q-btn--flat q-btn--rectangle text-black q-btn--actionable q-focusable q-hoverable q-btn--wrap q-btn--dense"><span class="q-focus-helper"></span><span class="q-btn__wrapper col row q-anchor--skip"><span class="q-btn__content text-center col items-center q-anchor--skip justify-center row"><span style="opacity:0.5;"><i class="far fa-smile"></i> +
   </span>
@@ -3966,6 +4014,7 @@ exports[`Storyshots ConversationMessage with unread replies 1`] = `
         <p>hello 9!</p>
       </div>
     </div>
+    <!---->
     <!---->
     <div class="conversation-reactions row">
       <div class="reactions row"><button tabindex="0" type="button" role="button" title="a reacted with :thumbsup:" class="q-btn q-btn-item non-selectable no-outline row no-wrap items-center reaction-box q-btn--flat q-btn--rectangle q-btn--actionable q-focusable q-hoverable q-btn--wrap q-btn--dense"><span class="q-focus-helper"></span><span class="q-btn__wrapper col row q-anchor--skip"><span class="q-btn__content text-center col items-center q-anchor--skip justify-center row"><div class="emoji"></div> <span class="reactions-number">1</span></span></span></button></div> <button tabindex="0" type="button" role="button" flat="" class="q-btn q-btn-item non-selectable no-outline add-button reaction-box q-btn--flat q-btn--rectangle text-black q-btn--actionable q-focusable q-hoverable q-btn--wrap q-btn--dense"><span class="q-focus-helper"></span><span class="q-btn__wrapper col row q-anchor--skip"><span class="q-btn__content text-center col items-center q-anchor--skip justify-center row"><span style="opacity:0.5;"><i class="far fa-smile"></i> +
@@ -4047,6 +4096,7 @@ exports[`Storyshots Detail activity 1`] = `
                 </div>
               </div>
               <!---->
+              <!---->
               <div class="conversation-reactions row">
                 <div class="reactions row"><button tabindex="0" type="button" role="button" title="a reacted with :thumbsup:" class="q-btn q-btn-item non-selectable no-outline row no-wrap items-center reaction-box q-btn--flat q-btn--rectangle q-btn--actionable q-focusable q-hoverable q-btn--wrap q-btn--dense"><span class="q-focus-helper"></span><span class="q-btn__wrapper col row q-anchor--skip"><span class="q-btn__content text-center col items-center q-anchor--skip justify-center row"><div class="emoji"></div> <span class="reactions-number">1</span></span></span></button></div> <button tabindex="0" type="button" role="button" flat="" class="q-btn q-btn-item non-selectable no-outline add-button reaction-box q-btn--flat q-btn--rectangle text-black q-btn--actionable q-focusable q-hoverable q-btn--wrap q-btn--dense"><span class="q-focus-helper"></span><span class="q-btn__wrapper col row q-anchor--skip"><span class="q-btn__content text-center col items-center q-anchor--skip justify-center row"><span style="opacity:0.5;"><i class="far fa-smile"></i> +
   </span>
@@ -4074,6 +4124,7 @@ exports[`Storyshots Detail activity 1`] = `
                   <p>hello 15!</p>
                 </div>
               </div>
+              <!---->
               <!---->
               <div class="conversation-reactions row">
                 <div class="reactions row"><button tabindex="0" type="button" role="button" title="a reacted with :thumbsup:" class="q-btn q-btn-item non-selectable no-outline row no-wrap items-center reaction-box q-btn--flat q-btn--rectangle q-btn--actionable q-focusable q-hoverable q-btn--wrap q-btn--dense"><span class="q-focus-helper"></span><span class="q-btn__wrapper col row q-anchor--skip"><span class="q-btn__content text-center col items-center q-anchor--skip justify-center row"><div class="emoji"></div> <span class="reactions-number">1</span></span></span></button></div> <button tabindex="0" type="button" role="button" flat="" class="q-btn q-btn-item non-selectable no-outline add-button reaction-box q-btn--flat q-btn--rectangle text-black q-btn--actionable q-focusable q-hoverable q-btn--wrap q-btn--dense"><span class="q-focus-helper"></span><span class="q-btn__wrapper col row q-anchor--skip"><span class="q-btn__content text-center col items-center q-anchor--skip justify-center row"><span style="opacity:0.5;"><i class="far fa-smile"></i> +
@@ -4103,6 +4154,7 @@ exports[`Storyshots Detail activity 1`] = `
                 </div>
               </div>
               <!---->
+              <!---->
               <div class="conversation-reactions row">
                 <div class="reactions row"><button tabindex="0" type="button" role="button" title="a reacted with :thumbsup:" class="q-btn q-btn-item non-selectable no-outline row no-wrap items-center reaction-box q-btn--flat q-btn--rectangle q-btn--actionable q-focusable q-hoverable q-btn--wrap q-btn--dense"><span class="q-focus-helper"></span><span class="q-btn__wrapper col row q-anchor--skip"><span class="q-btn__content text-center col items-center q-anchor--skip justify-center row"><div class="emoji"></div> <span class="reactions-number">1</span></span></span></button></div> <button tabindex="0" type="button" role="button" flat="" class="q-btn q-btn-item non-selectable no-outline add-button reaction-box q-btn--flat q-btn--rectangle text-black q-btn--actionable q-focusable q-hoverable q-btn--wrap q-btn--dense"><span class="q-focus-helper"></span><span class="q-btn__wrapper col row q-anchor--skip"><span class="q-btn__content text-center col items-center q-anchor--skip justify-center row"><span style="opacity:0.5;"><i class="far fa-smile"></i> +
   </span>
@@ -4131,6 +4183,7 @@ exports[`Storyshots Detail activity 1`] = `
                 </div>
               </div>
               <!---->
+              <!---->
               <div class="conversation-reactions row">
                 <div class="reactions row"><button tabindex="0" type="button" role="button" title="a reacted with :thumbsup:" class="q-btn q-btn-item non-selectable no-outline row no-wrap items-center reaction-box q-btn--flat q-btn--rectangle q-btn--actionable q-focusable q-hoverable q-btn--wrap q-btn--dense"><span class="q-focus-helper"></span><span class="q-btn__wrapper col row q-anchor--skip"><span class="q-btn__content text-center col items-center q-anchor--skip justify-center row"><div class="emoji"></div> <span class="reactions-number">1</span></span></span></button></div> <button tabindex="0" type="button" role="button" flat="" class="q-btn q-btn-item non-selectable no-outline add-button reaction-box q-btn--flat q-btn--rectangle text-black q-btn--actionable q-focusable q-hoverable q-btn--wrap q-btn--dense"><span class="q-focus-helper"></span><span class="q-btn__wrapper col row q-anchor--skip"><span class="q-btn__content text-center col items-center q-anchor--skip justify-center row"><span style="opacity:0.5;"><i class="far fa-smile"></i> +
   </span>
@@ -4140,31 +4193,34 @@ exports[`Storyshots Detail activity 1`] = `
               <!---->
             </div>
           </div>
-          <div filled="" square="" class="q-item q-item-type row no-wrap q-pb-md">
-            <!---->
-            <div class="q-item__section column q-item__section--main justify-center">
-              <div class="q-item__label">
-                <div class="relative-position q-mb-sm"><label for="f_80808080-8080-4080-8080-808080808080" class="q-field q-validation-component row no-wrap items-start q-textarea q-textarea--autogrow q-field--filled q-field--square q-field--dense q-field--with-bottom">
-                    <div class="q-field__inner relative-position col self-stretch column justify-center">
-                      <div tabindex="-1" class="q-field__control relative-position row no-wrap">
-                        <div class="q-field__control-container col relative-position row no-wrap q-anchor--skip"><textarea tabindex="0" rows="1" placeholder="Write a message..." id="f_80808080-8080-4080-8080-808080808080" type="textarea" class="q-field__native q-placeholder" style="min-height:unset;max-height:320px;"></textarea></div>
-                        <div class="q-field__append q-field__marginal row no-wrap items-center">
-                          <!---->
-                          <!---->
+          <div filled="" square="" class="q-pb-md">
+            <div class="q-item q-item-type row no-wrap">
+              <!---->
+              <div class="q-item__section column q-item__section--main justify-center">
+                <div class="q-item__label">
+                  <div class="relative-position q-mb-sm"><label for="f_80808080-8080-4080-8080-808080808080" class="q-field q-validation-component row no-wrap items-start q-textarea q-textarea--autogrow q-field--filled q-field--square q-field--dense q-field--with-bottom">
+                      <div class="q-field__inner relative-position col self-stretch column justify-center">
+                        <div tabindex="-1" class="q-field__control relative-position row no-wrap">
+                          <div class="q-field__control-container col relative-position row no-wrap q-anchor--skip"><textarea tabindex="0" rows="1" placeholder="Write a message..." id="f_80808080-8080-4080-8080-808080808080" type="textarea" class="q-field__native q-placeholder" style="min-height:unset;max-height:320px;"></textarea></div>
+                          <div class="q-field__append q-field__marginal row no-wrap items-center"><button tabindex="0" type="button" role="button" class="q-btn q-btn-item non-selectable no-outline q-btn--flat q-btn--round q-btn--actionable q-focusable q-hoverable q-btn--wrap q-btn--dense"><span class="q-focus-helper"></span><span class="q-btn__wrapper col row q-anchor--skip"><span class="q-btn__content text-center col items-center q-anchor--skip justify-center row"><i aria-hidden="true" role="img" class="fas fa-image q-icon notranslate"> </i></span></span></button>
+                            <!---->
+                            <!---->
+                          </div>
+                        </div>
+                        <div class="q-field__bottom row items-start q-field__bottom--animated">
+                          <transition-stub name="q-transition--field-message">
+                            <div class="q-field__messages col"></div>
+                          </transition-stub>
                         </div>
                       </div>
-                      <div class="q-field__bottom row items-start q-field__bottom--animated">
-                        <transition-stub name="q-transition--field-message">
-                          <div class="q-field__messages col"></div>
-                        </transition-stub>
-                      </div>
-                    </div>
-                  </label>
-                  <!---->
+                    </label>
+                    <!---->
+                  </div>
                 </div>
+                <!---->
               </div>
-              <!---->
             </div>
+            <!---->
           </div>
           <!---->
         </div>
@@ -4280,6 +4336,7 @@ exports[`Storyshots Detail application 1`] = `
                 </div>
               </div>
               <!---->
+              <!---->
               <div class="conversation-reactions row">
                 <div class="reactions row"><button tabindex="0" type="button" role="button" title="a reacted with :thumbsup:" class="q-btn q-btn-item non-selectable no-outline row no-wrap items-center reaction-box q-btn--flat q-btn--rectangle q-btn--actionable q-focusable q-hoverable q-btn--wrap q-btn--dense"><span class="q-focus-helper"></span><span class="q-btn__wrapper col row q-anchor--skip"><span class="q-btn__content text-center col items-center q-anchor--skip justify-center row"><div class="emoji"></div> <span class="reactions-number">1</span></span></span></button></div> <button tabindex="0" type="button" role="button" flat="" class="q-btn q-btn-item non-selectable no-outline add-button reaction-box q-btn--flat q-btn--rectangle text-black q-btn--actionable q-focusable q-hoverable q-btn--wrap q-btn--dense"><span class="q-focus-helper"></span><span class="q-btn__wrapper col row q-anchor--skip"><span class="q-btn__content text-center col items-center q-anchor--skip justify-center row"><span style="opacity:0.5;"><i class="far fa-smile"></i> +
   </span>
@@ -4307,6 +4364,7 @@ exports[`Storyshots Detail application 1`] = `
                   <p>hello 15!</p>
                 </div>
               </div>
+              <!---->
               <!---->
               <div class="conversation-reactions row">
                 <div class="reactions row"><button tabindex="0" type="button" role="button" title="a reacted with :thumbsup:" class="q-btn q-btn-item non-selectable no-outline row no-wrap items-center reaction-box q-btn--flat q-btn--rectangle q-btn--actionable q-focusable q-hoverable q-btn--wrap q-btn--dense"><span class="q-focus-helper"></span><span class="q-btn__wrapper col row q-anchor--skip"><span class="q-btn__content text-center col items-center q-anchor--skip justify-center row"><div class="emoji"></div> <span class="reactions-number">1</span></span></span></button></div> <button tabindex="0" type="button" role="button" flat="" class="q-btn q-btn-item non-selectable no-outline add-button reaction-box q-btn--flat q-btn--rectangle text-black q-btn--actionable q-focusable q-hoverable q-btn--wrap q-btn--dense"><span class="q-focus-helper"></span><span class="q-btn__wrapper col row q-anchor--skip"><span class="q-btn__content text-center col items-center q-anchor--skip justify-center row"><span style="opacity:0.5;"><i class="far fa-smile"></i> +
@@ -4336,6 +4394,7 @@ exports[`Storyshots Detail application 1`] = `
                 </div>
               </div>
               <!---->
+              <!---->
               <div class="conversation-reactions row">
                 <div class="reactions row"><button tabindex="0" type="button" role="button" title="a reacted with :thumbsup:" class="q-btn q-btn-item non-selectable no-outline row no-wrap items-center reaction-box q-btn--flat q-btn--rectangle q-btn--actionable q-focusable q-hoverable q-btn--wrap q-btn--dense"><span class="q-focus-helper"></span><span class="q-btn__wrapper col row q-anchor--skip"><span class="q-btn__content text-center col items-center q-anchor--skip justify-center row"><div class="emoji"></div> <span class="reactions-number">1</span></span></span></button></div> <button tabindex="0" type="button" role="button" flat="" class="q-btn q-btn-item non-selectable no-outline add-button reaction-box q-btn--flat q-btn--rectangle text-black q-btn--actionable q-focusable q-hoverable q-btn--wrap q-btn--dense"><span class="q-focus-helper"></span><span class="q-btn__wrapper col row q-anchor--skip"><span class="q-btn__content text-center col items-center q-anchor--skip justify-center row"><span style="opacity:0.5;"><i class="far fa-smile"></i> +
   </span>
@@ -4364,6 +4423,7 @@ exports[`Storyshots Detail application 1`] = `
                 </div>
               </div>
               <!---->
+              <!---->
               <div class="conversation-reactions row">
                 <div class="reactions row"><button tabindex="0" type="button" role="button" title="a reacted with :thumbsup:" class="q-btn q-btn-item non-selectable no-outline row no-wrap items-center reaction-box q-btn--flat q-btn--rectangle q-btn--actionable q-focusable q-hoverable q-btn--wrap q-btn--dense"><span class="q-focus-helper"></span><span class="q-btn__wrapper col row q-anchor--skip"><span class="q-btn__content text-center col items-center q-anchor--skip justify-center row"><div class="emoji"></div> <span class="reactions-number">1</span></span></span></button></div> <button tabindex="0" type="button" role="button" flat="" class="q-btn q-btn-item non-selectable no-outline add-button reaction-box q-btn--flat q-btn--rectangle text-black q-btn--actionable q-focusable q-hoverable q-btn--wrap q-btn--dense"><span class="q-focus-helper"></span><span class="q-btn__wrapper col row q-anchor--skip"><span class="q-btn__content text-center col items-center q-anchor--skip justify-center row"><span style="opacity:0.5;"><i class="far fa-smile"></i> +
   </span>
@@ -4373,31 +4433,34 @@ exports[`Storyshots Detail application 1`] = `
               <!---->
             </div>
           </div>
-          <div filled="" square="" class="q-item q-item-type row no-wrap q-pb-md">
-            <!---->
-            <div class="q-item__section column q-item__section--main justify-center">
-              <div class="q-item__label">
-                <div class="relative-position q-mb-sm"><label for="f_80808080-8080-4080-8080-808080808080" class="q-field q-validation-component row no-wrap items-start q-textarea q-textarea--autogrow q-field--filled q-field--square q-field--dense q-field--with-bottom">
-                    <div class="q-field__inner relative-position col self-stretch column justify-center">
-                      <div tabindex="-1" class="q-field__control relative-position row no-wrap">
-                        <div class="q-field__control-container col relative-position row no-wrap q-anchor--skip"><textarea tabindex="0" rows="1" placeholder="Write a message..." id="f_80808080-8080-4080-8080-808080808080" type="textarea" class="q-field__native q-placeholder" style="min-height:unset;max-height:320px;"></textarea></div>
-                        <div class="q-field__append q-field__marginal row no-wrap items-center">
-                          <!---->
-                          <!---->
+          <div filled="" square="" class="q-pb-md">
+            <div class="q-item q-item-type row no-wrap">
+              <!---->
+              <div class="q-item__section column q-item__section--main justify-center">
+                <div class="q-item__label">
+                  <div class="relative-position q-mb-sm"><label for="f_80808080-8080-4080-8080-808080808080" class="q-field q-validation-component row no-wrap items-start q-textarea q-textarea--autogrow q-field--filled q-field--square q-field--dense q-field--with-bottom">
+                      <div class="q-field__inner relative-position col self-stretch column justify-center">
+                        <div tabindex="-1" class="q-field__control relative-position row no-wrap">
+                          <div class="q-field__control-container col relative-position row no-wrap q-anchor--skip"><textarea tabindex="0" rows="1" placeholder="Write a message..." id="f_80808080-8080-4080-8080-808080808080" type="textarea" class="q-field__native q-placeholder" style="min-height:unset;max-height:320px;"></textarea></div>
+                          <div class="q-field__append q-field__marginal row no-wrap items-center"><button tabindex="0" type="button" role="button" class="q-btn q-btn-item non-selectable no-outline q-btn--flat q-btn--round q-btn--actionable q-focusable q-hoverable q-btn--wrap q-btn--dense"><span class="q-focus-helper"></span><span class="q-btn__wrapper col row q-anchor--skip"><span class="q-btn__content text-center col items-center q-anchor--skip justify-center row"><i aria-hidden="true" role="img" class="fas fa-image q-icon notranslate"> </i></span></span></button>
+                            <!---->
+                            <!---->
+                          </div>
+                        </div>
+                        <div class="q-field__bottom row items-start q-field__bottom--animated">
+                          <transition-stub name="q-transition--field-message">
+                            <div class="q-field__messages col"></div>
+                          </transition-stub>
                         </div>
                       </div>
-                      <div class="q-field__bottom row items-start q-field__bottom--animated">
-                        <transition-stub name="q-transition--field-message">
-                          <div class="q-field__messages col"></div>
-                        </transition-stub>
-                      </div>
-                    </div>
-                  </label>
-                  <!---->
+                    </label>
+                    <!---->
+                  </div>
                 </div>
+                <!---->
               </div>
-              <!---->
             </div>
+            <!---->
           </div>
           <!---->
         </div>
@@ -4472,6 +4535,7 @@ exports[`Storyshots Detail private 1`] = `
                 </div>
               </div>
               <!---->
+              <!---->
               <div class="conversation-reactions row">
                 <div class="reactions row"><button tabindex="0" type="button" role="button" title="a reacted with :thumbsup:" class="q-btn q-btn-item non-selectable no-outline row no-wrap items-center reaction-box q-btn--flat q-btn--rectangle q-btn--actionable q-focusable q-hoverable q-btn--wrap q-btn--dense"><span class="q-focus-helper"></span><span class="q-btn__wrapper col row q-anchor--skip"><span class="q-btn__content text-center col items-center q-anchor--skip justify-center row"><div class="emoji"></div> <span class="reactions-number">1</span></span></span></button></div> <button tabindex="0" type="button" role="button" flat="" class="q-btn q-btn-item non-selectable no-outline add-button reaction-box q-btn--flat q-btn--rectangle text-black q-btn--actionable q-focusable q-hoverable q-btn--wrap q-btn--dense"><span class="q-focus-helper"></span><span class="q-btn__wrapper col row q-anchor--skip"><span class="q-btn__content text-center col items-center q-anchor--skip justify-center row"><span style="opacity:0.5;"><i class="far fa-smile"></i> +
   </span>
@@ -4499,6 +4563,7 @@ exports[`Storyshots Detail private 1`] = `
                   <p>hello 15!</p>
                 </div>
               </div>
+              <!---->
               <!---->
               <div class="conversation-reactions row">
                 <div class="reactions row"><button tabindex="0" type="button" role="button" title="a reacted with :thumbsup:" class="q-btn q-btn-item non-selectable no-outline row no-wrap items-center reaction-box q-btn--flat q-btn--rectangle q-btn--actionable q-focusable q-hoverable q-btn--wrap q-btn--dense"><span class="q-focus-helper"></span><span class="q-btn__wrapper col row q-anchor--skip"><span class="q-btn__content text-center col items-center q-anchor--skip justify-center row"><div class="emoji"></div> <span class="reactions-number">1</span></span></span></button></div> <button tabindex="0" type="button" role="button" flat="" class="q-btn q-btn-item non-selectable no-outline add-button reaction-box q-btn--flat q-btn--rectangle text-black q-btn--actionable q-focusable q-hoverable q-btn--wrap q-btn--dense"><span class="q-focus-helper"></span><span class="q-btn__wrapper col row q-anchor--skip"><span class="q-btn__content text-center col items-center q-anchor--skip justify-center row"><span style="opacity:0.5;"><i class="far fa-smile"></i> +
@@ -4528,6 +4593,7 @@ exports[`Storyshots Detail private 1`] = `
                 </div>
               </div>
               <!---->
+              <!---->
               <div class="conversation-reactions row">
                 <div class="reactions row"><button tabindex="0" type="button" role="button" title="a reacted with :thumbsup:" class="q-btn q-btn-item non-selectable no-outline row no-wrap items-center reaction-box q-btn--flat q-btn--rectangle q-btn--actionable q-focusable q-hoverable q-btn--wrap q-btn--dense"><span class="q-focus-helper"></span><span class="q-btn__wrapper col row q-anchor--skip"><span class="q-btn__content text-center col items-center q-anchor--skip justify-center row"><div class="emoji"></div> <span class="reactions-number">1</span></span></span></button></div> <button tabindex="0" type="button" role="button" flat="" class="q-btn q-btn-item non-selectable no-outline add-button reaction-box q-btn--flat q-btn--rectangle text-black q-btn--actionable q-focusable q-hoverable q-btn--wrap q-btn--dense"><span class="q-focus-helper"></span><span class="q-btn__wrapper col row q-anchor--skip"><span class="q-btn__content text-center col items-center q-anchor--skip justify-center row"><span style="opacity:0.5;"><i class="far fa-smile"></i> +
   </span>
@@ -4556,6 +4622,7 @@ exports[`Storyshots Detail private 1`] = `
                 </div>
               </div>
               <!---->
+              <!---->
               <div class="conversation-reactions row">
                 <div class="reactions row"><button tabindex="0" type="button" role="button" title="a reacted with :thumbsup:" class="q-btn q-btn-item non-selectable no-outline row no-wrap items-center reaction-box q-btn--flat q-btn--rectangle q-btn--actionable q-focusable q-hoverable q-btn--wrap q-btn--dense"><span class="q-focus-helper"></span><span class="q-btn__wrapper col row q-anchor--skip"><span class="q-btn__content text-center col items-center q-anchor--skip justify-center row"><div class="emoji"></div> <span class="reactions-number">1</span></span></span></button></div> <button tabindex="0" type="button" role="button" flat="" class="q-btn q-btn-item non-selectable no-outline add-button reaction-box q-btn--flat q-btn--rectangle text-black q-btn--actionable q-focusable q-hoverable q-btn--wrap q-btn--dense"><span class="q-focus-helper"></span><span class="q-btn__wrapper col row q-anchor--skip"><span class="q-btn__content text-center col items-center q-anchor--skip justify-center row"><span style="opacity:0.5;"><i class="far fa-smile"></i> +
   </span>
@@ -4565,31 +4632,34 @@ exports[`Storyshots Detail private 1`] = `
               <!---->
             </div>
           </div>
-          <div filled="" square="" class="q-item q-item-type row no-wrap q-pb-md">
-            <!---->
-            <div class="q-item__section column q-item__section--main justify-center">
-              <div class="q-item__label">
-                <div class="relative-position q-mb-sm"><label for="f_80808080-8080-4080-8080-808080808080" class="q-field q-validation-component row no-wrap items-start q-textarea q-textarea--autogrow q-field--filled q-field--square q-field--dense q-field--with-bottom">
-                    <div class="q-field__inner relative-position col self-stretch column justify-center">
-                      <div tabindex="-1" class="q-field__control relative-position row no-wrap">
-                        <div class="q-field__control-container col relative-position row no-wrap q-anchor--skip"><textarea tabindex="0" rows="1" placeholder="Write a message..." id="f_80808080-8080-4080-8080-808080808080" type="textarea" class="q-field__native q-placeholder" style="min-height:unset;max-height:320px;"></textarea></div>
-                        <div class="q-field__append q-field__marginal row no-wrap items-center">
-                          <!---->
-                          <!---->
+          <div filled="" square="" class="q-pb-md">
+            <div class="q-item q-item-type row no-wrap">
+              <!---->
+              <div class="q-item__section column q-item__section--main justify-center">
+                <div class="q-item__label">
+                  <div class="relative-position q-mb-sm"><label for="f_80808080-8080-4080-8080-808080808080" class="q-field q-validation-component row no-wrap items-start q-textarea q-textarea--autogrow q-field--filled q-field--square q-field--dense q-field--with-bottom">
+                      <div class="q-field__inner relative-position col self-stretch column justify-center">
+                        <div tabindex="-1" class="q-field__control relative-position row no-wrap">
+                          <div class="q-field__control-container col relative-position row no-wrap q-anchor--skip"><textarea tabindex="0" rows="1" placeholder="Write a message..." id="f_80808080-8080-4080-8080-808080808080" type="textarea" class="q-field__native q-placeholder" style="min-height:unset;max-height:320px;"></textarea></div>
+                          <div class="q-field__append q-field__marginal row no-wrap items-center"><button tabindex="0" type="button" role="button" class="q-btn q-btn-item non-selectable no-outline q-btn--flat q-btn--round q-btn--actionable q-focusable q-hoverable q-btn--wrap q-btn--dense"><span class="q-focus-helper"></span><span class="q-btn__wrapper col row q-anchor--skip"><span class="q-btn__content text-center col items-center q-anchor--skip justify-center row"><i aria-hidden="true" role="img" class="fas fa-image q-icon notranslate"> </i></span></span></button>
+                            <!---->
+                            <!---->
+                          </div>
+                        </div>
+                        <div class="q-field__bottom row items-start q-field__bottom--animated">
+                          <transition-stub name="q-transition--field-message">
+                            <div class="q-field__messages col"></div>
+                          </transition-stub>
                         </div>
                       </div>
-                      <div class="q-field__bottom row items-start q-field__bottom--animated">
-                        <transition-stub name="q-transition--field-message">
-                          <div class="q-field__messages col"></div>
-                        </transition-stub>
-                      </div>
-                    </div>
-                  </label>
-                  <!---->
+                    </label>
+                    <!---->
+                  </div>
                 </div>
+                <!---->
               </div>
-              <!---->
             </div>
+            <!---->
           </div>
           <!---->
         </div>
@@ -10490,35 +10560,38 @@ exports[`Storyshots WallConversation default 1`] = `
 <div>
   <div class="q-infinite-scroll">
     <div class="bg-white desktop-margin relative-position q-pb-md q-list q-list--bordered"><button tabindex="0" type="button" role="button" title="How do you want to receive notifications about new messages in this conversation/thread?" class="q-btn q-btn-item non-selectable no-outline actionButton q-btn--standard q-btn--round bg-grey-8 text-white q-btn--actionable q-focusable q-hoverable q-btn--wrap"><span class="q-focus-helper"></span><span class="q-btn__wrapper col row q-anchor--skip"><span class="q-btn__content text-center col items-center q-anchor--skip justify-center row"><i aria-hidden="true" role="presentation" class="fas fa-fw fa-bell q-icon notranslate" style="font-size:1.4em;"> </i> <!----></span></span></button>
-      <div class="q-item q-item-type row no-wrap">
-        <div class="q-item__section column q-mt-xs q-pr-sm q-item__section--top q-item__section--side justify-start">
-          <div class="wrapper" style="width:40px;height:40px;"><a title="Current User">
-              <div text="Current User" seed="5" class="randomArt fill"></div>
-            </a></div>
-        </div>
-        <div class="q-item__section column q-item__section--main justify-center">
-          <div class="q-item__label">
-            <div class="relative-position q-mb-sm"><label for="f_80808080-8080-4080-8080-808080808080" class="q-field q-validation-component row no-wrap items-start q-textarea q-textarea--autogrow q-field--standard q-field--dense q-field--with-bottom">
-                <div class="q-field__inner relative-position col self-stretch column justify-center">
-                  <div tabindex="-1" class="q-field__control relative-position row no-wrap">
-                    <div class="q-field__control-container col relative-position row no-wrap q-anchor--skip"><textarea tabindex="0" rows="1" placeholder="Write a message..." id="f_80808080-8080-4080-8080-808080808080" type="textarea" class="q-field__native q-placeholder" style="min-height:unset;max-height:320px;"></textarea></div>
-                    <div class="q-field__append q-field__marginal row no-wrap items-center">
-                      <!---->
-                      <!---->
+      <div>
+        <div class="q-item q-item-type row no-wrap">
+          <div class="q-item__section column q-mt-xs q-pr-sm q-item__section--top q-item__section--side justify-start">
+            <div class="wrapper" style="width:40px;height:40px;"><a title="Current User">
+                <div text="Current User" seed="5" class="randomArt fill"></div>
+              </a></div>
+          </div>
+          <div class="q-item__section column q-item__section--main justify-center">
+            <div class="q-item__label">
+              <div class="relative-position q-mb-sm"><label for="f_80808080-8080-4080-8080-808080808080" class="q-field q-validation-component row no-wrap items-start q-textarea q-textarea--autogrow q-field--standard q-field--dense q-field--with-bottom">
+                  <div class="q-field__inner relative-position col self-stretch column justify-center">
+                    <div tabindex="-1" class="q-field__control relative-position row no-wrap">
+                      <div class="q-field__control-container col relative-position row no-wrap q-anchor--skip"><textarea tabindex="0" rows="1" placeholder="Write a message..." id="f_80808080-8080-4080-8080-808080808080" type="textarea" class="q-field__native q-placeholder" style="min-height:unset;max-height:320px;"></textarea></div>
+                      <div class="q-field__append q-field__marginal row no-wrap items-center"><button tabindex="0" type="button" role="button" class="q-btn q-btn-item non-selectable no-outline q-btn--flat q-btn--round q-btn--actionable q-focusable q-hoverable q-btn--wrap q-btn--dense"><span class="q-focus-helper"></span><span class="q-btn__wrapper col row q-anchor--skip"><span class="q-btn__content text-center col items-center q-anchor--skip justify-center row"><i aria-hidden="true" role="img" class="fas fa-image q-icon notranslate"> </i></span></span></button>
+                        <!---->
+                        <!---->
+                      </div>
+                    </div>
+                    <div class="q-field__bottom row items-start q-field__bottom--animated">
+                      <transition-stub name="q-transition--field-message">
+                        <div class="q-field__messages col"></div>
+                      </transition-stub>
                     </div>
                   </div>
-                  <div class="q-field__bottom row items-start q-field__bottom--animated">
-                    <transition-stub name="q-transition--field-message">
-                      <div class="q-field__messages col"></div>
-                    </transition-stub>
-                  </div>
-                </div>
-              </label>
-              <!---->
+                </label>
+                <!---->
+              </div>
             </div>
+            <!---->
           </div>
-          <!---->
         </div>
+        <!---->
       </div>
       <!---->
       <div class="q-item q-item-type row no-wrap conversation-message relative-position">
@@ -10542,6 +10615,7 @@ exports[`Storyshots WallConversation default 1`] = `
               <p>first messsage</p>
             </div>
           </div>
+          <!---->
           <!---->
           <div class="conversation-reactions row">
             <div class="reactions row"><button tabindex="0" type="button" role="button" title="Mira Bellenbaum reacted with :thumbsup:" class="q-btn q-btn-item non-selectable no-outline row no-wrap items-center reaction-box q-btn--flat q-btn--rectangle q-btn--actionable q-focusable q-hoverable q-btn--wrap q-btn--dense"><span class="q-focus-helper"></span><span class="q-btn__wrapper col row q-anchor--skip"><span class="q-btn__content text-center col items-center q-anchor--skip justify-center row"><div class="emoji"></div> <span class="reactions-number">1</span></span></span></button></div> <button tabindex="0" type="button" role="button" flat="" class="q-btn q-btn-item non-selectable no-outline add-button reaction-box q-btn--flat q-btn--rectangle text-black q-btn--actionable q-focusable q-hoverable q-btn--wrap q-btn--dense"><span class="q-focus-helper"></span><span class="q-btn__wrapper col row q-anchor--skip"><span class="q-btn__content text-center col items-center q-anchor--skip justify-center row"><span style="opacity:0.5;"><i class="far fa-smile"></i> +
@@ -10574,6 +10648,7 @@ exports[`Storyshots WallConversation default 1`] = `
             </div>
           </div>
           <!---->
+          <!---->
           <div class="conversation-reactions row">
             <div class="reactions row"><button tabindex="0" type="button" role="button" title="Mira Bellenbaum reacted with :thumbsup:" class="q-btn q-btn-item non-selectable no-outline row no-wrap items-center reaction-box q-btn--flat q-btn--rectangle q-btn--actionable q-focusable q-hoverable q-btn--wrap q-btn--dense"><span class="q-focus-helper"></span><span class="q-btn__wrapper col row q-anchor--skip"><span class="q-btn__content text-center col items-center q-anchor--skip justify-center row"><div class="emoji"></div> <span class="reactions-number">1</span></span></span></button></div> <button tabindex="0" type="button" role="button" flat="" class="q-btn q-btn-item non-selectable no-outline add-button reaction-box q-btn--flat q-btn--rectangle text-black q-btn--actionable q-focusable q-hoverable q-btn--wrap q-btn--dense"><span class="q-focus-helper"></span><span class="q-btn__wrapper col row q-anchor--skip"><span class="q-btn__content text-center col items-center q-anchor--skip justify-center row"><span style="opacity:0.5;"><i class="far fa-smile"></i> +
   </span>
@@ -10604,6 +10679,7 @@ exports[`Storyshots WallConversation default 1`] = `
               <p>first messsage</p>
             </div>
           </div>
+          <!---->
           <!---->
           <div class="conversation-reactions row">
             <div class="reactions row"><button tabindex="0" type="button" role="button" title="Mira Bellenbaum reacted with :thumbsup:" class="q-btn q-btn-item non-selectable no-outline row no-wrap items-center reaction-box q-btn--flat q-btn--rectangle q-btn--actionable q-focusable q-hoverable q-btn--wrap q-btn--dense"><span class="q-focus-helper"></span><span class="q-btn__wrapper col row q-anchor--skip"><span class="q-btn__content text-center col items-center q-anchor--skip justify-center row"><div class="emoji"></div> <span class="reactions-number">1</span></span></span></button></div> <button tabindex="0" type="button" role="button" flat="" class="q-btn q-btn-item non-selectable no-outline add-button reaction-box q-btn--flat q-btn--rectangle text-black q-btn--actionable q-focusable q-hoverable q-btn--wrap q-btn--dense"><span class="q-focus-helper"></span><span class="q-btn__wrapper col row q-anchor--skip"><span class="q-btn__content text-center col items-center q-anchor--skip justify-center row"><span style="opacity:0.5;"><i class="far fa-smile"></i> +
@@ -10636,6 +10712,7 @@ exports[`Storyshots WallConversation default 1`] = `
             </div>
           </div>
           <!---->
+          <!---->
           <div class="conversation-reactions row">
             <div class="reactions row"><button tabindex="0" type="button" role="button" title="Mira Bellenbaum reacted with :thumbsup:" class="q-btn q-btn-item non-selectable no-outline row no-wrap items-center reaction-box q-btn--flat q-btn--rectangle q-btn--actionable q-focusable q-hoverable q-btn--wrap q-btn--dense"><span class="q-focus-helper"></span><span class="q-btn__wrapper col row q-anchor--skip"><span class="q-btn__content text-center col items-center q-anchor--skip justify-center row"><div class="emoji"></div> <span class="reactions-number">1</span></span></span></button></div> <button tabindex="0" type="button" role="button" flat="" class="q-btn q-btn-item non-selectable no-outline add-button reaction-box q-btn--flat q-btn--rectangle text-black q-btn--actionable q-focusable q-hoverable q-btn--wrap q-btn--dense"><span class="q-focus-helper"></span><span class="q-btn__wrapper col row q-anchor--skip"><span class="q-btn__content text-center col items-center q-anchor--skip justify-center row"><span style="opacity:0.5;"><i class="far fa-smile"></i> +
   </span>
@@ -10666,6 +10743,7 @@ exports[`Storyshots WallConversation default 1`] = `
               <p>heyo!</p>
             </div>
           </div>
+          <!---->
           <!---->
           <div class="conversation-reactions row">
             <div class="reactions row"><button tabindex="0" type="button" role="button" title="Mira Bellenbaum reacted with :thumbsup:" class="q-btn q-btn-item non-selectable no-outline row no-wrap items-center reaction-box q-btn--flat q-btn--rectangle q-btn--actionable q-focusable q-hoverable q-btn--wrap q-btn--dense"><span class="q-focus-helper"></span><span class="q-btn__wrapper col row q-anchor--skip"><span class="q-btn__content text-center col items-center q-anchor--skip justify-center row"><div class="emoji"></div> <span class="reactions-number">1</span></span></span></button></div> <button tabindex="0" type="button" role="button" flat="" class="q-btn q-btn-item non-selectable no-outline add-button reaction-box q-btn--flat q-btn--rectangle text-black q-btn--actionable q-focusable q-hoverable q-btn--wrap q-btn--dense"><span class="q-focus-helper"></span><span class="q-btn__wrapper col row q-anchor--skip"><span class="q-btn__content text-center col items-center q-anchor--skip justify-center row"><span style="opacity:0.5;"><i class="far fa-smile"></i> +
@@ -10698,6 +10776,7 @@ exports[`Storyshots WallConversation default 1`] = `
             </div>
           </div>
           <!---->
+          <!---->
           <div class="conversation-reactions row">
             <div class="reactions row"><button tabindex="0" type="button" role="button" title="Mira Bellenbaum reacted with :thumbsup:" class="q-btn q-btn-item non-selectable no-outline row no-wrap items-center reaction-box q-btn--flat q-btn--rectangle q-btn--actionable q-focusable q-hoverable q-btn--wrap q-btn--dense"><span class="q-focus-helper"></span><span class="q-btn__wrapper col row q-anchor--skip"><span class="q-btn__content text-center col items-center q-anchor--skip justify-center row"><div class="emoji"></div> <span class="reactions-number">1</span></span></span></button></div> <button tabindex="0" type="button" role="button" flat="" class="q-btn q-btn-item non-selectable no-outline add-button reaction-box q-btn--flat q-btn--rectangle text-black q-btn--actionable q-focusable q-hoverable q-btn--wrap q-btn--dense"><span class="q-focus-helper"></span><span class="q-btn__wrapper col row q-anchor--skip"><span class="q-btn__content text-center col items-center q-anchor--skip justify-center row"><span style="opacity:0.5;"><i class="far fa-smile"></i> +
   </span>
@@ -10728,6 +10807,7 @@ exports[`Storyshots WallConversation default 1`] = `
               <p>amazing!</p>
             </div>
           </div>
+          <!---->
           <!---->
           <div class="conversation-reactions row">
             <div class="reactions row"><button tabindex="0" type="button" role="button" title="Mira Bellenbaum reacted with :thumbsup:" class="q-btn q-btn-item non-selectable no-outline row no-wrap items-center reaction-box q-btn--flat q-btn--rectangle q-btn--actionable q-focusable q-hoverable q-btn--wrap q-btn--dense"><span class="q-focus-helper"></span><span class="q-btn__wrapper col row q-anchor--skip"><span class="q-btn__content text-center col items-center q-anchor--skip justify-center row"><div class="emoji"></div> <span class="reactions-number">1</span></span></span></button></div> <button tabindex="0" type="button" role="button" flat="" class="q-btn q-btn-item non-selectable no-outline add-button reaction-box q-btn--flat q-btn--rectangle text-black q-btn--actionable q-focusable q-hoverable q-btn--wrap q-btn--dense"><span class="q-focus-helper"></span><span class="q-btn__wrapper col row q-anchor--skip"><span class="q-btn__content text-center col items-center q-anchor--skip justify-center row"><span style="opacity:0.5;"><i class="far fa-smile"></i> +
@@ -10760,6 +10840,7 @@ exports[`Storyshots WallConversation default 1`] = `
             </div>
           </div>
           <!---->
+          <!---->
           <div class="conversation-reactions row">
             <div class="reactions row"><button tabindex="0" type="button" role="button" title="Mira Bellenbaum reacted with :thumbsup:" class="q-btn q-btn-item non-selectable no-outline row no-wrap items-center reaction-box q-btn--flat q-btn--rectangle q-btn--actionable q-focusable q-hoverable q-btn--wrap q-btn--dense"><span class="q-focus-helper"></span><span class="q-btn__wrapper col row q-anchor--skip"><span class="q-btn__content text-center col items-center q-anchor--skip justify-center row"><div class="emoji"></div> <span class="reactions-number">1</span></span></span></button></div> <button tabindex="0" type="button" role="button" flat="" class="q-btn q-btn-item non-selectable no-outline add-button reaction-box q-btn--flat q-btn--rectangle text-black q-btn--actionable q-focusable q-hoverable q-btn--wrap q-btn--dense"><span class="q-focus-helper"></span><span class="q-btn__wrapper col row q-anchor--skip"><span class="q-btn__content text-center col items-center q-anchor--skip justify-center row"><span style="opacity:0.5;"><i class="far fa-smile"></i> +
   </span>
@@ -10790,6 +10871,7 @@ exports[`Storyshots WallConversation default 1`] = `
               <p>I dont think we need to implement another UI, this is fine right?</p>
             </div>
           </div>
+          <!---->
           <!---->
           <div class="conversation-reactions row">
             <div class="reactions row"><button tabindex="0" type="button" role="button" title="Mira Bellenbaum reacted with :thumbsup:" class="q-btn q-btn-item non-selectable no-outline row no-wrap items-center reaction-box q-btn--flat q-btn--rectangle q-btn--actionable q-focusable q-hoverable q-btn--wrap q-btn--dense"><span class="q-focus-helper"></span><span class="q-btn__wrapper col row q-anchor--skip"><span class="q-btn__content text-center col items-center q-anchor--skip justify-center row"><div class="emoji"></div> <span class="reactions-number">1</span></span></span></button></div> <button tabindex="0" type="button" role="button" flat="" class="q-btn q-btn-item non-selectable no-outline add-button reaction-box q-btn--flat q-btn--rectangle text-black q-btn--actionable q-focusable q-hoverable q-btn--wrap q-btn--dense"><span class="q-focus-helper"></span><span class="q-btn__wrapper col row q-anchor--skip"><span class="q-btn__content text-center col items-center q-anchor--skip justify-center row"><span style="opacity:0.5;"><i class="far fa-smile"></i> +
@@ -10823,35 +10905,38 @@ exports[`Storyshots WallConversation unread 1`] = `
 <div>
   <div class="q-infinite-scroll">
     <div class="bg-white desktop-margin relative-position q-pb-md q-list q-list--bordered"><button tabindex="0" type="button" role="button" title="How do you want to receive notifications about new messages in this conversation/thread?" class="q-btn q-btn-item non-selectable no-outline actionButton q-btn--standard q-btn--round bg-grey-8 text-white q-btn--actionable q-focusable q-hoverable q-btn--wrap"><span class="q-focus-helper"></span><span class="q-btn__wrapper col row q-anchor--skip"><span class="q-btn__content text-center col items-center q-anchor--skip justify-center row"><i aria-hidden="true" role="presentation" class="fas fa-fw fa-bell q-icon notranslate" style="font-size:1.4em;"> </i> <!----></span></span></button>
-      <div class="q-item q-item-type row no-wrap">
-        <div class="q-item__section column q-mt-xs q-pr-sm q-item__section--top q-item__section--side justify-start">
-          <div class="wrapper" style="width:40px;height:40px;"><a title="Current User">
-              <div text="Current User" seed="5" class="randomArt fill"></div>
-            </a></div>
-        </div>
-        <div class="q-item__section column q-item__section--main justify-center">
-          <div class="q-item__label">
-            <div class="relative-position q-mb-sm"><label for="f_80808080-8080-4080-8080-808080808080" class="q-field q-validation-component row no-wrap items-start q-textarea q-textarea--autogrow q-field--standard q-field--dense q-field--with-bottom">
-                <div class="q-field__inner relative-position col self-stretch column justify-center">
-                  <div tabindex="-1" class="q-field__control relative-position row no-wrap">
-                    <div class="q-field__control-container col relative-position row no-wrap q-anchor--skip"><textarea tabindex="0" rows="1" placeholder="Write a message..." id="f_80808080-8080-4080-8080-808080808080" type="textarea" class="q-field__native q-placeholder" style="min-height:unset;max-height:320px;"></textarea></div>
-                    <div class="q-field__append q-field__marginal row no-wrap items-center">
-                      <!---->
-                      <!---->
+      <div>
+        <div class="q-item q-item-type row no-wrap">
+          <div class="q-item__section column q-mt-xs q-pr-sm q-item__section--top q-item__section--side justify-start">
+            <div class="wrapper" style="width:40px;height:40px;"><a title="Current User">
+                <div text="Current User" seed="5" class="randomArt fill"></div>
+              </a></div>
+          </div>
+          <div class="q-item__section column q-item__section--main justify-center">
+            <div class="q-item__label">
+              <div class="relative-position q-mb-sm"><label for="f_80808080-8080-4080-8080-808080808080" class="q-field q-validation-component row no-wrap items-start q-textarea q-textarea--autogrow q-field--standard q-field--dense q-field--with-bottom">
+                  <div class="q-field__inner relative-position col self-stretch column justify-center">
+                    <div tabindex="-1" class="q-field__control relative-position row no-wrap">
+                      <div class="q-field__control-container col relative-position row no-wrap q-anchor--skip"><textarea tabindex="0" rows="1" placeholder="Write a message..." id="f_80808080-8080-4080-8080-808080808080" type="textarea" class="q-field__native q-placeholder" style="min-height:unset;max-height:320px;"></textarea></div>
+                      <div class="q-field__append q-field__marginal row no-wrap items-center"><button tabindex="0" type="button" role="button" class="q-btn q-btn-item non-selectable no-outline q-btn--flat q-btn--round q-btn--actionable q-focusable q-hoverable q-btn--wrap q-btn--dense"><span class="q-focus-helper"></span><span class="q-btn__wrapper col row q-anchor--skip"><span class="q-btn__content text-center col items-center q-anchor--skip justify-center row"><i aria-hidden="true" role="img" class="fas fa-image q-icon notranslate"> </i></span></span></button>
+                        <!---->
+                        <!---->
+                      </div>
+                    </div>
+                    <div class="q-field__bottom row items-start q-field__bottom--animated">
+                      <transition-stub name="q-transition--field-message">
+                        <div class="q-field__messages col"></div>
+                      </transition-stub>
                     </div>
                   </div>
-                  <div class="q-field__bottom row items-start q-field__bottom--animated">
-                    <transition-stub name="q-transition--field-message">
-                      <div class="q-field__messages col"></div>
-                    </transition-stub>
-                  </div>
-                </div>
-              </label>
-              <!---->
+                </label>
+                <!---->
+              </div>
             </div>
+            <!---->
           </div>
-          <!---->
         </div>
+        <!---->
       </div>
       <div role="alert" class="q-banner row items-center bg-secondary text-white q-mt-sm" style="min-height:unset;">
         <div class="q-banner__avatar col-auto row items-center self-start"><i aria-hidden="true" role="presentation" class="material-icons q-icon notranslate text-white" style="font-size:1.5em;">star</i></div>
@@ -10882,6 +10967,7 @@ exports[`Storyshots WallConversation unread 1`] = `
               <p>first messsage</p>
             </div>
           </div>
+          <!---->
           <!---->
           <div class="conversation-reactions row">
             <div class="reactions row"><button tabindex="0" type="button" role="button" title="Mira Bellenbaum reacted with :thumbsup:" class="q-btn q-btn-item non-selectable no-outline row no-wrap items-center reaction-box q-btn--flat q-btn--rectangle q-btn--actionable q-focusable q-hoverable q-btn--wrap q-btn--dense"><span class="q-focus-helper"></span><span class="q-btn__wrapper col row q-anchor--skip"><span class="q-btn__content text-center col items-center q-anchor--skip justify-center row"><div class="emoji"></div> <span class="reactions-number">1</span></span></span></button></div> <button tabindex="0" type="button" role="button" flat="" class="q-btn q-btn-item non-selectable no-outline add-button reaction-box q-btn--flat q-btn--rectangle text-black q-btn--actionable q-focusable q-hoverable q-btn--wrap q-btn--dense"><span class="q-focus-helper"></span><span class="q-btn__wrapper col row q-anchor--skip"><span class="q-btn__content text-center col items-center q-anchor--skip justify-center row"><span style="opacity:0.5;"><i class="far fa-smile"></i> +
@@ -10914,6 +11000,7 @@ exports[`Storyshots WallConversation unread 1`] = `
             </div>
           </div>
           <!---->
+          <!---->
           <div class="conversation-reactions row">
             <div class="reactions row"><button tabindex="0" type="button" role="button" title="Mira Bellenbaum reacted with :thumbsup:" class="q-btn q-btn-item non-selectable no-outline row no-wrap items-center reaction-box q-btn--flat q-btn--rectangle q-btn--actionable q-focusable q-hoverable q-btn--wrap q-btn--dense"><span class="q-focus-helper"></span><span class="q-btn__wrapper col row q-anchor--skip"><span class="q-btn__content text-center col items-center q-anchor--skip justify-center row"><div class="emoji"></div> <span class="reactions-number">1</span></span></span></button></div> <button tabindex="0" type="button" role="button" flat="" class="q-btn q-btn-item non-selectable no-outline add-button reaction-box q-btn--flat q-btn--rectangle text-black q-btn--actionable q-focusable q-hoverable q-btn--wrap q-btn--dense"><span class="q-focus-helper"></span><span class="q-btn__wrapper col row q-anchor--skip"><span class="q-btn__content text-center col items-center q-anchor--skip justify-center row"><span style="opacity:0.5;"><i class="far fa-smile"></i> +
   </span>
@@ -10944,6 +11031,7 @@ exports[`Storyshots WallConversation unread 1`] = `
               <p>first messsage</p>
             </div>
           </div>
+          <!---->
           <!---->
           <div class="conversation-reactions row">
             <div class="reactions row"><button tabindex="0" type="button" role="button" title="Mira Bellenbaum reacted with :thumbsup:" class="q-btn q-btn-item non-selectable no-outline row no-wrap items-center reaction-box q-btn--flat q-btn--rectangle q-btn--actionable q-focusable q-hoverable q-btn--wrap q-btn--dense"><span class="q-focus-helper"></span><span class="q-btn__wrapper col row q-anchor--skip"><span class="q-btn__content text-center col items-center q-anchor--skip justify-center row"><div class="emoji"></div> <span class="reactions-number">1</span></span></span></button></div> <button tabindex="0" type="button" role="button" flat="" class="q-btn q-btn-item non-selectable no-outline add-button reaction-box q-btn--flat q-btn--rectangle text-black q-btn--actionable q-focusable q-hoverable q-btn--wrap q-btn--dense"><span class="q-focus-helper"></span><span class="q-btn__wrapper col row q-anchor--skip"><span class="q-btn__content text-center col items-center q-anchor--skip justify-center row"><span style="opacity:0.5;"><i class="far fa-smile"></i> +
@@ -10976,6 +11064,7 @@ exports[`Storyshots WallConversation unread 1`] = `
             </div>
           </div>
           <!---->
+          <!---->
           <div class="conversation-reactions row">
             <div class="reactions row"><button tabindex="0" type="button" role="button" title="Mira Bellenbaum reacted with :thumbsup:" class="q-btn q-btn-item non-selectable no-outline row no-wrap items-center reaction-box q-btn--flat q-btn--rectangle q-btn--actionable q-focusable q-hoverable q-btn--wrap q-btn--dense"><span class="q-focus-helper"></span><span class="q-btn__wrapper col row q-anchor--skip"><span class="q-btn__content text-center col items-center q-anchor--skip justify-center row"><div class="emoji"></div> <span class="reactions-number">1</span></span></span></button></div> <button tabindex="0" type="button" role="button" flat="" class="q-btn q-btn-item non-selectable no-outline add-button reaction-box q-btn--flat q-btn--rectangle text-black q-btn--actionable q-focusable q-hoverable q-btn--wrap q-btn--dense"><span class="q-focus-helper"></span><span class="q-btn__wrapper col row q-anchor--skip"><span class="q-btn__content text-center col items-center q-anchor--skip justify-center row"><span style="opacity:0.5;"><i class="far fa-smile"></i> +
   </span>
@@ -11006,6 +11095,7 @@ exports[`Storyshots WallConversation unread 1`] = `
               <p>heyo!</p>
             </div>
           </div>
+          <!---->
           <!---->
           <div class="conversation-reactions row">
             <div class="reactions row"><button tabindex="0" type="button" role="button" title="Mira Bellenbaum reacted with :thumbsup:" class="q-btn q-btn-item non-selectable no-outline row no-wrap items-center reaction-box q-btn--flat q-btn--rectangle q-btn--actionable q-focusable q-hoverable q-btn--wrap q-btn--dense"><span class="q-focus-helper"></span><span class="q-btn__wrapper col row q-anchor--skip"><span class="q-btn__content text-center col items-center q-anchor--skip justify-center row"><div class="emoji"></div> <span class="reactions-number">1</span></span></span></button></div> <button tabindex="0" type="button" role="button" flat="" class="q-btn q-btn-item non-selectable no-outline add-button reaction-box q-btn--flat q-btn--rectangle text-black q-btn--actionable q-focusable q-hoverable q-btn--wrap q-btn--dense"><span class="q-focus-helper"></span><span class="q-btn__wrapper col row q-anchor--skip"><span class="q-btn__content text-center col items-center q-anchor--skip justify-center row"><span style="opacity:0.5;"><i class="far fa-smile"></i> +
@@ -11038,6 +11128,7 @@ exports[`Storyshots WallConversation unread 1`] = `
             </div>
           </div>
           <!---->
+          <!---->
           <div class="conversation-reactions row">
             <div class="reactions row"><button tabindex="0" type="button" role="button" title="Mira Bellenbaum reacted with :thumbsup:" class="q-btn q-btn-item non-selectable no-outline row no-wrap items-center reaction-box q-btn--flat q-btn--rectangle q-btn--actionable q-focusable q-hoverable q-btn--wrap q-btn--dense"><span class="q-focus-helper"></span><span class="q-btn__wrapper col row q-anchor--skip"><span class="q-btn__content text-center col items-center q-anchor--skip justify-center row"><div class="emoji"></div> <span class="reactions-number">1</span></span></span></button></div> <button tabindex="0" type="button" role="button" flat="" class="q-btn q-btn-item non-selectable no-outline add-button reaction-box q-btn--flat q-btn--rectangle text-black q-btn--actionable q-focusable q-hoverable q-btn--wrap q-btn--dense"><span class="q-focus-helper"></span><span class="q-btn__wrapper col row q-anchor--skip"><span class="q-btn__content text-center col items-center q-anchor--skip justify-center row"><span style="opacity:0.5;"><i class="far fa-smile"></i> +
   </span>
@@ -11068,6 +11159,7 @@ exports[`Storyshots WallConversation unread 1`] = `
               <p>amazing!</p>
             </div>
           </div>
+          <!---->
           <!---->
           <div class="conversation-reactions row">
             <div class="reactions row"><button tabindex="0" type="button" role="button" title="Mira Bellenbaum reacted with :thumbsup:" class="q-btn q-btn-item non-selectable no-outline row no-wrap items-center reaction-box q-btn--flat q-btn--rectangle q-btn--actionable q-focusable q-hoverable q-btn--wrap q-btn--dense"><span class="q-focus-helper"></span><span class="q-btn__wrapper col row q-anchor--skip"><span class="q-btn__content text-center col items-center q-anchor--skip justify-center row"><div class="emoji"></div> <span class="reactions-number">1</span></span></span></button></div> <button tabindex="0" type="button" role="button" flat="" class="q-btn q-btn-item non-selectable no-outline add-button reaction-box q-btn--flat q-btn--rectangle text-black q-btn--actionable q-focusable q-hoverable q-btn--wrap q-btn--dense"><span class="q-focus-helper"></span><span class="q-btn__wrapper col row q-anchor--skip"><span class="q-btn__content text-center col items-center q-anchor--skip justify-center row"><span style="opacity:0.5;"><i class="far fa-smile"></i> +
@@ -11100,6 +11192,7 @@ exports[`Storyshots WallConversation unread 1`] = `
             </div>
           </div>
           <!---->
+          <!---->
           <div class="conversation-reactions row">
             <div class="reactions row"><button tabindex="0" type="button" role="button" title="Mira Bellenbaum reacted with :thumbsup:" class="q-btn q-btn-item non-selectable no-outline row no-wrap items-center reaction-box q-btn--flat q-btn--rectangle q-btn--actionable q-focusable q-hoverable q-btn--wrap q-btn--dense"><span class="q-focus-helper"></span><span class="q-btn__wrapper col row q-anchor--skip"><span class="q-btn__content text-center col items-center q-anchor--skip justify-center row"><div class="emoji"></div> <span class="reactions-number">1</span></span></span></button></div> <button tabindex="0" type="button" role="button" flat="" class="q-btn q-btn-item non-selectable no-outline add-button reaction-box q-btn--flat q-btn--rectangle text-black q-btn--actionable q-focusable q-hoverable q-btn--wrap q-btn--dense"><span class="q-focus-helper"></span><span class="q-btn__wrapper col row q-anchor--skip"><span class="q-btn__content text-center col items-center q-anchor--skip justify-center row"><span style="opacity:0.5;"><i class="far fa-smile"></i> +
   </span>
@@ -11130,6 +11223,7 @@ exports[`Storyshots WallConversation unread 1`] = `
               <p>I dont think we need to implement another UI, this is fine right?</p>
             </div>
           </div>
+          <!---->
           <!---->
           <div class="conversation-reactions row">
             <div class="reactions row"><button tabindex="0" type="button" role="button" title="Mira Bellenbaum reacted with :thumbsup:" class="q-btn q-btn-item non-selectable no-outline row no-wrap items-center reaction-box q-btn--flat q-btn--rectangle q-btn--actionable q-focusable q-hoverable q-btn--wrap q-btn--dense"><span class="q-focus-helper"></span><span class="q-btn__wrapper col row q-anchor--skip"><span class="q-btn__content text-center col items-center q-anchor--skip justify-center row"><div class="emoji"></div> <span class="reactions-number">1</span></span></span></button></div> <button tabindex="0" type="button" role="button" flat="" class="q-btn q-btn-item non-selectable no-outline add-button reaction-box q-btn--flat q-btn--rectangle text-black q-btn--actionable q-focusable q-hoverable q-btn--wrap q-btn--dense"><span class="q-focus-helper"></span><span class="q-btn__wrapper col row q-anchor--skip"><span class="q-btn__content text-center col items-center q-anchor--skip justify-center row"><span style="opacity:0.5;"><i class="far fa-smile"></i> +

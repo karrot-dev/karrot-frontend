@@ -5,7 +5,7 @@ import GroupSettings from '@/group/components/GroupSettings'
 export default connect({
   gettersToProps: {
     group: 'currentGroup/value',
-    groups: 'groups/mine',
+    groups: 'groups/mineWithApplications',
     status: 'unsubscribe/allEmailsPerGroupStatus',
     getNotificationTypeStatus: 'currentGroup/getNotificationTypeStatus',
   },

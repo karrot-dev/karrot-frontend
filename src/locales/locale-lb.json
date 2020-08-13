@@ -142,7 +142,7 @@
     "NEW": "Neit Ofkommes",
     "TITLE": "Titel",
     "TITLE_HELPER": "Gëff dengem Ofkommes een Titel, z.B. Gemeinschaftsreegeln",
-    "VIEW": "Ofkommes uweisen"
+    "VIEW": "Ofkommes weisen"
   },
   "APPLICATION": {
     "ACCEPTED": "Du hues {userName} an dëser Grupp ugeholl!",
@@ -192,7 +192,7 @@
     "SAVE_CHANGES": "Ännerunge späicheren",
     "SEARCH": "Sichen",
     "SHOW": "Weisen",
-    "SHOW_LESS": "Manner uweisen",
+    "SHOW_LESS": "Manner weisen",
     "SHOW_MORE": "Méi weisen",
     "SUBMIT": "Areechen",
     "UNSUBSCRIBE": "Desabonéieren",
@@ -350,7 +350,7 @@
         "NAME": "Neie Konflikt-Léisungsprozess"
       },
       "daily_activity_notification": {
-        "DESCRIPTION": "Erënnert dech un deng Ofhuelungen, a seet dir Bescheed iwwert Ofhuelungen, op déi nach keen oder net genuch Leit ginn, vun denge favoriséierte Platzen den nächsten Dag",
+        "DESCRIPTION": "Erënnert dech un deng Ofhuelungen, a seet dir Bescheed iwwert Ofhuelungen, op déi nach keng oder net genuch Leit ginn, vun denge favoriséierte Platzen den nächsten Dag",
         "NAME": "Benoriichtegungen iwwert Ofhuelungen"
       },
       "new_application": {
@@ -390,9 +390,9 @@
     "HIDE_PLACES": "Platze verstoppen",
     "HIDE_USERS": "Benotzer verstoppen",
     "SET_LOCATION": "Uert setzen",
-    "SHOW_GROUPS": "Gruppen uweisen",
-    "SHOW_PLACES": "Platzen uweisen",
-    "SHOW_USERS": "Benotzer uweisen",
+    "SHOW_GROUPS": "Gruppe weisen",
+    "SHOW_PLACES": "Platze weisen",
+    "SHOW_USERS": "Benotzer weisen",
     "TITLE": "Kaart"
   },
   "HISTORY": {
@@ -623,7 +623,7 @@
   "STOREDETAIL": {
     "ARCHIVED": "Dës Platz gouf archivéiert",
     "CHANGE_STATUS": "Du kanns de Status op der Säit mat den Astellungen änneren.",
-    "DIRECTIONS": "Weebeschreiwung uweisen",
+    "DIRECTIONS": "Weebeschreiwung weisen",
     "EDIT": "Platz veränneren",
     "INACTIVE": "Dës Platz kooperéiert grad net.",
     "NO_DESCRIPTION": "Dës Platz huet nach keng Beschreiwung."
@@ -640,8 +640,8 @@
     },
     "NAME": "Numm",
     "RESTORE": "Réckgäng maachen",
-    "SHOW_ACTIVE_ONLY": "Just déi aktiv Platzen uweisen",
-    "SHOW_ALL": "All d'Platzen uweisen",
+    "SHOW_ACTIVE_ONLY": "Just déi aktiv Platzen weisen",
+    "SHOW_ALL": "All d'Platze weisen",
     "STATUS": "Status",
     "WEEKS_IN_ADVANCE": "Wéi vill Wochen am Viraus sollen d'Ofhuelungen, déi ëmmer nees sinn, ugewise ginn?",
     "WEEKS_IN_ADVANCE_WARNING": "Du bass derbäi fir d'Unzuel u Wochen ze reduzéiere fir déi d'Ofhuelungen ugewise ginn. Ofhhuelunge fir déi sech nach keen agedroen huet wäerte geläscht ginn. Déi aner Ofhuelunge kanns de manuell desaktivéiere wann et néideg ass."
@@ -664,6 +664,7 @@
   "TOPBAR": {
     "CHANGE_GROUP": "Grupp veränneren",
     "LOGOUT": "Ausloggen",
+    "SHOW_ALL_GROUPS": "All d'Gruppe weisen",
     "USERPROFILE": "Kuck däi Profil"
   },
   "UNSUBSCRIBE": {
@@ -694,7 +695,7 @@
         "TITLE": "Läsche vum Konto"
       }
     },
-    "EMAIL": "E-Mail",
+    "EMAIL": "E-Mail-Adress",
     "FIRST_TRUST": "Sief déi éischt Persoun déi dem {userName} bei {groupName} vertraut!",
     "LOGOUT_SUCCESS": "Du bass ausgeloggt ginn!",
     "MOBILE_NUMBER": "Telefonsnummer",

@@ -40,17 +40,18 @@ export default {
     all: (state, getters, rootState, rootGetters) => {
       return Object.values(state.entries).map(getters.enrich)
     },
-    mine: (state, getters) => getters.all.filter(e => isMyGroup(e)).sort(applicationsFirstThenSortByName),
+    mineWithApplications: (state, getters) => getters.all.filter(myGroupsWithApplications).sort(applicationsFirstThenSortByName),
+    mine: (state, getters) => getters.all.filter(myGroups).sort(applicationsFirstThenSortByName),
     // A de-duplicated list of member ids of all groups the user is part of
     myMemberIds: (state, getters) => {
-      return Object.keys(getters.mine.reduce((obj, group) => {
+      return Object.keys(getters.mineWithApplications.reduce((obj, group) => {
         for (const member of group.members) {
           obj[member] = true
         }
         return obj
       }, {})).map(parseInt).sort()
     },
-    other: (state, getters) => getters.all.filter(e => !isMyGroup(e)).sort(sortByMemberCount),
+    other: (state, getters) => getters.all.filter(e => !myGroupsWithApplications(e)).sort(sortByMemberCount),
     activePreview: (state, getters) => getters.get(state.activePreviewId),
     saveStatus: (state, getters, rootState, rootGetters) => {
       const currentGroup = getters.get(rootGetters['currentGroup/id'])
@@ -145,6 +146,10 @@ function sortByMemberCount (a, b) {
   return b.members.length - a.members.length
 }
 
-function isMyGroup (group) {
+function myGroupsWithApplications (group) {
   return group.isMember || group.myApplicationPending
+}
+
+function myGroups (group) {
+  return group.isMember
 }

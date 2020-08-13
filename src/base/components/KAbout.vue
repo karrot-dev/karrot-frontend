@@ -1,7 +1,6 @@
 <template>
   <div
     class="bg-white q-pa-md"
-    @click="$emit('close')"
   >
     <div class="layout-padding">
       <div class="k-logo-container">
@@ -14,7 +13,7 @@
       <QList>
         <QItem
           tag="a"
-          rel="nofollow noopener noreferrer"
+          rel="noopener noreferrer"
           href="https://github.com/yunity/karrot-frontend"
           target="_blank"
         >
@@ -33,7 +32,23 @@
 
         <QItem
           tag="a"
-          rel="nofollow noopener noreferrer"
+          rel="noopener noreferrer"
+          href="https://fosstodon.org/@karrot"
+          target="_blank"
+        >
+          <QItemSection side>
+            <QIcon name="fab fa-fw fa-mastodon" />
+          </QItemSection>
+          <QItemSection>
+            <QItemLabel>
+              Mastodon
+            </QItemLabel>
+          </QItemSection>
+        </QItem>
+
+        <QItem
+          tag="a"
+          rel="noopener noreferrer"
           href="https://foodsaving.world"
           target="_blank"
         >
@@ -53,7 +68,7 @@
 
         <QItem
           tag="a"
-          rel="nofollow noopener noreferrer"
+          rel="noopener noreferrer"
           href="mailto:karrot@foodsaving.world"
         >
           <QItemSection side>

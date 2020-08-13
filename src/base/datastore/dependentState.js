@@ -14,6 +14,6 @@ export default datastore => {
     if (!datastore.getters['auth/isLoggedIn']) return
     datastore.dispatch('places/fetch', null, { root: true })
   }
-  const groupIdsGetter = () => datastore.getters['groups/mine'].map(group => group.id).sort().join(',')
+  const groupIdsGetter = () => datastore.getters['groups/mineWithApplications'].map(group => group.id).sort().join(',')
   datastore.watch(groupIdsGetter, updatePlaceList)
 }

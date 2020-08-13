@@ -128,12 +128,12 @@ describe('groups', () => {
     })
 
     it('can fetch my group list', async () => {
-      expect(datastore.getters['groups/mine'].map(e => e.id)).toEqual([group2.id, group3.id])
+      expect(datastore.getters['groups/mineWithApplications'].map(e => e.id)).toEqual([group2.id, group3.id])
     })
 
     it('can join a group', async () => {
       mockJoin.mockReturnValueOnce({})
-      expect(datastore.getters['groups/mine'].map(e => e.id)).toEqual([group2.id, group3.id])
+      expect(datastore.getters['groups/mineWithApplications'].map(e => e.id)).toEqual([group2.id, group3.id])
       await datastore.dispatch('groups/join', group1.id)
       expect(mockRouterPush).toBeCalledWith({ name: 'group', params: { groupId: group1.id } })
       expect(mockJoin).toBeCalledWith(group1.id)
@@ -141,7 +141,7 @@ describe('groups', () => {
 
     it('can leave a group', async () => {
       mockLeave.mockReturnValueOnce({})
-      expect(datastore.getters['groups/mine'].map(e => e.id)).toEqual([group2.id, group3.id])
+      expect(datastore.getters['groups/mineWithApplications'].map(e => e.id)).toEqual([group2.id, group3.id])
       await datastore.dispatch('groups/leave', group2.id)
       expect(mockLeave).toBeCalledWith(group2.id)
       expect(auth.actions.maybeBackgroundSave).toBeCalled()
@@ -191,7 +191,7 @@ describe('groups', () => {
     })
 
     it('can get myGroups', () => {
-      expect(datastore.getters['groups/mine']).toEqual([group2, group3].map(enrichAsMember))
+      expect(datastore.getters['groups/mineWithApplications']).toEqual([group2, group3].map(enrichAsMember))
     })
 
     it('can get otherGroups', () => {

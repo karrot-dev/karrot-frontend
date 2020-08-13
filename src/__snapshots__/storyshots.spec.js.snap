@@ -3646,31 +3646,34 @@ exports[`Storyshots ConversationCompose default 1`] = `
 `;
 
 exports[`Storyshots ConversationCompose edit 1`] = `
-<div class="q-item q-item-type row no-wrap">
-  <div class="q-item__section column q-mt-xs q-pr-sm q-item__section--top q-item__section--side justify-start">
-    <div class="wrapper" style="width:40px;height:40px;"><a title="User 77">
-        <div text="User 77" seed="77" class="randomArt fill"></div>
-      </a></div>
-  </div>
-  <div class="q-item__section column q-item__section--main justify-center">
-    <div class="q-item__label">
-      <div class="relative-position q-mb-sm"><label for="f_80808080-8080-4080-8080-808080808080" class="q-field q-validation-component row no-wrap items-start q-textarea q-textarea--autogrow q-field--standard q-field--float q-field--dense q-field--with-bottom">
-          <div class="q-field__inner relative-position col self-stretch column justify-center">
-            <div tabindex="-1" class="q-field__control relative-position row no-wrap">
-              <div class="q-field__control-container col relative-position row no-wrap q-anchor--skip"><textarea tabindex="0" rows="1" placeholder="Type here" id="f_80808080-8080-4080-8080-808080808080" type="textarea" class="q-field__native q-placeholder" style="min-height:unset;max-height:320px;">existing text</textarea></div>
-              <div class="q-field__append q-field__marginal row no-wrap items-center"><button tabindex="0" type="button" role="button" class="q-btn q-btn-item non-selectable no-outline q-btn--flat q-btn--round q-btn--actionable q-focusable q-hoverable q-btn--wrap q-btn--dense"><span class="q-focus-helper"></span><span class="q-btn__wrapper col row q-anchor--skip"><span class="q-btn__content text-center col items-center q-anchor--skip justify-center row"><i aria-hidden="true" role="img" class="fas fa-arrow-right q-icon notranslate"> </i></span></span></button> <button tabindex="0" type="button" role="button" class="q-btn q-btn-item non-selectable no-outline q-btn--flat q-btn--round q-btn--actionable q-focusable q-hoverable q-btn--wrap q-btn--dense"><span class="q-focus-helper"></span><span class="q-btn__wrapper col row q-anchor--skip"><span class="q-btn__content text-center col items-center q-anchor--skip justify-center row"><i aria-hidden="true" role="img" class="fas fa-times q-icon notranslate"> </i></span></span></button></div>
-            </div>
-            <div class="q-field__bottom row items-start q-field__bottom--animated">
-              <transition-stub name="q-transition--field-message">
-                <div class="q-field__messages col"></div>
-              </transition-stub>
-            </div>
-          </div>
-        </label> <button tabindex="0" type="button" role="button" class="q-btn q-btn-item non-selectable no-outline absolute-bottom-right bg-white q-btn--outline q-btn--rectangle text-primary q-btn--actionable q-focusable q-hoverable q-btn--wrap" style="font-size:8px;bottom:-10px;"><span class="q-focus-helper"></span><span class="q-btn__wrapper col row q-anchor--skip"><span class="q-btn__content text-center col items-center q-anchor--skip justify-center row"><span class="block">Preview</span>
-          <!----></span></span></button></div>
+<div>
+  <div class="q-item q-item-type row no-wrap">
+    <div class="q-item__section column q-mt-xs q-pr-sm q-item__section--top q-item__section--side justify-start">
+      <div class="wrapper" style="width:40px;height:40px;"><a title="User 77">
+          <div text="User 77" seed="77" class="randomArt fill"></div>
+        </a></div>
     </div>
-    <!---->
+    <div class="q-item__section column q-item__section--main justify-center">
+      <div class="q-item__label">
+        <div class="relative-position q-mb-sm"><label for="f_80808080-8080-4080-8080-808080808080" class="q-field q-validation-component row no-wrap items-start q-textarea q-textarea--autogrow q-field--standard q-field--float q-field--dense q-field--with-bottom">
+            <div class="q-field__inner relative-position col self-stretch column justify-center">
+              <div tabindex="-1" class="q-field__control relative-position row no-wrap">
+                <div class="q-field__control-container col relative-position row no-wrap q-anchor--skip"><textarea tabindex="0" rows="1" placeholder="Type here" id="f_80808080-8080-4080-8080-808080808080" type="textarea" class="q-field__native q-placeholder" style="min-height:unset;max-height:320px;">existing text</textarea></div>
+                <div class="q-field__append q-field__marginal row no-wrap items-center"><button tabindex="0" type="button" role="button" class="q-btn q-btn-item non-selectable no-outline q-btn--flat q-btn--round q-btn--actionable q-focusable q-hoverable q-btn--wrap q-btn--dense"><span class="q-focus-helper"></span><span class="q-btn__wrapper col row q-anchor--skip"><span class="q-btn__content text-center col items-center q-anchor--skip justify-center row"><i aria-hidden="true" role="img" class="fas fa-image q-icon notranslate"> </i></span></span></button> <button tabindex="0" type="button" role="button" class="q-btn q-btn-item non-selectable no-outline q-btn--flat q-btn--round q-btn--actionable q-focusable q-hoverable q-btn--wrap q-btn--dense"><span class="q-focus-helper"></span><span class="q-btn__wrapper col row q-anchor--skip"><span class="q-btn__content text-center col items-center q-anchor--skip justify-center row"><i aria-hidden="true" role="img" class="fas fa-arrow-right q-icon notranslate"> </i></span></span></button> <button tabindex="0" type="button" role="button" class="q-btn q-btn-item non-selectable no-outline q-btn--flat q-btn--round q-btn--actionable q-focusable q-hoverable q-btn--wrap q-btn--dense"><span class="q-focus-helper"></span><span class="q-btn__wrapper col row q-anchor--skip"><span class="q-btn__content text-center col items-center q-anchor--skip justify-center row"><i aria-hidden="true" role="img" class="fas fa-times q-icon notranslate"> </i></span></span></button></div>
+              </div>
+              <div class="q-field__bottom row items-start q-field__bottom--animated">
+                <transition-stub name="q-transition--field-message">
+                  <div class="q-field__messages col"></div>
+                </transition-stub>
+              </div>
+            </div>
+          </label> <button tabindex="0" type="button" role="button" class="q-btn q-btn-item non-selectable no-outline absolute-bottom-right bg-white q-btn--outline q-btn--rectangle text-primary q-btn--actionable q-focusable q-hoverable q-btn--wrap" style="font-size:8px;bottom:-10px;"><span class="q-focus-helper"></span><span class="q-btn__wrapper col row q-anchor--skip"><span class="q-btn__content text-center col items-center q-anchor--skip justify-center row"><span class="block">Preview</span>
+            <!----></span></span></button></div>
+      </div>
+      <!---->
+    </div>
   </div>
+  <!---->
 </div>
 `;
 

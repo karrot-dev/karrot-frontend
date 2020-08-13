@@ -213,16 +213,18 @@ export default {
         })
       }
     },
-    sendMessage (message) {
+    sendMessage ({ content, images }) {
       const data = this.conversation.thread
         ? {
-          ...message,
           id: this.conversation.conversation,
+          content,
+          images,
           threadId: this.conversation.id,
         }
         : {
-          ...message,
           id: this.conversation.id,
+          content,
+          images,
         }
       this.$emit('send', data)
     },

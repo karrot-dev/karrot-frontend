@@ -13,6 +13,7 @@
         :ref="croppaRefFor(item)"
         :initial-image="initialImageFor(item)"
         :passive="isExisting(item)"
+        :quality="small ? 8 : 4"
         placeholder=""
         prevent-white-space
         :show-remove-button="false"

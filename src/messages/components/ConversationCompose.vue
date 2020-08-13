@@ -67,6 +67,13 @@
       </QItemSection>
     </QItem>
     <QItem v-if="showImages">
+      <QItemSection
+        v-if="!slim"
+        side
+        top
+        class="q-mt-xs q-pr-sm"
+        style="width: 40px;"
+      />
       <QItemSection>
         <MultiCroppa
           ref="multiCroppa"

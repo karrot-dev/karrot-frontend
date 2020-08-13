@@ -1,7 +1,7 @@
 <template>
   <QItem
     v-if="!editMode"
-    :class="{ isUnread: message.isUnread, slim, continuation: !!message.continuation }"
+    :class="{ isUnread: message.isUnread, slim, continuation: !!message.continuation, hasImages: imagesForDisplay.length > 0 }"
     class="conversation-message relative-position"
   >
     <QBtnGroup
@@ -255,6 +255,9 @@ export default {
 .continuation
   min-height auto
   padding-top 0
+
+.hasImages + .continuation
+  padding-top 8px
 
 body.mobile .conversation-message
   .k-message-meta

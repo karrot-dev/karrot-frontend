@@ -279,6 +279,9 @@ export default {
 </script>
 
 <style scoped lang="stylus">
+.croppa-container.croppa--has-target
+  cursor move
+
 .small
   .croppa-item
     width 80px

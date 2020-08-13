@@ -3,6 +3,7 @@
     <QList>
       <QItem
         v-if="users.length > 1"
+        v-t="{ path: 'GROUP.MEMBERLIST', args: { total: users.length } }"
         class="text-caption"
       >
         {{ activeUsersCount }}
@@ -126,9 +127,6 @@ export default {
   computed: {
     inactiveSublabel () {
       return this.inactiveUsers.length + ' ' + this.$tc('JOINGROUP.NUM_MEMBERS', this.inactiveUsers.length)
-    },
-    activeUsersCount () {
-      return this.$t('GROUP.MEMBERLIST', { total: this.users.length })
     },
     activeUsers () {
       return this.sort(this.filterByTerms(this.users.filter(u => u.membership.active)))

@@ -403,6 +403,7 @@
     "ACTIVITY_ENABLE": "enabled a pickup",
     "ACTIVITY_JOIN": "signed up to do a pick-up at {storeName}",
     "ACTIVITY_LEAVE": "stepped back from doing a pick-up at {storeName}",
+    "ACTIVITY_LEAVE_DISTANCE": "{distance} before scheduled time",
     "ACTIVITY_MISSED": "A pickup at {storeName} was missed!",
     "ACTIVITY_MODIFY": "changed the settings of a pick-up",
     "APPLICATION_DECLINED": "declined an application from {applicantName}",

@@ -27,6 +27,16 @@
               :date="entry.date"
               style="display: inline"
             />
+            <template v-if="entry.typus === 'ACTIVITY_LEAVE'">
+              (<em
+                v-t="{
+                  path: 'HISTORY.ACTIVITY_LEAVE_DISTANCE',
+                  args: {
+                    distance: formatDistanceStrict(entry.date, activityPayload.date),
+                  }
+                }"
+              />)
+            </template>
           </QItemLabel>
         </QItemSection>
       </QItem>
@@ -81,6 +91,20 @@
             <RouterLink :to="{name: 'place', params: { groupId: entry.place.group.id, placeId: entry.place.id }}">
               {{ entry.place.name }}
             </RouterLink>
+          </QItemLabel>
+        </QItemSection>
+      </QItem>
+
+      <QItem
+        v-if="activityPayload"
+      >
+        <QItemSection side>
+          <QIcon :name="$icon('activity_fw')" />
+        </QItemSection>
+        <QItemSection>
+          <QItemLabel>
+            {{ $d(activityPayload.date, 'long') }}
+            <template v-if="activityPayload.hasDuration"> &mdash; {{ $d(activityPayload.dateEnd, 'hourMinute') }}</template>
           </QItemLabel>
         </QItemSection>
       </QItem>
@@ -161,9 +185,23 @@ export default {
       raw: false,
     }
   },
+  computed: {
+    activityPayload () {
+      if ([
+        'ACTIVITY_JOIN',
+        'ACTIVITY_LEAVE',
+      ].includes(this.entry.typus)) {
+        return convertActivity(this.entry.payload)
+      }
+      return null
+    },
+  },
   methods: {
     toggleRaw () {
       this.raw = !this.raw
+    },
+    formatDistanceStrict (...args) {
+      return dateFnsHelper.formatDistanceStrict(...args)
     },
   },
 }

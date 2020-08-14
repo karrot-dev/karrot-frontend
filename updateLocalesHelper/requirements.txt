@@ -13,6 +13,6 @@ python-slugify==1.2.6     # via transifex-client
 requests==2.22.0          # via transifex-client
 six==1.11.0               # via transifex-client
 smmap==3.0.4              # via gitdb
-transifex-client==0.13.10  # via -r requirements.in
+transifex-client==0.13.11  # via -r requirements.in
 unidecode==1.1.1          # via python-slugify
 urllib3==1.25.7           # via requests, transifex-client

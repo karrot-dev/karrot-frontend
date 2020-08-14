@@ -24,7 +24,7 @@
   >
     <QItemSection>
       <QItemLabel>
-        {{ $d(new Date(Array.isArray(value) ? value[0] : value), 'long') }}
+        {{ $d(firstValue, 'long') }}
       </QItemLabel>
       <QItemLabel caption>
         {{ $t('CREATEACTIVITY.DATE') }}
@@ -37,9 +37,14 @@
   >
     <QItemSection>
       <QItemLabel
-        v-if="value"
+        v-if="value !== null || value !== undefined"
       >
-        {{ value }}
+        <template v-if="firstValue instanceof Date">
+          {{ $d(firstValue, 'long') }}
+        </template>
+        <template v-else>
+          {{ value }}
+        </template>
       </QItemLabel>
       <QItemLabel
         v-else
@@ -71,11 +76,14 @@ export default {
       type: String,
     },
     value: {
-      type: [Array, String, Date, Number],
+      type: [Array, String, Date, Number, Boolean],
       required: true,
     },
   },
   computed: {
+    firstValue () {
+      return Array.isArray(this.value) ? this.value[0] : this.value
+    },
     convertedLabel () {
       if (this.label === 'description') return this.$t('GROUP.DESCRIPTION')
       return this.label

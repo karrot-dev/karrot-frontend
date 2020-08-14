@@ -2,7 +2,7 @@ import axios, { parseCursor } from '@/base/api/axios'
 
 export default {
   async get (id) {
-    return (await axios.get(`/api/history/${id}/`)).data
+    return convert((await axios.get(`/api/history/${id}/`)).data)
   },
 
   async list (filter) {
@@ -35,7 +35,7 @@ export function convert (val) {
     if (payload) {
       // convert some known payload dates
       const dates = {};
-      ['date', 'startDate', 'invitedAt'].forEach(k => {
+      ['date', 'startDate', 'invitedAt', 'feedbackDue'].forEach(k => {
         if (payload[k]) {
           if (Array.isArray(payload[k])) {
             dates[k] = payload[k].map(d => new Date(d))

@@ -10,15 +10,18 @@
       "cordova-plugin-whitelist": {},
       "cordova-plugin-network-information": {},
       "cordova-plugin-fcm-with-dependecy-updated": {
-        "ANDROID_DEFAULT_NOTIFICATION_ICON": "@drawable/icon_push"
+        "ANDROID_DEFAULT_NOTIFICATION_ICON": "@drawable/icon_push",
+        "ANDROID_FCM_VERSION": "19.0.0",
+        "ANDROID_GRADLE_TOOLS_VERSION": "3.5.3",
+        "ANDROID_GOOGLE_SERVICES_VERSION": "4.3.3"
       },
       "cordova-plugin-deeplinks": {}
     }
   },
   "dependencies": {
-    "cordova-android": "^8.1.0",
+    "cordova-android": "^9.0.0",
     "cordova-plugin-deeplinks": "^1.1.1",
-    "cordova-plugin-fcm-with-dependecy-updated": "^6.4.3",
+    "cordova-plugin-fcm-with-dependecy-updated": "^7.0.9",
     "cordova-plugin-network-information": "^2.0.2",
     "cordova-plugin-whitelist": "^1.3.4",
     "fcm": "^1.0.3"

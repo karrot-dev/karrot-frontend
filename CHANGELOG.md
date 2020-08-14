@@ -21,7 +21,10 @@ Please document your changes in this format:
 ```
 
 ## [Unreleased]
-- Display number of total group members on top of member list [#2149] @djahnie
+- Display number of total group members on top of member list #2149 @djahnie
+
+### Changed
+- Improve activity history display @nicksellen
 
 ## [8.6.0] - 2020-07-17
 ### Changed

@@ -7,6 +7,16 @@
     @keyup.right="nextImage"
   >
     <QCard class="q-dialog-plugin">
+      <QCardActions
+        align="right"
+      >
+        <QBtn
+          v-close-popup
+          icon-right="close"
+          flat
+          label="Close"
+        />
+      </QCardActions>
       <QCarousel
         ref="carousel"
         v-model="current"
@@ -34,7 +44,9 @@
 
 <script>
 import {
+  QBtn,
   QCard,
+  QCardActions,
   QDialog,
   QCarousel,
   QCarouselSlide,
@@ -43,7 +55,9 @@ import {
 export default {
   name: 'ImageGalleryDialog',
   components: {
+    QBtn,
     QCard,
+    QCardActions,
     QDialog,
     QCarousel,
     QCarouselSlide,
@@ -95,3 +109,13 @@ export default {
   },
 }
 </script>
+
+<style lang="stylus">
+// make it full width when on mobile
+.mobile
+  .q-dialog .q-card
+    margin 0
+
+  .q-dialog__inner--minimized
+    padding 0
+</style>

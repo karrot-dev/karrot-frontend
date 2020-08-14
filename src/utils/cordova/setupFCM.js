@@ -7,7 +7,7 @@ const devicereadyTimeout = setTimeout(() => {
   console.error('deviceready not fired within 5 seconds, is cordova.js loaded? FCM will not work otherwise.')
 }, 5000)
 
-function onDeviceReady () {
+async function onDeviceReady () {
   clearTimeout(devicereadyTimeout)
   const { FCMPlugin } = window
   if (FCMPlugin) {

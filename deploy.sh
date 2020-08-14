@@ -60,11 +60,11 @@ elif [ "$TYPE" == "branch" ]; then
 
   # branch deployment
 
-  SAFE_DIR="$(echo -n "$REF" | tr -c '[a-zA-Z0-9]_-' '_' | tr "[:upper:]" "[:lower:]")"
+  SAFE_DIR="$(echo -n "$REF" | tr -c '[a-zA-Z0-9]-' '-' | tr "[:upper:]" "[:lower:]")"
   DIR="branches/$SAFE_DIR"
   DEPLOY_ENV="branch/$REF"
   DEPLOY_EMOJI=":construction_worker:"
-  URL="https://$REF.dev.karrot.world"
+  URL="https://$SAFE_DIR.dev.karrot.world"
   DEPLOY_DOCS="true"
 
 else

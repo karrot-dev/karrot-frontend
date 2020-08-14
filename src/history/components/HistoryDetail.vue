@@ -22,11 +22,21 @@
         </QItemSection>
         <QItemSection>
           <QItemLabel>
-            {{ $d(new Date(entry.date), 'long') }},
+            {{ $d(entry.date, 'long') }},
             <DateAsWords
               :date="entry.date"
               style="display: inline"
             />
+            <template v-if="entry.typus === 'ACTIVITY_LEAVE'">
+              (<em
+                v-t="{
+                  path: 'HISTORY.ACTIVITY_LEAVE_DISTANCE',
+                  args: {
+                    distance: formatDistanceStrict(entry.date, activityPayload.date),
+                  }
+                }"
+              />)
+            </template>
           </QItemLabel>
         </QItemSection>
       </QItem>
@@ -84,6 +94,22 @@
           </QItemLabel>
         </QItemSection>
       </QItem>
+
+      <QItem
+        v-if="activityPayload"
+      >
+        <QItemSection side>
+          <QIcon :name="$icon('activity_fw')" />
+        </QItemSection>
+        <QItemSection>
+          <QItemLabel>
+            {{ $d(activityPayload.date, 'long') }}
+            <template v-if="activityPayload.hasDuration">
+              &mdash; {{ $d(activityPayload.dateEnd, 'hourMinute') }}
+            </template>
+          </QItemLabel>
+        </QItemSection>
+      </QItem>
     </QList>
     <QList
       v-if="entry.payload"
@@ -134,6 +160,8 @@ import {
 import ProfilePicture from '@/users/components/ProfilePicture'
 import DateAsWords from '@/utils/components/DateAsWords'
 import HistoryPayloadDetail from '@/history/components/HistoryPayloadDetail'
+import dateFnsHelper from '@/utils/dateFnsHelper'
+import { convert as convertActivity } from '@/activities/api/activities'
 
 export default {
   components: {
@@ -159,9 +187,23 @@ export default {
       raw: false,
     }
   },
+  computed: {
+    activityPayload () {
+      if ([
+        'ACTIVITY_JOIN',
+        'ACTIVITY_LEAVE',
+      ].includes(this.entry.typus)) {
+        return convertActivity(this.entry.payload)
+      }
+      return null
+    },
+  },
   methods: {
     toggleRaw () {
       this.raw = !this.raw
+    },
+    formatDistanceStrict (...args) {
+      return dateFnsHelper.formatDistanceStrict(...args)
     },
   },
 }

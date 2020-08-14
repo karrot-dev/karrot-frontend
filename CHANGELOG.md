@@ -23,6 +23,9 @@ Please document your changes in this format:
 ## [Unreleased]
 - Display number of total group members on top of member list #2149 @djahnie
 
+### Changed
+- Improve activity history display @nicksellen
+
 ## [8.6.0] - 2020-07-17
 ### Changed
 - All group members (instead of just editors) can now access conflict resolution issues, write messages and vote. Issues can still only be created by editors. [#2062] @tiltec

@@ -2,9 +2,18 @@
   <div class="list-wrapper">
     <QList>
       <QItem
+        v-if="users.length > 1"
+        v-t="{ path: 'GROUP.MEMBERLIST', args: { total: users.length } }"
+        class="text-caption"
+      />
+      <QItem
         v-if="users.length > 15"
       >
-        <QInput v-model="filterTerm">
+        <QInput
+          v-model="filterTerm"
+          :placeholder="$t('BUTTON.SEARCH')"
+          class="full-width"
+        >
           <template #prepend>
             <QIcon name="search" />
           </template>

@@ -340,6 +340,7 @@
     "LEAVE_TEXT": "Are you sure you want to leave this group?",
     "LOGO": "Group logo",
     "MANAGE_AGREEMENT": "Manage agreement",
+    "MEMBERLIST": "Your group has {total} members in total.",
     "MEMBERS": "Members",
     "MESSAGES": "Messages",
     "NONMEMBER_REDIRECT": "You are not a member of this group.",

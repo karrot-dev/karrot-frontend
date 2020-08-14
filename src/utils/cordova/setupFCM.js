@@ -11,8 +11,8 @@ function onDeviceReady () {
   clearTimeout(devicereadyTimeout)
   const { FCMPlugin } = window
   if (FCMPlugin) {
+    receiveFCMToken(await FCMPlugin.getToken())
     FCMPlugin.onTokenRefresh(receiveFCMToken)
-    FCMPlugin.getToken(receiveFCMToken)
     FCMPlugin.onNotification(receiveNotification)
   }
   else {

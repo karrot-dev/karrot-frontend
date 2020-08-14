@@ -104,7 +104,9 @@
         <QItemSection>
           <QItemLabel>
             {{ $d(activityPayload.date, 'long') }}
-            <template v-if="activityPayload.hasDuration"> &mdash; {{ $d(activityPayload.dateEnd, 'hourMinute') }}</template>
+            <template v-if="activityPayload.hasDuration">
+              &mdash; {{ $d(activityPayload.dateEnd, 'hourMinute') }}
+            </template>
           </QItemLabel>
         </QItemSection>
       </QItem>

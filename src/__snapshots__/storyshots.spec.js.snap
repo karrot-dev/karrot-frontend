@@ -10201,9 +10201,7 @@ exports[`Storyshots Unsubscribe thread 1`] = `
 exports[`Storyshots UserList default 1`] = `
 <div class="list-wrapper">
   <div class="q-list">
-    <div class="q-item q-item-type row no-wrap text-caption">
-      Your group has 15 members in total.
-    </div>
+    <div class="q-item q-item-type row no-wrap text-caption"></div>
     <!---->
     <div class="q-item q-item-type row no-wrap">
       <div class="q-item__section column q-item__section--side justify-center">

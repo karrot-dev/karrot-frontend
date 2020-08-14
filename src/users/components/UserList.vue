@@ -5,9 +5,7 @@
         v-if="users.length > 1"
         v-t="{ path: 'GROUP.MEMBERLIST', args: { total: users.length } }"
         class="text-caption"
-      >
-        {{ activeUsersCount }}
-      </QItem>
+      />
       <QItem
         v-if="users.length > 15"
       >

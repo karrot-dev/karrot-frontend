@@ -307,7 +307,6 @@
     "SERVER_ERROR": "Server error"
   },
   "GROUP": {
-    "ACTIVE": "Active",
     "ACTIVITIES": "Pickups",
     "ACTIVITY": "Pickup",
     "ADDED_BY": "added by {userName}",

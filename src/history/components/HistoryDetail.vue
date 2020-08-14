@@ -22,7 +22,7 @@
         </QItemSection>
         <QItemSection>
           <QItemLabel>
-            {{ $d(new Date(entry.date), 'long') }},
+            {{ $d(entry.date, 'long') }},
             <DateAsWords
               :date="entry.date"
               style="display: inline"
@@ -134,6 +134,8 @@ import {
 import ProfilePicture from '@/users/components/ProfilePicture'
 import DateAsWords from '@/utils/components/DateAsWords'
 import HistoryPayloadDetail from '@/history/components/HistoryPayloadDetail'
+import dateFnsHelper from '@/utils/dateFnsHelper'
+import { convert as convertActivity } from '@/activities/api/activities'
 
 export default {
   components: {

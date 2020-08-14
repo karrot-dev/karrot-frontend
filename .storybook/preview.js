@@ -30,15 +30,9 @@ import '@quasar/extras/material-icons/material-icons.css'
 import '@quasar/extras/fontawesome-v5/fontawesome-v5.css'
 
 // Storybook config
-import { addParameters, configure } from '@storybook/vue'
 import { create } from '@storybook/theming'
 
-function loadStories() {
-  const req = require.context('../src', true, /\**\.story\.js$/)
-  req.keys().forEach(filename => req(filename))
-}
-
-addParameters({
+export const parameters = {
   options: {
     theme: create({
       base: 'light',
@@ -47,6 +41,4 @@ addParameters({
     }),
     storySort: (a, b) => a[1].kind.localeCompare(b[1].kind),
   }
-})
-
-configure(loadStories, module)
+}

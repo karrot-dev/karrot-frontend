@@ -69,7 +69,7 @@ import editMixin from '@/utils/mixins/editMixin'
 import statusMixin, { mapErrors } from '@/utils/mixins/statusMixin'
 import { QBtn, QField, QIcon, QInput } from 'quasar'
 import MarkdownInput from '@/utils/components/MarkdownInput'
-import MultiCroppa from '@/offers/components/MultiCroppa'
+import MultiCroppa from '@/utils/components/MultiCroppa'
 import KSpinner from '@/utils/components/KSpinner'
 import KFormContainer from '@/base/components/KFormContainer'
 

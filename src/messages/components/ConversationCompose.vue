@@ -97,7 +97,7 @@ import deepEqual from 'deep-equal'
 import ProfilePicture from '@/users/components/ProfilePicture'
 import MarkdownInput from '@/utils/components/MarkdownInput'
 import statusMixin from '@/utils/mixins/statusMixin'
-import MultiCroppa from '@/offers/components/MultiCroppa'
+import MultiCroppa from '@/utils/components/MultiCroppa'
 
 export default {
   name: 'ConversationCompose',

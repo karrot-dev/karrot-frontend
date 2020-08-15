@@ -4,7 +4,6 @@ import { toFormData } from '@/utils/utils'
 export default {
 
   async create (data) {
-    // return convert((await axios.post('/api/messages/', data)).data)
     return convert((await axios.post('/api/messages/', await toFormData(data))).data)
   },
 

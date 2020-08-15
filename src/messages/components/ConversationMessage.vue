@@ -1,7 +1,7 @@
 <template>
   <QItem
     v-if="!editMode"
-    :class="{ isUnread: message.isUnread, slim, continuation: !!message.continuation, hasImages: imagesForDisplay.length > 0 }"
+    :class="{ isUnread: message.isUnread, slim, continuation: !!message.continuation }"
     class="conversation-message relative-position"
   >
     <QBtnGroup
@@ -87,13 +87,15 @@
         />
         )
       </QItemLabel>
-      <div v-if="imagesForDisplay.length > 0">
+      <div
+        v-if="imagesForDisplay.length > 0"
+        class="images"
+      >
         <QImg
           v-for="image in imagesForDisplay"
           :key="image.id"
           :src="image.imageUrls['200']"
-          style="width: 80px; height: 80px; cursor: pointer;"
-          class="q-mr-sm q-mb-sm3"
+          class="q-mr-sm q-mb-sm"
           @click="openImageGallery(image.id)"
         />
       </div>
@@ -256,8 +258,11 @@ export default {
   min-height auto
   padding-top 0
 
-.hasImages + .continuation
-  padding-top 8px
+.images
+  .q-img
+    width 80px
+    height 80px
+    cursor pointer
 
 body.mobile .conversation-message
   .k-message-meta

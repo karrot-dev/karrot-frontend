@@ -35,7 +35,7 @@
           v-for="image in message.images"
           :key="image.id"
           :name="image.id"
-          :img-src="image.imageUrls.fullSize"
+          :img-src="image.imageUrls['600']"
         />
       </QCarousel>
     </QCard>

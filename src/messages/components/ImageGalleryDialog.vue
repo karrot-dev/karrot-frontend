@@ -111,6 +111,15 @@ export default {
 </script>
 
 <style lang="stylus">
+// making the fullsize image 600 (or full width) sized
+.q-card
+  width 600px
+  max-width 100vw
+
+.q-carousel
+  height 600px
+  max-height 100vw
+
 // make it full width when on mobile
 .mobile
   .q-dialog .q-card

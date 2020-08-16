@@ -1,6 +1,7 @@
 <template>
   <QDialog
     ref="dialog"
+    class="ImageGalleryDialog"
     square
     @hide="onDialogHide"
     @keyup.left="previousImage"
@@ -110,7 +111,7 @@ export default {
 }
 </script>
 
-<style lang="stylus">
+<style scoped lang="stylus">
 // making the fullsize image 600 (or full width) sized
 .q-card
   width 600px
@@ -119,10 +120,12 @@ export default {
 .q-carousel
   height 600px
   max-height 100vw
+</style>
 
+<style lang="stylus">
 // make it full width when on mobile
-.mobile
-  .q-dialog .q-card
+body.mobile .ImageGalleryDialog
+  .q-card
     margin 0
 
   .q-dialog__inner--minimized

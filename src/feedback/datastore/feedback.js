@@ -31,7 +31,7 @@ export default {
         group: activity && activity.group,
       }
     },
-    all: (state, getters) => Object.values(state.entries).map(getters.enrich).sort(sortByCreatedAt),
+    all: (state, getters) => Object.values(state.entries).map(getters.enrich).sort(sortByActivityDateOrCreated),
     byCurrentGroup: (state, getters) => {
       return getters.all.filter(({ group }) => group && group.isCurrentGroup)
     },
@@ -120,8 +120,12 @@ export default {
   },
 }
 
-export function sortByCreatedAt (a, b) {
-  return b.createdAt - a.createdAt
+function sortDateFor (feedback) {
+  return feedback.about ? feedback.about.date : feedback.createdAt
+}
+
+export function sortByActivityDateOrCreated (a, b) {
+  return sortDateFor(b) - sortDateFor(a)
 }
 
 export const plugin = datastore => {

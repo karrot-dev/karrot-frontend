@@ -33,6 +33,10 @@ jobs:
 
         days-before-stale: 90
         days-before-close: 7
+        
+        # make it so we can exclude certain issues/PRs from the closing monster
+        exempt-issue-labels: important
+        exempt-pr-labels: important
 
         # don't overwhelm us with loads of things to look at
         operations-per-run: 5

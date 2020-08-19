@@ -2653,7 +2653,35 @@ exports[`Storyshots ChatConversation closed 1`] = `
             </div>
           </div>
           <!---->
-          <!---->
+          <div class="images">
+            <div role="img" class="q-mr-sm q-mb-sm q-img overflow-hidden">
+              <div></div>
+              <transition-stub name="q-transition--fade"></transition-stub>
+              <transition-stub name="q-transition--fade">
+                <div class="q-img__loading absolute-full flex flex-center"><svg focusable="false" width="1em" height="1em" viewBox="25 25 50 50" class="q-spinner q-spinner-mat">
+                    <circle cx="50" cy="50" r="20" fill="none" stroke="currentColor" stroke-width="5" stroke-miterlimit="10" class="path"></circle>
+                  </svg></div>
+              </transition-stub>
+            </div>
+            <div role="img" class="q-mr-sm q-mb-sm q-img overflow-hidden">
+              <div></div>
+              <transition-stub name="q-transition--fade"></transition-stub>
+              <transition-stub name="q-transition--fade">
+                <div class="q-img__loading absolute-full flex flex-center"><svg focusable="false" width="1em" height="1em" viewBox="25 25 50 50" class="q-spinner q-spinner-mat">
+                    <circle cx="50" cy="50" r="20" fill="none" stroke="currentColor" stroke-width="5" stroke-miterlimit="10" class="path"></circle>
+                  </svg></div>
+              </transition-stub>
+            </div>
+            <div role="img" class="q-mr-sm q-mb-sm q-img overflow-hidden">
+              <div></div>
+              <transition-stub name="q-transition--fade"></transition-stub>
+              <transition-stub name="q-transition--fade">
+                <div class="q-img__loading absolute-full flex flex-center"><svg focusable="false" width="1em" height="1em" viewBox="25 25 50 50" class="q-spinner q-spinner-mat">
+                    <circle cx="50" cy="50" r="20" fill="none" stroke="currentColor" stroke-width="5" stroke-miterlimit="10" class="path"></circle>
+                  </svg></div>
+              </transition-stub>
+            </div>
+          </div>
           <div class="conversation-reactions row">
             <div class="reactions row"><button tabindex="0" type="button" role="button" title="a reacted with :thumbsup:" class="q-btn q-btn-item non-selectable no-outline row no-wrap items-center reaction-box q-btn--flat q-btn--rectangle q-btn--actionable q-focusable q-hoverable q-btn--wrap q-btn--dense"><span class="q-focus-helper"></span><span class="q-btn__wrapper col row q-anchor--skip"><span class="q-btn__content text-center col items-center q-anchor--skip justify-center row"><div class="emoji"></div> <span class="reactions-number">1</span></span></span></button></div> <button tabindex="0" type="button" role="button" flat="" class="q-btn q-btn-item non-selectable no-outline add-button reaction-box q-btn--flat q-btn--rectangle text-black q-btn--actionable q-focusable q-hoverable q-btn--wrap q-btn--dense"><span class="q-focus-helper"></span><span class="q-btn__wrapper col row q-anchor--skip"><span class="q-btn__content text-center col items-center q-anchor--skip justify-center row"><span style="opacity:0.5;"><i class="far fa-smile"></i> +
   </span>
@@ -2818,7 +2846,35 @@ exports[`Storyshots ChatConversation default 1`] = `
             </div>
           </div>
           <!---->
-          <!---->
+          <div class="images">
+            <div role="img" class="q-mr-sm q-mb-sm q-img overflow-hidden">
+              <div></div>
+              <transition-stub name="q-transition--fade"></transition-stub>
+              <transition-stub name="q-transition--fade">
+                <div class="q-img__loading absolute-full flex flex-center"><svg focusable="false" width="1em" height="1em" viewBox="25 25 50 50" class="q-spinner q-spinner-mat">
+                    <circle cx="50" cy="50" r="20" fill="none" stroke="currentColor" stroke-width="5" stroke-miterlimit="10" class="path"></circle>
+                  </svg></div>
+              </transition-stub>
+            </div>
+            <div role="img" class="q-mr-sm q-mb-sm q-img overflow-hidden">
+              <div></div>
+              <transition-stub name="q-transition--fade"></transition-stub>
+              <transition-stub name="q-transition--fade">
+                <div class="q-img__loading absolute-full flex flex-center"><svg focusable="false" width="1em" height="1em" viewBox="25 25 50 50" class="q-spinner q-spinner-mat">
+                    <circle cx="50" cy="50" r="20" fill="none" stroke="currentColor" stroke-width="5" stroke-miterlimit="10" class="path"></circle>
+                  </svg></div>
+              </transition-stub>
+            </div>
+            <div role="img" class="q-mr-sm q-mb-sm q-img overflow-hidden">
+              <div></div>
+              <transition-stub name="q-transition--fade"></transition-stub>
+              <transition-stub name="q-transition--fade">
+                <div class="q-img__loading absolute-full flex flex-center"><svg focusable="false" width="1em" height="1em" viewBox="25 25 50 50" class="q-spinner q-spinner-mat">
+                    <circle cx="50" cy="50" r="20" fill="none" stroke="currentColor" stroke-width="5" stroke-miterlimit="10" class="path"></circle>
+                  </svg></div>
+              </transition-stub>
+            </div>
+          </div>
           <div class="conversation-reactions row">
             <div class="reactions row"><button tabindex="0" type="button" role="button" title="a reacted with :thumbsup:" class="q-btn q-btn-item non-selectable no-outline row no-wrap items-center reaction-box q-btn--flat q-btn--rectangle q-btn--actionable q-focusable q-hoverable q-btn--wrap q-btn--dense"><span class="q-focus-helper"></span><span class="q-btn__wrapper col row q-anchor--skip"><span class="q-btn__content text-center col items-center q-anchor--skip justify-center row"><div class="emoji"></div> <span class="reactions-number">1</span></span></span></button></div> <button tabindex="0" type="button" role="button" flat="" class="q-btn q-btn-item non-selectable no-outline add-button reaction-box q-btn--flat q-btn--rectangle text-black q-btn--actionable q-focusable q-hoverable q-btn--wrap q-btn--dense"><span class="q-focus-helper"></span><span class="q-btn__wrapper col row q-anchor--skip"><span class="q-btn__content text-center col items-center q-anchor--skip justify-center row"><span style="opacity:0.5;"><i class="far fa-smile"></i> +
   </span>
@@ -2972,7 +3028,35 @@ exports[`Storyshots ChatConversation fetching past 1`] = `
             </div>
           </div>
           <!---->
-          <!---->
+          <div class="images">
+            <div role="img" class="q-mr-sm q-mb-sm q-img overflow-hidden">
+              <div></div>
+              <transition-stub name="q-transition--fade"></transition-stub>
+              <transition-stub name="q-transition--fade">
+                <div class="q-img__loading absolute-full flex flex-center"><svg focusable="false" width="1em" height="1em" viewBox="25 25 50 50" class="q-spinner q-spinner-mat">
+                    <circle cx="50" cy="50" r="20" fill="none" stroke="currentColor" stroke-width="5" stroke-miterlimit="10" class="path"></circle>
+                  </svg></div>
+              </transition-stub>
+            </div>
+            <div role="img" class="q-mr-sm q-mb-sm q-img overflow-hidden">
+              <div></div>
+              <transition-stub name="q-transition--fade"></transition-stub>
+              <transition-stub name="q-transition--fade">
+                <div class="q-img__loading absolute-full flex flex-center"><svg focusable="false" width="1em" height="1em" viewBox="25 25 50 50" class="q-spinner q-spinner-mat">
+                    <circle cx="50" cy="50" r="20" fill="none" stroke="currentColor" stroke-width="5" stroke-miterlimit="10" class="path"></circle>
+                  </svg></div>
+              </transition-stub>
+            </div>
+            <div role="img" class="q-mr-sm q-mb-sm q-img overflow-hidden">
+              <div></div>
+              <transition-stub name="q-transition--fade"></transition-stub>
+              <transition-stub name="q-transition--fade">
+                <div class="q-img__loading absolute-full flex flex-center"><svg focusable="false" width="1em" height="1em" viewBox="25 25 50 50" class="q-spinner q-spinner-mat">
+                    <circle cx="50" cy="50" r="20" fill="none" stroke="currentColor" stroke-width="5" stroke-miterlimit="10" class="path"></circle>
+                  </svg></div>
+              </transition-stub>
+            </div>
+          </div>
           <div class="conversation-reactions row">
             <div class="reactions row"><button tabindex="0" type="button" role="button" title="a reacted with :thumbsup:" class="q-btn q-btn-item non-selectable no-outline row no-wrap items-center reaction-box q-btn--flat q-btn--rectangle q-btn--actionable q-focusable q-hoverable q-btn--wrap q-btn--dense"><span class="q-focus-helper"></span><span class="q-btn__wrapper col row q-anchor--skip"><span class="q-btn__content text-center col items-center q-anchor--skip justify-center row"><div class="emoji"></div> <span class="reactions-number">1</span></span></span></button></div> <button tabindex="0" type="button" role="button" flat="" class="q-btn q-btn-item non-selectable no-outline add-button reaction-box q-btn--flat q-btn--rectangle text-black q-btn--actionable q-focusable q-hoverable q-btn--wrap q-btn--dense"><span class="q-focus-helper"></span><span class="q-btn__wrapper col row q-anchor--skip"><span class="q-btn__content text-center col items-center q-anchor--skip justify-center row"><span style="opacity:0.5;"><i class="far fa-smile"></i> +
   </span>
@@ -3432,7 +3516,35 @@ exports[`Storyshots ChatConversation not participant 1`] = `
             </div>
           </div>
           <!---->
-          <!---->
+          <div class="images">
+            <div role="img" class="q-mr-sm q-mb-sm q-img overflow-hidden">
+              <div></div>
+              <transition-stub name="q-transition--fade"></transition-stub>
+              <transition-stub name="q-transition--fade">
+                <div class="q-img__loading absolute-full flex flex-center"><svg focusable="false" width="1em" height="1em" viewBox="25 25 50 50" class="q-spinner q-spinner-mat">
+                    <circle cx="50" cy="50" r="20" fill="none" stroke="currentColor" stroke-width="5" stroke-miterlimit="10" class="path"></circle>
+                  </svg></div>
+              </transition-stub>
+            </div>
+            <div role="img" class="q-mr-sm q-mb-sm q-img overflow-hidden">
+              <div></div>
+              <transition-stub name="q-transition--fade"></transition-stub>
+              <transition-stub name="q-transition--fade">
+                <div class="q-img__loading absolute-full flex flex-center"><svg focusable="false" width="1em" height="1em" viewBox="25 25 50 50" class="q-spinner q-spinner-mat">
+                    <circle cx="50" cy="50" r="20" fill="none" stroke="currentColor" stroke-width="5" stroke-miterlimit="10" class="path"></circle>
+                  </svg></div>
+              </transition-stub>
+            </div>
+            <div role="img" class="q-mr-sm q-mb-sm q-img overflow-hidden">
+              <div></div>
+              <transition-stub name="q-transition--fade"></transition-stub>
+              <transition-stub name="q-transition--fade">
+                <div class="q-img__loading absolute-full flex flex-center"><svg focusable="false" width="1em" height="1em" viewBox="25 25 50 50" class="q-spinner q-spinner-mat">
+                    <circle cx="50" cy="50" r="20" fill="none" stroke="currentColor" stroke-width="5" stroke-miterlimit="10" class="path"></circle>
+                  </svg></div>
+              </transition-stub>
+            </div>
+          </div>
           <div class="conversation-reactions row">
             <div class="reactions row"><button tabindex="0" type="button" role="button" title="a reacted with :thumbsup:" class="q-btn q-btn-item non-selectable no-outline row no-wrap items-center reaction-box q-btn--flat q-btn--rectangle q-btn--actionable q-focusable q-hoverable q-btn--wrap q-btn--dense"><span class="q-focus-helper"></span><span class="q-btn__wrapper col row q-anchor--skip"><span class="q-btn__content text-center col items-center q-anchor--skip justify-center row"><div class="emoji"></div> <span class="reactions-number">1</span></span></span></button></div> <button tabindex="0" type="button" role="button" flat="" class="q-btn q-btn-item non-selectable no-outline add-button reaction-box q-btn--flat q-btn--rectangle text-black q-btn--actionable q-focusable q-hoverable q-btn--wrap q-btn--dense"><span class="q-focus-helper"></span><span class="q-btn__wrapper col row q-anchor--skip"><span class="q-btn__content text-center col items-center q-anchor--skip justify-center row"><span style="opacity:0.5;"><i class="far fa-smile"></i> +
   </span>
@@ -4075,6 +4187,152 @@ exports[`Storyshots ConversationMessage via email 1`] = `
 </div>
 `;
 
+exports[`Storyshots ConversationMessage with multiple images 1`] = `
+<div class="q-item q-item-type row no-wrap conversation-message relative-position">
+  <div class="q-btn-group row no-wrap inline hover-button k-message-controls bg-white q-btn-group--outline"><button tabindex="0" type="button" role="button" title="Edit" class="q-btn q-btn-item non-selectable no-outline q-btn--outline q-btn--rectangle text-secondary q-btn--actionable q-focusable q-hoverable q-btn--wrap q-btn--dense"><span class="q-focus-helper"></span><span class="q-btn__wrapper col row q-anchor--skip"><span class="q-btn__content text-center col items-center q-anchor--skip justify-center row"><i class="fas fa-pencil-alt"></i></span></span></button> <button tabindex="0" type="button" role="button" title="Replies" class="q-btn q-btn-item non-selectable no-outline q-btn--outline q-btn--rectangle text-secondary q-btn--actionable q-focusable q-hoverable q-btn--wrap q-btn--dense"><span class="q-focus-helper"></span><span class="q-btn__wrapper col row q-anchor--skip"><span class="q-btn__content text-center col items-center q-anchor--skip justify-center row"><i class="fas fa-comments"></i></span></span></button> <button tabindex="0" type="button" role="button" outline="" class="q-btn q-btn-item non-selectable no-outline q-btn--outline q-btn--rectangle text-secondary q-btn--actionable q-focusable q-hoverable q-btn--wrap q-btn--dense"><span class="q-focus-helper"></span><span class="q-btn__wrapper col row q-anchor--skip"><span class="q-btn__content text-center col items-center q-anchor--skip justify-center row"><span style="opacity:1;"><i class="far fa-smile"></i> +
+  </span>
+      <!----></span></span>
+    </button></div>
+  <div class="q-item__section column q-mt-xs q-pr-sm q-item__section--top q-item__section--side justify-start">
+    <div class="wrapper" style="width:40px;height:40px;"><a title="User 78">
+        <div text="User 78" seed="78" class="randomArt fill"></div>
+      </a></div>
+  </div>
+  <div class="q-item__section column q-item__section--main justify-center">
+    <div class="q-item__label no-wrap k-message-meta"><a><span class="k-message-author text-bold text-secondary text-uppercase">User 78</span></a> <span class="message-date"><small class="text-weight-light"><div title="Dec 24, 2017, 12:00 PM">
+  less than a minute ago
+</div></small></span>
+      <!---->
+    </div>
+    <div class="content">
+      <div class="markdown">
+        <p>This is a test. This is a test. This is a test. This is a test. This is a test. This is a test. This is a test. This is a test. This is a test. This is a test. This is a test. This is a test. This is a test. This is a test. This is a test. This is a test. This is a test. This is a test. This is a test. This is a test. This is a test. This is a test. This is a test. This is a test. This is a test. This is a test. This is a test. This is a test. This is a test. This is a test. This is a test. This is a test. This is a test. This is a test. This is a test. This is a test. This is a test. This is a test. This is a test. This is a test. This is a test. This is a test. This is a test. This is a test. This is a test. This is a test. This is a test. This is a test. This is a test. This is a test.</p>
+      </div>
+    </div>
+    <!---->
+    <div class="images">
+      <div role="img" class="q-mr-sm q-mb-sm q-img overflow-hidden">
+        <div></div>
+        <transition-stub name="q-transition--fade"></transition-stub>
+        <transition-stub name="q-transition--fade">
+          <div class="q-img__loading absolute-full flex flex-center"><svg focusable="false" width="1em" height="1em" viewBox="25 25 50 50" class="q-spinner q-spinner-mat">
+              <circle cx="50" cy="50" r="20" fill="none" stroke="currentColor" stroke-width="5" stroke-miterlimit="10" class="path"></circle>
+            </svg></div>
+        </transition-stub>
+      </div>
+      <div role="img" class="q-mr-sm q-mb-sm q-img overflow-hidden">
+        <div></div>
+        <transition-stub name="q-transition--fade"></transition-stub>
+        <transition-stub name="q-transition--fade">
+          <div class="q-img__loading absolute-full flex flex-center"><svg focusable="false" width="1em" height="1em" viewBox="25 25 50 50" class="q-spinner q-spinner-mat">
+              <circle cx="50" cy="50" r="20" fill="none" stroke="currentColor" stroke-width="5" stroke-miterlimit="10" class="path"></circle>
+            </svg></div>
+        </transition-stub>
+      </div>
+      <div role="img" class="q-mr-sm q-mb-sm q-img overflow-hidden">
+        <div></div>
+        <transition-stub name="q-transition--fade"></transition-stub>
+        <transition-stub name="q-transition--fade">
+          <div class="q-img__loading absolute-full flex flex-center"><svg focusable="false" width="1em" height="1em" viewBox="25 25 50 50" class="q-spinner q-spinner-mat">
+              <circle cx="50" cy="50" r="20" fill="none" stroke="currentColor" stroke-width="5" stroke-miterlimit="10" class="path"></circle>
+            </svg></div>
+        </transition-stub>
+      </div>
+      <div role="img" class="q-mr-sm q-mb-sm q-img overflow-hidden">
+        <div></div>
+        <transition-stub name="q-transition--fade"></transition-stub>
+        <transition-stub name="q-transition--fade">
+          <div class="q-img__loading absolute-full flex flex-center"><svg focusable="false" width="1em" height="1em" viewBox="25 25 50 50" class="q-spinner q-spinner-mat">
+              <circle cx="50" cy="50" r="20" fill="none" stroke="currentColor" stroke-width="5" stroke-miterlimit="10" class="path"></circle>
+            </svg></div>
+        </transition-stub>
+      </div>
+      <div role="img" class="q-mr-sm q-mb-sm q-img overflow-hidden">
+        <div></div>
+        <transition-stub name="q-transition--fade"></transition-stub>
+        <transition-stub name="q-transition--fade">
+          <div class="q-img__loading absolute-full flex flex-center"><svg focusable="false" width="1em" height="1em" viewBox="25 25 50 50" class="q-spinner q-spinner-mat">
+              <circle cx="50" cy="50" r="20" fill="none" stroke="currentColor" stroke-width="5" stroke-miterlimit="10" class="path"></circle>
+            </svg></div>
+        </transition-stub>
+      </div>
+      <div role="img" class="q-mr-sm q-mb-sm q-img overflow-hidden">
+        <div></div>
+        <transition-stub name="q-transition--fade"></transition-stub>
+        <transition-stub name="q-transition--fade">
+          <div class="q-img__loading absolute-full flex flex-center"><svg focusable="false" width="1em" height="1em" viewBox="25 25 50 50" class="q-spinner q-spinner-mat">
+              <circle cx="50" cy="50" r="20" fill="none" stroke="currentColor" stroke-width="5" stroke-miterlimit="10" class="path"></circle>
+            </svg></div>
+        </transition-stub>
+      </div>
+      <div role="img" class="q-mr-sm q-mb-sm q-img overflow-hidden">
+        <div></div>
+        <transition-stub name="q-transition--fade"></transition-stub>
+        <transition-stub name="q-transition--fade">
+          <div class="q-img__loading absolute-full flex flex-center"><svg focusable="false" width="1em" height="1em" viewBox="25 25 50 50" class="q-spinner q-spinner-mat">
+              <circle cx="50" cy="50" r="20" fill="none" stroke="currentColor" stroke-width="5" stroke-miterlimit="10" class="path"></circle>
+            </svg></div>
+        </transition-stub>
+      </div>
+    </div>
+    <div class="conversation-reactions row">
+      <div class="reactions row"><button tabindex="0" type="button" role="button" title="a reacted with :thumbsup:" class="q-btn q-btn-item non-selectable no-outline row no-wrap items-center reaction-box q-btn--flat q-btn--rectangle q-btn--actionable q-focusable q-hoverable q-btn--wrap q-btn--dense"><span class="q-focus-helper"></span><span class="q-btn__wrapper col row q-anchor--skip"><span class="q-btn__content text-center col items-center q-anchor--skip justify-center row"><div class="emoji"></div> <span class="reactions-number">1</span></span></span></button></div> <button tabindex="0" type="button" role="button" flat="" class="q-btn q-btn-item non-selectable no-outline add-button reaction-box q-btn--flat q-btn--rectangle text-black q-btn--actionable q-focusable q-hoverable q-btn--wrap q-btn--dense"><span class="q-focus-helper"></span><span class="q-btn__wrapper col row q-anchor--skip"><span class="q-btn__content text-center col items-center q-anchor--skip justify-center row"><span style="opacity:0.5;"><i class="far fa-smile"></i> +
+  </span>
+        <!----></span></span>
+      </button>
+      <!---->
+    </div>
+    <!---->
+  </div>
+</div>
+`;
+
+exports[`Storyshots ConversationMessage with one image 1`] = `
+<div class="q-item q-item-type row no-wrap conversation-message relative-position">
+  <div class="q-btn-group row no-wrap inline hover-button k-message-controls bg-white q-btn-group--outline"><button tabindex="0" type="button" role="button" title="Edit" class="q-btn q-btn-item non-selectable no-outline q-btn--outline q-btn--rectangle text-secondary q-btn--actionable q-focusable q-hoverable q-btn--wrap q-btn--dense"><span class="q-focus-helper"></span><span class="q-btn__wrapper col row q-anchor--skip"><span class="q-btn__content text-center col items-center q-anchor--skip justify-center row"><i class="fas fa-pencil-alt"></i></span></span></button> <button tabindex="0" type="button" role="button" title="Replies" class="q-btn q-btn-item non-selectable no-outline q-btn--outline q-btn--rectangle text-secondary q-btn--actionable q-focusable q-hoverable q-btn--wrap q-btn--dense"><span class="q-focus-helper"></span><span class="q-btn__wrapper col row q-anchor--skip"><span class="q-btn__content text-center col items-center q-anchor--skip justify-center row"><i class="fas fa-comments"></i></span></span></button> <button tabindex="0" type="button" role="button" outline="" class="q-btn q-btn-item non-selectable no-outline q-btn--outline q-btn--rectangle text-secondary q-btn--actionable q-focusable q-hoverable q-btn--wrap q-btn--dense"><span class="q-focus-helper"></span><span class="q-btn__wrapper col row q-anchor--skip"><span class="q-btn__content text-center col items-center q-anchor--skip justify-center row"><span style="opacity:1;"><i class="far fa-smile"></i> +
+  </span>
+      <!----></span></span>
+    </button></div>
+  <div class="q-item__section column q-mt-xs q-pr-sm q-item__section--top q-item__section--side justify-start">
+    <div class="wrapper" style="width:40px;height:40px;"><a title="User 78">
+        <div text="User 78" seed="78" class="randomArt fill"></div>
+      </a></div>
+  </div>
+  <div class="q-item__section column q-item__section--main justify-center">
+    <div class="q-item__label no-wrap k-message-meta"><a><span class="k-message-author text-bold text-secondary text-uppercase">User 78</span></a> <span class="message-date"><small class="text-weight-light"><div title="Dec 24, 2017, 12:00 PM">
+  less than a minute ago
+</div></small></span>
+      <!---->
+    </div>
+    <div class="content">
+      <div class="markdown">
+        <p>This is a test. This is a test. This is a test. This is a test. This is a test. This is a test. This is a test. This is a test. This is a test. This is a test. This is a test. This is a test. This is a test. This is a test. This is a test. This is a test. This is a test. This is a test. This is a test. This is a test. This is a test. This is a test. This is a test. This is a test. This is a test. This is a test. This is a test. This is a test. This is a test. This is a test. This is a test. This is a test. This is a test. This is a test. This is a test. This is a test. This is a test. This is a test. This is a test. This is a test. This is a test. This is a test. This is a test. This is a test. This is a test. This is a test. This is a test. This is a test. This is a test. This is a test.</p>
+      </div>
+    </div>
+    <!---->
+    <div class="images">
+      <div role="img" class="q-mr-sm q-mb-sm q-img overflow-hidden">
+        <div></div>
+        <transition-stub name="q-transition--fade"></transition-stub>
+        <transition-stub name="q-transition--fade">
+          <div class="q-img__loading absolute-full flex flex-center"><svg focusable="false" width="1em" height="1em" viewBox="25 25 50 50" class="q-spinner q-spinner-mat">
+              <circle cx="50" cy="50" r="20" fill="none" stroke="currentColor" stroke-width="5" stroke-miterlimit="10" class="path"></circle>
+            </svg></div>
+        </transition-stub>
+      </div>
+    </div>
+    <div class="conversation-reactions row">
+      <div class="reactions row"><button tabindex="0" type="button" role="button" title="a reacted with :thumbsup:" class="q-btn q-btn-item non-selectable no-outline row no-wrap items-center reaction-box q-btn--flat q-btn--rectangle q-btn--actionable q-focusable q-hoverable q-btn--wrap q-btn--dense"><span class="q-focus-helper"></span><span class="q-btn__wrapper col row q-anchor--skip"><span class="q-btn__content text-center col items-center q-anchor--skip justify-center row"><div class="emoji"></div> <span class="reactions-number">1</span></span></span></button></div> <button tabindex="0" type="button" role="button" flat="" class="q-btn q-btn-item non-selectable no-outline add-button reaction-box q-btn--flat q-btn--rectangle text-black q-btn--actionable q-focusable q-hoverable q-btn--wrap q-btn--dense"><span class="q-focus-helper"></span><span class="q-btn__wrapper col row q-anchor--skip"><span class="q-btn__content text-center col items-center q-anchor--skip justify-center row"><span style="opacity:0.5;"><i class="far fa-smile"></i> +
+  </span>
+        <!----></span></span>
+      </button>
+      <!---->
+    </div>
+    <!---->
+  </div>
+</div>
+`;
+
 exports[`Storyshots ConversationMessage with replies 1`] = `
 <div class="q-item q-item-type row no-wrap conversation-message relative-position">
   <div class="q-btn-group row no-wrap inline hover-button k-message-controls bg-white q-btn-group--outline">
@@ -4286,7 +4544,44 @@ exports[`Storyshots Detail activity 1`] = `
                 </div>
               </div>
               <!---->
-              <!---->
+              <div class="images">
+                <div role="img" class="q-mr-sm q-mb-sm q-img overflow-hidden">
+                  <div></div>
+                  <transition-stub name="q-transition--fade"></transition-stub>
+                  <transition-stub name="q-transition--fade">
+                    <div class="q-img__loading absolute-full flex flex-center"><svg focusable="false" width="1em" height="1em" viewBox="25 25 50 50" class="q-spinner q-spinner-mat">
+                        <circle cx="50" cy="50" r="20" fill="none" stroke="currentColor" stroke-width="5" stroke-miterlimit="10" class="path"></circle>
+                      </svg></div>
+                  </transition-stub>
+                </div>
+                <div role="img" class="q-mr-sm q-mb-sm q-img overflow-hidden">
+                  <div></div>
+                  <transition-stub name="q-transition--fade"></transition-stub>
+                  <transition-stub name="q-transition--fade">
+                    <div class="q-img__loading absolute-full flex flex-center"><svg focusable="false" width="1em" height="1em" viewBox="25 25 50 50" class="q-spinner q-spinner-mat">
+                        <circle cx="50" cy="50" r="20" fill="none" stroke="currentColor" stroke-width="5" stroke-miterlimit="10" class="path"></circle>
+                      </svg></div>
+                  </transition-stub>
+                </div>
+                <div role="img" class="q-mr-sm q-mb-sm q-img overflow-hidden">
+                  <div></div>
+                  <transition-stub name="q-transition--fade"></transition-stub>
+                  <transition-stub name="q-transition--fade">
+                    <div class="q-img__loading absolute-full flex flex-center"><svg focusable="false" width="1em" height="1em" viewBox="25 25 50 50" class="q-spinner q-spinner-mat">
+                        <circle cx="50" cy="50" r="20" fill="none" stroke="currentColor" stroke-width="5" stroke-miterlimit="10" class="path"></circle>
+                      </svg></div>
+                  </transition-stub>
+                </div>
+                <div role="img" class="q-mr-sm q-mb-sm q-img overflow-hidden">
+                  <div></div>
+                  <transition-stub name="q-transition--fade"></transition-stub>
+                  <transition-stub name="q-transition--fade">
+                    <div class="q-img__loading absolute-full flex flex-center"><svg focusable="false" width="1em" height="1em" viewBox="25 25 50 50" class="q-spinner q-spinner-mat">
+                        <circle cx="50" cy="50" r="20" fill="none" stroke="currentColor" stroke-width="5" stroke-miterlimit="10" class="path"></circle>
+                      </svg></div>
+                  </transition-stub>
+                </div>
+              </div>
               <div class="conversation-reactions row">
                 <div class="reactions row"><button tabindex="0" type="button" role="button" title="a reacted with :thumbsup:" class="q-btn q-btn-item non-selectable no-outline row no-wrap items-center reaction-box q-btn--flat q-btn--rectangle q-btn--actionable q-focusable q-hoverable q-btn--wrap q-btn--dense"><span class="q-focus-helper"></span><span class="q-btn__wrapper col row q-anchor--skip"><span class="q-btn__content text-center col items-center q-anchor--skip justify-center row"><div class="emoji"></div> <span class="reactions-number">1</span></span></span></button></div> <button tabindex="0" type="button" role="button" flat="" class="q-btn q-btn-item non-selectable no-outline add-button reaction-box q-btn--flat q-btn--rectangle text-black q-btn--actionable q-focusable q-hoverable q-btn--wrap q-btn--dense"><span class="q-focus-helper"></span><span class="q-btn__wrapper col row q-anchor--skip"><span class="q-btn__content text-center col items-center q-anchor--skip justify-center row"><span style="opacity:0.5;"><i class="far fa-smile"></i> +
   </span>
@@ -4538,7 +4833,44 @@ exports[`Storyshots Detail application 1`] = `
                 </div>
               </div>
               <!---->
-              <!---->
+              <div class="images">
+                <div role="img" class="q-mr-sm q-mb-sm q-img overflow-hidden">
+                  <div></div>
+                  <transition-stub name="q-transition--fade"></transition-stub>
+                  <transition-stub name="q-transition--fade">
+                    <div class="q-img__loading absolute-full flex flex-center"><svg focusable="false" width="1em" height="1em" viewBox="25 25 50 50" class="q-spinner q-spinner-mat">
+                        <circle cx="50" cy="50" r="20" fill="none" stroke="currentColor" stroke-width="5" stroke-miterlimit="10" class="path"></circle>
+                      </svg></div>
+                  </transition-stub>
+                </div>
+                <div role="img" class="q-mr-sm q-mb-sm q-img overflow-hidden">
+                  <div></div>
+                  <transition-stub name="q-transition--fade"></transition-stub>
+                  <transition-stub name="q-transition--fade">
+                    <div class="q-img__loading absolute-full flex flex-center"><svg focusable="false" width="1em" height="1em" viewBox="25 25 50 50" class="q-spinner q-spinner-mat">
+                        <circle cx="50" cy="50" r="20" fill="none" stroke="currentColor" stroke-width="5" stroke-miterlimit="10" class="path"></circle>
+                      </svg></div>
+                  </transition-stub>
+                </div>
+                <div role="img" class="q-mr-sm q-mb-sm q-img overflow-hidden">
+                  <div></div>
+                  <transition-stub name="q-transition--fade"></transition-stub>
+                  <transition-stub name="q-transition--fade">
+                    <div class="q-img__loading absolute-full flex flex-center"><svg focusable="false" width="1em" height="1em" viewBox="25 25 50 50" class="q-spinner q-spinner-mat">
+                        <circle cx="50" cy="50" r="20" fill="none" stroke="currentColor" stroke-width="5" stroke-miterlimit="10" class="path"></circle>
+                      </svg></div>
+                  </transition-stub>
+                </div>
+                <div role="img" class="q-mr-sm q-mb-sm q-img overflow-hidden">
+                  <div></div>
+                  <transition-stub name="q-transition--fade"></transition-stub>
+                  <transition-stub name="q-transition--fade">
+                    <div class="q-img__loading absolute-full flex flex-center"><svg focusable="false" width="1em" height="1em" viewBox="25 25 50 50" class="q-spinner q-spinner-mat">
+                        <circle cx="50" cy="50" r="20" fill="none" stroke="currentColor" stroke-width="5" stroke-miterlimit="10" class="path"></circle>
+                      </svg></div>
+                  </transition-stub>
+                </div>
+              </div>
               <div class="conversation-reactions row">
                 <div class="reactions row"><button tabindex="0" type="button" role="button" title="a reacted with :thumbsup:" class="q-btn q-btn-item non-selectable no-outline row no-wrap items-center reaction-box q-btn--flat q-btn--rectangle q-btn--actionable q-focusable q-hoverable q-btn--wrap q-btn--dense"><span class="q-focus-helper"></span><span class="q-btn__wrapper col row q-anchor--skip"><span class="q-btn__content text-center col items-center q-anchor--skip justify-center row"><div class="emoji"></div> <span class="reactions-number">1</span></span></span></button></div> <button tabindex="0" type="button" role="button" flat="" class="q-btn q-btn-item non-selectable no-outline add-button reaction-box q-btn--flat q-btn--rectangle text-black q-btn--actionable q-focusable q-hoverable q-btn--wrap q-btn--dense"><span class="q-focus-helper"></span><span class="q-btn__wrapper col row q-anchor--skip"><span class="q-btn__content text-center col items-center q-anchor--skip justify-center row"><span style="opacity:0.5;"><i class="far fa-smile"></i> +
   </span>
@@ -4749,7 +5081,44 @@ exports[`Storyshots Detail private 1`] = `
                 </div>
               </div>
               <!---->
-              <!---->
+              <div class="images">
+                <div role="img" class="q-mr-sm q-mb-sm q-img overflow-hidden">
+                  <div></div>
+                  <transition-stub name="q-transition--fade"></transition-stub>
+                  <transition-stub name="q-transition--fade">
+                    <div class="q-img__loading absolute-full flex flex-center"><svg focusable="false" width="1em" height="1em" viewBox="25 25 50 50" class="q-spinner q-spinner-mat">
+                        <circle cx="50" cy="50" r="20" fill="none" stroke="currentColor" stroke-width="5" stroke-miterlimit="10" class="path"></circle>
+                      </svg></div>
+                  </transition-stub>
+                </div>
+                <div role="img" class="q-mr-sm q-mb-sm q-img overflow-hidden">
+                  <div></div>
+                  <transition-stub name="q-transition--fade"></transition-stub>
+                  <transition-stub name="q-transition--fade">
+                    <div class="q-img__loading absolute-full flex flex-center"><svg focusable="false" width="1em" height="1em" viewBox="25 25 50 50" class="q-spinner q-spinner-mat">
+                        <circle cx="50" cy="50" r="20" fill="none" stroke="currentColor" stroke-width="5" stroke-miterlimit="10" class="path"></circle>
+                      </svg></div>
+                  </transition-stub>
+                </div>
+                <div role="img" class="q-mr-sm q-mb-sm q-img overflow-hidden">
+                  <div></div>
+                  <transition-stub name="q-transition--fade"></transition-stub>
+                  <transition-stub name="q-transition--fade">
+                    <div class="q-img__loading absolute-full flex flex-center"><svg focusable="false" width="1em" height="1em" viewBox="25 25 50 50" class="q-spinner q-spinner-mat">
+                        <circle cx="50" cy="50" r="20" fill="none" stroke="currentColor" stroke-width="5" stroke-miterlimit="10" class="path"></circle>
+                      </svg></div>
+                  </transition-stub>
+                </div>
+                <div role="img" class="q-mr-sm q-mb-sm q-img overflow-hidden">
+                  <div></div>
+                  <transition-stub name="q-transition--fade"></transition-stub>
+                  <transition-stub name="q-transition--fade">
+                    <div class="q-img__loading absolute-full flex flex-center"><svg focusable="false" width="1em" height="1em" viewBox="25 25 50 50" class="q-spinner q-spinner-mat">
+                        <circle cx="50" cy="50" r="20" fill="none" stroke="currentColor" stroke-width="5" stroke-miterlimit="10" class="path"></circle>
+                      </svg></div>
+                  </transition-stub>
+                </div>
+              </div>
               <div class="conversation-reactions row">
                 <div class="reactions row"><button tabindex="0" type="button" role="button" title="a reacted with :thumbsup:" class="q-btn q-btn-item non-selectable no-outline row no-wrap items-center reaction-box q-btn--flat q-btn--rectangle q-btn--actionable q-focusable q-hoverable q-btn--wrap q-btn--dense"><span class="q-focus-helper"></span><span class="q-btn__wrapper col row q-anchor--skip"><span class="q-btn__content text-center col items-center q-anchor--skip justify-center row"><div class="emoji"></div> <span class="reactions-number">1</span></span></span></button></div> <button tabindex="0" type="button" role="button" flat="" class="q-btn q-btn-item non-selectable no-outline add-button reaction-box q-btn--flat q-btn--rectangle text-black q-btn--actionable q-focusable q-hoverable q-btn--wrap q-btn--dense"><span class="q-focus-helper"></span><span class="q-btn__wrapper col row q-anchor--skip"><span class="q-btn__content text-center col items-center q-anchor--skip justify-center row"><span style="opacity:0.5;"><i class="far fa-smile"></i> +
   </span>
@@ -5356,7 +5725,7 @@ exports[`Storyshots Feedback PlaceFeedback 1`] = `
                 </a>
                 <!---->
               </div> <small class="text-weight-light"><a>
-                  User 163
+                  User 172
                 </a> <span class="message-date"><div title="Dec 24, 2017, 12:00 PM">
   less than a minute ago
 </div></span></small>
@@ -5372,8 +5741,8 @@ exports[`Storyshots Feedback PlaceFeedback 1`] = `
                   </div>
                 </div>
                 <div class="q-mt-sm">
-                  <div class="wrapper" style="width:22px;height:22px;"><a title="User 163">
-                      <div text="User 163" seed="163" class="randomArt fill"></div>
+                  <div class="wrapper" style="width:22px;height:22px;"><a title="User 172">
+                      <div text="User 172" seed="172" class="randomArt fill"></div>
                     </a></div>
                   <!---->
                 </div>
@@ -5393,7 +5762,7 @@ exports[`Storyshots Feedback PlaceFeedback 1`] = `
                 </a>
                 <!---->
               </div> <small class="text-weight-light"><a>
-                  User 164
+                  User 173
                 </a> <span class="message-date"><div title="Dec 24, 2017, 12:00 PM">
   less than a minute ago
 </div></span></small>
@@ -5409,8 +5778,8 @@ exports[`Storyshots Feedback PlaceFeedback 1`] = `
                   </div>
                 </div>
                 <div class="q-mt-sm">
-                  <div class="wrapper" style="width:22px;height:22px;"><a title="User 164">
-                      <div text="User 164" seed="164" class="randomArt fill"></div>
+                  <div class="wrapper" style="width:22px;height:22px;"><a title="User 173">
+                      <div text="User 173" seed="173" class="randomArt fill"></div>
                     </a></div>
                   <!---->
                 </div>
@@ -5430,7 +5799,7 @@ exports[`Storyshots Feedback PlaceFeedback 1`] = `
                 </a>
                 <!---->
               </div> <small class="text-weight-light"><a>
-                  User 165
+                  User 174
                 </a> <span class="message-date"><div title="Dec 24, 2017, 12:00 PM">
   less than a minute ago
 </div></span></small>
@@ -5446,8 +5815,8 @@ exports[`Storyshots Feedback PlaceFeedback 1`] = `
                   </div>
                 </div>
                 <div class="q-mt-sm">
-                  <div class="wrapper" style="width:22px;height:22px;"><a title="User 165">
-                      <div text="User 165" seed="165" class="randomArt fill"></div>
+                  <div class="wrapper" style="width:22px;height:22px;"><a title="User 174">
+                      <div text="User 174" seed="174" class="randomArt fill"></div>
                     </a></div>
                   <!---->
                 </div>
@@ -5467,7 +5836,7 @@ exports[`Storyshots Feedback PlaceFeedback 1`] = `
                 </a>
                 <!---->
               </div> <small class="text-weight-light"><a>
-                  User 166
+                  User 175
                 </a> <span class="message-date"><div title="Dec 24, 2017, 12:00 PM">
   less than a minute ago
 </div></span></small>
@@ -5483,8 +5852,8 @@ exports[`Storyshots Feedback PlaceFeedback 1`] = `
                   </div>
                 </div>
                 <div class="q-mt-sm">
-                  <div class="wrapper" style="width:22px;height:22px;"><a title="User 166">
-                      <div text="User 166" seed="166" class="randomArt fill"></div>
+                  <div class="wrapper" style="width:22px;height:22px;"><a title="User 175">
+                      <div text="User 175" seed="175" class="randomArt fill"></div>
                     </a></div>
                   <!---->
                 </div>
@@ -5504,7 +5873,7 @@ exports[`Storyshots Feedback PlaceFeedback 1`] = `
                 </a>
                 <!---->
               </div> <small class="text-weight-light"><a>
-                  User 167
+                  User 176
                 </a> <span class="message-date"><div title="Dec 24, 2017, 12:00 PM">
   less than a minute ago
 </div></span></small>
@@ -5520,8 +5889,8 @@ exports[`Storyshots Feedback PlaceFeedback 1`] = `
                   </div>
                 </div>
                 <div class="q-mt-sm">
-                  <div class="wrapper" style="width:22px;height:22px;"><a title="User 167">
-                      <div text="User 167" seed="167" class="randomArt fill"></div>
+                  <div class="wrapper" style="width:22px;height:22px;"><a title="User 176">
+                      <div text="User 176" seed="176" class="randomArt fill"></div>
                     </a></div>
                   <!---->
                 </div>
@@ -7957,7 +8326,7 @@ exports[`Storyshots Latest Messages type: issue chat 1`] = `
     <div class="q-item__label row no-wrap justify-between items-baseline">
       <div class="row no-wrap items-baseline ellipsis"><i aria-hidden="true" role="presentation" title="Issues" class="q-mr-sm fas fa-fw fa-vote-yea q-icon notranslate"> </i>
         <div class="ellipsis">
-          User 185
+          User 194
         </div>
         <!---->
         <!---->
@@ -8456,13 +8825,13 @@ exports[`Storyshots Notifications conflict_resolution_continued 1`] = `
 <a tabindex="0" class="q-item q-item-type row no-wrap q-item--clickable q-link cursor-pointer q-focusable q-hoverable isUnread">
   <div tabindex="-1" class="q-focus-helper"></div>
   <div class="q-item__section column q-pr-sm q-item__section--side justify-center">
-    <div class="wrapper" style="width:40px;height:40px;"><a title="User 124">
-        <div text="User 124" seed="124" class="randomArt fill"></div>
+    <div class="wrapper" style="width:40px;height:40px;"><a title="User 133">
+        <div text="User 133" seed="133" class="randomArt fill"></div>
       </a></div>
   </div>
   <div class="q-item__section column q-item__section--main justify-center">
     <div class="q-item__label" style="overflow:hidden;display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:2;"><i aria-hidden="true" role="presentation" class="q-mx-xs vertical-baseline far fa-frown-open q-icon notranslate"> </i>
-      The conflict resolution process with User 124 continues
+      The conflict resolution process with User 133 continues
     </div>
     <div class="q-item__label q-item__label--caption text-caption">
       <div title="Dec 24, 2017, 12:00 PM" style="display:inline;">
@@ -8498,13 +8867,13 @@ exports[`Storyshots Notifications conflict_resolution_created 1`] = `
 <a tabindex="0" class="q-item q-item-type row no-wrap q-item--clickable q-link cursor-pointer q-focusable q-hoverable isUnread">
   <div tabindex="-1" class="q-focus-helper"></div>
   <div class="q-item__section column q-pr-sm q-item__section--side justify-center">
-    <div class="wrapper" style="width:40px;height:40px;"><a title="User 119">
-        <div text="User 119" seed="119" class="randomArt fill"></div>
+    <div class="wrapper" style="width:40px;height:40px;"><a title="User 128">
+        <div text="User 128" seed="128" class="randomArt fill"></div>
       </a></div>
   </div>
   <div class="q-item__section column q-item__section--main justify-center">
     <div class="q-item__label" style="overflow:hidden;display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:2;"><i aria-hidden="true" role="presentation" class="q-mx-xs vertical-baseline far fa-frown-open q-icon notranslate"> </i>
-      Join the discussion about a conflict with User 119
+      Join the discussion about a conflict with User 128
     </div>
     <div class="q-item__label q-item__label--caption text-caption">
       <div title="Dec 24, 2017, 12:00 PM" style="display:inline;">
@@ -8540,13 +8909,13 @@ exports[`Storyshots Notifications conflict_resolution_decided 1`] = `
 <a tabindex="0" class="q-item q-item-type row no-wrap q-item--clickable q-link cursor-pointer q-focusable q-hoverable isUnread">
   <div tabindex="-1" class="q-focus-helper"></div>
   <div class="q-item__section column q-pr-sm q-item__section--side justify-center">
-    <div class="wrapper" style="width:40px;height:40px;"><a title="User 129">
-        <div text="User 129" seed="129" class="randomArt fill"></div>
+    <div class="wrapper" style="width:40px;height:40px;"><a title="User 138">
+        <div text="User 138" seed="138" class="randomArt fill"></div>
       </a></div>
   </div>
   <div class="q-item__section column q-item__section--main justify-center">
     <div class="q-item__label" style="overflow:hidden;display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:2;"><i aria-hidden="true" role="presentation" class="q-mx-xs vertical-baseline far fa-frown-open q-icon notranslate"> </i>
-      The conflict resolution process with User 129 was decided
+      The conflict resolution process with User 138 was decided
     </div>
     <div class="q-item__label q-item__label--caption text-caption">
       <div title="Dec 24, 2017, 12:00 PM" style="display:inline;">
@@ -8621,13 +8990,13 @@ exports[`Storyshots Notifications invitation_accepted 1`] = `
 <a tabindex="0" class="q-item q-item-type row no-wrap q-item--clickable q-link cursor-pointer q-focusable q-hoverable isUnread">
   <div tabindex="-1" class="q-focus-helper"></div>
   <div class="q-item__section column q-pr-sm q-item__section--side justify-center">
-    <div class="wrapper" style="width:40px;height:40px;"><a title="User 116">
-        <div text="User 116" seed="116" class="randomArt fill"></div>
+    <div class="wrapper" style="width:40px;height:40px;"><a title="User 125">
+        <div text="User 125" seed="125" class="randomArt fill"></div>
       </a></div>
   </div>
   <div class="q-item__section column q-item__section--main justify-center">
     <div class="q-item__label" style="overflow:hidden;display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:2;"><i aria-hidden="true" role="presentation" class="q-mx-xs vertical-baseline fas fa-user-plus q-icon notranslate"> </i>
-      User 116 accepted your invitation
+      User 125 accepted your invitation
     </div>
     <div class="q-item__label q-item__label--caption text-caption">
       <div title="Dec 24, 2017, 12:00 PM" style="display:inline;">
@@ -8644,13 +9013,13 @@ exports[`Storyshots Notifications new_applicant 1`] = `
 <a tabindex="0" class="q-item q-item-type row no-wrap q-item--clickable q-link cursor-pointer q-focusable q-hoverable isUnread">
   <div tabindex="-1" class="q-focus-helper"></div>
   <div class="q-item__section column q-pr-sm q-item__section--side justify-center">
-    <div class="wrapper" style="width:40px;height:40px;"><a title="User 110">
-        <div text="User 110" seed="110" class="randomArt fill"></div>
+    <div class="wrapper" style="width:40px;height:40px;"><a title="User 119">
+        <div text="User 119" seed="119" class="randomArt fill"></div>
       </a></div>
   </div>
   <div class="q-item__section column q-item__section--main justify-center">
     <div class="q-item__label" style="overflow:hidden;display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:2;"><i aria-hidden="true" role="presentation" class="q-mx-xs vertical-baseline fas fa-address-card q-icon notranslate"> </i>
-      User 111 applied to join your group
+      User 120 applied to join your group
     </div>
     <div class="q-item__label q-item__label--caption text-caption">
       <div title="Dec 24, 2017, 12:00 PM" style="display:inline;">
@@ -8667,13 +9036,13 @@ exports[`Storyshots Notifications new_member 1`] = `
 <a tabindex="0" class="q-item q-item-type row no-wrap q-item--clickable q-link cursor-pointer q-focusable q-hoverable isUnread">
   <div tabindex="-1" class="q-focus-helper"></div>
   <div class="q-item__section column q-pr-sm q-item__section--side justify-center">
-    <div class="wrapper" style="width:40px;height:40px;"><a title="User 115">
-        <div text="User 115" seed="115" class="randomArt fill"></div>
+    <div class="wrapper" style="width:40px;height:40px;"><a title="User 124">
+        <div text="User 124" seed="124" class="randomArt fill"></div>
       </a></div>
   </div>
   <div class="q-item__section column q-item__section--main justify-center">
     <div class="q-item__label" style="overflow:hidden;display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:2;"><i aria-hidden="true" role="presentation" class="q-mx-xs vertical-baseline fas fa-user-plus q-icon notranslate"> </i>
-      User 115 joined your group
+      User 124 joined your group
     </div>
     <div class="q-item__label q-item__label--caption text-caption">
       <div title="Dec 24, 2017, 12:00 PM" style="display:inline;">
@@ -8709,13 +9078,13 @@ exports[`Storyshots Notifications user_became_editor 1`] = `
 <a tabindex="0" class="q-item q-item-type row no-wrap q-item--clickable q-link cursor-pointer q-focusable q-hoverable isUnread">
   <div tabindex="-1" class="q-focus-helper"></div>
   <div class="q-item__section column q-pr-sm q-item__section--side justify-center">
-    <div class="wrapper" style="width:40px;height:40px;"><a title="User 109">
-        <div text="User 109" seed="109" class="randomArt fill"></div>
+    <div class="wrapper" style="width:40px;height:40px;"><a title="User 118">
+        <div text="User 118" seed="118" class="randomArt fill"></div>
       </a></div>
   </div>
   <div class="q-item__section column q-item__section--main justify-center">
     <div class="q-item__label" style="overflow:hidden;display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:2;"><i aria-hidden="true" role="presentation" class="q-mx-xs vertical-baseline fas fa-angle-double-up q-icon notranslate"> </i>
-      User 109 gained editing permissions
+      User 118 gained editing permissions
     </div>
     <div class="q-item__label q-item__label--caption text-caption">
       <div title="Dec 24, 2017, 12:00 PM" style="display:inline;">
@@ -9277,18 +9646,18 @@ exports[`Storyshots Profile member 1`] = `
     <div class="photoAndName row no-wrap ellipsis">
       <div class="photo q-pa-sm q-ma-md bg-white shadow-4">
         <div class="wrapper" style="width:180px;height:180px;">
-          <div text="User 162" seed="162" class="randomArt fill"></div>
+          <div text="User 171" seed="171" class="randomArt fill"></div>
         </div>
       </div>
       <div class="self-center" style="overflow:hidden;">
         <h1>
-          User 162
+          User 171
         </h1>
       </div>
     </div>
     <div class="profile-info relative-position q-pt-sm q-card">
       <div class="user-actions">
-        <!----> <button tabindex="0" type="button" role="button" small="" title="Send a private message to User 162" class="q-btn q-btn-item non-selectable no-outline q-btn--standard q-btn--round bg-secondary text-white q-btn--actionable q-focusable q-hoverable q-btn--wrap"><span class="q-focus-helper"></span><span class="q-btn__wrapper col row q-anchor--skip"><span class="q-btn__content text-center col items-center q-anchor--skip justify-center row"><i aria-hidden="true" role="img" class="fas fa-comments q-icon notranslate"> </i></span></span></button> <button tabindex="0" type="button" role="button" small="" title="Is there a conflict with User 162?" class="q-btn q-btn-item non-selectable no-outline q-btn--standard q-btn--round bg-grey-8 text-white q-btn--actionable q-focusable q-hoverable q-btn--wrap"><span class="q-focus-helper"></span><span class="q-btn__wrapper col row q-anchor--skip"><span class="q-btn__content text-center col items-center q-anchor--skip justify-center row"><i aria-hidden="true" role="img" class="fas fa-frown-open q-icon notranslate"> </i></span></span></button> <button tabindex="0" type="button" role="button" title="Newcomer - 2 more trust needed" class="q-btn q-btn-item non-selectable no-outline karrot-button q-btn--standard q-btn--round bg-white text-white q-btn--actionable q-focusable q-hoverable q-btn--wrap small"><span class="q-focus-helper"></span><span class="q-btn__wrapper col row q-anchor--skip"><span class="q-btn__content text-center col items-center q-anchor--skip justify-center row"><svg viewBox="0 0 106 106" class="circle-progress"><path d="M 53,53 m 0,-47 a 47,47 0 1 1 0,94 a 47,47 0 1 1 0,-94" fill-opacity="0" stroke="currentColor" stroke-width="12px" stroke-linecap="round" class="text-primary" style="stroke-dasharray:295.31px, 295.31px;stroke-dashoffset:295.31px;transition:stroke-dashoffset 0.6s ease 0s, stroke 0.6s ease;"></path></svg> <div role="alert" class="q-badge flex inline items-center no-wrap q-badge--single-line bg-negative q-badge--floating">
+        <!----> <button tabindex="0" type="button" role="button" small="" title="Send a private message to User 171" class="q-btn q-btn-item non-selectable no-outline q-btn--standard q-btn--round bg-secondary text-white q-btn--actionable q-focusable q-hoverable q-btn--wrap"><span class="q-focus-helper"></span><span class="q-btn__wrapper col row q-anchor--skip"><span class="q-btn__content text-center col items-center q-anchor--skip justify-center row"><i aria-hidden="true" role="img" class="fas fa-comments q-icon notranslate"> </i></span></span></button> <button tabindex="0" type="button" role="button" small="" title="Is there a conflict with User 171?" class="q-btn q-btn-item non-selectable no-outline q-btn--standard q-btn--round bg-grey-8 text-white q-btn--actionable q-focusable q-hoverable q-btn--wrap"><span class="q-focus-helper"></span><span class="q-btn__wrapper col row q-anchor--skip"><span class="q-btn__content text-center col items-center q-anchor--skip justify-center row"><i aria-hidden="true" role="img" class="fas fa-frown-open q-icon notranslate"> </i></span></span></button> <button tabindex="0" type="button" role="button" title="Newcomer - 2 more trust needed" class="q-btn q-btn-item non-selectable no-outline karrot-button q-btn--standard q-btn--round bg-white text-white q-btn--actionable q-focusable q-hoverable q-btn--wrap small"><span class="q-focus-helper"></span><span class="q-btn__wrapper col row q-anchor--skip"><span class="q-btn__content text-center col items-center q-anchor--skip justify-center row"><svg viewBox="0 0 106 106" class="circle-progress"><path d="M 53,53 m 0,-47 a 47,47 0 1 1 0,94 a 47,47 0 1 1 0,-94" fill-opacity="0" stroke="currentColor" stroke-width="12px" stroke-linecap="round" class="text-primary" style="stroke-dasharray:295.31px, 295.31px;stroke-dashoffset:295.31px;transition:stroke-dashoffset 0.6s ease 0s, stroke 0.6s ease;"></path></svg> <div role="alert" class="q-badge flex inline items-center no-wrap q-badge--single-line bg-negative q-badge--floating">
     1
   </div> <!----></span></span></button>
       </div>
@@ -9357,8 +9726,8 @@ exports[`Storyshots Profile member 1`] = `
           <div tabindex="0" class="q-item q-item-type row no-wrap clickable q-item--clickable q-link cursor-pointer q-focusable q-hoverable">
             <div tabindex="-1" class="q-focus-helper"></div>
             <div class="q-item__section column q-item__section--avatar q-item__section--side justify-center">
-              <div class="wrapper" style="width:25px;height:25px;"><a title="User 162 (Newcomer)">
-                  <div text="User 162" seed="162" class="randomArt fill"></div>
+              <div class="wrapper" style="width:25px;height:25px;"><a title="User 171 (Newcomer)">
+                  <div text="User 171" seed="171" class="randomArt fill"></div>
                 </a></div>
             </div>
             <div class="q-item__section column q-item__section--main justify-center">
@@ -9394,7 +9763,7 @@ exports[`Storyshots Profile non-member 1`] = `
         <div class="q-pa-sm" style="background-color:rgba(0, 0, 0, .1);"><i aria-hidden="true" role="presentation" class="text-white material-icons q-icon notranslate" style="font-size:24px;">priority_high</i></div>
       </div>
       <div class="q-banner__content col text-body2">
-        User 161 is not member of Group 41.
+        User 170 is not member of Group 41.
       </div>
     </div>
     <div class="row justify-end" style="margin-bottom:-32px;">
@@ -9403,18 +9772,18 @@ exports[`Storyshots Profile non-member 1`] = `
     <div class="photoAndName row no-wrap ellipsis">
       <div class="photo q-pa-sm q-ma-md bg-white shadow-4">
         <div class="wrapper" style="width:180px;height:180px;">
-          <div text="User 161" seed="161" class="randomArt fill"></div>
+          <div text="User 170" seed="170" class="randomArt fill"></div>
         </div>
       </div>
       <div class="self-center" style="overflow:hidden;">
         <h1>
-          User 161
+          User 170
         </h1>
       </div>
     </div>
     <div class="profile-info relative-position q-pt-sm q-card">
       <div class="user-actions">
-        <!----> <button tabindex="0" type="button" role="button" small="" title="Send a private message to User 161" class="q-btn q-btn-item non-selectable no-outline q-btn--standard q-btn--round bg-secondary text-white q-btn--actionable q-focusable q-hoverable q-btn--wrap"><span class="q-focus-helper"></span><span class="q-btn__wrapper col row q-anchor--skip"><span class="q-btn__content text-center col items-center q-anchor--skip justify-center row"><i aria-hidden="true" role="img" class="fas fa-comments q-icon notranslate"> </i></span></span></button>
+        <!----> <button tabindex="0" type="button" role="button" small="" title="Send a private message to User 170" class="q-btn q-btn-item non-selectable no-outline q-btn--standard q-btn--round bg-secondary text-white q-btn--actionable q-focusable q-hoverable q-btn--wrap"><span class="q-focus-helper"></span><span class="q-btn__wrapper col row q-anchor--skip"><span class="q-btn__content text-center col items-center q-anchor--skip justify-center row"><i aria-hidden="true" role="img" class="fas fa-comments q-icon notranslate"> </i></span></span></button>
         <!---->
         <!---->
       </div>
@@ -9469,8 +9838,8 @@ exports[`Storyshots Profile non-member 1`] = `
           <div tabindex="0" class="q-item q-item-type row no-wrap clickable q-item--clickable q-link cursor-pointer q-focusable q-hoverable">
             <div tabindex="-1" class="q-focus-helper"></div>
             <div class="q-item__section column q-item__section--avatar q-item__section--side justify-center">
-              <div class="wrapper" style="width:25px;height:25px;"><a title="User 161">
-                  <div text="User 161" seed="161" class="randomArt fill"></div>
+              <div class="wrapper" style="width:25px;height:25px;"><a title="User 170">
+                  <div text="User 170" seed="170" class="randomArt fill"></div>
                 </a></div>
             </div>
             <div class="q-item__section column q-item__section--main justify-center">
@@ -10447,186 +10816,6 @@ exports[`Storyshots UserList default 1`] = `
     <!---->
     <div class="q-item q-item-type row no-wrap">
       <div class="q-item__section column q-item__section--side justify-center">
-        <div class="wrapper profilePic" style="width:30px;height:30px;"><a title="User 145 (Newcomer)">
-            <div text="User 145" seed="145" class="randomArt fill"></div>
-          </a></div>
-      </div>
-      <div class="q-item__section column q-item__section--main justify-center">
-        <div class="q-item__label"><a>
-            User 145
-          </a></div>
-        <div class="q-item__label q-item__label--caption text-caption"><span>joined <div title="Dec 24, 2017, 12:00 PM" style="display:inline;">
-  less than a minute ago
-</div></span>
-          <!----> <br>
-        </div>
-      </div>
-      <div class="q-item__section column q-item__section--side justify-center"><button tabindex="0" type="button" role="button" title="Newcomer - 3 more trust needed" class="q-btn q-btn-item non-selectable no-outline karrot-button q-btn--standard q-btn--round bg-white text-white q-btn--actionable q-focusable q-hoverable q-btn--wrap small" style="font-size:10px;"><span class="q-focus-helper"></span><span class="q-btn__wrapper col row q-anchor--skip"><span class="q-btn__content text-center col items-center q-anchor--skip justify-center row"><svg viewBox="0 0 106 106" class="circle-progress"><path d="M 53,53 m 0,-47 a 47,47 0 1 1 0,94 a 47,47 0 1 1 0,-94" fill-opacity="0" stroke="currentColor" stroke-width="12px" stroke-linecap="round" class="text-primary" style="stroke-dasharray:295.31px, 295.31px;stroke-dashoffset:295.31px;transition:stroke-dashoffset 0.6s ease 0s, stroke 0.6s ease;"></path></svg> <div role="alert" class="q-badge flex inline items-center no-wrap q-badge--single-line bg-negative q-badge--floating" style="top:5px;right:-12px;">
-    0
-  </div> <!----></span></span></button></div>
-    </div>
-    <div class="q-item q-item-type row no-wrap">
-      <div class="q-item__section column q-item__section--side justify-center">
-        <div class="wrapper profilePic" style="width:30px;height:30px;"><a title="User 146 (Newcomer)">
-            <div text="User 146" seed="146" class="randomArt fill"></div>
-          </a></div>
-      </div>
-      <div class="q-item__section column q-item__section--main justify-center">
-        <div class="q-item__label"><a>
-            User 146
-          </a></div>
-        <div class="q-item__label q-item__label--caption text-caption"><span>joined <div title="Dec 24, 2017, 12:00 PM" style="display:inline;">
-  less than a minute ago
-</div></span>
-          <!----> <br>
-        </div>
-      </div>
-      <div class="q-item__section column q-item__section--side justify-center"><button tabindex="0" type="button" role="button" title="Newcomer - 3 more trust needed" class="q-btn q-btn-item non-selectable no-outline karrot-button q-btn--standard q-btn--round bg-white text-white q-btn--actionable q-focusable q-hoverable q-btn--wrap small" style="font-size:10px;"><span class="q-focus-helper"></span><span class="q-btn__wrapper col row q-anchor--skip"><span class="q-btn__content text-center col items-center q-anchor--skip justify-center row"><svg viewBox="0 0 106 106" class="circle-progress"><path d="M 53,53 m 0,-47 a 47,47 0 1 1 0,94 a 47,47 0 1 1 0,-94" fill-opacity="0" stroke="currentColor" stroke-width="12px" stroke-linecap="round" class="text-primary" style="stroke-dasharray:295.31px, 295.31px;stroke-dashoffset:295.31px;transition:stroke-dashoffset 0.6s ease 0s, stroke 0.6s ease;"></path></svg> <div role="alert" class="q-badge flex inline items-center no-wrap q-badge--single-line bg-negative q-badge--floating" style="top:5px;right:-12px;">
-    0
-  </div> <!----></span></span></button></div>
-    </div>
-    <div class="q-item q-item-type row no-wrap">
-      <div class="q-item__section column q-item__section--side justify-center">
-        <div class="wrapper profilePic" style="width:30px;height:30px;"><a title="User 147 (Newcomer)">
-            <div text="User 147" seed="147" class="randomArt fill"></div>
-          </a></div>
-      </div>
-      <div class="q-item__section column q-item__section--main justify-center">
-        <div class="q-item__label"><a>
-            User 147
-          </a></div>
-        <div class="q-item__label q-item__label--caption text-caption"><span>joined <div title="Dec 24, 2017, 12:00 PM" style="display:inline;">
-  less than a minute ago
-</div></span>
-          <!----> <br>
-        </div>
-      </div>
-      <div class="q-item__section column q-item__section--side justify-center"><button tabindex="0" type="button" role="button" title="Newcomer - 3 more trust needed" class="q-btn q-btn-item non-selectable no-outline karrot-button q-btn--standard q-btn--round bg-white text-white q-btn--actionable q-focusable q-hoverable q-btn--wrap small" style="font-size:10px;"><span class="q-focus-helper"></span><span class="q-btn__wrapper col row q-anchor--skip"><span class="q-btn__content text-center col items-center q-anchor--skip justify-center row"><svg viewBox="0 0 106 106" class="circle-progress"><path d="M 53,53 m 0,-47 a 47,47 0 1 1 0,94 a 47,47 0 1 1 0,-94" fill-opacity="0" stroke="currentColor" stroke-width="12px" stroke-linecap="round" class="text-primary" style="stroke-dasharray:295.31px, 295.31px;stroke-dashoffset:295.31px;transition:stroke-dashoffset 0.6s ease 0s, stroke 0.6s ease;"></path></svg> <div role="alert" class="q-badge flex inline items-center no-wrap q-badge--single-line bg-negative q-badge--floating" style="top:5px;right:-12px;">
-    0
-  </div> <!----></span></span></button></div>
-    </div>
-    <div class="q-item q-item-type row no-wrap">
-      <div class="q-item__section column q-item__section--side justify-center">
-        <div class="wrapper profilePic" style="width:30px;height:30px;"><a title="User 148 (Newcomer)">
-            <div text="User 148" seed="148" class="randomArt fill"></div>
-          </a></div>
-      </div>
-      <div class="q-item__section column q-item__section--main justify-center">
-        <div class="q-item__label"><a>
-            User 148
-          </a></div>
-        <div class="q-item__label q-item__label--caption text-caption"><span>joined <div title="Dec 24, 2017, 12:00 PM" style="display:inline;">
-  less than a minute ago
-</div></span>
-          <!----> <br>
-        </div>
-      </div>
-      <div class="q-item__section column q-item__section--side justify-center"><button tabindex="0" type="button" role="button" title="Newcomer - 3 more trust needed" class="q-btn q-btn-item non-selectable no-outline karrot-button q-btn--standard q-btn--round bg-white text-white q-btn--actionable q-focusable q-hoverable q-btn--wrap small" style="font-size:10px;"><span class="q-focus-helper"></span><span class="q-btn__wrapper col row q-anchor--skip"><span class="q-btn__content text-center col items-center q-anchor--skip justify-center row"><svg viewBox="0 0 106 106" class="circle-progress"><path d="M 53,53 m 0,-47 a 47,47 0 1 1 0,94 a 47,47 0 1 1 0,-94" fill-opacity="0" stroke="currentColor" stroke-width="12px" stroke-linecap="round" class="text-primary" style="stroke-dasharray:295.31px, 295.31px;stroke-dashoffset:295.31px;transition:stroke-dashoffset 0.6s ease 0s, stroke 0.6s ease;"></path></svg> <div role="alert" class="q-badge flex inline items-center no-wrap q-badge--single-line bg-negative q-badge--floating" style="top:5px;right:-12px;">
-    0
-  </div> <!----></span></span></button></div>
-    </div>
-    <div class="q-item q-item-type row no-wrap">
-      <div class="q-item__section column q-item__section--side justify-center">
-        <div class="wrapper profilePic" style="width:30px;height:30px;"><a title="User 149 (Newcomer)">
-            <div text="User 149" seed="149" class="randomArt fill"></div>
-          </a></div>
-      </div>
-      <div class="q-item__section column q-item__section--main justify-center">
-        <div class="q-item__label"><a>
-            User 149
-          </a></div>
-        <div class="q-item__label q-item__label--caption text-caption"><span>joined <div title="Dec 24, 2017, 12:00 PM" style="display:inline;">
-  less than a minute ago
-</div></span>
-          <!----> <br>
-        </div>
-      </div>
-      <div class="q-item__section column q-item__section--side justify-center"><button tabindex="0" type="button" role="button" title="Newcomer - 3 more trust needed" class="q-btn q-btn-item non-selectable no-outline karrot-button q-btn--standard q-btn--round bg-white text-white q-btn--actionable q-focusable q-hoverable q-btn--wrap small" style="font-size:10px;"><span class="q-focus-helper"></span><span class="q-btn__wrapper col row q-anchor--skip"><span class="q-btn__content text-center col items-center q-anchor--skip justify-center row"><svg viewBox="0 0 106 106" class="circle-progress"><path d="M 53,53 m 0,-47 a 47,47 0 1 1 0,94 a 47,47 0 1 1 0,-94" fill-opacity="0" stroke="currentColor" stroke-width="12px" stroke-linecap="round" class="text-primary" style="stroke-dasharray:295.31px, 295.31px;stroke-dashoffset:295.31px;transition:stroke-dashoffset 0.6s ease 0s, stroke 0.6s ease;"></path></svg> <div role="alert" class="q-badge flex inline items-center no-wrap q-badge--single-line bg-negative q-badge--floating" style="top:5px;right:-12px;">
-    0
-  </div> <!----></span></span></button></div>
-    </div>
-    <div class="q-item q-item-type row no-wrap">
-      <div class="q-item__section column q-item__section--side justify-center">
-        <div class="wrapper profilePic" style="width:30px;height:30px;"><a title="User 150 (Newcomer)">
-            <div text="User 150" seed="150" class="randomArt fill"></div>
-          </a></div>
-      </div>
-      <div class="q-item__section column q-item__section--main justify-center">
-        <div class="q-item__label"><a>
-            User 150
-          </a></div>
-        <div class="q-item__label q-item__label--caption text-caption"><span>joined <div title="Dec 24, 2017, 12:00 PM" style="display:inline;">
-  less than a minute ago
-</div></span>
-          <!----> <br>
-        </div>
-      </div>
-      <div class="q-item__section column q-item__section--side justify-center"><button tabindex="0" type="button" role="button" title="Newcomer - 3 more trust needed" class="q-btn q-btn-item non-selectable no-outline karrot-button q-btn--standard q-btn--round bg-white text-white q-btn--actionable q-focusable q-hoverable q-btn--wrap small" style="font-size:10px;"><span class="q-focus-helper"></span><span class="q-btn__wrapper col row q-anchor--skip"><span class="q-btn__content text-center col items-center q-anchor--skip justify-center row"><svg viewBox="0 0 106 106" class="circle-progress"><path d="M 53,53 m 0,-47 a 47,47 0 1 1 0,94 a 47,47 0 1 1 0,-94" fill-opacity="0" stroke="currentColor" stroke-width="12px" stroke-linecap="round" class="text-primary" style="stroke-dasharray:295.31px, 295.31px;stroke-dashoffset:295.31px;transition:stroke-dashoffset 0.6s ease 0s, stroke 0.6s ease;"></path></svg> <div role="alert" class="q-badge flex inline items-center no-wrap q-badge--single-line bg-negative q-badge--floating" style="top:5px;right:-12px;">
-    0
-  </div> <!----></span></span></button></div>
-    </div>
-    <div class="q-item q-item-type row no-wrap">
-      <div class="q-item__section column q-item__section--side justify-center">
-        <div class="wrapper profilePic" style="width:30px;height:30px;"><a title="User 151 (Newcomer)">
-            <div text="User 151" seed="151" class="randomArt fill"></div>
-          </a></div>
-      </div>
-      <div class="q-item__section column q-item__section--main justify-center">
-        <div class="q-item__label"><a>
-            User 151
-          </a></div>
-        <div class="q-item__label q-item__label--caption text-caption"><span>joined <div title="Dec 24, 2017, 12:00 PM" style="display:inline;">
-  less than a minute ago
-</div></span>
-          <!----> <br>
-        </div>
-      </div>
-      <div class="q-item__section column q-item__section--side justify-center"><button tabindex="0" type="button" role="button" title="Newcomer - 3 more trust needed" class="q-btn q-btn-item non-selectable no-outline karrot-button q-btn--standard q-btn--round bg-white text-white q-btn--actionable q-focusable q-hoverable q-btn--wrap small" style="font-size:10px;"><span class="q-focus-helper"></span><span class="q-btn__wrapper col row q-anchor--skip"><span class="q-btn__content text-center col items-center q-anchor--skip justify-center row"><svg viewBox="0 0 106 106" class="circle-progress"><path d="M 53,53 m 0,-47 a 47,47 0 1 1 0,94 a 47,47 0 1 1 0,-94" fill-opacity="0" stroke="currentColor" stroke-width="12px" stroke-linecap="round" class="text-primary" style="stroke-dasharray:295.31px, 295.31px;stroke-dashoffset:295.31px;transition:stroke-dashoffset 0.6s ease 0s, stroke 0.6s ease;"></path></svg> <div role="alert" class="q-badge flex inline items-center no-wrap q-badge--single-line bg-negative q-badge--floating" style="top:5px;right:-12px;">
-    0
-  </div> <!----></span></span></button></div>
-    </div>
-    <div class="q-item q-item-type row no-wrap">
-      <div class="q-item__section column q-item__section--side justify-center">
-        <div class="wrapper profilePic" style="width:30px;height:30px;"><a title="User 152 (Newcomer)">
-            <div text="User 152" seed="152" class="randomArt fill"></div>
-          </a></div>
-      </div>
-      <div class="q-item__section column q-item__section--main justify-center">
-        <div class="q-item__label"><a>
-            User 152
-          </a></div>
-        <div class="q-item__label q-item__label--caption text-caption"><span>joined <div title="Dec 24, 2017, 12:00 PM" style="display:inline;">
-  less than a minute ago
-</div></span>
-          <!----> <br>
-        </div>
-      </div>
-      <div class="q-item__section column q-item__section--side justify-center"><button tabindex="0" type="button" role="button" title="Newcomer - 3 more trust needed" class="q-btn q-btn-item non-selectable no-outline karrot-button q-btn--standard q-btn--round bg-white text-white q-btn--actionable q-focusable q-hoverable q-btn--wrap small" style="font-size:10px;"><span class="q-focus-helper"></span><span class="q-btn__wrapper col row q-anchor--skip"><span class="q-btn__content text-center col items-center q-anchor--skip justify-center row"><svg viewBox="0 0 106 106" class="circle-progress"><path d="M 53,53 m 0,-47 a 47,47 0 1 1 0,94 a 47,47 0 1 1 0,-94" fill-opacity="0" stroke="currentColor" stroke-width="12px" stroke-linecap="round" class="text-primary" style="stroke-dasharray:295.31px, 295.31px;stroke-dashoffset:295.31px;transition:stroke-dashoffset 0.6s ease 0s, stroke 0.6s ease;"></path></svg> <div role="alert" class="q-badge flex inline items-center no-wrap q-badge--single-line bg-negative q-badge--floating" style="top:5px;right:-12px;">
-    0
-  </div> <!----></span></span></button></div>
-    </div>
-    <div class="q-item q-item-type row no-wrap">
-      <div class="q-item__section column q-item__section--side justify-center">
-        <div class="wrapper profilePic" style="width:30px;height:30px;"><a title="User 153 (Newcomer)">
-            <div text="User 153" seed="153" class="randomArt fill"></div>
-          </a></div>
-      </div>
-      <div class="q-item__section column q-item__section--main justify-center">
-        <div class="q-item__label"><a>
-            User 153
-          </a></div>
-        <div class="q-item__label q-item__label--caption text-caption"><span>joined <div title="Dec 24, 2017, 12:00 PM" style="display:inline;">
-  less than a minute ago
-</div></span>
-          <!----> <br>
-        </div>
-      </div>
-      <div class="q-item__section column q-item__section--side justify-center"><button tabindex="0" type="button" role="button" title="Newcomer - 3 more trust needed" class="q-btn q-btn-item non-selectable no-outline karrot-button q-btn--standard q-btn--round bg-white text-white q-btn--actionable q-focusable q-hoverable q-btn--wrap small" style="font-size:10px;"><span class="q-focus-helper"></span><span class="q-btn__wrapper col row q-anchor--skip"><span class="q-btn__content text-center col items-center q-anchor--skip justify-center row"><svg viewBox="0 0 106 106" class="circle-progress"><path d="M 53,53 m 0,-47 a 47,47 0 1 1 0,94 a 47,47 0 1 1 0,-94" fill-opacity="0" stroke="currentColor" stroke-width="12px" stroke-linecap="round" class="text-primary" style="stroke-dasharray:295.31px, 295.31px;stroke-dashoffset:295.31px;transition:stroke-dashoffset 0.6s ease 0s, stroke 0.6s ease;"></path></svg> <div role="alert" class="q-badge flex inline items-center no-wrap q-badge--single-line bg-negative q-badge--floating" style="top:5px;right:-12px;">
-    0
-  </div> <!----></span></span></button></div>
-    </div>
-    <div class="q-item q-item-type row no-wrap">
-      <div class="q-item__section column q-item__section--side justify-center">
         <div class="wrapper profilePic" style="width:30px;height:30px;"><a title="User 154 (Newcomer)">
             <div text="User 154" seed="154" class="randomArt fill"></div>
           </a></div>
@@ -10634,6 +10823,186 @@ exports[`Storyshots UserList default 1`] = `
       <div class="q-item__section column q-item__section--main justify-center">
         <div class="q-item__label"><a>
             User 154
+          </a></div>
+        <div class="q-item__label q-item__label--caption text-caption"><span>joined <div title="Dec 24, 2017, 12:00 PM" style="display:inline;">
+  less than a minute ago
+</div></span>
+          <!----> <br>
+        </div>
+      </div>
+      <div class="q-item__section column q-item__section--side justify-center"><button tabindex="0" type="button" role="button" title="Newcomer - 3 more trust needed" class="q-btn q-btn-item non-selectable no-outline karrot-button q-btn--standard q-btn--round bg-white text-white q-btn--actionable q-focusable q-hoverable q-btn--wrap small" style="font-size:10px;"><span class="q-focus-helper"></span><span class="q-btn__wrapper col row q-anchor--skip"><span class="q-btn__content text-center col items-center q-anchor--skip justify-center row"><svg viewBox="0 0 106 106" class="circle-progress"><path d="M 53,53 m 0,-47 a 47,47 0 1 1 0,94 a 47,47 0 1 1 0,-94" fill-opacity="0" stroke="currentColor" stroke-width="12px" stroke-linecap="round" class="text-primary" style="stroke-dasharray:295.31px, 295.31px;stroke-dashoffset:295.31px;transition:stroke-dashoffset 0.6s ease 0s, stroke 0.6s ease;"></path></svg> <div role="alert" class="q-badge flex inline items-center no-wrap q-badge--single-line bg-negative q-badge--floating" style="top:5px;right:-12px;">
+    0
+  </div> <!----></span></span></button></div>
+    </div>
+    <div class="q-item q-item-type row no-wrap">
+      <div class="q-item__section column q-item__section--side justify-center">
+        <div class="wrapper profilePic" style="width:30px;height:30px;"><a title="User 155 (Newcomer)">
+            <div text="User 155" seed="155" class="randomArt fill"></div>
+          </a></div>
+      </div>
+      <div class="q-item__section column q-item__section--main justify-center">
+        <div class="q-item__label"><a>
+            User 155
+          </a></div>
+        <div class="q-item__label q-item__label--caption text-caption"><span>joined <div title="Dec 24, 2017, 12:00 PM" style="display:inline;">
+  less than a minute ago
+</div></span>
+          <!----> <br>
+        </div>
+      </div>
+      <div class="q-item__section column q-item__section--side justify-center"><button tabindex="0" type="button" role="button" title="Newcomer - 3 more trust needed" class="q-btn q-btn-item non-selectable no-outline karrot-button q-btn--standard q-btn--round bg-white text-white q-btn--actionable q-focusable q-hoverable q-btn--wrap small" style="font-size:10px;"><span class="q-focus-helper"></span><span class="q-btn__wrapper col row q-anchor--skip"><span class="q-btn__content text-center col items-center q-anchor--skip justify-center row"><svg viewBox="0 0 106 106" class="circle-progress"><path d="M 53,53 m 0,-47 a 47,47 0 1 1 0,94 a 47,47 0 1 1 0,-94" fill-opacity="0" stroke="currentColor" stroke-width="12px" stroke-linecap="round" class="text-primary" style="stroke-dasharray:295.31px, 295.31px;stroke-dashoffset:295.31px;transition:stroke-dashoffset 0.6s ease 0s, stroke 0.6s ease;"></path></svg> <div role="alert" class="q-badge flex inline items-center no-wrap q-badge--single-line bg-negative q-badge--floating" style="top:5px;right:-12px;">
+    0
+  </div> <!----></span></span></button></div>
+    </div>
+    <div class="q-item q-item-type row no-wrap">
+      <div class="q-item__section column q-item__section--side justify-center">
+        <div class="wrapper profilePic" style="width:30px;height:30px;"><a title="User 156 (Newcomer)">
+            <div text="User 156" seed="156" class="randomArt fill"></div>
+          </a></div>
+      </div>
+      <div class="q-item__section column q-item__section--main justify-center">
+        <div class="q-item__label"><a>
+            User 156
+          </a></div>
+        <div class="q-item__label q-item__label--caption text-caption"><span>joined <div title="Dec 24, 2017, 12:00 PM" style="display:inline;">
+  less than a minute ago
+</div></span>
+          <!----> <br>
+        </div>
+      </div>
+      <div class="q-item__section column q-item__section--side justify-center"><button tabindex="0" type="button" role="button" title="Newcomer - 3 more trust needed" class="q-btn q-btn-item non-selectable no-outline karrot-button q-btn--standard q-btn--round bg-white text-white q-btn--actionable q-focusable q-hoverable q-btn--wrap small" style="font-size:10px;"><span class="q-focus-helper"></span><span class="q-btn__wrapper col row q-anchor--skip"><span class="q-btn__content text-center col items-center q-anchor--skip justify-center row"><svg viewBox="0 0 106 106" class="circle-progress"><path d="M 53,53 m 0,-47 a 47,47 0 1 1 0,94 a 47,47 0 1 1 0,-94" fill-opacity="0" stroke="currentColor" stroke-width="12px" stroke-linecap="round" class="text-primary" style="stroke-dasharray:295.31px, 295.31px;stroke-dashoffset:295.31px;transition:stroke-dashoffset 0.6s ease 0s, stroke 0.6s ease;"></path></svg> <div role="alert" class="q-badge flex inline items-center no-wrap q-badge--single-line bg-negative q-badge--floating" style="top:5px;right:-12px;">
+    0
+  </div> <!----></span></span></button></div>
+    </div>
+    <div class="q-item q-item-type row no-wrap">
+      <div class="q-item__section column q-item__section--side justify-center">
+        <div class="wrapper profilePic" style="width:30px;height:30px;"><a title="User 157 (Newcomer)">
+            <div text="User 157" seed="157" class="randomArt fill"></div>
+          </a></div>
+      </div>
+      <div class="q-item__section column q-item__section--main justify-center">
+        <div class="q-item__label"><a>
+            User 157
+          </a></div>
+        <div class="q-item__label q-item__label--caption text-caption"><span>joined <div title="Dec 24, 2017, 12:00 PM" style="display:inline;">
+  less than a minute ago
+</div></span>
+          <!----> <br>
+        </div>
+      </div>
+      <div class="q-item__section column q-item__section--side justify-center"><button tabindex="0" type="button" role="button" title="Newcomer - 3 more trust needed" class="q-btn q-btn-item non-selectable no-outline karrot-button q-btn--standard q-btn--round bg-white text-white q-btn--actionable q-focusable q-hoverable q-btn--wrap small" style="font-size:10px;"><span class="q-focus-helper"></span><span class="q-btn__wrapper col row q-anchor--skip"><span class="q-btn__content text-center col items-center q-anchor--skip justify-center row"><svg viewBox="0 0 106 106" class="circle-progress"><path d="M 53,53 m 0,-47 a 47,47 0 1 1 0,94 a 47,47 0 1 1 0,-94" fill-opacity="0" stroke="currentColor" stroke-width="12px" stroke-linecap="round" class="text-primary" style="stroke-dasharray:295.31px, 295.31px;stroke-dashoffset:295.31px;transition:stroke-dashoffset 0.6s ease 0s, stroke 0.6s ease;"></path></svg> <div role="alert" class="q-badge flex inline items-center no-wrap q-badge--single-line bg-negative q-badge--floating" style="top:5px;right:-12px;">
+    0
+  </div> <!----></span></span></button></div>
+    </div>
+    <div class="q-item q-item-type row no-wrap">
+      <div class="q-item__section column q-item__section--side justify-center">
+        <div class="wrapper profilePic" style="width:30px;height:30px;"><a title="User 158 (Newcomer)">
+            <div text="User 158" seed="158" class="randomArt fill"></div>
+          </a></div>
+      </div>
+      <div class="q-item__section column q-item__section--main justify-center">
+        <div class="q-item__label"><a>
+            User 158
+          </a></div>
+        <div class="q-item__label q-item__label--caption text-caption"><span>joined <div title="Dec 24, 2017, 12:00 PM" style="display:inline;">
+  less than a minute ago
+</div></span>
+          <!----> <br>
+        </div>
+      </div>
+      <div class="q-item__section column q-item__section--side justify-center"><button tabindex="0" type="button" role="button" title="Newcomer - 3 more trust needed" class="q-btn q-btn-item non-selectable no-outline karrot-button q-btn--standard q-btn--round bg-white text-white q-btn--actionable q-focusable q-hoverable q-btn--wrap small" style="font-size:10px;"><span class="q-focus-helper"></span><span class="q-btn__wrapper col row q-anchor--skip"><span class="q-btn__content text-center col items-center q-anchor--skip justify-center row"><svg viewBox="0 0 106 106" class="circle-progress"><path d="M 53,53 m 0,-47 a 47,47 0 1 1 0,94 a 47,47 0 1 1 0,-94" fill-opacity="0" stroke="currentColor" stroke-width="12px" stroke-linecap="round" class="text-primary" style="stroke-dasharray:295.31px, 295.31px;stroke-dashoffset:295.31px;transition:stroke-dashoffset 0.6s ease 0s, stroke 0.6s ease;"></path></svg> <div role="alert" class="q-badge flex inline items-center no-wrap q-badge--single-line bg-negative q-badge--floating" style="top:5px;right:-12px;">
+    0
+  </div> <!----></span></span></button></div>
+    </div>
+    <div class="q-item q-item-type row no-wrap">
+      <div class="q-item__section column q-item__section--side justify-center">
+        <div class="wrapper profilePic" style="width:30px;height:30px;"><a title="User 159 (Newcomer)">
+            <div text="User 159" seed="159" class="randomArt fill"></div>
+          </a></div>
+      </div>
+      <div class="q-item__section column q-item__section--main justify-center">
+        <div class="q-item__label"><a>
+            User 159
+          </a></div>
+        <div class="q-item__label q-item__label--caption text-caption"><span>joined <div title="Dec 24, 2017, 12:00 PM" style="display:inline;">
+  less than a minute ago
+</div></span>
+          <!----> <br>
+        </div>
+      </div>
+      <div class="q-item__section column q-item__section--side justify-center"><button tabindex="0" type="button" role="button" title="Newcomer - 3 more trust needed" class="q-btn q-btn-item non-selectable no-outline karrot-button q-btn--standard q-btn--round bg-white text-white q-btn--actionable q-focusable q-hoverable q-btn--wrap small" style="font-size:10px;"><span class="q-focus-helper"></span><span class="q-btn__wrapper col row q-anchor--skip"><span class="q-btn__content text-center col items-center q-anchor--skip justify-center row"><svg viewBox="0 0 106 106" class="circle-progress"><path d="M 53,53 m 0,-47 a 47,47 0 1 1 0,94 a 47,47 0 1 1 0,-94" fill-opacity="0" stroke="currentColor" stroke-width="12px" stroke-linecap="round" class="text-primary" style="stroke-dasharray:295.31px, 295.31px;stroke-dashoffset:295.31px;transition:stroke-dashoffset 0.6s ease 0s, stroke 0.6s ease;"></path></svg> <div role="alert" class="q-badge flex inline items-center no-wrap q-badge--single-line bg-negative q-badge--floating" style="top:5px;right:-12px;">
+    0
+  </div> <!----></span></span></button></div>
+    </div>
+    <div class="q-item q-item-type row no-wrap">
+      <div class="q-item__section column q-item__section--side justify-center">
+        <div class="wrapper profilePic" style="width:30px;height:30px;"><a title="User 160 (Newcomer)">
+            <div text="User 160" seed="160" class="randomArt fill"></div>
+          </a></div>
+      </div>
+      <div class="q-item__section column q-item__section--main justify-center">
+        <div class="q-item__label"><a>
+            User 160
+          </a></div>
+        <div class="q-item__label q-item__label--caption text-caption"><span>joined <div title="Dec 24, 2017, 12:00 PM" style="display:inline;">
+  less than a minute ago
+</div></span>
+          <!----> <br>
+        </div>
+      </div>
+      <div class="q-item__section column q-item__section--side justify-center"><button tabindex="0" type="button" role="button" title="Newcomer - 3 more trust needed" class="q-btn q-btn-item non-selectable no-outline karrot-button q-btn--standard q-btn--round bg-white text-white q-btn--actionable q-focusable q-hoverable q-btn--wrap small" style="font-size:10px;"><span class="q-focus-helper"></span><span class="q-btn__wrapper col row q-anchor--skip"><span class="q-btn__content text-center col items-center q-anchor--skip justify-center row"><svg viewBox="0 0 106 106" class="circle-progress"><path d="M 53,53 m 0,-47 a 47,47 0 1 1 0,94 a 47,47 0 1 1 0,-94" fill-opacity="0" stroke="currentColor" stroke-width="12px" stroke-linecap="round" class="text-primary" style="stroke-dasharray:295.31px, 295.31px;stroke-dashoffset:295.31px;transition:stroke-dashoffset 0.6s ease 0s, stroke 0.6s ease;"></path></svg> <div role="alert" class="q-badge flex inline items-center no-wrap q-badge--single-line bg-negative q-badge--floating" style="top:5px;right:-12px;">
+    0
+  </div> <!----></span></span></button></div>
+    </div>
+    <div class="q-item q-item-type row no-wrap">
+      <div class="q-item__section column q-item__section--side justify-center">
+        <div class="wrapper profilePic" style="width:30px;height:30px;"><a title="User 161 (Newcomer)">
+            <div text="User 161" seed="161" class="randomArt fill"></div>
+          </a></div>
+      </div>
+      <div class="q-item__section column q-item__section--main justify-center">
+        <div class="q-item__label"><a>
+            User 161
+          </a></div>
+        <div class="q-item__label q-item__label--caption text-caption"><span>joined <div title="Dec 24, 2017, 12:00 PM" style="display:inline;">
+  less than a minute ago
+</div></span>
+          <!----> <br>
+        </div>
+      </div>
+      <div class="q-item__section column q-item__section--side justify-center"><button tabindex="0" type="button" role="button" title="Newcomer - 3 more trust needed" class="q-btn q-btn-item non-selectable no-outline karrot-button q-btn--standard q-btn--round bg-white text-white q-btn--actionable q-focusable q-hoverable q-btn--wrap small" style="font-size:10px;"><span class="q-focus-helper"></span><span class="q-btn__wrapper col row q-anchor--skip"><span class="q-btn__content text-center col items-center q-anchor--skip justify-center row"><svg viewBox="0 0 106 106" class="circle-progress"><path d="M 53,53 m 0,-47 a 47,47 0 1 1 0,94 a 47,47 0 1 1 0,-94" fill-opacity="0" stroke="currentColor" stroke-width="12px" stroke-linecap="round" class="text-primary" style="stroke-dasharray:295.31px, 295.31px;stroke-dashoffset:295.31px;transition:stroke-dashoffset 0.6s ease 0s, stroke 0.6s ease;"></path></svg> <div role="alert" class="q-badge flex inline items-center no-wrap q-badge--single-line bg-negative q-badge--floating" style="top:5px;right:-12px;">
+    0
+  </div> <!----></span></span></button></div>
+    </div>
+    <div class="q-item q-item-type row no-wrap">
+      <div class="q-item__section column q-item__section--side justify-center">
+        <div class="wrapper profilePic" style="width:30px;height:30px;"><a title="User 162 (Newcomer)">
+            <div text="User 162" seed="162" class="randomArt fill"></div>
+          </a></div>
+      </div>
+      <div class="q-item__section column q-item__section--main justify-center">
+        <div class="q-item__label"><a>
+            User 162
+          </a></div>
+        <div class="q-item__label q-item__label--caption text-caption"><span>joined <div title="Dec 24, 2017, 12:00 PM" style="display:inline;">
+  less than a minute ago
+</div></span>
+          <!----> <br>
+        </div>
+      </div>
+      <div class="q-item__section column q-item__section--side justify-center"><button tabindex="0" type="button" role="button" title="Newcomer - 3 more trust needed" class="q-btn q-btn-item non-selectable no-outline karrot-button q-btn--standard q-btn--round bg-white text-white q-btn--actionable q-focusable q-hoverable q-btn--wrap small" style="font-size:10px;"><span class="q-focus-helper"></span><span class="q-btn__wrapper col row q-anchor--skip"><span class="q-btn__content text-center col items-center q-anchor--skip justify-center row"><svg viewBox="0 0 106 106" class="circle-progress"><path d="M 53,53 m 0,-47 a 47,47 0 1 1 0,94 a 47,47 0 1 1 0,-94" fill-opacity="0" stroke="currentColor" stroke-width="12px" stroke-linecap="round" class="text-primary" style="stroke-dasharray:295.31px, 295.31px;stroke-dashoffset:295.31px;transition:stroke-dashoffset 0.6s ease 0s, stroke 0.6s ease;"></path></svg> <div role="alert" class="q-badge flex inline items-center no-wrap q-badge--single-line bg-negative q-badge--floating" style="top:5px;right:-12px;">
+    0
+  </div> <!----></span></span></button></div>
+    </div>
+    <div class="q-item q-item-type row no-wrap">
+      <div class="q-item__section column q-item__section--side justify-center">
+        <div class="wrapper profilePic" style="width:30px;height:30px;"><a title="User 163 (Newcomer)">
+            <div text="User 163" seed="163" class="randomArt fill"></div>
+          </a></div>
+      </div>
+      <div class="q-item__section column q-item__section--main justify-center">
+        <div class="q-item__label"><a>
+            User 163
           </a></div>
         <div class="q-item__label q-item__label--caption text-caption"><span>joined <div title="Dec 24, 2017, 12:00 PM" style="display:inline;">
   less than a minute ago
@@ -10741,7 +11110,7 @@ exports[`Storyshots VerifyMail success 1`] = `
 exports[`Storyshots WallConversation default 1`] = `
 <div>
   <div class="q-infinite-scroll">
-    <div class="bg-white desktop-margin relative-position q-pb-md q-list q-list--bordered"><button tabindex="0" type="button" role="button" title="How do you want to receive notifications about new messages in this conversation/thread?" class="q-btn q-btn-item non-selectable no-outline actionButton q-btn--standard q-btn--round bg-grey-8 text-white q-btn--actionable q-focusable q-hoverable q-btn--wrap"><span class="q-focus-helper"></span><span class="q-btn__wrapper col row q-anchor--skip"><span class="q-btn__content text-center col items-center q-anchor--skip justify-center row"><i aria-hidden="true" role="presentation" class="fas fa-fw fa-bell q-icon notranslate" style="font-size:1.4em;"> </i> <!----></span></span></button>
+    <div class="bg-white desktop-margin relative-position q-pb-md q-list q-list--bordered"><button tabindex="0" type="button" role="button" title="How do you want to receive notifications about new messages in this conversation/thread?" class="q-btn q-btn-item non-selectable no-outline actionButton q-btn--standard q-btn--round bg-secondary text-white q-btn--actionable q-focusable q-hoverable q-btn--wrap"><span class="q-focus-helper"></span><span class="q-btn__wrapper col row q-anchor--skip"><span class="q-btn__content text-center col items-center q-anchor--skip justify-center row"><i aria-hidden="true" role="presentation" class="fas fa-fw fa-envelope q-icon notranslate" style="font-size:1.4em;"> </i> <!----></span></span></button>
       <div>
         <div class="q-item q-item-type row no-wrap">
           <div class="q-item__section column q-mt-xs q-pr-sm q-item__section--top q-item__section--side justify-start">
@@ -10784,25 +11153,25 @@ exports[`Storyshots WallConversation default 1`] = `
           </button>
         </div>
         <div class="q-item__section column q-mt-xs q-pr-sm q-item__section--top q-item__section--side justify-start">
-          <div class="wrapper" style="width:40px;height:40px;"><a title="Mira Bellenbaum">
-              <div text="Mira Bellenbaum" seed="1" class="randomArt fill"></div>
+          <div class="wrapper" style="width:40px;height:40px;"><a title="User 109">
+              <div text="User 109" seed="109" class="randomArt fill"></div>
             </a></div>
         </div>
         <div class="q-item__section column q-item__section--main justify-center">
-          <div class="q-item__label no-wrap k-message-meta"><a><span class="k-message-author text-bold text-secondary text-uppercase">Mira Bellenbaum</span></a> <span class="message-date"><small class="text-weight-light"><div title="Aug 11, 2017, 3:43 PM">
-  4 months ago
+          <div class="q-item__label no-wrap k-message-meta"><a><span class="k-message-author text-bold text-secondary text-uppercase">User 109</span></a> <span class="message-date"><small class="text-weight-light"><div title="Dec 24, 2017, 12:00 PM">
+  less than a minute ago
 </div></small></span>
             <!---->
           </div>
           <div class="content">
             <div class="markdown">
-              <p>first messsage</p>
+              <p>hello 17!</p>
             </div>
           </div>
           <!---->
           <!---->
           <div class="conversation-reactions row">
-            <div class="reactions row"><button tabindex="0" type="button" role="button" title="Mira Bellenbaum reacted with :thumbsup:" class="q-btn q-btn-item non-selectable no-outline row no-wrap items-center reaction-box q-btn--flat q-btn--rectangle q-btn--actionable q-focusable q-hoverable q-btn--wrap q-btn--dense"><span class="q-focus-helper"></span><span class="q-btn__wrapper col row q-anchor--skip"><span class="q-btn__content text-center col items-center q-anchor--skip justify-center row"><div class="emoji"></div> <span class="reactions-number">1</span></span></span></button></div> <button tabindex="0" type="button" role="button" flat="" class="q-btn q-btn-item non-selectable no-outline add-button reaction-box q-btn--flat q-btn--rectangle text-black q-btn--actionable q-focusable q-hoverable q-btn--wrap q-btn--dense"><span class="q-focus-helper"></span><span class="q-btn__wrapper col row q-anchor--skip"><span class="q-btn__content text-center col items-center q-anchor--skip justify-center row"><span style="opacity:0.5;"><i class="far fa-smile"></i> +
+            <div class="reactions row"><button tabindex="0" type="button" role="button" title="a reacted with :thumbsup:" class="q-btn q-btn-item non-selectable no-outline row no-wrap items-center reaction-box q-btn--flat q-btn--rectangle q-btn--actionable q-focusable q-hoverable q-btn--wrap q-btn--dense"><span class="q-focus-helper"></span><span class="q-btn__wrapper col row q-anchor--skip"><span class="q-btn__content text-center col items-center q-anchor--skip justify-center row"><div class="emoji"></div> <span class="reactions-number">1</span></span></span></button></div> <button tabindex="0" type="button" role="button" flat="" class="q-btn q-btn-item non-selectable no-outline add-button reaction-box q-btn--flat q-btn--rectangle text-black q-btn--actionable q-focusable q-hoverable q-btn--wrap q-btn--dense"><span class="q-focus-helper"></span><span class="q-btn__wrapper col row q-anchor--skip"><span class="q-btn__content text-center col items-center q-anchor--skip justify-center row"><span style="opacity:0.5;"><i class="far fa-smile"></i> +
   </span>
               <!----></span></span>
             </button>
@@ -10819,25 +11188,62 @@ exports[`Storyshots WallConversation default 1`] = `
           </button>
         </div>
         <div class="q-item__section column q-mt-xs q-pr-sm q-item__section--top q-item__section--side justify-start">
-          <div class="wrapper" style="width:40px;height:40px;"><a title="Max Mustermann">
-              <div text="Max Mustermann" seed="2" class="randomArt fill"></div>
+          <div class="wrapper" style="width:40px;height:40px;"><a title="User 111">
+              <div text="User 111" seed="111" class="randomArt fill"></div>
             </a></div>
         </div>
         <div class="q-item__section column q-item__section--main justify-center">
-          <div class="q-item__label no-wrap k-message-meta"><a><span class="k-message-author text-bold text-secondary text-uppercase">Max Mustermann</span></a> <span class="message-date"><small class="text-weight-light"><div title="Aug 11, 2017, 3:47 PM">
-  4 months ago
+          <div class="q-item__label no-wrap k-message-meta"><a><span class="k-message-author text-bold text-secondary text-uppercase">User 111</span></a> <span class="message-date"><small class="text-weight-light"><div title="Dec 24, 2017, 12:00 PM">
+  less than a minute ago
 </div></small></span>
             <!---->
           </div>
           <div class="content">
             <div class="markdown">
-              <p>second messsage</p>
+              <p>hello 18!</p>
             </div>
           </div>
           <!---->
-          <!---->
+          <div class="images">
+            <div role="img" class="q-mr-sm q-mb-sm q-img overflow-hidden">
+              <div></div>
+              <transition-stub name="q-transition--fade"></transition-stub>
+              <transition-stub name="q-transition--fade">
+                <div class="q-img__loading absolute-full flex flex-center"><svg focusable="false" width="1em" height="1em" viewBox="25 25 50 50" class="q-spinner q-spinner-mat">
+                    <circle cx="50" cy="50" r="20" fill="none" stroke="currentColor" stroke-width="5" stroke-miterlimit="10" class="path"></circle>
+                  </svg></div>
+              </transition-stub>
+            </div>
+            <div role="img" class="q-mr-sm q-mb-sm q-img overflow-hidden">
+              <div></div>
+              <transition-stub name="q-transition--fade"></transition-stub>
+              <transition-stub name="q-transition--fade">
+                <div class="q-img__loading absolute-full flex flex-center"><svg focusable="false" width="1em" height="1em" viewBox="25 25 50 50" class="q-spinner q-spinner-mat">
+                    <circle cx="50" cy="50" r="20" fill="none" stroke="currentColor" stroke-width="5" stroke-miterlimit="10" class="path"></circle>
+                  </svg></div>
+              </transition-stub>
+            </div>
+            <div role="img" class="q-mr-sm q-mb-sm q-img overflow-hidden">
+              <div></div>
+              <transition-stub name="q-transition--fade"></transition-stub>
+              <transition-stub name="q-transition--fade">
+                <div class="q-img__loading absolute-full flex flex-center"><svg focusable="false" width="1em" height="1em" viewBox="25 25 50 50" class="q-spinner q-spinner-mat">
+                    <circle cx="50" cy="50" r="20" fill="none" stroke="currentColor" stroke-width="5" stroke-miterlimit="10" class="path"></circle>
+                  </svg></div>
+              </transition-stub>
+            </div>
+            <div role="img" class="q-mr-sm q-mb-sm q-img overflow-hidden">
+              <div></div>
+              <transition-stub name="q-transition--fade"></transition-stub>
+              <transition-stub name="q-transition--fade">
+                <div class="q-img__loading absolute-full flex flex-center"><svg focusable="false" width="1em" height="1em" viewBox="25 25 50 50" class="q-spinner q-spinner-mat">
+                    <circle cx="50" cy="50" r="20" fill="none" stroke="currentColor" stroke-width="5" stroke-miterlimit="10" class="path"></circle>
+                  </svg></div>
+              </transition-stub>
+            </div>
+          </div>
           <div class="conversation-reactions row">
-            <div class="reactions row"><button tabindex="0" type="button" role="button" title="Mira Bellenbaum reacted with :thumbsup:" class="q-btn q-btn-item non-selectable no-outline row no-wrap items-center reaction-box q-btn--flat q-btn--rectangle q-btn--actionable q-focusable q-hoverable q-btn--wrap q-btn--dense"><span class="q-focus-helper"></span><span class="q-btn__wrapper col row q-anchor--skip"><span class="q-btn__content text-center col items-center q-anchor--skip justify-center row"><div class="emoji"></div> <span class="reactions-number">1</span></span></span></button></div> <button tabindex="0" type="button" role="button" flat="" class="q-btn q-btn-item non-selectable no-outline add-button reaction-box q-btn--flat q-btn--rectangle text-black q-btn--actionable q-focusable q-hoverable q-btn--wrap q-btn--dense"><span class="q-focus-helper"></span><span class="q-btn__wrapper col row q-anchor--skip"><span class="q-btn__content text-center col items-center q-anchor--skip justify-center row"><span style="opacity:0.5;"><i class="far fa-smile"></i> +
+            <div class="reactions row"><button tabindex="0" type="button" role="button" title="a reacted with :thumbsup:" class="q-btn q-btn-item non-selectable no-outline row no-wrap items-center reaction-box q-btn--flat q-btn--rectangle q-btn--actionable q-focusable q-hoverable q-btn--wrap q-btn--dense"><span class="q-focus-helper"></span><span class="q-btn__wrapper col row q-anchor--skip"><span class="q-btn__content text-center col items-center q-anchor--skip justify-center row"><div class="emoji"></div> <span class="reactions-number">1</span></span></span></button></div> <button tabindex="0" type="button" role="button" flat="" class="q-btn q-btn-item non-selectable no-outline add-button reaction-box q-btn--flat q-btn--rectangle text-black q-btn--actionable q-focusable q-hoverable q-btn--wrap q-btn--dense"><span class="q-focus-helper"></span><span class="q-btn__wrapper col row q-anchor--skip"><span class="q-btn__content text-center col items-center q-anchor--skip justify-center row"><span style="opacity:0.5;"><i class="far fa-smile"></i> +
   </span>
               <!----></span></span>
             </button>
@@ -10854,25 +11260,25 @@ exports[`Storyshots WallConversation default 1`] = `
           </button>
         </div>
         <div class="q-item__section column q-mt-xs q-pr-sm q-item__section--top q-item__section--side justify-start">
-          <div class="wrapper" style="width:40px;height:40px;"><a title="Max Mustermann">
-              <div text="Max Mustermann" seed="2" class="randomArt fill"></div>
+          <div class="wrapper" style="width:40px;height:40px;"><a title="User 113">
+              <div text="User 113" seed="113" class="randomArt fill"></div>
             </a></div>
         </div>
         <div class="q-item__section column q-item__section--main justify-center">
-          <div class="q-item__label no-wrap k-message-meta"><a><span class="k-message-author text-bold text-secondary text-uppercase">Max Mustermann</span></a> <span class="message-date"><small class="text-weight-light"><div title="Aug 11, 2017, 3:47 PM">
-  4 months ago
+          <div class="q-item__label no-wrap k-message-meta"><a><span class="k-message-author text-bold text-secondary text-uppercase">User 113</span></a> <span class="message-date"><small class="text-weight-light"><div title="Dec 24, 2017, 12:00 PM">
+  less than a minute ago
 </div></small></span>
             <!---->
           </div>
           <div class="content">
             <div class="markdown">
-              <p>first messsage</p>
+              <p>hello 19!</p>
             </div>
           </div>
           <!---->
           <!---->
           <div class="conversation-reactions row">
-            <div class="reactions row"><button tabindex="0" type="button" role="button" title="Mira Bellenbaum reacted with :thumbsup:" class="q-btn q-btn-item non-selectable no-outline row no-wrap items-center reaction-box q-btn--flat q-btn--rectangle q-btn--actionable q-focusable q-hoverable q-btn--wrap q-btn--dense"><span class="q-focus-helper"></span><span class="q-btn__wrapper col row q-anchor--skip"><span class="q-btn__content text-center col items-center q-anchor--skip justify-center row"><div class="emoji"></div> <span class="reactions-number">1</span></span></span></button></div> <button tabindex="0" type="button" role="button" flat="" class="q-btn q-btn-item non-selectable no-outline add-button reaction-box q-btn--flat q-btn--rectangle text-black q-btn--actionable q-focusable q-hoverable q-btn--wrap q-btn--dense"><span class="q-focus-helper"></span><span class="q-btn__wrapper col row q-anchor--skip"><span class="q-btn__content text-center col items-center q-anchor--skip justify-center row"><span style="opacity:0.5;"><i class="far fa-smile"></i> +
+            <div class="reactions row"><button tabindex="0" type="button" role="button" title="a reacted with :thumbsup:" class="q-btn q-btn-item non-selectable no-outline row no-wrap items-center reaction-box q-btn--flat q-btn--rectangle q-btn--actionable q-focusable q-hoverable q-btn--wrap q-btn--dense"><span class="q-focus-helper"></span><span class="q-btn__wrapper col row q-anchor--skip"><span class="q-btn__content text-center col items-center q-anchor--skip justify-center row"><div class="emoji"></div> <span class="reactions-number">1</span></span></span></button></div> <button tabindex="0" type="button" role="button" flat="" class="q-btn q-btn-item non-selectable no-outline add-button reaction-box q-btn--flat q-btn--rectangle text-black q-btn--actionable q-focusable q-hoverable q-btn--wrap q-btn--dense"><span class="q-focus-helper"></span><span class="q-btn__wrapper col row q-anchor--skip"><span class="q-btn__content text-center col items-center q-anchor--skip justify-center row"><span style="opacity:0.5;"><i class="far fa-smile"></i> +
   </span>
               <!----></span></span>
             </button>
@@ -10889,200 +11295,25 @@ exports[`Storyshots WallConversation default 1`] = `
           </button>
         </div>
         <div class="q-item__section column q-mt-xs q-pr-sm q-item__section--top q-item__section--side justify-start">
-          <div class="wrapper" style="width:40px;height:40px;"><a title="Max Mustermann">
-              <div text="Max Mustermann" seed="2" class="randomArt fill"></div>
+          <div class="wrapper" style="width:40px;height:40px;"><a title="User 115">
+              <div text="User 115" seed="115" class="randomArt fill"></div>
             </a></div>
         </div>
         <div class="q-item__section column q-item__section--main justify-center">
-          <div class="q-item__label no-wrap k-message-meta"><a><span class="k-message-author text-bold text-secondary text-uppercase">Max Mustermann</span></a> <span class="message-date"><small class="text-weight-light"><div title="Aug 11, 2017, 3:49 PM">
-  4 months ago
+          <div class="q-item__label no-wrap k-message-meta"><a><span class="k-message-author text-bold text-secondary text-uppercase">User 115</span></a> <span class="message-date"><small class="text-weight-light"><div title="Dec 24, 2017, 12:00 PM">
+  less than a minute ago
 </div></small></span>
             <!---->
           </div>
           <div class="content">
             <div class="markdown">
-              <p>welcome to fs chat</p>
+              <p>hello 20!</p>
             </div>
           </div>
           <!---->
           <!---->
           <div class="conversation-reactions row">
-            <div class="reactions row"><button tabindex="0" type="button" role="button" title="Mira Bellenbaum reacted with :thumbsup:" class="q-btn q-btn-item non-selectable no-outline row no-wrap items-center reaction-box q-btn--flat q-btn--rectangle q-btn--actionable q-focusable q-hoverable q-btn--wrap q-btn--dense"><span class="q-focus-helper"></span><span class="q-btn__wrapper col row q-anchor--skip"><span class="q-btn__content text-center col items-center q-anchor--skip justify-center row"><div class="emoji"></div> <span class="reactions-number">1</span></span></span></button></div> <button tabindex="0" type="button" role="button" flat="" class="q-btn q-btn-item non-selectable no-outline add-button reaction-box q-btn--flat q-btn--rectangle text-black q-btn--actionable q-focusable q-hoverable q-btn--wrap q-btn--dense"><span class="q-focus-helper"></span><span class="q-btn__wrapper col row q-anchor--skip"><span class="q-btn__content text-center col items-center q-anchor--skip justify-center row"><span style="opacity:0.5;"><i class="far fa-smile"></i> +
-  </span>
-              <!----></span></span>
-            </button>
-            <!---->
-          </div>
-          <!---->
-        </div>
-      </div>
-      <div class="q-item q-item-type row no-wrap conversation-message relative-position">
-        <div class="q-btn-group row no-wrap inline hover-button k-message-controls bg-white q-btn-group--outline">
-          <!----> <button tabindex="0" type="button" role="button" title="Replies" class="q-btn q-btn-item non-selectable no-outline q-btn--outline q-btn--rectangle text-secondary q-btn--actionable q-focusable q-hoverable q-btn--wrap q-btn--dense"><span class="q-focus-helper"></span><span class="q-btn__wrapper col row q-anchor--skip"><span class="q-btn__content text-center col items-center q-anchor--skip justify-center row"><i class="fas fa-comments"></i></span></span></button> <button tabindex="0" type="button" role="button" outline="" class="q-btn q-btn-item non-selectable no-outline q-btn--outline q-btn--rectangle text-secondary q-btn--actionable q-focusable q-hoverable q-btn--wrap q-btn--dense"><span class="q-focus-helper"></span><span class="q-btn__wrapper col row q-anchor--skip"><span class="q-btn__content text-center col items-center q-anchor--skip justify-center row"><span style="opacity:1;"><i class="far fa-smile"></i> +
-  </span>
-            <!----></span></span>
-          </button>
-        </div>
-        <div class="q-item__section column q-mt-xs q-pr-sm q-item__section--top q-item__section--side justify-start">
-          <div class="wrapper" style="width:40px;height:40px;"><a title="Karl Karlson">
-              <div text="Karl Karlson" seed="3" class="randomArt fill"></div>
-            </a></div>
-        </div>
-        <div class="q-item__section column q-item__section--main justify-center">
-          <div class="q-item__label no-wrap k-message-meta"><a><span class="k-message-author text-bold text-secondary text-uppercase">Karl Karlson</span></a> <span class="message-date"><small class="text-weight-light"><div title="Aug 11, 2017, 3:51 PM">
-  4 months ago
-</div></small></span>
-            <!---->
-          </div>
-          <div class="content">
-            <div class="markdown">
-              <p>heyo!</p>
-            </div>
-          </div>
-          <!---->
-          <!---->
-          <div class="conversation-reactions row">
-            <div class="reactions row"><button tabindex="0" type="button" role="button" title="Mira Bellenbaum reacted with :thumbsup:" class="q-btn q-btn-item non-selectable no-outline row no-wrap items-center reaction-box q-btn--flat q-btn--rectangle q-btn--actionable q-focusable q-hoverable q-btn--wrap q-btn--dense"><span class="q-focus-helper"></span><span class="q-btn__wrapper col row q-anchor--skip"><span class="q-btn__content text-center col items-center q-anchor--skip justify-center row"><div class="emoji"></div> <span class="reactions-number">1</span></span></span></button></div> <button tabindex="0" type="button" role="button" flat="" class="q-btn q-btn-item non-selectable no-outline add-button reaction-box q-btn--flat q-btn--rectangle text-black q-btn--actionable q-focusable q-hoverable q-btn--wrap q-btn--dense"><span class="q-focus-helper"></span><span class="q-btn__wrapper col row q-anchor--skip"><span class="q-btn__content text-center col items-center q-anchor--skip justify-center row"><span style="opacity:0.5;"><i class="far fa-smile"></i> +
-  </span>
-              <!----></span></span>
-            </button>
-            <!---->
-          </div>
-          <!---->
-        </div>
-      </div>
-      <div class="q-item q-item-type row no-wrap conversation-message relative-position">
-        <div class="q-btn-group row no-wrap inline hover-button k-message-controls bg-white q-btn-group--outline">
-          <!----> <button tabindex="0" type="button" role="button" title="Replies" class="q-btn q-btn-item non-selectable no-outline q-btn--outline q-btn--rectangle text-secondary q-btn--actionable q-focusable q-hoverable q-btn--wrap q-btn--dense"><span class="q-focus-helper"></span><span class="q-btn__wrapper col row q-anchor--skip"><span class="q-btn__content text-center col items-center q-anchor--skip justify-center row"><i class="fas fa-comments"></i></span></span></button> <button tabindex="0" type="button" role="button" outline="" class="q-btn q-btn-item non-selectable no-outline q-btn--outline q-btn--rectangle text-secondary q-btn--actionable q-focusable q-hoverable q-btn--wrap q-btn--dense"><span class="q-focus-helper"></span><span class="q-btn__wrapper col row q-anchor--skip"><span class="q-btn__content text-center col items-center q-anchor--skip justify-center row"><span style="opacity:1;"><i class="far fa-smile"></i> +
-  </span>
-            <!----></span></span>
-          </button>
-        </div>
-        <div class="q-item__section column q-mt-xs q-pr-sm q-item__section--top q-item__section--side justify-start">
-          <div class="wrapper" style="width:40px;height:40px;"><a title="Max Mustermann">
-              <div text="Max Mustermann" seed="2" class="randomArt fill"></div>
-            </a></div>
-        </div>
-        <div class="q-item__section column q-item__section--main justify-center">
-          <div class="q-item__label no-wrap k-message-meta"><a><span class="k-message-author text-bold text-secondary text-uppercase">Max Mustermann</span></a> <span class="message-date"><small class="text-weight-light"><div title="Aug 11, 2017, 3:52 PM">
-  4 months ago
-</div></small></span>
-            <!---->
-          </div>
-          <div class="content">
-            <div class="markdown">
-              <p>you made it!</p>
-            </div>
-          </div>
-          <!---->
-          <!---->
-          <div class="conversation-reactions row">
-            <div class="reactions row"><button tabindex="0" type="button" role="button" title="Mira Bellenbaum reacted with :thumbsup:" class="q-btn q-btn-item non-selectable no-outline row no-wrap items-center reaction-box q-btn--flat q-btn--rectangle q-btn--actionable q-focusable q-hoverable q-btn--wrap q-btn--dense"><span class="q-focus-helper"></span><span class="q-btn__wrapper col row q-anchor--skip"><span class="q-btn__content text-center col items-center q-anchor--skip justify-center row"><div class="emoji"></div> <span class="reactions-number">1</span></span></span></button></div> <button tabindex="0" type="button" role="button" flat="" class="q-btn q-btn-item non-selectable no-outline add-button reaction-box q-btn--flat q-btn--rectangle text-black q-btn--actionable q-focusable q-hoverable q-btn--wrap q-btn--dense"><span class="q-focus-helper"></span><span class="q-btn__wrapper col row q-anchor--skip"><span class="q-btn__content text-center col items-center q-anchor--skip justify-center row"><span style="opacity:0.5;"><i class="far fa-smile"></i> +
-  </span>
-              <!----></span></span>
-            </button>
-            <!---->
-          </div>
-          <!---->
-        </div>
-      </div>
-      <div class="q-item q-item-type row no-wrap conversation-message relative-position">
-        <div class="q-btn-group row no-wrap inline hover-button k-message-controls bg-white q-btn-group--outline">
-          <!----> <button tabindex="0" type="button" role="button" title="Replies" class="q-btn q-btn-item non-selectable no-outline q-btn--outline q-btn--rectangle text-secondary q-btn--actionable q-focusable q-hoverable q-btn--wrap q-btn--dense"><span class="q-focus-helper"></span><span class="q-btn__wrapper col row q-anchor--skip"><span class="q-btn__content text-center col items-center q-anchor--skip justify-center row"><i class="fas fa-comments"></i></span></span></button> <button tabindex="0" type="button" role="button" outline="" class="q-btn q-btn-item non-selectable no-outline q-btn--outline q-btn--rectangle text-secondary q-btn--actionable q-focusable q-hoverable q-btn--wrap q-btn--dense"><span class="q-focus-helper"></span><span class="q-btn__wrapper col row q-anchor--skip"><span class="q-btn__content text-center col items-center q-anchor--skip justify-center row"><span style="opacity:1;"><i class="far fa-smile"></i> +
-  </span>
-            <!----></span></span>
-          </button>
-        </div>
-        <div class="q-item__section column q-mt-xs q-pr-sm q-item__section--top q-item__section--side justify-start">
-          <div class="wrapper" style="width:40px;height:40px;"><a title="Mona Mohnblume">
-              <div text="Mona Mohnblume" seed="4" class="randomArt fill"></div>
-            </a></div>
-        </div>
-        <div class="q-item__section column q-item__section--main justify-center">
-          <div class="q-item__label no-wrap k-message-meta"><a><span class="k-message-author text-bold text-secondary text-uppercase">Mona Mohnblume</span></a> <span class="message-date"><small class="text-weight-light"><div title="Aug 11, 2017, 3:52 PM">
-  4 months ago
-</div></small></span>
-            <!---->
-          </div>
-          <div class="content">
-            <div class="markdown">
-              <p>amazing!</p>
-            </div>
-          </div>
-          <!---->
-          <!---->
-          <div class="conversation-reactions row">
-            <div class="reactions row"><button tabindex="0" type="button" role="button" title="Mira Bellenbaum reacted with :thumbsup:" class="q-btn q-btn-item non-selectable no-outline row no-wrap items-center reaction-box q-btn--flat q-btn--rectangle q-btn--actionable q-focusable q-hoverable q-btn--wrap q-btn--dense"><span class="q-focus-helper"></span><span class="q-btn__wrapper col row q-anchor--skip"><span class="q-btn__content text-center col items-center q-anchor--skip justify-center row"><div class="emoji"></div> <span class="reactions-number">1</span></span></span></button></div> <button tabindex="0" type="button" role="button" flat="" class="q-btn q-btn-item non-selectable no-outline add-button reaction-box q-btn--flat q-btn--rectangle text-black q-btn--actionable q-focusable q-hoverable q-btn--wrap q-btn--dense"><span class="q-focus-helper"></span><span class="q-btn__wrapper col row q-anchor--skip"><span class="q-btn__content text-center col items-center q-anchor--skip justify-center row"><span style="opacity:0.5;"><i class="far fa-smile"></i> +
-  </span>
-              <!----></span></span>
-            </button>
-            <!---->
-          </div>
-          <!---->
-        </div>
-      </div>
-      <div class="q-item q-item-type row no-wrap conversation-message relative-position">
-        <div class="q-btn-group row no-wrap inline hover-button k-message-controls bg-white q-btn-group--outline">
-          <!----> <button tabindex="0" type="button" role="button" title="Replies" class="q-btn q-btn-item non-selectable no-outline q-btn--outline q-btn--rectangle text-secondary q-btn--actionable q-focusable q-hoverable q-btn--wrap q-btn--dense"><span class="q-focus-helper"></span><span class="q-btn__wrapper col row q-anchor--skip"><span class="q-btn__content text-center col items-center q-anchor--skip justify-center row"><i class="fas fa-comments"></i></span></span></button> <button tabindex="0" type="button" role="button" outline="" class="q-btn q-btn-item non-selectable no-outline q-btn--outline q-btn--rectangle text-secondary q-btn--actionable q-focusable q-hoverable q-btn--wrap q-btn--dense"><span class="q-focus-helper"></span><span class="q-btn__wrapper col row q-anchor--skip"><span class="q-btn__content text-center col items-center q-anchor--skip justify-center row"><span style="opacity:1;"><i class="far fa-smile"></i> +
-  </span>
-            <!----></span></span>
-          </button>
-        </div>
-        <div class="q-item__section column q-mt-xs q-pr-sm q-item__section--top q-item__section--side justify-start">
-          <div class="wrapper" style="width:40px;height:40px;"><a title="Mona Mohnblume">
-              <div text="Mona Mohnblume" seed="4" class="randomArt fill"></div>
-            </a></div>
-        </div>
-        <div class="q-item__section column q-item__section--main justify-center">
-          <div class="q-item__label no-wrap k-message-meta"><a><span class="k-message-author text-bold text-secondary text-uppercase">Mona Mohnblume</span></a> <span class="message-date"><small class="text-weight-light"><div title="Aug 11, 2017, 3:52 PM">
-  4 months ago
-</div></small></span>
-            <!---->
-          </div>
-          <div class="content">
-            <div class="markdown">
-              <p>oh let me try something <img class="emoji" draggable="false" alt="🙂" src="https://twemoji.maxcdn.com/v/13.0.1/72x72/1f642.png" /></p>
-            </div>
-          </div>
-          <!---->
-          <!---->
-          <div class="conversation-reactions row">
-            <div class="reactions row"><button tabindex="0" type="button" role="button" title="Mira Bellenbaum reacted with :thumbsup:" class="q-btn q-btn-item non-selectable no-outline row no-wrap items-center reaction-box q-btn--flat q-btn--rectangle q-btn--actionable q-focusable q-hoverable q-btn--wrap q-btn--dense"><span class="q-focus-helper"></span><span class="q-btn__wrapper col row q-anchor--skip"><span class="q-btn__content text-center col items-center q-anchor--skip justify-center row"><div class="emoji"></div> <span class="reactions-number">1</span></span></span></button></div> <button tabindex="0" type="button" role="button" flat="" class="q-btn q-btn-item non-selectable no-outline add-button reaction-box q-btn--flat q-btn--rectangle text-black q-btn--actionable q-focusable q-hoverable q-btn--wrap q-btn--dense"><span class="q-focus-helper"></span><span class="q-btn__wrapper col row q-anchor--skip"><span class="q-btn__content text-center col items-center q-anchor--skip justify-center row"><span style="opacity:0.5;"><i class="far fa-smile"></i> +
-  </span>
-              <!----></span></span>
-            </button>
-            <!---->
-          </div>
-          <!---->
-        </div>
-      </div>
-      <div class="q-item q-item-type row no-wrap conversation-message relative-position">
-        <div class="q-btn-group row no-wrap inline hover-button k-message-controls bg-white q-btn-group--outline">
-          <!----> <button tabindex="0" type="button" role="button" title="Replies" class="q-btn q-btn-item non-selectable no-outline q-btn--outline q-btn--rectangle text-secondary q-btn--actionable q-focusable q-hoverable q-btn--wrap q-btn--dense"><span class="q-focus-helper"></span><span class="q-btn__wrapper col row q-anchor--skip"><span class="q-btn__content text-center col items-center q-anchor--skip justify-center row"><i class="fas fa-comments"></i></span></span></button> <button tabindex="0" type="button" role="button" outline="" class="q-btn q-btn-item non-selectable no-outline q-btn--outline q-btn--rectangle text-secondary q-btn--actionable q-focusable q-hoverable q-btn--wrap q-btn--dense"><span class="q-focus-helper"></span><span class="q-btn__wrapper col row q-anchor--skip"><span class="q-btn__content text-center col items-center q-anchor--skip justify-center row"><span style="opacity:1;"><i class="far fa-smile"></i> +
-  </span>
-            <!----></span></span>
-          </button>
-        </div>
-        <div class="q-item__section column q-mt-xs q-pr-sm q-item__section--top q-item__section--side justify-start">
-          <div class="wrapper" style="width:40px;height:40px;"><a title="Max Mustermann">
-              <div text="Max Mustermann" seed="2" class="randomArt fill"></div>
-            </a></div>
-        </div>
-        <div class="q-item__section column q-item__section--main justify-center">
-          <div class="q-item__label no-wrap k-message-meta"><a><span class="k-message-author text-bold text-secondary text-uppercase">Max Mustermann</span></a> <span class="message-date"><small class="text-weight-light"><div title="Aug 11, 2017, 3:52 PM">
-  4 months ago
-</div></small></span>
-            <!---->
-          </div>
-          <div class="content">
-            <div class="markdown">
-              <p>I dont think we need to implement another UI, this is fine right?</p>
-            </div>
-          </div>
-          <!---->
-          <!---->
-          <div class="conversation-reactions row">
-            <div class="reactions row"><button tabindex="0" type="button" role="button" title="Mira Bellenbaum reacted with :thumbsup:" class="q-btn q-btn-item non-selectable no-outline row no-wrap items-center reaction-box q-btn--flat q-btn--rectangle q-btn--actionable q-focusable q-hoverable q-btn--wrap q-btn--dense"><span class="q-focus-helper"></span><span class="q-btn__wrapper col row q-anchor--skip"><span class="q-btn__content text-center col items-center q-anchor--skip justify-center row"><div class="emoji"></div> <span class="reactions-number">1</span></span></span></button></div> <button tabindex="0" type="button" role="button" flat="" class="q-btn q-btn-item non-selectable no-outline add-button reaction-box q-btn--flat q-btn--rectangle text-black q-btn--actionable q-focusable q-hoverable q-btn--wrap q-btn--dense"><span class="q-focus-helper"></span><span class="q-btn__wrapper col row q-anchor--skip"><span class="q-btn__content text-center col items-center q-anchor--skip justify-center row"><span style="opacity:0.5;"><i class="far fa-smile"></i> +
+            <div class="reactions row"><button tabindex="0" type="button" role="button" title="a reacted with :thumbsup:" class="q-btn q-btn-item non-selectable no-outline row no-wrap items-center reaction-box q-btn--flat q-btn--rectangle q-btn--actionable q-focusable q-hoverable q-btn--wrap q-btn--dense"><span class="q-focus-helper"></span><span class="q-btn__wrapper col row q-anchor--skip"><span class="q-btn__content text-center col items-center q-anchor--skip justify-center row"><div class="emoji"></div> <span class="reactions-number">1</span></span></span></button></div> <button tabindex="0" type="button" role="button" flat="" class="q-btn q-btn-item non-selectable no-outline add-button reaction-box q-btn--flat q-btn--rectangle text-black q-btn--actionable q-focusable q-hoverable q-btn--wrap q-btn--dense"><span class="q-focus-helper"></span><span class="q-btn__wrapper col row q-anchor--skip"><span class="q-btn__content text-center col items-center q-anchor--skip justify-center row"><span style="opacity:0.5;"><i class="far fa-smile"></i> +
   </span>
               <!----></span></span>
             </button>
@@ -11113,7 +11344,7 @@ exports[`Storyshots WallConversation default 1`] = `
 exports[`Storyshots WallConversation unread 1`] = `
 <div>
   <div class="q-infinite-scroll">
-    <div class="bg-white desktop-margin relative-position q-pb-md q-list q-list--bordered"><button tabindex="0" type="button" role="button" title="How do you want to receive notifications about new messages in this conversation/thread?" class="q-btn q-btn-item non-selectable no-outline actionButton q-btn--standard q-btn--round bg-grey-8 text-white q-btn--actionable q-focusable q-hoverable q-btn--wrap"><span class="q-focus-helper"></span><span class="q-btn__wrapper col row q-anchor--skip"><span class="q-btn__content text-center col items-center q-anchor--skip justify-center row"><i aria-hidden="true" role="presentation" class="fas fa-fw fa-bell q-icon notranslate" style="font-size:1.4em;"> </i> <!----></span></span></button>
+    <div class="bg-white desktop-margin relative-position q-pb-md q-list q-list--bordered"><button tabindex="0" type="button" role="button" title="How do you want to receive notifications about new messages in this conversation/thread?" class="q-btn q-btn-item non-selectable no-outline actionButton q-btn--standard q-btn--round bg-secondary text-white q-btn--actionable q-focusable q-hoverable q-btn--wrap"><span class="q-focus-helper"></span><span class="q-btn__wrapper col row q-anchor--skip"><span class="q-btn__content text-center col items-center q-anchor--skip justify-center row"><i aria-hidden="true" role="presentation" class="fas fa-fw fa-envelope q-icon notranslate" style="font-size:1.4em;"> </i> <!----></span></span></button>
       <div>
         <div class="q-item q-item-type row no-wrap">
           <div class="q-item__section column q-mt-xs q-pr-sm q-item__section--top q-item__section--side justify-start">
@@ -11163,25 +11394,25 @@ exports[`Storyshots WallConversation unread 1`] = `
           </button>
         </div>
         <div class="q-item__section column q-mt-xs q-pr-sm q-item__section--top q-item__section--side justify-start">
-          <div class="wrapper" style="width:40px;height:40px;"><a title="Mira Bellenbaum">
-              <div text="Mira Bellenbaum" seed="1" class="randomArt fill"></div>
+          <div class="wrapper" style="width:40px;height:40px;"><a title="User 109">
+              <div text="User 109" seed="109" class="randomArt fill"></div>
             </a></div>
         </div>
         <div class="q-item__section column q-item__section--main justify-center">
-          <div class="q-item__label no-wrap k-message-meta"><a><span class="k-message-author text-bold text-secondary text-uppercase">Mira Bellenbaum</span></a> <span class="message-date"><small class="text-weight-light"><div title="Aug 11, 2017, 3:43 PM">
-  4 months ago
+          <div class="q-item__label no-wrap k-message-meta"><a><span class="k-message-author text-bold text-secondary text-uppercase">User 109</span></a> <span class="message-date"><small class="text-weight-light"><div title="Dec 24, 2017, 12:00 PM">
+  less than a minute ago
 </div></small></span>
             <!---->
           </div>
           <div class="content">
             <div class="markdown">
-              <p>first messsage</p>
+              <p>hello 17!</p>
             </div>
           </div>
           <!---->
           <!---->
           <div class="conversation-reactions row">
-            <div class="reactions row"><button tabindex="0" type="button" role="button" title="Mira Bellenbaum reacted with :thumbsup:" class="q-btn q-btn-item non-selectable no-outline row no-wrap items-center reaction-box q-btn--flat q-btn--rectangle q-btn--actionable q-focusable q-hoverable q-btn--wrap q-btn--dense"><span class="q-focus-helper"></span><span class="q-btn__wrapper col row q-anchor--skip"><span class="q-btn__content text-center col items-center q-anchor--skip justify-center row"><div class="emoji"></div> <span class="reactions-number">1</span></span></span></button></div> <button tabindex="0" type="button" role="button" flat="" class="q-btn q-btn-item non-selectable no-outline add-button reaction-box q-btn--flat q-btn--rectangle text-black q-btn--actionable q-focusable q-hoverable q-btn--wrap q-btn--dense"><span class="q-focus-helper"></span><span class="q-btn__wrapper col row q-anchor--skip"><span class="q-btn__content text-center col items-center q-anchor--skip justify-center row"><span style="opacity:0.5;"><i class="far fa-smile"></i> +
+            <div class="reactions row"><button tabindex="0" type="button" role="button" title="a reacted with :thumbsup:" class="q-btn q-btn-item non-selectable no-outline row no-wrap items-center reaction-box q-btn--flat q-btn--rectangle q-btn--actionable q-focusable q-hoverable q-btn--wrap q-btn--dense"><span class="q-focus-helper"></span><span class="q-btn__wrapper col row q-anchor--skip"><span class="q-btn__content text-center col items-center q-anchor--skip justify-center row"><div class="emoji"></div> <span class="reactions-number">1</span></span></span></button></div> <button tabindex="0" type="button" role="button" flat="" class="q-btn q-btn-item non-selectable no-outline add-button reaction-box q-btn--flat q-btn--rectangle text-black q-btn--actionable q-focusable q-hoverable q-btn--wrap q-btn--dense"><span class="q-focus-helper"></span><span class="q-btn__wrapper col row q-anchor--skip"><span class="q-btn__content text-center col items-center q-anchor--skip justify-center row"><span style="opacity:0.5;"><i class="far fa-smile"></i> +
   </span>
               <!----></span></span>
             </button>
@@ -11198,25 +11429,62 @@ exports[`Storyshots WallConversation unread 1`] = `
           </button>
         </div>
         <div class="q-item__section column q-mt-xs q-pr-sm q-item__section--top q-item__section--side justify-start">
-          <div class="wrapper" style="width:40px;height:40px;"><a title="Max Mustermann">
-              <div text="Max Mustermann" seed="2" class="randomArt fill"></div>
+          <div class="wrapper" style="width:40px;height:40px;"><a title="User 111">
+              <div text="User 111" seed="111" class="randomArt fill"></div>
             </a></div>
         </div>
         <div class="q-item__section column q-item__section--main justify-center">
-          <div class="q-item__label no-wrap k-message-meta"><a><span class="k-message-author text-bold text-secondary text-uppercase">Max Mustermann</span></a> <span class="message-date"><small class="text-weight-light"><div title="Aug 11, 2017, 3:47 PM">
-  4 months ago
+          <div class="q-item__label no-wrap k-message-meta"><a><span class="k-message-author text-bold text-secondary text-uppercase">User 111</span></a> <span class="message-date"><small class="text-weight-light"><div title="Dec 24, 2017, 12:00 PM">
+  less than a minute ago
 </div></small></span>
             <!---->
           </div>
           <div class="content">
             <div class="markdown">
-              <p>second messsage</p>
+              <p>hello 18!</p>
             </div>
           </div>
           <!---->
-          <!---->
+          <div class="images">
+            <div role="img" class="q-mr-sm q-mb-sm q-img overflow-hidden">
+              <div></div>
+              <transition-stub name="q-transition--fade"></transition-stub>
+              <transition-stub name="q-transition--fade">
+                <div class="q-img__loading absolute-full flex flex-center"><svg focusable="false" width="1em" height="1em" viewBox="25 25 50 50" class="q-spinner q-spinner-mat">
+                    <circle cx="50" cy="50" r="20" fill="none" stroke="currentColor" stroke-width="5" stroke-miterlimit="10" class="path"></circle>
+                  </svg></div>
+              </transition-stub>
+            </div>
+            <div role="img" class="q-mr-sm q-mb-sm q-img overflow-hidden">
+              <div></div>
+              <transition-stub name="q-transition--fade"></transition-stub>
+              <transition-stub name="q-transition--fade">
+                <div class="q-img__loading absolute-full flex flex-center"><svg focusable="false" width="1em" height="1em" viewBox="25 25 50 50" class="q-spinner q-spinner-mat">
+                    <circle cx="50" cy="50" r="20" fill="none" stroke="currentColor" stroke-width="5" stroke-miterlimit="10" class="path"></circle>
+                  </svg></div>
+              </transition-stub>
+            </div>
+            <div role="img" class="q-mr-sm q-mb-sm q-img overflow-hidden">
+              <div></div>
+              <transition-stub name="q-transition--fade"></transition-stub>
+              <transition-stub name="q-transition--fade">
+                <div class="q-img__loading absolute-full flex flex-center"><svg focusable="false" width="1em" height="1em" viewBox="25 25 50 50" class="q-spinner q-spinner-mat">
+                    <circle cx="50" cy="50" r="20" fill="none" stroke="currentColor" stroke-width="5" stroke-miterlimit="10" class="path"></circle>
+                  </svg></div>
+              </transition-stub>
+            </div>
+            <div role="img" class="q-mr-sm q-mb-sm q-img overflow-hidden">
+              <div></div>
+              <transition-stub name="q-transition--fade"></transition-stub>
+              <transition-stub name="q-transition--fade">
+                <div class="q-img__loading absolute-full flex flex-center"><svg focusable="false" width="1em" height="1em" viewBox="25 25 50 50" class="q-spinner q-spinner-mat">
+                    <circle cx="50" cy="50" r="20" fill="none" stroke="currentColor" stroke-width="5" stroke-miterlimit="10" class="path"></circle>
+                  </svg></div>
+              </transition-stub>
+            </div>
+          </div>
           <div class="conversation-reactions row">
-            <div class="reactions row"><button tabindex="0" type="button" role="button" title="Mira Bellenbaum reacted with :thumbsup:" class="q-btn q-btn-item non-selectable no-outline row no-wrap items-center reaction-box q-btn--flat q-btn--rectangle q-btn--actionable q-focusable q-hoverable q-btn--wrap q-btn--dense"><span class="q-focus-helper"></span><span class="q-btn__wrapper col row q-anchor--skip"><span class="q-btn__content text-center col items-center q-anchor--skip justify-center row"><div class="emoji"></div> <span class="reactions-number">1</span></span></span></button></div> <button tabindex="0" type="button" role="button" flat="" class="q-btn q-btn-item non-selectable no-outline add-button reaction-box q-btn--flat q-btn--rectangle text-black q-btn--actionable q-focusable q-hoverable q-btn--wrap q-btn--dense"><span class="q-focus-helper"></span><span class="q-btn__wrapper col row q-anchor--skip"><span class="q-btn__content text-center col items-center q-anchor--skip justify-center row"><span style="opacity:0.5;"><i class="far fa-smile"></i> +
+            <div class="reactions row"><button tabindex="0" type="button" role="button" title="a reacted with :thumbsup:" class="q-btn q-btn-item non-selectable no-outline row no-wrap items-center reaction-box q-btn--flat q-btn--rectangle q-btn--actionable q-focusable q-hoverable q-btn--wrap q-btn--dense"><span class="q-focus-helper"></span><span class="q-btn__wrapper col row q-anchor--skip"><span class="q-btn__content text-center col items-center q-anchor--skip justify-center row"><div class="emoji"></div> <span class="reactions-number">1</span></span></span></button></div> <button tabindex="0" type="button" role="button" flat="" class="q-btn q-btn-item non-selectable no-outline add-button reaction-box q-btn--flat q-btn--rectangle text-black q-btn--actionable q-focusable q-hoverable q-btn--wrap q-btn--dense"><span class="q-focus-helper"></span><span class="q-btn__wrapper col row q-anchor--skip"><span class="q-btn__content text-center col items-center q-anchor--skip justify-center row"><span style="opacity:0.5;"><i class="far fa-smile"></i> +
   </span>
               <!----></span></span>
             </button>
@@ -11233,25 +11501,25 @@ exports[`Storyshots WallConversation unread 1`] = `
           </button>
         </div>
         <div class="q-item__section column q-mt-xs q-pr-sm q-item__section--top q-item__section--side justify-start">
-          <div class="wrapper" style="width:40px;height:40px;"><a title="Max Mustermann">
-              <div text="Max Mustermann" seed="2" class="randomArt fill"></div>
+          <div class="wrapper" style="width:40px;height:40px;"><a title="User 113">
+              <div text="User 113" seed="113" class="randomArt fill"></div>
             </a></div>
         </div>
         <div class="q-item__section column q-item__section--main justify-center">
-          <div class="q-item__label no-wrap k-message-meta"><a><span class="k-message-author text-bold text-secondary text-uppercase">Max Mustermann</span></a> <span class="message-date"><small class="text-weight-light"><div title="Aug 11, 2017, 3:47 PM">
-  4 months ago
+          <div class="q-item__label no-wrap k-message-meta"><a><span class="k-message-author text-bold text-secondary text-uppercase">User 113</span></a> <span class="message-date"><small class="text-weight-light"><div title="Dec 24, 2017, 12:00 PM">
+  less than a minute ago
 </div></small></span>
             <!---->
           </div>
           <div class="content">
             <div class="markdown">
-              <p>first messsage</p>
+              <p>hello 19!</p>
             </div>
           </div>
           <!---->
           <!---->
           <div class="conversation-reactions row">
-            <div class="reactions row"><button tabindex="0" type="button" role="button" title="Mira Bellenbaum reacted with :thumbsup:" class="q-btn q-btn-item non-selectable no-outline row no-wrap items-center reaction-box q-btn--flat q-btn--rectangle q-btn--actionable q-focusable q-hoverable q-btn--wrap q-btn--dense"><span class="q-focus-helper"></span><span class="q-btn__wrapper col row q-anchor--skip"><span class="q-btn__content text-center col items-center q-anchor--skip justify-center row"><div class="emoji"></div> <span class="reactions-number">1</span></span></span></button></div> <button tabindex="0" type="button" role="button" flat="" class="q-btn q-btn-item non-selectable no-outline add-button reaction-box q-btn--flat q-btn--rectangle text-black q-btn--actionable q-focusable q-hoverable q-btn--wrap q-btn--dense"><span class="q-focus-helper"></span><span class="q-btn__wrapper col row q-anchor--skip"><span class="q-btn__content text-center col items-center q-anchor--skip justify-center row"><span style="opacity:0.5;"><i class="far fa-smile"></i> +
+            <div class="reactions row"><button tabindex="0" type="button" role="button" title="a reacted with :thumbsup:" class="q-btn q-btn-item non-selectable no-outline row no-wrap items-center reaction-box q-btn--flat q-btn--rectangle q-btn--actionable q-focusable q-hoverable q-btn--wrap q-btn--dense"><span class="q-focus-helper"></span><span class="q-btn__wrapper col row q-anchor--skip"><span class="q-btn__content text-center col items-center q-anchor--skip justify-center row"><div class="emoji"></div> <span class="reactions-number">1</span></span></span></button></div> <button tabindex="0" type="button" role="button" flat="" class="q-btn q-btn-item non-selectable no-outline add-button reaction-box q-btn--flat q-btn--rectangle text-black q-btn--actionable q-focusable q-hoverable q-btn--wrap q-btn--dense"><span class="q-focus-helper"></span><span class="q-btn__wrapper col row q-anchor--skip"><span class="q-btn__content text-center col items-center q-anchor--skip justify-center row"><span style="opacity:0.5;"><i class="far fa-smile"></i> +
   </span>
               <!----></span></span>
             </button>
@@ -11268,200 +11536,25 @@ exports[`Storyshots WallConversation unread 1`] = `
           </button>
         </div>
         <div class="q-item__section column q-mt-xs q-pr-sm q-item__section--top q-item__section--side justify-start">
-          <div class="wrapper" style="width:40px;height:40px;"><a title="Max Mustermann">
-              <div text="Max Mustermann" seed="2" class="randomArt fill"></div>
+          <div class="wrapper" style="width:40px;height:40px;"><a title="User 115">
+              <div text="User 115" seed="115" class="randomArt fill"></div>
             </a></div>
         </div>
         <div class="q-item__section column q-item__section--main justify-center">
-          <div class="q-item__label no-wrap k-message-meta"><a><span class="k-message-author text-bold text-secondary text-uppercase">Max Mustermann</span></a> <span class="message-date"><small class="text-weight-light"><div title="Aug 11, 2017, 3:49 PM">
-  4 months ago
+          <div class="q-item__label no-wrap k-message-meta"><a><span class="k-message-author text-bold text-secondary text-uppercase">User 115</span></a> <span class="message-date"><small class="text-weight-light"><div title="Dec 24, 2017, 12:00 PM">
+  less than a minute ago
 </div></small></span>
             <!---->
           </div>
           <div class="content">
             <div class="markdown">
-              <p>welcome to fs chat</p>
+              <p>hello 20!</p>
             </div>
           </div>
           <!---->
           <!---->
           <div class="conversation-reactions row">
-            <div class="reactions row"><button tabindex="0" type="button" role="button" title="Mira Bellenbaum reacted with :thumbsup:" class="q-btn q-btn-item non-selectable no-outline row no-wrap items-center reaction-box q-btn--flat q-btn--rectangle q-btn--actionable q-focusable q-hoverable q-btn--wrap q-btn--dense"><span class="q-focus-helper"></span><span class="q-btn__wrapper col row q-anchor--skip"><span class="q-btn__content text-center col items-center q-anchor--skip justify-center row"><div class="emoji"></div> <span class="reactions-number">1</span></span></span></button></div> <button tabindex="0" type="button" role="button" flat="" class="q-btn q-btn-item non-selectable no-outline add-button reaction-box q-btn--flat q-btn--rectangle text-black q-btn--actionable q-focusable q-hoverable q-btn--wrap q-btn--dense"><span class="q-focus-helper"></span><span class="q-btn__wrapper col row q-anchor--skip"><span class="q-btn__content text-center col items-center q-anchor--skip justify-center row"><span style="opacity:0.5;"><i class="far fa-smile"></i> +
-  </span>
-              <!----></span></span>
-            </button>
-            <!---->
-          </div>
-          <!---->
-        </div>
-      </div>
-      <div class="q-item q-item-type row no-wrap conversation-message relative-position">
-        <div class="q-btn-group row no-wrap inline hover-button k-message-controls bg-white q-btn-group--outline">
-          <!----> <button tabindex="0" type="button" role="button" title="Replies" class="q-btn q-btn-item non-selectable no-outline q-btn--outline q-btn--rectangle text-secondary q-btn--actionable q-focusable q-hoverable q-btn--wrap q-btn--dense"><span class="q-focus-helper"></span><span class="q-btn__wrapper col row q-anchor--skip"><span class="q-btn__content text-center col items-center q-anchor--skip justify-center row"><i class="fas fa-comments"></i></span></span></button> <button tabindex="0" type="button" role="button" outline="" class="q-btn q-btn-item non-selectable no-outline q-btn--outline q-btn--rectangle text-secondary q-btn--actionable q-focusable q-hoverable q-btn--wrap q-btn--dense"><span class="q-focus-helper"></span><span class="q-btn__wrapper col row q-anchor--skip"><span class="q-btn__content text-center col items-center q-anchor--skip justify-center row"><span style="opacity:1;"><i class="far fa-smile"></i> +
-  </span>
-            <!----></span></span>
-          </button>
-        </div>
-        <div class="q-item__section column q-mt-xs q-pr-sm q-item__section--top q-item__section--side justify-start">
-          <div class="wrapper" style="width:40px;height:40px;"><a title="Karl Karlson">
-              <div text="Karl Karlson" seed="3" class="randomArt fill"></div>
-            </a></div>
-        </div>
-        <div class="q-item__section column q-item__section--main justify-center">
-          <div class="q-item__label no-wrap k-message-meta"><a><span class="k-message-author text-bold text-secondary text-uppercase">Karl Karlson</span></a> <span class="message-date"><small class="text-weight-light"><div title="Aug 11, 2017, 3:51 PM">
-  4 months ago
-</div></small></span>
-            <!---->
-          </div>
-          <div class="content">
-            <div class="markdown">
-              <p>heyo!</p>
-            </div>
-          </div>
-          <!---->
-          <!---->
-          <div class="conversation-reactions row">
-            <div class="reactions row"><button tabindex="0" type="button" role="button" title="Mira Bellenbaum reacted with :thumbsup:" class="q-btn q-btn-item non-selectable no-outline row no-wrap items-center reaction-box q-btn--flat q-btn--rectangle q-btn--actionable q-focusable q-hoverable q-btn--wrap q-btn--dense"><span class="q-focus-helper"></span><span class="q-btn__wrapper col row q-anchor--skip"><span class="q-btn__content text-center col items-center q-anchor--skip justify-center row"><div class="emoji"></div> <span class="reactions-number">1</span></span></span></button></div> <button tabindex="0" type="button" role="button" flat="" class="q-btn q-btn-item non-selectable no-outline add-button reaction-box q-btn--flat q-btn--rectangle text-black q-btn--actionable q-focusable q-hoverable q-btn--wrap q-btn--dense"><span class="q-focus-helper"></span><span class="q-btn__wrapper col row q-anchor--skip"><span class="q-btn__content text-center col items-center q-anchor--skip justify-center row"><span style="opacity:0.5;"><i class="far fa-smile"></i> +
-  </span>
-              <!----></span></span>
-            </button>
-            <!---->
-          </div>
-          <!---->
-        </div>
-      </div>
-      <div class="q-item q-item-type row no-wrap conversation-message relative-position">
-        <div class="q-btn-group row no-wrap inline hover-button k-message-controls bg-white q-btn-group--outline">
-          <!----> <button tabindex="0" type="button" role="button" title="Replies" class="q-btn q-btn-item non-selectable no-outline q-btn--outline q-btn--rectangle text-secondary q-btn--actionable q-focusable q-hoverable q-btn--wrap q-btn--dense"><span class="q-focus-helper"></span><span class="q-btn__wrapper col row q-anchor--skip"><span class="q-btn__content text-center col items-center q-anchor--skip justify-center row"><i class="fas fa-comments"></i></span></span></button> <button tabindex="0" type="button" role="button" outline="" class="q-btn q-btn-item non-selectable no-outline q-btn--outline q-btn--rectangle text-secondary q-btn--actionable q-focusable q-hoverable q-btn--wrap q-btn--dense"><span class="q-focus-helper"></span><span class="q-btn__wrapper col row q-anchor--skip"><span class="q-btn__content text-center col items-center q-anchor--skip justify-center row"><span style="opacity:1;"><i class="far fa-smile"></i> +
-  </span>
-            <!----></span></span>
-          </button>
-        </div>
-        <div class="q-item__section column q-mt-xs q-pr-sm q-item__section--top q-item__section--side justify-start">
-          <div class="wrapper" style="width:40px;height:40px;"><a title="Max Mustermann">
-              <div text="Max Mustermann" seed="2" class="randomArt fill"></div>
-            </a></div>
-        </div>
-        <div class="q-item__section column q-item__section--main justify-center">
-          <div class="q-item__label no-wrap k-message-meta"><a><span class="k-message-author text-bold text-secondary text-uppercase">Max Mustermann</span></a> <span class="message-date"><small class="text-weight-light"><div title="Aug 11, 2017, 3:52 PM">
-  4 months ago
-</div></small></span>
-            <!---->
-          </div>
-          <div class="content">
-            <div class="markdown">
-              <p>you made it!</p>
-            </div>
-          </div>
-          <!---->
-          <!---->
-          <div class="conversation-reactions row">
-            <div class="reactions row"><button tabindex="0" type="button" role="button" title="Mira Bellenbaum reacted with :thumbsup:" class="q-btn q-btn-item non-selectable no-outline row no-wrap items-center reaction-box q-btn--flat q-btn--rectangle q-btn--actionable q-focusable q-hoverable q-btn--wrap q-btn--dense"><span class="q-focus-helper"></span><span class="q-btn__wrapper col row q-anchor--skip"><span class="q-btn__content text-center col items-center q-anchor--skip justify-center row"><div class="emoji"></div> <span class="reactions-number">1</span></span></span></button></div> <button tabindex="0" type="button" role="button" flat="" class="q-btn q-btn-item non-selectable no-outline add-button reaction-box q-btn--flat q-btn--rectangle text-black q-btn--actionable q-focusable q-hoverable q-btn--wrap q-btn--dense"><span class="q-focus-helper"></span><span class="q-btn__wrapper col row q-anchor--skip"><span class="q-btn__content text-center col items-center q-anchor--skip justify-center row"><span style="opacity:0.5;"><i class="far fa-smile"></i> +
-  </span>
-              <!----></span></span>
-            </button>
-            <!---->
-          </div>
-          <!---->
-        </div>
-      </div>
-      <div class="q-item q-item-type row no-wrap conversation-message relative-position">
-        <div class="q-btn-group row no-wrap inline hover-button k-message-controls bg-white q-btn-group--outline">
-          <!----> <button tabindex="0" type="button" role="button" title="Replies" class="q-btn q-btn-item non-selectable no-outline q-btn--outline q-btn--rectangle text-secondary q-btn--actionable q-focusable q-hoverable q-btn--wrap q-btn--dense"><span class="q-focus-helper"></span><span class="q-btn__wrapper col row q-anchor--skip"><span class="q-btn__content text-center col items-center q-anchor--skip justify-center row"><i class="fas fa-comments"></i></span></span></button> <button tabindex="0" type="button" role="button" outline="" class="q-btn q-btn-item non-selectable no-outline q-btn--outline q-btn--rectangle text-secondary q-btn--actionable q-focusable q-hoverable q-btn--wrap q-btn--dense"><span class="q-focus-helper"></span><span class="q-btn__wrapper col row q-anchor--skip"><span class="q-btn__content text-center col items-center q-anchor--skip justify-center row"><span style="opacity:1;"><i class="far fa-smile"></i> +
-  </span>
-            <!----></span></span>
-          </button>
-        </div>
-        <div class="q-item__section column q-mt-xs q-pr-sm q-item__section--top q-item__section--side justify-start">
-          <div class="wrapper" style="width:40px;height:40px;"><a title="Mona Mohnblume">
-              <div text="Mona Mohnblume" seed="4" class="randomArt fill"></div>
-            </a></div>
-        </div>
-        <div class="q-item__section column q-item__section--main justify-center">
-          <div class="q-item__label no-wrap k-message-meta"><a><span class="k-message-author text-bold text-secondary text-uppercase">Mona Mohnblume</span></a> <span class="message-date"><small class="text-weight-light"><div title="Aug 11, 2017, 3:52 PM">
-  4 months ago
-</div></small></span>
-            <!---->
-          </div>
-          <div class="content">
-            <div class="markdown">
-              <p>amazing!</p>
-            </div>
-          </div>
-          <!---->
-          <!---->
-          <div class="conversation-reactions row">
-            <div class="reactions row"><button tabindex="0" type="button" role="button" title="Mira Bellenbaum reacted with :thumbsup:" class="q-btn q-btn-item non-selectable no-outline row no-wrap items-center reaction-box q-btn--flat q-btn--rectangle q-btn--actionable q-focusable q-hoverable q-btn--wrap q-btn--dense"><span class="q-focus-helper"></span><span class="q-btn__wrapper col row q-anchor--skip"><span class="q-btn__content text-center col items-center q-anchor--skip justify-center row"><div class="emoji"></div> <span class="reactions-number">1</span></span></span></button></div> <button tabindex="0" type="button" role="button" flat="" class="q-btn q-btn-item non-selectable no-outline add-button reaction-box q-btn--flat q-btn--rectangle text-black q-btn--actionable q-focusable q-hoverable q-btn--wrap q-btn--dense"><span class="q-focus-helper"></span><span class="q-btn__wrapper col row q-anchor--skip"><span class="q-btn__content text-center col items-center q-anchor--skip justify-center row"><span style="opacity:0.5;"><i class="far fa-smile"></i> +
-  </span>
-              <!----></span></span>
-            </button>
-            <!---->
-          </div>
-          <!---->
-        </div>
-      </div>
-      <div class="q-item q-item-type row no-wrap conversation-message relative-position">
-        <div class="q-btn-group row no-wrap inline hover-button k-message-controls bg-white q-btn-group--outline">
-          <!----> <button tabindex="0" type="button" role="button" title="Replies" class="q-btn q-btn-item non-selectable no-outline q-btn--outline q-btn--rectangle text-secondary q-btn--actionable q-focusable q-hoverable q-btn--wrap q-btn--dense"><span class="q-focus-helper"></span><span class="q-btn__wrapper col row q-anchor--skip"><span class="q-btn__content text-center col items-center q-anchor--skip justify-center row"><i class="fas fa-comments"></i></span></span></button> <button tabindex="0" type="button" role="button" outline="" class="q-btn q-btn-item non-selectable no-outline q-btn--outline q-btn--rectangle text-secondary q-btn--actionable q-focusable q-hoverable q-btn--wrap q-btn--dense"><span class="q-focus-helper"></span><span class="q-btn__wrapper col row q-anchor--skip"><span class="q-btn__content text-center col items-center q-anchor--skip justify-center row"><span style="opacity:1;"><i class="far fa-smile"></i> +
-  </span>
-            <!----></span></span>
-          </button>
-        </div>
-        <div class="q-item__section column q-mt-xs q-pr-sm q-item__section--top q-item__section--side justify-start">
-          <div class="wrapper" style="width:40px;height:40px;"><a title="Mona Mohnblume">
-              <div text="Mona Mohnblume" seed="4" class="randomArt fill"></div>
-            </a></div>
-        </div>
-        <div class="q-item__section column q-item__section--main justify-center">
-          <div class="q-item__label no-wrap k-message-meta"><a><span class="k-message-author text-bold text-secondary text-uppercase">Mona Mohnblume</span></a> <span class="message-date"><small class="text-weight-light"><div title="Aug 11, 2017, 3:52 PM">
-  4 months ago
-</div></small></span>
-            <!---->
-          </div>
-          <div class="content">
-            <div class="markdown">
-              <p>oh let me try something <img class="emoji" draggable="false" alt="🙂" src="https://twemoji.maxcdn.com/v/13.0.1/72x72/1f642.png" /></p>
-            </div>
-          </div>
-          <!---->
-          <!---->
-          <div class="conversation-reactions row">
-            <div class="reactions row"><button tabindex="0" type="button" role="button" title="Mira Bellenbaum reacted with :thumbsup:" class="q-btn q-btn-item non-selectable no-outline row no-wrap items-center reaction-box q-btn--flat q-btn--rectangle q-btn--actionable q-focusable q-hoverable q-btn--wrap q-btn--dense"><span class="q-focus-helper"></span><span class="q-btn__wrapper col row q-anchor--skip"><span class="q-btn__content text-center col items-center q-anchor--skip justify-center row"><div class="emoji"></div> <span class="reactions-number">1</span></span></span></button></div> <button tabindex="0" type="button" role="button" flat="" class="q-btn q-btn-item non-selectable no-outline add-button reaction-box q-btn--flat q-btn--rectangle text-black q-btn--actionable q-focusable q-hoverable q-btn--wrap q-btn--dense"><span class="q-focus-helper"></span><span class="q-btn__wrapper col row q-anchor--skip"><span class="q-btn__content text-center col items-center q-anchor--skip justify-center row"><span style="opacity:0.5;"><i class="far fa-smile"></i> +
-  </span>
-              <!----></span></span>
-            </button>
-            <!---->
-          </div>
-          <!---->
-        </div>
-      </div>
-      <div class="q-item q-item-type row no-wrap conversation-message relative-position">
-        <div class="q-btn-group row no-wrap inline hover-button k-message-controls bg-white q-btn-group--outline">
-          <!----> <button tabindex="0" type="button" role="button" title="Replies" class="q-btn q-btn-item non-selectable no-outline q-btn--outline q-btn--rectangle text-secondary q-btn--actionable q-focusable q-hoverable q-btn--wrap q-btn--dense"><span class="q-focus-helper"></span><span class="q-btn__wrapper col row q-anchor--skip"><span class="q-btn__content text-center col items-center q-anchor--skip justify-center row"><i class="fas fa-comments"></i></span></span></button> <button tabindex="0" type="button" role="button" outline="" class="q-btn q-btn-item non-selectable no-outline q-btn--outline q-btn--rectangle text-secondary q-btn--actionable q-focusable q-hoverable q-btn--wrap q-btn--dense"><span class="q-focus-helper"></span><span class="q-btn__wrapper col row q-anchor--skip"><span class="q-btn__content text-center col items-center q-anchor--skip justify-center row"><span style="opacity:1;"><i class="far fa-smile"></i> +
-  </span>
-            <!----></span></span>
-          </button>
-        </div>
-        <div class="q-item__section column q-mt-xs q-pr-sm q-item__section--top q-item__section--side justify-start">
-          <div class="wrapper" style="width:40px;height:40px;"><a title="Max Mustermann">
-              <div text="Max Mustermann" seed="2" class="randomArt fill"></div>
-            </a></div>
-        </div>
-        <div class="q-item__section column q-item__section--main justify-center">
-          <div class="q-item__label no-wrap k-message-meta"><a><span class="k-message-author text-bold text-secondary text-uppercase">Max Mustermann</span></a> <span class="message-date"><small class="text-weight-light"><div title="Aug 11, 2017, 3:52 PM">
-  4 months ago
-</div></small></span>
-            <!---->
-          </div>
-          <div class="content">
-            <div class="markdown">
-              <p>I dont think we need to implement another UI, this is fine right?</p>
-            </div>
-          </div>
-          <!---->
-          <!---->
-          <div class="conversation-reactions row">
-            <div class="reactions row"><button tabindex="0" type="button" role="button" title="Mira Bellenbaum reacted with :thumbsup:" class="q-btn q-btn-item non-selectable no-outline row no-wrap items-center reaction-box q-btn--flat q-btn--rectangle q-btn--actionable q-focusable q-hoverable q-btn--wrap q-btn--dense"><span class="q-focus-helper"></span><span class="q-btn__wrapper col row q-anchor--skip"><span class="q-btn__content text-center col items-center q-anchor--skip justify-center row"><div class="emoji"></div> <span class="reactions-number">1</span></span></span></button></div> <button tabindex="0" type="button" role="button" flat="" class="q-btn q-btn-item non-selectable no-outline add-button reaction-box q-btn--flat q-btn--rectangle text-black q-btn--actionable q-focusable q-hoverable q-btn--wrap q-btn--dense"><span class="q-focus-helper"></span><span class="q-btn__wrapper col row q-anchor--skip"><span class="q-btn__content text-center col items-center q-anchor--skip justify-center row"><span style="opacity:0.5;"><i class="far fa-smile"></i> +
+            <div class="reactions row"><button tabindex="0" type="button" role="button" title="a reacted with :thumbsup:" class="q-btn q-btn-item non-selectable no-outline row no-wrap items-center reaction-box q-btn--flat q-btn--rectangle q-btn--actionable q-focusable q-hoverable q-btn--wrap q-btn--dense"><span class="q-focus-helper"></span><span class="q-btn__wrapper col row q-anchor--skip"><span class="q-btn__content text-center col items-center q-anchor--skip justify-center row"><div class="emoji"></div> <span class="reactions-number">1</span></span></span></button></div> <button tabindex="0" type="button" role="button" flat="" class="q-btn q-btn-item non-selectable no-outline add-button reaction-box q-btn--flat q-btn--rectangle text-black q-btn--actionable q-focusable q-hoverable q-btn--wrap q-btn--dense"><span class="q-focus-helper"></span><span class="q-btn__wrapper col row q-anchor--skip"><span class="q-btn__content text-center col items-center q-anchor--skip justify-center row"><span style="opacity:0.5;"><i class="far fa-smile"></i> +
   </span>
               <!----></span></span>
             </button>

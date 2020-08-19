@@ -1,36 +1,33 @@
 import { storiesOf } from '@storybook/vue'
 
 import WallConversation from './WallConversation'
-import { messagesMock, currentUserMock } from '>/mockdata'
-import { statusMocks, storybookDefaults as defaults } from '>/helpers'
+import { currentUserMock } from '>/mockdata'
+import { storybookDefaults as defaults } from '>/helpers'
+import * as factories from '>/enrichedFactories'
 
-const defaultProps = {
-  data: {
-    messages: messagesMock,
-    sendStatus: statusMocks.default(),
-    fetchStatus: statusMocks.default(),
-    fetchPastStatus: statusMocks.default(),
-    canFetchPast: false,
-  },
+const conversation = factories.makeConversation()
+
+const defaultProps = (data) => ({
+  data: conversation,
   user: currentUserMock,
   fetchPast: () => {},
-}
+  ...data,
+})
 
 storiesOf('WallConversation', module)
   .add('default', () => defaults({
     render: h => h(WallConversation, {
-      props: defaultProps,
+      props: defaultProps(),
     }),
   }))
   .add('unread', () => defaults({
     render: h => h(WallConversation, {
-      props: {
-        ...defaultProps,
+      props: defaultProps({
         data: {
-          ...defaultProps.data,
+          ...conversation,
           unreadMessageCount: 1,
           isParticipant: true,
         },
-      },
+      }),
     }),
   }))

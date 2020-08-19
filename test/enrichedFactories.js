@@ -456,7 +456,7 @@ function randomImageUrl () {
   return images[Math.floor(Math.random() * images.length)]
 }
 
-let imageIdCnt = 0
+let imageIdCnt = 1
 export const makeImage = data => {
   const imageUrl = randomImageUrl()
   return {
@@ -473,11 +473,10 @@ export const makeImage = data => {
   }
 }
 
+function randomInt (min, max) {
+  return Math.floor(Math.random() * (max - min + 1)) + min
+}
+
 export const makeImages = (min, max) => {
-  const images = []
-  let count = Math.floor(Math.random() * (max - min + 1)) + min
-  do {
-    images.push(makeImage())
-  } while (count--)
-  return images
+  return new Array(randomInt(min, max)).fill(null).map(makeImage)
 }

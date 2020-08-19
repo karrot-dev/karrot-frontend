@@ -4265,15 +4265,6 @@ exports[`Storyshots ConversationMessage with multiple images 1`] = `
             </svg></div>
         </transition-stub>
       </div>
-      <div role="img" class="q-mr-sm q-mb-sm q-img overflow-hidden">
-        <div></div>
-        <transition-stub name="q-transition--fade"></transition-stub>
-        <transition-stub name="q-transition--fade">
-          <div class="q-img__loading absolute-full flex flex-center"><svg focusable="false" width="1em" height="1em" viewBox="25 25 50 50" class="q-spinner q-spinner-mat">
-              <circle cx="50" cy="50" r="20" fill="none" stroke="currentColor" stroke-width="5" stroke-miterlimit="10" class="path"></circle>
-            </svg></div>
-        </transition-stub>
-      </div>
     </div>
     <div class="conversation-reactions row">
       <div class="reactions row"><button tabindex="0" type="button" role="button" title="a reacted with :thumbsup:" class="q-btn q-btn-item non-selectable no-outline row no-wrap items-center reaction-box q-btn--flat q-btn--rectangle q-btn--actionable q-focusable q-hoverable q-btn--wrap q-btn--dense"><span class="q-focus-helper"></span><span class="q-btn__wrapper col row q-anchor--skip"><span class="q-btn__content text-center col items-center q-anchor--skip justify-center row"><div class="emoji"></div> <span class="reactions-number">1</span></span></span></button></div> <button tabindex="0" type="button" role="button" flat="" class="q-btn q-btn-item non-selectable no-outline add-button reaction-box q-btn--flat q-btn--rectangle text-black q-btn--actionable q-focusable q-hoverable q-btn--wrap q-btn--dense"><span class="q-focus-helper"></span><span class="q-btn__wrapper col row q-anchor--skip"><span class="q-btn__content text-center col items-center q-anchor--skip justify-center row"><span style="opacity:0.5;"><i class="far fa-smile"></i> +
@@ -4545,15 +4536,6 @@ exports[`Storyshots Detail activity 1`] = `
               </div>
               <!---->
               <div class="images">
-                <div role="img" class="q-mr-sm q-mb-sm q-img overflow-hidden">
-                  <div></div>
-                  <transition-stub name="q-transition--fade"></transition-stub>
-                  <transition-stub name="q-transition--fade">
-                    <div class="q-img__loading absolute-full flex flex-center"><svg focusable="false" width="1em" height="1em" viewBox="25 25 50 50" class="q-spinner q-spinner-mat">
-                        <circle cx="50" cy="50" r="20" fill="none" stroke="currentColor" stroke-width="5" stroke-miterlimit="10" class="path"></circle>
-                      </svg></div>
-                  </transition-stub>
-                </div>
                 <div role="img" class="q-mr-sm q-mb-sm q-img overflow-hidden">
                   <div></div>
                   <transition-stub name="q-transition--fade"></transition-stub>
@@ -4861,15 +4843,6 @@ exports[`Storyshots Detail application 1`] = `
                       </svg></div>
                   </transition-stub>
                 </div>
-                <div role="img" class="q-mr-sm q-mb-sm q-img overflow-hidden">
-                  <div></div>
-                  <transition-stub name="q-transition--fade"></transition-stub>
-                  <transition-stub name="q-transition--fade">
-                    <div class="q-img__loading absolute-full flex flex-center"><svg focusable="false" width="1em" height="1em" viewBox="25 25 50 50" class="q-spinner q-spinner-mat">
-                        <circle cx="50" cy="50" r="20" fill="none" stroke="currentColor" stroke-width="5" stroke-miterlimit="10" class="path"></circle>
-                      </svg></div>
-                  </transition-stub>
-                </div>
               </div>
               <div class="conversation-reactions row">
                 <div class="reactions row"><button tabindex="0" type="button" role="button" title="a reacted with :thumbsup:" class="q-btn q-btn-item non-selectable no-outline row no-wrap items-center reaction-box q-btn--flat q-btn--rectangle q-btn--actionable q-focusable q-hoverable q-btn--wrap q-btn--dense"><span class="q-focus-helper"></span><span class="q-btn__wrapper col row q-anchor--skip"><span class="q-btn__content text-center col items-center q-anchor--skip justify-center row"><div class="emoji"></div> <span class="reactions-number">1</span></span></span></button></div> <button tabindex="0" type="button" role="button" flat="" class="q-btn q-btn-item non-selectable no-outline add-button reaction-box q-btn--flat q-btn--rectangle text-black q-btn--actionable q-focusable q-hoverable q-btn--wrap q-btn--dense"><span class="q-focus-helper"></span><span class="q-btn__wrapper col row q-anchor--skip"><span class="q-btn__content text-center col items-center q-anchor--skip justify-center row"><span style="opacity:0.5;"><i class="far fa-smile"></i> +
@@ -5082,15 +5055,6 @@ exports[`Storyshots Detail private 1`] = `
               </div>
               <!---->
               <div class="images">
-                <div role="img" class="q-mr-sm q-mb-sm q-img overflow-hidden">
-                  <div></div>
-                  <transition-stub name="q-transition--fade"></transition-stub>
-                  <transition-stub name="q-transition--fade">
-                    <div class="q-img__loading absolute-full flex flex-center"><svg focusable="false" width="1em" height="1em" viewBox="25 25 50 50" class="q-spinner q-spinner-mat">
-                        <circle cx="50" cy="50" r="20" fill="none" stroke="currentColor" stroke-width="5" stroke-miterlimit="10" class="path"></circle>
-                      </svg></div>
-                  </transition-stub>
-                </div>
                 <div role="img" class="q-mr-sm q-mb-sm q-img overflow-hidden">
                   <div></div>
                   <transition-stub name="q-transition--fade"></transition-stub>
@@ -11232,15 +11196,6 @@ exports[`Storyshots WallConversation default 1`] = `
                   </svg></div>
               </transition-stub>
             </div>
-            <div role="img" class="q-mr-sm q-mb-sm q-img overflow-hidden">
-              <div></div>
-              <transition-stub name="q-transition--fade"></transition-stub>
-              <transition-stub name="q-transition--fade">
-                <div class="q-img__loading absolute-full flex flex-center"><svg focusable="false" width="1em" height="1em" viewBox="25 25 50 50" class="q-spinner q-spinner-mat">
-                    <circle cx="50" cy="50" r="20" fill="none" stroke="currentColor" stroke-width="5" stroke-miterlimit="10" class="path"></circle>
-                  </svg></div>
-              </transition-stub>
-            </div>
           </div>
           <div class="conversation-reactions row">
             <div class="reactions row"><button tabindex="0" type="button" role="button" title="a reacted with :thumbsup:" class="q-btn q-btn-item non-selectable no-outline row no-wrap items-center reaction-box q-btn--flat q-btn--rectangle q-btn--actionable q-focusable q-hoverable q-btn--wrap q-btn--dense"><span class="q-focus-helper"></span><span class="q-btn__wrapper col row q-anchor--skip"><span class="q-btn__content text-center col items-center q-anchor--skip justify-center row"><div class="emoji"></div> <span class="reactions-number">1</span></span></span></button></div> <button tabindex="0" type="button" role="button" flat="" class="q-btn q-btn-item non-selectable no-outline add-button reaction-box q-btn--flat q-btn--rectangle text-black q-btn--actionable q-focusable q-hoverable q-btn--wrap q-btn--dense"><span class="q-focus-helper"></span><span class="q-btn__wrapper col row q-anchor--skip"><span class="q-btn__content text-center col items-center q-anchor--skip justify-center row"><span style="opacity:0.5;"><i class="far fa-smile"></i> +
@@ -11446,15 +11401,6 @@ exports[`Storyshots WallConversation unread 1`] = `
           </div>
           <!---->
           <div class="images">
-            <div role="img" class="q-mr-sm q-mb-sm q-img overflow-hidden">
-              <div></div>
-              <transition-stub name="q-transition--fade"></transition-stub>
-              <transition-stub name="q-transition--fade">
-                <div class="q-img__loading absolute-full flex flex-center"><svg focusable="false" width="1em" height="1em" viewBox="25 25 50 50" class="q-spinner q-spinner-mat">
-                    <circle cx="50" cy="50" r="20" fill="none" stroke="currentColor" stroke-width="5" stroke-miterlimit="10" class="path"></circle>
-                  </svg></div>
-              </transition-stub>
-            </div>
             <div role="img" class="q-mr-sm q-mb-sm q-img overflow-hidden">
               <div></div>
               <transition-stub name="q-transition--fade"></transition-stub>

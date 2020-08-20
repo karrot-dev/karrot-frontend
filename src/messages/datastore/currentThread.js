@@ -36,11 +36,12 @@ export default {
   },
   actions: {
     ...withMeta({
-      async send ({ dispatch }, { id, threadId, content }) {
+      async send ({ dispatch }, { id, threadId, content, images }) {
         const message = await messageAPI.create({
           conversation: id,
           thread: threadId,
           content,
+          images,
         })
         dispatch('receiveMessage', message)
       },

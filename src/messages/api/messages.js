@@ -1,13 +1,14 @@
 import axios, { parseCursor } from '@/base/api/axios'
+import { toFormData } from '@/utils/utils'
 
 export default {
 
   async create (data) {
-    return convert((await axios.post('/api/messages/', data)).data)
+    return convert((await axios.post('/api/messages/', await toFormData(data))).data)
   },
 
   async save (data) {
-    return convert((await axios.patch(`/api/messages/${data.id}/`, data)).data)
+    return convert((await axios.patch(`/api/messages/${data.id}/`, await toFormData(data))).data)
   },
 
   async markThread (messageId, seenUpTo) {

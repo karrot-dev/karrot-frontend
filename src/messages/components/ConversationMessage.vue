@@ -87,6 +87,18 @@
         />
         )
       </QItemLabel>
+      <div
+        v-if="imagesForDisplay.length > 0"
+        class="images"
+      >
+        <QImg
+          v-for="image in imagesForDisplay"
+          :key="image.id"
+          :src="image.imageUrls['200']"
+          class="q-mr-sm q-mb-sm"
+          @click="openImageGallery(image.id)"
+        />
+      </div>
       <ConversationReactions
         v-if="hasReactions"
         :reactions="message.reactions"
@@ -127,7 +139,7 @@
     v-else
     :status="message.saveStatus"
     :user="message.author"
-    :value="message.content"
+    :value="message"
     :slim="slim"
     @submit="save"
     @leaveEdit="toggleEdit"
@@ -138,12 +150,16 @@
 import ConversationReactions from '@/messages/components/ConversationReactions'
 import ConversationAddReaction from './ConversationAddReaction'
 import ConversationCompose from '@/messages/components/ConversationCompose'
+import ImageGalleryDialog from '@/messages/components/ImageGalleryDialog'
 import ProfilePicture from '@/users/components/ProfilePicture'
 import Markdown from '@/utils/components/Markdown'
 import DateAsWords from '@/utils/components/DateAsWords'
+
 import {
+  Dialog,
   QBtn,
   QBtnGroup,
+  QImg,
   QItem,
   QItemSection,
   QItemLabel,
@@ -160,6 +176,7 @@ export default {
     DateAsWords,
     QBtn,
     QBtnGroup,
+    QImg,
     QItem,
     QItemSection,
     QItemLabel,
@@ -193,6 +210,10 @@ export default {
     tooltipDate () {
       return this.$d(this.message.createdAt, 'long')
     },
+    imagesForDisplay () {
+      if (!this.message || !this.message.images) return []
+      return this.message.images.filter(image => image.id && !image._removed)
+    },
   },
   methods: {
     toggleReaction (name) {
@@ -204,11 +225,20 @@ export default {
     toggleEdit () {
       this.editMode = !this.editMode
     },
-    save (content) {
+    openImageGallery (imageId) {
+      Dialog.create({
+        component: ImageGalleryDialog,
+        parent: this,
+        message: this.message,
+        selectedImageId: imageId,
+      })
+    },
+    save ({ content, images }) {
       this.$emit('save', {
         message: {
           id: this.message.id,
           content,
+          images,
         },
         done: this.toggleEdit,
       })
@@ -227,6 +257,12 @@ export default {
 .continuation
   min-height auto
   padding-top 0
+
+.images
+  .q-img
+    width 80px
+    height 80px
+    cursor pointer
 
 body.mobile .conversation-message
   .k-message-meta

@@ -14,6 +14,21 @@ import addMinutes from 'date-fns/addMinutes'
 import { statusMocks } from '>/helpers'
 import { optionsFor } from '@/places/placeStatus'
 
+// Reusing the landing page images :)
+
+import imageLarge from '@/base/pages/images/karrot-screenshot.png'
+
+import image236a from '@/base/pages/images/karrot-gallery.236x236.jpg'
+import image236b from '@/base/pages/images/karrot-manage-activities.236x236.jpg'
+import image236c from '@/base/pages/images/solikyl-offers.236x236.jpg'
+
+import image200a from '@/base/pages/images/oestersund-saved-food.200x200.jpg'
+import image200b from '@/base/pages/images/oestersund-volunteers.200x200.jpg'
+import image200c from '@/base/pages/images/bikeworkshop.200x200.jpg'
+import image200d from '@/base/pages/images/solikyl-savers.200x200.jpg'
+import image200e from '@/base/pages/images/fsmaastricht-fairshare.200x200.jpg'
+import image200f from '@/base/pages/images/fsmaastricht-foodsavers.200x200.jpg'
+
 let notificationIdCnt = 0
 export const makeNotification = data => {
   return {
@@ -403,7 +418,7 @@ export const makeConversation = data => {
     markStatus: statusMocks.default(),
     messages: [
       makeMessage(),
-      makeMessage(),
+      makeMessage({ images: makeImages(3, 3) }),
       makeMessage(),
       makeMessage(),
     ],
@@ -422,4 +437,46 @@ export const makeInvitation = data => {
     createdAt: new Date(),
     ...data,
   }
+}
+
+const images = [
+  image200a,
+  image200b,
+  image200c,
+  image200d,
+  image200e,
+  image200f,
+  image236a,
+  image236b,
+  image236c,
+  imageLarge,
+]
+
+function randomImageUrl () {
+  return images[Math.floor(Math.random() * images.length)]
+}
+
+let imageIdCnt = 1
+export const makeImage = data => {
+  const imageUrl = randomImageUrl()
+  return {
+    id: imageIdCnt++,
+    imageUrls: {
+      // We don't actually have all the sizes, so use the same for all
+      // and just assume that it'll be fine, even if it looks a bit lowres...
+      thumbnail: imageUrl,
+      200: imageUrl,
+      600: imageUrl,
+      fullSize: imageUrl,
+    },
+    ...data,
+  }
+}
+
+function randomInt (min, max) {
+  return Math.floor(Math.random() * (max - min + 1)) + min
+}
+
+export const makeImages = (min, max) => {
+  return new Array(randomInt(min, max)).fill(null).map(makeImage)
 }

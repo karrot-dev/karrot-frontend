@@ -29,14 +29,14 @@ describe('ChatConversation', () => {
     expect(wrapper.findAllComponents(QInput).length).toBe(1)
     expect(wrapper.findAllComponents(ConversationCompose).length).toBe(1)
 
-    const message = 'A nice new message'
+    const content = 'A nice new message'
 
     // Would be nicer to directly put the message into the QInput but did not find a way yet
-    wrapper.findComponent(ConversationCompose).setData({ message })
+    wrapper.findComponent(ConversationCompose).setData({ message: { content } })
     wrapper.findComponent(ConversationCompose).vm.submit()
 
     const { id } = propsData.conversation
-    expect(wrapper.emitted().send).toEqual([[{ id, content: message }]])
+    expect(wrapper.emitted().send).toEqual([[{ id, content, images: [] }]])
   })
 
   it('marks new messages as read', async () => {

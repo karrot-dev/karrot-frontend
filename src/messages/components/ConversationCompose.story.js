@@ -21,7 +21,7 @@ storiesOf('ConversationCompose', module)
       props: {
         placeholder: 'Type here',
         user,
-        value: 'existing text',
+        value: { content: 'existing text', images: [] },
         status: statusMocks.default(),
       },
     }),

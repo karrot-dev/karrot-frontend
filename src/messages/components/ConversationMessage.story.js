@@ -60,6 +60,28 @@ storiesOf('ConversationMessage', module)
       },
     }),
   }))
+  .add('with one image', () => defaults({
+    render: h => h(ConversationMessage, {
+      props: {
+        message: {
+          ...message,
+          images: [
+            factories.makeImage(),
+          ],
+        },
+      },
+    }),
+  }))
+  .add('with multiple images', () => defaults({
+    render: h => h(ConversationMessage, {
+      props: {
+        message: {
+          ...message,
+          images: factories.makeImages(2, 10),
+        },
+      },
+    }),
+  }))
   .add('slim', () => defaults({
     render: h => h(ConversationMessage, {
       props: {

@@ -22,7 +22,7 @@
             :user="user"
             :slim="$q.platform.is.mobile"
             :is-participant="data.isParticipant"
-            @submit="$emit('send', { id: data.id, content: arguments[0] })"
+            @submit="$emit('send', { id: data.id, ...arguments[0] })"
           />
           <QBanner
             v-if="data.isParticipant && data.unreadMessageCount > 0"
@@ -146,7 +146,7 @@ export default {
 <style scoped lang="stylus">
 .actionButton
   position absolute
-  top -24px
+  top -32px
   right 6px
   z-index 1
 

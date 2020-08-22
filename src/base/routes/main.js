@@ -45,6 +45,7 @@ const IssueList = () => import('@/issues/pages/IssueList')
 const IssueChat = () => import('@/issues/pages/IssueChat')
 const IssueCompose = () => import('@/issues/pages/IssueCompose')
 const IssueVoteAndHistory = () => import('@/issues/pages/IssueVoteAndHistory')
+const PlaceStatistics = () => import('@/statistics/pages/PlaceStatistics')
 
 export default [
   {
@@ -550,6 +551,25 @@ export default [
           afterLeave: 'feedback/clear',
         },
         component: ActivityFeedback,
+      },
+      {
+        name: 'statistics',
+        path: 'statistics',
+        redirect: 'statistics/places',
+      },
+      {
+        name: 'placeStatistics',
+        path: 'statistics/places',
+        meta: {
+          requireLoggedIn: true,
+          breadcrumbs: [
+            { translation: 'STATISTICS', route: { name: 'statistics' } },
+          ],
+        },
+        components: {
+          default: PlaceStatistics,
+          sidenav: Sidenav,
+        },
       },
     ],
   },

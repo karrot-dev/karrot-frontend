@@ -13,7 +13,7 @@
  *
  */
 
-const {Octokit} = require('@octokit/rest')
+const { Octokit } = require('@octokit/rest')
 
 const octokit = new Octokit()
 

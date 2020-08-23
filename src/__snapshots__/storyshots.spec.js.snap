@@ -217,12 +217,12 @@ exports[`Storyshots ActivityEdit default 1`] = `
           <div tabindex="-1" class="q-field__control relative-position row no-wrap">
             <div class="q-field__control-container col relative-position row no-wrap q-anchor--skip"><input tabindex="0" aria-label="Max Slots" placeholder="unlimited" id="f_80808080-8080-4080-8080-808080808080" type="number" value="10" class="q-field__native q-placeholder" style="max-width:100px;">
               <div class="q-field__label no-pointer-events absolute ellipsis">Max Slots</div>
-              <div role="slider" aria-valuemin="1" aria-valuemax="10" aria-orientation="horizontal" data-step="1" aria-valuenow="10" tabindex="0" class="q-mx-sm self-end q-slider q-slider--h q-slider--inactive q-slider--editable q-slider--label" style="min-width:60px;">
+              <div role="slider" aria-valuemin="1" aria-valuemax="10" aria-orientation="horizontal" data-step="1" aria-valuenow="10" tabindex="0" class="q-mx-sm self-end q-slider q-slider--h q-slider--inactive q-slider--enabled q-slider--editable q-slider--label" style="min-width:60px;">
                 <div class="q-slider__track-container q-slider__track-container--h absolute">
                   <div class="q-slider__track q-slider__track--h absolute" style="left:0;width:100%;"></div>
                   <div class="q-slider__track-markers q-slider__track-markers--h absolute-full fit" style="background-size:11.11111111111111% 2px;"></div>
                 </div>
-                <div class="q-slider__thumb-container q-slider__thumb-container--h absolute non-selectable" style="left:100%;"><svg focusable="false" viewBox="0 0 20 20" width="20" height="20" class="q-slider__thumb absolute">
+                <div class="q-slider__thumb-container q-slider__thumb-container--h absolute non-selectable" style="left:100%;"><svg focusable="false" viewBox="0 0 20 20" width="20" height="20" aria-hidden="true" class="q-slider__thumb absolute">
                     <path d="M 4, 10 a 6,6 0 1,0 12,0 a 6,6 0 1,0 -12,0"></path>
                   </svg>
                   <div class="q-slider__focus-ring"></div>
@@ -268,12 +268,12 @@ exports[`Storyshots ActivityEdit default 1`] = `
     </div>
     <!---->
     <div class="row justify-end q-gutter-sm q-mt-lg">
-      <!----> <button tabindex="-1" type="button" role="button" disabled="disabled" aria-disabled="" class="q-btn q-btn-item non-selectable no-outline q-btn--standard q-btn--rectangle disabled q-btn--wrap"><span class="q-focus-helper"></span><span class="q-btn__wrapper col row q-anchor--skip"><span class="q-btn__content text-center col items-center q-anchor--skip justify-center row">
+      <!----> <button tabindex="-1" type="button" role="button" disabled="disabled" aria-disabled="true" class="q-btn q-btn-item non-selectable no-outline q-btn--standard q-btn--rectangle disabled q-btn--wrap"><span class="q-focus-helper"></span><span class="q-btn__wrapper col row q-anchor--skip"><span class="q-btn__content text-center col items-center q-anchor--skip justify-center row">
         Reset
       </span></span></button> <button tabindex="0" type="button" role="button" class="q-btn q-btn-item non-selectable no-outline q-btn--standard q-btn--rectangle bg-red text-white q-btn--actionable q-focusable q-hoverable q-btn--wrap"><span class="q-focus-helper"></span><span class="q-btn__wrapper col row q-anchor--skip"><span class="q-btn__content text-center col items-center q-anchor--skip justify-center row">
         Disable
       </span></span></button>
-      <!----> <button tabindex="-1" type="submit" role="button" disabled="disabled" aria-disabled="" class="q-btn q-btn-item non-selectable no-outline q-btn--standard q-btn--rectangle bg-primary text-white disabled q-btn--wrap"><span class="q-focus-helper"></span><span class="q-btn__wrapper col row q-anchor--skip"><span class="q-btn__content text-center col items-center q-anchor--skip justify-center row">
+      <!----> <button tabindex="-1" type="submit" role="button" disabled="disabled" aria-disabled="true" class="q-btn q-btn-item non-selectable no-outline q-btn--standard q-btn--rectangle bg-primary text-white disabled q-btn--wrap"><span class="q-focus-helper"></span><span class="q-btn__wrapper col row q-anchor--skip"><span class="q-btn__content text-center col items-center q-anchor--skip justify-center row">
         Save changes
       </span></span>
         <transition-stub name="q-transition--fade"></transition-stub>
@@ -321,12 +321,12 @@ exports[`Storyshots ActivityEdit disabled 1`] = `
           <div tabindex="-1" class="q-field__control relative-position row no-wrap">
             <div class="q-field__control-container col relative-position row no-wrap q-anchor--skip"><input tabindex="0" aria-label="Max Slots" placeholder="unlimited" id="f_80808080-8080-4080-8080-808080808080" type="number" value="10" class="q-field__native q-placeholder" style="max-width:100px;">
               <div class="q-field__label no-pointer-events absolute ellipsis">Max Slots</div>
-              <div role="slider" aria-valuemin="1" aria-valuemax="10" aria-orientation="horizontal" data-step="1" aria-valuenow="10" tabindex="0" class="q-mx-sm self-end q-slider q-slider--h q-slider--inactive q-slider--editable q-slider--label" style="min-width:60px;">
+              <div role="slider" aria-valuemin="1" aria-valuemax="10" aria-orientation="horizontal" data-step="1" aria-valuenow="10" tabindex="0" class="q-mx-sm self-end q-slider q-slider--h q-slider--inactive q-slider--enabled q-slider--editable q-slider--label" style="min-width:60px;">
                 <div class="q-slider__track-container q-slider__track-container--h absolute">
                   <div class="q-slider__track q-slider__track--h absolute" style="left:0;width:100%;"></div>
                   <div class="q-slider__track-markers q-slider__track-markers--h absolute-full fit" style="background-size:11.11111111111111% 2px;"></div>
                 </div>
-                <div class="q-slider__thumb-container q-slider__thumb-container--h absolute non-selectable" style="left:100%;"><svg focusable="false" viewBox="0 0 20 20" width="20" height="20" class="q-slider__thumb absolute">
+                <div class="q-slider__thumb-container q-slider__thumb-container--h absolute non-selectable" style="left:100%;"><svg focusable="false" viewBox="0 0 20 20" width="20" height="20" aria-hidden="true" class="q-slider__thumb absolute">
                     <path d="M 4, 10 a 6,6 0 1,0 12,0 a 6,6 0 1,0 -12,0"></path>
                   </svg>
                   <div class="q-slider__focus-ring"></div>
@@ -372,12 +372,12 @@ exports[`Storyshots ActivityEdit disabled 1`] = `
     </div>
     <!---->
     <div class="row justify-end q-gutter-sm q-mt-lg">
-      <!----> <button tabindex="-1" type="button" role="button" disabled="disabled" aria-disabled="" class="q-btn q-btn-item non-selectable no-outline q-btn--standard q-btn--rectangle disabled q-btn--wrap"><span class="q-focus-helper"></span><span class="q-btn__wrapper col row q-anchor--skip"><span class="q-btn__content text-center col items-center q-anchor--skip justify-center row">
+      <!----> <button tabindex="-1" type="button" role="button" disabled="disabled" aria-disabled="true" class="q-btn q-btn-item non-selectable no-outline q-btn--standard q-btn--rectangle disabled q-btn--wrap"><span class="q-focus-helper"></span><span class="q-btn__wrapper col row q-anchor--skip"><span class="q-btn__content text-center col items-center q-anchor--skip justify-center row">
         Reset
       </span></span></button>
       <!----> <button tabindex="0" type="button" role="button" class="q-btn q-btn-item non-selectable no-outline q-btn--standard q-btn--rectangle bg-secondary text-white q-btn--actionable q-focusable q-hoverable q-btn--wrap"><span class="q-focus-helper"></span><span class="q-btn__wrapper col row q-anchor--skip"><span class="q-btn__content text-center col items-center q-anchor--skip justify-center row">
         Enable
-      </span></span></button> <button tabindex="-1" type="submit" role="button" disabled="disabled" aria-disabled="" class="q-btn q-btn-item non-selectable no-outline q-btn--standard q-btn--rectangle bg-primary text-white disabled q-btn--wrap"><span class="q-focus-helper"></span><span class="q-btn__wrapper col row q-anchor--skip"><span class="q-btn__content text-center col items-center q-anchor--skip justify-center row">
+      </span></span></button> <button tabindex="-1" type="submit" role="button" disabled="disabled" aria-disabled="true" class="q-btn q-btn-item non-selectable no-outline q-btn--standard q-btn--rectangle bg-primary text-white disabled q-btn--wrap"><span class="q-focus-helper"></span><span class="q-btn__wrapper col row q-anchor--skip"><span class="q-btn__content text-center col items-center q-anchor--skip justify-center row">
         Save changes
       </span></span>
         <transition-stub name="q-transition--fade"></transition-stub>
@@ -427,12 +427,12 @@ exports[`Storyshots ActivityEdit error 1`] = `
           <div tabindex="-1" class="q-field__control relative-position row no-wrap">
             <div class="q-field__control-container col relative-position row no-wrap q-anchor--skip"><input tabindex="0" aria-label="Max Slots" placeholder="unlimited" id="f_80808080-8080-4080-8080-808080808080" type="number" value="10" class="q-field__native q-placeholder" style="max-width:100px;">
               <div class="q-field__label no-pointer-events absolute ellipsis">Max Slots</div>
-              <div role="slider" aria-valuemin="1" aria-valuemax="10" aria-orientation="horizontal" data-step="1" aria-valuenow="10" tabindex="0" class="q-mx-sm self-end q-slider q-slider--h q-slider--inactive q-slider--editable q-slider--label" style="min-width:60px;">
+              <div role="slider" aria-valuemin="1" aria-valuemax="10" aria-orientation="horizontal" data-step="1" aria-valuenow="10" tabindex="0" class="q-mx-sm self-end q-slider q-slider--h q-slider--inactive q-slider--enabled q-slider--editable q-slider--label" style="min-width:60px;">
                 <div class="q-slider__track-container q-slider__track-container--h absolute">
                   <div class="q-slider__track q-slider__track--h absolute" style="left:0;width:100%;"></div>
                   <div class="q-slider__track-markers q-slider__track-markers--h absolute-full fit" style="background-size:11.11111111111111% 2px;"></div>
                 </div>
-                <div class="q-slider__thumb-container q-slider__thumb-container--h absolute non-selectable" style="left:100%;"><svg focusable="false" viewBox="0 0 20 20" width="20" height="20" class="q-slider__thumb absolute">
+                <div class="q-slider__thumb-container q-slider__thumb-container--h absolute non-selectable" style="left:100%;"><svg focusable="false" viewBox="0 0 20 20" width="20" height="20" aria-hidden="true" class="q-slider__thumb absolute">
                     <path d="M 4, 10 a 6,6 0 1,0 12,0 a 6,6 0 1,0 -12,0"></path>
                   </svg>
                   <div class="q-slider__focus-ring"></div>
@@ -478,12 +478,12 @@ exports[`Storyshots ActivityEdit error 1`] = `
     </div>
     <!---->
     <div class="row justify-end q-gutter-sm q-mt-lg">
-      <!----> <button tabindex="-1" type="button" role="button" disabled="disabled" aria-disabled="" class="q-btn q-btn-item non-selectable no-outline q-btn--standard q-btn--rectangle disabled q-btn--wrap"><span class="q-focus-helper"></span><span class="q-btn__wrapper col row q-anchor--skip"><span class="q-btn__content text-center col items-center q-anchor--skip justify-center row">
+      <!----> <button tabindex="-1" type="button" role="button" disabled="disabled" aria-disabled="true" class="q-btn q-btn-item non-selectable no-outline q-btn--standard q-btn--rectangle disabled q-btn--wrap"><span class="q-focus-helper"></span><span class="q-btn__wrapper col row q-anchor--skip"><span class="q-btn__content text-center col items-center q-anchor--skip justify-center row">
         Reset
       </span></span></button> <button tabindex="0" type="button" role="button" class="q-btn q-btn-item non-selectable no-outline q-btn--standard q-btn--rectangle bg-red text-white q-btn--actionable q-focusable q-hoverable q-btn--wrap"><span class="q-focus-helper"></span><span class="q-btn__wrapper col row q-anchor--skip"><span class="q-btn__content text-center col items-center q-anchor--skip justify-center row">
         Disable
       </span></span></button>
-      <!----> <button tabindex="-1" type="submit" role="button" disabled="disabled" aria-disabled="" class="q-btn q-btn-item non-selectable no-outline q-btn--standard q-btn--rectangle bg-primary text-white disabled q-btn--wrap"><span class="q-focus-helper"></span><span class="q-btn__wrapper col row q-anchor--skip"><span class="q-btn__content text-center col items-center q-anchor--skip justify-center row">
+      <!----> <button tabindex="-1" type="submit" role="button" disabled="disabled" aria-disabled="true" class="q-btn q-btn-item non-selectable no-outline q-btn--standard q-btn--rectangle bg-primary text-white disabled q-btn--wrap"><span class="q-focus-helper"></span><span class="q-btn__wrapper col row q-anchor--skip"><span class="q-btn__content text-center col items-center q-anchor--skip justify-center row">
         Save changes
       </span></span>
         <transition-stub name="q-transition--fade"></transition-stub>
@@ -531,12 +531,12 @@ exports[`Storyshots ActivityEdit pending 1`] = `
           <div tabindex="-1" class="q-field__control relative-position row no-wrap">
             <div class="q-field__control-container col relative-position row no-wrap q-anchor--skip"><input tabindex="0" aria-label="Max Slots" placeholder="unlimited" id="f_80808080-8080-4080-8080-808080808080" type="number" value="10" class="q-field__native q-placeholder" style="max-width:100px;">
               <div class="q-field__label no-pointer-events absolute ellipsis">Max Slots</div>
-              <div role="slider" aria-valuemin="1" aria-valuemax="10" aria-orientation="horizontal" data-step="1" aria-valuenow="10" tabindex="0" class="q-mx-sm self-end q-slider q-slider--h q-slider--inactive q-slider--editable q-slider--label" style="min-width:60px;">
+              <div role="slider" aria-valuemin="1" aria-valuemax="10" aria-orientation="horizontal" data-step="1" aria-valuenow="10" tabindex="0" class="q-mx-sm self-end q-slider q-slider--h q-slider--inactive q-slider--enabled q-slider--editable q-slider--label" style="min-width:60px;">
                 <div class="q-slider__track-container q-slider__track-container--h absolute">
                   <div class="q-slider__track q-slider__track--h absolute" style="left:0;width:100%;"></div>
                   <div class="q-slider__track-markers q-slider__track-markers--h absolute-full fit" style="background-size:11.11111111111111% 2px;"></div>
                 </div>
-                <div class="q-slider__thumb-container q-slider__thumb-container--h absolute non-selectable" style="left:100%;"><svg focusable="false" viewBox="0 0 20 20" width="20" height="20" class="q-slider__thumb absolute">
+                <div class="q-slider__thumb-container q-slider__thumb-container--h absolute non-selectable" style="left:100%;"><svg focusable="false" viewBox="0 0 20 20" width="20" height="20" aria-hidden="true" class="q-slider__thumb absolute">
                     <path d="M 4, 10 a 6,6 0 1,0 12,0 a 6,6 0 1,0 -12,0"></path>
                   </svg>
                   <div class="q-slider__focus-ring"></div>
@@ -582,12 +582,12 @@ exports[`Storyshots ActivityEdit pending 1`] = `
     </div>
     <!---->
     <div class="row justify-end q-gutter-sm q-mt-lg">
-      <!----> <button tabindex="-1" type="button" role="button" disabled="disabled" aria-disabled="" class="q-btn q-btn-item non-selectable no-outline q-btn--standard q-btn--rectangle disabled q-btn--wrap"><span class="q-focus-helper"></span><span class="q-btn__wrapper col row q-anchor--skip"><span class="q-btn__content text-center col items-center q-anchor--skip justify-center row">
+      <!----> <button tabindex="-1" type="button" role="button" disabled="disabled" aria-disabled="true" class="q-btn q-btn-item non-selectable no-outline q-btn--standard q-btn--rectangle disabled q-btn--wrap"><span class="q-focus-helper"></span><span class="q-btn__wrapper col row q-anchor--skip"><span class="q-btn__content text-center col items-center q-anchor--skip justify-center row">
         Reset
       </span></span></button> <button tabindex="0" type="button" role="button" class="q-btn q-btn-item non-selectable no-outline q-btn--standard q-btn--rectangle bg-red text-white q-btn--actionable q-focusable q-hoverable q-btn--wrap"><span class="q-focus-helper"></span><span class="q-btn__wrapper col row q-anchor--skip"><span class="q-btn__content text-center col items-center q-anchor--skip justify-center row">
         Disable
       </span></span></button>
-      <!----> <button tabindex="-1" type="submit" role="button" disabled="disabled" aria-disabled="" class="q-btn q-btn-item non-selectable no-outline q-btn--standard q-btn--rectangle bg-primary text-white disabled q-btn--wrap"><span class="q-focus-helper"></span><span class="q-btn__wrapper col row q-anchor--skip"><span class="q-btn__content text-center col items-center q-anchor--skip justify-center row q-btn__content--hidden">
+      <!----> <button tabindex="-1" type="submit" role="button" disabled="disabled" aria-disabled="true" class="q-btn q-btn-item non-selectable no-outline q-btn--standard q-btn--rectangle bg-primary text-white disabled q-btn--wrap"><span class="q-focus-helper"></span><span class="q-btn__wrapper col row q-anchor--skip"><span class="q-btn__content text-center col items-center q-anchor--skip justify-center row q-btn__content--hidden">
         Save changes
       </span></span>
         <transition-stub name="q-transition--fade"><span class="absolute-full flex flex-center"><svg focusable="false" width="1em" height="1em" viewBox="25 25 50 50" class="q-spinner q-spinner-mat"><circle cx="50" cy="50" r="20" fill="none" stroke="currentColor" stroke-width="5" stroke-miterlimit="10" class="path"></circle></svg></span></transition-stub>
@@ -635,12 +635,12 @@ exports[`Storyshots ActivityEdit series changed 1`] = `
           <div tabindex="-1" class="q-field__control relative-position row no-wrap">
             <div class="q-field__control-container col relative-position row no-wrap q-anchor--skip"><input tabindex="0" aria-label="Max Slots" placeholder="unlimited" id="f_80808080-8080-4080-8080-808080808080" type="number" value="10" class="q-field__native q-placeholder" style="max-width:100px;">
               <div class="q-field__label no-pointer-events absolute ellipsis">Max Slots</div>
-              <div role="slider" aria-valuemin="1" aria-valuemax="10" aria-orientation="horizontal" data-step="1" aria-valuenow="10" tabindex="0" class="q-mx-sm self-end q-slider q-slider--h q-slider--inactive q-slider--editable q-slider--label" style="min-width:60px;">
+              <div role="slider" aria-valuemin="1" aria-valuemax="10" aria-orientation="horizontal" data-step="1" aria-valuenow="10" tabindex="0" class="q-mx-sm self-end q-slider q-slider--h q-slider--inactive q-slider--enabled q-slider--editable q-slider--label" style="min-width:60px;">
                 <div class="q-slider__track-container q-slider__track-container--h absolute">
                   <div class="q-slider__track q-slider__track--h absolute" style="left:0;width:100%;"></div>
                   <div class="q-slider__track-markers q-slider__track-markers--h absolute-full fit" style="background-size:11.11111111111111% 2px;"></div>
                 </div>
-                <div class="q-slider__thumb-container q-slider__thumb-container--h absolute non-selectable" style="left:100%;"><svg focusable="false" viewBox="0 0 20 20" width="20" height="20" class="q-slider__thumb absolute">
+                <div class="q-slider__thumb-container q-slider__thumb-container--h absolute non-selectable" style="left:100%;"><svg focusable="false" viewBox="0 0 20 20" width="20" height="20" aria-hidden="true" class="q-slider__thumb absolute">
                     <path d="M 4, 10 a 6,6 0 1,0 12,0 a 6,6 0 1,0 -12,0"></path>
                   </svg>
                   <div class="q-slider__focus-ring"></div>
@@ -690,12 +690,12 @@ exports[`Storyshots ActivityEdit series changed 1`] = `
     </div>
     <!---->
     <div class="row justify-end q-gutter-sm q-mt-lg">
-      <!----> <button tabindex="-1" type="button" role="button" disabled="disabled" aria-disabled="" class="q-btn q-btn-item non-selectable no-outline q-btn--standard q-btn--rectangle disabled q-btn--wrap"><span class="q-focus-helper"></span><span class="q-btn__wrapper col row q-anchor--skip"><span class="q-btn__content text-center col items-center q-anchor--skip justify-center row">
+      <!----> <button tabindex="-1" type="button" role="button" disabled="disabled" aria-disabled="true" class="q-btn q-btn-item non-selectable no-outline q-btn--standard q-btn--rectangle disabled q-btn--wrap"><span class="q-focus-helper"></span><span class="q-btn__wrapper col row q-anchor--skip"><span class="q-btn__content text-center col items-center q-anchor--skip justify-center row">
         Reset
       </span></span></button> <button tabindex="0" type="button" role="button" class="q-btn q-btn-item non-selectable no-outline q-btn--standard q-btn--rectangle bg-red text-white q-btn--actionable q-focusable q-hoverable q-btn--wrap"><span class="q-focus-helper"></span><span class="q-btn__wrapper col row q-anchor--skip"><span class="q-btn__content text-center col items-center q-anchor--skip justify-center row">
         Disable
       </span></span></button>
-      <!----> <button tabindex="-1" type="submit" role="button" disabled="disabled" aria-disabled="" class="q-btn q-btn-item non-selectable no-outline q-btn--standard q-btn--rectangle bg-primary text-white disabled q-btn--wrap"><span class="q-focus-helper"></span><span class="q-btn__wrapper col row q-anchor--skip"><span class="q-btn__content text-center col items-center q-anchor--skip justify-center row">
+      <!----> <button tabindex="-1" type="submit" role="button" disabled="disabled" aria-disabled="true" class="q-btn q-btn-item non-selectable no-outline q-btn--standard q-btn--rectangle bg-primary text-white disabled q-btn--wrap"><span class="q-focus-helper"></span><span class="q-btn__wrapper col row q-anchor--skip"><span class="q-btn__content text-center col items-center q-anchor--skip justify-center row">
         Save changes
       </span></span>
         <transition-stub name="q-transition--fade"></transition-stub>
@@ -756,12 +756,12 @@ exports[`Storyshots ActivityEdit with duration 1`] = `
           <div tabindex="-1" class="q-field__control relative-position row no-wrap">
             <div class="q-field__control-container col relative-position row no-wrap q-anchor--skip"><input tabindex="0" aria-label="Max Slots" placeholder="unlimited" id="f_80808080-8080-4080-8080-808080808080" type="number" value="10" class="q-field__native q-placeholder" style="max-width:100px;">
               <div class="q-field__label no-pointer-events absolute ellipsis">Max Slots</div>
-              <div role="slider" aria-valuemin="1" aria-valuemax="10" aria-orientation="horizontal" data-step="1" aria-valuenow="10" tabindex="0" class="q-mx-sm self-end q-slider q-slider--h q-slider--inactive q-slider--editable q-slider--label" style="min-width:60px;">
+              <div role="slider" aria-valuemin="1" aria-valuemax="10" aria-orientation="horizontal" data-step="1" aria-valuenow="10" tabindex="0" class="q-mx-sm self-end q-slider q-slider--h q-slider--inactive q-slider--enabled q-slider--editable q-slider--label" style="min-width:60px;">
                 <div class="q-slider__track-container q-slider__track-container--h absolute">
                   <div class="q-slider__track q-slider__track--h absolute" style="left:0;width:100%;"></div>
                   <div class="q-slider__track-markers q-slider__track-markers--h absolute-full fit" style="background-size:11.11111111111111% 2px;"></div>
                 </div>
-                <div class="q-slider__thumb-container q-slider__thumb-container--h absolute non-selectable" style="left:100%;"><svg focusable="false" viewBox="0 0 20 20" width="20" height="20" class="q-slider__thumb absolute">
+                <div class="q-slider__thumb-container q-slider__thumb-container--h absolute non-selectable" style="left:100%;"><svg focusable="false" viewBox="0 0 20 20" width="20" height="20" aria-hidden="true" class="q-slider__thumb absolute">
                     <path d="M 4, 10 a 6,6 0 1,0 12,0 a 6,6 0 1,0 -12,0"></path>
                   </svg>
                   <div class="q-slider__focus-ring"></div>
@@ -807,12 +807,12 @@ exports[`Storyshots ActivityEdit with duration 1`] = `
     </div>
     <!---->
     <div class="row justify-end q-gutter-sm q-mt-lg">
-      <!----> <button tabindex="-1" type="button" role="button" disabled="disabled" aria-disabled="" class="q-btn q-btn-item non-selectable no-outline q-btn--standard q-btn--rectangle disabled q-btn--wrap"><span class="q-focus-helper"></span><span class="q-btn__wrapper col row q-anchor--skip"><span class="q-btn__content text-center col items-center q-anchor--skip justify-center row">
+      <!----> <button tabindex="-1" type="button" role="button" disabled="disabled" aria-disabled="true" class="q-btn q-btn-item non-selectable no-outline q-btn--standard q-btn--rectangle disabled q-btn--wrap"><span class="q-focus-helper"></span><span class="q-btn__wrapper col row q-anchor--skip"><span class="q-btn__content text-center col items-center q-anchor--skip justify-center row">
         Reset
       </span></span></button> <button tabindex="0" type="button" role="button" class="q-btn q-btn-item non-selectable no-outline q-btn--standard q-btn--rectangle bg-red text-white q-btn--actionable q-focusable q-hoverable q-btn--wrap"><span class="q-focus-helper"></span><span class="q-btn__wrapper col row q-anchor--skip"><span class="q-btn__content text-center col items-center q-anchor--skip justify-center row">
         Disable
       </span></span></button>
-      <!----> <button tabindex="-1" type="submit" role="button" disabled="disabled" aria-disabled="" class="q-btn q-btn-item non-selectable no-outline q-btn--standard q-btn--rectangle bg-primary text-white disabled q-btn--wrap"><span class="q-focus-helper"></span><span class="q-btn__wrapper col row q-anchor--skip"><span class="q-btn__content text-center col items-center q-anchor--skip justify-center row">
+      <!----> <button tabindex="-1" type="submit" role="button" disabled="disabled" aria-disabled="true" class="q-btn q-btn-item non-selectable no-outline q-btn--standard q-btn--rectangle bg-primary text-white disabled q-btn--wrap"><span class="q-focus-helper"></span><span class="q-btn__wrapper col row q-anchor--skip"><span class="q-btn__content text-center col items-center q-anchor--skip justify-center row">
         Save changes
       </span></span>
         <transition-stub name="q-transition--fade"></transition-stub>
@@ -1315,7 +1315,7 @@ exports[`Storyshots ActivitySeriesEdit custom rule 1`] = `
               <div role="radiogroup" class="q-option-group q-gutter-x-sm q-option-group--inline">
                 <div>
                   <div tabindex="0" role="radio" aria-label="Weekly" aria-checked="false" class="q-radio cursor-pointer no-outline row inline no-wrap items-center">
-                    <div class="q-radio__inner relative-position no-pointer-events q-radio__inner--falsy"><input type="radio" class="hidden q-radio__native q-ma-none q-pa-none invisible"><svg focusable="false" viewBox="0 0 24 24" class="q-radio__bg absolute">
+                    <div class="q-radio__inner relative-position no-pointer-events q-radio__inner--falsy"><input type="radio" class="hidden q-radio__native q-ma-none q-pa-none invisible"><svg focusable="false" viewBox="0 0 24 24" aria-hidden="true" class="q-radio__bg absolute">
                         <path d="M12,22a10,10 0 0 1 -10,-10a10,10 0 0 1 10,-10a10,10 0 0 1 10,10a10,10 0 0 1 -10,10m0,-22a12,12 0 0 0 -12,12a12,12 0 0 0 12,12a12,12 0 0 0 12,-12a12,12 0 0 0 -12,-12"></path>
                         <path d="M12,6a6,6 0 0 0 -6,6a6,6 0 0 0 6,6a6,6 0 0 0 6,-6a6,6 0 0 0 -6,-6" class="q-radio__check"></path>
                       </svg></div><span tabindex="-1" class="no-outline"></span>
@@ -1324,7 +1324,7 @@ exports[`Storyshots ActivitySeriesEdit custom rule 1`] = `
                 </div>
                 <div>
                   <div tabindex="0" role="radio" aria-label="Custom" aria-checked="true" class="q-radio cursor-pointer no-outline row inline no-wrap items-center">
-                    <div class="q-radio__inner relative-position no-pointer-events q-radio__inner--truthy"><input type="radio" class="hidden q-radio__native q-ma-none q-pa-none invisible"><svg focusable="false" viewBox="0 0 24 24" class="q-radio__bg absolute">
+                    <div class="q-radio__inner relative-position no-pointer-events q-radio__inner--truthy"><input type="radio" class="hidden q-radio__native q-ma-none q-pa-none invisible"><svg focusable="false" viewBox="0 0 24 24" aria-hidden="true" class="q-radio__bg absolute">
                         <path d="M12,22a10,10 0 0 1 -10,-10a10,10 0 0 1 10,-10a10,10 0 0 1 10,10a10,10 0 0 1 -10,10m0,-22a12,12 0 0 0 -12,12a12,12 0 0 0 12,12a12,12 0 0 0 12,-12a12,12 0 0 0 -12,-12"></path>
                         <path d="M12,6a6,6 0 0 0 -6,6a6,6 0 0 0 6,6a6,6 0 0 0 6,-6a6,6 0 0 0 -6,-6" class="q-radio__check"></path>
                       </svg></div><span tabindex="-1" class="no-outline"></span>
@@ -1384,12 +1384,12 @@ exports[`Storyshots ActivitySeriesEdit custom rule 1`] = `
         <div tabindex="-1" class="q-field__control relative-position row no-wrap">
           <div class="q-field__control-container col relative-position row no-wrap q-anchor--skip"><input tabindex="0" aria-label="Max Slots" placeholder="unlimited" id="f_80808080-8080-4080-8080-808080808080" type="number" value="10" class="q-field__native q-placeholder" style="max-width:100px;">
             <div class="q-field__label no-pointer-events absolute ellipsis">Max Slots</div>
-            <div role="slider" aria-valuemin="1" aria-valuemax="10" aria-orientation="horizontal" data-step="1" aria-valuenow="10" tabindex="0" class="q-mx-sm self-end q-slider q-slider--h q-slider--inactive q-slider--editable q-slider--label" style="min-width:60px;">
+            <div role="slider" aria-valuemin="1" aria-valuemax="10" aria-orientation="horizontal" data-step="1" aria-valuenow="10" tabindex="0" class="q-mx-sm self-end q-slider q-slider--h q-slider--inactive q-slider--enabled q-slider--editable q-slider--label" style="min-width:60px;">
               <div class="q-slider__track-container q-slider__track-container--h absolute">
                 <div class="q-slider__track q-slider__track--h absolute" style="left:0;width:100%;"></div>
                 <div class="q-slider__track-markers q-slider__track-markers--h absolute-full fit" style="background-size:11.11111111111111% 2px;"></div>
               </div>
-              <div class="q-slider__thumb-container q-slider__thumb-container--h absolute non-selectable" style="left:100%;"><svg focusable="false" viewBox="0 0 20 20" width="20" height="20" class="q-slider__thumb absolute">
+              <div class="q-slider__thumb-container q-slider__thumb-container--h absolute non-selectable" style="left:100%;"><svg focusable="false" viewBox="0 0 20 20" width="20" height="20" aria-hidden="true" class="q-slider__thumb absolute">
                   <path d="M 4, 10 a 6,6 0 1,0 12,0 a 6,6 0 1,0 -12,0"></path>
                 </svg>
                 <div class="q-slider__focus-ring"></div>
@@ -1428,11 +1428,11 @@ exports[`Storyshots ActivitySeriesEdit custom rule 1`] = `
     </label>
     <!---->
     <div class="row justify-end q-gutter-sm q-mt-lg">
-      <!----> <button tabindex="-1" type="button" role="button" disabled="disabled" aria-disabled="" class="q-btn q-btn-item non-selectable no-outline q-btn--standard q-btn--rectangle disabled q-btn--wrap"><span class="q-focus-helper"></span><span class="q-btn__wrapper col row q-anchor--skip"><span class="q-btn__content text-center col items-center q-anchor--skip justify-center row">
+      <!----> <button tabindex="-1" type="button" role="button" disabled="disabled" aria-disabled="true" class="q-btn q-btn-item non-selectable no-outline q-btn--standard q-btn--rectangle disabled q-btn--wrap"><span class="q-focus-helper"></span><span class="q-btn__wrapper col row q-anchor--skip"><span class="q-btn__content text-center col items-center q-anchor--skip justify-center row">
         Reset
       </span></span></button> <button tabindex="0" type="button" role="button" class="q-btn q-btn-item non-selectable no-outline q-btn--standard q-btn--rectangle bg-red text-white q-btn--actionable q-focusable q-hoverable q-btn--wrap"><span class="q-focus-helper"></span><span class="q-btn__wrapper col row q-anchor--skip"><span class="q-btn__content text-center col items-center q-anchor--skip justify-center row">
         Delete
-      </span></span></button> <button tabindex="-1" type="submit" role="button" disabled="disabled" aria-disabled="" class="q-btn q-btn-item non-selectable no-outline q-btn--standard q-btn--rectangle bg-primary text-white disabled q-btn--wrap"><span class="q-focus-helper"></span><span class="q-btn__wrapper col row q-anchor--skip"><span class="q-btn__content text-center col items-center q-anchor--skip justify-center row">
+      </span></span></button> <button tabindex="-1" type="submit" role="button" disabled="disabled" aria-disabled="true" class="q-btn q-btn-item non-selectable no-outline q-btn--standard q-btn--rectangle bg-primary text-white disabled q-btn--wrap"><span class="q-focus-helper"></span><span class="q-btn__wrapper col row q-anchor--skip"><span class="q-btn__content text-center col items-center q-anchor--skip justify-center row">
         Save changes
       </span></span>
         <transition-stub name="q-transition--fade"></transition-stub>
@@ -1453,7 +1453,7 @@ exports[`Storyshots ActivitySeriesEdit custom rule with duration 1`] = `
               <div role="radiogroup" class="q-option-group q-gutter-x-sm q-option-group--inline">
                 <div>
                   <div tabindex="0" role="radio" aria-label="Weekly" aria-checked="false" class="q-radio cursor-pointer no-outline row inline no-wrap items-center">
-                    <div class="q-radio__inner relative-position no-pointer-events q-radio__inner--falsy"><input type="radio" class="hidden q-radio__native q-ma-none q-pa-none invisible"><svg focusable="false" viewBox="0 0 24 24" class="q-radio__bg absolute">
+                    <div class="q-radio__inner relative-position no-pointer-events q-radio__inner--falsy"><input type="radio" class="hidden q-radio__native q-ma-none q-pa-none invisible"><svg focusable="false" viewBox="0 0 24 24" aria-hidden="true" class="q-radio__bg absolute">
                         <path d="M12,22a10,10 0 0 1 -10,-10a10,10 0 0 1 10,-10a10,10 0 0 1 10,10a10,10 0 0 1 -10,10m0,-22a12,12 0 0 0 -12,12a12,12 0 0 0 12,12a12,12 0 0 0 12,-12a12,12 0 0 0 -12,-12"></path>
                         <path d="M12,6a6,6 0 0 0 -6,6a6,6 0 0 0 6,6a6,6 0 0 0 6,-6a6,6 0 0 0 -6,-6" class="q-radio__check"></path>
                       </svg></div><span tabindex="-1" class="no-outline"></span>
@@ -1462,7 +1462,7 @@ exports[`Storyshots ActivitySeriesEdit custom rule with duration 1`] = `
                 </div>
                 <div>
                   <div tabindex="0" role="radio" aria-label="Custom" aria-checked="true" class="q-radio cursor-pointer no-outline row inline no-wrap items-center">
-                    <div class="q-radio__inner relative-position no-pointer-events q-radio__inner--truthy"><input type="radio" class="hidden q-radio__native q-ma-none q-pa-none invisible"><svg focusable="false" viewBox="0 0 24 24" class="q-radio__bg absolute">
+                    <div class="q-radio__inner relative-position no-pointer-events q-radio__inner--truthy"><input type="radio" class="hidden q-radio__native q-ma-none q-pa-none invisible"><svg focusable="false" viewBox="0 0 24 24" aria-hidden="true" class="q-radio__bg absolute">
                         <path d="M12,22a10,10 0 0 1 -10,-10a10,10 0 0 1 10,-10a10,10 0 0 1 10,10a10,10 0 0 1 -10,10m0,-22a12,12 0 0 0 -12,12a12,12 0 0 0 12,12a12,12 0 0 0 12,-12a12,12 0 0 0 -12,-12"></path>
                         <path d="M12,6a6,6 0 0 0 -6,6a6,6 0 0 0 6,6a6,6 0 0 0 6,-6a6,6 0 0 0 -6,-6" class="q-radio__check"></path>
                       </svg></div><span tabindex="-1" class="no-outline"></span>
@@ -1535,12 +1535,12 @@ exports[`Storyshots ActivitySeriesEdit custom rule with duration 1`] = `
         <div tabindex="-1" class="q-field__control relative-position row no-wrap">
           <div class="q-field__control-container col relative-position row no-wrap q-anchor--skip"><input tabindex="0" aria-label="Max Slots" placeholder="unlimited" id="f_80808080-8080-4080-8080-808080808080" type="number" value="10" class="q-field__native q-placeholder" style="max-width:100px;">
             <div class="q-field__label no-pointer-events absolute ellipsis">Max Slots</div>
-            <div role="slider" aria-valuemin="1" aria-valuemax="10" aria-orientation="horizontal" data-step="1" aria-valuenow="10" tabindex="0" class="q-mx-sm self-end q-slider q-slider--h q-slider--inactive q-slider--editable q-slider--label" style="min-width:60px;">
+            <div role="slider" aria-valuemin="1" aria-valuemax="10" aria-orientation="horizontal" data-step="1" aria-valuenow="10" tabindex="0" class="q-mx-sm self-end q-slider q-slider--h q-slider--inactive q-slider--enabled q-slider--editable q-slider--label" style="min-width:60px;">
               <div class="q-slider__track-container q-slider__track-container--h absolute">
                 <div class="q-slider__track q-slider__track--h absolute" style="left:0;width:100%;"></div>
                 <div class="q-slider__track-markers q-slider__track-markers--h absolute-full fit" style="background-size:11.11111111111111% 2px;"></div>
               </div>
-              <div class="q-slider__thumb-container q-slider__thumb-container--h absolute non-selectable" style="left:100%;"><svg focusable="false" viewBox="0 0 20 20" width="20" height="20" class="q-slider__thumb absolute">
+              <div class="q-slider__thumb-container q-slider__thumb-container--h absolute non-selectable" style="left:100%;"><svg focusable="false" viewBox="0 0 20 20" width="20" height="20" aria-hidden="true" class="q-slider__thumb absolute">
                   <path d="M 4, 10 a 6,6 0 1,0 12,0 a 6,6 0 1,0 -12,0"></path>
                 </svg>
                 <div class="q-slider__focus-ring"></div>
@@ -1579,11 +1579,11 @@ exports[`Storyshots ActivitySeriesEdit custom rule with duration 1`] = `
     </label>
     <!---->
     <div class="row justify-end q-gutter-sm q-mt-lg">
-      <!----> <button tabindex="-1" type="button" role="button" disabled="disabled" aria-disabled="" class="q-btn q-btn-item non-selectable no-outline q-btn--standard q-btn--rectangle disabled q-btn--wrap"><span class="q-focus-helper"></span><span class="q-btn__wrapper col row q-anchor--skip"><span class="q-btn__content text-center col items-center q-anchor--skip justify-center row">
+      <!----> <button tabindex="-1" type="button" role="button" disabled="disabled" aria-disabled="true" class="q-btn q-btn-item non-selectable no-outline q-btn--standard q-btn--rectangle disabled q-btn--wrap"><span class="q-focus-helper"></span><span class="q-btn__wrapper col row q-anchor--skip"><span class="q-btn__content text-center col items-center q-anchor--skip justify-center row">
         Reset
       </span></span></button> <button tabindex="0" type="button" role="button" class="q-btn q-btn-item non-selectable no-outline q-btn--standard q-btn--rectangle bg-red text-white q-btn--actionable q-focusable q-hoverable q-btn--wrap"><span class="q-focus-helper"></span><span class="q-btn__wrapper col row q-anchor--skip"><span class="q-btn__content text-center col items-center q-anchor--skip justify-center row">
         Delete
-      </span></span></button> <button tabindex="-1" type="submit" role="button" disabled="disabled" aria-disabled="" class="q-btn q-btn-item non-selectable no-outline q-btn--standard q-btn--rectangle bg-primary text-white disabled q-btn--wrap"><span class="q-focus-helper"></span><span class="q-btn__wrapper col row q-anchor--skip"><span class="q-btn__content text-center col items-center q-anchor--skip justify-center row">
+      </span></span></button> <button tabindex="-1" type="submit" role="button" disabled="disabled" aria-disabled="true" class="q-btn q-btn-item non-selectable no-outline q-btn--standard q-btn--rectangle bg-primary text-white disabled q-btn--wrap"><span class="q-focus-helper"></span><span class="q-btn__wrapper col row q-anchor--skip"><span class="q-btn__content text-center col items-center q-anchor--skip justify-center row">
         Save changes
       </span></span>
         <transition-stub name="q-transition--fade"></transition-stub>
@@ -1604,7 +1604,7 @@ exports[`Storyshots ActivitySeriesEdit duration 1`] = `
               <div role="radiogroup" class="q-option-group q-gutter-x-sm q-option-group--inline">
                 <div>
                   <div tabindex="0" role="radio" aria-label="Weekly" aria-checked="true" class="q-radio cursor-pointer no-outline row inline no-wrap items-center">
-                    <div class="q-radio__inner relative-position no-pointer-events q-radio__inner--truthy"><input type="radio" class="hidden q-radio__native q-ma-none q-pa-none invisible"><svg focusable="false" viewBox="0 0 24 24" class="q-radio__bg absolute">
+                    <div class="q-radio__inner relative-position no-pointer-events q-radio__inner--truthy"><input type="radio" class="hidden q-radio__native q-ma-none q-pa-none invisible"><svg focusable="false" viewBox="0 0 24 24" aria-hidden="true" class="q-radio__bg absolute">
                         <path d="M12,22a10,10 0 0 1 -10,-10a10,10 0 0 1 10,-10a10,10 0 0 1 10,10a10,10 0 0 1 -10,10m0,-22a12,12 0 0 0 -12,12a12,12 0 0 0 12,12a12,12 0 0 0 12,-12a12,12 0 0 0 -12,-12"></path>
                         <path d="M12,6a6,6 0 0 0 -6,6a6,6 0 0 0 6,6a6,6 0 0 0 6,-6a6,6 0 0 0 -6,-6" class="q-radio__check"></path>
                       </svg></div><span tabindex="-1" class="no-outline"></span>
@@ -1613,7 +1613,7 @@ exports[`Storyshots ActivitySeriesEdit duration 1`] = `
                 </div>
                 <div>
                   <div tabindex="0" role="radio" aria-label="Custom" aria-checked="false" class="q-radio cursor-pointer no-outline row inline no-wrap items-center">
-                    <div class="q-radio__inner relative-position no-pointer-events q-radio__inner--falsy"><input type="radio" class="hidden q-radio__native q-ma-none q-pa-none invisible"><svg focusable="false" viewBox="0 0 24 24" class="q-radio__bg absolute">
+                    <div class="q-radio__inner relative-position no-pointer-events q-radio__inner--falsy"><input type="radio" class="hidden q-radio__native q-ma-none q-pa-none invisible"><svg focusable="false" viewBox="0 0 24 24" aria-hidden="true" class="q-radio__bg absolute">
                         <path d="M12,22a10,10 0 0 1 -10,-10a10,10 0 0 1 10,-10a10,10 0 0 1 10,10a10,10 0 0 1 -10,10m0,-22a12,12 0 0 0 -12,12a12,12 0 0 0 12,12a12,12 0 0 0 12,-12a12,12 0 0 0 -12,-12"></path>
                         <path d="M12,6a6,6 0 0 0 -6,6a6,6 0 0 0 6,6a6,6 0 0 0 6,-6a6,6 0 0 0 -6,-6" class="q-radio__check"></path>
                       </svg></div><span tabindex="-1" class="no-outline"></span>
@@ -1686,12 +1686,12 @@ exports[`Storyshots ActivitySeriesEdit duration 1`] = `
         <div tabindex="-1" class="q-field__control relative-position row no-wrap">
           <div class="q-field__control-container col relative-position row no-wrap q-anchor--skip"><input tabindex="0" aria-label="Max Slots" placeholder="unlimited" id="f_80808080-8080-4080-8080-808080808080" type="number" value="10" class="q-field__native q-placeholder" style="max-width:100px;">
             <div class="q-field__label no-pointer-events absolute ellipsis">Max Slots</div>
-            <div role="slider" aria-valuemin="1" aria-valuemax="10" aria-orientation="horizontal" data-step="1" aria-valuenow="10" tabindex="0" class="q-mx-sm self-end q-slider q-slider--h q-slider--inactive q-slider--editable q-slider--label" style="min-width:60px;">
+            <div role="slider" aria-valuemin="1" aria-valuemax="10" aria-orientation="horizontal" data-step="1" aria-valuenow="10" tabindex="0" class="q-mx-sm self-end q-slider q-slider--h q-slider--inactive q-slider--enabled q-slider--editable q-slider--label" style="min-width:60px;">
               <div class="q-slider__track-container q-slider__track-container--h absolute">
                 <div class="q-slider__track q-slider__track--h absolute" style="left:0;width:100%;"></div>
                 <div class="q-slider__track-markers q-slider__track-markers--h absolute-full fit" style="background-size:11.11111111111111% 2px;"></div>
               </div>
-              <div class="q-slider__thumb-container q-slider__thumb-container--h absolute non-selectable" style="left:100%;"><svg focusable="false" viewBox="0 0 20 20" width="20" height="20" class="q-slider__thumb absolute">
+              <div class="q-slider__thumb-container q-slider__thumb-container--h absolute non-selectable" style="left:100%;"><svg focusable="false" viewBox="0 0 20 20" width="20" height="20" aria-hidden="true" class="q-slider__thumb absolute">
                   <path d="M 4, 10 a 6,6 0 1,0 12,0 a 6,6 0 1,0 -12,0"></path>
                 </svg>
                 <div class="q-slider__focus-ring"></div>
@@ -1730,11 +1730,11 @@ exports[`Storyshots ActivitySeriesEdit duration 1`] = `
     </label>
     <!---->
     <div class="row justify-end q-gutter-sm q-mt-lg">
-      <!----> <button tabindex="-1" type="button" role="button" disabled="disabled" aria-disabled="" class="q-btn q-btn-item non-selectable no-outline q-btn--standard q-btn--rectangle disabled q-btn--wrap"><span class="q-focus-helper"></span><span class="q-btn__wrapper col row q-anchor--skip"><span class="q-btn__content text-center col items-center q-anchor--skip justify-center row">
+      <!----> <button tabindex="-1" type="button" role="button" disabled="disabled" aria-disabled="true" class="q-btn q-btn-item non-selectable no-outline q-btn--standard q-btn--rectangle disabled q-btn--wrap"><span class="q-focus-helper"></span><span class="q-btn__wrapper col row q-anchor--skip"><span class="q-btn__content text-center col items-center q-anchor--skip justify-center row">
         Reset
       </span></span></button> <button tabindex="0" type="button" role="button" class="q-btn q-btn-item non-selectable no-outline q-btn--standard q-btn--rectangle bg-red text-white q-btn--actionable q-focusable q-hoverable q-btn--wrap"><span class="q-focus-helper"></span><span class="q-btn__wrapper col row q-anchor--skip"><span class="q-btn__content text-center col items-center q-anchor--skip justify-center row">
         Delete
-      </span></span></button> <button tabindex="-1" type="submit" role="button" disabled="disabled" aria-disabled="" class="q-btn q-btn-item non-selectable no-outline q-btn--standard q-btn--rectangle bg-primary text-white disabled q-btn--wrap"><span class="q-focus-helper"></span><span class="q-btn__wrapper col row q-anchor--skip"><span class="q-btn__content text-center col items-center q-anchor--skip justify-center row">
+      </span></span></button> <button tabindex="-1" type="submit" role="button" disabled="disabled" aria-disabled="true" class="q-btn q-btn-item non-selectable no-outline q-btn--standard q-btn--rectangle bg-primary text-white disabled q-btn--wrap"><span class="q-focus-helper"></span><span class="q-btn__wrapper col row q-anchor--skip"><span class="q-btn__content text-center col items-center q-anchor--skip justify-center row">
         Save changes
       </span></span>
         <transition-stub name="q-transition--fade"></transition-stub>
@@ -1755,7 +1755,7 @@ exports[`Storyshots ActivitySeriesEdit time error 1`] = `
               <div role="radiogroup" class="q-option-group q-gutter-x-sm q-option-group--inline">
                 <div>
                   <div tabindex="0" role="radio" aria-label="Weekly" aria-checked="true" class="q-radio cursor-pointer no-outline row inline no-wrap items-center">
-                    <div class="q-radio__inner relative-position no-pointer-events q-radio__inner--truthy"><input type="radio" class="hidden q-radio__native q-ma-none q-pa-none invisible"><svg focusable="false" viewBox="0 0 24 24" class="q-radio__bg absolute">
+                    <div class="q-radio__inner relative-position no-pointer-events q-radio__inner--truthy"><input type="radio" class="hidden q-radio__native q-ma-none q-pa-none invisible"><svg focusable="false" viewBox="0 0 24 24" aria-hidden="true" class="q-radio__bg absolute">
                         <path d="M12,22a10,10 0 0 1 -10,-10a10,10 0 0 1 10,-10a10,10 0 0 1 10,10a10,10 0 0 1 -10,10m0,-22a12,12 0 0 0 -12,12a12,12 0 0 0 12,12a12,12 0 0 0 12,-12a12,12 0 0 0 -12,-12"></path>
                         <path d="M12,6a6,6 0 0 0 -6,6a6,6 0 0 0 6,6a6,6 0 0 0 6,-6a6,6 0 0 0 -6,-6" class="q-radio__check"></path>
                       </svg></div><span tabindex="-1" class="no-outline"></span>
@@ -1764,7 +1764,7 @@ exports[`Storyshots ActivitySeriesEdit time error 1`] = `
                 </div>
                 <div>
                   <div tabindex="0" role="radio" aria-label="Custom" aria-checked="false" class="q-radio cursor-pointer no-outline row inline no-wrap items-center">
-                    <div class="q-radio__inner relative-position no-pointer-events q-radio__inner--falsy"><input type="radio" class="hidden q-radio__native q-ma-none q-pa-none invisible"><svg focusable="false" viewBox="0 0 24 24" class="q-radio__bg absolute">
+                    <div class="q-radio__inner relative-position no-pointer-events q-radio__inner--falsy"><input type="radio" class="hidden q-radio__native q-ma-none q-pa-none invisible"><svg focusable="false" viewBox="0 0 24 24" aria-hidden="true" class="q-radio__bg absolute">
                         <path d="M12,22a10,10 0 0 1 -10,-10a10,10 0 0 1 10,-10a10,10 0 0 1 10,10a10,10 0 0 1 -10,10m0,-22a12,12 0 0 0 -12,12a12,12 0 0 0 12,12a12,12 0 0 0 12,-12a12,12 0 0 0 -12,-12"></path>
                         <path d="M12,6a6,6 0 0 0 -6,6a6,6 0 0 0 6,6a6,6 0 0 0 6,-6a6,6 0 0 0 -6,-6" class="q-radio__check"></path>
                       </svg></div><span tabindex="-1" class="no-outline"></span>
@@ -1825,12 +1825,12 @@ exports[`Storyshots ActivitySeriesEdit time error 1`] = `
         <div tabindex="-1" class="q-field__control relative-position row no-wrap">
           <div class="q-field__control-container col relative-position row no-wrap q-anchor--skip"><input tabindex="0" aria-label="Max Slots" placeholder="unlimited" id="f_80808080-8080-4080-8080-808080808080" type="number" value="10" class="q-field__native q-placeholder" style="max-width:100px;">
             <div class="q-field__label no-pointer-events absolute ellipsis">Max Slots</div>
-            <div role="slider" aria-valuemin="1" aria-valuemax="10" aria-orientation="horizontal" data-step="1" aria-valuenow="10" tabindex="0" class="q-mx-sm self-end q-slider q-slider--h q-slider--inactive q-slider--editable q-slider--label" style="min-width:60px;">
+            <div role="slider" aria-valuemin="1" aria-valuemax="10" aria-orientation="horizontal" data-step="1" aria-valuenow="10" tabindex="0" class="q-mx-sm self-end q-slider q-slider--h q-slider--inactive q-slider--enabled q-slider--editable q-slider--label" style="min-width:60px;">
               <div class="q-slider__track-container q-slider__track-container--h absolute">
                 <div class="q-slider__track q-slider__track--h absolute" style="left:0;width:100%;"></div>
                 <div class="q-slider__track-markers q-slider__track-markers--h absolute-full fit" style="background-size:11.11111111111111% 2px;"></div>
               </div>
-              <div class="q-slider__thumb-container q-slider__thumb-container--h absolute non-selectable" style="left:100%;"><svg focusable="false" viewBox="0 0 20 20" width="20" height="20" class="q-slider__thumb absolute">
+              <div class="q-slider__thumb-container q-slider__thumb-container--h absolute non-selectable" style="left:100%;"><svg focusable="false" viewBox="0 0 20 20" width="20" height="20" aria-hidden="true" class="q-slider__thumb absolute">
                   <path d="M 4, 10 a 6,6 0 1,0 12,0 a 6,6 0 1,0 -12,0"></path>
                 </svg>
                 <div class="q-slider__focus-ring"></div>
@@ -1869,11 +1869,11 @@ exports[`Storyshots ActivitySeriesEdit time error 1`] = `
     </label>
     <!---->
     <div class="row justify-end q-gutter-sm q-mt-lg">
-      <!----> <button tabindex="-1" type="button" role="button" disabled="disabled" aria-disabled="" class="q-btn q-btn-item non-selectable no-outline q-btn--standard q-btn--rectangle disabled q-btn--wrap"><span class="q-focus-helper"></span><span class="q-btn__wrapper col row q-anchor--skip"><span class="q-btn__content text-center col items-center q-anchor--skip justify-center row">
+      <!----> <button tabindex="-1" type="button" role="button" disabled="disabled" aria-disabled="true" class="q-btn q-btn-item non-selectable no-outline q-btn--standard q-btn--rectangle disabled q-btn--wrap"><span class="q-focus-helper"></span><span class="q-btn__wrapper col row q-anchor--skip"><span class="q-btn__content text-center col items-center q-anchor--skip justify-center row">
         Reset
       </span></span></button> <button tabindex="0" type="button" role="button" class="q-btn q-btn-item non-selectable no-outline q-btn--standard q-btn--rectangle bg-red text-white q-btn--actionable q-focusable q-hoverable q-btn--wrap"><span class="q-focus-helper"></span><span class="q-btn__wrapper col row q-anchor--skip"><span class="q-btn__content text-center col items-center q-anchor--skip justify-center row">
         Delete
-      </span></span></button> <button tabindex="-1" type="submit" role="button" disabled="disabled" aria-disabled="" class="q-btn q-btn-item non-selectable no-outline q-btn--standard q-btn--rectangle bg-primary text-white disabled q-btn--wrap"><span class="q-focus-helper"></span><span class="q-btn__wrapper col row q-anchor--skip"><span class="q-btn__content text-center col items-center q-anchor--skip justify-center row">
+      </span></span></button> <button tabindex="-1" type="submit" role="button" disabled="disabled" aria-disabled="true" class="q-btn q-btn-item non-selectable no-outline q-btn--standard q-btn--rectangle bg-primary text-white disabled q-btn--wrap"><span class="q-focus-helper"></span><span class="q-btn__wrapper col row q-anchor--skip"><span class="q-btn__content text-center col items-center q-anchor--skip justify-center row">
         Save changes
       </span></span>
         <transition-stub name="q-transition--fade"></transition-stub>
@@ -1894,7 +1894,7 @@ exports[`Storyshots ActivitySeriesEdit weekly 1`] = `
               <div role="radiogroup" class="q-option-group q-gutter-x-sm q-option-group--inline">
                 <div>
                   <div tabindex="0" role="radio" aria-label="Weekly" aria-checked="true" class="q-radio cursor-pointer no-outline row inline no-wrap items-center">
-                    <div class="q-radio__inner relative-position no-pointer-events q-radio__inner--truthy"><input type="radio" class="hidden q-radio__native q-ma-none q-pa-none invisible"><svg focusable="false" viewBox="0 0 24 24" class="q-radio__bg absolute">
+                    <div class="q-radio__inner relative-position no-pointer-events q-radio__inner--truthy"><input type="radio" class="hidden q-radio__native q-ma-none q-pa-none invisible"><svg focusable="false" viewBox="0 0 24 24" aria-hidden="true" class="q-radio__bg absolute">
                         <path d="M12,22a10,10 0 0 1 -10,-10a10,10 0 0 1 10,-10a10,10 0 0 1 10,10a10,10 0 0 1 -10,10m0,-22a12,12 0 0 0 -12,12a12,12 0 0 0 12,12a12,12 0 0 0 12,-12a12,12 0 0 0 -12,-12"></path>
                         <path d="M12,6a6,6 0 0 0 -6,6a6,6 0 0 0 6,6a6,6 0 0 0 6,-6a6,6 0 0 0 -6,-6" class="q-radio__check"></path>
                       </svg></div><span tabindex="-1" class="no-outline"></span>
@@ -1903,7 +1903,7 @@ exports[`Storyshots ActivitySeriesEdit weekly 1`] = `
                 </div>
                 <div>
                   <div tabindex="0" role="radio" aria-label="Custom" aria-checked="false" class="q-radio cursor-pointer no-outline row inline no-wrap items-center">
-                    <div class="q-radio__inner relative-position no-pointer-events q-radio__inner--falsy"><input type="radio" class="hidden q-radio__native q-ma-none q-pa-none invisible"><svg focusable="false" viewBox="0 0 24 24" class="q-radio__bg absolute">
+                    <div class="q-radio__inner relative-position no-pointer-events q-radio__inner--falsy"><input type="radio" class="hidden q-radio__native q-ma-none q-pa-none invisible"><svg focusable="false" viewBox="0 0 24 24" aria-hidden="true" class="q-radio__bg absolute">
                         <path d="M12,22a10,10 0 0 1 -10,-10a10,10 0 0 1 10,-10a10,10 0 0 1 10,10a10,10 0 0 1 -10,10m0,-22a12,12 0 0 0 -12,12a12,12 0 0 0 12,12a12,12 0 0 0 12,-12a12,12 0 0 0 -12,-12"></path>
                         <path d="M12,6a6,6 0 0 0 -6,6a6,6 0 0 0 6,6a6,6 0 0 0 6,-6a6,6 0 0 0 -6,-6" class="q-radio__check"></path>
                       </svg></div><span tabindex="-1" class="no-outline"></span>
@@ -1963,12 +1963,12 @@ exports[`Storyshots ActivitySeriesEdit weekly 1`] = `
         <div tabindex="-1" class="q-field__control relative-position row no-wrap">
           <div class="q-field__control-container col relative-position row no-wrap q-anchor--skip"><input tabindex="0" aria-label="Max Slots" placeholder="unlimited" id="f_80808080-8080-4080-8080-808080808080" type="number" value="10" class="q-field__native q-placeholder" style="max-width:100px;">
             <div class="q-field__label no-pointer-events absolute ellipsis">Max Slots</div>
-            <div role="slider" aria-valuemin="1" aria-valuemax="10" aria-orientation="horizontal" data-step="1" aria-valuenow="10" tabindex="0" class="q-mx-sm self-end q-slider q-slider--h q-slider--inactive q-slider--editable q-slider--label" style="min-width:60px;">
+            <div role="slider" aria-valuemin="1" aria-valuemax="10" aria-orientation="horizontal" data-step="1" aria-valuenow="10" tabindex="0" class="q-mx-sm self-end q-slider q-slider--h q-slider--inactive q-slider--enabled q-slider--editable q-slider--label" style="min-width:60px;">
               <div class="q-slider__track-container q-slider__track-container--h absolute">
                 <div class="q-slider__track q-slider__track--h absolute" style="left:0;width:100%;"></div>
                 <div class="q-slider__track-markers q-slider__track-markers--h absolute-full fit" style="background-size:11.11111111111111% 2px;"></div>
               </div>
-              <div class="q-slider__thumb-container q-slider__thumb-container--h absolute non-selectable" style="left:100%;"><svg focusable="false" viewBox="0 0 20 20" width="20" height="20" class="q-slider__thumb absolute">
+              <div class="q-slider__thumb-container q-slider__thumb-container--h absolute non-selectable" style="left:100%;"><svg focusable="false" viewBox="0 0 20 20" width="20" height="20" aria-hidden="true" class="q-slider__thumb absolute">
                   <path d="M 4, 10 a 6,6 0 1,0 12,0 a 6,6 0 1,0 -12,0"></path>
                 </svg>
                 <div class="q-slider__focus-ring"></div>
@@ -2007,11 +2007,11 @@ exports[`Storyshots ActivitySeriesEdit weekly 1`] = `
     </label>
     <!---->
     <div class="row justify-end q-gutter-sm q-mt-lg">
-      <!----> <button tabindex="-1" type="button" role="button" disabled="disabled" aria-disabled="" class="q-btn q-btn-item non-selectable no-outline q-btn--standard q-btn--rectangle disabled q-btn--wrap"><span class="q-focus-helper"></span><span class="q-btn__wrapper col row q-anchor--skip"><span class="q-btn__content text-center col items-center q-anchor--skip justify-center row">
+      <!----> <button tabindex="-1" type="button" role="button" disabled="disabled" aria-disabled="true" class="q-btn q-btn-item non-selectable no-outline q-btn--standard q-btn--rectangle disabled q-btn--wrap"><span class="q-focus-helper"></span><span class="q-btn__wrapper col row q-anchor--skip"><span class="q-btn__content text-center col items-center q-anchor--skip justify-center row">
         Reset
       </span></span></button> <button tabindex="0" type="button" role="button" class="q-btn q-btn-item non-selectable no-outline q-btn--standard q-btn--rectangle bg-red text-white q-btn--actionable q-focusable q-hoverable q-btn--wrap"><span class="q-focus-helper"></span><span class="q-btn__wrapper col row q-anchor--skip"><span class="q-btn__content text-center col items-center q-anchor--skip justify-center row">
         Delete
-      </span></span></button> <button tabindex="-1" type="submit" role="button" disabled="disabled" aria-disabled="" class="q-btn q-btn-item non-selectable no-outline q-btn--standard q-btn--rectangle bg-primary text-white disabled q-btn--wrap"><span class="q-focus-helper"></span><span class="q-btn__wrapper col row q-anchor--skip"><span class="q-btn__content text-center col items-center q-anchor--skip justify-center row">
+      </span></span></button> <button tabindex="-1" type="submit" role="button" disabled="disabled" aria-disabled="true" class="q-btn q-btn-item non-selectable no-outline q-btn--standard q-btn--rectangle bg-primary text-white disabled q-btn--wrap"><span class="q-focus-helper"></span><span class="q-btn__wrapper col row q-anchor--skip"><span class="q-btn__content text-center col items-center q-anchor--skip justify-center row">
         Save changes
       </span></span>
         <transition-stub name="q-transition--fade"></transition-stub>
@@ -2463,11 +2463,11 @@ exports[`Storyshots ChangePhoto empty 1`] = `
     </div>
   </label>
   <!---->
-  <div class="row justify-end q-gutter-sm q-mt-sm"><button tabindex="-1" type="button" role="button" disabled="disabled" aria-disabled="" class="q-btn q-btn-item non-selectable no-outline q-btn--standard q-btn--rectangle disabled q-btn--wrap"><span class="q-focus-helper"></span><span class="q-btn__wrapper col row q-anchor--skip"><span class="q-btn__content text-center col items-center q-anchor--skip justify-center row">
+  <div class="row justify-end q-gutter-sm q-mt-sm"><button tabindex="-1" type="button" role="button" disabled="disabled" aria-disabled="true" class="q-btn q-btn-item non-selectable no-outline q-btn--standard q-btn--rectangle disabled q-btn--wrap"><span class="q-focus-helper"></span><span class="q-btn__wrapper col row q-anchor--skip"><span class="q-btn__content text-center col items-center q-anchor--skip justify-center row">
       Reset
-    </span></span></button> <button tabindex="-1" type="button" role="button" disabled="disabled" aria-disabled="" class="q-btn q-btn-item non-selectable no-outline q-btn--standard q-btn--rectangle bg-red text-white disabled q-btn--wrap"><span class="q-focus-helper"></span><span class="q-btn__wrapper col row q-anchor--skip"><span class="q-btn__content text-center col items-center q-anchor--skip justify-center row">
+    </span></span></button> <button tabindex="-1" type="button" role="button" disabled="disabled" aria-disabled="true" class="q-btn q-btn-item non-selectable no-outline q-btn--standard q-btn--rectangle bg-red text-white disabled q-btn--wrap"><span class="q-focus-helper"></span><span class="q-btn__wrapper col row q-anchor--skip"><span class="q-btn__content text-center col items-center q-anchor--skip justify-center row">
       Delete
-    </span></span></button> <button tabindex="-1" type="button" role="button" disabled="disabled" aria-disabled="" class="q-btn q-btn-item non-selectable no-outline q-btn--standard q-btn--rectangle bg-primary text-white disabled q-btn--wrap"><span class="q-focus-helper"></span><span class="q-btn__wrapper col row q-anchor--skip"><span class="q-btn__content text-center col items-center q-anchor--skip justify-center row"><span></span></span></span>
+    </span></span></button> <button tabindex="-1" type="button" role="button" disabled="disabled" aria-disabled="true" class="q-btn q-btn-item non-selectable no-outline q-btn--standard q-btn--rectangle bg-primary text-white disabled q-btn--wrap"><span class="q-focus-helper"></span><span class="q-btn__wrapper col row q-anchor--skip"><span class="q-btn__content text-center col items-center q-anchor--skip justify-center row"><span></span></span></span>
       <transition-stub name="q-transition--fade"></transition-stub>
     </button></div>
 </div>
@@ -2500,11 +2500,11 @@ exports[`Storyshots ChangePhoto error 1`] = `
     </div>
   </label>
   <!---->
-  <div class="row justify-end q-gutter-sm q-mt-sm"><button tabindex="-1" type="button" role="button" disabled="disabled" aria-disabled="" class="q-btn q-btn-item non-selectable no-outline q-btn--standard q-btn--rectangle disabled q-btn--wrap"><span class="q-focus-helper"></span><span class="q-btn__wrapper col row q-anchor--skip"><span class="q-btn__content text-center col items-center q-anchor--skip justify-center row">
+  <div class="row justify-end q-gutter-sm q-mt-sm"><button tabindex="-1" type="button" role="button" disabled="disabled" aria-disabled="true" class="q-btn q-btn-item non-selectable no-outline q-btn--standard q-btn--rectangle disabled q-btn--wrap"><span class="q-focus-helper"></span><span class="q-btn__wrapper col row q-anchor--skip"><span class="q-btn__content text-center col items-center q-anchor--skip justify-center row">
       Reset
-    </span></span></button> <button tabindex="-1" type="button" role="button" disabled="disabled" aria-disabled="" class="q-btn q-btn-item non-selectable no-outline q-btn--standard q-btn--rectangle bg-red text-white disabled q-btn--wrap"><span class="q-focus-helper"></span><span class="q-btn__wrapper col row q-anchor--skip"><span class="q-btn__content text-center col items-center q-anchor--skip justify-center row">
+    </span></span></button> <button tabindex="-1" type="button" role="button" disabled="disabled" aria-disabled="true" class="q-btn q-btn-item non-selectable no-outline q-btn--standard q-btn--rectangle bg-red text-white disabled q-btn--wrap"><span class="q-focus-helper"></span><span class="q-btn__wrapper col row q-anchor--skip"><span class="q-btn__content text-center col items-center q-anchor--skip justify-center row">
       Delete
-    </span></span></button> <button tabindex="-1" type="button" role="button" disabled="disabled" aria-disabled="" class="q-btn q-btn-item non-selectable no-outline q-btn--standard q-btn--rectangle bg-primary text-white disabled q-btn--wrap"><span class="q-focus-helper"></span><span class="q-btn__wrapper col row q-anchor--skip"><span class="q-btn__content text-center col items-center q-anchor--skip justify-center row"><span></span></span></span>
+    </span></span></button> <button tabindex="-1" type="button" role="button" disabled="disabled" aria-disabled="true" class="q-btn q-btn-item non-selectable no-outline q-btn--standard q-btn--rectangle bg-primary text-white disabled q-btn--wrap"><span class="q-focus-helper"></span><span class="q-btn__wrapper col row q-anchor--skip"><span class="q-btn__content text-center col items-center q-anchor--skip justify-center row"><span></span></span></span>
       <transition-stub name="q-transition--fade"></transition-stub>
     </button></div>
 </div>
@@ -2536,11 +2536,11 @@ exports[`Storyshots ChangePhoto pending 1`] = `
     </div>
   </label>
   <!---->
-  <div class="row justify-end q-gutter-sm q-mt-sm"><button tabindex="-1" type="button" role="button" disabled="disabled" aria-disabled="" class="q-btn q-btn-item non-selectable no-outline q-btn--standard q-btn--rectangle disabled q-btn--wrap"><span class="q-focus-helper"></span><span class="q-btn__wrapper col row q-anchor--skip"><span class="q-btn__content text-center col items-center q-anchor--skip justify-center row">
+  <div class="row justify-end q-gutter-sm q-mt-sm"><button tabindex="-1" type="button" role="button" disabled="disabled" aria-disabled="true" class="q-btn q-btn-item non-selectable no-outline q-btn--standard q-btn--rectangle disabled q-btn--wrap"><span class="q-focus-helper"></span><span class="q-btn__wrapper col row q-anchor--skip"><span class="q-btn__content text-center col items-center q-anchor--skip justify-center row">
       Reset
-    </span></span></button> <button tabindex="-1" type="button" role="button" disabled="disabled" aria-disabled="" class="q-btn q-btn-item non-selectable no-outline q-btn--standard q-btn--rectangle bg-red text-white disabled q-btn--wrap"><span class="q-focus-helper"></span><span class="q-btn__wrapper col row q-anchor--skip"><span class="q-btn__content text-center col items-center q-anchor--skip justify-center row">
+    </span></span></button> <button tabindex="-1" type="button" role="button" disabled="disabled" aria-disabled="true" class="q-btn q-btn-item non-selectable no-outline q-btn--standard q-btn--rectangle bg-red text-white disabled q-btn--wrap"><span class="q-focus-helper"></span><span class="q-btn__wrapper col row q-anchor--skip"><span class="q-btn__content text-center col items-center q-anchor--skip justify-center row">
       Delete
-    </span></span></button> <button tabindex="-1" type="button" role="button" disabled="disabled" aria-disabled="" class="q-btn q-btn-item non-selectable no-outline q-btn--standard q-btn--rectangle bg-primary text-white disabled q-btn--wrap"><span class="q-focus-helper"></span><span class="q-btn__wrapper col row q-anchor--skip"><span class="q-btn__content text-center col items-center q-anchor--skip justify-center row q-btn__content--hidden"><span></span></span></span>
+    </span></span></button> <button tabindex="-1" type="button" role="button" disabled="disabled" aria-disabled="true" class="q-btn q-btn-item non-selectable no-outline q-btn--standard q-btn--rectangle bg-primary text-white disabled q-btn--wrap"><span class="q-focus-helper"></span><span class="q-btn__wrapper col row q-anchor--skip"><span class="q-btn__content text-center col items-center q-anchor--skip justify-center row q-btn__content--hidden"><span></span></span></span>
       <transition-stub name="q-transition--fade"><span class="absolute-full flex flex-center"><svg focusable="false" width="1em" height="1em" viewBox="25 25 50 50" class="q-spinner q-spinner-mat"><circle cx="50" cy="50" r="20" fill="none" stroke="currentColor" stroke-width="5" stroke-miterlimit="10" class="path"></circle></svg></span></transition-stub>
     </button></div>
 </div>
@@ -2572,11 +2572,11 @@ exports[`Storyshots ChangePhoto with photo 1`] = `
     </div>
   </label>
   <!---->
-  <div class="row justify-end q-gutter-sm q-mt-sm"><button tabindex="-1" type="button" role="button" disabled="disabled" aria-disabled="" class="q-btn q-btn-item non-selectable no-outline q-btn--standard q-btn--rectangle disabled q-btn--wrap"><span class="q-focus-helper"></span><span class="q-btn__wrapper col row q-anchor--skip"><span class="q-btn__content text-center col items-center q-anchor--skip justify-center row">
+  <div class="row justify-end q-gutter-sm q-mt-sm"><button tabindex="-1" type="button" role="button" disabled="disabled" aria-disabled="true" class="q-btn q-btn-item non-selectable no-outline q-btn--standard q-btn--rectangle disabled q-btn--wrap"><span class="q-focus-helper"></span><span class="q-btn__wrapper col row q-anchor--skip"><span class="q-btn__content text-center col items-center q-anchor--skip justify-center row">
       Reset
     </span></span></button> <button tabindex="0" type="button" role="button" class="q-btn q-btn-item non-selectable no-outline q-btn--standard q-btn--rectangle bg-red text-white q-btn--actionable q-focusable q-hoverable q-btn--wrap"><span class="q-focus-helper"></span><span class="q-btn__wrapper col row q-anchor--skip"><span class="q-btn__content text-center col items-center q-anchor--skip justify-center row">
       Delete
-    </span></span></button> <button tabindex="-1" type="button" role="button" disabled="disabled" aria-disabled="" class="q-btn q-btn-item non-selectable no-outline q-btn--standard q-btn--rectangle bg-primary text-white disabled q-btn--wrap"><span class="q-focus-helper"></span><span class="q-btn__wrapper col row q-anchor--skip"><span class="q-btn__content text-center col items-center q-anchor--skip justify-center row"><span></span></span></span>
+    </span></span></button> <button tabindex="-1" type="button" role="button" disabled="disabled" aria-disabled="true" class="q-btn q-btn-item non-selectable no-outline q-btn--standard q-btn--rectangle bg-primary text-white disabled q-btn--wrap"><span class="q-focus-helper"></span><span class="q-btn__wrapper col row q-anchor--skip"><span class="q-btn__content text-center col items-center q-anchor--skip justify-center row"><span></span></span></span>
       <transition-stub name="q-transition--fade"></transition-stub>
     </button></div>
 </div>
@@ -3980,7 +3980,7 @@ exports[`Storyshots ConversationCompose pending 1`] = `
     </div>
     <div class="q-item__section column q-item__section--main justify-center">
       <div class="q-item__label">
-        <div class="relative-position q-mb-sm"><label for="f_80808080-8080-4080-8080-808080808080" aria-disabled="" class="q-field q-validation-component row no-wrap items-start q-textarea q-textarea--autogrow q-field--standard q-field--dense q-field--with-bottom q-field--disabled">
+        <div class="relative-position q-mb-sm"><label for="f_80808080-8080-4080-8080-808080808080" aria-disabled="true" class="q-field q-validation-component row no-wrap items-start q-textarea q-textarea--autogrow q-field--standard q-field--dense q-field--with-bottom q-field--disabled">
             <div class="q-field__inner relative-position col self-stretch column justify-center">
               <div tabindex="-1" class="q-field__control relative-position row no-wrap">
                 <div class="q-field__control-container col relative-position row no-wrap q-anchor--skip"><textarea tabindex="0" rows="1" placeholder="Type here" id="f_80808080-8080-4080-8080-808080808080" type="textarea" disabled="disabled" class="q-field__native q-placeholder" style="min-height:unset;max-height:320px;"></textarea></div>
@@ -5236,11 +5236,11 @@ exports[`Storyshots Feedback ActivityFeedback 1`] = `
               <!---->
             </div>
             <div class="row no-wrap">
-              <div role="slider" aria-valuemin="0" aria-valuemax="70" aria-orientation="horizontal" data-step="0.5" aria-valuenow="0" tabindex="0" class="self-center q-mx-md q-slider q-slider--h q-slider--inactive q-slider--editable q-slider--label">
+              <div role="slider" aria-valuemin="0" aria-valuemax="70" aria-orientation="horizontal" data-step="0.5" aria-valuenow="0" tabindex="0" class="self-center q-mx-md q-slider q-slider--h q-slider--inactive q-slider--enabled q-slider--editable q-slider--label">
                 <div class="q-slider__track-container q-slider__track-container--h absolute">
                   <div class="q-slider__track q-slider__track--h absolute" style="left:0;width:0%;"></div>
                 </div>
-                <div class="q-slider__thumb-container q-slider__thumb-container--h absolute non-selectable" style="left:0%;"><svg focusable="false" viewBox="0 0 20 20" width="20" height="20" class="q-slider__thumb absolute">
+                <div class="q-slider__thumb-container q-slider__thumb-container--h absolute non-selectable" style="left:0%;"><svg focusable="false" viewBox="0 0 20 20" width="20" height="20" aria-hidden="true" class="q-slider__thumb absolute">
                     <path d="M 4, 10 a 6,6 0 1,0 12,0 a 6,6 0 1,0 -12,0"></path>
                   </svg>
                   <div class="q-slider__focus-ring"></div>
@@ -5429,11 +5429,11 @@ exports[`Storyshots Feedback AmountPicker 1`] = `
       </div> <button tabindex="0" type="button" role="button" title="Delete amount" class="q-btn q-btn-item non-selectable no-outline self-start q-btn--flat q-btn--round text-red q-btn--actionable q-focusable q-hoverable q-btn--wrap"><span class="q-focus-helper"></span><span class="q-btn__wrapper col row q-anchor--skip"><span class="q-btn__content text-center col items-center q-anchor--skip justify-center row"><i aria-hidden="true" role="presentation" class="fas fa-times q-icon notranslate"> </i></span></span></button>
     </div>
     <div class="row no-wrap">
-      <div role="slider" aria-valuemin="0" aria-valuemax="70" aria-orientation="horizontal" data-step="0.5" aria-valuenow="1" tabindex="0" class="self-center q-mx-md q-slider q-slider--h q-slider--inactive q-slider--editable q-slider--label">
+      <div role="slider" aria-valuemin="0" aria-valuemax="70" aria-orientation="horizontal" data-step="0.5" aria-valuenow="1" tabindex="0" class="self-center q-mx-md q-slider q-slider--h q-slider--inactive q-slider--enabled q-slider--editable q-slider--label">
         <div class="q-slider__track-container q-slider__track-container--h absolute">
           <div class="q-slider__track q-slider__track--h absolute" style="left:0;width:1.4285714285714286%;"></div>
         </div>
-        <div class="q-slider__thumb-container q-slider__thumb-container--h absolute non-selectable" style="left:1.4285714285714286%;"><svg focusable="false" viewBox="0 0 20 20" width="20" height="20" class="q-slider__thumb absolute">
+        <div class="q-slider__thumb-container q-slider__thumb-container--h absolute non-selectable" style="left:1.4285714285714286%;"><svg focusable="false" viewBox="0 0 20 20" width="20" height="20" aria-hidden="true" class="q-slider__thumb absolute">
             <path d="M 4, 10 a 6,6 0 1,0 12,0 a 6,6 0 1,0 -12,0"></path>
           </svg>
           <div class="q-slider__focus-ring"></div>
@@ -5896,11 +5896,11 @@ exports[`Storyshots GroupEdit create 1`] = `
         </div>
       </label>
       <!---->
-      <div class="row justify-end q-gutter-sm q-mt-sm"><button tabindex="-1" type="button" role="button" disabled="disabled" aria-disabled="" class="q-btn q-btn-item non-selectable no-outline q-btn--standard q-btn--rectangle disabled q-btn--wrap"><span class="q-focus-helper"></span><span class="q-btn__wrapper col row q-anchor--skip"><span class="q-btn__content text-center col items-center q-anchor--skip justify-center row">
+      <div class="row justify-end q-gutter-sm q-mt-sm"><button tabindex="-1" type="button" role="button" disabled="disabled" aria-disabled="true" class="q-btn q-btn-item non-selectable no-outline q-btn--standard q-btn--rectangle disabled q-btn--wrap"><span class="q-focus-helper"></span><span class="q-btn__wrapper col row q-anchor--skip"><span class="q-btn__content text-center col items-center q-anchor--skip justify-center row">
       Reset
-    </span></span></button> <button tabindex="-1" type="button" role="button" disabled="disabled" aria-disabled="" class="q-btn q-btn-item non-selectable no-outline q-btn--standard q-btn--rectangle bg-red text-white disabled q-btn--wrap"><span class="q-focus-helper"></span><span class="q-btn__wrapper col row q-anchor--skip"><span class="q-btn__content text-center col items-center q-anchor--skip justify-center row">
+    </span></span></button> <button tabindex="-1" type="button" role="button" disabled="disabled" aria-disabled="true" class="q-btn q-btn-item non-selectable no-outline q-btn--standard q-btn--rectangle bg-red text-white disabled q-btn--wrap"><span class="q-focus-helper"></span><span class="q-btn__wrapper col row q-anchor--skip"><span class="q-btn__content text-center col items-center q-anchor--skip justify-center row">
       Delete
-    </span></span></button> <button tabindex="-1" type="button" role="button" disabled="disabled" aria-disabled="" class="q-btn q-btn-item non-selectable no-outline q-btn--standard q-btn--rectangle bg-primary text-white disabled q-btn--wrap"><span class="q-focus-helper"></span><span class="q-btn__wrapper col row q-anchor--skip"><span class="q-btn__content text-center col items-center q-anchor--skip justify-center row"><span></span></span></span>
+    </span></span></button> <button tabindex="-1" type="button" role="button" disabled="disabled" aria-disabled="true" class="q-btn q-btn-item non-selectable no-outline q-btn--standard q-btn--rectangle bg-primary text-white disabled q-btn--wrap"><span class="q-focus-helper"></span><span class="q-btn__wrapper col row q-anchor--skip"><span class="q-btn__content text-center col items-center q-anchor--skip justify-center row"><span></span></span></span>
           <transition-stub name="q-transition--fade"></transition-stub>
         </button></div>
     </div>
@@ -6031,9 +6031,9 @@ It would make sense if it was markdown
           </div>
         </label>
         <!---->
-        <div class="row justify-end q-gutter-sm q-mt-sm"><button tabindex="-1" type="button" role="button" disabled="disabled" aria-disabled="" class="q-btn q-btn-item non-selectable no-outline q-btn--standard q-btn--rectangle disabled q-btn--wrap"><span class="q-focus-helper"></span><span class="q-btn__wrapper col row q-anchor--skip"><span class="q-btn__content text-center col items-center q-anchor--skip justify-center row">
+        <div class="row justify-end q-gutter-sm q-mt-sm"><button tabindex="-1" type="button" role="button" disabled="disabled" aria-disabled="true" class="q-btn q-btn-item non-selectable no-outline q-btn--standard q-btn--rectangle disabled q-btn--wrap"><span class="q-focus-helper"></span><span class="q-btn__wrapper col row q-anchor--skip"><span class="q-btn__content text-center col items-center q-anchor--skip justify-center row">
             Reset
-          </span></span></button> <button tabindex="-1" type="submit" role="button" disabled="disabled" aria-disabled="" class="q-btn q-btn-item non-selectable no-outline q-btn--standard q-btn--rectangle bg-primary text-white disabled q-btn--wrap"><span class="q-focus-helper"></span><span class="q-btn__wrapper col row q-anchor--skip"><span class="q-btn__content text-center col items-center q-anchor--skip justify-center row">
+          </span></span></button> <button tabindex="-1" type="submit" role="button" disabled="disabled" aria-disabled="true" class="q-btn q-btn-item non-selectable no-outline q-btn--standard q-btn--rectangle bg-primary text-white disabled q-btn--wrap"><span class="q-focus-helper"></span><span class="q-btn__wrapper col row q-anchor--skip"><span class="q-btn__content text-center col items-center q-anchor--skip justify-center row">
             Save changes
           </span></span>
             <transition-stub name="q-transition--fade"></transition-stub>
@@ -6072,7 +6072,7 @@ exports[`Storyshots GroupGallery signup view 1`] = `
         </label>
         <div tabindex="0" role="checkbox" aria-label="Show inactive groups (0)" aria-checked="false" class="q-checkbox cursor-pointer no-outline row inline no-wrap items-center">
           <div class="q-checkbox__inner relative-position no-pointer-events q-checkbox__inner--falsy"><input type="checkbox" class="hidden q-checkbox__native absolute q-ma-none q-pa-none invisible">
-            <div class="q-checkbox__bg absolute"><svg focusable="false" viewBox="0 0 24 24" class="q-checkbox__svg fit absolute-full">
+            <div class="q-checkbox__bg absolute"><svg focusable="false" viewBox="0 0 24 24" aria-hidden="true" class="q-checkbox__svg fit absolute-full">
                 <path fill="none" d="M1.73,12.91 8.1,19.28 22.79,4.59" class="q-checkbox__truthy"></path>
                 <path d="M4,14H20V10H4" class="q-checkbox__indet"></path>
               </svg></div>
@@ -6278,7 +6278,7 @@ exports[`Storyshots GroupGallery switch and explore 1`] = `
         </label>
         <div tabindex="0" role="checkbox" aria-label="Show inactive groups (0)" aria-checked="false" class="q-checkbox cursor-pointer no-outline row inline no-wrap items-center">
           <div class="q-checkbox__inner relative-position no-pointer-events q-checkbox__inner--falsy"><input type="checkbox" class="hidden q-checkbox__native absolute q-ma-none q-pa-none invisible">
-            <div class="q-checkbox__bg absolute"><svg focusable="false" viewBox="0 0 24 24" class="q-checkbox__svg fit absolute-full">
+            <div class="q-checkbox__bg absolute"><svg focusable="false" viewBox="0 0 24 24" aria-hidden="true" class="q-checkbox__svg fit absolute-full">
                 <path fill="none" d="M1.73,12.91 8.1,19.28 22.79,4.59" class="q-checkbox__truthy"></path>
                 <path d="M4,14H20V10H4" class="q-checkbox__indet"></path>
               </svg></div>
@@ -7090,7 +7090,7 @@ exports[`Storyshots GroupSettings show 1`] = `
         <div class="q-item__section column q-item__section--side justify-center">
           <div tabindex="0" role="checkbox" aria-checked="false" class="q-checkbox cursor-pointer no-outline row inline no-wrap items-center">
             <div class="q-checkbox__inner relative-position no-pointer-events q-checkbox__inner--falsy"><input type="checkbox" class="hidden q-checkbox__native absolute q-ma-none q-pa-none invisible">
-              <div class="q-checkbox__bg absolute"><svg focusable="false" viewBox="0 0 24 24" class="q-checkbox__svg fit absolute-full">
+              <div class="q-checkbox__bg absolute"><svg focusable="false" viewBox="0 0 24 24" aria-hidden="true" class="q-checkbox__svg fit absolute-full">
                   <path fill="none" d="M1.73,12.91 8.1,19.28 22.79,4.59" class="q-checkbox__truthy"></path>
                   <path d="M4,14H20V10H4" class="q-checkbox__indet"></path>
                 </svg></div>
@@ -7113,7 +7113,7 @@ exports[`Storyshots GroupSettings show 1`] = `
         <div class="q-item__section column q-item__section--side justify-center">
           <div tabindex="0" role="checkbox" aria-checked="false" class="q-checkbox cursor-pointer no-outline row inline no-wrap items-center">
             <div class="q-checkbox__inner relative-position no-pointer-events q-checkbox__inner--falsy"><input type="checkbox" class="hidden q-checkbox__native absolute q-ma-none q-pa-none invisible">
-              <div class="q-checkbox__bg absolute"><svg focusable="false" viewBox="0 0 24 24" class="q-checkbox__svg fit absolute-full">
+              <div class="q-checkbox__bg absolute"><svg focusable="false" viewBox="0 0 24 24" aria-hidden="true" class="q-checkbox__svg fit absolute-full">
                   <path fill="none" d="M1.73,12.91 8.1,19.28 22.79,4.59" class="q-checkbox__truthy"></path>
                   <path d="M4,14H20V10H4" class="q-checkbox__indet"></path>
                 </svg></div>
@@ -7136,7 +7136,7 @@ exports[`Storyshots GroupSettings show 1`] = `
         <div class="q-item__section column q-item__section--side justify-center">
           <div tabindex="0" role="checkbox" aria-checked="false" class="q-checkbox cursor-pointer no-outline row inline no-wrap items-center">
             <div class="q-checkbox__inner relative-position no-pointer-events q-checkbox__inner--falsy"><input type="checkbox" class="hidden q-checkbox__native absolute q-ma-none q-pa-none invisible">
-              <div class="q-checkbox__bg absolute"><svg focusable="false" viewBox="0 0 24 24" class="q-checkbox__svg fit absolute-full">
+              <div class="q-checkbox__bg absolute"><svg focusable="false" viewBox="0 0 24 24" aria-hidden="true" class="q-checkbox__svg fit absolute-full">
                   <path fill="none" d="M1.73,12.91 8.1,19.28 22.79,4.59" class="q-checkbox__truthy"></path>
                   <path d="M4,14H20V10H4" class="q-checkbox__indet"></path>
                 </svg></div>
@@ -7159,7 +7159,7 @@ exports[`Storyshots GroupSettings show 1`] = `
         <div class="q-item__section column q-item__section--side justify-center">
           <div tabindex="0" role="checkbox" aria-checked="false" class="q-checkbox cursor-pointer no-outline row inline no-wrap items-center">
             <div class="q-checkbox__inner relative-position no-pointer-events q-checkbox__inner--falsy"><input type="checkbox" class="hidden q-checkbox__native absolute q-ma-none q-pa-none invisible">
-              <div class="q-checkbox__bg absolute"><svg focusable="false" viewBox="0 0 24 24" class="q-checkbox__svg fit absolute-full">
+              <div class="q-checkbox__bg absolute"><svg focusable="false" viewBox="0 0 24 24" aria-hidden="true" class="q-checkbox__svg fit absolute-full">
                   <path fill="none" d="M1.73,12.91 8.1,19.28 22.79,4.59" class="q-checkbox__truthy"></path>
                   <path d="M4,14H20V10H4" class="q-checkbox__indet"></path>
                 </svg></div>
@@ -7673,12 +7673,12 @@ exports[`Storyshots Issues IssueVote - not voted yet 1`] = `
           <div class="q-my-md">
             User 42 gets removed from Group 18
           </div>
-          <div role="slider" aria-valuemin="-2" aria-valuemax="2" aria-orientation="horizontal" data-step="1" aria-valuenow="0" tabindex="0" class="k-vote-slider q-slider q-slider--h q-slider--inactive q-slider--editable q-slider--label q-slider--label-always">
+          <div role="slider" aria-valuemin="-2" aria-valuemax="2" aria-orientation="horizontal" data-step="1" aria-valuenow="0" tabindex="0" class="k-vote-slider q-slider q-slider--h q-slider--inactive q-slider--enabled q-slider--editable q-slider--label q-slider--label-always">
             <div class="q-slider__track-container q-slider__track-container--h absolute">
               <div class="q-slider__track q-slider__track--h absolute" style="left:0;width:50%;"></div>
               <div class="q-slider__track-markers q-slider__track-markers--h absolute-full fit" style="background-size:25% 2px;"></div>
             </div>
-            <div class="q-slider__thumb-container q-slider__thumb-container--h absolute non-selectable" style="left:50%;"><svg focusable="false" viewBox="0 0 20 20" width="20" height="20" class="q-slider__thumb absolute">
+            <div class="q-slider__thumb-container q-slider__thumb-container--h absolute non-selectable" style="left:50%;"><svg focusable="false" viewBox="0 0 20 20" width="20" height="20" aria-hidden="true" class="q-slider__thumb absolute">
                 <path d="M 4, 10 a 6,6 0 1,0 12,0 a 6,6 0 1,0 -12,0"></path>
               </svg>
               <div class="q-slider__focus-ring"></div>
@@ -7693,12 +7693,12 @@ exports[`Storyshots Issues IssueVote - not voted yet 1`] = `
           <div class="q-my-md">
             Further discussion: extend time by starting another voting
           </div>
-          <div role="slider" aria-valuemin="-2" aria-valuemax="2" aria-orientation="horizontal" data-step="1" aria-valuenow="0" tabindex="0" class="k-vote-slider q-slider q-slider--h q-slider--inactive q-slider--editable q-slider--label q-slider--label-always">
+          <div role="slider" aria-valuemin="-2" aria-valuemax="2" aria-orientation="horizontal" data-step="1" aria-valuenow="0" tabindex="0" class="k-vote-slider q-slider q-slider--h q-slider--inactive q-slider--enabled q-slider--editable q-slider--label q-slider--label-always">
             <div class="q-slider__track-container q-slider__track-container--h absolute">
               <div class="q-slider__track q-slider__track--h absolute" style="left:0;width:50%;"></div>
               <div class="q-slider__track-markers q-slider__track-markers--h absolute-full fit" style="background-size:25% 2px;"></div>
             </div>
-            <div class="q-slider__thumb-container q-slider__thumb-container--h absolute non-selectable" style="left:50%;"><svg focusable="false" viewBox="0 0 20 20" width="20" height="20" class="q-slider__thumb absolute">
+            <div class="q-slider__thumb-container q-slider__thumb-container--h absolute non-selectable" style="left:50%;"><svg focusable="false" viewBox="0 0 20 20" width="20" height="20" aria-hidden="true" class="q-slider__thumb absolute">
                 <path d="M 4, 10 a 6,6 0 1,0 12,0 a 6,6 0 1,0 -12,0"></path>
               </svg>
               <div class="q-slider__focus-ring"></div>
@@ -7713,12 +7713,12 @@ exports[`Storyshots Issues IssueVote - not voted yet 1`] = `
           <div class="q-my-md">
             No change: User 42 stays in Group 18
           </div>
-          <div role="slider" aria-valuemin="-2" aria-valuemax="2" aria-orientation="horizontal" data-step="1" aria-valuenow="0" tabindex="0" class="k-vote-slider q-slider q-slider--h q-slider--inactive q-slider--editable q-slider--label q-slider--label-always">
+          <div role="slider" aria-valuemin="-2" aria-valuemax="2" aria-orientation="horizontal" data-step="1" aria-valuenow="0" tabindex="0" class="k-vote-slider q-slider q-slider--h q-slider--inactive q-slider--enabled q-slider--editable q-slider--label q-slider--label-always">
             <div class="q-slider__track-container q-slider__track-container--h absolute">
               <div class="q-slider__track q-slider__track--h absolute" style="left:0;width:50%;"></div>
               <div class="q-slider__track-markers q-slider__track-markers--h absolute-full fit" style="background-size:25% 2px;"></div>
             </div>
-            <div class="q-slider__thumb-container q-slider__thumb-container--h absolute non-selectable" style="left:50%;"><svg focusable="false" viewBox="0 0 20 20" width="20" height="20" class="q-slider__thumb absolute">
+            <div class="q-slider__thumb-container q-slider__thumb-container--h absolute non-selectable" style="left:50%;"><svg focusable="false" viewBox="0 0 20 20" width="20" height="20" aria-hidden="true" class="q-slider__thumb absolute">
                 <path d="M 4, 10 a 6,6 0 1,0 12,0 a 6,6 0 1,0 -12,0"></path>
               </svg>
               <div class="q-slider__focus-ring"></div>
@@ -7735,7 +7735,7 @@ exports[`Storyshots Issues IssueVote - not voted yet 1`] = `
       </div>
       <div class="row justify-end q-gutter-sm"><button tabindex="0" type="button" role="button" class="q-btn q-btn-item non-selectable no-outline q-btn--standard q-btn--rectangle bg-negative text-white q-btn--actionable q-focusable q-hoverable q-btn--wrap"><span class="q-focus-helper"></span><span class="q-btn__wrapper col row q-anchor--skip"><span class="q-btn__content text-center col items-center q-anchor--skip justify-center row">
           Delete vote
-        </span></span></button> <button tabindex="-1" type="submit" role="button" disabled="disabled" aria-disabled="" class="q-btn q-btn-item non-selectable no-outline q-btn--standard q-btn--rectangle bg-secondary text-white disabled q-btn--wrap"><span class="q-focus-helper"></span><span class="q-btn__wrapper col row q-anchor--skip"><span class="q-btn__content text-center col items-center q-anchor--skip justify-center row">
+        </span></span></button> <button tabindex="-1" type="submit" role="button" disabled="disabled" aria-disabled="true" class="q-btn q-btn-item non-selectable no-outline q-btn--standard q-btn--rectangle bg-secondary text-white disabled q-btn--wrap"><span class="q-focus-helper"></span><span class="q-btn__wrapper col row q-anchor--skip"><span class="q-btn__content text-center col items-center q-anchor--skip justify-center row">
           Save
         </span></span></button></div>
     </div>
@@ -7770,12 +7770,12 @@ exports[`Storyshots Issues IssueVote - vote 1`] = `
           <div class="q-my-md">
             Further discussion: extend time by starting another voting
           </div>
-          <div role="slider" aria-valuemin="-2" aria-valuemax="2" aria-orientation="horizontal" data-step="1" aria-valuenow="0" tabindex="0" class="k-vote-slider q-slider q-slider--h q-slider--inactive q-slider--editable q-slider--label q-slider--label-always">
+          <div role="slider" aria-valuemin="-2" aria-valuemax="2" aria-orientation="horizontal" data-step="1" aria-valuenow="0" tabindex="0" class="k-vote-slider q-slider q-slider--h q-slider--inactive q-slider--enabled q-slider--editable q-slider--label q-slider--label-always">
             <div class="q-slider__track-container q-slider__track-container--h absolute">
               <div class="q-slider__track q-slider__track--h absolute" style="left:0;width:50%;"></div>
               <div class="q-slider__track-markers q-slider__track-markers--h absolute-full fit" style="background-size:25% 2px;"></div>
             </div>
-            <div class="q-slider__thumb-container q-slider__thumb-container--h absolute non-selectable" style="left:50%;"><svg focusable="false" viewBox="0 0 20 20" width="20" height="20" class="q-slider__thumb absolute">
+            <div class="q-slider__thumb-container q-slider__thumb-container--h absolute non-selectable" style="left:50%;"><svg focusable="false" viewBox="0 0 20 20" width="20" height="20" aria-hidden="true" class="q-slider__thumb absolute">
                 <path d="M 4, 10 a 6,6 0 1,0 12,0 a 6,6 0 1,0 -12,0"></path>
               </svg>
               <div class="q-slider__focus-ring"></div>
@@ -7790,12 +7790,12 @@ exports[`Storyshots Issues IssueVote - vote 1`] = `
           <div class="q-my-md">
             User 40 gets removed from Group 17
           </div>
-          <div role="slider" aria-valuemin="-2" aria-valuemax="2" aria-orientation="horizontal" data-step="1" aria-valuenow="0" tabindex="0" class="k-vote-slider q-slider q-slider--h q-slider--inactive q-slider--editable q-slider--label q-slider--label-always">
+          <div role="slider" aria-valuemin="-2" aria-valuemax="2" aria-orientation="horizontal" data-step="1" aria-valuenow="0" tabindex="0" class="k-vote-slider q-slider q-slider--h q-slider--inactive q-slider--enabled q-slider--editable q-slider--label q-slider--label-always">
             <div class="q-slider__track-container q-slider__track-container--h absolute">
               <div class="q-slider__track q-slider__track--h absolute" style="left:0;width:50%;"></div>
               <div class="q-slider__track-markers q-slider__track-markers--h absolute-full fit" style="background-size:25% 2px;"></div>
             </div>
-            <div class="q-slider__thumb-container q-slider__thumb-container--h absolute non-selectable" style="left:50%;"><svg focusable="false" viewBox="0 0 20 20" width="20" height="20" class="q-slider__thumb absolute">
+            <div class="q-slider__thumb-container q-slider__thumb-container--h absolute non-selectable" style="left:50%;"><svg focusable="false" viewBox="0 0 20 20" width="20" height="20" aria-hidden="true" class="q-slider__thumb absolute">
                 <path d="M 4, 10 a 6,6 0 1,0 12,0 a 6,6 0 1,0 -12,0"></path>
               </svg>
               <div class="q-slider__focus-ring"></div>
@@ -7810,12 +7810,12 @@ exports[`Storyshots Issues IssueVote - vote 1`] = `
           <div class="q-my-md">
             No change: User 40 stays in Group 17
           </div>
-          <div role="slider" aria-valuemin="-2" aria-valuemax="2" aria-orientation="horizontal" data-step="1" aria-valuenow="0" tabindex="0" class="k-vote-slider q-slider q-slider--h q-slider--inactive q-slider--editable q-slider--label q-slider--label-always">
+          <div role="slider" aria-valuemin="-2" aria-valuemax="2" aria-orientation="horizontal" data-step="1" aria-valuenow="0" tabindex="0" class="k-vote-slider q-slider q-slider--h q-slider--inactive q-slider--enabled q-slider--editable q-slider--label q-slider--label-always">
             <div class="q-slider__track-container q-slider__track-container--h absolute">
               <div class="q-slider__track q-slider__track--h absolute" style="left:0;width:50%;"></div>
               <div class="q-slider__track-markers q-slider__track-markers--h absolute-full fit" style="background-size:25% 2px;"></div>
             </div>
-            <div class="q-slider__thumb-container q-slider__thumb-container--h absolute non-selectable" style="left:50%;"><svg focusable="false" viewBox="0 0 20 20" width="20" height="20" class="q-slider__thumb absolute">
+            <div class="q-slider__thumb-container q-slider__thumb-container--h absolute non-selectable" style="left:50%;"><svg focusable="false" viewBox="0 0 20 20" width="20" height="20" aria-hidden="true" class="q-slider__thumb absolute">
                 <path d="M 4, 10 a 6,6 0 1,0 12,0 a 6,6 0 1,0 -12,0"></path>
               </svg>
               <div class="q-slider__focus-ring"></div>
@@ -7832,7 +7832,7 @@ exports[`Storyshots Issues IssueVote - vote 1`] = `
       </div>
       <div class="row justify-end q-gutter-sm"><button tabindex="0" type="button" role="button" class="q-btn q-btn-item non-selectable no-outline q-btn--standard q-btn--rectangle bg-negative text-white q-btn--actionable q-focusable q-hoverable q-btn--wrap"><span class="q-focus-helper"></span><span class="q-btn__wrapper col row q-anchor--skip"><span class="q-btn__content text-center col items-center q-anchor--skip justify-center row">
           Delete vote
-        </span></span></button> <button tabindex="-1" type="submit" role="button" disabled="disabled" aria-disabled="" class="q-btn q-btn-item non-selectable no-outline q-btn--standard q-btn--rectangle bg-secondary text-white disabled q-btn--wrap"><span class="q-focus-helper"></span><span class="q-btn__wrapper col row q-anchor--skip"><span class="q-btn__content text-center col items-center q-anchor--skip justify-center row">
+        </span></span></button> <button tabindex="-1" type="submit" role="button" disabled="disabled" aria-disabled="true" class="q-btn q-btn-item non-selectable no-outline q-btn--standard q-btn--rectangle bg-secondary text-white disabled q-btn--wrap"><span class="q-focus-helper"></span><span class="q-btn__wrapper col row q-anchor--skip"><span class="q-btn__content text-center col items-center q-anchor--skip justify-center row">
           Save
         </span></span></button></div>
     </div>
@@ -9312,12 +9312,12 @@ exports[`Storyshots Places PlaceEdit (with server error) 1`] = `
               <div tabindex="-1" class="q-field__control relative-position row no-wrap">
                 <div class="q-field__control-container col relative-position row no-wrap q-anchor--skip">
                   <div class="q-field__native row">
-                    <div role="slider" aria-valuemin="1" aria-valuemax="10" aria-orientation="horizontal" data-step="1" aria-valuenow="4" tabindex="0" class="q-mt-lg q-mx-md q-slider q-slider--h q-slider--inactive q-slider--editable q-slider--label q-slider--label-always">
+                    <div role="slider" aria-valuemin="1" aria-valuemax="10" aria-orientation="horizontal" data-step="1" aria-valuenow="4" tabindex="0" class="q-mt-lg q-mx-md q-slider q-slider--h q-slider--inactive q-slider--enabled q-slider--editable q-slider--label q-slider--label-always">
                       <div class="q-slider__track-container q-slider__track-container--h absolute">
                         <div class="q-slider__track q-slider__track--h absolute" style="left:0;width:33.33333333333333%;"></div>
                         <div class="q-slider__track-markers q-slider__track-markers--h absolute-full fit" style="background-size:11.11111111111111% 2px;"></div>
                       </div>
-                      <div class="q-slider__thumb-container q-slider__thumb-container--h absolute non-selectable" style="left:33.33333333333333%;"><svg focusable="false" viewBox="0 0 20 20" width="20" height="20" class="q-slider__thumb absolute">
+                      <div class="q-slider__thumb-container q-slider__thumb-container--h absolute non-selectable" style="left:33.33333333333333%;"><svg focusable="false" viewBox="0 0 20 20" width="20" height="20" aria-hidden="true" class="q-slider__thumb absolute">
                           <path d="M 4, 10 a 6,6 0 1,0 12,0 a 6,6 0 1,0 -12,0"></path>
                         </svg>
                         <div class="q-slider__focus-ring"></div>
@@ -9341,11 +9341,11 @@ exports[`Storyshots Places PlaceEdit (with server error) 1`] = `
         </div>
         <!---->
         <div class="row justify-end q-gutter-sm q-mt-md">
-          <!----> <button tabindex="-1" type="button" role="button" disabled="disabled" aria-disabled="" class="q-btn q-btn-item non-selectable no-outline q-btn--standard q-btn--rectangle disabled q-btn--wrap"><span class="q-focus-helper"></span><span class="q-btn__wrapper col row q-anchor--skip"><span class="q-btn__content text-center col items-center q-anchor--skip justify-center row">
+          <!----> <button tabindex="-1" type="button" role="button" disabled="disabled" aria-disabled="true" class="q-btn q-btn-item non-selectable no-outline q-btn--standard q-btn--rectangle disabled q-btn--wrap"><span class="q-focus-helper"></span><span class="q-btn__wrapper col row q-anchor--skip"><span class="q-btn__content text-center col items-center q-anchor--skip justify-center row">
             Reset
           </span></span></button> <button tabindex="0" type="button" role="button" class="q-btn q-btn-item non-selectable no-outline q-btn--standard q-btn--rectangle bg-red text-white q-btn--actionable q-focusable q-hoverable q-btn--wrap"><span class="q-focus-helper"></span><span class="q-btn__wrapper col row q-anchor--skip"><span class="q-btn__content text-center col items-center q-anchor--skip justify-center row">
             Archive
-          </span></span></button> <button tabindex="-1" type="submit" role="button" disabled="disabled" aria-disabled="" class="q-btn q-btn-item non-selectable no-outline q-btn--standard q-btn--rectangle bg-primary text-white disabled q-btn--wrap"><span class="q-focus-helper"></span><span class="q-btn__wrapper col row q-anchor--skip"><span class="q-btn__content text-center col items-center q-anchor--skip justify-center row">
+          </span></span></button> <button tabindex="-1" type="submit" role="button" disabled="disabled" aria-disabled="true" class="q-btn q-btn-item non-selectable no-outline q-btn--standard q-btn--rectangle bg-primary text-white disabled q-btn--wrap"><span class="q-focus-helper"></span><span class="q-btn__wrapper col row q-anchor--skip"><span class="q-btn__content text-center col items-center q-anchor--skip justify-center row">
             Save changes
           </span></span>
             <transition-stub name="q-transition--fade"></transition-stub>
@@ -9444,12 +9444,12 @@ exports[`Storyshots Places PlaceEdit 1`] = `
               <div tabindex="-1" class="q-field__control relative-position row no-wrap">
                 <div class="q-field__control-container col relative-position row no-wrap q-anchor--skip">
                   <div class="q-field__native row">
-                    <div role="slider" aria-valuemin="1" aria-valuemax="10" aria-orientation="horizontal" data-step="1" aria-valuenow="4" tabindex="0" class="q-mt-lg q-mx-md q-slider q-slider--h q-slider--inactive q-slider--editable q-slider--label q-slider--label-always">
+                    <div role="slider" aria-valuemin="1" aria-valuemax="10" aria-orientation="horizontal" data-step="1" aria-valuenow="4" tabindex="0" class="q-mt-lg q-mx-md q-slider q-slider--h q-slider--inactive q-slider--enabled q-slider--editable q-slider--label q-slider--label-always">
                       <div class="q-slider__track-container q-slider__track-container--h absolute">
                         <div class="q-slider__track q-slider__track--h absolute" style="left:0;width:33.33333333333333%;"></div>
                         <div class="q-slider__track-markers q-slider__track-markers--h absolute-full fit" style="background-size:11.11111111111111% 2px;"></div>
                       </div>
-                      <div class="q-slider__thumb-container q-slider__thumb-container--h absolute non-selectable" style="left:33.33333333333333%;"><svg focusable="false" viewBox="0 0 20 20" width="20" height="20" class="q-slider__thumb absolute">
+                      <div class="q-slider__thumb-container q-slider__thumb-container--h absolute non-selectable" style="left:33.33333333333333%;"><svg focusable="false" viewBox="0 0 20 20" width="20" height="20" aria-hidden="true" class="q-slider__thumb absolute">
                           <path d="M 4, 10 a 6,6 0 1,0 12,0 a 6,6 0 1,0 -12,0"></path>
                         </svg>
                         <div class="q-slider__focus-ring"></div>
@@ -9473,11 +9473,11 @@ exports[`Storyshots Places PlaceEdit 1`] = `
         </div>
         <!---->
         <div class="row justify-end q-gutter-sm q-mt-md">
-          <!----> <button tabindex="-1" type="button" role="button" disabled="disabled" aria-disabled="" class="q-btn q-btn-item non-selectable no-outline q-btn--standard q-btn--rectangle disabled q-btn--wrap"><span class="q-focus-helper"></span><span class="q-btn__wrapper col row q-anchor--skip"><span class="q-btn__content text-center col items-center q-anchor--skip justify-center row">
+          <!----> <button tabindex="-1" type="button" role="button" disabled="disabled" aria-disabled="true" class="q-btn q-btn-item non-selectable no-outline q-btn--standard q-btn--rectangle disabled q-btn--wrap"><span class="q-focus-helper"></span><span class="q-btn__wrapper col row q-anchor--skip"><span class="q-btn__content text-center col items-center q-anchor--skip justify-center row">
             Reset
           </span></span></button> <button tabindex="0" type="button" role="button" class="q-btn q-btn-item non-selectable no-outline q-btn--standard q-btn--rectangle bg-red text-white q-btn--actionable q-focusable q-hoverable q-btn--wrap"><span class="q-focus-helper"></span><span class="q-btn__wrapper col row q-anchor--skip"><span class="q-btn__content text-center col items-center q-anchor--skip justify-center row">
             Archive
-          </span></span></button> <button tabindex="-1" type="submit" role="button" disabled="disabled" aria-disabled="" class="q-btn q-btn-item non-selectable no-outline q-btn--standard q-btn--rectangle bg-primary text-white disabled q-btn--wrap"><span class="q-focus-helper"></span><span class="q-btn__wrapper col row q-anchor--skip"><span class="q-btn__content text-center col items-center q-anchor--skip justify-center row">
+          </span></span></button> <button tabindex="-1" type="submit" role="button" disabled="disabled" aria-disabled="true" class="q-btn q-btn-item non-selectable no-outline q-btn--standard q-btn--rectangle bg-primary text-white disabled q-btn--wrap"><span class="q-focus-helper"></span><span class="q-btn__wrapper col row q-anchor--skip"><span class="q-btn__content text-center col items-center q-anchor--skip justify-center row">
             Save changes
           </span></span>
             <transition-stub name="q-transition--fade"></transition-stub>
@@ -9514,7 +9514,7 @@ exports[`Storyshots Places PlaceHeader 1`] = `
         <!---->
       </div>
     </div>
-    <div><button tabindex="0" type="button" role="button" title="Do you want to mark this place as your favourite?" class="q-btn q-btn-item non-selectable no-outline q-btn--standard q-btn--round bg-white text-secondary q-btn--actionable q-focusable q-hoverable q-btn--wrap"><span class="q-focus-helper"></span><span class="q-btn__wrapper col row q-anchor--skip"><span class="q-btn__content text-center col items-center q-anchor--skip justify-center row"><i aria-hidden="true" role="img" class="fas fa-fw fa-star q-icon notranslate"> </i><!----></span></span></button> <span target="_blank" rel="noopener nofollow noreferrer"><button tabindex="-1" type="button" role="button" disabled="disabled" aria-disabled="" title="Show directions" class="q-btn q-btn-item non-selectable no-outline q-btn--standard q-btn--round bg-grey text-white disabled q-btn--wrap"><span class="q-focus-helper"></span><span class="q-btn__wrapper col row q-anchor--skip"><span class="q-btn__content text-center col items-center q-anchor--skip justify-center row"><i aria-hidden="true" role="img" class="material-icons q-icon notranslate">directions</i></span></span></button></span></div>
+    <div><button tabindex="0" type="button" role="button" title="Do you want to mark this place as your favourite?" class="q-btn q-btn-item non-selectable no-outline q-btn--standard q-btn--round bg-white text-secondary q-btn--actionable q-focusable q-hoverable q-btn--wrap"><span class="q-focus-helper"></span><span class="q-btn__wrapper col row q-anchor--skip"><span class="q-btn__content text-center col items-center q-anchor--skip justify-center row"><i aria-hidden="true" role="img" class="fas fa-fw fa-star q-icon notranslate"> </i><!----></span></span></button> <span target="_blank" rel="noopener nofollow noreferrer"><button tabindex="-1" type="button" role="button" disabled="disabled" aria-disabled="true" title="Show directions" class="q-btn q-btn-item non-selectable no-outline q-btn--standard q-btn--round bg-grey text-white disabled q-btn--wrap"><span class="q-focus-helper"></span><span class="q-btn__wrapper col row q-anchor--skip"><span class="q-btn__content text-center col items-center q-anchor--skip justify-center row"><i aria-hidden="true" role="img" class="material-icons q-icon notranslate">directions</i></span></span></button></span></div>
   </div>
   <div class="bg-white q-py-sm q-px-md limit-height cursor-pointer">
     <!---->
@@ -9877,11 +9877,11 @@ exports[`Storyshots Settings Page Default 1`] = `
           </div>
         </label>
         <!---->
-        <div class="row justify-end q-gutter-sm q-mt-sm"><button tabindex="-1" type="button" role="button" disabled="disabled" aria-disabled="" class="q-btn q-btn-item non-selectable no-outline q-btn--standard q-btn--rectangle disabled q-btn--wrap"><span class="q-focus-helper"></span><span class="q-btn__wrapper col row q-anchor--skip"><span class="q-btn__content text-center col items-center q-anchor--skip justify-center row">
+        <div class="row justify-end q-gutter-sm q-mt-sm"><button tabindex="-1" type="button" role="button" disabled="disabled" aria-disabled="true" class="q-btn q-btn-item non-selectable no-outline q-btn--standard q-btn--rectangle disabled q-btn--wrap"><span class="q-focus-helper"></span><span class="q-btn__wrapper col row q-anchor--skip"><span class="q-btn__content text-center col items-center q-anchor--skip justify-center row">
       Reset
-    </span></span></button> <button tabindex="-1" type="button" role="button" disabled="disabled" aria-disabled="" class="q-btn q-btn-item non-selectable no-outline q-btn--standard q-btn--rectangle bg-red text-white disabled q-btn--wrap"><span class="q-focus-helper"></span><span class="q-btn__wrapper col row q-anchor--skip"><span class="q-btn__content text-center col items-center q-anchor--skip justify-center row">
+    </span></span></button> <button tabindex="-1" type="button" role="button" disabled="disabled" aria-disabled="true" class="q-btn q-btn-item non-selectable no-outline q-btn--standard q-btn--rectangle bg-red text-white disabled q-btn--wrap"><span class="q-focus-helper"></span><span class="q-btn__wrapper col row q-anchor--skip"><span class="q-btn__content text-center col items-center q-anchor--skip justify-center row">
       Delete
-    </span></span></button> <button tabindex="-1" type="button" role="button" disabled="disabled" aria-disabled="" class="q-btn q-btn-item non-selectable no-outline q-btn--standard q-btn--rectangle bg-primary text-white disabled q-btn--wrap"><span class="q-focus-helper"></span><span class="q-btn__wrapper col row q-anchor--skip"><span class="q-btn__content text-center col items-center q-anchor--skip justify-center row"><span></span></span></span>
+    </span></span></button> <button tabindex="-1" type="button" role="button" disabled="disabled" aria-disabled="true" class="q-btn q-btn-item non-selectable no-outline q-btn--standard q-btn--rectangle bg-primary text-white disabled q-btn--wrap"><span class="q-focus-helper"></span><span class="q-btn__wrapper col row q-anchor--skip"><span class="q-btn__content text-center col items-center q-anchor--skip justify-center row"><span></span></span></span>
             <transition-stub name="q-transition--fade"></transition-stub>
           </button></div>
       </div>
@@ -9955,9 +9955,9 @@ exports[`Storyshots Settings Page Default 1`] = `
             </div>
           </div>
           <!---->
-          <div class="row justify-end q-gutter-sm q-mt-sm"><button tabindex="-1" type="button" role="button" disabled="disabled" aria-disabled="" class="q-btn q-btn-item non-selectable no-outline q-btn--standard q-btn--rectangle disabled q-btn--wrap"><span class="q-focus-helper"></span><span class="q-btn__wrapper col row q-anchor--skip"><span class="q-btn__content text-center col items-center q-anchor--skip justify-center row">
+          <div class="row justify-end q-gutter-sm q-mt-sm"><button tabindex="-1" type="button" role="button" disabled="disabled" aria-disabled="true" class="q-btn q-btn-item non-selectable no-outline q-btn--standard q-btn--rectangle disabled q-btn--wrap"><span class="q-focus-helper"></span><span class="q-btn__wrapper col row q-anchor--skip"><span class="q-btn__content text-center col items-center q-anchor--skip justify-center row">
         Reset
-      </span></span></button> <button tabindex="-1" type="submit" role="button" disabled="disabled" aria-disabled="" class="q-btn q-btn-item non-selectable no-outline q-btn--standard q-btn--rectangle bg-primary text-white disabled q-btn--wrap"><span class="q-focus-helper"></span><span class="q-btn__wrapper col row q-anchor--skip"><span class="q-btn__content text-center col items-center q-anchor--skip justify-center row">
+      </span></span></button> <button tabindex="-1" type="submit" role="button" disabled="disabled" aria-disabled="true" class="q-btn q-btn-item non-selectable no-outline q-btn--standard q-btn--rectangle bg-primary text-white disabled q-btn--wrap"><span class="q-focus-helper"></span><span class="q-btn__wrapper col row q-anchor--skip"><span class="q-btn__content text-center col items-center q-anchor--skip justify-center row">
         Save changes
       </span></span>
               <transition-stub name="q-transition--fade"></transition-stub>
@@ -10016,7 +10016,7 @@ exports[`Storyshots Settings Page Default 1`] = `
           </div>
         </label>
         <!---->
-        <div class="row justify-end q-gutter-sm q-mt-sm"><button tabindex="-1" type="button" role="button" disabled="disabled" aria-disabled="" class="q-btn q-btn-item non-selectable no-outline q-btn--standard q-btn--rectangle bg-primary text-white disabled q-btn--wrap"><span class="q-focus-helper"></span><span class="q-btn__wrapper col row q-anchor--skip"><span class="q-btn__content text-center col items-center q-anchor--skip justify-center row">
+        <div class="row justify-end q-gutter-sm q-mt-sm"><button tabindex="-1" type="button" role="button" disabled="disabled" aria-disabled="true" class="q-btn q-btn-item non-selectable no-outline q-btn--standard q-btn--rectangle bg-primary text-white disabled q-btn--wrap"><span class="q-focus-helper"></span><span class="q-btn__wrapper col row q-anchor--skip"><span class="q-btn__content text-center col items-center q-anchor--skip justify-center row">
       Change e-mail address
     </span></span>
             <transition-stub name="q-transition--fade"></transition-stub>
@@ -10053,7 +10053,7 @@ exports[`Storyshots Settings Page Default 1`] = `
           </div>
         </label>
         <!---->
-        <div class="row justify-end q-gutter-sm q-mt-sm"><button tabindex="-1" type="button" role="button" disabled="disabled" aria-disabled="" class="q-btn q-btn-item non-selectable no-outline q-btn--standard q-btn--rectangle bg-primary text-white disabled q-btn--wrap"><span class="q-focus-helper"></span><span class="q-btn__wrapper col row q-anchor--skip"><span class="q-btn__content text-center col items-center q-anchor--skip justify-center row">
+        <div class="row justify-end q-gutter-sm q-mt-sm"><button tabindex="-1" type="button" role="button" disabled="disabled" aria-disabled="true" class="q-btn q-btn-item non-selectable no-outline q-btn--standard q-btn--rectangle bg-primary text-white disabled q-btn--wrap"><span class="q-focus-helper"></span><span class="q-btn__wrapper col row q-anchor--skip"><span class="q-btn__content text-center col items-center q-anchor--skip justify-center row">
       Change password
     </span></span>
             <transition-stub name="q-transition--fade"></transition-stub>
@@ -10092,7 +10092,7 @@ exports[`Storyshots Settings Page Default 1`] = `
           <div class="q-item__section column q-item__section--side justify-center">
             <div tabindex="0" role="checkbox" aria-checked="false" class="q-checkbox cursor-pointer no-outline row inline no-wrap items-center">
               <div class="q-checkbox__inner relative-position no-pointer-events q-checkbox__inner--falsy"><input type="checkbox" class="hidden q-checkbox__native absolute q-ma-none q-pa-none invisible">
-                <div class="q-checkbox__bg absolute"><svg focusable="false" viewBox="0 0 24 24" class="q-checkbox__svg fit absolute-full">
+                <div class="q-checkbox__bg absolute"><svg focusable="false" viewBox="0 0 24 24" aria-hidden="true" class="q-checkbox__svg fit absolute-full">
                     <path fill="none" d="M1.73,12.91 8.1,19.28 22.79,4.59" class="q-checkbox__truthy"></path>
                     <path d="M4,14H20V10H4" class="q-checkbox__indet"></path>
                   </svg></div>
@@ -10115,7 +10115,7 @@ exports[`Storyshots Settings Page Default 1`] = `
           <div class="q-item__section column q-item__section--side justify-center">
             <div tabindex="0" role="checkbox" aria-checked="false" class="q-checkbox cursor-pointer no-outline row inline no-wrap items-center">
               <div class="q-checkbox__inner relative-position no-pointer-events q-checkbox__inner--falsy"><input type="checkbox" class="hidden q-checkbox__native absolute q-ma-none q-pa-none invisible">
-                <div class="q-checkbox__bg absolute"><svg focusable="false" viewBox="0 0 24 24" class="q-checkbox__svg fit absolute-full">
+                <div class="q-checkbox__bg absolute"><svg focusable="false" viewBox="0 0 24 24" aria-hidden="true" class="q-checkbox__svg fit absolute-full">
                     <path fill="none" d="M1.73,12.91 8.1,19.28 22.79,4.59" class="q-checkbox__truthy"></path>
                     <path d="M4,14H20V10H4" class="q-checkbox__indet"></path>
                   </svg></div>
@@ -10138,7 +10138,7 @@ exports[`Storyshots Settings Page Default 1`] = `
           <div class="q-item__section column q-item__section--side justify-center">
             <div tabindex="0" role="checkbox" aria-checked="false" class="q-checkbox cursor-pointer no-outline row inline no-wrap items-center">
               <div class="q-checkbox__inner relative-position no-pointer-events q-checkbox__inner--falsy"><input type="checkbox" class="hidden q-checkbox__native absolute q-ma-none q-pa-none invisible">
-                <div class="q-checkbox__bg absolute"><svg focusable="false" viewBox="0 0 24 24" class="q-checkbox__svg fit absolute-full">
+                <div class="q-checkbox__bg absolute"><svg focusable="false" viewBox="0 0 24 24" aria-hidden="true" class="q-checkbox__svg fit absolute-full">
                     <path fill="none" d="M1.73,12.91 8.1,19.28 22.79,4.59" class="q-checkbox__truthy"></path>
                     <path d="M4,14H20V10H4" class="q-checkbox__indet"></path>
                   </svg></div>
@@ -10161,7 +10161,7 @@ exports[`Storyshots Settings Page Default 1`] = `
           <div class="q-item__section column q-item__section--side justify-center">
             <div tabindex="0" role="checkbox" aria-checked="false" class="q-checkbox cursor-pointer no-outline row inline no-wrap items-center">
               <div class="q-checkbox__inner relative-position no-pointer-events q-checkbox__inner--falsy"><input type="checkbox" class="hidden q-checkbox__native absolute q-ma-none q-pa-none invisible">
-                <div class="q-checkbox__bg absolute"><svg focusable="false" viewBox="0 0 24 24" class="q-checkbox__svg fit absolute-full">
+                <div class="q-checkbox__bg absolute"><svg focusable="false" viewBox="0 0 24 24" aria-hidden="true" class="q-checkbox__svg fit absolute-full">
                     <path fill="none" d="M1.73,12.91 8.1,19.28 22.79,4.59" class="q-checkbox__truthy"></path>
                     <path d="M4,14H20V10H4" class="q-checkbox__indet"></path>
                   </svg></div>
@@ -10669,7 +10669,7 @@ exports[`Storyshots Unsubscribe conversation 1`] = `
       <div role="radiogroup" class="q-ma-sm q-option-group q-gutter-x-sm">
         <div>
           <div tabindex="0" role="radio" aria-label="unsubscribe from just this conversation" aria-checked="false" class="q-radio cursor-pointer no-outline row inline no-wrap items-center">
-            <div class="q-radio__inner relative-position no-pointer-events q-radio__inner--falsy"><input type="radio" class="hidden q-radio__native q-ma-none q-pa-none invisible"><svg focusable="false" viewBox="0 0 24 24" class="q-radio__bg absolute">
+            <div class="q-radio__inner relative-position no-pointer-events q-radio__inner--falsy"><input type="radio" class="hidden q-radio__native q-ma-none q-pa-none invisible"><svg focusable="false" viewBox="0 0 24 24" aria-hidden="true" class="q-radio__bg absolute">
                 <path d="M12,22a10,10 0 0 1 -10,-10a10,10 0 0 1 10,-10a10,10 0 0 1 10,10a10,10 0 0 1 -10,10m0,-22a12,12 0 0 0 -12,12a12,12 0 0 0 12,12a12,12 0 0 0 12,-12a12,12 0 0 0 -12,-12"></path>
                 <path d="M12,6a6,6 0 0 0 -6,6a6,6 0 0 0 6,6a6,6 0 0 0 6,-6a6,6 0 0 0 -6,-6" class="q-radio__check"></path>
               </svg></div><span tabindex="-1" class="no-outline"></span>
@@ -10678,7 +10678,7 @@ exports[`Storyshots Unsubscribe conversation 1`] = `
         </div>
         <div>
           <div tabindex="0" role="radio" aria-label="unsubscribe from Weekly summary" aria-checked="false" class="q-radio cursor-pointer no-outline row inline no-wrap items-center">
-            <div class="q-radio__inner relative-position no-pointer-events q-radio__inner--falsy"><input type="radio" class="hidden q-radio__native q-ma-none q-pa-none invisible"><svg focusable="false" viewBox="0 0 24 24" class="q-radio__bg absolute">
+            <div class="q-radio__inner relative-position no-pointer-events q-radio__inner--falsy"><input type="radio" class="hidden q-radio__native q-ma-none q-pa-none invisible"><svg focusable="false" viewBox="0 0 24 24" aria-hidden="true" class="q-radio__bg absolute">
                 <path d="M12,22a10,10 0 0 1 -10,-10a10,10 0 0 1 10,-10a10,10 0 0 1 10,10a10,10 0 0 1 -10,10m0,-22a12,12 0 0 0 -12,12a12,12 0 0 0 12,12a12,12 0 0 0 12,-12a12,12 0 0 0 -12,-12"></path>
                 <path d="M12,6a6,6 0 0 0 -6,6a6,6 0 0 0 6,6a6,6 0 0 0 6,-6a6,6 0 0 0 -6,-6" class="q-radio__check"></path>
               </svg></div><span tabindex="-1" class="no-outline"></span>
@@ -10687,7 +10687,7 @@ exports[`Storyshots Unsubscribe conversation 1`] = `
         </div>
         <div>
           <div tabindex="0" role="radio" aria-label="Unsubscribe from all email notifications in testgroup" aria-checked="false" class="q-radio cursor-pointer no-outline row inline no-wrap items-center">
-            <div class="q-radio__inner relative-position no-pointer-events q-radio__inner--falsy"><input type="radio" class="hidden q-radio__native q-ma-none q-pa-none invisible"><svg focusable="false" viewBox="0 0 24 24" class="q-radio__bg absolute">
+            <div class="q-radio__inner relative-position no-pointer-events q-radio__inner--falsy"><input type="radio" class="hidden q-radio__native q-ma-none q-pa-none invisible"><svg focusable="false" viewBox="0 0 24 24" aria-hidden="true" class="q-radio__bg absolute">
                 <path d="M12,22a10,10 0 0 1 -10,-10a10,10 0 0 1 10,-10a10,10 0 0 1 10,10a10,10 0 0 1 -10,10m0,-22a12,12 0 0 0 -12,12a12,12 0 0 0 12,12a12,12 0 0 0 12,-12a12,12 0 0 0 -12,-12"></path>
                 <path d="M12,6a6,6 0 0 0 -6,6a6,6 0 0 0 6,6a6,6 0 0 0 6,-6a6,6 0 0 0 -6,-6" class="q-radio__check"></path>
               </svg></div><span tabindex="-1" class="no-outline"></span>
@@ -10747,7 +10747,7 @@ exports[`Storyshots Unsubscribe thread 1`] = `
       <div role="radiogroup" class="q-ma-sm q-option-group q-gutter-x-sm">
         <div>
           <div tabindex="0" role="radio" aria-label="unsubscribe from just this thread" aria-checked="false" class="q-radio cursor-pointer no-outline row inline no-wrap items-center">
-            <div class="q-radio__inner relative-position no-pointer-events q-radio__inner--falsy"><input type="radio" class="hidden q-radio__native q-ma-none q-pa-none invisible"><svg focusable="false" viewBox="0 0 24 24" class="q-radio__bg absolute">
+            <div class="q-radio__inner relative-position no-pointer-events q-radio__inner--falsy"><input type="radio" class="hidden q-radio__native q-ma-none q-pa-none invisible"><svg focusable="false" viewBox="0 0 24 24" aria-hidden="true" class="q-radio__bg absolute">
                 <path d="M12,22a10,10 0 0 1 -10,-10a10,10 0 0 1 10,-10a10,10 0 0 1 10,10a10,10 0 0 1 -10,10m0,-22a12,12 0 0 0 -12,12a12,12 0 0 0 12,12a12,12 0 0 0 12,-12a12,12 0 0 0 -12,-12"></path>
                 <path d="M12,6a6,6 0 0 0 -6,6a6,6 0 0 0 6,6a6,6 0 0 0 6,-6a6,6 0 0 0 -6,-6" class="q-radio__check"></path>
               </svg></div><span tabindex="-1" class="no-outline"></span>
@@ -10756,7 +10756,7 @@ exports[`Storyshots Unsubscribe thread 1`] = `
         </div>
         <div>
           <div tabindex="0" role="radio" aria-label="Unsubscribe from all email notifications in testgroup" aria-checked="false" class="q-radio cursor-pointer no-outline row inline no-wrap items-center">
-            <div class="q-radio__inner relative-position no-pointer-events q-radio__inner--falsy"><input type="radio" class="hidden q-radio__native q-ma-none q-pa-none invisible"><svg focusable="false" viewBox="0 0 24 24" class="q-radio__bg absolute">
+            <div class="q-radio__inner relative-position no-pointer-events q-radio__inner--falsy"><input type="radio" class="hidden q-radio__native q-ma-none q-pa-none invisible"><svg focusable="false" viewBox="0 0 24 24" aria-hidden="true" class="q-radio__bg absolute">
                 <path d="M12,22a10,10 0 0 1 -10,-10a10,10 0 0 1 10,-10a10,10 0 0 1 10,10a10,10 0 0 1 -10,10m0,-22a12,12 0 0 0 -12,12a12,12 0 0 0 12,12a12,12 0 0 0 12,-12a12,12 0 0 0 -12,-12"></path>
                 <path d="M12,6a6,6 0 0 0 -6,6a6,6 0 0 0 6,6a6,6 0 0 0 6,-6a6,6 0 0 0 -6,-6" class="q-radio__check"></path>
               </svg></div><span tabindex="-1" class="no-outline"></span>

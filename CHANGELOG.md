@@ -25,6 +25,7 @@ Please document your changes in this format:
 
 ### Changed
 - Improve activity history display @nicksellen
+- Enable the Luxembourgish locale of Quasar when this language is selected @dwaxweiler
 
 ## [8.6.0] - 2020-07-17
 ### Changed

@@ -271,7 +271,7 @@ export default {
       return this.messagesUnseenCount > 0 || this.notificationsUnseenCount > 0
     },
     disablePullToRefresh () {
-      if (!this.$q.platform.is.mobile) return true
+      if (!this.$q.platform.is.cordova) return true
       if (this.$route.matched.some(({ meta }) => meta && meta.disablePullToRefresh)) return true
       return false
     },

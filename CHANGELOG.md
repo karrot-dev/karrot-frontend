@@ -21,10 +21,13 @@ Please document your changes in this format:
 ```
 
 ## [Unreleased]
+
+### Added
 - Display number of total group members on top of member list #2149 @djahnie
 
 ### Changed
 - Improve activity history display @nicksellen
+- Only show pull-to-refresh in app @tiltec
 
 ## [8.6.0] - 2020-07-17
 ### Changed

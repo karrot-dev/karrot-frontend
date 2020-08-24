@@ -17,6 +17,15 @@ export default {
   actions: {
     ...withMeta({
       async refresh ({ commit, dispatch, rootGetters }, done) {
+        // check if we are still logged in, otherwise further requests might just return HTTP4xx
+        await dispatch('auth/refresh', null, { root: true })
+
+        if (!rootGetters['auth/isLoggedIn']) {
+          // we are not logged in (anymore), can only refresh groups
+          dispatch('groups/fetch', null, { root: true })
+          return
+        }
+
         const activeState = {
           groupId: rootGetters['currentGroup/id'],
           placeId: rootGetters['places/activePlaceId'],
@@ -34,7 +43,6 @@ export default {
           dispatch('feedback/fetch', activeState, { root: true }),
           dispatch('currentGroup/refresh', null, { root: true }),
           dispatch('currentThread/refresh', null, { root: true }),
-          dispatch('auth/refresh', null, { root: true }),
           dispatch('latestMessages/fetch', {}, { root: true }),
           dispatch('notifications/fetch', null, { root: true }),
           dispatch('status/refresh', null, { root: true }),

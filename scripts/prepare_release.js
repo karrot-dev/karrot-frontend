@@ -4,7 +4,7 @@
  * Sets app version based on CHANGELOG.md
  *
  * Steps:
- * 1. Update changelog by chaning "Unreleased" to a new version number
+ * 1. Update changelog by changing "Unreleased" to a new version number and adding a date
  * 2. Run node ./scripts/prepare_release.js
  * 3. git push
  * 4. Click the "approve" button on https://circleci.com/gh/yunity/workflows/karrot-frontend/tree/master

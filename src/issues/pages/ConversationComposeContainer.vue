@@ -49,16 +49,18 @@ export default {
     ...mapActions({
       send: 'conversations/send',
     }),
-    sendMessage (content) {
+    sendMessage ({ content, images }) {
       const data = this.conversation.thread
         ? {
           id: this.conversation.conversation,
           threadId: this.conversation.id,
           content,
+          images,
         }
         : {
           id: this.conversation.id,
           content,
+          images,
         }
       this.send(data)
     },

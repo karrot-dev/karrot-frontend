@@ -47,7 +47,7 @@
           />
           <QBanner
             v-if="joinPlayground"
-            class="bg-info text-white q-my-sm rounded-borders"
+            class="bg-info text-black q-my-sm rounded-borders"
           >
             {{ $t('JOINGROUP.PROFILE_NOTE' ) }}
             <template #avatar>

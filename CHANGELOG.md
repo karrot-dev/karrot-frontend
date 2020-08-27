@@ -571,8 +571,14 @@ After months of planning and programming, the first version of ~the foodsaving t
 [#1982]: https://github.com/yunity/karrot-frontend/issues/1982
 [#1987]: https://github.com/yunity/karrot-frontend/issues/1987
 [#2062]: https://github.com/yunity/karrot-frontend/issues/2062
+[#2128]: https://github.com/yunity/karrot-frontend/issues/2128
+[#2149]: https://github.com/yunity/karrot-frontend/issues/2149
+[#2151]: https://github.com/yunity/karrot-frontend/issues/2151
+[#2157]: https://github.com/yunity/karrot-frontend/issues/2157
+[#2161]: https://github.com/yunity/karrot-frontend/issues/2161
 
-[Unreleased]: https://github.com/yunity/karrot-frontend/compare/v8.6.0...HEAD
+[Unreleased]: https://github.com/yunity/karrot-frontend/compare/v8.7.0...HEAD
+[8.7.0]: https://github.com/yunity/karrot-frontend/compare/v8.6.0...v8.7.0
 [8.6.0]: https://github.com/yunity/karrot-frontend/compare/v8.5.2...v8.6.0
 [8.5.2]: https://github.com/yunity/karrot-frontend/compare/v8.5.1...v8.5.2
 [8.5.1]: https://github.com/yunity/karrot-frontend/compare/v8.5.0...v8.5.1

@@ -21,11 +21,18 @@ Please document your changes in this format:
 ```
 
 ## [Unreleased]
-- Display number of total group members on top of member list #2149 @djahnie
+### Changed
+- Enable the Luxembourgish locale of Quasar when this language is selected @dwaxweiler
+
+## [8.7.1] - 2020-08-27
+### Added
+- Allow images to be attached to messages [#2128] [#1028](https://github.com/yunity/karrot-backend/pull/1028) @nicksellen
+- Display number of total group members on top of member list [#2149] @djahnie
 
 ### Changed
-- Improve activity history display @nicksellen
-- Enable the Luxembourgish locale of Quasar when this language is selected @dwaxweiler
+- Improve activity history display to show activity information more clearly [#2151] from [suggestion](https://community.foodsaving.world/t/how-do-you-handle-late-drop-outs-from-pickups/213/10) @nicksellen
+- Only show pull-to-refresh in app @tiltec
+- Sort feedback by activity date instead of feedback date [#2157] [#2161] [#1044](https://github.com/yunity/karrot-backend/pull/1044) @nicksellen
 
 ## [8.6.0] - 2020-07-17
 ### Changed
@@ -568,8 +575,14 @@ After months of planning and programming, the first version of ~the foodsaving t
 [#1982]: https://github.com/yunity/karrot-frontend/issues/1982
 [#1987]: https://github.com/yunity/karrot-frontend/issues/1987
 [#2062]: https://github.com/yunity/karrot-frontend/issues/2062
+[#2128]: https://github.com/yunity/karrot-frontend/issues/2128
+[#2149]: https://github.com/yunity/karrot-frontend/issues/2149
+[#2151]: https://github.com/yunity/karrot-frontend/issues/2151
+[#2157]: https://github.com/yunity/karrot-frontend/issues/2157
+[#2161]: https://github.com/yunity/karrot-frontend/issues/2161
 
-[Unreleased]: https://github.com/yunity/karrot-frontend/compare/v8.6.0...HEAD
+[Unreleased]: https://github.com/yunity/karrot-frontend/compare/v8.7.1...HEAD
+[8.7.1]: https://github.com/yunity/karrot-frontend/compare/v8.6.0...v8.7.1
 [8.6.0]: https://github.com/yunity/karrot-frontend/compare/v8.5.2...v8.6.0
 [8.5.2]: https://github.com/yunity/karrot-frontend/compare/v8.5.1...v8.5.2
 [8.5.1]: https://github.com/yunity/karrot-frontend/compare/v8.5.0...v8.5.1

@@ -13,9 +13,9 @@
  *
  */
 
-const Octokit = require('@octokit/rest')
+const { Octokit } = require('@octokit/rest')
 
-const octokit = Octokit()
+const octokit = new Octokit()
 
 const { GITHUB_TOKEN } = process.env
 if (GITHUB_TOKEN) {
@@ -35,19 +35,15 @@ const HEADER = `
 
 ## General Direction
 
-First of all, we want to support the existing users on karrot.world, which are mostly foodsaving groups. For this, we want to improve governance and usability. That means we want to expand on the already existing voting feature and make it usable for general decision making, and we want to help users find their way around Karrot by offering them practical and concise tutorial videos.
+Main topics of Karrot are currently generalization, that means making the features on Karrot available for customization beyond just food pick-ups.
+We also want to work on governance topics: how to make decision both in groups and about further Karrot development.
+We are taking steps to connect more with the existing user community, but also other people via social media (e.g. Mastodon) and academia.
 
-Secondly, we want to make Karrot attractive to groups that have other purposes than saving food. Therefore we want to progress generalization and customization features, as well as easier ways to connect and switch between groups in one area.
-
-Karrot is a free and open-source software and its vision should inspire more people to contribute and co-create it. Therefore we need to work also on the following:
-
-- Grow the team of volunteers, also by reconnecting to foodsharing.de and its members
-- Strengthen the bonds between users from different places and the development team, also by coming up with better participatory feature creation processes
-- Create a sustainable working culture, also through new ways of dealing with money and putting an emphasis on intra-project care work
+In the next months, we want to continue working on the stuff that we already started before. In the last months, we established a steady work flow that should help us to do things and put the "dreaming" part on a back-burner.
 `
 
 async function run ({ owner, repo }) {
-  const result = await octokit.issues.listMilestonesForRepo({ owner, repo })
+  const result = await octokit.issues.listMilestones({ owner, repo })
   const output = [HEADER.trim()]
   for (const milestone of result.data.sort(sortMilestones)) {
     output.push(`## ${milestone.title}`)

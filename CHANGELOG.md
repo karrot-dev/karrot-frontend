@@ -20,11 +20,12 @@ Please document your changes in this format:
   - description of change [#PR] @username
 ```
 
-## [Unreleased]
-- Display number of total group members on top of member list #2149 @djahnie
-
+## [8.7.0] - 2020-08-27
 ### Changed
-- Improve activity history display @nicksellen
+- Display number of total group members on top of member list #2149 @djahnie
+- Sort feedback by activity date instead of feedback date #2157 #2161 [#1044](https://github.com/yunity/karrot-backend/pull/1044) @nicksellen
+- Improve activity history display to show activity information more clearly #2151 from [suggestion](https://community.foodsaving.world/t/how-do-you-handle-late-drop-outs-from-pickups/213/10) @nicksellen
+- Allow images to be attached to messages #2128 [#1028](https://github.com/yunity/karrot-backend/pull/1028) @nicksellen
 
 ## [8.6.0] - 2020-07-17
 ### Changed

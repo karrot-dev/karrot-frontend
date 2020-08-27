@@ -21,6 +21,8 @@ Please document your changes in this format:
 ```
 
 ## [Unreleased]
+### Changed
+- Enable the Luxembourgish locale of Quasar when this language is selected @dwaxweiler
 
 ## [8.7.1] - 2020-08-27
 ### Added

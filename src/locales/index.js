@@ -87,7 +87,7 @@ const locales = {
     messages: () => import('@/locales/locale-lb.json'),
     intlLocale: () => import('intl/locale-data/jsonp/lb'),
     dateFnsLocale: () => import('date-fns/locale/de'), // TODO switch when translated
-    quasar: () => import('quasar/lang/de'), // TODO switch when translated
+    quasar: () => import('quasar/lang/lu'),
   },
 
   mr: {

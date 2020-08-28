@@ -94,15 +94,15 @@ export default {
       }
     },
 
-    notConnected () {
+    notConnected ({ reconnecting }) {
       return {
         className: 'bg-warning text-white',
         icon: 'report_problem',
-        message: 'GLOBAL.NOT_CONNECTED',
-        action: {
+        message: reconnecting ? 'GLOBAL.RECONNECTING' : 'GLOBAL.OFFLINE_RECONNECT',
+        action: reconnecting ? null : ({
           icon: 'refresh',
           handler: () => this.$emit('reconnect'),
-        },
+        }),
       }
     },
 

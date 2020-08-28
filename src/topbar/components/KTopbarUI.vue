@@ -1,7 +1,7 @@
 <template>
   <QToolbar
-    class="text-white row justify-between"
-    :class="connected ? 'bg-primary' : 'bg-grey-8'"
+    class="text-white bg-primary row justify-between"
+    @click="maybeReconnect"
   >
     <slot />
     <QBtn
@@ -63,10 +63,28 @@
       </QMenu>
     </QBtn>
     <QToolbarTitle class="no-wrap text-center">
-      <KBreadcrumb
-        class="bread"
-        :breadcrumbs="breadcrumbs"
-      />
+      <div class="column text-center">
+        <KBreadcrumb
+          class="bread"
+          :breadcrumbs="breadcrumbs"
+        />
+        <div
+          v-if="!connected && $q.platform.is.mobile"
+          class="row items-center text-center"
+          style="opacity: .7"
+        >
+          <QIcon
+            v-if="!reconnecting"
+            name="report_problem"
+            style="font-size: 70%"
+            class="q-pr-xs"
+          />
+          <div
+            v-t="reconnecting ? 'GLOBAL.RECONNECTING' : 'GLOBAL.OFFLINE_RECONNECT'"
+            class="text-caption"
+          />
+        </div>
+      </div>
     </QToolbarTitle>
     <div class="row no-wrap items-center">
       <div
@@ -240,6 +258,10 @@ export default {
       type: Boolean,
       default: false,
     },
+    reconnecting: {
+      type: Boolean,
+      default: false,
+    },
   },
   computed: {
     hasPhoto () {
@@ -262,6 +284,12 @@ export default {
         color: 'secondary',
         icon: 'fas fa-circle',
       }
+    },
+  },
+  methods: {
+    maybeReconnect () {
+      if (this.connected) return
+      this.$emit('reconnect')
     },
   },
 }

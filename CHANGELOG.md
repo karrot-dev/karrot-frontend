@@ -21,6 +21,9 @@ Please document your changes in this format:
 ```
 
 ## [Unreleased]
+### Changed
+- Move "not connected" message into topbar for mobile view @tiltec
+- Add message when Karrot is trying to reconnect @tiltec
 
 ## [8.7.2] - 2020-08-28
 ### Changed

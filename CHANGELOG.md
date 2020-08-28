@@ -21,6 +21,8 @@ Please document your changes in this format:
 ```
 
 ## [Unreleased]
+
+## [8.7.2] - 2020-08-28
 ### Changed
 - Enable the Luxembourgish locale of Quasar and date-fns when this language is selected @dwaxweiler
 
@@ -581,7 +583,8 @@ After months of planning and programming, the first version of ~the foodsaving t
 [#2157]: https://github.com/yunity/karrot-frontend/issues/2157
 [#2161]: https://github.com/yunity/karrot-frontend/issues/2161
 
-[Unreleased]: https://github.com/yunity/karrot-frontend/compare/v8.7.1...HEAD
+[Unreleased]: https://github.com/yunity/karrot-frontend/compare/v8.7.2...HEAD
+[8.7.2]: https://github.com/yunity/karrot-frontend/compare/v8.7.1...v8.7.2
 [8.7.1]: https://github.com/yunity/karrot-frontend/compare/v8.6.0...v8.7.1
 [8.6.0]: https://github.com/yunity/karrot-frontend/compare/v8.5.2...v8.6.0
 [8.5.2]: https://github.com/yunity/karrot-frontend/compare/v8.5.1...v8.5.2

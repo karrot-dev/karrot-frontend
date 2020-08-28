@@ -8,7 +8,7 @@ cachetools==3.1.1         # via google-auth
 certifi==2020.4.5.1       # via requests
 chardet==3.0.4            # via requests
 google-api-core==1.20.0   # via google-api-python-client
-google-api-python-client==1.10.1  # via -r requirements.in
+google-api-python-client==1.11.0  # via -r requirements.in
 google-auth-httplib2==0.0.3  # via google-api-python-client
 google-auth==1.16.0       # via google-api-core, google-api-python-client, google-auth-httplib2
 googleapis-common-protos==1.51.0  # via google-api-core

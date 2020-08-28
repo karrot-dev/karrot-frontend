@@ -537,7 +537,7 @@
     "CONFLICT_RESOLUTION_YOU_WERE_REMOVED": "Du togs bort från gruppen",
     "FEEDBACK_POSSIBLE": "Du kan ge feedback för en upphämtning du gjorde den {date}",
     "INVITATION_ACCEPTED": "{userName} beviljade din ansökan",
-    "NEW_APPLICANT": "{userName} ansökte till att gå med i din grupp",
+    "NEW_APPLICANT": "{userName} ansökte om att gå med i din grupp",
     "NEW_MEMBER": "{userName} gick med i din grupp",
     "NEW_PLACE": "{placeName} har skapats",
     "USER_BECAME_EDITOR": "{userName} har fått behörighet att redigera",

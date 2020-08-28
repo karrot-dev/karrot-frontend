@@ -11,9 +11,11 @@ export default connect({
     searchOpen: 'search/open',
     away: 'presence/toggle/away',
     connected: 'connectivity/connected',
+    reconnecting: 'connectivity/reconnecting',
   },
   actionsToEvents: {
     logout: 'auth/logout',
+    reconnect: 'connectivity/reconnect',
   },
   mutationsToEvents: {
     showSearch: 'search/show',

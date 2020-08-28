@@ -31,6 +31,7 @@ const datastore = createDatastore({
   connectivity: {
     getters: {
       connected: () => true,
+      reconnecting: () => false,
     },
   },
   status: {

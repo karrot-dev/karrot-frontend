@@ -13,6 +13,7 @@ storiesOf('Banners', module)
           },
           {
             type: 'notConnected',
+            context: { reconnecting: false },
           },
         ],
       },

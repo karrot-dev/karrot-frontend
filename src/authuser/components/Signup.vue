@@ -39,22 +39,6 @@
           autocapitalize="off"
           spellcheck="false"
         />
-        <div v-if="canJoinPlayground">
-          <QCheckbox
-            v-model="joinPlayground"
-            :label="$t('GROUP.JOIN_PLAYGROUND')"
-            color="info"
-          />
-          <QBanner
-            v-if="joinPlayground"
-            class="bg-info text-black q-my-sm rounded-borders"
-          >
-            {{ $t('JOINGROUP.PROFILE_NOTE' ) }}
-            <template #avatar>
-              <QIcon name="info" />
-            </template>
-          </QBanner>
-        </div>
 
         <div
           v-if="hasNonFieldError"
@@ -112,14 +96,6 @@ export default {
       required: true,
       type: Function,
     },
-    hasPlayground: {
-      default: false,
-      type: Boolean,
-    },
-    hasGroupToJoin: {
-      default: false,
-      type: Boolean,
-    },
   },
   data () {
     return {
@@ -128,13 +104,9 @@ export default {
         email: this.prefillEmail(),
         password: null,
       },
-      joinPlayground: this.hasPlayground && !this.hasGroupToJoin,
     }
   },
   computed: {
-    canJoinPlayground () {
-      return this.hasPlayground && !this.hasGroupToJoin
-    },
     hasDisplayNameError () {
       return !!this.displayNameError
     },
@@ -154,18 +126,12 @@ export default {
       return true
     },
   },
-  watch: {
-    canJoinPlayground (val) {
-      this.joinPlayground = val
-    },
-  },
   methods: {
     submit () {
       this.$v.user.$touch()
       if (!this.canSave || this.isPending) return
       this.$emit('submit', {
         userData: this.user,
-        joinPlayground: this.joinPlayground,
       })
       this.$v.user.$reset()
     },

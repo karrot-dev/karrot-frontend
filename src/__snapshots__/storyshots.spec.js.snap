@@ -10465,7 +10465,6 @@ exports[`Storyshots Signup empty 1`] = `
         </div>
       </label>
       <!---->
-      <!---->
       <div class="actions"><a tabindex="0" type="button" href="#/" role="link" class="q-btn q-btn-item non-selectable no-outline q-btn--flat q-btn--rectangle q-btn--actionable q-focusable q-hoverable q-btn--wrap"><span class="q-focus-helper"></span><span class="q-btn__wrapper col row q-anchor--skip"><span class="q-btn__content text-center col items-center q-anchor--skip justify-center row">
           Back to Login
         </span></span></a> <button tabindex="0" type="submit" role="button" class="q-btn q-btn-item non-selectable no-outline submit shadow-4 q-btn--standard q-btn--rectangle q-btn--actionable q-focusable q-hoverable q-btn--wrap"><span class="q-focus-helper"></span><span class="q-btn__wrapper col row q-anchor--skip"><span class="q-btn__content text-center col items-center q-anchor--skip justify-center row">
@@ -10516,7 +10515,6 @@ exports[`Storyshots Signup error 1`] = `
         </div>
       </label>
       <!---->
-      <!---->
       <div class="actions"><a tabindex="0" type="button" href="#/" role="link" class="q-btn q-btn-item non-selectable no-outline q-btn--flat q-btn--rectangle q-btn--actionable q-focusable q-hoverable q-btn--wrap"><span class="q-focus-helper"></span><span class="q-btn__wrapper col row q-anchor--skip"><span class="q-btn__content text-center col items-center q-anchor--skip justify-center row">
           Back to Login
         </span></span></a> <button tabindex="0" type="submit" role="button" class="q-btn q-btn-item non-selectable no-outline submit shadow-4 q-btn--standard q-btn--rectangle q-btn--actionable q-focusable q-hoverable q-btn--wrap"><span class="q-focus-helper"></span><span class="q-btn__wrapper col row q-anchor--skip"><span class="q-btn__content text-center col items-center q-anchor--skip justify-center row">
@@ -10560,7 +10558,6 @@ exports[`Storyshots Signup pending 1`] = `
           </div>
         </div>
       </label>
-      <!---->
       <!---->
       <div class="actions"><a tabindex="0" type="button" href="#/" role="link" class="q-btn q-btn-item non-selectable no-outline q-btn--flat q-btn--rectangle q-btn--actionable q-focusable q-hoverable q-btn--wrap"><span class="q-focus-helper"></span><span class="q-btn__wrapper col row q-anchor--skip"><span class="q-btn__content text-center col items-center q-anchor--skip justify-center row">
           Back to Login

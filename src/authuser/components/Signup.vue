@@ -72,10 +72,7 @@
 
 <script>
 import {
-  QBanner,
   QBtn,
-  QCheckbox,
-  QIcon,
 } from 'quasar'
 import SplashInput from '@/utils/components/SplashInput'
 import statusMixin from '@/utils/mixins/statusMixin'
@@ -84,10 +81,7 @@ import { validationMixin } from 'vuelidate'
 
 export default {
   components: {
-    QBanner,
     QBtn,
-    QCheckbox,
-    QIcon,
     SplashInput,
   },
   mixins: [validationMixin, statusMixin],

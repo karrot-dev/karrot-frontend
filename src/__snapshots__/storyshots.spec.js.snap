@@ -7740,7 +7740,7 @@ exports[`Storyshots Issues IssueVote - not voted yet 1`] = `
         </span></span></button></div>
     </div>
     <!---->
-    <div class="overlay absolute-full"></div> <button tabindex="0" type="button" role="button" class="q-btn q-btn-item non-selectable no-outline absolute-center q-btn--standard q-btn--rectangle bg-primary text-white q-btn--actionable q-focusable q-hoverable q-btn--wrap"><span class="q-focus-helper"></span><span class="q-btn__wrapper col row q-anchor--skip"><span class="q-btn__content text-center col items-center q-anchor--skip justify-center row"></span></span></button>
+    <div class="overlay absolute-full"></div> <button tabindex="0" type="button" role="button" class="q-btn q-btn-item non-selectable no-outline absolute-center q-px-md q-py-sm q-btn--standard q-btn--rectangle bg-primary text-white q-btn--actionable q-focusable q-hoverable q-btn--wrap"><span class="q-focus-helper"></span><span class="q-btn__wrapper col row q-anchor--skip"><span class="q-btn__content text-center col items-center q-anchor--skip justify-center row"></span></span></button>
   </div>
 </div>
 `;

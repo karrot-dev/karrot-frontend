@@ -118,7 +118,7 @@
         <div class="overlay absolute-full" />
         <QBtn
           v-t="'ISSUE.VOTING.BTN_START'"
-          class="absolute-center"
+          class="absolute-center q-px-md q-py-sm"
           color="primary"
           @click="setToZero()"
         />

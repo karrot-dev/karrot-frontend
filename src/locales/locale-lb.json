@@ -27,7 +27,7 @@
         "TITLE": "Onofhängeg Gruppen"
       },
       "MAPS": {
-        "DESCRIPTION": "Du hues eng Kart mat de Platzen an de Leit, déi d'Aktivitéite maachen. Du hues eng schéi Lëscht mat allen Aktivitéiten, déi kommen, an du kanns dech fir dës online androen.",
+        "DESCRIPTION": "Du hues eng Kart mat de Platzen an de Leit, déi d'Aktivitéite maachen. Du hues eng schéi Lëscht mat allen zukünftegen Aktivitéiten an du kanns dech fir dës online androen.",
         "TITLE": "Karten a Lëschten"
       },
       "NOTIFICATIONS": {
@@ -88,8 +88,8 @@
       "LEAVE_CONFIRMATION_HEADER": "Vun Ofhuelung ofmellen",
       "LEAVE_CONFIRMATION_TEXT": "Bass du sécher, dass déi aner d'Ofhuelung ouni dech maache kënnen?"
     },
-    "JOINEDNOTICE": "Du hues eng Ofhuelung, déi kënnt | Du hues {count} Ofhuelungen, déi kommen",
-    "NONE": "Keng Ofhuelungen, déi kommen",
+    "JOINEDNOTICE": "Du hues eng zukünfteg Ofhuelung | Du hues {count} zukünfteg Ofhuelungen",
+    "NONE": "Keng zukünfteg Ofhuelungen",
     "NONE_HINT": "Du kanns eng nei Ofhuelung op der Säit vun der Platz erstellen.",
     "STORE_NONE_HINT": "Du kanns eng nei Ofhuelung op der Säit erstellen, wou's du d'Ofhuelunge verwalte kanns."
   },
@@ -100,7 +100,7 @@
     "SERIES": "Ofhuelungen, déi ëmmer nees sinn",
     "SINGLE": "Eemoleg Ofhuelungen",
     "TITLE": "Ofhuelunge verwalten",
-    "UPCOMING_ACTIVITIES_IN_SERIES": "Ofhuelungen, déi kommen, an dëser Serie"
+    "UPCOMING_ACTIVITIES_IN_SERIES": "Zukünfteg Ofhuelungen an dëser Serie"
   },
   "ACTIVITY_FEEDBACK": {
     "AMOUNT": "Quantitéit vu Liewensmëttel déi's du rette konnts (a kg)",
@@ -261,7 +261,7 @@
     "DISABLE_TITLE": "Ofhuelung desaktivéieren?",
     "ENABLE_DISABLE_MESSAGE": "Benotzer, déi dëser Ofhuelung bäitrieden, kréien eng Benoriichtegung. Du kanns dësen Text ännere fir ee Grond unzeginn:",
     "ENABLE_TITLE": "Ofhuelungen aktivéieren?",
-    "EXCEPTIONS_MESSAGE": "E puer Ofhuelungen, déi kommen, stëmmen net mat den Astellunge vun dëser Ofhuelung, déi ëmmer nees ass, iwwerteneen. Kuck eng Kéier hei drënner op '{upcomingLabel}' fir Ofhuelungen ze änneren oder ze desaktivéieren, falls néideg.",
+    "EXCEPTIONS_MESSAGE": "E puer zukünfteg Ofhuelungen stëmmen net mat den Astellunge vun dëser Ofhuelung, déi ëmmer nees ass, iwwerteneen. Kuck eng Kéier hei drënner op '{upcomingLabel}' fir Ofhuelungen ze änneren oder ze desaktivéieren, falls néideg.",
     "EXCEPTIONS_TITLE": "Deng Ofhuelunge kontrolléieren",
     "FREQUENCY": "Frequenz",
     "MAX_PARTICIPANTS": "Max. Platzen",
@@ -604,7 +604,7 @@
       "NO": "nee",
       "NO_TEXT": "Näischt vun uewendriwwer. Du kanns dech awer fir Ofhuelungen androen.",
       "YES": "jo",
-      "YES_TEXT": "Weist Ofhuelungen, déi et ginn, op der Mauer vun der Grupp a schéckt E-Mailen iwwert Ofhuelungen, déi kommen."
+      "YES_TEXT": "Weist Ofhuelungen, déi et ginn, op der Mauer vun der Grupp a schéckt E-Mailen iwwert zukünfteg Ofhuelungen."
     }
   },
   "PROFILE": {

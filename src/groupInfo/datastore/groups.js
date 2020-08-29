@@ -1,6 +1,6 @@
 import groups from '@/group/api/groups'
 import groupsInfo from '@/groupInfo/api/groupsInfo'
-import router from '@/base/router'
+import router from '@/router'
 import { indexById, withMeta, createMetaModule, metaStatusesWithId, metaStatuses, createRouteError } from '@/utils/datastore/helpers'
 
 function initialState () {

@@ -15,7 +15,7 @@ jest.mock('@/groupInfo/api/groupsInfo', () => ({
 const routerMocks = require('>/routerMocks').default
 const mockRouterPush = jest.fn(routerMocks.$router.push)
 const mockRouterReplace = jest.fn(routerMocks.$router.replace)
-jest.mock('@/base/router', () => ({
+jest.mock('@/router', () => ({
   push: mockRouterPush,
   replace: mockRouterReplace,
 }))

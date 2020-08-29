@@ -22,7 +22,7 @@ describe('authuser/api/auth', () => {
     beforeEach(() => {
       lastRequest = null
       mock = new MockAdapter(axios)
-      global.__ENV.CORDOVA = true
+      global.process.env.MODE = 'cordova'
       global.location.reload.mockReset()
       auth = require('@/authuser/api/auth').default
       mock.onGet('/api/auth/user/').reply(200, { email })

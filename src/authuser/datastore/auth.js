@@ -1,6 +1,6 @@
 import auth from '@/authuser/api/auth'
 import authUser from '@/authuser/api/authUser'
-import router from '@/base/router'
+import router from '@/router'
 import { createMetaModule, withMeta, metaStatuses } from '@/utils/datastore/helpers'
 import { objectDiff } from '@/utils/utils'
 import push from '@/subscriptions/datastore/auth/push'

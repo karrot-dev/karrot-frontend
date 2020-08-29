@@ -9,23 +9,7 @@ const RouteError = () => import('@/base/components/RouteError')
 
 Vue.use(VueRouter)
 
-const router = new VueRouter({
-  /*
-   * NOTE! VueRouter "history" mode DOESN'T works for Cordova builds,
-   * it is only to be used only for websites.
-   *
-   * If you decide to go with "history" mode, please also open /config/index.js
-   * and set "build.publicPath" to something other than an empty string.
-   * Example: '/' instead of current ''
-   *
-   * If switching back to default "hash" mode, don't forget to set the
-   * build publicPath back to '' so Cordova builds work again.
-   *
-   * BREADCRUMBS - Available types:
-   *  - currentGroup
-   *  - activePlace
-   * ...you can define other ones in KBreadcrumb.
-   */
+export default new VueRouter({
   routes: [
     {
       path: '',
@@ -39,7 +23,6 @@ const router = new VueRouter({
         },
       ],
     },
-
     // Always leave this last one
     { path: '*', component: RouteError }, // Not found
   ],
@@ -59,6 +42,10 @@ const router = new VueRouter({
       return { x: 0, y: 0 }
     }
   },
-})
 
-export default router
+  // Leave these as they are and change in quasar.conf.js instead!
+  // quasar.conf.js -> build -> vueRouterMode
+  // quasar.conf.js -> build -> publicPath
+  mode: process.env.VUE_ROUTER_MODE,
+  base: process.env.VUE_ROUTER_BASE,
+})

@@ -1,5 +1,5 @@
 import invitations from '@/invitations/api/invitations'
-import router from '@/base/router'
+import router from '@/router'
 import { createMetaModule, withMeta, metaStatuses, indexById } from '@/utils/datastore/helpers'
 
 function initialState () {

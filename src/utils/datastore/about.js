@@ -14,7 +14,7 @@ export default {
     deployed: state => state.deployed,
     updateAvailable: state => {
       if (!state.deployed) return
-      return state.deployed.commitSHA !== __ENV.GIT_SHA1
+      return state.deployed.commitSHA !== process.env.KARROT.GIT_SHA1
     },
   },
   actions: {

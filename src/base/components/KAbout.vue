@@ -146,7 +146,7 @@ export default {
       deployed: 'about/deployed',
     }),
     release () {
-      if (__ENV.DEV) {
+      if (process.env.DEV) {
         return {
           link: '',
           name: 'local dev',

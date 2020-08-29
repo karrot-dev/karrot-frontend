@@ -62,7 +62,7 @@ describe('refresh', () => {
     mockHistoryList.mockReturnValue({ results: [] })
     mockStatusFetch.mockReturnValue({})
 
-    const datastore = require('@/base/datastore').default
+    const datastore = require('@/store').default
     datastore.commit('currentGroup/setId', 1)
     datastore.commit('currentGroup/set', { id: 1 })
     datastore.commit('currentThread/setScope', 1)

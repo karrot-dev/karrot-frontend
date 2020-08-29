@@ -29,7 +29,7 @@ module.exports = {
   },
   plugins: [
     new webpack.DefinePlugin({
-      '__ENV.FCM_CONFIG': JSON.stringify(process.env.FCM_CONFIG),
+      'process.env.KARROT.FCM_CONFIG': JSON.stringify(process.env.FCM_CONFIG),
     }),
     new TerserPlugin({
       sourceMap: false,

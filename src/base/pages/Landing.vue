@@ -187,7 +187,7 @@ import imageSavers from './images/solikyl-savers.200x200.jpg'
 import imageFairShare from './images/fsmaastricht-fairshare.200x200.jpg'
 import imageSavers2 from './images/fsmaastricht-foodsavers.200x200.jpg'
 
-import router from '@/base/router'
+import router from '@/router'
 
 // Prefer active non-playground groups with a photo
 function groupSortScore (group) {

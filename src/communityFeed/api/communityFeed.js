@@ -1,6 +1,6 @@
 import axios from '@/base/api/axios'
 
-const backend = __ENV.CORDOVA ? __ENV.BACKEND : ''
+const backend = process.env.MODE === 'cordova' ? process.env.KARROT.BACKEND : ''
 
 export default {
   async getMeta () {

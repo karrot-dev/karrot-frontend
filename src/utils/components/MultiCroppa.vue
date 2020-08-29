@@ -24,7 +24,7 @@
       >
         <img
           slot="placeholder"
-          src="statics/add_a_photo.svg"
+          src="public/add_a_photo.svg"
           :width="60"
         >
       </Croppa>
@@ -179,7 +179,7 @@ export default {
 
       // In development we want to force the images to load from our local proxy
       // so that we don't get issues with missing CORS headers
-      if (__ENV.DEV && url.includes('/media')) return ['http://localhost:8080', url.substring(url.indexOf('/media'))].join('')
+      if (process.env.DEV && url.includes('/media')) return ['http://localhost:8080', url.substring(url.indexOf('/media'))].join('')
 
       return url
     },

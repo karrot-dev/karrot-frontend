@@ -8,7 +8,7 @@ jest.mock('@/group/api/groups', () => ({
   join: mockJoin,
 }))
 
-jest.mock('@/base/router', () => {
+jest.mock('@/router', () => {
   const VueRouter = require('vue-router')
   return new VueRouter({
     mode: 'hash',
@@ -73,7 +73,7 @@ describe('main routes', () => {
   let routedPaths
   let user
 
-  beforeEach(() => { router = require('@/base/router') })
+  beforeEach(() => { router = require('@/router') })
 
   beforeEach(() => window.history.pushState({}, 'home', '#/')) // always reset location or tests will interfere
 

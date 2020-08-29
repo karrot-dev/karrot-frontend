@@ -4,7 +4,7 @@ import * as Sentry from '@sentry/browser'
 
 let KEY, updateToken, clearToken
 
-if (__ENV.CORDOVA) {
+if (process.env.MODE === 'cordova') {
   const { localStorage } = window
 
   KEY = 'token'
@@ -61,7 +61,7 @@ if (__ENV.CORDOVA) {
 
 export default {
   async login ({ email, password }) {
-    if (__ENV.CORDOVA) {
+    if (process.env.MODE === 'cordova') {
       const { token } = (await axios.post('/api/auth/token/', { username: email, password })).data
       updateToken(token)
       return authUser.get() // return the user info to match what the /api/auth/ endpoints returns
@@ -72,12 +72,12 @@ export default {
   },
 
   async logout () {
-    if (__ENV.CORDOVA) clearToken()
+    if (process.env.MODE === 'cordova') clearToken()
     return (await axios.post('/api/auth/logout/', {})).data
   },
 
   getToken () {
-    if (__ENV.CORDOVA) {
+    if (process.env.MODE === 'cordova') {
       return localStorage.getItem(KEY)
     }
     else {

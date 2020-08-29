@@ -13,7 +13,7 @@ export async function getServiceWorker () {
 }
 
 async function getServiceWorkers () {
-  if (__ENV.CORDOVA || !window.navigator.serviceWorker) return []
+  if (process.env.MODE === 'cordova' || !window.navigator.serviceWorker) return []
   let registrations
   try {
     registrations = await window.navigator.serviceWorker.getRegistrations()

@@ -1,4 +1,4 @@
-import router from '@/base/router'
+import router from '@/router'
 import feedbackAPI from '@/feedback/api/feedback'
 import { createMetaModule, withMeta, metaStatuses, createPaginationModule, indexById } from '@/utils/datastore/helpers'
 

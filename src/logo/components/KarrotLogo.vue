@@ -27,7 +27,7 @@ export default {
   },
   async created () {
     this.logo = logo
-    if (__ENV.KARROT_THEME === 'dev') {
+    if (process.env.KARROT.THEME === 'dev') {
       this.logo = (await import('@/logo/assets/carrot-logo.dev.svg')).default
     }
   },

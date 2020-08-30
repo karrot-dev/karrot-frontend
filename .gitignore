@@ -11,6 +11,9 @@ node_modules
 /src-cordova/platforms
 /src-cordova/plugins
 /src-cordova/www
+/src-cordova/config/current
+/src-cordova/getpassword
+/src-cordova/ul_web_hooks
 
 # Capacitor related directories and files
 /src-capacitor/www
@@ -42,12 +45,6 @@ coverage/
 docs-dist/
 karrot-backend/
 karrot-docker/
-cordova/platforms
-cordova/plugins
-cordova/config/current
-cordova/getpassword
-cordova/ul_web_hooks
-cordova/www
 updateLocalesHelper/env
 .nvmrc
 v8-compile-cache-0

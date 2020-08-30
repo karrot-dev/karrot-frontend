@@ -1,9 +1,7 @@
 <?xml version='1.0' encoding='utf-8'?>
-<widget id="world.karrot" version="8.7.2" xmlns="http://www.w3.org/ns/widgets" xmlns:android="http://schemas.android.com/apk/res/android" xmlns:cdv="http://cordova.apache.org/ns/1.0">
-    <name>Karrot</name>
-    <description>
-        Mobile app for Karrot
-    </description>
+<widget id="world.karrot.dev" version="8.7.2" xmlns="http://www.w3.org/ns/widgets" xmlns:android="http://schemas.android.com/apk/res/android" xmlns:cdv="http://cordova.apache.org/ns/1.0">
+    <name>Karrot Dev</name>
+    <description>Modern website for organization of foodsaving groups worldwide</description>
     <author email="karrot@foodsaving.world" href="https://foodsaving.world">
         Foodsaving World Team
     </author>
@@ -25,13 +23,16 @@
         <allow-intent href="market:*" />
         <preference name="android-minSdkVersion" value="23" />
         <preference name="AndroidLaunchMode" value="singleInstance" />
+        <edit-config file="app/src/main/AndroidManifest.xml" mode="merge" target="/manifest/application">
+            <application android:usesCleartextTraffic="true" />
+        </edit-config>
     </platform>
     <platform name="ios">
         <allow-intent href="itms:*" />
         <allow-intent href="itms-apps:*" />
     </platform>
     <universal-links>
-        <host event="karrot" name="karrot.world" scheme="https">
+        <host event="karrot" name="dev.karrot.world" scheme="https">
             <path url="/" />
         </host>
     </universal-links>
@@ -45,4 +46,5 @@
     <plugin name="cordova-plugin-fcm-with-dependecy-updated" spec="^2.3.0" />
     <plugin name="cordova-plugin-deeplinks" spec="^1.1.0" />
     <engine name="android" spec="^8.0.0" />
+    <allow-navigation href="about:*" />
 </widget>

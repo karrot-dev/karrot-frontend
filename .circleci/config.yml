@@ -15,7 +15,7 @@ deploy-android: &deploy-android
         at: .
     - restore_cache:
         keys:
-          - v2-dependencies-playstorehelper-{{ checksum "cordova/playstoreHelper/requirements.txt" }}
+          - v2-dependencies-playstorehelper-{{ checksum "src-cordova/playstoreHelper/requirements.txt" }}
           - v2-dependencies-playstorehelper
     - run:
         name: decode playstore service account credentials
@@ -23,7 +23,7 @@ deploy-android: &deploy-android
           # note: update encrypted playstore credentials with:
           # openssl aes-256-cbc -e -in playstore-service-account.json -out playstore-service-account.json.enc -md md5 -k <secret>
           # we need to specify md5 explicitly, as the default changed in openssl 1.1
-          cd ~/repo/cordova/playstoreHelper
+          cd ~/repo/src-cordova/playstoreHelper
           openssl aes-256-cbc -d -in playstore-service-account.json.enc -out playstore-service-account.json -md md5 -k "${PLAYSTORE_SECRET}"
     - run:
         name: deploy apk
@@ -43,18 +43,18 @@ deploy-android: &deploy-android
           ./node_modules/.bin/sentry-cli releases set-commits --auto "${VERSION}"
 
     - save_cache:
-        key: v2-dependencies-playstorehelper-{{ checksum "cordova/playstoreHelper/requirements.txt" }}
+        key: v2-dependencies-playstorehelper-{{ checksum "src-cordova/playstoreHelper/requirements.txt" }}
         paths:
-          - ~/repo/cordova/playstoreHelper/env
+          - ~/repo/src-cordova/playstoreHelper/env
     - slack/status:
         fail_only: true
 
 build-android: &build-android
   name: build android
   command: |
-    rm -f cordova/www
-    mv dist-app-${CORDOVA_ENV} cordova/www
-    cd ~/repo/cordova
+    rm -f src-cordova/www
+    mv dist-app-${CORDOVA_ENV} src-cordova/www
+    cd ~/repo/src-cordova
     rm -f config/current
     ln -s "$CORDOVA_ENV" config/current
     cordova platform add android

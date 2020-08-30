@@ -47,6 +47,7 @@ module.exports = configure(function (ctx) {
       'loglevel',
       'socket',
       'sentry',
+      'cordova',
       'i18n',
       'loadInitialData',
       'polyfill',

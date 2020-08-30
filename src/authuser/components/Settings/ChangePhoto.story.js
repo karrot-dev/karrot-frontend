@@ -4,7 +4,7 @@ import { action } from '@storybook/addon-actions'
 import ChangePhoto from './ChangePhoto'
 import { statusMocks, storybookDefaults as defaults } from '>/helpers'
 
-import logo from '@/statics/carrot_logo.png'
+import logo from '@/../public/statics/carrot_logo.png'
 
 const on = {
   save: action('save'),

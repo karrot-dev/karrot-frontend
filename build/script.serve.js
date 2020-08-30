@@ -4,7 +4,8 @@
 
 const express = require('express')
 const compression = require('compression')
-const proxyMiddleware = require('http-proxy-middleware')
+const proxyMiddleware = require('http-proxy-middleware').createProxyMiddleware
+console.log(proxyMiddleware)
 const { join } = require('path')
 
 const { proxyTable } = require('./config')

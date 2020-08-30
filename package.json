@@ -77,9 +77,9 @@
     "vuex-router-sync": "^5.0.0"
   },
   "devDependencies": {
-    "@quasar/app": "^2.0.0",
     "@babel/plugin-transform-modules-commonjs": "^7.10.4",
     "@octokit/rest": "^18.0.4",
+    "@quasar/app": "^2.0.0",
     "@sentry/cli": "^1.55.2",
     "@storybook/addon-actions": "^6.0.20",
     "@storybook/addon-links": "^6.0.20",
@@ -87,9 +87,7 @@
     "@types/jest": "^26.0.10",
     "@vue/test-utils": "^1.0.4",
     "axios-mock-adapter": "^1.18.2",
-
     "babel-eslint": "^10.0.3",
-
     "babel-jest": "^26.3.0",
     "babel-plugin-dynamic-import-node": "^2.3.0",
     "compression": "^1.7.3",
@@ -120,7 +118,6 @@
     "keep-a-changelog": "^0.10.1",
     "lodash": "^4.17.20",
     "lolex": "^6.0.0",
-
     "postcss-styl": "^0.7.2",
     "postcss-syntax": "^0.36.2",
     "preload-webpack-plugin": "^3.0.0-beta.3",
@@ -156,6 +153,7 @@
       "<rootDir>/src"
     ],
     "moduleNameMapper": {
+      "^quasar$": "<rootDir>/node_modules/quasar/dist/quasar.common.js",
       "\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$": "<rootDir>/test/fileMock.js",
       "\\.(css|less|styl|stylus)$": "<rootDir>/test/styleMock.js",
       "@/(.*)$": "<rootDir>/src/$1",
@@ -175,7 +173,7 @@
       "jest-serializer-vue"
     ],
     "transformIgnorePatterns": [
-      "/node_modules/(?!quasar)"
+      "<rootDir>/node_modules/(?!quasar/lang)"
     ],
     "testEnvironment": "jsdom",
     "testEnvironmentOptions": {

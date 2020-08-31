@@ -33,6 +33,9 @@
 
 <script>
 import { QSelect, QTable } from 'quasar'
+import subDays from 'date-fns/subDays'
+import subMonths from 'date-fns/subMonths'
+
 import api from '@/statistics/api/statistics'
 import { mapGetters } from 'vuex'
 import { indexById } from '@/utils/datastore/helpers'
@@ -44,21 +47,19 @@ export default {
   data () {
     const periodFilterOptions = [
       {
-        label: 'Nothing!',
-        value: null,
-      },
-      {
-        label: 'Something!',
+        label: 'Previous 7 days!',
         value: 'previous7days',
       },
       {
         label: 'Previous 30 days',
         value: 'previous30days',
       },
+      {
+        label: 'Previous 6 months',
+        value: 'previous6months',
+      },
     ]
     return {
-      // Maybe need a left late and pickup was not eventually done!!! left late AND missed...
-      // periodFilter: 'previous7days',
       periodFilter: periodFilterOptions[0],
       periodFilterOptions,
       userFilter: null,
@@ -67,13 +68,13 @@ export default {
         {
           name: 'place',
           label: 'Place',
-          field: row => row.name,
+          field: row => row.place,
           align: 'left',
         },
         ...[
-          ['activityDoneCount', 'Done'],
-          ['activityLeaveCount', 'Left'],
-          ['activityLeaveLateCount', 'Left late'],
+          ['doneCount', 'Done'],
+          ['leaveCount', 'Left'],
+          ['leaveLateCount', 'Left late'],
         ].map(([field, label]) => ({
           name: field,
           label,
@@ -81,9 +82,9 @@ export default {
           align: 'right',
         })),
         {
-          name: 'activityFeedbackWeight',
+          name: 'feedbackWeight',
           label: 'Weight',
-          field: row => row.activityFeedbackWeight.toFixed(1),
+          field: row => row.feedbackWeight.toFixed(1),
           format: value => `${value} kg`,
           align: 'right',
         },
@@ -94,6 +95,7 @@ export default {
     ...mapGetters({
       currentGroupId: 'currentGroup/id',
       users: 'users/byCurrentGroup',
+      getPlace: 'places/get',
     }),
     usersById () {
       return indexById(this.users)
@@ -116,10 +118,10 @@ export default {
     totals () {
       const out = {}
       for (const field of [
-        'activityDoneCount',
-        'activityLeaveCount',
-        'activityLeaveLateCount',
-        'activityFeedbackWeight',
+        'doneCount',
+        'leaveCount',
+        'leaveLateCount',
+        'feedbackWeight',
       ]) {
         out[field] = this.data.reduce((sum, entry) => sum + entry[field], 0)
       }
@@ -127,6 +129,7 @@ export default {
     },
     dataWithTotals () {
       if (this.data.length === 0) return []
+      // TODO: mixin the place data?
       return [
         ...this.data,
         {
@@ -135,15 +138,32 @@ export default {
         },
       ]
     },
+    dateQuery () {
+      if (!this.periodFilter.value) return {}
+      const now = new Date()
+      switch (this.periodFilter.value) {
+        case 'previous7days':
+          return {
+            dateAfter: subDays(now, 7),
+          }
+        case 'previous30days':
+          return {
+            dateAfter: subDays(now, 30),
+          }
+        case 'previous6months':
+          return {
+            dateAfter: subMonths(now, 6),
+          }
+        default:
+          throw new Error(`unknown date filter option: ${this.periodFilter.value}`)
+      }
+    },
     query () {
-      const params = {
+      return {
         group: this.currentGroupId,
         user: this.userFilter,
+        ...this.dateQuery,
       }
-      if (this.periodFilter.value) {
-        params.dateBefore = new Date()
-      }
-      return params
     },
   },
   watch: {
@@ -152,20 +172,15 @@ export default {
       async handler (params) {
         if (Object.keys(params).length === 0) return
         console.log('fetching stats with params', params)
-        this.data = await api.places(params)
+        this.data = await api.activityHistory(params)
       },
     },
-    // userFilter: {
-    //   immediate: true,
-    //   async handler (id) {
-    //     this.data = await api.places({ group: this.currentGroupId, user: id, dateBefore: new Date() })
-    //   },
-    // },
   },
 }
 </script>
 
 <style scoped lang="stylus">
+// the last row is our special totals row, so make it stand out
 >>> tr:last-child td
   font-weight 500
 </style>

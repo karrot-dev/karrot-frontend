@@ -45,7 +45,7 @@ const IssueList = () => import('@/issues/pages/IssueList')
 const IssueChat = () => import('@/issues/pages/IssueChat')
 const IssueCompose = () => import('@/issues/pages/IssueCompose')
 const IssueVoteAndHistory = () => import('@/issues/pages/IssueVoteAndHistory')
-const PlaceStatistics = () => import('@/statistics/pages/PlaceStatistics')
+const ActivityHistoryStatistics = () => import('@/statistics/pages/ActivityHistoryStatistics')
 
 export default [
   {
@@ -555,11 +555,11 @@ export default [
       {
         name: 'statistics',
         path: 'statistics',
-        redirect: 'statistics/places',
+        redirect: 'statistics/activity-history',
       },
       {
-        name: 'placeStatistics',
-        path: 'statistics/places',
+        name: 'activityHistoryStatistics',
+        path: 'statistics/activity-history',
         meta: {
           requireLoggedIn: true,
           breadcrumbs: [
@@ -567,7 +567,7 @@ export default [
           ],
         },
         components: {
-          default: PlaceStatistics,
+          default: ActivityHistoryStatistics,
           sidenav: Sidenav,
         },
       },

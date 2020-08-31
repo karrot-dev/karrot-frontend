@@ -4,8 +4,9 @@
       title="Activity statistics"
       flat
       square
+      :loading="loading"
       :columns="columns"
-      :data="dataWithTotals"
+      :data="enrichedDataWithTotals"
       row-key="id"
       hide-pagination
       :rows-per-page-options="[0]"
@@ -60,7 +61,8 @@ export default {
       },
     ]
     return {
-      periodFilter: periodFilterOptions[0],
+      loading: true,
+      periodFilter: periodFilterOptions[1],
       periodFilterOptions,
       userFilter: null,
       data: [],
@@ -68,7 +70,7 @@ export default {
         {
           name: 'place',
           label: 'Place',
-          field: row => row.place,
+          field: row => row.place && row.place.name,
           align: 'left',
         },
         ...[
@@ -116,22 +118,28 @@ export default {
       ]
     },
     totals () {
-      const out = {}
-      for (const field of [
+      return [
         'doneCount',
         'leaveCount',
         'leaveLateCount',
         'feedbackWeight',
-      ]) {
-        out[field] = this.data.reduce((sum, entry) => sum + entry[field], 0)
-      }
-      return out
+      ].reduce((acc, field) => {
+        acc[field] = this.data.reduce((sum, entry) => sum + entry[field], 0)
+        return acc
+      }, {})
     },
-    dataWithTotals () {
-      if (this.data.length === 0) return []
-      // TODO: mixin the place data?
+    enrichedData () {
+      return this.data.map(entry => {
+        return {
+          ...entry,
+          place: this.getPlace(entry.place) || {},
+        }
+      })
+    },
+    enrichedDataWithTotals () {
+      if (this.enrichedData.length === 0) return []
       return [
-        ...this.data,
+        ...this.enrichedData,
         {
           name: 'Total',
           ...this.totals,
@@ -171,8 +179,13 @@ export default {
       immediate: true,
       async handler (params) {
         if (Object.keys(params).length === 0) return
-        console.log('fetching stats with params', params)
-        this.data = await api.activityHistory(params)
+        this.loading = true
+        try {
+          this.data = await api.activityHistory(params)
+        }
+        finally {
+          this.loading = false
+        }
       },
     },
   },

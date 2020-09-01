@@ -73,7 +73,7 @@ yarn
 To run the local dev server:
 
 ```
-quasar dev
+yarn dev
 ```
 
 To lint and run the tests:

@@ -713,6 +713,7 @@
     "PROFILE_TITLE": "Profile",
     "PUSH": "Push notifications",
     "PUSH_CURRENT_BROWSER": "Current browser",
+    "PUSH_BLOCKED": "Could not enable push notifications, maybe you didn't allow them?",
     "REQUEST_DELETE_ACCOUNT": {
       "SUCCESS": "We sent you an e-mail with a link to complete the deletion process."
     },

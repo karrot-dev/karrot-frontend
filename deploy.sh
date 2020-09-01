@@ -98,7 +98,7 @@ about_json=$(printf '{
 echo "$about_json" > dist/about.json
 
 # send it all to the host
-rsync -avz --delete dist/ "deploy@$HOST:karrot-frontend/$DIR/"
+rsync -avz --delete dist/pwa/ "deploy@$HOST:karrot-frontend/$DIR/"
 
 if [ ! -z "$STORYBOOK_URL" ]; then
   echo "$about_json" > storybook-static/about.json

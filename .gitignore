@@ -36,7 +36,6 @@ yarn-error.log*
 *.sln
 
 # Old stuff
-yarn-error.log
 .vscode
 nbproject/
 storybook-static
@@ -48,4 +47,6 @@ karrot-docker/
 updateLocalesHelper/env
 .nvmrc
 v8-compile-cache-0
+/cert.pem
+/key.pem
 

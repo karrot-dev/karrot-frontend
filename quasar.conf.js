@@ -9,10 +9,36 @@
 
 const { configure } = require('quasar/wrappers')
 const { resolve } = require('path')
+const fs = require('fs')
 const StyleLintPlugin = require('stylelint-webpack-plugin')
 const PreloadWebpackPlugin = require('preload-webpack-plugin')
 const HardSourceWebpackPlugin = require('hard-source-webpack-plugin')
 const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin
+
+function getHttpsOptions () {
+  /* Try to set up https with your own cert for usage with mkcert
+  Define your cert path and filenames in a file called .env (this uses dotenv)
+
+  KEY=key.pem
+  CERT=cert.pem
+  CA=/home/tic/.local/share/mkcert/rootCA.pem
+
+  More info: https://github.com/FiloSottile/mkcert
+  If these are not available, fall back to making our own cert
+  */
+  try {
+    return {
+      key: fs.readFileSync(process.env.KEY),
+      cert: fs.readFileSync(process.env.CERT),
+      ca: fs.readFileSync(process.env.CA),
+    }
+  }
+  catch (e) {
+    console.log('Could not find key/cert/ca files, falling back to our own...', e)
+    return true
+  }
+}
+
 
 module.exports = configure(function (ctx) {
   const { backend, proxyTable } = require('./build/config')
@@ -21,11 +47,11 @@ module.exports = configure(function (ctx) {
   const appEnv = {
     // define the karrot environment
     KARROT: {
-      BACKEND: JSON.stringify(backend),
-      THEME: JSON.stringify(process.env.KARROT_THEME),
-      FCM_CONFIG: JSON.stringify(process.env.FCM_CONFIG),
-      SENTRY_CONFIG: JSON.stringify(process.env.SENTRY_CONFIG),
-      GIT_SHA1: JSON.stringify(process.env.GIT_SHA1 || process.env.CIRCLE_SHA1),
+      BACKEND: backend,
+      THEME: process.env.KARROT_THEME,
+      FCM_CONFIG: process.env.FCM_CONFIG,
+      SENTRY_CONFIG: process.env.SENTRY_CONFIG,
+      GIT_SHA1: process.env.GIT_SHA1 || process.env.CIRCLE_SHA1,
     },
     // vuelidate wants this
     // see https://github.com/monterail/vuelidate/issues/365
@@ -145,7 +171,7 @@ module.exports = configure(function (ctx) {
 
         if (!dev) {
           cfg.plugins.push(new BundleAnalyzerPlugin({
-            analyzerMode: ctx.mode === 'cordova' ? 'disabled' : 'static',
+            analyzerMode: ctx.mode.cordova ? 'disabled' : 'static',
             reportFilename: 'bundlesize.html',
             defaultSizes: 'gzip',
             openAnalyzer: false,
@@ -160,7 +186,8 @@ module.exports = configure(function (ctx) {
 
     // Full list of options: https://quasar.dev/quasar-cli/quasar-conf-js#Property%3A-devServer
     devServer: {
-      https: false,
+      // PWA needs https to load the service worker
+      https: ctx.mode.pwa ? getHttpsOptions() : false,
       port: 8080,
       open: true, // opens browser window automatically
       proxy: proxyTable,
@@ -198,7 +225,7 @@ module.exports = configure(function (ctx) {
 
     // https://quasar.dev/quasar-cli/developing-pwa/configuring-pwa
     pwa: {
-      workboxPluginMode: 'GenerateSW', // 'GenerateSW' or 'InjectManifest'
+      workboxPluginMode: 'InjectManifest', // 'GenerateSW' or 'InjectManifest'
       workboxOptions: {}, // only for GenerateSW
       manifest: {
         name: `Karrot`,

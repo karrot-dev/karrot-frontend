@@ -38,7 +38,7 @@ deploy-android: &deploy-android
           VERSION=`./node_modules/.bin/sentry-cli releases propose-version`
           ./node_modules/.bin/sentry-cli releases new ${VERSION}
           ./node_modules/.bin/sentry-cli releases set-commits --auto ${VERSION}
-          ./node_modules/.bin/sentry-cli releases files "${VERSION}" upload-sourcemaps "${DIST_DIR}/assets/js" --rewrite --url-prefix "~/android_asset/www/assets/js"
+          ./node_modules/.bin/sentry-cli releases files "${VERSION}" upload-sourcemaps "${DIST_DIR}/js" --rewrite --url-prefix "~/android_asset/www/js"
           ./node_modules/.bin/sentry-cli releases finalize "${VERSION}"
           ./node_modules/.bin/sentry-cli releases set-commits --auto "${VERSION}"
 
@@ -58,7 +58,6 @@ build-android: &build-android
     rm -f config/current
     ln -s "$CORDOVA_ENV" config/current
     cordova platform add android
-    find www/assets -name *.js.map -type f -delete
     ./build android "$CORDOVA_ENV" release "${!PASSWORD_VAR}"
     mv platforms/android/app/build/outputs/apk/release/app-release.apk ~/repo/android-${CORDOVA_ENV}.apk
 
@@ -194,7 +193,7 @@ jobs:
           name: build cordova app
           command: |
             yarn build:cordova:dev
-            mv dist dist-app-dev
+            mv src-cordova/www dist-app-dev
       - persist_to_workspace:
           root: ~/repo
           paths:
@@ -211,7 +210,7 @@ jobs:
           name: build cordova app
           command: |
             yarn build:cordova:prod
-            mv dist dist-app-prod
+            mv src-cordova/www dist-app-prod
       - persist_to_workspace:
           root: ~/repo
           paths:

@@ -68,8 +68,9 @@ module.exports = configure(function (ctx) {
     // --> boot files are part of "main.js"
     // https://quasar.dev/quasar-cli/boot-files
     boot: [
-      'helloDeveloper',
       'loglevel',
+      'helloDeveloper',
+      'addressbar-color',
       'socket',
       'sentry',
       'cordova',
@@ -217,6 +218,7 @@ module.exports = configure(function (ctx) {
         'Dialog',
         'AppVisibility',
         'Notify',
+        'AddressbarColor',
       ],
     },
 

@@ -7,7 +7,7 @@ module.exports = {
   parserOptions: {
     parser: 'babel-eslint',
     ecmaVersion: 2018, // Allows for the parsing of modern ECMAScript features
-    sourceType: 'module' // Allows for the use of imports
+    sourceType: 'module', // Allows for the use of imports
   },
 
   env: {
@@ -17,12 +17,12 @@ module.exports = {
 
   // Rules order is important, please avoid shuffling them
   extends: [
-     // Uncomment any of the lines below to choose desired strictness,
+    // Uncomment any of the lines below to choose desired strictness,
     // but leave only one uncommented!
     // See https://eslint.vuejs.org/rules/#available-rules
     'plugin:vue/recommended', // Priority C: Recommended (Minimizing Arbitrary Choices and Cognitive Overhead)
 
-    'standard'
+    'standard',
 
   ],
 
@@ -58,19 +58,18 @@ module.exports = {
     'import/no-extraneous-dependencies': 'off',
     'prefer-promise-reject-errors': 'off',
 
-
     // allow debugger during development only
     'no-debugger': process.env.NODE_ENV === 'production' ? 'error' : 'off',
 
-    'brace-style': ['error', 'stroustrup', { 'allowSingleLine': true }],
+    'brace-style': ['error', 'stroustrup', { allowSingleLine: true }],
     'comma-dangle': ['error', {
-      'arrays': 'always-multiline',
-      'objects': 'always-multiline',
-      'imports': 'always-multiline',
-      'exports': 'always-multiline',
-      'functions': 'always-multiline'
+      arrays: 'always-multiline',
+      objects: 'always-multiline',
+      imports: 'always-multiline',
+      exports: 'always-multiline',
+      functions: 'always-multiline',
     }],
     // do not capitalize the "I" in "i18n" component name
-    'vue/component-name-in-template-casing': ['error', 'PascalCase', {'ignores': ['i18n']}],
+    'vue/component-name-in-template-casing': ['error', 'PascalCase', { ignores: ['i18n'] }],
   },
 }

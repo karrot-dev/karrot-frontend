@@ -39,7 +39,6 @@ function getHttpsOptions () {
   }
 }
 
-
 module.exports = configure(function (ctx) {
   const { backend, proxyTable } = require('./build/config')
   const dev = ctx.dev
@@ -87,7 +86,7 @@ module.exports = configure(function (ctx) {
 
     // https://quasar.dev/quasar-cli/quasar-conf-js#Property%3A-css
     css: [
-      'app.styl'
+      'app.styl',
     ],
 
     // https://github.com/quasarframework/quasar/tree/dev/extras
@@ -132,7 +131,7 @@ module.exports = configure(function (ctx) {
           enforce: 'pre',
           test: /\.(js|vue)$/,
           loader: 'eslint-loader',
-          exclude: /node_modules/
+          exclude: /node_modules/,
         })
 
         cfg.resolve.alias = {
@@ -155,7 +154,7 @@ module.exports = configure(function (ctx) {
             fileWhitelist: [/\.woff?$/],
             include: 'allAssets',
             rel: 'prefetch',
-          })
+          }),
         )
 
         if (dev) {
@@ -228,9 +227,9 @@ module.exports = configure(function (ctx) {
       workboxPluginMode: 'InjectManifest', // 'GenerateSW' or 'InjectManifest'
       workboxOptions: {}, // only for GenerateSW
       manifest: {
-        name: `Karrot`,
-        short_name: `Karrot`,
-        description: `Modern website for organization of foodsaving groups worldwide`,
+        name: 'Karrot',
+        short_name: 'Karrot',
+        description: 'Modern website for organization of foodsaving groups worldwide',
         display: 'standalone',
         orientation: 'portrait',
         background_color: '#ffffff',
@@ -239,30 +238,30 @@ module.exports = configure(function (ctx) {
           {
             src: 'icons/icon-128x128.png',
             sizes: '128x128',
-            type: 'image/png'
+            type: 'image/png',
           },
           {
             src: 'icons/icon-192x192.png',
             sizes: '192x192',
-            type: 'image/png'
+            type: 'image/png',
           },
           {
             src: 'icons/icon-256x256.png',
             sizes: '256x256',
-            type: 'image/png'
+            type: 'image/png',
           },
           {
             src: 'icons/icon-384x384.png',
             sizes: '384x384',
-            type: 'image/png'
+            type: 'image/png',
           },
           {
             src: 'icons/icon-512x512.png',
             sizes: '512x512',
-            type: 'image/png'
-          }
-        ]
-      }
+            type: 'image/png',
+          },
+        ],
+      },
     },
 
     // Full list of options: https://quasar.dev/quasar-cli/developing-cordova-apps/configuring-cordova

@@ -1,13 +1,11 @@
 const mockGetToken = jest.fn()
-const mockOnTokenRefresh = jest.fn()
-const mockRequestPermission = jest.fn()
 const mockInitializeMessaging = jest.fn(() => ({
   getToken: mockGetToken,
-  onTokenRefresh: mockOnTokenRefresh,
-  requestPermission: mockRequestPermission,
 }))
-
-const mockRemoveServiceWorkersOnUnload = jest.fn()
+const postMessageMock = jest.fn()
+const mockRegistration = {
+  active: { postMessage: postMessageMock },
+}
 
 const mockListSubscriptions = jest.fn()
 const mockCreateSubscription = jest.fn()
@@ -20,8 +18,12 @@ jest.mock('@/subscriptions/api/subscriptions', () => ({
 
 jest.mock('@/subscriptions/firebase', () => ({
   initializeMessaging: mockInitializeMessaging,
-  removeServiceWorkersOnUnload: mockRemoveServiceWorkersOnUnload,
+  getServiceWorkerRegistration: () => mockRegistration,
+  isSupported: () => true,
 }))
+
+const toastShowMock = jest.fn()
+
 import { createDatastore, nextTicks } from '>/helpers'
 
 describe('auth/push', () => {
@@ -32,6 +34,11 @@ describe('auth/push', () => {
     let datastore
     beforeEach(() => {
       datastore = createDatastore({
+        toasts: {
+          actions: {
+            show: toastShowMock,
+          },
+        },
         auth: {
           modules: {
             push: require('./push').default,
@@ -42,23 +49,23 @@ describe('auth/push', () => {
 
     it('can be enabled', async () => {
       const token = 'my token'
-      mockGetToken.mockResolvedValueOnce(null)
       mockGetToken.mockResolvedValueOnce(token)
       await datastore.dispatch('auth/push/enable')
       expect(datastore.getters['auth/push/enabled']).toBe(true)
       expect(datastore.state.auth.push.token).toBe(token)
-      expect(mockRequestPermission).toBeCalled()
+      expect(mockGetToken).toBeCalled()
+      expect(postMessageMock).toBeCalledWith({ type: 'LOAD_FIREBASE' })
+      expect(toastShowMock).not.toBeCalled()
     })
 
     it('does not enable if the user denies', async () => {
-      const token = 'my token'
-      mockGetToken.mockResolvedValueOnce(null)
-      mockGetToken.mockResolvedValueOnce(token)
-      mockRequestPermission.mockRejectedValueOnce({ code: 'messaging/permission-blocked' })
+      mockGetToken.mockRejectedValueOnce({ code: 'messaging/permission-blocked' })
       await datastore.dispatch('auth/push/enable')
       expect(datastore.getters['auth/push/enabled']).toBe(false)
       expect(datastore.state.auth.push.token).toBe(null)
-      expect(mockRequestPermission).toBeCalled()
+      expect(mockGetToken).toBeCalled()
+      expect(toastShowMock).toBeCalled()
+      expect(postMessageMock).not.toBeCalledWith()
     })
   })
 

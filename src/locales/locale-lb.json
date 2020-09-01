@@ -302,6 +302,8 @@
     "GITHUB_NOTE": "Entwécklung",
     "INVALID_LINK": "Entschëlleg, de Link deen's de opmaache wëlls ass ongülteg.",
     "NOT_CONNECTED": "Du bass net mam Server verbonn",
+    "OFFLINE_RECONNECT": "Offline. Press here to reconnect.",
+    "RECONNECTING": "Reconnecting...",
     "SEARCH_NOT_FOUND": "Net fonnt",
     "SEARCH_RESULTS": "Sichresultater",
     "SERVER_ERROR": "Server-Feeler"

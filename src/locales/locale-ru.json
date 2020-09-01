@@ -302,6 +302,8 @@
     "GITHUB_NOTE": "Разработка",
     "INVALID_LINK": "Открытая ссылка недействительна ",
     "NOT_CONNECTED": "Не удается подключиться к сети",
+    "OFFLINE_RECONNECT": "Offline. Press here to reconnect.",
+    "RECONNECTING": "Reconnecting...",
     "SEARCH_NOT_FOUND": "Не найдено",
     "SEARCH_RESULTS": "Search results",
     "SERVER_ERROR": "Ошибка на сервере"

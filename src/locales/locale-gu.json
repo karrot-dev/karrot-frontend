@@ -302,6 +302,8 @@
     "GITHUB_NOTE": "વિકાસ",
     "INVALID_LINK": "Sorry, the link you've opened is invalid.",
     "NOT_CONNECTED": "You aren't connected to the server",
+    "OFFLINE_RECONNECT": "Offline. Press here to reconnect.",
+    "RECONNECTING": "Reconnecting...",
     "SEARCH_NOT_FOUND": "Not Found",
     "SEARCH_RESULTS": "Search results",
     "SERVER_ERROR": "સર્વર ભૂલ"

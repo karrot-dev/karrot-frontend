@@ -302,6 +302,8 @@
     "GITHUB_NOTE": "Ellaboro",
     "INVALID_LINK": "Pardonon, la ligilo ne validas.",
     "NOT_CONNECTED": "Vi ne estas konektita al la servilo",
+    "OFFLINE_RECONNECT": "Offline. Press here to reconnect.",
+    "RECONNECTING": "Reconnecting...",
     "SEARCH_NOT_FOUND": "Netrovita",
     "SEARCH_RESULTS": "Serĉi rezultojn",
     "SERVER_ERROR": "Eraro servila"

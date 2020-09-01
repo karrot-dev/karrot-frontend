@@ -302,6 +302,8 @@
     "GITHUB_NOTE": "Développement",
     "INVALID_LINK": "Désolé, le lien que tu as ouvert n'est pas valide.",
     "NOT_CONNECTED": "Vous n'êtes pas connecté au serveur.",
+    "OFFLINE_RECONNECT": "Offline. Press here to reconnect.",
+    "RECONNECTING": "Reconnecting...",
     "SEARCH_NOT_FOUND": "Pas trouvé",
     "SEARCH_RESULTS": "Recherche de résultats",
     "SERVER_ERROR": "Erreur de serveur"

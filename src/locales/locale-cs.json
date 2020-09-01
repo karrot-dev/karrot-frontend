@@ -302,6 +302,8 @@
     "GITHUB_NOTE": "Vývoj",
     "INVALID_LINK": "Litujeme, odkaz, který jste otevřeli, je neplatný.",
     "NOT_CONNECTED": "Nejste připojeni k serveru",
+    "OFFLINE_RECONNECT": "Offline. Press here to reconnect.",
+    "RECONNECTING": "Reconnecting...",
     "SEARCH_NOT_FOUND": "Nenalezeno",
     "SEARCH_RESULTS": "Výsledky vyhledávání",
     "SERVER_ERROR": "Chyba serveru"

@@ -47,17 +47,22 @@ export default {
   },
   data () {
     const periodFilterOptions = [
+      // If you add new options, be sure to handle them in dateQuery too
       {
         label: 'Previous 7 days!',
-        value: 'previous7days',
+        value: '7days',
       },
       {
         label: 'Previous 30 days',
-        value: 'previous30days',
+        value: '30days',
+      },
+      {
+        label: 'Previous 3 months',
+        value: '3months',
       },
       {
         label: 'Previous 6 months',
-        value: 'previous6months',
+        value: '6months',
       },
     ]
     return {
@@ -146,31 +151,35 @@ export default {
         },
       ]
     },
-    dateQuery () {
-      if (!this.periodFilter.value) return {}
-      const now = new Date()
-      switch (this.periodFilter.value) {
-        case 'previous7days':
-          return {
-            dateAfter: subDays(now, 7),
-          }
-        case 'previous30days':
-          return {
-            dateAfter: subDays(now, 30),
-          }
-        case 'previous6months':
-          return {
-            dateAfter: subMonths(now, 6),
-          }
-        default:
-          throw new Error(`unknown date filter option: ${this.periodFilter.value}`)
-      }
-    },
     query () {
       return {
         group: this.currentGroupId,
         user: this.userFilter,
         ...this.dateQuery,
+      }
+    },
+    dateQuery () {
+      if (!this.periodFilter.value) return {}
+      const now = new Date()
+      switch (this.periodFilter.value) {
+        case '7days':
+          return {
+            dateAfter: subDays(now, 7),
+          }
+        case '30days':
+          return {
+            dateAfter: subDays(now, 30),
+          }
+        case '3months':
+          return {
+            dateAfter: subMonths(now, 3),
+          }
+        case '6months':
+          return {
+            dateAfter: subMonths(now, 6),
+          }
+        default:
+          throw new Error(`unknown date filter option: ${this.periodFilter.value}`)
       }
     },
   },

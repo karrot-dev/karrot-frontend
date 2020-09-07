@@ -65,7 +65,6 @@ module.exports = configure(function (ctx) {
     // preFetch: true,
 
     // app boot file (/src/boot)
-    // --> boot files are part of "main.js"
     // https://quasar.dev/quasar-cli/boot-files
     boot: [
       'loglevel',
@@ -189,7 +188,7 @@ module.exports = configure(function (ctx) {
     // Full list of options: https://quasar.dev/quasar-cli/quasar-conf-js#Property%3A-devServer
     devServer: {
       // PWA needs https to load the service worker
-      https: ctx.mode.pwa ? getHttpsOptions() : false,
+      https: (ctx.dev && ctx.mode.pwa) ? getHttpsOptions() : false,
       port: 8080,
       open: true, // opens browser window automatically
       proxy: proxyTable,

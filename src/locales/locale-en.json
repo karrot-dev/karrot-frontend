@@ -625,6 +625,20 @@
     "OK": "Join",
     "TITLE": "Sign Up!"
   },
+  "STATISTICS": {
+    "ACTIVITY_HISTORY": "Activity statistics",
+    "FILTER_USER_LABEL": "User",
+    "FILTER_ALL_USERS": "All users",
+    "FILTER_TIME_LABEL": "Time period",
+    "FILTER_TIME_PREVIOUS_DAYS": "Previous {count} days",
+    "FILTER_TIME_PREVIOUS_MONTHS": "Previous {count} months",
+    "COLUMN_PLACE": "Place",
+    "COLUMN_ACTIVITY_DONE": "Done",
+    "COLUMN_ACTIVITY_LEFT": "Left",
+    "COLUMN_ACTIVITY_LEFT_LATE": "Left late",
+    "COLUMN_FEEDBACK_WEIGHT": "Weight",
+    "TOTAL_LABEL": "Total"
+  },
   "STOREDETAIL": {
     "ARCHIVED": "This place has been archived",
     "CHANGE_STATUS": "You can change the status on the settings page.",

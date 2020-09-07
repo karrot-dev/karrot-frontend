@@ -563,7 +563,7 @@ export default [
         meta: {
           requireLoggedIn: true,
           breadcrumbs: [
-            { translation: 'STATISTICS', route: { name: 'statistics' } },
+            { translation: 'GROUP.STATISTICS', route: { name: 'statistics' } },
           ],
         },
         components: {

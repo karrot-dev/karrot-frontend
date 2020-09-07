@@ -1,7 +1,7 @@
 <template>
   <div>
     <QTable
-      title="Activity statistics"
+      :title="$t('STATISTICS.ACTIVITY_HISTORY')"
       flat
       square
       :loading="loading"
@@ -14,16 +14,16 @@
       <template #top-right>
         <QSelect
           v-model="userFilter"
-          label="User"
+          :label="$t('STATISTICS.FILTER_USER_LABEL')"
           filled
           :options="userOptions"
-          :display-value="userFilter ? usersById[userFilter].displayName : 'All users'"
+          :display-value="userFilter ? usersById[userFilter].displayName : $t('STATISTICS.FILTER_ALL_USERS')"
           emit-value
           class="q-mr-sm"
         />
         <QSelect
           v-model="periodFilter"
-          label="Time period"
+          :label="$t('STATISTICS.FILTER_TIME_LABEL')"
           filled
           :options="periodFilterOptions"
         />
@@ -49,19 +49,19 @@ export default {
     const periodFilterOptions = [
       // If you add new options, be sure to handle them in dateQuery too
       {
-        label: 'Previous 7 days!',
+        label: this.$t('STATISTICS.FILTER_TIME_PREVIOUS_DAYS', { count: 7 }),
         value: '7days',
       },
       {
-        label: 'Previous 30 days',
+        label: this.$t('STATISTICS.FILTER_TIME_PREVIOUS_DAYS', { count: 30 }),
         value: '30days',
       },
       {
-        label: 'Previous 3 months',
+        label: this.$t('STATISTICS.FILTER_TIME_PREVIOUS_MONTHS', { count: 3 }),
         value: '3months',
       },
       {
-        label: 'Previous 6 months',
+        label: this.$t('STATISTICS.FILTER_TIME_PREVIOUS_MONTHS', { count: 6 }),
         value: '6months',
       },
     ]
@@ -74,14 +74,14 @@ export default {
       columns: [
         {
           name: 'place',
-          label: 'Place',
+          label: this.$t('STATISTICS.COLUMN_PLACE'),
           field: row => row.place && row.place.name,
           align: 'left',
         },
         ...[
-          ['doneCount', 'Done'],
-          ['leaveCount', 'Left'],
-          ['leaveLateCount', 'Left late'],
+          ['doneCount', this.$t('STATISTICS.COLUMN_ACTIVITY_DONE')],
+          ['leaveCount', this.$t('STATISTICS.COLUMN_ACTIVITY_LEFT')],
+          ['leaveLateCount', this.$t('STATISTICS.COLUMN_ACTIVITY_LEFT_LATE')],
         ].map(([field, label]) => ({
           name: field,
           label,
@@ -90,7 +90,7 @@ export default {
         })),
         {
           name: 'feedbackWeight',
-          label: 'Weight',
+          label: this.$t('STATISTICS.COLUMN_FEEDBACK_WEIGHT'),
           field: row => row.feedbackWeight.toFixed(1),
           format: value => `${value} kg`,
           align: 'right',
@@ -146,7 +146,7 @@ export default {
       return [
         ...this.enrichedData,
         {
-          name: 'Total',
+          name: this.$t('STATISTICS.TOTAL_LABEL'),
           ...this.totals,
         },
       ]

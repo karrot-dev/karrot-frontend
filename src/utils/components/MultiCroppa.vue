@@ -24,7 +24,7 @@
       >
         <img
           slot="placeholder"
-          src="public/add_a_photo.svg"
+          src="statics/add_a_photo.svg"
           :width="60"
         >
       </Croppa>

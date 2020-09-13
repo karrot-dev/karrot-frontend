@@ -25,11 +25,8 @@ export default {
       closing: 'loadingprogress/closing',
     }),
   },
-  async created () {
-    this.logo = logo
-    if (process.env.KARROT.THEME === 'dev') {
-      this.logo = (await import('@/logo/assets/carrot-logo.dev.svg')).default
-    }
+  created () {
+    this.logo = process.env.KARROT.THEME === 'dev' ? 'icons/dev.svg' : logo
   },
 }
 </script>

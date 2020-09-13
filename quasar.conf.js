@@ -231,14 +231,20 @@ module.exports = configure(function (ctx) {
       workboxPluginMode: 'InjectManifest', // 'GenerateSW' or 'InjectManifest'
       workboxOptions: {}, // only for GenerateSW
       manifest: {
-        name: 'Karrot',
-        short_name: 'Karrot',
+        name: process.env.PWA_APP_NAME || 'Karrot local dev',
+        short_name: process.env.PWA_APP_NAME || 'Karrot local dev',
         description: 'Modern website for organization of foodsaving groups worldwide',
         display: 'standalone',
         orientation: 'portrait',
         background_color: '#ffffff',
         theme_color: '#4a3520',
-        icons: [
+        icons: process.env.KARROT_THEME === 'dev' ? [
+          {
+            src: 'icons/dev.svg',
+            // Chrome dev tools complain otherwise...
+            sizes: '128x128 512x512',
+          },
+        ] : [
           {
             src: 'icons/icon-128x128.png',
             sizes: '128x128',
@@ -263,24 +269,6 @@ module.exports = configure(function (ctx) {
             src: 'icons/icon-512x512.png',
             sizes: '512x512',
             type: 'image/png',
-          },
-        ],
-        'related_applications': [
-          {
-            'platform': 'play',
-            'url': 'https://play.google.com/store/apps/details?id=com.example.app1',
-            'id': 'com.example.app1',
-            'min_version': '2',
-            'fingerprints': [
-              {
-                'type': 'sha256_cert',
-                'value': '92:5A:39:05:C5:B9:EA:BC:71:48:5F:F2'
-              },
-            ],
-          },
-          {
-            'platform': 'webapp',
-            'url': 'https://localhost:8080/manifest.json',
           },
         ],
       },

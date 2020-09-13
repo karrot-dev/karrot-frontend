@@ -63,6 +63,11 @@ const datastore = createDatastore({
       locale: () => 'en',
     },
   },
+  pwa: {
+    getters: {
+      installPrompt: () => ({}),
+    },
+  },
 })
 
 const user = factories.makeCurrentUser({ mailVerified: false })

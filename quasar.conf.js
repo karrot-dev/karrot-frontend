@@ -68,6 +68,7 @@ module.exports = configure(function (ctx) {
     // https://quasar.dev/quasar-cli/boot-files
     boot: [
       'loglevel',
+      'pwa',
       'helloDeveloper',
       'addressbar-color',
       'socket',
@@ -262,6 +263,24 @@ module.exports = configure(function (ctx) {
             src: 'icons/icon-512x512.png',
             sizes: '512x512',
             type: 'image/png',
+          },
+        ],
+        'related_applications': [
+          {
+            'platform': 'play',
+            'url': 'https://play.google.com/store/apps/details?id=com.example.app1',
+            'id': 'com.example.app1',
+            'min_version': '2',
+            'fingerprints': [
+              {
+                'type': 'sha256_cert',
+                'value': '92:5A:39:05:C5:B9:EA:BC:71:48:5F:F2'
+              },
+            ],
+          },
+          {
+            'platform': 'webapp',
+            'url': 'https://localhost:8080/manifest.json',
           },
         ],
       },

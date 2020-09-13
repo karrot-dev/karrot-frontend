@@ -298,6 +298,7 @@
   },
   "GLOBAL": {
     "ABOUT_KARROT": "About Karrot",
+    "APP_INSTALLED": "App successfully installed!",
     "GENERIC_ERROR": "Sorry, something went wrong",
     "GITHUB_NOTE": "Development",
     "INVALID_LINK": "Sorry, the link you've opened is invalid.",
@@ -714,6 +715,8 @@
     "PUSH": "Push notifications",
     "PUSH_CURRENT_BROWSER": "Current browser",
     "PUSH_BLOCKED": "Could not enable push notifications, maybe you didn't allow them?",
+    "APP": "App",
+    "INSTALL_APP": "Install Karrot app to your device",
     "REQUEST_DELETE_ACCOUNT": {
       "SUCCESS": "We sent you an e-mail with a link to complete the deletion process."
     },

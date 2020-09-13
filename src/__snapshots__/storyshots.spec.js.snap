@@ -10209,6 +10209,18 @@ exports[`Storyshots Settings Page Default 1`] = `
       </div>
     </div>
   </div>
+  <div class="q-card bg-white q-mb-lg no-shadow grey-border">
+    <div class="q-card__section q-card__section--vert">
+      <div class="text-h6">
+        App
+      </div>
+    </div>
+    <div class="q-card__section q-card__section--vert">
+      <div class="edit-box"><button tabindex="0" type="button" role="button" class="q-btn q-btn-item non-selectable no-outline q-btn--standard q-btn--rectangle q-btn--actionable q-focusable q-hoverable q-btn--wrap"><span class="q-focus-helper"></span><span class="q-btn__wrapper col row q-anchor--skip"><span class="q-btn__content text-center col items-center q-anchor--skip justify-center row">
+    Install Karrot app to your device
+  </span></span></button></div>
+    </div>
+  </div>
 </div>
 `;
 

@@ -21,6 +21,8 @@ Please document your changes in this format:
 ```
 
 ## [Unreleased]
+### Added
+- Karrot can now be added to your homescreen (installed as App). Check out the button at the bottom of your profile settings page! @tiltec
 
 ## [8.7.2] - 2020-08-28
 ### Changed

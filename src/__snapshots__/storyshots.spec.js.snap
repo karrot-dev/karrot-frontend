@@ -1315,7 +1315,7 @@ exports[`Storyshots ActivitySeriesEdit custom rule 1`] = `
               <div role="radiogroup" class="q-option-group q-gutter-x-sm q-option-group--inline">
                 <div>
                   <div tabindex="0" role="radio" aria-label="Weekly" aria-checked="false" class="q-radio cursor-pointer no-outline row inline no-wrap items-center">
-                    <div class="q-radio__inner relative-position no-pointer-events q-radio__inner--falsy"><input type="radio" class="hidden q-radio__native q-ma-none q-pa-none invisible"><svg focusable="false" viewBox="0 0 24 24" aria-hidden="true" class="q-radio__bg absolute">
+                    <div class="q-radio__inner relative-position q-radio__inner--falsy"><input type="radio" class="hidden q-radio__native q-ma-none q-pa-none"><svg focusable="false" viewBox="0 0 24 24" aria-hidden="true" class="q-radio__bg absolute non-selectable">
                         <path d="M12,22a10,10 0 0 1 -10,-10a10,10 0 0 1 10,-10a10,10 0 0 1 10,10a10,10 0 0 1 -10,10m0,-22a12,12 0 0 0 -12,12a12,12 0 0 0 12,12a12,12 0 0 0 12,-12a12,12 0 0 0 -12,-12"></path>
                         <path d="M12,6a6,6 0 0 0 -6,6a6,6 0 0 0 6,6a6,6 0 0 0 6,-6a6,6 0 0 0 -6,-6" class="q-radio__check"></path>
                       </svg></div><span tabindex="-1" class="no-outline"></span>
@@ -1324,7 +1324,7 @@ exports[`Storyshots ActivitySeriesEdit custom rule 1`] = `
                 </div>
                 <div>
                   <div tabindex="0" role="radio" aria-label="Custom" aria-checked="true" class="q-radio cursor-pointer no-outline row inline no-wrap items-center">
-                    <div class="q-radio__inner relative-position no-pointer-events q-radio__inner--truthy"><input type="radio" class="hidden q-radio__native q-ma-none q-pa-none invisible"><svg focusable="false" viewBox="0 0 24 24" aria-hidden="true" class="q-radio__bg absolute">
+                    <div class="q-radio__inner relative-position q-radio__inner--truthy"><input type="radio" class="hidden q-radio__native q-ma-none q-pa-none"><svg focusable="false" viewBox="0 0 24 24" aria-hidden="true" class="q-radio__bg absolute non-selectable">
                         <path d="M12,22a10,10 0 0 1 -10,-10a10,10 0 0 1 10,-10a10,10 0 0 1 10,10a10,10 0 0 1 -10,10m0,-22a12,12 0 0 0 -12,12a12,12 0 0 0 12,12a12,12 0 0 0 12,-12a12,12 0 0 0 -12,-12"></path>
                         <path d="M12,6a6,6 0 0 0 -6,6a6,6 0 0 0 6,6a6,6 0 0 0 6,-6a6,6 0 0 0 -6,-6" class="q-radio__check"></path>
                       </svg></div><span tabindex="-1" class="no-outline"></span>
@@ -1453,7 +1453,7 @@ exports[`Storyshots ActivitySeriesEdit custom rule with duration 1`] = `
               <div role="radiogroup" class="q-option-group q-gutter-x-sm q-option-group--inline">
                 <div>
                   <div tabindex="0" role="radio" aria-label="Weekly" aria-checked="false" class="q-radio cursor-pointer no-outline row inline no-wrap items-center">
-                    <div class="q-radio__inner relative-position no-pointer-events q-radio__inner--falsy"><input type="radio" class="hidden q-radio__native q-ma-none q-pa-none invisible"><svg focusable="false" viewBox="0 0 24 24" aria-hidden="true" class="q-radio__bg absolute">
+                    <div class="q-radio__inner relative-position q-radio__inner--falsy"><input type="radio" class="hidden q-radio__native q-ma-none q-pa-none"><svg focusable="false" viewBox="0 0 24 24" aria-hidden="true" class="q-radio__bg absolute non-selectable">
                         <path d="M12,22a10,10 0 0 1 -10,-10a10,10 0 0 1 10,-10a10,10 0 0 1 10,10a10,10 0 0 1 -10,10m0,-22a12,12 0 0 0 -12,12a12,12 0 0 0 12,12a12,12 0 0 0 12,-12a12,12 0 0 0 -12,-12"></path>
                         <path d="M12,6a6,6 0 0 0 -6,6a6,6 0 0 0 6,6a6,6 0 0 0 6,-6a6,6 0 0 0 -6,-6" class="q-radio__check"></path>
                       </svg></div><span tabindex="-1" class="no-outline"></span>
@@ -1462,7 +1462,7 @@ exports[`Storyshots ActivitySeriesEdit custom rule with duration 1`] = `
                 </div>
                 <div>
                   <div tabindex="0" role="radio" aria-label="Custom" aria-checked="true" class="q-radio cursor-pointer no-outline row inline no-wrap items-center">
-                    <div class="q-radio__inner relative-position no-pointer-events q-radio__inner--truthy"><input type="radio" class="hidden q-radio__native q-ma-none q-pa-none invisible"><svg focusable="false" viewBox="0 0 24 24" aria-hidden="true" class="q-radio__bg absolute">
+                    <div class="q-radio__inner relative-position q-radio__inner--truthy"><input type="radio" class="hidden q-radio__native q-ma-none q-pa-none"><svg focusable="false" viewBox="0 0 24 24" aria-hidden="true" class="q-radio__bg absolute non-selectable">
                         <path d="M12,22a10,10 0 0 1 -10,-10a10,10 0 0 1 10,-10a10,10 0 0 1 10,10a10,10 0 0 1 -10,10m0,-22a12,12 0 0 0 -12,12a12,12 0 0 0 12,12a12,12 0 0 0 12,-12a12,12 0 0 0 -12,-12"></path>
                         <path d="M12,6a6,6 0 0 0 -6,6a6,6 0 0 0 6,6a6,6 0 0 0 6,-6a6,6 0 0 0 -6,-6" class="q-radio__check"></path>
                       </svg></div><span tabindex="-1" class="no-outline"></span>
@@ -1604,7 +1604,7 @@ exports[`Storyshots ActivitySeriesEdit duration 1`] = `
               <div role="radiogroup" class="q-option-group q-gutter-x-sm q-option-group--inline">
                 <div>
                   <div tabindex="0" role="radio" aria-label="Weekly" aria-checked="true" class="q-radio cursor-pointer no-outline row inline no-wrap items-center">
-                    <div class="q-radio__inner relative-position no-pointer-events q-radio__inner--truthy"><input type="radio" class="hidden q-radio__native q-ma-none q-pa-none invisible"><svg focusable="false" viewBox="0 0 24 24" aria-hidden="true" class="q-radio__bg absolute">
+                    <div class="q-radio__inner relative-position q-radio__inner--truthy"><input type="radio" class="hidden q-radio__native q-ma-none q-pa-none"><svg focusable="false" viewBox="0 0 24 24" aria-hidden="true" class="q-radio__bg absolute non-selectable">
                         <path d="M12,22a10,10 0 0 1 -10,-10a10,10 0 0 1 10,-10a10,10 0 0 1 10,10a10,10 0 0 1 -10,10m0,-22a12,12 0 0 0 -12,12a12,12 0 0 0 12,12a12,12 0 0 0 12,-12a12,12 0 0 0 -12,-12"></path>
                         <path d="M12,6a6,6 0 0 0 -6,6a6,6 0 0 0 6,6a6,6 0 0 0 6,-6a6,6 0 0 0 -6,-6" class="q-radio__check"></path>
                       </svg></div><span tabindex="-1" class="no-outline"></span>
@@ -1613,7 +1613,7 @@ exports[`Storyshots ActivitySeriesEdit duration 1`] = `
                 </div>
                 <div>
                   <div tabindex="0" role="radio" aria-label="Custom" aria-checked="false" class="q-radio cursor-pointer no-outline row inline no-wrap items-center">
-                    <div class="q-radio__inner relative-position no-pointer-events q-radio__inner--falsy"><input type="radio" class="hidden q-radio__native q-ma-none q-pa-none invisible"><svg focusable="false" viewBox="0 0 24 24" aria-hidden="true" class="q-radio__bg absolute">
+                    <div class="q-radio__inner relative-position q-radio__inner--falsy"><input type="radio" class="hidden q-radio__native q-ma-none q-pa-none"><svg focusable="false" viewBox="0 0 24 24" aria-hidden="true" class="q-radio__bg absolute non-selectable">
                         <path d="M12,22a10,10 0 0 1 -10,-10a10,10 0 0 1 10,-10a10,10 0 0 1 10,10a10,10 0 0 1 -10,10m0,-22a12,12 0 0 0 -12,12a12,12 0 0 0 12,12a12,12 0 0 0 12,-12a12,12 0 0 0 -12,-12"></path>
                         <path d="M12,6a6,6 0 0 0 -6,6a6,6 0 0 0 6,6a6,6 0 0 0 6,-6a6,6 0 0 0 -6,-6" class="q-radio__check"></path>
                       </svg></div><span tabindex="-1" class="no-outline"></span>
@@ -1658,7 +1658,7 @@ exports[`Storyshots ActivitySeriesEdit duration 1`] = `
           When should the pick-up take place?
         </div>
       </div>
-    </div> <label for="f_80808080-8080-4080-8080-808080808080" class="q-field q-validation-component row no-wrap items-start q-select q-field--auto-height q-select--without-input q-select--without-chips q-field--standard q-field--float q-field--labeled q-field--with-bottom">
+    </div> <label for="f_80808080-8080-4080-8080-808080808080" class="q-field q-validation-component row no-wrap items-start q-select q-field--auto-height q-select--without-input q-select--without-chips q-select--multiple q-field--standard q-field--float q-field--labeled q-field--with-bottom">
       <div class="q-field__before q-field__marginal row no-wrap items-center"><i aria-hidden="true" role="presentation" class="material-icons q-icon notranslate">today</i></div>
       <div class="q-field__inner relative-position col self-stretch column justify-center">
         <div tabindex="-1" class="q-field__control relative-position row no-wrap">
@@ -1755,7 +1755,7 @@ exports[`Storyshots ActivitySeriesEdit time error 1`] = `
               <div role="radiogroup" class="q-option-group q-gutter-x-sm q-option-group--inline">
                 <div>
                   <div tabindex="0" role="radio" aria-label="Weekly" aria-checked="true" class="q-radio cursor-pointer no-outline row inline no-wrap items-center">
-                    <div class="q-radio__inner relative-position no-pointer-events q-radio__inner--truthy"><input type="radio" class="hidden q-radio__native q-ma-none q-pa-none invisible"><svg focusable="false" viewBox="0 0 24 24" aria-hidden="true" class="q-radio__bg absolute">
+                    <div class="q-radio__inner relative-position q-radio__inner--truthy"><input type="radio" class="hidden q-radio__native q-ma-none q-pa-none"><svg focusable="false" viewBox="0 0 24 24" aria-hidden="true" class="q-radio__bg absolute non-selectable">
                         <path d="M12,22a10,10 0 0 1 -10,-10a10,10 0 0 1 10,-10a10,10 0 0 1 10,10a10,10 0 0 1 -10,10m0,-22a12,12 0 0 0 -12,12a12,12 0 0 0 12,12a12,12 0 0 0 12,-12a12,12 0 0 0 -12,-12"></path>
                         <path d="M12,6a6,6 0 0 0 -6,6a6,6 0 0 0 6,6a6,6 0 0 0 6,-6a6,6 0 0 0 -6,-6" class="q-radio__check"></path>
                       </svg></div><span tabindex="-1" class="no-outline"></span>
@@ -1764,7 +1764,7 @@ exports[`Storyshots ActivitySeriesEdit time error 1`] = `
                 </div>
                 <div>
                   <div tabindex="0" role="radio" aria-label="Custom" aria-checked="false" class="q-radio cursor-pointer no-outline row inline no-wrap items-center">
-                    <div class="q-radio__inner relative-position no-pointer-events q-radio__inner--falsy"><input type="radio" class="hidden q-radio__native q-ma-none q-pa-none invisible"><svg focusable="false" viewBox="0 0 24 24" aria-hidden="true" class="q-radio__bg absolute">
+                    <div class="q-radio__inner relative-position q-radio__inner--falsy"><input type="radio" class="hidden q-radio__native q-ma-none q-pa-none"><svg focusable="false" viewBox="0 0 24 24" aria-hidden="true" class="q-radio__bg absolute non-selectable">
                         <path d="M12,22a10,10 0 0 1 -10,-10a10,10 0 0 1 10,-10a10,10 0 0 1 10,10a10,10 0 0 1 -10,10m0,-22a12,12 0 0 0 -12,12a12,12 0 0 0 12,12a12,12 0 0 0 12,-12a12,12 0 0 0 -12,-12"></path>
                         <path d="M12,6a6,6 0 0 0 -6,6a6,6 0 0 0 6,6a6,6 0 0 0 6,-6a6,6 0 0 0 -6,-6" class="q-radio__check"></path>
                       </svg></div><span tabindex="-1" class="no-outline"></span>
@@ -1797,7 +1797,7 @@ exports[`Storyshots ActivitySeriesEdit time error 1`] = `
           time is in past
         </div>
       </div>
-    </div> <label for="f_80808080-8080-4080-8080-808080808080" class="q-field q-validation-component row no-wrap items-start q-select q-field--auto-height q-select--without-input q-select--without-chips q-field--standard q-field--float q-field--labeled q-field--with-bottom">
+    </div> <label for="f_80808080-8080-4080-8080-808080808080" class="q-field q-validation-component row no-wrap items-start q-select q-field--auto-height q-select--without-input q-select--without-chips q-select--multiple q-field--standard q-field--float q-field--labeled q-field--with-bottom">
       <div class="q-field__before q-field__marginal row no-wrap items-center"><i aria-hidden="true" role="presentation" class="material-icons q-icon notranslate">today</i></div>
       <div class="q-field__inner relative-position col self-stretch column justify-center">
         <div tabindex="-1" class="q-field__control relative-position row no-wrap">
@@ -1894,7 +1894,7 @@ exports[`Storyshots ActivitySeriesEdit weekly 1`] = `
               <div role="radiogroup" class="q-option-group q-gutter-x-sm q-option-group--inline">
                 <div>
                   <div tabindex="0" role="radio" aria-label="Weekly" aria-checked="true" class="q-radio cursor-pointer no-outline row inline no-wrap items-center">
-                    <div class="q-radio__inner relative-position no-pointer-events q-radio__inner--truthy"><input type="radio" class="hidden q-radio__native q-ma-none q-pa-none invisible"><svg focusable="false" viewBox="0 0 24 24" aria-hidden="true" class="q-radio__bg absolute">
+                    <div class="q-radio__inner relative-position q-radio__inner--truthy"><input type="radio" class="hidden q-radio__native q-ma-none q-pa-none"><svg focusable="false" viewBox="0 0 24 24" aria-hidden="true" class="q-radio__bg absolute non-selectable">
                         <path d="M12,22a10,10 0 0 1 -10,-10a10,10 0 0 1 10,-10a10,10 0 0 1 10,10a10,10 0 0 1 -10,10m0,-22a12,12 0 0 0 -12,12a12,12 0 0 0 12,12a12,12 0 0 0 12,-12a12,12 0 0 0 -12,-12"></path>
                         <path d="M12,6a6,6 0 0 0 -6,6a6,6 0 0 0 6,6a6,6 0 0 0 6,-6a6,6 0 0 0 -6,-6" class="q-radio__check"></path>
                       </svg></div><span tabindex="-1" class="no-outline"></span>
@@ -1903,7 +1903,7 @@ exports[`Storyshots ActivitySeriesEdit weekly 1`] = `
                 </div>
                 <div>
                   <div tabindex="0" role="radio" aria-label="Custom" aria-checked="false" class="q-radio cursor-pointer no-outline row inline no-wrap items-center">
-                    <div class="q-radio__inner relative-position no-pointer-events q-radio__inner--falsy"><input type="radio" class="hidden q-radio__native q-ma-none q-pa-none invisible"><svg focusable="false" viewBox="0 0 24 24" aria-hidden="true" class="q-radio__bg absolute">
+                    <div class="q-radio__inner relative-position q-radio__inner--falsy"><input type="radio" class="hidden q-radio__native q-ma-none q-pa-none"><svg focusable="false" viewBox="0 0 24 24" aria-hidden="true" class="q-radio__bg absolute non-selectable">
                         <path d="M12,22a10,10 0 0 1 -10,-10a10,10 0 0 1 10,-10a10,10 0 0 1 10,10a10,10 0 0 1 -10,10m0,-22a12,12 0 0 0 -12,12a12,12 0 0 0 12,12a12,12 0 0 0 12,-12a12,12 0 0 0 -12,-12"></path>
                         <path d="M12,6a6,6 0 0 0 -6,6a6,6 0 0 0 6,6a6,6 0 0 0 6,-6a6,6 0 0 0 -6,-6" class="q-radio__check"></path>
                       </svg></div><span tabindex="-1" class="no-outline"></span>
@@ -1935,7 +1935,7 @@ exports[`Storyshots ActivitySeriesEdit weekly 1`] = `
           When should the pick-up take place?
         </div>
       </div>
-    </div> <label for="f_80808080-8080-4080-8080-808080808080" class="q-field q-validation-component row no-wrap items-start q-select q-field--auto-height q-select--without-input q-select--without-chips q-field--standard q-field--float q-field--labeled q-field--with-bottom">
+    </div> <label for="f_80808080-8080-4080-8080-808080808080" class="q-field q-validation-component row no-wrap items-start q-select q-field--auto-height q-select--without-input q-select--without-chips q-select--multiple q-field--standard q-field--float q-field--labeled q-field--with-bottom">
       <div class="q-field__before q-field__marginal row no-wrap items-center"><i aria-hidden="true" role="presentation" class="material-icons q-icon notranslate">today</i></div>
       <div class="q-field__inner relative-position col self-stretch column justify-center">
         <div tabindex="-1" class="q-field__control relative-position row no-wrap">
@@ -2279,7 +2279,7 @@ exports[`Storyshots ActivityUsers leave pending (middle) 1`] = `
 `;
 
 exports[`Storyshots AddressPicker Default 1`] = `
-<div><label for="f_80808080-8080-4080-8080-808080808080" class="q-field q-validation-component row no-wrap items-start q-select q-field--auto-height q-select--with-input q-select--without-chips q-field--standard q-field--labeled q-field--with-bottom">
+<div><label for="f_80808080-8080-4080-8080-808080808080" class="q-field q-validation-component row no-wrap items-start q-select q-field--auto-height q-select--with-input q-select--without-chips q-select--single q-field--standard q-field--labeled q-field--with-bottom">
     <div class="q-field__before q-field__marginal row no-wrap items-center"><i aria-hidden="true" role="presentation" class="q-icon notranslate"></i></div>
     <div class="q-field__inner relative-position col self-stretch column justify-center">
       <div tabindex="-1" class="q-field__control relative-position row no-wrap">
@@ -2759,8 +2759,8 @@ exports[`Storyshots ChatConversation closed 1`] = `
       <!---->
       <div class="q-item q-item-type row no-wrap q-mt-md">
         <div class="q-item__section column q-item__section--avatar q-item__section--side justify-center">
-          <div class="q-avatar">
-            <div class="q-avatar__content row flex-center overflow-hidden bg-grey-5 text-white q-chip--colored"><i aria-hidden="true" role="presentation" class="fas fa-lock q-icon notranslate"> </i></div>
+          <div class="q-avatar bg-grey-5 text-white q-chip--colored">
+            <div class="q-avatar__content row flex-center overflow-hidden"><i aria-hidden="true" role="presentation" class="fas fa-lock q-icon notranslate"> </i></div>
           </div>
         </div>
         <div class="q-item__section column q-item__section--main justify-center">
@@ -5171,7 +5171,7 @@ exports[`Storyshots Feedback ActivityFeedback 1`] = `
         <div class="image-and-text-left gt-sm"><img src="test-file-stub" style="width:100%;"></div>
         <div class="image-and-text-right">
           <h4>Thank you for your pickup!</h4>
-          <p><label for="f_80808080-8080-4080-8080-808080808080" class="q-field q-validation-component row no-wrap items-start grey-font q-select q-field--auto-height q-select--without-input q-select--without-chips q-field--standard q-field--float q-field--dark">
+          <p><label for="f_80808080-8080-4080-8080-808080808080" class="q-field q-validation-component row no-wrap items-start grey-font q-select q-field--auto-height q-select--without-input q-select--without-chips q-select--single q-field--standard q-field--float q-field--dark">
               <div class="q-field__inner relative-position col self-stretch column justify-center">
                 <div tabindex="-1" class="q-field__control relative-position row no-wrap">
                   <div class="q-field__control-container col relative-position row no-wrap q-anchor--skip">
@@ -5975,7 +5975,7 @@ It would make sense if it was markdown
           </label>
           <!---->
         </div>
-        <div><label for="f_80808080-8080-4080-8080-808080808080" class="q-field q-validation-component row no-wrap items-start q-select q-field--auto-height q-select--with-input q-select--without-chips q-field--standard q-field--float q-field--labeled q-field--with-bottom">
+        <div><label for="f_80808080-8080-4080-8080-808080808080" class="q-field q-validation-component row no-wrap items-start q-select q-field--auto-height q-select--with-input q-select--without-chips q-select--single q-field--standard q-field--float q-field--labeled q-field--with-bottom">
             <div class="q-field__before q-field__marginal row no-wrap items-center"><i aria-hidden="true" role="presentation" class="fas fa-fw fa-map-marker q-icon notranslate"> </i></div>
             <div class="q-field__inner relative-position col self-stretch column justify-center">
               <div tabindex="-1" class="q-field__control relative-position row no-wrap">
@@ -6012,7 +6012,7 @@ It would make sense if it was markdown
             </div>
           </label> <button tabindex="0" type="button" role="button" class="q-btn q-btn-item non-selectable no-outline absolute-bottom-right bg-white q-btn--outline q-btn--rectangle text-primary q-btn--actionable q-focusable q-hoverable q-btn--wrap" style="font-size:8px;bottom:-10px;"><span class="q-focus-helper"></span><span class="q-btn__wrapper col row q-anchor--skip"><span class="q-btn__content text-center col items-center q-anchor--skip justify-center row"><span class="block">Preview</span>
             <!----></span></span>
-          </button></div> <label for="f_80808080-8080-4080-8080-808080808080" class="q-field q-validation-component row no-wrap items-start q-select q-field--auto-height q-select--with-input q-select--without-chips q-field--standard q-field--labeled q-field--with-bottom">
+          </button></div> <label for="f_80808080-8080-4080-8080-808080808080" class="q-field q-validation-component row no-wrap items-start q-select q-field--auto-height q-select--with-input q-select--without-chips q-select--single q-field--standard q-field--labeled q-field--with-bottom">
           <div class="q-field__before q-field__marginal row no-wrap items-center"><i aria-hidden="true" role="presentation" class="fas fa-fw fa-globe q-icon notranslate"> </i></div>
           <div class="q-field__inner relative-position col self-stretch column justify-center">
             <div tabindex="-1" class="q-field__control relative-position row no-wrap">
@@ -6071,7 +6071,7 @@ exports[`Storyshots GroupGallery signup view 1`] = `
           </div>
         </label>
         <div tabindex="0" role="checkbox" aria-label="Show inactive groups (0)" aria-checked="false" class="q-checkbox cursor-pointer no-outline row inline no-wrap items-center">
-          <div class="q-checkbox__inner relative-position no-pointer-events q-checkbox__inner--falsy"><input type="checkbox" class="hidden q-checkbox__native absolute q-ma-none q-pa-none invisible">
+          <div class="q-checkbox__inner relative-position non-selectable q-checkbox__inner--falsy"><input type="checkbox" class="hidden q-checkbox__native absolute q-ma-none q-pa-none">
             <div class="q-checkbox__bg absolute"><svg focusable="false" viewBox="0 0 24 24" aria-hidden="true" class="q-checkbox__svg fit absolute-full">
                 <path fill="none" d="M1.73,12.91 8.1,19.28 22.79,4.59" class="q-checkbox__truthy"></path>
                 <path d="M4,14H20V10H4" class="q-checkbox__indet"></path>
@@ -6277,7 +6277,7 @@ exports[`Storyshots GroupGallery switch and explore 1`] = `
           </div>
         </label>
         <div tabindex="0" role="checkbox" aria-label="Show inactive groups (0)" aria-checked="false" class="q-checkbox cursor-pointer no-outline row inline no-wrap items-center">
-          <div class="q-checkbox__inner relative-position no-pointer-events q-checkbox__inner--falsy"><input type="checkbox" class="hidden q-checkbox__native absolute q-ma-none q-pa-none invisible">
+          <div class="q-checkbox__inner relative-position non-selectable q-checkbox__inner--falsy"><input type="checkbox" class="hidden q-checkbox__native absolute q-ma-none q-pa-none">
             <div class="q-checkbox__bg absolute"><svg focusable="false" viewBox="0 0 24 24" aria-hidden="true" class="q-checkbox__svg fit absolute-full">
                 <path fill="none" d="M1.73,12.91 8.1,19.28 22.79,4.59" class="q-checkbox__truthy"></path>
                 <path d="M4,14H20V10H4" class="q-checkbox__indet"></path>
@@ -7089,7 +7089,7 @@ exports[`Storyshots GroupSettings show 1`] = `
         <div tabindex="-1" class="q-focus-helper"></div>
         <div class="q-item__section column q-item__section--side justify-center">
           <div tabindex="0" role="checkbox" aria-checked="false" class="q-checkbox cursor-pointer no-outline row inline no-wrap items-center">
-            <div class="q-checkbox__inner relative-position no-pointer-events q-checkbox__inner--falsy"><input type="checkbox" class="hidden q-checkbox__native absolute q-ma-none q-pa-none invisible">
+            <div class="q-checkbox__inner relative-position non-selectable q-checkbox__inner--falsy"><input type="checkbox" class="hidden q-checkbox__native absolute q-ma-none q-pa-none">
               <div class="q-checkbox__bg absolute"><svg focusable="false" viewBox="0 0 24 24" aria-hidden="true" class="q-checkbox__svg fit absolute-full">
                   <path fill="none" d="M1.73,12.91 8.1,19.28 22.79,4.59" class="q-checkbox__truthy"></path>
                   <path d="M4,14H20V10H4" class="q-checkbox__indet"></path>
@@ -7112,7 +7112,7 @@ exports[`Storyshots GroupSettings show 1`] = `
         <div tabindex="-1" class="q-focus-helper"></div>
         <div class="q-item__section column q-item__section--side justify-center">
           <div tabindex="0" role="checkbox" aria-checked="false" class="q-checkbox cursor-pointer no-outline row inline no-wrap items-center">
-            <div class="q-checkbox__inner relative-position no-pointer-events q-checkbox__inner--falsy"><input type="checkbox" class="hidden q-checkbox__native absolute q-ma-none q-pa-none invisible">
+            <div class="q-checkbox__inner relative-position non-selectable q-checkbox__inner--falsy"><input type="checkbox" class="hidden q-checkbox__native absolute q-ma-none q-pa-none">
               <div class="q-checkbox__bg absolute"><svg focusable="false" viewBox="0 0 24 24" aria-hidden="true" class="q-checkbox__svg fit absolute-full">
                   <path fill="none" d="M1.73,12.91 8.1,19.28 22.79,4.59" class="q-checkbox__truthy"></path>
                   <path d="M4,14H20V10H4" class="q-checkbox__indet"></path>
@@ -7135,7 +7135,7 @@ exports[`Storyshots GroupSettings show 1`] = `
         <div tabindex="-1" class="q-focus-helper"></div>
         <div class="q-item__section column q-item__section--side justify-center">
           <div tabindex="0" role="checkbox" aria-checked="false" class="q-checkbox cursor-pointer no-outline row inline no-wrap items-center">
-            <div class="q-checkbox__inner relative-position no-pointer-events q-checkbox__inner--falsy"><input type="checkbox" class="hidden q-checkbox__native absolute q-ma-none q-pa-none invisible">
+            <div class="q-checkbox__inner relative-position non-selectable q-checkbox__inner--falsy"><input type="checkbox" class="hidden q-checkbox__native absolute q-ma-none q-pa-none">
               <div class="q-checkbox__bg absolute"><svg focusable="false" viewBox="0 0 24 24" aria-hidden="true" class="q-checkbox__svg fit absolute-full">
                   <path fill="none" d="M1.73,12.91 8.1,19.28 22.79,4.59" class="q-checkbox__truthy"></path>
                   <path d="M4,14H20V10H4" class="q-checkbox__indet"></path>
@@ -7158,7 +7158,7 @@ exports[`Storyshots GroupSettings show 1`] = `
         <div tabindex="-1" class="q-focus-helper"></div>
         <div class="q-item__section column q-item__section--side justify-center">
           <div tabindex="0" role="checkbox" aria-checked="false" class="q-checkbox cursor-pointer no-outline row inline no-wrap items-center">
-            <div class="q-checkbox__inner relative-position no-pointer-events q-checkbox__inner--falsy"><input type="checkbox" class="hidden q-checkbox__native absolute q-ma-none q-pa-none invisible">
+            <div class="q-checkbox__inner relative-position non-selectable q-checkbox__inner--falsy"><input type="checkbox" class="hidden q-checkbox__native absolute q-ma-none q-pa-none">
               <div class="q-checkbox__bg absolute"><svg focusable="false" viewBox="0 0 24 24" aria-hidden="true" class="q-checkbox__svg fit absolute-full">
                   <path fill="none" d="M1.73,12.91 8.1,19.28 22.79,4.59" class="q-checkbox__truthy"></path>
                   <path d="M4,14H20V10H4" class="q-checkbox__indet"></path>
@@ -9246,7 +9246,7 @@ exports[`Storyshots Places PlaceEdit (with server error) 1`] = `
               </transition-stub>
             </div>
           </div>
-        </label> <label for="f_80808080-8080-4080-8080-808080808080" class="q-field q-validation-component row no-wrap items-start q-select q-field--auto-height q-select--without-input q-select--without-chips q-field--standard q-field--float q-field--labeled q-field--with-bottom">
+        </label> <label for="f_80808080-8080-4080-8080-808080808080" class="q-field q-validation-component row no-wrap items-start q-select q-field--auto-height q-select--without-input q-select--without-chips q-select--single q-field--standard q-field--float q-field--labeled q-field--with-bottom">
           <div class="q-field__before q-field__marginal row no-wrap items-center"><i aria-hidden="true" role="presentation" class="fas fa-handshake q-icon notranslate"> </i></div>
           <div class="q-field__inner relative-position col self-stretch column justify-center">
             <div tabindex="-1" class="q-field__control relative-position row no-wrap">
@@ -9288,7 +9288,7 @@ exports[`Storyshots Places PlaceEdit (with server error) 1`] = `
           </label>
           <!---->
         </div>
-        <div><label for="f_80808080-8080-4080-8080-808080808080" class="q-field q-validation-component row no-wrap items-start q-select q-field--auto-height q-select--with-input q-select--without-chips q-field--standard q-field--labeled q-field--with-bottom">
+        <div><label for="f_80808080-8080-4080-8080-808080808080" class="q-field q-validation-component row no-wrap items-start q-select q-field--auto-height q-select--with-input q-select--without-chips q-select--single q-field--standard q-field--labeled q-field--with-bottom">
             <div class="q-field__before q-field__marginal row no-wrap items-center"><i aria-hidden="true" role="presentation" class="fas fa-map-marker q-icon notranslate"> </i></div>
             <div class="q-field__inner relative-position col self-stretch column justify-center">
               <div tabindex="-1" class="q-field__control relative-position row no-wrap">
@@ -9378,7 +9378,7 @@ exports[`Storyshots Places PlaceEdit 1`] = `
               </transition-stub>
             </div>
           </div>
-        </label> <label for="f_80808080-8080-4080-8080-808080808080" class="q-field q-validation-component row no-wrap items-start q-select q-field--auto-height q-select--without-input q-select--without-chips q-field--standard q-field--float q-field--labeled q-field--with-bottom">
+        </label> <label for="f_80808080-8080-4080-8080-808080808080" class="q-field q-validation-component row no-wrap items-start q-select q-field--auto-height q-select--without-input q-select--without-chips q-select--single q-field--standard q-field--float q-field--labeled q-field--with-bottom">
           <div class="q-field__before q-field__marginal row no-wrap items-center"><i aria-hidden="true" role="presentation" class="fas fa-handshake q-icon notranslate"> </i></div>
           <div class="q-field__inner relative-position col self-stretch column justify-center">
             <div tabindex="-1" class="q-field__control relative-position row no-wrap">
@@ -9420,7 +9420,7 @@ exports[`Storyshots Places PlaceEdit 1`] = `
           </label>
           <!---->
         </div>
-        <div><label for="f_80808080-8080-4080-8080-808080808080" class="q-field q-validation-component row no-wrap items-start q-select q-field--auto-height q-select--with-input q-select--without-chips q-field--standard q-field--labeled q-field--with-bottom">
+        <div><label for="f_80808080-8080-4080-8080-808080808080" class="q-field q-validation-component row no-wrap items-start q-select q-field--auto-height q-select--with-input q-select--without-chips q-select--single q-field--standard q-field--labeled q-field--with-bottom">
             <div class="q-field__before q-field__marginal row no-wrap items-center"><i aria-hidden="true" role="presentation" class="fas fa-map-marker q-icon notranslate"> </i></div>
             <div class="q-field__inner relative-position col self-stretch column justify-center">
               <div tabindex="-1" class="q-field__control relative-position row no-wrap">
@@ -9936,7 +9936,7 @@ exports[`Storyshots Settings Page Default 1`] = `
               </div>
             </div>
           </label>
-          <div><label for="f_80808080-8080-4080-8080-808080808080" class="q-field q-validation-component row no-wrap items-start q-select q-field--auto-height q-select--with-input q-select--without-chips q-field--standard q-field--float q-field--labeled q-field--with-bottom">
+          <div><label for="f_80808080-8080-4080-8080-808080808080" class="q-field q-validation-component row no-wrap items-start q-select q-field--auto-height q-select--with-input q-select--without-chips q-select--single q-field--standard q-field--float q-field--labeled q-field--with-bottom">
               <div class="q-field__before q-field__marginal row no-wrap items-center"><i aria-hidden="true" role="presentation" class="fas fa-map-marker q-icon notranslate"> </i></div>
               <div class="q-field__inner relative-position col self-stretch column justify-center">
                 <div tabindex="-1" class="q-field__control relative-position row no-wrap">
@@ -10094,7 +10094,7 @@ exports[`Storyshots Settings Page Default 1`] = `
           <div tabindex="-1" class="q-focus-helper"></div>
           <div class="q-item__section column q-item__section--side justify-center">
             <div tabindex="0" role="checkbox" aria-checked="false" class="q-checkbox cursor-pointer no-outline row inline no-wrap items-center">
-              <div class="q-checkbox__inner relative-position no-pointer-events q-checkbox__inner--falsy"><input type="checkbox" class="hidden q-checkbox__native absolute q-ma-none q-pa-none invisible">
+              <div class="q-checkbox__inner relative-position non-selectable q-checkbox__inner--falsy"><input type="checkbox" class="hidden q-checkbox__native absolute q-ma-none q-pa-none">
                 <div class="q-checkbox__bg absolute"><svg focusable="false" viewBox="0 0 24 24" aria-hidden="true" class="q-checkbox__svg fit absolute-full">
                     <path fill="none" d="M1.73,12.91 8.1,19.28 22.79,4.59" class="q-checkbox__truthy"></path>
                     <path d="M4,14H20V10H4" class="q-checkbox__indet"></path>
@@ -10117,7 +10117,7 @@ exports[`Storyshots Settings Page Default 1`] = `
           <div tabindex="-1" class="q-focus-helper"></div>
           <div class="q-item__section column q-item__section--side justify-center">
             <div tabindex="0" role="checkbox" aria-checked="false" class="q-checkbox cursor-pointer no-outline row inline no-wrap items-center">
-              <div class="q-checkbox__inner relative-position no-pointer-events q-checkbox__inner--falsy"><input type="checkbox" class="hidden q-checkbox__native absolute q-ma-none q-pa-none invisible">
+              <div class="q-checkbox__inner relative-position non-selectable q-checkbox__inner--falsy"><input type="checkbox" class="hidden q-checkbox__native absolute q-ma-none q-pa-none">
                 <div class="q-checkbox__bg absolute"><svg focusable="false" viewBox="0 0 24 24" aria-hidden="true" class="q-checkbox__svg fit absolute-full">
                     <path fill="none" d="M1.73,12.91 8.1,19.28 22.79,4.59" class="q-checkbox__truthy"></path>
                     <path d="M4,14H20V10H4" class="q-checkbox__indet"></path>
@@ -10140,7 +10140,7 @@ exports[`Storyshots Settings Page Default 1`] = `
           <div tabindex="-1" class="q-focus-helper"></div>
           <div class="q-item__section column q-item__section--side justify-center">
             <div tabindex="0" role="checkbox" aria-checked="false" class="q-checkbox cursor-pointer no-outline row inline no-wrap items-center">
-              <div class="q-checkbox__inner relative-position no-pointer-events q-checkbox__inner--falsy"><input type="checkbox" class="hidden q-checkbox__native absolute q-ma-none q-pa-none invisible">
+              <div class="q-checkbox__inner relative-position non-selectable q-checkbox__inner--falsy"><input type="checkbox" class="hidden q-checkbox__native absolute q-ma-none q-pa-none">
                 <div class="q-checkbox__bg absolute"><svg focusable="false" viewBox="0 0 24 24" aria-hidden="true" class="q-checkbox__svg fit absolute-full">
                     <path fill="none" d="M1.73,12.91 8.1,19.28 22.79,4.59" class="q-checkbox__truthy"></path>
                     <path d="M4,14H20V10H4" class="q-checkbox__indet"></path>
@@ -10163,7 +10163,7 @@ exports[`Storyshots Settings Page Default 1`] = `
           <div tabindex="-1" class="q-focus-helper"></div>
           <div class="q-item__section column q-item__section--side justify-center">
             <div tabindex="0" role="checkbox" aria-checked="false" class="q-checkbox cursor-pointer no-outline row inline no-wrap items-center">
-              <div class="q-checkbox__inner relative-position no-pointer-events q-checkbox__inner--falsy"><input type="checkbox" class="hidden q-checkbox__native absolute q-ma-none q-pa-none invisible">
+              <div class="q-checkbox__inner relative-position non-selectable q-checkbox__inner--falsy"><input type="checkbox" class="hidden q-checkbox__native absolute q-ma-none q-pa-none">
                 <div class="q-checkbox__bg absolute"><svg focusable="false" viewBox="0 0 24 24" aria-hidden="true" class="q-checkbox__svg fit absolute-full">
                     <path fill="none" d="M1.73,12.91 8.1,19.28 22.79,4.59" class="q-checkbox__truthy"></path>
                     <path d="M4,14H20V10H4" class="q-checkbox__indet"></path>
@@ -10203,7 +10203,7 @@ exports[`Storyshots Settings Page Default 1`] = `
     <div class="q-card__section q-card__section--vert">
       <div class="edit-box">
         <div tabindex="0" role="checkbox" aria-label="Current browser" aria-checked="false" class="q-toggle cursor-pointer no-outline row inline no-wrap items-center">
-          <div class="q-toggle__inner relative-position no-pointer-events q-toggle__inner--falsy"><input type="checkbox" class="hidden q-toggle__native absolute q-ma-none q-pa-none invisible">
+          <div class="q-toggle__inner relative-position non-selectable q-toggle__inner--falsy"><input type="checkbox" class="hidden q-toggle__native absolute q-ma-none q-pa-none">
             <div class="q-toggle__track"></div>
             <div class="q-toggle__thumb absolute flex flex-center no-wrap"></div>
           </div><span tabindex="-1" class="no-outline"></span>
@@ -10370,7 +10370,7 @@ exports[`Storyshots Sidenav Places 1`] = `
     </div>
     <div class="tools">
       <div tabindex="0" role="checkbox" aria-checked="false" title="Show all places" class="q-toggle cursor-pointer no-outline row inline no-wrap items-center">
-        <div class="q-toggle__inner relative-position no-pointer-events q-toggle__inner--falsy"><input type="checkbox" class="hidden q-toggle__native absolute q-ma-none q-pa-none invisible">
+        <div class="q-toggle__inner relative-position non-selectable q-toggle__inner--falsy"><input type="checkbox" class="hidden q-toggle__native absolute q-ma-none q-pa-none">
           <div class="q-toggle__track"></div>
           <div class="q-toggle__thumb absolute flex flex-center no-wrap"></div>
         </div><span tabindex="-1" class="no-outline"></span>
@@ -10669,7 +10669,7 @@ exports[`Storyshots Unsubscribe conversation 1`] = `
       <div role="radiogroup" class="q-ma-sm q-option-group q-gutter-x-sm">
         <div>
           <div tabindex="0" role="radio" aria-label="unsubscribe from just this conversation" aria-checked="false" class="q-radio cursor-pointer no-outline row inline no-wrap items-center">
-            <div class="q-radio__inner relative-position no-pointer-events q-radio__inner--falsy"><input type="radio" class="hidden q-radio__native q-ma-none q-pa-none invisible"><svg focusable="false" viewBox="0 0 24 24" aria-hidden="true" class="q-radio__bg absolute">
+            <div class="q-radio__inner relative-position q-radio__inner--falsy"><input type="radio" class="hidden q-radio__native q-ma-none q-pa-none"><svg focusable="false" viewBox="0 0 24 24" aria-hidden="true" class="q-radio__bg absolute non-selectable">
                 <path d="M12,22a10,10 0 0 1 -10,-10a10,10 0 0 1 10,-10a10,10 0 0 1 10,10a10,10 0 0 1 -10,10m0,-22a12,12 0 0 0 -12,12a12,12 0 0 0 12,12a12,12 0 0 0 12,-12a12,12 0 0 0 -12,-12"></path>
                 <path d="M12,6a6,6 0 0 0 -6,6a6,6 0 0 0 6,6a6,6 0 0 0 6,-6a6,6 0 0 0 -6,-6" class="q-radio__check"></path>
               </svg></div><span tabindex="-1" class="no-outline"></span>
@@ -10678,7 +10678,7 @@ exports[`Storyshots Unsubscribe conversation 1`] = `
         </div>
         <div>
           <div tabindex="0" role="radio" aria-label="unsubscribe from Weekly summary" aria-checked="false" class="q-radio cursor-pointer no-outline row inline no-wrap items-center">
-            <div class="q-radio__inner relative-position no-pointer-events q-radio__inner--falsy"><input type="radio" class="hidden q-radio__native q-ma-none q-pa-none invisible"><svg focusable="false" viewBox="0 0 24 24" aria-hidden="true" class="q-radio__bg absolute">
+            <div class="q-radio__inner relative-position q-radio__inner--falsy"><input type="radio" class="hidden q-radio__native q-ma-none q-pa-none"><svg focusable="false" viewBox="0 0 24 24" aria-hidden="true" class="q-radio__bg absolute non-selectable">
                 <path d="M12,22a10,10 0 0 1 -10,-10a10,10 0 0 1 10,-10a10,10 0 0 1 10,10a10,10 0 0 1 -10,10m0,-22a12,12 0 0 0 -12,12a12,12 0 0 0 12,12a12,12 0 0 0 12,-12a12,12 0 0 0 -12,-12"></path>
                 <path d="M12,6a6,6 0 0 0 -6,6a6,6 0 0 0 6,6a6,6 0 0 0 6,-6a6,6 0 0 0 -6,-6" class="q-radio__check"></path>
               </svg></div><span tabindex="-1" class="no-outline"></span>
@@ -10687,7 +10687,7 @@ exports[`Storyshots Unsubscribe conversation 1`] = `
         </div>
         <div>
           <div tabindex="0" role="radio" aria-label="Unsubscribe from all email notifications in testgroup" aria-checked="false" class="q-radio cursor-pointer no-outline row inline no-wrap items-center">
-            <div class="q-radio__inner relative-position no-pointer-events q-radio__inner--falsy"><input type="radio" class="hidden q-radio__native q-ma-none q-pa-none invisible"><svg focusable="false" viewBox="0 0 24 24" aria-hidden="true" class="q-radio__bg absolute">
+            <div class="q-radio__inner relative-position q-radio__inner--falsy"><input type="radio" class="hidden q-radio__native q-ma-none q-pa-none"><svg focusable="false" viewBox="0 0 24 24" aria-hidden="true" class="q-radio__bg absolute non-selectable">
                 <path d="M12,22a10,10 0 0 1 -10,-10a10,10 0 0 1 10,-10a10,10 0 0 1 10,10a10,10 0 0 1 -10,10m0,-22a12,12 0 0 0 -12,12a12,12 0 0 0 12,12a12,12 0 0 0 12,-12a12,12 0 0 0 -12,-12"></path>
                 <path d="M12,6a6,6 0 0 0 -6,6a6,6 0 0 0 6,6a6,6 0 0 0 6,-6a6,6 0 0 0 -6,-6" class="q-radio__check"></path>
               </svg></div><span tabindex="-1" class="no-outline"></span>
@@ -10747,7 +10747,7 @@ exports[`Storyshots Unsubscribe thread 1`] = `
       <div role="radiogroup" class="q-ma-sm q-option-group q-gutter-x-sm">
         <div>
           <div tabindex="0" role="radio" aria-label="unsubscribe from just this thread" aria-checked="false" class="q-radio cursor-pointer no-outline row inline no-wrap items-center">
-            <div class="q-radio__inner relative-position no-pointer-events q-radio__inner--falsy"><input type="radio" class="hidden q-radio__native q-ma-none q-pa-none invisible"><svg focusable="false" viewBox="0 0 24 24" aria-hidden="true" class="q-radio__bg absolute">
+            <div class="q-radio__inner relative-position q-radio__inner--falsy"><input type="radio" class="hidden q-radio__native q-ma-none q-pa-none"><svg focusable="false" viewBox="0 0 24 24" aria-hidden="true" class="q-radio__bg absolute non-selectable">
                 <path d="M12,22a10,10 0 0 1 -10,-10a10,10 0 0 1 10,-10a10,10 0 0 1 10,10a10,10 0 0 1 -10,10m0,-22a12,12 0 0 0 -12,12a12,12 0 0 0 12,12a12,12 0 0 0 12,-12a12,12 0 0 0 -12,-12"></path>
                 <path d="M12,6a6,6 0 0 0 -6,6a6,6 0 0 0 6,6a6,6 0 0 0 6,-6a6,6 0 0 0 -6,-6" class="q-radio__check"></path>
               </svg></div><span tabindex="-1" class="no-outline"></span>
@@ -10756,7 +10756,7 @@ exports[`Storyshots Unsubscribe thread 1`] = `
         </div>
         <div>
           <div tabindex="0" role="radio" aria-label="Unsubscribe from all email notifications in testgroup" aria-checked="false" class="q-radio cursor-pointer no-outline row inline no-wrap items-center">
-            <div class="q-radio__inner relative-position no-pointer-events q-radio__inner--falsy"><input type="radio" class="hidden q-radio__native q-ma-none q-pa-none invisible"><svg focusable="false" viewBox="0 0 24 24" aria-hidden="true" class="q-radio__bg absolute">
+            <div class="q-radio__inner relative-position q-radio__inner--falsy"><input type="radio" class="hidden q-radio__native q-ma-none q-pa-none"><svg focusable="false" viewBox="0 0 24 24" aria-hidden="true" class="q-radio__bg absolute non-selectable">
                 <path d="M12,22a10,10 0 0 1 -10,-10a10,10 0 0 1 10,-10a10,10 0 0 1 10,10a10,10 0 0 1 -10,10m0,-22a12,12 0 0 0 -12,12a12,12 0 0 0 12,12a12,12 0 0 0 12,-12a12,12 0 0 0 -12,-12"></path>
                 <path d="M12,6a6,6 0 0 0 -6,6a6,6 0 0 0 6,6a6,6 0 0 0 6,-6a6,6 0 0 0 -6,-6" class="q-radio__check"></path>
               </svg></div><span tabindex="-1" class="no-outline"></span>

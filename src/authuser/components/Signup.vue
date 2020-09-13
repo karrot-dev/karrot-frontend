@@ -39,22 +39,6 @@
           autocapitalize="off"
           spellcheck="false"
         />
-        <div v-if="canJoinPlayground">
-          <QCheckbox
-            v-model="joinPlayground"
-            :label="$t('GROUP.JOIN_PLAYGROUND')"
-            color="info"
-          />
-          <QBanner
-            v-if="joinPlayground"
-            class="bg-info text-black q-my-sm rounded-borders"
-          >
-            {{ $t('JOINGROUP.PROFILE_NOTE' ) }}
-            <template #avatar>
-              <QIcon name="info" />
-            </template>
-          </QBanner>
-        </div>
 
         <div
           v-if="hasNonFieldError"
@@ -88,10 +72,7 @@
 
 <script>
 import {
-  QBanner,
   QBtn,
-  QCheckbox,
-  QIcon,
 } from 'quasar'
 import SplashInput from '@/utils/components/SplashInput'
 import statusMixin from '@/utils/mixins/statusMixin'
@@ -100,10 +81,7 @@ import { validationMixin } from 'vuelidate'
 
 export default {
   components: {
-    QBanner,
     QBtn,
-    QCheckbox,
-    QIcon,
     SplashInput,
   },
   mixins: [validationMixin, statusMixin],
@@ -111,14 +89,6 @@ export default {
     prefillEmail: {
       required: true,
       type: Function,
-    },
-    hasPlayground: {
-      default: false,
-      type: Boolean,
-    },
-    hasGroupToJoin: {
-      default: false,
-      type: Boolean,
     },
   },
   data () {
@@ -128,13 +98,9 @@ export default {
         email: this.prefillEmail(),
         password: null,
       },
-      joinPlayground: this.hasPlayground && !this.hasGroupToJoin,
     }
   },
   computed: {
-    canJoinPlayground () {
-      return this.hasPlayground && !this.hasGroupToJoin
-    },
     hasDisplayNameError () {
       return !!this.displayNameError
     },
@@ -154,18 +120,12 @@ export default {
       return true
     },
   },
-  watch: {
-    canJoinPlayground (val) {
-      this.joinPlayground = val
-    },
-  },
   methods: {
     submit () {
       this.$v.user.$touch()
       if (!this.canSave || this.isPending) return
       this.$emit('submit', {
         userData: this.user,
-        joinPlayground: this.joinPlayground,
       })
       this.$v.user.$reset()
     },

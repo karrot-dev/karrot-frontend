@@ -302,6 +302,8 @@
     "GITHUB_NOTE": "विकास",
     "INVALID_LINK": "क्षमा करे, आपके द्वारा खोला गया लिंक गलत है",
     "NOT_CONNECTED": "आप सर्वर से जुड़े हुए नहीं है ",
+    "OFFLINE_RECONNECT": "Offline. Press here to reconnect.",
+    "RECONNECTING": "Reconnecting...",
     "SEARCH_NOT_FOUND": "नहीं मिला",
     "SEARCH_RESULTS": "खोज परिणाम",
     "SERVER_ERROR": "सर्वर त्रुटि"

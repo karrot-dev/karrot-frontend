@@ -24,9 +24,14 @@ Please document your changes in this format:
 ### Added
 - Karrot can now be added to your homescreen (installed as App). Check out the button at the bottom of your profile settings page! @tiltec
 
+### Changed
+- Move "not connected" message into topbar for mobile view @tiltec
+- Add message when Karrot is trying to reconnect @tiltec
+
 ## [8.7.2] - 2020-08-28
 ### Changed
 - Enable the Luxembourgish locale of Quasar and date-fns when this language is selected @dwaxweiler
+- Do not offer to join the playground group during signup, to avoid confusiong @tiltec
 
 ## [8.7.1] - 2020-08-27
 ### Added

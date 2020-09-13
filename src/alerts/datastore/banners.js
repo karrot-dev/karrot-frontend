@@ -9,6 +9,7 @@ export default {
       const isGroupPage = rootGetters['route/isGroupPage']
       const isLoggedIn = rootGetters['auth/isLoggedIn']
       const connected = rootGetters['connectivity/connected']
+      const reconnecting = rootGetters['connectivity/reconnecting']
       const updateAvailable = rootGetters['about/updateAvailable']
 
       if (updateAvailable && !Platform.is.cordova) {
@@ -20,6 +21,10 @@ export default {
       if (isLoggedIn && !connected) {
         banners.push({
           type: 'notConnected',
+          desktopOnly: true,
+          context: {
+            reconnecting,
+          },
         })
       }
 

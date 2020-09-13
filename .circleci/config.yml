@@ -194,6 +194,7 @@ jobs:
       - run:
           name: build cordova app
           command: |
+            yarn global add cordova
             yarn build:cordova:dev
             mv src-cordova/www dist-app-dev
       - persist_to_workspace:
@@ -211,6 +212,7 @@ jobs:
       - run:
           name: build cordova app
           command: |
+            yarn global add cordova
             yarn build:cordova:prod
             mv src-cordova/www dist-app-prod
       - persist_to_workspace:

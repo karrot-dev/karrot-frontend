@@ -6,7 +6,7 @@ import { maybeDispatchActions } from './routerPlugin'
 
 Vue.use(VueRouter)
 
-jest.mock('@/base/router')
+jest.mock('@/router')
 
 function makeTestModule () {
   return {

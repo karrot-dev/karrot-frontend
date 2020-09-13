@@ -1,6 +1,6 @@
 <script>
 import { connect } from 'vuex-connect'
-import datastore from '@/base/datastore'
+import datastore from '@/store'
 import PlaceEdit from '@/places/components/PlaceEdit'
 
 export default connect({

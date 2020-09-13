@@ -78,6 +78,20 @@
         />
       </QCardSection>
     </KFormContainer>
+    <KFormContainer
+      v-if="!$q.platform.is.cordova && pwaPrompt"
+    >
+      <QCardSection>
+        <div class="text-h6">
+          {{ $t('USERDATA.APP') }}
+        </div>
+      </QCardSection>
+      <QCardSection>
+        <InstallPwa
+          :prompt="pwaPrompt"
+        />
+      </QCardSection>
+    </KFormContainer>
   </div>
 </template>
 
@@ -96,6 +110,7 @@ import ChangeEmail from '@/authuser/components/Settings/ChangeEmail'
 import ChangePhoto from '@/authuser/components/Settings/ChangePhoto'
 import RequestDeleteAccount from '@/authuser/components/Settings/RequestDeleteAccount'
 import Push from '@/authuser/components/Settings/Push'
+import InstallPwa from '@/authuser/components/Settings/InstallPwa'
 import LocaleSelect from '@/utils/components/LocaleSelect'
 import GroupSettings from '@/group/pages/Settings'
 import KFormContainer from '@/base/components/KFormContainer'
@@ -112,6 +127,7 @@ export default {
     ChangePhoto,
     RequestDeleteAccount,
     Push,
+    InstallPwa,
     LocaleSelect,
     GroupSettings,
     KFormContainer,
@@ -125,6 +141,7 @@ export default {
       requestDeleteAccountStatus: 'users/requestDeleteAccountStatus',
       pushEnabled: 'auth/push/enabled',
       pushPending: 'auth/push/pending',
+      pwaPrompt: 'pwa/installPrompt',
     }),
   },
   methods: {

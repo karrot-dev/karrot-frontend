@@ -1,5 +1,5 @@
 import applications from '@/applications/api/applications'
-import router from '@/base/router'
+import router from '@/router'
 import { withMeta, createMetaModule, metaStatuses, createPaginationModule, indexById } from '@/utils/datastore/helpers'
 
 function initialState () {

@@ -4,7 +4,7 @@
 
 const express = require('express')
 const compression = require('compression')
-const proxyMiddleware = require('http-proxy-middleware')
+const proxyMiddleware = require('http-proxy-middleware').createProxyMiddleware
 const { join } = require('path')
 
 const { proxyTable } = require('./config')
@@ -14,7 +14,7 @@ const { proxyTable } = require('./config')
  */
 const app = express()
 app.use(compression())
-app.use(express.static(join(__dirname, '../dist')))
+app.use(express.static(join(__dirname, '../dist/pwa')))
 
 Object.keys(proxyTable).forEach(function (context) {
   var options = proxyTable[context]

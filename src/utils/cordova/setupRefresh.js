@@ -1,5 +1,5 @@
 import Vue from 'vue'
-import datastore from '@/base/datastore'
+import datastore from '@/store'
 
 const status = new Vue({
   data () {

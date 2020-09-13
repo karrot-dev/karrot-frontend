@@ -1,0 +1,210 @@
+{
+  "params": {
+    "skipTrim": false,
+    "icon": "logo.png",
+    "themeColor": "4a3520",
+    "padding": [
+      0,
+      0
+    ],
+    "include": [
+      "spa",
+      "pwa"
+    ]
+  },
+  "assets": [
+    {
+      "generator": "png",
+      "name": "favicon-{size}x{size}.png",
+      "folder": "public/icons",
+      "sizes": [
+        128,
+        96,
+        32,
+        16
+      ],
+      "tag": "<link rel=\"icon\" type=\"image/png\" sizes=\"{size}x{size}\" href=\"icons/{name}\">"
+    },
+    {
+      "generator": "ico",
+      "name": "favicon.ico",
+      "folder": "public",
+      "tag": "<link rel=\"icon\" type=\"image/ico\" href=\"{name}\">"
+    },
+    {
+      "generator": "png",
+      "name": "favicon-{size}x{size}.png",
+      "folder": "public/icons",
+      "sizes": [
+        128,
+        96,
+        32,
+        16
+      ],
+      "tag": "<link rel=\"icon\" type=\"image/png\" sizes=\"{size}x{size}\" href=\"icons/{name}\">"
+    },
+    {
+      "generator": "ico",
+      "name": "favicon.ico",
+      "folder": "public",
+      "tag": "<link rel=\"icon\" type=\"image/ico\" href=\"{name}\">"
+    },
+    {
+      "generator": "png",
+      "name": "apple-icon-{size}x{size}.png",
+      "folder": "public/icons",
+      "background": true,
+      "sizes": [
+        120,
+        152,
+        167,
+        180
+      ]
+    },
+    {
+      "generator": "svg",
+      "name": "safari-pinned-tab.svg",
+      "folder": "public/icons"
+    },
+    {
+      "generator": "png",
+      "name": "ms-icon-{size}x{size}.png",
+      "folder": "public/icons",
+      "sizes": [
+        144
+      ]
+    },
+    {
+      "generator": "png",
+      "name": "icon-{size}x{size}.png",
+      "folder": "public/icons",
+      "sizes": [
+        128,
+        192,
+        256,
+        384,
+        512
+      ]
+    },
+    {
+      "generator": "splashscreen",
+      "name": "apple-launch-{size}.png",
+      "folder": "public/icons",
+      "sizes": [
+        [
+          828,
+          1792
+        ]
+      ],
+      "tag": "<!-- iPhone XR -->\n<link rel=\"apple-touch-startup-image\" media=\"(device-width: 414px) and (device-height: 896px) and (-webkit-device-pixel-ratio: 2)\" href=\"icons/{name}\">"
+    },
+    {
+      "generator": "splashscreen",
+      "name": "apple-launch-{size}.png",
+      "folder": "public/icons",
+      "sizes": [
+        [
+          1125,
+          2436
+        ]
+      ],
+      "tag": "<!-- iPhone X, XS -->\n<link rel=\"apple-touch-startup-image\" media=\"(device-width: 375px) and (device-height: 812px) and (-webkit-device-pixel-ratio: 3)\" href=\"icons/{name}\">"
+    },
+    {
+      "generator": "splashscreen",
+      "name": "apple-launch-{size}.png",
+      "folder": "public/icons",
+      "sizes": [
+        [
+          1242,
+          2688
+        ]
+      ],
+      "tag": "<!-- iPhone XS Max -->\n<link rel=\"apple-touch-startup-image\" media=\"(device-width: 414px) and (device-height: 896px) and (-webkit-device-pixel-ratio: 3)\" href=\"icons/{name}\">"
+    },
+    {
+      "generator": "splashscreen",
+      "name": "apple-launch-{size}.png",
+      "folder": "public/icons",
+      "sizes": [
+        [
+          750,
+          1334
+        ]
+      ],
+      "tag": "<!-- iPhone 8, 7, 6s, 6 -->\n<link rel=\"apple-touch-startup-image\" media=\"(device-width: 375px) and (device-height: 667px) and (-webkit-device-pixel-ratio: 2)\" href=\"icons/{name}\">"
+    },
+    {
+      "generator": "splashscreen",
+      "name": "apple-launch-{size}.png",
+      "folder": "public/icons",
+      "sizes": [
+        [
+          1242,
+          2208
+        ]
+      ],
+      "tag": "<!-- iPhone 8 Plus, 7 Plus, 6s Plus, 6 Plus -->\n<link rel=\"apple-touch-startup-image\" media=\"(device-width: 414px) and (device-height: 736px) and (-webkit-device-pixel-ratio: 3)\" href=\"icons/{name}\">"
+    },
+    {
+      "generator": "splashscreen",
+      "name": "apple-launch-{size}.png",
+      "folder": "public/icons",
+      "sizes": [
+        [
+          640,
+          1136
+        ]
+      ],
+      "tag": "<!-- iPhone 5 -->\n<link rel=\"apple-touch-startup-image\" media=\"(device-width: 320px) and (device-height: 568px) and (-webkit-device-pixel-ratio: 2)\" href=\"icons/{name}\">"
+    },
+    {
+      "generator": "splashscreen",
+      "name": "apple-launch-{size}.png",
+      "folder": "public/icons",
+      "sizes": [
+        [
+          1536,
+          2048
+        ]
+      ],
+      "tag": "<!-- iPad Mini, Air, 9.7\" -->\n<link rel=\"apple-touch-startup-image\" media=\"(device-width: 768px) and (device-height: 1024px) and (-webkit-device-pixel-ratio: 2)\" href=\"icons/{name}\">"
+    },
+    {
+      "generator": "splashscreen",
+      "name": "apple-launch-{size}.png",
+      "folder": "public/icons",
+      "sizes": [
+        [
+          1668,
+          2224
+        ]
+      ],
+      "tag": "<!-- iPad Pro 10.5\" -->\n<link rel=\"apple-touch-startup-image\" media=\"(device-width: 834px) and (device-height: 1112px) and (-webkit-device-pixel-ratio: 2)\" href=\"icons/{name}\">"
+    },
+    {
+      "generator": "splashscreen",
+      "name": "apple-launch-{size}.png",
+      "folder": "public/icons",
+      "sizes": [
+        [
+          1668,
+          2388
+        ]
+      ],
+      "tag": "<!-- iPad Pro 11\" -->\n<link rel=\"apple-touch-startup-image\" media=\"(device-width: 834px) and (device-height: 1194px) and (-webkit-device-pixel-ratio: 2)\" href=\"icons/{name}\">"
+    },
+    {
+      "generator": "splashscreen",
+      "name": "apple-launch-{size}.png",
+      "folder": "public/icons",
+      "sizes": [
+        [
+          2048,
+          2732
+        ]
+      ],
+      "tag": "<!-- iPad Pro 12.9\" -->\n<link rel=\"apple-touch-startup-image\" media=\"(device-width: 1024px) and (device-height: 1366px) and (-webkit-device-pixel-ratio: 2)\" href=\"icons/{name}\">"
+    }
+  ]
+}

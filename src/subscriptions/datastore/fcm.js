@@ -1,3 +1,5 @@
+/* This is about FCM support for Cordova */
+
 import Vue from 'vue'
 import subscriptionsAPI from '@/subscriptions/api/subscriptions'
 

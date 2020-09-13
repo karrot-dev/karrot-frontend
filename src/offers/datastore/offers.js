@@ -6,7 +6,7 @@ import {
   createPaginationModule,
   metaStatuses, indexById,
 } from '@/utils/datastore/helpers'
-import router from '@/base/router'
+import router from '@/router'
 
 export const DEFAULT_STATUS = 'active'
 

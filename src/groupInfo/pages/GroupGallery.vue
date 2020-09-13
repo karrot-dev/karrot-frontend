@@ -1,6 +1,6 @@
 <script>
 import { connect } from 'vuex-connect'
-import router from '@/base/router'
+import router from '@/router'
 import GroupGalleryUI from '@/groupInfo/components/GroupGalleryUI'
 
 export default connect({

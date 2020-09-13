@@ -1,0 +1,46 @@
+<?xml version='1.0' encoding='utf-8'?>
+<widget id="world.karrot" version="8.7.2" xmlns="http://www.w3.org/ns/widgets" xmlns:android="http://schemas.android.com/apk/res/android" xmlns:cdv="http://cordova.apache.org/ns/1.0">
+    <name>Karrot</name>
+    <description>Modern website for organization of foodsaving groups worldwide</description>
+    <author email="karrot@foodsaving.world" href="https://foodsaving.world">
+        Foodsaving World Team
+    </author>
+    <icon src="config/current/carrot_logo_144x144.png" />
+    <content src="index.html" />
+    <access origin="*" subdomains="true" />
+    <allow-intent href="http://*/*" />
+    <allow-intent href="https://*/*" />
+    <allow-intent href="tel:*" />
+    <allow-intent href="sms:*" />
+    <allow-intent href="mailto:*" />
+    <allow-intent href="geo:*" />
+    <preference name="AutoHideSplashScreen" value="true" />
+    <preference name="SplashScreenDelay" value="0" />
+    <preference name="FadeSplashScreenDuration" value="0" />
+    <splash src="" />
+    <platform name="android">
+        <resource-file src="icon_push.png" target="app/src/main/res/drawable/icon_push.png" />
+        <allow-intent href="market:*" />
+        <preference name="android-minSdkVersion" value="23" />
+        <preference name="AndroidLaunchMode" value="singleInstance" />
+    </platform>
+    <platform name="ios">
+        <allow-intent href="itms:*" />
+        <allow-intent href="itms-apps:*" />
+    </platform>
+    <universal-links>
+        <host event="karrot" name="karrot.world" scheme="https">
+            <path url="/" />
+        </host>
+    </universal-links>
+    <config-file parent="/manifest/application" target="AndroidManifest.xml">
+        <meta-data android:name="firebase_analytics_collection_enabled" android:value="false" />
+        <meta-data android:name="firebase_analytics_collection_deactivated" android:value="true" />
+        <meta-data android:name="google_analytics_adid_collection_enabled" android:value="false" />
+    </config-file>
+    <plugin name="cordova-plugin-whitelist" spec="^1.3.3" />
+    <plugin name="cordova-plugin-network-information" spec="^2.0.1" />
+    <plugin name="cordova-plugin-fcm-with-dependecy-updated" spec="^2.3.0" />
+    <plugin name="cordova-plugin-deeplinks" spec="^1.1.0" />
+    <engine name="android" spec="^8.0.0" />
+</widget>

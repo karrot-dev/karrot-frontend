@@ -1,11 +1,12 @@
-// Vue config (from main.js)
-import '../src/base/style/app.styl'
+// Vue config
+import 'quasar/dist/quasar.styl'
+import '../src/css/app.styl'
 
 import Vue from 'vue'
 import Vuex from 'vuex'
 import VueI18n from 'vue-i18n'
 import VueRouter from 'vue-router'
-import configureQuasar from '@/base/configureQuasar'
+import configureQuasar from '>/configureQuasar'
 import { RouterLinkStub, TransitionStub, TransitionGroupStub } from '@vue/test-utils'
 import { IconPlugin } from '@/base/icons'
 

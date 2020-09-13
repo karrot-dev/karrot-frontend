@@ -1,4 +1,4 @@
-import router from '@/base/router'
+import router from '@/router'
 import * as Sentry from '@sentry/browser'
 
 export default datastore => {

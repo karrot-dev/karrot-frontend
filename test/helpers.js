@@ -78,7 +78,7 @@ export function makefindAllComponentsIterable (wrapper) {
 export function configureQuasar (Vue) {
   // jest.resetModules() can only provide isolation when we require() a module
   // We want a fresh Quasar for every test
-  const configure = require('@/base/configureQuasar').default
+  const configure = require('>/configureQuasar').default
   configure(Vue)
 }
 

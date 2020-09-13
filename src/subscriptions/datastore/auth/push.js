@@ -1,6 +1,6 @@
 import subscriptionsAPI from '@/subscriptions/api/subscriptions'
 import { createMetaModule, withMeta, metaStatuses } from '@/utils/datastore/helpers'
-import { initializeMessaging, removeServiceWorkersOnUnload, hasServiceWorker, getServiceWorker } from '@/subscriptions/firebase'
+import { initializeMessaging, getServiceWorkerRegistration, isSupported } from '@/subscriptions/firebase'
 
 function initialState () {
   return {
@@ -28,60 +28,64 @@ export default {
   },
   actions: {
     ...withMeta({
-      async enable ({ commit }) {
+      async enable ({ commit, dispatch }) {
+        if (!isSupported()) return
+
         commit('setIntention', true)
 
         const messaging = await initializeMessaging()
 
-        messaging.onTokenRefresh(async () => {
-          commit('setToken', await messaging.getToken())
-        })
-
-        let token = await messaging.getToken()
-        if (!token) {
-          try {
-            await messaging.requestPermission()
-          }
-          catch (err) {
-            if (err.code === 'messaging/notifications-blocked' || err.code === 'messaging/permission-blocked') {
-              commit('setIntention', false)
-            }
-
-            else if (err.code === 'messaging-permission-default') { // they clicked "Not Now" (at least in Firefox)
-              commit('setIntention', null)
-            }
-            else {
-              throw err
-            }
-            return
-          }
-          token = await messaging.getToken()
+        const serviceWorkerRegistration = await getServiceWorkerRegistration()
+        let token
+        try {
+          token = await messaging.getToken({ serviceWorkerRegistration })
         }
+        catch (err) {
+          if (err.code === 'messaging/notifications-blocked' || err.code === 'messaging/permission-blocked') {
+            commit('setIntention', false)
+            dispatch('toasts/show', {
+              message: 'USERDATA.PUSH_BLOCKED',
+              config: {
+                icon: 'warning',
+                color: 'negative',
+              },
+            }, { root: true })
+          }
+
+          else if (err.code === 'messaging-permission-default') { // they clicked "Not Now" (at least in Firefox)
+            commit('setIntention', null)
+          }
+          else {
+            throw err
+          }
+          return
+        }
+
+        // tell service worker to load firebase and show notifications
+        serviceWorkerRegistration.active.postMessage({
+          type: 'LOAD_FIREBASE',
+        })
         commit('setToken', token)
-        removeServiceWorkersOnUnload(false)
       },
 
       async disable ({ state, commit }) {
+        if (!isSupported()) return
+
         commit('setIntention', false)
 
-        const token = state.token
-
-        // We assume that if there is no service worker then we don't have any firebase stuff registered
-        // This is to avoid loading the big ugly firebase library if we don't really need it
-        if (await hasServiceWorker()) {
-          if (token) (await initializeMessaging()).deleteToken(token)
-          removeServiceWorkersOnUnload(true)
-        }
+        if (state.token) (await initializeMessaging()).deleteToken()
 
         commit('setToken', null)
       },
     }),
 
     async setup ({ state, dispatch }) {
+      if (!isSupported()) return
+
       if (state.intention === true) {
         await dispatch('enable')
-        const worker = await getServiceWorker()
-        worker.update()
+        const registration = await getServiceWorkerRegistration()
+        registration.update()
       }
       else if (state.intention === false) {
         await dispatch('disable')

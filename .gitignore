@@ -1,10 +1,41 @@
 .DS_Store
 .thumbs.db
-node_modules/
-dist/
+node_modules
+
+# Quasar core related directories
+.quasar
+/dist
+
+# Cordova related directories and files
+/src-cordova/node_modules
+/src-cordova/platforms
+/src-cordova/plugins
+/src-cordova/www
+/src-cordova/config/current
+/src-cordova/getpassword
+/src-cordova/ul_web_hooks
+
+# Capacitor related directories and files
+/src-capacitor/www
+/src-capacitor/node_modules
+
+# BEX related directories and files
+/src-bex/www
+/src-bex/js/core
+
+# Log files
 npm-debug.log*
-yarn-error.log
+yarn-debug.log*
+yarn-error.log*
+
+# Editor directories and files
 .idea
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+
+# Old stuff
 .vscode
 nbproject/
 storybook-static
@@ -13,12 +44,9 @@ coverage/
 docs-dist/
 karrot-backend/
 karrot-docker/
-cordova/platforms
-cordova/plugins
-cordova/config/current
-cordova/getpassword
-cordova/ul_web_hooks
-cordova/www
 updateLocalesHelper/env
 .nvmrc
 v8-compile-cache-0
+/cert.pem
+/key.pem
+

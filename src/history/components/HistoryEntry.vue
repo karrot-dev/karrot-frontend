@@ -94,7 +94,20 @@ export default {
 }
 </script>
 <style scoped lang="stylus">
-@import '~slidetoggle'
+.slide-toggle-enter-active,
+.slide-toggle-leave-active
+  overflow hidden
+  transition max-height .2s
+
+.slide-toggle-enter-active
+  max-height 1000px
+
+.slide-toggle-enter,
+.slide-toggle-leave-active
+  max-height 0
+
+.slide-toggle-leave
+  max-height 1000px
 
 .clickable
   transition padding .5s ease

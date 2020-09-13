@@ -80,7 +80,7 @@ export default {
   },
   mixins: [statusMixin],
   data () {
-    if (__ENV.DEV) {
+    if (process.env.DEV) {
       return {
         email: 'foo@foo.com',
         password: 'foofoo',

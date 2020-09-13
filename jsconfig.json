@@ -5,11 +5,15 @@
       "paths": {
         "@/*": ["./src/*"],
         ">/*": ["./test"],
-        "quasar": ["./node_modules/quasar/dist/quasar.esm.js"]
+        "quasar": ["./node_modules/quasar/dist/quasar.esm.js"],
+        "vue$": [
+          "node_modules/vue/dist/vue.esm.js"
+        ]
       }
   },
-  "include": [
-      "src/**/*",
-      "test/**/*"
+  "exclude": [
+    "dist",
+    ".quasar",
+    "node_modules"
   ]
 }

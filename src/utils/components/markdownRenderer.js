@@ -14,8 +14,8 @@ const internalLinkParts = ['$']
 if (!window.location.href.startsWith('file:///')) {
   internalLinkParts.push(escapeRegExp(window.location.href.split('/#')[0]))
 }
-if (__ENV.BACKEND) {
-  internalLinkParts.push(escapeRegExp(__ENV.BACKEND))
+if (process.env.KARROT.BACKEND) {
+  internalLinkParts.push(escapeRegExp(process.env.KARROT.BACKEND))
 }
 const internalLinkPattern = RegExp(`^(${internalLinkParts.join('|')})`)
 

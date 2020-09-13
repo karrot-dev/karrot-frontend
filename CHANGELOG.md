@@ -21,6 +21,9 @@ Please document your changes in this format:
 ```
 
 ## [Unreleased]
+### Added
+- Karrot can now be added to your homescreen (installed as App). Check out the button at the bottom of your profile settings page! @tiltec
+
 ### Changed
 - Move "not connected" message into topbar for mobile view @tiltec
 - Add message when Karrot is trying to reconnect @tiltec

@@ -1,20 +1,7 @@
+
 module.exports = {
   presets: [
-    ['@babel/preset-env', {
-      modules: false,
-      useBuiltIns: 'usage',
-      corejs: 3,
-    }],
-  ],
-  plugins: [
-    // To enable tree-shaking support in quasar in production we rewrite imports
-    // This changes things like `import { QBtn } from 'quasar'` into `import QBtn from 'quasar/blah/QBtn'`
-    ['babel-plugin-transform-imports', {
-      quasar: {
-        transform: require('quasar/dist/babel-transforms/imports.js'),
-        preventFullImport: true,
-      },
-    }],
+    '@quasar/babel-preset-app',
   ],
   env: {
     test: {

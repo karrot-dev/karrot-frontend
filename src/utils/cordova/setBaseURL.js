@@ -12,6 +12,6 @@
 import axios from '@/base/api/axios'
 
 axios.interceptors.request.use(request => {
-  request.baseURL = __ENV.BACKEND
+  request.baseURL = process.env.KARROT.BACKEND
   return request
 })

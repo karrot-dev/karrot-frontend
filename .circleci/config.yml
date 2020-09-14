@@ -192,9 +192,11 @@ jobs:
       - attach_workspace:
           at: .
       - run:
+          name: pretend we have cordova installed (quasar build wants it)
+          command: ln -s /bin/true /usr/local/bin/cordova
+      - run:
           name: build cordova app
           command: |
-            ln -s /bin/true ~/bin/cordova
             yarn build:cordova:dev
             mv src-cordova/www dist-app-dev
       - persist_to_workspace:
@@ -210,9 +212,11 @@ jobs:
       - attach_workspace:
           at: .
       - run:
+          name: pretend we have cordova installed (quasar build wants it)
+          command: ln -s /bin/true /usr/local/bin/cordova          
+      - run:
           name: build cordova app
           command: |
-            ln -s /bin/true ~/bin/cordova
             yarn build:cordova:prod
             mv src-cordova/www dist-app-prod
       - persist_to_workspace:

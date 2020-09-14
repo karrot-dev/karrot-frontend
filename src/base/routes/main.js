@@ -45,6 +45,7 @@ const IssueList = () => import('@/issues/pages/IssueList')
 const IssueChat = () => import('@/issues/pages/IssueChat')
 const IssueCompose = () => import('@/issues/pages/IssueCompose')
 const IssueVoteAndHistory = () => import('@/issues/pages/IssueVoteAndHistory')
+const ActivityHistoryStatistics = () => import('@/statistics/pages/ActivityHistoryStatistics')
 
 export default [
   {
@@ -550,6 +551,25 @@ export default [
           afterLeave: 'feedback/clear',
         },
         component: ActivityFeedback,
+      },
+      {
+        name: 'statistics',
+        path: 'statistics',
+        redirect: 'statistics/activity-history',
+      },
+      {
+        name: 'activityHistoryStatistics',
+        path: 'statistics/activity-history',
+        meta: {
+          requireLoggedIn: true,
+          breadcrumbs: [
+            { translation: 'GROUP.STATISTICS', route: { name: 'statistics' } },
+          ],
+        },
+        components: {
+          default: ActivityHistoryStatistics,
+          sidenav: Sidenav,
+        },
       },
     ],
   },

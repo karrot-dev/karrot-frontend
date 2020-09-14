@@ -184,6 +184,10 @@ export default {
         icon: 'fas fa-vote-yea',
         to: { name: 'issueList', params: { groupId: this.groupId } },
       }, {
+        label: this.$t('GROUP.STATISTICS'),
+        icon: 'fas fa-chart-bar',
+        to: { name: 'statistics', params: { groupId: this.groupId } },
+      }, {
         label: this.$t('GROUPINFO.META'),
         icon: 'fas fa-info-circle',
         to: { name: 'groupPreview', params: { groupPreviewId: this.groupId } },

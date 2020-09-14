@@ -95,7 +95,7 @@ about_json=$(printf '{
     "date": "%s"
   }' "$COMMIT_SHA" "$COMMIT_SHA_SHORT" "$REF" "$DEPLOY_ENV" "$APK_URL" "$ISO_DATE")
 
-echo "$about_json" > dist/about.json
+echo "$about_json" > dist/pwa/about.json
 
 # send it all to the host
 rsync -avz --delete dist/pwa/ "deploy@$HOST:karrot-frontend/$DIR/"

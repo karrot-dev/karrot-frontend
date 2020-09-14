@@ -61,7 +61,7 @@ rsync -avz "$APK" "deploy@$HOST:karrot-app/$DIR/app.apk"
 # publish in playstore
 (
   APK_FILE="$(pwd)/$APK"
-  cd cordova
+  cd src-cordova
   KEY="$CORDOVA_PLAYSTORE_SERVICEACCOUNT_KEY" PACKAGE_NAME="$PACKAGE_NAME" APK_FILE="$APK_FILE" ./publish_to_playstore
 )
 

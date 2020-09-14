@@ -18,8 +18,8 @@ const { resolve } = require('path')
 
 const changelogFilePath = resolve(__dirname, '../CHANGELOG.md')
 const cordovaConfigPaths = [
-  resolve(__dirname, '../cordova/config/dev/config.xml'),
-  resolve(__dirname, '../cordova/config/prod/config.xml'),
+  resolve(__dirname, '../src-cordova/config/dev/config.xml'),
+  resolve(__dirname, '../src-cordova/config/prod/config.xml'),
 ]
 
 // Parse changelog file and get latest release

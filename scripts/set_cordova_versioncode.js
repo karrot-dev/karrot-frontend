@@ -8,7 +8,7 @@ const { execSync } = require('child_process')
 const CordovaConfig = require('cordova-config')
 const { resolve } = require('path')
 
-const path = resolve(__dirname, '../cordova/config.xml')
+const path = resolve(__dirname, '../src-cordova/config.xml')
 
 const commitCount = parseInt(execSync('git rev-list HEAD --count', { encoding: 'utf8' }).split('\n')[0])
 

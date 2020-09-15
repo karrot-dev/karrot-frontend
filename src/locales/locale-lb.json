@@ -298,12 +298,13 @@
   },
   "GLOBAL": {
     "ABOUT_KARROT": "Iwwert Karrot",
+    "APP_INSTALLED": "App erfollegräich installéiert",
     "GENERIC_ERROR": "Entschëlleg, iergendeppes ass falsch gaangen.",
     "GITHUB_NOTE": "Entwécklung",
     "INVALID_LINK": "Entschëlleg, de Link deen's de opmaache wëlls ass ongülteg.",
     "NOT_CONNECTED": "Du bass net mam Server verbonn",
-    "OFFLINE_RECONNECT": "Offline. Press here to reconnect.",
-    "RECONNECTING": "Reconnecting...",
+    "OFFLINE_RECONNECT": "Offline. Klick fir sech nees ze verbannen.",
+    "RECONNECTING": "Nees verbannen...",
     "SEARCH_NOT_FOUND": "Net fonnt",
     "SEARCH_RESULTS": "Sichresultater",
     "SERVER_ERROR": "Server-Feeler"
@@ -376,6 +377,7 @@
     "SHOW_INACTIVE": "Inaktiv Gruppe weisen",
     "SORT_JOINDATE": "Sortéieren no Datum vum Bäitrëtt",
     "SORT_NAME": "Sortéieren no Numm",
+    "STATISTICS": "Statistics",
     "TIMEZONE": "Zäitzon vun der Grupp",
     "TITLE": "Titel vun dëser Grupp",
     "WALL": "Mauer",
@@ -624,6 +626,20 @@
     "OK": "Bäitrieden",
     "TITLE": "Umellen!"
   },
+  "STATISTICS": {
+    "ACTIVITY_HISTORY": "Activity statistics",
+    "FILTER_USER_LABEL": "User",
+    "FILTER_ALL_USERS": "All users",
+    "FILTER_TIME_LABEL": "Time period",
+    "FILTER_TIME_PREVIOUS_DAYS": "Previous {count} days",
+    "FILTER_TIME_PREVIOUS_MONTHS": "Previous {count} months",
+    "COLUMN_PLACE": "Place",
+    "COLUMN_ACTIVITY_DONE": "Done",
+    "COLUMN_ACTIVITY_LEFT": "Left",
+    "COLUMN_ACTIVITY_LEFT_LATE": "Left late",
+    "COLUMN_FEEDBACK_WEIGHT": "Weight",
+    "TOTAL_LABEL": "Total"
+  },
   "STOREDETAIL": {
     "ARCHIVED": "Dës Platz gouf archivéiert",
     "CHANGE_STATUS": "Du kanns de Status op der Säit mat den Astellungen änneren.",
@@ -715,6 +731,9 @@
     "PROFILE_TITLE": "Profil",
     "PUSH": "Push-Benoriichtegungen",
     "PUSH_CURRENT_BROWSER": "Aktuelle Browser",
+    "PUSH_BLOCKED": "D'Push-Noriichte konnten net aktivéiert ginn. Vläicht hues du se net zougelooss?",
+    "APP": "App",
+    "INSTALL_APP": "Installéier d'Karrot-App op dengem Gerät",
     "REQUEST_DELETE_ACCOUNT": {
       "SUCCESS": "Mir hunn dir eng E-Mail geschéckt mat engem Link fir d'Läschen ofzeschléissen."
     },

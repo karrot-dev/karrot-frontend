@@ -298,6 +298,7 @@
   },
   "GLOBAL": {
     "ABOUT_KARROT": "Pri Karrot",
+    "APP_INSTALLED": "App successfully installed!",
     "GENERIC_ERROR": "Pardonon sed io ne bone funkciis",
     "GITHUB_NOTE": "Ellaboro",
     "INVALID_LINK": "Pardonon, la ligilo ne validas.",
@@ -376,6 +377,7 @@
     "SHOW_INACTIVE": "Montri neaktivajn grupojn",
     "SORT_JOINDATE": "Ordigi laŭ dato",
     "SORT_NAME": "Ordigi laŭ nomo",
+    "STATISTICS": "Statistics",
     "TIMEZONE": "Horzono de la grupo",
     "TITLE": "Titolo de ĉi tiu grupo",
     "WALL": "Muro",
@@ -624,6 +626,20 @@
     "OK": "Aliĝi",
     "TITLE": "Registriĝu!"
   },
+  "STATISTICS": {
+    "ACTIVITY_HISTORY": "Activity statistics",
+    "FILTER_USER_LABEL": "User",
+    "FILTER_ALL_USERS": "All users",
+    "FILTER_TIME_LABEL": "Time period",
+    "FILTER_TIME_PREVIOUS_DAYS": "Previous {count} days",
+    "FILTER_TIME_PREVIOUS_MONTHS": "Previous {count} months",
+    "COLUMN_PLACE": "Place",
+    "COLUMN_ACTIVITY_DONE": "Done",
+    "COLUMN_ACTIVITY_LEFT": "Left",
+    "COLUMN_ACTIVITY_LEFT_LATE": "Left late",
+    "COLUMN_FEEDBACK_WEIGHT": "Weight",
+    "TOTAL_LABEL": "Total"
+  },
   "STOREDETAIL": {
     "ARCHIVED": "La loko arkiviĝis",
     "CHANGE_STATUS": "Vi povas ŝanĝi vian staton en la agorda paĝo.",
@@ -715,6 +731,9 @@
     "PROFILE_TITLE": "Profilo",
     "PUSH": "Sciigoj",
     "PUSH_CURRENT_BROWSER": "Nuna retumilo",
+    "PUSH_BLOCKED": "Could not enable push notifications, maybe you didn't allow them?",
+    "APP": "App",
+    "INSTALL_APP": "Install Karrot app to your device",
     "REQUEST_DELETE_ACCOUNT": {
       "SUCCESS": "Ni sendis retmesaĝon al vi por ke vi finu la forigan proceduron."
     },

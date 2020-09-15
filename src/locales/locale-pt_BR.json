@@ -298,6 +298,7 @@
   },
   "GLOBAL": {
     "ABOUT_KARROT": "Sobre Karrot",
+    "APP_INSTALLED": "App successfully installed!",
     "GENERIC_ERROR": "Desculpe, algo deu errado",
     "GITHUB_NOTE": "Desenvolvimento",
     "INVALID_LINK": "Desculpe, o link que você abriu é inválido.",
@@ -376,6 +377,7 @@
     "SHOW_INACTIVE": "Exibir grupos inativos",
     "SORT_JOINDATE": "Organizar por data de entrada",
     "SORT_NAME": "Organizar por nome",
+    "STATISTICS": "Statistics",
     "TIMEZONE": "Fuso horário do grupo",
     "TITLE": "Título deste grupo",
     "WALL": "Mural",
@@ -624,6 +626,20 @@
     "OK": "Participar",
     "TITLE": "Registrar!"
   },
+  "STATISTICS": {
+    "ACTIVITY_HISTORY": "Activity statistics",
+    "FILTER_USER_LABEL": "User",
+    "FILTER_ALL_USERS": "All users",
+    "FILTER_TIME_LABEL": "Time period",
+    "FILTER_TIME_PREVIOUS_DAYS": "Previous {count} days",
+    "FILTER_TIME_PREVIOUS_MONTHS": "Previous {count} months",
+    "COLUMN_PLACE": "Place",
+    "COLUMN_ACTIVITY_DONE": "Done",
+    "COLUMN_ACTIVITY_LEFT": "Left",
+    "COLUMN_ACTIVITY_LEFT_LATE": "Left late",
+    "COLUMN_FEEDBACK_WEIGHT": "Weight",
+    "TOTAL_LABEL": "Total"
+  },
   "STOREDETAIL": {
     "ARCHIVED": "This place has been archived",
     "CHANGE_STATUS": "Você pode mudar o estado na página de configuração",
@@ -715,6 +731,9 @@
     "PROFILE_TITLE": "Perfil",
     "PUSH": "Push notifications",
     "PUSH_CURRENT_BROWSER": "Navegador atual",
+    "PUSH_BLOCKED": "Could not enable push notifications, maybe you didn't allow them?",
+    "APP": "App",
+    "INSTALL_APP": "Install Karrot app to your device",
     "REQUEST_DELETE_ACCOUNT": {
       "SUCCESS": "Nós lhe enviamos um email com um link para completar o processo de remoção de sua conta."
     },

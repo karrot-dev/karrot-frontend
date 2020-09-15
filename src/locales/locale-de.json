@@ -192,7 +192,7 @@
     "SAVE_CHANGES": "Änderungen speichern",
     "SEARCH": "Suche",
     "SHOW": "Zeigen",
-    "SHOW_LESS": "Show less",
+    "SHOW_LESS": "Weniger zeigen",
     "SHOW_MORE": "Mehr anzeigen",
     "SUBMIT": "Absenden",
     "UNSUBSCRIBE": "Abmelden",
@@ -208,7 +208,7 @@
   "CONFLICT": {
     "FIND_OUT_MORE": "Mehr herausfinden!",
     "INFO": {
-      "MESSAGE": "This is a score voting in which group members can participate to determine how to deal with a social conflict that affects the whole group.",
+      "MESSAGE": "Dies ist eine Punktzahlabstimmung, an der Gruppenmitglieder teilnehmen können, um zu bestimmen, wie mit einem sozialen Konflikt umzugehen ist, der die gesamte Gruppe betrifft.",
       "TITLE": "Wie funktioniert dieser Prozess?"
     },
     "INITIAL": "Information",
@@ -218,15 +218,15 @@
     "SETUP_HEADER": "Gibt es einen Konflikt mit {user}?",
     "STATEMENT": "Aussage",
     "STEPPER1a": "Du bist dabei einen gruppenweiten Konfliktlösungsprozess zu starten!",
-    "STEPPER1b": "This will involve all members to find the best way to proceed.",
+    "STEPPER1b": "Alle Mitglieder werden einbezogen, um den besten Weg für das weitere Vorgehen zu finden.",
     "STEPPER2a": "Danke, dass du dich um deine Community kümmerst!",
     "STEPPER2b": "Es ist wichtig, soziale Themen anzusprechen, auch wenn dies manchmal unangenehm sein kann. Danke für deinen Mut!",
     "STEPPER3a": "Dies wird passieren:",
     "STEPPER3b": "Dieser Prozess wird eine Unterhaltung und eine Abstimmung starten.",
-    "STEPPER3c": "The chat will be visible for members and includes {userName}.",
+    "STEPPER3c": "Der Chat wird für Mitglieder sichtbar sein, einschließlich {userName}.",
     "STEPPER3d": "Die Abstimmung ist anonym. Sie wird für {votingDuration} geöffnet sein. Während dieser Zeit können alle Wählenden ihre Meinung ändern und unterschiedlich wählen, sooft sie wollen.",
     "STEPPER4a": "Bitte erkläre warum du diesen Konfliktlösungsprozess starten willst!",
-    "STEPPER4b": "Tell your group what made you think this process is justified and needed. This statement will be visible to {userName} and group members.",
+    "STEPPER4b": "Erkläre deiner Gruppe, warum du diesen Prozess für gerechtfertigt und notwendig hältst. Diese Erklärung wird für {userName} und die Gruppenmitglieder sichtbar sein.",
     "VOTING": {
       "HEADLINE": "Wie willst du mit dem laufenden Konflikt mit {userName} umgehen?"
     },
@@ -298,12 +298,13 @@
   },
   "GLOBAL": {
     "ABOUT_KARROT": "Über Karrot",
+    "APP_INSTALLED": "App successfully installed!",
     "GENERIC_ERROR": "Entschuldige, ein Fehler ist aufgetreten",
     "GITHUB_NOTE": "Entwicklung",
     "INVALID_LINK": "Der Link ist ungültig.",
     "NOT_CONNECTED": "Du bist nicht mit dem Server verbunden",
-    "OFFLINE_RECONNECT": "Offline. Press here to reconnect.",
-    "RECONNECTING": "Reconnecting...",
+    "OFFLINE_RECONNECT": "Offline. Drücke hier, um die Verbindung wiederherzustellen.",
+    "RECONNECTING": "Verbindung wird wiederhergestellt...",
     "SEARCH_NOT_FOUND": "Nicht gefunden",
     "SEARCH_RESULTS": "Suchergebnisse",
     "SERVER_ERROR": "Server-Fehler"
@@ -342,7 +343,7 @@
     "LEAVE_TEXT": "Bist du sicher, dass du diese Gruppe verlassen möchtest?",
     "LOGO": "Gruppenlogo",
     "MANAGE_AGREEMENT": "Vereinbarung verwalten",
-    "MEMBERLIST": "Your group has {total} members in total.",
+    "MEMBERLIST": "Deine Gruppe hat insgesamt {total} Mitglieder.",
     "MEMBERS": "Mitglieder",
     "MESSAGES": "Nachrichten",
     "NONMEMBER_REDIRECT": "Du bist kein Mitglied dieser Gruppe.",
@@ -376,6 +377,7 @@
     "SHOW_INACTIVE": "Zeige inaktive Gruppen",
     "SORT_JOINDATE": "Nach Beitrittsdatum sortieren",
     "SORT_NAME": "Nach Namen sortieren",
+    "STATISTICS": "Statistics",
     "TIMEZONE": "Zeitzone der Gruppe",
     "TITLE": "Name der Gruppe",
     "WALL": "Wall",
@@ -406,7 +408,7 @@
     "ACTIVITY_ENABLE": "hat eine Abholung aktiviert",
     "ACTIVITY_JOIN": "hat sich gemeldet, um bei Betrieb {storeName} abzuholen",
     "ACTIVITY_LEAVE": "ist von der Abholung bei {storeName} zurückgetreten",
-    "ACTIVITY_LEAVE_DISTANCE": "{distance} before scheduled time",
+    "ACTIVITY_LEAVE_DISTANCE": "{distance} vor der geplanten Zeit",
     "ACTIVITY_MISSED": "Eine Abholung bei {storeName} wurde verpasst!",
     "ACTIVITY_MODIFY": "hat die Eigenschaften eines Abholtermins geändert",
     "APPLICATION_DECLINED": "hat eine Bewerbung von {applicantName} abgelehnt",
@@ -481,7 +483,7 @@
     "APPLICATION_PENDING": "Deine Bewerbung ist noch offen!",
     "APPLICATION_SUBMITTED": "Deine Bewerbung wurde erfolgreich abgegeben!",
     "APPLICATION_WITHDRAWN": "Deine Bewerbung wurde zurückgezogen!",
-    "ARCHIVED_NOTE": "This group doesn't have any members. If you would like to revive it, contact the site administrators!",
+    "ARCHIVED_NOTE": "Diese Gruppe hat keine Mitglieder. Wenn du sie wiederbeleben möchtest, wende Dich an die Website-Administrator*innen!",
     "BROWSE_GROUPS": "Gruppen ansehen",
     "LOGOUT_MESSAGE": {
       "LOGGED_OUT": "Du bist derzeit nicht angemeldet. {login}",
@@ -624,6 +626,20 @@
     "OK": "Beitreten",
     "TITLE": "Neuanmeldung"
   },
+  "STATISTICS": {
+    "ACTIVITY_HISTORY": "Activity statistics",
+    "FILTER_USER_LABEL": "User",
+    "FILTER_ALL_USERS": "All users",
+    "FILTER_TIME_LABEL": "Time period",
+    "FILTER_TIME_PREVIOUS_DAYS": "Previous {count} days",
+    "FILTER_TIME_PREVIOUS_MONTHS": "Previous {count} months",
+    "COLUMN_PLACE": "Place",
+    "COLUMN_ACTIVITY_DONE": "Done",
+    "COLUMN_ACTIVITY_LEFT": "Left",
+    "COLUMN_ACTIVITY_LEFT_LATE": "Left late",
+    "COLUMN_FEEDBACK_WEIGHT": "Weight",
+    "TOTAL_LABEL": "Total"
+  },
   "STOREDETAIL": {
     "ARCHIVED": "Dieser Ort wurde archiviert",
     "CHANGE_STATUS": "Du kannst den Status in den Einstellungen ändern.",
@@ -668,7 +684,7 @@
   "TOPBAR": {
     "CHANGE_GROUP": "Gruppe wechseln",
     "LOGOUT": "Abmelden",
-    "SHOW_ALL_GROUPS": "Show all groups",
+    "SHOW_ALL_GROUPS": "Alle Gruppen anzeigen",
     "USERPROFILE": "Dein Profil"
   },
   "UNSUBSCRIBE": {
@@ -683,7 +699,7 @@
   },
   "UPDATE_AVAILABLE": {
     "DETAIL": "Eine neue Version von Karrot ist verfügbar.",
-    "RELOAD": "Reload"
+    "RELOAD": "Neu laden"
   },
   "USERDATA": {
     "ACCOUNT": "Account",
@@ -715,6 +731,9 @@
     "PROFILE_TITLE": "Profil",
     "PUSH": "Push-Benachrichtigungen",
     "PUSH_CURRENT_BROWSER": "Aktueller Browser",
+    "PUSH_BLOCKED": "Could not enable push notifications, maybe you didn't allow them?",
+    "APP": "App",
+    "INSTALL_APP": "Install Karrot app to your device",
     "REQUEST_DELETE_ACCOUNT": {
       "SUCCESS": "Wir haben dir eine E-Mail gesendet, mit dem du die Account-Löschung bestätigen kannst."
     },

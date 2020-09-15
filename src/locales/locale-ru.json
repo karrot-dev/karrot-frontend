@@ -298,6 +298,7 @@
   },
   "GLOBAL": {
     "ABOUT_KARROT": "О Karrot",
+    "APP_INSTALLED": "App successfully installed!",
     "GENERIC_ERROR": "Sorry, something went wrong",
     "GITHUB_NOTE": "Разработка",
     "INVALID_LINK": "Открытая ссылка недействительна ",
@@ -376,6 +377,7 @@
     "SHOW_INACTIVE": "Показать неактивные группы",
     "SORT_JOINDATE": "Отсортировать по дате добавления ",
     "SORT_NAME": "Отсортировать по имени",
+    "STATISTICS": "Statistics",
     "TIMEZONE": "Time zone of group",
     "TITLE": "Заголовок для этой группы",
     "WALL": "Стена",
@@ -624,6 +626,20 @@
     "OK": "Зарегистрироваться",
     "TITLE": "Регистрация"
   },
+  "STATISTICS": {
+    "ACTIVITY_HISTORY": "Activity statistics",
+    "FILTER_USER_LABEL": "User",
+    "FILTER_ALL_USERS": "All users",
+    "FILTER_TIME_LABEL": "Time period",
+    "FILTER_TIME_PREVIOUS_DAYS": "Previous {count} days",
+    "FILTER_TIME_PREVIOUS_MONTHS": "Previous {count} months",
+    "COLUMN_PLACE": "Place",
+    "COLUMN_ACTIVITY_DONE": "Done",
+    "COLUMN_ACTIVITY_LEFT": "Left",
+    "COLUMN_ACTIVITY_LEFT_LATE": "Left late",
+    "COLUMN_FEEDBACK_WEIGHT": "Weight",
+    "TOTAL_LABEL": "Total"
+  },
   "STOREDETAIL": {
     "ARCHIVED": "Место заархивировано ",
     "CHANGE_STATUS": "Вы можете изменить статус на странице «Настройки».",
@@ -715,6 +731,9 @@
     "PROFILE_TITLE": "Профиль",
     "PUSH": "Push уведомления",
     "PUSH_CURRENT_BROWSER": "Текущий браузер",
+    "PUSH_BLOCKED": "Could not enable push notifications, maybe you didn't allow them?",
+    "APP": "App",
+    "INSTALL_APP": "Install Karrot app to your device",
     "REQUEST_DELETE_ACCOUNT": {
       "SUCCESS": "Мы отправили вам электронное письмо со ссылкой для завершения процесса удаления."
     },

@@ -298,6 +298,7 @@
   },
   "GLOBAL": {
     "ABOUT_KARROT": "Karrot के बारेमे",
+    "APP_INSTALLED": "App successfully installed!",
     "GENERIC_ERROR": "क्षमा करे, कुछ गलत हो गया",
     "GITHUB_NOTE": "विकास",
     "INVALID_LINK": "क्षमा करे, आपके द्वारा खोला गया लिंक गलत है",
@@ -376,6 +377,7 @@
     "SHOW_INACTIVE": "निष्क्रिय समूह दिखाएं",
     "SORT_JOINDATE": "शामिल होने की तारीख से छाँटे",
     "SORT_NAME": "नाम से छाँटे",
+    "STATISTICS": "Statistics",
     "TIMEZONE": "समूह का समय क्षेत्र",
     "TITLE": "इस समूह का शीर्षक",
     "WALL": "दीवार",
@@ -624,6 +626,20 @@
     "OK": "शामिल होना",
     "TITLE": "साइन अप करें!"
   },
+  "STATISTICS": {
+    "ACTIVITY_HISTORY": "Activity statistics",
+    "FILTER_USER_LABEL": "User",
+    "FILTER_ALL_USERS": "All users",
+    "FILTER_TIME_LABEL": "Time period",
+    "FILTER_TIME_PREVIOUS_DAYS": "Previous {count} days",
+    "FILTER_TIME_PREVIOUS_MONTHS": "Previous {count} months",
+    "COLUMN_PLACE": "Place",
+    "COLUMN_ACTIVITY_DONE": "Done",
+    "COLUMN_ACTIVITY_LEFT": "Left",
+    "COLUMN_ACTIVITY_LEFT_LATE": "Left late",
+    "COLUMN_FEEDBACK_WEIGHT": "Weight",
+    "TOTAL_LABEL": "Total"
+  },
   "STOREDETAIL": {
     "ARCHIVED": "इस स्थान को संग्रहीत किया गया है",
     "CHANGE_STATUS": "आप सेटिंग पृष्ठ पर स्थिति बदल सकते हैं।",
@@ -715,6 +731,9 @@
     "PROFILE_TITLE": "प्रोफ़ाइल",
     "PUSH": "भेजी हुवी सूचनाएं",
     "PUSH_CURRENT_BROWSER": "वर्तमान ब्राउज़र",
+    "PUSH_BLOCKED": "Could not enable push notifications, maybe you didn't allow them?",
+    "APP": "App",
+    "INSTALL_APP": "Install Karrot app to your device",
     "REQUEST_DELETE_ACCOUNT": {
       "SUCCESS": "हमने आपको हटाने की प्रक्रिया को पूरा करने के लिए एक लिंक के साथ एक ई-मेल भेजा है"
     },

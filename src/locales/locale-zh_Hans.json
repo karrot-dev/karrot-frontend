@@ -298,6 +298,7 @@
   },
   "GLOBAL": {
     "ABOUT_KARROT": "About Karrot",
+    "APP_INSTALLED": "App successfully installed!",
     "GENERIC_ERROR": "Sorry, something went wrong",
     "GITHUB_NOTE": "開發",
     "INVALID_LINK": "抱歉，你開啟的連結無效",
@@ -376,6 +377,7 @@
     "SHOW_INACTIVE": "顯示不活躍的社團",
     "SORT_JOINDATE": "由加入日期分類",
     "SORT_NAME": "由姓名分類",
+    "STATISTICS": "Statistics",
     "TIMEZONE": "社團時區",
     "TITLE": "社團名稱",
     "WALL": "留言板",
@@ -624,6 +626,20 @@
     "OK": "加入",
     "TITLE": "註冊！"
   },
+  "STATISTICS": {
+    "ACTIVITY_HISTORY": "Activity statistics",
+    "FILTER_USER_LABEL": "User",
+    "FILTER_ALL_USERS": "All users",
+    "FILTER_TIME_LABEL": "Time period",
+    "FILTER_TIME_PREVIOUS_DAYS": "Previous {count} days",
+    "FILTER_TIME_PREVIOUS_MONTHS": "Previous {count} months",
+    "COLUMN_PLACE": "Place",
+    "COLUMN_ACTIVITY_DONE": "Done",
+    "COLUMN_ACTIVITY_LEFT": "Left",
+    "COLUMN_ACTIVITY_LEFT_LATE": "Left late",
+    "COLUMN_FEEDBACK_WEIGHT": "Weight",
+    "TOTAL_LABEL": "Total"
+  },
   "STOREDETAIL": {
     "ARCHIVED": "This place has been archived",
     "CHANGE_STATUS": "你可以在設定頁面更改狀態",
@@ -715,6 +731,9 @@
     "PROFILE_TITLE": "個人資料",
     "PUSH": "推送通知",
     "PUSH_CURRENT_BROWSER": "目前的瀏覽器",
+    "PUSH_BLOCKED": "Could not enable push notifications, maybe you didn't allow them?",
+    "APP": "App",
+    "INSTALL_APP": "Install Karrot app to your device",
     "REQUEST_DELETE_ACCOUNT": {
       "SUCCESS": "我們寄給你了一封電子郵件，內含完成刪除程序的連結"
     },

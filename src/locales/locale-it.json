@@ -298,6 +298,7 @@
   },
   "GLOBAL": {
     "ABOUT_KARROT": "About Karrot",
+    "APP_INSTALLED": "App successfully installed!",
     "GENERIC_ERROR": "Sorry, something went wrong",
     "GITHUB_NOTE": "Sviluppo",
     "INVALID_LINK": "Ci dispiace, il link che hai aperto non è valido.",
@@ -376,6 +377,7 @@
     "SHOW_INACTIVE": "Mostra gruppi inattivi",
     "SORT_JOINDATE": "Ordina per data di adesione",
     "SORT_NAME": "Ordina per nome",
+    "STATISTICS": "Statistics",
     "TIMEZONE": "Fuso orario del gruppo",
     "TITLE": "Nome di questo gruppo",
     "WALL": "Bacheca",
@@ -624,6 +626,20 @@
     "OK": "Unisciti",
     "TITLE": "Iscriviti!"
   },
+  "STATISTICS": {
+    "ACTIVITY_HISTORY": "Activity statistics",
+    "FILTER_USER_LABEL": "User",
+    "FILTER_ALL_USERS": "All users",
+    "FILTER_TIME_LABEL": "Time period",
+    "FILTER_TIME_PREVIOUS_DAYS": "Previous {count} days",
+    "FILTER_TIME_PREVIOUS_MONTHS": "Previous {count} months",
+    "COLUMN_PLACE": "Place",
+    "COLUMN_ACTIVITY_DONE": "Done",
+    "COLUMN_ACTIVITY_LEFT": "Left",
+    "COLUMN_ACTIVITY_LEFT_LATE": "Left late",
+    "COLUMN_FEEDBACK_WEIGHT": "Weight",
+    "TOTAL_LABEL": "Total"
+  },
   "STOREDETAIL": {
     "ARCHIVED": "This place has been archived",
     "CHANGE_STATUS": "You can change the status on the settings page.",
@@ -715,6 +731,9 @@
     "PROFILE_TITLE": "Profilo",
     "PUSH": "Push notifications",
     "PUSH_CURRENT_BROWSER": "Current browser",
+    "PUSH_BLOCKED": "Could not enable push notifications, maybe you didn't allow them?",
+    "APP": "App",
+    "INSTALL_APP": "Install Karrot app to your device",
     "REQUEST_DELETE_ACCOUNT": {
       "SUCCESS": "Ti abbiamo inviato una e-mail con il link per completare il processo di eliminazione."
     },

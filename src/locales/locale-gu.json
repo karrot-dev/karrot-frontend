@@ -298,6 +298,7 @@
   },
   "GLOBAL": {
     "ABOUT_KARROT": "About Karrot",
+    "APP_INSTALLED": "App successfully installed!",
     "GENERIC_ERROR": "Sorry, something went wrong",
     "GITHUB_NOTE": "વિકાસ",
     "INVALID_LINK": "Sorry, the link you've opened is invalid.",
@@ -376,6 +377,7 @@
     "SHOW_INACTIVE": "Show inactive groups",
     "SORT_JOINDATE": "Sort by join date",
     "SORT_NAME": "Sort by name",
+    "STATISTICS": "Statistics",
     "TIMEZONE": "જૂથનો સમય ઝોન",
     "TITLE": "આ જૂથનું શીર્ષક",
     "WALL": "દિવાલ",
@@ -624,6 +626,20 @@
     "OK": "જોડાઓ",
     "TITLE": "સાઇન અપ કરો!"
   },
+  "STATISTICS": {
+    "ACTIVITY_HISTORY": "Activity statistics",
+    "FILTER_USER_LABEL": "User",
+    "FILTER_ALL_USERS": "All users",
+    "FILTER_TIME_LABEL": "Time period",
+    "FILTER_TIME_PREVIOUS_DAYS": "Previous {count} days",
+    "FILTER_TIME_PREVIOUS_MONTHS": "Previous {count} months",
+    "COLUMN_PLACE": "Place",
+    "COLUMN_ACTIVITY_DONE": "Done",
+    "COLUMN_ACTIVITY_LEFT": "Left",
+    "COLUMN_ACTIVITY_LEFT_LATE": "Left late",
+    "COLUMN_FEEDBACK_WEIGHT": "Weight",
+    "TOTAL_LABEL": "Total"
+  },
   "STOREDETAIL": {
     "ARCHIVED": "This place has been archived",
     "CHANGE_STATUS": "You can change the status on the settings page.",
@@ -715,6 +731,9 @@
     "PROFILE_TITLE": "પ્રોફાઇલ",
     "PUSH": "Push notifications",
     "PUSH_CURRENT_BROWSER": "Current browser",
+    "PUSH_BLOCKED": "Could not enable push notifications, maybe you didn't allow them?",
+    "APP": "App",
+    "INSTALL_APP": "Install Karrot app to your device",
     "REQUEST_DELETE_ACCOUNT": {
       "SUCCESS": "We sent you an e-mail with a link to complete the deletion process."
     },

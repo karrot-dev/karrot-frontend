@@ -298,6 +298,7 @@
   },
   "GLOBAL": {
     "ABOUT_KARROT": "Karrot - informacje",
+    "APP_INSTALLED": "App successfully installed!",
     "GENERIC_ERROR": "Ups, coś poszło nie tak...",
     "GITHUB_NOTE": "Development",
     "INVALID_LINK": "Przepraszamy, otwarty przez Ciebie link jest nieprawidłowy.",
@@ -376,6 +377,7 @@
     "SHOW_INACTIVE": "Pokaż nieaktywne grupy",
     "SORT_JOINDATE": "Sortuj po dacie dołączenia",
     "SORT_NAME": "Sortuj po nazwie użytkownika",
+    "STATISTICS": "Statistics",
     "TIMEZONE": "Strefa czasowa",
     "TITLE": "Nazwa grupy",
     "WALL": "Aktualności",
@@ -624,6 +626,20 @@
     "OK": "Dołącz",
     "TITLE": "Zarejestruj się"
   },
+  "STATISTICS": {
+    "ACTIVITY_HISTORY": "Activity statistics",
+    "FILTER_USER_LABEL": "User",
+    "FILTER_ALL_USERS": "All users",
+    "FILTER_TIME_LABEL": "Time period",
+    "FILTER_TIME_PREVIOUS_DAYS": "Previous {count} days",
+    "FILTER_TIME_PREVIOUS_MONTHS": "Previous {count} months",
+    "COLUMN_PLACE": "Place",
+    "COLUMN_ACTIVITY_DONE": "Done",
+    "COLUMN_ACTIVITY_LEFT": "Left",
+    "COLUMN_ACTIVITY_LEFT_LATE": "Left late",
+    "COLUMN_FEEDBACK_WEIGHT": "Weight",
+    "TOTAL_LABEL": "Total"
+  },
   "STOREDETAIL": {
     "ARCHIVED": "Ten punkt został przeniesiony do archiwum",
     "CHANGE_STATUS": "Możesz zmienić status w zakładce Ustawienia.",
@@ -715,6 +731,9 @@
     "PROFILE_TITLE": "Konto",
     "PUSH": "Powiadomienia push",
     "PUSH_CURRENT_BROWSER": "Obecna przeglądarka",
+    "PUSH_BLOCKED": "Could not enable push notifications, maybe you didn't allow them?",
+    "APP": "App",
+    "INSTALL_APP": "Install Karrot app to your device",
     "REQUEST_DELETE_ACCOUNT": {
       "SUCCESS": "Wysłaliśmy Ci wiadomość e-mail z linkiem do usunięcia konta."
     },

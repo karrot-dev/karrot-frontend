@@ -298,6 +298,7 @@
   },
   "GLOBAL": {
     "ABOUT_KARROT": "A propos de Karrot",
+    "APP_INSTALLED": "App successfully installed!",
     "GENERIC_ERROR": "Désolé quelque chose n'a pas fonctionné :-/ ",
     "GITHUB_NOTE": "Développement",
     "INVALID_LINK": "Désolé, le lien que tu as ouvert n'est pas valide.",
@@ -376,6 +377,7 @@
     "SHOW_INACTIVE": "Afficher les groupes inactifs",
     "SORT_JOINDATE": "Trier par date d'adhésion",
     "SORT_NAME": "Trier par nom",
+    "STATISTICS": "Statistics",
     "TIMEZONE": "Fuseau horaire du groupe",
     "TITLE": "Nom du groupe",
     "WALL": "Mur",
@@ -624,6 +626,20 @@
     "OK": "Rejoindre",
     "TITLE": "S'enregistrer"
   },
+  "STATISTICS": {
+    "ACTIVITY_HISTORY": "Activity statistics",
+    "FILTER_USER_LABEL": "User",
+    "FILTER_ALL_USERS": "All users",
+    "FILTER_TIME_LABEL": "Time period",
+    "FILTER_TIME_PREVIOUS_DAYS": "Previous {count} days",
+    "FILTER_TIME_PREVIOUS_MONTHS": "Previous {count} months",
+    "COLUMN_PLACE": "Place",
+    "COLUMN_ACTIVITY_DONE": "Done",
+    "COLUMN_ACTIVITY_LEFT": "Left",
+    "COLUMN_ACTIVITY_LEFT_LATE": "Left late",
+    "COLUMN_FEEDBACK_WEIGHT": "Weight",
+    "TOTAL_LABEL": "Total"
+  },
   "STOREDETAIL": {
     "ARCHIVED": "Ce lieu de récolte a été archivé",
     "CHANGE_STATUS": "Tu peux changer le statut sur la page des paramètres.",
@@ -715,6 +731,9 @@
     "PROFILE_TITLE": "Profil",
     "PUSH": "Notifications",
     "PUSH_CURRENT_BROWSER": "Navigateur Web en cours",
+    "PUSH_BLOCKED": "Could not enable push notifications, maybe you didn't allow them?",
+    "APP": "App",
+    "INSTALL_APP": "Install Karrot app to your device",
     "REQUEST_DELETE_ACCOUNT": {
       "SUCCESS": "Nous t'avons envoyé un lien par e-mail pour confirmer la suppression. "
     },

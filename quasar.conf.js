@@ -240,9 +240,12 @@ module.exports = configure(function (ctx) {
         theme_color: '#4a3520',
         icons: process.env.KARROT_THEME === 'dev' ? [
           {
+            src: 'icons/dev.png',
+            sizes: '512x512',
+            type: 'image/png',
+          },
+          {
             src: 'icons/dev.svg',
-            // Chrome dev tools complain otherwise...
-            sizes: '128x128 512x512',
           },
         ] : [
           {

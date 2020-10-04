@@ -91,7 +91,7 @@
         v-if="searchOpen"
         class="k-searchbar row no-wrap"
       >
-        <Search @clear="$emit('hideSearch')" />
+        <Search @clear="$emit('hide-search')" />
       </div>
       <QBtn
         v-show="!searchOpen"
@@ -101,7 +101,7 @@
         icon="fas fa-fw fa-search"
         class="k-search-button"
         :title="$t('BUTTON.SEARCH')"
-        @click="$emit('showSearch')"
+        @click="$emit('show-search')"
       />
       <template v-if="!$q.platform.is.mobile">
         <LatestMessageButton />

@@ -19,7 +19,7 @@
           class="q-ml-md"
           :user="{ isCurrentUser: true }"
           :groups="groups"
-          @selectGroup="$emit('selectGroup', arguments[0])"
+          @select-group="$emit('select-group', arguments[0])"
         />
       </div>
     </template>
@@ -64,7 +64,7 @@
             color="primary"
             :label="$t('UNSUBSCRIBE.ALL')"
             :loading="isPending"
-            @click="$emit('unsubscribeAllEmails', group.id)"
+            @click="$emit('unsubscribe-all-emails', group.id)"
           />
           <div
             class="q-pt-sm k-caption-opacity"
@@ -143,13 +143,13 @@ export default {
   watch: {
     group (val, oldval) {
       if (!val || !oldval || val.id !== oldval.id) {
-        this.$emit('clearUnsubscribeAllStatus')
+        this.$emit('clear-unsubscribe-all-status')
       }
     },
   },
   methods: {
     change (notificationType, enabled) {
-      this.$emit('changeNotificationType', { notificationType, enabled })
+      this.$emit('change-notification-type', { notificationType, enabled })
     },
     notificationIsEnabled (type) {
       if (!this.group) return

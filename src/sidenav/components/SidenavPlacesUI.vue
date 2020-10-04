@@ -13,7 +13,7 @@
         <QToggle
           :value="showAllPlaces"
           :title="$t(showAllPlaces ? 'STOREEDIT.SHOW_ACTIVE_ONLY' : 'STOREEDIT.SHOW_ALL')"
-          @input="$emit('toggleShowAllPlaces')"
+          @input="$emit('toggle-show-all-places')"
         />
         <QBtn
           v-if="hasPlaces && isEditor"

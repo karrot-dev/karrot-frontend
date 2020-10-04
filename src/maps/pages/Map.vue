@@ -13,10 +13,10 @@
       :show-users="showUsers"
       :show-places="showPlaces"
       :show-groups="showGroups"
-      @mapMoveEnd="mapMoveEnd"
-      @toggleUsers="toggleUsers"
-      @togglePlaces="togglePlaces"
-      @toggleGroups="toggleGroups"
+      @map-move-end="mapMoveEnd"
+      @toggle-users="toggleUsers"
+      @toggle-places="togglePlaces"
+      @toggle-groups="toggleGroups"
     />
   </div>
 </template>

@@ -197,7 +197,7 @@ export default {
         message: this.$t('USERDATA.DIALOGS.GIVE_TRUST.MESSAGE', { userName: this.user.displayName, groupName: this.group.name }),
         cancel: this.$t('BUTTON.CANCEL'),
         ok: this.$t('BUTTON.OF_COURSE'),
-      }).onOk(() => this.$emit('createTrust', this.user.id))
+      }).onOk(() => this.$emit('create-trust', this.user.id))
     },
   },
 }

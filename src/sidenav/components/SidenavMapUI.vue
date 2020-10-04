@@ -11,8 +11,8 @@
     :selected-user="selectedUser"
     :current-group="currentGroup"
     :is-editor="isEditor"
-    @toggleUsers="$emit('toggleUsers')"
-    @togglePlaces="$emit('togglePlaces')"
+    @toggle-users="$emit('toggle-users')"
+    @toggle-places="$emit('toggle-places')"
   />
 </template>
 

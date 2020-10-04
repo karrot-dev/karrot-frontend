@@ -10,7 +10,7 @@
       :default-center="center"
       :force-center="forceCenter"
       :force-zoom="forceZoom"
-      @mapMoveEnd="mapMoveEnd"
+      @map-move-end="mapMoveEnd"
     >
       <template
         v-if="isEditor"
@@ -40,9 +40,9 @@
       :show-groups="showGroups"
       :show-back="false"
       :group-id="currentGroupId"
-      @toggleUsers="$emit('toggleUsers')"
-      @togglePlaces="$emit('togglePlaces')"
-      @toggleGroups="$emit('toggleGroups')"
+      @toggle-users="$emit('toggle-users')"
+      @toggle-places="$emit('toggle-places')"
+      @toggle-groups="$emit('toggle-groups')"
       @export="exportMarkers"
     />
     <div
@@ -200,7 +200,7 @@ export default {
   },
   methods: {
     mapMoveEnd (target) {
-      this.$emit('mapMoveEnd', target)
+      this.$emit('map-move-end', target)
     },
     async exportMarkers () {
       // async import so we don't load the dependencies until we need to...

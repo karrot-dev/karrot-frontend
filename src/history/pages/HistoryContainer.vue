@@ -10,7 +10,7 @@ export default connect({
     fetchPastStatus: 'history/fetchPastStatus',
   },
   actionsToProps: {
-    fetchPast: 'history/fetchPast',
+    'fetch-past': 'history/fetchPast',
   },
 })('History', HistoryList)
 </script>

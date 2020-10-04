@@ -46,7 +46,7 @@
                 no-caps
                 outline
                 size="sm"
-                @click="$emit('markAllRead', data.id)"
+                @click="$emit('mark-all-read', data.id)"
               >
                 <span v-t="'CONVERSATION.MARK_READ'" />
               </QBtn>
@@ -56,9 +56,9 @@
             v-for="message in data.messages"
             :key="message.id"
             :message="message"
-            @toggleReaction="$emit('toggleReaction', arguments[0])"
-            @save="$emit('saveMessage', arguments[0])"
-            @openThread="$emit('openThread', message)"
+            @toggle-reaction="$emit('toggle-reaction', arguments[0])"
+            @save="$emit('save-message', arguments[0])"
+            @open-thread="$emit('open-thread', message)"
           />
         </template>
         <KSpinner v-show="!data || data.fetchStatus.pending || data.fetchPastStatus.pending" />
@@ -134,7 +134,7 @@ export default {
       done()
     },
     setNotifications (value) {
-      this.$emit('saveConversation', {
+      this.$emit('save-conversation', {
         conversationId: this.data.id,
         value,
       })

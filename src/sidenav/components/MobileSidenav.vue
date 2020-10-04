@@ -11,7 +11,7 @@ export default connect({
   },
   methodsToEvents: {
     toggleSidenav ({ commit }) {
-      this.$emit('toggleSidenav')
+      this.$emit('toggle-sidenav')
     },
   },
 })('MobileSidenav', MobileSidenavUI)

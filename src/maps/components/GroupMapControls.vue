@@ -27,7 +27,7 @@
     <QBtn
       color="primary"
       :size="options.buttonSize"
-      @click="$emit('togglePlaces')"
+      @click="$emit('toggle-places')"
     >
       <span class="fa-fw fa-stack">
         <i
@@ -51,7 +51,7 @@
     <QBtn
       color="primary"
       :size="options.buttonSize"
-      @click="$emit('toggleUsers')"
+      @click="$emit('toggle-users')"
     >
       <span class="fa-fw fa-stack">
         <i class="fas fa-user fa-stack-1x" />
@@ -73,7 +73,7 @@
       v-if="options.showGroupsButton"
       color="primary"
       :size="options.buttonSize"
-      @click="$emit('toggleGroups')"
+      @click="$emit('toggle-groups')"
     >
       <span class="fa-fw fa-stack">
         <i class="fas fa-home fa-stack-1x" />

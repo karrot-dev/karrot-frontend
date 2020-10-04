@@ -55,7 +55,7 @@
         <QCardActions>
           <RequestDeleteAccount
             :status="requestDeleteAccountStatus"
-            @requestDeleteAccount="requestDeleteAccount"
+            @request-delete-account="requestDeleteAccount"
           />
         </QCardActions>
       </QCardSection>

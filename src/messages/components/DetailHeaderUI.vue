@@ -232,7 +232,7 @@ export default {
           conversationId: this.conversation.id,
           value,
         }
-      this.$emit('saveConversation', data)
+      this.$emit('save-conversation', data)
     },
     applicationInfo () {
       Dialog.create({

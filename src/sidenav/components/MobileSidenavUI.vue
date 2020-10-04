@@ -54,7 +54,7 @@ export default {
         icon: 'fas fa-sign-out-alt fa-fw',
         handler: () => {
           this.$emit('logout')
-          this.$emit('toggleSidenav')
+          this.$emit('toggle-sidenav')
         },
       }]
     },

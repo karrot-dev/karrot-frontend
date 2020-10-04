@@ -6,11 +6,11 @@
       :user="currentUser"
       :fetch-past="fetchPast"
       @send="send"
-      @saveMessage="saveMessage"
-      @markAllRead="markAllRead"
-      @saveConversation="saveConversation"
-      @toggleReaction="toggleReaction"
-      @openThread="openThread"
+      @save-message="saveMessage"
+      @mark-all-read="markAllRead"
+      @save-conversation="saveConversation"
+      @toggle-reaction="toggleReaction"
+      @open-thread="openThread"
     />
   </div>
 </template>

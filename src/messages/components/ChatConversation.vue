@@ -18,8 +18,8 @@
           :key="message.id"
           :message="message"
           slim
-          @toggleReaction="$emit('toggleReaction', arguments[0])"
-          @save="$emit('saveMessage', arguments[0])"
+          @toggle-reaction="$emit('toggle-reaction', arguments[0])"
+          @save="$emit('save-message', arguments[0])"
         />
         <ConversationCompose
           v-if="compose && !conversation.canFetchFuture && !conversation.isClosed"
@@ -261,12 +261,12 @@ export default {
         done()
         return
       }
-      this.$emit('fetchFuture')
+      this.$emit('fetch-future')
       this.hideBottomSpinner = done
     },
     onScroll ({ position }) {
       if (position < 50 && !this.fetchingPast && this.conversation.canFetchPast) {
-        this.$emit('fetchPast', this.conversation.id)
+        this.$emit('fetch-past', this.conversation.id)
       }
       // if user scrolls to bottom and no more messages can be loaded, mark messages as read
       const isAtBottom = () => this.getScrollPositionFromBottom() < 100

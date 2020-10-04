@@ -10,10 +10,10 @@ export default connect({
     getNotificationTypeStatus: 'currentGroup/getNotificationTypeStatus',
   },
   actionsToEvents: {
-    changeNotificationType: 'currentGroup/changeNotificationType',
-    selectGroup: 'currentGroup/select',
-    unsubscribeAllEmails: 'unsubscribe/allEmailsPerGroup',
-    clearUnsubscribeAllStatus: 'unsubscribe/clear',
+    'change-notification-type': 'currentGroup/changeNotificationType',
+    'select-group': 'currentGroup/select',
+    'unsubscribe-all-emails': 'unsubscribe/allEmailsPerGroup',
+    'clear-unsubscribe-all-status': 'unsubscribe/clear',
   },
 })('GroupSettings', GroupSettings)
 </script>

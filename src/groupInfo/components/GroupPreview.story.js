@@ -9,10 +9,10 @@ import { groupsMock } from '>/mockdata'
 const on = {
   join: action('join group'),
   withdraw: action('withdraw application'),
-  goVisit: action('visit group'),
-  goSettings: action('visit settings page'),
-  goSignup: action('visit signup page'),
-  goApply: action('visit apply page'),
+  'go-visit': action('visit group'),
+  'go-settings': action('visit settings page'),
+  'go-signup': action('visit signup page'),
+  'go-apply': action('visit apply page'),
 }
 
 storiesOf('GroupPreviewUI', module)

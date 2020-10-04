@@ -99,7 +99,7 @@
             :user="user"
             :group="currentGroup"
             :membership="currentGroupMembership"
-            @createTrust="createTrust"
+            @create-trust="createTrust"
           />
         </div>
         <QList>
@@ -175,7 +175,7 @@
           :user="user"
           :status="issueCreateStatus"
           class="bg-white"
-          @startConflictResolution="startConflictResolution"
+          @start-conflict-resolution="startConflictResolution"
           @close="toggleConflictSetup"
         />
       </QDialog>

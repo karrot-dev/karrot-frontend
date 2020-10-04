@@ -14,10 +14,10 @@ export default connect({
   actionsToEvents: {
     send: 'conversations/send',
     mark: 'conversations/maybeMark',
-    toggleReaction: 'conversations/toggleReaction',
-    saveMessage: 'conversations/saveMessage',
-    fetchPast: 'conversations/fetchPast',
-    fetchFuture: 'currentThread/fetchFuture',
+    'toggle-reaction': 'conversations/toggleReaction',
+    'save-message': 'conversations/saveMessage',
+    'fetch-past': 'conversations/fetchPast',
+    'fetch-future': 'currentThread/fetchFuture',
   },
 })('Detail', DetailUI)
 </script>

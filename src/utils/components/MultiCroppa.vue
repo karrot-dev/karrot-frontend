@@ -217,7 +217,10 @@ export default {
         position,
       })
 
-      this.value.push(source)
+      this.$emit('input', [
+        ...this.value,
+        source,
+      ])
       this.newItem = {
         key: getNextKey(),
       }
@@ -259,12 +262,17 @@ export default {
     removeImage (item) {
       if (this.isExisting(item)) {
         // this item needs to be removed from the server after we save
-        this.$set(item.source, '_removed', true)
+        this.$emit('input', this.value.map(i => {
+          if (i.id !== item.source.id) return i
+          return {
+            ...item.source,
+            _removed: true,
+          }
+        }))
       }
       else {
         // this image was never on the server, so we can just delete it
-        const idx = this.value.indexOf(item.source)
-        if (idx !== -1) this.$delete(this.value, idx)
+        this.$emit('input', this.value.filter(i => i.id !== item.source.id))
       }
       // in both cases, this source item will never come back
       // so we can forget the source -> key mapping

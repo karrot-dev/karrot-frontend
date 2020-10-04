@@ -146,7 +146,7 @@ export default {
   },
   methods: {
     submit () {
-      this.$emit('startConflictResolution', {
+      this.$emit('start-conflict-resolution', {
         group: this.currentGroup && this.currentGroup.id,
         affectedUser: this.user && this.user.id,
         topic: this.initialStatement,

@@ -7,9 +7,9 @@
     compose
     :inline="inline"
     @mark="mark"
-    @toggleReaction="toggleReaction"
-    @saveMessage="saveMessage"
-    @fetchPast="fetchPast"
+    @toggle-reaction="toggleReaction"
+    @save-message="saveMessage"
+    @fetch-past="fetchPast"
     @send="send"
   >
     <template

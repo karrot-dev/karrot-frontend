@@ -28,7 +28,7 @@
         <QHeader reveal>
           <KTopbar
             v-if="isLoggedIn"
-            @toggleSidenav="toggleSidenav"
+            @toggle-sidenav="toggleSidenav"
           >
             <QBtn
               flat

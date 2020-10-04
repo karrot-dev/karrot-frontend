@@ -18,12 +18,12 @@ export default connect({
     reconnect: 'connectivity/reconnect',
   },
   mutationsToEvents: {
-    showSearch: 'search/show',
-    hideSearch: 'search/hide',
+    'show-search': 'search/show',
+    'hide-search': 'search/hide',
   },
   methodsToEvents: {
     toggleSidenav ({ commit }) {
-      this.$emit('toggleSidenav')
+      this.$emit('toggle-sidenav')
     },
   },
 })('KTopbar', KTopbarUI)

@@ -24,7 +24,7 @@
         dense
         color="secondary"
         :title="$t('CONVERSATION.REPLIES')"
-        @click="$emit('openThread')"
+        @click="$emit('open-thread')"
       >
         <i class="fas fa-comments" />
       </QBtn>
@@ -112,7 +112,7 @@
           :text-color="message.threadMeta.unreadReplyCount > 0 ? 'white' : 'black'"
           class="reaction-box k-thread-box"
           no-caps
-          @click="$emit('openThread')"
+          @click="$emit('open-thread')"
         >
           <ProfilePicture
             v-for="user in message.threadMeta.participants"
@@ -142,7 +142,7 @@
     :value="message"
     :slim="slim"
     @submit="save"
-    @leaveEdit="toggleEdit"
+    @leave-edit="toggleEdit"
   />
 </template>
 
@@ -217,7 +217,7 @@ export default {
   },
   methods: {
     toggleReaction (name) {
-      this.$emit('toggleReaction', {
+      this.$emit('toggle-reaction', {
         message: this.message,
         name,
       })

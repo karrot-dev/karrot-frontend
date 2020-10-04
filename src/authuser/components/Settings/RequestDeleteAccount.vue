@@ -42,7 +42,7 @@ export default {
         ok: this.$t('USERDATA.DIALOGS.REQUEST_DELETE_ACCOUNT.CONFIRM'),
       })
         .onOk(() => {
-          this.$emit('requestDeleteAccount')
+          this.$emit('request-delete-account')
         })
         .onDismiss(() => {
           this.dialogShown = false

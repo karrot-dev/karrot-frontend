@@ -11,7 +11,7 @@ export default connect({
     currentUser: 'auth/user',
   },
   actionsToEvents: {
-    saveConversation: 'conversations/maybeSave',
+    'save-conversation': 'conversations/maybeSave',
   },
 })('DetailHeader', DetailHeaderUI)
 </script>

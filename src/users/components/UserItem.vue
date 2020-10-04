@@ -50,7 +50,7 @@
         :group="group"
         :membership="user.membership"
         small
-        @createTrust="$emit('createTrust', arguments[0])"
+        @create-trust="$emit('create-trust', arguments[0])"
       />
     </QItemSection>
   </QItem>

@@ -66,8 +66,8 @@
       :markers="marker ? [marker] : []"
       :prevent-zoom="preventZoom"
       :default-center="defaultMapCenter"
-      @markerMoved="mapMarkerMoved"
-      @mapClick="mapMarkerMoved"
+      @marker-moved="mapMarkerMoved"
+      @map-click="mapMarkerMoved"
     />
   </div>
 </template>

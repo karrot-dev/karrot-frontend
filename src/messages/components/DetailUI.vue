@@ -11,10 +11,10 @@
       compose
       @send="$emit('send', arguments[0])"
       @mark="$emit('mark', arguments[0])"
-      @toggleReaction="$emit('toggleReaction', arguments[0])"
-      @saveMessage="$emit('saveMessage', arguments[0])"
-      @fetchPast="$emit('fetchPast', arguments[0])"
-      @fetchFuture="$emit('fetchFuture')"
+      @toggle-reaction="$emit('toggle-reaction', arguments[0])"
+      @save-message="$emit('save-message', arguments[0])"
+      @fetch-past="$emit('fetch-past', arguments[0])"
+      @fetch-future="$emit('fetch-future')"
     >
       <template #before-chat-messages>
         <QExpansionItem

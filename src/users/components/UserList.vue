@@ -24,7 +24,7 @@
         :key="user.id"
         :user="user"
         :group="group"
-        @createTrust="$emit('createTrust', arguments[0])"
+        @create-trust="$emit('create-trust', arguments[0])"
       />
       <QSeparator />
       <QExpansionItem
@@ -65,7 +65,7 @@
             :user="user"
             :group="group"
             class="inactive"
-            @createTrust="$emit('createTrust', arguments[0])"
+            @create-trust="$emit('create-trust', arguments[0])"
           />
         </template>
       </QExpansionItem>

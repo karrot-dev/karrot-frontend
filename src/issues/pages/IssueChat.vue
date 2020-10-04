@@ -92,9 +92,9 @@
       :current-user="currentUser"
       :start-at-bottom="true"
       @mark="mark"
-      @toggleReaction="toggleReaction"
-      @saveMessage="saveMessage"
-      @fetchPast="fetchPast"
+      @toggle-reaction="toggleReaction"
+      @save-message="saveMessage"
+      @fetch-past="fetchPast"
     />
   </div>
 </template>

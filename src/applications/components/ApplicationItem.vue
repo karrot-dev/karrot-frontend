@@ -163,7 +163,7 @@ export default {
   },
   methods: {
     openChat () {
-      this.$emit('openChat', this.application)
+      this.$emit('open-chat', this.application)
     },
     openChatIfCannotDecide () {
       if (this.application.canDecide) return

@@ -12,7 +12,7 @@ export default connect({
     fetchStatus: 'places/fetchStatus',
   },
   actionsToEvents: {
-    toggleShowAllPlaces: 'places/toggle/showAll',
+    'toggle-show-all-places': 'places/toggle/showAll',
   },
 })('SidenavPlaces', SidenavPlacesUI)
 </script>

@@ -6,7 +6,7 @@
     :zoom="zoom"
     :min-zoom="2"
     @click="mapClick"
-    @moveend="$emit('mapMoveEnd', arguments[0].target)"
+    @moveend="$emit('map-move-end', arguments[0].target)"
     @update:zoom="updateZoom"
     @contextmenu="openContextMenu"
   >
@@ -22,7 +22,7 @@
       :color="marker.color"
       :draggable="marker.draggable"
       :opacity="opacityFor(marker)"
-      @dragend="$emit('markerMoved', $event.target._latlng, marker)"
+      @dragend="$emit('marker-moved', $event.target._latlng, marker)"
     >
       <LPopup
         v-if="marker.popup"
@@ -233,7 +233,7 @@ export default {
   },
   methods: {
     mapClick ({ latlng }) {
-      this.$emit('mapClick', latlng)
+      this.$emit('map-click', latlng)
       this.closeContextMenu()
     },
     openContextMenu (event) {

@@ -19,13 +19,14 @@
         <i class="fas fa-bed" />
       </template>
       {{ $t('ACTIVITYLIST.NONE') }}
-      <RouterLink
-        v-if="isEditor"
-        #desc
-        :to="{name: 'placeActivitiesManage', params: { placeId }}"
-      >
-        {{ $t('ACTIVITYLIST.STORE_NONE_HINT') }}
-      </RouterLink>
+      <template #desc>
+        <RouterLink
+          v-if="isEditor"
+          :to="{name: 'placeActivitiesManage', params: { placeId }}"
+        >
+          {{ $t('ACTIVITYLIST.STORE_NONE_HINT') }}
+        </RouterLink>
+      </template>
     </KNotice>
     <ActivityList
       :pending="fetchPending"

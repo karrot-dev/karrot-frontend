@@ -26,7 +26,7 @@
           :key="group.id"
           v-close-popup
           clickable
-          @click="$emit('selectGroup', { groupId: group.id })"
+          @click="$emit('select-group', { groupId: group.id })"
         >
           <QItemSection>
             {{ group.name }}

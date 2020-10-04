@@ -34,7 +34,7 @@
       :users="users"
       :group="group"
       :sorting="sorting"
-      @createTrust="createTrust"
+      @create-trust="createTrust"
     />
   </QCard>
 </template>

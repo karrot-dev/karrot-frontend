@@ -13,16 +13,16 @@ export default connect({
   actionsToEvents: {
     join: 'groups/join',
     withdraw: 'applications/withdraw',
-    openChat: 'detail/openForApplication',
+    'open-chat': 'detail/openForApplication',
   },
   methodsToEvents: {
-    goVisit: (_, groupId) => router.push({ name: 'group', params: { groupId } }).catch(() => {}),
-    goSettings: ({ dispatch }) => router.push({ name: 'settings', hash: '#change-email' }).catch(() => {}),
-    goSignup: ({ dispatch }, group) => {
+    'go-visit': (_, groupId) => router.push({ name: 'group', params: { groupId } }).catch(() => {}),
+    'go-settings': ({ dispatch }) => router.push({ name: 'settings', hash: '#change-email' }).catch(() => {}),
+    'go-signup': ({ dispatch }, group) => {
       if (group.isOpen) dispatch('auth/setJoinGroupAfterLogin', group.id)
       router.push({ name: 'signup' }).catch(() => {})
     },
-    goApply: (_, groupId) => router.push({ name: 'applicationForm', params: { groupPreviewId: groupId } }).catch(() => {}),
+    'go-apply': (_, groupId) => router.push({ name: 'applicationForm', params: { groupPreviewId: groupId } }).catch(() => {}),
   },
 })('GroupPreview', GroupPreviewUI)
 </script>

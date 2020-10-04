@@ -26,34 +26,32 @@
       v-model="showDetail"
       content-class="bg-grey-10 text-grey-1 q-pa-md"
     >
-      <template>
-        <QItem
-          v-for="reaction in reactions"
-          :key="reaction.name"
-          @click="toggleDetail"
-        >
-          <QItemSection avatar>
-            <EmojiButton
-              :name="reaction.name"
-              class="big"
-            />
-          </QItemSection>
-          <QItemSection>
-            <QItemLabel>
-              {{ reaction.users.map(u => u.displayName).join(', ') }}
-            </QItemLabel>
-            <QItemLabel caption>
-              {{ `:${reaction.name}:` }}
-            </QItemLabel>
-          </QItemSection>
-        </QItem>
-        <QBtn
-          outline
-          @click="toggleDetail"
-        >
-          <span v-t="'BUTTON.CLOSE'" />
-        </QBtn>
-      </template>
+      <QItem
+        v-for="reaction in reactions"
+        :key="reaction.name"
+        @click="toggleDetail"
+      >
+        <QItemSection avatar>
+          <EmojiButton
+            :name="reaction.name"
+            class="big"
+          />
+        </QItemSection>
+        <QItemSection>
+          <QItemLabel>
+            {{ reaction.users.map(u => u.displayName).join(', ') }}
+          </QItemLabel>
+          <QItemLabel caption>
+            {{ `:${reaction.name}:` }}
+          </QItemLabel>
+        </QItemSection>
+      </QItem>
+      <QBtn
+        outline
+        @click="toggleDetail"
+      >
+        <span v-t="'BUTTON.CLOSE'" />
+      </QBtn>
     </QDialog>
   </div>
 </template>

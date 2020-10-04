@@ -10,12 +10,12 @@ export default connect({
     fetchPastStatus: 'applications/fetchPastStatus',
   },
   actionsToProps: {
-    fetchPast: 'applications/fetchPast',
+    'fetch-past': 'applications/fetchPast',
   },
   actionsToEvents: {
     accept: 'applications/accept',
     decline: 'applications/decline',
-    openChat: 'detail/openForApplication',
+    'open-chat': 'detail/openForApplication',
   },
 })('ApplicationList', ApplicationList)
 </script>

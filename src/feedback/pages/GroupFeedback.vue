@@ -11,7 +11,7 @@ export default connect({
     feedbackPossible: 'activities/feedbackPossibleByCurrentGroup',
   },
   actionsToProps: {
-    fetchPast: 'feedback/fetchPast',
+    'fetch-past': 'feedback/fetchPast',
   },
 })('GroupFeedback', FeedbackList)
 </script>

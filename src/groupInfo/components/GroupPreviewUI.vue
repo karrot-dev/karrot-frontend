@@ -95,7 +95,7 @@
                     dense
                     :label="$t('BUTTON.OPEN')"
                     icon="fas fa-fw fa-comments"
-                    @click="$emit('openChat', application)"
+                    @click="$emit('open-chat', application)"
                   />
                   <QBtn
                     flat
@@ -121,7 +121,7 @@
                 color="secondary"
                 class="float-right q-ma-xs"
                 :loading="isPending"
-                @click="$emit('goSettings')"
+                @click="$emit('go-settings')"
               >
                 {{ $t('JOINGROUP.VERIFY_EMAIL_ADDRESS') }}
               </QBtn>
@@ -130,7 +130,7 @@
                 color="secondary"
                 class="float-right q-ma-xs"
                 :loading="isPending"
-                @click="$emit('goApply', group.id)"
+                @click="$emit('go-apply', group.id)"
               >
                 {{ $t('BUTTON.APPLY') }}
               </QBtn>
@@ -138,7 +138,7 @@
             <QBtn
               v-else
               flat
-              @click="$emit('goVisit', group.id)"
+              @click="$emit('go-visit', group.id)"
             >
               <QIcon name="fas fa-home" />
               <QTooltip>
@@ -152,7 +152,7 @@
             color="secondary"
             class="float-right q-ma-xs"
             :loading="isPending"
-            @click="$emit('goSignup', group)"
+            @click="$emit('go-signup', group)"
           >
             {{ $t('JOINGROUP.SIGNUP_OR_LOGIN') }}
           </QBtn>

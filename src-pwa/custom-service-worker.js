@@ -19,12 +19,17 @@ skipWaiting()
 // Take over all Karrot pages in the browser, even when they haven't been opened through the service worker
 clientsClaim()
 
+/*
 self.addEventListener('message', event => {
   const { data: { type } = {} } = event
   if (type === 'LOAD_FIREBASE') {
     require('./firebase').init()
   }
 })
+*/
 
 // __WB_MANIFEST is used by InjectManifest to set the files for caching
 precacheAndRoute(self.__WB_MANIFEST)
+
+// DEBUG ONLY always load firebase
+require('./firebase').init()

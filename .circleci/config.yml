@@ -6,7 +6,7 @@ defaults: &defaults
 android-defaults: &android-defaults
   working_directory: ~/repo
   docker:
-    - image: karrot/android:api-28-node8-alpha-3
+    - image: karrot/android:api-30-node
 
 deploy-android: &deploy-android
   <<: *defaults
@@ -213,7 +213,7 @@ jobs:
           at: .
       - run:
           name: pretend we have cordova installed (quasar build wants it)
-          command: ln -s /bin/true /usr/local/bin/cordova          
+          command: ln -s /bin/true /usr/local/bin/cordova
       - run:
           name: build cordova app
           command: |

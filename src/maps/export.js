@@ -26,6 +26,7 @@ export function markersAsGPX (markers) {
           lat,
           lon,
         },
+        // Remove this handling if https://github.com/davidcalhoun/jstoxml/issues/41 gets fixed!
         _content: escapeObject(marker.gpx),
       }
     }),

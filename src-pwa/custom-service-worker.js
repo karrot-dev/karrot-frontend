@@ -19,21 +19,7 @@ skipWaiting()
 // Take over all Karrot pages in the browser, even when they haven't been opened through the service worker
 clientsClaim()
 
-// Load firebase on demand
-// Case 1: when we have a push subscription already
-self.registration.pushManager.getSubscription().then(subscription => {
-  if (subscription) {
-    require('./firebase').init()
-  }
-})
-
-// Case 2: when a new push subscription just got registered
-self.addEventListener('message', event => {
-  const { data: { type } = {} } = event
-  if (type === 'LOAD_FIREBASE') {
-    require('./firebase').init()
-  }
-})
+require('./firebase').init()
 
 // __WB_MANIFEST is used by InjectManifest to set the files for caching
 precacheAndRoute(self.__WB_MANIFEST)

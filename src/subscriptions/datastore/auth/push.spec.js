@@ -2,9 +2,8 @@ const mockGetToken = jest.fn()
 const mockInitializeMessaging = jest.fn(() => ({
   getToken: mockGetToken,
 }))
-const postMessageMock = jest.fn()
 const mockRegistration = {
-  active: { postMessage: postMessageMock },
+  active: {},
 }
 
 const mockListSubscriptions = jest.fn()
@@ -54,7 +53,6 @@ describe('auth/push', () => {
       expect(datastore.getters['auth/push/enabled']).toBe(true)
       expect(datastore.state.auth.push.token).toBe(token)
       expect(mockGetToken).toBeCalled()
-      expect(postMessageMock).toBeCalledWith({ type: 'LOAD_FIREBASE' })
       expect(toastShowMock).not.toBeCalled()
     })
 
@@ -65,7 +63,6 @@ describe('auth/push', () => {
       expect(datastore.state.auth.push.token).toBe(null)
       expect(mockGetToken).toBeCalled()
       expect(toastShowMock).toBeCalled()
-      expect(postMessageMock).not.toBeCalledWith()
     })
   })
 

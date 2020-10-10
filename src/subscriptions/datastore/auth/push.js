@@ -61,10 +61,6 @@ export default {
           return
         }
 
-        // tell service worker to load firebase and show notifications
-        serviceWorkerRegistration.active.postMessage({
-          type: 'LOAD_FIREBASE',
-        })
         commit('setToken', token)
       },
 

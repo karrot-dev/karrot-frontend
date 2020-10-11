@@ -9,14 +9,14 @@ const devicereadyTimeout = setTimeout(() => {
 
 async function onDeviceReady () {
   clearTimeout(devicereadyTimeout)
-  const { FCMPlugin } = window
-  if (FCMPlugin) {
-    receiveFCMToken(await FCMPlugin.getToken())
-    FCMPlugin.onTokenRefresh(receiveFCMToken)
-    FCMPlugin.onNotification(receiveNotification)
+  const { FCM } = window
+  if (FCM) {
+    receiveFCMToken(await FCM.getToken())
+    FCM.onTokenRefresh(receiveFCMToken)
+    FCM.onNotification(receiveNotification)
   }
   else {
-    console.error('window.FCMPlugin is not available, push notifications will not work')
+    console.error('window.FCM is not available, push notifications will not work')
   }
 }
 

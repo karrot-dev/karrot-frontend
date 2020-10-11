@@ -380,7 +380,7 @@
     "STATISTICS": "Statistics",
     "TIMEZONE": "Gruppens tidszon",
     "TITLE": "Gruppens namn",
-    "WALL": "Anslagstavla",
+    "WALL": "Chattvägg",
     "WELCOMEMESSAGE_VERBOSE": "Välkomstmeddelande skickas till nya medlemmar"
   },
   "GROUPINFO": {
@@ -608,7 +608,7 @@
       "NO": "nej",
       "NO_TEXT": "Inget av ovanstående. Du kan ändå skriva upp dig för upphämtningar.",
       "YES": "ja",
-      "YES_TEXT": "Visa tillängliga upphämtningar i gruppens anslagstavlan och skickar mejl om kommande upphämtningar."
+      "YES_TEXT": "Visa tillgängliga upphämtningar i gruppens chattvägg och skickar mejl om kommande upphämtningar."
     }
   },
   "PROFILE": {

@@ -22,6 +22,10 @@ Please document your changes in this format:
 
 ## [Unreleased]
 
+## [8.8.1] - 2020-10-12
+### Fixed
+- Fix playstore image types @nicksellen
+
 ## [8.8.0] - 2020-10-12
 ### Added
 - Karrot can now be added to your homescreen (installed as App). Check out the button at the bottom of your profile settings page! @tiltec
@@ -593,7 +597,8 @@ After months of planning and programming, the first version of ~the foodsaving t
 [#2157]: https://github.com/yunity/karrot-frontend/issues/2157
 [#2161]: https://github.com/yunity/karrot-frontend/issues/2161
 
-[Unreleased]: https://github.com/yunity/karrot-frontend/compare/v8.8.0...HEAD
+[Unreleased]: https://github.com/yunity/karrot-frontend/compare/v8.8.1...HEAD
+[8.8.1]: https://github.com/yunity/karrot-frontend/compare/v8.8.0...v8.8.1
 [8.8.0]: https://github.com/yunity/karrot-frontend/compare/v8.7.2...v8.8.0
 [8.7.2]: https://github.com/yunity/karrot-frontend/compare/v8.7.1...v8.7.2
 [8.7.1]: https://github.com/yunity/karrot-frontend/compare/v8.6.0...v8.7.1

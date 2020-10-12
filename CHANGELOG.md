@@ -21,8 +21,11 @@ Please document your changes in this format:
 ```
 
 ## [Unreleased]
+
+## [8.8.0] - 2020-10-12
 ### Added
 - Karrot can now be added to your homescreen (installed as App). Check out the button at the bottom of your profile settings page! @tiltec
+- Added group activity statistics display @nicksellen
 
 ### Changed
 - Move "not connected" message into topbar for mobile view @tiltec
@@ -31,7 +34,7 @@ Please document your changes in this format:
 ## [8.7.2] - 2020-08-28
 ### Changed
 - Enable the Luxembourgish locale of Quasar and date-fns when this language is selected @dwaxweiler
-- Do not offer to join the playground group during signup, to avoid confusiong @tiltec
+- Do not offer to join the playground group during signup, to avoid confusion @tiltec
 
 ## [8.7.1] - 2020-08-27
 ### Added
@@ -590,7 +593,8 @@ After months of planning and programming, the first version of ~the foodsaving t
 [#2157]: https://github.com/yunity/karrot-frontend/issues/2157
 [#2161]: https://github.com/yunity/karrot-frontend/issues/2161
 
-[Unreleased]: https://github.com/yunity/karrot-frontend/compare/v8.7.2...HEAD
+[Unreleased]: https://github.com/yunity/karrot-frontend/compare/v8.8.0...HEAD
+[8.8.0]: https://github.com/yunity/karrot-frontend/compare/v8.7.2...v8.8.0
 [8.7.2]: https://github.com/yunity/karrot-frontend/compare/v8.7.1...v8.7.2
 [8.7.1]: https://github.com/yunity/karrot-frontend/compare/v8.6.0...v8.7.1
 [8.6.0]: https://github.com/yunity/karrot-frontend/compare/v8.5.2...v8.6.0

@@ -185,6 +185,7 @@ exports[`Storyshots ActivityEdit default 1`] = `
     <!---->
   </div>
   <form class="q-gutter-y-lg" style="max-width:700px;">
+    <!---->
     <div class="row q-mt-xs"><label for="f_80808080-8080-4080-8080-808080808080" class="q-field q-validation-component row no-wrap items-start q-mr-sm q-input q-field--standard q-field--float">
         <div class="q-field__before q-field__marginal row no-wrap items-center"><i aria-hidden="true" role="presentation" class="material-icons q-icon notranslate">access_time</i></div>
         <div class="q-field__inner relative-position col self-stretch column justify-center">
@@ -207,7 +208,7 @@ exports[`Storyshots ActivityEdit default 1`] = `
       <!---->
       <div class="q-ml-lg col-12 q-field__bottom">
         <div>
-          When should the pick-up take place?
+          When should the activity take place?
         </div>
       </div>
     </div>
@@ -237,7 +238,7 @@ exports[`Storyshots ActivityEdit default 1`] = `
           <div class="q-field__bottom row items-start q-field__bottom--animated">
             <transition-stub name="q-transition--field-message">
               <div class="q-field__messages col">
-                <div>How many people should participate in the pick-up?</div>
+                <div>How many people should participate in the activity?</div>
               </div>
             </transition-stub>
           </div>
@@ -257,7 +258,7 @@ exports[`Storyshots ActivityEdit default 1`] = `
           <div class="q-field__bottom row items-start q-field__bottom--animated">
             <transition-stub name="q-transition--field-message">
               <div class="q-field__messages col">
-                <div>What should people know when signing up to this pick-up?</div>
+                <div>What should people know when signing up to this activity?</div>
               </div>
             </transition-stub>
           </div>
@@ -286,9 +287,10 @@ exports[`Storyshots ActivityEdit default 1`] = `
 exports[`Storyshots ActivityEdit disabled 1`] = `
 <div class="edit-box">
   <div class="q-mb-lg"><b class="text-negative">
-      This pickup has been disabled.
+      This activity has been disabled.
     </b></div>
   <form class="q-gutter-y-lg" style="max-width:700px;">
+    <!---->
     <div class="row q-mt-xs"><label for="f_80808080-8080-4080-8080-808080808080" class="q-field q-validation-component row no-wrap items-start q-mr-sm q-input q-field--standard q-field--float">
         <div class="q-field__before q-field__marginal row no-wrap items-center"><i aria-hidden="true" role="presentation" class="material-icons q-icon notranslate">access_time</i></div>
         <div class="q-field__inner relative-position col self-stretch column justify-center">
@@ -311,7 +313,7 @@ exports[`Storyshots ActivityEdit disabled 1`] = `
       <!---->
       <div class="q-ml-lg col-12 q-field__bottom">
         <div>
-          When should the pick-up take place?
+          When should the activity take place?
         </div>
       </div>
     </div>
@@ -341,7 +343,7 @@ exports[`Storyshots ActivityEdit disabled 1`] = `
           <div class="q-field__bottom row items-start q-field__bottom--animated">
             <transition-stub name="q-transition--field-message">
               <div class="q-field__messages col">
-                <div>How many people should participate in the pick-up?</div>
+                <div>How many people should participate in the activity?</div>
               </div>
             </transition-stub>
           </div>
@@ -361,7 +363,7 @@ exports[`Storyshots ActivityEdit disabled 1`] = `
           <div class="q-field__bottom row items-start q-field__bottom--animated">
             <transition-stub name="q-transition--field-message">
               <div class="q-field__messages col">
-                <div>What should people know when signing up to this pick-up?</div>
+                <div>What should people know when signing up to this activity?</div>
               </div>
             </transition-stub>
           </div>
@@ -393,6 +395,7 @@ exports[`Storyshots ActivityEdit error 1`] = `
     <!---->
   </div>
   <form class="q-gutter-y-lg" style="max-width:700px;">
+    <!---->
     <div class="row q-mt-xs"><label for="f_80808080-8080-4080-8080-808080808080" class="q-field q-validation-component row no-wrap items-start q-mr-sm q-input q-field--standard q-field--focused q-field--float q-field--error">
         <div class="q-field__before q-field__marginal row no-wrap items-center"><i aria-hidden="true" role="presentation" class="material-icons q-icon notranslate">access_time</i></div>
         <div class="q-field__inner relative-position col self-stretch column justify-center">
@@ -447,7 +450,7 @@ exports[`Storyshots ActivityEdit error 1`] = `
           <div class="q-field__bottom row items-start q-field__bottom--animated">
             <transition-stub name="q-transition--field-message">
               <div class="q-field__messages col">
-                <div>How many people should participate in the pick-up?</div>
+                <div>How many people should participate in the activity?</div>
               </div>
             </transition-stub>
           </div>
@@ -467,7 +470,7 @@ exports[`Storyshots ActivityEdit error 1`] = `
           <div class="q-field__bottom row items-start q-field__bottom--animated">
             <transition-stub name="q-transition--field-message">
               <div class="q-field__messages col">
-                <div>What should people know when signing up to this pick-up?</div>
+                <div>What should people know when signing up to this activity?</div>
               </div>
             </transition-stub>
           </div>
@@ -499,6 +502,7 @@ exports[`Storyshots ActivityEdit pending 1`] = `
     <!---->
   </div>
   <form class="q-gutter-y-lg" style="max-width:700px;">
+    <!---->
     <div class="row q-mt-xs"><label for="f_80808080-8080-4080-8080-808080808080" class="q-field q-validation-component row no-wrap items-start q-mr-sm q-input q-field--standard q-field--float">
         <div class="q-field__before q-field__marginal row no-wrap items-center"><i aria-hidden="true" role="presentation" class="material-icons q-icon notranslate">access_time</i></div>
         <div class="q-field__inner relative-position col self-stretch column justify-center">
@@ -521,7 +525,7 @@ exports[`Storyshots ActivityEdit pending 1`] = `
       <!---->
       <div class="q-ml-lg col-12 q-field__bottom">
         <div>
-          When should the pick-up take place?
+          When should the activity take place?
         </div>
       </div>
     </div>
@@ -551,7 +555,7 @@ exports[`Storyshots ActivityEdit pending 1`] = `
           <div class="q-field__bottom row items-start q-field__bottom--animated">
             <transition-stub name="q-transition--field-message">
               <div class="q-field__messages col">
-                <div>How many people should participate in the pick-up?</div>
+                <div>How many people should participate in the activity?</div>
               </div>
             </transition-stub>
           </div>
@@ -571,7 +575,7 @@ exports[`Storyshots ActivityEdit pending 1`] = `
           <div class="q-field__bottom row items-start q-field__bottom--animated">
             <transition-stub name="q-transition--field-message">
               <div class="q-field__messages col">
-                <div>What should people know when signing up to this pick-up?</div>
+                <div>What should people know when signing up to this activity?</div>
               </div>
             </transition-stub>
           </div>
@@ -603,6 +607,7 @@ exports[`Storyshots ActivityEdit series changed 1`] = `
     <!---->
   </div>
   <form class="q-gutter-y-lg" style="max-width:700px;">
+    <!---->
     <div class="row q-mt-xs"><label for="f_80808080-8080-4080-8080-808080808080" class="q-field q-validation-component row no-wrap items-start q-mr-sm q-input q-field--standard q-field--float">
         <div class="q-field__before q-field__marginal row no-wrap items-center"><i aria-hidden="true" role="presentation" class="material-icons q-icon notranslate">access_time</i></div>
         <div class="q-field__inner relative-position col self-stretch column justify-center">
@@ -625,7 +630,7 @@ exports[`Storyshots ActivityEdit series changed 1`] = `
       <!---->
       <div class="q-ml-lg col-12 q-field__bottom">
         <div>
-          When should the pick-up take place?
+          When should the activity take place?
         </div>
       </div>
     </div>
@@ -655,7 +660,7 @@ exports[`Storyshots ActivityEdit series changed 1`] = `
           <div class="q-field__bottom row items-start q-field__bottom--animated">
             <transition-stub name="q-transition--field-message">
               <div class="q-field__messages col">
-                <div>How many people should participate in the pick-up?</div>
+                <div>How many people should participate in the activity?</div>
               </div>
             </transition-stub>
           </div>
@@ -677,7 +682,7 @@ exports[`Storyshots ActivityEdit series changed 1`] = `
           <div class="q-field__bottom row items-start q-field__bottom--animated">
             <transition-stub name="q-transition--field-message">
               <div class="q-field__messages col">
-                <div>What should people know when signing up to this pick-up?</div>
+                <div>What should people know when signing up to this activity?</div>
               </div>
             </transition-stub>
           </div>
@@ -711,6 +716,7 @@ exports[`Storyshots ActivityEdit with duration 1`] = `
     <!---->
   </div>
   <form class="q-gutter-y-lg" style="max-width:700px;">
+    <!---->
     <div class="row q-mt-xs"><label for="f_80808080-8080-4080-8080-808080808080" class="q-field q-validation-component row no-wrap items-start q-mr-sm q-input q-field--standard q-field--float">
         <div class="q-field__before q-field__marginal row no-wrap items-center"><i aria-hidden="true" role="presentation" class="material-icons q-icon notranslate">access_time</i></div>
         <div class="q-field__inner relative-position col self-stretch column justify-center">
@@ -746,7 +752,7 @@ exports[`Storyshots ActivityEdit with duration 1`] = `
       </label>
       <div class="q-ml-lg col-12 q-field__bottom">
         <div>
-          When should the pick-up take place?
+          When should the activity take place?
         </div>
       </div>
     </div>
@@ -776,7 +782,7 @@ exports[`Storyshots ActivityEdit with duration 1`] = `
           <div class="q-field__bottom row items-start q-field__bottom--animated">
             <transition-stub name="q-transition--field-message">
               <div class="q-field__messages col">
-                <div>How many people should participate in the pick-up?</div>
+                <div>How many people should participate in the activity?</div>
               </div>
             </transition-stub>
           </div>
@@ -796,7 +802,7 @@ exports[`Storyshots ActivityEdit with duration 1`] = `
           <div class="q-field__bottom row items-start q-field__bottom--animated">
             <transition-stub name="q-transition--field-message">
               <div class="q-field__messages col">
-                <div>What should people know when signing up to this pick-up?</div>
+                <div>What should people know when signing up to this activity?</div>
               </div>
             </transition-stub>
           </div>
@@ -1306,7 +1312,8 @@ exports[`Storyshots ActivityList Default 1`] = `
 
 exports[`Storyshots ActivitySeriesEdit custom rule 1`] = `
 <div class="edit-box">
-  <form class="q-gutter-y-lg" style="max-width:700px;"><label for="f_80808080-8080-4080-8080-808080808080" class="q-field q-validation-component row no-wrap items-start q-field--borderless q-field--float q-field--labeled q-field--auto-height">
+  <form class="q-gutter-y-lg" style="max-width:700px;">
+    <!----> <label for="f_80808080-8080-4080-8080-808080808080" class="q-field q-validation-component row no-wrap items-start q-field--borderless q-field--float q-field--labeled q-field--auto-height">
       <div class="q-field__before q-field__marginal row no-wrap items-center"><i aria-hidden="true" role="presentation" class="fas fa-redo q-icon notranslate"> </i></div>
       <div class="q-field__inner relative-position col self-stretch column justify-center">
         <div tabindex="-1" class="q-field__control relative-position row no-wrap">
@@ -1404,7 +1411,7 @@ exports[`Storyshots ActivitySeriesEdit custom rule 1`] = `
         <div class="q-field__bottom row items-start q-field__bottom--animated">
           <transition-stub name="q-transition--field-message">
             <div class="q-field__messages col">
-              <div>How many people should participate in the pick-up?</div>
+              <div>How many people should participate in the activity?</div>
             </div>
           </transition-stub>
         </div>
@@ -1420,7 +1427,7 @@ exports[`Storyshots ActivitySeriesEdit custom rule 1`] = `
         <div class="q-field__bottom row items-start q-field__bottom--animated">
           <transition-stub name="q-transition--field-message">
             <div class="q-field__messages col">
-              <div>What should people know when signing up to this pick-up?</div>
+              <div>What should people know when signing up to this activity?</div>
             </div>
           </transition-stub>
         </div>
@@ -1444,7 +1451,8 @@ exports[`Storyshots ActivitySeriesEdit custom rule 1`] = `
 
 exports[`Storyshots ActivitySeriesEdit custom rule with duration 1`] = `
 <div class="edit-box">
-  <form class="q-gutter-y-lg" style="max-width:700px;"><label for="f_80808080-8080-4080-8080-808080808080" class="q-field q-validation-component row no-wrap items-start q-field--borderless q-field--float q-field--labeled q-field--auto-height">
+  <form class="q-gutter-y-lg" style="max-width:700px;">
+    <!----> <label for="f_80808080-8080-4080-8080-808080808080" class="q-field q-validation-component row no-wrap items-start q-field--borderless q-field--float q-field--labeled q-field--auto-height">
       <div class="q-field__before q-field__marginal row no-wrap items-center"><i aria-hidden="true" role="presentation" class="fas fa-redo q-icon notranslate"> </i></div>
       <div class="q-field__inner relative-position col self-stretch column justify-center">
         <div tabindex="-1" class="q-field__control relative-position row no-wrap">
@@ -1555,7 +1563,7 @@ exports[`Storyshots ActivitySeriesEdit custom rule with duration 1`] = `
         <div class="q-field__bottom row items-start q-field__bottom--animated">
           <transition-stub name="q-transition--field-message">
             <div class="q-field__messages col">
-              <div>How many people should participate in the pick-up?</div>
+              <div>How many people should participate in the activity?</div>
             </div>
           </transition-stub>
         </div>
@@ -1571,7 +1579,7 @@ exports[`Storyshots ActivitySeriesEdit custom rule with duration 1`] = `
         <div class="q-field__bottom row items-start q-field__bottom--animated">
           <transition-stub name="q-transition--field-message">
             <div class="q-field__messages col">
-              <div>What should people know when signing up to this pick-up?</div>
+              <div>What should people know when signing up to this activity?</div>
             </div>
           </transition-stub>
         </div>
@@ -1595,7 +1603,8 @@ exports[`Storyshots ActivitySeriesEdit custom rule with duration 1`] = `
 
 exports[`Storyshots ActivitySeriesEdit duration 1`] = `
 <div class="edit-box">
-  <form class="q-gutter-y-lg" style="max-width:700px;"><label for="f_80808080-8080-4080-8080-808080808080" class="q-field q-validation-component row no-wrap items-start q-field--borderless q-field--float q-field--labeled q-field--auto-height">
+  <form class="q-gutter-y-lg" style="max-width:700px;">
+    <!----> <label for="f_80808080-8080-4080-8080-808080808080" class="q-field q-validation-component row no-wrap items-start q-field--borderless q-field--float q-field--labeled q-field--auto-height">
       <div class="q-field__before q-field__marginal row no-wrap items-center"><i aria-hidden="true" role="presentation" class="fas fa-redo q-icon notranslate"> </i></div>
       <div class="q-field__inner relative-position col self-stretch column justify-center">
         <div tabindex="-1" class="q-field__control relative-position row no-wrap">
@@ -1655,7 +1664,7 @@ exports[`Storyshots ActivitySeriesEdit duration 1`] = `
       </label>
       <div class="q-ml-lg col-12 q-field__bottom">
         <div>
-          When should the pick-up take place?
+          When should the activity take place?
         </div>
       </div>
     </div> <label for="f_80808080-8080-4080-8080-808080808080" class="q-field q-validation-component row no-wrap items-start q-select q-field--auto-height q-select--without-input q-select--without-chips q-select--multiple q-field--standard q-field--float q-field--labeled q-field--with-bottom">
@@ -1674,7 +1683,7 @@ exports[`Storyshots ActivitySeriesEdit duration 1`] = `
         <div class="q-field__bottom row items-start q-field__bottom--animated">
           <transition-stub name="q-transition--field-message">
             <div class="q-field__messages col">
-              <div>On which days should the pick-up take place?</div>
+              <div>On which days should the activity take place?</div>
             </div>
           </transition-stub>
         </div>
@@ -1706,7 +1715,7 @@ exports[`Storyshots ActivitySeriesEdit duration 1`] = `
         <div class="q-field__bottom row items-start q-field__bottom--animated">
           <transition-stub name="q-transition--field-message">
             <div class="q-field__messages col">
-              <div>How many people should participate in the pick-up?</div>
+              <div>How many people should participate in the activity?</div>
             </div>
           </transition-stub>
         </div>
@@ -1722,7 +1731,7 @@ exports[`Storyshots ActivitySeriesEdit duration 1`] = `
         <div class="q-field__bottom row items-start q-field__bottom--animated">
           <transition-stub name="q-transition--field-message">
             <div class="q-field__messages col">
-              <div>What should people know when signing up to this pick-up?</div>
+              <div>What should people know when signing up to this activity?</div>
             </div>
           </transition-stub>
         </div>
@@ -1746,7 +1755,8 @@ exports[`Storyshots ActivitySeriesEdit duration 1`] = `
 
 exports[`Storyshots ActivitySeriesEdit time error 1`] = `
 <div class="edit-box">
-  <form class="q-gutter-y-lg" style="max-width:700px;"><label for="f_80808080-8080-4080-8080-808080808080" class="q-field q-validation-component row no-wrap items-start q-field--borderless q-field--float q-field--labeled q-field--auto-height">
+  <form class="q-gutter-y-lg" style="max-width:700px;">
+    <!----> <label for="f_80808080-8080-4080-8080-808080808080" class="q-field q-validation-component row no-wrap items-start q-field--borderless q-field--float q-field--labeled q-field--auto-height">
       <div class="q-field__before q-field__marginal row no-wrap items-center"><i aria-hidden="true" role="presentation" class="fas fa-redo q-icon notranslate"> </i></div>
       <div class="q-field__inner relative-position col self-stretch column justify-center">
         <div tabindex="-1" class="q-field__control relative-position row no-wrap">
@@ -1813,7 +1823,7 @@ exports[`Storyshots ActivitySeriesEdit time error 1`] = `
         <div class="q-field__bottom row items-start q-field__bottom--animated">
           <transition-stub name="q-transition--field-message">
             <div class="q-field__messages col">
-              <div>On which days should the pick-up take place?</div>
+              <div>On which days should the activity take place?</div>
             </div>
           </transition-stub>
         </div>
@@ -1845,7 +1855,7 @@ exports[`Storyshots ActivitySeriesEdit time error 1`] = `
         <div class="q-field__bottom row items-start q-field__bottom--animated">
           <transition-stub name="q-transition--field-message">
             <div class="q-field__messages col">
-              <div>How many people should participate in the pick-up?</div>
+              <div>How many people should participate in the activity?</div>
             </div>
           </transition-stub>
         </div>
@@ -1861,7 +1871,7 @@ exports[`Storyshots ActivitySeriesEdit time error 1`] = `
         <div class="q-field__bottom row items-start q-field__bottom--animated">
           <transition-stub name="q-transition--field-message">
             <div class="q-field__messages col">
-              <div>What should people know when signing up to this pick-up?</div>
+              <div>What should people know when signing up to this activity?</div>
             </div>
           </transition-stub>
         </div>
@@ -1885,7 +1895,8 @@ exports[`Storyshots ActivitySeriesEdit time error 1`] = `
 
 exports[`Storyshots ActivitySeriesEdit weekly 1`] = `
 <div class="edit-box">
-  <form class="q-gutter-y-lg" style="max-width:700px;"><label for="f_80808080-8080-4080-8080-808080808080" class="q-field q-validation-component row no-wrap items-start q-field--borderless q-field--float q-field--labeled q-field--auto-height">
+  <form class="q-gutter-y-lg" style="max-width:700px;">
+    <!----> <label for="f_80808080-8080-4080-8080-808080808080" class="q-field q-validation-component row no-wrap items-start q-field--borderless q-field--float q-field--labeled q-field--auto-height">
       <div class="q-field__before q-field__marginal row no-wrap items-center"><i aria-hidden="true" role="presentation" class="fas fa-redo q-icon notranslate"> </i></div>
       <div class="q-field__inner relative-position col self-stretch column justify-center">
         <div tabindex="-1" class="q-field__control relative-position row no-wrap">
@@ -1932,7 +1943,7 @@ exports[`Storyshots ActivitySeriesEdit weekly 1`] = `
       <!---->
       <div class="q-ml-lg col-12 q-field__bottom">
         <div>
-          When should the pick-up take place?
+          When should the activity take place?
         </div>
       </div>
     </div> <label for="f_80808080-8080-4080-8080-808080808080" class="q-field q-validation-component row no-wrap items-start q-select q-field--auto-height q-select--without-input q-select--without-chips q-select--multiple q-field--standard q-field--float q-field--labeled q-field--with-bottom">
@@ -1951,7 +1962,7 @@ exports[`Storyshots ActivitySeriesEdit weekly 1`] = `
         <div class="q-field__bottom row items-start q-field__bottom--animated">
           <transition-stub name="q-transition--field-message">
             <div class="q-field__messages col">
-              <div>On which days should the pick-up take place?</div>
+              <div>On which days should the activity take place?</div>
             </div>
           </transition-stub>
         </div>
@@ -1983,7 +1994,7 @@ exports[`Storyshots ActivitySeriesEdit weekly 1`] = `
         <div class="q-field__bottom row items-start q-field__bottom--animated">
           <transition-stub name="q-transition--field-message">
             <div class="q-field__messages col">
-              <div>How many people should participate in the pick-up?</div>
+              <div>How many people should participate in the activity?</div>
             </div>
           </transition-stub>
         </div>
@@ -1999,7 +2010,7 @@ exports[`Storyshots ActivitySeriesEdit weekly 1`] = `
         <div class="q-field__bottom row items-start q-field__bottom--animated">
           <transition-stub name="q-transition--field-message">
             <div class="q-field__messages col">
-              <div>What should people know when signing up to this pick-up?</div>
+              <div>What should people know when signing up to this activity?</div>
             </div>
           </transition-stub>
         </div>
@@ -4654,7 +4665,7 @@ exports[`Storyshots Detail activity 1`] = `
 exports[`Storyshots Detail application 1`] = `
 <div>
   <div class="DetailHeader full-width">
-    <div class="q-toolbar row no-wrap items-center bg-secondary text-white">
+    <div class="q-toolbar row no-wrap items-center text-white bg-secondary">
       <div class="wrapper" style="width:40px;height:40px;"><a title="User 103">
           <div text="User 103" seed="103" class="randomArt fill"></div>
         </a></div>
@@ -4927,7 +4938,7 @@ exports[`Storyshots Detail application 1`] = `
 exports[`Storyshots Detail private 1`] = `
 <div>
   <div class="DetailHeader full-width">
-    <div class="q-toolbar row no-wrap items-center bg-secondary text-white">
+    <div class="q-toolbar row no-wrap items-center text-white bg-secondary">
       <div class="wrapper" style="width:40px;height:40px;"><a title="User 91">
           <div text="User 91" seed="91" class="randomArt fill"></div>
         </a></div>
@@ -5170,7 +5181,7 @@ exports[`Storyshots Feedback ActivityFeedback 1`] = `
       <div class="row no-wrap image-and-text">
         <div class="image-and-text-left gt-sm"><img src="test-file-stub" style="width:100%;"></div>
         <div class="image-and-text-right">
-          <h4>Thank you for your pickup!</h4>
+          <h4>Thank you for your activity!</h4>
           <p><label for="f_80808080-8080-4080-8080-808080808080" class="q-field q-validation-component row no-wrap items-start grey-font q-select q-field--auto-height q-select--without-input q-select--without-chips q-select--single q-field--standard q-field--float q-field--dark">
               <div class="q-field__inner relative-position col self-stretch column justify-center">
                 <div tabindex="-1" class="q-field__control relative-position row no-wrap">
@@ -5643,7 +5654,7 @@ exports[`Storyshots Feedback PlaceFeedback 1`] = `
           </circle>
         </svg></div>
       <div class="infoChips row no-wrap">
-        <div title="10 pickups done" class="q-chip row inline no-wrap items-center bg-secondary text-white q-chip--colored q-chip--square"><i aria-hidden="true" role="presentation" class="q-chip__icon q-chip__icon--left fas fa-shopping-basket q-icon notranslate"> </i>
+        <div title="10 activities done" class="q-chip row inline no-wrap items-center bg-secondary text-white q-chip--colored q-chip--square"><i aria-hidden="true" role="presentation" class="q-chip__icon q-chip__icon--left fas fa-asterisk q-icon notranslate"> </i>
           <div class="q-chip__content col row no-wrap items-center q-anchor--skip"><strong class="q-ml-sm">10</strong></div>
         </div>
         <div title="4 feedback entries given" class="q-chip row inline no-wrap items-center bg-secondary text-white q-chip--colored q-chip--square"><i aria-hidden="true" role="presentation" class="q-chip__icon q-chip__icon--left fas fa-balance-scale q-icon notranslate"> </i>
@@ -5660,7 +5671,7 @@ exports[`Storyshots Feedback PlaceFeedback 1`] = `
   <div class="k-feedback-list">
     <div><a>
         <div class="q-pa-md notice bg-info q-card"><i aria-hidden="true" role="presentation" class="on-left fas fa-balance-scale q-icon notranslate"> </i>
-          2 pickups await your feedback
+          2 activities await your feedback
         </div>
       </a></div>
     <div class="full-width text-center generic-padding" style="display:none;"><svg focusable="false" fill="currentColor" width="40" height="40" viewBox="0 0 120 30" xmlns="http://www.w3.org/2000/svg" class="q-spinner">
@@ -7122,10 +7133,10 @@ exports[`Storyshots GroupSettings show 1`] = `
         </div>
         <div class="q-item__section column q-item__section--main justify-center">
           <div class="q-item__label">
-            Pickup notifications
+            Activity notifications
           </div>
           <div class="q-item__label q-item__label--caption text-caption">
-            Reminds you of your pickups, and tells you about empty or not-full pickups of your favorite places in the next day
+            Reminds you of your activities, and tells you about empty or not-full activities of your favorite places in the next day
           </div>
         </div>
         <div class="q-item__section column q-item__section--side justify-center"><svg focusable="false" width="18px" height="18px" viewBox="25 25 50 50" class="q-spinner q-spinner-mat invisible">
@@ -8190,7 +8201,7 @@ exports[`Storyshots Latest Messages type: activity chat 1`] = `
   <!---->
   <div class="q-item__section column q-item__section--main justify-center">
     <div class="q-item__label row no-wrap justify-between items-baseline">
-      <div class="row no-wrap items-baseline ellipsis"><i aria-hidden="true" role="presentation" class="q-mr-sm fas fa-fw fa-shopping-basket q-icon notranslate"> </i>
+      <div class="row no-wrap items-baseline ellipsis"><i aria-hidden="true" role="presentation" class="q-mr-sm fas fa-fw fa-asterisk q-icon notranslate"> </i>
         Saturday 8:00 AM
         <!---->
         <!---->
@@ -8676,7 +8687,7 @@ exports[`Storyshots Notifications activity_disabled 1`] = `
   <!---->
   <div class="q-item__section column q-item__section--main justify-center">
     <div class="q-item__label" style="overflow:hidden;display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:2;"><i aria-hidden="true" role="presentation" class="q-mx-xs vertical-baseline fas fa-times q-icon notranslate"> </i>
-      Pickup at Sunday, December 24, 12:00 PM was disabled
+      Activity at Sunday, December 24, 12:00 PM was disabled
     </div>
     <div class="q-item__label q-item__label--caption text-caption">
       <div title="Dec 24, 2017, 12:00 PM" style="display:inline;">
@@ -8696,7 +8707,7 @@ exports[`Storyshots Notifications activity_enabled 1`] = `
   <!---->
   <div class="q-item__section column q-item__section--main justify-center">
     <div class="q-item__label" style="overflow:hidden;display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:2;"><i aria-hidden="true" role="presentation" class="q-mx-xs vertical-baseline fas fa-check q-icon notranslate"> </i>
-      Pickup at Sunday, December 24, 12:00 PM was enabled again
+      Activity at Sunday, December 24, 12:00 PM was enabled again
     </div>
     <div class="q-item__label q-item__label--caption text-caption">
       <div title="Dec 24, 2017, 12:00 PM" style="display:inline;">
@@ -8716,7 +8727,7 @@ exports[`Storyshots Notifications activity_moved 1`] = `
   <!---->
   <div class="q-item__section column q-item__section--main justify-center">
     <div class="q-item__label" style="overflow:hidden;display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:2;"><i aria-hidden="true" role="presentation" class="q-mx-xs vertical-baseline far fa-clock q-icon notranslate"> </i>
-      Pickup was moved to Sunday, December 24, 12:00 PM
+      Activity was moved to Sunday, December 24, 12:00 PM
     </div>
     <div class="q-item__label q-item__label--caption text-caption">
       <div title="Dec 24, 2017, 12:00 PM" style="display:inline;">
@@ -8736,7 +8747,7 @@ exports[`Storyshots Notifications activity_upcoming 1`] = `
   <!---->
   <div class="q-item__section column q-item__section--main justify-center">
     <div class="q-item__label" style="overflow:hidden;display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:2;"><i aria-hidden="true" role="presentation" class="q-mx-xs vertical-baseline fas fa-calendar-alt q-icon notranslate"> </i>
-      Reminder: You have a pickup at 12:00 PM
+      Reminder: You have an activity at 12:00 PM
     </div>
     <div class="q-item__label q-item__label--caption text-caption">
       <div title="Dec 24, 2017, 2:00 PM" style="display:inline;">
@@ -8939,7 +8950,7 @@ exports[`Storyshots Notifications feedback_possible 1`] = `
   <!---->
   <div class="q-item__section column q-item__section--main justify-center">
     <div class="q-item__label" style="overflow:hidden;display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:2;"><i aria-hidden="true" role="presentation" class="q-mx-xs vertical-baseline fas fa-balance-scale q-icon notranslate"> </i>
-      You can give feedback for the pickup you did on Sunday 12:00 PM
+      You can give feedback for the activity you did on Sunday 12:00 PM
     </div>
     <div class="q-item__label q-item__label--caption text-caption">
       <div title="Dec 24, 2017, 12:00 PM" style="display:inline;">
@@ -9335,7 +9346,7 @@ exports[`Storyshots Places PlaceEdit (with server error) 1`] = `
               </div>
               <div class="q-field__bottom row items-start q-field__bottom--stale">
                 <div class="q-field__messages col">
-                  <div>How many weeks in advance should recurring pickup dates be shown?</div>
+                  <div>How many weeks in advance should recurring activity dates be shown?</div>
                 </div>
               </div>
             </div>
@@ -9467,7 +9478,7 @@ exports[`Storyshots Places PlaceEdit 1`] = `
               </div>
               <div class="q-field__bottom row items-start q-field__bottom--stale">
                 <div class="q-field__messages col">
-                  <div>How many weeks in advance should recurring pickup dates be shown?</div>
+                  <div>How many weeks in advance should recurring activity dates be shown?</div>
                 </div>
               </div>
             </div>
@@ -10127,10 +10138,10 @@ exports[`Storyshots Settings Page Default 1`] = `
           </div>
           <div class="q-item__section column q-item__section--main justify-center">
             <div class="q-item__label">
-              Pickup notifications
+              Activity notifications
             </div>
             <div class="q-item__label q-item__label--caption text-caption">
-              Reminds you of your pickups, and tells you about empty or not-full pickups of your favorite places in the next day
+              Reminds you of your activities, and tells you about empty or not-full activities of your favorite places in the next day
             </div>
           </div>
           <div class="q-item__section column q-item__section--side justify-center"><svg focusable="false" width="18px" height="18px" viewBox="25 25 50 50" class="q-spinner q-spinner-mat invisible">
@@ -10254,9 +10265,9 @@ exports[`Storyshots Sidenav Group 1`] = `
       </div>
     </a><a tabindex="0" class="q-item q-item-type row no-wrap q-item--clickable q-link cursor-pointer q-focusable q-hoverable">
       <div tabindex="-1" class="q-focus-helper"></div>
-      <div class="q-item__section column text-center q-item__section--side justify-center"><i aria-hidden="true" role="presentation" class="fas fa-shopping-basket q-icon notranslate" style="font-size:1.1em;"> </i></div>
+      <div class="q-item__section column text-center q-item__section--side justify-center"><i aria-hidden="true" role="presentation" class="fas fa-asterisk q-icon notranslate" style="font-size:1.1em;"> </i></div>
       <div class="q-item__section column q-item__section--main justify-center">
-        Pickups
+        Activities
       </div>
       <!---->
     </a><a tabindex="0" class="q-item q-item-type row no-wrap q-item--clickable q-link cursor-pointer q-focusable q-hoverable">

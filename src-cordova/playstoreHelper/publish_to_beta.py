@@ -106,7 +106,6 @@ def main(argv):
             'featureGraphic',
             'icon',
             'phoneScreenshots',
-            'promoGraphic',
             'sevenInchScreenshots',
             'tenInchScreenshots',
             'tvBanner',

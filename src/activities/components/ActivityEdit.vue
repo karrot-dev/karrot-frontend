@@ -17,6 +17,14 @@
       style="max-width: 700px"
       @submit.prevent="maybeSave"
     >
+      <h3 v-if="activityType && isNew">
+        <QIcon
+          :color="activityType.colorName"
+          :name="activityType.icon"
+          class="q-pr-sm"
+        />
+        {{ activityType.name }}
+      </h3>
       <template v-if="canEditDate">
         <div class="row q-mt-xs">
           <QInput
@@ -285,6 +293,7 @@ import {
   QIcon,
   QMenu,
   QDialog,
+  QSelect,
   Dialog,
   date,
 } from 'quasar'
@@ -311,6 +320,7 @@ export default {
     QIcon,
     QMenu,
     QDialog,
+    QSelect,
   },
   mixins: [editMixin, statusMixin],
   props: {
@@ -320,6 +330,9 @@ export default {
     },
   },
   computed: {
+    activityType () {
+      return this.value.typus
+    },
     now () {
       return reactiveNow.value
     },
@@ -420,6 +433,12 @@ export default {
     maybeSave () {
       if (!this.canSave) return
       this.save()
+    },
+    getCreateData () {
+      return {
+        ...this.edit,
+        typus: this.activityType.id,
+      }
     },
     // Overrides mixin method to always provide start date if we have modified end date
     getPatchData () {

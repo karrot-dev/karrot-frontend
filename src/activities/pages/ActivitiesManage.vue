@@ -8,15 +8,25 @@
           />
           {{ $t('ACTIVITYMANAGE.SERIES') }}
         </div>
-        <QBtn
+        <QFab
           v-if="!newSeries"
+          vertical-actions-align="left"
           size="sm"
-          round
           color="secondary"
           icon="fas fa-plus"
-          :title="$t('BUTTON.CREATE')"
-          @click="createNewSeries"
-        />
+          direction="up"
+        >
+          <QFabAction
+            v-for="activityType in activityTypes"
+            :key="activityType.id"
+            label-position="right"
+            padding="md"
+            :color="activityType.colorName"
+            :icon="activityType.icon"
+            :label="activityType.name"
+            @click="createNewSeries(activityType)"
+          />
+        </QFab>
       </QCardSection>
       <QItem v-if="newSeries">
         <ActivitySeriesEdit
@@ -34,11 +44,28 @@
         <QExpansionItem
           v-for="series in activitySeries"
           :key="series.id"
-          :label="seriesLabel(series)"
-          :sublabel="seriesSublabel(series)"
-          icon="fas fa-calendar-alt"
           @show="makeVisible('series', series.id)"
         >
+          <template #header>
+            <QItemSection
+              v-if="!$q.platform.is.mobile"
+              side
+            >
+              <QIcon
+                :name="series.typus.icon"
+                :color="series.typus.colorName"
+                :title="series.typus.name"
+              />
+            </QItemSection>
+            <QItemSection>
+              <QItemLabel>
+                {{ seriesLabel(series) }}
+              </QItemLabel>
+              <QItemLabel caption>
+                {{ seriesSublabel(series) }}
+              </QItemLabel>
+            </QItemSection>
+          </template>
           <QItem v-if="visible.series[series.id]">
             <ActivitySeriesEdit
               :value="series"
@@ -67,7 +94,11 @@
                   v-if="!$q.platform.is.mobile"
                   side
                 >
-                  <QIcon :name="$icon('activity')" />
+                  <QIcon
+                    :name="activity.typus.icon"
+                    :color="activity.typus.colorName"
+                    :title="activity.typus.name"
+                  />
                 </QItemSection>
                 <QItemSection>
                   <QItemLabel
@@ -138,15 +169,25 @@
           />
           {{ $t('ACTIVITYMANAGE.SINGLE') }}
         </div>
-        <QBtn
+        <QFab
           v-if="!newActivity"
+          vertical-actions-align="left"
           size="sm"
-          round
           color="secondary"
           icon="fas fa-plus"
-          :title="$t('BUTTON.CREATE')"
-          @click="createNewActivity"
-        />
+          direction="up"
+        >
+          <QFabAction
+            v-for="activityType in activityTypes"
+            :key="activityType.id"
+            label-position="right"
+            padding="md"
+            :color="activityType.colorName"
+            :icon="activityType.icon"
+            :label="activityType.name"
+            @click="createNewActivity(activityType)"
+          />
+        </QFab>
       </QCardSection>
       <QItem v-if="newActivity">
         <ActivityEdit
@@ -172,7 +213,11 @@
               v-if="!$q.platform.is.mobile"
               side
             >
-              <QIcon name="fas fa-calendar-alt" />
+              <QIcon
+                :name="activity.typus.icon"
+                :color="activity.typus.colorName"
+                :title="activity.typus.name"
+              />
             </QItemSection>
             <QItemSection>
               <QItemLabel
@@ -212,8 +257,9 @@ import {
   QItem,
   QItemSection,
   QExpansionItem,
-  QBtn,
   QIcon,
+  QFab,
+  QFabAction,
 } from 'quasar'
 import ActivitySeriesEdit from '@/activities/components/ActivitySeriesEdit'
 import ActivityEdit from '@/activities/components/ActivityEdit'
@@ -240,8 +286,9 @@ export default {
     QItem,
     QItemSection,
     QExpansionItem,
-    QBtn,
     QIcon,
+    QFab,
+    QFabAction,
   },
   data () {
     return {
@@ -259,6 +306,7 @@ export default {
       activitySeries: 'activitySeries/byActivePlace',
       fetchActivitySeriesStatus: 'activitySeries/fetchListForActivePlaceStatus',
       activities: 'activities/byActivePlace',
+      activityTypes: 'activityTypes/byCurrentGroup',
       fetchActivityPending: 'activities/fetchingForCurrentGroup',
       activityCreateStatus: 'activities/createStatus',
       seriesCreateStatus: 'activitySeries/createStatus',
@@ -298,8 +346,9 @@ export default {
       createActivity: 'activities/create',
       saveActivity: 'activities/save',
     }),
-    createNewSeries () {
+    createNewSeries (activityType) {
       this.newSeries = {
+        typus: activityType,
         maxParticipants: 2,
         description: '',
         startDate: addHours(startOfTomorrow(), 10),
@@ -321,9 +370,10 @@ export default {
     cancelNewSeries () {
       this.newSeries = null
     },
-    createNewActivity () {
+    createNewActivity (activityType) {
       const date = addHours(startOfTomorrow(), 10) // default to 10am tomorrow
       this.newActivity = {
+        typus: activityType,
         maxParticipants: 2,
         description: '',
         date,

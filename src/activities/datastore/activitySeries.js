@@ -29,6 +29,7 @@ export default {
           },
         }))
       const place = rootGetters['places/get'](entry.place)
+      const typus = rootGetters['activityTypes/get'](entry.typus)
 
       const firstDate = activities.length > 0 && activities[0].date
       const isSame = lookup => activities.every(p => p.date[lookup]() === firstDate[lookup]())
@@ -44,6 +45,7 @@ export default {
         ...entry,
         activities,
         place,
+        typus,
         ...similarities,
         ...metaStatusesWithId(getters, ['save', 'destroy'], entry.id),
       }

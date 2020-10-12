@@ -5,6 +5,7 @@
       :pending="pending"
       place-link
       filter
+      :filter-activity-types="activityTypes"
       @join="join"
       @leave="leave"
       @detail="detail"
@@ -59,6 +60,7 @@ export default {
     ...mapGetters({
       groupId: 'currentGroup/id',
       activities: 'activities/byCurrentGroup',
+      activityTypes: 'activityTypes/byCurrentGroup',
       pending: 'activities/fetchingForCurrentGroup',
       places: 'places/byCurrentGroup',
     }),

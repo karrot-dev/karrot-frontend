@@ -9,6 +9,15 @@
     >
       <div class="q-pa-sm full-width">
         <div>
+          <span class="typus">
+            <QIcon
+              :name="activity.typus.icon"
+              :color="activity.typus.colorName"
+              size="xs"
+              class="q-pr-xs"
+            />
+            {{ activity.typus.name }}
+          </span>
           <span class="featured-text">
             {{ $d(activity.date, 'hourMinute') }}
             <template v-if="activity.hasDuration"> &mdash; {{ $d(activity.dateEnd, 'hourMinute') }}</template>

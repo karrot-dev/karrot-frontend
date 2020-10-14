@@ -53,6 +53,9 @@ function getIcon (type, context) {
     case 'new_member':
       return 'fas fa-user-plus'
     case 'feedback_possible':
+      if (context.activity && context.activity.typus && typeof context.activity.typus === 'object') {
+        return context.activity.typus.feedbackIcon
+      }
       return icons.get('feedback')
     case 'activity_upcoming':
       if (context.activity && context.activity.typus && typeof context.activity.typus === 'object') {

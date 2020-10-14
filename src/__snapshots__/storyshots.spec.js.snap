@@ -5238,6 +5238,7 @@ exports[`Storyshots Feedback ActivityFeedback 1`] = `
           <p><label for="f_80808080-8080-4080-8080-808080808080" class="q-field q-validation-component row no-wrap items-start grey-font q-select q-field--auto-height q-select--without-input q-select--without-chips q-select--single q-field--standard q-field--float q-field--dark">
               <div class="q-field__inner relative-position col self-stretch column justify-center">
                 <div tabindex="-1" class="q-field__control relative-position row no-wrap">
+                  <div class="q-field__prepend q-field__marginal row no-wrap items-center"></div>
                   <div class="q-field__control-container col relative-position row no-wrap q-anchor--skip">
                     <div class="q-field__native row items-center"><span>Aug 12, 2017, 8:00 AM (Griesheimer Markt)</span>
                       <div id="f_80808080-8080-4080-8080-808080808080" tabindex="0" class="no-outline"></div>
@@ -5266,74 +5267,7 @@ exports[`Storyshots Feedback ActivityFeedback 1`] = `
             </a></div>
         </div>
       </div>
-      <form>
-        <div class="relative-position q-mb-sm q-mx-sm"><label for="f_80808080-8080-4080-8080-808080808080" class="q-field q-validation-component row no-wrap items-start q-textarea q-textarea--autogrow q-field--standard q-field--labeled q-field--with-bottom">
-            <div class="q-field__inner relative-position col self-stretch column justify-center">
-              <div tabindex="-1" class="q-field__control relative-position row no-wrap">
-                <div class="q-field__control-container col relative-position row no-wrap q-anchor--skip"><textarea tabindex="0" rows="1" aria-label="Was everything fine? Did everyone show up? Your comment here..." id="f_80808080-8080-4080-8080-808080808080" type="textarea" class="q-field__native q-placeholder" style="min-height:100px;"></textarea>
-                  <div class="q-field__label no-pointer-events absolute ellipsis">Was everything fine? Did everyone show up? Your comment here...</div>
-                </div>
-              </div>
-              <div class="q-field__bottom row items-start q-field__bottom--animated">
-                <transition-stub name="q-transition--field-message">
-                  <div class="q-field__messages col"></div>
-                </transition-stub>
-              </div>
-            </div>
-          </label>
-          <!---->
-        </div>
-        <div class="wrapper q-ml-sm showOverlay" style="margin-top:40px;"><button tabindex="0" type="button" role="button" class="q-btn q-btn-item non-selectable no-outline absolute-center q-btn--standard q-btn--rectangle bg-primary text-white q-btn--actionable q-focusable q-hoverable q-btn--wrap" style="z-index:1;"><span class="q-focus-helper"></span><span class="q-btn__wrapper col row q-anchor--skip"><span class="q-btn__content text-center col items-center q-anchor--skip justify-center row">
-    Set amount
-  </span></span></button>
-          <div class="content">
-            <div class="row no-wrap">
-              <div class="container amount" style="width:100px;height:100px;"><img width="100px" height="100px" src="test-file-stub"> <img width="12px" height="19.200000000000003px" src="test-file-stub" class="pointer" style="transform:rotate(-48deg);top:10px;">
-                <div class="text-bottom" style="bottom:5px;"><span style="font-size:23px;">
-      ?
-    </span></div>
-              </div>
-              <div class="col" style="margin-left:.6em;">
-                <div class="q-pb-sm"></div>
-                <div class="wrapper row no-wrap ellipsis"></div>
-              </div>
-              <!---->
-            </div>
-            <div class="row no-wrap">
-              <div role="slider" aria-valuemin="0" aria-valuemax="70" aria-orientation="horizontal" data-step="0.5" aria-valuenow="0" tabindex="0" class="self-center q-mx-md q-slider q-slider--h q-slider--inactive q-slider--enabled q-slider--editable q-slider--label">
-                <div class="q-slider__track-container q-slider__track-container--h absolute">
-                  <div class="q-slider__track q-slider__track--h absolute" style="left:0;width:0%;"></div>
-                </div>
-                <div class="q-slider__thumb-container q-slider__thumb-container--h absolute non-selectable" style="left:0%;"><svg focusable="false" viewBox="0 0 20 20" width="20" height="20" aria-hidden="true" class="q-slider__thumb absolute">
-                    <path d="M 4, 10 a 6,6 0 1,0 12,0 a 6,6 0 1,0 -12,0"></path>
-                  </svg>
-                  <div class="q-slider__focus-ring"></div>
-                  <div class="q-slider__pin q-slider__pin--h absolute" style="transform-origin:calc(100% - 10px) 50%;">
-                    <div class="q-slider__pin-text-container q-slider__pin-text-container--h" style="right:-100%;transform:translateX(-20px);"><span class="q-slider__pin-text q-slider__pin-value-marker-text">0</span></div>
-                  </div>
-                  <div class="q-slider__arrow q-slider__arrow--h"></div>
-                </div>
-              </div> <label for="f_80808080-8080-4080-8080-808080808080" class="q-field q-validation-component row no-wrap items-start q-mr-md q-input q-field--standard">
-                <div class="q-field__inner relative-position col self-stretch column justify-center">
-                  <div tabindex="-1" class="q-field__control relative-position row no-wrap">
-                    <div class="q-field__control-container col relative-position row no-wrap q-anchor--skip"><input tabindex="0" size="4" id="f_80808080-8080-4080-8080-808080808080" type="text" class="q-field__native q-placeholder"></div>
-                    <div class="q-field__append q-field__marginal row no-wrap items-center"><span class="text-caption">kg</span></div>
-                  </div>
-                </div>
-              </label>
-            </div>
-          </div>
-        </div>
-        <div class="row no-wrap items-center q-mx-sm text-caption"><i aria-hidden="true" role="presentation" class="q-mr-sm text-grey material-icons q-icon notranslate" style="font-size:1.5em;">info</i>
-          <div></div>
-        </div>
-        <!---->
-        <div class="row justify-end q-ma-md q-gutter-sm">
-          <!----> <button tabindex="0" type="submit" role="button" class="q-btn q-btn-item non-selectable no-outline q-btn--standard q-btn--rectangle bg-secondary text-white q-btn--actionable q-focusable q-hoverable q-btn--wrap"><span class="q-focus-helper"></span><span class="q-btn__wrapper col row q-anchor--skip"><span class="q-btn__content text-center col items-center q-anchor--skip justify-center row"><span></span></span></span>
-            <transition-stub name="q-transition--fade"></transition-stub>
-          </button>
-        </div>
-      </form>
+      <!---->
     </div>
   </div>
   <div class="no-shadow grey-border place-feedback q-card">
@@ -5360,7 +5294,8 @@ exports[`Storyshots Feedback ActivityFeedback 1`] = `
           <div class="q-pa-md q-card__section q-card__section--vert">
             <div class="row no-wrap">
               <div class="content full-width">
-                <div class="row no-wrap items-baseline"><strong class="q-mr-sm" style="white-space:nowrap;">
+                <div class="row no-wrap items-baseline q-gutter-sm">
+                  <!----> <strong class="q-mr-sm" style="white-space:nowrap;">
             Sat, Aug 12, 2017, 8:00 AM
           </strong> <a class="ellipsis text-secondary">
                     Griesheimer Markt
@@ -5397,7 +5332,8 @@ exports[`Storyshots Feedback ActivityFeedback 1`] = `
           <div class="q-pa-md q-card__section q-card__section--vert">
             <div class="row no-wrap">
               <div class="content full-width">
-                <div class="row no-wrap items-baseline"><strong class="q-mr-sm" style="white-space:nowrap;">
+                <div class="row no-wrap items-baseline q-gutter-sm">
+                  <!----> <strong class="q-mr-sm" style="white-space:nowrap;">
             Sun, Aug 13, 2017, 8:00 AM
           </strong> <a class="ellipsis text-secondary">
                     Griesheimer Markt
@@ -5430,7 +5366,8 @@ exports[`Storyshots Feedback ActivityFeedback 1`] = `
           <div class="q-pa-md q-card__section q-card__section--vert">
             <div class="row no-wrap">
               <div class="content full-width">
-                <div class="row no-wrap items-baseline"><strong class="q-mr-sm" style="white-space:nowrap;">
+                <div class="row no-wrap items-baseline q-gutter-sm">
+                  <!----> <strong class="q-mr-sm" style="white-space:nowrap;">
             Sun, Aug 13, 2017, 8:00 AM
           </strong> <a class="ellipsis text-secondary">
                     Griesheimer Markt
@@ -5524,7 +5461,8 @@ exports[`Storyshots Feedback FeedbackItem 1`] = `
   <div class="q-pa-md q-card__section q-card__section--vert">
     <div class="row no-wrap">
       <div class="content full-width">
-        <div class="row no-wrap items-baseline"><strong class="q-mr-sm" style="white-space:nowrap;">
+        <div class="row no-wrap items-baseline q-gutter-sm">
+          <!----> <strong class="q-mr-sm" style="white-space:nowrap;">
             Sat, Aug 12, 2017, 8:00 AM
           </strong> <a class="ellipsis text-secondary">
             Griesheimer Markt
@@ -5581,7 +5519,8 @@ exports[`Storyshots Feedback FeedbackList 1`] = `
       <div class="q-pa-md q-card__section q-card__section--vert">
         <div class="row no-wrap">
           <div class="content full-width">
-            <div class="row no-wrap items-baseline"><strong class="q-mr-sm" style="white-space:nowrap;">
+            <div class="row no-wrap items-baseline q-gutter-sm">
+              <!----> <strong class="q-mr-sm" style="white-space:nowrap;">
             Sat, Aug 12, 2017, 8:00 AM
           </strong> <a class="ellipsis text-secondary">
                 Griesheimer Markt
@@ -5618,7 +5557,8 @@ exports[`Storyshots Feedback FeedbackList 1`] = `
       <div class="q-pa-md q-card__section q-card__section--vert">
         <div class="row no-wrap">
           <div class="content full-width">
-            <div class="row no-wrap items-baseline"><strong class="q-mr-sm" style="white-space:nowrap;">
+            <div class="row no-wrap items-baseline q-gutter-sm">
+              <!----> <strong class="q-mr-sm" style="white-space:nowrap;">
             Sun, Aug 13, 2017, 8:00 AM
           </strong> <a class="ellipsis text-secondary">
                 Griesheimer Markt
@@ -5651,7 +5591,8 @@ exports[`Storyshots Feedback FeedbackList 1`] = `
       <div class="q-pa-md q-card__section q-card__section--vert">
         <div class="row no-wrap">
           <div class="content full-width">
-            <div class="row no-wrap items-baseline"><strong class="q-mr-sm" style="white-space:nowrap;">
+            <div class="row no-wrap items-baseline q-gutter-sm">
+              <!----> <strong class="q-mr-sm" style="white-space:nowrap;">
             Sun, Aug 13, 2017, 8:00 AM
           </strong> <a class="ellipsis text-secondary">
                 Griesheimer Markt
@@ -5746,7 +5687,7 @@ exports[`Storyshots Feedback PlaceFeedback 1`] = `
         <div class="q-pa-md q-card__section q-card__section--vert">
           <div class="row no-wrap">
             <div class="content full-width">
-              <div class="row no-wrap items-baseline"><strong class="q-mr-sm" style="white-space:nowrap;">
+              <div class="row no-wrap items-baseline q-gutter-sm"><i aria-hidden="true" role="presentation" title="Pickup" class="fas fa-shopping-basket q-icon notranslate"> </i> <span>Pickup</span> <strong class="q-mr-sm" style="white-space:nowrap;">
             Sun, Dec 24, 2017, 12:00 PM
           </strong> <a class="ellipsis text-secondary">
                   Place 15
@@ -5783,7 +5724,7 @@ exports[`Storyshots Feedback PlaceFeedback 1`] = `
         <div class="q-pa-md q-card__section q-card__section--vert">
           <div class="row no-wrap">
             <div class="content full-width">
-              <div class="row no-wrap items-baseline"><strong class="q-mr-sm" style="white-space:nowrap;">
+              <div class="row no-wrap items-baseline q-gutter-sm"><i aria-hidden="true" role="presentation" title="Pickup" class="fas fa-shopping-basket q-icon notranslate"> </i> <span>Pickup</span> <strong class="q-mr-sm" style="white-space:nowrap;">
             Sun, Dec 24, 2017, 12:00 PM
           </strong> <a class="ellipsis text-secondary">
                   Place 16
@@ -5820,7 +5761,7 @@ exports[`Storyshots Feedback PlaceFeedback 1`] = `
         <div class="q-pa-md q-card__section q-card__section--vert">
           <div class="row no-wrap">
             <div class="content full-width">
-              <div class="row no-wrap items-baseline"><strong class="q-mr-sm" style="white-space:nowrap;">
+              <div class="row no-wrap items-baseline q-gutter-sm"><i aria-hidden="true" role="presentation" title="Pickup" class="fas fa-shopping-basket q-icon notranslate"> </i> <span>Pickup</span> <strong class="q-mr-sm" style="white-space:nowrap;">
             Sun, Dec 24, 2017, 12:00 PM
           </strong> <a class="ellipsis text-secondary">
                   Place 17
@@ -5857,7 +5798,7 @@ exports[`Storyshots Feedback PlaceFeedback 1`] = `
         <div class="q-pa-md q-card__section q-card__section--vert">
           <div class="row no-wrap">
             <div class="content full-width">
-              <div class="row no-wrap items-baseline"><strong class="q-mr-sm" style="white-space:nowrap;">
+              <div class="row no-wrap items-baseline q-gutter-sm"><i aria-hidden="true" role="presentation" title="Pickup" class="fas fa-shopping-basket q-icon notranslate"> </i> <span>Pickup</span> <strong class="q-mr-sm" style="white-space:nowrap;">
             Sun, Dec 24, 2017, 12:00 PM
           </strong> <a class="ellipsis text-secondary">
                   Place 18
@@ -5894,7 +5835,7 @@ exports[`Storyshots Feedback PlaceFeedback 1`] = `
         <div class="q-pa-md q-card__section q-card__section--vert">
           <div class="row no-wrap">
             <div class="content full-width">
-              <div class="row no-wrap items-baseline"><strong class="q-mr-sm" style="white-space:nowrap;">
+              <div class="row no-wrap items-baseline q-gutter-sm"><i aria-hidden="true" role="presentation" title="Pickup" class="fas fa-shopping-basket q-icon notranslate"> </i> <span>Pickup</span> <strong class="q-mr-sm" style="white-space:nowrap;">
             Sun, Dec 24, 2017, 12:00 PM
           </strong> <a class="ellipsis text-secondary">
                   Place 19
@@ -8799,7 +8740,7 @@ exports[`Storyshots Notifications activity_upcoming 1`] = `
   <div tabindex="-1" class="q-focus-helper"></div>
   <!---->
   <div class="q-item__section column q-item__section--main justify-center">
-    <div class="q-item__label" style="overflow:hidden;display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:2;"><i aria-hidden="true" role="presentation" class="q-mx-xs vertical-baseline fas fa-calendar-alt q-icon notranslate"> </i>
+    <div class="q-item__label" style="overflow:hidden;display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:2;"><i aria-hidden="true" role="presentation" class="q-mx-xs vertical-baseline fas fa-shopping-basket q-icon notranslate"> </i>
       Reminder: You have an activity at 12:00 PM
     </div>
     <div class="q-item__label q-item__label--caption text-caption">

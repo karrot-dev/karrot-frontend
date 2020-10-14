@@ -184,10 +184,24 @@ export const makePlaceStatistics = data => {
   }
 }
 
+let activityTypeIdCnt = 0
+export const activityTypes = {
+  pickup: {
+    id: activityTypeIdCnt++,
+    name: 'Pickup',
+    colour: '007700',
+    icon: 'fas fa-shopping-basket',
+    feedbackIcon: 'fas fa-balance-scale',
+    hasFeedback: true,
+    hasFeedbackWeight: true,
+  },
+}
+
 let activityIdCnt = 0
 export const makeActivity = data => {
   return {
     id: activityIdCnt++,
+    typus: activityTypes.pickup,
     date: new Date(),
     dateEnd: addMinutes(new Date(), 30),
     series: null,
@@ -213,6 +227,7 @@ let activitySeriesIdCnt = 0
 export const makeActivitySeries = data => {
   return {
     id: activitySeriesIdCnt++,
+    typus: activityTypes.pickup,
     place: null,
     maxParticipants: 10,
     startDate: new Date(),

@@ -8,7 +8,7 @@ jest.mock('@/activities/api/activities', () => ({
 }))
 
 import { createDatastore, defaultActionStatusesFor } from '>/helpers'
-import { makeGroup, makePlace, makeActivity } from '>/enrichedFactories'
+import { makeGroup, makePlace, makeActivity, activityTypes } from '>/enrichedFactories'
 import lolex from 'lolex'
 import addSeconds from 'date-fns/addSeconds'
 import subSeconds from 'date-fns/subSeconds'
@@ -41,13 +41,14 @@ describe('activities', () => {
     beforeEach(() => {
       const now = new Date('2017-01-01T12:00:10Z')
       clock = lolex.install({ now, toFake: ['Date'] })
-      activity1 = { id: 1, place: 10, participants: [], group, ...dates('2017-01-01T13:00:10Z') }
-      activity2 = { id: 2, place: 11, participants: [userId], maxParticipants: 1, group, ...dates('2017-01-01T13:00:10Z') }
-      activity3 = { id: 3, place: 12, participants: [userId], group, ...dates('2017-01-01T13:00:10Z') }
-      pastActivity1 = { id: 4, place: 13, participants: [], group, ...dates('2017-01-01T09:00:10Z') }
-      pastActivity2 = { id: 4, place: 13, participants: [], group, ...dates('2017-01-01T10:00:10Z') }
-      startedActivity1 = { id: 5, place: 13, participants: [userId], group, ...dates('2017-01-01T09:00:10Z', 28800) }
-      startedActivity2 = { id: 6, place: 13, participants: [], group, ...dates('2017-01-01T11:50:10Z') }
+      const typus = activityTypes.pickup.id
+      activity1 = { id: 1, typus, place: 10, participants: [], group, ...dates('2017-01-01T13:00:10Z') }
+      activity2 = { id: 2, typus, place: 11, participants: [userId], maxParticipants: 1, group, ...dates('2017-01-01T13:00:10Z') }
+      activity3 = { id: 3, typus, place: 12, participants: [userId], group, ...dates('2017-01-01T13:00:10Z') }
+      pastActivity1 = { id: 4, typus, place: 13, participants: [], group, ...dates('2017-01-01T09:00:10Z') }
+      pastActivity2 = { id: 4, typus, place: 13, participants: [], group, ...dates('2017-01-01T10:00:10Z') }
+      startedActivity1 = { id: 5, typus, place: 13, participants: [userId], group, ...dates('2017-01-01T09:00:10Z', 28800) }
+      startedActivity2 = { id: 6, typus, place: 13, participants: [], group, ...dates('2017-01-01T11:50:10Z') }
     })
 
     afterEach(() => {
@@ -78,14 +79,17 @@ describe('activities', () => {
         },
       }
       const activities = require('./activities').default
+      const activityTypes = require('./activityTypes').default
       vstore = createDatastore({
         activities,
+        activityTypes,
         ...datastoreMocks,
       })
     })
 
     beforeEach(() => {
       vstore.commit('activities/update', [activity1, activity2, activity3, pastActivity1, pastActivity2, startedActivity1, startedActivity2])
+      vstore.commit('activityTypes/update', Object.values(activityTypes))
     })
 
     it('can enrich', async () => {
@@ -96,6 +100,10 @@ describe('activities', () => {
         isUserMember: true,
         isEmpty: false,
         isFull: true,
+        typus: {
+          ...activityTypes.pickup,
+          colorName: `activity-type-${activityTypes.pickup.id}`,
+        },
         participants: [{ id: userId, name: `Some Name${userId}` }],
         feedbackGivenBy: [],
         hasStarted: false,

@@ -124,6 +124,7 @@ export default {
       ]
     },
     typeOptions () {
+      if (!this.filter) return []
       return [
         {
           label: this.$t('ACTIVITYLIST.FILTER.ALL'),

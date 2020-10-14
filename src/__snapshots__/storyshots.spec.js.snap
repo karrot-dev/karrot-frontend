@@ -5,8 +5,11 @@ exports[`Storyshots ActivitiesManage default 1`] = `
   <div class="no-shadow grey-border q-card">
     <div class="row justify-between no-wrap q-mb-md q-card__section q-card__section--vert">
       <div class="text-h6"><i class="fas fa-redo on-left"></i>
-        Recurring pickups
-      </div> <button tabindex="0" type="button" role="button" title="Create" class="q-btn q-btn-item non-selectable no-outline q-btn--standard q-btn--round bg-secondary text-white q-btn--actionable q-focusable q-hoverable q-btn--wrap" style="font-size:10px;"><span class="q-focus-helper"></span><span class="q-btn__wrapper col row q-anchor--skip"><span class="q-btn__content text-center col items-center q-anchor--skip justify-center row"><i aria-hidden="true" role="img" class="fas fa-plus q-icon notranslate"> </i></span></span></button>
+        Recurring activities
+      </div>
+      <div class="q-fab z-fab row inline justify-center q-fab--align-left q-fab--form-rounded"><a tabindex="0" role="link" aria-expanded="false" aria-haspopup="true" class="q-btn q-btn-item non-selectable no-outline q-btn--standard q-btn--rectangle q-btn--rounded bg-secondary text-white q-btn--actionable q-focusable q-hoverable q-btn--fab q-btn--no-uppercase q-fab--form-rounded"><span class="q-focus-helper"></span><span class="q-btn__wrapper col row q-anchor--skip"><span class="q-btn__content text-center col items-center q-anchor--skip justify-center row no-wrap text-no-wrap"><div class="q-fab__icon-holder"><i aria-hidden="true" role="presentation" class="q-fab__icon absolute-full fas fa-plus q-icon notranslate"> </i><i aria-hidden="true" role="presentation" class="q-fab__active-icon absolute-full material-icons q-icon notranslate">close</i></div></span></span></a>
+        <div class="q-fab__actions flex no-wrap inline q-fab__actions--up"><a tabindex="-1" role="link" disabled="disabled" aria-disabled="true" class="q-btn q-btn-item non-selectable no-outline q-btn--standard q-btn--rectangle q-btn--rounded disabled q-btn--fab-mini q-btn--no-uppercase q-fab--form-rounded"><span class="q-focus-helper"></span><span class="q-btn__wrapper col row q-anchor--skip" style="padding:16px;min-width:0;min-height:0;"><span class="q-btn__content text-center col items-center q-anchor--skip justify-center row no-wrap text-no-wrap"><i aria-hidden="true" role="presentation" class="fas fa-shopping-basket q-icon notranslate"> </i><div class="q-fab__label q-fab__label--internal q-fab__label--internal-right">Pickup</div></span></span></a></div>
+      </div>
     </div>
     <!---->
     <div class="full-width text-center generic-padding" style="display:none;"><svg focusable="false" fill="currentColor" width="40" height="40" viewBox="0 0 120 30" xmlns="http://www.w3.org/2000/svg" class="q-spinner">
@@ -24,13 +27,18 @@ exports[`Storyshots ActivitiesManage default 1`] = `
         </circle>
       </svg></div>
     <div class="q-list q-list--separator">
-      <div sublabel="12:00 PM" class="q-expansion-item q-item-type q-expansion-item--collapsed q-expansion-item--standard">
+      <div class="q-expansion-item q-item-type q-expansion-item--collapsed q-expansion-item--standard">
         <div class="q-expansion-item__container relative-position">
           <div tabindex="0" class="q-item q-item-type row no-wrap q-item--clickable q-link cursor-pointer q-focusable q-hoverable">
             <div tabindex="-1" class="q-focus-helper"></div>
-            <div class="q-item__section column q-item__section--avatar q-item__section--side justify-center"><i aria-hidden="true" role="presentation" class="fas fa-calendar-alt q-icon notranslate"> </i></div>
+            <div class="q-item__section column q-item__section--side justify-center"><i aria-hidden="true" role="presentation" title="Pickup" class="fas fa-shopping-basket q-icon notranslate"> </i></div>
             <div class="q-item__section column q-item__section--main justify-center">
-              <div class="q-item__label">Tuesday</div>
+              <div class="q-item__label">
+                Tuesday
+              </div>
+              <div class="q-item__label q-item__label--caption text-caption">
+                12:00 PM
+              </div>
             </div>
             <div class="q-item__section column q-focusable relative-position cursor-pointer q-item__section--side justify-center"><i aria-hidden="true" role="presentation" class="q-expansion-item__toggle-icon material-icons q-icon notranslate">keyboard_arrow_down</i></div>
           </div>
@@ -49,9 +57,12 @@ exports[`Storyshots ActivitiesManage default 1`] = `
   <div class="no-shadow grey-border secondCard q-card">
     <div seed="1" type="banner" class="randomBanner"></div>
     <div class="row justify-between no-wrap q-mb-md q-card__section q-card__section--vert">
-      <div class="text-h6"><i class="on-left fas fa-shopping-basket"></i>
-        One-time pickups
-      </div> <button tabindex="0" type="button" role="button" title="Create" class="q-btn q-btn-item non-selectable no-outline q-btn--standard q-btn--round bg-secondary text-white q-btn--actionable q-focusable q-hoverable q-btn--wrap" style="font-size:10px;"><span class="q-focus-helper"></span><span class="q-btn__wrapper col row q-anchor--skip"><span class="q-btn__content text-center col items-center q-anchor--skip justify-center row"><i aria-hidden="true" role="img" class="fas fa-plus q-icon notranslate"> </i></span></span></button>
+      <div class="text-h6"><i class="on-left fas fa-asterisk"></i>
+        One-time activities
+      </div>
+      <div class="q-fab z-fab row inline justify-center q-fab--align-left q-fab--form-rounded"><a tabindex="0" role="link" aria-expanded="false" aria-haspopup="true" class="q-btn q-btn-item non-selectable no-outline q-btn--standard q-btn--rectangle q-btn--rounded bg-secondary text-white q-btn--actionable q-focusable q-hoverable q-btn--fab q-btn--no-uppercase q-fab--form-rounded"><span class="q-focus-helper"></span><span class="q-btn__wrapper col row q-anchor--skip"><span class="q-btn__content text-center col items-center q-anchor--skip justify-center row no-wrap text-no-wrap"><div class="q-fab__icon-holder"><i aria-hidden="true" role="presentation" class="q-fab__icon absolute-full fas fa-plus q-icon notranslate"> </i><i aria-hidden="true" role="presentation" class="q-fab__active-icon absolute-full material-icons q-icon notranslate">close</i></div></span></span></a>
+        <div class="q-fab__actions flex no-wrap inline q-fab__actions--up"><a tabindex="-1" role="link" disabled="disabled" aria-disabled="true" class="q-btn q-btn-item non-selectable no-outline q-btn--standard q-btn--rectangle q-btn--rounded disabled q-btn--fab-mini q-btn--no-uppercase q-fab--form-rounded"><span class="q-focus-helper"></span><span class="q-btn__wrapper col row q-anchor--skip" style="padding:16px;min-width:0;min-height:0;"><span class="q-btn__content text-center col items-center q-anchor--skip justify-center row no-wrap text-no-wrap"><i aria-hidden="true" role="presentation" class="fas fa-shopping-basket q-icon notranslate"> </i><div class="q-fab__label q-fab__label--internal q-fab__label--internal-right">Pickup</div></span></span></a></div>
+      </div>
     </div>
     <!---->
     <div class="full-width text-center generic-padding" style="display:none;"><svg focusable="false" fill="currentColor" width="40" height="40" viewBox="0 0 120 30" xmlns="http://www.w3.org/2000/svg" class="q-spinner">
@@ -73,7 +84,7 @@ exports[`Storyshots ActivitiesManage default 1`] = `
         <div class="q-expansion-item__container relative-position">
           <div tabindex="0" class="q-item q-item-type row no-wrap q-item--clickable q-link cursor-pointer q-focusable q-hoverable">
             <div tabindex="-1" class="q-focus-helper"></div>
-            <div class="q-item__section column q-item__section--side justify-center"><i aria-hidden="true" role="presentation" class="fas fa-calendar-alt q-icon notranslate"> </i></div>
+            <div class="q-item__section column q-item__section--side justify-center"><i aria-hidden="true" role="presentation" title="Pickup" class="fas fa-shopping-basket q-icon notranslate"> </i></div>
             <div class="q-item__section column q-item__section--main justify-center">
               <div tag="div" class="q-item__label">
                 Sun, December 24
@@ -94,7 +105,7 @@ exports[`Storyshots ActivitiesManage default 1`] = `
         <div class="q-expansion-item__container relative-position">
           <div tabindex="0" class="q-item q-item-type row no-wrap q-item--clickable q-link cursor-pointer q-focusable q-hoverable">
             <div tabindex="-1" class="q-focus-helper"></div>
-            <div class="q-item__section column q-item__section--side justify-center"><i aria-hidden="true" role="presentation" class="fas fa-calendar-alt q-icon notranslate"> </i></div>
+            <div class="q-item__section column q-item__section--side justify-center"><i aria-hidden="true" role="presentation" title="Pickup" class="fas fa-shopping-basket q-icon notranslate"> </i></div>
             <div class="q-item__section column q-item__section--main justify-center">
               <div tag="div" class="q-item__label">
                 Sun, December 24
@@ -115,7 +126,7 @@ exports[`Storyshots ActivitiesManage default 1`] = `
         <div class="q-expansion-item__container relative-position">
           <div tabindex="0" class="q-item q-item-type row no-wrap q-item--clickable q-link cursor-pointer q-focusable q-hoverable">
             <div tabindex="-1" class="q-focus-helper"></div>
-            <div class="q-item__section column q-item__section--side justify-center"><i aria-hidden="true" role="presentation" class="fas fa-calendar-alt q-icon notranslate"> </i></div>
+            <div class="q-item__section column q-item__section--side justify-center"><i aria-hidden="true" role="presentation" title="Pickup" class="fas fa-shopping-basket q-icon notranslate"> </i></div>
             <div class="q-item__section column q-item__section--main justify-center">
               <div tag="div" class="q-item__label">
                 Sun, December 24
@@ -136,7 +147,7 @@ exports[`Storyshots ActivitiesManage default 1`] = `
         <div class="q-expansion-item__container relative-position">
           <div tabindex="0" class="q-item q-item-type row no-wrap q-item--clickable q-link cursor-pointer q-focusable q-hoverable">
             <div tabindex="-1" class="q-focus-helper"></div>
-            <div class="q-item__section column q-item__section--side justify-center"><i aria-hidden="true" role="presentation" class="fas fa-calendar-alt q-icon notranslate"> </i></div>
+            <div class="q-item__section column q-item__section--side justify-center"><i aria-hidden="true" role="presentation" title="Pickup" class="fas fa-shopping-basket q-icon notranslate"> </i></div>
             <div class="q-item__section column q-item__section--main justify-center">
               <div tag="div" class="q-item__label">
                 Sun, December 24
@@ -157,7 +168,7 @@ exports[`Storyshots ActivitiesManage default 1`] = `
         <div class="q-expansion-item__container relative-position">
           <div tabindex="0" class="q-item q-item-type row no-wrap q-item--clickable q-link cursor-pointer q-focusable q-hoverable">
             <div tabindex="-1" class="q-focus-helper"></div>
-            <div class="q-item__section column q-item__section--side justify-center"><i aria-hidden="true" role="presentation" class="fas fa-calendar-alt q-icon notranslate"> </i></div>
+            <div class="q-item__section column q-item__section--side justify-center"><i aria-hidden="true" role="presentation" title="Pickup" class="fas fa-shopping-basket q-icon notranslate"> </i></div>
             <div class="q-item__section column q-item__section--main justify-center">
               <div tag="div" class="q-item__label">
                 Sun, December 24
@@ -832,13 +843,15 @@ exports[`Storyshots ActivityItem disabled 1`] = `
 <div class="q-card full">
   <div class="no-padding content q-card__section q-card__section--vert isDisabled">
     <div class="q-pa-sm full-width">
-      <div><span class="featured-text">
+      <div><span class="typus"><i aria-hidden="true" role="presentation" class="q-pr-xs fas fa-shopping-basket q-icon notranslate" style="font-size:18px;"> </i>
+          Pickup
+        </span> <span class="featured-text">
           12:00 PM
           <!----></span>
         Sunday, December 24, 2017
         <span><strong>Open Chat <i aria-hidden="true" role="presentation" class="material-icons q-icon notranslate">chat</i></strong></span>
       </div>
-      <div class="q-my-xs"><b class="text-negative">This pickup has been disabled.</b></div>
+      <div class="q-my-xs"><b class="text-negative">This activity has been disabled.</b></div>
       <!---->
       <div class="q-my-xs multiline">This activity is already full.</div>
       <div class="q-my-xs full-width">
@@ -881,7 +894,9 @@ exports[`Storyshots ActivityItem full 1`] = `
 <div class="q-card full">
   <div class="no-padding content q-card__section q-card__section--vert">
     <div class="q-pa-sm full-width">
-      <div><span class="featured-text">
+      <div><span class="typus"><i aria-hidden="true" role="presentation" class="q-pr-xs fas fa-shopping-basket q-icon notranslate" style="font-size:18px;"> </i>
+          Pickup
+        </span> <span class="featured-text">
           12:00 PM
           <!----></span>
         Sunday, December 24, 2017
@@ -930,7 +945,9 @@ exports[`Storyshots ActivityItem join 1`] = `
 <div class="q-card">
   <div class="no-padding content q-card__section q-card__section--vert">
     <div class="q-pa-sm full-width">
-      <div><span class="featured-text">
+      <div><span class="typus"><i aria-hidden="true" role="presentation" class="q-pr-xs fas fa-shopping-basket q-icon notranslate" style="font-size:18px;"> </i>
+          Pickup
+        </span> <span class="featured-text">
           12:00 PM
           <!----></span>
         Sunday, December 24, 2017
@@ -980,7 +997,9 @@ exports[`Storyshots ActivityItem joined 1`] = `
 <div class="q-card full">
   <div class="no-padding content q-card__section q-card__section--vert isUserMember">
     <div class="q-pa-sm full-width">
-      <div><span class="featured-text">
+      <div><span class="typus"><i aria-hidden="true" role="presentation" class="q-pr-xs fas fa-shopping-basket q-icon notranslate" style="font-size:18px;"> </i>
+          Pickup
+        </span> <span class="featured-text">
           12:00 PM
           <!----></span>
         Sunday, December 24, 2017
@@ -1028,7 +1047,9 @@ exports[`Storyshots ActivityItem pending 1`] = `
 <div class="q-card">
   <div class="no-padding content q-card__section q-card__section--vert">
     <div class="q-pa-sm full-width">
-      <div><span class="featured-text">
+      <div><span class="typus"><i aria-hidden="true" role="presentation" class="q-pr-xs fas fa-shopping-basket q-icon notranslate" style="font-size:18px;"> </i>
+          Pickup
+        </span> <span class="featured-text">
           12:00 PM
           <!----></span>
         Sunday, December 24, 2017
@@ -1073,14 +1094,16 @@ exports[`Storyshots ActivityItem started 1`] = `
 <div class="q-card full">
   <div class="no-padding content q-card__section q-card__section--vert">
     <div class="q-pa-sm full-width">
-      <div><span class="featured-text">
+      <div><span class="typus"><i aria-hidden="true" role="presentation" class="q-pr-xs fas fa-shopping-basket q-icon notranslate" style="font-size:18px;"> </i>
+          Pickup
+        </span> <span class="featured-text">
           12:00 PM
           <!----></span>
         Sunday, December 24, 2017
         <span><strong>Open Chat <i aria-hidden="true" role="presentation" class="material-icons q-icon notranslate">chat</i></strong></span>
       </div>
       <!---->
-      <div class="q-my-xs"><b class="text-orange">This pickup has already started.</b></div>
+      <div class="q-my-xs"><b class="text-orange">This activity has already started.</b></div>
       <div class="q-my-xs multiline">This activity is already full.</div>
       <div class="q-my-xs full-width">
         <div class="row justify-start"><object tabindex="-1" type="text/html" data="about:blank" aria-hidden="true" style="display:block;position:absolute;top:0;left:0;right:0;bottom:0;height:100%;width:100%;overflow:hidden;pointer-events:none;z-index:-1;"></object>
@@ -1137,138 +1160,40 @@ exports[`Storyshots ActivityList Default 1`] = `
     </svg></div>
   <div class="q-infinite-scroll">
     <div class="q-card">
-      <div class="no-padding content q-card__section q-card__section--vert">
+      <div class="no-padding content q-card__section q-card__section--vert isEmpty">
         <div class="q-pa-sm full-width">
-          <div><span class="featured-text">
-          8:00 AM
+          <div><span class="typus"><i aria-hidden="true" role="presentation" class="q-pr-xs fas fa-shopping-basket q-icon notranslate" style="font-size:18px;"> </i>
+          Pickup
+        </span> <span class="featured-text">
+          12:00 PM
           <!----></span>
-            Saturday, August 12, 2017
+            Sunday, December 24, 2017
             <span><strong>Open Chat <i aria-hidden="true" role="presentation" class="material-icons q-icon notranslate">chat</i></strong></span>
           </div>
           <!---->
           <!---->
-          <div class="q-my-xs multiline">you can join this activity</div>
+          <!---->
           <div class="q-my-xs full-width">
             <div class="row justify-start"><object tabindex="-1" type="text/html" data="about:blank" aria-hidden="true" style="display:block;position:absolute;top:0;left:0;right:0;bottom:0;height:100%;width:100%;overflow:hidden;pointer-events:none;z-index:-1;"></object>
-              <div class="relative-position pic-wrapper">
-                <!---->
-                <div class="wrapper" style="width:36px;height:36px;"><a title="Mira Bellenbaum">
-                    <div text="Mira Bellenbaum" seed="1" class="randomArt fill"></div>
-                  </a></div>
-              </div>
-              <div class="relative-position pic-wrapper">
-                <!---->
-                <div class="wrapper" style="width:36px;height:36px;"><a title="Max Mustermann">
-                    <div text="Max Mustermann" seed="2" class="randomArt fill"></div>
-                  </a></div>
-              </div>
-              <div class="relative-position pic-wrapper">
-                <!---->
-                <div class="wrapper" style="width:36px;height:36px;"><a title="Karl Karlson">
-                    <div text="Karl Karlson" seed="3" class="randomArt fill"></div>
-                  </a></div>
-              </div>
               <!---->
               <div class="user-slot-wrapper active" style="width:36px;height:36px;">
                 <div class="hoverHide"></div>
                 <div title="Join" class="hoverShow">
                   <div class="wrapper" style="width:36px;height:36px;">
-                    <div text="Current User" seed="5" class="randomArt fill"></div>
+                    <div text="User 11" seed="11" class="randomArt fill"></div>
                   </div>
                 </div>
               </div>
-              <!---->
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="q-card">
-      <div class="no-padding content q-card__section q-card__section--vert isUserMember">
-        <div class="q-pa-sm full-width">
-          <div><span class="featured-text">
-          8:00 AM
-          <!----></span>
-            Sunday, August 13, 2017
-            <span><strong>Open Chat <i aria-hidden="true" role="presentation" class="material-icons q-icon notranslate">chat</i></strong></span>
-          </div>
-          <!---->
-          <!---->
-          <div class="q-my-xs multiline">you are participant and can leave this activity</div>
-          <div class="q-my-xs full-width">
-            <div class="row justify-start"><object tabindex="-1" type="text/html" data="about:blank" aria-hidden="true" style="display:block;position:absolute;top:0;left:0;right:0;bottom:0;height:100%;width:100%;overflow:hidden;pointer-events:none;z-index:-1;"></object>
-              <div class="relative-position pic-wrapper">
-                <!---->
-                <div class="wrapper" style="width:36px;height:36px;"><a title="Mira Bellenbaum">
-                    <div text="Mira Bellenbaum" seed="1" class="randomArt fill"></div>
-                  </a></div>
-              </div>
-              <div class="relative-position pic-wrapper">
-                <!---->
-                <div class="wrapper" style="width:36px;height:36px;"><a title="Max Mustermann">
-                    <div text="Max Mustermann" seed="2" class="randomArt fill"></div>
-                  </a></div>
-              </div>
-              <div class="relative-position pic-wrapper">
-                <div class="user-slot-wrapper relative-position" style="width:36px;height:36px;">
-                  <div class="wrapper profile-picture" style="width:36px;height:36px;">
-                    <div text="Current User" seed="5" class="randomArt fill"></div>
-                  </div>
-                  <div title="Leave" class="absolute-full leave-icon vertical-top" style="font-size:28.8px;">
-                    <div class="absolute-center"><i class="fas fa-fw fa-times"></i></div>
-                  </div>
-                </div>
-              </div>
-              <!---->
-              <!---->
               <div class="user-slot-wrapper greyedOut" style="width:36px;height:36px;"></div>
-              <!---->
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="q-card full">
-      <div class="no-padding content q-card__section q-card__section--vert">
-        <div class="q-pa-sm full-width">
-          <div><span class="featured-text">
-          8:00 AM
-          <!----></span>
-            Monday, August 14, 2017
-            <span><strong>Open Chat <i aria-hidden="true" role="presentation" class="material-icons q-icon notranslate">chat</i></strong></span>
-          </div>
-          <!---->
-          <!---->
-          <div class="q-my-xs multiline">this activity is already full!</div>
-          <div class="q-my-xs full-width">
-            <div class="row justify-start"><object tabindex="-1" type="text/html" data="about:blank" aria-hidden="true" style="display:block;position:absolute;top:0;left:0;right:0;bottom:0;height:100%;width:100%;overflow:hidden;pointer-events:none;z-index:-1;"></object>
-              <div class="relative-position pic-wrapper">
+              <div class="user-slot-wrapper greyedOut" style="width:36px;height:36px;"></div>
+              <div class="user-slot-wrapper greyedOut" style="width:36px;height:36px;"></div>
+              <div class="user-slot-wrapper greyedOut" style="width:36px;height:36px;"></div>
+              <div class="user-slot-wrapper greyedOut" style="width:36px;height:36px;"></div>
+              <div class="emptySlots" style="width:36px;height:36px;">
+                <div></div> <span>+ 4</span>
                 <!---->
-                <div class="wrapper" style="width:36px;height:36px;"><a title="Mira Bellenbaum">
-                    <div text="Mira Bellenbaum" seed="1" class="randomArt fill"></div>
-                  </a></div>
-              </div>
-              <div class="relative-position pic-wrapper">
                 <!---->
-                <div class="wrapper" style="width:36px;height:36px;"><a title="Max Mustermann">
-                    <div text="Max Mustermann" seed="2" class="randomArt fill"></div>
-                  </a></div>
               </div>
-              <div class="relative-position pic-wrapper">
-                <!---->
-                <div class="wrapper" style="width:36px;height:36px;"><a title="Karl Karlson">
-                    <div text="Karl Karlson" seed="3" class="randomArt fill"></div>
-                  </a></div>
-              </div>
-              <div class="relative-position pic-wrapper">
-                <!---->
-                <div class="wrapper" style="width:36px;height:36px;"><a title="Mona Mohnblume">
-                    <div text="Mona Mohnblume" seed="4" class="randomArt fill"></div>
-                  </a></div>
-              </div>
-              <!---->
-              <!---->
-              <!---->
             </div>
           </div>
         </div>
@@ -1277,15 +1202,17 @@ exports[`Storyshots ActivityList Default 1`] = `
     <div class="q-card">
       <div class="no-padding content q-card__section q-card__section--vert isEmpty">
         <div class="q-pa-sm full-width">
-          <div><span class="featured-text">
-          8:00 AM
+          <div><span class="typus"><i aria-hidden="true" role="presentation" class="q-pr-xs fas fa-shopping-basket q-icon notranslate" style="font-size:18px;"> </i>
+          Pickup
+        </span> <span class="featured-text">
+          12:00 PM
           <!----></span>
-            Tuesday, August 15, 2017
+            Sunday, December 24, 2017
             <span><strong>Open Chat <i aria-hidden="true" role="presentation" class="material-icons q-icon notranslate">chat</i></strong></span>
           </div>
           <!---->
           <!---->
-          <div class="q-my-xs multiline">this activity is fresh and empty</div>
+          <!---->
           <div class="q-my-xs full-width">
             <div class="row justify-start"><object tabindex="-1" type="text/html" data="about:blank" aria-hidden="true" style="display:block;position:absolute;top:0;left:0;right:0;bottom:0;height:100%;width:100%;overflow:hidden;pointer-events:none;z-index:-1;"></object>
               <!---->
@@ -1293,14 +1220,140 @@ exports[`Storyshots ActivityList Default 1`] = `
                 <div class="hoverHide"></div>
                 <div title="Join" class="hoverShow">
                   <div class="wrapper" style="width:36px;height:36px;">
-                    <div text="Current User" seed="5" class="randomArt fill"></div>
+                    <div text="User 11" seed="11" class="randomArt fill"></div>
                   </div>
                 </div>
               </div>
               <div class="user-slot-wrapper greyedOut" style="width:36px;height:36px;"></div>
               <div class="user-slot-wrapper greyedOut" style="width:36px;height:36px;"></div>
               <div class="user-slot-wrapper greyedOut" style="width:36px;height:36px;"></div>
+              <div class="user-slot-wrapper greyedOut" style="width:36px;height:36px;"></div>
+              <div class="user-slot-wrapper greyedOut" style="width:36px;height:36px;"></div>
+              <div class="emptySlots" style="width:36px;height:36px;">
+                <div></div> <span>+ 4</span>
+                <!---->
+                <!---->
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="q-card">
+      <div class="no-padding content q-card__section q-card__section--vert isEmpty">
+        <div class="q-pa-sm full-width">
+          <div><span class="typus"><i aria-hidden="true" role="presentation" class="q-pr-xs fas fa-shopping-basket q-icon notranslate" style="font-size:18px;"> </i>
+          Pickup
+        </span> <span class="featured-text">
+          12:00 PM
+          <!----></span>
+            Sunday, December 24, 2017
+            <span><strong>Open Chat <i aria-hidden="true" role="presentation" class="material-icons q-icon notranslate">chat</i></strong></span>
+          </div>
+          <!---->
+          <!---->
+          <!---->
+          <div class="q-my-xs full-width">
+            <div class="row justify-start"><object tabindex="-1" type="text/html" data="about:blank" aria-hidden="true" style="display:block;position:absolute;top:0;left:0;right:0;bottom:0;height:100%;width:100%;overflow:hidden;pointer-events:none;z-index:-1;"></object>
               <!---->
+              <div class="user-slot-wrapper active" style="width:36px;height:36px;">
+                <div class="hoverHide"></div>
+                <div title="Join" class="hoverShow">
+                  <div class="wrapper" style="width:36px;height:36px;">
+                    <div text="User 11" seed="11" class="randomArt fill"></div>
+                  </div>
+                </div>
+              </div>
+              <div class="user-slot-wrapper greyedOut" style="width:36px;height:36px;"></div>
+              <div class="user-slot-wrapper greyedOut" style="width:36px;height:36px;"></div>
+              <div class="user-slot-wrapper greyedOut" style="width:36px;height:36px;"></div>
+              <div class="user-slot-wrapper greyedOut" style="width:36px;height:36px;"></div>
+              <div class="user-slot-wrapper greyedOut" style="width:36px;height:36px;"></div>
+              <div class="emptySlots" style="width:36px;height:36px;">
+                <div></div> <span>+ 4</span>
+                <!---->
+                <!---->
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="q-card">
+      <div class="no-padding content q-card__section q-card__section--vert isEmpty">
+        <div class="q-pa-sm full-width">
+          <div><span class="typus"><i aria-hidden="true" role="presentation" class="q-pr-xs fas fa-shopping-basket q-icon notranslate" style="font-size:18px;"> </i>
+          Pickup
+        </span> <span class="featured-text">
+          12:00 PM
+          <!----></span>
+            Sunday, December 24, 2017
+            <span><strong>Open Chat <i aria-hidden="true" role="presentation" class="material-icons q-icon notranslate">chat</i></strong></span>
+          </div>
+          <!---->
+          <!---->
+          <!---->
+          <div class="q-my-xs full-width">
+            <div class="row justify-start"><object tabindex="-1" type="text/html" data="about:blank" aria-hidden="true" style="display:block;position:absolute;top:0;left:0;right:0;bottom:0;height:100%;width:100%;overflow:hidden;pointer-events:none;z-index:-1;"></object>
+              <!---->
+              <div class="user-slot-wrapper active" style="width:36px;height:36px;">
+                <div class="hoverHide"></div>
+                <div title="Join" class="hoverShow">
+                  <div class="wrapper" style="width:36px;height:36px;">
+                    <div text="User 11" seed="11" class="randomArt fill"></div>
+                  </div>
+                </div>
+              </div>
+              <div class="user-slot-wrapper greyedOut" style="width:36px;height:36px;"></div>
+              <div class="user-slot-wrapper greyedOut" style="width:36px;height:36px;"></div>
+              <div class="user-slot-wrapper greyedOut" style="width:36px;height:36px;"></div>
+              <div class="user-slot-wrapper greyedOut" style="width:36px;height:36px;"></div>
+              <div class="user-slot-wrapper greyedOut" style="width:36px;height:36px;"></div>
+              <div class="emptySlots" style="width:36px;height:36px;">
+                <div></div> <span>+ 4</span>
+                <!---->
+                <!---->
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="q-card">
+      <div class="no-padding content q-card__section q-card__section--vert isEmpty">
+        <div class="q-pa-sm full-width">
+          <div><span class="typus"><i aria-hidden="true" role="presentation" class="q-pr-xs fas fa-shopping-basket q-icon notranslate" style="font-size:18px;"> </i>
+          Pickup
+        </span> <span class="featured-text">
+          12:00 PM
+          <!----></span>
+            Sunday, December 24, 2017
+            <span><strong>Open Chat <i aria-hidden="true" role="presentation" class="material-icons q-icon notranslate">chat</i></strong></span>
+          </div>
+          <!---->
+          <!---->
+          <!---->
+          <div class="q-my-xs full-width">
+            <div class="row justify-start"><object tabindex="-1" type="text/html" data="about:blank" aria-hidden="true" style="display:block;position:absolute;top:0;left:0;right:0;bottom:0;height:100%;width:100%;overflow:hidden;pointer-events:none;z-index:-1;"></object>
+              <!---->
+              <div class="user-slot-wrapper active" style="width:36px;height:36px;">
+                <div class="hoverHide"></div>
+                <div title="Join" class="hoverShow">
+                  <div class="wrapper" style="width:36px;height:36px;">
+                    <div text="User 11" seed="11" class="randomArt fill"></div>
+                  </div>
+                </div>
+              </div>
+              <div class="user-slot-wrapper greyedOut" style="width:36px;height:36px;"></div>
+              <div class="user-slot-wrapper greyedOut" style="width:36px;height:36px;"></div>
+              <div class="user-slot-wrapper greyedOut" style="width:36px;height:36px;"></div>
+              <div class="user-slot-wrapper greyedOut" style="width:36px;height:36px;"></div>
+              <div class="user-slot-wrapper greyedOut" style="width:36px;height:36px;"></div>
+              <div class="emptySlots" style="width:36px;height:36px;">
+                <div></div> <span>+ 4</span>
+                <!---->
+                <!---->
+              </div>
             </div>
           </div>
         </div>
@@ -2358,24 +2411,6 @@ exports[`Storyshots Applications ApplicationList 1`] = `
       <div tabindex="-1" class="q-focus-helper"></div>
       <div class="q-item__section column q-item__section--side justify-center">
         <div class="wrapper" style="width:30px;height:30px;">
-          <div text="User 12" seed="12" class="randomArt fill"></div>
-        </div>
-      </div>
-      <div class="q-item__section column q-item__section--main justify-center">
-        <div class="q-item__label">
-          User 12
-        </div>
-        <div class="q-item__label q-item__label--caption text-caption">
-          Submitted on Dec 23, 2017, 12:00 PM
-        </div>
-        <!---->
-      </div>
-      <!---->
-    </div>
-    <div tabindex="0" class="q-item q-item-type row no-wrap q-item--clickable q-link cursor-pointer q-focusable q-hoverable">
-      <div tabindex="-1" class="q-focus-helper"></div>
-      <div class="q-item__section column q-item__section--side justify-center">
-        <div class="wrapper" style="width:30px;height:30px;">
           <div text="User 13" seed="13" class="randomArt fill"></div>
         </div>
       </div>
@@ -2400,6 +2435,24 @@ exports[`Storyshots Applications ApplicationList 1`] = `
       <div class="q-item__section column q-item__section--main justify-center">
         <div class="q-item__label">
           User 14
+        </div>
+        <div class="q-item__label q-item__label--caption text-caption">
+          Submitted on Dec 23, 2017, 12:00 PM
+        </div>
+        <!---->
+      </div>
+      <!---->
+    </div>
+    <div tabindex="0" class="q-item q-item-type row no-wrap q-item--clickable q-link cursor-pointer q-focusable q-hoverable">
+      <div tabindex="-1" class="q-focus-helper"></div>
+      <div class="q-item__section column q-item__section--side justify-center">
+        <div class="wrapper" style="width:30px;height:30px;">
+          <div text="User 15" seed="15" class="randomArt fill"></div>
+        </div>
+      </div>
+      <div class="q-item__section column q-item__section--main justify-center">
+        <div class="q-item__label">
+          User 15
         </div>
         <div class="q-item__label q-item__label--caption text-caption">
           Submitted on Dec 23, 2017, 12:00 PM
@@ -2621,7 +2674,7 @@ exports[`Storyshots ChatConversation closed 1`] = `
         </div>
         <!---->
         <div class="q-item__section column q-item__section--main justify-center">
-          <div class="q-item__label no-wrap k-message-meta"><a><span class="k-message-author text-bold text-secondary text-uppercase">User 58</span></a> <span class="message-date"><small class="text-weight-light"><div title="Dec 24, 2017, 12:00 PM">
+          <div class="q-item__label no-wrap k-message-meta"><a><span class="k-message-author text-bold text-secondary text-uppercase">User 59</span></a> <span class="message-date"><small class="text-weight-light"><div title="Dec 24, 2017, 12:00 PM">
   less than a minute ago
 </div></small></span>
             <!---->
@@ -2653,7 +2706,7 @@ exports[`Storyshots ChatConversation closed 1`] = `
         </div>
         <!---->
         <div class="q-item__section column q-item__section--main justify-center">
-          <div class="q-item__label no-wrap k-message-meta"><a><span class="k-message-author text-bold text-secondary text-uppercase">User 60</span></a> <span class="message-date"><small class="text-weight-light"><div title="Dec 24, 2017, 12:00 PM">
+          <div class="q-item__label no-wrap k-message-meta"><a><span class="k-message-author text-bold text-secondary text-uppercase">User 61</span></a> <span class="message-date"><small class="text-weight-light"><div title="Dec 24, 2017, 12:00 PM">
   less than a minute ago
 </div></small></span>
             <!---->
@@ -2713,7 +2766,7 @@ exports[`Storyshots ChatConversation closed 1`] = `
         </div>
         <!---->
         <div class="q-item__section column q-item__section--main justify-center">
-          <div class="q-item__label no-wrap k-message-meta"><a><span class="k-message-author text-bold text-secondary text-uppercase">User 62</span></a> <span class="message-date"><small class="text-weight-light"><div title="Dec 24, 2017, 12:00 PM">
+          <div class="q-item__label no-wrap k-message-meta"><a><span class="k-message-author text-bold text-secondary text-uppercase">User 63</span></a> <span class="message-date"><small class="text-weight-light"><div title="Dec 24, 2017, 12:00 PM">
   less than a minute ago
 </div></small></span>
             <!---->
@@ -2745,7 +2798,7 @@ exports[`Storyshots ChatConversation closed 1`] = `
         </div>
         <!---->
         <div class="q-item__section column q-item__section--main justify-center">
-          <div class="q-item__label no-wrap k-message-meta"><a><span class="k-message-author text-bold text-secondary text-uppercase">User 64</span></a> <span class="message-date"><small class="text-weight-light"><div title="Dec 24, 2017, 12:00 PM">
+          <div class="q-item__label no-wrap k-message-meta"><a><span class="k-message-author text-bold text-secondary text-uppercase">User 65</span></a> <span class="message-date"><small class="text-weight-light"><div title="Dec 24, 2017, 12:00 PM">
   less than a minute ago
 </div></small></span>
             <!---->
@@ -2814,7 +2867,7 @@ exports[`Storyshots ChatConversation default 1`] = `
         </div>
         <!---->
         <div class="q-item__section column q-item__section--main justify-center">
-          <div class="q-item__label no-wrap k-message-meta"><a><span class="k-message-author text-bold text-secondary text-uppercase">User 58</span></a> <span class="message-date"><small class="text-weight-light"><div title="Dec 24, 2017, 12:00 PM">
+          <div class="q-item__label no-wrap k-message-meta"><a><span class="k-message-author text-bold text-secondary text-uppercase">User 59</span></a> <span class="message-date"><small class="text-weight-light"><div title="Dec 24, 2017, 12:00 PM">
   less than a minute ago
 </div></small></span>
             <!---->
@@ -2846,7 +2899,7 @@ exports[`Storyshots ChatConversation default 1`] = `
         </div>
         <!---->
         <div class="q-item__section column q-item__section--main justify-center">
-          <div class="q-item__label no-wrap k-message-meta"><a><span class="k-message-author text-bold text-secondary text-uppercase">User 60</span></a> <span class="message-date"><small class="text-weight-light"><div title="Dec 24, 2017, 12:00 PM">
+          <div class="q-item__label no-wrap k-message-meta"><a><span class="k-message-author text-bold text-secondary text-uppercase">User 61</span></a> <span class="message-date"><small class="text-weight-light"><div title="Dec 24, 2017, 12:00 PM">
   less than a minute ago
 </div></small></span>
             <!---->
@@ -2906,7 +2959,7 @@ exports[`Storyshots ChatConversation default 1`] = `
         </div>
         <!---->
         <div class="q-item__section column q-item__section--main justify-center">
-          <div class="q-item__label no-wrap k-message-meta"><a><span class="k-message-author text-bold text-secondary text-uppercase">User 62</span></a> <span class="message-date"><small class="text-weight-light"><div title="Dec 24, 2017, 12:00 PM">
+          <div class="q-item__label no-wrap k-message-meta"><a><span class="k-message-author text-bold text-secondary text-uppercase">User 63</span></a> <span class="message-date"><small class="text-weight-light"><div title="Dec 24, 2017, 12:00 PM">
   less than a minute ago
 </div></small></span>
             <!---->
@@ -2938,7 +2991,7 @@ exports[`Storyshots ChatConversation default 1`] = `
         </div>
         <!---->
         <div class="q-item__section column q-item__section--main justify-center">
-          <div class="q-item__label no-wrap k-message-meta"><a><span class="k-message-author text-bold text-secondary text-uppercase">User 64</span></a> <span class="message-date"><small class="text-weight-light"><div title="Dec 24, 2017, 12:00 PM">
+          <div class="q-item__label no-wrap k-message-meta"><a><span class="k-message-author text-bold text-secondary text-uppercase">User 65</span></a> <span class="message-date"><small class="text-weight-light"><div title="Dec 24, 2017, 12:00 PM">
   less than a minute ago
 </div></small></span>
             <!---->
@@ -2996,7 +3049,7 @@ exports[`Storyshots ChatConversation fetching past 1`] = `
         </div>
         <!---->
         <div class="q-item__section column q-item__section--main justify-center">
-          <div class="q-item__label no-wrap k-message-meta"><a><span class="k-message-author text-bold text-secondary text-uppercase">User 58</span></a> <span class="message-date"><small class="text-weight-light"><div title="Dec 24, 2017, 12:00 PM">
+          <div class="q-item__label no-wrap k-message-meta"><a><span class="k-message-author text-bold text-secondary text-uppercase">User 59</span></a> <span class="message-date"><small class="text-weight-light"><div title="Dec 24, 2017, 12:00 PM">
   less than a minute ago
 </div></small></span>
             <!---->
@@ -3028,7 +3081,7 @@ exports[`Storyshots ChatConversation fetching past 1`] = `
         </div>
         <!---->
         <div class="q-item__section column q-item__section--main justify-center">
-          <div class="q-item__label no-wrap k-message-meta"><a><span class="k-message-author text-bold text-secondary text-uppercase">User 60</span></a> <span class="message-date"><small class="text-weight-light"><div title="Dec 24, 2017, 12:00 PM">
+          <div class="q-item__label no-wrap k-message-meta"><a><span class="k-message-author text-bold text-secondary text-uppercase">User 61</span></a> <span class="message-date"><small class="text-weight-light"><div title="Dec 24, 2017, 12:00 PM">
   less than a minute ago
 </div></small></span>
             <!---->
@@ -3088,7 +3141,7 @@ exports[`Storyshots ChatConversation fetching past 1`] = `
         </div>
         <!---->
         <div class="q-item__section column q-item__section--main justify-center">
-          <div class="q-item__label no-wrap k-message-meta"><a><span class="k-message-author text-bold text-secondary text-uppercase">User 62</span></a> <span class="message-date"><small class="text-weight-light"><div title="Dec 24, 2017, 12:00 PM">
+          <div class="q-item__label no-wrap k-message-meta"><a><span class="k-message-author text-bold text-secondary text-uppercase">User 63</span></a> <span class="message-date"><small class="text-weight-light"><div title="Dec 24, 2017, 12:00 PM">
   less than a minute ago
 </div></small></span>
             <!---->
@@ -3120,7 +3173,7 @@ exports[`Storyshots ChatConversation fetching past 1`] = `
         </div>
         <!---->
         <div class="q-item__section column q-item__section--main justify-center">
-          <div class="q-item__label no-wrap k-message-meta"><a><span class="k-message-author text-bold text-secondary text-uppercase">User 64</span></a> <span class="message-date"><small class="text-weight-light"><div title="Dec 24, 2017, 12:00 PM">
+          <div class="q-item__label no-wrap k-message-meta"><a><span class="k-message-author text-bold text-secondary text-uppercase">User 65</span></a> <span class="message-date"><small class="text-weight-light"><div title="Dec 24, 2017, 12:00 PM">
   less than a minute ago
 </div></small></span>
             <!---->
@@ -3484,7 +3537,7 @@ exports[`Storyshots ChatConversation not participant 1`] = `
         </div>
         <!---->
         <div class="q-item__section column q-item__section--main justify-center">
-          <div class="q-item__label no-wrap k-message-meta"><a><span class="k-message-author text-bold text-secondary text-uppercase">User 58</span></a> <span class="message-date"><small class="text-weight-light"><div title="Dec 24, 2017, 12:00 PM">
+          <div class="q-item__label no-wrap k-message-meta"><a><span class="k-message-author text-bold text-secondary text-uppercase">User 59</span></a> <span class="message-date"><small class="text-weight-light"><div title="Dec 24, 2017, 12:00 PM">
   less than a minute ago
 </div></small></span>
             <!---->
@@ -3516,7 +3569,7 @@ exports[`Storyshots ChatConversation not participant 1`] = `
         </div>
         <!---->
         <div class="q-item__section column q-item__section--main justify-center">
-          <div class="q-item__label no-wrap k-message-meta"><a><span class="k-message-author text-bold text-secondary text-uppercase">User 60</span></a> <span class="message-date"><small class="text-weight-light"><div title="Dec 24, 2017, 12:00 PM">
+          <div class="q-item__label no-wrap k-message-meta"><a><span class="k-message-author text-bold text-secondary text-uppercase">User 61</span></a> <span class="message-date"><small class="text-weight-light"><div title="Dec 24, 2017, 12:00 PM">
   less than a minute ago
 </div></small></span>
             <!---->
@@ -3576,7 +3629,7 @@ exports[`Storyshots ChatConversation not participant 1`] = `
         </div>
         <!---->
         <div class="q-item__section column q-item__section--main justify-center">
-          <div class="q-item__label no-wrap k-message-meta"><a><span class="k-message-author text-bold text-secondary text-uppercase">User 62</span></a> <span class="message-date"><small class="text-weight-light"><div title="Dec 24, 2017, 12:00 PM">
+          <div class="q-item__label no-wrap k-message-meta"><a><span class="k-message-author text-bold text-secondary text-uppercase">User 63</span></a> <span class="message-date"><small class="text-weight-light"><div title="Dec 24, 2017, 12:00 PM">
   less than a minute ago
 </div></small></span>
             <!---->
@@ -3608,7 +3661,7 @@ exports[`Storyshots ChatConversation not participant 1`] = `
         </div>
         <!---->
         <div class="q-item__section column q-item__section--main justify-center">
-          <div class="q-item__label no-wrap k-message-meta"><a><span class="k-message-author text-bold text-secondary text-uppercase">User 64</span></a> <span class="message-date"><small class="text-weight-light"><div title="Dec 24, 2017, 12:00 PM">
+          <div class="q-item__label no-wrap k-message-meta"><a><span class="k-message-author text-bold text-secondary text-uppercase">User 65</span></a> <span class="message-date"><small class="text-weight-light"><div title="Dec 24, 2017, 12:00 PM">
   less than a minute ago
 </div></small></span>
             <!---->
@@ -3666,7 +3719,7 @@ exports[`Storyshots ChatConversation thread 1`] = `
         </div>
         <!---->
         <div class="q-item__section column q-item__section--main justify-center">
-          <div class="q-item__label no-wrap k-message-meta"><a><span class="k-message-author text-bold text-secondary text-uppercase">User 67</span></a> <span class="message-date"><small class="text-weight-light"><div title="Dec 24, 2017, 12:00 PM">
+          <div class="q-item__label no-wrap k-message-meta"><a><span class="k-message-author text-bold text-secondary text-uppercase">User 68</span></a> <span class="message-date"><small class="text-weight-light"><div title="Dec 24, 2017, 12:00 PM">
   less than a minute ago
 </div></small></span>
             <!---->
@@ -3698,7 +3751,7 @@ exports[`Storyshots ChatConversation thread 1`] = `
         </div>
         <!---->
         <div class="q-item__section column q-item__section--main justify-center">
-          <div class="q-item__label no-wrap k-message-meta"><a><span class="k-message-author text-bold text-secondary text-uppercase">User 68</span></a> <span class="message-date"><small class="text-weight-light"><div title="Dec 24, 2017, 12:00 PM">
+          <div class="q-item__label no-wrap k-message-meta"><a><span class="k-message-author text-bold text-secondary text-uppercase">User 69</span></a> <span class="message-date"><small class="text-weight-light"><div title="Dec 24, 2017, 12:00 PM">
   less than a minute ago
 </div></small></span>
             <!---->
@@ -3730,7 +3783,7 @@ exports[`Storyshots ChatConversation thread 1`] = `
         </div>
         <!---->
         <div class="q-item__section column q-item__section--main justify-center">
-          <div class="q-item__label no-wrap k-message-meta"><a><span class="k-message-author text-bold text-secondary text-uppercase">User 66</span></a> <span class="message-date"><small class="text-weight-light"><div title="Dec 24, 2017, 12:00 PM">
+          <div class="q-item__label no-wrap k-message-meta"><a><span class="k-message-author text-bold text-secondary text-uppercase">User 67</span></a> <span class="message-date"><small class="text-weight-light"><div title="Dec 24, 2017, 12:00 PM">
   less than a minute ago
 </div></small></span>
             <!---->
@@ -3841,8 +3894,8 @@ exports[`Storyshots ConversationCompose default 1`] = `
 <div>
   <div class="q-item q-item-type row no-wrap">
     <div class="q-item__section column q-mt-xs q-pr-sm q-item__section--top q-item__section--side justify-start">
-      <div class="wrapper" style="width:40px;height:40px;"><a title="User 77">
-          <div text="User 77" seed="77" class="randomArt fill"></div>
+      <div class="wrapper" style="width:40px;height:40px;"><a title="User 78">
+          <div text="User 78" seed="78" class="randomArt fill"></div>
         </a></div>
     </div>
     <div class="q-item__section column q-item__section--main justify-center">
@@ -3877,8 +3930,8 @@ exports[`Storyshots ConversationCompose edit 1`] = `
 <div>
   <div class="q-item q-item-type row no-wrap">
     <div class="q-item__section column q-mt-xs q-pr-sm q-item__section--top q-item__section--side justify-start">
-      <div class="wrapper" style="width:40px;height:40px;"><a title="User 77">
-          <div text="User 77" seed="77" class="randomArt fill"></div>
+      <div class="wrapper" style="width:40px;height:40px;"><a title="User 78">
+          <div text="User 78" seed="78" class="randomArt fill"></div>
         </a></div>
     </div>
     <div class="q-item__section column q-item__section--main justify-center">
@@ -3910,8 +3963,8 @@ exports[`Storyshots ConversationCompose error 1`] = `
 <div>
   <div class="q-item q-item-type row no-wrap">
     <div class="q-item__section column q-mt-xs q-pr-sm q-item__section--top q-item__section--side justify-start">
-      <div class="wrapper" style="width:40px;height:40px;"><a title="User 77">
-          <div text="User 77" seed="77" class="randomArt fill"></div>
+      <div class="wrapper" style="width:40px;height:40px;"><a title="User 78">
+          <div text="User 78" seed="78" class="randomArt fill"></div>
         </a></div>
     </div>
     <div class="q-item__section column q-item__section--main justify-center">
@@ -3949,8 +4002,8 @@ exports[`Storyshots ConversationCompose not participant 1`] = `
 <div>
   <div class="q-item q-item-type row no-wrap">
     <div class="q-item__section column q-mt-xs q-pr-sm q-item__section--top q-item__section--side justify-start">
-      <div class="wrapper" style="width:40px;height:40px;"><a title="User 77">
-          <div text="User 77" seed="77" class="randomArt fill"></div>
+      <div class="wrapper" style="width:40px;height:40px;"><a title="User 78">
+          <div text="User 78" seed="78" class="randomArt fill"></div>
         </a></div>
     </div>
     <div class="q-item__section column q-item__section--main justify-center">
@@ -3985,8 +4038,8 @@ exports[`Storyshots ConversationCompose pending 1`] = `
 <div>
   <div class="q-item q-item-type row no-wrap">
     <div class="q-item__section column q-mt-xs q-pr-sm q-item__section--top q-item__section--side justify-start">
-      <div class="wrapper" style="width:40px;height:40px;"><a title="User 77">
-          <div text="User 77" seed="77" class="randomArt fill"></div>
+      <div class="wrapper" style="width:40px;height:40px;"><a title="User 78">
+          <div text="User 78" seed="78" class="randomArt fill"></div>
         </a></div>
     </div>
     <div class="q-item__section column q-item__section--main justify-center">
@@ -4059,12 +4112,12 @@ exports[`Storyshots ConversationMessage default 1`] = `
       <!----></span></span>
     </button></div>
   <div class="q-item__section column q-mt-xs q-pr-sm q-item__section--top q-item__section--side justify-start">
-    <div class="wrapper" style="width:40px;height:40px;"><a title="User 78">
-        <div text="User 78" seed="78" class="randomArt fill"></div>
+    <div class="wrapper" style="width:40px;height:40px;"><a title="User 79">
+        <div text="User 79" seed="79" class="randomArt fill"></div>
       </a></div>
   </div>
   <div class="q-item__section column q-item__section--main justify-center">
-    <div class="q-item__label no-wrap k-message-meta"><a><span class="k-message-author text-bold text-secondary text-uppercase">User 78</span></a> <span class="message-date"><small class="text-weight-light"><div title="Dec 24, 2017, 12:00 PM">
+    <div class="q-item__label no-wrap k-message-meta"><a><span class="k-message-author text-bold text-secondary text-uppercase">User 79</span></a> <span class="message-date"><small class="text-weight-light"><div title="Dec 24, 2017, 12:00 PM">
   less than a minute ago
 </div></small></span>
       <!---->
@@ -4095,12 +4148,12 @@ exports[`Storyshots ConversationMessage edited 1`] = `
       <!----></span></span>
     </button></div>
   <div class="q-item__section column q-mt-xs q-pr-sm q-item__section--top q-item__section--side justify-start">
-    <div class="wrapper" style="width:40px;height:40px;"><a title="User 78">
-        <div text="User 78" seed="78" class="randomArt fill"></div>
+    <div class="wrapper" style="width:40px;height:40px;"><a title="User 79">
+        <div text="User 79" seed="79" class="randomArt fill"></div>
       </a></div>
   </div>
   <div class="q-item__section column q-item__section--main justify-center">
-    <div class="q-item__label no-wrap k-message-meta"><a><span class="k-message-author text-bold text-secondary text-uppercase">User 78</span></a> <span class="message-date"><small class="text-weight-light"><div title="Dec 24, 2017, 12:00 PM">
+    <div class="q-item__label no-wrap k-message-meta"><a><span class="k-message-author text-bold text-secondary text-uppercase">User 79</span></a> <span class="message-date"><small class="text-weight-light"><div title="Dec 24, 2017, 12:00 PM">
   less than a minute ago
 </div></small></span>
       <!---->
@@ -4140,7 +4193,7 @@ exports[`Storyshots ConversationMessage slim 1`] = `
   </div>
   <!---->
   <div class="q-item__section column q-item__section--main justify-center">
-    <div class="q-item__label no-wrap k-message-meta"><a><span class="k-message-author text-bold text-secondary text-uppercase">User 78</span></a> <span class="message-date"><small class="text-weight-light"><div title="Dec 24, 2017, 12:00 PM">
+    <div class="q-item__label no-wrap k-message-meta"><a><span class="k-message-author text-bold text-secondary text-uppercase">User 79</span></a> <span class="message-date"><small class="text-weight-light"><div title="Dec 24, 2017, 12:00 PM">
   less than a minute ago
 </div></small></span>
       <!---->
@@ -4171,12 +4224,12 @@ exports[`Storyshots ConversationMessage via email 1`] = `
       <!----></span></span>
     </button></div>
   <div class="q-item__section column q-mt-xs q-pr-sm q-item__section--top q-item__section--side justify-start">
-    <div class="wrapper" style="width:40px;height:40px;"><a title="User 78">
-        <div text="User 78" seed="78" class="randomArt fill"></div>
+    <div class="wrapper" style="width:40px;height:40px;"><a title="User 79">
+        <div text="User 79" seed="79" class="randomArt fill"></div>
       </a></div>
   </div>
   <div class="q-item__section column q-item__section--main justify-center">
-    <div class="q-item__label no-wrap k-message-meta"><a><span class="k-message-author text-bold text-secondary text-uppercase">User 78</span></a> <span class="message-date"><small class="text-weight-light"><div title="Dec 24, 2017, 12:00 PM">
+    <div class="q-item__label no-wrap k-message-meta"><a><span class="k-message-author text-bold text-secondary text-uppercase">User 79</span></a> <span class="message-date"><small class="text-weight-light"><div title="Dec 24, 2017, 12:00 PM">
   less than a minute ago
 </div></small></span> <i aria-hidden="true" role="presentation" title="This message was sent via e-mail" class="email-icon far fa-envelope q-icon notranslate"> </i></div>
     <div class="content">
@@ -4205,12 +4258,12 @@ exports[`Storyshots ConversationMessage with multiple images 1`] = `
       <!----></span></span>
     </button></div>
   <div class="q-item__section column q-mt-xs q-pr-sm q-item__section--top q-item__section--side justify-start">
-    <div class="wrapper" style="width:40px;height:40px;"><a title="User 78">
-        <div text="User 78" seed="78" class="randomArt fill"></div>
+    <div class="wrapper" style="width:40px;height:40px;"><a title="User 79">
+        <div text="User 79" seed="79" class="randomArt fill"></div>
       </a></div>
   </div>
   <div class="q-item__section column q-item__section--main justify-center">
-    <div class="q-item__label no-wrap k-message-meta"><a><span class="k-message-author text-bold text-secondary text-uppercase">User 78</span></a> <span class="message-date"><small class="text-weight-light"><div title="Dec 24, 2017, 12:00 PM">
+    <div class="q-item__label no-wrap k-message-meta"><a><span class="k-message-author text-bold text-secondary text-uppercase">User 79</span></a> <span class="message-date"><small class="text-weight-light"><div title="Dec 24, 2017, 12:00 PM">
   less than a minute ago
 </div></small></span>
       <!---->
@@ -4296,12 +4349,12 @@ exports[`Storyshots ConversationMessage with one image 1`] = `
       <!----></span></span>
     </button></div>
   <div class="q-item__section column q-mt-xs q-pr-sm q-item__section--top q-item__section--side justify-start">
-    <div class="wrapper" style="width:40px;height:40px;"><a title="User 78">
-        <div text="User 78" seed="78" class="randomArt fill"></div>
+    <div class="wrapper" style="width:40px;height:40px;"><a title="User 79">
+        <div text="User 79" seed="79" class="randomArt fill"></div>
       </a></div>
   </div>
   <div class="q-item__section column q-item__section--main justify-center">
-    <div class="q-item__label no-wrap k-message-meta"><a><span class="k-message-author text-bold text-secondary text-uppercase">User 78</span></a> <span class="message-date"><small class="text-weight-light"><div title="Dec 24, 2017, 12:00 PM">
+    <div class="q-item__label no-wrap k-message-meta"><a><span class="k-message-author text-bold text-secondary text-uppercase">User 79</span></a> <span class="message-date"><small class="text-weight-light"><div title="Dec 24, 2017, 12:00 PM">
   less than a minute ago
 </div></small></span>
       <!---->
@@ -4344,12 +4397,12 @@ exports[`Storyshots ConversationMessage with replies 1`] = `
     </button>
   </div>
   <div class="q-item__section column q-mt-xs q-pr-sm q-item__section--top q-item__section--side justify-start">
-    <div class="wrapper" style="width:40px;height:40px;"><a title="User 80">
-        <div text="User 80" seed="80" class="randomArt fill"></div>
+    <div class="wrapper" style="width:40px;height:40px;"><a title="User 81">
+        <div text="User 81" seed="81" class="randomArt fill"></div>
       </a></div>
   </div>
   <div class="q-item__section column q-item__section--main justify-center">
-    <div class="q-item__label no-wrap k-message-meta"><a><span class="k-message-author text-bold text-secondary text-uppercase">User 80</span></a> <span class="message-date"><small class="text-weight-light"><div title="Dec 24, 2017, 12:00 PM">
+    <div class="q-item__label no-wrap k-message-meta"><a><span class="k-message-author text-bold text-secondary text-uppercase">User 81</span></a> <span class="message-date"><small class="text-weight-light"><div title="Dec 24, 2017, 12:00 PM">
   less than a minute ago
 </div></small></span>
       <!---->
@@ -4368,7 +4421,7 @@ exports[`Storyshots ConversationMessage with replies 1`] = `
       </button>
       <!---->
     </div>
-    <div><button tabindex="0" type="button" role="button" class="q-btn q-btn-item non-selectable no-outline reaction-box k-thread-box q-btn--unelevated q-btn--rectangle bg-white text-black q-btn--actionable q-focusable q-hoverable q-btn--no-uppercase q-btn--wrap"><span class="q-focus-helper"></span><span class="q-btn__wrapper col row q-anchor--skip"><span class="q-btn__content text-center col items-center q-anchor--skip justify-center row"><div class="wrapper k-profile-picture" style="width:20px;height:20px;"><div text="User 80" seed="80" class="randomArt fill"></div></div><div class="wrapper k-profile-picture" style="width:20px;height:20px;"><div text="User 81" seed="81" class="randomArt fill"></div></div><div class="wrapper k-profile-picture" style="width:20px;height:20px;"><div text="User 82" seed="82" class="randomArt fill"></div></div> <span class="k-replies-count text-caption"></span></span></span></button></div>
+    <div><button tabindex="0" type="button" role="button" class="q-btn q-btn-item non-selectable no-outline reaction-box k-thread-box q-btn--unelevated q-btn--rectangle bg-white text-black q-btn--actionable q-focusable q-hoverable q-btn--no-uppercase q-btn--wrap"><span class="q-focus-helper"></span><span class="q-btn__wrapper col row q-anchor--skip"><span class="q-btn__content text-center col items-center q-anchor--skip justify-center row"><div class="wrapper k-profile-picture" style="width:20px;height:20px;"><div text="User 81" seed="81" class="randomArt fill"></div></div><div class="wrapper k-profile-picture" style="width:20px;height:20px;"><div text="User 82" seed="82" class="randomArt fill"></div></div><div class="wrapper k-profile-picture" style="width:20px;height:20px;"><div text="User 83" seed="83" class="randomArt fill"></div></div> <span class="k-replies-count text-caption"></span></span></span></button></div>
   </div>
 </div>
 `;
@@ -4382,12 +4435,12 @@ exports[`Storyshots ConversationMessage with unread replies 1`] = `
     </button>
   </div>
   <div class="q-item__section column q-mt-xs q-pr-sm q-item__section--top q-item__section--side justify-start">
-    <div class="wrapper" style="width:40px;height:40px;"><a title="User 80">
-        <div text="User 80" seed="80" class="randomArt fill"></div>
+    <div class="wrapper" style="width:40px;height:40px;"><a title="User 81">
+        <div text="User 81" seed="81" class="randomArt fill"></div>
       </a></div>
   </div>
   <div class="q-item__section column q-item__section--main justify-center">
-    <div class="q-item__label no-wrap k-message-meta"><a><span class="k-message-author text-bold text-secondary text-uppercase">User 80</span></a> <span class="message-date"><small class="text-weight-light"><div title="Dec 24, 2017, 12:00 PM">
+    <div class="q-item__label no-wrap k-message-meta"><a><span class="k-message-author text-bold text-secondary text-uppercase">User 81</span></a> <span class="message-date"><small class="text-weight-light"><div title="Dec 24, 2017, 12:00 PM">
   less than a minute ago
 </div></small></span>
       <!---->
@@ -4406,7 +4459,7 @@ exports[`Storyshots ConversationMessage with unread replies 1`] = `
       </button>
       <!---->
     </div>
-    <div><button tabindex="0" type="button" role="button" class="q-btn q-btn-item non-selectable no-outline reaction-box k-thread-box q-btn--unelevated q-btn--rectangle bg-secondary text-white q-btn--actionable q-focusable q-hoverable q-btn--no-uppercase q-btn--wrap"><span class="q-focus-helper"></span><span class="q-btn__wrapper col row q-anchor--skip"><span class="q-btn__content text-center col items-center q-anchor--skip justify-center row"><div class="wrapper k-profile-picture" style="width:20px;height:20px;"><div text="User 80" seed="80" class="randomArt fill"></div></div><div class="wrapper k-profile-picture" style="width:20px;height:20px;"><div text="User 81" seed="81" class="randomArt fill"></div></div><div class="wrapper k-profile-picture" style="width:20px;height:20px;"><div text="User 82" seed="82" class="randomArt fill"></div></div> <span class="k-replies-count text-caption"></span></span></span></button></div>
+    <div><button tabindex="0" type="button" role="button" class="q-btn q-btn-item non-selectable no-outline reaction-box k-thread-box q-btn--unelevated q-btn--rectangle bg-secondary text-white q-btn--actionable q-focusable q-hoverable q-btn--no-uppercase q-btn--wrap"><span class="q-focus-helper"></span><span class="q-btn__wrapper col row q-anchor--skip"><span class="q-btn__content text-center col items-center q-anchor--skip justify-center row"><div class="wrapper k-profile-picture" style="width:20px;height:20px;"><div text="User 81" seed="81" class="randomArt fill"></div></div><div class="wrapper k-profile-picture" style="width:20px;height:20px;"><div text="User 82" seed="82" class="randomArt fill"></div></div><div class="wrapper k-profile-picture" style="width:20px;height:20px;"><div text="User 83" seed="83" class="randomArt fill"></div></div> <span class="k-replies-count text-caption"></span></span></span></button></div>
   </div>
 </div>
 `;
@@ -4414,9 +4467,9 @@ exports[`Storyshots ConversationMessage with unread replies 1`] = `
 exports[`Storyshots Detail activity 1`] = `
 <div>
   <div class="DetailHeader full-width">
-    <div class="q-toolbar row no-wrap items-center bg-secondary text-white">
+    <div class="q-toolbar row no-wrap items-center text-white bg-undefined">
       <div class="column q-toolbar__title ellipsis">
-        <div><span> </span> <strong>
+        <div><span><i aria-hidden="true" role="presentation" class="q-pr-sm fas fa-shopping-basket q-icon notranslate text-white" style="font-size:18px;"> </i>Pickup </span> <strong>
           Sunday 12:00 PM
           <!----></strong></div>
         <div class="text-caption">
@@ -4471,7 +4524,7 @@ exports[`Storyshots Detail activity 1`] = `
             </div>
             <!---->
             <div class="q-item__section column q-item__section--main justify-center">
-              <div class="q-item__label no-wrap k-message-meta"><a><span class="k-message-author text-bold text-secondary text-uppercase">User 101</span></a> <span class="message-date"><small class="text-weight-light"><div title="Dec 24, 2017, 12:00 PM">
+              <div class="q-item__label no-wrap k-message-meta"><a><span class="k-message-author text-bold text-secondary text-uppercase">User 102</span></a> <span class="message-date"><small class="text-weight-light"><div title="Dec 24, 2017, 12:00 PM">
   less than a minute ago
 </div></small></span>
                 <!---->
@@ -4503,7 +4556,7 @@ exports[`Storyshots Detail activity 1`] = `
             </div>
             <!---->
             <div class="q-item__section column q-item__section--main justify-center">
-              <div class="q-item__label no-wrap k-message-meta"><a><span class="k-message-author text-bold text-secondary text-uppercase">User 99</span></a> <span class="message-date"><small class="text-weight-light"><div title="Dec 24, 2017, 12:00 PM">
+              <div class="q-item__label no-wrap k-message-meta"><a><span class="k-message-author text-bold text-secondary text-uppercase">User 100</span></a> <span class="message-date"><small class="text-weight-light"><div title="Dec 24, 2017, 12:00 PM">
   less than a minute ago
 </div></small></span>
                 <!---->
@@ -4535,7 +4588,7 @@ exports[`Storyshots Detail activity 1`] = `
             </div>
             <!---->
             <div class="q-item__section column q-item__section--main justify-center">
-              <div class="q-item__label no-wrap k-message-meta"><a><span class="k-message-author text-bold text-secondary text-uppercase">User 97</span></a> <span class="message-date"><small class="text-weight-light"><div title="Dec 24, 2017, 12:00 PM">
+              <div class="q-item__label no-wrap k-message-meta"><a><span class="k-message-author text-bold text-secondary text-uppercase">User 98</span></a> <span class="message-date"><small class="text-weight-light"><div title="Dec 24, 2017, 12:00 PM">
   less than a minute ago
 </div></small></span>
                 <!---->
@@ -4595,7 +4648,7 @@ exports[`Storyshots Detail activity 1`] = `
             </div>
             <!---->
             <div class="q-item__section column q-item__section--main justify-center">
-              <div class="q-item__label no-wrap k-message-meta"><a><span class="k-message-author text-bold text-secondary text-uppercase">User 95</span></a> <span class="message-date"><small class="text-weight-light"><div title="Dec 24, 2017, 12:00 PM">
+              <div class="q-item__label no-wrap k-message-meta"><a><span class="k-message-author text-bold text-secondary text-uppercase">User 96</span></a> <span class="message-date"><small class="text-weight-light"><div title="Dec 24, 2017, 12:00 PM">
   less than a minute ago
 </div></small></span>
                 <!---->
@@ -4652,7 +4705,7 @@ exports[`Storyshots Detail activity 1`] = `
       <div class="bg-grey-2 q-list">
         <div class="q-item q-item-type row no-wrap">
           <div class="q-item__section column q-item__section--main justify-center">
-            <div class="q-item__label"><b class="text-negative">This pickup has been disabled.</b></div>
+            <div class="q-item__label"><b class="text-negative">This activity has been disabled.</b></div>
           </div>
         </div>
       </div>
@@ -4666,13 +4719,13 @@ exports[`Storyshots Detail application 1`] = `
 <div>
   <div class="DetailHeader full-width">
     <div class="q-toolbar row no-wrap items-center text-white bg-secondary">
-      <div class="wrapper" style="width:40px;height:40px;"><a title="User 103">
-          <div text="User 103" seed="103" class="randomArt fill"></div>
+      <div class="wrapper" style="width:40px;height:40px;"><a title="User 104">
+          <div text="User 104" seed="104" class="randomArt fill"></div>
         </a></div>
       <div class="column q-toolbar__title ellipsis">
         <div><a><span></span></a> <small><i aria-hidden="true" role="presentation" class="fas fa-fw fa-hourglass-half q-icon notranslate"> </i></small></div>
         <div class="text-caption"><span>
-            User 103
+            User 104
           </span></div>
       </div> <button tabindex="0" type="button" role="button" class="q-btn q-btn-item non-selectable no-outline q-btn--flat q-btn--round q-btn--actionable q-focusable q-hoverable q-btn--wrap q-btn--dense"><span class="q-focus-helper"></span><span class="q-btn__wrapper col row q-anchor--skip"><span class="q-btn__content text-center col items-center q-anchor--skip justify-center row"><i aria-hidden="true" role="img" class="material-icons q-icon notranslate">help_outline</i></span></span></button> <button tabindex="0" type="button" role="button" title="How do you want to receive notifications about new messages in this conversation/thread?" class="q-btn q-btn-item non-selectable no-outline q-btn--flat q-btn--round text-white q-btn--actionable q-focusable q-hoverable q-btn--wrap q-btn--dense" style="font-size:14px;"><span class="q-focus-helper"></span><span class="q-btn__wrapper col row q-anchor--skip"><span class="q-btn__content text-center col items-center q-anchor--skip justify-center row"><i aria-hidden="true" role="presentation" class="fas fa-fw fa-envelope q-icon notranslate" style="font-size:1.4em;"> </i> <!----></span></span></button> <button tabindex="0" type="button" role="button" title="Close" class="q-btn q-btn-item non-selectable no-outline q-btn--flat q-btn--round q-btn--actionable q-focusable q-hoverable q-btn--wrap q-btn--dense"><span class="q-focus-helper"></span><span class="q-btn__wrapper col row q-anchor--skip"><span class="q-btn__content text-center col items-center q-anchor--skip justify-center row"><i aria-hidden="true" role="img" class="material-icons q-icon notranslate">close</i></span></span></button>
     </div>
@@ -4713,7 +4766,7 @@ exports[`Storyshots Detail application 1`] = `
                     <p>What are your motivations for joining slköaslkfjasdfasfd?</p>
                   </div>
                 </div>
-                <div class="q-ma-sm q-pa-sm bg-white"><span class="text-bold text-secondary text-uppercase">User 103</span> <span class="message-date"><small class="text-weight-light"><div title="Dec 23, 2017, 12:00 PM">
+                <div class="q-ma-sm q-pa-sm bg-white"><span class="text-bold text-secondary text-uppercase">User 104</span> <span class="message-date"><small class="text-weight-light"><div title="Dec 23, 2017, 12:00 PM">
   1 day ago
 </div></small></span>
                   <div class="markdown">
@@ -4751,7 +4804,7 @@ exports[`Storyshots Detail application 1`] = `
             </div>
             <!---->
             <div class="q-item__section column q-item__section--main justify-center">
-              <div class="q-item__label no-wrap k-message-meta"><a><span class="k-message-author text-bold text-secondary text-uppercase">User 101</span></a> <span class="message-date"><small class="text-weight-light"><div title="Dec 24, 2017, 12:00 PM">
+              <div class="q-item__label no-wrap k-message-meta"><a><span class="k-message-author text-bold text-secondary text-uppercase">User 102</span></a> <span class="message-date"><small class="text-weight-light"><div title="Dec 24, 2017, 12:00 PM">
   less than a minute ago
 </div></small></span>
                 <!---->
@@ -4783,7 +4836,7 @@ exports[`Storyshots Detail application 1`] = `
             </div>
             <!---->
             <div class="q-item__section column q-item__section--main justify-center">
-              <div class="q-item__label no-wrap k-message-meta"><a><span class="k-message-author text-bold text-secondary text-uppercase">User 99</span></a> <span class="message-date"><small class="text-weight-light"><div title="Dec 24, 2017, 12:00 PM">
+              <div class="q-item__label no-wrap k-message-meta"><a><span class="k-message-author text-bold text-secondary text-uppercase">User 100</span></a> <span class="message-date"><small class="text-weight-light"><div title="Dec 24, 2017, 12:00 PM">
   less than a minute ago
 </div></small></span>
                 <!---->
@@ -4815,7 +4868,7 @@ exports[`Storyshots Detail application 1`] = `
             </div>
             <!---->
             <div class="q-item__section column q-item__section--main justify-center">
-              <div class="q-item__label no-wrap k-message-meta"><a><span class="k-message-author text-bold text-secondary text-uppercase">User 97</span></a> <span class="message-date"><small class="text-weight-light"><div title="Dec 24, 2017, 12:00 PM">
+              <div class="q-item__label no-wrap k-message-meta"><a><span class="k-message-author text-bold text-secondary text-uppercase">User 98</span></a> <span class="message-date"><small class="text-weight-light"><div title="Dec 24, 2017, 12:00 PM">
   less than a minute ago
 </div></small></span>
                 <!---->
@@ -4875,7 +4928,7 @@ exports[`Storyshots Detail application 1`] = `
             </div>
             <!---->
             <div class="q-item__section column q-item__section--main justify-center">
-              <div class="q-item__label no-wrap k-message-meta"><a><span class="k-message-author text-bold text-secondary text-uppercase">User 95</span></a> <span class="message-date"><small class="text-weight-light"><div title="Dec 24, 2017, 12:00 PM">
+              <div class="q-item__label no-wrap k-message-meta"><a><span class="k-message-author text-bold text-secondary text-uppercase">User 96</span></a> <span class="message-date"><small class="text-weight-light"><div title="Dec 24, 2017, 12:00 PM">
   less than a minute ago
 </div></small></span>
                 <!---->
@@ -4939,11 +4992,11 @@ exports[`Storyshots Detail private 1`] = `
 <div>
   <div class="DetailHeader full-width">
     <div class="q-toolbar row no-wrap items-center text-white bg-secondary">
-      <div class="wrapper" style="width:40px;height:40px;"><a title="User 91">
-          <div text="User 91" seed="91" class="randomArt fill"></div>
+      <div class="wrapper" style="width:40px;height:40px;"><a title="User 92">
+          <div text="User 92" seed="92" class="randomArt fill"></div>
         </a></div>
       <div class="q-toolbar__title ellipsis">
-        User 104
+        User 105
       </div> <button tabindex="0" type="button" role="button" title="How do you want to receive notifications about new messages in this conversation/thread?" class="q-btn q-btn-item non-selectable no-outline q-btn--flat q-btn--round text-white q-btn--actionable q-focusable q-hoverable q-btn--wrap q-btn--dense" style="font-size:14px;"><span class="q-focus-helper"></span><span class="q-btn__wrapper col row q-anchor--skip"><span class="q-btn__content text-center col items-center q-anchor--skip justify-center row"><i aria-hidden="true" role="presentation" class="fas fa-fw fa-envelope q-icon notranslate" style="font-size:1.4em;"> </i> <!----></span></span></button> <button tabindex="0" type="button" role="button" title="Close" class="q-btn q-btn-item non-selectable no-outline q-btn--flat q-btn--round q-btn--actionable q-focusable q-hoverable q-btn--wrap q-btn--dense"><span class="q-focus-helper"></span><span class="q-btn__wrapper col row q-anchor--skip"><span class="q-btn__content text-center col items-center q-anchor--skip justify-center row"><i aria-hidden="true" role="img" class="material-icons q-icon notranslate">close</i></span></span></button>
     </div>
     <!---->
@@ -4990,7 +5043,7 @@ exports[`Storyshots Detail private 1`] = `
             </div>
             <!---->
             <div class="q-item__section column q-item__section--main justify-center">
-              <div class="q-item__label no-wrap k-message-meta"><a><span class="k-message-author text-bold text-secondary text-uppercase">User 101</span></a> <span class="message-date"><small class="text-weight-light"><div title="Dec 24, 2017, 12:00 PM">
+              <div class="q-item__label no-wrap k-message-meta"><a><span class="k-message-author text-bold text-secondary text-uppercase">User 102</span></a> <span class="message-date"><small class="text-weight-light"><div title="Dec 24, 2017, 12:00 PM">
   less than a minute ago
 </div></small></span>
                 <!---->
@@ -5022,7 +5075,7 @@ exports[`Storyshots Detail private 1`] = `
             </div>
             <!---->
             <div class="q-item__section column q-item__section--main justify-center">
-              <div class="q-item__label no-wrap k-message-meta"><a><span class="k-message-author text-bold text-secondary text-uppercase">User 99</span></a> <span class="message-date"><small class="text-weight-light"><div title="Dec 24, 2017, 12:00 PM">
+              <div class="q-item__label no-wrap k-message-meta"><a><span class="k-message-author text-bold text-secondary text-uppercase">User 100</span></a> <span class="message-date"><small class="text-weight-light"><div title="Dec 24, 2017, 12:00 PM">
   less than a minute ago
 </div></small></span>
                 <!---->
@@ -5054,7 +5107,7 @@ exports[`Storyshots Detail private 1`] = `
             </div>
             <!---->
             <div class="q-item__section column q-item__section--main justify-center">
-              <div class="q-item__label no-wrap k-message-meta"><a><span class="k-message-author text-bold text-secondary text-uppercase">User 97</span></a> <span class="message-date"><small class="text-weight-light"><div title="Dec 24, 2017, 12:00 PM">
+              <div class="q-item__label no-wrap k-message-meta"><a><span class="k-message-author text-bold text-secondary text-uppercase">User 98</span></a> <span class="message-date"><small class="text-weight-light"><div title="Dec 24, 2017, 12:00 PM">
   less than a minute ago
 </div></small></span>
                 <!---->
@@ -5114,7 +5167,7 @@ exports[`Storyshots Detail private 1`] = `
             </div>
             <!---->
             <div class="q-item__section column q-item__section--main justify-center">
-              <div class="q-item__label no-wrap k-message-meta"><a><span class="k-message-author text-bold text-secondary text-uppercase">User 95</span></a> <span class="message-date"><small class="text-weight-light"><div title="Dec 24, 2017, 12:00 PM">
+              <div class="q-item__label no-wrap k-message-meta"><a><span class="k-message-author text-bold text-secondary text-uppercase">User 96</span></a> <span class="message-date"><small class="text-weight-light"><div title="Dec 24, 2017, 12:00 PM">
   less than a minute ago
 </div></small></span>
                 <!---->
@@ -5700,7 +5753,7 @@ exports[`Storyshots Feedback PlaceFeedback 1`] = `
                 </a>
                 <!---->
               </div> <small class="text-weight-light"><a>
-                  User 172
+                  User 173
                 </a> <span class="message-date"><div title="Dec 24, 2017, 12:00 PM">
   less than a minute ago
 </div></span></small>
@@ -5713,43 +5766,6 @@ exports[`Storyshots Feedback PlaceFeedback 1`] = `
                 <div class="comment">
                   <div class="markdown">
                     <p>feedback 1</p>
-                  </div>
-                </div>
-                <div class="q-mt-sm">
-                  <div class="wrapper" style="width:22px;height:22px;"><a title="User 172">
-                      <div text="User 172" seed="172" class="randomArt fill"></div>
-                    </a></div>
-                  <!---->
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="no-shadow grey-border q-card">
-        <div class="q-pa-md q-card__section q-card__section--vert">
-          <div class="row no-wrap">
-            <div class="content full-width">
-              <div class="row no-wrap items-baseline"><strong class="q-mr-sm" style="white-space:nowrap;">
-            Sun, Dec 24, 2017, 12:00 PM
-          </strong> <a class="ellipsis text-secondary">
-                  Place 16
-                </a>
-                <!---->
-              </div> <small class="text-weight-light"><a>
-                  User 173
-                </a> <span class="message-date"><div title="Dec 24, 2017, 12:00 PM">
-  less than a minute ago
-</div></span></small>
-              <div>
-                <div class="container on-right float-right amount-box" style="width:80px;height:80px;"><img width="80px" height="80px" src="test-file-stub"> <img width="10px" height="16px" src="test-file-stub" class="pointer" style="transform:rotate(-20deg);top:8px;">
-                  <div class="text-bottom" style="bottom:4px;"><span style="font-size:19px;">
-        20.0
-      </span> <span style="font-size:11px;">kg</span></div>
-                </div>
-                <div class="comment">
-                  <div class="markdown">
-                    <p>feedback 2</p>
                   </div>
                 </div>
                 <div class="q-mt-sm">
@@ -5770,7 +5786,7 @@ exports[`Storyshots Feedback PlaceFeedback 1`] = `
               <div class="row no-wrap items-baseline"><strong class="q-mr-sm" style="white-space:nowrap;">
             Sun, Dec 24, 2017, 12:00 PM
           </strong> <a class="ellipsis text-secondary">
-                  Place 17
+                  Place 16
                 </a>
                 <!---->
               </div> <small class="text-weight-light"><a>
@@ -5779,14 +5795,14 @@ exports[`Storyshots Feedback PlaceFeedback 1`] = `
   less than a minute ago
 </div></span></small>
               <div>
-                <div class="container on-right float-right amount-box" style="width:80px;height:80px;"><img width="80px" height="80px" src="test-file-stub"> <img width="10px" height="16px" src="test-file-stub" class="pointer" style="transform:rotate(-6deg);top:8px;">
+                <div class="container on-right float-right amount-box" style="width:80px;height:80px;"><img width="80px" height="80px" src="test-file-stub"> <img width="10px" height="16px" src="test-file-stub" class="pointer" style="transform:rotate(-20deg);top:8px;">
                   <div class="text-bottom" style="bottom:4px;"><span style="font-size:19px;">
-        30.0
+        20.0
       </span> <span style="font-size:11px;">kg</span></div>
                 </div>
                 <div class="comment">
                   <div class="markdown">
-                    <p>feedback 3</p>
+                    <p>feedback 2</p>
                   </div>
                 </div>
                 <div class="q-mt-sm">
@@ -5807,7 +5823,7 @@ exports[`Storyshots Feedback PlaceFeedback 1`] = `
               <div class="row no-wrap items-baseline"><strong class="q-mr-sm" style="white-space:nowrap;">
             Sun, Dec 24, 2017, 12:00 PM
           </strong> <a class="ellipsis text-secondary">
-                  Place 18
+                  Place 17
                 </a>
                 <!---->
               </div> <small class="text-weight-light"><a>
@@ -5816,14 +5832,14 @@ exports[`Storyshots Feedback PlaceFeedback 1`] = `
   less than a minute ago
 </div></span></small>
               <div>
-                <div class="container on-right float-right amount-box" style="width:80px;height:80px;"><img width="80px" height="80px" src="test-file-stub"> <img width="10px" height="16px" src="test-file-stub" class="pointer" style="transform:rotate(8deg);top:8px;">
+                <div class="container on-right float-right amount-box" style="width:80px;height:80px;"><img width="80px" height="80px" src="test-file-stub"> <img width="10px" height="16px" src="test-file-stub" class="pointer" style="transform:rotate(-6deg);top:8px;">
                   <div class="text-bottom" style="bottom:4px;"><span style="font-size:19px;">
-        40.0
+        30.0
       </span> <span style="font-size:11px;">kg</span></div>
                 </div>
                 <div class="comment">
                   <div class="markdown">
-                    <p>feedback 4</p>
+                    <p>feedback 3</p>
                   </div>
                 </div>
                 <div class="q-mt-sm">
@@ -5844,11 +5860,48 @@ exports[`Storyshots Feedback PlaceFeedback 1`] = `
               <div class="row no-wrap items-baseline"><strong class="q-mr-sm" style="white-space:nowrap;">
             Sun, Dec 24, 2017, 12:00 PM
           </strong> <a class="ellipsis text-secondary">
-                  Place 19
+                  Place 18
                 </a>
                 <!---->
               </div> <small class="text-weight-light"><a>
                   User 176
+                </a> <span class="message-date"><div title="Dec 24, 2017, 12:00 PM">
+  less than a minute ago
+</div></span></small>
+              <div>
+                <div class="container on-right float-right amount-box" style="width:80px;height:80px;"><img width="80px" height="80px" src="test-file-stub"> <img width="10px" height="16px" src="test-file-stub" class="pointer" style="transform:rotate(8deg);top:8px;">
+                  <div class="text-bottom" style="bottom:4px;"><span style="font-size:19px;">
+        40.0
+      </span> <span style="font-size:11px;">kg</span></div>
+                </div>
+                <div class="comment">
+                  <div class="markdown">
+                    <p>feedback 4</p>
+                  </div>
+                </div>
+                <div class="q-mt-sm">
+                  <div class="wrapper" style="width:22px;height:22px;"><a title="User 176">
+                      <div text="User 176" seed="176" class="randomArt fill"></div>
+                    </a></div>
+                  <!---->
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="no-shadow grey-border q-card">
+        <div class="q-pa-md q-card__section q-card__section--vert">
+          <div class="row no-wrap">
+            <div class="content full-width">
+              <div class="row no-wrap items-baseline"><strong class="q-mr-sm" style="white-space:nowrap;">
+            Sun, Dec 24, 2017, 12:00 PM
+          </strong> <a class="ellipsis text-secondary">
+                  Place 19
+                </a>
+                <!---->
+              </div> <small class="text-weight-light"><a>
+                  User 177
                 </a> <span class="message-date"><div title="Dec 24, 2017, 12:00 PM">
   less than a minute ago
 </div></span></small>
@@ -5864,8 +5917,8 @@ exports[`Storyshots Feedback PlaceFeedback 1`] = `
                   </div>
                 </div>
                 <div class="q-mt-sm">
-                  <div class="wrapper" style="width:22px;height:22px;"><a title="User 176">
-                      <div text="User 176" seed="176" class="randomArt fill"></div>
+                  <div class="wrapper" style="width:22px;height:22px;"><a title="User 177">
+                      <div text="User 177" seed="177" class="randomArt fill"></div>
                     </a></div>
                   <!---->
                 </div>
@@ -7510,23 +7563,6 @@ exports[`Storyshots Invitations InvitationsList 1`] = `
         </div>
       </div>
       <div class="q-item__section column q-item__section--side justify-center">
-        <div class="wrapper" style="width:25px;height:25px;"><a title="User 34">
-            <div text="User 34" seed="34" class="randomArt fill"></div>
-          </a></div>
-      </div>
-    </div>
-    <div class="q-item q-item-type row no-wrap">
-      <div class="q-item__section column q-item__section--main justify-center">
-        <div class="q-item__label">
-          foo2@foo.com
-        </div>
-        <div class="q-item__label q-item__label--caption text-caption">
-          <div title="Dec 24, 2017, 12:00 PM">
-            less than a minute ago
-          </div>
-        </div>
-      </div>
-      <div class="q-item__section column q-item__section--side justify-center">
         <div class="wrapper" style="width:25px;height:25px;"><a title="User 35">
             <div text="User 35" seed="35" class="randomArt fill"></div>
           </a></div>
@@ -7535,7 +7571,7 @@ exports[`Storyshots Invitations InvitationsList 1`] = `
     <div class="q-item q-item-type row no-wrap">
       <div class="q-item__section column q-item__section--main justify-center">
         <div class="q-item__label">
-          foo3@foo.com
+          foo2@foo.com
         </div>
         <div class="q-item__label q-item__label--caption text-caption">
           <div title="Dec 24, 2017, 12:00 PM">
@@ -7552,7 +7588,7 @@ exports[`Storyshots Invitations InvitationsList 1`] = `
     <div class="q-item q-item-type row no-wrap">
       <div class="q-item__section column q-item__section--main justify-center">
         <div class="q-item__label">
-          foo4@foo.com
+          foo3@foo.com
         </div>
         <div class="q-item__label q-item__label--caption text-caption">
           <div title="Dec 24, 2017, 12:00 PM">
@@ -7563,6 +7599,23 @@ exports[`Storyshots Invitations InvitationsList 1`] = `
       <div class="q-item__section column q-item__section--side justify-center">
         <div class="wrapper" style="width:25px;height:25px;"><a title="User 37">
             <div text="User 37" seed="37" class="randomArt fill"></div>
+          </a></div>
+      </div>
+    </div>
+    <div class="q-item q-item-type row no-wrap">
+      <div class="q-item__section column q-item__section--main justify-center">
+        <div class="q-item__label">
+          foo4@foo.com
+        </div>
+        <div class="q-item__label q-item__label--caption text-caption">
+          <div title="Dec 24, 2017, 12:00 PM">
+            less than a minute ago
+          </div>
+        </div>
+      </div>
+      <div class="q-item__section column q-item__section--side justify-center">
+        <div class="wrapper" style="width:25px;height:25px;"><a title="User 38">
+            <div text="User 38" seed="38" class="randomArt fill"></div>
           </a></div>
       </div>
     </div>
@@ -7591,12 +7644,12 @@ exports[`Storyshots Issues IssueList 1`] = `
       <div tabindex="-1" class="q-focus-helper"></div>
       <div class="q-item__section column q-item__section--side justify-center">
         <div class="wrapper" style="width:30px;height:30px;">
-          <div text="User 44" seed="44" class="randomArt fill"></div>
+          <div text="User 45" seed="45" class="randomArt fill"></div>
         </div>
       </div>
       <div class="q-item__section column q-item__section--main justify-center">
         <div class="q-item__label">
-          User 44
+          User 45
         </div>
         <div class="q-item__label q-item__label--caption text-caption">
           <div title="Dec 22, 2017, 12:00 PM">
@@ -7608,12 +7661,12 @@ exports[`Storyshots Issues IssueList 1`] = `
       <div tabindex="-1" class="q-focus-helper"></div>
       <div class="q-item__section column q-item__section--side justify-center">
         <div class="wrapper" style="width:30px;height:30px;">
-          <div text="User 46" seed="46" class="randomArt fill"></div>
+          <div text="User 47" seed="47" class="randomArt fill"></div>
         </div>
       </div>
       <div class="q-item__section column q-item__section--main justify-center">
         <div class="q-item__label">
-          User 46
+          User 47
         </div>
         <div class="q-item__label q-item__label--caption text-caption">
           <div title="Dec 22, 2017, 12:00 PM">
@@ -7625,12 +7678,12 @@ exports[`Storyshots Issues IssueList 1`] = `
       <div tabindex="-1" class="q-focus-helper"></div>
       <div class="q-item__section column q-item__section--side justify-center">
         <div class="wrapper" style="width:30px;height:30px;">
-          <div text="User 48" seed="48" class="randomArt fill"></div>
+          <div text="User 49" seed="49" class="randomArt fill"></div>
         </div>
       </div>
       <div class="q-item__section column q-item__section--main justify-center">
         <div class="q-item__label">
-          User 48
+          User 49
         </div>
         <div class="q-item__label q-item__label--caption text-caption">
           <div title="Dec 22, 2017, 12:00 PM">
@@ -7663,7 +7716,7 @@ exports[`Storyshots Issues IssueVote - not voted yet 1`] = `
 <div>
   <div class="float-right"><button tabindex="0" type="button" role="button" class="q-btn q-btn-item non-selectable no-outline q-btn--flat q-btn--round q-btn--actionable q-focusable q-hoverable q-btn--wrap q-btn--dense"><span class="q-focus-helper"></span><span class="q-btn__wrapper col row q-anchor--skip"><span class="q-btn__content text-center col items-center q-anchor--skip justify-center row"><i aria-hidden="true" role="img" class="material-icons q-icon notranslate">help_outline</i></span></span></button></div>
   <div class="text-h6 q-mb-md">
-    How do you want to proceed with the ongoing conflict with User 42?
+    How do you want to proceed with the ongoing conflict with User 43?
   </div>
   <div class="q-pb-lg">
     <div class="text-caption k-caption-opacity row inline">
@@ -7682,7 +7735,7 @@ exports[`Storyshots Issues IssueVote - not voted yet 1`] = `
       <div>
         <div>
           <div class="q-my-md">
-            User 42 gets removed from Group 18
+            User 43 gets removed from Group 18
           </div>
           <div role="slider" aria-valuemin="-2" aria-valuemax="2" aria-orientation="horizontal" data-step="1" aria-valuenow="0" tabindex="0" class="k-vote-slider q-slider q-slider--h q-slider--inactive q-slider--enabled q-slider--editable q-slider--label q-slider--label-always">
             <div class="q-slider__track-container q-slider__track-container--h absolute">
@@ -7722,7 +7775,7 @@ exports[`Storyshots Issues IssueVote - not voted yet 1`] = `
         </div>
         <div>
           <div class="q-my-md">
-            No change: User 42 stays in Group 18
+            No change: User 43 stays in Group 18
           </div>
           <div role="slider" aria-valuemin="-2" aria-valuemax="2" aria-orientation="horizontal" data-step="1" aria-valuenow="0" tabindex="0" class="k-vote-slider q-slider q-slider--h q-slider--inactive q-slider--enabled q-slider--editable q-slider--label q-slider--label-always">
             <div class="q-slider__track-container q-slider__track-container--h absolute">
@@ -7760,7 +7813,7 @@ exports[`Storyshots Issues IssueVote - vote 1`] = `
 <div>
   <div class="float-right"><button tabindex="0" type="button" role="button" class="q-btn q-btn-item non-selectable no-outline q-btn--flat q-btn--round q-btn--actionable q-focusable q-hoverable q-btn--wrap q-btn--dense"><span class="q-focus-helper"></span><span class="q-btn__wrapper col row q-anchor--skip"><span class="q-btn__content text-center col items-center q-anchor--skip justify-center row"><i aria-hidden="true" role="img" class="material-icons q-icon notranslate">help_outline</i></span></span></button></div>
   <div class="text-h6 q-mb-md">
-    How do you want to proceed with the ongoing conflict with User 40?
+    How do you want to proceed with the ongoing conflict with User 41?
   </div>
   <div class="q-pb-lg">
     <div class="text-caption k-caption-opacity row inline">
@@ -7799,7 +7852,7 @@ exports[`Storyshots Issues IssueVote - vote 1`] = `
         </div>
         <div>
           <div class="q-my-md">
-            User 40 gets removed from Group 17
+            User 41 gets removed from Group 17
           </div>
           <div role="slider" aria-valuemin="-2" aria-valuemax="2" aria-orientation="horizontal" data-step="1" aria-valuenow="0" tabindex="0" class="k-vote-slider q-slider q-slider--h q-slider--inactive q-slider--enabled q-slider--editable q-slider--label q-slider--label-always">
             <div class="q-slider__track-container q-slider__track-container--h absolute">
@@ -7819,7 +7872,7 @@ exports[`Storyshots Issues IssueVote - vote 1`] = `
         </div>
         <div>
           <div class="q-my-md">
-            No change: User 40 stays in Group 17
+            No change: User 41 stays in Group 17
           </div>
           <div role="slider" aria-valuemin="-2" aria-valuemax="2" aria-orientation="horizontal" data-step="1" aria-valuenow="0" tabindex="0" class="k-vote-slider q-slider q-slider--h q-slider--inactive q-slider--enabled q-slider--editable q-slider--label q-slider--label-always">
             <div class="q-slider__track-container q-slider__track-container--h absolute">
@@ -7891,7 +7944,7 @@ exports[`Storyshots Issues history item 1`] = `
           <div class="q-item q-item-type row no-wrap text-secondary">
             <div class="q-item__section column q-item__section--side justify-center"><i aria-hidden="true" role="presentation" class="fas fa-smile q-icon notranslate text-secondary"> </i></div>
             <div class="q-item__section column q-item__section--main justify-center">
-              User 38 gets removed from asdf
+              User 39 gets removed from asdf
             </div>
             <div class="q-item__section column q-item__section--side justify-center text-secondary">
               2
@@ -7909,7 +7962,7 @@ exports[`Storyshots Issues history item 1`] = `
           <div class="q-item q-item-type row no-wrap">
             <div class="q-item__section column q-item__section--side justify-center"><i aria-hidden="true" role="presentation" class="fas fa-meh q-icon notranslate text-primary"> </i></div>
             <div class="q-item__section column q-item__section--main justify-center">
-              No change: User 38 stays in asdf
+              No change: User 39 stays in asdf
             </div>
             <div class="q-item__section column q-item__section--side justify-center">
               0
@@ -7942,7 +7995,7 @@ exports[`Storyshots Issues results - expelled 1`] = `
   <div class="q-item q-item-type row no-wrap text-secondary">
     <div class="q-item__section column q-item__section--side justify-center"><i aria-hidden="true" role="presentation" class="fas fa-smile q-icon notranslate text-secondary"> </i></div>
     <div class="q-item__section column q-item__section--main justify-center">
-      User 38 gets removed from asdf
+      User 39 gets removed from asdf
     </div>
     <div class="q-item__section column q-item__section--side justify-center text-secondary">
       2
@@ -7960,7 +8013,7 @@ exports[`Storyshots Issues results - expelled 1`] = `
   <div class="q-item q-item-type row no-wrap">
     <div class="q-item__section column q-item__section--side justify-center"><i aria-hidden="true" role="presentation" class="fas fa-meh q-icon notranslate text-primary"> </i></div>
     <div class="q-item__section column q-item__section--main justify-center">
-      No change: User 38 stays in asdf
+      No change: User 39 stays in asdf
     </div>
     <div class="q-item__section column q-item__section--side justify-center">
       0
@@ -8301,7 +8354,7 @@ exports[`Storyshots Latest Messages type: issue chat 1`] = `
     <div class="q-item__label row no-wrap justify-between items-baseline">
       <div class="row no-wrap items-baseline ellipsis"><i aria-hidden="true" role="presentation" title="Issues" class="q-mr-sm fas fa-fw fa-vote-yea q-icon notranslate"> </i>
         <div class="ellipsis">
-          User 194
+          User 195
         </div>
         <!---->
         <!---->
@@ -8803,13 +8856,13 @@ exports[`Storyshots Notifications conflict_resolution_continued 1`] = `
 <a tabindex="0" class="q-item q-item-type row no-wrap q-item--clickable q-link cursor-pointer q-focusable q-hoverable isUnread">
   <div tabindex="-1" class="q-focus-helper"></div>
   <div class="q-item__section column q-pr-sm q-item__section--side justify-center">
-    <div class="wrapper" style="width:40px;height:40px;"><a title="User 133">
-        <div text="User 133" seed="133" class="randomArt fill"></div>
+    <div class="wrapper" style="width:40px;height:40px;"><a title="User 134">
+        <div text="User 134" seed="134" class="randomArt fill"></div>
       </a></div>
   </div>
   <div class="q-item__section column q-item__section--main justify-center">
     <div class="q-item__label" style="overflow:hidden;display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:2;"><i aria-hidden="true" role="presentation" class="q-mx-xs vertical-baseline far fa-frown-open q-icon notranslate"> </i>
-      The conflict resolution process with User 133 continues
+      The conflict resolution process with User 134 continues
     </div>
     <div class="q-item__label q-item__label--caption text-caption">
       <div title="Dec 24, 2017, 12:00 PM" style="display:inline;">
@@ -8845,13 +8898,13 @@ exports[`Storyshots Notifications conflict_resolution_created 1`] = `
 <a tabindex="0" class="q-item q-item-type row no-wrap q-item--clickable q-link cursor-pointer q-focusable q-hoverable isUnread">
   <div tabindex="-1" class="q-focus-helper"></div>
   <div class="q-item__section column q-pr-sm q-item__section--side justify-center">
-    <div class="wrapper" style="width:40px;height:40px;"><a title="User 128">
-        <div text="User 128" seed="128" class="randomArt fill"></div>
+    <div class="wrapper" style="width:40px;height:40px;"><a title="User 129">
+        <div text="User 129" seed="129" class="randomArt fill"></div>
       </a></div>
   </div>
   <div class="q-item__section column q-item__section--main justify-center">
     <div class="q-item__label" style="overflow:hidden;display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:2;"><i aria-hidden="true" role="presentation" class="q-mx-xs vertical-baseline far fa-frown-open q-icon notranslate"> </i>
-      Join the discussion about a conflict with User 128
+      Join the discussion about a conflict with User 129
     </div>
     <div class="q-item__label q-item__label--caption text-caption">
       <div title="Dec 24, 2017, 12:00 PM" style="display:inline;">
@@ -8887,13 +8940,13 @@ exports[`Storyshots Notifications conflict_resolution_decided 1`] = `
 <a tabindex="0" class="q-item q-item-type row no-wrap q-item--clickable q-link cursor-pointer q-focusable q-hoverable isUnread">
   <div tabindex="-1" class="q-focus-helper"></div>
   <div class="q-item__section column q-pr-sm q-item__section--side justify-center">
-    <div class="wrapper" style="width:40px;height:40px;"><a title="User 138">
-        <div text="User 138" seed="138" class="randomArt fill"></div>
+    <div class="wrapper" style="width:40px;height:40px;"><a title="User 139">
+        <div text="User 139" seed="139" class="randomArt fill"></div>
       </a></div>
   </div>
   <div class="q-item__section column q-item__section--main justify-center">
     <div class="q-item__label" style="overflow:hidden;display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:2;"><i aria-hidden="true" role="presentation" class="q-mx-xs vertical-baseline far fa-frown-open q-icon notranslate"> </i>
-      The conflict resolution process with User 138 was decided
+      The conflict resolution process with User 139 was decided
     </div>
     <div class="q-item__label q-item__label--caption text-caption">
       <div title="Dec 24, 2017, 12:00 PM" style="display:inline;">
@@ -8968,13 +9021,13 @@ exports[`Storyshots Notifications invitation_accepted 1`] = `
 <a tabindex="0" class="q-item q-item-type row no-wrap q-item--clickable q-link cursor-pointer q-focusable q-hoverable isUnread">
   <div tabindex="-1" class="q-focus-helper"></div>
   <div class="q-item__section column q-pr-sm q-item__section--side justify-center">
-    <div class="wrapper" style="width:40px;height:40px;"><a title="User 125">
-        <div text="User 125" seed="125" class="randomArt fill"></div>
+    <div class="wrapper" style="width:40px;height:40px;"><a title="User 126">
+        <div text="User 126" seed="126" class="randomArt fill"></div>
       </a></div>
   </div>
   <div class="q-item__section column q-item__section--main justify-center">
     <div class="q-item__label" style="overflow:hidden;display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:2;"><i aria-hidden="true" role="presentation" class="q-mx-xs vertical-baseline fas fa-user-plus q-icon notranslate"> </i>
-      User 125 accepted your invitation
+      User 126 accepted your invitation
     </div>
     <div class="q-item__label q-item__label--caption text-caption">
       <div title="Dec 24, 2017, 12:00 PM" style="display:inline;">
@@ -8991,13 +9044,13 @@ exports[`Storyshots Notifications new_applicant 1`] = `
 <a tabindex="0" class="q-item q-item-type row no-wrap q-item--clickable q-link cursor-pointer q-focusable q-hoverable isUnread">
   <div tabindex="-1" class="q-focus-helper"></div>
   <div class="q-item__section column q-pr-sm q-item__section--side justify-center">
-    <div class="wrapper" style="width:40px;height:40px;"><a title="User 119">
-        <div text="User 119" seed="119" class="randomArt fill"></div>
+    <div class="wrapper" style="width:40px;height:40px;"><a title="User 120">
+        <div text="User 120" seed="120" class="randomArt fill"></div>
       </a></div>
   </div>
   <div class="q-item__section column q-item__section--main justify-center">
     <div class="q-item__label" style="overflow:hidden;display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:2;"><i aria-hidden="true" role="presentation" class="q-mx-xs vertical-baseline fas fa-address-card q-icon notranslate"> </i>
-      User 120 applied to join your group
+      User 121 applied to join your group
     </div>
     <div class="q-item__label q-item__label--caption text-caption">
       <div title="Dec 24, 2017, 12:00 PM" style="display:inline;">
@@ -9014,13 +9067,13 @@ exports[`Storyshots Notifications new_member 1`] = `
 <a tabindex="0" class="q-item q-item-type row no-wrap q-item--clickable q-link cursor-pointer q-focusable q-hoverable isUnread">
   <div tabindex="-1" class="q-focus-helper"></div>
   <div class="q-item__section column q-pr-sm q-item__section--side justify-center">
-    <div class="wrapper" style="width:40px;height:40px;"><a title="User 124">
-        <div text="User 124" seed="124" class="randomArt fill"></div>
+    <div class="wrapper" style="width:40px;height:40px;"><a title="User 125">
+        <div text="User 125" seed="125" class="randomArt fill"></div>
       </a></div>
   </div>
   <div class="q-item__section column q-item__section--main justify-center">
     <div class="q-item__label" style="overflow:hidden;display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:2;"><i aria-hidden="true" role="presentation" class="q-mx-xs vertical-baseline fas fa-user-plus q-icon notranslate"> </i>
-      User 124 joined your group
+      User 125 joined your group
     </div>
     <div class="q-item__label q-item__label--caption text-caption">
       <div title="Dec 24, 2017, 12:00 PM" style="display:inline;">
@@ -9056,13 +9109,13 @@ exports[`Storyshots Notifications user_became_editor 1`] = `
 <a tabindex="0" class="q-item q-item-type row no-wrap q-item--clickable q-link cursor-pointer q-focusable q-hoverable isUnread">
   <div tabindex="-1" class="q-focus-helper"></div>
   <div class="q-item__section column q-pr-sm q-item__section--side justify-center">
-    <div class="wrapper" style="width:40px;height:40px;"><a title="User 118">
-        <div text="User 118" seed="118" class="randomArt fill"></div>
+    <div class="wrapper" style="width:40px;height:40px;"><a title="User 119">
+        <div text="User 119" seed="119" class="randomArt fill"></div>
       </a></div>
   </div>
   <div class="q-item__section column q-item__section--main justify-center">
     <div class="q-item__label" style="overflow:hidden;display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:2;"><i aria-hidden="true" role="presentation" class="q-mx-xs vertical-baseline fas fa-angle-double-up q-icon notranslate"> </i>
-      User 118 gained editing permissions
+      User 119 gained editing permissions
     </div>
     <div class="q-item__label q-item__label--caption text-caption">
       <div title="Dec 24, 2017, 12:00 PM" style="display:inline;">
@@ -9624,18 +9677,18 @@ exports[`Storyshots Profile member 1`] = `
     <div class="photoAndName row no-wrap ellipsis">
       <div class="photo q-pa-sm q-ma-md bg-white shadow-4">
         <div class="wrapper" style="width:180px;height:180px;">
-          <div text="User 171" seed="171" class="randomArt fill"></div>
+          <div text="User 172" seed="172" class="randomArt fill"></div>
         </div>
       </div>
       <div class="self-center" style="overflow:hidden;">
         <h1>
-          User 171
+          User 172
         </h1>
       </div>
     </div>
     <div class="profile-info relative-position q-pt-sm q-card">
       <div class="user-actions">
-        <!----> <button tabindex="0" type="button" role="button" small="" title="Send a private message to User 171" class="q-btn q-btn-item non-selectable no-outline q-btn--standard q-btn--round bg-secondary text-white q-btn--actionable q-focusable q-hoverable q-btn--wrap"><span class="q-focus-helper"></span><span class="q-btn__wrapper col row q-anchor--skip"><span class="q-btn__content text-center col items-center q-anchor--skip justify-center row"><i aria-hidden="true" role="img" class="fas fa-comments q-icon notranslate"> </i></span></span></button> <button tabindex="0" type="button" role="button" small="" title="Is there a conflict with User 171?" class="q-btn q-btn-item non-selectable no-outline q-btn--standard q-btn--round bg-grey-8 text-white q-btn--actionable q-focusable q-hoverable q-btn--wrap"><span class="q-focus-helper"></span><span class="q-btn__wrapper col row q-anchor--skip"><span class="q-btn__content text-center col items-center q-anchor--skip justify-center row"><i aria-hidden="true" role="img" class="fas fa-frown-open q-icon notranslate"> </i></span></span></button> <button tabindex="0" type="button" role="button" title="Newcomer - 2 more trust needed" class="q-btn q-btn-item non-selectable no-outline karrot-button q-btn--standard q-btn--round bg-white text-white q-btn--actionable q-focusable q-hoverable q-btn--wrap small"><span class="q-focus-helper"></span><span class="q-btn__wrapper col row q-anchor--skip"><span class="q-btn__content text-center col items-center q-anchor--skip justify-center row"><svg viewBox="0 0 106 106" class="circle-progress"><path d="M 53,53 m 0,-47 a 47,47 0 1 1 0,94 a 47,47 0 1 1 0,-94" fill-opacity="0" stroke="currentColor" stroke-width="12px" stroke-linecap="round" class="text-primary" style="stroke-dasharray:295.31px, 295.31px;stroke-dashoffset:295.31px;transition:stroke-dashoffset 0.6s ease 0s, stroke 0.6s ease;"></path></svg> <div role="alert" class="q-badge flex inline items-center no-wrap q-badge--single-line bg-negative q-badge--floating">
+        <!----> <button tabindex="0" type="button" role="button" small="" title="Send a private message to User 172" class="q-btn q-btn-item non-selectable no-outline q-btn--standard q-btn--round bg-secondary text-white q-btn--actionable q-focusable q-hoverable q-btn--wrap"><span class="q-focus-helper"></span><span class="q-btn__wrapper col row q-anchor--skip"><span class="q-btn__content text-center col items-center q-anchor--skip justify-center row"><i aria-hidden="true" role="img" class="fas fa-comments q-icon notranslate"> </i></span></span></button> <button tabindex="0" type="button" role="button" small="" title="Is there a conflict with User 172?" class="q-btn q-btn-item non-selectable no-outline q-btn--standard q-btn--round bg-grey-8 text-white q-btn--actionable q-focusable q-hoverable q-btn--wrap"><span class="q-focus-helper"></span><span class="q-btn__wrapper col row q-anchor--skip"><span class="q-btn__content text-center col items-center q-anchor--skip justify-center row"><i aria-hidden="true" role="img" class="fas fa-frown-open q-icon notranslate"> </i></span></span></button> <button tabindex="0" type="button" role="button" title="Newcomer - 2 more trust needed" class="q-btn q-btn-item non-selectable no-outline karrot-button q-btn--standard q-btn--round bg-white text-white q-btn--actionable q-focusable q-hoverable q-btn--wrap small"><span class="q-focus-helper"></span><span class="q-btn__wrapper col row q-anchor--skip"><span class="q-btn__content text-center col items-center q-anchor--skip justify-center row"><svg viewBox="0 0 106 106" class="circle-progress"><path d="M 53,53 m 0,-47 a 47,47 0 1 1 0,94 a 47,47 0 1 1 0,-94" fill-opacity="0" stroke="currentColor" stroke-width="12px" stroke-linecap="round" class="text-primary" style="stroke-dasharray:295.31px, 295.31px;stroke-dashoffset:295.31px;transition:stroke-dashoffset 0.6s ease 0s, stroke 0.6s ease;"></path></svg> <div role="alert" class="q-badge flex inline items-center no-wrap q-badge--single-line bg-negative q-badge--floating">
     1
   </div> <!----></span></span></button>
       </div>
@@ -9704,8 +9757,8 @@ exports[`Storyshots Profile member 1`] = `
           <div tabindex="0" class="q-item q-item-type row no-wrap clickable q-item--clickable q-link cursor-pointer q-focusable q-hoverable">
             <div tabindex="-1" class="q-focus-helper"></div>
             <div class="q-item__section column q-item__section--avatar q-item__section--side justify-center">
-              <div class="wrapper" style="width:25px;height:25px;"><a title="User 171 (Newcomer)">
-                  <div text="User 171" seed="171" class="randomArt fill"></div>
+              <div class="wrapper" style="width:25px;height:25px;"><a title="User 172 (Newcomer)">
+                  <div text="User 172" seed="172" class="randomArt fill"></div>
                 </a></div>
             </div>
             <div class="q-item__section column q-item__section--main justify-center">
@@ -9741,7 +9794,7 @@ exports[`Storyshots Profile non-member 1`] = `
         <div class="q-pa-sm" style="background-color:rgba(0, 0, 0, .1);"><i aria-hidden="true" role="presentation" class="text-white material-icons q-icon notranslate" style="font-size:24px;">priority_high</i></div>
       </div>
       <div class="q-banner__content col text-body2">
-        User 170 is not member of Group 41.
+        User 171 is not member of Group 41.
       </div>
     </div>
     <div class="row justify-end" style="margin-bottom:-32px;">
@@ -9750,18 +9803,18 @@ exports[`Storyshots Profile non-member 1`] = `
     <div class="photoAndName row no-wrap ellipsis">
       <div class="photo q-pa-sm q-ma-md bg-white shadow-4">
         <div class="wrapper" style="width:180px;height:180px;">
-          <div text="User 170" seed="170" class="randomArt fill"></div>
+          <div text="User 171" seed="171" class="randomArt fill"></div>
         </div>
       </div>
       <div class="self-center" style="overflow:hidden;">
         <h1>
-          User 170
+          User 171
         </h1>
       </div>
     </div>
     <div class="profile-info relative-position q-pt-sm q-card">
       <div class="user-actions">
-        <!----> <button tabindex="0" type="button" role="button" small="" title="Send a private message to User 170" class="q-btn q-btn-item non-selectable no-outline q-btn--standard q-btn--round bg-secondary text-white q-btn--actionable q-focusable q-hoverable q-btn--wrap"><span class="q-focus-helper"></span><span class="q-btn__wrapper col row q-anchor--skip"><span class="q-btn__content text-center col items-center q-anchor--skip justify-center row"><i aria-hidden="true" role="img" class="fas fa-comments q-icon notranslate"> </i></span></span></button>
+        <!----> <button tabindex="0" type="button" role="button" small="" title="Send a private message to User 171" class="q-btn q-btn-item non-selectable no-outline q-btn--standard q-btn--round bg-secondary text-white q-btn--actionable q-focusable q-hoverable q-btn--wrap"><span class="q-focus-helper"></span><span class="q-btn__wrapper col row q-anchor--skip"><span class="q-btn__content text-center col items-center q-anchor--skip justify-center row"><i aria-hidden="true" role="img" class="fas fa-comments q-icon notranslate"> </i></span></span></button>
         <!---->
         <!---->
       </div>
@@ -9816,8 +9869,8 @@ exports[`Storyshots Profile non-member 1`] = `
           <div tabindex="0" class="q-item q-item-type row no-wrap clickable q-item--clickable q-link cursor-pointer q-focusable q-hoverable">
             <div tabindex="-1" class="q-focus-helper"></div>
             <div class="q-item__section column q-item__section--avatar q-item__section--side justify-center">
-              <div class="wrapper" style="width:25px;height:25px;"><a title="User 170">
-                  <div text="User 170" seed="170" class="randomArt fill"></div>
+              <div class="wrapper" style="width:25px;height:25px;"><a title="User 171">
+                  <div text="User 171" seed="171" class="randomArt fill"></div>
                 </a></div>
             </div>
             <div class="q-item__section column q-item__section--main justify-center">
@@ -10803,26 +10856,6 @@ exports[`Storyshots UserList default 1`] = `
     <!---->
     <div class="q-item q-item-type row no-wrap">
       <div class="q-item__section column q-item__section--side justify-center">
-        <div class="wrapper profilePic" style="width:30px;height:30px;"><a title="User 154 (Newcomer)">
-            <div text="User 154" seed="154" class="randomArt fill"></div>
-          </a></div>
-      </div>
-      <div class="q-item__section column q-item__section--main justify-center">
-        <div class="q-item__label"><a>
-            User 154
-          </a></div>
-        <div class="q-item__label q-item__label--caption text-caption"><span>joined <div title="Dec 24, 2017, 12:00 PM" style="display:inline;">
-  less than a minute ago
-</div></span>
-          <!----> <br>
-        </div>
-      </div>
-      <div class="q-item__section column q-item__section--side justify-center"><button tabindex="0" type="button" role="button" title="Newcomer - 3 more trust needed" class="q-btn q-btn-item non-selectable no-outline karrot-button q-btn--standard q-btn--round bg-white text-white q-btn--actionable q-focusable q-hoverable q-btn--wrap small" style="font-size:10px;"><span class="q-focus-helper"></span><span class="q-btn__wrapper col row q-anchor--skip"><span class="q-btn__content text-center col items-center q-anchor--skip justify-center row"><svg viewBox="0 0 106 106" class="circle-progress"><path d="M 53,53 m 0,-47 a 47,47 0 1 1 0,94 a 47,47 0 1 1 0,-94" fill-opacity="0" stroke="currentColor" stroke-width="12px" stroke-linecap="round" class="text-primary" style="stroke-dasharray:295.31px, 295.31px;stroke-dashoffset:295.31px;transition:stroke-dashoffset 0.6s ease 0s, stroke 0.6s ease;"></path></svg> <div role="alert" class="q-badge flex inline items-center no-wrap q-badge--single-line bg-negative q-badge--floating" style="top:5px;right:-12px;">
-    0
-  </div> <!----></span></span></button></div>
-    </div>
-    <div class="q-item q-item-type row no-wrap">
-      <div class="q-item__section column q-item__section--side justify-center">
         <div class="wrapper profilePic" style="width:30px;height:30px;"><a title="User 155 (Newcomer)">
             <div text="User 155" seed="155" class="randomArt fill"></div>
           </a></div>
@@ -11001,6 +11034,26 @@ exports[`Storyshots UserList default 1`] = `
     0
   </div> <!----></span></span></button></div>
     </div>
+    <div class="q-item q-item-type row no-wrap">
+      <div class="q-item__section column q-item__section--side justify-center">
+        <div class="wrapper profilePic" style="width:30px;height:30px;"><a title="User 164 (Newcomer)">
+            <div text="User 164" seed="164" class="randomArt fill"></div>
+          </a></div>
+      </div>
+      <div class="q-item__section column q-item__section--main justify-center">
+        <div class="q-item__label"><a>
+            User 164
+          </a></div>
+        <div class="q-item__label q-item__label--caption text-caption"><span>joined <div title="Dec 24, 2017, 12:00 PM" style="display:inline;">
+  less than a minute ago
+</div></span>
+          <!----> <br>
+        </div>
+      </div>
+      <div class="q-item__section column q-item__section--side justify-center"><button tabindex="0" type="button" role="button" title="Newcomer - 3 more trust needed" class="q-btn q-btn-item non-selectable no-outline karrot-button q-btn--standard q-btn--round bg-white text-white q-btn--actionable q-focusable q-hoverable q-btn--wrap small" style="font-size:10px;"><span class="q-focus-helper"></span><span class="q-btn__wrapper col row q-anchor--skip"><span class="q-btn__content text-center col items-center q-anchor--skip justify-center row"><svg viewBox="0 0 106 106" class="circle-progress"><path d="M 53,53 m 0,-47 a 47,47 0 1 1 0,94 a 47,47 0 1 1 0,-94" fill-opacity="0" stroke="currentColor" stroke-width="12px" stroke-linecap="round" class="text-primary" style="stroke-dasharray:295.31px, 295.31px;stroke-dashoffset:295.31px;transition:stroke-dashoffset 0.6s ease 0s, stroke 0.6s ease;"></path></svg> <div role="alert" class="q-badge flex inline items-center no-wrap q-badge--single-line bg-negative q-badge--floating" style="top:5px;right:-12px;">
+    0
+  </div> <!----></span></span></button></div>
+    </div>
     <hr role="separator" aria-orientation="horizontal" class="q-separator q-separator q-separator--horizontal">
     <div class="q-expansion-item q-item-type q-expansion-item--collapsed q-expansion-item--standard">
       <div class="q-expansion-item__container relative-position">
@@ -11140,12 +11193,12 @@ exports[`Storyshots WallConversation default 1`] = `
           </button>
         </div>
         <div class="q-item__section column q-mt-xs q-pr-sm q-item__section--top q-item__section--side justify-start">
-          <div class="wrapper" style="width:40px;height:40px;"><a title="User 109">
-              <div text="User 109" seed="109" class="randomArt fill"></div>
+          <div class="wrapper" style="width:40px;height:40px;"><a title="User 110">
+              <div text="User 110" seed="110" class="randomArt fill"></div>
             </a></div>
         </div>
         <div class="q-item__section column q-item__section--main justify-center">
-          <div class="q-item__label no-wrap k-message-meta"><a><span class="k-message-author text-bold text-secondary text-uppercase">User 109</span></a> <span class="message-date"><small class="text-weight-light"><div title="Dec 24, 2017, 12:00 PM">
+          <div class="q-item__label no-wrap k-message-meta"><a><span class="k-message-author text-bold text-secondary text-uppercase">User 110</span></a> <span class="message-date"><small class="text-weight-light"><div title="Dec 24, 2017, 12:00 PM">
   less than a minute ago
 </div></small></span>
             <!---->
@@ -11175,12 +11228,12 @@ exports[`Storyshots WallConversation default 1`] = `
           </button>
         </div>
         <div class="q-item__section column q-mt-xs q-pr-sm q-item__section--top q-item__section--side justify-start">
-          <div class="wrapper" style="width:40px;height:40px;"><a title="User 111">
-              <div text="User 111" seed="111" class="randomArt fill"></div>
+          <div class="wrapper" style="width:40px;height:40px;"><a title="User 112">
+              <div text="User 112" seed="112" class="randomArt fill"></div>
             </a></div>
         </div>
         <div class="q-item__section column q-item__section--main justify-center">
-          <div class="q-item__label no-wrap k-message-meta"><a><span class="k-message-author text-bold text-secondary text-uppercase">User 111</span></a> <span class="message-date"><small class="text-weight-light"><div title="Dec 24, 2017, 12:00 PM">
+          <div class="q-item__label no-wrap k-message-meta"><a><span class="k-message-author text-bold text-secondary text-uppercase">User 112</span></a> <span class="message-date"><small class="text-weight-light"><div title="Dec 24, 2017, 12:00 PM">
   less than a minute ago
 </div></small></span>
             <!---->
@@ -11238,12 +11291,12 @@ exports[`Storyshots WallConversation default 1`] = `
           </button>
         </div>
         <div class="q-item__section column q-mt-xs q-pr-sm q-item__section--top q-item__section--side justify-start">
-          <div class="wrapper" style="width:40px;height:40px;"><a title="User 113">
-              <div text="User 113" seed="113" class="randomArt fill"></div>
+          <div class="wrapper" style="width:40px;height:40px;"><a title="User 114">
+              <div text="User 114" seed="114" class="randomArt fill"></div>
             </a></div>
         </div>
         <div class="q-item__section column q-item__section--main justify-center">
-          <div class="q-item__label no-wrap k-message-meta"><a><span class="k-message-author text-bold text-secondary text-uppercase">User 113</span></a> <span class="message-date"><small class="text-weight-light"><div title="Dec 24, 2017, 12:00 PM">
+          <div class="q-item__label no-wrap k-message-meta"><a><span class="k-message-author text-bold text-secondary text-uppercase">User 114</span></a> <span class="message-date"><small class="text-weight-light"><div title="Dec 24, 2017, 12:00 PM">
   less than a minute ago
 </div></small></span>
             <!---->
@@ -11273,12 +11326,12 @@ exports[`Storyshots WallConversation default 1`] = `
           </button>
         </div>
         <div class="q-item__section column q-mt-xs q-pr-sm q-item__section--top q-item__section--side justify-start">
-          <div class="wrapper" style="width:40px;height:40px;"><a title="User 115">
-              <div text="User 115" seed="115" class="randomArt fill"></div>
+          <div class="wrapper" style="width:40px;height:40px;"><a title="User 116">
+              <div text="User 116" seed="116" class="randomArt fill"></div>
             </a></div>
         </div>
         <div class="q-item__section column q-item__section--main justify-center">
-          <div class="q-item__label no-wrap k-message-meta"><a><span class="k-message-author text-bold text-secondary text-uppercase">User 115</span></a> <span class="message-date"><small class="text-weight-light"><div title="Dec 24, 2017, 12:00 PM">
+          <div class="q-item__label no-wrap k-message-meta"><a><span class="k-message-author text-bold text-secondary text-uppercase">User 116</span></a> <span class="message-date"><small class="text-weight-light"><div title="Dec 24, 2017, 12:00 PM">
   less than a minute ago
 </div></small></span>
             <!---->
@@ -11372,12 +11425,12 @@ exports[`Storyshots WallConversation unread 1`] = `
           </button>
         </div>
         <div class="q-item__section column q-mt-xs q-pr-sm q-item__section--top q-item__section--side justify-start">
-          <div class="wrapper" style="width:40px;height:40px;"><a title="User 109">
-              <div text="User 109" seed="109" class="randomArt fill"></div>
+          <div class="wrapper" style="width:40px;height:40px;"><a title="User 110">
+              <div text="User 110" seed="110" class="randomArt fill"></div>
             </a></div>
         </div>
         <div class="q-item__section column q-item__section--main justify-center">
-          <div class="q-item__label no-wrap k-message-meta"><a><span class="k-message-author text-bold text-secondary text-uppercase">User 109</span></a> <span class="message-date"><small class="text-weight-light"><div title="Dec 24, 2017, 12:00 PM">
+          <div class="q-item__label no-wrap k-message-meta"><a><span class="k-message-author text-bold text-secondary text-uppercase">User 110</span></a> <span class="message-date"><small class="text-weight-light"><div title="Dec 24, 2017, 12:00 PM">
   less than a minute ago
 </div></small></span>
             <!---->
@@ -11407,12 +11460,12 @@ exports[`Storyshots WallConversation unread 1`] = `
           </button>
         </div>
         <div class="q-item__section column q-mt-xs q-pr-sm q-item__section--top q-item__section--side justify-start">
-          <div class="wrapper" style="width:40px;height:40px;"><a title="User 111">
-              <div text="User 111" seed="111" class="randomArt fill"></div>
+          <div class="wrapper" style="width:40px;height:40px;"><a title="User 112">
+              <div text="User 112" seed="112" class="randomArt fill"></div>
             </a></div>
         </div>
         <div class="q-item__section column q-item__section--main justify-center">
-          <div class="q-item__label no-wrap k-message-meta"><a><span class="k-message-author text-bold text-secondary text-uppercase">User 111</span></a> <span class="message-date"><small class="text-weight-light"><div title="Dec 24, 2017, 12:00 PM">
+          <div class="q-item__label no-wrap k-message-meta"><a><span class="k-message-author text-bold text-secondary text-uppercase">User 112</span></a> <span class="message-date"><small class="text-weight-light"><div title="Dec 24, 2017, 12:00 PM">
   less than a minute ago
 </div></small></span>
             <!---->
@@ -11470,12 +11523,12 @@ exports[`Storyshots WallConversation unread 1`] = `
           </button>
         </div>
         <div class="q-item__section column q-mt-xs q-pr-sm q-item__section--top q-item__section--side justify-start">
-          <div class="wrapper" style="width:40px;height:40px;"><a title="User 113">
-              <div text="User 113" seed="113" class="randomArt fill"></div>
+          <div class="wrapper" style="width:40px;height:40px;"><a title="User 114">
+              <div text="User 114" seed="114" class="randomArt fill"></div>
             </a></div>
         </div>
         <div class="q-item__section column q-item__section--main justify-center">
-          <div class="q-item__label no-wrap k-message-meta"><a><span class="k-message-author text-bold text-secondary text-uppercase">User 113</span></a> <span class="message-date"><small class="text-weight-light"><div title="Dec 24, 2017, 12:00 PM">
+          <div class="q-item__label no-wrap k-message-meta"><a><span class="k-message-author text-bold text-secondary text-uppercase">User 114</span></a> <span class="message-date"><small class="text-weight-light"><div title="Dec 24, 2017, 12:00 PM">
   less than a minute ago
 </div></small></span>
             <!---->
@@ -11505,12 +11558,12 @@ exports[`Storyshots WallConversation unread 1`] = `
           </button>
         </div>
         <div class="q-item__section column q-mt-xs q-pr-sm q-item__section--top q-item__section--side justify-start">
-          <div class="wrapper" style="width:40px;height:40px;"><a title="User 115">
-              <div text="User 115" seed="115" class="randomArt fill"></div>
+          <div class="wrapper" style="width:40px;height:40px;"><a title="User 116">
+              <div text="User 116" seed="116" class="randomArt fill"></div>
             </a></div>
         </div>
         <div class="q-item__section column q-item__section--main justify-center">
-          <div class="q-item__label no-wrap k-message-meta"><a><span class="k-message-author text-bold text-secondary text-uppercase">User 115</span></a> <span class="message-date"><small class="text-weight-light"><div title="Dec 24, 2017, 12:00 PM">
+          <div class="q-item__label no-wrap k-message-meta"><a><span class="k-message-author text-bold text-secondary text-uppercase">User 116</span></a> <span class="message-date"><small class="text-weight-light"><div title="Dec 24, 2017, 12:00 PM">
   less than a minute ago
 </div></small></span>
             <!---->

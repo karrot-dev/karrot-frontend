@@ -9,7 +9,10 @@
     >
       <div class="q-pa-sm full-width">
         <div>
-          <span class="typus">
+          <span
+            v-if="activity.typus"
+            class="typus"
+          >
             <QIcon
               :name="activity.typus.icon"
               :color="activity.typus.colorName"

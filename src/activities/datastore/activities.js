@@ -57,7 +57,7 @@ export default {
         .filter(e => e.place.isSubscribed),
     feedbackPossibleByCurrentGroup: (state, getters) => {
       return Object.values(state.entries)
-        .filter(p => p.dateEnd < reactiveNow.value && p.feedbackDue > reactiveNow.value)
+        .filter(p => p.feedbackDue > reactiveNow.value)
         .map(getters.enrich)
         .filter(p => p.isUserMember)
         .filter(p => p.group && p.group.isCurrentGroup)

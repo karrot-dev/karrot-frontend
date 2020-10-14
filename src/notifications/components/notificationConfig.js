@@ -55,6 +55,9 @@ function getIcon (type, context) {
     case 'feedback_possible':
       return icons.get('feedback')
     case 'activity_upcoming':
+      if (context.activity && context.activity.typus && typeof context.activity.typus === 'object') {
+        return context.activity.typus.icon
+      }
       return 'fas fa-calendar-alt'
     case 'new_place':
       return icons.get('place')

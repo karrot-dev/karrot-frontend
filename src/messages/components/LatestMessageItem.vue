@@ -24,7 +24,7 @@
           </template>
           <template v-else-if="isActivity">
             <QIcon
-              :name="$icon('activity_fw')"
+              :name="activity.typus ? activity.typus.icon : $icon('activity_fw')"
               class="q-mr-sm"
             />
             {{ $d(activity.date, 'weekdayHourMinute') }}

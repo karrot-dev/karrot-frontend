@@ -1,6 +1,3 @@
-// import { colors } from 'quasar'
-// const { brightness } = colors
-
 import activityTypes from '@/activities/api/activityTypes'
 import { indexById } from '@/utils/datastore/helpers'
 import i18n from '@/base/i18n'

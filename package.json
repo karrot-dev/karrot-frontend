@@ -42,6 +42,7 @@
     "@quasar/extras": "^1.9.10",
     "@sentry/browser": "^5.27.2",
     "@sentry/integrations": "^5.27.2",
+    "@vue/composition-api": "^1.0.0-beta.18",
     "axios": "^0.21.0",
     "clone-deep": "^4.0.1",
     "core-js": "^3.6.5",

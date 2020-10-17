@@ -1,5 +1,8 @@
 <template>
   <div>
+    <pre>
+      activityIds: {{ activityIds }}
+    </pre>
     <QCard class="no-shadow grey-border">
       <QCardSection class="row justify-between no-wrap q-mb-md">
         <div class="text-h6">
@@ -219,6 +222,7 @@ import ActivitySeriesEdit from '@/activities/components/ActivitySeriesEdit'
 import ActivityEdit from '@/activities/components/ActivityEdit'
 import RandomArt from '@/utils/components/RandomArt'
 import KSpinner from '@/utils/components/KSpinner'
+import { useActivities } from '@/activities/data'
 
 import i18n, { dayNameForKey, sortByDay } from '@/base/i18n'
 
@@ -226,6 +230,7 @@ import addSeconds from 'date-fns/addSeconds'
 import addHours from 'date-fns/addHours'
 import startOfTomorrow from 'date-fns/startOfTomorrow'
 import { defaultDuration } from '@/activities/settings'
+import { watchEffect } from '@vue/composition-api'
 
 export default {
   components: {
@@ -242,6 +247,16 @@ export default {
     QExpansionItem,
     QBtn,
     QIcon,
+  },
+  setup () {
+    const { activityIds, fetchListByGroupId } = useActivities()
+    const { status } = fetchListByGroupId()
+    watchEffect(() => {
+      console.log('status in component is', status.value)
+    })
+    return {
+      activityIds,
+    }
   },
   data () {
     return {

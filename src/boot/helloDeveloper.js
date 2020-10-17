@@ -1,3 +1,5 @@
+console.log('loaded helloDeveloper!')
+
 export default async () => {
   if (window.console && window.console.log) {
     const sansSerif = {

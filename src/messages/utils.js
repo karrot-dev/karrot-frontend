@@ -15,7 +15,6 @@ export const fetchDraft = (key, orElse = null) => {
 
 export const saveDraft = debounce((key, content) => {
   if (window.localStorage) {
-    console.log('saving with key', key, content)
     window.localStorage.setItem(draftCacheKeyFor(key), content)
   }
 }, DRAFT_DEBOUNCE)

@@ -239,14 +239,8 @@ module.exports = configure(function (ctx) {
         //
         dontCacheBustURLsMatching: /^(css|js|img|fonts)\//,
         exclude: [
-          // Not sure about the correct index.html behaviour. From the docs it seems that it's expected to have it in the cache:
-          //
-          //     https://developers.google.com/web/tools/workbox/modules/workbox-precaching#explanation_of_the_precache_list
-          //
-          // ... but I'm not sure how the new version of index.html with it's new asset references is supposed to be fetched.
-          // This person seems to have a similar issue:
-          //
-          //     https://github.com/GoogleChrome/workbox/issues/2299#issuecomment-591886843
+          // A partial solution to a more complex issue
+          // See https://github.com/yunity/karrot-frontend/issues/2209
           'index.html',
         ],
       },

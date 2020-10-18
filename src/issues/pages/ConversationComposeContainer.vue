@@ -7,6 +7,7 @@
       :status="conversation.sendStatus"
       :placeholder="messagePrompt"
       :is-participant="conversation.isParticipant"
+      :draft-key="conversation.id"
       slim
       filled
       square

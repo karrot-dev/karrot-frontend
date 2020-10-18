@@ -94,10 +94,12 @@ import {
   QBtn,
 } from 'quasar'
 import deepEqual from 'deep-equal'
+
 import ProfilePicture from '@/users/components/ProfilePicture'
 import MarkdownInput from '@/utils/components/MarkdownInput'
 import statusMixin from '@/utils/mixins/statusMixin'
 import MultiCroppa from '@/utils/components/MultiCroppa'
+import { deleteDraft, fetchDraft, saveDraft } from '@/messages/utils'
 
 export default {
   name: 'ConversationCompose',
@@ -132,11 +134,16 @@ export default {
       type: Boolean,
       default: true,
     },
+    // If provided will store message drafts persistently
+    draftKey: {
+      type: [String, Number],
+      default: null,
+    },
   },
   data () {
     return {
       message: this.value ? { ...this.value } : {
-        content: '',
+        content: fetchDraft(this.draftKey, ''),
         images: [],
       },
       hasFocus: false,
@@ -154,11 +161,19 @@ export default {
     },
   },
   watch: {
+    draftKey (val) {
+      this.message.content = fetchDraft(val)
+    },
     value (val, previousVal) {
       if (val && !deepEqual(val, previousVal)) this.message = { ...val }
     },
     isPending (val) {
-      if (!val && !this.hasAnyError) this.message = { content: '', images: [] }
+      if (!val && !this.hasAnyError) {
+        // We have gone from pending -> not pending and there are no errors
+        // Effectively means it was successful! So we can reset all the things.
+        this.message = { content: '', images: [] }
+        deleteDraft(this.draftKey)
+      }
     },
     '$keyboard.is.open' (val) {
       // if mobile keyboard opens, try to keep q-input on screen
@@ -167,6 +182,10 @@ export default {
       if (!input) return
       input.blur()
       input.focus()
+    },
+    'message.content' (content) {
+      if (this.draftKey === null) return
+      saveDraft(this.draftKey, content)
     },
     'message.images' (val) {
       // if the last image is removed, hide the image bar

@@ -28,6 +28,7 @@
           slim
           filled
           square
+          :draft-key="conversation.id"
           :placeholder="messagePrompt"
           :is-participant="conversation.isParticipant"
           class="q-pb-md"

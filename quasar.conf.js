@@ -228,8 +228,28 @@ module.exports = configure(function (ctx) {
 
     // https://quasar.dev/quasar-cli/developing-pwa/configuring-pwa
     pwa: {
-      workboxPluginMode: 'InjectManifest', // 'GenerateSW' or 'InjectManifest'
-      workboxOptions: {}, // only for GenerateSW
+      workboxPluginMode: 'InjectManifest',
+      workboxOptions: {
+        // All the paths that already have file hashes in them
+        // other files will have a ?__WB_REVISION__=<revision> parameter added to them.
+        // Some people say that in theory workbox can already detect the ones with the hash, but doesn't seem so.
+        // if you want to see the entries in the cache you can put this in a service worker debugging console:
+        //
+        //     urls = (await (await caches.open((await caches.keys())[0])).keys()).map(e => e.url)
+        //
+        dontCacheBustURLsMatching: /^(css|js|img|fonts)\//,
+        exclude: [
+          // Not sure about the correct index.html behaviour. From the docs it seems that it's expected to have it in the cache:
+          //
+          //     https://developers.google.com/web/tools/workbox/modules/workbox-precaching#explanation_of_the_precache_list
+          //
+          // ... but I'm not sure how the new version of index.html with it's new asset references is supposed to be fetched.
+          // This person seems to have a similar issue:
+          //
+          //     https://github.com/GoogleChrome/workbox/issues/2299#issuecomment-591886843
+          'index.html',
+        ],
+      },
       manifest: {
         name: process.env.PWA_APP_NAME || 'Karrot local dev',
         short_name: process.env.PWA_APP_NAME || 'Karrot local dev',

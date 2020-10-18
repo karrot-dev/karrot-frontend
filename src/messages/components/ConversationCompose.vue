@@ -94,7 +94,6 @@ import {
   QBtn,
 } from 'quasar'
 import deepEqual from 'deep-equal'
-
 import ProfilePicture from '@/users/components/ProfilePicture'
 import MarkdownInput from '@/utils/components/MarkdownInput'
 import statusMixin from '@/utils/mixins/statusMixin'
@@ -162,7 +161,7 @@ export default {
   },
   watch: {
     draftKey (val) {
-      this.message.content = fetchDraft(val)
+      this.message.content = fetchDraft(val, '')
     },
     value (val, previousVal) {
       if (val && !deepEqual(val, previousVal)) this.message = { ...val }
